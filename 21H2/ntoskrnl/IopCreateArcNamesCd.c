@@ -1,25 +1,25 @@
 /*
- * XREFs of IopCreateArcNamesCd @ 0x140A61E50
+ * XREFs of IopCreateArcNamesCd @ 0x140A62E50
  * Callers:
- *     IopCreateArcNames @ 0x140A61BAC (IopCreateArcNames.c)
+ *     IopCreateArcNames @ 0x140A62BAC (IopCreateArcNames.c)
  * Callees:
- *     IopBuildDeviceIoControlRequest @ 0x14022B990 (IopBuildDeviceIoControlRequest.c)
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     RtlStringCchPrintfA @ 0x1403B856C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     IoGetDeviceObjectPointer @ 0x140620E20 (IoGetDeviceObjectPointer.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     IoBuildSynchronousFsdRequest @ 0x1406D18C0 (IoBuildSynchronousFsdRequest.c)
- *     IoCreateSymbolicLink @ 0x14076DC20 (IoCreateSymbolicLink.c)
- *     IoGetConfigurationInformation @ 0x140781B10 (IoGetConfigurationInformation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     IopFetchConfigurationInformation @ 0x140A61FB8 (IopFetchConfigurationInformation.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1402D0240 (IopBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     RtlStringCchPrintfA @ 0x1403B86DC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     IoGetDeviceObjectPointer @ 0x14068AA90 (IoGetDeviceObjectPointer.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1406A8BA0 (IoBuildSynchronousFsdRequest.c)
+ *     IoCreateSymbolicLink @ 0x14076DDE0 (IoCreateSymbolicLink.c)
+ *     IoGetConfigurationInformation @ 0x140781CD0 (IoGetConfigurationInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     IopFetchConfigurationInformation @ 0x140A62FB8 (IopFetchConfigurationInformation.c)
  */
 
 __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
@@ -67,7 +67,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   LARGE_INTEGER v43; // [rsp+100h] [rbp-8h] BYREF
   int v44; // [rsp+108h] [rbp+0h]
   char pszDest[128]; // [rsp+118h] [rbp+10h] BYREF
-  char SourceString[128]; // [rsp+198h] [rbp+90h] BYREF
+  CHAR SourceString[128]; // [rsp+198h] [rbp+90h] BYREF
   __int64 retaddr; // [rsp+250h] [rbp+148h]
 
   v1 = *(WCHAR ***)(a1 + 232);

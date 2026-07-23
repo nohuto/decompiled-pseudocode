@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptModSetRandom @ 0x14055C89C
+ * XREFs of SymCryptModSetRandom @ 0x14055ED84
  * Callers:
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x1405598D8 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptEcpointGenericSetRandom @ 0x140563630 (SymCryptEcpointGenericSetRandom.c)
- *     SymCryptFdefModInvGeneric @ 0x14056F890 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14055BD68 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptEcpointGenericSetRandom @ 0x140565A20 (SymCryptEcpointGenericSetRandom.c)
+ *     SymCryptFdefModInvGeneric @ 0x14056EA70 (SymCryptFdefModInvGeneric.c)
  * Callees:
- *     SymCryptFdefModSetRandomGeneric @ 0x140570150 (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x14056F330 (SymCryptFdefModSetRandomGeneric.c)
  */
 
 void __fastcall __noreturn SymCryptModSetRandom(int a1, int a2, int a3, int a4, __int64 a5)

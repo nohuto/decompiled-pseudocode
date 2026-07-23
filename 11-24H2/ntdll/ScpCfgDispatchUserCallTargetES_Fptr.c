@@ -1,5 +1,5 @@
 /*
- * XREFs of ScpCfgDispatchUserCallTargetES_Fptr @ 0x18016D0C0
+ * XREFs of ScpCfgDispatchUserCallTargetES_Fptr @ 0x18016C0C0
  * Callers:
  *     <none>
  * Callees:

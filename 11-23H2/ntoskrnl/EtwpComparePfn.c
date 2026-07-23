@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpComparePfn @ 0x1405FBF60
+ * XREFs of EtwpComparePfn @ 0x1405FC4D0
  * Callers:
  *     <none>
  * Callees:

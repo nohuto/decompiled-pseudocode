@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetFreeBlockInsidePageBoundaries @ 0x180028DA8
+ * XREFs of RtlpGetFreeBlockInsidePageBoundaries @ 0x180028D98
  * Callers:
- *     RtlpCommitBlock @ 0x180028B34 (RtlpCommitBlock.c)
- *     RtlpDecommitBlock @ 0x180028CB4 (RtlpDecommitBlock.c)
- *     RtlpDeCommitFreeBlock @ 0x18004A810 (RtlpDeCommitFreeBlock.c)
+ *     RtlpCommitBlock @ 0x180028B24 (RtlpCommitBlock.c)
+ *     RtlpDecommitBlock @ 0x180028CA4 (RtlpDecommitBlock.c)
+ *     RtlpDeCommitFreeBlock @ 0x18004A800 (RtlpDeCommitFreeBlock.c)
  * Callees:
  *     <none>
  */

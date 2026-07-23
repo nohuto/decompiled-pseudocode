@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpDmaFreeChildAdapter @ 0x140511170
+ * XREFs of HalpDmaFreeChildAdapter @ 0x1405116C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpDmaReturnPageToSource @ 0x1405114D4 (HalpDmaReturnPageToSource.c)
- *     HalpLeaveDmaDomain @ 0x140512D54 (HalpLeaveDmaDomain.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpDmaReturnPageToSource @ 0x140511A24 (HalpDmaReturnPageToSource.c)
+ *     HalpLeaveDmaDomain @ 0x1405132A4 (HalpLeaveDmaDomain.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -65,10 +65,13 @@ void __fastcall HalpDmaFreeChildAdapter(__int64 a1)
     *v5 = v7;
     v7[1] = (__int64)v5;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaAdapterListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -76,7 +79,7 @@ void __fastcall HalpDmaFreeChildAdapter(__int64 a1)
         v12 = (v11 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v11;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v6);

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledDeviceUsageNoInline @ 0x14060C2B8
+ * XREFs of Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledDeviceUsageNoInline @ 0x14060F418
  * Callers:
- *     PpmInitHeteroPolicy @ 0x140CD46B4 (PpmInitHeteroPolicy.c)
+ *     PpmInitHeteroPolicy @ 0x140CDAA34 (PpmInitHeteroPolicy.c)
  * Callees:
- *     Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledFallback @ 0x14060C2F4 (Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledFallback.c)
+ *     Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledFallback @ 0x14060F454 (Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledDeviceUsageNoInline()

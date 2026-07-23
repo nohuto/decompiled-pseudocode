@@ -1,24 +1,24 @@
 /*
- * XREFs of MiGetPfnPageSizeIndex @ 0x1402E88E0
+ * XREFs of MiGetPfnPageSizeIndex @ 0x1402E8B70
  * Callers:
- *     MiZeroInParallelWorker @ 0x1402D1300 (MiZeroInParallelWorker.c)
- *     MiGetFreeLargePage @ 0x1402D8720 (MiGetFreeLargePage.c)
- *     MiGetFastLargePages @ 0x1402E86FC (MiGetFastLargePages.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiProcessPageGroupInfo @ 0x14032F510 (MiProcessPageGroupInfo.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x14038BEE0 (MiInitializeLargeMdlLeafPfns.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A0B7C (MiTryUnlinkNodeLargePages.c)
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
- *     MiActivePageClaimCandidate @ 0x1403BBBF8 (MiActivePageClaimCandidate.c)
- *     MiFindLargeNodePage @ 0x14061D668 (MiFindLargeNodePage.c)
- *     MiMirrorRemoveInactivePages @ 0x1406282C4 (MiMirrorRemoveInactivePages.c)
- *     MiUpdateLargePageSectionPfns @ 0x140628F7C (MiUpdateLargePageSectionPfns.c)
- *     MiFreeContiguousLargePageRun @ 0x140649DB8 (MiFreeContiguousLargePageRun.c)
- *     MiGetPagesRemainingInResidentPage @ 0x14064F244 (MiGetPagesRemainingInResidentPage.c)
- *     MiTransferPartitionPageRun @ 0x14065B604 (MiTransferPartitionPageRun.c)
- *     MiCoalesceActivePagesIntoFree @ 0x14065D4EC (MiCoalesceActivePagesIntoFree.c)
- *     MiFreeLargePages @ 0x140668250 (MiFreeLargePages.c)
- *     MiScrubLargePageRegions @ 0x140A46410 (MiScrubLargePageRegions.c)
+ *     MiZeroInParallelWorker @ 0x1402D1590 (MiZeroInParallelWorker.c)
+ *     MiGetFreeLargePage @ 0x1402D89B0 (MiGetFreeLargePage.c)
+ *     MiGetFastLargePages @ 0x1402E898C (MiGetFastLargePages.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiProcessPageGroupInfo @ 0x14032F7A0 (MiProcessPageGroupInfo.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x14038C0C0 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiTryUnlinkNodeLargePages @ 0x1403A0D5C (MiTryUnlinkNodeLargePages.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
+ *     MiActivePageClaimCandidate @ 0x1403BBDD8 (MiActivePageClaimCandidate.c)
+ *     MiFindLargeNodePage @ 0x14061DBB8 (MiFindLargeNodePage.c)
+ *     MiMirrorRemoveInactivePages @ 0x140628814 (MiMirrorRemoveInactivePages.c)
+ *     MiUpdateLargePageSectionPfns @ 0x1406294CC (MiUpdateLargePageSectionPfns.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064A308 (MiFreeContiguousLargePageRun.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x14064F794 (MiGetPagesRemainingInResidentPage.c)
+ *     MiTransferPartitionPageRun @ 0x14065BB54 (MiTransferPartitionPageRun.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14065DA3C (MiCoalesceActivePagesIntoFree.c)
+ *     MiFreeLargePages @ 0x1406687A0 (MiFreeLargePages.c)
+ *     MiScrubLargePageRegions @ 0x140A466C0 (MiScrubLargePageRegions.c)
  * Callees:
  *     <none>
  */

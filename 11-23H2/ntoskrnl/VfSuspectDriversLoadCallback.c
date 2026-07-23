@@ -1,18 +1,18 @@
 /*
- * XREFs of VfSuspectDriversLoadCallback @ 0x140ADA734
+ * XREFs of VfSuspectDriversLoadCallback @ 0x140ADA724
  * Callers:
- *     VfDriverLoadImage @ 0x140ABCE04 (VfDriverLoadImage.c)
+ *     VfDriverLoadImage @ 0x140ABCDF4 (VfDriverLoadImage.c)
  * Callees:
  *     VfTargetDriversAdd @ 0x14020A190 (VfTargetDriversAdd.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     CarLoadImageHandler @ 0x1405D32D4 (CarLoadImageHandler.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     VfUtilPrintCheckinString @ 0x140AC2834 (VfUtilPrintCheckinString.c)
- *     VfInitPickCurrentRandomTarget @ 0x140AC2CC4 (VfInitPickCurrentRandomTarget.c)
- *     VfCheckImageCompliance @ 0x140AC34CC (VfCheckImageCompliance.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfSuspectDriversAllocateEntry @ 0x140ADA3C4 (VfSuspectDriversAllocateEntry.c)
- *     VfThunkApplyThunksCurrentSession @ 0x140ADB3DC (VfThunkApplyThunksCurrentSession.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     CarLoadImageHandler @ 0x1405D3844 (CarLoadImageHandler.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     VfUtilPrintCheckinString @ 0x140AC2824 (VfUtilPrintCheckinString.c)
+ *     VfInitPickCurrentRandomTarget @ 0x140AC2CB4 (VfInitPickCurrentRandomTarget.c)
+ *     VfCheckImageCompliance @ 0x140AC34BC (VfCheckImageCompliance.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140ADA3B4 (VfSuspectDriversAllocateEntry.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140ADB3CC (VfThunkApplyThunksCurrentSession.c)
  */
 
 LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, char a2, int a3)
@@ -100,13 +100,13 @@ LABEL_36:
   k = VfSuspectDriversAllocateEntry((const void **)(a1 + 88));
   if ( !k )
     goto LABEL_42;
-  v11 = (__int64 *)qword_140C37398;
-  if ( *(__int64 **)qword_140C37398 != &VfSuspectDriversList )
+  v11 = (__int64 *)qword_140C37378;
+  if ( *(__int64 **)qword_140C37378 != &VfSuspectDriversList )
     __fastfail(3u);
   *(_QWORD *)k = &VfSuspectDriversList;
   *(_QWORD *)(k + 8) = v11;
   *v11 = k;
-  qword_140C37398 = k;
+  qword_140C37378 = k;
 LABEL_40:
   v6 = VfTargetDriversAdd(*(_QWORD *)(a1 + 48), *(_DWORD *)(a1 + 64), a2, k);
   if ( v6 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopSetModernStandbyTransitionReason @ 0x140576774
+ * XREFs of PopSetModernStandbyTransitionReason @ 0x1405769B4
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140774E98 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
 {
-  __int64 InterruptTimePrecise; // rbp
+  LARGE_INTEGER InterruptTimePrecise; // rbp
   unsigned __int64 v5; // rbx
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
@@ -22,17 +22,17 @@ __int64 __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
   v10.QuadPart = 0LL;
   InterruptTimePrecise = RtlGetInterruptTimePrecise(&v10);
   v5 = KeAcquireSpinLockRaiseToDpc(&PopModernStandbyTransitionInfo);
-  if ( byte_140C11770 != a1 )
+  if ( byte_140C11750 != a1 )
   {
-    byte_140C11770 = a1;
+    byte_140C11750 = a1;
     if ( a1 )
     {
-      dword_140C11774 = a2;
+      dword_140C11754 = a2;
     }
     else
     {
-      dword_140C11778 = a2;
-      qword_140C11780 = InterruptTimePrecise;
+      dword_140C11758 = a2;
+      qword_140C11760 = InterruptTimePrecise.QuadPart;
     }
   }
   KxReleaseSpinLock(&PopModernStandbyTransitionInfo);

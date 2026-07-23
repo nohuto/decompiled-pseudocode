@@ -1,14 +1,14 @@
 /*
- * XREFs of MiValidateInPage @ 0x14038C154
+ * XREFs of MiValidateInPage @ 0x14038DF04
  * Callers:
- *     MiWaitForInPageComplete @ 0x14038E1F0 (MiWaitForInPageComplete.c)
- *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
+ *     MiWaitForInPageComplete @ 0x14038FFA0 (MiWaitForInPageComplete.c)
+ *     MiFaultGetFileExtents @ 0x14050664C (MiFaultGetFileExtents.c)
  * Callees:
- *     MiValidateEntireInPage @ 0x14038A798 (MiValidateEntireInPage.c)
- *     MiValidateInPagePrepare @ 0x14038C1C0 (MiValidateInPagePrepare.c)
- *     MiValidateInPageEntries @ 0x14038C410 (MiValidateInPageEntries.c)
- *     MiZeroTrailingImageBytes @ 0x1406F7900 (MiZeroTrailingImageBytes.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiValidateEntireInPage @ 0x14038C548 (MiValidateEntireInPage.c)
+ *     MiValidateInPagePrepare @ 0x14038DF70 (MiValidateInPagePrepare.c)
+ *     MiValidateInPageEntries @ 0x14038E1C0 (MiValidateInPageEntries.c)
+ *     MiZeroTrailingImageBytes @ 0x1406FC570 (MiZeroTrailingImageBytes.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiValidateInPage(__int64 a1)

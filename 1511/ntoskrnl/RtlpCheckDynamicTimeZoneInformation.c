@@ -33,7 +33,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
   char *v22; // rbx
   __int64 v23; // rax
   __int128 v24; // xmm1
-  HANDLE Handle; // [rsp+20h] [rbp-108h]
+  WCHAR *Handle; // [rsp+20h] [rbp-108h]
   _DWORD v26[14]; // [rsp+28h] [rbp-100h] BYREF
   __int128 Buf1; // [rsp+60h] [rbp-C8h] BYREF
   __int128 v28; // [rsp+70h] [rbp-B8h]
@@ -51,7 +51,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
   v4 = 0;
   if ( (int)RtlpGetDynamicTimeZoneInfoHandle((NTSTRSAFE_PCWSTR)Buf2 + 86) >= 0 )
   {
-    if ( (int)RtlpFindRegTziForCurrentYear(v26, (__int64)Handle, a2) >= 0 )
+    if ( (int)RtlpFindRegTziForCurrentYear(v26, Handle, a2) >= 0 )
     {
       v5 = *((_OWORD *)Buf2 + 1);
       Buf1 = *(_OWORD *)Buf2;

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeResetEvent @ 0x140712684
+ * XREFs of VerifierKeResetEvent @ 0x14071263C
  * Callers:
  *     <none>
  * Callees:

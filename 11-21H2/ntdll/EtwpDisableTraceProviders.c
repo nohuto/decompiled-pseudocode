@@ -13,30 +13,27 @@
 
 __int64 __fastcall EtwpDisableTraceProviders(__int16 a1)
 {
-  unsigned __int64 v2; // rcx
+  _RTL_SRWLOCK *v2; // rcx
   _BYTE *v3; // rdi
   __int64 v4; // rcx
   _BYTE *v5; // rax
   __int64 result; // rax
-  unsigned __int64 v7; // rdx
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // r9
-  __int64 v10; // rbx
-  char v11; // si
-  __int64 v12; // rax
-  __int128 v13; // xmm0
-  _QWORD v14[15]; // [rsp+20h] [rbp-88h] BYREF
+  __int64 v7; // rbx
+  char v8; // si
+  __int64 v9; // rax
+  __int128 v10; // xmm0
+  _QWORD v11[15]; // [rsp+20h] [rbp-88h] BYREF
 
-  memset(v14, 0, sizeof(v14));
-  LODWORD(v14[3]) = -1;
-  LODWORD(v14[9]) = 0;
-  LODWORD(v14[14]) = 0;
+  memset(v11, 0, sizeof(v11));
+  LODWORD(v11[3]) = -1;
+  LODWORD(v11[9]) = 0;
+  LODWORD(v11[14]) = 0;
   v2 = 0LL;
-  v14[0] = 0x7800000003LL;
+  v11[0] = 0x7800000003LL;
   while ( 1 )
   {
     result = EtwpGetNextRegistration(v2);
-    v10 = result;
+    v7 = result;
     if ( !result )
       return result;
     v3 = (_BYTE *)(result + 150);
@@ -49,39 +46,39 @@ __int64 __fastcall EtwpDisableTraceProviders(__int16 a1)
       if ( (unsigned int)v4 >= 4 )
         goto LABEL_5;
     }
-    if ( v10 + 8 * (v4 + 2 * (v4 + 8)) )
+    if ( v7 + 8 * (v4 + 2 * (v4 + 8)) )
     {
-      v11 = 0;
-      if ( *(_DWORD *)(v10 + 80) != LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
+      v8 = 0;
+      if ( *(_DWORD *)(v7 + 80) != LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
       {
-        RtlAcquireSRWLockExclusive(v10 + 64, v7, v8, v9);
-        v11 = 1;
-        *(_DWORD *)(v10 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v7 + 64));
+        v8 = 1;
+        *(_DWORD *)(v7 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
       }
-      v12 = 0LL;
+      v9 = 0LL;
       while ( !*(v3 - 2) || *v3 != (_BYTE)a1 )
       {
-        v12 = (unsigned int)(v12 + 1);
+        v9 = (unsigned int)(v9 + 1);
         v3 += 24;
-        if ( (unsigned int)v12 >= 4 )
+        if ( (unsigned int)v9 >= 4 )
           goto LABEL_17;
       }
-      if ( v10 + 8 * (3 * v12 + 16) )
+      if ( v7 + 8 * (3 * v9 + 16) )
       {
-        v13 = *(_OWORD *)(v10 + 32);
-        LODWORD(v14[9]) = 0;
-        *(_OWORD *)&v14[5] = v13;
-        HIWORD(v14[9]) = a1 | 0x8000;
-        EtwpUpdateEnableInfoAndCallback(v10, (__int64)v14);
+        v10 = *(_OWORD *)(v7 + 32);
+        LODWORD(v11[9]) = 0;
+        *(_OWORD *)&v11[5] = v10;
+        HIWORD(v11[9]) = a1 | 0x8000;
+        EtwpUpdateEnableInfoAndCallback(v7, (__int64)v11);
       }
 LABEL_17:
-      if ( v11 )
+      if ( v8 )
       {
-        *(_DWORD *)(v10 + 80) = 0;
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v10 + 64));
+        *(_DWORD *)(v7 + 80) = 0;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v7 + 64));
       }
     }
 LABEL_5:
-    v2 = v10;
+    v2 = (_RTL_SRWLOCK *)v7;
   }
 }

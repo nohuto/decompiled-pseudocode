@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwCreateEventPair @ 0x1407249F0
+ * XREFs of ZwCreateEventPair @ 0x1407295C0
  * Callers:
- *     DifZwCreateEventPairWrapper @ 0x14069EF70 (DifZwCreateEventPairWrapper.c)
+ *     DifZwCreateEventPairWrapper @ 0x1406A2B50 (DifZwCreateEventPairWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateEventPair(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateEventPair(
+        PHANDLE EventPairHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(EventPairHandle);
 }

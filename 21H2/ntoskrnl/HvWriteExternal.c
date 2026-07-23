@@ -1,18 +1,18 @@
 /*
- * XREFs of HvWriteExternal @ 0x140728FA0
+ * XREFs of HvWriteExternal @ 0x140729450
  * Callers:
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
- *     CmpFileFlush @ 0x14071DA34 (CmpFileFlush.c)
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
- *     CmpDoFileSetSizeEx @ 0x140724A00 (CmpDoFileSetSizeEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
+ *     CmpFileFlush @ 0x1406FC904 (CmpFileFlush.c)
+ *     CmpDoFileSetSizeEx @ 0x1406FC9FC (CmpDoFileSetSizeEx.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HvWriteExternal(ULONG_PTR BugCheckParameter2)

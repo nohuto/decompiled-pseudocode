@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbResolveDatabaseEx @ 0x1408065C4
+ * XREFs of SdbResolveDatabaseEx @ 0x140806D04
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x14080627C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1408069BC (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1408060C0 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
- *     SdbGetPathCustomSdb @ 0x1408064CC (SdbGetPathCustomSdb.c)
- *     SdbGetPathSystemSdb @ 0x14080659C (SdbGetPathSystemSdb.c)
- *     AslGuidToString_UStr @ 0x14080824C (AslGuidToString_UStr.c)
- *     AslUnicodeStringFree @ 0x140808628 (AslUnicodeStringFree.c)
- *     AslRegistryGetUInt32_UStr @ 0x140808E18 (AslRegistryGetUInt32_UStr.c)
- *     AslRegistryOpenKey_UStr @ 0x140808F08 (AslRegistryOpenKey_UStr.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140806800 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGetPathCustomSdb @ 0x140806C0C (SdbGetPathCustomSdb.c)
+ *     SdbGetPathSystemSdb @ 0x140806CDC (SdbGetPathSystemSdb.c)
+ *     AslGuidToString_UStr @ 0x14080898C (AslGuidToString_UStr.c)
+ *     AslUnicodeStringFree @ 0x140808D68 (AslUnicodeStringFree.c)
+ *     AslRegistryGetUInt32_UStr @ 0x140809558 (AslRegistryGetUInt32_UStr.c)
+ *     AslRegistryOpenKey_UStr @ 0x140809648 (AslRegistryOpenKey_UStr.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbResolveDatabaseEx(__int64 a1, _QWORD *a2, int *a3, int *a4, _WORD *a5, int a6)
@@ -49,7 +49,7 @@ __int64 __fastcall SdbResolveDatabaseEx(__int64 a1, _QWORD *a2, int *a3, int *a4
   if ( !a5 )
     return 0LL;
   *a5 = 0;
-  v13 = &off_140E0A080;
+  v13 = &off_140E0A0F0;
   for ( i = 0; (unsigned __int64)i < 6; ++i )
   {
     v15 = *(_QWORD *)&(*v13)->Data1 - *a2;
@@ -57,9 +57,9 @@ __int64 __fastcall SdbResolveDatabaseEx(__int64 a1, _QWORD *a2, int *a3, int *a4
       v15 = *(_QWORD *)(*v13)->Data4 - a2[1];
     if ( !v15 )
     {
-      v16 = *((_DWORD *)&off_140E0A080 + 6 * i + 2);
-      v13 = (GUID **)*((unsigned int *)&off_140E0A080 + 6 * i + 4);
-      v30 = *((_DWORD *)&off_140E0A080 + 6 * i + 3);
+      v16 = *((_DWORD *)&off_140E0A0F0 + 6 * i + 2);
+      v13 = (GUID **)*((unsigned int *)&off_140E0A0F0 + 6 * i + 4);
+      v30 = *((_DWORD *)&off_140E0A0F0 + 6 * i + 3);
       a6 = v16;
       if ( (_DWORD)v13 )
       {

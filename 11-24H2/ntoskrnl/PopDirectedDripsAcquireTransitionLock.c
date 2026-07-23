@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsAcquireTransitionLock @ 0x140A40198
+ * XREFs of PopDirectedDripsAcquireTransitionLock @ 0x140A35A78
  * Callers:
- *     PopDirectedDripsSuspendDevices @ 0x140A40034 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140A35914 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
  */
 
 unsigned __int64 __fastcall PopDirectedDripsAcquireTransitionLock(void *a1)

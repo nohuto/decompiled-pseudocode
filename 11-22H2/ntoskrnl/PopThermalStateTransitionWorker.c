@@ -22,10 +22,13 @@ void PopThermalStateTransitionWorker()
   __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v7; // r8
-  _DWORD v8[4]; // [rsp+30h] [rbp-38h] BYREF
-  _OWORD v9[2]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v8; // r9
+  __int64 v9; // [rsp+20h] [rbp-48h]
+  __int64 v10; // [rsp+28h] [rbp-40h]
+  _DWORD v11[4]; // [rsp+30h] [rbp-38h] BYREF
+  _OWORD v12[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  memset(v9, 0, 24);
+  memset(v12, 0, 24);
   v0 = 0;
   v1 = 2;
   while ( 1 )
@@ -55,15 +58,15 @@ void PopThermalStateTransitionWorker()
     PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemThermalInfo);
     PopThermalStandbyEndTracking(v1, v2, v3);
     PopReleaseRwLock(&PopSystemThermalInfo);
-    v8[2] = 0;
-    v9[0] = 0x8000000001uLL;
-    v8[0] = v0;
-    v8[1] = -1073741820;
+    v11[2] = 0;
+    v12[0] = 0x8000000001uLL;
+    v11[0] = v0;
+    v11[1] = -1073741820;
     PopAcquirePolicyLock(v4);
     if ( v0 == 6 )
       PopCriticalShutdownInProgress = 1;
-    PopExecutePowerAction((unsigned int)v9, 0, (unsigned int)v8, 5, 1);
-    PopReleasePolicyLock(v6, v5, v7);
+    PopExecutePowerAction((unsigned int)v12, 0, (unsigned int)v11, 5, 1);
+    PopReleasePolicyLock(v6, v5, v7, v8, v9, v10);
   }
   PopOkayToQueueNextWorkItem((__int64)&PopThermalStateTransitionWorkItem);
   PopReleaseRwLock(&PopThermalStateTransitionContext);

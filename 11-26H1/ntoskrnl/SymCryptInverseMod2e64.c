@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptInverseMod2e64 @ 0x140570F74
+ * XREFs of SymCryptInverseMod2e64 @ 0x140570154
  * Callers:
- *     SymCryptFdefIntToModulus @ 0x14056F104 (SymCryptFdefIntToModulus.c)
+ *     SymCryptFdefIntToModulus @ 0x14056E2E4 (SymCryptFdefIntToModulus.c)
  * Callees:
  *     <none>
  */

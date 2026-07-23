@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTiQueryVad @ 0x1407E2720
+ * XREFs of EtwpTiQueryVad @ 0x1407E29F0
  * Callers:
- *     EtwTiLogReadWriteVm @ 0x14076BE3C (EtwTiLogReadWriteVm.c)
- *     EtwpTiVadQueryEventWriteCallback @ 0x1407E2620 (EtwpTiVadQueryEventWriteCallback.c)
- *     EtwTiLogProtectExecVm @ 0x1408A75EA (EtwTiLogProtectExecVm.c)
+ *     EtwTiLogReadWriteVm @ 0x14076C02C (EtwTiLogReadWriteVm.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1407E28F0 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwTiLogProtectExecVm @ 0x1408A783A (EtwTiLogProtectExecVm.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041B1C0 (ZwQueryVirtualMemory.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x14041B550 (ZwQueryVirtualMemory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -45,7 +45,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned
       VirtualMemory = ZwQueryVirtualMemory(
                         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                         *a3,
-                        (MEMORY_INFORMATION_CLASS)3,
+                        MemoryRegionInformation,
                         v12,
                         0x30uLL,
                         0LL);
@@ -61,7 +61,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned
             || ZwQueryVirtualMemory(
                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                  *a3,
-                 (MEMORY_INFORMATION_CLASS)2,
+                 MemoryMappedFilenameInformation,
                  Pool2,
                  0x200uLL,
                  0LL) >= 0 )

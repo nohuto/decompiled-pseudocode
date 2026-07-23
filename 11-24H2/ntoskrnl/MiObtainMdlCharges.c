@@ -1,12 +1,12 @@
 /*
- * XREFs of MiObtainMdlCharges @ 0x1404128E0
+ * XREFs of MiObtainMdlCharges @ 0x140394D20
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiReleaseNonPagedResourcesNotExposed @ 0x1403A9CCC (MiReleaseNonPagedResourcesNotExposed.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiReleaseNonPagedResourcesNotExposed @ 0x14039895C (MiReleaseNonPagedResourcesNotExposed.c)
  */
 
 __int64 __fastcall MiObtainMdlCharges(__int64 a1)
@@ -63,7 +63,7 @@ LABEL_6:
     {
       v12 = *(ULONG **)a1;
       if ( (v6 & 8) != 0 )
-        MiReleaseNonPagedResourcesNotExposed((__int64)v12, v1);
+        MiReleaseNonPagedResourcesNotExposed(v12, v1);
       else
         MiReleaseNonPagedResources((__int64)v12, v1);
     }

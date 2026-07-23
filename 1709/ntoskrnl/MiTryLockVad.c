@@ -11,7 +11,7 @@
 __int64 __fastcall MiTryLockVad(__int64 a1, __int64 a2)
 {
   volatile signed __int32 *v3; // rsi
-  unsigned __int64 v4; // rax
+  PRTL_BALANCED_NODE v4; // rax
   unsigned int v5; // ebx
 
   if ( *(char *)(a1 + 1752) < 0 )
@@ -22,12 +22,12 @@ __int64 __fastcall MiTryLockVad(__int64 a1, __int64 a2)
   {
     v5 = 0;
     if ( v4 )
-      KeAbPostReleaseEx((ULONG_PTR)v3, v4);
+      KeAbPostReleaseEx((ULONG_PTR)v3, (unsigned __int64)v4);
   }
   else
   {
     if ( v4 )
-      *(_BYTE *)(v4 + 26) |= 1u;
+      BYTE2(v4[1].Left) |= 1u;
     v5 = 1;
   }
   if ( v5 == 1 )

@@ -18,7 +18,7 @@
  *     MiVadIsMetadataBitmap @ 0x1408D9B08 (MiVadIsMetadataBitmap.c)
  */
 
-__int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtAreMappedFilesTheSame(PVOID File1MappedAsAnImage, PVOID File2MappedAsFile)
 {
   struct _KTHREAD *CurrentThread; // r13
   __int64 v5; // rax
@@ -32,41 +32,41 @@ __int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64
   __int64 v13; // r12
   __int64 v14; // r15
   int v15; // ebx
-  unsigned int v16; // edi
+  NTSTATUS v16; // edi
   ULONG_PTR v18; // rax
   __int64 *v19; // rbx
   int v20; // [rsp+70h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v5 = MiObtainReferencedVadEx(a1, 2, &v20);
+  v5 = MiObtainReferencedVadEx((unsigned __int64)File1MappedAsAnImage, 2, &v20);
   v6 = v5;
   if ( !v5 )
-    return 3221225793LL;
+    return -1073741503;
   MiUnlockVadShared((__int64)CurrentThread, v5);
-  v7 = MiObtainReferencedVadEx(a2, 2, &v20);
+  v7 = MiObtainReferencedVadEx((unsigned __int64)File2MappedAsFile, 2, &v20);
   v8 = v7;
   if ( !v7 )
   {
     MiLockVadShared((__int64)CurrentThread, v6);
     MiUnlockAndDereferenceVadShared((PVOID)v6);
-    return 3221225793LL;
+    return -1073741503;
   }
   if ( v6 == v7 )
   {
     MiDereferenceVad(v6);
     MiUnlockAndDereferenceVadShared((PVOID)v8);
-    return 0LL;
+    return 0;
   }
   else if ( (unsigned int)MiVadIsMetadataBitmap(v6) || (unsigned int)MiVadIsMetadataBitmap(v8) )
   {
     MiUnlockAndDereferenceVadShared((PVOID)v8);
     MiLockVadShared((__int64)CurrentThread, v6);
     MiUnlockAndDereferenceVadShared((PVOID)v6);
-    return 3221225496LL;
+    return -1073741800;
   }
   else
   {
-    if ( a1 <= a2 )
+    if ( File1MappedAsAnImage <= File2MappedAsFile )
     {
       MiUnlockVadShared((__int64)CurrentThread, v8);
       MiLockVadShared((__int64)CurrentThread, v6);

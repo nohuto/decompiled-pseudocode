@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmIssueIo @ 0x140220A68
+ * XREFs of SmKmIssueIo @ 0x140220894
  * Callers:
- *     SmIssueIo @ 0x140221FA4 (SmIssueIo.c)
+ *     SmIssueIo @ 0x140221DD0 (SmIssueIo.c)
  * Callees:
- *     SmKmIssueVolumeIo @ 0x140220B4C (SmKmIssueVolumeIo.c)
- *     NtReadFile @ 0x140443620 (NtReadFile.c)
- *     NtWriteFile @ 0x140446600 (NtWriteFile.c)
+ *     SmKmIssueVolumeIo @ 0x140220978 (SmKmIssueVolumeIo.c)
+ *     NtReadFile @ 0x1404424F0 (NtReadFile.c)
+ *     NtWriteFile @ 0x1404454D0 (NtWriteFile.c)
  */
 
 __int64 __fastcall SmKmIssueIo(

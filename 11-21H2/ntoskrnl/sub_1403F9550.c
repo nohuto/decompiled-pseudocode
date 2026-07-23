@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmSetPageProtection @ 0x1403C2120 (MmSetPageProtection.c)
+ *     sub_1403C2120 @ 0x1403C2120 (sub_1403C2120.c)
  *     MmMapLockedPagesWithReservedMapping @ 0x1403D7610 (MmMapLockedPagesWithReservedMapping.c)
  */
 
@@ -67,10 +67,7 @@ char __fastcall sub_1403F9550(__int64 a1, __int64 a2, __int64 a3)
   }
   v18 = *(_DWORD **)a2;
   v19 = MmMapLockedPagesWithReservedMapping(*(PVOID *)(a2 + 8), *(_DWORD *)(a2 + 16), *(PMDL *)a2, MmCached);
-  result = MmSetPageProtection(
-             (unsigned __int64)v19,
-             (v18[10] + 4095 + ((v18[8] + v18[11]) & 0xFFF)) & 0xFFFFF000,
-             0x40u);
+  result = sub_1403C2120((unsigned __int64)v19, (v18[10] + 4095 + ((v18[8] + v18[11]) & 0xFFF)) & 0xFFFFF000, 0x40u);
   *(_QWORD *)(a1 + 40) = 0LL;
   *(_QWORD *)(a1 + 32) = a3;
   return result;

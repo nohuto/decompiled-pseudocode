@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegPageRangeSplit @ 0x1800D8090
+ * XREFs of RtlpHpSegPageRangeSplit @ 0x1800D3400
  * Callers:
- *     RtlpHpSegLargeRangeAllocate @ 0x1800D7EE8 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x1800D3258 (RtlpHpSegLargeRangeAllocate.c)
  * Callees:
  *     <none>
  */

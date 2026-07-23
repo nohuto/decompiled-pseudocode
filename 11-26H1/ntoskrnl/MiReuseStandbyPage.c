@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReuseStandbyPage @ 0x1402AA32C
+ * XREFs of MiReuseStandbyPage @ 0x1402A973C
  * Callers:
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402AA2EC (MiLockSpecialPurposeMemoryCachedPage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiTradePageMarkedPoisoned @ 0x1405193C8 (MiTradePageMarkedPoisoned.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402A96FC (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiTradePageMarkedPoisoned @ 0x140512E38 (MiTradePageMarkedPoisoned.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
  */
 
 __int64 __fastcall MiReuseStandbyPage(ULONG_PTR a1)

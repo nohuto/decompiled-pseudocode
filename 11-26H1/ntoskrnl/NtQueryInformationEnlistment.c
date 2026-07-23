@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationEnlistment @ 0x140534270
+ * XREFs of NtQueryInformationEnlistment @ 0x1405366F0
  * Callers:
  *     <none>
  * Callees:

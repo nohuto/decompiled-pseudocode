@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmiLogCalloutStop @ 0x14076BDB4
+ * XREFs of TtmiLogCalloutStop @ 0x14076BFD4
  * Callers:
- *     TtmpStopCallout @ 0x1407699C4 (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x140769BE4 (TtmpStopCallout.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, int a5, unsigned __int64 a6)
 {
   _UNKNOWN **v6; // rax
   unsigned __int64 v7; // rdi
-  unsigned __int8 *v11; // rdx
+  char *v11; // rdx
   int *v12; // rcx
   unsigned __int64 *v13; // rax
   int v15; // [rsp+38h] [rbp-99h] BYREF
@@ -47,16 +47,16 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, 
   v7 = a6;
   if ( a6 > 0x1312D00 )
   {
-    if ( (unsigned int)dword_140FD7880 > 5 )
+    if ( (unsigned int)dword_140FD8890 > 5 )
     {
-      LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD7880, 0x400000000001LL);
+      LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD8890, 0x400000000001LL);
       if ( (_BYTE)v6 )
       {
         SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        v11 = (unsigned __int8 *)qword_140050CB0;
+        v11 = &byte_1400516DF;
         v17 = a1;
         p_SessionId = &SessionId;
-        v12 = &dword_140FD7880;
+        v12 = &dword_140FD8890;
         v16 = a2;
         v24 = &v17;
         v26 = &v16;
@@ -72,16 +72,16 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, 
       }
     }
   }
-  else if ( (unsigned int)dword_140FD78B8 > 5 )
+  else if ( (unsigned int)dword_140FD88C8 > 5 )
   {
-    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD78B8, 1LL);
+    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD88C8, 1LL);
     if ( (_BYTE)v6 )
     {
       v15 = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-      v11 = (unsigned __int8 *)&unk_140050230;
+      v11 = byte_140051A6B;
       v16 = a1;
       p_SessionId = &v15;
-      v12 = &dword_140FD78B8;
+      v12 = &dword_140FD88C8;
       v17 = a2;
       v24 = &v16;
       v26 = &v17;
@@ -103,7 +103,7 @@ LABEL_8:
       v33 = 4LL;
       v35 = 4LL;
       v37 = 8LL;
-      LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer((__int64)v12, v11, 0LL, 0LL, 0xAu, &v21);
+      LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer((__int64)v12, (unsigned __int8 *)v11, 0LL, 0LL, 0xAu, &v21);
     }
   }
   return (char)v6;

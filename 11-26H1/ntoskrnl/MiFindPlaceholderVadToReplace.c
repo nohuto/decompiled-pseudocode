@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFindPlaceholderVadToReplace @ 0x1404CC098
+ * XREFs of MiFindPlaceholderVadToReplace @ 0x1404C5AC8
  * Callers:
- *     MiReserveUserMemoryInsertVad @ 0x14095BBAC (MiReserveUserMemoryInsertVad.c)
- *     MiSelectDataMapAddress @ 0x1409C4E10 (MiSelectDataMapAddress.c)
+ *     MiSelectDataMapAddress @ 0x140995DF0 (MiSelectDataMapAddress.c)
+ *     MiReserveUserMemoryInsertVad @ 0x140A0146C (MiReserveUserMemoryInsertVad.c)
  * Callees:
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
  */
 
 __int64 __fastcall MiFindPlaceholderVadToReplace(unsigned __int64 a1, __int64 a2, char a3, int *a4)

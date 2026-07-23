@@ -1,10 +1,10 @@
 /*
- * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x14044D1E0
+ * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x140445300
  * Callers:
- *     DifExIsResourceAcquiredExclusiveLiteWrapper @ 0x140652C00 (DifExIsResourceAcquiredExclusiveLiteWrapper.c)
+ *     DifExIsResourceAcquiredExclusiveLiteWrapper @ 0x1406567E0 (DifExIsResourceAcquiredExclusiveLiteWrapper.c)
  * Callees:
- *     ExIsFastResourceHeldExclusive @ 0x1402B2710 (ExIsFastResourceHeldExclusive.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExIsFastResourceHeldExclusive @ 0x1402FD3E0 (ExIsFastResourceHeldExclusive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 BOOLEAN __stdcall ExIsResourceAcquiredExclusiveLite(PERESOURCE Resource)

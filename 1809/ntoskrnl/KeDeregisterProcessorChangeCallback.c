@@ -1,9 +1,9 @@
 /*
- * XREFs of KeDeregisterProcessorChangeCallback @ 0x140843B90
+ * XREFs of KeDeregisterProcessorChangeCallback @ 0x140844DF0
  * Callers:
  *     <none>
  * Callees:
- *     ExUnregisterCallback @ 0x14016CEF0 (ExUnregisterCallback.c)
+ *     ExUnregisterCallback @ 0x14016CFF0 (ExUnregisterCallback.c)
  */
 
 void __stdcall KeDeregisterProcessorChangeCallback(PVOID CallbackHandle)

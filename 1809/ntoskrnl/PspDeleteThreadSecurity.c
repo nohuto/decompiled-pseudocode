@@ -1,7 +1,7 @@
 /*
- * XREFs of PspDeleteThreadSecurity @ 0x1405FB2C4
+ * XREFs of PspDeleteThreadSecurity @ 0x1405FC2C4
  * Callers:
- *     PspThreadDelete @ 0x1405FB0B0 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x1405FC0B0 (PspThreadDelete.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  */

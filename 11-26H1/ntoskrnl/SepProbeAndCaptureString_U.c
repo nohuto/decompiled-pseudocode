@@ -1,19 +1,19 @@
 /*
- * XREFs of SepProbeAndCaptureString_U @ 0x1409F71E8
+ * XREFs of SepProbeAndCaptureString_U @ 0x140A5FD38
  * Callers:
- *     NtDeleteObjectAuditAlarm @ 0x140813DA0 (NtDeleteObjectAuditAlarm.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1409F51E0 (NtPrivilegedServiceAuditAlarm.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1409F7550 (NtOpenObjectAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x1409F8190 (NtPrivilegeObjectAuditAlarm.c)
- *     NtCloseObjectAuditAlarm @ 0x140A97170 (NtCloseObjectAuditAlarm.c)
+ *     NtDeleteObjectAuditAlarm @ 0x140819C00 (NtDeleteObjectAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x140A5DD30 (NtPrivilegedServiceAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x140A60090 (NtOpenObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x140A60CD0 (NtPrivilegeObjectAuditAlarm.c)
+ *     NtCloseObjectAuditAlarm @ 0x140A9B2F0 (NtCloseObjectAuditAlarm.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepProbeAndCaptureString_U(unsigned int *a1, __int64 a2)

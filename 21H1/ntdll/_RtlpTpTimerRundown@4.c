@@ -11,13 +11,13 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __thiscall RtlpTpTimerRundown(int this)
+LOGICAL __thiscall RtlpTpTimerRundown(PVOID BaseAddress)
 {
-  if ( *(_DWORD *)(this + 36) )
-    NtSetEvent(*(_DWORD *)(this + 36), 0);
-  if ( *(_DWORD *)(this + 8) )
-    NtClose(*(HANDLE *)(this + 8));
-  if ( !_InterlockedExchangeAdd(*(volatile signed __int32 **)(this + 28), 0xFFFFFFFF) )
-    RtlpTpTimerQueueRundown(*(_DWORD **)(this + 28));
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this);
+  if ( *((_DWORD *)BaseAddress + 9) )
+    NtSetEvent(*((HANDLE *)BaseAddress + 9), 0);
+  if ( *((_DWORD *)BaseAddress + 2) )
+    NtClose(*((HANDLE *)BaseAddress + 2));
+  if ( !_InterlockedExchangeAdd(*((volatile signed __int32 **)BaseAddress + 7), 0xFFFFFFFF) )
+    RtlpTpTimerQueueRundown(*((HANDLE **)BaseAddress + 7));
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

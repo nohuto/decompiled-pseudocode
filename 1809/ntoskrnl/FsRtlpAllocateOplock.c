@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpAllocateOplock @ 0x1405DCDA0
+ * XREFs of FsRtlpAllocateOplock @ 0x1405DDDA0
  * Callers:
  *     FsRtlpRequestShareableOplock @ 0x140017E60 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1400B8730 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     FsRtlpRequestExclusiveOplock @ 0x14015E10C (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1400B8670 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x14015E20C (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405DD640 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char *FsRtlpAllocateOplock()

@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpWorkItemQueue @ 0x14047C8CC
+ * XREFs of SshpWorkItemQueue @ 0x140477ADC
  * Callers:
- *     SshpDereferenceBlocker @ 0x14047C6F0 (SshpDereferenceBlocker.c)
- *     SshpSessionManagerOpenControlTrace @ 0x140767400 (SshpSessionManagerOpenControlTrace.c)
- *     SshpSessionManagerSendControlEventSlimEtl @ 0x140A701D0 (SshpSessionManagerSendControlEventSlimEtl.c)
+ *     SshpDereferenceBlocker @ 0x140477900 (SshpDereferenceBlocker.c)
+ *     SshpSessionManagerOpenControlTrace @ 0x140766E60 (SshpSessionManagerOpenControlTrace.c)
+ *     SshpSessionManagerSendControlEventSlimEtl @ 0x140A69660 (SshpSessionManagerSendControlEventSlimEtl.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void __fastcall SshpWorkItemQueue(struct _WORK_QUEUE_ITEM *a1)

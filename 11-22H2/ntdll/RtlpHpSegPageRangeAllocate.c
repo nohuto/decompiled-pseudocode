@@ -20,7 +20,7 @@ __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, int a3)
   unsigned int v5; // r13d
   unsigned int v6; // esi
   int v7; // r12d
-  __int64 v8; // rcx
+  _RTL_RB_TREE *v8; // rcx
   __int64 v9; // rbx
   __int64 v10; // r8
   __int64 v11; // rax
@@ -39,11 +39,11 @@ __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, int a3)
   v6 = v5 << 24;
   v7 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 64);
-  v8 = a1 + 96;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+  v8 = (_RTL_RB_TREE *)(a1 + 96);
   v9 = *(_QWORD *)(a1 + 96);
   if ( (*(_BYTE *)(a1 + 104) & 1) != 0 && v9 )
-    v9 ^= v8;
+    v9 ^= (unsigned __int64)v8;
   v10 = 0LL;
   while ( v9 )
   {
@@ -74,7 +74,7 @@ LABEL_15:
   }
   else
   {
-    RtlRbRemoveNode(v8, v9);
+    RtlRbRemoveNode(v8, (PRTL_BALANCED_NODE)v9);
     *(_OWORD *)v9 = 0LL;
     *(_QWORD *)(v9 + 16) = 0LL;
     v13 = ~(unsigned __int16)*(_DWORD *)(v9 + 28);
@@ -87,7 +87,7 @@ LABEL_15:
   {
 LABEL_31:
     if ( !v7 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v20 = 0LL;
     if ( v12 || (*(_BYTE *)(a1 + 13) & 7) == 3 && (BYTE1(*(_QWORD *)(a1 + 40)) == 3 || BYTE1(*(_QWORD *)(a1 + 40)) == 2) )
       v20 = 2LL;
@@ -98,19 +98,19 @@ LABEL_31:
     RtlpHpSegSegmentInitialize(a1, v21, 0LL);
     v9 = v22 + 32LL * *(unsigned __int8 *)(a1 + 10);
     if ( !v7 )
-      RtlAcquireSRWLockExclusive(a1 + 64);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     RtlpHpSegHeapAddSegment(a1, v22);
     if ( v12 )
       v9 = RtlpHpSegLargeRangeAllocate(a1, v9, v5, 0LL);
   }
   v15 = RtlpHpSegPageRangeSplit(v14, v9, v5);
   if ( v15 )
-    RtlpHpSegFreeRangeInsert(a1, v15, 0LL);
+    RtlpHpSegFreeRangeInsert(a1, v15, 0);
   v16 = v5 - 1;
   *(_BYTE *)(v9 + 24) |= HIBYTE(a3) & 0xC | 1;
   *(_BYTE *)(32LL * (v5 - 1) + v9 + 24) |= 1u;
   if ( !v7 )
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   v17 = 1;
   if ( v16 > 1 )
   {

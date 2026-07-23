@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteControlArea @ 0x1400A4F50
+ * XREFs of MiDeleteControlArea @ 0x1400A34C8
  * Callers:
- *     MiDereferenceControlAreaProbe @ 0x140026784 (MiDereferenceControlAreaProbe.c)
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
- *     MiDeleteControlAreaList @ 0x1401DEA38 (MiDeleteControlAreaList.c)
- *     MiFlushControlArea @ 0x1401DEA98 (MiFlushControlArea.c)
+ *     MiDereferenceControlAreaProbe @ 0x140026304 (MiDereferenceControlAreaProbe.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
+ *     MiDeleteControlAreaList @ 0x1401DE864 (MiDeleteControlAreaList.c)
+ *     MiFlushControlArea @ 0x1401DE8C4 (MiFlushControlArea.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeReleaseImageValidationContext @ 0x1405278E0 (SeReleaseImageValidationContext.c)
- *     MiFreeRelocations @ 0x14052CC54 (MiFreeRelocations.c)
+ *     SeReleaseImageValidationContext @ 0x14050A940 (SeReleaseImageValidationContext.c)
+ *     MiFreeRelocations @ 0x14052D194 (MiFreeRelocations.c)
  */
 
 void __fastcall MiDeleteControlArea(__int64 a1)

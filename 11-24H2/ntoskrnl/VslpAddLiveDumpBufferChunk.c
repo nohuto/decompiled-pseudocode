@@ -1,12 +1,12 @@
 /*
- * XREFs of VslpAddLiveDumpBufferChunk @ 0x14058EB30
+ * XREFs of VslpAddLiveDumpBufferChunk @ 0x14058BB50
  * Callers:
- *     HvlPrepareLivedumpDescriptor @ 0x14058A494 (HvlPrepareLivedumpDescriptor.c)
+ *     HvlPrepareLivedumpDescriptor @ 0x140587784 (HvlPrepareLivedumpDescriptor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslpAddLiveDumpBufferChunk(char *BaseAddress, int a2)
@@ -33,7 +33,7 @@ __int64 __fastcall VslpAddLiveDumpBufferChunk(char *BaseAddress, int a2)
     }
     while ( (unsigned int)v5 < 0xB && a2 );
     v7 = v5;
-    result = VslpEnterIumSecureMode(2u, 60LL, 0, (__int64)v6);
+    result = VslpEnterIumSecureMode(2u, 0x3Cu, 0, (__int64)v6);
   }
   while ( (int)result >= 0 );
   return result;

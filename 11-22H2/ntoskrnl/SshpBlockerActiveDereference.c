@@ -44,10 +44,13 @@ __int64 __fastcall SshpBlockerActiveDereference(PKSPIN_LOCK SpinLock, int a2)
       v7 = (volatile signed __int64 *)v4;
 LABEL_6:
       KxReleaseSpinLock(v7);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v5 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
@@ -69,10 +72,10 @@ LABEL_5:
       goto LABEL_6;
     SshpSetBlockerActive(v4, 0LL);
     KxReleaseSpinLock((volatile signed __int64 *)v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v10 >= 2u )
       {
         v11 = KeGetCurrentPrcb();
         v12 = v11->SchedulerAssist;
@@ -93,10 +96,10 @@ LABEL_5:
     goto LABEL_5;
   v8 = -1073741675;
   KxReleaseSpinLock((volatile signed __int64 *)v4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v18 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v18 >= 2u )
     {
       v19 = KeGetCurrentPrcb();
       v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

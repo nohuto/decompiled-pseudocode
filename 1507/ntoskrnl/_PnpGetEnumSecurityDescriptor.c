@@ -34,9 +34,9 @@ void *PnpGetEnumSecurityDescriptor()
   ULONG v7; // esi
   PVOID v8; // rax
   void *v9; // rbx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-39h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v12; // [rsp+40h] [rbp-31h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v13; // [rsp+48h] [rbp-29h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-39h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v12; // [rsp+40h] [rbp-31h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v13; // [rsp+48h] [rbp-29h] BYREF
   _BYTE SecurityDescriptor[2]; // [rsp+50h] [rbp-21h] BYREF
   __int16 v15; // [rsp+52h] [rbp-1Fh]
   unsigned __int8 Sid[12]; // [rsp+78h] [rbp+7h] BYREF

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInvalidateSubtreeWorker @ 0x140B1C7F0
+ * XREFs of CmpInvalidateSubtreeWorker @ 0x140B1EA00
  * Callers:
  *     <none>
  * Callees:
- *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1408B8038 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpDiscardKcb @ 0x1408B9D6C (CmpDiscardKcb.c)
- *     CmpMarkKeyUnbacked @ 0x1408BA08C (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x1408BA114 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpCleanUpSubKeyInfo @ 0x1408E08B8 (CmpCleanUpSubKeyInfo.c)
+ *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1408BE608 (CmpRemoveLayerLinkForDiscardedKcb.c)
+ *     CmpDiscardKcb @ 0x1408C033C (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x1408C065C (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1408C06E4 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1408E6E78 (CmpCleanUpSubKeyInfo.c)
  */
 
 __int64 __fastcall CmpInvalidateSubtreeWorker(ULONG_PTR a1, unsigned int *a2)

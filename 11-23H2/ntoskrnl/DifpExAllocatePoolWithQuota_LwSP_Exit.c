@@ -1,9 +1,9 @@
 /*
- * XREFs of DifpExAllocatePoolWithQuota_LwSP_Exit @ 0x140AE7B90
+ * XREFs of DifpExAllocatePoolWithQuota_LwSP_Exit @ 0x140AE7B80
  * Callers:
  *     <none>
  * Callees:
- *     ExIsSpecialPoolAddress @ 0x14060F088 (ExIsSpecialPoolAddress.c)
+ *     ExIsSpecialPoolAddress @ 0x14060F5D8 (ExIsSpecialPoolAddress.c)
  */
 
 __int64 __fastcall DifpExAllocatePoolWithQuota_LwSP_Exit(__int64 a1)

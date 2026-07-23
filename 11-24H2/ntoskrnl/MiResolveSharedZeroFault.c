@@ -1,16 +1,16 @@
 /*
- * XREFs of MiResolveSharedZeroFault @ 0x1402FFD60
+ * XREFs of MiResolveSharedZeroFault @ 0x14030A4E0
  * Callers:
- *     MiZeroFault @ 0x1402FEA50 (MiZeroFault.c)
+ *     MiZeroFault @ 0x1403091D0 (MiZeroFault.c)
  * Callees:
- *     MiPteHasShadow @ 0x1402141A0 (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakePrototypePteDirect @ 0x1402331F0 (MiMakePrototypePteDirect.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetProtoPteAddress @ 0x140301740 (MiGetProtoPteAddress.c)
- *     MiFillPteWithProto @ 0x1403EED40 (MiFillPteWithProto.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiMakePrototypePteDirect @ 0x140203600 (MiMakePrototypePteDirect.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiPteHasShadow @ 0x140307500 (MiPteHasShadow.c)
+ *     MiGetProtoPteAddress @ 0x14030BEC0 (MiGetProtoPteAddress.c)
+ *     MiFillPteWithProto @ 0x1403E17D0 (MiFillPteWithProto.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiResolveSharedZeroFault(unsigned int *a1)
@@ -245,12 +245,12 @@ LABEL_39:
             else
             {
               PrototypePteDirect = 32 * (v55 & 0x1F | 0xFFFFFFFFF8000020uLL);
-              if ( qword_140E2DB80 )
+              if ( qword_140E2DCC0 )
               {
-                if ( (qword_140E2DB80 & PrototypePteDirect) != 0 )
+                if ( (qword_140E2DCC0 & PrototypePteDirect) != 0 )
                   PrototypePteDirect |= 0x10uLL;
                 else
-                  PrototypePteDirect |= qword_140E2DB80;
+                  PrototypePteDirect |= qword_140E2DCC0;
               }
             }
             *(_QWORD *)v20 = PrototypePteDirect;

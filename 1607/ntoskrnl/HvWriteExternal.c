@@ -1,21 +1,21 @@
 /*
- * XREFs of HvWriteExternal @ 0x1406064F4
+ * XREFs of HvWriteExternal @ 0x1406065A8
  * Callers:
- *     CmSaveKey @ 0x14060CC1C (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x14060CE74 (CmSaveMergedKeys.c)
+ *     CmSaveKey @ 0x14060CCD0 (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x14060CF28 (CmSaveMergedKeys.c)
  * Callees:
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
- *     HvpHeaderCheckSum @ 0x140481EC0 (HvpHeaderCheckSum.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     CmpFileFlush @ 0x140604204 (CmpFileFlush.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
+ *     HvpHeaderCheckSum @ 0x140480C14 (HvpHeaderCheckSum.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     CmpFileFlush @ 0x1406042B8 (CmpFileFlush.c)
  */
 
 __int64 __fastcall HvWriteExternal(ULONG_PTR BugCheckParameter2)

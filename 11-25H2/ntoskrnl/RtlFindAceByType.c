@@ -14,29 +14,29 @@
  *     <none>
  */
 
-unsigned __int8 *__fastcall RtlFindAceByType(__int64 a1, int a2, unsigned int *a3)
+PVOID __cdecl RtlFindAceByType(PACL Acl, UCHAR AceType, PULONG Index)
 {
-  unsigned __int8 *v3; // r11
+  PACL v3; // r11
   unsigned int i; // r9d
 
-  if ( a1 )
+  if ( Acl )
   {
-    v3 = (unsigned __int8 *)(a1 + 8);
-    for ( i = 0; i < *(unsigned __int16 *)(a1 + 4); ++i )
+    v3 = Acl + 1;
+    for ( i = 0; i < Acl->AceCount; ++i )
     {
-      if ( a3 )
+      if ( Index )
       {
-        if ( i >= *a3 && *v3 == a2 )
+        if ( i >= *Index && v3->AclRevision == AceType )
         {
-          *a3 = i;
+          *Index = i;
           return v3;
         }
       }
-      else if ( *v3 == a2 )
+      else if ( v3->AclRevision == AceType )
       {
         return v3;
       }
-      v3 += *((unsigned __int16 *)v3 + 1);
+      v3 = (PACL)((char *)v3 + v3->AclSize);
     }
   }
   return 0LL;

@@ -11,223 +11,220 @@
  *     bsearch @ 0x1800986E0 (bsearch.c)
  */
 
-__int64 __fastcall sub_18003FCD8(
+NTSTATUS __fastcall sub_18003FCD8(
         __int64 a1,
         unsigned __int64 a2,
-        unsigned __int16 **a3,
+        _UNICODE_STRING *a3,
         unsigned int *a4,
         _DWORD *a5,
-        unsigned int *a6)
+        ULONG *HashValue)
 {
   char v6; // r14
-  char v7; // r12
+  BOOLEAN v7; // r12
   bool v8; // zf
-  __int64 v12; // r8
-  __int64 result; // rax
-  __int64 v14; // rdx
-  char v15; // dl
-  unsigned int v16; // r11d
-  __int64 v17; // rcx
-  __int64 v18; // rbp
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  unsigned int *v21; // rdx
-  unsigned int v22; // eax
-  char *v23; // r15
-  unsigned __int64 v24; // rdx
-  int *v25; // r9
-  unsigned __int64 v26; // rax
-  char *v27; // rbx
-  size_t v28; // r8
-  char *v29; // rbx
-  char *v30; // r12
-  char *v31; // rax
-  unsigned int v32; // ebp
-  unsigned __int16 *v33; // rcx
-  unsigned __int64 v34; // r14
-  unsigned __int64 v35; // rax
-  __int64 v36; // rcx
-  int v37; // ebp
-  char v38; // [rsp+50h] [rbp-78h]
-  int v39; // [rsp+54h] [rbp-74h] BYREF
-  unsigned int v40; // [rsp+58h] [rbp-70h]
-  unsigned int v41; // [rsp+5Ch] [rbp-6Ch]
-  unsigned __int16 *v42; // [rsp+60h] [rbp-68h]
-  unsigned __int64 v43; // [rsp+68h] [rbp-60h]
-  unsigned int Key[6]; // [rsp+70h] [rbp-58h] BYREF
+  ULONG v12; // r8d
+  NTSTATUS result; // eax
+  char v14; // dl
+  ULONG v15; // r11d
+  __int64 v16; // rcx
+  __int64 v17; // rbp
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  unsigned int *v20; // rdx
+  unsigned int v21; // eax
+  char *v22; // r15
+  unsigned __int64 v23; // rdx
+  int *v24; // r9
+  unsigned __int64 v25; // rax
+  char *v26; // rbx
+  size_t v27; // r8
+  char *v28; // rbx
+  char *v29; // r12
+  char *v30; // rax
+  ULONG v31; // ebp
+  const WCHAR *Buffer; // rcx
+  SIZE_T v33; // r14
+  unsigned __int64 v34; // rax
+  __int64 v35; // rcx
+  int v36; // ebp
+  BOOLEAN CaseInSensitive; // [rsp+50h] [rbp-78h]
+  ULONG v38; // [rsp+54h] [rbp-74h] BYREF
+  ULONG v39; // [rsp+58h] [rbp-70h]
+  unsigned int v40; // [rsp+5Ch] [rbp-6Ch]
+  const WCHAR *v41; // [rsp+60h] [rbp-68h]
+  unsigned __int64 v42; // [rsp+68h] [rbp-60h]
+  ULONG Key[6]; // [rsp+70h] [rbp-58h] BYREF
 
   v6 = 1;
   v7 = *(_BYTE *)(a1 + 16) & 1;
   v8 = *(_DWORD *)a1 == 1682469715;
-  v43 = a2;
-  v38 = v7;
+  v42 = a2;
+  CaseInSensitive = v7;
   if ( !v8 )
-    return 3222601731LL;
+    return -1072365565;
   if ( !*(_DWORD *)(a1 + 20) )
-    return 3222601736LL;
-  v12 = *(unsigned int *)(a1 + 28);
-  if ( (_DWORD)v12 != -1 )
+    return -1072365560;
+  v12 = *(_DWORD *)(a1 + 28);
+  if ( v12 != -1 )
   {
-    if ( *a5 == (_DWORD)v12 )
+    if ( *a5 == v12 )
       goto LABEL_7;
-    LOBYTE(a2) = v7;
-    result = RtlHashUnicodeString(a3, a2, v12, a6);
-    if ( (int)result >= 0 )
+    result = RtlHashUnicodeString(a3, v7, v12, HashValue);
+    if ( result >= 0 )
     {
       *a5 = *(_DWORD *)(a1 + 28);
       goto LABEL_7;
     }
-    if ( (_DWORD)result != -1073741811 )
+    if ( result != -1073741811 )
       return result;
-    LOBYTE(v14) = v7;
-    result = RtlHashUnicodeString(a3, v14, 0LL, &v39);
-    if ( (int)result < 0 )
+    result = RtlHashUnicodeString(a3, v7, 0, &v38);
+    if ( result < 0 )
       return result;
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "RtlpFindUnicodeStringInSection: Unsupported hash algorithm %lu found in string section.\n",
       *(_DWORD *)(a1 + 28));
   }
   v6 = 0;
 LABEL_7:
-  v15 = 0;
+  v14 = 0;
   if ( *(_DWORD *)(a1 + 8) == 1 )
-    v15 = v6;
-  if ( ((unsigned __int8)-(*(_DWORD *)(a1 + 32) != 0) & (unsigned __int8)v15) != 0 )
+    v14 = v6;
+  if ( ((unsigned __int8)-(*(_DWORD *)(a1 + 32) != 0) & (unsigned __int8)v14) != 0 )
   {
-    v17 = *(unsigned int *)(a1 + 32);
-    v18 = 0LL;
-    v40 = *a6;
-    v16 = v40;
-    v19 = v40 % *(_DWORD *)(v17 + a1);
-    v20 = a1 + *(unsigned int *)(v17 + a1 + 4);
-    v39 = v19;
-    v21 = (unsigned int *)(v20 + 8 * v19);
-    v22 = *v21;
-    v23 = (char *)(a1 + v21[1]);
-    v42 = (unsigned __int16 *)v21;
-    v41 = v22;
-    if ( v22 )
+    v16 = *(unsigned int *)(a1 + 32);
+    v17 = 0LL;
+    v39 = *HashValue;
+    v15 = v39;
+    v18 = v39 % *(_DWORD *)(v16 + a1);
+    v19 = a1 + *(unsigned int *)(v16 + a1 + 4);
+    v38 = v18;
+    v20 = (unsigned int *)(v19 + 8 * v18);
+    v21 = *v20;
+    v22 = (char *)(a1 + v20[1]);
+    v41 = (const WCHAR *)v20;
+    v40 = v21;
+    if ( v21 )
     {
-      v24 = v43;
+      v23 = v42;
       while ( 1 )
       {
-        v25 = (int *)&v23[4 * v18];
-        v26 = *v25;
-        if ( v26 > v24 )
+        v24 = (int *)&v22[4 * v17];
+        v25 = *v24;
+        if ( v25 > v23 )
           break;
-        v27 = (char *)(v26 + a1);
-        if ( !v6 || *(_DWORD *)v27 == v16 )
+        v26 = (char *)(v25 + a1);
+        if ( !v6 || *(_DWORD *)v26 == v15 )
         {
-          v35 = *((unsigned int *)v27 + 1);
-          if ( v35 > v24 )
+          v34 = *((unsigned int *)v26 + 1);
+          if ( v34 > v23 )
           {
             DbgPrintEx(
-              51LL,
-              0LL,
+              0x33u,
+              0,
               "SXS: String hash table entry at %p has invalid key offset (= %ld)\n"
               "   Header = %p; Index = %lu; Bucket = %p; Chain = %p\n",
-              v27,
-              *((_DWORD *)v27 + 1),
+              v26,
+              *((_DWORD *)v26 + 1),
               (const void *)a1,
-              v39,
-              v42,
-              v23);
-            return 3222601731LL;
+              v38,
+              v41,
+              v22);
+            return -1072365565;
           }
-          if ( !(unsigned int)RtlCompareUnicodeStrings(
-                                a3[1],
-                                (unsigned __int64)*(unsigned __int16 *)a3 >> 1,
-                                v35 + a1,
-                                (unsigned __int64)*((unsigned __int16 *)v27 + 4) >> 1,
-                                v7) )
+          if ( !RtlCompareUnicodeStrings(
+                  a3->Buffer,
+                  (unsigned __int64)a3->Length >> 1,
+                  (PCWCH)(v34 + a1),
+                  (unsigned __int64)*((unsigned __int16 *)v26 + 4) >> 1,
+                  v7) )
             goto LABEL_33;
-          v16 = v40;
-          v24 = v43;
+          v15 = v39;
+          v23 = v42;
         }
-        v18 = (unsigned int)(v18 + 1);
-        if ( (unsigned int)v18 >= v41 )
-          return 3222601736LL;
+        v17 = (unsigned int)(v17 + 1);
+        if ( (unsigned int)v17 >= v40 )
+          return -1072365560;
       }
-      DbgPrintEx(51LL, 0LL, "SXS: String hash collision chain offset at %p (= %ld) out of bounds\n", v25, *v25);
-      return 3222601731LL;
+      DbgPrintEx(0x33u, 0, "SXS: String hash collision chain offset at %p (= %ld) out of bounds\n", v24, *v24);
+      return -1072365565;
     }
-    return 3222601736LL;
+    return -1072365560;
   }
   if ( v6 && (*(_BYTE *)(a1 + 16) & 2) != 0 )
   {
-    v28 = *(unsigned int *)(a1 + 20);
-    v29 = (char *)(a1 + *(unsigned int *)(a1 + 24));
-    v30 = &v29[24 * (unsigned int)(v28 - 1)];
-    Key[0] = *a6;
-    v31 = (char *)bsearch(Key, v29, v28, 0x18uLL, sub_18007FE50);
-    if ( v31 )
+    v27 = *(unsigned int *)(a1 + 20);
+    v28 = (char *)(a1 + *(unsigned int *)(a1 + 24));
+    v29 = &v28[24 * (unsigned int)(v27 - 1)];
+    Key[0] = *HashValue;
+    v30 = (char *)bsearch(Key, v28, v27, 0x18uLL, sub_18007FE50);
+    if ( v30 )
     {
-      for ( ; v31 != v29; v31 -= 24 )
+      for ( ; v30 != v28; v30 -= 24 )
       {
-        if ( *(_DWORD *)v31 != *a6 )
+        if ( *(_DWORD *)v30 != *HashValue )
           break;
       }
-      v32 = *a6;
-      v27 = v31 + 24;
-      v33 = a3[1];
-      if ( *(_DWORD *)v31 == *a6 )
-        v27 = v31;
-      v34 = (unsigned __int64)*(unsigned __int16 *)a3 >> 1;
-      v42 = a3[1];
+      v31 = *HashValue;
+      v26 = v30 + 24;
+      Buffer = a3->Buffer;
+      if ( *(_DWORD *)v30 == *HashValue )
+        v26 = v30;
+      v33 = (unsigned __int64)a3->Length >> 1;
+      v41 = a3->Buffer;
       do
       {
-        if ( !(unsigned int)RtlCompareUnicodeStrings(
-                              v33,
-                              v34,
-                              a1 + *((unsigned int *)v27 + 1),
-                              (unsigned __int64)*((unsigned __int16 *)v27 + 4) >> 1,
-                              v38) )
+        if ( !RtlCompareUnicodeStrings(
+                Buffer,
+                v33,
+                (PCWCH)(a1 + *((unsigned int *)v26 + 1)),
+                (unsigned __int64)*((unsigned __int16 *)v26 + 4) >> 1,
+                CaseInSensitive) )
           break;
-        v27 += 24;
-        if ( v27 > v30 )
+        v26 += 24;
+        if ( v26 > v29 )
           goto LABEL_30;
-        v33 = v42;
+        Buffer = v41;
       }
-      while ( *(_DWORD *)v27 == v32 );
-      if ( v27 > v30 || *(_DWORD *)v27 != v32 )
+      while ( *(_DWORD *)v26 == v31 );
+      if ( v26 > v29 || *(_DWORD *)v26 != v31 )
       {
 LABEL_30:
-        v27 = 0LL;
+        v26 = 0LL;
         goto LABEL_33;
       }
       goto LABEL_33;
     }
-    return 3222601736LL;
+    return -1072365560;
   }
-  v37 = *(_DWORD *)(a1 + 20);
-  v27 = (char *)(a1 + *(unsigned int *)(a1 + 24));
-  if ( !v37 )
-    return 3222601736LL;
-  while ( v6 && *(_DWORD *)v27 != *a6
-       || (unsigned int)RtlCompareUnicodeStrings(
-                          a3[1],
-                          (unsigned __int64)*(unsigned __int16 *)a3 >> 1,
-                          a1 + *((unsigned int *)v27 + 1),
-                          (unsigned __int64)*((unsigned __int16 *)v27 + 4) >> 1,
-                          v7) )
+  v36 = *(_DWORD *)(a1 + 20);
+  v26 = (char *)(a1 + *(unsigned int *)(a1 + 24));
+  if ( !v36 )
+    return -1072365560;
+  while ( v6 && *(_DWORD *)v26 != *HashValue
+       || RtlCompareUnicodeStrings(
+            a3->Buffer,
+            (unsigned __int64)a3->Length >> 1,
+            (PCWCH)(a1 + *((unsigned int *)v26 + 1)),
+            (unsigned __int64)*((unsigned __int16 *)v26 + 4) >> 1,
+            v7) )
   {
-    v27 += 24;
-    if ( !--v37 )
-      return 3222601736LL;
+    v26 += 24;
+    if ( !--v36 )
+      return -1072365560;
   }
 LABEL_33:
-  if ( !v27 || !*((_DWORD *)v27 + 3) )
-    return 3222601736LL;
+  if ( !v26 || !*((_DWORD *)v26 + 3) )
+    return -1072365560;
   if ( a4 )
   {
-    v36 = *a4;
+    v35 = *a4;
     a4[1] = *(_DWORD *)(a1 + 12);
-    *((_QWORD *)a4 + 1) = a1 + *((unsigned int *)v27 + 3);
-    a4[4] = *((_DWORD *)v27 + 4);
-    if ( a4 + 17 <= (unsigned int *)((char *)a4 + v36) )
-      a4[16] = *((_DWORD *)v27 + 5);
+    *((_QWORD *)a4 + 1) = a1 + *((unsigned int *)v26 + 3);
+    a4[4] = *((_DWORD *)v26 + 4);
+    if ( a4 + 17 <= (unsigned int *)((char *)a4 + v35) )
+      a4[16] = *((_DWORD *)v26 + 5);
   }
-  return 0LL;
+  return 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmHeteroComputeRelativePerformance @ 0x14082F108
+ * XREFs of PpmHeteroComputeRelativePerformance @ 0x14082F408
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeIsEqualAffinityEx @ 0x1402BFED0 (KeIsEqualAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeIsEqualAffinityEx @ 0x1402C0160 (KeIsEqualAffinityEx.c)
  */
 
 char PpmHeteroComputeRelativePerformance()

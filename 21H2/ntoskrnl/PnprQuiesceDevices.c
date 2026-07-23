@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprQuiesceDevices @ 0x1409AE210
+ * XREFs of PnprQuiesceDevices @ 0x1409AF140
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
- *     PnprQuiesceWorker @ 0x1409AEC60 (PnprQuiesceWorker.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC3D0 (PnpReplacePartitionUnit.c)
+ *     PnprQuiesceWorker @ 0x1409AFB90 (PnprQuiesceWorker.c)
  * Callees:
- *     PoBlockConsoleSwitch @ 0x14067E978 (PoBlockConsoleSwitch.c)
- *     PoStartPowerStateTasks @ 0x1407741A4 (PoStartPowerStateTasks.c)
- *     PoInitializeBroadcast @ 0x140778238 (PoInitializeBroadcast.c)
- *     PoStartPartitionReplace @ 0x1408E76B8 (PoStartPartitionReplace.c)
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
- *     PnprGetMillisecondCounter @ 0x1409AD79C (PnprGetMillisecondCounter.c)
+ *     PoBlockConsoleSwitch @ 0x140672828 (PoBlockConsoleSwitch.c)
+ *     PoStartPowerStateTasks @ 0x140774364 (PoStartPowerStateTasks.c)
+ *     PoInitializeBroadcast @ 0x1407783F8 (PoInitializeBroadcast.c)
+ *     PoStartPartitionReplace @ 0x1408E7818 (PoStartPartitionReplace.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
+ *     PnprGetMillisecondCounter @ 0x1409AE6CC (PnprGetMillisecondCounter.c)
  */
 
 __int64 __fastcall PnprQuiesceDevices(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopStoreArcInformation @ 0x140CBDF98
+ * XREFs of IopStoreArcInformation @ 0x140CC4068
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlStringCbCopyA @ 0x14047C2C8 (RtlStringCbCopyA.c)
- *     _strnicmp @ 0x140536310 (_strnicmp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCbCopyA @ 0x140475C38 (RtlStringCbCopyA.c)
+ *     _strnicmp @ 0x140538790 (_strnicmp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopStoreArcInformation(__int64 a1)
 {
   __int64 **v1; // r14
-  int v2; // r15d
+  int Blink; // r15d
   unsigned int v3; // ebx
   __int64 *i; // rsi
   PVOID *Pool2; // rdi
@@ -28,7 +28,7 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
   void **m; // rcx
 
   v1 = *(__int64 ***)(a1 + 232);
-  v2 = *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64];
+  Blink = (int)ExpSysDbgLock.ThreadListEntry.Blink;
   v3 = 0;
   PspSiloMonitorLock.RelativeTimerBias = (unsigned __int64)&PspSiloMonitorLock.Teb;
   PspSiloMonitorLock.Teb = &PspSiloMonitorLock.Teb;
@@ -51,7 +51,7 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
           }
         }
       }
-      if ( v2 == 1 )
+      if ( Blink == 1 )
       {
         for ( m = (void **)PspSiloMonitorLock.Teb; m != &PspSiloMonitorLock.Teb; m = (void **)*m )
         {
@@ -81,7 +81,7 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
     *((_OWORD *)Pool2 + 3) = *((_OWORD *)i + 3);
     RtlStringCbCopyA(v8, v7, (NTSTRSAFE_PCSTR)i[3]);
     Pool2[3] = v9;
-    if ( v2 == 1 && v7 >= 9 && !strnicmp(&v9[v7 - 9], "rdisk(0)", 8uLL) )
+    if ( Blink == 1 && v7 >= 9 && !strnicmp(&v9[v7 - 9], "rdisk(0)", 8uLL) )
       *((_BYTE *)Pool2 + 76) = 1;
     RelativeTimerBias = (_QWORD *)PspSiloMonitorLock.RelativeTimerBias;
     if ( *(struct _KTHREAD **)PspSiloMonitorLock.RelativeTimerBias != (struct _KTHREAD *)&PspSiloMonitorLock.Teb )

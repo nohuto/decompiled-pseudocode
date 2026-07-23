@@ -1,15 +1,15 @@
 /*
- * XREFs of NtQuerySecurityPolicy @ 0x14091BB40
+ * XREFs of NtQuerySecurityPolicy @ 0x14091BCA0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SepCaptureUnicodeStringArray @ 0x140601510 (SepCaptureUnicodeStringArray.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     SepCaptureUnicodeStringArray @ 0x1406F0C70 (SepCaptureUnicodeStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtQuerySecurityPolicy(
@@ -86,10 +86,10 @@ __int64 __fastcall NtQuerySecurityPolicy(
           v14 = (_DWORD *)Address;
           LODWORD(Length) = *(_DWORD *)Address;
         }
-        if ( qword_140C1DB58 )
+        if ( qword_140C1DB78 )
         {
           if ( !PoolWithQuotaTag || (_DWORD)Length )
-            v11 = qword_140C1DB58(P, v21, v22[0], (char *)&Length + 4, PoolWithQuotaTag, &Length);
+            v11 = qword_140C1DB78(P, v21, v22[0], (char *)&Length + 4, PoolWithQuotaTag, &Length);
           else
             v11 = -1073741811;
         }

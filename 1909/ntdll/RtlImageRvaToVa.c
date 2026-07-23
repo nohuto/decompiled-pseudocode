@@ -6,16 +6,25 @@
  *     RtlSectionTableFromVirtualAddress @ 0x18001EFD0 (RtlSectionTableFromVirtualAddress.c)
  */
 
-__int64 __fastcall RtlImageRvaToVa(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
+PVOID __cdecl RtlImageRvaToVa(
+        PIMAGE_NT_HEADERS NtHeaders,
+        PVOID BaseOfImage,
+        ULONG Rva,
+        PIMAGE_SECTION_HEADER *LastRvaSection)
 {
-  _DWORD *v7; // r10
-  unsigned int v9; // r8d
+  PIMAGE_SECTION_HEADER v7; // r10
+  ULONG VirtualAddress; // r8d
 
-  if ( !a4 || (v7 = (_DWORD *)*a4) == 0LL || (v9 = v7[3], a3 < v9) || a3 >= v9 + v7[4] )
-    v7 = (_DWORD *)RtlSectionTableFromVirtualAddress(a1, a2, a3);
+  if ( !LastRvaSection
+    || (v7 = *LastRvaSection) == 0LL
+    || (VirtualAddress = v7->VirtualAddress, Rva < VirtualAddress)
+    || Rva >= VirtualAddress + v7->SizeOfRawData )
+  {
+    v7 = RtlSectionTableFromVirtualAddress(NtHeaders, BaseOfImage, Rva);
+  }
   if ( !v7 )
     return 0LL;
-  if ( a4 )
-    *a4 = v7;
-  return a2 + a3 - v7[3] + (unsigned int)v7[5];
+  if ( LastRvaSection )
+    *LastRvaSection = v7;
+  return (char *)BaseOfImage + Rva - v7->VirtualAddress + v7->PointerToRawData;
 }

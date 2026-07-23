@@ -2,13 +2,13 @@
  * XREFs of MiFlushTbListEarly @ 0x140216C24
  * Callers:
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
- *     MiDeleteVa @ 0x14027A5C0 (MiDeleteVa.c)
- *     MiReleaseSmallPteMappings @ 0x1402CBF20 (MiReleaseSmallPteMappings.c)
- *     MiDeleteEmptyPageTable @ 0x140357CE0 (MiDeleteEmptyPageTable.c)
- *     MiResetAccessBitPteWorker @ 0x14046C10C (MiResetAccessBitPteWorker.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
+ *     MiDeleteVa @ 0x14027A850 (MiDeleteVa.c)
+ *     MiReleaseSmallPteMappings @ 0x1402CC1B0 (MiReleaseSmallPteMappings.c)
+ *     MiDeleteEmptyPageTable @ 0x140357E80 (MiDeleteEmptyPageTable.c)
+ *     MiResetAccessBitPteWorker @ 0x14046C50C (MiResetAccessBitPteWorker.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
  * Callees:
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
  */
 
 __int64 __fastcall MiFlushTbListEarly(__int64 a1, char a2)

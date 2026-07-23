@@ -26,7 +26,7 @@ __int64 __fastcall KiGetNextTimer2ExpirationDueTime(char a1, unsigned __int64 *a
       ++v3;
       v5 += 3;
     }
-    while ( (__int64)v5 < (__int64)&unk_140338E08 );
+    while ( (__int64)v5 < (__int64)&KiHighResolutionTimerClockIntervalRequest.Children[1] );
   }
   result = qword_140338DA8;
   if ( qword_140338DA8 < v4 )

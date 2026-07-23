@@ -1,10 +1,10 @@
 /*
- * XREFs of MiValidateSectionNewSecurity @ 0x140AC8074
+ * XREFs of MiValidateSectionNewSecurity @ 0x140AC9C64
  * Callers:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  * Callees:
- *     MiWalkEntireImage @ 0x140AC8434 (MiWalkEntireImage.c)
- *     MiCaptureSecureImageBaseAddress @ 0x140B3540C (MiCaptureSecureImageBaseAddress.c)
+ *     MiWalkEntireImage @ 0x140ACA024 (MiWalkEntireImage.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140B3761C (MiCaptureSecureImageBaseAddress.c)
  */
 
 __int64 __fastcall MiValidateSectionNewSecurity(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall MiValidateSectionNewSecurity(__int64 a1)
     && *(_QWORD *)(v3 + 32)
     && (result = MiCaptureSecureImageBaseAddress(*(_QWORD *)(a1 + 8)), (int)result < 0) )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 118;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 118;
   }
   else
   {
@@ -42,7 +42,7 @@ __int64 __fastcall MiValidateSectionNewSecurity(__int64 a1)
     result = MiWalkEntireImage(v8);
     if ( (int)result < 0 )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 119;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 119;
     }
     else
     {

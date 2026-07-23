@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpCalcAdjustedDueTime @ 0x1406CEC60
+ * XREFs of ExpCalcAdjustedDueTime @ 0x1406D2C90
  * Callers:
- *     ExpTimerAdjust @ 0x1406CF460 (ExpTimerAdjust.c)
+ *     ExpTimerAdjust @ 0x1406D3490 (ExpTimerAdjust.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of CsrCaptureMessageString @ 0x1800CA8B0
+ * XREFs of CsrCaptureMessageString @ 0x1800C8020
  * Callers:
- *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x1800CA790 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
+ *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x1800C7F00 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 void __fastcall CsrCaptureMessageString(__int64 a1, const void *a2, int a3, unsigned int a4, unsigned __int16 *a5)

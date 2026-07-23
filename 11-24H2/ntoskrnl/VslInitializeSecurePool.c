@@ -1,11 +1,11 @@
 /*
- * XREFs of VslInitializeSecurePool @ 0x14058D6EC
+ * XREFs of VslInitializeSecurePool @ 0x14058A9DC
  * Callers:
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslInitializeSecurePool(__int64 a1, __int64 a2)
@@ -19,5 +19,5 @@ __int64 __fastcall VslInitializeSecurePool(__int64 a1, __int64 a2)
   SecurePoolEnd = a1 + a2;
   v6 = a1;
   v7 = a2;
-  return VslpEnterIumSecureMode(2u, 214LL, 0, (__int64)v5);
+  return VslpEnterIumSecureMode(2u, 0xD6u, 0, (__int64)v5);
 }

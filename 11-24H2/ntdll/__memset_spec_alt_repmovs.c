@@ -1,7 +1,7 @@
 /*
- * XREFs of __memset_spec_alt_repmovs @ 0x180168A80
+ * XREFs of __memset_spec_alt_repmovs @ 0x180166E40
  * Callers:
- *     __memset_spec_alt @ 0x180168880 (__memset_spec_alt.c)
+ *     __memset_spec_alt @ 0x180166C40 (__memset_spec_alt.c)
  * Callees:
  *     <none>
  */

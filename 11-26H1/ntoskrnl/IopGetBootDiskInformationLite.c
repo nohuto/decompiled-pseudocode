@@ -1,15 +1,15 @@
 /*
- * XREFs of IopGetBootDiskInformationLite @ 0x140CBEB30
+ * XREFs of IopGetBootDiskInformationLite @ 0x140CC4C00
  * Callers:
- *     IoGetBootDiskInformationLite @ 0x140796450 (IoGetBootDiskInformationLite.c)
+ *     IoGetBootDiskInformationLite @ 0x140798F80 (IoGetBootDiskInformationLite.c)
  * Callees:
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     IopAddBootDiskInformation @ 0x1405CB5B0 (IopAddBootDiskInformation.c)
- *     IopCheckDiskName @ 0x1405CB648 (IopCheckDiskName.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     VhdiGetDiskParameters @ 0x140D02B90 (VhdiGetDiskParameters.c)
- *     CimfsGetDiskParameters @ 0x140D032C0 (CimfsGetDiskParameters.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     IopAddBootDiskInformation @ 0x1405CDE80 (IopAddBootDiskInformation.c)
+ *     IopCheckDiskName @ 0x1405CDF18 (IopCheckDiskName.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     VhdiGetDiskParameters @ 0x140D08F30 (VhdiGetDiskParameters.c)
+ *     CimfsGetDiskParameters @ 0x140D09660 (CimfsGetDiskParameters.c)
  */
 
 __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)

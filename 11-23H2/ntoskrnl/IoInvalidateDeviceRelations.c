@@ -1,17 +1,17 @@
 /*
- * XREFs of IoInvalidateDeviceRelations @ 0x140358F90
+ * XREFs of IoInvalidateDeviceRelations @ 0x140359130
  * Callers:
- *     PiSwProcessParentStartIrp @ 0x1407E0E48 (PiSwProcessParentStartIrp.c)
- *     IopPnPDispatch @ 0x1407EB020 (IopPnPDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
- *     PiSwGetChildPdo @ 0x140848320 (PiSwGetChildPdo.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x140963750 (PiProfileUpdateDeviceTreeCallback.c)
- *     PiSwCloseDevice @ 0x1409670C0 (PiSwCloseDevice.c)
- *     PiSwProcessRemove @ 0x1409676D0 (PiSwProcessRemove.c)
+ *     PiSwProcessParentStartIrp @ 0x1407E1118 (PiSwProcessParentStartIrp.c)
+ *     IopPnPDispatch @ 0x1407EB2F0 (IopPnPDispatch.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
+ *     PiSwGetChildPdo @ 0x140848620 (PiSwGetChildPdo.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x140963950 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiSwCloseDevice @ 0x1409672C0 (PiSwCloseDevice.c)
+ *     PiSwProcessRemove @ 0x1409678D0 (PiSwProcessRemove.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_RELATION_TYPE Type)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUpdateZeroFreeBitmap @ 0x1400EE9D4
+ * XREFs of MiUpdateZeroFreeBitmap @ 0x1400EEA54
  * Callers:
- *     MiReplenishPageSlist @ 0x1400EE3A0 (MiReplenishPageSlist.c)
+ *     MiReplenishPageSlist @ 0x1400EE420 (MiReplenishPageSlist.c)
  * Callees:
  *     <none>
  */
@@ -17,12 +17,12 @@ __int64 __fastcall MiUpdateZeroFreeBitmap(__int64 a1, int a2, unsigned int a3, i
   __int64 v11; // rdx
 
   v5 = a3;
-  v6 = a3 & dword_14043A088;
+  v6 = a3 & dword_14043B148;
   v7 = v6;
   v8 = v6 >> 5;
   v9 = 1 << (v7 & 0x1F);
   result = *(_QWORD *)(a1 + 16);
-  v11 = *(_QWORD *)(result + 16 * (a2 + 124 * (v5 >> byte_14043A049)) + 1672);
+  v11 = *(_QWORD *)(result + 16 * (a2 + 124 * (v5 >> byte_14043B109)) + 1672);
   if ( a4 )
     _InterlockedOr((volatile signed __int32 *)(v11 + 4 * v8), v9);
   else

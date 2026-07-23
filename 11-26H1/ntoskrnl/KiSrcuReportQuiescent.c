@@ -1,20 +1,20 @@
 /*
- * XREFs of KiSrcuReportQuiescent @ 0x1404628BC
+ * XREFs of KiSrcuReportQuiescent @ 0x14045B87C
  * Callers:
- *     KiCheckWaitNext @ 0x1402200D0 (KiCheckWaitNext.c)
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiSrcuCheckQuiescent @ 0x140462770 (KiSrcuCheckQuiescent.c)
- *     KeSrcuReadUnlock @ 0x1405F51C0 (KeSrcuReadUnlock.c)
+ *     KiCheckWaitNext @ 0x140221A60 (KiCheckWaitNext.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiSrcuCheckQuiescent @ 0x14045B730 (KiSrcuCheckQuiescent.c)
+ *     KeSrcuReadUnlock @ 0x1405F7B80 (KeSrcuReadUnlock.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x140330C68 (KxTryToAcquireSpinLock.c)
- *     KiSrcuCompareGraceSequence @ 0x1404D9AC0 (KiSrcuCompareGraceSequence.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSrcuNotifyGracePeriodStarted @ 0x1405290A4 (KiSrcuNotifyGracePeriodStarted.c)
- *     KiSrcuQueueGracePeriodReport @ 0x1405F5940 (KiSrcuQueueGracePeriodReport.c)
- *     KiSrcuRequiresRebalance @ 0x1405F5D28 (KiSrcuRequiresRebalance.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140332C98 (KxTryToAcquireSpinLock.c)
+ *     KiSrcuCompareGraceSequence @ 0x1404D31A0 (KiSrcuCompareGraceSequence.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSrcuNotifyGracePeriodStarted @ 0x14052B694 (KiSrcuNotifyGracePeriodStarted.c)
+ *     KiSrcuQueueGracePeriodReport @ 0x1405F8300 (KiSrcuQueueGracePeriodReport.c)
+ *     KiSrcuRequiresRebalance @ 0x1405F86E4 (KiSrcuRequiresRebalance.c)
  */
 
 __int64 __fastcall KiSrcuReportQuiescent(__int64 a1, __int64 a2)

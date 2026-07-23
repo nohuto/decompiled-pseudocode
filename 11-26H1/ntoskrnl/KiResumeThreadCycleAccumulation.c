@@ -1,12 +1,12 @@
 /*
- * XREFs of KiResumeThreadCycleAccumulation @ 0x140334E5C
+ * XREFs of KiResumeThreadCycleAccumulation @ 0x140336E8C
  * Callers:
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     KiIdleSchedule @ 0x1402C7E00 (KiIdleSchedule.c)
- *     KiExecuteSmtIsolationThread @ 0x1405F6610 (KiExecuteSmtIsolationThread.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     KiIdleSchedule @ 0x140312AA0 (KiIdleSchedule.c)
+ *     KiExecuteSmtIsolationThread @ 0x1405F8FD0 (KiExecuteSmtIsolationThread.c)
  * Callees:
- *     KiStartThreadCycleAccumulation @ 0x140334EB0 (KiStartThreadCycleAccumulation.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiStartThreadCycleAccumulation @ 0x140336EE0 (KiStartThreadCycleAccumulation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiResumeThreadCycleAccumulation(__int64 a1, __int64 a2, __int64 a3)

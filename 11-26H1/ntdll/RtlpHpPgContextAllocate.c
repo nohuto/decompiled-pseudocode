@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpPgContextAllocate @ 0x18010CAD0
+ * XREFs of RtlpHpPgContextAllocate @ 0x18010C620
  * Callers:
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
- *     RtlpHpAllocateHeapInternal @ 0x1800DF844 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1800DC7B4 (RtlpHpAllocateHeapInternal.c)
  * Callees:
- *     RtlHeapZero @ 0x1801642D0 (RtlHeapZero.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlHeapZero @ 0x1801641D0 (RtlHeapZero.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 unsigned __int64 __fastcall RtlpHpPgContextAllocate(unsigned __int64 a1, unsigned int a2, unsigned int a3, int a4)
@@ -56,11 +56,11 @@ unsigned __int64 __fastcall RtlpHpPgContextAllocate(unsigned __int64 a1, unsigne
   v37 = 0;
   if ( v9 || a3 < 0x1000 )
   {
-    v10 = qword_1801C6F00;
+    v10 = qword_1801C5F00;
     do
     {
       v11 = v10 ^ (v10 >> 12) ^ ((v10 ^ (v10 >> 12)) << 25) ^ ((v10 ^ (v10 >> 12) ^ ((v10 ^ (v10 >> 12)) << 25)) >> 27);
-      v12 = _InterlockedCompareExchange64(&qword_1801C6F00, v11, v10);
+      v12 = _InterlockedCompareExchange64(&qword_1801C5F00, v11, v10);
       v9 = v10 == v12;
       v10 = v12;
     }

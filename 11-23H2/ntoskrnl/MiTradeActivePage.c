@@ -1,25 +1,25 @@
 /*
- * XREFs of MiTradeActivePage @ 0x1402EAE24
+ * XREFs of MiTradeActivePage @ 0x1402EB0B4
  * Callers:
- *     MiLockCode @ 0x140282330 (MiLockCode.c)
- *     MiProtectDriverSectionPte @ 0x14061A4A0 (MiProtectDriverSectionPte.c)
- *     MiReplaceLockedPage @ 0x140636C94 (MiReplaceLockedPage.c)
- *     MiCompleteSecureProcessFault @ 0x140645B98 (MiCompleteSecureProcessFault.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14065D6C0 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiLockCode @ 0x1402825C0 (MiLockCode.c)
+ *     MiProtectDriverSectionPte @ 0x14061A9F0 (MiProtectDriverSectionPte.c)
+ *     MiReplaceLockedPage @ 0x1406371E4 (MiReplaceLockedPage.c)
+ *     MiCompleteSecureProcessFault @ 0x1406460E8 (MiCompleteSecureProcessFault.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14065DC10 (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
  *     MiCopyPfnEntryEx @ 0x140219D60 (MiCopyPfnEntryEx.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiWriteValidPteNewProtection @ 0x140284800 (MiWriteValidPteNewProtection.c)
- *     MiFinalizePageAttribute @ 0x1402E15E4 (MiFinalizePageAttribute.c)
- *     MiWriteValidPteNewPage @ 0x1402EB04C (MiWriteValidPteNewPage.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiActivePageTradeable @ 0x1402EB6B0 (MiActivePageTradeable.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiWriteValidPteNewProtection @ 0x140284A90 (MiWriteValidPteNewProtection.c)
+ *     MiFinalizePageAttribute @ 0x1402E1874 (MiFinalizePageAttribute.c)
+ *     MiWriteValidPteNewPage @ 0x1402EB2DC (MiWriteValidPteNewPage.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     MiActivePageTradeable @ 0x1402EB940 (MiActivePageTradeable.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiTradeActivePage(

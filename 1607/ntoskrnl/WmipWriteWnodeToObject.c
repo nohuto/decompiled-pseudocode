@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipWriteWnodeToObject @ 0x14012C474
+ * XREFs of WmipWriteWnodeToObject @ 0x14012C9E4
  * Callers:
- *     WmipProcessEvent @ 0x140537B40 (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x140538080 (WmipProcessEvent.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     WmipClearIrpObjectList @ 0x1400A2684 (WmipClearIrpObjectList.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     WmipQueueNotification @ 0x14053809C (WmipQueueNotification.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     WmipClearIrpObjectList @ 0x1400A0FAC (WmipClearIrpObjectList.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     WmipQueueNotification @ 0x1405385DC (WmipQueueNotification.c)
  */
 
 __int64 __fastcall WmipWriteWnodeToObject(__int64 a1, unsigned int *a2, char a3)

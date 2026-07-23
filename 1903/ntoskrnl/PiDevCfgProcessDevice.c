@@ -156,7 +156,7 @@ LABEL_67:
     inited = PiDevCfgRequestDriverConfigurations(v45, v41);
     goto LABEL_67;
   }
-  v14 = PiDevCfgConfigureDevice(a1, v45, v41, &v51, &v40);
+  v14 = PiDevCfgConfigureDevice(a1, (unsigned int)v45, (__int64)&v40);
   inited = v14;
   v15 = 1LL;
   if ( v14 >= 0 )
@@ -246,7 +246,7 @@ LABEL_90:
     if ( !v8 )
       goto LABEL_21;
 LABEL_91:
-    v28 = PiDevCfgConfigureDevice(a1, v45, 0LL, &v51, &v40);
+    v28 = PiDevCfgConfigureDevice(a1, (unsigned int)v45, (__int64)&v40);
     inited = v28;
     if ( v28 >= 0 )
     {

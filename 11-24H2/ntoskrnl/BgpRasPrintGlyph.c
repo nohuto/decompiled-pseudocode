@@ -1,22 +1,22 @@
 /*
- * XREFs of BgpRasPrintGlyph @ 0x140472CBC
+ * XREFs of BgpRasPrintGlyph @ 0x14046EF8C
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpTxtDisplayString @ 0x140BB2BB0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x140BB4BB0 (BgpTxtDisplayString.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     RaspRectangleCreate @ 0x1404665F0 (RaspRectangleCreate.c)
- *     BgpFmRoundUp @ 0x1404671A8 (BgpFmRoundUp.c)
- *     RaspFreeMemory @ 0x140467304 (RaspFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140467320 (BgpFwAllocateMemory.c)
- *     RaspAntiAlias @ 0x1404727DC (RaspAntiAlias.c)
- *     RaspGetCacheEntry @ 0x14069AE54 (RaspGetCacheEntry.c)
- *     RaspRasterize @ 0x14069BE1C (RaspRasterize.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     BgpGxCopyRectangle @ 0x140BB2620 (BgpGxCopyRectangle.c)
- *     RaspAddCacheEntry @ 0x140BB2E0C (RaspAddCacheEntry.c)
- *     RaspDestroyCachedBitmap @ 0x140BB5CE8 (RaspDestroyCachedBitmap.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     RaspRectangleCreate @ 0x14045DF4C (RaspRectangleCreate.c)
+ *     BgpFmRoundUp @ 0x14045EB04 (BgpFmRoundUp.c)
+ *     RaspFreeMemory @ 0x14045EC60 (RaspFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14045ED38 (BgpFwAllocateMemory.c)
+ *     RaspAntiAlias @ 0x14046EAAC (RaspAntiAlias.c)
+ *     RaspGetCacheEntry @ 0x14069BED4 (RaspGetCacheEntry.c)
+ *     RaspRasterize @ 0x14069CE9C (RaspRasterize.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     BgpGxCopyRectangle @ 0x140BB4620 (BgpGxCopyRectangle.c)
+ *     RaspAddCacheEntry @ 0x140BB4E0C (RaspAddCacheEntry.c)
+ *     RaspDestroyCachedBitmap @ 0x140BB7CE8 (RaspDestroyCachedBitmap.c)
  */
 
 __int64 __fastcall BgpRasPrintGlyph(
@@ -119,9 +119,9 @@ __int64 __fastcall BgpRasPrintGlyph(
   }
   else
   {
-    v19 = (dword_140EF0050 & 4) != 0;
+    v19 = (dword_140EF0270 & 4) != 0;
     v42 = v19;
-    if ( (dword_140EF0050 & 4) == 0 && !*(_QWORD *)v10 )
+    if ( (dword_140EF0270 & 4) == 0 && !*(_QWORD *)v10 )
       v14 = (*(_BYTE *)(v45 + 20) & 1) == 0;
     v11 = RaspRasterize(v45, a3, v16, v17, v19, (__int64)&v49, (__int64)&v47, (__int64)&v43, (__int64)v10);
     if ( v11 < 0 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageForWriteCluster @ 0x14036A3A0
+ * XREFs of MiGetPageForWriteCluster @ 0x1402EC140
  * Callers:
- *     MiBuildReservationCluster @ 0x140368F90 (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1402EAD30 (MiBuildReservationCluster.c)
  * Callees:
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiLockTransitionLeafPageEx @ 0x14036A520 (MiLockTransitionLeafPageEx.c)
- *     MiReferencePageForModifiedWrite @ 0x14036AA48 (MiReferencePageForModifiedWrite.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402EC2C0 (MiLockTransitionLeafPageEx.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402EC7E8 (MiReferencePageForModifiedWrite.c)
  */
 
 unsigned __int64 __fastcall MiGetPageForWriteCluster(
@@ -32,8 +32,8 @@ unsigned __int64 __fastcall MiGetPageForWriteCluster(
       && (*(_QWORD *)(v9 + 16) & 0xFFFFFFFFFC00FC1FuLL) == a3 )
     {
       v12 = a3;
-      if ( qword_140E2DB80 && (a3 & 0x10) == 0 )
-        v12 = a3 & ~qword_140E2DB80;
+      if ( qword_140E2DCC0 && (a3 & 0x10) == 0 )
+        v12 = a3 & ~qword_140E2DCC0;
       v13 = v10;
       if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(v12)) )
       {
@@ -52,14 +52,14 @@ unsigned __int64 __fastcall MiGetPageForWriteCluster(
   }
   if ( (unsigned int)*a4 <= 0x1F )
   {
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
       if ( (a3 & 0x10) == 0 )
-        a3 &= ~qword_140E2DB80;
+        a3 &= ~qword_140E2DCC0;
     }
     if ( !_bittest64(*(const signed __int64 **)(a1 + 8), HIDWORD(a3)) )
     {
-      v10 = 48 * qword_140E37378 - 0x220000000000LL;
+      v10 = 48 * qword_140E374B8 - 0x220000000000LL;
       v7 = *a4 + 1;
 LABEL_8:
       *a4 = v7;

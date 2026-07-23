@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpBufferQueueRemoveAfter @ 0x140495DFC
+ * XREFs of EtwpBufferQueueRemoveAfter @ 0x14048F94C
  * Callers:
- *     EtwpEnqueueAvailableBuffer @ 0x1402195F8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpDequeueBufferPendingCompressionFromQueue @ 0x1406C80C8 (EtwpDequeueBufferPendingCompressionFromQueue.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x140219758 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpDequeueBufferPendingCompressionFromQueue @ 0x1406CC0A8 (EtwpDequeueBufferPendingCompressionFromQueue.c)
  * Callees:
  *     <none>
  */

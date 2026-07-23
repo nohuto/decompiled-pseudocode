@@ -1,14 +1,24 @@
 /*
- * XREFs of ZwCopyFileChunk @ 0x1406A78F0
+ * XREFs of ZwCopyFileChunk @ 0x1406A8890
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCopyFileChunk(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCopyFileChunk(
+        HANDLE SourceHandle,
+        HANDLE DestinationHandle,
+        HANDLE EventHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG Length,
+        PLARGE_INTEGER SourceOffset,
+        PLARGE_INTEGER DestOffset,
+        PULONG SourceKey,
+        PULONG DestKey,
+        ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SourceHandle);
 }

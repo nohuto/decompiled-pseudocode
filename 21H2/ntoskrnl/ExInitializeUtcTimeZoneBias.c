@@ -1,18 +1,18 @@
 /*
- * XREFs of ExInitializeUtcTimeZoneBias @ 0x1407D4B40
+ * XREFs of ExInitializeUtcTimeZoneBias @ 0x1407D4CB0
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     RtlTimeToTimeFields @ 0x14036E9A0 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlTimeToTimeFields @ 0x14036EB50 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  *     ExpWriteTimeZoneBias @ 0x1405D1CC8 (ExpWriteTimeZoneBias.c)
- *     RtlQueryDynamicTimeZoneInformation @ 0x1406C3F10 (RtlQueryDynamicTimeZoneInformation.c)
- *     RtlCutoverTimeToSystemTime @ 0x1407A9CD0 (RtlCutoverTimeToSystemTime.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x140622AD0 (RtlQueryDynamicTimeZoneInformation.c)
+ *     RtlCutoverTimeToSystemTime @ 0x1407A9ED0 (RtlCutoverTimeToSystemTime.c)
  */
 
-__int64 __fastcall ExInitializeUtcTimeZoneBias(PLARGE_INTEGER a1)
+__int64 __fastcall ExInitializeUtcTimeZoneBias(PLARGE_INTEGER CurrentSystemTime)
 {
   __int64 v2; // rdx
   __int64 v3; // rcx
@@ -20,87 +20,89 @@ __int64 __fastcall ExInitializeUtcTimeZoneBias(PLARGE_INTEGER a1)
   _DWORD *v5; // rbx
   int v6; // r14d
   int v7; // edi
-  LARGE_INTEGER v8; // r10
-  LARGE_INTEGER v9; // r8
-  int v10; // edx
-  int v11; // eax
-  LARGE_INTEGER v12; // r9
-  int v13; // ecx
-  LONGLONG QuadPart; // r10
-  __int64 v15; // rdx
-  LARGE_INTEGER v16; // [rsp+28h] [rbp-E0h] BYREF
-  LARGE_INTEGER Time; // [rsp+30h] [rbp-D8h] BYREF
-  LARGE_INTEGER v18; // [rsp+38h] [rbp-D0h]
-  int v19; // [rsp+40h] [rbp-C8h]
-  int v20; // [rsp+44h] [rbp-C4h]
-  LARGE_INTEGER v21; // [rsp+48h] [rbp-C0h]
+  BOOLEAN v8; // r9
+  BOOLEAN v9; // r9
+  LARGE_INTEGER v10; // r10
+  LARGE_INTEGER v11; // r8
+  int v12; // edx
+  int v13; // eax
+  LONGLONG QuadPart; // r9
+  int v15; // ecx
+  LONGLONG v16; // r10
+  __int64 v17; // rdx
+  LARGE_INTEGER v18; // [rsp+28h] [rbp-E0h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+30h] [rbp-D8h] BYREF
+  LARGE_INTEGER v20; // [rsp+38h] [rbp-D0h]
+  int v21; // [rsp+40h] [rbp-C8h]
+  int v22; // [rsp+44h] [rbp-C4h]
+  LARGE_INTEGER v23; // [rsp+48h] [rbp-C0h]
   _QWORD TimeFields[3]; // [rsp+50h] [rbp-B8h] BYREF
-  _QWORD v23[54]; // [rsp+68h] [rbp-A0h] BYREF
+  _QWORD v25[54]; // [rsp+68h] [rbp-A0h] BYREF
 
-  v16.QuadPart = 0LL;
-  Time.QuadPart = 0LL;
-  memset(v23, 0, sizeof(v23));
+  v18.QuadPart = 0LL;
+  SystemTime.QuadPart = 0LL;
+  memset(v25, 0, sizeof(v25));
   *(_OWORD *)&TimeFields[1] = 0LL;
   if ( !ExpRealTimeIsUniversal )
     return 3221225659LL;
   v5 = (_DWORD *)*((_QWORD *)PsGetCurrentServerSiloGlobals(v3, v2) + 133);
-  result = RtlQueryDynamicTimeZoneInformation(v23);
+  result = RtlQueryDynamicTimeZoneInformation(v25);
   if ( (int)result >= 0 )
   {
-    v6 = LODWORD(v23[0]) + LODWORD(v23[21]);
-    v7 = LODWORD(v23[0]) + HIDWORD(v23[10]);
-    RtlTimeToTimeFields(a1, (PTIME_FIELDS)&TimeFields[1]);
-    if ( HIWORD(v23[8])
-      && WORD1(v23[19])
-      && RtlCutoverTimeToSystemTime((PTIME_FIELDS)((char *)&v23[8] + 4), &Time, a1)
-      && RtlCutoverTimeToSystemTime((PTIME_FIELDS)&v23[19], &v16, a1) )
+    v6 = LODWORD(v25[0]) + LODWORD(v25[21]);
+    v7 = LODWORD(v25[0]) + HIDWORD(v25[10]);
+    RtlTimeToTimeFields(CurrentSystemTime, (PTIME_FIELDS)&TimeFields[1]);
+    if ( HIWORD(v25[8])
+      && WORD1(v25[19])
+      && RtlCutoverTimeToSystemTime((PTIME_FIELDS)((char *)&v25[8] + 4), &SystemTime, CurrentSystemTime, v8)
+      && RtlCutoverTimeToSystemTime((PTIME_FIELDS)&v25[19], &v18, CurrentSystemTime, v9) )
     {
-      v8.QuadPart = v16.QuadPart + 600000000LL * v7;
-      v16 = v8;
-      v9.QuadPart = Time.QuadPart + 600000000LL * v6;
-      Time = v9;
-      if ( v8.QuadPart >= v9.QuadPart )
+      v10.QuadPart = v18.QuadPart + 600000000LL * v7;
+      v18 = v10;
+      v11.QuadPart = SystemTime.QuadPart + 600000000LL * v6;
+      SystemTime = v11;
+      if ( v10.QuadPart >= v11.QuadPart )
       {
-        v18 = v9;
-        v10 = 1;
-        v20 = 1;
-        v11 = v7;
+        v20 = v11;
+        v12 = 1;
+        v22 = 1;
+        v13 = v7;
         LODWORD(TimeFields[0]) = v6;
-        v12 = v9;
-        v21 = v8;
+        QuadPart = v11.QuadPart;
+        v23 = v10;
         v7 = v6;
-        v9 = v8;
-        v13 = 2;
+        v11 = v10;
+        v15 = 2;
       }
       else
       {
         LODWORD(TimeFields[0]) = v7;
-        v10 = 2;
-        v20 = 2;
-        v11 = v6;
-        v18 = v8;
-        v12 = v8;
-        v21 = v9;
-        v13 = 1;
+        v12 = 2;
+        v22 = 2;
+        v13 = v6;
+        v20 = v10;
+        QuadPart = v10.QuadPart;
+        v23 = v11;
+        v15 = 1;
       }
-      QuadPart = a1->QuadPart;
-      HIDWORD(TimeFields[0]) = v13;
-      v19 = v11;
-      if ( QuadPart < v12.QuadPart || QuadPart >= v9.QuadPart )
+      v16 = CurrentSystemTime->QuadPart;
+      HIDWORD(TimeFields[0]) = v15;
+      v21 = v13;
+      if ( v16 < QuadPart || v16 >= v11.QuadPart )
       {
-        v5[108] = v13;
-        v11 = v7;
+        v5[108] = v15;
+        v13 = v7;
         v5[109] = v7;
       }
       else
       {
-        v5[108] = v10;
-        v5[109] = v11;
+        v5[108] = v12;
+        v5[109] = v13;
       }
-      v15 = 60 * v11;
-      *((_QWORD *)v5 + 55) = 10000000 * v15;
+      v17 = 60 * v13;
+      *((_QWORD *)v5 + 55) = 10000000 * v17;
       MEMORY[0xFFFFF7800000025C] = 0;
-      ExpWriteTimeZoneBias(v5 + 110, v15);
+      ExpWriteTimeZoneBias(v5 + 110, v17);
       return 0LL;
     }
     else

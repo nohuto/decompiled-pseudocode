@@ -9,7 +9,7 @@
 
 __int64 __fastcall ApiSetQueryApiSetPresence(unsigned __int16 *a1, char *a2)
 {
-  void *ApiSetMap; // rbx
+  PAPI_SET_NAMESPACE ApiSetMap; // rbx
   int v5; // ebx
   __int64 v6; // rdx
   unsigned __int16 v7; // r8

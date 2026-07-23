@@ -6,7 +6,7 @@
  *     sub_1800085D4 @ 0x1800085D4 (sub_1800085D4.c)
  */
 
-__int64 __fastcall vDbgPrintEx(unsigned int a1, unsigned int a2, char *a3, va_list a4)
+ULONG __cdecl vDbgPrintEx(ULONG ComponentId, ULONG Level, PCCH Format, va_list arglist)
 {
-  return sub_1800085D4(byte_180114112, a1, a2, a3, a4, 1);
+  return sub_1800085D4(&dword_180114112, ComponentId, Level, (char *)Format, arglist, 1);
 }

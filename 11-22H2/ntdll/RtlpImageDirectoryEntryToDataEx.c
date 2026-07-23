@@ -36,79 +36,80 @@
  *     RtlAddressInSectionTable @ 0x18002B2C0 (RtlAddressInSectionTable.c)
  */
 
-__int64 __fastcall RtlpImageDirectoryEntryToDataEx(
-        unsigned __int64 a1,
+NTSTATUS __fastcall RtlpImageDirectoryEntryToDataEx(
+        unsigned __int64 BaseOfImage,
         char a2,
         unsigned __int16 a3,
-        _DWORD *a4,
-        __int64 *a5)
+        unsigned int *a4,
+        _QWORD *a5)
 {
-  __int64 *v5; // r14
-  unsigned int v6; // ebx
+  _QWORD *v5; // r14
+  int v6; // ebx
   char v7; // si
   __int64 v9; // rbp
-  unsigned __int64 v10; // rdi
-  __int64 result; // rax
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  int v14; // eax
-  __int64 v15; // rax
-  __int64 v16; // [rsp+40h] [rbp+8h] BYREF
+  char *v10; // rdi
+  NTSTATUS result; // eax
+  PIMAGE_NT_HEADERS v12; // rcx
+  __int64 VirtualAddress; // rdx
+  unsigned int Size; // eax
+  PVOID v15; // rax
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp+8h] BYREF
 
   v5 = a5;
   v6 = 0;
   v7 = a2;
   v9 = a3;
-  v10 = a1;
-  v16 = 0LL;
+  v10 = (char *)BaseOfImage;
+  OutHeaders = 0LL;
   *a5 = 0LL;
-  if ( (a1 & 3) != 0 )
+  if ( (BaseOfImage & 3) != 0 )
   {
-    v10 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v10 = (char *)(BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
     v7 = 0;
-    if ( (a1 & 1) == 0 )
+    if ( (BaseOfImage & 1) == 0 )
       v7 = a2;
   }
-  result = RtlImageNtHeaderEx(1LL, v10, 0LL, &v16);
-  v12 = v16;
-  if ( v16 )
+  result = RtlImageNtHeaderEx(1u, v10, 0LL, &OutHeaders);
+  v12 = OutHeaders;
+  if ( OutHeaders )
   {
-    if ( *(_WORD *)(v16 + 24) == 267 )
+    if ( OutHeaders->OptionalHeader.Magic == 267 )
     {
-      if ( (unsigned int)v9 < *(_DWORD *)(v16 + 116) )
+      if ( (unsigned int)v9 < HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapReserve) )
       {
-        v13 = *(unsigned int *)(v16 + 8 * v9 + 120);
-        if ( (_DWORD)v13 )
+        VirtualAddress = *((unsigned int *)&OutHeaders->OptionalHeader.SizeOfHeapCommit + 2 * v9);
+        if ( (_DWORD)VirtualAddress )
         {
-          v14 = *(_DWORD *)(v16 + 8 * v9 + 124);
+          Size = *((_DWORD *)&OutHeaders->OptionalHeader.SizeOfHeapCommit + 2 * v9 + 1);
           goto LABEL_10;
         }
-        return (unsigned int)-1073741822;
+        return -1073741822;
       }
     }
-    else if ( *(_WORD *)(v16 + 24) == 523 && (unsigned int)v9 < *(_DWORD *)(v16 + 132) )
+    else if ( OutHeaders->OptionalHeader.Magic == 523
+           && (unsigned int)v9 < OutHeaders->OptionalHeader.NumberOfRvaAndSizes )
     {
-      v13 = *(unsigned int *)(v16 + 8 * v9 + 136);
-      if ( (_DWORD)v13 )
+      VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[v9].VirtualAddress;
+      if ( (_DWORD)VirtualAddress )
       {
-        v14 = *(_DWORD *)(v16 + 8 * v9 + 140);
+        Size = OutHeaders->OptionalHeader.DataDirectory[v9].Size;
 LABEL_10:
-        *a4 = v14;
-        if ( v7 || (unsigned int)v13 < *(_DWORD *)(v12 + 84) )
+        *a4 = Size;
+        if ( v7 || (unsigned int)VirtualAddress < v12->OptionalHeader.SizeOfHeaders )
         {
-          *v5 = v10 + v13;
+          *v5 = &v10[VirtualAddress];
         }
         else
         {
-          v15 = RtlAddressInSectionTable(v12, v10, (unsigned int)v13);
+          v15 = RtlAddressInSectionTable(v12, v10, VirtualAddress);
           *v5 = v15;
-          return v15 == 0 ? 0xC000000D : 0;
+          return v15 == 0LL ? 0xC000000D : 0;
         }
         return v6;
       }
-      return (unsigned int)-1073741822;
+      return -1073741822;
     }
-    return (unsigned int)-1073741811;
+    return -1073741811;
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x1404FB490
+ * XREFs of HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x140436338
  * Callers:
- *     HalpDispatchSystemStateTransition @ 0x1404FEE50 (HalpDispatchSystemStateTransition.c)
+ *     HalpDispatchSystemStateTransition @ 0x1404F8640 (HalpDispatchSystemStateTransition.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
  */
 
-unsigned __int64 __fastcall HalpEfiLockOutRuntimeCallsForSystemSleep(char a1)
+__int64 __fastcall HalpEfiLockOutRuntimeCallsForSystemSleep(char a1)
 {
-  unsigned __int64 result; // rax
+  __int64 result; // rax
   __int64 v3; // r8
   __int64 v4; // r9
   __int64 v5; // rdx
@@ -20,8 +20,8 @@ unsigned __int64 __fastcall HalpEfiLockOutRuntimeCallsForSystemSleep(char a1)
     v4 = (unsigned int)result;
     do
     {
-      result = (unsigned __int64)HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink;
-      v5 = *(__int64 *)((char *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink->Flink + v3);
+      result = (__int64)HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink;
+      v5 = *(__int64 *)((char *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink->Flink + v3);
       if ( v5 )
       {
         if ( a1 )

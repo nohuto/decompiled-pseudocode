@@ -22,5 +22,5 @@ NTSTATUS __stdcall ZwDuplicateObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SourceProcessHandle, SourceHandle);
+  return KiServiceInternal(SourceProcessHandle);
 }

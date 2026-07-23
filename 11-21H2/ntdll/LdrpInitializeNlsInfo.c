@@ -10,10 +10,10 @@
 
 __int64 __fastcall LdrpInitializeNlsInfo(__int64 a1)
 {
-  __int16 v2; // ax
-  __int16 v3; // cx
-  int v5; // [rsp+30h] [rbp+8h] BYREF
-  int v6; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int16 v2; // ax
+  unsigned __int16 v3; // cx
+  ULONG Value; // [rsp+30h] [rbp+8h] BYREF
+  ULONG v6; // [rsp+38h] [rbp+10h] BYREF
 
   if ( (*(_DWORD *)(*(_QWORD *)(a1 + 32) + 8LL) & 0x8000000) != 0 )
   {
@@ -23,11 +23,11 @@ __int64 __fastcall LdrpInitializeNlsInfo(__int64 a1)
   }
   else
   {
-    v5 = 0;
+    Value = 0;
     v6 = 0;
-    if ( (unsigned __int8)LdrpFusionManifestCodePages(&v5, &v6) || (int)RtlpQueryNlsSystemCodePages(&v5, &v6) >= 0 )
+    if ( (unsigned __int8)LdrpFusionManifestCodePages(&Value, &v6) || (int)RtlpQueryNlsSystemCodePages(&Value, &v6) >= 0 )
     {
-      v3 = v5;
+      v3 = Value;
       v2 = v6;
     }
     else

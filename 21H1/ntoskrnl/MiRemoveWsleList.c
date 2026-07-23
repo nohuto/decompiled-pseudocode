@@ -135,7 +135,8 @@ __int64 MiRemoveWsleList(__int64 a1, __int64 a2, char *a3, ...)
         if ( (*(_BYTE *)(v3 + 184) & 7) == 4 )
         {
           if ( PsNtosImageBase
-            && (v18 >= PsNtosImageBase && v18 < PsNtosImageEnd || v18 < PsHalImageEnd && v18 >= PsHalImageBase) )
+            && (v18 >= (unsigned __int64)PsNtosImageBase && v18 < PsNtosImageEnd
+             || v18 < PsHalImageEnd && v18 >= (unsigned __int64)PsHalImageBase) )
           {
             v54 = ++v12;
           }

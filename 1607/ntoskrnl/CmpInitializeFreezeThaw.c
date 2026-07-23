@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpInitializeFreezeThaw @ 0x14055B970
+ * XREFs of CmpInitializeFreezeThaw @ 0x14055BEB0
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
@@ -12,7 +12,7 @@ __int64 *CmpInitializeFreezeThaw()
 
   CmpFreezeListLock = 0LL;
   result = &CmpFreezeThawWaitListHead;
-  qword_1403229F8 = (__int64)&CmpFreezeThawWaitListHead;
+  qword_140322A18 = (__int64)&CmpFreezeThawWaitListHead;
   CmpFreezeThawWaitListHead = (__int64)&CmpFreezeThawWaitListHead;
   if ( (unsigned int)CmFreezeThawTimeoutInSeconds > 0x384 )
     CmFreezeThawTimeoutInSeconds = 60;

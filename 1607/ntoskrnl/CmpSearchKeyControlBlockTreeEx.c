@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x1401B4BDC
+ * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x1401B4AC0
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140600020 (CmKeyBodyReplicateToVirtual.c)
- *     CmpCommitDiscardReplacePost @ 0x14060B950 (CmpCommitDiscardReplacePost.c)
- *     CmpRefreshHive @ 0x14060D810 (CmpRefreshHive.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x14060E7D8 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406000D4 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpCommitDiscardReplacePost @ 0x14060BA04 (CmpCommitDiscardReplacePost.c)
+ *     CmpRefreshHive @ 0x14060D8C4 (CmpRefreshHive.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14060E88C (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x140436D30 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpUnlockHashEntryByIndex @ 0x14049B348 (CmpUnlockHashEntryByIndex.c)
- *     CmpLockHashEntryByIndexExclusive @ 0x14049B3B4 (CmpLockHashEntryByIndexExclusive.c)
- *     CmpRemoveFromDelayedClose @ 0x1404A0F40 (CmpRemoveFromDelayedClose.c)
- *     CmpDecommisssionKcb @ 0x14053F1A8 (CmpDecommisssionKcb.c)
+ *     CmpUnlockHashEntryByIndex @ 0x1403E4268 (CmpUnlockHashEntryByIndex.c)
+ *     CmpLockHashEntryByIndexExclusive @ 0x1403E42D4 (CmpLockHashEntryByIndexExclusive.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140435C00 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpRemoveFromDelayedClose @ 0x14051934C (CmpRemoveFromDelayedClose.c)
+ *     CmpDecommisssionKcb @ 0x14053F6E8 (CmpDecommisssionKcb.c)
  */
 
 char __fastcall CmpSearchKeyControlBlockTreeEx(

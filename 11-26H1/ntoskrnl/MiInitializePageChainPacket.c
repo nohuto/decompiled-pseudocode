@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializePageChainPacket @ 0x14041AAB0
+ * XREFs of MiInitializePageChainPacket @ 0x140412300
  * Callers:
- *     MiGetPageToTrade @ 0x1402951E0 (MiGetPageToTrade.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
+ *     MiGetPageToTrade @ 0x140294740 (MiGetPageToTrade.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */
@@ -61,15 +61,15 @@ __int64 __fastcall MiInitializePageChainPacket(
     }
   }
   v18 = 56320LL * IdealGlobalNode;
-  if ( (*(_DWORD *)(qword_140E37CD0 + v18 + 14096) & 1) != 0 )
+  if ( (*(_DWORD *)(qword_140E37E50 + v18 + 14096) & 1) != 0 )
   {
-    v22 = qword_140E37CD0 + v18;
-    for ( i = 0; i < (unsigned __int8)byte_140E2D718; ++i )
+    v22 = qword_140E37E50 + v18;
+    for ( i = 0; i < (unsigned __int8)byte_140E2D898; ++i )
     {
       if ( *(_BYTE *)(i + v22 + 14149) == 1 )
         goto LABEL_8;
     }
-    for ( i = 0; i < (unsigned __int8)byte_140E2D718; ++i )
+    for ( i = 0; i < (unsigned __int8)byte_140E2D898; ++i )
     {
       if ( *(_BYTE *)(i + v22 + 14149) == 2 )
         goto LABEL_8;

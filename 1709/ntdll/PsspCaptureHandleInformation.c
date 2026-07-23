@@ -20,68 +20,74 @@ NTSTATUS __fastcall PsspCaptureHandleInformation(__int64 a1, void *a2, int a3)
   NTSTATUS result; // eax
   ULONG v7; // esi
   int v8; // ebx
-  unsigned int *Heap; // rax
+  PVOID Heap; // rax
   NTSTATUS v10; // esi
   ULONG v11; // r12d
-  __int64 v12; // r8
-  unsigned int *v13; // [rsp+58h] [rbp-19h] BYREF
-  __int64 v14; // [rsp+60h] [rbp-11h] BYREF
+  PVOID v12; // [rsp+58h] [rbp-19h] BYREF
+  ULONG_PTR ViewSize; // [rsp+60h] [rbp-11h] BYREF
   ULONG ReturnLength; // [rsp+68h] [rbp-9h] BYREF
-  __int64 v16; // [rsp+70h] [rbp-1h] BYREF
-  HANDLE Handle; // [rsp+78h] [rbp+7h] BYREF
-  __int64 v18; // [rsp+80h] [rbp+Fh] BYREF
-  int v19; // [rsp+88h] [rbp+17h]
-  __int64 v20; // [rsp+8Ch] [rbp+1Bh]
+  PVOID BaseAddress; // [rsp+70h] [rbp-1h] BYREF
+  HANDLE SectionHandle; // [rsp+78h] [rbp+7h] BYREF
+  __int64 v17; // [rsp+80h] [rbp+Fh] BYREF
+  int v18; // [rsp+88h] [rbp+17h]
+  __int64 v19; // [rsp+8Ch] [rbp+1Bh]
   int ProcessInformation; // [rsp+98h] [rbp+27h] BYREF
-  __int64 v22; // [rsp+A0h] [rbp+2Fh] BYREF
-  unsigned int v23; // [rsp+F0h] [rbp+7Fh] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+A0h] [rbp+2Fh] BYREF
+  __int64 v22; // [rsp+F0h] [rbp+7Fh] BYREF
 
-  result = NtQueryInformationProcess(a2, (PROCESSINFOCLASS)20, &ProcessInformation, 8u, 0LL);
+  result = NtQueryInformationProcess(a2, ProcessHandleCount, &ProcessInformation, 8u, 0LL);
   if ( result < 0 )
     return result;
   v7 = 4 * ProcessInformation;
   v8 = a3 & 0x20000000;
   if ( (a3 & 0x20000000) != 0 )
   {
-    v14 = v7;
-    v13 = 0LL;
-    result = ZwAllocateVirtualMemory(-1LL, &v13, 0LL, &v14, 4096, 4);
+    ViewSize = v7;
+    v12 = 0LL;
+    result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v12, 0LL, &ViewSize, 0x1000u, 4u);
     if ( result < 0 )
       return result;
-    Heap = v13;
+    Heap = v12;
   }
   else
   {
-    Heap = (unsigned int *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
-    v13 = Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
+    v12 = Heap;
     if ( !Heap )
       return -1073741670;
   }
-  v10 = NtQueryInformationProcess(a2, ProcessWow64Information|0x20, Heap, v7, &ReturnLength);
+  v10 = NtQueryInformationProcess(a2, ProcessHandleTable, Heap, v7, &ReturnLength);
   if ( v10 < 0 )
   {
     if ( !v8 )
     {
 LABEL_19:
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v13);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
       return v10;
     }
 LABEL_15:
-    v14 = 0LL;
-    ZwFreeVirtualMemory(-1LL, &v13, &v14, 0x8000LL);
+    ViewSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v12, &ViewSize, 0x8000u);
     return v10;
   }
   v11 = ReturnLength >> 2;
-  v23 = 0;
+  LODWORD(v22) = 0;
   PsspWalkHandleTable(
-    (__int64)a2,
-    v13,
+    a2,
+    (unsigned int *)v12,
     ReturnLength >> 2,
     a3,
     (__int64 (__fastcall *)(__int64, _QWORD, _QWORD, __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned int))PsspHandleStreamSizeCalculator,
-    (__int64)&v23);
-  v22 = v23;
-  v10 = NtCreateSection(&Handle, 983047LL, &unk_1801185B8, &v22, 4, 0x8000000, 0LL);
+    (__int64)&v22);
+  MaximumSize.QuadPart = (unsigned int)v22;
+  v10 = NtCreateSection(
+          &SectionHandle,
+          0xF0007u,
+          (POBJECT_ATTRIBUTES)&stru_1801185B8,
+          &MaximumSize,
+          4u,
+          0x8000000u,
+          0LL);
   if ( v10 < 0 )
   {
 LABEL_18:
@@ -89,38 +95,48 @@ LABEL_18:
       goto LABEL_19;
     goto LABEL_15;
   }
-  v16 = 0LL;
-  v14 = 0LL;
-  v10 = ZwMapViewOfSection(Handle, -1LL, &v16, 0LL, 0LL, 0LL, &v14, 1, 0, 4);
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
+  v10 = ZwMapViewOfSection(
+          SectionHandle,
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          &BaseAddress,
+          0LL,
+          0LL,
+          0LL,
+          &ViewSize,
+          ViewShare,
+          0,
+          4u);
   if ( v10 < 0 )
   {
-    NtClose(Handle);
+    NtClose(SectionHandle);
     goto LABEL_18;
   }
-  v18 = v16;
-  v23 = v14;
-  v19 = v14;
-  v20 = 0LL;
+  v17 = (__int64)BaseAddress;
+  LODWORD(v22) = ViewSize;
+  v18 = ViewSize;
+  v19 = 0LL;
   PsspWalkHandleTable(
-    (__int64)a2,
-    v13,
+    a2,
+    (unsigned int *)v12,
     v11,
     a3,
     (__int64 (__fastcall *)(__int64, _QWORD, _QWORD, __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned int))PsspHandleDumper,
-    (__int64)&v18);
-  NtUnmapViewOfSection(-1LL, v16, v12);
+    (__int64)&v17);
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   if ( v8 )
   {
-    v14 = 0LL;
-    ZwFreeVirtualMemory(-1LL, &v13, &v14, 0x8000LL);
+    ViewSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v12, &ViewSize, 0x8000u);
   }
   else
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v13);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
   }
-  *(_DWORD *)(a1 + 960) = HIDWORD(v20);
-  *(_QWORD *)(a1 + 968) = (unsigned int)v20;
-  *(_QWORD *)(a1 + 976) = Handle;
+  *(_DWORD *)(a1 + 960) = HIDWORD(v19);
+  *(_QWORD *)(a1 + 968) = (unsigned int)v19;
+  *(_QWORD *)(a1 + 976) = SectionHandle;
   *(_QWORD *)(a1 + 984) = MEMORY[0x7FFE0014];
   return 0;
 }

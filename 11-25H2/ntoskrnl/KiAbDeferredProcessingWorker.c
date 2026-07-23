@@ -59,10 +59,10 @@ void __fastcall KiAbDeferredProcessingWorker(
   unsigned int v32; // ebx
   char v33; // al
   __int64 v34; // rcx
-  unsigned __int64 v35; // rdx
+  __int64 v35; // rdx
   int v36; // ecx
-  bool v37; // r8
-  unsigned __int64 v38; // rax
+  BOOLEAN v37; // r8
+  __int64 v38; // rax
   __int64 v39; // rax
   __int64 v40; // rax
   __int64 v41; // r13
@@ -71,9 +71,9 @@ void __fastcall KiAbDeferredProcessingWorker(
   __int64 v44; // rcx
   __int64 v45; // rax
   int v46; // ecx
-  bool v47; // r8
-  unsigned __int64 v48; // rdx
-  unsigned __int64 v49; // rax
+  BOOLEAN v47; // r8
+  __int64 v48; // rdx
+  __int64 v49; // rax
   int v50; // ecx
   __int64 v51; // rax
   char v52; // dl
@@ -175,7 +175,7 @@ LABEL_9:
                   if ( *(_BYTE *)(v14 + 40) != v33 )
                   {
                     *(_BYTE *)(v14 + 40) = v33;
-                    RtlRbRemoveNode(v31 + 40, (unsigned __int64 *)(v14 + 16));
+                    RtlRbRemoveNode((PRTL_RB_TREE)(v31 + 40), (PRTL_BALANCED_NODE)(v14 + 16));
                     v34 = *(_QWORD *)(v31 + 48);
                     v35 = *(_QWORD *)(v31 + 40);
                     if ( (v34 & 1) == 0 )
@@ -223,7 +223,11 @@ LABEL_78:
                     }
                     v37 = 0;
 LABEL_79:
-                    RtlRbInsertNodeEx((__int64 *)(v31 + 40), v35, v37, v14 + 16);
+                    RtlRbInsertNodeEx(
+                      (PRTL_RB_TREE)(v31 + 40),
+                      (PRTL_BALANCED_NODE)v35,
+                      v37,
+                      (PRTL_BALANCED_NODE)(v14 + 16));
                   }
                   v32 = 144;
                 }
@@ -349,7 +353,7 @@ LABEL_14:
                 if ( *(_BYTE *)(v19 + 40) != v43 )
                 {
                   *(_BYTE *)(v19 + 40) = v43;
-                  RtlRbRemoveNode(v41 + 40, (unsigned __int64 *)(v19 + 16));
+                  RtlRbRemoveNode((PRTL_RB_TREE)(v41 + 40), (PRTL_BALANCED_NODE)(v19 + 16));
                   v44 = *(_QWORD *)(v41 + 48);
                   if ( (v44 & 1) == 0 )
                   {
@@ -401,7 +405,11 @@ LABEL_97:
                   }
                   v47 = 0;
 LABEL_98:
-                  RtlRbInsertNodeEx((__int64 *)(v41 + 40), v48, v47, v19 + 16);
+                  RtlRbInsertNodeEx(
+                    (PRTL_RB_TREE)(v41 + 40),
+                    (PRTL_BALANCED_NODE)v48,
+                    v47,
+                    (PRTL_BALANCED_NODE)(v19 + 16));
                 }
                 v42 = 144;
               }

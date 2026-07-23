@@ -12,56 +12,55 @@
  *     _EtwpTrackBinaryForSession@12 @ 0x4B382FA7 (_EtwpTrackBinaryForSession@12.c)
  */
 
-ULONG __fastcall EtwpProviderArrivalCallback(char *a1, int a2)
+ULONG __fastcall EtwpProviderArrivalCallback(wchar_t *Buffer, int a2)
 {
   int v2; // esi
   int DebugId; // ebx
-  _DWORD *v5; // ecx
-  NTSTATUS DllFullName; // eax
+  void *v5; // ecx
+  int DllFullName; // eax
   int v9; // [esp+Ch] [ebp-22Ch] BYREF
-  unsigned int v10; // [esp+10h] [ebp-228h]
+  PVOID DllHandle; // [esp+10h] [ebp-228h]
   int v11; // [esp+14h] [ebp-224h]
   int v12; // [esp+18h] [ebp-220h]
-  unsigned __int16 v13[2]; // [esp+1Ch] [ebp-21Ch] BYREF
-  char *v14; // [esp+20h] [ebp-218h] BYREF
-  int v15; // [esp+24h] [ebp-214h] BYREF
-  char v16; // [esp+28h] [ebp-210h] BYREF
+  _UNICODE_STRING FullDllName; // [esp+1Ch] [ebp-21Ch] BYREF
+  int v14; // [esp+24h] [ebp-214h] BYREF
+  char v15; // [esp+28h] [ebp-210h] BYREF
   int savedregs; // [esp+238h] [ebp+0h] BYREF
 
   v2 = a2;
   DebugId = 0;
-  v15 = a2;
-  v5 = *(_DWORD **)(a2 + 28);
-  v14 = a1;
+  v14 = a2;
+  v5 = *(void **)(a2 + 28);
+  FullDllName.Buffer = Buffer;
   if ( (unsigned int)v5 < dword_4B3A9374[0] || (unsigned int)v5 >= dword_4B3A9374[0] + dword_4B3A9378[0] )
   {
-    RtlpxLookupFunctionTable(&v9, v5, (int)&savedregs);
+    RtlpxLookupFunctionTable(v5, (int)&v9, (int)&savedregs, (ULONG_PTR *)Buffer);
   }
   else
   {
     v9 = dword_4B3A9370[0];
-    v10 = dword_4B3A9370[1];
+    DllHandle = (PVOID)dword_4B3A9370[1];
     v11 = dword_4B3A9370[2];
     v12 = dword_4B3A9370[3];
-    v2 = v15;
-    a1 = v14;
+    v2 = v14;
+    Buffer = FullDllName.Buffer;
   }
-  if ( !v10 )
+  if ( !DllHandle )
     return 87;
   if ( (*(_WORD *)(v2 + 54) & 0x3FFF) != 2 )
   {
     if ( *(__int16 *)(v2 + 54) >= 0 )
       return DebugId;
-    v14 = &v16;
-    v13[1] = 260;
-    DllFullName = LdrGetDllFullName(v10, v13);
+    FullDllName.Buffer = (wchar_t *)&v15;
+    FullDllName.MaximumLength = 260;
+    DllFullName = LdrGetDllFullName(DllHandle, &FullDllName);
     if ( DllFullName < 0 )
       return RtlNtStatusToDosError(DllFullName);
     else
       return EtwpTrackBinaryForSession((void *)(v2 + 12));
   }
-  DebugId = EtwpFindDebugId(&v15, &v14);
+  DebugId = EtwpFindDebugId(DllHandle, (int)&v14, (int)&FullDllName.Buffer);
   if ( !DebugId )
-    return EtwpTrackDebugIdForSession(a1, v15, v14);
+    return EtwpTrackDebugIdForSession(Buffer, v14, FullDllName.Buffer);
   return DebugId;
 }

@@ -1,48 +1,86 @@
 /*
- * XREFs of EtwpTraceThreadRundownWithStack @ 0x1405291D8
+ * XREFs of EtwpTraceThreadRundownWithStack @ 0x1406CB674
  * Callers:
- *     EtwpThreadEnumCallback @ 0x140A8BF80 (EtwpThreadEnumCallback.c)
+ *     EtwpThreadEnumCallback @ 0x1409BDBC0 (EtwpThreadEnumCallback.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     EtwpTraceThreadRundown @ 0x140412620 (EtwpTraceThreadRundown.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     KeRemoveQueueApc @ 0x140467790 (KeRemoveQueueApc.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1402053B0 (KeQueryPriorityThread.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     KeRemoveQueueApc @ 0x140460EE0 (KeRemoveQueueApc.c)
+ *     EtwpTraceThreadRundown @ 0x14051ED18 (EtwpTraceThreadRundown.c)
+ *     Feature_EtwThreadStackRundownPriority__private_IsEnabledDeviceUsageNoInline @ 0x1406CB8A0 (Feature_EtwThreadStackRundownPriority__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-NTSTATUS __fastcall EtwpTraceThreadRundownWithStack(__int64 a1, __int64 a2)
+NTSTATUS __fastcall EtwpTraceThreadRundownWithStack(PKTHREAD Thread, __int64 a2)
 {
+  KPRIORITY PriorityThread; // r14d
+  _BYTE *v5; // rsi
+  KPRIORITY v6; // eax
   NTSTATUS result; // eax
-  __int128 Object; // [rsp+40h] [rbp-29h] BYREF
-  char *v6; // [rsp+50h] [rbp-19h]
-  _BYTE v7[96]; // [rsp+60h] [rbp-9h] BYREF
-  LARGE_INTEGER Timeout; // [rsp+D0h] [rbp+67h] BYREF
+  int v8; // eax
+  __int128 Object; // [rsp+40h] [rbp-79h] BYREF
+  char *v10; // [rsp+50h] [rbp-69h]
+  LARGE_INTEGER Timeout; // [rsp+58h] [rbp-61h] BYREF
+  _BYTE v12[96]; // [rsp+60h] [rbp-59h] BYREF
+  __int128 v13; // [rsp+C0h] [rbp+7h] BYREF
+  _QWORD v14[2]; // [rsp+D0h] [rbp+17h] BYREF
 
-  memset_0(v7, 0, 0x58uLL);
+  memset_0(v12, 0, 0x58uLL);
+  v10 = 0LL;
   Object = 0LL;
-  v6 = 0LL;
   Timeout.QuadPart = 0LL;
-  if ( (struct _KTHREAD *)a1 == KeGetCurrentThread() )
-    return EtwpTraceThreadRundown(a1, a2);
-  if ( (*(_BYTE *)(a1 + 1448) & 4) != 0 )
-    return EtwpTraceThreadRundown(a1, a2);
-  if ( *(_BYTE *)(a2 + 67) )
-    return EtwpTraceThreadRundown(a1, a2);
-  v6 = (char *)&Object + 8;
-  *((_QWORD *)&Object + 1) = (char *)&Object + 8;
-  LOWORD(Object) = 1;
-  BYTE2(Object) = 6;
-  DWORD1(Object) = 0;
-  KeInitializeApc((__int64)v7, a1, 0, (__int64)EtwpThreadRundownApc, 0LL, 0LL, 0, 0LL);
-  if ( !(unsigned __int8)KeInsertQueueApc((__int64)v7, (__int64)&Object, a2, 0) )
-    return EtwpTraceThreadRundown(a1, a2);
-  Timeout.QuadPart = EtwpOneMs * (unsigned int)EtwpStackCaptureTimeout;
-  result = KeWaitForSingleObject(&Object, WrExecutive, 0, 0, &Timeout);
-  if ( result != 258 )
-    return result;
-  if ( KeRemoveQueueApc((__int64)v7) )
-    return EtwpTraceThreadRundown(a1, a2);
-  else
-    return KeWaitForSingleObject(&Object, WrExecutive, 0, 0, 0LL);
+  PriorityThread = 0;
+  v13 = 0LL;
+  if ( Thread != KeGetCurrentThread() && ((__int64)Thread[1].Queue & 4) == 0 && !*(_BYTE *)(a2 + 67) )
+  {
+    v10 = (char *)&Object + 8;
+    *((_QWORD *)&Object + 1) = (char *)&Object + 8;
+    LOWORD(Object) = 1;
+    BYTE2(Object) = 6;
+    DWORD1(Object) = 0;
+    KeInitializeApc((__int64)v12, (__int64)Thread, 0, (__int64)EtwpThreadRundownApc, 0LL, 0LL, 0, 0LL);
+    v5 = (_BYTE *)(a2 + 76);
+    if ( (unsigned int)Feature_EtwThreadStackRundownPriority__private_IsEnabledDeviceUsageNoInline() )
+    {
+      *(_DWORD *)(a2 + 72) = 0;
+      *v5 = 0;
+      PriorityThread = KeQueryPriorityThread(KeGetCurrentThread());
+      v6 = KeQueryPriorityThread(Thread);
+      *(_DWORD *)(a2 + 72) = v6;
+      if ( v6 < PriorityThread )
+      {
+        *v5 = 1;
+        *(_DWORD *)(a2 + 72) = KeSetPriorityThread(Thread, PriorityThread);
+      }
+    }
+    if ( (unsigned __int8)KeInsertQueueApc((__int64)v12, (__int64)&Object, a2, 0) )
+    {
+      Timeout.QuadPart = EtwpOneMs * (unsigned int)EtwpStackCaptureTimeout;
+      result = KeWaitForSingleObject(&Object, WrExecutive, 0, 0, &Timeout);
+      if ( result != 258 )
+        return result;
+      if ( !KeRemoveQueueApc((__int64)v12) )
+        return KeWaitForSingleObject(&Object, WrExecutive, 0, 0, 0LL);
+      if ( (unsigned int)Feature_EtwThreadStackRundownPriority__private_IsEnabledDeviceUsageNoInline() )
+      {
+        if ( *v5 )
+          KeSetPriorityThread(Thread, *(_DWORD *)(a2 + 72));
+        LODWORD(v13) = Thread[1].CurrentRunTime;
+        DWORD1(v13) = Thread[1].CycleTime;
+        v8 = *(_DWORD *)(a2 + 72);
+        DWORD2(v13) = v8;
+        if ( *(_BYTE *)(a2 + 76) )
+          HIDWORD(v13) = PriorityThread - v8;
+        v14[1] = 16LL;
+        v14[0] = &v13;
+        EtwTraceKernelEvent((int)v14, 1, 2u, 1384, 256);
+      }
+    }
+  }
+  return EtwpTraceThreadRundown((__int64)Thread, a2);
 }

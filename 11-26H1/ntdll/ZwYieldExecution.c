@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwYieldExecution @ 0x18015F800
+ * XREFs of ZwYieldExecution @ 0x18015F700
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwYieldExecution()
+NTSTATUS ZwYieldExecution(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 70LL;
+  result = 70;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

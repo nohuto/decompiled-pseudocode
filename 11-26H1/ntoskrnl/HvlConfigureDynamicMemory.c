@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlConfigureDynamicMemory @ 0x14071E40C
+ * XREFs of HvlConfigureDynamicMemory @ 0x14072309C
  * Callers:
- *     KeConfigureDynamicMemory @ 0x1405EBDBC (KeConfigureDynamicMemory.c)
+ *     KeConfigureDynamicMemory @ 0x1405EE72C (KeConfigureDynamicMemory.c)
  * Callees:
- *     HvlpAddRemovePhysicalMemory @ 0x14071E550 (HvlpAddRemovePhysicalMemory.c)
+ *     HvlpAddRemovePhysicalMemory @ 0x1407231E0 (HvlpAddRemovePhysicalMemory.c)
  */
 
 __int64 __fastcall HvlConfigureDynamicMemory(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -42,7 +42,7 @@ __int64 __fastcall HvlConfigureDynamicMemory(unsigned __int64 a1, unsigned __int
       }
       else
       {
-        LOBYTE(WheapPfaLock.UserWaitTime) = 1;
+        LOBYTE(WheapPfaLock.Spare35[1]) = 1;
       }
       return (unsigned int)v8;
     }
@@ -57,10 +57,10 @@ __int64 __fastcall HvlConfigureDynamicMemory(unsigned __int64 a1, unsigned __int
         {
           if ( v7 == 4 )
           {
-            if ( LOBYTE(WheapPfaLock.UserWaitTime) )
+            if ( LOBYTE(WheapPfaLock.Spare35[1]) )
             {
               HvlpAddRemovePhysicalMemory(0, 0, a1, v4 + 1, (__int64)&v13);
-              LOBYTE(WheapPfaLock.UserWaitTime) = 0;
+              LOBYTE(WheapPfaLock.Spare35[1]) = 0;
             }
             return 0;
           }
@@ -86,7 +86,7 @@ __int64 __fastcall HvlConfigureDynamicMemory(unsigned __int64 a1, unsigned __int
       LODWORD(v4) = 0;
     }
     v8 = HvlpAddRemovePhysicalMemory(a1, v4, v3, v9, (__int64)&v13);
-    LOBYTE(WheapPfaLock.UserWaitTime) = 0;
+    LOBYTE(WheapPfaLock.Spare35[1]) = 0;
     return (unsigned int)v8;
   }
   return 0LL;

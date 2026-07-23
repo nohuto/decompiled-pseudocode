@@ -1,56 +1,56 @@
 /*
- * XREFs of RtlpHpVaMgrRangeCoalesce @ 0x1402A516C
+ * XREFs of RtlpHpVaMgrRangeCoalesce @ 0x1402225AC
  * Callers:
- *     RtlpHpVaMgrFree @ 0x1402A50D4 (RtlpHpVaMgrFree.c)
+ *     RtlpHpVaMgrFree @ 0x140222514 (RtlpHpVaMgrFree.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2)
 {
-  __int64 v4; // rax
-  __int64 v5; // rbx
-  unsigned __int16 v6; // r14
-  unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // rax
-  __int64 v10; // rdi
-  unsigned __int16 v11; // cx
-  unsigned __int64 v12; // rdi
-  unsigned __int64 v13; // rax
+  __int64 v2; // rax
+  __int64 v3; // rbx
+  unsigned __int16 v4; // r14
+  unsigned __int64 v6; // rsi
+  unsigned __int64 v7; // rax
+  __int64 v8; // rdi
+  unsigned __int16 v9; // cx
+  unsigned __int64 v10; // rdi
+  unsigned __int64 v11; // rax
 
-  v4 = *(unsigned __int16 *)(a1 + 40);
+  v2 = *(unsigned __int16 *)(a1 + 40);
   *(_BYTE *)a2 &= ~1u;
-  v5 = a2;
-  v6 = *(_WORD *)(a2 + 24);
-  v8 = 32 * v4 + (a2 & (-32 * v4));
-  v9 = 32LL * *(unsigned __int16 *)(a2 + 26);
-  v10 = a2 - v9;
-  if ( a2 >= v9 && (*(_BYTE *)v10 & 1) == 0 )
+  v3 = a2;
+  v4 = *(_WORD *)(a2 + 24);
+  v6 = 32 * v2 + (a2 & (-32 * v2));
+  v7 = 32LL * *(unsigned __int16 *)(a2 + 26);
+  v8 = a2 - v7;
+  if ( a2 >= v7 && (*(_BYTE *)v8 & 1) == 0 )
   {
-    RtlRbRemoveNode(a1 + 8, a2 - v9, a3, a4);
-    *(_WORD *)(v10 + 24) += *(_WORD *)(v5 + 24);
-    *(_OWORD *)v5 = 0LL;
-    *(_QWORD *)(v5 + 16) = 0LL;
-    *(_BYTE *)v5 = 2;
-    *(_BYTE *)(v5 + 1) = *(_BYTE *)(a1 + 44);
-    *(_QWORD *)(v5 + 24) = 2309737967LL;
-    v5 = v10;
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)(a2 - v7));
+    *(_WORD *)(v8 + 24) += *(_WORD *)(v3 + 24);
+    *(_OWORD *)v3 = 0LL;
+    *(_QWORD *)(v3 + 16) = 0LL;
+    *(_BYTE *)v3 = 2;
+    *(_BYTE *)(v3 + 1) = *(_BYTE *)(a1 + 44);
+    *(_QWORD *)(v3 + 24) = 2309737967LL;
+    v3 = v8;
   }
-  v11 = *(_WORD *)(v5 + 24);
-  v12 = v5 + 32LL * v11;
-  if ( v12 < v8 && (*(_BYTE *)v12 & 1) == 0 )
+  v9 = *(_WORD *)(v3 + 24);
+  v10 = v3 + 32LL * v9;
+  if ( v10 < v6 && (*(_BYTE *)v10 & 1) == 0 )
   {
-    RtlRbRemoveNode(a1 + 8, v5 + 32LL * *(unsigned __int16 *)(v5 + 24), a3, a4);
-    *(_WORD *)(v5 + 24) += *(_WORD *)(v12 + 24);
-    *(_OWORD *)v12 = 0LL;
-    *(_QWORD *)(v12 + 16) = 0LL;
-    *(_BYTE *)v12 = 2;
-    *(_BYTE *)(v12 + 1) = *(_BYTE *)(a1 + 44);
-    *(_QWORD *)(v12 + 24) = 2309737967LL;
-    v11 = *(_WORD *)(v5 + 24);
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)(v3 + 32LL * *(unsigned __int16 *)(v3 + 24)));
+    *(_WORD *)(v3 + 24) += *(_WORD *)(v10 + 24);
+    *(_OWORD *)v10 = 0LL;
+    *(_QWORD *)(v10 + 16) = 0LL;
+    *(_BYTE *)v10 = 2;
+    *(_BYTE *)(v10 + 1) = *(_BYTE *)(a1 + 44);
+    *(_QWORD *)(v10 + 24) = 2309737967LL;
+    v9 = *(_WORD *)(v3 + 24);
   }
-  v13 = v5 + 32LL * v11;
-  if ( v11 > v6 && v13 < v8 )
-    *(_WORD *)(v13 + 26) = v11;
-  return v5;
+  v11 = v3 + 32LL * v9;
+  if ( v9 > v4 && v11 < v6 )
+    *(_WORD *)(v11 + 26) = v9;
+  return v3;
 }

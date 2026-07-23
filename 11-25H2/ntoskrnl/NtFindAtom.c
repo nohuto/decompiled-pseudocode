@@ -14,28 +14,28 @@
  *     RtlLookupAtomInAtomTable @ 0x1409529A0 (RtlLookupAtomInAtomTable.c)
  */
 
-__int64 __fastcall NtFindAtom(_WORD *Src, size_t Size, _WORD *a3)
+NTSTATUS __cdecl NtFindAtom(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
   size_t v4; // r15
-  union _RTL_RUN_ONCE *Win32Callouts; // r14
+  _RTL_RUN_ONCE *Win32Callouts; // r14
   struct _EX_RUNDOWN_REF *v7; // rbx
-  __int64 v8; // r13
+  PVOID v8; // r13
   char PreviousMode; // r12
-  _WORD *v10; // r14
+  WCHAR *v10; // r14
   __int64 v11; // rcx
-  __int64 result; // rax
-  __int16 v13; // [rsp+20h] [rbp-288h] BYREF
-  _WORD *v14; // [rsp+28h] [rbp-280h]
+  NTSTATUS result; // eax
+  USHORT Atoma; // [rsp+20h] [rbp-288h] BYREF
+  PWSTR v14; // [rsp+28h] [rbp-280h]
   __int128 v15; // [rsp+30h] [rbp-278h] BYREF
-  __int64 v16; // [rsp+40h] [rbp-268h]
+  PVOID AtomTableHandle; // [rsp+40h] [rbp-268h]
   __int64 v17; // [rsp+48h] [rbp-260h]
   int v18; // [rsp+50h] [rbp-258h]
   _WORD v19[256]; // [rsp+60h] [rbp-248h] BYREF
 
-  v4 = (unsigned int)Size;
-  v13 = 0;
+  v4 = Length;
+  Atoma = 0;
   v15 = 0LL;
-  v16 = 0LL;
+  AtomTableHandle = 0LL;
   v18 = 0;
   v17 = 0LL;
   if ( (unsigned int)PspUpdateCalloutParameters(2, (__int64)&v15, 0, 0LL) )
@@ -48,39 +48,39 @@ __int64 __fastcall NtFindAtom(_WORD *Src, size_t Size, _WORD *a3)
       ExDereferenceCallBackBlock((signed __int64 *)Win32Callouts, v7);
     }
   }
-  v8 = v16;
-  if ( !v16 )
-    return 3221225506LL;
+  v8 = AtomTableHandle;
+  if ( !AtomTableHandle )
+    return -1073741790;
   if ( (unsigned int)v4 > 0x1FE )
-    return 3221225485LL;
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v10 = Src;
-  v14 = Src;
+  v10 = AtomName;
+  v14 = AtomName;
   if ( PreviousMode )
   {
-    if ( a3 )
+    if ( Atom )
     {
       v11 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v11 = (__int64)a3;
+      if ( (unsigned __int64)Atom < 0x7FFFFFFF0000LL )
+        v11 = (__int64)Atom;
       *(_WORD *)v11 = *(_WORD *)v11;
       v10 = v14;
     }
-    if ( Src )
+    if ( AtomName )
     {
-      if ( (_DWORD)v4 && ((unsigned __int8)Src & 1) != 0 )
+      if ( (_DWORD)v4 && ((unsigned __int8)AtomName & 1) != 0 )
         ExRaiseDatatypeMisalignment();
       v10 = v19;
       v14 = v19;
-      memmove(v19, Src, v4);
+      memmove(v19, AtomName, v4);
       v19[v4 >> 1] = 0;
     }
   }
-  LODWORD(result) = RtlLookupAtomInAtomTable(v8, v10, &v13);
-  if ( a3 )
+  result = RtlLookupAtomInAtomTable(v8, v10, &Atoma);
+  if ( Atom )
   {
-    if ( (int)result >= 0 )
-      *a3 = v13;
+    if ( result >= 0 )
+      *Atom = Atoma;
   }
-  return (unsigned int)result;
+  return result;
 }

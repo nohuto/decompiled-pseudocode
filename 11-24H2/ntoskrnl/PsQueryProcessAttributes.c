@@ -1,16 +1,16 @@
 /*
- * XREFs of PsQueryProcessAttributes @ 0x1409D67A0
+ * XREFs of PsQueryProcessAttributes @ 0x1409C65D0
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PspAssignProcessToJob @ 0x140A173D0 (PspAssignProcessToJob.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
+ *     PspAssignProcessToJob @ 0x140A105B0 (PspAssignProcessToJob.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     SeSecurityAttributePresent @ 0x1403438C0 (SeSecurityAttributePresent.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     SeSecurityAttributePresent @ 0x140322DA0 (SeSecurityAttributePresent.c)
  */
 
 char __fastcall PsQueryProcessAttributes(__int64 a1, _BYTE *a2, _BYTE *a3)

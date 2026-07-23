@@ -1,18 +1,18 @@
 /*
- * XREFs of PiLookupInDDB @ 0x14067EE0C
+ * XREFs of PiLookupInDDB @ 0x14067FFCC
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14067F0DC (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x14068029C (PpCheckInDriverDatabase.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1401B8690 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1401B86D0 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
- *     SdbInitDatabaseInMemory @ 0x1405A21DC (SdbInitDatabaseInMemory.c)
- *     PiIsDriverBlocked @ 0x14067EAF0 (PiIsDriverBlocked.c)
- *     SdbReleaseDatabase @ 0x140680ADC (SdbReleaseDatabase.c)
- *     PnpLogEvent @ 0x140827DEC (PnpLogEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1401B87F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1401B8830 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
+ *     SdbInitDatabaseInMemory @ 0x1405A31DC (SdbInitDatabaseInMemory.c)
+ *     PiIsDriverBlocked @ 0x14067FCB0 (PiIsDriverBlocked.c)
+ *     SdbReleaseDatabase @ 0x140681C9C (SdbReleaseDatabase.c)
+ *     PnpLogEvent @ 0x140828FEC (PnpLogEvent.c)
  */
 
 __int64 __fastcall PiLookupInDDB(__int64 a1, __int64 a2, unsigned int a3, _OWORD *a4)

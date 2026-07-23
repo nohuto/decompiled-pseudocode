@@ -1,20 +1,20 @@
 /*
- * XREFs of PiQueryPowerRelations @ 0x14070B948
+ * XREFs of PiQueryPowerRelations @ 0x14070CBE8
  * Callers:
- *     PnpDeviceActionWorker @ 0x14015F300 (PnpDeviceActionWorker.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x1406EB810 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpDeviceActionWorker @ 0x14015F400 (PnpDeviceActionWorker.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1406ECAB0 (PipProcessRebuildPowerRelationsQueue.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     PnpQueryDeviceRelations @ 0x1406E8020 (PnpQueryDeviceRelations.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14070BB3C (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     PiValidatePowerRelations @ 0x14070BBB8 (PiValidatePowerRelations.c)
- *     PiQueryPowerDependencyRelations @ 0x14070BD1C (PiQueryPowerDependencyRelations.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14059CF10 (PpDevNodeLockTree.c)
+ *     PnpQueryDeviceRelations @ 0x1406E92C0 (PnpQueryDeviceRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14070CDDC (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PiValidatePowerRelations @ 0x14070CE58 (PiValidatePowerRelations.c)
+ *     PiQueryPowerDependencyRelations @ 0x14070CFBC (PiQueryPowerDependencyRelations.c)
  */
 
 __int64 __fastcall PiQueryPowerRelations(__int64 a1, char a2)

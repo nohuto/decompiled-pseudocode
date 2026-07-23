@@ -7,18 +7,18 @@
  *     PoAllProcessorsDeepIdle @ 0x140112CD0 (PoAllProcessorsDeepIdle.c)
  */
 
-LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, __int64 *a2)
+LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, LARGE_INTEGER *a2)
 {
   __int64 v2; // rsi
   char v4; // r11
   int v5; // eax
   char v6; // al
-  LARGE_INTEGER v8; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 23808);
-  *a2 = RtlGetInterruptTimePrecise(&v8);
+  *a2 = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v4 = 0;
-  *(LARGE_INTEGER *)(v2 + 496) = v8;
+  *(LARGE_INTEGER *)(v2 + 496) = PerformanceCounter;
   *(_QWORD *)(v2 + 504) = *(_QWORD *)(a1 + 23832) + *(_QWORD *)(a1 + 24008);
   *(_BYTE *)(v2 + 538) = *(_BYTE *)(a1 + 24228);
   *(_BYTE *)(v2 + 536) = *(_BYTE *)(a1 + 23864);
@@ -54,5 +54,5 @@ LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, __int64 *a2)
     if ( v6 )
       *(_WORD *)(v2 + 48) |= 0x4000u;
   }
-  return v8;
+  return PerformanceCounter;
 }

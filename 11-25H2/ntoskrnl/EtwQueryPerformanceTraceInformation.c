@@ -56,7 +56,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
   struct _KTHREAD *CurrentThread; // rax
   ULONG v30; // ecx
   unsigned int v31; // eax
-  ULONG v32; // esi
+  DWORD v32; // esi
   _DWORD *v33; // r14
   _OWORD *v34; // rsi
   __int64 v35; // rax
@@ -74,7 +74,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
   struct _KPROCESS *NextProcess; // rax
   struct _KPROCESS *v48; // rdi
   unsigned int ProcessId; // eax
-  ULONG SecurityInformation; // [rsp+34h] [rbp-54h] BYREF
+  DWORD SecurityInformation; // [rsp+34h] [rbp-54h] BYREF
   __int64 v51; // [rsp+38h] [rbp-50h] BYREF
   int v52; // [rsp+40h] [rbp-48h]
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+48h] [rbp-40h] BYREF

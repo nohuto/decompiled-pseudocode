@@ -18,7 +18,7 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AVL_TABLE *a3)
+void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, _RTL_AVL_TABLE *a3)
 {
   wchar_t *v5; // rdi
   __int64 v6; // rbx
@@ -27,7 +27,7 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
   size_t v9; // r15
   wchar_t *Pool2; // rbx
   NTSTATUS v11; // esi
-  RTL_AVL_TABLE *v12; // rcx
+  _RTL_AVL_TABLE *v12; // rcx
   NTSTATUS v13; // ecx
   const WCHAR *v14; // rdx
   unsigned __int64 v15; // rdx

@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpReferenceCurrentDeviceMap @ 0x140984EA0
+ * XREFs of ObpReferenceCurrentDeviceMap @ 0x14096D6B0
  * Callers:
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
- *     ObQueryDeviceMapInformation @ 0x1409848B0 (ObQueryDeviceMapInformation.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
+ *     ObQueryDeviceMapInformation @ 0x14096D0C0 (ObQueryDeviceMapInformation.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsGetThreadServerSilo @ 0x140348A90 (PsGetThreadServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PspUnlockThreadSecurityShared @ 0x14041AFC0 (PspUnlockThreadSecurityShared.c)
- *     PsGetProcessServerSilo @ 0x140445660 (PsGetProcessServerSilo.c)
- *     SeGetTokenDeviceMap @ 0x14098519C (SeGetTokenDeviceMap.c)
- *     ObpSetCurrentProcessDeviceMap @ 0x140985458 (ObpSetCurrentProcessDeviceMap.c)
- *     ObDereferenceDeviceMap @ 0x1409855D4 (ObDereferenceDeviceMap.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     PsGetThreadServerSilo @ 0x1403C24D0 (PsGetThreadServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PspUnlockThreadSecurityShared @ 0x14040AFC0 (PspUnlockThreadSecurityShared.c)
+ *     PsGetProcessServerSilo @ 0x14043D810 (PsGetProcessServerSilo.c)
+ *     SeGetTokenDeviceMap @ 0x14096D9AC (SeGetTokenDeviceMap.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x14096DC68 (ObpSetCurrentProcessDeviceMap.c)
+ *     ObDereferenceDeviceMap @ 0x14096DDE4 (ObDereferenceDeviceMap.c)
  */
 
 __int64 __fastcall ObpReferenceCurrentDeviceMap(__int16 a1, signed __int64 **a2)
@@ -32,7 +32,7 @@ __int64 __fastcall ObpReferenceCurrentDeviceMap(__int16 a1, signed __int64 **a2)
   bool v9; // r13
   signed __int64 v10; // rcx
   struct _KTHREAD *v11; // r15
-  _QWORD *v12; // r13
+  char *v12; // r13
   _QWORD *p_Lock; // rbx
   signed __int64 *ServerSiloGlobals; // rbx
   signed __int64 v15; // rdx
@@ -41,7 +41,7 @@ __int64 __fastcall ObpReferenceCurrentDeviceMap(__int16 a1, signed __int64 **a2)
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   struct _KTHREAD *v19; // rcx
   signed __int64 *p_Blink; // rsi
-  _QWORD *v21; // rdi
+  char *v21; // rdi
   signed __int64 v22; // rax
   signed __int64 v23; // rtt
   __int64 v26; // [rsp+70h] [rbp+18h] BYREF
@@ -61,7 +61,7 @@ __int64 __fastcall ObpReferenceCurrentDeviceMap(__int16 a1, signed __int64 **a2)
   {
     v11 = KeGetCurrentThread();
     --v11->KernelApcDisable;
-    v12 = KeAbPreAcquire((__int64)&CurrentThread[1].WaitBlockList, 0LL);
+    v12 = (char *)KeAbPreAcquire((__int64)&CurrentThread[1].WaitBlockList, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CurrentThread[1].WaitBlockList, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(
         (signed __int64 *)&CurrentThread[1].WaitBlockList,
@@ -69,7 +69,7 @@ __int64 __fastcall ObpReferenceCurrentDeviceMap(__int16 a1, signed __int64 **a2)
         v12,
         (__int64)&CurrentThread[1].WaitBlockList);
     if ( v12 )
-      *((_BYTE *)v12 + 10) = 1;
+      v12[10] = 1;
     if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
     {
       p_Lock = &CurrentThread[1].WaitBlock[1].Thread->Header.Lock;
@@ -129,11 +129,11 @@ LABEL_19:
     v19 = KeGetCurrentThread();
     p_Blink = (signed __int64 *)&CurrentServerSiloGlobals[7].Blink;
     --v19->SpecialApcDisable;
-    v21 = KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[7].Blink, 0LL);
+    v21 = (char *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[7].Blink, 0LL);
     if ( _InterlockedCompareExchange64(p_Blink, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(p_Blink, 0, v21, (__int64)p_Blink);
     if ( v21 )
-      *((_BYTE *)v21 + 10) = 1;
+      v21[10] = 1;
     v17 = (volatile signed __int64 *)(*ServerSiloGlobals & 0xFFFFFFFFFFFFFFF0uLL);
     if ( v17 )
     {

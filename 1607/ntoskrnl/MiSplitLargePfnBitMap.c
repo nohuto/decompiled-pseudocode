@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSplitLargePfnBitMap @ 0x1405760E4
+ * XREFs of MiSplitLargePfnBitMap @ 0x140576624
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1401F07A4 (MiActOnPartitionNodePages.c)
- *     MiCreateLargePfnBitMaps @ 0x140575FB0 (MiCreateLargePfnBitMaps.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     MiActOnPartitionNodePages @ 0x1401F05D0 (MiActOnPartitionNodePages.c)
+ *     MiCreateLargePfnBitMaps @ 0x1405764F0 (MiCreateLargePfnBitMaps.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  * Callees:
- *     MiSplitBitmapPages @ 0x140101E54 (MiSplitBitmapPages.c)
+ *     MiSplitBitmapPages @ 0x1400FFBD4 (MiSplitBitmapPages.c)
  */
 
 __int64 __fastcall MiSplitLargePfnBitMap(__int64 a1, unsigned __int64 a2, __int64 a3)

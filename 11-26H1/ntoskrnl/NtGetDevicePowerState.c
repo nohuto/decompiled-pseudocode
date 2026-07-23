@@ -1,24 +1,24 @@
 /*
- * XREFs of NtGetDevicePowerState @ 0x140B3EE50
+ * XREFs of NtGetDevicePowerState @ 0x140B40E80
  * Callers:
- *     DifNtGetDevicePowerStateWrapper @ 0x140678FD0 (DifNtGetDevicePowerStateWrapper.c)
- *     PfpVolumeOpenAndVerify @ 0x1409AF914 (PfpVolumeOpenAndVerify.c)
+ *     DifNtGetDevicePowerStateWrapper @ 0x14067CBB0 (DifNtGetDevicePowerStateWrapper.c)
+ *     PfpVolumeOpenAndVerify @ 0x1409809C8 (PfpVolumeOpenAndVerify.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PopLockGetDoDevicePowerState @ 0x1404F2150 (PopLockGetDoDevicePowerState.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     IoGetRelatedTargetDevice @ 0x140AF2128 (IoGetRelatedTargetDevice.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PopLockGetDoDevicePowerState @ 0x1404EB730 (PopLockGetDoDevicePowerState.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     IoGetRelatedTargetDevice @ 0x140AF49F8 (IoGetRelatedTargetDevice.c)
  */
 
-__int64 __fastcall NtGetDevicePowerState(HANDLE Handle, unsigned int *a2)
+NTSTATUS __cdecl NtGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE State)
 {
   char PreviousMode; // r14
   int ULongFromUser; // eax
-  int RelatedTargetDevice; // ebx
+  NTSTATUS RelatedTargetDevice; // ebx
   PVOID v7; // rsi
-  int DoDevicePowerState; // eax
+  __int32 DoDevicePowerState; // eax
   PVOID Object; // [rsp+60h] [rbp+18h] BYREF
   PVOID v11; // [rsp+68h] [rbp+20h] BYREF
 
@@ -26,12 +26,12 @@ __int64 __fastcall NtGetDevicePowerState(HANDLE Handle, unsigned int *a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULongFromUser = RtlReadULongFromUser(a2);
-    RtlWriteULongToUser(a2, ULongFromUser);
+    ULongFromUser = RtlReadULongFromUser((unsigned int *)State);
+    RtlWriteULongToUser(State, ULongFromUser);
   }
   Object = 0LL;
   RelatedTargetDevice = ObReferenceObjectByHandle(
-                          Handle,
+                          Device,
                           0,
                           (POBJECT_TYPE)IoFileObjectType,
                           KeGetCurrentThread()->PreviousMode,
@@ -46,11 +46,11 @@ __int64 __fastcall NtGetDevicePowerState(HANDLE Handle, unsigned int *a2)
       v7 = v11;
       DoDevicePowerState = PopLockGetDoDevicePowerState(*((_QWORD *)v11 + 39));
       if ( PreviousMode )
-        RtlWriteULongToUser(a2, DoDevicePowerState);
+        RtlWriteULongToUser(State, DoDevicePowerState);
       else
-        *a2 = DoDevicePowerState;
+        *State = DoDevicePowerState;
       ObfDereferenceObject(v7);
     }
   }
-  return (unsigned int)RelatedTargetDevice;
+  return RelatedTargetDevice;
 }

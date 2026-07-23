@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptInitializeController @ 0x1403A3658
+ * XREFs of HalpInterruptInitializeController @ 0x1403A37A8
  * Callers:
- *     HalpInterruptSelectController @ 0x1403A9360 (HalpInterruptSelectController.c)
- *     HalpInterruptResetThisProcessor @ 0x1404BC480 (HalpInterruptResetThisProcessor.c)
- *     HalpInterruptPowerChange @ 0x1404D1974 (HalpInterruptPowerChange.c)
- *     HalpInterruptReinitialize @ 0x140995D78 (HalpInterruptReinitialize.c)
- *     HalpInitializeInterrupts @ 0x140A396FC (HalpInitializeInterrupts.c)
+ *     HalpInterruptSelectController @ 0x1403AA0F0 (HalpInterruptSelectController.c)
+ *     HalpInterruptResetThisProcessor @ 0x1404BC6C0 (HalpInterruptResetThisProcessor.c)
+ *     HalpInterruptPowerChange @ 0x1404D1BB4 (HalpInterruptPowerChange.c)
+ *     HalpInterruptReinitialize @ 0x140996D78 (HalpInterruptReinitialize.c)
+ *     HalpInitializeInterrupts @ 0x140A3A6FC (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpInterruptInitializeLocalUnit @ 0x1403A3D0C (HalpInterruptInitializeLocalUnit.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A3E5C (HalpInterruptInitializeLocalUnit.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpInterruptInitializeController(ULONG_PTR BugCheckParameter3)

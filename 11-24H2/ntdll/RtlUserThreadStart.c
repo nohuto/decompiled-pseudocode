@@ -1,32 +1,30 @@
 /*
- * XREFs of RtlUserThreadStart @ 0x180004250
+ * XREFs of RtlUserThreadStart @ 0x1800AAD40
  * Callers:
  *     <none>
  * Callees:
- *     RtlExitUserThread @ 0x1800042C0 (RtlExitUserThread.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlDecodePointer @ 0x18001A440 (RtlDecodePointer.c)
- *     RtlUnhandledExceptionFilter2 @ 0x18011F650 (RtlUnhandledExceptionFilter2.c)
- *     ZwTerminateProcess @ 0x180162210 (ZwTerminateProcess.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlDecodePointer @ 0x180046E40 (RtlDecodePointer.c)
+ *     RtlExitUserThread @ 0x1800AADB0 (RtlExitUserThread.c)
+ *     RtlUnhandledExceptionFilter2 @ 0x18011D880 (RtlUnhandledExceptionFilter2.c)
+ *     ZwTerminateProcess @ 0x1801605D0 (ZwTerminateProcess.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlUserThreadStart(__int64 (__fastcall *a1)(__int64), __int64 a2)
+void __cdecl RtlUserThreadStart(PTHREAD_START_ROUTINE Function, PVOID Parameter)
 {
-  unsigned int v3; // eax
-  unsigned int v4; // eax
+  NTSTATUS v2; // eax
 
-  if ( Kernel32ThreadInitThunkFunction )
+  if ( !Kernel32ThreadInitThunkFunction )
   {
-    if ( (char *)Kernel32ThreadInitThunkFunction == (char *)RtlLeaveCriticalSection )
-      return RtlLeaveCriticalSection(0LL);
-    else
-      return Kernel32ThreadInitThunkFunction(0LL, a1, a2);
+    v2 = ((__int64 (__fastcall *)(PVOID))Function)(Parameter);
+    RtlExitUserThread(v2);
   }
+  if ( Kernel32ThreadInitThunkFunction == RtlLeaveCriticalSection )
+    RtlLeaveCriticalSection(0LL);
   else
-  {
-    v3 = a1(a2);
-    v4 = RtlExitUserThread(v3);
-    return ZwTerminateProcess(-1LL, v4);
-  }
+    ((void (__fastcall *)(_QWORD, PTHREAD_START_ROUTINE, PVOID))Kernel32ThreadInitThunkFunction)(
+      0LL,
+      Function,
+      Parameter);
 }

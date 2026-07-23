@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkSetLpiCap @ 0x1404BBB5C
+ * XREFs of PpmParkSetLpiCap @ 0x1404B533C
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmCheckCustomRun @ 0x1404BBD70 (PpmCheckCustomRun.c)
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x1404B5550 (PpmCheckCustomRun.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
  */
 
 __int64 __fastcall PpmParkSetLpiCap(int a1, __int64 a2, unsigned int *a3)
@@ -15,7 +15,7 @@ __int64 __fastcall PpmParkSetLpiCap(int a1, __int64 a2, unsigned int *a3)
   int v4; // edi
   unsigned int v7; // ebx
   unsigned int v8; // ecx
-  __int64 SystemCallNumber; // r9
+  __int64 v9; // r9
   unsigned __int16 *v10; // rdx
   int v11; // eax
   unsigned int v12; // ecx
@@ -28,49 +28,47 @@ __int64 __fastcall PpmParkSetLpiCap(int a1, __int64 a2, unsigned int *a3)
   v4 = a2;
   if ( KeGetCurrentPrcb()->PowerState.Hypervisor >= ProcHypervisorPower && (HvlEnlightenments & 0x40000) == 0 )
     return 3221225473LL;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, (unsigned int)a3);
-  v7 = LOWORD(PopModernStandbyStateNotify.ThreadLock)
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, (unsigned int)a3);
+  v7 = (unsigned __int16)PpmParkGranularity
      + a1
      - 1
-     - ((unsigned int)LOWORD(PopModernStandbyStateNotify.ThreadLock) + a1 - 1)
-     % LOWORD(PopModernStandbyStateNotify.ThreadLock);
+     - ((unsigned int)(unsigned __int16)PpmParkGranularity + a1 - 1) % (unsigned __int16)PpmParkGranularity;
   if ( v7 )
   {
     v8 = 0;
-    if ( !PopModernStandbyStateNotify.SystemCallNumber )
+    if ( !PpmParkNumNodes )
       goto LABEL_11;
-    SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
-    v10 = (unsigned __int16 *)(*(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 8LL);
+    v9 = (unsigned int)PpmParkNumNodes;
+    v10 = (unsigned __int16 *)(PpmParkNodes + 8);
     do
     {
       v11 = *v10;
-      if ( (unsigned __int16)v11 > LOWORD(PopModernStandbyStateNotify.ThreadLock) )
-        v8 += v11 - LOWORD(PopModernStandbyStateNotify.ThreadLock);
+      if ( (unsigned __int16)v11 > (unsigned __int16)PpmParkGranularity )
+        v8 += v11 - (unsigned __int16)PpmParkGranularity;
       v10 += 632;
-      --SystemCallNumber;
+      --v9;
     }
-    while ( SystemCallNumber );
+    while ( v9 );
     if ( v7 > v8 )
 LABEL_11:
       v7 = v8;
   }
-  v12 = LOWORD(PopModernStandbyStateNotify.ThreadLock)
+  v12 = (unsigned __int16)PpmParkGranularity
       + v4
       - 1
-      - ((unsigned int)LOWORD(PopModernStandbyStateNotify.ThreadLock) + v4 - 1)
-      % LOWORD(PopModernStandbyStateNotify.ThreadLock);
+      - ((unsigned int)(unsigned __int16)PpmParkGranularity + v4 - 1) % (unsigned __int16)PpmParkGranularity;
   if ( v12 )
   {
     v13 = 0;
-    if ( !PopModernStandbyStateNotify.SystemCallNumber )
+    if ( !PpmParkNumNodes )
       goto LABEL_19;
-    v14 = PopModernStandbyStateNotify.SystemCallNumber;
-    v15 = (unsigned __int16 *)(*(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 8LL);
+    v14 = (unsigned int)PpmParkNumNodes;
+    v15 = (unsigned __int16 *)(PpmParkNodes + 8);
     do
     {
       v16 = *v15;
-      if ( (unsigned __int16)v16 > LOWORD(PopModernStandbyStateNotify.ThreadLock) )
-        v13 += v16 - LOWORD(PopModernStandbyStateNotify.ThreadLock);
+      if ( (unsigned __int16)v16 > (unsigned __int16)PpmParkGranularity )
+        v13 += v16 - (unsigned __int16)PpmParkGranularity;
       v15 += 632;
       --v14;
     }
@@ -90,7 +88,7 @@ LABEL_19:
   {
     if ( !v17 )
     {
-      PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+      PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
       goto LABEL_27;
     }
   }

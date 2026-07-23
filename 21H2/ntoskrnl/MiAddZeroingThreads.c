@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddZeroingThreads @ 0x1403A55A0
+ * XREFs of MiAddZeroingThreads @ 0x1403A56F0
  * Callers:
- *     MiReassessZeroThreads @ 0x1402BB5C4 (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x1402397D4 (MiReassessZeroThreads.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x14027B530 (KeFindFirstSetRightGroupAffinity.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402694D0 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 __int64 __fastcall MiAddZeroingThreads(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall MiAddZeroingThreads(__int64 a1)
   v3 = *(_DWORD *)(v1 + 156);
   if ( v2 == *(_DWORD *)(v1 + 160) )
   {
-    ++dword_140C2A244;
+    ++dword_140C2A284;
     return 3LL;
   }
   if ( v3 == v2 )
@@ -40,7 +40,7 @@ __int64 __fastcall MiAddZeroingThreads(__int64 a1)
     ++MiZeroThreadStats;
     return 4LL;
   }
-  v5 = (unsigned int)dword_140C4DEE4;
+  v5 = (unsigned int)dword_140C4DF24;
   v6 = 0;
   v7 = *(_DWORD *)(v1 + 156);
   if ( !v3 )

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlStringCbCopyNW @ 0x1403D9E84
+ * XREFs of RtlStringCbCopyNW @ 0x1403CC204
  * Callers:
- *     PopDiagTraceIrpFinish @ 0x140377E10 (PopDiagTraceIrpFinish.c)
- *     PopDiagGetDriverName @ 0x1403D9940 (PopDiagGetDriverName.c)
- *     PopDiagTraceDeviceAcquireIrp @ 0x1403D9D34 (PopDiagTraceDeviceAcquireIrp.c)
- *     PopDiagTraceDIrpAfterSx @ 0x1403D9F9C (PopDiagTraceDIrpAfterSx.c)
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405594B8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     IopCheckIfNotNativeDriver @ 0x140711C94 (IopCheckIfNotNativeDriver.c)
- *     PiUEventGetProcessImagePath @ 0x140724B20 (PiUEventGetProcessImagePath.c)
- *     AslPathWildcardFindFirst @ 0x14080A0A4 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x14080A69C (AslPathWildcardFindNext.c)
- *     LocalConvertSidToStringSidW @ 0x140861E34 (LocalConvertSidToStringSidW.c)
- *     AuthzBasepCopyoutClaimAttributes @ 0x140A074F4 (AuthzBasepCopyoutClaimAttributes.c)
- *     AuthzBasepCopyoutClaimAttributeValues @ 0x140A0767C (AuthzBasepCopyoutClaimAttributeValues.c)
+ *     PopDiagTraceIrpFinish @ 0x1402E64EC (PopDiagTraceIrpFinish.c)
+ *     PopDiagGetDriverName @ 0x1403CBCB8 (PopDiagGetDriverName.c)
+ *     PopDiagTraceDeviceAcquireIrp @ 0x1403CC0B4 (PopDiagTraceDeviceAcquireIrp.c)
+ *     PopDiagTraceDIrpAfterSx @ 0x1403CC400 (PopDiagTraceDIrpAfterSx.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x1405570E8 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     IopCheckIfNotNativeDriver @ 0x14070F824 (IopCheckIfNotNativeDriver.c)
+ *     PiUEventGetProcessImagePath @ 0x1407226B0 (PiUEventGetProcessImagePath.c)
+ *     AslPathWildcardFindFirst @ 0x14080A7E4 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x14080ADDC (AslPathWildcardFindNext.c)
+ *     LocalConvertSidToStringSidW @ 0x140866440 (LocalConvertSidToStringSidW.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x140A03A24 (AuthzBasepCopyoutClaimAttributes.c)
+ *     AuthzBasepCopyoutClaimAttributeValues @ 0x140A03BAC (AuthzBasepCopyoutClaimAttributeValues.c)
  * Callees:
  *     <none>
  */

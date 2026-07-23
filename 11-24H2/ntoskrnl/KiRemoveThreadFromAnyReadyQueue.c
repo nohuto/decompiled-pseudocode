@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRemoveThreadFromAnyReadyQueue @ 0x14030D3E8
+ * XREFs of KiRemoveThreadFromAnyReadyQueue @ 0x1402D8B94
  * Callers:
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x1403B21E0 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiApplyForegroundBoostThread @ 0x1404F6D4C (KiApplyForegroundBoostThread.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1403A09F0 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiApplyForegroundBoostThread @ 0x1404F4630 (KiApplyForegroundBoostThread.c)
  * Callees:
- *     KiRemoveThreadFromReadyQueue @ 0x14030D494 (KiRemoveThreadFromReadyQueue.c)
- *     KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x14030D724 (KiUpdateSharedReadyQueueStatisticsOnRemoval.c)
- *     KiRemoveThreadFromScbQueue @ 0x14030D7C0 (KiRemoveThreadFromScbQueue.c)
+ *     KiRemoveThreadFromReadyQueue @ 0x1402D8C40 (KiRemoveThreadFromReadyQueue.c)
+ *     KiUpdateSharedReadyQueueStatisticsOnRemoval @ 0x1402D8EC4 (KiUpdateSharedReadyQueueStatisticsOnRemoval.c)
+ *     KiRemoveThreadFromScbQueue @ 0x1402D8F60 (KiRemoveThreadFromScbQueue.c)
  */
 
 __int64 __fastcall KiRemoveThreadFromAnyReadyQueue(struct _KPRCB *a1, __int64 a2, __int64 a3, unsigned int a4)

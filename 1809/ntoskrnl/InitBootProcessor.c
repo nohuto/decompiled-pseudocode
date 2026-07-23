@@ -1,60 +1,60 @@
 /*
- * XREFs of InitBootProcessor @ 0x1409B4EDC
+ * XREFs of InitBootProcessor @ 0x1409B5EDC
  * Callers:
- *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140572310 (KiInitializeKernel.c)
  * Callees:
  *     RtlInitString @ 0x140002070 (RtlInitString.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     DbgLoadImageSymbols @ 0x1400F4C60 (DbgLoadImageSymbols.c)
- *     KeAdjustInterruptTime @ 0x140159888 (KeAdjustInterruptTime.c)
- *     RtlStringCbPrintfA @ 0x14017DEB4 (RtlStringCbPrintfA.c)
- *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
- *     RtlStringCbCopyExA @ 0x140192258 (RtlStringCbCopyExA.c)
- *     HvlPhase1Initialize @ 0x1401939F4 (HvlPhase1Initialize.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _strupr @ 0x140194BD0 (_strupr.c)
- *     strstr @ 0x140194EC0 (strstr.c)
- *     atol @ 0x140194F70 (atol.c)
- *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     DbgBreakPointWithStatus @ 0x1401C5350 (DbgBreakPointWithStatus.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlStringCbCatExA @ 0x140268A30 (RtlStringCbCatExA.c)
- *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14073251C (RtlCreateUnicodeStringFromAsciiz.c)
- *     LdrAccessResource @ 0x140756B30 (LdrAccessResource.c)
- *     LdrFindResource_U @ 0x140756B50 (LdrFindResource_U.c)
- *     RtlInitNlsTables @ 0x14075D0D0 (RtlInitNlsTables.c)
- *     RtlResetRtlTranslations @ 0x14075F504 (RtlResetRtlTranslations.c)
- *     RtlGetHostNtSystemRoot @ 0x1407641D8 (RtlGetHostNtSystemRoot.c)
- *     RtlpInitializeStackTraceDatabase @ 0x140891F28 (RtlpInitializeStackTraceDatabase.c)
- *     SeInitSystem @ 0x1409AB3BC (SeInitSystem.c)
- *     DbgkInitialize @ 0x1409AEA1C (DbgkInitialize.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
- *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
- *     MmInitSystem @ 0x1409BC4E4 (MmInitSystem.c)
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
- *     CmInitSystem0 @ 0x1409CCCF0 (CmInitSystem0.c)
- *     ExInitSystem @ 0x1409D4FF0 (ExInitSystem.c)
- *     InbvDriverInitialize @ 0x1409D6F70 (InbvDriverInitialize.c)
- *     PsInitializeQuotaSystem @ 0x1409D7580 (PsInitializeQuotaSystem.c)
- *     BootApplicationPersistentDataInitialize @ 0x1409D8020 (BootApplicationPersistentDataInitialize.c)
- *     WheaInitializeServices @ 0x1409D8438 (WheaInitializeServices.c)
- *     KeInitializeClock @ 0x1409D8C58 (KeInitializeClock.c)
- *     ExComputeTickCountMultiplier @ 0x1409D9DD4 (ExComputeTickCountMultiplier.c)
- *     VerifierInitSystem @ 0x1409DAED4 (VerifierInitSystem.c)
- *     PpInitSystem @ 0x1409DDDD4 (PpInitSystem.c)
- *     InitializeDynamicPartitioningPolicy @ 0x1409DEB48 (InitializeDynamicPartitioningPolicy.c)
- *     KeNumaInitialize @ 0x1409DED20 (KeNumaInitialize.c)
- *     HeadlessInit @ 0x1409DF5DC (HeadlessInit.c)
- *     ExBurnMemory @ 0x1409F3248 (ExBurnMemory.c)
- *     ExpRevokeBootLoaderPagePrivileges @ 0x1409F32CC (ExpRevokeBootLoaderPagePrivileges.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     DbgLoadImageSymbols @ 0x1400F4CE0 (DbgLoadImageSymbols.c)
+ *     KeAdjustInterruptTime @ 0x140159988 (KeAdjustInterruptTime.c)
+ *     RtlStringCbPrintfA @ 0x14017DFF4 (RtlStringCbPrintfA.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DE90 (VslGetNestedPageProtectionFlags.c)
+ *     RtlStringCbCopyExA @ 0x140192398 (RtlStringCbCopyExA.c)
+ *     HvlPhase1Initialize @ 0x140193B34 (HvlPhase1Initialize.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _strupr @ 0x140194D10 (_strupr.c)
+ *     strstr @ 0x140195000 (strstr.c)
+ *     atol @ 0x1401950B0 (atol.c)
+ *     KeBugCheck @ 0x1401BBD00 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     DbgBreakPointWithStatus @ 0x1401C54B0 (DbgBreakPointWithStatus.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlStringCbCatExA @ 0x140268C20 (RtlStringCbCatExA.c)
+ *     __report_rangecheckfailure @ 0x140268FBC (__report_rangecheckfailure.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFindMessage @ 0x14067CF90 (RtlFindMessage.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14073370C (RtlCreateUnicodeStringFromAsciiz.c)
+ *     LdrAccessResource @ 0x140757D20 (LdrAccessResource.c)
+ *     LdrFindResource_U @ 0x140757D40 (LdrFindResource_U.c)
+ *     RtlInitNlsTables @ 0x14075E2C0 (RtlInitNlsTables.c)
+ *     RtlResetRtlTranslations @ 0x1407606F4 (RtlResetRtlTranslations.c)
+ *     RtlGetHostNtSystemRoot @ 0x1407653C8 (RtlGetHostNtSystemRoot.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x140893188 (RtlpInitializeStackTraceDatabase.c)
+ *     SeInitSystem @ 0x1409AC3BC (SeInitSystem.c)
+ *     DbgkInitialize @ 0x1409AFA1C (DbgkInitialize.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
+ *     ObInitSystem @ 0x1409B2964 (ObInitSystem.c)
+ *     MmInitSystem @ 0x1409BD4E4 (MmInitSystem.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
+ *     CmInitSystem0 @ 0x1409CDCF0 (CmInitSystem0.c)
+ *     ExInitSystem @ 0x1409D5FF0 (ExInitSystem.c)
+ *     InbvDriverInitialize @ 0x1409D7F70 (InbvDriverInitialize.c)
+ *     PsInitializeQuotaSystem @ 0x1409D8580 (PsInitializeQuotaSystem.c)
+ *     BootApplicationPersistentDataInitialize @ 0x1409D9020 (BootApplicationPersistentDataInitialize.c)
+ *     WheaInitializeServices @ 0x1409D9438 (WheaInitializeServices.c)
+ *     KeInitializeClock @ 0x1409D9C58 (KeInitializeClock.c)
+ *     ExComputeTickCountMultiplier @ 0x1409DADD4 (ExComputeTickCountMultiplier.c)
+ *     VerifierInitSystem @ 0x1409DBED4 (VerifierInitSystem.c)
+ *     PpInitSystem @ 0x1409DEDD4 (PpInitSystem.c)
+ *     InitializeDynamicPartitioningPolicy @ 0x1409DFB48 (InitializeDynamicPartitioningPolicy.c)
+ *     KeNumaInitialize @ 0x1409DFD20 (KeNumaInitialize.c)
+ *     HeadlessInit @ 0x1409E05DC (HeadlessInit.c)
+ *     ExBurnMemory @ 0x1409F4248 (ExBurnMemory.c)
+ *     ExpRevokeBootLoaderPagePrivileges @ 0x1409F42CC (ExpRevokeBootLoaderPagePrivileges.c)
  */
 
 __int64 __fastcall InitBootProcessor(char *StartContext)
@@ -116,9 +116,6 @@ __int64 __fastcall InitBootProcessor(char *StartContext)
   PVOID v56; // rax
   void *v57; // rdi
   PVOID v58; // rax
-  __int64 v59; // rdx
-  __int64 v60; // rcx
-  __int64 v61; // r8
   __int64 result; // rax
   PMESSAGE_RESOURCE_ENTRY *MessageResourceEntry; // [rsp+28h] [rbp-E0h]
   ULONG dwFlags; // [rsp+30h] [rbp-D8h]
@@ -128,18 +125,18 @@ __int64 __fastcall InitBootProcessor(char *StartContext)
   size_t pcbRemaining; // [rsp+50h] [rbp-B8h] BYREF
   PVOID Resource; // [rsp+58h] [rbp-B0h] BYREF
   PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry; // [rsp+60h] [rbp-A8h] BYREF
-  PMESSAGE_RESOURCE_ENTRY v71; // [rsp+68h] [rbp-A0h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v68; // [rsp+68h] [rbp-A0h] BYREF
   NTSTRSAFE_PSTR ppszDestEnd[2]; // [rsp+70h] [rbp-98h] BYREF
   STRING Name; // [rsp+80h] [rbp-88h] BYREF
   _LDR_RESOURCE_INFO ResourceInfo; // [rsp+90h] [rbp-78h] BYREF
-  char pszDest[256]; // [rsp+A8h] [rbp-60h] BYREF
-  char Source[64]; // [rsp+1A8h] [rbp+A0h] BYREF
+  CHAR pszDest[256]; // [rsp+A8h] [rbp-60h] BYREF
+  CHAR Source[64]; // [rsp+1A8h] [rbp+A0h] BYREF
 
-  dword_14055B994 = 259;
-  dword_14055B990 = 1;
-  byte_14055B951 = 1;
-  qword_14055B960 = (__int64)&PspTimeZoneStateBuffer;
-  dword_14055C634 = -1;
+  dword_14055C994 = 259;
+  dword_14055C990 = 1;
+  byte_14055C951 = 1;
+  qword_14055C960 = (__int64)&PspTimeZoneStateBuffer;
+  dword_14055D634 = -1;
   v2 = *(unsigned int *)StartContext;
   if ( (_DWORD)v2 != 10 || (v3 = *((_DWORD *)StartContext + 1)) != 0 || (v4 = *((_DWORD *)StartContext + 2), v4 != 352) )
   {
@@ -238,7 +235,7 @@ LABEL_107:
   RtlResetRtlTranslations(v24);
   ExLeapSecondData = *(PVOID *)(*((_QWORD *)StartContext + 30) + 2904LL);
   WheaInitializeServices();
-  ((void (__fastcall *)(__int64 (__fastcall **)()))off_1403FE5F0[0])(HalIommuDispatch);
+  ((void (__fastcall *)(__int64 (__fastcall **)()))off_1403FF5F0[0])(HalIommuDispatch);
   if ( !(unsigned __int8)HalInitSystem((unsigned int)InitializationPhase, StartContext) )
     KeBugCheck(0x5Cu);
   KeInitializeClock((unsigned int)InitializationPhase);
@@ -326,7 +323,7 @@ LABEL_107:
     goto LABEL_128;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   KiHwPolicyDriverImageBase = 0LL;
-  qword_140A0A688 = PerformanceCounter.QuadPart;
+  qword_140A0B688 = PerformanceCounter.QuadPart;
   HalInitializeBios(0LL, StartContext);
   InbvDriverInitialize(0LL, StartContext, 0LL);
   if ( KiBugCodeMessages )
@@ -386,9 +383,9 @@ LABEL_75:
   }
   if ( KdBreakAfterSymbolLoad )
     DbgBreakPointWithStatus(1u);
-  dword_140409D90 = ((StartContext[264] & 1) != 0) + 1;
+  dword_14040ADF0 = ((StartContext[264] & 1) != 0) + 1;
   ExpBootEnvironmentInformation = *(_OWORD *)(*((_QWORD *)StartContext + 30) + 216LL);
-  qword_140409D98 = *(_QWORD *)(*((_QWORD *)StartContext + 30) + 2576LL);
+  qword_14040ADF8 = *(_QWORD *)(*((_QWORD *)StartContext + 30) + 2576LL);
   HvlPhase1Initialize((__int64)StartContext);
   if ( **((_DWORD **)StartContext + 30) >= 0xD78u )
     HeadlessInit(StartContext);
@@ -397,10 +394,10 @@ LABEL_75:
   MEMORY[0xFFFFF780000002B8] = 0x80000000;
   if ( CmNtCSDVersion )
   {
-    Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000087u, &v71);
+    Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000087u, &v68);
     if ( Message < 0 )
       KeBugCheckEx(0x31u, Message, 4uLL, 0LL, 0LL);
-    RtlInitAnsiString(&DestinationString, (PCSZ)v71->Text);
+    RtlInitAnsiString(&DestinationString, (PCSZ)v68->Text);
     DestinationString.Length -= 2;
     dwFlagsa = (unsigned __int8)CmNtCSDVersion != 0 ? (unsigned __int8)CmNtCSDVersion + 64 : 0;
     LODWORD(MessageResourceEntry) = BYTE1(CmNtCSDVersion);
@@ -452,7 +449,7 @@ LABEL_128:
       memset(v58, 0, 0x11620uLL);
   }
   HandleTableListLock = 0LL;
-  qword_14096EA18 = (__int64)&HandleTableListHead;
+  qword_14096FA18 = (__int64)&HandleTableListHead;
   HandleTableListHead = (__int64)&HandleTableListHead;
   ExpFreeListCount = HalQueryMaximumProcessorCount();
   if ( !ObInitSystem() )
@@ -461,7 +458,7 @@ LABEL_128:
     KeBugCheck(0x5Fu);
   if ( !PspInitPhase0(StartContext) || (int)DbgkInitialize() < 0 )
     KeBugCheck(0x60u);
-  if ( !(unsigned __int8)PpInitSystem(v60, v59, v61) )
+  if ( !(unsigned __int8)PpInitSystem() )
     KeBugCheck(0x8Fu);
   MEMORY[0xFFFFF7800000026C] = 10;
   MEMORY[0xFFFFF78000000270] = 0;

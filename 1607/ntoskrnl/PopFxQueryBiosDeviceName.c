@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxQueryBiosDeviceName @ 0x1400AEE60
+ * XREFs of PopFxQueryBiosDeviceName @ 0x1400AD3C8
  * Callers:
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x1404E2614 (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x1404C5578 (PopFxFindDeviceAndAllocateUniqueId.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IoGetDevicePropertyData @ 0x1404F757C (IoGetDevicePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x1404DA508 (IoGetDevicePropertyData.c)
  */
 
 NTSTATUS __fastcall PopFxQueryBiosDeviceName(__int64 a1, __int64 a2)

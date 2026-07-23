@@ -1,16 +1,16 @@
 /*
- * XREFs of KiRcuRebalance @ 0x1405F014C
+ * XREFs of KiRcuRebalance @ 0x1405F2ABC
  * Callers:
- *     KiRcuFlushCompleted @ 0x140503B7C (KiRcuFlushCompleted.c)
+ *     KiRcuFlushCompleted @ 0x1404FD44C (KiRcuFlushCompleted.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSrcuCompareGraceSequence @ 0x1404D9AC0 (KiSrcuCompareGraceSequence.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSrcuCompareGraceSequence @ 0x1404D31A0 (KiSrcuCompareGraceSequence.c)
  */
 
 __int64 KiRcuRebalance()
 {
-  __int64 v0; // r15
+  struct _KTHREAD *Thread; // r15
   __int64 v1; // rbp
   unsigned int v2; // r14d
   unsigned int v3; // eax
@@ -27,29 +27,29 @@ __int64 KiRcuRebalance()
   signed __int64 v14; // r8
   unsigned int v16; // [rsp+50h] [rbp+8h]
 
-  if ( (dword_140F24FA4 & 1) == 0 )
+  if ( (KiDpcCorralLock.SharedComputeUnitsUsed & 1) == 0 )
     return 0LL;
-  _m_prefetchw(&dword_140F24FA4);
-  if ( (_InterlockedAnd(&dword_140F24FA4, 0xFFFFFFFE) & 1) == 0 )
+  _m_prefetchw((const void *)&KiDpcCorralLock.SharedComputeUnitsUsed);
+  if ( (_InterlockedAnd((volatile signed __int32 *)&KiDpcCorralLock.SharedComputeUnitsUsed, 0xFFFFFFFE) & 1) == 0 )
     return 0LL;
-  v0 = qword_140F24F28;
-  if ( qword_140F24F20 != qword_140F24F28 )
+  Thread = KiDpcCorralLock.WaitBlock[2].Thread;
+  if ( *(struct _KTHREAD **)&KiDpcCorralLock.WaitBlockFill11[112] != KiDpcCorralLock.WaitBlock[2].Thread )
   {
     LODWORD(v1) = 2;
     while ( (_DWORD)v1 )
     {
       v1 = (unsigned int)(v1 - 1);
       v2 = 0;
-      v3 = *((unsigned __int8 *)&KiRcuState + v1 + 2);
+      v3 = KiDpcCorralLock.WaitBlockFill6[v1 + 82];
       v16 = v3;
       while ( v2 < v3 )
       {
-        v4 = (_QWORD *)(*((_QWORD *)&KiRcuState + v1 + 1) + ((unsigned __int64)v2 << 6));
+        v4 = (_QWORD *)(*((_QWORD *)&KiDpcCorralLock.WaitBlock[1].SparePtr + v1) + ((unsigned __int64)v2 << 6));
         if ( v4[2] )
         {
           v5 = KeAcquireSpinLockRaiseToDpc(v4 + 3);
           v6 = v4[4];
-          v7 = v4[2] && !v4[6] && v6 == v0 && v4[5] != v0;
+          v7 = v4[2] && !v4[6] && (struct _KTHREAD *)v6 == Thread && (struct _KTHREAD *)v4[5] != Thread;
           KeReleaseSpinLock(v4 + 3, v5);
           if ( v7 )
           {
@@ -88,10 +88,13 @@ LABEL_26:
               KeReleaseSpinLock(i + 3, v9);
               v4 = i;
             }
-            while ( (int)KiSrcuCompareGraceSequence(v6, qword_140F24F20) > 0
-                 && v14 != _InterlockedCompareExchange64(&qword_140F24F20, v6, v14) )
+            while ( (int)KiSrcuCompareGraceSequence(v6, *(__int64 *)&KiDpcCorralLock.WaitBlockFill11[112]) > 0
+                 && v14 != _InterlockedCompareExchange64(
+                             (volatile signed __int64 *)&KiDpcCorralLock.WaitBlockFill11[112],
+                             v6,
+                             v14) )
               ;
-            _InterlockedOr(&dword_140F24FA4, 1u);
+            _InterlockedOr((volatile signed __int32 *)&KiDpcCorralLock.SharedComputeUnitsUsed, 1u);
             return 1LL;
           }
 LABEL_27:
@@ -101,5 +104,5 @@ LABEL_27:
       }
     }
   }
-  return dword_140F24FA4 & 1;
+  return KiDpcCorralLock.SharedComputeUnitsUsed & 1;
 }

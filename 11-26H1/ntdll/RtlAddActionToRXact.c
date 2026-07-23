@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlAddActionToRXact @ 0x180102550
+ * XREFs of RtlAddActionToRXact @ 0x180101CA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAddAttributeActionToRXact @ 0x1801025A0 (RtlAddAttributeActionToRXact.c)
+ *     RtlAddAttributeActionToRXact @ 0x180101CF0 (RtlAddAttributeActionToRXact.c)
  */
 
 __int64 __fastcall RtlAddActionToRXact(int a1, int a2, int a3, int a4, void *a5, size_t a6)

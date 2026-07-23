@@ -1,19 +1,19 @@
 /*
- * XREFs of MmInSwapProcess @ 0x140338A94
+ * XREFs of MmInSwapProcess @ 0x1402DFEE4
  * Callers:
- *     KiInSwapProcesses @ 0x1403389A4 (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x1402DE3B8 (KiInSwapProcesses.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     MiCopyTopLevelMappings @ 0x140393D4C (MiCopyTopLevelMappings.c)
- *     MiReturnWsToExpansionList @ 0x1403D9400 (MiReturnWsToExpansionList.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiSetPageTablePfnBuddy @ 0x140498190 (MiSetPageTablePfnBuddy.c)
- *     MiMakeOutswappedPageResident @ 0x1404A8280 (MiMakeOutswappedPageResident.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwTraceInswapProcess @ 0x14064D940 (EtwTraceInswapProcess.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x14066A288 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     MiMakeOutswappedPageResident @ 0x1402EF6F4 (MiMakeOutswappedPageResident.c)
+ *     MiReturnWsToExpansionList @ 0x1402F26D0 (MiReturnWsToExpansionList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiCopyTopLevelMappings @ 0x14038D368 (MiCopyTopLevelMappings.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiSetPageTablePfnBuddy @ 0x140492B70 (MiSetPageTablePfnBuddy.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTraceInswapProcess @ 0x14064BF50 (EtwTraceInswapProcess.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14066B458 (MiReAcquireOutSwappedProcessCommit.c)
  */
 
 char __fastcall MmInSwapProcess(char *Object)
@@ -61,7 +61,7 @@ char __fastcall MmInSwapProcess(char *Object)
     if ( !v9 )
       v8 |= 2uLL;
     *((_QWORD *)Object + 5) = v8;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E373C0);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&SpinLock);
     if ( (*((_DWORD *)Object + 125) & 0x800000) != 0 )
     {
       _InterlockedAnd((volatile signed __int32 *)Object + 125, 0xFF7FFFFF);
@@ -69,7 +69,7 @@ char __fastcall MmInSwapProcess(char *Object)
     }
     MiReturnWsToExpansionList(Object + 1024, 0LL);
     _InterlockedAnd((volatile signed __int32 *)Object + 125, 0xFFFFFF7F);
-    MiReleaseSpinLockExclusive(&dword_140E373C0, CurrentIrql);
+    MiReleaseSpinLockExclusive(&SpinLock, CurrentIrql);
     if ( (WORD2(PerfGlobalGroupMask) & 0x800) != 0 )
       EtwTraceInswapProcess(Object);
   }

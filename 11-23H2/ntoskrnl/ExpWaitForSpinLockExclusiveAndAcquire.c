@@ -3,30 +3,30 @@
  * Callers:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
  *     RtlpHpAcquireQueuedLockExclusive @ 0x140207670 (RtlpHpAcquireQueuedLockExclusive.c)
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCF0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeShrink @ 0x14024E6C0 (RtlpHpSegPageRangeShrink.c)
- *     ExpAcquireSpinLockExclusive @ 0x14025B400 (ExpAcquireSpinLockExclusive.c)
- *     MiAgePte @ 0x14027BD60 (MiAgePte.c)
- *     MiLogPageAccess @ 0x14027CBB0 (MiLogPageAccess.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x1402878E0 (MmDoesFileHaveUserWritableReferences.c)
- *     MiAddViewsForSection @ 0x140288770 (MiAddViewsForSection.c)
- *     MiGetVadWakeList @ 0x14028A170 (MiGetVadWakeList.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402D1E90 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiLockFreeLargePageLists @ 0x1402D7FF0 (MiLockFreeLargePageLists.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x1403372C0 (RtlpHpVsSubsegmentCommitPages.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14024DDC0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024E790 (RtlpHpSegPageRangeShrink.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14025B690 (ExpAcquireSpinLockExclusive.c)
+ *     MiAgePte @ 0x14027BFF0 (MiAgePte.c)
+ *     MiLogPageAccess @ 0x14027CE40 (MiLogPageAccess.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x140287B70 (MmDoesFileHaveUserWritableReferences.c)
+ *     MiAddViewsForSection @ 0x140288A00 (MiAddViewsForSection.c)
+ *     MiGetVadWakeList @ 0x14028A400 (MiGetVadWakeList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x1402D2120 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiGetLargePage @ 0x1402D7D10 (MiGetLargePage.c)
+ *     MiLockFreeLargePageLists @ 0x1402D8280 (MiLockFreeLargePageLists.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x140337550 (RtlpHpVsSubsegmentCommitPages.c)
  * Callees:
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpWaitForSpinLockExclusiveAndAcquire(int *a1, unsigned __int8 a2)
@@ -51,10 +51,10 @@ __int64 __fastcall ExpWaitForSpinLockExclusiveAndAcquire(int *a1, unsigned __int
         _InterlockedOr(a1, 0x40000000u);
       if ( a2 != 0xFF )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -81,9 +81,9 @@ __int64 __fastcall ExpWaitForSpinLockExclusiveAndAcquire(int *a1, unsigned __int
       {
         a2 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
-          if ( (KiIrqlFlags & 1) != 0 && a2 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && a2 <= 0xFu )
           {
             v12 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( a2 == 2 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_Arm64VcRedistRedirect__private_IsEnabledFallback @ 0x1801264D8
+ * XREFs of Feature_Arm64VcRedistRedirect__private_IsEnabledFallback @ 0x180126248
  * Callers:
- *     Feature_Arm64VcRedistRedirect__private_IsEnabledDeviceUsageNoInline @ 0x180110090 (Feature_Arm64VcRedistRedirect__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Arm64VcRedistRedirect__private_IsEnabledDeviceUsageNoInline @ 0x18010FC20 (Feature_Arm64VcRedistRedirect__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
  *     <none>
  */

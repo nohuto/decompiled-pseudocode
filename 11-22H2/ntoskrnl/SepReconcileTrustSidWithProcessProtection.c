@@ -8,24 +8,23 @@
  *     RtlSidDominatesForTrust @ 0x1402B33C0 (RtlSidDominatesForTrust.c)
  */
 
-__int64 __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, __int64 a2, _BYTE *a3, _QWORD *a4)
+NTSTATUS __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, __int64 a2, _BYTE *a3, _QWORD *a4)
 {
-  __int64 v5; // rdi
-  __int64 v6; // r9
-  __int64 v7; // r10
-  __int64 result; // rax
-  __int64 *v9; // r11
-  char v10; // [rsp+40h] [rbp+18h] BYREF
+  void *v5; // rdi
+  PSID v6; // r10
+  NTSTATUS result; // eax
+  _QWORD *v8; // r11
+  BOOLEAN DominatesTrust; // [rsp+40h] [rbp+18h] BYREF
 
   *a3 = 0;
   *a4 = 0LL;
-  v10 = 0;
-  v5 = SepSidFromProcessProtection(a2);
-  result = RtlSidDominatesForTrust(v5, v7, &v10, v6);
-  if ( !v10 )
+  DominatesTrust = 0;
+  v5 = (void *)SepSidFromProcessProtection(a2);
+  result = RtlSidDominatesForTrust(v5, v6, &DominatesTrust);
+  if ( !DominatesTrust )
   {
     *a3 = 1;
-    *v9 = v5;
+    *v8 = v5;
   }
   return result;
 }

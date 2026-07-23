@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpResolveDelayloadAddress @ 0x1800C5930
+ * XREFs of LdrpResolveDelayloadAddress @ 0x1800C30F0
  * Callers:
- *     LdrpHandleProtectedDelayload @ 0x1800C5420 (LdrpHandleProtectedDelayload.c)
- *     LdrpHandleUnprotectedDelayLoad @ 0x18015C4E0 (LdrpHandleUnprotectedDelayLoad.c)
+ *     LdrpHandleProtectedDelayload @ 0x1800C2BE0 (LdrpHandleProtectedDelayload.c)
+ *     LdrpHandleUnprotectedDelayLoad @ 0x18015C3A0 (LdrpHandleUnprotectedDelayLoad.c)
  * Callees:
- *     LdrpResolveProcedureAddress @ 0x1800C5A40 (LdrpResolveProcedureAddress.c)
- *     AVrfCallAPILookupCallback @ 0x1800C5D7C (AVrfCallAPILookupCallback.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrpResolveProcedureAddress @ 0x1800C3200 (LdrpResolveProcedureAddress.c)
+ *     AVrfCallAPILookupCallback @ 0x1800C353C (AVrfCallAPILookupCallback.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpResolveDelayloadAddress(

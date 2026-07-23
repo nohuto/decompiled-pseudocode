@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x140002010
+ * XREFs of ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x140002184
  * Callers:
- *     ?SmSwapStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x140001FB8 (-SmSwapStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_.c)
+ *     ?SmSwapStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x14000212C (-SmSwapStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_.c)
  * Callees:
- *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x140001F14 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ?SmStOutSwapPrepareStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14021CBE4 (-SmStOutSwapPrepareStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
- *     ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14021CC9C (-SmStOutSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
- *     SmPerformStoreSwapOperation @ 0x14022211C (SmPerformStoreSwapOperation.c)
+ *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x140002088 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ?SmStOutSwapPrepareStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14021CA10 (-SmStOutSwapPrepareStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14021CAC8 (-SmStOutSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     SmPerformStoreSwapOperation @ 0x140221F48 (SmPerformStoreSwapOperation.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

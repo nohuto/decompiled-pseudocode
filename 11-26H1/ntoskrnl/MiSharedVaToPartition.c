@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSharedVaToPartition @ 0x14028370C
+ * XREFs of MiSharedVaToPartition @ 0x140282C7C
  * Callers:
- *     MiCreateSharedZeroPages @ 0x140283980 (MiCreateSharedZeroPages.c)
- *     MiActOnPte @ 0x1402D4420 (MiActOnPte.c)
- *     MiEvaluatePageFileRead @ 0x140370440 (MiEvaluatePageFileRead.c)
+ *     MiCreateSharedZeroPages @ 0x140282EF0 (MiCreateSharedZeroPages.c)
+ *     MiActOnPte @ 0x1402B61E0 (MiActOnPte.c)
+ *     MiEvaluatePageFileRead @ 0x1403721F0 (MiEvaluatePageFileRead.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
  */
 
 ULONG *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, __int64 *a3)
@@ -41,11 +41,11 @@ ULONG *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, __int64
   {
     MiPteHasShadow(0xFFFFF6FB7DBED7F8uLL, a2, 0xFFFFF6FB7DBED000uLL);
   }
-  if ( !BYTE4(stru_140E2EB88.CycleTime) )
+  if ( !BYTE4(stru_140E2ED08.CycleTime) )
     return &MiSystemPartition;
   v8 = 0LL;
   PteShadow = *v5;
-  v10 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 174));
+  v10 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 174));
   if ( (unsigned __int64)v5 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v5 <= 0xFFFFF6FB7DBED7F8uLL )
     PteShadow = MiReadPteShadow(v5, *v5);
   if ( (PteShadow & 0x400) != 0 && !(unsigned int)MiIsPrototypePteVadLookup(PteShadow) && (PteShadow & 0x800) != 0 )
@@ -55,8 +55,8 @@ ULONG *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, __int64
     if ( (*(_DWORD *)(v4 + 184) & 0xF) == 4 )
     {
       MiLockVadTree(5LL);
-      Flink = stru_140E34C08.Header.WaitListHead.Flink;
-      if ( stru_140E34C08.Header.WaitListHead.Flink )
+      Flink = stru_140E34D88.Header.WaitListHead.Flink;
+      if ( stru_140E34D88.Header.WaitListHead.Flink )
       {
         do
         {
@@ -80,7 +80,7 @@ ULONG *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, __int64
       MiUnlockVadTree(5LL, Flink);
 LABEL_35:
       if ( v8 )
-        return *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (HIDWORD(v8[3].Blink) & 0x3FF));
+        return *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (HIDWORD(v8[3].Blink) & 0x3FF));
     }
   }
   else

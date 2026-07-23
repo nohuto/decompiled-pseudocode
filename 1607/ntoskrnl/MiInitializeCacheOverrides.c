@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
  */
 
 unsigned __int64 MiInitializeCacheOverrides()

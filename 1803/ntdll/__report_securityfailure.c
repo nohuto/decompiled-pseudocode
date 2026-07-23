@@ -21,5 +21,5 @@ void __fastcall __noreturn _report_securityfailure(unsigned int a1)
   dword_180159E84 = 1;
   dword_180159E98 = 1;
   unk_180159EA0 = v2;
-  sub_18008B110();
+  sub_18008B110((_EXCEPTION_POINTERS *)&ExceptionPointers);
 }

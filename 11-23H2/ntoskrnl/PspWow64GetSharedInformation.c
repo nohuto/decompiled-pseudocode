@@ -1,5 +1,5 @@
 /*
- * XREFs of PspWow64GetSharedInformation @ 0x14084D138
+ * XREFs of PspWow64GetSharedInformation @ 0x14084D438
  * Callers:
  *     PsThawMultiProcess @ 0x1402044E4 (PsThawMultiProcess.c)
  *     PspInitializeSystemDlls @ 0x140B6735C (PspInitializeSystemDlls.c)

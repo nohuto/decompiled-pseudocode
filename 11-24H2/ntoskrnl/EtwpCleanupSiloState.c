@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCleanupSiloState @ 0x1407A70EC
+ * XREFs of EtwpCleanupSiloState @ 0x1407A722C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140772C80 (PspInitializeServerSiloDeferred.c)
- *     EtwCleanupSiloState @ 0x1407A62BC (EtwCleanupSiloState.c)
- *     EtwpPreInitializeSiloState @ 0x1407A8DDC (EtwpPreInitializeSiloState.c)
+ *     PspInitializeServerSiloDeferred @ 0x140772EA0 (PspInitializeServerSiloDeferred.c)
+ *     EtwCleanupSiloState @ 0x1407A63FC (EtwCleanupSiloState.c)
+ *     EtwpPreInitializeSiloState @ 0x1407A8F1C (EtwpPreInitializeSiloState.c)
  * Callees:
- *     ExFreeCacheAwareRundownProtection @ 0x140484170 (ExFreeCacheAwareRundownProtection.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x14047F710 (ExFreeCacheAwareRundownProtection.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCleanupSiloState(PVOID P)

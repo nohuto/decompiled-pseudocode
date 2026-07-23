@@ -9,5 +9,5 @@
 // attributes: thunk
 NTSTATUS __stdcall NtRecoverTransactionManager(HANDLE TransactionManagerHandle)
 {
-  return __imp_NtRecoverTransactionManager(TransactionManagerHandle);
+  return NtRecoverTransactionManager_0(TransactionManagerHandle);
 }

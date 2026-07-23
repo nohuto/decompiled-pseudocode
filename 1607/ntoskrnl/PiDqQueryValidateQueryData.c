@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqQueryValidateQueryData @ 0x14048C734
+ * XREFs of PiDqQueryValidateQueryData @ 0x14048CD48
  * Callers:
- *     PiDqIrpQueryCreate @ 0x14048B3E8 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x14048B94C (PiDqIrpQueryCreate.c)
  * Callees:
- *     ValidFilter @ 0x140489300 (ValidFilter.c)
- *     _PnpValidatePropertyData @ 0x1404893D0 (_PnpValidatePropertyData.c)
- *     PnpValidateMultiSz @ 0x1404A2F14 (PnpValidateMultiSz.c)
- *     PiDqGetPnpObjectType @ 0x1405025EC (PiDqGetPnpObjectType.c)
+ *     PiDqGetPnpObjectType @ 0x1404E557C (PiDqGetPnpObjectType.c)
+ *     ValidFilter @ 0x140511A74 (ValidFilter.c)
+ *     _PnpValidatePropertyData @ 0x140511B44 (_PnpValidatePropertyData.c)
+ *     PnpValidateMultiSz @ 0x14051B314 (PnpValidateMultiSz.c)
  */
 
 __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
@@ -17,10 +17,10 @@ __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
   unsigned int v5; // r8d
   unsigned int v6; // ecx
   __int64 v7; // rdx
-  unsigned int v8; // ecx
-  __int64 v9; // rax
-  int v10; // ecx
-  __int64 v11; // rdi
+  __int64 v8; // rax
+  int v9; // ecx
+  __int64 v10; // rdi
+  int v12; // eax
 
   v2 = -1073741811;
   if ( a1
@@ -32,9 +32,11 @@ __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
       if ( !*(_QWORD *)(a1 + 24) )
         return v2;
     }
-    else if ( *(_DWORD *)(a1 + 20) == 2 && (int)PnpValidateMultiSz(*(_QWORD *)(a1 + 32), *(unsigned int *)(a1 + 24)) < 0 )
+    else if ( *(_DWORD *)(a1 + 20) == 2 )
     {
-      return v2;
+      v12 = PnpValidateMultiSz(*(_QWORD *)(a1 + 32), *(unsigned int *)(a1 + 24));
+      if ( v12 < 0 )
+        return v2;
     }
     v3 = *(_DWORD *)(a1 + 40);
     if ( (v3 & 0xFFFFFFF8) != 0 )
@@ -67,34 +69,29 @@ __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
         {
 LABEL_15:
           v7 = *(_QWORD *)(a1 + 88);
-          if ( v7 || !*(_DWORD *)(a1 + 80) )
+          if ( (v7 || !*(_DWORD *)(a1 + 80)) && (*(_DWORD *)(a1 + 80) || !v7) && (!v7 || (unsigned int)ValidFilter()) )
           {
-            v8 = *(_DWORD *)(a1 + 80);
-            if ( (v8 || !v7) && (!v7 || (unsigned int)ValidFilter(v8, v7)) )
+            v8 = *(_QWORD *)(a1 + 104);
+            if ( v8 || !*(_DWORD *)(a1 + 96) )
             {
-              v9 = *(_QWORD *)(a1 + 104);
-              if ( v9 || !*(_DWORD *)(a1 + 96) )
+              v9 = *(_DWORD *)(a1 + 96);
+              if ( v9 || !v8 )
               {
-                v10 = *(_DWORD *)(a1 + 96);
-                if ( v10 || !v9 )
+                v10 = 0LL;
+                if ( v9 )
                 {
-                  v11 = 0LL;
-                  if ( v10 )
+                  while ( (int)PnpValidatePropertyData(
+                                 *(PSECURITY_DESCRIPTOR *)(*(_QWORD *)(a1 + 104) + 40 * v10 + 32),
+                                 *(_DWORD *)(*(_QWORD *)(a1 + 104) + 40 * v10 + 24)) >= 0 )
                   {
-                    while ( (int)PnpValidatePropertyData(
-                                   *(__int64 **)(*(_QWORD *)(a1 + 104) + 40 * v11 + 32),
-                                   *(_DWORD *)(*(_QWORD *)(a1 + 104) + 40 * v11 + 24),
-                                   *(_DWORD *)(*(_QWORD *)(a1 + 104) + 40 * v11 + 20)) >= 0 )
-                    {
-                      v11 = (unsigned int)(v11 + 1);
-                      if ( (unsigned int)v11 >= *(_DWORD *)(a1 + 96) )
-                        return 0;
-                    }
+                    v10 = (unsigned int)(v10 + 1);
+                    if ( (unsigned int)v10 >= *(_DWORD *)(a1 + 96) )
+                      return 0;
                   }
-                  else
-                  {
-                    return 0;
-                  }
+                }
+                else
+                {
+                  return 0;
                 }
               }
             }

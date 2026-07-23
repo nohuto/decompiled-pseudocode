@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpGetEntireXStateAreaLength2 @ 0x1800B4BA4
+ * XREFs of RtlpGetEntireXStateAreaLength2 @ 0x1800B20C4
  * Callers:
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x18004C680 (RtlDispatchException.c)
- *     RtlGetExtendedContextLength3 @ 0x1800B42A0 (RtlGetExtendedContextLength3.c)
- *     RtlUnwind @ 0x1800B43C0 (RtlUnwind.c)
- *     RtlInitializeExtendedContext2 @ 0x1800B4540 (RtlInitializeExtendedContext2.c)
- *     RtlWow64GetCpuAreaInfo @ 0x1800B4750 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x180036C00 (RtlDispatchException.c)
+ *     RtlGetExtendedContextLength3 @ 0x1800B17C0 (RtlGetExtendedContextLength3.c)
+ *     RtlUnwind @ 0x1800B18E0 (RtlUnwind.c)
+ *     RtlInitializeExtendedContext2 @ 0x1800B1A60 (RtlInitializeExtendedContext2.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1800B1C70 (RtlWow64GetCpuAreaInfo.c)
  * Callees:
  *     <none>
  */

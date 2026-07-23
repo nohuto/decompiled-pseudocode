@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetDeviceInterfaceRegKeyPath @ 0x1409A0C40
+ * XREFs of _CmGetDeviceInterfaceRegKeyPath @ 0x1409616A0
  * Callers:
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140896A38 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
- *     PiDqGetRelativeObjectRegPath @ 0x1409927A0 (PiDqGetRelativeObjectRegPath.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x14099FC70 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x14089CE38 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x140953200 (PiDqGetRelativeObjectRegPath.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1409606D0 (_CmOpenDeviceInterfaceRegKeyWorker.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCatExW @ 0x1404967FC (RtlStringCchCatExW.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ScanHexFormat @ 0x1409A2050 (ScanHexFormat.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchCatExW @ 0x14049034C (RtlStringCchCatExW.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ScanHexFormat @ 0x140962AB0 (ScanHexFormat.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceRegKeyPath(

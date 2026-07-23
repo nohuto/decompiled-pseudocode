@@ -10,9 +10,7 @@
 
 NTSTATUS __stdcall ZwEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Buffer, BufferLength, v2);
+  return KiServiceInternal(Buffer);
 }

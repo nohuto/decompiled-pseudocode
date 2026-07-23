@@ -3,15 +3,15 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 ULONG_PTR __fastcall MiInitializeTbFlushing(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -53,7 +53,7 @@ ULONG_PTR __fastcall MiInitializeTbFlushing(__int64 a1, __int64 a2, unsigned __i
   __int64 v37; // [rsp+80h] [rbp-88h]
 
   v29 = 0uLL;
-  result = MiReservePtes((__int64)&qword_140327870, 0x800uLL, a3);
+  result = MiReservePtes((__int64)&qword_1403278B0, 0x800uLL, a3);
   v31 = result;
   v4 = result;
   if ( !result )
@@ -140,9 +140,9 @@ LABEL_28:
     v14 = (unsigned int)(v9 - 1);
   if ( ++v13 != 3 )
     goto LABEL_28;
-  qword_140326A18 = v14;
+  qword_140326A58 = v14;
 LABEL_23:
   if ( v13 != 3 )
-    qword_140326A18 = (unsigned int)v9;
-  return MiReleasePtes((__int64)&qword_140327870, v31, 0x800u);
+    qword_140326A58 = (unsigned int)v9;
+  return MiReleasePtes((__int64)&qword_1403278B0, v31, 0x800u);
 }

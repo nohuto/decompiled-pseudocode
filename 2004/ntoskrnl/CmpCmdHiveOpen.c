@@ -33,12 +33,12 @@ __int64 __fastcall CmpCmdHiveOpen(
   int v15; // ecx
   int v16; // edx
   int v17; // r15d
-  int inited; // eax
-  int v19; // ebx
+  NTSTATUS inited; // eax
+  NTSTATUS v19; // ebx
   unsigned int v20; // eax
   int v21; // ecx
   struct _DMA_ADAPTER *v22; // rdi
-  int v23; // eax
+  NTSTATUS v23; // eax
   struct _KTHREAD *CurrentThread; // rcx
   int v26; // [rsp+30h] [rbp-89h]
   int v27; // [rsp+30h] [rbp-89h]
@@ -96,7 +96,7 @@ __int64 __fastcall CmpCmdHiveOpen(
                                      (unsigned int)&v30,
                                      (__int64)&ImpersonationLevel,
                                      0LL);
-      v19 = RtlImpersonateSelfEx(2LL, 0LL, 0LL);
+      v19 = RtlImpersonateSelfEx(SecurityImpersonation, 0, 0LL);
       if ( v19 >= 0 )
       {
         v23 = CmpInitHiveFromFile(a1, v17, v36, a3, a5, 0LL, v27, v29, v35, v34);

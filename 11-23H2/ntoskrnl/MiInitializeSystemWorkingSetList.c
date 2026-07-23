@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeSystemWorkingSetList @ 0x1407A9BC8
+ * XREFs of MiInitializeSystemWorkingSetList @ 0x1407A9DB8
  * Callers:
- *     MiSessionCreate @ 0x1407A900C (MiSessionCreate.c)
- *     MiInitializeSystemCache @ 0x14085C388 (MiInitializeSystemCache.c)
+ *     MiSessionCreate @ 0x1407A91FC (MiSessionCreate.c)
+ *     MiInitializeSystemCache @ 0x14085C5C8 (MiInitializeSystemCache.c)
  *     MiBuildPagedPool @ 0x140B43794 (MiBuildPagedPool.c)
  *     MiInitializeSystemPtes @ 0x140B4420C (MiInitializeSystemPtes.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
@@ -11,7 +11,7 @@
  *     MiTranslateWsType @ 0x14021DB44 (MiTranslateWsType.c)
  *     MiAllowWorkingSetExpansion @ 0x1402232B8 (MiAllowWorkingSetExpansion.c)
  *     MiInitializeWorkingSetList @ 0x140223424 (MiInitializeWorkingSetList.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
  */
 
 __int64 __fastcall MiInitializeSystemWorkingSetList(__int64 a1, __int64 a2, int a3, __int64 a4)

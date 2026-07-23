@@ -177,7 +177,7 @@
  *     RtlCloneUserProcess @ 0x1800D1660 (RtlCloneUserProcess.c)
  *     RtlPrepareForProcessCloning @ 0x1800D1BD0 (RtlPrepareForProcessCloning.c)
  *     sub_1800D1E50 @ 0x1800D1E50 (sub_1800D1E50.c)
- *     sub_1800D8F60 @ 0x1800D8F60 (sub_1800D8F60.c)
+ *     Callback @ 0x1800D8F60 (Callback.c)
  *     LdrUpdatePackageSearchPath @ 0x1800D9180 (LdrUpdatePackageSearchPath.c)
  *     sub_1800D97E4 @ 0x1800D97E4 (sub_1800D97E4.c)
  *     AlpcGetMessageFromCompletionList @ 0x1800DAC80 (AlpcGetMessageFromCompletionList.c)
@@ -224,105 +224,100 @@
  *     ZwWaitForAlertByThreadId @ 0x18009E3B0 (ZwWaitForAlertByThreadId.c)
  */
 
-signed __int64 __fastcall RtlAcquireSRWLockExclusive(
-        unsigned __int64 UniqueThread,
-        unsigned __int64 a2,
-        unsigned __int64 *a3,
-        __int64 a4)
+void __cdecl RtlAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
-  volatile signed __int64 *v5; // rdi
-  unsigned __int64 v6; // rbx
-  __int64 v7; // rdx
-  bool v8; // zf
-  signed __int64 v9; // rax
-  unsigned __int64 v11; // [rsp+20h] [rbp-48h] BYREF
-  unsigned __int64 *v12; // [rsp+28h] [rbp-40h]
-  __int64 v13; // [rsp+30h] [rbp-38h]
-  unsigned __int64 v14; // [rsp+38h] [rbp-30h]
-  int v15; // [rsp+40h] [rbp-28h]
-  signed __int32 v16[3]; // [rsp+44h] [rbp-24h] BYREF
-  int v17; // [rsp+70h] [rbp+8h] BYREF
+  unsigned __int64 v1; // rdx
+  unsigned __int64 *v2; // r8
+  __int64 v3; // r9
+  volatile signed __int64 *v4; // rdi
+  unsigned __int64 Ptr; // rbx
+  __int64 v6; // rdx
+  bool v7; // zf
+  signed __int64 v8; // rax
+  unsigned __int64 v10; // [rsp+20h] [rbp-48h] BYREF
+  unsigned __int64 *v11; // [rsp+28h] [rbp-40h]
+  __int64 v12; // [rsp+30h] [rbp-38h]
+  PRTL_SRWLOCK v13; // [rsp+38h] [rbp-30h]
+  int v14; // [rsp+40h] [rbp-28h]
+  signed __int32 v15[3]; // [rsp+44h] [rbp-24h] BYREF
+  int v16; // [rsp+70h] [rbp+8h] BYREF
 
-  result = 0LL;
-  v5 = (volatile signed __int64 *)UniqueThread;
-  v17 = 0;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)UniqueThread, 0LL) )
+  v4 = (volatile signed __int64 *)SRWLock;
+  v16 = 0;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)SRWLock, 0LL) )
   {
-    v6 = *(_QWORD *)UniqueThread;
+    Ptr = (unsigned __int64)SRWLock->Ptr;
     while ( 1 )
     {
-      if ( (v6 & 1) != 0 )
+      if ( (Ptr & 1) != 0 )
       {
-        if ( (unsigned __int8)sub_1800286DC(UniqueThread, a2, a3, a4) )
-          ZwTerminateProcess(-1LL, 3221225547LL);
-        UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
-        v14 = UniqueThread;
-        LOBYTE(UniqueThread) = 0;
-        v16[0] = 3;
-        v13 = 0LL;
-        if ( (v6 & 2) != 0 )
+        if ( (unsigned __int8)sub_1800286DC(SRWLock, v1, v2, v3) )
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
+        SRWLock = (PRTL_SRWLOCK)NtCurrentTeb()->ClientId.UniqueThread;
+        v13 = SRWLock;
+        LOBYTE(SRWLock) = 0;
+        v15[0] = 3;
+        v12 = 0LL;
+        if ( (Ptr & 2) != 0 )
         {
-          v12 = 0LL;
-          v15 = -1;
-          UniqueThread = (unsigned __int8)v6;
-          v11 = v6 & 0xFFFFFFFFFFFFFFF0uLL;
-          a2 = (unsigned __int64)&v11 | v6 & 8 | 7;
-          LOBYTE(UniqueThread) = (v6 & 4) == 0;
+          v11 = 0LL;
+          v14 = -1;
+          SRWLock = (PRTL_SRWLOCK)(unsigned __int8)Ptr;
+          v10 = Ptr & 0xFFFFFFFFFFFFFFF0uLL;
+          v1 = (unsigned __int64)&v10 | Ptr & 8 | 7;
+          LOBYTE(SRWLock) = (Ptr & 4) == 0;
         }
         else
         {
-          v7 = 11LL;
-          v12 = &v11;
-          a3 = &v11;
-          v15 = v6 >> 4;
-          if ( v15 <= 1 )
-            v7 = 3LL;
-          a2 = (unsigned __int64)&v11 | v7;
-          if ( !(unsigned int)(v6 >> 4) )
-            v15 = -2;
+          v6 = 11LL;
+          v11 = &v10;
+          v2 = &v10;
+          v14 = Ptr >> 4;
+          if ( v14 <= 1 )
+            v6 = 3LL;
+          v1 = (unsigned __int64)&v10 | v6;
+          if ( !(unsigned int)(Ptr >> 4) )
+            v14 = -2;
         }
-        v9 = _InterlockedCompareExchange64(v5, a2, v6);
-        v8 = v6 == v9;
-        v6 = v9;
-        if ( !v8 )
+        v8 = _InterlockedCompareExchange64(v4, v1, Ptr);
+        v7 = Ptr == v8;
+        Ptr = v8;
+        if ( !v7 )
           goto LABEL_13;
-        if ( (_BYTE)UniqueThread )
-          sub_180070A54(v5);
+        if ( (_BYTE)SRWLock )
+          sub_180070A54(v4);
         if ( MEMORY[0x7FFE036A] > 1u )
         {
-          UniqueThread = (unsigned int)dword_18015ADA0;
+          SRWLock = (PRTL_SRWLOCK)(unsigned int)dword_18015ADA0;
           if ( dword_18015ADA0 )
           {
             do
             {
-              if ( (v16[0] & 2) == 0 )
+              if ( (v15[0] & 2) == 0 )
                 break;
               _mm_pause();
-              v8 = (_DWORD)UniqueThread == 1;
-              UniqueThread = (unsigned int)(UniqueThread - 1);
+              v7 = (_DWORD)SRWLock == 1;
+              SRWLock = (PRTL_SRWLOCK)(unsigned int)((_DWORD)SRWLock - 1);
             }
-            while ( !v8 );
+            while ( !v7 );
           }
         }
-        if ( _interlockedbittestandreset(v16, 1u) )
+        if ( _interlockedbittestandreset(v15, 1u) )
         {
           do
-            ZwWaitForAlertByThreadId(v5, 0LL);
-          while ( (v16[0] & 4) == 0 );
+            ZwWaitForAlertByThreadId((PVOID)v4, 0LL);
+          while ( (v15[0] & 4) == 0 );
         }
       }
       else
       {
-        result = _InterlockedCompareExchange64(v5, v6 + 1, v6);
-        if ( v6 == result )
-          return result;
+        if ( Ptr == _InterlockedCompareExchange64(v4, Ptr + 1, Ptr) )
+          return;
 LABEL_13:
-        sub_1800289C0(&v17);
-        _m_prefetchw((const void *)v5);
-        v6 = *v5;
+        sub_1800289C0(&v16);
+        _m_prefetchw((const void *)v4);
+        Ptr = *v4;
       }
     }
   }
-  return result;
 }

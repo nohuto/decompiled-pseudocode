@@ -8,7 +8,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall KeQueryInterruptTimePrecise(LARGE_INTEGER *a1)
+LARGE_INTEGER __cdecl KeQueryInterruptTimePrecise(PLARGE_INTEGER PerformanceCounter)
 {
-  return RtlGetInterruptTimePrecise(a1);
+  return RtlGetInterruptTimePrecise(PerformanceCounter);
 }

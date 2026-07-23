@@ -1,16 +1,16 @@
 /*
- * XREFs of PopReadRegKeyValue @ 0x140384968
+ * XREFs of PopReadRegKeyValue @ 0x140384B48
  * Callers:
- *     PopReadUlongPowerKey @ 0x140384910 (PopReadUlongPowerKey.c)
- *     PopDiagTracePerfTrackData @ 0x140990168 (PopDiagTracePerfTrackData.c)
+ *     PopReadUlongPowerKey @ 0x140384AF0 (PopReadUlongPowerKey.c)
+ *     PopDiagTracePerfTrackData @ 0x140990368 (PopDiagTracePerfTrackData.c)
  *     PopCheckShutdownMarker @ 0x140B6E32C (PopCheckShutdownMarker.c)
  *     PopBatteryReadOscBits @ 0x140B756FC (PopBatteryReadOscBits.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAttemptCoalesce @ 0x14046E710
+ * XREFs of MiAttemptCoalesce @ 0x140468B98
  * Callers:
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiAdjustPteBins @ 0x1403FC540 (MiAdjustPteBins.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiAdjustPteBins @ 0x1403F5F00 (MiAdjustPteBins.c)
  * Callees:
- *     MiReturnSystemPtes @ 0x140241AE0 (MiReturnSystemPtes.c)
- *     RtlInterlockedSetClearRunEx @ 0x140241B80 (RtlInterlockedSetClearRunEx.c)
+ *     MiReturnSystemPtes @ 0x140209C30 (MiReturnSystemPtes.c)
+ *     RtlInterlockedSetClearRunEx @ 0x140209CD0 (RtlInterlockedSetClearRunEx.c)
  */
 
 char __fastcall MiAttemptCoalesce(__int64 a1, __int64 a2, __int64 a3)

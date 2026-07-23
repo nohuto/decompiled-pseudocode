@@ -1,12 +1,12 @@
 /*
- * XREFs of GxpWriteFrameBufferPixels @ 0x140127598
+ * XREFs of GxpWriteFrameBufferPixels @ 0x140127B08
  * Callers:
- *     BgpGxDrawRectangle @ 0x140127524 (BgpGxDrawRectangle.c)
+ *     BgpGxDrawRectangle @ 0x140127A94 (BgpGxDrawRectangle.c)
  * Callees:
- *     BgpGetBitsPerPixel @ 0x140127790 (BgpGetBitsPerPixel.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     BgpGxConvertRectangleEx @ 0x1402395E0 (BgpGxConvertRectangleEx.c)
+ *     BgpGetBitsPerPixel @ 0x140127D00 (BgpGetBitsPerPixel.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     BgpGxConvertRectangleEx @ 0x1402394C4 (BgpGxConvertRectangleEx.c)
  *     BgpGxRectangleDestroy @ 0x1407276C0 (BgpGxRectangleDestroy.c)
  */
 

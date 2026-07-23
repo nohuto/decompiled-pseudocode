@@ -6,22 +6,22 @@
  *     <none>
  */
 
-int __stdcall RtlGetLengthWithoutTrailingPathSeperators(int a1, unsigned __int16 *a2, int *a3)
+NTSTATUS __cdecl RtlGetLengthWithoutTrailingPathSeperators(ULONG Flags, PUNICODE_STRING PathString, PULONG Length)
 {
-  int v3; // esi
-  int v4; // ecx
-  unsigned __int16 *v5; // eax
+  NTSTATUS v3; // esi
+  ULONG v4; // ecx
+  wchar_t *v5; // eax
   int v6; // edi
 
   v3 = 0;
-  if ( a3 )
-    *a3 = 0;
-  if ( !a2 || !a3 || a1 )
+  if ( Length )
+    *Length = 0;
+  if ( !PathString || !Length || Flags )
     return -1073741811;
-  v4 = *a2 >> 1;
+  v4 = PathString->Length >> 1;
   if ( v4 )
   {
-    v5 = (unsigned __int16 *)(*((_DWORD *)a2 + 1) + 2 * v4 - 2);
+    v5 = &PathString->Buffer[v4 - 1];
     do
     {
       v6 = *v5;
@@ -32,6 +32,6 @@ int __stdcall RtlGetLengthWithoutTrailingPathSeperators(int a1, unsigned __int16
     }
     while ( v4 );
   }
-  *a3 = v4;
+  *Length = v4;
   return v3;
 }

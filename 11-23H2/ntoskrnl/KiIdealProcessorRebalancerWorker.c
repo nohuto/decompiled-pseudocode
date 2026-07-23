@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIdealProcessorRebalancerWorker @ 0x140356750
+ * XREFs of KiIdealProcessorRebalancerWorker @ 0x1403568F0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiUpdateProcessConcurrencyCounts @ 0x1402C33C0 (KiUpdateProcessConcurrencyCounts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiUpdateProcessConcurrencyCounts @ 0x1402C3650 (KiUpdateProcessConcurrencyCounts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiIdealProcessorRebalancerWorker()
@@ -32,10 +32,13 @@ __int64 KiIdealProcessorRebalancerWorker()
     if ( !v1 )
       break;
     KxReleaseSpinLock((volatile signed __int64 *)&qword_140C41848);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -52,10 +55,10 @@ __int64 KiIdealProcessorRebalancerWorker()
   }
   byte_140C41850 = 0;
   result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C41848);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

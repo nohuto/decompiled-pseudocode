@@ -1,9 +1,9 @@
 /*
- * XREFs of SSHSupportRegisterPowerSettingCallback @ 0x1407E4508
+ * XREFs of SSHSupportRegisterPowerSettingCallback @ 0x1407EA078
  * Callers:
- *     SshInitialize @ 0x140CD7428 (SshInitialize.c)
+ *     SshInitialize @ 0x140CDD7A8 (SshInitialize.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x140B05F90 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x140B080C0 (PoRegisterPowerSettingCallback.c)
  */
 
 NTSTATUS SSHSupportRegisterPowerSettingCallback()
@@ -13,5 +13,5 @@ NTSTATUS SSHSupportRegisterPowerSettingCallback()
            &GUID_PDC_IDLE_RESILIENCY_ENGAGED,
            SshpPowerSettingCallback,
            0LL,
-           (PVOID *)&PsAltSystemCallRegistrationLock.ExtendedFeatureDisableMask);
+           &qword_140F0A840);
 }

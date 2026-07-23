@@ -9,11 +9,11 @@
 
 void __stdcall KeSetTargetProcessorDpc(PRKDPC Dpc, CCHAR Number)
 {
-  unsigned __int16 v4; // bx
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp+10h] BYREF
+  WORD v4; // bx
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp+10h] BYREF
 
-  if ( KeForceGroupAwareness )
-    v4 = KiActiveGroups - 1;
+  if ( byte_140D068FB )
+    v4 = word_140D05014 - 1;
   else
     v4 = 0;
   if ( Number < KeQueryActiveProcessorCountEx(v4) )

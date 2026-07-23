@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInsertPhysicalPteMapping @ 0x140366150
+ * XREFs of MiInsertPhysicalPteMapping @ 0x140367EF0
  * Callers:
- *     MiInsertViewOfPhysicalSection @ 0x140315954 (MiInsertViewOfPhysicalSection.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14036672C (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140317984 (MiInsertViewOfPhysicalSection.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1403684CC (MiMapLockedPagesInUserSpaceHelper.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiAssignInitialPageAttribute @ 0x1402A2C40 (MiAssignInitialPageAttribute.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiShowBadMapper @ 0x1403669CC (MiShowBadMapper.c)
- *     MiLookupIoPageNode @ 0x140367E4C (MiLookupIoPageNode.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     KeChangeMemoryAttributes @ 0x1403EF1E8 (KeChangeMemoryAttributes.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiAssignInitialPageAttribute @ 0x1402A2190 (MiAssignInitialPageAttribute.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiShowBadMapper @ 0x14036876C (MiShowBadMapper.c)
+ *     MiLookupIoPageNode @ 0x140369BEC (MiLookupIoPageNode.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     KeChangeMemoryAttributes @ 0x140453D18 (KeChangeMemoryAttributes.c)
  */
 
 __int64 __fastcall MiInsertPhysicalPteMapping(_QWORD *a1)
@@ -37,7 +37,7 @@ __int64 __fastcall MiInsertPhysicalPteMapping(_QWORD *a1)
   v4 = *((_DWORD *)a1 + 6);
   v5 = *(_DWORD *)(*a1 + 48LL);
   v6 = MiProtectionToCacheAttribute(v4);
-  if ( v3 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v3 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+  if ( v3 <= qword_140E2D920 && ((*(_QWORD *)(48 * v3 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
   {
     v7 = 48 * v3 - 0x220000000000LL;
     if ( !(unsigned __int16)*(_DWORD *)(v7 + 32) )

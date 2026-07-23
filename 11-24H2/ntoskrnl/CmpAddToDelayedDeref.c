@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpAddToDelayedDeref @ 0x14086977C
+ * XREFs of CmpAddToDelayedDeref @ 0x14086DAAC
  * Callers:
- *     CmpCloseKeyObject @ 0x140841890 (CmpCloseKeyObject.c)
- *     CmpReportNotifyHelper @ 0x140868820 (CmpReportNotifyHelper.c)
- *     CmpPostNotify @ 0x140868D58 (CmpPostNotify.c)
- *     CmpCancelSubordinatePost @ 0x140A36BDC (CmpCancelSubordinatePost.c)
+ *     CmpCloseKeyObject @ 0x14083DB50 (CmpCloseKeyObject.c)
+ *     CmpReportNotifyHelper @ 0x14086CB10 (CmpReportNotifyHelper.c)
+ *     CmpPostNotify @ 0x14086D048 (CmpPostNotify.c)
+ *     CmpCancelSubordinatePost @ 0x140A2BA34 (CmpCancelSubordinatePost.c)
  * Callees:
  *     <none>
  */

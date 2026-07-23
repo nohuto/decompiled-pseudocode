@@ -1,12 +1,12 @@
 /*
- * XREFs of DifCcFastCopyWriteWrapper @ 0x1405D6300
+ * XREFs of DifCcFastCopyWriteWrapper @ 0x1405D6870
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyWriteEx @ 0x1402C8D20 (CcCopyWriteEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     CcCopyWriteEx @ 0x1402C8FB0 (CcCopyWriteEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 char __fastcall DifCcFastCopyWriteWrapper(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)

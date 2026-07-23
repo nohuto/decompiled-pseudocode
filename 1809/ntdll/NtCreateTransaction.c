@@ -1,16 +1,26 @@
 /*
- * XREFs of NtCreateTransaction @ 0x1800A1AF0
+ * XREFs of NtCreateTransaction @ 0x1800A1B10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateTransaction()
+NTSTATUS __cdecl NtCreateTransaction(
+        PHANDLE TransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LPGUID Uow,
+        HANDLE TmHandle,
+        ULONG CreateOptions,
+        ULONG IsolationLevel,
+        ULONG IsolationFlags,
+        PLARGE_INTEGER Timeout,
+        PUNICODE_STRING Description)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 193LL;
+  result = 193;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

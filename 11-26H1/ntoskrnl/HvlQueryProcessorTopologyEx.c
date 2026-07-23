@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlQueryProcessorTopologyEx @ 0x1405B96B0
+ * XREFs of HvlQueryProcessorTopologyEx @ 0x1405BBF20
  * Callers:
- *     HalpMcStagingHypervisor @ 0x140593A60 (HalpMcStagingHypervisor.c)
- *     HvlQueryProcessorTopology @ 0x1405B9690 (HvlQueryProcessorTopology.c)
+ *     HalpMcStagingHypervisor @ 0x1405961E0 (HalpMcStagingHypervisor.c)
+ *     HvlQueryProcessorTopology @ 0x1405BBF00 (HvlQueryProcessorTopology.c)
  * Callees:
- *     HvlpGetLpcbByLpIndex @ 0x1403E6258 (HvlpGetLpcbByLpIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1402F3138 (HvlpGetLpcbByLpIndex.c)
  */
 
 __int64 __fastcall HvlQueryProcessorTopologyEx(unsigned int a1, _WORD *a2, _DWORD *a3, __int64 a4, int *a5)

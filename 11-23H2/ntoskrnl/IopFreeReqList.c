@@ -1,12 +1,12 @@
 /*
- * XREFs of IopFreeReqList @ 0x140818728
+ * XREFs of IopFreeReqList @ 0x1408189F8
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1405615D4 (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14081624C (PnpFreeResourceRequirementsForAssignTable.c)
- *     IopAllocateBootResourcesInternal @ 0x140816D18 (IopAllocateBootResourcesInternal.c)
- *     IopResourceRequirementsListToReqList @ 0x140817A68 (IopResourceRequirementsListToReqList.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x140561C94 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x14081651C (PnpFreeResourceRequirementsForAssignTable.c)
+ *     IopAllocateBootResourcesInternal @ 0x140816FE8 (IopAllocateBootResourcesInternal.c)
+ *     IopResourceRequirementsListToReqList @ 0x140817D38 (IopResourceRequirementsListToReqList.c)
  * Callees:
- *     IopFreeReqAlternative @ 0x140818780 (IopFreeReqAlternative.c)
+ *     IopFreeReqAlternative @ 0x140818A50 (IopFreeReqAlternative.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

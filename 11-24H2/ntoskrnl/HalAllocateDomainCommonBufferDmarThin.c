@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateDomainCommonBufferDmarThin @ 0x140551830
+ * XREFs of HalAllocateDomainCommonBufferDmarThin @ 0x14054F170
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateCommonBufferDmarThin @ 0x140410764 (HalpAllocateCommonBufferDmarThin.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x140397478 (HalpAllocateCommonBufferDmarThin.c)
  */
 
 __int64 __fastcall HalAllocateDomainCommonBufferDmarThin(
@@ -13,9 +13,9 @@ __int64 __fastcall HalAllocateDomainCommonBufferDmarThin(
         int a4,
         char a5,
         MEMORY_CACHING_TYPE *a6,
-        int a7,
+        unsigned int a7,
         _QWORD *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
-  return HalpAllocateCommonBufferDmarThin(*(__int64 **)(a1 + 512), 0LL, a3, a4, a5, a6, a7, a8, a9);
+  return HalpAllocateCommonBufferDmarThin(*(_QWORD **)(a1 + 512), 0LL, a3, a4, a5, a6, a7, a8, a9);
 }

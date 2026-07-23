@@ -12,21 +12,21 @@
  *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAssociateWaitCompletionPacket(
-        void *a1,
-        void *a2,
-        void *a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        __int64 a7,
-        _BYTE *a8)
+NTSTATUS __cdecl NtAssociateWaitCompletionPacket(
+        HANDLE WaitCompletionPacketHandle,
+        HANDLE IoCompletionHandle,
+        HANDLE TargetObjectHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation,
+        PBOOLEAN AlreadySignaled)
 {
   unsigned __int8 CurrentIrql; // r13
   char v9; // di
   PVOID v10; // r15
   PVOID v11; // r14
-  NTSTATUS v12; // esi
+  int v12; // esi
   volatile signed __int64 *v13; // r12
   _BYTE *AssociatedWaitObject; // rax
   _BYTE *v15; // r12
@@ -34,7 +34,7 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
   KSPIN_LOCK *v17; // rdx
   PVOID v18; // rdi
   PVOID v19; // rdx
-  char v20; // r14
+  BOOLEAN v20; // r14
   _DWORD *SchedulerAssist; // r9
   __int64 v23; // r10
   __int64 v24; // rdx
@@ -49,7 +49,7 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
   int v33; // eax
   KPROCESSOR_MODE PreviousMode; // [rsp+30h] [rbp-78h]
   PVOID Object; // [rsp+38h] [rbp-70h] BYREF
-  NTSTATUS v36; // [rsp+40h] [rbp-68h]
+  int v36; // [rsp+40h] [rbp-68h]
   KSPIN_LOCK *v37; // [rsp+48h] [rbp-60h]
   PVOID v38; // [rsp+50h] [rbp-58h] BYREF
   PVOID v39; // [rsp+58h] [rbp-50h] BYREF
@@ -61,19 +61,25 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
   v11 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(a1, 1u, IopWaitCompletionPacketObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(
+          WaitCompletionPacketHandle,
+          1u,
+          IopWaitCompletionPacketObjectType,
+          PreviousMode,
+          &Object,
+          0LL);
   v37 = (KSPIN_LOCK *)Object;
   v13 = (volatile signed __int64 *)Object;
   v40 = (volatile signed __int64 *)Object;
   if ( v12 < 0 )
     goto LABEL_12;
   v39 = 0LL;
-  v12 = ObReferenceObjectByHandle(a2, 2u, IoCompletionObjectType, PreviousMode, &v39, 0LL);
+  v12 = ObReferenceObjectByHandle(IoCompletionHandle, 2u, IoCompletionObjectType, PreviousMode, &v39, 0LL);
   v10 = v39;
   if ( v12 < 0 )
     goto LABEL_12;
   v38 = 0LL;
-  v12 = ObReferenceObjectByHandle(a3, 0x100000u, 0LL, PreviousMode, &v38, 0LL);
+  v12 = ObReferenceObjectByHandle(TargetObjectHandle, 0x100000u, 0LL, PreviousMode, &v38, 0LL);
   v11 = v38;
   v36 = v12;
   if ( v12 < 0 )
@@ -89,7 +95,7 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
   v17 = v37;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -109,19 +115,19 @@ LABEL_39:
   }
   v18 = Object;
   *((_BYTE *)Object + 104) = 1;
-  *((_QWORD *)v18 + 6) = a4;
-  *((_QWORD *)v18 + 7) = a5;
-  *((_DWORD *)v18 + 18) = a6;
-  *((_QWORD *)v18 + 8) = a7;
+  *((_QWORD *)v18 + 6) = KeyContext;
+  *((_QWORD *)v18 + 7) = ApcContext;
+  *((_DWORD *)v18 + 18) = IoStatus;
+  *((_QWORD *)v18 + 8) = IoStatusInformation;
   *((_QWORD *)v18 + 10) = v38;
   v19 = v39;
   *((_QWORD *)v18 + 11) = v39;
   v20 = KeRegisterObjectNotification(v15, v19, v18);
   KxReleaseSpinLock((volatile signed __int64 *)v18 + 12);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v27 = CurrentPrcb->SchedulerAssist;
@@ -134,16 +140,16 @@ LABEL_39:
   }
   __writecr8(CurrentIrql);
   v9 = 0;
-  if ( a8 )
+  if ( AlreadySignaled )
   {
     if ( PreviousMode )
     {
-      v24 = (__int64)a8;
-      if ( (unsigned __int64)a8 >= 0x7FFFFFFF0000LL )
+      v24 = (__int64)AlreadySignaled;
+      if ( (unsigned __int64)AlreadySignaled >= 0x7FFFFFFF0000LL )
         v24 = 0x7FFFFFFF0000LL;
       *(_BYTE *)v24 = *(_BYTE *)v24;
     }
-    *a8 = v20;
+    *AlreadySignaled = v20;
   }
   v10 = 0LL;
   v11 = 0LL;
@@ -152,10 +158,10 @@ LABEL_12:
   if ( v9 )
   {
     KxReleaseSpinLock(v13 + 12);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;
@@ -174,5 +180,5 @@ LABEL_12:
     ObfDereferenceObjectWithTag(v11, 0x746C6644u);
   if ( v13 )
     ObfDereferenceObjectWithTag((PVOID)v13, 0x746C6644u);
-  return (unsigned int)v12;
+  return v12;
 }

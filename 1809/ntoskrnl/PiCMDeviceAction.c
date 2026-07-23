@@ -1,19 +1,19 @@
 /*
- * XREFs of PiCMDeviceAction @ 0x140837978
+ * XREFs of PiCMDeviceAction @ 0x140838BD8
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
- *     _CmGetDeviceStatus @ 0x14059E508 (_CmGetDeviceStatus.c)
- *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
- *     _CmValidateDeviceName @ 0x1405C76D0 (_CmValidateDeviceName.c)
- *     _CmIsRootDevice @ 0x1406E978C (_CmIsRootDevice.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
- *     PiAuDoesClientHavePrivilege @ 0x14082A0B8 (PiAuDoesClientHavePrivilege.c)
- *     PiCMSetProblem @ 0x140838DB8 (PiCMSetProblem.c)
- *     PiQueueDeviceRequest @ 0x14083C7E8 (PiQueueDeviceRequest.c)
+ *     PiCMReleaseObjectInputData @ 0x14059E6AC (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14059E6DC (PiCMCaptureObjectInputData.c)
+ *     _CmGetDeviceStatus @ 0x14059F508 (_CmGetDeviceStatus.c)
+ *     PiCMReturnBasicResultData @ 0x1405A060C (PiCMReturnBasicResultData.c)
+ *     _CmValidateDeviceName @ 0x1405C86D0 (_CmValidateDeviceName.c)
+ *     _CmIsRootDevice @ 0x1406EAA2C (_CmIsRootDevice.c)
+ *     PiAuDoesClientHaveAccess @ 0x140700A2C (PiAuDoesClientHaveAccess.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14082B2B8 (PiAuDoesClientHavePrivilege.c)
+ *     PiCMSetProblem @ 0x14083A018 (PiCMSetProblem.c)
+ *     PiQueueDeviceRequest @ 0x14083DA48 (PiQueueDeviceRequest.c)
  */
 
 __int64 __fastcall PiCMDeviceAction(

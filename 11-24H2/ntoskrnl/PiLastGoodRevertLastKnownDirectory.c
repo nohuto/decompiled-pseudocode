@@ -1,27 +1,27 @@
 /*
- * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140C23770
+ * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140C257A0
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x140C239B4 (PpLastGoodDoBootProcessing.c)
+ *     PpLastGoodDoBootProcessing @ 0x140C259E4 (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     ZwDeleteFile @ 0x1406A7F70 (ZwDeleteFile.c)
- *     ZwDeleteKey @ 0x1406A7F90 (ZwDeleteKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopFileUtilClearAttributes @ 0x1407357CC (IopFileUtilClearAttributes.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140C26540 (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     ZwDeleteFile @ 0x1406A8F10 (ZwDeleteFile.c)
+ *     ZwDeleteKey @ 0x1406A8F30 (ZwDeleteKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopFileUtilClearAttributes @ 0x1407336FC (IopFileUtilClearAttributes.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140C28590 (IopFileUtilWalkDirectoryTreeTopDown.c)
  */
 
 void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a2)
 {
   __int64 v4; // rdx
-  ULONG_PTR Pool2; // rbx
+  __int64 Pool2; // rbx
   __int64 v6; // r8
   ULONG v7; // edx
   int v8; // edi

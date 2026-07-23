@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpDelayDerefKCBWorker @ 0x140401510
+ * XREFs of CmpDelayDerefKCBWorker @ 0x1404003D0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpDereferenceKeyControlBlock @ 0x140437DB0 (CmpDereferenceKeyControlBlock.c)
- *     CmpArmDelayDerefKCBWorker @ 0x1404DC994 (CmpArmDelayDerefKCBWorker.c)
- *     CmpDoQueueLateUnloadWorker @ 0x140514594 (CmpDoQueueLateUnloadWorker.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140436C80 (CmpDereferenceKeyControlBlock.c)
+ *     CmpArmDelayDerefKCBWorker @ 0x1404BFF98 (CmpArmDelayDerefKCBWorker.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1404F7984 (CmpDoQueueLateUnloadWorker.c)
  */
 
 __int64 CmpDelayDerefKCBWorker()

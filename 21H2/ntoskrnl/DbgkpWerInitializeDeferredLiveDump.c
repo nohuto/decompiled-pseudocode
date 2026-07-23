@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpWerInitializeDeferredLiveDump @ 0x1408893A8
+ * XREFs of DbgkpWerInitializeDeferredLiveDump @ 0x140889508
  * Callers:
- *     DbgkpWerCaptureLiveFullDump @ 0x140888D80 (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140888EE0 (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateTimer @ 0x1403FBC00 (ZwCreateTimer.c)
- *     DbgkpWerAllocateNonpagedPool @ 0x1404EE9C8 (DbgkpWerAllocateNonpagedPool.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateTimer @ 0x1403FBDE0 (ZwCreateTimer.c)
+ *     DbgkpWerAllocateNonpagedPool @ 0x1404EEC08 (DbgkpWerAllocateNonpagedPool.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)
@@ -19,6 +19,7 @@ __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)
   int v5; // eax
   struct _DMA_ADAPTER *v6; // rdi
   _QWORD *NonpagedPool; // rax
+  _QWORD *Tag; // [rsp+20h] [rbp-50h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   HANDLE TimerHandle; // [rsp+90h] [rbp+20h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+98h] [rbp+28h] BYREF
@@ -34,12 +35,13 @@ __int64 __fastcall DbgkpWerInitializeDeferredLiveDump(__int64 a1)
   if ( v3 >= 0 )
   {
     DmaAdapter = 0LL;
+    LODWORD(Tag) = 1466393156;
     v5 = ObpReferenceObjectByHandleWithTag(
            (ULONG_PTR)TimerHandle,
-           2031619,
-           (__int64)ExTimerObjectType,
+           2031619LL,
+           (POBJECT_TYPE *)ExTimerObjectType,
            0,
-           0x57676244u,
+           Tag,
            &DmaAdapter,
            0LL,
            0LL);

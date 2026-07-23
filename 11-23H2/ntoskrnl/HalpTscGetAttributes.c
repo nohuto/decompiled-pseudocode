@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTscGetAttributes @ 0x1403782C4
+ * XREFs of HalpTscGetAttributes @ 0x140378464
  * Callers:
- *     HalpTscInitialize @ 0x1403781A0 (HalpTscInitialize.c)
- *     HalpTscDiscover @ 0x1403A45A8 (HalpTscDiscover.c)
+ *     HalpTscInitialize @ 0x140378340 (HalpTscInitialize.c)
+ *     HalpTscDiscover @ 0x1403A4788 (HalpTscDiscover.c)
  * Callees:
- *     HalSocRequestConfigurationData @ 0x140377DC8 (HalSocRequestConfigurationData.c)
- *     HalSocRequestApi @ 0x1403783EC (HalSocRequestApi.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalSocRequestConfigurationData @ 0x140377F68 (HalSocRequestConfigurationData.c)
+ *     HalSocRequestApi @ 0x14037858C (HalSocRequestApi.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTscGetAttributes(_BYTE *a1, _BYTE *a2, _BYTE *a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MinCryptIsKeyPresent @ 0x14071CDCC
+ * XREFs of MinCryptIsKeyPresent @ 0x140721A5C
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     MinAsn1ParsePublicKeyInfo @ 0x1408A351C (MinAsn1ParsePublicKeyInfo.c)
- *     MinAsn1ParseRSAPublicKey @ 0x1408A3564 (MinAsn1ParseRSAPublicKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x1408A992C (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x1408A9974 (MinAsn1ParseRSAPublicKey.c)
  */
 
 __int64 __fastcall MinCryptIsKeyPresent(__int64 a1, __int64 a2, unsigned int a3)

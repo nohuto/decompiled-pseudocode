@@ -25,7 +25,7 @@
  *     KeAbPreAcquire @ 0x1400BAD80 (KeAbPreAcquire.c)
  */
 
-__int64 __fastcall ExpAcquireFastMutexContended(ULONG_PTR BugCheckParameter2, __int64 a2)
+__int64 __fastcall ExpAcquireFastMutexContended(ULONG_PTR BugCheckParameter2, PRTL_BALANCED_NODE Node)
 {
   int v2; // ebp
   int v5; // esi
@@ -46,20 +46,20 @@ LABEL_2:
       LODWORD(result) = _InterlockedCompareExchange((volatile signed __int32 *)BugCheckParameter2, result + v5, result);
       if ( v8 == (_DWORD)result )
       {
-        if ( a2 )
+        if ( Node )
         {
-          *(_BYTE *)(a2 + 32) |= 2u;
-          if ( *(__int64 *)(a2 + 32) < 0 )
-            KiAbEntryRemoveFromTree(a2);
-          *(_BYTE *)(a2 + 25) |= 1u;
-          *(_BYTE *)(a2 + 32) &= ~2u;
+          LOBYTE(Node[1].Right) |= 2u;
+          if ( (__int64)Node[1].Children[1] < 0 )
+            KiAbEntryRemoveFromTree(Node);
+          BYTE1(Node[1].Children[0]) |= 1u;
+          LOBYTE(Node[1].Right) &= ~2u;
         }
         KeWaitForSingleObject((PVOID)(BugCheckParameter2 + 24), WrFastMutex, 0, 0, 0LL);
         _m_prefetchw((const void *)BugCheckParameter2);
         v2 = 3;
         v5 = 2;
-        if ( a2 )
-          a2 = KeAbPreAcquire(BugCheckParameter2);
+        if ( Node )
+          Node = (PRTL_BALANCED_NODE)KeAbPreAcquire(BugCheckParameter2, Node);
         goto LABEL_2;
       }
     }

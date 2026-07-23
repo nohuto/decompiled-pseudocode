@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPsReferencePrimaryToken @ 0x14070CC8C
+ * XREFs of VerifierPsReferencePrimaryToken @ 0x14070CCBC
  * Callers:
  *     <none>
  * Callees:

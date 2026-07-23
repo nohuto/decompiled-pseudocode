@@ -1,5 +1,5 @@
 /*
- * XREFs of PopEtInitializeBuiltinAppId @ 0x14085660C
+ * XREFs of PopEtInitializeBuiltinAppId @ 0x14085690C
  * Callers:
  *     PopEtInit @ 0x140B6A7E0 (PopEtInit.c)
  * Callees:

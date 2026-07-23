@@ -1,11 +1,11 @@
 /*
- * XREFs of SepInformFileSystemsOfDeletedLogon @ 0x1406B3BB0
+ * XREFs of SepInformFileSystemsOfDeletedLogon @ 0x1406B4E50
  * Callers:
- *     SepDeReferenceLogonSession @ 0x1406B35E0 (SepDeReferenceLogonSession.c)
+ *     SepDeReferenceLogonSession @ 0x1406B4880 (SepDeReferenceLogonSession.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall SepInformFileSystemsOfDeletedLogon(struct _LIST_ENTRY **a1, struct _LIST_ENTRY *a2)

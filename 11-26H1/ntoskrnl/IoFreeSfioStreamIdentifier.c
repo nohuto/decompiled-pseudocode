@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFreeSfioStreamIdentifier @ 0x1405CAEB0
+ * XREFs of IoFreeSfioStreamIdentifier @ 0x1405CD780
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Signature)

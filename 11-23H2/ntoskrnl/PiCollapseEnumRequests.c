@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCollapseEnumRequests @ 0x140358E84
+ * XREFs of PiCollapseEnumRequests @ 0x140359024
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x1407CD0A8 (PiMarkDeviceTreeForReenumeration.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x1407CD378 (PiMarkDeviceTreeForReenumeration.c)
  */
 
 bool __fastcall PiCollapseEnumRequests(__int64 a1)
@@ -57,10 +57,13 @@ bool __fastcall PiCollapseEnumRequests(__int64 a1)
     while ( v9 != &PnpEnumerationRequestList );
   }
   KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v6 = -1LL << ((unsigned __int8)v5 + 1);

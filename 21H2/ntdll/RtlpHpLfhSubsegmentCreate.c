@@ -7,13 +7,13 @@
  *     RtlReleaseSRWLockShared @ 0x180021920 (RtlReleaseSRWLockShared.c)
  *     RtlpHpLfhSubsegmentInitialize @ 0x18002F690 (RtlpHpLfhSubsegmentInitialize.c)
  *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x18008A7F8 (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rax
-  unsigned __int64 v4; // r9
+  char v4; // r9
   __int64 v5; // r12
   int v9; // r13d
   int v10; // ebx
@@ -26,11 +26,11 @@ __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned in
   char v17; // dl
   char v18; // cl
   unsigned int v19; // edx
-  unsigned __int64 v20; // r8
+  unsigned int v20; // r8d
   int v21; // edx
   unsigned int v22; // r10d
   int v23; // eax
-  unsigned __int64 v24; // rdx
+  char v24; // dl
   unsigned int v25; // ecx
   unsigned int v26; // ecx
   unsigned int v27; // ebp
@@ -49,13 +49,13 @@ __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned in
 
   v39 = a3;
   v3 = *(unsigned __int8 *)(a2 + 1);
-  v4 = (unsigned int)RtlpHpLfhPerfFlags;
+  v4 = RtlpHpLfhPerfFlags;
   v5 = 0LL;
   v9 = (unsigned __int16)RtlpBucketBlockSizes[v3];
   if ( (RtlpHpLfhPerfFlags & 1) != 0 )
   {
     LODWORD(v3) = RtlpHpLfhBucketSubsegmentStatsUpdate(a1 + 64, *(unsigned __int8 *)(a2 + 1));
-    v4 = (unsigned int)RtlpHpLfhPerfFlags;
+    v4 = RtlpHpLfhPerfFlags;
     v10 = v3;
     LOBYTE(v3) = *(_BYTE *)(a2 + 1);
   }
@@ -96,11 +96,11 @@ __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned in
   }
   v20 = v9 * v19;
   v21 = (8 * (((unsigned __int64)(2 * v19) + 63) >> 6) + 63) & 0xFFFFFFF0;
-  v22 = v21 + 2 * ((unsigned int)(v21 + v20 + 4095) >> 12);
+  v22 = v21 + 2 * ((v21 + v20 + 4095) >> 12);
   v23 = v22 + v20;
-  if ( v22 + (unsigned int)v20 >= 0xF0000 )
+  if ( v22 + v20 >= 0xF0000 )
     v23 = 983040;
-  v24 = 18LL;
+  v24 = 18;
   _BitScanReverse(&v25, v23 - 1);
   v38 = v25;
   v26 = v25 + 1;
@@ -117,10 +117,10 @@ __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned in
     LOBYTE(v26) = 12;
 LABEL_23:
   v27 = 1 << v26;
-  if ( (v4 & 8) == 0 || v22 > (unsigned int)v20 >> 6 )
+  if ( (v4 & 8) == 0 || v22 > v20 >> 6 )
     goto LABEL_33;
-  if ( (unsigned int)v20 >= 0xF0000 )
-    v20 = 983040LL;
+  if ( v20 >= 0xF0000 )
+    v20 = 983040;
   _BitScanReverse(&v28, v20 - 1);
   v40 = v28;
   v29 = v28 + 1;
@@ -130,7 +130,7 @@ LABEL_23:
 LABEL_29:
     v24 = v29;
     if ( v29 <= 0xC )
-      v24 = 12LL;
+      v24 = 12;
     goto LABEL_31;
   }
   if ( v29 < 0x12 )
@@ -141,7 +141,7 @@ LABEL_31:
 LABEL_33:
   v30 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 72), v24, v20, v4);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 72));
   v31 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, char *, char *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 8)))(
           *(_QWORD *)a1,
           v27,
@@ -192,6 +192,6 @@ LABEL_33:
     }
   }
   if ( !v30 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 72));
   return v5;
 }

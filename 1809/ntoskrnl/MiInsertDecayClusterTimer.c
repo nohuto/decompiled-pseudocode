@@ -1,5 +1,5 @@
 /*
- * XREFs of MiInsertDecayClusterTimer @ 0x14011C590
+ * XREFs of MiInsertDecayClusterTimer @ 0x14011C600
  * Callers:
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  * Callees:
@@ -16,8 +16,8 @@ unsigned __int64 __fastcall MiInsertDecayClusterTimer(__int64 a1)
   unsigned __int64 v6; // rdx
   __int64 v7; // r10
 
-  v1 = (a1 + 0x58000000000LL) / 48 - qword_14043AA60;
-  v2 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
+  v1 = (a1 + 0x58000000000LL) / 48 - qword_14043BB20;
+  v2 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
   v3 = *(unsigned int *)(v2 + 4760);
   v4 = v3;
   *(_BYTE *)(a1 + 34) = ((unsigned __int8)*(_DWORD *)(v2 + 4760) << 6) | *(_BYTE *)(a1 + 34) & 0x3F;
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall MiInsertDecayClusterTimer(__int64 a1)
   if ( v6 == 0x7FFFFFFF )
     result = v7 | result & 0x1FFFFFFFFLL;
   else
-    *(_QWORD *)(48 * (qword_14043AA60 + v6) - 0x58000000000LL + 8) = v7 | *(_QWORD *)(48 * (qword_14043AA60 + v6)
+    *(_QWORD *)(48 * (qword_14043BB20 + v6) - 0x58000000000LL + 8) = v7 | *(_QWORD *)(48 * (qword_14043BB20 + v6)
                                                                                     - 0x58000000000LL
                                                                                     + 8) & 0x1FFFFFFFFLL;
   *(_QWORD *)(v2 + 8 * v4 + 4728) = result ^ (result ^ (2 * v1)) & 0xFFFFFFFE;

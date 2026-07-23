@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpWheaGetApicId @ 0x140454160
+ * XREFs of HalpWheaGetApicId @ 0x14044C290
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x1404529E4 (HalpMcaPopulateErrorData.c)
- *     HalpAddMcaToProcessorSpecificSection @ 0x140452B9C (HalpAddMcaToProcessorSpecificSection.c)
+ *     HalpMcaPopulateErrorData @ 0x14044AB14 (HalpMcaPopulateErrorData.c)
+ *     HalpAddMcaToProcessorSpecificSection @ 0x14044ACCC (HalpAddMcaToProcessorSpecificSection.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpWheaGetApicId(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall HalpWheaGetApicId(__int64 a1)
   v2 = 0;
   if ( HalpHvWheaEnlightenedCpuManager )
   {
-    if ( qword_140FBB238 )
+    if ( qword_140FBB5D8 )
     {
       guard_dispatch_icall_no_overrides(a1, &v3);
       return v3;

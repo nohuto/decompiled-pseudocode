@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpLockKcbStackTopExclusiveRestShared @ 0x14086C494
+ * XREFs of CmpLockKcbStackTopExclusiveRestShared @ 0x1408707C4
  * Callers:
- *     CmDeleteLayeredKey @ 0x14041AAA8 (CmDeleteLayeredKey.c)
- *     CmOpenKeyForBugCheckRecovery @ 0x1407CF3E0 (CmOpenKeyForBugCheckRecovery.c)
- *     CmpDoBuildVirtualStack @ 0x1407DB5E4 (CmpDoBuildVirtualStack.c)
- *     CmDeleteKey @ 0x140869BFC (CmDeleteKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpGetSymbolicLinkTarget @ 0x1408768A0 (CmpGetSymbolicLinkTarget.c)
- *     CmSetLastWriteTimeKey @ 0x14097A430 (CmSetLastWriteTimeKey.c)
- *     CmSetKeyFlags @ 0x14097AE70 (CmSetKeyFlags.c)
- *     CmpPromoteKey @ 0x1409880D8 (CmpPromoteKey.c)
- *     CmpSetKeySecurity @ 0x14099FAEC (CmpSetKeySecurity.c)
+ *     CmDeleteLayeredKey @ 0x14040AAA8 (CmDeleteLayeredKey.c)
+ *     CmOpenKeyForBugCheckRecovery @ 0x1407CF8D0 (CmOpenKeyForBugCheckRecovery.c)
+ *     CmpDoBuildVirtualStack @ 0x1407DBB34 (CmpDoBuildVirtualStack.c)
+ *     CmpSetKeySecurity @ 0x140830A20 (CmpSetKeySecurity.c)
+ *     CmDeleteKey @ 0x14086DF2C (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14087ABD0 (CmpGetSymbolicLinkTarget.c)
+ *     CmSetLastWriteTimeKey @ 0x140962C40 (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x140963680 (CmSetKeyFlags.c)
+ *     CmpPromoteKey @ 0x1409708BC (CmpPromoteKey.c)
  * Callees:
- *     CmpLockKcbExclusive @ 0x140870470 (CmpLockKcbExclusive.c)
- *     CmpGetKcbAtLayerHeight @ 0x140918910 (CmpGetKcbAtLayerHeight.c)
- *     CmpLockKcbShared @ 0x140BB9A1C (CmpLockKcbShared.c)
+ *     CmpLockKcbExclusive @ 0x1408747A0 (CmpLockKcbExclusive.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14090C380 (CmpGetKcbAtLayerHeight.c)
+ *     CmpLockKcbShared @ 0x140BBBA1C (CmpLockKcbShared.c)
  */
 
 __int64 __fastcall CmpLockKcbStackTopExclusiveRestShared(__int64 a1)

@@ -14,14 +14,14 @@ __int64 __fastcall KsepResolveShimHooks(__int64 a1, int *a2)
   int v6; // ecx
   int v7; // ecx
   int v8; // ecx
-  __int64 v9; // rbx
+  void *v9; // rbx
   __int64 result; // rax
   __int64 v11; // rdi
   unsigned int i; // r12d
-  __int64 ExportedRoutineByName; // rax
-  __int64 v14; // [rsp+50h] [rbp+8h]
+  PVOID ExportedRoutineByName; // rax
+  PVOID BaseOfImage; // [rsp+50h] [rbp+8h]
 
-  v14 = 0LL;
+  BaseOfImage = 0LL;
   if ( a1 && a2 )
   {
     v4 = 0;
@@ -34,13 +34,13 @@ LABEL_4:
       return 0LL;
     if ( !v6 )
     {
-      v9 = *(_QWORD *)(a1 + 24);
+      v9 = *(void **)(a1 + 24);
       goto LABEL_15;
     }
     v7 = v6 - 1;
     if ( !v7 )
     {
-      v9 = *(_QWORD *)(a1 + 320);
+      v9 = *(void **)(a1 + 320);
       goto LABEL_15;
     }
     v8 = v7 - 1;
@@ -49,14 +49,14 @@ LABEL_4:
       result = KsepGetModuleInfoByName(*((PCWSTR *)v5 + 1));
       if ( (int)result < 0 )
         return result;
-      v9 = v14;
+      v9 = BaseOfImage;
       goto LABEL_16;
     }
     if ( v8 == 1 )
     {
       v9 = 0LL;
 LABEL_15:
-      v14 = v9;
+      BaseOfImage = v9;
 LABEL_16:
       v11 = *((_QWORD *)v5 + 2);
       for ( i = 0; ; v11 = *((_QWORD *)v5 + 2) + 32LL * i )
@@ -68,7 +68,7 @@ LABEL_16:
         }
         if ( !*(_DWORD *)v11 )
         {
-          ExportedRoutineByName = RtlFindExportedRoutineByName(v9, *(_QWORD *)(v11 + 8));
+          ExportedRoutineByName = RtlFindExportedRoutineByName(v9, *(PCSTR *)(v11 + 8));
           if ( !ExportedRoutineByName )
             return 3221225473LL;
           *(_QWORD *)(v11 + 24) = ExportedRoutineByName;

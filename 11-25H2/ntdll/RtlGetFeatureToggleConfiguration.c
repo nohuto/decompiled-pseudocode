@@ -30,9 +30,9 @@ unsigned __int64 __fastcall RtlGetFeatureToggleConfiguration(unsigned int a1, un
   v11 = 0LL;
   if ( v5 )
   {
-    RtlAcquireSRWLockShared(&qword_1801D5E70);
+    RtlAcquireSRWLockShared(&stru_1801D5E70);
     v7 = _ft_marker_array_find(&_ft_g_api_info, a1, &v11);
-    RtlReleaseSRWLockShared(&qword_1801D5E70);
+    RtlReleaseSRWLockShared(&stru_1801D5E70);
     v6 = v11;
     if ( v7 )
     {
@@ -50,11 +50,11 @@ unsigned __int64 __fastcall RtlGetFeatureToggleConfiguration(unsigned int a1, un
   }
   if ( v5 || (Configuration & 0xF) != 0 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&qword_1801D5E70);
+    RtlAcquireSRWLockExclusive(&stru_1801D5E70);
     _ft_marker_array_set_flags(&_ft_g_api_info, a1, v10);
     if ( !v7 && (v3 & 0xE000000) == 0x6000000 )
       _ft_process_handles_array_add(&unk_1801D5E58, a1);
-    RtlReleaseSRWLockExclusive(&qword_1801D5E70);
+    RtlReleaseSRWLockExclusive(&stru_1801D5E70);
   }
   return v10;
 }

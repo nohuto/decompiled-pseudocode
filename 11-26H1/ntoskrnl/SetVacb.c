@@ -1,9 +1,9 @@
 /*
- * XREFs of SetVacb @ 0x1402E1E10
+ * XREFs of SetVacb @ 0x1402C3ED0
  * Callers:
- *     CcPinFileData @ 0x1402DF720 (CcPinFileData.c)
+ *     CcPinFileData @ 0x1402C1530 (CcPinFileData.c)
  * Callees:
- *     CcSetVacbLargeOffset @ 0x1402E1620 (CcSetVacbLargeOffset.c)
+ *     CcSetVacbLargeOffset @ 0x1402C3430 (CcSetVacbLargeOffset.c)
  */
 
 __int64 __fastcall SetVacb(__int64 a1, __int64 a2, unsigned __int64 a3, __int128 *a4)

@@ -26,7 +26,7 @@ __int64 MiInitializeMirroring()
   PVOID PoolWithTag; // rax
   __int64 v2; // rbx
   unsigned __int64 v3; // r8
-  __int64 *v4; // rsi
+  _RTL_BITMAP_EX *v4; // rsi
   struct _KTHREAD *CurrentThread; // r14
   unsigned int v6; // edi
   __int64 v7; // rbp
@@ -35,7 +35,7 @@ __int64 MiInitializeMirroring()
   struct _KTHREAD *v11; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v13; // si
-  __int64 v14; // r8
+  unsigned int v14; // r8d
   bool v15; // zf
   __int64 v16; // rcx
   int v17; // eax
@@ -44,7 +44,7 @@ __int64 MiInitializeMirroring()
   __int64 v20; // rdx
   __int64 v21; // rcx
   __int16 v22; // ax
-  _OWORD v23[4]; // [rsp+30h] [rbp-48h] BYREF
+  _RTL_BITMAP_EX v23; // [rsp+30h] [rbp-48h] BYREF
   int v24; // [rsp+80h] [rbp+8h] BYREF
   int v25; // [rsp+88h] [rbp+10h]
 
@@ -63,7 +63,7 @@ __int64 MiInitializeMirroring()
   {
     memset(PoolWithTag, 0, v0);
     qword_1403814A8 = v2;
-    v4 = qword_14036C960;
+    v4 = &stru_14036C960;
     CurrentThread = KeGetCurrentThread();
     v6 = 0;
     v7 = qword_14036C290;
@@ -71,12 +71,11 @@ __int64 MiInitializeMirroring()
     while ( 1 )
     {
       v9 = MiReservePtes((__int64)&qword_14036D0A0, (unsigned int)v8, v3);
-      if ( !v9 || !(unsigned int)MiInitializeDynamicBitmap(v23, (__int64)(v9 << 25) >> 16, v7 + 1, 24) )
+      if ( !v9 || !(unsigned int)MiInitializeDynamicBitmap(&v23, (__int64)(v9 << 25) >> 16, v7 + 1, 24) )
         break;
-      *(_QWORD *)&v23[0] = 0LL;
+      v23.SizeOfBitMap = 0LL;
       ++v6;
-      *(_OWORD *)v4 = v23[0];
-      v4 += 2;
+      *v4++ = v23;
       if ( v6 >= 2 )
       {
         if ( (dword_1403E3118 & 1) != 0 )
@@ -94,7 +93,7 @@ __int64 MiInitializeMirroring()
             SessionId = 0xFFFFFFFFLL;
           --v11->SpecialApcDisable;
           v13 = ++v11->AbAllocationRegionCount;
-          LODWORD(v14) = ((char)v11->AbEntrySummary | (char)v11->AbOrphanedEntrySummary) ^ 0x3F;
+          v14 = ((char)v11->AbEntrySummary | (char)v11->AbOrphanedEntrySummary) ^ 0x3F;
           while ( 1 )
           {
             v15 = !_BitScanReverse((unsigned int *)&v16, v14);
@@ -104,7 +103,7 @@ __int64 MiInitializeMirroring()
             v17 = 1 << v16;
             v18 = v16;
             v19 = &v11->LockEntries[v18];
-            v14 = ~v17 & (unsigned int)v14;
+            v14 &= ~v17;
             if ( (v19->AcquiredByte & 1) != 0
               && (*(_DWORD *)&v19->LockState.0 & 1) == 0
               && (*(_QWORD *)&v19->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_1403802E0 & 0x7FFFFFFFFFFFFFFCLL)
@@ -124,7 +123,7 @@ LABEL_16:
           }
           v19->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v19->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v11->LockEntries[v18], SessionId, v14);
+            KiAbEntryRemoveFromTree(&v11->LockEntries[v18].TreeNode, SessionId);
           v24 = 0;
           v24 = v19->BoostBitmap.AllFields & 0x1FFFF;
           v19->BoostBitmap.AllFields &= 0xFFFE0000;

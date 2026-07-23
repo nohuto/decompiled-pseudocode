@@ -1,8 +1,8 @@
 /*
- * XREFs of KeSetVpThreadLowPriorityOverride @ 0x1405B7860
+ * XREFs of KeSetVpThreadLowPriorityOverride @ 0x1405B4E30
  * Callers:
- *     KeSwitchFrozenProcessor @ 0x1405C1B30 (KeSwitchFrozenProcessor.c)
- *     KiFreezeTargetExecution @ 0x1405C1C80 (KiFreezeTargetExecution.c)
+ *     KeSwitchFrozenProcessor @ 0x1405BF100 (KeSwitchFrozenProcessor.c)
+ *     KiFreezeTargetExecution @ 0x1405BF250 (KiFreezeTargetExecution.c)
  * Callees:
  *     <none>
  */

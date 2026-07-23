@@ -1,58 +1,51 @@
 /*
- * XREFs of DbgkpLkmdFireCallbacks @ 0x140708008
+ * XREFs of DbgkpLkmdFireCallbacks @ 0x140705BC8
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140707A3C (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x1407055FC (DbgkCaptureLiveDump.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
+void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v3; // si
+  char v4; // si
+  int v6; // r15d
   int SessionId; // ebx
-  union _RTL_RUN_ONCE *v8; // rdi
-  __int64 v9; // r14
-  __int64 v10; // rdx
+  _RTL_RUN_ONCE *v9; // rdi
+  __int64 v10; // r14
   struct _EX_RUNDOWN_REF *v11; // rbp
-  __int64 v12; // r8
-  __int64 v13; // r9
   int Ptr; // eax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
+  __int64 v13; // rdx
 
-  v3 = 1;
+  v4 = 1;
+  v6 = a2;
   if ( (a2 & 1) != 0 )
   {
     SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
     if ( SessionId != (unsigned int)PsGetSessionIdEx(a3) || SessionId == -1 )
-      v3 = 0;
+      v4 = 0;
   }
-  v8 = &stru_140E3EBE0;
-  v9 = 8LL;
+  v9 = &RunOnce;
+  v10 = 8LL;
   do
   {
-    v11 = ExReferenceCallBackBlock((signed __int64 *)v8);
+    v11 = ExReferenceCallBackBlock((signed __int64 *)v9, a2, a3, a4);
     if ( v11 )
     {
-      Ptr = (int)v8[1].Ptr;
-      if ( (Ptr & a2) != 0 && ((Ptr & 4) == 0 || v3) )
+      Ptr = (int)v9[1].Ptr;
+      if ( (Ptr & v6) != 0 && ((Ptr & 4) == 0 || v4) )
       {
-        guard_dispatch_icall_no_overrides(a1 + 0x4000, v10, v12, v13);
-        if ( (int)guard_dispatch_icall_no_overrides(
-                    DbgkpLkmdSnapData,
-                    DbgkpLkmdIsMemoryBlockPresentFromCallback,
-                    a1,
-                    v11[2].Count) < 0 )
-          guard_dispatch_icall_no_overrides(a1 + 0x4000, v15, v16, v17);
+        guard_dispatch_icall_no_overrides(a1 + 0x4000, a2);
+        if ( (int)guard_dispatch_icall_no_overrides(DbgkpLkmdSnapData, DbgkpLkmdIsMemoryBlockPresentFromCallback) < 0 )
+          guard_dispatch_icall_no_overrides(a1 + 0x4000, v13);
       }
-      ExDereferenceCallBackBlock((signed __int64 *)v8, v11);
+      ExDereferenceCallBackBlock((signed __int64 *)v9, v11);
     }
-    v8 += 2;
-    --v9;
+    v9 += 2;
+    --v10;
   }
-  while ( v9 );
+  while ( v10 );
 }

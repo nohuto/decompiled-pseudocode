@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceProcessorTrace @ 0x1405B04B8
+ * XREFs of EtwpTraceProcessorTrace @ 0x1405B06E8
  * Callers:
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403AEB1C (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403AEC8C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEF80 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 struct _KPRCB *__fastcall EtwpTraceProcessorTrace(__int64 a1, _QWORD *a2, struct _KTHREAD *a3, int a4)

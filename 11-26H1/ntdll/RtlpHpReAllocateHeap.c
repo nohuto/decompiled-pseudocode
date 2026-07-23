@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpReAllocateHeap @ 0x1800B11E4
+ * XREFs of RtlpHpReAllocateHeap @ 0x180080D58
  * Callers:
- *     RtlpReAllocateHeapInternal @ 0x18001AED0 (RtlpReAllocateHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x180005FB0 (RtlpReAllocateHeapInternal.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpLargeReAlloc @ 0x180089604 (RtlpHpLargeReAlloc.c)
- *     RtlpHpReAllocateHeapSlow @ 0x1800B0E90 (RtlpHpReAllocateHeapSlow.c)
- *     RtlpHpReallocComputeSizes @ 0x1800B1670 (RtlpHpReallocComputeSizes.c)
- *     RtlpHpSegReAlloc @ 0x1800B1A2C (RtlpHpSegReAlloc.c)
- *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x1801212E4 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLargeReAlloc @ 0x1800710A8 (RtlpHpLargeReAlloc.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x180080A04 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpHpReallocComputeSizes @ 0x1800811E0 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpSegReAlloc @ 0x18008159C (RtlpHpSegReAlloc.c)
+ *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x180121080 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-unsigned __int64 __fastcall RtlpHpReAllocateHeap(__m128i *a1, int a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlpHpReAllocateHeap(__int64 a1, int a2, __int64 a3, unsigned __int64 a4)
 {
-  __int32 *v6; // rcx
-  unsigned __int64 HeapSlow; // rbx
+  _DWORD *v6; // rcx
+  __int64 HeapSlow; // rbx
   unsigned int v8; // edi
   unsigned int v9; // esi
   int v10; // eax
@@ -27,7 +27,7 @@ unsigned __int64 __fastcall RtlpHpReAllocateHeap(__m128i *a1, int a2, unsigned _
   __int128 v17; // [rsp+40h] [rbp-28h]
   unsigned __int64 v18; // [rsp+50h] [rbp-18h]
 
-  v6 = &a1[1].m128i_i32[1];
+  v6 = (_DWORD *)(a1 + 20);
   HeapSlow = a3;
   __writegsqword(0x250u, (unsigned __int64)v6);
   v8 = (a2 | *v6) & 0x10003FFA;
@@ -35,11 +35,11 @@ unsigned __int64 __fastcall RtlpHpReAllocateHeap(__m128i *a1, int a2, unsigned _
   {
     if ( (((unsigned __int8)a2 | *(_BYTE *)v6) & 0x10) != 0 )
     {
-      v15 = a1[14].m128i_u32[0];
+      v15 = *(unsigned int *)(a1 + 224);
       if ( (_DWORD)v15 != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
         RtlpHpEnvAcquireGlobalLockSharedContended(v6, v8, v15);
     }
-    HeapSlow = RtlpHpReAllocateHeapSlow(a1, v8, HeapSlow, a4);
+    HeapSlow = RtlpHpReAllocateHeapSlow(a1, v8, (char *)HeapSlow, a4);
   }
   else
   {
@@ -51,7 +51,7 @@ unsigned __int64 __fastcall RtlpHpReAllocateHeap(__m128i *a1, int a2, unsigned _
       HeapSlow = 0LL;
       goto LABEL_13;
     }
-    if ( !(unsigned int)RtlpHpReallocComputeSizes((_DWORD)a1, a3, a4, v8, (__int64)&v16) || v18 < a4 )
+    if ( !(unsigned int)RtlpHpReallocComputeSizes(a1, a3, a4, v8, (__int64)&v16) || v18 < a4 )
     {
       HeapSlow = -1LL;
       goto LABEL_13;
@@ -65,10 +65,12 @@ unsigned __int64 __fastcall RtlpHpReAllocateHeap(__m128i *a1, int a2, unsigned _
       }
       else
       {
-        v14 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801C78C0, 2 * ((HeapSlow - qword_1801C78B8) >> 20));
+        v14 = RtlCSparseBitmapBitmaskRead(
+                (__int64)&BaseAddress,
+                2 * ((unsigned __int64)(HeapSlow - qword_1801C6908) >> 20));
         if ( !v14 || (v10 = v14 - 1, v10 == 2) )
         {
-          v11 = RtlpHpLargeReAlloc(a1, v9, HeapSlow, (__int64)&v16);
+          v11 = RtlpHpLargeReAlloc((_RTL_SRWLOCK *)a1, v9, (char *)HeapSlow, (__int64)&v16);
 LABEL_9:
           HeapSlow = v11;
           if ( (unsigned __int64)(v11 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
@@ -82,7 +84,7 @@ LABEL_9:
           goto LABEL_13;
         }
       }
-      v11 = RtlpHpSegReAlloc(&a1[12 * v10 + 20], v9, HeapSlow, &v16);
+      v11 = RtlpHpSegReAlloc(a1 + 192LL * v10 + 320, v9, HeapSlow, &v16);
       goto LABEL_9;
     }
   }

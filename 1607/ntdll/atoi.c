@@ -1,9 +1,9 @@
 /*
- * XREFs of atoi @ 0x180097350
+ * XREFs of atoi @ 0x180097340
  * Callers:
  *     <none>
  * Callees:
- *     strtolX @ 0x18009BE70 (strtolX.c)
+ *     strtolX @ 0x18009BE60 (strtolX.c)
  */
 
 int __cdecl atoi(const char *String)

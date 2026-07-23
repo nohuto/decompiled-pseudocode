@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlAreBitsSetEx @ 0x140586CD0
+ * XREFs of RtlAreBitsSetEx @ 0x140586F00
  * Callers:
- *     MiCheckHotPatchApplicable @ 0x1408C97A0 (MiCheckHotPatchApplicable.c)
+ *     MiCheckHotPatchApplicable @ 0x1408C9900 (MiCheckHotPatchApplicable.c)
  * Callees:
  *     <none>
  */

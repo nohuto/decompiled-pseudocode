@@ -3,62 +3,62 @@
  * Callers:
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     MiValidateInPage @ 0x14002EC10 (MiValidateInPage.c)
- *     MiInitializeImageProtos @ 0x140093198 (MiInitializeImageProtos.c)
- *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     CcCompleteAsyncRead @ 0x1400DF334 (CcCompleteAsyncRead.c)
- *     FsRtlCancelNotify @ 0x14011B110 (FsRtlCancelNotify.c)
- *     KeFlushIoBuffers @ 0x14011CB40 (KeFlushIoBuffers.c)
- *     SmMapPage @ 0x14014A77C (SmMapPage.c)
- *     SmFpAllocate @ 0x14014BA74 (SmFpAllocate.c)
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14014C820 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
- *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14014D7C4 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
- *     MiMapPageFileHash @ 0x14014FCD8 (MiMapPageFileHash.c)
- *     MiWritePageFileHash @ 0x1401514B8 (MiWritePageFileHash.c)
- *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
- *     PpmHeteroInitializeHgsSupport @ 0x140192A80 (PpmHeteroInitializeHgsSupport.c)
- *     CcLockSystemCacheBuffer @ 0x140269B24 (CcLockSystemCacheBuffer.c)
- *     KiOpPatchCode @ 0x14029C5E8 (KiOpPatchCode.c)
- *     MmMapLockedPages @ 0x1402A97F0 (MmMapLockedPages.c)
- *     MiFlushFileOnlyMdl @ 0x1402B5E6C (MiFlushFileOnlyMdl.c)
- *     MiGetWorkingSetInfo @ 0x1402BECC4 (MiGetWorkingSetInfo.c)
- *     MiValidatePagefilePageHash @ 0x1402CC514 (MiValidatePagefilePageHash.c)
- *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
- *     PspIumAllocatePhysicalPages @ 0x1402EB64C (PspIumAllocatePhysicalPages.c)
- *     PspIumFreePhysicalPages @ 0x1402EB92C (PspIumFreePhysicalPages.c)
- *     SmPrepareForFatalPageError @ 0x1403092DC (SmPrepareForFatalPageError.c)
- *     MdlInvariantPostProcessing1 @ 0x14030A64C (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x14030A840 (MdlInvariantPreProcessing1.c)
- *     PopAllocatePages @ 0x14056BBD0 (PopAllocatePages.c)
- *     WbMakeUserDataPagesKernelWritable @ 0x1405849A0 (WbMakeUserDataPagesKernelWritable.c)
- *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
- *     MmCopyVirtualMemory @ 0x140644790 (MmCopyVirtualMemory.c)
- *     WbMakeUserExecutablePagesKernelWritable @ 0x14068FEA4 (WbMakeUserExecutablePagesKernelWritable.c)
- *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
- *     FsRtlNotifyFilterReportChange @ 0x1406A0200 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406A0E60 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     FsRtlNotifyCompleteIrp @ 0x1406A1448 (FsRtlNotifyCompleteIrp.c)
- *     AlpcpInitializeCompletionList @ 0x1406D4BE0 (AlpcpInitializeCompletionList.c)
- *     ExInitializeLeapSecondData @ 0x140733FC0 (ExInitializeLeapSecondData.c)
- *     IopSetFileObjectIosbRange @ 0x14081B01C (IopSetFileObjectIosbRange.c)
- *     MiApplyImageHotPatch @ 0x140854688 (MiApplyImageHotPatch.c)
- *     MiCopyPagesIntoEnclave @ 0x14085948C (MiCopyPagesIntoEnclave.c)
- *     NtStartProfile @ 0x1408DA3E0 (NtStartProfile.c)
- *     ViAllocateMapRegisterFile @ 0x14092C790 (ViAllocateMapRegisterFile.c)
- *     ViGetMdlBufferSa @ 0x14092DA20 (ViGetMdlBufferSa.c)
- *     ViMapDoubleBuffer @ 0x14092E13C (ViMapDoubleBuffer.c)
- *     VerifierMmMapLockedPagesSpecifyCache @ 0x140944B10 (VerifierMmMapLockedPagesSpecifyCache.c)
- *     VfFillAllocatePagesForMdl @ 0x140945348 (VfFillAllocatePagesForMdl.c)
- *     ResFwGetContext @ 0x14094E080 (ResFwGetContext.c)
- *     KiComputeNumaCosts @ 0x1409C5C3C (KiComputeNumaCosts.c)
+ *     MiInitializeImageProtos @ 0x1400930D8 (MiInitializeImageProtos.c)
+ *     MiGetWorkingSetInfoList @ 0x140096530 (MiGetWorkingSetInfoList.c)
+ *     CcCompleteAsyncRead @ 0x1400DF3B4 (CcCompleteAsyncRead.c)
+ *     FsRtlCancelNotify @ 0x14011B180 (FsRtlCancelNotify.c)
+ *     KeFlushIoBuffers @ 0x14011CBB0 (KeFlushIoBuffers.c)
+ *     SmMapPage @ 0x14014A87C (SmMapPage.c)
+ *     SmFpAllocate @ 0x14014BB74 (SmFpAllocate.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14014C920 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14014D8C4 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
+ *     MiMapPageFileHash @ 0x14014FDD8 (MiMapPageFileHash.c)
+ *     MiWritePageFileHash @ 0x1401515B8 (MiWritePageFileHash.c)
+ *     BgpFwAllocateMemory @ 0x14016F5D8 (BgpFwAllocateMemory.c)
+ *     PpmHeteroInitializeHgsSupport @ 0x140192BC0 (PpmHeteroInitializeHgsSupport.c)
+ *     CcLockSystemCacheBuffer @ 0x140269D14 (CcLockSystemCacheBuffer.c)
+ *     KiOpPatchCode @ 0x14029C7D8 (KiOpPatchCode.c)
+ *     MmMapLockedPages @ 0x1402A99E0 (MmMapLockedPages.c)
+ *     MiFlushFileOnlyMdl @ 0x1402B605C (MiFlushFileOnlyMdl.c)
+ *     MiGetWorkingSetInfo @ 0x1402BEEB4 (MiGetWorkingSetInfo.c)
+ *     MiValidatePagefilePageHash @ 0x1402CC704 (MiValidatePagefilePageHash.c)
+ *     PsDispatchIumService @ 0x1402EAD84 (PsDispatchIumService.c)
+ *     PspIumAllocatePhysicalPages @ 0x1402EB83C (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePhysicalPages @ 0x1402EBB1C (PspIumFreePhysicalPages.c)
+ *     SmPrepareForFatalPageError @ 0x1403094CC (SmPrepareForFatalPageError.c)
+ *     MdlInvariantPostProcessing1 @ 0x14030A83C (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x14030AA30 (MdlInvariantPreProcessing1.c)
+ *     PopAllocatePages @ 0x14056CBD0 (PopAllocatePages.c)
+ *     WbMakeUserDataPagesKernelWritable @ 0x1405859A0 (WbMakeUserDataPagesKernelWritable.c)
+ *     MiCreateImageFileMap @ 0x14061DEB8 (MiCreateImageFileMap.c)
+ *     MmCopyVirtualMemory @ 0x1406457B0 (MmCopyVirtualMemory.c)
+ *     WbMakeUserExecutablePagesKernelWritable @ 0x140691064 (WbMakeUserExecutablePagesKernelWritable.c)
+ *     ExLockUserBuffer @ 0x14069FBD8 (ExLockUserBuffer.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1406A14A0 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406A2100 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyCompleteIrp @ 0x1406A26E8 (FsRtlNotifyCompleteIrp.c)
+ *     AlpcpInitializeCompletionList @ 0x1406D5E80 (AlpcpInitializeCompletionList.c)
+ *     ExInitializeLeapSecondData @ 0x1407351B0 (ExInitializeLeapSecondData.c)
+ *     IopSetFileObjectIosbRange @ 0x14081C21C (IopSetFileObjectIosbRange.c)
+ *     MiApplyImageHotPatch @ 0x1408558E8 (MiApplyImageHotPatch.c)
+ *     MiCopyPagesIntoEnclave @ 0x14085A6EC (MiCopyPagesIntoEnclave.c)
+ *     NtStartProfile @ 0x1408DB6A0 (NtStartProfile.c)
+ *     ViAllocateMapRegisterFile @ 0x14092D790 (ViAllocateMapRegisterFile.c)
+ *     ViGetMdlBufferSa @ 0x14092EA20 (ViGetMdlBufferSa.c)
+ *     ViMapDoubleBuffer @ 0x14092F13C (ViMapDoubleBuffer.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x140945B10 (VerifierMmMapLockedPagesSpecifyCache.c)
+ *     VfFillAllocatePagesForMdl @ 0x140946348 (VfFillAllocatePagesForMdl.c)
+ *     ResFwGetContext @ 0x14094F080 (ResFwGetContext.c)
+ *     KiComputeNumaCosts @ 0x1409C6C3C (KiComputeNumaCosts.c)
  * Callees:
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiMappingHasIoReferences @ 0x1400E63FC (MiMappingHasIoReferences.c)
- *     MiIssueNoPtesBugcheck @ 0x1402AD808 (MiIssueNoPtesBugcheck.c)
- *     MiInsertPteTracker @ 0x1402CDAC0 (MiInsertPteTracker.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
+ *     MiMappingHasIoReferences @ 0x1400E647C (MiMappingHasIoReferences.c)
+ *     MiIssueNoPtesBugcheck @ 0x1402AD9F8 (MiIssueNoPtesBugcheck.c)
+ *     MiInsertPteTracker @ 0x1402CDCB0 (MiInsertPteTracker.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140696CE4 (MiMapLockedPagesInUserSpace.c)
  */
 
 PVOID __stdcall MmMapLockedPagesSpecifyCache(
@@ -111,19 +111,19 @@ PVOID __stdcall MmMapLockedPagesSpecifyCache(
     if ( (Priority & 0x3FFFFFFF) != 0x10 )
       v12 = 2048LL;
     v13 = v11 == 16 ? 0x2000000LL : 0x4000000 / ((unsigned int)(v11 == 16) + 1);
-    if ( ((qword_14043A228 << 9) - qword_14043AFD8) << 12 < v13
-      && (v12 >= qword_14043AFF8 || v10 >= qword_14043AFF8 - v12)
+    if ( ((qword_14043B2E8 << 9) - qword_14043C098) << 12 < v13
+      && (v12 >= qword_14043C0B8 || v10 >= qword_14043C0B8 - v12)
       && (*((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2) == 0
       && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
     {
-      ++dword_14043AFC8;
+      ++dword_14043C088;
       return 0LL;
     }
   }
   v14 = v10;
   if ( MmProtectFreedNonPagedPool == 1 )
     v14 = v10 + 1;
-  v15 = MiReservePtes(&qword_14043AFA0, v14);
+  v15 = MiReservePtes(&qword_14043C060, v14);
   v16 = v15;
   if ( !v15 )
   {
@@ -164,7 +164,7 @@ PVOID __stdcall MmMapLockedPagesSpecifyCache(
       MemoryDescriptorList->MdlFlags |= 0x800u;
       v23 = MemoryDescriptorList->MdlFlags;
     }
-    if ( (dword_14054017C & 1) != 0 )
+    if ( (dword_14054117C & 1) != 0 )
     {
       if ( MmProtectFreedNonPagedPool == 1 )
         v24 |= 2u;
@@ -179,6 +179,6 @@ PVOID __stdcall MmMapLockedPagesSpecifyCache(
   if ( (MdlFlags & 0x2000) == 0 && BugCheckOnFailure )
 LABEL_38:
     MiIssueNoPtesBugcheck((unsigned int)v10);
-  MiReleasePtes((__int64)&qword_14043AFA0, v16, v14);
+  MiReleasePtes((__int64)&qword_14043C060, v16, v14);
   return 0LL;
 }

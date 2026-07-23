@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsQueryEnabledMitigations @ 0x14074C80C
+ * XREFs of PopDirectedDripsQueryEnabledMitigations @ 0x14074AB3C
  * Callers:
- *     PopDirectedDripsEngage @ 0x14048CC5C (PopDirectedDripsEngage.c)
- *     PopDirectedDripsInitializePhase3 @ 0x140C2E174 (PopDirectedDripsInitializePhase3.c)
+ *     PopDirectedDripsEngage @ 0x14048797C (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140C30294 (PopDirectedDripsInitializePhase3.c)
  * Callees:
- *     PopDirectedDripsQueryRegistryValues @ 0x14074C8C8 (PopDirectedDripsQueryRegistryValues.c)
- *     EmClientQueryRuleState @ 0x140B682E0 (EmClientQueryRuleState.c)
+ *     PopDirectedDripsQueryRegistryValues @ 0x14074ABF8 (PopDirectedDripsQueryRegistryValues.c)
+ *     EmClientQueryRuleState @ 0x140B6A420 (EmClientQueryRuleState.c)
  */
 
 __int64 __fastcall PopDirectedDripsQueryEnabledMitigations(__int64 a1)

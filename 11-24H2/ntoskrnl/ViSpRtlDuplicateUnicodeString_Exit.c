@@ -1,9 +1,9 @@
 /*
- * XREFs of ViSpRtlDuplicateUnicodeString_Exit @ 0x140BA4E20
+ * XREFs of ViSpRtlDuplicateUnicodeString_Exit @ 0x140BA6E20
  * Callers:
  *     <none>
  * Callees:
- *     ViSpRtlReplaceStringBuffer @ 0x140BA4E44 (ViSpRtlReplaceStringBuffer.c)
+ *     ViSpRtlReplaceStringBuffer @ 0x140BA6E44 (ViSpRtlReplaceStringBuffer.c)
  */
 
 __int64 __fastcall ViSpRtlDuplicateUnicodeString_Exit(__int64 a1)

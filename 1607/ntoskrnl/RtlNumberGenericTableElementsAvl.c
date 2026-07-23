@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlNumberGenericTableElementsAvl @ 0x140087424
+ * XREFs of RtlNumberGenericTableElementsAvl @ 0x14010B6FC
  * Callers:
- *     PiUpdateDriverDBCache @ 0x14049D278 (PiUpdateDriverDBCache.c)
- *     PiDmGetObjectCount @ 0x14062F8D8 (PiDmGetObjectCount.c)
+ *     PiUpdateDriverDBCache @ 0x140515734 (PiUpdateDriverDBCache.c)
+ *     PiDmGetObjectCount @ 0x14062F98C (PiDmGetObjectCount.c)
  * Callees:
  *     <none>
  */

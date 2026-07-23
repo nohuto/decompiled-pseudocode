@@ -35,7 +35,7 @@ char __fastcall ExpWnfDeleteScopeById(__int64 a1, const void *a2, unsigned int a
   {
     v8 = v7 + 24 * v4;
     v9 = (unsigned __int64 *)(v7 + 8 * (3 * v4 + 4));
-    v10 = KeAbPreAcquire((ULONG_PTR)v9, 0LL, 0LL);
+    v10 = KeAbPreAcquire((ULONG_PTR)v9, 0LL, 0);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
       ExfAcquirePushLockExclusiveEx(v9, v10, (ULONG_PTR)v9);

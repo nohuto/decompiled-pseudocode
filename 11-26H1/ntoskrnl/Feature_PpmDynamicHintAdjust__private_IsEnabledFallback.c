@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_PpmDynamicHintAdjust__private_IsEnabledFallback @ 0x14052F8C8
+ * XREFs of Feature_PpmDynamicHintAdjust__private_IsEnabledFallback @ 0x140531DC8
  * Callers:
- *     Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline @ 0x1405315E4 (Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline @ 0x140533AE4 (Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_PpmDynamicHintAdjust__private_IsEnabledFallback(__int64 a1, unsigned int a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPowerRequestEvaluatePendingRequestStatus @ 0x14046C0C4
+ * XREFs of PopPowerRequestEvaluatePendingRequestStatus @ 0x140464D44
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x14046BB18 (PopApplyLegacyPowerRequestFlags.c)
- *     PopPowerRequestReferenceRelease @ 0x14046BD60 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14046BE70 (PopPowerRequestReferenceAcquire.c)
- *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x14046BFAC (PopPowerRequestHandleRequestOverrideQueryResponse.c)
- *     PopPowerRequestHandleClose @ 0x14046C044 (PopPowerRequestHandleClose.c)
- *     PopPowerRequestUnrevokeRequests @ 0x1404B4CB0 (PopPowerRequestUnrevokeRequests.c)
- *     PopPowerRequestRevokeRequests @ 0x1404B659C (PopPowerRequestRevokeRequests.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x140464798 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopPowerRequestReferenceRelease @ 0x1404649E0 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x140464AF0 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x140464C2C (PopPowerRequestHandleRequestOverrideQueryResponse.c)
+ *     PopPowerRequestHandleClose @ 0x140464CC4 (PopPowerRequestHandleClose.c)
+ *     PopPowerRequestUnrevokeRequests @ 0x1404AF4B0 (PopPowerRequestUnrevokeRequests.c)
+ *     PopPowerRequestRevokeRequests @ 0x1404B0D7C (PopPowerRequestRevokeRequests.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 int __fastcall PopPowerRequestEvaluatePendingRequestStatus(_BYTE *Object, __int64 *a2)

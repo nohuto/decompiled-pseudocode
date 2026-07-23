@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileGetPeExportNameExeWrapper @ 0x140A58CE0
+ * XREFs of AslpFileGetPeExportNameExeWrapper @ 0x140A58F90
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x140758DE8 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x140758FD8 (AslFileAllocAndGetAttributes.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140758EF0 (AslFileMappingEnsure.c)
- *     AslStringXmlSanitize @ 0x140759580 (AslStringXmlSanitize.c)
- *     AslpFileGetExeWrapper @ 0x140A58384 (AslpFileGetExeWrapper.c)
- *     AslpFileGetExportName @ 0x140A58524 (AslpFileGetExportName.c)
+ *     AslFileMappingEnsure @ 0x1407590E0 (AslFileMappingEnsure.c)
+ *     AslStringXmlSanitize @ 0x140759770 (AslStringXmlSanitize.c)
+ *     AslpFileGetExeWrapper @ 0x140A58634 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetExportName @ 0x140A587D4 (AslpFileGetExportName.c)
  */
 
 __int64 __fastcall AslpFileGetPeExportNameExeWrapper(__int64 a1, __int64 a2)

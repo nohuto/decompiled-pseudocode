@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReAcquireCommitFailWorker @ 0x14052C330
+ * XREFs of MiReAcquireCommitFailWorker @ 0x14052C570
  * Callers:
  *     <none>
  * Callees:
- *     KeForceResumeProcess @ 0x1402EAA58 (KeForceResumeProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
+ *     KeForceResumeProcess @ 0x14029BDA8 (KeForceResumeProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PsTerminateProcess @ 0x14061B628 (PsTerminateProcess.c)
  */
 
 LONG_PTR __fastcall MiReAcquireCommitFailWorker(PVOID Object)

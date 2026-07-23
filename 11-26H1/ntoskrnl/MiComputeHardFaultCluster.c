@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeHardFaultCluster @ 0x140458290
+ * XREFs of MiComputeHardFaultCluster @ 0x14044FB00
  * Callers:
- *     MiResolveMappedFileFaultGetClusterInfo @ 0x14036F7FC (MiResolveMappedFileFaultGetClusterInfo.c)
- *     MiComputePageFileReadAttributes @ 0x1403707CC (MiComputePageFileReadAttributes.c)
+ *     MiResolveMappedFileFaultGetClusterInfo @ 0x1403715AC (MiResolveMappedFileFaultGetClusterInfo.c)
+ *     MiComputePageFileReadAttributes @ 0x14037257C (MiComputePageFileReadAttributes.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiAdvanceFaultList @ 0x14036F4A0 (MiAdvanceFaultList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiAdvanceFaultList @ 0x140371250 (MiAdvanceFaultList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiComputeHardFaultCluster(__int64 a1, __int128 *a2, __int64 a3, __int64 a4, char a5)

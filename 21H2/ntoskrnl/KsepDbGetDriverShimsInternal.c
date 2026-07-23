@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepDbGetDriverShimsInternal @ 0x140758E8C
+ * XREFs of KsepDbGetDriverShimsInternal @ 0x14075904C
  * Callers:
- *     KsepDbGetDriverShims @ 0x140758C60 (KsepDbGetDriverShims.c)
+ *     KsepDbGetDriverShims @ 0x140758E20 (KsepDbGetDriverShims.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
- *     KsepDbFreeDriverShims @ 0x140758F30 (KsepDbFreeDriverShims.c)
- *     SdbGetDatabaseMatchEx @ 0x140759A08 (SdbGetDatabaseMatchEx.c)
- *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
- *     SdbFindNextTag @ 0x140759E48 (SdbFindNextTag.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     SdbTagRefToTagID @ 0x1407C2090 (SdbTagRefToTagID.c)
- *     KsepDbGetSdbString @ 0x1408BF7E8 (KsepDbGetSdbString.c)
- *     SdbReadGUIDTag @ 0x140966250 (SdbReadGUIDTag.c)
+ *     KsepPoolAllocatePaged @ 0x14037129C (KsepPoolAllocatePaged.c)
+ *     KsepDbFreeDriverShims @ 0x1407590F0 (KsepDbFreeDriverShims.c)
+ *     SdbGetDatabaseMatchEx @ 0x140759BC8 (SdbGetDatabaseMatchEx.c)
+ *     SdbReadDWORDTag @ 0x140759F54 (SdbReadDWORDTag.c)
+ *     SdbFindNextTag @ 0x14075A008 (SdbFindNextTag.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     SdbTagRefToTagID @ 0x1407C25B0 (SdbTagRefToTagID.c)
+ *     KsepDbGetSdbString @ 0x1408BF948 (KsepDbGetSdbString.c)
+ *     SdbReadGUIDTag @ 0x140966430 (SdbReadGUIDTag.c)
  */
 
 __int64 __fastcall KsepDbGetDriverShimsInternal(

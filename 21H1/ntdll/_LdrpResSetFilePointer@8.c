@@ -7,14 +7,14 @@
  *     _ZwSetInformationFile@20 @ 0x4B2F2BF0 (_ZwSetInformationFile@20.c)
  */
 
-int __fastcall LdrpResSetFilePointer(int a1, int a2)
+NTSTATUS __fastcall LdrpResSetFilePointer(HANDLE FileHandle, int a2)
 {
-  _BYTE v3[8]; // [esp+0h] [ebp-10h] BYREF
-  _DWORD v4[2]; // [esp+8h] [ebp-8h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+0h] [ebp-10h] BYREF
+  _DWORD FileInformation[2]; // [esp+8h] [ebp-8h] BYREF
 
-  if ( !a1 || a1 == -1 )
+  if ( !FileHandle || FileHandle == (HANDLE)-1 )
     return -1073741816;
-  v4[1] = 0;
-  v4[0] = a2;
-  return ZwSetInformationFile(a1, (int)v3, (int)v4, 8, 14);
+  FileInformation[1] = 0;
+  FileInformation[0] = a2;
+  return ZwSetInformationFile(FileHandle, &IoStatusBlock, FileInformation, 8u, FilePositionInformation);
 }

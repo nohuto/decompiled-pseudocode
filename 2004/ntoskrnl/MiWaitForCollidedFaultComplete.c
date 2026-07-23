@@ -133,7 +133,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
     v17 = MiReleaseFaultState((__int64)(a1 + 7), 0x11u, 0LL);
   if ( *(_QWORD *)(v13 + 216) )
   {
-    v27 = KeAbPreAcquire(v13, 0LL, 0LL);
+    v27 = KeAbPreAcquire(v13, 0LL, 0);
     v18 = v27;
     if ( v27 )
       KeAbPreWait(v27);
@@ -145,7 +145,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
   KeWaitForSingleObject((PVOID)(v13 + 56), WrPageIn, 0, 0, 0LL);
   if ( v18 )
   {
-    KeAbPreAcquire(v13, v18, 0LL);
+    KeAbPreAcquire(v13, v18, 0);
     KeAbPostReleaseEx(v13, v18);
   }
   MiFreeInPageSupportBlock((PSLIST_ENTRY)v13);

@@ -1,15 +1,15 @@
 /*
- * XREFs of CcCopyWriteEx @ 0x1404A1E30
+ * XREFs of CcCopyWriteEx @ 0x14049CDC0
  * Callers:
- *     CcCopyWrite @ 0x1404A1E00 (CcCopyWrite.c)
- *     CcFastCopyWrite @ 0x14057B330 (CcFastCopyWrite.c)
- *     DifCcCopyWriteExWrapper @ 0x14061A0D0 (DifCcCopyWriteExWrapper.c)
- *     DifCcCopyWriteWrapper @ 0x14061A290 (DifCcCopyWriteWrapper.c)
+ *     CcCopyWrite @ 0x14049CD90 (CcCopyWrite.c)
+ *     CcFastCopyWrite @ 0x1405787C0 (CcFastCopyWrite.c)
+ *     DifCcCopyWriteExWrapper @ 0x140618690 (DifCcCopyWriteExWrapper.c)
+ *     DifCcCopyWriteWrapper @ 0x140618850 (DifCcCopyWriteWrapper.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140AC25B4 (CcSetTelemetryPeriodicTimer.c)
- *     CcTelemetryBucketizeLatency @ 0x140AC35E0 (CcTelemetryBucketizeLatency.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140ABD89C (CcSetTelemetryPeriodicTimer.c)
+ *     CcTelemetryBucketizeLatency @ 0x140ABE8C0 (CcTelemetryBucketizeLatency.c)
  */
 
 char __fastcall CcCopyWriteEx(PFILE_OBJECT FileObject, __int64 *a2, unsigned int a3, char a4, int a5, __int64 a6)
@@ -58,8 +58,8 @@ char __fastcall CcCopyWriteEx(PFILE_OBJECT FileObject, __int64 *a2, unsigned int
   {
     v10 = 1;
   }
-  ++qword_140F8E530;
-  if ( !byte_140F8E501 && CcTelemetryGlobalData && !dword_140F8E620 && !dword_140F8E624 )
+  ++qword_140F8E710;
+  if ( !byte_140F8E6E1 && CcTelemetryGlobalData && !dword_140F8E800 && !dword_140F8E804 )
     CcSetTelemetryPeriodicTimer(DueTime);
   if ( v10 && !a4 )
     return 0;
@@ -97,14 +97,14 @@ char __fastcall CcCopyWriteEx(PFILE_OBJECT FileObject, __int64 *a2, unsigned int
           a4,
           a6,
           (__int64)&v29);
-  if ( !byte_140F8E501 )
+  if ( !byte_140F8E6E1 )
   {
     v22 = (_QWORD *)(SharedCacheMap[64] + 232LL);
     if ( v27 )
     {
       if ( v29 )
       {
-        v23 = 1000000 * (*(_QWORD *)&KeQueryPerformanceCounter(0LL) - v29) / stru_140F8E4C8.QuadPart;
+        v23 = 1000000 * (*(_QWORD *)&KeQueryPerformanceCounter(0LL) - v29) / stru_140F8E6A8.QuadPart;
         v28 = v23;
       }
       else

@@ -25,7 +25,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
   __int64 v9; // rdx
   struct _KPRCB *CurrentPrcb; // rax
   _QWORD *v11; // rbx
-  char v12; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 136);
   v2 = *(_BYTE *)(v1 + 41);
@@ -40,7 +40,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
     guard_dispatch_icall_no_overrides(v3, v4);
   v5 = (char *)&HalpClockTickLog
      + 24 * (((unsigned __int8)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u) + 1) & 0xF);
-  *(_QWORD *)v5 = RtlGetInterruptTimePrecise(&v12);
+  *(LARGE_INTEGER *)v5 = RtlGetInterruptTimePrecise(&PerformanceCounter);
   *((_DWORD *)v5 + 2) = KeGetPcr()->Prcb.Number;
   *((_DWORD *)v5 + 3) = KiClockTimerOwner;
   v5[16] = 0;

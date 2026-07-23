@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptParallelHashProcess @ 0x1403F6520
+ * XREFs of SymCryptParallelHashProcess @ 0x1403F6700
  * Callers:
- *     SymCryptParallelSha256Process @ 0x1403F5B70 (SymCryptParallelSha256Process.c)
+ *     SymCryptParallelSha256Process @ 0x1403F5D50 (SymCryptParallelSha256Process.c)
  * Callees:
- *     qsort @ 0x1403DA430 (qsort.c)
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
- *     SymCryptParallelHashSetNextWork @ 0x1403F6968 (SymCryptParallelHashSetNextWork.c)
- *     _guard_dispatch_icall_nop @ 0x14041A550 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
+ *     SymCryptParallelHashSetNextWork @ 0x1403F6B48 (SymCryptParallelHashSetNextWork.c)
+ *     _guard_dispatch_icall_nop @ 0x14041A8E0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall SymCryptParallelHashProcess(

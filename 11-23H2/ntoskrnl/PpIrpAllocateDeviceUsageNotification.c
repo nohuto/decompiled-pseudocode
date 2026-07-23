@@ -1,11 +1,11 @@
 /*
- * XREFs of PpIrpAllocateDeviceUsageNotification @ 0x140853D30
+ * XREFs of PpIrpAllocateDeviceUsageNotification @ 0x140854030
  * Callers:
- *     PiPagePathSetState @ 0x140853C48 (PiPagePathSetState.c)
- *     PipSendGuestAssignedNotification @ 0x14096F004 (PipSendGuestAssignedNotification.c)
+ *     PiPagePathSetState @ 0x140853F48 (PiPagePathSetState.c)
+ *     PipSendGuestAssignedNotification @ 0x14096F204 (PipSendGuestAssignedNotification.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E610 (IoAllocateIrp.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
+ *     IoAllocateIrp @ 0x14022E720 (IoAllocateIrp.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
  */
 
 PIRP __fastcall PpIrpAllocateDeviceUsageNotification(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of SeSecurityAttributePresent @ 0x140297BE0
+ * XREFs of SeSecurityAttributePresent @ 0x140297E70
  * Callers:
- *     SepVerifyDesktopAppxPackageName @ 0x1405B8144 (SepVerifyDesktopAppxPackageName.c)
- *     PsQueryProcessAttributesByToken @ 0x14071DE80 (PsQueryProcessAttributesByToken.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1405B86B4 (SepVerifyDesktopAppxPackageName.c)
+ *     PsQueryProcessAttributesByToken @ 0x14071E080 (PsQueryProcessAttributesByToken.c)
  * Callees:
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0C0 (AuthzBasepFindSecurityAttribute.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14022D1D0 (AuthzBasepFindSecurityAttribute.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
  */
 
 bool __fastcall SeSecurityAttributePresent(__int64 a1, const UNICODE_STRING *a2)

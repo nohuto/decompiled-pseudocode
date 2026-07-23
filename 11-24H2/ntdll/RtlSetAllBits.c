@@ -1,33 +1,29 @@
 /*
- * XREFs of RtlSetAllBits @ 0x1800F4580
+ * XREFs of RtlSetAllBits @ 0x1800EEC90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetAllBits(__int64 a1)
+void __cdecl RtlSetAllBits(PRTL_BITMAP BitMapHeader)
 {
-  _DWORD *v1; // r8
-  __int64 result; // rax
-  unsigned __int64 v3; // rdx
+  unsigned int *Buffer; // r8
+  unsigned __int64 v2; // rdx
 
-  v1 = *(_DWORD **)(a1 + 8);
-  result = (*(_DWORD *)a1 & 0x1F) != 0;
-  v3 = (unsigned __int64)(unsigned int)(4 * (result + (*(_DWORD *)a1 >> 5))) >> 2;
-  if ( v3 )
+  Buffer = BitMapHeader->Buffer;
+  v2 = (unsigned __int64)(4 * (((BitMapHeader->SizeOfBitMap & 0x1F) != 0) + (BitMapHeader->SizeOfBitMap >> 5))) >> 2;
+  if ( v2 )
   {
-    if ( ((unsigned __int8)v1 & 4) != 0 )
+    if ( ((unsigned __int8)Buffer & 4) != 0 )
     {
-      *v1 = -1;
-      if ( !--v3 )
-        return result;
-      ++v1;
+      *Buffer = -1;
+      if ( !--v2 )
+        return;
+      ++Buffer;
     }
-    result = -1LL;
-    memset(v1, 0xFFu, 8 * (v3 >> 1));
-    if ( (v3 & 1) != 0 )
-      v1[v3 - 1] = -1;
+    memset(Buffer, 0xFFu, 8 * (v2 >> 1));
+    if ( (v2 & 1) != 0 )
+      Buffer[v2 - 1] = -1;
   }
-  return result;
 }

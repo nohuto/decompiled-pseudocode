@@ -1,11 +1,11 @@
 /*
- * XREFs of PipIs32bitKey @ 0x140287658
+ * XREFs of PipIs32bitKey @ 0x140287848
  * Callers:
- *     PnpLoadBootFilterDriver @ 0x1409C8994 (PnpLoadBootFilterDriver.c)
+ *     PnpLoadBootFilterDriver @ 0x1409C9994 (PnpLoadBootFilterDriver.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQueryKey @ 0x1401B85B0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
  */
 
 __int64 __fastcall PipIs32bitKey(HANDLE KeyHandle)
@@ -27,7 +27,7 @@ __int64 __fastcall PipIs32bitKey(HANDLE KeyHandle)
     v2 = 0;
     if ( ZwQueryValueKey(
            KeyHandle,
-           (PUNICODE_STRING)&ValueName,
+           (PUNICODE_STRING)&stru_140356D00,
            KeyValuePartialInformation,
            KeyValueInformation,
            0x14u,

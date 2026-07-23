@@ -20,7 +20,7 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   NTSTATUS result; // eax
   int v5; // edi
   char *StringRoutine; // eax
-  NTSTATUS v7; // [esp+14h] [ebp-20h] BYREF
+  ULONG BytesInOemString; // [esp+14h] [ebp-20h] BYREF
   NTSTATUS v8; // [esp+18h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
@@ -45,15 +45,15 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   result = RtlUnicodeToOemN(
              DestinationString->Buffer,
              DestinationString->Length,
-             &v7,
-             SourceString->Buffer,
+             &BytesInOemString,
+             (PCWCH)SourceString->Buffer,
              SourceString->Length);
   v5 = result;
   v8 = result;
   if ( result >= 0 )
   {
-    result = v7;
-    DestinationString->Buffer[v7] = 0;
+    result = BytesInOemString;
+    DestinationString->Buffer[BytesInOemString] = 0;
     v5 = 0;
     v8 = 0;
   }
@@ -62,7 +62,7 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   {
     if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor((int)DestinationString->Buffer);
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
       DestinationString->Buffer = 0;
       return v5;
     }

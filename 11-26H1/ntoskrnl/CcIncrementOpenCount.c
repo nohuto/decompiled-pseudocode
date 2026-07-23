@@ -1,8 +1,8 @@
 /*
- * XREFs of CcIncrementOpenCount @ 0x14049AF30
+ * XREFs of CcIncrementOpenCount @ 0x140494A80
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x14038984C (CcNotifyOfMappedWrite.c)
- *     CcPrepareMdlWrite @ 0x1404CDA40 (CcPrepareMdlWrite.c)
+ *     CcNotifyOfMappedWrite @ 0x14038B5FC (CcNotifyOfMappedWrite.c)
+ *     CcPrepareMdlWrite @ 0x1404C7470 (CcPrepareMdlWrite.c)
  * Callees:
  *     <none>
  */

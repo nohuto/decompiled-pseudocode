@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReducePteUseCount @ 0x140361410
+ * XREFs of MiReducePteUseCount @ 0x1403631B0
  * Callers:
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiDeleteVaTail @ 0x140361270 (MiDeleteVaTail.c)
- *     MiDecommitPagesTail @ 0x14044B7AC (MiDecommitPagesTail.c)
- *     MiClearDriverTablePtes @ 0x140505FE8 (MiClearDriverTablePtes.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiDeleteVaTail @ 0x140363010 (MiDeleteVaTail.c)
+ *     MiDecommitPagesTail @ 0x1404438DC (MiDecommitPagesTail.c)
+ *     MiClearDriverTablePtes @ 0x1404FF898 (MiClearDriverTablePtes.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiInitializeUsedPtesCount @ 0x1403403C0 (MiInitializeUsedPtesCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiInitializeUsedPtesCount @ 0x140342440 (MiInitializeUsedPtesCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReducePteUseCount(__int64 a1, unsigned __int64 a2, unsigned int a3)

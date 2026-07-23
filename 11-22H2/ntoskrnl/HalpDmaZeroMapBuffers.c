@@ -47,7 +47,7 @@ void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, u
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         LODWORD(v13) = 4;
@@ -86,10 +86,10 @@ void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, u
     HalpDmaReleaseBufferMappings(v10, (__int64)a2, v9, (__int64)v21);
   if ( v8 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v18 = CurrentPrcb->SchedulerAssist;

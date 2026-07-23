@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryAcquirePushLockSharedEx @ 0x140220664 (ExfTryAcquirePushLockSharedEx.c)
+ *     sub_140220664 @ 0x140220664 (sub_140220664.c)
  */
 
 char __fastcall ExfTryAcquirePushLockShared(signed __int64 *a1)
 {
-  return ExfTryAcquirePushLockSharedEx(a1, 0);
+  return sub_140220664(a1, 0);
 }

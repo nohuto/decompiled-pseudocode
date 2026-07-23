@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgPushCopyKeyEntry @ 0x1403CE66C
+ * XREFs of PiDevCfgPushCopyKeyEntry @ 0x1403CE84C
  * Callers:
- *     PiDevCfgCopyDeviceKeys @ 0x14087E314 (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x14087E424 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x14087E554 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14087E664 (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwOpenPrivateNamespace()
+NTSTATUS __cdecl ZwOpenPrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 288LL;
+  result = 288;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

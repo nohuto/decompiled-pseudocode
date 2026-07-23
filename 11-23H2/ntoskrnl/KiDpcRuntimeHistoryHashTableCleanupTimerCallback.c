@@ -1,12 +1,12 @@
 /*
- * XREFs of KiDpcRuntimeHistoryHashTableCleanupTimerCallback @ 0x14034B680
+ * XREFs of KiDpcRuntimeHistoryHashTableCleanupTimerCallback @ 0x14034B820
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KiDpcRuntimeHistoryHashTableCleanupDpcRoutine @ 0x14034B720 (KiDpcRuntimeHistoryHashTableCleanupDpcRoutine.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KiDpcRuntimeHistoryHashTableCleanupDpcRoutine @ 0x14034B8C0 (KiDpcRuntimeHistoryHashTableCleanupDpcRoutine.c)
  */
 
 void KiDpcRuntimeHistoryHashTableCleanupTimerCallback()

@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPageProtection @ 0x140704210 (VfCheckPageProtection.c)
- *     ViTargetTrackContiguousMemory @ 0x1407106E0 (ViTargetTrackContiguousMemory.c)
- *     VfFillAllocatedMemory @ 0x1407108F0 (VfFillAllocatedMemory.c)
+ *     VfCheckPageProtection @ 0x140704240 (VfCheckPageProtection.c)
+ *     ViTargetTrackContiguousMemory @ 0x140710710 (ViTargetTrackContiguousMemory.c)
+ *     VfFillAllocatedMemory @ 0x140710920 (VfFillAllocatedMemory.c)
  *     ViPoolLogStackTrace @ 0x140710BB0 (ViPoolLogStackTrace.c)
  *     VfFaultsInjectResourceFailure @ 0x140710DF0 (VfFaultsInjectResourceFailure.c)
  */

@@ -5,7 +5,7 @@
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  * Callees:
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
  */
 
 __int64 __fastcall MiImagePageOk(unsigned __int64 a1, __int64 a2)
@@ -26,8 +26,8 @@ __int64 __fastcall MiImagePageOk(unsigned __int64 a1, __int64 a2)
   v3 = *(_QWORD *)(a2 + 16);
   if ( (v3 & 0x400) == 0 || ((*(_QWORD *)(a2 + 40) >> 54) & 7) == 3 )
     return 1LL;
-  if ( qword_14043A0C0 && (v3 & 0x10) == 0 )
-    v3 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v3 & 0x10) == 0 )
+    v3 &= ~qword_14043B180;
   v4 = v3 >> 16;
   v5 = *(_QWORD *)v4;
   if ( (*(_DWORD *)(*(_QWORD *)v4 + 56LL) & 0x20) == 0 )

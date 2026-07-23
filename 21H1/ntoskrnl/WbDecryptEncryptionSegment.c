@@ -39,7 +39,7 @@ __int64 __fastcall WbDecryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
       v5 = (unsigned __int64 *)(v13 + 8);
-      v6 = KeAbPreAcquire(v13 + 8, 0LL, 0LL);
+      v6 = KeAbPreAcquire(v13 + 8, 0LL, 0);
       v7 = v6;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
         ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);

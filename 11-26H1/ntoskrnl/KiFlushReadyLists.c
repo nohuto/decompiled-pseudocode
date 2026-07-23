@@ -1,11 +1,11 @@
 /*
- * XREFs of KiFlushReadyLists @ 0x140334D4C
+ * XREFs of KiFlushReadyLists @ 0x140336D7C
  * Callers:
- *     KiParkCurrentProcessor @ 0x1403346DC (KiParkCurrentProcessor.c)
+ *     KiParkCurrentProcessor @ 0x14033670C (KiParkCurrentProcessor.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiInsertDeferredReadyList @ 0x1402BCC40 (KiInsertDeferredReadyList.c)
- *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140444780 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiInsertDeferredReadyList @ 0x140307900 (KiInsertDeferredReadyList.c)
+ *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x14043D290 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
  */
 
 _UNKNOWN **__fastcall KiFlushReadyLists(__int64 a1, unsigned int *a2, __int64 *a3, __int64 a4)

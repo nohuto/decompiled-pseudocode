@@ -1,22 +1,22 @@
 /*
- * XREFs of ObpCaptureBoundaryDescriptor @ 0x1408E87A8
+ * XREFs of ObpCaptureBoundaryDescriptor @ 0x1408EED68
  * Callers:
- *     NtCreatePrivateNamespace @ 0x140A96480 (NtCreatePrivateNamespace.c)
- *     NtOpenPrivateNamespace @ 0x140ADE430 (NtOpenPrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x140A9A600 (NtCreatePrivateNamespace.c)
+ *     NtOpenPrivateNamespace @ 0x140ADB620 (NtOpenPrivateNamespace.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     ObpCheckDuplicateEntries @ 0x1408E8C0C (ObpCheckDuplicateEntries.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x1408E98E8 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     SeCaptureSubjectContextEx @ 0x140920670 (SeCaptureSubjectContextEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     ObpCheckDuplicateEntries @ 0x1408EF1CC (ObpCheckDuplicateEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x1408EFEA8 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x1408FBAB0 (SeCaptureSubjectContextEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCaptureBoundaryDescriptor(_OWORD *Src, __int64 *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmSetSimulatedLoad @ 0x140AB5610
+ * XREFs of PpmSetSimulatedLoad @ 0x140AAFAA0
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeGetProcessorIndexFromNumber @ 0x140352BB0 (KeGetProcessorIndexFromNumber.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140370440 (KeGetProcessorIndexFromNumber.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmSetSimulatedLoad(PPROCESSOR_NUMBER ProcNumber, __int64 a2, unsigned int a3)
@@ -51,7 +51,7 @@ LABEL_11:
   }
   v8 = KeGetPrcb(ProcessorIndexFromNumber) + 35248;
 LABEL_15:
-  Pool2 = (_BYTE *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_BYTE *)ExAllocatePool2(0x40uLL, 2uLL, 0x704D5050u);
   if ( Pool2 )
   {
     *Pool2 = ProcNumber[1].Group;

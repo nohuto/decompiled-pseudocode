@@ -1,19 +1,19 @@
 /*
- * XREFs of KeSetIdealProcessorThreadEx @ 0x14015CE4C
+ * XREFs of KeSetIdealProcessorThreadEx @ 0x14015CF4C
  * Callers:
- *     MiZeroInParallelWorker @ 0x14013C6C0 (MiZeroInParallelWorker.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x14015CDD0 (KeSetIdealProcessorThreadByNumber.c)
- *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
- *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
+ *     MiZeroInParallelWorker @ 0x14013C7C0 (MiZeroInParallelWorker.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14015CED0 (KeSetIdealProcessorThreadByNumber.c)
+ *     MiZeroPageThread @ 0x140179300 (MiZeroPageThread.c)
+ *     MiGetPagesToZero @ 0x1401853A0 (MiGetPagesToZero.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiAcquireThreadStateLock @ 0x1400CFA50 (KiAcquireThreadStateLock.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiPrcbInGroupAffinity @ 0x1400D5734 (KiPrcbInGroupAffinity.c)
- *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiAcquireThreadStateLock @ 0x1400CFAD0 (KiAcquireThreadStateLock.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D1644 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiPrcbInGroupAffinity @ 0x1400D57B4 (KiPrcbInGroupAffinity.c)
+ *     KiReleaseThreadStateLock @ 0x1400D80E4 (KiReleaseThreadStateLock.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIdealProcessor @ 0x14030FFFC (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, __int64 a2, unsigned int *a3)
@@ -113,10 +113,10 @@ __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, __int64 a2, unsigned 
   }
   v16 = *(_DWORD *)(a1 + 196);
   KiReleaseThreadLockSafe(a1);
-  if ( (xmmword_140541350 & 0x8000000) != 0 )
+  if ( (xmmword_140542350 & 0x8000000) != 0 )
   {
     EtwTraceIdealProcessor(a1, 1350LL, v10, v13);
-    if ( (xmmword_140541350 & 0x8000000) != 0 )
+    if ( (xmmword_140542350 & 0x8000000) != 0 )
       EtwTraceIdealProcessor(a1, 1351LL, v11, v16);
   }
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )

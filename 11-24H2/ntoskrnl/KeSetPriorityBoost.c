@@ -1,18 +1,18 @@
 /*
- * XREFs of KeSetPriorityBoost @ 0x140338750
+ * XREFs of KeSetPriorityBoost @ 0x1402DFC90
  * Callers:
- *     KeGenericProcessorCallback @ 0x1403390A4 (KeGenericProcessorCallback.c)
- *     FsRtlpWaitForIoAtEof @ 0x14040D308 (FsRtlpWaitForIoAtEof.c)
- *     FsRtlpDoBoost @ 0x14047FDA8 (FsRtlpDoBoost.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1402E1598 (FsRtlpWaitForIoAtEof.c)
+ *     KeGenericProcessorCallback @ 0x140318580 (KeGenericProcessorCallback.c)
+ *     FsRtlpDoBoost @ 0x14047A9E8 (FsRtlpDoBoost.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiCheckForThreadDispatch @ 0x14031D21C (KiCheckForThreadDispatch.c)
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KiSetPriorityBoost @ 0x140338930 (KiSetPriorityBoost.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiCheckForThreadDispatch @ 0x1402C5DAC (KiCheckForThreadDispatch.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     KiSetPriorityBoost @ 0x1402DFE70 (KiSetPriorityBoost.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KeSetPriorityBoost(__int64 a1, int a2)

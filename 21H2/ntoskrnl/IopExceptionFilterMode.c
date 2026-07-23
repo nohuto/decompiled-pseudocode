@@ -1,7 +1,7 @@
 /*
- * XREFs of IopExceptionFilterMode @ 0x140500AA4
+ * XREFs of IopExceptionFilterMode @ 0x140500A24
  * Callers:
- *     IopQueryNameInternal @ 0x140620504 (IopQueryNameInternal.c)
+ *     IopQueryNameInternal @ 0x14068A174 (IopQueryNameInternal.c)
  * Callees:
  *     <none>
  */

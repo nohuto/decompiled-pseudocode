@@ -23,7 +23,7 @@ __int64 __fastcall TtmpCalloutWatchdogCallback(
 
   v12[1] = 0;
   v12[0] = 31;
-  if ( NtPowerInformation(SystemPowerStateLogging|0x40, v12, 8u, &v11, 4u) < 0 )
+  if ( NtPowerInformation(PowerInformationInternal, v12, 8u, &v11, 4u) < 0 )
   {
     v9 = -1;
   }

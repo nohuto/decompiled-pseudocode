@@ -10,13 +10,13 @@
  *     _RtlpCSparseBitmapUnlock@4 @ 0x4B380071 (_RtlpCSparseBitmapUnlock@4.c)
  */
 
-int __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
+NTSTATUS __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
 {
   struct _PEB *v3; // ecx
   unsigned int v4; // edi
   void **ProcessHeaps; // eax
   void *v6; // esi
-  volatile signed __int32 *v7; // eax
+  _RTL_SRWLOCK *v7; // eax
   _DWORD *v8; // ecx
   void *UniqueThread; // eax
   void *v10; // eax
@@ -43,13 +43,13 @@ LABEL_16:
     else if ( (*((_BYTE *)v6 + 64) & 1) == 0 )
     {
       if ( *((_BYTE *)v6 + 234) == 2 )
-        v7 = (volatile signed __int32 *)*((_DWORD *)v6 + 57);
+        v7 = (_RTL_SRWLOCK *)*((_DWORD *)v6 + 57);
       else
         v7 = 0;
       if ( v7 )
       {
         if ( a1 )
-          *v7 = 1;
+          v7->Value = 1;
         RtlReleaseSRWLockExclusive(v7);
       }
       if ( a1 )
@@ -62,23 +62,23 @@ LABEL_16:
         v8[1] = -2;
         v8[2] = 1;
       }
-      RtlLeaveCriticalSection(*((_DWORD *)v6 + 50));
+      RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)v6 + 50));
       goto LABEL_16;
     }
   }
   if ( a1 )
   {
     v10 = NtCurrentTeb()->ClientId.UniqueThread;
-    dword_4B3A4810 = 0;
+    RtlpProcessHeapsListLock.LockSemaphore = 0;
     dword_4B3A6DD8 = -1;
-    dword_4B3A480C = (int)v10;
-    dword_4B3A4804 = -2;
-    dword_4B3A4808 = 1;
+    RtlpProcessHeapsListLock.OwningThread = v10;
+    RtlpProcessHeapsListLock.LockCount = -2;
+    RtlpProcessHeapsListLock.RecursionCount = 1;
     dword_4B3A6DD4 = 1;
   }
   v16 = &unk_4B3A6DC8;
   v14 = 1;
   v15 = -1;
   RtlpCSparseBitmapUnlock(&v14);
-  return RtlLeaveCriticalSection((int)&RtlpProcessHeapsListLock);
+  return RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
 }

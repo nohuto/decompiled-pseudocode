@@ -1,48 +1,48 @@
 /*
- * XREFs of BiExportBcdObjects @ 0x1408F3560
+ * XREFs of BiExportBcdObjects @ 0x1408F4820
  * Callers:
- *     BiExportStoreAlterationsToEfi @ 0x1408F39D8 (BiExportStoreAlterationsToEfi.c)
+ *     BiExportStoreAlterationsToEfi @ 0x1408F4C98 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
- *     BiIsPortableWorkspaceBoot @ 0x1408F1444 (BiIsPortableWorkspaceBoot.c)
- *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408F1D3C (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
- *     BiCreateEfiEntry @ 0x1408F2DA0 (BiCreateEfiEntry.c)
- *     BiDeleteBootEntry @ 0x1408F32E4 (BiDeleteBootEntry.c)
- *     BiUpdateEfiEntry @ 0x1408F4BC8 (BiUpdateEfiEntry.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
+ *     BiIsPortableWorkspaceBoot @ 0x1408F2704 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408F2FFC (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x1408F4060 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x1408F45A4 (BiDeleteBootEntry.c)
+ *     BiUpdateEfiEntry @ 0x1408F5E88 (BiUpdateEfiEntry.c)
  */
 
-__int64 __fastcall BiExportBcdObjects(__int64 a1, __int64 *a2)
+__int64 __fastcall BiExportBcdObjects(void *a1, const GUID **a2)
 {
-  __int64 v2; // rbx
+  const GUID *v2; // rbx
   unsigned int v3; // edi
-  int v6; // ecx
+  unsigned int Data1; // ecx
   int v7; // eax
   int v8; // eax
   int v9; // esi
   bool IsPortableWorkspaceBoot; // al
-  int v11; // ecx
+  unsigned int v11; // ecx
   bool v12; // bp
   int EfiEntry; // eax
   int updated; // eax
 
   v2 = *a2;
   v3 = 0;
-  if ( (__int64 *)*a2 == a2 )
+  if ( *a2 == (const GUID *)a2 )
     return v3;
   do
   {
-    v6 = *(_DWORD *)(v2 + 48);
-    v7 = v6 & 5;
-    if ( (v6 & 5) == 0 )
+    Data1 = v2[3].Data1;
+    v7 = Data1 & 5;
+    if ( (Data1 & 5) == 0 )
       goto LABEL_24;
-    if ( (v6 & 0x10) != 0 )
+    if ( (Data1 & 0x10) != 0 )
     {
-      if ( (v6 & 1) == 0 )
+      if ( (Data1 & 1) == 0 )
         goto LABEL_24;
-      v8 = BiDeleteBootEntry((PUNICODE_STRING)*(unsigned int *)(v2 + 32));
+      v8 = BiDeleteBootEntry((PUNICODE_STRING)v2[2].Data1);
       if ( v8 >= 0 )
       {
-        *(_DWORD *)(v2 + 48) &= ~1u;
+        v2[3].Data1 &= ~1u;
         goto LABEL_24;
       }
 LABEL_9:
@@ -51,7 +51,7 @@ LABEL_9:
     }
     if ( v7 == 1 )
     {
-      v8 = BiDeleteBootEntry((PUNICODE_STRING)*(unsigned int *)(v2 + 32));
+      v8 = BiDeleteBootEntry((PUNICODE_STRING)v2[2].Data1);
       if ( v8 >= 0 )
         goto LABEL_24;
       goto LABEL_9;
@@ -60,12 +60,12 @@ LABEL_9:
     {
       v9 = 0;
       IsPortableWorkspaceBoot = BiIsPortableWorkspaceBoot();
-      v11 = *(_DWORD *)(v2 + 48);
+      v11 = v2[3].Data1;
       v12 = IsPortableWorkspaceBoot;
       if ( (v11 & 8) != 0 || !IsPortableWorkspaceBoot )
       {
         EfiEntry = BiCreateEfiEntry(a1, v2);
-        v11 = *(_DWORD *)(v2 + 48);
+        v11 = v2[3].Data1;
         v9 = EfiEntry;
       }
       if ( (v11 & 8) == 0 && !v12 )
@@ -73,7 +73,7 @@ LABEL_9:
         if ( v9 < 0 )
           v9 = 0;
         else
-          BiAddBootEntryToEfiBootManagerDisplayOrder(a1, v2);
+          BiAddBootEntryToEfiBootManagerDisplayOrder(a1, (__int64)v2);
       }
       if ( v9 < 0 )
         v3 = -2143748095;
@@ -84,14 +84,14 @@ LABEL_9:
       if ( updated < 0 )
       {
         v3 = updated;
-        if ( (*(_BYTE *)(v2 + 48) & 8) != 0 )
+        if ( (v2[3].Data1 & 8) != 0 )
           v3 = -2143748093;
       }
     }
 LABEL_24:
-    v2 = *(_QWORD *)v2;
+    v2 = *(const GUID **)&v2->Data1;
   }
-  while ( (__int64 *)v2 != a2 );
+  while ( v2 != (const GUID *)a2 );
   if ( (v3 & 0x80000000) != 0 )
     BiLogMessage(4LL, L"BiExportBcdObjects failed %x", v3);
   return v3;

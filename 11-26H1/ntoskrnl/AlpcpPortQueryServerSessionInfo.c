@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpPortQueryServerSessionInfo @ 0x140A6BF08
+ * XREFs of AlpcpPortQueryServerSessionInfo @ 0x140A7D538
  * Callers:
- *     NtAlpcQueryInformation @ 0x140A6BBE0 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x140A7D210 (NtAlpcQueryInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     AlpcpReferenceConnectedPort @ 0x140929760 (AlpcpReferenceConnectedPort.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     AlpcpReferenceConnectedPort @ 0x140905270 (AlpcpReferenceConnectedPort.c)
  */
 
 __int64 __fastcall AlpcpPortQueryServerSessionInfo(__int64 a1, int *a2, __int64 a3, struct _KLOCK_ENTRIES *a4, char a5)

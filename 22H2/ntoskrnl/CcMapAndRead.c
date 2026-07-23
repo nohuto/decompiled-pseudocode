@@ -15,7 +15,7 @@ __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
   int v5; // r11d
   struct _KTHREAD *CurrentThread; // rsi
   int v8; // edx
-  int v9; // r10d
+  NTSTATUS v9; // r10d
   unsigned __int64 v10; // r14
   unsigned __int64 v11; // rbx
   unsigned int v12; // edi
@@ -80,6 +80,6 @@ LABEL_11:
   LODWORD(CurrentThread[1].WaitListEntry.Flink) = v12 >> 2;
   BYTE4(CurrentThread[1].Queue) = v12 & 3;
   if ( a3 && v9 < 0 )
-    RtlRaiseStatus((unsigned int)v9);
+    RtlRaiseStatus(v9);
   return v4;
 }

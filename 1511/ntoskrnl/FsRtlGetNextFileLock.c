@@ -18,12 +18,12 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   __int128 v6; // xmm1
   char v7; // si
   __int128 v8; // xmm0
-  struct _RTL_SPLAY_LINKS *v9; // rax
+  _RTL_SPLAY_LINKS *v9; // rax
   __int64 v10; // rax
   PFILE_LOCK_INFO result; // rax
   __int64 i; // rcx
   PRTL_SPLAY_LINKS FirstOverlappingExclusiveNode; // rax
-  struct _RTL_SPLAY_LINKS *v14; // rcx
+  _RTL_SPLAY_LINKS *v14; // rcx
   __int64 v15; // rcx
   __int64 j; // rax
   _RTL_SPLAY_LINKS *v17; // r15
@@ -32,7 +32,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   _RTL_SPLAY_LINKS *v20; // r14
   __int128 v21; // xmm1
   __int128 v22; // xmm0
-  struct _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
+  _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
   _RTL_SPLAY_LINKS *Parent; // rbx
   bool v25; // cf
   PRTL_SPLAY_LINKS v26; // rax
@@ -67,7 +67,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   NewIrql = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
   if ( Restart )
   {
-    v9 = (struct _RTL_SPLAY_LINKS *)LockInformation[5];
+    v9 = (_RTL_SPLAY_LINKS *)LockInformation[5];
     if ( v9 )
     {
       do
@@ -154,12 +154,12 @@ LABEL_24:
     }
     goto LABEL_13;
   }
-  FirstOverlappingSharedNode = (struct _RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
-                                                            LockInformation[4],
-                                                            (unsigned __int64 *)&v35,
-                                                            (unsigned __int64 *)&v36[24],
-                                                            &Links,
-                                                            &v38);
+  FirstOverlappingSharedNode = (_RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
+                                                     LockInformation[4],
+                                                     (unsigned __int64 *)&v35,
+                                                     (unsigned __int64 *)&v36[24],
+                                                     &Links,
+                                                     &v38);
   if ( FirstOverlappingSharedNode )
     goto LABEL_39;
   if ( v38 )
@@ -175,7 +175,7 @@ LABEL_24:
   if ( FirstOverlappingSharedNode )
   {
 LABEL_39:
-    if ( FirstOverlappingSharedNode != (struct _RTL_SPLAY_LINKS *)24 )
+    if ( FirstOverlappingSharedNode != (_RTL_SPLAY_LINKS *)24 )
     {
       Parent = FirstOverlappingSharedNode[-1].Parent;
       if ( !Parent )

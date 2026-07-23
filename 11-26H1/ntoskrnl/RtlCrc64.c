@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCrc64 @ 0x1404878D0
+ * XREFs of RtlCrc64 @ 0x140481410
  * Callers:
  *     <none>
  * Callees:
- *     RtlpComputeCrcInternal @ 0x1404878F0 (RtlpComputeCrcInternal.c)
+ *     RtlpComputeCrcInternal @ 0x140481430 (RtlpComputeCrcInternal.c)
  */
 
-__int64 __fastcall RtlCrc64(__int64 a1, __int64 a2, __int64 a3)
+ULONGLONG __cdecl RtlCrc64(const void *Buffer, size_t Size, ULONGLONG InitialCrc)
 {
-  return RtlpComputeCrcInternal(a1, a2, a3, &Crc64Ctrl);
+  return RtlpComputeCrcInternal(Buffer, Size, InitialCrc, &Crc64Ctrl);
 }

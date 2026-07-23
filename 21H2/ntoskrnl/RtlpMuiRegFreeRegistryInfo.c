@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegFreeRegistryInfo @ 0x140794490
+ * XREFs of RtlpMuiRegFreeRegistryInfo @ 0x140790230
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403AD204 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     _RtlpMuiRegLoadInstalled @ 0x1407940E4 (_RtlpMuiRegLoadInstalled.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x140794490 (RtlpMuiRegFreeRegistryInfo.c)
- *     RtlpMuiRegLoadRegistryInfo @ 0x140794628 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8878 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14078FE84 (_RtlpMuiRegLoadInstalled.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x140790230 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x1407903C8 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     RtlpMuiRegFreeRegistryInfo @ 0x140794490 (RtlpMuiRegFreeRegistryInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x140790230 (RtlpMuiRegFreeRegistryInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpMuiRegFreeRegistryInfo(__int64 a1, unsigned int a2)

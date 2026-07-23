@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSetDisplayStatus @ 0x140A3B900
+ * XREFs of PopSetDisplayStatus @ 0x1409F7320
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
- *     PopSetSessionDisplayStatus @ 0x140A3C548 (PopSetSessionDisplayStatus.c)
- *     PopReleaseAdaptiveLock @ 0x140A3D6E4 (PopReleaseAdaptiveLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
+ *     PopSetSessionDisplayStatus @ 0x1409F7F68 (PopSetSessionDisplayStatus.c)
+ *     PopReleaseAdaptiveLock @ 0x1409F9104 (PopReleaseAdaptiveLock.c)
  */
 
 __int64 __fastcall PopSetDisplayStatus(unsigned int a1)
@@ -22,9 +22,9 @@ __int64 __fastcall PopSetDisplayStatus(unsigned int a1)
   SessionId = TtmiGetSessionId();
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&PopAdaptiveStandbyLock.AbCompletedIoQoSBoostCount, 1u);
+  ExAcquireResourceExclusiveLite(&PopAdpmLock, 1u);
   ExpPlatformBinaryLock.WaitBlock[3].WaitListEntry.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
-  LOBYTE(PopAdaptiveStandbyLock.ThreadListEntry.Blink) = 0;
+  PopAdaptiveContext = 0;
   PopSetSessionDisplayStatus(SessionId, a1);
   return PopReleaseAdaptiveLock(v5, v4, v6, v7, 0LL);
 }

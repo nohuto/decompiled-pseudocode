@@ -12,7 +12,7 @@
 
 void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, unsigned __int64 a4)
 {
-  bool v5; // bl
+  BOOLEAN v5; // bl
   int v8; // r8d
   int v9; // ecx
   unsigned __int64 v10; // rdx
@@ -24,16 +24,16 @@ void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
   __int64 v16; // rax
   int v17; // r10d
   int v18; // ecx
-  __int64 v19; // rax
+  _RTL_BALANCED_NODE **v19; // rax
   unsigned int v20; // ecx
   unsigned int v21; // edx
-  _DWORD *v22; // r14
-  __int64 v23; // r8
-  bool v24; // r8
-  unsigned __int64 v25; // rdx
-  unsigned __int64 v26; // rax
-  unsigned __int64 v27; // rdx
-  unsigned __int64 v28; // rax
+  _RTL_BALANCED_NODE *v22; // r14
+  _RTL_BALANCED_NODE *v23; // r8
+  BOOLEAN v24; // r8
+  _RTL_BALANCED_NODE *v25; // rdx
+  _RTL_BALANCED_NODE *v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // rax
 
   v5 = 0;
   if ( !a4 )
@@ -76,8 +76,8 @@ void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
     v10 = a4;
     if ( !v9 )
     {
-      RtlRbRemoveNode(a1 + 144, a4);
-      RtlRbRemoveNode(a1 + 160, a4 + 24);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)a4);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(a4 + 24));
       v11 = a1 + 176;
       v12 = *(unsigned __int64 **)(v11 + 8);
       if ( *v12 != v11 )
@@ -89,13 +89,13 @@ void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
       return;
     }
 LABEL_6:
-    MiBitmapsCachedEntryLengthChanged(a1, v10, 0);
+    MiBitmapsCachedEntryLengthChanged((_RTL_RB_TREE *)a1, v10, 0);
     return;
   }
-  v19 = a1 + 176;
+  v19 = (_RTL_BALANCED_NODE **)(a1 + 176);
   v20 = v18 - a2 - a3;
   v21 = a2 - v8;
-  if ( *(_QWORD *)v19 == v19 )
+  if ( *v19 == (_RTL_BALANCED_NODE *)v19 )
   {
     if ( v21 <= v20 )
     {
@@ -115,22 +115,25 @@ LABEL_6:
     v10 = a4;
     goto LABEL_6;
   }
-  v22 = *(_DWORD **)v19;
-  if ( *(_QWORD *)(*(_QWORD *)v19 + 8LL) != v19 || (v23 = *(_QWORD *)v22, *(_DWORD **)(*(_QWORD *)v22 + 8LL) != v22) )
+  v22 = *v19;
+  if ( (_RTL_BALANCED_NODE **)(*v19)->Children[1] != v19
+    || (v23 = v22->Children[0], v22->Children[0]->Children[1] != v22) )
+  {
     __fastfail(3u);
-  *(_QWORD *)v19 = v23;
-  *(_QWORD *)(v23 + 8) = v19;
-  v22[13] = v20;
-  v22[12] = v17;
+  }
+  *v19 = v23;
+  v23->Children[1] = (_RTL_BALANCED_NODE *)v19;
+  HIDWORD(v22[2].Left) = v20;
+  LODWORD(v22[2].Children[0]) = v17;
   *(_DWORD *)(a4 + 52) = v21;
-  MiBitmapsCachedEntryLengthChanged(a1, a4, 0);
+  MiBitmapsCachedEntryLengthChanged((_RTL_RB_TREE *)a1, a4, 0);
   v24 = 0;
-  v25 = *(_QWORD *)(a1 + 144);
+  v25 = *(_RTL_BALANCED_NODE **)(a1 + 144);
   if ( !v25 )
     goto LABEL_32;
-  while ( *((_QWORD *)v22 + 6) < *(_QWORD *)(v25 + 48) )
+  while ( v22[2].Children[0] < v25[2].Children[0] )
   {
-    v26 = *(_QWORD *)v25;
+    v26 = v25->Children[0];
     if ( (*(_BYTE *)(a1 + 152) & 1) != 0 )
     {
       if ( !v26 )
@@ -139,14 +142,14 @@ LABEL_31:
         v24 = 0;
         goto LABEL_32;
       }
-      v26 ^= v25;
+      v26 = (_RTL_BALANCED_NODE *)((unsigned __int64)v25 ^ (unsigned __int64)v26);
     }
     if ( !v26 )
       goto LABEL_31;
 LABEL_28:
     v25 = v26;
   }
-  v26 = *(_QWORD *)(v25 + 8);
+  v26 = v25->Children[1];
   if ( (*(_BYTE *)(a1 + 152) & 1) == 0 )
   {
 LABEL_27:
@@ -156,19 +159,19 @@ LABEL_27:
   }
   if ( v26 )
   {
-    v26 ^= v25;
+    v26 = (_RTL_BALANCED_NODE *)((unsigned __int64)v25 ^ (unsigned __int64)v26);
     goto LABEL_27;
   }
 LABEL_49:
   v24 = 1;
 LABEL_32:
-  RtlRbInsertNodeEx(a1 + 144, v25, v24, (unsigned __int64)v22);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 144), v25, v24, v22);
   v27 = *(_QWORD *)(a1 + 160);
   if ( !v27 )
     goto LABEL_39;
   while ( 2 )
   {
-    if ( v22[12] < *(_DWORD *)(v27 + 24) )
+    if ( LODWORD(v22[2].Children[0]) < *(_DWORD *)(v27 + 24) )
     {
       v28 = *(_QWORD *)v27;
       if ( (*(_BYTE *)(a1 + 168) & 1) != 0 )
@@ -201,5 +204,5 @@ LABEL_35:
 LABEL_42:
   v5 = 1;
 LABEL_39:
-  RtlRbInsertNodeEx(a1 + 160, v27, v5, (unsigned __int64)(v22 + 6));
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)v27, v5, v22 + 1);
 }

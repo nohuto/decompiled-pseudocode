@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpFreeDmaChannels @ 0x14051725C
+ * XREFs of HalpFreeDmaChannels @ 0x1405177AC
  * Callers:
- *     IoFreeAdapterChannelV3Internal @ 0x140510254 (IoFreeAdapterChannelV3Internal.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x1405107A4 (IoFreeAdapterChannelV3Internal.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514EBC (HalpAllocateDmaResourcesInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14051540C (HalpAllocateDmaResourcesInternal.c)
  */
 
 char __fastcall HalpFreeDmaChannels(__int64 a1)
@@ -39,7 +39,10 @@ char __fastcall HalpFreeDmaChannels(__int64 a1)
   v3 = *(unsigned __int8 *)(v1 + 176);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(v3);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v3 - 2) <= 0xDu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && CurrentIrql <= 0xFu
+    && (unsigned __int8)(v3 - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == (_BYTE)v3 )
@@ -57,10 +60,10 @@ char __fastcall HalpFreeDmaChannels(__int64 a1)
     *(_WORD *)(v2 + 5) = 0;
     *(_QWORD *)(v2 + 24) = 0LL;
     KxReleaseSpinLock((volatile signed __int64 *)v7);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v20 = CurrentPrcb->SchedulerAssist;
@@ -68,7 +71,7 @@ char __fastcall HalpFreeDmaChannels(__int64 a1)
         v16 = (v21 & v20[5]) == 0;
         v20[5] &= v21;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     result = CurrentIrql;
@@ -86,10 +89,10 @@ char __fastcall HalpFreeDmaChannels(__int64 a1)
     *((_DWORD *)v9 + 46) = 1;
     *(_QWORD *)(v2 + 24) = v9 - 26;
     KxReleaseSpinLock((volatile signed __int64 *)v7);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         v13 = KeGetCurrentPrcb();
         v14 = v13->SchedulerAssist;
@@ -97,7 +100,7 @@ char __fastcall HalpFreeDmaChannels(__int64 a1)
         v16 = (v15 & v14[5]) == 0;
         v14[5] &= v15;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick(v13);
+          KiRemoveSystemWorkPriorityKick((__int64)v13);
       }
     }
     __writecr8(CurrentIrql);

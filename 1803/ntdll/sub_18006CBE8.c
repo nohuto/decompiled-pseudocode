@@ -8,7 +8,7 @@
  *     RtlPrefixUnicodeString @ 0x18006CD90 (RtlPrefixUnicodeString.c)
  */
 
-__int64 __fastcall sub_18006CBE8(__int64 a1, unsigned __int16 *a2, _DWORD *a3, int *a4)
+__int64 __fastcall sub_18006CBE8(__int64 a1, _UNICODE_STRING *a2, _DWORD *a3, int *a4)
 {
   unsigned int v4; // ebx
   char v7; // di
@@ -17,12 +17,10 @@ __int64 __fastcall sub_18006CBE8(__int64 a1, unsigned __int16 *a2, _DWORD *a3, i
   int v10; // eax
   bool v11; // zf
   _DWORD *v12; // r11
-  __int64 v13; // r8
-  __int64 v15; // r8
-  __m128i v16; // xmm0
-  char v17; // cl
-  int v18; // eax
-  _QWORD v19[5]; // [rsp+20h] [rbp-28h] BYREF
+  __m128i v14; // xmm0
+  char v15; // cl
+  int v16; // eax
+  _QWORD v17[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = 0;
   v7 = 0;
@@ -34,29 +32,28 @@ __int64 __fastcall sub_18006CBE8(__int64 a1, unsigned __int16 *a2, _DWORD *a3, i
     *a4 = 0;
   if ( !a2 || !a3 || !a4 )
     return (unsigned int)-1073741811;
-  v10 = sub_18003E414(a2);
-  v11 = *a2 == 4;
+  v10 = sub_18003E414(&a2->Length);
+  v11 = a2->Length == 4;
   *v12 = v10;
   if ( v11 )
     goto LABEL_29;
   v7 = 1;
-  if ( RtlEqualUnicodeString(word_180110700, a2, 1) || RtlEqualUnicodeString(L"\b\n", a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&stru_180110700, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&stru_1801106F0, a2, 1u) )
   {
     v9 = 1;
   }
-  else
+  else if ( !RtlPrefixUnicodeString((PUNICODE_STRING)&stru_1801106F0, a2, 1u) )
   {
-    LOBYTE(v13) = 1;
-    if ( !(unsigned __int8)RtlPrefixUnicodeString(L"\b\n", a2, v13) )
-      return v4;
+    return v4;
   }
-  if ( RtlEqualUnicodeString(word_180110720, a2, 1) || RtlEqualUnicodeString(word_180110710, a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&stru_180110720, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&stru_180110710, a2, 1u) )
   {
     v9 = 1;
     goto LABEL_24;
   }
-  LOBYTE(v15) = 1;
-  if ( (unsigned __int8)RtlPrefixUnicodeString(word_180110710, a2, v15) )
+  if ( RtlPrefixUnicodeString((PUNICODE_STRING)&stru_180110710, a2, 1u) )
   {
 LABEL_24:
     v8 = 1;
@@ -64,37 +61,37 @@ LABEL_24:
   }
   if ( v9 )
     goto LABEL_29;
-  v16 = *(__m128i *)a2;
-  v19[0] = *(_QWORD *)a2;
-  v19[1] = _mm_srli_si128(v16, 8).m128i_u64[0] + 8;
-  LOWORD(v19[0]) -= 8;
-  WORD1(v19[0]) -= 8;
-  if ( (unsigned int)sub_18003E414((unsigned __int16 *)v19) != 2 )
+  v14 = *(__m128i *)a2;
+  v17[0] = *(_QWORD *)&a2->Length;
+  v17[1] = _mm_srli_si128(v14, 8).m128i_u64[0] + 8;
+  LOWORD(v17[0]) -= 8;
+  WORD1(v17[0]) -= 8;
+  if ( (unsigned int)sub_18003E414((unsigned __int16 *)v17) != 2 )
   {
     *a4 |= 0x200u;
 LABEL_28:
-    v17 = 0;
+    v15 = 0;
     if ( !v9 )
       goto LABEL_19;
 LABEL_29:
     *a4 |= 0x400u;
-    v17 = 0;
-    v18 = *a4;
+    v15 = 0;
+    v16 = *a4;
     if ( !v7 )
       goto LABEL_20;
     goto LABEL_19;
   }
-  v17 = 1;
+  v15 = 1;
 LABEL_19:
   *a4 |= 0x10u;
-  v18 = *a4;
+  v16 = *a4;
 LABEL_20:
   if ( v8 )
   {
-    v18 |= 0x40u;
-    *a4 = v18;
+    v16 |= 0x40u;
+    *a4 = v16;
   }
-  if ( v17 )
-    *a4 = v18 | 0x20;
+  if ( v15 )
+    *a4 = v16 | 0x20;
   return v4;
 }

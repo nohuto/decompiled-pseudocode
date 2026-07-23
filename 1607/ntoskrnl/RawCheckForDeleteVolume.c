@@ -1,13 +1,13 @@
 /*
- * XREFs of RawCheckForDeleteVolume @ 0x1402104BC
+ * XREFs of RawCheckForDeleteVolume @ 0x1402102E8
  * Callers:
- *     RawScanDeletedList @ 0x1404EF3DC (RawScanDeletedList.c)
+ *     RawScanDeletedList @ 0x1404D14A0 (RawScanDeletedList.c)
  * Callees:
- *     IoAcquireVpbSpinLock @ 0x14000758C (IoAcquireVpbSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     RawCleanupVcb @ 0x1403EE474 (RawCleanupVcb.c)
- *     RawDeleteVcb @ 0x140475114 (RawDeleteVcb.c)
+ *     IoAcquireVpbSpinLock @ 0x1400076FC (IoAcquireVpbSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     RawCleanupVcb @ 0x1403EFAA4 (RawCleanupVcb.c)
+ *     RawDeleteVcb @ 0x140473FE4 (RawDeleteVcb.c)
  */
 
 char __fastcall RawCheckForDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)
@@ -15,7 +15,7 @@ char __fastcall RawCheckForDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeade
   char v1; // di
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx
-  KIRQL Irql; // [rsp+30h] [rbp+8h] BYREF
+  UCHAR Irql; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = 0;
   if ( !LODWORD(AdvancedHeader[1].Resource) )

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeRemoveQueueDpc @ 0x14031F0B0
+ * XREFs of KeRemoveQueueDpc @ 0x14031F340
  * Callers:
- *     EtwpFreeLoggerContext @ 0x14078DC9C (EtwpFreeLoggerContext.c)
- *     IoDisconnectInterrupt @ 0x14078E1D0 (IoDisconnectInterrupt.c)
- *     KiCalibrateTimeAdjustment @ 0x140A9EF40 (KiCalibrateTimeAdjustment.c)
+ *     EtwpFreeLoggerContext @ 0x14078DE8C (EtwpFreeLoggerContext.c)
+ *     IoDisconnectInterrupt @ 0x14078E3C0 (IoDisconnectInterrupt.c)
+ *     KiCalibrateTimeAdjustment @ 0x140A9EDB0 (KiCalibrateTimeAdjustment.c)
  * Callees:
- *     KeRemoveQueueDpcEx @ 0x14031F0D0 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueDpcEx @ 0x14031F360 (KeRemoveQueueDpcEx.c)
  */
 
 BOOLEAN __stdcall KeRemoveQueueDpc(PRKDPC Dpc)

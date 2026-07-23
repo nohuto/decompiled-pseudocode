@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlSetProcessPlaceholderCompatibilityMode @ 0x1408075A0
+ * XREFs of RtlSetProcessPlaceholderCompatibilityMode @ 0x14080D040
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlSetProcessPlaceholderCompatibilityMode(unsigned __int8 a1)
+CHAR __cdecl RtlSetProcessPlaceholderCompatibilityMode(CHAR Mode)
 {
   struct _LIST_ENTRY *Blink; // r8
-  char result; // al
+  CHAR result; // al
 
-  if ( a1 > 3u )
+  if ( (unsigned __int8)Mode > 3u )
     return -1;
   Blink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Blink;
   if ( !Blink )
     return -3;
-  result = (char)Blink[123].Flink;
-  LOBYTE(Blink[123].Flink) = a1;
+  result = (CHAR)Blink[123].Flink;
+  LOBYTE(Blink[123].Flink) = Mode;
   return result;
 }

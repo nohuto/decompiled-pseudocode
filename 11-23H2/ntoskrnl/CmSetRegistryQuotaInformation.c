@@ -1,7 +1,7 @@
 /*
- * XREFs of CmSetRegistryQuotaInformation @ 0x140A0FA58
+ * XREFs of CmSetRegistryQuotaInformation @ 0x140A0FD08
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
  *     <none>
  */

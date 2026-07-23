@@ -1,16 +1,16 @@
 /*
- * XREFs of MiScrubNodeLargePages @ 0x1408D87C8
+ * XREFs of MiScrubNodeLargePages @ 0x1408D8928
  * Callers:
- *     MiScrubNode @ 0x14056404C (MiScrubNode.c)
+ *     MiScrubNode @ 0x14056428C (MiScrubNode.c)
  * Callees:
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiCreateUltraThreadContext @ 0x1402E30FC (MiCreateUltraThreadContext.c)
- *     MiGetNextPageColor @ 0x1402E5C08 (MiGetNextPageColor.c)
- *     MiDeleteUltraThreadContext @ 0x1402E65FC (MiDeleteUltraThreadContext.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiGetLargePageListHeadBase @ 0x140556B08 (MiGetLargePageListHeadBase.c)
- *     MiScrubNodeLargePageList @ 0x140556E38 (MiScrubNodeLargePageList.c)
+ *     MiCreateUltraThreadContext @ 0x14029444C (MiCreateUltraThreadContext.c)
+ *     MiGetNextPageColor @ 0x140296F58 (MiGetNextPageColor.c)
+ *     MiDeleteUltraThreadContext @ 0x14029794C (MiDeleteUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiGetLargePageListHeadBase @ 0x140556D48 (MiGetLargePageListHeadBase.c)
+ *     MiScrubNodeLargePageList @ 0x140557078 (MiScrubNodeLargePageList.c)
  */
 
 __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3)
@@ -82,9 +82,9 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
     result = MiCreateUltraThreadContext((__int64)v38, NextPageColor, v14 + 7);
     if ( (_DWORD)result )
     {
-      v15 = dword_140C4DF80;
+      v15 = dword_140C4DFC0;
       v16 = 0;
-      v35 = dword_140C4DF80;
+      v35 = dword_140C4DFC0;
       v17 = (_QWORD *)v7;
       do
       {

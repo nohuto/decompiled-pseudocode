@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIdentifyPageType @ 0x1402F15C0
+ * XREFs of MiIdentifyPageType @ 0x1402D3640
  * Callers:
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
  * Callees:
- *     MiGetPfnPidSafe @ 0x140416120 (MiGetPfnPidSafe.c)
+ *     MiGetPfnPidSafe @ 0x14040A730 (MiGetPfnPidSafe.c)
  */
 
 __int64 __fastcall MiIdentifyPageType(__int64 a1, unsigned __int64 *a2)

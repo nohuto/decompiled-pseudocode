@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlPcToFileName @ 0x1401486E8
+ * XREFs of RtlPcToFileName @ 0x140148C58
  * Callers:
- *     KitLogFeatureUsage @ 0x14022F738 (KitLogFeatureUsage.c)
- *     PoRegisterPowerSettingCallback @ 0x1403F2E38 (PoRegisterPowerSettingCallback.c)
+ *     KitLogFeatureUsage @ 0x14022F564 (KitLogFeatureUsage.c)
+ *     PoRegisterPowerSettingCallback @ 0x1403F1CFC (PoRegisterPowerSettingCallback.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x140014A04 (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x14001F5A0 (MmLockLoadedModuleListShared.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140014584 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14001F120 (MmLockLoadedModuleListShared.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
  */
 
 __int64 __fastcall RtlPcToFileName(unsigned __int64 a1, UNICODE_STRING *a2)

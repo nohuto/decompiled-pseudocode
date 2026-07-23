@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampSampleBufferGet @ 0x1402BFF1C
+ * XREFs of EtwpCovSampSampleBufferGet @ 0x14030ABE0
  * Callers:
- *     EtwpCovSampCaptureBufferQueue @ 0x1402BFCD0 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x14030A994 (EtwpCovSampCaptureBufferQueue.c)
  * Callees:
- *     EtwpCovSampCaptureQueueRebalance @ 0x1402C1874 (EtwpCovSampCaptureQueueRebalance.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140468120 (EtwpCovSampCaptureReleaseToLookaside.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     EtwpCovSampCaptureQueueRebalance @ 0x14030C534 (EtwpCovSampCaptureQueueRebalance.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140461760 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpCovSampSampleBufferGet(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall EtwpCovSampSampleBufferGet(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rbx
+  _SLIST_HEADER *v1; // rbx
   PSLIST_ENTRY result; // rax
 
   v1 = a1 + 55;

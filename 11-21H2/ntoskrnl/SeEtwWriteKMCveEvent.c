@@ -38,7 +38,7 @@ NTSTATUS __stdcall SeEtwWriteKMCveEvent(PCUNICODE_STRING CveId, PCUNICODE_STRING
   }
   v4 = 2LL * v3;
   *(&UserData.Ptr + v4) = (ULONGLONG)v6;
-  v5 = EtwCVEAuditProvRegHandle;
+  v5 = qword_140C15FB8;
   *((_QWORD *)&UserData.Size + v4) = 2LL;
-  return EtwWriteEx(v5, &CVE_AUDIT_DETECT_KM, 0LL, 0, 0LL, 0LL, v3 + 1, &UserData);
+  return EtwWriteEx(v5, &stru_140039CA0, 0LL, 0, 0LL, 0LL, v3 + 1, &UserData);
 }

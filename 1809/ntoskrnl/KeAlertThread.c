@@ -1,17 +1,17 @@
 /*
- * XREFs of KeAlertThread @ 0x1400F2230
+ * XREFs of KeAlertThread @ 0x1400F22B0
  * Callers:
- *     KeRequestTerminationThread @ 0x1400F1348 (KeRequestTerminationThread.c)
- *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x140139230 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
- *     IoDecrementKeepAliveCount @ 0x1402843F0 (IoDecrementKeepAliveCount.c)
- *     KeAlertResumeThread @ 0x14028DCF0 (KeAlertResumeThread.c)
- *     NtAlertThread @ 0x14088CB70 (NtAlertThread.c)
+ *     KeRequestTerminationThread @ 0x1400F13C8 (KeRequestTerminationThread.c)
+ *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x140139330 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
+ *     IoDecrementKeepAliveCount @ 0x1402845E0 (IoDecrementKeepAliveCount.c)
+ *     KeAlertResumeThread @ 0x14028DEE0 (KeAlertResumeThread.c)
+ *     NtAlertThread @ 0x14088DDD0 (NtAlertThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiSignalThread @ 0x1400CE800 (KiSignalThread.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiSignalThread @ 0x1400CE880 (KiSignalThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeAlertThread(__int64 a1, __int64 a2, __int64 a3)

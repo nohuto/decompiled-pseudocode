@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlQueryVsmProtectionInfo @ 0x140A7FC98
+ * XREFs of HvlQueryVsmProtectionInfo @ 0x140A7A6F8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     HviGetHardwareFeatures @ 0x1404A3740 (HviGetHardwareFeatures.c)
- *     HvlpProcessIommu @ 0x1404D45E4 (HvlpProcessIommu.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     HviGetHardwareFeatures @ 0x14049E6A0 (HviGetHardwareFeatures.c)
+ *     HvlpProcessIommu @ 0x1404CD7F4 (HvlpProcessIommu.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall HvlQueryVsmProtectionInfo(void *a1, unsigned int a2, unsigned int *a3)

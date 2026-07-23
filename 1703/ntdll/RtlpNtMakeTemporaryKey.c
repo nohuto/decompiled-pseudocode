@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlpNtMakeTemporaryKey()
+NTSTATUS __cdecl RtlpNtMakeTemporaryKey(HANDLE KeyHandle)
 {
-  return ZwDeleteKey();
+  return ZwDeleteKey(KeyHandle);
 }

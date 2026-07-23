@@ -1,13 +1,13 @@
 /*
- * XREFs of ViExAcquireFastMutexCommon @ 0x140942644
+ * XREFs of ViExAcquireFastMutexCommon @ 0x140943644
  * Callers:
- *     VerifierExAcquireFastMutex @ 0x1409420A0 (VerifierExAcquireFastMutex.c)
- *     VerifierExAcquireFastMutexNoReboot @ 0x1409420F0 (VerifierExAcquireFastMutexNoReboot.c)
+ *     VerifierExAcquireFastMutex @ 0x1409430A0 (VerifierExAcquireFastMutex.c)
+ *     VerifierExAcquireFastMutexNoReboot @ 0x1409430F0 (VerifierExAcquireFastMutexNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x14093AC40 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViKeIrqlLogCommon @ 0x14093AEAC (ViKeIrqlLogCommon.c)
- *     ViExCheckAPCLevelOrBelow @ 0x1409426BC (ViExCheckAPCLevelOrBelow.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x14093BC40 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     ViKeIrqlLogCommon @ 0x14093BEAC (ViKeIrqlLogCommon.c)
+ *     ViExCheckAPCLevelOrBelow @ 0x1409436BC (ViExCheckAPCLevelOrBelow.c)
  */
 
 void __fastcall ViExAcquireFastMutexCommon(__int64 a1, unsigned int a2)

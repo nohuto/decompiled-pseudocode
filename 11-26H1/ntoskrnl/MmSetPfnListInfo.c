@@ -1,20 +1,20 @@
 /*
- * XREFs of MmSetPfnListInfo @ 0x1402F21D0
+ * XREFs of MmSetPfnListInfo @ 0x1402D4250
  * Callers:
- *     PfpPfnPrioRequest @ 0x140A5345C (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x140A5C74C (PfpPfnPrioRequest.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiRelinkStandbyPage @ 0x140299860 (MiRelinkStandbyPage.c)
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiAddPageToHeatRanges @ 0x140491458 (MiAddPageToHeatRanges.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiRelinkStandbyPage @ 0x140298DC0 (MiRelinkStandbyPage.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiAddPageToHeatRanges @ 0x14048AFA8 (MiAddPageToHeatRanges.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
@@ -49,10 +49,10 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
   v30 = 0LL;
   v29 = 0LL;
   memset_0(v32, 0, sizeof(v32));
-  if ( a3 && (stru_140E36558.WaitRegister.Flags & 2) == 0 )
+  if ( a3 && (stru_140E366D8.WaitRegister.Flags & 2) == 0 )
     return 3221225659LL;
   v6 = 0;
-  v31[1] = qword_140E2D7D0;
+  v31[1] = qword_140E2D950;
   v7 = (unsigned __int64)&a2[3 * a1];
   v28 = 0;
   v31[0] = 130LL;
@@ -67,7 +67,7 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
     v12 = v11;
     if ( v11 == 17 )
       goto LABEL_10;
-    if ( v8 > qword_140E2D7A0 || (*(_QWORD *)(v9 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0 )
+    if ( v8 > qword_140E2D920 || (*(_QWORD *)(v9 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( v11 < 2u )
@@ -110,7 +110,7 @@ LABEL_35:
         if ( (*(_DWORD *)(v10 + 32) & 0x8000000) == 0 )
           goto LABEL_17;
         if ( v10 >= 0xFFFFDE0000000000uLL
-          && v10 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+          && v10 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
           && !(unsigned int)MiIsDecayPfn(v9 / 48) )
         {
           if ( (v16 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v10) == 9 )
@@ -147,10 +147,10 @@ LABEL_18:
     }
     if ( (v14 & 0x80u) == 0LL || v15 != 2 || (unsigned __int16)*(_DWORD *)(v10 + 32) )
       goto LABEL_35;
-    v21 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL));
+    v21 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL));
     v22 = MiPageToNode(v8);
-    if ( ((stru_140E36558.WaitRegister.Flags & 2) == 0
-       || (stru_140E36558.WaitRegister.Flags & 4) != 0
+    if ( ((stru_140E366D8.WaitRegister.Flags & 2) == 0
+       || (stru_140E366D8.WaitRegister.Flags & 4) != 0
        || (v23 = 56320LL * v22 + *(_QWORD *)(v21 + 16)) != 0 && (*(_DWORD *)(v23 + 14096) & 2) != 0)
       && (*(_QWORD *)(v10 + 40) & 0x20000000000000LL) == 0 )
     {
@@ -162,7 +162,7 @@ LABEL_18:
     if ( (v24 & 1) != 0 )
       goto LABEL_35;
     if ( (*(_BYTE *)(v10 + 34) & 7) != 6 )
-      _InterlockedIncrement(&dword_140E34904);
+      _InterlockedIncrement(&dword_140E34A84);
     PteShadow = *(_QWORD *)(v10 + 16);
     v26 = (__int64 *)(v10 + 16);
     if ( v10 + 16 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v26 <= 0xFFFFF6FB7DBED7F8uLL )

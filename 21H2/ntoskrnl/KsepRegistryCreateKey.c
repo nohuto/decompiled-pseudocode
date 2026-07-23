@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepRegistryCreateKey @ 0x1408C11C8
+ * XREFs of KsepRegistryCreateKey @ 0x1408C1328
  * Callers:
- *     KseSetDeviceFlags @ 0x1408BF5E0 (KseSetDeviceFlags.c)
+ *     KseSetDeviceFlags @ 0x1408BF740 (KseSetDeviceFlags.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     RtlAssert @ 0x140588810 (RtlAssert.c)
- *     KsepStringDuplicate @ 0x14075B274 (KsepStringDuplicate.c)
- *     KsepStringFree @ 0x14075B800 (KsepStringFree.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     RtlAssert @ 0x140588A40 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x14075B434 (KsepStringDuplicate.c)
+ *     KsepStringFree @ 0x14075B9C0 (KsepStringFree.c)
  */
 
 __int64 __fastcall KsepRegistryCreateKey(_WORD *a1, _WORD *a2, HANDLE *a3)
@@ -75,7 +75,7 @@ __int64 __fastcall KsepRegistryCreateKey(_WORD *a1, _WORD *a2, HANDLE *a3)
       if ( v9 >= 0 )
       {
         *a3 = v15;
-        _InterlockedIncrement(&dword_140C2AA38);
+        _InterlockedIncrement(&dword_140C2AA78);
       }
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepFindSystemSecurityAttribute @ 0x140A7DB88
+ * XREFs of AuthzBasepFindSystemSecurityAttribute @ 0x140A839F8
  * Callers:
- *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x140A7DB04 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x140A83974 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x1403CBD00 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B0620 (AuthzBasepEqualUnicodeString.c)
  */
 
 __int64 __fastcall AuthzBasepFindSystemSecurityAttribute(const UNICODE_STRING *a1)
@@ -17,7 +17,7 @@ __int64 __fastcall AuthzBasepFindSystemSecurityAttribute(const UNICODE_STRING *a
 
   v1 = 0;
   v8 = 0LL;
-  _InterlockedExchange64(&v8, (__int64)WheapPfaLock.SavedApcState.ApcListHead[0].Flink);
+  _InterlockedExchange64(&v8, (__int64)WheapPfaLock.SchedulerApc.Reserved[1]);
   v3 = v8;
   v4 = 0LL;
   if ( v8 )

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTryUnlinkNodeLargePages @ 0x14051E74C
+ * XREFs of MiTryUnlinkNodeLargePages @ 0x140520D5C
  * Callers:
- *     MiGetFastLargePages @ 0x1403C6B68 (MiGetFastLargePages.c)
+ *     MiGetFastLargePages @ 0x1403D0A5C (MiGetFastLargePages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiPageToChannel @ 0x140295870 (MiPageToChannel.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiSnapPageMoveInProgress @ 0x1403C85E0 (MiSnapPageMoveInProgress.c)
- *     MiWaitForPageMoveComplete @ 0x1403C8610 (MiWaitForPageMoveComplete.c)
- *     MiConvertBaseLargePage @ 0x14047D5D0 (MiConvertBaseLargePage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiPageToChannel @ 0x140294DD0 (MiPageToChannel.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiSnapPageMoveInProgress @ 0x1403D24D0 (MiSnapPageMoveInProgress.c)
+ *     MiWaitForPageMoveComplete @ 0x1403D2500 (MiWaitForPageMoveComplete.c)
+ *     MiConvertBaseLargePage @ 0x140476F40 (MiConvertBaseLargePage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiTryUnlinkNodeLargePages(__int64 a1, ULONG_PTR a2, int a3, __int64 a4, int a5, __int64 a6)
@@ -69,7 +69,7 @@ __int64 __fastcall MiTryUnlinkNodeLargePages(__int64 a1, ULONG_PTR a2, int a3, _
     v18 = (_QWORD *)(48 * v8 - 0x21FFFFFFFFD8LL);
     do
     {
-      if ( v8 > qword_140E2D7A0 )
+      if ( v8 > qword_140E2D920 )
         break;
       result = *v18 >> 54;
       if ( (*v18 & 0x40000000000000LL) == 0 )

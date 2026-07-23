@@ -1,19 +1,19 @@
 /*
  * XREFs of NtOpenSection @ 0x1800A6B00
  * Callers:
- *     LdrpFindKnownDll @ 0x1800101B0 (LdrpFindKnownDll.c)
- *     CsrpConnectToServer @ 0x180075364 (CsrpConnectToServer.c)
- *     LdrGetKnownDllSectionHandle @ 0x1800850B0 (LdrGetKnownDllSectionHandle.c)
- *     _ResOpenFileMapping @ 0x180104C74 (_ResOpenFileMapping.c)
+ *     LdrpFindKnownDll @ 0x1800101A0 (LdrpFindKnownDll.c)
+ *     CsrpConnectToServer @ 0x180075354 (CsrpConnectToServer.c)
+ *     LdrGetKnownDllSectionHandle @ 0x1800850A0 (LdrGetKnownDllSectionHandle.c)
+ *     _ResOpenFileMapping @ 0x180104BB4 (_ResOpenFileMapping.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenSection()
+NTSTATUS __cdecl NtOpenSection(PHANDLE SectionHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 55LL;
+  result = 55;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

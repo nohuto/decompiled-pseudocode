@@ -1,5 +1,5 @@
 /*
- * XREFs of NpCreateSection @ 0x1801618B0
+ * XREFs of NpCreateSection @ 0x18015FC70
  * Callers:
  *     <none>
  * Callees:

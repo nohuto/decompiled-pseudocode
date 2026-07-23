@@ -3,7 +3,7 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1407DAD30 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1407DB000 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 __fastcall PiUEventInit(int a1)
@@ -58,9 +58,9 @@ __int64 __fastcall PiUEventInit(int a1)
       --v2;
     }
     while ( v2 );
-    qword_140C5D148 = (__int64)&PiUEventUsermodeEventQueue;
+    qword_140C5D188 = (__int64)&PiUEventUsermodeEventQueue;
     PiUEventUsermodeEventQueue = &PiUEventUsermodeEventQueue;
-    qword_140C5D1A8 = (__int64)&PiUEventBroadcastEventQueue;
+    qword_140C5D1E8 = (__int64)&PiUEventBroadcastEventQueue;
     PiUEventBroadcastEventQueue = &PiUEventBroadcastEventQueue;
     return (unsigned int)ExSubscribeWnfStateChange(
                            (__int64)&PiUEventMetaNotificationHandle,

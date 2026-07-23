@@ -1,12 +1,12 @@
 /*
- * XREFs of SmHpBufferCleanup @ 0x14048CE40
+ * XREFs of SmHpBufferCleanup @ 0x140487B60
  * Callers:
- *     SmHpChunkHeapCleanup @ 0x14037F470 (SmHpChunkHeapCleanup.c)
- *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x140385D30 (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     SmHpChunkFree @ 0x140387610 (SmHpChunkFree.c)
+ *     SmHpChunkHeapCleanup @ 0x140379190 (SmHpChunkHeapCleanup.c)
+ *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037F670 (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     SmHpChunkFree @ 0x140380F50 (SmHpChunkFree.c)
  * Callees:
- *     SmHpBufferUpdateFullness @ 0x140388300 (SmHpBufferUpdateFullness.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SmHpBufferUpdateFullness @ 0x140381C40 (SmHpBufferUpdateFullness.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmHpBufferCleanup(__int64 a1, __int64 a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAddPageToHeatList @ 0x14043F8DC
+ * XREFs of MiAddPageToHeatList @ 0x140435B9C
  * Callers:
- *     MiUpdatePfnForPrefetchByPte @ 0x140215E80 (MiUpdatePfnForPrefetchByPte.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiGetLargePage @ 0x1402F35A0 (MiGetLargePage.c)
- *     MiCoalesceFreeLargePages @ 0x140308844 (MiCoalesceFreeLargePages.c)
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
- *     MiGetLargePageChain @ 0x1403D4E10 (MiGetLargePageChain.c)
- *     MiChangePageHeatImmediate @ 0x14043F808 (MiChangePageHeatImmediate.c)
- *     MiSplitDirectMapPage @ 0x1404D14D0 (MiSplitDirectMapPage.c)
- *     MiZeroPageMakeHot @ 0x1406903F8 (MiZeroPageMakeHot.c)
+ *     MiGetLargePage @ 0x1402517B0 (MiGetLargePage.c)
+ *     MiGetLargePageChain @ 0x140263C74 (MiGetLargePageChain.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
+ *     MiCoalesceFreeLargePages @ 0x140312724 (MiCoalesceFreeLargePages.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x140334220 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiChangePageHeatImmediate @ 0x140435AC8 (MiChangePageHeatImmediate.c)
+ *     MiSplitDirectMapPage @ 0x1404CA510 (MiSplitDirectMapPage.c)
+ *     MiZeroPageMakeHot @ 0x1406914C8 (MiZeroPageMakeHot.c)
  * Callees:
- *     MiAddPageToHeatRanges @ 0x14043F904 (MiAddPageToHeatRanges.c)
- *     MiIssuePageHeatList @ 0x14043F9FC (MiIssuePageHeatList.c)
+ *     MiAddPageToHeatRanges @ 0x140435BC4 (MiAddPageToHeatRanges.c)
+ *     MiIssuePageHeatList @ 0x140435CBC (MiIssuePageHeatList.c)
  */
 
 __int64 __fastcall MiAddPageToHeatList(__int64 a1, __int64 a2, __int64 a3)

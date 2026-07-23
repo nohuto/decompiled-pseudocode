@@ -70,7 +70,7 @@ void BuildKnownDlls()
   RtlAddAccessAllowedAce(v2, 2u, 0xA0000000, SeRestrictedSid);
   RtlAddAccessAllowedAce(v2, 2u, 0xA0000000, SeAllAppPackagesSid);
   RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v2, 0);
-  RtlAddProcessTrustLabelAce(v5, 2u, 0, (unsigned __int8 *)SeProcTrustLiteWinTcbSid, 20, 131075);
+  RtlAddProcessTrustLabelAce(v5, 2u, 0, SeProcTrustLiteWinTcbSid, 0x14u, 0x20003u);
   RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, v5, 0);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&NtKnownDllsObjectDirectoryName;

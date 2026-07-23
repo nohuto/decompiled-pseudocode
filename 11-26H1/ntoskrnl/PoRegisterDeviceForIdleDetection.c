@@ -1,12 +1,12 @@
 /*
- * XREFs of PoRegisterDeviceForIdleDetection @ 0x140437DF0
+ * XREFs of PoRegisterDeviceForIdleDetection @ 0x140426D10
  * Callers:
- *     PoRunDownDeviceObject @ 0x140437D0C (PoRunDownDeviceObject.c)
+ *     PoRunDownDeviceObject @ 0x140426C2C (PoRunDownDeviceObject.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopGetDope @ 0x140438170 (PopGetDope.c)
- *     PopCheckForWork @ 0x1404385D4 (PopCheckForWork.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopGetDope @ 0x140427090 (PopGetDope.c)
+ *     PopCheckForWork @ 0x1404274F4 (PopCheckForWork.c)
  */
 
 PULONG __stdcall PoRegisterDeviceForIdleDetection(
@@ -22,16 +22,16 @@ PULONG __stdcall PoRegisterDeviceForIdleDetection(
   int v13; // esi
   __int64 v14; // rdi
   KIRQL v15; // dl
-  _QWORD *v16; // rax
+  PVOID **v16; // rax
   _LIST_ENTRY *p_IdleList; // rax
   struct _LIST_ENTRY *Flink; // rcx
   struct _LIST_ENTRY *Blink; // r8
-  _QWORD *v20; // rcx
+  _QWORD *SparePtr; // rcx
 
   v4 = 0LL;
   if ( !ConservationIdleTime && !PerformanceIdleTime )
   {
-    v9 = KeAcquireSpinLockRaiseToDpc(&qword_140F10808);
+    v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160]);
     Dope = DeviceObject->DeviceObjectExtension->Dope;
     if ( !Dope )
       goto LABEL_4;
@@ -57,7 +57,7 @@ PULONG __stdcall PoRegisterDeviceForIdleDetection(
         Dope->IdleList.Blink = &Dope->IdleList;
         p_IdleList->Flink = p_IdleList;
 LABEL_4:
-        KeReleaseSpinLock(&qword_140F10808, v9);
+        KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160], v9);
         return v4;
       }
     }
@@ -74,28 +74,28 @@ LABEL_9:
     v14 = PopGetDope();
     if ( !v14 )
       return v4;
-    v15 = KeAcquireSpinLockRaiseToDpc(&qword_140F10808);
+    v15 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160]);
     *(_DWORD *)(v14 + 16) = ConservationIdleTime;
-    v16 = (_QWORD *)(v14 + 32);
+    v16 = (PVOID **)(v14 + 32);
     *(_DWORD *)(v14 + 20) = PerformanceIdleTime;
     *(_DWORD *)(v14 + 52) = State;
     *(_DWORD *)(v14 + 48) = v13;
-    if ( (_QWORD *)*v16 == v16 )
+    if ( *v16 == (PVOID *)v16 )
     {
       *(_DWORD *)(v14 + 56) = 1;
-      v20 = (_QWORD *)qword_140F10818;
-      if ( *(__int64 **)qword_140F10818 != &qword_140F10810 )
+      SparePtr = PpmIdlePolicyLock.WaitBlock[3].SparePtr;
+      if ( *(struct _KTHREAD **)PpmIdlePolicyLock.WaitBlock[3].SparePtr != (struct _KTHREAD *)&PpmIdlePolicyLock.Spare18 )
         goto LABEL_17;
-      *v16 = &qword_140F10810;
-      *(_QWORD *)(v14 + 40) = v20;
-      *v20 = v16;
-      qword_140F10818 = v14 + 32;
+      *v16 = &PpmIdlePolicyLock.WaitBlock[3].Object;
+      *(_QWORD *)(v14 + 40) = SparePtr;
+      *SparePtr = v16;
+      PpmIdlePolicyLock.LastXStateSaveDebugInfo = v14 + 32;
     }
-    KeReleaseSpinLock(&qword_140F10808, v15);
+    KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160], v15);
     PopCheckForWork();
     return (PULONG)v14;
   }
-  if ( *(_DWORD *)&stru_140E66FF0.WaitBlockFill11[80] && stru_140E66FF0.WaitBlockFill6[84]
+  if ( *(_DWORD *)&stru_140E67200.WaitBlockFill11[88] && stru_140E67200.WaitBlockFill6[80]
     || (DeviceObject->Characteristics & 1) == 0 )
   {
     v13 = 1;

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopDestroyPassiveInterruptBlock @ 0x1408A16A0
+ * XREFs of IopDestroyPassiveInterruptBlock @ 0x1408A1800
  * Callers:
- *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140761BD0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14076238C (IopConnectInterrupt.c)
  * Callees:
- *     IopDereferencePassiveInterruptBlock @ 0x14050D230 (IopDereferencePassiveInterruptBlock.c)
- *     IopFindPassiveInterruptBlock @ 0x14050D3A8 (IopFindPassiveInterruptBlock.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x14050D470 (IopDereferencePassiveInterruptBlock.c)
+ *     IopFindPassiveInterruptBlock @ 0x14050D5E8 (IopFindPassiveInterruptBlock.c)
  */
 
 void __fastcall IopDestroyPassiveInterruptBlock(unsigned int a1)

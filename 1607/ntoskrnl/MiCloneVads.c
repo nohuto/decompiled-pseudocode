@@ -1,33 +1,33 @@
 /*
- * XREFs of MiCloneVads @ 0x1400BC560
+ * XREFs of MiCloneVads @ 0x1400BA3F0
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x1405278F8 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x14050A958 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiLocateVadEvent @ 0x140015564 (MiLocateVadEvent.c)
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     MiReturnFullProcessCharges @ 0x1400275E0 (MiReturnFullProcessCharges.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140029BD0 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiVadMapsLargeImage @ 0x14002C410 (MiVadMapsLargeImage.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiLockWorkingSetExclusive @ 0x14002EA00 (MiLockWorkingSetExclusive.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiUpdateForkMaps @ 0x140109E0C (MiUpdateForkMaps.c)
- *     MiFreeForkMaps @ 0x14010C52C (MiFreeForkMaps.c)
- *     MiInitializeForkMaps @ 0x14010C574 (MiInitializeForkMaps.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
+ *     MiLocateVadEvent @ 0x1400150E4 (MiLocateVadEvent.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     MiReturnFullProcessCharges @ 0x140027160 (MiReturnFullProcessCharges.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140029750 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiVadMapsLargeImage @ 0x14002BF90 (MiVadMapsLargeImage.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14002E580 (MiLockWorkingSetExclusive.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiUpdateForkMaps @ 0x140107B8C (MiUpdateForkMaps.c)
+ *     MiFreeForkMaps @ 0x14010A2AC (MiFreeForkMaps.c)
+ *     MiInitializeForkMaps @ 0x14010A2F4 (MiInitializeForkMaps.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiReturnFullProcessCommitment @ 0x1404BCCE8 (MiReturnFullProcessCommitment.c)
- *     MiBuildNewCloneDescriptor @ 0x140527744 (MiBuildNewCloneDescriptor.c)
- *     MiFreeCloneDescriptor @ 0x14066323C (MiFreeCloneDescriptor.c)
+ *     MiReturnFullProcessCommitment @ 0x1404A8A18 (MiReturnFullProcessCommitment.c)
+ *     MiBuildNewCloneDescriptor @ 0x14050A7A4 (MiBuildNewCloneDescriptor.c)
+ *     MiFreeCloneDescriptor @ 0x140663320 (MiFreeCloneDescriptor.c)
  */
 
 __int64 __fastcall MiCloneVads(_QWORD *a1, ULONG_PTR a2, __int64 a3, __int64 a4, int a5)
@@ -128,7 +128,7 @@ __int64 __fastcall MiCloneVads(_QWORD *a1, ULONG_PTR a2, __int64 a3, __int64 a4,
     v10 = v6[115];
     if ( !v10 )
       v10 = 1LL;
-    v64 = (_QWORD *)MiBuildNewCloneDescriptor(v6, v10, *(_QWORD *)(qword_140327F90 + 276840632));
+    v64 = (_QWORD *)MiBuildNewCloneDescriptor(v6, v10, *(_QWORD *)(qword_140327FD0 + 276840632));
     if ( !v64 )
       return 3221225626LL;
     v11 = 32 * v10 + 24;

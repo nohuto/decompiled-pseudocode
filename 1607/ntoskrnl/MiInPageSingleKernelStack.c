@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInPageSingleKernelStack @ 0x140095124
+ * XREFs of MiInPageSingleKernelStack @ 0x140094924
  * Callers:
- *     KeSwapProcessOrStack @ 0x14013D2D4 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x14013D844 (KeSwapProcessOrStack.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiReleaseWsSwapReservationPfn @ 0x140095668 (MiReleaseWsSwapReservationPfn.c)
- *     MiPrefetchVirtualMemory @ 0x1400BFCA0 (MiPrefetchVirtualMemory.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MmFlushAllFilesystemPages @ 0x1401E5DD4 (MmFlushAllFilesystemPages.c)
- *     MiLogKernelStackEvent @ 0x1401EEE90 (MiLogKernelStackEvent.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiReleaseWsSwapReservationPfn @ 0x140094E68 (MiReleaseWsSwapReservationPfn.c)
+ *     MiPrefetchVirtualMemory @ 0x1400BDB30 (MiPrefetchVirtualMemory.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MmFlushAllFilesystemPages @ 0x1401E5C00 (MmFlushAllFilesystemPages.c)
+ *     MiLogKernelStackEvent @ 0x1401EECBC (MiLogKernelStackEvent.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiInPageSingleKernelStack(ULONG_PTR a1, _QWORD *a2)

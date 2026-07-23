@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlDispatchException @ 0x18004C680
+ * XREFs of RtlDispatchException @ 0x180036C00
  * Callers:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     RtlRaiseNoncontinuableException @ 0x180127570 (RtlRaiseNoncontinuableException.c)
- *     KiUserExceptionDispatcher @ 0x180162FC0 (KiUserExceptionDispatcher.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     RtlRaiseNoncontinuableException @ 0x1801272E0 (RtlRaiseNoncontinuableException.c)
+ *     KiUserExceptionDispatcher @ 0x180162EC0 (KiUserExceptionDispatcher.c)
  * Callees:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     RtlpCopyContext @ 0x18004A840 (RtlpCopyContext.c)
- *     RtlVirtualUnwind2 @ 0x18004AE10 (RtlVirtualUnwind2.c)
- *     RtlLookupFunctionEntry @ 0x18004AEA0 (RtlLookupFunctionEntry.c)
- *     RtlpCallVectoredHandlers @ 0x18004CF90 (RtlpCallVectoredHandlers.c)
- *     RtlInitializeExtendedContext2 @ 0x1800B4540 (RtlInitializeExtendedContext2.c)
- *     RtlpSanitizeContext @ 0x1800B49F0 (RtlpSanitizeContext.c)
- *     RtlpValidateContextFlags2 @ 0x1800B4AD0 (RtlpValidateContextFlags2.c)
- *     RtlpGetEntireXStateAreaLength2 @ 0x1800B4BA4 (RtlpGetEntireXStateAreaLength2.c)
- *     RtlpRemoveArchDisallowedXStateFeatures @ 0x1800B4C00 (RtlpRemoveArchDisallowedXStateFeatures.c)
- *     RtlpGetStackLimits @ 0x1800CD7A0 (RtlpGetStackLimits.c)
- *     ??$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT@@@@YAJK_K0VCDirectFnEnt@@PEAU_CONTEXT@@PEAEPEAPEAXPEA_KPEAP6A?AW4_EXCEPTION_DISPOSITION@@PEAU_EXCEPTION_RECORD@@PEAX27@ZPEAU_AMD64_UNWIND_PARAMS@@KPEAK@Z @ 0x18014BB2C (--$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT@@.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _alloca_probe @ 0x180163610 (_alloca_probe.c)
- *     RtlpExecuteHandlerForException @ 0x1801636A0 (RtlpExecuteHandlerForException.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     RtlpCopyContext @ 0x180034DC0 (RtlpCopyContext.c)
+ *     RtlVirtualUnwind2 @ 0x180035390 (RtlVirtualUnwind2.c)
+ *     RtlLookupFunctionEntry @ 0x180035420 (RtlLookupFunctionEntry.c)
+ *     RtlpCallVectoredHandlers @ 0x180037510 (RtlpCallVectoredHandlers.c)
+ *     RtlInitializeExtendedContext2 @ 0x1800B1A60 (RtlInitializeExtendedContext2.c)
+ *     RtlpSanitizeContext @ 0x1800B1F10 (RtlpSanitizeContext.c)
+ *     RtlpValidateContextFlags2 @ 0x1800B1FF0 (RtlpValidateContextFlags2.c)
+ *     RtlpGetEntireXStateAreaLength2 @ 0x1800B20C4 (RtlpGetEntireXStateAreaLength2.c)
+ *     RtlpRemoveArchDisallowedXStateFeatures @ 0x1800B2120 (RtlpRemoveArchDisallowedXStateFeatures.c)
+ *     RtlpGetStackLimits @ 0x1800CAF10 (RtlpGetStackLimits.c)
+ *     ??$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT@@@@YAJK_K0VCDirectFnEnt@@PEAU_CONTEXT@@PEAEPEAPEAXPEA_KPEAP6A?AW4_EXCEPTION_DISPOSITION@@PEAU_EXCEPTION_RECORD@@PEAX27@ZPEAU_AMD64_UNWIND_PARAMS@@KPEAK@Z @ 0x18014B9DC (--$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT@@.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180163510 (_alloca_probe.c)
+ *     RtlpExecuteHandlerForException @ 0x1801635A0 (RtlpExecuteHandlerForException.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord)
 {
-  __int64 v2; // r12
+  PCONTEXT v2; // r12
   unsigned int v4; // edi
   unsigned int v5; // r8d
   int v6; // ett
@@ -33,14 +33,14 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
   __int64 v8; // rdx
   bool v9; // zf
   __int64 v10; // rdx
-  __int128 *v11; // rcx
-  __int128 *v12; // rax
+  _OWORD *v11; // rcx
+  _OWORD *p_P1Home; // rax
   __int64 v13; // r8
   __int128 v14; // xmm0
-  int v16; // esi
-  __int64 v17; // r14
-  unsigned int v18; // r15d
-  unsigned __int64 v19; // r12
+  unsigned int v16; // esi
+  ULONG64 v17; // r14
+  ULONG v18; // r15d
+  PCONTEXT_EX v19; // r12
   char v20; // r11
   int v21; // eax
   int v22; // edi
@@ -48,11 +48,11 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
   unsigned __int64 v24; // rcx
   void *v25; // rsp
   void *v26; // rsp
-  DWORD64 v27; // r14
+  DWORD64 Rip; // r14
   struct _UNWIND_HISTORY_TABLE *p_HistoryTable; // rax
   PRUNTIME_FUNCTION v29; // r15
   unsigned __int64 v30; // rdi
-  unsigned __int64 v31; // rcx
+  _CONTEXT_EX *v31; // rcx
   unsigned __int64 v32; // r9
   unsigned __int64 v33; // rdx
   unsigned __int64 v34; // r8
@@ -70,39 +70,39 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
   __int128 v46; // xmm0
   __int128 v47; // xmm0
   int v48; // eax
-  unsigned __int64 v49; // rdx
+  PCONTEXT_EX v49; // rdx
   PRUNTIME_FUNCTION v50; // rax
   bool v51; // cc
   _BYTE *v52; // r8
   unsigned int v53; // edx
   __int64 v54; // rdx
-  char v55[8]; // [rsp+70h] [rbp+0h] BYREF
-  unsigned __int64 v56; // [rsp+78h] [rbp+8h] BYREF
+  char v55; // [rsp+70h] [rbp+0h] BYREF
+  PCONTEXT_EX v56; // [rsp+78h] [rbp+8h] BYREF
   PUNWIND_HISTORY_TABLE v57; // [rsp+80h] [rbp+10h] BYREF
-  unsigned __int64 v58; // [rsp+88h] [rbp+18h] BYREF
-  __int64 v59; // [rsp+90h] [rbp+20h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+88h] [rbp+18h] BYREF
+  PCONTEXT v59; // [rsp+90h] [rbp+20h] BYREF
   _BYTE *v60; // [rsp+98h] [rbp+28h] BYREF
   unsigned __int64 ImageBase; // [rsp+A0h] [rbp+30h] BYREF
   unsigned __int64 v62; // [rsp+A8h] [rbp+38h] BYREF
   unsigned __int64 v63; // [rsp+B0h] [rbp+40h] BYREF
-  __int64 v64; // [rsp+B8h] [rbp+48h] BYREF
+  PCONTEXT v64; // [rsp+B8h] [rbp+48h] BYREF
   ULONG64 ControlPc; // [rsp+C0h] [rbp+50h] BYREF
   unsigned __int64 v66; // [rsp+C8h] [rbp+58h]
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v67; // [rsp+D0h] [rbp+60h]
-  unsigned __int64 v68; // [rsp+D8h] [rbp+68h]
+  _CONTEXT_EX *v68; // [rsp+D8h] [rbp+68h]
   char *v69; // [rsp+E8h] [rbp+78h]
-  unsigned __int64 v70; // [rsp+F0h] [rbp+80h]
+  struct _CONTEXT *v70; // [rsp+F0h] [rbp+80h]
   _BYTE *v71; // [rsp+F8h] [rbp+88h]
   struct _UNWIND_HISTORY_TABLE *v72; // [rsp+100h] [rbp+90h]
   unsigned __int64 v73; // [rsp+108h] [rbp+98h]
   _QWORD v74[4]; // [rsp+110h] [rbp+A0h] BYREF
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+130h] [rbp+C0h] BYREF
 
-  v2 = a2;
-  v64 = a2;
+  v2 = ContextRecord;
+  v64 = ContextRecord;
   v4 = 0;
   memset_thunk_772440563353939046(&ControlPc, 0, 0x50uLL);
-  v55[0] = 0;
+  v55 = 0;
   v56 = 0LL;
   v59 = 0LL;
   v60 = 0LL;
@@ -112,7 +112,7 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
   memset_thunk_772440563353939046(&HistoryTable, 0, 0xD8uLL);
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x800000) != 0 )
   {
-    v55[0] = 1;
+    v55 = 1;
     if ( RtlpExceptionLog2 )
     {
       v5 = RtlpExceptionLogCount;
@@ -137,54 +137,54 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
       if ( !v9 )
       {
         *(_DWORD *)(v10 + 1392) = 1;
-        v11 = (__int128 *)(v10 + 160);
-        v12 = (__int128 *)v2;
+        v11 = (_OWORD *)(v10 + 160);
+        p_P1Home = &v2->P1Home;
         v13 = 9LL;
-        *(_OWORD *)v10 = *(_OWORD *)a1;
-        *(_OWORD *)(v10 + 16) = *(_OWORD *)(a1 + 16);
-        *(_OWORD *)(v10 + 32) = *(_OWORD *)(a1 + 32);
-        *(_OWORD *)(v10 + 48) = *(_OWORD *)(a1 + 48);
-        *(_OWORD *)(v10 + 64) = *(_OWORD *)(a1 + 64);
-        *(_OWORD *)(v10 + 80) = *(_OWORD *)(a1 + 80);
-        *(_OWORD *)(v10 + 96) = *(_OWORD *)(a1 + 96);
-        *(_OWORD *)(v10 + 112) = *(_OWORD *)(a1 + 112);
-        *(_OWORD *)(v10 + 128) = *(_OWORD *)(a1 + 128);
-        *(_QWORD *)(v10 + 144) = *(_QWORD *)(a1 + 144);
+        *(_OWORD *)v10 = *(_OWORD *)&ExceptionRecord->ExceptionCode;
+        *(_OWORD *)(v10 + 16) = *(_OWORD *)&ExceptionRecord->ExceptionAddress;
+        *(_OWORD *)(v10 + 32) = *(_OWORD *)ExceptionRecord->ExceptionInformation;
+        *(_OWORD *)(v10 + 48) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[2];
+        *(_OWORD *)(v10 + 64) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[4];
+        *(_OWORD *)(v10 + 80) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[6];
+        *(_OWORD *)(v10 + 96) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[8];
+        *(_OWORD *)(v10 + 112) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[10];
+        *(_OWORD *)(v10 + 128) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[12];
+        *(_QWORD *)(v10 + 144) = ExceptionRecord->ExceptionInformation[14];
         do
         {
           v11 += 8;
-          v14 = *v12;
-          v12 += 8;
+          v14 = *p_P1Home;
+          p_P1Home += 8;
           *(v11 - 8) = v14;
-          *(v11 - 7) = *(v12 - 7);
-          *(v11 - 6) = *(v12 - 6);
-          *(v11 - 5) = *(v12 - 5);
-          *(v11 - 4) = *(v12 - 4);
-          *(v11 - 3) = *(v12 - 3);
-          *(v11 - 2) = *(v12 - 2);
-          *(v11 - 1) = *(v12 - 1);
+          *(v11 - 7) = *(p_P1Home - 7);
+          *(v11 - 6) = *(p_P1Home - 6);
+          *(v11 - 5) = *(p_P1Home - 5);
+          *(v11 - 4) = *(p_P1Home - 4);
+          *(v11 - 3) = *(p_P1Home - 3);
+          *(v11 - 2) = *(p_P1Home - 2);
+          *(v11 - 1) = *(p_P1Home - 1);
           --v13;
         }
         while ( v13 );
-        *v11 = *v12;
-        v11[1] = v12[1];
-        v11[2] = v12[2];
-        v11[3] = v12[3];
-        v11[4] = v12[4];
+        *v11 = *p_P1Home;
+        v11[1] = p_P1Home[1];
+        v11[2] = p_P1Home[2];
+        v11[3] = p_P1Home[3];
+        v11[4] = p_P1Home[4];
         *(_DWORD *)(v10 + 208) &= 0x10001Fu;
       }
     }
   }
-  if ( !(unsigned __int8)RtlpCallVectoredHandlers(a1, v2, 0LL) )
+  if ( !(unsigned __int8)RtlpCallVectoredHandlers(ExceptionRecord, v2, 0LL) )
   {
-    v16 = *(_DWORD *)(a1 + 4) & 0x81;
+    v16 = ExceptionRecord->ExceptionFlags & 0x81;
     if ( !(unsigned __int8)RtlpGetStackLimits(&v63, &v62) )
     {
-      *(_DWORD *)(a1 + 4) = v16 | 8;
+      ExceptionRecord->ExceptionFlags = v16 | 8;
       goto LABEL_11;
     }
     RtlpSanitizeContext(v2);
-    if ( (((unsigned __int64)qword_1801E3508 >> 60) & 3) == 1 )
+    if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) == 1 )
     {
       v17 = 2048LL;
       v18 = 1048651;
@@ -195,7 +195,7 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
       v18 = 1048587;
     }
     LODWORD(v57) = 0;
-    v19 = v17;
+    v19 = (PCONTEXT_EX)v17;
     if ( (int)RtlpValidateContextFlags2(v18, &v57, 2147353560LL) >= 0 )
     {
       v20 = (char)v57;
@@ -204,9 +204,9 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
       {
         if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
         {
-          v58 = v17 & (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL);
-          RtlpRemoveArchDisallowedXStateFeatures(v18, &v58);
-          v19 = v58;
+          ContextEx = (PCONTEXT_EX)(v17 & (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL));
+          RtlpRemoveArchDisallowedXStateFeatures(v18, &ContextEx);
+          v19 = ContextEx;
         }
         v21 = RtlpGetEntireXStateAreaLength2(v19, 2147353560LL) + 800;
       }
@@ -221,26 +221,26 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
     v24 = v23 & 0xFFFFFFFFFFFFFFF0uLL;
     v25 = alloca(v24);
     v26 = alloca(v24);
-    RtlInitializeExtendedContext2(v55, v18, &v58, v17);
+    RtlInitializeExtendedContext2((PCONTEXT)&v55, v18, &ContextEx, v17);
     v2 = v64;
-    RtlpCopyContext((__int64)v55, v64);
-    v27 = *(_QWORD *)(v2 + 248);
+    RtlpCopyContext((__int64)&v55, (__int64)v64);
+    Rip = v2->Rip;
     p_HistoryTable = &HistoryTable;
     v57 = &HistoryTable;
-    v58 = 0LL;
+    ContextEx = 0LL;
     HistoryTable.HighAddress = 0LL;
     HistoryTable.Once = 1;
     HistoryTable.LowAddress = -1LL;
     while ( 1 )
     {
-      v29 = RtlLookupFunctionEntry(v27, &ImageBase, p_HistoryTable);
+      v29 = RtlLookupFunctionEntry(Rip, &ImageBase, p_HistoryTable);
       v30 = ImageBase;
       if ( (int)RtlVirtualUnwind2(
                   1,
                   ImageBase,
-                  v27,
+                  Rip,
                   (int)v29,
-                  (__int64)v55,
+                  (__int64)&v55,
                   0LL,
                   (__int64)&v60,
                   (__int64)&v56,
@@ -251,19 +251,21 @@ __int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
                   0) < 0 )
         goto LABEL_52;
       v31 = v56;
-      if ( (v56 & 7) != 0 || (v32 = v63, v56 < v63) || (v33 = v62, v56 >= v62) )
+      if ( ((unsigned __int8)v56 & 7) != 0
+        || (v32 = v63, (unsigned __int64)v56 < v63)
+        || (v33 = v62, (unsigned __int64)v56 >= v62) )
       {
         v16 |= 8u;
 LABEL_52:
         LOBYTE(v4) = 0;
-        *(_DWORD *)(a1 + 4) = v16;
+        ExceptionRecord->ExceptionFlags = v16;
         goto LABEL_11;
       }
-      v34 = v59;
+      v34 = (unsigned __int64)v59;
       if ( v59 )
         break;
 LABEL_47:
-      v27 = HistoryTable.Entry[2].ImageBase;
+      Rip = HistoryTable.Entry[2].ImageBase;
       if ( (v73 & 7) != 0 || v73 >= v33 || v73 < v32 )
         goto LABEL_52;
       p_HistoryTable = v57;
@@ -275,16 +277,16 @@ LABEL_47:
       v37 = v57;
       v66 = v30;
       v38 = 0LL;
-      *(_DWORD *)(a1 + 4) = v16;
-      ControlPc = v27;
+      ExceptionRecord->ExceptionFlags = v16;
+      ControlPc = Rip;
       v67 = v29;
       v68 = v31;
-      v69 = v55;
-      v70 = v34;
+      v69 = &v55;
+      v70 = (struct _CONTEXT *)v34;
       v71 = v35;
       v72 = v37;
       LODWORD(v73) = v36;
-      if ( v55[0] && RtlpExceptionLog2 )
+      if ( v55 && RtlpExceptionLog2 )
       {
         v39 = RtlpExceptionLogCount;
         v40 = RtlpExceptionLogCount;
@@ -310,18 +312,18 @@ LABEL_47:
           *(_DWORD *)(v38 + 1392) = 2;
           v43 = (_OWORD *)(v38 + 160);
           *(_DWORD *)(v38 + 1396) = -1;
-          v44 = v55;
+          v44 = &v55;
           v45 = 9LL;
-          *(_OWORD *)v38 = *(_OWORD *)a1;
-          *(_OWORD *)(v38 + 16) = *(_OWORD *)(a1 + 16);
-          *(_OWORD *)(v38 + 32) = *(_OWORD *)(a1 + 32);
-          *(_OWORD *)(v38 + 48) = *(_OWORD *)(a1 + 48);
-          *(_OWORD *)(v38 + 64) = *(_OWORD *)(a1 + 64);
-          *(_OWORD *)(v38 + 80) = *(_OWORD *)(a1 + 80);
-          *(_OWORD *)(v38 + 96) = *(_OWORD *)(a1 + 96);
-          *(_OWORD *)(v38 + 112) = *(_OWORD *)(a1 + 112);
-          *(_OWORD *)(v38 + 128) = *(_OWORD *)(a1 + 128);
-          *(_QWORD *)(v38 + 144) = *(_QWORD *)(a1 + 144);
+          *(_OWORD *)v38 = *(_OWORD *)&ExceptionRecord->ExceptionCode;
+          *(_OWORD *)(v38 + 16) = *(_OWORD *)&ExceptionRecord->ExceptionAddress;
+          *(_OWORD *)(v38 + 32) = *(_OWORD *)ExceptionRecord->ExceptionInformation;
+          *(_OWORD *)(v38 + 48) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[2];
+          *(_OWORD *)(v38 + 64) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[4];
+          *(_OWORD *)(v38 + 80) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[6];
+          *(_OWORD *)(v38 + 96) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[8];
+          *(_OWORD *)(v38 + 112) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[10];
+          *(_OWORD *)(v38 + 128) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[12];
+          *(_QWORD *)(v38 + 144) = ExceptionRecord->ExceptionInformation[14];
           do
           {
             v43 += 8;
@@ -343,23 +345,23 @@ LABEL_47:
           v43[2] = *((_OWORD *)v44 + 2);
           v43[3] = *((_OWORD *)v44 + 3);
           v47 = *((_OWORD *)v44 + 4);
-          *(_QWORD *)(v38 + 1408) = v27;
+          *(_QWORD *)(v38 + 1408) = Rip;
           *(_QWORD *)(v38 + 1416) = v34;
           v43[4] = v47;
           *(_DWORD *)(v38 + 208) &= 0x10001Fu;
         }
         v31 = v56;
       }
-      v48 = RtlpExecuteHandlerForException(a1, v31, v2, &ControlPc);
+      v48 = RtlpExecuteHandlerForException(ExceptionRecord, v31, v2, &ControlPc);
       if ( v38 )
         *(_DWORD *)(v38 + 1396) = v48;
-      v49 = v58;
-      v16 |= *(_DWORD *)(a1 + 4) & 1;
-      if ( v58 == v56 )
+      v49 = ContextEx;
+      v16 |= ExceptionRecord->ExceptionFlags & 1;
+      if ( ContextEx == v56 )
       {
         v16 &= ~0x10u;
         v49 = 0LL;
-        v58 = 0LL;
+        ContextEx = 0LL;
       }
       if ( v48 == 1 )
       {
@@ -376,27 +378,27 @@ LABEL_47:
         v51 = v68 <= v49;
         v33 = v62;
         if ( !v51 )
-          v58 = v68;
+          ContextEx = v68;
         goto LABEL_47;
       }
       if ( v48 != 3 )
         RtlRaiseStatus(-1073741786);
       v30 = v66;
-      v27 = ControlPc;
+      Rip = ControlPc;
       v29 = v67;
       ImageBase = v66;
-      RtlpCopyContext((__int64)v55, (__int64)v69);
+      RtlpCopyContext((__int64)&v55, (__int64)v69);
       v64 = 0LL;
       v74[0] = 0LL;
       v74[1] = 0LL;
-      RtlpSanitizeContext(v55);
+      RtlpSanitizeContext(&v55);
       v74[2] = 0LL;
       RtlpxVirtualUnwind<CDirectFnEnt,CDirectUnwindInfo,CDirectMemoryAccessors,_CONTEXT *>(
         1,
         v30,
-        v27,
+        Rip,
         (_DWORD)v29,
-        (__int64)v55,
+        (__int64)&v55,
         0LL,
         (__int64)&v60,
         (__int64)&v56,
@@ -407,9 +409,9 @@ LABEL_47:
       v31 = v68;
       v59 = v64;
       v56 = v68;
-      if ( (((unsigned __int64)qword_1801E3508 >> 12) & 3) == 1 )
+      if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
       {
-        v50 = RtlLookupFunctionEntry(v27, &ImageBase, v57);
+        v50 = RtlLookupFunctionEntry(Rip, &ImageBase, v57);
         v29 = v50;
         if ( v50 != v67 )
           goto LABEL_62;
@@ -431,14 +433,14 @@ LABEL_47:
           v35 = &v52[2 * (unsigned int)(v54 + 2) + 4];
           v60 = v35;
           v34 = ImageBase + *(unsigned int *)&v52[2 * v54 + 4];
-          v59 = v34;
+          v59 = (PCONTEXT)v34;
         }
         else
         {
-          v34 = v59;
+          v34 = (unsigned __int64)v59;
           v35 = v60;
         }
-        if ( v34 != v70 || v35 != v71 )
+        if ( (struct _CONTEXT *)v34 != v70 || v35 != v71 )
 LABEL_62:
           __fastfail(0x27u);
         v31 = v56;
@@ -447,7 +449,7 @@ LABEL_62:
       }
       else
       {
-        v34 = v70;
+        v34 = (unsigned __int64)v70;
         v35 = v71;
         v57 = v72;
         v36 = v73;
@@ -460,6 +462,6 @@ LABEL_62:
   }
   LOBYTE(v4) = 1;
 LABEL_11:
-  RtlpCallVectoredHandlers(a1, v2, 1LL);
-  return (unsigned __int8)v4;
+  RtlpCallVectoredHandlers(ExceptionRecord, v2, 1LL);
+  return v4;
 }

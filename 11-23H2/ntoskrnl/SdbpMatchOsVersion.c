@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpMatchOsVersion @ 0x140757284
+ * XREFs of SdbpMatchOsVersion @ 0x140757474
  * Callers:
- *     SdbpCheckForMatch @ 0x1407569FC (SdbpCheckForMatch.c)
+ *     SdbpCheckForMatch @ 0x140756BEC (SdbpCheckForMatch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SdbFindFirstTag @ 0x1407579A4 (SdbFindFirstTag.c)
- *     RtlGetVersion @ 0x140758D00 (RtlGetVersion.c)
- *     SdbReadQWORDTag @ 0x140808CB4 (SdbReadQWORDTag.c)
- *     SdbpCheckUptoVersion @ 0x140864C04 (SdbpCheckUptoVersion.c)
- *     SdbpCheckFromVersion @ 0x140A5351C (SdbpCheckFromVersion.c)
- *     SdbpCheckVersion @ 0x140A536A0 (SdbpCheckVersion.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SdbFindFirstTag @ 0x140757B94 (SdbFindFirstTag.c)
+ *     RtlGetVersion @ 0x140758EF0 (RtlGetVersion.c)
+ *     SdbReadQWORDTag @ 0x140808F84 (SdbReadQWORDTag.c)
+ *     SdbpCheckUptoVersion @ 0x140864E44 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckFromVersion @ 0x140A537CC (SdbpCheckFromVersion.c)
+ *     SdbpCheckVersion @ 0x140A53950 (SdbpCheckVersion.c)
  */
 
 _BOOL8 __fastcall SdbpMatchOsVersion(__int64 a1, unsigned int a2)
@@ -23,7 +23,7 @@ _BOOL8 __fastcall SdbpMatchOsVersion(__int64 a1, unsigned int a2)
   __int64 QWORDTag; // rax
   __int64 v11; // rax
   __int64 v12; // rax
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-148h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-148h] BYREF
 
   v4 = 1;
   memset(&VersionInformation.dwMajorVersion, 0, 0x118uLL);

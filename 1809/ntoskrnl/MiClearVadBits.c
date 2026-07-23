@@ -3,7 +3,7 @@
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  * Callees:
- *     MiClearVadCellBits @ 0x140067570 (MiClearVadCellBits.c)
+ *     MiClearVadCellBits @ 0x140067560 (MiClearVadCellBits.c)
  */
 
 __int64 __fastcall MiClearVadBits(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

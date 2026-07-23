@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpWorkQueueProvEnableCallback @ 0x1406C4480
+ * XREFs of EtwpWorkQueueProvEnableCallback @ 0x1406C80C0
  * Callers:
  *     <none>
  * Callees:
- *     ExStartStopWorkQueueProvider @ 0x14083F6BC (ExStartStopWorkQueueProvider.c)
+ *     ExStartStopWorkQueueProvider @ 0x1408458FC (ExStartStopWorkQueueProvider.c)
  */
 
 void __fastcall EtwpWorkQueueProvEnableCallback(

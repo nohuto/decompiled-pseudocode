@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 KeConvertAuxiliaryCounterToPerformanceCounter()
+__int64 __fastcall KeConvertAuxiliaryCounterToPerformanceCounter(__int64 a1, __int64 a2)
 {
-  return off_140C01F78[0]();
+  return sub_14042A5E0(a1, a2);
 }

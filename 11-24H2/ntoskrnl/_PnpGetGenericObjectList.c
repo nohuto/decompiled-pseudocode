@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpGetGenericObjectList @ 0x1408209CC
+ * XREFs of _PnpGetGenericObjectList @ 0x14082110C
  * Callers:
- *     _CmGetMatchingDeviceContainerList @ 0x14081A3A4 (_CmGetMatchingDeviceContainerList.c)
+ *     _CmGetMatchingDeviceContainerList @ 0x14081AAE4 (_CmGetMatchingDeviceContainerList.c)
  * Callees:
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall PnpGetGenericObjectList(

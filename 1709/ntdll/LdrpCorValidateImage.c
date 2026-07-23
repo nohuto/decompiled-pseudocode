@@ -9,10 +9,10 @@
 
 __int64 __fastcall LdrpCorValidateImage(unsigned __int64 a1)
 {
-  int v1; // eax
-  unsigned __int64 v2; // rcx
-  int v4; // [rsp+48h] [rbp+10h] BYREF
-  unsigned __int64 v5; // [rsp+50h] [rbp+18h] BYREF
+  NTSTATUS v1; // eax
+  __int64 v2; // rcx
+  unsigned int v4; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v5; // [rsp+50h] [rbp+18h] BYREF
 
   v1 = RtlpImageDirectoryEntryToDataEx(a1, 1, 9u, &v4, &v5);
   v2 = v5;

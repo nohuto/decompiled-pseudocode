@@ -1,7 +1,7 @@
 /*
- * XREFs of PspInitializeProcessLock @ 0x140580D80
+ * XREFs of PspInitializeProcessLock @ 0x140580FC0
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

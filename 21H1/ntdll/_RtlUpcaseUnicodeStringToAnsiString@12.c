@@ -11,48 +11,57 @@
  *     _RtlUpcaseUnicodeStringToAnsiString@12 @ 0x4B34DD30 (_RtlUpcaseUnicodeStringToAnsiString@12.c)
  */
 
-int __thiscall RtlUpcaseUnicodeStringToAnsiString(void *this, unsigned __int16 *a2, unsigned __int16 *a3, char a4)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToAnsiString(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
+  void *v3; // ecx
   ULONG v4; // eax
-  int StringRoutine; // eax
+  char *StringRoutine; // eax
   int v7; // edi
-  int v8; // [esp+14h] [ebp-20h] BYREF
+  ULONG BytesInMultiByteString; // [esp+14h] [ebp-20h] BYREF
   int v9; // [esp+18h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
-  v4 = RtlxUnicodeStringToOemSize(this, (PWCH *)a3);
+  v4 = RtlxUnicodeStringToOemSize(v3, (PWCH *)SourceString);
   if ( v4 > 0xFFFF )
     return -1073741584;
-  *a2 = v4 - 1;
-  if ( a4 )
+  DestinationString->Length = v4 - 1;
+  if ( AllocateDestinationString )
   {
-    a2[1] = v4;
-    StringRoutine = NtdllpAllocateStringRoutine(v4);
-    *((_DWORD *)a2 + 1) = StringRoutine;
+    DestinationString->MaximumLength = v4;
+    StringRoutine = (char *)NtdllpAllocateStringRoutine(v4);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
       return -1073741801;
   }
-  else if ( (unsigned __int16)(v4 - 1) >= a2[1] )
+  else if ( (unsigned __int16)(v4 - 1) >= DestinationString->MaximumLength )
   {
     return -2147483643;
   }
   v9 = 0;
   ms_exc.registration.TryLevel = 0;
-  v7 = RtlUpcaseUnicodeToMultiByteN(*((_DWORD *)a2 + 1), *a2, (int)&v8, *((_DWORD *)a3 + 1), *a3);
+  v7 = RtlUpcaseUnicodeToMultiByteN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInMultiByteString,
+         (PCWCH)SourceString->Buffer,
+         SourceString->Length);
   v9 = v7;
   if ( v7 >= 0 )
   {
-    *(_BYTE *)(v8 + *((_DWORD *)a2 + 1)) = 0;
+    DestinationString->Buffer[BytesInMultiByteString] = 0;
     v7 = 0;
     v9 = 0;
   }
   ms_exc.registration.TryLevel = -2;
   if ( v7 < 0 )
   {
-    if ( a4 )
+    if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor(*((_DWORD *)a2 + 1));
-      *((_DWORD *)a2 + 1) = 0;
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
+      DestinationString->Buffer = 0;
     }
   }
   return v7;

@@ -7,14 +7,13 @@
  *     _RtlpHpLargeLockReleaseShared@12 @ 0x4B307A88 (_RtlpHpLargeLockReleaseShared@12.c)
  */
 
-int __fastcall RtlpHpLargeAllocSetExtraPresent(int a1, unsigned int a2, char a3)
+void __fastcall RtlpHpLargeAllocSetExtraPresent(int a1, unsigned int a2, char a3)
 {
   unsigned int v5; // esi
   unsigned int v6; // eax
   unsigned int v7; // eax
-  int result; // eax
 
-  RtlpHpLargeLockAcquireShared(a1, a3);
+  RtlpHpLargeLockAcquireShared((_RTL_SRWLOCK *)a1, a3);
   v5 = *(_DWORD *)(a1 + 68);
   if ( (*(_BYTE *)(a1 + 72) & 1) != 0 )
   {
@@ -41,7 +40,6 @@ int __fastcall RtlpHpLargeAllocSetExtraPresent(int a1, unsigned int a2, char a3)
     else
       v5 = v7;
   }
-  result = RtlpHpLargeLockReleaseShared(a1, a3, *(_BYTE *)(a1 + 72) & 1);
+  RtlpHpLargeLockReleaseShared((_RTL_SRWLOCK *)a1, a3, *(_BYTE *)(a1 + 72) & 1);
   *(_DWORD *)(v5 + 16) |= 1u;
-  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CcRepostToSynchronousLazywriter @ 0x1402A93E4
+ * XREFs of CcRepostToSynchronousLazywriter @ 0x14027B688
  * Callers:
- *     CcAsyncLazywriteWorker @ 0x1402A8E24 (CcAsyncLazywriteWorker.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x1404C768C (CcAsyncLazywriteWorkerMulti.c)
+ *     CcAsyncLazywriteWorker @ 0x14027B0C8 (CcAsyncLazywriteWorker.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404C0AEC (CcAsyncLazywriteWorkerMulti.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x1402A7488 (CcPostWorkQueue.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcPostWorkQueue @ 0x14027AE6C (CcPostWorkQueue.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall CcRepostToSynchronousLazywriter(__int64 a1)
@@ -14,8 +14,10 @@ void __fastcall CcRepostToSynchronousLazywriter(__int64 a1)
   __int64 v1; // rdi
   __int64 v2; // rsi
   __int64 v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rax
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rcx
+  __int64 v8; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = *(_QWORD *)(a1 + 24);
@@ -27,16 +29,16 @@ void __fastcall CcRepostToSynchronousLazywriter(__int64 a1)
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 768), &LockHandle);
   if ( (*(_DWORD *)(v1 + 152) & 0x10000) != 0 )
   {
-    v5 = 72LL;
-    v6 = a1 | 1;
+    v7 = 72LL;
+    v8 = a1 | 1;
   }
   else
   {
-    if ( *(_DWORD *)(v1 + 4) || (v5 = 120LL, *(_DWORD *)(v1 + 112)) )
-      v5 = 104LL;
-    v6 = a1;
+    if ( *(_DWORD *)(v1 + 4) || (v7 = 120LL, *(_DWORD *)(v1 + 112)) )
+      v7 = 104LL;
+    v8 = a1;
   }
-  *(_QWORD *)(v1 + 504) = v6;
-  CcPostWorkQueue(a1, v2 + v5);
+  *(_QWORD *)(v1 + 504) = v8;
+  CcPostWorkQueue((_QWORD *)a1, v2 + v7, v5, v6);
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

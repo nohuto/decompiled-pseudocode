@@ -1,14 +1,14 @@
 /*
- * XREFs of CmQueryBuildVersionInformation @ 0x140AE0FA0
+ * XREFs of CmQueryBuildVersionInformation @ 0x14097E578
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     CmpQueryDowncastString @ 0x140AE1170 (CmpQueryDowncastString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     CmpQueryDowncastString @ 0x14097E108 (CmpQueryDowncastString.c)
  */
 
 __int64 __fastcall CmQueryBuildVersionInformation(
@@ -21,18 +21,18 @@ __int64 __fastcall CmQueryBuildVersionInformation(
 {
   unsigned int ULongFromUser; // ecx
   __int64 result; // rax
-  int *v12; // rbx
+  const UNICODE_STRING *v12; // rbx
   _WORD Src[2]; // [rsp+40h] [rbp-288h] BYREF
   int v14; // [rsp+44h] [rbp-284h]
   int v15; // [rsp+48h] [rbp-280h]
-  int v16; // [rsp+4Ch] [rbp-27Ch]
-  int v17; // [rsp+50h] [rbp-278h]
-  _BYTE v18[128]; // [rsp+54h] [rbp-274h] BYREF
-  _BYTE v19[128]; // [rsp+D4h] [rbp-1F4h] BYREF
-  _BYTE v20[128]; // [rsp+154h] [rbp-174h] BYREF
-  _BYTE v21[128]; // [rsp+1D4h] [rbp-F4h] BYREF
-  _BYTE v22[26]; // [rsp+254h] [rbp-74h] BYREF
-  _BYTE v23[18]; // [rsp+26Eh] [rbp-5Ah] BYREF
+  int Buffer; // [rsp+4Ch] [rbp-27Ch]
+  int Buffer_high; // [rsp+50h] [rbp-278h]
+  char v18[128]; // [rsp+54h] [rbp-274h] BYREF
+  char v19[128]; // [rsp+D4h] [rbp-1F4h] BYREF
+  char v20[128]; // [rsp+154h] [rbp-174h] BYREF
+  char v21[128]; // [rsp+1D4h] [rbp-F4h] BYREF
+  char v22[26]; // [rsp+254h] [rbp-74h] BYREF
+  char v23[18]; // [rsp+26Eh] [rbp-5Ah] BYREF
   int v24; // [rsp+280h] [rbp-48h]
 
   memset_0(Src, 0, 0x244uLL);
@@ -45,27 +45,27 @@ __int64 __fastcall CmQueryBuildVersionInformation(
     ULongFromUser = RtlReadULongFromUser(a1);
   else
     ULongFromUser = *a1;
-  if ( ULongFromUser >= *(_DWORD *)&CmpFreezeListLock.WaitBlockFill11[120] )
+  if ( ULongFromUser >= CmpFreezeListLock.SystemCallNumber )
   {
     result = 2147483674LL;
 LABEL_8:
     *a5 = 0;
     return result;
   }
-  v12 = (int *)*((_QWORD *)&CmpFreezeListLock.Timer.Dpc + ULongFromUser);
+  v12 = (const UNICODE_STRING *)*((_QWORD *)&CmpFreezeListLock.ApcState.ApcListHead[0].Blink + ULongFromUser);
   Src[0] = ULongFromUser;
-  Src[1] = *(_WORD *)&CmpFreezeListLock.WaitBlockFill11[120];
-  v14 = *v12;
-  v15 = v12[1];
-  v16 = v12[2];
-  v17 = v12[3];
-  v24 = v12[328];
-  CmpQueryDowncastString(v18, 128LL, v12 + 4);
-  CmpQueryDowncastString(v19, 128LL, v12 + 16);
-  CmpQueryDowncastString(v20, 128LL, v12 + 20);
-  CmpQueryDowncastString(v21, 128LL, v12 + 24);
-  CmpQueryDowncastString(v22, 26LL, v12 + 8);
-  CmpQueryDowncastString(v23, 16LL, v12 + 12);
+  Src[1] = CmpFreezeListLock.SystemCallNumber;
+  v14 = *(_DWORD *)&v12->Length;
+  v15 = *(_DWORD *)(&v12->MaximumLength + 1);
+  Buffer = (int)v12->Buffer;
+  Buffer_high = HIDWORD(v12->Buffer);
+  v24 = *(_DWORD *)&v12[82].Length;
+  CmpQueryDowncastString(v18, 0x80u, v12 + 1);
+  CmpQueryDowncastString(v19, 0x80u, v12 + 4);
+  CmpQueryDowncastString(v20, 0x80u, v12 + 5);
+  CmpQueryDowncastString(v21, 0x80u, v12 + 6);
+  CmpQueryDowncastString(v22, 0x1Au, v12 + 2);
+  CmpQueryDowncastString(v23, 0x10u, v12 + 3);
   if ( a6 )
     RtlCopyToUser(a3, Src, 0x244uLL);
   else

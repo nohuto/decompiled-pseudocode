@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpUnfreezeHive @ 0x140A16DA8
+ * XREFs of CmpUnfreezeHive @ 0x140A17058
  * Callers:
  *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpIsHiveAlreadyLoaded @ 0x140A168A4 (CmpIsHiveAlreadyLoaded.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x140A16B54 (CmpIsHiveAlreadyLoaded.c)
  * Callees:
- *     CmpDrainDelayDerefContext @ 0x14022D4F0 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x1402314A4 (CmpInitializeDelayDerefContext.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E4A8 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDrainDelayDerefContext @ 0x14022D600 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140231594 (CmpInitializeDelayDerefContext.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E698 (CmpDereferenceKeyControlBlockWithLock.c)
  */
 
 void __fastcall CmpUnfreezeHive(__int64 a1)

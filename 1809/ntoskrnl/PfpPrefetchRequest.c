@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchRequest @ 0x1406A1CDC
+ * XREFs of PfpPrefetchRequest @ 0x1406A2F7C
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140666A38 (PfSetSuperfetchInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     PfpPrefetchRequestPerform @ 0x14065B99C (PfpPrefetchRequestPerform.c)
- *     PfPrefetchRequestVerify @ 0x1406A1FB4 (PfPrefetchRequestVerify.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     PfpPrefetchRequestPerform @ 0x14065CB5C (PfpPrefetchRequestPerform.c)
+ *     PfPrefetchRequestVerify @ 0x1406A3254 (PfPrefetchRequestVerify.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfpPrefetchRequest(__int64 a1, KPROCESSOR_MODE a2)

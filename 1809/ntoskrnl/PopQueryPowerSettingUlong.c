@@ -1,13 +1,13 @@
 /*
- * XREFs of PopQueryPowerSettingUlong @ 0x1406E1FCC
+ * XREFs of PopQueryPowerSettingUlong @ 0x1406E326C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x14057DA10 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
- *     PopDeferDoze @ 0x14086F710 (PopDeferDoze.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x14057EA10 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
+ *     PopDeferDoze @ 0x140870970 (PopDeferDoze.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     PopFindPowerSettingConfiguration @ 0x14058B7CC (PopFindPowerSettingConfiguration.c)
+ *     PopFindPowerSettingConfiguration @ 0x14058C7CC (PopFindPowerSettingConfiguration.c)
  */
 
 char __fastcall PopQueryPowerSettingUlong(_QWORD *a1, _DWORD *a2, _DWORD *a3)

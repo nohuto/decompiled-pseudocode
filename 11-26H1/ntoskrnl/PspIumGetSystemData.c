@@ -1,7 +1,7 @@
 /*
- * XREFs of PspIumGetSystemData @ 0x1407FD394
+ * XREFs of PspIumGetSystemData @ 0x140802DC4
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
  *     <none>
  */

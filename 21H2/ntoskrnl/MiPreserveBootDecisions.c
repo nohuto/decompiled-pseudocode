@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPreserveBootDecisions @ 0x1403B0D78
+ * XREFs of MiPreserveBootDecisions @ 0x1403B0EE8
  * Callers:
- *     MiZeroNodePages @ 0x1403B0220 (MiZeroNodePages.c)
+ *     MiZeroNodePages @ 0x1403B0390 (MiZeroNodePages.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 _OWORD *__fastcall MiPreserveBootDecisions(__int64 a1, __int64 a2)

@@ -14,11 +14,11 @@
  *     RtlpValidateHeap @ 0x180104C28 (RtlpValidateHeap.c)
  */
 
-char __fastcall RtlDebugSetUserValueHeap(unsigned __int64 a1, int a2, __int64 a3, __int64 a4)
+BOOLEAN __fastcall RtlDebugSetUserValueHeap(unsigned __int64 a1, int a2, char *a3, void *a4)
 {
-  char v8; // si
+  BOOLEAN v8; // si
   char v9; // r14
-  unsigned int v11; // edi
+  ULONG v11; // edi
   unsigned __int64 v12; // rdx
 
   v8 = 0;
@@ -30,19 +30,19 @@ char __fastcall RtlDebugSetUserValueHeap(unsigned __int64 a1, int a2, __int64 a3
     v11 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
     if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v9 = 1;
       v11 |= 1u;
     }
-    RtlpValidateHeap(a1, 0LL);
-    v12 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    RtlpValidateHeap(a1);
+    v12 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v12 -= 16LL * *(unsigned __int8 *)(v12 + 14);
     if ( RtlpValidateHeapEntry(a1, v12, "RtlSetUserValueHeap") )
     {
-      v8 = RtlSetUserValueHeap(a1, v11, a3, a4);
-      RtlpValidateHeap(a1, 0LL);
+      v8 = RtlSetUserValueHeap((PVOID)a1, v11, a3, a4);
+      RtlpValidateHeap(a1);
     }
   }
   else
@@ -50,6 +50,6 @@ char __fastcall RtlDebugSetUserValueHeap(unsigned __int64 a1, int a2, __int64 a3
     v8 = 0;
   }
   if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return v8;
 }

@@ -7,11 +7,11 @@
  *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B0F4 (HvpViewMapMakeViewRangeCOWByCaller.c)
  */
 
-__int64 __fastcall HvpViewMapCOWAndUnsealRange(__int64 a1, int a2, unsigned int a3)
+__int64 __fastcall HvpViewMapCOWAndUnsealRange(ULONG_PTR a1, int a2, unsigned int a3)
 {
   __int64 v3; // r10
   __int64 v4; // rsi
-  __int64 v6; // rbx
+  ULONG_PTR v6; // rbx
   unsigned __int64 v7; // rdx
   unsigned __int64 v8; // rax
   __int64 v9; // rdi

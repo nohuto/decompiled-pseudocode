@@ -2,7 +2,7 @@
  * XREFs of KiIntSteerGetNextProcessorTarget @ 0x140221B74
  * Callers:
  *     KiIntSteerCalculatePriorityDistribution @ 0x140221950 (KiIntSteerCalculatePriorityDistribution.c)
- *     KiIntSteerCalculateUniformDistribution @ 0x140579F60 (KiIntSteerCalculateUniformDistribution.c)
+ *     KiIntSteerCalculateUniformDistribution @ 0x14057A450 (KiIntSteerCalculateUniformDistribution.c)
  * Callees:
  *     KiIntPartGetLowestClassProcessorInMask @ 0x140221BB4 (KiIntPartGetLowestClassProcessorInMask.c)
  */

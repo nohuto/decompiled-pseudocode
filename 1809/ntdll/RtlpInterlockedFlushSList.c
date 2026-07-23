@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInterlockedFlushSList @ 0x1800A3E10
+ * XREFs of RtlpInterlockedFlushSList @ 0x1800A3E30
  * Callers:
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  *     RtlpHpFreeWithExceptionProtection @ 0x180018460 (RtlpHpFreeWithExceptionProtection.c)
  *     RtlpFreeHeapInternal @ 0x180019360 (RtlpFreeHeapInternal.c)
  *     RtlpLowFragHeapFlushCaches @ 0x180068C90 (RtlpLowFragHeapFlushCaches.c)
- *     RtlInterlockedFlushSList @ 0x1800764E0 (RtlInterlockedFlushSList.c)
+ *     RtlInterlockedFlushSList @ 0x1800764F0 (RtlInterlockedFlushSList.c)
  * Callees:
  *     <none>
  */

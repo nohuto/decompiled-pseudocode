@@ -17,25 +17,25 @@
  *     RtlIsValidProcessTrustLabelSid @ 0x140558CA8 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-__int64 __fastcall RtlSidDominatesForTrust(__int64 a1, __int64 a2, _BYTE *a3)
+NTSTATUS __cdecl RtlSidDominatesForTrust(PSID Sid1, PSID Sid2, PBOOLEAN DominatesTrust)
 {
-  _BYTE *v3; // r9
-  __int64 v4; // r10
+  PBOOLEAN v3; // r9
+  PSID v4; // r10
   __int64 v6; // r10
   __int64 v7; // r11
 
-  *a3 = 0;
-  v3 = a3;
-  v4 = a2;
-  if ( a1 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(a1, a2, a3, a3) )
-    return 3221225485LL;
+  *DominatesTrust = 0;
+  v3 = DominatesTrust;
+  v4 = Sid2;
+  if ( Sid1 && !RtlIsValidProcessTrustLabelSid(Sid1) )
+    return -1073741811;
   if ( !v4 )
   {
 LABEL_3:
     *v3 = 1;
-    return 0LL;
+    return 0;
   }
-  if ( (unsigned __int8)RtlIsValidProcessTrustLabelSid(v4, a2, a3, v3) )
+  if ( RtlIsValidProcessTrustLabelSid(v4) )
   {
     if ( v7 )
     {
@@ -47,7 +47,7 @@ LABEL_3:
       goto LABEL_3;
     }
     *v3 = 0;
-    return 0LL;
+    return 0;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

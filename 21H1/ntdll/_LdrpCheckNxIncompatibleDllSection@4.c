@@ -7,46 +7,49 @@
  *     _strncmp @ 0x4B2F9EA0 (_strncmp.c)
  */
 
-char __thiscall LdrpCheckNxIncompatibleDllSection(unsigned int *this)
+char __thiscall LdrpCheckNxIncompatibleDllSection(int this)
 {
   unsigned int v2; // edx
   unsigned int v3; // edi
-  int v4; // ebx
-  int v5; // esi
+  PIMAGE_NT_HEADERS v4; // ebx
+  char *v5; // esi
   bool v6; // zf
   unsigned int v8; // ecx
-  unsigned int v9; // [esp+Ch] [ebp-Ch]
-  int v11; // [esp+14h] [ebp-4h] BYREF
+  size_t v9; // [esp-4h] [ebp-1Ch]
+  unsigned int v10; // [esp+Ch] [ebp-Ch]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+14h] [ebp-4h] BYREF
 
-  RtlImageNtHeaderEx(3, this[6], 0, 0, &v11);
-  v2 = this[7];
+  RtlImageNtHeaderEx(3u, *(PVOID *)(this + 24), 0LL, &OutHeaders);
+  v2 = *(_DWORD *)(this + 28);
   v3 = 0;
-  v4 = v11;
-  v9 = v2;
-  v5 = *(unsigned __int16 *)(v11 + 20) + v11 + 24;
-  if ( !*(_WORD *)(v11 + 6) )
+  v4 = OutHeaders;
+  v10 = v2;
+  v5 = (char *)&OutHeaders->OptionalHeader + OutHeaders->FileHeader.SizeOfOptionalHeader;
+  if ( !OutHeaders->FileHeader.NumberOfSections )
     return 0;
   while ( 1 )
   {
-    if ( !*(_DWORD *)(v5 + 12) || !*(_DWORD *)(v5 + 8) )
+    if ( !*((_DWORD *)v5 + 3) || !*((_DWORD *)v5 + 2) )
       goto LABEL_8;
-    if ( !strncmp((const char *)v5, ".aspack", 8u) || !strncmp((const char *)v5, ".pcle", 6u) )
+    LODWORD(v9) = 8;
+    if ( !strncmp(v5, ".aspack", v9) || (LODWORD(v9) = 6, !strncmp(v5, ".pcle", v9)) )
     {
-      v8 = this[6] + *(_DWORD *)(v5 + 12);
-      if ( v9 < v8 || v9 > v8 + *(_DWORD *)(v5 + 8) )
+      v8 = *(_DWORD *)(this + 24) + *((_DWORD *)v5 + 3);
+      if ( v10 < v8 || v10 > v8 + *((_DWORD *)v5 + 2) )
         goto LABEL_8;
-      v6 = (*(_DWORD *)(v5 + 36) & 0x20000000) == 0;
+      v6 = (*((_DWORD *)v5 + 9) & 0x20000000) == 0;
     }
     else
     {
-      v6 = strncmp((const char *)v5, ".sforce", 8u) == 0;
+      LODWORD(v9) = 8;
+      v6 = strncmp(v5, ".sforce", v9) == 0;
     }
     if ( v6 )
       return 1;
 LABEL_8:
     ++v3;
     v5 += 40;
-    if ( v3 >= *(unsigned __int16 *)(v4 + 6) )
+    if ( v3 >= v4->FileHeader.NumberOfSections )
       return 0;
   }
 }

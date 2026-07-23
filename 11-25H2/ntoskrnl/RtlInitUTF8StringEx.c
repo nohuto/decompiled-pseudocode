@@ -6,7 +6,7 @@
  *     RtlInitAnsiStringEx @ 0x1404A8810 (RtlInitAnsiStringEx.c)
  */
 
-NTSTATUS __fastcall RtlInitUTF8StringEx(STRING *a1, const char *a2)
+NTSTATUS __cdecl RtlInitUTF8StringEx(PUTF8_STRING DestinationString, PCSZ SourceString)
 {
-  return RtlInitAnsiStringEx(a1, a2);
+  return RtlInitAnsiStringEx(DestinationString, SourceString);
 }

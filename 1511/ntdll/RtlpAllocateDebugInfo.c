@@ -17,7 +17,7 @@ PSLIST_ENTRY RtlpAllocateDebugInfo()
   {
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
     if ( ProcessHeap )
-      return (PSLIST_ENTRY)RtlAllocateHeap((__int64)ProcessHeap, 0, 48LL);
+      return (PSLIST_ENTRY)RtlAllocateHeap(ProcessHeap, 0, 0x30uLL);
   }
   return result;
 }

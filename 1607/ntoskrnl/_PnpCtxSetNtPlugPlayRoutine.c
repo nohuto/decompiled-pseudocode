@@ -1,7 +1,7 @@
 /*
- * XREFs of _PnpCtxSetNtPlugPlayRoutine @ 0x1405519E8
+ * XREFs of _PnpCtxSetNtPlugPlayRoutine @ 0x140551F28
  * Callers:
- *     PiPnpRtlInit @ 0x1405518D0 (PiPnpRtlInit.c)
+ *     PiPnpRtlInit @ 0x140551E10 (PiPnpRtlInit.c)
  * Callees:
  *     <none>
  */

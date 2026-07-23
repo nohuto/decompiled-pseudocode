@@ -1,16 +1,17 @@
 /*
- * XREFs of ObInsertObject @ 0x140856F80
+ * XREFs of ObInsertObject @ 0x140853260
  * Callers:
- *     PopPowerRequestCreateUserModeRequest @ 0x140331200 (PopPowerRequestCreateUserModeRequest.c)
- *     SepCreateTokenEx @ 0x1403645F4 (SepCreateTokenEx.c)
- *     FsRtlCreateSectionForDataScan @ 0x14044C520 (FsRtlCreateSectionForDataScan.c)
- *     PspInitPhase1 @ 0x140C34EC0 (PspInitPhase1.c)
- *     PspInitializeCpuPartitionsPhase1 @ 0x140C35790 (PspInitializeCpuPartitionsPhase1.c)
- *     CmpCreateRegistryRoot @ 0x140C46D74 (CmpCreateRegistryRoot.c)
- *     MiSectionInitialization @ 0x140C53724 (MiSectionInitialization.c)
- *     IopInitializeBuiltinDriver @ 0x140C66284 (IopInitializeBuiltinDriver.c)
+ *     PopPowerRequestCreateUserModeRequest @ 0x1402B9970 (PopPowerRequestCreateUserModeRequest.c)
+ *     SepCreateTokenEx @ 0x1403E9CAC (SepCreateTokenEx.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140443420 (FsRtlCreateSectionForDataScan.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     PspInitPhase1 @ 0x140C37000 (PspInitPhase1.c)
+ *     PspInitializeCpuPartitionsPhase1 @ 0x140C378D0 (PspInitializeCpuPartitionsPhase1.c)
+ *     CmpCreateRegistryRoot @ 0x140C48EC4 (CmpCreateRegistryRoot.c)
+ *     MiSectionInitialization @ 0x140C558B4 (MiSectionInitialization.c)
+ *     IopInitializeBuiltinDriver @ 0x140C68400 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall ObInsertObject(

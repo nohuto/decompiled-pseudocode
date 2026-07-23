@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFlushAllPages @ 0x140504838
+ * XREFs of MiFlushAllPages @ 0x1404FE17C
  * Callers:
- *     MmFlushAllPagesEx @ 0x1406F90D0 (MmFlushAllPagesEx.c)
- *     MmPerformMemoryListCommand @ 0x140C0C460 (MmPerformMemoryListCommand.c)
+ *     MmFlushAllPagesEx @ 0x1406FDDA0 (MmFlushAllPagesEx.c)
+ *     MmPerformMemoryListCommand @ 0x140C12670 (MmPerformMemoryListCommand.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1403BBEA0 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiFlushAllPagesWorker @ 0x1403E0A6C (MiFlushAllPagesWorker.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x1403C5D10 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiFlushAllPagesWorker @ 0x1403E3C5C (MiFlushAllPagesWorker.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFlushAllPages(__int64 a1, char a2, unsigned int a3)

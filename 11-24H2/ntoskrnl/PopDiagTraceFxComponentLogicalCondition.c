@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxComponentLogicalCondition @ 0x14043F1E0
+ * XREFs of PopDiagTraceFxComponentLogicalCondition @ 0x140434D90
  * Callers:
- *     PopFxIdleWorkerTail @ 0x1404EB37C (PopFxIdleWorkerTail.c)
+ *     PopFxIdleWorkerTail @ 0x1404E22FC (PopFxIdleWorkerTail.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxComponentLogicalCondition(__int64 a1, int a2)

@@ -1,23 +1,23 @@
 /*
- * XREFs of PiSwIrpInterfaceRegister @ 0x14074D118
+ * XREFs of PiSwIrpInterfaceRegister @ 0x14074D2D8
  * Callers:
- *     PiSwDispatch @ 0x14074D990 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14074DB50 (PiSwDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
- *     PiSwInterfaceFree @ 0x140734B24 (PiSwInterfaceFree.c)
- *     PiSwUnlock @ 0x140747030 (PiSwUnlock.c)
- *     PiSwLock @ 0x1407470C4 (PiSwLock.c)
- *     PiSwPropertySet @ 0x140748358 (PiSwPropertySet.c)
- *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
- *     PiSwDeviceOperationsAllowed @ 0x14074D08C (PiSwDeviceOperationsAllowed.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x14074D0B8 (PiSwDeviceFindInterfaceEntry.c)
- *     PiSwDeviceInterfaceSetState @ 0x14074D430 (PiSwDeviceInterfaceSetState.c)
- *     PiSwInterfaceCreate @ 0x14074D504 (PiSwInterfaceCreate.c)
- *     PiSwValidatePropertyArray @ 0x14074E6FC (PiSwValidatePropertyArray.c)
- *     PiSwUpdateArrayProperties @ 0x14078A794 (PiSwUpdateArrayProperties.c)
- *     MIDL_user_free @ 0x140980320 (MIDL_user_free.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     PiSwInterfaceFree @ 0x140734CE4 (PiSwInterfaceFree.c)
+ *     PiSwUnlock @ 0x1407471F0 (PiSwUnlock.c)
+ *     PiSwLock @ 0x140747284 (PiSwLock.c)
+ *     PiSwPropertySet @ 0x140748518 (PiSwPropertySet.c)
+ *     IopRegisterDeviceInterface @ 0x140748630 (IopRegisterDeviceInterface.c)
+ *     PiSwDeviceOperationsAllowed @ 0x14074D24C (PiSwDeviceOperationsAllowed.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x14074D278 (PiSwDeviceFindInterfaceEntry.c)
+ *     PiSwDeviceInterfaceSetState @ 0x14074D5F0 (PiSwDeviceInterfaceSetState.c)
+ *     PiSwInterfaceCreate @ 0x14074D6C4 (PiSwInterfaceCreate.c)
+ *     PiSwValidatePropertyArray @ 0x14074E8BC (PiSwValidatePropertyArray.c)
+ *     PiSwUpdateArrayProperties @ 0x14078A954 (PiSwUpdateArrayProperties.c)
+ *     MIDL_user_free @ 0x140980500 (MIDL_user_free.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp)
@@ -62,7 +62,7 @@ __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp)
   updated = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, v20);
   if ( updated >= 0 )
   {
-    NdrMesTypeDecode3(v20[0], "TP 3\a", &off_1409839E8, &off_140C01A60, 2, &v22);
+    NdrMesTypeDecode3(v20[0], "TP 3\a", &off_140983BC8, &off_140C01A60, 2, &v22);
     if ( v22
       && *(_QWORD *)v22
       && ((v8 = *((_QWORD *)v22 + 3)) != 0 || !*((_DWORD *)v22 + 4))

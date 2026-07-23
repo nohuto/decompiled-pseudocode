@@ -3,8 +3,8 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
  */
 
 __int64 CmpCreateObjectTypes()

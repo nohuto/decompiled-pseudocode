@@ -1,18 +1,18 @@
 /*
- * XREFs of ExInterlockedInsertTailList @ 0x14042EC00
+ * XREFs of ExInterlockedInsertTailList @ 0x140420930
  * Callers:
- *     PopFxQueueWorkItem @ 0x14029F7F4 (PopFxQueueWorkItem.c)
- *     IoWMIWriteEvent @ 0x14042E980 (IoWMIWriteEvent.c)
- *     WheapWorkQueueAddItem @ 0x14042EB2C (WheapWorkQueueAddItem.c)
- *     CcCanIWrite @ 0x1404DBAA0 (CcCanIWrite.c)
- *     CcDeferWrite @ 0x14057B140 (CcDeferWrite.c)
- *     KiAltContextWorkQueueAddItem @ 0x1405C9B28 (KiAltContextWorkQueueAddItem.c)
- *     IoInitializeTimer @ 0x1407141E0 (IoInitializeTimer.c)
- *     VfAllocateAdapterChannel @ 0x140B85190 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x140B85370 (VfAllocateAdapterChannelEx.c)
+ *     PopFxQueueWorkItem @ 0x1403AA2B4 (PopFxQueueWorkItem.c)
+ *     IoWMIWriteEvent @ 0x1404206B0 (IoWMIWriteEvent.c)
+ *     WheapWorkQueueAddItem @ 0x14042085C (WheapWorkQueueAddItem.c)
+ *     CcCanIWrite @ 0x1404D54C0 (CcCanIWrite.c)
+ *     CcDeferWrite @ 0x1405785D0 (CcDeferWrite.c)
+ *     KiAltContextWorkQueueAddItem @ 0x1405C7258 (KiAltContextWorkQueueAddItem.c)
+ *     IoInitializeTimer @ 0x140711D70 (IoInitializeTimer.c)
+ *     VfAllocateAdapterChannel @ 0x140B87190 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140B87370 (VfAllocateAdapterChannelEx.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockDisabled @ 0x14042ED58 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockDisabled @ 0x140420A88 (ExpAcquireSpinLockDisabled.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedInsertTailList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)

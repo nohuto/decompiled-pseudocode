@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindMessageInTable @ 0x18002B9D0
+ * XREFs of RtlFindMessageInTable @ 0x18002B9C0
  * Callers:
- *     RtlFindMessage @ 0x18002C7A0 (RtlFindMessage.c)
+ *     RtlFindMessage @ 0x18002C790 (RtlFindMessage.c)
  * Callees:
  *     <none>
  */

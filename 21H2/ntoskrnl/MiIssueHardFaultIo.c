@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIssueHardFaultIo @ 0x1402AF824
+ * XREFs of MiIssueHardFaultIo @ 0x14022DB84
  * Callers:
- *     MiPfCoalesceAndIssueIOs @ 0x1402C2704 (MiPfCoalesceAndIssueIOs.c)
- *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
- *     MiPfIssueCoalesceCandidates @ 0x1405391D0 (MiPfIssueCoalesceCandidates.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x140240BA4 (MiPfCoalesceAndIssueIOs.c)
+ *     MiIssueHardFault @ 0x140319700 (MiIssueHardFault.c)
+ *     MiPfIssueCoalesceCandidates @ 0x140539410 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     SmPageRead @ 0x1402AF95C (SmPageRead.c)
- *     IoPageReadEx @ 0x14031C130 (IoPageReadEx.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     SmPageRead @ 0x14022DCBC (SmPageRead.c)
+ *     IoPageReadEx @ 0x140326E80 (IoPageReadEx.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  */
 
 __int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)

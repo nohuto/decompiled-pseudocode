@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeZeroPageSlistSufficient @ 0x1402898A0
+ * XREFs of MiFreeZeroPageSlistSufficient @ 0x140288E00
  * Callers:
- *     MiPageFreeToZero @ 0x14028C220 (MiPageFreeToZero.c)
- *     MiInsertFreeZeroPage @ 0x1402DCE70 (MiInsertFreeZeroPage.c)
+ *     MiPageFreeToZero @ 0x14028B780 (MiPageFreeToZero.c)
+ *     MiInsertFreeZeroPage @ 0x1402BEC30 (MiInsertFreeZeroPage.c)
  * Callees:
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
  */
 
 __int64 __fastcall MiFreeZeroPageSlistSufficient(__int64 a1, unsigned int a2, int a3)
@@ -46,7 +46,7 @@ __int64 __fastcall MiFreeZeroPageSlistSufficient(__int64 a1, unsigned int a2, in
   v13 = a1 + 736 + 8LL * v12;
   do
   {
-    if ( (unsigned __int8)byte_140E2D718 > 1u )
+    if ( (unsigned __int8)byte_140E2D898 > 1u )
       v14 = *(_QWORD *)(a1 + 8 * (v10 + 2LL * v12) + 14064);
     else
       v14 = *(_QWORD *)(a1 + 8 * v10 + 3080);

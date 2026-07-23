@@ -10,30 +10,27 @@
  *     LdrpDereferenceEnclave @ 0x1800CD300 (LdrpDereferenceEnclave.c)
  */
 
-__int64 __fastcall LdrpDeleteEnclave(__int64 *a1)
+NTSTATUS __fastcall LdrpDeleteEnclave(PVOID *BaseAddress)
 {
-  __int64 result; // rax
-  unsigned __int64 v3; // r8
-  unsigned __int64 v4; // r9
-  __int64 v5; // r8
-  __int64 v6; // rdx
-  __int64 *v7; // rax
+  NTSTATUS result; // eax
+  PVOID v3; // rdx
+  PVOID *v4; // rax
 
-  result = NtTerminateEnclave();
-  if ( (int)result >= 0 )
+  result = NtTerminateEnclave(BaseAddress[9], 4u);
+  if ( result >= 0 )
   {
-    a1[14] = 0LL;
-    LdrpCleanupEnclaveLoadState((__int64)a1, -1073741823, v3, v4);
-    a1[9] = 0LL;
-    RtlEnterCriticalSection((__int64)&LdrpEnclaveListLock);
-    v6 = *a1;
-    if ( *(__int64 **)(*a1 + 8) != a1 || (v7 = (__int64 *)a1[1], (__int64 *)*v7 != a1) )
+    BaseAddress[14] = 0LL;
+    LdrpCleanupEnclaveLoadState((__int64)BaseAddress, -1073741823);
+    BaseAddress[9] = 0LL;
+    RtlEnterCriticalSection(&LdrpEnclaveListLock);
+    v3 = *BaseAddress;
+    if ( *((PVOID **)*BaseAddress + 1) != BaseAddress || (v4 = (PVOID *)BaseAddress[1], *v4 != BaseAddress) )
       __fastfail(3u);
-    *v7 = v6;
-    *(_QWORD *)(v6 + 8) = v7;
-    RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock, v6, v5);
-    LdrpDereferenceEnclave(a1);
-    return 0LL;
+    *v4 = v3;
+    *((_QWORD *)v3 + 1) = v4;
+    RtlLeaveCriticalSection(&LdrpEnclaveListLock);
+    LdrpDereferenceEnclave(BaseAddress);
+    return 0;
   }
   return result;
 }

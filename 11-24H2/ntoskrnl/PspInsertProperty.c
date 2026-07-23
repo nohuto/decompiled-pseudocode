@@ -1,14 +1,14 @@
 /*
- * XREFs of PspInsertProperty @ 0x14042D15C
+ * XREFs of PspInsertProperty @ 0x14041F4DC
  * Callers:
- *     PspSetPropertyHelper @ 0x14042D138 (PspSetPropertyHelper.c)
+ *     PspSetPropertyHelper @ 0x14041F4B8 (PspSetPropertyHelper.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PspFindPropertySetEntry @ 0x14042D300 (PspFindPropertySetEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PspFindPropertySetEntry @ 0x14041F680 (PspFindPropertySetEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspInsertProperty(KSPIN_LOCK *a1, KSPIN_LOCK a2, void *a3)
@@ -19,7 +19,7 @@ __int64 __fastcall PspInsertProperty(KSPIN_LOCK *a1, KSPIN_LOCK a2, void *a3)
   KSPIN_LOCK v9; // rax
 
   v3 = 0;
-  Pool2 = (KSPIN_LOCK *)ExAllocatePool2(0x40uLL);
+  Pool2 = (KSPIN_LOCK *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x50737050u);
   if ( Pool2 )
   {
     v8 = KeAcquireSpinLockRaiseToDpc(a1 + 2);

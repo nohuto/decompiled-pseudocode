@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x140830658
+ * XREFs of EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x1409CFA3C
  * Callers:
- *     EtwpAllocateTraceBufferPool @ 0x140830488 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpAllocateTraceBufferPool @ 0x1409CF86C (EtwpAllocateTraceBufferPool.c)
  * Callees:
- *     EtwpAllocatePhysicalPages @ 0x1407A6EFC (EtwpAllocatePhysicalPages.c)
- *     EtwpFreePfnArray @ 0x1407A7DC8 (EtwpFreePfnArray.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     EtwpAllocatePhysicalPages @ 0x1407A703C (EtwpAllocatePhysicalPages.c)
+ *     EtwpFreePfnArray @ 0x1407A7F08 (EtwpFreePfnArray.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAllocatePhysicalMemoryForTraceBuffers(__int64 a1)
@@ -17,11 +17,13 @@ __int64 __fastcall EtwpAllocatePhysicalMemoryForTraceBuffers(__int64 a1)
   __int64 v6; // rax
 
   v2 = (unsigned __int64)*(unsigned int *)(a1 + 4) >> 12;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 8 * v2 + 48, 0x74777445u);
   v4 = 0;
   *(_QWORD *)(a1 + 1592) = Pool2;
   if ( !Pool2
-    || (v5 = v2 * *(unsigned int *)(a1 + 224), v6 = ExAllocatePool2(0x100uLL), (*(_QWORD *)(a1 + 1600) = v6) == 0LL) )
+    || (v5 = v2 * *(unsigned int *)(a1 + 224),
+        v6 = ExAllocatePool2(0x100uLL, 8 * v5 + 8, 0x74777445u),
+        (*(_QWORD *)(a1 + 1600) = v6) == 0LL) )
   {
     v4 = -1073741801;
 LABEL_6:

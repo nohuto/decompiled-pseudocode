@@ -7,8 +7,8 @@
  *     _RtlUnhandledExceptionFilter@4 @ 0x4B3078D0 (_RtlUnhandledExceptionFilter@4.c)
  */
 
-int __cdecl __raise_securityfailure(int a1)
+NTSTATUS __cdecl __raise_securityfailure(PEXCEPTION_POINTERS ExceptionPointers)
 {
-  RtlUnhandledExceptionFilter(a1);
-  return ZwTerminateProcess(-1, -1073740791);
+  RtlUnhandledExceptionFilter(ExceptionPointers);
+  return ZwTerminateProcess((HANDLE)0xFFFFFFFF, -1073740791);
 }

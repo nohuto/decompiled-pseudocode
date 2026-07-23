@@ -1,26 +1,26 @@
 /*
- * XREFs of MiFastLockLeafPageTable @ 0x14020E6D0
+ * XREFs of MiFastLockLeafPageTable @ 0x1402B2FD0
  * Callers:
- *     MiLockPageLeafPageTable @ 0x14020B3E0 (MiLockPageLeafPageTable.c)
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiMakeHyperRangeAccessible @ 0x14021B4E0 (MiMakeHyperRangeAccessible.c)
- *     MiLockStealUserVm @ 0x14026AFD4 (MiLockStealUserVm.c)
- *     MiCountSharedPages @ 0x14028C460 (MiCountSharedPages.c)
- *     MiClearNonPagedPtes @ 0x140296238 (MiClearNonPagedPtes.c)
- *     MiLockPoolCommitPageTable @ 0x14030B3D0 (MiLockPoolCommitPageTable.c)
- *     MiGetNextPageTable @ 0x14030D820 (MiGetNextPageTable.c)
- *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
- *     MiSynchronizeSystemVa @ 0x140311C40 (MiSynchronizeSystemVa.c)
- *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
+ *     MiCountSharedPages @ 0x140209600 (MiCountSharedPages.c)
+ *     MiClearNonPagedPtes @ 0x14021AB20 (MiClearNonPagedPtes.c)
+ *     MiLockStealUserVm @ 0x140258F74 (MiLockStealUserVm.c)
+ *     MiLockPageLeafPageTable @ 0x1402AFCE0 (MiLockPageLeafPageTable.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiMakeHyperRangeAccessible @ 0x1402BFDE0 (MiMakeHyperRangeAccessible.c)
+ *     MiLockPoolCommitPageTable @ 0x140316120 (MiLockPoolCommitPageTable.c)
+ *     MiGetNextPageTable @ 0x140318570 (MiGetNextPageTable.c)
+ *     MiMakeSystemAddressValid @ 0x1403190E0 (MiMakeSystemAddressValid.c)
+ *     MiSynchronizeSystemVa @ 0x14031C990 (MiSynchronizeSystemVa.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1403221E0 (MiMoveDirtyBitsToPfns.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiFastLockLeafPageTable(__int64 a1, unsigned __int64 a2, int a3)
@@ -48,7 +48,7 @@ __int64 __fastcall MiFastLockLeafPageTable(__int64 a1, unsigned __int64 a2, int 
   {
     if ( v6 == 5 )
     {
-      if ( a2 >= qword_140C4FB08 && a2 < qword_140C4FB08 + 0x100000000000LL )
+      if ( a2 >= qword_140C4FB48 && a2 < qword_140C4FB48 + 0x100000000000LL )
         return 0LL;
       goto LABEL_5;
     }

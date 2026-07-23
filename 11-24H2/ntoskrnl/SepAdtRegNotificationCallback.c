@@ -1,30 +1,30 @@
 /*
- * XREFs of SepAdtRegNotificationCallback @ 0x1407964A0
+ * XREFs of SepAdtRegNotificationCallback @ 0x1407965B0
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtInitializeBounds @ 0x1407962BC (SepAdtInitializeBounds.c)
- *     SepAdtInitializeCrashOnFail @ 0x140796340 (SepAdtInitializeCrashOnFail.c)
- *     SepAdtInitializePrivilegeAuditing @ 0x1407963A0 (SepAdtInitializePrivilegeAuditing.c)
- *     NtNotifyChangeMultipleKeys @ 0x1408BF750 (NtNotifyChangeMultipleKeys.c)
+ *     SepAdtInitializeBounds @ 0x1407963CC (SepAdtInitializeBounds.c)
+ *     SepAdtInitializeCrashOnFail @ 0x140796450 (SepAdtInitializeCrashOnFail.c)
+ *     SepAdtInitializePrivilegeAuditing @ 0x1407964B0 (SepAdtInitializePrivilegeAuditing.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1408BD110 (NtNotifyChangeMultipleKeys.c)
  */
 
-__int64 SepAdtRegNotificationCallback()
+NTSTATUS SepAdtRegNotificationCallback()
 {
   SepAdtInitializeCrashOnFail();
   SepAdtInitializePrivilegeAuditing();
   SepAdtInitializeBounds();
   return NtNotifyChangeMultipleKeys(
-           (_DWORD)SepAdtRegNotifyHandle,
+           SepAdtRegNotifyHandle,
            0,
-           0,
-           0,
-           (__int64)&SepAdtLsaRegWatchWorkItem,
-           1LL,
-           (__int64)&SepAdtIoStatusBlock,
-           5,
+           0LL,
+           0LL,
+           (PIO_APC_ROUTINE)SepAdtLsaRegWatchWorkItem,
+           (PVOID)1,
+           &SepAdtIoStatusBlock,
+           5u,
            0,
            0LL,
            0,
-           1);
+           1u);
 }

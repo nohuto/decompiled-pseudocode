@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateCrossVmEvent @ 0x14083AD00
+ * XREFs of NtCreateCrossVmEvent @ 0x140840F40
  * Callers:
- *     DifNtCreateCrossVmEventWrapper @ 0x14066FDA0 (DifNtCreateCrossVmEventWrapper.c)
+ *     DifNtCreateCrossVmEventWrapper @ 0x140673980 (DifNtCreateCrossVmEventWrapper.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ExpCreateCrossVmEvent @ 0x1408460C0 (ExpCreateCrossVmEvent.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ExpCreateCrossVmEvent @ 0x14084C318 (ExpCreateCrossVmEvent.c)
  */
 
 __int64 __fastcall NtCreateCrossVmEvent(_QWORD *a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

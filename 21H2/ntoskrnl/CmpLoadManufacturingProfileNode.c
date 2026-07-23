@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLoadManufacturingProfileNode @ 0x140A8EDBC
+ * XREFs of CmpLoadManufacturingProfileNode @ 0x140A8FDBC
  * Callers:
- *     CmpLoadManufacturingProfileServicesNode @ 0x140A8EE84 (CmpLoadManufacturingProfileServicesNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140A8FE84 (CmpLoadManufacturingProfileServicesNode.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByName @ 0x1407AC8D4 (CmpFindSubKeyByName.c)
- *     CmpLoadManufacturingModeNode @ 0x140A8ECCC (CmpLoadManufacturingModeNode.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x1407ACAD4 (CmpFindSubKeyByName.c)
+ *     CmpLoadManufacturingModeNode @ 0x140A8FCCC (CmpLoadManufacturingModeNode.c)
  */
 
 bool __fastcall CmpLoadManufacturingProfileNode(__int64 a1, __int64 a2, const WCHAR *a3, __int64 *a4, __int64 a5)

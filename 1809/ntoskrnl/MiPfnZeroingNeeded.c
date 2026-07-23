@@ -8,11 +8,11 @@
  *     MiMakePageAvoidRead @ 0x1400348E0 (MiMakePageAvoidRead.c)
  *     MiCoalesceFreePages @ 0x1400390D0 (MiCoalesceFreePages.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
- *     MiAddMdlPageToTradeBlock @ 0x140126FD4 (MiAddMdlPageToTradeBlock.c)
- *     MiGetFastLargePage @ 0x14085D42C (MiGetFastLargePage.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
+ *     MiAddMdlPageToTradeBlock @ 0x1401270A4 (MiAddMdlPageToTradeBlock.c)
+ *     MiGetFastLargePage @ 0x14085E68C (MiGetFastLargePage.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ _BOOL8 __fastcall MiPfnZeroingNeeded(__int64 a1, int a2)
   if ( (*(_DWORD *)(a1 + 16) & 0x3E0LL) == 0 )
   {
     v2 = *(unsigned __int8 *)(a1 + 34) >> 6;
-    if ( v2 == a2 || ((unsigned __int8)((1 << v2) | (1 << a2)) & (unsigned __int8)byte_14043A158) == 0 )
+    if ( v2 == a2 || ((unsigned __int8)((1 << v2) | (1 << a2)) & (unsigned __int8)byte_14043B218) == 0 )
       return 0;
   }
   return result;

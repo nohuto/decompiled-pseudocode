@@ -16,18 +16,18 @@
 int SepAdtInitializeAuditingOptions()
 {
   int result; // eax
-  int v1; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS v1; // ebx
+  HANDLE EventHandle; // [rsp+30h] [rbp+8h] BYREF
 
-  Handle = 0LL;
+  EventHandle = 0LL;
   result = AdtpInitializeAuditingCommon();
   if ( result >= 0 )
   {
-    result = SepAdtOpenEtwReadyEvent((unsigned __int64)&Handle);
+    result = SepAdtOpenEtwReadyEvent(&EventHandle);
     if ( result >= 0 )
     {
-      v1 = NtSetEvent(Handle, 0LL);
-      NtClose(Handle);
+      v1 = NtSetEvent(EventHandle, 0LL);
+      NtClose(EventHandle);
       if ( v1 >= 0 )
       {
         result = SepAdtOpenRegAndSetupNotification();

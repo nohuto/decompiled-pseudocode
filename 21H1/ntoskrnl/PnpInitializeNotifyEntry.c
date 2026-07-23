@@ -22,24 +22,20 @@ __int64 __fastcall PnpInitializeNotifyEntry(
         __int64 a5,
         __int64 a6)
 {
-  __int64 v7; // rsi
+  HANDLE v7; // rsi
   unsigned int v11; // r14d
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   int v13; // eax
   struct _ERESOURCE *PoolWithTag; // rax
   unsigned int SessionId; // eax
-  __int64 v17; // [rsp+20h] [rbp-E0h] BYREF
+  HANDLE SessionHandle; // [rsp+20h] [rbp-E0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+28h] [rbp-D8h] BYREF
-  __int128 v19; // [rsp+38h] [rbp-C8h]
-  __int128 v20; // [rsp+48h] [rbp-B8h]
-  __int128 v21; // [rsp+58h] [rbp-A8h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-C8h] BYREF
   wchar_t Dst[256]; // [rsp+70h] [rbp-90h] BYREF
 
   v7 = 0LL;
-  v19 = 0LL;
-  v17 = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  SessionHandle = 0LL;
   v11 = 0;
   v12 = 0;
   DestinationString = 0LL;
@@ -52,13 +48,13 @@ __int64 __fastcall PnpInitializeNotifyEntry(
     return (unsigned int)-1073741811;
   swprintf_s(Dst, 0x100uLL, L"\\KernelObjects\\Session%d", SessionId);
   RtlInitUnicodeString(&DestinationString, Dst);
-  *((_QWORD *)&v19 + 1) = 0LL;
-  *(_QWORD *)&v20 = &DestinationString;
-  LODWORD(v19) = 48;
-  DWORD2(v20) = 512;
-  v21 = 0LL;
-  v12 = ZwOpenSession((__int64)&v17, 0LL);
-  if ( v12 < 0 || (v7 = v17) == 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 512;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v12 = ZwOpenSession(&SessionHandle, 0, &ObjectAttributes);
+  if ( v12 < 0 || (v7 = SessionHandle) == 0LL )
   {
     return (unsigned int)-1073741811;
   }

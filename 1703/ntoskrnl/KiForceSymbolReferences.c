@@ -18,7 +18,7 @@ __int64 KiForceSymbolReferences()
 
   if ( !KeGetPcr()->Prcb.Number )
   {
-    v0 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)&BugCheckParameter2, 0LL, 1LL);
+    v0 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)&BugCheckParameter2, 0LL, 1);
     if ( _interlockedbittestandset64((volatile signed __int32 *)&BugCheckParameter2, 0LL) )
     {
       if ( v0 )

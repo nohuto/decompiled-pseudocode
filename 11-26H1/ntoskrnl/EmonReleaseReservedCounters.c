@@ -1,10 +1,10 @@
 /*
- * XREFs of EmonReleaseReservedCounters @ 0x140596100
+ * XREFs of EmonReleaseReservedCounters @ 0x140598880
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall EmonReleaseReservedCounters(__int64 a1)
@@ -76,7 +76,7 @@ __int64 __fastcall EmonReleaseReservedCounters(__int64 a1)
   if ( *(_QWORD *)(a1 + 24) )
   {
     v14 = *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[8] + 160 * v3;
-    if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
+    if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
     {
       v15 = *(_QWORD *)(v14 + 32);
       *(_QWORD *)(v14 + 40) = v15;

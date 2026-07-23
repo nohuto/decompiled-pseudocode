@@ -1,46 +1,52 @@
 /*
- * XREFs of RtlQueryWnfStateDataWithExplicitScope @ 0x18006F200
+ * XREFs of RtlQueryWnfStateDataWithExplicitScope @ 0x18008F650
  * Callers:
- *     RtlpFcStartSubscriptionManager @ 0x18006EBBC (RtlpFcStartSubscriptionManager.c)
- *     RtlQueryWnfStateData @ 0x18006F1D0 (RtlQueryWnfStateData.c)
+ *     RtlpFcStartSubscriptionManager @ 0x18008F00C (RtlpFcStartSubscriptionManager.c)
+ *     RtlQueryWnfStateData @ 0x18008F620 (RtlQueryWnfStateData.c)
  * Callees:
- *     RtlpWnfUnexpectedCallbackExceptionFilter @ 0x180138FAC (RtlpWnfUnexpectedCallbackExceptionFilter.c)
- *     RtlResetStackOverflow @ 0x18013AFA8 (RtlResetStackOverflow.c)
- *     ZwQueryWnfStateData @ 0x180161D50 (ZwQueryWnfStateData.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _alloca_probe @ 0x180163610 (_alloca_probe.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpWnfUnexpectedCallbackExceptionFilter @ 0x180138D1C (RtlpWnfUnexpectedCallbackExceptionFilter.c)
+ *     RtlResetStackOverflow @ 0x18013AD18 (RtlResetStackOverflow.c)
+ *     ZwQueryWnfStateData @ 0x180161C50 (ZwQueryWnfStateData.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180163510 (_alloca_probe.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlQueryWnfStateDataWithExplicitScope(
-        unsigned int *a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 (__fastcall *a4)(__int64, __int64, __int64, __int64, _BYTE *, _DWORD),
+NTSTATUS __fastcall RtlQueryWnfStateDataWithExplicitScope(
+        ULONG *a1,
+        WNF_STATE_NAME a2,
+        const void *a3,
+        __int64 (__fastcall *a4)(WNF_STATE_NAME, __int64, PCWNF_TYPE_ID, __int64, _BYTE *, ULONG),
         __int64 a5,
-        __int64 a6)
+        PCWNF_TYPE_ID TypeId)
 {
   void *v8; // rsp
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v10; // rdx
-  _BYTE v11[4096]; // [rsp+20h] [rbp-1000h] BYREF
-  unsigned int v12; // [rsp+1020h] [rbp+0h] BYREF
-  _DWORD v13[3]; // [rsp+1024h] [rbp+4h] BYREF
+  _BYTE Buffer[4096]; // [rsp+20h] [rbp-1000h] BYREF
+  ULONG ChangeStamp; // [rsp+1020h] [rbp+0h] BYREF
+  ULONG BufferSize[3]; // [rsp+1024h] [rbp+4h] BYREF
   _BYTE *v14; // [rsp+1030h] [rbp+10h]
-  __int64 v15; // [rsp+1038h] [rbp+18h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+1038h] [rbp+18h] BYREF
 
-  v15 = a2;
-  v12 = 0;
+  StateName = a2;
+  ChangeStamp = 0;
   v8 = alloca(4096LL);
-  v14 = v11;
-  v13[0] = 4096;
-  result = ZwQueryWnfStateData(&v15, a6, a3, &v12, v11, v13);
-  v13[1] = result;
-  if ( (int)result >= 0 )
+  v14 = Buffer;
+  BufferSize[0] = 4096;
+  result = ZwQueryWnfStateData(&StateName, TypeId, a3, &ChangeStamp, Buffer, BufferSize);
+  BufferSize[1] = result;
+  if ( result >= 0 )
   {
-    v10 = v12;
-    *a1 = v12;
-    return a4(v15, v10, a6, a5, v11, v13[0]);
+    v10 = ChangeStamp;
+    *a1 = ChangeStamp;
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD))a4)(
+             StateName,
+             v10,
+             TypeId,
+             a5,
+             Buffer,
+             BufferSize[0]);
   }
   return result;
 }

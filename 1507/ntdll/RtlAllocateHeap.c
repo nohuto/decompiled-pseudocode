@@ -249,11 +249,11 @@
  *     RtlpHpVirtAllocateHeap @ 0x1800EAA94 (RtlpHpVirtAllocateHeap.c)
  */
 
-__int64 __fastcall RtlAllocateHeap(__int64 a1, unsigned int a2, __int64 a3)
+PVOID __cdecl RtlAllocateHeap(PVOID HeapHandle, ULONG Flags, SIZE_T Size)
 {
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    return RtlpHpAllocWithExceptionProtection(a1, a3, a2);
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+    return (PVOID)RtlpHpAllocWithExceptionProtection(HeapHandle, Size, Flags);
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpVirtAllocateHeap(a1, a3, a2);
-  return RtlpAllocateHeapInternal(a1, a3, a2);
+    return (PVOID)RtlpHpVirtAllocateHeap(HeapHandle);
+  return (PVOID)RtlpAllocateHeapInternal(HeapHandle);
 }

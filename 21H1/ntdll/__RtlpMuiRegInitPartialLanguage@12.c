@@ -13,7 +13,7 @@ int __fastcall _RtlpMuiRegInitPartialLanguage(int a1, int a2, _BYTE *a3)
   v4 = 0;
   if ( !a1 || !a2 || !a3 || (*a3 & 2) == 0 )
     return -1073741811;
-  if ( (int)_RtlpMuiRegPopulateBaseLanguages(a3, &v4, a1) < 0 )
+  if ( _RtlpMuiRegPopulateBaseLanguages(a3, &v4, a1) < 0 )
     *(_WORD *)a3 |= 0x1000u;
   if ( !v4 )
     *(_WORD *)a3 |= 0x1000u;

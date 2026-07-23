@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReadCmosTime @ 0x14033BA1C
+ * XREFs of HalpReadCmosTime @ 0x14033BCAC
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033B130 (HalQueryRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x14033B3C0 (HalQueryRealTimeClock.c)
  * Callees:
- *     HalpAcquireCmosSpinLockAndWait @ 0x14033BBD8 (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpAcquireCmosSpinLockAndWait @ 0x14033BE68 (HalpAcquireCmosSpinLockAndWait.c)
  */
 
 __int64 __fastcall HalpReadCmosTime(_WORD *a1)

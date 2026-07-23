@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpQueryDeviceRelations @ 0x140B1A954
+ * XREFs of HalpQueryDeviceRelations @ 0x140B1CC04
  * Callers:
- *     HalpDispatchPnp @ 0x140B1A790 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140B1CA40 (HalpDispatchPnp.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpQueryDeviceRelations(_QWORD *a1, int a2, __int64 *a3)

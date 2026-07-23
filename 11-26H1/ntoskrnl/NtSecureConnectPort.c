@@ -1,52 +1,52 @@
 /*
- * XREFs of NtSecureConnectPort @ 0x1408E5CC0
+ * XREFs of NtSecureConnectPort @ 0x1408EC280
  * Callers:
- *     DifNtSecureConnectPortWrapper @ 0x14068A4D0 (DifNtSecureConnectPortWrapper.c)
- *     NtConnectPort @ 0x1408E5C70 (NtConnectPort.c)
+ *     DifNtSecureConnectPortWrapper @ 0x14068E0B0 (DifNtSecureConnectPortWrapper.c)
+ *     NtConnectPort @ 0x1408EC230 (NtConnectPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     AlpcpLogConnectFail @ 0x1407C1AB0 (AlpcpLogConnectFail.c)
- *     AlpcpLogConnectRequest @ 0x1407C1B24 (AlpcpLogConnectRequest.c)
- *     AlpcpLogConnectSuccess @ 0x1407C1B94 (AlpcpLogConnectSuccess.c)
- *     AlpcpReceiveLegacyConnectionReply @ 0x1408E5AC4 (AlpcpReceiveLegacyConnectionReply.c)
- *     AlpcpFormatConnectionRequest @ 0x1408E7C0C (AlpcpFormatConnectionRequest.c)
- *     AlpcpDispatchConnectionRequest @ 0x1408E8048 (AlpcpDispatchConnectionRequest.c)
- *     SeCaptureSid @ 0x1408E9720 (SeCaptureSid.c)
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
- *     SeReleaseSid @ 0x140A9A0A8 (SeReleaseSid.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     AlpcpLogConnectFail @ 0x1407C4B10 (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x1407C4B84 (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x1407C4BF4 (AlpcpLogConnectSuccess.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x1408EC084 (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpFormatConnectionRequest @ 0x1408EE1CC (AlpcpFormatConnectionRequest.c)
+ *     AlpcpDispatchConnectionRequest @ 0x1408EE608 (AlpcpDispatchConnectionRequest.c)
+ *     SeCaptureSid @ 0x1408EFCE0 (SeCaptureSid.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     SeReleaseSid @ 0x140A9E228 (SeReleaseSid.c)
  */
 
-__int64 __fastcall NtSecureConnectPort(
-        HANDLE *a1,
-        unsigned __int64 a2,
-        _DWORD *a3,
-        __int128 *a4,
-        void *a5,
-        void *a6,
-        unsigned int *a7,
-        volatile void *a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtSecureConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PSID RequiredServerSid,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   __int64 ULong64FromUser; // rax
   int v14; // eax
-  int ClientPort; // edi
-  int v16; // r13d
+  NTSTATUS ClientPort; // edi
+  ULONG v16; // r13d
   void *v17; // r15
   __int64 v18; // rdx
   __int64 v19; // r8
@@ -65,15 +65,15 @@ __int64 __fastcall NtSecureConnectPort(
   __int64 v33; // [rsp+70h] [rbp-178h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-170h] BYREF
   volatile void *Address; // [rsp+88h] [rbp-160h]
-  HANDLE *v36; // [rsp+90h] [rbp-158h]
+  _QWORD *v36; // [rsp+90h] [rbp-158h]
   PVOID Object; // [rsp+98h] [rbp-150h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+A0h] [rbp-148h] BYREF
-  unsigned __int64 v39; // [rsp+A8h] [rbp-140h]
+  __int64 v39; // [rsp+A8h] [rbp-140h]
   void *v40; // [rsp+B0h] [rbp-138h]
   ULONG_PTR v41; // [rsp+B8h] [rbp-130h] BYREF
   unsigned int *v42; // [rsp+C0h] [rbp-128h]
   void *v43; // [rsp+C8h] [rbp-120h]
-  _DWORD *v44; // [rsp+D0h] [rbp-118h]
+  PULONG v44; // [rsp+D0h] [rbp-118h]
   __int128 Src; // [rsp+D8h] [rbp-110h] BYREF
   __int128 v46; // [rsp+E8h] [rbp-100h]
   __int128 v47; // [rsp+F8h] [rbp-F0h]
@@ -86,13 +86,13 @@ __int64 __fastcall NtSecureConnectPort(
   __int64 v54; // [rsp+190h] [rbp-58h] BYREF
   int v55; // [rsp+198h] [rbp-50h]
 
-  v39 = a2;
-  v36 = a1;
-  v40 = a5;
-  v43 = a6;
-  v42 = a7;
-  Address = a8;
-  v44 = a9;
+  v39 = (__int64)PortName;
+  v36 = PortHandle;
+  v40 = RequiredServerSid;
+  v43 = ServerView;
+  v42 = MaxMessageLength;
+  Address = ConnectionInformation;
+  v44 = ConnectionInformationLength;
   Object = 0LL;
   memset_0(v52, 0, 0x40uLL);
   Handle = 0LL;
@@ -113,70 +113,70 @@ __int64 __fastcall NtSecureConnectPort(
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode )
   {
-    if ( a9 )
+    if ( ConnectionInformationLength )
     {
-      v16 = *a9;
-      ULongFromUser = *a9;
+      v16 = *ConnectionInformationLength;
+      ULongFromUser = *ConnectionInformationLength;
     }
     else
     {
       LOWORD(v16) = ULongFromUser;
     }
-    if ( a4 )
+    if ( ClientView )
     {
-      Src = *a4;
-      v46 = a4[1];
-      v47 = a4[2];
+      Src = *(_OWORD *)&ClientView->Length;
+      v46 = *(_OWORD *)&ClientView->SectionOffset;
+      v47 = *(_OWORD *)&ClientView->ViewBase;
     }
-    if ( a3 )
+    if ( SecurityQos )
     {
-      v54 = *(_QWORD *)a3;
-      v55 = a3[2];
+      v54 = *(_QWORD *)&SecurityQos->Length;
+      v55 = *(_DWORD *)&SecurityQos->ContextTrackingMode;
     }
-    v33 = (__int64)a5;
+    v33 = (__int64)RequiredServerSid;
     goto LABEL_20;
   }
   ULong64FromUser = RtlReadULong64FromUser(v36);
   RtlWriteULong64ToUser(v36, ULong64FromUser);
-  if ( a9 )
+  if ( ConnectionInformationLength )
   {
-    ULongFromUser = RtlReadULongFromUser(a9);
+    ULongFromUser = RtlReadULongFromUser(ConnectionInformationLength);
     ProbeForWrite(Address, ULongFromUser, 1u);
   }
-  if ( a4 )
+  if ( ClientView )
   {
-    RtlCopyFromUser(&Src, a4, 0x30uLL);
+    RtlCopyFromUser(&Src, ClientView, 0x30uLL);
     if ( (_DWORD)Src != 48 )
     {
       ClientPort = -1073741811;
       v32 = -1073741811;
       goto LABEL_53;
     }
-    ProbeForWrite(a4, 0x30uLL, 4u);
+    ProbeForWrite(ClientView, 0x30uLL, 4u);
   }
-  if ( a6 )
+  if ( ServerView )
   {
-    if ( (unsigned int)RtlReadULongFromUser((unsigned int *)a6) != 24 )
+    if ( (unsigned int)RtlReadULongFromUser(&ServerView->Length) != 24 )
     {
       ClientPort = -1073741811;
       v32 = -1073741811;
       goto LABEL_53;
     }
-    ProbeForWrite(a6, 0x18uLL, 4u);
+    ProbeForWrite(ServerView, 0x18uLL, 4u);
   }
   if ( v42 )
   {
     v14 = RtlReadULongFromUser(v42);
     RtlWriteULongToUser(v42, v14);
   }
-  if ( a3 )
-    RtlCopyFromUser(&v54, a3, 0xCuLL);
+  if ( SecurityQos )
+    RtlCopyFromUser(&v54, SecurityQos, 0xCuLL);
   v33 = (__int64)v40;
   if ( !v40 || (ClientPort = SeCaptureSid(v40, v27, 1, (__int64)&v33), v32 = ClientPort, ClientPort >= 0) )
   {
     LOWORD(v16) = ULongFromUser;
 LABEL_20:
-    v29 = (unsigned __int64)&v54 & -(__int64)(a3 != 0LL);
+    v29 = (unsigned __int64)&v54 & -(__int64)(SecurityQos != 0LL);
     v17 = (void *)v33;
     ClientPort = AlpcpCreateClientPort(
                    (unsigned int)&Handle,
@@ -199,7 +199,7 @@ LABEL_20:
     if ( ClientPort >= 0 )
     {
       LOWORD(v50[0]) = v16;
-      v39 = (unsigned __int64)&Src & -(__int64)(a4 != 0LL);
+      v39 = (unsigned __int64)&Src & -(__int64)(ClientView != 0LL);
       LOBYTE(v30) = PreviousMode;
       LOBYTE(v28) = 1;
       v20 = Object;
@@ -218,7 +218,7 @@ LABEL_20:
       {
         v21 = v41;
         LODWORD(v33) = *(_DWORD *)(v41 + 264);
-        if ( BYTE4(stru_140E66B30.StackBase) )
+        if ( LOBYTE(stru_140E66D40.CycleTime) )
           AlpcpLogConnectRequest(v41);
         v52[0] = (__int64)v20;
         v52[1] = v21;
@@ -227,7 +227,7 @@ LABEL_20:
         ClientPort = v22;
         if ( v22 < 0 )
         {
-          if ( BYTE4(stru_140E66B30.StackBase) )
+          if ( LOBYTE(stru_140E66D40.CycleTime) )
             AlpcpLogConnectFail(v33, v22);
           AlpcpUnlockMessage(v21);
         }
@@ -244,23 +244,23 @@ LABEL_20:
           ClientPort = v24;
           if ( v24 )
           {
-            if ( BYTE4(stru_140E66B30.StackBase) )
+            if ( LOBYTE(stru_140E66D40.CycleTime) )
               AlpcpLogConnectFail(v33, v24);
           }
           else
           {
-            if ( BYTE4(stru_140E66B30.StackBase) )
+            if ( LOBYTE(stru_140E66D40.CycleTime) )
               AlpcpLogConnectSuccess(v33);
             if ( PreviousMode )
               RtlWriteULong64ToUser(v36, (__int64)Handle);
             else
               *v36 = Handle;
-            if ( a4 )
+            if ( ClientView )
             {
               if ( PreviousMode )
-                RtlCopyToUser(a4, &Src, 0x30uLL);
+                RtlCopyToUser(ClientView, &Src, 0x30uLL);
               else
-                RtlCopyVolatileMemory(a4, &Src, 0x30uLL);
+                RtlCopyVolatileMemory(ClientView, &Src, 0x30uLL);
             }
             if ( v23 )
             {
@@ -296,5 +296,5 @@ LABEL_20:
   }
 LABEL_53:
   KeLeaveCriticalRegion();
-  return (unsigned int)ClientPort;
+  return ClientPort;
 }

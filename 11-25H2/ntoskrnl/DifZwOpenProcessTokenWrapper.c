@@ -11,7 +11,7 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwOpenProcessTokenWrapper(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall DifZwOpenProcessTokenWrapper(HANDLE ProcessHandle, ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v7; // rsi
@@ -43,9 +43,9 @@ __int64 __fastcall DifZwOpenProcessTokenWrapper(__int64 a1, unsigned int a2, __i
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v9 = 0;
-    *((_QWORD *)&v16 + 1) = a1;
-    LODWORD(v16) = a2;
-    *((_QWORD *)&v15 + 1) = a3;
+    *((_QWORD *)&v16 + 1) = ProcessHandle;
+    LODWORD(v16) = DesiredAccess;
+    *((_QWORD *)&v15 + 1) = TokenHandle;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v9 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -58,7 +58,7 @@ __int64 __fastcall DifZwOpenProcessTokenWrapper(__int64 a1, unsigned int a2, __i
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v17) = ZwOpenProcessToken(a1, a2, a3);
+  LODWORD(v17) = ZwOpenProcessToken(ProcessHandle, DesiredAccess, TokenHandle);
   if ( v7 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

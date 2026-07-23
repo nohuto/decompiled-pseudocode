@@ -1,49 +1,49 @@
 /*
- * XREFs of NtSetInformationFile @ 0x140352270
+ * XREFs of NtSetInformationFile @ 0x14035CFC0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
- *     IopUpdateOtherOperationCount @ 0x14022BCB0 (IopUpdateOtherOperationCount.c)
- *     IopVerifierExAllocatePoolWithQuota @ 0x14022BCD0 (IopVerifierExAllocatePoolWithQuota.c)
- *     IopCallDriverReference @ 0x14022BD00 (IopCallDriverReference.c)
- *     KeSetKernelStackSwapEnable @ 0x14022C190 (KeSetKernelStackSwapEnable.c)
- *     IopAllocateFileObjectExtension @ 0x14022C1D0 (IopAllocateFileObjectExtension.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopWaitForSynchronousIo @ 0x1402D41CC (IopWaitForSynchronousIo.c)
- *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IopReferenceFileObject @ 0x140348A20 (IopReferenceFileObject.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
- *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     IopResetEvent @ 0x140351DE0 (IopResetEvent.c)
- *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopReplaceCompletionPort @ 0x14038D12C (IopReplaceCompletionPort.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x140236060 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopWaitForSynchronousIo @ 0x140272EA4 (IopWaitForSynchronousIo.c)
+ *     KeReleaseSpinLock @ 0x1402CE500 (KeReleaseSpinLock.c)
+ *     IopUpdateOtherOperationCount @ 0x1402D0560 (IopUpdateOtherOperationCount.c)
+ *     IopCallDriverReference @ 0x1402D0580 (IopCallDriverReference.c)
+ *     KeSetKernelStackSwapEnable @ 0x1402D0A10 (KeSetKernelStackSwapEnable.c)
+ *     IopAllocateFileObjectExtension @ 0x1402D0A50 (IopAllocateFileObjectExtension.c)
+ *     IopCompleteRequest @ 0x14034D870 (IopCompleteRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IopReferenceFileObject @ 0x140353770 (IopReferenceFileObject.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x140355FE0 (IopQueueThreadIrp.c)
+ *     IopReleaseFileObjectLock @ 0x1403584A0 (IopReleaseFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     IopResetEvent @ 0x14035CB30 (IopResetEvent.c)
+ *     IoGetAttachedDevice @ 0x14035E490 (IoGetAttachedDevice.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopReplaceCompletionPort @ 0x14038D27C (IopReplaceCompletionPort.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
- *     IopOpenLinkOrRenameTarget @ 0x1406089A8 (IopOpenLinkOrRenameTarget.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
- *     IopTrackLink @ 0x1406809F0 (IopTrackLink.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     IopAllocateIrpCleanup @ 0x140890E54 (IopAllocateIrpCleanup.c)
- *     IopCancelAlertedRequest @ 0x14089108C (IopCancelAlertedRequest.c)
- *     IopSetFileObjectIosbRange @ 0x140892814 (IopSetFileObjectIosbRange.c)
- *     IopSetFileMemoryPartitionInformation @ 0x1408942EC (IopSetFileMemoryPartitionInformation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IopTrackLink @ 0x1405DBA34 (IopTrackLink.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x14064CA80 (SeCaptureSubjectContextEx.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     IopOpenLinkOrRenameTarget @ 0x140698458 (IopOpenLinkOrRenameTarget.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     RtlIsSandboxedToken @ 0x14071C8A0 (RtlIsSandboxedToken.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     IopAllocateIrpCleanup @ 0x140890FB4 (IopAllocateIrpCleanup.c)
+ *     IopCancelAlertedRequest @ 0x1408911EC (IopCancelAlertedRequest.c)
+ *     IopSetFileObjectIosbRange @ 0x140892974 (IopSetFileObjectIosbRange.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14089444C (IopSetFileMemoryPartitionInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtSetInformationFile(
@@ -75,7 +75,7 @@ NTSTATUS __stdcall NtSetInformationFile(
   _DWORD *v25; // r9
   struct _KTHREAD *v26; // rax
   __int64 v27; // rbx
-  __int64 v28; // r9
+  PRTL_BALANCED_NODE v28; // r9
   struct _DMA_ADAPTER *v29; // rcx
   __int64 v30; // rax
   int SectorSize; // ecx
@@ -88,7 +88,7 @@ NTSTATUS __stdcall NtSetInformationFile(
   PIO_STATUS_BLOCK v38; // rax
   struct _KEVENT *v39; // rcx
   __int64 v40; // rax
-  struct _IRP *PoolWithQuota; // rax
+  struct _IRP *PoolWithQuota_0; // rax
   __int64 v42; // rbx
   struct _IRP *MasterIrp; // r8
   int v44; // edx
@@ -271,7 +271,7 @@ LABEL_36:
     else
     {
       if ( v28 )
-        *(_BYTE *)(v28 + 26) |= 1u;
+        BYTE2(v28[1].Left) |= 1u;
       v19 = *(_QWORD *)&DmaAdapter[1];
       ObfReferenceObject(*(PVOID *)&DmaAdapter[1]);
       v18 = 0;
@@ -368,12 +368,12 @@ LABEL_204:
     *(_QWORD *)(v40 + 48) = v19;
     v37->AssociatedIrp.MasterIrp = 0LL;
     v37->MdlAddress = 0LL;
-    PoolWithQuota = (struct _IRP *)IopVerifierExAllocatePoolWithQuota(0LL, v5);
-    v89 = (struct _KTHREAD *)PoolWithQuota;
-    v37->AssociatedIrp.MasterIrp = PoolWithQuota;
-    memmove(PoolWithQuota, FileInformation, v5);
+    PoolWithQuota_0 = (struct _IRP *)IopVerifierExAllocatePoolWithQuota_0(0LL, v5);
+    v89 = (struct _KTHREAD *)PoolWithQuota_0;
+    v37->AssociatedIrp.MasterIrp = PoolWithQuota_0;
+    memmove(PoolWithQuota_0, FileInformation, v5);
     if ( ((unsigned int)(v9 - 19) <= 1 || v9 == FilePositionInformation) && v89->Header.SignalState < 0 )
-      RtlRaiseStatus(0xC000000D);
+      RtlRaiseStatus(-1073741811);
     v37->Flags |= 0x830u;
     v42 = v86;
     *(_DWORD *)(v86 + 8) = v5;

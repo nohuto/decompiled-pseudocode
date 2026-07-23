@@ -9,7 +9,7 @@
  *     RtlDelete @ 0x140104040 (RtlDelete.c)
  */
 
-__int64 __fastcall FsRtlRemoveNodeFromTunnel(__int64 a1, struct _RTL_SPLAY_LINKS *a2, __int64 a3, _BYTE *a4)
+__int64 __fastcall FsRtlRemoveNodeFromTunnel(__int64 a1, _RTL_SPLAY_LINKS *a2, __int64 a3, _BYTE *a4)
 {
   _RTL_SPLAY_LINKS *Parent; // rcx
   _RTL_SPLAY_LINKS *LeftChild; // rdx

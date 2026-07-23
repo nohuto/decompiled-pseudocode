@@ -1,10 +1,10 @@
 /*
- * XREFs of PopTraceEsState @ 0x14059541C
+ * XREFs of PopTraceEsState @ 0x14059590C
  * Callers:
- *     PopEsSnapTelemetry @ 0x140998498 (PopEsSnapTelemetry.c)
+ *     PopEsSnapTelemetry @ 0x140998698 (PopEsSnapTelemetry.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopTraceEsState(__int64 a1, __int64 a2, int a3)
@@ -81,7 +81,7 @@ NTSTATUS __fastcall PopTraceEsState(__int64 a1, __int64 a2, int a3)
     v35 = 8;
     return tlgWriteTransfer_EtwWriteTransfer(
              (__int64)&dword_140C03950,
-             (unsigned __int8 *)byte_14002F613,
+             (unsigned __int8 *)byte_14002F21D,
              0LL,
              0LL,
              0xAu,

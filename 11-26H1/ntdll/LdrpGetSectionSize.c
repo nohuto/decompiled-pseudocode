@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpGetSectionSize @ 0x1800AAE2C
+ * XREFs of LdrpGetSectionSize @ 0x1800A9F5C
  * Callers:
- *     LdrpResSearchResourceInsideDirectory @ 0x1800A8A50 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1800A7B80 (LdrpResSearchResourceInsideDirectory.c)
  * Callees:
  *     <none>
  */

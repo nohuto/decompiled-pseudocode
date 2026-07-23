@@ -1,19 +1,19 @@
 /*
- * XREFs of KeQueryValuesThread @ 0x1403E27B0
+ * XREFs of KeQueryValuesThread @ 0x1403CAE20
  * Callers:
- *     PsQueryStatisticsProcess @ 0x1408EC910 (PsQueryStatisticsProcess.c)
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     PsQueryStatisticsProcess @ 0x14085E140 (PsQueryStatisticsProcess.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiReleaseThreadStateLock @ 0x1403B27B0 (KiReleaseThreadStateLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiReleaseThreadStateLock @ 0x1403A0FC0 (KiReleaseThreadStateLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeQueryValuesThread(__int64 a1, __int64 a2)

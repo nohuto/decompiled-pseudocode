@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlpRegisterStackTrace @ 0x1800EC194
+ * XREFs of RtlpRegisterStackTrace @ 0x1800EB364
  * Callers:
- *     RtlpStackTraceDatabaseLogPrefix @ 0x1800EC0E0 (RtlpStackTraceDatabaseLogPrefix.c)
+ *     RtlpStackTraceDatabaseLogPrefix @ 0x1800EB2B0 (RtlpStackTraceDatabaseLogPrefix.c)
  * Callees:
- *     RtlExtendMemoryZone @ 0x1800EC380 (RtlExtendMemoryZone.c)
- *     RtlpInitializeStackTraceLog @ 0x180122340 (RtlpInitializeStackTraceLog.c)
- *     RtlpInterlockedPushEntrySList @ 0x180162D10 (RtlpInterlockedPushEntrySList.c)
- *     RtlCompareMemory @ 0x1801631E0 (RtlCompareMemory.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     RtlAllocateMemoryBlockLookaside @ 0x18016E010 (RtlAllocateMemoryBlockLookaside.c)
+ *     RtlExtendMemoryZone @ 0x1800EB550 (RtlExtendMemoryZone.c)
+ *     RtlpInitializeStackTraceLog @ 0x1801220E0 (RtlpInitializeStackTraceLog.c)
+ *     RtlpInterlockedPushEntrySList @ 0x180162C10 (RtlpInterlockedPushEntrySList.c)
+ *     RtlCompareMemory @ 0x1801630E0 (RtlCompareMemory.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     RtlAllocateMemoryBlockLookaside @ 0x18016D010 (RtlAllocateMemoryBlockLookaside.c)
  */
 
-_DWORD *__fastcall RtlpRegisterStackTrace(unsigned int a1, const void *a2, unsigned int a3)
+void **__fastcall RtlpRegisterStackTrace(unsigned int a1, const void *a2, unsigned int a3)
 {
   __int64 v3; // r9
   __int64 v5; // rsi
-  signed __int64 *v7; // r14
+  __int64 v7; // r14
   _DWORD *v8; // rdi
   __int64 v10; // rdi
-  signed __int64 v11; // rbp
-  _QWORD *v12; // rbx
-  _QWORD *v13; // rax
-  signed __int64 v14; // r8
-  signed __int64 v15; // r12
-  signed __int64 v16; // rcx
-  signed __int64 v17; // rdx
-  signed __int64 v18; // rbx
-  signed __int64 v19; // [rsp+68h] [rbp+20h] BYREF
+  void **v11; // rbp
+  void **v12; // rbx
+  void **v13; // rax
+  void **v14; // r8
+  void **v15; // r12
+  void **v16; // rcx
+  void **v17; // rdx
+  _DWORD *v18; // rbx
+  PVOID Block; // [rsp+68h] [rbp+20h] BYREF
 
   v3 = RtlpHeapStackTraceLog;
   v5 = a1;
@@ -34,55 +34,58 @@ _DWORD *__fastcall RtlpRegisterStackTrace(unsigned int a1, const void *a2, unsig
   {
     if ( (_DWORD)v5 )
     {
-      v7 = (signed __int64 *)(v3 + 16 * (a3 % 0x191 + 1LL));
-      v8 = (_DWORD *)v7[1];
+      v7 = v3 + 16 * (a3 % 0x191 + 1LL);
+      v8 = *(_DWORD **)(v7 + 8);
       if ( v8 && v8[2] == a3 && v8[3] == (_DWORD)v5 && RtlCompareMemory(a2, v8 + 4, 8 * v5) == 8 * v5 )
-        return v8;
+        return (void **)v8;
       v10 = 8 * v5;
       while ( 1 )
       {
-        v11 = *v7;
-        v12 = (_QWORD *)v11;
-        v13 = (_QWORD *)*v7;
-        v19 = *v7;
+        v11 = *(void ***)v7;
+        v12 = v11;
+        v13 = *(void ***)v7;
+        Block = *(PVOID *)v7;
         v14 = v11;
         v15 = v11;
         v16 = v11;
         v17 = v11;
         while ( v13 )
         {
-          if ( *(_DWORD *)(v16 + 8) == a3
-            && *(_DWORD *)(v17 + 12) == (_DWORD)v5
-            && RtlCompareMemory(a2, (const void *)(v14 + 16), 8 * v5) == v10 )
+          if ( *((_DWORD *)v16 + 2) == a3
+            && *((_DWORD *)v17 + 3) == (_DWORD)v5
+            && RtlCompareMemory(a2, v14 + 2, 8 * v5) == v10 )
           {
-            v7[1] = (signed __int64)v12;
-            return (_DWORD *)v15;
+            *(_QWORD *)(v7 + 8) = v12;
+            return v15;
           }
-          v13 = (_QWORD *)*v12;
+          v13 = (void **)*v12;
           v12 = v13;
-          v19 = (signed __int64)v13;
-          v14 = (signed __int64)v13;
-          v15 = (signed __int64)v13;
-          v16 = (signed __int64)v13;
-          v17 = (signed __int64)v13;
+          Block = v13;
+          v14 = v13;
+          v15 = v13;
+          v16 = v13;
+          v17 = v13;
         }
-        if ( (int)RtlAllocateMemoryBlockLookaside(*(_QWORD *)RtlpHeapStackTraceLog, v10 + 16, &v19) < 0
-          && ((int)RtlExtendMemoryZone(*(_QWORD *)(*(_QWORD *)RtlpHeapStackTraceLog + 16LL)) < 0
-           || (int)RtlAllocateMemoryBlockLookaside(*(_QWORD *)RtlpHeapStackTraceLog, v10 + 16, &v19) < 0) )
+        if ( RtlAllocateMemoryBlockLookaside(*(PVOID *)RtlpHeapStackTraceLog, v10 + 16, &Block) < 0
+          && ((int)RtlExtendMemoryZone(*(_QWORD *)(*(_QWORD *)RtlpHeapStackTraceLog + 16LL), 0x10000LL) < 0
+           || RtlAllocateMemoryBlockLookaside(*(PVOID *)RtlpHeapStackTraceLog, v10 + 16, &Block) < 0) )
         {
           break;
         }
-        v18 = v19;
-        *(_DWORD *)(v19 + 8) = a3;
-        *(_DWORD *)(v18 + 12) = v5;
+        v18 = Block;
+        *((_DWORD *)Block + 2) = a3;
+        v18[3] = v5;
         *(_QWORD *)v18 = v11;
-        memmove((void *)(v18 + 16), a2, 8 * v5);
-        if ( v11 == _InterlockedCompareExchange64(v7, v18, v11) )
+        memmove(v18 + 4, a2, 8 * v5);
+        if ( v11 == (void **)_InterlockedCompareExchange64(
+                               (volatile signed __int64 *)v7,
+                               (signed __int64)v18,
+                               (signed __int64)v11) )
         {
           _InterlockedIncrement((volatile signed __int32 *)(RtlpHeapStackTraceLog + 8));
-          return (_DWORD *)v18;
+          return (void **)v18;
         }
-        RtlpInterlockedPushEntrySList(*(_QWORD *)(v18 - 16), v18 - 48);
+        RtlpInterlockedPushEntrySList(*((_QWORD *)v18 - 2), v18 - 12);
       }
     }
   }

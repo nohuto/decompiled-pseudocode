@@ -1,22 +1,22 @@
 /*
- * XREFs of KeReleaseMutant @ 0x1400F6E00
+ * XREFs of KeReleaseMutant @ 0x1400F4C40
  * Callers:
- *     ExpDeleteMutant @ 0x1400F6DF0 (ExpDeleteMutant.c)
- *     NtSignalAndWaitForSingleObject @ 0x1401FEA5C (NtSignalAndWaitForSingleObject.c)
- *     MmReleaseLoadLock @ 0x140483400 (MmReleaseLoadLock.c)
- *     NtReleaseMutant @ 0x14051A1A0 (NtReleaseMutant.c)
+ *     ExpDeleteMutant @ 0x1400F4C30 (ExpDeleteMutant.c)
+ *     NtSignalAndWaitForSingleObject @ 0x1401FE888 (NtSignalAndWaitForSingleObject.c)
+ *     MmReleaseLoadLock @ 0x140482154 (MmReleaseLoadLock.c)
+ *     NtReleaseMutant @ 0x1404FD590 (NtReleaseMutant.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x140057DA0 (KiTryUnwaitThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1400F709C (KiAcquireReleaseObjectRundownLockExclusive.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x140057920 (KiTryUnwaitThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1400F4EDC (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  */
 
 LONG __stdcall KeReleaseMutant(PRKMUTANT Mutant, KPRIORITY Increment, BOOLEAN Abandoned, BOOLEAN Wait)

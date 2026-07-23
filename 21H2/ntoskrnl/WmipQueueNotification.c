@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipQueueNotification @ 0x140755654
+ * XREFs of WmipQueueNotification @ 0x140755814
  * Callers:
- *     WmipWriteWnodeToObject @ 0x1403713C4 (WmipWriteWnodeToObject.c)
+ *     WmipWriteWnodeToObject @ 0x140370F14 (WmipWriteWnodeToObject.c)
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQueueNotification(struct _KEVENT *a1, char **a2, unsigned int *a3)

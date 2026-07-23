@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlSparseArrayElementAllocate @ 0x1403512D8
+ * XREFs of RtlSparseArrayElementAllocate @ 0x140353358
  * Callers:
- *     RtlpHpVaMgrRangeCreate @ 0x1403511E8 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x140353268 (RtlpHpVaMgrRangeCreate.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     RtlpCSparseBitmapPageCommit @ 0x1403513A4 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpCSparseBitmapUnlock @ 0x140351A4C (RtlpCSparseBitmapUnlock.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140353424 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapUnlock @ 0x140353ACC (RtlpCSparseBitmapUnlock.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void *__fastcall RtlSparseArrayElementAllocate(__int64 a1, __int64 a2, const void *a3)

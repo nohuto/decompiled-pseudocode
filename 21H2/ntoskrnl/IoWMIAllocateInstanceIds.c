@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMIAllocateInstanceIds @ 0x140930D30
+ * XREFs of IoWMIAllocateInstanceIds @ 0x140930E90
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMIAllocateInstanceIds(LPCGUID Guid, ULONG InstanceCount, ULONG *FirstInstanceId)

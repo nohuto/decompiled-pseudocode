@@ -1,10 +1,10 @@
 /*
- * XREFs of KeEnterCriticalRegionThread @ 0x14008FB40
+ * XREFs of KeEnterCriticalRegionThread @ 0x14008FA60
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

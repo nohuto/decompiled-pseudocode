@@ -16,7 +16,7 @@ __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)
   __int128 v6; // [rsp+40h] [rbp-30h]
   __int128 v7; // [rsp+50h] [rbp-20h]
   __int128 v8; // [rsp+60h] [rbp-10h]
-  enum _NT_PRODUCT_TYPE ProductType; // [rsp+80h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE ProductType; // [rsp+80h] [rbp+10h] BYREF
 
   v2 = VerifierTriageActionTaken;
   *(_QWORD *)&v4 = 0x5000000001LL;

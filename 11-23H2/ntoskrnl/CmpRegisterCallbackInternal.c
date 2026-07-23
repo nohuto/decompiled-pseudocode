@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpRegisterCallbackInternal @ 0x140850D1C
+ * XREFs of CmpRegisterCallbackInternal @ 0x14085101C
  * Callers:
- *     CmRegisterCallbackEx @ 0x140850C50 (CmRegisterCallbackEx.c)
- *     CmRegisterInternalCallback @ 0x140850C9C (CmRegisterInternalCallback.c)
- *     CmRegisterCallback @ 0x140850CF0 (CmRegisterCallback.c)
+ *     CmRegisterCallbackEx @ 0x140850F50 (CmRegisterCallbackEx.c)
+ *     CmRegisterInternalCallback @ 0x140850F9C (CmRegisterInternalCallback.c)
+ *     CmRegisterCallback @ 0x140850FF0 (CmRegisterCallback.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     CmpInsertCallbackInListByAltitude @ 0x140850E2C (CmpInsertCallbackInListByAltitude.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14085112C (CmpInsertCallbackInListByAltitude.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

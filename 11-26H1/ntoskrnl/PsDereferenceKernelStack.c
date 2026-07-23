@@ -1,9 +1,9 @@
 /*
- * XREFs of PsDereferenceKernelStack @ 0x140B29F50
+ * XREFs of PsDereferenceKernelStack @ 0x140B2BFD0
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x1404107D8 (KeEnumerateKernelStackSegments.c)
+ *     KeEnumerateKernelStackSegments @ 0x14040FEF8 (KeEnumerateKernelStackSegments.c)
  */
 
 __int64 __fastcall PsDereferenceKernelStack(__int64 a1)

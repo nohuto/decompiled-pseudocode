@@ -3,8 +3,8 @@
  * Callers:
  *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
  *     PspApplyJobChainLimitsToProcess @ 0x1406A6FC4 (PspApplyJobChainLimitsToProcess.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     PspAssociateCompletionPortCallback @ 0x1409B2050 (PspAssociateCompletionPortCallback.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     PspAssociateCompletionPortCallback @ 0x1409B2250 (PspAssociateCompletionPortCallback.c)
  * Callees:
  *     <none>
  */

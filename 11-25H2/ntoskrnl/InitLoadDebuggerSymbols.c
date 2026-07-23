@@ -14,22 +14,22 @@
 __int64 __fastcall InitLoadDebuggerSymbols(__int64 a1, __int64 *a2)
 {
   bool v2; // cc
-  char *v4; // r8
+  CHAR *v4; // r8
   unsigned int v5; // r9d
   __int64 v6; // rdx
-  char v7; // al
+  CHAR v7; // al
   __int64 v9; // rax
   unsigned __int16 *v10; // rdx
   __int64 v11; // rcx
   NTSTATUS v12; // eax
   STRING DestinationString; // [rsp+30h] [rbp-128h] BYREF
-  char SourceString[256]; // [rsp+40h] [rbp-118h] BYREF
+  CHAR SourceString[256]; // [rsp+40h] [rbp-118h] BYREF
 
   v2 = ++*((_DWORD *)a2 + 2) <= 3u;
   DestinationString = 0LL;
   if ( !v2 )
   {
-    v4 = *(char **)(a1 + 80);
+    v4 = *(CHAR **)(a1 + 80);
     if ( *(_WORD *)v4 == 92 )
     {
       v5 = *(unsigned __int16 *)(a1 + 72) >> 1;

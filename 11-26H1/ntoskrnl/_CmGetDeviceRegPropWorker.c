@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetDeviceRegPropWorker @ 0x1409963B0
+ * XREFs of _CmGetDeviceRegPropWorker @ 0x140956E10
  * Callers:
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     _MapCmDevicePropertyToRegType @ 0x1404A4638 (_MapCmDevicePropertyToRegType.c)
- *     RtlStringCbCopyNExW @ 0x1404B655C (RtlStringCbCopyNExW.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _CmGetInstallerClassRegProp @ 0x140918E5C (_CmGetInstallerClassRegProp.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     _MapCmDevicePropertyToRegType @ 0x14049DCC8 (_MapCmDevicePropertyToRegType.c)
+ *     RtlStringCbCopyNExW @ 0x1404AF9AC (RtlStringCbCopyNExW.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _CmGetInstallerClassRegProp @ 0x1409738BC (_CmGetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall CmGetDeviceRegPropWorker(
@@ -323,7 +323,7 @@ LABEL_24:
   {
     v40 = 0;
     *a7 = cbDest;
-    ObjectProperty = CmGetInstallerClassRegProp(a1, (__int64)v39, 0LL, 8, (__int64)a5, (__int64)v14, (__int64)a7);
+    ObjectProperty = CmGetInstallerClassRegProp(a1, (unsigned int)v39, 0, 8, (__int64)a5, (__int64)v14, (__int64)a7);
     inited = ObjectProperty;
     goto LABEL_23;
   }

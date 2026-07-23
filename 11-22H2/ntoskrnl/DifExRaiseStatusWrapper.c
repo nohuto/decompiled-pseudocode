@@ -9,7 +9,7 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-void __fastcall __noreturn DifExRaiseStatusWrapper(int a1)
+void __fastcall __noreturn DifExRaiseStatusWrapper(NTSTATUS Status)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -55,12 +55,12 @@ LABEL_8:
   *(_QWORD *)&v12 = 0LL;
 LABEL_10:
   v10 = v7 + 4;
-  DWORD2(v12) = a1;
+  DWORD2(v12) = Status;
   for ( i = (_QWORD *)v7[4]; i != v10; i = (_QWORD *)*i )
   {
     if ( i != (_QWORD *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v12);
   }
 LABEL_17:
-  RtlRaiseStatus(a1);
+  RtlRaiseStatus(Status);
 }

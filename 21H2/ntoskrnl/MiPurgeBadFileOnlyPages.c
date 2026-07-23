@@ -1,25 +1,25 @@
 /*
- * XREFs of MiPurgeBadFileOnlyPages @ 0x1405418F0
+ * XREFs of MiPurgeBadFileOnlyPages @ 0x140541B30
  * Callers:
- *     MiDeleteExtentPfns @ 0x140540780 (MiDeleteExtentPfns.c)
+ *     MiDeleteExtentPfns @ 0x1405409C0 (MiDeleteExtentPfns.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiRemoveLockedPageCharge @ 0x14023AEB0 (MiRemoveLockedPageCharge.c)
- *     MiSetPfnTbFlushStamp @ 0x140240160 (MiSetPfnTbFlushStamp.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiDecrementSubsection @ 0x1402EE404 (MiDecrementSubsection.c)
- *     MiPreventControlAreaDeletion @ 0x1402EE728 (MiPreventControlAreaDeletion.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
- *     MiPfnReferenceCountIsZero @ 0x140325DF0 (MiPfnReferenceCountIsZero.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
- *     MiDecrementModifiedWriteCount @ 0x140357408 (MiDecrementModifiedWriteCount.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiRemoveLockedPageCharge @ 0x1402DF700 (MiRemoveLockedPageCharge.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E49B0 (MiSetPfnTbFlushStamp.c)
+ *     MiDecrementSubsection @ 0x1402F9150 (MiDecrementSubsection.c)
+ *     MiPreventControlAreaDeletion @ 0x1402F9478 (MiPreventControlAreaDeletion.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
+ *     MiPfnReferenceCountIsZero @ 0x140330B40 (MiPfnReferenceCountIsZero.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     MiReleaseControlAreaWaiters @ 0x140361FD4 (MiReleaseControlAreaWaiters.c)
+ *     MiDecrementModifiedWriteCount @ 0x140362158 (MiDecrementModifiedWriteCount.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPurgeFileOnlyPfn @ 0x140541D74 (MiPurgeFileOnlyPfn.c)
- *     MiUnlinkPageFromBadList @ 0x14054F540 (MiUnlinkPageFromBadList.c)
+ *     MiPurgeFileOnlyPfn @ 0x140541FB4 (MiPurgeFileOnlyPfn.c)
+ *     MiUnlinkPageFromBadList @ 0x14054F780 (MiUnlinkPageFromBadList.c)
  */
 
 __int64 MiPurgeBadFileOnlyPages()
@@ -81,12 +81,12 @@ __int64 MiPurgeBadFileOnlyPages()
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
-      LockHandle.LockQueue.Lock = qword_140C51DA0;
+      LockHandle.LockQueue.Lock = qword_140C51DE0;
       LockHandle.LockQueue.Next = 0LL;
-      KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_140C51DA0);
-      v2 = qword_140C4CAD0;
-      byte_140C4CB32 = 0;
-      if ( qword_140C4CAD0 == 0xFFFFFFFFFLL )
+      KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_140C51DE0);
+      v2 = qword_140C4CB10;
+      byte_140C4CB72 = 0;
+      if ( qword_140C4CB10 == 0xFFFFFFFFFLL )
       {
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
         if ( !KiIrqlFlags )
@@ -102,7 +102,7 @@ __int64 MiPurgeBadFileOnlyPages()
         v34 = v33[5];
         goto LABEL_63;
       }
-      v3 = 48 * qword_140C4CAD0 - 0x58000000000LL;
+      v3 = 48 * qword_140C4CB10 - 0x58000000000LL;
       if ( !_interlockedbittestandset64((volatile signed __int32 *)(v3 + 24), 0x3FuLL) )
         break;
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -125,7 +125,7 @@ __int64 MiPurgeBadFileOnlyPages()
       }
       __writecr8(CurrentIrql);
     }
-    v9 = qword_140C4CAC0;
+    v9 = qword_140C4CB00;
     MiUnlinkPageFromBadList(48 * v2 - 0x58000000000LL, 128LL);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     MiAddLockedPageCharge(48 * v2 - 0x58000000000LL, 1);
@@ -156,7 +156,7 @@ __int64 MiPurgeBadFileOnlyPages()
     if ( v13 )
     {
       if ( v40 )
-        MiReleaseControlAreaWaiters(v40, v10, v11, v12);
+        MiReleaseControlAreaWaiters(v40);
       MiPurgeFileOnlyPfn(48 * v2 - 0x58000000000LL);
       if ( BugCheckParameter2 )
         MiDecrementSubsection((__int64 *)BugCheckParameter2);
@@ -190,7 +190,7 @@ __int64 MiPurgeBadFileOnlyPages()
       }
       __writecr8(v18);
       if ( v21 )
-        MiReleaseControlAreaWaiters(v21, v10, v11, v12);
+        MiReleaseControlAreaWaiters(v21);
     }
     v25 = (unsigned __int8)MiLockPageInline(48 * v2 - 0x58000000000LL, v10, v11, v12);
     if ( (unsigned int)MiRemoveLockedPageCharge(48 * v2 - 0x58000000000LL) )
@@ -220,9 +220,9 @@ __int64 MiPurgeBadFileOnlyPages()
     __writecr8(v25);
   }
   while ( !v26 || v9 != 1 );
-  KeAcquireInStackQueuedSpinLock(qword_140C51DA0, &LockHandle);
-  if ( qword_140C4CAC0 )
-    byte_140C4CB32 = 1;
+  KeAcquireInStackQueuedSpinLock(qword_140C51DE0, &LockHandle);
+  if ( qword_140C4CB00 )
+    byte_140C4CB72 = 1;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   CurrentIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopAdaptiveStandbyHandlePowerMessage @ 0x1407DF87C
+ * XREFs of PopAdaptiveStandbyHandlePowerMessage @ 0x1407E4270
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x14077595C (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407DF428 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     IoGetActivityIdThread @ 0x14046F440 (IoGetActivityIdThread.c)
- *     IoSetActivityIdThread @ 0x140491810 (IoSetActivityIdThread.c)
- *     IoClearActivityIdThread @ 0x140499E20 (IoClearActivityIdThread.c)
- *     PopAdaptiveStandbyQueryReserveConfiguration @ 0x140610F34 (PopAdaptiveStandbyQueryReserveConfiguration.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     IoGetActivityIdThread @ 0x140468BC0 (IoGetActivityIdThread.c)
+ *     IoSetActivityIdThread @ 0x14048B360 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x140493970 (IoClearActivityIdThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopAdaptiveStandbyQueryReserveConfiguration @ 0x1407E4E04 (PopAdaptiveStandbyQueryReserveConfiguration.c)
  */
 
 struct _KTHREAD *__fastcall PopAdaptiveStandbyHandlePowerMessage(__int64 a1)
@@ -42,14 +42,14 @@ struct _KTHREAD *__fastcall PopAdaptiveStandbyHandlePowerMessage(__int64 a1)
   EtwActivityIdControl(3u, &ActivityId);
   v2 = IoSetActivityIdThread((struct _LIST_ENTRY *)&ActivityId);
   v17 = (GUID *)v2;
-  if ( (unsigned int)dword_140E08090 > 5 )
+  if ( (unsigned int)dword_140E08138 > 5 )
   {
     v14 = *(_DWORD *)a1;
     v20 = 4LL;
     v19 = (__int64 *)&v14;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08090,
-      (unsigned __int8 *)&word_14004F70E,
+      (__int64)&dword_140E08138,
+      (unsigned __int8 *)byte_1400506A5,
       &ActivityId,
       (const GUID *)v2,
       3u,
@@ -59,8 +59,8 @@ struct _KTHREAD *__fastcall PopAdaptiveStandbyHandlePowerMessage(__int64 a1)
   if ( *(_DWORD *)a1 == 19 )
   {
     v11 = *(_QWORD *)(a1 + 8);
-    qword_140F0B7BC = v11;
-    if ( (unsigned int)dword_140E08090 <= 5 )
+    qword_140F0BB3C = v11;
+    if ( (unsigned int)dword_140E08138 <= 5 )
       goto LABEL_16;
     v13 = v11;
     v19 = (__int64 *)&v13;
@@ -69,66 +69,66 @@ struct _KTHREAD *__fastcall PopAdaptiveStandbyHandlePowerMessage(__int64 a1)
     v14 = HIDWORD(v11);
     v22 = 4LL;
     ActivityIdThread = IoGetActivityIdThread();
-    v10 = &byte_14004F737;
+    v10 = byte_14005051B;
   }
   else
   {
     if ( *(_DWORD *)a1 != 20 )
       goto LABEL_16;
-    byte_140F0B7D8 = 0;
-    if ( qword_140F0B7E0 )
+    byte_140F0BB58 = 0;
+    if ( qword_140F0BB60 )
     {
       v6 = Pdcv2ActivationClientDeactivate();
-      if ( (unsigned int)dword_140E08090 > 5 )
+      if ( (unsigned int)dword_140E08138 > 5 )
       {
         v14 = v6;
         v19 = (__int64 *)&v14;
-        v15 = qword_140F0B7E0;
+        v15 = qword_140F0BB60;
         v21 = &v15;
         v20 = 4LL;
         v22 = 8LL;
         v7 = IoGetActivityIdThread();
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E08090,
-          (unsigned __int8 *)word_14004F782,
+          (__int64)&dword_140E08138,
+          (unsigned __int8 *)&word_140050566,
           (const GUID *)v7,
           0LL,
           4u,
           v18);
       }
-      qword_140F0B7E0 = 0LL;
+      qword_140F0BB60 = 0LL;
     }
-    if ( qword_140F0B7C8 != *(_QWORD *)(a1 + 8) )
+    if ( qword_140F0BB48 != *(_QWORD *)(a1 + 8) )
     {
-      PopAdaptiveStandbyQueryReserveConfiguration((__int64)&PopAdaptiveStandbyContext);
+      PopAdaptiveStandbyQueryReserveConfiguration(&PopAdaptiveStandbyContext);
       goto LABEL_16;
     }
     v8 = *(_DWORD *)(a1 + 16);
-    dword_140F0B7D0 = v8;
-    if ( (unsigned int)dword_140E08090 <= 5 )
+    dword_140F0BB50 = v8;
+    if ( (unsigned int)dword_140E08138 <= 5 )
       goto LABEL_16;
-    v15 = qword_140F0B7C8;
+    v15 = qword_140F0BB48;
     v14 = v8;
     v19 = &v15;
     v21 = (__int64 *)&v14;
     v20 = 8LL;
     v22 = 4LL;
     ActivityIdThread = IoGetActivityIdThread();
-    v10 = byte_14004F7E1;
+    v10 = byte_1400505C5;
   }
   tlgWriteTransfer_EtwWriteTransfer(
-    (__int64)&dword_140E08090,
+    (__int64)&dword_140E08138,
     (unsigned __int8 *)v10,
     (const GUID *)ActivityIdThread,
     0LL,
     4u,
     v18);
 LABEL_16:
-  PopReleaseRwLock(&PopAdaptiveStandbyLock);
-  if ( (unsigned int)dword_140E08090 > 5 )
+  PopReleaseRwLock((struct _KTHREAD *)&PopAdaptiveStandbyLock);
+  if ( (unsigned int)dword_140E08138 > 5 )
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08090,
-      (unsigned __int8 *)byte_14004F83B,
+      (__int64)&dword_140E08138,
+      (unsigned __int8 *)&byte_14005061F,
       &ActivityId,
       v17,
       2u,

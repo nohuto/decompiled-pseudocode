@@ -1,9 +1,9 @@
 /*
- * XREFs of NtSetQuotaInformationFile @ 0x14094B9D0
+ * XREFs of NtSetQuotaInformationFile @ 0x14094BBD0
  * Callers:
  *     <none>
  * Callees:
- *     IopSetEaOrQuotaInformationFile @ 0x140945AC0 (IopSetEaOrQuotaInformationFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x140945CC0 (IopSetEaOrQuotaInformationFile.c)
  */
 
 NTSTATUS __stdcall NtSetQuotaInformationFile(

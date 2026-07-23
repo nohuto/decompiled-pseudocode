@@ -14,7 +14,7 @@ void __fastcall IopStartNextPacket(__int64 a1, int a2)
   KIRQL v2; // di
   PKDEVICE_QUEUE_ENTRY v5; // rax
   PKDEVICE_QUEUE_ENTRY v6; // rbp
-  KIRQL Irql; // [rsp+38h] [rbp+10h] BYREF
+  UCHAR Irql; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0;
   Irql = 0;

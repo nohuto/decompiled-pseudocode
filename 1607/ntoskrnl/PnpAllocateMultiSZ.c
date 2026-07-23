@@ -1,28 +1,28 @@
 /*
- * XREFs of PnpAllocateMultiSZ @ 0x1404C72CC
+ * XREFs of PnpAllocateMultiSZ @ 0x140487D60
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x1403F1680 (PiSwPdoPnPDispatch.c)
- *     PiSwPnPInfoInit @ 0x1404C7204 (PiSwPnPInfoInit.c)
+ *     PiSwPdoPnPDispatch @ 0x1403F0544 (PiSwPdoPnPDispatch.c)
+ *     PiSwPnPInfoInit @ 0x140487C98 (PiSwPnPInfoInit.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpGetMultiSzLength @ 0x1404A2DC0 (PnpGetMultiSzLength.c)
+ *     PnpGetMultiSzLength @ 0x14051B1C0 (PnpGetMultiSzLength.c)
  */
 
 __int64 __fastcall PnpAllocateMultiSZ(void *Src, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  NTSTATUS MultiSzLength; // ebx
-  size_t v7; // rdi
+  int MultiSzLength; // ebx
+  unsigned __int64 v7; // rdi
   PVOID PoolWithTag; // rax
   __int64 v9; // rdi
   __int64 v10; // rcx
-  size_t v12; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v12; // [rsp+40h] [rbp+8h] BYREF
 
   *a4 = 0LL;
   MultiSzLength = 0;
   if ( Src )
   {
-    MultiSzLength = PnpGetMultiSzLength((__int64)Src, a2, &v12);
+    MultiSzLength = PnpGetMultiSzLength(Src, a2, &v12);
     if ( MultiSzLength >= 0 )
     {
       v7 = v12;

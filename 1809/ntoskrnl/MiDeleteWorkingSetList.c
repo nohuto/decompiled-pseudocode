@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeleteWorkingSetList @ 0x14009182C
+ * XREFs of MiDeleteWorkingSetList @ 0x14009176C
  * Callers:
- *     MiDeleteSessionAddressSpace @ 0x1401542C0 (MiDeleteSessionAddressSpace.c)
- *     MmDeleteProcessAddressSpace @ 0x140608AD0 (MmDeleteProcessAddressSpace.c)
+ *     MiDeleteSessionAddressSpace @ 0x1401543C0 (MiDeleteSessionAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140609AD0 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteWorkingSetList(__int64 a1)

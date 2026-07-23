@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSetProcessorDpcLimits @ 0x140383824
+ * XREFs of KiSetProcessorDpcLimits @ 0x140383A04
  * Callers:
- *     KiApplyProcessorDpcLimits @ 0x140A8ECE8 (KiApplyProcessorDpcLimits.c)
+ *     KiApplyProcessorDpcLimits @ 0x140A8EB60 (KiApplyProcessorDpcLimits.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiSetProcessorDpcLimits(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
@@ -21,7 +21,7 @@ __int64 __fastcall KiSetProcessorDpcLimits(__int64 a1, int *a2, __int64 a3, _QWO
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xDuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 13 )
@@ -49,10 +49,10 @@ __int64 __fastcall KiSetProcessorDpcLimits(__int64 a1, int *a2, __int64 a3, _QWO
     v8 = a3;
   }
   *(_QWORD *)(a1 + 34992) = v8;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;

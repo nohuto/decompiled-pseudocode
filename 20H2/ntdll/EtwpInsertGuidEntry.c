@@ -8,63 +8,59 @@
  *     EtwpGuidEntryCompare @ 0x180082758 (EtwpGuidEntryCompare.c)
  */
 
-signed __int64 __fastcall EtwpInsertGuidEntry(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall EtwpInsertGuidEntry(PRTL_BALANCED_NODE Node)
 {
-  __int64 v5; // rdi
-  bool v6; // bl
-  int v7; // esi
-  __int64 v8; // rax
+  __int64 Root; // rdi
+  BOOLEAN v3; // bl
+  int v4; // esi
+  __int64 v5; // rax
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&EtwpProvLock, a2, a3, a4);
-  v5 = EtwpGuidEntryTable;
-  v6 = 0;
-  if ( (qword_18016D610 & 1) != 0 )
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  Root = (__int64)EtwpGuidEntryTable.Root;
+  v3 = 0;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 )
   {
-    if ( EtwpGuidEntryTable )
-      v5 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
+    if ( EtwpGuidEntryTable.Root )
+      Root = (unsigned __int64)&EtwpGuidEntryTable ^ (unsigned __int64)EtwpGuidEntryTable.Root;
     else
-      v5 = 0LL;
+      Root = 0LL;
   }
-  v7 = qword_18016D610 & 1;
-  if ( v5 )
+  v4 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( EtwpGuidEntryCompare((const void *)(a1 + 24), v5) < 0 )
+      if ( EtwpGuidEntryCompare(&Node[1], Root) < 0 )
       {
-        v8 = *(_QWORD *)v5;
-        if ( v7 )
+        v5 = *(_QWORD *)Root;
+        if ( v4 )
         {
-          if ( !v8 )
+          if ( !v5 )
             break;
-          v8 ^= v5;
+          v5 ^= Root;
         }
-        if ( !v8 )
+        if ( !v5 )
           break;
       }
       else
       {
-        v8 = *(_QWORD *)(v5 + 8);
-        if ( v7 )
+        v5 = *(_QWORD *)(Root + 8);
+        if ( v4 )
         {
-          if ( !v8 )
+          if ( !v5 )
             goto LABEL_17;
-          v8 ^= v5;
+          v5 ^= Root;
         }
-        if ( !v8 )
+        if ( !v5 )
         {
 LABEL_17:
-          v6 = 1;
+          v3 = 1;
           break;
         }
       }
-      v5 = v8;
+      Root = v5;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&EtwpGuidEntryTable, v5, v6, a1);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlRbInsertNodeEx(&EtwpGuidEntryTable, (PRTL_BALANCED_NODE)Root, v3, Node);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

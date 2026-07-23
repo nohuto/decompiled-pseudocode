@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAcpiSetupPmRegisterLegacy @ 0x140CB37BC
+ * XREFs of HalpAcpiSetupPmRegisterLegacy @ 0x140CB97FC
  * Callers:
- *     HalpAcpiInitializePmRegisters @ 0x140CB346C (HalpAcpiInitializePmRegisters.c)
+ *     HalpAcpiInitializePmRegisters @ 0x140CB94AC (HalpAcpiInitializePmRegisters.c)
  * Callees:
- *     HalpAcpiSetupPmRegister @ 0x140CB3674 (HalpAcpiSetupPmRegister.c)
+ *     HalpAcpiSetupPmRegister @ 0x140CB96B4 (HalpAcpiSetupPmRegister.c)
  */
 
 __int64 __fastcall HalpAcpiSetupPmRegisterLegacy(
@@ -18,11 +18,11 @@ __int64 __fastcall HalpAcpiSetupPmRegisterLegacy(
   __int64 v8; // [rsp+20h] [rbp-10h] BYREF
   int v9; // [rsp+28h] [rbp-8h]
 
-  if ( LOBYTE(HalpDeviceBlockUnblockPushLock.UserAffinity) < 5u && !a2 )
+  if ( LOBYTE(HalpDeviceBlockUnblockPushLock.QueueListEntry.Flink) < 5u && !a2 )
     return 3221225473LL;
   v8 = 0LL;
   v9 = 0;
-  if ( LOBYTE(HalpDeviceBlockUnblockPushLock.UserAffinity) < 5u )
+  if ( LOBYTE(HalpDeviceBlockUnblockPushLock.QueueListEntry.Flink) < 5u )
   {
     BYTE2(v8) = 0;
     HIDWORD(v8) = a2;

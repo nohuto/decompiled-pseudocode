@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsVbr@PC_DISK@@QEAAEXZ @ 0x14023CC1C
+ * XREFs of ?IsVbr@PC_DISK@@QEAAEXZ @ 0x14023CB00
  * Callers:
- *     ?Reset@PC_DISK@@QEAAJXZ @ 0x140147670 (-Reset@PC_DISK@@QEAAJXZ.c)
+ *     ?Reset@PC_DISK@@QEAAJXZ @ 0x140147BE0 (-Reset@PC_DISK@@QEAAJXZ.c)
  * Callees:
- *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x1401479F0 (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
+ *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x140147F60 (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
  */
 
 char __fastcall PC_DISK::IsVbr(PC_DISK *this)

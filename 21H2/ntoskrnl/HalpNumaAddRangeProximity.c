@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpNumaAddRangeProximity @ 0x1404D1C60
+ * XREFs of HalpNumaAddRangeProximity @ 0x1404D1EA0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpNumaQueryProximityNode @ 0x1403CF7F0 (HalpNumaQueryProximityNode.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpNumaQueryProximityNode @ 0x1403CF960 (HalpNumaQueryProximityNode.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall HalpNumaAddRangeProximity(__int64 a1, __int64 a2, int a3)

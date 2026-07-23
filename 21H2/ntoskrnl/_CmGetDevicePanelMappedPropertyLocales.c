@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetDevicePanelMappedPropertyLocales @ 0x140978550
+ * XREFs of _CmGetDevicePanelMappedPropertyLocales @ 0x140978730
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x1407AFBE0 (_PnpDispatchDevicePanel.c)
+ *     _PnpDispatchDevicePanel @ 0x1407AFD80 (_PnpDispatchDevicePanel.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall CmGetDevicePanelMappedPropertyLocales(
   __int64 *v10; // r8
   __int64 v11; // rdx
 
-  v7 = &off_140009D80;
+  v7 = &off_140009D90;
   v8 = -1073741802;
   v9 = 0;
   *a7 = 0;

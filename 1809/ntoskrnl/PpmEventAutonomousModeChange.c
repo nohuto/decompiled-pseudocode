@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventAutonomousModeChange @ 0x1402E5300
+ * XREFs of PpmEventAutonomousModeChange @ 0x1402E54F0
  * Callers:
- *     PpmUpdateTargetProcessorPolicy @ 0x1401B5AF8 (PpmUpdateTargetProcessorPolicy.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x1401B5C38 (PpmUpdateTargetProcessorPolicy.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventAutonomousModeChange(__int64 a1, int a2)

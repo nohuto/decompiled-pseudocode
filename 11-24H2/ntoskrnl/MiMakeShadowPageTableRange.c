@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMakeShadowPageTableRange @ 0x1407F6634
+ * XREFs of MiMakeShadowPageTableRange @ 0x1407F6DA8
  * Callers:
- *     MiMakeShadowPageTableRange @ 0x1407F6634 (MiMakeShadowPageTableRange.c)
- *     MmCreateShadowMapping @ 0x1407F674C (MmCreateShadowMapping.c)
+ *     MiMakeShadowPageTableRange @ 0x1407F6DA8 (MiMakeShadowPageTableRange.c)
+ *     MmCreateShadowMapping @ 0x1407F6EC0 (MmCreateShadowMapping.c)
  * Callees:
- *     MiReadWriteAnyLevelShadowPte @ 0x1402666A8 (MiReadWriteAnyLevelShadowPte.c)
- *     MiInitializeShadowPageTable @ 0x1407F6428 (MiInitializeShadowPageTable.c)
- *     MiMakeShadowPageTableRange @ 0x1407F6634 (MiMakeShadowPageTableRange.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x1402EE8E8 (MiReadWriteAnyLevelShadowPte.c)
+ *     MiInitializeShadowPageTable @ 0x1407F6B9C (MiInitializeShadowPageTable.c)
+ *     MiMakeShadowPageTableRange @ 0x1407F6DA8 (MiMakeShadowPageTableRange.c)
  */
 
 void __fastcall MiMakeShadowPageTableRange(

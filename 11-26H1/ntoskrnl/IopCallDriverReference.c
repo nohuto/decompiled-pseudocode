@@ -1,16 +1,16 @@
 /*
- * XREFs of IopCallDriverReference @ 0x1402652A0
+ * XREFs of IopCallDriverReference @ 0x140264810
  * Callers:
- *     NtSetInformationFile @ 0x14026A2F0 (NtSetInformationFile.c)
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
- *     NtQueryInformationFile @ 0x1409B4B00 (NtQueryInformationFile.c)
+ *     NtSetInformationFile @ 0x140269860 (NtSetInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
+ *     NtQueryInformationFile @ 0x140985BC0 (NtQueryInformationFile.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3, _QWORD *a4, int a5)
@@ -74,16 +74,16 @@ __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp,
         if ( a5 )
         {
           if ( a5 == 1 )
-            ++IoLowPriorityWriteOperationCount;
+            ++IopPerfIoTrackingLock.SchedulerAssistYieldCounter;
         }
         else
         {
-          ++IoLowPriorityReadOperationCount;
+          ++HIDWORD(IopPerfIoTrackingLock.KcsanThread);
         }
       }
       else
       {
-        ++IoKernelIssuedIoBoostedCount;
+        ++IopPerfIoTrackingLock.SchedulerAssistYieldBoostCount;
         Irp->Flags = Flags & 0xFFF1FFFF | 0x60000;
       }
     }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ObDereferenceProcessHandleTable @ 0x140665FF0
+ * XREFs of ObDereferenceProcessHandleTable @ 0x1406660D4
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1401C9AC0 (IoRevokeHandlesForProcess.c)
+ *     IoRevokeHandlesForProcess @ 0x1401C9960 (IoRevokeHandlesForProcess.c)
  * Callees:
  *     <none>
  */

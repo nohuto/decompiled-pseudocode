@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetEtwUnregister @ 0x140710114 (VfTargetEtwUnregister.c)
+ *     VfTargetEtwUnregister @ 0x140710144 (VfTargetEtwUnregister.c)
  */
 
 __int64 __fastcall VerifierEtwUnregister(__int64 a1)

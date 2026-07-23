@@ -25,7 +25,7 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   const wchar_t *v5; // rdx
   int started; // eax
   const wchar_t *v7; // rcx
-  char v8; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 )
     return;
@@ -101,7 +101,7 @@ LABEL_14:
   }
 LABEL_8:
   PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-  NtTraceControl(2LL, &dword_140432E90, (unsigned int)dword_140432E90, &dword_140432E90, dword_140432E90, &v8);
+  NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
 LABEL_9:
   dword_140432E68 = v1;
 LABEL_10:

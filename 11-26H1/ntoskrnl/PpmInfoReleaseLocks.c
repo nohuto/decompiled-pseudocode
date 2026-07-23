@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmInfoReleaseLocks @ 0x140A9C9D4
+ * XREFs of PpmInfoReleaseLocks @ 0x140AD87EC
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x140A3FC14 (PpmSetProfilePolicySetting.c)
- *     PpmInfoApplySettingUpdate @ 0x140A9C928 (PpmInfoApplySettingUpdate.c)
+ *     PpmSetProfilePolicySetting @ 0x1409FB634 (PpmSetProfilePolicySetting.c)
+ *     PpmInfoApplySettingUpdate @ 0x140AD873C (PpmInfoApplySettingUpdate.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
  */
 
 LONG __fastcall PpmInfoReleaseLocks(__int64 a1)
 {
   if ( (*(_BYTE *)(a1 + 37) & 1) != 0 )
-    return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   else
-    return PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+    return PopReleaseRwLock(&PpmIdlePolicyLock);
 }

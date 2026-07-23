@@ -9,26 +9,26 @@
  *     ResCHitsPopulate @ 0x18008EDBC (ResCHitsPopulate.c)
  */
 
-unsigned __int64 __fastcall ResCHitsCreateAndPopulate(__int64 a1, unsigned int a2, int a3)
+void *__fastcall ResCHitsCreateAndPopulate(__int64 a1, unsigned int a2, int a3)
 {
   _DWORD *Heap; // rax
-  unsigned __int64 v7; // rbx
+  void *v7; // rbx
 
   if ( a1 )
   {
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 40LL);
-    v7 = (unsigned __int64)Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x28uLL);
+    v7 = Heap;
     if ( Heap )
     {
       *Heap = a3 & 0xFFFFFFFB;
       if ( (unsigned int)ResCHitsPopulate(Heap, a1, a2) )
         return v7;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     }
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
   }
   return 0LL;
 }

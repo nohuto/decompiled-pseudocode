@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepInsertDevice @ 0x14014201C
+ * XREFs of PopPepInsertDevice @ 0x14014258C
  * Callers:
- *     PopPepRegisterDevice @ 0x14056747C (PopPepRegisterDevice.c)
+ *     PopPepRegisterDevice @ 0x1405679BC (PopPepRegisterDevice.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PopPepInsertDevice(__int64 a1, __int64 *a2)
@@ -39,13 +39,13 @@ __int64 __fastcall PopPepInsertDevice(__int64 a1, __int64 *a2)
     v7[26] |= 1u;
   if ( PopPepLastCheckedDevice == &PopPepDeviceList )
     PopPepLastCheckedDevice = a2;
-  v8 = (__int64 **)qword_140302F08;
-  if ( *(__int64 **)qword_140302F08 != &PopPepDeviceList )
+  v8 = (__int64 **)qword_140302F68;
+  if ( *(__int64 **)qword_140302F68 != &PopPepDeviceList )
     __fastfail(3u);
   *a2 = (__int64)&PopPepDeviceList;
   a2[1] = (__int64)v8;
   *v8 = a2;
-  qword_140302F08 = (__int64)a2;
+  qword_140302F68 = (__int64)a2;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopPepDeviceListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PopPepDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopPepDeviceListLock);

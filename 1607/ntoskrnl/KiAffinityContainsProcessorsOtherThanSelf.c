@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x140030E80
+ * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x140030A00
  * Callers:
- *     KiIpiSendRequestEx @ 0x140030DC0 (KiIpiSendRequestEx.c)
+ *     KiIpiSendRequestEx @ 0x140030940 (KiIpiSendRequestEx.c)
  * Callees:
  *     <none>
  */

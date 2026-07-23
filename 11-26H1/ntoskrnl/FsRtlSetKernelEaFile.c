@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlSetKernelEaFile @ 0x140A199F0
+ * XREFs of FsRtlSetKernelEaFile @ 0x140A23020
  * Callers:
- *     CmpAdjustFileCFSafety @ 0x1404EAA58 (CmpAdjustFileCFSafety.c)
- *     sub_140A19B9C @ 0x140A19B9C (sub_140A19B9C.c)
+ *     CmpAdjustFileCFSafety @ 0x1404E3E08 (CmpAdjustFileCFSafety.c)
+ *     sub_140A231CC @ 0x140A231CC (sub_140A231CC.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IoAllocateIrpEx @ 0x14026C530 (IoAllocateIrpEx.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IoCancelIrp @ 0x14049B940 (IoCancelIrp.c)
- *     FsRtlpFreeMdlChain @ 0x140A19588 (FsRtlpFreeMdlChain.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IoAllocateIrpEx @ 0x14026BAA0 (IoAllocateIrpEx.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IoCancelIrp @ 0x140495490 (IoCancelIrp.c)
+ *     FsRtlpFreeMdlChain @ 0x140A22BB8 (FsRtlpFreeMdlChain.c)
  */
 
 __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a3)

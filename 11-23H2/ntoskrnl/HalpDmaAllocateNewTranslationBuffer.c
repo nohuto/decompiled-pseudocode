@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDmaAllocateNewTranslationBuffer @ 0x1405107E8
+ * XREFs of HalpDmaAllocateNewTranslationBuffer @ 0x140510D38
  * Callers:
- *     HalpDmaGetTranslationEntries @ 0x14039C4FC (HalpDmaGetTranslationEntries.c)
+ *     HalpDmaGetTranslationEntries @ 0x14039C6DC (HalpDmaGetTranslationEntries.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045B3AE (HalpDmaAllocateScatterPagesFromScatterPool.c)
- *     HalpDmaReturnPageToOwner @ 0x14045C896 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050100C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045B7AE (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaReturnPageToOwner @ 0x14045CC96 (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050155C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
  */
 
 __int64 __fastcall HalpDmaAllocateNewTranslationBuffer(__int64 a1, unsigned int a2)

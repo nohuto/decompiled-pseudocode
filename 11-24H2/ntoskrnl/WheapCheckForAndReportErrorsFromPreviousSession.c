@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapCheckForAndReportErrorsFromPreviousSession @ 0x14065B774
+ * XREFs of WheapCheckForAndReportErrorsFromPreviousSession @ 0x140659E94
  * Callers:
- *     WheaInitialize @ 0x140C440FC (WheaInitialize.c)
+ *     WheaInitialize @ 0x140C4624C (WheaInitialize.c)
  * Callees:
- *     WheapProcessEfiBadMemoryPage @ 0x14065B988 (WheapProcessEfiBadMemoryPage.c)
- *     WheapReportBootError @ 0x14065BA34 (WheapReportBootError.c)
- *     WheapReportPersistedErrorRecord @ 0x14065BAD8 (WheapReportPersistedErrorRecord.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WheapProcessEfiBadMemoryPage @ 0x14065A0A8 (WheapProcessEfiBadMemoryPage.c)
+ *     WheapReportBootError @ 0x14065A154 (WheapReportBootError.c)
+ *     WheapReportPersistedErrorRecord @ 0x14065A1F8 (WheapReportPersistedErrorRecord.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 WheapCheckForAndReportErrorsFromPreviousSession()

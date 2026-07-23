@@ -1,9 +1,9 @@
 /*
- * XREFs of SeOpenObjectAuditAlarm @ 0x140930EB0
+ * XREFs of SeOpenObjectAuditAlarm @ 0x14090C9E0
  * Callers:
- *     IopCreateSecurityCheck @ 0x1404A387C (IopCreateSecurityCheck.c)
+ *     IopCreateSecurityCheck @ 0x14049D38C (IopCreateSecurityCheck.c)
  * Callees:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
  */
 
 void __stdcall SeOpenObjectAuditAlarm(

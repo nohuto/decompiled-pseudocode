@@ -1,14 +1,14 @@
 /*
- * XREFs of KeDisconnectInterrupt @ 0x140123E5C
+ * XREFs of KeDisconnectInterrupt @ 0x1401243CC
  * Callers:
- *     KeConnectInterrupt @ 0x14012CFC4 (KeConnectInterrupt.c)
- *     IoDisconnectInterrupt @ 0x1405324F4 (IoDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14012D534 (KeConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140532A34 (IoDisconnectInterrupt.c)
  * Callees:
- *     KiIntSteerDisable @ 0x140123F48 (KiIntSteerDisable.c)
- *     KeMaskInterrupt @ 0x1401240A0 (KeMaskInterrupt.c)
- *     KiDisconnectInterruptCommon @ 0x1401242B8 (KiDisconnectInterruptCommon.c)
- *     KiIsInterruptTypeSecondary @ 0x14012D8E0 (KiIsInterruptTypeSecondary.c)
- *     KiDisconnectSecondaryInterrupt @ 0x1401D5BD8 (KiDisconnectSecondaryInterrupt.c)
+ *     KiIntSteerDisable @ 0x1401244B8 (KiIntSteerDisable.c)
+ *     KeMaskInterrupt @ 0x140124610 (KeMaskInterrupt.c)
+ *     KiDisconnectInterruptCommon @ 0x140124828 (KiDisconnectInterruptCommon.c)
+ *     KiIsInterruptTypeSecondary @ 0x14012DE50 (KiIsInterruptTypeSecondary.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x1401D5A04 (KiDisconnectSecondaryInterrupt.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

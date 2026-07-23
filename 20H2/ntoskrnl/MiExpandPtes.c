@@ -53,8 +53,8 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
   unsigned int v30; // eax
   ULONG_PTR v31; // r12
   struct _KTHREAD *v32; // rbx
-  __int64 SessionId; // rdx
-  __int64 v34; // r8
+  unsigned int SessionId; // edx
+  unsigned int v34; // r8d
   bool v35; // zf
   __int64 v36; // rcx
   __int64 v37; // rdi
@@ -187,23 +187,23 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
     v56 = 0;
     v32 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(v31) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)v32->ApcState.Process);
+      SessionId = MmGetSessionIdEx((__int64)v32->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --v32->SpecialApcDisable;
     v66 = ++v32->AbAllocationRegionCount;
-    LODWORD(v34) = ((char)v32->AbEntrySummary | (char)v32->AbOrphanedEntrySummary) ^ 0x3F;
+    v34 = ((char)v32->AbEntrySummary | (char)v32->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v35 = !_BitScanReverse((unsigned int *)&v36, v34);
       if ( v35 )
         break;
       v37 = (__int64)&v32->LockEntries[v36];
-      v34 = ~(1 << v36) & (unsigned int)v34;
+      v34 &= ~(1 << v36);
       if ( (*(_BYTE *)(v37 + 26) & 1) != 0
         && (*(_DWORD *)(v37 + 32) & 1) == 0
         && (*(_QWORD *)(v37 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v31 & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v37 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v37 + 40) == SessionId )
       {
         *(_BYTE *)(v37 + 26) &= ~1u;
         if ( *(_QWORD *)(v37 + 32) )
@@ -212,7 +212,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
           {
             *(_BYTE *)(v37 + 32) |= 2u;
             if ( *(__int64 *)(v37 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v37, SessionId, v34);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v37);
             v56 = *(_DWORD *)(v37 + 88) & 0x1FFFF;
             *(_DWORD *)(v37 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v37 + 25) &= ~1u;
@@ -229,7 +229,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
       }
     }
     if ( (*((_DWORD *)&v32->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v32, v31, (unsigned int)SessionId, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)v32, v31, SessionId, 0LL);
 LABEL_55:
     --v32->AbAllocationRegionCount;
     KiAbThreadRemoveBoosts((ULONG_PTR)v32, v31, &v56);

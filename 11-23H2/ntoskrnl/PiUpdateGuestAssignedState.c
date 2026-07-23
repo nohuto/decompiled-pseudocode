@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUpdateGuestAssignedState @ 0x1407925C8
+ * XREFs of PiUpdateGuestAssignedState @ 0x1407927B8
  * Callers:
- *     PiProcessQueryDeviceState @ 0x14079328C (PiProcessQueryDeviceState.c)
- *     PnpDeleteLockedDeviceNodes @ 0x140868128 (PnpDeleteLockedDeviceNodes.c)
+ *     PiProcessQueryDeviceState @ 0x14079347C (PiProcessQueryDeviceState.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x140868368 (PnpDeleteLockedDeviceNodes.c)
  * Callees:
- *     McTemplateK0z_EtwWriteTransfer @ 0x1405612E8 (McTemplateK0z_EtwWriteTransfer.c)
- *     PnpRequestDeviceRemoval @ 0x1408673BC (PnpRequestDeviceRemoval.c)
- *     PipSendGuestAssignedNotification @ 0x14096F004 (PipSendGuestAssignedNotification.c)
- *     PipSetGuestAssignedProperty @ 0x14096F0A8 (PipSetGuestAssignedProperty.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x1405619A8 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PnpRequestDeviceRemoval @ 0x1408675FC (PnpRequestDeviceRemoval.c)
+ *     PipSendGuestAssignedNotification @ 0x14096F204 (PipSendGuestAssignedNotification.c)
+ *     PipSetGuestAssignedProperty @ 0x14096F2A8 (PipSetGuestAssignedProperty.c)
  */
 
 __int64 __fastcall PiUpdateGuestAssignedState(__int64 a1, __int64 a2)

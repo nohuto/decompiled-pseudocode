@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgUiConvertStateChangeStructure @ 0x180105720
+ * XREFs of DbgUiConvertStateChangeStructure @ 0x180104F70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DbgUiConvertStateChangeStructure(__int64 a1, __int64 a2)
+NTSTATUS __cdecl DbgUiConvertStateChangeStructure(PDBGUI_WAIT_STATE_CHANGE StateChange, LPDEBUG_EVENT DebugEvent)
 {
-  return DbgUiConvertStateChangeStructureWorker(a1, a2, 0LL);
+  return DbgUiConvertStateChangeStructureWorker(StateChange, DebugEvent, 0LL);
 }

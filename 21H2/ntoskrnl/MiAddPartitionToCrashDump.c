@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAddPartitionToCrashDump @ 0x140537B50
+ * XREFs of MiAddPartitionToCrashDump @ 0x140537D90
  * Callers:
- *     MiAddPartitionDataToCrashDump @ 0x140537938 (MiAddPartitionDataToCrashDump.c)
+ *     MiAddPartitionDataToCrashDump @ 0x140537B78 (MiAddPartitionDataToCrashDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
  *     MiGetPartitionLargePageListCount @ 0x1403F6A98 (MiGetPartitionLargePageListCount.c)
- *     MiAddUnicodeStringToCrashDump @ 0x1405382DC (MiAddUnicodeStringToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
- *     MiSizeMemoryListLocks @ 0x1406C3F48 (MiSizeMemoryListLocks.c)
+ *     MiAddUnicodeStringToCrashDump @ 0x14053851C (MiAddUnicodeStringToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
+ *     MiSizeMemoryListLocks @ 0x140622B08 (MiSizeMemoryListLocks.c)
  */
 
 __int64 __fastcall MiAddPartitionToCrashDump(__int64 a1, __int64 a2)

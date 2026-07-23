@@ -23,7 +23,7 @@ int __fastcall RtlGetAssemblyStorageRoot(int a1, int *a2, unsigned int a3, _DWOR
   v13 = 0;
   if ( a2 == dword_4B28120C )
   {
-    DbgPrintEx(51, 0, "SXS: %s() passed the empty activation context\n", "RtlGetAssemblyStorageRoot");
+    DbgPrintEx(51, 0, (int)"SXS: %s() passed the empty activation context\n", (int)"RtlGetAssemblyStorageRoot");
     return -1073741811;
   }
   if ( a4 )
@@ -33,16 +33,12 @@ int __fastcall RtlGetAssemblyStorageRoot(int a1, int *a2, unsigned int a3, _DWOR
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() bad parameters:\n"
-      "SXS:    Flags              : 0x%lx\n"
-      "SXS:    AssemblyRosterIndex: 0x%lx\n"
-      "SXS:    AssemblyStorageRoot: %p\n"
-      "SXS:    Callback           : %p\n",
-      "RtlGetAssemblyStorageRoot",
-      a1,
-      a3,
-      a4,
-      RtlpAssemblyStorageMapResolutionDefaultCallback);
+      (int)"SXS: %s() bad parameters:\n"
+           "SXS:    Flags              : 0x%lx\n"
+           "SXS:    AssemblyRosterIndex: 0x%lx\n"
+           "SXS:    AssemblyStorageRoot: %p\n"
+           "SXS:    Callback           : %p\n",
+      (int)"RtlGetAssemblyStorageRoot");
     return -1073741811;
   }
   ActivationContextDataStorageMapAndRosterHeader = RtlpGetActivationContextDataStorageMapAndRosterHeader(
@@ -56,8 +52,8 @@ int __fastcall RtlGetAssemblyStorageRoot(int a1, int *a2, unsigned int a3, _DWOR
     DbgPrintEx(
       51,
       0,
-      "SXS: RtlGetAssemblyStorageRoot() unable to get activation context data, storage map and assembly roster header.  S"
-      "tatus = 0x%08lx\n",
+      (int)"SXS: RtlGetAssemblyStorageRoot() unable to get activation context data, storage map and assembly roster heade"
+           "r.  Status = 0x%08lx\n",
       ActivationContextDataStorageMapAndRosterHeader);
     return v7;
   }
@@ -70,17 +66,19 @@ int __fastcall RtlGetAssemblyStorageRoot(int a1, int *a2, unsigned int a3, _DWOR
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() bad parameters AssemblyRosterIndex 0x%lx >= AssemblyRosterHeader->EntryCount: 0x%lx\n",
-      "RtlGetAssemblyStorageRoot",
-      a3,
-      *(_DWORD *)(v11 + 8));
+      (int)"SXS: %s() bad parameters AssemblyRosterIndex 0x%lx >= AssemblyRosterHeader->EntryCount: 0x%lx\n",
+      (int)"RtlGetAssemblyStorageRoot");
     return -1073741811;
   }
   v8 = RtlpResolveAssemblyStorageMapEntry(a3, v13, a6);
   v7 = v8;
   if ( v8 < 0 )
   {
-    DbgPrintEx(51, 0, "SXS: RtlGetAssemblyStorageRoot() unable to resolve storage map entry.  Status = 0x%08lx\n", v8);
+    DbgPrintEx(
+      51,
+      0,
+      (int)"SXS: RtlGetAssemblyStorageRoot() unable to resolve storage map entry.  Status = 0x%08lx\n",
+      v8);
     return v7;
   }
   v9 = *(_DWORD *)(*(_DWORD *)(v13 + 8) + 4 * a3);

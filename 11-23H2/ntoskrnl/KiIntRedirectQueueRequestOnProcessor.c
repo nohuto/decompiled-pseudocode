@@ -1,13 +1,13 @@
 /*
- * XREFs of KiIntRedirectQueueRequestOnProcessor @ 0x140580900
+ * XREFs of KiIntRedirectQueueRequestOnProcessor @ 0x140580DF0
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x140324950 (KiCallInterruptServiceRoutine.c)
+ *     KiCallInterruptServiceRoutine @ 0x140324BE0 (KiCallInterruptServiceRoutine.c)
  * Callees:
- *     HalRequestIpiSpecifyVector @ 0x140254690 (HalRequestIpiSpecifyVector.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalRequestIpiSpecifyVector @ 0x140254750 (HalRequestIpiSpecifyVector.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiIntRedirectQueueRequestOnProcessor(ULONG_PTR BugCheckParameter3, unsigned int a2)

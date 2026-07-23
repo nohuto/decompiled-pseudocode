@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpObjectHandleEnumCallback @ 0x14082F620
+ * XREFs of EtwpObjectHandleEnumCallback @ 0x140835860
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     ExCheckSingleFilter @ 0x14043AD5C (ExCheckSingleFilter.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     ExUnlockHandleTableEntry @ 0x140A33080 (ExUnlockHandleTableEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     ExCheckSingleFilter @ 0x14042D60C (ExCheckSingleFilter.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     ExUnlockHandleTableEntry @ 0x140A4DFE0 (ExUnlockHandleTableEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall EtwpObjectHandleEnumCallback(__int64 a1, __int64 *a2, unsigned int a3, __int64 a4)

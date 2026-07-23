@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x1406AB86C
+ * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x1406AB9A4
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14015A180 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14015A1C0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x14015A5C0 (ZwCreateSection.c)
- *     FsRtlGetFileSize @ 0x14042C454 (FsRtlGetFileSize.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140623544 (IoConvertFileHandleToKernelHandle.c)
- *     SeValidateFileAsImageType @ 0x14068C9C4 (SeValidateFileAsImageType.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x14015A6F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x14015A730 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x14015AB30 (ZwCreateSection.c)
+ *     FsRtlGetFileSize @ 0x14042B324 (FsRtlGetFileSize.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x1406235F8 (IoConvertFileHandleToKernelHandle.c)
+ *     SeValidateFileAsImageType @ 0x14068CAA8 (SeValidateFileAsImageType.c)
  */
 
 __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1)

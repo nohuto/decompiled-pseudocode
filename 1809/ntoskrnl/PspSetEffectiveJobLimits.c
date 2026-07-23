@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSetEffectiveJobLimits @ 0x1406B9964
+ * XREFs of PspSetEffectiveJobLimits @ 0x1406BAC04
  * Callers:
- *     PspEstablishJobHierarchy @ 0x140604FE0 (PspEstablishJobHierarchy.c)
- *     PspSetJobLimitsJobPreCallback @ 0x1406B9930 (PspSetJobLimitsJobPreCallback.c)
+ *     PspEstablishJobHierarchy @ 0x140605FE0 (PspEstablishJobHierarchy.c)
+ *     PspSetJobLimitsJobPreCallback @ 0x1406BABD0 (PspSetJobLimitsJobPreCallback.c)
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PspSetEffectiveLimit @ 0x1406B9C20 (PspSetEffectiveLimit.c)
+ *     KeAndAffinityEx @ 0x1400DC780 (KeAndAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x14018A430 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PspSetEffectiveLimit @ 0x1406BAEC0 (PspSetEffectiveLimit.c)
  */
 
 __int64 __fastcall PspSetEffectiveJobLimits(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeEnumerateQueueApc @ 0x140573030
+ * XREFs of KeEnumerateQueueApc @ 0x140573570
  * Callers:
- *     DbgkpLkmdSnapThread @ 0x14053BFF4 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSnapThread @ 0x14053C544 (DbgkpLkmdSnapThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeEnumerateQueueApc(
@@ -44,7 +44,7 @@ __int64 __fastcall KeEnumerateQueueApc(
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v10 = 4;
@@ -69,10 +69,10 @@ __int64 __fastcall KeEnumerateQueueApc(
   }
   while ( v6 <= v7 );
   *(_QWORD *)(a1 + 64) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v16 = CurrentPrcb->SchedulerAssist;

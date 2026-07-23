@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlExtendedMagicDivide @ 0x140450D20
+ * XREFs of RtlExtendedMagicDivide @ 0x140445F90
  * Callers:
- *     RtlTimeToSecondsSince1980 @ 0x140450CA0 (RtlTimeToSecondsSince1980.c)
- *     RtlTimeToSecondsSince1970 @ 0x140450CE0 (RtlTimeToSecondsSince1970.c)
+ *     RtlTimeToSecondsSince1980 @ 0x140445F10 (RtlTimeToSecondsSince1980.c)
+ *     RtlTimeToSecondsSince1970 @ 0x140445F50 (RtlTimeToSecondsSince1970.c)
  * Callees:
  *     <none>
  */

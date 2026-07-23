@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpInitStackAndObjectTables @ 0x140745058
+ * XREFs of ObpInitStackAndObjectTables @ 0x140743348
  * Callers:
- *     ObpStartRuntimeStackTrace @ 0x140745494 (ObpStartRuntimeStackTrace.c)
- *     ObpInitStackTrace @ 0x140C2C6BC (ObpInitStackTrace.c)
+ *     ObpStartRuntimeStackTrace @ 0x140743784 (ObpStartRuntimeStackTrace.c)
+ *     ObpInitStackTrace @ 0x140C2E7DC (ObpInitStackTrace.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 ObpInitStackAndObjectTables()
@@ -18,23 +18,23 @@ __int64 ObpInitStackAndObjectTables()
   __int64 v1; // rax
   _WORD *v2; // rcx
   unsigned int v3; // ebx
-  struct _SLIST_ENTRY *v4; // rax
+  _SLIST_ENTRY *v4; // rax
   PSLIST_ENTRY v5; // rbx
   PSLIST_ENTRY v6; // rcx
   void *v7; // rcx
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x8088uLL, 0x7452624Fu);
   ObpStackTable = (PVOID)Pool2;
   if ( Pool2 )
   {
     memset_0((void *)(Pool2 + 136), 255, 0x7FFAuLL);
-    v1 = ExAllocatePool2(0x40uLL);
+    v1 = ExAllocatePool2(0x40uLL, 0x20000uLL, 0x7452624Fu);
     v2 = ObpStackTable;
     *((_QWORD *)ObpStackTable + 1) = v1;
     if ( v1 )
     {
       v2[1] = 1024;
-      ObpObjectTable = (PVOID)ExAllocatePool2(0x40uLL);
+      ObpObjectTable = (PVOID)ExAllocatePool2(0x40uLL, 0xC88uLL, 0x7452624Fu);
       if ( ObpObjectTable )
       {
         if ( ((unsigned __int8)&ObpWorkItemFreeList & 0xF) != 0 )
@@ -45,7 +45,7 @@ __int64 ObpInitStackAndObjectTables()
         {
           if ( v3 >= 0x1F4 )
             return 0LL;
-          v4 = (struct _SLIST_ENTRY *)ExAllocatePool2(0x40uLL);
+          v4 = (_SLIST_ENTRY *)ExAllocatePool2(0x40uLL, 0xB0uLL, 0x7452624Fu);
           if ( !v4 )
             break;
           RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, v4);

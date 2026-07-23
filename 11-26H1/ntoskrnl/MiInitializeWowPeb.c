@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeWowPeb @ 0x140ACAE74
+ * XREFs of MiInitializeWowPeb @ 0x140ACCF84
  * Callers:
- *     MmCreatePeb @ 0x140ACA4F0 (MmCreatePeb.c)
+ *     MmCreatePeb @ 0x140ACC600 (MmCreatePeb.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     MiCreatePebOrTeb @ 0x1409C8ED0 (MiCreatePebOrTeb.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     MiCreatePebOrTeb @ 0x140999EB0 (MiCreatePebOrTeb.c)
  */
 
 __int64 __fastcall MiInitializeWowPeb(_QWORD *a1, __int64 a2)
@@ -127,10 +127,10 @@ __int64 __fastcall MiInitializeWowPeb(_QWORD *a1, __int64 a2)
       RtlCopyToUser(v7 + 285, v32, 4uLL);
       RtlCopyToUser(v7 + 26, &NtGlobalFlag, 4uLL);
       RtlCopyToUser(v7 + 286, &NtGlobalFlag2, 4uLL);
-      RtlCopyToUser(v7 + 28, &qword_140E2D610, 8uLL);
-      RtlCopyToUser(v7 + 130, &dword_140FBE228, 4uLL);
-      RtlCopyToUser(v7 + 32, &qword_140FBE238, 4uLL);
-      RtlCopyToUser(v7 + 33, &qword_140FBE230, 4uLL);
+      RtlCopyToUser(v7 + 28, &qword_140E2D790, 8uLL);
+      RtlCopyToUser(v7 + 130, &dword_140FBF228, 4uLL);
+      RtlCopyToUser(v7 + 32, &qword_140FBF238, 4uLL);
+      RtlCopyToUser(v7 + 33, &qword_140FBF230, 4uLL);
       v14 = v7 + 25;
     }
     else
@@ -157,10 +157,10 @@ __int64 __fastcall MiInitializeWowPeb(_QWORD *a1, __int64 a2)
       RtlCopyToUser(v7 + 496, v32, 4uLL);
       RtlCopyToUser(v7 + 47, &NtGlobalFlag, 4uLL);
       RtlCopyToUser(v7 + 497, &NtGlobalFlag2, 4uLL);
-      RtlCopyToUser(v7 + 48, &qword_140E2D610, 8uLL);
-      RtlCopyToUser(v7 + 198, &dword_140FBE228, 4uLL);
-      RtlCopyToUser(v7 + 54, &qword_140FBE238, 8uLL);
-      RtlCopyToUser(v7 + 56, &qword_140FBE230, 8uLL);
+      RtlCopyToUser(v7 + 48, &qword_140E2D790, 8uLL);
+      RtlCopyToUser(v7 + 198, &dword_140FBF228, 4uLL);
+      RtlCopyToUser(v7 + 54, &qword_140FBF238, 8uLL);
+      RtlCopyToUser(v7 + 56, &qword_140FBF230, 8uLL);
       v14 = v7 + 46;
     }
     RtlWriteULongToUser(v14, KeNumberProcessors_0);

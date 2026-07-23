@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAcquireResourceSharedLite @ 0x140086B00
+ * XREFs of MiAcquireResourceSharedLite @ 0x1400883F0
  * Callers:
- *     MiLookupDataTableEntry @ 0x140014A30 (MiLookupDataTableEntry.c)
- *     MiDeleteBootRange @ 0x140138D04 (MiDeleteBootRange.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x140148040 (MmVerifyCallbackFunctionCheckFlags.c)
- *     MmEnumerateSystemImages @ 0x140498F00 (MmEnumerateSystemImages.c)
- *     MmGetSectionRange @ 0x14052FA70 (MmGetSectionRange.c)
- *     MmIsDriverVerifyingByAddress @ 0x140547440 (MmIsDriverVerifyingByAddress.c)
- *     MmBackSystemImageWithPagefile @ 0x140550A88 (MmBackSystemImageWithPagefile.c)
+ *     MiLookupDataTableEntry @ 0x1400145B0 (MiLookupDataTableEntry.c)
+ *     MiDeleteBootRange @ 0x140139274 (MiDeleteBootRange.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1401485B0 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     MmEnumerateSystemImages @ 0x140499990 (MmEnumerateSystemImages.c)
+ *     MmGetSectionRange @ 0x14052FFB0 (MmGetSectionRange.c)
+ *     MmIsDriverVerifyingByAddress @ 0x140547980 (MmIsDriverVerifyingByAddress.c)
+ *     MmBackSystemImageWithPagefile @ 0x140550FC8 (MmBackSystemImageWithPagefile.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
  */
 
 char __fastcall MiAcquireResourceSharedLite(__int64 a1)

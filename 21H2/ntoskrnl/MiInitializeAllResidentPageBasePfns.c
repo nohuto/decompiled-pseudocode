@@ -1,12 +1,12 @@
 /*
  * XREFs of MiInitializeAllResidentPageBasePfns @ 0x1403F6BC8
  * Callers:
- *     MiCoalesceFreePages @ 0x140235CA0 (MiCoalesceFreePages.c)
- *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
- *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
+ *     MiCoalesceFreePages @ 0x1402DA4F0 (MiCoalesceFreePages.c)
+ *     MiDeleteClusterSection @ 0x14030B130 (MiDeleteClusterSection.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
+ *     MxCreateFreePfns @ 0x140A44ECC (MxCreateFreePfns.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14023DD80 (MiUpdatePageFileHighInPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402E25D0 (MiUpdatePageFileHighInPte.c)
  */
 
 char __fastcall MiInitializeAllResidentPageBasePfns(
@@ -35,13 +35,13 @@ char __fastcall MiInitializeAllResidentPageBasePfns(
   __int128 v23; // [rsp+40h] [rbp-20h] BYREF
 
   v7 = *a1;
-  v23 = xmmword_140C4E5D0;
-  v9 = _mm_srli_si128((__m128i)xmmword_140C4E5D0, 8).m128i_u64[0];
+  v23 = xmmword_140C4E610;
+  v9 = _mm_srli_si128((__m128i)xmmword_140C4E610, 8).m128i_u64[0];
   v10 = MiLargePageSizes[a4];
-  v11 = xmmword_140C4E5B0;
+  v11 = xmmword_140C4E5F0;
   *((_QWORD *)&v23 + 1) = (v9 ^ (v7 << 39)) & 0x1FF8000000000LL ^ v9;
-  BYTE7(v23) = (BYTE7(xmmword_140C4E5D0) ^ ~(_BYTE)a4) & 3 ^ BYTE7(xmmword_140C4E5D0);
-  v22 = xmmword_140C4E5C0;
+  BYTE7(v23) = (BYTE7(xmmword_140C4E610) ^ ~(_BYTE)a4) & 3 ^ BYTE7(xmmword_140C4E610);
+  v22 = xmmword_140C4E600;
   v12 = 48 * a2 - 0x58000000000LL;
   if ( a7 )
     *((_QWORD *)&v22 + 1) |= 0x8000000000000000uLL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSecurityModelQueryInformation @ 0x1409C9B1C
+ * XREFs of SeSecurityModelQueryInformation @ 0x1409C9D1C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x1405B8C14 (SepIsDeviceOwnerProtectionDowngradeAllowed.c)
+ *     SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x1405B9184 (SepIsDeviceOwnerProtectionDowngradeAllowed.c)
  */
 
 __int64 __fastcall SeSecurityModelQueryInformation(_DWORD *a1, int a2)

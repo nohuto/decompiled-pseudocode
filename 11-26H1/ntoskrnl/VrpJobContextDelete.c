@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpJobContextDelete @ 0x140B27A00
+ * XREFs of VrpJobContextDelete @ 0x140B29690
  * Callers:
  *     <none>
  * Callees:
- *     VrpCleanupNamespace @ 0x140979FC0 (VrpCleanupNamespace.c)
- *     VrpDecrementSiloCount @ 0x140B27A30 (VrpDecrementSiloCount.c)
+ *     VrpCleanupNamespace @ 0x14093BFD0 (VrpCleanupNamespace.c)
+ *     VrpDecrementSiloCount @ 0x140B296C0 (VrpDecrementSiloCount.c)
  */
 
 void __fastcall VrpJobContextDelete(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ViIovPluginUnload @ 0x1406A4090
+ * XREFs of ViIovPluginUnload @ 0x1406A5090
  * Callers:
  *     <none>
  * Callees:
- *     IopUpdateFunctionPointers @ 0x14059661C (IopUpdateFunctionPointers.c)
- *     IovUtilUninitialize @ 0x140B92D5C (IovUtilUninitialize.c)
- *     VfMajorInit @ 0x140B92F10 (VfMajorInit.c)
- *     VfIrpDatabaseUninitialize @ 0x140BA4110 (VfIrpDatabaseUninitialize.c)
+ *     IopUpdateFunctionPointers @ 0x14059364C (IopUpdateFunctionPointers.c)
+ *     IovUtilUninitialize @ 0x140B94D5C (IovUtilUninitialize.c)
+ *     VfMajorInit @ 0x140B94F10 (VfMajorInit.c)
+ *     VfIrpDatabaseUninitialize @ 0x140BA6110 (VfIrpDatabaseUninitialize.c)
  */
 
 __int64 ViIovPluginUnload()

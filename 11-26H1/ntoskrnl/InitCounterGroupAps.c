@@ -1,7 +1,7 @@
 /*
- * XREFs of InitCounterGroupAps @ 0x140BEADF8
+ * XREFs of InitCounterGroupAps @ 0x140BF0DF8
  * Callers:
- *     DefaultInitializeProfiling @ 0x140BEAD10 (DefaultInitializeProfiling.c)
+ *     DefaultInitializeProfiling @ 0x140BF0D10 (DefaultInitializeProfiling.c)
  * Callees:
  *     <none>
  */

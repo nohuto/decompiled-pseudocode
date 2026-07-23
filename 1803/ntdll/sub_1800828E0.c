@@ -12,26 +12,25 @@
  *     sub_1800D0B18 @ 0x1800D0B18 (sub_1800D0B18.c)
  */
 
-__int64 __fastcall sub_1800828E0(const void *a1)
+__int64 __fastcall sub_1800828E0(PVOID BaseOfImage)
 {
   bool v2; // di
   __int64 v3; // rdx
-  int v4; // ecx
+  NTSTATUS v4; // ecx
   __int64 v5; // r8
   int v6; // eax
   int v7; // ebx
-  __int64 v8; // rdx
-  char v10; // al
-  int v11; // edx
-  const void *v12; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+48h] [rbp-20h]
+  char v9; // al
+  int v10; // edx
+  PVOID v11; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+48h] [rbp-20h]
 
   v2 = 0;
-  v12 = a1;
-  v4 = ZwQueryVirtualMemory(-1LL, 0LL, 4LL, &v12, 16LL, 0LL);
+  v11 = BaseOfImage;
+  v4 = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, MemoryWorkingSetExInformation, &v11, 0x10uLL, 0LL);
   if ( v4 < 0 )
   {
-    v10 = dword_180156A70;
+    v9 = dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
       sub_1800CA554(
@@ -41,48 +40,47 @@ __int64 __fastcall sub_1800828E0(const void *a1)
         0,
         "Querying large page info failed with status 0x%08lx\n",
         v4);
-      v10 = dword_180156A70;
+      v9 = dword_180156A70;
     }
-    if ( (v10 & 0x10) != 0 )
+    if ( (v9 & 0x10) != 0 )
       __debugbreak();
   }
-  else if ( (v13 & 1) != 0 )
+  else if ( (v12 & 1) != 0 )
   {
-    v2 = (v13 & 0x800000) != 0;
+    v2 = (v12 & 0x800000) != 0;
   }
   if ( !v2 )
   {
-    v6 = sub_1800829B4(a1, 0LL);
+    v6 = sub_1800829B4(BaseOfImage);
     v7 = v6;
     if ( v6 < 0 )
     {
       if ( (dword_180156A70 & 3) == 0 )
         goto LABEL_21;
-      v11 = 1957;
+      v10 = 1957;
       goto LABEL_20;
     }
   }
-  v7 = sub_180082648((unsigned __int64)a1, v3, v5);
+  v7 = sub_180082648(BaseOfImage, v3, v5);
   if ( v7 < 0 )
     goto LABEL_9;
   if ( v2 )
     goto LABEL_9;
-  LOBYTE(v8) = 1;
-  v6 = sub_1800829B4(a1, v8);
+  v6 = sub_1800829B4(BaseOfImage);
   v7 = v6;
   if ( v6 >= 0 )
     goto LABEL_9;
   if ( (dword_180156A70 & 3) != 0 )
   {
-    v11 = 1981;
+    v10 = 1981;
 LABEL_20:
     sub_1800CA554(
       (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-      v11,
+      v10,
       (unsigned int)"LdrpProtectAndRelocateImage",
       0,
       "Changing the protection of the executable at %p failed with status 0x%08lx\n",
-      a1,
+      BaseOfImage,
       v6);
   }
 LABEL_21:

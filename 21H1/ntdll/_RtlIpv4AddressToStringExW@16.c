@@ -18,25 +18,30 @@ LONG __stdcall RtlIpv4AddressToStringExW(
   wchar_t *v4; // esi
   unsigned __int16 v5; // cx
   ULONG v6; // esi
+  size_t v8; // [esp-Ch] [ebp-4Ch]
+  size_t v9; // [esp-4h] [ebp-44h]
   WCHAR S[22]; // [esp+10h] [ebp-30h] BYREF
-  int v9; // [esp+3Ch] [ebp-4h] BYREF
+  int v11; // [esp+3Ch] [ebp-4h] BYREF
 
   if ( !Address || !AddressStringLength || !AddressString && *AddressStringLength )
     return -1073741811;
-  v4 = RtlIpv4AddressToStringW(Address, S);
+  v4 = (wchar_t *)RtlIpv4AddressToStringW(Address, S);
   if ( Port )
   {
     LOBYTE(v5) = HIBYTE(Port);
     HIBYTE(v5) = Port;
-    v4 += swprintf_s(v4, ((char *)&v9 - (char *)v4) >> 1, L":%u", v5);
+    HIDWORD(v8) = L":%u";
+    LODWORD(v8) = ((char *)&v11 - (char *)v4) >> 1;
+    v4 += swprintf_s(v4, v8, (const wchar_t *const)v5);
   }
-  v6 = v4 - S + 1;
+  v6 = (((char *)v4 - (char *)S) >> 1) + 1;
   if ( *AddressStringLength < v6 )
   {
     *AddressStringLength = v6;
     return -1073741811;
   }
-  memcpy(AddressString, S, 2 * v6);
+  LODWORD(v9) = 2 * v6;
+  memcpy(AddressString, S, v9);
   *AddressStringLength = v6;
   return 0;
 }

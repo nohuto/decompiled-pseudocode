@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWaitForFastResource @ 0x1403DD7C0
+ * XREFs of ExpWaitForFastResource @ 0x1403BD4B0
  * Callers:
- *     ExpAcquireFastResourceSharedSlow @ 0x140341510 (ExpAcquireFastResourceSharedSlow.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x1403DD330 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x1403209F0 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x1403BD020 (ExpAcquireFastResourceExclusiveSlow.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PerfLogExecutiveResourceWait @ 0x1404AF714 (PerfLogExecutiveResourceWait.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PerfLogExecutiveResourceWait @ 0x1404AA110 (PerfLogExecutiveResourceWait.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall ExpWaitForFastResource(__int64 a1, __int64 a2, unsigned int a3)
@@ -89,7 +89,7 @@ LABEL_4:
       {
         v22 = 0;
         DbgPrintEx(0, 0, "Possible deadlock. Use !locks %p to determine the resource owner\n", (const void *)a1);
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x6F546552u);
         if ( Pool2 )
         {
           *(_QWORD *)(Pool2 + 16) = ExpResourceTimeoutCaptureLiveDump;

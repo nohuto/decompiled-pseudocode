@@ -6,11 +6,11 @@
  *     EtwpGetRegDwordValue @ 0x1800524E4 (EtwpGetRegDwordValue.c)
  *     StringToGuidNoBrackets @ 0x18005279C (StringToGuidNoBrackets.c)
  *     EtwpQueryRegString @ 0x1800527DC (EtwpQueryRegString.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall EtwpQueryPartitionRegistryInformationUm(_OWORD *a1, _DWORD *a2, _QWORD *a3, _OWORD *a4)
+__int64 __fastcall EtwpQueryPartitionRegistryInformationUm(GUID *a1, _DWORD *a2, _QWORD *a3, GUID *a4)
 {
   __int64 result; // rax
   __int64 v9; // rdx

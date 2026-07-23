@@ -1,32 +1,32 @@
 /*
- * XREFs of ExpWnfLookupPermanentName @ 0x14062C1A8
+ * XREFs of ExpWnfLookupPermanentName @ 0x140663338
  * Callers:
- *     NtDeleteWnfStateName @ 0x14060D3C0 (NtDeleteWnfStateName.c)
- *     ExpNtUpdateWnfStateData @ 0x14060E5DC (ExpNtUpdateWnfStateData.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x14060EAF4 (ExpWnfSubscribeWnfStateChange.c)
- *     NtQueryWnfStateData @ 0x14060EE80 (NtQueryWnfStateData.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x14062C0FC (ExpWnfCheckCrossScopeAccess.c)
- *     NtQueryWnfStateNameInformation @ 0x1406A68E0 (NtQueryWnfStateNameInformation.c)
- *     ExpNtDeleteWnfStateData @ 0x1407CD80C (ExpNtDeleteWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x140604510 (NtQueryWnfStateNameInformation.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x140618AC4 (ExpWnfCheckCrossScopeAccess.c)
+ *     NtDeleteWnfStateName @ 0x14069CE70 (NtDeleteWnfStateName.c)
+ *     ExpNtUpdateWnfStateData @ 0x14069E08C (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x14069E5A4 (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateData @ 0x14069E930 (NtQueryWnfStateData.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD97C (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ExpWnfSpecializeSecurityDescriptor @ 0x140610CD8 (ExpWnfSpecializeSecurityDescriptor.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x14062C388 (ExpWnfGetNameStoreRegistryRoot.c)
- *     ExpWnfComposeValueName @ 0x14062C4F0 (ExpWnfComposeValueName.c)
- *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14066DC80 (RtlValidRelativeSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     RtlLengthSecurityDescriptor @ 0x140654EF0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x140662AA0 (RtlValidRelativeSecurityDescriptor.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x140663518 (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfComposeValueName @ 0x140663680 (ExpWnfComposeValueName.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x1406A0788 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfLookupPermanentName(unsigned __int64 a1, PSECURITY_DESCRIPTOR **a2)
 {
   PSECURITY_DESCRIPTOR *v4; // rdi
-  __int64 v5; // rbx
+  unsigned int v5; // ebx
   struct _LIST_ENTRY *v6; // rax
   struct _LIST_ENTRY *v7; // r14
   char v8; // r15
@@ -52,7 +52,7 @@ __int64 __fastcall ExpWnfLookupPermanentName(unsigned __int64 a1, PSECURITY_DESC
   ValueName.Buffer = (wchar_t *)&v23;
   ExpWnfComposeValueName(a1, &ValueName);
   v5 = (a1 >> 4) & 3;
-  if ( (_DWORD)v5 )
+  if ( v5 )
   {
     v7 = 0LL;
     v8 = 0;
@@ -63,7 +63,7 @@ __int64 __fastcall ExpWnfLookupPermanentName(unsigned __int64 a1, PSECURITY_DESC
     v7 = PsAttachSiloToCurrentThread(v6);
     v8 = 1;
   }
-  NameStoreRegistryRoot = ExpWnfGetNameStoreRegistryRoot((unsigned int)v5, &KeyHandle);
+  NameStoreRegistryRoot = ExpWnfGetNameStoreRegistryRoot(v5, &KeyHandle);
   if ( NameStoreRegistryRoot >= 0 )
   {
     v10 = 0LL;

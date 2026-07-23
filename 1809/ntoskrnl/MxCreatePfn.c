@@ -1,12 +1,12 @@
 /*
- * XREFs of MxCreatePfn @ 0x1409C0310
+ * XREFs of MxCreatePfn @ 0x1409C1310
  * Callers:
- *     MxCreatePfns @ 0x1409C008C (MxCreatePfns.c)
+ *     MxCreatePfns @ 0x1409C108C (MxCreatePfns.c)
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiPageToChannel @ 0x14009CF2C (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MxCreatePfn(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)

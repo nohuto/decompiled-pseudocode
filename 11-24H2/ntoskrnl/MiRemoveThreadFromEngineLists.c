@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemoveThreadFromEngineLists @ 0x1403C81EC
+ * XREFs of MiRemoveThreadFromEngineLists @ 0x140413E2C
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1403C6F60 (MiBackgroundZeroNodePages.c)
- *     MiInsertNewZeroThread @ 0x14068F930 (MiInsertNewZeroThread.c)
+ *     MiBackgroundZeroNodePages @ 0x140412BA0 (MiBackgroundZeroNodePages.c)
+ *     MiInsertNewZeroThread @ 0x140690A00 (MiInsertNewZeroThread.c)
  * Callees:
- *     MiUnlinkZeroThreadFromActiveDomain @ 0x1403C7D5C (MiUnlinkZeroThreadFromActiveDomain.c)
- *     MiDecrementZeroEngineThread @ 0x1403C7E68 (MiDecrementZeroEngineThread.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x14041399C (MiUnlinkZeroThreadFromActiveDomain.c)
+ *     MiDecrementZeroEngineThread @ 0x140413AA8 (MiDecrementZeroEngineThread.c)
  */
 
 __int64 __fastcall MiRemoveThreadFromEngineLists(_QWORD *a1)

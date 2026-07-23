@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCreateExtendedControlSets @ 0x140CE9CBC
+ * XREFs of CmpCreateExtendedControlSets @ 0x140CF005C
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     CmpCreateControlSet @ 0x140CE9794 (CmpCreateControlSet.c)
- *     CmpCreateControlSetOverride @ 0x140CE9B4C (CmpCreateControlSetOverride.c)
+ *     CmpCreateControlSet @ 0x140CEFB34 (CmpCreateControlSet.c)
+ *     CmpCreateControlSetOverride @ 0x140CEFEEC (CmpCreateControlSetOverride.c)
  */
 
 __int64 __fastcall CmpCreateExtendedControlSets(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall CmpCreateExtendedControlSets(__int64 a1)
   __int64 *v4; // rax
   __int64 j; // rbx
 
-  if ( !HIDWORD(WheapPfaLock.CycleTime)
+  if ( !HIDWORD(WheapPfaLock.KernelStack)
     || (result = CmpCreateControlSet((__int64)L"DEVICES", 1), (int)(result + 0x80000000) < 0)
     || (_DWORD)result == -1073741772 )
   {
@@ -30,7 +30,7 @@ __int64 __fastcall CmpCreateExtendedControlSets(__int64 a1)
           return result;
       }
     }
-    if ( HIDWORD(WheapPfaLock.CycleTime) )
+    if ( HIDWORD(WheapPfaLock.KernelStack) )
     {
       for ( j = *v4; j != *(_QWORD *)(a1 + 240) + 312LL; j = *(_QWORD *)j )
       {

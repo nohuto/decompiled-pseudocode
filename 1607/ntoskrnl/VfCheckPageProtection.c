@@ -1,7 +1,7 @@
 /*
- * XREFs of VfCheckPageProtection @ 0x140704210
+ * XREFs of VfCheckPageProtection @ 0x140704240
  * Callers:
- *     VfCheckNxPageProtection @ 0x14022269C (VfCheckNxPageProtection.c)
+ *     VfCheckNxPageProtection @ 0x1402224C8 (VfCheckNxPageProtection.c)
  *     VerifierMmAllocateContiguousNodeMemory @ 0x14071B888 (VerifierMmAllocateContiguousNodeMemory.c)
  *     VerifierMmCreateSection @ 0x14071BD24 (VerifierMmCreateSection.c)
  *     VerifierMmMapViewOfSection @ 0x14071C1C0 (VerifierMmMapViewOfSection.c)
@@ -13,9 +13,9 @@
  *     VfZwMapViewOfSection @ 0x14071E8B4 (VfZwMapViewOfSection.c)
  *     VfZwProtectVirtualMemory @ 0x14071F338 (VfZwProtectVirtualMemory.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViCiPreprocessOptions @ 0x1407043A0 (ViCiPreprocessOptions.c)
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x1407043D0 (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  */
 
 void __fastcall VfCheckPageProtection(int a1, __int64 a2)
@@ -30,6 +30,6 @@ void __fastcall VfCheckPageProtection(int a1, __int64 a2)
     VfReportIssueWithOptions(196, 8193, a2, a1, 0LL, byte_1402F9900);
     if ( (MmVerifierData & 0x1000) != 0 )
       ViTargetIncrementCounter(a2, 252LL);
-    _InterlockedIncrement(&dword_140307294);
+    _InterlockedIncrement(&dword_1403072D4);
   }
 }

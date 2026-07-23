@@ -5,7 +5,7 @@
  *     KiUpdateCpuTargetByRate @ 0x1402058E8 (KiUpdateCpuTargetByRate.c)
  * Callees:
  *     KiRemoveSchedulingGroupQueue @ 0x140206878 (KiRemoveSchedulingGroupQueue.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x14030897C (KiMoveScbThreadsToNewReadylist.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x140308C0C (KiMoveScbThreadsToNewReadylist.c)
  */
 
 char __fastcall KiResetScb(__int64 a1, __int64 a2)

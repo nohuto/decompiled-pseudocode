@@ -16,7 +16,7 @@ void __fastcall AlpcpDestroyBlob(__int64 a1)
   __int64 v1; // rbx
   __int64 v2; // rdi
   int (*v3)(void); // rax
-  union _SLIST_HEADER *v4; // rcx
+  _SLIST_HEADER *v4; // rcx
 
   v1 = a1 - 48;
   v2 = AlpcpRegisteredTypes[*(unsigned __int8 *)(a1 - 31)];

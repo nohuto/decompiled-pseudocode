@@ -1,14 +1,14 @@
 /*
- * XREFs of PipProcessRestartPhase2 @ 0x14064DF9C
+ * XREFs of PipProcessRestartPhase2 @ 0x14064E080
  * Callers:
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PoFxIdleDevice @ 0x14000842C (PoFxIdleDevice.c)
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     IoRequestDeviceEject @ 0x1401CCE94 (IoRequestDeviceEject.c)
- *     Template_qz @ 0x1401D0DAC (Template_qz.c)
- *     PnpRequestDeviceRemoval @ 0x1404C3E90 (PnpRequestDeviceRemoval.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x1404C4CE4 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     PoFxIdleDevice @ 0x140007FA0 (PoFxIdleDevice.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     IoRequestDeviceEject @ 0x1401CCCE0 (IoRequestDeviceEject.c)
+ *     Template_qz @ 0x1401D0BD8 (Template_qz.c)
+ *     PnpRequestDeviceRemoval @ 0x140484BC8 (PnpRequestDeviceRemoval.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x1404888E8 (PnpStartedDeviceNodeDependencyCheck.c)
  */
 
 __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)

@@ -1,23 +1,23 @@
 /*
- * XREFs of NtWaitForAlertByThreadId @ 0x140A66280
+ * XREFs of NtWaitForAlertByThreadId @ 0x140A73250
  * Callers:
- *     DifNtWaitForAlertByThreadIdWrapper @ 0x140690E80 (DifNtWaitForAlertByThreadIdWrapper.c)
+ *     DifNtWaitForAlertByThreadIdWrapper @ 0x140694A60 (DifNtWaitForAlertByThreadIdWrapper.c)
  * Callees:
- *     KeWaitForAlertByThreadId @ 0x140222460 (KeWaitForAlertByThreadId.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
+ *     KeWaitForAlertByThreadId @ 0x140223DF0 (KeWaitForAlertByThreadId.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
  */
 
-__int64 __fastcall NtWaitForAlertByThreadId(struct _KTHREAD *a1, __int64 *p_ULong64FromUser)
+NTSTATUS __cdecl NtWaitForAlertByThreadId(PVOID Address, PLARGE_INTEGER Timeout)
 {
   char PreviousMode; // bl
   __int64 ULong64FromUser; // [rsp+40h] [rbp+18h] BYREF
 
   ULong64FromUser = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( p_ULong64FromUser && PreviousMode )
+  if ( Timeout && PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(p_ULong64FromUser);
-    p_ULong64FromUser = &ULong64FromUser;
+    ULong64FromUser = RtlReadULong64FromUser(Timeout);
+    Timeout = (PLARGE_INTEGER)&ULong64FromUser;
   }
-  return KeWaitForAlertByThreadId(PreviousMode, (__int64)p_ULong64FromUser, a1);
+  return KeWaitForAlertByThreadId(PreviousMode, (__int64)Timeout, (struct _KTHREAD *)Address);
 }

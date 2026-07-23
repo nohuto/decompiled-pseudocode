@@ -10,13 +10,10 @@
  *     KiInsertTimer2WithCollectionLockHeld @ 0x140049B80 (KiInsertTimer2WithCollectionLockHeld.c)
  */
 
-char __fastcall KiInsertTimer2(__int64 a1, char a2, unsigned __int64 a3)
+char __fastcall KiInsertTimer2(__int64 a1, char a2, _BYTE *a3)
 {
-  __int64 v6; // rdx
-
   KxAcquireSpinLock(&KiTimer2CollectionLock);
-  LOBYTE(v6) = a2;
-  LOBYTE(a3) = KiInsertTimer2WithCollectionLockHeld(a1, v6, a3);
+  LOBYTE(a3) = KiInsertTimer2WithCollectionLockHeld(a1, a2, a3);
   KxReleaseSpinLock(&KiTimer2CollectionLock);
-  return a3;
+  return (char)a3;
 }

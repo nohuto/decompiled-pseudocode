@@ -4,10 +4,10 @@
  *     MiInitializePfnsForValidMappings @ 0x14078F8AC (MiInitializePfnsForValidMappings.c)
  *     MxZeroPageTablePfns @ 0x1407B239C (MxZeroPageTablePfns.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
  *     MxZeroPageTablePfns @ 0x1407B239C (MxZeroPageTablePfns.c)
  */
 

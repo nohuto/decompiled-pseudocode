@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpReferenceLoggerSecurityDescriptor @ 0x14049028C
+ * XREFs of EtwpReferenceLoggerSecurityDescriptor @ 0x140490D1C
  * Callers:
- *     EtwpCheckLoggerControlAccess @ 0x140490208 (EtwpCheckLoggerControlAccess.c)
- *     EtwQueryPerformanceTraceInformation @ 0x1406A3258 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140490C98 (EtwpCheckLoggerControlAccess.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1406A3390 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ObDereferenceSecurityDescriptor @ 0x1404200D0 (ObDereferenceSecurityDescriptor.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14041EF90 (ObDereferenceSecurityDescriptor.c)
  */
 
 unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SmStDirectReadIssue@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAX@Z @ 0x14027B810
+ * XREFs of ?SmStDirectReadIssue@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAX@Z @ 0x140230DA0
  * Callers:
- *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14024C420 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmStDirectReadCallout@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14027C730 (-SmStDirectReadCallout@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStDirectReadCallout@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140231CC0 (-SmStDirectReadCallout@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14027CA30 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14039A724 (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14039A7B0 (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
- *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x14039BF08 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
- *     ?SmStUnhandledExceptionFilter@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST_STORE_EXCEPTION_SOURCE@1@@Z @ 0x14060A9C8 (-SmStUnhandledExceptionFilter@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402F7A24 (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402F7AB0 (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
+ *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x1402F9208 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     ?SmStUnhandledExceptionFilter@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST_STORE_EXCEPTION_SOURCE@1@@Z @ 0x140608F88 (-SmStUnhandledExceptionFilter@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectReadIssue(__int64 a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectReadIssue(__int64 a1, __int6
   __int64 v8; // rcx
   unsigned __int64 v9; // rdx
   __int64 v10; // rax
-  signed __int64 *v11; // rsi
+  ULONG_PTR v11; // rsi
   int v12; // ebx
   __int64 result; // rax
   unsigned __int8 v15; // [rsp+B8h] [rbp+20h]
@@ -40,13 +40,13 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectReadIssue(__int64 a1, __int6
     v10 = 16LL;
   _InterlockedAdd64((volatile signed __int64 *)(v8 + 8 * v10 + 3200), 1uLL);
   _InterlockedAdd((volatile signed __int32 *)(a1 + 7440), 1u);
-  v11 = (signed __int64 *)(a1 + 6840);
+  v11 = a1 + 6840;
   *(_DWORD *)(a3 + 448) = StLockAcquireShared((struct VLOCK *)(a1 + 6840));
   v12 = ST_STORE<SM_TRAITS>::StDmPageRetrieve(a1 + 80, a3, a2);
   ST_STORE<SM_TRAITS>::StDmLazyWorkItemQueue(a1 + 80, a1 + 6728);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 6840), 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v11);
-  KeAbPostRelease((ULONG_PTR)v11);
+  KeAbPostRelease(v11);
   KeLeaveGuardedRegion();
   _InterlockedDecrement((volatile signed __int32 *)(a1 + 7440));
   LODWORD(result) = v12;

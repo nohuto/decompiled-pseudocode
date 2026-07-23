@@ -5,8 +5,8 @@
  *     RtlpInsertFreeBlock @ 0x18001E940 (RtlpInsertFreeBlock.c)
  *     RtlpFreeHeap @ 0x180025C00 (RtlpFreeHeap.c)
  *     RtlpAllocateHeap @ 0x18002D160 (RtlpAllocateHeap.c)
- *     RtlZeroHeap @ 0x1800F6500 (RtlZeroHeap.c)
- *     RtlpValidateHeapSegment @ 0x1800FADB0 (RtlpValidateHeapSegment.c)
+ *     RtlZeroHeap @ 0x1800F64C0 (RtlZeroHeap.c)
+ *     RtlpValidateHeapSegment @ 0x1800FAD70 (RtlpValidateHeapSegment.c)
  * Callees:
  *     RtlpHeapFindListLookupEntry @ 0x18001EC28 (RtlpHeapFindListLookupEntry.c)
  */

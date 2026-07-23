@@ -1,16 +1,16 @@
 /*
- * XREFs of NtWorkerFactoryWorkerReady @ 0x18015EF60
+ * XREFs of NtWorkerFactoryWorkerReady @ 0x18015EE60
  * Callers:
- *     TppWorkerThread @ 0x18003E5E0 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x180028B50 (TppWorkerThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWorkerFactoryWorkerReady()
+NTSTATUS __cdecl NtWorkerFactoryWorkerReady(HANDLE WorkerFactoryHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 1LL;
+  result = 1;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

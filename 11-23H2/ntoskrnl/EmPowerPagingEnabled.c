@@ -1,13 +1,13 @@
 /*
- * XREFs of EmPowerPagingEnabled @ 0x14093CAAC
+ * XREFs of EmPowerPagingEnabled @ 0x14093CCAC
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6A68 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140AA68D8 (PoBroadcastSystemState.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 signed __int32 __fastcall EmPowerPagingEnabled(char a1)

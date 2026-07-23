@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetProtectionOnTransitionPte @ 0x1400B8E98
+ * XREFs of MiSetProtectionOnTransitionPte @ 0x1400B6D28
  * Callers:
- *     MiSetReadOnlyOnSectionView @ 0x14000CE40 (MiSetReadOnlyOnSectionView.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiProtectPrivateMemory @ 0x1400E1040 (MiProtectPrivateMemory.c)
+ *     MiSetReadOnlyOnSectionView @ 0x14000C9C0 (MiSetReadOnlyOnSectionView.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x1400DEEE0 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiSanitizePfnProtection @ 0x1400E1790 (MiSanitizePfnProtection.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiSanitizePfnProtection @ 0x1400DF630 (MiSanitizePfnProtection.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiSetProtectionOnTransitionPte(__int64 a1, unsigned __int64 *a2, unsigned int a3, int a4)

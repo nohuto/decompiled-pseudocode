@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetThreadId @ 0x14047FA80
+ * XREFs of PsGetThreadId @ 0x1404793F0
  * Callers:
- *     PspFindFirstThreadByTebValue @ 0x140955E54 (PspFindFirstThreadByTebValue.c)
- *     PsOpenThread @ 0x140A10530 (PsOpenThread.c)
- *     PfSnBeginTrace @ 0x140AA32C0 (PfSnBeginTrace.c)
- *     PfpScenCtxServiceThreadSet @ 0x140BF8D14 (PfpScenCtxServiceThreadSet.c)
+ *     PspFindFirstThreadByTebValue @ 0x140949C14 (PspFindFirstThreadByTebValue.c)
+ *     PfSnBeginTrace @ 0x1409D002C (PfSnBeginTrace.c)
+ *     PsOpenThread @ 0x140A0F720 (PsOpenThread.c)
+ *     PfpScenCtxServiceThreadSet @ 0x140BFED14 (PfpScenCtxServiceThreadSet.c)
  * Callees:
  *     <none>
  */

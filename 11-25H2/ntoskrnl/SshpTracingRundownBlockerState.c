@@ -21,7 +21,7 @@ __int64 SshpTracingRundownBlockerState()
   v0 = KeAbPreAcquire((__int64)&SshpLibraryListLock, 0LL);
   v1 = v0;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&SshpLibraryListLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&SshpLibraryListLock, v0, (__int64)&SshpLibraryListLock);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpLibraryListLock, v0, (__int64)&SshpLibraryListLock);
   if ( v1 )
     *((_BYTE *)v1 + 10) = 1;
   for ( i = (__int64 *)SshpLibraryList; i != &SshpLibraryList; i = (__int64 *)*i )

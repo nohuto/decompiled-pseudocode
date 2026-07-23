@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertNewProcess @ 0x1402E45E8
+ * XREFs of MiInsertNewProcess @ 0x140295938
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess @ 0x1407CF004 (MmInitializeHandBuiltProcess.c)
+ *     MmCreateProcessAddressSpace @ 0x1406A77C4 (MmCreateProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x1407CF174 (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -24,14 +24,14 @@ __int64 __fastcall MiInsertNewProcess(_QWORD *a1, __int64 a2)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v4 = (_QWORD *)qword_140C4DE30;
+  v4 = (_QWORD *)qword_140C4DE70;
   v5 = a1 + 248;
-  if ( *(__int64 **)qword_140C4DE30 != &qword_140C4DE28 )
+  if ( *(__int64 **)qword_140C4DE70 != &qword_140C4DE68 )
     goto LABEL_7;
-  *v5 = &qword_140C4DE28;
+  *v5 = &qword_140C4DE68;
   a1[249] = v4;
   *v4 = v5;
-  qword_140C4DE30 = (__int64)(a1 + 248);
+  qword_140C4DE70 = (__int64)(a1 + 248);
   if ( a2 )
   {
     v6 = *(_QWORD **)(a2 + 24);

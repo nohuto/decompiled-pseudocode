@@ -18,8 +18,8 @@ __int64 __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
 {
   __int64 v3; // rdx
   _BYTE v5[8]; // [rsp+30h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-20h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-20h] BYREF
 
   v5[0] = 0;
   LOBYTE(a2) = 1;
@@ -27,7 +27,7 @@ __int64 __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
   IopAcquireReleaseDispatcherLock(P, a2);
   if ( !P[28] )
   {
-    Affinity = *(struct _GROUP_AFFINITY *)(P + 40);
+    Affinity = *(_GROUP_AFFINITY *)(P + 40);
     KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
   }
   while ( 1 )

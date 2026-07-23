@@ -1,5 +1,5 @@
 /*
- * XREFs of strstr @ 0x18012CE10
+ * XREFs of strstr @ 0x18012CB80
  * Callers:
  *     <none>
  * Callees:
@@ -31,7 +31,6 @@ char *__cdecl strstr(const char *Str, const char *SubStr)
   __m128i v23; // xmm1
   __m128i v24; // xmm2
   unsigned __int8 v25; // sf
-  __int64 v26; // rax
 
   v2 = SubStr;
   v3 = (const __m128i *)Str;
@@ -129,7 +128,7 @@ LABEL_9:
         return 0LL;
       if ( v3->m128i_i8[0] == *v2 )
         goto LABEL_37;
-LABEL_47:
+LABEL_46:
       v3 = (const __m128i *)((char *)v3 + 1);
     }
     v19 = _mm_loadu_si128(v3);
@@ -138,34 +137,30 @@ LABEL_47:
       break;
     ++v3;
   }
-  if ( v20 )
-  {
-    v3 = (const __m128i *)((char *)v3 + _mm_cmpistri(inserted, v19, 12));
+  if ( !v20 )
+    return 0LL;
+  v3 = (const __m128i *)((char *)v3 + _mm_cmpistri(inserted, v19, 12));
 LABEL_37:
-    v21 = v3;
-    for ( j = (const __m128i *)v2; ; j = (const __m128i *)((char *)j + v26) )
+  v21 = v3;
+  for ( j = (const __m128i *)v2; ; ++j )
+  {
+    while ( ((unsigned __int16)v21 & 0xFFFu) > 0xFF0uLL || ((unsigned __int16)j & 0xFFFu) > 0xFF0uLL )
     {
-      if ( ((unsigned __int16)v21 & 0xFFFu) > 0xFF0uLL || ((unsigned __int16)j & 0xFFFu) > 0xFF0uLL )
-      {
-        if ( !j->m128i_i8[0] )
-          return v3->m128i_i8;
-        if ( v21->m128i_i8[0] != j->m128i_i8[0] )
-          goto LABEL_47;
-        v26 = 1LL;
-      }
-      else
-      {
-        v23 = _mm_loadu_si128(v21);
-        v24 = _mm_loadu_si128(j);
-        v25 = _mm_cmpistrs(v24, v23, 12);
-        if ( !_mm_cmpistro(v24, v23, 12) )
-          goto LABEL_47;
-        if ( v25 )
-          return v3->m128i_i8;
-        v26 = 16LL;
-      }
-      v21 = (const __m128i *)((char *)v21 + v26);
+      if ( !j->m128i_i8[0] )
+        return v3->m128i_i8;
+      if ( v21->m128i_i8[0] != j->m128i_i8[0] )
+        goto LABEL_46;
+      v21 = (const __m128i *)((char *)v21 + 1);
+      j = (const __m128i *)((char *)j + 1);
     }
+    v23 = _mm_loadu_si128(v21);
+    v24 = _mm_loadu_si128(j);
+    v25 = _mm_cmpistrs(v24, v23, 12);
+    if ( !_mm_cmpistro(v24, v23, 12) )
+      goto LABEL_46;
+    if ( v25 )
+      break;
+    ++v21;
   }
-  return 0LL;
+  return v3->m128i_i8;
 }

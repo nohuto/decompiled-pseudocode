@@ -1,5 +1,5 @@
 /*
- * XREFs of ExUpdateLicenseData @ 0x1406AEA30
+ * XREFs of ExUpdateLicenseData @ 0x1406AEB68
  * Callers:
  *     <none>
  * Callees:

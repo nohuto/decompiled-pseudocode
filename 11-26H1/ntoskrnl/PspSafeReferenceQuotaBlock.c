@@ -1,8 +1,8 @@
 /*
- * XREFs of PspSafeReferenceQuotaBlock @ 0x140AB9360
+ * XREFs of PspSafeReferenceQuotaBlock @ 0x140ABA778
  * Callers:
- *     PspLookupProcessQuotaBlock @ 0x140AB8E5C (PspLookupProcessQuotaBlock.c)
- *     PspAssignProcessQuotaBlock @ 0x140AB8F60 (PspAssignProcessQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x140ABA274 (PspLookupProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x140ABA378 (PspAssignProcessQuotaBlock.c)
  * Callees:
  *     <none>
  */

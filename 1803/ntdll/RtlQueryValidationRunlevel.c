@@ -9,21 +9,34 @@
  *     ZwQueryValueKey @ 0x18009ADA0 (ZwQueryValueKey.c)
  */
 
-__int64 __fastcall RtlQueryValidationRunlevel(__int64 a1)
+ULONG __cdecl RtlQueryValidationRunlevel(PUNICODE_STRING ComponentName)
 {
-  unsigned int v1; // edi
+  int v1; // edi
   int v2; // ebx
-  int v4; // [rsp+44h] [rbp-24h]
-  int v5; // [rsp+48h] [rbp-20h]
-  int v6; // [rsp+4Ch] [rbp-1Ch]
+  HANDLE KeyHandle; // [rsp+30h] [rbp-38h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-30h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+40h] [rbp-28h] BYREF
+  int v8; // [rsp+44h] [rbp-24h]
+  int v9; // [rsp+48h] [rbp-20h]
+  int v10; // [rsp+4Ch] [rbp-1Ch]
 
   v1 = MEMORY[0x7FFE0258];
   v2 = 0;
-  if ( a1 && MEMORY[0x7FFE0258] != -1 && (int)ZwOpenKey() >= 0 )
+  if ( ComponentName && MEMORY[0x7FFE0258] != -1 && ZwOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_180111480) >= 0 )
   {
-    if ( (int)ZwQueryValueKey() >= 0 && v4 == 4 && v5 == 4 )
-      v2 = v6;
-    ZwClose();
+    if ( ZwQueryValueKey(
+           KeyHandle,
+           ComponentName,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x14u,
+           &ResultLength) >= 0
+      && v8 == 4
+      && v9 == 4 )
+    {
+      v2 = v10;
+    }
+    ZwClose(KeyHandle);
   }
   return v2 | v1;
 }

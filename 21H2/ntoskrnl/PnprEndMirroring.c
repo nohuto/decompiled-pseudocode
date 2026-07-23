@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprEndMirroring @ 0x1409AD720
+ * XREFs of PnprEndMirroring @ 0x1409AE650
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PnprQuiesce @ 0x14050F718 (PnprQuiesce.c)
- *     PnprSwap @ 0x14050FA68 (PnprSwap.c)
- *     PnprWakeProcessors @ 0x1409AEE1C (PnprWakeProcessors.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PnprQuiesce @ 0x14050F958 (PnprQuiesce.c)
+ *     PnprSwap @ 0x14050FCA8 (PnprSwap.c)
+ *     PnprWakeProcessors @ 0x1409AFD4C (PnprWakeProcessors.c)
  */
 
 __int64 __fastcall PnprEndMirroring(int a1)

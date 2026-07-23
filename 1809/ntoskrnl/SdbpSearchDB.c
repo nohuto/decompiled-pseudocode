@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbpSearchDB @ 0x14067D56C
+ * XREFs of SdbpSearchDB @ 0x14067E72C
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14067E7FC (SdbGetDatabaseMatch.c)
+ *     SdbGetDatabaseMatch @ 0x14067F9BC (SdbGetDatabaseMatch.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7C8 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x14067CC0C (SdbFindFirstStringIndexedTag.c)
- *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
- *     SdbGetIndex @ 0x14067D704 (SdbGetIndex.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbFindNextStringIndexedTag @ 0x140720304 (SdbFindNextStringIndexedTag.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x140721158 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
- *     SdbFindFirstNamedTag @ 0x1407228D8 (SdbFindFirstNamedTag.c)
- *     SdbpCheckExe @ 0x140722CB8 (SdbpCheckExe.c)
- *     SdbpFindNextNamedTag @ 0x1408E7A4C (SdbpFindNextNamedTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x14067D988 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x14067DDCC (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstTag @ 0x14067E340 (SdbFindFirstTag.c)
+ *     SdbGetIndex @ 0x14067E8C4 (SdbGetIndex.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbFindNextStringIndexedTag @ 0x1407215A4 (SdbFindNextStringIndexedTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407223F8 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbGetStringTagPtr @ 0x1407229B0 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstNamedTag @ 0x140723B78 (SdbFindFirstNamedTag.c)
+ *     SdbpCheckExe @ 0x140723F58 (SdbpCheckExe.c)
+ *     SdbpFindNextNamedTag @ 0x1408E8D0C (SdbpFindNextNamedTag.c)
  */
 
 __int64 __fastcall SdbpSearchDB(int a1, void *a2, __int64 a3, __int64 a4, unsigned int *a5, int a6)

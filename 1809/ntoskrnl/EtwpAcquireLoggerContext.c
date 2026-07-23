@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpAcquireLoggerContext @ 0x140659E50
+ * XREFs of EtwpAcquireLoggerContext @ 0x14065B010
  * Callers:
- *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
- *     EtwpQueryTrace @ 0x140659D80 (EtwpQueryTrace.c)
- *     EtwpFlushTrace @ 0x1406C2940 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
- *     EtwpIncrementTraceFile @ 0x1408B6510 (EtwpIncrementTraceFile.c)
+ *     EtwpStopTrace @ 0x14065A150 (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x14065AF40 (EtwpQueryTrace.c)
+ *     EtwpFlushTrace @ 0x1406C3BE0 (EtwpFlushTrace.c)
+ *     EtwpUpdateTrace @ 0x140726D7C (EtwpUpdateTrace.c)
+ *     EtwpIncrementTraceFile @ 0x1408B77D0 (EtwpIncrementTraceFile.c)
  * Callees:
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x140659F64 (EtwpAcquireLoggerContextByLoggerName.c)
- *     EtwpCaptureString @ 0x14065A024 (EtwpCaptureString.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C61A8 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x14065B124 (EtwpAcquireLoggerContextByLoggerName.c)
+ *     EtwpCaptureString @ 0x14065B1E4 (EtwpCaptureString.c)
  */
 
 __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, unsigned int **a3)
@@ -27,9 +27,9 @@ __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, unsigned int
   v3 = *(_BYTE *)(a1 + 4208);
   *a3 = 0LL;
   v7 = -1;
-  v8 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
+  v8 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
   if ( !v8 )
-    v8 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
+    v8 = *(_QWORD *)(a2 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v8 )
     v7 = v3;
   if ( v7 != v3 && *(_WORD *)(a2 + 144) )

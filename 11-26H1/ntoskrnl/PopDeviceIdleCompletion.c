@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDeviceIdleCompletion @ 0x140603F30
+ * XREFs of PopDeviceIdleCompletion @ 0x140606A30
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void PopDeviceIdleCompletion()
@@ -14,13 +14,13 @@ void PopDeviceIdleCompletion()
   bool v1; // zf
   KIRQL v2; // bl
 
-  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140F10808);
-  v1 = LODWORD(stru_140E66FF0.KcsanThread)-- == 1;
+  v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160]);
+  v1 = dword_140E676D0-- == 1;
   v2 = v0;
-  if ( v1 && stru_140E66FF0.Spare32 )
+  if ( v1 && qword_140E676C8 )
   {
-    KeSetEvent((PRKEVENT)stru_140E66FF0.Spare32, 0, 0);
-    stru_140E66FF0.Spare32 = 0LL;
+    KeSetEvent(qword_140E676C8, 0, 0);
+    qword_140E676C8 = 0LL;
   }
-  KeReleaseSpinLock(&qword_140F10808, v2);
+  KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160], v2);
 }

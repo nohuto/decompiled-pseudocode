@@ -8,18 +8,18 @@
  *     _RtlpHpHeapUnlock@12 @ 0x4B379185 (_RtlpHpHeapUnlock@12.c)
  */
 
-void __fastcall RtlpHpUnlockHeapForCloning(volatile signed __int32 *a1, int a2)
+void __fastcall RtlpHpUnlockHeapForCloning(_RTL_SRWLOCK *a1, int a2)
 {
   int v4; // ecx
 
-  RtlpHpLfhContextLockUnlock((int)(a1 + 176), 2 * (a2 != 0) + 1);
+  RtlpHpLfhContextLockUnlock((int)&a1[176], 2 * (a2 != 0) + 1);
   if ( a2 )
-    *((_DWORD *)a1 + 45) = 1;
+    a1[45].Value = 1;
   RtlReleaseSRWLockExclusive(a1 + 45);
   if ( a2 )
   {
-    *((_DWORD *)a1 + 86) = 1;
-    *((_DWORD *)a1 + 118) = 1;
+    a1[86].Value = 1;
+    a1[118].Value = 1;
   }
   RtlReleaseSRWLockExclusive(a1 + 86);
   RtlReleaseSRWLockExclusive(a1 + 118);

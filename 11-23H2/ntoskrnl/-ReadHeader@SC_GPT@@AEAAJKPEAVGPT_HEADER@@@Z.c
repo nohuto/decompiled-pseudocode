@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x1406743C4
+ * XREFs of ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x140674914
  * Callers:
- *     ?ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1406744C0 (-ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14067482C (-VerifyPartitionTable@SC_GPT@@QEAAJE@Z.c)
- *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x140674AEC (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
+ *     ?ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140674A10 (-ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x140674D7C (-VerifyPartitionTable@SC_GPT@@QEAAJE@Z.c)
+ *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x14067503C (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14032D3E0 (RtlComputeCrc32.c)
- *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140675B8C (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     RtlComputeCrc32 @ 0x14032D670 (RtlComputeCrc32.c)
+ *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1406760DC (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
  */
 
 __int64 __fastcall SC_GPT::ReadHeader(SC_DISK **this, int a2, struct GPT_HEADER *a3)
@@ -15,7 +15,7 @@ __int64 __fastcall SC_GPT::ReadHeader(SC_DISK **this, int a2, struct GPT_HEADER 
   int Sectors; // esi
   int v7; // ebp
   int v8; // ebx
-  int v9; // eax
+  ULONG32 v9; // eax
 
   if ( a2 )
     v5 = *((_QWORD *)*this + 31) - 1LL;
@@ -35,7 +35,7 @@ __int64 __fastcall SC_GPT::ReadHeader(SC_DISK **this, int a2, struct GPT_HEADER 
       {
         v8 = *((_DWORD *)a3 + 4);
         *((_DWORD *)a3 + 4) = 0;
-        v9 = RtlComputeCrc32(0, (char *)a3, 92LL);
+        v9 = RtlComputeCrc32(0, a3, 0x5Cu);
         *((_DWORD *)a3 + 4) = v8;
         if ( v9 == v8 )
           return *((_QWORD *)a3 + 5) < (unsigned __int64)(((((v7 << 7) + *((_DWORD *)*this + 59) - 1) & (unsigned int)-*((_DWORD *)*this + 59)) >> *((_DWORD *)*this + 60))

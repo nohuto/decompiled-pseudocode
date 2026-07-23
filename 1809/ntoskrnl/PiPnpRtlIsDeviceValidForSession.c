@@ -1,10 +1,10 @@
 /*
- * XREFs of PiPnpRtlIsDeviceValidForSession @ 0x140595EDC
+ * XREFs of PiPnpRtlIsDeviceValidForSession @ 0x140596EDC
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140595E6C (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140596E6C (PiPnpRtlApplyMandatoryDeviceFilters.c)
  * Callees:
- *     SeQuerySessionIdTokenEx @ 0x140596110 (SeQuerySessionIdTokenEx.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
+ *     SeQuerySessionIdTokenEx @ 0x140597110 (SeQuerySessionIdTokenEx.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiPnpRtlIsDeviceValidForSession(int a1, int a2, int a3, __int64 a4, _BYTE *IsServiceSession)

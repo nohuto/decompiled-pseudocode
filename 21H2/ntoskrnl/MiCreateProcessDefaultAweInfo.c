@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateProcessDefaultAweInfo @ 0x1408D5AC0
+ * XREFs of MiCreateProcessDefaultAweInfo @ 0x1408D5C20
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x1408D4CE8 (MiAllocateUserPhysicalPages.c)
- *     MiCreateUserPhysicalView @ 0x1408D5BA8 (MiCreateUserPhysicalView.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4E48 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5D08 (MiCreateUserPhysicalView.c)
  * Callees:
- *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
- *     MiAllocateAweInfo @ 0x1408D4B80 (MiAllocateAweInfo.c)
- *     MiDeleteAweInfo @ 0x1408D5E44 (MiDeleteAweInfo.c)
+ *     MiLockAweVadsExclusive @ 0x14054D240 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054E238 (MiUnlockAweVadsExclusive.c)
+ *     MiAllocateAweInfo @ 0x1408D4CE0 (MiAllocateAweInfo.c)
+ *     MiDeleteAweInfo @ 0x1408D5FA4 (MiDeleteAweInfo.c)
  */
 
 __int64 __fastcall MiCreateProcessDefaultAweInfo(KPROCESSOR_MODE a1, _QWORD *a2)

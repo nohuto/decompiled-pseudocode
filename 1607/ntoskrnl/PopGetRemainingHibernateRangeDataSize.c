@@ -4,8 +4,8 @@
  *     PopWriteHiberPages @ 0x1403CBF00 (PopWriteHiberPages.c)
  *     PopRequestWrite @ 0x1403CD62C (PopRequestWrite.c)
  * Callees:
- *     RtlNumberOfClearBits @ 0x140076A5C (RtlNumberOfClearBits.c)
- *     RtlFindNextForwardRunClear @ 0x140084724 (RtlFindNextForwardRunClear.c)
+ *     RtlNumberOfClearBits @ 0x140076ADC (RtlNumberOfClearBits.c)
+ *     RtlFindNextForwardRunClear @ 0x140082884 (RtlFindNextForwardRunClear.c)
  */
 
 __int64 __fastcall PopGetRemainingHibernateRangeDataSize(__int64 a1)

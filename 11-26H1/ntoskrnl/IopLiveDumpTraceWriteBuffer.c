@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpTraceWriteBuffer @ 0x1405D7CB4
+ * XREFs of IopLiveDumpTraceWriteBuffer @ 0x1405DA4AC
  * Callers:
- *     IopLiveDumpWriteBuffer @ 0x140344094 (IopLiveDumpWriteBuffer.c)
+ *     IopLiveDumpWriteBuffer @ 0x140346114 (IopLiveDumpWriteBuffer.c)
  * Callees:
- *     IopLiveDumpTraceEventGeneric @ 0x1405D7A30 (IopLiveDumpTraceEventGeneric.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405DA220 (IopLiveDumpTraceEventGeneric.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall IopLiveDumpTraceWriteBuffer(__int64 a1, unsigned int a2, __int64 a3, unsigned __int8 a4)

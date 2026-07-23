@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeDemandCoalesceContext @ 0x14036EEE0
+ * XREFs of MiInitializeDemandCoalesceContext @ 0x14026AE60
  * Callers:
- *     MiGetLargePoolPages @ 0x1402EA218 (MiGetLargePoolPages.c)
- *     MiCreateLargePfnList @ 0x14036E934 (MiCreateLargePfnList.c)
- *     MiCreateSlabEntry @ 0x1403A112C (MiCreateSlabEntry.c)
- *     MiValidateMdlAllocationRequest @ 0x140412584 (MiValidateMdlAllocationRequest.c)
- *     MiProcessVaContiguityInformation @ 0x14068D0DC (MiProcessVaContiguityInformation.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
- *     MiCreatePagingFileMap @ 0x140942908 (MiCreatePagingFileMap.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
- *     MiGetLargePagesForSystemMapping @ 0x140AAD164 (MiGetLargePagesForSystemMapping.c)
+ *     MiCreateSlabEntry @ 0x140217C8C (MiCreateSlabEntry.c)
+ *     MiCreateLargePfnList @ 0x14026A8C0 (MiCreateLargePfnList.c)
+ *     MiGetLargePoolPages @ 0x14034B858 (MiGetLargePoolPages.c)
+ *     MiValidateMdlAllocationRequest @ 0x1403949C4 (MiValidateMdlAllocationRequest.c)
+ *     MiProcessVaContiguityInformation @ 0x14068E20C (MiProcessVaContiguityInformation.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
+ *     MiCreatePagingFileMap @ 0x14098CB78 (MiCreatePagingFileMap.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140AA81E4 (MiGetLargePagesForSystemMapping.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiExpandSharedZeroCluster @ 0x1402F2598
+ * XREFs of MiExpandSharedZeroCluster @ 0x1402F2828
  * Callers:
- *     MiResolveDemandZeroFault @ 0x140269D40 (MiResolveDemandZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x140269FD0 (MiResolveDemandZeroFault.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiIsPteEvaluated @ 0x1402F2808 (MiIsPteEvaluated.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     MiComputeZeroClusterMaximum @ 0x1402F28B0 (MiComputeZeroClusterMaximum.c)
- *     MiUpdatePageTableUseCount @ 0x1402F2A00 (MiUpdatePageTableUseCount.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiIsPteEvaluated @ 0x1402F2A98 (MiIsPteEvaluated.c)
+ *     MiGetPagingFileOffset @ 0x1402F2AF4 (MiGetPagingFileOffset.c)
+ *     MiComputeZeroClusterMaximum @ 0x1402F2B40 (MiComputeZeroClusterMaximum.c)
+ *     MiUpdatePageTableUseCount @ 0x1402F2C90 (MiUpdatePageTableUseCount.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiExpandSharedZeroCluster(__int64 a1)

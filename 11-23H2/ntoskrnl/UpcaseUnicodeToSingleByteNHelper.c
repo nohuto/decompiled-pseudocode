@@ -1,8 +1,8 @@
 /*
- * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x14022D3D0
+ * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x14022D4E0
  * Callers:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1406D9D80 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlUpcaseUnicodeToOemN @ 0x140755A50 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1406D9DB0 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x140755C40 (RtlUpcaseUnicodeToOemN.c)
  * Callees:
  *     PsGetEffectiveServerSilo @ 0x14020BFF0 (PsGetEffectiveServerSilo.c)
  */

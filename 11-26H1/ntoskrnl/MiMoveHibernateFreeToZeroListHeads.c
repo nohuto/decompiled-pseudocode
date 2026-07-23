@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMoveHibernateFreeToZeroListHeads @ 0x1406EFF60
+ * XREFs of MiMoveHibernateFreeToZeroListHeads @ 0x1406F4BD0
  * Callers:
  *     <none>
  * Callees:
- *     MiWalkFreeZeroListHead @ 0x1403581B0 (MiWalkFreeZeroListHead.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiWalkFreeZeroListHead @ 0x140359F50 (MiWalkFreeZeroListHead.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiMoveHibernateFreeToZeroListHeads(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)

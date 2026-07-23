@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpAcquireFastResourceSharedSlow @ 0x140341510
+ * XREFs of ExpAcquireFastResourceSharedSlow @ 0x1403209F0
  * Callers:
- *     ExAcquireFastResourceShared @ 0x1403411F0 (ExAcquireFastResourceShared.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403DCCD0 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExAcquireFastResourceWithFlags @ 0x140656180 (ExAcquireFastResourceWithFlags.c)
+ *     ExAcquireFastResourceShared @ 0x1403206D0 (ExAcquireFastResourceShared.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403BC9C0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceWithFlags @ 0x140654880 (ExAcquireFastResourceWithFlags.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KiAbEntryRemoveFromTree @ 0x14025CEE0 (KiAbEntryRemoveFromTree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExpWaitForFastResource @ 0x1403DD7C0 (ExpWaitForFastResource.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403DD90C (KeAbMarkCrossThreadReleasable.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028D4F0 (KiAbEntryRemoveFromTree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     ExpWaitForFastResource @ 0x1403BD4B0 (ExpWaitForFastResource.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403BD5FC (KeAbMarkCrossThreadReleasable.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall ExpAcquireFastResourceSharedSlow(
@@ -30,13 +30,13 @@ __int64 __fastcall ExpAcquireFastResourceSharedSlow(
         __int64 a2,
         signed __int32 *SchedulerAssist,
         unsigned __int64 a4,
-        char a5)
+        unsigned int a5)
 {
   unsigned __int8 CurrentIrql; // r12
   unsigned __int8 v6; // si
   unsigned __int64 v7; // r10
   char v8; // r9
-  ULONG_PTR v9; // rdi
+  char *v9; // rdi
   struct _KPRCB *v11; // rbx
   char v12; // r11
   __int64 v13; // r14
@@ -44,7 +44,7 @@ __int64 __fastcall ExpAcquireFastResourceSharedSlow(
   struct _KPRCB *p_CpuType; // rdx
   unsigned __int8 v16; // si
   struct _KPRCB *CurrentPrcb; // rcx
-  _QWORD *v18; // rdx
+  __int64 v18; // rdx
   signed __int64 v19; // rax
   unsigned __int64 v20; // rcx
   __int64 v21; // rdx
@@ -99,7 +99,7 @@ __int64 __fastcall ExpAcquireFastResourceSharedSlow(
   __int128 v71; // [rsp+48h] [rbp-38h] BYREF
   __int128 v72; // [rsp+58h] [rbp-28h]
   __int128 v73; // [rsp+68h] [rbp-18h] BYREF
-  ULONG_PTR v74; // [rsp+78h] [rbp-8h]
+  char *v74; // [rsp+78h] [rbp-8h]
   __int64 retaddr; // [rsp+B8h] [rbp+38h]
   char v76; // [rsp+C0h] [rbp+40h]
 
@@ -111,7 +111,7 @@ __int64 __fastcall ExpAcquireFastResourceSharedSlow(
   v68 = 0;
   v8 = 0;
   v76 = 0;
-  v9 = (ULONG_PTR)SchedulerAssist;
+  v9 = (char *)SchedulerAssist;
   v11 = BugCheckParameter2;
   v69 = 0LL;
   v71 = 0LL;
@@ -235,7 +235,7 @@ LABEL_122:
       }
       if ( v9 )
       {
-        KeAbPostReleaseEx((ULONG_PTR)v11, v9);
+        KeAbPostReleaseEx((ULONG_PTR)v11, (ULONG_PTR)v9);
         v9 = 0LL;
       }
       v36 = v68;
@@ -299,13 +299,13 @@ LABEL_116:
   *((_QWORD *)&v69 + 1) = &v11->PrcbLock;
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v18 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)&v11->PrcbLock, (__int64)&v69);
+    v18 = _InterlockedExchange64((volatile __int64 *)&v11->PrcbLock, (__int64)&v69);
     if ( v18 )
-      KxWaitForLockOwnerShip((__int64)&v69, v18);
+      KxWaitForLockOwnerShip(&v69, v18);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented((__int64)&v69, (volatile __int64 *)&v11->PrcbLock);
+    KiAcquireQueuedSpinLockInstrumented(&v69, &v11->PrcbLock);
   }
   _m_prefetchw(v11);
   v19 = *(_QWORD *)&v11->MxCsr;
@@ -347,8 +347,8 @@ LABEL_116:
     *(_QWORD *)(a2 + 16) = a4 | (v49 != 0);
     if ( v9 )
     {
-      v51 = *(_BYTE *)(v9 + 8);
-      *(_BYTE *)(v9 + 10) = 1;
+      v51 = v9[8];
+      v9[10] = 1;
       *(_BYTE *)(a2 + 36) = (2 * (v51 & 0x3F)) | 1;
     }
     if ( v48 )
@@ -409,11 +409,11 @@ LABEL_116:
   ++LODWORD(v11->PriorityState);
   if ( v9 )
   {
-    *(_BYTE *)v9 |= 2u;
+    *v9 |= 2u;
     if ( *(__int64 *)v9 < 0 )
-      KiAbEntryRemoveFromTree((__int64 *)v9, v21, (__int64)SchedulerAssist);
-    *(_BYTE *)(v9 + 9) = 1;
-    *(_BYTE *)v9 &= ~2u;
+      KiAbEntryRemoveFromTree(v9, v21, (__int64)SchedulerAssist, a5);
+    v9[9] = 1;
+    *v9 &= ~2u;
   }
   v24 = a4;
   *((_QWORD *)&v73 + 1) = &v73;
@@ -477,7 +477,7 @@ LABEL_38:
   LOBYTE(v13) = v27 != 0;
   *(_QWORD *)(a2 + 16) = v24 | v13;
   if ( v9 )
-    *(_BYTE *)(a2 + 36) = (2 * (*(_BYTE *)(v9 + 8) & 0x3F)) | 1;
+    *(_BYTE *)(a2 + 36) = (2 * (v9[8] & 0x3F)) | 1;
   if ( v28 )
     _disable();
   if ( v27 )
@@ -539,7 +539,7 @@ LABEL_38:
   ExpWaitForFastResource(v11, &v71, 66116LL);
   *(_BYTE *)(a2 + 37) &= ~4u;
   if ( v9 )
-    KeAbPreAcquire((__int64)v11, v9);
+    KeAbPreAcquire((__int64)v11, (__int64)v9);
   v38 = v67;
   v6 = 1;
 LABEL_75:
@@ -571,9 +571,9 @@ LABEL_75:
   if ( v9 )
   {
     if ( v6 )
-      *(_BYTE *)(v9 + 10) = 1;
+      v9[10] = 1;
     else
-      KeAbPostReleaseEx((ULONG_PTR)v11, v9);
+      KeAbPostReleaseEx((ULONG_PTR)v11, (ULONG_PTR)v9);
     if ( (a5 & 0x10) != 0 )
       KeAbMarkCrossThreadReleasable(BugCheckParameter2, v9);
   }

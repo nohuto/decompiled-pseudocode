@@ -8,7 +8,7 @@
  *     RtlpInterlockedPushEntrySList @ 0x1800A8930 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, _RTL_SRWLOCK *a2, __int64 a3, unsigned int a4)
 {
   unsigned int v4; // edi
   unsigned int v5; // ebx
@@ -19,12 +19,15 @@ __int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, unsigned __int64 a2, 
   v7 = (_WORD *)(a1 + 16LL * (v5 - 12));
   if ( *v7 )
   {
-    ((void (__fastcall *)(_QWORD, __int64, _QWORD))(a2 ^ RtlpHeapKey ^ *(_QWORD *)(a2 + 16)))(*(_QWORD *)a2, a3, a4);
+    ((void (__fastcall *)(unsigned __int64, __int64, _QWORD))((unsigned __int64)a2 ^ RtlpHeapKey ^ a2[2].Value))(
+      a2->Value,
+      a3,
+      a4);
   }
   else
   {
     v4 = 1;
-    RtlpHpLfhSubsegmentDecommitPages((_QWORD *)a2, a3, -2, 1u, a4);
+    RtlpHpLfhSubsegmentDecommitPages(a2, a3, -2, 1u, a4);
     RtlpInterlockedPushEntrySList(v7, a3);
   }
   return v4;

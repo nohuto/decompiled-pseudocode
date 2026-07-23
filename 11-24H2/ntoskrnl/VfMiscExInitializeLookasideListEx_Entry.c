@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscExInitializeLookasideListEx_Entry @ 0x140B9D8B0
+ * XREFs of VfMiscExInitializeLookasideListEx_Entry @ 0x140B9F8B0
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     ViMiscValidateSynchronizationObject @ 0x140B9F6A8 (ViMiscValidateSynchronizationObject.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140BA16A8 (ViMiscValidateSynchronizationObject.c)
  */
 
 __int64 __fastcall VfMiscExInitializeLookasideListEx_Entry(__int64 *a1)

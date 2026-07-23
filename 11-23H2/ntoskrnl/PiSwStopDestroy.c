@@ -1,19 +1,19 @@
 /*
- * XREFs of PiSwStopDestroy @ 0x140869CC8
+ * XREFs of PiSwStopDestroy @ 0x140869F08
  * Callers:
- *     IopRemoveDevice @ 0x140869968 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x140869BA8 (IopRemoveDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563C60 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563D88 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PiSwFindChildren @ 0x14079833C (PiSwFindChildren.c)
- *     PnpConcatPWSTR @ 0x1407FA9A8 (PnpConcatPWSTR.c)
- *     PiSwFindPdoAssociation @ 0x140848540 (PiSwFindPdoAssociation.c)
- *     PiSwCloseDevice @ 0x1409670C0 (PiSwCloseDevice.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x140564320 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140564448 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PiSwFindChildren @ 0x14079852C (PiSwFindChildren.c)
+ *     PnpConcatPWSTR @ 0x1407FAC78 (PnpConcatPWSTR.c)
+ *     PiSwFindPdoAssociation @ 0x140848840 (PiSwFindPdoAssociation.c)
+ *     PiSwCloseDevice @ 0x1409672C0 (PiSwCloseDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

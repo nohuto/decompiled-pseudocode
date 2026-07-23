@@ -32,11 +32,11 @@ __int64 PoDelistPowerStateTransitionBlocker()
     else
     {
       v1 = 5LL * (unsigned int)dword_140C3E6C0;
-      ObfDereferenceObject((PVOID)PopStateTransitonBlameStack[5 * (unsigned int)dword_140C3E6C0 + 1]);
-      ObfDereferenceObject((PVOID)PopStateTransitonBlameStack[v1]);
-      *(_OWORD *)&PopStateTransitonBlameStack[v1] = 0LL;
-      *(_OWORD *)&PopStateTransitonBlameStack[v1 + 2] = 0LL;
-      PopStateTransitonBlameStack[v1 + 4] = 0LL;
+      ObfDereferenceObject((PVOID)PopStateTransitonBlameStack[5 * (unsigned int)dword_140C3E6C0 + 1].QuadPart);
+      ObfDereferenceObject((PVOID)PopStateTransitonBlameStack[v1].QuadPart);
+      *(_OWORD *)&PopStateTransitonBlameStack[v1].LowPart = 0LL;
+      *(_OWORD *)&PopStateTransitonBlameStack[v1 + 2].LowPart = 0LL;
+      PopStateTransitonBlameStack[v1 + 4].QuadPart = 0LL;
       --dword_140C3E6C0;
     }
     PopReleaseRwLock((__int64 *)&xmmword_140C3E6C8);

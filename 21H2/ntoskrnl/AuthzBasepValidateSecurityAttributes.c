@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepValidateSecurityAttributes @ 0x1402509C4
+ * XREFs of AuthzBasepValidateSecurityAttributes @ 0x1402F51D4
  * Callers:
- *     AuthzBasepSetSecurityAttributesToken @ 0x1402508E0 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402F50F0 (AuthzBasepSetSecurityAttributesToken.c)
  * Callees:
  *     <none>
  */

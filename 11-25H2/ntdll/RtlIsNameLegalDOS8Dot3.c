@@ -15,7 +15,7 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
   bool v5; // r15
   __int64 v6; // r14
   __int64 v9; // rdx
-  PWCH *v10; // rcx
+  _UNICODE_STRING *v10; // rcx
   char **p_Buffer; // r10
   unsigned int Length; // ebx
   __int64 v13; // r8
@@ -34,9 +34,9 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
   {
     _InterlockedOr(v17, 0);
     v6 = qword_1801CF028;
-    v5 = word_1801CEFDC != 0;
+    v5 = CodePageTable.DBCSCodePage != 0;
   }
-  if ( *(_WORD *)v10 > 0x18u )
+  if ( v10->Length > 0x18u )
     return 0;
   if ( !v9 )
   {
@@ -44,7 +44,7 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
     *((_QWORD *)&v18 + 1) = &v19;
     OemName = (POEM_STRING)&v18;
   }
-  if ( (int)RtlUpcaseUnicodeStringToCountedOemString((__int64)OemName, v10, 0) < 0 )
+  if ( RtlUpcaseUnicodeStringToCountedOemString(OemName, v10, 0) < 0 )
     return 0;
   p_Buffer = &OemName->Buffer;
   if ( OemName->Length != 1 )

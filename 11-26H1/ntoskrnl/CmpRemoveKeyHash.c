@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRemoveKeyHash @ 0x1408BA020
+ * XREFs of CmpRemoveKeyHash @ 0x1408C05F0
  * Callers:
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpRehashKcbSubtree @ 0x140859538 (CmpRehashKcbSubtree.c)
- *     CmpDiscardKcb @ 0x1408B9D6C (CmpDiscardKcb.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpRehashKcbSubtree @ 0x14085F8C8 (CmpRehashKcbSubtree.c)
+ *     CmpDiscardKcb @ 0x1408C033C (CmpDiscardKcb.c)
  * Callees:
  *     <none>
  */

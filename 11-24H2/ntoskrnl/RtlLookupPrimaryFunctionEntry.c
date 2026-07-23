@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLookupPrimaryFunctionEntry @ 0x1405F09D0
+ * XREFs of RtlLookupPrimaryFunctionEntry @ 0x1405EDFB0
  * Callers:
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x14073DCD0 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x14073BC00 (KiTpBuildExcludedKernelTracepointBitmap.c)
  * Callees:
- *     RtlpLookupPrimaryFunctionEntry @ 0x140483AB0 (RtlpLookupPrimaryFunctionEntry.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x14047EFD0 (RtlpLookupPrimaryFunctionEntry.c)
  */
 
 _BYTE *__fastcall RtlLookupPrimaryFunctionEntry(_BYTE *a1, __int64 a2)

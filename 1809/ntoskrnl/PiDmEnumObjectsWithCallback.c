@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDmEnumObjectsWithCallback @ 0x140596F5C
+ * XREFs of PiDmEnumObjectsWithCallback @ 0x140597F5C
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405902D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmGetObjectList @ 0x140700B90 (PiDmGetObjectList.c)
- *     PiDmListInit @ 0x14072C6F0 (PiDmListInit.c)
- *     PpDevCfgInit @ 0x1409C875C (PpDevCfgInit.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405912D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDmGetObjectList @ 0x140701E30 (PiDmGetObjectList.c)
+ *     PiDmListInit @ 0x14072D8E0 (PiDmListInit.c)
+ *     PpDevCfgInit @ 0x1409C975C (PpDevCfgInit.c)
  * Callees:
  *     RtlEnumerateGenericTableLikeADirectory @ 0x140006880 (RtlEnumerateGenericTableLikeADirectory.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PiDmGetObjectManagerForObjectType @ 0x140598CD0 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PiDmObjectIsEnumerable @ 0x14059A4DC (PiDmObjectIsEnumerable.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x140599CD0 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     PiDmObjectIsEnumerable @ 0x14059B4DC (PiDmObjectIsEnumerable.c)
  */
 
 __int64 __fastcall PiDmEnumObjectsWithCallback(
@@ -52,7 +52,7 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
   v23 = v8;
   v9 = L"\\\\?\\";
   if ( v8 != 3 )
-    v9 = &word_140766550;
+    v9 = &word_140767740;
   v21 = v9;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

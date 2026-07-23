@@ -6,15 +6,15 @@
  *     RtlGetFullPathName_UEx @ 0x1800291D0 (RtlGetFullPathName_UEx.c)
  */
 
-__int64 __fastcall RtlGetFullPathName_U(__int64 a1, unsigned int a2, _WORD *a3, _QWORD *a4)
+ULONG __cdecl RtlGetFullPathName_U(PCWSTR FileName, ULONG BufferLength, PWSTR Buffer, PWSTR *FilePart)
 {
-  int FullPathName_UEx; // eax
-  unsigned int v5; // ecx
-  _DWORD v7[6]; // [rsp+30h] [rbp-18h] BYREF
+  NTSTATUS FullPathName_UEx; // eax
+  ULONG v5; // ecx
+  ULONG BytesRequired[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  FullPathName_UEx = RtlGetFullPathName_UEx(a1, a2, a3, a4, v7);
+  FullPathName_UEx = RtlGetFullPathName_UEx(FileName, BufferLength, Buffer, FilePart, BytesRequired);
   v5 = 0;
   if ( FullPathName_UEx >= 0 )
-    return v7[0];
+    return BytesRequired[0];
   return v5;
 }

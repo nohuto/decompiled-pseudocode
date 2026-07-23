@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMarkKernelStack @ 0x1403D1CF4
+ * XREFs of MiMarkKernelStack @ 0x1403D4CC4
  * Callers:
- *     MiAllocateKernelStackPages @ 0x1403D1778 (MiAllocateKernelStackPages.c)
- *     MiSetPageProtection @ 0x1404EB458 (MiSetPageProtection.c)
- *     MiMarkBootKernelStack @ 0x140CFC7FC (MiMarkBootKernelStack.c)
+ *     MiAllocateKernelStackPages @ 0x1403D4748 (MiAllocateKernelStackPages.c)
+ *     MiSetPageProtection @ 0x1404E4A38 (MiSetPageProtection.c)
+ *     MiMarkBootKernelStack @ 0x140D02B7C (MiMarkBootKernelStack.c)
  * Callees:
  *     <none>
  */

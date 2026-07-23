@@ -33,7 +33,7 @@ __int64 __fastcall WbAllocateSlots(__int64 a1, unsigned int a2, int a3, unsigned
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   v10 = (unsigned __int64 *)(a1 + 1072);
-  v11 = KeAbPreAcquire(a1 + 1072, 0LL, 0LL);
+  v11 = KeAbPreAcquire(a1 + 1072, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v10, v11, (ULONG_PTR)v10);
   v12 = 0LL;
@@ -73,7 +73,7 @@ LABEL_10:
   {
     v16 = KeGetCurrentThread();
     --v16->SpecialApcDisable;
-    v17 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0LL);
+    v17 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
     v18 = v17;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
       ExfAcquirePushLockExclusiveEx(v10, v17, (ULONG_PTR)v10);

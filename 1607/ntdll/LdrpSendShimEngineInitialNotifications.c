@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpSendShimEngineInitialNotifications @ 0x18007DEE8
+ * XREFs of LdrpSendShimEngineInitialNotifications @ 0x18007DED8
  * Callers:
- *     LdrpDynamicShimModule @ 0x18002D734 (LdrpDynamicShimModule.c)
- *     LdrpLoadShimEngine @ 0x18007DCE0 (LdrpLoadShimEngine.c)
- *     LdrpSendShimEngineInitialNotifications @ 0x18007DEE8 (LdrpSendShimEngineInitialNotifications.c)
+ *     LdrpDynamicShimModule @ 0x18002D724 (LdrpDynamicShimModule.c)
+ *     LdrpLoadShimEngine @ 0x18007DCD0 (LdrpLoadShimEngine.c)
+ *     LdrpSendShimEngineInitialNotifications @ 0x18007DED8 (LdrpSendShimEngineInitialNotifications.c)
  * Callees:
- *     LdrpSendShimEngineInitialNotifications @ 0x18007DEE8 (LdrpSendShimEngineInitialNotifications.c)
+ *     LdrpSendShimEngineInitialNotifications @ 0x18007DED8 (LdrpSendShimEngineInitialNotifications.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 

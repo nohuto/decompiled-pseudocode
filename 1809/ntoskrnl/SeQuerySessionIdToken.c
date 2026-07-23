@@ -1,10 +1,10 @@
 /*
- * XREFs of SeQuerySessionIdToken @ 0x14069E460
+ * XREFs of SeQuerySessionIdToken @ 0x14069F720
  * Callers:
- *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     PnpGetCallerSessionId @ 0x140827D38 (PnpGetCallerSessionId.c)
+ *     NtQueryInformationToken @ 0x14062B780 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14063D370 (SeQueryInformationToken.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     PnpGetCallerSessionId @ 0x140828F38 (PnpGetCallerSessionId.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)

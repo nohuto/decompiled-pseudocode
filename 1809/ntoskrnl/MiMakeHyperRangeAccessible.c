@@ -1,32 +1,32 @@
 /*
- * XREFs of MiMakeHyperRangeAccessible @ 0x14006E3D0
+ * XREFs of MiMakeHyperRangeAccessible @ 0x14006E3C0
  * Callers:
- *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
- *     MiExpandVadBitMap @ 0x140679CCC (MiExpandVadBitMap.c)
- *     MiExpandVadBitMapDown @ 0x140858A14 (MiExpandVadBitMapDown.c)
+ *     MiCommitPageTablesForVad @ 0x1405EDBB0 (MiCommitPageTablesForVad.c)
+ *     MiExpandVadBitMap @ 0x14067AE8C (MiExpandVadBitMap.c)
+ *     MiExpandVadBitMapDown @ 0x140859C74 (MiExpandVadBitMapDown.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiCheckProcessShadow @ 0x140046A70 (MiCheckProcessShadow.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     MiFillHyperPtes @ 0x14011AE84 (MiFillHyperPtes.c)
- *     MiMakeHyperPteDemandZero @ 0x14011AF9C (MiMakeHyperPteDemandZero.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1402C9868 (MiDeleteDeferredCloneDescriptors.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     MiFillHyperPtes @ 0x14011AEF4 (MiFillHyperPtes.c)
+ *     MiMakeHyperPteDemandZero @ 0x14011B00C (MiMakeHyperPteDemandZero.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x1402C9A58 (MiDeleteDeferredCloneDescriptors.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiChargeFullProcessCommitment @ 0x1405E1510 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x1405F3998 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __int64 a2, __int64 *a3, __int64 a4)
@@ -104,7 +104,7 @@ __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, unsigned __in
   LOBYTE(Process) = (__int64)Process[2].Header.WaitListHead.Flink & 7;
   v60 = v7;
   if ( (_BYTE)Process == 2 )
-    v8 = &dword_14043B700;
+    v8 = &dword_14043C7C0;
   else
     v8 = (LONG *)(v7 + 192);
   CurrentIrql = KeGetCurrentIrql();
@@ -222,7 +222,7 @@ LABEL_8:
           while ( v25 >= 0xFFFFF68000000000uLL );
           v22 = (unsigned __int64)v51;
         }
-        if ( v25 >= 0xFFFF800000000000uLL && (v25 < qword_14043BAC0 || v25 > qword_14043A530) )
+        if ( v25 >= 0xFFFF800000000000uLL && (v25 < qword_14043CB80 || v25 > qword_14043B5F0) )
           AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
         else
           AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
@@ -316,7 +316,7 @@ LABEL_23:
   v49 = *(_DWORD *)(v7 + 184);
   v29 = 0;
   if ( (v49 & 7) == 2 )
-    v30 = &dword_14043B700;
+    v30 = &dword_14043C7C0;
   else
     v30 = (LONG *)(v7 + 192);
   if ( (v49 & 7) == 0 )

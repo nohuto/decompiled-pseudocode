@@ -1,14 +1,14 @@
 /*
- * XREFs of SepCheckForAllAppPackagesAceRemoval @ 0x140694CA8
+ * XREFs of SepCheckForAllAppPackagesAceRemoval @ 0x140694D8C
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x1403FCD98 (CmpSetSecurityDescriptorInfo.c)
- *     SeAdjustObjectAppContainerSecurity @ 0x14069479C (SeAdjustObjectAppContainerSecurity.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1403FBC58 (CmpSetSecurityDescriptorInfo.c)
+ *     SeAdjustObjectAppContainerSecurity @ 0x140694880 (SeAdjustObjectAppContainerSecurity.c)
  * Callees:
- *     SepSidInToken @ 0x1400C45A4 (SepSidInToken.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     SepHasAllAppPackagesPresent @ 0x140694E28 (SepHasAllAppPackagesPresent.c)
+ *     SepSidInToken @ 0x1400C2444 (SepSidInToken.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     SepHasAllAppPackagesPresent @ 0x140694F0C (SepHasAllAppPackagesPresent.c)
  */
 
 void __fastcall SepCheckForAllAppPackagesAceRemoval(

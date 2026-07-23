@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCbCatW @ 0x18005778C
+ * XREFs of RtlStringCbCatW @ 0x18005777C
  * Callers:
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1800576D8 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1800576C8 (RtlpGetDynamicTimeZoneInfoHandle.c)
  * Callees:
  *     <none>
  */

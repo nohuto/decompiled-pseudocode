@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAppendSubsectionChain @ 0x140474DD4
+ * XREFs of MiAppendSubsectionChain @ 0x140470BE4
  * Callers:
- *     MiExtendSection @ 0x1409463BC (MiExtendSection.c)
+ *     MiExtendSection @ 0x14098A4D8 (MiExtendSection.c)
  * Callees:
- *     MiInsertSubsectionNode @ 0x140261544 (MiInsertSubsectionNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiInsertUnusedSubsection @ 0x140371BB0 (MiInsertUnusedSubsection.c)
- *     MiDecrementSubsectionViewCount @ 0x140371EA0 (MiDecrementSubsectionViewCount.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404B8B54 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F9F3C (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiInsertUnusedSubsection @ 0x140259F70 (MiInsertUnusedSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x14025A760 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertSubsectionNode @ 0x140291B54 (MiInsertSubsectionNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404B34A4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F781C (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiAppendSubsectionChain(__int64 a1, __int64 a2, char a3)
@@ -112,6 +112,6 @@ LABEL_6:
   }
   MiReleaseSpinLockExclusive(v9, v19);
   if ( v8 )
-    MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E2FF88 + (*(_WORD *)(v3 + 60) & 0x3FF)), 1LL, v8);
+    MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E300C8 + (*(_WORD *)(v3 + 60) & 0x3FF)), 1LL, v8);
   return 0LL;
 }

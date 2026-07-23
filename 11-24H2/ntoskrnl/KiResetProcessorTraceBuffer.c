@@ -1,10 +1,10 @@
 /*
- * XREFs of KiResetProcessorTraceBuffer @ 0x1405B1160
+ * XREFs of KiResetProcessorTraceBuffer @ 0x1405AE0D0
  * Callers:
- *     SwapContext @ 0x1406B2B40 (SwapContext.c)
+ *     SwapContext @ 0x1406B3AE0 (SwapContext.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 KiResetProcessorTraceBuffer()

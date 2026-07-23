@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpGetDeviceDataInformation @ 0x1408CB560
+ * XREFs of ExpGetDeviceDataInformation @ 0x1408CC820
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     KseQueryDeviceData @ 0x140720930 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x1408473B0 (KseQueryDeviceDataList.c)
- *     ExpStringCapture @ 0x1408CCC6C (ExpStringCapture.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     KseQueryDeviceData @ 0x140721BD0 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x140848610 (KseQueryDeviceDataList.c)
+ *     ExpStringCapture @ 0x1408CDF2C (ExpStringCapture.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ExpGetDeviceDataInformation(int a1, unsigned __int64 a2, int a3)

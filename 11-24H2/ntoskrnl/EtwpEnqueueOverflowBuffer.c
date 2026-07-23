@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpEnqueueOverflowBuffer @ 0x14024D048
+ * XREFs of EtwpEnqueueOverflowBuffer @ 0x14027D658
  * Callers:
- *     EtwpSwitchBuffer @ 0x14024CDA0 (EtwpSwitchBuffer.c)
- *     EtwpDequeueFreeBuffer @ 0x1404EF438 (EtwpDequeueFreeBuffer.c)
+ *     EtwpSwitchBuffer @ 0x14027D3B0 (EtwpSwitchBuffer.c)
+ *     EtwpDequeueFreeBuffer @ 0x1404EC950 (EtwpDequeueFreeBuffer.c)
  * Callees:
- *     EtwpUnlockBufferList @ 0x1403EEBF4 (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x1403EEC80 (EtwpLockBufferList.c)
+ *     EtwpUnlockBufferList @ 0x1403E1688 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1403E1714 (EtwpLockBufferList.c)
  */
 
 __int64 __fastcall EtwpEnqueueOverflowBuffer(__int64 a1, __int64 a2)

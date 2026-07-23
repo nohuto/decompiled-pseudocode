@@ -8,11 +8,11 @@
  *     ZwContinue @ 0x1800A5B60 (ZwContinue.c)
  */
 
-__int64 __fastcall sub_1800A9270(__int64 a1, __int64 a2)
+NTSTATUS __fastcall sub_1800A9270(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax
   int v3; // r8d
-  __int64 result; // rax
+  NTSTATUS result; // eax
   volatile __int32 *v5; // rbx
   __int32 v6; // r8d
   _QWORD _FFFFFFFFFFFFFF68[161]; // [rsp-98h] [rbp-500h] BYREF
@@ -59,7 +59,8 @@ __int64 __fastcall sub_1800A9270(__int64 a1, __int64 a2)
       *(_OWORD *)(a1 + 656) = *(_OWORD *)(v2 + 240);
     }
   }
-  if ( (*((_QWORD *)&xmmword_18016B360 + 1) & 0x1000LL) == 0 && (*(_DWORD *)(a1 + 48) & 0xFFFFFFBF) == 0x10000F )
+  if ( (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] & 0x1000) == 0
+    && (*(_DWORD *)(a1 + 48) & 0xFFFFFFBF) == 0x10000F )
   {
     if ( (*(_DWORD *)(a1 + 48) & 0x100040) == 0x100040 )
     {
@@ -77,8 +78,8 @@ __int64 __fastcall sub_1800A9270(__int64 a1, __int64 a2)
     _FFFFFFFFFFFFFF68[160] = *(_QWORD *)(a1 + 248);
     __asm { iretq }
   }
-  result = ZwContinue();
-  if ( (_DWORD)result == -1073740278 )
+  result = ZwContinue((PCONTEXT)a1, 0);
+  if ( result == -1073740278 )
     __fastfail(0x30u);
   return result;
 }

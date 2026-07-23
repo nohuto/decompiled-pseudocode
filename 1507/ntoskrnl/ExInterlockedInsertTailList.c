@@ -17,7 +17,7 @@ PLIST_ENTRY __stdcall ExInterlockedInsertTailList(PLIST_ENTRY ListHead, PLIST_EN
 {
   unsigned int v4; // edi
   PLIST_ENTRY result; // rax
-  struct _LIST_ENTRY *Flink; // rcx
+  _LIST_ENTRY *Flink; // rcx
   __int16 v9; // [rsp+30h] [rbp-8h]
 
   v4 = 0;

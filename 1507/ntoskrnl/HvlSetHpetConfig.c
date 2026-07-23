@@ -12,7 +12,7 @@
 
 __int64 __fastcall HvlSetHpetConfig(__int64 a1, int a2, __int64 a3, char a4, _OWORD *a5)
 {
-  union _SLIST_HEADER *v5; // rbp
+  _SLIST_HEADER *v5; // rbp
   char v7; // r15
   char v8; // r12
   struct _KPRCB *CurrentPrcb; // rsi
@@ -33,7 +33,7 @@ __int64 __fastcall HvlSetHpetConfig(__int64 a1, int a2, __int64 a3, char a4, _OW
   char *v24; // rbx
   PHYSICAL_ADDRESS v25; // r14
   PSLIST_ENTRY v26; // rax
-  struct _SLIST_ENTRY *v27; // r15
+  _SLIST_ENTRY *v27; // r15
   __int128 v28; // xmm0
   __int64 v29; // rax
   struct _KPRCB *v30; // rcx
@@ -42,10 +42,10 @@ __int64 __fastcall HvlSetHpetConfig(__int64 a1, int a2, __int64 a3, char a4, _OW
   char v36; // [rsp+24h] [rbp-114h]
   char v37; // [rsp+28h] [rbp-110h]
   PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-108h]
-  struct _KPRCB *v39; // [rsp+40h] [rbp-F8h]
-  struct _SLIST_ENTRY *v40; // [rsp+48h] [rbp-F0h]
-  union _SLIST_HEADER *v41; // [rsp+60h] [rbp-D8h]
-  struct _SLIST_ENTRY *v42; // [rsp+68h] [rbp-D0h]
+  _SLIST_HEADER *v39; // [rsp+40h] [rbp-F8h]
+  _SLIST_ENTRY *v40; // [rsp+48h] [rbp-F0h]
+  _SLIST_HEADER *v41; // [rsp+60h] [rbp-D8h]
+  _SLIST_ENTRY *v42; // [rsp+68h] [rbp-D0h]
   _BYTE v44[7]; // [rsp+88h] [rbp-B0h] BYREF
   _BYTE v45[9]; // [rsp+8Fh] [rbp-A9h] BYREF
   _BYTE v46[7]; // [rsp+98h] [rbp-A0h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall HvlSetHpetConfig(__int64 a1, int a2, __int64 a3, char a4, _OW
       {
         Next = (PHYSICAL_ADDRESS)v12[1].Next;
         v7 = 1;
-        v39 = CurrentPrcb;
+        v39 = (_SLIST_HEADER *)CurrentPrcb;
         ListEntry = v12;
       }
       else
@@ -108,7 +108,7 @@ __int64 __fastcall HvlSetHpetConfig(__int64 a1, int a2, __int64 a3, char a4, _OW
     if ( (v7 & 1) != 0 )
     {
       ListEntry[1].Next = (_SLIST_ENTRY *)Next.QuadPart;
-      RtlpInterlockedPushEntrySList(&v39->HypercallPageList, ListEntry);
+      RtlpInterlockedPushEntrySList(v39 + 1535, ListEntry);
     }
     else if ( (v7 & 2) != 0 )
     {
@@ -152,7 +152,7 @@ LABEL_30:
         PhysicalAddress = (PHYSICAL_ADDRESS)v22[1].Next;
         v18 = (unsigned __int8)v21;
         v36 = 1;
-        v39 = v21;
+        v39 = (_SLIST_HEADER *)v21;
         ListEntry = v22;
       }
       else
@@ -180,7 +180,7 @@ LABEL_30:
     }
     if ( (HvlpFlags & 0x10) != 0 )
     {
-      v5 = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+      v5 = (_SLIST_HEADER *)KeGetCurrentPrcb();
       v26 = RtlpInterlockedPopEntrySList(v5 + 1535);
       v24 = (char *)v26;
       if ( v26 )
@@ -209,7 +209,7 @@ LABEL_50:
         if ( (v36 & 1) != 0 )
         {
           ListEntry[1].Next = (_SLIST_ENTRY *)PhysicalAddress.QuadPart;
-          RtlpInterlockedPushEntrySList(&v39->HypercallPageList, ListEntry);
+          RtlpInterlockedPushEntrySList(v39 + 1535, ListEntry);
         }
         else if ( (v36 & 2) != 0 )
         {

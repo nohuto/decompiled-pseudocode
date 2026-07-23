@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipFindMRByNames @ 0x1407BE558
+ * XREFs of WmipFindMRByNames @ 0x1407BECE8
  * Callers:
- *     WmipAddMofResource @ 0x1407BE31C (WmipAddMofResource.c)
+ *     WmipAddMofResource @ 0x1407BEAAC (WmipAddMofResource.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     WmipReferenceEntry @ 0x1406339F4 (WmipReferenceEntry.c)
  */
 
 _QWORD *__fastcall WmipFindMRByNames(__int64 a1, __int64 a2)

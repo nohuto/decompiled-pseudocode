@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSystemIdleWorker @ 0x140A3BBE0
+ * XREFs of PopSystemIdleWorker @ 0x1409F7600
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopScanIdleList @ 0x1404C65A0 (PopScanIdleList.c)
- *     PopIsSystemIdle @ 0x140A3BCDC (PopIsSystemIdle.c)
- *     PopUpdateLastUserInputTime @ 0x140A3BF2C (PopUpdateLastUserInputTime.c)
- *     PopProcessPendingSystemIdleResets @ 0x140A3BF84 (PopProcessPendingSystemIdleResets.c)
- *     PopExecuteSystemIdleAction @ 0x140A3BFCC (PopExecuteSystemIdleAction.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopScanIdleList @ 0x1404BFF50 (PopScanIdleList.c)
+ *     PopIsSystemIdle @ 0x1409F76FC (PopIsSystemIdle.c)
+ *     PopUpdateLastUserInputTime @ 0x1409F794C (PopUpdateLastUserInputTime.c)
+ *     PopProcessPendingSystemIdleResets @ 0x1409F79A4 (PopProcessPendingSystemIdleResets.c)
+ *     PopExecuteSystemIdleAction @ 0x1409F79EC (PopExecuteSystemIdleAction.c)
  */
 
 __int64 __fastcall PopSystemIdleWorker(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -26,20 +26,20 @@ __int64 __fastcall PopSystemIdleWorker(__int64 a1, __int64 a2, __int64 a3, struc
 
   SignalState = PopIdleLoopExecuted.Header.SignalState;
   v12 = 0LL;
-  PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock.SuspendEvent, a2, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemIdleLock, a2, a3, a4);
   PopProcessPendingSystemIdleResets();
   PopUpdateLastUserInputTime();
-  v5 = dword_140E0B748;
-  IsSystemIdle = PopIsSystemIdle(&unk_140E0B758, (unsigned int)dword_140E0B748, &v12, &unk_140E0B858);
-  dword_140E0B838 = dword_140E0B744;
-  PopReleaseRwLock((struct _KTHREAD *)&PopWeakChargerLock.SuspendEvent);
-  if ( LOBYTE(PsAltSystemCallRegistrationLock.TrapFrame) )
+  v5 = dword_140E0B758;
+  IsSystemIdle = PopIsSystemIdle(&unk_140E0B768, (unsigned int)dword_140E0B758, &v12, &unk_140E0B868);
+  dword_140E0B848 = dword_140E0B754;
+  PopReleaseRwLock((struct _KTHREAD *)&PopSystemIdleLock);
+  if ( BYTE1(PsAltSystemCallRegistrationLock.Timer.DueTime.LowPart) )
     PopScanIdleList(v5, v12 / (unsigned int)PopIdleScanInterval);
   LOBYTE(v7) = IsSystemIdle;
-  PopExecuteSystemIdleAction((unsigned int)dword_140E0B838, v7, &unk_140E0B840);
-  PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock.SuspendEvent, v8, v9, v10);
-  dword_140E0B838 = 0;
-  PopReleaseRwLock((struct _KTHREAD *)&PopWeakChargerLock.SuspendEvent);
+  PopExecuteSystemIdleAction((unsigned int)dword_140E0B848, v7, &unk_140E0B850);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemIdleLock, v8, v9, v10);
+  dword_140E0B848 = 0;
+  PopReleaseRwLock((struct _KTHREAD *)&PopSystemIdleLock);
   if ( !SignalState )
     KeSetEvent(&PopIdleLoopExecuted, 0, 0);
   return 0LL;

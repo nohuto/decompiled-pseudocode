@@ -26,16 +26,16 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
   __int64 v7; // rdx
   int v8; // ebx
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
-  unsigned __int64 v10; // rsi
-  int v11; // r15d
+  void *v10; // rsi
+  int MajorSubsystemVersion; // r15d
   __int16 v12; // r14
   char v13; // bl
-  unsigned __int64 v14; // rdi
-  __int16 v15; // r12
-  __int64 v16; // rax
-  __int64 v17; // rcx
-  int v18; // esi
-  int v19; // edx
+  PIMAGE_NT_HEADERS v14; // rdi
+  __int16 Characteristics; // r12
+  _WORD *v16; // rax
+  _WORD *v17; // rcx
+  int Subsystem; // esi
+  unsigned int Win32VersionValue; // edx
   __int64 v20; // rax
   __int64 *v21; // rcx
   __int64 v22; // rbx
@@ -45,7 +45,7 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
   char v27; // di
   __int64 v28; // rbx
   USHORT FirstSetRightGroupMask; // [rsp+58h] [rbp-180h]
-  unsigned __int64 v31; // [rsp+68h] [rbp-170h]
+  _IMAGE_NT_HEADERS64 *v31; // [rsp+68h] [rbp-170h]
   int v32; // [rsp+70h] [rbp-168h] BYREF
   __int64 v33; // [rsp+74h] [rbp-164h]
   __int64 v34; // [rsp+7Ch] [rbp-15Ch]
@@ -65,7 +65,7 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
   char v48; // [rsp+D0h] [rbp-108h]
   char v49; // [rsp+D1h] [rbp-107h]
   __int64 v50; // [rsp+D8h] [rbp-100h]
-  unsigned __int64 v51; // [rsp+E0h] [rbp-F8h]
+  void *v51; // [rsp+E0h] [rbp-F8h]
   __int16 Blink; // [rsp+E8h] [rbp-F0h]
   __int16 v53; // [rsp+EAh] [rbp-EEh]
   __int16 v54; // [rsp+ECh] [rbp-ECh]
@@ -74,11 +74,11 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
   __int64 v57; // [rsp+100h] [rbp-D8h] BYREF
   __int64 v58; // [rsp+108h] [rbp-D0h] BYREF
   __int64 v59; // [rsp+110h] [rbp-C8h] BYREF
-  int v60; // [rsp+118h] [rbp-C0h] BYREF
+  ULONG Size; // [rsp+118h] [rbp-C0h] BYREF
   __int64 v61; // [rsp+120h] [rbp-B8h] BYREF
-  __int64 v62; // [rsp+128h] [rbp-B0h]
+  _WORD *v62; // [rsp+128h] [rbp-B0h]
   ULONG_PTR v63; // [rsp+130h] [rbp-A8h]
-  unsigned __int64 v64; // [rsp+138h] [rbp-A0h]
+  void *v64; // [rsp+138h] [rbp-A0h]
   _QWORD *v65; // [rsp+140h] [rbp-98h]
   __int128 v66; // [rsp+148h] [rbp-90h] BYREF
   _BYTE v67[48]; // [rsp+158h] [rbp-80h] BYREF
@@ -118,9 +118,9 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
   else
   {
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v10 = *(_QWORD *)(v6 + 688);
+    v10 = *(void **)(v6 + 688);
     v64 = v10;
-    v11 = 10;
+    MajorSubsystemVersion = 10;
     v34 = 10LL;
     v36 = NtBuildNumber;
     v35 = 2;
@@ -154,9 +154,9 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
     v13 = 0;
     if ( (*(_BYTE *)(v6 + 368) & 1) != 0 )
     {
-      v18 = 3;
+      Subsystem = 3;
       v32 = 3;
-      v15 = 34;
+      Characteristics = 34;
       v33 = 10LL;
       v14 = 0LL;
       v31 = 0LL;
@@ -166,40 +166,40 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
     {
       v14 = RtlImageNtHeader(v10);
       v31 = v14;
-      v15 = *(_WORD *)(v14 + 22);
-      v16 = RtlImageDirectoryEntryToData(v10, 1, 0xAu, &v60);
+      Characteristics = v14->FileHeader.Characteristics;
+      v16 = RtlImageDirectoryEntryToData(v10, 1u, 0xAu, &Size);
       v17 = v16;
       v62 = v16;
       if ( v16 )
       {
-        if ( (v16 & 3) != 0 )
+        if ( ((unsigned __int8)v16 & 3) != 0 )
           ExRaiseDatatypeMisalignment();
         v17 = v62;
         v12 = v37;
         v13 = 0;
       }
-      v18 = *(unsigned __int16 *)(v14 + 92);
-      v32 = v18;
-      v11 = *(unsigned __int16 *)(v14 + 72);
-      LODWORD(v33) = v11;
-      HIDWORD(v33) = *(unsigned __int16 *)(v14 + 74);
-      v19 = *(_DWORD *)(v14 + 76);
-      if ( v19 )
+      Subsystem = v14->OptionalHeader.Subsystem;
+      v32 = Subsystem;
+      MajorSubsystemVersion = v14->OptionalHeader.MajorSubsystemVersion;
+      LODWORD(v33) = MajorSubsystemVersion;
+      HIDWORD(v33) = v14->OptionalHeader.MinorSubsystemVersion;
+      Win32VersionValue = v14->OptionalHeader.Win32VersionValue;
+      if ( Win32VersionValue )
       {
         if ( v17 )
         {
-          if ( *(_WORD *)(v17 + 76) )
-            v12 = *(_WORD *)(v17 + 76);
+          if ( v17[38] )
+            v12 = v17[38];
           v37 = v12;
         }
-        LODWORD(v34) = (unsigned __int8)v19;
-        HIDWORD(v34) = BYTE1(v19);
-        v36 = HIWORD(v19);
-        v35 = (v19 ^ 0xBFFFFFFF) >> 30;
+        LODWORD(v34) = (unsigned __int8)Win32VersionValue;
+        HIDWORD(v34) = BYTE1(Win32VersionValue);
+        v36 = HIWORD(Win32VersionValue);
+        v35 = (Win32VersionValue ^ 0xBFFFFFFF) >> 30;
       }
       if ( v17 )
       {
-        v20 = *(_QWORD *)(v17 + 64);
+        v20 = *((_QWORD *)v17 + 8);
         v21 = (__int64 *)a4;
         *(_QWORD *)a4 = v20;
         v13 = 1;
@@ -215,7 +215,7 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
       if ( (v24 & KeQueryGroupAffinity(FirstSetRightGroupMask)) != v24 )
         *(_QWORD *)a4 = 0LL;
     }
-    if ( (v15 & 0x4000) != 0 )
+    if ( (Characteristics & 0x4000) != 0 )
     {
       v26 = _InterlockedExchangeAdd(&dword_140E2D80C, 1u) + 1;
       do
@@ -228,8 +228,8 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
       while ( (KeQueryGroupAffinity(FirstSetRightGroupMask) & v28) == 0 );
       v14 = v31;
       v12 = v37;
-      v11 = v33;
-      v18 = v32;
+      MajorSubsystemVersion = v33;
+      Subsystem = v32;
       v6 = v63;
     }
     v22 = v59;
@@ -247,8 +247,8 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
     *(_QWORD *)(v22 + 216) = qword_140FC4218;
     *(_QWORD *)(v22 + 224) = qword_140FC4210;
     *(_DWORD *)(v22 + 704) = SessionId;
-    *(_DWORD *)(v22 + 296) = v18;
-    *(_DWORD *)(v22 + 300) = v11;
+    *(_DWORD *)(v22 + 296) = Subsystem;
+    *(_DWORD *)(v22 + 300) = MajorSubsystemVersion;
     *(_DWORD *)(v22 + 304) = HIDWORD(v33);
     *(_BYTE *)v22 = v48;
     *(_BYTE *)(v22 + 3) = v49;
@@ -259,7 +259,7 @@ __int64 __fastcall MmCreatePeb(ULONG_PTR BugCheckParameter1, char *a2, _QWORD *a
     *(_WORD *)(v22 + 848) = v54;
     *(_QWORD *)(v22 + 1976) = v55;
     *(_DWORD *)(v22 + 1984) = 0;
-    if ( *(_QWORD *)(v6 + 784) && (v25 = MiInitializeWowPeb((__int64)&v32, v14, v6, a4), v25 < 0) )
+    if ( *(_QWORD *)(v6 + 784) && (v25 = MiInitializeWowPeb((__int64)&v32, (__int64)v14, v6, a4), v25 < 0) )
     {
       KiUnstackDetachProcess((__int64)v67, 0LL);
       return (unsigned int)v25;

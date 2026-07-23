@@ -1,16 +1,14 @@
 /*
- * XREFs of ZwQueryBootOptions @ 0x14015C260
+ * XREFs of ZwQueryBootOptions @ 0x14015C7D0
  * Callers:
- *     BiQueryBootOptions @ 0x1406D567C (BiQueryBootOptions.c)
+ *     BiQueryBootOptions @ 0x1406D57B4 (BiQueryBootOptions.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(BootOptions, BootOptionsLength, v2);
+  return KiServiceInternal(BootOptions);
 }

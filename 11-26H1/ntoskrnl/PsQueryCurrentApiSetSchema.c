@@ -1,13 +1,13 @@
 /*
- * XREFs of PsQueryCurrentApiSetSchema @ 0x1407EE710
+ * XREFs of PsQueryCurrentApiSetSchema @ 0x1407F4270
  * Callers:
- *     RtlIsApiSetImplemented @ 0x1408073F0 (RtlIsApiSetImplemented.c)
- *     ExIsMultiSessionSku @ 0x14083763C (ExIsMultiSessionSku.c)
- *     MiResolveImageReferences @ 0x140ADCF50 (MiResolveImageReferences.c)
+ *     RtlIsApiSetImplemented @ 0x14080CE90 (RtlIsApiSetImplemented.c)
+ *     ExIsMultiSessionSku @ 0x14083D87C (ExIsMultiSessionSku.c)
+ *     MiResolveImageReferences @ 0x14097E950 (MiResolveImageReferences.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     MmQueryApiSetSchema @ 0x1406E706C (MmQueryApiSetSchema.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     MmQueryApiSetSchema @ 0x1406EBD1C (MmQueryApiSetSchema.c)
  */
 
 struct _LIST_ENTRY *PsQueryCurrentApiSetSchema()

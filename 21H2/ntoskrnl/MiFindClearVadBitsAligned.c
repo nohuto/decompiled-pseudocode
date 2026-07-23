@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFindClearVadBitsAligned @ 0x140694390
+ * XREFs of MiFindClearVadBitsAligned @ 0x1405F38E0
  * Callers:
- *     MiFindEmptyAddressRange @ 0x1405FAB40 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRange @ 0x1406EA2A0 (MiFindEmptyAddressRange.c)
  * Callees:
  *     <none>
  */

@@ -8,27 +8,25 @@
  *     RtlReleaseSRWLockExclusive @ 0x1800262F0 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_1800D1EA8(int a1)
+void __fastcall sub_1800D1EA8(int a1)
 {
   struct _PEB *v1; // rdi
   __int64 v3; // rbx
   __int64 v4; // rsi
-  signed __int64 result; // rax
 
   v1 = NtCurrentPeb();
-  if ( v1->FlsCallback )
+  if ( v1->SparePointers[0] )
   {
     v3 = 2032LL;
     v4 = 127LL;
     do
     {
       if ( a1 )
-        *(_QWORD *)((char *)v1->FlsCallback + v3 + 8) = 1LL;
-      result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)((char *)v1->FlsCallback + v3 + 8));
+        *(_QWORD *)((char *)v1->SparePointers[0] + v3 + 8) = 1LL;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)((char *)v1->SparePointers[0] + v3 + 8));
       v3 -= 16LL;
       --v4;
     }
     while ( v4 );
   }
-  return result;
 }

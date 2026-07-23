@@ -1,13 +1,13 @@
 /*
- * XREFs of PspUnlockProcessListShared @ 0x140350CE4
+ * XREFs of PspUnlockProcessListShared @ 0x140350E84
  * Callers:
- *     PsChangeQuantumTable @ 0x1407C0444 (PsChangeQuantumTable.c)
- *     PsGetNextProcessEx @ 0x1407C0550 (PsGetNextProcessEx.c)
- *     PsGetPreviousProcess @ 0x1409B7BE0 (PsGetPreviousProcess.c)
+ *     PsChangeQuantumTable @ 0x1407C0714 (PsChangeQuantumTable.c)
+ *     PsGetNextProcessEx @ 0x1407C0820 (PsGetNextProcessEx.c)
+ *     PsGetPreviousProcess @ 0x1409B7DE0 (PsGetPreviousProcess.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char __fastcall PspUnlockProcessListShared(__int64 a1)

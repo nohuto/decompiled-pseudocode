@@ -31,7 +31,7 @@ __int64 __fastcall sub_1800151CC(__int64 a1, unsigned int a2)
   if ( a2 == 1 && *(_QWORD *)(a1 + 64) || *(_QWORD *)(a1 + 56) && !a2 )
     return 0LL;
   sub_180012D4C();
-  RtlEnterCriticalSection(&unk_180163D00);
+  RtlEnterCriticalSection(&CriticalSection);
   if ( (!*(_QWORD *)(a1 + 64) || a2 != 1) && (!*(_QWORD *)(a1 + 56) || a2) )
   {
     v4 = sub_180008C14(a1, v6, a2, 3, &v10, &v11);
@@ -67,6 +67,6 @@ __int64 __fastcall sub_1800151CC(__int64 a1, unsigned int a2)
       }
     }
   }
-  RtlLeaveCriticalSection(&unk_180163D00);
+  RtlLeaveCriticalSection(&CriticalSection);
   return (unsigned int)v4;
 }

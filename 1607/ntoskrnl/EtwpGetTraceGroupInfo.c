@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpGetTraceGroupInfo @ 0x1406A0190
+ * XREFs of EtwpGetTraceGroupInfo @ 0x1406A02C8
  * Callers:
- *     NtTraceControl @ 0x14040DD40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x14040CC00 (NtTraceControl.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlUIntAdd @ 0x140089230 (RtlUIntAdd.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     EtwpFindGuidEntryByGuid @ 0x14040E490 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x14040ED4C (EtwpUnreferenceGuidEntry.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlUIntAdd @ 0x1400C1B78 (RtlUIntAdd.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     EtwpFindGuidEntryByGuid @ 0x14040D350 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x14040DC0C (EtwpUnreferenceGuidEntry.c)
  */
 
 __int64 __fastcall EtwpGetTraceGroupInfo(__int64 a1, _DWORD *a2, _DWORD *a3, UINT *a4)

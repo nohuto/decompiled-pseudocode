@@ -6,26 +6,21 @@
  *     <none>
  */
 
-struct _TEB *__stdcall TpCaptureCaller(int a1)
+void __cdecl TpCaptureCaller(TP_TRACE_TYPE Type)
 {
-  struct _TEB *result; // eax
   _DWORD *ThreadPoolData; // edx
-  int v3; // ecx
-  struct _TEB *retaddr; // [esp+4h] [ebp+4h]
+  int v2; // ecx
+  _UNKNOWN *retaddr; // [esp+4h] [ebp+4h]
 
-  result = NtCurrentTeb();
-  ThreadPoolData = result->ThreadPoolData;
+  ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
   if ( ThreadPoolData )
   {
-    result = (struct _TEB *)(a1 - 1);
-    if ( (unsigned int)(a1 - 1) <= 1 )
+    if ( (unsigned int)(Type - 1) <= 1 )
     {
-      result = retaddr;
-      v3 = ((unsigned __int8)ThreadPoolData[22] - 1) & 1;
-      ThreadPoolData[22] = v3;
-      ThreadPoolData[2 * v3 + 19] = a1;
-      ThreadPoolData[2 * v3 + 18] = retaddr;
+      v2 = ((unsigned __int8)ThreadPoolData[22] - 1) & 1;
+      ThreadPoolData[22] = v2;
+      ThreadPoolData[2 * v2 + 19] = Type;
+      ThreadPoolData[2 * v2 + 18] = retaddr;
     }
   }
-  return result;
 }

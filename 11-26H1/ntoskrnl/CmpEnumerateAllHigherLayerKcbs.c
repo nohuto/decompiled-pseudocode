@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpEnumerateAllHigherLayerKcbs @ 0x140A2E434
+ * XREFs of CmpEnumerateAllHigherLayerKcbs @ 0x140A402C0
  * Callers:
- *     CmpInvalidateAllHigherLayerKcbs @ 0x14085ED00 (CmpInvalidateAllHigherLayerKcbs.c)
- *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14085EDB4 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x14085EEFC (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
- *     CmDeleteKey @ 0x1408BAD90 (CmDeleteKey.c)
- *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A2E3E0 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
- *     CmpCleanupDiscardReplaceContext @ 0x140A2EE10 (CmpCleanupDiscardReplaceContext.c)
+ *     CmpInvalidateAllHigherLayerKcbs @ 0x140864FF0 (CmpInvalidateAllHigherLayerKcbs.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1408650A4 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x1408651EC (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
+ *     CmDeleteKey @ 0x1408C1360 (CmDeleteKey.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A4026C (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x140A40C9C (CmpCleanupDiscardReplaceContext.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpDelayDerefKeyControlBlock @ 0x1408C3890 (CmpDelayDerefKeyControlBlock.c)
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
- *     CmpReferenceKeyControlBlock @ 0x140A79B80 (CmpReferenceKeyControlBlock.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140C583F0 (CmpLockKcbShared.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1408C9E60 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
+ *     CmpReferenceKeyControlBlock @ 0x140A81AC0 (CmpReferenceKeyControlBlock.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140C5E3F0 (CmpLockKcbShared.c)
  */
 
 void __fastcall CmpEnumerateAllHigherLayerKcbs(

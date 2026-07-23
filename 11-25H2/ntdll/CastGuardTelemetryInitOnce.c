@@ -6,7 +6,7 @@
  *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x180173498 (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
  */
 
-__int64 CastGuardTelemetryInitOnce()
+__int64 __fastcall CastGuardTelemetryInitOnce(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   __int64 result; // rax
 

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpPreInitializeSiloState @ 0x140845D4C
+ * XREFs of EtwpPreInitializeSiloState @ 0x14084604C
  * Callers:
- *     EtwInitializeSiloState @ 0x1409E1E28 (EtwInitializeSiloState.c)
+ *     EtwInitializeSiloState @ 0x1409E20B8 (EtwInitializeSiloState.c)
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     KeInitializeMutex @ 0x14033ADB0 (KeInitializeMutex.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x140792260 (ExAllocateCacheAwareRundownProtection.c)
- *     EtwpCleanupSiloState @ 0x1409E32D0 (EtwpCleanupSiloState.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     KeInitializeMutex @ 0x14033B040 (KeInitializeMutex.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x140792450 (ExAllocateCacheAwareRundownProtection.c)
+ *     EtwpCleanupSiloState @ 0x1409E3560 (EtwpCleanupSiloState.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -86,7 +86,7 @@ LABEL_15:
   while ( v12 );
   v6[54] = 0LL;
   v6[52] = (__int64)v6;
-  *((_OWORD *)v6 + 4) = SecurityProviderGuid;
+  *((GUID *)v6 + 4) = SecurityProviderGuid;
   *((_QWORD *)PsGetServerSiloGlobals(a1) + 108) = v6;
   return v4;
 }

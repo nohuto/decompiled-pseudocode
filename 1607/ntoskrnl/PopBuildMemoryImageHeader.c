@@ -3,12 +3,12 @@
  * Callers:
  *     PopEndMirroring @ 0x1403CA628 (PopEndMirroring.c)
  * Callees:
- *     MmGetHighestPhysicalPage @ 0x14000FB8C (MmGetHighestPhysicalPage.c)
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     xHalQueryProcessorRestartEntryPoint @ 0x14017171C (xHalQueryProcessorRestartEntryPoint.c)
+ *     MmGetHighestPhysicalPage @ 0x14000F70C (MmGetHighestPhysicalPage.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     xHalQueryProcessorRestartEntryPoint @ 0x140171C1C (xHalQueryProcessorRestartEntryPoint.c)
  *     PopBootLoaderTraceCopyPfnList @ 0x1403C973C (PopBootLoaderTraceCopyPfnList.c)
  *     PopAllocatePages @ 0x1403CB8DC (PopAllocatePages.c)
  */
@@ -44,12 +44,12 @@ __int64 __fastcall PopBuildMemoryImageHeader(_QWORD *MemoryMap, int a2)
     *(_QWORD *)(v3 + 16) = (unsigned __int64)MmGetPhysicalAddress((PVOID)v3).QuadPart >> 12;
     *(_QWORD *)(v3 + 32) = MEMORY[0xFFFFF78000000014];
     *(_QWORD *)(v3 + 40) = MEMORY[0xFFFFF78000000008];
-    *(_QWORD *)(v3 + 64) = *((_QWORD *)&xmmword_1403035A8 + 1);
+    *(_QWORD *)(v3 + 64) = *((_QWORD *)&xmmword_1403034E8 + 1);
     *(_DWORD *)(v3 + 60) = 7;
     *(_QWORD *)(v3 + 48) = KeFeatureBits;
     *(_DWORD *)(v3 + 4) = (unsigned __int16)KeProcessorArchitecture;
     *(_BYTE *)(v3 + 56) = *((_BYTE *)MemoryMap + 1);
-    *(_BYTE *)(v3 + 852) = byte_1403035C0;
+    *(_BYTE *)(v3 + 852) = byte_140303500;
     *(_QWORD *)(v3 + 904) = MmGetHighestPhysicalPage();
     v4 = MemoryMap[15];
     if ( v4 )

@@ -21,7 +21,7 @@ __int64 AlpcpInitSystem()
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _KEVENT *Pool2; // rax
-  int SystemInformation; // ebx
+  NTSTATUS v2; // ebx
   __int64 v3; // rcx
   __int64 v4; // rdx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
@@ -36,12 +36,12 @@ __int64 AlpcpInitSystem()
   __int64 (__fastcall *v15)(int, int, int, int, __int64); // [rsp+88h] [rbp-78h]
   __int64 (__fastcall *v16)(); // [rsp+90h] [rbp-70h]
   __int64 (__fastcall *v17)(); // [rsp+98h] [rbp-68h]
-  _BYTE v18[8]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE SystemInformation[8]; // [rsp+D0h] [rbp-30h] BYREF
   int v19; // [rsp+D8h] [rbp-28h]
   int v20; // [rsp+E8h] [rbp-18h]
 
   DestinationString = 0LL;
-  memset_0(v18, 0, 0x40uLL);
+  memset_0(SystemInformation, 0, 0x40uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
@@ -65,8 +65,8 @@ __int64 AlpcpInitSystem()
     v8 = v8 & 0xCB | 0x10;
     v10 = AlpcpPortMapping;
     v11 = 2031617;
-    SystemInformation = ObCreateObjectTypeEx(&DestinationString, &Src, (__int64)&AlpcPortObjectType);
-    if ( SystemInformation >= 0 )
+    v2 = ObCreateObjectTypeEx(&DestinationString, &Src, (__int64)&AlpcPortObjectType);
+    if ( v2 >= 0 )
     {
       AlpcMessageTable = ExCreateHandleTable(0LL, 0LL);
       ExInitializePagedLookasideListInternal(
@@ -89,8 +89,8 @@ __int64 AlpcpInitSystem()
         0);
       ExInitializePagedLookasideListInternal((__int64)&stru_140E26F40, 0LL, 0LL, 0, 128, 1632136257, 32, 0);
       ExInitializeNPagedLookasideList(&AlpcpNPLookasides, 0LL, 0LL, 0x200u, 0x20uLL, 0x65536C41u, 0x20u);
-      SystemInformation = NtQuerySystemInformation(0LL, v18, 64LL, 0LL);
-      if ( SystemInformation >= 0 )
+      v2 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
+      if ( v2 >= 0 )
       {
         AlpcpRegionGranularity = v20;
         AlpcpViewGranularity = v19;
@@ -113,8 +113,8 @@ __int64 AlpcpInitSystem()
   }
   else
   {
-    SystemInformation = -1073741670;
+    v2 = -1073741670;
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v2;
 }

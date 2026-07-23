@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPfIssueCoalescedSupport @ 0x1402AEFA4
+ * XREFs of MiPfIssueCoalescedSupport @ 0x1402AF194
  * Callers:
- *     MiPfIssueCoalesceCandidates @ 0x1402AEECC (MiPfIssueCoalesceCandidates.c)
+ *     MiPfIssueCoalesceCandidates @ 0x1402AF0BC (MiPfIssueCoalesceCandidates.c)
  * Callees:
  *     MiInitializeInPageSupport @ 0x14002C6B0 (MiInitializeInPageSupport.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x1400DE7C0 (IoPageReadEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall MiPfIssueCoalescedSupport(_QWORD *a1, unsigned int a2)
@@ -72,7 +72,7 @@ char *__fastcall MiPfIssueCoalescedSupport(_QWORD *a1, unsigned int a2)
           *((_WORD *)v6 + 141) &= ~0x4000u;
           v13 = *((_DWORD *)v9 + 24) - v5;
           v14 = (unsigned __int64)(8 * (v13 >> 12)) >> 3;
-          memset64(v7, qword_14043ADD8, v14);
+          memset64(v7, qword_14043BE98, v14);
           v7 += 8 * v14;
           v5 += v13;
           v8 += v13;

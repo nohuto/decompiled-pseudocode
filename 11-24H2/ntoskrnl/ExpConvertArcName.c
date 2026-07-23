@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpConvertArcName @ 0x1407BB504
+ * XREFs of ExpConvertArcName @ 0x1407BB954
  * Callers:
- *     ExpTranslateArcPath @ 0x1407BD06C (ExpTranslateArcPath.c)
+ *     ExpTranslateArcPath @ 0x1407BD4BC (ExpTranslateArcPath.c)
  * Callees:
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     wcsncat_s @ 0x140504870 (wcsncat_s.c)
- *     ExpTranslateNtPath @ 0x1407BD4F4 (ExpTranslateNtPath.c)
- *     ExpTranslateSymbolicLink @ 0x140A63CA4 (ExpTranslateSymbolicLink.c)
- *     ExpCreateOutputNT @ 0x140A63E54 (ExpCreateOutputNT.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     wcsncat_s @ 0x140502130 (wcsncat_s.c)
+ *     ExpTranslateNtPath @ 0x1407BD944 (ExpTranslateNtPath.c)
+ *     ExpTranslateSymbolicLink @ 0x140A5C5A4 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputNT @ 0x140A5C754 (ExpCreateOutputNT.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpConvertArcName(
@@ -39,7 +39,7 @@ __int64 __fastcall ExpConvertArcName(
   v9 = MaxCount + 10;
   v10 = 2 * (MaxCount + 10);
   v24 = 0LL;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, v10, 0x72766E45u);
   v12 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
@@ -58,7 +58,7 @@ __int64 __fastcall ExpConvertArcName(
       v17 += 2 * v18;
     }
     v19 = v17 + 2;
-    v20 = ExAllocatePool2(0x40uLL);
+    v20 = ExAllocatePool2(0x40uLL, v19, 0x72766E45u);
     v21 = (void *)v20;
     if ( !v20 )
     {

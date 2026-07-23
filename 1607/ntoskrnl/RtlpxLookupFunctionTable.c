@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpxLookupFunctionTable @ 0x140051540
+ * XREFs of RtlpxLookupFunctionTable @ 0x1400510C0
  * Callers:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x140051360 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlPcToFileHeader @ 0x1400A5558 (RtlPcToFileHeader.c)
- *     RtlLookupFunctionTable @ 0x1400B5AC0 (RtlLookupFunctionTable.c)
- *     RtlLookupFunctionEntry @ 0x1400F6220 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140050EE0 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlPcToFileHeader @ 0x1400A3AD0 (RtlPcToFileHeader.c)
+ *     RtlLookupFunctionTable @ 0x1400B38E8 (RtlLookupFunctionTable.c)
+ *     RtlLookupFunctionEntry @ 0x1400F4070 (RtlLookupFunctionEntry.c)
  *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1407B162C (RtlCreateInvertedFunctionTableCacheEntry.c)
  *     KiVerifyPdata @ 0x1407B1D84 (KiVerifyPdata.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x140014A04 (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x14001F5A0 (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140014584 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14001F120 (MmLockLoadedModuleListShared.c)
  */
 
 PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 *a2)

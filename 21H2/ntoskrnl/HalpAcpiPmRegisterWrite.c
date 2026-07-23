@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpAcpiPmRegisterWrite @ 0x14037C760
+ * XREFs of HalpAcpiPmRegisterWrite @ 0x14037C2B0
  * Callers:
- *     HaliAcpiSleep @ 0x140385F30 (HaliAcpiSleep.c)
- *     HalpPowerWriteResetCommand @ 0x1404BE30C (HalpPowerWriteResetCommand.c)
- *     HalpShutdown @ 0x1404BE490 (HalpShutdown.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x1404D2888 (HalpCheckWakeupTimeAndAdjust.c)
- *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
- *     HalpAcpiPreSleep @ 0x140995EFC (HalpAcpiPreSleep.c)
- *     HalpDpPostReplace @ 0x1409A836C (HalpDpPostReplace.c)
- *     HalpDpPreReplace @ 0x1409A865C (HalpDpPreReplace.c)
+ *     HaliAcpiSleep @ 0x140386080 (HaliAcpiSleep.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE54C (HalpPowerWriteResetCommand.c)
+ *     HalpShutdown @ 0x1404BE6D0 (HalpShutdown.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x1404D2AC8 (HalpCheckWakeupTimeAndAdjust.c)
+ *     HalpAcpiPostSleep @ 0x140996B2C (HalpAcpiPostSleep.c)
+ *     HalpAcpiPreSleep @ 0x140996EFC (HalpAcpiPreSleep.c)
+ *     HalpDpPostReplace @ 0x1409A929C (HalpDpPostReplace.c)
+ *     HalpDpPreReplace @ 0x1409A958C (HalpDpPreReplace.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpAcpiPmRegisterWrite(int a1, unsigned int a2, __int64 a3, unsigned int a4, _DWORD *a5)

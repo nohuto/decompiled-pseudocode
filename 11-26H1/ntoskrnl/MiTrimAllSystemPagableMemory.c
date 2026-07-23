@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTrimAllSystemPagableMemory @ 0x140457728
+ * XREFs of MiTrimAllSystemPagableMemory @ 0x14044EF98
  * Callers:
- *     MmTrimAllSystemPagableMemory @ 0x1406F7F40 (MmTrimAllSystemPagableMemory.c)
- *     MmShutdownSystem @ 0x140C00720 (MmShutdownSystem.c)
- *     MmVerifierTrimMemory @ 0x140C437B8 (MmVerifierTrimMemory.c)
+ *     MmTrimAllSystemPagableMemory @ 0x1406FCC10 (MmTrimAllSystemPagableMemory.c)
+ *     MmShutdownSystem @ 0x140C06930 (MmShutdownSystem.c)
+ *     MmVerifierTrimMemory @ 0x140C497C8 (MmVerifierTrimMemory.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiPurgePartitionStandby @ 0x14046886C (MiPurgePartitionStandby.c)
- *     MiEmptyThisWorkingSet @ 0x1405009C4 (MiEmptyThisWorkingSet.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiPurgePartitionStandby @ 0x140461F1C (MiPurgePartitionStandby.c)
+ *     MiEmptyThisWorkingSet @ 0x1404FA1B4 (MiEmptyThisWorkingSet.c)
  */
 
 __int64 __fastcall MiTrimAllSystemPagableMemory(int a1)
@@ -26,9 +26,9 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1)
   __int64 v13; // r13
   int v14; // eax
   bool v15; // zf
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v16; // rcx
+  $241382875694CED3D471BC5892DE3337 *v16; // rcx
 
-  v1 = &unk_140E360A8;
+  v1 = &unk_140E36228;
   v3 = 0;
   v4 = 0LL;
   do
@@ -44,10 +44,10 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1)
   CurrentThread = KeGetCurrentThread();
   v11 = 0;
   --CurrentThread->SpecialApcDisable;
-  if ( v7 + _InterlockedExchangeAdd(&dword_140E36084, v7) == v7 )
+  if ( v7 + _InterlockedExchangeAdd(&dword_140E36204, v7) == v7 )
   {
     v11 = v7;
-    _InterlockedExchange64(&qword_140E360B8, (__int64)KeGetCurrentThread());
+    _InterlockedExchange64(&qword_140E36238, (__int64)KeGetCurrentThread());
     v12 = 0;
     do
     {
@@ -69,15 +69,15 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1)
       MiPurgePartitionStandby(&MiSystemPartition, 8LL, 0LL);
       LOWORD(v7) = v11;
     }
-    _InterlockedExchange64(&qword_140E360B8, 0LL);
+    _InterlockedExchange64(&qword_140E36238, 0LL);
   }
-  _InterlockedDecrement(&dword_140E36084);
+  _InterlockedDecrement(&dword_140E36204);
   v15 = (_WORD)v7 + CurrentThread->SpecialApcDisable == 0;
   CurrentThread->SpecialApcDisable += v7;
   if ( v15 )
   {
     v16 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v16->ApcState.ApcListHead[0].Flink != v16 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v16->ApcState.ApcListHead[0].Flink != v16 )
       KiCheckForKernelApcDelivery((__int64)v16, v4);
   }
   return v11;

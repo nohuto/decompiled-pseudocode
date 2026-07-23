@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileGetExportName @ 0x1408ECC38
+ * XREFs of AslpFileGetExportName @ 0x1408EDEF8
  * Callers:
- *     AslpFileGetPeExportNameExeWrapper @ 0x1408ED368 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x1408EE628 (AslpFileGetPeExportNameExeWrapper.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslStringAnsiToUnicode @ 0x1408E9264 (AslStringAnsiToUnicode.c)
- *     AslpFileQueryExportName @ 0x1408ED874 (AslpFileQueryExportName.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslStringAnsiToUnicode @ 0x1408EA524 (AslStringAnsiToUnicode.c)
+ *     AslpFileQueryExportName @ 0x1408EEB34 (AslpFileQueryExportName.c)
  */
 
 __int64 __fastcall AslpFileGetExportName(wchar_t **a1)

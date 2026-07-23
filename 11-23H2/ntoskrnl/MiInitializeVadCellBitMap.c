@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeVadCellBitMap @ 0x1406B2D54
+ * XREFs of MiInitializeVadCellBitMap @ 0x1406B2D84
  * Callers:
- *     MiInitializeVadBitMap @ 0x1406B2CE4 (MiInitializeVadBitMap.c)
- *     MiSelectUserAddress @ 0x14071FCC0 (MiSelectUserAddress.c)
+ *     MiInitializeVadBitMap @ 0x1406B2D14 (MiInitializeVadBitMap.c)
+ *     MiSelectUserAddress @ 0x14071FEC0 (MiSelectUserAddress.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140214D94 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x14029C94C (LOCK_ADDRESS_SPACE.c)
- *     MiExpandVadBitMap @ 0x1406B2EB0 (MiExpandVadBitMap.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14029CBDC (LOCK_ADDRESS_SPACE.c)
+ *     MiExpandVadBitMap @ 0x1406B2EE0 (MiExpandVadBitMap.c)
  */
 
 __int64 __fastcall MiInitializeVadCellBitMap(_QWORD *a1, int a2)

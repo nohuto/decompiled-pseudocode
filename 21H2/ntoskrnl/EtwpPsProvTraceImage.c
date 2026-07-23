@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpPsProvTraceImage @ 0x140628F68
+ * XREFs of EtwpPsProvTraceImage @ 0x140690814
  * Callers:
- *     EtwpTraceImageUnload @ 0x14025A6BC (EtwpTraceImageUnload.c)
- *     PerfLogImageLoad @ 0x14061A978 (PerfLogImageLoad.c)
+ *     EtwpTraceImageUnload @ 0x14027BC2C (EtwpTraceImageUnload.c)
+ *     PerfLogImageLoad @ 0x1406845D8 (PerfLogImageLoad.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __int16 a3, int a4)

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlNumberGenericTableElementsAvl(int a1)
+ULONG __cdecl RtlNumberGenericTableElementsAvl(PRTL_AVL_TABLE Table)
 {
-  return *(_DWORD *)(a1 + 24);
+  return Table->NumberGenericTableElements;
 }

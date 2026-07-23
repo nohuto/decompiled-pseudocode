@@ -1,36 +1,36 @@
 /*
- * XREFs of ExpSystemErrorHandler2 @ 0x14057E930
+ * XREFs of ExpSystemErrorHandler2 @ 0x14057F930
  * Callers:
- *     ExpSystemErrorHandler @ 0x1401C7020 (ExpSystemErrorHandler.c)
+ *     ExpSystemErrorHandler @ 0x1401C7180 (ExpSystemErrorHandler.c)
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     RtlStringCbPrintfA @ 0x14017DEB4 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     strcat_s @ 0x14019B720 (strcat_s.c)
- *     strcpy_s @ 0x14019B7C0 (strcpy_s.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     MmLockPagableSectionByHandle @ 0x14061F240 (MmLockPagableSectionByHandle.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
- *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
- *     RtlxUnicodeStringToOemSize @ 0x14067BE90 (RtlxUnicodeStringToOemSize.c)
- *     PsQuerySystemDllInfo @ 0x1406820BC (PsQuerySystemDllInfo.c)
- *     RtlUnicodeStringToOemString @ 0x1406D0490 (RtlUnicodeStringToOemString.c)
- *     PoShutdownBugCheck @ 0x14086BEC0 (PoShutdownBugCheck.c)
- *     PsTerminateServerSilo @ 0x140886A70 (PsTerminateServerSilo.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     RtlStringCbPrintfA @ 0x14017DFF4 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     strcat_s @ 0x14019B860 (strcat_s.c)
+ *     strcpy_s @ 0x14019B900 (strcpy_s.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     MmLockPagableSectionByHandle @ 0x140620240 (MmLockPagableSectionByHandle.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067CC90 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFindMessage @ 0x14067CF90 (RtlFindMessage.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14067D050 (RtlxUnicodeStringToOemSize.c)
+ *     PsQuerySystemDllInfo @ 0x14068327C (PsQuerySystemDllInfo.c)
+ *     RtlUnicodeStringToOemString @ 0x1406D1730 (RtlUnicodeStringToOemString.c)
+ *     PoShutdownBugCheck @ 0x14086D120 (PoShutdownBugCheck.c)
+ *     PsTerminateServerSilo @ 0x140887CD0 (PsTerminateServerSilo.c)
  */
 
 __int64 __fastcall ExpSystemErrorHandler2(
         ULONG MessageId,
         unsigned int a2,
         int a3,
-        struct _MESSAGE_RESOURCE_ENTRY *a4,
+        _MESSAGE_RESOURCE_ENTRY *a4,
         char a5)
 {
   int v8; // eax
@@ -61,9 +61,9 @@ __int64 __fastcall ExpSystemErrorHandler2(
   const char *v34; // [rsp+70h] [rbp-1E8h]
   UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-1E0h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+88h] [rbp-1D0h]
-  STRING SourceString; // [rsp+90h] [rbp-1C8h] BYREF
-  STRING v38; // [rsp+A0h] [rbp-1B8h] BYREF
-  STRING DestinationString; // [rsp+B0h] [rbp-1A8h] BYREF
+  _STRING SourceString; // [rsp+90h] [rbp-1C8h] BYREF
+  _STRING v38; // [rsp+A0h] [rbp-1B8h] BYREF
+  _STRING DestinationString; // [rsp+B0h] [rbp-1A8h] BYREF
   ULONG_PTR BugCheckParameter2[5]; // [rsp+C0h] [rbp-198h] BYREF
   char pszFormat[40]; // [rsp+E8h] [rbp-170h] BYREF
   char pszDest[256]; // [rsp+110h] [rbp-148h] BYREF
@@ -149,7 +149,7 @@ LABEL_29:
           for ( j = v20 - 1; j && *v19 && *v19 <= 32; --j )
             ++v19;
         }
-        v12 = algn_140573B30;
+        v12 = algn_140574B30;
         if ( j )
           v12 = v19;
         goto LABEL_43;

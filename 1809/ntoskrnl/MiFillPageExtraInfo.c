@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFillPageExtraInfo @ 0x1402A7C8C
+ * XREFs of MiFillPageExtraInfo @ 0x1402A7E7C
  * Callers:
- *     MiLogAllocateWsleEvent @ 0x1402A7CB4 (MiLogAllocateWsleEvent.c)
- *     MiLogRemoveWsleEvent @ 0x1402A7DEC (MiLogRemoveWsleEvent.c)
+ *     MiLogAllocateWsleEvent @ 0x1402A7EA4 (MiLogAllocateWsleEvent.c)
+ *     MiLogRemoveWsleEvent @ 0x1402A7FDC (MiLogRemoveWsleEvent.c)
  * Callees:
  *     <none>
  */

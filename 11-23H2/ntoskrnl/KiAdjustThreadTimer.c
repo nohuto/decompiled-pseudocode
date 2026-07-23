@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAdjustThreadTimer @ 0x140576DD8
+ * XREFs of KiAdjustThreadTimer @ 0x1405772C8
  * Callers:
- *     KeAdjustTimerDelayProcess @ 0x14056F4C8 (KeAdjustTimerDelayProcess.c)
+ *     KeAdjustTimerDelayProcess @ 0x14056FA08 (KeAdjustTimerDelayProcess.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiSuspendThread @ 0x140309F1C (KiSuspendThread.c)
- *     KiResumeThread @ 0x14030ACF8 (KiResumeThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiSuspendThread @ 0x14030A1AC (KiSuspendThread.c)
+ *     KiResumeThread @ 0x14030AF88 (KiResumeThread.c)
  */
 
 char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, int a4)

@@ -1,38 +1,37 @@
 /*
- * XREFs of RtlpCompareKnownAces @ 0x1800DFE20
+ * XREFs of RtlpCompareKnownAces @ 0x1800DFEE0
  * Callers:
- *     RtlpCompareAces @ 0x1800DFDD8 (RtlpCompareAces.c)
+ *     RtlpCompareAces @ 0x1800DFE98 (RtlpCompareAces.c)
  * Callees:
  *     RtlEqualSid @ 0x1800043F0 (RtlEqualSid.c)
- *     RtlInitializeSid @ 0x18000D5F0 (RtlInitializeSid.c)
- *     RtlEqualPrefixSid @ 0x180040530 (RtlEqualPrefixSid.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlInitializeSid @ 0x18000D5E0 (RtlInitializeSid.c)
+ *     RtlEqualPrefixSid @ 0x180040520 (RtlEqualPrefixSid.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-bool __fastcall RtlpCompareKnownAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+bool __fastcall RtlpCompareKnownAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v6; // rcx
   int v10; // ecx
-  _WORD *v11; // rdx
-  int v12; // [rsp+20h] [rbp-68h] BYREF
-  __int16 v13; // [rsp+24h] [rbp-64h]
-  _DWORD v14[12]; // [rsp+28h] [rbp-60h] BYREF
+  void *v11; // rdx
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-68h] BYREF
+  _DWORD Sid[12]; // [rsp+28h] [rbp-60h] BYREF
 
   v6 = *a2;
   if ( RtlBaseAceType[v6] != RtlBaseAceType[*a1] || RtlIsSystemAceType[v6] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
     return 0;
-  if ( !RtlEqualSid(a2 + 8, (_WORD *)a1 + 4) )
+  if ( !RtlEqualSid(a2 + 8, a1 + 8) )
   {
     if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !a3 && !a4 )
       return 0;
-    v12 = 0;
-    v13 = 768;
-    memset(v14, 0, sizeof(v14));
-    if ( (int)RtlInitializeSid((__int64)v14, (__int64)&v12, 1u) < 0 )
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+    memset(Sid, 0, sizeof(Sid));
+    if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) < 0 )
       return 0;
-    v14[2] = 0;
-    if ( !RtlEqualPrefixSid(a1 + 8, v14) )
+    Sid[2] = 0;
+    if ( !RtlEqualPrefixSid(a1 + 8, Sid) )
       return 0;
     v10 = *((_DWORD *)a1 + 4);
     if ( v10 )
@@ -47,7 +46,7 @@ bool __fastcall RtlpCompareKnownAces(unsigned __int8 *a1, unsigned __int8 *a2, _
         return 0;
       v11 = a3;
     }
-    return RtlEqualSid(a2 + 8, v11);
+    return RtlEqualSid(a2 + 8, v11) != 0;
   }
   return 1;
 }

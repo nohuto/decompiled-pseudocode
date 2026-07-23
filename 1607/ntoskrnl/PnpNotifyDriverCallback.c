@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpNotifyDriverCallback @ 0x14052C110
+ * XREFs of PnpNotifyDriverCallback @ 0x14052AFF8
  * Callers:
- *     PnpNotifyTargetDeviceChange @ 0x1403F0314 (PnpNotifyTargetDeviceChange.c)
- *     PnpNotifyDeviceClassChange @ 0x1403F0E40 (PnpNotifyDeviceClassChange.c)
- *     IoRegisterPlugPlayNotification @ 0x14052BB14 (IoRegisterPlugPlayNotification.c)
- *     PnpNotifyHwProfileChange @ 0x14062BB04 (PnpNotifyHwProfileChange.c)
+ *     PnpNotifyDeviceClassChange @ 0x1404891B8 (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14048A58C (PnpNotifyTargetDeviceChange.c)
+ *     IoRegisterPlugPlayNotification @ 0x14052A9FC (IoRegisterPlugPlayNotification.c)
+ *     PnpNotifyHwProfileChange @ 0x14062BBB8 (PnpNotifyHwProfileChange.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     PsGetCurrentProcessSessionId @ 0x1400FB920 (PsGetCurrentProcessSessionId.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     PsGetCurrentProcessSessionId @ 0x1400F96A0 (PsGetCurrentProcessSessionId.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PnpNotifyDriverCallback(__int64 a1, __int64 a2, _DWORD *a3)

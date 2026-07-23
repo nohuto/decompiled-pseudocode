@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSetDevicesSystemState @ 0x140568154
+ * XREFs of PopSetDevicesSystemState @ 0x140569154
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopGracefulShutdown @ 0x14057D9C0 (PopGracefulShutdown.c)
  * Callees:
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
  */
 
 __int64 PopSetDevicesSystemState()
@@ -19,15 +19,15 @@ __int64 PopSetDevicesSystemState()
 
   v3 = 0LL;
   v4 = 0LL;
-  v6 = byte_14041771D;
-  v5 = byte_140417702;
-  v7 = (unsigned __int8)byte_14041771C;
-  v2[0] = dword_14041772C;
-  v2[1] = dword_140417728;
-  v0 = dword_140417720;
-  if ( (dword_14041770C & 8) != 0 )
+  v6 = byte_1404187BD;
+  v5 = byte_1404187A2;
+  v7 = (unsigned __int8)byte_1404187BC;
+  v2[0] = dword_1404187CC;
+  v2[1] = dword_1404187C8;
+  v0 = dword_1404187C0;
+  if ( (dword_1404187AC & 8) != 0 )
     v0 = 6;
-  v3 = __PAIR64__(dword_140417724, v0);
-  v4 = __PAIR64__(dword_14041770C, qword_140417704);
+  v3 = __PAIR64__(dword_1404187C4, v0);
+  v4 = __PAIR64__(dword_1404187AC, qword_1404187A4);
   return PoBroadcastSystemState(v2);
 }

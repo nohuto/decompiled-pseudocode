@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSleepPowerSettingCallback @ 0x140943AD0
+ * XREFs of PopSleepPowerSettingCallback @ 0x1409BF440
  * Callers:
  *     <none>
  * Callees:
- *     PopApplyPolicy @ 0x140944018 (PopApplyPolicy.c)
- *     PopUpdateSystemIdleContext @ 0x140945524 (PopUpdateSystemIdleContext.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopApplyPolicy @ 0x1409BF988 (PopApplyPolicy.c)
+ *     PopUpdateSystemIdleContext @ 0x1409C0E94 (PopUpdateSystemIdleContext.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
@@ -45,31 +45,31 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
 
   v6 = -1073741811;
   PopAcquirePolicyLock(a1, a2);
-  v8 = *((_OWORD *)qword_140F105C0 + 1);
-  v30[0] = *(_OWORD *)qword_140F105C0;
-  v9 = *((_OWORD *)qword_140F105C0 + 2);
+  v8 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 16);
+  v30[0] = *(_OWORD *)PpmIdlePolicyLock.WriteOperationCount;
+  v9 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 32);
   v30[1] = v8;
-  v10 = *((_OWORD *)qword_140F105C0 + 3);
+  v10 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 48);
   v30[2] = v9;
-  v11 = *((_OWORD *)qword_140F105C0 + 4);
+  v11 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 64);
   v31 = v10;
-  v12 = *((_OWORD *)qword_140F105C0 + 5);
+  v12 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 80);
   v32 = v11;
-  v13 = *((_OWORD *)qword_140F105C0 + 6);
+  v13 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 96);
   v33 = v12;
   v34 = v13;
   v14 = v36;
-  v35 = *((_OWORD *)qword_140F105C0 + 7);
-  v15 = *((_OWORD *)qword_140F105C0 + 9);
-  v36[0] = *((_OWORD *)qword_140F105C0 + 8);
-  v16 = *((_OWORD *)qword_140F105C0 + 10);
+  v35 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 112);
+  v15 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 144);
+  v36[0] = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 128);
+  v16 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 160);
   v36[1] = v15;
-  v17 = *((_OWORD *)qword_140F105C0 + 11);
+  v17 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 176);
   v36[2] = v16;
-  v18 = *((_OWORD *)qword_140F105C0 + 12);
+  v18 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 192);
   v36[3] = v17;
-  v19 = *((_OWORD *)qword_140F105C0 + 13);
-  v20 = *((_QWORD *)qword_140F105C0 + 28);
+  v19 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 208);
+  v20 = *(_QWORD *)(PpmIdlePolicyLock.WriteOperationCount + 224);
   v36[4] = v18;
   v36[5] = v19;
   v37 = v20;
@@ -81,7 +81,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
   {
     v23 = (unsigned int)*a2;
     HIDWORD(v31) = *a2;
-    if ( *(_WORD *)&stru_140F10828.WaitBlockFill11[27] || stru_140F10828.WaitBlockFill5[29] )
+    if ( *(_WORD *)((char *)&PpmIdlePolicyLock.Padding[1] + 3) || BYTE5(PpmIdlePolicyLock.Padding[1]) )
       LODWORD(v31) = 2;
     v6 = 0;
   }
@@ -96,7 +96,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
   {
     v25 = *a2;
     DWORD2(v33) = *a2;
-    if ( !(_DWORD)v23 && v25 && stru_140F10828.WaitBlockFill5[30] && stru_140F10828.WaitBlockFill5[31] )
+    if ( !(_DWORD)v23 && v25 && BYTE6(PpmIdlePolicyLock.Padding[1]) && HIBYTE(PpmIdlePolicyLock.Padding[1]) )
       LODWORD(v31) = 3;
   }
   else if ( v6 < 0 )
@@ -111,7 +111,7 @@ LABEL_23:
     v26 = *(_QWORD *)GUID_HIBERNATE_FASTS4_POLICY.Data4 - a1[1];
   if ( !v26 && a3 == 4 && a2 )
   {
-    byte_140F106DC = *a2 == 0;
+    PpmIdlePolicyLock.PriorityFloorCounts[4] = *a2 == 0;
     v6 = 0;
   }
   v27 = *(_QWORD *)&GUID_ALLOW_STANDBY_STATES.Data1 - *a1;
@@ -119,7 +119,7 @@ LABEL_23:
     v27 = *(_QWORD *)GUID_ALLOW_STANDBY_STATES.Data4 - a1[1];
   if ( !v27 && a3 == 4 && a2 )
   {
-    byte_140F106DD = *a2 == 0;
+    PpmIdlePolicyLock.PriorityFloorCounts[5] = *a2 == 0;
     PopUpdateSystemIdleContext(3LL);
     v6 = 0;
   }
@@ -128,7 +128,7 @@ LABEL_23:
     v28 = *(_QWORD *)GUID_UNATTEND_SLEEP_TIMEOUT.Data4 - a1[1];
   if ( !v28 && a3 == 4 && a2 )
   {
-    dword_140F106E0 = *a2;
+    *(_DWORD *)&PpmIdlePolicyLock.PriorityFloorCounts[8] = *a2;
     PopUpdateSystemIdleContext(3LL);
     v6 = 0;
   }

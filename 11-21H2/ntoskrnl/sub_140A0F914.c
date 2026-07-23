@@ -4,10 +4,10 @@
  *     sub_140A0F208 @ 0x140A0F208 (sub_140A0F208.c)
  *     sub_140A100D4 @ 0x140A100D4 (sub_140A100D4.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_14029F120 @ 0x14029F120 (sub_14029F120.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     sub_140A0F1D4 @ 0x140A0F1D4 (sub_140A0F1D4.c)
@@ -46,12 +46,12 @@ __int64 __fastcall sub_140A0F914(__int64 a1, __int64 a2, unsigned int a3, _QWORD
   if ( !*(_DWORD *)(v16 + 16) )
   {
     CurrentThread = KeGetCurrentThread();
-    --CurrentThread->SpecialApcDisable;
+    --*((_WORD *)CurrentThread + 243);
     v10 = (unsigned __int64 *)(v16 + 8);
-    v11 = KeAbPreAcquire(v16 + 8, 0LL);
+    v11 = sub_140347C10(v16 + 8, 0LL);
     v12 = v11;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v10, v11, (__int64)v10);
+      sub_14029F120(v10, v11, (__int64)v10);
     if ( v12 )
       *(_BYTE *)(v12 + 18) = 1;
     if ( !*(_DWORD *)(v7 + 16) )
@@ -61,10 +61,10 @@ __int64 __fastcall sub_140A0F914(__int64 a1, __int64 a2, unsigned int a3, _QWORD
     }
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v10);
-    KeAbPostRelease((ULONG_PTR)v10);
+    sub_1402AFC00((ULONG_PTR)v10);
     v13 = KeGetCurrentThread();
-    v14 = v13->SpecialApcDisable++ == -1;
-    if ( v14 && ($CEA84C04E3712D858E5667A507841A2A *)v13->ApcState.ApcListHead[0].Flink != &v13->152 )
+    v14 = (*((_WORD *)v13 + 243))++ == 0xFFFF;
+    if ( v14 && *((struct _KTHREAD **)v13 + 19) != (struct _KTHREAD *)((char *)v13 + 152) )
       KiCheckForKernelApcDelivery();
     if ( v8 >= 0 )
     {

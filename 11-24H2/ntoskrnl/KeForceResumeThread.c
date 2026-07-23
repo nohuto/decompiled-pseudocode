@@ -1,15 +1,15 @@
 /*
- * XREFs of KeForceResumeThread @ 0x140479A40
+ * XREFs of KeForceResumeThread @ 0x1404752D0
  * Callers:
- *     KeRequestTerminationThread @ 0x140479818 (KeRequestTerminationThread.c)
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
- *     KeRundownApcQueues @ 0x1408A7A74 (KeRundownApcQueues.c)
- *     NtTerminateProcess @ 0x14093B030 (NtTerminateProcess.c)
+ *     KeRequestTerminationThread @ 0x1404750A8 (KeRequestTerminationThread.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
+ *     KeRundownApcQueues @ 0x1408FDCCC (KeRundownApcQueues.c)
+ *     NtTerminateProcess @ 0x140ACF260 (NtTerminateProcess.c)
  * Callees:
- *     KiResumeThread @ 0x14029646C (KiResumeThread.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiResumeThread @ 0x1402DD2DC (KiResumeThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeForceResumeThread(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpConstructScatterGatherListDmaThin @ 0x140400490
+ * XREFs of HalpConstructScatterGatherListDmaThin @ 0x1403FA980
  * Callers:
- *     HalGetScatterGatherListDmaThin @ 0x1404002C0 (HalGetScatterGatherListDmaThin.c)
+ *     HalGetScatterGatherListDmaThin @ 0x1403FA7B0 (HalGetScatterGatherListDmaThin.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpConstructScatterGatherListDmaThin(__int64 a1)
@@ -11,7 +11,7 @@ __int64 __fastcall HalpConstructScatterGatherListDmaThin(__int64 a1)
   __int64 v1; // rsi
   unsigned int v2; // ebx
   unsigned int v3; // r8d
-  _QWORD *v4; // r10
+  __int64 v4; // r10
   int v5; // edx
   unsigned int v6; // r11d
   __int64 v7; // r12
@@ -33,7 +33,7 @@ __int64 __fastcall HalpConstructScatterGatherListDmaThin(__int64 a1)
   v1 = *(_QWORD *)(a1 + 80);
   v2 = 0;
   v3 = *(_DWORD *)(a1 + 56);
-  v4 = (_QWORD *)a1;
+  v4 = a1;
   v5 = *(_DWORD *)(a1 + 60);
   v6 = 0;
   v7 = *(_QWORD *)(a1 + 64);
@@ -80,7 +80,7 @@ __int64 __fastcall HalpConstructScatterGatherListDmaThin(__int64 a1)
         }
         while ( v11 );
         v23 = v15;
-        v4 = (_QWORD *)a1;
+        v4 = a1;
       }
       v10 = (__int64 *)*v10;
       v5 = 0;
@@ -99,6 +99,6 @@ LABEL_14:
       v2 = -1073741536;
   }
   if ( v7 )
-    guard_dispatch_icall_no_overrides(v4[4], v4[5], v1, v4[9]);
+    guard_dispatch_icall_no_overrides(*(_QWORD *)(v4 + 32), *(_QWORD *)(v4 + 40));
   return v2;
 }

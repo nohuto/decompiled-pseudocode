@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeReleaseInStackQueuedSpinLockFromDpcLevelWrapper @ 0x1405E49B0
+ * XREFs of DifKeReleaseInStackQueuedSpinLockFromDpcLevelWrapper @ 0x1405E4F20
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 __int64 __fastcall DifKeReleaseInStackQueuedSpinLockFromDpcLevelWrapper(volatile signed __int64 **a1)

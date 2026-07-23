@@ -1,9 +1,9 @@
 /*
- * XREFs of SddlBaseInitialize @ 0x1406098E8
+ * XREFs of SddlBaseInitialize @ 0x140607EA0
  * Callers:
- *     SepInitializationPhase1 @ 0x14078EEE0 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x14078EEB0 (SepInitializationPhase1.c)
  * Callees:
- *     InitializeSidLookupTable @ 0x140796510 (InitializeSidLookupTable.c)
+ *     InitializeSidLookupTable @ 0x140796620 (InitializeSidLookupTable.c)
  */
 
 __int64 SddlBaseInitialize()

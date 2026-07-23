@@ -6,14 +6,18 @@
  *     sub_18006938C @ 0x18006938C (sub_18006938C.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFullAvl(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  int v6; // eax
+  TABLE_SEARCH_RESULT v6; // eax
 
-  v6 = sub_18006938C();
-  *a4 = v6;
-  if ( v6 == 1 )
-    return *a3 + 32LL;
+  v6 = (unsigned int)sub_18006938C(Table, Buffer);
+  *SearchResult = v6;
+  if ( v6 == TableFoundNode )
+    return (char *)*NodeOrParent + 32;
   else
     return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledDeviceUsageNoInline @ 0x1405C3B88
+ * XREFs of Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledDeviceUsageNoInline @ 0x1405C1158
  * Callers:
- *     KeAbInitialize @ 0x1405C4078 (KeAbInitialize.c)
+ *     KeAbInitialize @ 0x1405C1648 (KeAbInitialize.c)
  * Callees:
- *     Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledFallback @ 0x1405C3BC0 (Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledFallback.c)
+ *     Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledFallback @ 0x1405C1190 (Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_InlinePreWakeupPriorityBoosting__private_IsEnabledDeviceUsageNoInline()

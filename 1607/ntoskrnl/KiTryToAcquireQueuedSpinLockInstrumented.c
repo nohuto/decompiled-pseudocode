@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x1401D3BD0
+ * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x1401D39FC
  * Callers:
- *     MiRemoveAnyPage @ 0x140064740 (MiRemoveAnyPage.c)
- *     KxTryToAcquireQueuedSpinLock @ 0x14010B080 (KxTryToAcquireQueuedSpinLock.c)
+ *     MiRemoveAnyPage @ 0x1400642C0 (MiRemoveAnyPage.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x140108E00 (KxTryToAcquireQueuedSpinLock.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x140228678 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1402284A4 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall KiTryToAcquireQueuedSpinLockInstrumented(signed __int64 a1, _DWORD *a2)

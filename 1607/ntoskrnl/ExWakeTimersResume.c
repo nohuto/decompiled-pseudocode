@@ -1,12 +1,12 @@
 /*
- * XREFs of ExWakeTimersResume @ 0x1401147A0
+ * XREFs of ExWakeTimersResume @ 0x140114D10
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     ExpTimerResume @ 0x1400AE190 (ExpTimerResume.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     ExpTimerResume @ 0x1400AC6F8 (ExpTimerResume.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 unsigned __int64 ExWakeTimersResume()

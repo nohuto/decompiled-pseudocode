@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpCreateClientPort @ 0x14061506C
+ * XREFs of AlpcpCreateClientPort @ 0x14061606C
  * Callers:
- *     AlpcpConnectPort @ 0x1406144A4 (AlpcpConnectPort.c)
- *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
+ *     AlpcpConnectPort @ 0x1406154A4 (AlpcpConnectPort.c)
+ *     NtSecureConnectPort @ 0x1406A6DC0 (NtSecureConnectPort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
@@ -10,22 +10,22 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     ObReferenceObjectByName @ 0x1405C8DA0 (ObReferenceObjectByName.c)
- *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
- *     AlpcpCheckConnectionSecurity @ 0x140613280 (AlpcpCheckConnectionSecurity.c)
- *     AlpcpCreatePort @ 0x140614C6C (AlpcpCreatePort.c)
- *     AlpcpInitializePort @ 0x140614CD0 (AlpcpInitializePort.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x140614E5C (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcpSetOwnerProcessPort @ 0x1406154A0 (AlpcpSetOwnerProcessPort.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpAllocateMessage @ 0x140616D6C (AlpcpAllocateMessage.c)
- *     AlpcpAllocateBlob @ 0x14061849C (AlpcpAllocateBlob.c)
- *     AlpcInitializeHandleTable @ 0x140619C84 (AlpcInitializeHandleTable.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     ObReferenceObjectByName @ 0x1405C9DA0 (ObReferenceObjectByName.c)
+ *     ObReferenceObjectByNameEx @ 0x14061245C (ObReferenceObjectByNameEx.c)
+ *     AlpcpCheckConnectionSecurity @ 0x140614280 (AlpcpCheckConnectionSecurity.c)
+ *     AlpcpCreatePort @ 0x140615C6C (AlpcpCreatePort.c)
+ *     AlpcpInitializePort @ 0x140615CD0 (AlpcpInitializePort.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x140615E5C (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpSetOwnerProcessPort @ 0x1406164A0 (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpAllocateMessage @ 0x140617D6C (AlpcpAllocateMessage.c)
+ *     AlpcpAllocateBlob @ 0x14061949C (AlpcpAllocateBlob.c)
+ *     AlpcInitializeHandleTable @ 0x14061AC84 (AlpcInitializeHandleTable.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     SeCreateClientSecurity @ 0x14064A390 (SeCreateClientSecurity.c)
  */
 
 __int64 __fastcall AlpcpCreateClientPort(

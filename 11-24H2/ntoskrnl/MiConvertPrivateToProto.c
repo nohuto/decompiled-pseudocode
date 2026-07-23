@@ -1,12 +1,12 @@
 /*
- * XREFs of MiConvertPrivateToProto @ 0x1402F9768
+ * XREFs of MiConvertPrivateToProto @ 0x140294520
  * Callers:
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
  * Callees:
- *     MiDecrementCombinedPteEx @ 0x1402F9014 (MiDecrementCombinedPteEx.c)
- *     MiCombineWithExisting @ 0x1402F92E0 (MiCombineWithExisting.c)
- *     MiCreateCombineAnchor @ 0x1402F97FC (MiCreateCombineAnchor.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
+ *     MiCreateCombineAnchor @ 0x1402945B4 (MiCreateCombineAnchor.c)
+ *     MiCombineWithExisting @ 0x140294840 (MiCombineWithExisting.c)
+ *     MiDecrementCombinedPteEx @ 0x140294CC8 (MiDecrementCombinedPteEx.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
  */
 
 __int64 __fastcall MiConvertPrivateToProto(__int64 a1, __int64 a2, __int64 a3)
@@ -30,7 +30,7 @@ __int64 __fastcall MiConvertPrivateToProto(__int64 a1, __int64 a2, __int64 a3)
       v10 = v12;
       v8 = MiCombineWithExisting(a1, a2, v12, v9);
       if ( v8 < 0 )
-        MiDecrementCombinedPteEx(v4, v10 + 32, 0);
+        MiDecrementCombinedPteEx(v4, v10 + 32, 0LL);
     }
   }
   else

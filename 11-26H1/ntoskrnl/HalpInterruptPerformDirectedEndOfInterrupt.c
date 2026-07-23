@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404B7014
+ * XREFs of HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404B0844
  * Callers:
- *     HvlPerformEndOfInterrupt @ 0x1404B6FB0 (HvlPerformEndOfInterrupt.c)
+ *     HvlPerformEndOfInterrupt @ 0x1404B07E0 (HvlPerformEndOfInterrupt.c)
  * Callees:
- *     HalpInterruptFindLinesForGsiRange @ 0x140426C08 (HalpInterruptFindLinesForGsiRange.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140433D18 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpInterruptPerformDirectedEndOfInterrupt(__int64 a1)

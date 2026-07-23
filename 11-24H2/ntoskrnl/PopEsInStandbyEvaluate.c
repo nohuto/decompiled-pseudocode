@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEsInStandbyEvaluate @ 0x140A3B940
+ * XREFs of PopEsInStandbyEvaluate @ 0x140A31120
  * Callers:
- *     PopEsInStandbyLowPowerEpochCallback @ 0x140A3B910 (PopEsInStandbyLowPowerEpochCallback.c)
- *     PopEsInStandbyAcDcCallback @ 0x140AC94B0 (PopEsInStandbyAcDcCallback.c)
+ *     PopEsInStandbyLowPowerEpochCallback @ 0x140A310F0 (PopEsInStandbyLowPowerEpochCallback.c)
+ *     PopEsInStandbyAcDcCallback @ 0x140AC73D0 (PopEsInStandbyAcDcCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     PopGetPowerSettingValue @ 0x14049172C (PopGetPowerSettingValue.c)
- *     PopTraceEsBgActivityPolicyUpdate @ 0x1407585B8 (PopTraceEsBgActivityPolicyUpdate.c)
- *     ExpWnfReadStateData @ 0x1408ABA3C (ExpWnfReadStateData.c)
- *     PopEsQueueStateEvaluation @ 0x140A3BA78 (PopEsQueueStateEvaluation.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A3BBFC (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     PopGetPowerSettingValue @ 0x14048C3EC (PopGetPowerSettingValue.c)
+ *     PopTraceEsBgActivityPolicyUpdate @ 0x140756A38 (PopTraceEsBgActivityPolicyUpdate.c)
+ *     ExpWnfReadStateData @ 0x140901C9C (ExpWnfReadStateData.c)
+ *     PopEsQueueStateEvaluation @ 0x140A31258 (PopEsQueueStateEvaluation.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A313DC (ExpWnfAcquireSubscriptionNameInstance.c)
  */
 
 __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)

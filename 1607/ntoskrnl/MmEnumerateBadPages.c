@@ -1,10 +1,10 @@
 /*
- * XREFs of MmEnumerateBadPages @ 0x1401FE948
+ * XREFs of MmEnumerateBadPages @ 0x1401FE774
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -21,21 +21,21 @@ __int64 __fastcall MmEnumerateBadPages(_QWORD *a1)
   *a1 = 0LL;
   while ( 1 )
   {
-    if ( !qword_140324380 )
+    if ( !qword_1403243C0 )
       return 0LL;
-    v2 = qword_140324380 + 16;
-    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8 * (qword_140324380 + 16), 0x61426D4Du);
+    v2 = qword_1403243C0 + 16;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8 * (qword_1403243C0 + 16), 0x61426D4Du);
     v4 = PoolWithTag;
     if ( !PoolWithTag )
       break;
     v5 = PoolWithTag;
     KeAcquireInStackQueuedSpinLock(
-      &qword_1403243A0,
+      &qword_1403243E0,
       (PKLOCK_QUEUE_HANDLE)((unsigned __int64)v8 & 0xFFFFFFFFFFFFFFC0uLL));
-    if ( qword_140324380 < v2 && qword_140324380 )
+    if ( qword_1403243C0 < v2 && qword_1403243C0 )
     {
-      *v4 = qword_140324380;
-      for ( i = qword_140324390; i != 0xFFFFFFFFFLL; i = *(_QWORD *)(48 * i - 0x58000000000LL) & 0xFFFFFFFFFLL )
+      *v4 = qword_1403243C0;
+      for ( i = qword_1403243D0; i != 0xFFFFFFFFFLL; i = *(_QWORD *)(48 * i - 0x58000000000LL) & 0xFFFFFFFFFLL )
         *++v5 = i;
       KeReleaseInStackQueuedSpinLock((PKLOCK_QUEUE_HANDLE)((unsigned __int64)v8 & 0xFFFFFFFFFFFFFFC0uLL));
       *a1 = v4;

@@ -1,33 +1,33 @@
 /*
- * XREFs of RtlReleasePrivilege @ 0x1800F7A00
+ * XREFs of RtlReleasePrivilege @ 0x1800F2570
  * Callers:
- *     LdrpMinimalMapModule @ 0x180072F40 (LdrpMinimalMapModule.c)
- *     GetProcessIptTrace @ 0x18015D014 (GetProcessIptTrace.c)
- *     GetProcessIptTraceSize @ 0x18015D120 (GetProcessIptTraceSize.c)
+ *     LdrpMinimalMapModule @ 0x18008F820 (LdrpMinimalMapModule.c)
+ *     GetProcessIptTrace @ 0x18015B3D4 (GetProcessIptTrace.c)
+ *     GetProcessIptTraceSize @ 0x18015B4E0 (GetProcessIptTraceSize.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     NtSetInformationThread @ 0x180161E30 (NtSetInformationThread.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtAdjustPrivilegesToken @ 0x1801624B0 (NtAdjustPrivilegesToken.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     NtSetInformationThread @ 0x1801601F0 (NtSetInformationThread.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtAdjustPrivilegesToken @ 0x180160870 (NtAdjustPrivilegesToken.c)
  */
 
-__int64 __fastcall RtlReleasePrivilege(HANDLE *a1)
+void __cdecl RtlReleasePrivilege(PVOID StatePointer)
 {
-  unsigned __int64 v2; // r8
-  HANDLE v4; // rcx
+  char *v2; // r8
+  void *v3; // rcx
 
-  if ( ((_DWORD)a1[4] & 3) != 1 )
-    NtAdjustPrivilegesToken(*a1, 0LL, a1[2]);
-  if ( ((_BYTE)a1[4] & 1) != 0 )
+  if ( (*((_DWORD *)StatePointer + 8) & 3) != 1 )
+    NtAdjustPrivilegesToken(*(HANDLE *)StatePointer, 0, *((PTOKEN_PRIVILEGES *)StatePointer + 2), 0, 0LL, 0LL);
+  if ( (*((_BYTE *)StatePointer + 32) & 1) != 0 )
   {
-    NtSetInformationThread(-2LL, 5LL, a1 + 1);
-    v4 = a1[1];
-    if ( v4 )
-      NtClose(v4);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, (char *)StatePointer + 8, 8u);
+    v3 = (void *)*((_QWORD *)StatePointer + 1);
+    if ( v3 )
+      NtClose(v3);
   }
-  v2 = (unsigned __int64)a1[2];
-  if ( (HANDLE *)v2 != (HANDLE *)((char *)a1 + 36) )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v2);
-  NtClose(*a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)a1);
+  v2 = (char *)*((_QWORD *)StatePointer + 2);
+  if ( v2 != (char *)StatePointer + 36 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
+  NtClose(*(HANDLE *)StatePointer);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, StatePointer);
 }

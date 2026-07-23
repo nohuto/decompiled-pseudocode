@@ -1,8 +1,8 @@
 /*
- * XREFs of KdpSysReadMsr @ 0x1405E439C
+ * XREFs of KdpSysReadMsr @ 0x1405E6D0C
  * Callers:
- *     KdSystemDebugControl @ 0x14077D2F0 (KdSystemDebugControl.c)
- *     KdpReadMachineSpecificRegister @ 0x140C14544 (KdpReadMachineSpecificRegister.c)
+ *     KdSystemDebugControl @ 0x14077FDF0 (KdSystemDebugControl.c)
+ *     KdpReadMachineSpecificRegister @ 0x140C1A544 (KdpReadMachineSpecificRegister.c)
  * Callees:
  *     <none>
  */

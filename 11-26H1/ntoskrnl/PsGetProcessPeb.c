@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessPeb @ 0x140476AF0
+ * XREFs of PsGetProcessPeb @ 0x140470270
  * Callers:
  *     <none>
  * Callees:

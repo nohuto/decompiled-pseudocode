@@ -26,7 +26,7 @@ struct _KTHREAD *__fastcall PopAcquireAdaptiveLock(char a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *result; // rax
-  int v4; // edi
+  ULONG v4; // edi
   LARGE_INTEGER Interval; // [rsp+20h] [rbp-38h] BYREF
   __int128 v6; // [rsp+28h] [rbp-30h] BYREF
   __int64 v7; // [rsp+38h] [rbp-20h]

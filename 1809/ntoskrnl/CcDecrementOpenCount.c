@@ -1,22 +1,22 @@
 /*
- * XREFs of CcDecrementOpenCount @ 0x1400ACFA0
+ * XREFs of CcDecrementOpenCount @ 0x1400ACEE0
  * Callers:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
- *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
- *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
- *     CcNotifyOfMappedWrite @ 0x14007D960 (CcNotifyOfMappedWrite.c)
- *     CcPerformReadAhead @ 0x1400DDFC4 (CcPerformReadAhead.c)
- *     CcCompleteAsyncRead @ 0x1400DF334 (CcCompleteAsyncRead.c)
- *     CcMdlWriteComplete2 @ 0x1400E1928 (CcMdlWriteComplete2.c)
- *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
- *     CcGetFlushedValidData @ 0x1400E87C0 (CcGetFlushedValidData.c)
- *     CcNotifyOfMappedWriteComplete @ 0x140138CF8 (CcNotifyOfMappedWriteComplete.c)
- *     CcUnmapInactiveViewsInternal @ 0x14026AAAC (CcUnmapInactiveViewsInternal.c)
- *     CcMdlWriteAbort @ 0x14026B0C0 (CcMdlWriteAbort.c)
+ *     CcSetFileSizesEx @ 0x14007CFB0 (CcSetFileSizesEx.c)
+ *     CcWriteBehindInternal @ 0x14007D2E0 (CcWriteBehindInternal.c)
+ *     CcNotifyOfMappedWrite @ 0x14007D950 (CcNotifyOfMappedWrite.c)
+ *     CcPerformReadAhead @ 0x1400DE044 (CcPerformReadAhead.c)
+ *     CcCompleteAsyncRead @ 0x1400DF3B4 (CcCompleteAsyncRead.c)
+ *     CcMdlWriteComplete2 @ 0x1400E19A8 (CcMdlWriteComplete2.c)
+ *     CcPurgeCacheSection @ 0x1400E7B20 (CcPurgeCacheSection.c)
+ *     CcGetFlushedValidData @ 0x1400E8840 (CcGetFlushedValidData.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x140138DF8 (CcNotifyOfMappedWriteComplete.c)
+ *     CcUnmapInactiveViewsInternal @ 0x14026AC9C (CcUnmapInactiveViewsInternal.c)
+ *     CcMdlWriteAbort @ 0x14026B2B0 (CcMdlWriteAbort.c)
  * Callees:
- *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x14007EF50 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     CcScheduleLazyWriteScan @ 0x14007EEB8 (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x14007EF40 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
  */
 
 char __fastcall CcDecrementOpenCount(__int64 a1)

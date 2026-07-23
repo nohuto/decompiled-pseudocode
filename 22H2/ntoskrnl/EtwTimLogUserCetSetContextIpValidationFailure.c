@@ -144,7 +144,7 @@ void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2
     && (ZwQueryVirtualMemory(
           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
           BaseAddress,
-          (MEMORY_INFORMATION_CLASS)2,
+          MemoryMappedFilenameInformation,
           Pool2,
           0x200uLL,
           0LL) >= 0

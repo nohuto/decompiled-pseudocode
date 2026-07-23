@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpCompareActivationThread @ 0x1404E2A50
+ * XREFs of PnpCompareActivationThread @ 0x1404DC130
  * Callers:
  *     <none>
  * Callees:

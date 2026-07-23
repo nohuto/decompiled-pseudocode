@@ -1,28 +1,28 @@
 /*
- * XREFs of PiSwProcessRemove @ 0x14090B360
+ * XREFs of PiSwProcessRemove @ 0x1409AD484
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x14090C0D0 (PiSwPdoPnPDispatch.c)
- *     PiSwProcessParentRemoveIrp @ 0x140910204 (PiSwProcessParentRemoveIrp.c)
- *     PiSwGetChildPdo @ 0x140A7AAD4 (PiSwGetChildPdo.c)
+ *     PiSwPdoPnPDispatch @ 0x1409AE200 (PiSwPdoPnPDispatch.c)
+ *     PiSwProcessParentRemoveIrp @ 0x1409B2334 (PiSwProcessParentRemoveIrp.c)
+ *     PiSwGetChildPdo @ 0x140A8BC18 (PiSwGetChildPdo.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     IoInvalidateDeviceRelations @ 0x1404D2B60 (IoInvalidateDeviceRelations.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x140525230 (McTemplateK0zz_EtwWriteTransfer.c)
- *     McTemplateK0zzztdd_EtwWriteTransfer @ 0x1405DC7FC (McTemplateK0zzztdd_EtwWriteTransfer.c)
- *     PnpFreeDevPropertyArray @ 0x140990C90 (PnpFreeDevPropertyArray.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwQueuedCreateInfoFree @ 0x140A7AE8C (PiSwQueuedCreateInfoFree.c)
- *     PiSwBusRelationRemove @ 0x140A7B204 (PiSwBusRelationRemove.c)
- *     PiSwUnassociateDeviceObject @ 0x140A7B310 (PiSwUnassociateDeviceObject.c)
- *     PiSwDeviceDereference @ 0x140A7B3F4 (PiSwDeviceDereference.c)
- *     PiSwPnPInfoFree @ 0x140A7B6F0 (PiSwPnPInfoFree.c)
- *     PiSwFreeInterfaceList @ 0x140A7B794 (PiSwFreeInterfaceList.c)
- *     PiSwBusRelationAdd @ 0x140A7C3EC (PiSwBusRelationAdd.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x140AF971C (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwMakePdoInactive @ 0x140B3E814 (PiSwMakePdoInactive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     IoInvalidateDeviceRelations @ 0x1404CC3D0 (IoInvalidateDeviceRelations.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405278A0 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zzztdd_EtwWriteTransfer @ 0x1405DF0AC (McTemplateK0zzztdd_EtwWriteTransfer.c)
+ *     PnpFreeDevPropertyArray @ 0x1409516F0 (PnpFreeDevPropertyArray.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140A8BFD0 (PiSwQueuedCreateInfoFree.c)
+ *     PiSwBusRelationRemove @ 0x140A8C348 (PiSwBusRelationRemove.c)
+ *     PiSwUnassociateDeviceObject @ 0x140A8C454 (PiSwUnassociateDeviceObject.c)
+ *     PiSwDeviceDereference @ 0x140A8C538 (PiSwDeviceDereference.c)
+ *     PiSwPnPInfoFree @ 0x140A8C830 (PiSwPnPInfoFree.c)
+ *     PiSwFreeInterfaceList @ 0x140A8C8D4 (PiSwFreeInterfaceList.c)
+ *     PiSwBusRelationAdd @ 0x140A8D51C (PiSwBusRelationAdd.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x140B14B14 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwMakePdoInactive @ 0x140B40844 (PiSwMakePdoInactive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwProcessRemove(__int64 a1, char a2)
@@ -42,7 +42,7 @@ __int64 __fastcall PiSwProcessRemove(__int64 a1, char a2)
   unsigned int *v16; // rdx
   void *v17; // rcx
   unsigned int *v18; // r9
-  __int64 v19; // rdx
+  PVOID *v19; // rdx
   int v20; // edx
   struct _DEVICE_OBJECT *v21; // rax
   struct _DEVICE_OBJECT *v22; // rbx
@@ -60,9 +60,9 @@ __int64 __fastcall PiSwProcessRemove(__int64 a1, char a2)
   v8 = *(_QWORD *)(v4 + 40);
   if ( v8 )
     v5 = *(const wchar_t **)(v8 + 48);
-  if ( (byte_140EF3DCC & 0x40) != 0 )
+  if ( (byte_140EF412C & 0x40) != 0 )
   {
-    v23 = &word_140B814F0;
+    v23 = &word_140B8A320;
     if ( v7 )
     {
       v24 = *(_DWORD *)(v7 + 4);
@@ -71,7 +71,7 @@ __int64 __fastcall PiSwProcessRemove(__int64 a1, char a2)
     else
     {
       LOBYTE(v24) = 0;
-      v25 = &word_140B814F0;
+      v25 = &word_140B8A320;
     }
     if ( v7 )
       v23 = *(const wchar_t **)(v7 + 8);
@@ -120,10 +120,10 @@ __int64 __fastcall PiSwProcessRemove(__int64 a1, char a2)
           *(_DWORD *)(*((_QWORD *)Buffer + 11) + 64LL) = 0;
           *(_QWORD *)(*((_QWORD *)Buffer + 11) + 56LL) = 0LL;
           v18 = Buffer;
-          v19 = *((_QWORD *)Buffer + 21);
+          v19 = (PVOID *)*((_QWORD *)Buffer + 21);
           if ( v19 )
           {
-            PnpFreeDevPropertyArray(Buffer[44], v19, 1466986064LL);
+            PnpFreeDevPropertyArray(Buffer[44], v19, 0x57706E50u);
             v18 = Buffer;
           }
           v18[44] = *(_DWORD *)(*((_QWORD *)v18 + 11) + 80LL);
@@ -149,7 +149,7 @@ __int64 __fastcall PiSwProcessRemove(__int64 a1, char a2)
             Buffer[1] &= ~2u;
             v21 = (struct _DEVICE_OBJECT *)PnpDeviceObjectFromDeviceInstanceWithTag(
                                              *((_QWORD *)Buffer + 14),
-                                             1953261124LL);
+                                             0x746C6644u);
             v22 = v21;
             if ( v21 )
             {
@@ -164,7 +164,7 @@ __int64 __fastcall PiSwProcessRemove(__int64 a1, char a2)
         }
         if ( !v12[14] )
         {
-          if ( (byte_140EF3DCC & 0x40) != 0 )
+          if ( (byte_140EF412C & 0x40) != 0 )
             McTemplateK0zz_EtwWriteTransfer(
               v10,
               (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_InstanceTable_Remove,

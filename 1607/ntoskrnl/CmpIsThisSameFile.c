@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpIsThisSameFile @ 0x1403FCA68
+ * XREFs of CmpIsThisSameFile @ 0x1403FB928
  * Callers:
- *     CmLoadAppKey @ 0x1403FC110 (CmLoadAppKey.c)
- *     CmpIsHiveAlreadyLoaded @ 0x1405FEFD8 (CmpIsHiveAlreadyLoaded.c)
+ *     CmLoadAppKey @ 0x1403FAFD0 (CmLoadAppKey.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x1405FF08C (CmpIsHiveAlreadyLoaded.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 bool __fastcall CmpIsThisSameFile(__int64 a1, void *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RtlpFindFunctionOverrideDvrtRecord@@YAJV?$span@$$CBE$0?0@gsl@@PEAV12@@Z @ 0x140A5DFC8
+ * XREFs of ?RtlpFindFunctionOverrideDvrtRecord@@YAJV?$span@$$CBE$0?0@gsl@@PEAV12@@Z @ 0x140A6AF88
  * Callers:
- *     RtlCreateFunctionOverrideFixupInfo @ 0x140A5DE50 (RtlCreateFunctionOverrideFixupInfo.c)
+ *     RtlCreateFunctionOverrideFixupInfo @ 0x140A6AE10 (RtlCreateFunctionOverrideFixupInfo.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x14047FF64 (-terminate@details@gsl@@YAXXZ.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404798A4 (-terminate@details@gsl@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall RtlpFindFunctionOverrideDvrtRecord(unsigned __int64 *a1, _OWORD *a2)
@@ -58,7 +58,7 @@ __int64 __fastcall RtlpFindFunctionOverrideDvrtRecord(unsigned __int64 *a1, _OWO
     }
 LABEL_30:
     gsl::details::terminate(v11, v4);
-    JUMPOUT(0x140A5E1B5LL);
+    JUMPOUT(0x140A6B175LL);
   }
 LABEL_7:
   v4 = 0LL;

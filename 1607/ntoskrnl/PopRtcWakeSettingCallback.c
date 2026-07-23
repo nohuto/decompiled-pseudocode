@@ -1,5 +1,5 @@
 /*
- * XREFs of PopRtcWakeSettingCallback @ 0x14054D2B4
+ * XREFs of PopRtcWakeSettingCallback @ 0x14054D654
  * Callers:
  *     <none>
  * Callees:

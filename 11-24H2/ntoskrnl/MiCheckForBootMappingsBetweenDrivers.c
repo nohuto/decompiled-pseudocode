@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckForBootMappingsBetweenDrivers @ 0x140C506C0
+ * XREFs of MiCheckForBootMappingsBetweenDrivers @ 0x140C52850
  * Callers:
- *     MiInitializeDriverPtes @ 0x140C50A98 (MiInitializeDriverPtes.c)
+ *     MiInitializeDriverPtes @ 0x140C52C28 (MiInitializeDriverPtes.c)
  * Callees:
  *     <none>
  */

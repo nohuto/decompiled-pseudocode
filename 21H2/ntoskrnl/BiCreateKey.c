@@ -1,19 +1,19 @@
 /*
- * XREFs of BiCreateKey @ 0x140783C10
+ * XREFs of BiCreateKey @ 0x140783DD0
  * Callers:
- *     BiAddStoreFromFile @ 0x140781DD8 (BiAddStoreFromFile.c)
- *     BcdSetElementDataWithFlags @ 0x140783FDC (BcdSetElementDataWithFlags.c)
- *     BiCreateObject @ 0x14096EFC8 (BiCreateObject.c)
- *     BiSetObjectDescription @ 0x14096F39C (BiSetObjectDescription.c)
+ *     BiAddStoreFromFile @ 0x140781F98 (BiAddStoreFromFile.c)
+ *     BcdSetElementDataWithFlags @ 0x14078419C (BcdSetElementDataWithFlags.c)
+ *     BiCreateObject @ 0x14096F1A8 (BiCreateObject.c)
+ *     BiSetObjectDescription @ 0x14096F57C (BiSetObjectDescription.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     CmSiCloseSection @ 0x1402C81B8 (CmSiCloseSection.c)
- *     BiSanitizeHandle @ 0x1402D333C (BiSanitizeHandle.c)
- *     BiZwOpenKey @ 0x14039B584 (BiZwOpenKey.c)
- *     BiZwSetSecurityObject @ 0x14039B5AC (BiZwSetSecurityObject.c)
- *     BiZwCreateKey @ 0x14039B5E8 (BiZwCreateKey.c)
- *     BiCreateKeySecurityDescriptor @ 0x1407845E0 (BiCreateKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     CmSiCloseSection @ 0x140246A18 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x14025166C (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     BiZwOpenKey @ 0x14039B6D4 (BiZwOpenKey.c)
+ *     BiZwSetSecurityObject @ 0x14039B6FC (BiZwSetSecurityObject.c)
+ *     BiZwCreateKey @ 0x14039B738 (BiZwCreateKey.c)
+ *     BiCreateKeySecurityDescriptor @ 0x1407847A0 (BiCreateKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiCreateKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, unsigned int a4, _QWORD *a5, bool *a6)
@@ -61,7 +61,7 @@ __int64 __fastcall BiCreateKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, unsi
       }
     }
     v13 = v10 | 0x200;
-    KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103);
+    KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103LL);
     v16 = KeySecurityDescriptor;
     if ( KeySecurityDescriptor )
     {

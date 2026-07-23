@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnmapFrameBuffer @ 0x14010DDA0
+ * XREFs of MiUnmapFrameBuffer @ 0x14010E304
  * Callers:
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiReplaceRotateWithDemandZero @ 0x14010DAD4 (MiReplaceRotateWithDemandZero.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiReplaceRotateWithDemandZero @ 0x14010E038 (MiReplaceRotateWithDemandZero.c)
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiUnmapFrameBuffer(__int64 a1, int a2, unsigned int a3, _QWORD *a4)

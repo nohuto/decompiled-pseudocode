@@ -1,16 +1,16 @@
 /*
- * XREFs of VfDriverEnableVerifier @ 0x140704AC8
+ * XREFs of VfDriverEnableVerifier @ 0x140704AF8
  * Callers:
- *     MmEnableVerifierForDriver @ 0x14070188C (MmEnableVerifierForDriver.c)
- *     VfDriverEnableVerifierForAll @ 0x140704C44 (VfDriverEnableVerifierForAll.c)
+ *     MmEnableVerifierForDriver @ 0x1407018BC (MmEnableVerifierForDriver.c)
+ *     VfDriverEnableVerifierForAll @ 0x140704C74 (VfDriverEnableVerifierForAll.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  *     VfDriverLoadImage @ 0x1406FDD58 (VfDriverLoadImage.c)
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
- *     VfUtilIsProtectedDriver @ 0x140702E74 (VfUtilIsProtectedDriver.c)
+ *     VfUtilIsProtectedDriver @ 0x140702EA4 (VfUtilIsProtectedDriver.c)
  *     ViSuspectDriversLookupEntry @ 0x1407166C4 (ViSuspectDriversLookupEntry.c)
  */
 
@@ -59,17 +59,17 @@ LABEL_7:
   {
     v5 = 1;
 LABEL_15:
-    v10 = (__int64 *)qword_140300B48;
-    if ( *(__int64 **)qword_140300B48 != &VfSuspectDriversList )
+    v10 = (__int64 *)qword_140300B28;
+    if ( *(__int64 **)qword_140300B28 != &VfSuspectDriversList )
       __fastfail(3u);
-    *(_QWORD *)(a1 + 8) = qword_140300B48;
+    *(_QWORD *)(a1 + 8) = qword_140300B28;
     *(_QWORD *)a1 = &VfSuspectDriversList;
     *v10 = a1;
-    qword_140300B48 = a1;
+    qword_140300B28 = a1;
     *a3 = 1;
     if ( v5 )
       VfDriverLoadImage(a2, a1, 0, 1u);
-    ++dword_140307278;
+    ++dword_1403072B8;
     goto LABEL_20;
   }
   v8 = -1073741554;

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiSessionObjectCreate @ 0x140786484
+ * XREFs of MiSessionObjectCreate @ 0x140786644
  * Callers:
- *     MiSessionCreate @ 0x14078620C (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x1407863CC (MiSessionCreate.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
- *     KeInsertSchedulingGroup @ 0x140285278 (KeInsertSchedulingGroup.c)
- *     KeGetSchedulingGroupSize @ 0x140287B4C (KeGetSchedulingGroupSize.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeInsertSchedulingGroup @ 0x140202418 (KeInsertSchedulingGroup.c)
+ *     KeGetSchedulingGroupSize @ 0x140204CEC (KeGetSchedulingGroupSize.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     RtlStringCchPrintfW @ 0x14026D570 (RtlStringCchPrintfW.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 int MiSessionObjectCreate()
@@ -70,11 +70,11 @@ int MiSessionObjectCreate()
     v6 = v4;
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((__int64)v4, 2u, 0, 983043, (unsigned __int8 *)SeAliasAdminsSid, 0);
+      Acl = RtlpAddKnownAce(v4, 2u, 0, 983043, (unsigned __int8 *)SeAliasAdminsSid, 0);
       v6 = v4;
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v4, 2u, 0, 983043, (unsigned __int8 *)SeLocalSystemSid, 0);
+        Acl = RtlpAddKnownAce(v4, 2u, 0, 983043, (unsigned __int8 *)SeLocalSystemSid, 0);
         if ( Acl >= 0 )
         {
           Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v4, 0);

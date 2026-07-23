@@ -1,28 +1,28 @@
 /*
- * XREFs of SmAcquireReleaseCharges @ 0x140210CF0
+ * XREFs of SmAcquireReleaseCharges @ 0x14033A050
  * Callers:
- *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14024C420 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     SmKmStoreHelperCommandProcess @ 0x14037AA90 (SmKmStoreHelperCommandProcess.c)
- *     SmKmFreeMdlForLock @ 0x14037AD84 (SmKmFreeMdlForLock.c)
- *     SmKmAllocateMdlForLock @ 0x14037C85C (SmKmAllocateMdlForLock.c)
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14037E000 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmFpCleanup @ 0x14037E384 (SmFpCleanup.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14039B930 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     SmFpFree @ 0x14042F2B0 (SmFpFree.c)
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140449680 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     SmFpPreAllocate @ 0x1404C3258 (SmFpPreAllocate.c)
+ *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14027CA30 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     SmKmStoreHelperCommandProcess @ 0x1402E7B10 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmFreeMdlForLock @ 0x1402E7E04 (SmKmFreeMdlForLock.c)
+ *     SmKmAllocateMdlForLock @ 0x1402E98DC (SmKmAllocateMdlForLock.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1402F8C30 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140376D70 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140377D20 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmFpCleanup @ 0x1403780A4 (SmFpCleanup.c)
+ *     SmFpFree @ 0x140421480 (SmFpFree.c)
+ *     SmFpPreAllocate @ 0x1404BE790 (SmFpPreAllocate.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     MiSignalCommitSignals @ 0x14028F200 (MiSignalCommitSignals.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiChargeResident @ 0x1402F5FA0 (MiChargeResident.c)
- *     MiRestockOverCommit @ 0x14043A6C0 (MiRestockOverCommit.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     MiSignalCommitSignals @ 0x14029EE00 (MiSignalCommitSignals.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14033DD30 (MiChargeResident.c)
+ *     MiRestockOverCommit @ 0x14042CEF4 (MiRestockOverCommit.c)
  */
 
-__int64 __fastcall SmAcquireReleaseCharges(__int64 a1, unsigned __int64 a2, char a3, int a4)
+__int64 __fastcall SmAcquireReleaseCharges(__int64 a1, unsigned __int64 a2, char a3, __int64 a4)
 {
   __int64 *v4; // r14
   unsigned __int64 v5; // rdi
@@ -37,14 +37,15 @@ __int64 __fastcall SmAcquireReleaseCharges(__int64 a1, unsigned __int64 a2, char
   struct _KPRCB *CurrentPrcb; // rdx
   __int64 i; // r8
   signed __int32 v17; // eax
-  volatile LONG *v18; // rcx
-  KIRQL v19; // si
+  unsigned __int64 v18; // r8
+  volatile LONG *v19; // rcx
+  KIRQL v20; // si
 
   v4 = *(__int64 **)(a1 + 2096);
   v5 = a2 >> 12;
   v6 = a3 & 1;
   v7 = a3 & 2;
-  if ( !a4 )
+  if ( !(_DWORD)a4 )
   {
     v8 = 0;
     v9 = *v4;
@@ -58,7 +59,7 @@ __int64 __fastcall SmAcquireReleaseCharges(__int64 a1, unsigned __int64 a2, char
     v11 = v6 & 1;
     if ( !v7 )
       v11 = v6;
-    if ( !v11 || (unsigned int)MiChargeCommit(v9, v5, 1LL) )
+    if ( !v11 || (unsigned int)MiChargeCommit(v9, v5, 1LL, a4) )
     {
       return 1;
     }
@@ -78,18 +79,18 @@ __int64 __fastcall SmAcquireReleaseCharges(__int64 a1, unsigned __int64 a2, char
   {
     if ( !*(_QWORD *)(v13 + 16904) )
       goto LABEL_17;
-    v18 = (volatile LONG *)(v13 + 16888);
+    v19 = (volatile LONG *)(v13 + 16888);
     if ( KeGetCurrentIrql() == 2 )
     {
-      v19 = 17;
-      ExAcquireSpinLockExclusiveAtDpcLevel(v18);
+      v20 = 17;
+      ExAcquireSpinLockExclusiveAtDpcLevel(v19);
     }
     else
     {
-      v19 = ExAcquireSpinLockExclusive(v18);
+      v20 = ExAcquireSpinLockExclusive(v19);
     }
     v5 = MiRestockOverCommit(v13, v5);
-    MiReleaseSpinLockExclusive(v13 + 16888, v19);
+    MiReleaseSpinLockExclusive((_DWORD *)(v13 + 16888), v20);
     if ( v5 )
     {
 LABEL_17:
@@ -105,7 +106,8 @@ LABEL_17:
         }
       }
       _InterlockedAdd64((volatile signed __int64 *)(v13 + 19328), -(__int64)v5);
-      MiSignalCommitSignals(v13, _InterlockedExchangeAdd64((volatile signed __int64 *)(v13 + 19264), -(__int64)v5) - v5);
+      v18 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v13 + 19264), -(__int64)v5);
+      MiSignalCommitSignals(v13, v18 - v5, v18);
     }
   }
   return 1LL;

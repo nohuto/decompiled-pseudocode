@@ -10,7 +10,7 @@
  *     RtlpHpTlLogVAChange @ 0x1800BBF10 (RtlpHpTlLogVAChange.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeAllocationDestroy(unsigned __int64 a1, __int128 *a2)
+NTSTATUS __fastcall RtlpHpLargeAllocationDestroy(unsigned __int64 a1, __int128 *a2)
 {
   unsigned __int64 v3; // r10
   unsigned __int64 v5; // r9
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall RtlpHpLargeAllocationDestroy(unsigned __int64 a1, __
   __int64 v8; // rcx
   __int128 v10; // [rsp+20h] [rbp-18h] BYREF
   __int64 v11; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v12; // [rsp+48h] [rbp+10h] BYREF
+  signed __int64 v12; // [rsp+48h] [rbp+10h] BYREF
 
   v3 = *(_QWORD *)(a1 + 24) & 0xFFFFFFFFFFFF0000uLL;
   v5 = *(_QWORD *)(a1 + 32);
@@ -29,11 +29,11 @@ unsigned __int64 __fastcall RtlpHpLargeAllocationDestroy(unsigned __int64 a1, __
   v11 = v3 + (1LL << v6) - (((1LL << v6) - 1) & (v7 + (1LL << v6) - 1)) + v7 - 1 - v12;
   if ( v11 )
   {
-    RtlpHpVaMgrCtxFree((__int64)&unk_1801D09C8, &v12, &v11);
+    RtlpHpVaMgrCtxFree((__int64)&unk_1801D09C8, (PVOID *)&v12, (ULONG_PTR *)&v11);
     if ( (RtlpHpHeapFeatures & 8) != 0 )
       RtlpHpTlLogVAChange(0x8000, v11, v12, 0LL);
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
     v8 = 2147353480LL;

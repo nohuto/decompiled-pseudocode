@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFindRange @ 0x140760360
+ * XREFs of RtlFindRange @ 0x140760520
  * Callers:
- *     ArbFindSuitableRange @ 0x1407B8FE0 (ArbFindSuitableRange.c)
- *     IopPortFindSuitableRange @ 0x1407D0C30 (IopPortFindSuitableRange.c)
- *     KiTpIsExcludedKernelTracepointLocation @ 0x1408BCA5C (KiTpIsExcludedKernelTracepointLocation.c)
+ *     ArbFindSuitableRange @ 0x1407B9500 (ArbFindSuitableRange.c)
+ *     IopPortFindSuitableRange @ 0x1407D0DA0 (IopPortFindSuitableRange.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x1408BCBBC (KiTpIsExcludedKernelTracepointLocation.c)
  * Callees:
- *     RtlpIsRangeAvailable @ 0x14076057C (RtlpIsRangeAvailable.c)
- *     RtlGetLastRange @ 0x140760770 (RtlGetLastRange.c)
+ *     RtlpIsRangeAvailable @ 0x14076073C (RtlpIsRangeAvailable.c)
+ *     RtlGetLastRange @ 0x140760930 (RtlGetLastRange.c)
  */
 
 __int64 __fastcall RtlFindRange(

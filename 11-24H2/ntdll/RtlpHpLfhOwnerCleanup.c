@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpHpLfhOwnerCleanup @ 0x18008F49C
+ * XREFs of RtlpHpLfhOwnerCleanup @ 0x180026E6C
  * Callers:
- *     RtlpHpLfhBucketCleanup @ 0x18008F37C (RtlpHpLfhBucketCleanup.c)
+ *     RtlpHpLfhBucketCleanup @ 0x180026D4C (RtlpHpLfhBucketCleanup.c)
  * Callees:
- *     RtlpHpLfhSubsegmentFree @ 0x18004F304 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x180064EE4 (RtlpHpLfhSubsegmentFree.c)
  */
 
-__int64 __fastcall RtlpHpLfhOwnerCleanup(unsigned __int64 a1, unsigned __int8 *a2)
+__int64 __fastcall RtlpHpLfhOwnerCleanup(__int64 a1, unsigned __int8 *a2)
 {
   __int64 *v2; // r8
-  __int64 *v3; // rbx
+  _QWORD *v3; // rbx
   __int64 v6; // rbp
   __int64 result; // rax
   __int64 *v8; // rdx
-  __int64 v9; // rdx
+  _QWORD *v9; // rdx
   __int64 v10; // rax
   __int64 v11; // rax
 
   v2 = (__int64 *)(a2 + 40);
-  v3 = (__int64 *)(a2 + 24);
+  v3 = a2 + 24;
   v6 = *(_QWORD *)(a1 + 8 * ((unsigned __int64)*a2 >> 1) + 448);
   result = *((_QWORD *)a2 + 5);
   if ( (unsigned __int8 *)result != a2 + 40 )
@@ -32,19 +32,19 @@ __int64 __fastcall RtlpHpLfhOwnerCleanup(unsigned __int64 a1, unsigned __int8 *a
   }
   while ( 1 )
   {
-    v9 = *v3;
-    if ( (__int64 *)*v3 == v3 )
+    v9 = (_QWORD *)*v3;
+    if ( (_QWORD *)*v3 == v3 )
       break;
-    if ( *(__int64 **)(v9 + 8) != v3 || (v10 = *(_QWORD *)v9, *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9) )
+    if ( (_QWORD *)v9[1] != v3 || (v10 = *v9, *(_QWORD **)(*v9 + 8LL) != v9) )
       __fastfail(3u);
     *v3 = v10;
     *(_QWORD *)(v10 + 8) = v3;
-    if ( (*a2 & 1) == 0 && !*(_BYTE *)(v9 + 22) )
+    if ( (*a2 & 1) == 0 && !*((_BYTE *)v9 + 22) )
       --a2[1];
-    *(_WORD *)(v9 + 32) = *(_WORD *)(v9 + 34);
-    v11 = *(unsigned __int8 *)(v9 + 24);
-    *(_BYTE *)(v9 + 22) = 3;
-    *(_WORD *)(v9 + 8 * v11) = 1;
+    *((_WORD *)v9 + 16) = *((_WORD *)v9 + 17);
+    v11 = *((unsigned __int8 *)v9 + 24);
+    *((_BYTE *)v9 + 22) = 3;
+    LOWORD(v9[v11]) = 1;
     result = RtlpHpLfhSubsegmentFree(a1, v9, v6);
   }
   return result;

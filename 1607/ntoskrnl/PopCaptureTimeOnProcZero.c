@@ -2,12 +2,12 @@
  * XREFs of PopCaptureTimeOnProcZero @ 0x1403D058C
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
- *     PopDiagTraceHiberStats @ 0x140530FB4 (PopDiagTraceHiberStats.c)
+ *     PopDiagTraceHiberStats @ 0x1405314F4 (PopDiagTraceHiberStats.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeInsertQueueDpc @ 0x1400D82A0 (KeInsertQueueDpc.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeInsertQueueDpc @ 0x1400D6140 (KeInsertQueueDpc.c)
  */
 
 __int64 PopCaptureTimeOnProcZero()

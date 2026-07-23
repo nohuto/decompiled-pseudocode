@@ -1,13 +1,17 @@
 /*
- * XREFs of RtlUnsubscribeFromFeatureUsageNotifications @ 0x180101E20
+ * XREFs of RtlUnsubscribeFromFeatureUsageNotifications @ 0x180101DE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlUnsubscribeFromFeatureUsageNotifications(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlUnsubscribeFromFeatureUsageNotifications(
+        PRTL_FEATURE_USAGE_SUBSCRIPTION_DETAILS SubscriptionDetails,
+        SIZE_T SubscriptionCount)
 {
-  LOBYTE(a3) = 1;
-  return RtlpFcUpdateUsageSubscriptions(a1, a2, a3);
+  char v2; // r8
+
+  v2 = 1;
+  return RtlpFcUpdateUsageSubscriptions(SubscriptionDetails, SubscriptionCount, v2);
 }

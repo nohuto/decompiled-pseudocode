@@ -1,15 +1,15 @@
 /*
- * XREFs of ExRebootSystemForRecovery @ 0x1405B2614
+ * XREFs of ExRebootSystemForRecovery @ 0x1405B2844
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x140524D84 (KiAttemptBugcheckRecovery.c)
- *     NtShutdownSystem @ 0x1405B28C0 (NtShutdownSystem.c)
+ *     KiAttemptBugcheckRecovery @ 0x140524FC4 (KiAttemptBugcheckRecovery.c)
+ *     NtShutdownSystem @ 0x1405B2AF0 (NtShutdownSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     ExNotifyWithProcessing @ 0x1402B0658 (ExNotifyWithProcessing.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
- *     KiBugcheckUnloadDebugSymbols @ 0x140518084 (KiBugcheckUnloadDebugSymbols.c)
+ *     ExNotifyWithProcessing @ 0x14022E9B8 (ExNotifyWithProcessing.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalReturnToFirmware @ 0x1404BE3E0 (HalReturnToFirmware.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x1405182C4 (KiBugcheckUnloadDebugSymbols.c)
  */
 
 void __fastcall ExRebootSystemForRecovery(unsigned __int8 a1)

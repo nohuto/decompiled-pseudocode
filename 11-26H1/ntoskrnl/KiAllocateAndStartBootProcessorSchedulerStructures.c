@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAllocateAndStartBootProcessorSchedulerStructures @ 0x1405E9AB4
+ * XREFs of KiAllocateAndStartBootProcessorSchedulerStructures @ 0x1405EC424
  * Callers:
- *     KiCompleteBootProcessorContextInitialization @ 0x1405EA85C (KiCompleteBootProcessorContextInitialization.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x1405ED1CC (KiCompleteBootProcessorContextInitialization.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiAllocateDpcDelegateThread @ 0x1405E9BB8 (KiAllocateDpcDelegateThread.c)
- *     KiAllocateIdleSearchStructures @ 0x1405E9C44 (KiAllocateIdleSearchStructures.c)
- *     KiStartPrcbThread @ 0x1405EC620 (KiStartPrcbThread.c)
- *     KiAllocateSmtIsolationThread @ 0x1405F6524 (KiAllocateSmtIsolationThread.c)
- *     KiAllocateForceParkingData @ 0x1405F8880 (KiAllocateForceParkingData.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAllocateDpcDelegateThread @ 0x1405EC528 (KiAllocateDpcDelegateThread.c)
+ *     KiAllocateIdleSearchStructures @ 0x1405EC5B4 (KiAllocateIdleSearchStructures.c)
+ *     KiStartPrcbThread @ 0x1405EEF90 (KiStartPrcbThread.c)
+ *     KiAllocateSmtIsolationThread @ 0x1405F8EE4 (KiAllocateSmtIsolationThread.c)
+ *     KiAllocateForceParkingData @ 0x1405FB2A0 (KiAllocateForceParkingData.c)
  */
 
 __int64 __fastcall KiAllocateAndStartBootProcessorSchedulerStructures(_QWORD *a1)

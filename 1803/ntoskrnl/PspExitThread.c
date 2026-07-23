@@ -84,11 +84,11 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   __int64 v20; // rdx
   void *v21; // rcx
   __int16 v22; // ax
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   _QWORD *v24; // rax
   _QWORD *v25; // r12
   _QWORD *v26; // r15
-  union _RTL_RUN_ONCE *v27; // rax
+  _RTL_RUN_ONCE *v27; // rax
   PACCESS_TOKEN v28; // rbx
   void *v29; // rcx
   int v30; // eax
@@ -347,7 +347,7 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   }
   p_WaitListHead = &CurrentThread[1].Header.WaitListHead;
   if ( KeQuerySystemTimeUnsafe() )
-    KeQuerySystemTimePrecise((__int64 *)&CurrentThread[1].Header.WaitListHead);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)&CurrentThread[1].Header.WaitListHead);
   else
     p_WaitListHead->Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000014];
   if ( v49 )

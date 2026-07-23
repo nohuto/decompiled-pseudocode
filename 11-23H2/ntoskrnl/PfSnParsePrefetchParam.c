@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnParsePrefetchParam @ 0x1407C2810
+ * XREFs of PfSnParsePrefetchParam @ 0x1407C2AE0
  * Callers:
- *     PfSnScanCommandLine @ 0x1407C26A0 (PfSnScanCommandLine.c)
+ *     PfSnScanCommandLine @ 0x1407C2970 (PfSnScanCommandLine.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wtol @ 0x1403D9DD0 (_wtol.c)
- *     iswdigit @ 0x1403DA1B0 (iswdigit.c)
- *     PfSnFindString @ 0x1407C2948 (PfSnFindString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wtol @ 0x1403D9FB0 (_wtol.c)
+ *     iswdigit @ 0x1403DA390 (iswdigit.c)
+ *     PfSnFindString @ 0x1407C2C18 (PfSnFindString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfSnParsePrefetchParam(unsigned __int16 *a1, unsigned int *a2)

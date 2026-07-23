@@ -1,20 +1,20 @@
 /*
- * XREFs of MiSyncCommitSignals @ 0x1403961E0
+ * XREFs of MiSyncCommitSignals @ 0x1403963C0
  * Callers:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiProbeUnlockPage @ 0x1402CB170 (MiProbeUnlockPage.c)
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiZeroAndReleasePages @ 0x1402D3030 (MiZeroAndReleasePages.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReplenishLocalCommit @ 0x140353474 (MiReplenishLocalCommit.c)
- *     MiComputeCommitThresholds @ 0x140396178 (MiComputeCommitThresholds.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiProbeUnlockPage @ 0x1402CB400 (MiProbeUnlockPage.c)
+ *     MiCanBatchHardFaultPages @ 0x1402CDEF0 (MiCanBatchHardFaultPages.c)
+ *     MiZeroAndReleasePages @ 0x1402D32C0 (MiZeroAndReleasePages.c)
+ *     MiRemoveLockedPageCharge @ 0x1402DBDB0 (MiRemoveLockedPageCharge.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiReplenishLocalCommit @ 0x140353614 (MiReplenishLocalCommit.c)
+ *     MiComputeCommitThresholds @ 0x140396358 (MiComputeCommitThresholds.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiSyncCommitSignals(__int64 a1, int a2)
@@ -77,10 +77,10 @@ LABEL_8:
   {
     LODWORD(v4) = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LODWORD(v4) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v4 <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)v4 >= 2u )

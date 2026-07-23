@@ -13,14 +13,14 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpPopulateLanguageConfigList(__int64 a1, __int64 *a2, __int64 a3)
+__int64 __fastcall RtlpPopulateLanguageConfigList(void *a1, _QWORD *a2, __int64 a3)
 {
   unsigned __int64 v3; // rbp
-  unsigned int v4; // eax
+  ULONG v4; // eax
   __int64 v5; // r12
-  __int64 v7; // rdi
+  _WORD *v7; // rdi
   signed int v8; // ebx
-  int v9; // eax
+  NTSTATUS v9; // eax
   unsigned int v10; // ecx
   unsigned __int64 v11; // rsi
   __int16 v12; // r15
@@ -42,10 +42,10 @@ __int64 __fastcall RtlpPopulateLanguageConfigList(__int64 a1, __int64 *a2, __int
   const wchar_t *v28; // rax
   unsigned __int64 v29; // rcx
   __int64 v30; // rcx
-  __int64 LanguageConfigList; // rax
+  _WORD *LanguageConfigList; // rax
   int v33; // eax
-  __int64 v34; // rax
-  wchar_t v35[2]; // [rsp+50h] [rbp+0h] BYREF
+  _WORD *v34; // rax
+  _WORD v35[2]; // [rsp+50h] [rbp+0h] BYREF
 
   v3 = (unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL;
   v4 = 0;
@@ -61,7 +61,7 @@ __int64 __fastcall RtlpPopulateLanguageConfigList(__int64 a1, __int64 *a2, __int
     v8 = -1073741811;
     goto LABEL_38;
   }
-  v7 = *a2;
+  v7 = (_WORD *)*a2;
   *(_QWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = *a2;
   v8 = 0;
   *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0;
@@ -73,12 +73,12 @@ LABEL_8:
       v8 = 0;
       goto LABEL_38;
     }
-    v9 = ZwEnumerateValueKey(a1, v4, 1LL, v3 + 96, 512, v3 + 24);
+    v9 = ZwEnumerateValueKey(a1, v4, KeyValueFullInformation, (PVOID)(v3 + 96), 0x200u, (PULONG)(v3 + 24));
     v8 = v9;
     if ( v9 >= 0 )
     {
       v4 = *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
-      a1 = *(_QWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28);
+      a1 = *(void **)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28);
       if ( *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x64) != 7 )
         continue;
       v10 = *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x70);
@@ -98,7 +98,7 @@ LABEL_8:
         LOWORD(v13) = -4;
       *(_WORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30) = v13;
       *(_WORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x32) = v13 + 2;
-      if ( !RtlCultureNameToLCID((unsigned __int16 *)(v3 + 48), (int *)(v3 + 4)) )
+      if ( !RtlCultureNameToLCID((PUNICODE_STRING)(v3 + 48), (PLCID)(v3 + 4)) )
         goto LABEL_57;
       v14 = *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 4);
       if ( ((v14 - 4096) & 0xFFFFFBFF) != 0 )
@@ -153,7 +153,7 @@ LABEL_57:
             *a2 = LanguageConfigList;
           }
           v33 = RtlpMuiRegConfigListAddLanguage(v3 + 16, v3 + 80, 0LL);
-          v7 = *(_QWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
+          v7 = *(_WORD **)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
           v8 = v33;
           if ( v33 >= 0 )
             *a2 = v7;
@@ -161,7 +161,7 @@ LABEL_6:
           v4 = *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 8) + 1;
           *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = v4;
 LABEL_7:
-          a1 = *(_QWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28);
+          a1 = *(void **)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28);
           goto LABEL_8;
         }
         *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0xC) = 0;
@@ -173,7 +173,7 @@ LABEL_7:
           LOWORD(v23) = -4;
         *(_WORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = v23;
         *(_WORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0x42) = v23 + 2;
-        if ( RtlCultureNameToLCID((unsigned __int16 *)(v3 + 64), (int *)(v3 + 12)) )
+        if ( RtlCultureNameToLCID((PUNICODE_STRING)(v3 + 64), (PLCID)(v3 + 12)) )
         {
           v24 = *(_DWORD *)(((unsigned __int64)v35 & 0xFFFFFFFFFFFFFFE0uLL) + 0xC);
           v25 = 1;
@@ -245,6 +245,6 @@ LABEL_38:
       v8 = -1073741801;
   }
   if ( v8 < 0 && v7 )
-    *(_WORD *)(v7 + 4) = 0;
+    v7[2] = 0;
   return (unsigned int)v8;
 }

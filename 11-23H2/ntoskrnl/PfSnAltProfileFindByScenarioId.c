@@ -1,43 +1,43 @@
 /*
- * XREFs of PfSnAltProfileFindByScenarioId @ 0x1407E042C
+ * XREFs of PfSnAltProfileFindByScenarioId @ 0x1407E06FC
  * Callers:
- *     PfSnBeginAppLaunch @ 0x1407604F8 (PfSnBeginAppLaunch.c)
- *     PfSnSetAltPrefetchParam @ 0x14097F9F8 (PfSnSetAltPrefetchParam.c)
+ *     PfSnBeginAppLaunch @ 0x1407606E8 (PfSnBeginAppLaunch.c)
+ *     PfSnSetAltPrefetchParam @ 0x14097FBF8 (PfSnSetAltPrefetchParam.c)
  * Callees:
- *     PfSnAltProfileTreeCompareByScenarioId @ 0x14097F698 (PfSnAltProfileTreeCompareByScenarioId.c)
+ *     PfSnAltProfileTreeCompareByScenarioId @ 0x14097F898 (PfSnAltProfileTreeCompareByScenarioId.c)
  */
 
 unsigned __int64 __fastcall PfSnAltProfileFindByScenarioId(wchar_t *Str2)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 Root; // rbx
   int v3; // edi
   int v4; // eax
   unsigned __int64 v5; // rax
 
-  v2 = *((_QWORD *)&xmmword_140C6A720 + 1);
-  if ( (qword_140C6A730 & 1) != 0 && *((_QWORD *)&xmmword_140C6A720 + 1) )
-    v2 = ((unsigned __int64)&xmmword_140C6A720 + 8) ^ *((_QWORD *)&xmmword_140C6A720 + 1);
-  v3 = qword_140C6A730 & 1;
-  while ( v2 )
+  Root = (unsigned __int64)Tree.Root;
+  if ( (*(_BYTE *)&Tree.0 & 1) != 0 && Tree.Root )
+    Root = (unsigned __int64)&Tree ^ (unsigned __int64)Tree.Root;
+  v3 = *(_BYTE *)&Tree.0 & 1;
+  while ( Root )
   {
     v4 = PfSnAltProfileTreeCompareByScenarioId(Str2);
     if ( v4 >= 0 )
     {
       if ( v4 <= 0 )
         break;
-      v5 = *(_QWORD *)(v2 + 8);
+      v5 = *(_QWORD *)(Root + 8);
     }
     else
     {
-      v5 = *(_QWORD *)v2;
+      v5 = *(_QWORD *)Root;
     }
     if ( v3 && v5 )
-      v2 ^= v5;
+      Root ^= v5;
     else
-      v2 = v5;
+      Root = v5;
   }
-  if ( v2 )
-    return v2 - 24;
+  if ( Root )
+    return Root - 24;
   else
     return 0LL;
 }

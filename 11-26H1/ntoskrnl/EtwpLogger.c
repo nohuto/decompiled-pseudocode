@@ -1,37 +1,37 @@
 /*
- * XREFs of EtwpLogger @ 0x140A13B90
+ * XREFs of EtwpLogger @ 0x140A12D80
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwpRequestFlushTimer @ 0x1402198F0 (EtwpRequestFlushTimer.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     PsAttachSiloToCurrentThread @ 0x14046CE80 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140476400 (PsDetachSiloFromCurrentThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PsTerminateSystemThread @ 0x140956130 (PsTerminateSystemThread.c)
- *     EtwpFlushActiveBuffers @ 0x140A141E8 (EtwpFlushActiveBuffers.c)
- *     EtwpAdjustFreeBuffers @ 0x140A1466C (EtwpAdjustFreeBuffers.c)
- *     EtwpRealtimeCreateLogfile @ 0x140A146BC (EtwpRealtimeCreateLogfile.c)
- *     EtwpRealtimeUpdateConsumers @ 0x140A14884 (EtwpRealtimeUpdateConsumers.c)
- *     EtwpRealtimeFlushSavedBuffers @ 0x140A14AD4 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpRealtimeDisconnectAllConsumers @ 0x140A1520C (EtwpRealtimeDisconnectAllConsumers.c)
- *     EtwpRealtimeNotifyConsumers @ 0x140A15284 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpEventWriteTemplateSessionEnd @ 0x140A15890 (EtwpEventWriteTemplateSessionEnd.c)
- *     EtwpStopLoggerInstance @ 0x140A15968 (EtwpStopLoggerInstance.c)
- *     EtwpCreateLogFile @ 0x140A15DA4 (EtwpCreateLogFile.c)
- *     EtwpFinalizeHeader @ 0x140A16CB0 (EtwpFinalizeHeader.c)
- *     EtwpFreeLoggerContext @ 0x140A6CBB4 (EtwpFreeLoggerContext.c)
- *     EtwpEventWriteTemplateSession @ 0x140A7010C (EtwpEventWriteTemplateSession.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
- *     EtwpEventWriteTemplateAdmin @ 0x140B35598 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpRealtimeSaveState @ 0x140B5D010 (EtwpRealtimeSaveState.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwpRequestFlushTimer @ 0x140219A50 (EtwpRequestFlushTimer.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     PsAttachSiloToCurrentThread @ 0x140466600 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14046FB80 (PsDetachSiloFromCurrentThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PsTerminateSystemThread @ 0x140949E90 (PsTerminateSystemThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     EtwpFlushActiveBuffers @ 0x140A133D8 (EtwpFlushActiveBuffers.c)
+ *     EtwpAdjustFreeBuffers @ 0x140A1385C (EtwpAdjustFreeBuffers.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140A138AC (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeUpdateConsumers @ 0x140A13A78 (EtwpRealtimeUpdateConsumers.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x140A13CC8 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x140A14400 (EtwpRealtimeDisconnectAllConsumers.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140A14478 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpEventWriteTemplateSessionEnd @ 0x140A14A84 (EtwpEventWriteTemplateSessionEnd.c)
+ *     EtwpStopLoggerInstance @ 0x140A14B5C (EtwpStopLoggerInstance.c)
+ *     EtwpCreateLogFile @ 0x140A16128 (EtwpCreateLogFile.c)
+ *     EtwpFreeLoggerContext @ 0x140A16604 (EtwpFreeLoggerContext.c)
+ *     EtwpEventWriteTemplateSession @ 0x140AB32A0 (EtwpEventWriteTemplateSession.c)
+ *     EtwpFinalizeHeader @ 0x140ABCAB0 (EtwpFinalizeHeader.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140B377A8 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpRealtimeSaveState @ 0x140B60190 (EtwpRealtimeSaveState.c)
  */
 
 NTSTATUS __fastcall EtwpLogger(__int64 a1)
@@ -72,19 +72,11 @@ NTSTATUS __fastcall EtwpLogger(__int64 a1)
   ThreadInformation[1] = 1;
   ThreadInformation[2] = 1;
   ThreadInformation[0] = 1;
-  NtSetInformationThread(
-    (HANDLE)0xFFFFFFFFFFFFFFFELL,
-    ThreadIdealProcessorEx|ThreadIsIoPending,
-    ThreadInformation,
-    0xCu);
+  NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadPowerThrottlingState, ThreadInformation, 0xCu);
   if ( *(_WORD *)(v1 + 136) )
   {
     *(_OWORD *)Object = *(_OWORD *)(v1 + 136);
-    NtSetInformationThread(
-      (HANDLE)0xFFFFFFFFFFFFFFFELL,
-      ThreadCpuAccountingInformation|ThreadAffinityMask,
-      Object,
-      0x10u);
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadNameInformation, Object, 0x10u);
   }
   v4 = (struct _KEVENT *)(v1 + 456);
   KeSetEvent((PRKEVENT)(v1 + 456), 0, 0);
@@ -112,7 +104,7 @@ NTSTATUS __fastcall EtwpLogger(__int64 a1)
         v11 = 1;
         v8 = (volatile signed __int32 *)(v1 + 816);
       }
-      if ( (unsigned __int8)EtwpBootPhase > 3u )
+      if ( LOBYTE(stru_140F03830.CycleTime) > 3u )
         _InterlockedOr(v8, 4u);
       EtwpAdjustFreeBuffers(v1);
       v13 = *(_DWORD *)(v1 + 824) & 4;
@@ -184,7 +176,9 @@ NTSTATUS __fastcall EtwpLogger(__int64 a1)
       Logfile = v22;
       if ( v22 < 0
         && (*(_DWORD *)(v1 + 12) & 8) != 0
-        && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SWITCH_TO_NEW_FILE_FAILED) )
+        && EtwEventEnabled(
+             (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+             &ETW_EVENT_SWITCH_TO_NEW_FILE_FAILED) )
       {
         EtwpEventWriteTemplateAdmin(
           v1 + 152,
@@ -233,7 +227,7 @@ LABEL_28:
           goto LABEL_35;
       }
 LABEL_50:
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SESSION_END_FAILED) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_SESSION_END_FAILED) )
         EtwpEventWriteTemplateSessionEnd(
           v1 + 152,
           v19,
@@ -286,8 +280,11 @@ LABEL_36:
   }
   *(_DWORD *)(v1 + 40) = active;
   KeSetEvent((PRKEVENT)(v1 + 456), 0, 0);
-  if ( active < 0 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_STOP_TRACE) )
+  if ( active < 0
+    && EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_STOP_TRACE) )
+  {
     EtwpEventWriteTemplateSession(v25, &ETW_EVENT_STOP_TRACE, v1);
+  }
   EtwpFreeLoggerContext((PVOID)v1);
   PsDetachSiloFromCurrentThread(v2);
   return PsTerminateSystemThread(active);

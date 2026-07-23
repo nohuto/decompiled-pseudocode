@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcBufferManagerUpdateBuffers @ 0x180013C40
+ * XREFs of RtlpFcBufferManagerUpdateBuffers @ 0x18005F370
  * Callers:
- *     RtlpFcUpdateLocalConfiguration @ 0x1800137F4 (RtlpFcUpdateLocalConfiguration.c)
+ *     RtlpFcUpdateLocalConfiguration @ 0x18005EF24 (RtlpFcUpdateLocalConfiguration.c)
  * Callees:
- *     RtlUpdateSwapReference @ 0x180014034 (RtlUpdateSwapReference.c)
+ *     RtlUpdateSwapReference @ 0x18005F764 (RtlUpdateSwapReference.c)
  */
 
 void *__fastcall RtlpFcBufferManagerUpdateBuffers(_QWORD *a1, __int64 a2, __int64 a3)

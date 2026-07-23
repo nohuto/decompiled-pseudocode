@@ -1,11 +1,11 @@
 /*
- * XREFs of KseDriverScopeInitialize @ 0x1409AF73C
+ * XREFs of KseDriverScopeInitialize @ 0x1409B073C
  * Callers:
- *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
+ *     KseInitialize @ 0x1409B0930 (KseInitialize.c)
  * Callees:
- *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
- *     KseRegisterShim @ 0x140728400 (KseRegisterShim.c)
+ *     KsepLogInfo @ 0x1400F4DB8 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14029FE34 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x1407295F0 (KseRegisterShim.c)
  */
 
 __int64 KseDriverScopeInitialize()

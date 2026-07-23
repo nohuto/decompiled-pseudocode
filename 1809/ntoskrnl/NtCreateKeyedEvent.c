@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateKeyedEvent @ 0x1407566A0
+ * XREFs of NtCreateKeyedEvent @ 0x140757890
  * Callers:
  *     <none>
  * Callees:
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtCreateKeyedEvent(

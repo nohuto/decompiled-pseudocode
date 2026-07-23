@@ -1,12 +1,12 @@
 /*
- * XREFs of IopIoRingDispatchRegisterFiles @ 0x140716C08
+ * XREFs of IopIoRingDispatchRegisterFiles @ 0x140714798
  * Callers:
- *     IopProcessIoRingEntry @ 0x1406F7A58 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x1406F5A58 (IopProcessIoRingEntry.c)
  * Callees:
- *     IopCompleteIoRingEntry @ 0x1403C5F20 (IopCompleteIoRingEntry.c)
- *     IopExceptionFilter @ 0x1405962D8 (IopExceptionFilter.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopCompleteIoRingEntry @ 0x1403B4AE0 (IopCompleteIoRingEntry.c)
+ *     IopExceptionFilter @ 0x140593308 (IopExceptionFilter.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 int __fastcall IopIoRingDispatchRegisterFiles(__int64 a1, __int64 a2)
@@ -64,7 +64,7 @@ int __fastcall IopIoRingDispatchRegisterFiles(__int64 a1, __int64 a2)
       v7 = 0LL;
       goto LABEL_22;
     }
-    Pool2 = ExAllocatePool2(0x103uLL);
+    Pool2 = ExAllocatePool2(0x103uLL, 8 * v8, 0x46527249u);
     if ( Pool2 )
     {
 LABEL_22:

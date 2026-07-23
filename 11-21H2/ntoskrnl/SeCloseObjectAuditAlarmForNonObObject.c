@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtCloseObjectAuditAlarm @ 0x1409C8548 (SepAdtCloseObjectAuditAlarm.c)
+ *     sub_1409C8548 @ 0x1409C8548 (sub_1409C8548.c)
  */
 
 void __fastcall SeCloseObjectAuditAlarmForNonObObject(
@@ -13,5 +13,5 @@ void __fastcall SeCloseObjectAuditAlarmForNonObObject(
         char a4)
 {
   if ( a4 )
-    SepAdtCloseObjectAuditAlarm(a1, a2, a3, 0LL, 1);
+    sub_1409C8548(a1, a2, a3, 0LL, 1);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptInitDiscard @ 0x140C0FAB4
+ * XREFs of HalpInterruptInitDiscard @ 0x140C11AB4
  * Callers:
- *     HalpInterruptInitSystem @ 0x140B4D2D0 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140B4F310 (HalpInterruptInitSystem.c)
  * Callees:
- *     HviGetHardwareFeatures @ 0x1404A3740 (HviGetHardwareFeatures.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpInitializeInterrupts @ 0x140C0DE18 (HalpInitializeInterrupts.c)
+ *     HviGetHardwareFeatures @ 0x14049E6A0 (HviGetHardwareFeatures.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpInitializeInterrupts @ 0x140C0FE18 (HalpInitializeInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptInitDiscard(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall HalpInterruptInitDiscard(__int64 a1)
     off_140E009B8[0] = (__int64 (__fastcall *)())HalpUnmaskInterrupt;
     off_140E00A50[0] = (__int64 (__fastcall *)())HalpInterruptRequestInterrupt;
     off_140E00A58[0] = (__int64 (__fastcall *)())HalpInterruptEnumerateUnmaskedInterrupts;
-    off_140E006A8[0] = (__int64 (__fastcall *)())HaliGetInterruptTranslator;
+    off_140E00778[0] = (__int64 (__fastcall *)())HaliGetInterruptTranslator;
     off_140E009A8[0] = (__int64 (__fastcall *)())HalpSecondaryInterruptQueryPrimaryInformation;
     off_140E009C0[0] = (__int64 (__fastcall *)())HalpIsInterruptTypeSecondary;
     off_140E009C8[0] = (__int64 (__fastcall *)())HalpAllocateGsivForSecondaryInterrupt;

@@ -1,10 +1,10 @@
 /*
- * XREFs of WdtpAllocateTimer @ 0x140786110
+ * XREFs of WdtpAllocateTimer @ 0x140786300
  * Callers:
- *     PnpWatchdogTimerAllocate @ 0x140786078 (PnpWatchdogTimerAllocate.c)
+ *     PnpWatchdogTimerAllocate @ 0x140786268 (PnpWatchdogTimerAllocate.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ExAllocateTimer @ 0x14031E360 (ExAllocateTimer.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ExAllocateTimer @ 0x14031E5F0 (ExAllocateTimer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

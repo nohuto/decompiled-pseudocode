@@ -9,12 +9,12 @@
  *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
  */
 
-__int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, wchar_t *a3, size_t *a4)
+__int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, WCHAR *a3, ULONG_PTR *a4)
 {
   int v8; // ebp
   _KPROCESS *Process; // r14
   struct _DMA_ADAPTER *v10; // r15
-  int PackageIdentity; // eax
+  NTSTATUS PackageIdentity; // eax
   unsigned int v12; // esi
   int v13; // edi
   __int64 v15; // r8
@@ -24,7 +24,7 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, wchar_t *a3, size_t *
   __int64 v19; // rcx
   __int64 v20; // rax
   unsigned __int8 *v21; // r11
-  __int64 v22; // r10
+  signed __int64 v22; // r10
   unsigned __int64 v23; // rbx
   __int64 v24; // rcx
   __int64 v25; // rax
@@ -40,14 +40,14 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, wchar_t *a3, size_t *
   int v35; // r10d
   int v36; // r10d
   int v37; // r10d
-  size_t v38[2]; // [rsp+30h] [rbp-F8h] BYREF
-  wchar_t v39[72]; // [rsp+40h] [rbp-E8h] BYREF
+  ULONG_PTR AppIdSize[2]; // [rsp+30h] [rbp-F8h] BYREF
+  WCHAR AppId[72]; // [rsp+40h] [rbp-E8h] BYREF
 
   v8 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   v10 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
-  v38[0] = 130LL;
-  PackageIdentity = RtlQueryPackageIdentity((int)v10, a3, a4, v39, v38, 0LL);
+  AppIdSize[0] = 130LL;
+  PackageIdentity = RtlQueryPackageIdentity(v10, a3, a4, AppId, AppIdSize, 0LL);
   v12 = PackageIdentity;
   if ( PackageIdentity >= 0 )
   {
@@ -81,9 +81,9 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, wchar_t *a3, size_t *
     if ( v16 < 1 || v16 > 7 )
     {
 LABEL_13:
-      v21 = (unsigned __int8 *)v39;
-      v22 = v38[0] - 2;
-      if ( (signed __int64)(v38[0] - 2) >= 8 )
+      v21 = (unsigned __int8 *)AppId;
+      v22 = AppIdSize[0] - 2;
+      if ( (signed __int64)(AppIdSize[0] - 2) >= 8 )
       {
         v23 = (unsigned __int64)v22 >> 3;
         v22 -= 8 * ((unsigned __int64)v22 >> 3);
@@ -160,22 +160,22 @@ LABEL_17:
                 if ( v31 != 1 )
                   goto LABEL_13;
                 LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-                a3 = (wchar_t *)((char *)a3 + 1);
+                a3 = (WCHAR *)((char *)a3 + 1);
               }
               LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-              a3 = (wchar_t *)((char *)a3 + 1);
+              a3 = (WCHAR *)((char *)a3 + 1);
             }
             LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-            a3 = (wchar_t *)((char *)a3 + 1);
+            a3 = (WCHAR *)((char *)a3 + 1);
           }
           LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-          a3 = (wchar_t *)((char *)a3 + 1);
+          a3 = (WCHAR *)((char *)a3 + 1);
         }
         LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-        a3 = (wchar_t *)((char *)a3 + 1);
+        a3 = (WCHAR *)((char *)a3 + 1);
       }
       LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
-      a3 = (wchar_t *)((char *)a3 + 1);
+      a3 = (WCHAR *)((char *)a3 + 1);
     }
     LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
     goto LABEL_13;

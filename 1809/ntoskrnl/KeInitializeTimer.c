@@ -1,8 +1,8 @@
 /*
- * XREFs of KeInitializeTimer @ 0x14012FF70
+ * XREFs of KeInitializeTimer @ 0x140130040
  * Callers:
- *     CcInitializeBcbProfiler @ 0x14098E324 (CcInitializeBcbProfiler.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     CcInitializeBcbProfiler @ 0x14098F324 (CcInitializeBcbProfiler.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,10 @@
 /*
- * XREFs of SepCapabilitiesHasAppSiloBaseSID @ 0x14025F0C4
+ * XREFs of SepCapabilitiesHasAppSiloBaseSID @ 0x1404052A8
  * Callers:
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
  */
 
 char __fastcall SepCapabilitiesHasAppSiloBaseSID(unsigned int a1, __int64 a2)
@@ -14,7 +15,7 @@ char __fastcall SepCapabilitiesHasAppSiloBaseSID(unsigned int a1, __int64 a2)
   {
     if ( i >= a1 )
       return 0;
-    if ( RtlEqualSid(RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink, *(PSID *)(a2 + 16LL * i)) )
+    if ( RtlEqualSid(*(PSID *)&RtlpBootStatHandleLock.ApcStateFill[40], *(PSID *)(a2 + 16LL * i)) )
       break;
   }
   return 1;

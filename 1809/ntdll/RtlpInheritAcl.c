@@ -16,27 +16,28 @@ __int64 __fastcall RtlpInheritAcl(
         char a4,
         char a5,
         char a6,
-        __int64 a7,
+        int a7,
         __int64 a8,
         __int64 a9,
         __int64 a10,
-        __int64 a11,
+        PGENERIC_MAPPING a11,
         int a12,
         __int64 a13,
         int a14,
-        unsigned __int64 *a15,
+        PVOID *a15,
         _BYTE *a16,
         _DWORD *a17)
 {
   int v20; // ebp
   void *ProcessHeap; // rsi
-  unsigned __int64 *v22; // rbx
+  PVOID *v22; // rbx
   unsigned int v23; // ecx
   int v24; // r14d
-  __int64 Heap; // rax
+  ACL *Acl; // rax
   int v26; // r9d
   unsigned int v27; // edi
-  int v29; // [rsp+D0h] [rbp+18h] BYREF
+  int v29; // [rsp+20h] [rbp-98h]
+  __int64 v30; // [rsp+D0h] [rbp+18h] BYREF
 
   v20 = a1;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
@@ -44,21 +45,22 @@ __int64 __fastcall RtlpInheritAcl(
   {
     v22 = a15;
     v23 = 200;
-    v29 = 200;
+    LODWORD(v30) = 200;
     v24 = 0;
     while ( 1 )
     {
-      Heap = RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1310720, v23);
-      *v22 = Heap;
-      if ( !Heap )
+      Acl = (ACL *)RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v23);
+      *v22 = Acl;
+      if ( !Acl )
         break;
       LOBYTE(v26) = a4;
+      LOBYTE(v29) = a5;
       v27 = RtlpInheritAcl2(
               v20,
               a2,
               a3,
               v26,
-              a5,
+              v29,
               a6,
               a7,
               a8,
@@ -68,26 +70,26 @@ __int64 __fastcall RtlpInheritAcl(
               a12,
               a13,
               a14,
-              (__int64)&v29,
-              Heap,
+              (__int64)&v30,
+              Acl,
               (__int64)a16,
-              (__int64)a17);
+              a17);
       if ( (v27 & 0x80000000) == 0 )
       {
-        if ( !v29 )
+        if ( !(_DWORD)v30 )
         {
-          RtlFreeHeap((__int64)ProcessHeap, 0, *v22);
+          RtlFreeHeap(ProcessHeap, 0, *v22);
           *v22 = 0LL;
         }
         return v27;
       }
-      RtlFreeHeap((__int64)ProcessHeap, 0, *v22);
+      RtlFreeHeap(ProcessHeap, 0, *v22);
       *v22 = 0LL;
       if ( v27 != -1073741789 )
         return v27;
       if ( (unsigned int)++v24 >= 2 )
         return v27;
-      v23 = v29;
+      v23 = v30;
     }
     return 3221225495LL;
   }

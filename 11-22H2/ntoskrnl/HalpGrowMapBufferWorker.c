@@ -36,7 +36,7 @@ void __fastcall HalpGrowMapBufferWorker(PVOID P)
   *(_DWORD *)((char *)&HalpDmaGrowMapBufferWorkerQueued + (-(__int64)(*((_BYTE *)P + 40) != 0) & 4)) = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql != 2 )
@@ -56,10 +56,10 @@ void __fastcall HalpGrowMapBufferWorker(PVOID P)
     LOBYTE(v4) = *((_BYTE *)P + 40);
     HalpDmaProcessMapRegisterQueueV3(v2, v4);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

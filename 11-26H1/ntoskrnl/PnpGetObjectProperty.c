@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpGetObjectProperty @ 0x14099D8E0
+ * XREFs of PnpGetObjectProperty @ 0x14095E340
  * Callers:
- *     IoGetDeviceDirectory @ 0x1407A05B0 (IoGetDeviceDirectory.c)
- *     PiDmObjectProcessPropertyChange @ 0x140991140 (PiDmObjectProcessPropertyChange.c)
- *     PiPnpRtlObjectActionCallback @ 0x1409A4F20 (PiPnpRtlObjectActionCallback.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x1409A60B0 (PiDmObjectUpdateCachedObjectProperty.c)
- *     PnpActivatePdcForDeviceEvent @ 0x1409DCA60 (PnpActivatePdcForDeviceEvent.c)
- *     PiUEventCacheObjectProperties @ 0x1409DDD60 (PiUEventCacheObjectProperties.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x140AFBBCC (PiDmGetReferencedObjectFromProperty.c)
- *     PnpInitializeInheritedRestrictedSd @ 0x140B07DD0 (PnpInitializeInheritedRestrictedSd.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140B350F8 (PiPnpRtlGatherInterfaceDeleteInfo.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x140B37850 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     IoGetDeviceDirectory @ 0x1407A30F0 (IoGetDeviceDirectory.c)
+ *     PiDmObjectProcessPropertyChange @ 0x140951BA0 (PiDmObjectProcessPropertyChange.c)
+ *     PiPnpRtlObjectActionCallback @ 0x140965980 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x140966B10 (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PnpActivatePdcForDeviceEvent @ 0x140A19D10 (PnpActivatePdcForDeviceEvent.c)
+ *     PiUEventCacheObjectProperties @ 0x140AA6D44 (PiUEventCacheObjectProperties.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x140AFD84C (PiDmGetReferencedObjectFromProperty.c)
+ *     PnpInitializeInheritedRestrictedSd @ 0x140B09F00 (PnpInitializeInheritedRestrictedSd.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140B37308 (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x140B39A60 (PiDevCfgResolveVariableDeviceProperty.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _PnpGetGenericStoreProperty @ 0x14099DD20 (_PnpGetGenericStoreProperty.c)
- *     _PnpOpenObjectRegKey @ 0x14099E110 (_PnpOpenObjectRegKey.c)
- *     _PnpValidatePropertyData @ 0x1409DC3B4 (_PnpValidatePropertyData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _PnpGetGenericStoreProperty @ 0x14095E780 (_PnpGetGenericStoreProperty.c)
+ *     _PnpOpenObjectRegKey @ 0x14095EB70 (_PnpOpenObjectRegKey.c)
+ *     _PnpValidatePropertyData @ 0x140A19604 (_PnpValidatePropertyData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetObjectProperty(

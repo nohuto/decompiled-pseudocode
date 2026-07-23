@@ -136,9 +136,9 @@
  *     KeBugCheckEx @ 0x1401C46A0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall KeAbPreAcquire(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)
+PRTL_BALANCED_NODE __fastcall KeAbPreAcquire(ULONG_PTR BugCheckParameter2, PRTL_BALANCED_NODE Node, char a3)
 {
-  __int64 v3; // rdi
+  PRTL_BALANCED_NODE p_TreeNode; // rdi
   struct _KTHREAD *CurrentThread; // rbx
   __int64 v6; // rax
   char v7; // cl
@@ -149,23 +149,23 @@ __int64 __fastcall KeAbPreAcquire(ULONG_PTR BugCheckParameter2, __int64 a2, char
   unsigned __int8 AbOrphanedEntrySummary; // al
   int v14; // [rsp+68h] [rbp+20h] BYREF
 
-  v3 = a2;
+  p_TreeNode = Node;
   v14 = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   if ( ++CurrentThread->AbAllocationRegionCount == 1 )
   {
-    if ( a2 )
+    if ( Node )
     {
-      *(_BYTE *)(a2 + 32) |= 2u;
-      if ( *(__int64 *)(a2 + 32) < 0 )
-        KiAbEntryRemoveFromTree(a2, a2);
-      v11 = *(_DWORD *)(v3 + 88) & 0x1FFFF;
-      v12 = *(_DWORD *)(v3 + 88) & 0xFFFE0000;
-      *(_BYTE *)(v3 + 25) &= ~1u;
+      LOBYTE(Node[1].Right) |= 2u;
+      if ( (__int64)Node[1].Children[1] < 0 )
+        KiAbEntryRemoveFromTree(Node);
+      v11 = *(_DWORD *)&p_TreeNode[3].0 & 0x1FFFF;
+      v12 = *(_DWORD *)&p_TreeNode[3].0 & 0xFFFE0000;
+      BYTE1(p_TreeNode[1].Children[0]) &= ~1u;
       v14 = v11;
-      *(_DWORD *)(v3 + 88) = v12;
-      *(_QWORD *)(v3 + 32) = 0LL;
+      *(_DWORD *)&p_TreeNode[3].0 = v12;
+      p_TreeNode[1].Children[1] = 0LL;
 LABEL_6:
       if ( BugCheckParameter2 >= 0xFFFF800000000000uLL
         && byte_140467140[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
@@ -176,8 +176,8 @@ LABEL_6:
       {
         SessionId = -1;
       }
-      *(_DWORD *)(v3 + 40) = SessionId;
-      *(_QWORD *)(v3 + 32) = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
+      *(_DWORD *)&p_TreeNode[1].0 = SessionId;
+      p_TreeNode[1].Children[1] = (_RTL_BALANCED_NODE *)(BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL);
       goto LABEL_10;
     }
     LOBYTE(v6) = CurrentThread->AbEntrySummary;
@@ -185,11 +185,11 @@ LABEL_6:
     {
       if ( !CurrentThread->AbOrphanedEntrySummary )
       {
-        v3 = 0LL;
+        p_TreeNode = 0LL;
         if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 )
           EtwTraceAutoBoostEntryExhaustion(CurrentThread, BugCheckParameter2);
 LABEL_5:
-        if ( !v3 )
+        if ( !p_TreeNode )
         {
           _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0x10u);
           goto LABEL_10;
@@ -203,18 +203,18 @@ LABEL_5:
     v7 = v6;
     _BitScanForward((unsigned int *)&v6, (unsigned __int8)v6);
     CurrentThread->AbEntrySummary = v7 & ~(1 << v6);
-    v3 = (__int64)&CurrentThread->LockEntries[v6];
+    p_TreeNode = &CurrentThread->LockEntries[v6].TreeNode;
     goto LABEL_5;
   }
   if ( (a3 & 1) == 0 )
     KeBugCheckEx(0x192u, (ULONG_PTR)CurrentThread, BugCheckParameter2, KeGetCurrentIrql(), 0LL);
   _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0x10u);
-  v3 = 0LL;
+  p_TreeNode = 0LL;
 LABEL_10:
   --CurrentThread->AbAllocationRegionCount;
   KiAbThreadRemoveBoosts(CurrentThread, BugCheckParameter2, &v14);
   v9 = CurrentThread->SpecialApcDisable++ == -1;
   if ( v9 && ($C6908ADE9723D0A04AF8EE82D8D15C40 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery();
-  return v3;
+  return p_TreeNode;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeContextFromKframes @ 0x1400F4450
+ * XREFs of KeContextFromKframes @ 0x1400F22A0
  * Callers:
- *     KiSaveProcessorState @ 0x140082BD8 (KiSaveProcessorState.c)
- *     KiInitializeUserApc @ 0x1400A7C9C (KiInitializeUserApc.c)
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
- *     KeCopyContextFromUch @ 0x14065114C (KeCopyContextFromUch.c)
- *     KiCaptureUmsThreadContext @ 0x140651B0C (KiCaptureUmsThreadContext.c)
+ *     KiSaveProcessorState @ 0x140083858 (KiSaveProcessorState.c)
+ *     KiInitializeUserApc @ 0x1400A6214 (KiInitializeUserApc.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
+ *     KeCopyContextFromUch @ 0x140651230 (KeCopyContextFromUch.c)
+ *     KiCaptureUmsThreadContext @ 0x140651BF0 (KiCaptureUmsThreadContext.c)
  * Callees:
- *     RtlXSave @ 0x14008308C (RtlXSave.c)
- *     KeCopyLastBranchInformation @ 0x1400F47E4 (KeCopyLastBranchInformation.c)
- *     KiCopyXStateArea @ 0x1401D64B8 (KiCopyXStateArea.c)
+ *     RtlXSave @ 0x140083D0C (RtlXSave.c)
+ *     KeCopyLastBranchInformation @ 0x1400F2634 (KeCopyLastBranchInformation.c)
+ *     KiCopyXStateArea @ 0x1401D62E4 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KeContextFromKframes(__int64 a1, __int64 a2, __int64 a3)

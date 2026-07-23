@@ -8,10 +8,10 @@
  *     RtlIsValidProcessTrustLabelSid @ 0x1403616D0 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-char __fastcall RtlpValidTrustSubjectContext(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+char __fastcall RtlpValidTrustSubjectContext(void *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   char v4; // r8
-  __int64 v5; // r10
+  void *v5; // r10
   __int64 v7; // r10
   __int64 v8; // r11
 

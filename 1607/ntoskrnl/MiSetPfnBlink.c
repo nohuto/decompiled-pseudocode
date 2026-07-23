@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSetPfnBlink @ 0x140107ACC
+ * XREFs of MiSetPfnBlink @ 0x14010584C
  * Callers:
- *     MiReplenishPageSlist @ 0x140064330 (MiReplenishPageSlist.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiLargeFreePageToMdl @ 0x14008A124 (MiLargeFreePageToMdl.c)
- *     MiReplaceTransitionPage @ 0x1401074C4 (MiReplaceTransitionPage.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1401209F0 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiResolvePageFileFault @ 0x140121360 (MiResolvePageFileFault.c)
- *     MiDiscardTransitionPte @ 0x1401238C0 (MiDiscardTransitionPte.c)
- *     MiSwitchToTransition @ 0x1401E8B48 (MiSwitchToTransition.c)
- *     MiGetEnclavePage @ 0x1401F040C (MiGetEnclavePage.c)
- *     MiUnlinkPageFromBadList @ 0x1401F3054 (MiUnlinkPageFromBadList.c)
- *     MiSwapNumaStandbyPage @ 0x1401F3ACC (MiSwapNumaStandbyPage.c)
- *     MiGet64KPage @ 0x1401FB7C4 (MiGet64KPage.c)
+ *     MiReplenishPageSlist @ 0x140063EB0 (MiReplenishPageSlist.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiLargeFreePageToMdl @ 0x140089824 (MiLargeFreePageToMdl.c)
+ *     MiReplaceTransitionPage @ 0x140105244 (MiReplaceTransitionPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140120F60 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiResolvePageFileFault @ 0x1401218D0 (MiResolvePageFileFault.c)
+ *     MiDiscardTransitionPte @ 0x140123E30 (MiDiscardTransitionPte.c)
+ *     MiSwitchToTransition @ 0x1401E8974 (MiSwitchToTransition.c)
+ *     MiGetEnclavePage @ 0x1401F0238 (MiGetEnclavePage.c)
+ *     MiUnlinkPageFromBadList @ 0x1401F2E80 (MiUnlinkPageFromBadList.c)
+ *     MiSwapNumaStandbyPage @ 0x1401F38F8 (MiSwapNumaStandbyPage.c)
+ *     MiGet64KPage @ 0x1401FB5F0 (MiGet64KPage.c)
  * Callees:
  *     <none>
  */

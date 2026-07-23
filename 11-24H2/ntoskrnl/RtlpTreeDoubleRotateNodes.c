@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpTreeDoubleRotateNodes @ 0x1402611E4
+ * XREFs of RtlpTreeDoubleRotateNodes @ 0x1402917F4
  * Callers:
- *     MiUpdateSystemProtoPtesTree @ 0x14026047C (MiUpdateSystemProtoPtesTree.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140290A8C (MiUpdateSystemProtoPtesTree.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
  * Callees:
  *     <none>
  */

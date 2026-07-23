@@ -1,14 +1,21 @@
 /*
- * XREFs of ZwAllocateVirtualMemoryEx @ 0x1406A7310
+ * XREFs of ZwAllocateVirtualMemoryEx @ 0x1406A82B0
  * Callers:
- *     PspSetupReservedUserMappings @ 0x140A474E8 (PspSetupReservedUserMappings.c)
+ *     PspSetupReservedUserMappings @ 0x140A3D458 (PspSetupReservedUserMappings.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAllocateVirtualMemoryEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAllocateVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

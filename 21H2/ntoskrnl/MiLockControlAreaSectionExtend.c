@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockControlAreaSectionExtend @ 0x1402A12EC
+ * XREFs of MiLockControlAreaSectionExtend @ 0x14021E86C
  * Callers:
- *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
+ *     MmExtendSection @ 0x1405E894C (MmExtendSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreWait @ 0x1402FDE10 (KeAbPreWait.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -16,7 +16,7 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
 {
   struct _KTHREAD *CurrentThread; // rax
   volatile LONG *v5; // r13
-  ULONG_PTR v6; // r15
+  _RTL_BALANCED_NODE *v6; // r15
   KIRQL v7; // al
   __int64 **v8; // rdi
   unsigned __int64 v9; // rbp
@@ -54,8 +54,8 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
       while ( v8 );
       if ( v8 )
       {
-        v12 = KeAbPreAcquire(BugCheckParameter2);
-        v6 = v12;
+        v12 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+        v6 = (_RTL_BALANCED_NODE *)v12;
         if ( v12 )
           KeAbPreWait(v12);
       }
@@ -88,14 +88,14 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
       }
     }
     __writecr8(v9);
-    KeWaitForGate(a2 + 16, 18);
+    KeWaitForGate(a2 + 16, 18LL);
     if ( v6 )
     {
-      KeAbPreAcquire(BugCheckParameter2);
-      KeAbPostReleaseEx(BugCheckParameter2, v6);
+      KeAbPreAcquire(BugCheckParameter2, v6);
+      KeAbPostReleaseEx(BugCheckParameter2, (ULONG_PTR)v6);
     }
   }
-  v10 = KeAbPreAcquire(BugCheckParameter2);
+  v10 = KeAbPreAcquire(BugCheckParameter2, 0LL);
   if ( v10 )
     *(_BYTE *)(v10 + 26) |= 1u;
   ExReleaseSpinLockExclusiveFromDpcLevel(v5);

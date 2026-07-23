@@ -1,11 +1,11 @@
 /*
- * XREFs of PspCreateActivityReference @ 0x140B27418
+ * XREFs of PspCreateActivityReference @ 0x140B294C8
  * Callers:
- *     NtAcquireProcessActivityReference @ 0x140B272F0 (NtAcquireProcessActivityReference.c)
+ *     NtAcquireProcessActivityReference @ 0x140B293A0 (NtAcquireProcessActivityReference.c)
  * Callees:
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     PsChargeProcessWakeCounter @ 0x1409BE250 (PsChargeProcessWakeCounter.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     PsChargeProcessWakeCounter @ 0x14098F230 (PsChargeProcessWakeCounter.c)
  */
 
 __int64 __fastcall PspCreateActivityReference(void *a1, _QWORD *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall PspCreateActivityReference(void *a1, _QWORD *a2)
   v8 = 0LL;
   result = ObCreateObjectEx(
              0,
-             *(_DWORD **)&stru_140FC01F0.UserAffinityPrimaryGroup,
+             (_DWORD *)stru_140FC11F0.AffinityVersion,
              (__int64)v7,
              KeGetCurrentThread()->PreviousMode,
              v6,
@@ -38,7 +38,7 @@ __int64 __fastcall PspCreateActivityReference(void *a1, _QWORD *a2)
   {
     v5 = v9;
     *(_QWORD *)v5 = PsChargeProcessWakeCounter(a1);
-    return ObInsertObjectEx(v5, 0LL, 0xF0000u, 0, 0, 0LL, a2);
+    return ObInsertObjectEx(v5, 0LL, 983040, 0, 0, 0LL, a2);
   }
   return result;
 }

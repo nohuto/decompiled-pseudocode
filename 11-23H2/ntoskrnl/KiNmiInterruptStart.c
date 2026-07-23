@@ -1,18 +1,18 @@
 /*
- * XREFs of KiNmiInterruptStart @ 0x14042C580
+ * XREFs of KiNmiInterruptStart @ 0x14042C980
  * Callers:
  *     KiNmiInterruptShadow @ 0x140AF6240 (KiNmiInterruptShadow.c)
  * Callees:
- *     KiCheckForSListAddress @ 0x14030FDE0 (KiCheckForSListAddress.c)
- *     KeWakeProcessor @ 0x140341880 (KeWakeProcessor.c)
- *     KiMcheckFastForward @ 0x14035A9F0 (KiMcheckFastForward.c)
- *     KiRestoreDebugRegisterState @ 0x14041EF20 (KiRestoreDebugRegisterState.c)
- *     KiSaveDebugRegisterState @ 0x14041EFA0 (KiSaveDebugRegisterState.c)
- *     KiSetSpecCtrlNmi @ 0x140424390 (KiSetSpecCtrlNmi.c)
- *     KxNmiInterrupt @ 0x14042CA00 (KxNmiInterrupt.c)
- *     KiBugCheckDispatch @ 0x1404348C0 (KiBugCheckDispatch.c)
- *     KzSetIrqlUnsafe @ 0x14056C060 (KzSetIrqlUnsafe.c)
- *     KiCopyCounters @ 0x1405741A0 (KiCopyCounters.c)
+ *     KiCheckForSListAddress @ 0x140310070 (KiCheckForSListAddress.c)
+ *     KeWakeProcessor @ 0x140341B10 (KeWakeProcessor.c)
+ *     KiMcheckFastForward @ 0x14035AB90 (KiMcheckFastForward.c)
+ *     KiRestoreDebugRegisterState @ 0x14041F2B0 (KiRestoreDebugRegisterState.c)
+ *     KiSaveDebugRegisterState @ 0x14041F330 (KiSaveDebugRegisterState.c)
+ *     KiSetSpecCtrlNmi @ 0x140424720 (KiSetSpecCtrlNmi.c)
+ *     KxNmiInterrupt @ 0x14042CE00 (KxNmiInterrupt.c)
+ *     KiBugCheckDispatch @ 0x140434CC0 (KiBugCheckDispatch.c)
+ *     KzSetIrqlUnsafe @ 0x14056C720 (KzSetIrqlUnsafe.c)
+ *     KiCopyCounters @ 0x1405746E0 (KiCopyCounters.c)
  */
 
 __int64 __fastcall KiNmiInterruptStart(
@@ -167,7 +167,7 @@ LABEL_20:
   __incgsdword(0x82C0u);
   if ( (_BYTE)KeSmapEnabled )
     __asm { clac }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KzSetIrqlUnsafe(15LL);
   }
@@ -190,7 +190,7 @@ LABEL_20:
   }
   KxNmiInterrupt();
   __writegsbyte(0x8026u, 0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
     KzSetIrqlUnsafe(v44);
   else
     __writecr8(v44);

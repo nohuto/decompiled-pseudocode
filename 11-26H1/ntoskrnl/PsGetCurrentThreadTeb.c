@@ -1,8 +1,8 @@
 /*
- * XREFs of PsGetCurrentThreadTeb @ 0x1404A26B0
+ * XREFs of PsGetCurrentThreadTeb @ 0x14049C0D0
  * Callers:
- *     EtwTraceThread @ 0x140A045B0 (EtwTraceThread.c)
- *     EtwpPsProvTraceThread @ 0x140A04984 (EtwpPsProvTraceThread.c)
+ *     EtwTraceThread @ 0x140A7C440 (EtwTraceThread.c)
+ *     EtwpPsProvTraceThread @ 0x140AAE1A0 (EtwpPsProvTraceThread.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlTraceDatabaseValidate @ 0x140215E58
+ * XREFs of RtlTraceDatabaseValidate @ 0x140215C84
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x140215E90 (RtlpTraceDatabaseAcquireLock.c)
- *     RtlpTraceDatabaseReleaseLock @ 0x140216138 (RtlpTraceDatabaseReleaseLock.c)
+ *     RtlpTraceDatabaseAcquireLock @ 0x140215CBC (RtlpTraceDatabaseAcquireLock.c)
+ *     RtlpTraceDatabaseReleaseLock @ 0x140215F64 (RtlpTraceDatabaseReleaseLock.c)
  */
 
 BOOLEAN __stdcall RtlTraceDatabaseValidate(PRTL_TRACE_DATABASE Database)

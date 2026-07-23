@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpWorkerThread @ 0x1400B5C70
+ * XREFs of ExpWorkerThread @ 0x1400B5BB0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
- *     KeRemovePriQueue @ 0x1400B61A0 (KeRemovePriQueue.c)
- *     ExpNewThreadNecessary @ 0x1400B6B00 (ExpNewThreadNecessary.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     KeSetKernelStackSwapEnable @ 0x140101CE0 (KeSetKernelStackSwapEnable.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     KeSetAffinityThread @ 0x14016B2B0 (KeSetAffinityThread.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     EtwTraceThreadWorkItem @ 0x140310760 (EtwTraceThreadWorkItem.c)
+ *     PsGetPagePriorityThread @ 0x1400B5B20 (PsGetPagePriorityThread.c)
+ *     KeRemovePriQueue @ 0x1400B60E0 (KeRemovePriQueue.c)
+ *     ExpNewThreadNecessary @ 0x1400B6A40 (ExpNewThreadNecessary.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     KeSetKernelStackSwapEnable @ 0x140101D60 (KeSetKernelStackSwapEnable.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     KeSetAffinityThread @ 0x14016B3B0 (KeSetAffinityThread.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     EtwTraceThreadWorkItem @ 0x140310950 (EtwTraceThreadWorkItem.c)
  */
 
 BOOLEAN __fastcall ExpWorkerThread(__int64 a1)

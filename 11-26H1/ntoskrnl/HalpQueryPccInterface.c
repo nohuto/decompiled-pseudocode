@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpQueryPccInterface @ 0x1407873C4
+ * XREFs of HalpQueryPccInterface @ 0x140789EF4
  * Callers:
- *     HalpAcquirePccInterface @ 0x140787144 (HalpAcquirePccInterface.c)
+ *     HalpAcquirePccInterface @ 0x140789C74 (HalpAcquirePccInterface.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     IoGetAttachedDeviceReference @ 0x1403EB070 (IoGetAttachedDeviceReference.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IoBuildSynchronousFsdRequest @ 0x140AD5C20 (IoBuildSynchronousFsdRequest.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IoGetAttachedDeviceReference @ 0x1402F8660 (IoGetAttachedDeviceReference.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IoBuildSynchronousFsdRequest @ 0x140AD2BD0 (IoBuildSynchronousFsdRequest.c)
  */
 
 __int64 __fastcall HalpQueryPccInterface(

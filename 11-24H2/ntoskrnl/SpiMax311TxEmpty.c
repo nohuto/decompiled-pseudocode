@@ -1,10 +1,10 @@
 /*
- * XREFs of SpiMax311TxEmpty @ 0x1406A53A0
+ * XREFs of SpiMax311TxEmpty @ 0x1406A63A0
  * Callers:
- *     SpiMax311PutByte @ 0x1406A5160 (SpiMax311PutByte.c)
+ *     SpiMax311PutByte @ 0x1406A6160 (SpiMax311PutByte.c)
  * Callees:
- *     SpiMax311BufferRxData @ 0x1406A5054 (SpiMax311BufferRxData.c)
- *     SpiSend16 @ 0x1406A53D8 (SpiSend16.c)
+ *     SpiMax311BufferRxData @ 0x1406A6054 (SpiMax311BufferRxData.c)
+ *     SpiSend16 @ 0x1406A63D8 (SpiSend16.c)
  */
 
 bool __fastcall SpiMax311TxEmpty(__int64 a1)

@@ -79,7 +79,7 @@ __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
   unsigned int v43; // r8d
   ULONG_PTR v44; // rcx
   bool v45; // zf
-  __int64 v46; // rdi
+  PRTL_BALANCED_NODE v46; // rdi
   unsigned __int8 CurrentIrql; // si
   char v48; // al
   __int64 v49; // rcx
@@ -259,7 +259,7 @@ LABEL_49:
                 if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayedCloseTableLock, 0) )
                   ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayedCloseTableLock, v46);
                 if ( v46 )
-                  *(_BYTE *)(v46 + 26) |= 1u;
+                  BYTE2(v46[1].Left) |= 1u;
                 *(&CmpDelayedCloseTableLock + 1) = (ULONG_PTR)KeGetCurrentThread();
                 *((_DWORD *)&CmpDelayedCloseTableLock + 12) = CurrentIrql;
                 v48 = *(_BYTE *)(v32 + 64);

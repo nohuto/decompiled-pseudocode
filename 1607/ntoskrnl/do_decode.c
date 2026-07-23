@@ -1,7 +1,7 @@
 /*
- * XREFs of do_decode @ 0x14023E51C
+ * XREFs of do_decode @ 0x14023E400
  * Callers:
- *     XpressDecode @ 0x14023E390 (XpressDecode.c)
+ *     XpressDecode @ 0x14023E274 (XpressDecode.c)
  * Callees:
  *     <none>
  */

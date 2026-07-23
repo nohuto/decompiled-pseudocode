@@ -1,30 +1,30 @@
 /*
- * XREFs of MiAllocateLargeZeroPages @ 0x1403C673C
+ * XREFs of MiAllocateLargeZeroPages @ 0x1403D0630
  * Callers:
- *     MiCreateSlabEntry @ 0x140206284 (MiCreateSlabEntry.c)
- *     MiCreateLargePfnList @ 0x14031037C (MiCreateLargePfnList.c)
- *     MiAllocateFastLargePagesForMdl @ 0x1406EDF70 (MiAllocateFastLargePagesForMdl.c)
- *     MiCreatePagingFileCommit @ 0x1409B8504 (MiCreatePagingFileCommit.c)
- *     MiGetLargePagesForSystemMapping @ 0x140B4CC00 (MiGetLargePagesForSystemMapping.c)
+ *     MiCreateSlabEntry @ 0x140206364 (MiCreateSlabEntry.c)
+ *     MiCreateLargePfnList @ 0x1402F23FC (MiCreateLargePfnList.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x1406F2C10 (MiAllocateFastLargePagesForMdl.c)
+ *     MiCreatePagingFileCommit @ 0x1409894E4 (MiCreatePagingFileCommit.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140B4E990 (MiGetLargePagesForSystemMapping.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiZeroAndConvertPage @ 0x1402A14B0 (MiZeroAndConvertPage.c)
- *     MiPfnBestZeroAttribute @ 0x1402A18AC (MiPfnBestZeroAttribute.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiCreatePageChains @ 0x1403C35B8 (MiCreatePageChains.c)
- *     MiProcessPageGroupInfo @ 0x1403C3B34 (MiProcessPageGroupInfo.c)
- *     MiInsertMdlPageNeedsZero @ 0x1403C472C (MiInsertMdlPageNeedsZero.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiGetFastLargePages @ 0x1403C6B68 (MiGetFastLargePages.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiFindLargePageMemory @ 0x140B617F8 (MiFindLargePageMemory.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiZeroAndConvertPage @ 0x1402A0A00 (MiZeroAndConvertPage.c)
+ *     MiPfnBestZeroAttribute @ 0x1402A0DFC (MiPfnBestZeroAttribute.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiCreatePageChains @ 0x1403CD4B8 (MiCreatePageChains.c)
+ *     MiProcessPageGroupInfo @ 0x1403CDA40 (MiProcessPageGroupInfo.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1403CE638 (MiInsertMdlPageNeedsZero.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiGetFastLargePages @ 0x1403D0A5C (MiGetFastLargePages.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiFindLargePageMemory @ 0x140B64898 (MiFindLargePageMemory.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall MiAllocateLargeZeroPages(unsigned int *a1)
@@ -103,9 +103,9 @@ unsigned __int64 __fastcall MiAllocateLargeZeroPages(unsigned int *a1)
           v4 = 0;
         v33 = *v30;
         v15 = *(_QWORD *)(v14 + 16);
-        if ( qword_140E2D740 && (v15 & 0x10) == 0 )
-          HIDWORD(v15) &= HIDWORD(qword_140E2D748);
-        if ( HIDWORD(v15) == -3 && (stru_140E36558.WaitRegister.Flags & 1) != 0 )
+        if ( qword_140E2D8C0 && (v15 & 0x10) == 0 )
+          HIDWORD(v15) &= HIDWORD(qword_140E2D8C8);
+        if ( HIDWORD(v15) == -3 && (stru_140E366D8.WaitRegister.Flags & 1) != 0 )
         {
           MiAddPageToHeatList(&v34, 48 * v12 / 48, (unsigned int)v11);
           *(_QWORD *)(v14 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v14 + 16), 0);

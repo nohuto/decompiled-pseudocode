@@ -7,15 +7,15 @@
  *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
  */
 
-NTSTATUS __fastcall WmipGetSMBiosString(__int64 a1, unsigned int a2, const char *a3, UNICODE_STRING *a4)
+NTSTATUS __fastcall WmipGetSMBiosString(__int64 a1, unsigned int a2, const CHAR *a3, UNICODE_STRING *a4)
 {
-  const char *v5; // r10
+  const CHAR *v5; // r10
   int v6; // ecx
-  char v7; // al
-  const char *v8; // rdx
+  CHAR v7; // al
+  const CHAR *v8; // rdx
   STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  v5 = (const char *)(a1 + *(unsigned __int8 *)(a1 + 1));
+  v5 = (const CHAR *)(a1 + *(unsigned __int8 *)(a1 + 1));
   v6 = 1;
   DestinationString = 0LL;
   if ( a2 <= 1 )

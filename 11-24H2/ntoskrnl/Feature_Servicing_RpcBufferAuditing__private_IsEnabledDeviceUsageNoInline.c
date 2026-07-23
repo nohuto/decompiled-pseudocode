@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_RpcBufferAuditing__private_IsEnabledDeviceUsageNoInline @ 0x140696F90
+ * XREFs of Feature_Servicing_RpcBufferAuditing__private_IsEnabledDeviceUsageNoInline @ 0x140698010
  * Callers:
- *     AdtpWriteToEtw @ 0x140AE821C (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtw @ 0x140AEB4C0 (AdtpWriteToEtw.c)
  * Callees:
- *     Feature_Servicing_RpcBufferAuditing__private_IsEnabledFallback @ 0x140696FC8 (Feature_Servicing_RpcBufferAuditing__private_IsEnabledFallback.c)
+ *     Feature_Servicing_RpcBufferAuditing__private_IsEnabledFallback @ 0x140698048 (Feature_Servicing_RpcBufferAuditing__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_RpcBufferAuditing__private_IsEnabledDeviceUsageNoInline()

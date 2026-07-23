@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpUnregisterSecondaryIcInterface @ 0x1404D1510
+ * XREFs of HalpUnregisterSecondaryIcInterface @ 0x1404D1750
  * Callers:
  *     <none>
  * Callees:
- *     HalpDeleteSecondaryIcEntry @ 0x1404D0B20 (HalpDeleteSecondaryIcEntry.c)
- *     HalpFindSecondaryIcEntryFromObjectAndRange @ 0x1404D0D2C (HalpFindSecondaryIcEntryFromObjectAndRange.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x1404D14C4 (HalpReleaseSecondaryIcEntryShared.c)
+ *     HalpDeleteSecondaryIcEntry @ 0x1404D0D60 (HalpDeleteSecondaryIcEntry.c)
+ *     HalpFindSecondaryIcEntryFromObjectAndRange @ 0x1404D0F6C (HalpFindSecondaryIcEntryFromObjectAndRange.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1704 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpUnregisterSecondaryIcInterface(int a1, int a2, __int64 a3)

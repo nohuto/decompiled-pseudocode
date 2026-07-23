@@ -1,13 +1,13 @@
 /*
- * XREFs of ExLockHandleTableEntry @ 0x140409050
+ * XREFs of ExLockHandleTableEntry @ 0x140401530
  * Callers:
- *     PsOpenProcess @ 0x140854350 (PsOpenProcess.c)
- *     ExQueryProcessHandleInformation @ 0x14093BA20 (ExQueryProcessHandleInformation.c)
- *     ExDupHandleTable @ 0x14093D080 (ExDupHandleTable.c)
- *     ObpAuditObjectAccess @ 0x140989024 (ObpAuditObjectAccess.c)
- *     ObSetHandleAttributes @ 0x1409FBA40 (ObSetHandleAttributes.c)
+ *     PsOpenProcess @ 0x140850610 (PsOpenProcess.c)
+ *     ObpAuditObjectAccess @ 0x140863834 (ObpAuditObjectAccess.c)
+ *     ExDupHandleTable @ 0x140891770 (ExDupHandleTable.c)
+ *     ExQueryProcessHandleInformation @ 0x1409C6748 (ExQueryProcessHandleInformation.c)
+ *     ObSetHandleAttributes @ 0x1409F4780 (ObSetHandleAttributes.c)
  * Callees:
- *     ExpBlockOnLockedHandleEntry @ 0x14084DA70 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140849D30 (ExpBlockOnLockedHandleEntry.c)
  */
 
 char __fastcall ExLockHandleTableEntry(__int64 a1, signed __int64 *a2)

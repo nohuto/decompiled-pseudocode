@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpCaptureHandleAttributeInternal @ 0x140970C44
+ * XREFs of AlpcpCaptureHandleAttributeInternal @ 0x1409BADB4
  * Callers:
- *     AlpcpCaptureHandleAttribute @ 0x140970BE4 (AlpcpCaptureHandleAttribute.c)
- *     AlpcpCaptureHandleAttribute32 @ 0x140B59F8C (AlpcpCaptureHandleAttribute32.c)
+ *     AlpcpCaptureHandleAttribute32 @ 0x1409B924C (AlpcpCaptureHandleAttribute32.c)
+ *     AlpcpCaptureHandleAttribute @ 0x1409BAD54 (AlpcpCaptureHandleAttribute.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AlpcpAllocateBlob @ 0x1408EB5C0 (AlpcpAllocateBlob.c)
- *     ObCaptureObjectStateForDuplication @ 0x140971174 (ObCaptureObjectStateForDuplication.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AlpcpAllocateBlob @ 0x1408F1B80 (AlpcpAllocateBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1409BB2E4 (ObCaptureObjectStateForDuplication.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2, char a3)
@@ -117,7 +117,7 @@ LABEL_3:
   }
 LABEL_12:
   if ( v6 )
-    AlpcpDereferenceBlobEx(v6);
+    AlpcpDereferenceBlobEx(v6, 1);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x4863704Cu);
   return (unsigned int)v11;

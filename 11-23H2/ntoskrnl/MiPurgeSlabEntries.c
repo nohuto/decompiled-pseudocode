@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPurgeSlabEntries @ 0x14036B670
+ * XREFs of MiPurgeSlabEntries @ 0x14036B810
  * Callers:
  *     MiFreeSlabEntries @ 0x14021F040 (MiFreeSlabEntries.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
- *     MiIsFreeSlabPage @ 0x140657098 (MiIsFreeSlabPage.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
+ *     MiIsFreeSlabPage @ 0x1406575E8 (MiIsFreeSlabPage.c)
  */
 
 void __fastcall MiPurgeSlabEntries(__int64 a1)
@@ -50,7 +50,7 @@ void __fastcall MiPurgeSlabEntries(__int64 a1)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -169,10 +169,10 @@ LABEL_51:
     }
 LABEL_52:
     v2 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v4 + 0x220000000000LL) >> 4) + 1;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v17 = CurrentPrcb->SchedulerAssist;
@@ -190,10 +190,10 @@ LABEL_52:
   while ( *(_QWORD *)(a1 + 112) );
   if ( CurrentIrql != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v20 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
       {
         v21 = KeGetCurrentPrcb();
         v22 = v21->SchedulerAssist;

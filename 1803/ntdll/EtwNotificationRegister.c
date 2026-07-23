@@ -14,52 +14,54 @@
  *     sub_1800299E8 @ 0x1800299E8 (sub_1800299E8.c)
  */
 
-__int64 __fastcall EtwNotificationRegister(_QWORD *a1, unsigned int a2, __int64 a3, __int64 a4, unsigned __int64 *a5)
+ULONG __cdecl EtwNotificationRegister(
+        LPCGUID Guid,
+        ULONG Type,
+        PETW_NOTIFICATION_CALLBACK Callback,
+        PVOID Context,
+        PREGHANDLE RegHandle)
 {
   __int64 v7; // rax
   ULONG v8; // ebx
-  __int64 v9; // rax
-  unsigned __int64 v10; // rdx
-  unsigned __int64 *v11; // r8
-  __int64 v12; // r9
-  unsigned __int64 v13; // rdi
-  volatile signed __int64 *v14; // rsi
+  _RTL_SRWLOCK *v9; // rax
+  __int64 v10; // rdi
+  _RTL_SRWLOCK *v11; // rsi
 
-  if ( a1 && a5 )
+  if ( Guid && RegHandle )
   {
-    v7 = *a1 - 0x4C8E042A3595AB5CLL;
-    if ( *a1 == 0x4C8E042A3595AB5CLL )
-      v7 = a1[1] + 0x4E4E0164FAD2BD47LL;
+    v7 = *(_QWORD *)&Guid->Data1 - 0x4C8E042A3595AB5CLL;
+    if ( *(_QWORD *)&Guid->Data1 == 0x4C8E042A3595AB5CLL )
+      v7 = *(_QWORD *)Guid->Data4 + 0x4E4E0164FAD2BD47LL;
     if ( !v7 && qword_18015A418 )
     {
       v8 = 87;
       goto LABEL_14;
     }
-    *a5 = 0LL;
+    *RegHandle = 0LL;
     v8 = 0;
-    v9 = sub_1800298DC(a1, a3, a4, a2);
-    v13 = v9;
+    v9 = (_RTL_SRWLOCK *)sub_1800298DC(Guid, Callback, Context, Type);
+    v10 = (__int64)v9;
     if ( !v9 )
     {
       v8 = 14;
       goto LABEL_14;
     }
-    v14 = (volatile signed __int64 *)(v9 + 64);
-    RtlAcquireSRWLockExclusive(v9 + 64, v10, v11, v12);
-    *(_DWORD *)(v13 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
-    if ( a2 != 10 && (v8 = sub_180029538(v13, a3, a2)) != 0 )
+    v11 = v9 + 8;
+    RtlAcquireSRWLockExclusive(v9 + 8);
+    *(_DWORD *)(v10 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
+    if ( Type != 10 && (v8 = sub_180029538(v10, (__int64)Callback, Type)) != 0 )
     {
-      *(_DWORD *)(v13 + 80) = 0;
-      RtlReleaseSRWLockExclusive(v14);
-      sub_180008138((PSLIST_ENTRY)v13);
+      *(_DWORD *)(v10 + 80) = 0;
+      RtlReleaseSRWLockExclusive(v11);
+      sub_180008138((PSLIST_ENTRY)v10);
     }
     else
     {
-      sub_1800241D0(v13);
-      sub_1800299E8(v13);
-      *(_DWORD *)(v13 + 80) = 0;
-      RtlReleaseSRWLockExclusive(v14);
-      *a5 = v13 | ((unsigned __int64)*(unsigned __int16 *)(v13 + 96) << 48);
+      sub_1800241D0((PRTL_BALANCED_NODE)v10);
+      sub_1800299E8(v10);
+      *(_DWORD *)(v10 + 80) = 0;
+      RtlReleaseSRWLockExclusive(v11);
+      *RegHandle = v10 | ((unsigned __int64)*(unsigned __int16 *)(v10 + 96) << 48);
     }
   }
   else

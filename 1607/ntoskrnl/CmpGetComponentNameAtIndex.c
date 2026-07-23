@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpGetComponentNameAtIndex @ 0x1404047F0
+ * XREFs of CmpGetComponentNameAtIndex @ 0x1404036B0
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14000B4B0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1404A000C (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1404A0334 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14000B030 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140518418 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x140518740 (CmpPerformSingleKcbCacheLookup.c)
  * Callees:
  *     <none>
  */

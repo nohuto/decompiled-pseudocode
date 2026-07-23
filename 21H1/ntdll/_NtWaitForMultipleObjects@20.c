@@ -9,7 +9,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtWaitForMultipleObjects(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl NtWaitForMultipleObjects(
+        ULONG Count,
+        HANDLE Handles[],
+        WAIT_TYPE WaitType,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   return Wow64SystemServiceCall();
 }

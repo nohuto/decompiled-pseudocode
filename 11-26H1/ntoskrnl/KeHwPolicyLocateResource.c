@@ -1,16 +1,16 @@
 /*
- * XREFs of KeHwPolicyLocateResource @ 0x140CCA440
+ * XREFs of KeHwPolicyLocateResource @ 0x140CD0520
  * Callers:
- *     KiIntersectFeaturesWithPolicy @ 0x140BF4930 (KiIntersectFeaturesWithPolicy.c)
- *     HalpWheaInitDiscard @ 0x140CAFBBC (HalpWheaInitDiscard.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x140BFA930 (KiIntersectFeaturesWithPolicy.c)
+ *     HalpWheaInitDiscard @ 0x140CB5BFC (HalpWheaInitDiscard.c)
  * Callees:
- *     RtlCompareUnicodeString @ 0x1409E1590 (RtlCompareUnicodeString.c)
- *     LdrResSearchResource @ 0x140A9AF20 (LdrResSearchResource.c)
+ *     RtlCompareUnicodeString @ 0x1409DE5A0 (RtlCompareUnicodeString.c)
+ *     LdrResSearchResource @ 0x1409E5F50 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall KeHwPolicyLocateResource(__int64 a1, __int64 a2, wchar_t *a3, unsigned int **a4, __int64 *a5)
 {
-  __int64 v7; // rcx
+  unsigned __int64 v7; // rcx
   int *v10; // rdi
   int *i; // rbx
   __int64 v12; // rcx

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmWakeClockOwnerIfNeeded @ 0x1403EACD0
+ * XREFs of PpmWakeClockOwnerIfNeeded @ 0x1402F7BB0
  * Callers:
- *     PoIdle @ 0x1403E9FF0 (PoIdle.c)
+ *     PoIdle @ 0x1402F6ED0 (PoIdle.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     HalRequestIpi @ 0x1403EC520 (HalRequestIpi.c)
- *     PoAllProcessorsDeepIdle @ 0x1406013E0 (PoAllProcessorsDeepIdle.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     HalRequestIpi @ 0x1402F9560 (HalRequestIpi.c)
+ *     PoAllProcessorsDeepIdle @ 0x140603E90 (PoAllProcessorsDeepIdle.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall PpmWakeClockOwnerIfNeeded(__int64 a1, char a2)

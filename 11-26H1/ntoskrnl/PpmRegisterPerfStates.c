@@ -1,35 +1,35 @@
 /*
- * XREFs of PpmRegisterPerfStates @ 0x1407CE358
+ * XREFs of PpmRegisterPerfStates @ 0x1407D13F8
  * Callers:
- *     PpmPerfRegisterNativePerfStates @ 0x1407CE340 (PpmPerfRegisterNativePerfStates.c)
- *     PpmPerfRegisterHvPerfStateCounters @ 0x1407E1D60 (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmPerfRegisterNativePerfStates @ 0x1407D13E0 (PpmPerfRegisterNativePerfStates.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x1407E6DF0 (PpmPerfRegisterHvPerfStateCounters.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmConvertTimeFrom @ 0x1403E63A8 (PpmConvertTimeFrom.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403E9FB0 (KeFindFirstSetRightGroupAffinity.c)
- *     PpmCheckResetProcessors @ 0x14042A1AC (PpmCheckResetProcessors.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     PopDiagTraceProcessorThrottlePerfTrack @ 0x14044DEC8 (PopDiagTraceProcessorThrottlePerfTrack.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140484340 (KeQueryActiveProcessorAffinity2.c)
- *     PpmInstallFeedbackCounters @ 0x140602A90 (PpmInstallFeedbackCounters.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PpmAllocatePerfCheck @ 0x1407D60C0 (PpmAllocatePerfCheck.c)
- *     PpmReinitializeHeteroEngine @ 0x140A9CE8C (PpmReinitializeHeteroEngine.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140A9D254 (PpmPerfUpdateDomainPolicy.c)
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
- *     PpmUpdateProcessorPolicy @ 0x140A9D7C8 (PpmUpdateProcessorPolicy.c)
- *     PpmPerfResizeHistory @ 0x140B40670 (PpmPerfResizeHistory.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmConvertTimeFrom @ 0x1402F3288 (PpmConvertTimeFrom.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402F6E90 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     PopDiagTraceProcessorThrottlePerfTrack @ 0x140445FF8 (PopDiagTraceProcessorThrottlePerfTrack.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x14047DCB0 (KeQueryActiveProcessorAffinity2.c)
+ *     PpmCheckResetProcessors @ 0x1404FB714 (PpmCheckResetProcessors.c)
+ *     PpmInstallFeedbackCounters @ 0x140605540 (PpmInstallFeedbackCounters.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PpmAllocatePerfCheck @ 0x1407D9270 (PpmAllocatePerfCheck.c)
+ *     PpmReinitializeHeteroEngine @ 0x140AD89F8 (PpmReinitializeHeteroEngine.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AD8DD8 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
+ *     PpmUpdateProcessorPolicy @ 0x140AF0768 (PpmUpdateProcessorPolicy.c)
+ *     PpmPerfResizeHistory @ 0x140B42680 (PpmPerfResizeHistory.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmRegisterPerfStates(__int64 a1, char a2)
@@ -100,15 +100,15 @@ __int64 __fastcall PpmRegisterPerfStates(__int64 a1, char a2)
   __int64 v67; // rdx
   __int64 v68; // rbx
   __int128 *v69; // rax
-  struct _SINGLE_LIST_ENTRY *Next; // rcx
+  __int64 v70; // rcx
   int v71; // eax
   _QWORD *v72; // rax
   char v73; // r8
   PBOOLEAN v74; // rdx
   BOOLEAN v75; // al
-  unsigned __int16 v76; // r8
+  unsigned __int16 Count; // r8
   unsigned __int16 v77; // r9
-  __int64 *v78; // r10
+  $B38C3B1372D6E954799962D5DD404846 *v78; // r10
   unsigned __int16 ii; // dx
   PBOOLEAN v80; // rcx
   char v81; // dl
@@ -139,7 +139,7 @@ __int64 __fastcall PpmRegisterPerfStates(__int64 a1, char a2)
   __int128 v107; // [rsp+70h] [rbp-98h] BYREF
   __int128 v108; // [rsp+80h] [rbp-88h] BYREF
   __int64 v109; // [rsp+90h] [rbp-78h]
-  __int64 *v110; // [rsp+98h] [rbp-70h]
+  $B38C3B1372D6E954799962D5DD404846 *v110; // [rsp+98h] [rbp-70h]
   struct _KAFFINITY_EX v111; // [rsp+A8h] [rbp-60h] BYREF
   __int64 v112; // [rsp+1B8h] [rbp+B0h] BYREF
   _BYTE v113[264]; // [rsp+1C0h] [rbp+B8h] BYREF
@@ -165,11 +165,11 @@ __int64 __fastcall PpmRegisterPerfStates(__int64 a1, char a2)
   v102 = 0;
   v11 = 0LL;
   if ( !a2 )
-    PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v9, v10);
+    PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v9, v10);
   v98 = -1LL;
   for ( i = 0; ; ++i )
   {
-    v110 = qword_140E0B638;
+    v110 = &PpmCheckRegistered.8;
     if ( i >= v7 )
       break;
     v13 = *(unsigned int *)(*(_QWORD *)(a1 + 568) + 24LL * i + 12);
@@ -183,7 +183,7 @@ __int64 __fastcall PpmRegisterPerfStates(__int64 a1, char a2)
 LABEL_9:
     v14 = -1073741811;
 LABEL_52:
-    PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
     goto LABEL_161;
   }
   v15 = 0;
@@ -433,18 +433,18 @@ LABEL_70:
   *((_QWORD *)v8 + 60) = *(_QWORD *)(a1 + 56);
   *((_QWORD *)v8 + 61) = *(_QWORD *)(a1 + 64);
   v8[496] = 100;
-  if ( *(_QWORD *)((char *)&PopSleepstudySessionLock.116 + 4) <= (unsigned __int64)*(unsigned int *)(a1 + 40) )
-    *($353D57E818BB6F967B4B818D974CF463 *)((char *)&PopSleepstudySessionLock.116 + 4) = ($353D57E818BB6F967B4B818D974CF463)*(unsigned int *)(a1 + 40);
+  if ( PpmCheckMinimumPeriod <= (unsigned __int64)*(unsigned int *)(a1 + 40) )
+    PpmCheckMinimumPeriod = *(unsigned int *)(a1 + 40);
   if ( *((_QWORD *)v8 + 43) )
-    stru_140F11D08.SchedulerAssistPriorityFloor |= 0x40u;
+    PpmAllowedActions |= 0x40u;
   if ( *((_QWORD *)v8 + 42) )
-    stru_140F11D08.SchedulerAssistPriorityFloor |= 0x20u;
+    PpmAllowedActions |= 0x20u;
   if ( *((_QWORD *)v8 + 41) )
-    stru_140F11D08.SchedulerAssistPriorityFloor |= 0x200u;
+    PpmAllowedActions |= 0x200u;
   if ( *((_QWORD *)v8 + 45) )
-    stru_140F11D08.SchedulerAssistPriorityFloor |= 0x80u;
+    PpmAllowedActions |= 0x80u;
   if ( *((_QWORD *)v8 + 44) )
-    stru_140F11D08.SchedulerAssistPriorityFloor |= 0x100u;
+    PpmAllowedActions |= 0x100u;
   if ( *(_BYTE *)(a1 + 9) )
     PpmPerfEppViaPerfControl = 1;
   if ( *(_BYTE *)(a1 + 10) )
@@ -513,42 +513,42 @@ LABEL_70:
     while ( v58 < (unsigned int)v5 );
     v14 = 0;
   }
-  if ( !qword_140F12230 )
-    qword_140F12230 = *(_QWORD *)(a1 + 96);
-  Next = stru_140F11D08.SystemAffinityTokenListHead.Next;
-  if ( !stru_140F11D08.SystemAffinityTokenListHead.Next )
+  if ( !PpmPerfGlobalContext )
+    PpmPerfGlobalContext = *(_QWORD *)(a1 + 96);
+  v70 = PpmPerfControlReadFeedback;
+  if ( !PpmPerfControlReadFeedback )
   {
-    Next = *(struct _SINGLE_LIST_ENTRY **)(a1 + 496);
-    stru_140F11D08.SystemAffinityTokenListHead.Next = Next;
+    v70 = *(_QWORD *)(a1 + 496);
+    PpmPerfControlReadFeedback = v70;
   }
-  if ( !stru_140F11D08.IptSaveArea )
-    stru_140F11D08.IptSaveArea = *(void **)(a1 + 504);
-  if ( !qword_140F12248 )
-    qword_140F12248 = *(_QWORD *)(a1 + 512);
-  if ( !qword_140F12250 )
-    qword_140F12250 = *(_QWORD *)(a1 + 544);
-  if ( !qword_140F12238 )
-    qword_140F12238 = *(_QWORD *)(a1 + 552);
-  if ( !qword_140F12240 )
-    qword_140F12240 = *(_QWORD *)(a1 + 560);
-  if ( !stru_140F11D08.Spare35[1] )
-    stru_140F11D08.Spare35[1] = *(_QWORD *)(a1 + 424);
-  if ( !*(_QWORD *)&stru_140F11D08.Spare36 )
-    *(_QWORD *)&stru_140F11D08.Spare36 = *(_QWORD *)(a1 + 432);
-  if ( Next )
-    *(_BYTE *)&PopSleepstudySessionLock.0 = 1;
+  if ( !PpmPerfControlAcquirePerformance )
+    PpmPerfControlAcquirePerformance = *(_QWORD *)(a1 + 504);
+  if ( !PpmPerfControlCommitPerformance )
+    PpmPerfControlCommitPerformance = *(_QWORD *)(a1 + 512);
+  if ( !PpmParkPreferenceHandler )
+    PpmParkPreferenceHandler = *(_QWORD *)(a1 + 544);
+  if ( !PpmParkMaskHandler )
+    PpmParkMaskHandler = *(_QWORD *)(a1 + 552);
+  if ( !PpmCheckCompleteHandler )
+    PpmCheckCompleteHandler = *(_QWORD *)(a1 + 560);
+  if ( !PpmPerfControlStartPolicyUpdate )
+    PpmPerfControlStartPolicyUpdate = *(_QWORD *)(a1 + 424);
+  if ( !PpmPerfControlCompletePolicyUpdate )
+    PpmPerfControlCompletePolicyUpdate = *(_QWORD *)(a1 + 432);
+  if ( v70 )
+    PpmCheckPollForFeedback = 1;
   v71 = PpmPerfDomainCount + 1;
   *((_DWORD *)v8 + 112) = PpmPerfDomainCount + 1;
   PpmPerfDomainCount = v71;
-  v72 = (_QWORD *)qword_140FBFCA8;
-  if ( *(PBOOLEAN **)qword_140FBFCA8 != (PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2) )
+  v72 = (_QWORD *)qword_140FC0CA8;
+  if ( *(PBOOLEAN **)qword_140FC0CA8 != (PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2) )
     __fastfail(3u);
   *(_QWORD *)v8 = (char *)&Mm64BitPhysicalAddress + 2;
   v73 = 1;
   *((_QWORD *)v8 + 1) = v72;
   *v72 = v8;
   v74 = *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2);
-  qword_140FBFCA8 = (__int64)v8;
+  qword_140FC0CA8 = (__int64)v8;
   LOBYTE(v95) = 1;
   if ( *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2) != (PBOOLEAN)((char *)&Mm64BitPhysicalAddress + 2) )
   {
@@ -562,26 +562,26 @@ LABEL_70:
     LOBYTE(v95) = v73;
   }
   RtlOrAffinityEx(&v111, (struct _KAFFINITY_EX *)PpmPerfStatesRegistered, (__int64)PpmPerfStatesRegistered);
-  v76 = PpmCheckRegistered[0];
-  if ( LOWORD(PpmPerfStatesRegistered[0]) >= LOWORD(PpmCheckRegistered[0]) )
+  Count = PpmCheckRegistered.Count;
+  if ( LOWORD(PpmPerfStatesRegistered[0]) >= PpmCheckRegistered.Count )
   {
-    v77 = PpmCheckRegistered[0];
-    v78 = &qword_140E0B4C8;
-    v76 = PpmPerfStatesRegistered[0];
+    v77 = PpmCheckRegistered.Count;
+    v78 = ($B38C3B1372D6E954799962D5DD404846 *)&qword_140E0B498;
+    Count = PpmPerfStatesRegistered[0];
   }
   else
   {
     v77 = PpmPerfStatesRegistered[0];
-    v78 = qword_140E0B638;
+    v78 = &PpmCheckRegistered.8;
   }
   for ( ii = 0; ii < v77; ++ii )
   {
-    if ( PpmPerfStatesRegistered[ii + 1] != PpmCheckRegistered[ii + 1] )
+    if ( PpmPerfStatesRegistered[ii + 1] != PpmCheckRegistered.Bitmap[ii] )
       goto LABEL_158;
   }
-  while ( ii < v76 )
+  while ( ii < Count )
   {
-    if ( v78[ii] )
+    if ( v78->Bitmap[ii] )
       goto LABEL_158;
     ++ii;
   }
@@ -607,7 +607,7 @@ LABEL_70:
   PpmPerfVmPerfSelectionSupported = v81;
 LABEL_158:
   *((_WORD *)v8 + 722) = 257;
-  PpmUpdateProcessorPolicy(&stru_140F11D08.SchedulerAssistPriorityFloor, v8);
+  PpmUpdateProcessorPolicy(&PpmAllowedActions, v8);
   PpmCheckResetProcessors((__int64)v8);
   if ( (unsigned int)KeCheckProcessorAffinityEx(&v111.Count, 0) )
     PpmParkApplyPolicy();
@@ -621,11 +621,11 @@ LABEL_161:
   v83 = v95;
   if ( (unsigned int)PpmPerfDomainCount > 1 || (_BYTE)v95 )
   {
-    v84 = PpmCheckRegistered[0];
-    if ( LOWORD(PpmPerfStatesRegistered[0]) >= LOWORD(PpmCheckRegistered[0]) )
+    v84 = *(_DWORD *)&PpmCheckRegistered.Count;
+    if ( LOWORD(PpmPerfStatesRegistered[0]) >= PpmCheckRegistered.Count )
     {
-      v85 = PpmCheckRegistered[0];
-      v110 = &qword_140E0B4C8;
+      v85 = PpmCheckRegistered.Count;
+      v110 = ($B38C3B1372D6E954799962D5DD404846 *)&qword_140E0B498;
       v84 = LOWORD(PpmPerfStatesRegistered[0]);
     }
     else
@@ -634,16 +634,16 @@ LABEL_161:
     }
     for ( jj = 0LL; (unsigned __int16)jj < v85; LOWORD(jj) = jj + 1 )
     {
-      if ( PpmPerfStatesRegistered[(unsigned __int16)jj + 1] != PpmCheckRegistered[(unsigned __int16)jj + 1] )
+      if ( PpmPerfStatesRegistered[(unsigned __int16)jj + 1] != PpmCheckRegistered.Bitmap[(unsigned __int16)jj] )
         goto LABEL_174;
     }
     while ( (unsigned __int16)jj < (unsigned __int16)v84 )
     {
-      if ( v110[(unsigned __int16)jj] )
+      if ( v110->Bitmap[(unsigned __int16)jj] )
         goto LABEL_174;
       LOWORD(jj) = jj + 1;
     }
-    PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, jj, v84);
+    PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, jj, v84);
     PpmPerfSchedulerDirectedPerfStatesSupported = v83;
     LOBYTE(v87) = 1;
     PpmReinitializeHeteroEngine(v87, 0LL);
@@ -690,6 +690,6 @@ LABEL_174:
   }
   *(_QWORD *)&v108 = 0LL;
   *((_QWORD *)&v108 + 1) = -1LL;
-  KeSetTimer2((__int64)&stru_140F11D08.1144, -36000000000LL, 36000000000LL, (__int64)&v108);
+  KeSetTimer2((__int64)&PpmPerfTelemetryTimer, -36000000000LL, 36000000000LL, (__int64)&v108);
   return (unsigned int)v14;
 }

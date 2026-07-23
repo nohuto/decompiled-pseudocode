@@ -1,12 +1,12 @@
 /*
- * XREFs of IopMcDereferenceMdl @ 0x140411AC8
+ * XREFs of IopMcDereferenceMdl @ 0x1404111E8
  * Callers:
- *     IopMcReleaseMdl @ 0x1404114C8 (IopMcReleaseMdl.c)
- *     IopMcGetBuffer @ 0x140B0106C (IopMcGetBuffer.c)
+ *     IopMcReleaseMdl @ 0x140410BE8 (IopMcReleaseMdl.c)
+ *     IopMcGetBuffer @ 0x140B02D9C (IopMcGetBuffer.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IopMcTryUnlockMdl @ 0x1405D7788 (IopMcTryUnlockMdl.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IopMcTryUnlockMdl @ 0x1405D9F78 (IopMcTryUnlockMdl.c)
  */
 
 __int64 __fastcall IopMcDereferenceMdl(ULONG_PTR BugCheckParameter2, KPRIORITY a2)

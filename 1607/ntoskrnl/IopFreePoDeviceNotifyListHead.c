@@ -3,7 +3,7 @@
  * Callers:
  *     IoFreePoDeviceNotifyList @ 0x1403D08F8 (IoFreePoDeviceNotifyList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

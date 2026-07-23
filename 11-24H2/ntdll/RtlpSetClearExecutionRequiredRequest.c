@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpSetClearExecutionRequiredRequest @ 0x180118398
+ * XREFs of RtlpSetClearExecutionRequiredRequest @ 0x18011330C
  * Callers:
- *     RtlpDestroyExecutionRequiredRequest @ 0x18011E5B0 (RtlpDestroyExecutionRequiredRequest.c)
+ *     RtlpDestroyExecutionRequiredRequest @ 0x18011C7E0 (RtlpDestroyExecutionRequiredRequest.c)
  * Callees:
- *     NtPowerInformation @ 0x180162860 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x180160C20 (NtPowerInformation.c)
  */
 
-__int64 __fastcall RtlpSetClearExecutionRequiredRequest(__int64 a1, __int64 a2, char a3)
+NTSTATUS __fastcall RtlpSetClearExecutionRequiredRequest(__int64 a1, __int64 a2, char a3)
 {
   __int64 v4; // [rsp+30h] [rbp-28h] BYREF
   int v5; // [rsp+38h] [rbp-20h]
@@ -21,5 +21,5 @@ __int64 __fastcall RtlpSetClearExecutionRequiredRequest(__int64 a1, __int64 a2, 
   v5 = 3;
   v6 = a3;
   v9 = a2;
-  return NtPowerInformation(44LL, &v4);
+  return NtPowerInformation(PowerRequestAction, &v4, 0x18u, 0LL, 0);
 }

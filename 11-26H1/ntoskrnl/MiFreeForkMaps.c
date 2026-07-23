@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeForkMaps @ 0x14096220C
+ * XREFs of MiFreeForkMaps @ 0x140A07F00
  * Callers:
- *     MiReturnCloneResources @ 0x1409620A4 (MiReturnCloneResources.c)
+ *     MiReturnCloneResources @ 0x140A07D98 (MiReturnCloneResources.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiFinishLastForkPageTable @ 0x1404D069C (MiFinishLastForkPageTable.c)
- *     MiUnmapSinglePage @ 0x140505014 (MiUnmapSinglePage.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiFinishLastForkPageTable @ 0x1404CA0CC (MiFinishLastForkPageTable.c)
+ *     MiUnmapSinglePage @ 0x1404FE958 (MiUnmapSinglePage.c)
  */
 
 void __fastcall MiFreeForkMaps(__int64 a1)

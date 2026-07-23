@@ -1,24 +1,24 @@
 /*
- * XREFs of CcAsyncLazywriteWorkerMulti @ 0x14053AC14
+ * XREFs of CcAsyncLazywriteWorkerMulti @ 0x14053B164
  * Callers:
- *     CcAsyncLazywriteWorkerThread @ 0x140539D00 (CcAsyncLazywriteWorkerThread.c)
+ *     CcAsyncLazywriteWorkerThread @ 0x14053A250 (CcAsyncLazywriteWorkerThread.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcFindNextWorkQueueEntry @ 0x1402997EC (CcFindNextWorkQueueEntry.c)
- *     CcFreeWorkQueueEntry @ 0x14029C390 (CcFreeWorkQueueEntry.c)
- *     CcFlushCachePreProcess @ 0x14029DE80 (CcFlushCachePreProcess.c)
- *     CcFlushCachePostProcessOneRange @ 0x14029E9F0 (CcFlushCachePostProcessOneRange.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CcRepostToSynchronousLazywriter @ 0x14053A368 (CcRepostToSynchronousLazywriter.c)
- *     CcQueueAsyncLazywriteCompletion @ 0x14053B714 (CcQueueAsyncLazywriteCompletion.c)
- *     CcWriteBehindAsyncFlushOneRange @ 0x14053B7A0 (CcWriteBehindAsyncFlushOneRange.c)
- *     CcWriteBehindAsyncPreProcess @ 0x14053B824 (CcWriteBehindAsyncPreProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcFindNextWorkQueueEntry @ 0x140299A7C (CcFindNextWorkQueueEntry.c)
+ *     CcFreeWorkQueueEntry @ 0x14029C620 (CcFreeWorkQueueEntry.c)
+ *     CcFlushCachePreProcess @ 0x14029E110 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14029EC80 (CcFlushCachePostProcessOneRange.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CcRepostToSynchronousLazywriter @ 0x14053A8B8 (CcRepostToSynchronousLazywriter.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x14053BC64 (CcQueueAsyncLazywriteCompletion.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x14053BCF0 (CcWriteBehindAsyncFlushOneRange.c)
+ *     CcWriteBehindAsyncPreProcess @ 0x14053BD74 (CcWriteBehindAsyncPreProcess.c)
  */
 
 void __fastcall CcAsyncLazywriteWorkerMulti(__int64 a1)
@@ -35,7 +35,7 @@ void __fastcall CcAsyncLazywriteWorkerMulti(__int64 a1)
   const char *v10; // rcx
   KSPIN_LOCK *v11; // rsi
   __int64 v12; // rcx
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rbx
+  _SLIST_ENTRY *NextWorkQueueEntry; // rbx
   unsigned __int64 OldIrql; // r15
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -206,13 +206,16 @@ LABEL_23:
   KeAcquireInStackQueuedSpinLock(v11, &LockHandle);
   while ( *(_QWORD *)(v2 + 312) != v2 + 312 && v6 - 1 < v39 )
   {
-    NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v12, v2, (_QWORD *)(v2 + 312));
+    NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry(v12, v2, (_QWORD *)(v2 + 312));
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -220,7 +223,7 @@ LABEL_23:
         v19 = (v18 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v18;
         if ( v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);
@@ -269,10 +272,10 @@ LABEL_35:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v26 = LockHandle.OldIrql;
   v3 = v40;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = v28->SchedulerAssist;
@@ -280,7 +283,7 @@ LABEL_35:
       v19 = (v30 & v29[5]) == 0;
       v29[5] &= v30;
       if ( v19 )
-        KiRemoveSystemWorkPriorityKick(v28);
+        KiRemoveSystemWorkPriorityKick((__int64)v28);
     }
   }
   __writecr8(v26);

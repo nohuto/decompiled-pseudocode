@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpPoolLookasideRebalance @ 0x140433A84
+ * XREFs of ExpPoolLookasideRebalance @ 0x140428B54
  * Callers:
- *     ExpPoolMgrRebalanceWorker @ 0x140AC3610 (ExpPoolMgrRebalanceWorker.c)
+ *     ExpPoolMgrRebalanceWorker @ 0x140AC5280 (ExpPoolMgrRebalanceWorker.c)
  * Callees:
- *     RtlpDynamicLookasideRebalance @ 0x140433ACC (RtlpDynamicLookasideRebalance.c)
+ *     RtlpDynamicLookasideRebalance @ 0x140428B9C (RtlpDynamicLookasideRebalance.c)
  */
 
 __int64 __fastcall ExpPoolLookasideRebalance(__int64 a1)

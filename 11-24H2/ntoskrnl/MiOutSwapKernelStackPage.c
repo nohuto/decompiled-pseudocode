@@ -1,18 +1,18 @@
 /*
- * XREFs of MiOutSwapKernelStackPage @ 0x14039E778
+ * XREFs of MiOutSwapKernelStackPage @ 0x1403C6E14
  * Callers:
- *     MiOutPageSingleKernelStack @ 0x14039F510 (MiOutPageSingleKernelStack.c)
+ *     MiOutPageSingleKernelStack @ 0x140215F40 (MiOutPageSingleKernelStack.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiOutSwapWorkingSet @ 0x1402345FC (MiOutSwapWorkingSet.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     MiOutSwapWorkingSet @ 0x1403C745C (MiOutSwapWorkingSet.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiOutSwapKernelStackPage(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
-  __int64 v6; // rsi
+  unsigned __int64 v6; // rsi
   void *v7; // rax
   __int128 v8; // xmm0
   __int64 result; // rax
@@ -32,7 +32,7 @@ __int64 __fastcall MiOutSwapKernelStackPage(__int64 a1, __int64 a2, __int64 a3)
   v10[2] = v7;
   v10[3] = a2;
   v11 = v8;
-  MiOutSwapWorkingSet((__int64)v7, 0LL, v6, v6, (__int64)v10);
+  MiOutSwapWorkingSet((_DWORD)v7, 0, v6, v6, (__int64)v10);
   result = 0LL;
   *(_OWORD *)(a1 + 64) = v11;
   return result;

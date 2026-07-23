@@ -9,43 +9,54 @@
  *     CmFcpCreateAlpcSectionView @ 0x140ABCEFC (CmFcpCreateAlpcSectionView.c)
  */
 
-__int64 __fastcall CmFcpSendFeatureUsageReportAlpcMessage(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall CmFcpSendFeatureUsageReportAlpcMessage(HANDLE PortHandle, void *a2, int a3)
 {
-  int v5; // ebx
-  __int64 v7; // [rsp+48h] [rbp-41h] BYREF
-  __int128 v8; // [rsp+50h] [rbp-39h]
-  __int128 v9; // [rsp+60h] [rbp-29h]
-  __int128 v10; // [rsp+70h] [rbp-19h]
-  __int64 v11; // [rsp+80h] [rbp-9h]
-  _DWORD v12[2]; // [rsp+88h] [rbp-1h] BYREF
-  __int128 v13; // [rsp+90h] [rbp+7h]
-  __int128 v14; // [rsp+A0h] [rbp+17h]
+  NTSTATUS v5; // ebx
+  ULONG_PTR BufferLength; // [rsp+40h] [rbp-49h] BYREF
+  ALPC_HANDLE SectionHandle; // [rsp+48h] [rbp-41h] BYREF
+  _BYTE SendMessageA[48]; // [rsp+50h] [rbp-39h] BYREF
+  __int64 v10; // [rsp+80h] [rbp-9h]
+  _ALPC_MESSAGE_ATTRIBUTES SendMessageAttributes; // [rsp+88h] [rbp-1h] BYREF
+  __int128 v12; // [rsp+90h] [rbp+7h]
+  __int128 v13; // [rsp+A0h] [rbp+17h]
 
-  v12[0] = 0x40000000;
-  v7 = 0LL;
-  v12[1] = 0;
-  v11 = 0LL;
-  v13 = 0LL;
-  v14 = 0LL;
-  v8 = 0LL;
-  v9 = 0LL;
+  SendMessageAttributes.AllocatedAttributes = 0x40000000;
+  SectionHandle = 0LL;
+  SendMessageAttributes.ValidAttributes = 0;
   v10 = 0LL;
-  v5 = CmFcpCreateAlpcSectionView(a1, a2, (unsigned int)(8 * a3), v12, &v7);
+  BufferLength = 56LL;
+  v12 = 0LL;
+  v13 = 0LL;
+  memset(SendMessageA, 0, sizeof(SendMessageA));
+  v5 = CmFcpCreateAlpcSectionView(
+         PortHandle,
+         a2,
+         (unsigned int)(8 * a3),
+         &SendMessageAttributes,
+         (__int64)&SectionHandle);
   if ( v5 >= 0 )
   {
-    DWORD2(v9) = 0;
-    WORD2(v8) = -32767;
-    LODWORD(v8) = 3670032;
-    DWORD2(v10) = 2;
-    LODWORD(v11) = a3;
-    v5 = ZwAlpcSendWaitReceivePort(a1, 0x20000LL);
+    *(_DWORD *)&SendMessageA[24] = 0;
+    *(_WORD *)&SendMessageA[4] = -32767;
+    *(_DWORD *)SendMessageA = 3670032;
+    *(_DWORD *)&SendMessageA[40] = 2;
+    LODWORD(v10) = a3;
+    v5 = ZwAlpcSendWaitReceivePort(
+           PortHandle,
+           0x20000u,
+           (PPORT_MESSAGE)SendMessageA,
+           &SendMessageAttributes,
+           (PPORT_MESSAGE)SendMessageA,
+           &BufferLength,
+           0LL,
+           0LL);
     if ( v5 >= 0 )
     {
-      if ( BYTE4(v8) == 2 )
+      if ( BufferLength >= 0x30 && SendMessageA[4] == 2 )
       {
         v5 = 0;
-        if ( v10 < 0 )
-          v5 = HIDWORD(v10);
+        if ( *(int *)&SendMessageA[44] < 0 )
+          v5 = *(_DWORD *)&SendMessageA[44];
       }
       else
       {
@@ -53,7 +64,7 @@ __int64 __fastcall CmFcpSendFeatureUsageReportAlpcMessage(__int64 a1, __int64 a2
       }
     }
   }
-  if ( v7 )
-    ZwAlpcDeletePortSection(a1, 0LL);
+  if ( SectionHandle )
+    ZwAlpcDeletePortSection(PortHandle, 0, SectionHandle);
   return (unsigned int)v5;
 }

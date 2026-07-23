@@ -1,13 +1,13 @@
 /*
- * XREFs of KeProcessorProfileControlArea @ 0x1405E4A98
+ * XREFs of KeProcessorProfileControlArea @ 0x1405E7408
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiIsIntelPebsSupported @ 0x1405EBA2C (KiIsIntelPebsSupported.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiIsIntelPebsSupported @ 0x1405EE39C (KiIsIntelPebsSupported.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeProcessorProfileControlArea(__int64 a1, int a2, char a3)

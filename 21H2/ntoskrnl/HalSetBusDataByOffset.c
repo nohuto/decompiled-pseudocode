@@ -1,12 +1,12 @@
 /*
- * XREFs of HalSetBusDataByOffset @ 0x14039E860
+ * XREFs of HalSetBusDataByOffset @ 0x14039E9B0
  * Callers:
- *     HalSetBusData @ 0x1404B8A70 (HalSetBusData.c)
- *     HalpPiix4Detect @ 0x14099A3E0 (HalpPiix4Detect.c)
- *     KdpSysWriteBusData @ 0x1409B8F00 (KdpSysWriteBusData.c)
+ *     HalSetBusData @ 0x1404B8CB0 (HalSetBusData.c)
+ *     HalpPiix4Detect @ 0x14099B3E0 (HalpPiix4Detect.c)
+ *     KdpSysWriteBusData @ 0x1409B9F00 (KdpSysWriteBusData.c)
  * Callees:
- *     HalpSetPCIData @ 0x14039E8A4 (HalpSetPCIData.c)
- *     HalpGetSetCmosData @ 0x1404CC28C (HalpGetSetCmosData.c)
+ *     HalpSetPCIData @ 0x14039E9F4 (HalpSetPCIData.c)
+ *     HalpGetSetCmosData @ 0x1404CC4CC (HalpGetSetCmosData.c)
  */
 
 ULONG __stdcall HalSetBusDataByOffset(

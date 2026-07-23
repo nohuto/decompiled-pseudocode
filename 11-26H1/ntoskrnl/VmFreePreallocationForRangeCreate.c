@@ -1,10 +1,10 @@
 /*
- * XREFs of VmFreePreallocationForRangeCreate @ 0x14081C090
+ * XREFs of VmFreePreallocationForRangeCreate @ 0x1408222A0
  * Callers:
  *     <none>
  * Callees:
- *     VmpFreeMemoryRanges @ 0x140B0037C (VmpFreeMemoryRanges.c)
- *     VmpDecodePreallocationRangeHandle @ 0x140B39CDC (VmpDecodePreallocationRangeHandle.c)
+ *     VmpFreeMemoryRanges @ 0x140B020AC (VmpFreeMemoryRanges.c)
+ *     VmpDecodePreallocationRangeHandle @ 0x140B3BEEC (VmpDecodePreallocationRangeHandle.c)
  */
 
 __int64 __fastcall VmFreePreallocationForRangeCreate(__int64 a1)

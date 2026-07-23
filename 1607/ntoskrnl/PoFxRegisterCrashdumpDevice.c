@@ -1,5 +1,5 @@
 /*
- * XREFs of PoFxRegisterCrashdumpDevice @ 0x14054886C
+ * XREFs of PoFxRegisterCrashdumpDevice @ 0x140548DAC
  * Callers:
  *     <none>
  * Callees:

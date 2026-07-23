@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpGetDriverDataDosPath @ 0x1403D784C
+ * XREFs of EtwpGetDriverDataDosPath @ 0x1403D7A2C
  * Callers:
- *     EtwpExpandFileName @ 0x1407F6D80 (EtwpExpandFileName.c)
+ *     EtwpExpandFileName @ 0x1407F7050 (EtwpExpandFileName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     IoQueryFileDosDeviceName @ 0x14075A8C0 (IoQueryFileDosDeviceName.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     IoQueryFileDosDeviceName @ 0x14075AAB0 (IoQueryFileDosDeviceName.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

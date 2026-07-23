@@ -1,33 +1,33 @@
 /*
- * XREFs of MiReleaseFaultState @ 0x1402E0010
+ * XREFs of MiReleaseFaultState @ 0x1402418F0
  * Callers:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiWaitForCollidedFaultComplete @ 0x14023B89C (MiWaitForCollidedFaultComplete.c)
- *     MiTrimSharedPageFromViews @ 0x1402BB5D0 (MiTrimSharedPageFromViews.c)
- *     MiPrivateFixup @ 0x1402EE4F0 (MiPrivateFixup.c)
- *     MiFinishHardFault @ 0x1402F0070 (MiFinishHardFault.c)
- *     MiUserFault @ 0x1402FD560 (MiUserFault.c)
- *     MiFaultGetFileExtents @ 0x14036F4C8 (MiFaultGetFileExtents.c)
- *     MiIssueHardFault @ 0x140397B2C (MiIssueHardFault.c)
- *     MiInPagePageTable @ 0x1403F2FCC (MiInPagePageTable.c)
- *     MiKernelWriteToExecutableMemory @ 0x1404CE618 (MiKernelWriteToExecutableMemory.c)
- *     MiIdealClusterPage @ 0x1404D205C (MiIdealClusterPage.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiFinishHardFault @ 0x140255E80 (MiFinishHardFault.c)
+ *     MiUserFault @ 0x140307CE0 (MiUserFault.c)
+ *     MiPrivateFixup @ 0x14034FB30 (MiPrivateFixup.c)
+ *     MiIssueHardFault @ 0x140350280 (MiIssueHardFault.c)
+ *     MiTrimSharedPageFromViews @ 0x140362D10 (MiTrimSharedPageFromViews.c)
+ *     MiInPagePageTable @ 0x140391778 (MiInPagePageTable.c)
+ *     MiKernelWriteToExecutableMemory @ 0x140426B40 (MiKernelWriteToExecutableMemory.c)
+ *     MiFaultGetFileExtents @ 0x140426C40 (MiFaultGetFileExtents.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1404270E4 (MiWaitForCollidedFaultComplete.c)
+ *     MiIdealClusterPage @ 0x1404CB218 (MiIdealClusterPage.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiAddWorkingSetEntries @ 0x1402E0980 (MiAddWorkingSetEntries.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiHaltOnAddressWakeEntireList @ 0x140321D94 (KiHaltOnAddressWakeEntireList.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiAddWorkingSetEntries @ 0x140242260 (MiAddWorkingSetEntries.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x1402CA924 (KiHaltOnAddressWakeEntireList.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, _BYTE *a3)
+__int64 __fastcall MiReleaseFaultState(__int64 *a1, unsigned __int8 a2, _BYTE *a3)
 {
   __int64 v3; // r14
   __int64 v5; // rsi
@@ -44,26 +44,28 @@ __int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, _BYTE *a3
   __int64 v19; // r8
   __int64 v20; // r9
   __int64 v21; // rcx
-  struct _KPRCB *v22; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  unsigned __int64 v24; // rcx
-  __int64 v25; // rdx
-  int v26; // eax
-  volatile signed __int32 *v27; // rcx
-  char v28; // cl
-  signed __int32 v29; // eax
-  signed __int32 v30; // ett
-  signed __int32 v31[8]; // [rsp+0h] [rbp-48h] BYREF
+  __int64 v22; // r9
+  struct _KPRCB *v23; // rcx
+  unsigned __int32 *SchedulerAssist; // r8
+  unsigned __int64 v25; // rcx
+  __int64 v26; // rdx
+  int v27; // eax
+  volatile signed __int32 *v28; // rcx
+  char v29; // cl
+  unsigned __int32 v30; // eax
+  __int64 v31; // rdx
+  unsigned __int32 v32; // ett
+  signed __int32 v33[8]; // [rsp+0h] [rbp-48h] BYREF
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  v3 = *(_QWORD *)(a1 + 16);
-  v5 = *(_QWORD *)a1;
+  v3 = a1[2];
+  v5 = *a1;
   if ( !v3 )
     goto LABEL_11;
-  if ( *(_WORD *)(a1 + 10) )
+  if ( *((_WORD *)a1 + 5) )
   {
-    v8 = *(_BYTE *)(a1 + 13) & 2;
-    v9 = ((unsigned __int64)*(unsigned __int16 *)(a1 + 8) << 12) + (v3 << 25 >> 16 << 25 >> 16);
+    v8 = *((_BYTE *)a1 + 13) & 2;
+    v9 = ((unsigned __int64)*((unsigned __int16 *)a1 + 4) << 12) + (v3 << 25 >> 16 << 25 >> 16);
     if ( v9 < 0xFFFFF68000000000uLL || v9 > 0xFFFFF6FFFFFFFFFFuLL )
     {
       v8 = (unsigned int)v8 | 5;
@@ -72,23 +74,23 @@ __int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, _BYTE *a3
     {
       v8 = (unsigned int)v8 | 4;
     }
-    MiAddWorkingSetEntries(v5, v9, *(unsigned __int16 *)(a1 + 10), v8);
-    *(_WORD *)(a1 + 10) = 0;
+    MiAddWorkingSetEntries(v5, v9, *((unsigned __int16 *)a1 + 5), v8);
+    *((_WORD *)a1 + 5) = 0;
   }
-  v10 = *(_QWORD *)(a1 + 16);
+  v10 = a1[2];
   if ( v10 != 0xFFFFF6FB7DBEDF68uLL )
   {
     if ( (*(_DWORD *)(v5 + 184) & 0xF) != 0
       || v10 < 0xFFFFF6FB7DBED000uLL
       || v10 > 0xFFFFF6FB7DBEDFFFuLL
-      || (v24 = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[5].StaticBitmap[7]) == 0 )
+      || (v25 = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[5].StaticBitmap[7]) == 0 )
     {
       if ( (*(_DWORD *)(v5 + 184) & 0xF) != 0 && v10 >= 0xFFFFF6FB7DBED000uLL && v10 <= 0xFFFFF6FB7DBEDFFFuLL )
       {
-        v28 = (2 * ((__int64)(v10 + 0x90482413000LL) >> 3)) & 0x1F;
+        v29 = (2 * ((__int64)(v10 + 0x90482413000LL) >> 3)) & 0x1F;
         _InterlockedAnd(
-          &dword_140E2F0AC[(unsigned __int64)(2 * (unsigned int)((__int64)(v10 + 0x90482413000LL) >> 3)) >> 5],
-          ~(2 << v28) & ~(1 << v28));
+          &dword_140E2F1EC[(unsigned __int64)(2 * (unsigned int)((__int64)(v10 + 0x90482413000LL) >> 3)) >> 5],
+          ~(2 << v29) & ~(1 << v29));
       }
       else
       {
@@ -97,29 +99,29 @@ __int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, _BYTE *a3
     }
     else
     {
-      v25 = (v10 >> 3) & 0x1FF;
-      v26 = *(_DWORD *)(v24 + 4 * v25);
-      v27 = (volatile signed __int32 *)(v24 + 4 * v25);
-      if ( (v26 & 0x3FFFFFFF) != 0 )
+      v26 = (v10 >> 3) & 0x1FF;
+      v27 = *(_DWORD *)(v25 + 4 * v26);
+      v28 = (volatile signed __int32 *)(v25 + 4 * v26);
+      if ( (v27 & 0x3FFFFFFF) != 0 )
       {
         if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         {
-          _InterlockedAnd(v27, 0xBFFFFFFF);
-          _InterlockedDecrement(v27);
+          _InterlockedAnd(v28, 0xBFFFFFFF);
+          _InterlockedDecrement(v28);
         }
         else
         {
-          ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v27, retaddr);
+          ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v28, retaddr);
         }
       }
       else
       {
-        if ( v26 >= 0 )
-          KeBugCheckEx(0x10u, (ULONG_PTR)v27, 0x100uLL, 0LL, 0LL);
+        if ( v27 >= 0 )
+          KeBugCheckEx(0x10u, (ULONG_PTR)v28, 0x100uLL, 0LL, 0LL);
         if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-          *v27 = 0;
+          *v28 = 0;
         else
-          ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v27, retaddr);
+          ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v28, retaddr);
       }
     }
     goto LABEL_10;
@@ -158,25 +160,27 @@ LABEL_25:
     v17 = (__int64)v15[1];
     if ( (((unsigned __int8)v17 ^ (unsigned __int8)_InterlockedExchange64((volatile __int64 *)(v16 + 8), v17)) & 4) != 0 )
     {
-      _InterlockedOr(v31, 0);
-      v18 = KeDisableInterrupts(v17, v14 * 24, ((unsigned __int64)(v16 + 8) >> 5) & 0x7F);
-      KiHaltOnAddressWakeEntireList(v21, _InterlockedExchange64((volatile __int64 *)(v20 + 8 * v19 + 15863072), 0LL));
+      _InterlockedOr(v33, 0);
+      v18 = KeDisableInterrupts(v17, v14 * 24, ((unsigned __int64)(v16 + 8) >> 5) & 0x7F, 0x140000000uLL);
+      KiHaltOnAddressWakeEntireList(v21, _InterlockedExchange64((volatile __int64 *)(v20 + 8 * v19 + 15863808), 0LL));
       if ( v18 )
       {
-        v22 = KeGetCurrentPrcb();
-        SchedulerAssist = (signed __int32 *)v22->SchedulerAssist;
+        v23 = KeGetCurrentPrcb();
+        SchedulerAssist = (unsigned __int32 *)v23->SchedulerAssist;
         if ( SchedulerAssist )
         {
           _m_prefetchw(SchedulerAssist);
-          v29 = *SchedulerAssist;
+          v30 = *SchedulerAssist;
           do
           {
-            v30 = v29;
-            v29 = _InterlockedCompareExchange(SchedulerAssist, v29 & 0xFFDFFFFF, v29);
+            v31 = v30;
+            LODWORD(v31) = v30 & 0xFFDFFFFF;
+            v32 = v30;
+            v30 = _InterlockedCompareExchange((volatile signed __int32 *)SchedulerAssist, v30 & 0xFFDFFFFF, v30);
           }
-          while ( v30 != v29 );
-          if ( (v29 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick((__int64)v22);
+          while ( v32 != v30 );
+          if ( (v30 & 0x200000) != 0 )
+            KiRemoveSystemWorkPriorityKick(v23, v31, SchedulerAssist, v22);
         }
         _enable();
       }
@@ -189,14 +193,14 @@ LABEL_25:
     goto LABEL_25;
   }
 LABEL_10:
-  *(_BYTE *)(a1 + 13) |= 4u;
-  *(_QWORD *)(a1 + 16) = 0LL;
+  *((_BYTE *)a1 + 13) |= 4u;
+  a1[2] = 0LL;
 LABEL_11:
   if ( a3 )
-    *a3 = *(_BYTE *)(a1 + 12);
+    *a3 = *((_BYTE *)a1 + 12);
   else
-    a2 = *(_BYTE *)(a1 + 12);
-  if ( (*(_BYTE *)(a1 + 13) & 1) != 0 )
+    a2 = *((_BYTE *)a1 + 12);
+  if ( (*((_BYTE *)a1 + 13) & 1) != 0 )
     MiUnlockWorkingSetExclusive(v5, a2);
   else
     MiUnlockWorkingSetShared(v5, a2);

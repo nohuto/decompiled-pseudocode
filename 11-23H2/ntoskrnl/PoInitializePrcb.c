@@ -3,10 +3,10 @@
  * Callers:
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
  * Callees:
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     PpmHvUseNativeAlgorithms @ 0x140381360 (PpmHvUseNativeAlgorithms.c)
- *     PpmHeteroHgsProcessorInit @ 0x1403813B0 (PpmHeteroHgsProcessorInit.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     PpmHvUseNativeAlgorithms @ 0x140381500 (PpmHvUseNativeAlgorithms.c)
+ *     PpmHeteroHgsProcessorInit @ 0x140381550 (PpmHeteroHgsProcessorInit.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PpmHeteroAmdProcessorInit @ 0x140A87454 (PpmHeteroAmdProcessorInit.c)
  */
 

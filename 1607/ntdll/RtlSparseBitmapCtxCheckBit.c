@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSparseBitmapCtxCheckBit @ 0x180100420
+ * XREFs of RtlSparseBitmapCtxCheckBit @ 0x180100360
  * Callers:
  *     <none>
  * Callees:

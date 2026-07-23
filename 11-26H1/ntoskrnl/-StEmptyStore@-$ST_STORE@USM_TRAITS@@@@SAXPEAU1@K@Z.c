@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StEmptyStore@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@K@Z @ 0x14063E4D0
+ * XREFs of ?StEmptyStore@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@K@Z @ 0x1406420B0
  * Callers:
- *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020C5B0 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020C690 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1403F0504 (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1403E9ED4 (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall ST_STORE<SM_TRAITS>::StEmptyStore(__int64 a1)
@@ -17,9 +17,9 @@ void __fastcall ST_STORE<SM_TRAITS>::StEmptyStore(__int64 a1)
   __int64 *v6; // [rsp+60h] [rbp-28h]
   __int64 v7; // [rsp+68h] [rbp-20h]
 
-  if ( ((unsigned __int64)&stru_140E27B08.QuantumTarget & -(__int64)((BYTE4(stru_140E27B08.InitialStack) & 0x10) != 0)) != 0 )
+  if ( ((unsigned __int64)&stru_140E27C48.QuantumTarget & -(__int64)((BYTE4(stru_140E27C48.InitialStack) & 0x10) != 0)) != 0 )
   {
-    v2 = *(_QWORD *)((unsigned __int64)&stru_140E27B08.QuantumTarget & -(__int64)((BYTE4(stru_140E27B08.InitialStack) & 0x10) != 0));
+    v2 = *(_QWORD *)((unsigned __int64)&stru_140E27C48.QuantumTarget & -(__int64)((BYTE4(stru_140E27C48.InitialStack) & 0x10) != 0));
     v5.Ptr = (ULONGLONG)&v3;
     v6 = &v4;
     v4 = 0LL;

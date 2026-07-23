@@ -1,20 +1,20 @@
 /*
- * XREFs of IopInitializeCrashDump @ 0x140832C88
+ * XREFs of IopInitializeCrashDump @ 0x140832F88
  * Callers:
- *     IoConfigureCrashDump @ 0x14054F964 (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x14083459C (IoInitializeCrashDump.c)
+ *     IoConfigureCrashDump @ 0x140550024 (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x14083489C (IoInitializeCrashDump.c)
  *     IopInitCrashDumpRegCallback @ 0x140B5D550 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopReadDumpRegistry @ 0x140395A04 (IopReadDumpRegistry.c)
- *     SecureDump_GetSecureDumpSettings @ 0x140395B44 (SecureDump_GetSecureDumpSettings.c)
- *     IopLoadCrashdumpDriver @ 0x140396270 (IopLoadCrashdumpDriver.c)
- *     IopInitializeRemovePagesArray @ 0x140396630 (IopInitializeRemovePagesArray.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IopDumpTraceInitializeCrashDumpFailure @ 0x140552C78 (IopDumpTraceInitializeCrashDumpFailure.c)
- *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x140552E98 (IopDumpTraceLoadCrashDumpDriverFailure.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140833F78 (FsRtlIssueFileNotificationFsctl.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopReadDumpRegistry @ 0x140395BE4 (IopReadDumpRegistry.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140395D24 (SecureDump_GetSecureDumpSettings.c)
+ *     IopLoadCrashdumpDriver @ 0x140396450 (IopLoadCrashdumpDriver.c)
+ *     IopInitializeRemovePagesArray @ 0x140396810 (IopInitializeRemovePagesArray.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopDumpTraceInitializeCrashDumpFailure @ 0x140553338 (IopDumpTraceInitializeCrashDumpFailure.c)
+ *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x140553558 (IopDumpTraceLoadCrashDumpDriverFailure.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140834278 (FsRtlIssueFileNotificationFsctl.c)
  */
 
 char __fastcall IopInitializeCrashDump(__int64 a1, __int128 *a2)

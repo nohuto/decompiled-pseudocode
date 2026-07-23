@@ -3,7 +3,7 @@
  * Callers:
  *     EmInitSystem @ 0x140B55508 (EmInitSystem.c)
  * Callees:
- *     EmpProviderRegister @ 0x140825020 (EmpProviderRegister.c)
+ *     EmpProviderRegister @ 0x140825320 (EmpProviderRegister.c)
  */
 
 __int64 HalRegisterErrataCallbacks()

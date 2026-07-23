@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpWnfMetaCallbackProc @ 0x180088280
+ * XREFs of RtlpWnfMetaCallbackProc @ 0x180088290
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetEvent @ 0x1800A04A0 (ZwSetEvent.c)
+ *     ZwSetEvent @ 0x1800A04C0 (ZwSetEvent.c)
  */
 
 __int64 __fastcall RtlpWnfMetaCallbackProc(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v4; // rcx
+  void *v4; // rcx
 
   if ( !*(_DWORD *)(a2 + 16) )
   {
-    v4 = *(_QWORD *)(a2 + 8);
+    v4 = *(void **)(a2 + 8);
     *(_DWORD *)a2 = a3;
     if ( v4 )
       ZwSetEvent(v4, 0LL);

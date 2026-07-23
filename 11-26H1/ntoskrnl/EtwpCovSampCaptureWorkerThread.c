@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCovSampCaptureWorkerThread @ 0x140830C70
+ * XREFs of EtwpCovSampCaptureWorkerThread @ 0x140836EB0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140468120 (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x1404773A8 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampLookasideGrow @ 0x1406C8AEC (EtwpCovSampLookasideGrow.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampCaptureBufferProcess @ 0x14093E770 (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampSampleBufferProcess @ 0x140942E78 (EtwpCovSampSampleBufferProcess.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140461760 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140470B28 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampLookasideGrow @ 0x1406CCACC (EtwpCovSampLookasideGrow.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x140A31888 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x140A35F88 (EtwpCovSampSampleBufferProcess.c)
  */
 
 void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
@@ -56,7 +56,7 @@ void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
           {
             case 1342288122LL:
               EtwpCovSampSampleBufferProcess(a1, v6);
-              EtwpCovSampCaptureReleaseToLookaside(a1, a1 + 880, (struct _SLIST_ENTRY *)v6);
+              EtwpCovSampCaptureReleaseToLookaside(a1, a1 + 880, (_SLIST_ENTRY *)v6);
               break;
             case 3401298175LL:
               EtwpCovSampCaptureBufferProcess(a1, v6);

@@ -6,7 +6,7 @@
  *     HalpBlkShadowApic @ 0x140B91F60 (HalpBlkShadowApic.c)
  *     HalpBlkShadowStartupBlock @ 0x140B91FB4 (HalpBlkShadowStartupBlock.c)
  * Callees:
- *     HalpRemapVirtualAddress64 @ 0x14033F790 (HalpRemapVirtualAddress64.c)
+ *     HalpRemapVirtualAddress64 @ 0x14033FA20 (HalpRemapVirtualAddress64.c)
  *     HalpBlkAllocatePageTablePage @ 0x140B91CD4 (HalpBlkAllocatePageTablePage.c)
  */
 

@@ -9,72 +9,77 @@
  *     RtlDebugQueryTagHeap @ 0x18010805C (RtlDebugQueryTagHeap.c)
  */
 
-void *__fastcall RtlQueryTagHeap(__int64 a1, int a2, unsigned __int16 a3, char a4, __int64 a5)
+PWSTR __cdecl RtlQueryTagHeap(
+        PVOID HeapHandle,
+        ULONG Flags,
+        USHORT TagIndex,
+        BOOLEAN ResetCounters,
+        PRTL_HEAP_TAG_INFO TagInfo)
 {
   int v7; // ecx
-  void *TagHeap; // rdi
-  int v9; // edx
+  WCHAR *TagHeap; // rdi
+  char v9; // dl
   __int64 v10; // rcx
   __int64 v11; // rdx
   __int64 v12; // rcx
   char v14; // [rsp+30h] [rbp-28h]
 
   v14 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
     return 0LL;
-  v7 = *(_DWORD *)(a1 + 116);
+  v7 = *((_DWORD *)HeapHandle + 29);
   if ( (v7 & 0x1000000) != 0 || (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
     return 0LL;
   TagHeap = 0LL;
-  v9 = v7 | a2;
-  if ( ((v7 | a2) & 0x61000000) != 0 && ((v7 | a2) & 0x10000000) == 0 )
+  v9 = v7 | Flags;
+  if ( ((v7 | Flags) & 0x61000000) != 0 && ((v7 | Flags) & 0x10000000) == 0 )
   {
-    TagHeap = (void *)RtlDebugQueryTagHeap(a1, v9, a3, a4, a5);
+    TagHeap = (WCHAR *)RtlDebugQueryTagHeap(HeapHandle, TagInfo);
   }
   else
   {
     if ( (v9 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
       v14 = 1;
     }
-    if ( a3 < *(_WORD *)(a1 + 224) && (v10 = *(_QWORD *)(a1 + 232)) != 0 )
+    if ( TagIndex < *((_WORD *)HeapHandle + 112) && (v10 = *((_QWORD *)HeapHandle + 29)) != 0 )
     {
-      if ( a5 )
+      if ( TagInfo )
       {
-        *(_DWORD *)a5 = *(_DWORD *)(v10 + 72LL * a3);
-        *(_DWORD *)(a5 + 4) = *(_DWORD *)(v10 + 72LL * a3 + 4);
-        *(_QWORD *)(a5 + 8) = 16LL * *(_QWORD *)(v10 + 72LL * a3 + 8);
+        TagInfo->NumberOfAllocations = *(_DWORD *)(v10 + 72LL * TagIndex);
+        TagInfo->NumberOfFrees = *(_DWORD *)(v10 + 72LL * TagIndex + 4);
+        TagInfo->BytesAllocated = 16LL * *(_QWORD *)(v10 + 72LL * TagIndex + 8);
       }
-      if ( a4 )
+      if ( ResetCounters )
       {
-        *(_QWORD *)(v10 + 72LL * a3) = 0LL;
-        *(_QWORD *)(v10 + 72LL * a3 + 8) = 0LL;
+        *(_QWORD *)(v10 + 72LL * TagIndex) = 0LL;
+        *(_QWORD *)(v10 + 72LL * TagIndex + 8) = 0LL;
       }
-      TagHeap = (void *)(v10 + 20 + 72LL * a3);
+      TagHeap = (WCHAR *)(v10 + 20 + 72LL * TagIndex);
     }
-    else if ( (a3 & 0x8000u) != 0 && (a3 ^ 0x8000u) < 0x81 )
+    else if ( (TagIndex & 0x8000u) != 0 && (TagIndex ^ 0x8000u) < 0x81 )
     {
-      v11 = *(_QWORD *)(a1 + 328);
+      v11 = *((_QWORD *)HeapHandle + 41);
       if ( v11 )
       {
-        v12 = v11 + 16LL * (a3 ^ 0x8000u);
-        if ( a5 )
+        v12 = v11 + 16LL * (TagIndex ^ 0x8000u);
+        if ( TagInfo )
         {
-          *(_DWORD *)a5 = *(_DWORD *)v12;
-          *(_DWORD *)(a5 + 4) = *(_DWORD *)(v12 + 4);
-          *(_QWORD *)(a5 + 8) = 16LL * *(_QWORD *)(v12 + 8);
+          TagInfo->NumberOfAllocations = *(_DWORD *)v12;
+          TagInfo->NumberOfFrees = *(_DWORD *)(v12 + 4);
+          TagInfo->BytesAllocated = 16LL * *(_QWORD *)(v12 + 8);
         }
-        if ( a4 )
+        if ( ResetCounters )
         {
           *(_QWORD *)v12 = 0LL;
           *(_QWORD *)(v12 + 8) = 0LL;
         }
-        TagHeap = &unk_18011CB50;
+        TagHeap = (WCHAR *)&word_18011CB50;
       }
     }
   }
   if ( v14 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
   return TagHeap;
 }

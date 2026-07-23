@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeIsExecutingLegacyDpc @ 0x140C33910
+ * XREFs of VerifierKeIsExecutingLegacyDpc @ 0x140C39920
  * Callers:
  *     <none>
  * Callees:

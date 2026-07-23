@@ -1,20 +1,20 @@
 /*
- * XREFs of IoGetDeviceAttachmentBaseRef @ 0x14026F260
+ * XREFs of IoGetDeviceAttachmentBaseRef @ 0x14026E7D0
  * Callers:
- *     PipSetDevNodeStateFlags @ 0x1407A5540 (PipSetDevNodeStateFlags.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407B8904 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
- *     PopRegisterTargetDeviceProtection @ 0x1407CB3E4 (PopRegisterTargetDeviceProtection.c)
- *     PopRegisterCoolingExtensionProtection @ 0x1407CBED8 (PopRegisterCoolingExtensionProtection.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x1409BB670 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlReleaseFile @ 0x140A56BA0 (FsRtlReleaseFile.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x140A5D320 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x140A5D5D0 (FsRtlReleaseFileForCcFlush.c)
- *     IoWMIDeviceObjectToInstanceName @ 0x140AE8F00 (IoWMIDeviceObjectToInstanceName.c)
+ *     PipSetDevNodeStateFlags @ 0x1407A8080 (PipSetDevNodeStateFlags.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407BB964 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PopRegisterTargetDeviceProtection @ 0x1407CE484 (PopRegisterTargetDeviceProtection.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x1407CEF78 (PopRegisterCoolingExtensionProtection.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x14098C650 (FsRtlAcquireFileExclusiveCommon.c)
+ *     FsRtlReleaseFile @ 0x140A64120 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x140A6A2E0 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x140A6A590 (FsRtlReleaseFileForCcFlush.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x140AEB150 (IoWMIDeviceObjectToInstanceName.c)
  * Callees:
- *     IopGetDeviceAttachmentBase @ 0x14026F314 (IopGetDeviceAttachmentBase.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
+ *     IopGetDeviceAttachmentBase @ 0x14026E884 (IopGetDeviceAttachmentBase.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
  */
 
 PDEVICE_OBJECT __stdcall IoGetDeviceAttachmentBaseRef(PDEVICE_OBJECT DeviceObject)

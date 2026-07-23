@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpInitMachineFrameEntries @ 0x140C36DC0
+ * XREFs of RtlpInitMachineFrameEntries @ 0x140C38F00
  * Callers:
- *     RtlInitKernelModeSpecialMachineFrameEntries @ 0x140C36D28 (RtlInitKernelModeSpecialMachineFrameEntries.c)
- *     RtlInitializeHistoryTable @ 0x140C36E10 (RtlInitializeHistoryTable.c)
+ *     RtlInitKernelModeSpecialMachineFrameEntries @ 0x140C38E68 (RtlInitKernelModeSpecialMachineFrameEntries.c)
+ *     RtlInitializeHistoryTable @ 0x140C38F50 (RtlInitializeHistoryTable.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x14027D3A0 (RtlLookupFunctionEntry.c)
+ *     RtlLookupFunctionEntry @ 0x140232930 (RtlLookupFunctionEntry.c)
  */
 
-void __fastcall RtlpInitMachineFrameEntries(unsigned __int64 *a1, unsigned int a2)
+void __fastcall RtlpInitMachineFrameEntries(DWORD64 *a1, unsigned int a2)
 {
   __int64 v3; // rdi
-  unsigned int *v4; // rax
-  unsigned __int64 v5; // [rsp+40h] [rbp+18h] BYREF
+  PRUNTIME_FUNCTION v4; // rax
+  unsigned __int64 ImageBase; // [rsp+40h] [rbp+18h] BYREF
 
   if ( a2 )
   {
-    v5 = 0LL;
+    ImageBase = 0LL;
     v3 = a2;
     do
     {
-      v4 = RtlLookupFunctionEntry(*a1, &v5, 0LL);
-      *a1++ = v5 + v4[2];
+      v4 = RtlLookupFunctionEntry(*a1, &ImageBase, 0LL);
+      *a1++ = ImageBase + v4->UnwindInfoAddress;
       --v3;
     }
     while ( v3 );

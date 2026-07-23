@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpMcaAMDMapHwidAndMcaTypeToBlock @ 0x1404BD210
+ * XREFs of HalpMcaAMDMapHwidAndMcaTypeToBlock @ 0x1404BD450
  * Callers:
- *     HalpMcaAMDIsMemoryError @ 0x1404BD194 (HalpMcaAMDIsMemoryError.c)
+ *     HalpMcaAMDIsMemoryError @ 0x1404BD3D4 (HalpMcaAMDIsMemoryError.c)
  * Callees:
  *     <none>
  */

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall sub_1800D66F0(__int64 a1, __int64 a2)
+__int64 __fastcall sub_1800D66F0(unsigned __int64 a1, __int64 a2)
 {
   if ( !qword_18016F268 )
     return 3221225485LL;

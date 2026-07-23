@@ -13,16 +13,25 @@
  *     ZwQueryVirtualMemory @ 0x18009AF20 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall sub_180011A6C(__int64 a1, unsigned int a2)
+__int64 __fastcall sub_180011A6C(PVOID BaseAddress, unsigned int a2)
 {
   unsigned int v2; // ebx
-  __int64 v5; // [rsp+30h] [rbp-28h] BYREF
+  PVOID MemoryInformation; // [rsp+30h] [rbp-28h] BYREF
   int v6; // [rsp+38h] [rbp-20h]
 
   v2 = a2;
-  if ( a2 == 64 && ((int)ZwQueryVirtualMemory(-1LL, a1, 3LL, &v5, 32LL, 0LL) < 0 || (v6 & 0x60) == 0 || v5 != a1) )
+  if ( a2 == 64
+    && (ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          MemoryRegionInformation,
+          &MemoryInformation,
+          0x20uLL,
+          0LL) < 0
+     || (v6 & 0x60) == 0
+     || MemoryInformation != BaseAddress) )
   {
-    sub_18009A5F0(0, a1, 1, v6, 0LL, 0LL);
+    sub_18009A5F0(0, (_DWORD)BaseAddress, 1, v6, 0LL, 0LL);
     return 4;
   }
   return v2;

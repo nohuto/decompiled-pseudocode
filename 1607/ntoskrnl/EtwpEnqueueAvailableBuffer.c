@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpEnqueueAvailableBuffer @ 0x1400ED1E0
+ * XREFs of EtwpEnqueueAvailableBuffer @ 0x1400EB050
  * Callers:
- *     EtwpAllocateFreeBuffers @ 0x14008565C (EtwpAllocateFreeBuffers.c)
- *     EtwpSwitchBuffer @ 0x1400ED3E0 (EtwpSwitchBuffer.c)
- *     EtwpPrepareDirtyBuffer @ 0x1400ED78C (EtwpPrepareDirtyBuffer.c)
- *     EtwpRelinquishCompressionTarget @ 0x14022AE08 (EtwpRelinquishCompressionTarget.c)
- *     EtwpRotateCompressionTarget @ 0x14022AE4C (EtwpRotateCompressionTarget.c)
- *     EtwpFlushActiveBuffers @ 0x140510490 (EtwpFlushActiveBuffers.c)
- *     EtwpCompleteBuffer @ 0x1405281CC (EtwpCompleteBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x140086F48 (EtwpAllocateFreeBuffers.c)
+ *     EtwpSwitchBuffer @ 0x1400EB250 (EtwpSwitchBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1400EB628 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpRelinquishCompressionTarget @ 0x14022AC34 (EtwpRelinquishCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x14022AC78 (EtwpRotateCompressionTarget.c)
+ *     EtwpFlushActiveBuffers @ 0x1404F3420 (EtwpFlushActiveBuffers.c)
+ *     EtwpCompleteBuffer @ 0x14052870C (EtwpCompleteBuffer.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     EtwpLockBufferList @ 0x1400EB6C0 (EtwpLockBufferList.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     EtwpLockBufferList @ 0x1400E9530 (EtwpLockBufferList.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, unsigned int a3)

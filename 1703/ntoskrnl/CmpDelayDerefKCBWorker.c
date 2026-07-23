@@ -26,12 +26,11 @@ __int64 __fastcall CmpDelayDerefKCBWorker(__int64 a1)
   signed __int32 v6; // eax
   __int64 v7; // rsi
   char v8; // bl
-  __int64 v9; // rax
-  __int64 v10; // r8
-  __int64 v11; // rbx
+  PRTL_BALANCED_NODE v9; // rax
+  PRTL_BALANCED_NODE v10; // rbx
   unsigned __int8 CurrentIrql; // di
   __int64 result; // rax
-  signed __int32 v14[14]; // [rsp+0h] [rbp-38h] BYREF
+  signed __int32 v13[14]; // [rsp+0h] [rbp-38h] BYREF
 
   v1 = 0;
   CmpLockRegistry(a1);
@@ -54,7 +53,7 @@ __int64 __fastcall CmpDelayDerefKCBWorker(__int64 a1)
     *(_QWORD *)(v3 + 8) = &CmpDelayDerefKCBListHead;
     v2[1] = (__int64)v2;
     *v2 = (__int64)v2;
-    _InterlockedOr(v14, 0);
+    _InterlockedOr(v13, 0);
     *((_BYTE *)v2 - 160) &= ~1u;
     v5 = *((_BYTE *)&CmpDelayDerefKCBLock + 48);
     *(&CmpDelayDerefKCBLock + 1) = 0LL;
@@ -69,14 +68,14 @@ __int64 __fastcall CmpDelayDerefKCBWorker(__int64 a1)
     if ( v8 == 1 )
       CmpDoQueueLateUnloadWorker(v7);
     ++v1;
-    v9 = KeAbPreAcquire((ULONG_PTR)&CmpDelayDerefKCBLock, 0LL, 0LL);
-    v11 = v9;
+    v9 = KeAbPreAcquire((ULONG_PTR)&CmpDelayDerefKCBLock, 0LL, 0);
+    v10 = v9;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(1uLL);
     if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayDerefKCBLock, 0) )
-      ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayDerefKCBLock, v9, v10);
-    if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
+      ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayDerefKCBLock, (__int64)v9);
+    if ( v10 )
+      BYTE2(v10[1].Left) |= 1u;
     *(&CmpDelayDerefKCBLock + 1) = (ULONG_PTR)KeGetCurrentThread();
     *((_DWORD *)&CmpDelayDerefKCBLock + 12) = CurrentIrql;
   }

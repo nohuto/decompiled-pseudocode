@@ -7,24 +7,24 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-int __thiscall RtlSetUserCallbackExceptionFilter(void *this, int a2)
+int __thiscall RtlSetUserCallbackExceptionFilter(ULONG *this, int a2)
 {
-  int v2; // eax
+  PULONG v2; // eax
   int result; // eax
   int v4; // eax
-  int v5; // [esp+0h] [ebp-4h] BYREF
+  ULONG *ProcessInformation; // [esp+0h] [ebp-4h] BYREF
 
-  v5 = (int)this;
+  ProcessInformation = this;
   v2 = `RtlpGetCookieValue'::`2'::CookieValue;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v4 = ZwQueryInformationProcess(-1, 36, &v5, 4, 0);
+    v4 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
     if ( v4 < 0 )
       RtlRaiseStatus(v4);
-    v2 = v5;
-    `RtlpGetCookieValue'::`2'::CookieValue = v5;
+    v2 = ProcessInformation;
+    `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  result = __ROR4__(a2 ^ v2, v2 & 0x1F);
+  result = __ROR4__(a2 ^ (unsigned int)v2, (unsigned __int8)v2 & 0x1F);
   RtlpUserCallbackExceptionFilter = result;
   return result;
 }

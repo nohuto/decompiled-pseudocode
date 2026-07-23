@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeInterrupt @ 0x14047E3AC
+ * XREFs of KiInitializeInterrupt @ 0x14047959C
  * Callers:
- *     KeInitializeInterruptEx @ 0x14047E278 (KeInitializeInterruptEx.c)
+ *     KeInitializeInterruptEx @ 0x140479468 (KeInitializeInterruptEx.c)
  * Callees:
  *     <none>
  */

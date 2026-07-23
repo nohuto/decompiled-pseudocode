@@ -125,7 +125,7 @@ void __fastcall MiDeletePartitionResources(__int64 a1)
     --v6;
   }
   while ( v6 );
-  MiFreeClonePool((union _SLIST_HEADER *)a1);
+  MiFreeClonePool((_SLIST_HEADER *)a1);
   v8 = *(_QWORD *)(a1 + 7888);
   v9 = **(_QWORD **)(*(_QWORD *)(a1 + 168) + 56LL);
   *(_QWORD *)(a1 + 8552) -= MiDeletePagingFiles(a1);

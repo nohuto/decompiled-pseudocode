@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpMapLegacyPortRemoteView @ 0x1407E8DD0
+ * XREFs of AlpcpMapLegacyPortRemoteView @ 0x1407E90A0
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x14071697C (AlpcpAcceptConnectPort.c)
+ *     AlpcpAcceptConnectPort @ 0x140716B7C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     AlpcpInsertResourcePort @ 0x14071EBDC (AlpcpInsertResourcePort.c)
- *     AlpcpRemoveResourcePort @ 0x14071EC60 (AlpcpRemoveResourcePort.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140739E34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073BC40 (AlpcpUnlockBlob.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     AlpcpInsertResourcePort @ 0x14071EDDC (AlpcpInsertResourcePort.c)
+ *     AlpcpRemoveResourcePort @ 0x14071EE60 (AlpcpRemoveResourcePort.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14073A024 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x14073BE30 (AlpcpUnlockBlob.c)
  */
 
 __int64 __fastcall AlpcpMapLegacyPortRemoteView(signed __int64 *Object, __int64 a2, __int64 a3)

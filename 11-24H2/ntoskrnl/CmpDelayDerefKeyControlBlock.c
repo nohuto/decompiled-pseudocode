@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpDelayDerefKeyControlBlock @ 0x14087E570
+ * XREFs of CmpDelayDerefKeyControlBlock @ 0x140882420
  * Callers:
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1408704E0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x14087BB00 (CmpFindSubKeyByNumberFromMergedView.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x14087C900 (CmpCleanUpKcbCachedSymlink.c)
- *     CmpFindSubKeyByNumberEx @ 0x14087D660 (CmpFindSubKeyByNumberEx.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14087DE20 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpRemoveLayerLinkForDiscardedKcb @ 0x14097D248 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1FC64 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FE28 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x140A568A8 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140874810 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x14087F9B0 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1408807B0 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpFindSubKeyByNumberEx @ 0x140881510 (CmpFindSubKeyByNumberEx.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140881CD0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpRemoveLayerLinkForDiscardedKcb @ 0x140965A58 (CmpRemoveLayerLinkForDiscardedKcb.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A14D64 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140A14F28 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x140A4E738 (CmpKeyEnumStackFreeResumeContext.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CmpDoQueueLateUnloadWorker @ 0x14087E638 (CmpDoQueueLateUnloadWorker.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1408824E8 (CmpDoQueueLateUnloadWorker.c)
  */
 
 _QWORD *__fastcall CmpDelayDerefKeyControlBlock(ULONG_PTR BugCheckParameter2, __int64 a2)

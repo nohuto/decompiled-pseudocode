@@ -1,19 +1,19 @@
 /*
- * XREFs of KeQueryKvaShadowRegion @ 0x14040D384
+ * XREFs of KeQueryKvaShadowRegion @ 0x14042A2B0
  * Callers:
- *     MiCheckRelevantKernelShadows @ 0x14040D30C (MiCheckRelevantKernelShadows.c)
+ *     MiCheckRelevantKernelShadows @ 0x14042A238 (MiCheckRelevantKernelShadows.c)
  * Callees:
- *     RtlSectionTableFromVirtualAddress @ 0x14040E4E0 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x14042B410 (RtlSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, unsigned __int64 *a3)
 {
-  __int64 v3; // r9
+  _IMAGE_NT_HEADERS64 *v3; // r9
   __int64 v6; // rcx
   _DWORD *v7; // rax
-  _DWORD *v8; // rax
-  unsigned int v9; // ecx
-  unsigned int v10; // eax
+  PIMAGE_SECTION_HEADER v8; // rax
+  unsigned int PhysicalAddress; // ecx
+  unsigned int SizeOfRawData; // eax
   KPCR *Pcr; // rax
   struct _KPRCB *CurrentPrcb; // rax
 
@@ -45,19 +45,19 @@ __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, uns
                                                                   + (unsigned __int64)MEMORY[0x14000003C])
         && *v7 == 17744 )
       {
-        v3 = 0x140000000LL + MEMORY[0x14000003C];
+        v3 = (_IMAGE_NT_HEADERS64 *)(0x140000000LL + MEMORY[0x14000003C]);
       }
     }
-    v8 = (_DWORD *)RtlSectionTableFromVirtualAddress(
-                     v3,
-                     0x140000000uLL,
-                     (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
-    *a2 = (unsigned __int64 *)(0x140000000LL + (unsigned int)v8[3]);
-    v9 = v8[2];
-    v10 = v8[4];
-    if ( v9 <= v10 )
-      v9 = v10;
-    *a3 = (v9 + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
+    v8 = RtlSectionTableFromVirtualAddress(
+           v3,
+           (PVOID)0x140000000LL,
+           (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
+    *a2 = (unsigned __int64 *)(0x140000000LL + v8->VirtualAddress);
+    PhysicalAddress = v8->Misc.PhysicalAddress;
+    SizeOfRawData = v8->SizeOfRawData;
+    if ( PhysicalAddress <= SizeOfRawData )
+      PhysicalAddress = SizeOfRawData;
+    *a3 = (PhysicalAddress + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
     return 1LL;
   }
   return 0LL;

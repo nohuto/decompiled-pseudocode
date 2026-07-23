@@ -1,8 +1,8 @@
 /*
  * XREFs of RtlControlStackTraceDataBase @ 0x1800F251C
  * Callers:
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
- *     RtlSetProcessDebugInformation @ 0x1800D52F0 (RtlSetProcessDebugInformation.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
+ *     RtlSetProcessDebugInformation @ 0x1800D53B0 (RtlSetProcessDebugInformation.c)
  * Callees:
  *     <none>
  */

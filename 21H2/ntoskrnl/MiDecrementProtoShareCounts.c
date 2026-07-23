@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDecrementProtoShareCounts @ 0x1405406A0
+ * XREFs of MiDecrementProtoShareCounts @ 0x1405408E0
  * Callers:
- *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x1408CF670 (MiAllocateFileExtents.c)
  * Callees:
- *     MiDecrementShareCount @ 0x1402401C0 (MiDecrementShareCount.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiDecrementShareCount @ 0x1402E4A10 (MiDecrementShareCount.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

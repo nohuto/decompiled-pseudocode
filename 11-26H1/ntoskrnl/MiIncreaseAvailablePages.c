@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIncreaseAvailablePages @ 0x1403E59D0
+ * XREFs of MiIncreaseAvailablePages @ 0x1403E8BC0
  * Callers:
- *     MiReplenishPageSlist @ 0x14028A710 (MiReplenishPageSlist.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertFreeZeroPage @ 0x1402DCE70 (MiInsertFreeZeroPage.c)
+ *     MiReplenishPageSlist @ 0x140289C70 (MiReplenishPageSlist.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertFreeZeroPage @ 0x1402BEC30 (MiInsertFreeZeroPage.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUpdateAvailableEventsAtDpc @ 0x1403E5C00 (MiUpdateAvailableEventsAtDpc.c)
- *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E5C8C (MiSlabDemotionLowMemoryConditionUpdate.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUpdateAvailableEventsAtDpc @ 0x1403E8DF0 (MiUpdateAvailableEventsAtDpc.c)
+ *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E8E7C (MiSlabDemotionLowMemoryConditionUpdate.c)
  */
 
 unsigned __int64 __fastcall MiIncreaseAvailablePages(__int64 a1, unsigned __int64 a2)

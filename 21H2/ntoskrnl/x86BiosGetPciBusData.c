@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosGetPciBusData @ 0x1403CEAD0
+ * XREFs of x86BiosGetPciBusData @ 0x1403CEC40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall x86BiosGetPciBusData(__int64 a1)

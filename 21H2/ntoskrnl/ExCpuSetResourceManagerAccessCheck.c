@@ -1,15 +1,15 @@
 /*
- * XREFs of ExCpuSetResourceManagerAccessCheck @ 0x1402BD264
+ * XREFs of ExCpuSetResourceManagerAccessCheck @ 0x14023B914
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     NtAcquireProcessActivityReference @ 0x140731390 (NtAcquireProcessActivityReference.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     NtAcquireProcessActivityReference @ 0x140731550 (NtAcquireProcessActivityReference.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x14034DC70 (SeAccessCheckWithHint.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
+ *     SeAccessCheckWithHint @ 0x1403589C0 (SeAccessCheckWithHint.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x14064CA80 (SeCaptureSubjectContextEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall ExCpuSetResourceManagerAccessCheck(KPROCESSOR_MODE a1)

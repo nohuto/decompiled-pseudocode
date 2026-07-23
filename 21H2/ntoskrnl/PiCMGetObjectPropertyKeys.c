@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCMGetObjectPropertyKeys @ 0x1408B08EC
+ * XREFs of PiCMGetObjectPropertyKeys @ 0x1408B0A4C
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     PiCMReturnBufferResultData @ 0x140637784 (PiCMReturnBufferResultData.c)
- *     PiCMReleaseObjectInputData @ 0x140638B40 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x140638B74 (PiCMCaptureObjectInputData.c)
- *     _PnpGetObjectPropertyKeys @ 0x140976928 (_PnpGetObjectPropertyKeys.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PiCMReturnBufferResultData @ 0x14062C594 (PiCMReturnBufferResultData.c)
+ *     PiCMReleaseObjectInputData @ 0x14062D950 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14062D984 (PiCMCaptureObjectInputData.c)
+ *     _PnpGetObjectPropertyKeys @ 0x140976B08 (_PnpGetObjectPropertyKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetObjectPropertyKeys(

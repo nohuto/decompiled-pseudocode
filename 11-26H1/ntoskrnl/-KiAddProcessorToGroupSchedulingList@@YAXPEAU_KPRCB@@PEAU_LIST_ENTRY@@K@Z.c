@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z @ 0x1405F8DA0
+ * XREFs of ?KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z @ 0x1405FB7C0
  * Callers:
- *     ?KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z @ 0x1405F8DA0 (-KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z.c)
- *     KiAddProcessorToGroupSchedulingDatabase @ 0x140BF86CC (KiAddProcessorToGroupSchedulingDatabase.c)
+ *     ?KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z @ 0x1405FB7C0 (-KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z.c)
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x140BFE6CC (KiAddProcessorToGroupSchedulingDatabase.c)
  * Callees:
- *     ?KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z @ 0x1405F8DA0 (-KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z.c)
+ *     ?KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z @ 0x1405FB7C0 (-KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z.c)
  */
 
 void __fastcall KiAddProcessorToGroupSchedulingList(struct _KPRCB *a1, struct _LIST_ENTRY *a2, unsigned int a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of SshpReferenceBlocker @ 0x1407E8260
+ * XREFs of SshpReferenceBlocker @ 0x1407E8530
  * Callers:
- *     SleepstudyHelperSetBlockerParentHandle @ 0x14036B6F0 (SleepstudyHelperSetBlockerParentHandle.c)
+ *     SleepstudyHelperSetBlockerParentHandle @ 0x14036B890 (SleepstudyHelperSetBlockerParentHandle.c)
  * Callees:
  *     <none>
  */

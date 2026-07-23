@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpDmaFreeMapRegisters @ 0x14045746C (HalpDmaFreeMapRegisters.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_14045746C @ 0x14045746C (sub_14045746C.c)
  */
 
 __int64 __fastcall HalDmaFreeCrashDumpRegistersEx(__int64 a1, signed int a2)
@@ -14,13 +14,14 @@ __int64 __fastcall HalDmaFreeCrashDumpRegistersEx(__int64 a1, signed int a2)
   int v5; // eax
   __int64 v7; // rdx
   __int64 v8; // rbx
-  char v9; // al
-  _DWORD *v10; // rdx
-  __int64 v11; // r8
-  char v12; // cl
-  _QWORD *v14; // rdi
-  __int64 v15; // rcx
-  _QWORD *v16; // rax
+  __int64 v9; // rdx
+  char v10; // al
+  _DWORD *v11; // rdx
+  __int64 v12; // r8
+  char v13; // cl
+  _QWORD *v15; // rdi
+  __int64 v16; // rcx
+  _QWORD *v17; // rax
 
   if ( !a1 || (unsigned int)a2 > 1 )
     return 3221225485LL;
@@ -44,34 +45,34 @@ __int64 __fastcall HalDmaFreeCrashDumpRegistersEx(__int64 a1, signed int a2)
       {
         _mm_lfence();
         v8 = *(_QWORD *)(a1 + 8 * v3 + 248);
-        ((void (__fastcall *)(__int64, __int64))qword_140C4BE08)(v8 + 24, v7);
-        ((void (__fastcall *)(_QWORD))qword_140C4BDF8)(*(_QWORD *)(v8 + 24));
+        sub_14042A5E0(v8 + 24, v7);
+        sub_14042A5E0(*(_QWORD *)(v8 + 24), v9);
         v7 = *(_QWORD *)(a1 + 8 * v3 + 248);
       }
-      HalpDmaFreeMapRegisters(a1, v7, *(unsigned int *)(a1 + 4 * v3 + 264));
+      sub_14045746C(a1, v7, *(unsigned int *)(a1 + 4 * v3 + 264));
       *(_QWORD *)(a1 + 8 * v3 + 248) = 0LL;
       *(_DWORD *)(a1 + 4 * v3 + 264) = 0;
     }
-    v9 = 1;
-    v10 = (_DWORD *)(a1 + 272);
-    v11 = 2LL;
+    v10 = 1;
+    v11 = (_DWORD *)(a1 + 272);
+    v12 = 2LL;
     do
     {
-      v12 = 0;
-      if ( *v10++ == 0 )
-        v12 = v9;
-      v9 = v12;
-      --v11;
+      v13 = 0;
+      if ( *v11++ == 0 )
+        v13 = v10;
+      v10 = v13;
+      --v12;
     }
-    while ( v11 );
-    if ( v12 )
+    while ( v12 );
+    if ( v13 )
     {
-      v14 = (_QWORD *)(a1 + 280);
-      v15 = *v14;
-      if ( *(_QWORD **)(*v14 + 8LL) != v14 || (v16 = (_QWORD *)v14[1], (_QWORD *)*v16 != v14) )
+      v15 = (_QWORD *)(a1 + 280);
+      v16 = *v15;
+      if ( *(_QWORD **)(*v15 + 8LL) != v15 || (v17 = (_QWORD *)v15[1], (_QWORD *)*v17 != v15) )
         __fastfail(3u);
-      *v16 = v15;
-      *(_QWORD *)(v15 + 8) = v16;
+      *v17 = v16;
+      *(_QWORD *)(v16 + 8) = v17;
     }
   }
   return 0LL;

@@ -22,11 +22,11 @@ __int64 CcPostDeferredWrites()
   unsigned int v0; // ebp
   struct _LIST_ENTRY **p_Blink; // rdi
   unsigned __int8 CurrentIrql; // r14
-  struct _LIST_ENTRY *Flink; // rsi
+  _LIST_ENTRY *Flink; // rsi
   unsigned int Blink; // edx
   unsigned int v5; // ebx
   struct _LIST_ENTRY *v6; // rdx
-  struct _LIST_ENTRY **v7; // rcx
+  _LIST_ENTRY **v7; // rcx
   __int64 result; // rax
   struct _KEVENT *v9; // rcx
   void *retaddr; // [rsp+38h] [rbp+0h]
@@ -55,7 +55,7 @@ __int64 CcPostDeferredWrites()
       {
         v0 = v5;
         v6 = Flink->Flink;
-        v7 = (struct _LIST_ENTRY **)p_Blink[4];
+        v7 = (_LIST_ENTRY **)p_Blink[4];
         if ( Flink->Flink->Blink != Flink || *v7 != Flink )
           __fastfail(3u);
         *v7 = v6;

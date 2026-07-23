@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlLocateExtendedFeature2 @ 0x1403FC240
+ * XREFs of RtlLocateExtendedFeature2 @ 0x1403F5C00
  * Callers:
  *     <none>
  * Callees:

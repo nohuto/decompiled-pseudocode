@@ -1,13 +1,13 @@
 /*
- * XREFs of CarCleanup @ 0x1405D3738
+ * XREFs of CarCleanup @ 0x1405D3CA8
  * Callers:
- *     CarReportUnusualShutdown @ 0x1405D45B0 (CarReportUnusualShutdown.c)
- *     VfVolatileClearDifRuleClass @ 0x140ADDAAC (VfVolatileClearDifRuleClass.c)
- *     VfVolatileSetDifRuleClass @ 0x140ADDC1C (VfVolatileSetDifRuleClass.c)
+ *     CarReportUnusualShutdown @ 0x1405D4B20 (CarReportUnusualShutdown.c)
+ *     VfVolatileClearDifRuleClass @ 0x140ADDA9C (VfVolatileClearDifRuleClass.c)
+ *     VfVolatileSetDifRuleClass @ 0x140ADDC0C (VfVolatileSetDifRuleClass.c)
  * Callees:
- *     KeDeregisterBugCheckReasonCallback @ 0x14036ABC0 (KeDeregisterBugCheckReasonCallback.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CarLoggingExit @ 0x1405D3470 (CarLoggingExit.c)
+ *     KeDeregisterBugCheckReasonCallback @ 0x14036AD60 (KeDeregisterBugCheckReasonCallback.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CarLoggingExit @ 0x1405D39E0 (CarLoggingExit.c)
  */
 
 unsigned __int64 CarCleanup()

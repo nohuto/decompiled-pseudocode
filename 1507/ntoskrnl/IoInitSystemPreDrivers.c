@@ -65,7 +65,7 @@
  *     IopInitializeSessionNotifications @ 0x1407E870C (IopInitializeSessionNotifications.c)
  */
 
-char __fastcall IoInitSystemPreDrivers(__int64 a1)
+char __fastcall IoInitSystemPreDrivers(char *Context)
 {
   int v2; // eax
   ULONG v3; // ebx
@@ -312,17 +312,17 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     IopInitFailCode = 15;
     return 0;
   }
-  if ( IopInitializePlugPlayServices(a1, 0LL) < 0 )
+  if ( IopInitializePlugPlayServices((__int64)Context, 0LL) < 0 )
   {
     HeadlessKernelAddLogEntry();
     IopInitFailCode = 4;
     return 0;
   }
-  KseInitialize(a1, 0);
+  KseInitialize((__int64)Context, 0);
   PoInitDriverServices();
   off_140321B70();
   PnpMarkHalDeviceNode();
-  if ( !WMIInitialize(0, a1) )
+  if ( !WMIInitialize(0, (__int64)Context) )
     return 0;
   EtwInitialize(0);
   if ( EtwRegister(&IoTraceProvider, (PETWENABLECALLBACK)IopEtwEnableCallback, 0LL, &IoTraceHandle) < 0 )
@@ -335,7 +335,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     IopInitFailCode = 11;
     return 0;
   }
-  SeAuditBootConfiguration(*(_QWORD *)(*(_QWORD *)(a1 + 240) + 2496LL));
+  SeAuditBootConfiguration(*(_QWORD *)(*((_QWORD *)Context + 30) + 2496LL));
   BootApplicationPersistentDataProcess(1LL);
   BapdRecordFirmwareBootStats();
   KdInitialize(2LL, 0LL, &KdpContext, v7);
@@ -369,10 +369,10 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     __writecr8(CurrentIrql);
   }
   IoEtwHandle = 0LL;
-  WheaInitialize(a1, 0);
-  if ( (int)IopStoreArcInformation(a1) < 0 )
+  WheaInitialize((__int64)Context, 0);
+  if ( (int)IopStoreArcInformation(Context) < 0 )
     return 0;
-  if ( IopInitializePlugPlayServices(a1, 1LL) < 0 )
+  if ( IopInitializePlugPlayServices((__int64)Context, 1LL) < 0 )
   {
     HeadlessKernelAddLogEntry();
     IopInitFailCode = 5;
@@ -392,11 +392,11 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   word_14034BCD8 = 1;
   byte_14034BCDA = 6;
   dword_14034BCDC = 0;
-  KitpInitAitSampleRate(a1);
+  KitpInitAitSampleRate(Context);
   if ( EtwRegister(&MS_Windows_AIT_Provider, 0LL, 0LL, &KitEtwHandle) < 0 )
     KitEtwHandle = 0LL;
-  KseInitialize(a1, 1);
-  HvlPhase2Initialize(a1);
+  KseInitialize((__int64)Context, 1);
+  HvlPhase2Initialize((__int64)Context);
   KeIpiGenericCall((PKIPI_BROADCAST_WORKER)KeOptimizeSpecCtrlSettings, 0LL);
   if ( PnpEtwHandle )
     EtwWriteStartScenario(
@@ -415,20 +415,20 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   if ( (int)IopInitializePassiveInterruptServices() < 0 )
     return 0;
   IopInitDumpCapsuleSupport();
-  if ( !(unsigned int)IopInitializeBootDrivers((char *)a1) )
+  if ( !(unsigned int)IopInitializeBootDrivers(Context) )
   {
     HeadlessKernelAddLogEntry();
     IopInitFailCode = 6;
     return 0;
   }
-  if ( !(unsigned __int8)PoInitSystem(2LL, a1) )
+  if ( !(unsigned __int8)PoInitSystem(2LL, Context) )
     KeBugCheck(0xA0u);
   SmInitSystem(1LL);
   EtwInitialize(1u);
   IopInitializeSystemVariableService();
   EtwRegister(&LiveDumpProvGuid, (PETWENABLECALLBACK)IopLiveDumpTracingControlCallback, 0LL, &IopLiveDumpEtwRegHandle);
   TraceLoggingRegisterEx(&stru_140320EC0, 0LL, 0LL);
-  if ( (int)IopInitCrashDumpDuringSysInit(a1) >= 0 )
+  if ( (int)IopInitCrashDumpDuringSysInit(Context) >= 0 )
     IopRemoveDumpCapsuleSupport();
   PpLastGoodDoBootProcessing();
   v9 = NtGlobalFlag;
@@ -442,13 +442,13 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     return 0;
   }
   PfSnBeginBootPhase(0);
-  if ( !(unsigned __int8)IopReassignSystemRoot(a1, &v19) )
+  if ( !(unsigned __int8)IopReassignSystemRoot(Context, &v19) )
   {
     HeadlessKernelAddLogEntry();
     IopInitFailCode = 9;
     return 0;
   }
-  if ( !(unsigned __int8)IopProtectSystemPartition(a1) )
+  if ( !(unsigned __int8)IopProtectSystemPartition(Context) )
   {
     HeadlessKernelAddLogEntry();
     IopInitFailCode = 10;
@@ -473,7 +473,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   }
   if ( !WMIInitialize(1, 0LL) )
     return 0;
-  WheaInitialize(a1, 1u);
+  WheaInitialize((__int64)Context, 1u);
   IopInitializeIoQos(v12, v11);
   return 1;
 }

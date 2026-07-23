@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAdtOpenObjectForDeleteAuditAlarm @ 0x1409CCA04
+ * XREFs of SepAdtOpenObjectForDeleteAuditAlarm @ 0x1409CCC04
  * Callers:
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CE160 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CE360 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x14039B780 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     SepAdtLogAuditRecord @ 0x14039B960 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall SepAdtOpenObjectForDeleteAuditAlarm(

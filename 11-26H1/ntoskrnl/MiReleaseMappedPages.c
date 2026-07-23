@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseMappedPages @ 0x140502058
+ * XREFs of MiReleaseMappedPages @ 0x1404FB928
  * Callers:
- *     MiBuildMappedClusterFillMdl @ 0x14040DB58 (MiBuildMappedClusterFillMdl.c)
+ *     MiBuildMappedClusterFillMdl @ 0x14042AA84 (MiBuildMappedClusterFillMdl.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402CCBF4 (MiReleaseWriteInProgressCharges.c)
- *     MiWriteCompletePfn @ 0x1404077B0 (MiWriteCompletePfn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleaseWriteInProgressCharges @ 0x1402AE9B4 (MiReleaseWriteInProgressCharges.c)
+ *     MiWriteCompletePfn @ 0x1404008A0 (MiWriteCompletePfn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiReleaseMappedPages(__int64 a1, __int64 a2)

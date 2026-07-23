@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_1406E78D8 @ 0x1406E78D8
  * Callers:
- *     WbFreeWarbirdProcess @ 0x1407E17A4 (WbFreeWarbirdProcess.c)
+ *     sub_1407E17A4 @ 0x1407E17A4 (sub_1407E17A4.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */

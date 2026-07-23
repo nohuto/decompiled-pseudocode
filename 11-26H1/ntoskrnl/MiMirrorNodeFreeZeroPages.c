@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMirrorNodeFreeZeroPages @ 0x140BE94D4
+ * XREFs of MiMirrorNodeFreeZeroPages @ 0x140BEF4D4
  * Callers:
- *     MiMirrorReduceBlackWrites @ 0x140C03640 (MiMirrorReduceBlackWrites.c)
- *     MiWalkPagesOnLists @ 0x140C05688 (MiWalkPagesOnLists.c)
+ *     MiMirrorReduceBlackWrites @ 0x140C09850 (MiMirrorReduceBlackWrites.c)
+ *     MiWalkPagesOnLists @ 0x140C0B898 (MiWalkPagesOnLists.c)
  * Callees:
- *     MiWalkAllFreeZeroLists @ 0x14042F800 (MiWalkAllFreeZeroLists.c)
- *     MiWalkAllHugeRanges @ 0x140532B50 (MiWalkAllHugeRanges.c)
+ *     MiWalkAllFreeZeroLists @ 0x14041C710 (MiWalkAllFreeZeroLists.c)
+ *     MiWalkAllHugeRanges @ 0x140534FF0 (MiWalkAllHugeRanges.c)
  */
 
 __int64 __fastcall MiMirrorNodeFreeZeroPages(__int64 a1, __int64 a2, int a3)

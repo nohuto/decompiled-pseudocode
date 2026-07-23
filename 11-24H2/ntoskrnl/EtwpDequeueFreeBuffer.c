@@ -1,129 +1,129 @@
 /*
- * XREFs of EtwpDequeueFreeBuffer @ 0x1404EF438
+ * XREFs of EtwpDequeueFreeBuffer @ 0x1404EC950
  * Callers:
- *     EtwpSwitchBuffer @ 0x14024CDA0 (EtwpSwitchBuffer.c)
- *     EtwpRotateCompressionTarget @ 0x14065169C (EtwpRotateCompressionTarget.c)
+ *     EtwpSwitchBuffer @ 0x14027D3B0 (EtwpSwitchBuffer.c)
+ *     EtwpRotateCompressionTarget @ 0x14064FD9C (EtwpRotateCompressionTarget.c)
  * Callees:
- *     EtwpEnqueueOverflowBuffer @ 0x14024D048 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpUnlockBufferList @ 0x1403EEBF4 (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x1403EEC80 (EtwpLockBufferList.c)
- *     EtwpResetBufferHeader @ 0x140458490 (EtwpResetBufferHeader.c)
- *     EtwpDequeueBuffer @ 0x140459200 (EtwpDequeueBuffer.c)
- *     EtwpValidateBuffer @ 0x14045AF10 (EtwpValidateBuffer.c)
- *     Feature_Servicing_WinDiagCyberEO__private_IsEnabledDeviceUsageNoInline @ 0x140650450 (Feature_Servicing_WinDiagCyberEO__private_IsEnabledDeviceUsageNoInline.c)
- *     EtwpDisableCompression @ 0x140651400 (EtwpDisableCompression.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x14027D658 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpUnlockBufferList @ 0x1403E1688 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1403E1714 (EtwpLockBufferList.c)
+ *     EtwpResetBufferHeader @ 0x14044D7A0 (EtwpResetBufferHeader.c)
+ *     EtwpDequeueBuffer @ 0x14044E2B0 (EtwpDequeueBuffer.c)
+ *     EtwpValidateBuffer @ 0x1404502B0 (EtwpValidateBuffer.c)
+ *     EtwpDisableCompression @ 0x14064FB00 (EtwpDisableCompression.c)
  */
 
-_QWORD *__fastcall EtwpDequeueFreeBuffer(__int64 a1)
+_QWORD *__fastcall EtwpDequeueFreeBuffer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v1; // bp
-  bool v3; // zf
-  __int64 v4; // rcx
-  _QWORD *v5; // rdi
-  __int64 v6; // rax
-  signed __int32 v7; // edx
-  __int64 v8; // rcx
+  char v4; // bp
+  bool v6; // zf
+  __int64 v7; // rcx
+  _QWORD *v8; // rdi
   __int64 v9; // rax
-  __int64 v10; // r8
-  signed __int64 v11; // rax
-  signed __int64 v12; // rtt
-  signed __int64 v13; // rdx
-  signed __int64 v14; // rax
-  signed __int64 v15; // rtt
-  signed __int64 v16; // rdx
-  __int64 v17; // rcx
-  unsigned __int8 v19; // [rsp+40h] [rbp+8h] BYREF
+  signed __int32 v10; // edx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // r8
+  signed __int64 v16; // rax
+  signed __int64 v17; // rtt
+  signed __int64 v18; // rdx
+  signed __int64 v19; // rax
+  signed __int64 v20; // rtt
+  signed __int64 v21; // rdx
+  __int64 v22; // rcx
+  unsigned __int8 v24; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = 0;
-  v3 = *(_QWORD *)(a1 + 56) == 0LL;
-  v19 = 0;
-  if ( v3 && !*(_QWORD *)(a1 + 72) )
+  v4 = 0;
+  v6 = *(_QWORD *)(a1 + 56) == 0LL;
+  v24 = 0;
+  if ( v6 && !*(_QWORD *)(a1 + 72) )
     return 0LL;
   if ( (*(_DWORD *)(a1 + 12) & 0x400) != 0 )
   {
-    EtwpLockBufferList(a1, &v19);
-    v5 = EtwpDequeueBuffer(a1, (_QWORD *)(a1 + 64));
-    if ( !v5 )
-      v5 = EtwpDequeueBuffer(v4, (_QWORD *)(a1 + 48));
+    EtwpLockBufferList(a1, &v24, a3, a4);
+    v8 = EtwpDequeueBuffer(a1, (_QWORD *)(a1 + 64));
+    if ( !v8 )
+      v8 = EtwpDequeueBuffer(v7, (_QWORD *)(a1 + 48));
     if ( *(_DWORD *)(a1 + 1432) )
     {
-      v6 = *(_QWORD *)(a1 + 56);
-      if ( !v6 || ((*(_DWORD *)(v6 + 12) - 4) & 0xFFFFFFFD) == 0 )
-        v1 = 1;
+      v9 = *(_QWORD *)(a1 + 56);
+      if ( !v9 || ((*(_DWORD *)(v9 + 12) - 4) & 0xFFFFFFFD) == 0 )
+        v4 = 1;
     }
-    EtwpUnlockBufferList(a1, &v19);
-    if ( v1 )
+    EtwpUnlockBufferList(a1, &v24);
+    if ( v4 )
       EtwpDisableCompression(a1);
-    if ( v5 )
+    if ( v8 )
     {
       do
       {
         _InterlockedDecrement((volatile signed __int32 *)(a1 + 228));
-        Feature_Servicing_WinDiagCyberEO__private_IsEnabledDeviceUsageNoInline();
-        if ( _bittest((const signed __int32 *)(a1 + 12), 0x1Au) )
+        if ( (*(_DWORD *)(a1 + 12) & 0x4000000) != 0 )
         {
-          v7 = *((_DWORD *)v5 + 11);
-          if ( (unsigned int)(v7 - 4) <= 1 )
+          v10 = *((_DWORD *)v8 + 11);
+          if ( (unsigned int)(v10 - 4) <= 1 )
             goto LABEL_17;
         }
-        v7 = 0;
+        v10 = 0;
 LABEL_17:
-        if ( !*((_DWORD *)v5 + 3) && v7 == _InterlockedCompareExchange((volatile signed __int32 *)v5 + 11, 1, v7) )
+        if ( !*((_DWORD *)v8 + 3) && v10 == _InterlockedCompareExchange((volatile signed __int32 *)v8 + 11, 1, v10) )
           break;
-        EtwpEnqueueOverflowBuffer(a1, (__int64)v5);
-        EtwpLockBufferList(a1, &v19);
-        v5 = EtwpDequeueBuffer(a1, (_QWORD *)(a1 + 48));
-        EtwpUnlockBufferList(v8, &v19);
+        EtwpEnqueueOverflowBuffer(a1, (__int64)v8);
+        EtwpLockBufferList(a1, &v24, v11, v12);
+        v8 = EtwpDequeueBuffer(a1, (_QWORD *)(a1 + 48));
+        EtwpUnlockBufferList(v13, &v24);
       }
-      while ( v5 );
-      if ( v5 )
+      while ( v8 );
+      if ( v8 )
       {
-        v9 = *(_QWORD *)(a1 + 1560);
-        if ( v9 )
+        v14 = *(_QWORD *)(a1 + 1560);
+        if ( v14 )
         {
-          v10 = *((unsigned __int16 *)v5 + 20);
-          v11 = *(_QWORD *)(v9 + 8 * v10);
+          v15 = *((unsigned __int16 *)v8 + 20);
+          v16 = *(_QWORD *)(v14 + 8 * v15);
           do
           {
-            v13 = v5[2];
-            if ( v13 <= v11 )
+            v18 = v8[2];
+            if ( v18 <= v16 )
               break;
-            v12 = v11;
-            v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)(a1 + 1560) + 8 * v10), v13, v11);
+            v17 = v16;
+            v16 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)(a1 + 1560) + 8 * v15), v18, v16);
           }
-          while ( v12 != v11 );
-          if ( v5[3] <= *(_QWORD *)(a1 + 1576) )
+          while ( v17 != v16 );
+          if ( v8[3] <= *(_QWORD *)(a1 + 1576) )
           {
-            v14 = *(_QWORD *)(*(_QWORD *)(a1 + 1568) + 8 * v10);
+            v19 = *(_QWORD *)(*(_QWORD *)(a1 + 1568) + 8 * v15);
             do
             {
-              v16 = v5[2];
-              if ( v16 <= v14 )
+              v21 = v8[2];
+              if ( v21 <= v19 )
                 break;
-              v15 = v14;
-              v14 = _InterlockedCompareExchange64(
-                      (volatile signed __int64 *)(*(_QWORD *)(a1 + 1568) + 8 * v10),
-                      v16,
-                      v14);
+              v20 = v19;
+              v19 = _InterlockedCompareExchange64(
+                      (volatile signed __int64 *)(*(_QWORD *)(a1 + 1568) + 8 * v15),
+                      v21,
+                      v19);
             }
-            while ( v15 != v14 );
+            while ( v20 != v19 );
           }
         }
-        EtwpResetBufferHeader((__int64)v5, 0);
+        EtwpResetBufferHeader((__int64)v8, 0);
         goto LABEL_32;
       }
     }
     return 0LL;
   }
-  EtwpLockBufferList(a1, &v19);
-  v5 = EtwpDequeueBuffer(a1, (_QWORD *)(a1 + 48));
-  EtwpUnlockBufferList(v17, &v19);
-  if ( !v5 )
+  EtwpLockBufferList(a1, &v24, a3, a4);
+  v8 = EtwpDequeueBuffer(a1, (_QWORD *)(a1 + 48));
+  EtwpUnlockBufferList(v22, &v24);
+  if ( !v8 )
     return 0LL;
-  EtwpResetBufferHeader((__int64)v5, 0);
-  *((_DWORD *)v5 + 11) = 1;
+  EtwpResetBufferHeader((__int64)v8, 0);
+  *((_DWORD *)v8 + 11) = 1;
   _InterlockedDecrement((volatile signed __int32 *)(a1 + 228));
 LABEL_32:
-  EtwpValidateBuffer(a1, (unsigned int *)v5);
-  return v5;
+  EtwpValidateBuffer(a1, (unsigned int *)v8);
+  return v8;
 }

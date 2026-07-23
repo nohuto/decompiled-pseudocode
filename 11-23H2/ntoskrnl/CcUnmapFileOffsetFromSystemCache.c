@@ -1,10 +1,10 @@
 /*
- * XREFs of CcUnmapFileOffsetFromSystemCache @ 0x1403C3FC0
+ * XREFs of CcUnmapFileOffsetFromSystemCache @ 0x1403C41A0
  * Callers:
  *     <none>
  * Callees:
- *     CcUnmapVacbArray @ 0x14029EDC0 (CcUnmapVacbArray.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     CcUnmapVacbArray @ 0x14029F050 (CcUnmapVacbArray.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall CcUnmapFileOffsetFromSystemCache(__int64 a1, __int64 *a2, unsigned int a3)

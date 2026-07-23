@@ -13,16 +13,16 @@
  *     RtlpLogHeapLockEvent @ 0x18011B7F8 (RtlpLogHeapLockEvent.c)
  */
 
-char __fastcall RtlLockHeap(__int64 a1)
+BOOLEAN __cdecl RtlLockHeap(PVOID HeapHandle)
 {
   __int64 v2; // rdi
   void *UniqueThread; // rsi
   _DWORD *SharedData; // rcx
   __int64 v6; // rcx
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    v2 = *(_QWORD *)(a1 + 56);
+    v2 = *((_QWORD *)HeapHandle + 7);
     if ( (*(_BYTE *)(v2 + 24) & 2) == 0 )
     {
       UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
@@ -32,7 +32,7 @@ char __fastcall RtlLockHeap(__int64 a1)
       }
       else
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v2 + 40));
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v2 + 40));
         *(_DWORD *)(v2 + 32) = 1;
         *(_DWORD *)(v2 + 36) = (_DWORD)UniqueThread;
       }
@@ -46,18 +46,18 @@ LABEL_17:
     if ( *(_BYTE *)v6 )
     {
       if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-        RtlpLogHeapLockEvent(a1);
+        RtlpLogHeapLockEvent(HeapHandle);
     }
     return 1;
   }
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+  if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
     return ((__int64 (*)(void))qword_1801CE5D0)();
-  if ( *(_DWORD *)(a1 + 152) == -285217025 )
+  if ( *((_DWORD *)HeapHandle + 38) == -285217025 )
   {
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      ++*(_WORD *)(a1 + 416);
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+      ++*((_WORD *)HeapHandle + 208);
     }
     goto LABEL_17;
   }
@@ -65,7 +65,7 @@ LABEL_17:
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else
     DbgPrint("HEAP: ");
-  DbgPrint("Invalid heap signature for heap at %p", (const void *)a1);
+  DbgPrint("Invalid heap signature for heap at %p", HeapHandle);
   DbgPrint(", passed to %s", "RtlLockHeap");
   DbgPrint("\n");
   if ( NtCurrentPeb()->BeingDebugged )

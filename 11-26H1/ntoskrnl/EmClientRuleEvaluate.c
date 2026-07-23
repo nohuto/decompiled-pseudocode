@@ -1,20 +1,20 @@
 /*
- * XREFs of EmClientRuleEvaluate @ 0x140C03A80
+ * XREFs of EmClientRuleEvaluate @ 0x140C09C90
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x1404E1A2C (PopPepInitializeVetoMasks.c)
- *     PoRegisterPowerSettingCallback @ 0x140B05F90 (PoRegisterPowerSettingCallback.c)
- *     PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140CD602C (PopReadErrataSkipMemoryOverwriteRequestControlLockAction.c)
+ *     PopPepInitializeVetoMasks @ 0x1404DB10C (PopPepInitializeVetoMasks.c)
+ *     PoRegisterPowerSettingCallback @ 0x140B080C0 (PoRegisterPowerSettingCallback.c)
+ *     PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140CDC380 (PopReadErrataSkipMemoryOverwriteRequestControlLockAction.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     EmpEvaluateTargetRule @ 0x140473EF0 (EmpEvaluateTargetRule.c)
- *     EmpSearchTargetRuleList @ 0x14047FA90 (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x140483480 (EmpSearchRuleDatabase.c)
- *     EmpAcquirePagingReference @ 0x140C03BCC (EmpAcquirePagingReference.c)
- *     EmpReleasePagingReference @ 0x140C03C8C (EmpReleasePagingReference.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     EmpEvaluateTargetRule @ 0x14046D670 (EmpEvaluateTargetRule.c)
+ *     EmpSearchTargetRuleList @ 0x14047A4FC (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x14047D298 (EmpSearchRuleDatabase.c)
+ *     EmpAcquirePagingReference @ 0x140C09DDC (EmpAcquirePagingReference.c)
+ *     EmpReleasePagingReference @ 0x140C09E9C (EmpReleasePagingReference.c)
  */
 
 __int64 __fastcall EmClientRuleEvaluate(_QWORD *a1, __int64 a2, int a3, _DWORD *a4)
@@ -25,7 +25,7 @@ __int64 __fastcall EmClientRuleEvaluate(_QWORD *a1, __int64 a2, int a3, _DWORD *
   void *v11; // rdx
   signed __int8 v12; // cf
   AutoBoost *v13; // rdi
-  _QWORD *v14; // rcx
+  struct _LIST_ENTRY **v14; // rcx
   _QWORD *v15; // rax
   __int64 v16; // rcx
 
@@ -35,14 +35,11 @@ __int64 __fastcall EmClientRuleEvaluate(_QWORD *a1, __int64 a2, int a3, _DWORD *
     *a4 = 1;
     if ( (unsigned __int8)EmpAcquirePagingReference() )
     {
-      v10 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.KernelStack, 0LL, 0LL, v9);
-      v12 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.KernelStack, 0LL);
+      v10 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.QuantumTarget, 0LL, 0LL, v9);
+      v12 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.QuantumTarget, 0LL);
       v13 = v10;
       if ( v12 )
-        ExfAcquirePushLockExclusiveEx(
-          (unsigned __int64 *)&EmpParseLock.KernelStack,
-          v10,
-          (__int64)&EmpParseLock.KernelStack);
+        ExfAcquirePushLockExclusiveEx(&EmpParseLock.QuantumTarget, v10, (__int64)&EmpParseLock.QuantumTarget);
       if ( v13 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -62,9 +59,9 @@ __int64 __fastcall EmClientRuleEvaluate(_QWORD *a1, __int64 a2, int a3, _DWORD *
       {
         v4 = -1073741275;
       }
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock.KernelStack, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.KernelStack);
-      KeAbPostRelease((unsigned __int64)&EmpParseLock.KernelStack);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock.QuantumTarget, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.QuantumTarget);
+      KeAbPostRelease((unsigned __int64)&EmpParseLock.QuantumTarget);
       EmpReleasePagingReference();
     }
     else

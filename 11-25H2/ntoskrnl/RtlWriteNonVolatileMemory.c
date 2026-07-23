@@ -8,31 +8,37 @@
  *     memmove @ 0x1406B4940 (memmove.c)
  */
 
-__int64 __fastcall RtlWriteNonVolatileMemory(__int64 a1, void *a2, const void *a3, size_t a4, char a5)
+DWORD __cdecl RtlWriteNonVolatileMemory(
+        PVOID NvToken,
+        void *NvDestination,
+        const void *Source,
+        SIZE_T Size,
+        DWORD Flags)
 {
-  unsigned int v5; // ebx
+  DWORD v5; // ebx
 
   v5 = 0;
-  if ( (a1 & 1) != 0 )
+  if ( ((unsigned __int8)NvToken & 1) != 0 )
   {
-    if ( (a5 & 3) == 1 )
-      goto LABEL_6;
-    if ( (a5 & 2) == 0 )
+    if ( (Flags & 3) == 1 )
     {
-      memmove(a2, a3, a4);
-      return v5;
-    }
-    if ( a4 < 8 )
-    {
-LABEL_6:
-      memmove(a2, a3, a4);
-      return (unsigned int)RtlFlushNonVolatileMemory(a1, a2, a4);
+      v5 = (Flags & 0x100) != 0;
     }
     else
     {
-      RtlCopyMemoryNonTemporal(a2, a3, a4);
+      if ( (Flags & 2) == 0 )
+      {
+        memmove(NvDestination, Source, Size);
+        return v5;
+      }
+      if ( Size >= 8 )
+      {
+        RtlCopyMemoryNonTemporal(NvDestination, Source, Size);
+        return v5;
+      }
     }
-    return v5;
+    memmove(NvDestination, Source, Size);
+    return RtlFlushNonVolatileMemory(NvToken, NvDestination, Size, v5);
   }
-  return 3221225485LL;
+  return -1073741811;
 }

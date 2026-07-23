@@ -21,7 +21,7 @@ _BOOL8 __fastcall PopDripsWatchdogScheduleNextTimer(__int64 a1)
   v2 = -10000000LL * *(unsigned int *)(a1 + 176);
   if ( *(_DWORD *)(a1 + 168) )
     PopOkayToQueueNextWorkItem(a1 + 136);
-  result = KeSetTimer2(a1, v2, 0LL, v4);
+  result = KeSetTimer2(a1, v2, 0LL, (__int64)v4);
   *(_DWORD *)(a1 + 180) |= 2u;
   return result;
 }

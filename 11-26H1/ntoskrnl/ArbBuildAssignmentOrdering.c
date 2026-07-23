@@ -1,22 +1,22 @@
 /*
- * XREFs of ArbBuildAssignmentOrdering @ 0x14078816C
+ * XREFs of ArbBuildAssignmentOrdering @ 0x14078AC9C
  * Callers:
- *     ArbInitializeArbiterInstance @ 0x1407889FC (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x14078B52C (ArbInitializeArbiterInstance.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ArbAddOrdering @ 0x140787D68 (ArbAddOrdering.c)
- *     ArbFreeOrderingList @ 0x14078882C (ArbFreeOrderingList.c)
- *     ArbInitializeOrderingList @ 0x140788D6C (ArbInitializeOrderingList.c)
- *     ArbPruneOrdering @ 0x140788FC0 (ArbPruneOrdering.c)
- *     ArbpGetRegistryValue @ 0x140789E88 (ArbpGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ArbAddOrdering @ 0x14078A898 (ArbAddOrdering.c)
+ *     ArbFreeOrderingList @ 0x14078B35C (ArbFreeOrderingList.c)
+ *     ArbInitializeOrderingList @ 0x14078B89C (ArbInitializeOrderingList.c)
+ *     ArbPruneOrdering @ 0x14078BAF0 (ArbPruneOrdering.c)
+ *     ArbpGetRegistryValue @ 0x14078C9B0 (ArbpGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbBuildAssignmentOrdering(__int64 a1)

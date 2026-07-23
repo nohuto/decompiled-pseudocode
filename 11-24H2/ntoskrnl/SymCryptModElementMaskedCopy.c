@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptModElementMaskedCopy @ 0x140523C54
+ * XREFs of SymCryptModElementMaskedCopy @ 0x14052156C
  * Callers:
- *     SymCryptTwistedEdwardsNegate @ 0x14052BE70 (SymCryptTwistedEdwardsNegate.c)
- *     SymCryptShortWeierstrassNegate @ 0x14052E360 (SymCryptShortWeierstrassNegate.c)
+ *     SymCryptShortWeierstrassNegate @ 0x140534F70 (SymCryptShortWeierstrassNegate.c)
+ *     SymCryptTwistedEdwardsNegate @ 0x140535E30 (SymCryptTwistedEdwardsNegate.c)
  * Callees:
- *     SymCryptFdefModElementMaskedCopy @ 0x140535D60 (SymCryptFdefModElementMaskedCopy.c)
+ *     SymCryptFdefModElementMaskedCopy @ 0x140530200 (SymCryptFdefModElementMaskedCopy.c)
  */
 
 __int64 SymCryptModElementMaskedCopy()

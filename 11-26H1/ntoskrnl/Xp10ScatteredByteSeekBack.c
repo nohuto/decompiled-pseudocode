@@ -1,7 +1,7 @@
 /*
- * XREFs of Xp10ScatteredByteSeekBack @ 0x14080EA60
+ * XREFs of Xp10ScatteredByteSeekBack @ 0x1408144F0
  * Callers:
- *     Xp10ScatteredCopyFromPrevious @ 0x14080EDAC (Xp10ScatteredCopyFromPrevious.c)
+ *     Xp10ScatteredCopyFromPrevious @ 0x14081483C (Xp10ScatteredCopyFromPrevious.c)
  * Callees:
  *     <none>
  */

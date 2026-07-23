@@ -1,35 +1,36 @@
 /*
  * XREFs of RtlComputeCrc32 @ 0x140369820
  * Callers:
- *     SmDecompressBuffer @ 0x14035F614 (SmDecompressBuffer.c)
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14037FDA0 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
- *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z @ 0x14064FBF4 (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14064FC7C (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x1406500D8 (-VerifyPartitionTable@SC_GPT@@QEAAJE@Z.c)
- *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x1406503B0 (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
- *     PopUpdateBsdPowerTransitionReferenceTime @ 0x1407EDB78 (PopUpdateBsdPowerTransitionReferenceTime.c)
- *     PopBsdUpdateWorker @ 0x140810990 (PopBsdUpdateWorker.c)
- *     PoClearTransitionMarker @ 0x1408285B0 (PoClearTransitionMarker.c)
- *     SmKmStoreFileWriteHeader @ 0x1409D7390 (SmKmStoreFileWriteHeader.c)
- *     ExpSingleStringCheck @ 0x140B0B5F8 (ExpSingleStringCheck.c)
+ *     sub_14035F614 @ 0x14035F614 (sub_14035F614.c)
+ *     sub_14037FDA0 @ 0x14037FDA0 (sub_14037FDA0.c)
+ *     sub_14064FBF4 @ 0x14064FBF4 (sub_14064FBF4.c)
+ *     sub_14064FC7C @ 0x14064FC7C (sub_14064FC7C.c)
+ *     sub_1406500D8 @ 0x1406500D8 (sub_1406500D8.c)
+ *     sub_1406503B0 @ 0x1406503B0 (sub_1406503B0.c)
+ *     sub_1407EDB78 @ 0x1407EDB78 (sub_1407EDB78.c)
+ *     sub_140810990 @ 0x140810990 (sub_140810990.c)
+ *     sub_1408285B0 @ 0x1408285B0 (sub_1408285B0.c)
+ *     sub_1409D7390 @ 0x1409D7390 (sub_1409D7390.c)
+ *     sub_140B0B5F8 @ 0x140B0B5F8 (sub_140B0B5F8.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlComputeCrc32(int a1, char *a2, unsigned int a3)
+ULONG32 __cdecl RtlComputeCrc32(ULONG32 PartialCrc, PVOID Buffer, ULONG Length)
 {
-  unsigned int v4; // ecx
+  ULONG32 v4; // ecx
   __int64 v5; // r10
   char v6; // al
 
-  v4 = ~a1;
-  if ( a3 )
+  v4 = ~PartialCrc;
+  if ( Length )
   {
-    v5 = a3;
+    v5 = Length;
     do
     {
-      v6 = *a2++;
-      v4 = (v4 >> 8) ^ *((_DWORD *)RtlCrc32Table + (unsigned __int8)(v6 ^ v4));
+      v6 = *(_BYTE *)Buffer;
+      Buffer = (char *)Buffer + 1;
+      v4 = (v4 >> 8) ^ *((_DWORD *)qword_140016880 + (unsigned __int8)(v6 ^ v4));
       --v5;
     }
     while ( v5 );

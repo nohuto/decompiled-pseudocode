@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPtIoAllocateMdl_Exit @ 0x140B8C1D0
+ * XREFs of VfPtIoAllocateMdl_Exit @ 0x140B8E1D0
  * Callers:
  *     <none>
  * Callees:
- *     VfPtMiscPoolNotification @ 0x140400260 (VfPtMiscPoolNotification.c)
- *     VfIsKernelVerificationOn @ 0x1404FB110 (VfIsKernelVerificationOn.c)
+ *     VfPtMiscPoolNotification @ 0x1403FA750 (VfPtMiscPoolNotification.c)
+ *     VfIsKernelVerificationOn @ 0x1404F89F0 (VfIsKernelVerificationOn.c)
  */
 
 char __fastcall VfPtIoAllocateMdl_Exit(__int64 a1)

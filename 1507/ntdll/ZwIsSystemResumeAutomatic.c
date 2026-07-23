@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwIsSystemResumeAutomatic()
+BOOLEAN ZwIsSystemResumeAutomatic(void)
 {
-  __int64 result; // rax
+  BOOLEAN result; // al
 
-  result = 242LL;
+  result = -14;
   __asm { syscall; Low latency system call }
   return result;
 }

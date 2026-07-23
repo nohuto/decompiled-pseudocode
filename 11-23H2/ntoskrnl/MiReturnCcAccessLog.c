@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnCcAccessLog @ 0x1402F4D30
+ * XREFs of MiReturnCcAccessLog @ 0x1402F4FC0
  * Callers:
- *     MiCheckAndProcessCcAccessLog @ 0x1402F4CE8 (MiCheckAndProcessCcAccessLog.c)
- *     MmPrefetchForCacheManager @ 0x14073EC1C (MmPrefetchForCacheManager.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1402F4F78 (MiCheckAndProcessCcAccessLog.c)
+ *     MmPrefetchForCacheManager @ 0x14073EE0C (MmPrefetchForCacheManager.c)
  * Callees:
- *     MiQueuePageAccessLog @ 0x1402F54F0 (MiQueuePageAccessLog.c)
- *     MmFreeAccessPfnBuffer @ 0x1402F55AC (MmFreeAccessPfnBuffer.c)
+ *     MiQueuePageAccessLog @ 0x1402F5780 (MiQueuePageAccessLog.c)
+ *     MmFreeAccessPfnBuffer @ 0x1402F583C (MmFreeAccessPfnBuffer.c)
  */
 
 __int64 __fastcall MiReturnCcAccessLog(_QWORD *a1, int a2)

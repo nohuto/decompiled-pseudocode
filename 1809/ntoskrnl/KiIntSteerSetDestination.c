@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerSetDestination @ 0x140131AC8
+ * XREFs of KiIntSteerSetDestination @ 0x140131B98
  * Callers:
- *     KiIntSteerDistributeInterrupts @ 0x1400631A0 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerConnect @ 0x14016DEA4 (KiIntSteerConnect.c)
+ *     KiIntSteerDistributeInterrupts @ 0x140063190 (KiIntSteerDistributeInterrupts.c)
+ *     KiIntSteerConnect @ 0x14016DFA4 (KiIntSteerConnect.c)
  * Callees:
- *     KiIntSteerVerifyDestination @ 0x140131B44 (KiIntSteerVerifyDestination.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiIntSteerVerifyDestination @ 0x140131C14 (KiIntSteerVerifyDestination.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiIntSteerSetDestination(ULONG_PTR BugCheckParameter3)
@@ -36,7 +36,7 @@ LABEL_12:
   v6 = 0LL;
   if ( *(_DWORD *)(BugCheckParameter3 + 32) != -1 )
     v6 = BugCheckParameter3 + 32;
-  result = ((__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR, ULONG_PTR))off_1403FE5A8[0])(
+  result = ((__int64 (__fastcall *)(ULONG_PTR, ULONG_PTR, ULONG_PTR))off_1403FF5A8[0])(
              BugCheckParameter3 + 40,
              BugCheckParameter4,
              v6);

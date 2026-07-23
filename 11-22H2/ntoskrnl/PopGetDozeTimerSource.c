@@ -23,10 +23,13 @@ __int64 PopGetDozeTimerSource()
   if ( byte_140C3CD84 )
     v0 = dword_140C3CD88;
   KxReleaseSpinLock((volatile signed __int64 *)&PopIdleAoAcDozeS4Lock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

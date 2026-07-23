@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwCreateTimer()
+NTSTATUS __cdecl ZwCreateTimer(
+        PHANDLE TimerHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        TIMER_TYPE TimerType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 180LL;
+  result = 180;
   __asm { syscall; Low latency system call }
   return result;
 }

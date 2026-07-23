@@ -1,34 +1,34 @@
 /*
- * XREFs of NtSuspendThread @ 0x14093A420
+ * XREFs of NtSuspendThread @ 0x140A0CE40
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     PsSuspendThread @ 0x14093A4F0 (PsSuspendThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsSuspendThread @ 0x140A0CF10 (PsSuspendThread.c)
  */
 
-__int64 __fastcall NtSuspendThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
+NTSTATUS __cdecl NtSuspendThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
   char PreviousMode; // r9
   __int64 v5; // rcx
-  __int64 result; // rax
-  unsigned int v7; // edi
-  int v8; // [rsp+70h] [rbp+18h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v7; // edi
+  ULONG v8; // [rsp+70h] [rbp+18h] BYREF
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
   v8 = 0;
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && a2 )
+  if ( PreviousMode && PreviousSuspendCount )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
+    if ( (unsigned __int64)PreviousSuspendCount < 0x7FFFFFFF0000LL )
+      v5 = (__int64)PreviousSuspendCount;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
   result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
+             (ULONG_PTR)ThreadHandle,
              2,
              (__int64)PsThreadType,
              PreviousMode,
@@ -36,12 +36,12 @@ __int64 __fastcall NtSuspendThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
              &Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v7 = PsSuspendThread(Object, &v8);
     ObfDereferenceObjectWithTag(Object, 0x75537350u);
-    if ( a2 )
-      *a2 = v8;
+    if ( PreviousSuspendCount )
+      *PreviousSuspendCount = v8;
     return v7;
   }
   return result;

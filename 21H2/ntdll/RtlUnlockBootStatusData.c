@@ -1,17 +1,23 @@
 /*
- * XREFs of RtlUnlockBootStatusData @ 0x1800EE340
+ * XREFs of RtlUnlockBootStatusData @ 0x1800EE300
  * Callers:
  *     <none>
  * Callees:
- *     NtPowerInformation @ 0x18009E210 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x18009E1D0 (NtPowerInformation.c)
  */
 
-__int64 __fastcall RtlUnlockBootStatusData(__int64 a1)
+NTSTATUS __cdecl RtlUnlockBootStatusData(HANDLE FileHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
+  _QWORD v2[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  result = 0LL;
-  if ( !a1 )
-    return NtPowerInformation();
+  result = 0;
+  if ( !FileHandle )
+  {
+    v2[0] = 38LL;
+    v2[1] = 0LL;
+    v2[2] = 0LL;
+    return NtPowerInformation(PowerInformationInternal, v2, 0x18u, 0LL, 0);
+  }
   return result;
 }

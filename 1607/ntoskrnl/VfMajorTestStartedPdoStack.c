@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorTestStartedPdoStack @ 0x14070E660
+ * XREFs of VfMajorTestStartedPdoStack @ 0x14070E690
  * Callers:
- *     PpvUtilTestStartedPdoStack @ 0x1400B54F0 (PpvUtilTestStartedPdoStack.c)
+ *     PpvUtilTestStartedPdoStack @ 0x140085FD4 (PpvUtilTestStartedPdoStack.c)
  * Callees:
- *     IovUtilIsVerifiedDeviceStack @ 0x14070E158 (IovUtilIsVerifiedDeviceStack.c)
+ *     IovUtilIsVerifiedDeviceStack @ 0x14070E188 (IovUtilIsVerifiedDeviceStack.c)
  */
 
 __int64 (__fastcall *__fastcall VfMajorTestStartedPdoStack(__int64 a1))(_QWORD)

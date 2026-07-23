@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCreateExtendedControlSets @ 0x140C4632C
+ * XREFs of CmpCreateExtendedControlSets @ 0x140C4847C
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     CmpCreateControlSet @ 0x140C45E04 (CmpCreateControlSet.c)
- *     CmpCreateControlSetOverride @ 0x140C461BC (CmpCreateControlSetOverride.c)
+ *     CmpCreateControlSet @ 0x140C47F54 (CmpCreateControlSet.c)
+ *     CmpCreateControlSetOverride @ 0x140C4830C (CmpCreateControlSetOverride.c)
  */
 
 __int64 __fastcall CmpCreateExtendedControlSets(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspValidateJobAssignmentDiskIoAttribution @ 0x140A6F418
+ * XREFs of PspValidateJobAssignmentDiskIoAttribution @ 0x140A6889C
  * Callers:
- *     PspAssignProcessToJob @ 0x140A173D0 (PspAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x140A105B0 (PspAssignProcessToJob.c)
  * Callees:
- *     PspIsSetJobIoAttribution @ 0x1408EA38C (PspIsSetJobIoAttribution.c)
+ *     PspIsSetJobIoAttribution @ 0x14085BBBC (PspIsSetJobIoAttribution.c)
  */
 
 bool __fastcall PspValidateJobAssignmentDiskIoAttribution(__int64 a1, __int64 a2, int a3)

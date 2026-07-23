@@ -14,5 +14,5 @@ NTSTATUS __stdcall ZwSetQuotaInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

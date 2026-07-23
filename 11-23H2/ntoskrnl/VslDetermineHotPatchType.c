@@ -1,12 +1,12 @@
 /*
- * XREFs of VslDetermineHotPatchType @ 0x140942078
+ * XREFs of VslDetermineHotPatchType @ 0x140942278
  * Callers:
- *     MiLoadHotPatch @ 0x140A37F60 (MiLoadHotPatch.c)
+ *     MiLoadHotPatch @ 0x140A38210 (MiLoadHotPatch.c)
  *     MmRegisterHotPatches @ 0x140B73D38 (MmRegisterHotPatches.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslDetermineHotPatchType(unsigned int a1, unsigned int a2, _DWORD *a3)

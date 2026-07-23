@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcQueryInformationMessage(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

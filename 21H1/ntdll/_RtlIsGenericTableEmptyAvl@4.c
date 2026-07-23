@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool __stdcall RtlIsGenericTableEmptyAvl(int a1)
+BOOLEAN __cdecl RtlIsGenericTableEmptyAvl(PRTL_AVL_TABLE Table)
 {
-  return *(_DWORD *)(a1 + 24) == 0;
+  return Table->NumberGenericTableElements == 0;
 }

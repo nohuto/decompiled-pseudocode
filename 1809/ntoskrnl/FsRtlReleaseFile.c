@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlReleaseFile @ 0x1405DE940
+ * XREFs of FsRtlReleaseFile @ 0x1405DF940
  * Callers:
  *     CcZeroEndOfLastPage @ 0x14001C250 (CcZeroEndOfLastPage.c)
  *     MiReferenceControlArea @ 0x14001C358 (MiReferenceControlArea.c)
- *     CcDeleteSharedCacheMap @ 0x14007C270 (CcDeleteSharedCacheMap.c)
- *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
- *     FsRtlCreateSectionForDataScan @ 0x140092540 (FsRtlCreateSectionForDataScan.c)
- *     MiShareExistingControlArea @ 0x1405DEC94 (MiShareExistingControlArea.c)
- *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
+ *     CcDeleteSharedCacheMap @ 0x14007C260 (CcDeleteSharedCacheMap.c)
+ *     CcWriteBehindInternal @ 0x14007D2E0 (CcWriteBehindInternal.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140092480 (FsRtlCreateSectionForDataScan.c)
+ *     MiShareExistingControlArea @ 0x1405DFC94 (MiShareExistingControlArea.c)
+ *     MiCreateNewSection @ 0x14061C7E0 (MiCreateNewSection.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRef @ 0x140002E10 (IoGetDeviceAttachmentBaseRef.c)
  *     FsFilterCtrlFree @ 0x14001C628 (FsFilterCtrlFree.c)
@@ -18,9 +18,9 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 void __stdcall FsRtlReleaseFile(PFILE_OBJECT FileObject)

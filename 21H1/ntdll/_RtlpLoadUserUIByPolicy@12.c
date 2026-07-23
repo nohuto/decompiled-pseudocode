@@ -12,21 +12,21 @@
  *     _RtlpMuiRegGrowLanguageList@8 @ 0x4B36B8F3 (_RtlpMuiRegGrowLanguageList@8.c)
  */
 
-int __stdcall RtlpLoadUserUIByPolicy(void *a1, int a2, int *a3)
+NTSTATUS __stdcall RtlpLoadUserUIByPolicy(void *a1, int a2, int *a3)
 {
   HANDLE v3; // eax
-  int v4; // esi
+  NTSTATUS v4; // esi
   int v6; // edi
   int LanguageList; // eax
   unsigned __int8 v8; // [esp+13h] [ebp-2Dh] BYREF
   __int16 v9; // [esp+14h] [ebp-2Ch] BYREF
-  HANDLE v10; // [esp+18h] [ebp-28h] BYREF
+  HANDLE KeyHandle; // [esp+18h] [ebp-28h] BYREF
   HANDLE Handle; // [esp+1Ch] [ebp-24h] BYREF
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-20h] BYREF
-  _DWORD v13[6]; // [esp+28h] [ebp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+20h] [ebp-20h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+28h] [ebp-18h] BYREF
 
   Handle = 0;
-  v10 = 0;
+  KeyHandle = 0;
   v8 = 0;
   v9 = 0;
   if ( a2 && a3 )
@@ -35,18 +35,18 @@ int __stdcall RtlpLoadUserUIByPolicy(void *a1, int a2, int *a3)
     v3 = a1;
     if ( !a1 )
     {
-      v4 = OpenGlobalizationUserSettingsKey((void *)0x2000000, (int)&Handle);
+      v4 = OpenGlobalizationUserSettingsKey(0x2000000u, &Handle);
       if ( v4 < 0 )
         goto LABEL_5;
       v3 = Handle;
     }
-    v13[4] = 0;
-    v13[5] = 0;
-    v13[1] = v3;
-    v13[2] = &DestinationString;
-    v13[0] = 24;
-    v13[3] = 64;
-    v4 = ZwOpenKey(&v10, 131097, v13);
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    ObjectAttributes.RootDirectory = v3;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.Attributes = 64;
+    v4 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
     if ( v4 >= 0 )
     {
       v4 = RtlpLoadPolicyLanguageSpec(&v8, &v9);
@@ -84,10 +84,10 @@ LABEL_19:
     v4 = -1073741811;
   }
 LABEL_5:
-  if ( v10 )
+  if ( KeyHandle )
   {
-    NtClose(v10);
-    v10 = 0;
+    NtClose(KeyHandle);
+    KeyHandle = 0;
   }
   if ( Handle )
     NtClose(Handle);

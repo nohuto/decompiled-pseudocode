@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAllocateProcessorHiberSwapShadowStacks @ 0x1405BC3A4
+ * XREFs of KiAllocateProcessorHiberSwapShadowStacks @ 0x1405B99D4
  * Callers:
- *     KeAllocateKernelHiberSwapShadowStacks @ 0x1405BC2A8 (KeAllocateKernelHiberSwapShadowStacks.c)
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
+ *     KeAllocateKernelHiberSwapShadowStacks @ 0x1405B98D8 (KeAllocateKernelHiberSwapShadowStacks.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KiCreateKernelShadowStack @ 0x140A0B9A0 (KiCreateKernelShadowStack.c)
- *     KiDeleteKernelShadowStack @ 0x140A19B34 (KiDeleteKernelShadowStack.c)
+ *     KiCreateKernelShadowStack @ 0x140A0ABE0 (KiCreateKernelShadowStack.c)
+ *     KiDeleteKernelShadowStack @ 0x140A12CA4 (KiDeleteKernelShadowStack.c)
  */
 
 __int64 __fastcall KiAllocateProcessorHiberSwapShadowStacks(__int64 a1, int a2)

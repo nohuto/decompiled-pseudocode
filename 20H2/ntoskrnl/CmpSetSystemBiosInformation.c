@@ -47,7 +47,7 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
   __int64 v25; // [rsp+B0h] [rbp-50h]
   PVOID Data; // [rsp+B8h] [rbp-48h]
   HANDLE KeyHandle; // [rsp+C0h] [rbp-40h]
-  char SourceString[128]; // [rsp+D0h] [rbp-30h] BYREF
+  CHAR SourceString[128]; // [rsp+D0h] [rbp-30h] BYREF
 
   v25 = a1;
   KeyHandle = a3;

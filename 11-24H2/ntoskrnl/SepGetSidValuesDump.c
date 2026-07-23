@@ -1,13 +1,13 @@
 /*
- * XREFs of SepGetSidValuesDump @ 0x140608E6C
+ * XREFs of SepGetSidValuesDump @ 0x1406066E0
  * Callers:
- *     SepLogTokenSidManagement @ 0x14078FD60 (SepLogTokenSidManagement.c)
+ *     SepLogTokenSidManagement @ 0x14078FD30 (SepLogTokenSidManagement.c)
  * Callees:
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall SepGetSidValuesDump(__int64 a1, _DWORD *a2)
+__int64 __fastcall SepGetSidValuesDump(_DWORD *a1, _DWORD *a2)
 {
   int v2; // edi
   __int64 Pool2; // rax
@@ -21,15 +21,15 @@ __int64 __fastcall SepGetSidValuesDump(__int64 a1, _DWORD *a2)
   *a2 = 0;
   if ( !a1 )
     return 0LL;
-  if ( !*(_DWORD *)(a1 + 16) )
+  if ( !a1[4] )
     return 0LL;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)(*a1 - 24), 0x69536553u);
   v6 = Pool2;
   if ( !Pool2 )
     return 0LL;
-  v7 = (unsigned __int8 *)(a1 + 24);
+  v7 = (unsigned __int8 *)(a1 + 6);
   v8 = (char *)Pool2;
-  for ( i = 0; i < *(_DWORD *)(a1 + 16); v8 += v10 )
+  for ( i = 0; i < a1[4]; v8 += v10 )
   {
     v10 = 4 * v7[1] + 8;
     RtlCopySid(v10, v8, v7);

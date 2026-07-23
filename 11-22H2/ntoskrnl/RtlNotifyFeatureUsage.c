@@ -6,7 +6,7 @@
  *     CmFcManagerNotifyFeatureUsage @ 0x1406171A4 (CmFcManagerNotifyFeatureUsage.c)
  */
 
-__int64 __fastcall RtlNotifyFeatureUsage(__int64 a1)
+NTSTATUS __cdecl RtlNotifyFeatureUsage(PRTL_FEATURE_USAGE_REPORT FeatureUsageReport)
 {
-  return CmFcManagerNotifyFeatureUsage(a1, a1);
+  return CmFcManagerNotifyFeatureUsage(FeatureUsageReport, FeatureUsageReport);
 }

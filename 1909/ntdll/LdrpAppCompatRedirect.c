@@ -9,11 +9,16 @@
  *     _guard_dispatch_icall_nop @ 0x1800A08B0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall LdrpAppCompatRedirect(__int64 a1, _OWORD *a2, __int64 a3, __int64 a4, int a5)
+__int64 __fastcall LdrpAppCompatRedirect(
+        __int64 a1,
+        _UNICODE_STRING *a2,
+        _UNICODE_STRING *a3,
+        _UNICODE_STRING *a4,
+        int a5)
 {
   unsigned int v9; // ebx
-  _OWORD *v11; // r8
-  _WORD *v12; // rax
+  _UNICODE_STRING *v11; // r8
+  wchar_t *Buffer; // rax
   _BYTE v13[8]; // [rsp+30h] [rbp-38h] BYREF
   unsigned __int16 v14[12]; // [rsp+38h] [rbp-30h] BYREF
 
@@ -23,10 +28,10 @@ __int64 __fastcall LdrpAppCompatRedirect(__int64 a1, _OWORD *a2, __int64 a3, __i
     v11 = a2;
     v13[0] = 0;
     if ( a5 < 0 )
-      v11 = (_OWORD *)a1;
-    ((void (__fastcall *)(unsigned __int16 *, _BYTE *, _OWORD *))(__ROR8__(
-                                                                    g_pfnSE_LdrResolveDllName,
-                                                                    64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+      v11 = (_UNICODE_STRING *)a1;
+    ((void (__fastcall *)(unsigned __int16 *, _BYTE *, _UNICODE_STRING *))(__ROR8__(
+                                                                             g_pfnSE_LdrResolveDllName,
+                                                                             64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
       v14,
       v13,
       v11);
@@ -34,9 +39,9 @@ __int64 __fastcall LdrpAppCompatRedirect(__int64 a1, _OWORD *a2, __int64 a3, __i
     {
       *(_DWORD *)(a1 + 32) |= 0x10000u;
       LdrpFreeUnicodeString((__int64)a2);
-      v12 = *(_WORD **)(a4 + 8);
-      *(_WORD *)a4 = 0;
-      *v12 = 0;
+      Buffer = a4->Buffer;
+      a4->Length = 0;
+      *Buffer = 0;
       return (unsigned int)LdrpResolveDllName(v14, a4, a3, a2, *(_DWORD *)(a1 + 32));
     }
   }

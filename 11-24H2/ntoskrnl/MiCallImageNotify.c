@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCallImageNotify @ 0x140AC26CC
+ * XREFs of MiCallImageNotify @ 0x140ABD9B4
  * Callers:
- *     MiDriverLoadSucceeded @ 0x1406F986C (MiDriverLoadSucceeded.c)
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
+ *     MiDriverLoadSucceeded @ 0x1406F74AC (MiDriverLoadSucceeded.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiDereferenceControlAreaFile @ 0x14042C500 (MiDereferenceControlAreaFile.c)
- *     PsCallImageNotifyRoutines @ 0x1408FFB60 (PsCallImageNotifyRoutines.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x14041F2B0 (MiDereferenceControlAreaFile.c)
+ *     PsCallImageNotifyRoutines @ 0x140922440 (PsCallImageNotifyRoutines.c)
  */
 
 void __fastcall MiCallImageNotify(__int64 a1, UNICODE_STRING *a2)

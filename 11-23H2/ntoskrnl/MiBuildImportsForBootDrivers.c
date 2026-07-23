@@ -4,8 +4,8 @@
  *     MiInitializeLoadedModuleList @ 0x140B5CCDC (MiInitializeLoadedModuleList.c)
  * Callees:
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -22,10 +22,10 @@ __int64 MiBuildImportsForBootDrivers()
   PVOID *i; // rdi
   unsigned __int64 *v9; // rbx
   PVOID v10; // rdx
-  unsigned int v11; // r11d
+  ULONG v11; // r11d
   unsigned __int64 v12; // r8
-  unsigned int j; // r10d
-  unsigned int v14; // ebx
+  ULONG j; // r10d
+  ULONG v14; // ebx
   unsigned __int64 v15; // rcx
   void **v16; // rdx
   __int64 v17; // r8
@@ -42,12 +42,12 @@ __int64 MiBuildImportsForBootDrivers()
   int v28; // ebx
   PVOID *k; // rdi
   PVOID v31; // rcx
-  unsigned int v32; // [rsp+60h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+60h] [rbp+8h] BYREF
   PVOID *v33; // [rsp+68h] [rbp+10h]
 
   v0 = (PVOID *)PsLoadedModuleList;
   v33 = &PsLoadedModuleList;
-  v32 = 0;
+  Size = 0;
   LODWORD(v1) = 0;
   v2 = 0LL;
   v3 = 0LL;
@@ -56,11 +56,11 @@ __int64 MiBuildImportsForBootDrivers()
   do
   {
     v4 = v0[6];
-    if ( (PVOID)PsNtosImageBase == v4 )
+    if ( PsNtosImageBase == v4 )
     {
       v2 = v0;
     }
-    else if ( (PVOID)PsHalImageBase == v4 )
+    else if ( PsHalImageBase == v4 )
     {
       v3 = v0;
     }
@@ -93,12 +93,12 @@ LABEL_63:
       v28 = 0;
       goto LABEL_61;
     }
-    v9 = (unsigned __int64 *)RtlImageDirectoryEntryToData((int)i[6], 1, 12, (int)&v32);
+    v9 = (unsigned __int64 *)RtlImageDirectoryEntryToData(i[6], 1u, 0xCu, &Size);
     if ( !v9 )
       goto LABEL_15;
     memset(Pool, 0, v6);
     v10 = 0LL;
-    v11 = v32 >> 3;
+    v11 = Size >> 3;
     v12 = 0LL;
     for ( j = 0; j < v11; ++v9 )
     {
@@ -151,7 +151,7 @@ LABEL_35:
     }
     v14 = 0;
     v15 = 0LL;
-    v32 = 0;
+    Size = 0;
     if ( !(_DWORD)v1 )
       goto LABEL_15;
     v16 = (void **)Pool;
@@ -168,7 +168,7 @@ LABEL_35:
       --v17;
     }
     while ( v17 );
-    v32 = v14;
+    Size = v14;
     if ( !v14 )
     {
 LABEL_15:

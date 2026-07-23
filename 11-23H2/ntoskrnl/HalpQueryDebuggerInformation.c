@@ -3,7 +3,7 @@
  * Callers:
  *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
  * Callees:
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
  */
 
 __int64 __fastcall HalpQueryDebuggerInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)

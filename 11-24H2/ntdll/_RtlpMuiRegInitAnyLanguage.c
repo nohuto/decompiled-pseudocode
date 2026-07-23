@@ -1,32 +1,32 @@
 /*
- * XREFs of _RtlpMuiRegInitAnyLanguage @ 0x18014A1D8
+ * XREFs of _RtlpMuiRegInitAnyLanguage @ 0x180148588
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x1801491C0 (RtlpMuiRegAddLanguageByName.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x180149E98 (_RtlpMuiRegAddBaseLanguage.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x180147570 (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x180148248 (_RtlpMuiRegAddBaseLanguage.c)
  * Callees:
- *     RtlCultureNameToLCID @ 0x1800330E0 (RtlCultureNameToLCID.c)
- *     _RtlpMuiRegAddNeutralLanguage @ 0x1800D24B4 (_RtlpMuiRegAddNeutralLanguage.c)
- *     RtlpMuiRegGetOrAddString @ 0x1800D2A40 (RtlpMuiRegGetOrAddString.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x1800141A0 (RtlCultureNameToLCID.c)
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x180098E48 (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlpMuiRegGetOrAddString @ 0x1800993D0 (RtlpMuiRegGetOrAddString.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, WCHAR *a3, __int16 a4)
+__int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, const WCHAR *a3, __int16 a4)
 {
   int v8; // edi
   __int16 v10[2]; // [rsp+20h] [rbp-38h] BYREF
-  int v11; // [rsp+24h] [rbp-34h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-30h] BYREF
+  DWORD Lcid; // [rsp+24h] [rbp-34h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-30h] BYREF
 
   DestinationString = 0LL;
-  v11 = 0;
+  Lcid = 0;
   v10[0] = -1;
   RtlInitUnicodeString(&DestinationString, a3);
-  if ( RtlCultureNameToLCID(&DestinationString.Length, &v11) )
+  if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
   {
-    v8 = RtlpMuiRegGetOrAddString(a1, (__int64)a3, 1, v10);
+    v8 = RtlpMuiRegGetOrAddString(a1, a3, 1, v10);
     if ( v8 >= 0 )
     {
-      *(_WORD *)(a2 + 4) = v11;
+      *(_WORD *)(a2 + 4) = Lcid;
       *(_WORD *)(a2 + 6) = v10[0];
       *(_WORD *)a2 = a4;
       *(_WORD *)(a2 + 2) = 0;

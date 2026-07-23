@@ -3,7 +3,7 @@
  * Callers:
  *     RtlFindCharInUnicodeString @ 0x18001D390 (RtlFindCharInUnicodeString.c)
  *     RtlDowncaseUnicodeString @ 0x18007C710 (RtlDowncaseUnicodeString.c)
- *     RtlDowncaseUnicodeChar @ 0x1800EB390 (RtlDowncaseUnicodeChar.c)
+ *     RtlDowncaseUnicodeChar @ 0x1800EB350 (RtlDowncaseUnicodeChar.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpLocateActivationContextSectionForQuery @ 0x18007BEB0
+ * XREFs of RtlpLocateActivationContextSectionForQuery @ 0x18007BEA0
  * Callers:
- *     RtlpQueryRunLevel @ 0x18007BA9C (RtlpQueryRunLevel.c)
- *     RtlpQueryInformationActivationContextDetailedInformation @ 0x18007BB8C (RtlpQueryInformationActivationContextDetailedInformation.c)
- *     RtlpQueryInformationActivationContextCompatibilityInformation @ 0x18007BDEC (RtlpQueryInformationActivationContextCompatibilityInformation.c)
- *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DABCC (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1800DAE5C (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800DB0E4 (RtlpQueryInformationActivationContextManifestResourceName.c)
+ *     RtlpQueryRunLevel @ 0x18007BA8C (RtlpQueryRunLevel.c)
+ *     RtlpQueryInformationActivationContextDetailedInformation @ 0x18007BB7C (RtlpQueryInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryInformationActivationContextCompatibilityInformation @ 0x18007BDDC (RtlpQueryInformationActivationContextCompatibilityInformation.c)
+ *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DAC8C (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1800DAF1C (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800DB1A4 (RtlpQueryInformationActivationContextManifestResourceName.c)
  * Callees:
- *     RtlpLocateActivationContextSection @ 0x18001B170 (RtlpLocateActivationContextSection.c)
+ *     RtlpLocateActivationContextSection @ 0x18001B160 (RtlpLocateActivationContextSection.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 

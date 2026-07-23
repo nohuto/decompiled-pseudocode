@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetRegistryValue @ 0x1409C2D48
+ * XREFs of CmpGetRegistryValue @ 0x1409C3D48
  * Callers:
- *     CmpSetSystemBiosInformation @ 0x1409C25D4 (CmpSetSystemBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x1409C35D4 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD *a3)

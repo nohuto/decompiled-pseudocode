@@ -132,7 +132,7 @@ NTSTATUS __stdcall NtPowerInformation(
   POWER_INFORMATION_LEVEL v8; // ebx
   __int64 v9; // rcx
   __int64 v10; // r8
-  struct _PROCESSOR_NUMBER *v11; // r14
+  _PROCESSOR_NUMBER *v11; // r14
   __int64 v12; // rdx
   KPROCESSOR_MODE v13; // r14
   ULONG v14; // r13d
@@ -238,7 +238,7 @@ NTSTATUS __stdcall NtPowerInformation(
   v81 = 0;
   v86 = 0;
   v84 = 0;
-  if ( (unsigned int)v8 > PowerInformationLevelMaximum )
+  if ( (unsigned int)v8 > SessionAllowExternalDmaDevices )
   {
     inited = -1073741811;
     goto LABEL_381;
@@ -252,7 +252,7 @@ NTSTATUS __stdcall NtPowerInformation(
   v16 = (_DWORD *)(v97 & -(__int64)(Length != 0));
   if ( !v13 )
   {
-    v11 = (struct _PROCESSOR_NUMBER *)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
+    v11 = (_PROCESSOR_NUMBER *)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
     P = v11;
 LABEL_56:
     v32 = (unsigned int)(v8 - 38);
@@ -296,7 +296,7 @@ LABEL_75:
             goto LABEL_120;
           ExFreePoolWithTag(PoolWithTag, 0x206D654Du);
           inited = -1073741823;
-          v11 = (struct _PROCESSOR_NUMBER *)P;
+          v11 = (_PROCESSOR_NUMBER *)P;
         }
         else
         {
@@ -342,7 +342,7 @@ LABEL_188:
         Src = v100;
         Length_4 = 64;
         ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        PopPrintEx(3LL, (__int64)"PopAdaptive: Session %u is started\n", ProcessSessionId);
+        PopPrintEx(3u, (__int64)"PopAdaptive: Session %u is started\n", ProcessSessionId);
         PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CREATED, ProcessSessionId, 0);
         PopReleasePolicyLock(v56, v55);
         goto LABEL_120;
@@ -371,7 +371,7 @@ LABEL_188:
         {
           if ( LOBYTE(v11[3].Group) )
           {
-            ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v11[1]);
+            ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &v11[1], 4u, 0LL, 0LL, 0, 0);
             Number = v11[3].Number;
           }
           if ( Number )
@@ -589,7 +589,7 @@ LABEL_240:
         if ( Length != 8 )
           goto LABEL_216;
         v45 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        v11 = (struct _PROCESSOR_NUMBER *)P;
+        v11 = (_PROCESSOR_NUMBER *)P;
         PopSessionInputChange(v45, (char *)P, v16);
         goto LABEL_60;
       case SystemPowerLoggingEntry:
@@ -605,7 +605,7 @@ LABEL_240:
         v48 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
         PopSessionConnectionChange(v48, P, v16);
         v49 = (unsigned int)PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        v11 = (struct _PROCESSOR_NUMBER *)P;
+        v11 = (_PROCESSOR_NUMBER *)P;
         LOBYTE(v12) = *((_BYTE *)P + 1);
         if ( qword_140C542D8 )
         {
@@ -617,7 +617,7 @@ LABEL_240:
         if ( v11 || v16 )
           goto LABEL_216;
         v61 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        PopPrintEx(3LL, (__int64)"PopAdaptive: Session %u is closed\n", v61);
+        PopPrintEx(3u, (__int64)"PopAdaptive: Session %u is closed\n", v61);
         PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CLOSED, v61, 0);
         PopFreeSessionState(v61);
         if ( TtmpEnabled == 1 )
@@ -627,7 +627,7 @@ LABEL_240:
         if ( !v11 || v14 != 8 || v16 )
           goto LABEL_216;
         v59 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        v11 = (struct _PROCESSOR_NUMBER *)P;
+        v11 = (_PROCESSOR_NUMBER *)P;
         PopSessionWinlogonNotification(v59, (__int64)P);
         goto LABEL_59;
       case PowerInformationLevelUnused0:
@@ -675,8 +675,13 @@ LABEL_240:
               PopDiagTraceMonitorOnWithLidClosed(v47);
               PopLastStandbyExitScenarioId = PopWdiCurrentScenarioInstanceId;
               ZwUpdateWnfStateData(
-                (__int64)&WNF_PO_MODERN_STANDBY_EXIT_INITIATED,
-                (__int64)&PopWdiCurrentScenarioInstanceId);
+                &WNF_PO_MODERN_STANDBY_EXIT_INITIATED,
+                &PopWdiCurrentScenarioInstanceId,
+                8u,
+                0LL,
+                0LL,
+                0,
+                0);
             }
           }
         }
@@ -743,7 +748,7 @@ LABEL_108:
           v79 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
           TtmNotifySessionDisplayBurst(v79, 6LL);
 LABEL_120:
-          v11 = (struct _PROCESSOR_NUMBER *)P;
+          v11 = (_PROCESSOR_NUMBER *)P;
         }
         else
         {
@@ -960,7 +965,7 @@ LABEL_131:
         if ( inited < 0 )
         {
           InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-          v11 = (struct _PROCESSOR_NUMBER *)P;
+          v11 = (_PROCESSOR_NUMBER *)P;
           v31 = 0;
           goto LABEL_67;
         }
@@ -972,7 +977,7 @@ LABEL_131:
             inited = -1073741790;
             v90 = -1073741790;
             InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-            v11 = (struct _PROCESSOR_NUMBER *)P;
+            v11 = (_PROCESSOR_NUMBER *)P;
             v31 = 0;
             goto LABEL_67;
           }
@@ -981,7 +986,7 @@ LABEL_131:
             inited = -1073741790;
             v90 = -1073741790;
             InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-            v11 = (struct _PROCESSOR_NUMBER *)P;
+            v11 = (_PROCESSOR_NUMBER *)P;
             v31 = 0;
             goto LABEL_67;
           }
@@ -995,7 +1000,7 @@ LABEL_131:
         if ( inited < 0 )
         {
           InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-          v11 = (struct _PROCESSOR_NUMBER *)P;
+          v11 = (_PROCESSOR_NUMBER *)P;
           v31 = 0;
           goto LABEL_67;
         }
@@ -1012,7 +1017,7 @@ LABEL_131:
             inited = -1073741790;
             v90 = -1073741790;
             InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-            v11 = (struct _PROCESSOR_NUMBER *)P;
+            v11 = (_PROCESSOR_NUMBER *)P;
             v31 = 0;
             goto LABEL_67;
           }
@@ -1028,7 +1033,7 @@ LABEL_131:
             inited = -1073741637;
             v90 = -1073741637;
             InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-            v11 = (struct _PROCESSOR_NUMBER *)P;
+            v11 = (_PROCESSOR_NUMBER *)P;
             v31 = 0;
             goto LABEL_67;
           }
@@ -1042,7 +1047,7 @@ LABEL_131:
             inited = -1073741790;
             v90 = -1073741790;
             InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-            v11 = (struct _PROCESSOR_NUMBER *)P;
+            v11 = (_PROCESSOR_NUMBER *)P;
             v31 = 0;
             goto LABEL_67;
           }
@@ -1061,7 +1066,7 @@ LABEL_131:
               inited = -1073741727;
               v90 = -1073741727;
               InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-              v11 = (struct _PROCESSOR_NUMBER *)P;
+              v11 = (_PROCESSOR_NUMBER *)P;
               v31 = 0;
               goto LABEL_67;
             }
@@ -1076,7 +1081,7 @@ LABEL_131:
         v28 = v14;
         if ( v14 > 0x40 )
         {
-          v11 = (struct _PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, v14, 0x206D654Du);
+          v11 = (_PROCESSOR_NUMBER *)ExAllocatePoolWithTag(PagedPool, v14, 0x206D654Du);
           P = v11;
           v28 = v14;
           if ( !v11 )
@@ -1090,14 +1095,14 @@ LABEL_131:
         }
         else
         {
-          v11 = (struct _PROCESSOR_NUMBER *)v101;
+          v11 = (_PROCESSOR_NUMBER *)v101;
           P = v101;
         }
         memmove(v11, v15, v28);
       }
       else
       {
-        v11 = (struct _PROCESSOR_NUMBER *)P;
+        v11 = (_PROCESSOR_NUMBER *)P;
       }
       if ( v16 )
         ProbeForWrite(v16, Length, 1u);
@@ -1107,7 +1112,7 @@ LABEL_131:
   }
   inited = -1073741790;
   InputBuffer = (PVOID)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-  v11 = (struct _PROCESSOR_NUMBER *)P;
+  v11 = (_PROCESSOR_NUMBER *)P;
 LABEL_381:
   v31 = 0;
 LABEL_67:
@@ -1118,7 +1123,7 @@ LABEL_67:
     ExFreePoolWithTag(Src, 0x206D654Du);
   if ( v31 )
     PopReleasePolicyLock(v34, v12);
-  if ( v11 && v11 != InputBuffer && v11 != (struct _PROCESSOR_NUMBER *)v101 )
+  if ( v11 && v11 != InputBuffer && v11 != (_PROCESSOR_NUMBER *)v101 )
     ExFreePoolWithTag(v11, 0x206D654Du);
   return inited;
 }

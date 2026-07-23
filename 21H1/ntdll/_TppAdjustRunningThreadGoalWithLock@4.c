@@ -23,8 +23,8 @@ int __thiscall TppAdjustRunningThreadGoalWithLock(int this)
   unsigned int v7; // esi
   signed __int64 v8; // rax
   int v9; // edi
-  int v10; // [esp-18h] [ebp-38h]
-  int v12; // [esp+8h] [ebp-18h] BYREF
+  void *v10; // [esp-18h] [ebp-38h]
+  int WorkerFactoryInformation; // [esp+8h] [ebp-18h] BYREF
   unsigned int v13; // [esp+Ch] [ebp-14h]
   volatile signed __int64 *v14; // [esp+10h] [ebp-10h]
   unsigned int v15; // [esp+14h] [ebp-Ch]
@@ -65,9 +65,9 @@ int __thiscall TppAdjustRunningThreadGoalWithLock(int this)
       v9 = 4;
     else
       v9 = v15 + 1;
-    v10 = *(_DWORD *)(this + 36);
-    v12 = v9;
-    ZwSetInformationWorkerFactory(v10, 8, (int)&v12, 4);
+    v10 = *(void **)(this + 36);
+    WorkerFactoryInformation = v9;
+    ZwSetInformationWorkerFactory(v10, WorkerFactoryAdjustThreadGoal, &WorkerFactoryInformation, 4u);
     return TppPoolUpdateNodeRelation((void **)this);
   }
   return result;

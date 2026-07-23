@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlAddToTunnelCacheEx @ 0x140688B60
+ * XREFs of FsRtlAddToTunnelCacheEx @ 0x1405E7FF0
  * Callers:
- *     FsRtlAddToTunnelCache @ 0x14088B6F0 (FsRtlAddToTunnelCache.c)
+ *     FsRtlAddToTunnelCache @ 0x14088B850 (FsRtlAddToTunnelCache.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     FsRtlCompareNodeAndKey @ 0x14029FEA8 (FsRtlCompareNodeAndKey.c)
- *     FsRtlEmptyFreePoolList @ 0x14029FF14 (FsRtlEmptyFreePoolList.c)
- *     FsRtlFreeTunnelNode @ 0x14029FF6C (FsRtlFreeTunnelNode.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     FsRtlPruneTunnelCache @ 0x140688E84 (FsRtlPruneTunnelCache.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140213400 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlCompareNodeAndKey @ 0x14021D428 (FsRtlCompareNodeAndKey.c)
+ *     FsRtlEmptyFreePoolList @ 0x14021D494 (FsRtlEmptyFreePoolList.c)
+ *     FsRtlFreeTunnelNode @ 0x14021D4EC (FsRtlFreeTunnelNode.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     FsRtlPruneTunnelCache @ 0x1405E8314 (FsRtlPruneTunnelCache.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall FsRtlAddToTunnelCacheEx(

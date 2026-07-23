@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushAcquire @ 0x14033D304
+ * XREFs of MiFlushAcquire @ 0x14033D594
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1406F7220 (MiAllocateVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x1407B4258 (MmFlushVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1406F7430 (MiAllocateVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x1407B4538 (MmFlushVirtualMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiReferenceSubsection @ 0x140289170 (MiReferenceSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiReferenceSubsection @ 0x140289400 (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFlushAcquire(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
@@ -31,10 +31,13 @@ __int64 __fastcall MiFlushAcquire(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v3);
     v8 = 0;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -55,10 +58,10 @@ __int64 __fastcall MiFlushAcquire(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
     }
     ++*(_QWORD *)(a1 + 40);
     ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v15 >= 2u )
       {
         v16 = KeGetCurrentPrcb();
         v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

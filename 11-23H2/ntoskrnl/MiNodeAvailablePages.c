@@ -1,10 +1,10 @@
 /*
- * XREFs of MiNodeAvailablePages @ 0x14046CCA6
+ * XREFs of MiNodeAvailablePages @ 0x14046D0A6
  * Callers:
- *     MiLogSlabEntryAllocateFailure @ 0x1406570EC (MiLogSlabEntryAllocateFailure.c)
- *     MiAddPhysicalMemoryChunks @ 0x140A2BE8C (MiAddPhysicalMemoryChunks.c)
+ *     MiLogSlabEntryAllocateFailure @ 0x14065763C (MiLogSlabEntryAllocateFailure.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2C13C (MiAddPhysicalMemoryChunks.c)
  * Callees:
- *     MiNodeFreeZeroPages @ 0x1402E8524 (MiNodeFreeZeroPages.c)
+ *     MiNodeFreeZeroPages @ 0x1402E87B4 (MiNodeFreeZeroPages.c)
  */
 
 __int64 __fastcall MiNodeAvailablePages(_QWORD *a1)

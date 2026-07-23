@@ -1,12 +1,12 @@
 /*
- * XREFs of SeAuditHeaderRequired @ 0x140011A90
+ * XREFs of SeAuditHeaderRequired @ 0x140011610
  * Callers:
- *     ObpAllocateObject @ 0x14041BB10 (ObpAllocateObject.c)
+ *     ObpAllocateObject @ 0x14041A9D0 (ObpAllocateObject.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall SeAuditHeaderRequired(POBJECT_TYPE *a1)
 {
-  return a1 == IoFileObjectType && (byte_140300BE2 || byte_140300BE3 || byte_140300BFA || byte_140300BFB);
+  return a1 == IoFileObjectType && (byte_140300BA2 || byte_140300BA3 || byte_140300BBA || byte_140300BBB);
 }

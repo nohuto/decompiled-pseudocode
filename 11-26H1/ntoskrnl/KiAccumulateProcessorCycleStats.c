@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAccumulateProcessorCycleStats @ 0x1404472C0
+ * XREFs of KiAccumulateProcessorCycleStats @ 0x14043FDB0
  * Callers:
- *     KiEndDebugAccumulation @ 0x1405025A0 (KiEndDebugAccumulation.c)
+ *     KiEndDebugAccumulation @ 0x1404FBE70 (KiEndDebugAccumulation.c)
  * Callees:
  *     <none>
  */
@@ -34,7 +34,7 @@ char __fastcall KiAccumulateProcessorCycleStats(__int64 a1, __int64 a2)
     v5 = 100;
   }
   v6 = 0;
-  v7 = (unsigned __int16 *)(a1 + 35464);
+  v7 = (unsigned __int16 *)(a1 + 35468);
   do
   {
     if ( v5 <= *v7 )

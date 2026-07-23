@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhHeatMapQuery @ 0x180016630
+ * XREFs of RtlpHpLfhHeatMapQuery @ 0x180061D60
  * Callers:
- *     RtlpHpLfhContextCompact @ 0x1800163FC (RtlpHpLfhContextCompact.c)
- *     RtlpHpLfhPrivateSlotListCompact @ 0x180016B50 (RtlpHpLfhPrivateSlotListCompact.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x1800944D0 (RtlpHpLfhContextSlotStandbyProcess.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x180094B78 (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1800B2AA0 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhContextCompact @ 0x180061B2C (RtlpHpLfhContextCompact.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x180062280 (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x18006251C (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x1800736A0 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1800AFFC0 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpHpLfhHeatMapDecayCounts @ 0x180016A40 (RtlpHpLfhHeatMapDecayCounts.c)
+ *     RtlpHpLfhHeatMapDecayCounts @ 0x180062170 (RtlpHpLfhHeatMapDecayCounts.c)
  */
 
 __int64 __fastcall RtlpHpLfhHeatMapQuery(__int64 a1, __int64 a2, unsigned __int8 *a3, int a4)

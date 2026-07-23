@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIntegerToUnicode @ 0x14065A880
+ * XREFs of RtlIntegerToUnicode @ 0x14065BA40
  * Callers:
- *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065B870 (RtlConvertSidToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 NTSTATUS __stdcall RtlIntegerToUnicode(ULONG Value, ULONG Base, ULONG Length, LPWSTR String)

@@ -1,43 +1,43 @@
 /*
- * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x1800DED30
+ * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x1800DBCA0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlSelfRelativeToAbsoluteSD(
-        __int16 *Src,
-        void *a2,
-        _DWORD *a3,
-        void *a4,
-        unsigned int *a5,
-        void *a6,
-        unsigned int *a7,
-        void *a8,
-        unsigned int *a9,
-        void *a10,
-        unsigned int *a11)
+NTSTATUS __cdecl RtlSelfRelativeToAbsoluteSD(
+        PSECURITY_DESCRIPTOR SelfRelativeSecurityDescriptor,
+        PSECURITY_DESCRIPTOR AbsoluteSecurityDescriptor,
+        PULONG AbsoluteSecurityDescriptorSize,
+        PACL Dacl,
+        PULONG DaclSize,
+        PACL Sacl,
+        PULONG SaclSize,
+        PSID Owner,
+        PULONG OwnerSize,
+        PSID PrimaryGroup,
+        PULONG PrimaryGroupSize)
 {
   unsigned __int8 *v13; // rbx
   unsigned int v14; // r8d
   unsigned __int16 *v15; // rsi
   unsigned int v16; // edx
   unsigned __int8 *v17; // r14
-  unsigned int v18; // r9d
+  ULONG v18; // r9d
   unsigned __int16 *v19; // rdi
   unsigned int v20; // eax
-  unsigned int *v21; // r10
-  __int64 result; // rax
+  PULONG v21; // r10
+  NTSTATUS result; // eax
 
-  if ( Src[1] >= 0 )
-    return 3221225703LL;
-  if ( !*((_DWORD *)Src + 1) )
+  if ( *((__int16 *)SelfRelativeSecurityDescriptor + 1) >= 0 )
+    return -1073741593;
+  if ( !*((_DWORD *)SelfRelativeSecurityDescriptor + 1) )
   {
     v13 = 0LL;
     goto LABEL_38;
   }
-  v13 = (unsigned __int8 *)Src + *((unsigned int *)Src + 1);
+  v13 = (unsigned __int8 *)SelfRelativeSecurityDescriptor + *((unsigned int *)SelfRelativeSecurityDescriptor + 1);
   if ( !v13 )
   {
 LABEL_38:
@@ -46,9 +46,10 @@ LABEL_38:
   }
   v14 = (4 * v13[1] + 11) & 0xFFFFFFFC;
 LABEL_5:
-  if ( (Src[1] & 4) != 0 && *((_DWORD *)Src + 4) )
+  if ( (*((_BYTE *)SelfRelativeSecurityDescriptor + 2) & 4) != 0 && *((_DWORD *)SelfRelativeSecurityDescriptor + 4) )
   {
-    v15 = (unsigned __int16 *)((char *)Src + *((unsigned int *)Src + 4));
+    v15 = (unsigned __int16 *)((char *)SelfRelativeSecurityDescriptor
+                             + *((unsigned int *)SelfRelativeSecurityDescriptor + 4));
     if ( v15 )
     {
       v16 = (v15[1] + 3) & 0xFFFFFFFC;
@@ -61,12 +62,12 @@ LABEL_5:
   }
   v16 = 0;
 LABEL_9:
-  if ( !*((_DWORD *)Src + 2) )
+  if ( !*((_DWORD *)SelfRelativeSecurityDescriptor + 2) )
   {
     v17 = 0LL;
     goto LABEL_36;
   }
-  v17 = (unsigned __int8 *)Src + *((unsigned int *)Src + 2);
+  v17 = (unsigned __int8 *)SelfRelativeSecurityDescriptor + *((unsigned int *)SelfRelativeSecurityDescriptor + 2);
   if ( !v17 )
   {
 LABEL_36:
@@ -75,9 +76,10 @@ LABEL_36:
   }
   v18 = (4 * v17[1] + 11) & 0xFFFFFFFC;
 LABEL_12:
-  if ( (Src[1] & 0x10) != 0 && *((_DWORD *)Src + 3) )
+  if ( (*((_BYTE *)SelfRelativeSecurityDescriptor + 2) & 0x10) != 0 && *((_DWORD *)SelfRelativeSecurityDescriptor + 3) )
   {
-    v19 = (unsigned __int16 *)((char *)Src + *((unsigned int *)Src + 3));
+    v19 = (unsigned __int16 *)((char *)SelfRelativeSecurityDescriptor
+                             + *((unsigned int *)SelfRelativeSecurityDescriptor + 3));
     if ( v19 )
     {
       v20 = (v19[1] + 3) & 0xFFFFFFFC;
@@ -90,45 +92,50 @@ LABEL_12:
   }
   v20 = 0;
 LABEL_15:
-  v21 = a11;
-  if ( a2 && (v21 = a11, *a3 >= 0x28u) && v14 <= *a9 && v16 <= *a5 && v20 <= *a7 && v18 <= *a11 )
+  v21 = PrimaryGroupSize;
+  if ( AbsoluteSecurityDescriptor
+    && (v21 = PrimaryGroupSize, *AbsoluteSecurityDescriptorSize >= 0x28)
+    && v14 <= *OwnerSize
+    && v16 <= *DaclSize
+    && v20 <= *SaclSize
+    && v18 <= *PrimaryGroupSize )
   {
-    memmove(a2, Src, 0x14uLL);
-    *((_WORD *)a2 + 1) &= ~0x8000u;
-    *((_QWORD *)a2 + 1) = 0LL;
-    *((_QWORD *)a2 + 2) = 0LL;
-    *((_QWORD *)a2 + 3) = 0LL;
-    *((_QWORD *)a2 + 4) = 0LL;
+    memmove(AbsoluteSecurityDescriptor, SelfRelativeSecurityDescriptor, 0x14uLL);
+    *((_WORD *)AbsoluteSecurityDescriptor + 1) &= ~0x8000u;
+    *((_QWORD *)AbsoluteSecurityDescriptor + 1) = 0LL;
+    *((_QWORD *)AbsoluteSecurityDescriptor + 2) = 0LL;
+    *((_QWORD *)AbsoluteSecurityDescriptor + 3) = 0LL;
+    *((_QWORD *)AbsoluteSecurityDescriptor + 4) = 0LL;
     if ( v13 )
     {
-      memmove(a8, v13, 4LL * v13[1] + 8);
-      *((_QWORD *)a2 + 1) = a8;
+      memmove(Owner, v13, 4LL * v13[1] + 8);
+      *((_QWORD *)AbsoluteSecurityDescriptor + 1) = Owner;
     }
     if ( v17 )
     {
-      memmove(a10, v17, 4LL * v17[1] + 8);
-      *((_QWORD *)a2 + 2) = a10;
+      memmove(PrimaryGroup, v17, 4LL * v17[1] + 8);
+      *((_QWORD *)AbsoluteSecurityDescriptor + 2) = PrimaryGroup;
     }
     if ( v19 )
     {
-      memmove(a6, v19, v19[1]);
-      *((_QWORD *)a2 + 3) = a6;
+      memmove(Sacl, v19, v19[1]);
+      *((_QWORD *)AbsoluteSecurityDescriptor + 3) = Sacl;
     }
     if ( v15 )
     {
-      memmove(a4, v15, v15[1]);
-      *((_QWORD *)a2 + 4) = a4;
+      memmove(Dacl, v15, v15[1]);
+      *((_QWORD *)AbsoluteSecurityDescriptor + 4) = Dacl;
     }
-    return 0LL;
+    return 0;
   }
   else
   {
-    *a3 = 40;
+    *AbsoluteSecurityDescriptorSize = 40;
     *v21 = v18;
-    *a9 = v14;
-    *a7 = v20;
-    result = 3221225507LL;
-    *a5 = v16;
+    *OwnerSize = v14;
+    *SaclSize = v20;
+    result = -1073741789;
+    *DaclSize = v16;
   }
   return result;
 }

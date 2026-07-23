@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllowWorkingSetExpansion @ 0x1404D8040
+ * XREFs of MiAllowWorkingSetExpansion @ 0x1404D1810
  * Callers:
- *     MiInitializeSystemWorkingSetList @ 0x1408676D4 (MiInitializeSystemWorkingSetList.c)
- *     MmInitializeProcessAddressSpace @ 0x1409622B0 (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess @ 0x140963A54 (MmInitializeHandBuiltProcess.c)
+ *     MiInitializeSystemWorkingSetList @ 0x14086DAB4 (MiInitializeSystemWorkingSetList.c)
+ *     MmInitializeProcessAddressSpace @ 0x140A08138 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x140ABF810 (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertHardLimitWorkingSet @ 0x1403BDD0C (MiInsertHardLimitWorkingSet.c)
- *     MiReturnWsToExpansionList @ 0x14047D620 (MiReturnWsToExpansionList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertHardLimitWorkingSet @ 0x1403C7B7C (MiInsertHardLimitWorkingSet.c)
+ *     MiReturnWsToExpansionList @ 0x140476F90 (MiReturnWsToExpansionList.c)
  */
 
 void __fastcall MiAllowWorkingSetExpansion(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall MiAllowWorkingSetExpansion(__int64 a1)
   int v6; // r9d
 
   v2 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 40LL);
-  v3 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174)) + 21384LL);
+  v3 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174)) + 21384LL);
   ExAcquireSpinLockExclusive(v3);
   for ( i = 0; i <= 1; i = v6 + 1 )
     MiReturnWsToExpansionList(a1, i);

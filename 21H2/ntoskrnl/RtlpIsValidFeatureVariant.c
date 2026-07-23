@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpIsValidFeatureVariant @ 0x14058F3E8
+ * XREFs of RtlpIsValidFeatureVariant @ 0x14058F618
  * Callers:
- *     RtlpFcAreSortedFeatureUpdatesValid @ 0x140919C78 (RtlpFcAreSortedFeatureUpdatesValid.c)
+ *     RtlpFcAreSortedFeatureUpdatesValid @ 0x140919DD8 (RtlpFcAreSortedFeatureUpdatesValid.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiResetScb @ 0x1400A6EDC
+ * XREFs of KiResetScb @ 0x1400A5454
  * Callers:
- *     KiUpdateCpuTargetByRate @ 0x1400A6C70 (KiUpdateCpuTargetByRate.c)
- *     KiUpdateCpuTargetByWeight @ 0x1400A6F04 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x1400A51E8 (KiUpdateCpuTargetByRate.c)
+ *     KiUpdateCpuTargetByWeight @ 0x1400A547C (KiUpdateCpuTargetByWeight.c)
  * Callees:
  *     <none>
  */

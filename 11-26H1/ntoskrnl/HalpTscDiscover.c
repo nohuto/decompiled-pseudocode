@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTscDiscover @ 0x140599198
+ * XREFs of HalpTscDiscover @ 0x14059B918
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x140582E04 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x140585324 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     HalSocRequestApi @ 0x1404EF27C (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x14059816C (HalpTimerRegister.c)
- *     HalpTscGetAttributes @ 0x1405992E4 (HalpTscGetAttributes.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     HalSocRequestApi @ 0x1404E885C (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x14059A8EC (HalpTimerRegister.c)
+ *     HalpTscGetAttributes @ 0x14059BA64 (HalpTscGetAttributes.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 HalpTscDiscover()
@@ -56,8 +56,8 @@ __int64 HalpTscDiscover()
     v16 = v5;
   }
   if ( (int)HalpTscGetAttributes(
+              (char *)&IommuInterfaceStateChangeCallbackPushLock.Teb + 1,
               &IommuInterfaceStateChangeCallbackPushLock.Teb,
-              (char *)&IommuInterfaceStateChangeCallbackPushLock.Queue + 1,
               &v19) < 0 )
   {
     v0 = 24583;
@@ -65,10 +65,10 @@ LABEL_11:
     v17 = v0;
     goto LABEL_12;
   }
-  if ( !LOBYTE(IommuInterfaceStateChangeCallbackPushLock.Teb) )
+  if ( !BYTE1(IommuInterfaceStateChangeCallbackPushLock.Teb) )
     v0 = 8199;
   v17 = v0;
-  if ( !BYTE1(IommuInterfaceStateChangeCallbackPushLock.Queue) )
+  if ( !LOBYTE(IommuInterfaceStateChangeCallbackPushLock.Teb) )
   {
     v0 |= 0x4000u;
     goto LABEL_11;

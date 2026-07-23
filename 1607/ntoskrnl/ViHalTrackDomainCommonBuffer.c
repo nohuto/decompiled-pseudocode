@@ -1,9 +1,9 @@
 /*
- * XREFs of ViHalTrackDomainCommonBuffer @ 0x140709BAC
+ * XREFs of ViHalTrackDomainCommonBuffer @ 0x140709BDC
  * Callers:
- *     VfAllocateDomainCommonBuffer @ 0x140222A30 (VfAllocateDomainCommonBuffer.c)
+ *     VfAllocateDomainCommonBuffer @ 0x14022285C (VfAllocateDomainCommonBuffer.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall ViHalTrackDomainCommonBuffer(_QWORD *a1)

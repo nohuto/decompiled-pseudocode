@@ -10,7 +10,7 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall sub_18002D32C(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall sub_18002D32C(__int64 a1, unsigned int a2)
 {
   _UNKNOWN **i; // rbx
   int v5; // [rsp+20h] [rbp-38h] BYREF
@@ -24,8 +24,8 @@ __int64 __fastcall sub_18002D32C(__int64 a1, unsigned int a2)
   v7 = a1 + 88;
   v8 = *(_QWORD *)(a1 + 48);
   v9 = *(_DWORD *)(a1 + 64);
-  RtlEnterCriticalSection((__int64)&off_1801564C0);
+  RtlEnterCriticalSection(&stru_1801564C0);
   for ( i = (_UNKNOWN **)off_180156618; i != &off_180156618; i = (_UNKNOWN **)*i )
     ((void (__fastcall *)(_QWORD, int *, void *))i[2])(a2, &v5, i[3]);
-  return RtlLeaveCriticalSection((__int64)&off_1801564C0);
+  return RtlLeaveCriticalSection(&stru_1801564C0);
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of KiEnterLongDpcProcessing @ 0x140298AA4
+ * XREFs of KiEnterLongDpcProcessing @ 0x1402A7594
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402552D0 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x1402858E0 (KiExecuteAllDpcs.c)
  * Callees:
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402979F0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x140297D50 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiAcquireMultiplePrcbLocks @ 0x140298E80 (KiAcquireMultiplePrcbLocks.c)
- *     KiScheduleThreadToRescheduleContext @ 0x140298F10 (KiScheduleThreadToRescheduleContext.c)
- *     KiReadyDeferredReadyList @ 0x140299320 (KiReadyDeferredReadyList.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140299510 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1404CC7A8 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
- *     EtwTraceLongDpcMitigationEvent @ 0x14064DBAC (EtwTraceLongDpcMitigationEvent.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1402A6534 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x1402A6840 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiAcquireMultiplePrcbLocks @ 0x1402A7970 (KiAcquireMultiplePrcbLocks.c)
+ *     KiScheduleThreadToRescheduleContext @ 0x1402A7A00 (KiScheduleThreadToRescheduleContext.c)
+ *     KiReadyDeferredReadyList @ 0x1402A7E10 (KiReadyDeferredReadyList.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402A8000 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402E1220 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     EtwTraceLongDpcMitigationEvent @ 0x14064C1BC (EtwTraceLongDpcMitigationEvent.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 bool __fastcall KiEnterLongDpcProcessing(__int64 a1, _KTHREAD *a2, __int64 a3, __int64 a4)
@@ -111,7 +111,7 @@ bool __fastcall KiEnterLongDpcProcessing(__int64 a1, _KTHREAD *a2, __int64 a3, _
   KiAcquireMultiplePrcbLocks(Prcbs, ProcessorCount, Prcbs, a4);
   if ( ((**(_BYTE **)(a1 + 56) ^ *(_BYTE *)&v10) & 0x80u) != 0 )
   {
-    KiAcquirePrcbLocksForPreemptionAttemptSlowPath(a1, 0LL, &v42);
+    KiAcquirePrcbLocksForPreemptionAttemptSlowPath(a1, 0, &v42);
     v12 = v42;
   }
   v17.PrcbFlags = *(volatile int *)(a1 + 236);
@@ -151,7 +151,7 @@ bool __fastcall KiEnterLongDpcProcessing(__int64 a1, _KTHREAD *a2, __int64 a3, _
     KiSearchForNewThreadsForRescheduleContext(v25, &v48);
   v27 = 0;
   v28 = 0;
-  if ( (WORD2(xmmword_140FC5B10) & 0x400) != 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x400) != 0 )
     v27 = 2;
   v29 = 0LL;
   if ( v25->ProcessorCount )

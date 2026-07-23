@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprUnlockPagesForReplace @ 0x1407B029C
+ * XREFs of PnprUnlockPagesForReplace @ 0x1407B32FC
  * Callers:
- *     PnprCompleteWake @ 0x1405DBC4C (PnprCompleteWake.c)
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
+ *     PnprCompleteWake @ 0x1405DE4FC (PnprCompleteWake.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     ExNotifyCallback @ 0x14047A7E0 (ExNotifyCallback.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     ExNotifyCallback @ 0x140474150 (ExNotifyCallback.c)
  */
 
 void PnprUnlockPagesForReplace()
 {
   MmUnlockPagableImageSection(ExPageLockHandle);
-  ExNotifyCallback(ExCbPowerState, (PVOID)3, (PVOID)1);
+  ExNotifyCallback(ExpSysDbgLock.Header.WaitListHead.Flink, (PVOID)3, (PVOID)1);
 }

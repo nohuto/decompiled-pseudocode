@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpQueryMaximumGsiv @ 0x140835960
+ * XREFs of HalpQueryMaximumGsiv @ 0x140835C60
  * Callers:
  *     HalpInitializeSecondaryInterruptServices @ 0x140B5D878 (HalpInitializeSecondaryInterruptServices.c)
  * Callees:

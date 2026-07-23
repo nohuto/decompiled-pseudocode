@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateOldWorkingSetPagesTail @ 0x14046C440
+ * XREFs of MiUpdateOldWorkingSetPagesTail @ 0x14046C840
  * Callers:
- *     MiUpdateOldPte @ 0x14046C280 (MiUpdateOldPte.c)
+ *     MiUpdateOldPte @ 0x14046C680 (MiUpdateOldPte.c)
  * Callees:
- *     MiFreeWsleList @ 0x140280C20 (MiFreeWsleList.c)
- *     MiProcessVmAccessedInfo @ 0x14046BFBE (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x14046C08C (MiQueryEPTAccessedState.c)
+ *     MiFreeWsleList @ 0x140280EB0 (MiFreeWsleList.c)
+ *     MiProcessVmAccessedInfo @ 0x14046C3BE (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x14046C48C (MiQueryEPTAccessedState.c)
  */
 
 __int64 __fastcall MiUpdateOldWorkingSetPagesTail(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

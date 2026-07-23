@@ -1,60 +1,60 @@
 /*
- * XREFs of NtLoadEnclaveData @ 0x140A3F270
+ * XREFs of NtLoadEnclaveData @ 0x140A3F520
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     DbgkMapViewOfSection @ 0x1407A3DBC (DbgkMapViewOfSection.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3CFC4 (MiCopyPagesIntoEnclave.c)
- *     MiDereferenceEnclaveModule @ 0x140A3DE04 (MiDereferenceEnclaveModule.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140A3E0D4 (MiLoadDataIntoVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x140A3E498 (MiLoadSectionIntoVsmEnclave.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     DbgkMapViewOfSection @ 0x1407A3FAC (DbgkMapViewOfSection.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A3D274 (MiCopyPagesIntoEnclave.c)
+ *     MiDereferenceEnclaveModule @ 0x140A3E0B4 (MiDereferenceEnclaveModule.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x140A3E384 (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x140A3E748 (MiLoadSectionIntoVsmEnclave.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtLoadEnclaveData(
-        ULONG_PTR BugCheckParameter1,
-        __int64 a2,
-        void *a3,
-        SIZE_T a4,
-        int a5,
-        char *Src,
-        size_t Size,
-        unsigned __int64 a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
   SIZE_T v9; // rdi
-  ULONG_PTR v10; // r11
+  HANDLE v10; // r11
   char *v11; // r9
   struct _MDL *Pool; // r14
   char *v13; // r15
   char PreviousMode; // r10
   __int64 v15; // rcx
   __int64 v16; // rcx
-  int v17; // edi
+  NTSTATUS v17; // edi
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR Process; // rbx
   PVOID v20; // r12
   __int64 *v21; // rax
   void *v22; // rbx
   int v23; // r12d
-  ULONG_PTR v24; // rbx
+  HANDLE v24; // rbx
   volatile signed __int32 *v25; // rbx
   __int64 Tag; // [rsp+20h] [rbp-188h]
   KPROCESSOR_MODE v28; // [rsp+60h] [rbp-148h]
-  int v29; // [rsp+64h] [rbp-144h] BYREF
+  NTSTATUS v29; // [rsp+64h] [rbp-144h] BYREF
   int v30; // [rsp+68h] [rbp-140h]
-  ULONG_PTR v31; // [rsp+70h] [rbp-138h]
+  HANDLE v31; // [rsp+70h] [rbp-138h]
   int v32; // [rsp+78h] [rbp-130h]
   PVOID Object; // [rsp+80h] [rbp-128h] BYREF
   __int64 v34; // [rsp+88h] [rbp-120h] BYREF
@@ -65,27 +65,27 @@ __int64 __fastcall NtLoadEnclaveData(
   SIZE_T v39; // [rsp+B0h] [rbp-F8h]
   PVOID Base; // [rsp+B8h] [rbp-F0h]
   __int64 v41; // [rsp+C0h] [rbp-E8h] BYREF
-  _QWORD *v42; // [rsp+C8h] [rbp-E0h]
-  _DWORD *v43; // [rsp+D0h] [rbp-D8h]
+  PSIZE_T v42; // [rsp+C8h] [rbp-E0h]
+  PULONG v43; // [rsp+D0h] [rbp-D8h]
   char *v44; // [rsp+D8h] [rbp-D0h]
-  ULONG_PTR v45; // [rsp+F0h] [rbp-B8h]
-  unsigned __int64 v46; // [rsp+F8h] [rbp-B0h]
+  HANDLE v45; // [rsp+F0h] [rbp-B8h]
+  PSIZE_T v46; // [rsp+F8h] [rbp-B0h]
   $115DCDF994C6370D29323EAB0E0C9502 v47; // [rsp+110h] [rbp-98h] BYREF
   _BYTE v48[32]; // [rsp+140h] [rbp-68h] BYREF
 
-  v9 = a4;
-  v39 = a4;
-  Base = a3;
-  v35 = a2;
-  v10 = BugCheckParameter1;
-  v31 = BugCheckParameter1;
-  v42 = (_QWORD *)a8;
-  v45 = BugCheckParameter1;
-  v11 = Src;
-  v44 = Src;
-  v32 = Size;
-  v46 = a8;
-  v43 = a9;
+  v9 = BufferSize;
+  v39 = BufferSize;
+  Base = Buffer;
+  v35 = (__int64)BaseAddress;
+  v10 = ProcessHandle;
+  v31 = ProcessHandle;
+  v42 = NumberOfBytesWritten;
+  v45 = ProcessHandle;
+  v11 = (char *)PageInformation;
+  v44 = (char *)PageInformation;
+  v32 = PageInformationLength;
+  v46 = NumberOfBytesWritten;
+  v43 = EnclaveError;
   memset(&v47, 0, sizeof(v47));
   v29 = 0;
   v37 = 0LL;
@@ -100,24 +100,24 @@ __int64 __fastcall NtLoadEnclaveData(
   v28 = PreviousMode;
   if ( PreviousMode == 1 )
   {
-    if ( a9 )
+    if ( EnclaveError )
     {
       v15 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a9 < 0x7FFFFFFF0000LL )
-        v15 = (__int64)a9;
+      if ( (unsigned __int64)EnclaveError < 0x7FFFFFFF0000LL )
+        v15 = (__int64)EnclaveError;
       *(_DWORD *)v15 = *(_DWORD *)v15;
     }
-    if ( a8 )
+    if ( NumberOfBytesWritten )
     {
       v16 = 0x7FFFFFFF0000LL;
-      if ( a8 < 0x7FFFFFFF0000LL )
-        v16 = a8;
+      if ( (unsigned __int64)NumberOfBytesWritten < 0x7FFFFFFF0000LL )
+        v16 = (__int64)NumberOfBytesWritten;
       *(_QWORD *)v16 = *(_QWORD *)v16;
     }
   }
-  if ( (_DWORD)Size )
+  if ( PageInformationLength )
   {
-    if ( (unsigned int)Size > 0xFFFF )
+    if ( PageInformationLength > 0xFFFF )
     {
 LABEL_12:
       v17 = -1073741820;
@@ -125,9 +125,9 @@ LABEL_41:
       v29 = v17;
       goto LABEL_42;
     }
-    if ( (unsigned int)Size > 0x20 )
+    if ( PageInformationLength > 0x20 )
     {
-      Pool = (struct _MDL *)MiAllocatePool(64, (unsigned int)Size, 0x49506E45u);
+      Pool = (struct _MDL *)MiAllocatePool(64, PageInformationLength, 0x49506E45u);
       P = Pool;
       if ( !Pool )
       {
@@ -143,11 +143,11 @@ LABEL_41:
       P = v48;
     }
     if ( PreviousMode == 1
-      && ((unsigned __int64)&v11[(unsigned int)Size] > 0x7FFFFFFF0000LL || &v11[(unsigned int)Size] < v11) )
+      && ((unsigned __int64)&v11[PageInformationLength] > 0x7FFFFFFF0000LL || &v11[PageInformationLength] < v11) )
     {
       MEMORY[0x7FFFFFFF0000] = 0;
     }
-    memmove(Pool, v11, (unsigned int)Size);
+    memmove(Pool, v11, PageInformationLength);
     v9 = v39;
     PreviousMode = v28;
     v10 = v31;
@@ -165,12 +165,20 @@ LABEL_26:
   }
   CurrentThread = KeGetCurrentThread();
   Process = (ULONG_PTR)CurrentThread->ApcState.Process;
-  if ( v10 == -1LL )
+  if ( v10 == (HANDLE)-1LL )
   {
     Object = CurrentThread->ApcState.Process;
     goto LABEL_31;
   }
-  v17 = ObpReferenceObjectByHandleWithTag(v10, 8, (__int64)PsProcessType, PreviousMode, 0x6D566D4Du, &Object, 0LL, 0LL);
+  v17 = ObpReferenceObjectByHandleWithTag(
+          (ULONG_PTR)v10,
+          8,
+          (__int64)PsProcessType,
+          PreviousMode,
+          0x6D566D4Du,
+          &Object,
+          0LL,
+          0LL);
   v29 = v17;
   if ( v17 >= 0 )
   {
@@ -200,7 +208,7 @@ LABEL_31:
                 (int *)Pool,
                 (unsigned __int64)Base,
                 v9,
-                a5,
+                Protect,
                 &v37);
       }
       else
@@ -225,7 +233,7 @@ LABEL_31:
               v35,
               (unsigned __int64)Base,
               v9,
-              a5,
+              Protect,
               &v37,
               &v34);
       v29 = v17;
@@ -241,7 +249,7 @@ LABEL_43:
     MiUnlockAndDereferenceVad(v13);
   if ( v23 )
     KiUnstackDetachProcess(&v47);
-  if ( Object && v24 != -1LL )
+  if ( Object && v24 != (HANDLE)-1LL )
     ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
   if ( Pool && Pool != (struct _MDL *)v48 )
     ExFreePoolWithTag(Pool, 0);
@@ -251,7 +259,7 @@ LABEL_43:
     DbgkMapViewOfSection(
       (_KPROCESS *)Object,
       0LL,
-      *(_QWORD *)(v41 + 16),
+      *(void **)(v41 + 16),
       (__int64)v11,
       Tag,
       *(_DWORD *)(v41 + 36),
@@ -260,7 +268,7 @@ LABEL_43:
   }
   if ( v42 )
     *v42 = v37;
-  if ( a9 )
-    *a9 = v34;
-  return (unsigned int)v17;
+  if ( EnclaveError )
+    *EnclaveError = v34;
+  return v17;
 }

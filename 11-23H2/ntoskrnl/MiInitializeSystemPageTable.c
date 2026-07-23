@@ -1,31 +1,31 @@
 /*
- * XREFs of MiInitializeSystemPageTable @ 0x1402E45A8
+ * XREFs of MiInitializeSystemPageTable @ 0x1402E4838
  * Callers:
- *     MiCreateSystemPageTable @ 0x1402E4410 (MiCreateSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x1402E46A0 (MiCreateSystemPageTable.c)
  * Callees:
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiSetPageTablePfnBuddy @ 0x14029251C (MiSetPageTablePfnBuddy.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiInitializePfnForOtherProcess @ 0x1402E3F60 (MiInitializePfnForOtherProcess.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiFillPhysicalPages @ 0x140339290 (MiFillPhysicalPages.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140368198 (MiInsertRecursiveTbFlushEntries.c)
- *     MiReplicatePteChange @ 0x140368300 (MiReplicatePteChange.c)
- *     MiTransformValidPteInPlace @ 0x1403C317C (MiTransformValidPteInPlace.c)
- *     MiClearPteAccessedBitRange @ 0x1403C5CA4 (MiClearPteAccessedBitRange.c)
- *     KeCopyPage @ 0x1404246E0 (KeCopyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiArePageContentsZero @ 0x14064D420 (MiArePageContentsZero.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402927AC (MiSetPageTablePfnBuddy.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiInitializePfnForOtherProcess @ 0x1402E41F0 (MiInitializePfnForOtherProcess.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiFillPhysicalPages @ 0x140339520 (MiFillPhysicalPages.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x140368338 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiReplicatePteChange @ 0x1403684A0 (MiReplicatePteChange.c)
+ *     MiTransformValidPteInPlace @ 0x1403C335C (MiTransformValidPteInPlace.c)
+ *     MiClearPteAccessedBitRange @ 0x1403C5E84 (MiClearPteAccessedBitRange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCopyPage @ 0x140424A70 (KeCopyPage.c)
+ *     MiArePageContentsZero @ 0x14064D970 (MiArePageContentsZero.c)
  *     MxCopyPage @ 0x140B99540 (MxCopyPage.c)
  */
 
@@ -199,10 +199,10 @@ LABEL_29:
       MiReplicatePteChange(a3, ValidPte, 1LL);
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_32;
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
       || (unsigned __int8)result > 0xFu
       || LockHandle.OldIrql > 0xFu
       || (unsigned __int8)result < 2u )
@@ -234,10 +234,10 @@ LABEL_22:
       *(_WORD *)(v13 + 32) = 2;
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_32;
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
         || (unsigned __int8)result > 0xFu
         || (unsigned __int8)OldIrql > 0xFu
         || (unsigned __int8)result < 2u )

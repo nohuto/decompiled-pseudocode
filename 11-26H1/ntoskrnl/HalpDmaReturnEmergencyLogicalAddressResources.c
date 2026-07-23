@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x14057905C
+ * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x14057B58C
  * Callers:
- *     HalPutScatterGatherListDmarThin @ 0x1404A21F0 (HalPutScatterGatherListDmarThin.c)
- *     HalpDmaFreeLa @ 0x140578D38 (HalpDmaFreeLa.c)
+ *     HalPutScatterGatherListDmarThin @ 0x14049BD20 (HalPutScatterGatherListDmarThin.c)
+ *     HalpDmaFreeLa @ 0x14057B268 (HalpDmaFreeLa.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpAllocateDmaResourcesInternal @ 0x14043E70C (HalpAllocateDmaResourcesInternal.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x140490FD4 (HalpConstructScatterGatherListDmarThin.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14043721C (HalpAllocateDmaResourcesInternal.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x14048AB24 (HalpConstructScatterGatherListDmarThin.c)
  */
 
 void __fastcall HalpDmaReturnEmergencyLogicalAddressResources(__int64 a1)

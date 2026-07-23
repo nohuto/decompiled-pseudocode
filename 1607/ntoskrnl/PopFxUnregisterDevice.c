@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxUnregisterDevice @ 0x14066D58C
+ * XREFs of PopFxUnregisterDevice @ 0x14066D670
  * Callers:
- *     PopFxUnregisterDeviceOrWait @ 0x1404C7B8C (PopFxUnregisterDeviceOrWait.c)
- *     PoFxUnregisterDevice @ 0x14066C560 (PoFxUnregisterDevice.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140483F08 (PopFxUnregisterDeviceOrWait.c)
+ *     PoFxUnregisterDevice @ 0x14066C644 (PoFxUnregisterDevice.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PoFxActivateComponent @ 0x1400C10E0 (PoFxActivateComponent.c)
- *     PopFxAssignDeviceToDevNode @ 0x140141E98 (PopFxAssignDeviceToDevNode.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x1401CCDEC (IoReleaseRemoveLockAndWaitEx.c)
- *     PopFxDestroyDeviceDpm @ 0x140202834 (PopFxDestroyDeviceDpm.c)
- *     PopFxRemoveDevice @ 0x14020395C (PopFxRemoveDevice.c)
- *     PopPluginUnregisterDevice @ 0x140204AC0 (PopPluginUnregisterDevice.c)
- *     PopPepUnregisterDevice @ 0x14066F8C0 (PopPepUnregisterDevice.c)
- *     PopDiagTraceFxDeviceUnregistration @ 0x140671404 (PopDiagTraceFxDeviceUnregistration.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PoFxActivateComponent @ 0x1400BEF70 (PoFxActivateComponent.c)
+ *     PopFxAssignDeviceToDevNode @ 0x140142408 (PopFxAssignDeviceToDevNode.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x1401CCC38 (IoReleaseRemoveLockAndWaitEx.c)
+ *     PopFxDestroyDeviceDpm @ 0x140202660 (PopFxDestroyDeviceDpm.c)
+ *     PopFxRemoveDevice @ 0x140203788 (PopFxRemoveDevice.c)
+ *     PopPluginUnregisterDevice @ 0x1402048EC (PopPluginUnregisterDevice.c)
+ *     PopPepUnregisterDevice @ 0x14066F9A4 (PopPepUnregisterDevice.c)
+ *     PopDiagTraceFxDeviceUnregistration @ 0x1406714E8 (PopDiagTraceFxDeviceUnregistration.c)
  */
 
 void __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)

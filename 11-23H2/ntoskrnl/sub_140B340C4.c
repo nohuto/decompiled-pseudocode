@@ -3,9 +3,9 @@
  * Callers:
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  *     KeGuardDispatchICall @ 0x140B137A0 (KeGuardDispatchICall.c)
  */
 

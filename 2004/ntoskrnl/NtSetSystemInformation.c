@@ -92,17 +92,21 @@
  *     BgkSetBootGraphicsInformation @ 0x1409F34C4 (BgkSetBootGraphicsInformation.c)
  */
 
-__int64 __fastcall NtSetSystemInformation(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtSetSystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength)
 {
   size_t v3; // r15
   unsigned __int64 v4; // rsi
-  int v5; // r14d
+  SYSTEM_INFORMATION_CLASS v5; // r14d
   __int64 v6; // rdi
   int v7; // r13d
   __int64 v8; // r9
   KPROCESSOR_MODE PreviousMode; // r12
   __int64 v10; // rax
-  unsigned int updated; // ebx
+  NTSTATUS updated; // ebx
   __int64 v12; // rcx
   int v14; // ecx
   int v15; // ecx
@@ -113,189 +117,191 @@ __int64 __fastcall NtSetSystemInformation(unsigned __int64 a1, unsigned __int64 
   __int64 v20; // r8
   __int64 v21; // rcx
   PVOID v22; // rcx
-  __int64 result; // rax
-  int v24; // r14d
-  unsigned int v25; // eax
+  NTSTATUS result; // eax
+  __int32 v24; // r14d
+  NTSTATUS v25; // eax
   char *v26; // rcx
   __int64 v27; // rcx
-  __int64 v28; // rax
-  int v29; // r14d
-  int v30; // r14d
-  int v31; // r14d
+  PIMAGE_NT_HEADERS v28; // rax
+  __int32 v29; // r14d
+  __int32 v30; // r14d
+  __int32 v31; // r14d
   int SystemImage; // eax
-  int v33; // edx
-  __int64 v34; // rdi
-  __int64 v35; // rax
-  __int64 v36; // rdx
-  int v37; // ebx
-  __int64 v38; // rcx
-  __int64 v39; // rsi
-  __int64 v40; // r8
-  _DWORD *v41; // r9
-  PADAPTER_OBJECT v42; // r14
-  struct _DMA_ADAPTER *v43; // rcx
-  int v44; // r14d
-  int v45; // r14d
+  PVOID v33; // rdi
+  PIMAGE_NT_HEADERS v34; // rax
+  char *v35; // rdx
+  int v36; // ebx
+  __int64 v37; // rcx
+  __int64 v38; // rsi
+  __int64 v39; // r8
+  _DWORD *v40; // r9
+  PADAPTER_OBJECT v41; // r14
+  struct _DMA_ADAPTER *v42; // rcx
+  __int32 v43; // r14d
+  __int32 v44; // r14d
+  __int32 v45; // r14d
   int v46; // r14d
   int v47; // r14d
   int v48; // r14d
   int v49; // r14d
-  int v50; // r14d
-  unsigned int v51; // ebx
-  bool v52; // zf
-  unsigned __int64 v53; // rcx
-  __int16 v54; // ax
-  __int64 v55; // rax
-  __int64 v56; // r8
-  __int64 v57; // r9
-  __int64 v58; // r8
-  __int64 v59; // r9
-  int v60; // r14d
-  int v61; // r14d
+  unsigned int v50; // ebx
+  bool v51; // zf
+  unsigned __int64 v52; // rcx
+  __int16 v53; // ax
+  __int64 v54; // rax
+  __int64 v55; // r8
+  __int64 v56; // r9
+  __int64 v57; // r8
+  __int64 v58; // r9
+  __int32 v59; // r14d
+  __int32 v60; // r14d
+  __int32 v61; // r14d
   int v62; // r14d
   int v63; // r14d
   int v64; // r14d
   int v65; // r14d
   int v66; // r14d
-  int v67; // r14d
-  __int64 v68; // rcx
-  int v69; // r14d
-  int v70; // r14d
+  __int64 v67; // rcx
+  __int32 v68; // r14d
+  __int32 v69; // r14d
+  __int32 v70; // r14d
   int v71; // r14d
   int v72; // r14d
   int v73; // r14d
   int v74; // r14d
   int v75; // r14d
-  int v76; // r14d
-  int v77; // r15d
-  char v78; // bl
-  __m128i v79; // xmm1
-  unsigned __int16 v80; // bx
-  char *v81; // rcx
+  int v76; // r15d
+  char v77; // bl
+  __m128i v78; // xmm1
+  unsigned __int16 v79; // bx
+  char *v80; // rcx
   PVOID PoolWithTag; // rax
-  PVOID v83; // r15
-  __int64 v84; // rcx
-  struct _DMA_ADAPTER *v85; // rdi
+  PVOID v82; // r15
+  __int64 v83; // rcx
+  struct _DMA_ADAPTER *v84; // rdi
   _KPROCESS *CurrentProcess; // rdi
-  unsigned int v87; // r15d
-  __int64 v88; // r14
-  unsigned int v89; // r15d
-  int v90; // r8d
-  char *v91; // rdx
-  unsigned int v92; // r15d
-  unsigned __int64 v93; // r14
-  bool v94; // [rsp+30h] [rbp-358h] BYREF
-  char v95[3]; // [rsp+31h] [rbp-357h] BYREF
+  ULONG v86; // r15d
+  __int64 v87; // r14
+  unsigned int v88; // r15d
+  int v89; // r8d
+  char *v90; // rdx
+  ULONG v91; // r15d
+  unsigned __int64 v92; // r14
+  bool v93; // [rsp+30h] [rbp-358h] BYREF
+  char v94[3]; // [rsp+31h] [rbp-357h] BYREF
   int SessionId; // [rsp+34h] [rbp-354h] BYREF
-  __int64 v97; // [rsp+40h] [rbp-348h] BYREF
+  PVOID BaseOfImage; // [rsp+40h] [rbp-348h] BYREF
   void *Buf1[2]; // [rsp+48h] [rbp-340h] BYREF
-  unsigned __int64 v99; // [rsp+58h] [rbp-330h] BYREF
+  unsigned __int64 v98; // [rsp+58h] [rbp-330h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp-328h] BYREF
   LUID PrivilegeValue; // [rsp+68h] [rbp-320h] BYREF
-  int v102; // [rsp+70h] [rbp-318h]
+  int v101; // [rsp+70h] [rbp-318h]
   PVOID Object; // [rsp+78h] [rbp-310h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+80h] [rbp-308h] BYREF
-  __int64 v105; // [rsp+88h] [rbp-300h] BYREF
-  PVOID v106; // [rsp+90h] [rbp-2F8h] BYREF
+  __int64 v104; // [rsp+88h] [rbp-300h] BYREF
+  PVOID v105; // [rsp+90h] [rbp-2F8h] BYREF
   UNICODE_STRING DriverServiceName; // [rsp+98h] [rbp-2F0h] BYREF
-  int v108; // [rsp+A8h] [rbp-2E0h]
-  int v109; // [rsp+ACh] [rbp-2DCh]
-  char v110; // [rsp+B0h] [rbp-2D8h] BYREF
-  int v111; // [rsp+B4h] [rbp-2D4h]
-  int v112; // [rsp+BCh] [rbp-2CCh]
-  HANDLE v113; // [rsp+C0h] [rbp-2C8h]
-  HANDLE v114; // [rsp+F8h] [rbp-290h]
-  unsigned __int64 v115; // [rsp+100h] [rbp-288h]
-  __int128 v116; // [rsp+110h] [rbp-278h] BYREF
+  int v107; // [rsp+A8h] [rbp-2E0h]
+  int v108; // [rsp+ACh] [rbp-2DCh]
+  ULONG Size; // [rsp+B0h] [rbp-2D8h] BYREF
+  int v110; // [rsp+B4h] [rbp-2D4h]
+  int v111; // [rsp+BCh] [rbp-2CCh]
+  HANDLE v112; // [rsp+C0h] [rbp-2C8h]
+  HANDLE v113; // [rsp+F8h] [rbp-290h]
+  unsigned __int64 v114; // [rsp+100h] [rbp-288h]
+  __int128 v115; // [rsp+110h] [rbp-278h] BYREF
   void *Src[2]; // [rsp+120h] [rbp-268h]
-  __int128 v118; // [rsp+130h] [rbp-258h] BYREF
-  __int128 v119; // [rsp+140h] [rbp-248h] BYREF
-  __int128 v120; // [rsp+150h] [rbp-238h]
-  char v121[160]; // [rsp+160h] [rbp-228h] BYREF
-  _BYTE v122[160]; // [rsp+200h] [rbp-188h] BYREF
-  _BYTE v123[160]; // [rsp+2A0h] [rbp-E8h] BYREF
+  __int128 v117; // [rsp+130h] [rbp-258h] BYREF
+  __int128 v118; // [rsp+140h] [rbp-248h] BYREF
+  __int128 v119; // [rsp+150h] [rbp-238h]
+  char v120[160]; // [rsp+160h] [rbp-228h] BYREF
+  _BYTE v121[160]; // [rsp+200h] [rbp-188h] BYREF
+  _BYTE v122[160]; // [rsp+2A0h] [rbp-E8h] BYREF
 
-  v3 = (unsigned int)a3;
-  v4 = a2;
-  v5 = a1;
+  v3 = SystemInformationLength;
+  v4 = (unsigned __int64)SystemInformation;
+  v5 = SystemInformationClass;
   v6 = 0LL;
-  v94 = 0;
+  v93 = 0;
   *(_OWORD *)Buf1 = 0LL;
-  v97 = 0LL;
+  BaseOfImage = 0LL;
   v7 = 1;
   v8 = 1LL;
   PrivilegeValue = 0LL;
-  v105 = 0LL;
+  v104 = 0LL;
   BugCheckParameter2 = 0LL;
   DmaAdapter = 0LL;
-  v99 = 0LL;
+  v98 = 0LL;
+  v117 = 0LL;
   v118 = 0LL;
   v119 = 0LL;
-  v120 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v10 = 1LL;
-    if ( (_DWORD)a1 != 89 )
+    if ( SystemInformationClass != SystemErrorPortInformation )
       v10 = 3LL;
-    if ( (_DWORD)a3 )
+    if ( SystemInformationLength )
     {
-      if ( (a2 & v10) != 0 )
+      if ( ((unsigned __int64)SystemInformation & v10) != 0 )
         ExRaiseDatatypeMisalignment();
-      a1 = a2 + (unsigned int)a3;
-      if ( a1 > 0x7FFFFFFF0000LL || a1 < a2 )
+      *(_QWORD *)&SystemInformationClass = (char *)SystemInformation + SystemInformationLength;
+      if ( *(_QWORD *)&SystemInformationClass > 0x7FFFFFFF0000uLL
+        || *(_QWORD *)&SystemInformationClass < (unsigned __int64)SystemInformation )
+      {
         MEMORY[0x7FFFFFFF0000] = 0;
+      }
     }
   }
   updated = 0;
-  if ( v5 > 97 )
+  if ( v5 > SystemVerifierFaultsInformation )
   {
-    if ( v5 <= 159 )
+    if ( v5 <= SystemHypervisorDetailInformation )
     {
-      if ( v5 == 159 )
-        return (unsigned int)-1073741637;
-      if ( v5 > 129 )
+      if ( v5 == SystemHypervisorDetailInformation )
+        return -1073741637;
+      if ( v5 > SystemProcessorProfileControlArea )
       {
-        v69 = v5 - 130;
-        if ( !v69 )
+        v68 = v5 - 130;
+        if ( !v68 )
         {
-          if ( (((_DWORD)a3 - 16) & 0xFFFFFFE7) == 0 && (_DWORD)a3 != 40 )
+          if ( ((SystemInformationLength - 16) & 0xFFFFFFE7) == 0 && SystemInformationLength != 40 )
           {
             if ( SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, PreviousMode) )
             {
-              memmove(&v118, (const void *)v4, v3);
+              memmove(&v117, (const void *)v4, v3);
               if ( (_DWORD)v3 == 32 )
-                v6 = *((_QWORD *)&v119 + 1);
-              updated = MmCombineIdenticalPages(v118, (unsigned int)v119, v6, &v105);
+                v6 = *((_QWORD *)&v118 + 1);
+              updated = MmCombineIdenticalPages(v117, (unsigned int)v118, v6, &v104);
               SessionId = updated;
-              *(_QWORD *)(v4 + 8) = v105;
+              *(_QWORD *)(v4 + 8) = v104;
               return updated;
             }
-            return 3221225569LL;
+            return -1073741727;
           }
-          return 3221225476LL;
+          return -1073741820;
+        }
+        v69 = v68 - 1;
+        if ( !v69 )
+        {
+          if ( PreviousMode )
+            return -1073741790;
+          if ( SystemInformationLength == 24 )
+            return KeInitializeEntropySystem(
+                     *(_QWORD *)SystemInformation,
+                     *((_QWORD *)SystemInformation + 1),
+                     *((_QWORD *)SystemInformation + 2),
+                     1LL);
+          return -1073741820;
         }
         v70 = v69 - 1;
         if ( !v70 )
         {
-          if ( PreviousMode )
-            return 3221225506LL;
-          if ( (_DWORD)a3 == 24 )
-            return (unsigned int)KeInitializeEntropySystem(
-                                   *(_QWORD *)a2,
-                                   *(_QWORD *)(a2 + 8),
-                                   *(_QWORD *)(a2 + 16),
-                                   1LL);
-          return 3221225476LL;
-        }
-        v71 = v70 - 1;
-        if ( !v71 )
-        {
-          if ( (_DWORD)a3 == 4 )
+          if ( SystemInformationLength == 4 )
           {
             *(_QWORD *)&DriverServiceName.Length = 7733364LL;
             DriverServiceName.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\condrv";
-            if ( (*(_BYTE *)a2 & 1) != 0 )
+            if ( (*(_BYTE *)SystemInformation & 1) != 0 )
             {
               KeEnterCriticalRegion();
               ExAcquirePushLockExclusiveEx((ULONG_PTR)&ExpConDrvLoadLock, 0LL);
@@ -307,634 +313,662 @@ __int64 __fastcall NtSetSystemInformation(unsigned __int64 a1, unsigned __int64 
               return updated;
             }
             if ( SeSinglePrivilegeCheck(SeLoadDriverPrivilege, PreviousMode) )
-              return (unsigned int)ZwUnloadDriver(&DriverServiceName);
-            return 3221225569LL;
+              return ZwUnloadDriver(&DriverServiceName);
+            return -1073741727;
           }
-          return 3221225476LL;
+          return -1073741820;
         }
-        v72 = v71 - 2;
-        if ( !v72 )
+        v71 = v70 - 2;
+        if ( !v71 )
         {
-          if ( (_DWORD)a3 == 32 )
-            return (unsigned int)ExHandleSPCall2(a1, a2, a3, 1LL);
-          return 3221225476LL;
+          if ( SystemInformationLength == 32 )
+            return ExHandleSPCall2(*(_QWORD *)&SystemInformationClass, SystemInformation, 32, 1LL);
+          return -1073741820;
         }
-        v73 = v72 - 8;
-        if ( v73 )
+        v72 = v71 - 8;
+        if ( v72 )
         {
-          v74 = v73 - 8;
-          if ( !v74 )
+          v73 = v72 - 8;
+          if ( !v73 )
           {
             if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-              return 3221225569LL;
+              return -1073741727;
             if ( !(_DWORD)v3 )
             {
               if ( ExBootLoaderMetadata )
                 _InterlockedExchange((volatile __int32 *)ExBootLoaderMetadata, 0);
               return updated;
             }
-            return 3221225476LL;
+            return -1073741820;
+          }
+          v74 = v73 - 1;
+          if ( !v74 )
+          {
+            PrivilegeValue = (LUID)19LL;
+            if ( !SeSinglePrivilegeCheck((LUID)19LL, PreviousMode) )
+              return -1073741727;
+            v76 = v3 - 1;
+            if ( v76 )
+            {
+              if ( v76 != 3 )
+                return -1073741820;
+              v7 = *(_DWORD *)v4;
+              v111 = *(_DWORD *)v4;
+            }
+            else
+            {
+              v77 = *(_BYTE *)v4;
+              if ( *(_BYTE *)v4 && !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
+                return -1073741727;
+              if ( !v77 )
+                v7 = 5;
+            }
+            return ExpSetSoftRebootFlags(v7);
           }
           v75 = v74 - 1;
           if ( !v75 )
           {
-            PrivilegeValue = (LUID)19LL;
-            if ( !SeSinglePrivilegeCheck((LUID)19LL, PreviousMode) )
-              return 3221225569LL;
-            v77 = v3 - 1;
-            if ( v77 )
-            {
-              if ( v77 != 3 )
-                return 3221225476LL;
-              v7 = *(_DWORD *)v4;
-              v112 = *(_DWORD *)v4;
-            }
-            else
-            {
-              v78 = *(_BYTE *)v4;
-              if ( *(_BYTE *)v4 && !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-                return 3221225569LL;
-              if ( !v78 )
-                v7 = 5;
-            }
-            return (unsigned int)ExpSetSoftRebootFlags(v7);
-          }
-          v76 = v75 - 1;
-          if ( !v76 )
-          {
-            if ( (_DWORD)a3 == 8 )
+            if ( SystemInformationLength == 8 )
             {
               if ( PreviousMode )
-                return (unsigned int)ExpQueryElamCertInfo(*(_QWORD *)a2, a2, a3, 1LL);
-              return 3221225485LL;
+                return ExpQueryElamCertInfo(
+                         *(_QWORD *)SystemInformation,
+                         SystemInformation,
+                         SystemInformationLength,
+                         1LL);
+              return -1073741811;
             }
-            return 3221225476LL;
+            return -1073741820;
           }
-          if ( v76 == 3 )
-            return (unsigned int)CmReconcileAndValidateAllHives(a1, a2, a3, 1LL);
-          return (unsigned int)-1073741821;
+          if ( v75 == 3 )
+            return CmReconcileAndValidateAllHives(
+                     *(_QWORD *)&SystemInformationClass,
+                     SystemInformation,
+                     SystemInformationLength,
+                     1LL);
+          return -1073741821;
         }
-        if ( (_DWORD)a3 != 48 )
-          return 3221225476LL;
+        if ( SystemInformationLength != 48 )
+          return -1073741820;
         if ( !SeSinglePrivilegeCheck(SeShutdownPrivilege, PreviousMode) )
-          return 3221225569LL;
+          return -1073741727;
         if ( CriticalProcessExceptionData )
-          return 0LL;
-        v118 = *(_OWORD *)v4;
-        v79 = *(__m128i *)(v4 + 16);
-        v120 = *(_OWORD *)(v4 + 32);
-        *(__m128i *)Src = v79;
-        v119 = 0LL;
-        v80 = _mm_cvtsi128_si32(v79);
-        if ( v80 && (v80 & 1) == 0 )
+          return 0;
+        v117 = *(_OWORD *)v4;
+        v78 = *(__m128i *)(v4 + 16);
+        v119 = *(_OWORD *)(v4 + 32);
+        *(__m128i *)Src = v78;
+        v118 = 0LL;
+        v79 = _mm_cvtsi128_si32(v78);
+        if ( v79 && (v79 & 1) == 0 )
         {
           if ( ((__int64)Src[1] & 1) != 0 )
             ExRaiseDatatypeMisalignment();
-          v81 = (char *)Src[1] + v80;
-          if ( (unsigned __int64)v81 > 0x7FFFFFFF0000LL || v81 < Src[1] )
+          v80 = (char *)Src[1] + v79;
+          if ( (unsigned __int64)v80 > 0x7FFFFFFF0000LL || v80 < Src[1] )
             MEMORY[0x7FFFFFFF0000] = 0;
-          PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)9, v80, 0x50535845u);
-          v83 = PoolWithTag;
+          PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)9, v79, 0x50535845u);
+          v82 = PoolWithTag;
           if ( PoolWithTag )
           {
-            memmove(PoolWithTag, Src[1], v80);
-            *((_QWORD *)&v119 + 1) = v83;
-            LOWORD(v119) = v80;
-            WORD1(v119) = v80;
+            memmove(PoolWithTag, Src[1], v79);
+            *((_QWORD *)&v118 + 1) = v82;
+            LOWORD(v118) = v79;
+            WORD1(v118) = v79;
           }
         }
-        *(_OWORD *)&CriticalProcessExceptionData = v118;
-        xmmword_140C19670 = v119;
-        xmmword_140C19680 = v120;
+        *(_OWORD *)&CriticalProcessExceptionData = v117;
+        xmmword_140C19670 = v118;
+        xmmword_140C19680 = v119;
         return 0;
       }
-      if ( v5 == 129 )
-        return (unsigned int)KeProcessorProfileControlArea(a2, a3, PreviousMode);
-      v60 = v5 - 102;
-      if ( v60 )
+      if ( v5 == SystemProcessorProfileControlArea )
+        return KeProcessorProfileControlArea((__int64)SystemInformation, SystemInformationLength, PreviousMode);
+      v59 = v5 - 102;
+      if ( v59 )
       {
+        v60 = v59 - 2;
+        if ( !v60 )
+        {
+          LOBYTE(SystemInformationLength) = PreviousMode;
+          return ExpSetProcessorMicrocodeUpdateInformation(
+                   SystemInformation,
+                   (unsigned int)v3,
+                   SystemInformationLength,
+                   1LL);
+        }
         v61 = v60 - 2;
         if ( !v61 )
-        {
-          LOBYTE(a3) = PreviousMode;
-          return (unsigned int)ExpSetProcessorMicrocodeUpdateInformation(a2, (unsigned int)v3, a3, 1LL);
-        }
-        v62 = v61 - 2;
+          return -1073741821;
+        v62 = v61 - 3;
         if ( !v62 )
-          return (unsigned int)-1073741821;
-        v63 = v62 - 3;
-        if ( !v63 )
         {
           LOBYTE(v8) = PreviousMode;
-          return (unsigned int)SmSetStoreInformation(a1, a2, (unsigned int)a3, v8);
+          return SmSetStoreInformation(
+                   *(_QWORD *)&SystemInformationClass,
+                   SystemInformation,
+                   SystemInformationLength,
+                   v8);
         }
+        v63 = v62 - 1;
+        if ( !v63 )
+          return -1073741822;
         v64 = v63 - 1;
         if ( !v64 )
-          return (unsigned int)-1073741822;
-        v65 = v64 - 1;
-        if ( !v65 )
         {
-          if ( (_DWORD)a3 != 4 )
-            return 3221225476LL;
+          if ( SystemInformationLength != 4 )
+            return -1073741820;
           if ( !SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, PreviousMode) )
-            return 3221225506LL;
+            return -1073741790;
           MEMORY[0xFFFFF78000000248] = *(_DWORD *)v4;
           return 0;
         }
-        v66 = v65 - 2;
+        v65 = v64 - 2;
+        if ( !v65 )
+          return PsSetCpuQuotaInformation((unsigned __int64)SystemInformation, SystemInformationLength, PreviousMode);
+        v66 = v65 - 13;
         if ( !v66 )
-          return (unsigned int)PsSetCpuQuotaInformation(a2, a3, PreviousMode);
-        v67 = v66 - 13;
-        if ( !v67 )
         {
           if ( PreviousMode )
-            return 3221225569LL;
-          if ( (_DWORD)a3 == 32 )
-            return (unsigned int)BgkSetBootGraphicsInformation(a1, a2, a3, 1LL);
-          return (unsigned int)-1073741820;
+            return -1073741727;
+          if ( SystemInformationLength == 32 )
+            return BgkSetBootGraphicsInformation(*(_QWORD *)&SystemInformationClass, SystemInformation, 32, 1LL);
+          return -1073741820;
         }
-        if ( v67 != 1 )
-          return (unsigned int)-1073741821;
-        if ( (_DWORD)a3 != 16 )
-          return 3221225476LL;
+        if ( v66 != 1 )
+          return -1073741821;
+        if ( SystemInformationLength != 16 )
+          return -1073741820;
         if ( !SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, PreviousMode) )
-          return 3221225569LL;
-        v113 = *(HANDLE *)v4;
-        updated = MmScrubMemory(v68, v113, &PrivilegeValue);
+          return -1073741727;
+        v112 = *(HANDLE *)v4;
+        updated = MmScrubMemory(v67, v112, &PrivilegeValue);
         SessionId = updated;
         *(LUID *)(v4 + 8) = PrivilegeValue;
         return updated;
       }
-      v51 = 432;
-      if ( (_DWORD)a3 != 432 )
-        return 3221225476LL;
-      if ( !PreviousMode || (unsigned __int8)ExpCapabilityCheck(&TimeZoneCapability) )
-        return (unsigned int)ExpSetTimeZoneInformation(v4, v51);
-      v52 = SeSinglePrivilegeCheck(SeTimeZonePrivilege, PreviousMode) == 0;
+      v50 = 432;
+      if ( SystemInformationLength != 432 )
+        return -1073741820;
+      if ( !PreviousMode || (unsigned __int8)ExpCapabilityCheck((PUNICODE_STRING)&TimeZoneCapability) )
+        return ExpSetTimeZoneInformation(v4, v50);
+      v51 = SeSinglePrivilegeCheck(SeTimeZonePrivilege, PreviousMode) == 0;
 LABEL_220:
-      if ( v52 )
-        return 3221225569LL;
-      return (unsigned int)ExpSetTimeZoneInformation(v4, v51);
+      if ( v51 )
+        return -1073741727;
+      return ExpSetTimeZoneInformation(v4, v50);
     }
-    if ( v5 > 194 )
+    if ( v5 > SystemSecureDumpEncryptionInformation )
     {
-      if ( v5 == 199 )
-        return (unsigned int)SeCodeIntegritySetInformation((unsigned int)v5, a2, (unsigned int)a3, 1LL);
-      if ( v5 != 204 )
+      if ( v5 == SystemCodeIntegrityVerificationInformation )
+        return SeCodeIntegritySetInformation((unsigned int)v5, SystemInformation, SystemInformationLength, 1LL);
+      if ( v5 != SystemWorkloadAllowedCpuSetsInformation )
       {
         switch ( v5 )
         {
-          case 206:
-            if ( (_DWORD)a3 != 8 )
-              return 3221225476LL;
+          case SystemLeapSecondInformation:
+            if ( SystemInformationLength != 8 )
+              return -1073741820;
             if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemtimePrivilege, PreviousMode) )
-              return 3221225569LL;
+              return -1073741727;
             if ( PsIsCurrentThreadInServerSilo() )
-              return 3221225506LL;
-            v94 = (unsigned __int8)*(_QWORD *)v4 != 0;
+              return -1073741790;
+            v93 = (unsigned __int8)*(_QWORD *)v4 != 0;
             result = ExSetLeapSecondEnabled();
             updated = result;
-            if ( (int)result >= 0 )
+            if ( result >= 0 )
             {
-              *(_BYTE *)ExLeapSecondData = v94;
+              *(_BYTE *)ExLeapSecondData = v93;
               return updated;
             }
             return result;
-          case 207:
-            if ( (_DWORD)a3 == 4 )
+          case SystemFlags2Information:
+            if ( SystemInformationLength == 4 )
             {
               if ( SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
               {
-                v102 = 0;
+                v101 = 0;
                 NtGlobalFlag2 = *(_DWORD *)v4;
                 *(_DWORD *)v4 = NtGlobalFlag2;
                 return updated;
               }
-              return 3221225506LL;
+              return -1073741790;
             }
-            return 3221225476LL;
-          case 210:
-            return (unsigned int)CmUpdateFeatureConfiguration((void *)a2, (unsigned int)a3, PreviousMode);
-          case 212:
-            return (unsigned int)CmUpdateFeatureUsageSubscription((void *)a2, (unsigned int)a3, PreviousMode);
+            return -1073741820;
+          case SystemFeatureConfigurationInformation:
+            return CmUpdateFeatureConfiguration(SystemInformation, SystemInformationLength, PreviousMode);
+          case SystemFeatureUsageSubscriptionInformation:
+            return CmUpdateFeatureUsageSubscription(SystemInformation, SystemInformationLength, PreviousMode);
         }
         if ( (unsigned int)(v5 - 224) > 1 )
-          return (unsigned int)-1073741821;
-        return (unsigned int)SeCodeIntegritySetInformation((unsigned int)v5, a2, (unsigned int)a3, 1LL);
+          return -1073741821;
+        return SeCodeIntegritySetInformation((unsigned int)v5, SystemInformation, SystemInformationLength, 1LL);
       }
-      if ( (unsigned int)a3 < 8 )
-        return 3221225476LL;
-      v92 = a3 - 8;
-      if ( (((_BYTE)a3 - 8) & 7) != 0 || v92 > 0xA0 )
-        return 3221225476LL;
-      v93 = *(_QWORD *)a2;
-      memmove(v123, (const void *)(a2 + 8), v92);
-      if ( v93 >= 2 )
-        return 3221225485LL;
+      if ( SystemInformationLength < 8 )
+        return -1073741820;
+      v91 = SystemInformationLength - 8;
+      if ( (((_BYTE)SystemInformationLength - 8) & 7) != 0 || v91 > 0xA0 )
+        return -1073741820;
+      v92 = *(_QWORD *)SystemInformation;
+      memmove(v122, (char *)SystemInformation + 8, v91);
+      if ( v92 >= 2 )
+        return -1073741811;
       updated = ExCpuSetResourceManagerAccessCheck(PreviousMode);
-      if ( (updated & 0x80000000) != 0 )
+      if ( updated < 0 )
         return updated;
-      v89 = v92 >> 3;
-      v90 = v93;
-      v91 = v123;
+      v88 = v91 >> 3;
+      v89 = v92;
+      v90 = v122;
     }
     else
     {
       switch ( v5 )
       {
-        case 194:
-          if ( !(_DWORD)a3 )
+        case SystemSecureDumpEncryptionInformation:
+          if ( !SystemInformationLength )
           {
             if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-              return (unsigned int)VslProvisionDumpEncryption();
-            return 3221225569LL;
+              return VslProvisionDumpEncryption();
+            return -1073741727;
           }
-          return (unsigned int)-1073741811;
-        case 161:
+          return -1073741811;
+        case SystemVmGenerationCountInformation:
           if ( PreviousMode )
-            return 3221225506LL;
-          if ( (_DWORD)a3 == 8 )
-            return (unsigned int)KdInitialize(3LL, a2, &KdpContext, 1LL);
-          return 3221225476LL;
-        case 164:
-          return (unsigned int)SeCodeIntegritySetInformation((unsigned int)v5, a2, (unsigned int)a3, 1LL);
+            return -1073741790;
+          if ( SystemInformationLength == 8 )
+            return KdInitialize(3LL, SystemInformation, &KdpContext, 1LL);
+          return -1073741820;
+        case SystemCodeIntegrityPolicyInformation:
+          return SeCodeIntegritySetInformation((unsigned int)v5, SystemInformation, SystemInformationLength, 1LL);
       }
-      if ( v5 != 168 )
+      if ( v5 != SystemAllowedCpuSetsInformation )
       {
         switch ( v5 )
         {
-          case 170:
-            if ( (_DWORD)a3 == 16 )
+          case SystemInterruptCpuSetsInformation:
+            if ( SystemInformationLength == 16 )
             {
               if ( SeSinglePrivilegeCheck(SeIncreaseBasePriorityPrivilege, PreviousMode) )
-                return (unsigned int)KeIntSteerAssignCpuSetForGsiv(
-                                       *(_OWORD *)v4,
-                                       WORD2(*(_QWORD *)v4),
-                                       *(_QWORD *)(v4 + 8));
-              return 3221225569LL;
+                return KeIntSteerAssignCpuSetForGsiv(*(_OWORD *)v4, WORD2(*(_QWORD *)v4), *(_QWORD *)(v4 + 8));
+              return -1073741727;
             }
-            return 3221225476LL;
-          case 176:
-            if ( (unsigned int)a3 < 8 )
-              return 3221225476LL;
-            v87 = a3 - 8;
-            if ( (((_BYTE)a3 - 8) & 7) != 0 || v87 > 0xA0 )
-              return 3221225476LL;
-            v88 = *(_QWORD *)a2;
-            v115 = *(_QWORD *)a2;
-            memmove(v121, (const void *)(a2 + 8), v87);
+            return -1073741820;
+          case SystemCpuSetTagInformation:
+            if ( SystemInformationLength < 8 )
+              return -1073741820;
+            v86 = SystemInformationLength - 8;
+            if ( (((_BYTE)SystemInformationLength - 8) & 7) != 0 || v86 > 0xA0 )
+              return -1073741820;
+            v87 = *(_QWORD *)SystemInformation;
+            v114 = *(_QWORD *)SystemInformation;
+            memmove(v120, (char *)SystemInformation + 8, v86);
             updated = ExCpuSetResourceManagerAccessCheck(PreviousMode);
-            if ( (updated & 0x80000000) == 0 )
-              return (unsigned int)KeSetTagCpuSets(v87 >> 3, v121, v88);
+            if ( updated >= 0 )
+              return KeSetTagCpuSets(v86 >> 3, v120, v87);
             return updated;
-          case 177:
-            if ( (_DWORD)a3 == 8 )
+          case SystemWin32WerStartCallout:
+            if ( SystemInformationLength == 8 )
             {
               if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-                return 3221225569LL;
-              v114 = *(HANDLE *)v4;
-              v106 = 0LL;
-              updated = ObReferenceObjectByHandle(v114, 0x1000u, (POBJECT_TYPE)PsProcessType, PreviousMode, &v106, 0LL);
-              if ( (updated & 0x80000000) == 0 )
+                return -1073741727;
+              v113 = *(HANDLE *)v4;
+              v105 = 0LL;
+              updated = ObReferenceObjectByHandle(v113, 0x1000u, (POBJECT_TYPE)PsProcessType, PreviousMode, &v105, 0LL);
+              if ( updated >= 0 )
               {
-                v85 = (struct _DMA_ADAPTER *)v106;
-                SessionId = MmGetSessionIdEx((__int64)v106);
+                v84 = (struct _DMA_ADAPTER *)v105;
+                SessionId = MmGetSessionIdEx((__int64)v105);
                 if ( SessionId != -1 )
-                  updated = PsInvokeWin32Callout(32, (__int64)v85, 1, (__int64)&SessionId);
-                v43 = v85;
+                  updated = PsInvokeWin32Callout(32, (__int64)v84, 1, (__int64)&SessionId);
+                v42 = v84;
                 goto LABEL_199;
               }
             }
             else
             {
-              if ( (_DWORD)a3 )
-                return 3221225476LL;
+              if ( SystemInformationLength )
+                return -1073741820;
               updated = 0;
               CurrentProcess = PsGetCurrentProcess();
               SessionId = MmGetSessionIdEx((__int64)CurrentProcess);
               if ( SessionId != -1 )
-                return (unsigned int)PsInvokeWin32Callout(32, (__int64)CurrentProcess, 1, (__int64)&SessionId);
+                return PsInvokeWin32Callout(32, (__int64)CurrentProcess, 1, (__int64)&SessionId);
             }
             return updated;
-          case 187:
-            if ( (_DWORD)a3 != 24 )
-              return 3221225476LL;
-            v118 = *(_OWORD *)a2;
-            *(_QWORD *)&v119 = *(_QWORD *)(a2 + 16);
-            result = VfProbeAndCaptureUnicodeStringBuffer(&v118, 1LL, a3, 1LL);
-            if ( (int)result < 0 )
+          case SystemActivityModerationExeState:
+            if ( SystemInformationLength != 24 )
+              return -1073741820;
+            v117 = *(_OWORD *)SystemInformation;
+            *(_QWORD *)&v118 = *((_QWORD *)SystemInformation + 2);
+            result = VfProbeAndCaptureUnicodeStringBuffer(&v117, 1LL, 24, 1LL);
+            if ( result < 0 )
               return result;
-            updated = PsSetExeModerationState((__int64)&v118, v119, DWORD1(v119));
-            v26 = (char *)&v118;
+            updated = PsSetExeModerationState((__int64)&v117, v118, DWORD1(v118));
+            v26 = (char *)&v117;
             goto LABEL_101;
         }
-        v84 = (unsigned int)(v5 - 190);
-        if ( v5 != 190 )
+        v83 = (unsigned int)(v5 - 190);
+        if ( v5 != SystemCodeIntegrityUnlockInformation )
         {
-          if ( v5 != 191 )
-            return (unsigned int)-1073741821;
-          if ( !(_DWORD)a3 )
+          if ( v5 != SystemIntegrityQuotaInformation )
+            return -1073741821;
+          if ( !SystemInformationLength )
           {
             if ( !PreviousMode || SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-              return (unsigned int)VslRelaxQuotas(v84, a2, a3, v8);
-            return 3221225569LL;
+              return VslRelaxQuotas(v83, SystemInformation, *(_QWORD *)&SystemInformationLength, v8);
+            return -1073741727;
           }
-          return (unsigned int)-1073741811;
+          return -1073741811;
         }
-        return (unsigned int)SeCodeIntegritySetInformation((unsigned int)v5, a2, (unsigned int)a3, 1LL);
+        return SeCodeIntegritySetInformation((unsigned int)v5, SystemInformation, SystemInformationLength, 1LL);
       }
-      if ( (a3 & 7) != 0 || (unsigned int)a3 > 0xA0 )
-        return 3221225476LL;
-      memmove(v122, (const void *)a2, (unsigned int)a3);
+      if ( (SystemInformationLength & 7) != 0 || SystemInformationLength > 0xA0 )
+        return -1073741820;
+      memmove(v121, SystemInformation, SystemInformationLength);
       result = ExCpuSetResourceManagerAccessCheck(PreviousMode);
-      if ( (int)result < 0 )
+      if ( result < 0 )
         return result;
-      v89 = (unsigned int)v3 >> 3;
-      v90 = 0;
-      v91 = v122;
+      v88 = (unsigned int)v3 >> 3;
+      v89 = 0;
+      v90 = v121;
     }
-    return (unsigned int)KeSetSystemAllowedCpuSets(v89, v91, v90);
+    return KeSetSystemAllowedCpuSets(v88, v90, v89);
   }
-  if ( v5 == 97 )
+  if ( v5 == SystemVerifierFaultsInformation )
   {
-    if ( (_DWORD)a3 != 40 )
-      return 3221225476LL;
+    if ( SystemInformationLength != 40 )
+      return -1073741820;
     if ( PreviousMode )
     {
       if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-        return 3221225569LL;
-      v118 = *(_OWORD *)v4;
-      v119 = *(_OWORD *)(v4 + 16);
-      *(_QWORD *)&v120 = *(_QWORD *)(v4 + 32);
-      result = VfProbeAndCaptureUnicodeStringBuffer((char *)&v118 + 8, 1LL, v56, v57);
-      if ( (int)result < 0 )
+        return -1073741727;
+      v117 = *(_OWORD *)v4;
+      v118 = *(_OWORD *)(v4 + 16);
+      *(_QWORD *)&v119 = *(_QWORD *)(v4 + 32);
+      result = VfProbeAndCaptureUnicodeStringBuffer((char *)&v117 + 8, 1LL, v55, v56);
+      if ( result < 0 )
         return result;
-      updated = VfProbeAndCaptureUnicodeStringBuffer((char *)&v119 + 8, 1LL, v58, v59);
-      if ( (updated & 0x80000000) != 0 )
+      updated = VfProbeAndCaptureUnicodeStringBuffer((char *)&v118 + 8, 1LL, v57, v58);
+      if ( updated < 0 )
       {
-        v26 = (char *)&v118 + 8;
+        v26 = (char *)&v117 + 8;
         goto LABEL_101;
       }
-      v4 = (unsigned __int64)&v118;
+      v4 = (unsigned __int64)&v117;
     }
-    updated = VfFaultsSetParameters(v4, a2, a3, v8);
+    updated = VfFaultsSetParameters(v4, SystemInformation, *(_QWORD *)&SystemInformationLength, v8);
     if ( !PreviousMode )
       return updated;
     VfFreeCapturedUnicodeString(v4 + 8);
     v26 = (char *)(v4 + 24);
     goto LABEL_101;
   }
-  if ( v5 > 56 )
+  if ( v5 > SystemPrefetcherInformation )
   {
-    if ( v5 <= 82 )
+    if ( v5 <= SystemThreadPriorityClientIdInformation )
     {
-      if ( v5 != 82 )
+      if ( v5 != SystemThreadPriorityClientIdInformation )
       {
-        if ( v5 == 59 )
+        if ( v5 == SystemComPlusPackage )
         {
-          if ( (_DWORD)a3 == 4 )
+          if ( SystemInformationLength == 4 )
           {
-            v39 = *(unsigned int *)a2;
-            updated = ExpUpdateComPlusPackage(v39, a2, a3, 1LL);
-            if ( (updated & 0x80000000) == 0 )
-              MEMORY[0xFFFFF780000002E0] = v39;
+            v38 = *(unsigned int *)SystemInformation;
+            updated = ExpUpdateComPlusPackage(v38, SystemInformation, 4, 1LL);
+            if ( updated >= 0 )
+              MEMORY[0xFFFFF780000002E0] = v38;
             return updated;
           }
-          return 3221225476LL;
+          return -1073741820;
         }
-        if ( v5 != 69 )
+        if ( v5 != SystemHotpatchInformation )
         {
-          if ( v5 == 71 )
-            return 3221225659LL;
-          if ( v5 != 72 )
+          if ( v5 == SystemWatchdogTimerHandler )
+            return -1073741637;
+          if ( v5 != SystemWatchdogTimerInformation )
           {
-            if ( v5 != 74 )
+            if ( v5 != SystemWow64SharedInformationObsolete )
             {
               switch ( v5 )
               {
-                case 'K':
-                  LOBYTE(a3) = PreviousMode;
-                  return (unsigned int)ExpRegisterFirmwareTableInformationHandler(a2, (unsigned int)v3, a3, 1LL);
-                case 'O':
-                  return (unsigned int)PfSetSuperfetchInformation(0LL, (__int128 *)a2, a3, PreviousMode);
-                case 'P':
-                  LOBYTE(a3) = PreviousMode;
-                  return (unsigned int)MmIssueMemoryListCommand(a2, (unsigned int)v3, a3, 1LL);
-                case 'Q':
+                case SystemRegisterFirmwareTableInformationHandler:
+                  LOBYTE(SystemInformationLength) = PreviousMode;
+                  return ExpRegisterFirmwareTableInformationHandler(
+                           SystemInformation,
+                           (unsigned int)v3,
+                           SystemInformationLength,
+                           1LL);
+                case SystemSuperfetchInformation:
+                  return PfSetSuperfetchInformation(
+                           0LL,
+                           (__int128 *)SystemInformation,
+                           SystemInformationLength,
+                           PreviousMode);
+                case SystemMemoryListInformation:
+                  LOBYTE(SystemInformationLength) = PreviousMode;
+                  return MmIssueMemoryListCommand(SystemInformation, (unsigned int)v3, SystemInformationLength, 1LL);
+                case SystemFileCacheInformationEx:
                   goto LABEL_154;
               }
-              return (unsigned int)-1073741821;
+              return -1073741821;
             }
-            return 3221225474LL;
+            return -1073741822;
           }
-          if ( PreviousMode || !a2 || (_DWORD)a3 != 8 )
-            return 3221225485LL;
-          if ( *(_DWORD *)a2 )
+          if ( PreviousMode || !SystemInformation || SystemInformationLength != 8 )
+            return -1073741811;
+          if ( *(_DWORD *)SystemInformation )
           {
-            switch ( *(_DWORD *)a2 )
+            switch ( *(_DWORD *)SystemInformation )
             {
               case 1:
-                ((void (__fastcall *)(_QWORD, unsigned __int64, __int64, __int64))off_140C008C0[0])(
-                  (unsigned int)(*(_DWORD *)a2 - 1),
-                  a2,
-                  a3,
+                ((void (__fastcall *)(_QWORD, PVOID, ULONG, __int64))off_140C008C0[0])(
+                  (unsigned int)(*(_DWORD *)SystemInformation - 1),
+                  SystemInformation,
+                  SystemInformationLength,
                   1LL);
                 return 0;
               case 2:
-                ((void (__fastcall *)(_QWORD, unsigned __int64, __int64, __int64))off_140C008C8[0])(
-                  (unsigned int)(*(_DWORD *)a2 - 2),
-                  a2,
-                  a3,
+                ((void (__fastcall *)(_QWORD, PVOID, ULONG, __int64))off_140C008C8[0])(
+                  (unsigned int)(*(_DWORD *)SystemInformation - 2),
+                  SystemInformation,
+                  SystemInformationLength,
                   1LL);
                 return 0;
               case 3:
-                ((void (__fastcall *)(_QWORD, unsigned __int64, __int64, __int64))off_140C008B8[0])(
-                  (unsigned int)(*(_DWORD *)a2 - 3),
-                  a2,
-                  a3,
+                ((void (__fastcall *)(_QWORD, PVOID, ULONG, __int64))off_140C008B8[0])(
+                  (unsigned int)(*(_DWORD *)SystemInformation - 3),
+                  SystemInformation,
+                  SystemInformationLength,
                   1LL);
                 return 0;
             }
-            if ( *(_DWORD *)a2 != 4 )
+            if ( *(_DWORD *)SystemInformation != 4 )
             {
-              v38 = (unsigned int)(*(_DWORD *)a2 - 6);
-              if ( *(_DWORD *)a2 == 6 )
+              v37 = (unsigned int)(*(_DWORD *)SystemInformation - 6);
+              if ( *(_DWORD *)SystemInformation == 6 )
               {
-                LODWORD(v38) = 1;
-                return ((unsigned int (__fastcall *)(__int64, unsigned __int64, __int64, __int64))off_140C008D8[0])(
-                         v38,
-                         a2,
-                         a3,
+                LODWORD(v37) = 1;
+                return ((__int64 (__fastcall *)(__int64, PVOID, ULONG, __int64))off_140C008D8[0])(
+                         v37,
+                         SystemInformation,
+                         SystemInformationLength,
                          1LL);
               }
-              if ( *(_DWORD *)a2 == 7 )
+              if ( *(_DWORD *)SystemInformation == 7 )
               {
                 updated = 0;
                 if ( off_140C008D8[0] == xKdEnumerateDebuggingDevices )
-                  return (unsigned int)-1073741822;
+                  return -1073741822;
                 return updated;
               }
-              return (unsigned int)-1073741811;
+              return -1073741811;
             }
           }
         }
-        return (unsigned int)-1073741637;
+        return -1073741637;
       }
-      if ( (unsigned int)a3 < 0x18 )
-        return 3221225476LL;
+      if ( SystemInformationLength < 0x18 )
+        return -1073741820;
       if ( !SeSinglePrivilegeCheck(SeIncreaseBasePriorityPrivilege, PreviousMode) )
-        return 3221225569LL;
+        return -1073741727;
       if ( PreviousMode )
       {
-        v118 = *(_OWORD *)v4;
-        *(_QWORD *)&v119 = *(_QWORD *)(v4 + 16);
-        v4 = (unsigned __int64)&v118;
+        v117 = *(_OWORD *)v4;
+        *(_QWORD *)&v118 = *(_QWORD *)(v4 + 16);
+        v4 = (unsigned __int64)&v117;
       }
       if ( (unsigned int)(*(_DWORD *)(v4 + 16) - 1) > 0x1E )
-        return 3221225485LL;
-      v116 = *(_OWORD *)v4;
-      updated = PsLookupProcessThreadByCid(&v116, 0LL, &DmaAdapter);
-      if ( (updated & 0x80000000) == 0 )
+        return -1073741811;
+      v115 = *(_OWORD *)v4;
+      updated = PsLookupProcessThreadByCid(&v115, 0LL, &DmaAdapter);
+      if ( updated >= 0 )
       {
-        v42 = DmaAdapter;
+        v41 = DmaAdapter;
         if ( *((_BYTE *)&DmaAdapter->Size + 2) )
         {
           updated = -1073741749;
         }
         else
         {
-          KeSetActualBasePriorityThread((__int64)DmaAdapter, *(unsigned int *)(v4 + 16), v40, v41);
+          KeSetActualBasePriorityThread((__int64)DmaAdapter, *(unsigned int *)(v4 + 16), v39, v40);
           updated = 259;
         }
-        v43 = v42;
+        v42 = v41;
 LABEL_199:
-        HalPutDmaAdapter(v43);
+        HalPutDmaAdapter(v42);
         return updated;
       }
       return updated;
     }
-    v44 = v5 - 86;
+    v43 = v5 - 86;
+    if ( !v43 )
+      return ObSetRefTraceInformation(SystemInformation, SystemInformationLength, SystemInformationLength, 1LL);
+    v44 = v43 - 1;
     if ( !v44 )
-      return (unsigned int)ObSetRefTraceInformation(a2, (unsigned int)a3, a3, 1LL);
-    v45 = v44 - 1;
-    if ( !v45 )
     {
       if ( SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
       {
         if ( (_DWORD)v3 == 8 )
         {
-          v55 = *(_QWORD *)v4;
+          v54 = *(_QWORD *)v4;
           MmSpecialPoolTag = *(_QWORD *)v4;
-          MmSpecialPoolCatchOverruns = BYTE4(v55) & 1;
+          MmSpecialPoolCatchOverruns = BYTE4(v54) & 1;
           return updated;
         }
-        return (unsigned int)-1073741820;
+        return -1073741820;
       }
-      return (unsigned int)-1073741790;
+      return -1073741790;
     }
-    v46 = v45 - 2;
-    if ( !v46 )
+    v45 = v44 - 2;
+    if ( !v45 )
     {
       if ( PreviousMode == 1 )
       {
         if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
-          return (unsigned int)-1073741727;
-        v53 = PsGetCurrentProcess()[1].AffinityPadding[10];
-        if ( !v53 )
-          return (unsigned int)DbgkRegisterErrorPort((void *)v4, (unsigned int)v3);
-        v54 = *(_WORD *)(v53 + 8);
-        if ( v54 != 332 && v54 != 452 )
-          return (unsigned int)DbgkRegisterErrorPort((void *)v4, (unsigned int)v3);
+          return -1073741727;
+        v52 = PsGetCurrentProcess()[1].AffinityPadding[10];
+        if ( !v52 )
+          return DbgkRegisterErrorPort((void *)v4, (unsigned int)v3);
+        v53 = *(_WORD *)(v52 + 8);
+        if ( v53 != 332 && v53 != 452 )
+          return DbgkRegisterErrorPort((void *)v4, (unsigned int)v3);
       }
-      return (unsigned int)-1073741637;
+      return -1073741637;
     }
-    v47 = v46 - 2;
-    if ( !v47 )
+    v46 = v45 - 2;
+    if ( !v46 )
     {
       LOBYTE(v8) = PreviousMode;
-      return (unsigned int)HvlSetEnlightenmentInfo(a1, a2, (unsigned int)a3, v8);
+      return HvlSetEnlightenmentInfo(*(_QWORD *)&SystemInformationClass, SystemInformation, SystemInformationLength, v8);
     }
-    v48 = v47 - 1;
-    if ( !v48 )
+    v47 = v46 - 1;
+    if ( !v47 )
     {
       if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-        return 3221225506LL;
+        return -1073741790;
       if ( (_DWORD)v3 == 40 )
-        return (unsigned int)VfSetVerifierInformationEx(v4);
-      return 3221225476LL;
+        return VfSetVerifierInformationEx(v4);
+      return -1073741820;
     }
-    v49 = v48 - 1;
-    if ( v49 )
+    v48 = v47 - 1;
+    if ( v48 )
     {
-      v50 = v49 - 1;
-      if ( v50 )
+      v49 = v48 - 1;
+      if ( v49 )
       {
-        if ( v50 == 1 )
+        if ( v49 == 1 )
         {
           if ( !PreviousMode || !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-            return 3221225506LL;
+            return -1073741790;
           if ( (unsigned int)v3 >= 0x18 )
-            return (unsigned int)ExpCovResetInformation(v4, (unsigned int)v3);
-          return 3221225476LL;
+            return ExpCovResetInformation(v4, (unsigned int)v3);
+          return -1073741820;
         }
-        return (unsigned int)-1073741821;
+        return -1073741821;
       }
       if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
       {
         if ( (_DWORD)v3 == 8 )
         {
-          *(_QWORD *)&v118 = *(_QWORD *)v4;
-          _InterlockedOr((volatile signed __int32 *)0xFFFFF780000003A0LL, v118);
-          _InterlockedAnd((volatile signed __int32 *)0xFFFFF780000003A0LL, ~DWORD1(v118));
+          *(_QWORD *)&v117 = *(_QWORD *)v4;
+          _InterlockedOr((volatile signed __int32 *)0xFFFFF780000003A0LL, v117);
+          _InterlockedAnd((volatile signed __int32 *)0xFFFFF780000003A0LL, ~DWORD1(v117));
           return updated;
         }
-        return (unsigned int)-1073741820;
+        return -1073741820;
       }
-      return (unsigned int)-1073741790;
+      return -1073741790;
     }
-    v51 = 172;
-    if ( (_DWORD)a3 != 172 )
-      return 3221225476LL;
+    v50 = 172;
+    if ( SystemInformationLength != 172 )
+      return -1073741820;
     if ( PreviousMode
-      && !(unsigned __int8)ExpCapabilityCheck(&TimeZoneCapability)
+      && !(unsigned __int8)ExpCapabilityCheck((PUNICODE_STRING)&TimeZoneCapability)
       && !SeSinglePrivilegeCheck(SeTimeZonePrivilege, PreviousMode) )
     {
-      return 3221225569LL;
+      return -1073741727;
     }
-    v52 = *((_BYTE *)PsGetCurrentServerSiloGlobals() + 1049) == 0;
+    v51 = *((_BYTE *)PsGetCurrentServerSiloGlobals() + 1049) == 0;
     goto LABEL_220;
   }
-  if ( v5 == 56 )
-    return (unsigned int)PfSnSetPrefetcherInformation(a1, (__int128 *)a2, a3, PreviousMode);
-  if ( v5 <= 37 )
+  if ( v5 == SystemPrefetcherInformation )
+    return PfSnSetPrefetcherInformation(
+             *(__int64 *)&SystemInformationClass,
+             (__int128 *)SystemInformation,
+             SystemInformationLength,
+             PreviousMode);
+  if ( v5 <= SystemRegistryQuotaInformation )
   {
-    if ( v5 == 37 )
+    if ( v5 == SystemRegistryQuotaInformation )
     {
-      if ( (_DWORD)a3 == 16 )
+      if ( SystemInformationLength == 16 )
       {
         if ( !PreviousMode || SeSinglePrivilegeCheck(SeIncreaseQuotaPrivilege, PreviousMode) )
-          return (unsigned int)CmSetRegistryQuotaInformation(v4, a2, a3, v8);
-        return 3221225569LL;
+          return CmSetRegistryQuotaInformation(v4, SystemInformation, *(_QWORD *)&SystemInformationLength, v8);
+        return -1073741727;
       }
-      return 3221225476LL;
+      return -1073741820;
     }
-    if ( v5 != 9 )
+    if ( v5 != SystemFlagsInformation )
     {
-      if ( v5 != 21 )
+      if ( v5 != SystemFileCacheInformation )
       {
-        if ( v5 == 24 )
+        if ( v5 == SystemDpcBehaviorInformation )
         {
-          if ( (_DWORD)a3 == 20 )
+          if ( SystemInformationLength == 20 )
           {
             if ( !PreviousMode || SeSinglePrivilegeCheck(SeLoadDriverPrivilege, PreviousMode) )
             {
-              v118 = *(_OWORD *)v4;
-              LODWORD(v119) = *(_DWORD *)(v4 + 16);
-              KiMinimumDpcRate = DWORD2(v118);
-              KiMaximumDpcQueueDepth = DWORD1(v118);
-              KiAdjustDpcThreshold = HIDWORD(v118);
-              KiIdealDpcRate = v119;
-              KeSynchronizeWithDynamicProcessors((unsigned int)v119, a2, a3);
+              v117 = *(_OWORD *)v4;
+              LODWORD(v118) = *(_DWORD *)(v4 + 16);
+              KiMinimumDpcRate = DWORD2(v117);
+              KiMaximumDpcQueueDepth = DWORD1(v117);
+              KiAdjustDpcThreshold = HIDWORD(v117);
+              KiIdealDpcRate = v118;
+              KeSynchronizeWithDynamicProcessors(
+                (unsigned int)v118,
+                SystemInformation,
+                *(_QWORD *)&SystemInformationLength);
               ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
               if ( ActiveProcessorCount )
               {
@@ -952,26 +986,23 @@ LABEL_199:
               }
               return updated;
             }
-            return 3221225569LL;
+            return -1073741727;
           }
-          return 3221225476LL;
+          return -1073741820;
         }
-        if ( v5 != 26 )
+        if ( v5 != SystemLoadGdiDriverInformation )
         {
-          if ( v5 != 27 )
+          if ( v5 != SystemUnloadGdiDriverInformation )
           {
-            if ( v5 != 28 )
+            if ( v5 != SystemTimeAdjustmentInformation )
             {
               switch ( v5 )
               {
-                case 30:
-                  return (unsigned int)MmCreateMirror();
-                case 31:
-                  return (unsigned int)EtwSetPerformanceTraceInformation(
-                                         (volatile void *)a2,
-                                         (unsigned int)a3,
-                                         PreviousMode);
-                case 34:
+                case SystemMirrorMemoryInformation:
+                  return MmCreateMirror();
+                case SystemPerformanceTraceInformation:
+                  return EtwSetPerformanceTraceInformation(SystemInformation, SystemInformationLength, PreviousMode);
+                case SystemCrashDumpStateInformation:
                   if ( (!PreviousMode || SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode))
                     && !PsIsCurrentThreadInServerSilo() )
                   {
@@ -984,7 +1015,7 @@ LABEL_199:
                       if ( v4 + 4 > 0x7FFFFFFF0000LL || v4 + 4 < v4 )
                         MEMORY[0x7FFFFFFF0000] = 0;
                       v14 = *(_DWORD *)v4;
-                      v108 = *(_DWORD *)v4;
+                      v107 = *(_DWORD *)v4;
                     }
                     else
                     {
@@ -993,115 +1024,120 @@ LABEL_199:
                     if ( !v14 )
                     {
                       v12 = 0LL;
-                      return (unsigned int)IoConfigureCrashDump(v12, 0);
+                      return IoConfigureCrashDump(v12, 0);
                     }
                     v15 = v14 - 1;
                     if ( !v15 )
                     {
 LABEL_28:
                       v12 = 1LL;
-                      return (unsigned int)IoConfigureCrashDump(v12, 0);
+                      return IoConfigureCrashDump(v12, 0);
                     }
                     if ( v15 == 1 )
-                      return (unsigned int)WheaCrashDumpInitializationComplete();
-                    return 3221225485LL;
+                      return WheaCrashDumpInitializationComplete();
+                    return -1073741811;
                   }
-                  return 3221225569LL;
+                  return -1073741727;
               }
-              return (unsigned int)-1073741821;
+              return -1073741821;
             }
-            if ( (((_DWORD)a3 - 8) & 0xFFFFFFF7) == 0 )
+            if ( ((SystemInformationLength - 8) & 0xFFFFFFF7) == 0 )
             {
               if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemtimePrivilege, PreviousMode) )
-                return 3221225569LL;
+                return -1073741727;
               if ( !PsIsCurrentThreadInServerSilo() )
               {
                 if ( (_DWORD)v3 == 16 )
                 {
                   v16 = *(_BYTE *)(v4 + 8);
-                  v94 = v16;
-                  v99 = *(_QWORD *)v4;
+                  v93 = v16;
+                  v98 = *(_QWORD *)v4;
                 }
                 else
                 {
                   v16 = *(_BYTE *)(v4 + 4);
-                  v94 = v16;
+                  v93 = v16;
                   v17 = *(unsigned int *)v4;
-                  v99 = v17;
+                  v98 = v17;
                   if ( v17 )
-                    v99 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)(unsigned int)KeMaximumIncrement / v17;
+                    v98 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)KeMaximumIncrement / v17;
                 }
                 if ( v16 )
-                  v99 = MEMORY[0xFFFFF78000000300];
+                  v98 = MEMORY[0xFFFFF78000000300];
                 ExAcquireTimeRefreshLock(1u);
-                updated = ExpUpdateTimerConfiguration(0LL, (__int64)&v99, (__int64)&v94);
+                updated = ExpUpdateTimerConfiguration(0LL, (__int64)&v98, (__int64)&v93);
                 ExReleaseTimeRefreshLock();
                 return updated;
               }
-              return 3221225506LL;
+              return -1073741790;
             }
-            return 3221225476LL;
+            return -1073741820;
           }
-          if ( (_DWORD)a3 != 8 )
-            return 3221225476LL;
+          if ( SystemInformationLength != 8 )
+            return -1073741820;
           if ( PreviousMode )
-            return 3221225569LL;
-          MmUnloadSystemImage(*(_QWORD *)a2);
+            return -1073741727;
+          MmUnloadSystemImage(*(_QWORD *)SystemInformation);
           return 0;
         }
 LABEL_132:
-        if ( (_DWORD)a3 == 56 )
+        if ( SystemInformationLength == 56 )
         {
           if ( !PreviousMode )
           {
-            *(_OWORD *)Buf1 = *(_OWORD *)a2;
-            SystemImage = MmLoadSystemImage((unsigned int)Buf1, 0, 0, v8, (__int64)&BugCheckParameter2, (__int64)&v97);
+            *(_OWORD *)Buf1 = *(_OWORD *)SystemInformation;
+            SystemImage = MmLoadSystemImage(
+                            (unsigned int)Buf1,
+                            0,
+                            0,
+                            v8,
+                            (__int64)&BugCheckParameter2,
+                            (__int64)&BaseOfImage);
             updated = SystemImage;
             if ( SystemImage < 0 )
             {
               if ( SystemImage == -1073741411 )
-                return (unsigned int)-1073741554;
+                return -1073741554;
             }
             else
             {
-              LOBYTE(v33) = 1;
-              v34 = RtlImageDirectoryEntryToData(v97, v33, 0, (int)&v110);
-              v35 = RtlImageNtHeader(v97);
-              *(_QWORD *)(v4 + 40) = v34;
-              v36 = v97 + *(unsigned int *)(v35 + 40);
-              *(_QWORD *)(v4 + 16) = v97;
+              v33 = RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0, &Size);
+              v34 = RtlImageNtHeader(BaseOfImage);
+              *(_QWORD *)(v4 + 40) = v33;
+              v35 = (char *)BaseOfImage + v34->OptionalHeader.AddressOfEntryPoint;
+              *(_QWORD *)(v4 + 16) = BaseOfImage;
               *(_QWORD *)(v4 + 24) = BugCheckParameter2;
-              *(_QWORD *)(v4 + 32) = v36;
-              *(_DWORD *)(v4 + 48) = *(_DWORD *)(v35 + 80);
+              *(_QWORD *)(v4 + 32) = v35;
+              *(_DWORD *)(v4 + 48) = v34->OptionalHeader.SizeOfImage;
             }
             return updated;
           }
-          return 3221225569LL;
+          return -1073741727;
         }
-        return 3221225476LL;
+        return -1073741820;
       }
 LABEL_154:
-      v95[0] = 0;
-      if ( (unsigned int)a3 >= 0x40 )
+      v94[0] = 0;
+      if ( SystemInformationLength >= 0x40 )
       {
-        if ( v5 == 21 )
+        if ( v5 == SystemFileCacheInformation )
         {
-          v37 = 0;
+          v36 = 0;
         }
         else
         {
-          v111 = *(_DWORD *)(a2 + 60);
-          v37 = v111;
-          if ( (v111 & 0xFFFFFFF0) != 0 || (v111 & 0xC) == 0xC || (v111 & 3) == 3 )
-            return 3221225712LL;
+          v110 = *((_DWORD *)SystemInformation + 15);
+          v36 = v110;
+          if ( (v110 & 0xFFFFFFF0) != 0 || (v110 & 0xC) == 0xC || (v110 & 3) == 3 )
+            return -1073741584;
         }
         if ( SeSinglePrivilegeCheck(SeIncreaseQuotaPrivilege, PreviousMode) )
-          return MmAdjustWorkingSetSizeEx(*(_QWORD *)(v4 + 24), *(_QWORD *)(v4 + 32), 2, 1, v37, v95);
-        return 3221225506LL;
+          return MmAdjustWorkingSetSizeEx(*(_QWORD *)(v4 + 24), *(_QWORD *)(v4 + 32), 2, 1, v36, v94);
+        return -1073741790;
       }
-      return 3221225476LL;
+      return -1073741820;
     }
-    if ( (_DWORD)a3 == 4 )
+    if ( SystemInformationLength == 4 )
     {
       if ( SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
       {
@@ -1109,11 +1145,11 @@ LABEL_154:
         *(_DWORD *)v4 = NtGlobalFlag;
         return updated;
       }
-      return (unsigned int)-1073741790;
+      return -1073741790;
     }
-    return (unsigned int)-1073741820;
+    return -1073741820;
   }
-  if ( v5 > 47 )
+  if ( v5 > SystemSessionCreate )
   {
     v29 = v5 - 48;
     if ( v29 )
@@ -1122,48 +1158,48 @@ LABEL_154:
       if ( !v30 )
       {
         if ( SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-          return (unsigned int)VfSetVerifierInformation(v4, (unsigned int)v3, 0LL);
-        return 3221225506LL;
+          return VfSetVerifierInformation(v4, (unsigned int)v3, 0LL);
+        return -1073741790;
       }
       v31 = v30 - 1;
       if ( !v31 )
       {
         if ( !PreviousMode )
-          return (unsigned int)MmAddVerifierThunks((PVOID)a2, a3);
-        return 3221225569LL;
+          return MmAddVerifierThunks(SystemInformation, SystemInformationLength);
+        return -1073741727;
       }
       if ( v31 == 2 )
       {
         LODWORD(v8) = 0;
         goto LABEL_132;
       }
-      return (unsigned int)-1073741821;
+      return -1073741821;
     }
-    return 3221225474LL;
+    return -1073741822;
   }
-  if ( v5 == 47 )
-    return 3221225474LL;
-  if ( v5 != 38 )
+  if ( v5 == SystemSessionCreate )
+    return -1073741822;
+  if ( v5 != SystemExtendServiceTableInformation )
   {
-    if ( v5 != 39 )
+    if ( v5 != SystemPrioritySeperation )
     {
-      if ( v5 > 41 )
+      if ( v5 > SystemVerifierRemoveDriverInformation )
       {
-        if ( v5 == 46 )
+        if ( v5 == SystemTimeSlipNotification )
         {
-          if ( (_DWORD)a3 != 8 )
-            return 3221225476LL;
+          if ( SystemInformationLength != 8 )
+            return -1073741820;
           if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemtimePrivilege, PreviousMode) )
-            return 3221225569LL;
+            return -1073741727;
           if ( PsIsCurrentThreadInServerSilo() )
-            return 3221225506LL;
-          v113 = *(HANDLE *)v4;
-          if ( v113 )
+            return -1073741790;
+          v112 = *(HANDLE *)v4;
+          if ( v112 )
           {
             Object = 0LL;
-            updated = ObReferenceObjectByHandle(v113, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+            updated = ObReferenceObjectByHandle(v112, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
             v22 = Object;
-            if ( (updated & 0x80000000) != 0 )
+            if ( updated < 0 )
               return updated;
           }
           else
@@ -1174,20 +1210,20 @@ LABEL_154:
           KdUpdateTimeSlipEvent(v22);
           return updated;
         }
-        return (unsigned int)-1073741821;
+        return -1073741821;
       }
-      if ( (_DWORD)a3 != 16 )
-        return 3221225476LL;
+      if ( SystemInformationLength != 16 )
+        return -1073741820;
       if ( PreviousMode )
       {
         if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-          return 3221225569LL;
+          return -1073741727;
         result = VfProbeAndCaptureUnicodeString(Buf1, v4, 1LL);
-        if ( (int)result < 0 )
+        if ( result < 0 )
           return result;
         v4 = (unsigned __int64)Buf1;
         if ( !LOWORD(Buf1[0]) )
-          return 3221225711LL;
+          return -1073741585;
       }
       v24 = v5 - 40;
       if ( v24 )
@@ -1203,7 +1239,7 @@ LABEL_101:
           VfFreeCapturedUnicodeString(v26);
           return updated;
         }
-        v25 = VfRemoveVerifierEntry(v4, a2, a3, v8);
+        v25 = VfRemoveVerifierEntry(v4, SystemInformation, *(_QWORD *)&SystemInformationLength, v8);
       }
       else
       {
@@ -1212,23 +1248,23 @@ LABEL_101:
       updated = v25;
       goto LABEL_99;
     }
-    if ( (_DWORD)a3 != 4 )
-      return 3221225476LL;
+    if ( SystemInformationLength != 4 )
+      return -1073741820;
     if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-      return 3221225569LL;
-    v109 = *(_DWORD *)v4;
+      return -1073741727;
+    v108 = *(_DWORD *)v4;
     LOBYTE(v27) = 1;
     PsChangeQuantumTable(v27);
     return 0;
   }
-  if ( (_DWORD)a3 != 16 )
-    return 3221225476LL;
+  if ( SystemInformationLength != 16 )
+    return -1073741820;
   if ( PreviousMode )
   {
     if ( (PsGetCurrentProcess()[1].IdealProcessorPadding[10] & 0x100) == 0
       || !SeSinglePrivilegeCheck(SeLoadDriverPrivilege, 1) )
     {
-      return 3221225569LL;
+      return -1073741727;
     }
     if ( v4 >= 0x7FFFFFFF0000LL )
       v4 = 0x7FFFFFFF0000LL;
@@ -1240,42 +1276,42 @@ LABEL_101:
       {
         Buf1[1] = L"\\SystemRoot\\System32\\win32k.sys";
         WORD1(Buf1[0]) = 62;
-        return ZwSetSystemInformation(38LL, (__int64)Buf1);
+        return ZwSetSystemInformation(SystemExtendServiceTableInformation, Buf1, 0x10u);
       }
       else
       {
-        return 3221225569LL;
+        return -1073741727;
       }
     }
     else
     {
-      return 3221225569LL;
+      return -1073741727;
     }
   }
   else
   {
-    *(_OWORD *)Buf1 = *(_OWORD *)a2;
+    *(_OWORD *)Buf1 = *(_OWORD *)SystemInformation;
     if ( !memcmp(
             (const void *)_mm_srli_si128(*(__m128i *)Buf1, 8).m128i_i64[0],
             L"\\SystemRoot\\System32\\win32k.sys",
             0x3EuLL) )
       v7 = -2147483643;
-    result = MmLoadSystemImageEx((unsigned int)Buf1, 0, 0, v7, (__int64)&BugCheckParameter2, (__int64)&v97);
-    if ( (int)result >= 0 )
+    result = MmLoadSystemImageEx((unsigned int)Buf1, 0, 0, v7, (__int64)&BugCheckParameter2, (__int64)&BaseOfImage);
+    if ( result >= 0 )
     {
-      v28 = RtlImageNtHeader(v97);
+      v28 = RtlImageNtHeader(BaseOfImage);
       if ( !v28 )
       {
         MmUnloadSystemImage(BugCheckParameter2);
-        return 3221225595LL;
+        return -1073741701;
       }
-      updated = ExpInitializeSessionDriver(v97 + *(unsigned int *)(v28 + 40));
-      if ( (updated & 0x80000000) != 0 )
+      updated = ExpInitializeSessionDriver((char *)BaseOfImage + v28->OptionalHeader.AddressOfEntryPoint);
+      if ( updated < 0 )
         MmUnloadSystemImage(BugCheckParameter2);
       return updated;
     }
-    if ( (_DWORD)result == -1073741411 )
-      return 3221225742LL;
+    if ( result == -1073741411 )
+      return -1073741554;
   }
   return result;
 }

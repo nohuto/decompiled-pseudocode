@@ -20,81 +20,96 @@
  *     sub_180100828 @ 0x180100828 (sub_180100828.c)
  */
 
-__int64 __fastcall sub_1800F096C(__int64 a1, __int64 a2)
+__int64 __fastcall sub_1800F096C(HANDLE ProcessHandle, HANDLE *Buffer)
 {
-  __int64 v2; // rsi
-  int VirtualMemory; // ebx
-  __int64 v6; // rdi
+  HANDLE v2; // rsi
+  NTSTATUS v5; // ebx
+  HANDLE v6; // rdi
   int v8; // eax
-  __int64 v9; // [rsp+30h] [rbp-29h]
-  __int64 v10; // [rsp+60h] [rbp+7h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+Fh]
-  __int64 v12; // [rsp+70h] [rbp+17h]
+  int v9; // [rsp+30h] [rbp-29h]
+  HANDLE Handle; // [rsp+60h] [rbp+7h] BYREF
+  ULONG_PTR NumberOfBytesWritten; // [rsp+68h] [rbp+Fh] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp+17h] BYREF
   __int128 v13; // [rsp+78h] [rbp+1Fh] BYREF
-  __int64 v14; // [rsp+D8h] [rbp+7Fh] BYREF
+  PVOID BaseAddress; // [rsp+D0h] [rbp+77h] BYREF
+  HANDLE ThreadHandle; // [rsp+D8h] [rbp+7Fh] BYREF
 
   v2 = 0LL;
-  v14 = 0LL;
-  v10 = 0LL;
-  v12 = 88LL;
-  VirtualMemory = ZwAllocateVirtualMemory();
-  if ( VirtualMemory < 0 )
+  BaseAddress = 0LL;
+  ThreadHandle = 0LL;
+  Handle = 0LL;
+  RegionSize = 88LL;
+  v5 = ZwAllocateVirtualMemory(ProcessHandle, &BaseAddress, 0LL, &RegionSize, 0x3000u, 4u);
+  if ( v5 < 0 )
     goto LABEL_11;
-  VirtualMemory = sub_180052D68(a1, 0LL, 3, 0, 0LL, 0LL, v9, (__int64)sub_1800F0640, 0LL, &v14, &v13);
-  if ( VirtualMemory < 0 )
+  v5 = sub_180052D68(
+         ProcessHandle,
+         0LL,
+         3,
+         0,
+         0LL,
+         0LL,
+         v9,
+         (PUSER_THREAD_START_ROUTINE)sub_1800F0640,
+         BaseAddress,
+         &ThreadHandle,
+         &v13);
+  if ( v5 < 0 )
     goto LABEL_8;
-  if ( *(_QWORD *)a2 )
+  if ( *Buffer )
   {
-    VirtualMemory = ZwDuplicateObject();
-    if ( VirtualMemory < 0 )
+    v5 = ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, *Buffer, ProcessHandle, Buffer, 0xF001Fu, 0, 0);
+    if ( v5 < 0 )
       goto LABEL_8;
   }
-  VirtualMemory = ZwWriteVirtualMemory();
-  if ( VirtualMemory < 0 )
+  v5 = ZwWriteVirtualMemory(ProcessHandle, BaseAddress, Buffer, 0x58uLL, &NumberOfBytesWritten);
+  if ( v5 < 0 )
     goto LABEL_8;
-  if ( v11 != 88 )
+  if ( NumberOfBytesWritten != 88 )
   {
-    VirtualMemory = -2147483635;
+    v5 = -2147483635;
 LABEL_8:
-    v6 = v14;
+    v6 = ThreadHandle;
     goto LABEL_9;
   }
-  v8 = sub_18010072C(a1, &v10);
-  v6 = v14;
-  VirtualMemory = v8;
-  if ( v8 < 0 || (VirtualMemory = ZwResumeThread(), VirtualMemory < 0) )
+  v8 = sub_18010072C(ProcessHandle, &Handle);
+  v6 = ThreadHandle;
+  v5 = v8;
+  if ( v8 < 0 || (v5 = ZwResumeThread(ThreadHandle, 0LL), v5 < 0) )
   {
-    v2 = v10;
+    v2 = Handle;
 LABEL_9:
     if ( v6 )
     {
-      ZwTerminateThread();
-      ZwClose();
+      ZwTerminateThread(v6, 0);
+      ZwClose(v6);
     }
     goto LABEL_11;
   }
-  ZwWaitForSingleObject();
-  v2 = v10;
-  if ( v10 )
+  ZwWaitForSingleObject(v6, 0, 0LL);
+  v2 = Handle;
+  if ( Handle )
   {
-    sub_180100828(v10);
+    sub_180100828(Handle);
     v2 = 0LL;
   }
-  ZwClose();
+  ZwClose(v6);
   v6 = 0LL;
-  VirtualMemory = ZwReadVirtualMemory();
-  if ( VirtualMemory >= 0 )
+  v5 = ZwReadVirtualMemory(ProcessHandle, BaseAddress, Buffer, 0x58uLL, &NumberOfBytesWritten);
+  if ( v5 >= 0 )
   {
-    if ( v11 != 88 )
+    if ( NumberOfBytesWritten != 88 )
     {
-      VirtualMemory = -2147483635;
+      v5 = -2147483635;
       goto LABEL_11;
     }
-    VirtualMemory = *(_DWORD *)(a2 + 28);
+    v5 = *((_DWORD *)Buffer + 7);
     goto LABEL_9;
   }
 LABEL_11:
+  if ( BaseAddress )
+    ZwFreeVirtualMemory(ProcessHandle, &BaseAddress, &RegionSize, 0x8000u);
   if ( v2 )
     sub_180100828(v2);
-  return (unsigned int)VirtualMemory;
+  return (unsigned int)v5;
 }

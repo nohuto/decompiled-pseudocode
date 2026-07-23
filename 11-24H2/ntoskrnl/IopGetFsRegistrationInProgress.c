@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetFsRegistrationInProgress @ 0x140596EA8
+ * XREFs of IopGetFsRegistrationInProgress @ 0x140593E88
  * Callers:
- *     IoEnumerateRegisteredFiltersList @ 0x140714080 (IoEnumerateRegisteredFiltersList.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1407144C0 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoEnumerateRegisteredFiltersList @ 0x140711C10 (IoEnumerateRegisteredFiltersList.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x140712050 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
  */
 
 char IopGetFsRegistrationInProgress()

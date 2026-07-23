@@ -49,7 +49,7 @@ void MiEmptyAccessLogs()
   unsigned __int8 v24; // r14
   _QWORD *v25; // rcx
   PSLIST_ENTRY v26; // rbx
-  struct _SLIST_ENTRY *v27; // rcx
+  _SLIST_ENTRY *v27; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-50h] BYREF
   $5BC46E0569261879018906DEC3127961 v29; // [rsp+38h] [rbp-38h] BYREF
 
@@ -151,7 +151,7 @@ void MiEmptyAccessLogs()
       v26 = 0LL;
       if ( qword_14036CA40 )
       {
-        v27 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_14036CA40, 0LL);
+        v27 = (_SLIST_ENTRY *)_InterlockedExchange64(&qword_14036CA40, 0LL);
         if ( v27 )
           MiQueuePageAccessLog(v27);
       }

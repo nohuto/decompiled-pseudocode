@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeImageExtents @ 0x14065ABC4
+ * XREFs of MiInitializeImageExtents @ 0x14065ACA8
  * Callers:
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
- *     MiDeleteSegmentPages @ 0x140090080 (MiDeleteSegmentPages.c)
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MiDeleteSegmentPages @ 0x14008F7E0 (MiDeleteSegmentPages.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiInitializeImageExtents(__int64 *a1)

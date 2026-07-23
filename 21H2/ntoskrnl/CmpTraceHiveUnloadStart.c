@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveUnloadStart @ 0x14071CAB0
+ * XREFs of CmpTraceHiveUnloadStart @ 0x1405E0858
  * Callers:
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall CmpTraceHiveUnloadStart(unsigned __int16 *a1, unsigned __int16 *a2)

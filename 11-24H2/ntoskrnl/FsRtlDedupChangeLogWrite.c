@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlDedupChangeLogWrite @ 0x14070CA40
+ * XREFs of FsRtlDedupChangeLogWrite @ 0x14070A5E0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0xxxqq_EtwWriteTransfer @ 0x140581BBC (McTemplateK0xxxqq_EtwWriteTransfer.c)
+ *     McTemplateK0xxxqq_EtwWriteTransfer @ 0x14057EF3C (McTemplateK0xxxqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall FsRtlDedupChangeLogWrite(_DWORD *a1, __int64 a2, int a3, _QWORD *a4, const GUID *a5)

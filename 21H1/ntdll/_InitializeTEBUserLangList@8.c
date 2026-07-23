@@ -22,13 +22,13 @@ int __fastcall InitializeTEBUserLangList(char a1, int a2)
   int v8; // ecx
   void *MuiImpersonation; // ecx
   unsigned int v10; // edi
-  int *UserPrefLanguages; // esi
+  void *UserPrefLanguages; // esi
   int v12; // eax
   unsigned __int16 v13; // dx
   int v14; // eax
   int v15; // edi
   int v16; // eax
-  int v17; // ecx
+  _DWORD *v17; // ecx
   int v18; // eax
   bool v19; // zf
   struct _TEB *v21; // ecx
@@ -44,7 +44,7 @@ int __fastcall InitializeTEBUserLangList(char a1, int a2)
   int v31; // esi
   unsigned int i; // edx
   bool v33; // cf
-  int v34; // ecx
+  _DWORD *v34; // ecx
   int v35; // edx
   int v36; // eax
   int v37; // edx
@@ -53,8 +53,8 @@ int __fastcall InitializeTEBUserLangList(char a1, int a2)
   char v40; // dl
   struct _TEB *v41; // eax
   int v42; // eax
-  int *v43; // [esp+Ch] [ebp-1Ch]
-  int v44; // [esp+14h] [ebp-14h] BYREF
+  void *v43; // [esp+Ch] [ebp-1Ch]
+  PVOID v44; // [esp+14h] [ebp-14h] BYREF
   int v45; // [esp+18h] [ebp-10h] BYREF
   unsigned int v46; // [esp+1Ch] [ebp-Ch]
   int v47; // [esp+20h] [ebp-8h]
@@ -98,7 +98,7 @@ int __fastcall InitializeTEBUserLangList(char a1, int a2)
   v10 = MEMORY[0x7FFE03A4];
   if ( !MEMORY[0x7FFE03A4] )
     v10 = 1;
-  UserPrefLanguages = (int *)NtCurrentTeb()->UserPrefLanguages;
+  UserPrefLanguages = NtCurrentTeb()->UserPrefLanguages;
   v43 = UserPrefLanguages;
   if ( v47 )
   {
@@ -164,17 +164,17 @@ LABEL_16:
             v15 = v47;
             if ( !UserPrefLanguages )
               goto LABEL_38;
-            if ( !*UserPrefLanguages
-              || (v16 = *(_DWORD *)(*UserPrefLanguages + 12)) == 0
+            if ( !*(_DWORD *)UserPrefLanguages
+              || (v16 = *(_DWORD *)(*(_DWORD *)UserPrefLanguages + 12)) == 0
               || *(_DWORD *)(v16 + 12) >= *(_DWORD *)(v47 + 12) )
             {
 LABEL_20:
               if ( UserPrefLanguages )
               {
-                v17 = *UserPrefLanguages;
-                if ( *UserPrefLanguages )
+                v17 = *(_DWORD **)UserPrefLanguages;
+                if ( *(_DWORD *)UserPrefLanguages )
                 {
-                  v18 = *(_DWORD *)(v17 + 32);
+                  v18 = v17[8];
                   if ( v48 )
                     v19 = (v18 & 0x20) == 0;
                   else
@@ -201,12 +201,12 @@ LABEL_20:
                   }
                   if ( v39 || v40 )
                     v46 = v18 & 0xFFFF0000;
-                  RtlpMuiRegFreeLanguageList((_BYTE *)v17);
+                  RtlpMuiRegFreeLanguageList(v17);
                   v41 = NtCurrentTeb();
-                  *UserPrefLanguages = 0;
+                  *(_DWORD *)UserPrefLanguages = 0;
                   if ( v41->MergedPrefLanguages )
                   {
-                    RtlpMuiRegFreeLanguageList((_BYTE *)NtCurrentTeb()->MergedPrefLanguages);
+                    RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);
                     NtCurrentTeb()->MergedPrefLanguages = 0;
                   }
                 }
@@ -259,18 +259,18 @@ LABEL_42:
           }
           if ( UserPrefLanguages )
           {
-            v34 = *UserPrefLanguages;
-            if ( *UserPrefLanguages )
+            v34 = *(_DWORD **)UserPrefLanguages;
+            if ( *(_DWORD *)UserPrefLanguages )
             {
-              v35 = *(_DWORD *)(v34 + 32);
+              v35 = v34[8];
               v36 = v35 & 2;
               v51 = v36 != 0;
               v37 = v35 & 4;
               v50 = v37 != 0;
               if ( v36 || v37 )
-                v46 = *(_DWORD *)(v34 + 32) & 0xFFFF0000;
-              RtlpMuiRegFreeLanguageList((_BYTE *)v34);
-              *UserPrefLanguages = 0;
+                v46 = v34[8] & 0xFFFF0000;
+              RtlpMuiRegFreeLanguageList(v34);
+              *(_DWORD *)UserPrefLanguages = 0;
             }
           }
           if ( NtCurrentTeb()->MergedPrefLanguages )

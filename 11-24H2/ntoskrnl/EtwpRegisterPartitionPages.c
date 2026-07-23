@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpRegisterPartitionPages @ 0x140650660
+ * XREFs of EtwpRegisterPartitionPages @ 0x14064EC40
  * Callers:
- *     EtwpAllocatePartitionMemory @ 0x140410058 (EtwpAllocatePartitionMemory.c)
+ *     EtwpAllocatePartitionMemory @ 0x14047CF3C (EtwpAllocatePartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
@@ -32,20 +32,20 @@ char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
   __int64 v25; // [rsp+68h] [rbp+20h]
 
   v6 = 0;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x4F777445u);
   v8 = Pool2;
   if ( !Pool2 )
     return (char)Pool2;
   Pool2[1] = a3;
   Pool2[2] = a2;
   Pool2[3] = a1;
-  v9 = ExAcquireSpinLockExclusive(&dword_140EFEBD0);
-  v10 = 2 * ((unsigned int)dword_140EFEBC4 >> 5);
+  v9 = ExAcquireSpinLockExclusive(&dword_140EFEEF0);
+  v10 = 2 * ((unsigned int)dword_140EFEEE4 >> 5);
   if ( EtwpMdlTable < (unsigned int)v10 )
     goto LABEL_24;
   if ( (unsigned int)v10 < 4 )
     v10 = 4LL;
-  v11 = (char *)ExAllocatePool2(0x40uLL);
+  v11 = (char *)ExAllocatePool2(0x40uLL, 8LL * (unsigned int)v10, 0x42777445u);
   if ( v11 )
   {
     if ( (((_DWORD)v10 - 1) & (unsigned int)v10) != 0 )
@@ -66,14 +66,14 @@ char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
       v13 = 0LL;
     if ( v13 )
       memset64(v11, (unsigned __int64)&EtwpMdlTable + 1, v13);
-    v14 = dword_140EFEBC4;
+    v14 = dword_140EFEEE4;
     v15 = 0;
-    v16 = -1LL << (dword_140EFEBC4 & 0x1F);
-    if ( (dword_140EFEBC4 & 0xFFFFFFE0) != 0 )
+    v16 = -1LL << (dword_140EFEEE4 & 0x1F);
+    if ( (dword_140EFEEE4 & 0xFFFFFFE0) != 0 )
     {
       do
       {
-        v17 = qword_140EFEBC8;
+        v17 = qword_140EFEEE8;
         while ( 1 )
         {
           v18 = (_QWORD *)v17[v15];
@@ -92,23 +92,23 @@ char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
           *v18 = *(_QWORD *)&v11[8 * v19];
           *(_QWORD *)&v11[8 * v19] = v18;
         }
-        v14 = dword_140EFEBC4;
+        v14 = dword_140EFEEE4;
         ++v15;
       }
-      while ( v15 < (unsigned int)dword_140EFEBC4 >> 5 );
+      while ( v15 < (unsigned int)dword_140EFEEE4 >> 5 );
     }
-    v20 = qword_140EFEBC8;
-    qword_140EFEBC8 = v11;
-    dword_140EFEBC4 = (32 * v10) | v14 & 0x1F;
+    v20 = qword_140EFEEE8;
+    qword_140EFEEE8 = v11;
+    dword_140EFEEE4 = (32 * v10) | v14 & 0x1F;
     if ( v20 )
       ExFreePoolWithTag(v20, 0x42777445u);
     goto LABEL_24;
   }
-  if ( (dword_140EFEBC4 & 0xFFFFFFE0) != 0 )
+  if ( (dword_140EFEEE4 & 0xFFFFFFE0) != 0 )
   {
 LABEL_24:
-    v21 = qword_140EFEBC8;
-    v25 = v8[1] & (-1LL << (dword_140EFEBC4 & 0x1F));
+    v21 = qword_140EFEEE8;
+    v25 = v8[1] & (-1LL << (dword_140EFEEE4 & 0x1F));
     v22 = (37
          * (BYTE6(v25)
           + 37
@@ -116,13 +116,13 @@ LABEL_24:
            + 37
            * (BYTE4(v25)
             + 37 * (BYTE3(v25) + 37 * (BYTE2(v25) + 37 * (BYTE1(v25) + 37 * ((unsigned __int8)v25 + 11623883)))))))
-         + HIBYTE(v25)) & (((unsigned int)dword_140EFEBC4 >> 5) - 1);
-    *v8 = *((_QWORD *)qword_140EFEBC8 + v22);
+         + HIBYTE(v25)) & (((unsigned int)dword_140EFEEE4 >> 5) - 1);
+    *v8 = *((_QWORD *)qword_140EFEEE8 + v22);
     v21[v22] = v8;
     v6 = 1;
     ++EtwpMdlTable;
   }
-  ExReleaseSpinLockExclusive(&dword_140EFEBD0, v9);
+  ExReleaseSpinLockExclusive(&dword_140EFEEF0, v9);
   if ( !v6 )
     ExFreePoolWithTag(v8, 0x4F777445u);
   LOBYTE(Pool2) = v6;

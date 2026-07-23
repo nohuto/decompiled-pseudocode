@@ -1,46 +1,46 @@
 /*
- * XREFs of RtlRcuFree @ 0x180147C00
+ * XREFs of RtlRcuFree @ 0x180145FB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlRcuFree(_QWORD *a1, volatile signed __int32 **a2, unsigned __int64 a3)
+LOGICAL __fastcall RtlRcuFree(_QWORD *a1)
 {
-  __int64 v4; // rdx
-  _QWORD *v5; // rax
-  unsigned int *v6; // rdi
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // rdi
-  unsigned __int64 v9; // r8
+  __int64 v2; // rdx
+  _QWORD *v3; // rax
+  unsigned int *v4; // rdi
+  void *v5; // r8
+  _QWORD *v6; // rdi
+  void *v7; // r8
   void *ProcessHeap; // rcx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&qword_1801D3C70, a2, a3);
-  v4 = *a1;
-  if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v5 = (_QWORD *)a1[1], (_QWORD *)*v5 != a1) )
+  RtlAcquireSRWLockExclusive(&stru_1801D2C70);
+  v2 = *a1;
+  if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v3 = (_QWORD *)a1[1], (_QWORD *)*v3 != a1) )
     __fastfail(3u);
-  *v5 = v4;
-  *(_QWORD *)(v4 + 8) = v5;
-  RtlReleaseSRWLockExclusive(&qword_1801D3C70);
-  v6 = (unsigned int *)a1[3];
-  while ( v6 )
+  *v3 = v2;
+  *(_QWORD *)(v2 + 8) = v3;
+  RtlReleaseSRWLockExclusive(&stru_1801D2C70);
+  v4 = (unsigned int *)a1[3];
+  while ( v4 )
   {
-    v7 = (unsigned __int64)v6;
-    v6 = *(unsigned int **)&v6[2 * *v6 + 2];
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+    v5 = v4;
+    v4 = *(unsigned int **)&v4[2 * *v4 + 2];
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   }
-  v8 = a1[4];
+  v6 = (_QWORD *)a1[4];
   while ( 1 )
   {
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
-    if ( !v8 )
+    if ( !v6 )
       break;
-    v9 = v8;
-    v8 = *(_QWORD *)(v8 + 24);
-    RtlFreeHeap((__int64)ProcessHeap, 0, v9);
+    v7 = v6;
+    v6 = (_QWORD *)v6[3];
+    RtlFreeHeap(ProcessHeap, 0, v7);
   }
-  return RtlFreeHeap((__int64)ProcessHeap, 0, (unsigned __int64)a1);
+  return RtlFreeHeap(ProcessHeap, 0, a1);
 }

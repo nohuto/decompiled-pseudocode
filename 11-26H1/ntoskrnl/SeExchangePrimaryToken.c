@@ -1,23 +1,23 @@
 /*
- * XREFs of SeExchangePrimaryToken @ 0x140814B78
+ * XREFs of SeExchangePrimaryToken @ 0x14081AC68
  * Callers:
- *     PspAssignPrimaryToken @ 0x140773B18 (PspAssignPrimaryToken.c)
+ *     PspAssignPrimaryToken @ 0x140776B18 (PspAssignPrimaryToken.c)
  * Callees:
- *     PsGetSessionObjectById @ 0x140215CF4 (PsGetSessionObjectById.c)
- *     SepSetTrustLevelForProcessToken @ 0x14025F118 (SepSetTrustLevelForProcessToken.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     ObFastReplaceObject @ 0x1404819D8 (ObFastReplaceObject.c)
- *     SepAuditAssignPrimaryToken @ 0x140813228 (SepAuditAssignPrimaryToken.c)
- *     SepSetTokenLowboxNumber @ 0x140A2C4A4 (SepSetTokenLowboxNumber.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x140A2C9E4 (SepDereferenceLowBoxNumberEntry.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140A435C0 (SeAuditingWithTokenForSubcategory.c)
- *     SepSetTokenSessionById @ 0x140A82BD4 (SepSetTokenSessionById.c)
+ *     PsGetSessionObjectById @ 0x140216024 (PsGetSessionObjectById.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SepSetTrustLevelForProcessToken @ 0x1404052FC (SepSetTrustLevelForProcessToken.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     ObFastReplaceObject @ 0x14047B348 (ObFastReplaceObject.c)
+ *     SepAuditAssignPrimaryToken @ 0x140819088 (SepAuditAssignPrimaryToken.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1409FE320 (SeAuditingWithTokenForSubcategory.c)
+ *     SepSetTokenLowboxNumber @ 0x140A3E100 (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenSessionById @ 0x140A88A44 (SepSetTokenSessionById.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x140A9F480 (SepDereferenceLowBoxNumberEntry.c)
  */
 
 __int64 __fastcall SeExchangePrimaryToken(__int64 a1, ULONG_PTR a2, unsigned __int64 *a3)

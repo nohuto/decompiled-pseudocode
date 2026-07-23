@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpTimeToTimeFieldsNoLeapSeconds @ 0x1402B5CF4
+ * XREFs of RtlpTimeToTimeFieldsNoLeapSeconds @ 0x140233ED4
  * Callers:
- *     RtlpTimeToTimeFields @ 0x1402B5C18 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeToTimeFields @ 0x140233DF8 (RtlpTimeToTimeFields.c)
  * Callees:
- *     TimeToDaysAndFraction @ 0x1402B5EE4 (TimeToDaysAndFraction.c)
+ *     TimeToDaysAndFraction @ 0x1402340C4 (TimeToDaysAndFraction.c)
  */
 
 __int64 __fastcall RtlpTimeToTimeFieldsNoLeapSeconds(__int64 a1, _WORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptIsCmciSupported @ 0x1403AEDB0
+ * XREFs of HalpInterruptIsCmciSupported @ 0x1403AEF90
  * Callers:
- *     HalpIsCmciImplemented @ 0x140A91EE8 (HalpIsCmciImplemented.c)
+ *     HalpIsCmciImplemented @ 0x140A91D68 (HalpIsCmciImplemented.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
  */
 
 bool HalpInterruptIsCmciSupported()

@@ -1,14 +1,14 @@
 /*
- * XREFs of SiGetFirmwareSystemPartition @ 0x1406A4880
+ * XREFs of SiGetFirmwareSystemPartition @ 0x1406024B0
  * Callers:
- *     SiGetSystemPartition @ 0x1406A4830 (SiGetSystemPartition.c)
+ *     SiGetSystemPartition @ 0x140602460 (SiGetSystemPartition.c)
  * Callees:
- *     SiIsWinPEBoot @ 0x1406A4930 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceName @ 0x1406A49A4 (SiGetBootDeviceName.c)
- *     SiTranslateSymbolicLink @ 0x1406A4F0C (SiTranslateSymbolicLink.c)
- *     SiGetBiosSystemPartition @ 0x14077ABD4 (SiGetBiosSystemPartition.c)
- *     SiGetEfiSystemDevice @ 0x140973BD0 (SiGetEfiSystemDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SiIsWinPEBoot @ 0x140602560 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceName @ 0x1406025D4 (SiGetBootDeviceName.c)
+ *     SiTranslateSymbolicLink @ 0x140602B3C (SiTranslateSymbolicLink.c)
+ *     SiGetBiosSystemPartition @ 0x14077AD94 (SiGetBiosSystemPartition.c)
+ *     SiGetEfiSystemDevice @ 0x140973DB0 (SiGetEfiSystemDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetFirmwareSystemPartition(int a1, PCWSTR *a2)

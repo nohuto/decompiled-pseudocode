@@ -20,8 +20,8 @@ void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
 {
   ULONG_PTR v2; // rdi
   ULONG_PTR v3; // rsi
-  __int64 v4; // rax
-  unsigned __int64 v5; // rbx
+  PRTL_BALANCED_NODE v4; // rax
+  _RTL_BALANCED_NODE *v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
   _OWORD v7[3]; // [rsp+30h] [rbp-38h] BYREF
 
@@ -37,12 +37,12 @@ void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
   v4 = KeAbPreAcquire(v3, 0LL, 0);
   v5 = v4;
   if ( v4 )
-    KeAbPreWait(v4);
+    KeAbPreWait((__int64)v4);
   KeWaitForSingleObject(&v7[1], Executive, 0, 0, 0LL);
   if ( v5 )
   {
     KeAbPreAcquire(v3, v5, 0);
-    KeAbPostReleaseEx(v3, v5);
+    KeAbPostReleaseEx(v3, (unsigned __int64)v5);
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

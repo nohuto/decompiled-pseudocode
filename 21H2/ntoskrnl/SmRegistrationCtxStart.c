@@ -1,12 +1,12 @@
 /*
- * XREFs of SmRegistrationCtxStart @ 0x1407D17D8
+ * XREFs of SmRegistrationCtxStart @ 0x1407D1948
  * Callers:
- *     ?SmFirstTimeInit@@YAJKK@Z @ 0x14035D458 (-SmFirstTimeInit@@YAJKK@Z.c)
- *     SmGetRegistrationInfo @ 0x1407CF24C (SmGetRegistrationInfo.c)
- *     SmcCacheCreatePrepare @ 0x14092A714 (SmcCacheCreatePrepare.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1402A2388 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     SmGetRegistrationInfo @ 0x1407CF3BC (SmGetRegistrationInfo.c)
+ *     SmcCacheCreatePrepare @ 0x14092A874 (SmcCacheCreatePrepare.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SmCreateEvent @ 0x1407D1830 (SmCreateEvent.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SmCreateEvent @ 0x1407D19A0 (SmCreateEvent.c)
  */
 
 __int64 __fastcall SmRegistrationCtxStart(struct _DMA_ADAPTER **a1)

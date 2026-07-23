@@ -1,13 +1,13 @@
 /*
- * XREFs of ViRemoveChannelWcb @ 0x1405CEB5C
+ * XREFs of ViRemoveChannelWcb @ 0x1405CF0CC
  * Callers:
- *     VfCancelAdapterChannel @ 0x140AC5C10 (VfCancelAdapterChannel.c)
- *     VfFreeAdapterChannel @ 0x140AC6060 (VfFreeAdapterChannel.c)
- *     VfFreeMapRegisters @ 0x140AC6430 (VfFreeMapRegisters.c)
+ *     VfCancelAdapterChannel @ 0x140AC5C00 (VfCancelAdapterChannel.c)
+ *     VfFreeAdapterChannel @ 0x140AC6050 (VfFreeAdapterChannel.c)
+ *     VfFreeMapRegisters @ 0x140AC6420 (VfFreeMapRegisters.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ViRemoveChannelWcb(__int64 a1, __int64 a2, __int64 a3)
@@ -57,10 +57,13 @@ __int64 __fastcall ViRemoveChannelWcb(__int64 a1, __int64 a2, __int64 a3)
   }
 LABEL_12:
   KxReleaseSpinLock(v8);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v11 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

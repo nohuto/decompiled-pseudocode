@@ -1,18 +1,18 @@
 /*
- * XREFs of MiGetPhysicalMemoryRanges @ 0x1408663A4
+ * XREFs of MiGetPhysicalMemoryRanges @ 0x14086C784
  * Callers:
- *     MmGetPhysicalMemoryRangesEx2 @ 0x140B4D600 (MmGetPhysicalMemoryRangesEx2.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x140B4F390 (MmGetPhysicalMemoryRangesEx2.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiLockDynamicMemoryShared @ 0x1404CB6E0 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1404D0330 (MiUnlockDynamicMemoryShared.c)
- *     MiGetFileOnlyRanges @ 0x1406E8E88 (MiGetFileOnlyRanges.c)
- *     MiRebuildPartitionMemoryBlock @ 0x1407095C0 (MiRebuildPartitionMemoryBlock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiLockDynamicMemoryShared @ 0x1404C5110 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1404C9D60 (MiUnlockDynamicMemoryShared.c)
+ *     MiGetFileOnlyRanges @ 0x1406EDB28 (MiGetFileOnlyRanges.c)
+ *     MiRebuildPartitionMemoryBlock @ 0x14070E274 (MiRebuildPartitionMemoryBlock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiGetPhysicalMemoryRanges(ULONG *a1, char a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

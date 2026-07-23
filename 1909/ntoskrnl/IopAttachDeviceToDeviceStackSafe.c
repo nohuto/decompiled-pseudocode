@@ -42,10 +42,10 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   int v19; // ecx
   __int64 v20; // rax
   __int64 v21; // rax
-  struct _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
-  struct _OBJECT_NAME_INFORMATION *v23; // r14
+  _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
+  _OBJECT_NAME_INFORMATION *v23; // r14
   NTSTATUS v24; // r15d
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
   bool v26; // sf
   unsigned __int16 Length; // ax
   __int64 v28; // rax
@@ -76,7 +76,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   wchar_t *v53; // [rsp+D0h] [rbp-30h]
   int v54; // [rsp+D8h] [rbp-28h]
   int v55; // [rsp+DCh] [rbp-24h]
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+E0h] [rbp-20h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+E0h] [rbp-20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 312);
   v40 = a2;
@@ -164,7 +164,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
       v21 = *(_QWORD *)(a1 + 8);
       p_ObjectNameInfo = &ObjectNameInfo;
       v41[0] = 1835034LL;
-      v23 = (struct _OBJECT_NAME_INFORMATION *)v41;
+      v23 = (_OBJECT_NAME_INFORMATION *)v41;
       v37 = *(_WORD *)(v21 + 56) >> 1;
       v41[1] = L"(Unavailable)";
       ReturnLength = 64;
@@ -173,7 +173,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
         v24 = ObQueryNameString(DiskDeviceObject, &ObjectNameInfo, ReturnLength, &ReturnLength);
         if ( v24 == -1073741820 )
         {
-          PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x6E4F6F49u);
+          PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x6E4F6F49u);
           p_ObjectNameInfo = PoolWithTag;
           if ( PoolWithTag )
             v24 = ObQueryNameString(DiskDeviceObject, PoolWithTag, ReturnLength, &ReturnLength);

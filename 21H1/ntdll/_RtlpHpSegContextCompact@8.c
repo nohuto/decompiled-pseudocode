@@ -37,7 +37,7 @@ _DWORD *__fastcall RtlpHpSegContextCompact(int a1, int a2)
   {
     v16 = a2 & 1;
     if ( (a2 & 1) == 0 )
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v3 = (_DWORD *)(a1 + 68);
     v13 = -1;
     v4 = *(_DWORD **)(a1 + 68);
@@ -56,7 +56,7 @@ _DWORD *__fastcall RtlpHpSegContextCompact(int a1, int a2)
             *((_BYTE *)v6 + 12) |= 1u;
             LOBYTE(v6[4 * *((unsigned __int8 *)v6 + 15) - 1]) |= 1u;
             v6 = (_DWORD *)RtlpHpSegPageRangeCoalesce(v14, 1, &v13);
-            v7 = (_DWORD *)RtlpHpSegFreeRangeInsert(0);
+            v7 = (_DWORD *)RtlpHpSegFreeRangeInsert(a1, v6, 0);
             if ( v7 )
               break;
           }
@@ -82,7 +82,7 @@ LABEL_14:
       v3 = (_DWORD *)(a1 + 68);
     }
     if ( !v16 )
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   }
   v11 = v17;
   while ( 1 )

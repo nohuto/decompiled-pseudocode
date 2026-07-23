@@ -1,14 +1,14 @@
 /*
- * XREFs of VslTerminateSecureServices @ 0x14040FCD8
+ * XREFs of VslTerminateSecureServices @ 0x14040FEB8
  * Callers:
- *     HalpPowerWriteResetCommand @ 0x140506ABC (HalpPowerWriteResetCommand.c)
- *     HalpShutdown @ 0x140506C48 (HalpShutdown.c)
- *     HaliAcpiSleep @ 0x140527F40 (HaliAcpiSleep.c)
- *     HvlEnterSleepState @ 0x140543DB0 (HvlEnterSleepState.c)
+ *     HalpPowerWriteResetCommand @ 0x14050700C (HalpPowerWriteResetCommand.c)
+ *     HalpShutdown @ 0x140507198 (HalpShutdown.c)
+ *     HaliAcpiSleep @ 0x140528490 (HaliAcpiSleep.c)
+ *     HvlEnterSleepState @ 0x140544470 (HvlEnterSleepState.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 VslTerminateSecureServices()

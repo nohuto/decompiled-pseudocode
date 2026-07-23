@@ -15,7 +15,7 @@
  *     ObReferenceObjectByHandle @ 0x1405A4730 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   __int64 v2; // r8
@@ -30,7 +30,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   char v11; // bl
   int v12; // ecx
   __int64 v13; // rax
-  int v14; // ebp
+  NTSTATUS v14; // ebp
   __int64 v15; // rax
   struct _KPRCB *v16; // rcx
   _DWORD *v17; // rdx
@@ -44,7 +44,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   PVOID Object; // [rsp+88h] [rbp+10h] BYREF
 
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,

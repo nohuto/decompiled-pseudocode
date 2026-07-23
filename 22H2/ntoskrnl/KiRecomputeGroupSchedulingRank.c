@@ -9,7 +9,7 @@
  *     KiResortScbQueue @ 0x14035D48C (KiResortScbQueue.c)
  */
 
-void __fastcall KiRecomputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall KiRecomputeGroupSchedulingRank(__int64 a1, __int64 a2, _RTL_RB_TREE *a3)
 {
   unsigned __int64 v6; // r9
   volatile signed __int32 *v7; // rax

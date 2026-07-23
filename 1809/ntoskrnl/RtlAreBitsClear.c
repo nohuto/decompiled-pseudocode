@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlAreBitsClear @ 0x14000F1D0
  * Callers:
- *     HvGetHiveLogFileStatus @ 0x1405A62C8 (HvGetHiveLogFileStatus.c)
- *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
- *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
- *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
- *     HvIsRangeDirty @ 0x140800F24 (HvIsRangeDirty.c)
+ *     HvGetHiveLogFileStatus @ 0x1405A72C8 (HvGetHiveLogFileStatus.c)
+ *     MiReturnPageTablePageCommitment @ 0x1405ED380 (MiReturnPageTablePageCommitment.c)
+ *     MiCommitPageTablesForVad @ 0x1405EDBB0 (MiCommitPageTablesForVad.c)
+ *     CmpMountPreloadedHives @ 0x1407369D0 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140736D20 (CmpLoadHiveThread.c)
+ *     HvIsRangeDirty @ 0x140802124 (HvIsRangeDirty.c)
  * Callees:
  *     <none>
  */

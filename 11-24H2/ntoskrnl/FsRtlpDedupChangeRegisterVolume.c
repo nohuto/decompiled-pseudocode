@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpDedupChangeRegisterVolume @ 0x14070CCE0
+ * XREFs of FsRtlpDedupChangeRegisterVolume @ 0x14070A880
  * Callers:
- *     FsRtlDedupChangeInit @ 0x14070C8F0 (FsRtlDedupChangeInit.c)
+ *     FsRtlDedupChangeInit @ 0x14070A490 (FsRtlDedupChangeInit.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     McTemplateK0jjtq_EtwWriteTransfer @ 0x140581AA4 (McTemplateK0jjtq_EtwWriteTransfer.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     EtwRegister @ 0x140A574E0 (EtwRegister.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     McTemplateK0jjtq_EtwWriteTransfer @ 0x14057EE24 (McTemplateK0jjtq_EtwWriteTransfer.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     EtwRegister @ 0x1409EA180 (EtwRegister.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall FsRtlpDedupChangeRegisterVolume(__int64 a1, __int128 *a2, char a3, const GUID *a4, unsigned int *a5)
@@ -36,7 +36,7 @@ __int64 __fastcall FsRtlpDedupChangeRegisterVolume(__int64 a1, __int128 *a2, cha
       goto LABEL_21;
     }
   }
-  Pool2 = ExAllocatePool2(0x102uLL);
+  Pool2 = ExAllocatePool2(0x102uLL, 0x38uLL, 0x68436544u);
   if ( !Pool2 )
   {
     v12 = -1073741670;
@@ -84,7 +84,7 @@ LABEL_22:
   {
     if ( (Microsoft_Windows_Dedup_ChangeEnableBits & 1) != 0 )
       McTemplateK0jjtq_EtwWriteTransfer(MS_Dedup_Change_Provider_Context, v17, a4, a1, (__int64)a2, a3, *a5);
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_REFSDEDUP_VOLUME_DETECTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_REFSDEDUP_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v12;
 }

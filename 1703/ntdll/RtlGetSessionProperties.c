@@ -8,32 +8,27 @@
  *     ZwQueryInformationJobObject @ 0x1800A7A90 (ZwQueryInformationJobObject.c)
  */
 
-__int64 __fastcall RtlGetSessionProperties(int a1, _DWORD *a2)
+NTSTATUS __cdecl RtlGetSessionProperties(ULONG SessionId, PULONG SharedUserSessionId)
 {
-  unsigned int v4; // ebx
-  char *HotpatchInformation; // rcx
-  char v7; // [rsp+30h] [rbp-268h] BYREF
+  NTSTATUS v4; // ebx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  _BYTE JobObjectInformation[592]; // [rsp+30h] [rbp-268h] BYREF
 
-  if ( a1 == -1 )
-    return (unsigned int)-1073741811;
+  if ( SessionId == -1 )
+    return -1073741811;
   v4 = 0;
-  if ( !a2 )
+  if ( !SharedUserSessionId )
+    return -1073741811;
+  *SharedUserSessionId = 0;
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    return (unsigned int)-1073741811;
+    SharedData = NtCurrentPeb()->SharedData;
   }
   else
   {
-    *a2 = 0;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    {
-      HotpatchInformation = (char *)NtCurrentPeb()->HotpatchInformation;
-    }
-    else
-    {
-      ZwQueryInformationJobObject();
-      HotpatchInformation = &v7;
-    }
-    *a2 = *((_DWORD *)HotpatchInformation + 6) == a1;
+    ZwQueryInformationJobObject(0LL, JobObjectReserved17Information, JobObjectInformation, 0x248u, 0LL);
+    SharedData = (PSILO_USER_SHARED_DATA)JobObjectInformation;
   }
+  *SharedUserSessionId = SharedData->SharedUserSessionId == SessionId;
   return v4;
 }

@@ -8,35 +8,35 @@
  *     RtlDeCommitDebugInfo_0 @ 0x1800D3188 (RtlDeCommitDebugInfo_0.c)
  */
 
-__int64 __fastcall sub_1800D56BC(_QWORD *a1)
+__int64 __fastcall sub_1800D56BC(PRTL_DEBUG_INFORMATION Buffer)
 {
   int v3; // r10d
-  char *v4; // rax
-  __int64 v5; // rbx
-  unsigned int v6; // ecx
-  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
-  unsigned int v8; // [rsp+40h] [rbp+18h] BYREF
+  _RTL_PROCESS_VERIFIER_OPTIONS *v4; // rax
+  _RTL_PROCESS_VERIFIER_OPTIONS *v5; // rbx
+  ULONG v6; // ecx
+  SIZE_T Size; // [rsp+38h] [rbp+10h] BYREF
+  int v8; // [rsp+40h] [rbp+18h] BYREF
 
-  v7 = 0;
+  LODWORD(Size) = 0;
   v8 = 0;
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x2000100) == 0 )
     return 0LL;
-  v3 = ((__int64 (__fastcall *)(_QWORD, unsigned int *, _QWORD))qword_180156498)(0LL, &v7, 0LL);
+  v3 = ((__int64 (__fastcall *)(_QWORD, SIZE_T *, _QWORD))qword_180156498)(0LL, &Size, 0LL);
   if ( v3 == -1073741820 )
   {
-    v4 = RtlCommitDebugInfo_0(a1, v7);
-    v5 = (__int64)v4;
+    v4 = (_RTL_PROCESS_VERIFIER_OPTIONS *)RtlCommitDebugInfo_0(Buffer, (unsigned int)Size);
+    v5 = v4;
     if ( v4 )
     {
-      v6 = v7;
-      v8 = v7;
-      *((_DWORD *)v4 + 1) = 0;
-      *(_DWORD *)v4 = v6;
-      v3 = ((__int64 (__fastcall *)(_QWORD, unsigned int *, char *))qword_180156498)(0LL, &v8, v4);
+      v6 = Size;
+      v8 = Size;
+      v4->Option = 0;
+      v4->SizeStruct = v6;
+      v3 = ((__int64 (__fastcall *)(_QWORD, int *, _RTL_PROCESS_VERIFIER_OPTIONS *))qword_180156498)(0LL, &v8, v4);
       if ( v3 >= 0 )
-        a1[18] = v5;
+        Buffer->VerifierOptions = v5;
       else
-        RtlDeCommitDebugInfo_0((__int64)a1, v5, v7);
+        RtlDeCommitDebugInfo_0(Buffer, v5, (unsigned int)Size);
     }
     else
     {

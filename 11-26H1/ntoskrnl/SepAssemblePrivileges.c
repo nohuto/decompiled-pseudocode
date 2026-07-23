@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAssemblePrivileges @ 0x140A971F8
+ * XREFs of SepAssemblePrivileges @ 0x140A9B378
  * Callers:
- *     SepAccessCheckEx @ 0x1402AE5D0 (SepAccessCheckEx.c)
- *     SepAccessCheck @ 0x1402B00F0 (SepAccessCheck.c)
+ *     SepAccessCheckEx @ 0x1403AEA10 (SepAccessCheckEx.c)
+ *     SepAccessCheck @ 0x1405196A0 (SepAccessCheck.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall SepAssemblePrivileges(int a1, char a2, char a3, char a4, LUID **a5)

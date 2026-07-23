@@ -1,20 +1,20 @@
 /*
- * XREFs of ViTargetDriversAllocateVerifiedData @ 0x140934ED4
+ * XREFs of ViTargetDriversAllocateVerifiedData @ 0x140935ED4
  * Callers:
- *     VfTargetDriversAdd @ 0x1400F55A4 (VfTargetDriversAdd.c)
- *     VfTargetDriversEnableVerifier @ 0x140934944 (VfTargetDriversEnableVerifier.c)
+ *     VfTargetDriversAdd @ 0x1400F5624 (VfTargetDriversAdd.c)
+ *     VfTargetDriversEnableVerifier @ 0x140935944 (VfTargetDriversEnableVerifier.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
-union _SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
+_SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
 {
-  union _SLIST_HEADER *PoolWithTag; // rax
-  union _SLIST_HEADER *v3; // rbx
+  _SLIST_HEADER *PoolWithTag; // rax
+  _SLIST_HEADER *v3; // rbx
 
-  PoolWithTag = (union _SLIST_HEADER *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x120uLL, 0x44566656u);
+  PoolWithTag = (_SLIST_HEADER *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x120uLL, 0x44566656u);
   v3 = PoolWithTag;
   if ( PoolWithTag )
   {

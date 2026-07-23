@@ -18,7 +18,7 @@
  *     EtwStartAutoLogger @ 0x140770860 (EtwStartAutoLogger.c)
  */
 
-void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, struct _RTL_AVL_TABLE *a3)
+void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, _RTL_AVL_TABLE *a3)
 {
   wchar_t *v5; // rsi
   __int64 v6; // rbx

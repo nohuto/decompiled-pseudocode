@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTraceStandbyConnectivityUpdate @ 0x140ABF96C
+ * XREFs of PopTraceStandbyConnectivityUpdate @ 0x140ABAA4C
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x1404B4490 (PopNetEvaluationWorkerCallback.c)
- *     PopNetInitialize @ 0x140C31EF4 (PopNetInitialize.c)
+ *     PopNetEvaluationWorkerCallback @ 0x1404AECD0 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetInitialize @ 0x140C34034 (PopNetInitialize.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
@@ -37,7 +37,7 @@ void __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
 
   v22 = a2;
   v21 = a1;
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v14 = 0;
     v17 = 0;
@@ -51,7 +51,7 @@ void __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
     v16 = 4;
     v6 = 0x1000000LL;
     v19 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)byte_140049839, 0LL, 0LL, 5u, &v11);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)&byte_140049F7F, 0LL, 0LL, 5u, &v11);
   }
   if ( PopDiagHandleRegistered )
   {

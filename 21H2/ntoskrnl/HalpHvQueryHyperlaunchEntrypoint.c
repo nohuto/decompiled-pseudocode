@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpHvQueryHyperlaunchEntrypoint @ 0x1404D207C
+ * XREFs of HalpHvQueryHyperlaunchEntrypoint @ 0x1404D22BC
  * Callers:
- *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x1409909D0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

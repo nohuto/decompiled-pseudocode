@@ -1,18 +1,18 @@
 /*
- * XREFs of VfFilterAttach @ 0x1409E4EF4
+ * XREFs of VfFilterAttach @ 0x1409E5EF4
  * Callers:
- *     VfDevObjPostAddDevice @ 0x1409D60A4 (VfDevObjPostAddDevice.c)
- *     VfDevObjPreAddDevice @ 0x1409D60F8 (VfDevObjPreAddDevice.c)
+ *     VfDevObjPostAddDevice @ 0x1409D70A4 (VfDevObjPostAddDevice.c)
+ *     VfDevObjPreAddDevice @ 0x1409D70F8 (VfDevObjPreAddDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
- *     IoInitializeRemoveLockEx @ 0x14037F3A0 (IoInitializeRemoveLockEx.c)
- *     IoAttachDeviceToDeviceStack @ 0x140381290 (IoAttachDeviceToDeviceStack.c)
- *     HviIsAnyHypervisorPresent @ 0x1403A5A10 (HviIsAnyHypervisorPresent.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
- *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
+ *     IoGetAttachedDevice @ 0x14035E490 (IoGetAttachedDevice.c)
+ *     IoInitializeRemoveLockEx @ 0x14037EEF0 (IoInitializeRemoveLockEx.c)
+ *     IoAttachDeviceToDeviceStack @ 0x140380DE0 (IoAttachDeviceToDeviceStack.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5B60 (HviIsAnyHypervisorPresent.c)
+ *     IoCreateDevice @ 0x1406C9950 (IoCreateDevice.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     IoCreateDriver @ 0x1407A5100 (IoCreateDriver.c)
  */
 
 void __fastcall VfFilterAttach(PDEVICE_OBJECT TargetDevice, int a2)

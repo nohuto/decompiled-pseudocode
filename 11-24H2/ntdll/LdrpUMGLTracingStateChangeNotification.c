@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpUMGLTracingStateChangeNotification @ 0x18015F000
+ * XREFs of LdrpUMGLTracingStateChangeNotification @ 0x18015D3C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpEnumProcessHeaps @ 0x1800469B0 (RtlpEnumProcessHeaps.c)
+ *     RtlpEnumProcessHeaps @ 0x18002A930 (RtlpEnumProcessHeaps.c)
  */
 
 __int64 LdrpUMGLTracingStateChangeNotification()

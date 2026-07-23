@@ -1,42 +1,47 @@
 /*
- * XREFs of SdbFindFirstStringIndexedTag @ 0x1409E6084
+ * XREFs of SdbFindFirstStringIndexedTag @ 0x1409D6D00
  * Callers:
- *     SdbGetKShimTagRef @ 0x140881D4C (SdbGetKShimTagRef.c)
- *     SdbGetDatabaseMatchEx @ 0x1409E57D4 (SdbGetDatabaseMatchEx.c)
- *     SdbpSearchDB @ 0x140A92348 (SdbpSearchDB.c)
+ *     SdbGetKShimTagRef @ 0x14088814C (SdbGetKShimTagRef.c)
+ *     SdbGetDatabaseMatchEx @ 0x1409D745C (SdbGetDatabaseMatchEx.c)
+ *     SdbpSearchDB @ 0x140A96E98 (SdbpSearchDB.c)
  * Callees:
- *     SdbpGetFirstIndexedRecord @ 0x1409E5EDC (SdbpGetFirstIndexedRecord.c)
- *     SdbGetIndex @ 0x1409E6C78 (SdbGetIndex.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     SdbMakeIndexKeyFromStringEx @ 0x1409E8AF0 (SdbMakeIndexKeyFromStringEx.c)
- *     SdbpFindMatchingName @ 0x140B27CD8 (SdbpFindMatchingName.c)
+ *     SdbMakeIndexKeyFromStringEx @ 0x1409D40B8 (SdbMakeIndexKeyFromStringEx.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     SdbGetIndex @ 0x1409D5FF0 (SdbGetIndex.c)
+ *     SdbpGetFirstIndexedRecord @ 0x1409D6DD4 (SdbpGetFirstIndexedRecord.c)
+ *     SdbpFindMatchingName @ 0x140B29968 (SdbpFindMatchingName.c)
  */
 
-__int64 __fastcall SdbFindFirstStringIndexedTag(void *a1, __int64 a2, __int16 a3, const WCHAR *a4, __int64 a5)
+__int64 __fastcall SdbFindFirstStringIndexedTag(
+        _RTL_RUN_ONCE *a1,
+        __int16 a2,
+        __int16 a3,
+        const WCHAR *a4,
+        unsigned int *a5)
 {
-  int Index; // eax
+  unsigned int Index; // eax
+  char v9; // dl
   __int64 IndexKeyFromString; // rax
-  unsigned int v10; // edx
+  __int64 v11; // rdx
   unsigned int FirstIndexedRecord; // eax
+  unsigned int v14[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  Index = SdbGetIndex(a1);
-  *(_DWORD *)a5 = Index;
+  v14[0] = 0;
+  Index = SdbGetIndex(a1, a2, a3, v14);
+  *a5 = Index;
   if ( !Index )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbFindFirstStringIndexedTag",
-      242,
-      (unsigned int)"Index not found 0x%lx Key 0x%lx");
+    AslLogCallPrintf(1LL, (__int64)"SdbFindFirstStringIndexedTag");
     return 0LL;
   }
-  *(_DWORD *)(a5 + 20) = 0;
-  *(_WORD *)(a5 + 12) = a3;
-  *(_QWORD *)(a5 + 32) = a4;
-  IndexKeyFromString = SdbMakeIndexKeyFromStringEx(a4);
-  v10 = *(_DWORD *)a5;
-  *(_QWORD *)(a5 + 24) = IndexKeyFromString;
-  FirstIndexedRecord = SdbpGetFirstIndexedRecord((__int64)a1, v10, IndexKeyFromString, (_DWORD *)a5);
+  v9 = v14[0];
+  a5[5] = v14[0];
+  *((_WORD *)a5 + 6) = a3;
+  *((_QWORD *)a5 + 4) = a4;
+  IndexKeyFromString = SdbMakeIndexKeyFromStringEx(a4, v9);
+  v11 = *a5;
+  *((_QWORD *)a5 + 3) = IndexKeyFromString;
+  FirstIndexedRecord = SdbpGetFirstIndexedRecord(a1, v11, IndexKeyFromString, a5);
   if ( !FirstIndexedRecord )
     return 0LL;
   return SdbpFindMatchingName(a1, FirstIndexedRecord, a5);

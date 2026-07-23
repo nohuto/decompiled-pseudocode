@@ -1,0 +1,16 @@
+/*
+ * XREFs of sub_1405E9D30 @ 0x1405E9D30
+ * Callers:
+ *     sub_1405E5224 @ 0x1405E5224 (sub_1405E5224.c)
+ *     sub_1406EDA0C @ 0x1406EDA0C (sub_1406EDA0C.c)
+ *     sub_1407C70A0 @ 0x1407C70A0 (sub_1407C70A0.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1405E9D30(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6, int a7)
+{
+  return a7
+       - *(_DWORD *)(a6 + 4LL * (((unsigned __int8)(a1 >> 1) - 1) & 1))
+       - (unsigned int)*(unsigned __int16 *)(a6 + 2 * (a1 & 3));
+}

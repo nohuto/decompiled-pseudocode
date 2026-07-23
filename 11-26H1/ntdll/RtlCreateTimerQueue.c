@@ -1,40 +1,40 @@
 /*
- * XREFs of RtlCreateTimerQueue @ 0x1800FDBE0
+ * XREFs of RtlCreateTimerQueue @ 0x1800FD330
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpTpResumeImpersonation @ 0x18004F238 (RtlpTpResumeImpersonation.c)
- *     RtlpTpRevertCapture @ 0x180067740 (RtlpTpRevertCapture.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpTpResumeImpersonation @ 0x1800397B8 (RtlpTpResumeImpersonation.c)
+ *     RtlpTpRevertCapture @ 0x180087B90 (RtlpTpRevertCapture.c)
  */
 
-__int64 __fastcall RtlCreateTimerQueue(__int64 *a1)
+NTSTATUS __cdecl RtlCreateTimerQueue(PHANDLE TimerQueueHandle)
 {
   int v2; // ebx
-  __int64 Heap_0; // rax
-  __int64 v4; // rcx
+  _QWORD *Heap_0; // rax
+  _QWORD *v4; // rcx
   _QWORD *v5; // rax
-  HANDLE v7; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE TokenHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = 0LL;
+  TokenHandle = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 3221225473LL;
-  *a1 = 0LL;
-  v2 = RtlpTpRevertCapture(&v7, 0);
+    return -1073741823;
+  *TimerQueueHandle = 0LL;
+  v2 = RtlpTpRevertCapture(&TokenHandle, 0);
   if ( v2 >= 0 )
   {
-    Heap_0 = RtlAllocateHeap_0();
+    Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, 0x30uLL);
     v4 = Heap_0;
     if ( Heap_0 )
     {
       *(_DWORD *)Heap_0 = 1;
-      *(_QWORD *)(Heap_0 + 8) = 0LL;
-      *(_QWORD *)(Heap_0 + 16) = 0LL;
-      v5 = (_QWORD *)(Heap_0 + 24);
+      Heap_0[1] = 0LL;
+      Heap_0[2] = 0LL;
+      v5 = Heap_0 + 3;
       v5[1] = v5;
       *v5 = v5;
-      *(_QWORD *)(v4 + 40) = 0LL;
-      *a1 = v4;
+      v4[5] = 0LL;
+      *TimerQueueHandle = v4;
       v2 = 0;
     }
     else
@@ -42,6 +42,6 @@ __int64 __fastcall RtlCreateTimerQueue(__int64 *a1)
       v2 = -1073741801;
     }
   }
-  RtlpTpResumeImpersonation(v7);
-  return (unsigned int)v2;
+  RtlpTpResumeImpersonation(TokenHandle);
+  return v2;
 }

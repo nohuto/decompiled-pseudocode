@@ -1,19 +1,19 @@
 /*
- * XREFs of VslConnectSwInterrupt @ 0x1409CC3E8
+ * XREFs of VslConnectSwInterrupt @ 0x1409CD3E8
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x1409CA89C (PipInitializeCoreDriversAndElam.c)
- *     KiConnectSwInterrupt @ 0x1409F6610 (KiConnectSwInterrupt.c)
+ *     PipInitializeCoreDriversAndElam @ 0x1409CB89C (PipInitializeCoreDriversAndElam.c)
+ *     KiConnectSwInterrupt @ 0x1409F7610 (KiConnectSwInterrupt.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x14012A014 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlIsCoreSharingPossible @ 0x140270E98 (HvlIsCoreSharingPossible.c)
- *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14012A0E4 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlIsCoreSharingPossible @ 0x140271088 (HvlIsCoreSharingPossible.c)
+ *     VslpLockPagesForTransfer @ 0x14027C704 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C8E0 (VslpUnlockPagesForTransfer.c)
  */
 
 __int64 __fastcall VslConnectSwInterrupt(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -45,7 +45,7 @@ __int64 __fastcall VslConnectSwInterrupt(ULONG_PTR BugCheckParameter2, ULONG_PTR
   memset(v13, 0, 0x68uLL);
   v13[1] = v12[0];
   v13[2] = v12[7];
-  v10[1] = (unsigned __int16 *)qword_1405416A8[0];
+  v10[1] = (unsigned __int16 *)qword_1405426A8[0];
   v10[0] = (unsigned __int16 *)KeActiveProcessors;
   v11 = 0;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v9, v10) )

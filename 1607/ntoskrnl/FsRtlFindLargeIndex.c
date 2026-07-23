@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlFindLargeIndex @ 0x14008D3B4
+ * XREFs of FsRtlFindLargeIndex @ 0x14008CB18
  * Callers:
- *     FsRtlTruncateBaseMcb @ 0x14008C724 (FsRtlTruncateBaseMcb.c)
- *     FsRtlRemoveBaseMcbEntry @ 0x14008C81C (FsRtlRemoveBaseMcbEntry.c)
- *     FsRtlAddBaseMcbEntryEx @ 0x14008CCB0 (FsRtlAddBaseMcbEntryEx.c)
- *     FsRtlSplitBaseMcb @ 0x1401B8864 (FsRtlSplitBaseMcb.c)
+ *     FsRtlTruncateBaseMcb @ 0x14008BE84 (FsRtlTruncateBaseMcb.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x14008BF7C (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x14008C410 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlSplitBaseMcb @ 0x1401B8638 (FsRtlSplitBaseMcb.c)
  * Callees:
  *     <none>
  */

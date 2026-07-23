@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPrefetchReleasePreallocatedPages @ 0x140505F80
+ * XREFs of MiPrefetchReleasePreallocatedPages @ 0x1404FF830
  * Callers:
- *     MiPrefetchPreallocatePages @ 0x1406F719C (MiPrefetchPreallocatePages.c)
+ *     MiPrefetchPreallocatePages @ 0x1406FBE0C (MiPrefetchPreallocatePages.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiFreePageChain @ 0x140292AA4 (MiFreePageChain.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiFreePageChain @ 0x140292004 (MiFreePageChain.c)
  */
 
 __int64 __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int64 a3, int a4)

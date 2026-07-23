@@ -1,25 +1,25 @@
 /*
- * XREFs of PopAssociatePowerLimitRequest @ 0x1407CA800
+ * XREFs of PopAssociatePowerLimitRequest @ 0x1407CD8A0
  * Callers:
- *     PoCreatePowerLimitRequest @ 0x1407CA2A0 (PoCreatePowerLimitRequest.c)
+ *     PoCreatePowerLimitRequest @ 0x1407CD340 (PoCreatePowerLimitRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopGetDope @ 0x140438170 (PopGetDope.c)
- *     PopCleanPowerLimitExtension @ 0x1406039E0 (PopCleanPowerLimitExtension.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140607C84 (PopThermalUpdateTelemetryClientCount.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PopAcquirePowerLimitInterface @ 0x1407CA744 (PopAcquirePowerLimitInterface.c)
- *     PopQueryPowerLimitAttributes @ 0x1407CB278 (PopQueryPowerLimitAttributes.c)
- *     PopRegisterTargetDeviceProtection @ 0x1407CB3E4 (PopRegisterTargetDeviceProtection.c)
- *     PopDiagTracePowerLimitExtension @ 0x1407D3F9C (PopDiagTracePowerLimitExtension.c)
- *     PopDiagTracePowerLimitRequest @ 0x1407D4330 (PopDiagTracePowerLimitRequest.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopGetDope @ 0x140427090 (PopGetDope.c)
+ *     PopCleanPowerLimitExtension @ 0x140606490 (PopCleanPowerLimitExtension.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14060A834 (PopThermalUpdateTelemetryClientCount.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PopAcquirePowerLimitInterface @ 0x1407CD7E4 (PopAcquirePowerLimitInterface.c)
+ *     PopQueryPowerLimitAttributes @ 0x1407CE318 (PopQueryPowerLimitAttributes.c)
+ *     PopRegisterTargetDeviceProtection @ 0x1407CE484 (PopRegisterTargetDeviceProtection.c)
+ *     PopDiagTracePowerLimitExtension @ 0x1407D711C (PopDiagTracePowerLimitExtension.c)
+ *     PopDiagTracePowerLimitRequest @ 0x1407D74B0 (PopDiagTracePowerLimitRequest.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopAssociatePowerLimitRequest(__int64 a1, __int64 a2)
 {
-  struct _LIST_ENTRY *v4; // rdi
+  _QWORD *v4; // rdi
   __int64 v5; // rdx
   __int64 Dope; // rbp
   __int64 v7; // r8
@@ -33,7 +33,7 @@ __int64 __fastcall PopAssociatePowerLimitRequest(__int64 a1, __int64 a2)
   __int64 v15; // rdx
   __int64 v16; // r8
   struct _KLOCK_ENTRIES *v17; // r9
-  struct _LIST_ENTRY *Blink; // rax
+  _QWORD *v18; // rax
   __int64 v19; // rax
   __int64 v20; // rax
   __int64 v21; // rcx
@@ -49,20 +49,20 @@ __int64 __fastcall PopAssociatePowerLimitRequest(__int64 a1, __int64 a2)
   Dope = PopGetDope(a2);
   if ( !Dope )
     return (unsigned int)-1073741670;
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10828.SchedulerApc.Type, v5, v7, v8);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerLimitExtensionLock, v5, v7, v8);
   if ( *(_QWORD *)(Dope + 72) )
     goto LABEL_11;
-  PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.648);
+  PopReleaseRwLock((struct _KTHREAD *)&PopPowerLimitExtensionLock);
   Pool2 = ExAllocatePool2(0x100uLL);
-  v4 = (struct _LIST_ENTRY *)Pool2;
+  v4 = (_QWORD *)Pool2;
   if ( Pool2 )
   {
     v14 = (_QWORD *)(Pool2 + 16);
     v14[1] = v14;
     *v14 = v14;
-    v4[2].Blink = 0LL;
-    v4[2].Flink = 0LL;
-    v4[3].Blink = (struct _LIST_ENTRY *)a2;
+    v4[5] = 0LL;
+    v4[4] = 0LL;
+    v4[7] = a2;
     PowerLimitAttributes = PopAcquirePowerLimitInterface((__int64)v4);
     if ( PowerLimitAttributes < 0 )
       goto LABEL_22;
@@ -72,18 +72,18 @@ __int64 __fastcall PopAssociatePowerLimitRequest(__int64 a1, __int64 a2)
     PowerLimitAttributes = PopRegisterTargetDeviceProtection(v4);
     if ( PowerLimitAttributes < 0 )
       goto LABEL_22;
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10828.SchedulerApc.Type, v15, v16, v17);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerLimitExtensionLock, v15, v16, v17);
     if ( !*(_QWORD *)(Dope + 72) )
     {
-      Blink = stru_140F10828.SchedulerApc.ApcListEntry.Blink;
-      if ( stru_140F10828.SchedulerApc.ApcListEntry.Blink->Flink != (struct _LIST_ENTRY *)&stru_140F10828.SchedulerApcFill5[16] )
+      v18 = (_QWORD *)qword_140F0FED8;
+      if ( *(__int64 **)qword_140F0FED8 != &PopPowerLimitExtensionList )
         goto LABEL_17;
-      v4->Flink = &stru_140F10828.SchedulerApc.ApcListEntry;
-      v4->Blink = Blink;
-      Blink->Flink = v4;
-      stru_140F10828.SchedulerApc.ApcListEntry.Blink = v4;
+      *v4 = &PopPowerLimitExtensionList;
+      v4[1] = v18;
+      *v18 = v4;
+      qword_140F0FED8 = (__int64)v4;
       *(_QWORD *)(Dope + 72) = v4;
-      LOBYTE(v4[3].Flink) = 1;
+      *((_BYTE *)v4 + 48) = 1;
       PopDiagTracePowerLimitExtension(v4, POP_ETW_EVENT_POWER_LIMIT_EXTENSION_ADD);
       v4 = 0LL;
     }
@@ -98,7 +98,7 @@ LABEL_11:
       PowerLimitAttributes = -1073741670;
       if ( v21 )
         PopReleaseRwLock((struct _KTHREAD *)(v21 + 32));
-      PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.648);
+      PopReleaseRwLock((struct _KTHREAD *)&PopPowerLimitExtensionLock);
       goto LABEL_21;
     }
     *(_QWORD *)(a1 + 64) = *(_QWORD *)(Dope + 72);
@@ -128,7 +128,7 @@ LABEL_11:
       PopThermalUpdateTelemetryClientCount(1, v24, v25, v26);
       PopDiagTracePowerLimitRequest(a1, POP_ETW_EVENT_POWER_LIMIT_REQUEST_ADD);
       PopReleaseRwLock((struct _KTHREAD *)(*(_QWORD *)(Dope + 72) + 32LL));
-      PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.648);
+      PopReleaseRwLock((struct _KTHREAD *)&PopPowerLimitExtensionLock);
       PowerLimitAttributes = 0;
 LABEL_21:
       if ( !v4 )

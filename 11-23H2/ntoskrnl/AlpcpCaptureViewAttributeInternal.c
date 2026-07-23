@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpCaptureViewAttributeInternal @ 0x14071A6FC
+ * XREFs of AlpcpCaptureViewAttributeInternal @ 0x14071A8FC
  * Callers:
- *     AlpcpCaptureViewAttribute @ 0x14071A6A8 (AlpcpCaptureViewAttribute.c)
- *     AlpcpCaptureViewAttribute32 @ 0x140979490 (AlpcpCaptureViewAttribute32.c)
+ *     AlpcpCaptureViewAttribute @ 0x14071A8A8 (AlpcpCaptureViewAttribute.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x140979690 (AlpcpCaptureViewAttribute32.c)
  * Callees:
- *     AlpcpPrepareViewForDelivery @ 0x14071A268 (AlpcpPrepareViewForDelivery.c)
- *     AlpcpLocateSectionView @ 0x14071A350 (AlpcpLocateSectionView.c)
- *     AlpcpDeleteView @ 0x14071C0E8 (AlpcpDeleteView.c)
- *     AlpcReferenceBlobByHandle @ 0x14071DBF8 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140739E34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073BC40 (AlpcpUnlockBlob.c)
+ *     AlpcpPrepareViewForDelivery @ 0x14071A468 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpLocateSectionView @ 0x14071A550 (AlpcpLocateSectionView.c)
+ *     AlpcpDeleteView @ 0x14071C2E8 (AlpcpDeleteView.c)
+ *     AlpcReferenceBlobByHandle @ 0x14071DDF8 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14073A024 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x14073BE30 (AlpcpUnlockBlob.c)
  */
 
 __int64 __fastcall AlpcpCaptureViewAttributeInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

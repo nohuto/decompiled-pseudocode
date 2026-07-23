@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpGetSystemProcessorFeaturesInformation @ 0x14094A594
+ * XREFs of ExpGetSystemProcessorFeaturesInformation @ 0x14094A764
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

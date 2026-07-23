@@ -1,51 +1,51 @@
 /*
- * XREFs of CmpLoadHiveThread @ 0x14079ED50
+ * XREFs of CmpLoadHiveThread @ 0x14079EF50
  * Callers:
  *     <none>
  * Callees:
- *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     RtlAreBitsClear @ 0x140362AD0 (RtlAreBitsClear.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpApplyAdminSdOnHiveFiles @ 0x1403F0488 (CmpApplyAdminSdOnHiveFiles.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlUnicodeStringInit @ 0x1404EC7D0 (RtlUnicodeStringInit.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
- *     HvUnlockHiveFlusherShared @ 0x14066628C (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x1406662C4 (HvLockHiveFlusherShared.c)
- *     CmpInitHiveFromFile @ 0x140670FA8 (CmpInitHiveFromFile.c)
- *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
- *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
- *     PsTerminateSystemThread @ 0x1406C0930 (PsTerminateSystemThread.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     HvUnlockHiveFlusherExclusive @ 0x14071E188 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x14071E1C0 (HvLockHiveFlusherExclusive.c)
- *     CmpGetFileSize @ 0x140724580 (CmpGetFileSize.c)
- *     CmpDoFileSetSizeEx @ 0x140724A00 (CmpDoFileSetSizeEx.c)
- *     RtlAppendStringToString @ 0x14076DBC0 (RtlAppendStringToString.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x14079EBD8 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpMarkCurrentValueDirty @ 0x14079EC80 (CmpMarkCurrentValueDirty.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F5B4 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     HvpDropPagedBins @ 0x14079F728 (HvpDropPagedBins.c)
- *     CmpInitBackupHive @ 0x14087132C (CmpInitBackupHive.c)
- *     CmpIsShutdownRundownActive @ 0x140875BA8 (CmpIsShutdownRundownActive.c)
- *     CmpLogFailureToGetFileSize @ 0x140876814 (CmpLogFailureToGetFileSize.c)
- *     CmpDiskFullWarning @ 0x140876BA8 (CmpDiskFullWarning.c)
- *     ExRaiseHardError @ 0x140956110 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     RtlNumberOfSetBits @ 0x140274DA0 (RtlNumberOfSetBits.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     RtlAreBitsClear @ 0x1402F7CC0 (RtlAreBitsClear.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpApplyAdminSdOnHiveFiles @ 0x1403F05F8 (CmpApplyAdminSdOnHiveFiles.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlUnicodeStringInit @ 0x1404ECA10 (RtlUnicodeStringInit.c)
+ *     PsTerminateSystemThread @ 0x14061F840 (PsTerminateSystemThread.c)
+ *     CmpReleaseShutdownRundown @ 0x14064A4A0 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x14064B8D0 (CmpAcquireShutdownRundown.c)
+ *     HvUnlockHiveFlusherShared @ 0x14065B0AC (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x14065B0E4 (HvLockHiveFlusherShared.c)
+ *     CmpLockRegistryExclusive @ 0x1406679BC (CmpLockRegistryExclusive.c)
+ *     CmpInitHiveFromFile @ 0x1406A3018 (CmpInitHiveFromFile.c)
+ *     CmpOpenHiveFile @ 0x1406A3938 (CmpOpenHiveFile.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x1406F97EC (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x1406F9824 (HvLockHiveFlusherExclusive.c)
+ *     CmpGetFileSize @ 0x1406FC5AC (CmpGetFileSize.c)
+ *     CmpDoFileSetSizeEx @ 0x1406FC9FC (CmpDoFileSetSizeEx.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     RtlAppendStringToString @ 0x14076DD80 (RtlAppendStringToString.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14079EDD8 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpMarkCurrentValueDirty @ 0x14079EE80 (CmpMarkCurrentValueDirty.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F7B4 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     HvpDropPagedBins @ 0x14079F928 (HvpDropPagedBins.c)
+ *     CmpInitBackupHive @ 0x14087148C (CmpInitBackupHive.c)
+ *     CmpIsShutdownRundownActive @ 0x140875D08 (CmpIsShutdownRundownActive.c)
+ *     CmpLogFailureToGetFileSize @ 0x140876974 (CmpLogFailureToGetFileSize.c)
+ *     CmpDiskFullWarning @ 0x140876D08 (CmpDiskFullWarning.c)
+ *     ExRaiseHardError @ 0x1409562E0 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
 {
-  int v1; // edi
+  unsigned int v1; // edi
   unsigned int v2; // r15d
   __int64 v3; // r14
   ULONG_PTR inited; // rbx
@@ -60,11 +60,11 @@ NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
   HANDLE v13; // r13
   NTSTATUS FileSize; // eax
   __int64 v15; // rcx
-  int v16; // ebx
+  unsigned int v16; // ebx
   HANDLE v17; // r12
   NTSTATUS v18; // eax
   __int64 v19; // rcx
-  int v20; // ebx
+  unsigned int v20; // ebx
   __int128 v21; // xmm0
   __int64 v22; // rax
   ULONG v23; // ebx
@@ -74,8 +74,8 @@ NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
   __int64 v27; // rax
   int v28; // eax
   wchar_t *v29; // rcx
-  __int64 v31; // [rsp+38h] [rbp-D0h]
-  __int64 v32; // [rsp+40h] [rbp-C8h]
+  int v31; // [rsp+38h] [rbp-D0h]
+  int v32; // [rsp+40h] [rbp-C8h]
   int v33; // [rsp+58h] [rbp-B0h] BYREF
   int v34; // [rsp+5Ch] [rbp-ACh] BYREF
   int v35; // [rsp+60h] [rbp-A8h] BYREF
@@ -133,7 +133,7 @@ NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
     v10 = *((_DWORD *)v5 + 40);
     if ( (v10 & 0x8001) != 0 )
     {
-      if ( CmpMiniNTBoot || CmpVolatileBoot )
+      if ( BYTE6(NlsMbCodePageTag) || CmpVolatileBoot )
       {
         if ( (v10 & 2) != 0 )
         {
@@ -183,7 +183,7 @@ NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
         CmpLogFailureToGetFileSize(v15, 4LL, (unsigned int)FileSize);
         *((_QWORD *)v5 + 7) = BugCheckParameter2;
         BugCheckParameter2[0] = (ULONG_PTR)v5;
-        SetFailureLocation((__int64)BugCheckParameter2, 1, 22, v16, 43);
+        SetFailureLocation((__int64)BugCheckParameter2, 1, 22, v16, 0x2Bu);
         *(_QWORD *)&v46 = 0LL;
       }
       v17 = v43;
@@ -194,7 +194,7 @@ NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
         CmpLogFailureToGetFileSize(v19, 5LL, (unsigned int)v18);
         *((_QWORD *)v5 + 7) = BugCheckParameter2;
         BugCheckParameter2[0] = (ULONG_PTR)v5;
-        SetFailureLocation((__int64)BugCheckParameter2, 1, 22, v20, 45);
+        SetFailureLocation((__int64)BugCheckParameter2, 1, 22, v20, 0x2Du);
         *((_QWORD *)&v46 + 1) = 0LL;
       }
       CmpBecomeActiveFlusherAndReconciler((__int64)v5);
@@ -250,7 +250,7 @@ LABEL_83:
         BugCheckParameter2[0] = (ULONG_PTR)v5;
         SetFailureLocation((__int64)BugCheckParameter2, 0, 22, inited, v1);
         v48 = v11;
-        BYTE6(NlsMbCodePageTag) = 1;
+        CmpPuntBoot = 1;
         ExRaiseHardError(3221226008LL, 1LL, 1LL, &v48, 1, &v37);
         KeBugCheckEx(0x74u, 2uLL, 1uLL, BugCheckParameter3a, (int)inited);
       }
@@ -311,7 +311,7 @@ LABEL_83:
       || (v5 = (wchar_t *)v38, (v6 & (__int64)CmpMachineHiveList[v3 + 4]) == 0)
       && (!*(_QWORD *)(v38 + 1568) || !*(_QWORD *)(v38 + 1576)) )
     {
-      BYTE6(NlsMbCodePageTag) = 1;
+      CmpPuntBoot = 1;
       KeBugCheckEx(0x74u, 2uLL, (ULONG_PTR)BugCheckParameter2, v2, inited);
     }
     *(_DWORD *)(v38 + 4152) = HIDWORD(CmpMachineHiveList[v3 + 4]) | 4;

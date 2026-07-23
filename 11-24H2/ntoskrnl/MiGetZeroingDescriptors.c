@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetZeroingDescriptors @ 0x140685A24
+ * XREFs of MiGetZeroingDescriptors @ 0x140686B54
  * Callers:
- *     MiInitializeZeroGroup @ 0x140415664 (MiInitializeZeroGroup.c)
+ *     MiInitializeZeroGroup @ 0x1402714C4 (MiInitializeZeroGroup.c)
  * Callees:
- *     MiAllocateAcceleratorDescriptor @ 0x140690914 (MiAllocateAcceleratorDescriptor.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1406919E4 (MiAllocateAcceleratorDescriptor.c)
  */
 
 __int64 __fastcall MiGetZeroingDescriptors(__int64 a1)

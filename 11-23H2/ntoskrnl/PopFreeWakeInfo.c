@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFreeWakeInfo @ 0x1409872B0
+ * XREFs of PopFreeWakeInfo @ 0x1409874B0
  * Callers:
  *     <none>
  * Callees:
- *     PopUnlinkWakeSources @ 0x140987A4C (PopUnlinkWakeSources.c)
+ *     PopUnlinkWakeSources @ 0x140987C4C (PopUnlinkWakeSources.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

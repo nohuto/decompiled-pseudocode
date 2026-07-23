@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcSecurityDestroyProcedure @ 0x140A677E0
+ * XREFs of AlpcSecurityDestroyProcedure @ 0x140A747B0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1403BCF90 (PsReturnProcessPagedPoolQuota.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C6E00 (PsReturnProcessPagedPoolQuota.c)
  */
 
 __int64 __fastcall AlpcSecurityDestroyProcedure(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

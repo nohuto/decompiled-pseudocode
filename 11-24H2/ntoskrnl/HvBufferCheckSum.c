@@ -1,9 +1,9 @@
 /*
- * XREFs of HvBufferCheckSum @ 0x140A060E4
+ * XREFs of HvBufferCheckSum @ 0x140A02614
  * Callers:
- *     CmpVerifyLogRecord @ 0x1407E0D68 (CmpVerifyLogRecord.c)
- *     CmLogTmRmAction @ 0x140A05070 (CmLogTmRmAction.c)
- *     CmAddLogForAction @ 0x140A05328 (CmAddLogForAction.c)
+ *     CmpVerifyLogRecord @ 0x1407E12B8 (CmpVerifyLogRecord.c)
+ *     CmLogTmRmAction @ 0x140A015A0 (CmLogTmRmAction.c)
+ *     CmAddLogForAction @ 0x140A01858 (CmAddLogForAction.c)
  * Callees:
  *     <none>
  */

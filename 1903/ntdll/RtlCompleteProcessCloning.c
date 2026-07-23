@@ -22,35 +22,35 @@ void __fastcall RtlCompleteProcessCloning(unsigned int a1)
 
   if ( a1 )
   {
-    qword_1801662F8 = 1LL;
+    stru_1801662F8.Ptr = (PVOID)1;
     v2 = 1;
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_180164FF8 = 0LL;
-    qword_180164FF0 = (__int64)UniqueThread;
-    dword_180164FE8 = -2;
-    dword_180164FEC = 1;
+    stru_180164FE0.LockSemaphore = 0LL;
+    stru_180164FE0.OwningThread = UniqueThread;
+    stru_180164FE0.LockCount = -2;
+    stru_180164FE0.RecursionCount = 1;
   }
   else
   {
     byte_180164EF9 = 0;
     v2 = 2;
-    RtlReleaseSRWLockExclusive(&qword_1801662E8);
+    RtlReleaseSRWLockExclusive(&stru_1801662E8);
   }
-  RtlReleaseSRWLockExclusive(&qword_1801662F8);
+  RtlReleaseSRWLockExclusive(&stru_1801662F8);
   sub_1800D5D4C(v2);
   if ( v2 == 1 )
-    qword_180166380 = 1LL;
+    stru_180166380.Ptr = (PVOID)1;
   else
-    RtlReleaseSRWLockExclusive(&qword_180166380);
+    RtlReleaseSRWLockExclusive(&stru_180166380);
   sub_1800EF8F8(a1);
   sub_1800D5668(a1);
-  RtlLeaveCriticalSection((__int64)&unk_180164FE0);
+  RtlLeaveCriticalSection(&stru_180164FE0);
   sub_1800DE328(v4, a1);
   sub_1800D4F38(a1);
   if ( a1 )
   {
     byte_180164EF9 = 0;
-    RtlAcquireReleaseSRWLockExclusive(&qword_1801662E8);
-    RtlWakeAllConditionVariable(&qword_1801662F0);
+    RtlAcquireReleaseSRWLockExclusive(&stru_1801662E8);
+    RtlWakeAllConditionVariable(&ConditionVariable);
   }
 }

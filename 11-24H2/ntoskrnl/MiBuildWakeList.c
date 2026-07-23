@@ -1,9 +1,9 @@
 /*
- * XREFs of MiBuildWakeList @ 0x140445610
+ * XREFs of MiBuildWakeList @ 0x14043D7C0
  * Callers:
- *     MiUnlockControlAreaSectionExtend @ 0x140445544 (MiUnlockControlAreaSectionExtend.c)
- *     MiDecrementLargeSubsections @ 0x1404C8E10 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x1404C96E0 (MiIncrementLargeSubsections.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x14043D6F4 (MiUnlockControlAreaSectionExtend.c)
+ *     MiDecrementLargeSubsections @ 0x1404C22C0 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1404C2B90 (MiIncrementLargeSubsections.c)
  * Callees:
  *     <none>
  */

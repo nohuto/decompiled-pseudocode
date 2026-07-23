@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpBuildCmResourceLists @ 0x140734434
+ * XREFs of PnpBuildCmResourceLists @ 0x140732364
  * Callers:
- *     PnpReallocateResources @ 0x1407346D4 (PnpReallocateResources.c)
- *     PnpRebalance @ 0x1407352B8 (PnpRebalance.c)
- *     PnpAllocateResources @ 0x14098DAA8 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x140732604 (PnpReallocateResources.c)
+ *     PnpRebalance @ 0x1407331E8 (PnpRebalance.c)
+ *     PnpAllocateResources @ 0x140978AE0 (PnpAllocateResources.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     PnpDetermineResourceListSize @ 0x14098E258 (PnpDetermineResourceListSize.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x140A8D634 (IopWriteAllocatedResourcesToRegistry.c)
- *     PnpBuildCmResourceList @ 0x140A936D4 (PnpBuildCmResourceList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     PnpDetermineResourceListSize @ 0x140979290 (PnpDetermineResourceListSize.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x140A89C08 (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpBuildCmResourceList @ 0x140A8FE84 (PnpBuildCmResourceList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpBuildCmResourceLists(unsigned __int64 a1, unsigned __int64 a2, char a3)

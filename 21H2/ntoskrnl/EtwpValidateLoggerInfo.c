@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpValidateLoggerInfo @ 0x1406DF014
+ * XREFs of EtwpValidateLoggerInfo @ 0x1406B62F4
  * Callers:
- *     EtwpTransitionToRealtime @ 0x1403F9098 (EtwpTransitionToRealtime.c)
- *     EtwpFlushTrace @ 0x1406DD6A4 (EtwpFlushTrace.c)
- *     EtwpStopTrace @ 0x1406DDFBC (EtwpStopTrace.c)
- *     EtwpQueryTrace @ 0x1406DEE18 (EtwpQueryTrace.c)
- *     EtwpValidateUserModeLoggerInfo @ 0x1406DEFE0 (EtwpValidateUserModeLoggerInfo.c)
- *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
- *     EtwpIncrementTraceFile @ 0x140934BE4 (EtwpIncrementTraceFile.c)
+ *     EtwpTransitionToRealtime @ 0x1403F91C4 (EtwpTransitionToRealtime.c)
+ *     EtwpFlushTrace @ 0x1406B4984 (EtwpFlushTrace.c)
+ *     EtwpStopTrace @ 0x1406B529C (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x1406B60F8 (EtwpQueryTrace.c)
+ *     EtwpValidateUserModeLoggerInfo @ 0x1406B62C0 (EtwpValidateUserModeLoggerInfo.c)
+ *     EtwpUpdateTrace @ 0x140796F68 (EtwpUpdateTrace.c)
+ *     EtwpIncrementTraceFile @ 0x140934DB4 (EtwpIncrementTraceFile.c)
  * Callees:
  *     <none>
  */

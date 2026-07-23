@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDecompressBufferXpressHuffProgress @ 0x1405F12D0
+ * XREFs of RtlDecompressBufferXpressHuffProgress @ 0x1405EE910
  * Callers:
- *     RtlDecompressBufferProgress @ 0x1405F1200 (RtlDecompressBufferProgress.c)
+ *     RtlDecompressBufferProgress @ 0x1405EE840 (RtlDecompressBufferProgress.c)
  * Callees:
- *     XpressBuildHuffmanDecodingTable @ 0x1403E0B30 (XpressBuildHuffmanDecodingTable.c)
- *     RtlpMakeXpressCallback @ 0x140419D30 (RtlpMakeXpressCallback.c)
+ *     XpressBuildHuffmanDecodingTable @ 0x1403C0820 (XpressBuildHuffmanDecodingTable.c)
+ *     RtlpMakeXpressCallback @ 0x140409D30 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlDecompressBufferXpressHuffProgress(
@@ -262,7 +262,7 @@ LABEL_66:
             }
             return 3221226050LL;
           }
-          XpressCallback = RtlpMakeXpressCallback((__int64)v53, v22, (__int64)v13, XpressCallback);
+          XpressCallback = RtlpMakeXpressCallback((__int64)v53, v22, (__int64)v13);
         }
         *v13 = *v41;
         v13[1] = v41[1];
@@ -280,7 +280,7 @@ LABEL_15:
   }
   if ( (unsigned __int64)v13 < v22 )
   {
-    XpressCallback = RtlpMakeXpressCallback((__int64)v53, v22, (__int64)v13, XpressCallback);
+    XpressCallback = RtlpMakeXpressCallback((__int64)v53, v22, (__int64)v13);
     goto LABEL_25;
   }
   v15 = (_DWORD *)v51;

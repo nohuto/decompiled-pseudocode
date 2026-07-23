@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapGetAllPolicyBufferSize @ 0x14095DE40
+ * XREFs of WheapGetAllPolicyBufferSize @ 0x14095E020
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x1405BDEE0 (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1405BE110 (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of ViFreeTrackedPool @ 0x140702440
+ * XREFs of ViFreeTrackedPool @ 0x140702470
  * Callers:
- *     VerifierFreeTrackedPool @ 0x1401EEE28 (VerifierFreeTrackedPool.c)
+ *     VerifierFreeTrackedPool @ 0x1401EEC54 (VerifierFreeTrackedPool.c)
  * Callees:
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ViFreeTrackedPool(__int64 a1, __int64 a2, char a3, int a4)
@@ -57,15 +57,15 @@ __int64 __fastcall ViFreeTrackedPool(__int64 a1, __int64 a2, char a3, int a4)
   {
     result = _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 96), v11);
     _InterlockedDecrement((volatile signed __int32 *)(v10 + 80));
-    _InterlockedExchangeAdd64(&qword_140307250, v11);
-    _InterlockedDecrement(&dword_140307240);
+    _InterlockedExchangeAdd64(&qword_140307290, v11);
+    _InterlockedDecrement(&dword_140307280);
   }
   else
   {
     result = _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 104), v11);
     _InterlockedDecrement((volatile signed __int32 *)(v10 + 84));
-    _InterlockedExchangeAdd64(&qword_140307258, v11);
-    _InterlockedDecrement(&dword_140307244);
+    _InterlockedExchangeAdd64(&qword_140307298, v11);
+    _InterlockedDecrement(&dword_140307284);
   }
   return result;
 }

@@ -39,7 +39,7 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   __int64 NextProcess; // rax
   unsigned __int64 v14; // rcx
   unsigned int v15; // eax
-  int SystemInformation; // ebx
+  int v16; // ebx
   __int64 v17; // rax
   struct _DMA_ADAPTER *k; // rcx
   int v19; // ebx
@@ -68,13 +68,13 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   __int128 v43; // [rsp+100h] [rbp-128h] BYREF
   __int128 v44; // [rsp+110h] [rbp-118h]
   __int128 v45; // [rsp+120h] [rbp-108h] BYREF
-  _QWORD v46[8]; // [rsp+140h] [rbp-E8h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+140h] [rbp-E8h] BYREF
   __int128 v47; // [rsp+180h] [rbp-A8h]
 
   v35 = a3;
   v36 = a1;
   v39 = a3;
-  memset(v46, 0, sizeof(v46));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   v45 = 0LL;
   v40 = 0LL;
   v41 = 0LL;
@@ -94,7 +94,7 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   v9 = *(_DWORD *)(a1 + 24);
   if ( v9 < 0x10 )
   {
-    SystemInformation = -1073741789;
+    v16 = -1073741789;
     goto LABEL_46;
   }
   if ( a2 )
@@ -103,13 +103,13 @@ __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
   v8[2] = 0;
   if ( (_DWORD)v47 != 8 || (DWORD1(v47) & 0xFFFFFFF8) != 0 || (BYTE4(v47) & 3) == 3 )
   {
-    SystemInformation = -1073741811;
+    v16 = -1073741811;
     goto LABEL_46;
   }
   if ( !SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a2) )
   {
     IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL);
-    SystemInformation = IsAppContainerOrIdentifyLevelContext;
+    v16 = IsAppContainerOrIdentifyLevelContext;
     if ( IsAppContainerOrIdentifyLevelContext == -1073741659 )
     {
       v28 = 1;
@@ -138,14 +138,14 @@ LABEL_11:
   }
   if ( *((_QWORD *)&v31 + 1) > 0xFFFFFFFFuLL || (v14 = 96LL * *((_QWORD *)&v31 + 1) + 16, v14 > 0xFFFFFFFF) )
   {
-    SystemInformation = -1073741670;
+    v16 = -1073741670;
     goto LABEL_46;
   }
   LODWORD(v7) = 96 * DWORD2(v31) + 16;
   v15 = *(_DWORD *)(v36 + 24);
   if ( (unsigned int)v14 > v15 )
   {
-    SystemInformation = -1073741789;
+    v16 = -1073741789;
     goto LABEL_46;
   }
   HIDWORD(v32) = (v15 - 16) / 0x60;
@@ -154,19 +154,19 @@ LABEL_11:
   {
     memset(v33, 0, sizeof(v33));
     RtlStringCbCopyA((NTSTRSAFE_PSTR)&v33[6] + 4, 0x10uLL, "KernelSpace");
-    SystemInformation = ZwQuerySystemInformation(119LL, (__int64)v46);
-    if ( SystemInformation < 0 )
+    v16 = ZwQuerySystemInformation(SystemPagedPoolInformationEx, SystemInformation, 0x40u, 0LL);
+    if ( v16 < 0 )
       goto LABEL_46;
-    SystemInformation = MmQuerySystemMemoryInformation(&v45);
-    if ( SystemInformation < 0 )
+    v16 = MmQuerySystemMemoryInformation(&v45);
+    if ( v16 < 0 )
       goto LABEL_46;
-    v33[4] = v46[0] >> 12;
+    v33[4] = SystemInformation[0] >> 12;
     v17 = v45;
-    if ( (unsigned __int64)v45 <= v46[0] >> 12 )
-      v17 = v46[0] >> 12;
+    if ( (unsigned __int64)v45 <= SystemInformation[0] >> 12 )
+      v17 = SystemInformation[0] >> 12;
     v33[5] = v17;
-    SystemInformation = PfpPrivSourceAdd(&v31, v33);
-    if ( SystemInformation < 0 )
+    v16 = PfpPrivSourceAdd(&v31, v33);
+    if ( v16 < 0 )
       goto LABEL_46;
     for ( k = 0LL; ; k = (struct _DMA_ADAPTER *)v5 )
     {
@@ -183,8 +183,8 @@ LABEL_11:
       v33[9] = *((_QWORD *)&v41 + 1);
       v33[5] = v41;
       RtlStringCbCopyA((NTSTRSAFE_PSTR)&v33[6] + 4, 0x10uLL, "Session");
-      SystemInformation = PfpPrivSourceAdd(&v31, v33);
-      if ( SystemInformation < 0 )
+      v16 = PfpPrivSourceAdd(&v31, v33);
+      if ( v16 < 0 )
         goto LABEL_46;
     }
   }
@@ -240,8 +240,8 @@ LABEL_11:
         {
           v33[9] = v34 >> 12;
         }
-        SystemInformation = PfpPrivSourceAdd(&v31, v33);
-        if ( SystemInformation < 0 )
+        v16 = PfpPrivSourceAdd(&v31, v33);
+        if ( v16 < 0 )
           goto LABEL_46;
         v19 = v30;
       }
@@ -250,13 +250,13 @@ LABEL_11:
     while ( v6 );
   }
   LODWORD(v7) = 96 * v32 + 16;
-  SystemInformation = 0;
+  v16 = 0;
 LABEL_46:
   if ( v5 )
     HalPutDmaAdapter((PADAPTER_OBJECT)v5);
   if ( v6 )
     ObfDereferenceObjectWithTag((PVOID)v6, 0x6E457350u);
-  if ( SystemInformation == -1073741789 )
+  if ( v16 == -1073741789 )
   {
     v26 = *((_QWORD *)&v31 + 1);
     if ( (unsigned __int64)(unsigned int)(v32 + 1) > *((_QWORD *)&v31 + 1) )
@@ -265,9 +265,9 @@ LABEL_46:
     if ( v7 > 0xFFFFFFFF )
     {
       LODWORD(v7) = 0;
-      SystemInformation = -1073741670;
+      v16 = -1073741670;
     }
   }
   *v35 = v7;
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v16;
 }

@@ -10,43 +10,43 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlGetImageEnclaveConfig(unsigned __int64 a1, char *a2)
+NTSTATUS __fastcall RtlGetImageEnclaveConfig(char *BaseOfImage, char *a2)
 {
-  __int64 result; // rax
-  unsigned int v5; // ebx
+  NTSTATUS result; // eax
+  int v5; // ebx
   __int64 Config; // rax
   __int64 v7; // r10
-  unsigned int *v8; // r9
+  char *v8; // r9
   unsigned __int64 v9; // rcx
   __int64 v10; // rdi
   unsigned int v11; // eax
-  __int64 v12; // [rsp+60h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS v12; // [rsp+60h] [rbp+18h] BYREF
   unsigned __int64 v13; // [rsp+68h] [rbp+20h] BYREF
 
   v13 = 0LL;
   v12 = 0LL;
-  result = RtlImageNtHeaderEx(1, a1, 0LL, &v12);
-  if ( (int)result >= 0 )
+  result = RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &v12);
+  if ( result >= 0 )
   {
     v5 = -1073741701;
-    Config = LdrImageDirectoryEntryToLoadConfigEx(a1);
+    Config = LdrImageDirectoryEntryToLoadConfigEx(BaseOfImage);
     if ( Config )
     {
       if ( *(_DWORD *)Config >= 0x100u
-        && (int)RtlULongLongSub(*(_QWORD *)(Config + 248), *(_QWORD *)(v12 + 48), (__int64 *)&v13) >= 0 )
+        && (int)RtlULongLongSub(*(_QWORD *)(Config + 248), v12->OptionalHeader.ImageBase, (__int64 *)&v13) >= 0 )
       {
-        v8 = (unsigned int *)(v13 + a1);
+        v8 = &BaseOfImage[v13];
         if ( v13 )
         {
           v9 = *(unsigned int *)(v7 + 80);
           if ( v13 < v9 && v13 + 4 >= v13 && v13 + 4 <= v9 )
           {
-            v10 = *v8;
+            v10 = *(unsigned int *)v8;
             if ( v10 + v13 >= v13 && v10 + v13 < v9 && (unsigned int)v10 >= 4 )
             {
               v11 = 0;
               if ( (unsigned int)v10 >= 8 )
-                v11 = v8[1];
+                v11 = *((_DWORD *)v8 + 1);
               if ( v11 < 4 )
                 v11 = 4;
               if ( v11 <= 0x50 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpEtcIsValidFeatureId @ 0x1800A015C
+ * XREFs of RtlpEtcIsValidFeatureId @ 0x1800A011C
  * Callers:
- *     RtlIsFeatureEnabledForEnterprise @ 0x18009FE80 (RtlIsFeatureEnabledForEnterprise.c)
+ *     RtlIsFeatureEnabledForEnterprise @ 0x18009FE40 (RtlIsFeatureEnabledForEnterprise.c)
  * Callees:
  *     RtlStringCchPrintfW @ 0x18000ACEC (RtlStringCchPrintfW.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     RtlpEtcGetDwordFromRegistry @ 0x1800A00E0 (RtlpEtcGetDwordFromRegistry.c)
+ *     RtlpEtcGetDwordFromRegistry @ 0x1800A00A0 (RtlpEtcGetDwordFromRegistry.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
@@ -15,21 +15,21 @@ bool __fastcall RtlpEtcIsValidFeatureId(unsigned int a1, int a2)
   int v6; // [rsp+20h] [rbp-1A8h]
   _DWORD v7[4]; // [rsp+30h] [rbp-198h] BYREF
   wchar_t v8[32]; // [rsp+40h] [rbp-188h] BYREF
-  wchar_t v9[152]; // [rsp+80h] [rbp-148h] BYREF
+  WCHAR Path[152]; // [rsp+80h] [rbp-148h] BYREF
 
   v4 = 0;
   v7[0] = 0;
-  memset_thunk_772440563353939046(v9, 0, 0x12CuLL);
+  memset_thunk_772440563353939046(Path, 0, 0x12CuLL);
   memset_thunk_772440563353939046(v8, 0, 0x40uLL);
   v6 = a2;
   if ( (int)RtlStringCchPrintfW(
-              v9,
+              Path,
               150LL,
               L"%s\\%d",
               L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\FeatureManagement\\EnterpriseTempControls",
               v6) >= 0
     && (int)RtlStringCchPrintfW(v8, 32LL, L"%lu", a1) >= 0
-    && (int)RtlpEtcGetDwordFromRegistry(v9, (__int64)v8, (__int64)v7) >= 0 )
+    && RtlpEtcGetDwordFromRegistry(Path, v8, v7) >= 0 )
   {
     return v7[0] != 0;
   }

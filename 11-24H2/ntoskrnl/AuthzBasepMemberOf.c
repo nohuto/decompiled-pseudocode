@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepMemberOf @ 0x1404D8F04
+ * XREFs of AuthzBasepMemberOf @ 0x1404D2354
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x1403450F0 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140323B60 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepGetNextValue @ 0x14034818C (AuthzBasepGetNextValue.c)
- *     SepSidInToken @ 0x1403624E0 (SepSidInToken.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     AuthzBasepGetNextValue @ 0x140326B8C (AuthzBasepGetNextValue.c)
+ *     SepSidInToken @ 0x1403CB430 (SepSidInToken.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall AuthzBasepMemberOf(__int64 a1, __int64 a2, char a3, char a4, char a5, _BYTE *a6)

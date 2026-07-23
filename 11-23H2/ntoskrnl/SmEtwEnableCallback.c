@@ -1,19 +1,19 @@
 /*
- * XREFs of SmEtwEnableCallback @ 0x140841750
+ * XREFs of SmEtwEnableCallback @ 0x140841A50
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     SmEtwEnabled @ 0x1403432E4 (SmEtwEnabled.c)
- *     SmKmStoreReferenceEx @ 0x140345158 (SmKmStoreReferenceEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140345194 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x1405CD0F0 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
- *     SmKmEtwLogStoreChange @ 0x1409D8774 (SmKmEtwLogStoreChange.c)
- *     SmKmEtwLogStoreStats @ 0x1409D8884 (SmKmEtwLogStoreStats.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     SmEtwEnabled @ 0x140343574 (SmEtwEnabled.c)
+ *     SmKmStoreReferenceEx @ 0x1403453E8 (SmKmStoreReferenceEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140345424 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x1405CD660 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
+ *     SmKmEtwLogStoreChange @ 0x1409D8974 (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x1409D8A84 (SmKmEtwLogStoreStats.c)
  */
 
 void __fastcall SmEtwEnableCallback(LPCGUID SourceId, ULONG ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)

@@ -1,22 +1,22 @@
 /*
- * XREFs of NtResetWriteWatch @ 0x1400136F0
+ * XREFs of NtResetWriteWatch @ 0x140013270
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     MiMoveDirtyBitsToPfns @ 0x140042A70 (MiMoveDirtyBitsToPfns.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1400425F0 (MiMoveDirtyBitsToPfns.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall NtResetWriteWatch(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T RegionSize)
@@ -106,7 +106,7 @@ NTSTATUS __stdcall NtResetWriteWatch(HANDLE ProcessHandle, PVOID BaseAddress, SI
         v26 = i + 2;
         v18 = v12 - (*(unsigned int *)(v14 + 24) | v17);
         if ( (p_LockNV[366] & 7) == 2 )
-          v19 = &dword_140327C80;
+          v19 = &dword_140327CC0;
         else
           v19 = p_LockNV + 368;
         v20 = ExAcquireSpinLockExclusive(v19);

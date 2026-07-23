@@ -1,15 +1,15 @@
 /*
- * XREFs of KeAdjustPriorityFloor @ 0x140237DCC
+ * XREFs of KeAdjustPriorityFloor @ 0x14023972C
  * Callers:
- *     PsAdjustWin32kPriorityFloor @ 0x140237D40 (PsAdjustWin32kPriorityFloor.c)
+ *     PsAdjustWin32kPriorityFloor @ 0x1402396A0 (PsAdjustWin32kPriorityFloor.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x140239AB4 (KiComputeThreadPriority.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiComputeThreadPriority @ 0x14023B414 (KiComputeThreadPriority.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KeAdjustPriorityFloor(ULONG_PTR BugCheckParameter1, __int64 a2, int a3)

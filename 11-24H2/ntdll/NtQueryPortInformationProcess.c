@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryPortInformationProcess @ 0x180164920
+ * XREFs of NtQueryPortInformationProcess @ 0x180162CE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryPortInformationProcess()
+NTSTATUS NtQueryPortInformationProcess(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 357LL;
+  result = 357;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

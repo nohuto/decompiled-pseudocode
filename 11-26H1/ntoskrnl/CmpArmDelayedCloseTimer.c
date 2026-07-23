@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpArmDelayedCloseTimer @ 0x140381748
+ * XREFs of CmpArmDelayedCloseTimer @ 0x1403834F8
  * Callers:
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1408C3970 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1408C6670 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x1408C8770 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1408C9F40 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1408CCC40 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1408CED20 (CmpDereferenceKeyControlBlock.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void CmpArmDelayedCloseTimer()
 {
-  if ( !_InterlockedExchange((_DWORD *)&WheapPfaLock.WaitBlockList + 1, 1) )
+  if ( !_InterlockedExchange((volatile __int32 *)&WheapPfaLock.Timer.Header.WaitListHead, 1) )
     ExQueueWorkItem((PWORK_QUEUE_ITEM)&CmpKeyLockTracker.QuantumTarget, DelayedWorkQueue);
 }

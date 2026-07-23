@@ -17,49 +17,61 @@
  *     ZwSuspendProcess @ 0x1800A7940 (ZwSuspendProcess.c)
  */
 
-__int64 __fastcall RtlpWow64SuspendProcess(void *a1, __int64 a2)
+__int64 __fastcall RtlpWow64SuspendProcess(HANDLE ProcessHandle, HANDLE ProcessStateChangeHandle)
 {
   HANDLE v3; // rdi
   int SharedInfoProcess; // ebx
-  __int64 v6; // rbx
-  int v7; // eax
-  int v8; // eax
-  __int64 v10; // [rsp+30h] [rbp-D0h]
-  _BYTE v11[8]; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned __int64 v6; // rbx
+  NTSTATUS v7; // eax
+  NTSTATUS v8; // eax
+  PULONG ReturnLength; // [rsp+20h] [rbp-E0h]
+  ULONG HandleAttributes[2]; // [rsp+28h] [rbp-D8h]
+  ULONG Options; // [rsp+30h] [rbp-D0h]
+  _BYTE v13[8]; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v13; // [rsp+70h] [rbp-90h]
-  _BYTE v14[40]; // [rsp+78h] [rbp-88h] BYREF
-  int v15; // [rsp+A0h] [rbp-60h]
-  int v16; // [rsp+D4h] [rbp-2Ch]
+  HANDLE TargetHandle; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v16[40]; // [rsp+78h] [rbp-88h] BYREF
+  int ThreadInformation[12]; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE ObjectInformation[4]; // [rsp+D0h] [rbp-30h] BYREF
+  int v19; // [rsp+D4h] [rbp-2Ch]
 
   Handle = 0LL;
-  v13 = 0LL;
+  TargetHandle = 0LL;
   v3 = 0LL;
-  SharedInfoProcess = RtlWow64GetSharedInfoProcess(a1, v11, (__int64)v14);
+  SharedInfoProcess = RtlWow64GetSharedInfoProcess(ProcessHandle, v13, v16);
   if ( SharedInfoProcess >= 0 )
   {
-    if ( v11[0] && (v14[4] & 2) != 0 )
+    if ( v13[0] && (v16[4] & 2) != 0 )
     {
-      SharedInfoProcess = ZwQueryObject();
+      SharedInfoProcess = ZwQueryObject(ProcessHandle, ObjectBasicInformation, ObjectInformation, 0x38u, 0LL);
       if ( SharedInfoProcess >= 0 )
       {
-        if ( (v16 & 0x800) != 0 )
+        if ( (v19 & 0x800) != 0 )
         {
-          if ( !a2 || (LODWORD(v10) = 2, SharedInfoProcess = ZwDuplicateObject(), SharedInfoProcess >= 0) )
+          if ( !ProcessStateChangeHandle
+            || (SharedInfoProcess = ZwDuplicateObject(
+                                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                                      ProcessStateChangeHandle,
+                                      ProcessHandle,
+                                      &TargetHandle,
+                                      0,
+                                      0,
+                                      2u),
+                SharedInfoProcess >= 0) )
           {
-            v6 = v13;
-            if ( !RtlIsCurrentProcess((__int64)a1) )
+            v6 = (unsigned __int64)TargetHandle;
+            if ( !RtlIsCurrentProcess(ProcessHandle) )
               v6 |= 1uLL;
             v7 = RtlpCreateUserThreadEx(
-                   (__int64)a1,
+                   ProcessHandle,
                    0LL,
                    102,
                    0,
                    0LL,
                    0LL,
-                   v10,
-                   (__int64)RtlpWow64SuspendLocalProcess,
-                   v6,
+                   Options,
+                   (PUSER_THREAD_START_ROUTINE)RtlpWow64SuspendLocalProcess,
+                   (PVOID)v6,
                    &Handle,
                    0LL);
             v3 = Handle;
@@ -67,8 +79,8 @@ __int64 __fastcall RtlpWow64SuspendProcess(void *a1, __int64 a2)
             if ( v7 >= 0 )
             {
               NtWaitForSingleObject(Handle, 0, 0LL);
-              ZwQueryInformationThread();
-              SharedInfoProcess = v15;
+              ZwQueryInformationThread(v3, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
+              SharedInfoProcess = ThreadInformation[0];
             }
           }
         }
@@ -80,15 +92,27 @@ __int64 __fastcall RtlpWow64SuspendProcess(void *a1, __int64 a2)
     }
     else
     {
-      if ( a2 )
-        v8 = NtChangeProcessState();
+      if ( ProcessStateChangeHandle )
+      {
+        HandleAttributes[0] = 0;
+        LODWORD(ReturnLength) = 0;
+        v8 = NtChangeProcessState(
+               ProcessStateChangeHandle,
+               ProcessHandle,
+               ProcessStateChangeSuspend,
+               0LL,
+               (SIZE_T)ReturnLength,
+               *(ULONG64 *)HandleAttributes);
+      }
       else
-        v8 = ZwSuspendProcess();
+      {
+        v8 = ZwSuspendProcess(ProcessHandle);
+      }
       SharedInfoProcess = v8;
     }
   }
-  if ( v13 )
-    ZwDuplicateObject();
+  if ( TargetHandle )
+    ZwDuplicateObject(ProcessHandle, TargetHandle, 0LL, 0LL, 0, 0, 3u);
   if ( v3 )
     NtClose(v3);
   return (unsigned int)SharedInfoProcess;

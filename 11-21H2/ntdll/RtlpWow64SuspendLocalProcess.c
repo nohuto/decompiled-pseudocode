@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpWow64SuspendLocalProcess(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpWow64SuspendLocalProcess(unsigned __int64 a1, __int64 a2)
 {
   if ( !g_LdrpWow64SuspendLocalProcess )
     return 3221225485LL;

@@ -113,7 +113,7 @@ LABEL_41:
   CurrentIrql = KeGetCurrentIrql();
   v39 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -188,10 +188,10 @@ LABEL_17:
       if ( *(unsigned __int8 *)(v19 + 34) >> 6 != v38 )
         MiChangePageAttributeContiguous(0xAAAAAAAAAAAAAAABuLL * ((v19 + 0x220000000000LL) >> 4), v20, v38, v23 + 1);
       MiConvertEntireLargePageToSmall(v19, v16, 1, v23, v22, 0LL, 0LL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v34 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v39 <= 0xFu && v34 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v39 <= 0xFu && v34 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v36 = CurrentPrcb->SchedulerAssist;
@@ -212,10 +212,10 @@ LABEL_17:
     v11 = v41;
     v16 = 2;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
     {
       v29 = KeGetCurrentPrcb();
       v30 = v29->SchedulerAssist;

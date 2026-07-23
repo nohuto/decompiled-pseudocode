@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlBeginReadTickLock @ 0x18005BFA0
+ * XREFs of RtlBeginReadTickLock @ 0x18005BF90
  * Callers:
- *     RtlGetSystemTimePrecise @ 0x18005BE20 (RtlGetSystemTimePrecise.c)
- *     RtlGetInterruptTimePrecise @ 0x1800DEF70 (RtlGetInterruptTimePrecise.c)
+ *     RtlGetSystemTimePrecise @ 0x18005BE10 (RtlGetSystemTimePrecise.c)
+ *     RtlGetInterruptTimePrecise @ 0x1800DF030 (RtlGetInterruptTimePrecise.c)
  * Callees:
  *     <none>
  */

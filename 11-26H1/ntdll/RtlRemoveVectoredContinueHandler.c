@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlRemoveVectoredContinueHandler @ 0x18013A970
+ * XREFs of RtlRemoveVectoredContinueHandler @ 0x18013A6E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlRemoveVectoredContinueHandler(__int64 *a1)
+ULONG __cdecl RtlRemoveVectoredContinueHandler(PVOID Handle)
 {
-  return RtlpRemoveVectoredHandler(a1, 1LL);
+  return RtlpRemoveVectoredHandler((void **)Handle, 1u);
 }

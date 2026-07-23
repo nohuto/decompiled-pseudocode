@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmParkClearForcedMask @ 0x1407DD3EC
+ * XREFs of PpmParkClearForcedMask @ 0x1407E1A18
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmCheckApplyParkConstraints @ 0x1404BBD54 (PpmCheckApplyParkConstraints.c)
- *     PpmParkParkingAvailable @ 0x140A9D5A0 (PpmParkParkingAvailable.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmCheckApplyParkConstraints @ 0x1404B5534 (PpmCheckApplyParkConstraints.c)
+ *     PpmParkParkingAvailable @ 0x140AEBCBC (PpmParkParkingAvailable.c)
  */
 
 __int64 __fastcall PpmParkClearForcedMask(unsigned __int16 *a1, __int64 a2, unsigned int a3)
 {
   unsigned __int16 v4; // dx
   unsigned int v5; // ebx
-  unsigned int SystemCallNumber; // r11d
+  unsigned int v6; // r11d
   char v7; // r10
   unsigned __int16 i; // r8
   __int64 v9; // r9
@@ -23,16 +23,16 @@ __int64 __fastcall PpmParkClearForcedMask(unsigned __int16 *a1, __int64 a2, unsi
   __int64 v12; // rdx
   unsigned int v13; // r8d
 
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
   v4 = *a1;
   if ( *a1 < 0x20u )
   {
-    SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
+    v6 = PpmParkNumNodes;
     v5 = 0;
     v7 = 0;
-    for ( i = 0; i < SystemCallNumber; ++i )
+    for ( i = 0; i < v6; ++i )
     {
-      v9 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * i;
+      v9 = PpmParkNodes + 1264LL * i;
       if ( v4 < *(_WORD *)(v9 + 16) )
       {
         if ( *(_QWORD *)(v9 + 8LL * v4 + 24) )
@@ -52,13 +52,13 @@ __int64 __fastcall PpmParkClearForcedMask(unsigned __int16 *a1, __int64 a2, unsi
       PpmParkApplyPolicy();
       PpmParkParkingAvailable(v11);
       PpmCheckApplyParkConstraints();
-      PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v12, v13);
+      PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v12, v13);
     }
   }
   else
   {
     v5 = -1073741811;
   }
-  PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   return v5;
 }

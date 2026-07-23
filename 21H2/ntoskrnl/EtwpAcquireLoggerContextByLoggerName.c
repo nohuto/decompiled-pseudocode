@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x1406024C8
+ * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x1406F1C28
  * Callers:
- *     EtwpAcquireLoggerContext @ 0x1406DEEF0 (EtwpAcquireLoggerContext.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x14078981C (EtwQueryTraceHandleByLoggerName.c)
+ *     EtwpAcquireLoggerContext @ 0x1406B61D0 (EtwpAcquireLoggerContext.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x1407899DC (EtwQueryTraceHandleByLoggerName.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall EtwpAcquireLoggerContextByLoggerName(__int64 a1, const UNICODE_STRING *a2, char a3)
+unsigned int *__fastcall EtwpAcquireLoggerContextByLoggerName(__int64 a1, const UNICODE_STRING *a2, char a3)
 {
   unsigned int v6; // edi
-  __int64 v7; // rax
-  __int64 v8; // rbx
-  __int64 v9; // rdx
+  unsigned int *v7; // rax
+  unsigned int *v8; // rbx
+  char v9; // dl
 
   if ( !a2 )
     return 0LL;
@@ -24,7 +24,7 @@ __int64 __fastcall EtwpAcquireLoggerContextByLoggerName(__int64 a1, const UNICOD
     return 0LL;
   while ( 1 )
   {
-    v7 = EtwpAcquireLoggerContextByLoggerId(a1, v6, 0LL);
+    v7 = EtwpAcquireLoggerContextByLoggerId(a1, v6, 0);
     v8 = v7;
     if ( v7 )
       break;
@@ -32,18 +32,18 @@ LABEL_7:
     if ( ++v6 >= *(_DWORD *)(a1 + 16) )
       return 0LL;
   }
-  if ( !RtlEqualUnicodeString((PCUNICODE_STRING)(v7 + 152), a2, 1u) )
+  if ( !RtlEqualUnicodeString((PCUNICODE_STRING)(v7 + 38), a2, 1u) )
   {
-    v9 = 0LL;
+    v9 = 0;
 LABEL_6:
     EtwpReleaseLoggerContext(v8, v9);
     goto LABEL_7;
   }
   if ( a3 == 1 )
-    KeWaitForSingleObject((PVOID)(v8 + 648), Executive, 0, 0, 0LL);
-  if ( !*(_DWORD *)(v8 + 336) )
+    KeWaitForSingleObject(v8 + 162, Executive, 0, 0, 0LL);
+  if ( !v8[84] )
   {
-    LOBYTE(v9) = a3;
+    v9 = a3;
     goto LABEL_6;
   }
   return v8;

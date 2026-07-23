@@ -1,8 +1,8 @@
 /*
- * XREFs of KiDetectTsx @ 0x14052B7F8
+ * XREFs of KiDetectTsx @ 0x14052DD18
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpVolumeContextCleanup @ 0x140862C14
+ * XREFs of CmpVolumeContextCleanup @ 0x140862E54
  * Callers:
  *     CmpVolumeContextDecrementRefCount @ 0x140688C2C (CmpVolumeContextDecrementRefCount.c)
- *     CmpVolumeManagerGetContextForFile @ 0x140701C08 (CmpVolumeManagerGetContextForFile.c)
- *     CmpVolumeContextCreate @ 0x14084E968 (CmpVolumeContextCreate.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x140701E18 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpVolumeContextCreate @ 0x14084EC68 (CmpVolumeContextCreate.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PiPagePathSetState @ 0x140853C48 (PiPagePathSetState.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PiPagePathSetState @ 0x140853F48 (PiPagePathSetState.c)
  */
 
 LONG_PTR __fastcall CmpVolumeContextCleanup(__int64 a1)

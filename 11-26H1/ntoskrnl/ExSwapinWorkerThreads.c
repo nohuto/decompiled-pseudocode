@@ -1,25 +1,25 @@
 /*
- * XREFs of ExSwapinWorkerThreads @ 0x140956958
+ * XREFs of ExSwapinWorkerThreads @ 0x14094A380
  * Callers:
- *     ExShutdownSystem @ 0x140BFF170 (ExShutdownSystem.c)
- *     PopUnlockAfterSleepWorker @ 0x140C04AB0 (PopUnlockAfterSleepWorker.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     ExShutdownSystem @ 0x140C05380 (ExShutdownSystem.c)
+ *     PopUnlockAfterSleepWorker @ 0x140C0ACC0 (PopUnlockAfterSleepWorker.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     PsGetNextPartitionUnsafe @ 0x14025839C (PsGetNextPartitionUnsafe.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeRemoveQueueApc @ 0x140467790 (KeRemoveQueueApc.c)
- *     KeSetKernelStackSwapEnable @ 0x14047EA50 (KeSetKernelStackSwapEnable.c)
- *     PoPushPowerStateTransitionRecord @ 0x140607684 (PoPushPowerStateTransitionRecord.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsGetNextProcessThread @ 0x1409573A0 (PsGetNextProcessThread.c)
- *     PsReferencePartitionSystemProcess @ 0x140B4BC20 (PsReferencePartitionSystemProcess.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140BFD138 (PoDelistPowerStateTransitionBlocker.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     PsGetNextPartitionUnsafe @ 0x140259B7C (PsGetNextPartitionUnsafe.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeRemoveQueueApc @ 0x140460EE0 (KeRemoveQueueApc.c)
+ *     KeSetKernelStackSwapEnable @ 0x1404783C0 (KeSetKernelStackSwapEnable.c)
+ *     PoPushPowerStateTransitionRecord @ 0x14060A1E0 (PoPushPowerStateTransitionRecord.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsGetNextProcessThread @ 0x14094ADD0 (PsGetNextProcessThread.c)
+ *     PsReferencePartitionSystemProcess @ 0x140B4D9B0 (PsReferencePartitionSystemProcess.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140C03138 (PoDelistPowerStateTransitionBlocker.c)
  */
 
 void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)
@@ -46,8 +46,8 @@ void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)
   CurrentThread = KeGetCurrentThread();
   Timeout.QuadPart = -100000000LL;
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[104]);
-  ExSaPageGroupDescriptorArrayLock.WaitBlockFill6[80] = Enable;
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&ExSaPageGroupDescriptorArrayLock.NpxState);
+  LOBYTE(ExSaPageGroupDescriptorArrayLock.AffinityVersion) = Enable;
   _InterlockedOr(v9, 0);
   for ( i = 0LL; ; i = v4 )
   {
@@ -96,5 +96,5 @@ void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)
       ObfDereferenceObject(Object);
     }
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[104]);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&ExSaPageGroupDescriptorArrayLock.NpxState);
 }

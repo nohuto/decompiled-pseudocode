@@ -10,15 +10,15 @@
 
 __int64 __fastcall PopNetUpdateStandbyRequest(char a1)
 {
-  int v2; // ebx
-  char v4; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS v2; // ebx
+  BOOLEAN IsMember; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !PopNetBIServiceSid )
     return (unsigned int)-1073741823;
-  v2 = RtlCheckTokenMembership(0LL, (void *)PopNetBIServiceSid, &v4);
+  v2 = RtlCheckTokenMembership(0LL, PopNetBIServiceSid, &IsMember);
   if ( v2 >= 0 )
   {
-    if ( !v4 )
+    if ( !IsMember )
       return (unsigned int)-1073741790;
     PopAcquirePolicyLock();
     if ( PopNetBIRequestActive )

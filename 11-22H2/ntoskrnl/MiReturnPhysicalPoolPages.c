@@ -102,10 +102,13 @@ __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, unsigned int a2)
       *(_QWORD *)&v30 = v30 + 1;
     }
     _InterlockedAnd64(v7, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -130,10 +133,10 @@ __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, unsigned int a2)
     v11[11] = v25;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && LockHandle.OldIrql <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && LockHandle.OldIrql <= 0xFu && v18 >= 2u )
       {
         v19 = KeGetCurrentPrcb();
         v20 = v19->SchedulerAssist;

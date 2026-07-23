@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInsertPageLockStandbyList @ 0x1402DEE20
+ * XREFs of MiInsertPageLockStandbyList @ 0x1402C0C30
  * Callers:
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
  * Callees:
- *     MiLockPageListAndLastPage @ 0x14029B840 (MiLockPageListAndLastPage.c)
- *     MiRebuildStandbyLookasideList @ 0x1402CB3C4 (MiRebuildStandbyLookasideList.c)
- *     MiSynchronizeFastPageInsert @ 0x1402CE960 (MiSynchronizeFastPageInsert.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiUpdateAvailableEventsAtDpc @ 0x1403E5C00 (MiUpdateAvailableEventsAtDpc.c)
- *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E5C8C (MiSlabDemotionLowMemoryConditionUpdate.c)
- *     MiIsStandbyPageCorrupted @ 0x14050A00C (MiIsStandbyPageCorrupted.c)
+ *     MiLockPageListAndLastPage @ 0x14029ADA0 (MiLockPageListAndLastPage.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402AD184 (MiRebuildStandbyLookasideList.c)
+ *     MiSynchronizeFastPageInsert @ 0x1402B0720 (MiSynchronizeFastPageInsert.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiUpdateAvailableEventsAtDpc @ 0x1403E8DF0 (MiUpdateAvailableEventsAtDpc.c)
+ *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E8E7C (MiSlabDemotionLowMemoryConditionUpdate.c)
+ *     MiIsStandbyPageCorrupted @ 0x140503ABC (MiIsStandbyPageCorrupted.c)
  */
 
 __int64 __fastcall MiInsertPageLockStandbyList(__int64 a1, unsigned __int64 a2)
@@ -43,7 +43,7 @@ __int64 __fastcall MiInsertPageLockStandbyList(__int64 a1, unsigned __int64 a2)
     MiInsertPageInList(a2, 0x20u);
     return 0LL;
   }
-  if ( (dword_140FBE210 & 2) != 0 && (*(_DWORD *)a1 & 4) == 0 && v5 == 9 && (*(_DWORD *)(v3 + 4) & 0x20) == 0 )
+  if ( (dword_140FBF210 & 2) != 0 && (*(_DWORD *)a1 & 4) == 0 && v5 == 9 && (*(_DWORD *)(v3 + 4) & 0x20) == 0 )
   {
     v14 = *(_QWORD *)(a2 + 16);
     if ( (v14 & 0x400) == 0
@@ -73,7 +73,7 @@ LABEL_6:
     goto LABEL_7;
   }
   if ( a2 < 0xFFFFDE0000000000uLL
-    || a2 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+    || a2 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
     || (unsigned int)MiIsDecayPfn((__int64)(a2 + 0x220000000000LL) / 48) )
   {
 LABEL_23:

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFlushQueuedDpcsWorker @ 0x1404F2190
+ * XREFs of KiFlushQueuedDpcsWorker @ 0x1404EB770
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSwapStacksAndRetireDpcList @ 0x14072C440 (KiSwapStacksAndRetireDpcList.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapStacksAndRetireDpcList @ 0x140731010 (KiSwapStacksAndRetireDpcList.c)
  */
 
 void __fastcall KiFlushQueuedDpcsWorker(__int64 a1)

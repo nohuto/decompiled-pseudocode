@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpIsWow64Logger @ 0x14069AB50
+ * XREFs of EtwpIsWow64Logger @ 0x14069BD10
  * Callers:
- *     EtwpUpdateFileHeader @ 0x140699E1C (EtwpUpdateFileHeader.c)
- *     EtwpFinalizeHeader @ 0x14069A3FC (EtwpFinalizeHeader.c)
- *     EtwpAddLogHeader @ 0x14069A628 (EtwpAddLogHeader.c)
+ *     EtwpUpdateFileHeader @ 0x14069AFDC (EtwpUpdateFileHeader.c)
+ *     EtwpFinalizeHeader @ 0x14069B5BC (EtwpFinalizeHeader.c)
+ *     EtwpAddLogHeader @ 0x14069B7E8 (EtwpAddLogHeader.c)
  * Callees:
  *     <none>
  */

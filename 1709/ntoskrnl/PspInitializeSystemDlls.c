@@ -34,7 +34,7 @@ __int64 PspInitializeSystemDlls()
             **(_QWORD **)(v4 + 8 * v6 + 8) = &ExportedRoutineByName[*(_QWORD *)(v3 + 24) - *(_QWORD *)(v3 + 32)] )
       {
         v6 = 2LL * i;
-        ExportedRoutineByName = RtlFindExportedRoutineByName(*(char **)(v3 + 32), *(char **)(v4 + 16LL * i));
+        ExportedRoutineByName = (char *)RtlFindExportedRoutineByName(*(PVOID *)(v3 + 32), *(PCSTR *)(v4 + 16LL * i));
         if ( !ExportedRoutineByName )
           KeBugCheckEx(0x6Bu, 0xFFFFFFFFC000007AuLL, 6uLL, 0LL, 0LL);
         ++i;

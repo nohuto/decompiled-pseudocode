@@ -25,170 +25,168 @@
  *     _RtlpTpETWCallbackEnqueue@20 @ 0x4B385C2D (_RtlpTpETWCallbackEnqueue@20.c)
  */
 
-int __stdcall RtlQueueWorkItem(int a1, int a2, unsigned int a3)
+NTSTATUS __cdecl RtlQueueWorkItem(WORKERCALLBACKFUNC Function, PVOID Context, ULONG Flags)
 {
   int v3; // ebp
-  int Heap; // eax
-  int v5; // esi
-  void *SubProcessTag; // ecx
+  HANDLE *Heap; // eax
+  char *v5; // esi
   _GUID *p_ActivityId; // esi
-  int v8; // edi
-  int InformationActivationContext; // eax
-  unsigned int v10; // eax
-  int v11; // eax
-  volatile signed __int32 *v13; // ecx
-  void *v14; // edx
-  int *v15; // ecx
-  _DWORD v16[7]; // [esp+10h] [ebp-7Ch] BYREF
-  int v17; // [esp+2Ch] [ebp-60h]
-  int v18; // [esp+30h] [ebp-5Ch]
-  int v19; // [esp+34h] [ebp-58h]
-  int v20; // [esp+38h] [ebp-54h] BYREF
-  int v21; // [esp+3Ch] [ebp-50h]
-  int v22; // [esp+40h] [ebp-4Ch]
-  int v23; // [esp+44h] [ebp-48h]
-  int v24; // [esp+48h] [ebp-44h] BYREF
-  int v25; // [esp+4Ch] [ebp-40h]
-  volatile signed __int32 *v26; // [esp+50h] [ebp-3Ch]
-  _DWORD *v27; // [esp+54h] [ebp-38h]
-  HANDLE v28; // [esp+58h] [ebp-34h] BYREF
-  int *v29; // [esp+5Ch] [ebp-30h]
-  _DWORD *v30; // [esp+60h] [ebp-2Ch]
-  int v31; // [esp+64h] [ebp-28h]
-  int v32; // [esp+68h] [ebp-24h]
-  int v33; // [esp+6Ch] [ebp-20h]
-  char v34; // [esp+70h] [ebp-1Ch]
-  char v35; // [esp+71h] [ebp-1Bh]
-  char v36; // [esp+72h] [ebp-1Ah]
-  char v37; // [esp+73h] [ebp-19h]
+  _DWORD *v7; // edi
+  NTSTATUS v8; // eax
+  PVOID v9; // eax
+  int v10; // eax
+  volatile signed __int32 *v12; // ecx
+  _RTL_SRWLOCK *v13; // edx
+  int *v14; // ecx
+  SIZE_T v15; // [esp-4h] [ebp-90h]
+  ULONG_PTR *v16; // [esp+0h] [ebp-8Ch]
+  _DWORD v17[7]; // [esp+10h] [ebp-7Ch] BYREF
+  int v18; // [esp+2Ch] [ebp-60h]
+  int v19; // [esp+30h] [ebp-5Ch]
+  int v20; // [esp+34h] [ebp-58h]
+  int v21; // [esp+38h] [ebp-54h] BYREF
+  PVOID DllHandle; // [esp+3Ch] [ebp-50h]
+  int v23; // [esp+40h] [ebp-4Ch]
+  int v24; // [esp+44h] [ebp-48h]
+  int ActivationContextInformation; // [esp+48h] [ebp-44h] BYREF
+  int v26; // [esp+4Ch] [ebp-40h]
+  volatile signed __int32 *v27; // [esp+50h] [ebp-3Ch]
+  _DWORD *v28; // [esp+54h] [ebp-38h]
+  HANDLE TokenHandle; // [esp+58h] [ebp-34h] BYREF
+  _RTL_SRWLOCK **v30; // [esp+5Ch] [ebp-30h]
+  PVOID *v31; // [esp+60h] [ebp-2Ch]
+  PVOID BaseAddress; // [esp+64h] [ebp-28h]
+  int v33; // [esp+68h] [ebp-24h]
+  HANDLE *v34; // [esp+6Ch] [ebp-20h]
+  char v35; // [esp+70h] [ebp-1Ch]
+  char v36; // [esp+71h] [ebp-1Bh]
+  char v37; // [esp+72h] [ebp-1Ah]
+  char v38; // [esp+73h] [ebp-19h]
   CPPEH_RECORD ms_exc; // [esp+74h] [ebp-18h]
 
-  v24 = 0;
-  v25 = 0;
-  v37 = 0;
-  v35 = 0;
-  v34 = 0;
+  ActivationContextInformation = 0;
+  v26 = 0;
+  v38 = 0;
   v36 = 0;
-  v32 = -1073741823;
-  v28 = 0;
-  v33 = 0;
+  v35 = 0;
+  v37 = 0;
+  v33 = -1073741823;
+  TokenHandle = 0;
+  v34 = 0;
   if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     ms_exc.registration.TryLevel = 0;
-    v32 = RtlpTpRevertCapture(&v28, a3 & 0x100);
-    if ( v32 < 0 )
+    v33 = RtlpTpRevertCapture(&TokenHandle, Flags & 0x100);
+    if ( v33 < 0 )
     {
-      v5 = v33;
+      v5 = (char *)v34;
     }
     else
     {
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 72);
-      v5 = Heap;
-      v33 = Heap;
+      LODWORD(v15) = 72;
+      Heap = (HANDLE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
+      v5 = (char *)Heap;
+      v34 = Heap;
       if ( !Heap )
       {
-        v32 = -1073741801;
+        v33 = -1073741801;
         goto LABEL_21;
       }
-      v32 = RtlpTpInitializeData((_DWORD *)(Heap + 24), a3, (int)v28);
-      if ( v32 < 0 )
+      v33 = RtlpTpInitializeData(Heap + 6, Flags, TokenHandle);
+      if ( v33 < 0 )
         goto LABEL_21;
-      v34 = 1;
-      SubProcessTag = NtCurrentTeb()->SubProcessTag;
-      *(_DWORD *)(v33 + 52) = SubProcessTag;
+      v35 = 1;
+      v34[13] = NtCurrentTeb()->SubProcessTag;
       p_ActivityId = &NtCurrentTeb()->ActivityId;
-      v31 = v33;
-      v8 = v33 + 56;
-      *(_DWORD *)(v33 + 56) = p_ActivityId->Data1;
+      BaseAddress = v34;
+      v7 = v34 + 14;
+      v34[14] = (HANDLE)p_ActivityId->Data1;
       p_ActivityId = (_GUID *)((char *)p_ActivityId + 4);
-      v8 += 4;
-      *(_DWORD *)v8 = p_ActivityId->Data1;
-      *(_QWORD *)(v8 + 4) = *(_QWORD *)&p_ActivityId->Data2;
-      InformationActivationContext = RtlQueryInformationActivationContext(
-                                       (int)SubProcessTag,
-                                       v3,
-                                       1,
-                                       0,
-                                       0,
-                                       1,
-                                       (int)&v24,
-                                       8u,
-                                       0);
-      v32 = InformationActivationContext;
-      v5 = v31;
-      if ( InformationActivationContext < 0 )
+      *++v7 = p_ActivityId->Data1;
+      *(_QWORD *)(v7 + 1) = *(_QWORD *)&p_ActivityId->Data2;
+      v8 = RtlQueryInformationActivationContext(
+             1u,
+             0,
+             0,
+             ActivationContextBasicInformation,
+             &ActivationContextInformation,
+             8uLL,
+             v16);
+      v33 = v8;
+      v5 = (char *)BaseAddress;
+      if ( v8 < 0 )
       {
-        if ( InformationActivationContext != -1072365557 )
+        if ( v8 != -1072365557 )
           goto LABEL_21;
-        *(_DWORD *)(v31 + 40) = -1;
-        v32 = 0;
+        *((_DWORD *)BaseAddress + 10) = -1;
+        v33 = 0;
       }
-      if ( (v25 & 1) != 0 )
+      if ( (v26 & 1) != 0 )
       {
-        RtlReleaseActivationContext((volatile signed __int32 *)v24);
-        v24 = -1;
+        RtlReleaseActivationContext((PACTIVATION_CONTEXT)ActivationContextInformation);
+        ActivationContextInformation = -1;
       }
-      *(_DWORD *)(v5 + 40) = v24;
-      v37 = 1;
-      v26 = (volatile signed __int32 *)(v5 + 48);
-      *(_DWORD *)(v5 + 48) = 2;
-      v30 = (_DWORD *)(v5 + 32);
-      *(_DWORD *)(v5 + 32) = a1;
-      v27 = (_DWORD *)(v5 + 36);
-      *(_DWORD *)(v5 + 36) = a2;
-      v29 = (int *)(v5 + 20);
-      *(_DWORD *)(v5 + 20) = 0;
-      v16[0] = 3;
-      memset(&v16[1], 0, 24);
-      v17 = 0;
-      v18 = 1;
-      v19 = 40;
-      if ( (a3 & 0xC0) != 0 )
-        v17 = 2;
-      *(_DWORD *)v5 = RtlpTpWorkTaskCallbacks;
-      *(_DWORD *)(v5 + 4) = 0;
-      v32 = TpReserveTaskPost(v16);
-      if ( v32 >= 0 )
+      *((_DWORD *)v5 + 10) = ActivationContextInformation;
+      v38 = 1;
+      v27 = (volatile signed __int32 *)(v5 + 48);
+      *((_DWORD *)v5 + 12) = 2;
+      v31 = (PVOID *)(v5 + 32);
+      *((_DWORD *)v5 + 8) = Function;
+      v28 = v5 + 36;
+      *((_DWORD *)v5 + 9) = Context;
+      v30 = (_RTL_SRWLOCK **)(v5 + 20);
+      *((_DWORD *)v5 + 5) = 0;
+      v17[0] = 3;
+      memset(&v17[1], 0, 24);
+      v18 = 0;
+      v19 = 1;
+      v20 = 40;
+      if ( (Flags & 0xC0) != 0 )
+        v18 = 2;
+      *(_DWORD *)v5 = &RtlpTpWorkTaskCallbacks;
+      *((_DWORD *)v5 + 1) = 0;
+      v33 = TpReserveTaskPost(v17);
+      if ( v33 >= 0 )
       {
-        v36 = 1;
-        if ( *v30 < dword_4B3A9374[0] || *v30 >= (unsigned int)(dword_4B3A9374[0] + dword_4B3A9378[0]) )
+        v37 = 1;
+        if ( (unsigned int)*v31 < dword_4B3A9374[0] || (unsigned int)*v31 >= dword_4B3A9374[0] + dword_4B3A9378[0] )
         {
-          RtlpxLookupFunctionTable(&v20, (_DWORD *)*v30, v3);
+          RtlpxLookupFunctionTable(*v31, (int)&v21, v3, 0);
         }
         else
         {
-          v20 = dword_4B3A9370[0];
-          v21 = dword_4B3A9370[1];
-          v22 = dword_4B3A9370[2];
-          v23 = dword_4B3A9370[3];
-          v5 = v31;
+          v21 = dword_4B3A9370[0];
+          DllHandle = (PVOID)dword_4B3A9370[1];
+          v23 = dword_4B3A9370[2];
+          v24 = dword_4B3A9370[3];
+          v5 = (char *)BaseAddress;
         }
-        v10 = v21;
-        *(_DWORD *)(v5 + 44) = v21;
-        if ( v10 )
+        v9 = DllHandle;
+        *((_DWORD *)v5 + 11) = DllHandle;
+        if ( v9 )
         {
-          LdrAddRefDll(0, v10);
-          v35 = 1;
+          LdrAddRefDll(0, v9);
+          v36 = 1;
           if ( RtlGetCurrentServiceSessionId() )
           {
-            v11 = (int)NtCurrentPeb()->SharedData + 556;
-            v5 = v33;
+            v10 = (int)NtCurrentPeb()->SharedData + 556;
+            v5 = (char *)v34;
           }
           else
           {
-            v11 = 2147353478;
+            v10 = 2147353478;
           }
-          if ( *(_BYTE *)v11 )
+          if ( *(_BYTE *)v10 )
           {
-            v5 = v33;
-            RtlpTpETWCallbackEnqueue(*v30, *v27, NtCurrentTeb()->SubProcessTag);
+            v5 = (char *)v34;
+            RtlpTpETWCallbackEnqueue(*v31, *v28, NtCurrentTeb()->SubProcessTag);
           }
-          TpPostTask(v5, *v29, 1, (int)v16);
-          if ( !_InterlockedExchangeAdd(v26, 0xFFFFFFFF) )
-            RtlpTpWorkUnposted(v5, *v29);
+          TpPostTask((int)v5, *v30, 1, (int)v17);
+          if ( !_InterlockedExchangeAdd(v27, 0xFFFFFFFF) )
+            RtlpTpWorkUnposted(v5, (int)*v30);
           v5 = 0;
+          v34 = 0;
           v33 = 0;
-          v32 = 0;
         }
       }
     }
@@ -197,47 +195,47 @@ LABEL_21:
     if ( !v5 )
     {
 LABEL_22:
-      RtlpTpResumeImpersonation(v28);
-      return v32;
+      RtlpTpResumeImpersonation(TokenHandle);
+      return v33;
     }
-    if ( v37 && *(_DWORD *)(v5 + 40) != -1 )
-      RtlReleaseActivationContext(*(volatile signed __int32 **)(v5 + 40));
-    if ( v36 )
+    if ( v38 && *((_DWORD *)v5 + 10) != -1 )
+      RtlReleaseActivationContext(*((PACTIVATION_CONTEXT *)v5 + 10));
+    if ( v37 )
     {
-      v13 = *(volatile signed __int32 **)(v5 + 20);
-      if ( !v13 )
+      v12 = (volatile signed __int32 *)*((_DWORD *)v5 + 5);
+      if ( !v12 )
       {
-        v13 = (volatile signed __int32 *)TppPoolpSerializedPool;
-        if ( (v17 & 2) == 0 )
-          v13 = (volatile signed __int32 *)TppPoolpGlobalPool;
+        v12 = (volatile signed __int32 *)TppPoolpSerializedPool;
+        if ( (v18 & 2) == 0 )
+          v12 = (volatile signed __int32 *)TppPoolpGlobalPool;
       }
-      if ( v13 == (volatile signed __int32 *)TppPoolpGlobalPool )
+      if ( v12 == (volatile signed __int32 *)TppPoolpGlobalPool )
       {
-        v14 = &TppPoolpGlobalPoolLock;
-        v15 = &TppPoolpGlobalPool;
+        v13 = &TppPoolpGlobalPoolLock;
+        v14 = &TppPoolpGlobalPool;
       }
       else
       {
-        if ( v13 != (volatile signed __int32 *)TppPoolpSerializedPool )
+        if ( v12 != (volatile signed __int32 *)TppPoolpSerializedPool )
         {
-          if ( !_InterlockedDecrement(v13) )
-            TppPoolpFree((int)v13);
+          if ( !_InterlockedDecrement(v12) )
+            TppPoolpFree((int)v12);
           goto LABEL_45;
         }
-        v14 = &TppPoolpSerializedPoolLock;
-        v15 = &TppPoolpSerializedPool;
+        v13 = (_RTL_SRWLOCK *)&TppPoolpSerializedPoolLock;
+        v14 = &TppPoolpSerializedPool;
       }
-      TppPoolpDereferenceGlobalPool((signed __int32 **)v15, (int)v14);
+      TppPoolpDereferenceGlobalPool((signed __int32 **)v14, v13);
     }
 LABEL_45:
+    if ( v36 )
+      LdrUnloadDll(*((PVOID *)v5 + 11));
     if ( v35 )
-      LdrUnloadDll(*(_DWORD *)(v5 + 44));
-    if ( v34 )
     {
-      if ( *(_DWORD *)(v5 + 24) )
-        NtClose(*(HANDLE *)(v5 + 24));
+      if ( *((_DWORD *)v5 + 6) )
+        NtClose(*((HANDLE *)v5 + 6));
     }
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
     goto LABEL_22;
   }
   return -1073741823;

@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpInterruptSendIpi @ 0x140254D50
+ * XREFs of HalpInterruptSendIpi @ 0x140254E10
  * Callers:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     HalRequestIpiSpecifyVector @ 0x140254690 (HalRequestIpiSpecifyVector.c)
- *     HalSendSoftwareInterrupt @ 0x140254730 (HalSendSoftwareInterrupt.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     HalRequestSoftwareInterrupt @ 0x140254D10 (HalRequestSoftwareInterrupt.c)
- *     KiCheckForTimerExpiration @ 0x1402C8140 (KiCheckForTimerExpiration.c)
- *     KiForwardTick @ 0x1403CB6E0 (KiForwardTick.c)
- *     HalRequestDeferredRecoveryServiceInterrupt @ 0x140506920 (HalRequestDeferredRecoveryServiceInterrupt.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     HalRequestIpiSpecifyVector @ 0x140254750 (HalRequestIpiSpecifyVector.c)
+ *     HalSendSoftwareInterrupt @ 0x1402547F0 (HalSendSoftwareInterrupt.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     HalRequestSoftwareInterrupt @ 0x140254DD0 (HalRequestSoftwareInterrupt.c)
+ *     KiCheckForTimerExpiration @ 0x1402C83D0 (KiCheckForTimerExpiration.c)
+ *     KiForwardTick @ 0x1403CB8C0 (KiForwardTick.c)
+ *     HalRequestDeferredRecoveryServiceInterrupt @ 0x140506E70 (HalRequestDeferredRecoveryServiceInterrupt.c)
  * Callees:
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpInterruptSendIpi(_DWORD *a1, unsigned int a2)
@@ -45,7 +45,7 @@ __int64 __fastcall HalpInterruptSendIpi(_DWORD *a1, unsigned int a2)
   int v22; // eax
   __int64 (__fastcall *v23)(_QWORD, int *, __int128 *, _QWORD, int *); // rax
   int v24; // eax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-2F8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-2F8h] BYREF
   int v26; // [rsp+38h] [rbp-2F0h] BYREF
   int v27; // [rsp+3Ch] [rbp-2ECh]
   int v28; // [rsp+40h] [rbp-2E8h] BYREF

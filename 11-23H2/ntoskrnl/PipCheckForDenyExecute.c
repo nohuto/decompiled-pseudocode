@@ -1,14 +1,14 @@
 /*
- * XREFs of PipCheckForDenyExecute @ 0x140866CA4
+ * XREFs of PipCheckForDenyExecute @ 0x140866EE4
  * Callers:
- *     IopRegisterDeviceInterface @ 0x1408667FC (IopRegisterDeviceInterface.c)
+ *     IopRegisterDeviceInterface @ 0x140866A3C (IopRegisterDeviceInterface.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PnpConcatPWSTR @ 0x1407FA9A8 (PnpConcatPWSTR.c)
+ *     PnpConcatPWSTR @ 0x1407FAC78 (PnpConcatPWSTR.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

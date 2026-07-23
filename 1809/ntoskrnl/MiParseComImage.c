@@ -1,14 +1,14 @@
 /*
- * XREFs of MiParseComImage @ 0x1406C06BC
+ * XREFs of MiParseComImage @ 0x1406C195C
  * Callers:
- *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x14061C7E0 (MiCreateNewSection.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiLogRelocationRva @ 0x14064B18C (MiLogRelocationRva.c)
- *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
- *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiLogRelocationRva @ 0x14064C34C (MiLogRelocationRva.c)
+ *     MiUnmapImageInSystemSpace @ 0x140651A4C (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140652000 (MiMapImageInSystemSpace.c)
  */
 
 __int64 __fastcall MiParseComImage(__int64 *a1, unsigned int *a2, _BYTE *a3)

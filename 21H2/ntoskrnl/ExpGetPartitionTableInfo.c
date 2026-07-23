@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpGetPartitionTableInfo @ 0x140950888
+ * XREFs of ExpGetPartitionTableInfo @ 0x140950A58
  * Callers:
- *     ExpFindDiskSignature @ 0x140950200 (ExpFindDiskSignature.c)
+ *     ExpFindDiskSignature @ 0x1409503D0 (ExpFindDiskSignature.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA660 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpGetPartitionTableInfo(PCWSTR SourceString, _QWORD *a2)

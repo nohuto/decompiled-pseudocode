@@ -1,9 +1,9 @@
 /*
- * XREFs of MdlInvariantInsertMdlInfo @ 0x140222E44
+ * XREFs of MdlInvariantInsertMdlInfo @ 0x140222C70
  * Callers:
- *     MdlInvariantPreProcessing1 @ 0x14022317C (MdlInvariantPreProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x140222FA8 (MdlInvariantPreProcessing1.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlAddRange @ 0x140764410
+ * XREFs of RtlAddRange @ 0x1407645D0
  * Callers:
- *     IopMemInitialize @ 0x1407A1C34 (IopMemInitialize.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x1407A1E60 (ArbAddMmConfigRangeAsBootReserved.c)
- *     ArbAddInaccessibleAllocationRange @ 0x1407A206C (ArbAddInaccessibleAllocationRange.c)
- *     RtlInvertRangeListEx @ 0x1407B7960 (RtlInvertRangeListEx.c)
- *     ArbAddAllocation @ 0x1407B9940 (ArbAddAllocation.c)
- *     IopPortAddAllocation @ 0x1407C7CA0 (IopPortAddAllocation.c)
- *     ArbInitializeRangeList @ 0x1408670B0 (ArbInitializeRangeList.c)
- *     KiTpBuildExcludedKernelTracepointRangeList @ 0x1408BC974 (KiTpBuildExcludedKernelTracepointRangeList.c)
+ *     IopMemInitialize @ 0x1407A1E34 (IopMemInitialize.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x1407A2060 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x1407A226C (ArbAddInaccessibleAllocationRange.c)
+ *     RtlInvertRangeListEx @ 0x1407B7E80 (RtlInvertRangeListEx.c)
+ *     ArbAddAllocation @ 0x1407BA0D0 (ArbAddAllocation.c)
+ *     IopPortAddAllocation @ 0x1407C7FC0 (IopPortAddAllocation.c)
+ *     ArbInitializeRangeList @ 0x140867210 (ArbInitializeRangeList.c)
+ *     KiTpBuildExcludedKernelTracepointRangeList @ 0x1408BCAD4 (KiTpBuildExcludedKernelTracepointRangeList.c)
  * Callees:
- *     RtlpFreeRangeListEntry @ 0x140761668 (RtlpFreeRangeListEntry.c)
- *     RtlpAddRange @ 0x1407644B4 (RtlpAddRange.c)
- *     RtlpCreateRangeListEntry @ 0x140764560 (RtlpCreateRangeListEntry.c)
+ *     RtlpFreeRangeListEntry @ 0x140761828 (RtlpFreeRangeListEntry.c)
+ *     RtlpAddRange @ 0x140764674 (RtlpAddRange.c)
+ *     RtlpCreateRangeListEntry @ 0x140764720 (RtlpCreateRangeListEntry.c)
  */
 
 __int64 __fastcall RtlAddRange(

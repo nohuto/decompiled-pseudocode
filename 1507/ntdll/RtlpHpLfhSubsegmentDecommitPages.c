@@ -16,7 +16,7 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180075B10 (RtlEndStrongEnumerationHashTable.c)
  */
 
-void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2, int a3, unsigned int a4, char a5)
+void __fastcall RtlpHpLfhSubsegmentDecommitPages(_RTL_SRWLOCK *a1, __int64 a2, int a3, unsigned int a4, char a5)
 {
   int v5; // esi
   unsigned int v6; // r15d
@@ -30,7 +30,7 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2
   __int64 v16; // rcx
   __int64 v17; // rcx
   unsigned int v18; // [rsp+20h] [rbp-58h]
-  void (__fastcall *v19)(_QWORD, __int64, _QWORD); // [rsp+38h] [rbp-40h]
+  void (__fastcall *v19)(unsigned __int64, __int64, _QWORD); // [rsp+38h] [rbp-40h]
   unsigned int v20; // [rsp+90h] [rbp+18h] BYREF
   unsigned int v21; // [rsp+98h] [rbp+20h]
 
@@ -68,10 +68,10 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2
       if ( !v5 )
       {
         if ( (a5 & 1) == 0 )
-          RtlAcquireSRWLockShared(a1 + 48);
+          RtlAcquireSRWLockShared(a1 + 6);
         v5 = 2;
         if ( !v11 )
-          RtlAcquireSRWLockExclusive(a2 + 24);
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
         continue;
       }
       v14 = *(_BYTE *)(a2 + 44);
@@ -79,11 +79,11 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2
       v16 = EmptyUnits << v14;
       v18 = v16;
       v17 = a2 + v16;
-      v19 = (void (__fastcall *)(_QWORD, __int64, _QWORD))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 32));
+      v19 = (void (__fastcall *)(unsigned __int64, __int64, _QWORD))((unsigned __int64)a1 ^ RtlpHeapKey ^ a1[4].Value);
       if ( (char *)v19 == (char *)RtlpHpSegLfhVsDecommit )
-        RtlpHpSegLfhVsDecommit(*(_QWORD *)a1, v17, v15);
+        RtlpHpSegLfhVsDecommit(a1->Value, v17, v15);
       else
-        v19(*(_QWORD *)a1, v17, v15);
+        v19(a1->Value, v17, v15);
       RtlpHpLfhSubsegmentDecBlockCounts(a2, v18, v15);
       if ( !v9 )
         break;
@@ -95,8 +95,8 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2
   if ( v5 )
   {
     if ( !v11 )
-      RtlReleaseSRWLockExclusive(a2 + 24);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
     if ( (a5 & 1) == 0 )
-      RtlReleaseSRWLockShared(a1 + 48);
+      RtlReleaseSRWLockShared(a1 + 6);
   }
 }

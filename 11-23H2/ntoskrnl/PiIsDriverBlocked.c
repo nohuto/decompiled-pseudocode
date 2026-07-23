@@ -3,19 +3,19 @@
  * Callers:
  *     PiLookupInDDB @ 0x140692E10 (PiLookupInDDB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlIsProcessorFeaturePresent @ 0x140365550 (RtlIsProcessorFeaturePresent.c)
- *     KeIsKernelCetEnabled @ 0x140388254 (KeIsKernelCetEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlIsProcessorFeaturePresent @ 0x1403656F0 (RtlIsProcessorFeaturePresent.c)
+ *     KeIsKernelCetEnabled @ 0x140388434 (KeIsKernelCetEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
  *     SdbGetDatabaseMatch @ 0x140693044 (SdbGetDatabaseMatch.c)
  *     PiUpdateDriverDBCache @ 0x140693190 (PiUpdateDriverDBCache.c)
- *     PnpLogEvent @ 0x140958AB0 (PnpLogEvent.c)
- *     PiIsHVCIEnabled @ 0x140959C8C (PiIsHVCIEnabled.c)
- *     PiNotifyCiDriverBlocked @ 0x140959CD8 (PiNotifyCiDriverBlocked.c)
- *     PnpTraceDriverBlocked @ 0x14096BD64 (PnpTraceDriverBlocked.c)
- *     SdbQueryDataEx @ 0x140A4EEE4 (SdbQueryDataEx.c)
- *     SdbReadEntryInformation @ 0x140A4F374 (SdbReadEntryInformation.c)
+ *     PnpLogEvent @ 0x140958CB0 (PnpLogEvent.c)
+ *     PiIsHVCIEnabled @ 0x140959E8C (PiIsHVCIEnabled.c)
+ *     PiNotifyCiDriverBlocked @ 0x140959ED8 (PiNotifyCiDriverBlocked.c)
+ *     PnpTraceDriverBlocked @ 0x14096BF64 (PnpTraceDriverBlocked.c)
+ *     SdbQueryDataEx @ 0x140A4F194 (SdbQueryDataEx.c)
+ *     SdbReadEntryInformation @ 0x140A4F624 (SdbReadEntryInformation.c)
  */
 
 __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _OWORD *a5)
@@ -47,7 +47,7 @@ __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigne
   {
     v10 = 0;
 LABEL_3:
-    PiUpdateDriverDBCache(a2, v21, v8, v10, (__int64)v22);
+    PiUpdateDriverDBCache(a2, v21, v8, v10, v22);
     if ( v10 + 1073740949 <= 1 )
     {
       if ( a5 )

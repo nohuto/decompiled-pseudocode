@@ -11,12 +11,12 @@
  *     RtlpLogHeapFailure @ 0x180052E50 (RtlpLogHeapFailure.c)
  */
 
-__int64 *__fastcall RtlpHpVsSlotCompactChunks(__int64 a1, unsigned __int64 a2)
+__int64 *__fastcall RtlpHpVsSlotCompactChunks(__int64 a1, _RTL_SRWLOCK *a2)
 {
-  __int64 v2; // r10
-  unsigned __int64 *v4; // r14
+  _RTL_SRWLOCK *v2; // r10
+  _RTL_SRWLOCK *v4; // r14
   unsigned __int64 v5; // rbx
-  unsigned __int64 v6; // rax
+  unsigned __int64 Value; // rax
   __int64 v7; // rcx
   __int64 v8; // r9
   unsigned __int64 v9; // rsi
@@ -50,38 +50,38 @@ __int64 *__fastcall RtlpHpVsSlotCompactChunks(__int64 a1, unsigned __int64 a2)
   __int64 v37; // rax
   __int64 v38; // [rsp+30h] [rbp-68h] BYREF
   __int64 *v39; // [rsp+38h] [rbp-60h]
-  __int128 v40; // [rsp+40h] [rbp-58h] BYREF
+  PRTL_SRWLOCK SRWLock[2]; // [rsp+40h] [rbp-58h] BYREF
   __int64 v41; // [rsp+50h] [rbp-48h]
 
   v32 = (*(_BYTE *)(a1 + 5) & 1) == 0;
   v2 = a2;
-  v40 = 0LL;
+  *(_OWORD *)SRWLock = 0LL;
   v41 = 0LL;
   v39 = &v38;
   v38 = (__int64)&v38;
   if ( v32 )
   {
-    *((_QWORD *)&v40 + 1) = a2 + 8;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 8));
+    SRWLock[1] = a2 + 1;
+    RtlAcquireSRWLockExclusive(a2 + 1);
     v2 = a2;
   }
-  v4 = (unsigned __int64 *)(v2 + 16);
+  v4 = v2 + 2;
   v5 = 0LL;
-  v6 = *(_QWORD *)(v2 + 16);
-  if ( (*(_BYTE *)(v2 + 24) & 1) == 0 )
+  Value = v2[2].Value;
+  if ( (*(_BYTE *)&v2[3].0 & 1) == 0 )
     goto LABEL_6;
-  if ( v6 )
+  if ( Value )
   {
-    v6 ^= (unsigned __int64)v4;
+    Value ^= (unsigned __int64)v4;
 LABEL_6:
-    while ( v6 )
+    while ( Value )
     {
-      v7 = *(_QWORD *)(v6 + 8);
-      v5 = v6;
-      if ( (*(_BYTE *)(v2 + 24) & 1) != 0 && v7 )
-        v6 ^= v7;
+      v7 = *(_QWORD *)(Value + 8);
+      v5 = Value;
+      if ( (*(_BYTE *)&v2[3].0 & 1) != 0 && v7 )
+        Value ^= v7;
       else
-        v6 = *(_QWORD *)(v6 + 8);
+        Value = *(_QWORD *)(Value + 8);
     }
   }
   v8 = RtlpHpHeapGlobals;
@@ -131,10 +131,10 @@ LABEL_23:
       && (*(_QWORD *)(v16 + 16) & (-1LL << (v20 >> 12)) & (0xFFFFFFFFFFFFFFFFuLL >> (63
                                                                                    - (unsigned __int8)((unsigned __int64)(v19 - 1) >> 12)))) != 0 )
     {
-      RtlpHpVsFreeChunkRemove(a1, v2, v16, (_DWORD *)(v5 - 8));
+      RtlpHpVsFreeChunkRemove(a1, (_RTL_RB_TREE *)v2, v16, v5 - 8);
       *(_BYTE *)(v9 + 6) = BYTE6(v9) ^ BYTE6(RtlpHpHeapGlobals) ^ 1;
       *(_DWORD *)v5 = (unsigned __int8)(RtlpHpHeapGlobals ^ v9 ^ ((unsigned int)(v9 - v16) >> 12));
-      v21 = (__int64 *)RtlpHpVsChunkFree(a1, a2, v16, v5 - 8, 1, (__int64)&v40);
+      v21 = (__int64 *)RtlpHpVsChunkFree(a1, (unsigned __int64)a2, v16, v5 - 8, 1, (__int64)SRWLock);
       if ( v21 )
       {
         v22 = v39;
@@ -153,16 +153,16 @@ LABEL_89:
       if ( !v23 )
         break;
       v24 = v17 + 1;
-      if ( (v4[1] & 1) != 0 )
+      if ( (v4[1].Value & 1) != 0 )
       {
-        if ( *v4 )
-          v5 = *v4 ^ (unsigned __int64)v4;
+        if ( v4->Value )
+          v5 = v4->Value ^ (unsigned __int64)v4;
         else
           v5 = 0LL;
       }
       else
       {
-        v5 = *v4;
+        v5 = v4->Value;
       }
       v25 = 0LL;
       v8 = RtlpHpHeapGlobals;
@@ -180,7 +180,7 @@ LABEL_89:
           v27 = *(_QWORD *)v5;
           v25 = v5;
         }
-        if ( (v4[1] & 1) != 0 && v27 )
+        if ( (*(_BYTE *)&v4[1].0 & 1) != 0 && v27 )
           v5 ^= v27;
         else
           v5 = v27;
@@ -191,21 +191,21 @@ LABEL_89:
       if ( !v32 )
         continue;
       v5 = 0LL;
-      if ( (v4[1] & 1) != 0 )
+      if ( (v4[1].Value & 1) != 0 )
       {
-        if ( !*v4 )
+        if ( !v4->Value )
           goto LABEL_61;
-        v28 = *v4 ^ (unsigned __int64)v4;
+        v28 = v4->Value ^ (unsigned __int64)v4;
       }
       else
       {
-        v28 = *v4;
+        v28 = v4->Value;
       }
       while ( v28 )
       {
         v29 = *(_QWORD *)(v28 + 8);
         v5 = v28;
-        if ( (v4[1] & 1) != 0 && v29 )
+        if ( (*(_BYTE *)&v4[1].0 & 1) != 0 && v29 )
           v28 ^= v29;
         else
           v28 = *(_QWORD *)(v28 + 8);
@@ -262,7 +262,7 @@ LABEL_69:
     }
   }
   if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
-    RtlReleaseSRWLockExclusive(*((volatile signed __int64 **)&v40 + 1));
+    RtlReleaseSRWLockExclusive(SRWLock[1]);
   while ( 1 )
   {
     v35 = v38;

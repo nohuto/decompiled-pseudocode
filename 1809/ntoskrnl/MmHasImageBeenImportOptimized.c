@@ -1,11 +1,11 @@
 /*
- * XREFs of MmHasImageBeenImportOptimized @ 0x1405822B0
+ * XREFs of MmHasImageBeenImportOptimized @ 0x1405832B0
  * Callers:
- *     VfDriverEnableVerifier @ 0x140927E78 (VfDriverEnableVerifier.c)
+ *     VfDriverEnableVerifier @ 0x140928E78 (VfDriverEnableVerifier.c)
  * Callees:
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
- *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402B9008 (MiDoesControlAreaRequireRetpolineFixups.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA590 (MiIsImportOptimizationEnabled.c)
+ *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402B91F8 (MiDoesControlAreaRequireRetpolineFixups.c)
  */
 
 _BOOL8 MmHasImageBeenImportOptimized()

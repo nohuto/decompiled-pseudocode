@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpUpdatePeriodicCaptureState @ 0x1408C034C
+ * XREFs of EtwpUpdatePeriodicCaptureState @ 0x1408C160C
  * Callers:
- *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405C3F40 (NtTraceControl.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExCancelTimer @ 0x1400FA2D0 (ExCancelTimer.c)
- *     ExSetTimer @ 0x1400FD030 (ExSetTimer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     ExAllocateTimer @ 0x14016B920 (ExAllocateTimer.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpCheckNotificationAccess @ 0x140656C98 (EtwpCheckNotificationAccess.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExCancelTimer @ 0x1400FA350 (ExCancelTimer.c)
+ *     ExSetTimer @ 0x1400FD0B0 (ExSetTimer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAllocateTimer @ 0x14016BA20 (ExAllocateTimer.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpReleaseLoggerContext @ 0x1405C6160 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C61A8 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpCheckNotificationAccess @ 0x140657E58 (EtwpCheckNotificationAccess.c)
  */
 
 __int64 __fastcall EtwpUpdatePeriodicCaptureState(unsigned int a1, unsigned int a2, unsigned __int16 a3, _QWORD *a4)

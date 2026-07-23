@@ -1,12 +1,12 @@
 /*
- * XREFs of SmStoreCompressionStart @ 0x1408AB700
+ * XREFs of SmStoreCompressionStart @ 0x1408AC960
  * Callers:
- *     MmProcessWorkingSetControl @ 0x14085ED80 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x14085FFE0 (MmProcessWorkingSetControl.c)
  * Callees:
  *     SmpKeyedStoreEntryGet @ 0x140011FDC (SmpKeyedStoreEntryGet.c)
  *     MmQueryProcessWorkingSetSwapPages @ 0x14001284C (MmQueryProcessWorkingSetSwapPages.c)
- *     MmStoreFlushOutstandingEvictions @ 0x1402C4364 (MmStoreFlushOutstandingEvictions.c)
- *     SmSwapStore @ 0x1406D1030 (SmSwapStore.c)
+ *     MmStoreFlushOutstandingEvictions @ 0x1402C4554 (MmStoreFlushOutstandingEvictions.c)
+ *     SmSwapStore @ 0x1406D22D0 (SmSwapStore.c)
  */
 
 int SmStoreCompressionStart()
@@ -19,9 +19,9 @@ int SmStoreCompressionStart()
 
   Process = KeGetCurrentThread()->ApcState.Process;
   v4 = Process;
-  v1 = SmpKeyedStoreEntryGet((ULONG_PTR)&qword_14055B188, (unsigned __int64 *)&v4, 0, 0);
+  v1 = SmpKeyedStoreEntryGet((ULONG_PTR)&qword_14055C188, (unsigned __int64 *)&v4, 0, 0);
   v2 = v1;
-  if ( v1 || dword_14055B1B0 != -1 )
+  if ( v1 || dword_14055C1B0 != -1 )
   {
     LODWORD(v1) = MmStoreFlushOutstandingEvictions();
     if ( v2 )

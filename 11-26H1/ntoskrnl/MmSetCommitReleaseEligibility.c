@@ -1,13 +1,13 @@
 /*
- * XREFs of MmSetCommitReleaseEligibility @ 0x1406E56EC
+ * XREFs of MmSetCommitReleaseEligibility @ 0x1406EA39C
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmSetCommitReleaseEligibility(__int64 a1, __int64 a2, __int64 a3)

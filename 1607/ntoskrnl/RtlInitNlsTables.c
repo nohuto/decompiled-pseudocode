@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInitNlsTables @ 0x14057B890
+ * XREFs of RtlInitNlsTables @ 0x14057BD3C
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitCodePageTable @ 0x14057B8EC (RtlInitCodePageTable.c)
+ *     RtlInitCodePageTable @ 0x14057BD98 (RtlInitCodePageTable.c)
  */
 
 void __stdcall RtlInitNlsTables(

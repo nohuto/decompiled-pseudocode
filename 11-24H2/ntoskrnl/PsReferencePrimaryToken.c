@@ -1,9 +1,9 @@
 /*
- * XREFs of PsReferencePrimaryToken @ 0x14099FAD0
+ * XREFs of PsReferencePrimaryToken @ 0x140988280
  * Callers:
- *     MiCreateSystemSection @ 0x14044C348 (MiCreateSystemSection.c)
+ *     MiCreateSystemSection @ 0x140443248 (MiCreateSystemSection.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
  */
 
 PACCESS_TOKEN __stdcall PsReferencePrimaryToken(PEPROCESS Process)

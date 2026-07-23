@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpGetAutoLoggerEventNameFilter @ 0x1408C09CC
+ * XREFs of EtwpGetAutoLoggerEventNameFilter @ 0x1408C1C8C
  * Callers:
- *     EtwpGetAutoLoggerProviderFilter @ 0x140724014 (EtwpGetAutoLoggerProviderFilter.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x1407252B4 (EtwpGetAutoLoggerProviderFilter.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlUnicodeToUTF8N @ 0x1406BF650 (RtlUnicodeToUTF8N.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlpQueryRegistryValues @ 0x1405C68AC (RtlpQueryRegistryValues.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlUnicodeToUTF8N @ 0x1406C08F0 (RtlUnicodeToUTF8N.c)
  */
 
 void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64 a3, PVOID *a4, _DWORD *a5)

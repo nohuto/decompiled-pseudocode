@@ -1,17 +1,17 @@
 /*
- * XREFs of KiChooseTargetProcessor @ 0x140057550
+ * XREFs of KiChooseTargetProcessor @ 0x1400570D0
  * Callers:
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
  * Callees:
- *     KiReduceByEffectiveIdleSmtSet @ 0x1400A07E8 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2750 (KiEndThreadAccountingPeriod.c)
- *     KiSelectIdleProcessor @ 0x140132EE4 (KiSelectIdleProcessor.c)
- *     PpmPerfGetCurrentFrequency @ 0x140149980 (PpmPerfGetCurrentFrequency.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     KiBeginCounterAccumulation @ 0x1401D6F18 (KiBeginCounterAccumulation.c)
- *     KiSelectCandidateProcessor @ 0x1401DC064 (KiSelectCandidateProcessor.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x14009F110 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D05F0 (KiEndThreadAccountingPeriod.c)
+ *     KiSelectIdleProcessor @ 0x140133454 (KiSelectIdleProcessor.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140149EF0 (PpmPerfGetCurrentFrequency.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     KiBeginCounterAccumulation @ 0x1401D6D44 (KiBeginCounterAccumulation.c)
+ *     KiSelectCandidateProcessor @ 0x1401DBE90 (KiSelectCandidateProcessor.c)
  */
 
 __int64 __fastcall KiChooseTargetProcessor(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
@@ -342,7 +342,7 @@ LABEL_13:
     {
       if ( ++v35 == (unsigned __int16)KeNumberNodes )
         break;
-      v60 = *((unsigned __int16 *)qword_1403269A8
+      v60 = *((unsigned __int16 *)qword_1403269E8
             + v35
             + (unsigned __int16)KeNumberNodes * (unsigned int)*(unsigned __int16 *)(v14 + 146));
       v61 = v34;

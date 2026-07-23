@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpCacheLookupBlocker @ 0x140A899FC
+ * XREFs of SshpCacheLookupBlocker @ 0x140A908EC
  * Callers:
- *     SleepstudyHelperBuildBlocker @ 0x140A89550 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A90440 (SleepstudyHelperBuildBlocker.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SshpCacheLookupBlocker(__int64 a1, __int64 a2, _QWORD *a3)

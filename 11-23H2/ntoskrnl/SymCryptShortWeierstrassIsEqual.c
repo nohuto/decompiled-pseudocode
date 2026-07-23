@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptShortWeierstrassIsEqual @ 0x140402640
+ * XREFs of SymCryptShortWeierstrassIsEqual @ 0x140402820
  * Callers:
- *     SymCryptShortWeierstrassAdd @ 0x140401250 (SymCryptShortWeierstrassAdd.c)
+ *     SymCryptShortWeierstrassAdd @ 0x140401430 (SymCryptShortWeierstrassAdd.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptModElementCreate @ 0x1403F966C (SymCryptModElementCreate.c)
- *     SymCryptModElementIsEqual @ 0x1403F96B8 (SymCryptModElementIsEqual.c)
- *     SymCryptModMul @ 0x1403F98F4 (SymCryptModMul.c)
- *     SymCryptModNeg @ 0x1403F9930 (SymCryptModNeg.c)
- *     SymCryptModSquare @ 0x1403F99D0 (SymCryptModSquare.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptModElementCreate @ 0x1403F984C (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsEqual @ 0x1403F9898 (SymCryptModElementIsEqual.c)
+ *     SymCryptModMul @ 0x1403F9AD4 (SymCryptModMul.c)
+ *     SymCryptModNeg @ 0x1403F9B10 (SymCryptModNeg.c)
+ *     SymCryptModSquare @ 0x1403F9BB0 (SymCryptModSquare.c)
  */
 
 unsigned __int64 __fastcall SymCryptShortWeierstrassIsEqual(

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x140710C20
+ * XREFs of MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14071591C
  * Callers:
- *     MiZeroPageCalibrateDpc @ 0x140711360 (MiZeroPageCalibrateDpc.c)
+ *     MiZeroPageCalibrateDpc @ 0x140716060 (MiZeroPageCalibrateDpc.c)
  * Callees:
- *     MiEngineAffinity @ 0x1403E9844 (MiEngineAffinity.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403E9FB0 (KeFindFirstSetRightGroupAffinity.c)
- *     MiLaunchZeroCalibrationProcessor @ 0x1407109E4 (MiLaunchZeroCalibrationProcessor.c)
+ *     MiEngineAffinity @ 0x1402F6724 (MiEngineAffinity.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402F6E90 (KeFindFirstSetRightGroupAffinity.c)
+ *     MiLaunchZeroCalibrationProcessor @ 0x1407156E0 (MiLaunchZeroCalibrationProcessor.c)
  */
 
 void __fastcall MiWakeOnlyParticipatingProcessorsFromAssignedNode(__int64 a1)

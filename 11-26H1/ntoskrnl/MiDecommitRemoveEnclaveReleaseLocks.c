@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDecommitRemoveEnclaveReleaseLocks @ 0x14052E654
+ * XREFs of MiDecommitRemoveEnclaveReleaseLocks @ 0x140530B74
  * Callers:
- *     MiDecommitRemoveEnclaveAcquireLocks @ 0x140341128 (MiDecommitRemoveEnclaveAcquireLocks.c)
- *     MiDecommitGetMetadataSlot @ 0x1406FFEA0 (MiDecommitGetMetadataSlot.c)
+ *     MiDecommitRemoveEnclaveAcquireLocks @ 0x1403431A8 (MiDecommitRemoveEnclaveAcquireLocks.c)
+ *     MiDecommitGetMetadataSlot @ 0x140704B70 (MiDecommitGetMetadataSlot.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 void __fastcall MiDecommitRemoveEnclaveReleaseLocks(__int64 a1, __int64 a2)

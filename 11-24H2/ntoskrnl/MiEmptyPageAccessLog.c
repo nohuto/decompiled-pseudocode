@@ -1,18 +1,18 @@
 /*
- * XREFs of MiEmptyPageAccessLog @ 0x140244260
+ * XREFs of MiEmptyPageAccessLog @ 0x14020C9F0
  * Callers:
- *     MiDrainOldAccessBuffers @ 0x1403799CC (MiDrainOldAccessBuffers.c)
- *     MmOutSwapProcess @ 0x14042D50C (MmOutSwapProcess.c)
- *     MiDrainSystemAccessLog @ 0x140469AF0 (MiDrainSystemAccessLog.c)
- *     MiAllocateAccessLog @ 0x140485ED0 (MiAllocateAccessLog.c)
- *     MmDeleteProcessAddressSpace @ 0x140AE6484 (MmDeleteProcessAddressSpace.c)
+ *     MmOutSwapProcess @ 0x1402DDEEC (MmOutSwapProcess.c)
+ *     MiDrainOldAccessBuffers @ 0x14045F56C (MiDrainOldAccessBuffers.c)
+ *     MiDrainSystemAccessLog @ 0x140462A14 (MiDrainSystemAccessLog.c)
+ *     MiAllocateAccessLog @ 0x1404814C0 (MiAllocateAccessLog.c)
+ *     MmDeleteProcessAddressSpace @ 0x140AE7D64 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     MiStartingOffset @ 0x140244020 (MiStartingOffset.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402440D0 (MiReferenceControlAreaFileWithTag.c)
- *     MiQueuePageAccessLog @ 0x140244A68 (MiQueuePageAccessLog.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140340450 (ObpTraceObjectReferenceIfActive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiStartingOffset @ 0x14020C7B0 (MiStartingOffset.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x14020C860 (MiReferenceControlAreaFileWithTag.c)
+ *     MiQueuePageAccessLog @ 0x14020D250 (MiQueuePageAccessLog.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x14031F930 (ObpTraceObjectReferenceIfActive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiEmptyPageAccessLog(__int64 a1, unsigned __int64 *a2)

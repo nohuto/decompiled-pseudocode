@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInitializeFastResourceAcquired @ 0x140412710
+ * XREFs of ExInitializeFastResourceAcquired @ 0x140412A50
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializeFastResourceAcquired2 @ 0x1404138B4 (ExInitializeFastResourceAcquired2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExInitializeFastResourceAcquired2 @ 0x140413C48 (ExInitializeFastResourceAcquired2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExInitializeFastResourceAcquired(ULONG_PTR a1, ULONG_PTR a2)

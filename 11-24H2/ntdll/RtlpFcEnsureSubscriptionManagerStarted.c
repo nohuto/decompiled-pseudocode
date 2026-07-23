@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpFcEnsureSubscriptionManagerStarted @ 0x180097BBC
+ * XREFs of RtlpFcEnsureSubscriptionManagerStarted @ 0x18002CA0C
  * Callers:
- *     RtlRegisterFeatureConfigurationChangeNotification @ 0x180097B20 (RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     RtlRegisterFeatureConfigurationChangeNotification @ 0x18002C970 (RtlRegisterFeatureConfigurationChangeNotification.c)
  * Callees:
- *     RtlRunOnceBeginInitialize @ 0x18003A720 (RtlRunOnceBeginInitialize.c)
- *     RtlpFcStartSubscriptionManager @ 0x180097CFC (RtlpFcStartSubscriptionManager.c)
- *     RtlRunOnceComplete @ 0x180098C20 (RtlRunOnceComplete.c)
+ *     RtlRunOnceBeginInitialize @ 0x18001A9A0 (RtlRunOnceBeginInitialize.c)
+ *     RtlpFcStartSubscriptionManager @ 0x18002CB4C (RtlpFcStartSubscriptionManager.c)
+ *     RtlRunOnceComplete @ 0x18002DA70 (RtlRunOnceComplete.c)
  */
 
 __int64 RtlpFcEnsureSubscriptionManagerStarted()
 {
-  int started; // ebx
+  NTSTATUS started; // ebx
 
-  started = RtlRunOnceBeginInitialize(&qword_1801D3D70, 0, 0LL);
+  started = RtlRunOnceBeginInitialize(&stru_1801D2D70, 0, 0LL);
   if ( started )
   {
     started = RtlpFcStartSubscriptionManager();
-    RtlRunOnceComplete(&qword_1801D3D70, (started >> 31) & 4, 0LL);
+    RtlRunOnceComplete(&stru_1801D2D70, (started >> 31) & 4, 0LL);
   }
   return (unsigned int)started;
 }

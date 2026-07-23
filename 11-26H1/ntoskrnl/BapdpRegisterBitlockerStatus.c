@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpRegisterBitlockerStatus @ 0x140CE31DC
+ * XREFs of BapdpRegisterBitlockerStatus @ 0x140CE957C
  * Callers:
- *     BapdpProcessBitlockerStatus @ 0x140CE24F4 (BapdpProcessBitlockerStatus.c)
+ *     BapdpProcessBitlockerStatus @ 0x140CE8894 (BapdpProcessBitlockerStatus.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 void __fastcall BapdpRegisterBitlockerStatus(PVOID Data, int a2)

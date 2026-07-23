@@ -18,7 +18,7 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
+__int64 __fastcall MmCreatePartition(_SLIST_HEADER **a1, char a2)
 {
   __int64 result; // rax
   unsigned __int64 v5; // r14
@@ -28,8 +28,8 @@ __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
   __int64 v9; // rdi
   __int64 v10; // r12
   SIZE_T v11; // r14
-  union _SLIST_HEADER *Pool; // rax
-  union _SLIST_HEADER *v13; // rbx
+  _SLIST_HEADER *Pool; // rax
+  _SLIST_HEADER *v13; // rbx
   __int64 v14; // r8
   __int64 v15; // rdx
   unsigned __int64 v16; // r8
@@ -42,7 +42,7 @@ __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
 
   if ( (a2 & 1) != 0 )
   {
-    *a1 = (union _SLIST_HEADER *)&MiSystemPartition;
+    *a1 = (_SLIST_HEADER *)&MiSystemPartition;
     result = 0LL;
     qword_140C6B5C8 = (__int64)a1;
     return result;
@@ -54,7 +54,7 @@ __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
   v9 = v7 * (16LL * (unsigned int)dword_140C65C80[0] + 8);
   v10 = 24LL * PartitionLargePageListCount;
   v11 = 24576 * v7 + ((v10 + v9 + 15 + v5) & 0xFFFFFFFFFFFFFFF0uLL);
-  Pool = (union _SLIST_HEADER *)MiAllocatePool(64, v11, 0x6150694Du);
+  Pool = (_SLIST_HEADER *)MiAllocatePool(64, v11, 0x6150694Du);
   v13 = Pool;
   if ( !Pool )
     return 3221225626LL;
@@ -80,7 +80,7 @@ __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
     return 3221225495LL;
   }
   MiInitializePartition(v13, PartitionId);
-  MiPopulateFreeKernelShadowStackCacheEntries(v13, (struct _SLIST_ENTRY *)((v19 + v9 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v8);
+  MiPopulateFreeKernelShadowStackCacheEntries(v13, (_SLIST_ENTRY *)((v19 + v9 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v8);
   if ( !(unsigned int)MiInitializeMemoryEvents(v13)
     || !(unsigned int)MiCreatePfnBitMaps(v13, 0LL)
     || !(unsigned int)MiInitializeWorkingSetManagerParameters(v13)

@@ -6,21 +6,21 @@
  *     TppJobpRundownJob @ 0x180032968 (TppJobpRundownJob.c)
  * Callees:
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 void __fastcall TppRaiseHandleStatus(int a1, unsigned __int64 a2, unsigned __int64 a3)
 {
-  void (__fastcall *v3)(__int64, __int64, __int64, unsigned int); // r9
-  void (__fastcall *v4)(__int64, __int64, __int64, unsigned int); // r10
+  void (__fastcall *v3)(PTP_CALLBACK_INSTANCE, _QWORD *, PTP_WAIT, unsigned int); // r9
+  void (__fastcall *v4)(PTP_CALLBACK_INSTANCE, _QWORD *, PTP_WAIT, unsigned int); // r10
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   if ( a3 )
   {
-    v3 = *(void (__fastcall **)(__int64, __int64, __int64, unsigned int))(a3 + 80);
+    v3 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _QWORD *, PTP_WAIT, unsigned int))(a3 + 80);
     ExceptionRecord.NumberParameters = 5;
     if ( v3 == RtlpTpWaitCallback )
-      v4 = *(void (__fastcall **)(__int64, __int64, __int64, unsigned int))(*(_QWORD *)(a3 + 88) + 32LL);
+      v4 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _QWORD *, PTP_WAIT, unsigned int))(*(_QWORD *)(a3 + 88) + 32LL);
     else
       v4 = 0LL;
     if ( v4 )

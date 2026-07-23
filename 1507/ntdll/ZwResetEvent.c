@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwResetEvent()
+NTSTATUS __cdecl ZwResetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 350LL;
+  result = 350;
   __asm { syscall; Low latency system call }
   return result;
 }

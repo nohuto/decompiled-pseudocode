@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsEnterReason @ 0x140670E28
+ * XREFs of PopDiagTraceCsEnterReason @ 0x140670F0C
  * Callers:
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 BOOLEAN PopDiagTraceCsEnterReason()

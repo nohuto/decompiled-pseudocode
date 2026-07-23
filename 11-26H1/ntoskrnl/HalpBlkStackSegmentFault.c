@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkStackSegmentFault @ 0x140C7CF80
+ * XREFs of HalpBlkStackSegmentFault @ 0x140C82F80
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140C7C910 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140C82910 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkStackSegmentFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

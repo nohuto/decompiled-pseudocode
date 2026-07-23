@@ -1,12 +1,12 @@
 /*
  * XREFs of MiCleanWorkingSet @ 0x14000FEA4
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x1405F1BC8 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x1405F2BC8 (MmCleanProcessAddressSpace.c)
  * Callees:
  *     MiDrainSystemAccessLog @ 0x14000FF28 (MiDrainSystemAccessLog.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiCleanWorkingSet(__int64 a1, __int64 a2)

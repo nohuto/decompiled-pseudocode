@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwWaitForDebugEvent @ 0x1800A3C10
+ * XREFs of ZwWaitForDebugEvent @ 0x1800A3C30
  * Callers:
  *     DbgUiWaitStateChange @ 0x1800CEB70 (DbgUiWaitStateChange.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwWaitForDebugEvent()
+NTSTATUS __cdecl ZwWaitForDebugEvent(
+        HANDLE DebugObjectHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout,
+        PDBGUI_WAIT_STATE_CHANGE WaitStateChange)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 458LL;
+  result = 458;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

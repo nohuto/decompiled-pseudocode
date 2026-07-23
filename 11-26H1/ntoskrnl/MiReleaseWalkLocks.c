@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReleaseWalkLocks @ 0x140362F00
+ * XREFs of MiReleaseWalkLocks @ 0x140364CA0
  * Callers:
- *     MiDeleteVaDirect @ 0x140361EF0 (MiDeleteVaDirect.c)
- *     MiYieldPageTableWalk @ 0x140362E50 (MiYieldPageTableWalk.c)
- *     MiDeleteEmptyPageTableTail @ 0x14044B6E0 (MiDeleteEmptyPageTableTail.c)
- *     MiQueryVpabAccessedState @ 0x1404646AC (MiQueryVpabAccessedState.c)
- *     MiProtectDriverSectionPte @ 0x1406E5D50 (MiProtectDriverSectionPte.c)
- *     MiUnlockPhysicalPageByVa @ 0x1406EA3E0 (MiUnlockPhysicalPageByVa.c)
- *     MiCombineWorkingSetTail @ 0x140704780 (MiCombineWorkingSetTail.c)
+ *     MiDeleteVaDirect @ 0x140363C90 (MiDeleteVaDirect.c)
+ *     MiYieldPageTableWalk @ 0x140364BF0 (MiYieldPageTableWalk.c)
+ *     MiDeleteEmptyPageTableTail @ 0x140443810 (MiDeleteEmptyPageTableTail.c)
+ *     MiQueryVpabAccessedState @ 0x14045D66C (MiQueryVpabAccessedState.c)
+ *     MiProtectDriverSectionPte @ 0x1406EAA00 (MiProtectDriverSectionPte.c)
+ *     MiUnlockPhysicalPageByVa @ 0x1406EF080 (MiUnlockPhysicalPageByVa.c)
+ *     MiCombineWorkingSetTail @ 0x140709450 (MiCombineWorkingSetTail.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __fastcall MiReleaseWalkLocks(__int64 a1)
@@ -51,7 +51,7 @@ LABEL_9:
       {
         v9 = 2 * (unsigned int)((__int64)(v1 + 0x90482413000LL) >> 3);
         _InterlockedAnd(
-          (volatile signed __int32 *)&stru_140E2D930.PriorityFloorCounts[4 * (v9 >> 5) + 4],
+          (volatile signed __int32 *)&stru_140E2DAB0.PriorityFloorCounts[4 * (v9 >> 5) + 4],
           ~(2 << (v9 & 0x1F)) & ~(1 << (v9 & 0x1F)));
         *(_QWORD *)(a1 + 56) = 0LL;
       }

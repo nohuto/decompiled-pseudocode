@@ -1,13 +1,13 @@
 /*
- * XREFs of VfTargetEtwUnregister @ 0x140710114
+ * XREFs of VfTargetEtwUnregister @ 0x140710144
  * Callers:
  *     VerifierEtwUnregister @ 0x14071CFDC (VerifierEtwUnregister.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14012F004 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14012F574 (VfAvlLookupTreeNode.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall VfTargetEtwUnregister(__int64 a1)
@@ -37,7 +37,7 @@ void __fastcall VfTargetEtwUnregister(__int64 a1)
         {
           if ( i == (_QWORD *)(v6 + 16) )
           {
-            if ( !dword_140307278 && (*(_DWORD *)(v6 + 32) & 1) == 0 && (MmVerifierData & 0x800) != 0 )
+            if ( !dword_1403072B8 && (*(_DWORD *)(v6 + 32) & 1) == 0 && (MmVerifierData & 0x800) != 0 )
               VerifierBugCheckIfAppropriate(0xC4u, 0xDCuLL, 0LL, 0LL, 0LL);
             goto LABEL_12;
           }

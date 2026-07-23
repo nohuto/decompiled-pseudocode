@@ -1,22 +1,22 @@
 /*
- * XREFs of PopReleaseAdaptiveLock @ 0x1406DC630
+ * XREFs of PopReleaseAdaptiveLock @ 0x1406DD8D0
  * Callers:
- *     PopSessionInputChange @ 0x1406DC500 (PopSessionInputChange.c)
- *     PopSetDisplayStatus @ 0x1406E1F00 (PopSetDisplayStatus.c)
- *     PopSessionConnectionChange @ 0x14071D688 (PopSessionConnectionChange.c)
- *     PopAdaptivePowerSettingCallback @ 0x140745DF0 (PopAdaptivePowerSettingCallback.c)
- *     PopActiveLockScreenPowerRequest @ 0x140878C00 (PopActiveLockScreenPowerRequest.c)
- *     PopIsLockConsoleTimeoutActive @ 0x140878EF8 (PopIsLockConsoleTimeoutActive.c)
- *     PopSessionWinlogonNotification @ 0x140878FFC (PopSessionWinlogonNotification.c)
- *     PopUserPresentOverride @ 0x140879210 (PopUserPresentOverride.c)
+ *     PopSessionInputChange @ 0x1406DD7A0 (PopSessionInputChange.c)
+ *     PopSetDisplayStatus @ 0x1406E31A0 (PopSetDisplayStatus.c)
+ *     PopSessionConnectionChange @ 0x14071E928 (PopSessionConnectionChange.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140746FE0 (PopAdaptivePowerSettingCallback.c)
+ *     PopActiveLockScreenPowerRequest @ 0x140879E60 (PopActiveLockScreenPowerRequest.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x14087A158 (PopIsLockConsoleTimeoutActive.c)
+ *     PopSessionWinlogonNotification @ 0x14087A25C (PopSessionWinlogonNotification.c)
+ *     PopUserPresentOverride @ 0x14087A470 (PopUserPresentOverride.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopNotifyConsoleUserPresent @ 0x1406DBBC4 (PopNotifyConsoleUserPresent.c)
- *     PopDispatchStateCallout @ 0x1406DDC60 (PopDispatchStateCallout.c)
- *     PopSetWin32kDisplayTimeout @ 0x140879138 (PopSetWin32kDisplayTimeout.c)
- *     PopSetWin32kInputTimeout @ 0x140879198 (PopSetWin32kInputTimeout.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopNotifyConsoleUserPresent @ 0x1406DCE64 (PopNotifyConsoleUserPresent.c)
+ *     PopDispatchStateCallout @ 0x1406DEF00 (PopDispatchStateCallout.c)
+ *     PopSetWin32kDisplayTimeout @ 0x14087A398 (PopSetWin32kDisplayTimeout.c)
+ *     PopSetWin32kInputTimeout @ 0x14087A3F8 (PopSetWin32kInputTimeout.c)
  */
 
 _QWORD *PopReleaseAdaptiveLock()
@@ -43,7 +43,7 @@ _QWORD *PopReleaseAdaptiveLock()
     v2 = PopLazyContext;
     LOBYTE(PopLazyContext) = 0;
     v5 = v2;
-    v6 = qword_14040FD90;
+    v6 = qword_140410DF0;
   }
   ExReleaseResourceLite(&PopAdpmLock);
   result = KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());

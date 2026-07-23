@@ -1,20 +1,20 @@
 /*
- * XREFs of SmFpPreAllocate @ 0x1404C3258
+ * XREFs of SmFpPreAllocate @ 0x1404BE790
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140449680 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
- *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14060AA58 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140376D70 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x140609018 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x140210CF0 (SmAcquireReleaseCharges.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     SmKmAllocateMdlForLock @ 0x14037C85C (SmKmAllocateMdlForLock.c)
- *     SmFpCleanup @ 0x14037E384 (SmFpCleanup.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmAllocateMappingAddress @ 0x140A5B600 (MmAllocateMappingAddress.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     SmKmAllocateMdlForLock @ 0x1402E98DC (SmKmAllocateMdlForLock.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     SmAcquireReleaseCharges @ 0x14033A050 (SmAcquireReleaseCharges.c)
+ *     SmFpCleanup @ 0x1403780A4 (SmFpCleanup.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmAllocateMappingAddress @ 0x140A531D0 (MmAllocateMappingAddress.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmFpPreAllocate(PEX_SPIN_LOCK SpinLock, _DWORD *a2, unsigned int a3)
@@ -78,7 +78,7 @@ LABEL_2:
       ++a2;
       goto LABEL_2;
     }
-    v9 = (_OWORD *)SmAllocEx(16LL, 1883663731LL, -1);
+    v9 = (_OWORD *)SmAllocEx(0x10uLL, 0x70466D73u, -1);
     v10 = v9;
     if ( !v9 )
       break;
@@ -99,7 +99,7 @@ LABEL_2:
                               *((_QWORD *)SpinLock + 4),
                               (unsigned __int64)(unsigned __int16)(v11 >> 4) << 12,
                               1,
-                              0) )
+                              0LL) )
           break;
         MdlForLock = 8LL * (v8 + 1);
         goto LABEL_15;
@@ -107,7 +107,7 @@ LABEL_2:
       if ( v12 >= 5 )
         MdlForLock = (__int64)MmAllocateMappingAddress((unsigned __int16)((unsigned int)v11 >> 4) << 12, 0x6D526D73u);
       else
-        MdlForLock = SmAllocEx((unsigned __int16)(v11 >> 4), 1883663731LL, -1);
+        MdlForLock = SmAllocEx((unsigned __int16)(v11 >> 4), 0x70466D73u, -1);
     }
     if ( !MdlForLock )
       break;

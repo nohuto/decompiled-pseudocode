@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockStoreLockedPages @ 0x14065CE10
+ * XREFs of MiUnlockStoreLockedPages @ 0x14065D360
  * Callers:
- *     SmKmUnlockMdl @ 0x1405CBEEC (SmKmUnlockMdl.c)
- *     MmStoreProbeAndLockPages @ 0x14065D29C (MmStoreProbeAndLockPages.c)
+ *     SmKmUnlockMdl @ 0x1405CC45C (SmKmUnlockMdl.c)
+ *     MmStoreProbeAndLockPages @ 0x14065D7EC (MmStoreProbeAndLockPages.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiWriteCompletePfn @ 0x1402F4750 (MiWriteCompletePfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiWriteCompletePfn @ 0x1402F49E0 (MiWriteCompletePfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUnlockStoreLockedPages(__int64 a1)
@@ -48,10 +48,13 @@ void __fastcall MiUnlockStoreLockedPages(__int64 a1)
     else
       v9 = 0LL;
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

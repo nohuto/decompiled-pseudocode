@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtFlushDomainTb @ 0x1404DFA50
+ * XREFs of IvtFlushDomainTb @ 0x1404DFC90
  * Callers:
  *     <none>
  * Callees:
- *     IvtFlushTbInternal @ 0x1404DFAA4 (IvtFlushTbInternal.c)
+ *     IvtFlushTbInternal @ 0x1404DFCE4 (IvtFlushTbInternal.c)
  */
 
 __int64 __fastcall IvtFlushDomainTb(int a1, __int64 a2, __int64 a3, int a4)

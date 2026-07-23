@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRealtimeSaveBuffer @ 0x1407F5B4C
+ * XREFs of EtwpRealtimeSaveBuffer @ 0x1407F5E1C
  * Callers:
- *     EtwpFlushBufferToRealtime @ 0x1406BD8AC (EtwpFlushBufferToRealtime.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x1407F74D0 (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x140885EE8 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpFlushBufferToRealtime @ 0x1406BD8DC (EtwpFlushBufferToRealtime.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x1407F77A0 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x140886128 (EtwpRealtimeUpdateReferenceTime.c)
  * Callees:
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ZwWriteFile @ 0x14041AE60 (ZwWriteFile.c)
- *     EtwpEventWriteTemplateAdmin @ 0x1409E39C0 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateBackingFile @ 0x1409E3A80 (EtwpEventWriteTemplateBackingFile.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ZwWriteFile @ 0x14041B1F0 (ZwWriteFile.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x1409E3C50 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x1409E3D10 (EtwpEventWriteTemplateBackingFile.c)
  */
 
 __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, __int64 Buffer)

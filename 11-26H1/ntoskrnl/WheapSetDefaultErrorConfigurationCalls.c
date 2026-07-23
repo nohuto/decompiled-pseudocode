@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapSetDefaultErrorConfigurationCalls @ 0x1406D6C6C
+ * XREFs of WheapSetDefaultErrorConfigurationCalls @ 0x1406DAD4C
  * Callers:
- *     WheaUnconfigureErrorSource @ 0x140BFFE70 (WheaUnconfigureErrorSource.c)
+ *     WheaUnconfigureErrorSource @ 0x140C06080 (WheaUnconfigureErrorSource.c)
  * Callees:
  *     <none>
  */

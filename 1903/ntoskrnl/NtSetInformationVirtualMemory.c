@@ -25,38 +25,38 @@
  *     ExRaiseDatatypeMisalignment @ 0x140913EC0 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtSetInformationVirtualMemory(
-        void *a1,
-        int a2,
-        void *a3,
-        void *a4,
-        unsigned __int64 a5,
-        unsigned int a6)
+NTSTATUS __cdecl NtSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
   unsigned __int64 v6; // r13
   char v8; // dl
-  NTSTATUS valid; // ebx
-  unsigned int v10; // r12d
+  int valid; // ebx
+  ULONG v10; // r12d
   NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rcx
   _KPROCESS *Process; // rax
   KPROCESSOR_MODE PreviousMode; // cl
   __int64 v15; // rax
-  unsigned __int64 v16; // rcx
+  char *v16; // rcx
   unsigned int v17; // r12d
   unsigned __int64 v18; // rdx
   _QWORD *PoolWithTag; // r14
   int v20; // r8d
-  int v21; // edi
-  int v22; // edi
+  __int32 v21; // edi
+  __int32 v22; // edi
   _BYTE *v23; // rdi
-  void *v24; // r12
+  HANDLE v24; // r12
   __int64 v25; // r8
   int v26; // r10d
-  NTSTATUS v27; // eax
+  int v27; // eax
   __int64 v28; // r9
   __int64 v29; // r8
-  int v30; // edi
+  __int32 v30; // edi
   KPROCESSOR_MODE AccessMode; // [rsp+50h] [rbp-318h]
   _BYTE *P; // [rsp+58h] [rbp-310h]
   unsigned int v34; // [rsp+6Ch] [rbp-2FCh]
@@ -69,7 +69,7 @@ NTSTATUS __fastcall NtSetInformationVirtualMemory(
   PVOID v41; // [rsp+98h] [rbp-2D0h]
   _BYTE Address[40]; // [rsp+A0h] [rbp-2C8h] BYREF
   void *Src; // [rsp+C8h] [rbp-2A0h]
-  void *v44; // [rsp+D0h] [rbp-298h]
+  HANDLE v44; // [rsp+D0h] [rbp-298h]
   int v45; // [rsp+D8h] [rbp-290h]
   _KPROCESS *v46; // [rsp+E0h] [rbp-288h]
   PVOID v47; // [rsp+E8h] [rbp-280h] BYREF
@@ -77,10 +77,10 @@ NTSTATUS __fastcall NtSetInformationVirtualMemory(
   _BYTE v49[256]; // [rsp+130h] [rbp-238h] BYREF
   _BYTE v50[256]; // [rsp+230h] [rbp-138h] BYREF
 
-  Src = a4;
-  v6 = (unsigned __int64)a3;
-  v38 = a3;
-  v44 = a1;
+  Src = VirtualAddresses;
+  v6 = NumberOfEntries;
+  v38 = (PVOID)NumberOfEntries;
+  v44 = ProcessHandle;
   memset(&ApcState, 0, sizeof(ApcState));
   v45 = 0;
   v41 = 0LL;
@@ -90,26 +90,26 @@ NTSTATUS __fastcall NtSetInformationVirtualMemory(
   P = v49;
   valid = 0;
   v34 = 0;
-  if ( a2 < 0 )
+  if ( VmInformationClass < VmPrefetchInformation )
     return -1073741584;
-  if ( a2 > 1 )
+  if ( VmInformationClass > VmPagePriorityInformation )
   {
-    if ( a2 == 2 )
+    if ( VmInformationClass == VmCfgCallTargetInformation )
     {
-      v10 = a6;
-      if ( a6 == 40 )
+      v10 = VmInformationLength;
+      if ( VmInformationLength == 40 )
         goto LABEL_11;
       return -1073741580;
     }
-    if ( a2 > 4 )
+    if ( VmInformationClass > VmImageHotPatchInformation )
       return -1073741584;
   }
-  if ( !a5 )
+  if ( !VmInformation )
     return -1073741581;
-  v10 = a6;
-  if ( a6 != 4 )
+  v10 = VmInformationLength;
+  if ( VmInformationLength != 4 )
     return -1073741580;
-  if ( a2 == 4 )
+  if ( VmInformationClass == VmImageHotPatchInformation )
   {
     if ( !MiUserHotPatchReserveSize )
       return -1073741637;
@@ -123,7 +123,7 @@ LABEL_11:
   v40 = CurrentThread;
   Process = CurrentThread->ApcState.Process;
   v46 = Process;
-  if ( a2 == 2 && (*(_DWORD *)&Process[2].Spare2[7] & 0x100) != 0 )
+  if ( VmInformationClass == VmCfgCallTargetInformation && (*(_DWORD *)&Process[2].Spare2[7] & 0x100) != 0 )
   {
     if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 0x40000) == 0 )
       v8 = 1;
@@ -142,19 +142,19 @@ LABEL_11:
       if ( (unsigned __int64)Src + v15 > 0x7FFFFFFF0000LL || (char *)Src + v15 < Src )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    if ( a2 == 2 )
+    if ( VmInformationClass == VmCfgCallTargetInformation )
     {
       if ( v10 )
       {
-        if ( (a5 & 3) != 0 )
+        if ( ((unsigned __int8)VmInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        v16 = a5 + v10;
-        if ( v16 > 0x7FFFFFFF0000LL || v16 < a5 )
+        v16 = (char *)VmInformation + v10;
+        if ( (unsigned __int64)v16 > 0x7FFFFFFF0000LL || v16 < VmInformation )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      *(_OWORD *)Address = *(_OWORD *)a5;
-      *(_OWORD *)&Address[16] = *(_OWORD *)(a5 + 16);
-      *(_QWORD *)&Address[32] = *(_QWORD *)(a5 + 32);
+      *(_OWORD *)Address = *(_OWORD *)VmInformation;
+      *(_OWORD *)&Address[16] = *((_OWORD *)VmInformation + 1);
+      *(_QWORD *)&Address[32] = *((_QWORD *)VmInformation + 4);
       v17 = _mm_cvtsi128_si32(*(__m128i *)Address);
       if ( !v17 || *(_DWORD *)&Address[4] )
         return -1073741581;
@@ -167,36 +167,36 @@ LABEL_11:
     }
     else
     {
-      if ( (a5 & 3) != 0 )
+      if ( ((unsigned __int8)VmInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v34 = *(_DWORD *)a5;
+      v34 = *(_DWORD *)VmInformation;
       v17 = *(_DWORD *)Address;
     }
     v6 = (unsigned __int64)v38;
     PreviousMode = AccessMode;
     goto LABEL_41;
   }
-  if ( a2 == 2 )
+  if ( VmInformationClass == VmCfgCallTargetInformation )
   {
-    *(_OWORD *)Address = *(_OWORD *)a5;
-    *(_OWORD *)&Address[16] = *(_OWORD *)(a5 + 16);
-    *(_QWORD *)&Address[32] = *(_QWORD *)(a5 + 32);
+    *(_OWORD *)Address = *(_OWORD *)VmInformation;
+    *(_OWORD *)&Address[16] = *((_OWORD *)VmInformation + 1);
+    *(_QWORD *)&Address[32] = *((_QWORD *)VmInformation + 4);
     v17 = _mm_cvtsi128_si32(*(__m128i *)Address);
     if ( v17 && !*(_DWORD *)&Address[4] )
       goto LABEL_41;
     return -1073741581;
   }
-  v34 = *(_DWORD *)a5;
+  v34 = *(_DWORD *)VmInformation;
   v17 = *(_DWORD *)Address;
 LABEL_41:
-  if ( a1 == (void *)-1LL )
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
     Object = v46;
   }
   else
   {
     result = ObReferenceObjectByHandleWithTag(
-               a1,
+               ProcessHandle,
                8u,
                (POBJECT_TYPE)PsProcessType,
                PreviousMode,
@@ -221,7 +221,7 @@ LABEL_41:
       goto LABEL_81;
     }
   }
-  if ( a2 == 2 )
+  if ( VmInformationClass == VmCfgCallTargetInformation )
   {
     if ( v17 > 0x10 )
     {
@@ -242,11 +242,11 @@ LABEL_41:
     }
   }
   memmove(PoolWithTag, Src, 16 * v6);
-  if ( a2 == 2 )
+  if ( VmInformationClass == VmCfgCallTargetInformation )
     memmove(P, *(const void **)&Address[16], 16LL * v17);
   if ( v40->ApcState.Process != Object )
   {
-    if ( (unsigned int)(a2 - 3) <= 1 )
+    if ( (unsigned int)(VmInformationClass - 3) <= 1 )
     {
       valid = -1073741585;
       goto LABEL_80;
@@ -256,7 +256,7 @@ LABEL_41:
   }
   if ( !(unsigned int)MiValidateMemoryRangeEntries(PoolWithTag, v6, 0LL) )
     goto LABEL_102;
-  if ( !a2 )
+  if ( VmInformationClass == VmPrefetchInformation )
   {
     if ( v34 == v20 )
     {
@@ -268,7 +268,7 @@ LABEL_41:
     }
     goto LABEL_87;
   }
-  v21 = a2 - 1;
+  v21 = VmInformationClass - 1;
   if ( !v21 )
   {
     if ( v34 > 5 )
@@ -336,18 +336,18 @@ LABEL_80:
       v35 &= ~1u;
     }
     **(_DWORD **)&Address[8] = v39;
-    v24 = a1;
+    v24 = ProcessHandle;
     goto LABEL_58;
   }
   valid = -1073741582;
 LABEL_81:
-  v24 = a1;
+  v24 = ProcessHandle;
 LABEL_58:
   if ( (v35 & 1) != 0 )
     KeUnstackDetachProcess(&ApcState);
   if ( v41 )
     ObfDereferenceObject(v41);
-  if ( v24 != (void *)-1LL )
+  if ( v24 != (HANDLE)-1LL )
     ObfDereferenceObjectWithTag(Object, 0x66506D4Du);
   if ( PoolWithTag != (_QWORD *)v50 )
     ExFreePoolWithTag(PoolWithTag, 0);

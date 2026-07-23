@@ -1,10 +1,10 @@
 /*
- * XREFs of PsSetCreateProcessNotifyRoutine @ 0x140748340
+ * XREFs of PsSetCreateProcessNotifyRoutine @ 0x140749530
  * Callers:
- *     VfFaultsSetParameters @ 0x1409384A0 (VfFaultsSetParameters.c)
- *     VerifierInitSystem @ 0x1409DAED4 (VerifierInitSystem.c)
+ *     VfFaultsSetParameters @ 0x1409394A0 (VfFaultsSetParameters.c)
+ *     VerifierInitSystem @ 0x1409DBED4 (VerifierInitSystem.c)
  * Callees:
- *     PspSetCreateProcessNotifyRoutine @ 0x140748460 (PspSetCreateProcessNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140749650 (PspSetCreateProcessNotifyRoutine.c)
  */
 
 NTSTATUS __stdcall PsSetCreateProcessNotifyRoutine(PCREATE_PROCESS_NOTIFY_ROUTINE NotifyRoutine, BOOLEAN Remove)

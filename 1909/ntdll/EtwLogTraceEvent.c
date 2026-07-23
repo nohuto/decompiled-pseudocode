@@ -22,7 +22,7 @@ __int64 __fastcall EtwLogTraceEvent(int a1, unsigned __int16 *a2)
     }
     else
     {
-      v3 = NtTraceEvent((unsigned __int16)a1, 256LL, 48LL, a2);
+      v3 = NtTraceEvent((HANDLE)(unsigned __int16)a1, 0x100u, 0x30u, a2);
       if ( !v3 )
         return v2;
       return RtlNtStatusToDosError(v3);

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCleanUpKcbCacheWithLock @ 0x140436D30
+ * XREFs of CmpCleanUpKcbCacheWithLock @ 0x140435C00
  * Callers:
- *     CmpSearchKeyControlBlockTreeEx @ 0x1401B4BDC (CmpSearchKeyControlBlockTreeEx.c)
- *     CmpDelayCloseWorker @ 0x1404256F0 (CmpDelayCloseWorker.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x140437B40 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpCleanUpKCBCacheTable @ 0x14049AFB8 (CmpCleanUpKCBCacheTable.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x1401B4AC0 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpCleanUpKCBCacheTable @ 0x1403E3ED8 (CmpCleanUpKCBCacheTable.c)
+ *     CmpDelayCloseWorker @ 0x1404245C0 (CmpDelayCloseWorker.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140436A10 (CmpDereferenceKeyControlBlockWithLock.c)
  * Callees:
- *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x14000AD60 (CmpRemoveKeyHashFromDeletedKcbTable.c)
+ *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x14000A8E0 (CmpRemoveKeyHashFromDeletedKcbTable.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpRemoveKeyHash @ 0x1403FB938 (CmpRemoveKeyHash.c)
- *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x1403FB980 (CmpLockDeletedHashEntryExclusiveByKcb.c)
- *     CmpUnlockDeletedHashEntryByKcb @ 0x1403FC040 (CmpUnlockDeletedHashEntryByKcb.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x140436E10 (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpCleanUpKcbValueCache @ 0x1404372D8 (CmpCleanUpKcbValueCache.c)
- *     CmpDelayDerefKeyControlBlock @ 0x14043735C (CmpDelayDerefKeyControlBlock.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x140437B40 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpEtwDumpKcb @ 0x1405FB920 (CmpEtwDumpKcb.c)
+ *     CmpRemoveKeyHash @ 0x1403FA7F8 (CmpRemoveKeyHash.c)
+ *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x1403FA840 (CmpLockDeletedHashEntryExclusiveByKcb.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x1403FAF00 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x140435CE0 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpCleanUpKcbValueCache @ 0x1404361A8 (CmpCleanUpKcbValueCache.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x14043622C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140436A10 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpEtwDumpKcb @ 0x1405FB9D4 (CmpEtwDumpKcb.c)
  */
 
 void __fastcall CmpCleanUpKcbCacheWithLock(ULONG_PTR BugCheckParameter4, __int64 a2)

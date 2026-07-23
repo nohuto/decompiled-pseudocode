@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCombineIdenticalPages @ 0x140663BA4
+ * XREFs of MiCombineIdenticalPages @ 0x140663C88
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
- *     MiManagePartition @ 0x1406609A4 (MiManagePartition.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
+ *     MiManagePartition @ 0x140660A88 (MiManagePartition.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiCombineWorkingSet @ 0x1401F80D0 (MiCombineWorkingSet.c)
- *     MiCombiningInProgress @ 0x1401F8634 (MiCombiningInProgress.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     MiCombineAllPhysicalMemory @ 0x140663718 (MiCombineAllPhysicalMemory.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiCombineWorkingSet @ 0x1401F7EFC (MiCombineWorkingSet.c)
+ *     MiCombiningInProgress @ 0x1401F8460 (MiCombiningInProgress.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406637FC (MiCombineAllPhysicalMemory.c)
  */
 
 NTSTATUS __fastcall MiCombineIdenticalPages(__int64 a1, void *a2, int a3, KPROCESSOR_MODE a4, _QWORD *a5)
@@ -62,8 +62,8 @@ NTSTATUS __fastcall MiCombineIdenticalPages(__int64 a1, void *a2, int a3, KPROCE
     v21 = 0;
     if ( (a3 & 4) != 0 )
     {
-      v22[0] = qword_1403276B8;
-      v22[1] = qword_1403276C0;
+      v22[0] = qword_1403276F8;
+      v22[1] = qword_140327700;
       v20 = v22;
       v21 = 2;
     }

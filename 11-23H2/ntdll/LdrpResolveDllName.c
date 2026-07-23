@@ -34,9 +34,9 @@ __int64 __fastcall LdrpResolveDllName(const void **a1, __int64 a2, __int64 a3, _
   v9 = 0;
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-    1721LL,
+    1721,
     (__int64)"LdrpResolveDllName",
-    3LL,
+    3u,
     "DLL name: %wZ\n",
     a1);
   if ( (a5 & 0x200) != 0 )
@@ -89,9 +89,9 @@ LABEL_6:
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-      1837LL,
+      1837,
       (__int64)"LdrpResolveDllName",
-      2LL,
+      2u,
       "Original status: 0x%08lx\n",
       FullPath);
     FullPath = -1073741515;
@@ -102,9 +102,9 @@ LABEL_15:
 LABEL_10:
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-    1858LL,
+    1858,
     (__int64)"LdrpResolveDllName",
-    4LL,
+    4u,
     "Status: 0x%08lx\n",
     FullPath);
   return (unsigned int)FullPath;

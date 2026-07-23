@@ -1,19 +1,19 @@
 /*
- * XREFs of PsQueryProcessEnergyValues @ 0x1408ED600
+ * XREFs of PsQueryProcessEnergyValues @ 0x14085EE30
  * Callers:
- *     PspQueryProcessAccountingInformationCallback @ 0x1408ED3B0 (PspQueryProcessAccountingInformationCallback.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x1408EEF10 (PopEtProcessEnumSnapshotCallback.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1409062E8 (PopEtEnergyContextProcessStateUpdate.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PspFoldProcessAccountingIntoJob @ 0x1409EAB68 (PspFoldProcessAccountingIntoJob.c)
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x14085EBE0 (PspQueryProcessAccountingInformationCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140860740 (PopEtProcessEnumSnapshotCallback.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x14099CF68 (PopEtEnergyContextProcessStateUpdate.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1409E5458 (PspFoldProcessAccountingIntoJob.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PspUnlockProcessThreadListShared @ 0x1403EFB40 (PspUnlockProcessThreadListShared.c)
- *     PoEnergyEstimationEnabled @ 0x140448760 (PoEnergyEstimationEnabled.c)
- *     KeQueryTimelineBitmapTime @ 0x140456314 (KeQueryTimelineBitmapTime.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PspUnlockProcessThreadListShared @ 0x1403E2AC0 (PspUnlockProcessThreadListShared.c)
+ *     PoEnergyEstimationEnabled @ 0x140440E80 (PoEnergyEstimationEnabled.c)
+ *     KeQueryTimelineBitmapTime @ 0x14044B2E4 (KeQueryTimelineBitmapTime.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)
@@ -59,7 +59,7 @@ char __fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)
   int v42; // eax
   unsigned int v43; // ecx
   struct _KTHREAD *CurrentThread; // rsi
-  _QWORD *v45; // rdi
+  char *v45; // rdi
   _QWORD *i; // r10
   __int64 v47; // rdx
   __int64 v48; // r8
@@ -268,11 +268,11 @@ LABEL_50:
   *((_DWORD *)a2 + 107) = *(_DWORD *)(v5 + 428);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v45 = KeAbPreAcquire((__int64)(a1 + 188), 0LL);
+  v45 = (char *)KeAbPreAcquire((__int64)(a1 + 188), 0LL);
   if ( _InterlockedCompareExchange64(a1 + 188, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(a1 + 188, 0, v45, (__int64)(a1 + 188));
   if ( v45 )
-    *((_BYTE *)v45 + 10) = 1;
+    v45[10] = 1;
   *a2 = *(_OWORD *)v5;
   a2[1] = *(_OWORD *)(v5 + 16);
   a2[2] = *(_OWORD *)(v5 + 32);

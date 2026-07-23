@@ -1,10 +1,10 @@
 /*
- * XREFs of SepRemoveAceFromTokenDefaultDacl @ 0x140080A54
+ * XREFs of SepRemoveAceFromTokenDefaultDacl @ 0x140080AD4
  * Callers:
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
  * Callees:
- *     RtlFindAceBySid @ 0x14000C100 (RtlFindAceBySid.c)
- *     RtlDeleteAce @ 0x14047D15C (RtlDeleteAce.c)
+ *     RtlFindAceBySid @ 0x14000BC80 (RtlFindAceBySid.c)
+ *     RtlDeleteAce @ 0x14047C02C (RtlDeleteAce.c)
  */
 
 void __fastcall SepRemoveAceFromTokenDefaultDacl(__int64 a1, _WORD *a2)

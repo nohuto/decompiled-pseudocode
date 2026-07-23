@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpViewMapGrowFile @ 0x14060FF64
+ * XREFs of HvpViewMapGrowFile @ 0x140610018
  * Callers:
- *     HvViewMapChangeFileSize @ 0x14060FAD0 (HvViewMapChangeFileSize.c)
+ *     HvViewMapChangeFileSize @ 0x14060FB84 (HvViewMapChangeFileSize.c)
  * Callees:
- *     HvpViewMapViewOfPrimaryFile @ 0x140610158 (HvpViewMapViewOfPrimaryFile.c)
- *     HvpViewRemapViewOfPrimaryFile @ 0x140610284 (HvpViewRemapViewOfPrimaryFile.c)
- *     HvpViewUnmapViewOfPrimaryFile @ 0x140610488 (HvpViewUnmapViewOfPrimaryFile.c)
+ *     HvpViewMapViewOfPrimaryFile @ 0x14061020C (HvpViewMapViewOfPrimaryFile.c)
+ *     HvpViewRemapViewOfPrimaryFile @ 0x140610338 (HvpViewRemapViewOfPrimaryFile.c)
+ *     HvpViewUnmapViewOfPrimaryFile @ 0x14061053C (HvpViewUnmapViewOfPrimaryFile.c)
  */
 
 __int64 __fastcall HvpViewMapGrowFile(__int64 a1, __int64 a2, int a3)

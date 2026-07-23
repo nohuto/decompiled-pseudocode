@@ -49,9 +49,9 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)
   unsigned __int8 *v29; // [rsp+30h] [rbp-40h]
   SIZE_T NumberOfBytes; // [rsp+38h] [rbp-38h]
   _BYTE SecurityDescriptor[48]; // [rsp+40h] [rbp-30h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+40h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v33; // [rsp+C0h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v34; // [rsp+C8h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v33; // [rsp+C0h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v34; // [rsp+C8h] [rbp+58h] BYREF
 
   *(_WORD *)&v33.Value[4] = 1280;
   *(_DWORD *)v33.Value = 0;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQueryProcessAttributesByToken @ 0x1409B20D0
+ * XREFs of PsQueryProcessAttributesByToken @ 0x1409A9790
  * Callers:
- *     EtwpApplyPackageIdFilter @ 0x140A7F91C (EtwpApplyPackageIdFilter.c)
+ *     EtwpApplyPackageIdFilter @ 0x140A7975C (EtwpApplyPackageIdFilter.c)
  * Callees:
- *     SeSecurityAttributePresent @ 0x1403438C0 (SeSecurityAttributePresent.c)
+ *     SeSecurityAttributePresent @ 0x140322DA0 (SeSecurityAttributePresent.c)
  */
 
 void __fastcall PsQueryProcessAttributesByToken(__int64 a1, _BYTE *a2, _BYTE *a3)

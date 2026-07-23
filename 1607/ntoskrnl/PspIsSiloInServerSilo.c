@@ -1,9 +1,9 @@
 /*
- * XREFs of PspIsSiloInServerSilo @ 0x14020F6C8
+ * XREFs of PspIsSiloInServerSilo @ 0x14020F4F4
  * Callers:
- *     NtQueryInformationJobObject @ 0x140466FD0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140465EA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x140076688 (PsGetEffectiveServerSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x140076708 (PsGetEffectiveServerSilo.c)
  */
 
 bool __fastcall PspIsSiloInServerSilo(__int64 a1)

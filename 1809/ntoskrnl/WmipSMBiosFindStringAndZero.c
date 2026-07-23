@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipSMBiosFindStringAndZero @ 0x1408B30A0
+ * XREFs of WmipSMBiosFindStringAndZero @ 0x1408B4300
  * Callers:
- *     WmipSMBiosHideMachine @ 0x1408B31B0 (WmipSMBiosHideMachine.c)
+ *     WmipSMBiosHideMachine @ 0x1408B4410 (WmipSMBiosHideMachine.c)
  * Callees:
- *     strchr @ 0x140196EC0 (strchr.c)
+ *     strchr @ 0x140197000 (strchr.c)
  */
 
 __int64 __fastcall WmipSMBiosFindStringAndZero(__int64 a1, int a2, unsigned int a3)

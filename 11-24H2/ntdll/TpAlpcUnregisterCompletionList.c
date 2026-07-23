@@ -1,10 +1,10 @@
 /*
- * XREFs of TpAlpcUnregisterCompletionList @ 0x180068E80
+ * XREFs of TpAlpcUnregisterCompletionList @ 0x180084A10
  * Callers:
  *     <none>
  * Callees:
- *     TppAlpcpValidateAlpc @ 0x180069F4C (TppAlpcpValidateAlpc.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     TppAlpcpValidateAlpc @ 0x18008663C (TppAlpcpValidateAlpc.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
 __int64 __fastcall TpAlpcUnregisterCompletionList(__int64 a1)

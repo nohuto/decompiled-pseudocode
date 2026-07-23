@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFindEmptyAddressRangeDownTree @ 0x1404BAC5C
+ * XREFs of MiFindEmptyAddressRangeDownTree @ 0x1404A698C
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiFindEmptyAddressRangeDown @ 0x1404BABB4 (MiFindEmptyAddressRangeDown.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiFindEmptyAddressRangeDown @ 0x1404A68E4 (MiFindEmptyAddressRangeDown.c)
  * Callees:
  *     <none>
  */

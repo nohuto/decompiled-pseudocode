@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpHpCompactionRoutine @ 0x1404859E0
+ * XREFs of ExpHpCompactionRoutine @ 0x140480FD0
  * Callers:
  *     <none>
  * Callees:
- *     ExpHpEnumerateHeaps @ 0x140485A24 (ExpHpEnumerateHeaps.c)
- *     ExpCompactPrivatePools @ 0x140A4AE8C (ExpCompactPrivatePools.c)
+ *     ExpHpEnumerateHeaps @ 0x140481014 (ExpHpEnumerateHeaps.c)
+ *     ExpCompactPrivatePools @ 0x140A41B0C (ExpCompactPrivatePools.c)
  */
 
 __int64 __fastcall ExpHpCompactionRoutine(__int64 a1)

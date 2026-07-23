@@ -1,18 +1,19 @@
 /*
- * XREFs of PnpCopyDevProperty @ 0x1409FA314
+ * XREFs of PnpCopyDevProperty @ 0x1409F2C84
  * Callers:
- *     PnpCopyDevPropertyArray @ 0x1409FA240 (PnpCopyDevPropertyArray.c)
+ *     PnpCopyDevPropertyArray @ 0x1409F2BB0 (PnpCopyDevPropertyArray.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpAllocatePWSTR @ 0x1408D3DA4 (PnpAllocatePWSTR.c)
- *     PnpFreeDevProperty @ 0x1409FA3E4 (PnpFreeDevProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpAllocatePWSTR @ 0x1408D1794 (PnpAllocatePWSTR.c)
+ *     PnpFreeDevProperty @ 0x1409F2D54 (PnpFreeDevProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpCopyDevProperty(__int64 a1, ULONG a2, __int64 a3)
 {
   int PWSTR; // edi
   _WORD *v7; // rcx
+  unsigned int v8; // eax
   __int64 Pool2; // rax
 
   PWSTR = 0;
@@ -28,9 +29,10 @@ __int64 __fastcall PnpCopyDevProperty(__int64 a1, ULONG a2, __int64 a3)
     if ( PWSTR < 0 )
       goto LABEL_7;
   }
-  if ( *(_DWORD *)(a3 + 36) )
+  v8 = *(_DWORD *)(a3 + 36);
+  if ( v8 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v8, a2);
     *(_QWORD *)(a3 + 40) = Pool2;
     if ( !Pool2 )
     {

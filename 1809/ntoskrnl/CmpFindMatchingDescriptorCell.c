@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFindMatchingDescriptorCell @ 0x1405AD000
+ * XREFs of CmpFindMatchingDescriptorCell @ 0x1405AE000
  * Callers:
- *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x140581AB8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1405B8C5C (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     memcmp @ 0x140196200 (memcmp.c)
- *     RtlLengthSecurityDescriptorStrict @ 0x1401B5EB4 (RtlLengthSecurityDescriptorStrict.c)
- *     CmpSecConvKey @ 0x1405AD0CC (CmpSecConvKey.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x1401B601C (RtlLengthSecurityDescriptorStrict.c)
+ *     CmpSecConvKey @ 0x1405AE0CC (CmpSecConvKey.c)
  */
 
 char __fastcall CmpFindMatchingDescriptorCell(__int64 a1, const void *a2, int a3, _DWORD *a4, int **a5)

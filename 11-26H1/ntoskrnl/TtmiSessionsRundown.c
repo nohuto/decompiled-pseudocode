@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiSessionsRundown @ 0x1407E67DC
+ * XREFs of TtmiSessionsRundown @ 0x1407EC33C
  * Callers:
- *     TtmpTraceLoggingCallback @ 0x1407EBA20 (TtmpTraceLoggingCallback.c)
+ *     TtmpTraceLoggingCallback @ 0x1407F1580 (TtmpTraceLoggingCallback.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiDevicesRundown @ 0x1407E5108 (TtmiDevicesRundown.c)
- *     TtmiAcquireCurrentSession @ 0x1407E6640 (TtmiAcquireCurrentSession.c)
- *     TtmiLogSessionRundown @ 0x1407EA9E8 (TtmiLogSessionRundown.c)
- *     TtmiTerminalsRundown @ 0x1407EC584 (TtmiTerminalsRundown.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiDevicesRundown @ 0x1407EAC68 (TtmiDevicesRundown.c)
+ *     TtmiAcquireCurrentSession @ 0x1407EC1A0 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogSessionRundown @ 0x1407F0548 (TtmiLogSessionRundown.c)
+ *     TtmiTerminalsRundown @ 0x1407F20E8 (TtmiTerminalsRundown.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 void __fastcall TtmiSessionsRundown(__int64 a1, __int64 a2, __int64 a3)
@@ -44,7 +44,7 @@ void __fastcall TtmiSessionsRundown(__int64 a1, __int64 a2, __int64 a3)
   }
   if ( v4 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
 }

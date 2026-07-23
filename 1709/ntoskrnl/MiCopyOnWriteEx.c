@@ -186,7 +186,8 @@ __int64 __fastcall MiCopyOnWriteEx(unsigned __int64 a1, __int64 *a2, __int64 Pag
       goto LABEL_15;
   }
   if ( PsNtosImageBase
-    && (v9 >= PsNtosImageBase && v9 < PsNtosImageEnd || v9 >= (unsigned __int64)PsHalImageBase && v9 < PsHalImageEnd) )
+    && (v9 >= (unsigned __int64)PsNtosImageBase && v9 < PsNtosImageEnd
+     || v9 >= (unsigned __int64)PsHalImageBase && v9 < PsHalImageEnd) )
   {
 LABEL_15:
     v16 = 0;

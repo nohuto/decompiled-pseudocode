@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpVolumeContextSendDeviceUsageNotification @ 0x1407C8E74
+ * XREFs of CmpVolumeContextSendDeviceUsageNotification @ 0x1407C9194
  * Callers:
- *     CmpHandlePageFileOpenNotification @ 0x1407C8D38 (CmpHandlePageFileOpenNotification.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407C9058 (CmpHandlePageFileOpenNotification.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     CmpVolumeContextUnlockShared @ 0x1407C8F04 (CmpVolumeContextUnlockShared.c)
- *     CmpVolumeContextLockShared @ 0x1407C8F38 (CmpVolumeContextLockShared.c)
- *     CmpVolumeContextUnlockExclusive @ 0x1407C9020 (CmpVolumeContextUnlockExclusive.c)
- *     PpPagePathAssign @ 0x1408A0FA0 (PpPagePathAssign.c)
- *     PpPagePathRelease @ 0x1408A0FB8 (PpPagePathRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpVolumeContextUnlockShared @ 0x1407C9224 (CmpVolumeContextUnlockShared.c)
+ *     CmpVolumeContextLockShared @ 0x1407C9258 (CmpVolumeContextLockShared.c)
+ *     CmpVolumeContextUnlockExclusive @ 0x1407C9340 (CmpVolumeContextUnlockExclusive.c)
+ *     PpPagePathAssign @ 0x1408A1100 (PpPagePathAssign.c)
+ *     PpPagePathRelease @ 0x1408A1118 (PpPagePathRelease.c)
  */
 
 __int64 __fastcall CmpVolumeContextSendDeviceUsageNotification(__int64 a1)

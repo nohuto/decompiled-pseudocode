@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPmuArbiterQueryRegistryQuantum @ 0x140781878
+ * XREFs of HalpPmuArbiterQueryRegistryQuantum @ 0x140784378
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140BEA9A0 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x140BF09A0 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmGetSystemRoutineAddress @ 0x140A864E0 (MmGetSystemRoutineAddress.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmGetSystemRoutineAddress @ 0x140A8B460 (MmGetSystemRoutineAddress.c)
  */
 
 __int64 HalpPmuArbiterQueryRegistryQuantum()

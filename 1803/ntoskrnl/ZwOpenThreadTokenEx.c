@@ -9,7 +9,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenThreadTokenEx(
         HANDLE ThreadHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwOpenThreadTokenEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, *(_QWORD *)&DesiredAccess, OpenAsSelf);
+  return KiServiceInternal(ThreadHandle);
 }

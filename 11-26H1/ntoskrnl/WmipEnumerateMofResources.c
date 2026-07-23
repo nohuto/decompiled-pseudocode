@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipEnumerateMofResources @ 0x140B1A378
+ * XREFs of WmipEnumerateMofResources @ 0x140A0A008
  * Callers:
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
  */
 
 __int64 __fastcall WmipEnumerateMofResources(int *a1, unsigned int a2, int *a3)
@@ -13,15 +13,15 @@ __int64 __fastcall WmipEnumerateMofResources(int *a1, unsigned int a2, int *a3)
   unsigned __int64 v4; // rdi
   int v6; // r10d
   __int64 v7; // r11
-  struct _LIST_ENTRY *Flink; // r8
+  _QWORD *v8; // r8
   __int64 v9; // rcx
   __int64 v10; // rax
-  struct _LIST_ENTRY *v11; // r9
+  _QWORD *v11; // r9
   int v12; // ebx
   unsigned __int64 v14; // rbp
   __int64 v15; // r14
   unsigned int v16; // r12d
-  struct _LIST_ENTRY *v17; // rdi
+  _QWORD *v17; // rdi
   __int64 v18; // rax
   __int64 v19; // r15
   __int64 v20; // rax
@@ -29,11 +29,11 @@ __int64 __fastcall WmipEnumerateMofResources(int *a1, unsigned int a2, int *a3)
   __int64 v22; // rax
 
   v4 = a2;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v6 = 0;
   v7 = 0LL;
-  Flink = EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink->Flink;
-  if ( EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink->Flink == EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink )
+  v8 = *(_QWORD **)WmipMRHeadPtr;
+  if ( *(_QWORD *)WmipMRHeadPtr == WmipMRHeadPtr )
     goto LABEL_8;
   do
   {
@@ -41,16 +41,16 @@ __int64 __fastcall WmipEnumerateMofResources(int *a1, unsigned int a2, int *a3)
     v9 = -1LL;
     do
       ++v9;
-    while ( *((_WORD *)&Flink[2].Blink->Flink + v9) );
+    while ( *(_WORD *)(v8[5] + 2 * v9) );
     v10 = -1LL;
     do
       ++v10;
-    while ( *((_WORD *)&Flink[3].Flink->Flink + v10) );
-    Flink = Flink->Flink;
-    v11 = EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink;
+    while ( *(_WORD *)(v8[6] + 2 * v10) );
+    v8 = (_QWORD *)*v8;
+    v11 = (_QWORD *)WmipMRHeadPtr;
     v7 += 2 * (v9 + v10) + 4;
   }
-  while ( Flink != EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink );
+  while ( v8 != (_QWORD *)WmipMRHeadPtr );
   if ( v6 )
   {
     v14 = v4;
@@ -65,32 +65,32 @@ __int64 __fastcall WmipEnumerateMofResources(int *a1, unsigned int a2, int *a3)
     {
       *a1 = v6;
       v16 = 0;
-      v17 = v11->Flink;
-      if ( v11->Flink != v11 )
+      v17 = (_QWORD *)*v11;
+      if ( (_QWORD *)*v11 != v11 )
       {
         do
         {
           v18 = v16++;
           v19 = 3 * v18;
-          LODWORD(v18) = (__int64)v17[1].Flink & 1;
+          LODWORD(v18) = v17[2] & 1;
           a1[v19 + 1] = v15;
           a1[v19 + 3] = v18;
-          RtlStringCbCopyW((NTSTRSAFE_PWSTR)((char *)a1 + v15), v14 - v15, (NTSTRSAFE_PCWSTR)v17[2].Blink);
+          RtlStringCbCopyW((NTSTRSAFE_PWSTR)((char *)a1 + v15), v14 - v15, (NTSTRSAFE_PCWSTR)v17[5]);
           v20 = -1LL;
           do
             ++v20;
-          while ( *((_WORD *)&v17[2].Blink->Flink + v20) );
+          while ( *(_WORD *)(v17[5] + 2 * v20) );
           v21 = v15 + 2 * v20 + 2;
           a1[v19 + 2] = v21;
-          RtlStringCbCopyW((NTSTRSAFE_PWSTR)((char *)a1 + v21), v14 - v21, (NTSTRSAFE_PCWSTR)v17[3].Flink);
+          RtlStringCbCopyW((NTSTRSAFE_PWSTR)((char *)a1 + v21), v14 - v21, (NTSTRSAFE_PCWSTR)v17[6]);
           v22 = -1LL;
           do
             ++v22;
-          while ( *((_WORD *)&v17[3].Flink->Flink + v22) );
-          v17 = v17->Flink;
+          while ( *(_WORD *)(v17[6] + 2 * v22) );
+          v17 = (_QWORD *)*v17;
           v15 = v21 + 2 * v22 + 2;
         }
-        while ( v17 != EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink );
+        while ( v17 != (_QWORD *)WmipMRHeadPtr );
       }
     }
   }
@@ -101,6 +101,6 @@ LABEL_8:
     v12 = 16;
   }
   *a3 = v12;
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   return 0LL;
 }

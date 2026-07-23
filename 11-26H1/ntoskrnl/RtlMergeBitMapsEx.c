@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlMergeBitMapsEx @ 0x140618AE0
+ * XREFs of RtlMergeBitMapsEx @ 0x14061BB30
  * Callers:
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D304C (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     MiMergePageNodes @ 0x1407090F4 (MiMergePageNodes.c)
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
- *     MiSelectRelocationStartHint @ 0x140AECDF0 (MiSelectRelocationStartHint.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D583C (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     MiMergePageNodes @ 0x14070DDA8 (MiMergePageNodes.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
+ *     MiSelectRelocationStartHint @ 0x140AEFE00 (MiSelectRelocationStartHint.c)
  * Callees:
  *     <none>
  */

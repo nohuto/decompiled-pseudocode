@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSynchronousPageWrite @ 0x140142E48
+ * XREFs of MiSynchronousPageWrite @ 0x1401433B8
  * Callers:
- *     MiZeroPageFileFirstPage @ 0x140569090 (MiZeroPageFileFirstPage.c)
+ *     MiZeroPageFileFirstPage @ 0x1405695D0 (MiZeroPageFileFirstPage.c)
  * Callees:
  *     <none>
  */

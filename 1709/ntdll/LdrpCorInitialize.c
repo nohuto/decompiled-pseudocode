@@ -17,24 +17,24 @@
  *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpCorInitialize(_QWORD *a1)
+__int64 __fastcall LdrpCorInitialize(PVOID *a1)
 {
   bool v2; // bl
   int Dll; // ebx
   int *v4; // rdi
-  __int64 v5; // rcx
-  __int64 v7; // [rsp+30h] [rbp-1B8h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-1B0h] BYREF
+  PVOID v5; // rcx
+  PVOID BaseAddress; // [rsp+30h] [rbp-1B8h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+38h] [rbp-1B0h] BYREF
   int v9; // [rsp+40h] [rbp-1A8h] BYREF
   _WORD *v10; // [rsp+48h] [rbp-1A0h]
   _WORD v11[128]; // [rsp+50h] [rbp-198h] BYREF
-  _QWORD v12[15]; // [rsp+150h] [rbp-98h] BYREF
+  PWSTR Path[15]; // [rsp+150h] [rbp-98h] BYREF
   char v13; // [rsp+1CCh] [rbp-1Ch]
 
   v2 = 1;
   RtlEnterCriticalSection(&FastPebLock);
-  if ( (unsigned int)RtlQueryEnvironmentVariable(0LL, L"COMPLUS_InstallRoot", 19LL, 0LL, 0LL, &v8) == -1073741789 )
-    v2 = (unsigned int)RtlQueryEnvironmentVariable(0LL, L"COMPLUS_Version", 15LL, 0LL, 0LL, &v8) != -1073741789;
+  if ( RtlQueryEnvironmentVariable(0LL, L"COMPLUS_InstallRoot", 0x13uLL, 0LL, 0LL, &ReturnLength) == -1073741789 )
+    v2 = RtlQueryEnvironmentVariable(0LL, L"COMPLUS_Version", 0xFuLL, 0LL, 0LL, &ReturnLength) != -1073741789;
   RtlLeaveCriticalSection(&FastPebLock);
   v10 = v11;
   v9 = 0x1000000;
@@ -51,23 +51,23 @@ __int64 __fastcall LdrpCorInitialize(_QWORD *a1)
   }
   if ( Dll >= 0 )
   {
-    LdrpInitializeDllPath(0LL, 0LL, v12);
-    Dll = LdrpLoadDll((_DWORD)v4, (unsigned int)v12, 0, 0, (__int64)&v7);
+    LdrpInitializeDllPath(0LL, 0LL, Path);
+    Dll = LdrpLoadDll((_DWORD)v4, (unsigned int)Path, 0, 0, (__int64)&BaseAddress);
     if ( v13 )
-      RtlReleasePath(v12[0]);
+      RtlReleasePath(Path[0]);
     if ( Dll >= 0 )
     {
-      Dll = LdrpGetProcedureAddress(*(_QWORD *)(v7 + 48), "_CorExeMain", 0LL, &v8);
+      Dll = LdrpGetProcedureAddress(*((_QWORD *)BaseAddress + 6));
       if ( Dll < 0 )
       {
-        LdrpDecrementModuleLoadCountEx(v7, 0);
-        v5 = v7;
+        LdrpDecrementModuleLoadCountEx((__int64)BaseAddress, 0);
+        v5 = BaseAddress;
       }
       else
       {
-        LdrpCorExeMainRoutine = __ROR8__(v8 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
-        v5 = v7;
-        *a1 = v7;
+        LdrpCorExeMainRoutine = __ROR8__(ReturnLength ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
+        v5 = BaseAddress;
+        *a1 = BaseAddress;
       }
       LdrpDereferenceModule(v5);
     }

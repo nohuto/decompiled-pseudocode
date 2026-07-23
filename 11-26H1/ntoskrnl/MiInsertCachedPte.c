@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInsertCachedPte @ 0x1402821D0
+ * XREFs of MiInsertCachedPte @ 0x140281740
  * Callers:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     MiReleasePteMappings @ 0x1402A3B00 (MiReleasePteMappings.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     MiEmptyPteBins @ 0x14035F190 (MiEmptyPteBins.c)
- *     MiMakeLinkedListPte @ 0x140365844 (MiMakeLinkedListPte.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     MiReleasePteMappings @ 0x1402A3050 (MiReleasePteMappings.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     MiEmptyPteBins @ 0x140360F30 (MiEmptyPteBins.c)
+ *     MiMakeLinkedListPte @ 0x1403675E4 (MiMakeLinkedListPte.c)
  */
 
 __int64 __fastcall MiInsertCachedPte(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
@@ -74,12 +74,12 @@ __int64 __fastcall MiInsertCachedPte(__int64 a1, unsigned __int64 *a2, unsigned 
   else
   {
     v23 = (unsigned int)CLFS_LSN_NULL_EXT | ((unsigned __int64)(unsigned int)a3 << 32);
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
-      if ( (qword_140E2D740 & v23) != 0 )
+      if ( (qword_140E2D8C0 & v23) != 0 )
         v23 |= 0x10uLL;
       else
-        v23 |= qword_140E2D740;
+        v23 |= qword_140E2D8C0;
     }
     if ( v6 == 2 )
       v23 = v23 & 0xFFFFFFFFFFFFFC1FuLL | 0x200;
@@ -119,11 +119,11 @@ __int64 __fastcall MiInsertCachedPte(__int64 a1, unsigned __int64 *a2, unsigned 
     if ( (_DWORD)v5 != 1 )
     {
       v24 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC1FuLL | 0x200;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         v25 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC0FuLL | 0x210;
-        if ( (qword_140E2D740 & v24) == 0 )
-          v25 = qword_140E2D740 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFE1FuLL | 0x200;
+        if ( (qword_140E2D8C0 & v24) == 0 )
+          v25 = qword_140E2D8C0 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFE1FuLL | 0x200;
         v24 = v25;
       }
       a2[1] = v24;
@@ -140,12 +140,12 @@ __int64 __fastcall MiInsertCachedPte(__int64 a1, unsigned __int64 *a2, unsigned 
 LABEL_7:
   v14 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0x8000000000FFFFFFuLL | ((unsigned __int64)v12 << 24);
   v15 = v12;
-  if ( qword_140E2D740 )
+  if ( qword_140E2D8C0 )
   {
-    if ( (qword_140E2D740 & v14) != 0 )
+    if ( (qword_140E2D8C0 & v14) != 0 )
       v14 |= 0x10uLL;
     else
-      v14 |= qword_140E2D740;
+      v14 |= qword_140E2D8C0;
   }
   v16 = *a2;
   if ( v6 == 2 )
@@ -204,12 +204,12 @@ LABEL_13:
       }
     }
     v19 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0x8000000000FFFFFFuLL | ((v17 & 0x7FFFFFFFFF0000LL) << 8);
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
-      if ( (qword_140E2D740 & v19) != 0 )
+      if ( (qword_140E2D8C0 & v19) != 0 )
         v19 |= 0x10uLL;
       else
-        v19 |= qword_140E2D740;
+        v19 |= qword_140E2D8C0;
     }
     v20 = v10 | v19 & 0xFFFFFFFFFFFFFFFBuLL;
     if ( (v16 & 0x3E0) == 0x200 )

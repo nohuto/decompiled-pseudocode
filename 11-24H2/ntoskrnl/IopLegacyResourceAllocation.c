@@ -1,28 +1,28 @@
 /*
- * XREFs of IopLegacyResourceAllocation @ 0x140A0FC24
+ * XREFs of IopLegacyResourceAllocation @ 0x1409BE034
  * Callers:
- *     IoAssignResources @ 0x14071C650 (IoAssignResources.c)
- *     IoReportResourceUsageInternal @ 0x140720F18 (IoReportResourceUsageInternal.c)
- *     IopDestroyDeviceNode @ 0x140A0F43C (IopDestroyDeviceNode.c)
- *     IopReleaseDeviceResources @ 0x140A10CF8 (IopReleaseDeviceResources.c)
+ *     IoAssignResources @ 0x14071A1E0 (IoAssignResources.c)
+ *     IoReportResourceUsageInternal @ 0x14071EAA8 (IoReportResourceUsageInternal.c)
+ *     IopDestroyDeviceNode @ 0x1409BD84C (IopDestroyDeviceNode.c)
+ *     IopReleaseDeviceResources @ 0x1409BF108 (IopReleaseDeviceResources.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x1403D91C0 (KeReleaseSemaphore.c)
- *     IopSetLegacyResourcesFlag @ 0x1405A6848 (IopSetLegacyResourcesFlag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopReleaseResources @ 0x1407244C4 (IopReleaseResources.c)
- *     IopCombineLegacyResources @ 0x140724F70 (IopCombineLegacyResources.c)
- *     IopRemoveLegacyDeviceNode @ 0x140725130 (IopRemoveLegacyDeviceNode.c)
- *     PnpAllocateResources @ 0x14098DAA8 (PnpAllocateResources.c)
- *     PnpDetermineResourceListSize @ 0x14098E258 (PnpDetermineResourceListSize.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x140A8D634 (IopWriteAllocatedResourcesToRegistry.c)
- *     IopFindLegacyDeviceNode @ 0x140AAF2E8 (IopFindLegacyDeviceNode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     KeReleaseSemaphore @ 0x1402F2490 (KeReleaseSemaphore.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IopSetLegacyResourcesFlag @ 0x1405A377C (IopSetLegacyResourcesFlag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopReleaseResources @ 0x140722054 (IopReleaseResources.c)
+ *     IopCombineLegacyResources @ 0x140722B00 (IopCombineLegacyResources.c)
+ *     IopRemoveLegacyDeviceNode @ 0x140722CC0 (IopRemoveLegacyDeviceNode.c)
+ *     PnpAllocateResources @ 0x140978AE0 (PnpAllocateResources.c)
+ *     PnpDetermineResourceListSize @ 0x140979290 (PnpDetermineResourceListSize.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x140A89C08 (IopWriteAllocatedResourcesToRegistry.c)
+ *     IopFindLegacyDeviceNode @ 0x140AAA1C8 (IopFindLegacyDeviceNode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopLegacyResourceAllocation(int a1, __int64 a2, __int64 a3, __int64 a4, const void **a5)
@@ -33,7 +33,7 @@ __int64 __fastcall IopLegacyResourceAllocation(int a1, __int64 a2, __int64 a3, _
   int LegacyDeviceNode; // r14d
   _QWORD *v11; // rbx
   _DWORD *v12; // rcx
-  size_t v13; // r13
+  ULONG_PTR v13; // r13
   void *Pool2; // r12
   __int64 v15; // rsi
   _DWORD *v16; // rax
@@ -93,7 +93,7 @@ LABEL_11:
       if ( *a5 )
         v12 = *a5;
       v13 = (unsigned int)PnpDetermineResourceListSize(v12);
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, v13, 0x20207050u);
       if ( Pool2 )
       {
         if ( *a5 )

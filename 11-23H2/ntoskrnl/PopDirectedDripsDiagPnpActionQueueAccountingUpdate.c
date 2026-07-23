@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x1405A0448
+ * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x1405A0938
  * Callers:
- *     PopDirectedDripsHandleResiliencyNotification @ 0x140983530 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x140983730 (PopDirectedDripsHandleResiliencyNotification.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1405A04EC (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1405A09DC (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdate(__int64 a1, char a2)
@@ -19,17 +19,17 @@ __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdate(__int64 a1
   _DWORD *SchedulerAssist; // r9
   bool v9; // zf
 
-  v5 = KeAcquireSpinLockRaiseToDpc(&qword_140C38ED0);
-  if ( byte_140C38F50 != a2 )
+  v5 = KeAcquireSpinLockRaiseToDpc(&qword_140C38FF0);
+  if ( byte_140C39070 != a2 )
   {
     LOBYTE(v3) = a2;
     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(v4, v3);
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38ED0);
-  if ( KiIrqlFlags )
+  result = KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38FF0);
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

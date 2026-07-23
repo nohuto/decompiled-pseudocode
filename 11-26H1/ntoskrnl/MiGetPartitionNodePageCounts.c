@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPartitionNodePageCounts @ 0x1403C84E0
+ * XREFs of MiGetPartitionNodePageCounts @ 0x1403D23D0
  * Callers:
- *     MiGetPartitionNodeInformation @ 0x140258FD8 (MiGetPartitionNodeInformation.c)
- *     MiGetNodeChannelPageCounts @ 0x1403C831C (MiGetNodeChannelPageCounts.c)
+ *     MiGetPartitionNodeInformation @ 0x14025A7B8 (MiGetPartitionNodeInformation.c)
+ *     MiGetNodeChannelPageCounts @ 0x1403D220C (MiGetNodeChannelPageCounts.c)
  * Callees:
- *     MiSnapPageMoveInProgress @ 0x1403C85E0 (MiSnapPageMoveInProgress.c)
- *     MiWaitForPageMoveComplete @ 0x1403C8610 (MiWaitForPageMoveComplete.c)
+ *     MiSnapPageMoveInProgress @ 0x1403D24D0 (MiSnapPageMoveInProgress.c)
+ *     MiWaitForPageMoveComplete @ 0x1403D2500 (MiWaitForPageMoveComplete.c)
  */
 
 __int64 __fastcall MiGetPartitionNodePageCounts(__int64 a1, unsigned int a2, __int64 a3)

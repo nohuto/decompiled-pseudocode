@@ -16,8 +16,8 @@
 
 char __fastcall RtlpUnlockHeapInternal(__int64 a1)
 {
-  __int64 v2; // rcx
-  _BYTE v4[6]; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_CRITICAL_SECTION *v2; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v5; // [rsp+26h] [rbp-32h]
   __int64 v6; // [rsp+40h] [rbp-18h]
 
@@ -28,12 +28,12 @@ char __fastcall RtlpUnlockHeapInternal(__int64 a1)
   else
   {
     if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-      return qword_180143CE8(a1);
+      return ((__int64 (__fastcall *)(__int64))qword_180143CE8)(a1);
     if ( !RtlpCheckHeapSignature((_DWORD *)a1, "RtlUnlockHeap") )
       return 0;
     if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
     {
-      v2 = *(_QWORD *)(a1 + 352);
+      v2 = *(_RTL_CRITICAL_SECTION **)(a1 + 352);
       --*(_WORD *)(a1 + 376);
       RtlLeaveCriticalSection(v2);
     }
@@ -44,7 +44,7 @@ char __fastcall RtlpUnlockHeapInternal(__int64 a1)
     {
       v6 = a1;
       v5 = 4140;
-      NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v4);
+      NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
     }
   }
   return 1;

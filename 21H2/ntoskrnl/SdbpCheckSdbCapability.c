@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     SdbpIsSdbCapabilityPresent @ 0x1405D1F50 (SdbpIsSdbCapabilityPresent.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756740 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpCheckSdbCapability(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)

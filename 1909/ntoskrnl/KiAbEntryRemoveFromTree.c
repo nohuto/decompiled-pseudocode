@@ -184,143 +184,143 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiAbEntryRemoveFromTree(__int64 a1)
+__int64 __fastcall KiAbEntryRemoveFromTree(PRTL_BALANCED_NODE Node)
 {
   __int64 v2; // rax
   volatile LONG *v3; // r15
-  unsigned __int64 v4; // r14
+  _RTL_RB_TREE *v4; // r14
   unsigned __int8 CurrentIrql; // r12
   int i; // edi
-  __int64 v7; // rax
-  __int64 v8; // rbx
+  _RTL_BALANCED_NODE *Min; // rax
+  unsigned __int64 Root; // rbx
   int v9; // edx
   unsigned __int64 v10; // rax
   unsigned int v11; // eax
-  __int64 v12; // rax
-  __int64 *v13; // rcx
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_RB_TREE *v13; // rcx
   char v14; // al
-  __int64 v15; // rcx
+  char *v15; // rcx
   __int64 result; // rax
-  __int64 v17; // rdi
+  _RTL_BALANCED_NODE *v17; // rdi
   __int16 v18; // cx
   struct _KPRCB *CurrentPrcb; // rcx
   unsigned __int64 v20; // [rsp+20h] [rbp-68h]
-  unsigned int v21; // [rsp+28h] [rbp-60h]
+  unsigned int ParentValue; // [rsp+28h] [rbp-60h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-58h] BYREF
   struct _KLOCK_QUEUE_HANDLE v23; // [rsp+48h] [rbp-40h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   memset(&v23, 0, sizeof(v23));
-  v21 = *(_DWORD *)(a1 + 40);
-  v20 = *(_QWORD *)(a1 + 32) & 0x7FFFFFFFFFFFFFFCLL;
+  ParentValue = Node[1].ParentValue;
+  v20 = (__int64)Node[1].Children[1] & 0x7FFFFFFFFFFFFFFCLL;
   v2 = ((v20 >> 4) & 0x3FF) << 6;
   v3 = (volatile LONG *)((char *)&KiAbTreeArray + v2 + 16);
-  v4 = (unsigned __int64)&KiAbTreeArray + v2;
+  v4 = (_RTL_RB_TREE *)((char *)&KiAbTreeArray + v2);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
     _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
-  for ( i = *(_BYTE *)(a1 + 27) & 1; ; i = 1 )
+  for ( i = BYTE3(Node[1].Left) & 1; ; i = 1 )
   {
     if ( i )
       ExAcquireSpinLockExclusiveAtDpcLevel(v3);
     else
       ExAcquireSpinLockSharedAtDpcLevel(v3);
-    v7 = *(_QWORD *)(v4 + 8);
-    v8 = *(_QWORD *)v4;
-    if ( (v7 & 1) != 0 )
+    Min = v4->Min;
+    Root = (unsigned __int64)v4->Root;
+    if ( ((unsigned __int8)Min & 1) != 0 )
     {
-      if ( v8 )
-        v8 ^= v4;
+      if ( Root )
+        Root ^= (unsigned __int64)v4;
       else
-        v8 = 0LL;
+        Root = 0LL;
     }
-    v9 = v7 & 1;
-    while ( v8 )
+    v9 = (unsigned __int8)Min & 1;
+    while ( Root )
     {
-      v10 = *(_QWORD *)(v8 + 32) & 0x7FFFFFFFFFFFFFFCLL;
+      v10 = *(_QWORD *)(Root + 32) & 0x7FFFFFFFFFFFFFFCLL;
       if ( v10 < v20 )
         goto LABEL_30;
       if ( v10 > v20 )
         goto LABEL_14;
-      v11 = *(_DWORD *)(v8 + 40);
-      if ( v11 == v21 )
+      v11 = *(_DWORD *)(Root + 40);
+      if ( v11 == ParentValue )
         break;
-      if ( v11 < v21 )
+      if ( v11 < ParentValue )
       {
 LABEL_30:
-        v12 = *(_QWORD *)(v8 + 8);
+        v12 = *(_RTL_BALANCED_NODE **)(Root + 8);
         if ( v9 && v12 )
         {
 LABEL_34:
-          v8 ^= v12;
+          Root ^= (unsigned __int64)v12;
           continue;
         }
       }
       else
       {
 LABEL_14:
-        v12 = *(_QWORD *)v8;
+        v12 = *(_RTL_BALANCED_NODE **)Root;
         if ( v9 && v12 )
           goto LABEL_34;
       }
-      v8 = v12;
+      Root = (unsigned __int64)v12;
     }
     LockHandle.LockQueue.Next = 0LL;
-    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v8 + 80);
-    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v8 + 80));
-    if ( v8 != a1 )
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(Root + 80);
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(Root + 80));
+    if ( (PRTL_BALANCED_NODE)Root != Node )
       break;
     if ( i )
     {
-      if ( *(_QWORD *)(v8 + 64) )
+      if ( *(_QWORD *)(Root + 64) )
       {
-        v13 = (__int64 *)(v8 + 64);
+        v13 = (_RTL_RB_TREE *)(Root + 64);
       }
       else
       {
-        v13 = (__int64 *)(v8 + 48);
-        if ( !*(_QWORD *)(v8 + 48) )
+        v13 = (_RTL_RB_TREE *)(Root + 48);
+        if ( !*(_QWORD *)(Root + 48) )
           goto LABEL_21;
       }
       if ( v13 )
       {
-        v17 = *v13;
-        RtlRbRemoveNode(v13);
-        RtlRbReplaceNode(v4, v8, v17);
+        v17 = v13->Root;
+        RtlRbRemoveNode(v13, v13->Root);
+        RtlRbReplaceNode(v4, Root, v17);
         v23.LockQueue.Next = 0LL;
-        v23.LockQueue.Lock = (unsigned __int64 *volatile)(v17 + 80);
-        KxAcquireQueuedSpinLock((__int64)&v23, (volatile __int64 *)(v17 + 80));
+        v23.LockQueue.Lock = (unsigned __int64 *volatile)&v17[3].Children[1];
+        KxAcquireQueuedSpinLock((__int64)&v23, (volatile __int64 *)&v17[3].Children[1]);
         ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-        v18 = *(_WORD *)(v17 + 90);
-        *(_OWORD *)(v17 + 48) = *(_OWORD *)(v8 + 48);
-        *(_OWORD *)(v17 + 64) = *(_OWORD *)(v8 + 64);
-        *(_WORD *)(v17 + 90) ^= (*(_WORD *)(v8 + 90) ^ v18) & 0x1FE;
-        *(_WORD *)(v17 + 90) = *(_WORD *)(v8 + 90) ^ (*(_WORD *)(v8 + 90) ^ *(_WORD *)(v17 + 90)) & 0x1FF;
-        KiAbTryDecrementIoWaiterCounts(v8, v17);
-        *(_BYTE *)(v17 + 27) |= 1u;
+        v18 = *((_WORD *)&v17[3].1 + 1);
+        v17[2].0 = *($D8155C93DD4E9AEE90B086DF3C37BF09 *)(Root + 48);
+        *(_OWORD *)&v17[2].0 = *(_OWORD *)(Root + 64);
+        *((_WORD *)&v17[3].1 + 1) ^= (*(_WORD *)(Root + 90) ^ v18) & 0x1FE;
+        *((_WORD *)&v17[3].1 + 1) = *(_WORD *)(Root + 90) ^ (*(_WORD *)(Root + 90) ^ *((_WORD *)&v17[3].1 + 1)) & 0x1FF;
+        KiAbTryDecrementIoWaiterCounts(Root, v17);
+        BYTE3(v17[1].Left) |= 1u;
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&v23);
       }
       else
       {
 LABEL_21:
-        RtlRbRemoveNode(v4);
+        RtlRbRemoveNode(v4, (PRTL_BALANCED_NODE)Root);
         ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-        v14 = *(_BYTE *)(v8 + 27);
+        v14 = *(_BYTE *)(Root + 27);
         if ( (v14 & 2) != 0 )
         {
-          *(_WORD *)(v8 + 90) ^= (*(_WORD *)(v8 + 90) ^ (2 * ((*(_WORD *)(v8 + 90) >> 1) - 1))) & 0x1FE;
-          *(_BYTE *)(v8 + 27) &= ~2u;
-          v14 = *(_BYTE *)(v8 + 27);
+          *(_WORD *)(Root + 90) ^= (*(_WORD *)(Root + 90) ^ (2 * ((*(_WORD *)(Root + 90) >> 1) - 1))) & 0x1FE;
+          *(_BYTE *)(Root + 27) &= ~2u;
+          v14 = *(_BYTE *)(Root + 27);
         }
         if ( (v14 & 4) != 0 )
         {
-          *(_WORD *)(v8 + 90) = *(_WORD *)(v8 + 90) & 0x1FF | (((*(_WORD *)(v8 + 90) >> 9) - 1) << 9);
-          *(_BYTE *)(v8 + 27) &= ~4u;
+          *(_WORD *)(Root + 90) = *(_WORD *)(Root + 90) & 0x1FF | (((*(_WORD *)(Root + 90) >> 9) - 1) << 9);
+          *(_BYTE *)(Root + 27) &= ~4u;
         }
       }
-      *(_BYTE *)(v8 + 39) &= ~0x80u;
-      *(_BYTE *)(v8 + 27) &= ~1u;
+      *(_BYTE *)(Root + 39) &= ~0x80u;
+      *(_BYTE *)(Root + 27) &= ~1u;
       goto LABEL_26;
     }
     ExReleaseSpinLockSharedFromDpcLevel(v3);
@@ -330,23 +330,23 @@ LABEL_21:
     ExReleaseSpinLockExclusiveFromDpcLevel(v3);
   else
     ExReleaseSpinLockSharedFromDpcLevel(v3);
-  *(_BYTE *)(a1 + 39) &= ~0x80u;
-  if ( (*(_BYTE *)(a1 + 25) & 1) != 0 )
+  HIBYTE(Node[1].Right) &= ~0x80u;
+  if ( (BYTE1(Node[1].Children[0]) & 1) != 0 )
   {
-    KiAbTryDecrementIoWaiterCounts(a1, v8);
-    RtlRbRemoveNode(v8 + 64);
+    KiAbTryDecrementIoWaiterCounts(Node, Root);
+    RtlRbRemoveNode((PRTL_RB_TREE)(Root + 64), Node);
   }
   else
   {
-    RtlRbRemoveNode(v8 + 48);
+    RtlRbRemoveNode((PRTL_RB_TREE)(Root + 48), Node);
   }
 LABEL_26:
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  v15 = a1 - 16LL * *(unsigned __int8 *)(a1 + 24);
-  if ( (*(_BYTE *)(a1 + 25) & 1) != 0 )
-    --*(_BYTE *)(v15 + 793);
+  v15 = (char *)Node - 16 * LOBYTE(Node[1].Children[0]);
+  if ( (BYTE1(Node[1].Children[0]) & 1) != 0 )
+    --v15[793];
   else
-    _InterlockedExchangeAdd8((volatile signed __int8 *)(v15 + 1423), 0xFFu);
+    _InterlockedExchangeAdd8(v15 + 1423, 0xFFu);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

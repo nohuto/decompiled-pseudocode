@@ -1,108 +1,102 @@
 /*
- * XREFs of PnprIdentifyUnits @ 0x14072F7DC
+ * XREFs of PnprIdentifyUnits @ 0x14072D7EC
  * Callers:
- *     PnpReplacePartitionUnit @ 0x14072E220 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x14072C230 (PnpReplacePartitionUnit.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpQueryInterface @ 0x1409C4D84 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpQueryInterface @ 0x140982B38 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PnprIdentifyUnits(PVOID Object, PVOID a2, _QWORD *a3, __int64 a4)
 {
   int Interface; // ebx
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  int v11; // ecx
+  __int64 v8; // rdx
+  int v9; // ecx
+  int v10; // eax
+  __int64 v11; // rcx
   int v12; // eax
-  __int64 v13; // rcx
-  int v14; // eax
+  int v13; // eax
+  __int64 v14; // rcx
   int v15; // eax
-  __int64 v16; // r8
-  __int64 v17; // r8
-  __int64 v18; // rcx
-  int v19; // eax
-  int v20; // eax
-  _OWORD v22[2]; // [rsp+38h] [rbp-19h] BYREF
-  __int128 v23; // [rsp+58h] [rbp+7h]
-  __int64 v24; // [rsp+68h] [rbp+17h]
-  _OWORD v25[2]; // [rsp+70h] [rbp+1Fh] BYREF
-  __int128 v26; // [rsp+90h] [rbp+3Fh]
-  __int64 v27; // [rsp+A0h] [rbp+4Fh]
+  int v16; // eax
+  _OWORD v18[2]; // [rsp+38h] [rbp-19h] BYREF
+  __int128 v19; // [rsp+58h] [rbp+7h]
+  __int64 v20; // [rsp+68h] [rbp+17h]
+  _OWORD v21[2]; // [rsp+70h] [rbp+1Fh] BYREF
+  __int128 v22; // [rsp+90h] [rbp+3Fh]
+  __int64 v23; // [rsp+A0h] [rbp+4Fh]
 
-  v24 = 0LL;
-  v27 = 0LL;
-  memset(v22, 0, sizeof(v22));
+  v20 = 0LL;
   v23 = 0LL;
-  memset(v25, 0, sizeof(v25));
-  v26 = 0LL;
-  Interface = PnpQueryInterface(a2, 0LL, v22);
+  memset(v18, 0, sizeof(v18));
+  v19 = 0LL;
+  memset(v21, 0, sizeof(v21));
+  v22 = 0LL;
+  Interface = PnpQueryInterface(a2, 0LL, v18);
   if ( Interface < 0 )
   {
-    v9 = PnprContext;
-    v10 = 3LL;
-    v11 = *(_DWORD *)(PnprContext + 33288);
-    if ( !v11 )
-      v11 = 1293;
-    v12 = *(_DWORD *)(PnprContext + 33292);
-    *(_DWORD *)(PnprContext + 33288) = v11;
-    if ( !v12 )
-      v12 = 3;
-    *(_DWORD *)(v9 + 33292) = v12;
+    v8 = PnprContext;
+    v9 = *(_DWORD *)(PnprContext + 33288);
+    if ( !v9 )
+      v9 = 1293;
+    v10 = *(_DWORD *)(PnprContext + 33292);
+    *(_DWORD *)(PnprContext + 33288) = v9;
+    if ( !v10 )
+      v10 = 3;
+    *(_DWORD *)(v8 + 33292) = v10;
     goto LABEL_28;
   }
-  Interface = PnpQueryInterface(Object, 0LL, v25);
+  Interface = PnpQueryInterface(Object, 0LL, v21);
   if ( Interface >= 0 )
   {
-    if ( (_QWORD)v26 && (_QWORD)v23 && v24 )
+    if ( (_QWORD)v22 && (_QWORD)v19 && v20 )
     {
-      Interface = guard_dispatch_icall_no_overrides(*((_QWORD *)&v25[0] + 1), a3, v10, v8);
+      Interface = guard_dispatch_icall_no_overrides(*((_QWORD *)&v21[0] + 1), a3);
       if ( Interface < 0 )
       {
-        v9 = 1325LL;
+        v8 = 1325LL;
         goto LABEL_9;
       }
-      Interface = guard_dispatch_icall_no_overrides(*((_QWORD *)&v22[0] + 1), a4, v16, v8);
+      Interface = guard_dispatch_icall_no_overrides(*((_QWORD *)&v18[0] + 1), a4);
       if ( Interface < 0 )
       {
-        v9 = 1333LL;
+        v8 = 1333LL;
         goto LABEL_9;
       }
-      if ( (unsigned __int8)guard_dispatch_icall_no_overrides(*((_QWORD *)&v22[0] + 1), *a3, v17, v8) )
+      if ( (unsigned __int8)guard_dispatch_icall_no_overrides(*((_QWORD *)&v18[0] + 1), *a3) )
       {
         Interface = 0;
         goto LABEL_28;
       }
-      v18 = PnprContext;
-      v19 = *(_DWORD *)(PnprContext + 33288);
-      if ( !v19 )
-        v19 = 1346;
-      v9 = 4LL;
-      *(_DWORD *)(PnprContext + 33288) = v19;
-      v20 = *(_DWORD *)(v18 + 33292);
-      if ( !v20 )
-        v20 = 4;
-      *(_DWORD *)(v18 + 33292) = v20;
+      v14 = PnprContext;
+      v15 = *(_DWORD *)(PnprContext + 33288);
+      if ( !v15 )
+        v15 = 1346;
+      v8 = 4LL;
+      *(_DWORD *)(PnprContext + 33288) = v15;
+      v16 = *(_DWORD *)(v14 + 33292);
+      if ( !v16 )
+        v16 = 4;
+      *(_DWORD *)(v14 + 33292) = v16;
     }
     Interface = -1073741811;
     goto LABEL_28;
   }
-  v9 = 1305LL;
+  v8 = 1305LL;
 LABEL_9:
-  v13 = PnprContext;
-  v10 = 3LL;
-  v14 = *(_DWORD *)(PnprContext + 33288);
-  if ( !v14 )
-    v14 = v9;
-  *(_DWORD *)(PnprContext + 33288) = v14;
-  v15 = *(_DWORD *)(v13 + 33292);
-  if ( !v15 )
-    v15 = 3;
-  *(_DWORD *)(v13 + 33292) = v15;
+  v11 = PnprContext;
+  v12 = *(_DWORD *)(PnprContext + 33288);
+  if ( !v12 )
+    v12 = v8;
+  *(_DWORD *)(PnprContext + 33288) = v12;
+  v13 = *(_DWORD *)(v11 + 33292);
+  if ( !v13 )
+    v13 = 3;
+  *(_DWORD *)(v11 + 33292) = v13;
 LABEL_28:
-  if ( *((_QWORD *)&v22[0] + 1) )
-    guard_dispatch_icall_no_overrides(*((_QWORD *)&v22[0] + 1), v9, v10, v8);
-  if ( *((_QWORD *)&v25[0] + 1) )
-    guard_dispatch_icall_no_overrides(*((_QWORD *)&v25[0] + 1), v9, v10, v8);
+  if ( *((_QWORD *)&v18[0] + 1) )
+    guard_dispatch_icall_no_overrides(*((_QWORD *)&v18[0] + 1), v8);
+  if ( *((_QWORD *)&v21[0] + 1) )
+    guard_dispatch_icall_no_overrides(*((_QWORD *)&v21[0] + 1), v8);
   return (unsigned int)Interface;
 }

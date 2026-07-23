@@ -1,17 +1,17 @@
 /*
- * XREFs of ?SmCompressManagerUpdateTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z @ 0x14063CAB0
+ * XREFs of ?SmCompressManagerUpdateTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z @ 0x140640690
  * Callers:
- *     ?SmCompressManagerRefreshTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x14063C750 (-SmCompressManagerRefreshTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmCompressManagerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x14063C864 (-SmCompressManagerStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPR.c)
+ *     ?SmCompressManagerRefreshTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140640330 (-SmCompressManagerRefreshTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmCompressManagerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x140640444 (-SmCompressManagerStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPR.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     MmGetNextNode @ 0x14045D380 (MmGetNextNode.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140476C00 (KeQueryNodeActiveAffinityEx.c)
- *     PsQueryProcessAvailableCpus @ 0x140532BB0 (PsQueryProcessAvailableCpus.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     MmGetNextNode @ 0x140456D80 (MmGetNextNode.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140470380 (KeQueryNodeActiveAffinityEx.c)
+ *     PsQueryProcessAvailableCpus @ 0x140535050 (PsQueryProcessAvailableCpus.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned int __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerUpdateTopology(__int64 a1)

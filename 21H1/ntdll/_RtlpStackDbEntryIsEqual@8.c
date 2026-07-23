@@ -6,32 +6,40 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-BOOL __fastcall RtlpStackDbEntryIsEqual(int a1, _DWORD *a2)
+int __usercall RtlpStackDbEntryIsEqual@<eax>(_DWORD *a1@<edx>, int a2@<ecx>, int a3@<esi>)
 {
-  unsigned int v2; // edi
-  char *v4; // ebx
-  unsigned int v5; // esi
-  int v6; // edi
-  unsigned int v7; // [esp+4h] [ebp-4h]
+  unsigned int v3; // edi
+  char *v5; // ebx
+  unsigned int v6; // esi
+  int v7; // edi
+  size_t v8; // [esp-Ch] [ebp-14h]
+  unsigned int v9; // [esp+4h] [ebp-4h]
 
-  v2 = *(unsigned __int8 *)(a1 + 11);
-  if ( v2 != *a2 )
+  v3 = *(unsigned __int8 *)(a2 + 11);
+  if ( v3 != *a1 )
     return 0;
-  v4 = (char *)a2[1];
-  v5 = a1 + 12;
-  v7 = a1 + 4 * ((v2 >> 3) + 3);
-  if ( a1 + 12 < v7 )
+  v5 = (char *)a1[1];
+  HIDWORD(v8) = a3;
+  v6 = a2 + 12;
+  v9 = a2 + 4 * ((v3 >> 3) + 3);
+  if ( a2 + 12 < v9 )
   {
-    while ( !memcmp((const void *)(*(_DWORD *)v5 + 12), v4, 0x20u) )
+    do
     {
-      v5 += 4;
-      v4 += 32;
-      if ( v5 >= v7 )
-        goto LABEL_6;
+      LODWORD(v8) = 32;
+      if ( memcmp((const void *)(*(_DWORD *)v6 + 12), v5, v8) )
+        return 0;
+      v6 += 4;
+      v5 += 32;
     }
-    return 0;
+    while ( v6 < v9 );
   }
-LABEL_6:
-  v6 = v2 & 7;
-  return !v6 || !memcmp((const void *)(*(_DWORD *)v5 + 12), v4, 4 * v6);
+  v7 = v3 & 7;
+  if ( v7 )
+  {
+    LODWORD(v8) = 4 * v7;
+    if ( memcmp((const void *)(*(_DWORD *)v6 + 12), v5, v8) )
+      return 0;
+  }
+  return 1;
 }

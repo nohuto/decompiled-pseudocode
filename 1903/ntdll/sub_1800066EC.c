@@ -15,9 +15,9 @@
  *     ZwGetCompleteWnfStateSubscription @ 0x18009E450 (ZwGetCompleteWnfStateSubscription.c)
  */
 
-__int64 __fastcall sub_1800066EC(__int64 a1, int a2)
+__int64 __fastcall sub_1800066EC(_WNF_STATE_NAME *BaseAddress, int a2)
 {
-  unsigned int v4; // esi
+  ULONG v4; // esi
   int v5; // r15d
   _QWORD *v6; // r8
   _QWORD *v7; // rbx
@@ -27,70 +27,66 @@ __int64 __fastcall sub_1800066EC(__int64 a1, int a2)
   __int64 *v12; // rdx
   int v13; // ecx
   unsigned __int64 v14; // r8
-  _QWORD *v15; // rcx
-  __int64 v16; // [rsp+30h] [rbp-48h]
-  __int64 v17; // [rsp+38h] [rbp-40h]
+  _RTL_SRWLOCK *v15; // rcx
 
   v4 = 0;
   v5 = 0;
-  RtlAcquireSRWLockShared(qword_180166088 + 8);
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_180166088 + 8));
   v6 = *(_QWORD **)(qword_180166088 + 16);
   if ( v6 == (_QWORD *)(qword_180166088 + 16) )
-    goto LABEL_5;
-  v16 = *(_QWORD *)(a1 + 8);
+    goto LABEL_4;
   while ( 1 )
   {
     v7 = v6 - 4;
-    v17 = *(v6 - 2);
-    if ( v17 == *(_QWORD *)(a1 + 8) && v7[1] == *(_QWORD *)a1 )
+    if ( *(v6 - 2) == *(_QWORD *)&BaseAddress[1] && v7[1] == *BaseAddress )
       break;
     v6 = (_QWORD *)*v6;
     if ( v6 == (_QWORD *)(qword_180166088 + 16) )
-      goto LABEL_5;
+      goto LABEL_4;
   }
-  RtlAcquireSRWLockExclusive(v7 + 7);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v7 + 7);
   v8 = *((_DWORD *)v7 + 32);
   if ( v8 != 2 )
   {
     if ( v8 != 1 )
-      goto LABEL_9;
-    v15 = v7 + 7;
+      goto LABEL_8;
+    v15 = (_RTL_SRWLOCK *)(v7 + 7);
     if ( !a2 )
     {
-      v7[15] = a1;
+      v7[15] = BaseAddress;
       RtlReleaseSRWLockExclusive(v15);
       v4 = 259;
-      goto LABEL_5;
+      goto LABEL_4;
     }
-LABEL_39:
+LABEL_38:
     RtlReleaseSRWLockExclusive(v15);
     v4 = 128;
-LABEL_5:
-    RtlReleaseSRWLockShared(qword_180166088 + 8);
-    goto LABEL_23;
+LABEL_4:
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_180166088 + 8));
+    goto LABEL_22;
   }
   if ( a2 )
   {
-    v15 = v7 + 7;
-    goto LABEL_39;
+    v15 = (_RTL_SRWLOCK *)(v7 + 7);
+    goto LABEL_38;
   }
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v7[15]);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v7[15]);
   v7[15] = 0LL;
   *((_DWORD *)v7 + 32) = 0;
-LABEL_9:
+LABEL_8:
   _InterlockedIncrement((volatile signed __int32 *)v7 + 27);
   *((_DWORD *)v7 + 32) = 1;
-  RtlReleaseSRWLockExclusive(v7 + 7);
-  RtlReleaseSRWLockShared(qword_180166088 + 8);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v7 + 7);
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_180166088 + 8));
   v9 = v7 + 8;
   while ( 1 )
   {
     v4 = 0;
-    if ( (unsigned int)sub_180006950(a1, v7, 0LL) == -1073741267 )
+    if ( (unsigned int)sub_180006950(BaseAddress, v7, 0LL) == -1073741267 )
       v4 = -1073741267;
-    if ( (unsigned int)sub_180006950(a1, v7, 1LL) == -1073741267 )
+    if ( (unsigned int)sub_180006950(BaseAddress, v7, 1LL) == -1073741267 )
       v4 = -1073741267;
-    RtlAcquireSRWLockExclusive(v7 + 7);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v7 + 7);
     v10 = (__int64 *)*v9;
     ++v5;
     while ( v10 != v9 )
@@ -100,15 +96,15 @@ LABEL_9:
     }
     if ( !v7[15] )
       break;
-    a1 = v7[15];
+    BaseAddress = (_WNF_STATE_NAME *)v7[15];
     v7[15] = 0LL;
-    RtlReleaseSRWLockExclusive(v7 + 7);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v7 + 7);
   }
   if ( v4 )
   {
     v12 = (__int64 *)*v9;
     v13 = 1;
-    v7[15] = a1;
+    v7[15] = BaseAddress;
     v14 = 0LL;
     for ( *((_DWORD *)v7 + 32) = 2; v12 != v9; v12 = (__int64 *)*v12 )
     {
@@ -126,17 +122,17 @@ LABEL_9:
   else
   {
     *((_DWORD *)v7 + 32) = 0;
-    if ( !*((_DWORD *)v7 + 6) || *(_DWORD *)(a1 + 16) - *((_DWORD *)v7 + 6) > 0 )
-      *((_DWORD *)v7 + 6) = *(_DWORD *)(a1 + 16);
+    if ( !*((_DWORD *)v7 + 6) || (signed int)(BaseAddress[2].Data[0] - *((_DWORD *)v7 + 6)) > 0 )
+      *((_DWORD *)v7 + 6) = BaseAddress[2].Data[0];
   }
-  RtlReleaseSRWLockExclusive(v7 + 7);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v7 + 7);
   sub_180006ECC(v7);
-LABEL_23:
+LABEL_22:
   if ( v5 > 1 )
   {
-    ZwGetCompleteWnfStateSubscription(a1 + 8, a1, *(unsigned int *)(a1 + 24), v4, 0LL, 0, v16, v17);
+    ZwGetCompleteWnfStateSubscription(BaseAddress + 1, (ULONG64 *)BaseAddress, BaseAddress[3].Data[0], v4, 0LL, 0);
     if ( !v4 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     return 128;
   }
   return v4;

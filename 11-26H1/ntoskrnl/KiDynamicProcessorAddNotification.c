@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDynamicProcessorAddNotification @ 0x1405F0900
+ * XREFs of KiDynamicProcessorAddNotification @ 0x1405F3270
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
  * Callees:
- *     ExNotifyWithProcessing @ 0x140439330 (ExNotifyWithProcessing.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExNotifyWithProcessing @ 0x140427F90 (ExNotifyWithProcessing.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiDynamicProcessorAddNotification(int a1, int a2, __int16 a3, char a4, int a5, int a6)
@@ -24,6 +24,6 @@ __int64 __fastcall KiDynamicProcessorAddNotification(int a1, int a2, __int16 a3,
   v8[2] = a6;
   v11 = 0;
   v7 = 0;
-  ExNotifyWithProcessing((__int64)ExpSysDbgLock.SListFaultAddress, (__int64)v8, (int)&v7, 0LL);
+  ExNotifyWithProcessing(ExCbProcessorAdd, (__int64)v8, (int)&v7, 0LL);
   return v7;
 }

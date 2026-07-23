@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpBufferDumpData @ 0x1405CDF10
+ * XREFs of IopLiveDumpBufferDumpData @ 0x1405D0720
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x1404A70C8 (IopLiveDumpProcessCorralStateChange.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1404A0758 (IopLiveDumpProcessCorralStateChange.c)
  * Callees:
- *     MmProtectMdlSystemAddress @ 0x14030FA10 (MmProtectMdlSystemAddress.c)
- *     IopLiveDumpShouldCheckChunkCRC @ 0x140344034 (IopLiveDumpShouldCheckChunkCRC.c)
- *     RtlpComputeCrcInternal @ 0x1404878F0 (RtlpComputeCrcInternal.c)
- *     IopLiveDumpGetCapturePages @ 0x1405CF8E0 (IopLiveDumpGetCapturePages.c)
- *     IopLiveDumpIsChunkInIOSpace @ 0x1405D01AC (IopLiveDumpIsChunkInIOSpace.c)
- *     IopLiveDumpIsChunkInIOSpaceBuffer @ 0x1405D01E8 (IopLiveDumpIsChunkInIOSpaceBuffer.c)
- *     IopLiveDumpTraceEventGeneric @ 0x1405D7A30 (IopLiveDumpTraceEventGeneric.c)
- *     MmMapMemoryDumpMdlEx @ 0x1406F6C20 (MmMapMemoryDumpMdlEx.c)
+ *     MmProtectMdlSystemAddress @ 0x1402F1A90 (MmProtectMdlSystemAddress.c)
+ *     IopLiveDumpShouldCheckChunkCRC @ 0x1403460B4 (IopLiveDumpShouldCheckChunkCRC.c)
+ *     RtlpComputeCrcInternal @ 0x140481430 (RtlpComputeCrcInternal.c)
+ *     IopLiveDumpGetCapturePages @ 0x1405D20F0 (IopLiveDumpGetCapturePages.c)
+ *     IopLiveDumpIsChunkInIOSpace @ 0x1405D29BC (IopLiveDumpIsChunkInIOSpace.c)
+ *     IopLiveDumpIsChunkInIOSpaceBuffer @ 0x1405D29F8 (IopLiveDumpIsChunkInIOSpaceBuffer.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405DA220 (IopLiveDumpTraceEventGeneric.c)
+ *     MmMapMemoryDumpMdlEx @ 0x1406FB890 (MmMapMemoryDumpMdlEx.c)
  */
 
 __int64 __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2, __int64 a3, int a4)

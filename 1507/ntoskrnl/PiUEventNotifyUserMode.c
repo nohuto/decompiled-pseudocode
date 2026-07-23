@@ -207,7 +207,7 @@ LABEL_27:
           v22 = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 1u, &Timeout, 0LL);
           LODWORD(Size) = 0;
           v23 = v22;
-          ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)&Size, 4LL);
+          ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, &Size, 4u, 0LL, 0LL, 0, 0);
           if ( v23 )
           {
             if ( v23 == 1 )

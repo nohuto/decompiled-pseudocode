@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSetJobIoAttribution @ 0x1407D82E4
+ * XREFs of PspSetJobIoAttribution @ 0x1407D85B4
  * Callers:
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobIoRateControl @ 0x1407D809C (PspSetJobIoRateControl.c)
+ *     PspSetJobIoRateControl @ 0x1407D836C (PspSetJobIoRateControl.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     IoStartDiskIoAttributionForContext @ 0x1403624B8 (IoStartDiskIoAttributionForContext.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     IoStartDiskIoAttributionForContext @ 0x140362658 (IoStartDiskIoAttributionForContext.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspIsSetJobIoAttribution @ 0x1407D84D8 (PspIsSetJobIoAttribution.c)
- *     IoDiskIoAttributionAllocate @ 0x1407D8538 (IoDiskIoAttributionAllocate.c)
- *     PspRemoveIoAttribution @ 0x1407D85E0 (PspRemoveIoAttribution.c)
+ *     PspIsSetJobIoAttribution @ 0x1407D87A8 (PspIsSetJobIoAttribution.c)
+ *     IoDiskIoAttributionAllocate @ 0x1407D8808 (IoDiskIoAttributionAllocate.c)
+ *     PspRemoveIoAttribution @ 0x1407D88B0 (PspRemoveIoAttribution.c)
  */
 
 __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, char a2, char a3, unsigned int a4)
@@ -19,7 +19,7 @@ __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, char a2, char a3, unsi
   char v4; // r15
   unsigned int v9; // eax
   unsigned int v10; // eax
-  unsigned __int64 v11; // rax
+  _RTL_BALANCED_NODE *v11; // rax
   __int64 v12; // rdi
   unsigned int v13; // esi
   unsigned int v14; // eax
@@ -103,8 +103,8 @@ __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, char a2, char a3, unsi
   {
     if ( !v10 )
     {
-      v11 = IoDiskIoAttributionAllocate(Object, 0LL);
-      v12 = v11;
+      v11 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate(Object, 0LL);
+      v12 = (__int64)v11;
       if ( v11 )
       {
         IoStartDiskIoAttributionForContext(v11);

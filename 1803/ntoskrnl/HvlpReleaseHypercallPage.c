@@ -76,9 +76,9 @@
 char __fastcall HvlpReleaseHypercallPage(__int64 a1)
 {
   __int64 HypercallCachedPages; // rdx
-  struct _SLIST_ENTRY *v2; // rdx
+  _SLIST_ENTRY *v2; // rdx
   _SLIST_ENTRY *v3; // rax
-  union _SLIST_HEADER *v4; // rcx
+  _SLIST_HEADER *v4; // rcx
   __int64 v5; // rax
   int v6; // r8d
   struct _KPRCB *CurrentPrcb; // rax
@@ -87,9 +87,9 @@ char __fastcall HvlpReleaseHypercallPage(__int64 a1)
   HypercallCachedPages = 0LL;
   if ( (*(_DWORD *)a1 & 1) != 0 )
   {
-    v2 = *(struct _SLIST_ENTRY **)(a1 + 16);
+    v2 = *(_SLIST_ENTRY **)(a1 + 16);
     v3 = *(_SLIST_ENTRY **)(a1 + 24);
-    v4 = (union _SLIST_HEADER *)(*(_QWORD *)(a1 + 8) + 24640LL);
+    v4 = (_SLIST_HEADER *)(*(_QWORD *)(a1 + 8) + 24640LL);
     v2[1].Next = v3;
     LOBYTE(v5) = (unsigned __int8)RtlpInterlockedPushEntrySList(v4, v2);
   }

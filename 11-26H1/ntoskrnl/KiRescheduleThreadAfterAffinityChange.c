@@ -1,22 +1,22 @@
 /*
- * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x14022B26C
+ * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x14022CBFC
  * Callers:
- *     KiSetUserAffinityThread @ 0x14022A784 (KiSetUserAffinityThread.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x1404631C0 (KiUpdateThreadCpuSets.c)
+ *     KiSetUserAffinityThread @ 0x14022C114 (KiSetUserAffinityThread.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
+ *     KiUpdateThreadCpuSets @ 0x14045C180 (KiUpdateThreadCpuSets.c)
  * Callees:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x14022E180 (KiPrepareReadyThreadForRescheduling.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     EtwTraceScheduleThread @ 0x1402467D0 (EtwTraceScheduleThread.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     KiStartRescheduleContext @ 0x14032F5E0 (KiStartRescheduleContext.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140336024 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     EtwTraceXSchedulerPriorityKickSend @ 0x140527744 (EtwTraceXSchedulerPriorityKickSend.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x14022FB10 (KiPrepareReadyThreadForRescheduling.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     EtwTraceScheduleThread @ 0x140248130 (EtwTraceScheduleThread.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     KiStartRescheduleContext @ 0x140331610 (KiStartRescheduleContext.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x140338054 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x140529DB4 (EtwTraceXSchedulerPriorityKickSend.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KiRescheduleThreadAfterAffinityChange(
@@ -93,7 +93,7 @@ void __fastcall KiRescheduleThreadAfterAffinityChange(
   else
   {
     a3 = *(_QWORD *)(a1 + 576);
-    v13 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v5->Number);
+    v13 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v5->Number);
     Next_low = v13 >> 6;
     if ( (unsigned int)Next_low < *(unsigned __int16 *)a3 )
     {
@@ -153,7 +153,7 @@ void __fastcall KiRescheduleThreadAfterAffinityChange(
     }
     KiSearchForNewThreadsForRescheduleContext(StaticRescheduleContext, v7);
     v21 = 0;
-    if ( (WORD2(xmmword_140FBFC10) & 0x400) != 0 )
+    if ( (WORD2(xmmword_140FC0C10) & 0x400) != 0 )
       v21 = 2;
     for ( k = 0; k < StaticRescheduleContext->ProcessorCount; ++k )
       v9 |= KiCommitRescheduleContextEntry(
@@ -240,7 +240,7 @@ LABEL_35:
         if ( SingleTargetIndex == v31->Number )
           goto LABEL_42;
         CurrentPrcb->DeferredDispatchInterrupts.TargetType = 2;
-        v34 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * SingleTargetIndex);
+        v34 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + SingleTargetIndex);
         a3 = v34 & 0x3F;
         v35 = v34 >> 6;
         if ( CurrentPrcb->DeferredDispatchInterrupts.MultipleTargetAffinity.Count <= (unsigned int)v35 )
@@ -287,7 +287,7 @@ LABEL_42:
                 if ( v14 )
                   LODWORD(Number) = (unsigned __int8)HvlpVirtualProcessorMapping[2 * Number + 1] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * Number] << 6);
                 SchedulerAssist[2] = Number;
-                if ( (BYTE4(xmmword_140FBFC10) & 0x20) != 0 )
+                if ( (BYTE4(xmmword_140FC0C10) & 0x20) != 0 )
                   EtwTraceXSchedulerPriorityKickSend(v31->Number, 2LL, a3);
                 Next_low = 0LL;
                 __writemsr(0x400000C2u, (unsigned int)Number);

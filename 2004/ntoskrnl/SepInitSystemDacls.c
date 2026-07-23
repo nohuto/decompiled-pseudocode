@@ -36,9 +36,9 @@ NTSTATUS SepInitSystemDacls()
   ACL *v17; // r15
   PSID v18; // rbx
   PSID v19; // rbp
-  PSID v20; // rsi
-  __int64 v21; // rdx
-  __int64 v23; // [rsp+20h] [rbp-68h]
+  void *v20; // rsi
+  ULONG v21; // edx
+  UCHAR v23; // [rsp+20h] [rbp-68h]
   ACL *v24; // [rsp+30h] [rbp-58h]
   ACL *Dacl; // [rsp+38h] [rbp-50h]
   ULONG AclLength; // [rsp+90h] [rbp+8h]
@@ -52,7 +52,7 @@ NTSTATUS SepInitSystemDacls()
   v1 = *((unsigned __int8 *)SeLocalSystemSid + 1);
   v2 = 4 * (v1 + v0) + 48;
   v3 = *((unsigned __int8 *)SeWorldSid + 1);
-  v4 = *((unsigned __int8 *)SeRestrictedSid + 1);
+  v4 = *(unsigned __int8 *)(*(_QWORD *)&SeRestrictedSid + 1LL);
   v5 = v2 + 4 * v3 + 20;
   v6 = *((unsigned __int8 *)SeLocalServiceSid + 1);
   v7 = v5 + 4 * v4 + 20;
@@ -123,8 +123,8 @@ NTSTATUS SepInitSystemDacls()
   RtlAddAccessAllowedAce(SeSystemDefaultDacl, 2u, 0xA0020000, v19);
   RtlAddAccessAllowedAce(v15, 2u, 0x10000000u, v19);
   RtlAddAccessAllowedAce(v31, 2u, 0x1F0000u, v19);
-  v20 = SeRestrictedSid;
-  RtlAddAccessAllowedAce(v12, 2u, 0x20000000u, SeRestrictedSid);
+  v20 = *(void **)&SeRestrictedSid;
+  RtlAddAccessAllowedAce(v12, 2u, 0x20000000u, *(PSID *)&SeRestrictedSid);
   RtlAddAccessAllowedAce(v17, 2u, 0xA0000000, v20);
   RtlAddAccessAllowedAce(v31, 2u, 0x20000u, v20);
   RtlAddAccessAllowedAce(v15, 2u, 0x10000000u, SeLocalServiceSid);
@@ -139,7 +139,7 @@ NTSTATUS SepInitSystemDacls()
   RtlAddAccessAllowedAce(v28, 2u, 0x1FFFFFu, v20);
   RtlAddAccessAllowedAce(v28, 2u, 0x1FFFFFu, SeServiceSid);
   RtlAddAccessAllowedAce(v28, 2u, 0x1200A9u, SeAllAppPackagesSid);
-  RtlAddMandatoryAce((__int64)SeMediumSacl, v21, 0, (__int64)SeMediumMandatorySid, v23, 2);
+  RtlAddMandatoryAce(SeMediumSacl, v21, 0, SeMediumMandatorySid, v23, 2u);
   SePublicDefaultSd = (__int64)&SepPublicDefaultSd;
   RtlCreateSecurityDescriptor(&SepPublicDefaultSd, 1u);
   RtlSetDaclSecurityDescriptor(&SepPublicDefaultSd, 1u, SePublicDefaultDacl, 0);
@@ -175,7 +175,7 @@ NTSTATUS SepInitSystemDacls()
   RtlCreateSecurityDescriptor(&SepNullDaclSd, 1u);
   SeMediumDaclSd = &SepMediumDaclSd;
   RtlCreateSecurityDescriptor(&SepMediumDaclSd, 1u);
-  RtlSetSaclSecurityDescriptor((__int64)&SepMediumDaclSd, 1, (__int64)SeMediumSacl, 0);
+  RtlSetSaclSecurityDescriptor(&SepMediumDaclSd, 1u, SeMediumSacl, 0);
   RtlSetOwnerSecurityDescriptor(&SepMediumDaclSd, Acla, 0);
   return RtlSetGroupSecurityDescriptor(&SepMediumDaclSd, Acla, 0);
 }

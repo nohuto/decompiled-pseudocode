@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetLeafPfnBuddy @ 0x14015E8D4
+ * XREFs of MiGetLeafPfnBuddy @ 0x14015E9D4
  * Callers:
- *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)
- *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
- *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
- *     MiCanStealKernelStack @ 0x14012D5CC (MiCanStealKernelStack.c)
- *     MiDoStackCopy @ 0x14015E800 (MiDoStackCopy.c)
- *     MiJumpStackTarget @ 0x14015E910 (MiJumpStackTarget.c)
- *     MiLogMdlRangeEvent @ 0x1402AA198 (MiLogMdlRangeEvent.c)
- *     MiMakeUnusedImageExtentsCold @ 0x1402C3D9C (MiMakeUnusedImageExtentsCold.c)
- *     MiFreeLargePages @ 0x1402C55CC (MiFreeLargePages.c)
- *     MiFreeRelocations @ 0x1406FD200 (MiFreeRelocations.c)
- *     MiGetNextDirectFixupProto @ 0x14085C25C (MiGetNextDirectFixupProto.c)
+ *     MiPfnsWorthTrying @ 0x14009A6F0 (MiPfnsWorthTrying.c)
+ *     MiIdentifyPfn @ 0x1400A7E20 (MiIdentifyPfn.c)
+ *     MiSwapStackPage @ 0x14012D250 (MiSwapStackPage.c)
+ *     MiCanStealKernelStack @ 0x14012D69C (MiCanStealKernelStack.c)
+ *     MiDoStackCopy @ 0x14015E900 (MiDoStackCopy.c)
+ *     MiJumpStackTarget @ 0x14015EA10 (MiJumpStackTarget.c)
+ *     MiLogMdlRangeEvent @ 0x1402AA388 (MiLogMdlRangeEvent.c)
+ *     MiMakeUnusedImageExtentsCold @ 0x1402C3F8C (MiMakeUnusedImageExtentsCold.c)
+ *     MiFreeLargePages @ 0x1402C57BC (MiFreeLargePages.c)
+ *     MiFreeRelocations @ 0x1406FE4A0 (MiFreeRelocations.c)
+ *     MiGetNextDirectFixupProto @ 0x14085D4BC (MiGetNextDirectFixupProto.c)
  * Callees:
  *     <none>
  */

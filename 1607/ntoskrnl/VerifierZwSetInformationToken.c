@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierZwSetInformationToken @ 0x14070CE4C
+ * XREFs of VerifierZwSetInformationToken @ 0x14070CE7C
  * Callers:
  *     <none>
  * Callees:

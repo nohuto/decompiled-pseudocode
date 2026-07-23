@@ -1,14 +1,14 @@
 /*
- * XREFs of SleepstudyHelperCreateBlockerData @ 0x1408FB7C0
+ * XREFs of SleepstudyHelperCreateBlockerData @ 0x1408FB920
  * Callers:
  *     <none>
  * Callees:
- *     SSHSupportReleasePushLockExclusive @ 0x1402C98E8 (SSHSupportReleasePushLockExclusive.c)
- *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     SshpCopyDataEntry @ 0x14057FBF0 (SshpCopyDataEntry.c)
- *     SshpFreeDataEntry @ 0x1408FAC18 (SshpFreeDataEntry.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402481C8 (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402483BC (SSHSupportAllocateNonPaged.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SshpCopyDataEntry @ 0x14057FE30 (SshpCopyDataEntry.c)
+ *     SshpFreeDataEntry @ 0x1408FAD78 (SshpFreeDataEntry.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateBlockerData(__int64 a1, __int128 *a2, unsigned int a3, __int64 a4, _QWORD *a5)

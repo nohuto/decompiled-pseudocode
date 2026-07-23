@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpErrorDeferredHandler @ 0x140555190
+ * XREFs of HalpErrorDeferredHandler @ 0x140552AD0
  * Callers:
  *     <none>
  * Callees:
- *     HalpFreeDrsPool @ 0x14055522C (HalpFreeDrsPool.c)
- *     HalpMemoryErrorDeferredHandler @ 0x14055542C (HalpMemoryErrorDeferredHandler.c)
- *     HalpPmemErrorDeferredHandler @ 0x1405555F0 (HalpPmemErrorDeferredHandler.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalpFreeDrsPool @ 0x140552B6C (HalpFreeDrsPool.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x140552D6C (HalpMemoryErrorDeferredHandler.c)
+ *     HalpPmemErrorDeferredHandler @ 0x140552F30 (HalpPmemErrorDeferredHandler.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpErrorDeferredHandler(__int64 a1, const void *a2)
@@ -19,7 +19,7 @@ void __fastcall HalpErrorDeferredHandler(__int64 a1, const void *a2)
   int v6; // eax
 
   v3 = a1 - 8;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0x1828uLL, 0x61656857u);
   v5 = Pool2;
   if ( Pool2 )
   {

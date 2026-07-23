@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReturnFreeZeroPage @ 0x14008229C
+ * XREFs of MiReturnFreeZeroPage @ 0x14008228C
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiCoalesceFreePages @ 0x1400390D0 (MiCoalesceFreePages.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiGetPerfectColorHeadPage @ 0x1400EE048 (MiGetPerfectColorHeadPage.c)
- *     MiFinalizeImageHeaderPage @ 0x14012DDB0 (MiFinalizeImageHeaderPage.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140151F20 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiGetPerfectColorHeadPage @ 0x1400EE0C8 (MiGetPerfectColorHeadPage.c)
+ *     MiFinalizeImageHeaderPage @ 0x14012DE80 (MiFinalizeImageHeaderPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140152020 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiIsFreeZeroPfnCold @ 0x140082370 (MiIsFreeZeroPfnCold.c)
+ *     MiIsFreeZeroPfnCold @ 0x140082360 (MiIsFreeZeroPfnCold.c)
  */
 
 __int64 __fastcall MiReturnFreeZeroPage(__int64 a1)

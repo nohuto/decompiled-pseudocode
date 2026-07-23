@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAllocatePassiveInterruptBlock @ 0x140827470
+ * XREFs of IopAllocatePassiveInterruptBlock @ 0x140828670
  * Callers:
- *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407119EC (IopConnectInterrupt.c)
  * Callees:
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     IopFindPassiveInterruptBlock @ 0x140288628 (IopFindPassiveInterruptBlock.c)
- *     IopInsertPassiveInterruptBlock @ 0x1402886DC (IopInsertPassiveInterruptBlock.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IopFindPassiveInterruptBlock @ 0x140288818 (IopFindPassiveInterruptBlock.c)
+ *     IopInsertPassiveInterruptBlock @ 0x1402888CC (IopInsertPassiveInterruptBlock.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
@@ -52,7 +52,7 @@ __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
         else
         {
           *(_DWORD *)(v8 + 24) = a1[16];
-          *(_BYTE *)(v8 + 28) = ((__int64 (__fastcall *)(_QWORD))off_1403FE4C0[0])(0LL);
+          *(_BYTE *)(v8 + 28) = ((__int64 (__fastcall *)(_QWORD))off_1403FF4C0[0])(0LL);
         }
         KeInitializeEvent((PRKEVENT)(v8 + 168), SynchronizationEvent, 1u);
         KeInitializeDpc((PRKDPC)(v8 + 104), (PKDEFERRED_ROUTINE)IopPassiveInterruptDpc, (PVOID)v8);

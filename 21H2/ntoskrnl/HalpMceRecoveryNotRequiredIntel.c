@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMceRecoveryNotRequiredIntel @ 0x1404D0664
+ * XREFs of HalpMceRecoveryNotRequiredIntel @ 0x1404D08A4
  * Callers:
- *     HalpMceRecovery @ 0x1404D02A0 (HalpMceRecovery.c)
+ *     HalpMceRecovery @ 0x1404D04E0 (HalpMceRecovery.c)
  * Callees:
- *     HalpMemoryErrorDeferredRecovery @ 0x1404CFF30 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1404D0170 (HalpMemoryErrorDeferredRecovery.c)
  */
 
 __int64 __fastcall HalpMceRecoveryNotRequiredIntel(_QWORD *a1)

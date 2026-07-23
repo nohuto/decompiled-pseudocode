@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpSwapPointers @ 0x1405817F8
+ * XREFs of CmpSwapPointers @ 0x140581CA8
  * Callers:
- *     CmpPromoteKey @ 0x1401B3424 (CmpPromoteKey.c)
+ *     CmpPromoteKey @ 0x1401B3308 (CmpPromoteKey.c)
  * Callees:
  *     <none>
  */

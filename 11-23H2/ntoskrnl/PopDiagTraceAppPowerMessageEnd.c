@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceAppPowerMessageEnd @ 0x14098C8D4
+ * XREFs of PopDiagTraceAppPowerMessageEnd @ 0x14098CAD4
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceAppPowerMessageEnd(int *a1)

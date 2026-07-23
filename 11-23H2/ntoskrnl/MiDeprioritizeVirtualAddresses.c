@@ -1,25 +1,25 @@
 /*
- * XREFs of MiDeprioritizeVirtualAddresses @ 0x14062D6CC
+ * XREFs of MiDeprioritizeVirtualAddresses @ 0x14062DC1C
  * Callers:
- *     MiDeprioritizeVad @ 0x1403C6E3C (MiDeprioritizeVad.c)
- *     HvTrimHive @ 0x14085F91C (HvTrimHive.c)
+ *     MiDeprioritizeVad @ 0x1403C701C (MiDeprioritizeVad.c)
+ *     HvTrimHive @ 0x14085FB5C (HvTrimHive.c)
  * Callees:
  *     MiGetWsleContents @ 0x140216FB0 (MiGetWsleContents.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiLockLowestValidPageTable @ 0x14025A290 (MiLockLowestValidPageTable.c)
- *     MiTbFlushType @ 0x14025BAAC (MiTbFlushType.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiFreeWsleList @ 0x140280C20 (MiFreeWsleList.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiUpdatePfnPriority @ 0x1402E23B0 (MiUpdatePfnPriority.c)
- *     MI_WSLE_LOG_ACCESS @ 0x1402E39BC (MI_WSLE_LOG_ACCESS.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiLockLowestValidPageTable @ 0x14025A520 (MiLockLowestValidPageTable.c)
+ *     MiTbFlushType @ 0x14025BD3C (MiTbFlushType.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiFreeWsleList @ 0x140280EB0 (MiFreeWsleList.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiUpdatePfnPriority @ 0x1402E2640 (MiUpdatePfnPriority.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1402E3C4C (MI_WSLE_LOG_ACCESS.c)
+ *     MiDemoteCombinedPte @ 0x1402F3A44 (MiDemoteCombinedPte.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)

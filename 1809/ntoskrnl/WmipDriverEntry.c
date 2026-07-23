@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipDriverEntry @ 0x1409D4020
+ * XREFs of WmipDriverEntry @ 0x1409D5020
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
- *     KeInitializeMutex @ 0x1400DD340 (KeInitializeMutex.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     IoCreateDevice @ 0x1406529D0 (IoCreateDevice.c)
- *     IoWMIRegistrationControl @ 0x1406B8F00 (IoWMIRegistrationControl.c)
- *     IoCreateSymbolicLink @ 0x1406CB7F0 (IoCreateSymbolicLink.c)
- *     IoRegisterShutdownNotification @ 0x140751840 (IoRegisterShutdownNotification.c)
- *     WmipInitializeSecurity @ 0x1409D4198 (WmipInitializeSecurity.c)
- *     WmipInitializeDataStructs @ 0x1409D4420 (WmipInitializeDataStructs.c)
- *     WmipInitializeRegistration @ 0x1409D45A0 (WmipInitializeRegistration.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     IoDeleteDevice @ 0x1400DAB60 (IoDeleteDevice.c)
+ *     KeInitializeMutex @ 0x1400DD3C0 (KeInitializeMutex.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     IoCreateDevice @ 0x140653B90 (IoCreateDevice.c)
+ *     IoWMIRegistrationControl @ 0x1406BA1A0 (IoWMIRegistrationControl.c)
+ *     IoCreateSymbolicLink @ 0x1406CCA90 (IoCreateSymbolicLink.c)
+ *     IoRegisterShutdownNotification @ 0x140752A30 (IoRegisterShutdownNotification.c)
+ *     WmipInitializeSecurity @ 0x1409D5198 (WmipInitializeSecurity.c)
+ *     WmipInitializeDataStructs @ 0x1409D5420 (WmipInitializeDataStructs.c)
+ *     WmipInitializeRegistration @ 0x1409D55A0 (WmipInitializeRegistration.c)
  */
 
 NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
@@ -22,7 +22,7 @@ NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
   NTSTATUS result; // eax
   NTSTATUS v3; // ebx
   UNICODE_STRING DeviceName; // [rsp+40h] [rbp-38h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-28h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-28h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+60h] [rbp-18h] BYREF
 
   KeInitializeMutex(&WmipSMMutex, 0);

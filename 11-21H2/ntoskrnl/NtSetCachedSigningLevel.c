@@ -3,10 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     NtSetCachedSigningLevel2 @ 0x1406E88A0 (NtSetCachedSigningLevel2.c)
+ *     sub_1406E88A0 @ 0x1406E88A0 (sub_1406E88A0.c)
  */
 
-__int64 __fastcall NtSetCachedSigningLevel(int a1, int a2, int a3, int a4, __int64 a5)
+NTSTATUS __cdecl NtSetCachedSigningLevel(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile)
 {
-  return NtSetCachedSigningLevel2(a1, a2, a3, a4, a5, 0LL);
+  return sub_1406E88A0(Flags, InputSigningLevel, (_DWORD)SourceFiles, SourceFileCount, (__int64)TargetFile, 0LL);
 }

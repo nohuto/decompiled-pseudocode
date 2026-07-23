@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleCheckCoordinatedProcessorDependency @ 0x140584980
+ * XREFs of PpmIdleCheckCoordinatedProcessorDependency @ 0x140584E70
  * Callers:
- *     PpmIdleCheckCoordinatedDependencies @ 0x1405844FC (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x1405849EC (PpmIdleCheckCoordinatedDependencies.c)
  * Callees:
- *     PpmTestAndLockProcessor @ 0x140585EFC (PpmTestAndLockProcessor.c)
+ *     PpmTestAndLockProcessor @ 0x1405863EC (PpmTestAndLockProcessor.c)
  */
 
 __int64 __fastcall PpmIdleCheckCoordinatedProcessorDependency(

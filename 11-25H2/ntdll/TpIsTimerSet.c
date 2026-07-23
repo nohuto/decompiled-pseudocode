@@ -6,25 +6,24 @@
  *     TppRaiseInvalidParameter @ 0x18003EEE4 (TppRaiseInvalidParameter.c)
  */
 
-_BOOL8 __fastcall TpIsTimerSet(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3)
+LOGICAL __cdecl TpIsTimerSet(PTP_TIMER Timer)
 {
-  int v3; // eax
+  volatile int Flags; // eax
+  __int64 v2; // rax
 
-  if ( a1 )
+  if ( !Timer
+    || Timer->WaitTimer
+    || (Flags = Timer->Work.CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)())Timer->Work.CleanupGroupMember.VFuncs != TppTimerpCleanupGroupMemberVFuncs
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    if ( !*(_BYTE *)(a1 + 353) )
-    {
-      v3 = *(_DWORD *)(a1 + 168);
-      if ( (v3 & 0x10000) == 0
-        && (v3 & 0x20000) == 0
-        && *(__int64 (__fastcall ***)())(a1 + 8) == TppTimerpCleanupGroupMemberVFuncs )
-      {
-        Ldr = NtCurrentPeb()->Ldr;
-        if ( !Ldr->ShutdownInProgress )
-          return *(_QWORD *)(a1 + 328) != 0LL;
-      }
-    }
+    TppRaiseInvalidParameter(Timer);
+    LODWORD(v2) = 0;
   }
-  TppRaiseInvalidParameter(a1, Ldr, a3);
-  return 0LL;
+  else
+  {
+    return Timer->DueTime != 0;
+  }
+  return v2;
 }

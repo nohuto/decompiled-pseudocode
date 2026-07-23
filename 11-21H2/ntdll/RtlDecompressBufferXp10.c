@@ -12,20 +12,20 @@
 
 __int64 __fastcall RtlDecompressBufferXp10(
         __int64 a1,
-        unsigned int a2,
+        ULONG a2,
         __int64 a3,
         int a4,
         int a5,
         unsigned int *a6,
         __int64 a7)
 {
-  __int64 v7; // rsi
+  unsigned int *v7; // rsi
   unsigned int v10; // edi
   __int64 result; // rax
   int v12; // r11d
   unsigned int v13; // r13d
   unsigned int v14; // r14d
-  unsigned int v15; // r10d
+  ULONG v15; // r10d
   unsigned __int8 *v16; // r9
   unsigned int v17; // r11d
   __int64 v18; // rax
@@ -36,30 +36,28 @@ __int64 __fastcall RtlDecompressBufferXp10(
   unsigned __int64 v23; // rdx
   int v24; // eax
   int v25; // ecx
-  unsigned int v26; // r9d
-  unsigned int v27; // r12d
+  ULONG v26; // r9d
+  ULONG v27; // r12d
   _OWORD *v28; // [rsp+20h] [rbp-50h] BYREF
   char v29[8]; // [rsp+28h] [rbp-48h] BYREF
-  __int64 v30; // [rsp+30h] [rbp-40h] BYREF
+  unsigned int *v30; // [rsp+30h] [rbp-40h] BYREF
   unsigned int v31; // [rsp+38h] [rbp-38h]
   unsigned int v32; // [rsp+3Ch] [rbp-34h]
   __int64 v33; // [rsp+40h] [rbp-30h] BYREF
   unsigned int v34; // [rsp+48h] [rbp-28h]
   unsigned int v35; // [rsp+4Ch] [rbp-24h]
-  int v36; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v37; // [rsp+58h] [rbp-18h]
-  unsigned int v38; // [rsp+60h] [rbp-10h] BYREF
-  __int64 v39; // [rsp+68h] [rbp-8h]
-  __int64 v40; // [rsp+A0h] [rbp+30h]
+  _RTL_BITMAP Destination; // [rsp+50h] [rbp-20h] BYREF
+  _RTL_BITMAP Source; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v38; // [rsp+A0h] [rbp+30h]
 
-  v40 = a1;
-  v7 = a3;
+  v38 = a1;
+  v7 = (unsigned int *)a3;
   if ( (unsigned int)(a4 - 6) <= 0x1FFFFFF9 )
   {
     LODWORD(v28) = *(_DWORD *)a3;
     v10 = 48;
     WORD2(v28) = *(_WORD *)(a3 + 4);
-    v30 = a3;
+    v30 = (unsigned int *)a3;
     result = Xp10ValidateFrameHeaderAndFillParameters(&v28, v29);
     if ( (int)result < 0 )
       return result;
@@ -76,7 +74,7 @@ __int64 __fastcall RtlDecompressBufferXp10(
       v15 = v10 + 32;
       if ( v10 + 32 > v13 )
         break;
-      v16 = (unsigned __int8 *)(v7 + ((unsigned __int64)v10 >> 3));
+      v16 = (unsigned __int8 *)v7 + ((unsigned __int64)v10 >> 3);
       v17 = 8 - (v10 & 7);
       v18 = v17;
       if ( v17 >= 0x20 )
@@ -123,7 +121,7 @@ __int64 __fastcall RtlDecompressBufferXp10(
         v7 = v30;
         a2 = v35;
         v14 = v34;
-        v40 = v33;
+        v38 = v33;
       }
       else
       {
@@ -132,11 +130,11 @@ __int64 __fastcall RtlDecompressBufferXp10(
         v27 = v14 + (v26 >> 3);
         if ( v27 > a2 )
           return 3221226050LL;
-        v38 = v15 + v26;
-        v39 = v7;
-        v36 = 8 * (a2 - v14);
-        v37 = v40 + v14;
-        RtlExtractBitMap((__int64)&v38, (unsigned int *)&v36, v15, v26);
+        Source.SizeOfBitMap = v15 + v26;
+        Source.Buffer = v7;
+        Destination.SizeOfBitMap = 8 * (a2 - v14);
+        Destination.Buffer = (unsigned int *)(v38 + v14);
+        RtlExtractBitMap(&Source, &Destination, v15, v26);
         v14 = v27;
         v34 = v27;
         v31 = v10;

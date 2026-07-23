@@ -1,9 +1,9 @@
 /*
- * XREFs of IopUserRundown @ 0x140A2B860
+ * XREFs of IopUserRundown @ 0x140A1EB00
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
  */
 
 void __fastcall IopUserRundown(__int64 a1)

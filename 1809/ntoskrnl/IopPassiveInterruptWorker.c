@@ -1,18 +1,18 @@
 /*
- * XREFs of IopPassiveInterruptWorker @ 0x1402887D0
+ * XREFs of IopPassiveInterruptWorker @ 0x1402889C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopAcquirePassiveInterruptBlockLock @ 0x1402884B0 (IopAcquirePassiveInterruptBlockLock.c)
- *     IopDereferencePassiveInterruptBlock @ 0x140288508 (IopDereferencePassiveInterruptBlock.c)
- *     KiInterruptDispatchCommon @ 0x140299864 (KiInterruptDispatchCommon.c)
- *     IopAcquireReleaseDispatcherLock @ 0x14082741C (IopAcquireReleaseDispatcherLock.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x1402886A0 (IopAcquirePassiveInterruptBlockLock.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x1402886F8 (IopDereferencePassiveInterruptBlock.c)
+ *     KiInterruptDispatchCommon @ 0x140299A54 (KiInterruptDispatchCommon.c)
+ *     IopAcquireReleaseDispatcherLock @ 0x14082861C (IopAcquireReleaseDispatcherLock.c)
  */
 
 void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
@@ -61,6 +61,6 @@ void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
   IopAcquireReleaseDispatcherLock(P, 0LL);
   if ( !*((_DWORD *)P + 8) )
-    ((void (__fastcall *)(_QWORD, __int64))off_1403FE4B8[0])(*((unsigned int *)P + 6), 2LL);
+    ((void (__fastcall *)(_QWORD, __int64))off_1403FF4B8[0])(*((unsigned int *)P + 6), 2LL);
   IopDereferencePassiveInterruptBlock(P);
 }

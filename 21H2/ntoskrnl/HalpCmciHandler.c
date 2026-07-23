@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpCmciHandler @ 0x1404BCAA8
+ * XREFs of HalpCmciHandler @ 0x1404BCCE8
  * Callers:
- *     HalpInterruptDeferredErrorService @ 0x1404D2610 (HalpInterruptDeferredErrorService.c)
+ *     HalpInterruptDeferredErrorService @ 0x1404D2850 (HalpInterruptDeferredErrorService.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
- *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeIpiGenericCall @ 0x1403A4C70 (KeIpiGenericCall.c)
+ *     WheaLogInternalEvent @ 0x1403BAEC0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpCmciResetState @ 0x1404BCCD0 (HalpCmciResetState.c)
+ *     HalpCmciResetState @ 0x1404BCF10 (HalpCmciResetState.c)
  */
 
 char HalpCmciHandler()

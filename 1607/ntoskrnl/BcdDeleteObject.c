@@ -1,31 +1,31 @@
 /*
- * XREFs of BcdDeleteObject @ 0x1406D2034
+ * XREFs of BcdDeleteObject @ 0x1406D216C
  * Callers:
- *     PopBcdRegenerateResumeObject @ 0x1406757D0 (PopBcdRegenerateResumeObject.c)
- *     BiBindEfiBootManager @ 0x1406D3604 (BiBindEfiBootManager.c)
- *     BiBindEfiEntries @ 0x1406D380C (BiBindEfiEntries.c)
+ *     PopBcdRegenerateResumeObject @ 0x1406758B4 (PopBcdRegenerateResumeObject.c)
+ *     BiBindEfiBootManager @ 0x1406D373C (BiBindEfiBootManager.c)
+ *     BiBindEfiEntries @ 0x1406D3944 (BiBindEfiEntries.c)
  * Callees:
- *     BiSetFirmwareModifiedFromObject @ 0x140125E3C (BiSetFirmwareModifiedFromObject.c)
- *     BiIsFirmwareApplication @ 0x14012E024 (BiIsFirmwareApplication.c)
- *     BiIsOfflineHandle @ 0x14012E08C (BiIsOfflineHandle.c)
- *     BiDeleteKey @ 0x140532A4C (BiDeleteKey.c)
- *     BiReleaseBcdSyncMutant @ 0x14053E1A4 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x14053E1C8 (BiAcquireBcdSyncMutant.c)
+ *     BiSetFirmwareModifiedFromObject @ 0x1401263AC (BiSetFirmwareModifiedFromObject.c)
+ *     BiIsFirmwareApplication @ 0x14012E594 (BiIsFirmwareApplication.c)
+ *     BiIsOfflineHandle @ 0x14012E5FC (BiIsOfflineHandle.c)
+ *     BiDeleteKey @ 0x140532F8C (BiDeleteKey.c)
+ *     BiReleaseBcdSyncMutant @ 0x14053E6E4 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x14053E708 (BiAcquireBcdSyncMutant.c)
  */
 
-NTSTATUS __fastcall BcdDeleteObject(__int64 a1)
+NTSTATUS __cdecl BcdDeleteObject(HANDLE BcdObjectHandle)
 {
   char IsOfflineHandle; // di
   NTSTATUS result; // eax
-  int v4; // ebx
+  NTSTATUS v4; // ebx
 
-  IsOfflineHandle = BiIsOfflineHandle(a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdObjectHandle);
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    if ( BiIsFirmwareApplication(a1) )
-      BiSetFirmwareModifiedFromObject(a1);
-    v4 = BiDeleteKey(a1);
+    if ( BiIsFirmwareApplication((__int64)BcdObjectHandle) )
+      BiSetFirmwareModifiedFromObject((__int64)BcdObjectHandle);
+    v4 = BiDeleteKey((__int64)BcdObjectHandle);
     BiReleaseBcdSyncMutant(IsOfflineHandle);
     return v4;
   }

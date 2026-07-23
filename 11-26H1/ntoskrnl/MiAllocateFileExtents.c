@@ -1,34 +1,34 @@
 /*
- * XREFs of MiAllocateFileExtents @ 0x140B5F8D8
+ * XREFs of MiAllocateFileExtents @ 0x140B62A58
  * Callers:
- *     MiAddViewsForSection @ 0x1402E31A0 (MiAddViewsForSection.c)
- *     MiCreatePrototypePtes @ 0x14049406C (MiCreatePrototypePtes.c)
- *     MiInitializeCachedExtentWalker @ 0x1405044E8 (MiInitializeCachedExtentWalker.c)
- *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
- *     MiUpdateActiveSubsection @ 0x1406F8198 (MiUpdateActiveSubsection.c)
- *     MiInitializeImageExtents @ 0x14086D3A0 (MiInitializeImageExtents.c)
+ *     MiAddViewsForSection @ 0x1402C51E0 (MiAddViewsForSection.c)
+ *     MiCreatePrototypePtes @ 0x14048DBBC (MiCreatePrototypePtes.c)
+ *     MiInitializeCachedExtentWalker @ 0x1404FDCAC (MiInitializeCachedExtentWalker.c)
+ *     MiFaultGetFileExtents @ 0x14050664C (MiFaultGetFileExtents.c)
+ *     MiUpdateActiveSubsection @ 0x1406FCE68 (MiUpdateActiveSubsection.c)
+ *     MiInitializeImageExtents @ 0x140873770 (MiInitializeImageExtents.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     MiEndingOffset @ 0x14036CB30 (MiEndingOffset.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiSetSubsectionBase @ 0x140458C48 (MiSetSubsectionBase.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140458D20 (MiUpdateSystemProtoPtesTree.c)
- *     MiSubsectionProtosCreated @ 0x14050DFD0 (MiSubsectionProtosCreated.c)
- *     FsRtlGetFileExtents @ 0x1405B5170 (FsRtlGetFileExtents.c)
- *     MiChangingSubsectionProtos @ 0x1406F9120 (MiChangingSubsectionProtos.c)
- *     MiEliminateOverlappingExtents @ 0x1406F96E4 (MiEliminateOverlappingExtents.c)
- *     MiInsertCopyExtents @ 0x1406FA5AC (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x1406FA964 (MiMergeCopyExtents.c)
- *     MiUnlinkSubsectionWaitBlock @ 0x1406FADC0 (MiUnlinkSubsectionWaitBlock.c)
- *     MiReplaceSystemProtoPtesNode @ 0x140710048 (MiReplaceSystemProtoPtesNode.c)
- *     MiDeleteFileExtentList @ 0x1407705B4 (MiDeleteFileExtentList.c)
- *     MiNewPfnsSuitable @ 0x140866C3C (MiNewPfnsSuitable.c)
- *     MiConvertRunsToPages @ 0x14086CFFC (MiConvertRunsToPages.c)
- *     MiCreateFileOnlyPfns @ 0x14086D164 (MiCreateFileOnlyPfns.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     MiEndingOffset @ 0x14036E8D0 (MiEndingOffset.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiSetSubsectionBase @ 0x1404504B8 (MiSetSubsectionBase.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140450590 (MiUpdateSystemProtoPtesTree.c)
+ *     MiSubsectionProtosCreated @ 0x140507A40 (MiSubsectionProtosCreated.c)
+ *     FsRtlGetFileExtents @ 0x1405B7980 (FsRtlGetFileExtents.c)
+ *     MiChangingSubsectionProtos @ 0x1406FDDF0 (MiChangingSubsectionProtos.c)
+ *     MiEliminateOverlappingExtents @ 0x1406FE3B4 (MiEliminateOverlappingExtents.c)
+ *     MiInsertCopyExtents @ 0x1406FF27C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x1406FF634 (MiMergeCopyExtents.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x1406FFA90 (MiUnlinkSubsectionWaitBlock.c)
+ *     MiReplaceSystemProtoPtesNode @ 0x140714D44 (MiReplaceSystemProtoPtesNode.c)
+ *     MiDeleteFileExtentList @ 0x1407735B4 (MiDeleteFileExtentList.c)
+ *     MiNewPfnsSuitable @ 0x14086D01C (MiNewPfnsSuitable.c)
+ *     MiConvertRunsToPages @ 0x1408733DC (MiConvertRunsToPages.c)
+ *     MiCreateFileOnlyPfns @ 0x140873544 (MiCreateFileOnlyPfns.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateFileExtents(
@@ -273,7 +273,7 @@ LABEL_73:
                   v29 = (__int128 *)((char *)&a1->116 + 4);
                   if ( (_QWORD)v42 )
                   {
-                    MiReplaceSystemProtoPtesNode(&v40, ($353D57E818BB6F967B4B818D974CF463 *)((char *)&a1->116 + 4));
+                    MiReplaceSystemProtoPtesNode(&v40, ($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&a1->116 + 4));
 LABEL_84:
                     if ( v44 != 1 || (*(_DWORD *)(v11 + 56) & 2) == 0 )
                       MiSubsectionProtosCreated(a1, v43, a4, 0);

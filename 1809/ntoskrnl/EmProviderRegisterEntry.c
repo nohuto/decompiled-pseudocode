@@ -1,16 +1,16 @@
 /*
- * XREFs of EmProviderRegisterEntry @ 0x140813AD0
+ * XREFs of EmProviderRegisterEntry @ 0x140814CD0
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x14017FBE0 (EmpQueueRuleUpdateState.c)
- *     EmpSearchEntryDatabase @ 0x14017FCEC (EmpSearchEntryDatabase.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     EmpQueueRuleUpdateState @ 0x14017FD20 (EmpQueueRuleUpdateState.c)
+ *     EmpSearchEntryDatabase @ 0x14017FE2C (EmpSearchEntryDatabase.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EmProviderRegisterEntry(__int64 a1, _QWORD *a2, __int64 a3, _QWORD *a4)

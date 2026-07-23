@@ -1,15 +1,15 @@
 /*
- * XREFs of MiContractWsSwapPageFile @ 0x140AF3E5C
+ * XREFs of MiContractWsSwapPageFile @ 0x140AF687C
  * Callers:
- *     MiTrimUnusedPageFileRegionsWorker @ 0x140404DD0 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MmInSwapWorkingSet @ 0x1404D58CC (MmInSwapWorkingSet.c)
- *     MmCleanProcessAddressSpace @ 0x14095B2A4 (MmCleanProcessAddressSpace.c)
- *     MmInSwapVirtualAddresses @ 0x140AF3C64 (MmInSwapVirtualAddresses.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403FDED0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MmInSwapWorkingSet @ 0x1404CF090 (MmInSwapWorkingSet.c)
+ *     MmCleanProcessAddressSpace @ 0x140A00B64 (MmCleanProcessAddressSpace.c)
+ *     MmInSwapVirtualAddresses @ 0x140AF6684 (MmInSwapVirtualAddresses.c)
  * Callees:
- *     MiNumberWsSwapPagefiles @ 0x140207478 (MiNumberWsSwapPagefiles.c)
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     MiWsSwapPageFileNumber @ 0x140405778 (MiWsSwapPageFileNumber.c)
+ *     MiNumberWsSwapPagefiles @ 0x140207558 (MiNumberWsSwapPagefiles.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     MiWsSwapPageFileNumber @ 0x1403FE86C (MiWsSwapPageFileNumber.c)
  */
 
 char __fastcall MiContractWsSwapPageFile(__int64 a1)

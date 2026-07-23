@@ -182,10 +182,13 @@ LABEL_5:
         v39 = 0LL;
     }
     ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67340);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v40 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v40 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -238,7 +241,7 @@ LABEL_19:
   }
   v17 = &ExpInterlockedPopEntrySListFault;
   v18 = *(_QWORD *)(v12 + 360);
-  if ( KiDynamicTraceEnabled && v18 >= qword_140D1F2A8 && v18 < qword_140D1F2B0 )
+  if ( KiDynamicTraceEnabled && v18 >= ControlPc && v18 < qword_140D1F2B0 )
   {
     v54 = KeGetCurrentIrql();
     v16 = v54 == 15;

@@ -1,73 +1,75 @@
 /*
- * XREFs of KiUpdateSavedSupervisorState @ 0x140B57330
+ * XREFs of KiUpdateSavedSupervisorState @ 0x140B593B0
  * Callers:
- *     KiStartSavingSupervisorState @ 0x140B57290 (KiStartSavingSupervisorState.c)
+ *     KiStartSavingSupervisorState @ 0x140B59310 (KiStartSavingSupervisorState.c)
  * Callees:
- *     KeIpiGenericCall @ 0x1404677F0 (KeIpiGenericCall.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeIpiGenericCall @ 0x14045F290 (KeIpiGenericCall.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 KiUpdateSavedSupervisorState()
 {
   unsigned int v0; // r14d
-  unsigned int v1; // ebx
+  unsigned __int64 v1; // rax
+  unsigned int v2; // ebx
   PVOID *Pool2; // rdi
-  unsigned int v3; // esi
-  unsigned int v4; // r12d
-  __int64 v5; // rbp
-  void *v6; // rax
-  PVOID *v7; // rsi
+  unsigned int v4; // esi
+  unsigned int v5; // r12d
+  __int64 v6; // rbp
+  void *v7; // rax
+  PVOID *v8; // rsi
   __int128 Context; // [rsp+20h] [rbp-28h] BYREF
 
   v0 = KeNumberProcessors_0;
   Context = 0LL;
-  if ( 8 * (unsigned __int64)(unsigned int)KeNumberProcessors_0 > 0xFFFFFFFF )
+  v1 = 8LL * (unsigned int)KeNumberProcessors_0;
+  if ( v1 > 0xFFFFFFFF )
     return (unsigned int)-1073741675;
-  v1 = 0;
-  Pool2 = (PVOID *)ExAllocatePool2(0x40uLL);
+  v2 = 0;
+  Pool2 = (PVOID *)ExAllocatePool2(0x40uLL, (unsigned int)v1, 0x65687358u);
   if ( !Pool2 )
     return (unsigned int)-1073741670;
-  v3 = 0;
-  v4 = MEMORY[0xFFFFF78000000600] - MEMORY[0xFFFFF780000003E8] + KiIptSaveAreaLength + 127;
+  v4 = 0;
+  v5 = MEMORY[0xFFFFF78000000600] - MEMORY[0xFFFFF780000003E8] + KiIptSaveAreaLength + 127;
   while ( 1 )
   {
-    if ( v3 >= v0 )
+    if ( v4 >= v0 )
     {
       *(_QWORD *)&Context = Pool2;
       DWORD2(Context) = v0;
       KeIpiGenericCall((PKIPI_BROADCAST_WORKER)KiIpiUpdateExtendedSupervisorState, (ULONG_PTR)&Context);
       goto LABEL_18;
     }
-    v5 = v3;
-    if ( *(_QWORD *)(KiProcessorBlock[v3] + 1728) )
+    v6 = v4;
+    if ( *(_QWORD *)(KiProcessorBlock[v4] + 1728) )
     {
-      Pool2[v3] = 0LL;
+      Pool2[v4] = 0LL;
       goto LABEL_10;
     }
-    v6 = (void *)ExAllocatePool2(0x40uLL);
-    Pool2[v3] = v6;
-    if ( !v6 )
+    v7 = (void *)ExAllocatePool2(0x40uLL, v5, 0x65707553u);
+    Pool2[v4] = v7;
+    if ( !v7 )
       break;
-    memset_0(v6, 0, v4);
+    memset_0(v7, 0, v5);
 LABEL_10:
-    ++v3;
+    ++v4;
   }
-  if ( v3 )
+  if ( v4 )
   {
-    v7 = Pool2;
+    v8 = Pool2;
     do
     {
-      if ( *v7 )
-        ExFreePoolWithTag(*v7, 0);
-      ++v7;
-      --v5;
+      if ( *v8 )
+        ExFreePoolWithTag(*v8, 0);
+      ++v8;
+      --v6;
     }
-    while ( v5 );
+    while ( v6 );
   }
-  v1 = -1073741670;
+  v2 = -1073741670;
 LABEL_18:
   ExFreePoolWithTag(Pool2, 0);
-  return v1;
+  return v2;
 }

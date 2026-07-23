@@ -22,9 +22,9 @@ BOOLEAN __stdcall RtlAreNamesEqual(
   char v10; // di
   __int64 i; // rax
   BOOLEAN v13; // bl
-  int v14; // eax
+  NTSTATUS v14; // eax
   int v15; // eax
-  int v16; // ebx
+  NTSTATUS v16; // ebx
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING v18; // [rsp+30h] [rbp-18h] BYREF
 

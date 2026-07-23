@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIommuLeaveDmaDomain @ 0x1404C9994
+ * XREFs of HalpIommuLeaveDmaDomain @ 0x1404C9BD4
  * Callers:
- *     HalJoinDmaDomain @ 0x1403C7110 (HalJoinDmaDomain.c)
- *     HalpLeaveDmaDomain @ 0x1404C4EAC (HalpLeaveDmaDomain.c)
- *     HalpIommuBlockDevice @ 0x1404C8E60 (HalpIommuBlockDevice.c)
- *     IommuDomainDetachDevice @ 0x1404DA5F0 (IommuDomainDetachDevice.c)
+ *     HalJoinDmaDomain @ 0x1403C72B0 (HalJoinDmaDomain.c)
+ *     HalpLeaveDmaDomain @ 0x1404C50EC (HalpLeaveDmaDomain.c)
+ *     HalpIommuBlockDevice @ 0x1404C90A0 (HalpIommuBlockDevice.c)
+ *     IommuDomainDetachDevice @ 0x1404DA830 (IommuDomainDetachDevice.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpIommuDereferenceHardwareDomain @ 0x1404C910C (HalpIommuDereferenceHardwareDomain.c)
- *     HalpIommuGetHardwareDomain @ 0x1404C95F4 (HalpIommuGetHardwareDomain.c)
- *     HalpIommuAttachDeviceDomain @ 0x1404CBC50 (HalpIommuAttachDeviceDomain.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x1404C934C (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C9834 (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuAttachDeviceDomain @ 0x1404CBE90 (HalpIommuAttachDeviceDomain.c)
  */
 
 __int64 __fastcall HalpIommuLeaveDmaDomain(_QWORD *a1, ULONG_PTR a2)
@@ -24,7 +24,7 @@ __int64 __fastcall HalpIommuLeaveDmaDomain(_QWORD *a1, ULONG_PTR a2)
   v7 = 0LL;
   if ( HalpHvIommu )
   {
-    v4 = ((__int64 (__fastcall *)(_QWORD))qword_140C4A300)(a1[3]);
+    v4 = ((__int64 (__fastcall *)(_QWORD))qword_140C4A340)(a1[3]);
     if ( (_WORD)v4 == 118 )
       v4 = 0;
     if ( v4 < 0 )

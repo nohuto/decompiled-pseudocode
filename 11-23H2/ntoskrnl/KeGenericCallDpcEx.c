@@ -1,34 +1,34 @@
 /*
- * XREFs of KeGenericCallDpcEx @ 0x1403C66F0
+ * XREFs of KeGenericCallDpcEx @ 0x1403C68D0
  * Callers:
  *     MiFreeUnusedSlabPages @ 0x14021ED0C (MiFreeUnusedSlabPages.c)
- *     MiStartDpcGang @ 0x14038BCC4 (MiStartDpcGang.c)
- *     MiSwapStackPage @ 0x140399F3C (MiSwapStackPage.c)
- *     MiZeroPageCalibrate @ 0x1403AA5F0 (MiZeroPageCalibrate.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1403AF01C (MiInitializeWorkingSetManagerParameters.c)
- *     MiFreeUnusedPfnPages @ 0x1403B24B0 (MiFreeUnusedPfnPages.c)
- *     KeSetSystemTime @ 0x1403B5DAC (KeSetSystemTime.c)
- *     KeAbCrossThreadDelete @ 0x140579570 (KeAbCrossThreadDelete.c)
- *     ExpTrackTableInsertLimit @ 0x140608B9C (ExpTrackTableInsertLimit.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B5B0 (MmMarkPhysicalMemoryAsBad.c)
- *     MiJumpStack @ 0x14062CF60 (MiJumpStack.c)
- *     MiDemoteSlabEntries @ 0x1406567B4 (MiDemoteSlabEntries.c)
- *     ExGetPoolTagInfo @ 0x14082F79C (ExGetPoolTagInfo.c)
- *     KeConfigureHeteroProcessors @ 0x1409728E8 (KeConfigureHeteroProcessors.c)
- *     MmSetPermanentCacheAttribute @ 0x140A30790 (MmSetPermanentCacheAttribute.c)
- *     MiSpecialPurposeMemoryRemoved @ 0x140A47844 (MiSpecialPurposeMemoryRemoved.c)
- *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x140A47994 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
+ *     MiStartDpcGang @ 0x14038BEA4 (MiStartDpcGang.c)
+ *     MiSwapStackPage @ 0x14039A11C (MiSwapStackPage.c)
+ *     MiZeroPageCalibrate @ 0x1403AA7D0 (MiZeroPageCalibrate.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403AF1FC (MiInitializeWorkingSetManagerParameters.c)
+ *     MiFreeUnusedPfnPages @ 0x1403B2690 (MiFreeUnusedPfnPages.c)
+ *     KeSetSystemTime @ 0x1403B5F8C (KeSetSystemTime.c)
+ *     KeAbCrossThreadDelete @ 0x140579A60 (KeAbCrossThreadDelete.c)
+ *     ExpTrackTableInsertLimit @ 0x1406090EC (ExpTrackTableInsertLimit.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14062BB00 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiJumpStack @ 0x14062D4B0 (MiJumpStack.c)
+ *     MiDemoteSlabEntries @ 0x140656D04 (MiDemoteSlabEntries.c)
+ *     ExGetPoolTagInfo @ 0x14082FA9C (ExGetPoolTagInfo.c)
+ *     KeConfigureHeteroProcessors @ 0x140972AE8 (KeConfigureHeteroProcessors.c)
+ *     MmSetPermanentCacheAttribute @ 0x140A30A40 (MmSetPermanentCacheAttribute.c)
+ *     MiSpecialPurposeMemoryRemoved @ 0x140A47AF4 (MiSpecialPurposeMemoryRemoved.c)
+ *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x140A47C44 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
  *     ExpAeThresholdInitialization @ 0x140B5D420 (ExpAeThresholdInitialization.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiInitiateGenericCallDpc @ 0x140346EB4 (KiInitiateGenericCallDpc.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiInitiateGenericCallDpc @ 0x140347144 (KiInitiateGenericCallDpc.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall KeGenericCallDpcEx(__int64 a1, __int64 a2)
@@ -60,7 +60,7 @@ char __fastcall KeGenericCallDpcEx(__int64 a1, __int64 a2)
     goto LABEL_12;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v12) = 4;
@@ -74,10 +74,10 @@ char __fastcall KeGenericCallDpcEx(__int64 a1, __int64 a2)
     KiInitiateGenericCallDpc((__int64)CurrentPrcb, v18);
     v5 = 1;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
     {
       v14 = KeGetCurrentPrcb();
       v15 = v14->SchedulerAssist;

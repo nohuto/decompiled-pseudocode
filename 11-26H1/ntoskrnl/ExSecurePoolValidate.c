@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSecurePoolValidate @ 0x1406D0FE0
+ * XREFs of ExSecurePoolValidate @ 0x1406D5010
  * Callers:
  *     <none>
  * Callees:
@@ -17,13 +17,13 @@ __int64 __fastcall ExSecurePoolValidate(__int64 a1, unsigned int a2, __int64 a3,
   v5 = a2;
   if ( a1 )
   {
-    v6 = (unsigned __int64)&dword_140E6BC60 ^ qword_140E6BCA8 ^ a1;
+    v6 = (unsigned __int64)&dword_140E6BF60 ^ qword_140E6BFA8 ^ a1;
     if ( *(_DWORD *)v6 == -1381122884 )
     {
       if ( v6 )
       {
         v7 = (_QWORD *)(a3 - 16);
-        if ( (struct _LIST_ENTRY *)(a3 - 16) >= ExSaPageGroupDescriptorArrayLock.WaitBlock[1].WaitListEntry.Flink
+        if ( (PVOID)(a3 - 16) >= ExSaPageGroupDescriptorArrayLock.WaitBlock[0].Object
           && v7 < ExSaPageGroupDescriptorArrayLock.WaitBlock[0].SparePtr )
         {
           return *v7 == (*(_QWORD *)(v6 + 8) ^ a4 ^ v5);

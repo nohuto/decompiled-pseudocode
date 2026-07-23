@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrpPrepareModuleForExecution @ 0x18011ADA0
+ * XREFs of LdrpPrepareModuleForExecution @ 0x18011AB50
  * Callers:
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     LdrpAcquireLoaderLock @ 0x180084090 (LdrpAcquireLoaderLock.c)
- *     LdrpReleaseLoaderLock @ 0x1800854C0 (LdrpReleaseLoaderLock.c)
- *     LdrpAddNodeServiceTag @ 0x1800E3440 (LdrpAddNodeServiceTag.c)
- *     LdrpInitializeGraphRecurse @ 0x1800E81A0 (LdrpInitializeGraphRecurse.c)
- *     LdrpGetProcApphelpCheckModule @ 0x1801180E0 (LdrpGetProcApphelpCheckModule.c)
- *     LdrpCondenseGraph @ 0x1801191B4 (LdrpCondenseGraph.c)
- *     LdrpNotifyLoadOfGraph @ 0x180119830 (LdrpNotifyLoadOfGraph.c)
- *     LdrpSendShimEngineInitialNotifications @ 0x18011991C (LdrpSendShimEngineInitialNotifications.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     LdrpAcquireLoaderLock @ 0x18007B430 (LdrpAcquireLoaderLock.c)
+ *     LdrpReleaseLoaderLock @ 0x18007C860 (LdrpReleaseLoaderLock.c)
+ *     LdrpAddNodeServiceTag @ 0x1800E1CA0 (LdrpAddNodeServiceTag.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800E73B0 (LdrpInitializeGraphRecurse.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x180117E90 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpCondenseGraph @ 0x180118F64 (LdrpCondenseGraph.c)
+ *     LdrpNotifyLoadOfGraph @ 0x1801195E0 (LdrpNotifyLoadOfGraph.c)
+ *     LdrpSendShimEngineInitialNotifications @ 0x1801196CC (LdrpSendShimEngineInitialNotifications.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
   unsigned int (__fastcall *v19)(_WORD *, _QWORD, __int64); // [rsp+80h] [rbp+18h] BYREF
 
   v4 = 0;
-  if ( (void *)qword_1801C5930 == NtCurrentTeb()->ClientId.UniqueThread )
+  if ( LdrpDllNotificationLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
     return v4;
   switch ( *(_DWORD *)(*(_QWORD *)(a1 + 152) + 56LL) )
   {
@@ -63,14 +63,14 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
   if ( (v4 & 0x80000000) != 0 )
     return v4;
   v4 = 0;
-  v7 = dword_1801C67CC;
+  v7 = dword_1801C57CC;
   v8 = *(__int64 **)(a1 + 152);
   v19 = 0LL;
-  if ( dword_1801C67CC )
+  if ( dword_1801C57CC )
   {
     if ( g_pShimmedModuleList )
     {
-      dword_1801C67CC = 0;
+      dword_1801C57CC = 0;
       v9 = LdrpGetProcApphelpCheckModule(&v19);
       v4 = v9;
       if ( v9 >= 0 )
@@ -94,16 +94,16 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
         {
 LABEL_22:
           v14 = (__int64 (__fastcall *)(__int64 *))(__ROR8__(g_pfnSE_DllLoaded, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]);
-          RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+          RtlEnterCriticalSection(&LdrpDllNotificationLock);
           if ( LdrInitState < 3 && (*(_DWORD *)(*v8 - 56) & 0x800) == 0 )
             LdrpSendShimEngineInitialNotifications(v8, v14);
-          RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+          RtlLeaveCriticalSection(&LdrpDllNotificationLock);
         }
       }
       else
       {
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrinit.c",
+          "minkernel\\ldr\\ldrinit.c",
           4338,
           (__int64)"LdrpDynamicShimModule",
           0,
@@ -114,16 +114,16 @@ LABEL_22:
     }
     if ( v7 == 1 && g_pShimmedModuleList )
     {
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
       g_pShimmedModuleList = 0LL;
       g_pShimmedModuleListLength = 0LL;
     }
   }
-  dword_1801C67CC = v7;
+  dword_1801C57CC = v7;
   if ( (v4 & 0x80000000) != 0 )
   {
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrsnap.c",
+      "minkernel\\ldr\\ldrsnap.c",
       2644,
       (__int64)"LdrpPrepareModuleForExecution",
       1,

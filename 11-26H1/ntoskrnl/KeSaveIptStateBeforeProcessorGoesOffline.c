@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSaveIptStateBeforeProcessorGoesOffline @ 0x14052B0D0
+ * XREFs of KeSaveIptStateBeforeProcessorGoesOffline @ 0x14052D5F0
  * Callers:
- *     PnprQuiesceProcessorDpc @ 0x140BF2260 (PnprQuiesceProcessorDpc.c)
- *     PopHandleNextState @ 0x140C02C90 (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x140BF8260 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x140C08EA0 (PopHandleNextState.c)
  * Callees:
- *     KiSaveIptState @ 0x1404FB5B8 (KiSaveIptState.c)
+ *     KiSaveIptState @ 0x1404F4AA0 (KiSaveIptState.c)
  */
 
 void KeSaveIptStateBeforeProcessorGoesOffline()

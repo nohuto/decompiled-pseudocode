@@ -1,12 +1,12 @@
 /*
- * XREFs of PpMarkDeviceStackExtensionFlag @ 0x14036F1E4
+ * XREFs of PpMarkDeviceStackExtensionFlag @ 0x14036F394
  * Callers:
- *     IopDoDeferredSetInterfaceState @ 0x14073DDB0 (IopDoDeferredSetInterfaceState.c)
- *     PnpStartDeviceNode @ 0x14073DF04 (PnpStartDeviceNode.c)
- *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     IopDoDeferredSetInterfaceState @ 0x14073DF70 (IopDoDeferredSetInterfaceState.c)
+ *     PnpStartDeviceNode @ 0x14073E0C4 (PnpStartDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744650 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall PpMarkDeviceStackExtensionFlag(__int64 a1, int a2, char a3)

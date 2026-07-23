@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetWnfProcessNotificationEvent()
+NTSTATUS __cdecl NtSetWnfProcessNotificationEvent(HANDLE NotificationEvent)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 407LL;
+  result = 407;
   __asm { syscall; Low latency system call }
   return result;
 }

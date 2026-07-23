@@ -18,7 +18,7 @@ __int64 __fastcall MiGetPerfectFreeOrZeroPage(__int64 a1, int a2, int a3)
   __int64 *v6; // rax
   char v7; // r13
   unsigned __int64 v8; // r15
-  union _SLIST_HEADER *v9; // r12
+  _SLIST_HEADER *v9; // r12
   PSLIST_ENTRY v10; // r14
   unsigned __int64 v12; // r8
   unsigned __int64 v13; // rcx
@@ -64,7 +64,7 @@ __int64 __fastcall MiGetPerfectFreeOrZeroPage(__int64 a1, int a2, int a3)
   {
     if ( !_bittest64(*(const signed __int64 **)(a1 + 16 * (v5 + 928LL) + 8), v8) )
       goto LABEL_22;
-    v9 = (union _SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * v5 + 14944) + 16 * v8);
+    v9 = (_SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * v5 + 14944) + 16 * v8);
     v10 = RtlpInterlockedPopEntrySList(v9);
     if ( v10 )
       goto LABEL_8;

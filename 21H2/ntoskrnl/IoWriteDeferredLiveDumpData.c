@@ -1,19 +1,19 @@
 /*
- * XREFs of IoWriteDeferredLiveDumpData @ 0x140896A20
+ * XREFs of IoWriteDeferredLiveDumpData @ 0x140896B80
  * Callers:
- *     DbgkpWerDeferredWriteRoutine @ 0x140889280 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x1408893E0 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IopLiveDumpTrace @ 0x140508A88 (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceDumpFileWriteEnd @ 0x1405095D4 (IopLiveDumpTraceDumpFileWriteEnd.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x1405097EC (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x140509894 (IopLiveDumpTraceInterfaceStart.c)
- *     IopLiveDumpReleaseResources @ 0x1408986EC (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFile @ 0x140898B80 (IopLiveDumpWriteDumpFile.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     EtwActivityIdControl @ 0x140272110 (EtwActivityIdControl.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IopLiveDumpTrace @ 0x140508CC4 (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x140509810 (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x140509A28 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x140509AD0 (IopLiveDumpTraceInterfaceStart.c)
+ *     IopLiveDumpReleaseResources @ 0x14089884C (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140898CE0 (IopLiveDumpWriteDumpFile.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoWriteDeferredLiveDumpData(__int64 P)
@@ -55,7 +55,7 @@ __int64 __fastcall IoWriteDeferredLiveDumpData(__int64 P)
     v9 = (MEMORY[0xFFFFF78000000008] - v2) / 0x2710uLL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C044D8,
-      (unsigned __int8 *)byte_140024719,
+      (unsigned __int8 *)&dword_140024D84,
       (const GUID *)(P + 864),
       (const GUID *)(P + 848),
       4u,

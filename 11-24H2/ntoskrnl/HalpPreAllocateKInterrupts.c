@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpPreAllocateKInterrupts @ 0x140C130AC
+ * XREFs of HalpPreAllocateKInterrupts @ 0x140C150AC
  * Callers:
- *     HalpInterruptInitSystem @ 0x140B4D2D0 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140B4F310 (HalpInterruptInitSystem.c)
  * Callees:
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140541F70 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14053F86C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 HalpPreAllocateKInterrupts()
 {
   int MaximumRegisteredProcessorCount; // eax
   int v1; // ebx
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
 
   if ( !HalpKInterruptPostPhaseZero )
   {

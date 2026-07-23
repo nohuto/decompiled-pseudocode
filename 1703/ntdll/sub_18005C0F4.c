@@ -31,15 +31,15 @@ __int64 __fastcall sub_18005C0F4(__int64 a1, int a2, unsigned __int16 a3, unsign
   int v17; // ecx
   int v18; // ecx
   int v19; // ecx
-  __int64 v20; // rcx
+  int v20; // ecx
   int v21; // ecx
   char v22; // al
   unsigned int v23; // r10d
   unsigned __int16 *MergedPrefLanguages; // rcx
   unsigned int i; // ecx
   unsigned int v26; // ebx
-  int v28; // eax
-  int v29; // eax
+  NTSTATUS v28; // eax
+  NTSTATUS v29; // eax
   __int64 v30; // rcx
   __int64 v31; // rcx
   bool v32[4]; // [rsp+38h] [rbp-51h] BYREF
@@ -47,16 +47,16 @@ __int64 __fastcall sub_18005C0F4(__int64 a1, int a2, unsigned __int16 a3, unsign
   int v34; // [rsp+40h] [rbp-49h]
   unsigned int v35; // [rsp+44h] [rbp-45h]
   unsigned __int16 v36[2]; // [rsp+48h] [rbp-41h] BYREF
-  int v37; // [rsp+4Ch] [rbp-3Dh] BYREF
-  int v38; // [rsp+50h] [rbp-39h] BYREF
-  int v39; // [rsp+54h] [rbp-35h] BYREF
+  DWORD v37; // [rsp+4Ch] [rbp-3Dh] BYREF
+  DWORD DefaultLocaleId; // [rsp+50h] [rbp-39h] BYREF
+  DWORD Lcid; // [rsp+54h] [rbp-35h] BYREF
   int v40; // [rsp+58h] [rbp-31h] BYREF
   PCWSTR SourceString; // [rsp+60h] [rbp-29h] BYREF
   int v42; // [rsp+68h] [rbp-21h] BYREF
   const wchar_t *v43; // [rsp+70h] [rbp-19h]
   int v44; // [rsp+78h] [rbp-11h] BYREF
   const wchar_t *v45; // [rsp+80h] [rbp-9h]
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-1h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+88h] [rbp-1h] BYREF
   int v51; // [rsp+108h] [rbp+7Fh]
 
   v42 = 3801144;
@@ -65,15 +65,15 @@ __int64 __fastcall sub_18005C0F4(__int64 a1, int a2, unsigned __int16 a3, unsign
   v45 = L"LdrResFallbackLangList Exit";
   v5 = 0;
   v6 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  if ( RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   else
     v7 = 2147353477LL;
   v8 = 2147353476LL;
   if ( (*(_BYTE *)v7 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v31 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v31 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
       v31 = 2147353476LL;
     sub_1800E2008(&v42, *(unsigned __int8 *)v31);
@@ -167,7 +167,7 @@ LABEL_23:
       if ( (int)sub_18005C510(a1, a2, (unsigned int)&SourceString, (unsigned int)&v40, v12) < 0 )
         goto LABEL_37;
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( !RtlCultureNameToLCID(&DestinationString.Length, &v39) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       {
         v34 = -1073020923;
 LABEL_37:
@@ -176,8 +176,8 @@ LABEL_38:
         CurrentLocale = -4370;
         goto LABEL_6;
       }
-      CurrentLocale = v39;
-      v33[0] = v39;
+      CurrentLocale = Lcid;
+      v33[0] = Lcid;
       if ( (a4 & 0x100000) != 0 )
       {
         sub_180037618(v30, (__int64)NtCurrentTeb()->MergedPrefLanguages, 0, v33, v32);
@@ -193,8 +193,8 @@ LABEL_38:
     v19 = v18 - 1;
     if ( v19 )
     {
-      v20 = (unsigned int)(v19 - 1);
-      if ( (_DWORD)v20 )
+      v20 = v19 - 1;
+      if ( v20 )
       {
         v21 = v20 - 1;
         if ( v21 )
@@ -205,21 +205,20 @@ LABEL_38:
           goto LABEL_23;
         }
         CurrentLocale = -4370;
-        v28 = ZwQueryDefaultLocale(0LL, &v38, v12);
+        v28 = ZwQueryDefaultLocale(0, &DefaultLocaleId);
         v10 = v51;
         v12 = a4;
         v34 = v28;
-        if ( v28 >= 0 && v38 != v37 )
+        if ( v28 >= 0 && DefaultLocaleId != v37 )
         {
-          CurrentLocale = v38;
+          CurrentLocale = DefaultLocaleId;
           goto LABEL_22;
         }
       }
       else
       {
-        LODWORD(v20) = 1;
         CurrentLocale = -4370;
-        v29 = ZwQueryDefaultLocale(v20, &v37, v12);
+        v29 = ZwQueryDefaultLocale(1u, &v37);
         v10 = v51;
         v12 = a4;
         v34 = v29;
@@ -266,12 +265,12 @@ LABEL_38:
 LABEL_30:
   v26 = v34;
 LABEL_31:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  if ( RtlGetCurrentServiceSessionId() )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   if ( (*(_BYTE *)v6 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     sub_1800E2008(&v44, *(unsigned __int8 *)v8);
   }
   return v26;

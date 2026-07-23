@@ -125,10 +125,13 @@ LABEL_112:
         *(_BYTE *)(v16 + 208) = 1;
       }
       KxReleaseSpinLock((volatile signed __int64 *)(v16 + 200));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v17 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v53 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
@@ -259,10 +262,10 @@ LABEL_18:
         {
 LABEL_16:
           result = KxReleaseSpinLock((volatile signed __int64 *)(v10 + 360));
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             result = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
               && (unsigned __int8)result <= 0xFu
               && (unsigned __int8)v13 <= 0xFu
               && (unsigned __int8)result >= 2u )
@@ -328,10 +331,10 @@ LABEL_16:
         _InterlockedAnd((volatile signed __int32 *)(v42 + 32), 0xFFFFFFF7);
       PopFxUpdateDeviceIdleTimer(v42);
       result = KxReleaseSpinLock((volatile signed __int64 *)v43);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v44 <= 0xFu
           && (unsigned __int8)result >= 2u )

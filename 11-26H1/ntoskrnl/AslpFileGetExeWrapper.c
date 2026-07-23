@@ -1,18 +1,18 @@
 /*
- * XREFs of AslpFileGetExeWrapper @ 0x14088CBA4
+ * XREFs of AslpFileGetExeWrapper @ 0x140892FA0
  * Callers:
- *     AslpFileGetExeWrapperAttribute @ 0x14088CE08 (AslpFileGetExeWrapperAttribute.c)
+ *     AslpFileGetExeWrapperAttribute @ 0x140893204 (AslpFileGetExeWrapperAttribute.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     AslpFileGetImageNtHeader @ 0x14088D430 (AslpFileGetImageNtHeader.c)
- *     AslpFileHasActiveMarkWrapper @ 0x14088E628 (AslpFileHasActiveMarkWrapper.c)
- *     AslpFileHasSecuromWrapper @ 0x14088E7E0 (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x14088F370 (AslpHasStarForceWrapper.c)
- *     AslpImageFirstSectionUma @ 0x14088F438 (AslpImageFirstSectionUma.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     AslpFileGetImageNtHeader @ 0x14089382C (AslpFileGetImageNtHeader.c)
+ *     AslpFileHasActiveMarkWrapper @ 0x140894A24 (AslpFileHasActiveMarkWrapper.c)
+ *     AslpFileHasSecuromWrapper @ 0x140894BDC (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x14089576C (AslpHasStarForceWrapper.c)
+ *     AslpImageFirstSectionUma @ 0x140895834 (AslpImageFirstSectionUma.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetExeWrapper(_DWORD *a1, __int64 a2)

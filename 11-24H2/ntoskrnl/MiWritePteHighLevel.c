@@ -1,18 +1,18 @@
 /*
- * XREFs of MiWritePteHighLevel @ 0x14068410C
+ * XREFs of MiWritePteHighLevel @ 0x140685238
  * Callers:
- *     MiTransformValidPteViaIpi @ 0x14068404C (MiTransformValidPteViaIpi.c)
+ *     MiTransformValidPteViaIpi @ 0x1406851A8 (MiTransformValidPteViaIpi.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140234E68 (MiInsertRecursiveTbFlushEntries.c)
- *     MiInsertLargeTbFlushEntry @ 0x1403A4A2C (MiInsertLargeTbFlushEntry.c)
- *     KeIpiGenericCall @ 0x1404677F0 (KeIpiGenericCall.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x14020EDF8 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14021C25C (MiInsertLargeTbFlushEntry.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     KeIpiGenericCall @ 0x14045F290 (KeIpiGenericCall.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiWritePteHighLevel(unsigned __int64 a1, unsigned __int64 a2, ULONG_PTR a3, int a4)

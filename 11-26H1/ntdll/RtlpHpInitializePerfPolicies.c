@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpHpInitializePerfPolicies @ 0x1800D5198
+ * XREFs of RtlpHpInitializePerfPolicies @ 0x1800D10F0
  * Callers:
- *     RtlInitializeHeapManager @ 0x1800D3DD4 (RtlInitializeHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x1800CFAEC (RtlInitializeHeapManager.c)
  * Callees:
- *     RtlGetNtProductType @ 0x180063CA0 (RtlGetNtProductType.c)
- *     RtlpQueryPhysicalMemoryPolicy @ 0x1800D5C0C (RtlpQueryPhysicalMemoryPolicy.c)
+ *     RtlpQueryPhysicalMemoryPolicy @ 0x18006CF94 (RtlpQueryPhysicalMemoryPolicy.c)
+ *     RtlGetNtProductType @ 0x1800840F0 (RtlGetNtProductType.c)
  */
 
 __int64 __fastcall RtlpHpInitializePerfPolicies(int a1)
 {
   int WowTebOffset; // edi
   __int64 result; // rax
-  int v4; // [rsp+38h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+38h] [rbp+10h] BYREF
   int v5; // [rsp+40h] [rbp+18h] BYREF
 
   v5 = 0;
-  v4 = 0;
+  NtProductType = 0;
   WowTebOffset = NtCurrentTeb()->WowTebOffset;
   result = (unsigned int)RtlpHpLfhPerfFlags;
   if ( RtlpHpLfhPerfFlags )
     goto LABEL_2;
-  if ( RtlGetNtProductType(&v4) && v4 != 1 )
+  if ( RtlGetNtProductType(&NtProductType) && NtProductType != NtProductWinNt )
   {
     result = 10255LL;
 LABEL_8:

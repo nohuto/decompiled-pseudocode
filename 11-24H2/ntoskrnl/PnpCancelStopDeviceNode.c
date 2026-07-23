@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCancelStopDeviceNode @ 0x140734DF8
+ * XREFs of PnpCancelStopDeviceNode @ 0x140732D28
  * Callers:
- *     PnpCancelStopDeviceSubtree @ 0x140734E88 (PnpCancelStopDeviceSubtree.c)
- *     PnpQueryRebalanceWorker @ 0x14073509C (PnpQueryRebalanceWorker.c)
+ *     PnpCancelStopDeviceSubtree @ 0x140732DB8 (PnpCancelStopDeviceSubtree.c)
+ *     PnpQueryRebalanceWorker @ 0x140732FCC (PnpQueryRebalanceWorker.c)
  * Callees:
- *     PoFxIdleDevice @ 0x1403D76E4 (PoFxIdleDevice.c)
- *     PnpUnlockMountableDevice @ 0x1404C1E7C (PnpUnlockMountableDevice.c)
- *     PipRestoreDevNodeState @ 0x1404E6BC4 (PipRestoreDevNodeState.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     IopQueryReconfiguration @ 0x140733D7C (IopQueryReconfiguration.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
+ *     PoFxIdleDevice @ 0x1402F11C4 (PoFxIdleDevice.c)
+ *     PnpUnlockMountableDevice @ 0x1404BD46C (PnpUnlockMountableDevice.c)
+ *     PipRestoreDevNodeState @ 0x1404DD2C0 (PipRestoreDevNodeState.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     IopQueryReconfiguration @ 0x140731CB0 (IopQueryReconfiguration.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
  */
 
 void __fastcall PnpCancelStopDeviceNode(ULONG_PTR BugCheckParameter2)

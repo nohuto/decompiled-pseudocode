@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmiPurgeSessionPowerRequestEntries @ 0x1407E6690
+ * XREFs of TtmiPurgeSessionPowerRequestEntries @ 0x1407EC1F0
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x1407EC104 (TtmiSessionTerminalListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x1407F1C68 (TtmiSessionTerminalListWorker.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall TtmiPurgeSessionPowerRequestEntries(__int64 a1)

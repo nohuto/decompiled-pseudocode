@@ -1,24 +1,24 @@
 /*
- * XREFs of SepIsPackageSid @ 0x1402B0080
+ * XREFs of SepIsPackageSid @ 0x1404591B0
  * Callers:
- *     SepMaximumAccessCheckEx @ 0x1402ACD9C (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x1402AF210 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x1402B0BC0 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheck @ 0x1402B1890 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheck @ 0x14051A140 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x14051B700 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x14051BF40 (SepNormalAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x14051D0B0 (SepNormalAccessCheckEx.c)
  * Callees:
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
  */
 
 bool __fastcall SepIsPackageSid(__int64 a1)
 {
-  _DWORD *SparePtr; // rdi
+  struct _LIST_ENTRY *Blink; // rdi
 
-  SparePtr = RtlpBootStatHandleLock.WaitBlock[3].SparePtr;
+  Blink = RtlpBootStatHandleLock.Timer.TimerListEntry.Blink;
   return *(_BYTE *)(a1 + 1) >= 2u
-      && *(_BYTE *)a1 == *(_BYTE *)RtlpBootStatHandleLock.WaitBlock[3].SparePtr
+      && (struct _LIST_ENTRY *)*(_BYTE *)a1 == RtlpBootStatHandleLock.Timer.TimerListEntry.Blink->Flink
       && RtlCompareMemory(
            (const void *)(a1 + 2),
-           (const void *)(RtlpBootStatHandleLock.LastXStateSaveDebugInfo + 2),
+           (char *)&RtlpBootStatHandleLock.Timer.TimerListEntry.Blink->Flink + 2,
            6uLL) == 6
-      && *(_DWORD *)(a1 + 8) == SparePtr[2];
+      && *(_DWORD *)(a1 + 8) == LODWORD(Blink->Blink);
 }

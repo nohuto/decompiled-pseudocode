@@ -1,11 +1,11 @@
 /*
- * XREFs of NtSetIoCompletion @ 0x14068A810
+ * XREFs of NtSetIoCompletion @ 0x14068B9D0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoSetIoCompletionEx2 @ 0x1400FD5E8 (IoSetIoCompletionEx2.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     IoSetIoCompletionEx2 @ 0x1400FD668 (IoSetIoCompletionEx2.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

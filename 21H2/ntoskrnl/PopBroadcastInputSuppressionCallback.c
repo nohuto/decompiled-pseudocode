@@ -1,9 +1,9 @@
 /*
- * XREFs of PopBroadcastInputSuppressionCallback @ 0x140781BB0
+ * XREFs of PopBroadcastInputSuppressionCallback @ 0x140781D70
  * Callers:
  *     <none>
  * Callees:
- *     PopEvaluateInputSuppressionAction @ 0x1408EEB74 (PopEvaluateInputSuppressionAction.c)
+ *     PopEvaluateInputSuppressionAction @ 0x1408EECD4 (PopEvaluateInputSuppressionAction.c)
  */
 
 __int64 __fastcall PopBroadcastInputSuppressionCallback(_QWORD *a1)

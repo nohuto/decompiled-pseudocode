@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x140653184
+ * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x1406536D4
  * Callers:
- *     PfpPrivSourceEnum @ 0x1407417B0 (PfpPrivSourceEnum.c)
- *     SmStoreCompressionStart @ 0x1409D7828 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x1409D78C8 (SmStoreCompressionStop.c)
+ *     PfpPrivSourceEnum @ 0x1407419A0 (PfpPrivSourceEnum.c)
+ *     SmStoreCompressionStart @ 0x1409D7A28 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1409D7AC8 (SmStoreCompressionStop.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetWorkingSetSwapSupport @ 0x140342978 (MiGetWorkingSetSwapSupport.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetWorkingSetSwapSupport @ 0x140342C08 (MiGetWorkingSetSwapSupport.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)
@@ -37,10 +37,13 @@ __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)
     *a2 = *(_QWORD *)(*(_QWORD *)WorkingSetSwapSupport + 24LL);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 1176));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

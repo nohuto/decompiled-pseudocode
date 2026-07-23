@@ -4,11 +4,11 @@
  *     KiConfigureSchedulingInformation @ 0x1403D3734 (KiConfigureSchedulingInformation.c)
  *     KeConfigureHeteroProcessors @ 0x1403DCF74 (KeConfigureHeteroProcessors.c)
  * Callees:
- *     RtlWriteReleaseTickLock @ 0x14008351C (RtlWriteReleaseTickLock.c)
- *     RtlWriteAcquireTickLock @ 0x140083528 (RtlWriteAcquireTickLock.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KiGetCpuSetData @ 0x1400B5C54 (KiGetCpuSetData.c)
+ *     RtlWriteReleaseTickLock @ 0x14008419C (RtlWriteReleaseTickLock.c)
+ *     RtlWriteAcquireTickLock @ 0x1400841A8 (RtlWriteAcquireTickLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KiGetCpuSetData @ 0x1400B3A7C (KiGetCpuSetData.c)
  */
 
 __int64 __fastcall KiConfigureCpuSetSchedulingInformation(__int64 a1)

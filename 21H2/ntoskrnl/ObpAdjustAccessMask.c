@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpAdjustAccessMask @ 0x1405DE9A0
+ * XREFs of ObpAdjustAccessMask @ 0x1406CE100
  * Callers:
- *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByNameEx @ 0x1406CDDFC (ObReferenceObjectByNameEx.c)
  * Callees:
- *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
- *     SeObjectCreateSaclAccessBits @ 0x1406A6CE4 (SeObjectCreateSaclAccessBits.c)
+ *     SeObjectCreateSaclAccessBits @ 0x140604914 (SeObjectCreateSaclAccessBits.c)
+ *     RtlValidSecurityDescriptor @ 0x140653D20 (RtlValidSecurityDescriptor.c)
  */
 
 __int64 __fastcall ObpAdjustAccessMask(__int64 a1)

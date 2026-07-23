@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlFastUnlockSingleExclusive @ 0x140327174
+ * XREFs of FsRtlFastUnlockSingleExclusive @ 0x140327404
  * Callers:
- *     FsRtlFastUnlockSingle @ 0x140327090 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateRemoveLock @ 0x14053D958 (FsRtlPrivateRemoveLock.c)
+ *     FsRtlFastUnlockSingle @ 0x140327320 (FsRtlFastUnlockSingle.c)
+ *     FsRtlPrivateRemoveLock @ 0x14053DEA8 (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     RtlRealSuccessor @ 0x140326CF0 (RtlRealSuccessor.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x140326D34 (FsRtlPrivateCheckWaitingLocks.c)
- *     RtlDelete @ 0x140327CC0 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x140328320 (FsRtlPrivateResetLowestLockOffset.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140328398 (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x140326F80 (RtlRealSuccessor.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x140326FC4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     RtlDelete @ 0x140327F50 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x1403285B0 (FsRtlPrivateResetLowestLockOffset.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140328628 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleExclusive(
@@ -35,7 +35,7 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
   unsigned __int64 v17; // r14
   PRTL_SPLAY_LINKS i; // rax
   PRTL_SPLAY_LINKS v20; // rbp
-  RTL_SPLAY_LINKS *v21; // r12
+  _RTL_SPLAY_LINKS *v21; // r12
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -87,10 +87,13 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
           if ( !a8 && *(_QWORD *)(a1 + 16) )
           {
             KxReleaseSpinLock((volatile signed __int64 *)v10);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                && CurrentIrql <= 0xFu
+                && (unsigned __int8)v17 <= 0xFu
+                && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -109,10 +112,10 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
           if ( a9 && *(_QWORD *)(v10 + 24) )
             FsRtlPrivateCheckWaitingLocks(a1, v10, v17);
           KxReleaseSpinLock((volatile signed __int64 *)v10);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v27 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v27 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v27 >= 2u )
             {
               v28 = KeGetCurrentPrcb();
               v29 = v28->SchedulerAssist;
@@ -131,10 +134,10 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)v10);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v31 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v31 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v31 >= 2u )
     {
       v32 = KeGetCurrentPrcb();
       v33 = v32->SchedulerAssist;

@@ -2,65 +2,66 @@
  * XREFs of RtlGuardCheckExceptionHandler @ 0x18006F020
  * Callers:
  *     RtlGuardRestoreContext @ 0x18006EDE0 (RtlGuardRestoreContext.c)
- *     RcFrameConsolidation @ 0x1800A1D80 (RcFrameConsolidation.c)
+ *     RcFrameConsolidation @ 0x1800A1D40 (RcFrameConsolidation.c)
  * Callees:
  *     RtlpxLookupFunctionTable @ 0x180032F40 (RtlpxLookupFunctionTable.c)
  *     LdrControlFlowGuardEnforced @ 0x180033520 (LdrControlFlowGuardEnforced.c)
  *     LdrImageDirectoryEntryToLoadConfig @ 0x180035C00 (LdrImageDirectoryEntryToLoadConfig.c)
  *     bsearch_s @ 0x18008F4C0 (bsearch_s.c)
- *     RtlFailFast2 @ 0x1800A29C0 (RtlFailFast2.c)
+ *     RtlFailFast2 @ 0x1800A2980 (RtlFailFast2.c)
  */
 
-__int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 a1, char a2, char *a3)
+__int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 BaseAddress, char a2, char *a3)
 {
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r9
-  char v8; // bl
-  unsigned __int64 v9; // rbp
+  int v6; // eax
+  char *v7; // r8
+  char *v8; // r9
+  char v9; // bl
+  PVOID v10; // rbp
   _DWORD *Config; // rax
-  const void **v11; // rdx
-  rsize_t v12; // r8
-  unsigned int v13; // eax
-  __int128 v15; // [rsp+30h] [rbp-38h] BYREF
+  const void **v12; // rdx
+  rsize_t v13; // r8
+  unsigned int v14; // eax
+  PVOID BaseOfImage[2]; // [rsp+30h] [rbp-38h] BYREF
   int Key; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( (unsigned int)LdrControlFlowGuardEnforced() )
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( v6 )
   {
-    v8 = 0;
-    if ( a1 < *((_QWORD *)&xmmword_180181510 + 1)
-      || a1 >= *((_QWORD *)&xmmword_180181510 + 1) + (unsigned __int64)(unsigned int)qword_180181520 )
+    v9 = 0;
+    if ( BaseAddress < *((_QWORD *)&xmmword_180181510 + 1)
+      || BaseAddress >= *((_QWORD *)&xmmword_180181510 + 1) + (unsigned __int64)(unsigned int)qword_180181520 )
     {
-      RtlpxLookupFunctionTable(a1, (signed __int64)&v15, v6, v7);
+      RtlpxLookupFunctionTable(BaseAddress, (signed __int64)BaseOfImage, v7, v8);
     }
     else
     {
-      v15 = xmmword_180181510;
+      *(_OWORD *)BaseOfImage = xmmword_180181510;
     }
-    v9 = *((_QWORD *)&v15 + 1);
-    if ( *((_QWORD *)&v15 + 1)
-      && (Config = LdrImageDirectoryEntryToLoadConfig(*((unsigned __int64 *)&v15 + 1)),
-          (v11 = (const void **)Config) != 0LL)
+    v10 = BaseOfImage[1];
+    if ( BaseOfImage[1]
+      && (Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage[1]), (v12 = (const void **)Config) != 0LL)
       && *Config >= 0x118u
       && (Config[36] & 0x400000) != 0
-      && *((_QWORD *)Config + 33) > v9
-      && ((Key = a1 - v9, v12 = *((_QWORD *)Config + 34), v13 = (Config[36] >> 28) + 4, !v12)
-       || !bsearch_s(&Key, v11[33], v12, v13, RtlpTargetCompare, 0LL)) )
+      && *((_QWORD *)Config + 33) > (unsigned __int64)v10
+      && ((Key = BaseAddress - (_DWORD)v10, v13 = *((_QWORD *)Config + 34), v14 = (Config[36] >> 28) + 4, !v13)
+       || !bsearch_s(&Key, v12[33], v13, v14, RtlpTargetCompare, 0LL)) )
     {
       if ( !a2 )
-        RtlFailFast2(38LL, a1);
+        RtlFailFast2(38LL, BaseAddress);
     }
     else
     {
-      v8 = 1;
+      v9 = 1;
     }
     if ( a3 )
       goto LABEL_19;
   }
   else if ( a3 )
   {
-    v8 = 1;
+    v9 = 1;
 LABEL_19:
-    *a3 = v8;
+    *a3 = v9;
   }
   return 0LL;
 }

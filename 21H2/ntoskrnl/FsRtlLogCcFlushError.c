@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlLogCcFlushError @ 0x14088ADF0
+ * XREFs of FsRtlLogCcFlushError @ 0x14088AF50
  * Callers:
- *     CcMmLogLostDelayedWriteError @ 0x1404EA5C8 (CcMmLogLostDelayedWriteError.c)
+ *     CcMmLogLostDelayedWriteError @ 0x1404EA808 (CcMmLogLostDelayedWriteError.c)
  * Callees:
- *     MmIsWriteErrorFatal @ 0x140255928 (MmIsWriteErrorFatal.c)
- *     IoAllocateErrorLogEntry @ 0x1403805B0 (IoAllocateErrorLogEntry.c)
- *     IoWriteErrorLogEntry @ 0x140380A80 (IoWriteErrorLogEntry.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     IoRaiseInformationalHardError @ 0x140505F30 (IoRaiseInformationalHardError.c)
+ *     MmIsWriteErrorFatal @ 0x140276E98 (MmIsWriteErrorFatal.c)
+ *     IoAllocateErrorLogEntry @ 0x140380100 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x1403805D0 (IoWriteErrorLogEntry.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     IoRaiseInformationalHardError @ 0x140505EB0 (IoRaiseInformationalHardError.c)
  */
 
 NTSTATUS __stdcall FsRtlLogCcFlushError(

@@ -14,7 +14,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall ZwQuerySystemTime(_QWORD *a1)
+NTSTATUS __cdecl ZwQuerySystemTime(PLARGE_INTEGER SystemTime)
 {
-  return RtlQuerySystemTime(a1);
+  return RtlQuerySystemTime(SystemTime);
 }

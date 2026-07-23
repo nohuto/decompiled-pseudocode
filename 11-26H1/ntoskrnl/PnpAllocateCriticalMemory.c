@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpAllocateCriticalMemory @ 0x140912A94
+ * XREFs of PnpAllocateCriticalMemory @ 0x1409B4B74
  * Callers:
- *     PnpQueueQueryAndRemoveEvent @ 0x14090AD94 (PnpQueueQueryAndRemoveEvent.c)
- *     IopAllocateRelationList @ 0x140911808 (IopAllocateRelationList.c)
- *     PnpCompileDeviceInstancePaths @ 0x14091186C (PnpCompileDeviceInstancePaths.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
- *     PiEventAllocateVetoBuffer @ 0x1409126EC (PiEventAllocateVetoBuffer.c)
- *     PnpResizeTargetDeviceBlock @ 0x140912950 (PnpResizeTargetDeviceBlock.c)
- *     PiAllocateDeviceObjectList @ 0x140912A20 (PiAllocateDeviceObjectList.c)
- *     PiProcessQueryAndCancelRemoval @ 0x1409135AC (PiProcessQueryAndCancelRemoval.c)
- *     PnpRequestDeviceRemoval @ 0x14091493C (PnpRequestDeviceRemoval.c)
- *     PnpSetTargetDeviceRemove @ 0x140B2E86C (PnpSetTargetDeviceRemove.c)
+ *     PnpRequestDeviceRemoval @ 0x14096F3A8 (PnpRequestDeviceRemoval.c)
+ *     IopAllocateRelationList @ 0x1409B38E8 (IopAllocateRelationList.c)
+ *     PnpCompileDeviceInstancePaths @ 0x1409B394C (PnpCompileDeviceInstancePaths.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
+ *     PiEventAllocateVetoBuffer @ 0x1409B47CC (PiEventAllocateVetoBuffer.c)
+ *     PnpResizeTargetDeviceBlock @ 0x1409B4A30 (PnpResizeTargetDeviceBlock.c)
+ *     PiAllocateDeviceObjectList @ 0x1409B4B00 (PiAllocateDeviceObjectList.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x1409B568C (PiProcessQueryAndCancelRemoval.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x1409B5DE4 (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpSetTargetDeviceRemove @ 0x1409B6C04 (PnpSetTargetDeviceRemove.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpAllocateCriticalMemory(int a1, ULONG_PTR a2)

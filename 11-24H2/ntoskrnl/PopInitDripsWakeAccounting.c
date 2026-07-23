@@ -1,9 +1,9 @@
 /*
- * XREFs of PopInitDripsWakeAccounting @ 0x140C2D1CC
+ * XREFs of PopInitDripsWakeAccounting @ 0x140C2F2EC
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTimeFrom @ 0x14032D050 (PpmConvertTimeFrom.c)
+ *     PpmConvertTimeFrom @ 0x140437360 (PpmConvertTimeFrom.c)
  */
 
 __int64 PopInitDripsWakeAccounting()
@@ -27,16 +27,16 @@ __int64 PopInitDripsWakeAccounting()
   }
   while ( v1 );
   v3 = 11LL;
-  qword_140FC7078 = -1LL;
+  qword_140FC80D8 = -1LL;
   do
   {
     v4 = *(unsigned __int64 *)((char *)&PopDripsWakePeriodAccountingBucketLimitsHns + v2)
        * (unsigned __int128)0x346DC5D63886594BuLL;
     v2 += 8LL;
-    *(_QWORD *)((char *)&unk_140FC7298 + v2) = *((_QWORD *)&v4 + 1) >> 11;
+    *(_QWORD *)&algn_140FC8208[v2 + 240] = *((_QWORD *)&v4 + 1) >> 11;
     --v3;
   }
   while ( v3 );
-  qword_140FC72F8 = -1LL;
+  qword_140FC8358 = -1LL;
   return v4;
 }

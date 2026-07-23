@@ -1,15 +1,15 @@
 /*
- * XREFs of PopResizeHiberFile @ 0x140B0143C
+ * XREFs of PopResizeHiberFile @ 0x140B0316C
  * Callers:
- *     PopEnlargeHiberFile @ 0x1407D0204 (PopEnlargeHiberFile.c)
- *     PopAdjustHiberFile @ 0x140B01300 (PopAdjustHiberFile.c)
+ *     PopEnlargeHiberFile @ 0x1407D32A4 (PopEnlargeHiberFile.c)
+ *     PopAdjustHiberFile @ 0x140B03030 (PopAdjustHiberFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ZwSetInformationFile @ 0x1407238D0 (ZwSetInformationFile.c)
- *     PopValidateHiberFileSize @ 0x140B01614 (PopValidateHiberFileSize.c)
- *     PopSetHiberFileMcb @ 0x140B01804 (PopSetHiberFileMcb.c)
- *     PopSanityCheckHiberFile @ 0x140B018A0 (PopSanityCheckHiberFile.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140B39144 (FsRtlIssueFileNotificationFsctl.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ZwSetInformationFile @ 0x1407284A0 (ZwSetInformationFile.c)
+ *     PopValidateHiberFileSize @ 0x140B03344 (PopValidateHiberFileSize.c)
+ *     PopSetHiberFileMcb @ 0x140B03534 (PopSetHiberFileMcb.c)
+ *     PopSanityCheckHiberFile @ 0x140B035D0 (PopSanityCheckHiberFile.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140B3B354 (FsRtlIssueFileNotificationFsctl.c)
  */
 
 __int64 __fastcall PopResizeHiberFile(__int64 a1, _QWORD *a2, __int64 a3)
@@ -31,7 +31,7 @@ __int64 __fastcall PopResizeHiberFile(__int64 a1, _QWORD *a2, __int64 a3)
   v12 = 0;
   if ( !FileObject )
     goto LABEL_15;
-  if ( qword_140F0FD70 == a1 )
+  if ( qword_140F108F0 == a1 )
   {
 LABEL_17:
     Status = 0;
@@ -47,7 +47,7 @@ LABEL_15:
     goto LABEL_14;
   }
   FileInformation = v4;
-  Status = ZwSetInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 8u, FileAllocationInformation);
+  Status = ZwSetInformationFile(PopHiberInfo, &IoStatusBlock, &FileInformation, 8u, FileAllocationInformation);
   if ( Status == 259 )
   {
     KeWaitForSingleObject(&FileObject->Event, Executive, 0, 0, 0LL);
@@ -56,7 +56,7 @@ LABEL_15:
   if ( Status >= 0 )
   {
     v10 = v13;
-    Status = ZwSetInformationFile(FileHandle, &IoStatusBlock, &v10, 8u, FileEndOfFileInformation);
+    Status = ZwSetInformationFile(PopHiberInfo, &IoStatusBlock, &v10, 8u, FileEndOfFileInformation);
     if ( Status == 259 )
     {
       KeWaitForSingleObject(&FileObject->Event, Executive, 0, 0, 0LL);
@@ -65,7 +65,7 @@ LABEL_15:
     if ( Status >= 0 )
     {
       Status = PopSanityCheckHiberFile(
-                 (_DWORD)FileHandle,
+                 (_DWORD)PopHiberInfo,
                  (_DWORD)FileObject,
                  (unsigned int)&v13,
                  (unsigned int)&P,
@@ -75,7 +75,7 @@ LABEL_15:
         Status = PopSetHiberFileMcb(P);
         if ( Status >= 0 )
         {
-          qword_140F0FD70 = v13;
+          qword_140F108F0 = v13;
           FsRtlIssueFileNotificationFsctl(FileObject);
           goto LABEL_17;
         }
@@ -83,6 +83,6 @@ LABEL_15:
     }
   }
 LABEL_14:
-  *a2 = qword_140F0FD70;
+  *a2 = qword_140F108F0;
   return (unsigned int)Status;
 }

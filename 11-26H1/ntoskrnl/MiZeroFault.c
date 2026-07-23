@@ -1,23 +1,23 @@
 /*
- * XREFs of MiZeroFault @ 0x140422AB0
+ * XREFs of MiZeroFault @ 0x14041A2F0
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiMakePrototypePteVadLookup @ 0x1402CFD90 (MiMakePrototypePteVadLookup.c)
- *     MiCheckUserVirtualAddress @ 0x1402D1920 (MiCheckUserVirtualAddress.c)
- *     MiResolveSharedZeroFault @ 0x1402D1B90 (MiResolveSharedZeroFault.c)
- *     MiInitializeZeroFaultPacket @ 0x1402D50F0 (MiInitializeZeroFaultPacket.c)
- *     MiResolvePrivateZeroFault @ 0x1402D5420 (MiResolvePrivateZeroFault.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiPrefetchJumpVad @ 0x140314358 (MiPrefetchJumpVad.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiAllowGuardFault @ 0x1403A6CA0 (MiAllowGuardFault.c)
- *     MiUpdatePageTableUseCount @ 0x1403D9FE0 (MiUpdatePageTableUseCount.c)
- *     MiCheckVadSequential @ 0x1404481E0 (MiCheckVadSequential.c)
- *     MiCheckFatalAccessViolation @ 0x1404A08F4 (MiCheckFatalAccessViolation.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiMakePrototypePteVadLookup @ 0x1402B1B50 (MiMakePrototypePteVadLookup.c)
+ *     MiCheckUserVirtualAddress @ 0x1402B36E0 (MiCheckUserVirtualAddress.c)
+ *     MiResolveSharedZeroFault @ 0x1402B3950 (MiResolveSharedZeroFault.c)
+ *     MiInitializeZeroFaultPacket @ 0x1402B6EB0 (MiInitializeZeroFaultPacket.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B71E0 (MiResolvePrivateZeroFault.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiPrefetchJumpVad @ 0x140316388 (MiPrefetchJumpVad.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiAllowGuardFault @ 0x1403A8A00 (MiAllowGuardFault.c)
+ *     MiUpdatePageTableUseCount @ 0x1403DD1D0 (MiUpdatePageTableUseCount.c)
+ *     MiCheckVadSequential @ 0x140440CD0 (MiCheckVadSequential.c)
+ *     MiCheckFatalAccessViolation @ 0x14049A444 (MiCheckFatalAccessViolation.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiZeroFault(__int64 a1, unsigned __int64 a2, int *a3, __int64 *a4, _QWORD *a5)
@@ -46,7 +46,7 @@ __int64 __fastcall MiZeroFault(__int64 a1, unsigned __int64 a2, int *a3, __int64
   __int64 v27; // rax
   volatile signed __int32 *v28; // rcx
   __int64 v29; // rdx
-  __int64 v30; // r8
+  unsigned __int64 v30; // r8
   __int64 v31; // r9
   __int64 result; // rax
   char v33; // si
@@ -115,19 +115,19 @@ __int64 __fastcall MiZeroFault(__int64 a1, unsigned __int64 a2, int *a3, __int64
     v15 = v9 & 0x7FFFFFFFF000LL;
     if ( (v9 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
     {
-      v16 = qword_140E2D628;
+      v16 = qword_140E2D7A8;
       v8 = 1;
       goto LABEL_60;
     }
-    if ( v15 == qword_140E2D638 && v15 )
+    if ( v15 == qword_140E2D7B8 && v15 )
     {
-      v16 = qword_140E2D630;
+      v16 = qword_140E2D7B0;
       v8 = 1;
       goto LABEL_60;
     }
   }
   v17 = (_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v17);
     v19 = *v17 & 0x7FFFFFFF;
@@ -185,7 +185,7 @@ LABEL_36:
       }
       Process[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)Flink;
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       _m_prefetchw((const void *)(Flink + 64));
       v25 = *(_DWORD *)(Flink + 64) & 0x7FFFFFFF;
@@ -214,7 +214,7 @@ LABEL_36:
   }
 LABEL_46:
   v26 = (volatile signed __int32 *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd(v26, 0xBFFFFFFF);
     _InterlockedDecrement(v26);
@@ -235,7 +235,7 @@ LABEL_59:
   v16 = v27;
   v36.Flink = (struct _LIST_ENTRY *)Flink;
   v14 = Flink;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd(v28, 0xBFFFFFFF);
     _InterlockedDecrement(v28);

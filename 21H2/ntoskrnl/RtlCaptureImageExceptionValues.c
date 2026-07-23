@@ -1,26 +1,23 @@
 /*
- * XREFs of RtlCaptureImageExceptionValues @ 0x1403725AC
+ * XREFs of RtlCaptureImageExceptionValues @ 0x1403720FC
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x14029A894 (RtlpLookupUserFunctionTable.c)
- *     RtlInsertInvertedFunctionTable @ 0x1403721F8 (RtlInsertInvertedFunctionTable.c)
- *     KiLockServiceTable @ 0x14039F194 (KiLockServiceTable.c)
- *     KiLockExtendedServiceTable @ 0x1403DBEC8 (KiLockExtendedServiceTable.c)
- *     KiVerifyXcpt15 @ 0x140A1B320 (KiVerifyXcpt15.c)
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
- *     KiFatalExceptionFilter @ 0x140A7221C (KiFatalExceptionFilter.c)
+ *     RtlpLookupUserFunctionTable @ 0x140212224 (RtlpLookupUserFunctionTable.c)
+ *     RtlInsertInvertedFunctionTable @ 0x140371D48 (RtlInsertInvertedFunctionTable.c)
+ *     KiLockServiceTable @ 0x14039F2E4 (KiLockServiceTable.c)
+ *     KiLockExtendedServiceTable @ 0x1403DC038 (KiLockExtendedServiceTable.c)
+ *     KiVerifyXcpt15 @ 0x140A1C320 (KiVerifyXcpt15.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
+ *     KiFatalExceptionFilter @ 0x140A7321C (KiFatalExceptionFilter.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x140286140 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall RtlCaptureImageExceptionValues(int a1, __int64 *a2, _DWORD *a3)
+__int64 __fastcall RtlCaptureImageExceptionValues(void *a1, _QWORD *a2, ULONG *a3)
 {
-  __int64 *v4; // rbx
-  __int64 v5; // rax
+  PVOID v5; // rax
 
-  v4 = a2;
-  LOBYTE(a2) = 1;
-  v5 = RtlImageDirectoryEntryToData(a1, (int)a2, 3, (int)a3);
-  *v4 = v5;
+  v5 = RtlImageDirectoryEntryToData(a1, 1u, 3u, a3);
+  *a2 = v5;
   if ( !v5 )
     *a3 = 0;
   return 0LL;

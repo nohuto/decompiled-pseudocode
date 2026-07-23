@@ -1,16 +1,16 @@
 /*
- * XREFs of SmKmUnlockMdl @ 0x14040751C
+ * XREFs of SmKmUnlockMdl @ 0x14040060C
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14038FB60 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     SmKmStoreHelperCommandCleanup @ 0x140501F24 (SmKmStoreHelperCommandCleanup.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x140391910 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x1404FB7F4 (SmKmStoreHelperCommandCleanup.c)
  * Callees:
- *     SmFpFree @ 0x140281020 (SmFpFree.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MmUnmapReservedMapping @ 0x1403C1C70 (MmUnmapReservedMapping.c)
- *     SmpFpReleaseResource @ 0x140405920 (SmpFpReleaseResource.c)
- *     MiUnlockStoreLockedPages @ 0x1404075E4 (MiUnlockStoreLockedPages.c)
+ *     SmFpFree @ 0x140280590 (SmFpFree.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MmUnmapReservedMapping @ 0x1403CBB70 (MmUnmapReservedMapping.c)
+ *     SmpFpReleaseResource @ 0x1403FEA14 (SmpFpReleaseResource.c)
+ *     MiUnlockStoreLockedPages @ 0x1404006D4 (MiUnlockStoreLockedPages.c)
  */
 
 __int64 __fastcall SmKmUnlockMdl(PMDL MemoryDescriptorList, __int64 SpinLock, __int64 a3)

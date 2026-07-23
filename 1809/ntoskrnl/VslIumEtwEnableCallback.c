@@ -1,10 +1,10 @@
 /*
- * XREFs of VslIumEtwEnableCallback @ 0x1408189F0
+ * XREFs of VslIumEtwEnableCallback @ 0x140819BF0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall VslIumEtwEnableCallback(

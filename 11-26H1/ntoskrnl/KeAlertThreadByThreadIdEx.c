@@ -1,18 +1,18 @@
 /*
- * XREFs of KeAlertThreadByThreadIdEx @ 0x140381260
+ * XREFs of KeAlertThreadByThreadIdEx @ 0x140383010
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     KeAlertThreadByThreadId @ 0x1404F936C (KeAlertThreadByThreadId.c)
- *     NtAlertThreadByThreadIdEx @ 0x140A33250 (NtAlertThreadByThreadIdEx.c)
- *     NtAlertThreadByThreadId @ 0x140A5D8F0 (NtAlertThreadByThreadId.c)
+ *     KeAlertThreadByThreadId @ 0x1404F297C (KeAlertThreadByThreadId.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     NtAlertThreadByThreadIdEx @ 0x140A4E1B0 (NtAlertThreadByThreadIdEx.c)
+ *     NtAlertThreadByThreadId @ 0x140A6A8B0 (NtAlertThreadByThreadId.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRemovePrcbWaitEntry @ 0x140380F20 (KiRemovePrcbWaitEntry.c)
- *     ?KiAbpPreWakeupByThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXK@Z @ 0x140382B84 (-KiAbpPreWakeupByThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXK@Z.c)
- *     ?KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z @ 0x140457E30 (-KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRemovePrcbWaitEntry @ 0x140382CD0 (KiRemovePrcbWaitEntry.c)
+ *     ?KiAbpPreWakeupByThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXK@Z @ 0x140384934 (-KiAbpPreWakeupByThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXK@Z.c)
+ *     ?KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z @ 0x14044F6A0 (-KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeAlertThreadByThreadIdEx(__int64 a1, struct _KTHREAD *a2, void *a3, unsigned int a4)

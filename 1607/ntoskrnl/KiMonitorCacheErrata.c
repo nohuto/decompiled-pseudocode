@@ -1,11 +1,11 @@
 /*
- * XREFs of KiMonitorCacheErrata @ 0x1401D8F18
+ * XREFs of KiMonitorCacheErrata @ 0x1401D8D44
  * Callers:
  *     <none>
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x14006ADC0 (ObReferenceObjectSafeWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D3F30 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MmReadProcessPageTables @ 0x1401EEF28 (MmReadProcessPageTables.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14006A940 (ObReferenceObjectSafeWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D1DD0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MmReadProcessPageTables @ 0x1401EED54 (MmReadProcessPageTables.c)
  */
 
 __int64 KiMonitorCacheErrata()

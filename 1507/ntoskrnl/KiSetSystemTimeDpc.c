@@ -21,7 +21,7 @@ char __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
   unsigned int v10; // esi
   struct _KPRCB *CurrentPrcb; // rsi
   __int64 p_TimerTable; // r15
-  __int64 *v13; // rbx
+  LARGE_INTEGER *v13; // rbx
   __int64 v14; // rcx
   _QWORD *v15; // rax
   __int64 v16; // rcx
@@ -77,7 +77,7 @@ char __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int
   }
   if ( CurrentPrcb->ClockOwner )
   {
-    v13 = *(__int64 **)(v6 + 16);
+    v13 = *(LARGE_INTEGER **)(v6 + 16);
     *v13 = RtlGetSystemTimePrecise();
     v14 = **(_QWORD **)(v6 + 8);
     v15 = *(_QWORD **)(v6 + 16);

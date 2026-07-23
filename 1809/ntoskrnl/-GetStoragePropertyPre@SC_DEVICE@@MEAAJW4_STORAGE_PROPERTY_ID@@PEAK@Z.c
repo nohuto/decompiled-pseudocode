@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetStoragePropertyPre@SC_DEVICE@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x14032B6A0
+ * XREFs of ?GetStoragePropertyPre@SC_DEVICE@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x14032B890
  * Callers:
- *     ?GetStoragePropertyPre@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x140169DC0 (-GetStoragePropertyPre@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z.c)
+ *     ?GetStoragePropertyPre@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x140169EC0 (-GetStoragePropertyPre@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z.c)
  * Callees:
  *     <none>
  */

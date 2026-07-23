@@ -1,22 +1,24 @@
 /*
- * XREFs of MiAllocateModWriterEntry @ 0x14046EBF8
+ * XREFs of MiAllocateModWriterEntry @ 0x14046930C
  * Callers:
- *     MiAllocateMappedWriterMdls @ 0x140469E0C (MiAllocateMappedWriterMdls.c)
- *     MiCreatePagefile @ 0x1407EDFA0 (MiCreatePagefile.c)
+ *     MiAllocateMappedWriterMdls @ 0x140462D3C (MiAllocateMappedWriterMdls.c)
+ *     MiCreatePagefile @ 0x1407EE570 (MiCreatePagefile.c)
  * Callees:
- *     MiChargeForWriteInProgressPage @ 0x140211300 (MiChargeForWriteInProgressPage.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiChargeForWriteInProgressPage @ 0x14033A660 (MiChargeForWriteInProgressPage.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall MiAllocateModWriterEntry(__int64 a1, __int64 a2, int a3)
 {
   void *Pool; // rbx
+  __int64 v6; // r8
+  __int64 v7; // r9
 
   Pool = (void *)MiAllocatePool(0x40uLL, 8 * a2 + 152, 1700228429);
   if ( Pool )
   {
-    if ( (unsigned int)MiChargeForWriteInProgressPage(a1, a3 != 0) )
+    if ( (unsigned int)MiChargeForWriteInProgressPage(a1, a3 != 0, v6, v7) )
       return Pool;
     ExFreePoolWithTag(Pool, 0);
   }

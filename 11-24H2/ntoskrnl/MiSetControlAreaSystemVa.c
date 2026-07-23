@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetControlAreaSystemVa @ 0x1404AD3A0
+ * XREFs of MiSetControlAreaSystemVa @ 0x1404A7A80
  * Callers:
- *     MiSelectImageBase @ 0x1408F67EC (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x140AEB020 (MiSelectImageBase.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiSetControlAreaSystemVa(__int64 a1, int a2)

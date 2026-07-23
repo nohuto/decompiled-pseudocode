@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtRollbackEnlistment()
+NTSTATUS __cdecl NtRollbackEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 356LL;
+  result = 356;
   __asm { syscall; Low latency system call }
   return result;
 }

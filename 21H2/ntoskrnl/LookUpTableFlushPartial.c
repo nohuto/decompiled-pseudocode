@@ -1,32 +1,32 @@
 /*
- * XREFs of LookUpTableFlushPartial @ 0x14076083C
+ * XREFs of LookUpTableFlushPartial @ 0x1407609FC
  * Callers:
- *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1407607D0 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
- *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1407D3F30 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
+ *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x140760990 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1407D40A0 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
  * Callees:
- *     FlushLookUpTableBucket @ 0x140375A48 (FlushLookUpTableBucket.c)
- *     UpdateInternalStatsOnFlush @ 0x140760950 (UpdateInternalStatsOnFlush.c)
+ *     FlushLookUpTableBucket @ 0x140375598 (FlushLookUpTableBucket.c)
+ *     UpdateInternalStatsOnFlush @ 0x140760B10 (UpdateInternalStatsOnFlush.c)
  */
 
-void __fastcall LookUpTableFlushPartial(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+void __fastcall LookUpTableFlushPartial(__int64 a1)
 {
-  unsigned int v4; // esi
-  unsigned int v6; // ebp
-  unsigned int v7; // ebx
+  unsigned int v1; // esi
+  unsigned int v3; // ebp
+  unsigned int v4; // ebx
 
-  v4 = 0;
+  v1 = 0;
   if ( *(_DWORD *)(a1 + 256) )
   {
-    v6 = *(_DWORD *)(a1 + 260);
-    v7 = v6;
+    v3 = *(_DWORD *)(a1 + 260);
+    v4 = v3;
     do
     {
-      if ( *(_QWORD *)(a1 + 8LL * v7) )
-        v4 += FlushLookUpTableBucket(a1, v7, a3, a4);
-      v7 = ((_BYTE)v7 + 1) & 0x1F;
+      if ( *(_QWORD *)(a1 + 8LL * v4) )
+        v1 += FlushLookUpTableBucket(a1, v4);
+      v4 = ((_BYTE)v4 + 1) & 0x1F;
     }
-    while ( v7 != v6 && v4 < 0x10 );
-    *(_DWORD *)(a1 + 260) = v7;
-    UpdateInternalStatsOnFlush(a1, v4);
+    while ( v4 != v3 && v1 < 0x10 );
+    *(_DWORD *)(a1 + 260) = v4;
+    UpdateInternalStatsOnFlush(a1, v1);
   }
 }

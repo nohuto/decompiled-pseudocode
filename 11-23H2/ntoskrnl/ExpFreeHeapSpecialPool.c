@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpFreeHeapSpecialPool @ 0x14060F0A8
+ * XREFs of ExpFreeHeapSpecialPool @ 0x14060F5F8
  * Callers:
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     ExAllocateHeapSpecialPool @ 0x14060ED30 (ExAllocateHeapSpecialPool.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060F280 (ExAllocateHeapSpecialPool.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  * Callees:
  *     MiDeterminePoolType @ 0x1402123C0 (MiDeterminePoolType.c)
- *     ExpPoolTrackerReturnLimit @ 0x1402AC350 (ExpPoolTrackerReturnLimit.c)
- *     ExpFreePoolChecks @ 0x1402AC3A0 (ExpFreePoolChecks.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExpRemovePoolTrackerExpansion @ 0x14046B19A (ExpRemovePoolTrackerExpansion.c)
- *     VerifierFreeTrackedPool @ 0x1405CFB60 (VerifierFreeTrackedPool.c)
- *     EtwTracePool @ 0x1405FD190 (EtwTracePool.c)
+ *     ExpPoolTrackerReturnLimit @ 0x1402AC5E0 (ExpPoolTrackerReturnLimit.c)
+ *     ExpFreePoolChecks @ 0x1402AC630 (ExpFreePoolChecks.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x14046B59A (ExpRemovePoolTrackerExpansion.c)
+ *     VerifierFreeTrackedPool @ 0x1405D00D0 (VerifierFreeTrackedPool.c)
+ *     EtwTracePool @ 0x1405FD700 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExpFreeHeapSpecialPool(_DWORD *a1, unsigned __int64 a2)

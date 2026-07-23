@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRegisterPeiErrorSource @ 0x14058E3B8
+ * XREFs of HalpRegisterPeiErrorSource @ 0x140590B38
  * Callers:
- *     HalpInitializeGenericErrorSource @ 0x140BEC3F8 (HalpInitializeGenericErrorSource.c)
+ *     HalpInitializeGenericErrorSource @ 0x140BF23F8 (HalpInitializeGenericErrorSource.c)
  * Callees:
- *     HalpInterruptConnect @ 0x14057B950 (HalpInterruptConnect.c)
+ *     HalpInterruptConnect @ 0x14057DE80 (HalpInterruptConnect.c)
  */
 
 int __fastcall HalpRegisterPeiErrorSource(unsigned __int64 a1)
@@ -18,8 +18,8 @@ int __fastcall HalpRegisterPeiErrorSource(unsigned __int64 a1)
   if ( !a1 )
     return -1073741811;
   v3 = 0LL;
-  if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
-    v3 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 4);
+  if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
+    v3 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 4);
   v5 = a1;
   v4 = *(_DWORD *)(a1 + 160);
   v6 = v3;

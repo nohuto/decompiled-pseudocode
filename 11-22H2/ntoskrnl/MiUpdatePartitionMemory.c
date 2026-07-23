@@ -33,10 +33,13 @@ void __fastcall MiUpdatePartitionMemory(__int64 a1, __int64 a2, int a3)
   *(_QWORD *)(a1 + 32) = v8;
   v11 = v7;
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v11 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

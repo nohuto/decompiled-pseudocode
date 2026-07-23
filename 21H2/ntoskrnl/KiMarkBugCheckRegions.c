@@ -1,12 +1,12 @@
 /*
- * XREFs of KiMarkBugCheckRegions @ 0x1403DC7D8
+ * XREFs of KiMarkBugCheckRegions @ 0x1403DC948
  * Callers:
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
  * Callees:
- *     MmQueryApiSetSchema @ 0x140371F58 (MmQueryApiSetSchema.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     sub_1403EBA24 @ 0x1403EBA24 (sub_1403EBA24.c)
- *     MmIsAddressValid @ 0x140536B70 (MmIsAddressValid.c)
+ *     MmQueryApiSetSchema @ 0x140371AA8 (MmQueryApiSetSchema.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403EBB94 @ 0x1403EBB94 (sub_1403EBB94.c)
+ *     MmIsAddressValid @ 0x140536DB0 (MmIsAddressValid.c)
  */
 
 char __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -222,7 +222,7 @@ LABEL_47:
     if ( MmIsAddressValid(VirtualAddress) && a3 == *(_QWORD *)VirtualAddress )
       IoAddTriageDumpDataBlock((ULONG)VirtualAddress, (PVOID)8);
   }
-  result = sub_1403EBA24(a1, a2, a3, a4);
+  result = sub_1403EBB94(a1, a2, a3, a4);
   if ( *(_QWORD *)&::MaxDataSize )
     return IoAddTriageDumpDataBlock(::MaxDataSize, (PVOID)0xAA0);
   return result;

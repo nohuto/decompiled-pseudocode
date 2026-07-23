@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipGenerateMofResourceNotification @ 0x140AB0184
+ * XREFs of WmipGenerateMofResourceNotification @ 0x140AAB0F4
  * Callers:
- *     WmipAddDataSource @ 0x1409CFD60 (WmipAddDataSource.c)
- *     WmipMRCleanup @ 0x140AA6440 (WmipMRCleanup.c)
+ *     WmipAddDataSource @ 0x1409B01A8 (WmipAddDataSource.c)
+ *     WmipMRCleanup @ 0x140AA14B0 (WmipMRCleanup.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WmipProcessEvent @ 0x1409CB800 (WmipProcessEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WmipProcessEvent @ 0x1409B1F20 (WmipProcessEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WmipGenerateMofResourceNotification(_WORD *Src, _WORD *a2, _OWORD *a3, int a4)
@@ -17,7 +17,7 @@ void __fastcall WmipGenerateMofResourceNotification(_WORD *Src, _WORD *a2, _OWOR
   __int64 v6; // r10
   __int64 v10; // rsi
   __int64 v11; // rbp
-  size_t v12; // rbx
+  ULONG_PTR v12; // rbx
   char *Pool2; // rax
   char *v14; // rdi
   int v15; // eax
@@ -35,7 +35,7 @@ void __fastcall WmipGenerateMofResourceNotification(_WORD *Src, _WORD *a2, _OWOR
   while ( a2[v4] );
   v11 = 2 * v4 + 4;
   v12 = v10 + 2 * v4 + 76;
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
+  Pool2 = (char *)ExAllocatePool2(0x100uLL, v12, 0x70696D57u);
   v14 = Pool2;
   if ( Pool2 )
   {

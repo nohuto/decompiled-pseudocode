@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpVerifyHmatEntryValidity @ 0x140A8D578
+ * XREFs of HalpVerifyHmatEntryValidity @ 0x140A8E578
  * Callers:
- *     HalpNumaParseHmat @ 0x140A8D0E4 (HalpNumaParseHmat.c)
+ *     HalpNumaParseHmat @ 0x140A8E0E4 (HalpNumaParseHmat.c)
  * Callees:
  *     <none>
  */

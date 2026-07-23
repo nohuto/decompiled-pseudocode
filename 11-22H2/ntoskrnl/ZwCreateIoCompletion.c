@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCreateIoCompletion(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateIoCompletion(
+        PHANDLE IoCompletionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoCompletionHandle);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of KxEnableOptionalXStateFeatures @ 0x1405ECFA4
+ * XREFs of KxEnableOptionalXStateFeatures @ 0x1405EF914
  * Callers:
- *     KiEnableOptionalXStateFeatures @ 0x1403D2A3C (KiEnableOptionalXStateFeatures.c)
- *     KeEnableOptionalXStateFeaturesApc @ 0x1405EC9A0 (KeEnableOptionalXStateFeaturesApc.c)
+ *     KiEnableOptionalXStateFeatures @ 0x1403D5A0C (KiEnableOptionalXStateFeatures.c)
+ *     KeEnableOptionalXStateFeaturesApc @ 0x1405EF310 (KeEnableOptionalXStateFeaturesApc.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeCopyXfdMaskToTeb @ 0x1404EA0C8 (KeCopyXfdMaskToTeb.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeCopyXfdMaskToTeb @ 0x1404E3478 (KeCopyXfdMaskToTeb.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *a3, char *a4)

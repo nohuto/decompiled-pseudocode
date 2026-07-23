@@ -1,11 +1,11 @@
 /*
- * XREFs of ntoskrnl_24 @ 0x1409F9A10
+ * XREFs of ntoskrnl_24 @ 0x1409F9CA0
  * Callers:
- *     ExInitLicenseData @ 0x14080EF78 (ExInitLicenseData.c)
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14080F86C (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA694 (SLUpdateLicenseDataInternal.c)
+ *     ExInitLicenseData @ 0x14080F248 (ExInitLicenseData.c)
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14080FB3C (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409FA924 (SLUpdateLicenseDataInternal.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
  */
 
 NTSTATUS __fastcall ntoskrnl_24(PCEVENT_DESCRIPTOR EventDescriptor)

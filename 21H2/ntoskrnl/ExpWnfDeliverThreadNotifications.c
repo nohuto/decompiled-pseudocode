@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWnfDeliverThreadNotifications @ 0x14060E014
+ * XREFs of ExpWnfDeliverThreadNotifications @ 0x14069DAC4
  * Callers:
- *     NtGetCompleteWnfStateSubscription @ 0x14060DEC0 (NtGetCompleteWnfStateSubscription.c)
+ *     NtGetCompleteWnfStateSubscription @ 0x14069D970 (NtGetCompleteWnfStateSubscription.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExpWnfReadStateData @ 0x14060FB44 (ExpWnfReadStateData.c)
- *     ExpWnfNotifyNameSubscribers @ 0x14061088C (ExpWnfNotifyNameSubscribers.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExpWnfReadStateData @ 0x14069F5F4 (ExpWnfReadStateData.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406A033C (ExpWnfNotifyNameSubscribers.c)
  */
 
 __int64 __fastcall ExpWnfDeliverThreadNotifications(__int64 a1, __int64 a2, int a3)
@@ -20,10 +20,10 @@ __int64 __fastcall ExpWnfDeliverThreadNotifications(__int64 a1, __int64 a2, int 
   unsigned __int64 *v3; // r14
   unsigned int v4; // r13d
   signed __int64 *v5; // r12
-  __int64 v6; // rsi
+  PRTL_BALANCED_NODE v6; // rsi
   volatile signed __int64 *v7; // r15
-  __int64 v8; // rax
-  __int64 v9; // rsi
+  _RTL_BALANCED_NODE *v8; // rax
+  _RTL_BALANCED_NODE *v9; // rsi
   unsigned __int64 *v10; // rax
   unsigned __int64 *v11; // r14
   __int64 v12; // rsi
@@ -64,7 +64,7 @@ LABEL_2:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v3 + 10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v3 + 10, v6, (ULONG_PTR)(v3 + 10));
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v7 = (volatile signed __int64 *)(v3 + 13);
   BugCheckParameter2 = (ULONG_PTR)(v3 + 13);
   v8 = KeAbPreAcquire((ULONG_PTR)(v3 + 13), 0LL, 0);
@@ -72,7 +72,7 @@ LABEL_2:
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3 + 26, 0LL) )
     ExfAcquirePushLockExclusiveEx(v3 + 13, v8, (ULONG_PTR)(v3 + 13));
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v10 = v3 + 14;
   v27 = v3 + 14;
   v11 = (unsigned __int64 *)v3[14];
@@ -88,7 +88,7 @@ LABEL_2:
     v28 = v12;
     if ( v12 )
     {
-      v12 &= -(__int64)(ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 8)) != 0);
+      v12 &= -(__int64)(ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v12 + 8)) != 0);
       v28 = v12;
     }
     v13 = (int *)v11 + 5;
@@ -121,7 +121,7 @@ LABEL_2:
 LABEL_24:
     if ( v12 )
     {
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 8));
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12 + 8));
       v12 = 0LL;
     }
     if ( v24 < 0 )
@@ -171,12 +171,12 @@ LABEL_40:
           ExfReleasePushLockShared(v23);
         KeAbPostRelease((ULONG_PTR)v23);
         ExpWnfNotifyNameSubscribers(v12, 8LL, 1LL, 1LL);
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 8));
+        ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12 + 8));
         v4 = v36;
         v3 = (unsigned __int64 *)a1;
         goto LABEL_2;
       }
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 8));
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12 + 8));
     }
     v4 = v36;
 LABEL_36:

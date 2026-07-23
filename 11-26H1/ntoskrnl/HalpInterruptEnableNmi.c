@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpInterruptEnableNmi @ 0x140429E90
+ * XREFs of HalpInterruptEnableNmi @ 0x140435DF0
  * Callers:
- *     HalpInterruptInitSystem @ 0x140BEB450 (HalpInterruptInitSystem.c)
- *     HalpPostSleepMP @ 0x140BECEF0 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140BEE0F0 (HalpDpPostReplaceInitialization.c)
+ *     HalpInterruptInitSystem @ 0x140BF1450 (HalpInterruptInitSystem.c)
+ *     HalpPostSleepMP @ 0x140BF2EF0 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140BF40F0 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x14042638C (HalpInterruptGsiToLine.c)
- *     HalpInterruptFindLines @ 0x1404265EC (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpInterruptDestinationToTarget @ 0x140427E00 (HalpInterruptDestinationToTarget.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x140428A2C (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpInterruptSetLineState @ 0x1404294DC (HalpInterruptSetLineState.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x14057C19C (HalpInterruptSetRemappedLineStateInternal.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HalpHvMapIoApicDeviceInterrupt @ 0x140BEABC4 (HalpHvMapIoApicDeviceInterrupt.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x14043349C (HalpInterruptGsiToLine.c)
+ *     HalpInterruptFindLines @ 0x1404336FC (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptDestinationToTarget @ 0x140434F10 (HalpInterruptDestinationToTarget.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x140435084 (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpInterruptSetLineState @ 0x140435168 (HalpInterruptSetLineState.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x14057E6CC (HalpInterruptSetRemappedLineStateInternal.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HalpHvMapIoApicDeviceInterrupt @ 0x140BF0BC4 (HalpHvMapIoApicDeviceInterrupt.c)
  */
 
 __int64 HalpInterruptEnableNmi()
@@ -68,7 +68,7 @@ __int64 HalpInterruptEnableNmi()
   v27 = 0;
   v32 = 0LL;
   v34 = 0LL;
-  v0 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+  v0 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
   CurrentPrcb = KeGetCurrentPrcb();
   v2 = v0;
   v3 = HalpInterruptProcessorCount;
@@ -175,9 +175,7 @@ LABEL_26:
     Number = CurrentPrcb->Number;
     LODWORD(v28) = 1;
     v18 = 0LL;
-    _bittestandset64(
-      &v18,
-      *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * Number) & 0x3F);
+    _bittestandset64(&v18, *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + Number) & 0x3F);
     *(_QWORD *)&v35 = v18;
     *((_QWORD *)&v28 + 1) = &v35;
   }
@@ -210,7 +208,7 @@ LABEL_26:
         DWORD2(v31) = 7;
         LODWORD(v32) = v34 & 0x3FFFFFFF;
       }
-      if ( qword_140FBB068 )
+      if ( qword_140FBB408 )
       {
         v23 = HalpHvMapIoApicDeviceInterrupt(*((unsigned int *)v21 + 64), &v30, 0LL);
         v7 = v23;
@@ -245,6 +243,6 @@ LABEL_58:
 LABEL_59:
   v7 = -1073741275;
 LABEL_7:
-  HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v2);
+  HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, v2);
   return (unsigned int)v7;
 }

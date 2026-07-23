@@ -37,7 +37,7 @@ _QWORD *__fastcall KiFlushQueueApc(__int64 a1, char a2)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v7) = 4;
@@ -55,10 +55,10 @@ _QWORD *__fastcall KiFlushQueueApc(__int64 a1, char a2)
     if ( *(_QWORD *)(a1 + 168) == a1 + 168 )
     {
       *(_QWORD *)(a1 + 64) = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v15 = CurrentPrcb->SchedulerAssist;
@@ -79,7 +79,7 @@ _QWORD *__fastcall KiFlushQueueApc(__int64 a1, char a2)
       return 0LL;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       v18 = KeGetCurrentPrcb()->SchedulerAssist;
       v19 = 4;
@@ -120,10 +120,10 @@ _QWORD *__fastcall KiFlushQueueApc(__int64 a1, char a2)
     *v8 = v8;
   }
   *(_QWORD *)(v9 + 64) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
     {
       v21 = KeGetCurrentPrcb();
       v22 = v21->SchedulerAssist;

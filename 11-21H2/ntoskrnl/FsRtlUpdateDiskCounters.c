@@ -12,8 +12,8 @@ struct _KPRCB *__fastcall FsRtlUpdateDiskCounters(unsigned __int64 a1, unsigned 
 
   result = KeGetCurrentPrcb();
   if ( a1 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)&result->FsCounters, a1);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)result + 4400, a1);
   if ( a2 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)&result->FsCounters.FsBytesWritten, a2);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)result + 4401, a2);
   return result;
 }

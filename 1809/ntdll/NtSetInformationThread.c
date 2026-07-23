@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationThread @ 0x1800A0480
+ * XREFs of NtSetInformationThread @ 0x1800A04A0
  * Callers:
  *     TppWorkerFindTask @ 0x180015BF4 (TppWorkerFindTask.c)
  *     TppWorkerThread @ 0x180016320 (TppWorkerThread.c)
@@ -14,12 +14,12 @@
  *     EtwpLogger @ 0x180059EE0 (EtwpLogger.c)
  *     TppAlpcpExecuteCallback @ 0x180069EA0 (TppAlpcpExecuteCallback.c)
  *     RtlClearThreadWorkOnBehalfTicket @ 0x18006EAF0 (RtlClearThreadWorkOnBehalfTicket.c)
- *     RtlAcquirePrivilege @ 0x18007C220 (RtlAcquirePrivilege.c)
- *     RtlImpersonateSelfEx @ 0x18007C490 (RtlImpersonateSelfEx.c)
- *     TppCritResetThread @ 0x18008463C (TppCritResetThread.c)
- *     RtlReleasePrivilege @ 0x180084C20 (RtlReleasePrivilege.c)
- *     RtlpTpImpersonate @ 0x1800891A0 (RtlpTpImpersonate.c)
- *     RtlSetThreadIsCritical @ 0x18008E000 (RtlSetThreadIsCritical.c)
+ *     RtlAcquirePrivilege @ 0x18007C230 (RtlAcquirePrivilege.c)
+ *     RtlImpersonateSelfEx @ 0x18007C4A0 (RtlImpersonateSelfEx.c)
+ *     TppCritResetThread @ 0x18008464C (TppCritResetThread.c)
+ *     RtlReleasePrivilege @ 0x180084C30 (RtlReleasePrivilege.c)
+ *     RtlpTpImpersonate @ 0x1800891B0 (RtlpTpImpersonate.c)
+ *     RtlSetThreadIsCritical @ 0x18008E010 (RtlSetThreadIsCritical.c)
  *     RtlDisableThreadProfiling @ 0x1800CE050 (RtlDisableThreadProfiling.c)
  *     RtlEnableThreadProfiling @ 0x1800CE0C0 (RtlEnableThreadProfiling.c)
  *     RtlWow64SetThreadContext @ 0x1800DD760 (RtlWow64SetThreadContext.c)
@@ -30,11 +30,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationThread()
+NTSTATUS __cdecl NtSetInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 13LL;
+  result = 13;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

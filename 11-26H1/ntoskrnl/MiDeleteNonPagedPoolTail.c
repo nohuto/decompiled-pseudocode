@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteNonPagedPoolTail @ 0x140362D10
+ * XREFs of MiDeleteNonPagedPoolTail @ 0x140364AB0
  * Callers:
- *     MiClearNonPagedPtes @ 0x1403633B8 (MiClearNonPagedPtes.c)
+ *     MiClearNonPagedPtes @ 0x140365158 (MiClearNonPagedPtes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReduceShareCount @ 0x1402DAC20 (MiReduceShareCount.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInitializeUsedPtesCount @ 0x1403403C0 (MiInitializeUsedPtesCount.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReduceShareCount @ 0x1402BC9E0 (MiReduceShareCount.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInitializeUsedPtesCount @ 0x140342440 (MiInitializeUsedPtesCount.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteNonPagedPoolTail(__int64 a1)

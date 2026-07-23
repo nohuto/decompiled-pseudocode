@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsDripsWatchdog @ 0x140608374
+ * XREFs of PopDiagTraceCsDripsWatchdog @ 0x14060AF34
  * Callers:
- *     PopDripsWatchdogTakeAction @ 0x14061388C (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x14061674C (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsDripsWatchdog(
@@ -66,11 +66,9 @@ char __fastcall PopDiagTraceCsDripsWatchdog(
   v49 = a2;
   v48 = a1;
   v12 = a4;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v11) = EtwEventEnabled(
-                    *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                    &POP_ETW_EVENT_CS_DRIPS_WATCHDOG);
+    LOBYTE(v11) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_CS_DRIPS_WATCHDOG);
     if ( (_BYTE)v11 )
     {
       v21 = a6;
@@ -127,15 +125,7 @@ char __fastcall PopDiagTraceCsDripsWatchdog(
       v45 = &a11;
       v44 = 4LL;
       v46 = 4LL;
-      LOBYTE(v11) = EtwWriteEx(
-                      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                      &POP_ETW_EVENT_CS_DRIPS_WATCHDOG,
-                      0LL,
-                      0,
-                      0LL,
-                      0LL,
-                      0xDu,
-                      &UserData);
+      LOBYTE(v11) = EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_CS_DRIPS_WATCHDOG, 0LL, 0, 0LL, 0LL, 0xDu, &UserData);
     }
   }
   return (char)v11;

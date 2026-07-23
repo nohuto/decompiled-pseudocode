@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwRollbackComplete @ 0x1800A0610
+ * XREFs of ZwRollbackComplete @ 0x1800A05D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwRollbackComplete()
+NTSTATUS __cdecl ZwRollbackComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 383LL;
+  result = 383;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

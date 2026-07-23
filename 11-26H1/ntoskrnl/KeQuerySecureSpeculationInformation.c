@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQuerySecureSpeculationInformation @ 0x14052F590
+ * XREFs of KeQuerySecureSpeculationInformation @ 0x140531AB0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     VslGetSecureSpeculationControlInformation @ 0x1405C32B0 (VslGetSecureSpeculationControlInformation.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     VslGetSecureSpeculationControlInformation @ 0x1405C5B20 (VslGetSecureSpeculationControlInformation.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall KeQuerySecureSpeculationInformation(void *a1, size_t Size, _DWORD *a3)

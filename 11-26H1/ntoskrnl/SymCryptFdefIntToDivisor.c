@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptFdefIntToDivisor @ 0x140568AC4
+ * XREFs of SymCryptFdefIntToDivisor @ 0x140567CA4
  * Callers:
- *     SymCryptIntToDivisor @ 0x14055C45C (SymCryptIntToDivisor.c)
+ *     SymCryptIntToDivisor @ 0x14055E944 (SymCryptIntToDivisor.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     SymCryptIntBitsizeOfValue @ 0x14055C178 (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntSetValueUint32 @ 0x14055C3CC (SymCryptIntSetValueUint32.c)
- *     SymCryptFdefIntCopy @ 0x140570A6C (SymCryptFdefIntCopy.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     SymCryptIntBitsizeOfValue @ 0x14055E660 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntSetValueUint32 @ 0x14055E8B4 (SymCryptIntSetValueUint32.c)
+ *     SymCryptFdefIntCopy @ 0x14056FC4C (SymCryptFdefIntCopy.c)
  */
 
 __int64 __fastcall SymCryptFdefIntToDivisor(__int64 a1, __int64 a2)

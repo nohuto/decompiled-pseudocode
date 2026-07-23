@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushAcquire @ 0x1404B3174
+ * XREFs of MiFlushAcquire @ 0x1404AC7F4
  * Callers:
- *     MiCommitFileBackedSection @ 0x140A58878 (MiCommitFileBackedSection.c)
- *     MmFlushVirtualMemory @ 0x140A5CF70 (MmFlushVirtualMemory.c)
+ *     MiCommitFileBackedSection @ 0x140A65DF8 (MiCommitFileBackedSection.c)
+ *     MmFlushVirtualMemory @ 0x140A69F30 (MmFlushVirtualMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReferenceSubsection @ 0x14030BFE0 (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReferenceSubsection @ 0x1402EE060 (MiReferenceSubsection.c)
  */
 
 __int64 __fastcall MiFlushAcquire(__int64 a1, __int64 *a2, __int64 *a3)

@@ -10,39 +10,39 @@
  *     IopDiskIoAttributionTreeCompare @ 0x1404636B8 (IopDiskIoAttributionTreeCompare.c)
  */
 
-void __fastcall IoStartDiskIoAttributionForContext(unsigned __int64 a1)
+void __fastcall IoStartDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // al
-  unsigned __int64 v3; // rdi
-  bool v4; // bl
+  unsigned __int64 Root; // rdi
+  BOOLEAN v4; // bl
   KIRQL v5; // r15
   int v6; // esi
   unsigned __int64 v7; // rax
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  v3 = IopDiskIoAttributionTree;
+  Root = (unsigned __int64)IopDiskIoAttributionTree.Root;
   v4 = 0;
   v5 = v2;
-  if ( (BYTE8(IopDiskIoAttributionTree) & 1) != 0 )
+  if ( (*(_BYTE *)&IopDiskIoAttributionTree.0 & 1) != 0 )
   {
-    if ( (_QWORD)IopDiskIoAttributionTree )
-      v3 = (unsigned __int64)&IopDiskIoAttributionTree ^ IopDiskIoAttributionTree;
+    if ( IopDiskIoAttributionTree.Root )
+      Root = (unsigned __int64)&IopDiskIoAttributionTree ^ (unsigned __int64)IopDiskIoAttributionTree.Root;
     else
-      v3 = 0LL;
+      Root = 0LL;
   }
-  v6 = BYTE8(IopDiskIoAttributionTree) & 1;
-  if ( v3 )
+  v6 = *(_BYTE *)&IopDiskIoAttributionTree.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)IopDiskIoAttributionTreeCompare(a1 + 24, v3) >= 0 )
+      if ( (int)IopDiskIoAttributionTreeCompare(&Node[1], Root) >= 0 )
       {
-        v7 = *(_QWORD *)(v3 + 8);
+        v7 = *(_QWORD *)(Root + 8);
         if ( v6 )
         {
           if ( !v7 )
             goto LABEL_11;
-          v7 ^= v3;
+          v7 ^= Root;
         }
         if ( !v7 )
         {
@@ -53,19 +53,19 @@ LABEL_11:
       }
       else
       {
-        v7 = *(_QWORD *)v3;
+        v7 = *(_QWORD *)Root;
         if ( v6 )
         {
           if ( !v7 )
             break;
-          v7 ^= v3;
+          v7 ^= Root;
         }
         if ( !v7 )
           break;
       }
-      v3 = v7;
+      Root = v7;
     }
   }
-  RtlRbInsertNodeEx((__int64 *)&IopDiskIoAttributionTree, v3, v4, a1);
+  RtlRbInsertNodeEx(&IopDiskIoAttributionTree, (PRTL_BALANCED_NODE)Root, v4, Node);
   ExReleaseSpinLockExclusive(&IopDiskIoAttributionLock, v5);
 }

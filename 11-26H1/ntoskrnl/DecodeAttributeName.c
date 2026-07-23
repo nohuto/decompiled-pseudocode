@@ -1,13 +1,13 @@
 /*
- * XREFs of DecodeAttributeName @ 0x140A6452C
+ * XREFs of DecodeAttributeName @ 0x140A714FC
  * Callers:
- *     GetAttributeName @ 0x140A641BC (GetAttributeName.c)
- *     LocalGetRelativeAttributeForString @ 0x140B5458C (LocalGetRelativeAttributeForString.c)
+ *     GetAttributeName @ 0x140A7118C (GetAttributeName.c)
+ *     LocalGetRelativeAttributeForString @ 0x140B56E2C (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     GetDigitFromChar2 @ 0x1408189EC (GetDigitFromChar2.c)
- *     IsEncodedAttributeChar @ 0x140818C94 (IsEncodedAttributeChar.c)
- *     SddlpFree @ 0x1409ED230 (SddlpFree.c)
- *     SddlpAlloc @ 0x140A62788 (SddlpAlloc.c)
+ *     GetDigitFromChar2 @ 0x14081EBFC (GetDigitFromChar2.c)
+ *     IsEncodedAttributeChar @ 0x14081EEA4 (IsEncodedAttributeChar.c)
+ *     SddlpFree @ 0x1409E9A00 (SddlpFree.c)
+ *     SddlpAlloc @ 0x140A6F758 (SddlpAlloc.c)
  */
 
 __int64 __fastcall DecodeAttributeName(__int64 a1, unsigned int a2, _QWORD *a3)

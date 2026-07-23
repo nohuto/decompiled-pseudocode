@@ -1,13 +1,13 @@
 /*
- * XREFs of HalPutScatterGatherListV3 @ 0x1403A2C20
+ * XREFs of HalPutScatterGatherListV3 @ 0x1403A2D70
  * Callers:
- *     HalPutScatterGatherList @ 0x14029E020 (HalPutScatterGatherList.c)
+ *     HalPutScatterGatherList @ 0x14021B580 (HalPutScatterGatherList.c)
  * Callees:
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     IoFreeMapRegisters @ 0x1403A2CA0 (IoFreeMapRegisters.c)
- *     HalFlushAdapterBuffersEx @ 0x1403A2D30 (HalFlushAdapterBuffersEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     IoFreeMapRegisters @ 0x1403A2DF0 (IoFreeMapRegisters.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2E80 (HalFlushAdapterBuffersEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalPutScatterGatherListV3(PDMA_ADAPTER DmaAdapter, __int64 a2, char a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of PspProcessDynamicEHContinuationTargets @ 0x140907D04
+ * XREFs of PspProcessDynamicEHContinuationTargets @ 0x140907E64
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiHotPatchImageTreeCompare @ 0x1408CA638 (MiHotPatchImageTreeCompare.c)
- *     RtlAddDynamicEHContinuationTarget @ 0x14091A8E8 (RtlAddDynamicEHContinuationTarget.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408CA798 (MiHotPatchImageTreeCompare.c)
+ *     RtlAddDynamicEHContinuationTarget @ 0x14091AA48 (RtlAddDynamicEHContinuationTarget.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspProcessDynamicEHContinuationTargets(
@@ -29,136 +29,138 @@ __int64 __fastcall PspProcessDynamicEHContinuationTargets(
   unsigned int v6; // esi
   struct _KTHREAD *CurrentThread; // r12
   _KPROCESS *Process; // rbp
-  _DWORD *v11; // r9
-  int v12; // esi
-  unsigned int v13; // edx
-  _QWORD *v14; // rcx
-  __int64 *v15; // r14
-  __int64 v16; // r15
-  unsigned __int64 **v17; // r12
-  unsigned __int64 *v18; // rsi
-  unsigned __int64 v19; // r12
-  int v20; // eax
-  unsigned int v22; // [rsp+20h] [rbp-98h]
-  unsigned int v23; // [rsp+24h] [rbp-94h]
-  struct _KTHREAD *v24; // [rsp+30h] [rbp-88h]
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  int v14; // esi
+  _QWORD *v15; // rcx
+  __int64 *v16; // r14
+  __int64 v17; // r15
+  unsigned __int64 **v18; // r12
+  unsigned __int64 *v19; // rsi
+  unsigned __int64 v20; // r12
+  int v21; // eax
+  unsigned int v23; // [rsp+20h] [rbp-98h]
+  unsigned int v24; // [rsp+24h] [rbp-94h]
+  struct _KTHREAD *v25; // [rsp+30h] [rbp-88h]
   struct _EX_RUNDOWN_REF *RunRef; // [rsp+38h] [rbp-80h]
-  _OWORD v27[3]; // [rsp+48h] [rbp-70h] BYREF
+  _OWORD v28[3]; // [rsp+48h] [rbp-70h] BYREF
 
-  memset(v27, 0, sizeof(v27));
+  memset(v28, 0, sizeof(v28));
   v4 = 0;
   v5 = 0;
   v6 = a3;
   CurrentThread = KeGetCurrentThread();
-  v22 = 0;
-  v24 = CurrentThread;
+  v23 = 0;
+  v25 = CurrentThread;
   Process = CurrentThread->ApcState.Process;
   --CurrentThread->KernelApcDisable;
   RunRef = (struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112);
-  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
   {
-    v13 = 0;
-    v23 = v6;
+    v11 = 0LL;
+    v24 = v6;
     v5 = 2;
     if ( v6 )
     {
-      v14 = a2;
+      v15 = a2;
       while ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
       {
         if ( (*(_DWORD *)(BugCheckParameter1 + 1124) & 0x40000008) != 0 )
           goto LABEL_2;
-        if ( (unsigned __int64)(*v14 - 0x10000LL) > 0x7FFFFFFDFFFFLL )
+        v12 = 0x7FFFFFFDFFFFLL;
+        if ( (unsigned __int64)(*v15 - 0x10000LL) > 0x7FFFFFFDFFFFLL )
         {
-          v12 = -1073741503;
+          v14 = -1073741503;
           goto LABEL_38;
         }
-        if ( (v14[1] & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+        if ( (v15[1] & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
         {
-          v12 = -1073741811;
+          v14 = -1073741811;
           goto LABEL_38;
         }
-        ++v13;
-        v14 += 2;
-        if ( v13 >= v6 )
+        v11 = (unsigned int)(v11 + 1);
+        v15 += 2;
+        if ( (unsigned int)v11 >= v6 )
           goto LABEL_10;
       }
-      v12 = -1073741749;
+      v14 = -1073741749;
     }
     else
     {
 LABEL_10:
       if ( (_KPROCESS *)BugCheckParameter1 != Process )
       {
-        KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v27, v11);
+        KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v28);
         v5 = 3;
       }
       v5 |= 4u;
       ExAcquirePushLockExclusiveEx(BugCheckParameter1 + 2568, 0LL);
       if ( v6 )
       {
-        v15 = a2 + 1;
+        v16 = a2 + 1;
         while ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
         {
           if ( (*(_DWORD *)(BugCheckParameter1 + 1124) & 0x40000008) != 0 )
           {
-            v12 = -1073741558;
+            v14 = -1073741558;
             goto LABEL_35;
           }
-          v16 = *v15;
-          v17 = (unsigned __int64 **)(BugCheckParameter1 + 2560);
-          if ( (*v15 & 1) != 0 )
+          v17 = *v16;
+          v18 = (unsigned __int64 **)(BugCheckParameter1 + 2560);
+          if ( (*v16 & 1) != 0 )
           {
-            v12 = RtlAddDynamicEHContinuationTarget(BugCheckParameter1 + 2560, *(v15 - 1));
+            v14 = RtlAddDynamicEHContinuationTarget(BugCheckParameter1 + 2560, *(v16 - 1));
           }
           else
           {
-            v18 = *v17;
-            if ( !*v17 )
+            v19 = *v18;
+            if ( !*v18 )
               goto LABEL_33;
-            v19 = *(v15 - 1);
+            v20 = *(v16 - 1);
             do
             {
-              v20 = MiHotPatchImageTreeCompare(v19, (__int64)v18);
-              if ( v20 >= 0 )
+              v21 = MiHotPatchImageTreeCompare(v20, (__int64)v19);
+              if ( v21 >= 0 )
               {
-                if ( v20 <= 0 )
+                if ( v21 <= 0 )
                   break;
-                v18 = (unsigned __int64 *)v18[1];
+                v19 = (unsigned __int64 *)v19[1];
               }
               else
               {
-                v18 = (unsigned __int64 *)*v18;
+                v19 = (unsigned __int64 *)*v19;
               }
             }
-            while ( v18 );
-            if ( !v18 )
+            while ( v19 );
+            if ( !v19 )
             {
 LABEL_33:
-              v12 = -1073741275;
+              v14 = -1073741275;
 LABEL_34:
-              v4 = v22;
+              v4 = v23;
               goto LABEL_35;
             }
-            RtlAvlRemoveNode((unsigned __int64 *)(BugCheckParameter1 + 2560), v18);
-            ExFreePoolWithTag(v18, 0);
-            v12 = 0;
+            RtlAvlRemoveNode((unsigned __int64 *)(BugCheckParameter1 + 2560), v19);
+            ExFreePoolWithTag(v19, 0);
+            v14 = 0;
           }
-          if ( v12 < 0 )
+          if ( v14 < 0 )
             goto LABEL_34;
-          *v15 = v16 | 2;
-          v15 += 2;
-          v4 = v22 + 1;
-          v22 = v4;
-          if ( v4 >= v23 )
+          *v16 = v17 | 2;
+          v16 += 2;
+          v4 = v23 + 1;
+          v23 = v4;
+          if ( v4 >= v24 )
             goto LABEL_45;
-          CurrentThread = v24;
+          CurrentThread = v25;
         }
-        v12 = -1073741749;
+        v14 = -1073741749;
       }
       else
       {
 LABEL_45:
-        v12 = 0;
+        v14 = 0;
       }
 LABEL_35:
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter1 + 2568), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -169,14 +171,14 @@ LABEL_35:
   else
   {
 LABEL_2:
-    v12 = -1073741558;
+    v14 = -1073741558;
   }
 LABEL_38:
   if ( (v5 & 1) != 0 )
-    KiUnstackDetachProcess((__int64)v27, 0);
+    KiUnstackDetachProcess((__int64)v28, 0LL);
   if ( (v5 & 2) != 0 )
-    ExReleaseRundownProtection_0(RunRef);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    ExReleaseRundownProtection(RunRef);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v12, v13);
   *a4 = v4;
-  return (unsigned int)v12;
+  return (unsigned int)v14;
 }

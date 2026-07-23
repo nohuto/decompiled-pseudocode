@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwAlpcCreateResourceReserve @ 0x1401B90F0
+ * XREFs of ZwAlpcCreateResourceReserve @ 0x1401B9250
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreateResourceReserve(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcCreateResourceReserve(
+        HANDLE PortHandle,
+        ULONG Flags,
+        SIZE_T MessageSize,
+        PALPC_HANDLE ResourceId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ResFwGetContext @ 0x140AF2010
+ * XREFs of ResFwGetContext @ 0x140AF2020
  * Callers:
- *     BgGetContext @ 0x140AF126C (BgGetContext.c)
+ *     BgGetContext @ 0x140AF127C (BgGetContext.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402F89D0 (MmAllocatePagesForMdlEx.c)
  */
 
 __int64 __fastcall ResFwGetContext(__int64 *a1)

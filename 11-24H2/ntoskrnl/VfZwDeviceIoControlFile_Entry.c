@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwDeviceIoControlFile_Entry @ 0x140B94400
+ * XREFs of VfZwDeviceIoControlFile_Entry @ 0x140B96400
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckApcRequirement @ 0x140B94C28 (ViZwCheckApcRequirement.c)
- *     ViZwCheckVirtualAddress @ 0x140B94D78 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140B94DC4 (ViZwShouldCheck.c)
+ *     ViZwCheckApcRequirement @ 0x140B96C28 (ViZwCheckApcRequirement.c)
+ *     ViZwCheckVirtualAddress @ 0x140B96D78 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140B96DC4 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwDeviceIoControlFile_Entry(__int64 a1, __int64 a2, __int64 a3)

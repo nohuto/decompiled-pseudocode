@@ -1,16 +1,16 @@
 /*
- * XREFs of PfSnBeginBootPhase @ 0x14056F13C
+ * XREFs of PfSnBeginBootPhase @ 0x14057013C
  * Callers:
- *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfSnSetPrefetcherInformation @ 0x140665E98 (PfSnSetPrefetcherInformation.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     PfPowerActionNotify @ 0x140568F10 (PfPowerActionNotify.c)
+ *     PfSnSetPrefetcherInformation @ 0x140667058 (PfSnSetPrefetcherInformation.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     PfSnUpdatePrefetcherFlags @ 0x14013B40C (PfSnUpdatePrefetcherFlags.c)
- *     PfSnAllocateEnablePrefetcherTimer @ 0x14056F228 (PfSnAllocateEnablePrefetcherTimer.c)
- *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
- *     PfSnQueueEnablePrefetcherTimer @ 0x140763654 (PfSnQueueEnablePrefetcherTimer.c)
- *     PfSnDetermineEnablePrefetcher @ 0x140764230 (PfSnDetermineEnablePrefetcher.c)
+ *     PfSnUpdatePrefetcherFlags @ 0x14013B50C (PfSnUpdatePrefetcherFlags.c)
+ *     PfSnAllocateEnablePrefetcherTimer @ 0x140570228 (PfSnAllocateEnablePrefetcherTimer.c)
+ *     EtwRegister @ 0x1406BF7E0 (EtwRegister.c)
+ *     PfSnQueueEnablePrefetcherTimer @ 0x140764844 (PfSnQueueEnablePrefetcherTimer.c)
+ *     PfSnDetermineEnablePrefetcher @ 0x140765420 (PfSnDetermineEnablePrefetcher.c)
  */
 
 __int64 __fastcall PfSnBeginBootPhase(unsigned int a1)

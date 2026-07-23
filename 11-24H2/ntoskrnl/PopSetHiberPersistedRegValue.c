@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSetHiberPersistedRegValue @ 0x1406F596C
+ * XREFs of PopSetHiberPersistedRegValue @ 0x1406F396C
  * Callers:
- *     PopSetHiberFileType @ 0x1406F9BCC (PopSetHiberFileType.c)
- *     PopSetHiberFileSize @ 0x1406FA3E4 (PopSetHiberFileSize.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     PopSetHiberFileType @ 0x1406F780C (PopSetHiberFileType.c)
+ *     PopSetHiberFileSize @ 0x1406F8024 (PopSetHiberFileSize.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall PopSetHiberPersistedRegValue(int a1, int a2, int *a3)

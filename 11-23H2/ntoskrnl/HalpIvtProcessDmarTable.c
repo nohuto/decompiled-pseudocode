@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIvtProcessDmarTable @ 0x14037EF08
+ * XREFs of HalpIvtProcessDmarTable @ 0x14037F0A8
  * Callers:
  *     HalpIommuIvtDiscover @ 0x140B65294 (HalpIommuIvtDiscover.c)
  * Callees:
- *     HalpIvtProcessDrhdEntry @ 0x14037E8B4 (HalpIvtProcessDrhdEntry.c)
- *     DmrEnumerateSatcDevices @ 0x14037EFA0 (DmrEnumerateSatcDevices.c)
- *     DmrGetNextRemappingStructure @ 0x14037F34C (DmrGetNextRemappingStructure.c)
+ *     HalpIvtProcessDrhdEntry @ 0x14037EA54 (HalpIvtProcessDrhdEntry.c)
+ *     DmrEnumerateSatcDevices @ 0x14037F140 (DmrEnumerateSatcDevices.c)
+ *     DmrGetNextRemappingStructure @ 0x14037F4EC (DmrGetNextRemappingStructure.c)
  */
 
 __int64 __fastcall HalpIvtProcessDmarTable(__int64 a1, _BYTE *a2)

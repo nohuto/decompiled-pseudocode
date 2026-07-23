@@ -14,10 +14,10 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall TppETWCallbackStart(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __fastcall TppETWCallbackStart(int a1, int a2, int a3, int a4, int a5)
 {
   int v5; // eax
-  _BYTE v7[6]; // [esp+10h] [ebp-44h] BYREF
+  _BYTE Fields[6]; // [esp+10h] [ebp-44h] BYREF
   __int16 v8; // [esp+16h] [ebp-3Eh]
   int v9; // [esp+30h] [ebp-24h]
   int v10; // [esp+34h] [ebp-20h]
@@ -35,5 +35,5 @@ int __fastcall TppETWCallbackStart(int a1, int a2, int a3, int a4, int a5)
     v5 = (int)NtCurrentPeb()->SharedData + 556;
   else
     v5 = 2147353478;
-  return NtTraceEvent(*(unsigned __int8 *)v5, 1026, 20, (int)v7);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v5, 0x402u, 0x14u, Fields);
 }

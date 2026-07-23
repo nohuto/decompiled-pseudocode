@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpGetContainingRange @ 0x1800F3544
  * Callers:
- *     RtlpQueryExtendedInformationHeap @ 0x18007D320 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x18007D330 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
  *     RtlpGetHeapProtection @ 0x180060908 (RtlpGetHeapProtection.c)
  */
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpGetContainingRange(
   unsigned __int64 v15; // rdx
   unsigned __int64 v16; // rdx
   unsigned __int64 v17; // rax
-  __int64 v18; // rcx
+  _DWORD *v18; // rcx
   __int64 result; // rax
 
   v6 = 0;
@@ -75,7 +75,7 @@ LABEL_14:
   *a4 = v17;
   v6 = 1;
 LABEL_20:
-  v18 = *(_QWORD *)(a1 + 40);
+  v18 = *(_DWORD **)(a1 + 40);
   *a5 = v6;
   result = RtlpGetHeapProtection(v18, 0);
   *a6 = result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of Normalization__PageLookup @ 0x140899460
+ * XREFs of Normalization__PageLookup @ 0x14089A6C0
  * Callers:
- *     NormBuffer__GetLastChar @ 0x1402F4E08 (NormBuffer__GetLastChar.c)
- *     NormBuffer__IsBlocked @ 0x1402F4F58 (NormBuffer__IsBlocked.c)
- *     NormBuffer__SortBeforeSameClass @ 0x1402F52C0 (NormBuffer__SortBeforeSameClass.c)
+ *     NormBuffer__GetLastChar @ 0x1402F4FF8 (NormBuffer__GetLastChar.c)
+ *     NormBuffer__IsBlocked @ 0x1402F5148 (NormBuffer__IsBlocked.c)
+ *     NormBuffer__SortBeforeSameClass @ 0x1402F54B0 (NormBuffer__SortBeforeSameClass.c)
  * Callees:
  *     <none>
  */

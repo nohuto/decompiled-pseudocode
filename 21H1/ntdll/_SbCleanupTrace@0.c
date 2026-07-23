@@ -10,20 +10,20 @@ int __stdcall SbCleanupTrace()
 {
   int v0; // edi
   char *pShimData; // esi
-  int *v2; // esi
+  char *v2; // esi
 
   v0 = 0;
   pShimData = (char *)NtCurrentPeb()->pShimData;
   if ( pShimData )
   {
-    v2 = (int *)(pShimData + 2016);
-    if ( !v2 || !v2[12] )
+    v2 = pShimData + 2016;
+    if ( !v2 || !*((_DWORD *)v2 + 12) )
       v2 = 0;
     if ( v2 && *((_QWORD *)v2 + 2) )
     {
-      EtwNotificationUnregister(v2[4], v2[5], 0);
-      v2[4] = 0;
-      v2[5] = 0;
+      EtwNotificationUnregister(*((_QWORD *)v2 + 2), 0);
+      *((_DWORD *)v2 + 4) = 0;
+      *((_DWORD *)v2 + 5) = 0;
       return 1;
     }
   }

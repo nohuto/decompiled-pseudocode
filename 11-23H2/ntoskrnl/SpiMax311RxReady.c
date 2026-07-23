@@ -1,10 +1,10 @@
 /*
- * XREFs of SpiMax311RxReady @ 0x14067D3C0
+ * XREFs of SpiMax311RxReady @ 0x14067D910
  * Callers:
  *     <none>
  * Callees:
- *     SpiMax311BufferRxData @ 0x14067D224 (SpiMax311BufferRxData.c)
- *     SpiSend16 @ 0x14067D5AC (SpiSend16.c)
+ *     SpiMax311BufferRxData @ 0x14067D774 (SpiMax311BufferRxData.c)
+ *     SpiSend16 @ 0x14067DAFC (SpiSend16.c)
  */
 
 bool __fastcall SpiMax311RxReady(_QWORD *a1)

@@ -9,75 +9,71 @@
  *     sub_180103814 @ 0x180103814 (sub_180103814.c)
  */
 
-PSLIST_ENTRY __fastcall sub_180018338(__int64 a1, unsigned __int8 a2, __int64 a3, char a4)
+PSLIST_ENTRY __fastcall sub_180018338(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
-  __int64 v8; // rdi
-  __int64 v9; // rbx
-  __int64 v10; // rdx
-  PSLIST_ENTRY v11; // rbp
-  __int64 v12; // r9
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rdi
-  __int64 v15; // rcx
-  unsigned int v16; // edx
-  unsigned __int32 v18; // eax
-  unsigned __int32 v19; // eax
+  __int64 v6; // rdi
+  __int64 v7; // rbx
+  PSLIST_ENTRY v8; // rbp
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // rdi
+  __int64 UserModeGlobalLogger; // rcx
+  unsigned int v12; // edx
+  unsigned __int32 v14; // eax
+  unsigned __int32 v15; // eax
 
-  v8 = a2;
-  v9 = a1 + 48 * (a2 - 5LL);
-  ++*(_WORD *)(v9 + 28);
-  v11 = RtlInterlockedPopEntrySList((PSLIST_HEADER)v9);
-  if ( v11 )
+  v6 = a2;
+  v7 = a1 + 48 * (a2 - 5LL);
+  ++*(_WORD *)(v7 + 28);
+  v8 = RtlInterlockedPopEntrySList((PSLIST_HEADER)v7);
+  if ( v8 )
   {
-    ++*(_WORD *)(v9 + 32);
+    ++*(_WORD *)(v7 + 32);
 LABEL_3:
-    v13 = 1LL << LOBYTE(v11[1].Next);
-    if ( v13 > 0xF0000 )
-      v13 = 983040LL;
-    v14 = v13 + WORD1(v11[1].Next);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    v9 = 1LL << LOBYTE(v8[1].Next);
+    if ( v9 > 0xF0000 )
+      v9 = 983040LL;
+    v10 = v9 + WORD1(v8[1].Next);
+    if ( RtlGetCurrentServiceSessionId() )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v15 = 2147353472LL;
-    if ( *(_BYTE *)v15 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_180103814(*(_QWORD *)(a1 + 24), v11, v14, a3);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v14);
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      sub_180103814(*(_QWORD *)(a1 + 24), v8, v10, a3);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v10);
     goto LABEL_9;
   }
   if ( a2 > 7u )
   {
-    v8 = a2;
-    v11 = RtlInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * (a2 - 6LL)));
-    if ( v11 )
+    v6 = a2;
+    v8 = RtlInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * (a2 - 6LL)));
+    if ( v8 )
       goto LABEL_3;
   }
-  LOBYTE(v12) = a4;
-  LOBYTE(v10) = a2;
-  v11 = (PSLIST_ENTRY)sub_1800184BC(*(_QWORD *)(a1 + 24), v10, a3, v12);
-  if ( v11 )
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 48 * v8 - 224));
+  v8 = (PSLIST_ENTRY)sub_1800184BC(*(PVOID *)(a1 + 24));
+  if ( v8 )
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 48 * v6 - 224));
 LABEL_9:
-  v16 = *(unsigned __int16 *)(v9 + 28);
-  if ( v16 > 0x40 )
+  v12 = *(unsigned __int16 *)(v7 + 28);
+  if ( v12 > 0x40 )
   {
-    if ( v16 < *(unsigned __int16 *)(v9 + 30) + (*(unsigned __int16 *)(v9 + 30) >> 1)
-      && *(unsigned __int16 *)(v9 + 32) < v16 - (v16 >> 1) )
+    if ( v12 < *(unsigned __int16 *)(v7 + 30) + (*(unsigned __int16 *)(v7 + 30) >> 1)
+      && *(unsigned __int16 *)(v7 + 32) < v12 - (v12 >> 1) )
     {
-      v18 = *(_DWORD *)(v9 + 20);
-      if ( v18 >= 2 )
+      v14 = *(_DWORD *)(v7 + 20);
+      if ( v14 >= 2 )
       {
-        v19 = *(_DWORD *)(v9 + 24);
-        if ( v19 > 2 )
-          _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 24), v19 - 1, v19);
+        v15 = *(_DWORD *)(v7 + 24);
+        if ( v15 > 2 )
+          _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 24), v15 - 1, v15);
       }
       else
       {
-        _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 20), v18 + 1, v18);
+        _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 20), v14 + 1, v14);
       }
     }
-    *(_WORD *)(v9 + 28) = 0;
-    *(_WORD *)(v9 + 30) = 0;
-    *(_WORD *)(v9 + 32) = 0;
+    *(_WORD *)(v7 + 28) = 0;
+    *(_WORD *)(v7 + 30) = 0;
+    *(_WORD *)(v7 + 32) = 0;
   }
-  return v11;
+  return v8;
 }

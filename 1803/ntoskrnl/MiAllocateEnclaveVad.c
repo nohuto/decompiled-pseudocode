@@ -41,7 +41,7 @@ __int64 __fastcall MiAllocateEnclaveVad(int a1, unsigned __int64 a2, unsigned __
   unsigned __int64 v24; // rsi
   unsigned __int64 v25; // rbp
   unsigned __int64 v26; // [rsp+50h] [rbp-38h] BYREF
-  struct _RTL_BITMAP *v27; // [rsp+98h] [rbp+10h] BYREF
+  _RTL_BITMAP *v27; // [rsp+98h] [rbp+10h] BYREF
 
   v27 = 0LL;
   CurrentThread = KeGetCurrentThread();

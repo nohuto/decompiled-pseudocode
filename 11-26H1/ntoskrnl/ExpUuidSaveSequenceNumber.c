@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpUuidSaveSequenceNumber @ 0x140841068
+ * XREFs of ExpUuidSaveSequenceNumber @ 0x1408472A8
  * Callers:
- *     ExpUuidSaveSequenceNumberIf @ 0x140A77BB0 (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x140A808D0 (ExpUuidSaveSequenceNumberIf.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlGetPersistedStateLocation @ 0x140A10D20 (RtlGetPersistedStateLocation.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlGetPersistedStateLocation @ 0x140A0FF10 (RtlGetPersistedStateLocation.c)
  */
 
 __int64 ExpUuidSaveSequenceNumber()
@@ -26,7 +26,14 @@ __int64 ExpUuidSaveSequenceNumber()
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
   memset_0(SourceString, 0, 0x1FEuLL);
-  PersistedStateLocation = RtlGetPersistedStateLocation(L"KernelExecutive", SourceString, 510, 0LL);
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             L"KernelExecutive",
+                             0LL,
+                             L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Executive",
+                             LocationTypeRegistry,
+                             SourceString,
+                             0x1FEu,
+                             0LL);
   if ( PersistedStateLocation >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);

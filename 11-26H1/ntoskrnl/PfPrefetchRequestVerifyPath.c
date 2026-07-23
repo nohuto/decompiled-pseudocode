@@ -1,7 +1,7 @@
 /*
- * XREFs of PfPrefetchRequestVerifyPath @ 0x1409AEC6C
+ * XREFs of PfPrefetchRequestVerifyPath @ 0x14097FD20
  * Callers:
- *     PfPrefetchRequestVerify @ 0x1409AE7B4 (PfPrefetchRequestVerify.c)
+ *     PfPrefetchRequestVerify @ 0x14097F868 (PfPrefetchRequestVerify.c)
  * Callees:
  *     <none>
  */

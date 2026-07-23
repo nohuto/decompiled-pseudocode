@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTraceZoneCr3Tripped @ 0x1402E2C30
+ * XREFs of PopTraceZoneCr3Tripped @ 0x1402E2E20
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x14018BEF4 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x14018C034 (PopCheckAndHandleThermalConditions.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
@@ -93,7 +93,7 @@ char __fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
         v18 = v8;
         TlgCreateWsz(&pDesc, v11);
         TlgCreateWsz(&v40, v12);
-        LOBYTE(DeviceAttachmentBaseRefWithTag) = TlgWrite(&pCallbackContext, &unk_14037040F, 0LL, 0LL, 0xAu, &pData);
+        LOBYTE(DeviceAttachmentBaseRefWithTag) = TlgWrite(&pCallbackContext, &unk_1403713D0, 0LL, 0LL, 0xAu, &pData);
       }
     }
   }

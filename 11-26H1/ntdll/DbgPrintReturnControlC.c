@@ -1,15 +1,15 @@
 /*
- * XREFs of DbgPrintReturnControlC @ 0x18013B990
+ * XREFs of DbgPrintReturnControlC @ 0x18013B850
  * Callers:
  *     <none>
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x1800DE698 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x1800DB608 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrintReturnControlC(int a1, ...)
+__int64 DbgPrintReturnControlC(__int64 a1, ...)
 {
   va_list va; // [rsp+58h] [rbp+10h] BYREF
 
   va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal((int)&unk_180176D3C, 101, 0, a1, (__int64)va, 0, 0LL);
+  return vDbgPrintExWithPrefixInternal((__int64)&Flags, 0x65u, 0, a1, (__int64)va, 0, 0LL);
 }

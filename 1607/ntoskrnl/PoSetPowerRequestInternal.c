@@ -1,18 +1,18 @@
 /*
- * XREFs of PoSetPowerRequestInternal @ 0x1400FBB0C
+ * XREFs of PoSetPowerRequestInternal @ 0x1400F988C
  * Callers:
- *     PoSetPowerRequest @ 0x140111B2C (PoSetPowerRequest.c)
- *     PpmBeginHighPerfRequest @ 0x140131E88 (PpmBeginHighPerfRequest.c)
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x14051FEF8 (PopPowerRequestActionInfo.c)
+ *     PoSetPowerRequest @ 0x140112090 (PoSetPowerRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1401323F8 (PpmBeginHighPerfRequest.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x140502F60 (PopPowerRequestActionInfo.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     PopDiagTracePowerRequestChange @ 0x1400FBC50 (PopDiagTracePowerRequestChange.c)
- *     PopQueuePowerRequestCallback @ 0x1400FBD5C (PopQueuePowerRequestCallback.c)
- *     PopPowerRequestCallbackWorker @ 0x1400FBE30 (PopPowerRequestCallbackWorker.c)
- *     PopReleasePowerRequestPushLock @ 0x140520694 (PopReleasePowerRequestPushLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopDiagTracePowerRequestChange @ 0x1400F99D0 (PopDiagTracePowerRequestChange.c)
+ *     PopQueuePowerRequestCallback @ 0x1400F9ADC (PopQueuePowerRequestCallback.c)
+ *     PopPowerRequestCallbackWorker @ 0x1400F9BB0 (PopPowerRequestCallbackWorker.c)
+ *     PopReleasePowerRequestPushLock @ 0x1405036FC (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 __fastcall PoSetPowerRequestInternal(__int64 a1, unsigned int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x1400C6180
+ * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x1400C60C0
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
- *     KiShouldPreemptionBeDeferred @ 0x1400D37D0 (KiShouldPreemptionBeDeferred.c)
- *     KiGetComparisonRanks @ 0x1401360A8 (KiGetComparisonRanks.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D15A0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiShouldPreemptionBeDeferred @ 0x1400D3850 (KiShouldPreemptionBeDeferred.c)
+ *     KiGetComparisonRanks @ 0x1401361A8 (KiGetComparisonRanks.c)
  */
 
 bool __fastcall KiEvaluateGroupSchedulingPreemption(struct _KPRCB *a1, _KTHREAD *a2, __int64 a3, _QWORD *a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWriteProtectSystemImages @ 0x1407A1604
+ * XREFs of MiWriteProtectSystemImages @ 0x1407A1804
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     MiProtectSystemImage @ 0x1407A168C (MiProtectSystemImage.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     MiProtectSystemImage @ 0x1407A188C (MiProtectSystemImage.c)
  */
 
 _QWORD *MiWriteProtectSystemImages()
@@ -15,6 +15,9 @@ _QWORD *MiWriteProtectSystemImages()
   struct _KTHREAD *CurrentThread; // rdi
   PVOID *i; // rbx
   __int64 v2; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -26,5 +29,5 @@ _QWORD *MiWriteProtectSystemImages()
       MiProtectSystemImage(i);
   }
   ExReleaseResourceLite(&PsLoadedModuleResource);
-  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread, v3, v4, v5);
 }

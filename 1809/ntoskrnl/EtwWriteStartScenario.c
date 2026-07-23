@@ -1,50 +1,52 @@
 /*
- * XREFs of EtwWriteStartScenario @ 0x140716650
+ * XREFs of EtwWriteStartScenario @ 0x1407178F0
  * Callers:
- *     PnpDiagnosticTraceDriverInitPhaseStart @ 0x14019375C (PnpDiagnosticTraceDriverInitPhaseStart.c)
- *     PopDiagTracePowerTransitionStart @ 0x1406DD10C (PopDiagTracePowerTransitionStart.c)
- *     PerfDiagInitialize @ 0x1409D0A80 (PerfDiagInitialize.c)
+ *     PnpDiagnosticTraceDriverInitPhaseStart @ 0x14019389C (PnpDiagnosticTraceDriverInitPhaseStart.c)
+ *     PopDiagTracePowerTransitionStart @ 0x1406DE3AC (PopDiagTracePowerTransitionStart.c)
+ *     PerfDiagInitialize @ 0x1409D1A80 (PerfDiagInitialize.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     EtwGetProviderIdFromHandle @ 0x14017376C (EtwGetProviderIdFromHandle.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwTraceControl @ 0x1401BB910 (ZwTraceControl.c)
- *     WdipStartEndScenario @ 0x1407176E0 (WdipStartEndScenario.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     EtwGetProviderIdFromHandle @ 0x14017386C (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwTraceControl @ 0x1401BBA70 (ZwTraceControl.c)
+ *     WdipStartEndScenario @ 0x140718980 (WdipStartEndScenario.c)
  */
 
 __int64 __fastcall EtwWriteStartScenario(
         PVOID *RegHandle,
         PCEVENT_DESCRIPTOR EventDescriptor,
-        LPCGUID ActivityId,
+        GUID *OutputBuffer,
         ULONG UserDataCount,
         PEVENT_DATA_DESCRIPTOR UserData)
 {
   int ProviderIdFromHandle; // edi
-  __int128 v11; // [rsp+38h] [rbp-50h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v12; // [rsp+38h] [rbp-50h] BYREF
 
-  if ( EventDescriptor && ActivityId )
+  if ( EventDescriptor && OutputBuffer )
   {
     if ( EtwEventEnabled((REGHANDLE)RegHandle, EventDescriptor) )
     {
-      ProviderIdFromHandle = EtwGetProviderIdFromHandle(RegHandle, 0, &v11);
+      ProviderIdFromHandle = EtwGetProviderIdFromHandle(RegHandle, 0, &v12);
       if ( ProviderIdFromHandle >= 0 )
       {
-        if ( ActivityId->Data1
-          || ActivityId->Data2
-          || ActivityId->Data3
-          || ActivityId->Data4[0]
-          || ActivityId->Data4[1]
-          || ActivityId->Data4[2]
-          || ActivityId->Data4[3]
-          || ActivityId->Data4[4]
-          || ActivityId->Data4[5]
-          || ActivityId->Data4[6]
-          || ActivityId->Data4[7]
-          || (ProviderIdFromHandle = ZwTraceControl(12LL, 0LL, 0LL), ProviderIdFromHandle >= 0) )
+        if ( OutputBuffer->Data1
+          || OutputBuffer->Data2
+          || OutputBuffer->Data3
+          || OutputBuffer->Data4[0]
+          || OutputBuffer->Data4[1]
+          || OutputBuffer->Data4[2]
+          || OutputBuffer->Data4[3]
+          || OutputBuffer->Data4[4]
+          || OutputBuffer->Data4[5]
+          || OutputBuffer->Data4[6]
+          || OutputBuffer->Data4[7]
+          || (ProviderIdFromHandle = ZwTraceControl(EtwActivityIdCreate, 0LL, 0, OutputBuffer, 0x10u, &ReturnLength),
+              ProviderIdFromHandle >= 0) )
         {
-          ProviderIdFromHandle = EtwWrite((REGHANDLE)RegHandle, EventDescriptor, ActivityId, UserDataCount, UserData);
-          WdipStartEndScenario(&v11, ActivityId, EventDescriptor, 10LL);
+          ProviderIdFromHandle = EtwWrite((REGHANDLE)RegHandle, EventDescriptor, OutputBuffer, UserDataCount, UserData);
+          WdipStartEndScenario(&v12, OutputBuffer, EventDescriptor, 10LL);
         }
       }
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampCaptureCancelApcs @ 0x140651964
+ * XREFs of EtwpCovSampCaptureCancelApcs @ 0x140650064
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x1404BB96C (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1404B687C (EtwpCovSampCaptureContextStop.c)
  * Callees:
- *     KeRemoveQueueApc @ 0x140205700 (KeRemoveQueueApc.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     EtwpCovSampCaptureApcRelease @ 0x14043E5C4 (EtwpCovSampCaptureApcRelease.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeRemoveQueueApc @ 0x14032CCE0 (KeRemoveQueueApc.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x1404341E4 (EtwpCovSampCaptureApcRelease.c)
  */
 
 void __fastcall EtwpCovSampCaptureCancelApcs(__int64 a1)

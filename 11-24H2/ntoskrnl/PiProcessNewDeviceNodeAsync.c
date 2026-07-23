@@ -1,15 +1,15 @@
 /*
- * XREFs of PiProcessNewDeviceNodeAsync @ 0x140A7C4EC
+ * XREFs of PiProcessNewDeviceNodeAsync @ 0x140A767EC
  * Callers:
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14048AB00 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     PnpDeviceCompletionRequestCreate @ 0x1408BB1DC (PnpDeviceCompletionRequestCreate.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x140485928 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x1408B8B8C (PnpDeviceCompletionRequestCreate.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiProcessNewDeviceNodeAsync(ULONG_PTR BugCheckParameter2, int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall PiProcessNewDeviceNodeAsync(ULONG_PTR BugCheckParameter2, int
   __int64 v10; // rcx
 
   v3 = 259;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return (unsigned int)PiProcessNewDeviceNode(BugCheckParameter2);
   v4 = a2 == 0;
   if ( (PnpAsyncOptions & 4) == 0 || a2 )
@@ -33,7 +33,7 @@ __int64 __fastcall PiProcessNewDeviceNodeAsync(ULONG_PTR BugCheckParameter2, int
     if ( (*(_DWORD *)(*(_QWORD *)(i + 8) + 16LL) & 0x1000) == 0 )
       return (unsigned int)PiProcessNewDeviceNode(BugCheckParameter2);
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x20uLL, 0x31706E50u);
   v8 = (struct _WORK_QUEUE_ITEM *)Pool2;
   if ( !Pool2 )
     return (unsigned int)PiProcessNewDeviceNode(BugCheckParameter2);

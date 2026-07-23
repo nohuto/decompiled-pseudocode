@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierExAllocatePool2 @ 0x140C44E00
+ * XREFs of VerifierExAllocatePool2 @ 0x140C4AE10
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExpPoolFlagsToPoolType @ 0x140C10F50 (ExpPoolFlagsToPoolType.c)
- *     VfFaultsInjectPoolAllocationFailure @ 0x140C346E4 (VfFaultsInjectPoolAllocationFailure.c)
- *     ViPtLogPoolTraceWrapper @ 0x140C4505C (ViPtLogPoolTraceWrapper.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExpPoolFlagsToPoolType @ 0x140C16F50 (ExpPoolFlagsToPoolType.c)
+ *     VfFaultsInjectPoolAllocationFailure @ 0x140C3A6F4 (VfFaultsInjectPoolAllocationFailure.c)
+ *     ViPtLogPoolTraceWrapper @ 0x140C4B06C (ViPtLogPoolTraceWrapper.c)
  */
 
 __int64 __fastcall VerifierExAllocatePool2(__int64 BugCheckParameter3, ULONG_PTR a2, unsigned int a3)

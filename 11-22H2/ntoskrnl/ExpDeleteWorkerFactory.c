@@ -35,10 +35,10 @@ void __fastcall ExpDeleteWorkerFactory(PVOID *a1)
   v5 = *((_BYTE *)v3 + 32);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
   OldIrql = v12.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

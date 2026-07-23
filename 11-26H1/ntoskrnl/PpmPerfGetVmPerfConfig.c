@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmPerfGetVmPerfConfig @ 0x1406068B4
+ * XREFs of PpmPerfGetVmPerfConfig @ 0x1406093B4
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PpmPerfGetVmPerfConfig(int a1, _QWORD *a2)
@@ -51,7 +51,7 @@ __int64 __fastcall PpmPerfGetVmPerfConfig(int a1, _QWORD *a2)
 
   memset_0(&v31, 0, 0x50uLL);
   v4 = 0;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v5, v6);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v5, v6);
   if ( !PpmPerfVmPerfSelectionSupported )
   {
     v4 = -1073741637;
@@ -202,6 +202,6 @@ LABEL_29:
   guard_dispatch_icall_no_overrides(Domain->Processors->PerfContext, 0LL);
   *a2 = v31;
 LABEL_64:
-  PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   return v4;
 }

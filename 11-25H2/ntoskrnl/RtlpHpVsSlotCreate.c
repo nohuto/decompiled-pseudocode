@@ -10,14 +10,14 @@
  *     memset_0 @ 0x1406B4D40 (memset_0.c)
  */
 
-union _SLIST_HEADER *__fastcall RtlpHpVsSlotCreate(unsigned __int64 a1)
+_SLIST_HEADER *__fastcall RtlpHpVsSlotCreate(unsigned __int64 a1)
 {
   __int64 v2; // rax
-  union _SLIST_HEADER *v3; // rbx
+  _SLIST_HEADER *v3; // rbx
   char v4; // cl
 
   v2 = guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 8) ^ a1);
-  v3 = (union _SLIST_HEADER *)v2;
+  v3 = (_SLIST_HEADER *)v2;
   if ( v2 )
   {
     memset_0((void *)(v2 + 8), 0, 0x78uLL);

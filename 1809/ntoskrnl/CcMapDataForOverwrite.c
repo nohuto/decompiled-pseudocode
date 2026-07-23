@@ -1,15 +1,15 @@
 /*
- * XREFs of CcMapDataForOverwrite @ 0x14011A764
+ * XREFs of CcMapDataForOverwrite @ 0x14011A7D4
  * Callers:
- *     CcPreparePinWrite @ 0x14069FD90 (CcPreparePinWrite.c)
+ *     CcPreparePinWrite @ 0x1406A1050 (CcPreparePinWrite.c)
  * Callees:
  *     CcUnpinFileDataEx @ 0x140020910 (CcUnpinFileDataEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     CcMapDataCommon @ 0x14069FF64 (CcMapDataCommon.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcMapDataCommon @ 0x1406A1224 (CcMapDataCommon.c)
  */
 
 __int64 __fastcall CcMapDataForOverwrite(__int64 a1, _DWORD *a2, __int64 a3, _QWORD *a4, unsigned __int64 *a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpReadSupportCleanup @ 0x1406C9DB4
+ * XREFs of PfpReadSupportCleanup @ 0x1406786A4
  * Callers:
- *     PfpPrefetchFilesTrickle @ 0x1406C9930 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchFiles @ 0x1408DF860 (PfpPrefetchFiles.c)
+ *     PfpPrefetchFilesTrickle @ 0x140678220 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchFiles @ 0x1408DF9C0 (PfpPrefetchFiles.c)
  * Callees:
- *     PfpOpenHandleClose @ 0x1406C9690 (PfpOpenHandleClose.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PfpOpenHandleClose @ 0x140677F80 (PfpOpenHandleClose.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpReadSupportCleanup(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of VslQueryPrivilegedAccessedState @ 0x140464850
+ * XREFs of VslQueryPrivilegedAccessedState @ 0x14045D810
  * Callers:
- *     MiQueryVpabAccessedState @ 0x1404646AC (MiQueryVpabAccessedState.c)
+ *     MiQueryVpabAccessedState @ 0x14045D66C (MiQueryVpabAccessedState.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslQueryPrivilegedAccessedState(__int64 a1, char *a2, unsigned int a3, unsigned __int8 a4)

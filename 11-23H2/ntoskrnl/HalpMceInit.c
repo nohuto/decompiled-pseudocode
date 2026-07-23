@@ -4,12 +4,12 @@
  *     HalpInitializeMce @ 0x140A8ADA0 (HalpInitializeMce.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     HalpHvInitMcaPcrContext @ 0x1403802E4 (HalpHvInitMcaPcrContext.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalpHvInitMcaStatusMsrCache @ 0x14050B480 (HalpHvInitMcaStatusMsrCache.c)
- *     HalpHvSetMachineCheckHandlerState @ 0x14050C0A0 (HalpHvSetMachineCheckHandlerState.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpHvInitMcaPcrContext @ 0x140380484 (HalpHvInitMcaPcrContext.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x14050B9D0 (HalpHvInitMcaStatusMsrCache.c)
+ *     HalpHvSetMachineCheckHandlerState @ 0x14050C5F0 (HalpHvSetMachineCheckHandlerState.c)
  *     HalpMceInitProcessor @ 0x140A8AA48 (HalpMceInitProcessor.c)
  */
 
@@ -19,10 +19,10 @@ void __fastcall HalpMceInit(__int64 a1)
   ULONG ActiveProcessorCount; // ebp
   int *v4; // rsi
   unsigned int v5; // edx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 i; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

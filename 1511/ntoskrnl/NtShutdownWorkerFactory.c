@@ -12,10 +12,10 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtShutdownWorkerFactory(HANDLE Handle, volatile signed __int32 *a2)
+NTSTATUS __cdecl NtShutdownWorkerFactory(HANDLE WorkerFactoryHandle, LONG *PendingWorkerCount)
 {
   KPROCESSOR_MODE PreviousMode; // r9
-  NTSTATUS v4; // esi
+  int v4; // esi
   _DWORD *v5; // rbx
   _DWORD *v6; // rbx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
@@ -24,22 +24,22 @@ __int64 __fastcall NtShutdownWorkerFactory(HANDLE Handle, volatile signed __int3
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)PendingWorkerCount & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (unsigned __int64)(a2 + 1) > MmUserProbeAddress || a2 + 1 < a2 )
+    if ( (unsigned __int64)(PendingWorkerCount + 1) > MmUserProbeAddress || PendingWorkerCount + 1 < PendingWorkerCount )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
-  v4 = ObReferenceObjectByHandle(Handle, 0x20u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  v4 = ObReferenceObjectByHandle(WorkerFactoryHandle, 0x20u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   if ( v4 >= 0 )
   {
     v5 = Object;
     ExpShutdownWorkerFactory(Object);
-    _InterlockedExchangeAdd(a2, v5[32]);
+    _InterlockedExchangeAdd(PendingWorkerCount, v5[32]);
     v6 = Object;
     KeAcquireInStackQueuedSpinLock(*((PKSPIN_LOCK *)Object + 2), &LockHandle);
     v6[32] = 0;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
   }
-  return (unsigned int)v4;
+  return v4;
 }

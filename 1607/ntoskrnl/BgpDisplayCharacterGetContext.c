@@ -4,8 +4,8 @@
  *     BgpConsoleInitialize @ 0x140728460 (BgpConsoleInitialize.c)
  *     BgpBcInitializeCriticalMode @ 0x1407D3ED8 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
  *     BgpTxtCreateRegion @ 0x140726BC4 (BgpTxtCreateRegion.c)
  *     BgpTxtDestroyRegion @ 0x140728928 (BgpTxtDestroyRegion.c)
  */

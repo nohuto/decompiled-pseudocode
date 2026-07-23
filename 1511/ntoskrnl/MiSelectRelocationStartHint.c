@@ -33,9 +33,9 @@ ULONG __fastcall MiSelectRelocationStartHint(__int64 a1, unsigned __int16 a2, UL
     ExfAcquirePushLockExclusiveEx(&qword_1402FE448, v8, (ULONG_PTR)&qword_1402FE448);
   if ( v10 )
     *(_BYTE *)(v10 + 26) |= 1u;
-  RtlCopyBitMap(*(unsigned int **)a1, (__int64)&stru_1402FE488, 0);
-  RtlMergeBitMaps((__int64)&stru_1402FE488, *(_QWORD *)(a1 + 8));
-  ClearBits = RtlFindClearBits(&stru_1402FE488, a2, a3);
+  RtlCopyBitMap(*(PRTL_BITMAP *)a1, &Destination, 0);
+  RtlMergeBitMaps((__int64)&Destination, *(_QWORD *)(a1 + 8));
+  ClearBits = RtlFindClearBits(&Destination, a2, a3);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1402FE448, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&qword_1402FE448);
   KeAbPostRelease((ULONG_PTR)&qword_1402FE448);

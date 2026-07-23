@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBatteryEstimatesSpoiled @ 0x140A82920
+ * XREFs of PopBatteryEstimatesSpoiled @ 0x140A7D4C4
  * Callers:
- *     PopEstimateChargeTime @ 0x140A82794 (PopEstimateChargeTime.c)
- *     PopBatteryWorker @ 0x140AC7D70 (PopBatteryWorker.c)
+ *     PopEstimateChargeTime @ 0x140A7D338 (PopEstimateChargeTime.c)
+ *     PopBatteryWorker @ 0x140AC5DB0 (PopBatteryWorker.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
  */
 
 char PopBatteryEstimatesSpoiled()

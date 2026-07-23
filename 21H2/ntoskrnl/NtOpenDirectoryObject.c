@@ -1,28 +1,39 @@
 /*
- * XREFs of NtOpenDirectoryObject @ 0x140692FE0
+ * XREFs of NtOpenDirectoryObject @ 0x1405F2670
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x14064AA70 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall NtOpenDirectoryObject(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenDirectoryObject(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  char PreviousMode; // r8
-  __int64 v7; // rdx
-  __int64 result; // rax
-  _QWORD v9[3]; // [rsp+40h] [rbp-18h] BYREF
+  int v3; // r10d
+  __int64 v6; // rdx
+  NTSTATUS result; // eax
+  void *v8; // [rsp+40h] [rbp-18h] BYREF
 
-  v9[0] = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode )
+  v3 = (int)ObjectAttributes;
+  v8 = 0LL;
+  LOBYTE(ObjectAttributes) = KeGetCurrentThread()->PreviousMode;
+  if ( (_BYTE)ObjectAttributes )
   {
-    v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
-    *(_QWORD *)v7 = *(_QWORD *)v7;
+    v6 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)DirectoryHandle < 0x7FFFFFFF0000LL )
+      v6 = (__int64)DirectoryHandle;
+    *(_QWORD *)v6 = *(_QWORD *)v6;
   }
-  result = ObOpenObjectByName(a3, (__int64)ObpDirectoryObjectType, PreviousMode, 0LL, a2, 0LL, (__int64)v9);
-  *a1 = v9[0];
+  result = ObOpenObjectByName(
+             v3,
+             (_DWORD)ObpDirectoryObjectType,
+             (_DWORD)ObjectAttributes,
+             0,
+             DesiredAccess,
+             0LL,
+             (__int64)&v8);
+  *DirectoryHandle = v8;
   return result;
 }

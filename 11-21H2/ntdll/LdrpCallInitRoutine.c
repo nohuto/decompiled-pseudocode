@@ -32,14 +32,14 @@ char __fastcall LdrpCallInitRoutine(
   char v16; // [rsp+48h] [rbp-38h]
 
   v8 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v9 = 2147353476LL;
   if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
     v10 = 2147353477LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v14 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
       v14 = 2147353477LL;
@@ -54,11 +54,11 @@ char __fastcall LdrpCallInitRoutine(
     v10 = 2147353477LL;
   }
   v16 = a1(a2, a3, a4);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v10 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v10 & 0x20) != 0 )
     {

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeSwappablePageGetLockedAddress @ 0x14046A5B4
+ * XREFs of KeSwappablePageGetLockedAddress @ 0x140470D90
  * Callers:
- *     KeSwapProcessOrStack @ 0x1405C4890 (KeSwapProcessOrStack.c)
- *     PspSchedulerSharedDataRegionSlotAllocate @ 0x1409137C4 (PspSchedulerSharedDataRegionSlotAllocate.c)
+ *     KeSwapProcessOrStack @ 0x1405C1EB0 (KeSwapProcessOrStack.c)
+ *     PspSchedulerSharedDataRegionSlotAllocate @ 0x1408EAED0 (PspSchedulerSharedDataRegionSlotAllocate.c)
  * Callees:
  *     <none>
  */

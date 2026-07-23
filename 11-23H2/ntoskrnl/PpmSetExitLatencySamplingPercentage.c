@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmSetExitLatencySamplingPercentage @ 0x140585B8C
+ * XREFs of PpmSetExitLatencySamplingPercentage @ 0x14058607C
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     KeFlushProcessWriteBuffers @ 0x1402C003C (KeFlushProcessWriteBuffers.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402C02CC (KeFlushProcessWriteBuffers.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
  */
 
 __int64 __fastcall PpmSetExitLatencySamplingPercentage(int *a1)

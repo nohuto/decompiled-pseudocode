@@ -1,8 +1,8 @@
 /*
- * XREFs of PsGetProcessMachine @ 0x140A918B0
+ * XREFs of PsGetProcessMachine @ 0x140A96400
  * Callers:
- *     MiLogHotPatchRundownForProcess @ 0x1406FC34C (MiLogHotPatchRundownForProcess.c)
- *     PspSelectMachineForProcess @ 0x140A9174C (PspSelectMachineForProcess.c)
+ *     MiLogHotPatchRundownForProcess @ 0x14070101C (MiLogHotPatchRundownForProcess.c)
+ *     PspSelectMachineForProcess @ 0x140A9629C (PspSelectMachineForProcess.c)
  * Callees:
  *     <none>
  */

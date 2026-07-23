@@ -1,12 +1,12 @@
 /*
- * XREFs of DifMmLockPagableSectionByHandleWrapper @ 0x1405E7410
+ * XREFs of DifMmLockPagableSectionByHandleWrapper @ 0x1405E7980
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     MmLockPagableSectionByHandle @ 0x1406F5750 (MmLockPagableSectionByHandle.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     MmLockPagableSectionByHandle @ 0x1406F5960 (MmLockPagableSectionByHandle.c)
  */
 
 void __fastcall DifMmLockPagableSectionByHandleWrapper(PVOID ImageSectionHandle)

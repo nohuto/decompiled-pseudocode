@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmCheckRecordAllUtility @ 0x140256940
+ * XREFs of PpmCheckRecordAllUtility @ 0x140256A00
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmPerfRecordUtility @ 0x140257400 (PpmPerfRecordUtility.c)
- *     PpmParkRecordNodeStatistics @ 0x14033C6A0 (PpmParkRecordNodeStatistics.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmPerfRecordUtility @ 0x1402574C0 (PpmPerfRecordUtility.c)
+ *     PpmParkRecordNodeStatistics @ 0x14033C930 (PpmParkRecordNodeStatistics.c)
  */
 
 char PpmCheckRecordAllUtility()
@@ -29,7 +29,7 @@ char PpmCheckRecordAllUtility()
   v12 = 0;
   v10 = 0;
   v13 = 0;
-  v9[1] = qword_140C0BE68;
+  v9[1] = qword_140C0BE78;
   v9[0] = &PpmCheckRegistered;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v13, v9) )
   {

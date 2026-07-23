@@ -2,9 +2,9 @@
  * XREFs of MiLegitimatePageForDriversToMap @ 0x1400298DC
  * Callers:
  *     MiSetProbePagesAhead @ 0x140029710 (MiSetProbePagesAhead.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x14018E920 (MmMapLockedPagesWithReservedMapping.c)
- *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14018EA60 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmRotatePhysicalView @ 0x14066CAD0 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140696CE4 (MiMapLockedPagesInUserSpace.c)
  * Callees:
  *     <none>
  */

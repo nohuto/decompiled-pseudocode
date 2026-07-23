@@ -17,8 +17,8 @@ __int64 MiCreateSlabAllocationsFromKernelHal()
   for ( i = &qword_140C4CB98; ; ++i )
   {
     result = MiActOnLargeKernelHalPages(
-               *(_QWORD *)(*i + 48),
-               (__int64 (__fastcall *)(unsigned __int64, __int64))MiCreateKernelHalSlabRange);
+               *(char **)(*i + 48),
+               (__int64 (__fastcall *)(char *, char *))MiCreateKernelHalSlabRange);
     if ( (int)result < 0 )
       break;
     if ( ++v0 )

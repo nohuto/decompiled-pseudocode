@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlUnicodeStringToAnsiString @ 0x14096C2C0
+ * XREFs of RtlUnicodeStringToAnsiString @ 0x14097CC00
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x1404DF634 (DbgUnicodeStringToAnsiString.c)
- *     PnpGetDriverNameFromString @ 0x1405DA100 (PnpGetDriverNameFromString.c)
- *     DifRtlUnicodeStringToAnsiStringWrapper @ 0x1406964D0 (DifRtlUnicodeStringToAnsiStringWrapper.c)
- *     IopInitializeCrashDump @ 0x140793598 (IopInitializeCrashDump.c)
- *     KsepGetModuleInfoByName @ 0x1407BE6F8 (KsepGetModuleInfoByName.c)
- *     NtQuerySystemEnvironmentValue @ 0x14083DE30 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x14083E6B0 (NtSetSystemEnvironmentValue.c)
- *     CmpLoadLayerVersion @ 0x140855900 (CmpLoadLayerVersion.c)
- *     MmGetModuleRoutineAddress @ 0x140864A10 (MmGetModuleRoutineAddress.c)
- *     ExpQueryModuleInformationImage @ 0x14096AA80 (ExpQueryModuleInformationImage.c)
- *     EtwpBuildProcessEvent @ 0x14096D8A8 (EtwpBuildProcessEvent.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140AB8D68 (ExpConvertLdrEntryToModuleInfo.c)
- *     CmpQueryDowncastString @ 0x140AE1170 (CmpQueryDowncastString.c)
- *     ExpSystemErrorHandler2 @ 0x140BFF4E0 (ExpSystemErrorHandler2.c)
- *     ViThunkHookExportAddress @ 0x140C35AD0 (ViThunkHookExportAddress.c)
- *     HdlspProcessDumpCommand @ 0x140C4CFF0 (HdlspProcessDumpCommand.c)
- *     IopReassignSystemRoot @ 0x140CBDDA4 (IopReassignSystemRoot.c)
+ *     DbgUnicodeStringToAnsiString @ 0x1404D8D14 (DbgUnicodeStringToAnsiString.c)
+ *     PnpGetDriverNameFromString @ 0x1405DC900 (PnpGetDriverNameFromString.c)
+ *     DifRtlUnicodeStringToAnsiStringWrapper @ 0x14069A0B0 (DifRtlUnicodeStringToAnsiStringWrapper.c)
+ *     IopInitializeCrashDump @ 0x1407960C8 (IopInitializeCrashDump.c)
+ *     KsepGetModuleInfoByName @ 0x1407C1758 (KsepGetModuleInfoByName.c)
+ *     NtQuerySystemEnvironmentValue @ 0x140844070 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1408448F0 (NtSetSystemEnvironmentValue.c)
+ *     CmpLoadLayerVersion @ 0x14085BC98 (CmpLoadLayerVersion.c)
+ *     MmGetModuleRoutineAddress @ 0x14086ADF0 (MmGetModuleRoutineAddress.c)
+ *     EtwpBuildProcessEvent @ 0x1408FBCAC (EtwpBuildProcessEvent.c)
+ *     ExpQueryModuleInformationImage @ 0x14097B3C0 (ExpQueryModuleInformationImage.c)
+ *     CmpQueryDowncastString @ 0x14097E108 (CmpQueryDowncastString.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x14097E258 (ExpConvertLdrEntryToModuleInfo.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
+ *     ExpSystemErrorHandler2 @ 0x140C056F0 (ExpSystemErrorHandler2.c)
+ *     ViThunkHookExportAddress @ 0x140C3BAE0 (ViThunkHookExportAddress.c)
+ *     HdlspProcessDumpCommand @ 0x140C52FF0 (HdlspProcessDumpCommand.c)
+ *     IopReassignSystemRoot @ 0x140CC3E74 (IopReassignSystemRoot.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x14096CCE0 (RtlUnicodeToUTF8N.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x14097D620 (RtlUnicodeToUTF8N.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
@@ -43,7 +43,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   ULONG UnicodeStringByteCount; // ebx
   wchar_t *v15; // rsi
   char *v16; // rdi
-  struct _CPTABLEINFO *p_Blink; // rax
+  _CPTABLEINFO *p_Blink; // rax
   unsigned int v18; // r10d
   ULONG v19; // ebx
   int v20; // r11d
@@ -133,7 +133,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   else
   {
     _InterlockedOr(v30, 0);
-    p_Blink = (struct _CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
   }
   v38 = v15;
   v18 = (unsigned __int16)MaximumLength - 1;

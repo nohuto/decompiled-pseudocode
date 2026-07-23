@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagTraceIoCoalescingOff @ 0x140671718
+ * XREFs of PopDiagTraceIoCoalescingOff @ 0x1406717FC
  * Callers:
- *     PopCoalescingSetActiveState @ 0x140205554 (PopCoalescingSetActiveState.c)
+ *     PopCoalescingSetActiveState @ 0x140205380 (PopCoalescingSetActiveState.c)
  * Callees:
- *     PopPrintEx @ 0x140081AE0 (PopPrintEx.c)
+ *     PopPrintEx @ 0x140084C64 (PopPrintEx.c)
  */
 
 void PopDiagTraceIoCoalescingOff()

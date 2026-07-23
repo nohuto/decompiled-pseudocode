@@ -1,12 +1,12 @@
 /*
- * XREFs of VslApplyHotPatch @ 0x1405C29F0
+ * XREFs of VslApplyHotPatch @ 0x1405C5260
  * Callers:
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
- *     MiLoadHotPatch @ 0x140870D5C (MiLoadHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408770BC (MiLoadHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslApplyHotPatch(
@@ -31,7 +31,7 @@ __int64 __fastcall VslApplyHotPatch(
   int v21; // [rsp+58h] [rbp-49h]
 
   memset_0(v15, 0, 0x68uLL);
-  _InterlockedIncrement((volatile signed __int32 *)&VslpReservedTransferLock.SListFaultAddress);
+  _InterlockedIncrement(&VslpHotpatchStats);
   v21 = a7;
   v16 = a1;
   *(_QWORD *)&v17 = a2;
@@ -42,11 +42,11 @@ __int64 __fastcall VslApplyHotPatch(
   result = VslpEnterIumSecureMode(2u, 0x4Eu, 0, (__int64)v15);
   if ( (int)result < 0 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)&VslpReservedTransferLock.QuantumTarget);
+    _InterlockedIncrement(dword_140F86C28);
   }
   else
   {
-    _InterlockedIncrement((_DWORD *)&VslpReservedTransferLock.SListFaultAddress + 1);
+    _InterlockedIncrement(&dword_140F86C24);
     if ( a8 )
     {
       v13 = v18;

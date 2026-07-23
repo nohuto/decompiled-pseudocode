@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCombineCmResourceList @ 0x1407A6210
+ * XREFs of IopCombineCmResourceList @ 0x1407A8DC0
  * Callers:
- *     IopAllocateLegacyBootResources @ 0x140CC53B8 (IopAllocateLegacyBootResources.c)
+ *     IopAllocateLegacyBootResources @ 0x140CCB498 (IopAllocateLegacyBootResources.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpDetermineResourceListSize @ 0x140AA5C24 (PnpDetermineResourceListSize.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x140AA0E1C (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _DWORD *__fastcall IopCombineCmResourceList(void *Src, _DWORD *a2)

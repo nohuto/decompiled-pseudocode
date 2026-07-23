@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipISCleanup @ 0x14070F310
+ * XREFs of WmipISCleanup @ 0x1407105B0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WmipISCleanup(__int64 a1)

@@ -161,7 +161,7 @@ __int64 __fastcall PiDevCfgProcessDevice(__int64 a1, __int64 a2, char a3)
         inited = 0;
         goto LABEL_43;
       }
-      inited = PiDevCfgConfigureDevice(a1, (unsigned int)v43, v14, (unsigned int)&v34, (__int64)&v38);
+      inited = PiDevCfgConfigureDevice(a1, (unsigned int)v43, (__int64)&v38);
       if ( inited >= 0 )
       {
         v7 = v34;
@@ -244,7 +244,7 @@ __int64 __fastcall PiDevCfgProcessDevice(__int64 a1, __int64 a2, char a3)
     }
     if ( v8 )
     {
-      inited = PiDevCfgConfigureDevice(a1, (unsigned int)v43, 0, (unsigned int)&v34, (__int64)&v38);
+      inited = PiDevCfgConfigureDevice(a1, (unsigned int)v43, (__int64)&v38);
       if ( inited >= 0 )
       {
         v7 = v34;

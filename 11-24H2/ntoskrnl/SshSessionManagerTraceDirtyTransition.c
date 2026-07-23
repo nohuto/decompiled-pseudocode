@@ -1,10 +1,10 @@
 /*
- * XREFs of SshSessionManagerTraceDirtyTransition @ 0x140766F9C
+ * XREFs of SshSessionManagerTraceDirtyTransition @ 0x1407669D0
  * Callers:
- *     PopDiagTraceDirtyTransition @ 0x140C2F2D0 (PopDiagTraceDirtyTransition.c)
+ *     PopDiagTraceDirtyTransition @ 0x140C313F0 (PopDiagTraceDirtyTransition.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SshpSessionManagerSendControlEvent @ 0x140A70190 (SshpSessionManagerSendControlEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x140A69620 (SshpSessionManagerSendControlEvent.c)
  */
 
 __int64 SshSessionManagerTraceDirtyTransition()
@@ -20,41 +20,41 @@ __int64 SshSessionManagerTraceDirtyTransition()
   int v9; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD v10[38]; // [rsp+40h] [rbp-C0h] BYREF
 
-  v10[0] = &dword_140E67170;
+  v10[0] = &dword_140E67350;
   v10[1] = 4LL;
-  v10[2] = &qword_140E67178;
-  v10[4] = &qword_140E67180;
-  v10[6] = &qword_140E67188;
-  v10[8] = &qword_140E67190;
-  v6 = *(unsigned __int8 *)(qword_140E671A0 + 8) >> 4;
+  v10[2] = &qword_140E67358;
+  v10[4] = &qword_140E67360;
+  v10[6] = &qword_140E67368;
+  v10[8] = &qword_140E67370;
+  v6 = *(unsigned __int8 *)(qword_140E67380 + 8) >> 4;
   v10[10] = &v6;
-  v10[14] = &dword_140E671C4;
-  v10[16] = &byte_140E671B0;
-  v0 = (*(unsigned __int8 *)(qword_140E671A0 + 8) >> 1) & 1;
+  v10[14] = &dword_140E673A4;
+  v10[16] = &byte_140E67390;
+  v0 = (*(unsigned __int8 *)(qword_140E67380 + 8) >> 1) & 1;
   v10[3] = 8LL;
   v7 = v0;
   v10[18] = &v7;
-  v10[20] = qword_140E671A0 + 12;
-  v10[22] = qword_140E671A8 + 24;
-  LOBYTE(v0) = *(_BYTE *)(qword_140E671A0 + 14) & 0xF;
+  v10[20] = qword_140E67380 + 12;
+  v10[22] = qword_140E67388 + 24;
+  LOBYTE(v0) = *(_BYTE *)(qword_140E67380 + 14) & 0xF;
   v10[5] = 8LL;
   v4 = v0;
   v10[24] = &v4;
-  v1 = (*(unsigned __int8 *)(qword_140E671A0 + 14) >> 5) & 1;
+  v1 = (*(unsigned __int8 *)(qword_140E67380 + 14) >> 5) & 1;
   v10[7] = 8LL;
   v8 = v1;
   v10[26] = &v8;
-  v2 = (*(unsigned __int8 *)(qword_140E671A8 + 1) >> 4) & 1;
+  v2 = (*(unsigned __int8 *)(qword_140E67388 + 1) >> 4) & 1;
   v10[9] = 8LL;
   v9 = v2;
   v10[28] = &v9;
-  v10[30] = qword_140E671A8 + 3;
-  v10[32] = qword_140E671A8 + 4;
-  v5 = *(_BYTE *)(qword_140E671A0 + 11) >> 6;
+  v10[30] = qword_140E67388 + 3;
+  v10[32] = qword_140E67388 + 4;
+  v5 = *(_BYTE *)(qword_140E67380 + 11) >> 6;
   v10[34] = &v5;
-  v10[36] = &dword_140E671C0;
+  v10[36] = &dword_140E673A0;
   v10[11] = 4LL;
-  v10[12] = qword_140E671A0;
+  v10[12] = qword_140E67380;
   v10[13] = 8LL;
   v10[15] = 4LL;
   v10[17] = 1LL;

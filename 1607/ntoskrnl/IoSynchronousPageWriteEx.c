@@ -1,20 +1,20 @@
 /*
- * XREFs of IoSynchronousPageWriteEx @ 0x14008E368
+ * XREFs of IoSynchronousPageWriteEx @ 0x14008DAC8
  * Callers:
- *     MiZeroPageWrite @ 0x14006B2E4 (MiZeroPageWrite.c)
- *     IoSynchronousPageWrite @ 0x14008E344 (IoSynchronousPageWrite.c)
- *     MiIssueSynchronousFlush @ 0x1400A1798 (MiIssueSynchronousFlush.c)
- *     MiSynchronousPageWrite @ 0x140142E48 (MiSynchronousPageWrite.c)
+ *     MiZeroPageWrite @ 0x14006AE64 (MiZeroPageWrite.c)
+ *     IoSynchronousPageWrite @ 0x14008DAA4 (IoSynchronousPageWrite.c)
+ *     MiIssueSynchronousFlush @ 0x1400A00C0 (MiIssueSynchronousFlush.c)
+ *     MiSynchronousPageWrite @ 0x1401433B8 (MiSynchronousPageWrite.c)
  * Callees:
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopQueueThreadIrp @ 0x14002E170 (IopQueueThreadIrp.c)
- *     IopSetDiskIoAttributionExtension @ 0x14008E608 (IopSetDiskIoAttributionExtension.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1400EBF60 (IoSetDiskIoAttributionFromThread.c)
- *     MmIsFileObjectAPagingFile @ 0x14010DA6C (MmIsFileObjectAPagingFile.c)
- *     IopAllocateBackpocketIrp @ 0x1401C443C (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x1401C471C (IopAllocateReserveIrp.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopQueueThreadIrp @ 0x14002DCF0 (IopQueueThreadIrp.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14008DD68 (IopSetDiskIoAttributionExtension.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1400E9DD0 (IoSetDiskIoAttributionFromThread.c)
+ *     MmIsFileObjectAPagingFile @ 0x14010DFD0 (MmIsFileObjectAPagingFile.c)
+ *     IopAllocateBackpocketIrp @ 0x1401C4320 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1401C4600 (IopAllocateReserveIrp.c)
  */
 
 NTSTATUS __fastcall IoSynchronousPageWriteEx(

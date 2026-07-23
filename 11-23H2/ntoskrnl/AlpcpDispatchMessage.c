@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpDispatchMessage @ 0x1407172F0
+ * XREFs of AlpcpDispatchMessage @ 0x1407174F0
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x14071697C (AlpcpAcceptConnectPort.c)
+ *     AlpcpAcceptConnectPort @ 0x140716B7C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     AlpcpDispatchReplyToPort @ 0x14071B1EC (AlpcpDispatchReplyToPort.c)
- *     AlpcpDispatchReplyToWaitingThread @ 0x140737FD0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpDispatchNewMessage @ 0x1407398D0 (AlpcpDispatchNewMessage.c)
+ *     AlpcpDispatchReplyToPort @ 0x14071B3EC (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1407381C0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpDispatchNewMessage @ 0x140739AC0 (AlpcpDispatchNewMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchMessage(__int64 a1)

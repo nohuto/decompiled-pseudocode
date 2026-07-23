@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpQueryEditionVersion @ 0x1407A8330
+ * XREFs of CmpQueryEditionVersion @ 0x1407A8530
  * Callers:
- *     CmpSetVersionData @ 0x1407A7E2C (CmpSetVersionData.c)
+ *     CmpSetVersionData @ 0x1407A802C (CmpSetVersionData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1406DD260 (RtlUnicodeStringToAnsiString.c)
  */
 
 NTSTATUS __fastcall CmpQueryEditionVersion(char *a1, void *a2, void *a3)
@@ -26,7 +26,7 @@ NTSTATUS __fastcall CmpQueryEditionVersion(char *a1, void *a2, void *a3)
   NTSTATUS v14; // eax
   ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
-  STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
   _DWORD KeyValueInformation[64]; // [rsp+80h] [rbp-80h] BYREF
 

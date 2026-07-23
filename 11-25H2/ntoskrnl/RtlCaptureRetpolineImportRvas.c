@@ -30,7 +30,7 @@ __int64 __fastcall RtlCaptureRetpolineImportRvas(
   v6 = 0;
   v19 = 0;
   v20 = 0LL;
-  RtlpImageDirectoryEntryToDataEx(a1, 1u, 0xCu, &v19, (__int64 *)&v20);
+  RtlpImageDirectoryEntryToDataEx(a1, 1, 0xCu, &v19, &v20);
   v10 = v20;
   if ( v20 )
   {

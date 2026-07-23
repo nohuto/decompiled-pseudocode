@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpDisableKernelTrace @ 0x1406C5A2C
+ * XREFs of EtwpDisableKernelTrace @ 0x1406C6CCC
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C6838 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpEnableKernelTrace @ 0x1406C6A30 (EtwpEnableKernelTrace.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
- *     IoPerfReset @ 0x1402852C4 (IoPerfReset.c)
- *     KeStopProfile @ 0x140295D40 (KeStopProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1402EC9F0 (DbgSetDebugPrintCallback.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1406C5BB8 (EtwpUpdateFileInfoDriverState.c)
- *     AlpcUnregisterLogRoutine @ 0x14084B688 (AlpcUnregisterLogRoutine.c)
- *     WmiSetNetworkNotify @ 0x1408B438C (WmiSetNetworkNotify.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeCancelTimer2 @ 0x1400FAFF0 (KeCancelTimer2.c)
+ *     IoPerfReset @ 0x1402854B4 (IoPerfReset.c)
+ *     KeStopProfile @ 0x140295F30 (KeStopProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1402ECBE0 (DbgSetDebugPrintCallback.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1406C6E58 (EtwpUpdateFileInfoDriverState.c)
+ *     AlpcUnregisterLogRoutine @ 0x14084C8E8 (AlpcUnregisterLogRoutine.c)
+ *     WmiSetNetworkNotify @ 0x1408B5650 (WmiSetNetworkNotify.c)
  */
 
 __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
@@ -42,35 +42,35 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     }
     if ( (v8 & 0x2000000) != 0 )
     {
-      qword_1403FE830 = 0LL;
+      qword_1403FF830 = 0LL;
       v8 = *a2;
     }
     if ( (v8 & 0x4000000) != 0 )
     {
-      qword_1403FE828 = 0LL;
+      qword_1403FF828 = 0LL;
       v8 = *a2;
     }
     if ( (v8 & 0x200) != 0 )
     {
-      qword_1403FE820 = 0LL;
+      qword_1403FF820 = 0LL;
       v8 = *a2;
     }
     if ( (v8 & 0x100) != 0 )
     {
       EtwpDiskIoNotifyRoutines = 0LL;
-      qword_1403FE810 = 0LL;
+      qword_1403FF810 = 0LL;
       v8 = *a2;
     }
     if ( (v8 & 0x400) != 0 )
-      qword_140438700 = 0LL;
+      qword_1404397C0 = 0LL;
     v9 = a2[4];
     if ( (v9 & 1) != 0 )
     {
-      qword_140438708 = 0LL;
+      qword_1404397C8 = 0LL;
       v9 = a2[4];
     }
     if ( (v9 & 2) != 0 )
-      qword_140438710 = 0LL;
+      qword_1404397D0 = 0LL;
     v10 = *a2;
     if ( (*a2 & 0x200000) != 0 )
     {
@@ -84,33 +84,33 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     v11 = a2[4];
     if ( (v11 & 0x400000) != 0 )
     {
-      qword_1403FE7F0 = 0LL;
+      qword_1403FF7F0 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x80000) != 0 )
     {
-      qword_1403FE7F8 = 0LL;
+      qword_1403FF7F8 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x100000) != 0 )
     {
-      qword_1403FE800 = 0LL;
+      qword_1403FF800 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x200000) != 0 )
     {
-      qword_1403FE808 = 0LL;
+      qword_1403FF808 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x1000000) != 0 )
     {
-      qword_140404B30 = 0LL;
+      qword_140405B30 = 0LL;
       v11 = a2[4];
     }
     if ( (v11 & 0x2000000) != 0 )
-      qword_140404B38 = 0LL;
+      qword_140405B38 = 0LL;
     if ( (a2[2] & 0x8000000) != 0 )
-      qword_140404B40 = 0LL;
+      qword_140405B40 = 0LL;
     if ( (*a2 & 0x40000) != 0 )
       DbgSetDebugPrintCallback((PDEBUG_PRINT_CALLBACK)EtwpTraceDebugPrint, 0);
     v12 = a2[1];
@@ -122,7 +122,7 @@ __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, int *a2, int a3, int a4)
     if ( (v12 & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStopProfile((ULONG_PTR)qword_14040A388 + 248 * i);
+        KeStopProfile((ULONG_PTR)qword_14040B408 + 248 * i);
     }
     if ( (a2[4] & 0x80u) != 0 )
     {

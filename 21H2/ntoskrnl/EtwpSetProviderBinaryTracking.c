@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpSetProviderBinaryTracking @ 0x140940E40
+ * XREFs of EtwpSetProviderBinaryTracking @ 0x140941010
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpGetNextGuidEntry @ 0x1406E100C (EtwpGetNextGuidEntry.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x1409412CC (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpGetNextGuidEntry @ 0x1406B82EC (EtwpGetNextGuidEntry.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x14094149C (EtwpTrackGuidEntryRegistrations.c)
  */
 
 __int64 __fastcall EtwpSetProviderBinaryTracking(__int64 a1, unsigned int a2, char a3)
@@ -14,13 +14,13 @@ __int64 __fastcall EtwpSetProviderBinaryTracking(__int64 a1, unsigned int a2, ch
   unsigned int v5; // ebx
   unsigned int *v6; // rax
   unsigned int *v7; // rdi
-  __int64 *i; // rdx
+  signed __int64 *i; // rdx
   signed __int64 *NextGuidEntry; // rax
-  __int64 *v10; // rsi
-  __int64 *j; // rdx
+  signed __int64 *v10; // rsi
+  signed __int64 *j; // rdx
   signed __int64 *v12; // rax
   __int64 v13; // r8
-  __int64 *v14; // rsi
+  signed __int64 *v14; // rsi
 
   v5 = 0;
   v6 = EtwpAcquireLoggerContextByLoggerId(a1, a2, 0);

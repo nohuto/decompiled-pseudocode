@@ -1,12 +1,12 @@
 /*
- * XREFs of PopGetIdleTimesCallback @ 0x140352240
+ * XREFs of PopGetIdleTimesCallback @ 0x14036F8B0
  * Callers:
- *     PoGetIdleTimes @ 0x140351EF0 (PoGetIdleTimes.c)
- *     PopExecuteProcessorCallback @ 0x140352C00 (PopExecuteProcessorCallback.c)
+ *     PoGetIdleTimes @ 0x14036F560 (PoGetIdleTimes.c)
+ *     PopExecuteProcessorCallback @ 0x140370490 (PopExecuteProcessorCallback.c)
  * Callees:
- *     PpmConvertTimeTo @ 0x14032D92C (PpmConvertTimeTo.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     PpmUpdatePerformanceFeedback @ 0x1403505D0 (PpmUpdatePerformanceFeedback.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     PpmUpdatePerformanceFeedback @ 0x14036EAB0 (PpmUpdatePerformanceFeedback.c)
+ *     PpmConvertTimeTo @ 0x140370A00 (PpmConvertTimeTo.c)
  */
 
 __int64 __fastcall PopGetIdleTimesCallback(struct _KPRCB *a1, __int64 a2, __int64 a3)
@@ -98,7 +98,7 @@ __int64 __fastcall PopGetIdleTimesCallback(struct _KPRCB *a1, __int64 a2, __int6
           if ( i >= StateCount )
           {
             v9 = v35;
-            *(_QWORD *)a2 = PpmConvertTimeTo(IdleAccounting->PriorIdleTime, 0x989680uLL);
+            *(_QWORD *)a2 = PpmConvertTimeTo(IdleAccounting->PriorIdleTime, 10000000LL);
             goto LABEL_8;
           }
           StateType = v25->State[i].StateType;
@@ -245,10 +245,10 @@ LABEL_8:
     }
     v22 = SpareLong0;
     v23 = KernelTime;
-    if ( v21 > (unsigned int)KeMaximumIncrement )
+    if ( v21 > KeMaximumIncrement )
     {
-      v22 = v21 / (unsigned int)KeMaximumIncrement + SpareLong0 - 1;
-      v23 = v21 / (unsigned int)KeMaximumIncrement + KernelTime - 1;
+      v22 = v21 / KeMaximumIncrement + SpareLong0 - 1;
+      v23 = v21 / KeMaximumIncrement + KernelTime - 1;
     }
   }
   else
@@ -262,7 +262,7 @@ LABEL_51:
     if ( IdleAccounting && IdleStates )
       *(_QWORD *)a2 += *(_QWORD *)(a2 + 8) + *(_QWORD *)(a2 + 16) + *(_QWORD *)(a2 + 24);
     else
-      *(_QWORD *)a2 = v22 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      *(_QWORD *)a2 = v22 * (unsigned __int64)KeMaximumIncrement;
   }
   if ( a3 )
   {

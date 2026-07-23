@@ -6,8 +6,8 @@
  *     RtlpImageDirectoryEntryToDataEx @ 0x180007188 (RtlpImageDirectoryEntryToDataEx.c)
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
  *     LdrpLogError @ 0x18007168C (LdrpLogError.c)
- *     LdrpRelocateImage @ 0x1800872C4 (LdrpRelocateImage.c)
- *     LdrpCorValidateImage @ 0x180088064 (LdrpCorValidateImage.c)
+ *     LdrpRelocateImage @ 0x1800872D4 (LdrpRelocateImage.c)
+ *     LdrpCorValidateImage @ 0x180088074 (LdrpCorValidateImage.c)
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  *     LdrpCorFixupImage @ 0x1800D05E8 (LdrpCorFixupImage.c)
  *     LdrpLogEtwEvent @ 0x1800D1238 (LdrpLogEtwEvent.c)
@@ -17,7 +17,7 @@ __int64 __fastcall LdrpCompleteMapModule(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbx
   int v7; // edi
-  int v8; // eax
+  NTSTATUS v8; // eax
   __int64 v9; // rcx
   int v11; // eax
   __int64 v12; // r13
@@ -34,7 +34,7 @@ __int64 __fastcall LdrpCompleteMapModule(__int64 a1, __int64 a2, int a3)
   char *v23; // rcx
   int v24; // r8d
   int v25; // r9d
-  int v26; // [rsp+70h] [rbp+8h] BYREF
+  unsigned int v26; // [rsp+70h] [rbp+8h] BYREF
   __int64 v27; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 56);
@@ -66,16 +66,14 @@ LABEL_4:
         {
           v12 = *(_QWORD *)(v3 + 48);
           v13 = 2147353476LL;
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v14 = (__int64)NtCurrentPeb()->SharedData + 554;
           else
             v14 = 2147353476LL;
           v15 = 2147353477LL;
           if ( *(_BYTE *)v14 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
           {
-            v23 = (unsigned int)RtlGetCurrentServiceSessionId()
-                ? (char *)NtCurrentPeb()->SharedData + 555
-                : (char *)2147353477;
+            v23 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
             if ( (*v23 & 0x20) != 0 )
             {
               LOBYTE(v22) = -1;
@@ -83,19 +81,18 @@ LABEL_4:
               LdrpLogEtwEvent(5264, v12, v21, v22, 0LL, 0LL);
             }
           }
-          if ( a3 == 1073741827
-            && (v16 = LdrpRelocateImage(*(_QWORD *)(v3 + 48), *(_QWORD *)(a1 + 160), a2, v3 + 72), v7 = v16, v16 < 0) )
+          if ( a3 == 1073741827 && (v16 = LdrpRelocateImage(*(PVOID *)(v3 + 48)), v7 = v16, v16 < 0) )
           {
             LdrpLogError((unsigned int)v16, 5264LL, 0LL, v3 + 72);
           }
           else
           {
             v17 = *(_QWORD *)(v3 + 48);
-            if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+            if ( RtlGetCurrentServiceSessionId() )
               v13 = (__int64)NtCurrentPeb()->SharedData + 554;
             if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
             {
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              if ( RtlGetCurrentServiceSessionId() )
                 v15 = (__int64)NtCurrentPeb()->SharedData + 555;
               if ( (*(_BYTE *)v15 & 0x20) != 0 )
               {

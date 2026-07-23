@@ -3,7 +3,7 @@
  * Callers:
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
  *     PspLockJobShared @ 0x1406A3C40 (PspLockJobShared.c)
  *     PspLockJobExclusive @ 0x1406A3DF8 (PspLockJobExclusive.c)

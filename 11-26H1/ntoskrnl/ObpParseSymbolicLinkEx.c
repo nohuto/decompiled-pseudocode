@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpParseSymbolicLinkEx @ 0x140900300
+ * XREFs of ObpParseSymbolicLinkEx @ 0x140930290
  * Callers:
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     ObReferenceObjectByPointer @ 0x14045F750 (ObReferenceObjectByPointer.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     RtlIsSandboxedToken @ 0x1408F4B90 (RtlIsSandboxedToken.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     ObReferenceObjectByPointer @ 0x140458E50 (ObReferenceObjectByPointer.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     RtlIsSandboxedToken @ 0x1408FBA10 (RtlIsSandboxedToken.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpParseSymbolicLinkEx(
@@ -149,17 +149,12 @@ LABEL_6:
       v39[1] = L"UNKNOWN";
       HIDWORD(TokenInformation) = 0;
       v30 = 0LL;
-      if ( (unsigned int)ObQueryNameStringMode((_DWORD)Object, 0, 0, (unsigned int)&TokenInformation + 4, 0) == -1073741820 )
+      if ( (unsigned int)ObQueryNameStringMode((__int64)Object, 0LL, 0, (_DWORD *)&TokenInformation + 1, 0) == -1073741820 )
       {
         Pool2 = ExAllocatePool2(0x100uLL);
         v30 = (void *)Pool2;
         if ( Pool2 )
-          ObQueryNameStringMode(
-            (_DWORD)Object,
-            Pool2,
-            HIDWORD(TokenInformation),
-            (unsigned int)&TokenInformation + 4,
-            0);
+          ObQueryNameStringMode((__int64)Object, Pool2, HIDWORD(TokenInformation), (_DWORD *)&TokenInformation + 1, 0);
       }
       if ( (unsigned int)dword_140E07360 > 5 && tlgKeywordOn((__int64)&dword_140E07360, 0x400000000000LL) )
       {
@@ -182,7 +177,7 @@ LABEL_6:
         v57 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E07360,
-          (unsigned __int8 *)byte_14004931D,
+          (unsigned __int8 *)byte_14004991D,
           0LL,
           0LL,
           8u,

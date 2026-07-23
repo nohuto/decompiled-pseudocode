@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0dszud_EtwWriteTransfer @ 0x1406163EC
+ * XREFs of McTemplateK0dszud_EtwWriteTransfer @ 0x1406149AC
  * Callers:
- *     CarEtwWriteBugCheckEvent @ 0x140615B58 (CarEtwWriteBugCheckEvent.c)
- *     CarEtwWriteLiveDumpEvent @ 0x140615CC8 (CarEtwWriteLiveDumpEvent.c)
+ *     CarEtwWriteBugCheckEvent @ 0x140614118 (CarEtwWriteBugCheckEvent.c)
+ *     CarEtwWriteLiveDumpEvent @ 0x140614288 (CarEtwWriteLiveDumpEvent.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0dszud_EtwWriteTransfer(

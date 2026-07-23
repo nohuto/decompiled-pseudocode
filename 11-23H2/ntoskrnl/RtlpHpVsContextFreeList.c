@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVsContextFreeList @ 0x14024EDF0
+ * XREFs of RtlpHpVsContextFreeList @ 0x14024EEC0
  * Callers:
- *     RtlpHpVsContextFree @ 0x140323630 (RtlpHpVsContextFree.c)
- *     RtlpHpHeapCompact @ 0x140337CF4 (RtlpHpHeapCompact.c)
+ *     RtlpHpVsContextFree @ 0x1403238C0 (RtlpHpVsContextFree.c)
+ *     RtlpHpHeapCompact @ 0x140337F84 (RtlpHpHeapCompact.c)
  * Callees:
  *     RtlpHpAcquireQueuedLockExclusive @ 0x140207670 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpVsChunkFree @ 0x14024D600 (RtlpHpVsChunkFree.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289BE0 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsSubsegmentFree @ 0x140356D4C (RtlpHpVsSubsegmentFree.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkFree @ 0x14024D6D0 (RtlpHpVsChunkFree.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x140289E70 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsSubsegmentFree @ 0x140356EEC (RtlpHpVsSubsegmentFree.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, unsigned int a2, _QWORD *a3)
@@ -17,10 +17,10 @@ __int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, unsigned int a2, _QWORD *
   __int64 result; // rax
   int v8; // r15d
   unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
+  __int64 v10; // r8
   _QWORD *v11; // rcx
   __int64 v12; // rax
-  unsigned __int64 v13; // r10
+  __int64 v13; // r10
   int v14; // edx
   unsigned __int64 v15; // r10
   __int64 v16; // rdi
@@ -44,7 +44,7 @@ __int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, unsigned int a2, _QWORD *
     while ( 1 )
     {
       v9 = *(a3 - 2);
-      v10 = (unsigned __int64)(a3 - 2);
+      v10 = (__int64)(a3 - 2);
       v11 = a3 - 2;
       a3 = (_QWORD *)*a3;
       v12 = v10 ^ RtlpHpHeapGlobals ^ v9;

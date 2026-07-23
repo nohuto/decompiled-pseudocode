@@ -17,37 +17,39 @@ __int64 __fastcall PopAdaptivePersistSystemInitatedRebootState(__int64 a1, __int
 {
   __int64 v2; // rdi
   __int64 v3; // rsi
-  int SystemInitiatedRebootTargetBootEntry; // ebx
+  NTSTATUS SystemInitiatedRebootTargetBootEntry; // ebx
   int v5; // eax
-  int v6; // eax
-  __int64 v8; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v9; // [rsp+28h] [rbp-28h] BYREF
-  __int64 v10; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v11; // [rsp+38h] [rbp-18h] BYREF
+  NTSTATUS v6; // eax
+  HANDLE BcdObjectHandle; // [rsp+20h] [rbp-30h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+28h] [rbp-28h] BYREF
+  __int64 Buffer; // [rsp+30h] [rbp-20h] BYREF
+  GUID Identifier; // [rsp+38h] [rbp-18h] BYREF
 
-  v10 = 0LL;
+  Buffer = 0LL;
   v2 = -1LL;
   v3 = -1LL;
-  v9 = -1LL;
-  v11 = 0LL;
-  v8 = -1LL;
+  BcdStoreHandle = (HANDLE)-1LL;
+  Identifier = 0LL;
+  BcdObjectHandle = (HANDLE)-1LL;
   if ( byte_140FD7250 )
   {
-    v5 = PopBcdOpen(&v9);
-    v2 = v9;
+    v5 = PopBcdOpen(&BcdStoreHandle);
+    v2 = (__int64)BcdStoreHandle;
     SystemInitiatedRebootTargetBootEntry = v5;
     if ( v5 >= 0 )
     {
-      SystemInitiatedRebootTargetBootEntry = PopAdaptiveGetSystemInitiatedRebootTargetBootEntry(v9, &v11);
+      SystemInitiatedRebootTargetBootEntry = PopAdaptiveGetSystemInitiatedRebootTargetBootEntry(
+                                               BcdStoreHandle,
+                                               &Identifier);
       if ( SystemInitiatedRebootTargetBootEntry >= 0 )
       {
-        v6 = BcdOpenObject(v2, &v11, &v8);
-        v3 = v8;
+        v6 = BcdOpenObject((HANDLE)v2, &Identifier, &BcdObjectHandle);
+        v3 = (__int64)BcdObjectHandle;
         SystemInitiatedRebootTargetBootEntry = v6;
         if ( v6 >= 0 )
         {
-          v10 = qword_140FD7258;
-          SystemInitiatedRebootTargetBootEntry = BcdSetElementData(v8, 620757338LL, &v10, 8LL);
+          Buffer = qword_140FD7258;
+          SystemInitiatedRebootTargetBootEntry = BcdSetElementData(BcdObjectHandle, 0x2500015Au, &Buffer, 8u);
         }
       }
     }
@@ -56,10 +58,10 @@ __int64 __fastcall PopAdaptivePersistSystemInitatedRebootState(__int64 a1, __int
   {
     SystemInitiatedRebootTargetBootEntry = 279;
   }
-  LOBYTE(a2) = (v10 & 8) != 0;
-  PopDiagTraceAdaptiveBootOverridePrepared(v10 & 7, a2, (unsigned int)SystemInitiatedRebootTargetBootEntry);
+  LOBYTE(a2) = (Buffer & 8) != 0;
+  PopDiagTraceAdaptiveBootOverridePrepared(Buffer & 7, a2, (unsigned int)SystemInitiatedRebootTargetBootEntry);
   if ( v3 != -1 )
-    BcdCloseObject(v3);
+    BcdCloseObject((HANDLE)v3);
   if ( v2 != -1 )
     PopBcdClose(v2);
   return (unsigned int)SystemInitiatedRebootTargetBootEntry;

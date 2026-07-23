@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlQueryImageXfgFilter @ 0x1405A7114
+ * XREFs of RtlQueryImageXfgFilter @ 0x1405A7684
  * Callers:
- *     RtlCheckXfgFailureInformation @ 0x1405B1A70 (RtlCheckXfgFailureInformation.c)
+ *     RtlCheckXfgFailureInformation @ 0x1405B1FE0 (RtlCheckXfgFailureInformation.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     RtlpOpenImageFileOptionsKey @ 0x1409B8DD0 (RtlpOpenImageFileOptionsKey.c)
- *     RtlpOpenSystemSessionKey @ 0x1409B8DE8 (RtlpOpenSystemSessionKey.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     RtlpOpenImageFileOptionsKey @ 0x1409B8FD0 (RtlpOpenImageFileOptionsKey.c)
+ *     RtlpOpenSystemSessionKey @ 0x1409B8FE8 (RtlpOpenSystemSessionKey.c)
  */
 
-__int64 __fastcall RtlQueryImageXfgFilter(_WORD *a1, UNICODE_STRING *a2, __int64 a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall RtlQueryImageXfgFilter(_WORD *a1, UNICODE_STRING *a2, void *a3, __int64 a4, _BYTE *a5)
 {
   int v7; // eax
   NTSTATUS inited; // ebx
   NTSTATUS v10; // eax
   char PreviousMode; // cl
   ULONG v12; // eax
-  __int64 v13; // rax
+  PIMAGE_NT_HEADERS v13; // rax
   __int64 v14; // r13
   NTSTATUS v15; // eax
   NTSTATUS v16; // eax
   ULONG ResultLength; // [rsp+30h] [rbp-E8h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-E0h] BYREF
-  int v19; // [rsp+40h] [rbp-D8h]
-  int v20; // [rsp+44h] [rbp-D4h]
+  unsigned int TimeDateStamp; // [rsp+40h] [rbp-D8h]
+  unsigned int CheckSum; // [rsp+44h] [rbp-D4h]
   HANDLE Handle; // [rsp+48h] [rbp-D0h] BYREF
   int v22; // [rsp+50h] [rbp-C8h]
   __int64 v23; // [rsp+58h] [rbp-C0h]
@@ -48,8 +48,8 @@ __int64 __fastcall RtlQueryImageXfgFilter(_WORD *a1, UNICODE_STRING *a2, __int64
   v29 = 0;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
-  v20 = 0;
-  v19 = 0;
+  CheckSum = 0;
+  TimeDateStamp = 0;
   KeyHandle = 0LL;
   Handle = 0LL;
   *a5 = 0;
@@ -109,8 +109,8 @@ LABEL_18:
     v13 = RtlImageNtHeader(a3);
     if ( v13 )
     {
-      v19 = *(_DWORD *)(v13 + 8);
-      v20 = *(_DWORD *)(v13 + 88);
+      TimeDateStamp = v13->FileHeader.TimeDateStamp;
+      CheckSum = v13->OptionalHeader.CheckSum;
     }
     else
     {
@@ -132,8 +132,11 @@ LABEL_18:
       {
         if ( v15 < 0 )
           goto LABEL_10;
-        if ( *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL || HIDWORD(KeyValueInformation) != v19 )
+        if ( *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL
+          || HIDWORD(KeyValueInformation) != TimeDateStamp )
+        {
           goto LABEL_35;
+        }
       }
       v16 = ZwQueryValueKey(
               Handle,
@@ -147,7 +150,7 @@ LABEL_18:
       {
         if ( v16 < 0 )
           goto LABEL_10;
-        if ( *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL || HIDWORD(KeyValueInformation) != v20 )
+        if ( *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL || HIDWORD(KeyValueInformation) != CheckSum )
         {
 LABEL_35:
           inited = -1073741275;

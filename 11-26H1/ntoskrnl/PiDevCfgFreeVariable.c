@@ -1,34 +1,34 @@
 /*
- * XREFs of PiDevCfgFreeVariable @ 0x140988298
+ * XREFs of PiDevCfgFreeVariable @ 0x140A429C4
  * Callers:
- *     PiDevCfgFreeResolveContext @ 0x140988CE4 (PiDevCfgFreeResolveContext.c)
- *     PiDevCfgResolveVariable @ 0x140A71BD0 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgFreeResolveContext @ 0x140A43410 (PiDevCfgFreeResolveContext.c)
+ *     PiDevCfgResolveVariable @ 0x140A480A0 (PiDevCfgResolveVariable.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     _PnpCtxRegDeleteTree @ 0x140A2D8F8 (_PnpCtxRegDeleteTree.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A3F304 (_PnpCtxRegDeleteTree.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiDevCfgFreeVariable(UNICODE_STRING *P)
+void __fastcall PiDevCfgFreeVariable(PVOID P)
 {
-  wchar_t *Buffer; // rcx
+  void *v2; // rcx
   int v3; // edx
 
-  RtlFreeAnsiString(P + 1);
-  Buffer = P[2].Buffer;
-  if ( Buffer )
+  RtlFreeAnsiString((PUNICODE_STRING)P + 1);
+  v2 = (void *)*((_QWORD *)P + 5);
+  if ( v2 )
   {
-    v3 = *(_DWORD *)&P[2].Length;
+    v3 = *((_DWORD *)P + 8);
     if ( (_WORD)v3 == 0x8000 )
     {
       if ( (v3 & 0x100000) != 0 )
-        PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, P[2].Buffer, 0LL);
-      ZwClose(P[2].Buffer);
+        PnpCtxRegDeleteTree(*(__int64 *)&PiPnpRtlCtx, *((_QWORD *)P + 5), 0LL);
+      ZwClose(*((HANDLE *)P + 5));
     }
     else
     {
-      ExFreePoolWithTag(Buffer, 0);
+      ExFreePoolWithTag(v2, 0);
     }
   }
   ExFreePoolWithTag(P, 0);

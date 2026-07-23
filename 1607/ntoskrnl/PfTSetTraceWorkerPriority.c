@@ -1,15 +1,15 @@
 /*
- * XREFs of PfTSetTraceWorkerPriority @ 0x140114514
+ * XREFs of PfTSetTraceWorkerPriority @ 0x140114A84
  * Callers:
  *     PfPowerActionNotify @ 0x1403CFF90 (PfPowerActionNotify.c)
- *     PfSetSuperfetchInformation @ 0x1403EA8E8 (PfSetSuperfetchInformation.c)
- *     PfpLogScenarioEvent @ 0x14052FC18 (PfpLogScenarioEvent.c)
+ *     PfSetSuperfetchInformation @ 0x1403EBF18 (PfSetSuperfetchInformation.c)
+ *     PfpLogScenarioEvent @ 0x140530158 (PfpLogScenarioEvent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     FsRtlAcquirePushLockExclusive @ 0x14007B188 (FsRtlAcquirePushLockExclusive.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x14007B208 (FsRtlAcquirePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
  */
 
 __int64 __fastcall PfTSetTraceWorkerPriority(unsigned int Priority)

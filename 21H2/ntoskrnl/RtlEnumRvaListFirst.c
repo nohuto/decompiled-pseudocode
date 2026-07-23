@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlEnumRvaListFirst @ 0x14069F7A4
+ * XREFs of RtlEnumRvaListFirst @ 0x1405FEAE4
  * Callers:
- *     MiCopyToCfgBitMap @ 0x1406E9880 (MiCopyToCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406EA060 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiCopyToCfgBitMap @ 0x140700C60 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x140701440 (MiUpdateCfgSystemWideBitmapWorker.c)
  * Callees:
- *     RtlGetRvaListIteratorState @ 0x14069F7EC (RtlGetRvaListIteratorState.c)
+ *     RtlGetRvaListIteratorState @ 0x1405FEB2C (RtlGetRvaListIteratorState.c)
  */
 
 __int64 __fastcall RtlEnumRvaListFirst(__int64 a1, unsigned int *a2, _DWORD *a3)

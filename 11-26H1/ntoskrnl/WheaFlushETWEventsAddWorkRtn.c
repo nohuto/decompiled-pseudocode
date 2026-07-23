@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaFlushETWEventsAddWorkRtn @ 0x1406D6F0C
+ * XREFs of WheaFlushETWEventsAddWorkRtn @ 0x1406DB0A4
  * Callers:
- *     WheaProcessWaitingETWEvents @ 0x1406D71B0 (WheaProcessWaitingETWEvents.c)
+ *     WheaProcessWaitingETWEvents @ 0x1406DB340 (WheaProcessWaitingETWEvents.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeSetTargetProcessorDpcEx @ 0x140428940 (KeSetTargetProcessorDpcEx.c)
- *     KeGetProcessorNumberFromIndex @ 0x1404289E0 (KeGetProcessorNumberFromIndex.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1404481A0 (KeGetCurrentProcessorNumberEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140202CC0 (KeGetProcessorNumberFromIndex.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14021AC20 (KeSetTargetProcessorDpcEx.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140440C90 (KeGetCurrentProcessorNumberEx.c)
  */
 
 void WheaFlushETWEventsAddWorkRtn()
@@ -18,16 +18,16 @@ void WheaFlushETWEventsAddWorkRtn()
   __int16 v2; // [rsp+40h] [rbp-10h]
   int v3; // [rsp+42h] [rbp-Eh]
   __int16 v4; // [rsp+46h] [rbp-Ah]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+60h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+60h] [rbp+10h] BYREF
   ULONG ProcIndex; // [rsp+68h] [rbp+18h] BYREF
 
   ProcNumber = 0;
-  _InterlockedAdd((volatile signed __int32 *)&CmpCallbackListLock.MutantListHead, 1u);
-  if ( SLODWORD(CmpCallbackListLock.MutantListHead.Flink) <= 1 )
+  _InterlockedAdd(&dword_140EFE520, 1u);
+  if ( dword_140EFE520 <= 1 )
   {
     if ( KeGetCurrentIrql() <= 2u )
     {
-      ExQueueWorkItem((PWORK_QUEUE_ITEM)&CmpCallbackListLock.SuspendEvent.Header.WaitListHead, DelayedWorkQueue);
+      ExQueueWorkItem(&stru_140EFE500, DelayedWorkQueue);
     }
     else
     {
@@ -36,8 +36,8 @@ void WheaFlushETWEventsAddWorkRtn()
       ProcIndex = 0;
       KeGetCurrentProcessorNumberEx(&ProcNumber);
       Number = ProcNumber.Number;
-      v1[1] = *(unsigned __int16 **)((char *)&stru_140FC01F0.116 + 4);
-      v1[0] = (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags;
+      v1[1] = *(unsigned __int16 **)((char *)&stru_140FC11F0.116 + 4);
+      v1[0] = (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags;
       v2 = 0;
       while ( !(unsigned int)KeEnumerateNextProcessor(&ProcIndex, v1) )
       {
@@ -47,8 +47,8 @@ void WheaFlushETWEventsAddWorkRtn()
           break;
         }
       }
-      KeSetTargetProcessorDpcEx((PKDPC)&CmpCallbackListLock.SchedulerApcFill5[32], &ProcNumber);
-      KiInsertQueueDpc((ULONG_PTR)CmpCallbackListLock.SchedulerApc.Reserved, 0LL, 0LL, 0LL, 0);
+      KeSetTargetProcessorDpcEx((PKDPC)&WheaFlushETWEventsDpcWorker, &ProcNumber);
+      KiInsertQueueDpc((ULONG_PTR)&WheaFlushETWEventsDpcWorker, 0LL, 0LL, 0LL, 0);
     }
   }
 }

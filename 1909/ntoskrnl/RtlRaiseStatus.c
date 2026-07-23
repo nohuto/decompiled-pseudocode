@@ -113,7 +113,7 @@
 void __stdcall __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
   NTSTATUS v2; // eax
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-E0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-E0h] BYREF
   CONTEXT Context; // [rsp+C0h] [rbp-40h] BYREF
 
   memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));

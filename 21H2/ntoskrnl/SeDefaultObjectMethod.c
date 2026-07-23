@@ -1,23 +1,23 @@
 /*
- * XREFs of SeDefaultObjectMethod @ 0x14065FC50
+ * XREFs of SeDefaultObjectMethod @ 0x140654A70
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ObSetSecurityDescriptorInfo @ 0x14065F2B0 (ObSetSecurityDescriptorInfo.c)
- *     ObLogSecurityDescriptor @ 0x14065FEB0 (ObLogSecurityDescriptor.c)
- *     ObQuerySecurityDescriptorInfo @ 0x140663148 (ObQuerySecurityDescriptorInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1406540D0 (ObSetSecurityDescriptorInfo.c)
+ *     ObLogSecurityDescriptor @ 0x140654CD0 (ObLogSecurityDescriptor.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x140657F68 (ObQuerySecurityDescriptorInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeDefaultObjectMethod(
         _QWORD *a1,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         __int64 a5,
         __int64 *a6,
@@ -39,6 +39,12 @@ __int64 __fastcall SeDefaultObjectMethod(
   volatile signed __int64 *v23; // r14
   signed __int64 v24; // rax
   volatile signed __int64 *i; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  __int64 v29; // rdx
+  __int64 v30; // r8
+  __int64 v31; // r9
 
   if ( !a2 )
     return ObSetSecurityDescriptorInfo(a1, a3, a4, (__int64)a6, a7, a8);
@@ -92,7 +98,7 @@ LABEL_14:
         if ( (_InterlockedExchangeAdd64(v22, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock(v22);
         KeAbPostRelease((ULONG_PTR)v22);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        KeLeaveCriticalRegionThread((__int64)CurrentThread, v29, v30, v31);
       }
       else
       {
@@ -104,7 +110,7 @@ LABEL_14:
         if ( (_InterlockedExchangeAdd64(v22, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock(v22);
         KeAbPostRelease((ULONG_PTR)v22);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        KeLeaveCriticalRegionThread((__int64)CurrentThread, v26, v27, v28);
         ExFreePoolWithTag((PVOID)v17, 0x6353624Fu);
       }
     }

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwOpenTransaction @ 0x14015C0A0
+ * XREFs of ZwOpenTransaction @ 0x14015C610
  * Callers:
- *     CmpRmUnDoPhase @ 0x14060597C (CmpRmUnDoPhase.c)
+ *     CmpRmUnDoPhase @ 0x140605A30 (CmpRmUnDoPhase.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenTransaction(
         PHANDLE TransactionHandle,
         ACCESS_MASK DesiredAccess,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwOpenTransaction(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(TransactionHandle);
 }

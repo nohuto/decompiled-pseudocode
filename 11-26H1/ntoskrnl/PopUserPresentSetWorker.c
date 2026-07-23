@@ -1,18 +1,18 @@
 /*
- * XREFs of PopUserPresentSetWorker @ 0x1404CF520
+ * XREFs of PopUserPresentSetWorker @ 0x1404C8F50
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     PopSetNotificationWork @ 0x1404385A0 (PopSetNotificationWork.c)
- *     PopUpdateSystemIdleContext @ 0x140945524 (PopUpdateSystemIdleContext.c)
- *     PopNotifyConsoleUserPresent @ 0x140A3DB40 (PopNotifyConsoleUserPresent.c)
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     PopSetNotificationWork @ 0x1404274C0 (PopSetNotificationWork.c)
+ *     PopUpdateSystemIdleContext @ 0x1409C0E94 (PopUpdateSystemIdleContext.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409F9560 (PopNotifyConsoleUserPresent.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 void PopUserPresentSetWorker()
@@ -22,33 +22,32 @@ void PopUserPresentSetWorker()
   unsigned int v2; // edi
   _QWORD v3[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  for ( i = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F11D08.WaitBlock[0].Thread);
-        ;
-        i = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F11D08.WaitBlock[0].Thread) )
+  for ( i = KeAcquireSpinLockRaiseToDpc(&PopUserPresentLock); ; i = KeAcquireSpinLockRaiseToDpc(&PopUserPresentLock) )
   {
     v1 = i;
-    if ( HIDWORD(stru_140E66FF0.Padding[3]) != 1 )
+    if ( dword_140E67708 != 1 )
       break;
-    v2 = stru_140E66FF0.Padding[3];
-    HIDWORD(stru_140E66FF0.Padding[3]) = 2;
-    KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F11D08.WaitBlock[0].Thread, i);
-    if ( byte_140F106D1 && !_InterlockedExchange(&dword_140F106D8, 1) )
+    v2 = dword_140E67704;
+    dword_140E67708 = 2;
+    KeReleaseSpinLock(&PopUserPresentLock, i);
+    if ( BYTE1(PpmIdlePolicyLock.IoSelfBoostsEntry.Next)
+      && !_InterlockedExchange((volatile __int32 *)PpmIdlePolicyLock.PriorityFloorCounts, 1) )
     {
-      dword_140F11040.TargetInfoAsUlong = 275;
-      qword_140F11058 = (__int64)PopAwayModeUserPresenceDpc;
-      qword_140F11078 = 0LL;
-      qword_140F11060 = (__int64)&dword_140F106D8;
-      qword_140F11050 = 0LL;
-      KiSetTimerEx((__int64)&qword_140E674E0, -30000000LL, 0, 0, (__int64)&dword_140F11040);
-      HIDWORD(stru_140F10828.ReadTransferCount) = v2;
+      PopAwayModeUserPresenceDpcObject.TargetInfoAsUlong = 275;
+      PopAwayModeUserPresenceDpcObject.DeferredRoutine = PopAwayModeUserPresenceDpc;
+      PopAwayModeUserPresenceDpcObject.DpcData = 0LL;
+      PopAwayModeUserPresenceDpcObject.DeferredContext = PpmIdlePolicyLock.PriorityFloorCounts;
+      PopAwayModeUserPresenceDpcObject.ProcessorHistory = 0LL;
+      KiSetTimerEx((__int64)&qword_140E67750, -30000000LL, 0, 0, (__int64)&PopAwayModeUserPresenceDpcObject);
+      PopAwaymodeExitReason = v2;
       PopSetNotificationWork(0x40u);
     }
     PopNotifyConsoleUserPresent(0LL, v2);
-    if ( (dword_140F105A0[0] & 3) == 0 )
+    if ( ((__int64)PpmIdlePolicyLock.Teb & 3) == 0 )
     {
-      _InterlockedOr(dword_140F105A0, 3u);
+      _InterlockedOr((volatile signed __int32 *)&PpmIdlePolicyLock.Teb, 3u);
       memset(v3, 0, 32);
-      if ( LOBYTE(PsAltSystemCallRegistrationLock.TrapFrame) )
+      if ( BYTE1(PsAltSystemCallRegistrationLock.Timer.DueTime.LowPart) )
       {
         PopInvokeWin32Callout(3LL, v3, 2LL);
         if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
@@ -59,8 +58,9 @@ void PopUserPresentSetWorker()
       PopReleasePolicyLock();
     }
   }
-  if ( dword_140F106D4 )
-    KeSetEvent(&word_140F11020, 0, 0);
-  stru_140E66FF0.Padding[3] = 0LL;
-  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F11D08.WaitBlock[0].Thread, v1);
+  if ( HIDWORD(PpmIdlePolicyLock.IoSelfBoostsEntry.Next) )
+    KeSetEvent(&PopUserPresentCompletedEvent, 0, 0);
+  dword_140E67708 = 0;
+  dword_140E67704 = 0;
+  KeReleaseSpinLock(&PopUserPresentLock, v1);
 }

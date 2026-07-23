@@ -1,27 +1,28 @@
 /*
- * XREFs of SepInternalSetSecurityAttributesToken @ 0x1403571CC
+ * XREFs of SepInternalSetSecurityAttributesToken @ 0x1403B9324
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x1406092E0 (SeSetSecurityAttributesTokenEx.c)
- *     SeSetSecurityAttributesToken @ 0x140A5CD00 (SeSetSecurityAttributesToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140607780 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesToken @ 0x140A54520 (SeSetSecurityAttributesToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x140357454 (AuthzBasepSetSecurityAttributesToken.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SepShouldSetDelinkFlags @ 0x140A42884 (SepShouldSetDelinkFlags.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403B8BCC (AuthzBasepSetSecurityAttributesToken.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SepShouldSetDelinkFlags @ 0x140A380C4 (SepShouldSetDelinkFlags.c)
  */
 
-__int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MODE a2, char a3, __int64 a4, __int64 a5)
+__int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MODE a2, char a3, int *a4, __int64 a5)
 {
   char v7; // si
-  NTSTATUS v8; // edi
+  int v8; // edi
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v10; // rbp
-  __int64 v11; // rdx
+  int *v11; // rdx
   _DWORD *v12; // rbx
-  signed __int32 v14[12]; // [rsp+0h] [rbp-48h] BYREF
+  __int64 v13; // r9
+  signed __int32 v15[12]; // [rsp+0h] [rbp-48h] BYREF
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
 
   Object = 0LL;
@@ -37,17 +38,17 @@ __int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MO
       v10 = (PERESOURCE *)Object;
       --CurrentThread->KernelApcDisable;
       ExAcquireResourceExclusiveLite(v10[6], 1u);
-      _InterlockedOr(v14, 0);
+      _InterlockedOr(v15, 0);
       v11 = a4;
       v12 = Object;
-      v8 = AuthzBasepSetSecurityAttributesToken(*((_QWORD *)Object + 97), v11, a5);
+      v8 = AuthzBasepSetSecurityAttributesToken(*((_QWORD *)Object + 97), v11, a5, v13);
       if ( v8 >= 0 )
       {
         if ( v7 )
           v12[50] |= 0x20000u;
         *((_QWORD *)v12 + 7) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
       }
-      _InterlockedOr(v14, 0);
+      _InterlockedOr(v15, 0);
       ExReleaseResourceLite(v10[6]);
       KeLeaveCriticalRegion();
     }

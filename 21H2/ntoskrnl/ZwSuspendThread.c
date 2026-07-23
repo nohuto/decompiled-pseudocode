@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSuspendThread @ 0x1403FDB60
+ * XREFs of ZwSuspendThread @ 0x1403FDD40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSuspendThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSuspendThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x1408142C4
+ * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x140814594
  * Callers:
- *     IopMemInitialize @ 0x1408144D4 (IopMemInitialize.c)
+ *     IopMemInitialize @ 0x1408147A4 (IopMemInitialize.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ArbpGetRegistryValue @ 0x140814028 (ArbpGetRegistryValue.c)
- *     RtlAddRange @ 0x1408148F0 (RtlAddRange.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ArbpGetRegistryValue @ 0x1408142F8 (ArbpGetRegistryValue.c)
+ *     RtlAddRange @ 0x140814BC0 (RtlAddRange.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

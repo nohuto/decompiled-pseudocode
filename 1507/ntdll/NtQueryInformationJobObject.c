@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationJobObject()
+NTSTATUS __cdecl NtQueryInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 305LL;
+  result = 305;
   __asm { syscall; Low latency system call }
   return result;
 }

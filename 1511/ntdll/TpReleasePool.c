@@ -16,120 +16,119 @@
  *     TppETWPoolClose @ 0x1800F5794 (TppETWPoolClose.c)
  */
 
-signed __int64 __fastcall TpReleasePool(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __cdecl TpReleasePool(PTP_POOL Pool)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  char v9; // si
-  signed __int64 v10; // rax
-  signed __int64 v11; // rtt
-  __int64 v12; // rdi
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *v2; // rdx
+  __int64 v3; // rcx
+  char v4; // si
+  signed __int64 v5; // rax
+  signed __int64 v6; // rtt
+  __int64 v7; // rdi
   int i; // r14d
   __int64 j; // r15
-  __int64 v15; // rax
-  void (__fastcall *v16)(__int64, __int64); // r14
-  signed __int64 result; // rax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  void *v20; // rdx
-  __int64 *v21; // rcx
-  __int64 v22; // rcx
+  __int64 v10; // rax
+  void (__fastcall *v11)(__int64, PTP_POOL); // r14
+  _RTL_SRWLOCK *v12; // rdx
+  const void **v13; // rcx
+  _PEB_LDR_DATA *Ldr; // rcx
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h]
-  signed __int64 v24; // [rsp+90h] [rbp+18h]
+  signed __int64 v16; // [rsp+90h] [rbp+18h]
 
-  if ( !a1 || a1 == TppPoolpGlobalPool || a1 == TppPoolpSerializedPool || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !Pool
+    || Pool == TppPoolpGlobalPool
+    || Pool == (PTP_POOL)TppPoolpSerializedPool
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = (signed __int64)NtCurrentPeb();
-    v22 = *(_QWORD *)(result + 24);
-    if ( !*(_BYTE *)(v22 + 72) )
-      return TppRaiseInvalidParameter(v22, a2, a3, a4);
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      TppRaiseInvalidParameter(Ldr);
   }
   else
   {
-    RtlAcquireSRWLockExclusive(a1 + 368, a2, a3, a4);
-    if ( *(_BYTE *)(a1 + 377) )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Pool + 46);
+    if ( *((_BYTE *)Pool + 377) )
     {
-      TppRaiseInvalidParameter(v6, v5, v7, v8);
-      v9 = 0;
+      TppRaiseInvalidParameter(v3);
+      v4 = 0;
     }
     else
     {
-      v9 = 1;
-      if ( !*(_BYTE *)(a1 + 376) )
+      v4 = 1;
+      if ( !*((_BYTE *)Pool + 376) )
       {
-        *(_BYTE *)(a1 + 376) = 1;
-        ZwShutdownWorkerFactory(*(_QWORD *)(a1 + 56), a1);
+        *((_BYTE *)Pool + 376) = 1;
+        ZwShutdownWorkerFactory(*((HANDLE *)Pool + 7), (LONG *)Pool);
       }
       while ( 1 )
       {
-        _m_prefetchw((const void *)(a1 + 8));
-        v10 = *(_QWORD *)(a1 + 8);
-        LODWORD(v24) = v10;
+        _m_prefetchw((char *)Pool + 8);
+        v5 = *((_QWORD *)Pool + 1);
+        LODWORD(v16) = v5;
         do
         {
-          if ( !HIDWORD(v10) )
+          if ( !HIDWORD(v5) )
             break;
-          HIDWORD(v24) = HIDWORD(v10) - 1;
-          v11 = v10;
-          v10 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v24, v10);
-          LODWORD(v24) = v10;
+          HIDWORD(v16) = HIDWORD(v5) - 1;
+          v6 = v5;
+          v5 = _InterlockedCompareExchange64((volatile signed __int64 *)Pool + 1, v16, v5);
+          LODWORD(v16) = v5;
         }
-        while ( v11 != v10 );
-        if ( !HIDWORD(v10) )
+        while ( v6 != v5 );
+        if ( !HIDWORD(v5) )
           break;
-        v12 = 0LL;
+        v7 = 0LL;
         for ( i = 0; i < 3; ++i )
         {
-          if ( v12 )
+          if ( v7 )
             goto LABEL_27;
-          for ( j = 0LL; (unsigned int)j < TppNumberNodes && !v12; j = (unsigned int)(j + 1) )
+          for ( j = 0LL; (unsigned int)j < TppNumberNodes && !v7; j = (unsigned int)(j + 1) )
           {
-            v15 = TppQueueRemoveHead(*(_QWORD *)(a1 + 8LL * i + 16) + 24 * j, i);
-            if ( v15 )
-              v12 = v15 - 16;
+            v10 = TppQueueRemoveHead(*((_QWORD *)Pool + i + 2) + 24 * j, i);
+            if ( v10 )
+              v7 = v10 - 16;
             else
-              v12 = 0LL;
+              v7 = 0LL;
           }
         }
-        if ( !v12 )
+        if ( !v7 )
           continue;
 LABEL_27:
-        if ( *(_QWORD *)v12 )
+        if ( *(_QWORD *)v7 )
         {
-          v16 = *(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v12 + 8LL);
-          if ( v16 )
+          v11 = *(void (__fastcall **)(__int64, PTP_POOL))(*(_QWORD *)v7 + 8LL);
+          if ( v11 )
           {
-            _guard_check_icall_fptr();
-            v16(v12, a1);
+            ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+              *(PRTL_DYNAMIC_HASH_TABLE *)(*(_QWORD *)v7 + 8LL),
+              v2);
+            v11(v7, Pool);
           }
         }
       }
-      *(_QWORD *)(a1 + 408) = retaddr;
-      *(_BYTE *)(a1 + 377) = 1;
+      *((_QWORD *)Pool + 51) = retaddr;
+      *((_BYTE *)Pool + 377) = 1;
     }
-    result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 368));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Pool + 46);
     if ( MEMORY[0x7FFE0386] )
-      result = TppETWPoolClose(a1);
-    if ( v9 )
+      TppETWPoolClose(Pool);
+    if ( v4 )
     {
-      if ( a1 == TppPoolpGlobalPool )
+      if ( Pool == TppPoolpGlobalPool )
       {
-        v20 = &TppPoolpGlobalPoolLock;
-        v21 = &TppPoolpGlobalPool;
-        return TppPoolpDereferenceGlobalPool((const void **)v21, (__int64)v20);
+        v12 = &TppPoolpGlobalPoolLock;
+        v13 = (const void **)&TppPoolpGlobalPool;
+LABEL_36:
+        TppPoolpDereferenceGlobalPool(v13, v12);
+        return;
       }
-      if ( a1 == TppPoolpSerializedPool )
+      if ( Pool == (PTP_POOL)TppPoolpSerializedPool )
       {
-        v20 = &TppPoolpSerializedPoolLock;
-        v21 = &TppPoolpSerializedPool;
-        return TppPoolpDereferenceGlobalPool((const void **)v21, (__int64)v20);
+        v12 = &TppPoolpSerializedPoolLock;
+        v13 = (const void **)&TppPoolpSerializedPool;
+        goto LABEL_36;
       }
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
-        return TppPoolpFree(a1, v18, v19);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Pool, 0xFFFFFFFF) == 1 )
+        TppPoolpFree(Pool);
     }
   }
-  return result;
 }

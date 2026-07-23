@@ -1,11 +1,11 @@
 /*
- * XREFs of xtoa_s @ 0x140151B78
+ * XREFs of xtoa_s @ 0x140152138
  * Callers:
- *     _itoa_s @ 0x1401519F8 (_itoa_s.c)
- *     _ltoa_s @ 0x140151A20 (_ltoa_s.c)
- *     _ultoa_s @ 0x140151A58 (_ultoa_s.c)
+ *     _itoa_s @ 0x140151FB8 (_itoa_s.c)
+ *     _ltoa_s @ 0x140151FE0 (_ltoa_s.c)
+ *     _ultoa_s @ 0x140152018 (_ultoa_s.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 __int64 __fastcall xtoa_s(unsigned int a1, char *a2, unsigned __int64 a3, unsigned int a4, int a5)

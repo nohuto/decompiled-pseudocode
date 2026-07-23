@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkReportUnparkedCore @ 0x1402E7F78
+ * XREFs of PpmParkReportUnparkedCore @ 0x1402E8168
  * Callers:
- *     PpmPerfAction @ 0x14010B9A0 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x14010BA20 (PpmPerfAction.c)
  * Callees:
- *     KeTransitionProcessorParkState @ 0x14029CD9C (KeTransitionProcessorParkState.c)
- *     PpmEventCoreParkingStateChange @ 0x1402E556C (PpmEventCoreParkingStateChange.c)
+ *     KeTransitionProcessorParkState @ 0x14029CF8C (KeTransitionProcessorParkState.c)
+ *     PpmEventCoreParkingStateChange @ 0x1402E575C (PpmEventCoreParkingStateChange.c)
  */
 
 _BYTE *__fastcall PpmParkReportUnparkedCore(__int64 a1)
@@ -16,7 +16,7 @@ _BYTE *__fastcall PpmParkReportUnparkedCore(__int64 a1)
   v2 = *(unsigned int *)(a1 + 36);
   *(_BYTE *)(a1 + 24228) = 0;
   _InterlockedAnd64(
-    &qword_140404208[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v2] >> 6],
+    &qword_140405208[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v2] >> 6],
     ~(1LL << (KiProcessorIndexToNumberMappingTable[v2] & 0x3F)));
   PpmEventCoreParkingStateChange(a1, 0);
   result = *(_BYTE **)(a1 + 23808);

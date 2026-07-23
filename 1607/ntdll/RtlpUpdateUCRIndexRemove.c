@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpUpdateUCRIndexRemove @ 0x180084A2C
+ * XREFs of RtlpUpdateUCRIndexRemove @ 0x180084A1C
  * Callers:
- *     RtlpRemoveUCRBlock @ 0x180029364 (RtlpRemoveUCRBlock.c)
+ *     RtlpRemoveUCRBlock @ 0x180029354 (RtlpRemoveUCRBlock.c)
  * Callees:
- *     RtlpHeapRemoveListEntry @ 0x1800289EC (RtlpHeapRemoveListEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x1800289DC (RtlpHeapRemoveListEntry.c)
  */
 
 void __fastcall RtlpUpdateUCRIndexRemove(__int64 a1, __int64 *a2)

@@ -7,7 +7,7 @@
  *     RtlIsDosDeviceName_U @ 0x18007B230 (RtlIsDosDeviceName_U.c)
  */
 
-unsigned __int16 *__fastcall BaseIsThisAConsoleName(unsigned __int16 *a1, int a2)
+const _UNICODE_STRING *__fastcall BaseIsThisAConsoleName(unsigned __int16 *a1, int a2)
 {
   __int64 v3; // rbx
   _WORD *v4; // r8
@@ -17,12 +17,11 @@ unsigned __int16 *__fastcall BaseIsThisAConsoleName(unsigned __int16 *a1, int a2
   __int64 v8; // rdx
   __int64 v9; // rdx
   __m128i v10; // xmm0
-  __int64 v11; // xmm0_8
-  unsigned int IsDosDeviceName_U; // eax
-  unsigned __int16 *v13; // rdi
+  unsigned __int16 *v11; // xmm0_8
+  ULONG IsDosDeviceName_U; // eax
+  const _UNICODE_STRING *v13; // rdi
   unsigned int v14; // esi
-  __int64 v16; // [rsp+28h] [rbp-20h] BYREF
-  __int64 v17; // [rsp+30h] [rbp-18h]
+  _UNICODE_STRING String1; // [rsp+28h] [rbp-20h] BYREF
 
   v3 = 0LL;
   if ( *a1 )
@@ -36,32 +35,32 @@ unsigned __int16 *__fastcall BaseIsThisAConsoleName(unsigned __int16 *a1, int a2
       || (_WORD)v5 == 110 )
     {
       v10 = *(__m128i *)a1;
-      v16 = *(_QWORD *)a1;
-      v11 = _mm_srli_si128(v10, 8).m128i_u64[0];
-      v17 = v11;
+      *(_QWORD *)&String1.Length = *(_QWORD *)a1;
+      v11 = (unsigned __int16 *)_mm_srli_si128(v10, 8).m128i_u64[0];
+      String1.Buffer = v11;
       IsDosDeviceName_U = RtlIsDosDeviceName_U(v11);
       if ( IsDosDeviceName_U )
       {
-        v17 = HIWORD(IsDosDeviceName_U) + v11;
-        LOWORD(v16) = IsDosDeviceName_U;
-        WORD1(v16) = IsDosDeviceName_U + 2;
+        String1.Buffer = (unsigned __int16 *)((char *)v11 + HIWORD(IsDosDeviceName_U));
+        String1.Length = IsDosDeviceName_U;
+        String1.MaximumLength = IsDosDeviceName_U + 2;
       }
       v3 = 0LL;
-      if ( RtlEqualUnicodeString((unsigned __int16 *)&v16, word_18011DF78, 1) )
-        return word_18011DF78;
-      v13 = word_18011DF68;
-      if ( !RtlEqualUnicodeString((unsigned __int16 *)&v16, word_18011DF68, 1) )
+      if ( RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&stru_18011DF78, 1u) )
+        return &stru_18011DF78;
+      v13 = &stru_18011DF68;
+      if ( !RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&stru_18011DF68, 1u) )
       {
-        if ( !RtlEqualUnicodeString((unsigned __int16 *)&v16, word_18011DF58, 1) )
-          return (unsigned __int16 *)v3;
+        if ( !RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&stru_18011DF58, 1u) )
+          return (const _UNICODE_STRING *)v3;
         v14 = a2 & 0xC0000000;
         if ( v14 == 0x80000000 )
-          return word_18011DF78;
+          return &stru_18011DF78;
         if ( v14 != 0x40000000 )
           return 0LL;
       }
       return v13;
     }
   }
-  return (unsigned __int16 *)v3;
+  return (const _UNICODE_STRING *)v3;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLargeIntegerToUnicode @ 0x18010F9D8
+ * XREFs of RtlLargeIntegerToUnicode @ 0x18010F568
  * Callers:
- *     RtlConvertSidToUnicodeString @ 0x18003CD70 (RtlConvertSidToUnicodeString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1800272E0 (RtlConvertSidToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlLargeIntegerToUnicode(unsigned __int64 *a1, __int64 a2, int a3, char *a4)

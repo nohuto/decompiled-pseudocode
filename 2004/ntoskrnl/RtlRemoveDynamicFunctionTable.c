@@ -115,7 +115,7 @@ LABEL_15:
   {
     *(_BYTE *)(v12 + 32) |= 2u;
     if ( *(__int64 *)(v12 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v12);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v12);
     v17 = *(_DWORD *)(v12 + 88);
     v24 = v17 & 0x1FFFF;
     *(_DWORD *)(v12 + 88) = v17 & 0xFFFE0000;

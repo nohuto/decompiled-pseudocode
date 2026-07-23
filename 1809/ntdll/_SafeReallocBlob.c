@@ -8,8 +8,8 @@
  *     <none>
  */
 
-__int64 __fastcall SafeReallocBlob(
-        __int64 a1,
+PVOID __fastcall SafeReallocBlob(
+        void *a1,
         unsigned int a2,
         unsigned int a3,
         unsigned int a4,
@@ -26,5 +26,5 @@ __int64 __fastcall SafeReallocBlob(
     return 0LL;
   if ( a7 )
     *a7 = a2 + v7;
-  return RtlReAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, a2 + (unsigned int)v7);
+  return RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1, a2 + (unsigned int)v7);
 }

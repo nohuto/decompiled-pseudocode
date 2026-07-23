@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlIsValidHandle @ 0x180073700
+ * XREFs of RtlIsValidHandle @ 0x180073710
  * Callers:
- *     RtlIsValidIndexHandle @ 0x1800736C0 (RtlIsValidIndexHandle.c)
+ *     RtlIsValidIndexHandle @ 0x1800736D0 (RtlIsValidIndexHandle.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlIsValidHandle(__int64 a1, _BYTE *a2)
+BOOLEAN __cdecl RtlIsValidHandle(PRTL_HANDLE_TABLE HandleTable, PRTL_HANDLE_TABLE_ENTRY Handle)
 {
-  return a2
-      && (unsigned __int64)a2 >= *(_QWORD *)(a1 + 24)
-      && (unsigned __int64)a2 < *(_QWORD *)(a1 + 32)
-      && ((*(_DWORD *)(a1 + 4) - 1) & (unsigned int)a2) == 0
-      && (*a2 & 1) != 0;
+  return Handle
+      && Handle >= HandleTable->CommittedHandles
+      && Handle < HandleTable->UnCommittedHandles
+      && ((HandleTable->SizeOfHandleTableEntry - 1) & (unsigned int)Handle) == 0
+      && (Handle->Flags & 1) != 0;
 }

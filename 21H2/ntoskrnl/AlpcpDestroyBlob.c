@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpDestroyBlob @ 0x140685CEC
+ * XREFs of AlpcpDestroyBlob @ 0x1405E4E4C
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406D4D10 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveMessage @ 0x1406D73D0 (AlpcpReceiveMessage.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AlpcpDestroyBlob(__int64 a1, int a2)

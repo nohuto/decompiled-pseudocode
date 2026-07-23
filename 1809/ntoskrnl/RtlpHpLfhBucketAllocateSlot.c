@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhBucketAllocateSlot @ 0x1402FD288
+ * XREFs of RtlpHpLfhBucketAllocateSlot @ 0x1402FD478
  * Callers:
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C460 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C530 (RtlpHpLfhBucketUpdateAffinityMapping.c)
  * Callees:
  *     RtlpHpLfhOwnerInitialize @ 0x140009734 (RtlpHpLfhOwnerInitialize.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 _BYTE *__fastcall RtlpHpLfhBucketAllocateSlot(unsigned __int64 a1, __int64 a2, int a3)

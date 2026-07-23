@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     MiIsPfn @ 0x14000FBA0 (MiIsPfn.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPfn @ 0x14000F720 (MiIsPfn.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiInvalidateHiberPhasePages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
@@ -32,7 +32,7 @@ void __fastcall MiInvalidateHiberPhasePages(__int64 a1, unsigned __int64 a2, uns
         v8 = MI_READ_PTE_LOCK_FREE((unsigned __int64)v14);
         if ( MiIsPfn((v8 >> 12) & 0xFFFFFFFFFLL) )
         {
-          if ( v10 != qword_1403276A0 && v10 != qword_140327688
+          if ( v10 != qword_1403276E0 && v10 != qword_1403276C8
             || (PteAddress = MiGetPteAddress((unsigned __int64)v7), (MI_READ_PTE_LOCK_FREE(PteAddress) & 0x800) != 0) )
           {
             if ( _bittest64(*(const signed __int64 **)(a1 + 8), (unsigned int)v10) )

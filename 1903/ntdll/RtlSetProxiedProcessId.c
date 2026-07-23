@@ -6,15 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSetProxiedProcessId(int a1)
+ULONG __cdecl RtlSetProxiedProcessId(ULONG ProxiedProcessId)
 {
   struct _TEB *v1; // rdx
-  __int64 result; // rax
+  ULONG result; // eax
 
   v1 = NtCurrentTeb();
   if ( !v1 )
-    return 0LL;
-  result = HIDWORD(v1->SystemReserved1[47]);
-  HIDWORD(v1->SystemReserved1[47]) = a1;
+    return 0;
+  result = v1->ProxiedProcessId;
+  v1->ProxiedProcessId = ProxiedProcessId;
   return result;
 }

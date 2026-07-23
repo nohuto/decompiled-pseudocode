@@ -1,9 +1,9 @@
 /*
- * XREFs of ?StDmpHashBytes@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADKPEAK@Z @ 0x1404F5BC0
+ * XREFs of ?StDmpHashBytes@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADKPEAK@Z @ 0x1404F34C0
  * Callers:
- *     ?StDmFixSingleBitCorruption@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEADKK@Z @ 0x14060B7D4 (-StDmFixSingleBitCorruption@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEADKK@Z.c)
+ *     ?StDmFixSingleBitCorruption@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEADKK@Z @ 0x140609D94 (-StDmFixSingleBitCorruption@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEADKK@Z.c)
  * Callees:
- *     SmStoreHashCompressedData @ 0x1404F5BF8 (SmStoreHashCompressedData.c)
+ *     SmStoreHashCompressedData @ 0x1404F34F8 (SmStoreHashCompressedData.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpHashBytes(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

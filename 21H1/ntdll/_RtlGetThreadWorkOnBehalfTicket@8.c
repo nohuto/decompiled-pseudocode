@@ -19,7 +19,12 @@ int __stdcall RtlGetThreadWorkOnBehalfTicket(_DWORD *a1, int a2)
     return -1073741584;
   if ( (a2 & 2) != 0 )
   {
-    InformationThread = NtQueryInformationThread((HANDLE)0xFFFFFFFE, (THREADINFOCLASS)44, ThreadInformation, 0x10u, 0);
+    InformationThread = NtQueryInformationThread(
+                          (HANDLE)0xFFFFFFFE,
+                          ThreadWorkOnBehalfTicket,
+                          ThreadInformation,
+                          0x10u,
+                          0);
     if ( InformationThread >= 0 )
     {
       if ( (a2 & 4) != 0 || (v7 & 1) == 0 )

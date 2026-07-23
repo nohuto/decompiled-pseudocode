@@ -8,19 +8,19 @@
  *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
-__int64 __fastcall RtlGetCurrentServiceSessionId(__int64 a1, __int64 a2)
+ULONG RtlGetCurrentServiceSessionId(void)
 {
   __int64 ThreadServerSilo; // rax
-  unsigned int **v3; // rax
+  _DWORD **v1; // rax
 
-  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(a1, a2)
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext()
     || (ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread())) == 0 )
   {
-    v3 = (unsigned int **)&PspHostSiloGlobals;
+    v1 = (_DWORD **)&PspHostSiloGlobals;
   }
   else
   {
-    v3 = *(unsigned int ***)(ThreadServerSilo + 1272);
+    v1 = *(_DWORD ***)(ThreadServerSilo + 1272);
   }
-  return *v3[141];
+  return *v1[141];
 }

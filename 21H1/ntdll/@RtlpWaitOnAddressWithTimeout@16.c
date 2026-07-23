@@ -10,22 +10,22 @@
  *     _ZwWaitForAlertByThreadId@8 @ 0x4B2F4680 (_ZwWaitForAlertByThreadId@8.c)
  */
 
-int __fastcall RtlpWaitOnAddressWithTimeout(int a1, _DWORD *a2, int a3, unsigned int a4)
+NTSTATUS __fastcall RtlpWaitOnAddressWithTimeout(int a1, PVOID *a2, PLARGE_INTEGER Timeout, unsigned int a4)
 {
   volatile signed __int32 *v5; // ebx
   int v6; // esi
   unsigned int v7; // ebx
-  int v8; // esi
+  NTSTATUS v8; // esi
   unsigned __int64 v10; // kr00_8
   unsigned __int64 v11; // kr08_8
   unsigned int v12; // ecx
   unsigned __int64 v13; // rax
   unsigned int v15; // [esp+14h] [ebp-Ch]
 
-  v5 = a2 + 5;
+  v5 = (volatile signed __int32 *)(a2 + 5);
   if ( MEMORY[0x7FFE036A] > 1u )
   {
-    if ( a2 != (_DWORD *)-20 && MEMORY[0x7FFE0297] )
+    if ( a2 != (PVOID *)-20 && MEMORY[0x7FFE0297] )
     {
       v10 = __rdtsc();
       v11 = v10;
@@ -41,7 +41,7 @@ int __fastcall RtlpWaitOnAddressWithTimeout(int a1, _DWORD *a2, int a3, unsigned
         if ( v13 <= __PAIR64__(v12, v15) || v13 >= v10 + a4 )
           break;
         __asm { mwaitx  eax, ecx, ebx }
-        v5 = a2 + 5;
+        v5 = (volatile signed __int32 *)(a2 + 5);
       }
     }
     else
@@ -53,12 +53,12 @@ int __fastcall RtlpWaitOnAddressWithTimeout(int a1, _DWORD *a2, int a3, unsigned
         _mm_pause();
         ++v6;
       }
-      v5 = a2 + 5;
+      v5 = (volatile signed __int32 *)(a2 + 5);
     }
   }
   if ( !_interlockedbittestandreset(v5, 0) )
     return 0;
-  v8 = ZwWaitForAlertByThreadId(*a2, a3);
+  v8 = ZwWaitForAlertByThreadId(*a2, Timeout);
   if ( v8 == 258 )
   {
     if ( _InterlockedExchange(v5, 4) == 2 )

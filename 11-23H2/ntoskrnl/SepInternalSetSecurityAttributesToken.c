@@ -1,16 +1,16 @@
 /*
- * XREFs of SepInternalSetSecurityAttributesToken @ 0x1403709B4
+ * XREFs of SepInternalSetSecurityAttributesToken @ 0x140370B54
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x1403A1E40 (SeSetSecurityAttributesTokenEx.c)
- *     SeSetSecurityAttributesToken @ 0x1407EF460 (SeSetSecurityAttributesToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x1403A2020 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesToken @ 0x1407EF730 (SeSetSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224CF0 (AuthzBasepSetSecurityAttributesToken.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SepShouldSetDelinkFlags @ 0x1407F1070 (SepShouldSetDelinkFlags.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x140224DF8 (AuthzBasepSetSecurityAttributesToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SepShouldSetDelinkFlags @ 0x1407F1340 (SepShouldSetDelinkFlags.c)
  */
 
 __int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MODE a2, char a3, int *a4, __int64 a5)

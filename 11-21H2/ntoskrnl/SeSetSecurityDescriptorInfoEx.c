@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetSecurityObject @ 0x140726700 (RtlpSetSecurityObject.c)
+ *     sub_140726700 @ 0x140726700 (sub_140726700.c)
  */
 
 NTSTATUS __stdcall SeSetSecurityDescriptorInfoEx(
@@ -16,7 +16,7 @@ NTSTATUS __stdcall SeSetSecurityDescriptorInfoEx(
         PGENERIC_MAPPING GenericMapping)
 {
   if ( *ObjectsSecurityDescriptor )
-    return RtlpSetSecurityObject(
+    return sub_140726700(
              (_DWORD)Object,
              *SecurityInformation,
              (_DWORD)ModificationDescriptor,

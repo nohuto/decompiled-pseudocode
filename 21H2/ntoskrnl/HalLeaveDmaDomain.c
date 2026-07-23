@@ -1,9 +1,9 @@
 /*
- * XREFs of HalLeaveDmaDomain @ 0x1404C49C0
+ * XREFs of HalLeaveDmaDomain @ 0x1404C4C00
  * Callers:
  *     <none>
  * Callees:
- *     HalpLeaveDmaDomain @ 0x1404C4EAC (HalpLeaveDmaDomain.c)
+ *     HalpLeaveDmaDomain @ 0x1404C50EC (HalpLeaveDmaDomain.c)
  */
 
 __int64 __fastcall HalLeaveDmaDomain(__int64 a1)

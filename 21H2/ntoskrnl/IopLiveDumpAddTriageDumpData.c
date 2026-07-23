@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpAddTriageDumpData @ 0x1409AB280
+ * XREFs of IopLiveDumpAddTriageDumpData @ 0x1409AC1B0
  * Callers:
- *     IopLiveDumpMarkImportantDumpData @ 0x1409ACA58 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x1409AD988 (IopLiveDumpMarkImportantDumpData.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403CA18C (KiValidateTriageDumpDataArray.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140517B98 (KeValidateBugCheckCallbackRecord.c)
- *     KiValidateComponentName @ 0x140518B40 (KiValidateComponentName.c)
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403CA32C (KiValidateTriageDumpDataArray.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517DD8 (KeValidateBugCheckCallbackRecord.c)
+ *     KiValidateComponentName @ 0x140518D80 (KiValidateComponentName.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
  */
 
 char __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 (__fastcall **a2)(_QWORD, __int64, __int64))
@@ -34,7 +34,7 @@ char __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 (__fastcall **a2)(
   v12 = 0LL;
   v13 = 0LL;
   v14 = 0LL;
-  if ( KeBugCheckReasonCallbackListHead && qword_140C31DA8 )
+  if ( KeBugCheckReasonCallbackListHead && qword_140C32128 )
   {
     v17 = &KeBugCheckReasonCallbackListHead;
     while ( v2 != &KeBugCheckReasonCallbackListHead )

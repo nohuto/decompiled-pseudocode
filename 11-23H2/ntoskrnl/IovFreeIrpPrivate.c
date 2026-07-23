@@ -1,13 +1,13 @@
 /*
- * XREFs of IovFreeIrpPrivate @ 0x140AC16D0
+ * XREFs of IovFreeIrpPrivate @ 0x140AC16C0
  * Callers:
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IoFreeIrp @ 0x1402AF210 (IoFreeIrp.c)
- *     IopfCompleteRequest @ 0x1402C99B0 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IoFreeIrp @ 0x1402AF4A0 (IoFreeIrp.c)
+ *     IopfCompleteRequest @ 0x1402C9C40 (IopfCompleteRequest.c)
  * Callees:
- *     IopFreeIrp @ 0x1402AF240 (IopFreeIrp.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     VfIoFreeIrp @ 0x140ACD814 (VfIoFreeIrp.c)
+ *     IopFreeIrp @ 0x1402AF4D0 (IopFreeIrp.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     VfIoFreeIrp @ 0x140ACD804 (VfIoFreeIrp.c)
  */
 
 void __fastcall IovFreeIrpPrivate(ULONG_PTR BugCheckParameter2)

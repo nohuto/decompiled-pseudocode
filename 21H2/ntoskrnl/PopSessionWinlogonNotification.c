@@ -1,16 +1,16 @@
 /*
  * XREFs of PopSessionWinlogonNotification @ 0x1405D8DC4
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
+ *     PopPrintEx @ 0x140272730 (PopPrintEx.c)
  *     PopGetLockConsoleTimeoutUnsafe @ 0x1405D8EC8 (PopGetLockConsoleTimeoutUnsafe.c)
- *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
- *     PopUpdateTimeouts @ 0x14067D7CC (PopUpdateTimeouts.c)
- *     PopDiagTraceSessionStates @ 0x14067DB94 (PopDiagTraceSessionStates.c)
- *     PopReleaseAdaptiveLock @ 0x14067DFA4 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x14067E094 (PopAcquireAdaptiveLock.c)
- *     PopLazySensorActiveInput @ 0x1408F51B4 (PopLazySensorActiveInput.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14066D5A8 (PopSetPowerSettingValueAcDc.c)
+ *     PopUpdateTimeouts @ 0x1406715BC (PopUpdateTimeouts.c)
+ *     PopDiagTraceSessionStates @ 0x140671984 (PopDiagTraceSessionStates.c)
+ *     PopReleaseAdaptiveLock @ 0x140671D94 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x140671E84 (PopAcquireAdaptiveLock.c)
+ *     PopLazySensorActiveInput @ 0x1408F5314 (PopLazySensorActiveInput.c)
  */
 
 __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
@@ -39,29 +39,29 @@ __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
   v8 = "Console";
   if ( !v4 )
     v8 = "Remote";
-  result = PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>> %s session %u is %s\n", v8, a1, v7);
+  result = PopPrintEx(3u, (__int64)"PopAdaptive:>>>>> %s session %u is %s\n", v8, a1, v7);
   if ( v4 )
   {
     PopAcquireAdaptiveLock(0LL);
     if ( v2 )
     {
-      BYTE4(xmmword_140C20590) = 1;
+      BYTE4(xmmword_140C205B0) = 1;
       LockConsoleTimeoutUnsafe = PopGetLockConsoleTimeoutUnsafe();
       LODWORD(v11) = LockConsoleTimeoutUnsafe;
-      if ( LockConsoleTimeoutUnsafe && !BYTE5(xmmword_140C20590) )
+      if ( LockConsoleTimeoutUnsafe && !BYTE5(xmmword_140C205B0) )
       {
-        *(_WORD *)((char *)&xmmword_140C20590 + 5) = 256;
+        *(_WORD *)((char *)&xmmword_140C205B0 + 5) = 256;
         HIDWORD(PopLazyContext) = LockConsoleTimeoutUnsafe;
-        BYTE1(qword_140C205D0) = 1;
+        BYTE1(qword_140C20570) = 1;
         PopUpdateTimeouts(a1, &v11, 0LL);
       }
     }
     else
     {
-      BYTE4(xmmword_140C20590) = 0;
-      if ( BYTE6(xmmword_140C20590) )
+      BYTE4(xmmword_140C205B0) = 0;
+      if ( BYTE6(xmmword_140C205B0) )
       {
-        BYTE6(xmmword_140C20590) = 0;
+        BYTE6(xmmword_140C205B0) = 0;
         PopLazySensorActiveInput(a1);
       }
     }

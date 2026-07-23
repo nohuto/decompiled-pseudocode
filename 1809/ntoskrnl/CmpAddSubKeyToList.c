@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAddSubKeyToList @ 0x1405AECF4
+ * XREFs of CmpAddSubKeyToList @ 0x1405AFCF4
  * Callers:
- *     CmpAddSubKeyEx @ 0x1405AEA60 (CmpAddSubKeyEx.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140804004 (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x1408045F8 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpAddSubKeyEx @ 0x1405AFA60 (CmpAddSubKeyEx.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140805204 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x1408057F8 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpAddToLeaf @ 0x1405AEEC0 (CmpAddToLeaf.c)
- *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)
- *     CmpSelectLeaf @ 0x140700060 (CmpSelectLeaf.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpAddToLeaf @ 0x1405AFEC0 (CmpAddToLeaf.c)
+ *     CmpCopyCompressedName @ 0x1405B0298 (CmpCopyCompressedName.c)
+ *     CmpSelectLeaf @ 0x140701300 (CmpSelectLeaf.c)
  */
 
 char __fastcall CmpAddSubKeyToList(ULONG_PTR BugCheckParameter2, unsigned int *a2, unsigned int a3)

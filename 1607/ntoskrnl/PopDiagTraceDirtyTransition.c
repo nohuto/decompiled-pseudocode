@@ -3,10 +3,10 @@
  * Callers:
  *     PopCheckShutdownMarker @ 0x1407BA97C (PopCheckShutdownMarker.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceDirtyTransition(__int64 a1, int a2, int a3, char a4, char a5, char a6, int a7, char a8)

@@ -258,7 +258,7 @@ char __fastcall KeAbCrossThreadDelete(unsigned __int64 a1, ULONG_PTR a2)
     v9[2].m128i_i8[0] |= 1u;
 LABEL_58:
     _InterlockedOr(v39, 0);
-    LOBYTE(v4) = KiAbCrossThreadRelease(a1, (unsigned __int64)v9, a2);
+    LOBYTE(v4) = KiAbCrossThreadRelease(a1, (__int64)v9, a2);
   }
   return v4;
 }

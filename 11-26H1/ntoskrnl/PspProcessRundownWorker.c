@@ -1,11 +1,11 @@
 /*
- * XREFs of PspProcessRundownWorker @ 0x140B3CF70
+ * XREFs of PspProcessRundownWorker @ 0x1409BDE40
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
  */
 
 __int64 __fastcall PspProcessRundownWorker(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -28,7 +28,7 @@ __int64 __fastcall PspProcessRundownWorker(__int64 a1, __int64 a2, __int64 a3, s
         break;
       if ( _interlockedbittestandreset((volatile signed __int32 *)&NextProcess[31], 8u) )
       {
-        PspRundownSingleProcess((PRKPROCESS)NextProcess, 0, a3, a4);
+        PspRundownSingleProcess((PRKPROCESS)NextProcess);
         ObfDereferenceObjectWithTag(v6, 0x77537350u);
       }
       v4 = v6;
@@ -40,7 +40,7 @@ __int64 __fastcall PspProcessRundownWorker(__int64 a1, __int64 a2, __int64 a3, s
                                  0LL);
       if ( !v8 )
         break;
-      PspRundownSingleProcess(v8, 0, a3, a4);
+      PspRundownSingleProcess(v8);
       ObfDereferenceObjectWithTag(v8, 0x77537350u);
     }
     result = (unsigned int)_InterlockedCompareExchange(&PspSiloMonitorLock.Timer.Header.SignalState, 0, 1);

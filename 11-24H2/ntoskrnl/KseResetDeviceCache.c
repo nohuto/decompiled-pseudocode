@@ -1,25 +1,23 @@
 /*
- * XREFs of KseResetDeviceCache @ 0x14095B32C
+ * XREFs of KseResetDeviceCache @ 0x140942DEC
  * Callers:
- *     KseQueryDeviceDataList @ 0x14095A9E0 (KseQueryDeviceDataList.c)
- *     KseQueryDeviceData @ 0x14095C660 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x1409424A0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x140944120 (KseQueryDeviceData.c)
  * Callees:
- *     KsepCacheReset @ 0x14074065C (KsepCacheReset.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     KsepCacheUnlock @ 0x14095B51C (KsepCacheUnlock.c)
+ *     KsepCacheReset @ 0x14073E58C (KsepCacheReset.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     KsepCacheUnlock @ 0x140942FDC (KsepCacheUnlock.c)
  */
 
 __int64 KseResetDeviceCache()
 {
   __int64 v0; // rdx
-  __int64 v1; // r8
-  __int64 v2; // r9
 
-  if ( dword_140E66AE4 == 2 )
+  if ( dword_140E66C14 == 2 )
   {
-    KsepCacheLock((unsigned __int64 *)qword_140E66B28);
-    KsepCacheReset(qword_140E66B28, v0, v1, v2);
-    KsepCacheUnlock(qword_140E66B28);
+    KsepCacheLock((unsigned __int64 *)qword_140E66C58);
+    KsepCacheReset(qword_140E66C58, v0);
+    KsepCacheUnlock(qword_140E66C58);
   }
   return 0LL;
 }

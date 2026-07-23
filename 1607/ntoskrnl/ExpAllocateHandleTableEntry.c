@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpAllocateHandleTableEntry @ 0x14050DCD0
+ * XREFs of ExpAllocateHandleTableEntry @ 0x1404F0C60
  * Callers:
- *     ExCreateHandleEx @ 0x14050DBE0 (ExCreateHandleEx.c)
+ *     ExCreateHandleEx @ 0x1404F0B70 (ExCreateHandleEx.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x1404C12B4 (ExpAllocateHandleTableEntrySlow.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x1404ACFE4 (ExpAllocateHandleTableEntrySlow.c)
  */
 
 __int64 __fastcall ExpAllocateHandleTableEntry(__int64 a1, _QWORD *a2)

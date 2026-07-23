@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProtectLargeKernelHalRange @ 0x1408644C0
+ * XREFs of MiProtectLargeKernelHalRange @ 0x14086A8A0
  * Callers:
- *     MiProtectKernelCfgData @ 0x140CF2570 (MiProtectKernelCfgData.c)
+ *     MiProtectKernelCfgData @ 0x140CF88F0 (MiProtectKernelCfgData.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiGetLargePteAddress @ 0x14043AB90 (MiGetLargePteAddress.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiRestrictSystemCodeProtection @ 0x140529C14 (MiRestrictSystemCodeProtection.c)
- *     MiComputeDriverProtection @ 0x140B45B24 (MiComputeDriverProtection.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiGetLargePteAddress @ 0x14042D440 (MiGetLargePteAddress.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiRestrictSystemCodeProtection @ 0x14052C130 (MiRestrictSystemCodeProtection.c)
+ *     MiComputeDriverProtection @ 0x140B47B54 (MiComputeDriverProtection.c)
  */
 
 __int64 __fastcall MiProtectLargeKernelHalRange(__int64 a1, __int64 a2, unsigned int a3, char a4)

@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpTpTimerQueueRundown @ 0x1800871FC
+ * XREFs of RtlpTpTimerQueueRundown @ 0x18008720C
  * Callers:
  *     RtlpTpTimerRundown @ 0x18002F7D0 (RtlpTpTimerRundown.c)
- *     RtlDeleteTimerQueueEx @ 0x180087090 (RtlDeleteTimerQueueEx.c)
+ *     RtlDeleteTimerQueueEx @ 0x1800870A0 (RtlDeleteTimerQueueEx.c)
  * Callees:
- *     ZwSetEvent @ 0x1800A04A0 (ZwSetEvent.c)
- *     ZwAlertThreadByThreadId @ 0x1800A10B0 (ZwAlertThreadByThreadId.c)
+ *     ZwSetEvent @ 0x1800A04C0 (ZwSetEvent.c)
+ *     ZwAlertThreadByThreadId @ 0x1800A10D0 (ZwAlertThreadByThreadId.c)
  */
 
-__int64 __fastcall RtlpTpTimerQueueRundown(unsigned __int64 a1)
+LOGICAL __fastcall RtlpTpTimerQueueRundown(_QWORD *a1)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rcx
+  void *v2; // rcx
+  void *v3; // rcx
 
-  v2 = *(_QWORD *)(a1 + 40);
+  v2 = (void *)a1[5];
   if ( v2 )
   {
     ZwAlertThreadByThreadId(v2);
   }
   else
   {
-    v3 = *(_QWORD *)(a1 + 16);
+    v3 = (void *)a1[2];
     if ( v3 )
       ZwSetEvent(v3, 0LL);
   }
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

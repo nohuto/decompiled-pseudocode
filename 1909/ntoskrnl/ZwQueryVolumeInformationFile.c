@@ -22,5 +22,5 @@ NTSTATUS __stdcall ZwQueryVolumeInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock, FsInformation);
+  return KiServiceInternal(FileHandle);
 }

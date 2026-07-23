@@ -1,11 +1,11 @@
 /*
  * XREFs of MD5Final @ 0x18005D350
  * Callers:
- *     ImportTablepHashCanonicalLists @ 0x1800E0588 (ImportTablepHashCanonicalLists.c)
+ *     ImportTablepHashCanonicalLists @ 0x1800E0548 (ImportTablepHashCanonicalLists.c)
  * Callees:
  *     MD5Update @ 0x18005D420 (MD5Update.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall MD5Final(unsigned int *a1)

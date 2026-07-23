@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegPageRangeCountCommittedPages @ 0x18003ED34
+ * XREFs of RtlpHpSegPageRangeCountCommittedPages @ 0x18003ED24
  * Callers:
- *     RtlpHpSegPageRangeShrink @ 0x18003E92C (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegPageRangeSplit @ 0x18003ECA0 (RtlpHpSegPageRangeSplit.c)
- *     RtlpHpSegReportSegment @ 0x180050EE8 (RtlpHpSegReportSegment.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18003E91C (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegPageRangeSplit @ 0x18003EC90 (RtlpHpSegPageRangeSplit.c)
+ *     RtlpHpSegReportSegment @ 0x180050ED8 (RtlpHpSegReportSegment.c)
  * Callees:
  *     <none>
  */

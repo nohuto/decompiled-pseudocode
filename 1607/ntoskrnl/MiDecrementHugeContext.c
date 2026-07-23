@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDecrementHugeContext @ 0x140140E7C
+ * XREFs of MiDecrementHugeContext @ 0x1401413EC
  * Callers:
- *     MiDeleteZeroThreadContext @ 0x14013F1EC (MiDeleteZeroThreadContext.c)
- *     MiGetUltraHugeAlreadyActive @ 0x140140D60 (MiGetUltraHugeAlreadyActive.c)
+ *     MiDeleteZeroThreadContext @ 0x14013F75C (MiDeleteZeroThreadContext.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x1401412D0 (MiGetUltraHugeAlreadyActive.c)
  * Callees:
- *     MiReleaseLargeZeroingVa @ 0x14008B474 (MiReleaseLargeZeroingVa.c)
- *     MiStopPageAccessor @ 0x14008B864 (MiStopPageAccessor.c)
- *     MiLockPage @ 0x1401593D8 (MiLockPage.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiUnlockPage @ 0x1401F2B80 (MiUnlockPage.c)
+ *     MiReleaseLargeZeroingVa @ 0x14008AB74 (MiReleaseLargeZeroingVa.c)
+ *     MiStopPageAccessor @ 0x14008AF64 (MiStopPageAccessor.c)
+ *     MiLockPage @ 0x140159948 (MiLockPage.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiUnlockPage @ 0x1401F29AC (MiUnlockPage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpPsProvCaptureState @ 0x1409EF9D4
+ * XREFs of EtwpPsProvCaptureState @ 0x1409EFC64
  * Callers:
- *     EtwpCrimsonProvEnableCallback @ 0x1407E7B70 (EtwpCrimsonProvEnableCallback.c)
- *     EtwpTraceLoggingProvEnableCallback @ 0x140865590 (EtwpTraceLoggingProvEnableCallback.c)
+ *     EtwpCrimsonProvEnableCallback @ 0x1407E7E40 (EtwpCrimsonProvEnableCallback.c)
+ *     EtwpTraceLoggingProvEnableCallback @ 0x1408657D0 (EtwpTraceLoggingProvEnableCallback.c)
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PsEnumProcesses @ 0x1407CF4CC (PsEnumProcesses.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1409EFA60 (EtwpPsProvProcessEnumCallback.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PsEnumProcesses @ 0x1407CF79C (PsEnumProcesses.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409EFCF0 (EtwpPsProvProcessEnumCallback.c)
  */
 
 BOOLEAN __fastcall EtwpPsProvCaptureState(__int64 *a1, unsigned __int64 a2)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmBuildMdlForNonPagedPool @ 0x1400FCBB0
+ * XREFs of MmBuildMdlForNonPagedPool @ 0x1400FA930
  * Callers:
- *     MiCreateMdl @ 0x1400FCB40 (MiCreateMdl.c)
- *     HvlGetCoverageData @ 0x1401BA89C (HvlGetCoverageData.c)
- *     VslpLockPagesForTransfer @ 0x1401C33D0 (VslpLockPagesForTransfer.c)
- *     SmKmIssueVolumeIo @ 0x140220B4C (SmKmIssueVolumeIo.c)
- *     MmRotatePhysicalView @ 0x1405281DC (MmRotatePhysicalView.c)
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
- *     SmKmStoreFileWriteHeader @ 0x1406998CC (SmKmStoreFileWriteHeader.c)
- *     EtwpBuildMdlForTraceBuffer @ 0x1406A9BE8 (EtwpBuildMdlForTraceBuffer.c)
+ *     MiCreateMdl @ 0x1400FA8C0 (MiCreateMdl.c)
+ *     HvlGetCoverageData @ 0x1401BA780 (HvlGetCoverageData.c)
+ *     VslpLockPagesForTransfer @ 0x1401C32B4 (VslpLockPagesForTransfer.c)
+ *     SmKmIssueVolumeIo @ 0x140220978 (SmKmIssueVolumeIo.c)
+ *     MmRotatePhysicalView @ 0x14052871C (MmRotatePhysicalView.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
+ *     SmKmStoreFileWriteHeader @ 0x1406999B0 (SmKmStoreFileWriteHeader.c)
+ *     EtwpBuildMdlForTraceBuffer @ 0x1406A9D20 (EtwpBuildMdlForTraceBuffer.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __stdcall MmBuildMdlForNonPagedPool(PMDL MemoryDescriptorList)
@@ -75,7 +75,7 @@ LABEL_25:
       v3->Next = (struct _MDL *)v6;
       MdlFlags = MemoryDescriptorList->MdlFlags;
       if ( (MdlFlags & 0x800) == 0
-        && (v6 > qword_140326A90
+        && (v6 > qword_140326AD0
          || MmPhysicalMemoryBlock && (*(_QWORD *)(48 * v6 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0) )
       {
         MemoryDescriptorList->MdlFlags = MdlFlags | 0x800;
@@ -152,7 +152,7 @@ LABEL_25:
       }
     }
     while ( v12 );
-    if ( v14 < qword_140327F20[0] || v14 >= qword_140327F20[0] + 0x100000000000LL )
+    if ( v14 < qword_140327F60[0] || v14 >= qword_140327F60[0] + 0x100000000000LL )
       goto LABEL_24;
 LABEL_21:
     v26 = MI_READ_PTE_LOCK_FREE(v8);

@@ -1,12 +1,20 @@
 /*
- * XREFs of TpAllocAlpcCompletion @ 0x1800BF2C0
+ * XREFs of TpAllocAlpcCompletion @ 0x1800B7080
  * Callers:
  *     <none>
  * Callees:
- *     TppAllocAlpcCompletion @ 0x1800BF374 (TppAllocAlpcCompletion.c)
+ *     TppAllocAlpcCompletion @ 0x1800B7134 (TppAllocAlpcCompletion.c)
  */
 
-__int64 __fastcall TpAllocAlpcCompletion(int a1, int a2, int a3, int a4, __int64 a5)
+NTSTATUS __cdecl TpAllocAlpcCompletion(
+        PTP_ALPC *AlpcReturn,
+        HANDLE AlpcPort,
+        PTP_ALPC_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  return TppAllocAlpcCompletion(a1, a2, a3, a4, a5, 0);
+  char v6; // [rsp+28h] [rbp-10h]
+
+  v6 = 0;
+  return TppAllocAlpcCompletion(AlpcReturn, AlpcPort, Callback, Context, CallbackEnviron, v6);
 }

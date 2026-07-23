@@ -1,8 +1,8 @@
 /*
- * XREFs of CmSiGetMemoryAllocationGranularity @ 0x1404E5654
+ * XREFs of CmSiGetMemoryAllocationGranularity @ 0x1404DEBF4
  * Callers:
- *     HvpViewMapCreateViewsForRegion @ 0x1408B8388 (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1408DD1F4 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x1408BE958 (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1408E37B4 (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
  *     <none>
  */

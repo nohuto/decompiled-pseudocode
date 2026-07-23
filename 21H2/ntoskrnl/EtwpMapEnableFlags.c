@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpMapEnableFlags @ 0x1406C0960
+ * XREFs of EtwpMapEnableFlags @ 0x14061F870
  * Callers:
- *     EtwpGetLoggerInfoFromContext @ 0x1406DF154 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpUpdateGroupMasks @ 0x1407970F0 (EtwpUpdateGroupMasks.c)
- *     EtwpInitializeSiloAllowedGroupMask @ 0x1407D5200 (EtwpInitializeSiloAllowedGroupMask.c)
- *     EtwQueryPerformanceTraceInformation @ 0x140937E6C (EtwQueryPerformanceTraceInformation.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1406B6434 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpUpdateGroupMasks @ 0x1407972F0 (EtwpUpdateGroupMasks.c)
+ *     EtwpInitializeSiloAllowedGroupMask @ 0x1407D5370 (EtwpInitializeSiloAllowedGroupMask.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14093803C (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,37 +1,32 @@
 /*
- * XREFs of _PnpCtxRegCreateKey @ 0x14048706C
+ * XREFs of _PnpCtxRegCreateKey @ 0x140512D88
  * Callers:
- *     _CmAddDeviceToContainerWorker @ 0x140486C80 (_CmAddDeviceToContainerWorker.c)
- *     _PnpSetPropertyWorker @ 0x140486DF8 (_PnpSetPropertyWorker.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1404FBDA0 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     _CmCreateOrdinalInstanceKey @ 0x1406D77C4 (_CmCreateOrdinalInstanceKey.c)
- *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406DE700 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1404DED30 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     _CmAddDeviceToContainerWorker @ 0x14051299C (_CmAddDeviceToContainerWorker.c)
+ *     _PnpSetPropertyWorker @ 0x140512B14 (_PnpSetPropertyWorker.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x1406D78FC (_CmCreateOrdinalInstanceKey.c)
+ *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406DE838 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  *     PipMigratePnpState @ 0x1407BBCE0 (PipMigratePnpState.c)
  *     PipCommitPendingOsExtensionResource @ 0x1407CF148 (PipCommitPendingOsExtensionResource.c)
  *     PipCommitPendingService @ 0x1407CF348 (PipCommitPendingService.c)
  * Callees:
- *     _RegRtlCreateKeyTransacted @ 0x1404FA914 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1404DD8A0 (_RegRtlCreateKeyTransacted.c)
  */
 
 __int64 __fastcall PnpCtxRegCreateKey(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        char *a2,
+        const WCHAR *a3,
         __int64 a4,
-        unsigned int a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8)
+        ACCESS_MASK a5,
+        void *a6,
+        HANDLE *a7,
+        ULONG *a8)
 {
-  char v9; // [rsp+28h] [rbp-30h]
-  __int64 v10; // [rsp+40h] [rbp-18h]
-
   if ( a1 && *(_QWORD *)a1 )
-    v10 = *(_QWORD *)(*(_QWORD *)a1 + 8LL);
+    return RegRtlCreateKeyTransacted(a2, a3, 0, a5, a6, 0, a7, a8, *(HANDLE *)(*(_QWORD *)a1 + 8LL));
   else
-    v10 = 0LL;
-  v9 = 0;
-  return RegRtlCreateKeyTransacted(a2, a3, 0LL, a5, a6, v9, a7, a8, v10);
+    return RegRtlCreateKeyTransacted(a2, a3, 0, a5, a6, 0, a7, a8, 0LL);
 }

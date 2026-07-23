@@ -1,12 +1,12 @@
 /*
- * XREFs of PopExtendConnectionState @ 0x14075F788
+ * XREFs of PopExtendConnectionState @ 0x14075E728
  * Callers:
- *     PopSetGlobalUserStatus @ 0x1409BCF2C (PopSetGlobalUserStatus.c)
- *     PopInitializeAdpm @ 0x140C33664 (PopInitializeAdpm.c)
+ *     PopSetGlobalUserStatus @ 0x1409A357C (PopSetGlobalUserStatus.c)
+ *     PopInitializeAdpm @ 0x140C357A4 (PopInitializeAdpm.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopExtendConnectionState(unsigned int a1)
@@ -27,7 +27,7 @@ __int64 __fastcall PopExtendConnectionState(unsigned int a1)
   {
     v1 = 8;
   }
-  result = ExAllocatePool2(0x100uLL);
+  result = ExAllocatePool2(0x100uLL, v1, 0x73655350u);
   v3 = (void *)result;
   if ( result )
   {

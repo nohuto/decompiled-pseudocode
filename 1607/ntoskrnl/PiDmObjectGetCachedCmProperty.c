@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmObjectGetCachedCmProperty @ 0x1404FE1F8
+ * XREFs of PiDmObjectGetCachedCmProperty @ 0x1404E1188
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _PnpStringFromGuid @ 0x1404E9270 (_PnpStringFromGuid.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x1404FE32C (_CmMapCmObjectTypeToPnpObjectType.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x1404FEE44 (PiDmObjectGetCachedObjectProperty.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _PnpStringFromGuid @ 0x1404CB360 (_PnpStringFromGuid.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1404E12BC (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1404E1DD4 (PiDmObjectGetCachedObjectProperty.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedCmProperty(

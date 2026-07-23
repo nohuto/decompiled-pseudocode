@@ -1,34 +1,34 @@
 /*
- * XREFs of MiSetSystemCodeProtection @ 0x1400FE0F4
+ * XREFs of MiSetSystemCodeProtection @ 0x1400FBE74
  * Callers:
- *     MiSetImageProtection @ 0x140084C58 (MiSetImageProtection.c)
- *     MiProtectSystemImage @ 0x140553CC4 (MiProtectSystemImage.c)
+ *     MiSetImageProtection @ 0x140082DB8 (MiSetImageProtection.c)
+ *     MiProtectSystemImage @ 0x140554204 (MiProtectSystemImage.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiOffsetToProtos @ 0x140033070 (MiOffsetToProtos.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiMakeDriverPagesPrivate @ 0x140086098 (MiMakeDriverPagesPrivate.c)
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MI_TIGHTER_PERMISSIONS @ 0x1400FE718 (MI_TIGHTER_PERMISSIONS.c)
- *     MiWriteValidPteVolatile @ 0x1400FF0F4 (MiWriteValidPteVolatile.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiOffsetToProtos @ 0x140032BF0 (MiOffsetToProtos.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiMakeDriverPagesPrivate @ 0x140087988 (MiMakeDriverPagesPrivate.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MI_TIGHTER_PERMISSIONS @ 0x1400FC498 (MI_TIGHTER_PERMISSIONS.c)
+ *     MiWriteValidPteVolatile @ 0x1400FCE74 (MiWriteValidPteVolatile.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiSetSystemCodeProtection(__int64 a1, _QWORD *a2, unsigned __int64 a3, int a4)
@@ -125,7 +125,7 @@ __int64 __fastcall MiSetSystemCodeProtection(__int64 a1, _QWORD *a2, unsigned __
     if ( DriverPagesPrivate < 0 )
       return 0LL;
   }
-  if ( v6 < qword_140326910 || v6 >= qword_140326910 + 0x8000000000LL )
+  if ( v6 < qword_140326950 || v6 >= qword_140326950 + 0x8000000000LL )
   {
     v12 = v13;
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x14060CEF0
+ * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x14069C9A0
  * Callers:
- *     PspCreateUserProcessEcp @ 0x14060CD84 (PspCreateUserProcessEcp.c)
- *     IopSymlinkAllocateAndAddECP @ 0x14069E77C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405FD94C (IopSymlinkAllocateAndAddECP.c)
+ *     PspCreateUserProcessEcp @ 0x14069C834 (PspCreateUserProcessEcp.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_FLAGS Flags, PECP_LIST *EcpList)
@@ -22,15 +22,15 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_
   }
   else
   {
-    ++dword_140CDB554;
+    ++dword_140CDB594;
     PoolWithQuotaTag = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside);
     if ( !PoolWithQuotaTag )
     {
-      ++dword_140CDB558;
-      PoolWithQuotaTag = (struct _ECP_LIST *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140CDB570)(
-                                               (unsigned int)dword_140CDB564,
-                                               (unsigned int)dword_140CDB56C,
-                                               (unsigned int)dword_140CDB568);
+      ++dword_140CDB598;
+      PoolWithQuotaTag = (struct _ECP_LIST *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140CDB5B0)(
+                                               (unsigned int)dword_140CDB5A4,
+                                               (unsigned int)dword_140CDB5AC,
+                                               (unsigned int)dword_140CDB5A8);
     }
     v4 = 6;
   }

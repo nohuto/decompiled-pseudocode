@@ -1,23 +1,23 @@
 /*
- * XREFs of _SysCtxRegOpenCurrentUserKey @ 0x1406DF998
+ * XREFs of _SysCtxRegOpenCurrentUserKey @ 0x1406DFAD0
  * Callers:
- *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D710C (_PnpCtxRegOpenCurrentUserKey.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D7244 (_PnpCtxRegOpenCurrentUserKey.c)
  * Callees:
- *     RtlUShortAdd @ 0x140008818 (RtlUShortAdd.c)
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryInformationToken @ 0x14015A0A0 (ZwQueryInformationToken.c)
+ *     RtlUShortAdd @ 0x14000838C (RtlUShortAdd.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryInformationToken @ 0x14015A610 (ZwQueryInformationToken.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlConvertSidToUnicodeString @ 0x1403F8710 (RtlConvertSidToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _SysCtxGetCachedContextBaseKey @ 0x1404FDF78 (_SysCtxGetCachedContextBaseKey.c)
- *     _SysCtxOpenEffectiveToken @ 0x1406DF950 (_SysCtxOpenEffectiveToken.c)
+ *     RtlConvertSidToUnicodeString @ 0x1403F75D0 (RtlConvertSidToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _SysCtxGetCachedContextBaseKey @ 0x1404E0F08 (_SysCtxGetCachedContextBaseKey.c)
+ *     _SysCtxOpenEffectiveToken @ 0x1406DFA88 (_SysCtxOpenEffectiveToken.c)
  */
 
 __int64 __fastcall SysCtxRegOpenCurrentUserKey(_QWORD *a1, unsigned int a2, unsigned int a3, __int64 a4)
@@ -29,7 +29,7 @@ __int64 __fastcall SysCtxRegOpenCurrentUserKey(_QWORD *a1, unsigned int a2, unsi
   wchar_t *PoolWithTag; // rax
   __int64 v13; // rcx
   USHORT pusResult[2]; // [rsp+30h] [rbp-99h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
   int TokenInformation; // [rsp+3Ch] [rbp-8Dh] BYREF
   int v18; // [rsp+40h] [rbp-89h] BYREF
   ULONG ReturnLength; // [rsp+44h] [rbp-85h] BYREF

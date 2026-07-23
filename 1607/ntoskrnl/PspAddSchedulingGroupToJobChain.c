@@ -1,16 +1,16 @@
 /*
- * XREFs of PspAddSchedulingGroupToJobChain @ 0x1404D1E00
+ * XREFs of PspAddSchedulingGroupToJobChain @ 0x1404B58A0
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspEstablishJobHierarchy @ 0x1404F2FFC (PspEstablishJobHierarchy.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspEstablishJobHierarchy @ 0x1404D5F88 (PspEstablishJobHierarchy.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeInsertSchedulingGroup @ 0x1400A6414 (KeInsertSchedulingGroup.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeInsertSchedulingGroup @ 0x1400A498C (KeInsertSchedulingGroup.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspFreeRateControl @ 0x1404D1D14 (PspFreeRateControl.c)
- *     PspAllocateRateControl @ 0x1404D1D58 (PspAllocateRateControl.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140467544 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspFreeRateControl @ 0x1404B57B4 (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x1404B57F8 (PspAllocateRateControl.c)
  */
 
 __int64 __fastcall PspAddSchedulingGroupToJobChain(__int64 a1, __int64 a2)

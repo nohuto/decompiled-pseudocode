@@ -1,20 +1,20 @@
 /*
  * XREFs of PsSetProcessFaultInformation @ 0x140683030
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     DbgkForwardException @ 0x140939564 (DbgkForwardException.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     DbgkForwardException @ 0x140939764 (DbgkForwardException.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     EtwTelemetryCoverageReport @ 0x140365240 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x1403653CC (TelemetryCoverageStringHashInternal.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PsSetProcessTelemetryAppState @ 0x1407516EC (PsSetProcessTelemetryAppState.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x1409AF7E4 (PspRecordCrashedProcessIntoBlackbox.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExGetExtensionTable @ 0x1402FA6D0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402FA700 (ExReleaseExtensionTable.c)
+ *     EtwTelemetryCoverageReport @ 0x1403653E0 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14036556C (TelemetryCoverageStringHashInternal.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PsSetProcessTelemetryAppState @ 0x1407518DC (PsSetProcessTelemetryAppState.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x1409AF9E4 (PspRecordCrashedProcessIntoBlackbox.c)
  */
 
 __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR a1, _DWORD *a2)
@@ -41,11 +41,11 @@ __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR a1, _DWORD *a2)
     while ( v9 != v8 );
     if ( (v8 & 4) == 0 )
     {
-      if ( (unsigned int)dword_140C092C4 < MEMORY[0xFFFFF7800000037C] )
+      if ( (unsigned int)dword_140C0929C < MEMORY[0xFFFFF7800000037C] )
       {
-        if ( !dword_140C092C0 )
-          dword_140C092C0 = TelemetryCoverageStringHashInternal(off_140C092B8, &v12);
-        EtwTelemetryCoverageReport((__int64 *)&off_140C092B8);
+        if ( !dword_140C09298 )
+          dword_140C09298 = TelemetryCoverageStringHashInternal(off_140C09290, &v12);
+        EtwTelemetryCoverageReport((__int64 *)&off_140C09290);
       }
       PspRecordCrashedProcessIntoBlackbox(a1);
       PsSetProcessTelemetryAppState(a1);
@@ -53,11 +53,11 @@ __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR a1, _DWORD *a2)
   }
   if ( (*a2 & 2) != 0 )
   {
-    if ( (unsigned int)dword_140C092AC < MEMORY[0xFFFFF7800000037C] )
+    if ( (unsigned int)dword_140C092B4 < MEMORY[0xFFFFF7800000037C] )
     {
-      if ( !dword_140C092A8 )
-        dword_140C092A8 = TelemetryCoverageStringHashInternal(off_140C092A0, &v13);
-      EtwTelemetryCoverageReport((__int64 *)&off_140C092A0);
+      if ( !dword_140C092B0 )
+        dword_140C092B0 = TelemetryCoverageStringHashInternal(off_140C092A8, &v13);
+      EtwTelemetryCoverageReport((__int64 *)&off_140C092A8);
     }
     CurrentThread = KeGetCurrentThread();
     v4 = (volatile signed __int64 *)(a1 + 1080);

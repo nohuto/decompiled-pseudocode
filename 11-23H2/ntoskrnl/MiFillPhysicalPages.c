@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFillPhysicalPages @ 0x140339290
+ * XREFs of MiFillPhysicalPages @ 0x140339520
  * Callers:
- *     MiGetPoolPages @ 0x1402E3304 (MiGetPoolPages.c)
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
+ *     MiGetPoolPages @ 0x1402E3594 (MiGetPoolPages.c)
+ *     MiInitializeSystemPageTable @ 0x1402E4838 (MiInitializeSystemPageTable.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
  *     MxMapVa @ 0x140B431AC (MxMapVa.c)
  *     MiInitializeDummyPages @ 0x140B44C50 (MiInitializeDummyPages.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140424640 (KeZeroPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1404249D0 (KeZeroPages.c)
  *     MxGetPhase0Mapping @ 0x140B58DFC (MxGetPhase0Mapping.c)
  */
 
@@ -76,7 +76,7 @@ __int64 __fastcall MiFillPhysicalPages(ULONG_PTR BugCheckParameter2, __int64 a2,
       ValidPte = MiMakeValidPte(0LL, v4, v9 | 0xA0000000);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -152,10 +152,10 @@ LABEL_28:
     *(_QWORD *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = ZeroPte;
     if ( CurrentIrql != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v29 = CurrentPrcb->SchedulerAssist;

@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpThreadInfoLogStack @ 0x1404BECC0
+ * XREFs of CmpThreadInfoLogStack @ 0x1404B9E80
  * Callers:
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     CmpGetThreadInfo @ 0x1404F0110 (CmpGetThreadInfo.c)
- *     CmpRecordRegistryLockAcquire @ 0x1404F0170 (CmpRecordRegistryLockAcquire.c)
- *     CmpRecordRegistryLockRelease @ 0x1404F01E0 (CmpRecordRegistryLockRelease.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     CmpGetThreadInfo @ 0x1404EDBB0 (CmpGetThreadInfo.c)
+ *     CmpRecordRegistryLockAcquire @ 0x1404EDC10 (CmpRecordRegistryLockAcquire.c)
+ *     CmpRecordRegistryLockRelease @ 0x1404EDC80 (CmpRecordRegistryLockRelease.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char CmpThreadInfoLogStack()
 {
   __int64 v0; // rbx
   __int64 v1; // rcx
-  char *v2; // rax
+  _BYTE *v2; // rax
   __int64 v3; // r8
   unsigned int v4; // r9d
   __int64 v6; // [rsp+30h] [rbp-D0h] BYREF
@@ -39,19 +39,19 @@ char CmpThreadInfoLogStack()
   v1 = 0LL;
   do
   {
-    v2 = (char *)Callers[v1];
-    if ( (unsigned __int64)v2 >= PsNtosImageBase && (unsigned __int64)v2 <= PsNtosImageEnd )
+    v2 = Callers[v1];
+    if ( v2 >= PsNtosImageBase && (unsigned __int64)v2 <= PsNtosImageEnd )
     {
-      v2 -= PsNtosImageBase;
+      v2 -= (unsigned __int64)PsNtosImageBase;
       v16[v1] = v2;
     }
     ++v1;
     --v0;
   }
   while ( v0 );
-  if ( (unsigned int)dword_140E09EE8 > 5 )
+  if ( (unsigned int)dword_140E09F58 > 5 )
   {
-    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL);
+    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL);
     if ( (_BYTE)v2 )
     {
       v6 = 1LL;
@@ -62,7 +62,7 @@ char CmpThreadInfoLogStack()
       v13 = &v7;
       v7 = 0x1000000LL;
       v14 = 8LL;
-      LOBYTE(v2) = tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_14005481D, v3, v4, (__int64)v8);
+      LOBYTE(v2) = tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)&byte_140055317, v3, v4, (__int64)v8);
     }
   }
   return (char)v2;

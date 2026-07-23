@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCompressSoftParkRankList @ 0x14025B6E8
+ * XREFs of KiCompressSoftParkRankList @ 0x14025CEC8
  * Callers:
- *     KeUpdateSoftParkRankList @ 0x14025B508 (KeUpdateSoftParkRankList.c)
+ *     KeUpdateSoftParkRankList @ 0x14025CCE8 (KeUpdateSoftParkRankList.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _DWORD *__fastcall KiCompressSoftParkRankList(_DWORD *a1, void *a2)

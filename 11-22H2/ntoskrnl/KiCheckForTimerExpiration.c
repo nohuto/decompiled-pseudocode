@@ -168,7 +168,7 @@ LABEL_22:
   if ( !*v3 )
     goto LABEL_23;
   v20 = qword_140C42308;
-  v21 = v5 + (unsigned int)KeMaximumIncrement;
+  v21 = v5 + KeMaximumIncrement;
   if ( qword_140C42308 > v5 )
   {
     v22 = KiClockOwnerOneShotRequest;
@@ -178,7 +178,7 @@ LABEL_22:
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 15 )
@@ -196,10 +196,10 @@ LABEL_22:
         KiSetClockIntervalOneShot(v20, v5);
       else
         KiResetClockIntervalOneShot(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v29 = CurrentPrcb->SchedulerAssist;

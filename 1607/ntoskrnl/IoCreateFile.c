@@ -1,14 +1,14 @@
 /*
- * XREFs of IoCreateFile @ 0x1404D8ECC
+ * XREFs of IoCreateFile @ 0x1404BC4D0
  * Callers:
- *     NtCreateMailslotFile @ 0x1404D8C94 (NtCreateMailslotFile.c)
- *     NtCreateNamedPipeFile @ 0x1404D8D90 (NtCreateNamedPipeFile.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     PopCreateHiberFile @ 0x14056CF34 (PopCreateHiberFile.c)
- *     SmKmStoreFileCreateForIoType @ 0x140698F68 (SmKmStoreFileCreateForIoType.c)
+ *     NtCreateMailslotFile @ 0x1404BC298 (NtCreateMailslotFile.c)
+ *     NtCreateNamedPipeFile @ 0x1404BC394 (NtCreateNamedPipeFile.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     PopCreateHiberFile @ 0x14056D474 (PopCreateHiberFile.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14069904C (SmKmStoreFileCreateForIoType.c)
  *     IopInitCrashDumpRegCallback @ 0x1407B24BC (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     IopCreateFile @ 0x14045B980 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14045A850 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall IoCreateFile(

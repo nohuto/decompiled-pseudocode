@@ -3,8 +3,8 @@
  * Callers:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x1400BA140 (KiSetAddressPolicy.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1402796C0 (HvlSwitchVirtualAddressSpace.c)
+ *     KiSetAddressPolicy @ 0x1400BA080 (KiSetAddressPolicy.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1402798B0 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiSwapProcess(__int64 a1, __int64 a2)

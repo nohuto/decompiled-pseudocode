@@ -1,8 +1,8 @@
 /*
  * XREFs of ZwOpenEvent @ 0x14041BF60
  * Callers:
- *     DifZwOpenEventWrapper @ 0x140621900 (DifZwOpenEventWrapper.c)
- *     PspShutdownCsrProcess @ 0x1409AC388 (PspShutdownCsrProcess.c)
+ *     sub_140621900 @ 0x140621900 (sub_140621900.c)
+ *     sub_1409AC388 @ 0x1409AC388 (sub_1409AC388.c)
  * Callees:
  *     <none>
  */
@@ -12,5 +12,5 @@ NTSTATUS __stdcall ZwOpenEvent(PHANDLE EventHandle, ACCESS_MASK DesiredAccess, P
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EventHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(EventHandle, *(_QWORD *)&DesiredAccess);
 }

@@ -23,7 +23,7 @@ bool PspInitPhase2()
 
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C03048, 0LL, 0LL);
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[2].Affinity.StaticBitmap[7] = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpLimitInsertDpc @ 0x140654C50
+ * XREFs of ExpLimitInsertDpc @ 0x140653350
  * Callers:
  *     <none>
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiHaltOnAddress @ 0x1404FA2B8 (KiHaltOnAddress.c)
- *     KeCanUseHaltOnAddress @ 0x1404FA680 (KeCanUseHaltOnAddress.c)
- *     ExpLimitDpcInsertEntry @ 0x1406549A0 (ExpLimitDpcInsertEntry.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiHaltOnAddress @ 0x1404F7B98 (KiHaltOnAddress.c)
+ *     KeCanUseHaltOnAddress @ 0x1404F7F60 (KeCanUseHaltOnAddress.c)
+ *     ExpLimitDpcInsertEntry @ 0x1406530A0 (ExpLimitDpcInsertEntry.c)
  */
 
 volatile signed __int32 *__fastcall ExpLimitInsertDpc(

@@ -1,24 +1,24 @@
 /*
- * XREFs of CcSetFileSizesEx @ 0x14039E300
+ * XREFs of CcSetFileSizesEx @ 0x1403A0060
  * Callers:
- *     CcSetFileSizes @ 0x1404DFC00 (CcSetFileSizes.c)
+ *     CcSetFileSizes @ 0x1404D92E0 (CcSetFileSizes.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     CcUnmapVacbArray @ 0x14039AEF0 (CcUnmapVacbArray.c)
- *     CcPurgeCacheSection @ 0x14039B300 (CcPurgeCacheSection.c)
- *     CcDeleteMbcb @ 0x14039C204 (CcDeleteMbcb.c)
- *     CcDeleteBcbs @ 0x14039C3DC (CcDeleteBcbs.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     CcExtendVacbArray @ 0x1403B68EC (CcExtendVacbArray.c)
- *     CcPurgeAndClearCacheSection @ 0x1404B3978 (CcPurgeAndClearCacheSection.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MmExtendSection @ 0x140A58080 (MmExtendSection.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     CcUnmapVacbArray @ 0x14039CC50 (CcUnmapVacbArray.c)
+ *     CcPurgeCacheSection @ 0x14039D060 (CcPurgeCacheSection.c)
+ *     CcDeleteMbcb @ 0x14039DF64 (CcDeleteMbcb.c)
+ *     CcDeleteBcbs @ 0x14039E13C (CcDeleteBcbs.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     CcExtendVacbArray @ 0x1403C07EC (CcExtendVacbArray.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404ACF44 (CcPurgeAndClearCacheSection.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MmExtendSection @ 0x140A65600 (MmExtendSection.c)
  */
 
 NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES FileSizes)
@@ -46,7 +46,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
   unsigned int v22; // edx
   NTSTATUS v23; // eax
   NTSTATUS v24; // r12d
-  int v25; // edi
+  NTSTATUS v25; // edi
   __int128 v26; // [rsp+30h] [rbp-40h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-30h] BYREF
   struct _KLOCK_QUEUE_HANDLE v28; // [rsp+58h] [rbp-18h] BYREF
@@ -74,7 +74,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
     KiRaiseIrqlProcessIrqlFlags(FileObject, FileSizes);
   }
   v28.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v8 = _InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)&v28);
     if ( v8 )
@@ -100,7 +100,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
       KiRaiseIrqlProcessIrqlFlags(FileObject, 2LL);
     }
     LockHandle.OldIrql = v11;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v12 = _InterlockedExchange64((volatile __int64 *)v10, (__int64)&LockHandle);
       if ( v12 )
@@ -162,7 +162,7 @@ LABEL_18:
           KiRaiseIrqlProcessIrqlFlags(v14, v13);
         }
         LockHandle.OldIrql = v16;
-        if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
         {
           v17 = _InterlockedExchange64((volatile __int64 *)v10, (__int64)&LockHandle);
           if ( v17 )

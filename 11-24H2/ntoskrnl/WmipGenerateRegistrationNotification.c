@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipGenerateRegistrationNotification @ 0x1409CB3C4
+ * XREFs of WmipGenerateRegistrationNotification @ 0x1409B1AE4
  * Callers:
- *     WmipAddDataSource @ 0x1409CFD60 (WmipAddDataSource.c)
- *     WmipRemoveDS @ 0x140AA0824 (WmipRemoveDS.c)
+ *     WmipAddDataSource @ 0x1409B01A8 (WmipAddDataSource.c)
+ *     WmipRemoveDS @ 0x140A9BBB4 (WmipRemoveDS.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     WmipSendGuidUpdateNotifications @ 0x1409CA5B4 (WmipSendGuidUpdateNotifications.c)
- *     WmipEnableCollectionForNewGuid @ 0x1409CB9CC (WmipEnableCollectionForNewGuid.c)
- *     WmipUnreferenceEntry @ 0x1409CE1D4 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x1409CFA88 (WmipDisableCollectionForRemovedGuid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     WmipSendGuidUpdateNotifications @ 0x1409B0A84 (WmipSendGuidUpdateNotifications.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x1409B0E04 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipEnableCollectionForNewGuid @ 0x1409B20EC (WmipEnableCollectionForNewGuid.c)
+ *     WmipUnreferenceEntry @ 0x1409B31A8 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipGenerateRegistrationNotification(ULONG_PTR a1, int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall WmipGenerateRegistrationNotification(ULONG_PTR a1, int a2)
   _QWORD *v7; // rdi
   unsigned int v8; // r15d
   _QWORD *v9; // rsi
-  __int64 v10; // rbp
+  _OWORD *v10; // rbp
   __int64 v11; // rax
   void *Pool2; // rax
   void *v15; // [rsp+78h] [rbp+20h]
@@ -50,10 +50,10 @@ LABEL_8:
         goto LABEL_10;
       }
     }
-    v10 = v9[7] + 72LL;
+    v10 = (_OWORD *)(v9[7] + 72LL);
     if ( v4 == v8 )
     {
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, 16LL * (v8 + 64), 0x70696D57u);
       v15 = Pool2;
       if ( !Pool2 )
       {
@@ -64,7 +64,7 @@ LABEL_6:
         }
         else if ( a2 == 2 )
         {
-          WmipDisableCollectionForRemovedGuid(v10, v7 - 5);
+          WmipDisableCollectionForRemovedGuid(v10, (__int64)(v7 - 5));
         }
         goto LABEL_8;
       }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopVerifierFlushMemoryBeforeSleep @ 0x140BFD704
+ * XREFs of PopVerifierFlushMemoryBeforeSleep @ 0x140C03704
  * Callers:
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  * Callees:
- *     MmPerformMemoryListCommand @ 0x140C0C460 (MmPerformMemoryListCommand.c)
+ *     MmPerformMemoryListCommand @ 0x140C12670 (MmPerformMemoryListCommand.c)
  */
 
 __int64 PopVerifierFlushMemoryBeforeSleep()
@@ -11,8 +11,8 @@ __int64 PopVerifierFlushMemoryBeforeSleep()
   __int64 result; // rax
   __int64 v1; // rbx
 
-  result = *(unsigned int *)&stru_140F10828.WaitBlockFill11[100];
-  if ( (stru_140F10828.WaitBlockFill6[100] & 0x80u) != 0 || MmVerifierTrimAtPowerTransition )
+  result = LODWORD(PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime);
+  if ( SLOBYTE(PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime) < 0 || MmVerifierTrimAtPowerTransition )
   {
     v1 = 2LL;
     do

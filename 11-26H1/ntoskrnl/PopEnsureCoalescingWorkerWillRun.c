@@ -1,18 +1,18 @@
 /*
- * XREFs of PopEnsureCoalescingWorkerWillRun @ 0x1404EFF10
+ * XREFs of PopEnsureCoalescingWorkerWillRun @ 0x1404E94F0
  * Callers:
- *     PopCoalescingNotify @ 0x1407CF2D0 (PopCoalescingNotify.c)
- *     PopCheckResiliencyScenarios @ 0x140A3D444 (PopCheckResiliencyScenarios.c)
- *     PopEnforceResiliencyScenarios @ 0x140B501F8 (PopEnforceResiliencyScenarios.c)
+ *     PopCoalescingNotify @ 0x1407D2370 (PopCoalescingNotify.c)
+ *     PopCheckResiliencyScenarios @ 0x1409F8E64 (PopCheckResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x140B52A88 (PopEnforceResiliencyScenarios.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void PopEnsureCoalescingWorkerWillRun()
 {
-  if ( (stru_140F11D08.AbWaitEntryCount & 8) == 0 )
+  if ( (PopCoalescingState & 8) == 0 )
   {
-    stru_140F11D08.AbWaitEntryCount |= 8u;
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140F11D08.ThreadListEntry, DelayedWorkQueue);
+    PopCoalescingState |= 8u;
+    ExQueueWorkItem(&PopCoalescingCallbackWorkItem, DelayedWorkQueue);
   }
 }

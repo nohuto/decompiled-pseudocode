@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSrcuRebalance @ 0x1405F5B18
+ * XREFs of KiSrcuRebalance @ 0x1405F84D8
  * Callers:
- *     KiSrcuFlushCompleted @ 0x14052EB44 (KiSrcuFlushCompleted.c)
+ *     KiSrcuFlushCompleted @ 0x140531064 (KiSrcuFlushCompleted.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSrcuCompareGraceSequence @ 0x1404D9AC0 (KiSrcuCompareGraceSequence.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSrcuCompareGraceSequence @ 0x1404D31A0 (KiSrcuCompareGraceSequence.c)
  */
 
 __int64 __fastcall KiSrcuRebalance(__int64 *a1, int a2)
@@ -14,7 +14,7 @@ __int64 __fastcall KiSrcuRebalance(__int64 *a1, int a2)
   signed __int32 v4; // ett
   __int64 v5; // r13
   __int64 v7; // r14
-  __int64 v8; // rdx
+  __int64 v8; // rcx
   unsigned int v9; // r15d
   unsigned int v10; // eax
   __int64 v11; // rsi
@@ -47,17 +47,17 @@ __int64 __fastcall KiSrcuRebalance(__int64 *a1, int a2)
   {
     if ( !a2 )
       return 1LL;
-    LODWORD(v7) = (unsigned __int8)byte_140F14C81[0];
+    LODWORD(v7) = (unsigned __int8)byte_140F14FC1[0];
     while ( (_DWORD)v7 )
     {
       v7 = (unsigned int)(v7 - 1);
       v8 = (unsigned int)v7;
       v9 = 0;
-      v10 = (unsigned __int8)byte_140F14C84[v7];
+      v10 = (unsigned __int8)byte_140F14FC4[v7];
       v22 = v10;
       while ( v9 < v10 )
       {
-        v11 = 56LL * v9 + a1[v8 + 2];
+        v11 = a1[v8 + 2] + 56LL * v9;
         if ( **(_QWORD **)(v11 + 8) )
         {
           v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v11 + 16));

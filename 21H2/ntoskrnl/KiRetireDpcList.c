@@ -1,25 +1,25 @@
 /*
- * XREFs of KiRetireDpcList @ 0x1402466B0
+ * XREFs of KiRetireDpcList @ 0x1402EAF00
  * Callers:
- *     KiIdleLoop @ 0x140402950 (KiIdleLoop.c)
- *     KyRetireDpcList @ 0x1404067A0 (KyRetireDpcList.c)
+ *     KiIdleLoop @ 0x140402B30 (KiIdleLoop.c)
+ *     KyRetireDpcList @ 0x140406980 (KyRetireDpcList.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     KiExecuteAllDpcs @ 0x1402472B0 (KiExecuteAllDpcs.c)
- *     KiRemoveEntryTimer @ 0x140247790 (KiRemoveEntryTimer.c)
- *     KiSelectActiveTimerTable @ 0x140247A60 (KiSelectActiveTimerTable.c)
- *     KiProcessExpiredTimerList @ 0x140247AA0 (KiProcessExpiredTimerList.c)
- *     KiTimer2Expiration @ 0x1402487E0 (KiTimer2Expiration.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     KiExecuteAllDpcs @ 0x1402EBB00 (KiExecuteAllDpcs.c)
+ *     KiRemoveEntryTimer @ 0x1402EBFE0 (KiRemoveEntryTimer.c)
+ *     KiSelectActiveTimerTable @ 0x1402EC2B0 (KiSelectActiveTimerTable.c)
+ *     KiProcessExpiredTimerList @ 0x1402EC2F0 (KiProcessExpiredTimerList.c)
+ *     KiTimer2Expiration @ 0x1402ED030 (KiTimer2Expiration.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     HalpTimerScaleCounter @ 0x140396440 (HalpTimerScaleCounter.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiBeginCounterAccumulation @ 0x14051BDB0 (KiBeginCounterAccumulation.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiBeginCounterAccumulation @ 0x14051BFF0 (KiBeginCounterAccumulation.c)
  */
 
 signed __int16 __fastcall KiRetireDpcList(__int64 a1)
@@ -436,7 +436,7 @@ LABEL_66:
             v170[0] = &v169;
             BYTE8(v169) = 0;
             v170[1] = 16LL;
-            EtwTraceKernelEvent((unsigned int)v170, 1, 1073872896, 3920, 1538);
+            EtwTraceKernelEvent((int)v170, 1, 0x40020000u, 3920, 1538);
           }
           v49 = v39 - v36 + 1;
           v152 = v49;
@@ -886,7 +886,7 @@ LABEL_28:
     if ( (v20 & 4) != 0 )
     {
       _enable();
-      KeSignalGate(v1 + 31616, 0LL);
+      KeSignalGate(v1 + 31616, 0);
       _disable();
     }
     v21 = __rdtsc();

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExQueueWorkItemFromIo @ 0x1400D16A4
+ * XREFs of ExQueueWorkItemFromIo @ 0x1400D1724
  * Callers:
- *     IoQueueWorkItemEx @ 0x1400D1AC0 (IoQueueWorkItemEx.c)
- *     IoQueueWorkItem @ 0x14012AE10 (IoQueueWorkItem.c)
+ *     IoQueueWorkItemEx @ 0x1400D1B40 (IoQueueWorkItemEx.c)
+ *     IoQueueWorkItem @ 0x14012AEE0 (IoQueueWorkItem.c)
  * Callees:
- *     ExpQueueWorkItem @ 0x1400B7320 (ExpQueueWorkItem.c)
- *     ExpTypeToPriority @ 0x1400D1A58 (ExpTypeToPriority.c)
- *     ExpValidateWorkItem @ 0x1400D1A78 (ExpValidateWorkItem.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExpQueueWorkItem @ 0x1400B7260 (ExpQueueWorkItem.c)
+ *     ExpTypeToPriority @ 0x1400D1AD8 (ExpTypeToPriority.c)
+ *     ExpValidateWorkItem @ 0x1400D1AF8 (ExpValidateWorkItem.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExQueueWorkItemFromIo(__int64 *BugCheckParameter2, int a2)

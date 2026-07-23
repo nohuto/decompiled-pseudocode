@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlxUnicodeStringToAnsiSize @ 0x14075DB90
+ * XREFs of RtlxUnicodeStringToAnsiSize @ 0x14075DD50
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x140372054 (DbgUnicodeStringToAnsiString.c)
- *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x14090FCE0 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     NtQuerySystemEnvironmentValue @ 0x1409549F0 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x140955340 (NtSetSystemEnvironmentValue.c)
- *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
+ *     DbgUnicodeStringToAnsiString @ 0x140371BA4 (DbgUnicodeStringToAnsiString.c)
+ *     ObCreateObjectTypeEx @ 0x140795AF0 (ObCreateObjectTypeEx.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x14090FE40 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     NtQuerySystemEnvironmentValue @ 0x140954BC0 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x140955510 (NtSetSystemEnvironmentValue.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3F30 (ExpSystemErrorHandler2.c)
  * Callees:
- *     RtlUnicodeToMultiByteSize @ 0x1405EDC80 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteSize @ 0x1406DD3E0 (RtlUnicodeToMultiByteSize.c)
  */
 
 ULONG __stdcall RtlxUnicodeStringToAnsiSize(PCUNICODE_STRING UnicodeString)

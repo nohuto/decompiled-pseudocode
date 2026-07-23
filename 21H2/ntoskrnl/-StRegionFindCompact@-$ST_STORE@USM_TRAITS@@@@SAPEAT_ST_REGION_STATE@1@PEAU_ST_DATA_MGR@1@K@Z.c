@@ -1,9 +1,9 @@
 /*
- * XREFs of ?StRegionFindCompact@?$ST_STORE@USM_TRAITS@@@@SAPEAT_ST_REGION_STATE@1@PEAU_ST_DATA_MGR@1@K@Z @ 0x1402C82A0
+ * XREFs of ?StRegionFindCompact@?$ST_STORE@USM_TRAITS@@@@SAPEAT_ST_REGION_STATE@1@PEAU_ST_DATA_MGR@1@K@Z @ 0x140246B00
  * Callers:
- *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x1402D6DD0 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
+ *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x140288120 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
  * Callees:
- *     ?SmStIsRegionBusy@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z @ 0x1402AD21C (-SmStIsRegionBusy@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z.c)
+ *     ?SmStIsRegionBusy@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z @ 0x14022B578 (-SmStIsRegionBusy@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z.c)
  */
 
 unsigned __int16 *__fastcall ST_STORE<SM_TRAITS>::StRegionFindCompact(__int64 a1, int a2)
@@ -79,7 +79,7 @@ LABEL_29:
       if ( v26 != v25 )
       {
         v27 = v21 & 0x1F;
-        if ( (*v26 | *((_DWORD *)qword_140011C70 + v27)) == -1 )
+        if ( (*v26 | *((_DWORD *)qword_140012120 + v27)) == -1 )
         {
           v24 = v21 - v27 + 32;
           for ( ++v26; v26 < v25 && *v26 == -1; ++v26 )
@@ -94,7 +94,7 @@ LABEL_29:
       if ( v26 != v25 )
       {
         v29 = v24 & 0x1F;
-        if ( (*v26 & ~*((_DWORD *)qword_140011C70 + v29)) != 0 )
+        if ( (*v26 & ~*((_DWORD *)qword_140012120 + v29)) != 0 )
         {
           v3 = 0;
         }

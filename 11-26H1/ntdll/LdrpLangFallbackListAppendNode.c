@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrpLangFallbackListAppendNode @ 0x180004E90
+ * XREFs of LdrpLangFallbackListAppendNode @ 0x1800505C0
  * Callers:
- *     RtlpFilterandReplaceConsoleLanguages @ 0x180001AEC (RtlpFilterandReplaceConsoleLanguages.c)
- *     LdrpMergeParentBaseLanguagesToList @ 0x180003400 (LdrpMergeParentBaseLanguagesToList.c)
- *     LdrpMergeLangFallbackLists @ 0x1800038D0 (LdrpMergeLangFallbackLists.c)
- *     RtlpAddNeutralsToMergedList @ 0x180004B30 (RtlpAddNeutralsToMergedList.c)
+ *     RtlpFilterandReplaceConsoleLanguages @ 0x18004D21C (RtlpFilterandReplaceConsoleLanguages.c)
+ *     LdrpMergeParentBaseLanguagesToList @ 0x18004EB30 (LdrpMergeParentBaseLanguagesToList.c)
+ *     LdrpMergeLangFallbackLists @ 0x18004F000 (LdrpMergeLangFallbackLists.c)
+ *     RtlpAddNeutralsToMergedList @ 0x180050260 (RtlpAddNeutralsToMergedList.c)
  * Callees:
- *     RtlpIsCustomLocale @ 0x180001008 (RtlpIsCustomLocale.c)
- *     RtlpMatchUserLanguage @ 0x18000113C (RtlpMatchUserLanguage.c)
- *     RtlpNlsGetNameIndex @ 0x180004930 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x180004A18 (RtlpLoadNlsData.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800052F0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpMatchUILanguage @ 0x180112DD4 (RtlpMatchUILanguage.c)
- *     __report_rangecheckfailure @ 0x180126B60 (__report_rangecheckfailure.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpIsCustomLocale @ 0x18004C740 (RtlpIsCustomLocale.c)
+ *     RtlpMatchUserLanguage @ 0x18004C874 (RtlpMatchUserLanguage.c)
+ *     RtlpNlsGetNameIndex @ 0x180050060 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x180050148 (RtlpLoadNlsData.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180050A20 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpMatchUILanguage @ 0x180112884 (RtlpMatchUILanguage.c)
+ *     __report_rangecheckfailure @ 0x1801268D0 (__report_rangecheckfailure.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall LdrpLangFallbackListAppendNode(__int64 *a1, __int64 a2, char a3, _WORD *a4, wchar_t *String)
@@ -27,35 +27,36 @@ __int64 __fastcall LdrpLangFallbackListAppendNode(__int64 *a1, __int64 a2, char 
   unsigned int v9; // r15d
   size_t v10; // rcx
   unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rdi
-  __int64 v13; // r14
-  __int64 v14; // r13
-  __int64 v15; // r14
-  int v16; // edi
-  __int64 v17; // rbp
-  wchar_t *v18; // rcx
-  unsigned __int16 i; // dx
-  __int64 v20; // r8
-  __int64 v21; // rax
-  int v22; // r13d
-  __int64 v23; // rdi
+  __int64 i; // rdx
+  wchar_t *v13; // rcx
+  __int64 v14; // r8
+  ULONG *v15; // r9
+  unsigned __int64 v16; // rdi
+  _QWORD *v17; // r14
+  __int64 v18; // r13
+  __int64 v19; // r14
+  int v20; // edi
+  __int64 v21; // rbp
+  __int64 v22; // rax
+  int v23; // r13d
+  __int64 v24; // rdi
   int NameIndex; // eax
-  int v25; // r13d
-  char v26; // al
-  __int64 v27; // r14
-  int v28; // edi
+  int v26; // r13d
+  char v27; // al
+  __int64 v28; // r14
+  int v29; // edi
   __int64 j; // rbp
-  wchar_t *v30; // rcx
+  wchar_t *v31; // rcx
   __int16 k; // r8
   __int64 result; // rax
-  __int16 v33; // dx
-  unsigned __int16 *v34; // rdx
-  int v35; // eax
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  bool v38; // zf
-  int v39; // eax
-  __int64 v43; // [rsp+60h] [rbp-108h]
+  __int16 v34; // dx
+  unsigned __int16 *v35; // rdx
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  bool v39; // zf
+  int v40; // eax
+  __int64 v44; // [rsp+60h] [rbp-108h]
   wchar_t String2[88]; // [rsp+70h] [rbp-F8h] BYREF
 
   v5 = a4;
@@ -65,7 +66,7 @@ __int64 __fastcall LdrpLangFallbackListAppendNode(__int64 *a1, __int64 a2, char 
   v8 = -1LL;
   v9 = 0;
   *a4 = -1;
-  v43 = *a1;
+  v44 = *a1;
   if ( a2 && *a1 )
   {
     v10 = 2 * wcslen(String);
@@ -79,107 +80,107 @@ LABEL_47:
     }
     v11 = (unsigned __int16)v10;
     memmove(String2, String, (unsigned __int16)v10);
-    v12 = v11 >> 1;
-    if ( v12 >= 85 )
+    v16 = v11 >> 1;
+    if ( v16 >= 85 )
       _report_rangecheckfailure();
-    v13 = g_RegInfo;
-    String2[v12] = 0;
-    if ( v13 )
+    v17 = g_RegInfo;
+    String2[v16] = 0;
+    if ( v17 )
     {
-      v14 = *(_QWORD *)(v13 + 24);
-      if ( v14 )
+      v18 = v17[3];
+      if ( v18 )
       {
-        if ( *(_QWORD *)(v14 + 16) && String2[0] )
+        if ( *(_QWORD *)(v18 + 16) && String2[0] )
         {
-          v15 = *(_QWORD *)(v13 + 32);
-          if ( v15 )
+          v19 = v17[4];
+          if ( v19 )
           {
-            v16 = 0;
-            v17 = 0LL;
-            while ( v16 < *(unsigned __int16 *)(v15 + 6) )
+            v20 = 0;
+            v21 = 0LL;
+            while ( v20 < *(unsigned __int16 *)(v19 + 6) )
             {
-              v18 = (wchar_t *)(*(_QWORD *)(v15 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v15 + 16) + v17));
-              if ( v18 == String2 || !wcsicmp(v18, String2) )
+              v13 = (wchar_t *)(*(_QWORD *)(v19 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v19 + 16) + v21));
+              if ( v13 == String2 || !wcsicmp(v13, String2) )
               {
-                if ( v16 < 0 )
+                if ( v20 < 0 )
                   break;
                 goto LABEL_23;
               }
-              ++v16;
-              v17 += 2LL;
+              ++v20;
+              v21 += 2LL;
             }
           }
-          LOWORD(v16) = -1;
+          LOWORD(v20) = -1;
 LABEL_23:
-          if ( (v16 & 0x8000u) == 0 )
+          if ( (v20 & 0x8000u) == 0 )
           {
-            for ( i = 0; ; ++i )
+            for ( i = 0LL; ; LOWORD(i) = i + 1 )
             {
-              if ( i >= *(_WORD *)(v14 + 6) )
+              if ( (unsigned __int16)i >= *(_WORD *)(v18 + 6) )
                 goto LABEL_29;
-              v20 = 28LL * i;
-              v21 = *(_QWORD *)(v14 + 16);
-              if ( *(_WORD *)(v20 + v21 + 6) == (_WORD)v16 )
+              v14 = 28LL * (unsigned __int16)i;
+              v22 = *(_QWORD *)(v18 + 16);
+              if ( *(_WORD *)(v14 + v22 + 6) == (_WORD)v20 )
                 break;
             }
-            v22 = *(unsigned __int16 *)(v20 + v21 + 4);
+            v23 = *(unsigned __int16 *)(v14 + v22 + 4);
             goto LABEL_33;
           }
         }
       }
     }
 LABEL_29:
-    v23 = pTblPtrs;
+    v24 = pTblPtrs;
     if ( !pTblPtrs )
     {
-      if ( !RtlpLoadNlsData() )
+      if ( !RtlpLoadNlsData((__int64)v13, i, v14, v15) )
         goto LABEL_67;
-      v23 = pTblPtrs;
+      v24 = pTblPtrs;
     }
     NameIndex = RtlpNlsGetNameIndex((__int64)String2);
     if ( NameIndex >= 0 )
     {
-      v25 = *(_DWORD *)(*(_QWORD *)(v23 + 24) + 8LL * NameIndex + 4);
-      v26 = 1;
-      v22 = v25 & 0x7FFFFFFF;
+      v26 = *(_DWORD *)(*(_QWORD *)(v24 + 24) + 8LL * NameIndex + 4);
+      v27 = 1;
+      v23 = v26 & 0x7FFFFFFF;
 LABEL_32:
-      if ( v26 )
+      if ( v27 )
       {
 LABEL_33:
-        if ( ((v22 - 4096) & 0xFFFFFBFF) == 0 )
-          v22 = 0;
+        if ( ((v23 - 4096) & 0xFFFFFBFF) == 0 )
+          v23 = 0;
         if ( !*String )
           goto LABEL_72;
-        v27 = *(_QWORD *)(a2 + 32);
-        if ( !v27 )
+        v28 = *(_QWORD *)(a2 + 32);
+        if ( !v28 )
           goto LABEL_62;
-        v28 = 0;
+        v29 = 0;
         for ( j = 0LL; ; j += 2LL )
         {
-          if ( v28 >= *(unsigned __int16 *)(v27 + 6) )
+          if ( v29 >= *(unsigned __int16 *)(v28 + 6) )
             goto LABEL_62;
-          v30 = (wchar_t *)(*(_QWORD *)(v27 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v27 + 16) + j));
-          if ( v30 == String || !wcsicmp(v30, String) )
+          v31 = (wchar_t *)(*(_QWORD *)(v28 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v28 + 16) + j));
+          if ( v31 == String || !wcsicmp(v31, String) )
             break;
-          ++v28;
+          ++v29;
         }
-        if ( v28 < 0 )
+        if ( v29 < 0 )
 LABEL_62:
-          LOWORD(v28) = -1;
-        if ( (v28 & 0x8000u) != 0 )
+          LOWORD(v29) = -1;
+        if ( (v29 & 0x8000u) != 0 )
 LABEL_72:
-          LOWORD(v28) = -1;
+          LOWORD(v29) = -1;
         for ( k = 0; ; ++k )
         {
-          if ( k >= (int)*(unsigned __int16 *)(v43 + 4) )
+          if ( k >= (int)*(unsigned __int16 *)(v44 + 4) )
             goto LABEL_46;
-          v34 = (unsigned __int16 *)(*(_QWORD *)(v43 + 24) + 6LL * k);
-          v35 = *v34;
-          if ( v35 != 2 )
+          v35 = (unsigned __int16 *)(*(_QWORD *)(v44 + 24) + 6LL * k);
+          v36 = *v35;
+          if ( v36 != 2 )
             break;
-          v36 = 28LL * (__int16)v34[2];
-          v37 = *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL);
-          if ( (__int16)v28 > 0 && (_WORD)v28 == *(_WORD *)(v36 + v37 + 6) )
+          v37 = 28LL * (__int16)v35[2];
+          v38 = *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL);
+          if ( (__int16)v29 > 0 && (_WORD)v29 == *(_WORD *)(v37 + v38 + 6) )
           {
 LABEL_64:
             v5 = a4;
@@ -189,29 +190,29 @@ LABEL_64:
               goto LABEL_47;
             return result;
           }
-          if ( v22 )
+          if ( v23 )
           {
-            v38 = v22 == *(unsigned __int16 *)(v36 + v37 + 4);
+            v39 = v23 == *(unsigned __int16 *)(v37 + v38 + 4);
 LABEL_60:
-            if ( v38 )
+            if ( v39 )
               goto LABEL_64;
             continue;
           }
 LABEL_61:
           ;
         }
-        v39 = v35 - 1;
-        if ( v39 )
+        v40 = v36 - 1;
+        if ( v40 )
         {
-          if ( v39 != 2 || (_WORD)v28 == 0xFFFF )
+          if ( v40 != 2 || (_WORD)v29 == 0xFFFF )
             goto LABEL_61;
-          v38 = v34[2] == (unsigned __int16)v28;
+          v39 = v35[2] == (unsigned __int16)v29;
         }
         else
         {
-          if ( !v22 )
+          if ( !v23 )
             goto LABEL_61;
-          v38 = (__int16)v34[2] == v22;
+          v39 = (__int16)v35[2] == v23;
         }
         goto LABEL_60;
       }
@@ -223,37 +224,37 @@ LABEL_46:
     {
       if ( (unsigned __int8)RtlpMatchUILanguage(String2) )
       {
-        v22 = 5120;
-        v26 = 1;
+        v23 = 5120;
+        v27 = 1;
       }
       else
       {
-        v38 = !RtlpMatchUserLanguage(String2);
-        v26 = 1;
-        if ( v38 )
-          v22 = 4096;
+        v39 = !RtlpMatchUserLanguage(String2);
+        v27 = 1;
+        if ( v39 )
+          v23 = 4096;
         else
-          v22 = 3072;
+          v23 = 3072;
       }
       goto LABEL_32;
     }
 LABEL_67:
-    v22 = 0;
-    v26 = 0;
+    v23 = 0;
+    v27 = 0;
     goto LABEL_32;
   }
 LABEL_48:
   if ( !a3 )
     v9 = 2;
   do
-    v38 = String[++v8] == 0;
-  while ( !v38 );
+    v39 = String[++v8] == 0;
+  while ( !v39 );
   result = RtlpMuiRegAddMultiSzToLangFallbackList(v6, String, (unsigned int)(v8 + 1), v9, 2, 1, a1);
   if ( (int)result >= 0 )
   {
-    v33 = *(_WORD *)(*a1 + 4);
-    if ( v33 )
-      *v5 = v33 - 1;
+    v34 = *(_WORD *)(*a1 + 4);
+    if ( v34 )
+      *v5 = v34 - 1;
   }
   return result;
 }

@@ -232,9 +232,9 @@ char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugC
   __int64 v7; // rtt
   struct _KTHREAD *CurrentThread; // rdi
   int v9; // ebx
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 v11; // r15
-  __int64 v12; // rdx
+  unsigned int v12; // edx
   bool v13; // zf
   __int64 v14; // rcx
   __int64 v15; // rsi
@@ -263,23 +263,23 @@ char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugC
     v9 = 0;
     v19 = 0;
     if ( BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_140C4F7C8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+      SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --CurrentThread->SpecialApcDisable;
     v11 = ++CurrentThread->AbAllocationRegionCount;
-    LODWORD(v12) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    v12 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
     v13 = !_BitScanReverse((unsigned int *)&v14, v12);
     if ( v13 )
       goto LABEL_27;
     while ( 1 )
     {
       v15 = (__int64)&CurrentThread->LockEntries[v14];
-      v12 = ~(1 << v14) & (unsigned int)v12;
+      v12 &= ~(1 << v14);
       if ( (*(_BYTE *)(v15 + 26) & 1) != 0
         && (*(_DWORD *)(v15 + 32) & 1) == 0
         && (*(_QWORD *)(v15 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v15 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v15 + 40) == SessionId )
       {
         *(_BYTE *)(v15 + 26) &= ~1u;
         if ( *(_QWORD *)(v15 + 32) )
@@ -294,13 +294,13 @@ char __fastcall ExReleasePushLockEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugC
 LABEL_27:
       LODWORD(v6) = *((_DWORD *)&CurrentThread->0 + 1);
       if ( (v6 & 0x10000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, (unsigned int)SessionId, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, SessionId, 0LL);
     }
     else
     {
       *(_BYTE *)(v15 + 32) |= 2u;
       if ( *(__int64 *)(v15 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v15, v12, SessionId);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v15);
       v9 = *(_DWORD *)(v15 + 88) & 0x1FFFF;
       v16 = *(_DWORD *)(v15 + 88) & 0xFFFE0000;
       *(_BYTE *)(v15 + 25) &= ~1u;

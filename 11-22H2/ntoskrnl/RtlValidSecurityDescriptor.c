@@ -31,11 +31,11 @@ BOOLEAN __stdcall RtlValidSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescri
   char *v4; // rcx
   __int64 v5; // rax
   __int64 v6; // rax
-  char *v7; // rcx
+  ACL *v7; // rcx
   __int16 v8; // ax
   char *v10; // rcx
   __int64 v11; // rax
-  char *v12; // rcx
+  ACL *v12; // rcx
 
   if ( *(_BYTE *)SecurityDescriptor != 1 )
     return 0;
@@ -71,15 +71,15 @@ LABEL_9:
   {
     if ( v2 >= 0 )
     {
-      v7 = (char *)*((_QWORD *)SecurityDescriptor + 4);
+      v7 = (ACL *)*((_QWORD *)SecurityDescriptor + 4);
       goto LABEL_13;
     }
     v6 = *((unsigned int *)SecurityDescriptor + 4);
     if ( (_DWORD)v6 )
     {
-      v7 = (char *)SecurityDescriptor + v6;
+      v7 = (ACL *)((char *)SecurityDescriptor + v6);
 LABEL_13:
-      if ( !v7 || RtlValidAcl((__int64)v7) )
+      if ( !v7 || RtlValidAcl(v7) )
         goto LABEL_15;
       return 0;
     }
@@ -90,16 +90,16 @@ LABEL_15:
     return 1;
   if ( v8 >= 0 )
   {
-    v12 = (char *)*((_QWORD *)SecurityDescriptor + 3);
+    v12 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
   }
   else
   {
     v11 = *((unsigned int *)SecurityDescriptor + 3);
     if ( !(_DWORD)v11 )
       return 1;
-    v12 = (char *)SecurityDescriptor + v11;
+    v12 = (ACL *)((char *)SecurityDescriptor + v11);
   }
   if ( !v12 )
     return 1;
-  return RtlValidAcl((__int64)v12) != 0;
+  return RtlValidAcl(v12) != 0;
 }

@@ -1,47 +1,47 @@
 /*
- * XREFs of KeStallExecutionProcessor @ 0x14037BEF0
+ * XREFs of KeStallExecutionProcessor @ 0x14037DCA0
  * Callers:
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
- *     KeFreezeExecution @ 0x140508FA0 (KeFreezeExecution.c)
- *     AccelpWaitForCompletionBusySpin @ 0x140524954 (AccelpWaitForCompletionBusySpin.c)
- *     HalpInterruptResetThisProcessor @ 0x14057CBE0 (HalpInterruptResetThisProcessor.c)
- *     HalpInterruptWaitForProcessorStartUp @ 0x14057CDE0 (HalpInterruptWaitForProcessorStartUp.c)
- *     HalpPowerWriteResetCommand @ 0x14057F824 (HalpPowerWriteResetCommand.c)
- *     HalpTimerInitializeClock @ 0x14058144C (HalpTimerInitializeClock.c)
- *     HalpTimerMeasureFrequencies @ 0x1405822C8 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerTestHypervisorTimer @ 0x140584B0C (HalpTimerTestHypervisorTimer.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x140586790 (HalpTimerMeasureProcessorsWorker.c)
- *     HalpNmiReboot @ 0x140593E10 (HalpNmiReboot.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x14059A588 (HalpUsbLegacyStopOhciInterrupt.c)
- *     HalpUsbLegacyStopUhciInterrupt @ 0x14059A6BC (HalpUsbLegacyStopUhciInterrupt.c)
- *     HalpApicStartProcessor @ 0x1405A2060 (HalpApicStartProcessor.c)
- *     IvtWaitForGlobalCommandCompletion @ 0x1405A7E38 (IvtWaitForGlobalCommandCompletion.c)
- *     HsaGetPageFault @ 0x1405A9B40 (HsaGetPageFault.c)
- *     HvlPrepareForRootCrashdump @ 0x1405BDB54 (HvlPrepareForRootCrashdump.c)
- *     IoEscalateBugCheck @ 0x1405C6638 (IoEscalateBugCheck.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405F9B28 (KiBugCheckRecoveryFreezeOtherProcessors.c)
- *     KiMcheckAlternateReturn @ 0x1405FCD70 (KiMcheckAlternateReturn.c)
- *     ExpWaitForBootDevices @ 0x1406CD7C0 (ExpWaitForBootDevices.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140717EE8 (BgpFwDisplayBugCheckProgressUpdate.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1407180B4 (BgpFwDisplayBugCheckScreen.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14071840C (BgpFwDisplayBugCheckScreenModernized.c)
- *     IpmiLibpDelay @ 0x14071D864 (IpmiLibpDelay.c)
- *     InbvPortPutByte @ 0x14071E9C8 (InbvPortPutByte.c)
- *     IvtInitializeIommu @ 0x140BEFC90 (IvtInitializeIommu.c)
- *     HdlspBugCheckProcessing @ 0x140C4C1F8 (HdlspBugCheckProcessing.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
+ *     KeFreezeExecution @ 0x140502A50 (KeFreezeExecution.c)
+ *     AccelpWaitForCompletionBusySpin @ 0x140526FC4 (AccelpWaitForCompletionBusySpin.c)
+ *     HalpInterruptResetThisProcessor @ 0x14057F100 (HalpInterruptResetThisProcessor.c)
+ *     HalpInterruptWaitForProcessorStartUp @ 0x14057F300 (HalpInterruptWaitForProcessorStartUp.c)
+ *     HalpPowerWriteResetCommand @ 0x140581D44 (HalpPowerWriteResetCommand.c)
+ *     HalpTimerInitializeClock @ 0x14058396C (HalpTimerInitializeClock.c)
+ *     HalpTimerMeasureFrequencies @ 0x1405847E8 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerTestHypervisorTimer @ 0x14058702C (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x140588CB0 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpNmiReboot @ 0x140596590 (HalpNmiReboot.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x14059CD08 (HalpUsbLegacyStopOhciInterrupt.c)
+ *     HalpUsbLegacyStopUhciInterrupt @ 0x14059CE3C (HalpUsbLegacyStopUhciInterrupt.c)
+ *     HalpApicStartProcessor @ 0x1405A4870 (HalpApicStartProcessor.c)
+ *     IvtWaitForGlobalCommandCompletion @ 0x1405AA648 (IvtWaitForGlobalCommandCompletion.c)
+ *     HsaGetPageFault @ 0x1405AC350 (HsaGetPageFault.c)
+ *     HvlPrepareForRootCrashdump @ 0x1405C03C4 (HvlPrepareForRootCrashdump.c)
+ *     IoEscalateBugCheck @ 0x1405C8F08 (IoEscalateBugCheck.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405FC548 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiMcheckAlternateReturn @ 0x1405FF7C0 (KiMcheckAlternateReturn.c)
+ *     ExpWaitForBootDevices @ 0x1406D17F0 (ExpWaitForBootDevices.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14071CBD8 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14071CDA4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14071D0FC (BgpFwDisplayBugCheckScreenModernized.c)
+ *     IpmiLibpDelay @ 0x1407224F4 (IpmiLibpDelay.c)
+ *     InbvPortPutByte @ 0x140723658 (InbvPortPutByte.c)
+ *     IvtInitializeIommu @ 0x140BF5C90 (IvtInitializeIommu.c)
+ *     HdlspBugCheckProcessing @ 0x140C521F8 (HdlspBugCheckProcessing.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeStallWhileFrozen @ 0x14052A920 (KeStallWhileFrozen.c)
- *     KiCpuPartitionCheckAffinitization @ 0x1405F416C (KiCpuPartitionCheckAffinitization.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeStallWhileFrozen @ 0x14052CE40 (KeStallWhileFrozen.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405F6B2C (KiCpuPartitionCheckAffinitization.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __stdcall KeStallExecutionProcessor(ULONG MicroSeconds)
@@ -51,7 +51,7 @@ void __stdcall KeStallExecutionProcessor(ULONG MicroSeconds)
   __int64 v4; // rdi
   int v5; // eax
   __int64 Number; // rcx
-  struct _GROUP_AFFINITY v7; // xmm6
+  _GROUP_AFFINITY v7; // xmm6
   unsigned int v8; // ecx
   __int64 v9; // rdx
   __int64 v10; // rcx
@@ -90,10 +90,10 @@ void __stdcall KeStallExecutionProcessor(ULONG MicroSeconds)
   signed __int32 v44[8]; // [rsp+0h] [rbp-C8h] BYREF
   unsigned __int8 v45; // [rsp+30h] [rbp-98h]
   char v46; // [rsp+31h] [rbp-97h]
-  struct _GROUP_AFFINITY v47; // [rsp+40h] [rbp-88h] BYREF
+  _GROUP_AFFINITY v47; // [rsp+40h] [rbp-88h] BYREF
   __int128 v48; // [rsp+50h] [rbp-78h] BYREF
   int v49[4]; // [rsp+60h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+70h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+70h] [rbp-58h] BYREF
   int v51; // [rsp+C0h] [rbp-8h]
 
   if ( !HalpTimerProcessorsFrozen )
@@ -155,17 +155,17 @@ LABEL_2:
   v7 = 0LL;
   v46 = 1;
   *(_DWORD *)((char *)&v48 + 10) = 0;
-  v8 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * Number);
+  v8 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + Number);
   v9 = 1LL << v8;
   HIWORD(v48) = 0;
   DWORD2(v48) = (unsigned __int16)(v8 >> 6);
   *(_QWORD *)&v48 = 1LL << v8;
   v47.Mask = 0LL;
-  if ( (unsigned __int16)(v8 >> 6) < *(_WORD *)&stru_140FC01F0.WaitRegister.Flags
-    && (v10 = 8LL * (unsigned __int16)(v8 >> 6), (v9 & *(_QWORD *)((char *)&stru_140FC01F0.116 + v10 + 4)) != 0) )
+  if ( (unsigned __int16)(v8 >> 6) < *(_WORD *)&stru_140FC11F0.WaitRegister.Flags
+    && (v10 = 8LL * (unsigned __int16)(v8 >> 6), (v9 & *(_QWORD *)((char *)&stru_140FC11F0.116 + v10 + 4)) != 0) )
   {
     v11 = 1;
-    v9 &= *(_QWORD *)((char *)&stru_140FC01F0.116 + v10 + 4);
+    v9 &= *(_QWORD *)((char *)&stru_140FC11F0.116 + v10 + 4);
     *(_QWORD *)&v48 = v9;
   }
   else
@@ -248,7 +248,7 @@ LABEL_22:
   KiProcessDeferredReadyList(CurrentPrcb, &v47, CurrentIrql);
   PreviousAffinity = v7;
   KeGetCurrentIrql();
-  if ( v11 && _bittest((_DWORD *)&xmmword_140FBFC10 + 1, 9u) )
+  if ( v11 && _bittest((_DWORD *)&xmmword_140FC0C10 + 1, 9u) )
     KiCpuPartitionCheckAffinitization(CurrentThread->Process, CurrentThread, CurrentThread->Affinity, 1LL);
 LABEL_25:
   if ( (*(_DWORD *)(v4 + 224) & 0x10000) != 0 )
@@ -264,7 +264,7 @@ LABEL_25:
   v23 = 0LL;
   v24 = 0;
   LOBYTE(v17) = (KeFeatureBits2 & 0x800000) != 0
-             && !qword_140FBB040
+             && !qword_140FBB3E0
              && (*(_DWORD *)(v4 + 224) & 0x6000) == 0
              && *(_DWORD *)(v4 + 228) == 5;
   v45 = v17;
@@ -280,7 +280,7 @@ LABEL_25:
         *((_QWORD *)&v26 + 1) = (v18 + v27) >> 32;
         __asm { tpause  r9d }
       }
-      else if ( (++v24 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+      else if ( (++v24 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
       {
         _mm_pause();
       }

@@ -9,17 +9,21 @@
  *     RtlpSystemBootStatusRequest @ 0x14078356C (RtlpSystemBootStatusRequest.c)
  */
 
-__int64 __fastcall RtlSetSystemBootStatus(int a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __cdecl RtlSetSystemBootStatus(
+        RTL_BSD_ITEM_TYPE BootStatusInformationClass,
+        PVOID DataBuffer,
+        ULONG DataLength,
+        PULONG ReturnLength)
 {
   _DWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-20h]
-  int v7; // [rsp+30h] [rbp-18h]
+  PVOID v6; // [rsp+28h] [rbp-20h]
+  ULONG v7; // [rsp+30h] [rbp-18h]
   int v8; // [rsp+34h] [rbp-14h]
 
   v5[1] = 0;
   v8 = 0;
-  v7 = a3;
-  v5[0] = a1;
-  v6 = a2;
-  return RtlpSystemBootStatusRequest(32LL, v5, 1LL, a4);
+  v7 = DataLength;
+  v5[0] = BootStatusInformationClass;
+  v6 = DataBuffer;
+  return RtlpSystemBootStatusRequest(32LL, v5, 1LL, ReturnLength);
 }

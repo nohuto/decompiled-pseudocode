@@ -1,12 +1,12 @@
 /*
- * XREFs of HalBuildScatterGatherListV2 @ 0x1403CCDE0
+ * XREFs of HalBuildScatterGatherListV2 @ 0x1403CCFC0
  * Callers:
- *     HalGetScatterGatherList @ 0x1403D0E00 (HalGetScatterGatherList.c)
+ *     HalGetScatterGatherList @ 0x1403D0FE0 (HalGetScatterGatherList.c)
  * Callees:
- *     HalpCalculateScatterGatherListSize @ 0x1403B96B0 (HalpCalculateScatterGatherListSize.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalAllocateAdapterChannelV2 @ 0x14045D0E8 (HalAllocateAdapterChannelV2.c)
- *     HalpDmaFlushBuffer @ 0x140510C10 (HalpDmaFlushBuffer.c)
+ *     HalpCalculateScatterGatherListSize @ 0x1403B9890 (HalpCalculateScatterGatherListSize.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalAllocateAdapterChannelV2 @ 0x14045D4E8 (HalAllocateAdapterChannelV2.c)
+ *     HalpDmaFlushBuffer @ 0x140511160 (HalpDmaFlushBuffer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

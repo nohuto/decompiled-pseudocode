@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOpLocateDecodeEntry @ 0x14030E7B8
+ * XREFs of KiOpLocateDecodeEntry @ 0x14030EA48
  * Callers:
- *     KiOpDecode @ 0x14030E584 (KiOpDecode.c)
+ *     KiOpDecode @ 0x14030E814 (KiOpDecode.c)
  * Callees:
- *     KiOpFetchNextByte @ 0x14030E6EC (KiOpFetchNextByte.c)
+ *     KiOpFetchNextByte @ 0x14030E97C (KiOpFetchNextByte.c)
  */
 
 __int64 __fastcall KiOpLocateDecodeEntry(__int64 a1)

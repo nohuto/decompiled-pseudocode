@@ -1,26 +1,26 @@
 /*
- * XREFs of PnpProcessRelation @ 0x1406EC68C
+ * XREFs of PnpProcessRelation @ 0x1406ED92C
  * Callers:
- *     PnpProcessRelation @ 0x1406EC68C (PnpProcessRelation.c)
- *     PnpProcessDependencyRelations @ 0x1406EC890 (PnpProcessDependencyRelations.c)
- *     PnpProcessBusRelations @ 0x1406EC910 (PnpProcessBusRelations.c)
- *     PnpBuildRemovalRelationList @ 0x1406EF2D4 (PnpBuildRemovalRelationList.c)
+ *     PnpProcessRelation @ 0x1406ED92C (PnpProcessRelation.c)
+ *     PnpProcessDependencyRelations @ 0x1406EDB30 (PnpProcessDependencyRelations.c)
+ *     PnpProcessBusRelations @ 0x1406EDBB0 (PnpProcessBusRelations.c)
+ *     PnpBuildRemovalRelationList @ 0x1406F0574 (PnpBuildRemovalRelationList.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PipClearDevNodeFlags @ 0x1406E64E0 (PipClearDevNodeFlags.c)
- *     PnpQueryDeviceRelations @ 0x1406E8020 (PnpQueryDeviceRelations.c)
- *     PnpProcessRelation @ 0x1406EC68C (PnpProcessRelation.c)
- *     PnpProcessDependencyRelations @ 0x1406EC890 (PnpProcessDependencyRelations.c)
- *     PnpProcessBusRelations @ 0x1406EC910 (PnpProcessBusRelations.c)
- *     IopAddRelationToList @ 0x1406EC988 (IopAddRelationToList.c)
- *     PipIsDeviceInDeviceObjectList @ 0x1406ECA64 (PipIsDeviceInDeviceObjectList.c)
- *     IopMergeRelationLists @ 0x14083AB68 (IopMergeRelationLists.c)
- *     IopRemoveRelationFromList @ 0x14083ACD4 (IopRemoveRelationFromList.c)
- *     IopCancelPendingEject @ 0x14083ADB8 (IopCancelPendingEject.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PipClearDevNodeFlags @ 0x1406E7780 (PipClearDevNodeFlags.c)
+ *     PnpQueryDeviceRelations @ 0x1406E92C0 (PnpQueryDeviceRelations.c)
+ *     PnpProcessRelation @ 0x1406ED92C (PnpProcessRelation.c)
+ *     PnpProcessDependencyRelations @ 0x1406EDB30 (PnpProcessDependencyRelations.c)
+ *     PnpProcessBusRelations @ 0x1406EDBB0 (PnpProcessBusRelations.c)
+ *     IopAddRelationToList @ 0x1406EDC28 (IopAddRelationToList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1406EDD04 (PipIsDeviceInDeviceObjectList.c)
+ *     IopMergeRelationLists @ 0x14083BDC8 (IopMergeRelationLists.c)
+ *     IopRemoveRelationFromList @ 0x14083BF34 (IopRemoveRelationFromList.c)
+ *     IopCancelPendingEject @ 0x14083C018 (IopCancelPendingEject.c)
  */
 
 __int64 __fastcall PnpProcessRelation(

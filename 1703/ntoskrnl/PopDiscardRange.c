@@ -8,7 +8,7 @@
  *     <none>
  */
 
-void __fastcall PopDiscardRange(struct _RTL_BITMAP *a1, ULONG a2, ULONG a3)
+void __fastcall PopDiscardRange(_RTL_BITMAP *a1, ULONG a2, ULONG a3)
 {
   RtlSetBits(a1 + 2, a2, a3);
 }

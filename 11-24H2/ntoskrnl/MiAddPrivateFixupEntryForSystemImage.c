@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x1404B02A0
+ * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x1404AAB30
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140A5E524 (MiGetSystemAddressForImage.c)
+ *     MiGetSystemAddressForImage @ 0x140A5536C (MiGetSystemAddressForImage.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiInitializePrivateFixupBitmap @ 0x1409DE038 (MiInitializePrivateFixupBitmap.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiInitializePrivateFixupBitmap @ 0x1409D7C08 (MiInitializePrivateFixupBitmap.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAddPrivateFixupEntryForSystemImage(__int64 a1, __int64 a2)
@@ -38,14 +38,14 @@ __int64 __fastcall MiAddPrivateFixupEntryForSystemImage(__int64 a1, __int64 a2)
   v6[2] = a2;
   v6[3] = a2 + (unsigned int)((*(_DWORD *)(*(_QWORD *)a1 + 8LL) << 12) - 1);
   v6[4] = *(_QWORD *)(*(_QWORD *)a1 + 32LL);
-  v7 = ExAcquireSpinLockExclusive(dword_140E2D81C);
-  v8 = (_QWORD *)qword_140E2D808;
-  if ( *(__int64 **)qword_140E2D808 != &qword_140E2D800 )
+  v7 = ExAcquireSpinLockExclusive(dword_140E2D95C);
+  v8 = (_QWORD *)qword_140E2D948;
+  if ( *(__int64 **)qword_140E2D948 != &qword_140E2D940 )
     __fastfail(3u);
-  *v6 = &qword_140E2D800;
+  *v6 = &qword_140E2D940;
   v6[1] = v8;
   *v8 = v6;
-  qword_140E2D808 = (__int64)v6;
-  MiReleaseSpinLockExclusive(dword_140E2D81C, v7);
+  qword_140E2D948 = (__int64)v6;
+  MiReleaseSpinLockExclusive(dword_140E2D95C, v7);
   return 1LL;
 }

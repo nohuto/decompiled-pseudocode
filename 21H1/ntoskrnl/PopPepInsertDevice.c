@@ -28,7 +28,7 @@ _QWORD *__fastcall PopPepInsertDevice(__int64 a1, __int64 *a2)
   unsigned int v9; // r8d
   bool v10; // zf
   __int64 v11; // rcx
-  unsigned __int64 v12; // rdi
+  __int64 v12; // rdi
   int v13; // eax
   unsigned int v14; // ecx
   __int64 v15; // rdx
@@ -71,7 +71,7 @@ _QWORD *__fastcall PopPepInsertDevice(__int64 a1, __int64 *a2)
     v10 = !_BitScanReverse((unsigned int *)&v11, v9);
     if ( v10 )
       break;
-    v12 = (unsigned __int64)&v6->LockEntries[v11];
+    v12 = (__int64)&v6->LockEntries[v11];
     v9 &= ~(1 << v11);
     if ( (*(_BYTE *)(v12 + 26) & 1) != 0
       && (*(_DWORD *)(v12 + 32) & 1) == 0
@@ -85,14 +85,14 @@ _QWORD *__fastcall PopPepInsertDevice(__int64 a1, __int64 *a2)
         {
           *(_BYTE *)(v12 + 32) |= 2u;
           if ( *(__int64 *)(v12 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v12);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v12);
           v13 = *(_DWORD *)(v12 + 88) & 0x1FFFF;
           v14 = *(_DWORD *)(v12 + 88) & 0xFFFE0000;
           *(_BYTE *)(v12 + 25) &= ~1u;
           v24 = v13;
           *(_DWORD *)(v12 + 88) = v14;
           *(_QWORD *)(v12 + 32) = 0LL;
-          v15 = (__int64)(v12 - (unsigned __int64)v6->LockEntries) / 96;
+          v15 = (signed __int64)(v12 - (unsigned __int64)v6->LockEntries) / 96;
           if ( v8 == 1 )
             v6->AbEntrySummary |= 1 << v15;
           else

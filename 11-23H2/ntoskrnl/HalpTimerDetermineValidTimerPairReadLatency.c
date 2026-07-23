@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerDetermineValidTimerPairReadLatency @ 0x14037A7D8
+ * XREFs of HalpTimerDetermineValidTimerPairReadLatency @ 0x14037A978
  * Callers:
- *     HalpTimerMeasureFrequencies @ 0x140379ED8 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x14050CAF0 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpTimerMeasureFrequencies @ 0x14037A078 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x14050D040 (HalpTimerMeasureProcessorsWorker.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerDetermineValidTimerPairReadLatency(__int64 a1, __int64 a2)

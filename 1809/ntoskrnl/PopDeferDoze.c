@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDeferDoze @ 0x14086F710
+ * XREFs of PopDeferDoze @ 0x140870970
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopIsDozeSupported @ 0x1405B0814 (PopIsDozeSupported.c)
- *     PopQueryPowerSettingUlong @ 0x1406E1FCC (PopQueryPowerSettingUlong.c)
- *     PopIsWakeTimerImmanent @ 0x14086F89C (PopIsWakeTimerImmanent.c)
- *     PopDiagTraceDozeDeferralDecision @ 0x140872390 (PopDiagTraceDozeDeferralDecision.c)
+ *     PopPrintEx @ 0x14014252C (PopPrintEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopIsDozeSupported @ 0x1405B1814 (PopIsDozeSupported.c)
+ *     PopQueryPowerSettingUlong @ 0x1406E326C (PopQueryPowerSettingUlong.c)
+ *     PopIsWakeTimerImmanent @ 0x140870AFC (PopIsWakeTimerImmanent.c)
+ *     PopDiagTraceDozeDeferralDecision @ 0x1408735F0 (PopDiagTraceDozeDeferralDecision.c)
  */
 
 char __fastcall PopDeferDoze(int a1, int a2, _BYTE *a3)

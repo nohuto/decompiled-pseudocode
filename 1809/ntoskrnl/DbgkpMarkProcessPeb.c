@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpMarkProcessPeb @ 0x14080EA78
+ * XREFs of DbgkpMarkProcessPeb @ 0x14080FC78
  * Callers:
- *     DbgkCopyProcessDebugPort @ 0x140609650 (DbgkCopyProcessDebugPort.c)
- *     DbgkClearProcessDebugObject @ 0x1406E1374 (DbgkClearProcessDebugObject.c)
- *     DbgkpCloseObject @ 0x14080E7A0 (DbgkpCloseObject.c)
- *     DbgkpSetProcessDebugObject @ 0x14080F6EC (DbgkpSetProcessDebugObject.c)
+ *     DbgkCopyProcessDebugPort @ 0x14060A650 (DbgkCopyProcessDebugPort.c)
+ *     DbgkClearProcessDebugObject @ 0x1406E2614 (DbgkClearProcessDebugObject.c)
+ *     DbgkpCloseObject @ 0x14080F9A0 (DbgkpCloseObject.c)
+ *     DbgkpSetProcessDebugObject @ 0x1408108EC (DbgkpSetProcessDebugObject.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
@@ -12,7 +12,7 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall DbgkpMarkProcessPeb(ULONG_PTR BugCheckParameter1)

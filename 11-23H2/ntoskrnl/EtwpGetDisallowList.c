@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpGetDisallowList @ 0x1409E7CC8
+ * XREFs of EtwpGetDisallowList @ 0x1409E7F58
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
 __int64 __fastcall EtwpGetDisallowList(__int64 a1, unsigned __int16 *a2, void *a3, unsigned int *a4)

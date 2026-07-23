@@ -123,7 +123,7 @@ LABEL_13:
         if ( v13 == -1073741790
           && CmpVEEnabled
           && !CmpIsSystemEntity(&v28)
-          && (((KeySetInformationClass - 2) & 0xFFFFFFFA) != 0 || KeySetInformationClass == MaxKeySetInfoClass) )
+          && (((KeySetInformationClass - 2) & 0xFFFFFFFA) != 0 || KeySetInformationClass == KeySetLayerInformation) )
         {
           v15 = ObReferenceObjectByHandle(Handle, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v35, 0LL);
           v14 = v35;

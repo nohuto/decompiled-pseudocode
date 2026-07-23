@@ -1,16 +1,16 @@
 /*
- * XREFs of KeQueryLogicalProcessorRelationship @ 0x14007D290
+ * XREFs of KeQueryLogicalProcessorRelationship @ 0x14007D310
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x14000DC90 (KeGetProcessorIndexFromNumber.c)
- *     KeAndAffinityEx @ 0x14007DA70 (KeAndAffinityEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x140085F34 (KeQueryMaximumProcessorCountEx.c)
- *     KeOrAffinityEx @ 0x1400968D0 (KeOrAffinityEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     KeAndGroupAffinityEx @ 0x140132640 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14000D810 (KeGetProcessorIndexFromNumber.c)
+ *     KeAndAffinityEx @ 0x14007DAF0 (KeAndAffinityEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140087824 (KeQueryMaximumProcessorCountEx.c)
+ *     KeOrAffinityEx @ 0x1400960D0 (KeOrAffinityEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     KeAndGroupAffinityEx @ 0x140132BB0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
@@ -26,8 +26,8 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v9; // r12
   LOGICAL_PROCESSOR_RELATIONSHIP v10; // edi
   __int64 v11; // rbx
-  ULONG v12; // ebx
-  ULONG v13; // r9d
+  DWORD v12; // ebx
+  DWORD v13; // r9d
   __int64 v14; // rcx
   unsigned __int64 v15; // r10
   unsigned __int16 v16; // r11
@@ -43,7 +43,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v27; // rax
   int v28; // eax
   unsigned __int16 v29; // r9
-  USHORT v30; // cx
+  WORD v30; // cx
   _QWORD *v31; // rax
   __int64 v32; // rdx
   __int64 v33; // rax
@@ -59,7 +59,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   unsigned __int16 *v43; // r12
   int v44; // eax
   int v45; // edx
-  ULONG v46; // ecx
+  DWORD v46; // ecx
   unsigned int v47; // r12d
   __int64 v48; // rdi
   __int64 v49; // r12
@@ -232,7 +232,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
             Information->Processor.Flags = !v52;
             Information->Relationship = RelationProcessorCore;
             Information->Size = 48;
-            Information->Processor.Reserved[0] = *(_BYTE *)(v11 + 23858);
+            Information->Processor.EfficiencyClass = *(_BYTE *)(v11 + 23858);
             Information->Processor.GroupCount = 1;
             *(_QWORD *)((char *)&Information->NumaNode.NodeNumber + 2) = 0LL;
             *(_QWORD *)&Information->Group.Reserved[6] = 0LL;
@@ -285,7 +285,7 @@ LABEL_53:
             Information->Relationship = RelationCache;
             Information->Size = 56;
             Information->Processor.Flags = *(_BYTE *)(v11 + 12 * v42 + 24448);
-            Information->Processor.Reserved[0] = *(_BYTE *)(v11 + 12 * v42 + 24449);
+            Information->Processor.EfficiencyClass = *(_BYTE *)(v11 + 12 * v42 + 24449);
             Information->Cache.LineSize = *(_WORD *)(v11 + 12 * v42 + 24450);
             Information->Cache.CacheSize = *(_DWORD *)(v11 + 12 * v42 + 24452);
             Information->Cache.Type = *(_DWORD *)(v11 + 12 * v42 + 24456);

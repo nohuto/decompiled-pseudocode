@@ -27,7 +27,7 @@ char __fastcall CcMapAndCopyFromCache(
   int v9; // esi
   unsigned int v10; // edi
   __int64 v11; // rbx
-  int v12; // ebp
+  NTSTATUS v12; // ebp
   __int64 v13; // r13
   char *v14; // r14
   int v15; // r15d

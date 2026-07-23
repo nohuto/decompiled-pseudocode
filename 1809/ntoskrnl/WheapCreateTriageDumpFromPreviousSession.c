@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapCreateTriageDumpFromPreviousSession @ 0x14057F05C
+ * XREFs of WheapCreateTriageDumpFromPreviousSession @ 0x14058005C
  * Callers:
- *     WheapProcessWorkQueueItem @ 0x1403204D0 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWorkQueueItem @ 0x1403206C0 (WheapProcessWorkQueueItem.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WheapCreateLiveTriageDump @ 0x1408DC57C (WheapCreateLiveTriageDump.c)
- *     WheapWriteTriageDump @ 0x1408DC7E8 (WheapWriteTriageDump.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WheapCreateLiveTriageDump @ 0x1408DD83C (WheapCreateLiveTriageDump.c)
+ *     WheapWriteTriageDump @ 0x1408DDAA8 (WheapWriteTriageDump.c)
  */
 
 __int64 WheapCreateTriageDumpFromPreviousSession()

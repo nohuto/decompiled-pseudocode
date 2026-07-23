@@ -6,9 +6,9 @@
  *     RtlGetSuiteMask @ 0x18005A990 (RtlGetSuiteMask.c)
  */
 
-__int64 sub_180104850()
+ULONG sub_180104850()
 {
-  __int64 result; // rax
+  ULONG result; // eax
 
   result = RtlGetSuiteMask();
   if ( (result & 0x10000) != 0 )

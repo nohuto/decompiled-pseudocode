@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetEnclavePageList @ 0x1404A4EC8
+ * XREFs of MiGetEnclavePageList @ 0x14049FC58
  * Callers:
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MxInsertEnclaveBootPages @ 0x140C581C4 (MxInsertEnclaveBootPages.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MxInsertEnclaveBootPages @ 0x140C5A354 (MxInsertEnclaveBootPages.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
  */
 
 __int64 __fastcall MiGetEnclavePageList(__int64 a1, ULONG_PTR a2)

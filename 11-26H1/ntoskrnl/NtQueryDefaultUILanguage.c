@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryDefaultUILanguage @ 0x140B27B50
+ * XREFs of NtQueryDefaultUILanguage @ 0x140B297E0
  * Callers:
- *     DifNtQueryDefaultUILanguageWrapper @ 0x1406817D0 (DifNtQueryDefaultUILanguageWrapper.c)
+ *     DifNtQueryDefaultUILanguageWrapper @ 0x1406853B0 (DifNtQueryDefaultUILanguageWrapper.c)
  * Callees:
- *     NtQueryInstallUILanguage @ 0x140B27B70 (NtQueryInstallUILanguage.c)
+ *     NtQueryInstallUILanguage @ 0x140B29800 (NtQueryInstallUILanguage.c)
  */
 
-__int64 __fastcall NtQueryDefaultUILanguage(__int64 a1)
+NTSTATUS __cdecl NtQueryDefaultUILanguage(LANGID *DefaultUILanguageId)
 {
-  return NtQueryInstallUILanguage(a1);
+  return NtQueryInstallUILanguage(DefaultUILanguageId);
 }

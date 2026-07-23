@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteVaTail @ 0x1402E3CF0
+ * XREFs of MiDeleteVaTail @ 0x140462720
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1402DC430 (MiWalkPageTablesRecursively.c)
- *     MiReacquireHigherPageTableLock @ 0x1402E2E70 (MiReacquireHigherPageTableLock.c)
- *     MiYieldPageTableWalk @ 0x1402E3540 (MiYieldPageTableWalk.c)
+ *     MiReacquireHigherPageTableLock @ 0x14020B170 (MiReacquireHigherPageTableLock.c)
+ *     MiYieldPageTableWalk @ 0x14020B840 (MiYieldPageTableWalk.c)
+ *     MiWalkPageTablesRecursively @ 0x14023DD10 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiDecommitPagesTail @ 0x1402DBE74 (MiDecommitPagesTail.c)
+ *     MiDecommitPagesTail @ 0x14023D754 (MiDecommitPagesTail.c)
  */
 
 __int64 __fastcall MiDeleteVaTail(__int64 a1)

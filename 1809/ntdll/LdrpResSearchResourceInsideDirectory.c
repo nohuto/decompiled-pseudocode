@@ -10,7 +10,7 @@
  *     LdrpSectionTableFromVirtualAddress @ 0x180035BD0 (LdrpSectionTableFromVirtualAddress.c)
  *     LdrpResCompareResourceNames @ 0x180039618 (LdrpResCompareResourceNames.c)
  *     RtlULongLongSub @ 0x180039A50 (RtlULongLongSub.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     LdrpTraceLoadMUIDll @ 0x1800E2D68 (LdrpTraceLoadMUIDll.c)
  *     LdrpResReadFile @ 0x1800E5768 (LdrpResReadFile.c)
  */
@@ -56,7 +56,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   __int64 result; // rax
   int v39; // r14d
   int v40; // edx
-  __int64 Heap; // rbx
+  unsigned int *Heap; // rbx
   __int64 v42; // rax
   __int64 v43; // rax
   __int64 v44; // rax
@@ -95,7 +95,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   __int64 v77; // rdx
   __int64 v78; // rcx
   unsigned int v79; // [rsp+40h] [rbp-188h]
-  unsigned __int64 v80; // [rsp+48h] [rbp-180h]
+  unsigned int *BaseAddress; // [rsp+48h] [rbp-180h]
   unsigned __int64 v81; // [rsp+50h] [rbp-178h] BYREF
   char v82; // [rsp+58h] [rbp-170h]
   unsigned __int16 v83; // [rsp+5Ch] [rbp-16Ch]
@@ -155,14 +155,14 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   v91 = 0;
   LOWORD(v17) = 0;
   v90 = 0LL;
-  v80 = 0LL;
+  BaseAddress = 0LL;
   v89 = 0;
   v83 = 0;
   LODWORD(v114[0]) = 5636180;
   v114[1] = L"LdrpResSearchResourceInsideDirectory Enter";
   v116 = 5505106;
   v117 = L"LdrpResSearchResourceInsideDirectory Exit";
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
     v18 = (__int64)NtCurrentPeb()->SharedData + 555;
     v89 = v83;
@@ -174,7 +174,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   }
   if ( (*(_BYTE *)v18 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
       v78 = (__int64)NtCurrentPeb()->SharedData + 554;
       v89 = v83;
@@ -323,13 +323,13 @@ LABEL_175:
   }
   if ( v23 != 34816 )
     goto LABEL_34;
-  if ( v80 )
+  if ( BaseAddress )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v80);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     v30 = v86;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * v30);
-  v80 = Heap;
+  Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * v30);
+  BaseAddress = Heap;
   if ( !Heap )
   {
     v79 = -1073741801;
@@ -339,9 +339,9 @@ LABEL_175:
   result = LdrpResReadFile(Handle);
   if ( (int)result >= 0 )
   {
-    v31 = (unsigned int *)Heap;
-    v103 = (unsigned int *)Heap;
-    v100 = (unsigned int *)Heap;
+    v31 = Heap;
+    v103 = Heap;
+    v100 = Heap;
     LOBYTE(v21) = a12;
     v84 = a12;
     v89 = v83;
@@ -500,17 +500,17 @@ LABEL_184:
 LABEL_183:
             v79 = -1073741701;
 LABEL_52:
-            Heap = v80;
+            Heap = BaseAddress;
 LABEL_53:
             if ( Heap )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v80);
-            if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+            if ( RtlGetCurrentServiceSessionId() )
               v42 = (__int64)NtCurrentPeb()->SharedData + 555;
             else
               v42 = 2147353477LL;
             if ( (*(_BYTE *)v42 & 1) != 0 )
             {
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              if ( RtlGetCurrentServiceSessionId() )
                 v43 = (__int64)NtCurrentPeb()->SharedData + 554;
               else
                 v43 = 2147353476LL;

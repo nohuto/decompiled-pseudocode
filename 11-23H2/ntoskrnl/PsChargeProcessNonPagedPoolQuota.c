@@ -1,20 +1,20 @@
 /*
- * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x140289B40
+ * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x140289DD0
  * Callers:
- *     MiFreeVadRange @ 0x140309BA0 (MiFreeVadRange.c)
- *     MiCloneVads @ 0x140663278 (MiCloneVads.c)
- *     MiCreateCloneChain @ 0x140663A1C (MiCreateCloneChain.c)
- *     MiInsertVadCharges @ 0x1406FA8B0 (MiInsertVadCharges.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     MiCreateVadEventBitmap @ 0x1407CCE04 (MiCreateVadEventBitmap.c)
- *     ExEnableHandleTracing @ 0x1409F8D00 (ExEnableHandleTracing.c)
- *     MiCreateRotateView @ 0x140A31210 (MiCreateRotateView.c)
- *     MiCreateAweInfoBitMap @ 0x140A41540 (MiCreateAweInfoBitMap.c)
- *     MiCreatePlaceholderStorage @ 0x140A47C30 (MiCreatePlaceholderStorage.c)
- *     MiBuildNewCloneDescriptor @ 0x140A487F8 (MiBuildNewCloneDescriptor.c)
- *     ViIrpAllocateLockedPacket @ 0x140ACDC94 (ViIrpAllocateLockedPacket.c)
+ *     MiFreeVadRange @ 0x140309E30 (MiFreeVadRange.c)
+ *     MiCloneVads @ 0x1406637C8 (MiCloneVads.c)
+ *     MiCreateCloneChain @ 0x140663F6C (MiCreateCloneChain.c)
+ *     MiInsertVadCharges @ 0x1406FAAC0 (MiInsertVadCharges.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     MiCreateVadEventBitmap @ 0x1407CD0D4 (MiCreateVadEventBitmap.c)
+ *     ExEnableHandleTracing @ 0x1409F8F90 (ExEnableHandleTracing.c)
+ *     MiCreateRotateView @ 0x140A314C0 (MiCreateRotateView.c)
+ *     MiCreateAweInfoBitMap @ 0x140A417F0 (MiCreateAweInfoBitMap.c)
+ *     MiCreatePlaceholderStorage @ 0x140A47EE0 (MiCreatePlaceholderStorage.c)
+ *     MiBuildNewCloneDescriptor @ 0x140A48AA8 (MiBuildNewCloneDescriptor.c)
+ *     ViIrpAllocateLockedPacket @ 0x140ACDC84 (ViIrpAllocateLockedPacket.c)
  * Callees:
- *     PspChargeQuota @ 0x14022EBF0 (PspChargeQuota.c)
+ *     PspChargeQuota @ 0x14022ED00 (PspChargeQuota.c)
  */
 
 __int64 __fastcall PsChargeProcessNonPagedPoolQuota(struct _KPROCESS *a1, unsigned __int64 a2)

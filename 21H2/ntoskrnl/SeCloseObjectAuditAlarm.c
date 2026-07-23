@@ -1,11 +1,11 @@
 /*
- * XREFs of SeCloseObjectAuditAlarm @ 0x1409212F0
+ * XREFs of SeCloseObjectAuditAlarm @ 0x140921450
  * Callers:
- *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
+ *     ObCloseHandleTableEntry @ 0x14070CA40 (ObCloseHandleTableEntry.c)
  * Callees:
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x14091EAF8 (SepAdtCloseObjectAuditAlarm.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x14091EC58 (SepAdtCloseObjectAuditAlarm.c)
  */
 
 void __fastcall SeCloseObjectAuditAlarm(__int64 a1, unsigned __int64 a2, char a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSetExecutionRequiredTimer @ 0x1407D377C
+ * XREFs of PopSetExecutionRequiredTimer @ 0x1407D38EC
  * Callers:
- *     PopExecutionRequiredSettingCallback @ 0x1407D36E0 (PopExecutionRequiredSettingCallback.c)
- *     PopUpdatePdcSystemIdleState @ 0x1408F1218 (PopUpdatePdcSystemIdleState.c)
+ *     PopExecutionRequiredSettingCallback @ 0x1407D3850 (PopExecutionRequiredSettingCallback.c)
+ *     PopUpdatePdcSystemIdleState @ 0x1408F1378 (PopUpdatePdcSystemIdleState.c)
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
  */
 
 __int64 PopSetExecutionRequiredTimer()

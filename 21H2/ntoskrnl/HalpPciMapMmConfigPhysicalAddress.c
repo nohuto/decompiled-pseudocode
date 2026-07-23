@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPciMapMmConfigPhysicalAddress @ 0x1402B1EC8
+ * XREFs of HalpPciMapMmConfigPhysicalAddress @ 0x140230078
  * Callers:
- *     HalpPciAccessMmConfigSpace @ 0x1402B1C70 (HalpPciAccessMmConfigSpace.c)
+ *     HalpPciAccessMmConfigSpace @ 0x14022FE20 (HalpPciAccessMmConfigSpace.c)
  * Callees:
- *     HalpRemapVirtualAddress64 @ 0x1402B1F18 (HalpRemapVirtualAddress64.c)
- *     HalpMap @ 0x1403BB938 (HalpMap.c)
+ *     HalpRemapVirtualAddress64 @ 0x1402300C8 (HalpRemapVirtualAddress64.c)
+ *     HalpMap @ 0x1403BBAA8 (HalpMap.c)
  */
 
 __int64 __fastcall HalpPciMapMmConfigPhysicalAddress(__int64 a1, __int64 a2, __int64 a3)

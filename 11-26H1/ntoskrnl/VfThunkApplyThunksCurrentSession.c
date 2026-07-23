@@ -1,40 +1,40 @@
 /*
- * XREFs of VfThunkApplyThunksCurrentSession @ 0x140C353F8
+ * XREFs of VfThunkApplyThunksCurrentSession @ 0x140C3B408
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140C38A50 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x140C3EA60 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     VfTargetDriversGetNode @ 0x1403B7A04 (VfTargetDriversGetNode.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     ViIsDriverSuspectForVerifier @ 0x140C21D58 (ViIsDriverSuspectForVerifier.c)
- *     ViThunkReplaceAllSharedExports @ 0x140C35D24 (ViThunkReplaceAllSharedExports.c)
- *     ViThunkReplaceAllThunkedImports @ 0x140C35DB4 (ViThunkReplaceAllThunkedImports.c)
+ *     VfTargetDriversGetNode @ 0x1403C1904 (VfTargetDriversGetNode.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     ViIsDriverSuspectForVerifier @ 0x140C27D68 (ViIsDriverSuspectForVerifier.c)
+ *     ViThunkReplaceAllSharedExports @ 0x140C3BD34 (ViThunkReplaceAllSharedExports.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x140C3BDC4 (ViThunkReplaceAllThunkedImports.c)
  */
 
 __int64 __fastcall VfThunkApplyThunksCurrentSession(__int64 a1)
 {
-  unsigned __int64 v1; // rbp
+  void *v1; // rbp
   unsigned int v3; // ebx
   __int64 Node; // rax
   __int64 v5; // rdi
-  __int64 v6; // r14
-  unsigned int v7; // ebp
+  PVOID v6; // r14
+  ULONG v7; // ebp
   unsigned int IsDriverSuspectForVerifier; // eax
-  unsigned int v10; // [rsp+40h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(void **)(a1 + 48);
   v3 = 0;
-  v10 = 0;
-  Node = VfTargetDriversGetNode(v1);
+  Size = 0;
+  Node = VfTargetDriversGetNode((__int64)v1);
   v5 = Node;
   if ( Node )
   {
     if ( (*(_DWORD *)(Node + 16) & 1) == 0 )
     {
-      v6 = RtlImageDirectoryEntryToData(v1, 1, 0xCu, &v10);
+      v6 = RtlImageDirectoryEntryToData(v1, 1u, 0xCu, &Size);
       if ( v6 )
       {
-        v7 = v10;
-        if ( v10 )
+        v7 = Size;
+        if ( Size )
         {
           IsDriverSuspectForVerifier = ViIsDriverSuspectForVerifier(a1);
           if ( (unsigned int)ViThunkReplaceAllThunkedImports(a1, v6, v7 >> 3, IsDriverSuspectForVerifier) )

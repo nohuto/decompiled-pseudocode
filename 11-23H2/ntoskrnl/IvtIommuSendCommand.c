@@ -1,20 +1,20 @@
 /*
- * XREFs of IvtIommuSendCommand @ 0x1403603E4
+ * XREFs of IvtIommuSendCommand @ 0x140360584
  * Callers:
- *     IvtInvalidateRemappingTableEntries @ 0x140360240 (IvtInvalidateRemappingTableEntries.c)
- *     IvtIommuWaitCommand @ 0x1403602B4 (IvtIommuWaitCommand.c)
- *     IvtFlushTbInternal @ 0x1403B0E40 (IvtFlushTbInternal.c)
- *     IvtInvalidateAllContextEntries @ 0x1403B5D50 (IvtInvalidateAllContextEntries.c)
- *     IvtDismissPageFault @ 0x14052C190 (IvtDismissPageFault.c)
- *     IvtDrainSvmPageRequests @ 0x14052C260 (IvtDrainSvmPageRequests.c)
- *     IvtFlushDeviceTbOnly @ 0x14052C600 (IvtFlushDeviceTbOnly.c)
- *     IvtInvalidateContextEntry @ 0x14052D384 (IvtInvalidateContextEntry.c)
- *     IvtInvalidateScalableModePasidCache @ 0x14052D410 (IvtInvalidateScalableModePasidCache.c)
+ *     IvtInvalidateRemappingTableEntries @ 0x1403603E0 (IvtInvalidateRemappingTableEntries.c)
+ *     IvtIommuWaitCommand @ 0x140360454 (IvtIommuWaitCommand.c)
+ *     IvtFlushTbInternal @ 0x1403B1020 (IvtFlushTbInternal.c)
+ *     IvtInvalidateAllContextEntries @ 0x1403B5F30 (IvtInvalidateAllContextEntries.c)
+ *     IvtDismissPageFault @ 0x14052C6E0 (IvtDismissPageFault.c)
+ *     IvtDrainSvmPageRequests @ 0x14052C7B0 (IvtDrainSvmPageRequests.c)
+ *     IvtFlushDeviceTbOnly @ 0x14052CB50 (IvtFlushDeviceTbOnly.c)
+ *     IvtInvalidateContextEntry @ 0x14052D8D4 (IvtInvalidateContextEntry.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x14052D960 (IvtInvalidateScalableModePasidCache.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IvtIommuSendCommand(__int64 a1, unsigned __int64 a2, int a3)
@@ -60,7 +60,7 @@ __int64 __fastcall IvtIommuSendCommand(__int64 a1, unsigned __int64 a2, int a3)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -141,10 +141,10 @@ __int64 __fastcall IvtIommuSendCommand(__int64 a1, unsigned __int64 a2, int a3)
   if ( !a3 )
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v25 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v27 = CurrentPrcb->SchedulerAssist;

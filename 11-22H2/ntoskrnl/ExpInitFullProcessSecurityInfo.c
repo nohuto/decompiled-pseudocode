@@ -14,7 +14,7 @@
  *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
  */
 
-_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)
+_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   int DaclSecurityDescriptor; // ebx
   _DWORD *v5; // rdi
@@ -63,7 +63,7 @@ _BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Pa
                                                   + 4) )
           {
 LABEL_10:
-            *Context = &ExpFullProcessInfoSecurityDescriptor;
+            *a3 = &ExpFullProcessInfoSecurityDescriptor;
           }
           else
           {
@@ -74,7 +74,7 @@ LABEL_10:
                 DaclSecurityDescriptor = -1073741271;
                 goto LABEL_11;
               }
-              DaclSecurityDescriptor = RtlpAddKnownAce((__int64)Dacl, 2u, 0, 1, (unsigned __int8 *)v5, 0);
+              DaclSecurityDescriptor = RtlpAddKnownAce(Dacl, 2u, 0, 1, (unsigned __int8 *)v5, 0);
               if ( DaclSecurityDescriptor < 0 )
                 goto LABEL_11;
               v5 += 8;

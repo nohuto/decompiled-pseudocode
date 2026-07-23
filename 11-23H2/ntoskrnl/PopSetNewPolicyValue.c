@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSetNewPolicyValue @ 0x14082C4FC
+ * XREFs of PopSetNewPolicyValue @ 0x14082C7FC
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1407A6C54 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407A6E44 (PopUmpoProcessPowerMessage.c)
  * Callees:
  *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PopSetPowerSettingValue @ 0x1407829F8 (PopSetPowerSettingValue.c)
- *     PopStateIsSessionSpecific @ 0x140782F88 (PopStateIsSessionSpecific.c)
- *     PpmSetProfilePolicySetting @ 0x14082BF80 (PpmSetProfilePolicySetting.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PopSetPowerSettingValue @ 0x140782BE8 (PopSetPowerSettingValue.c)
+ *     PopStateIsSessionSpecific @ 0x140783178 (PopStateIsSessionSpecific.c)
+ *     PpmSetProfilePolicySetting @ 0x14082C280 (PpmSetProfilePolicySetting.c)
  */
 
 __int64 __fastcall PopSetNewPolicyValue(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall PopSetNewPolicyValue(__int64 a1)
   v1 = (GUID *)(a1 + 20);
   v3 = 0;
   UnicodeString = 0LL;
-  if ( (int)RtlStringFromGUIDEx((unsigned int *)(a1 + 20), (__int64)&UnicodeString, 1) >= 0 )
+  if ( RtlStringFromGUIDEx((PGUID)(a1 + 20), &UnicodeString, 1u) >= 0 )
     RtlFreeUnicodeString(&UnicodeString);
   if ( !PopStateIsSessionSpecific(v1) )
   {

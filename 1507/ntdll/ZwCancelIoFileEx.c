@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwCancelIoFileEx()
+NTSTATUS __cdecl ZwCancelIoFileEx(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoRequestToCancel,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 141LL;
+  result = 141;
   __asm { syscall; Low latency system call }
   return result;
 }

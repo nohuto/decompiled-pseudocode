@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCurrentPowerStatePrecise @ 0x140AB129C
+ * XREFs of PopCurrentPowerStatePrecise @ 0x140AAF28C
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
- *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140BFD500 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
- *     PopValidateRTCWake @ 0x140C0969C (PopValidateRTCWake.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140C03500 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
+ *     PopValidateRTCWake @ 0x140C0F8AC (PopValidateRTCWake.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopBatteryUpdateCurrentState @ 0x140AB12D0 (PopBatteryUpdateCurrentState.c)
- *     PopCurrentPowerState @ 0x140AB1350 (PopCurrentPowerState.c)
+ *     PopBatteryUpdateCurrentState @ 0x140AAF2C0 (PopBatteryUpdateCurrentState.c)
+ *     PopCurrentPowerState @ 0x140AAF340 (PopCurrentPowerState.c)
  */
 
 __int64 __fastcall PopCurrentPowerStatePrecise(__int64 a1, __int64 a2)

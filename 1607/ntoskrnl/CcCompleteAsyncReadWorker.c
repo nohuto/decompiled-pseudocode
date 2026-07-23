@@ -1,22 +1,22 @@
 /*
- * XREFs of CcCompleteAsyncReadWorker @ 0x14006D794
+ * XREFs of CcCompleteAsyncReadWorker @ 0x14006D314
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CcCompleteAsyncRead @ 0x14006EAE4 (CcCompleteAsyncRead.c)
- *     CcFindNextWorkQueueEntry @ 0x140071FDC (CcFindNextWorkQueueEntry.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CcCompleteAsyncRead @ 0x14006E664 (CcCompleteAsyncRead.c)
+ *     CcFindNextWorkQueueEntry @ 0x140071B5C (CcFindNextWorkQueueEntry.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
 {
   char v1; // r15
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rsi
+  _SLIST_ENTRY *NextWorkQueueEntry; // rsi
   __int64 v4; // r14
   __int64 v5; // rbp
   struct _KPRCB *CurrentPrcb; // rcx
@@ -30,7 +30,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
   v1 = 0;
   if ( *((_DWORD *)P + 8) == 4 )
   {
-    NextWorkQueueEntry = (struct _SLIST_ENTRY *)P[6];
+    NextWorkQueueEntry = (_SLIST_ENTRY *)P[6];
     v4 = 16LL * *((unsigned int *)P + 9);
     v5 = *((unsigned int *)P + 9);
     do
@@ -46,7 +46,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
             LOWORD(L->ListHead.Alignment) >= L->Depth) )
       {
         ++L->FreeMisses;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *))L->FreeEx)(NextWorkQueueEntry);
+        ((void (__fastcall *)(_SLIST_ENTRY *))L->FreeEx)(NextWorkQueueEntry);
       }
       else
       {
@@ -67,7 +67,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
       }
       else
       {
-        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry();
+        NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry();
       }
       _m_prefetchw(&CcAsyncReadWorkQueueLock);
       if ( (CcAsyncReadWorkQueueLock & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )

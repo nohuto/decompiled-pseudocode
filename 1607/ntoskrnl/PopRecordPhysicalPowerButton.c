@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRecordPhysicalPowerButton @ 0x14066A420
+ * XREFs of PopRecordPhysicalPowerButton @ 0x14066A504
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     RtlGetSetBootStatusData @ 0x140543314 (RtlGetSetBootStatusData.c)
- *     RtlLockBootStatusData @ 0x1405478FC (RtlLockBootStatusData.c)
- *     RtlUnlockBootStatusData @ 0x140547DAC (RtlUnlockBootStatusData.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     RtlGetSetBootStatusData @ 0x140543854 (RtlGetSetBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140547E3C (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x1405482EC (RtlUnlockBootStatusData.c)
  */
 
 void __fastcall PopRecordPhysicalPowerButton(int a1)
@@ -24,18 +24,18 @@ void __fastcall PopRecordPhysicalPowerButton(int a1)
   }
   else
   {
-    *(_QWORD *)&xmmword_1403414F0 = MEMORY[0xFFFFF78000000014];
-    ++DWORD2(xmmword_1403414F0);
-    WORD6(xmmword_1403414F0) = MEMORY[0xFFFFF780000002C4];
+    *(_QWORD *)&xmmword_140341530 = MEMORY[0xFFFFF78000000014];
+    ++DWORD2(xmmword_140341530);
+    WORD6(xmmword_140341530) = MEMORY[0xFFFFF780000002C4];
   }
   if ( RtlLockBootStatusData(&FileHandle) >= 0 )
   {
     RtlGetSetBootStatusData(FileHandle, 0, RtlBsdItemPowerButtonPressInfo, &PopBsdPhysicalPowerButtonInfo, 0x20u, 0LL);
     RtlUnlockBootStatusData(FileHandle);
   }
-  else if ( HIWORD(xmmword_1403414F0) != 0xFFFF )
+  else if ( HIWORD(xmmword_140341530) != 0xFFFF )
   {
-    ++HIWORD(xmmword_1403414F0);
+    ++HIWORD(xmmword_140341530);
   }
   PopReleaseRwLock(&PopBsdUpdateLock);
 }

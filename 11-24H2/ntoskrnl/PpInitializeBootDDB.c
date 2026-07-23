@@ -1,11 +1,11 @@
 /*
- * XREFs of PpInitializeBootDDB @ 0x140C23E08
+ * XREFs of PpInitializeBootDDB @ 0x140C25E38
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite2 @ 0x140365350 (ExInitializeResourceLite2.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PpBootDDBHelper @ 0x140724D6C (PpBootDDBHelper.c)
+ *     ExInitializeResourceLite2 @ 0x1403EAA00 (ExInitializeResourceLite2.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PpBootDDBHelper @ 0x1407228FC (PpBootDDBHelper.c)
  */
 
 __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)
@@ -26,7 +26,7 @@ __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)
   PiDDBCacheTable.CompareRoutine = (_RTL_GENERIC_COMPARE_RESULTS (__fastcall *)(_RTL_AVL_TABLE *, void *, void *))PiCompareDDBCacheEntries;
   PiDDBCacheTable.AllocateRoutine = (void *(__fastcall *)(_RTL_AVL_TABLE *, unsigned int))PnpAllocateGenericTableEntry;
   PiDDBCacheTable.FreeRoutine = (void (__fastcall *)(_RTL_AVL_TABLE *, void *))CMFFreeFn;
-  qword_140FD9070 = (__int64)&PiDDBCacheList;
+  qword_140FDA080 = (__int64)&PiDDBCacheList;
   PiDDBCacheList = (__int64)&PiDDBCacheList;
   PiDDBCacheTable.BalancedRoot.Parent = (_RTL_BALANCED_LINKS *)&PiDDBCacheTable;
   if ( InitIsWinPEMode )

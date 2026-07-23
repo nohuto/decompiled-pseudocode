@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpUnloadAttachedDriver @ 0x140869734
+ * XREFs of PnpUnloadAttachedDriver @ 0x140869974
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1403B70AC (PnpRemoveLockedDeviceNode.c)
- *     PipCallDriverAddDevice @ 0x1406C8234 (PipCallDriverAddDevice.c)
+ *     PnpRemoveLockedDeviceNode @ 0x1403B728C (PnpRemoveLockedDeviceNode.c)
+ *     PipCallDriverAddDevice @ 0x1406C8264 (PipCallDriverAddDevice.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     IopUnloadDriver @ 0x140857938 (IopUnloadDriver.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     IopUnloadDriver @ 0x140857B78 (IopUnloadDriver.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

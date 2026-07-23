@@ -1,11 +1,11 @@
 /*
- * XREFs of VfIsRuleClassEnabled @ 0x140C46310
+ * XREFs of VfIsRuleClassEnabled @ 0x140C4C320
  * Callers:
- *     IovLogIrpMdlEvent @ 0x140530E84 (IovLogIrpMdlEvent.c)
- *     IovCleanupAiDb @ 0x14064238C (IovCleanupAiDb.c)
- *     IovInitAiDb @ 0x1406424E0 (IovInitAiDb.c)
- *     VfIrpTrackingPluginEntry @ 0x1407214D0 (VfIrpTrackingPluginEntry.c)
- *     VerifierInitSystem @ 0x140CDE894 (VerifierInitSystem.c)
+ *     IovLogIrpMdlEvent @ 0x140533384 (IovLogIrpMdlEvent.c)
+ *     IovCleanupAiDb @ 0x140645F6C (IovCleanupAiDb.c)
+ *     IovInitAiDb @ 0x1406460C0 (IovInitAiDb.c)
+ *     VfIrpTrackingPluginEntry @ 0x1407260A0 (VfIrpTrackingPluginEntry.c)
+ *     VerifierInitSystem @ 0x140CE4C2C (VerifierInitSystem.c)
  * Callees:
  *     <none>
  */

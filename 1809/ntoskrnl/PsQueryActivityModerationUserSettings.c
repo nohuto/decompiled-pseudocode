@@ -1,11 +1,11 @@
 /*
- * XREFs of PsQueryActivityModerationUserSettings @ 0x1402E9B30
+ * XREFs of PsQueryActivityModerationUserSettings @ 0x1402E9D20
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PsQueryActivityModerationUserSettings(_QWORD *a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of NtPrivilegeObjectAuditAlarm @ 0x14078BA20
+ * XREFs of NtPrivilegeObjectAuditAlarm @ 0x14078BBE0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SepProbeAndCaptureString_U @ 0x1406273E8 (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x14062759C (SeCheckAuditPrivilege.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14062792C (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SepProbeAndCaptureString_U @ 0x1406934F8 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x1406936AC (SeCheckAuditPrivilege.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x140693A3C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     SepAuditFailed @ 0x140925A60 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtPrivilegeObjectAuditAlarm(

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreChargeReservedPages @ 0x14013C7AC
+ * XREFs of MiStoreChargeReservedPages @ 0x14013CD1C
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  */
 
 __int64 __fastcall MiStoreChargeReservedPages(int *a1)

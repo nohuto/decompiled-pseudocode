@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAcquireKernelCfgLock @ 0x140A43DE8
+ * XREFs of MiAcquireKernelCfgLock @ 0x140A44098
  * Callers:
  *     MiMarkKernelImageCfgBits @ 0x1406970A4 (MiMarkKernelImageCfgBits.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A43E4C (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A440FC (MiAllocateKernelCfgBitmapPageTables.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 MiAcquireKernelCfgLock()

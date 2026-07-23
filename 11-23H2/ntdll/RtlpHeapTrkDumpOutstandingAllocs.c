@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHeapTrkDumpOutstandingAllocs @ 0x18010C2D4
+ * XREFs of RtlpHeapTrkDumpOutstandingAllocs @ 0x18010C2A4
  * Callers:
- *     RtlpHeapTrkLeakCallback @ 0x18010C870 (RtlpHeapTrkLeakCallback.c)
+ *     RtlpHeapTrkLeakCallback @ 0x18010C840 (RtlpHeapTrkLeakCallback.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180033C40 (RtlReleaseSRWLockExclusive.c)
  *     RtlSizeHeap @ 0x18003AA50 (RtlSizeHeap.c)
- *     RtlpHeapTrkReportResult @ 0x18010CA70 (RtlpHeapTrkReportResult.c)
+ *     RtlpHeapTrkReportResult @ 0x18010CA40 (RtlpHeapTrkReportResult.c)
  */
 
 char RtlpHeapTrkDumpOutstandingAllocs()
@@ -51,7 +51,7 @@ char RtlpHeapTrkDumpOutstandingAllocs()
                 goto LABEL_12;
             }
             Src = 8 * v5;
-            if ( RtlSizeHeap((__int64)v7, 0, 8 * v5) != -1
+            if ( RtlSizeHeap(v7, 0, (PVOID)(8 * v5)) != -1LL
               && !(unsigned __int8)RtlpHeapTrkReportResult(0x20uLL, &Src, 8uLL) )
             {
               break;
@@ -63,11 +63,11 @@ LABEL_12:
         if ( v4 == (_QWORD *)(v3 + qword_1801886A0) )
           goto LABEL_13;
       }
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180188A20 + 8 * v2));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180188A20 + 8 * v2));
       return 0;
     }
 LABEL_13:
-    RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180188A20 + 8 * v2));
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180188A20 + 8 * v2));
     if ( ++v0 >= 0x1EEF )
       return 1;
   }

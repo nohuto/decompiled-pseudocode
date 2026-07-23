@@ -1,10 +1,10 @@
 /*
- * XREFs of HalReadBootRegister @ 0x140A90CB4
+ * XREFs of HalReadBootRegister @ 0x140A90B34
  * Callers:
- *     HalpResetSBF @ 0x140A90C78 (HalpResetSBF.c)
+ *     HalpResetSBF @ 0x140A90AF8 (HalpResetSBF.c)
  *     HalpInitBootTable @ 0x140B65A3C (HalpInitBootTable.c)
  * Callees:
- *     HalpGetCmosData @ 0x1403A53F0 (HalpGetCmosData.c)
+ *     HalpGetCmosData @ 0x1403A55D0 (HalpGetCmosData.c)
  */
 
 __int64 __fastcall HalReadBootRegister(__int64 a1)

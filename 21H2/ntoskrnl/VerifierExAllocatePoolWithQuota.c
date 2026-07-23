@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierExAllocatePoolWithQuota @ 0x1409D4D00
+ * XREFs of VerifierExAllocatePoolWithQuota @ 0x1409D5D00
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithQuota @ 0x1405B35E0 (ExAllocatePoolWithQuota.c)
- *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithQuota @ 0x1405B3810 (ExAllocatePoolWithQuota.c)
+ *     VfCheckPoolType @ 0x1409C8D64 (VfCheckPoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D55D0 (VeAllocatePoolWithTagPriority.c)
  */
 
 PVOID __fastcall VerifierExAllocatePoolWithQuota(__int32 PoolType, ULONG_PTR BugCheckParameter3)
@@ -21,7 +21,7 @@ PVOID __fastcall VerifierExAllocatePoolWithQuota(__int32 PoolType, ULONG_PTR Bug
   if ( (MmVerifierData & 0x400000) == 0 || (VfRuleClasses & 0x800000000LL) != 0 || (MmVerifierData & 1) != 0 )
   {
     VfCheckPoolType(PoolType, retaddr, 0);
-    ++dword_140C2A87C;
+    ++dword_140C2A8BC;
     if ( (MmVerifierData & 8) != 0 )
     {
       if ( KeGetCurrentThread()->ApcState.Process == PsIdleProcess )
@@ -44,7 +44,7 @@ PVOID __fastcall VerifierExAllocatePoolWithQuota(__int32 PoolType, ULONG_PTR Bug
     else
       result = VeAllocatePoolWithTagPriority(v6, BugCheckParameter3, 0x70617257u, HighPoolPriority, retaddr);
     if ( !result && (PoolType & 8) == 0 )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
   }
   else
   {

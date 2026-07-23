@@ -6,9 +6,9 @@
  *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18007FC8C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
  */
 
-__int64 RtlpCapChkTelemetryRunOnce()
+__int64 __fastcall RtlpCapChkTelemetryRunOnce(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation((__int64 *)&dword_1801813F8);
+  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation((char *)&dword_1801813F8);
   RtlpPerformanceCounterFrequency = MEMORY[0x7FFE0300];
   return 1LL;
 }

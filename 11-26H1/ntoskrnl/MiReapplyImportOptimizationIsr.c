@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReapplyImportOptimizationIsr @ 0x1406FB670
+ * XREFs of MiReapplyImportOptimizationIsr @ 0x140700340
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeCanUseHaltOnAddress @ 0x1403E5790 (KeCanUseHaltOnAddress.c)
- *     KiHaltOnAddress @ 0x1403E57E8 (KiHaltOnAddress.c)
- *     MiApplyDynamicRelocationFixups @ 0x140480F38 (MiApplyDynamicRelocationFixups.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     MmIsVerifierApplicableToImage @ 0x1406F3918 (MmIsVerifierApplicableToImage.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeCanUseHaltOnAddress @ 0x1403E8980 (KeCanUseHaltOnAddress.c)
+ *     KiHaltOnAddress @ 0x1403E89D8 (KiHaltOnAddress.c)
+ *     MiApplyDynamicRelocationFixups @ 0x14047A8A8 (MiApplyDynamicRelocationFixups.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmIsVerifierApplicableToImage @ 0x1406F8588 (MmIsVerifierApplicableToImage.c)
  */
 
 ULONG_PTR __fastcall MiReapplyImportOptimizationIsr(ULONG_PTR Argument)

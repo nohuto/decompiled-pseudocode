@@ -25,20 +25,19 @@
  *     __security_check_cookie @ 0x18008C7B0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlSetLastWin32Error(unsigned int a1)
+void __cdecl RtlSetLastWin32Error(LONG Win32Error)
 {
-  __int64 result; // rax
+  struct _TEB *v1; // rax
   _QWORD v2[2]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned int v3; // [rsp+50h] [rbp+8h] BYREF
+  LONG v3; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = a1;
-  result = (__int64)NtCurrentTeb();
-  if ( dword_1801669C4 && a1 == dword_1801669C4 )
+  v3 = Win32Error;
+  v1 = NtCurrentTeb();
+  if ( dword_1801669C4 && Win32Error == dword_1801669C4 )
     __debugbreak();
-  if ( *(_DWORD *)(result + 104) != a1 )
+  if ( v1->LastErrorValue != Win32Error )
   {
-    *(_DWORD *)(result + 104) = a1;
-    result = v3;
+    v1->LastErrorValue = Win32Error;
     if ( v3 )
     {
       if ( byte_18016655C )
@@ -47,10 +46,9 @@ __int64 __fastcall RtlSetLastWin32Error(unsigned int a1)
         {
           v2[0] = &v3;
           v2[1] = 4LL;
-          return EtwEventWrite(qword_180163B90, (int)&unk_18012C160, 1, (__int64)v2);
+          EtwEventWrite(qword_180163B90, &stru_18012C160, 1u, (PEVENT_DATA_DESCRIPTOR)v2);
         }
       }
     }
   }
-  return result;
 }

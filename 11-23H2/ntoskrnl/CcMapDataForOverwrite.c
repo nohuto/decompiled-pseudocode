@@ -1,14 +1,14 @@
 /*
- * XREFs of CcMapDataForOverwrite @ 0x1402FC384
+ * XREFs of CcMapDataForOverwrite @ 0x1402FC614
  * Callers:
- *     CcPreparePinWrite @ 0x140764F90 (CcPreparePinWrite.c)
+ *     CcPreparePinWrite @ 0x140765180 (CcPreparePinWrite.c)
  * Callees:
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     CcMapDataCommon @ 0x140765164 (CcMapDataCommon.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcMapDataCommon @ 0x140765354 (CcMapDataCommon.c)
  */
 
 __int64 __fastcall CcMapDataForOverwrite(__int64 a1, _DWORD *a2, unsigned int a3, _QWORD *a4, unsigned __int64 *a5)
@@ -53,10 +53,13 @@ __int64 __fastcall CcMapDataForOverwrite(__int64 a1, _DWORD *a2, unsigned int a3
     *(_DWORD *)(v8 + 152) |= 0x20000u;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

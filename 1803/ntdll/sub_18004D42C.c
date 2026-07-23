@@ -19,8 +19,8 @@ __int64 __fastcall sub_18004D42C(
         _QWORD *a6,
         __int64 *a7)
 {
-  unsigned __int16 v10; // ax
-  unsigned __int16 *v11; // rsi
+  wchar_t v10; // ax
+  wchar_t *v11; // rsi
   unsigned int v12; // edi
   int v13; // ecx
   __int64 v14; // rsi

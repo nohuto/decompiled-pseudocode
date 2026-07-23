@@ -1,29 +1,35 @@
 /*
- * XREFs of RtlWriteRegistryValue @ 0x180090CB0
+ * XREFs of RtlWriteRegistryValue @ 0x180090CA0
  * Callers:
- *     RtlSetPortableOperatingSystem @ 0x1800E5380 (RtlSetPortableOperatingSystem.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1800E5508 (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlSetPortableOperatingSystem @ 0x1800E5440 (RtlSetPortableOperatingSystem.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1800E55C8 (RtlpSetTimeZoneInformationWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlpGetRegistryHandle @ 0x1800582AC (RtlpGetRegistryHandle.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlpGetRegistryHandle @ 0x18005829C (RtlpGetRegistryHandle.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     ZwSetValueKey @ 0x1800A7010 (ZwSetValueKey.c)
  */
 
-__int64 __fastcall RtlWriteRegistryValue(int a1, _WORD *a2, const WCHAR *a3, int a4, __int64 a5, int a6)
+NTSTATUS __cdecl RtlWriteRegistryValue(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PCWSTR ValueName,
+        ULONG ValueType,
+        PVOID ValueData,
+        ULONG ValueLength)
 {
-  __int64 result; // rax
-  unsigned int v10; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp-28h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-20h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v10; // ebx
+  HANDLE KeyHandle; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-20h] BYREF
 
-  result = RtlpGetRegistryHandle(a1, a2, 1, &Handle);
-  if ( (int)result >= 0 )
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 1, &KeyHandle);
+  if ( result >= 0 )
   {
-    RtlInitUnicodeString(&DestinationString, a3);
-    v10 = ZwSetValueKey(Handle, &DestinationString, 0LL, a4 & 0xFFFFFF, a5, a6);
-    if ( (a1 & 0x40000000) == 0 )
-      NtClose(Handle);
+    RtlInitUnicodeString(&DestinationString, ValueName);
+    v10 = ZwSetValueKey(KeyHandle, &DestinationString, 0, ValueType & 0xFFFFFF, ValueData, ValueLength);
+    if ( (RelativeTo & 0x40000000) == 0 )
+      NtClose(KeyHandle);
     return v10;
   }
   return result;

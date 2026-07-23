@@ -30,7 +30,7 @@ __int64 __fastcall ExpSystemErrorHandler2(
         ULONG_PTR BugCheckParameter1,
         unsigned int a2,
         int a3,
-        struct _MESSAGE_RESOURCE_ENTRY *a4,
+        _MESSAGE_RESOURCE_ENTRY *a4,
         char a5)
 {
   ULONG v7; // r15d
@@ -61,9 +61,9 @@ __int64 __fastcall ExpSystemErrorHandler2(
   PMESSAGE_RESOURCE_ENTRY MessageResourceEntry; // [rsp+68h] [rbp-1E0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+70h] [rbp-1D8h] BYREF
   const char *v35; // [rsp+80h] [rbp-1C8h]
-  STRING v36; // [rsp+88h] [rbp-1C0h] BYREF
-  STRING SourceString; // [rsp+98h] [rbp-1B0h] BYREF
-  STRING DestinationString; // [rsp+A8h] [rbp-1A0h] BYREF
+  _STRING v36; // [rsp+88h] [rbp-1C0h] BYREF
+  _STRING SourceString; // [rsp+98h] [rbp-1B0h] BYREF
+  _STRING DestinationString; // [rsp+A8h] [rbp-1A0h] BYREF
   ULONG_PTR BugCheckParameter2[5]; // [rsp+B8h] [rbp-190h] BYREF
   char pszFormat[32]; // [rsp+E0h] [rbp-168h] BYREF
   char pszDest[256]; // [rsp+100h] [rbp-148h] BYREF

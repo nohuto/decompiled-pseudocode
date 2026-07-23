@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsIsAppTarget @ 0x140B96CF0
+ * XREFs of ViFaultsIsAppTarget @ 0x140B98CF0
  * Callers:
- *     ViCreateProcessCallbackInternal @ 0x140B968D0 (ViCreateProcessCallbackInternal.c)
- *     ViFaultsAddAppNoDuplicates @ 0x140B969F8 (ViFaultsAddAppNoDuplicates.c)
+ *     ViCreateProcessCallbackInternal @ 0x140B988D0 (ViCreateProcessCallbackInternal.c)
+ *     ViFaultsAddAppNoDuplicates @ 0x140B989F8 (ViFaultsAddAppNoDuplicates.c)
  * Callees:
- *     VfUtilEqualUnicodeString @ 0x140B83228 (VfUtilEqualUnicodeString.c)
+ *     VfUtilEqualUnicodeString @ 0x140B85228 (VfUtilEqualUnicodeString.c)
  */
 
 __int64 __fastcall ViFaultsIsAppTarget(__int64 a1)

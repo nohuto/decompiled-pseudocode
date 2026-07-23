@@ -1,13 +1,13 @@
 /*
- * XREFs of KiIntSteerDisable @ 0x140423AAC
+ * XREFs of KiIntSteerDisable @ 0x140430B9C
  * Callers:
- *     KeDisconnectInterrupt @ 0x140423CA0 (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x140430D90 (KeDisconnectInterrupt.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerLogState @ 0x140423C40 (KiIntSteerLogState.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerLogState @ 0x140430D30 (KiIntSteerLogState.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiIntSteerDisable(__int64 *a1, unsigned int a2)
@@ -33,7 +33,7 @@ __int64 __fastcall KiIntSteerDisable(__int64 *a1, unsigned int a2)
   if ( v4 )
   {
     KiIntSteerLogState(*(_QWORD *)(*a1 + 168), PPM_ETW_INTERRUPT_STEERING_STATE_DISCONNECT);
-    v5 = KeAcquireSpinLockRaiseToDpc(&KiIntTrackSpinlock);
+    v5 = KeAcquireSpinLockRaiseToDpc(&KsepShimDbLock.InGlobalUpdateVpThreadPriorityList);
     if ( a2 )
     {
       v6 = a2;
@@ -60,10 +60,10 @@ __int64 __fastcall KiIntSteerDisable(__int64 *a1, unsigned int a2)
         if ( *((char **)v9 + 2) != v9 + 16 )
         {
 LABEL_16:
-          KeReleaseSpinLock(&KiIntTrackSpinlock, v5);
+          KeReleaseSpinLock(&KsepShimDbLock.InGlobalUpdateVpThreadPriorityList, v5);
           return 0LL;
         }
-        --LODWORD(KsepShimDbLock.ExtendedFeatureDisableMask);
+        --KiIntTrackRootCount;
         v11 = *(void **)v9;
         if ( *(char **)(*(_QWORD *)v9 + 8LL) == v9 )
         {
@@ -82,8 +82,7 @@ LABEL_11:
               {
                 _BitScanForward64(&v16, v14);
                 v14 &= ~(1LL << v16);
-                Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                 + 64 * (unsigned __int16)v13
+                Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v13].Flink
                                  + (unsigned int)(unsigned __int8)v16));
                 if ( (*(_DWORD *)(Prcb + 11672))-- == 1 )
                   _interlockedbittestandset64(

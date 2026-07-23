@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddMappedPtes @ 0x140526020
+ * XREFs of MiAddMappedPtes @ 0x140509080
  * Callers:
- *     MiMapSystemImage @ 0x140484528 (MiMapSystemImage.c)
- *     MiMapViewInSystemSpace @ 0x140525ED4 (MiMapViewInSystemSpace.c)
+ *     MiMapSystemImage @ 0x14048327C (MiMapSystemImage.c)
+ *     MiMapViewInSystemSpace @ 0x140508F34 (MiMapViewInSystemSpace.c)
  * Callees:
- *     MiGetSubsectionDriverProtos @ 0x140026CD4 (MiGetSubsectionDriverProtos.c)
- *     MiAddViewsForSection @ 0x14002C690 (MiAddViewsForSection.c)
- *     MiOffsetToProtos @ 0x140033070 (MiOffsetToProtos.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakePrototypePteDirect @ 0x1401F2758 (MiMakePrototypePteDirect.c)
- *     MiGetSharedProtos @ 0x1401F5088 (MiGetSharedProtos.c)
+ *     MiGetSubsectionDriverProtos @ 0x140026854 (MiGetSubsectionDriverProtos.c)
+ *     MiAddViewsForSection @ 0x14002C210 (MiAddViewsForSection.c)
+ *     MiOffsetToProtos @ 0x140032BF0 (MiOffsetToProtos.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakePrototypePteDirect @ 0x1401F2584 (MiMakePrototypePteDirect.c)
+ *     MiGetSharedProtos @ 0x1401F4EB4 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiAddMappedPtes(__int64 *a1, __int64 a2, __int64 a3, unsigned __int64 *a4, unsigned int a5)

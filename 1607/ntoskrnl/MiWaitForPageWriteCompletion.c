@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWaitForPageWriteCompletion @ 0x140097BE8
+ * XREFs of MiWaitForPageWriteCompletion @ 0x1400973E8
  * Callers:
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
  */
 
 __int64 __fastcall MiWaitForPageWriteCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)

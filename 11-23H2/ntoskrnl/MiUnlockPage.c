@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockPage @ 0x14046CD3A
+ * XREFs of MiUnlockPage @ 0x14046D13A
  * Callers:
- *     MiScanPagefileSpace @ 0x140A32BE0 (MiScanPagefileSpace.c)
- *     MmAreMdlPagesLocked @ 0x140AE81C8 (MmAreMdlPagesLocked.c)
+ *     MiScanPagefileSpace @ 0x140A32E90 (MiScanPagefileSpace.c)
+ *     MmAreMdlPagesLocked @ 0x140AE81B8 (MmAreMdlPagesLocked.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockPage(__int64 a1, unsigned __int8 a2)
@@ -18,10 +18,13 @@ __int64 __fastcall MiUnlockPage(__int64 a1, unsigned __int8 a2)
   v2 = a2;
   result = 0x7FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)result <= 0xFu && a2 <= 0xFu && (unsigned __int8)result >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && (unsigned __int8)result <= 0xFu
+      && a2 <= 0xFu
+      && (unsigned __int8)result >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -29,7 +32,7 @@ __int64 __fastcall MiUnlockPage(__int64 a1, unsigned __int8 a2)
       v6 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v6 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDetermineModifiedPageListHead @ 0x1402D10F4
+ * XREFs of MiDetermineModifiedPageListHead @ 0x14024F584
  * Callers:
- *     MiReplaceTransitionPage @ 0x14026D370 (MiReplaceTransitionPage.c)
+ *     MiReplaceTransitionPage @ 0x14025B310 (MiReplaceTransitionPage.c)
  * Callees:
  *     <none>
  */

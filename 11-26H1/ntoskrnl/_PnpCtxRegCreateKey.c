@@ -1,18 +1,18 @@
 /*
- * XREFs of _PnpCtxRegCreateKey @ 0x140AEABA0
+ * XREFs of _PnpCtxRegCreateKey @ 0x140AED690
  * Callers:
- *     PipUpdateDeviceProducts @ 0x1405D7EE0 (PipUpdateDeviceProducts.c)
- *     PiDrvDbOverlayCopyKeys @ 0x1407B592C (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x1407B5EC0 (PiDrvDbOverlayNodeHive.c)
- *     DrvDbOpenObjectRegKey @ 0x14091D580 (DrvDbOpenObjectRegKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x14091DC40 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     _CmAddPanelDeviceWorker @ 0x140B2B2B0 (_CmAddPanelDeviceWorker.c)
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     PipMigratePnpState @ 0x140CC26A0 (PipMigratePnpState.c)
- *     PipCommitPendingOsExtensionResource @ 0x140CC6C40 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x140CC6E70 (PipCommitPendingService.c)
+ *     PipUpdateDeviceProducts @ 0x1405DA6E0 (PipUpdateDeviceProducts.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1407B898C (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x1407B8F20 (PiDrvDbOverlayNodeHive.c)
+ *     DrvDbOpenObjectRegKey @ 0x140977FE0 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1409786A0 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     _CmAddPanelDeviceWorker @ 0x140B2D330 (_CmAddPanelDeviceWorker.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     PipMigratePnpState @ 0x140CC8770 (PipMigratePnpState.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140CCCD30 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140CCCF60 (PipCommitPendingService.c)
  * Callees:
- *     _SysCtxRegCreateKey @ 0x140AEABF8 (_SysCtxRegCreateKey.c)
+ *     _SysCtxRegCreateKey @ 0x140AED6E8 (_SysCtxRegCreateKey.c)
  */
 
 __int64 __fastcall PnpCtxRegCreateKey(__int64 a1, int a2, int a3, int a4, int a5, __int64 a6)

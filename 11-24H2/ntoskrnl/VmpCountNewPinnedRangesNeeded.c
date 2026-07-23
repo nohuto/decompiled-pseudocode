@@ -1,7 +1,7 @@
 /*
- * XREFs of VmpCountNewPinnedRangesNeeded @ 0x14064A61C
+ * XREFs of VmpCountNewPinnedRangesNeeded @ 0x140648BDC
  * Callers:
- *     VmpPinMemoryRange @ 0x14064ACC0 (VmpPinMemoryRange.c)
+ *     VmpPinMemoryRange @ 0x140649280 (VmpPinMemoryRange.c)
  * Callees:
  *     <none>
  */

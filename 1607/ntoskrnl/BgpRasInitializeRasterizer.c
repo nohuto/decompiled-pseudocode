@@ -3,7 +3,7 @@
  * Callers:
  *     FopInitializeFonts @ 0x1407D43C8 (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x140128F34 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1401294A4 (FioFwReadBytesAtOffset.c)
  *     FopGetTableOffsetAndSize @ 0x1407D4CE8 (FopGetTableOffsetAndSize.c)
  */
 

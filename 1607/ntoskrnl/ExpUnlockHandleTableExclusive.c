@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpUnlockHandleTableExclusive @ 0x1400A8A44
+ * XREFs of ExpUnlockHandleTableExclusive @ 0x1400A6FC4
  * Callers:
- *     ExDisableHandleTracing @ 0x14022C9EC (ExDisableHandleTracing.c)
- *     ExQueryHandleExceptionsPermanency @ 0x14022CB34 (ExQueryHandleExceptionsPermanency.c)
- *     ExReferenceHandleDebugInfo @ 0x1404D4164 (ExReferenceHandleDebugInfo.c)
- *     ExEnableHandleExceptions @ 0x1404D41B4 (ExEnableHandleExceptions.c)
- *     ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1404D4250 (ExEnableRaiseUMExceptionOnInvalidHandleClose.c)
- *     ExEnableHandleTracing @ 0x1406AD3A4 (ExEnableHandleTracing.c)
+ *     ExDisableHandleTracing @ 0x14022C818 (ExDisableHandleTracing.c)
+ *     ExQueryHandleExceptionsPermanency @ 0x14022C960 (ExQueryHandleExceptionsPermanency.c)
+ *     ExReferenceHandleDebugInfo @ 0x1404B7C04 (ExReferenceHandleDebugInfo.c)
+ *     ExEnableHandleExceptions @ 0x1404B7C54 (ExEnableHandleExceptions.c)
+ *     ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1404B7CF0 (ExEnableRaiseUMExceptionOnInvalidHandleClose.c)
+ *     ExEnableHandleTracing @ 0x1406AD4DC (ExEnableHandleTracing.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall ExpUnlockHandleTableExclusive(__int64 a1, __int64 a2)

@@ -38,7 +38,7 @@ LABEL_11:
         _InterlockedDecrement((volatile signed __int32 *)(qword_18015A420 + 16LL * *(unsigned int *)(v9 + 20) + 8));
         return v10;
       }
-      v10 = sub_180005150(a4, *(_DWORD *)(a4 + 96), (UNICODE_STRING *)(v11 + 168));
+      v10 = sub_180005150(a4, *(_DWORD *)(a4 + 96), (_UNICODE_STRING *)(v11 + 168));
       if ( v10 )
         goto LABEL_11;
       v10 = sub_180106B9C(v9);

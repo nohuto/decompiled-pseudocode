@@ -8,5 +8,5 @@
 
 NTSTATUS __stdcall NtFlushBuffersFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)
 {
-  return NtFlushBuffersFileEx((_DWORD)FileHandle, 0, 0, 0, (__int64)IoStatusBlock);
+  return NtFlushBuffersFileEx(FileHandle, 0, 0LL, 0, IoStatusBlock);
 }

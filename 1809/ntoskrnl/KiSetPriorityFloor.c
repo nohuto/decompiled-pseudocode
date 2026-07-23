@@ -4,11 +4,11 @@
  *     KiAbApplyWakeupBoost @ 0x1400240DC (KiAbApplyWakeupBoost.c)
  *     KiAbSetMinimumThreadPriority @ 0x1400245F0 (KiAbSetMinimumThreadPriority.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiSetPriorityThread @ 0x1400CF640 (KiSetPriorityThread.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x1400CF6C0 (KiSetPriorityThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 char __fastcall KiSetPriorityFloor(ULONG_PTR BugCheckParameter1, __int64 a2, char a3, char a4)

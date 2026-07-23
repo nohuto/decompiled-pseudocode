@@ -21,33 +21,32 @@ char __thiscall AVrfpLoadAndInitializeProvider(int this)
   int v4; // edi
   unsigned int v5; // ecx
   int v6; // eax
-  const unsigned __int16 *NtSystemRoot; // eax
+  const WCHAR *NtSystemRoot; // eax
   int Dll; // eax
   int v9; // eax
-  int v10; // eax
+  PIMAGE_NT_HEADERS v10; // eax
   int v11; // edx
   int v12; // ecx
   _DWORD *v13; // edi
   char v14; // al
   _DWORD v16[2]; // [esp+10h] [ebp-88h] BYREF
   _DWORD *v17; // [esp+18h] [ebp-80h] BYREF
-  int v18; // [esp+1Ch] [ebp-7Ch] BYREF
-  int v19; // [esp+20h] [ebp-78h]
-  char v20; // [esp+25h] [ebp-73h]
-  char v21; // [esp+26h] [ebp-72h]
-  char v22; // [esp+27h] [ebp-71h]
-  int v23[22]; // [esp+28h] [ebp-70h] BYREF
+  _UNICODE_STRING Destination; // [esp+1Ch] [ebp-7Ch] BYREF
+  char v19; // [esp+25h] [ebp-73h]
+  char v20; // [esp+26h] [ebp-72h]
+  char v21; // [esp+27h] [ebp-71h]
+  int v22[22]; // [esp+28h] [ebp-70h] BYREF
   CPPEH_RECORD ms_exc; // [esp+80h] [ebp-18h]
 
   v16[1] = this;
-  v21 = 0;
-  v2 = 0;
   v20 = 0;
+  v2 = 0;
+  v19 = 0;
   v3 = 1;
   if ( (AVrfpDebug & 1) != 0 )
   {
     DbgPrint("AVRF: verifier dll `%ws' \n", *(_DWORD *)(this + 12));
-    v2 = v20;
+    v2 = v19;
   }
   v4 = *(_DWORD *)(this + 12);
   v5 = *(unsigned __int16 *)(this + 8) >> 1;
@@ -56,9 +55,9 @@ char __thiscall AVrfpLoadAndInitializeProvider(int this)
   {
     while ( 1 )
     {
-      v19 = *(unsigned __int16 *)(v4 + 2 * v6);
+      Destination.Buffer = (wchar_t *)*(unsigned __int16 *)(v4 + 2 * v6);
       v3 = 1;
-      if ( v19 == 92 || (_WORD)v19 == 47 )
+      if ( Destination.Buffer == (wchar_t *)92 || LOWORD(Destination.Buffer) == 47 )
         break;
       if ( ++v6 >= v5 )
         goto LABEL_9;
@@ -71,35 +70,35 @@ LABEL_9:
     DbgPrint("AVRF: Cannot load %ws from arbitrary location\n", v4);
     return 0;
   }
-  v19 = (int)&unk_4B3A6A18;
-  v18 = 34078720;
-  NtSystemRoot = (const unsigned __int16 *)RtlGetNtSystemRoot();
-  RtlAppendUnicodeToString((unsigned __int16 *)&v18, NtSystemRoot);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v18, (const void **)&SlashSystem32SlashString);
-  LdrpInitializeDllPath(0, v19, v23);
-  Dll = LdrpLoadDll(1, (int)v16);
+  Destination.Buffer = (wchar_t *)&unk_4B3A6A18;
+  *(_DWORD *)&Destination.Length = 34078720;
+  NtSystemRoot = RtlGetNtSystemRoot();
+  RtlAppendUnicodeToString(&Destination, NtSystemRoot);
+  RtlAppendUnicodeStringToString(&Destination, &SlashSystem32SlashString);
+  LdrpInitializeDllPath(0, (int)Destination.Buffer, v22);
+  Dll = LdrpLoadDll((PUNICODE_STRING)(this + 8), 1, (int)v16);
   if ( Dll < 0 )
   {
     DbgPrint(
       "AVRF: %ws: failed to load provider `%ws' (status %08X) from %ws\n",
-      *(_DWORD *)(dword_4B3A5D8C + 48),
+      dword_4B3A5D8C->BaseDllName.Buffer,
       *(_DWORD *)(this + 12),
       Dll,
-      v19);
+      Destination.Buffer);
     return 0;
   }
   v9 = v16[0];
   *(_DWORD *)(this + 16) = v16[0];
   ms_exc.registration.TryLevel = 0;
-  v10 = RtlImageNtHeader(*(_DWORD *)(v9 + 24));
+  v10 = RtlImageNtHeader(*(PVOID *)(v9 + 24));
   if ( !v10 )
     goto LABEL_28;
-  if ( (*(_WORD *)(v10 + 22) & 0x2000) == 0 )
+  if ( (v10->FileHeader.Characteristics & 0x2000) == 0 )
   {
     DbgPrint("AVRF: provider %ws is not a DLL image \n", *(_DWORD *)(this + 12));
 LABEL_28:
     v14 = 1;
-    v22 = 1;
+    v21 = 1;
     ms_exc.registration.TryLevel = -2;
     goto LABEL_29;
   }
@@ -124,7 +123,7 @@ LABEL_28:
       *(_DWORD *)(this + 24) = v13[2];
       *(_DWORD *)(this + 28) = v13[3];
       *(_DWORD *)(this + 32) = v13[10];
-      v13[4] = *(_DWORD *)(dword_4B3A5D8C + 48);
+      v13[4] = dword_4B3A5D8C->BaseDllName.Buffer;
       v13[5] = AVrfpVerifierFlags;
       v13[6] = AVrfpDebug;
       v13[7] = RtlpGetStackTraceAddress;
@@ -135,19 +134,19 @@ LABEL_28:
     }
     else
     {
+      v20 = 1;
       v21 = 1;
-      v22 = 1;
       DbgPrint("AVRF: provider %ws passed an invalid descriptor @ %p \n", *(_DWORD *)(this + 12), v17);
     }
   }
   else
   {
+    v20 = 1;
     v21 = 1;
-    v22 = 1;
     DbgPrint("AVRF: provider %ws did not initialize correctly \n", *(_DWORD *)(this + 12));
   }
   ms_exc.registration.TryLevel = -2;
-  v14 = v21;
+  v14 = v20;
 LABEL_29:
   if ( v14 )
     return 0;

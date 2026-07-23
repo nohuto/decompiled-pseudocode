@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSetBootLoaderMetadata @ 0x1406058A0
+ * XREFs of ExpSetBootLoaderMetadata @ 0x140605DF0
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ExSystemExceptionFilter @ 0x140865AA0 (ExSystemExceptionFilter.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x140865CE0 (ExSystemExceptionFilter.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

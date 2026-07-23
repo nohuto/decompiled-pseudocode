@@ -1,13 +1,13 @@
 /*
- * XREFs of IoQueryFileInformation @ 0x14050A100
+ * XREFs of IoQueryFileInformation @ 0x1404ED090
  * Callers:
  *     IopValidateJunctionTarget @ 0x1403E2B58 (IopValidateJunctionTarget.c)
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     PfpPrefetchEntireDirectory @ 0x140508800 (PfpPrefetchEntireDirectory.c)
- *     PfSnGetSectionObject @ 0x14050ACA0 (PfSnGetSectionObject.c)
- *     IopGetNetworkOpenInformation @ 0x140580C70 (IopGetNetworkOpenInformation.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     PfpPrefetchEntireDirectory @ 0x1404EB790 (PfpPrefetchEntireDirectory.c)
+ *     PfSnGetSectionObject @ 0x1404EDC30 (PfSnGetSectionObject.c)
+ *     IopGetNetworkOpenInformation @ 0x14058111C (IopGetNetworkOpenInformation.c)
  * Callees:
- *     IopQueryXxxInformation @ 0x14050A128 (IopQueryXxxInformation.c)
+ *     IopQueryXxxInformation @ 0x1404ED0B8 (IopQueryXxxInformation.c)
  */
 
 NTSTATUS __stdcall IoQueryFileInformation(

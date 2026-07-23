@@ -13,44 +13,49 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDllInternal(__int128 *a1, __int16 **a2, _QWORD *a3, __int64 a4, int a5)
+__int64 __fastcall LdrpFindLoadedDllInternal(
+        UNICODE_STRING *a1,
+        unsigned __int16 **a2,
+        _QWORD *a3,
+        __int64 a4,
+        __int16 a5)
 {
   unsigned int LoadedDllByName; // ebx
   int v9; // eax
-  __int128 v10; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v11[16]; // [rsp+60h] [rbp-A0h] BYREF
-  int v12; // [rsp+70h] [rbp-90h] BYREF
-  _WORD *v13; // [rsp+78h] [rbp-88h]
-  _WORD v14[128]; // [rsp+80h] [rbp-80h] BYREF
+  _UNICODE_STRING v10; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING String1; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING v12; // [rsp+70h] [rbp-90h] BYREF
+  _WORD v13[128]; // [rsp+80h] [rbp-80h] BYREF
 
   *a3 = 0LL;
   if ( (a5 & 0x20) != 0 )
   {
-    LoadedDllByName = LdrpFindLoadedDllByName((_DWORD)a1, 0, a5, (_DWORD)a3, a4);
+    LoadedDllByName = LdrpFindLoadedDllByName(a1, 0LL, a4);
   }
   else
   {
-    v12 = 0x1000000;
-    v13 = v14;
-    v14[0] = 0;
-    v10 = 0uLL;
+    *(_DWORD *)&v12.Length = 0x1000000;
+    v12.Buffer = v13;
+    v13[0] = 0;
+    *(_QWORD *)&v10.Length = 0LL;
+    v10.Buffer = 0LL;
     if ( (a5 & 0x200) != 0 )
-      v9 = LdrpResolveDllName(a1, (__int64)&v12, (__int64)v11, &v10, 0LL, a5);
+      v9 = LdrpResolveDllName(a1, &v12, &String1, &v10, 0LL, a5);
     else
-      v9 = LdrpSearchPath((unsigned __int16 *)a1, a2, 0, 0LL, &v12, (__int64)v11, (unsigned __int16 *)&v10, 0LL, 0LL);
+      v9 = LdrpSearchPath(a1, a2, 0, 0LL, &v12, (__int64)&String1, &v10, 0LL, 0LL);
     LoadedDllByName = v9;
     if ( v9 >= 0 )
     {
-      LoadedDllByName = LdrpFindLoadedDllByName((unsigned int)v11, (unsigned int)&v10, a5, (_DWORD)a3, a4);
+      LoadedDllByName = LdrpFindLoadedDllByName(&String1, &v10, a4);
       if ( LoadedDllByName == -1073741515 )
         LoadedDllByName = LdrpFindLoadedDllByMappingFile(&v12, a3, a4);
     }
     LdrpFreeUnicodeString((__int64)&v10);
-    if ( v14 != v13 )
+    if ( v13 != v12.Buffer )
       NtdllpFreeStringRoutine();
-    v12 = 0x1000000;
-    v13 = v14;
-    v14[0] = 0;
+    *(_DWORD *)&v12.Length = 0x1000000;
+    v12.Buffer = v13;
+    v13[0] = 0;
   }
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(

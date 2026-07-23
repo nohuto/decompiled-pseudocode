@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwReplyWaitReceivePortEx @ 0x14041B2C0
+ * XREFs of ZwReplyWaitReceivePortEx @ 0x14041B650
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReplyWaitReceivePortEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReplyWaitReceivePortEx(
+        HANDLE PortHandle,
+        PVOID *PortContext,
+        PPORT_MESSAGE ReplyMessage,
+        PPORT_MESSAGE ReceiveMessage,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

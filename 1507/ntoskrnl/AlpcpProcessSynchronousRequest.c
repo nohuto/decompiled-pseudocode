@@ -87,7 +87,7 @@ __int64 __fastcall AlpcpProcessSynchronousRequest(
   signed __int64 v53; // rcx
   __int64 v54; // rbx
   int (__fastcall *v55)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v56; // r8
+  _SLIST_HEADER *v56; // r8
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-B8h] BYREF
   char v58; // [rsp+38h] [rbp-B0h]
   int v59; // [rsp+40h] [rbp-A8h]

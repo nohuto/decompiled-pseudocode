@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpExposeTokenAttribute @ 0x14073C230
+ * XREFs of AlpcpExposeTokenAttribute @ 0x14073C420
  * Callers:
- *     AlpcpExposeAttributes @ 0x14073BDA0 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x14073BF90 (AlpcpExposeAttributes.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeDeleteClientSecurity @ 0x14071D180 (SeDeleteClientSecurity.c)
- *     SeCreateClientSecurityEx @ 0x14071D1B0 (SeCreateClientSecurityEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeDeleteClientSecurity @ 0x14071D380 (SeDeleteClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x14071D3B0 (SeCreateClientSecurityEx.c)
  */
 
 char __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)

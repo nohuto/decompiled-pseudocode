@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPmuGetNumberOfReservedCounters @ 0x140545E40
+ * XREFs of HalpPmuGetNumberOfReservedCounters @ 0x140543700
  * Callers:
- *     EmonReleaseProfileResources @ 0x14055D840 (EmonReleaseProfileResources.c)
- *     EmonReserveProfileResourcesEnhanced @ 0x14055DD40 (EmonReserveProfileResourcesEnhanced.c)
- *     EmonReserveProfileResourcesOriginal @ 0x14055DF00 (EmonReserveProfileResourcesOriginal.c)
+ *     EmonReleaseProfileResources @ 0x14055B470 (EmonReleaseProfileResources.c)
+ *     EmonReserveProfileResourcesEnhanced @ 0x14055B970 (EmonReserveProfileResourcesEnhanced.c)
+ *     EmonReserveProfileResourcesOriginal @ 0x14055BB30 (EmonReserveProfileResourcesOriginal.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
  */
 
 __int64 __fastcall HalpPmuGetNumberOfReservedCounters(__int64 a1)

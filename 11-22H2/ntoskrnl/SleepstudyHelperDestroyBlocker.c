@@ -43,10 +43,13 @@ __int64 __fastcall SleepstudyHelperDestroyBlocker(PKSPIN_LOCK SpinLock)
     if ( !*((_DWORD *)SpinLock + 4) )
       v5 = *((_DWORD *)SpinLock + 3);
     KxReleaseSpinLock((volatile signed __int64 *)SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

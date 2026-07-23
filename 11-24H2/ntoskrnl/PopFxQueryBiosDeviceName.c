@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxQueryBiosDeviceName @ 0x1404A61B8
+ * XREFs of PopFxQueryBiosDeviceName @ 0x1404A0EC4
  * Callers:
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x140A789EC (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x140A72CEC (PopFxFindDeviceAndAllocateUniqueId.c)
  * Callees:
- *     IoGetDevicePropertyData @ 0x140A11F10 (IoGetDevicePropertyData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IoGetDevicePropertyData @ 0x1409C0320 (IoGetDevicePropertyData.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall PopFxQueryBiosDeviceName(__int64 a1, __int64 a2)
@@ -30,7 +30,7 @@ NTSTATUS __fastcall PopFxQueryBiosDeviceName(__int64 a1, __int64 a2)
   {
     if ( RequiredSize >= 0xFFFE )
       return result;
-    Data = (void *)ExAllocatePool2(0x40uLL);
+    Data = (void *)ExAllocatePool2(0x40uLL, RequiredSize, 0x4D584650u);
     if ( !Data )
       return -1073741670;
     v6 = RequiredSize;

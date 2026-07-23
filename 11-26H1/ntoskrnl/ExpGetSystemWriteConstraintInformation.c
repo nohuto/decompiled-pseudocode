@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpGetSystemWriteConstraintInformation @ 0x140B6476C
+ * XREFs of ExpGetSystemWriteConstraintInformation @ 0x140B6780C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateEvent @ 0x140723CF0 (ZwCreateEvent.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1407288C0 (ZwCreateEvent.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
  */
 
 __int64 __fastcall ExpGetSystemWriteConstraintInformation(void *a1, char a2)

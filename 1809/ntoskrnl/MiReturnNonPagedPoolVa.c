@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnNonPagedPoolVa @ 0x140161634
+ * XREFs of MiReturnNonPagedPoolVa @ 0x140161734
  * Callers:
- *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
- *     MiAllocatePoolPages @ 0x140162B10 (MiAllocatePoolPages.c)
- *     MiScrubNonPagedPool @ 0x14084F0D8 (MiScrubNonPagedPool.c)
+ *     MiFreePoolPages @ 0x140161200 (MiFreePoolPages.c)
+ *     MiAllocatePoolPages @ 0x140162C10 (MiAllocatePoolPages.c)
+ *     MiScrubNonPagedPool @ 0x140850338 (MiScrubNonPagedPool.c)
  * Callees:
- *     MiReturnNonPagedPoolPde @ 0x1401616A0 (MiReturnNonPagedPoolPde.c)
+ *     MiReturnNonPagedPoolPde @ 0x1401617A0 (MiReturnNonPagedPoolPde.c)
  */
 
 void __fastcall MiReturnNonPagedPoolVa(__int64 a1, unsigned __int64 a2)

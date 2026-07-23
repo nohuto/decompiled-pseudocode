@@ -1,11 +1,11 @@
 /*
- * XREFs of IoInvalidateDeviceState @ 0x1403A7C00
+ * XREFs of IoInvalidateDeviceState @ 0x1403A7DE0
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInvalidateDeviceState(PDEVICE_OBJECT PhysicalDeviceObject)

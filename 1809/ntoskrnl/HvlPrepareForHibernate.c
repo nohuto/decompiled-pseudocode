@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlPrepareForHibernate @ 0x140276CE0
+ * XREFs of HvlPrepareForHibernate @ 0x140276ED0
  * Callers:
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlPrepareForHibernate(_OWORD *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)

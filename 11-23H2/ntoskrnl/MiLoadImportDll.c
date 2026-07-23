@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLoadImportDll @ 0x140810DA8
+ * XREFs of MiLoadImportDll @ 0x140811078
  * Callers:
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x1406AE074 (MiResolveImageReferences.c)
  * Callees:
  *     MmUnloadSystemImage @ 0x140696020 (MmUnloadSystemImage.c)
- *     MiFreeDriverInitialization @ 0x1407034D4 (MiFreeDriverInitialization.c)
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
- *     MmCallDllInitialize @ 0x140810E60 (MmCallDllInitialize.c)
+ *     MiFreeDriverInitialization @ 0x1407036E4 (MiFreeDriverInitialization.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
+ *     MmCallDllInitialize @ 0x140811130 (MmCallDllInitialize.c)
  */
 
 __int64 __fastcall MiLoadImportDll(__int64 a1, __int64 a2, int a3, ULONG_PTR *a4, _QWORD *a5)
@@ -16,7 +16,7 @@ __int64 __fastcall MiLoadImportDll(__int64 a1, __int64 a2, int a3, ULONG_PTR *a4
   ULONG_PTR v8; // rbx
   ULONG_PTR v9; // rcx
   ULONG_PTR v11; // [rsp+40h] [rbp-18h] BYREF
-  unsigned __int64 v12; // [rsp+48h] [rbp-10h] BYREF
+  PVOID v12; // [rsp+48h] [rbp-10h] BYREF
 
   v11 = 0LL;
   v12 = 0LL;

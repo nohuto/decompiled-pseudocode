@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToCountedOemString @ 0x14067C120
+ * XREFs of RtlUpcaseUnicodeStringToCountedOemString @ 0x14067D2E0
  * Callers:
- *     RtlIsNameLegalDOS8Dot3 @ 0x14067BF80 (RtlIsNameLegalDOS8Dot3.c)
+ *     RtlIsNameLegalDOS8Dot3 @ 0x14067D140 (RtlIsNameLegalDOS8Dot3.c)
  * Callees:
- *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     RtlxUnicodeStringToOemSize @ 0x14067BE90 (RtlxUnicodeStringToOemSize.c)
- *     RtlpDidUnicodeToOemWork @ 0x14067C1E0 (RtlpDidUnicodeToOemWork.c)
- *     RtlUpcaseUnicodeToOemN @ 0x14067C260 (RtlUpcaseUnicodeToOemN.c)
- *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     ExFreePool @ 0x14034E780 (ExFreePool.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14067D050 (RtlxUnicodeStringToOemSize.c)
+ *     RtlpDidUnicodeToOemWork @ 0x14067D3A0 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x14067D420 (RtlUpcaseUnicodeToOemN.c)
+ *     ExpAllocateStringRoutine @ 0x1406B33A0 (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeStringToCountedOemString(

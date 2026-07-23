@@ -48,28 +48,22 @@ __int64 __fastcall PiAuGetStateDirectorySecurityObject(char a1, _QWORD *a2)
     Acl = RtlCreateAcl(Pool2, v8, 2u);
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((__int64)v10, 2u, 3, 1245599, (unsigned __int8 *)SeLocalSystemSid, 0);
+      Acl = RtlpAddKnownAce(v10, 2u, 3, 1245599, (unsigned __int8 *)SeLocalSystemSid, 0);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 32, (unsigned __int8 *)SeLocalSystemSid, 0);
+        Acl = RtlpAddKnownAce(v10, 2u, 2, 32, (unsigned __int8 *)SeLocalSystemSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce(
-                  (__int64)v10,
-                  2u,
-                  3,
-                  a1 != 0 ? 1245599 : 1179785,
-                  (unsigned __int8 *)SeAliasAdminsSid,
-                  0);
+          Acl = RtlpAddKnownAce(v10, 2u, 3, a1 != 0 ? 1245599 : 1179785, (unsigned __int8 *)SeAliasAdminsSid, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 32, (unsigned __int8 *)SeAliasAdminsSid, 0);
+            Acl = RtlpAddKnownAce(v10, 2u, 2, 32, (unsigned __int8 *)SeAliasAdminsSid, 0);
             if ( Acl >= 0 )
             {
-              Acl = RtlpAddKnownAce((__int64)v10, 2u, 3, 1179785, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
+              Acl = RtlpAddKnownAce(v10, 2u, 3, 1179785, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
               if ( Acl >= 0 )
               {
-                Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 32, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
+                Acl = RtlpAddKnownAce(v10, 2u, 2, 32, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
                 if ( Acl >= 0 )
                 {
                   Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);

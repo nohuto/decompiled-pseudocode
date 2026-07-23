@@ -1,5 +1,5 @@
 /*
- * XREFs of wcscpy @ 0x18009C560
+ * XREFs of wcscpy @ 0x18009C550
  * Callers:
  *     <none>
  * Callees:

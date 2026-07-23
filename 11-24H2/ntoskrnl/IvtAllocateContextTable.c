@@ -1,18 +1,18 @@
 /*
- * XREFs of IvtAllocateContextTable @ 0x1404D4448
+ * XREFs of IvtAllocateContextTable @ 0x1404CD658
  * Callers:
- *     IvtAllocateTranslationStructures @ 0x14056D8D8 (IvtAllocateTranslationStructures.c)
- *     IvtLegacyAllocateTranslationStructures @ 0x14056FAA8 (IvtLegacyAllocateTranslationStructures.c)
- *     IvtLegacySetDeviceSvmCapabilities @ 0x140570C30 (IvtLegacySetDeviceSvmCapabilities.c)
- *     IvtSetDeviceSvmCapabilities @ 0x140571280 (IvtSetDeviceSvmCapabilities.c)
+ *     IvtAllocateTranslationStructures @ 0x14056AD68 (IvtAllocateTranslationStructures.c)
+ *     IvtLegacyAllocateTranslationStructures @ 0x14056CF38 (IvtLegacyAllocateTranslationStructures.c)
+ *     IvtLegacySetDeviceSvmCapabilities @ 0x14056E0C0 (IvtLegacySetDeviceSvmCapabilities.c)
+ *     IvtSetDeviceSvmCapabilities @ 0x14056E710 (IvtSetDeviceSvmCapabilities.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14055FAA4 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x14055FCE0 (ExtEnvFreePhysicalMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14055D6D4 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14055D910 (ExtEnvFreePhysicalMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned int a2)

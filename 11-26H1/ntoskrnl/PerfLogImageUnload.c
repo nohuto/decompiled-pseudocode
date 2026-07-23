@@ -1,30 +1,30 @@
 /*
- * XREFs of PerfLogImageUnload @ 0x140AB9C84
+ * XREFs of PerfLogImageUnload @ 0x140ABB148
  * Callers:
- *     MiUnmapViewOfSectionPrepare @ 0x1409C40F0 (MiUnmapViewOfSectionPrepare.c)
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnmapViewOfSectionPrepare @ 0x1409950D0 (MiUnmapViewOfSectionPrepare.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     EtwpTraceImageUnload @ 0x1404760E8 (EtwpTraceImageUnload.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     EtwpCoverageSamplerUnloadImage @ 0x14093FA28 (EtwpCoverageSamplerUnloadImage.c)
- *     FsRtlReleaseFileNameInformation @ 0x1409FDA00 (FsRtlReleaseFileNameInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     EtwpTraceImageUnload @ 0x14046F868 (EtwpTraceImageUnload.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     FsRtlReleaseFileNameInformation @ 0x140922600 (FsRtlReleaseFileNameInformation.c)
+ *     EtwpCoverageSamplerUnloadImage @ 0x140A32B38 (EtwpCoverageSamplerUnloadImage.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PerfLogImageUnload(
         unsigned __int16 *a1,
         void *a2,
         void *a3,
-        unsigned __int64 a4,
+        void *a4,
         __int64 a5,
         int ULongFromUser,
         int a7,
@@ -33,8 +33,8 @@ void __fastcall PerfLogImageUnload(
 {
   __int64 ULong64FromUser; // r15
   int v14; // r12d
-  _DWORD *v15; // rax
-  _DWORD *v16; // rdi
+  PIMAGE_NT_HEADERS v15; // rax
+  PIMAGE_NT_HEADERS v16; // rdi
   __int64 Pool2; // rdi
   __int64 v18; // rdx
   int v19; // eax
@@ -45,16 +45,16 @@ void __fastcall PerfLogImageUnload(
   v21 = 0LL;
   v14 = 0;
   if ( EtwpHostSiloState != -4844 && (*(_DWORD *)(EtwpHostSiloState + 4844) & 4) != 0 )
-    EtwpCoverageSamplerUnloadImage((__int64)a3, a4, a5);
+    EtwpCoverageSamplerUnloadImage((__int64)a3, (unsigned __int64)a4, a5);
   if ( a3 )
   {
     v15 = RtlImageNtHeader(a4);
     v16 = v15;
     if ( v15 )
     {
-      ULongFromUser = RtlReadULongFromUser(v15 + 22);
-      v14 = RtlReadULongFromUser(v16 + 2);
-      ULong64FromUser = RtlReadULong64FromUser(v16 + 12);
+      ULongFromUser = RtlReadULongFromUser(&v15->OptionalHeader.CheckSum);
+      v14 = RtlReadULongFromUser(&v16->FileHeader.TimeDateStamp);
+      ULong64FromUser = RtlReadULong64FromUser(&v16->OptionalHeader.ImageBase);
     }
   }
   if ( a2 )
@@ -105,5 +105,5 @@ void __fastcall PerfLogImageUnload(
       a1 = v20;
     }
   }
-  EtwpTraceImageUnload(a1, (__int64)a3, a4, a5, ULongFromUser, v14, a7, a8, ULong64FromUser, a9);
+  EtwpTraceImageUnload(a1, (__int64)a3, (__int64)a4, a5, ULongFromUser, v14, a7, a8, ULong64FromUser, a9);
 }

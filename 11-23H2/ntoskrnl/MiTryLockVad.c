@@ -1,12 +1,12 @@
 /*
- * XREFs of MiTryLockVad @ 0x1403C6F18
+ * XREFs of MiTryLockVad @ 0x1403C70F8
  * Callers:
- *     MiDeprioritizeVad @ 0x1403C6E3C (MiDeprioritizeVad.c)
+ *     MiDeprioritizeVad @ 0x1403C701C (MiDeprioritizeVad.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTryLockVad(__int64 a1, __int64 a2)

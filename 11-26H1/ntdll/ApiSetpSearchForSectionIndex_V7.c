@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetpSearchForSectionIndex_V7 @ 0x180117AD0
+ * XREFs of ApiSetpSearchForSectionIndex_V7 @ 0x1801172CC
  * Callers:
- *     ApiSetpResolveHost @ 0x180047310 (ApiSetpResolveHost.c)
- *     ApiSetQuerySchemaInfo2_V7 @ 0x180117408 (ApiSetQuerySchemaInfo2_V7.c)
- *     ApiSetQuerySchemaInfo_V7 @ 0x180117718 (ApiSetQuerySchemaInfo_V7.c)
+ *     ApiSetpResolveHost @ 0x180031880 (ApiSetpResolveHost.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x180116BE8 (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetQuerySchemaInfo_V7 @ 0x180116F14 (ApiSetQuerySchemaInfo_V7.c)
  * Callees:
- *     ApiSetpGetSearchKeyHash @ 0x1801179E4 (ApiSetpGetSearchKeyHash.c)
+ *     ApiSetpGetSearchKeyHash @ 0x1801171E0 (ApiSetpGetSearchKeyHash.c)
  */
 
 __int64 __fastcall ApiSetpSearchForSectionIndex_V7(__int64 a1, __int64 a2, __int64 a3)

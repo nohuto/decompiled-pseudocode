@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvInitSystem @ 0x140BEB300
+ * XREFs of HalpHvInitSystem @ 0x140BF1300
  * Callers:
  *     <none>
  * Callees:
- *     HalpHvInitDiscard @ 0x140CAF3C0 (HalpHvInitDiscard.c)
+ *     HalpHvInitDiscard @ 0x140CB5400 (HalpHvInitDiscard.c)
  */
 
 __int64 __fastcall HalpHvInitSystem(int a1, __int64 a2, __int64 a3)

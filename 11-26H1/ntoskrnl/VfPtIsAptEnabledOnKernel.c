@@ -1,9 +1,9 @@
 /*
- * XREFs of VfPtIsAptEnabledOnKernel @ 0x14034A8F0
+ * XREFs of VfPtIsAptEnabledOnKernel @ 0x14034C970
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
- *     MiAllocateContiguousMemory @ 0x14034A28C (MiAllocateContiguousMemory.c)
- *     MmAllocateMappingAddressEx @ 0x140AF1F50 (MmAllocateMappingAddressEx.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
+ *     MiAllocateContiguousMemory @ 0x14034C30C (MiAllocateContiguousMemory.c)
+ *     MmAllocateMappingAddressEx @ 0x140AF4820 (MmAllocateMappingAddressEx.c)
  * Callees:
  *     <none>
  */

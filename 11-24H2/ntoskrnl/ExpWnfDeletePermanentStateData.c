@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWnfDeletePermanentStateData @ 0x1407C61FC
+ * XREFs of ExpWnfDeletePermanentStateData @ 0x1407C665C
  * Callers:
- *     ExpNtDeleteWnfStateData @ 0x1407BF7A8 (ExpNtDeleteWnfStateData.c)
- *     NtDeleteWnfStateName @ 0x1408AAC70 (NtDeleteWnfStateName.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407BFBF8 (ExpNtDeleteWnfStateData.c)
+ *     NtDeleteWnfStateName @ 0x140900ED0 (NtDeleteWnfStateName.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     ExpWnfEnumeratePermanentDataStoreHandles @ 0x1407C6554 (ExpWnfEnumeratePermanentDataStoreHandles.c)
- *     ExpWnfComposeValueName @ 0x14085AF60 (ExpWnfComposeValueName.c)
- *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140A62208 (ExpWnfAcquirePermanentDataStoreHandle.c)
- *     ExpWnfGetPermanentDataStore @ 0x140A8BAFC (ExpWnfGetPermanentDataStore.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     ExpWnfEnumeratePermanentDataStoreHandles @ 0x1407C69B4 (ExpWnfEnumeratePermanentDataStoreHandles.c)
+ *     ExpWnfComposeValueName @ 0x1408339CC (ExpWnfComposeValueName.c)
+ *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140A5AB08 (ExpWnfAcquirePermanentDataStoreHandle.c)
+ *     ExpWnfGetPermanentDataStore @ 0x140A87FEC (ExpWnfGetPermanentDataStore.c)
  */
 
 __int64 __fastcall ExpWnfDeletePermanentStateData(__int64 a1, unsigned __int64 a2)

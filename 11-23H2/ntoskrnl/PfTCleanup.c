@@ -1,22 +1,22 @@
 /*
- * XREFs of PfTCleanup @ 0x14097F168
+ * XREFs of PfTCleanup @ 0x14097F368
  * Callers:
- *     PfSetSuperfetchInformation @ 0x14075F994 (PfSetSuperfetchInformation.c)
- *     PfTStart @ 0x140845ED0 (PfTStart.c)
- *     PfpParametersPropagate @ 0x140980050 (PfpParametersPropagate.c)
+ *     PfSetSuperfetchInformation @ 0x14075FB84 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x1408461D0 (PfTStart.c)
+ *     PfpParametersPropagate @ 0x140980250 (PfpParametersPropagate.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     PfFbBufferListInsertInFree @ 0x1402F5694 (PfFbBufferListInsertInFree.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     PfFbBufferListShutdown @ 0x140583044 (PfFbBufferListShutdown.c)
- *     PfTTraceListFree @ 0x140760440 (PfTTraceListFree.c)
- *     PfTCleanupBuffers @ 0x14097F31C (PfTCleanupBuffers.c)
- *     PfTTraceListTrim @ 0x14097F3AC (PfTTraceListTrim.c)
- *     PfFbBufferListCleanup @ 0x140980380 (PfFbBufferListCleanup.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     PfFbBufferListInsertInFree @ 0x1402F5924 (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     PfFbBufferListShutdown @ 0x140583534 (PfFbBufferListShutdown.c)
+ *     PfTTraceListFree @ 0x140760630 (PfTTraceListFree.c)
+ *     PfTCleanupBuffers @ 0x14097F51C (PfTCleanupBuffers.c)
+ *     PfTTraceListTrim @ 0x14097F5AC (PfTTraceListTrim.c)
+ *     PfFbBufferListCleanup @ 0x140980580 (PfFbBufferListCleanup.c)
  *     PfTAccessTracingCleanup @ 0x140A874E0 (PfTAccessTracingCleanup.c)
  */
 

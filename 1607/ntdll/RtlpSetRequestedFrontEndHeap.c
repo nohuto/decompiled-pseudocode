@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpSetRequestedFrontEndHeap @ 0x18007E7C8
+ * XREFs of RtlpSetRequestedFrontEndHeap @ 0x18007E7B8
  * Callers:
- *     RtlSetHeapInformation @ 0x18007E700 (RtlSetHeapInformation.c)
+ *     RtlSetHeapInformation @ 0x18007E6F0 (RtlSetHeapInformation.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpIsProtectedHeap @ 0x18007E874 (RtlpIsProtectedHeap.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpIsProtectedHeap @ 0x18007E864 (RtlpIsProtectedHeap.c)
  */
 
 __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
@@ -15,24 +15,24 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
 
   v2 = 0;
   v3 = 0;
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   if ( (unsigned int)RtlpIsProtectedHeap(a1) )
   {
     v3 = -1073741811;
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
     v2 = 1;
     if ( !*(_BYTE *)(a1 + 387) )
     {
       *(_BYTE *)(a1 + 387) = 2;
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v2 = 0;
     }
   }
   if ( v2 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-  RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
+  RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   return v3;
 }

@@ -2,19 +2,19 @@
  * XREFs of MiProbeAndLockPrepare @ 0x140040790
  * Callers:
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x1400949E0 (MmProbeAndLockSelectedPages.c)
- *     MmStoreProbeAndLockPages @ 0x140153D74 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140094920 (MmProbeAndLockSelectedPages.c)
+ *     MmStoreProbeAndLockPages @ 0x140153E74 (MmStoreProbeAndLockPages.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
- *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
+ *     MiVadPureReserve @ 0x140070D20 (MiVadPureReserve.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADE90 (MiGetSystemCacheReverseMap.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiChargeFullProcessCommitment @ 0x1405E1510 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiProbeAndLockPrepare(
@@ -83,7 +83,7 @@ __int64 __fastcall MiProbeAndLockPrepare(
   *(_QWORD *)(a1 + 8) = v10;
   if ( !v11 && (v10 > 0x7FFFFFFF0000LL || a3 >= v10) )
   {
-    ++dword_14043A818;
+    ++dword_14043B8D8;
     return 3221225477LL;
   }
   v12 = *(unsigned int *)(a2 + 40);
@@ -157,7 +157,7 @@ __int64 __fastcall MiProbeAndLockPrepare(
   if ( v17 >= 0xFFFF800000000000uLL )
   {
     v16 = ((v17 >> 39) & 0x1FF) - 256;
-    v18 = (unsigned __int8)byte_14043B950[v16];
+    v18 = (unsigned __int8)byte_14043CA10[v16];
   }
   else
   {
@@ -210,9 +210,9 @@ __int64 __fastcall MiProbeAndLockPrepare(
       v54 = (char **)(a1 + 96);
       if ( v18 == 12 )
       {
-        SessionVm = (char *)&unk_14043B190;
+        SessionVm = (char *)&unk_14043C250;
         v20 = *v19 & 0xFFFFFFF0 | 6;
-        *v22 = (char *)&unk_14043B190;
+        *v22 = (char *)&unk_14043C250;
         *v19 = v20;
         goto LABEL_17;
       }
@@ -232,7 +232,7 @@ __int64 __fastcall MiProbeAndLockPrepare(
       SessionVm = v40;
       goto LABEL_15;
     }
-    SessionVm = (char *)&unk_14043B2A0;
+    SessionVm = (char *)&unk_14043C360;
     v20 = *v19 & 0xFFFFFFF0 | 3;
   }
   else
@@ -259,7 +259,7 @@ LABEL_17:
   else
   {
     if ( v23 == 2 )
-      v24 = &dword_14043B700;
+      v24 = &dword_14043C7C0;
     else
       v24 = (LONG *)(SessionVm + 192);
     v25 = KeGetCurrentIrql();
@@ -318,7 +318,7 @@ LABEL_17:
     v35 = v34 & 0xFFFFFFFFFFFFFFFEuLL;
     if ( (v34 & 1) == 0 )
       v35 = v34;
-    *v22 = (char *)(*(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v35 + 60LL) & 0x3FF)) + 7424LL);
+    *v22 = (char *)(*(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v35 + 60LL) & 0x3FF)) + 7424LL);
   }
   return 0LL;
 }

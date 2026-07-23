@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIsWakeTimerImminent @ 0x140B6C904
+ * XREFs of PopIsWakeTimerImminent @ 0x140B6FA00
  * Callers:
- *     PopDeferDoze @ 0x1407718E0 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x1407748E0 (PopDeferDoze.c)
  * Callees:
- *     ExGetNextWakeTime @ 0x140C0CCD0 (ExGetNextWakeTime.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExGetNextWakeTime @ 0x140C12EE0 (ExGetNextWakeTime.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PopIsWakeTimerImminent(int a1, int a2, int a3, unsigned __int64 *a4, _QWORD *a5)
@@ -33,7 +33,7 @@ bool __fastcall PopIsWakeTimerImminent(int a1, int a2, int a3, unsigned __int64 
   v16 = -1LL;
   v8 = a1;
   v19 = 0LL;
-  v9 = qword_140F0FC30;
+  v9 = qword_140F104F0;
   v10 = 0;
   *a5 = 0LL;
   v11 = -1LL;
@@ -43,7 +43,7 @@ bool __fastcall PopIsWakeTimerImminent(int a1, int a2, int a3, unsigned __int64 
     v12 = v9 + 10000000 * PopDozeDeferralMaxSeconds;
     if ( a2 )
     {
-      LOBYTE(a3) = a2 == 2 && *(int *)&stru_140F10828.WaitBlockFill11[100] >= 0;
+      LOBYTE(a3) = a2 == 2 && SLODWORD(PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime) >= 0;
       NextWakeTime = ExGetNextWakeTime(v8, v12, a3, (unsigned int)&v18, (__int64)&v19);
       v5 = v18;
       v7 = v19;
@@ -52,7 +52,9 @@ bool __fastcall PopIsWakeTimerImminent(int a1, int a2, int a3, unsigned __int64 
       v10 = NextWakeTime != 0;
     }
     if ( a3
-      && (a3 != 2 || *(int *)&stru_140F10828.WaitBlockFill11[100] < 0 ? (LOBYTE(a3) = 0) : (LOBYTE(a3) = 1),
+      && (a3 != 2 || SLODWORD(PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime) < 0
+        ? (LOBYTE(a3) = 0)
+        : (LOBYTE(a3) = 1),
           v14 = ExGetNextWakeTime(v8, v12, a3, (unsigned int)&v16, (__int64)&P),
           v11 = v16,
           v6 = P,

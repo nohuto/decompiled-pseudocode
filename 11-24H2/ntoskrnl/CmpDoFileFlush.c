@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpDoFileFlush @ 0x140490EF0
+ * XREFs of CmpDoFileFlush @ 0x14048BB7C
  * Callers:
- *     CmpFileFlush @ 0x140982C0C (CmpFileFlush.c)
+ *     CmpFileFlush @ 0x14096B41C (CmpFileFlush.c)
  * Callees:
- *     ZwFlushBuffersFile @ 0x1406A6D70 (ZwFlushBuffersFile.c)
+ *     ZwFlushBuffersFile @ 0x1406A7D10 (ZwFlushBuffersFile.c)
  */
 
 NTSTATUS __fastcall CmpDoFileFlush(void *a1)
@@ -18,8 +18,8 @@ NTSTATUS __fastcall CmpDoFileFlush(void *a1)
   if ( result < 0 )
   {
     CmRegistryIODebug = 4;
-    qword_140FD8ED0 = (__int64)a1;
-    dword_140FD8ED8 = result;
+    qword_140FD9EE0 = (__int64)a1;
+    dword_140FD9EE8 = result;
   }
   return result;
 }

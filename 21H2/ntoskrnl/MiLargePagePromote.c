@@ -1,16 +1,16 @@
 /*
  * XREFs of MiLargePagePromote @ 0x1403F6D98
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x1403031A0 (MiCoalesceFreeLargePages.c)
+ *     MiCoalesceFreeLargePages @ 0x14030DEF0 (MiCoalesceFreeLargePages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14022CB20 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiUpdatePageFileHighInPte @ 0x14023DD80 (MiUpdatePageFileHighInPte.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiPageToNode @ 0x1402D03D4 (MiPageToNode.c)
- *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
- *     MiIsFreeZeroPfnCold @ 0x140303120 (MiIsFreeZeroPfnCold.c)
- *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
- *     MiUnlinkNodeLargePageHelper @ 0x140318F30 (MiUnlinkNodeLargePageHelper.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiPageToNode @ 0x14024E754 (MiPageToNode.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D1370 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402E25D0 (MiUpdatePageFileHighInPte.c)
+ *     MiInsertLargePageInNodeList @ 0x1403097A0 (MiInsertLargePageInNodeList.c)
+ *     MiIsFreeZeroPfnCold @ 0x14030DE70 (MiIsFreeZeroPfnCold.c)
+ *     MiGetPfnChannel @ 0x14030EF14 (MiGetPfnChannel.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x140323C80 (MiUnlinkNodeLargePageHelper.c)
  *     MiColdPageSizeSupported @ 0x1403F7D58 (MiColdPageSizeSupported.c)
  *     MiDetermineNewPfnHeatState @ 0x1403F7D80 (MiDetermineNewPfnHeatState.c)
  */
@@ -60,7 +60,7 @@ __int64 __fastcall MiLargePagePromote(__int64 a1, unsigned int a2, __int64 a3, _
   *a4 = 0;
   v36 = 0;
   v9 = 48 * a1 - 0x58000000000LL;
-  v24 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v9 + 40) >> 39) & 0x3FFLL));
+  v24 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v9 + 40) >> 39) & 0x3FFLL));
   v10 = 4544LL * (unsigned int)MiPageToNode(48 * a1 / 48);
   v25 = (_QWORD *)(v10 + *(_QWORD *)(v24 + 16));
   KeAcquireInStackQueuedSpinLockAtDpcLevel(v25 + 541, &LockHandle);

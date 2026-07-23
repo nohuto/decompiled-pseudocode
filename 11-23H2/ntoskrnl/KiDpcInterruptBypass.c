@@ -1,19 +1,19 @@
 /*
- * XREFs of KiDpcInterruptBypass @ 0x1404279E0
+ * XREFs of KiDpcInterruptBypass @ 0x140427D70
  * Callers:
- *     KiChainedDispatch @ 0x1404202A0 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x140420C70 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x1404210B0 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x1404214F0 (KiInterruptDispatchNoLockNoEtw.c)
- *     KiInterruptDispatchNoEOI @ 0x140421930 (KiInterruptDispatchNoEOI.c)
- *     KiSpuriousDispatchNoEOI @ 0x140421D60 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x1404229F0 (KxIsrLinkage.c)
- *     KiHvInterruptDispatch @ 0x140425FE0 (KiHvInterruptDispatch.c)
- *     KiVmbusInterruptDispatch @ 0x140426430 (KiVmbusInterruptDispatch.c)
- *     KiSwInterrupt @ 0x140426B20 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x140427A20 (KiIpiInterrupt.c)
+ *     KiChainedDispatch @ 0x140420630 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x140421000 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x140421440 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140421880 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x140421CC0 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1404220F0 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x140422D80 (KxIsrLinkage.c)
+ *     KiHvInterruptDispatch @ 0x140426370 (KiHvInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x1404267C0 (KiVmbusInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x140426EB0 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x140427DB0 (KiIpiInterrupt.c)
  * Callees:
- *     KiDispatchInterrupt @ 0x140249530 (KiDispatchInterrupt.c)
+ *     KiDispatchInterrupt @ 0x140249600 (KiDispatchInterrupt.c)
  */
 
 __int64 __fastcall KiDpcInterruptBypass()

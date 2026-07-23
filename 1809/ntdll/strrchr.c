@@ -1,8 +1,8 @@
 /*
- * XREFs of strrchr @ 0x180095000
+ * XREFs of strrchr @ 0x180095010
  * Callers:
  *     LdrpSnapModule @ 0x1800072B0 (LdrpSnapModule.c)
- *     LdrpParseForwarderDescription @ 0x180079F2C (LdrpParseForwarderDescription.c)
+ *     LdrpParseForwarderDescription @ 0x180079F3C (LdrpParseForwarderDescription.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of SmcProcessListRequest @ 0x140841144
+ * XREFs of SmcProcessListRequest @ 0x140841444
  * Callers:
- *     SmQueryStoreInformation @ 0x14084104C (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x14084134C (SmQueryStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344A80 (SmpGetProcessPartition.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     SmpGetProcessPartition @ 0x140344D10 (SmpGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmcProcessListRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)

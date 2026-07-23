@@ -1,10 +1,10 @@
 /*
- * XREFs of PipEventRemovalCheckOpenHandles @ 0x140971AFC
+ * XREFs of PipEventRemovalCheckOpenHandles @ 0x140971CFC
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971C9C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971E9C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     PnpIsChainDereferenced @ 0x1403D42E0 (PnpIsChainDereferenced.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     PnpIsChainDereferenced @ 0x1403D44C0 (PnpIsChainDereferenced.c)
  */
 
 __int64 __fastcall PipEventRemovalCheckOpenHandles(_QWORD *a1, int a2, _QWORD *a3)

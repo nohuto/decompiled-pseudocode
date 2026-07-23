@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpStopSiloKeyLockTracker @ 0x140A67634
+ * XREFs of CmpStopSiloKeyLockTracker @ 0x140A74604
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x1407EED58 (PspDeleteExternalServerSiloState.c)
- *     CmpFreeSiloContextCallback @ 0x140A675E0 (CmpFreeSiloContextCallback.c)
+ *     PspDeleteExternalServerSiloState @ 0x1407F48B8 (PspDeleteExternalServerSiloState.c)
+ *     CmpFreeSiloContextCallback @ 0x140A745B0 (CmpFreeSiloContextCallback.c)
  * Callees:
- *     CmpFreeSiloKeyLockEntry @ 0x14085B9B8 (CmpFreeSiloKeyLockEntry.c)
- *     CmpUnlockSiloKeyLockTracker @ 0x1409A604C (CmpUnlockSiloKeyLockTracker.c)
- *     KsepCacheLock @ 0x1409A73D0 (KsepCacheLock.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x140861CAC (CmpFreeSiloKeyLockEntry.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140966AAC (CmpUnlockSiloKeyLockTracker.c)
+ *     KsepCacheLock @ 0x140967E30 (KsepCacheLock.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 struct _KTHREAD **__fastcall CmpStopSiloKeyLockTracker(
@@ -19,48 +19,51 @@ struct _KTHREAD **__fastcall CmpStopSiloKeyLockTracker(
 {
   struct _KTHREAD *Blink; // rdx
   struct _KTHREAD **SListFaultAddress; // rax
-  __int64 v7; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
   struct _KTHREAD **result; // rax
-  ULONG_PTR *v9; // rax
-  __int64 v10; // rcx
-  struct _KTHREAD *v11; // [rsp+20h] [rbp-10h] BYREF
-  struct _KTHREAD **v12; // [rsp+28h] [rbp-8h]
+  ULONG_PTR *v12; // rax
+  __int64 v13; // rcx
+  struct _KTHREAD *v14; // [rsp+20h] [rbp-10h] BYREF
+  struct _KTHREAD **v15; // [rsp+28h] [rbp-8h]
 
   KsepCacheLock((unsigned __int64 *)a1, a2, a3, a4);
   LODWORD(a1->Header.WaitListHead.Flink) = (__int64)a1->Header.WaitListHead.Flink & 0xFFFFFFFC | 2;
   Blink = (struct _KTHREAD *)a1->Header.WaitListHead.Blink;
-  v12 = &v11;
-  v11 = (struct _KTHREAD *)&v11;
+  v15 = &v14;
+  v14 = (struct _KTHREAD *)&v14;
   if ( Blink != (struct _KTHREAD *)&a1->Header.WaitListHead.Blink )
   {
     SListFaultAddress = (struct _KTHREAD **)a1->SListFaultAddress;
-    v11 = Blink;
-    v12 = SListFaultAddress;
-    Blink->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&v11;
-    *SListFaultAddress = (struct _KTHREAD *)&v11;
+    v14 = Blink;
+    v15 = SListFaultAddress;
+    Blink->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&v14;
+    *SListFaultAddress = (struct _KTHREAD *)&v14;
     a1->SListFaultAddress = &a1->Header.WaitListHead.Blink;
     a1->Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&a1->Header.WaitListHead.Blink;
   }
   CmpUnlockSiloKeyLockTracker(a1);
-  result = &v11;
-  if ( v11 != (struct _KTHREAD *)&v11 )
+  result = &v14;
+  if ( v14 != (struct _KTHREAD *)&v14 )
   {
-    CmpLockRegistry(v7);
+    CmpLockRegistry(v8, v7, v9, v10);
     while ( 1 )
     {
-      v9 = (ULONG_PTR *)v11;
-      if ( (struct _KTHREAD **)v11->Header.WaitListHead.Flink != &v11
-        || (v10 = *(_QWORD *)&v11->Header.Lock, *(struct _KTHREAD **)(*(_QWORD *)&v11->Header.Lock + 8LL) != v11) )
+      v12 = (ULONG_PTR *)v14;
+      if ( (struct _KTHREAD **)v14->Header.WaitListHead.Flink != &v14
+        || (v13 = *(_QWORD *)&v14->Header.Lock, *(struct _KTHREAD **)(*(_QWORD *)&v14->Header.Lock + 8LL) != v14) )
       {
         __fastfail(3u);
       }
-      v11 = *(struct _KTHREAD **)&v11->Header.Lock;
-      *(_QWORD *)(v10 + 8) = &v11;
-      if ( v9 == (ULONG_PTR *)&v11 )
+      v14 = *(struct _KTHREAD **)&v14->Header.Lock;
+      *(_QWORD *)(v13 + 8) = &v14;
+      if ( v12 == (ULONG_PTR *)&v14 )
         break;
-      CmpFreeSiloKeyLockEntry(v9);
+      CmpFreeSiloKeyLockEntry(v12);
     }
-    return (struct _KTHREAD **)CmpUnlockRegistry(&v11);
+    return (struct _KTHREAD **)CmpUnlockRegistry(&v14);
   }
   return result;
 }

@@ -1,34 +1,34 @@
 /*
- * XREFs of NtReleaseWorkerFactoryWorker @ 0x1402C2440
+ * XREFs of NtReleaseWorkerFactoryWorker @ 0x14030D100
  * Callers:
  *     <none>
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     EtwTraceEnqueueWork @ 0x140268108 (EtwTraceEnqueueWork.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269BD0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiSignalThread @ 0x14027C940 (KiSignalThread.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x1402C2960 (ExpLeaveWorkerFactoryAwayMode.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1402C2B40 (ExpWorkerFactoryCheckCreate.c)
- *     KiWakeOtherQueueWaiters @ 0x1402C2F00 (KiWakeOtherQueueWaiters.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ObpDeregisterObject @ 0x140779D4C (ObpDeregisterObject.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObpRemoveObjectRoutine @ 0x140923BC0 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x140A5A090 (ObpHandleRevocationBlockRemoveObject.c)
- *     IopAllocateMiniCompletionPacket @ 0x140A8405C (IopAllocateMiniCompletionPacket.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     EtwTraceEnqueueWork @ 0x140267678 (EtwTraceEnqueueWork.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269140 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiSignalThread @ 0x14027BEB0 (KiSignalThread.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x14030D620 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x14030D800 (ExpWorkerFactoryCheckCreate.c)
+ *     KiWakeOtherQueueWaiters @ 0x14030DBC0 (KiWakeOtherQueueWaiters.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ObpDeregisterObject @ 0x14077CC7C (ObpDeregisterObject.c)
+ *     ObpRemoveObjectRoutine @ 0x1408FF6D0 (ObpRemoveObjectRoutine.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140A67000 (ObpHandleRevocationBlockRemoveObject.c)
+ *     IopAllocateMiniCompletionPacket @ 0x140A893B0 (IopAllocateMiniCompletionPacket.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   __int64 v2; // r8
@@ -38,7 +38,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   __int64 v6; // rdx
   __int64 v7; // rcx
   int v8; // eax
-  int v9; // r13d
+  NTSTATUS v9; // r13d
   __int64 v10; // rax
   __int64 v11; // rdx
   __int64 v12; // rcx
@@ -73,7 +73,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   memset(&LockHandle, 0, sizeof(LockHandle));
   BugCheckParameter2 = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,
@@ -91,7 +91,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v6 = _InterlockedExchange64((volatile __int64 *)v4, (__int64)&LockHandle);
     if ( v6 )

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAddMdlTracker @ 0x1404D2AB8
+ * XREFs of MiAddMdlTracker @ 0x1404CBC78
  * Callers:
- *     MiProbeAndLockComplete @ 0x140282248 (MiProbeAndLockComplete.c)
- *     MiSwitchToTransition @ 0x1404F1388 (MiSwitchToTransition.c)
+ *     MiProbeAndLockComplete @ 0x1402377D8 (MiProbeAndLockComplete.c)
+ *     MiSwitchToTransition @ 0x1404EEE28 (MiSwitchToTransition.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     wyhash @ 0x140389238 (wyhash.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiGetInstructionPointer @ 0x14066BBC8 (MiGetInstructionPointer.c)
- *     MiCaptureStackTraceEx @ 0x14069088C (MiCaptureStackTraceEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     wyhash @ 0x140382B78 (wyhash.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiGetInstructionPointer @ 0x14066CD98 (MiGetInstructionPointer.c)
+ *     MiCaptureStackTraceEx @ 0x14069195C (MiCaptureStackTraceEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _QWORD *__fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)

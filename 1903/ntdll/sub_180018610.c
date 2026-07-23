@@ -8,23 +8,19 @@
  *     sub_180018940 @ 0x180018940 (sub_180018940.c)
  */
 
-int __fastcall sub_180018610(__int64 a1, const wchar_t **a2, __int64 a3, __int64 a4)
+int __fastcall sub_180018610(void *a1, const wchar_t **a2, __int64 a3, unsigned int a4)
 {
-  unsigned int v4; // edi
   unsigned int *v6; // rax
   unsigned int *v7; // rbx
   int result; // eax
   int v9; // [rsp+40h] [rbp+18h] BYREF
 
   v9 = 0;
-  v4 = a4;
-  LOBYTE(a4) = 1;
-  LOBYTE(a3) = 1;
-  v6 = (unsigned int *)sub_180018940(a1, a2, a3, a4);
+  v6 = (unsigned int *)sub_180018940(a1);
   v7 = v6;
   if ( !v6 )
     return 0x80000;
-  if ( (int)LdrRscIsTypeExist(v6, *a2, v4, &v9) < 0 )
+  if ( (int)LdrRscIsTypeExist(v6, *a2, a4, &v9) < 0 )
     return 393216;
   result = v9;
   if ( (v7[5] & 0x100) != 0 )

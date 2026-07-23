@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetCurrentSiloState @ 0x1405AA724
+ * XREFs of EtwpGetCurrentSiloState @ 0x1405AA954
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
- *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
- *     EtwpGetPrivateSessionTraceHandle @ 0x14093F1B0 (EtwpGetPrivateSessionTraceHandle.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938730 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x14093F380 (EtwpGetPrivateSessionTraceHandle.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall EtwpGetCurrentSiloState(__int64 a1, __int64 a2)

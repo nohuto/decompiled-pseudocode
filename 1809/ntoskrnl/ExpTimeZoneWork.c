@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpTimeZoneWork @ 0x1408CD1B0
+ * XREFs of ExpTimeZoneWork @ 0x1408CE470
  * Callers:
  *     <none>
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
- *     ZwSetSystemTime @ 0x1401BB630 (ZwSetSystemTime.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x1400B89C0 (PsIsHostSilo.c)
+ *     ZwSetSystemTime @ 0x1401BB790 (ZwSetSystemTime.c)
  */
 
 char __fastcall ExpTimeZoneWork(struct _LIST_ENTRY *Object)

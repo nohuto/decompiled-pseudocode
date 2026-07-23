@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLightWeightSwapParentSubKeyList @ 0x14060F820
+ * XREFs of CmpLightWeightSwapParentSubKeyList @ 0x14060F8D4
  * Callers:
- *     CmpLightWeightCommitAddKeyUoW @ 0x14060E328 (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x14060E464 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x14060E7D8 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x14060E3DC (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14060E518 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14060E88C (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlDeleteBarrier @ 0x18013DED0
+ * XREFs of RtlDeleteBarrier @ 0x18013C0C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlDeleteBarrier(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+NTSTATUS __cdecl RtlDeleteBarrier(PRTL_BARRIER Barrier)
 {
-  unsigned __int64 v3; // rbx
-  __int64 result; // rax
+  _RTL_SRWLOCK *v1; // rbx
+  NTSTATUS result; // eax
 
-  v3 = (a1 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-  if ( v3 )
+  v1 = (_RTL_SRWLOCK *)(((unsigned __int64)&Barrier->Reserved2 + 3) & 0xFFFFFFFFFFFFFFF8uLL);
+  if ( v1 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v3 + 8), a2, a3);
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v3 + 8));
+    RtlAcquireSRWLockExclusive(v1 + 1);
+    RtlReleaseSRWLockExclusive(v1 + 1);
   }
   return result;
 }

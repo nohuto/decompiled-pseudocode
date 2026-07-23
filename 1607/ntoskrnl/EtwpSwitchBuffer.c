@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpSwitchBuffer @ 0x1400ED3E0
+ * XREFs of EtwpSwitchBuffer @ 0x1400EB250
  * Callers:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwpReserveTraceBuffer @ 0x1400D68F0 (EtwpReserveTraceBuffer.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwpReserveTraceBuffer @ 0x1400D4790 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400516A4 (KeGetEffectiveIrql.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     EtwpQueryUsedProcessorCount @ 0x14008560C (EtwpQueryUsedProcessorCount.c)
- *     EtwpAllocateFreeBuffers @ 0x14008565C (EtwpAllocateFreeBuffers.c)
- *     EtwpRequestFlushTimer @ 0x140085ADC (EtwpRequestFlushTimer.c)
- *     EtwpEnqueueOverflowBuffer @ 0x1400B45A4 (EtwpEnqueueOverflowBuffer.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
- *     EtwpEnqueueAvailableBuffer @ 0x1400ED1E0 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpDequeueFreeBuffer @ 0x1400ED600 (EtwpDequeueFreeBuffer.c)
- *     EtwpPrepareDirtyBuffer @ 0x1400ED78C (EtwpPrepareDirtyBuffer.c)
+ *     KeGetEffectiveIrql @ 0x140051224 (KeGetEffectiveIrql.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140086EF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpAllocateFreeBuffers @ 0x140086F48 (EtwpAllocateFreeBuffers.c)
+ *     EtwpRequestFlushTimer @ 0x1400873CC (EtwpRequestFlushTimer.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x1400B2424 (EtwpEnqueueOverflowBuffer.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1400EB050 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpDequeueFreeBuffer @ 0x1400EB470 (EtwpDequeueFreeBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1400EB628 (EtwpPrepareDirtyBuffer.c)
  */
 
 __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, signed __int64 *a3, __int16 a4, __int16 a5)

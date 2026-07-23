@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmDevicePropertyWrite @ 0x14036F7BC
+ * XREFs of _CmDevicePropertyWrite @ 0x14036F96C
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
- *     _CmSetDeviceRegPropWorker @ 0x140744178 (_CmSetDeviceRegPropWorker.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140744338 (_CmSetDeviceRegPropWorker.c)
  * Callees:
  *     <none>
  */

@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwMapUserPhysicalPages(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwMapUserPhysicalPages(PVOID VirtualAddress, ULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(VirtualAddress);
 }

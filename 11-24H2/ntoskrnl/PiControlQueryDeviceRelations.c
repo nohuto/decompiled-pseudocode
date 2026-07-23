@@ -1,12 +1,12 @@
 /*
- * XREFs of PiControlQueryDeviceRelations @ 0x140A3E880
+ * XREFs of PiControlQueryDeviceRelations @ 0x140A341F0
  * Callers:
  *     <none>
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1408D0150 (PiControlMakeUserModeCallersCopy.c)
- *     PiQueryDeviceRelations @ 0x140A3E9EC (PiQueryDeviceRelations.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1408CDB40 (PiControlMakeUserModeCallersCopy.c)
+ *     PiQueryDeviceRelations @ 0x140A3435C (PiQueryDeviceRelations.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiControlQueryDeviceRelations(__int64 a1, __int16 *a2, __int64 a3, char a4)
@@ -14,7 +14,7 @@ __int64 __fastcall PiControlQueryDeviceRelations(__int64 a1, __int16 *a2, __int6
   unsigned __int16 v4; // cx
   void **v7; // rsi
   int v8; // eax
-  int v9; // eax
+  unsigned int v9; // eax
   void *Pool2; // rdi
   int UserModeCallersCopy; // ebp
   int v13; // eax
@@ -39,7 +39,7 @@ __int64 __fastcall PiControlQueryDeviceRelations(__int64 a1, __int16 *a2, __int6
     {
       if ( a4 )
       {
-        Pool2 = (void *)ExAllocatePool2(0x101uLL);
+        Pool2 = (void *)ExAllocatePool2(0x101uLL, v9, 0x20207050u);
         if ( !Pool2 )
         {
           UserModeCallersCopy = -1073741670;

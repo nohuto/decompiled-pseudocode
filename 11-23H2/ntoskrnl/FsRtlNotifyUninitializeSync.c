@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlNotifyUninitializeSync @ 0x140873590
+ * XREFs of FsRtlNotifyUninitializeSync @ 0x1408737D0
  * Callers:
  *     FsRtlNotifyFilterReportChangeLiteEx @ 0x14068A3A0 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C4B00 (FsRtlNotifyFilterChangeDirectoryLite.c)
+ *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C4DD0 (FsRtlNotifyFilterChangeDirectoryLite.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPciReportMmConfigAddressRange @ 0x140C1322C
+ * XREFs of HalpPciReportMmConfigAddressRange @ 0x140C1522C
  * Callers:
- *     HalpPciInitSystem @ 0x140B4D430 (HalpPciInitSystem.c)
+ *     HalpPciInitSystem @ 0x140B4F480 (HalpPciInitSystem.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ArbDeleteMmConfigRange @ 0x140C1567C (ArbDeleteMmConfigRange.c)
- *     ArbInitializeMmConfigRange @ 0x140C1578C (ArbInitializeMmConfigRange.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ArbDeleteMmConfigRange @ 0x140C1767C (ArbDeleteMmConfigRange.c)
+ *     ArbInitializeMmConfigRange @ 0x140C1778C (ArbInitializeMmConfigRange.c)
  */
 
 __int64 HalpPciReportMmConfigAddressRange()

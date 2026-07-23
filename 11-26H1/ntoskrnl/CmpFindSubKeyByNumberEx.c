@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpFindSubKeyByNumberEx @ 0x1408C2ED0
+ * XREFs of CmpFindSubKeyByNumberEx @ 0x1408C94A0
  * Callers:
- *     CmEnumerateKey @ 0x1408C21A0 (CmEnumerateKey.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140B40958 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmEnumerateKey @ 0x1408C8770 (CmEnumerateKey.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x140B42968 (CmpFindSubKeyByNumberFromMergedView.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmEqualTrans @ 0x1408BC9D0 (CmEqualTrans.c)
- *     CmpIsKeyDeleted @ 0x1408C1E30 (CmpIsKeyDeleted.c)
- *     CmpDoQueueLateUnloadWorker @ 0x1408C52DC (CmpDoQueueLateUnloadWorker.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1408D43A0 (CmpFindSubkeyInHashByChildCell.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpDoFindSubKeyByNumber @ 0x140983100 (CmpDoFindSubKeyByNumber.c)
- *     CmRmIsKCBVisible @ 0x140A2FC30 (CmRmIsKCBVisible.c)
- *     CmpReferenceKeyControlBlock @ 0x140A79B80 (CmpReferenceKeyControlBlock.c)
- *     CmListGetNextElement @ 0x140C58A70 (CmListGetNextElement.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmEqualTrans @ 0x1408C2FA0 (CmEqualTrans.c)
+ *     CmpIsKeyDeleted @ 0x1408C8400 (CmpIsKeyDeleted.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1408CB8AC (CmpDoQueueLateUnloadWorker.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1408DA960 (CmpFindSubkeyInHashByChildCell.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpDoFindSubKeyByNumber @ 0x140945110 (CmpDoFindSubKeyByNumber.c)
+ *     CmRmIsKCBVisible @ 0x140A41AB0 (CmRmIsKCBVisible.c)
+ *     CmpReferenceKeyControlBlock @ 0x140A81AC0 (CmpReferenceKeyControlBlock.c)
+ *     CmListGetNextElement @ 0x140C5EA70 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumberEx(

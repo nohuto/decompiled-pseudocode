@@ -1,12 +1,12 @@
 /*
- * XREFs of _ctrlfp @ 0x14019A254
+ * XREFs of _ctrlfp @ 0x14019A394
  * Callers:
- *     _call_matherr @ 0x1401998CC (_call_matherr.c)
- *     _handle_error @ 0x1401999F8 (_handle_error.c)
- *     _handle_errorf @ 0x140199B28 (_handle_errorf.c)
+ *     _call_matherr @ 0x140199A0C (_call_matherr.c)
+ *     _handle_error @ 0x140199B38 (_handle_error.c)
+ *     _handle_errorf @ 0x140199C68 (_handle_errorf.c)
  * Callees:
- *     _set_fpsr @ 0x14019A330 (_set_fpsr.c)
- *     _get_fpsr @ 0x1401C7270 (_get_fpsr.c)
+ *     _set_fpsr @ 0x14019A470 (_set_fpsr.c)
+ *     _get_fpsr @ 0x1401C73D0 (_get_fpsr.c)
  */
 
 __int64 __fastcall ctrlfp(int a1, int a2)
@@ -16,7 +16,7 @@ __int64 __fastcall ctrlfp(int a1, int a2)
 
   fpsr = get_fpsr();
   v5 = a2 & a1 | fpsr & (~(_WORD)a2 | 0xFFFF807F);
-  if ( byte_140401EA4 && (((unsigned __int8)(a2 & a1) | fpsr & ((unsigned __int8)~(_BYTE)a2 | 0x7F)) & 0x40) != 0 )
+  if ( byte_140402EA4 && (((unsigned __int8)(a2 & a1) | fpsr & ((unsigned __int8)~(_BYTE)a2 | 0x7F)) & 0x40) != 0 )
     set_fpsr(v5);
   else
     set_fpsr((unsigned int)v5 & 0xFFFFFFBF);

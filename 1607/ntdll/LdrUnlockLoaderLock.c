@@ -1,46 +1,46 @@
 /*
- * XREFs of LdrUnlockLoaderLock @ 0x180029EC0
+ * XREFs of LdrUnlockLoaderLock @ 0x180029EB0
  * Callers:
- *     TppWorkpExecuteCallback @ 0x180020650 (TppWorkpExecuteCallback.c)
- *     TppWorkCallbackPrologRelease @ 0x18003AFD0 (TppWorkCallbackPrologRelease.c)
- *     TppIopExecuteCallback @ 0x18003B1A0 (TppIopExecuteCallback.c)
+ *     TppWorkpExecuteCallback @ 0x180020640 (TppWorkpExecuteCallback.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003AFC0 (TppWorkCallbackPrologRelease.c)
+ *     TppIopExecuteCallback @ 0x18003B190 (TppIopExecuteCallback.c)
  * Callees:
- *     LdrpReleaseLoaderLock @ 0x18002D55C (LdrpReleaseLoaderLock.c)
- *     LdrpLogError @ 0x180086114 (LdrpLogError.c)
+ *     LdrpReleaseLoaderLock @ 0x18002D54C (LdrpReleaseLoaderLock.c)
+ *     LdrpLogError @ 0x180086104 (LdrpLogError.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
- *     LdrpGenericExceptionFilter @ 0x1800D2D24 (LdrpGenericExceptionFilter.c)
+ *     LdrpGenericExceptionFilter @ 0x1800D2DE4 (LdrpGenericExceptionFilter.c)
  */
 
-__int64 __fastcall LdrUnlockLoaderLock(__int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl LdrUnlockLoaderLock(ULONG Flags, PVOID Cookie)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
 
-  if ( (a1 & 0xFFFFFFFE) == 0 )
+  if ( (Flags & 0xFFFFFFFE) == 0 )
   {
     v2 = 0;
-    if ( !a2 )
+    if ( !Cookie )
       return v2;
-    if ( (a2 & 0xF000000000000000uLL) != 0 )
+    if ( ((unsigned __int64)Cookie & 0xF000000000000000uLL) != 0 )
     {
-      if ( (a1 & 1) != 0 )
-        RtlRaiseStatus(3221225712LL);
+      if ( (Flags & 1) != 0 )
+        RtlRaiseStatus(-1073741584);
     }
     else
     {
-      if ( ((LODWORD(NtCurrentTeb()->ClientId.UniqueThread) ^ HIWORD(a2)) & 0xFFF) == 0 )
+      if ( ((LODWORD(NtCurrentTeb()->ClientId.UniqueThread) ^ ((unsigned __int64)Cookie >> 48)) & 0xFFF) == 0 )
       {
-        if ( (a1 & 1) != 0 )
-          LdrpReleaseLoaderLock(a1, 13LL);
+        if ( (Flags & 1) != 0 )
+          LdrpReleaseLoaderLock(Flags, 13LL);
         else
-          LdrpReleaseLoaderLock(a1, 14LL);
+          LdrpReleaseLoaderLock(Flags, 14LL);
         return v2;
       }
-      if ( (a1 & 1) != 0 )
-        RtlRaiseStatus(3221225712LL);
+      if ( (Flags & 1) != 0 )
+        RtlRaiseStatus(-1073741584);
     }
-    return (unsigned int)-1073741584;
+    return -1073741584;
   }
-  if ( (a1 & 1) != 0 )
-    RtlRaiseStatus(3221225711LL);
-  return (unsigned int)-1073741585;
+  if ( (Flags & 1) != 0 )
+    RtlRaiseStatus(-1073741585);
+  return -1073741585;
 }

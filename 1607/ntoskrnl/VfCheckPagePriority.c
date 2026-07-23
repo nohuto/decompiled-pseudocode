@@ -1,12 +1,12 @@
 /*
- * XREFs of VfCheckPagePriority @ 0x140704170
+ * XREFs of VfCheckPagePriority @ 0x1407041A0
  * Callers:
- *     VfCheckNxPagePriority @ 0x140222684 (VfCheckNxPagePriority.c)
+ *     VfCheckNxPagePriority @ 0x1402224B0 (VfCheckNxPagePriority.c)
  *     VerifierMmMapLockedPagesSpecifyCache @ 0x14071C09C (VerifierMmMapLockedPagesSpecifyCache.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViCiPreprocessOptions @ 0x1407043A0 (ViCiPreprocessOptions.c)
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x1407043D0 (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  */
 
 void __fastcall VfCheckPagePriority(int a1, __int64 a2)
@@ -21,6 +21,6 @@ void __fastcall VfCheckPagePriority(int a1, __int64 a2)
     VfReportIssueWithOptions(196, 8194, a2, a1, 0LL, byte_1402F98F8);
     if ( (MmVerifierData & 0x1000) != 0 )
       ViTargetIncrementCounter(a2, 256LL);
-    _InterlockedIncrement(&dword_140307298);
+    _InterlockedIncrement(&dword_1403072D8);
   }
 }

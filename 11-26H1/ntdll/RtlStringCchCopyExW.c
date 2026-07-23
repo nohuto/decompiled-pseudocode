@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCchCopyExW @ 0x1800C40A0
+ * XREFs of RtlStringCchCopyExW @ 0x1800C1770
  * Callers:
- *     LdrpMakeUnicodeStringFromPathElement @ 0x1801206CC (LdrpMakeUnicodeStringFromPathElement.c)
- *     RtlpGetCompleteLanguageFallback @ 0x180142724 (RtlpGetCompleteLanguageFallback.c)
+ *     LdrpMakeUnicodeStringFromPathElement @ 0x18012047C (LdrpMakeUnicodeStringFromPathElement.c)
+ *     RtlpGetCompleteLanguageFallback @ 0x180142624 (RtlpGetCompleteLanguageFallback.c)
  * Callees:
  *     <none>
  */

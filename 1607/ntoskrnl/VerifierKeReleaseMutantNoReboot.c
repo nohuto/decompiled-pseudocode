@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilCheckKernelAddress @ 0x140702C44 (VfUtilCheckKernelAddress.c)
+ *     VfUtilCheckKernelAddress @ 0x140702C74 (VfUtilCheckKernelAddress.c)
  */
 
 __int64 __fastcall VerifierKeReleaseMutantNoReboot(unsigned __int64 a1, unsigned int a2, char a3, char a4)

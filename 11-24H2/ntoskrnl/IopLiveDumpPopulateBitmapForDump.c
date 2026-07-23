@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpPopulateBitmapForDump @ 0x14059C8F0
+ * XREFs of IopLiveDumpPopulateBitmapForDump @ 0x140599870
  * Callers:
- *     IopLiveDumpCollectPages @ 0x14059A264 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405971E8 (IopLiveDumpCollectPages.c)
  * Callees:
- *     RtlSetBitsEx @ 0x1403A4600 (RtlSetBitsEx.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpRemoveSystemCacheFromDump @ 0x14059D0F0 (IopLiveDumpRemoveSystemCacheFromDump.c)
- *     IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x14059E098 (IopLiveDumpTracePopulateBitmapForDumpDuration.c)
+ *     RtlSetBitsEx @ 0x14026E120 (RtlSetBitsEx.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpRemoveSystemCacheFromDump @ 0x14059A070 (IopLiveDumpRemoveSystemCacheFromDump.c)
+ *     IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x14059B018 (IopLiveDumpTracePopulateBitmapForDumpDuration.c)
  */
 
 __int64 __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)

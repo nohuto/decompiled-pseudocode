@@ -1,15 +1,15 @@
 /*
- * XREFs of PiPnpRtlObjectEventRelease @ 0x140634048
+ * XREFs of PiPnpRtlObjectEventRelease @ 0x1406290D4
  * Callers:
- *     PiDqQueryActionQueueEntryFree @ 0x14062F968 (PiDqQueryActionQueueEntryFree.c)
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlObjectEventCreate @ 0x1406352B4 (PiPnpRtlObjectEventCreate.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x1406249E8 (PiDqQueryActionQueueEntryFree.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlObjectEventCreate @ 0x14062A0C4 (PiPnpRtlObjectEventCreate.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1407632E0 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiPnpRtlObjectEventRelease(char *P)

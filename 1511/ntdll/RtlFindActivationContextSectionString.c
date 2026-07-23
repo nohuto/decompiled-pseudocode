@@ -13,26 +13,31 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall RtlFindActivationContextSectionString(int a1, __int64 a2, int a3, int a4, __int64 a5)
+NTSTATUS __cdecl RtlFindActivationContextSectionString(
+        ULONG Flags,
+        PGUID ExtensionGuid,
+        ULONG SectionId,
+        PUNICODE_STRING StringToFind,
+        PACTCTX_SECTION_KEYED_DATA ReturnedData)
 {
   struct _TEB *v5; // r10
   _PEB *ProcessEnvironmentBlock; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v12; // edi
-  volatile signed __int32 *v13; // rbx
+  PACTIVATION_CONTEXT v13; // rbx
   _DWORD *v14; // rsi
-  void (__fastcall *v15)(__int64, volatile signed __int32 *, _QWORD, _QWORD, _QWORD, _BYTE *); // r14
+  void (__fastcall *v15)(__int64, PACTIVATION_CONTEXT, PVOID, _QWORD, _QWORD, _BYTE *); // r14
   _BYTE v16[4]; // [rsp+48h] [rbp-11h] BYREF
   unsigned int v17; // [rsp+4Ch] [rbp-Dh] BYREF
   _DWORD *v18; // [rsp+50h] [rbp-9h] BYREF
   int v19; // [rsp+58h] [rbp-1h] BYREF
-  volatile signed __int32 *v20; // [rsp+60h] [rbp+7h] BYREF
+  _ACTIVATION_CONTEXT *v20; // [rsp+60h] [rbp+7h] BYREF
   int v21; // [rsp+68h] [rbp+Fh] BYREF
-  volatile signed __int32 *v22; // [rsp+70h] [rbp+17h] BYREF
+  PACTIVATION_CONTEXT ActivationContext; // [rsp+70h] [rbp+17h] BYREF
   unsigned int v23; // [rsp+78h] [rbp+1Fh] BYREF
-  int v24; // [rsp+7Ch] [rbp+23h]
-  __int64 v25; // [rsp+80h] [rbp+27h]
-  int v26; // [rsp+88h] [rbp+2Fh]
+  ULONG v24; // [rsp+7Ch] [rbp+23h]
+  PGUID v25; // [rsp+80h] [rbp+27h]
+  ULONG v26; // [rsp+88h] [rbp+2Fh]
   int v27; // [rsp+8Ch] [rbp+33h]
   int v28; // [rsp+90h] [rbp+37h]
 
@@ -42,23 +47,28 @@ __int64 __fastcall RtlFindActivationContextSectionString(int a1, __int64 a2, int
     && !ProcessEnvironmentBlock->SystemDefaultActivationContextData
     && !v5->ActivationContextStackPointer->ActiveFrame )
   {
-    return 3222601729LL;
+    return -1072365567;
   }
   v21 = 0;
   v19 = -1;
   v17 = 0;
-  result = RtlpFindActivationContextSection_CheckParameters(a1, a2, a3, a4, a5);
-  if ( (int)result >= 0 )
+  result = RtlpFindActivationContextSection_CheckParameters(
+             Flags,
+             (_DWORD)ExtensionGuid,
+             SectionId,
+             (_DWORD)StringToFind,
+             (__int64)ReturnedData);
+  if ( result >= 0 )
   {
     v28 = 0;
-    v26 = a3;
+    v26 = SectionId;
     v23 = 32;
-    v24 = a1;
-    v25 = a2;
+    v24 = Flags;
+    v25 = ExtensionGuid;
     v20 = 0LL;
-    if ( (a1 & 0xFFFFFFF8) != 0 )
+    if ( (Flags & 0xFFFFFFF8) != 0 )
     {
-      return 3221225485LL;
+      return -1073741811;
     }
     else
     {
@@ -66,7 +76,7 @@ __int64 __fastcall RtlFindActivationContextSectionString(int a1, __int64 a2, int
       result = RtlpFindNextActivationContextSection(&v23, &v18, &v17, &v20);
       v12 = v17;
       v13 = v20;
-      if ( (int)result >= 0 )
+      if ( result >= 0 )
       {
         while ( 1 )
         {
@@ -74,62 +84,62 @@ __int64 __fastcall RtlFindActivationContextSectionString(int a1, __int64 a2, int
           if ( v12 < 0x2C || *v18 != 1682469715 )
           {
             DbgPrintEx(
-              51LL,
-              0LL,
+              0x33u,
+              0,
               "RtlFindActivationContextSectionString() found section at %p (length %lu) which is not a string section\n",
               v18,
               v12);
-            return 3222601731LL;
+            return -1072365565;
           }
-          result = RtlpFindUnicodeStringInSection((_DWORD)v18, v12, a4, a5, (__int64)&v19, (__int64)&v21);
-          if ( (int)result >= 0 )
+          result = RtlpFindUnicodeStringInSection(v18, v12, StringToFind, ReturnedData, &v19, &v21);
+          if ( result >= 0 )
             break;
-          if ( (_DWORD)result != -1072365560 )
+          if ( result != -1072365560 )
             return result;
-          v22 = 0LL;
+          ActivationContext = 0LL;
           if ( v23 < 0x20 || (v24 & 0xFFFFFFF8) != 0 )
           {
-            result = 3221225485LL;
+            result = -1073741811;
 LABEL_23:
-            if ( (_DWORD)result == -1072365567 )
-              return 3222601736LL;
+            if ( result == -1072365567 )
+              return -1072365560;
             return result;
           }
-          result = RtlpFindNextActivationContextSection(&v23, &v18, &v17, &v22);
-          if ( (int)result < 0 )
+          result = RtlpFindNextActivationContextSection(&v23, &v18, &v17, &ActivationContext);
+          if ( result < 0 )
             goto LABEL_23;
-          v13 = v22;
-          RtlAddRefActivationContext(v22);
+          v13 = ActivationContext;
+          RtlAddRefActivationContext(ActivationContext);
           v12 = v17;
         }
-        if ( (((unsigned __int64)v13 - 1) | 7) != 0xFFFFFFFFFFFFFFFFuLL )
+        if ( (((unsigned __int64)&v13[-1].InlineStorageMapEntries[31] + 7) | 7) != 0xFFFFFFFFFFFFFFFFuLL )
         {
-          v15 = (void (__fastcall *)(__int64, volatile signed __int32 *, _QWORD, _QWORD, _QWORD, _BYTE *))*((_QWORD *)v13 + 4);
+          v15 = *(void (__fastcall **)(__int64, PACTIVATION_CONTEXT, PVOID, _QWORD, _QWORD, _BYTE *))v13->SentNotifications;
           if ( v15 )
           {
-            if ( (v13[12] & 8) == 0 || (v13[20] & 8) == 0 )
+            if ( (v13->SentNotifications[4] & 8) == 0 || (v13->DisabledNotifications[4] & 8) == 0 )
             {
               v16[0] = 0;
-              v15(3LL, v13, *((_QWORD *)v13 + 3), *((_QWORD *)v13 + 5), 0LL, v16);
-              *((_DWORD *)v13 + 12) |= 8u;
+              v15(3LL, v13, v13->NotificationContext, *(_QWORD *)&v13->SentNotifications[2], 0LL, v16);
+              v13->SentNotifications[4] |= 8u;
               if ( v16[0] )
-                *((_DWORD *)v13 + 20) |= 8u;
+                v13->DisabledNotifications[4] |= 8u;
             }
           }
         }
-        if ( !a5 )
-          return 0LL;
+        if ( !ReturnedData )
+          return 0;
         result = RtlpFindActivationContextSection_FillOutReturnedData(
-                   a1,
-                   a5,
-                   (_DWORD)v13,
-                   (unsigned int)&v23,
-                   (__int64)v14,
+                   Flags,
+                   ReturnedData,
+                   v13,
+                   &v23,
+                   v14,
                    v14[9],
                    v14[10],
                    v12);
-        if ( (int)result >= 0 )
-          return 0LL;
+        if ( result >= 0 )
+          return 0;
       }
     }
   }

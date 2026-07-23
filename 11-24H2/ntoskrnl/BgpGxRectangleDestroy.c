@@ -1,23 +1,23 @@
 /*
- * XREFs of BgpGxRectangleDestroy @ 0x140BB3F04
+ * XREFs of BgpGxRectangleDestroy @ 0x140BB5F04
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpGxDrawRectangle @ 0x140481E44 (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x140481F1C (GxpWriteFrameBufferPixels.c)
- *     BgpGxConvertRectangle @ 0x140698508 (BgpGxConvertRectangle.c)
- *     BgpGxProcessQrCodeBitmap @ 0x1406985BC (BgpGxProcessQrCodeBitmap.c)
- *     BgpGxParseBitmap @ 0x140BB00B8 (BgpGxParseBitmap.c)
- *     BgpGxBlendRectangle @ 0x140BB2400 (BgpGxBlendRectangle.c)
- *     BgpGxDrawBitmapImage @ 0x140BB26EC (BgpGxDrawBitmapImage.c)
- *     BgpTxtCreateRegion @ 0x140BB2908 (BgpTxtCreateRegion.c)
- *     BgpTxtDestroyRegion @ 0x140BB2B5C (BgpTxtDestroyRegion.c)
- *     BgpTxtDisplayString @ 0x140BB2BB0 (BgpTxtDisplayString.c)
- *     AnFwFadeCompletion @ 0x140BB358C (AnFwFadeCompletion.c)
- *     AnFwDisplayFade @ 0x140BB36EC (AnFwDisplayFade.c)
- *     BgpGxReadRectangle @ 0x140BB3D18 (BgpGxReadRectangle.c)
- *     TxtpDestroyCacheEntry @ 0x140BB43D4 (TxtpDestroyCacheEntry.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpGxDrawRectangle @ 0x14047D084 (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x14047D15C (GxpWriteFrameBufferPixels.c)
+ *     BgpGxConvertRectangle @ 0x140699588 (BgpGxConvertRectangle.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x14069963C (BgpGxProcessQrCodeBitmap.c)
+ *     BgpGxParseBitmap @ 0x140BB20B8 (BgpGxParseBitmap.c)
+ *     BgpGxBlendRectangle @ 0x140BB4400 (BgpGxBlendRectangle.c)
+ *     BgpGxDrawBitmapImage @ 0x140BB46EC (BgpGxDrawBitmapImage.c)
+ *     BgpTxtCreateRegion @ 0x140BB4908 (BgpTxtCreateRegion.c)
+ *     BgpTxtDestroyRegion @ 0x140BB4B5C (BgpTxtDestroyRegion.c)
+ *     BgpTxtDisplayString @ 0x140BB4BB0 (BgpTxtDisplayString.c)
+ *     AnFwFadeCompletion @ 0x140BB558C (AnFwFadeCompletion.c)
+ *     AnFwDisplayFade @ 0x140BB56EC (AnFwDisplayFade.c)
+ *     BgpGxReadRectangle @ 0x140BB5D18 (BgpGxReadRectangle.c)
+ *     TxtpDestroyCacheEntry @ 0x140BB63D4 (TxtpDestroyCacheEntry.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14037DE10 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x14045EC7C (BgpFwFreeMemory.c)
  */
 
 __int64 __fastcall BgpGxRectangleDestroy(__int64 a1)

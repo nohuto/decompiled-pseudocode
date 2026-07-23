@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpInsertSecurityCellList @ 0x140AE5354
+ * XREFs of CmpInsertSecurityCellList @ 0x140AE3114
  * Callers:
- *     CmpGetSecurityDescriptorNodeEx @ 0x1408DF268 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x1408E5828 (CmpGetSecurityDescriptorNodeEx.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpAddSecurityCellToCache @ 0x14094DD90 (CmpAddSecurityCellToCache.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpAddSecurityCellToCache @ 0x1409C96E0 (CmpAddSecurityCellToCache.c)
  */
 
 __int64 __fastcall CmpInsertSecurityCellList(ULONG_PTR BugCheckParameter3, unsigned int a2, signed int a3, char a4)

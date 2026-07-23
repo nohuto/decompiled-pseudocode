@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCheckMatchingDir @ 0x140964370
+ * XREFs of SdbpCheckMatchingDir @ 0x140964550
  * Callers:
  *     <none>
  * Callees:
- *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F96BC (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
- *     SdbpInitializeSearchDBContext @ 0x140753808 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x1407539DC (SdbpResolveMatchingFile.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     AslDoesDirectoryExistNtPath @ 0x140967B24 (AslDoesDirectoryExistNtPath.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F989C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     SdbpInitializeSearchDBContext @ 0x1407539C8 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x140753B9C (SdbpResolveMatchingFile.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756740 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     AslDoesDirectoryExistNtPath @ 0x140967D04 (AslDoesDirectoryExistNtPath.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingDir(

@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildMacStrings @ 0x140810A64
+ * XREFs of AdtpBuildMacStrings @ 0x1408111A4
  * Callers:
- *     AdtpBuildSockAddrString @ 0x140A20620 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x140A15720 (AdtpBuildSockAddrString.c)
  * Callees:
- *     RtlEthernetAddressToStringW @ 0x1404CA270 (RtlEthernetAddressToStringW.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlEthernetAddressToStringW @ 0x1404C35C0 (RtlEthernetAddressToStringW.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildMacStrings(__int64 a1, __int64 a2, _BYTE *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall AdtpBuildMacStrings(__int64 a1, __int64 a2, _BYTE *a3)
   if ( !a2 || !a3 )
     return 0;
   *(_WORD *)(a2 + 2) = 36;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x24uLL, 0x6B416553u);
   v9 = (PWSTR *)(a2 + 8);
   *(_QWORD *)(a2 + 8) = Pool2;
   if ( Pool2 )

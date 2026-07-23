@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockDriverCode @ 0x14054480C
+ * XREFs of MiUnlockDriverCode @ 0x140544D4C
  * Callers:
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiUnlockCodePage @ 0x140083BE0 (MiUnlockCodePage.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiUnlockCodePage @ 0x140081D40 (MiUnlockCodePage.c)
  */
 
 __int64 __fastcall MiUnlockDriverCode(__int64 a1)
@@ -25,8 +25,8 @@ __int64 __fastcall MiUnlockDriverCode(__int64 a1)
   result = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v1);
   if ( !(_DWORD)result )
   {
-    if ( (unsigned __int64)v1 < qword_140326910
-      || (result = qword_140326910 + 0x8000000000LL, (unsigned __int64)v1 >= qword_140326910 + 0x8000000000LL) )
+    if ( (unsigned __int64)v1 < qword_140326950
+      || (result = qword_140326950 + 0x8000000000LL, (unsigned __int64)v1 >= qword_140326950 + 0x8000000000LL) )
     {
       v4 = RtlImageNtHeader(v1);
       v5 = 0;

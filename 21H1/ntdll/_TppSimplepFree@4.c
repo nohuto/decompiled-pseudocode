@@ -7,8 +7,8 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __stdcall TppSimplepFree(_DWORD *a1)
+LOGICAL __stdcall TppSimplepFree(PVOID BaseAddress)
 {
-  TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, (int)a1);
+  TppCleanupGroupMemberDestroy((int)BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
 }

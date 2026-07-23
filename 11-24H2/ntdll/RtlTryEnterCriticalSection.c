@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlTryEnterCriticalSection @ 0x18002EEA0
+ * XREFs of RtlTryEnterCriticalSection @ 0x1800A09E0
  * Callers:
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlpFlushHeap @ 0x180095D3C (RtlpFlushHeap.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpReAllocateHeap @ 0x1800A18B0 (RtlpReAllocateHeap.c)
- *     LdrpTryAcquireLoaderLock @ 0x1800F38E8 (LdrpTryAcquireLoaderLock.c)
- *     RtlTryAcquirePebLock @ 0x1800F79E0 (RtlTryAcquirePebLock.c)
- *     RtlpLockHeapForClone @ 0x180142A28 (RtlpLockHeapForClone.c)
+ *     RtlpFreeHeap @ 0x18005A020 (RtlpFreeHeap.c)
+ *     RtlpReAllocateHeap @ 0x18005B780 (RtlpReAllocateHeap.c)
+ *     RtlpFlushHeap @ 0x1800A05AC (RtlpFlushHeap.c)
+ *     LdrpTryAcquireLoaderLock @ 0x1800A07D8 (LdrpTryAcquireLoaderLock.c)
+ *     RtlTryAcquirePebLock @ 0x1800F2550 (RtlTryAcquirePebLock.c)
+ *     RtlpAllocateHeap @ 0x1801159A0 (RtlpAllocateHeap.c)
+ *     RtlpLockHeapForClone @ 0x180140BD8 (RtlpLockHeapForClone.c)
  * Callees:
- *     NtSetInformationThread @ 0x180161E30 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1801601F0 (NtSetInformationThread.c)
  */
 
-__int64 __fastcall RtlTryEnterCriticalSection(__int64 a1)
+LOGICAL __cdecl RtlTryEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   struct _TEB *v1; // r10
-  unsigned int v2; // edi
+  LOGICAL v2; // edi
   char *v3; // rbx
   char *SchedulerSharedDataSlot; // r9
   __int64 i; // rdx
-  char *v6; // r8
+  PRTL_CRITICAL_SECTION *v6; // r8
   signed __int8 v7; // cf
   void *UniqueThread; // rax
-  _QWORD v10[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD ThreadInformation[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = NtCurrentTeb();
   v2 = 0;
@@ -32,29 +32,29 @@ __int64 __fastcall RtlTryEnterCriticalSection(__int64 a1)
   {
     for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
     {
-      v6 = &SchedulerSharedDataSlot[8 * i];
-      if ( !*(_QWORD *)v6 )
+      v6 = (PRTL_CRITICAL_SECTION *)&SchedulerSharedDataSlot[8 * i];
+      if ( !*v6 )
       {
         v3 = &SchedulerSharedDataSlot[8 * i];
         if ( v6 )
-          *(_QWORD *)v6 = a1;
+          *v6 = CriticalSection;
         break;
       }
     }
   }
-  v7 = _interlockedbittestandreset((volatile signed __int32 *)(a1 + 8), 0);
+  v7 = _interlockedbittestandreset(&CriticalSection->LockCount, 0);
   UniqueThread = v1->ClientId.UniqueThread;
   if ( v7 )
   {
     v2 = 1;
-    *(_QWORD *)(a1 + 16) = UniqueThread;
-    *(_DWORD *)(a1 + 12) = 1;
+    CriticalSection->OwningThread = UniqueThread;
+    CriticalSection->RecursionCount = 1;
   }
   else
   {
-    if ( *(void **)(a1 + 16) == UniqueThread )
+    if ( CriticalSection->OwningThread == UniqueThread )
     {
-      ++*(_DWORD *)(a1 + 12);
+      ++CriticalSection->RecursionCount;
       v2 = 1;
     }
     if ( v3 )
@@ -62,9 +62,9 @@ __int64 __fastcall RtlTryEnterCriticalSection(__int64 a1)
       *v3 |= 2u;
       if ( v3[7] < 0 )
       {
-        v10[1] = 0LL;
-        v10[0] = (v3 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-        NtSetInformationThread(-2LL, 56LL, v10);
+        ThreadInformation[1] = 0LL;
+        ThreadInformation[0] = (v3 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+        NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, ThreadInformation, 0x10u);
       }
       *(_QWORD *)v3 = 0LL;
     }

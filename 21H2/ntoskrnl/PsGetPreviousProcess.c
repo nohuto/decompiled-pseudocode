@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetPreviousProcess @ 0x14090E764
+ * XREFs of PsGetPreviousProcess @ 0x14090E8C4
  * Callers:
- *     NtGetNextProcess @ 0x14078A8B0 (NtGetNextProcess.c)
+ *     NtGetNextProcess @ 0x14078AA70 (NtGetNextProcess.c)
  * Callees:
- *     PspUnlockProcessListShared @ 0x1402D6218 (PspUnlockProcessListShared.c)
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspLockProcessListShared @ 0x140580D90 (PspLockProcessListShared.c)
+ *     PspUnlockProcessListShared @ 0x140287568 (PspUnlockProcessListShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspLockProcessListShared @ 0x140580FD0 (PspLockProcessListShared.c)
  */
 
 unsigned __int64 __fastcall PsGetPreviousProcess(_QWORD *Object)
@@ -20,7 +20,7 @@ unsigned __int64 __fastcall PsGetPreviousProcess(_QWORD *Object)
   v3 = 0LL;
   v4 = 0;
   PspLockProcessListShared((__int64)CurrentThread);
-  v5 = (__int64 *)qword_140C1E208;
+  v5 = (__int64 *)qword_140C1E258;
   if ( Object )
     v5 = (__int64 *)Object[138];
   while ( v5 != &PsActiveProcessHead )

@@ -19,13 +19,17 @@
  *     RtlGetAppContainerParent @ 0x1406C9AC4 (RtlGetAppContainerParent.c)
  */
 
-__int64 __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, _DWORD *Sid, char a3, UNICODE_STRING *a4)
+NTSTATUS __cdecl RtlGetAppContainerNamedObjectPath(
+        HANDLE TokenHandle,
+        PSID AppContainerSid,
+        BOOLEAN RelativePath,
+        PUNICODE_STRING ObjectPath)
 {
   _DWORD *v5; // rdi
   __int64 v6; // r14
   unsigned __int16 Length; // r12
   char v9; // r15
-  NTSTATUS AppContainerSidType; // ebx
+  int AppContainerSidType; // ebx
   PSID v12; // r14
   NTSTATUS v13; // eax
   char *v14; // rdx
@@ -36,37 +40,37 @@ __int64 __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, _DWORD
   ULONG v19; // [rsp+40h] [rbp-C0h] BYREF
   int v20; // [rsp+44h] [rbp-BCh] BYREF
   int TokenInformation; // [rsp+48h] [rbp-B8h] BYREF
-  PSID P; // [rsp+50h] [rbp-B0h] BYREF
+  PSID AppContainerSidParent; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
   int v24; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+70h] [rbp-90h] BYREF
   UNICODE_STRING Source; // [rsp+80h] [rbp-80h] BYREF
-  PSID Sida[12]; // [rsp+90h] [rbp-70h] BYREF
+  PSID Sid[12]; // [rsp+90h] [rbp-70h] BYREF
   _DWORD *v28; // [rsp+F0h] [rbp-10h] BYREF
   wchar_t psz[264]; // [rsp+140h] [rbp+40h] BYREF
   wchar_t pszDest[264]; // [rsp+350h] [rbp+250h] BYREF
 
-  v5 = Sid;
-  v6 = TokenHandle;
+  v5 = AppContainerSid;
+  v6 = (__int64)TokenHandle;
   Length = 0;
-  P = 0LL;
+  AppContainerSidParent = 0LL;
   memset(psz, 0, 520);
   v9 = 1;
   memset(pszDest, 0, 520);
   *(_DWORD *)&Source.Length = 262146;
   v20 = 0;
   Source.Buffer = (wchar_t *)L"\\";
-  if ( !a4 )
-    return 3221225485LL;
-  if ( TokenHandle && Sid )
-    return 3221225520LL;
-  *(_DWORD *)&a4->Length = 0;
-  a4->Buffer = 0LL;
+  if ( !ObjectPath )
+    return -1073741811;
+  if ( TokenHandle && AppContainerSid )
+    return -1073741776;
+  *(_DWORD *)&ObjectPath->Length = 0;
+  ObjectPath->Buffer = 0LL;
   *(_DWORD *)&DestinationString.Length = 0;
   DestinationString.Buffer = 0LL;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0LL;
-  if ( Sid )
+  if ( AppContainerSid )
   {
     v6 = -4LL;
     goto LABEL_10;
@@ -75,7 +79,7 @@ __int64 __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, _DWORD
   {
     v6 = -6LL;
 LABEL_10:
-    if ( Sid )
+    if ( AppContainerSid )
       goto LABEL_15;
   }
   TokenInformation = 0;
@@ -100,10 +104,10 @@ LABEL_15:
   {
     if ( v20 )
     {
-      AppContainerSidType = NtQueryInformationToken((HANDLE)v6, TokenUser, Sida, 0x58u, &v19);
+      AppContainerSidType = NtQueryInformationToken((HANDLE)v6, TokenUser, Sid, 0x58u, &v19);
       if ( AppContainerSidType < 0 )
         goto LABEL_48;
-      AppContainerSidType = RtlConvertSidToUnicodeString(&UnicodeString, Sida[0], 1u);
+      AppContainerSidType = RtlConvertSidToUnicodeString(&UnicodeString, Sid[0], 1u);
       if ( AppContainerSidType < 0 )
         goto LABEL_48;
       Length = UnicodeString.Length;
@@ -111,7 +115,7 @@ LABEL_15:
     AppContainerSidType = NtQueryInformationToken((HANDLE)v6, TokenSessionId, &v24, 4u, &v19);
     if ( AppContainerSidType >= 0 )
     {
-      AppContainerSidType = RtlGetAppContainerSidType(v5);
+      AppContainerSidType = RtlGetAppContainerSidType(v5, (PAPPCONTAINER_SID_TYPE)&v19);
       if ( AppContainerSidType >= 0 )
       {
         if ( v19 == 2 )
@@ -120,7 +124,7 @@ LABEL_15:
           if ( AppContainerSidType >= 0 )
           {
 LABEL_30:
-            if ( a3 )
+            if ( RelativePath )
             {
               v13 = RtlStringCchPrintfW(psz, 0x104uLL, L"AppContainerNamedObjects\\");
             }
@@ -137,32 +141,33 @@ LABEL_30:
             AppContainerSidType = v13;
             if ( v13 >= 0 )
             {
-              AppContainerSidType = RtlStringCbLengthW(psz, 0x104uLL, (size_t *)&P);
+              AppContainerSidType = RtlStringCbLengthW(psz, 0x104uLL, (size_t *)&AppContainerSidParent);
               if ( AppContainerSidType >= 0 )
               {
-                if ( !v20 || a3 )
-                  v14 = (char *)P;
+                if ( !v20 || RelativePath )
+                  v14 = (char *)AppContainerSidParent;
                 else
-                  v14 = (char *)P + Length + 2;
+                  v14 = (char *)AppContainerSidParent + Length + 2;
                 v15 = (size_t)&v14[DestinationString.Length + 2];
                 StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v15);
                 v17 = StringRoutine;
                 if ( StringRoutine )
                 {
                   memset(StringRoutine, 0, v15);
-                  a4->Length = 0;
-                  a4->MaximumLength = v15;
-                  a4->Buffer = v17;
-                  AppContainerSidType = RtlAppendUnicodeToString(a4, psz);
+                  ObjectPath->Length = 0;
+                  ObjectPath->MaximumLength = v15;
+                  ObjectPath->Buffer = v17;
+                  AppContainerSidType = RtlAppendUnicodeToString(ObjectPath, psz);
                   if ( AppContainerSidType >= 0 )
                   {
                     if ( !v20
-                      || a3
-                      || (AppContainerSidType = RtlAppendUnicodeStringToString(a4, &UnicodeString),
+                      || RelativePath
+                      || (AppContainerSidType = RtlAppendUnicodeStringToString(ObjectPath, &UnicodeString),
                           AppContainerSidType >= 0)
-                      && (AppContainerSidType = RtlAppendUnicodeStringToString(a4, &Source), AppContainerSidType >= 0) )
+                      && (AppContainerSidType = RtlAppendUnicodeStringToString(ObjectPath, &Source),
+                          AppContainerSidType >= 0) )
                     {
-                      AppContainerSidType = RtlAppendUnicodeStringToString(a4, &DestinationString);
+                      AppContainerSidType = RtlAppendUnicodeStringToString(ObjectPath, &DestinationString);
                     }
                   }
                 }
@@ -176,11 +181,11 @@ LABEL_30:
         }
         else
         {
-          AppContainerSidType = RtlGetAppContainerParent(v5);
+          AppContainerSidType = RtlGetAppContainerParent(v5, &AppContainerSidParent);
           if ( AppContainerSidType >= 0 )
           {
-            v12 = P;
-            AppContainerSidType = RtlConvertSidToUnicodeString(&DestinationString, P, 1u);
+            v12 = AppContainerSidParent;
+            AppContainerSidType = RtlConvertSidToUnicodeString(&DestinationString, AppContainerSidParent, 1u);
             if ( AppContainerSidType >= 0 )
             {
               ExFreePoolWithTag(v12, 0);
@@ -214,8 +219,8 @@ LABEL_30:
 LABEL_48:
   RtlFreeAnsiString(&UnicodeString);
   if ( AppContainerSidType < 0 )
-    RtlFreeAnsiString(a4);
+    RtlFreeAnsiString(ObjectPath);
   if ( v9 )
     RtlFreeAnsiString(&DestinationString);
-  return (unsigned int)AppContainerSidType;
+  return AppContainerSidType;
 }

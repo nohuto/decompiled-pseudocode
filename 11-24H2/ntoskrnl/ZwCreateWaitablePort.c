@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwCreateWaitablePort @ 0x1406A7E70
+ * XREFs of ZwCreateWaitablePort @ 0x1406A8E10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateWaitablePort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateWaitablePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

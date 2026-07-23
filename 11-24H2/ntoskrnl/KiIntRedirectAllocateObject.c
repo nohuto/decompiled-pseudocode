@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntRedirectAllocateObject @ 0x1404C9D14
+ * XREFs of KiIntRedirectAllocateObject @ 0x1402B54C4
  * Callers:
- *     KiIntRedirectConnnect @ 0x1404C9CBC (KiIntRedirectConnnect.c)
+ *     KiIntRedirectConnnect @ 0x1402B4C68 (KiIntRedirectConnnect.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KiIntRedirectAllocateObject(__int64 a1, __int64 *a2)
@@ -11,7 +11,7 @@ __int64 __fastcall KiIntRedirectAllocateObject(__int64 a1, __int64 *a2)
   __int64 Pool2; // rax
   unsigned int v5; // r8d
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x18uLL, 0x5249654Bu);
   v5 = 0;
   if ( Pool2 )
   {

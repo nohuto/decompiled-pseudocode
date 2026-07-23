@@ -1,9 +1,9 @@
 /*
- * XREFs of KeIsUserVaAccessAllowed @ 0x1403A7B70
+ * XREFs of KeIsUserVaAccessAllowed @ 0x1403A98D0
  * Callers:
- *     KiDispatchInterrupt @ 0x140223290 (KiDispatchInterrupt.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     MiValidFault @ 0x1403A7338 (MiValidFault.c)
+ *     KiDispatchInterrupt @ 0x140224C20 (KiDispatchInterrupt.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     MiValidFault @ 0x1403A9098 (MiValidFault.c)
  * Callees:
  *     <none>
  */

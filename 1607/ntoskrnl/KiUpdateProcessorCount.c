@@ -4,8 +4,8 @@
  *     KiUpdateNumberProcessorsIpi @ 0x1403DD798 (KiUpdateNumberProcessorsIpi.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     KiGetCurrentGroupCount @ 0x1400B5F60 (KiGetCurrentGroupCount.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
+ *     KiGetCurrentGroupCount @ 0x1400B3D88 (KiGetCurrentGroupCount.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
  */
 
 char __fastcall KiUpdateProcessorCount(__int64 a1, int a2)

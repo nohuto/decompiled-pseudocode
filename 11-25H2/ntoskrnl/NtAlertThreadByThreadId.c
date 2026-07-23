@@ -6,7 +6,7 @@
  *     NtAlertThreadByThreadIdEx @ 0x1409A4E30 (NtAlertThreadByThreadIdEx.c)
  */
 
-__int64 __fastcall NtAlertThreadByThreadId(__int64 a1)
+NTSTATUS __cdecl NtAlertThreadByThreadId(HANDLE ThreadId)
 {
-  return NtAlertThreadByThreadIdEx(a1, 0LL);
+  return NtAlertThreadByThreadIdEx(ThreadId, 0LL);
 }

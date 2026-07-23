@@ -1,12 +1,12 @@
 /*
- * XREFs of DifMmResetDriverPagingWrapper @ 0x1405E78B0
+ * XREFs of DifMmResetDriverPagingWrapper @ 0x1405E7E20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     MmResetDriverPaging @ 0x140703630 (MmResetDriverPaging.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     MmResetDriverPaging @ 0x140703840 (MmResetDriverPaging.c)
  */
 
 void __fastcall DifMmResetDriverPagingWrapper(PVOID AddressWithinSection)

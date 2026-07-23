@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetFirstVad @ 0x14032A44C
+ * XREFs of MiGetFirstVad @ 0x14032A6DC
  * Callers:
- *     MiUnlockVadRange @ 0x1406AFF64 (MiUnlockVadRange.c)
- *     MiLockVadRange @ 0x1406B0034 (MiLockVadRange.c)
- *     MmCleanProcessAddressSpace @ 0x14071FA58 (MmCleanProcessAddressSpace.c)
- *     MiCommitInitialVadMetadataBits @ 0x1407A3E5C (MiCommitInitialVadMetadataBits.c)
- *     MiHotPatchProcess @ 0x140A374C4 (MiHotPatchProcess.c)
+ *     MiUnlockVadRange @ 0x1406AFF94 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1406B0064 (MiLockVadRange.c)
+ *     MmCleanProcessAddressSpace @ 0x14071FC58 (MmCleanProcessAddressSpace.c)
+ *     MiCommitInitialVadMetadataBits @ 0x1407A404C (MiCommitInitialVadMetadataBits.c)
+ *     MiHotPatchProcess @ 0x140A37774 (MiHotPatchProcess.c)
  * Callees:
  *     <none>
  */

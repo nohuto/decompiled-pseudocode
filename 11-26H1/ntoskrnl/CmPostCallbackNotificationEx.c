@@ -1,12 +1,12 @@
 /*
- * XREFs of CmPostCallbackNotificationEx @ 0x1408C9D50
+ * XREFs of CmPostCallbackNotificationEx @ 0x1408D0300
  * Callers:
- *     NtRenameKey @ 0x14084F890 (NtRenameKey.c)
- *     NtReplaceKey @ 0x14084FD20 (NtReplaceKey.c)
- *     NtSaveMergedKeys @ 0x140850190 (NtSaveMergedKeys.c)
+ *     NtRenameKey @ 0x140855BA0 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x140856030 (NtReplaceKey.c)
+ *     NtSaveMergedKeys @ 0x1408564A0 (NtSaveMergedKeys.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
+ *     CmpIsRegistryLockAcquired @ 0x140261E00 (CmpIsRegistryLockAcquired.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
  */
 
 __int64 __fastcall CmPostCallbackNotificationEx(
@@ -28,7 +28,7 @@ __int64 __fastcall CmPostCallbackNotificationEx(
   __int64 v19; // [rsp+7Ch] [rbp-1Ch]
   int v20; // [rsp+84h] [rbp-14h]
 
-  if ( !WheapPfaLock.ExpectedRunTime || (unsigned int)CmpIsRegistryLockAcquired() || (_QWORD *)*a6 == a6 )
+  if ( !HIDWORD(WheapPfaLock.StateSaveArea) || (unsigned int)CmpIsRegistryLockAcquired() || (_QWORD *)*a6 == a6 )
     return a3;
   v15 = 0;
   v12[0] = &v13;

@@ -1,13 +1,13 @@
 /*
- * XREFs of IovAttachDeviceToDeviceStack @ 0x140AC0FA4
+ * XREFs of IovAttachDeviceToDeviceStack @ 0x140AC0F94
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14035F914 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x14035FAB4 (IopAttachDeviceToDeviceStackSafe.c)
  * Callees:
  *     ViDifCheckCallbackInterception @ 0x14020A524 (ViDifCheckCallbackInterception.c)
- *     VfDifAllocateCallbackStorage @ 0x1405CECCC (VfDifAllocateCallbackStorage.c)
- *     ViDifCaptureDriverEntry @ 0x1405CEF4C (ViDifCaptureDriverEntry.c)
- *     ViDifCaptureIoCallbacks @ 0x1405CEFBC (ViDifCaptureIoCallbacks.c)
- *     IovUtilFlushStackCache @ 0x140AD29FC (IovUtilFlushStackCache.c)
+ *     VfDifAllocateCallbackStorage @ 0x1405CF23C (VfDifAllocateCallbackStorage.c)
+ *     ViDifCaptureDriverEntry @ 0x1405CF4BC (ViDifCaptureDriverEntry.c)
+ *     ViDifCaptureIoCallbacks @ 0x1405CF52C (ViDifCaptureIoCallbacks.c)
+ *     IovUtilFlushStackCache @ 0x140AD29EC (IovUtilFlushStackCache.c)
  */
 
 __int64 __fastcall IovAttachDeviceToDeviceStack(__int64 a1, __int64 a2)

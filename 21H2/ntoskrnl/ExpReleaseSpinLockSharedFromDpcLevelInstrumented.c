@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1405B5DBC
+ * XREFs of ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1405B5FEC
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     ExReleaseSpinLockShared @ 0x1402922A0 (ExReleaseSpinLockShared.c)
- *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiOffsetToProtos @ 0x140320B50 (MiOffsetToProtos.c)
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
- *     ExpAddTagForBigPages @ 0x14033BDC0 (ExpAddTagForBigPages.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     MiAllocateCombineProto @ 0x140367E10 (MiAllocateCombineProto.c)
+ *     ExReleaseSpinLockShared @ 0x140210210 (ExReleaseSpinLockShared.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1403221E0 (MiMoveDirtyBitsToPfns.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiOffsetToProtos @ 0x14032B8A0 (MiOffsetToProtos.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
+ *     ExpAddTagForBigPages @ 0x140346B10 (ExpAddTagForBigPages.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     MiAllocateCombineProto @ 0x140367FC0 (MiAllocateCombineProto.c)
  * Callees:
- *     PerfLogSpinLockRelease @ 0x1405AB448 (PerfLogSpinLockRelease.c)
+ *     PerfLogSpinLockRelease @ 0x1405AB678 (PerfLogSpinLockRelease.c)
  */
 
 __int64 __fastcall ExpReleaseSpinLockSharedFromDpcLevelInstrumented(volatile signed __int32 *a1, __int64 a2)

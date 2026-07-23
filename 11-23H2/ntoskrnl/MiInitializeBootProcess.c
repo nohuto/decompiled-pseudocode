@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiSetPageTablePfnBuddy @ 0x14029251C (MiSetPageTablePfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402927AC (MiSetPageTablePfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
  */
 
 __int64 MiInitializeBootProcess()
@@ -53,10 +53,13 @@ __int64 MiInitializeBootProcess()
   qword_140C65A20 = (__int64)&Process[1].UserDirectoryTableBase;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

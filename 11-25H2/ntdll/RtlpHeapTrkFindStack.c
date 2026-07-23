@@ -20,7 +20,7 @@ __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
   v2 = RtlpHeapTrkHash(a1);
   v3 = v2 & 0xF;
   v4 = v2;
-  if ( !RtlTryAcquireSRWLockExclusive(*(volatile signed __int32 **)(qword_1801D0820 + 8 * v3)) )
+  if ( !RtlTryAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801D0820 + 8 * v3)) )
     return 0LL;
   v5 = (_QWORD *)(16 * v4 + qword_1801D0280);
   for ( i = (_QWORD *)*v5; i != v5; i = (_QWORD *)*i )
@@ -34,6 +34,6 @@ __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
   }
   v7 = 0LL;
 LABEL_7:
-  RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801D0820 + 8 * v3));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801D0820 + 8 * v3));
   return v7;
 }

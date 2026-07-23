@@ -1,25 +1,25 @@
 /*
- * XREFs of PopFreeHiberContext @ 0x140B1AB90
+ * XREFs of PopFreeHiberContext @ 0x140B1CE40
  * Callers:
- *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
- *     PopUnlockAfterSleepWorker @ 0x140C04AB0 (PopUnlockAfterSleepWorker.c)
+ *     PopAllocateHiberContext @ 0x140B75B48 (PopAllocateHiberContext.c)
+ *     PopUnlockAfterSleepWorker @ 0x140C0ACC0 (PopUnlockAfterSleepWorker.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MmFreePagesFromMdl @ 0x1403454A0 (MmFreePagesFromMdl.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IopDumpTraceFreeDumpStackFailure @ 0x1405C91C4 (IopDumpTraceFreeDumpStackFailure.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BiOpenStoreWithHash @ 0x140773404 (BiOpenStoreWithHash.c)
- *     VslFreeSecureHibernateResources @ 0x1407922C8 (VslFreeSecureHibernateResources.c)
- *     BcdCloseStore @ 0x1409D0088 (BcdCloseStore.c)
- *     PopBcdClearPendingResume @ 0x1409D08F8 (PopBcdClearPendingResume.c)
- *     MmReleaseDumpHibernateResources @ 0x140B1AE1C (MmReleaseDumpHibernateResources.c)
- *     MmUnlockPreChargedPagedPool @ 0x140B1AE60 (MmUnlockPreChargedPagedPool.c)
- *     PopClearHiberFileSignature @ 0x140B1AEA0 (PopClearHiberFileSignature.c)
- *     BgkResumeFinished @ 0x140C09404 (BgkResumeFinished.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MmFreePagesFromMdl @ 0x140347520 (MmFreePagesFromMdl.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IopDumpTraceFreeDumpStackFailure @ 0x1405CBA94 (IopDumpTraceFreeDumpStackFailure.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BiOpenStoreWithHash @ 0x140776404 (BiOpenStoreWithHash.c)
+ *     VslFreeSecureHibernateResources @ 0x140794DF8 (VslFreeSecureHibernateResources.c)
+ *     BcdCloseStore @ 0x1409A1068 (BcdCloseStore.c)
+ *     PopBcdClearPendingResume @ 0x1409A18D8 (PopBcdClearPendingResume.c)
+ *     MmReleaseDumpHibernateResources @ 0x140B1D0CC (MmReleaseDumpHibernateResources.c)
+ *     MmUnlockPreChargedPagedPool @ 0x140B1D110 (MmUnlockPreChargedPagedPool.c)
+ *     PopClearHiberFileSignature @ 0x140B1D150 (PopClearHiberFileSignature.c)
+ *     BgkResumeFinished @ 0x140C0F614 (BgkResumeFinished.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _UNKNOWN **__fastcall PopFreeHiberContext(__int64 a1, __int64 a2, __int64 a3)
@@ -38,17 +38,17 @@ _UNKNOWN **__fastcall PopFreeHiberContext(__int64 a1, __int64 a2, __int64 a3)
   _QWORD *v14; // rax
   int v15; // eax
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
-  __int64 v17; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp+8h] BYREF
 
   result = &retaddr;
-  v4 = qword_140F0FBB0;
-  v17 = 0LL;
-  if ( qword_140F0FBB0 )
+  v4 = qword_140F10470;
+  BcdStoreHandle = 0LL;
+  if ( qword_140F10470 )
   {
-    if ( (int)BiOpenStoreWithHash(a1, 2u, a3, (__int64)&v17) >= 0 )
+    if ( (int)BiOpenStoreWithHash(a1, 2u, a3, (__int64)&BcdStoreHandle) >= 0 )
     {
-      PopBcdClearPendingResume(v17);
-      BcdCloseStore(v17);
+      PopBcdClearPendingResume(BcdStoreHandle);
+      BcdCloseStore(BcdStoreHandle);
     }
     v6 = *(void **)(v4 + 272);
     if ( v6 )
@@ -89,7 +89,7 @@ _UNKNOWN **__fastcall PopFreeHiberContext(__int64 a1, __int64 a2, __int64 a3)
     {
       if ( CrashdmpImageEntry )
       {
-        if ( qword_140E65E70 )
+        if ( qword_140E66010 )
         {
           v15 = guard_dispatch_icall_no_overrides(v10, v5);
           if ( v15 < 0 )
@@ -105,28 +105,28 @@ _UNKNOWN **__fastcall PopFreeHiberContext(__int64 a1, __int64 a2, __int64 a3)
     if ( *(_DWORD *)(v4 + 204) == 1073742484 )
       PopClearHiberFileSignature();
     *(_BYTE *)(v4 + 24) = 0;
-    MmUnlockPreChargedPagedPool(qword_140F0FDB0, qword_140F0FDB8);
+    MmUnlockPreChargedPagedPool(qword_140F10930, Length);
     v11 = *(void **)(v4 + 320);
     if ( v11 )
       ExFreePoolWithTag(v11, 0x72626968u);
     v12 = *(_QWORD *)(v4 + 336);
     if ( v12 )
       MmReleaseDumpHibernateResources(v12, (unsigned int)(*(_DWORD *)(v4 + 288) << 16));
-    if ( stru_140F11D08.ApcStateFill[32] )
+    if ( PopBgkResumePrepared )
     {
       BgkResumeFinished();
-      stru_140F11D08.ApcStateFill[32] = 0;
+      PopBgkResumePrepared = 0;
     }
     if ( *(_BYTE *)(v4 + 488) )
       VslFreeSecureHibernateResources();
-    if ( VslpReservedTransferLock.QueueListEntry.Blink )
+    if ( VslpReservedTransferLock.Affinity )
     {
-      ExFreePoolWithTag(VslpReservedTransferLock.QueueListEntry.Blink, 0x204C5648u);
-      VslpReservedTransferLock.QueueListEntry.Blink = 0LL;
-      VslpReservedTransferLock.NextProcessor = 0;
+      ExFreePoolWithTag(VslpReservedTransferLock.Affinity, 0x204C5648u);
+      VslpReservedTransferLock.Affinity = 0LL;
+      *(_DWORD *)&VslpReservedTransferLock.AffinityPrimaryGroup = 0;
     }
     result = (_UNKNOWN **)memset_0((void *)v4, 0, 0x1F0uLL);
-    qword_140F0FBB0 = 0LL;
+    qword_140F10470 = 0LL;
   }
   return result;
 }

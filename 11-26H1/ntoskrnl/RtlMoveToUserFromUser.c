@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMoveToUserFromUser @ 0x14077F4A8
+ * XREFs of RtlMoveToUserFromUser @ 0x140781FA8
  * Callers:
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     RtlMoveToUserFromUser$thunk$1901439844982784537 @ 0x140C61060 (RtlMoveToUserFromUser$thunk$1901439844982784537.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     RtlMoveToUserFromUser$thunk$1901439844982784537 @ 0x140C67060 (RtlMoveToUserFromUser$thunk$1901439844982784537.c)
  * Callees:
- *     RtlMoveVolatileMemory @ 0x140733090 (RtlMoveVolatileMemory.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     RtlMoveVolatileMemory @ 0x140737C60 (RtlMoveVolatileMemory.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 void *__fastcall RtlMoveToUserFromUser(void *a1, void *Src, size_t Size)

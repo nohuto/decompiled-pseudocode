@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAcquireActiveConnectLock @ 0x1407627E0
+ * XREFs of IopAcquireActiveConnectLock @ 0x1407629A0
  * Callers:
- *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140761BD0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14076238C (IopConnectInterrupt.c)
  * Callees:
- *     IopAcquireReleaseConnectLockInternal @ 0x1407C4720 (IopAcquireReleaseConnectLockInternal.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x1407C4C40 (IopAcquireReleaseConnectLockInternal.c)
  */
 
 __int64 __fastcall IopAcquireActiveConnectLock(__int64 a1, __int64 a2)

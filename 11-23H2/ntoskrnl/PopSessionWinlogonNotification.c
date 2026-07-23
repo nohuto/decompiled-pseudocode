@@ -1,15 +1,15 @@
 /*
  * XREFs of PopSessionWinlogonNotification @ 0x140682D5C
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     PopPrintEx @ 0x14032A6AC (PopPrintEx.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7570 (PopSetPowerSettingValueAcDc.c)
- *     PopNotifyConsoleUserPresent @ 0x1407D3744 (PopNotifyConsoleUserPresent.c)
- *     PopDiagTraceSessionStates @ 0x1407EB85C (PopDiagTraceSessionStates.c)
- *     PopAcquireAdaptiveLock @ 0x1407EBE9C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EBF48 (PopReleaseAdaptiveLock.c)
+ *     PopPrintEx @ 0x14032A93C (PopPrintEx.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1407A7760 (PopSetPowerSettingValueAcDc.c)
+ *     PopNotifyConsoleUserPresent @ 0x1407D3A14 (PopNotifyConsoleUserPresent.c)
+ *     PopDiagTraceSessionStates @ 0x1407EBB2C (PopDiagTraceSessionStates.c)
+ *     PopAcquireAdaptiveLock @ 0x1407EC16C (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1407EC218 (PopReleaseAdaptiveLock.c)
  */
 
 __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
@@ -35,19 +35,19 @@ __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
   v7 = "Console";
   if ( !v3 )
     v7 = "Remote";
-  result = PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>> %s session %u is %s\n", v7, a1, v6);
+  result = PopPrintEx(3u, (__int64)"PopAdaptive:>>>>> %s session %u is %s\n", v7, a1, v6);
   v9 = 0;
   if ( v3 )
   {
     PopAcquireAdaptiveLock(0LL);
     if ( v2 )
     {
-      byte_140C39CE1 = 1;
+      byte_140C39C41 = 1;
     }
     else
     {
-      byte_140C39CE1 = 0;
-      v9 = byte_140C39CE2 == 0;
+      byte_140C39C41 = 0;
+      v9 = byte_140C39C42 == 0;
     }
     PopReleaseAdaptiveLock();
     v10 = v2 != 0;

@@ -1,43 +1,43 @@
 /*
- * XREFs of IopRegisterDeviceInterface @ 0x1409D8950
+ * XREFs of IopRegisterDeviceInterface @ 0x1409A9840
  * Callers:
- *     PiSwIrpInterfaceRegister @ 0x14090BA58 (PiSwIrpInterfaceRegister.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x140987D80 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PiCMRegisterDeviceInterface @ 0x14098C74C (PiCMRegisterDeviceInterface.c)
- *     IoRegisterDeviceInterface @ 0x140AFA280 (IoRegisterDeviceInterface.c)
+ *     PiCMRegisterDeviceInterface @ 0x14094D1B4 (PiCMRegisterDeviceInterface.c)
+ *     IoRegisterDeviceInterface @ 0x1409AB500 (IoRegisterDeviceInterface.c)
+ *     PiSwIrpInterfaceRegister @ 0x1409ADB7C (PiSwIrpInterfaceRegister.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140A47C2C (PiDevCfgConfigureDeviceInterfaces.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     _PnpStringFromGuid @ 0x14090F21C (_PnpStringFromGuid.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _CmValidateDeviceInterfaceName @ 0x1409A0350 (_CmValidateDeviceInterfaceName.c)
- *     _CmGetDeviceInterfaceName @ 0x1409A2638 (_CmGetDeviceInterfaceName.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     CmpUnlockSiloKeyLockTracker @ 0x1409A604C (CmpUnlockSiloKeyLockTracker.c)
- *     PiDmObjectAcquireSharedLock @ 0x1409A7358 (PiDmObjectAcquireSharedLock.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1409D8EB0 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x1409D8F40 (PiDmAddCacheReferenceForObject.c)
- *     PiDmObjectManagerReleaseLock @ 0x1409D90A4 (PiDmObjectManagerReleaseLock.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x1409D911C (PiDmObjectManagerAcquireSharedLock.c)
- *     PiDmLookupObject @ 0x1409D92F0 (PiDmLookupObject.c)
- *     PiDmListAddObject @ 0x1409D94D0 (PiDmListAddObject.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
- *     _CmDeleteDeviceInterface @ 0x140A8B64C (_CmDeleteDeviceInterface.c)
- *     _CmCreateDeviceInterface @ 0x140AF26F0 (_CmCreateDeviceInterface.c)
- *     PipCheckForDenyExecute @ 0x140B02460 (PipCheckForDenyExecute.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _CmValidateDeviceInterfaceName @ 0x140960DB0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmGetDeviceInterfaceName @ 0x140963098 (_CmGetDeviceInterfaceName.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140966AAC (CmpUnlockSiloKeyLockTracker.c)
+ *     PiDmObjectAcquireSharedLock @ 0x140967DB8 (PiDmObjectAcquireSharedLock.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1409A9DA0 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1409A9E30 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1409A9F94 (PiDmObjectManagerReleaseLock.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1409AA00C (PiDmObjectManagerAcquireSharedLock.c)
+ *     PiDmLookupObject @ 0x1409AA1E0 (PiDmLookupObject.c)
+ *     PiDmListAddObject @ 0x1409AA3C0 (PiDmListAddObject.c)
+ *     _PnpStringFromGuid @ 0x1409B134C (_PnpStringFromGuid.c)
+ *     _CmDeleteDeviceInterface @ 0x1409B846C (_CmDeleteDeviceInterface.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
+ *     _CmCreateDeviceInterface @ 0x140AF4EDC (_CmCreateDeviceInterface.c)
+ *     PipCheckForDenyExecute @ 0x140B04190 (PipCheckForDenyExecute.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopRegisterDeviceInterface(
         const wchar_t *a1,
-        int *a2,
+        __int64 a2,
         const wchar_t *a3,
         char a4,
         PVOID *a5,
@@ -83,7 +83,7 @@ __int64 __fastcall IopRegisterDeviceInterface(
   PVOID v45; // [rsp+A8h] [rbp-58h] BYREF
   __int128 Source2; // [rsp+B0h] [rbp-50h] BYREF
   wchar_t Str2[40]; // [rsp+C0h] [rbp-40h] BYREF
-  wchar_t v48[40]; // [rsp+110h] [rbp+10h] BYREF
+  _BYTE v48[80]; // [rsp+110h] [rbp+10h] BYREF
 
   v6 = a5;
   v38 = a1;
@@ -191,7 +191,7 @@ LABEL_52:
   }
   if ( RtlCompareMemory(&NullGuid, &Source2, 0x10uLL) != 16 )
   {
-    DeviceInterfaceName = PnpStringFromGuid((int *)&Source2, v48);
+    DeviceInterfaceName = PnpStringFromGuid(&Source2, v48);
     if ( DeviceInterfaceName < 0 )
       goto LABEL_52;
     v23 = PiDmAddCacheReferenceForObject(5LL, v48, &v42);
@@ -239,7 +239,6 @@ LABEL_52:
                           PiPnpRtlCtx,
                           (unsigned int)*a5,
                           3,
-                          (_DWORD)Handle,
                           0LL,
                           (__int64)&DEVPKEY_Device_InstanceId,
                           18,

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSymlinkInitializeSymlinkInfo @ 0x1406AC060
+ * XREFs of IopSymlinkInitializeSymlinkInfo @ 0x1406AD300
  * Callers:
- *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140639F90 (IopSymlinkPropagateToExtensionIfNeeded.c)
- *     IopSymlinkUpdateECP @ 0x1406ABCB0 (IopSymlinkUpdateECP.c)
- *     IopSymlinkRememberJunction @ 0x1406ABE58 (IopSymlinkRememberJunction.c)
- *     IopSymlinkCreateECP @ 0x1406ABF58 (IopSymlinkCreateECP.c)
- *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x14063AFB0 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     IopSymlinkUpdateECP @ 0x1406ACF50 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkRememberJunction @ 0x1406AD0F8 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkCreateECP @ 0x1406AD1F8 (IopSymlinkCreateECP.c)
+ *     IopGraftName @ 0x1406AD50C (IopGraftName.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 void *__fastcall IopSymlinkInitializeSymlinkInfo(

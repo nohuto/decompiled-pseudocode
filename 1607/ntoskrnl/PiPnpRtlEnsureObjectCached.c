@@ -1,20 +1,20 @@
 /*
- * XREFs of PiPnpRtlEnsureObjectCached @ 0x14062E9D0
+ * XREFs of PiPnpRtlEnsureObjectCached @ 0x14062EA84
  * Callers:
- *     PiCMCreateDevice @ 0x1406461E4 (PiCMCreateDevice.c)
+ *     PiCMCreateDevice @ 0x1406462C8 (PiCMCreateDevice.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlObjectEventCreate @ 0x1405015D8 (PiPnpRtlObjectEventCreate.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlDisableRemoveOperationDispatch @ 0x140501BC4 (PiPnpRtlDisableRemoveOperationDispatch.c)
- *     PiDmObjectAcquireExclusiveLock @ 0x140506124 (PiDmObjectAcquireExclusiveLock.c)
- *     PiDmAddCacheReferenceForObject @ 0x140506288 (PiDmAddCacheReferenceForObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1404E4568 (PiPnpRtlObjectEventCreate.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlDisableRemoveOperationDispatch @ 0x1404E4B54 (PiPnpRtlDisableRemoveOperationDispatch.c)
+ *     PiDmObjectAcquireExclusiveLock @ 0x1404E90B4 (PiDmObjectAcquireExclusiveLock.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1404E9218 (PiDmAddCacheReferenceForObject.c)
  */
 
 __int64 __fastcall PiPnpRtlEnsureObjectCached(__int64 a1, wchar_t *a2)

@@ -1,26 +1,26 @@
 /*
- * XREFs of PspAssignPrimaryToken @ 0x14067EFDC
+ * XREFs of PspAssignPrimaryToken @ 0x14067F0C0
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PspLockUnlockProcessExclusive @ 0x1400AA9B4 (PspLockUnlockProcessExclusive.c)
- *     PspUnlockProcessShared @ 0x1400C9C44 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x1400C9C88 (PspLockProcessShared.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObDereferenceDeviceMap @ 0x140460DF0 (ObDereferenceDeviceMap.c)
- *     SeIsTokenAssignableToProcess @ 0x140476504 (SeIsTokenAssignableToProcess.c)
- *     SeCheckPrivilegedObject @ 0x14054757C (SeCheckPrivilegedObject.c)
- *     SeExchangePrimaryToken @ 0x140692774 (SeExchangePrimaryToken.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PspLockUnlockProcessExclusive @ 0x1400A8F34 (PspLockUnlockProcessExclusive.c)
+ *     PspUnlockProcessShared @ 0x1400C7AE4 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x1400C7B28 (PspLockProcessShared.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObDereferenceDeviceMap @ 0x14045FCC0 (ObDereferenceDeviceMap.c)
+ *     SeIsTokenAssignableToProcess @ 0x1404753D4 (SeIsTokenAssignableToProcess.c)
+ *     SeCheckPrivilegedObject @ 0x140547ABC (SeCheckPrivilegedObject.c)
+ *     SeExchangePrimaryToken @ 0x140692858 (SeExchangePrimaryToken.c)
  */
 
 NTSTATUS __fastcall PspAssignPrimaryToken(__int64 a1, KPROCESSOR_MODE a2, void *a3, void *a4)
 {
   NTSTATUS result; // eax
   PVOID v8; // rsi
-  int IsTokenAssignableToProcess; // ebx
+  NTSTATUS IsTokenAssignableToProcess; // ebx
   __int64 v10; // r8
   __int64 v11; // r9
   _DWORD *v12; // rdi

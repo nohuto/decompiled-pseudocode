@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenKey @ 0x1800A0520
+ * XREFs of NtOpenKey @ 0x1800A0540
  * Callers:
  *     RtlGetPersistedStateLocation @ 0x1800296A0 (RtlGetPersistedStateLocation.c)
  *     RtlOpenCurrentUser @ 0x1800297E0 (RtlOpenCurrentUser.c)
@@ -19,17 +19,17 @@
  *     RtlpGetRegistryHandle @ 0x180053FCC (RtlpGetRegistryHandle.c)
  *     RtlpLookupCurDirSetting @ 0x180058040 (RtlpLookupCurDirSetting.c)
  *     WerpGlobalFlagsForProcess @ 0x18006D8F0 (WerpGlobalFlagsForProcess.c)
- *     RtlpOpenImageFileOptionsKeyEx @ 0x180079268 (RtlpOpenImageFileOptionsKeyEx.c)
- *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x180079424 (RtlpOpenBaseImageFileOptionsKeyEx.c)
- *     RtlpProcessIFEOKeyFilter @ 0x18007948C (RtlpProcessIFEOKeyFilter.c)
- *     RtlpGetDeviceFamilyInfoEnum @ 0x18007A950 (RtlpGetDeviceFamilyInfoEnum.c)
- *     LdrpCodeAuthzInitialize @ 0x18007FC08 (LdrpCodeAuthzInitialize.c)
- *     RtlpTestHookInitialize @ 0x180080F00 (RtlpTestHookInitialize.c)
- *     RtlpNtOpenKey @ 0x180081A10 (RtlpNtOpenKey.c)
- *     RtlpIsCustomLocale @ 0x18008A4DC (RtlpIsCustomLocale.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x18008AEB0 (RtlpGetNtProductTypeFromRegistry.c)
- *     RXactpOpenTargetKey @ 0x18008B47C (RXactpOpenTargetKey.c)
- *     RtlpLoadInstallLanguageFallback @ 0x18008F224 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x180079278 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x180079434 (RtlpOpenBaseImageFileOptionsKeyEx.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x18007949C (RtlpProcessIFEOKeyFilter.c)
+ *     RtlpGetDeviceFamilyInfoEnum @ 0x18007A960 (RtlpGetDeviceFamilyInfoEnum.c)
+ *     LdrpCodeAuthzInitialize @ 0x18007FC18 (LdrpCodeAuthzInitialize.c)
+ *     RtlpTestHookInitialize @ 0x180080F10 (RtlpTestHookInitialize.c)
+ *     RtlpNtOpenKey @ 0x180081A20 (RtlpNtOpenKey.c)
+ *     RtlpIsCustomLocale @ 0x18008A4EC (RtlpIsCustomLocale.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x18008AEC0 (RtlpGetNtProductTypeFromRegistry.c)
+ *     RXactpOpenTargetKey @ 0x18008B48C (RXactpOpenTargetKey.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x18008F234 (RtlpLoadInstallLanguageFallback.c)
  *     LdrpInitializeCriticalSectionExceptionGlobalMitigation @ 0x1800D2FD0 (LdrpInitializeCriticalSectionExceptionGlobalMitigation.c)
  *     LdrpInitializeExecutionOptions @ 0x1800D30E0 (LdrpInitializeExecutionOptions.c)
  *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800DB828 (AVrfOpenCurrentUserImageFileOptionsKey.c)
@@ -53,16 +53,16 @@
  *     _RtlpMuiRegLoadInstalled @ 0x1801026E8 (_RtlpMuiRegLoadInstalled.c)
  *     _RtlpRemovePendingDeleteLanguages @ 0x180103698 (_RtlpRemovePendingDeleteLanguages.c)
  *     RtlpHpApplySegmentHeapConfigurations @ 0x18010C22C (RtlpHpApplySegmentHeapConfigurations.c)
- *     OpenOrCreateKeyWithFlags @ 0x180116E1C (OpenOrCreateKeyWithFlags.c)
+ *     OpenOrCreateKeyWithFlags @ 0x180116DB8 (OpenOrCreateKeyWithFlags.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenKey()
+NTSTATUS __cdecl NtOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 18LL;
+  result = 18;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

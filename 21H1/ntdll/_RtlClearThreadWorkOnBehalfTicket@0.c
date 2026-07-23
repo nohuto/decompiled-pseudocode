@@ -12,11 +12,11 @@ int __stdcall RtlClearThreadWorkOnBehalfTicket()
   int result; // eax
   __int64 Buf2; // [esp+0h] [ebp-8h] BYREF
 
-  Buf2 = 0LL;
-  result = memcmp(NtCurrentTeb()->WorkingOnBehalfTicket, &Buf2, 8u);
+  HIDWORD(Buf2) = 0;
+  result = memcmp(NtCurrentTeb()->WorkingOnBehalfTicket, &Buf2, 8uLL);
   if ( result )
   {
-    result = ZwSetInformationThread(-2, 44, &Buf2, 8);
+    result = ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadWorkOnBehalfTicket, &Buf2, 8u);
     if ( result >= 0 )
       *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = Buf2;
   }

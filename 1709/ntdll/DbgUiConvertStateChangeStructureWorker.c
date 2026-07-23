@@ -13,11 +13,12 @@ __int64 __fastcall DbgUiConvertStateChangeStructureWorker(__int64 a1, __int64 a2
   __int16 v5; // ax
   __int16 v6; // ax
   int v7; // eax
-  int v9; // eax
+  NTSTATUS v9; // eax
   __int64 v10; // rcx
-  int InformationThread; // eax
+  NTSTATUS InformationThread; // eax
   __int64 v12; // rcx
-  __int64 v13; // [rsp+38h] [rbp-30h]
+  _BYTE ThreadInformation[8]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v14; // [rsp+38h] [rbp-30h]
 
   *(_DWORD *)(a2 + 4) = *(_DWORD *)(a1 + 8);
   *(_DWORD *)(a2 + 8) = *(_DWORD *)(a1 + 16);
@@ -27,8 +28,13 @@ __int64 __fastcall DbgUiConvertStateChangeStructureWorker(__int64 a1, __int64 a2
       *(_DWORD *)a2 = 2;
       *(_QWORD *)(a2 + 16) = *(_QWORD *)(a1 + 24);
       *(_QWORD *)(a2 + 32) = *(_QWORD *)(a1 + 40);
-      InformationThread = ZwQueryInformationThread();
-      v12 = v13;
+      InformationThread = ZwQueryInformationThread(
+                            *(HANDLE *)(a1 + 24),
+                            ThreadBasicInformation,
+                            ThreadInformation,
+                            0x30u,
+                            0LL);
+      v12 = v14;
       if ( InformationThread < 0 )
         v12 = 0LL;
       *(_QWORD *)(a2 + 24) = v12;
@@ -42,8 +48,8 @@ __int64 __fastcall DbgUiConvertStateChangeStructureWorker(__int64 a1, __int64 a2
       *(_DWORD *)(a2 + 48) = *(_DWORD *)(a1 + 64);
       *(_DWORD *)(a2 + 52) = *(_DWORD *)(a1 + 68);
       *(_QWORD *)(a2 + 64) = *(_QWORD *)(a1 + 80);
-      v9 = ZwQueryInformationThread();
-      v10 = v13;
+      v9 = ZwQueryInformationThread(*(HANDLE *)(a1 + 32), ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
+      v10 = v14;
       *(_QWORD *)(a2 + 72) = 0LL;
       if ( v9 < 0 )
         v10 = 0LL;

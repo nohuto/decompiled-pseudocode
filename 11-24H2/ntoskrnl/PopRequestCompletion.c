@@ -1,17 +1,17 @@
 /*
- * XREFs of PopRequestCompletion @ 0x140376130
+ * XREFs of PopRequestCompletion @ 0x1403A6460
  * Callers:
  *     <none>
  * Callees:
- *     PopPepUpdateConstraints @ 0x1403128A0 (PopPepUpdateConstraints.c)
- *     PopHandleDevicePowerIrpCompletion @ 0x140376270 (PopHandleDevicePowerIrpCompletion.c)
- *     PopFxNotifyPreDIrpCompletion @ 0x1403763F8 (PopFxNotifyPreDIrpCompletion.c)
- *     PopFreeIrp @ 0x1403764AC (PopFreeIrp.c)
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     PopDiagTraceIrpFinish @ 0x140377E10 (PopDiagTraceIrpFinish.c)
- *     PopUpdateWakeSource @ 0x1404A0ACC (PopUpdateWakeSource.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x1405CF9E0 (PopDirectedDripsStartDisengageTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopDiagTraceIrpFinish @ 0x1402E64EC (PopDiagTraceIrpFinish.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403A65A0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopFxNotifyPreDIrpCompletion @ 0x1403A6728 (PopFxNotifyPreDIrpCompletion.c)
+ *     PopPepUpdateConstraints @ 0x1403A750C (PopPepUpdateConstraints.c)
+ *     PopFreeIrp @ 0x1403A7BB8 (PopFreeIrp.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     PopUpdateWakeSource @ 0x14049B14C (PopUpdateWakeSource.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x1405CD100 (PopDirectedDripsStartDisengageTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopRequestCompletion(__int64 a1, IRP *a2, __int64 a3)
@@ -20,9 +20,10 @@ __int64 __fastcall PopRequestCompletion(__int64 a1, IRP *a2, __int64 a3)
   char v5; // r14
   IRP *v6; // rsi
   int *v7; // rbp
-  __int64 v9; // rax
+  __int64 v9; // r8
   __int64 v10; // rax
-  __int64 v11; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rcx
 
   v3 = *(_QWORD *)(a3 + 200);
   v5 = *(_BYTE *)(a3 + 184);
@@ -33,7 +34,7 @@ __int64 __fastcall PopRequestCompletion(__int64 a1, IRP *a2, __int64 a3)
   if ( *(_QWORD *)(a3 + 216) )
   {
     LOBYTE(a2) = v5;
-    guard_dispatch_icall_no_overrides(*(_QWORD *)(a3 + 232), a2, *(unsigned int *)(a3 + 192), *(_QWORD *)(a3 + 224));
+    guard_dispatch_icall_no_overrides(*(_QWORD *)(a3 + 232), a2);
   }
   if ( v5 )
   {
@@ -41,20 +42,20 @@ __int64 __fastcall PopRequestCompletion(__int64 a1, IRP *a2, __int64 a3)
   }
   else
   {
-    PopDiagTraceIrpFinish(v6);
+    PopDiagTraceIrpFinish((__int64)v6);
     if ( *v7 >= 0 )
     {
       if ( *(_BYTE *)(a3 + 240) )
         PopUpdateWakeSource(*(PVOID *)(a3 + 24));
       if ( *v7 >= 0 )
       {
-        v9 = *(_QWORD *)(a3 + 24);
-        if ( v9 )
+        v10 = *(_QWORD *)(a3 + 24);
+        if ( v10 )
         {
-          v10 = *(_QWORD *)(*(_QWORD *)(v9 + 312) + 40LL);
-          if ( v10 )
+          v11 = *(_QWORD *)(*(_QWORD *)(v10 + 312) + 40LL);
+          if ( v11 )
           {
-            if ( (*(_DWORD *)(v10 + 760) & 0x30000) != 0 )
+            if ( (*(_DWORD *)(v11 + 760) & 0x30000) != 0 )
               PopDirectedDripsStartDisengageTimer(0LL);
           }
         }
@@ -62,9 +63,12 @@ __int64 __fastcall PopRequestCompletion(__int64 a1, IRP *a2, __int64 a3)
     }
     if ( v3 )
     {
-      v11 = *(_QWORD *)(v3 + 56);
-      if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 128), 0xFFFFFFFF) == 1 )
-        PopPepUpdateConstraints((_DWORD *)v11, 5, 1);
+      v12 = *(_QWORD *)(v3 + 56);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v12 + 128), 0xFFFFFFFF) == 1 )
+      {
+        LOBYTE(v9) = 1;
+        PopPepUpdateConstraints(v12, 5LL, v9);
+      }
       PopFxDereferenceDevice(v3, 0LL);
     }
     PopFreeIrp(v6);

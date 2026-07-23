@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFreeOffsetArray @ 0x1407DC650
+ * XREFs of CmpFreeOffsetArray @ 0x1407DCBA0
  * Callers:
- *     CmDumpKeyToFile @ 0x1407CCD84 (CmDumpKeyToFile.c)
- *     CmpFlushBackupHive @ 0x1407DC2B8 (CmpFlushBackupHive.c)
+ *     CmDumpKeyToFile @ 0x1407CD274 (CmDumpKeyToFile.c)
+ *     CmpFlushBackupHive @ 0x1407DC808 (CmpFlushBackupHive.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFreeOffsetArray(unsigned int a1, PVOID *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of WheapInitializeInUsePageOfflineNotifications @ 0x140822F90
+ * XREFs of WheapInitializeInUsePageOfflineNotifications @ 0x140823290
  * Callers:
  *     WheaInitializeServices @ 0x140B544E4 (WheaInitializeServices.c)
  * Callees:
@@ -13,7 +13,7 @@ PVOID *WheapInitializeInUsePageOfflineNotifications()
 
   WheapInUsePageOfflineNotifyLock = 0LL;
   result = &WheapInUsePageOfflineNotifyList;
-  qword_140D16CD0 = (__int64)&WheapInUsePageOfflineNotifyList;
+  qword_140D16CC8 = (__int64)&WheapInUsePageOfflineNotifyList;
   WheapInUsePageOfflineNotifyList = &WheapInUsePageOfflineNotifyList;
   _InterlockedOr((volatile signed __int32 *)&retaddr, 0);
   WheapInUsePageOfflineNotifyInit = 1;

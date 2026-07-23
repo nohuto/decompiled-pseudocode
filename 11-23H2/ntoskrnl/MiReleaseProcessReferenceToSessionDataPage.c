@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReleaseProcessReferenceToSessionDataPage @ 0x140706CDC
+ * XREFs of MiReleaseProcessReferenceToSessionDataPage @ 0x140706EEC
  * Callers:
- *     MiDereferenceSessionGlobal @ 0x14063750C (MiDereferenceSessionGlobal.c)
- *     MiGetNextSessionGlobal @ 0x140637524 (MiGetNextSessionGlobal.c)
- *     MmDeleteProcessAddressSpace @ 0x1407059E8 (MmDeleteProcessAddressSpace.c)
- *     MiSessionObjectDelete @ 0x140A32550 (MiSessionObjectDelete.c)
+ *     MiDereferenceSessionGlobal @ 0x140637A5C (MiDereferenceSessionGlobal.c)
+ *     MiGetNextSessionGlobal @ 0x140637A74 (MiGetNextSessionGlobal.c)
+ *     MmDeleteProcessAddressSpace @ 0x140705BF8 (MmDeleteProcessAddressSpace.c)
+ *     MiSessionObjectDelete @ 0x140A32800 (MiSessionObjectDelete.c)
  * Callees:
  *     MiPartitionIdToPointer @ 0x14020B9C4 (MiPartitionIdToPointer.c)
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiUnlinkSessionList @ 0x14063769C (MiUnlinkSessionList.c)
- *     MiFreeSessionId @ 0x140A32474 (MiFreeSessionId.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiUnlinkSessionList @ 0x140637BEC (MiUnlinkSessionList.c)
+ *     MiFreeSessionId @ 0x140A32724 (MiFreeSessionId.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

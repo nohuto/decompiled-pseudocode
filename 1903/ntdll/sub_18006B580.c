@@ -11,7 +11,7 @@ __int64 sub_18006B580()
   unsigned int v0; // ebx
   char *pShimData; // rdi
   char *v2; // rdi
-  unsigned __int64 v3; // rcx
+  REGHANDLE v3; // rcx
 
   v0 = 0;
   pShimData = (char *)NtCurrentPeb()->pShimData;

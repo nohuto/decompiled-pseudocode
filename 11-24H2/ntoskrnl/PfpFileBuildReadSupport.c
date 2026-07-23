@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpFileBuildReadSupport @ 0x140953F94
+ * XREFs of PfpFileBuildReadSupport @ 0x140937944
  * Callers:
- *     PfpPrefetchFiles @ 0x1409537E8 (PfpPrefetchFiles.c)
- *     PfpPrefetchFilesTrickle @ 0x140954F78 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchFiles @ 0x140937198 (PfpPrefetchFiles.c)
+ *     PfpPrefetchFilesTrickle @ 0x140938928 (PfpPrefetchFilesTrickle.c)
  * Callees:
- *     PfpFileCheckAttributesForPrefetch @ 0x14046F0F0 (PfpFileCheckAttributesForPrefetch.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     PfpFileBuildReadList @ 0x140953D00 (PfpFileBuildReadList.c)
- *     MiCreateSectionCommon @ 0x14096B594 (MiCreateSectionCommon.c)
- *     PfpOpenHandleClose @ 0x14096B934 (PfpOpenHandleClose.c)
- *     PfpOpenHandleCreate @ 0x14096B99C (PfpOpenHandleCreate.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x140469800 (PfpFileCheckAttributesForPrefetch.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     PfpFileBuildReadList @ 0x1409376B0 (PfpFileBuildReadList.c)
+ *     MiCreateSectionCommon @ 0x140954024 (MiCreateSectionCommon.c)
+ *     PfpOpenHandleClose @ 0x140954390 (PfpOpenHandleClose.c)
+ *     PfpOpenHandleCreate @ 0x1409543F8 (PfpOpenHandleCreate.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpFileBuildReadSupport(_QWORD *a1, __int64 a2, unsigned int a3, char a4, __int64 a5)

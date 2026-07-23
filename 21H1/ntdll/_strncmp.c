@@ -11,7 +11,7 @@
 
 int __cdecl strncmp(const char *Str1, const char *Str2, size_t MaxCount)
 {
-  size_t v3; // edx
+  unsigned int v3; // edx
   const char *v4; // ecx
   const char *v5; // eax
   unsigned __int8 v6; // bl
@@ -19,9 +19,9 @@ int __cdecl strncmp(const char *Str1, const char *Str2, size_t MaxCount)
   int v9; // eax
 
   v3 = 0;
-  if ( MaxCount )
+  if ( (_DWORD)MaxCount )
   {
-    if ( MaxCount > 4 )
+    if ( (unsigned int)MaxCount > 4 )
     {
       v4 = Str2;
       v5 = Str1;
@@ -51,7 +51,7 @@ int __cdecl strncmp(const char *Str1, const char *Str2, size_t MaxCount)
           return v6 - v7;
         }
         v3 += 4;
-        if ( v3 >= MaxCount - 4 )
+        if ( v3 >= (int)MaxCount - 4 )
           goto LABEL_20;
       }
       v7 = *((unsigned __int8 *)v4 - 4);
@@ -60,7 +60,7 @@ int __cdecl strncmp(const char *Str1, const char *Str2, size_t MaxCount)
     v4 = Str2;
     v5 = Str1;
 LABEL_20:
-    if ( v3 < MaxCount )
+    if ( v3 < (unsigned int)MaxCount )
     {
       v9 = v5 - v4;
       while ( 1 )
@@ -70,7 +70,7 @@ LABEL_20:
           break;
         ++v3;
         ++v4;
-        if ( v3 >= MaxCount )
+        if ( v3 >= (unsigned int)MaxCount )
           return 0;
       }
       v7 = *(unsigned __int8 *)v4;

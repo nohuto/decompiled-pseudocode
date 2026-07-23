@@ -1,10 +1,10 @@
 /*
- * XREFs of MmAdjustWorkingSetSize @ 0x1403CD080
+ * XREFs of MmAdjustWorkingSetSize @ 0x14046C870
  * Callers:
- *     PspApplyWorkingSetLimits @ 0x140777480 (PspApplyWorkingSetLimits.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x1408E7AC0 (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspApplyWorkingSetLimits @ 0x1407776A0 (PspApplyWorkingSetLimits.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x1408D8304 (PspApplyWorkingSetLimitsToProcess.c)
  * Callees:
- *     MmAdjustWorkingSetSizeEx @ 0x1403CD164 (MmAdjustWorkingSetSizeEx.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14046C954 (MmAdjustWorkingSetSizeEx.c)
  */
 
 __int64 __fastcall MmAdjustWorkingSetSize(int a1, int a2, int a3, int a4)

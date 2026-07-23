@@ -1,25 +1,25 @@
 /*
- * XREFs of IopResetEvent @ 0x140351DE0
+ * XREFs of IopResetEvent @ 0x14035CB30
  * Callers:
- *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
- *     IopAllocateAndPopulateWriteIrp @ 0x1403F1D24 (IopAllocateAndPopulateWriteIrp.c)
+ *     NtSetInformationFile @ 0x14035CFC0 (NtSetInformationFile.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1403F1D8C (IopAllocateAndPopulateWriteIrp.c)
  *     IopReadFile @ 0x1405CE318 (IopReadFile.c)
- *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
- *     NtQueryVolumeInformationFile @ 0x1406508C0 (NtQueryVolumeInformationFile.c)
- *     NtUnlockFile @ 0x14068F570 (NtUnlockFile.c)
- *     NtFlushBuffersFileEx @ 0x140698D00 (NtFlushBuffersFileEx.c)
- *     NtReadFileScatter @ 0x140699E80 (NtReadFileScatter.c)
- *     NtWriteFileGather @ 0x14069A620 (NtWriteFileGather.c)
- *     NtQueryEaFile @ 0x14069B320 (NtQueryEaFile.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x1406AE6E0 (NtNotifyChangeDirectoryFileEx.c)
- *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
- *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
- *     NtLockFile @ 0x140708790 (NtLockFile.c)
- *     NtSetEaFile @ 0x140730CB0 (NtSetEaFile.c)
- *     IopSetEaOrQuotaInformationFile @ 0x1408923AC (IopSetEaOrQuotaInformationFile.c)
- *     NtQueryQuotaInformationFile @ 0x140895B40 (NtQueryQuotaInformationFile.c)
+ *     NtUnlockFile @ 0x1405EF3E0 (NtUnlockFile.c)
+ *     NtFlushBuffersFileEx @ 0x1405F79F0 (NtFlushBuffersFileEx.c)
+ *     NtReadFileScatter @ 0x1405F9040 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x1405F97E0 (NtWriteFileGather.c)
+ *     NtQueryEaFile @ 0x1405FA4E0 (NtQueryEaFile.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x14060CF80 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtQueryVolumeInformationFile @ 0x1406456E0 (NtQueryVolumeInformationFile.c)
+ *     NtQueryInformationFile @ 0x1406EA600 (NtQueryInformationFile.c)
+ *     IopCloseFile @ 0x140713E00 (IopCloseFile.c)
+ *     IopXxxControlFile @ 0x1407153F0 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x14071FB70 (NtLockFile.c)
+ *     NtSetEaFile @ 0x140730E70 (NtSetEaFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x14089250C (IopSetEaOrQuotaInformationFile.c)
+ *     NtQueryQuotaInformationFile @ 0x140895CA0 (NtQueryQuotaInformationFile.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,20 +1,20 @@
 /*
- * XREFs of VfPutScatterGatherList @ 0x140C25980
+ * XREFs of VfPutScatterGatherList @ 0x140C2B990
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140C22B9C (DECREMENT_SCATTER_GATHER_LISTS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140C22D7C (SUBTRACT_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x140C22E9C (VF_ASSERT_IRQL.c)
- *     VF_UNMARK_SCATTER_GATHER_LIST @ 0x140C230CC (VF_UNMARK_SCATTER_GATHER_LIST.c)
- *     ViFlushDoubleBuffer @ 0x140C26AD4 (ViFlushDoubleBuffer.c)
- *     ViFreeMapRegisterFile @ 0x140C26C90 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140C26F80 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140C271E4 (ViGetRealDmaAdapter.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140C28BAC (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140C28D8C (SUBTRACT_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x140C28EAC (VF_ASSERT_IRQL.c)
+ *     VF_UNMARK_SCATTER_GATHER_LIST @ 0x140C290DC (VF_UNMARK_SCATTER_GATHER_LIST.c)
+ *     ViFlushDoubleBuffer @ 0x140C2CAE4 (ViFlushDoubleBuffer.c)
+ *     ViFreeMapRegisterFile @ 0x140C2CCA0 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x140C2CF90 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140C2D1F4 (ViGetRealDmaAdapter.c)
  */
 
 void __fastcall VfPutScatterGatherList(int a1, int *a2, char a3)
@@ -72,6 +72,6 @@ LABEL_12:
     DECREMENT_SCATTER_GATHER_LISTS(AdapterInformationInternal);
     ViFlushDoubleBuffer(v12[12], a3);
     ViFreeMapRegisterFile(AdapterInformationInternal);
-    ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27B08.AffinityVersion, v12);
+    ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27C48.AffinityVersion, v12);
   }
 }

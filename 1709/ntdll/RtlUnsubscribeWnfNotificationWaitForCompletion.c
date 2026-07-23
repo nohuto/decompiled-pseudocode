@@ -7,7 +7,7 @@
  *     RtlpWaitOnAddress @ 0x18006DA0C (RtlpWaitOnAddress.c)
  */
 
-__int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(__int64 a1)
+__int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(_QWORD *a1)
 {
   int v2; // [rsp+40h] [rbp+8h] BYREF
   int v3; // [rsp+48h] [rbp+10h] BYREF
@@ -15,8 +15,8 @@ __int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(__int64 a1)
 
   v2 = 0;
   v3 = 0;
-  *(_QWORD *)(a1 + 88) = &v2;
-  RtlpRemoveUserSubFromNameSub(*(_QWORD *)(a1 + 24), a1, &v4);
+  a1[11] = &v2;
+  RtlpRemoveUserSubFromNameSub((char *)a1[3], a1, &v4);
   do
   {
     if ( byte_18015F3E8 )

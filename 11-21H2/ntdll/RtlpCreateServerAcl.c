@@ -10,7 +10,7 @@
  *     RtlUShortAdd @ 0x1800F21B8 (RtlUShortAdd.c)
  */
 
-__int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, __int64 *a4, _BYTE *a5)
+__int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, ACL **a4, _BYTE *a5)
 {
   unsigned __int16 v6; // cx
   _BYTE *v9; // rax
@@ -23,9 +23,9 @@ __int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3,
   __int16 v16; // ax
   __int64 v17; // r10
   int v18; // r11d
-  __int64 Heap; // rax
-  unsigned int v20; // edx
-  __int64 v21; // r15
+  ACL *Heap; // rax
+  ULONG v20; // edx
+  ACL *v21; // r15
   unsigned int v22; // ebp
   unsigned int v23; // eax
   char *v24; // rbx
@@ -37,7 +37,7 @@ __int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3,
   char *v30; // rbx
   char *v31; // rbx
   __int16 v32; // cx
-  __int64 v33; // [rsp+60h] [rbp+8h] BYREF
+  ACL *v33; // [rsp+60h] [rbp+8h] BYREF
   void *Src; // [rsp+70h] [rbp+18h]
 
   Src = a3;
@@ -69,12 +69,12 @@ LABEL_12:
         result = RtlUShortAdd(v6, v15, (__int16 *)&v33);
         if ( (int)result < 0 )
           return result;
-        v6 = v33;
+        v6 = (unsigned __int16)v33;
       }
       result = RtlUShortAdd(v6, *(_WORD *)(v13 + 2), (__int16 *)&v33);
       if ( (int)result < 0 )
         return result;
-      v6 = v33;
+      v6 = (unsigned __int16)v33;
       v13 = *(unsigned __int16 *)(v17 + 2) + v17;
       if ( v18 + 1 >= v11 )
         goto LABEL_16;
@@ -82,23 +82,23 @@ LABEL_12:
     result = RtlUShortAdd(v6, v12, (__int16 *)&v33);
     if ( (int)result < 0 )
       return result;
-    v6 = v33;
+    v6 = (unsigned __int16)v33;
     v15 = 4;
     goto LABEL_12;
   }
 LABEL_16:
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v6);
+  Heap = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v6);
   *a4 = Heap;
   if ( !Heap )
     return 3221225626LL;
   v20 = (unsigned __int16)v33;
   *a5 = 1;
-  RtlCreateAcl(Heap, v20, 3);
+  RtlCreateAcl(Heap, v20, 3u);
   v21 = *a4;
   v22 = 0;
   LOWORD(v23) = *(_WORD *)(a1 + 4);
   v33 = v21;
-  v24 = (char *)(v21 + 8);
+  v24 = (char *)&v21[1];
   if ( (_WORD)v23 )
   {
     v25 = (unsigned __int8 *)Src;
@@ -138,6 +138,6 @@ LABEL_16:
     while ( v22 < v23 );
     v21 = v33;
   }
-  *(_WORD *)(v21 + 4) = v23;
+  v21->AceCount = v23;
   return 0LL;
 }

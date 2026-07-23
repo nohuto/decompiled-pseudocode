@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceProcessRundown @ 0x140797A1C
+ * XREFs of EtwpTraceProcessRundown @ 0x140797C1C
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140797940 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpBuildProcessEvent @ 0x140602610 (EtwpBuildProcessEvent.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     EtwpBuildProcessEvent @ 0x1406F1D70 (EtwpBuildProcessEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpTraceProcessRundown(PEPROCESS Process, __int64 a2, __int16 a3, __int64 a4)
@@ -23,14 +23,14 @@ __int64 __fastcall EtwpTraceProcessRundown(PEPROCESS Process, __int64 a2, __int1
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-78h] BYREF
   _OWORD v17[2]; // [rsp+98h] [rbp-68h] BYREF
   __int64 v18; // [rsp+B8h] [rbp-48h]
-  int v19[104]; // [rsp+C0h] [rbp-40h] BYREF
+  WCHAR PackageSize[208]; // [rsp+C0h] [rbp-40h] BYREF
   __int64 v20[18]; // [rsp+260h] [rbp+160h] BYREF
 
   v13 = 0;
   LODWORD(v10) = 0;
   P = 0LL;
   UnicodeString = 0LL;
-  memset(v19, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   v8 = *(_BYTE *)(a4 + 65);
   v15 = 0LL;
   v18 = 0LL;
@@ -46,7 +46,7 @@ __int64 __fastcall EtwpTraceProcessRundown(PEPROCESS Process, __int64 a2, __int1
     &v15,
     (__int64)v20,
     (unsigned int *)&v10,
-    v19,
+    PackageSize,
     (PSTRING)&UnicodeString,
     v12,
     &P);

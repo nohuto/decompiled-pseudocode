@@ -1,10 +1,10 @@
 /*
- * XREFs of BiZwOpenKey @ 0x14016E5A8
+ * XREFs of BiZwOpenKey @ 0x14016E6A8
  * Callers:
- *     BiCreateKey @ 0x140712FE4 (BiCreateKey.c)
- *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
+ *     BiCreateKey @ 0x140714284 (BiCreateKey.c)
+ *     BiOpenKey @ 0x140714A20 (BiOpenKey.c)
  * Callees:
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall BiZwOpenKey(HANDLE *a1, ACCESS_MASK a2, OBJECT_ATTRIBUTES *a3)

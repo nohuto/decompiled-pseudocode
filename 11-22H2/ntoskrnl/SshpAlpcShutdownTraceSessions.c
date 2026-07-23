@@ -24,6 +24,6 @@ signed __int32 SshpAlpcShutdownTraceSessions()
     --v2;
   }
   while ( v2 );
-  SshpAlpcSendMessage(v0, 4LL, 0, 0LL, 1);
+  SshpAlpcSendMessage(v0, 4, 0, 0LL, 1);
   return SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C38568);
 }

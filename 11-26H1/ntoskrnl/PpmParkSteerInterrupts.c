@@ -1,21 +1,21 @@
 /*
- * XREFs of PpmParkSteerInterrupts @ 0x1402541D0
+ * XREFs of PpmParkSteerInterrupts @ 0x140255B30
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x140254100 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     KeIntSteerPeriodic @ 0x140254A60 (KeIntSteerPeriodic.c)
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140255408 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KeIntSteerSnapPerf @ 0x140255580 (KeIntSteerSnapPerf.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     ?RtlpSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14045EC10 (-RtlpSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x140255A60 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     KeIntSteerPeriodic @ 0x1402563C0 (KeIntSteerPeriodic.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x140256D68 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KeIntSteerSnapPerf @ 0x140256EE0 (KeIntSteerSnapPerf.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     ?RtlpSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025F780 (-RtlpSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 PpmParkSteerInterrupts()
@@ -99,8 +99,8 @@ __int64 PpmParkSteerInterrupts()
   v51 = 0;
   if ( PpmIntSteerDisabled )
     return result;
-  result = (unsigned int)KiIntTrackRootEnabled;
-  if ( !KiIntTrackRootEnabled )
+  result = HIDWORD(KsepShimDbLock.UpdateVpThreadPriorityDpcStackListEntry.Next);
+  if ( !HIDWORD(KsepShimDbLock.UpdateVpThreadPriorityDpcStackListEntry.Next) )
     return result;
   if ( !PpmIntSteerTrigger )
   {
@@ -116,12 +116,12 @@ __int64 PpmParkSteerInterrupts()
   v2 = v62;
   v63 = 0;
   v3 = 0;
-  if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags <= v62 )
-    v2 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+  if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags <= v62 )
+    v2 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
   v61 = v2;
   if ( v2 )
   {
-    memmove(v64, (char *)&stru_140FC01F0.116 + 4, 8LL * v2);
+    memmove(v64, (char *)&stru_140FC11F0.116 + 4, 8LL * v2);
     do
       ++v3;
     while ( v3 < v2 );
@@ -217,10 +217,9 @@ LABEL_31:
     {
       _BitScanForward64(&v21, v18);
       v18 &= ~(1LL << v21);
-      v22 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v19
+      v22 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v19].Flink
             + (unsigned __int8)v21);
-      v23 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v22);
+      v23 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v22);
       v24 = v23 >> 6;
       if ( (unsigned int)v24 < Count && ((Src[v24] >> v23) & 1) != 0 )
       {
@@ -233,8 +232,8 @@ LABEL_31:
         }
         if ( v20 - v25 >= (unsigned __int64)(10000 * PpmIntSteerTriggerMax) )
         {
-          v26 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v22) & 0x3F;
-          v27 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v22) >> 6;
+          v26 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v22) & 0x3F;
+          v27 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v22) >> 6;
           if ( v58.Count > (unsigned int)v27 )
             goto LABEL_39;
           if ( v58.Size > (unsigned int)v27 )
@@ -348,7 +347,7 @@ LABEL_54:
           memset_0(v60, 0, 0x100uLL);
           *(_QWORD *)&v66.Count = 2097153LL;
           memset_0(&v66.8, 0, sizeof(v66.8));
-          if ( qword_140F12250 )
+          if ( PpmParkPreferenceHandler )
           {
             v50 = &v59;
             v46 = &v66;
@@ -356,7 +355,7 @@ LABEL_54:
             LOBYTE(v46) = 1;
             v48 = 0LL;
             v47 = 0LL;
-            guard_dispatch_icall_no_overrides(v46, *(_QWORD *)&PopSleepstudySessionLock.SystemCallNumber, v34);
+            guard_dispatch_icall_no_overrides(v46, PpmCheckTime, v34);
           }
           v35 = 0;
           if ( (_WORD)v59 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiForcedTrim @ 0x1403B9340
+ * XREFs of MiForcedTrim @ 0x1403C3240
  * Callers:
- *     MiPreUnlockWorkingSetShared @ 0x14052FB44 (MiPreUnlockWorkingSetShared.c)
+ *     MiPreUnlockWorkingSetShared @ 0x140532044 (MiPreUnlockWorkingSetShared.c)
  * Callees:
- *     MiComputeHardTrimSize @ 0x1402ED1E8 (MiComputeHardTrimSize.c)
- *     MiGetTrimPageCandidateCount @ 0x1403B92EC (MiGetTrimPageCandidateCount.c)
- *     MiGetAvailablePagesForTrimPass @ 0x1403B9C08 (MiGetAvailablePagesForTrimPass.c)
- *     MiComputeForceTrimAmount @ 0x1403B9C44 (MiComputeForceTrimAmount.c)
- *     MiTrimWorkingSet @ 0x1403BA50C (MiTrimWorkingSet.c)
+ *     MiComputeHardTrimSize @ 0x1402CF228 (MiComputeHardTrimSize.c)
+ *     MiGetTrimPageCandidateCount @ 0x1403C31EC (MiGetTrimPageCandidateCount.c)
+ *     MiGetAvailablePagesForTrimPass @ 0x1403C3B08 (MiGetAvailablePagesForTrimPass.c)
+ *     MiComputeForceTrimAmount @ 0x1403C3B44 (MiComputeForceTrimAmount.c)
+ *     MiTrimWorkingSet @ 0x1403C437C (MiTrimWorkingSet.c)
  */
 
 unsigned __int64 __fastcall MiForcedTrim(__int64 a1, char a2)
@@ -27,7 +27,7 @@ unsigned __int64 __fastcall MiForcedTrim(__int64 a1, char a2)
   unsigned __int8 v16; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = *(_QWORD *)(a1 + 136);
-  v5 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v5 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
   result = *(_QWORD *)(a1 + 16);
   v7 = *(_QWORD *)(result + 32);
   if ( v4 > v7 )

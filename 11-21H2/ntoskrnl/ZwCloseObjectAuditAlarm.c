@@ -1,14 +1,14 @@
 /*
  * XREFs of ZwCloseObjectAuditAlarm @ 0x14041BEC0
  * Callers:
- *     DifZwCloseObjectAuditAlarmWrapper @ 0x14061DD70 (DifZwCloseObjectAuditAlarmWrapper.c)
+ *     sub_14061DD70 @ 0x14061DD70 (sub_14061DD70.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCloseObjectAuditAlarm(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCloseObjectAuditAlarm(PUNICODE_STRING SubsystemName, PVOID HandleId, BOOLEAN GenerateOnClose)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(SubsystemName, HandleId);
 }

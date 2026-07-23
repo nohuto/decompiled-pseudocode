@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpKsrCallbackRoutine @ 0x140866720
+ * XREFs of HalpKsrCallbackRoutine @ 0x140866880
  * Callers:
  *     <none>
  * Callees:
- *     HalpSetShutdownResetHandler @ 0x1404BE42C (HalpSetShutdownResetHandler.c)
+ *     HalpSetShutdownResetHandler @ 0x1404BE66C (HalpSetShutdownResetHandler.c)
  */
 
 void __fastcall HalpKsrCallbackRoutine(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

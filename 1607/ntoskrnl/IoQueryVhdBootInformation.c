@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryVhdBootInformation @ 0x1405803CC
+ * XREFs of IoQueryVhdBootInformation @ 0x140580878
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall IoQueryVhdBootInformation(__int64 a1, void *a2, unsigned int a3, _DWORD *a4)

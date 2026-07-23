@@ -1,29 +1,29 @@
 /*
- * XREFs of PiDmAddCacheReferenceForObject @ 0x140506288
+ * XREFs of PiDmAddCacheReferenceForObject @ 0x1404E9218
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1403F26A4 (IopProcessSetInterfaceState.c)
- *     IopRegisterDeviceInterface @ 0x14048756C (IopRegisterDeviceInterface.c)
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
- *     PiDmListInitEnumCallback @ 0x14054D120 (PiDmListInitEnumCallback.c)
- *     PiPnpRtlEnsureObjectCached @ 0x14062E9D0 (PiPnpRtlEnsureObjectCached.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x14062EE40 (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     IopProcessSetInterfaceState @ 0x1403F1568 (IopProcessSetInterfaceState.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
+ *     IopRegisterDeviceInterface @ 0x14050FDE8 (IopRegisterDeviceInterface.c)
+ *     PiDmListInitEnumCallback @ 0x14054D4C0 (PiDmListInitEnumCallback.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x14062EA84 (PiPnpRtlEnsureObjectCached.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x14062EEF4 (PiPnpRtlGatherInstallerClassChangeInfo.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlLookupElementGenericTableFullAvl @ 0x1400C3E90 (RtlLookupElementGenericTableFullAvl.c)
- *     RtlInsertElementGenericTableFullAvl @ 0x1400C42B0 (RtlInsertElementGenericTableFullAvl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmInitializeComparisonObject @ 0x1404FF138 (PiDmInitializeComparisonObject.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1404FF308 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x140506370 (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PiDmObjectCreate @ 0x1405641DC (PiDmObjectCreate.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x1400C1D30 (RtlLookupElementGenericTableFullAvl.c)
+ *     RtlInsertElementGenericTableFullAvl @ 0x1400C2150 (RtlInsertElementGenericTableFullAvl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmInitializeComparisonObject @ 0x1404E20C8 (PiDmInitializeComparisonObject.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1404E2298 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1404E9300 (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PiDmObjectCreate @ 0x14056471C (PiDmObjectCreate.c)
  */
 
 __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, wchar_t *a2, volatile signed __int32 **a3)
 {
   volatile signed __int32 *v3; // rbx
-  struct _RTL_AVL_TABLE *ObjectManagerForObjectType; // r15
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // r15
   NTSTATUS v8; // edi
   PVOID *v9; // rax
   __int64 v10; // rdx
@@ -39,7 +39,7 @@ __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, wchar_t *a2, 
   v3 = 0LL;
   Buffer = v18;
   P = 0LL;
-  ObjectManagerForObjectType = (struct _RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
+  ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
   PiDmObjectManagerAcquireExclusiveLock(ObjectManagerForObjectType);
   v8 = PiDmInitializeComparisonObject(a2, a1, (__int64)v18);
   if ( v8 >= 0 )

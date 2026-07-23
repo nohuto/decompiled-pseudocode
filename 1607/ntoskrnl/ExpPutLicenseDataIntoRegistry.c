@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpPutLicenseDataIntoRegistry @ 0x1404EFCCC
+ * XREFs of ExpPutLicenseDataIntoRegistry @ 0x1404D1CE8
  * Callers:
  *     ExpTimeRefreshWork @ 0x1403C9110 (ExpTimeRefreshWork.c)
- *     ExUpdateLicenseDataInternal @ 0x140496474 (ExUpdateLicenseDataInternal.c)
+ *     ExUpdateLicenseDataInternal @ 0x140496F04 (ExUpdateLicenseDataInternal.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
  */
 
 __int64 ExpPutLicenseDataIntoRegistry()
@@ -37,11 +37,11 @@ __int64 ExpPutLicenseDataIntoRegistry()
     *(_BYTE *)(v1 + 26) |= 1u;
   if ( Data )
   {
-    v7 = ZwCreateKey(&KeyHandle, 0x20006u, (POBJECT_ATTRIBUTES)&stru_1406EA6F0, 0, 0LL, 0, 0LL);
+    v7 = ZwCreateKey(&KeyHandle, 0x20006u, (POBJECT_ATTRIBUTES)&stru_1406EA820, 0, 0LL, 0, 0LL);
     if ( v7 >= 0 )
     {
       v6 = 1;
-      v7 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&stru_1406E9CB8, 0, 3u, Data, *(_DWORD *)Data);
+      v7 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&stru_1406E9DE8, 0, 3u, Data, *(_DWORD *)Data);
     }
   }
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140747B20, 0LL, 17LL) != 17 )

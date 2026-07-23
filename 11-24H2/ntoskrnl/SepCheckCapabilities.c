@@ -1,15 +1,16 @@
 /*
- * XREFs of SepCheckCapabilities @ 0x140A8CD3C
+ * XREFs of SepCheckCapabilities @ 0x140A8926C
  * Callers:
- *     SeTokenCanImpersonate @ 0x140910A30 (SeTokenCanImpersonate.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     SeTokenCanImpersonate @ 0x1408E8180 (SeTokenCanImpersonate.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     RtlSubAuthoritySid @ 0x14044FDD0 (RtlSubAuthoritySid.c)
- *     RtlSubAuthorityCountSid @ 0x1404600D0 (RtlSubAuthorityCountSid.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     RtlSubAuthoritySid @ 0x140445040 (RtlSubAuthoritySid.c)
+ *     RtlSubAuthorityCountSid @ 0x140454FB0 (RtlSubAuthorityCountSid.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCheckCapabilities(PACCESS_TOKEN Token, unsigned int a2, __int64 a3, __int64 a4, char *a5)

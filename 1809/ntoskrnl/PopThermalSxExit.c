@@ -1,14 +1,14 @@
 /*
- * XREFs of PopThermalSxExit @ 0x140142978
+ * XREFs of PopThermalSxExit @ 0x140142A78
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 void __fastcall PopThermalSxExit(__int64 a1)
@@ -22,7 +22,7 @@ void __fastcall PopThermalSxExit(__int64 a1)
     if ( PopThermalHibernateInitiated )
     {
       PopThermalHibernateInitiated = 0;
-      ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0LL, 0LL, 0LL, 0, 0);
+      ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
     }
     PopReleasePolicyLock();
   }

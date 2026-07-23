@@ -16,22 +16,21 @@
  *     __security_check_cookie @ 0x18008C7B0 (__security_check_cookie.c)
  */
 
-_DWORD *__fastcall sub_180018940(__int64 a1, __int64 a2, char a3, char a4)
+_DWORD *__fastcall sub_180018940(PVOID BaseOfImage, __int64 a2, char a3, char a4)
 {
   int v4; // esi
   __int64 v7; // rax
   _DWORD *v8; // rbx
   int v10; // eax
-  _DWORD *v11; // [rsp+40h] [rbp-58h] BYREF
-  char v12[8]; // [rsp+48h] [rbp-50h] BYREF
-  __int64 v13; // [rsp+50h] [rbp-48h] BYREF
-  _QWORD v14[3]; // [rsp+58h] [rbp-40h] BYREF
+  _DWORD *v11; // [rsp+40h] [rbp-58h]
+  __int64 v12; // [rsp+50h] [rbp-48h] BYREF
+  _QWORD v13[3]; // [rsp+58h] [rbp-40h] BYREF
 
   v4 = -1;
   v11 = 0LL;
   if ( !a4 )
     goto LABEL_5;
-  v7 = sub_18001ABAC(a1, 0LL, 0LL, 8LL);
+  v7 = sub_18001ABAC(BaseOfImage);
   v11 = (_DWORD *)v7;
   v8 = (_DWORD *)v7;
   if ( v7 != -1 )
@@ -39,13 +38,13 @@ _DWORD *__fastcall sub_180018940(__int64 a1, __int64 a2, char a3, char a4)
     if ( v7 )
       return v8;
 LABEL_5:
-    v14[1] = 1LL;
-    v14[0] = L"MUI";
-    v14[2] = 0LL;
-    v10 = sub_180018D8C(a1, (unsigned int)v14, 3, 33554480, (__int64)&v13);
+    v13[1] = 1LL;
+    v13[0] = L"MUI";
+    v13[2] = 0LL;
+    v10 = sub_180018D8C((_DWORD)BaseOfImage, (unsigned int)v13, 3, 33554480, (__int64)&v12);
     if ( v10 >= 0 )
     {
-      v10 = sub_18001F014(a1, v13, &v11, v12);
+      v10 = sub_18001F014(BaseOfImage);
       if ( v10 >= 0 )
       {
         v8 = v11;
@@ -60,7 +59,7 @@ LABEL_8:
     {
       if ( v8 )
         v4 = (int)v8;
-      sub_1800593F0(a1, 0, 0, v4, 0, 2, v10, 0LL);
+      sub_1800593F0((_DWORD)BaseOfImage, 0, 0, v4, 0, 2, v10, 0LL);
     }
     return v8;
   }

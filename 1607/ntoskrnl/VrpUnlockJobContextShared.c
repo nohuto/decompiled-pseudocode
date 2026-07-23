@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpUnlockJobContextShared @ 0x14061309C
+ * XREFs of VrpUnlockJobContextShared @ 0x140613150
  * Callers:
- *     VrpHandleIoctlGetComRootKey @ 0x140613584 (VrpHandleIoctlGetComRootKey.c)
- *     VrpPostEnumerateKey @ 0x140614D90 (VrpPostEnumerateKey.c)
- *     VrpPreOpenOrCreate @ 0x1406163E4 (VrpPreOpenOrCreate.c)
+ *     VrpHandleIoctlGetComRootKey @ 0x140613638 (VrpHandleIoctlGetComRootKey.c)
+ *     VrpPostEnumerateKey @ 0x140614E44 (VrpPostEnumerateKey.c)
+ *     VrpPreOpenOrCreate @ 0x140616498 (VrpPreOpenOrCreate.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall VrpUnlockJobContextShared(__int64 a1)

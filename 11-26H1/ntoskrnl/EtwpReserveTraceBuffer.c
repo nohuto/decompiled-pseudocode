@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpReserveTraceBuffer @ 0x140218410
+ * XREFs of EtwpReserveTraceBuffer @ 0x140218740
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwTraceEvent @ 0x140216BB0 (EtwTraceEvent.c)
- *     EtwpTraceMessageVa @ 0x1402176B0 (EtwpTraceMessageVa.c)
- *     EtwpReserveWithPmcCounters @ 0x140218290 (EtwpReserveWithPmcCounters.c)
- *     EtwpReserveWithPebsIndex @ 0x1402189FC (EtwpReserveWithPebsIndex.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14041297C (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x140412F7C (EtwpLogContextSwapEvent.c)
- *     EtwTraceRaw @ 0x140516B78 (EtwTraceRaw.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwTraceEvent @ 0x140216EE0 (EtwTraceEvent.c)
+ *     EtwpTraceMessageVa @ 0x1402179E0 (EtwpTraceMessageVa.c)
+ *     EtwpReserveWithPmcCounters @ 0x1402185C0 (EtwpReserveWithPmcCounters.c)
+ *     EtwpReserveWithPebsIndex @ 0x140218D2C (EtwpReserveWithPebsIndex.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x140406FB0 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1404075AC (EtwpLogContextSwapEvent.c)
+ *     EtwTraceRaw @ 0x1405105E8 (EtwTraceRaw.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwpReferenceCurrentBuffer @ 0x140218A90 (EtwpReferenceCurrentBuffer.c)
- *     EtwpSwitchBuffer @ 0x140219160 (EtwpSwitchBuffer.c)
- *     EtwpGetLoggerTimeStamp @ 0x14021BEC0 (EtwpGetLoggerTimeStamp.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     EtwpUpdateEventsLostCount @ 0x1402574C0 (EtwpUpdateEventsLostCount.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     EtwpGetTimeStampAndQpcDelta @ 0x1404475FC (EtwpGetTimeStampAndQpcDelta.c)
+ *     EtwpReferenceCurrentBuffer @ 0x140218DC0 (EtwpReferenceCurrentBuffer.c)
+ *     EtwpSwitchBuffer @ 0x1402192C0 (EtwpSwitchBuffer.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14021D850 (EtwpGetLoggerTimeStamp.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     EtwpUpdateEventsLostCount @ 0x140258E50 (EtwpUpdateEventsLostCount.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     EtwpGetTimeStampAndQpcDelta @ 0x1404400EC (EtwpGetTimeStampAndQpcDelta.c)
  */
 
 __int64 __fastcall EtwpReserveTraceBuffer(unsigned int *a1, unsigned int a2, __int64 a3, signed __int64 *a4, int a5)
@@ -88,7 +88,7 @@ LABEL_32:
     if ( v15 )
       break;
 LABEL_12:
-    if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 )
+    if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0 )
     {
       if ( v16 )
         _InterlockedDecrement((volatile signed __int32 *)(v16 + 12));

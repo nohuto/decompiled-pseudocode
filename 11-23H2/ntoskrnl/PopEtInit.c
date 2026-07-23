@@ -3,16 +3,16 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
- *     RtlGetVersion @ 0x140758D00 (RtlGetVersion.c)
- *     PoEnergyContextStart @ 0x1407B103C (PoEnergyContextStart.c)
- *     PoEnergyContextInitialize @ 0x1407DFF40 (PoEnergyContextInitialize.c)
- *     ObCreateObjectType @ 0x14081F1D0 (ObCreateObjectType.c)
- *     PopEtInitializeBuiltinAppId @ 0x14085660C (PopEtInitializeBuiltinAppId.c)
- *     RtlInternTableInitialize @ 0x140856680 (RtlInternTableInitialize.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
+ *     RtlGetVersion @ 0x140758EF0 (RtlGetVersion.c)
+ *     PoEnergyContextStart @ 0x1407B122C (PoEnergyContextStart.c)
+ *     PoEnergyContextInitialize @ 0x1407E0210 (PoEnergyContextInitialize.c)
+ *     ObCreateObjectType @ 0x14081F4D0 (ObCreateObjectType.c)
+ *     PopEtInitializeBuiltinAppId @ 0x14085690C (PopEtInitializeBuiltinAppId.c)
+ *     RtlInternTableInitialize @ 0x140856980 (RtlInternTableInitialize.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -39,7 +39,7 @@ __int64 PopEtInit()
   int ObjectType; // eax
   _QWORD DestinationString[3]; // [rsp+20h] [rbp-E8h] BYREF
   _QWORD v21[16]; // [rsp+38h] [rbp-D0h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+B8h] [rbp-50h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+B8h] [rbp-50h] BYREF
 
   v0 = 0;
   *(_OWORD *)&DestinationString[1] = 0LL;
@@ -74,7 +74,7 @@ __int64 PopEtInit()
         if ( v6 )
           dwBuildNumber = VersionInformation.dwBuildNumber;
         v3[529] = dwBuildNumber;
-        v3[528] = 6783;
+        v3[528] = 7376;
       }
       v8 = (_QWORD *)PopEtGlobals;
       *(_OWORD *)(PopEtGlobals + 40) = 0LL;

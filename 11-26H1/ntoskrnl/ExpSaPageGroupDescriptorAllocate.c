@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x1404997AC
+ * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x1404932FC
  * Callers:
- *     ExpSaAllocatorAllocate @ 0x14049943C (ExpSaAllocatorAllocate.c)
+ *     ExpSaAllocatorAllocate @ 0x140492F8C (ExpSaAllocatorAllocate.c)
  * Callees:
  *     KeQueryNodeActiveAffinity @ 0x140201320 (KeQueryNodeActiveAffinity.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     ExpSaBinaryArrayInsert @ 0x140499A7C (ExpSaBinaryArrayInsert.c)
- *     ExpSaBinaryArrayRemove @ 0x140525D9C (ExpSaBinaryArrayRemove.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     ExpSaBinaryArrayInsert @ 0x1404935CC (ExpSaBinaryArrayInsert.c)
+ *     ExpSaBinaryArrayRemove @ 0x14052840C (ExpSaBinaryArrayRemove.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
@@ -41,15 +41,15 @@ _QWORD *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   int v18; // esi
   void *Pool2; // rbx
   char v20; // si
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   unsigned int v22; // ecx
   __int64 v23; // rbx
   __int64 v24; // rdx
   ULONG MaximumProcessorCount; // [rsp+34h] [rbp-4Ch]
   unsigned int v27; // [rsp+38h] [rbp-48h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
   __int128 v29; // [rsp+50h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
 
   Affinity = 0LL;
   v4 = 0;
@@ -83,7 +83,7 @@ _QWORD *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
       *((_BYTE *)v13 + 10) = 1;
   }
   v14 = ExpSaBinaryArrayInsert(
-          ExSaPageGroupDescriptorArray,
+          ExSaPageGroupDescriptorArrayLock.QuantumTarget,
           v9,
           KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0]);
   *((_DWORD *)v9 + 8) = v14;
@@ -99,7 +99,7 @@ _QWORD *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
       v20 = 1;
       goto LABEL_18;
     }
-    v16 = *(_QWORD *)(ExSaPageArrays + 8 * v5);
+    v16 = *((_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress + v5);
     v17 = (unsigned int)v5 >= v15 ? KeGetCurrentPrcb() : (struct _KPRCB *)KeGetPrcb(v5);
     v18 = v17->SchedulerSubNode->Affinity.Reserved[0];
     if ( a2 )
@@ -149,13 +149,13 @@ LABEL_30:
           break;
         v5 = (unsigned int)(v5 - 1);
         _BitScanReverse(&v22, v24);
-        v23 = *(_QWORD *)(ExSaPageArrays + 8 * v5);
+        v23 = *((_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress + v5);
         ExFreePoolWithTag(
           *(PVOID *)(*(_QWORD *)(v23 + 8LL * (v22 - 2)) + 8LL * ((unsigned int)v24 ^ (1 << v22)) + 8),
           0);
         ExpSaBinaryArrayRemove(v23, *((unsigned int *)v9 + 8));
       }
-      ExpSaBinaryArrayRemove(ExSaPageGroupDescriptorArray, v24);
+      ExpSaBinaryArrayRemove(ExSaPageGroupDescriptorArrayLock.QuantumTarget, v24);
     }
     ExFreePoolWithTag(v9, 0);
     v9 = 0LL;

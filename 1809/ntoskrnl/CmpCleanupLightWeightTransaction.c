@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpCleanupLightWeightTransaction @ 0x140693A3C
+ * XREFs of CmpCleanupLightWeightTransaction @ 0x140694BFC
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140693544 (CmpCommitLightWeightTransaction.c)
- *     CmpAbortLightWeightTransaction @ 0x140693990 (CmpAbortLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140694704 (CmpCommitLightWeightTransaction.c)
+ *     CmpAbortLightWeightTransaction @ 0x140694B50 (CmpAbortLightWeightTransaction.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmpTransMgrFreeVolatileData @ 0x1405A9000 (CmpTransMgrFreeVolatileData.c)
- *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpTransDereferenceTransaction @ 0x140694094 (CmpTransDereferenceTransaction.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1405AA000 (CmpTransMgrFreeVolatileData.c)
+ *     CmpLockRegistryExclusive @ 0x1405B26C8 (CmpLockRegistryExclusive.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpTransDereferenceTransaction @ 0x140695254 (CmpTransDereferenceTransaction.c)
  */
 
 _QWORD *__fastcall CmpCleanupLightWeightTransaction(_QWORD *BugCheckParameter2, int a2)

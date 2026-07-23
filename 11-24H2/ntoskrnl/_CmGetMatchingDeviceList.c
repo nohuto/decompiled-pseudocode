@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmGetMatchingDeviceList @ 0x1409B328C
+ * XREFs of _CmGetMatchingDeviceList @ 0x1409AA61C
  * Callers:
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     _CmDeleteDeviceWorker @ 0x1409B2CB8 (_CmDeleteDeviceWorker.c)
- *     PipMigratePnpState @ 0x140C215B4 (PipMigratePnpState.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x1409AA048 (_CmDeleteDeviceWorker.c)
+ *     PipMigratePnpState @ 0x140C235F4 (PipMigratePnpState.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmGetMatchingDeviceListForSubkey @ 0x14081BC80 (_CmGetMatchingDeviceListForSubkey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmGetMatchingDeviceListForSubkey @ 0x14081C3C0 (_CmGetMatchingDeviceListForSubkey.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceList(
@@ -43,7 +43,7 @@ __int64 __fastcall CmGetMatchingDeviceList(
   v23 = a7;
   if ( v11 )
   {
-    v12 = guard_dispatch_icall_no_overrides(a1, 0LL, 1LL, 4LL);
+    v12 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v12 == -1073741822 )
     {
       v11 = 0LL;
@@ -63,7 +63,7 @@ __int64 __fastcall CmGetMatchingDeviceList(
   if ( v11 )
   {
     v17[0] = MatchingDeviceListForSubkey;
-    v15 = guard_dispatch_icall_no_overrides(a1, 0LL, 1LL, 4LL);
+    v15 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v15 != -1073741822 )
     {
       if ( v15 == -1073741536 )

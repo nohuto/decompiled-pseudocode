@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpExposeHandleAttribute32 @ 0x1407D168C
+ * XREFs of AlpcpExposeHandleAttribute32 @ 0x1407D195C
  * Callers:
- *     AlpcpExposeAttributes @ 0x14073BDA0 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x14073BF90 (AlpcpExposeAttributes.c)
  * Callees:
- *     AlpcpExposeHandleAttribute @ 0x14073C434 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpExposeHandleAttribute @ 0x14073C624 (AlpcpExposeHandleAttribute.c)
  */
 
 __int64 __fastcall AlpcpExposeHandleAttribute32(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)

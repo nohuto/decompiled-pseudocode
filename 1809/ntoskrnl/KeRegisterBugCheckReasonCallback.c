@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRegisterBugCheckReasonCallback @ 0x140173260
+ * XREFs of KeRegisterBugCheckReasonCallback @ 0x140173360
  * Callers:
- *     HvlPhase1Initialize @ 0x1401939F4 (HvlPhase1Initialize.c)
- *     HvlpInitializeHvCrashdump @ 0x140277E5C (HvlpInitializeHvCrashdump.c)
- *     SmPrepareForFatalHeapCorruption @ 0x1403091CC (SmPrepareForFatalHeapCorruption.c)
- *     SmPrepareForFatalPageError @ 0x1403092DC (SmPrepareForFatalPageError.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
- *     PopRecorderInit @ 0x1409DA6BC (PopRecorderInit.c)
+ *     HvlPhase1Initialize @ 0x140193B34 (HvlPhase1Initialize.c)
+ *     HvlpInitializeHvCrashdump @ 0x14027804C (HvlpInitializeHvCrashdump.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x1403093BC (SmPrepareForFatalHeapCorruption.c)
+ *     SmPrepareForFatalPageError @ 0x1403094CC (SmPrepareForFatalPageError.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
+ *     PopRecorderInit @ 0x1409DB6BC (PopRecorderInit.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x140173374 (KiCheckForDuplicateBugCheckCallback.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiCheckForDuplicateBugCheckCallback @ 0x140173474 (KiCheckForDuplicateBugCheckCallback.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(

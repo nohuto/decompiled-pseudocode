@@ -90,7 +90,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   int v68; // [rsp+140h] [rbp+40h]
   unsigned int v69; // [rsp+144h] [rbp+44h]
   unsigned __int64 v70; // [rsp+148h] [rbp+48h]
-  __int128 v71; // [rsp+150h] [rbp+50h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+150h] [rbp+50h] BYREF
   __int64 v72; // [rsp+160h] [rbp+60h]
   unsigned __int64 v73; // [rsp+168h] [rbp+68h]
   unsigned __int64 v74; // [rsp+170h] [rbp+70h]
@@ -99,7 +99,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   v64 = a2;
   v9 = a1;
   v72 = a1;
-  v71 = 0LL;
+  BitMapHeader = 0LL;
   v10 = a8;
   if ( a2 > 1 && *a8 == -1 )
   {
@@ -189,8 +189,8 @@ LABEL_7:
         else
           v23 = (unsigned int)v17;
         memmove(Pool, v16, (unsigned int)v23);
-        *((_QWORD *)&v71 + 1) = Pool;
-        *(_QWORD *)&v71 = (unsigned int)(8 * v23);
+        BitMapHeader.Buffer = (unsigned __int64 *)Pool;
+        BitMapHeader.SizeOfBitMap = (unsigned int)(8 * v23);
         v30 = (unsigned int)v23 >> 1;
         v31 = (unsigned int)v23 >> 1 << 7;
         for ( i = v59; i < *(_DWORD *)v70; i = ++v59 )
@@ -208,7 +208,7 @@ LABEL_7:
           }
           else
           {
-            RtlClearBitsEx((__int64)&v71, v35, 2uLL);
+            RtlClearBitsEx((__int64)&BitMapHeader, v35, 2uLL);
           }
         }
         v65 += v31;
@@ -217,9 +217,9 @@ LABEL_7:
       v23 = v22;
       if ( !v68 )
       {
-        *((_QWORD *)&v71 + 1) = Pool;
-        *(_QWORD *)&v71 = 8 * v22;
-        RtlClearAllBitsEx((__int64)&v71);
+        BitMapHeader.Buffer = (unsigned __int64 *)Pool;
+        BitMapHeader.SizeOfBitMap = 8 * v22;
+        RtlClearAllBitsEx(&BitMapHeader);
         v36 = v13 + (v22 >> 1 << 7);
         v63 = v36;
         v37 = *v10;
@@ -266,7 +266,7 @@ LABEL_34:
               }
               else
               {
-                RtlSetBitsEx((__int64)&v71, v46, 2uLL);
+                RtlSetBitsEx((__int64)&BitMapHeader, v46, 2uLL);
               }
             }
           }

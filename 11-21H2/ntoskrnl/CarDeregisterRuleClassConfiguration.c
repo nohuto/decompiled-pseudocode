@@ -2,16 +2,16 @@
  * XREFs of CarDeregisterRuleClassConfiguration @ 0x1406037F0
  * Callers:
  *     CarRegisterRuleClassConfiguration @ 0x140603D10 (CarRegisterRuleClassConfiguration.c)
- *     DifDeregisterAllPlugins @ 0x1406045C8 (DifDeregisterAllPlugins.c)
+ *     sub_1406045C8 @ 0x1406045C8 (sub_1406045C8.c)
  * Callees:
- *     CarDeleteTelemetryData @ 0x140603744 (CarDeleteTelemetryData.c)
- *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1406038FC (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     sub_140603744 @ 0x140603744 (sub_140603744.c)
+ *     sub_1406038FC @ 0x1406038FC (sub_1406038FC.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CarDeregisterRuleClassConfiguration(__int64 a1)
 {
-  __int64 RuleClassConfigurationEntryByRuleClassId; // rax
+  __int64 v1; // rax
   _QWORD *v2; // rdi
   _QWORD *v3; // rax
   __int64 v4; // rcx
@@ -21,11 +21,11 @@ void __fastcall CarDeregisterRuleClassConfiguration(__int64 a1)
   _QWORD *v8; // rcx
   _QWORD *v9; // [rsp+38h] [rbp+10h] BYREF
 
-  RuleClassConfigurationEntryByRuleClassId = CarFindRuleClassConfigurationEntryByRuleClassId(a1, (unsigned int)a1);
-  v2 = (_QWORD *)RuleClassConfigurationEntryByRuleClassId;
-  if ( RuleClassConfigurationEntryByRuleClassId )
+  v1 = sub_1406038FC(a1, (unsigned int)a1);
+  v2 = (_QWORD *)v1;
+  if ( v1 )
   {
-    v3 = (_QWORD *)(RuleClassConfigurationEntryByRuleClassId + 88);
+    v3 = (_QWORD *)(v1 + 88);
     v4 = *v3;
     if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v5 = (_QWORD *)v3[1], (_QWORD *)*v5 != v3) )
 LABEL_11:
@@ -44,7 +44,7 @@ LABEL_11:
       v2[10] = v8;
       *v8 = v6;
       v9 = v7 - 8;
-      CarDeleteTelemetryData((void **)&v9);
+      sub_140603744((void **)&v9);
     }
     ExFreePoolWithTag(v2, 0x4E726143u);
   }

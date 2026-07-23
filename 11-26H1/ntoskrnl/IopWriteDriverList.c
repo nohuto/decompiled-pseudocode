@@ -1,11 +1,11 @@
 /*
- * XREFs of IopWriteDriverList @ 0x1404EC000
+ * XREFs of IopWriteDriverList @ 0x1404E55E0
  * Callers:
- *     KeCapturePersistentThreadState @ 0x14034F2C0 (KeCapturePersistentThreadState.c)
- *     IoFillTriageDumpBuffer @ 0x1405C6994 (IoFillTriageDumpBuffer.c)
+ *     KeCapturePersistentThreadState @ 0x140351340 (KeCapturePersistentThreadState.c)
+ *     IoFillTriageDumpBuffer @ 0x1405C9264 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     IopIsAddressRangeValid @ 0x1404EC1EC (IopIsAddressRangeValid.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     IopIsAddressRangeValid @ 0x1404E57CC (IopIsAddressRangeValid.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall IopWriteDriverList(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

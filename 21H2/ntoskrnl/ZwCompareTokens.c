@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCompareTokens @ 0x1403FB740
+ * XREFs of ZwCompareTokens @ 0x1403FB920
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCompareTokens(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FirstTokenHandle);
 }

@@ -8,11 +8,14 @@
  *     <none>
  */
 
-__int64 ZwOpenDirectoryObject()
+NTSTATUS __cdecl ZwOpenDirectoryObject(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 88LL;
+  result = 88;
   __asm { syscall; Low latency system call }
   return result;
 }

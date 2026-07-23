@@ -1,11 +1,11 @@
 /*
- * XREFs of KiHeteroSelectIdleProcessorFromSubNode @ 0x1404E9430
+ * XREFs of KiHeteroSelectIdleProcessorFromSubNode @ 0x1404E0130
  * Callers:
- *     KiHeteroSelectIdleProcessorFromNode @ 0x1402938F0 (KiHeteroSelectIdleProcessorFromNode.c)
+ *     KiHeteroSelectIdleProcessorFromNode @ 0x1402A34F0 (KiHeteroSelectIdleProcessorFromNode.c)
  * Callees:
- *     KiGenerateHeteroSets @ 0x140202060 (KiGenerateHeteroSets.c)
- *     KiHeteroIdleSetReduction @ 0x140202360 (KiHeteroIdleSetReduction.c)
- *     KiFindBiasedProcessorIndex @ 0x1402026A4 (KiFindBiasedProcessorIndex.c)
+ *     KiGenerateHeteroSets @ 0x14032A750 (KiGenerateHeteroSets.c)
+ *     KiHeteroIdleSetReduction @ 0x14032AA50 (KiHeteroIdleSetReduction.c)
+ *     KiFindBiasedProcessorIndex @ 0x14032AD94 (KiFindBiasedProcessorIndex.c)
  */
 
 __int64 __fastcall KiHeteroSelectIdleProcessorFromSubNode(
@@ -83,7 +83,7 @@ __int64 __fastcall KiHeteroSelectIdleProcessorFromSubNode(
                                             v16)];
   v19 = *(_BYTE *)(a3 + 209);
   _BitScanForward64(&v20, __ROR8__(v16, v19));
-  return KiProcessorBlock[*((unsigned int *)qword_140F21E78
+  return KiProcessorBlock[*((unsigned int *)qword_140F22998
                           + 64 * *(unsigned __int8 *)(a3 + 208)
                           + (((unsigned __int8)v20 + v19) & 0x3F))];
 }

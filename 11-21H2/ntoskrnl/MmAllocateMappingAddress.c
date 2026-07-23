@@ -1,11 +1,11 @@
 /*
  * XREFs of MmAllocateMappingAddress @ 0x1407F9D30
  * Callers:
- *     SmFpPreAllocate @ 0x1403D735C (SmFpPreAllocate.c)
- *     HvlpInitializeHvCrashdump @ 0x14054B14C (HvlpInitializeHvCrashdump.c)
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
- *     HalpDmaAllocateReservedMapping @ 0x140B1DE58 (HalpDmaAllocateReservedMapping.c)
- *     HalpDmaAllocateEmergencyResources @ 0x140B1DEB4 (HalpDmaAllocateEmergencyResources.c)
+ *     sub_1403D735C @ 0x1403D735C (sub_1403D735C.c)
+ *     sub_14054B14C @ 0x14054B14C (sub_14054B14C.c)
+ *     sub_140AFD7A4 @ 0x140AFD7A4 (sub_140AFD7A4.c)
+ *     sub_140B1DE58 @ 0x140B1DE58 (sub_140B1DE58.c)
+ *     sub_140B1DEB4 @ 0x140B1DEB4 (sub_140B1DEB4.c)
  * Callees:
  *     MmAllocateMappingAddressEx @ 0x1407F9D50 (MmAllocateMappingAddressEx.c)
  */

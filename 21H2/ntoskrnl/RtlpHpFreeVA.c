@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpFreeVA @ 0x1402FA770
+ * XREFs of RtlpHpFreeVA @ 0x1403054C0
  * Callers:
- *     RtlpHpSegMgrReserve @ 0x1402A4DCC (RtlpHpSegMgrReserve.c)
- *     RtlpHpLargeFree @ 0x1402A54E8 (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x1402A56A0 (RtlpHpLargeAlloc.c)
- *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
- *     RtlpHpHeapAllocate @ 0x14037B8B0 (RtlpHpHeapAllocate.c)
- *     RtlpHpHeapDestroy @ 0x1403898BC (RtlpHpHeapDestroy.c)
- *     RtlpHpSegMgrRelease @ 0x140389B54 (RtlpHpSegMgrRelease.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1405955F0 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpSegMgrReserve @ 0x14022220C (RtlpHpSegMgrReserve.c)
+ *     RtlpHpLargeFree @ 0x140222928 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x140222AE0 (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrCommit @ 0x140315360 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpHeapAllocate @ 0x14037B400 (RtlpHpHeapAllocate.c)
+ *     RtlpHpHeapDestroy @ 0x140389A0C (RtlpHpHeapDestroy.c)
+ *     RtlpHpSegMgrRelease @ 0x140389CA4 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x140595820 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
- *     RtlpHpVaMgrCtxFree @ 0x1402A3484 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpEnvFreeVA @ 0x1402FA804 (RtlpHpEnvFreeVA.c)
- *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402208C4 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpEnvFreeVA @ 0x140305554 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140314164 (RtlpHpEnvGetHeapManager.c)
  */
 
 __int64 __fastcall RtlpHpFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, __int64 a3, __int128 *a4)

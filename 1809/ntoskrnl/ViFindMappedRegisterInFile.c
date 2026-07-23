@@ -1,9 +1,9 @@
 /*
- * XREFs of ViFindMappedRegisterInFile @ 0x14092D340
+ * XREFs of ViFindMappedRegisterInFile @ 0x14092E340
  * Callers:
- *     ViFlushDoubleBuffer @ 0x14092D374 (ViFlushDoubleBuffer.c)
- *     ViFreeMapRegistersToFile @ 0x14092D6BC (ViFreeMapRegistersToFile.c)
- *     ViSwap @ 0x14092EA40 (ViSwap.c)
+ *     ViFlushDoubleBuffer @ 0x14092E374 (ViFlushDoubleBuffer.c)
+ *     ViFreeMapRegistersToFile @ 0x14092E6BC (ViFreeMapRegistersToFile.c)
+ *     ViSwap @ 0x14092FA40 (ViSwap.c)
  * Callees:
  *     <none>
  */

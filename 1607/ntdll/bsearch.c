@@ -1,14 +1,14 @@
 /*
  * XREFs of bsearch @ 0x180099410
  * Callers:
- *     RtlpFindGuidInSection @ 0x18001A0C4 (RtlpFindGuidInSection.c)
- *     RtlpLocateActivationContextSection @ 0x18001B170 (RtlpLocateActivationContextSection.c)
- *     RtlpFindUnicodeStringInSection @ 0x18001B2E0 (RtlpFindUnicodeStringInSection.c)
- *     RtlSetProtectedPolicy @ 0x180083130 (RtlSetProtectedPolicy.c)
- *     RtlQueryProtectedPolicy @ 0x1800851E0 (RtlQueryProtectedPolicy.c)
+ *     RtlpFindGuidInSection @ 0x18001A0B4 (RtlpFindGuidInSection.c)
+ *     RtlpLocateActivationContextSection @ 0x18001B160 (RtlpLocateActivationContextSection.c)
+ *     RtlpFindUnicodeStringInSection @ 0x18001B2D0 (RtlpFindUnicodeStringInSection.c)
+ *     RtlSetProtectedPolicy @ 0x180083120 (RtlSetProtectedPolicy.c)
+ *     RtlQueryProtectedPolicy @ 0x1800851D0 (RtlQueryProtectedPolicy.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     _guard_check_icall @ 0x18009D0E0 (_guard_check_icall.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     _guard_check_icall @ 0x18009D0D0 (_guard_check_icall.c)
  */
 
 void *__cdecl bsearch(

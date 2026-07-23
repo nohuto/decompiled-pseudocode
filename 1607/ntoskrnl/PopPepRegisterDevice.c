@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPepRegisterDevice @ 0x14056747C
+ * XREFs of PopPepRegisterDevice @ 0x1405679BC
  * Callers:
- *     PopFxRegisterDeviceWithPep @ 0x140141F18 (PopFxRegisterDeviceWithPep.c)
+ *     PopFxRegisterDeviceWithPep @ 0x140142488 (PopFxRegisterDeviceWithPep.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     PopPepComponentGetResidencyIdleState @ 0x1400C2CE8 (PopPepComponentGetResidencyIdleState.c)
- *     PopPepInsertDevice @ 0x14014201C (PopPepInsertDevice.c)
- *     PopPepComponentGetLatencyIdleState @ 0x140142150 (PopPepComponentGetLatencyIdleState.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x1400C0B78 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepInsertDevice @ 0x14014258C (PopPepInsertDevice.c)
+ *     PopPepComponentGetLatencyIdleState @ 0x1401426C0 (PopPepComponentGetLatencyIdleState.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -111,7 +111,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
             ++v23;
             v22 += 136;
           }
-          while ( (__int64)v22 < (__int64)&stru_1402579C0 );
+          while ( (__int64)v22 < (__int64)&`_CmOpenDeviceInterfaceRegKeyWorker'::`2'::ObjectPathRootPrefix );
           *((_QWORD *)v19 + 2) |= 1uLL;
           v24 = 0;
           v25 = -160LL;
@@ -140,7 +140,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
               ++v30;
               v29 += 136;
             }
-            while ( (__int64)v29 < (__int64)&stru_1402579C0 );
+            while ( (__int64)v29 < (__int64)&`_CmOpenDeviceInterfaceRegKeyWorker'::`2'::ObjectPathRootPrefix );
             KeInitializeEvent((PRKEVENT)(i + 16), NotificationEvent, 0);
             v32 = v43;
             *(_QWORD *)i = *(_QWORD *)(v28 + 16);

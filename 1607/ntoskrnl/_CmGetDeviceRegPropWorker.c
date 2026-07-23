@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetDeviceRegPropWorker @ 0x1404FE360
+ * XREFs of _CmGetDeviceRegPropWorker @ 0x1404E12F0
  * Callers:
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
  * Callees:
- *     RtlStringCbCopyNExW @ 0x1400AC124 (RtlStringCbCopyNExW.c)
- *     _MapCmDevicePropertyToRegType @ 0x1400B2C48 (_MapCmDevicePropertyToRegType.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     _MapCmDevicePropertyToRegValue @ 0x1400C3B80 (_MapCmDevicePropertyToRegValue.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _NtPlugPlayGetDeviceProperty @ 0x1404CF700 (_NtPlugPlayGetDeviceProperty.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     _CmGetInstallerClassRegProp @ 0x140504368 (_CmGetInstallerClassRegProp.c)
+ *     RtlStringCbCopyNExW @ 0x1400AA68C (RtlStringCbCopyNExW.c)
+ *     _MapCmDevicePropertyToRegType @ 0x1400B0B94 (_MapCmDevicePropertyToRegType.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     _MapCmDevicePropertyToRegValue @ 0x1400C1A10 (_MapCmDevicePropertyToRegValue.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     _CmGetInstallerClassRegProp @ 0x1404E72F8 (_CmGetInstallerClassRegProp.c)
+ *     _NtPlugPlayGetDeviceProperty @ 0x14050C7CC (_NtPlugPlayGetDeviceProperty.c)
  */
 
 __int64 __fastcall CmGetDeviceRegPropWorker(
@@ -24,15 +24,15 @@ __int64 __fastcall CmGetDeviceRegPropWorker(
         int a4,
         _DWORD *a5,
         wchar_t *a6,
-        int *a7,
+        unsigned int *a7,
         __int16 a8)
 {
   __int64 v8; // r11
   void *v9; // r10
   int inited; // ebx
-  int v13; // r13d
+  unsigned int v13; // r13d
   _BYTE *v14; // rcx
-  unsigned int v15; // edi
+  int v15; // edi
   const wchar_t *v16; // r8
   __int64 v17; // r9
   void *v18; // r10
@@ -173,9 +173,9 @@ LABEL_50:
       goto LABEL_29;
     DeviceProperty = NtPlugPlayGetDeviceProperty(
                        v41,
-                       (__int64)&DestinationString,
+                       (unsigned int)&DestinationString,
                        v15,
-                       (__int64)pszDest,
+                       (_DWORD)pszDest,
                        v13,
                        (__int64)&cbDest);
     inited = DeviceProperty;
@@ -246,14 +246,7 @@ LABEL_50:
       *a5 = 1;
       if ( cbDest >= *a7 )
       {
-        InstallerClassRegProp = RtlStringCbCopyNExW(
-                                  pszDest,
-                                  cbDest,
-                                  a2,
-                                  (unsigned int)*a7 - 2LL,
-                                  ppszDestEnd,
-                                  pcbRemaining,
-                                  dwFlags);
+        InstallerClassRegProp = RtlStringCbCopyNExW(pszDest, cbDest, a2, *a7 - 2LL, ppszDestEnd, pcbRemaining, dwFlags);
 LABEL_47:
         inited = InstallerClassRegProp;
         goto LABEL_29;

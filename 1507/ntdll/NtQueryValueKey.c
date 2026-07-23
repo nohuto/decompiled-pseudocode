@@ -34,11 +34,17 @@
  *     <none>
  */
 
-__int64 NtQueryValueKey()
+NTSTATUS __cdecl NtQueryValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 23LL;
+  result = 23;
   __asm { syscall; Low latency system call }
   return result;
 }

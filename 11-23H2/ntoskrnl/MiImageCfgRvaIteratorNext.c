@@ -1,7 +1,7 @@
 /*
- * XREFs of MiImageCfgRvaIteratorNext @ 0x14079DD30
+ * XREFs of MiImageCfgRvaIteratorNext @ 0x14079DF20
  * Callers:
- *     MiImageCfgRvaIteratorFirst @ 0x14079DD00 (MiImageCfgRvaIteratorFirst.c)
+ *     MiImageCfgRvaIteratorFirst @ 0x14079DEF0 (MiImageCfgRvaIteratorFirst.c)
  * Callees:
  *     <none>
  */

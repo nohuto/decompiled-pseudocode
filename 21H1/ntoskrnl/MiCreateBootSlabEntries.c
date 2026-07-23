@@ -16,8 +16,8 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
   __int64 v5; // r14
   unsigned __int64 v6; // rsi
   __int64 v8; // rdi
-  RTL_BITMAP *Pool; // rax
-  unsigned __int64 v10; // rbx
+  _RTL_BITMAP *Pool; // rax
+  __int64 v10; // rbx
   int v12; // ecx
 
   v5 = a3;
@@ -27,8 +27,8 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
     return 0LL;
   while ( 1 )
   {
-    Pool = (RTL_BITMAP *)MiAllocatePool(64, 0x90uLL, 0x6553694Du);
-    v10 = (unsigned __int64)Pool;
+    Pool = (_RTL_BITMAP *)MiAllocatePool(64, 0x90uLL, 0x6553694Du);
+    v10 = (__int64)Pool;
     if ( !Pool )
       break;
     Pool[2].Buffer = (unsigned int *)a1;

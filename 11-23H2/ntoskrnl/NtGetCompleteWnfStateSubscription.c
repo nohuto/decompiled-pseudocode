@@ -1,25 +1,25 @@
 /*
- * XREFs of NtGetCompleteWnfStateSubscription @ 0x140711B50
+ * XREFs of NtGetCompleteWnfStateSubscription @ 0x140711D60
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExpWnfDeliverThreadNotifications @ 0x140711CB0 (ExpWnfDeliverThreadNotifications.c)
- *     ExpWnfCompleteThreadSubscriptions @ 0x140711F74 (ExpWnfCompleteThreadSubscriptions.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x140711EC0 (ExpWnfDeliverThreadNotifications.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x140712184 (ExpWnfCompleteThreadSubscriptions.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtGetCompleteWnfStateSubscription(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        int a3,
-        int a4,
-        volatile void *Address,
-        SIZE_T Length)
+NTSTATUS __cdecl NtGetCompleteWnfStateSubscription(
+        PWNF_STATE_NAME OldDescriptorStateName,
+        ULONG64 *OldSubscriptionId,
+        ULONG OldDescriptorEventMask,
+        ULONG OldDescriptorStatus,
+        PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   unsigned __int64 v9; // r14
   __int64 v10; // rcx
   __int64 v11; // rax
@@ -31,36 +31,41 @@ __int64 __fastcall NtGetCompleteWnfStateSubscription(
   v9 = KeGetCurrentThread()->ApcState.Process[1].EndPadding[0];
   if ( v9 )
   {
-    if ( !a1 || !a2 )
+    if ( !OldDescriptorStateName || !OldSubscriptionId )
       goto LABEL_11;
-    if ( a3 && (!a4 || a4 == -1073741267) )
+    if ( OldDescriptorEventMask && (!OldDescriptorStatus || OldDescriptorStatus == -1073741267) )
     {
       v10 = 0x7FFFFFFF0000LL;
       v11 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v11 = a1;
+      if ( (unsigned __int64)OldDescriptorStateName < 0x7FFFFFFF0000LL )
+        v11 = (__int64)OldDescriptorStateName;
       v13 = *(_QWORD *)v11;
-      if ( a2 < 0x7FFFFFFF0000LL )
-        v10 = a2;
-      v8 = ExpWnfCompleteThreadSubscriptions(v9, (unsigned int)&v13, *(_QWORD *)v10, a3, a4);
+      if ( (unsigned __int64)OldSubscriptionId < 0x7FFFFFFF0000LL )
+        v10 = (__int64)OldSubscriptionId;
+      v8 = ExpWnfCompleteThreadSubscriptions(
+             v9,
+             (unsigned int)&v13,
+             *(_QWORD *)v10,
+             OldDescriptorEventMask,
+             OldDescriptorStatus);
       if ( v8 >= 0 )
       {
 LABEL_11:
-        if ( (_DWORD)Length )
+        if ( DescriptorSize )
         {
-          if ( (unsigned int)Length < 0x1030 )
+          if ( DescriptorSize < 0x1030 )
           {
             v8 = -1073741789;
           }
           else
           {
-            ProbeForWrite(Address, (unsigned int)Length, 8u);
-            v8 = ExpWnfDeliverThreadNotifications(v9, Address, (unsigned int)Length);
+            ProbeForWrite(NewDeliveryDescriptor, DescriptorSize, 8u);
+            v8 = ExpWnfDeliverThreadNotifications(v9, NewDeliveryDescriptor, DescriptorSize);
           }
         }
       }
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v8;
+  return v8;
 }

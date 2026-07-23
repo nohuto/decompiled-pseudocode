@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SmpIoCompletionApc@@YAXPEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14059FA50
+ * XREFs of ?SmpIoCompletionApc@@YAXPEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14059FC80
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x1402D9740 (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x14028AA90 (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 void __fastcall SmpIoCompletionApc(char *a1, struct _IO_STATUS_BLOCK *a2)
@@ -37,6 +37,6 @@ void __fastcall SmpIoCompletionApc(char *a1, struct _IO_STATUS_BLOCK *a2)
   {
     SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue((__int64)a1, (unsigned __int64)v3, 1);
     v6 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, *((_DWORD *)a1 + 1504) & 0x3FF);
-    ExReleaseRundownProtection_0(v6 + 1);
+    ExReleaseRundownProtection(v6 + 1);
   }
 }

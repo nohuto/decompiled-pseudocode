@@ -1,13 +1,13 @@
 /*
- * XREFs of PspIumFreePartitionState @ 0x1405A5F5C
+ * XREFs of PspIumFreePartitionState @ 0x1405A64CC
  * Callers:
- *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1405A53D4 (PsDispatchIumService.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MmFreeNonChargedSecurePages @ 0x140657CB8 (MmFreeNonChargedSecurePages.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MmFreeNonChargedSecurePages @ 0x140658208 (MmFreeNonChargedSecurePages.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

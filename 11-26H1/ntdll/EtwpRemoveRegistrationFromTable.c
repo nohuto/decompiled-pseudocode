@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRemoveRegistrationFromTable @ 0x18006D348
+ * XREFs of EtwpRemoveRegistrationFromTable @ 0x18008D798
  * Callers:
- *     EtwNotificationUnregister @ 0x18006D0E0 (EtwNotificationUnregister.c)
+ *     EtwNotificationUnregister @ 0x18008D530 (EtwNotificationUnregister.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlRbRemoveNode @ 0x18006B8B0 (RtlRbRemoveNode.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x18008BD00 (RtlRbRemoveNode.c)
  */
 
-struct _TEB *__fastcall EtwpRemoveRegistrationFromTable(__int64 a1, __int64 a2)
+void __fastcall EtwpRemoveRegistrationFromTable(PRTL_BALANCED_NODE Node)
 {
   void *UniqueThread; // rbx
   __m128i si128; // xmm0
@@ -15,12 +15,12 @@ struct _TEB *__fastcall EtwpRemoveRegistrationFromTable(__int64 a1, __int64 a2)
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
   if ( EtwpProvLockOwner == (_DWORD)UniqueThread )
     __fastfail(0x24u);
-  RtlAcquireSRWLockExclusive(&EtwpProvLock, a2);
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
   EtwpProvLockOwner = (int)UniqueThread;
-  RtlRbRemoveNode((__int64)&EtwpRegistrationTable, a1);
+  RtlRbRemoveNode(&EtwpRegistrationTable, Node);
   si128 = _mm_load_si128((const __m128i *)&_xmm_abababababababababababababababab);
-  *(__m128i *)a1 = si128;
+  Node->0 = ($FB1F53B3FDA05722B119A3FC4C1607CE)si128;
   EtwpProvLockOwner = 0;
-  *(_QWORD *)(a1 + 16) = si128.m128i_i64[0];
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  Node->ParentValue = si128.m128i_i64[0];
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

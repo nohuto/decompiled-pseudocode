@@ -1,11 +1,11 @@
 /*
- * XREFs of MmIsAddressValid @ 0x140444500
+ * XREFs of MmIsAddressValid @ 0x14043D010
  * Callers:
- *     KiMarkBugCheckRegions @ 0x1405407FC (KiMarkBugCheckRegions.c)
- *     sub_140553084 @ 0x140553084 (sub_140553084.c)
- *     PopMarkComponentsBootPhase @ 0x140BFAE30 (PopMarkComponentsBootPhase.c)
+ *     KiMarkBugCheckRegions @ 0x140542C7C (KiMarkBugCheckRegions.c)
+ *     sub_140555504 @ 0x140555504 (sub_140555504.c)
+ *     PopMarkComponentsBootPhase @ 0x140C00E30 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 BOOLEAN __stdcall MmIsAddressValid(PVOID VirtualAddress)

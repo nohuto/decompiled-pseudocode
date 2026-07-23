@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeRegisterNmiCallbackWrapper @ 0x1405E4590
+ * XREFs of DifKeRegisterNmiCallbackWrapper @ 0x1405E4B00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     KiRegisterNmiSxCallback @ 0x14056CE3C (KiRegisterNmiSxCallback.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     KiRegisterNmiSxCallback @ 0x14056D4FC (KiRegisterNmiSxCallback.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 _QWORD *__fastcall DifKeRegisterNmiCallbackWrapper(__int64 a1, __int64 a2)

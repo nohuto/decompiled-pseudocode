@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x1402028A0
+ * XREFs of ?KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x14032AF90
  * Callers:
- *     ?KiSelectIdealProcessorSetsForProcess@@YAXPEAU_KPROCESS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@PEAU_KAFFINITY_EX@@PEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x140202778 (-KiSelectIdealProcessorSetsForProcess@@YAXPEAU_KPROCESS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@PEAU.c)
- *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1403B3BB8 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     ?KiSelectIdealProcessorSetsForProcess@@YAXPEAU_KPROCESS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@PEAU_KAFFINITY_EX@@PEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x14032AE68 (-KiSelectIdealProcessorSetsForProcess@@YAXPEAU_KPROCESS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@PEAU.c)
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1403A23C8 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
  * Callees:
- *     KiFindBiasedProcessorIndex @ 0x1402026A4 (KiFindBiasedProcessorIndex.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KiFindBiasedProcessorIndex @ 0x14032AD94 (KiFindBiasedProcessorIndex.c)
  */
 
 void __fastcall KiSelectIdealProcessorSetForGroup(
@@ -32,7 +32,7 @@ void __fastcall KiSelectIdealProcessorSetForGroup(
   unsigned __int64 v19; // r12
   unsigned __int16 BiasedProcessorIndex; // ax
   __int64 v21; // r8
-  __int64 v22; // rcx
+  unsigned int v22; // ecx
   unsigned int v23; // edx
   int v24; // eax
   unsigned __int64 v25; // r15
@@ -108,7 +108,7 @@ LABEL_31:
     if ( v15 == (unsigned __int16)KeNumberNodes )
       v16 = -1;
     else
-      v16 = *(_DWORD *)(qword_140E2DAD0 + 4LL * (v15 + v14 * (unsigned int)(unsigned __int16)KeNumberNodes));
+      v16 = *(_DWORD *)(qword_140E2DC10 + 4LL * (v15 + v14 * (unsigned int)(unsigned __int16)KeNumberNodes));
   }
   if ( v16 == v14 )
     BiasedProcessorIndex = a2;
@@ -141,7 +141,7 @@ LABEL_31:
       v27 += __popcnt(v33);
       if ( !v25 )
         break;
-      v22 = (unsigned int)KiFindBiasedProcessorIndex(*(unsigned __int16 *)(v18 + 136), a4, v25);
+      v22 = KiFindBiasedProcessorIndex(*(unsigned __int16 *)(v18 + 136), a4, v25);
     }
     while ( v27 < v29 );
     v8 = v41;

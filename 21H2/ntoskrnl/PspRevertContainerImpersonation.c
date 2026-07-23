@@ -1,21 +1,21 @@
 /*
- * XREFs of PspRevertContainerImpersonation @ 0x14021FAE0
+ * XREFs of PspRevertContainerImpersonation @ 0x1402C43E0
  * Callers:
- *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
- *     IopProcessWorkItem @ 0x1402EF050 (IopProcessWorkItem.c)
- *     NtRevertContainerImpersonation @ 0x140581E20 (NtRevertContainerImpersonation.c)
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
+ *     PsImpersonateContainerOfThread @ 0x1402C0590 (PsImpersonateContainerOfThread.c)
+ *     IopProcessWorkItem @ 0x1402F9DA0 (IopProcessWorkItem.c)
+ *     NtRevertContainerImpersonation @ 0x140582050 (NtRevertContainerImpersonation.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
  * Callees:
- *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
- *     EtwTraceThreadWorkOnBehalfUpdate @ 0x14021FCD0 (EtwTraceThreadWorkOnBehalfUpdate.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
- *     KeClearSystemPriority @ 0x14022FFB0 (KeClearSystemPriority.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1402C1A70 (ExpAcquireSpinLockExclusive.c)
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1402C45D0 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1402D4110 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KeClearSystemPriority @ 0x1402D4800 (KeClearSystemPriority.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14034D0C0 (ObDereferenceObjectDeferDeleteWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5FBC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall PspRevertContainerImpersonation(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, _DWORD *a4)

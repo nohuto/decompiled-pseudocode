@@ -10,25 +10,25 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-__int64 __fastcall RtlpCallQueryRegistryRoutine(
+NTSTATUS __fastcall RtlpCallQueryRegistryRoutine(
         __int64 a1,
         __int64 a2,
-        _DWORD *a3,
+        unsigned __int16 *a3,
         _DWORD *a4,
         __int64 a5,
-        __int64 a6,
+        PVOID Environment,
         char a7)
 {
   int v8; // r8d
   __int64 v10; // r10
-  unsigned __int64 v11; // rdx
+  unsigned __int16 *v11; // rdx
   int v12; // edi
   unsigned int v13; // r15d
   unsigned int v14; // edi
   char *v15; // r12
-  _WORD *v16; // rsi
+  unsigned __int16 *Buffer; // rsi
   int v17; // ecx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v19; // ecx
   int v20; // eax
   __int64 v21; // r12
@@ -38,52 +38,49 @@ __int64 __fastcall RtlpCallQueryRegistryRoutine(
   __int64 v25; // rax
   bool v26; // cf
   unsigned int v27; // eax
-  _WORD *v28; // rcx
+  unsigned __int16 *v28; // rcx
   unsigned __int64 v29; // rbx
   int v30; // ecx
-  _WORD *i; // rdi
+  unsigned __int16 *i; // rdi
   unsigned int v33; // r15d
   int RegistryDirect; // eax
   _WORD *v35; // rcx
-  unsigned __int16 v38; // [rsp+30h] [rbp-28h] BYREF
-  __int16 v39; // [rsp+32h] [rbp-26h]
-  _WORD *v40; // [rsp+38h] [rbp-20h]
-  _WORD v41[4]; // [rsp+40h] [rbp-18h] BYREF
-  _WORD *v42; // [rsp+48h] [rbp-10h]
-  unsigned int v44; // [rsp+A8h] [rbp+50h] BYREF
-  _DWORD *v45; // [rsp+B0h] [rbp+58h]
-  _DWORD *v46; // [rsp+B8h] [rbp+60h]
+  _UNICODE_STRING Destination; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING Source; // [rsp+40h] [rbp-18h] BYREF
+  ULONG ReturnedLength; // [rsp+A8h] [rbp+50h] BYREF
+  unsigned __int16 *v42; // [rsp+B0h] [rbp+58h]
+  _DWORD *v43; // [rsp+B8h] [rbp+60h]
 
-  v46 = a4;
+  v43 = a4;
   v8 = *a4;
   *a4 = 0;
   v10 = a1;
-  v11 = (unsigned __int64)a3;
-  v45 = a3;
+  v11 = a3;
+  v42 = a3;
   v12 = (_DWORD)a3 + v8;
   v13 = *(unsigned __int8 *)(a2 + 32);
-  if ( a3[1] )
+  if ( *((_DWORD *)a3 + 1) )
   {
-    v19 = a3[2];
+    v19 = *((_DWORD *)a3 + 2);
     if ( v19 != -1 )
     {
-      v20 = a3[3];
-      if ( v20 || a3[1] != v13 )
+      v20 = *((_DWORD *)a3 + 3);
+      if ( v20 || *((_DWORD *)a3 + 1) != v13 )
       {
         if ( (*(_BYTE *)(a2 + 8) & 0x20) != 0 )
         {
           v15 = *(char **)(a2 + 16);
 LABEL_21:
-          v13 = a3[1];
-          v16 = (_WORD *)((char *)a3 + (unsigned int)a3[2]);
-          v14 = a3[3];
+          v13 = *((_DWORD *)a3 + 1);
+          Buffer = (unsigned __int16 *)((char *)a3 + *((unsigned int *)a3 + 2));
+          v14 = *((_DWORD *)a3 + 3);
           goto LABEL_4;
         }
         if ( v20 )
           v21 = (unsigned int)(v19 + v20);
         else
-          v21 = (unsigned int)(a3[4] + 20);
-        v22 = a3[4];
+          v21 = (unsigned int)(*((_DWORD *)a3 + 4) + 20);
+        v22 = *((_DWORD *)a3 + 4);
         v15 = (char *)(((unsigned __int64)a3 + v21 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
         v23 = v22 + 2;
         v24 = (int)(v22 + 2);
@@ -91,20 +88,20 @@ LABEL_21:
         {
           if ( v12 - (int)v15 < v23 )
           {
-            result = 3221225507LL;
+            result = -1073741789;
             *a4 = v23 + (_DWORD)v15 - (_DWORD)a3;
             return result;
           }
-          memmove(v15, a3 + 5, v22);
-          v25 = (unsigned int)a3[4];
+          memmove(v15, a3 + 10, v22);
+          v25 = *((unsigned int *)a3 + 4);
           v10 = a1;
-          v11 = (unsigned __int64)&v15[v24 + 7] & 0xFFFFFFFFFFFFFFF8uLL;
-          v45 = (_DWORD *)v11;
-          v8 = v12 - v11;
+          v11 = (unsigned __int16 *)((unsigned __int64)&v15[v24 + 7] & 0xFFFFFFFFFFFFFFF8uLL);
+          v42 = v11;
+          v8 = v12 - (_DWORD)v11;
           *(_WORD *)&v15[v25] = 0;
           goto LABEL_21;
         }
-        return 3221225532LL;
+        return -1073741764;
       }
     }
   }
@@ -115,23 +112,23 @@ LABEL_21:
   }
   v14 = *(_DWORD *)(a2 + 48);
   v15 = *(char **)(a2 + 16);
-  v16 = *(_WORD **)(a2 + 40);
+  Buffer = *(unsigned __int16 **)(a2 + 40);
   if ( !v14 )
   {
     v35 = *(_WORD **)(a2 + 40);
     if ( v13 - 1 <= 1 )
     {
-      if ( !v16 )
-        return 3221225532LL;
+      if ( !Buffer )
+        return -1073741764;
       while ( *v35++ )
         ;
-      v14 = (_DWORD)v35 - (_DWORD)v16;
+      v14 = (_DWORD)v35 - (_DWORD)Buffer;
     }
     else if ( v13 == 7 )
     {
-      if ( !v16 )
-        return 3221225532LL;
-      if ( *v16 )
+      if ( !Buffer )
+        return -1073741764;
+      if ( *Buffer )
       {
         do
         {
@@ -140,7 +137,7 @@ LABEL_21:
         }
         while ( *v35 );
       }
-      v14 = (_DWORD)v35 - (_DWORD)v16 + 2;
+      v14 = (_DWORD)v35 - (_DWORD)Buffer + 2;
     }
   }
 LABEL_4:
@@ -150,7 +147,7 @@ LABEL_4:
     if ( (v17 & 0x100) != 0 )
     {
       if ( *(unsigned __int8 *)(a2 + 35) != v13 )
-        return 3221225508LL;
+        return -1073741788;
     }
     else if ( (v17 & 0x80u) != 0 && (v13 - 1 <= 1 || v13 == 7) )
     {
@@ -162,31 +159,31 @@ LABEL_4:
     goto LABEL_10;
   if ( v13 == 7 )
   {
-    v29 = (unsigned __int64)v16 + v14 - 4;
+    v29 = (unsigned __int64)Buffer + v14 - 4;
     v30 = 0;
-    v46 = (_DWORD *)v29;
-    for ( i = v16; (unsigned __int64)i < v29; v16 = i )
+    v43 = (_DWORD *)v29;
+    for ( i = Buffer; (unsigned __int64)i < v29; Buffer = i )
     {
       while ( *i++ )
         ;
-      v33 = (_DWORD)i - (_DWORD)v16;
+      v33 = (_DWORD)i - (_DWORD)Buffer;
       if ( (*(_DWORD *)(a2 + 8) & 0x20) != 0 )
       {
         if ( a7 )
           RtlpValidateKeyTrust(v10);
-        RegistryDirect = RtlpQueryRegistryDirect(1LL, v16, v33, *(_QWORD *)(a2 + 24));
+        RegistryDirect = RtlpQueryRegistryDirect(1LL, Buffer, v33, *(_QWORD *)(a2 + 24));
         *(_QWORD *)(a2 + 24) += 16LL;
       }
       else
       {
-        RegistryDirect = (*(__int64 (__fastcall **)(char *, __int64, _WORD *, _QWORD, __int64, _QWORD))a2)(
+        RegistryDirect = (*(__int64 (__fastcall **)(char *, __int64, unsigned __int16 *, _QWORD, __int64, _QWORD))a2)(
                            v15,
                            1LL,
-                           v16,
+                           Buffer,
                            v33,
                            a5,
                            *(_QWORD *)(a2 + 24));
-        v29 = (unsigned __int64)v46;
+        v29 = (unsigned __int64)v43;
       }
       v30 = RegistryDirect;
       if ( RegistryDirect == -1073741789 )
@@ -195,7 +192,7 @@ LABEL_4:
         break;
       v10 = a1;
     }
-    return (unsigned int)v30;
+    return v30;
   }
   else
   {
@@ -204,7 +201,7 @@ LABEL_4:
     v27 = v14 - 2;
     if ( v14 - 2 > 0xFFFA )
       goto LABEL_10;
-    v28 = v16;
+    v28 = Buffer;
     if ( v14 == 2 )
       goto LABEL_10;
     while ( *v28 != 37 )
@@ -214,56 +211,59 @@ LABEL_4:
       if ( !v27 )
         goto LABEL_10;
     }
-    v42 = v16;
-    v41[1] = v14;
-    v41[0] = v14 - 2;
-    v40 = (_WORD *)v11;
-    v38 = 0;
+    Source.Buffer = Buffer;
+    Source.MaximumLength = v14;
+    Source.Length = v14 - 2;
+    Destination.Buffer = v11;
+    Destination.Length = 0;
     if ( v8 <= 0 )
     {
-      v39 = 0;
+      Destination.MaximumLength = 0;
     }
     else if ( (unsigned __int64)v8 > 0xFFFE )
     {
-      v39 = -2;
-      *(_WORD *)(v11 + 65532) = 0;
+      Destination.MaximumLength = -2;
+      v11[32766] = 0;
     }
     else
     {
-      v39 = v8;
-      *(_WORD *)(v11 + 2 * ((unsigned __int64)v8 >> 1) - 2) = 0;
+      Destination.MaximumLength = v8;
+      v11[((unsigned __int64)v8 >> 1) - 1] = 0;
     }
-    result = RtlExpandEnvironmentStrings_U(a6, v41, &v38, &v44);
+    result = RtlExpandEnvironmentStrings_U(Environment, &Source, &Destination, &ReturnedLength);
     v13 = 1;
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
-      v16 = v40;
-      v14 = v38 + 2;
+      Buffer = Destination.Buffer;
+      v14 = Destination.Length + 2;
 LABEL_10:
       if ( (*(_DWORD *)(a2 + 8) & 0x20) != 0 )
       {
         if ( a7 )
           RtlpValidateKeyTrust(a1);
-        result = RtlpQueryRegistryDirect(v13, v16, v14, *(_QWORD *)(a2 + 24));
+        result = RtlpQueryRegistryDirect(v13, Buffer, v14, *(_QWORD *)(a2 + 24));
       }
       else
       {
-        result = (*(__int64 (__fastcall **)(char *, _QWORD, _WORD *, _QWORD, __int64, _QWORD))a2)(
+        result = (*(__int64 (__fastcall **)(char *, _QWORD, unsigned __int16 *, _QWORD, __int64, _QWORD))a2)(
                    v15,
                    v13,
-                   v16,
+                   Buffer,
                    v14,
                    a5,
                    *(_QWORD *)(a2 + 24));
       }
-      if ( (_DWORD)result == -1073741789 )
-        return 0LL;
+      if ( result == -1073741789 )
+        return 0;
       return result;
     }
-    if ( (_DWORD)result == -1073741789 )
-      *v46 = v44 + (_DWORD)v45 - (_DWORD)a3;
-    if ( (_DWORD)result == -2147483643 || (_DWORD)result == -1073741789 && (v39 == -2 || v44 > 0xFFFC) )
+    if ( result == -1073741789 )
+      *v43 = ReturnedLength + (_DWORD)v42 - (_DWORD)a3;
+    if ( result == -2147483643
+      || result == -1073741789 && (Destination.MaximumLength == 0xFFFE || ReturnedLength > 0xFFFC) )
+    {
       goto LABEL_10;
+    }
   }
   return result;
 }

@@ -47,7 +47,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStWorker(__int64 a1)
   unsigned int v14; // r8d
   __int64 v15; // rdx
   __int64 v16; // rcx
-  struct _SLIST_ENTRY *v17; // r15
+  _SLIST_ENTRY *v17; // r15
   NTSTATUS v18; // eax
   NTSTATUS v19; // ecx
   __int64 v20; // rax
@@ -153,7 +153,7 @@ LABEL_26:
           KeResetEvent((PRKEVENT)Object[0]);
           v20 = SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(v1, v47);
           v10 = v1 + 6584;
-          v17 = (struct _SLIST_ENTRY *)v20;
+          v17 = (_SLIST_ENTRY *)v20;
           if ( v20 )
           {
             while ( 1 )
@@ -202,7 +202,7 @@ LABEL_26:
                           {
                             *(_BYTE *)(v13 + 32) |= 2u;
                             if ( *(__int64 *)(v13 + 32) < 0 )
-                              KiAbEntryRemoveFromTree(v13);
+                              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
                             v52 = 0;
                             v52 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
                             *(_DWORD *)(v13 + 88) &= 0xFFFE0000;
@@ -271,7 +271,7 @@ LABEL_20:
                       {
                         *(_BYTE *)(v33 + 32) |= 2u;
                         if ( *(__int64 *)(v33 + 32) < 0 )
-                          KiAbEntryRemoveFromTree(v33);
+                          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v33);
                         v54 = 0;
                         v54 = *(_DWORD *)(v33 + 88) & 0x1FFFF;
                         *(_DWORD *)(v33 + 88) &= 0xFFFE0000;
@@ -299,7 +299,7 @@ LABEL_61:
                 KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
               }
 LABEL_25:
-              v17 = (struct _SLIST_ENTRY *)SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(v1, v47);
+              v17 = (_SLIST_ENTRY *)SMKM_STORE<SM_TRAITS>::SmStWorkItemGet(v1, v47);
               if ( !v17 )
                 goto LABEL_26;
             }
@@ -347,7 +347,7 @@ LABEL_25:
                 {
                   *(_BYTE *)(v45 + 32) |= 2u;
                   if ( *(__int64 *)(v45 + 32) < 0 )
-                    KiAbEntryRemoveFromTree(v45);
+                    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v45);
                   v51 = 0;
                   v51 = *(_DWORD *)(v45 + 88) & 0x1FFFF;
                   *(_DWORD *)(v45 + 88) &= 0xFFFE0000;

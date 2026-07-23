@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDrvDbLoadNode @ 0x1404FA308
+ * XREFs of PiDrvDbLoadNode @ 0x1404DD294
  * Callers:
- *     PiDrvDbNodeActionCallback @ 0x1404FA75C (PiDrvDbNodeActionCallback.c)
+ *     PiDrvDbNodeActionCallback @ 0x1404DD6E8 (PiDrvDbNodeActionCallback.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1400B1388 (PnpDiagnosticTraceObjectWithStatus.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     ZwWaitForSingleObject @ 0x140159D00 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1400AF2C8 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     ZwWaitForSingleObject @ 0x14015A270 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)

@@ -11,28 +11,28 @@
  *     RtlpHpVirtLargeTreeInsert @ 0x1800EB5F8 (RtlpHpVirtLargeTreeInsert.c)
  */
 
-unsigned __int64 __fastcall RtlpHpVirtAllocateHeap(void *a1, unsigned __int64 a2, unsigned int a3)
+unsigned __int64 __fastcall RtlpHpVirtAllocateHeap(_DWORD *BaseAddress, unsigned __int64 a2, unsigned int a3)
 {
-  __int64 ProcessHeap; // rdi
+  _DWORD *ProcessHeap; // rdi
   unsigned __int64 HeapInternal; // rax
   __int64 v8; // rcx
   unsigned __int64 v9; // rbx
   int v10; // eax
   unsigned __int64 v11; // rsi
 
-  if ( a1 == NtCurrentPeb()->ProcessHeap )
+  if ( BaseAddress == NtCurrentPeb()->ProcessHeap )
   {
-    ProcessHeap = RtlpHpVirtGetProcessHeap(0LL);
+    ProcessHeap = (_DWORD *)RtlpHpVirtGetProcessHeap(0LL);
     if ( !ProcessHeap )
-      ProcessHeap = (__int64)a1;
+      ProcessHeap = BaseAddress;
   }
   else
   {
-    ProcessHeap = (__int64)a1;
+    ProcessHeap = BaseAddress;
   }
   HeapInternal = RtlpAllocateHeapInternal(ProcessHeap, a2, a3);
   v9 = HeapInternal;
-  if ( (void *)ProcessHeap == a1 || !HeapInternal )
+  if ( ProcessHeap == BaseAddress || !HeapInternal )
   {
     v11 = HeapInternal;
     v9 = 0LL;

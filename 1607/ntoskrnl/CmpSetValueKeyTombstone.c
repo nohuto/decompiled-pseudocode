@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSetValueKeyTombstone @ 0x1405FF340
+ * XREFs of CmpSetValueKeyTombstone @ 0x1405FF3F4
  * Callers:
- *     CmDeleteValueKey @ 0x1403FAE34 (CmDeleteValueKey.c)
+ *     CmDeleteValueKey @ 0x1403F9CF4 (CmDeleteValueKey.c)
  * Callees:
- *     CmpAddValueToListEx @ 0x1403FFCDC (CmpAddValueToListEx.c)
- *     CmpFreeValue @ 0x140401680 (CmpFreeValue.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpAddValueKeyTombstone @ 0x1405FEB44 (CmpAddValueKeyTombstone.c)
+ *     CmpAddValueToListEx @ 0x1403FEB9C (CmpAddValueToListEx.c)
+ *     CmpFreeValue @ 0x140400540 (CmpFreeValue.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpAddValueKeyTombstone @ 0x1405FEBF8 (CmpAddValueKeyTombstone.c)
  */
 
 __int64 __fastcall CmpSetValueKeyTombstone(ULONG_PTR a1, __int64 a2, const void **a3, unsigned int a4, unsigned int a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SeCaptureUnicodeStringStructures @ 0x1406D4E7C
+ * XREFs of SeCaptureUnicodeStringStructures @ 0x1406D4EAC
  * Callers:
- *     SepCaptureUnicodeStringArray @ 0x1406D4C50 (SepCaptureUnicodeStringArray.c)
+ *     SepCaptureUnicodeStringArray @ 0x1406D4C80 (SepCaptureUnicodeStringArray.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

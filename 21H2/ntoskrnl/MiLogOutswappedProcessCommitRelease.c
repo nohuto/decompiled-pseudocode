@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogOutswappedProcessCommitRelease @ 0x14052B880
+ * XREFs of MiLogOutswappedProcessCommitRelease @ 0x14052BAC0
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x14052C708 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C948 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogOutswappedProcessCommitRelease(__int64 a1, __int64 a2)
@@ -34,9 +34,9 @@ void __fastcall MiLogOutswappedProcessCommitRelease(__int64 a1, __int64 a2)
   int v23; // [rsp+B8h] [rbp-20h]
   int v24; // [rsp+BCh] [rbp-1Ch]
 
-  if ( *(_QWORD *)&qword_140C4EEE0 && **(_DWORD **)&qword_140C4EEE0 > 5u )
+  if ( *(_QWORD *)&qword_140C4EF20 && **(_DWORD **)&qword_140C4EF20 > 5u )
   {
-    if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 4LL) )
+    if ( tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 4LL) )
     {
       tlgCreate1Sz_char((__int64)v15, (const CHAR *)(v3 + 1448));
       v5 = *(_DWORD *)(v4 + 1088);
@@ -52,7 +52,7 @@ void __fastcall MiLogOutswappedProcessCommitRelease(__int64 a1, __int64 a2)
       v17 = 4;
       v12 = a2;
       v13 = v6;
-      tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&byte_140025B25, v7, 1u, v9, v10, 6u, &v14);
+      tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&byte_140025ADB, v7, 1u, v9, v10, 6u, &v14);
     }
   }
 }

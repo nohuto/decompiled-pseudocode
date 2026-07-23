@@ -1,10 +1,10 @@
 /*
- * XREFs of MiComputeProcessUserVa @ 0x14046DC4C
+ * XREFs of MiComputeProcessUserVa @ 0x14046CB1C
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14046D378 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x14046C248 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiAllocateVad @ 0x14046D108 (MiAllocateVad.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiAllocateVad @ 0x14046BFD8 (MiAllocateVad.c)
  */
 
 __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, unsigned __int64 *a5)
@@ -23,16 +23,16 @@ __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _Q
   v10 = 276840576LL;
   do
   {
-    v11 = (_QWORD *)(v10 + qword_140327F90);
+    v11 = (_QWORD *)(v10 + qword_140327FD0);
     v10 += 16LL;
     v11[1] = v11;
     *v11 = v11;
     --v9;
   }
   while ( v9 );
-  *(_QWORD *)(qword_140327F90 + 276840456) = 0x7FF5FFFFF000LL;
+  *(_QWORD *)(qword_140327FD0 + 276840456) = 0x7FF5FFFFF000LL;
   if ( (*(_DWORD *)(a1 + 1740) & 1) != 0 )
-    *(_QWORD *)(qword_140327F90 + 276840456) = 0x7FFFFFFE0000LL;
+    *(_QWORD *)(qword_140327FD0 + 276840456) = 0x7FFFFFFE0000LL;
   if ( !a2 && (*(_DWORD *)(a1 + 1740) & 1) == 0 )
   {
     Vad = (_QWORD *)MiAllocateVad(0x7FFE0000uLL, 0x7FFEFFFFuLL);
@@ -55,7 +55,7 @@ LABEL_15:
           *(_QWORD *)(a1 + 1152) = v14;
           if ( v14 <= 0x80000000 )
             v13 = 0;
-          *(_QWORD *)(qword_140327F90 + 276840456) = v14 - v15;
+          *(_QWORD *)(qword_140327FD0 + 276840456) = v14 - v15;
         }
         goto LABEL_16;
       }

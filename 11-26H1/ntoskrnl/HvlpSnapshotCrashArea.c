@@ -1,24 +1,24 @@
 /*
- * XREFs of HvlpSnapshotCrashArea @ 0x1405C0EF4
+ * XREFs of HvlpSnapshotCrashArea @ 0x1405C3764
  * Callers:
- *     HvlCollectLivedump @ 0x1405C02A4 (HvlCollectLivedump.c)
- *     HvlCrashdumpCallbackRoutine @ 0x1405C0490 (HvlCrashdumpCallbackRoutine.c)
- *     HvlSkCrashdumpCallbackRoutine @ 0x1405C06C0 (HvlSkCrashdumpCallbackRoutine.c)
+ *     HvlCollectLivedump @ 0x1405C2B14 (HvlCollectLivedump.c)
+ *     HvlCrashdumpCallbackRoutine @ 0x1405C2D00 (HvlCrashdumpCallbackRoutine.c)
+ *     HvlSkCrashdumpCallbackRoutine @ 0x1405C2F30 (HvlSkCrashdumpCallbackRoutine.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void *__fastcall HvlpSnapshotCrashArea()
 {
   void *result; // rax
 
-  if ( VslpReservedTransferLock.ApcStateFill[37] && VslpReservedTransferLock.WaitBlock[2].Thread )
+  if ( BYTE6(VslpReservedTransferLock.Queue) && VslpReservedTransferLock.WaitBlock[3].Thread )
   {
-    if ( *(_QWORD *)&VslpReservedTransferLock.ApcStateFill[40] )
+    if ( VslpReservedTransferLock.Teb )
       return memmove(
-               *(void **)&VslpReservedTransferLock.ApcStateFill[40],
-               VslpReservedTransferLock.WaitBlock[2].Thread,
-               LODWORD(VslpReservedTransferLock.WaitStatus));
+               VslpReservedTransferLock.Teb,
+               VslpReservedTransferLock.WaitBlock[3].Thread,
+               LODWORD(VslpReservedTransferLock.RelativeTimerBias));
   }
   return result;
 }

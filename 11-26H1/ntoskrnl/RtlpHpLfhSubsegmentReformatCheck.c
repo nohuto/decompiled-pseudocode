@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentReformatCheck @ 0x140349E18
+ * XREFs of RtlpHpLfhSubsegmentReformatCheck @ 0x14034BE98
  * Callers:
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1403499A0 (RtlpHpLfhSubsegmentReformatAsMulti.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x14034BA20 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpHpLfhSubsegmentConstructCommitState @ 0x140349B10 (RtlpHpLfhSubsegmentConstructCommitState.c)
- *     RtlpHpLfhSubsegmentCountAllocatedBlocks @ 0x140349F8C (RtlpHpLfhSubsegmentCountAllocatedBlocks.c)
- *     RtlpHpAcquireLockShared @ 0x140349FDC (RtlpHpAcquireLockShared.c)
- *     RtlpHpReleaseLockShared @ 0x14034BE40 (RtlpHpReleaseLockShared.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpHpLfhSubsegmentConstructCommitState @ 0x14034BB90 (RtlpHpLfhSubsegmentConstructCommitState.c)
+ *     RtlpHpLfhSubsegmentCountAllocatedBlocks @ 0x14034C00C (RtlpHpLfhSubsegmentCountAllocatedBlocks.c)
+ *     RtlpHpAcquireLockShared @ 0x14034C05C (RtlpHpAcquireLockShared.c)
+ *     RtlpHpReleaseLockShared @ 0x14034DEC0 (RtlpHpReleaseLockShared.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, unsigned __int64 a2, _DWORD *a3, _DWORD *a4)

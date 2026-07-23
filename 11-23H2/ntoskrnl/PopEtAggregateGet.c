@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEtAggregateGet @ 0x1407B2578
+ * XREFs of PopEtAggregateGet @ 0x1407B2768
  * Callers:
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1407B1FE0 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x1407B21D0 (PopEtEnergyTrackerUpdateAggregate.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     PopEtAggregateFind @ 0x1407B2848 (PopEtAggregateFind.c)
- *     PopEtAggregateKeyCleanup @ 0x1407B29D8 (PopEtAggregateKeyCleanup.c)
- *     PopEtAggregateKeyCopy @ 0x1407B2A50 (PopEtAggregateKeyCopy.c)
- *     PopEtBucketsAllocate @ 0x1407E9F24 (PopEtBucketsAllocate.c)
- *     PopEtBucketsFree @ 0x1407EA850 (PopEtBucketsFree.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopEtAggregateFind @ 0x1407B2A38 (PopEtAggregateFind.c)
+ *     PopEtAggregateKeyCleanup @ 0x1407B2BC8 (PopEtAggregateKeyCleanup.c)
+ *     PopEtAggregateKeyCopy @ 0x1407B2C40 (PopEtAggregateKeyCopy.c)
+ *     PopEtBucketsAllocate @ 0x1407EA1F4 (PopEtBucketsAllocate.c)
+ *     PopEtBucketsFree @ 0x1407EAB20 (PopEtBucketsFree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxEmergencyWorker @ 0x14014BE58
+ * XREFs of PopFxEmergencyWorker @ 0x14014C3C8
  * Callers:
  *     <none>
  * Callees:
- *     KeRemoveQueue @ 0x1400A86B8 (KeRemoveQueue.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
+ *     KeRemoveQueue @ 0x1400A6C30 (KeRemoveQueue.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
  */
 
 void __fastcall __noreturn PopFxEmergencyWorker(PRKQUEUE Queue)

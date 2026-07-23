@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmHeteroDetectFavoredCores @ 0x14056A874
+ * XREFs of PpmHeteroDetectFavoredCores @ 0x14056ADB4
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14056A584 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14056AAC4 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeOrAffinityEx @ 0x1400968D0 (KeOrAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x1400D4810 (KeIsEmptyAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x140144208 (KeIsEqualAffinityEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeOrAffinityEx @ 0x1400960D0 (KeOrAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x1400D26B0 (KeIsEmptyAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x140144778 (KeIsEqualAffinityEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall PpmHeteroDetectFavoredCores(unsigned __int16 *a1, char *a2)

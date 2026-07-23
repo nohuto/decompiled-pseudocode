@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpSetTargetDeviceRemove @ 0x140A8F494
+ * XREFs of PnpSetTargetDeviceRemove @ 0x140A8BB2C
  * Callers:
- *     PiDevCfgProcessDeviceCallback @ 0x14072A970 (PiDevCfgProcessDeviceCallback.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x140728690 (PiDevCfgProcessDeviceCallback.c)
  * Callees:
- *     PnpInitializeTargetDeviceRemoveEvent @ 0x1408B2D48 (PnpInitializeTargetDeviceRemoveEvent.c)
- *     PnpInsertEventInQueue @ 0x1408B3950 (PnpInsertEventInQueue.c)
- *     PnpAllocateCriticalMemory @ 0x140A0D890 (PnpAllocateCriticalMemory.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x1408B0638 (PnpInitializeTargetDeviceRemoveEvent.c)
+ *     PnpInsertEventInQueue @ 0x1408B1240 (PnpInsertEventInQueue.c)
+ *     PnpAllocateCriticalMemory @ 0x1409BBC94 (PnpAllocateCriticalMemory.c)
  */
 
 __int64 __fastcall PnpSetTargetDeviceRemove(
@@ -41,7 +41,7 @@ __int64 __fastcall PnpSetTargetDeviceRemove(
   else
     v19 = 0LL;
   v20 = *(unsigned __int16 *)(v19 + 40) + 202;
-  CriticalMemory = (char *)PnpAllocateCriticalMemory(a2 != 0 ? 3 : 0, 0x100uLL);
+  CriticalMemory = (char *)PnpAllocateCriticalMemory(a2 != 0 ? 3 : 0, 0x100uLL, v20, 0x4B706E50u);
   v22 = (__int64)CriticalMemory;
   if ( !CriticalMemory )
     return 3221225626LL;

@@ -8,23 +8,20 @@
  *     NtTraceControl @ 0x180166CD0 (NtTraceControl.c)
  */
 
-__int64 EtwRegisterSecurityProvider()
+ULONG EtwRegisterSecurityProvider(void)
 {
   NTSTATUS v0; // eax
   ULONG v1; // ebx
-  ULONG v2; // eax
+  LONG v2; // eax
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
-  v0 = NtTraceControl(24LL, 0LL, 0LL);
-  if ( v0 )
-  {
-    v2 = RtlNtStatusToDosError(v0);
-    v1 = v2;
-    if ( v2 )
-      RtlSetLastWin32Error(v2);
-  }
-  else
-  {
+  ReturnLength = 0;
+  v0 = NtTraceControl(EtwRegisterSecurityProv, 0LL, 0, 0LL, 0, &ReturnLength);
+  if ( !v0 )
     return 0;
-  }
+  v2 = RtlNtStatusToDosError(v0);
+  v1 = v2;
+  if ( v2 )
+    RtlSetLastWin32Error(v2);
   return v1;
 }

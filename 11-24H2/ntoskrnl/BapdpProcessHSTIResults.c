@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdpProcessHSTIResults @ 0x140C3F098
+ * XREFs of BapdpProcessHSTIResults @ 0x140C411E8
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140BDE52C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140BE052C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140C3F83C (BapdpQueryData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140C4198C (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessHSTIResults(__int64 a1)
@@ -42,7 +42,7 @@ void __fastcall BapdpProcessHSTIResults(__int64 a1)
   }
   else
   {
-    LODWORD(dword_140FF2440) = v4;
-    qword_140FF2448 = Pool2;
+    LODWORD(dword_140FF3450) = v4;
+    qword_140FF3458 = Pool2;
   }
 }

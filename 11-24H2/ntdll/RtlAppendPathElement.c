@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAppendPathElement @ 0x18008BBE0
+ * XREFs of RtlAppendPathElement @ 0x1800A76A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlMultiAppendUnicodeStringBuffer @ 0x18008AB50 (RtlMultiAppendUnicodeStringBuffer.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlMultiAppendUnicodeStringBuffer @ 0x1800A6610 (RtlMultiAppendUnicodeStringBuffer.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlAppendPathElement(int a1, unsigned __int16 *a2, __m128i *a3)

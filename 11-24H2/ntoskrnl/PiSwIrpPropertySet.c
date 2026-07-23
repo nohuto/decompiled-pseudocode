@@ -1,20 +1,20 @@
 /*
- * XREFs of PiSwIrpPropertySet @ 0x1408B1E40
+ * XREFs of PiSwIrpPropertySet @ 0x1408AF734
  * Callers:
- *     PiSwDispatch @ 0x140730760 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14072E770 (PiSwDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14032FA04 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x1405A82A8 (McTemplateK0zz_EtwWriteTransfer.c)
- *     PiSwUpdateArrayProperties @ 0x1408B2070 (PiSwUpdateArrayProperties.c)
- *     PiSwPropertySet @ 0x1408B80F0 (PiSwPropertySet.c)
- *     PiSwValidatePropertyArray @ 0x1408B8D6C (PiSwValidatePropertyArray.c)
- *     PiSwLock @ 0x1408B9494 (PiSwLock.c)
- *     PiSwDeviceOperationsAllowed @ 0x1408BA604 (PiSwDeviceOperationsAllowed.c)
- *     PnpAllocatePWSTR @ 0x1408D3DA4 (PnpAllocatePWSTR.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x1402B827C (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405A5298 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     PiSwUpdateArrayProperties @ 0x1408AF964 (PiSwUpdateArrayProperties.c)
+ *     PiSwPropertySet @ 0x1408B5A60 (PiSwPropertySet.c)
+ *     PiSwValidatePropertyArray @ 0x1408B66DC (PiSwValidatePropertyArray.c)
+ *     PiSwLock @ 0x1408B6E3C (PiSwLock.c)
+ *     PiSwDeviceOperationsAllowed @ 0x1408B7FB4 (PiSwDeviceOperationsAllowed.c)
+ *     PnpAllocatePWSTR @ 0x1408D1794 (PnpAllocatePWSTR.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwIrpPropertySet(PIRP Irp, __int64 a2, __int64 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall PiSwIrpPropertySet(PIRP Irp, __int64 a2, __int64 a3)
   v13 = 0LL;
   v11 = 0LL;
   P = 0LL;
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0zz_EtwWriteTransfer(
       (__int64)Irp,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_SetDeviceProperty_Start,
@@ -47,7 +47,7 @@ __int64 __fastcall PiSwIrpPropertySet(PIRP Irp, __int64 a2, __int64 a3)
   updated = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v13);
   if ( updated < 0 )
     goto LABEL_15;
-  NdrMesTypeDecode3(v13, "TP 3\a", &off_140B3B430, &off_140E06FF0, 1, &v11);
+  NdrMesTypeDecode3(v13, "TP 3\a", &off_140B3D1E0, &off_140E06FF0, 1, &v11);
   if ( v11 && *((_QWORD *)v11 + 1) && *(_DWORD *)v11 )
   {
     updated = PiSwValidatePropertyArray(*((_QWORD *)v11 + 1));
@@ -88,7 +88,7 @@ LABEL_15:
     MesHandleFree();
   Irp->IoStatus.Status = updated;
   IofCompleteRequest(Irp, 0);
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0zzd_EtwWriteTransfer(
       v8,
       (__int64)KMPnPEvt_SwDevice_SetDeviceProperty_Stop,

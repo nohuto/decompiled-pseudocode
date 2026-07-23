@@ -1,18 +1,18 @@
 /*
- * XREFs of IoFreeAdapterChannelV2 @ 0x14038F310
+ * XREFs of IoFreeAdapterChannelV2 @ 0x140388C50
  * Callers:
- *     HalAllocateAdapterChannelV2 @ 0x14038DACC (HalAllocateAdapterChannelV2.c)
- *     HalBuildScatterGatherListV2 @ 0x14038E070 (HalBuildScatterGatherListV2.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x1403907EC (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalAllocateAdapterChannelV2 @ 0x14038740C (HalAllocateAdapterChannelV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403879B0 (HalBuildScatterGatherListV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14038A12C (HalpDmaProcessMapRegisterQueueV2.c)
  * Callees:
- *     HalpDmaAllocateMapRegisters @ 0x14038E95C (HalpDmaAllocateMapRegisters.c)
- *     IoFreeMapRegistersV2 @ 0x140390720 (IoFreeMapRegistersV2.c)
- *     KeRemoveDeviceQueue @ 0x140390B70 (KeRemoveDeviceQueue.c)
- *     HalpQueueMapBufferWorker @ 0x14049D1A8 (HalpQueueMapBufferWorker.c)
- *     HalpDmaQueueAdapter @ 0x1404D9E04 (HalpDmaQueueAdapter.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14038829C (HalpDmaAllocateMapRegisters.c)
+ *     IoFreeMapRegistersV2 @ 0x14038A060 (IoFreeMapRegistersV2.c)
+ *     KeRemoveDeviceQueue @ 0x14038A4B0 (KeRemoveDeviceQueue.c)
+ *     HalpQueueMapBufferWorker @ 0x140497EF8 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaQueueAdapter @ 0x1404D3844 (HalpDmaQueueAdapter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IoFreeAdapterChannelV2(__int64 a1)
@@ -25,7 +25,6 @@ __int64 __fastcall IoFreeAdapterChannelV2(__int64 a1)
   __int64 v6; // rdx
   __int64 v7; // rdi
   unsigned int v8; // edx
-  __int64 v9; // r8
   __int64 MapRegisters; // rax
 
   v1 = 0;
@@ -58,7 +57,6 @@ __int64 __fastcall IoFreeAdapterChannelV2(__int64 a1)
     {
       MapRegisters = HalpDmaAllocateMapRegisters(v2, v8);
       *v4 = MapRegisters;
-      v9 = MapRegisters;
       if ( !MapRegisters )
       {
         HalpDmaQueueAdapter(v2);
@@ -71,10 +69,9 @@ __int64 __fastcall IoFreeAdapterChannelV2(__int64 a1)
     {
       *v4 = 0LL;
       *(_DWORD *)(v2 + 248) = 0;
-      v9 = 0LL;
     }
     *(_QWORD *)(v2 + 352) = v7;
-    result = guard_dispatch_icall_no_overrides(*(_QWORD *)(v7 + 48), *(_QWORD *)(v7 + 56), v9, *(_QWORD *)(v7 + 32));
+    result = guard_dispatch_icall_no_overrides(*(_QWORD *)(v7 + 48), *(_QWORD *)(v7 + 56));
     if ( (_DWORD)result == 1 )
       break;
     if ( (_DWORD)result == 3 )

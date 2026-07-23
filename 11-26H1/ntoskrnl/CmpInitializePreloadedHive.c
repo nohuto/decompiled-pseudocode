@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpInitializePreloadedHive @ 0x140CEAEF0
+ * XREFs of CmpInitializePreloadedHive @ 0x140CF1290
  * Callers:
- *     CmpInitializePreloadedHives @ 0x140CEB354 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x140CF16F4 (CmpInitializePreloadedHives.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpSetupLoggingState @ 0x14084D128 (CmpSetupLoggingState.c)
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
- *     CmpLinkHiveToMaster @ 0x14097C11C (CmpLinkHiveToMaster.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140CEAAE4 (CmpGetSystemRelativeRegistryHiveFilePath.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpSetupLoggingState @ 0x140853434 (CmpSetupLoggingState.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x14093E12C (CmpLinkHiveToMaster.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140CF0E84 (CmpGetSystemRelativeRegistryHiveFilePath.c)
  */
 
 __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
@@ -36,8 +36,8 @@ __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
   bool v18; // zf
   int v19; // ecx
   int v20; // eax
-  void **ThreadLock; // rcx
-  void ***v22; // rax
+  void *volatile *StackBase; // rcx
+  void *volatile **v22; // rax
   char v24[8]; // [rsp+70h] [rbp-90h] BYREF
   ULONG_PTR v25; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING Destination; // [rsp+80h] [rbp-80h] BYREF
@@ -63,8 +63,11 @@ __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
     RtlAppendUnicodeToString(&Destination, *(PCWSTR *)(a1 + 48));
     RtlAppendUnicodeToString(&Destination, SystemRelativeRegistryHiveFilePath);
     v4 = 0x400000;
-    if ( (*(_DWORD *)(a1 + 24) & 0x10) != 0 && (!HIDWORD(WheapPfaLock.CycleTime) || !HIDWORD(WheapPfaLock.ThreadLock)) )
+    if ( (*(_DWORD *)(a1 + 24) & 0x10) != 0
+      && (!HIDWORD(WheapPfaLock.KernelStack) || !LODWORD(WheapPfaLock.KernelStack)) )
+    {
       v4 = 4194305;
+    }
   }
   else if ( (v7 & 0x36) != 0 )
   {
@@ -123,12 +126,12 @@ LABEL_41:
   *(_DWORD *)(v25 + 160) |= v16 | 0x400;
   if ( v24[0] == 1 )
     *(_DWORD *)(v25 + 160) |= 0x800u;
-  if ( BYTE5(NlsMbOemCodePageTag) )
+  if ( BYTE4(NlsMbOemCodePageTag) )
     *(_DWORD *)(v25 + 160) |= 0x8000u;
   v17 = *(_DWORD *)(a1 + 24);
   if ( (v17 & 0x80u) == 0 )
   {
-    if ( !HIDWORD(WheapPfaLock.CycleTime) || HIDWORD(WheapPfaLock.ThreadLock) )
+    if ( !HIDWORD(WheapPfaLock.KernelStack) || LODWORD(WheapPfaLock.KernelStack) )
       goto LABEL_33;
     v18 = (v17 & 0x20) == 0;
   }
@@ -136,19 +139,19 @@ LABEL_41:
   {
     if ( (v17 & 0x10) == 0 )
       goto LABEL_33;
-    if ( !HIDWORD(WheapPfaLock.CycleTime) )
+    if ( !HIDWORD(WheapPfaLock.KernelStack) )
     {
 LABEL_32:
       *(_DWORD *)(v25 + 160) |= 0x8000u;
       goto LABEL_33;
     }
-    v18 = HIDWORD(WheapPfaLock.ThreadLock) == 0;
+    v18 = LODWORD(WheapPfaLock.KernelStack) == 0;
   }
   if ( v18 )
     goto LABEL_32;
 LABEL_33:
   v19 = *(_DWORD *)(*(_QWORD *)(v25 + 64) + 4088LL);
-  *(_DWORD *)&CmpCallbackListLock.ApcStateFill[28] = v19;
+  *(_DWORD *)&CmpContextListLock.ApcStateFill[36] = v19;
   if ( !CmSelfHeal )
   {
     BYTE2(NlsMbOemCodePageTag) = 0;
@@ -164,13 +167,13 @@ LABEL_33:
   v20 = CmpLinkHiveToMaster(&v27.Length, 0LL, v25, 0, 0x200u, 0, 0LL, a2, 0LL, 0LL, 1, BugCheckParameter3);
   if ( v20 < 0 )
     KeBugCheckEx(0x74u, 3uLL, 7uLL, v25, v20);
-  ThreadLock = (void **)CmpCallbackListLock.ThreadLock;
-  v22 = (void ***)(v25 + 1624);
-  if ( *(struct _KTHREAD **)CmpCallbackListLock.ThreadLock != (struct _KTHREAD *)&CmpCallbackListLock.StackBase )
+  StackBase = (void *volatile *)CmpContextListLock.StackBase;
+  v22 = (void *volatile **)(v25 + 1624);
+  if ( *(struct _KTHREAD **)CmpContextListLock.StackBase != (struct _KTHREAD *)&CmpContextListLock.StackLimit )
     __fastfail(3u);
-  *v22 = &CmpCallbackListLock.StackBase;
-  v22[1] = ThreadLock;
-  *ThreadLock = v22;
-  CmpCallbackListLock.ThreadLock = (unsigned __int64)v22;
+  *v22 = &CmpContextListLock.StackLimit;
+  v22[1] = StackBase;
+  *StackBase = v22;
+  CmpContextListLock.StackBase = v22;
   return 0LL;
 }

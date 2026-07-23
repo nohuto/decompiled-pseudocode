@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFillGapPtes @ 0x140186BCC
+ * XREFs of MiFillGapPtes @ 0x140186D0C
  * Callers:
- *     MiFillGapAddresses @ 0x140186B2C (MiFillGapAddresses.c)
- *     MiFillGapPtes @ 0x140186BCC (MiFillGapPtes.c)
+ *     MiFillGapAddresses @ 0x140186C6C (MiFillGapAddresses.c)
+ *     MiFillGapPtes @ 0x140186D0C (MiFillGapPtes.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiFillGapPtes @ 0x140186BCC (MiFillGapPtes.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiFillGapPtes @ 0x140186D0C (MiFillGapPtes.c)
  */
 
 char __fastcall MiFillGapPtes(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -56,7 +56,7 @@ char __fastcall MiFillGapPtes(unsigned __int64 a1, unsigned __int64 a2, __int64 
       if ( (_DWORD)CurrentThread )
       {
         v12 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v13 = (v11 & 1) == 0;
           goto LABEL_22;

@@ -12,23 +12,23 @@
 
 signed __int32 __fastcall RtlpHpHeapExtendContext(int a1, int a2)
 {
-  volatile signed __int32 *v3; // ebx
+  _RTL_SRWLOCK *v3; // ebx
   int v4; // edx
   signed __int32 v5; // edi
   int v6; // ecx
   unsigned int v7; // edx
   unsigned int v8; // edi
   bool v9; // zf
-  int v10; // eax
+  NTSTATUS v10; // eax
   unsigned int v12; // [esp-8h] [ebp-20h]
-  int v13; // [esp-4h] [ebp-1Ch]
-  void *v14; // [esp+Ch] [ebp-Ch] BYREF
-  size_t v15; // [esp+10h] [ebp-8h] BYREF
+  unsigned int v13; // [esp-4h] [ebp-1Ch]
+  PVOID v14; // [esp+Ch] [ebp-Ch] BYREF
+  unsigned int v15; // [esp+10h] [ebp-8h] BYREF
   int v16; // [esp+14h] [ebp-4h]
 
   v16 = a2;
-  v3 = (volatile signed __int32 *)(a1 + 180);
-  RtlAcquireReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 180));
+  v3 = (_RTL_SRWLOCK *)(a1 + 180);
+  RtlAcquireReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 180));
   while ( 1 )
   {
     v4 = v16;
@@ -37,7 +37,7 @@ signed __int32 __fastcall RtlpHpHeapExtendContext(int a1, int a2)
       v5 = *(_DWORD *)(a1 + 184);
       if ( (unsigned int)(v5 + v4) > *(_DWORD *)(a1 + 188) )
         break;
-      v3 = (volatile signed __int32 *)(a1 + 180);
+      v3 = (_RTL_SRWLOCK *)(a1 + 180);
       if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 184), v5 + v4, v5) == v5 )
         return v5;
     }
@@ -50,14 +50,14 @@ LABEL_7:
     RtlReleaseSRWLockExclusive(v3);
   }
   v13 = *(_DWORD *)(a1 + 4);
-  v14 = *(void **)(a1 + 188);
+  v14 = *(PVOID *)(a1 + 188);
   v12 = *(_DWORD *)a1;
   v8 = (v6 - v7 + v16 + 4095) & 0xFFFFF000;
   v9 = (*(_BYTE *)(a1 + 22) & 1) == 0;
   v15 = v8;
   if ( v9 )
   {
-    v10 = RtlpHpAllocVA(&v14, &v15, 0, 4096, 4, v12, v13);
+    v10 = RtlpHpAllocVA(&v14, (int *)&v15, 0, 4096, 4u, v12, v13);
     v8 = v15;
   }
   else

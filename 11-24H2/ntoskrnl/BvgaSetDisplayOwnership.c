@@ -1,5 +1,5 @@
 /*
- * XREFs of BvgaSetDisplayOwnership @ 0x1405908A0
+ * XREFs of BvgaSetDisplayOwnership @ 0x14058D8C0
  * Callers:
  *     <none>
  * Callees:

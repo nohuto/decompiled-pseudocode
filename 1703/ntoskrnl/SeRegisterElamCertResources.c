@@ -8,7 +8,7 @@
  *     SepParseElamCertResources @ 0x14059BC24 (SepParseElamCertResources.c)
  */
 
-__int64 __fastcall SeRegisterElamCertResources(ULONGLONG a1, __int64 a2, char a3)
+__int64 __fastcall SeRegisterElamCertResources(unsigned __int64 a1, __int64 a2, char a3)
 {
   __int64 result; // rax
   _QWORD v4[5]; // [rsp+40h] [rbp-28h] BYREF

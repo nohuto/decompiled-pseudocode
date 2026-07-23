@@ -1,13 +1,13 @@
 /*
- * XREFs of SepCheckAcl @ 0x1409F4DF0
+ * XREFs of SepCheckAcl @ 0x1409E0B40
  * Callers:
- *     SeCaptureSecurityDescriptor @ 0x1409263C0 (SeCaptureSecurityDescriptor.c)
- *     SeCaptureAcl @ 0x1409F4CD0 (SeCaptureAcl.c)
+ *     SeCaptureSecurityDescriptor @ 0x140901ED0 (SeCaptureSecurityDescriptor.c)
+ *     SeCaptureAcl @ 0x1409E0A20 (SeCaptureAcl.c)
  * Callees:
- *     RtlpValidCompoundAce @ 0x14077D224 (RtlpValidCompoundAce.c)
- *     RtlpValidAccessFilterAce @ 0x14077D294 (RtlpValidAccessFilterAce.c)
- *     RtlpValidAttributeAce @ 0x1409F4FA0 (RtlpValidAttributeAce.c)
- *     RtlpValidObjectAce @ 0x1409F5148 (RtlpValidObjectAce.c)
+ *     RtlpValidCompoundAce @ 0x14077FD24 (RtlpValidCompoundAce.c)
+ *     RtlpValidAccessFilterAce @ 0x14077FD94 (RtlpValidAccessFilterAce.c)
+ *     RtlpValidAttributeAce @ 0x1409E0CF0 (RtlpValidAttributeAce.c)
+ *     RtlpValidObjectAce @ 0x1409E0E98 (RtlpValidObjectAce.c)
  */
 
 char __fastcall SepCheckAcl(__int64 a1, unsigned int a2)

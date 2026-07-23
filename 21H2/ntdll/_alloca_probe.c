@@ -1,5 +1,5 @@
 /*
- * XREFs of _alloca_probe @ 0x1800A2900
+ * XREFs of _alloca_probe @ 0x1800A28C0
  * Callers:
  *     RtlUnwindEx @ 0x180030600 (RtlUnwindEx.c)
  *     RtlQueryWnfStateData @ 0x180044F30 (RtlQueryWnfStateData.c)
@@ -11,9 +11,9 @@
  *     RtlWow64IsWowGuestMachineSupported @ 0x18007D040 (RtlWow64IsWowGuestMachineSupported.c)
  *     RtlQueryWnfStateDataWithExplicitScope @ 0x1800840F0 (RtlQueryWnfStateDataWithExplicitScope.c)
  *     ReadStringDelimited_1 @ 0x18009ACFC (ReadStringDelimited_1.c)
- *     LdrpInitializeExecutionOptions @ 0x1800D108C (LdrpInitializeExecutionOptions.c)
- *     AVrfInitializeVerifier @ 0x1800D9948 (AVrfInitializeVerifier.c)
- *     RtlValidateProcessHeaps @ 0x1800F3350 (RtlValidateProcessHeaps.c)
+ *     LdrpInitializeExecutionOptions @ 0x1800D104C (LdrpInitializeExecutionOptions.c)
+ *     AVrfInitializeVerifier @ 0x1800D9908 (AVrfInitializeVerifier.c)
+ *     RtlValidateProcessHeaps @ 0x1800F3310 (RtlValidateProcessHeaps.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetHintSlabEntry @ 0x14045C87C
+ * XREFs of MiSetHintSlabEntry @ 0x140451A7C
  * Callers:
- *     MiGetPageFromSlabAllocatorByIdentity @ 0x1404CA864 (MiGetPageFromSlabAllocatorByIdentity.c)
+ *     MiGetPageFromSlabAllocatorByIdentity @ 0x1404C3D84 (MiGetPageFromSlabAllocatorByIdentity.c)
  * Callees:
  *     <none>
  */

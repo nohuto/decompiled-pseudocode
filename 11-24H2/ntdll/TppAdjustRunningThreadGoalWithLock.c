@@ -1,19 +1,19 @@
 /*
- * XREFs of TppAdjustRunningThreadGoalWithLock @ 0x1800252B4
+ * XREFs of TppAdjustRunningThreadGoalWithLock @ 0x180051CB4
  * Callers:
- *     TppWorkInitialize @ 0x18001A6B0 (TppWorkInitialize.c)
- *     TppWorkCallbackPrologRelease @ 0x1800222C0 (TppWorkCallbackPrologRelease.c)
- *     TppWorkerFindTask @ 0x180023100 (TppWorkerFindTask.c)
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
- *     TppWorkPost @ 0x180055B40 (TppWorkPost.c)
- *     TpAllocWait @ 0x18006E7E0 (TpAllocWait.c)
- *     TppGetCurrentThreadNumaNode @ 0x18006EE30 (TppGetCurrentThreadNumaNode.c)
- *     TpPostTask @ 0x18006EFB0 (TpPostTask.c)
- *     TpSetPoolThreadCpuSets @ 0x1800ABCC0 (TpSetPoolThreadCpuSets.c)
- *     TpStartAsyncIoOperation @ 0x1800E67A0 (TpStartAsyncIoOperation.c)
+ *     TppWorkInitialize @ 0x1800470B0 (TppWorkInitialize.c)
+ *     TppWorkCallbackPrologRelease @ 0x18004ECC0 (TppWorkCallbackPrologRelease.c)
+ *     TppWorkerFindTask @ 0x18004FB00 (TppWorkerFindTask.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
+ *     TppWorkPost @ 0x18006B720 (TppWorkPost.c)
+ *     TpSetPoolThreadCpuSets @ 0x180086140 (TpSetPoolThreadCpuSets.c)
+ *     TpAllocWait @ 0x18008B0C0 (TpAllocWait.c)
+ *     TppGetCurrentThreadNumaNode @ 0x18008B710 (TppGetCurrentThreadNumaNode.c)
+ *     TpPostTask @ 0x18008B890 (TpPostTask.c)
+ *     TpStartAsyncIoOperation @ 0x1800E1C50 (TpStartAsyncIoOperation.c)
  * Callees:
- *     TppPoolUpdateNodeRelation @ 0x1800ABAAC (TppPoolUpdateNodeRelation.c)
- *     NtSetInformationWorkerFactory @ 0x1801652A0 (NtSetInformationWorkerFactory.c)
+ *     TppPoolUpdateNodeRelation @ 0x180085F2C (TppPoolUpdateNodeRelation.c)
+ *     NtSetInformationWorkerFactory @ 0x180163660 (NtSetInformationWorkerFactory.c)
  */
 
 __int64 __fastcall TppAdjustRunningThreadGoalWithLock(__int64 a1)
@@ -25,8 +25,8 @@ __int64 __fastcall TppAdjustRunningThreadGoalWithLock(__int64 a1)
   signed __int64 v6; // rtt
   bool v7; // cf
   int v8; // r9d
-  __int64 v9; // rcx
-  int v10; // [rsp+30h] [rbp+8h] BYREF
+  void *v9; // rcx
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
   signed __int64 v11; // [rsp+38h] [rbp+10h]
 
   if ( !a1 || (v2 = *(_DWORD *)(a1 + 440)) == 0 )
@@ -51,9 +51,9 @@ __int64 __fastcall TppAdjustRunningThreadGoalWithLock(__int64 a1)
     v8 = v2 + 1;
     if ( v7 )
       v8 = 4;
-    v9 = *(_QWORD *)(a1 + 56);
-    v10 = v8;
-    NtSetInformationWorkerFactory(v9, 8LL, &v10);
+    v9 = *(void **)(a1 + 56);
+    WorkerFactoryInformation = v8;
+    NtSetInformationWorkerFactory(v9, WorkerFactoryAdjustThreadGoal, &WorkerFactoryInformation, 4u);
     return TppPoolUpdateNodeRelation(a1);
   }
   return result;

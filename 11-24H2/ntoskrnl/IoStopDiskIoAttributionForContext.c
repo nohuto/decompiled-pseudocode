@@ -1,23 +1,23 @@
 /*
- * XREFs of IoStopDiskIoAttributionForContext @ 0x1402C81A4
+ * XREFs of IoStopDiskIoAttributionForContext @ 0x1402BA89C
  * Callers:
- *     PspIoRateEntryDeactivate @ 0x14085E900 (PspIoRateEntryDeactivate.c)
- *     PspIoRateEntryActivate @ 0x14085F29C (PspIoRateEntryActivate.c)
- *     PspRemoveIoAttribution @ 0x1408E9FA4 (PspRemoveIoAttribution.c)
+ *     PspIoRateEntryDeactivate @ 0x14085A670 (PspIoRateEntryDeactivate.c)
+ *     PspRemoveIoAttribution @ 0x14085B7D4 (PspRemoveIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x140A6D2B4 (PspIoRateEntryActivate.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
  */
 
-void __fastcall IoStopDiskIoAttributionForContext(struct _EX_RUNDOWN_REF *a1)
+void __fastcall IoStopDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // bl
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  RtlRbRemoveNode((unsigned __int64 *)&IopDiskIoAttributionTree, &a1->Count);
-  a1[2].Count = -1LL;
+  RtlRbRemoveNode(&IopDiskIoAttributionTree, Node);
+  Node->ParentValue = -1LL;
   ExReleaseSpinLockExclusive(&IopDiskIoAttributionLock, v2);
-  ExWaitForRundownProtectionRelease(a1 + 21);
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&Node[7]);
 }

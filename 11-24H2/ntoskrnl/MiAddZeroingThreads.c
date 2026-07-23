@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAddZeroingThreads @ 0x1403C73C8
+ * XREFs of MiAddZeroingThreads @ 0x140413008
  * Callers:
- *     MiReassessZeroThreads @ 0x1403C698C (MiReassessZeroThreads.c)
- *     MiWakeZeroingThreads @ 0x1403C7310 (MiWakeZeroingThreads.c)
+ *     MiReassessZeroThreads @ 0x1404125C0 (MiReassessZeroThreads.c)
+ *     MiWakeZeroingThreads @ 0x140412F50 (MiWakeZeroingThreads.c)
  * Callees:
- *     MiAssignBackgroundZeroThreadToProcessor @ 0x140209CEC (MiAssignBackgroundZeroThreadToProcessor.c)
- *     MiFindBestZeroingProcessor @ 0x140209DE8 (MiFindBestZeroingProcessor.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiGetEngineBackgroundQualifications @ 0x1403C790C (MiGetEngineBackgroundQualifications.c)
- *     MiIncrementZeroEngineThread @ 0x1403C7B8C (MiIncrementZeroEngineThread.c)
- *     MiRestartZeroingPass @ 0x1403C7BD0 (MiRestartZeroingPass.c)
- *     MiUnlinkZeroThreadFromActiveDomain @ 0x1403C7D5C (MiUnlinkZeroThreadFromActiveDomain.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiAssignBackgroundZeroThreadToProcessor @ 0x1403312CC (MiAssignBackgroundZeroThreadToProcessor.c)
+ *     MiFindBestZeroingProcessor @ 0x1403313C8 (MiFindBestZeroingProcessor.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiGetEngineBackgroundQualifications @ 0x14041354C (MiGetEngineBackgroundQualifications.c)
+ *     MiIncrementZeroEngineThread @ 0x1404137CC (MiIncrementZeroEngineThread.c)
+ *     MiRestartZeroingPass @ 0x140413810 (MiRestartZeroingPass.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x14041399C (MiUnlinkZeroThreadFromActiveDomain.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiAddZeroingThreads(__int64 a1, int a2, int *a3)
@@ -100,7 +100,7 @@ __int64 __fastcall MiAddZeroingThreads(__int64 a1, int a2, int *a3)
     v8 = 0LL;
   v56 = v8;
   v57 = v9;
-  v12 = *(_QWORD *)(384LL * *(unsigned int *)(a1 + 56) + qword_140E2DAF8 + 376);
+  v12 = *(_QWORD *)(384LL * *(unsigned int *)(a1 + 56) + qword_140E2DC38 + 376);
   v13 = (volatile LONG *)(v12 + 64);
   v59 = (volatile LONG *)(v12 + 64);
   ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v12 + 64));
@@ -159,19 +159,19 @@ __int64 __fastcall MiAddZeroingThreads(__int64 a1, int a2, int *a3)
       else if ( v26 < v25[2] )
       {
         v28 = *v25;
-        v29 = *(_QWORD *)(384LL * *(unsigned int *)(*((_QWORD *)v25 + 22) + 56LL) + qword_140E2DAF8 + 376);
+        v29 = *(_QWORD *)(384LL * *(unsigned int *)(*((_QWORD *)v25 + 22) + 56LL) + qword_140E2DC38 + 376);
         v30 = *(_QWORD *)(168 * v28 + v29 + 144);
         if ( LOBYTE(v54[0]) && (unsigned __int64)(v30 + v58) > *(_QWORD *)(v29 + 576) )
         {
-          ++dword_140EF4C2C;
+          ++dword_140EF4E4C;
         }
         else if ( HIBYTE(v54[0]) && (unsigned __int64)(v22 + v30) > *(_QWORD *)(v29 + 584) && (_DWORD)v28 )
         {
-          ++dword_140EF4C28;
+          ++dword_140EF4E48;
         }
         else
         {
-          MiFindBestZeroingProcessor((__int64)&v61[7 * v21], (int *)(a1 + 304 * v21 + 136), 0LL, 0);
+          MiFindBestZeroingProcessor((__int64)&v61[7 * v21], (int *)(a1 + 304 * v21 + 136), 0, 0);
         }
       }
     }
@@ -278,7 +278,7 @@ LABEL_41:
     v34 = 0;
     v41 = 0;
   }
-  ++dword_140EF4C70[v34];
+  ++dword_140EF4E90[v34];
   if ( v33 == 3 )
   {
     v42 = 0;
@@ -293,7 +293,7 @@ LABEL_41:
     if ( v42 == 3 )
       *(_BYTE *)(57216LL * *(unsigned int *)(a1 + 56) + *(_QWORD *)(*(_QWORD *)(a1 + 48) + 16LL) + 15296) = 0;
 LABEL_48:
-    ++dword_140EF4C24;
+    ++dword_140EF4E44;
     return v41;
   }
   else

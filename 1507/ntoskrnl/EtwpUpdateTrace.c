@@ -140,14 +140,14 @@ __int64 __fastcall EtwpUpdateTrace(__int64 a1)
 LABEL_21:
       v13 = v6 + 73;
       v14 = *(_QWORD *)(v6 + 73);
-      v15 = HeapGuid - v14;
-      if ( HeapGuid == v14 )
-        v15 = 0x4AA2F2756B3425A8LL - *(_QWORD *)(v6 + 75);
+      v15 = *(_QWORD *)&HeapGuid.Data1 - v14;
+      if ( *(_QWORD *)&HeapGuid.Data1 == v14 )
+        v15 = *(_QWORD *)HeapGuid.Data4 - *(_QWORD *)(v6 + 75);
       if ( v15 )
       {
-        v16 = CritSecGuid - v14;
-        if ( CritSecGuid == v14 )
-          v16 = 0x6B81390EF58D1581LL - *(_QWORD *)(v6 + 75);
+        v16 = *(_QWORD *)&CritSecGuid.Data1 - v14;
+        if ( *(_QWORD *)&CritSecGuid.Data1 == v14 )
+          v16 = *(_QWORD *)CritSecGuid.Data4 - *(_QWORD *)(v6 + 75);
         if ( v16 )
         {
 LABEL_27:

@@ -1,24 +1,24 @@
 /*
- * XREFs of PopWriteHiberPages @ 0x140990EBC
+ * XREFs of PopWriteHiberPages @ 0x140991EBC
  * Callers:
- *     PopWriteSecurePages @ 0x14056F3B8 (PopWriteSecurePages.c)
- *     PopWriteSecurePagesCallback @ 0x14056F460 (PopWriteSecurePagesCallback.c)
- *     PopWriteHeaderPages @ 0x140990C94 (PopWriteHeaderPages.c)
- *     PopWriteChecksumPages @ 0x1409B1C88 (PopWriteChecksumPages.c)
- *     PopWriteImageHeader @ 0x1409B1D20 (PopWriteImageHeader.c)
+ *     PopWriteSecurePages @ 0x14056F5F8 (PopWriteSecurePages.c)
+ *     PopWriteSecurePagesCallback @ 0x14056F6A0 (PopWriteSecurePagesCallback.c)
+ *     PopWriteHeaderPages @ 0x140991C94 (PopWriteHeaderPages.c)
+ *     PopWriteChecksumPages @ 0x1409B2BB8 (PopWriteChecksumPages.c)
+ *     PopWriteImageHeader @ 0x1409B2C50 (PopWriteImageHeader.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     _PopInternalError @ 0x140565378 (_PopInternalError.c)
- *     MmGetNumberOfPhysicalPages @ 0x14064F740 (MmGetNumberOfPhysicalPages.c)
- *     PopCheckpointSystemSleep @ 0x140993484 (PopCheckpointSystemSleep.c)
- *     PopGetIoLocation @ 0x1409940F8 (PopGetIoLocation.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x1409B1294 (PopGetRemainingHibernateRangeDataSize.c)
- *     PopRecordHibernateDiagnosticInfo @ 0x1409B1764 (PopRecordHibernateDiagnosticInfo.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _PopInternalError @ 0x1405655B8 (_PopInternalError.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140644560 (MmGetNumberOfPhysicalPages.c)
+ *     PopCheckpointSystemSleep @ 0x140994484 (PopCheckpointSystemSleep.c)
+ *     PopGetIoLocation @ 0x1409950F8 (PopGetIoLocation.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x1409B21C4 (PopGetRemainingHibernateRangeDataSize.c)
+ *     PopRecordHibernateDiagnosticInfo @ 0x1409B2694 (PopRecordHibernateDiagnosticInfo.c)
  */
 
 __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -57,7 +57,7 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
   ++PopWatchdogTimerCount;
   if ( *(int *)(v6 + 188) >= 0 )
   {
-    if ( (a4 + a3) << 12 > qword_140C23850 )
+    if ( (a4 + a3) << 12 > qword_140C23E70 )
     {
       PopCheckpointSystemSleep(22LL);
       if ( (unsigned int)(*(_DWORD *)(v6 + 184) - 4) <= 1 )
@@ -66,7 +66,7 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       IoAddTriageDumpDataBlock((ULONG)MaxDataSize, (PVOID)8);
       PopRecordHibernateDiagnosticInfo(v6);
       IoAddTriageDumpDataBlock((ULONG)&PopHibernateDiagnosticInfo, (PVOID)0x80);
-      KeBugCheckEx(0xA0u, 0xBuLL, qword_140C23850, *(unsigned int *)(v6 + 184), BugCheckParameter4);
+      KeBugCheckEx(0xA0u, 0xBuLL, qword_140C23E70, *(unsigned int *)(v6 + 184), BugCheckParameter4);
     }
     if ( a3 > 0xFFFFFFFFFFFFFLL )
       PopInternalError(0xA2044uLL);
@@ -109,8 +109,8 @@ __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a
       v17 = __rdtsc();
       v18 = (*(__int64 (__fastcall **)(__int64 *, _QWORD *))(*(_QWORD *)(v6 + 168) + 64LL))(&IoLocation, v27);
       v19 = __rdtsc();
-      dword_140C23B70 += v14;
-      qword_140C23998 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v17;
+      dword_140C24190 += v14;
+      qword_140C23FB8 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v17;
       result = v25;
       v11 -= v25;
       v10 += v25;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmCheckRun @ 0x14008BB80
+ * XREFs of PpmCheckRun @ 0x14008BB70
  * Callers:
  *     <none>
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN PpmCheckRun()

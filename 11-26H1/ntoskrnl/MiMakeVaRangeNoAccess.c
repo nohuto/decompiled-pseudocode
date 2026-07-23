@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMakeVaRangeNoAccess @ 0x140310CE0
+ * XREFs of MiMakeVaRangeNoAccess @ 0x140312D14
  * Callers:
- *     MiProtectValidPte @ 0x140311A38 (MiProtectValidPte.c)
+ *     MiProtectValidPte @ 0x140313A6C (MiProtectValidPte.c)
  * Callees:
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiUpdatePfnProtection @ 0x140311B80 (MiUpdatePfnProtection.c)
- *     MiRotatedToFrameBuffer @ 0x1403125B4 (MiRotatedToFrameBuffer.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x14049754C (MiCaptureWriteWatchDirtyBit.c)
- *     MiUnlockVa @ 0x1404AA78C (MiUnlockVa.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiUpdatePfnProtection @ 0x140313BB0 (MiUpdatePfnProtection.c)
+ *     MiRotatedToFrameBuffer @ 0x1403145E4 (MiRotatedToFrameBuffer.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14049109C (MiCaptureWriteWatchDirtyBit.c)
+ *     MiUnlockVa @ 0x1404A3E1C (MiUnlockVa.c)
  */
 
 __int64 __fastcall MiMakeVaRangeNoAccess(__int64 *a1, unsigned __int64 a2)

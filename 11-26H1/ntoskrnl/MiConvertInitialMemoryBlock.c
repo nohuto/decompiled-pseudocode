@@ -1,11 +1,11 @@
 /*
- * XREFs of MiConvertInitialMemoryBlock @ 0x140865D74
+ * XREFs of MiConvertInitialMemoryBlock @ 0x14086C154
  * Callers:
- *     MiMakePartitionMemoryBlock @ 0x14087C5D4 (MiMakePartitionMemoryBlock.c)
- *     MiInitializePhysicalMemoryBlocks @ 0x140CF36E4 (MiInitializePhysicalMemoryBlocks.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408829D4 (MiMakePartitionMemoryBlock.c)
+ *     MiInitializePhysicalMemoryBlocks @ 0x140CF9A64 (MiInitializePhysicalMemoryBlocks.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MiConvertInitialMemoryBlock(__int64 a1, __int64 a2)

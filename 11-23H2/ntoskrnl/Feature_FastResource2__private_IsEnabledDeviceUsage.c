@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_FastResource2__private_IsEnabledDeviceUsage @ 0x14041298C
+ * XREFs of Feature_FastResource2__private_IsEnabledDeviceUsage @ 0x140412D20
  * Callers:
  *     ExpInitSystemPhase0 @ 0x140B54AE0 (ExpInitSystemPhase0.c)
  * Callees:
- *     Feature_FastResource2__private_IsEnabledFallback @ 0x1404129C4 (Feature_FastResource2__private_IsEnabledFallback.c)
+ *     Feature_FastResource2__private_IsEnabledFallback @ 0x140412D58 (Feature_FastResource2__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_FastResource2__private_IsEnabledDeviceUsage()

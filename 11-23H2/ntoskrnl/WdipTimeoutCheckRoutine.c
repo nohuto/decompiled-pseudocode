@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipTimeoutCheckRoutine @ 0x1407DA840
+ * XREFs of WdipTimeoutCheckRoutine @ 0x1407DAB10
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ExSetTimer @ 0x14031DDF0 (ExSetTimer.c)
- *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1407DA8F0 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1407DA978 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
- *     WdipSemDeleteTransitionalInstance @ 0x14082FD70 (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemDisableContextProviders @ 0x14083033C (WdipSemDisableContextProviders.c)
- *     WdipSemLogTimeoutInformation @ 0x1409DE26C (WdipSemLogTimeoutInformation.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ExSetTimer @ 0x14031E080 (ExSetTimer.c)
+ *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1407DABC0 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1407DAC48 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140830070 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemDisableContextProviders @ 0x14083063C (WdipSemDisableContextProviders.c)
+ *     WdipSemLogTimeoutInformation @ 0x1409DE46C (WdipSemLogTimeoutInformation.c)
  */
 
 _BOOL8 WdipTimeoutCheckRoutine()

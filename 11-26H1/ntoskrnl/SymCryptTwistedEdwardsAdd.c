@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptTwistedEdwardsAdd @ 0x140564CB0
+ * XREFs of SymCryptTwistedEdwardsAdd @ 0x140575B80
  * Callers:
- *     SymCryptTwistedEdwardsAddDiffNonZero @ 0x140565080 (SymCryptTwistedEdwardsAddDiffNonZero.c)
+ *     SymCryptTwistedEdwardsAddDiffNonZero @ 0x140575F50 (SymCryptTwistedEdwardsAddDiffNonZero.c)
  * Callees:
- *     SymCryptModAdd @ 0x14055C4EC (SymCryptModAdd.c)
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
- *     SymCryptModMul @ 0x14055C82C (SymCryptModMul.c)
- *     SymCryptModSub @ 0x14055C93C (SymCryptModSub.c)
- *     SymCryptSizeofModElementFromModulus @ 0x14055C9C0 (SymCryptSizeofModElementFromModulus.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SymCryptModAdd @ 0x14055E9D4 (SymCryptModAdd.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
+ *     SymCryptModMul @ 0x14055ED14 (SymCryptModMul.c)
+ *     SymCryptModSub @ 0x14055EE24 (SymCryptModSub.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14055EEA8 (SymCryptSizeofModElementFromModulus.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SymCryptTwistedEdwardsAdd(

@@ -8,13 +8,13 @@
  *     TppStartThreadData @ 0x18002EC24 (TppStartThreadData.c)
  *     TppCleanupGroupMemberCallbackProlog @ 0x18002ECB4 (TppCleanupGroupMemberCallbackProlog.c)
  *     LdrAddRefDll @ 0x180045070 (LdrAddRefDll.c)
- *     TppBarrierAdjust @ 0x180073CB8 (TppBarrierAdjust.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     TppBarrierAdjust @ 0x180073CC8 (TppBarrierAdjust.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     RtlpTpETWCallbackStart @ 0x180110BA0 (RtlpTpETWCallbackStart.c)
  *     RtlpTpETWCallbackStop @ 0x180110C3C (RtlpTpETWCallbackStop.c)
  */
 
-void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall TppJobpExecuteCallback(_QWORD *Instance, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi
   __int64 v9; // r14
@@ -41,9 +41,9 @@ void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int
     if ( !v11 )
     {
 LABEL_3:
-      TppCleanupGroupMemberCallbackProlog(a1, v5);
+      TppCleanupGroupMemberCallbackProlog(Instance, v5);
       v12 = 2147353478LL;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v13 = (__int64)NtCurrentPeb()->SharedData + 556;
       else
         v13 = 2147353478LL;
@@ -55,17 +55,17 @@ LABEL_3:
           *(_QWORD *)(a2 + 160),
           *(_QWORD *)(a2 + 176));
       TppStartThreadData(&v15, *(_QWORD *)(a2 + 152), *(_QWORD *)(a2 + 160), *(_QWORD *)(a2 + 176));
-      *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 152);
+      Instance[11] = *(_QWORD *)(a2 + 152);
       v14 = *(_QWORD *)(a2 + 160);
-      *(_QWORD *)(a1 + 96) = v14;
-      (*(void (__fastcall **)(__int64, __int64, __int64, _QWORD, __int64, _DWORD))(a2 + 152))(
-        a1,
+      Instance[12] = v14;
+      (*(void (__fastcall **)(_QWORD *, __int64, __int64, _QWORD, __int64, _DWORD))(a2 + 152))(
+        Instance,
         v14,
         a2,
         *(_QWORD *)(a4 + 8),
         a3,
         *(_DWORD *)a4);
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v12 = (__int64)NtCurrentPeb()->SharedData + 556;
       if ( *(_BYTE *)v12 )
         RtlpTpETWCallbackStop(
@@ -77,10 +77,10 @@ LABEL_3:
       TppCompleteThreadData(v15);
       return;
     }
-    if ( (int)LdrAddRefDll(0LL, *(_QWORD *)(a2 + 208)) >= 0 )
+    if ( LdrAddRefDll(0, *(PVOID *)(a2 + 208)) >= 0 )
     {
-      *(_DWORD *)(a1 + 144) |= 0x100u;
-      *(_QWORD *)(a1 + 168) = v11;
+      *((_DWORD *)Instance + 36) |= 0x100u;
+      Instance[21] = v11;
       goto LABEL_3;
     }
   }

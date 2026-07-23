@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmMapPropertyKeyToRegProp @ 0x14090D58C
+ * XREFs of _CmMapPropertyKeyToRegProp @ 0x1409AF6BC
  * Callers:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x14090D4E8 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1409AF618 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  * Callees:
  *     <none>
  */

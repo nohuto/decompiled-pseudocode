@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_report_store2 @ 0x1405DFC90
+ * XREFs of __asan_report_store2 @ 0x1405E2600
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
  */
 
 void __fastcall __noreturn _asan_report_store2(ULONG_PTR a1)

@@ -18,7 +18,7 @@
 void __fastcall ViLookasideAdd(ULONG_PTR BugCheckParameter2)
 {
   char *v2; // rsi
-  struct _SLIST_ENTRY *v3; // rbx
+  _SLIST_ENTRY *v3; // rbx
   __int128 v4; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = 0LL;
@@ -33,7 +33,7 @@ void __fastcall ViLookasideAdd(ULONG_PTR BugCheckParameter2)
       {
         if ( !ViLookasideAllocationFailures && !ViLookasideAlreadyLoadedDrivers && (MmVerifierData & 0x800) != 0 )
           VerifierBugCheckIfAppropriate(0xC4u, 0xCAuLL, BugCheckParameter2, 0LL, 0LL);
-        v3 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViLookasideAvl, (__int64)&v4, BugCheckParameter2, 0LL);
+        v3 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViLookasideAvl, (__int64)&v4, BugCheckParameter2, 0LL);
       }
       VfAvlInsertReservedTreeNode((__int64)ViLookasideAvl, (__int64)&v4, v2);
       VfAvlCleanupLockContext((__int64)&v4);

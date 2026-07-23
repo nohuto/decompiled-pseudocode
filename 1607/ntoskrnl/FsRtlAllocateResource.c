@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlAllocateResource @ 0x14061D388
+ * XREFs of FsRtlAllocateResource @ 0x14061D43C
  * Callers:
  *     <none>
  * Callees:

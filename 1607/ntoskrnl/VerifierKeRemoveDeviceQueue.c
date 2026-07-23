@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeRemoveDeviceQueue @ 0x14070CAE0
+ * XREFs of VerifierKeRemoveDeviceQueue @ 0x14070CB10
  * Callers:
  *     <none>
  * Callees:

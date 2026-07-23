@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetLdtEntries @ 0x14015CE80
+ * XREFs of ZwSetLdtEntries @ 0x14015D3F0
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwSetLdtEntries(ULONG Selector1, LDT_ENTRY LdtEntry1, ULONG S
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&Selector1, LdtEntry1, *(_QWORD *)&Selector2);
+  return KiServiceInternal(*(_QWORD *)&Selector1);
 }

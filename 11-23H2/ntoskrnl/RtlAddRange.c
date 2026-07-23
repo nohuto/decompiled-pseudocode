@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlAddRange @ 0x1408148F0
+ * XREFs of RtlAddRange @ 0x140814BC0
  * Callers:
- *     ArbAddInaccessibleAllocationRange @ 0x140813554 (ArbAddInaccessibleAllocationRange.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x1408142C4 (ArbAddMmConfigRangeAsBootReserved.c)
- *     IopMemInitialize @ 0x1408144D4 (IopMemInitialize.c)
- *     IopPortAddAllocation @ 0x140814710 (IopPortAddAllocation.c)
- *     RtlInvertRangeListEx @ 0x1408147B0 (RtlInvertRangeListEx.c)
- *     ArbAddAllocation @ 0x1408148A0 (ArbAddAllocation.c)
- *     ArbInitializeRangeList @ 0x140936130 (ArbInitializeRangeList.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x140813824 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x140814594 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     IopMemInitialize @ 0x1408147A4 (IopMemInitialize.c)
+ *     IopPortAddAllocation @ 0x1408149E0 (IopPortAddAllocation.c)
+ *     RtlInvertRangeListEx @ 0x140814A80 (RtlInvertRangeListEx.c)
+ *     ArbAddAllocation @ 0x140814B70 (ArbAddAllocation.c)
+ *     ArbInitializeRangeList @ 0x140936330 (ArbInitializeRangeList.c)
  * Callees:
- *     RtlpCreateRangeListEntry @ 0x140814994 (RtlpCreateRangeListEntry.c)
- *     RtlpAddRange @ 0x140814A04 (RtlpAddRange.c)
- *     RtlpFreeRangeListEntry @ 0x1408156C8 (RtlpFreeRangeListEntry.c)
+ *     RtlpCreateRangeListEntry @ 0x140814C64 (RtlpCreateRangeListEntry.c)
+ *     RtlpAddRange @ 0x140814CD4 (RtlpAddRange.c)
+ *     RtlpFreeRangeListEntry @ 0x140815998 (RtlpFreeRangeListEntry.c)
  */
 
 __int64 __fastcall RtlAddRange(

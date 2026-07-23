@@ -1,10 +1,10 @@
 /*
- * XREFs of PsIsProcessInAppSilo @ 0x1408867E0
+ * XREFs of PsIsProcessInAppSilo @ 0x140887A40
  * Callers:
  *     <none>
  * Callees:
- *     PsIsServerSilo @ 0x14008FD60 (PsIsServerSilo.c)
- *     PsGetProcessSilo @ 0x1402E9B00 (PsGetProcessSilo.c)
+ *     PsIsServerSilo @ 0x14008FCA0 (PsIsServerSilo.c)
+ *     PsGetProcessSilo @ 0x1402E9CF0 (PsGetProcessSilo.c)
  */
 
 bool __fastcall PsIsProcessInAppSilo(__int64 a1)

@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpReadPhysicalMemoryLong @ 0x1406F54D4
  * Callers:
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
  * Callees:
  *     KdpReadPhysicalMemory @ 0x1406F3F6C (KdpReadPhysicalMemory.c)
  */
@@ -21,7 +21,7 @@ unsigned __int64 __fastcall KdpReadPhysicalMemoryLong(__int64 a1, _WORD *a2, __i
   v4 = *(_DWORD *)(a1 + 24);
   v6 = *(_QWORD *)(a1 + 16);
   v8 = *(_DWORD *)(a1 + 28);
-  v11 = qword_14031E110;
+  v11 = qword_14031E150;
   for ( i = KdpContext; v4; v4 -= v9 )
   {
     *(_QWORD *)(a1 + 16) = v6;

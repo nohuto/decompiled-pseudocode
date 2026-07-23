@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwCreateKeyedEvent()
+NTSTATUS __cdecl ZwCreateKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 164LL;
+  result = 164;
   __asm { syscall; Low latency system call }
   return result;
 }

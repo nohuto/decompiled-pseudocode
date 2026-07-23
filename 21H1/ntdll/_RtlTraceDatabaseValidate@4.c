@@ -7,17 +7,17 @@
  *     _RtlEnterCriticalSection@4 @ 0x4B2BFE90 (_RtlEnterCriticalSection@4.c)
  */
 
-char __stdcall RtlTraceDatabaseValidate(_DWORD *a1)
+char __stdcall RtlTraceDatabaseValidate(int a1)
 {
   int v1; // ecx
   int v2; // edx
 
-  RtlEnterCriticalSection((int)(a1 + 7));
-  a1[6] = 0;
-  v1 = a1[13];
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
+  *(_DWORD *)(a1 + 24) = 0;
+  v1 = *(_DWORD *)(a1 + 52);
   if ( v1 )
   {
-    v2 = a1[14];
+    v2 = *(_DWORD *)(a1 + 56);
     do
     {
       v2 += 4;
@@ -25,6 +25,6 @@ char __stdcall RtlTraceDatabaseValidate(_DWORD *a1)
     }
     while ( v1 );
   }
-  RtlLeaveCriticalSection((int)(a1 + 7));
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   return 1;
 }

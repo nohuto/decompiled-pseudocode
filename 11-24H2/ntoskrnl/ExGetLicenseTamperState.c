@@ -1,22 +1,22 @@
 /*
- * XREFs of ExGetLicenseTamperState @ 0x1407B8030
+ * XREFs of ExGetLicenseTamperState @ 0x1407B8480
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ExpGetLicenseTamperState @ 0x1406557A0 (ExpGetLicenseTamperState.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExpGetLicenseTamperState @ 0x140653EA0 (ExpGetLicenseTamperState.c)
  */
 
 bool __fastcall ExGetLicenseTamperState(_DWORD *a1)
 {
   struct _LIST_ENTRY *Blink; // rbp
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v4; // rdi
+  char *v4; // rdi
   bool v5; // di
   int v7; // [rsp+58h] [rbp+10h] BYREF
 
@@ -24,11 +24,11 @@ bool __fastcall ExGetLicenseTamperState(_DWORD *a1)
   Blink = PsGetCurrentServerSiloGlobals()[54].Blink;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v4 = KeAbPreAcquire((__int64)&Blink[2927].Blink, 0LL);
+  v4 = (char *)KeAbPreAcquire((__int64)&Blink[2927].Blink, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Blink[2927].Blink, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&Blink[2927].Blink, 0, v4, (__int64)&Blink[2927].Blink);
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   ExpGetLicenseTamperState((__int64)Blink, &v7);
   v5 = v7 != 0;
   if ( a1 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlPrepareForSecureHibernate @ 0x1405BF470
+ * XREFs of HvlPrepareForSecureHibernate @ 0x1405C1CE0
  * Callers:
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HvlPrepareForSecureHibernate(_OWORD *a1)

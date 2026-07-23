@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptStubService @ 0x1404D26D0
+ * XREFs of HalpInterruptStubService @ 0x1404D2910
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
  */
 
 char HalpInterruptStubService()

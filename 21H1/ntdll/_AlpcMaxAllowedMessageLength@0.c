@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall AlpcMaxAllowedMessageLength()
+ULONG AlpcMaxAllowedMessageLength(void)
 {
   return 65519;
 }

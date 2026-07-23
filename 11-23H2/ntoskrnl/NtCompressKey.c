@@ -1,18 +1,18 @@
 /*
- * XREFs of NtCompressKey @ 0x140A0D640
+ * XREFs of NtCompressKey @ 0x140A0D8F0
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     CmpIsWriteQueueActive @ 0x1402F6BD4 (CmpIsWriteQueueActive.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     CmpIsWriteQueueActive @ 0x1402F6E64 (CmpIsWriteQueueActive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     CmCheckNoTxContext @ 0x140691C88 (CmCheckNoTxContext.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
- *     CmpWaitOnHiveWriteQueue @ 0x1408604D8 (CmpWaitOnHiveWriteQueue.c)
- *     CmCompressKey @ 0x140A13B04 (CmCompressKey.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x140860718 (CmpWaitOnHiveWriteQueue.c)
+ *     CmCompressKey @ 0x140A13DB4 (CmCompressKey.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x140AF5160 (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
@@ -23,9 +23,10 @@
  *     HvLockHiveFlusherExclusive @ 0x140AF5670 (HvLockHiveFlusherExclusive.c)
  */
 
-__int64 __fastcall NtCompressKey(int a1)
+NTSTATUS __cdecl NtCompressKey(HANDLE KeyHandle)
 {
-  int v2; // ebx
+  int v1; // edi
+  NTSTATUS v2; // ebx
   KPROCESSOR_MODE PreviousMode; // bl
   int v4; // r8d
   int v5; // r9d
@@ -48,6 +49,7 @@ __int64 __fastcall NtCompressKey(int a1)
   _OWORD v23[3]; // [rsp+48h] [rbp-40h] BYREF
 
   Object = 0LL;
+  v1 = (int)KeyHandle;
   v22 = 0LL;
   memset(v23, 0, sizeof(v23));
   CmpInitializeThreadInfo((__int64)&v22);
@@ -58,8 +60,8 @@ __int64 __fastcall NtCompressKey(int a1)
     if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
     {
       LOBYTE(v5) = PreviousMode;
-      v6 = a1 & 3;
-      v7 = CmObReferenceObjectByHandle(a1, 131078, v4, v5, (__int64)&Object, 0LL);
+      v6 = v1 & 3;
+      v7 = CmObReferenceObjectByHandle(v1, 131078, v4, v5, (__int64)&Object, 0LL);
       v11 = Object;
       v2 = v7;
       if ( v7 >= 0 )
@@ -112,5 +114,5 @@ __int64 __fastcall NtCompressKey(int a1)
     }
   }
   CmCleanupThreadInfo((__int64 *)&v22);
-  return (unsigned int)v2;
+  return v2;
 }

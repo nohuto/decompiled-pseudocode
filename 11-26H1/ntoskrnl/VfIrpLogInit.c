@@ -1,9 +1,9 @@
 /*
- * XREFs of VfIrpLogInit @ 0x140C3B6C4
+ * XREFs of VfIrpLogInit @ 0x140C416D4
  * Callers:
- *     VfIrpTrackingPluginEntry @ 0x1407214D0 (VfIrpTrackingPluginEntry.c)
+ *     VfIrpTrackingPluginEntry @ 0x1407260A0 (VfIrpTrackingPluginEntry.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 ULONG_PTR VfIrpLogInit()

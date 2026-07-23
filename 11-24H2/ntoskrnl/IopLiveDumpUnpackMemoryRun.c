@@ -1,8 +1,8 @@
 /*
- * XREFs of IopLiveDumpUnpackMemoryRun @ 0x14059E52C
+ * XREFs of IopLiveDumpUnpackMemoryRun @ 0x14059B4AC
  * Callers:
- *     IopLiveDumpAllocateFromIOSpace @ 0x140598D2C (IopLiveDumpAllocateFromIOSpace.c)
- *     IopLiveDumpFreeIoSpaceRanges @ 0x14059AE24 (IopLiveDumpFreeIoSpaceRanges.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x140595CAC (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x140597DA4 (IopLiveDumpFreeIoSpaceRanges.c)
  * Callees:
  *     <none>
  */

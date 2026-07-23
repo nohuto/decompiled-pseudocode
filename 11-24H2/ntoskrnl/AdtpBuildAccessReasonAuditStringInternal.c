@@ -1,27 +1,27 @@
 /*
- * XREFs of AdtpBuildAccessReasonAuditStringInternal @ 0x14040B494
+ * XREFs of AdtpBuildAccessReasonAuditStringInternal @ 0x140403974
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14040AF54 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140403434 (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     AdtpFormatPrefix @ 0x14040BA30 (AdtpFormatPrefix.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlGetAce @ 0x14040BC40 (RtlGetAce.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     StringCchPrintfW @ 0x14046FE5C (StringCchPrintfW.c)
- *     StringCchPrintfExW @ 0x140697558 (StringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x140862DB8 (LocalConvertSDToStringSD_Rev1.c)
- *     RtlIntegerToUnicodeString @ 0x1408EF170 (RtlIntegerToUnicodeString.c)
- *     RtlAddAce @ 0x14091CC90 (RtlAddAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     AdtpBuildPrivilegeAuditString @ 0x140A4D4E4 (AdtpBuildPrivilegeAuditString.c)
- *     AdtpBuildAccessesString @ 0x140A729FC (AdtpBuildAccessesString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     AdtpFormatPrefix @ 0x140403F10 (AdtpFormatPrefix.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlGetAce @ 0x140404120 (RtlGetAce.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     StringCchPrintfW @ 0x14046A284 (StringCchPrintfW.c)
+ *     StringCchPrintfExW @ 0x1406985D8 (StringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlIntegerToUnicodeString @ 0x140860970 (RtlIntegerToUnicodeString.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1408673C8 (LocalConvertSDToStringSD_Rev1.c)
+ *     RtlAddAce @ 0x140910700 (RtlAddAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     AdtpBuildPrivilegeAuditString @ 0x140A44074 (AdtpBuildPrivilegeAuditString.c)
+ *     AdtpBuildAccessesString @ 0x140A6BDDC (AdtpBuildAccessesString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildAccessReasonAuditStringInternal(
@@ -65,12 +65,12 @@ __int64 __fastcall AdtpBuildAccessReasonAuditStringInternal(
   unsigned int v40; // ecx
   __int16 v41; // bx
   ULONG v42; // ebx
-  int v43; // ebx
+  unsigned int v43; // ebx
   UNICODE_STRING *p_Destination; // rdx
-  __int16 v45; // bx
+  unsigned __int16 v45; // bx
   unsigned int v46; // eax
   __int64 v47; // rax
-  __int16 v48; // bx
+  unsigned int v48; // ebx
   UNICODE_STRING *p_Source; // rdx
   unsigned int v50; // eax
   const UNICODE_STRING *v51; // rdx
@@ -230,7 +230,7 @@ __int64 __fastcall AdtpBuildAccessReasonAuditStringInternal(
   {
     v42 = 1809;
 LABEL_123:
-    v62[1] = (PVOID)ExAllocatePool2(0x100uLL);
+    v62[1] = (PVOID)ExAllocatePool2(0x100uLL, 0x4EuLL, 0x6B416553u);
     if ( !v62[1] )
       goto LABEL_61;
     LODWORD(v62[0]) = 5111808;
@@ -259,7 +259,7 @@ LABEL_70:
           if ( Acl < 0 )
             goto LABEL_10;
           v43 = (LOWORD(v68[0]) >> 1) + 27;
-          v62[1] = (PVOID)ExAllocatePool2(0x100uLL);
+          v62[1] = (PVOID)ExAllocatePool2(0x100uLL, 2LL * v43, 0x6B416553u);
           if ( v62[1] )
           {
             LOWORD(v62[0]) = 0;
@@ -287,7 +287,7 @@ LABEL_127:
         Acl = appended;
         v55 = v66 + (LOWORD(v62[0]) >> 1);
         v56 = v66 + (LOWORD(v62[0]) >> 1) + 1;
-        Pool2 = (char *)ExAllocatePool2(0x100uLL);
+        Pool2 = (char *)ExAllocatePool2(0x100uLL, 2LL * (unsigned int)(v55 + 1), 0x6B416553u);
         if ( Pool2 )
         {
           *v76 = 1;
@@ -328,7 +328,7 @@ LABEL_43:
       if ( !v50 )
       {
 LABEL_80:
-        if ( (unsigned __int16)v45 <= 2u )
+        if ( v45 <= 2u )
         {
           LODWORD(v60) = (unsigned __int16)v23;
           pcchRemaining = 0LL;
@@ -341,7 +341,7 @@ LABEL_80:
           }
         }
         v48 = v45 + 54;
-        v62[1] = (PVOID)ExAllocatePool2(0x100uLL);
+        v62[1] = (PVOID)ExAllocatePool2(0x100uLL, v48, 0x6B416553u);
         if ( !v62[1] )
           goto LABEL_61;
         LOWORD(v62[0]) = 0;
@@ -414,7 +414,7 @@ LABEL_79:
   {
     v29 = (unsigned __int16 *)Ace;
     v30 = *((unsigned __int16 *)Ace + 1) + 8;
-    v31 = (ACL *)ExAllocatePool2(0x100uLL);
+    v31 = (ACL *)ExAllocatePool2(0x100uLL, v30, 0x6B416553u);
     v32 = v31;
     if ( !v31 )
       goto LABEL_61;
@@ -461,10 +461,10 @@ LABEL_46:
       do
         ++v38;
       while ( pszDest[v38] );
-      LOWORD(v40) = v38 + 1;
+      v40 = v38 + 1;
     }
     v41 = v40 + 27;
-    v62[1] = (PVOID)ExAllocatePool2(0x100uLL);
+    v62[1] = (PVOID)ExAllocatePool2(0x100uLL, 2LL * (v40 + 27), 0x6B416553u);
     if ( !v62[1] )
     {
       Acl = -1073741801;

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIsSingleGroupAffinityEx @ 0x1404B9BA8
+ * XREFs of RtlIsSingleGroupAffinityEx @ 0x1404B3438
  * Callers:
- *     KeIsSingleGroupAffinityEx @ 0x1404B9B90 (KeIsSingleGroupAffinityEx.c)
+ *     KeIsSingleGroupAffinityEx @ 0x1404B3420 (KeIsSingleGroupAffinityEx.c)
  * Callees:
  *     <none>
  */

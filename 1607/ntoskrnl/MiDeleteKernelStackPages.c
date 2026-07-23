@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteKernelStackPages @ 0x1400A16C8
+ * XREFs of MiDeleteKernelStackPages @ 0x14009FFF0
  * Callers:
- *     MiDeleteKernelStack @ 0x1400A1598 (MiDeleteKernelStack.c)
+ *     MiDeleteKernelStack @ 0x14009FEC0 (MiDeleteKernelStack.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteValidSystemPage @ 0x14004B6A0 (MiDeleteValidSystemPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteValidSystemPage @ 0x14004B220 (MiDeleteValidSystemPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiDeleteKernelStackPages(_QWORD *BugCheckParameter2, int a2, _QWORD *a3)

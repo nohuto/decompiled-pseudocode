@@ -35,11 +35,11 @@
  *     DbgPrint @ 0x1800586D0 (DbgPrint.c)
  */
 
-__int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
+ULONG __cdecl RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   unsigned int v2; // r11d
-  unsigned int v3; // edx
+  unsigned __int32 v3; // edx
   unsigned int v4; // r10d
   __int64 v5; // rcx
   __int64 v6; // r9
@@ -47,19 +47,19 @@ __int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
   unsigned int v8; // r8d
   int v9; // eax
 
-  if ( !a1 )
-    return 0LL;
-  if ( a1 == 259 )
-    return 997LL;
-  result = a1;
-  if ( (a1 & 0x20000000) == 0 )
+  if ( !Status )
+    return 0;
+  if ( Status == 259 )
+    return 997;
+  result = Status;
+  if ( (Status & 0x20000000) == 0 )
   {
-    if ( (a1 & 0xFF0000) != 0x70000 || ((HIBYTE(a1) - 128) & 0xFFFFFFBF) != 0 )
+    if ( (Status & 0xFF0000) != 0x70000 || ((HIBYTE(Status) - 128) & 0xFFFFFFBF) != 0 )
     {
       v2 = 340;
-      v3 = a1 & 0xCFFFFFFF;
-      if ( (a1 & 0xF0000000) != 0xD0000000 )
-        v3 = a1;
+      v3 = Status & 0xCFFFFFFF;
+      if ( (Status & 0xF0000000) != 0xD0000000 )
+        v3 = Status;
       v4 = 0;
       do
       {
@@ -94,12 +94,12 @@ __int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
         DbgPrint("RTL: RtlNtStatusToDosError(0x%lx): No Valid Win32 Error Mapping\n", v3);
         DbgPrint("RTL: Edit ntos\\rtl\\generr.c to correct the problem\n");
         DbgPrint("RTL: ERROR_MR_MID_NOT_FOUND is being returned\n");
-        return 317LL;
+        return 317;
       }
     }
     else
     {
-      return (unsigned __int16)a1;
+      return (unsigned __int16)Status;
     }
   }
   return result;

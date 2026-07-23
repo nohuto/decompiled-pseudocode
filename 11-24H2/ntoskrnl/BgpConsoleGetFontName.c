@@ -1,7 +1,7 @@
 /*
- * XREFs of BgpConsoleGetFontName @ 0x140C6FE70
+ * XREFs of BgpConsoleGetFontName @ 0x140C71FD0
  * Callers:
- *     BgpConsoleInitialize @ 0x140BB10B0 (BgpConsoleInitialize.c)
+ *     BgpConsoleInitialize @ 0x140BB30B0 (BgpConsoleInitialize.c)
  * Callees:
  *     <none>
  */

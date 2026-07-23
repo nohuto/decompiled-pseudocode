@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuInitDiscard @ 0x140CAFE24
+ * XREFs of HalpIommuInitDiscard @ 0x140CB5E64
  * Callers:
- *     HalpIommuInitSystem @ 0x140BEB6E0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x140BF16E0 (HalpIommuInitSystem.c)
  * Callees:
- *     HalpIommuRegisterBuiltinPlugins @ 0x14059FF48 (HalpIommuRegisterBuiltinPlugins.c)
- *     HalpHvCheckIommuCapability @ 0x140CAFD04 (HalpHvCheckIommuCapability.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x1405A2738 (HalpIommuRegisterBuiltinPlugins.c)
+ *     HalpHvCheckIommuCapability @ 0x140CB5D44 (HalpHvCheckIommuCapability.c)
  */
 
 __int64 __fastcall HalpIommuInitDiscard(__int64 a1, __int64 a2)

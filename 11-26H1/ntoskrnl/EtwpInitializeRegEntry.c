@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpInitializeRegEntry @ 0x1409371A4
+ * XREFs of EtwpInitializeRegEntry @ 0x140912D44
  * Callers:
- *     EtwpAddKmRegEntry @ 0x14093B68C (EtwpAddKmRegEntry.c)
+ *     EtwpAddKmRegEntry @ 0x14091722C (EtwpAddKmRegEntry.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     EtwpReferenceGuidEntry @ 0x140935A40 (EtwpReferenceGuidEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     EtwpReferenceGuidEntry @ 0x1409115F0 (EtwpReferenceGuidEntry.c)
  */
 
 __int64 __fastcall EtwpInitializeRegEntry(ULONG_PTR a1, int a2, int a3, __int64 a4, __int64 a5, __int16 a6, __int64 a7)

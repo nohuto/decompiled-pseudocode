@@ -1,15 +1,15 @@
 /*
- * XREFs of MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7214
+ * XREFs of MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A08A4
  * Callers:
- *     MiRelocateImageAgain @ 0x14087B470 (MiRelocateImageAgain.c)
- *     MiRelocateFinish @ 0x1409CB614 (MiRelocateFinish.c)
- *     MiFreeRetpolineImportInfo @ 0x140AC817C (MiFreeRetpolineImportInfo.c)
- *     MiCaptureSecureImageBaseAddress @ 0x140B3540C (MiCaptureSecureImageBaseAddress.c)
- *     MiCaptureRetpolineImportInfo @ 0x140B3C58C (MiCaptureRetpolineImportInfo.c)
+ *     MiRelocateImageAgain @ 0x140881870 (MiRelocateImageAgain.c)
+ *     MiRelocateFinish @ 0x14099C5F4 (MiRelocateFinish.c)
+ *     MiFreeRetpolineImportInfo @ 0x140AC9D6C (MiFreeRetpolineImportInfo.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140B3761C (MiCaptureSecureImageBaseAddress.c)
+ *     MiCaptureRetpolineImportInfo @ 0x140B3E80C (MiCaptureRetpolineImportInfo.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall MI_LOCK_RELOCATIONS_EXCLUSIVE(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

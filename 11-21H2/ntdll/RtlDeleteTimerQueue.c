@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlDeleteTimerQueue(__int64 a1)
+NTSTATUS __cdecl RtlDeleteTimerQueue(HANDLE TimerQueueHandle)
 {
-  return RtlDeleteTimerQueueEx(a1, 0LL);
+  return RtlDeleteTimerQueueEx(TimerQueueHandle, 0LL);
 }

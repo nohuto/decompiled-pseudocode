@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpFindHost @ 0x140727714
+ * XREFs of ExpFindHost @ 0x1407289B4
  * Callers:
- *     ExRegisterExtension @ 0x1407273C0 (ExRegisterExtension.c)
- *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
+ *     ExRegisterExtension @ 0x140728660 (ExRegisterExtension.c)
+ *     ExRegisterHost @ 0x14072885C (ExRegisterHost.c)
  * Callees:
  *     <none>
  */

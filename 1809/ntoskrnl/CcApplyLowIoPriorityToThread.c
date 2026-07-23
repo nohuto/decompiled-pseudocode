@@ -1,7 +1,7 @@
 /*
- * XREFs of CcApplyLowIoPriorityToThread @ 0x14007E034
+ * XREFs of CcApplyLowIoPriorityToThread @ 0x14007E024
  * Callers:
- *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
+ *     CcWriteBehindInternal @ 0x14007D2E0 (CcWriteBehindInternal.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -9,12 +9,12 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     PsSetIoPriorityThread @ 0x1400DEF58 (PsSetIoPriorityThread.c)
- *     CcUpdateSharedCacheMapFlag @ 0x140108BD0 (CcUpdateSharedCacheMapFlag.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PsBoostThreadIo @ 0x1400BBEB0 (PsBoostThreadIo.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x1400DEFD8 (PsSetIoPriorityThread.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x140108C50 (CcUpdateSharedCacheMapFlag.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
@@ -89,7 +89,7 @@ void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
           {
             v15->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v15->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v7->LockEntries[v14], SessionId);
+              KiAbEntryRemoveFromTree(&v7->LockEntries[v14].TreeNode, SessionId);
             v28 = 0;
             v28 = v15->BoostBitmap.AllFields & 0x1FFFF;
             v15->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -163,7 +163,7 @@ LABEL_25:
           {
             v26->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v26->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v7->LockEntries[v25], v20);
+              KiAbEntryRemoveFromTree(&v7->LockEntries[v25].TreeNode, v20);
             v29 = 0;
             v29 = v26->BoostBitmap.AllFields & 0x1FFFF;
             v26->BoostBitmap.AllFields &= 0xFFFE0000;

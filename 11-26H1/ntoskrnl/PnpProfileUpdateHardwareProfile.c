@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpProfileUpdateHardwareProfile @ 0x1407AD07C
+ * XREFs of PnpProfileUpdateHardwareProfile @ 0x1407B00DC
  * Callers:
- *     PpProfileCancelTransitioningDock @ 0x1407AD2F8 (PpProfileCancelTransitioningDock.c)
- *     PpProfileCommitTransitioningDock @ 0x1407AD3A4 (PpProfileCommitTransitioningDock.c)
+ *     PpProfileCancelTransitioningDock @ 0x1407B0358 (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x1407B0404 (PpProfileCommitTransitioningDock.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     IopExecuteHardwareProfileChange @ 0x1407B8550 (IopExecuteHardwareProfileChange.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     IopExecuteHardwareProfileChange @ 0x1407BB5B0 (IopExecuteHardwareProfileChange.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)

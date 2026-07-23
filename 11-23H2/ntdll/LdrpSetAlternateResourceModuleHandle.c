@@ -29,23 +29,23 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
 {
   unsigned int i; // ebx
   unsigned __int64 v12; // r14
-  unsigned __int64 v13; // rcx
+  char *v13; // rcx
   __int64 j; // rbx
   unsigned __int64 v15; // r14
-  unsigned __int64 v16; // rcx
-  __int64 v17; // rax
-  int v18; // r8d
+  char *v16; // rcx
+  PIMAGE_NT_HEADERS v17; // rax
+  unsigned int CheckSum; // r8d
   unsigned __int64 v19; // rcx
-  __int64 v20; // rdx
+  char *v20; // rdx
   __int64 v21; // rdx
   HANDLE v22; // rax
-  __int64 v23; // rax
-  __int64 v24; // rcx
+  PVOID v23; // rax
+  char *v24; // rcx
   __int64 v25; // rax
   HANDLE v26; // rax
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   __int64 v28; // rbx
-  __int64 v29; // rcx
+  char *v29; // rcx
 
   if ( !a1 || (a6 & 0xFFFFFFCC) != 0 || (a6 & 3) == 3 || (a6 & 1) != 0 && !a2 )
     return 0;
@@ -55,36 +55,36 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
     if ( i >= AlternateResourceModuleCount )
       goto LABEL_11;
     v12 = (unsigned __int64)i << 6;
-    v13 = v12 + AlternateResourceModules;
-    if ( *(_QWORD *)(v12 + AlternateResourceModules + 8) != a1 )
+    v13 = (char *)AlternateResourceModules + v12;
+    if ( *(_QWORD *)((char *)AlternateResourceModules + v12 + 8) != a1 )
     {
-      if ( (a6 & 0x10) != 0 && gMUICacheType && (unsigned __int64)(*(_QWORD *)(v13 + 40) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
+      if ( (a6 & 0x10) != 0 && gMUICacheType && (unsigned __int64)(*((_QWORD *)v13 + 5) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
         LdrpSpecialCacheTypeHandle(v13, 0LL);
       continue;
     }
-    if ( (a6 & 2) != 0 && *(_QWORD *)(v13 + 16) )
+    if ( (a6 & 2) != 0 && *((_QWORD *)v13 + 2) )
       goto LABEL_74;
-    if ( (a6 & 1) != 0 && *(_QWORD *)(v13 + 32) && a5 && *(_WORD *)v13 == a5 )
+    if ( (a6 & 1) != 0 && *((_QWORD *)v13 + 4) && a5 && *(_WORD *)v13 == a5 )
       break;
   }
   if ( *a2 == -1LL )
   {
 LABEL_46:
-    v24 = AlternateResourceModules;
-    *a2 = *(_QWORD *)(v12 + AlternateResourceModules + 32);
+    v24 = (char *)AlternateResourceModules;
+    *a2 = *(_QWORD *)((char *)AlternateResourceModules + v12 + 32);
     if ( a3 )
-      *a3 = *(HANDLE *)(v12 + v24 + 40);
+      *a3 = *(HANDLE *)&v24[v12 + 40];
     goto LABEL_74;
   }
   if ( (a6 & 0x20) == 0 )
   {
-    NtUnmapViewOfSection(-1LL);
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(*a2 & 0xFFFFFFFFFFFFFFFCuLL));
     if ( a3 )
       NtClose(*a3);
     goto LABEL_46;
   }
-  if ( *(_QWORD *)(v13 + 32) == -1LL )
-    *(_QWORD *)(v13 + 32) = 0LL;
+  if ( *((_QWORD *)v13 + 4) == -1LL )
+    *((_QWORD *)v13 + 4) = 0LL;
 LABEL_11:
   if ( (a6 & 0x10) != 0 )
     goto LABEL_74;
@@ -94,7 +94,7 @@ LABEL_11:
     {
       Heap = RtlReAllocateHeap(
                NtCurrentPeb()->ProcessHeap,
-               8LL,
+               8u,
                AlternateResourceModules,
                (unsigned __int64)(unsigned int)(AltResMemBlockCount + 32) << 6);
       if ( !Heap )
@@ -105,7 +105,7 @@ LABEL_11:
   }
   else
   {
-    v23 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 2048LL);
+    v23 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x800uLL);
     if ( !v23 )
       goto LABEL_74;
     AlternateResourceModules = v23;
@@ -114,37 +114,37 @@ LABEL_11:
   for ( j = 0LL; (unsigned int)j < AlternateResourceModuleCount; j = (unsigned int)(j + 1) )
   {
     v15 = (unsigned __int64)(unsigned int)j << 6;
-    v16 = v15 + AlternateResourceModules;
-    if ( *(_QWORD *)(v15 + AlternateResourceModules + 8) == a1 )
+    v16 = (char *)AlternateResourceModules + v15;
+    if ( *(_QWORD *)((char *)AlternateResourceModules + v15 + 8) == a1 )
     {
-      if ( (a6 & 2) != 0 && !*(_QWORD *)(v16 + 16) )
+      if ( (a6 & 2) != 0 && !*((_QWORD *)v16 + 2) )
       {
-        *(_QWORD *)(v16 + 16) = a4;
-        *(_DWORD *)(v16 + 56) = a7;
+        *((_QWORD *)v16 + 2) = a4;
+        *((_DWORD *)v16 + 14) = a7;
         goto LABEL_74;
       }
-      if ( (a6 & 1) != 0 && !*(_QWORD *)(v16 + 32) )
+      if ( (a6 & 1) != 0 && !*((_QWORD *)v16 + 4) )
       {
         v21 = a5;
         if ( !*(_WORD *)v16 || *(_WORD *)v16 == a5 )
         {
-          *(_QWORD *)(v16 + 32) = *a2;
+          *((_QWORD *)v16 + 4) = *a2;
           if ( a3 )
             v22 = *a3;
           else
             v22 = 0LL;
-          *(_QWORD *)(v16 + 40) = v22;
+          *((_QWORD *)v16 + 5) = v22;
           *(_WORD *)v16 = a5;
-          *(_DWORD *)(v16 + 56) = a7;
-          *(_QWORD *)(v16 + 48) = a8;
+          *((_DWORD *)v16 + 14) = a7;
+          *((_QWORD *)v16 + 6) = a8;
           if ( gMUICacheType )
           {
             LOBYTE(v21) = 1;
             if ( (int)LdrpSpecialCacheTypeHandle(v16, v21) >= 0
               && (gMUICacheType & 2) != 0
-              && *(_DWORD *)(v15 + AlternateResourceModules + 56) == -1073741799 )
+              && *(_DWORD *)((char *)AlternateResourceModules + v15 + 56) == -1073741799 )
             {
-              *a2 = *(_QWORD *)(v15 + AlternateResourceModules + 32);
+              *a2 = *(_QWORD *)((char *)AlternateResourceModules + v15 + 32);
             }
           }
           goto LABEL_74;
@@ -152,49 +152,49 @@ LABEL_11:
       }
     }
   }
-  v17 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+  v17 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
   if ( v17 )
   {
-    v18 = *(_DWORD *)(v17 + 88);
+    CheckSum = v17->OptionalHeader.CheckSum;
     v19 = (unsigned __int64)(unsigned int)AlternateResourceModuleCount << 6;
-    v20 = AlternateResourceModules;
-    *(_QWORD *)(v19 + AlternateResourceModules + 8) = a1;
-    *(_QWORD *)(v19 + v20 + 16) = a4;
+    v20 = (char *)AlternateResourceModules;
+    *(_QWORD *)((char *)AlternateResourceModules + v19 + 8) = a1;
+    *(_QWORD *)&v20[v19 + 16] = a4;
     if ( (a6 & 1) != 0 )
     {
       if ( a2 )
         v25 = *a2;
       else
         v25 = 0LL;
-      *(_QWORD *)(v19 + v20 + 32) = v25;
+      *(_QWORD *)&v20[v19 + 32] = v25;
       if ( a3 )
         v26 = *a3;
       else
         v26 = 0LL;
-      *(_QWORD *)(v19 + v20 + 40) = v26;
-      *(_QWORD *)(v19 + v20 + 48) = a8;
+      *(_QWORD *)&v20[v19 + 40] = v26;
+      *(_QWORD *)&v20[v19 + 48] = a8;
     }
     else
     {
-      *(_QWORD *)(v19 + v20 + 32) = 0LL;
-      *(_QWORD *)(v19 + v20 + 40) = 0LL;
-      *(_QWORD *)(v19 + v20 + 48) = 0LL;
+      *(_QWORD *)&v20[v19 + 32] = 0LL;
+      *(_QWORD *)&v20[v19 + 40] = 0LL;
+      *(_QWORD *)&v20[v19 + 48] = 0LL;
     }
-    *(_WORD *)(v19 + v20) = a5;
-    *(_DWORD *)(v19 + v20 + 24) = v18;
-    *(_DWORD *)(v19 + v20 + 56) = a7;
+    *(_WORD *)&v20[v19] = a5;
+    *(_DWORD *)&v20[v19 + 24] = CheckSum;
+    *(_DWORD *)&v20[v19 + 56] = a7;
     if ( gMUICacheType )
     {
       if ( (a6 & 1) != 0 )
       {
         v28 = j << 6;
-        v29 = v28 + v20;
+        v29 = &v20[v28];
         LOBYTE(v20) = 1;
         if ( (int)LdrpSpecialCacheTypeHandle(v29, v20) >= 0
           && (gMUICacheType & 2) != 0
-          && *(_DWORD *)(v28 + AlternateResourceModules + 56) == -1073741799 )
+          && *(_DWORD *)((char *)AlternateResourceModules + v28 + 56) == -1073741799 )
         {
-          *a2 = *(_QWORD *)(v28 + AlternateResourceModules + 32);
+          *a2 = *(_QWORD *)((char *)AlternateResourceModules + v28 + 32);
         }
       }
     }

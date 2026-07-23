@@ -1,12 +1,14 @@
 /*
- * XREFs of nullsub_2 @ 0x140435954
+ * XREFs of nullsub_2 @ 0x140012008
  * Callers:
- *     KiFlushBhbDuringTrapEntryOrExitAlderLake @ 0x1404358C0 (KiFlushBhbDuringTrapEntryOrExitAlderLake.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
-void nullsub_2()
+__int64 nullsub_2()
 {
-  ;
+  _BYTE retaddr[16]; // [rsp+0h] [rbp+0h]
+
+  return MK_FP(*(_WORD *)retaddr, *(_QWORD *)retaddr)();
 }

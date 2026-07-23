@@ -1,9 +1,9 @@
 /*
- * XREFs of DifpExAllocatePoolWithTagPriority_LwSP_Enter @ 0x140BA41C0
+ * XREFs of DifpExAllocatePoolWithTagPriority_LwSP_Enter @ 0x140BA61C0
  * Callers:
  *     <none>
  * Callees:
- *     DifpLwSPProcessPrePoolAlloc @ 0x140BA4264 (DifpLwSPProcessPrePoolAlloc.c)
+ *     DifpLwSPProcessPrePoolAlloc @ 0x140BA6264 (DifpLwSPProcessPrePoolAlloc.c)
  */
 
 __int64 __fastcall DifpExAllocatePoolWithTagPriority_LwSP_Enter(__int64 a1)

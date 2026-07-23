@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpUpdateGuidEnableInfo @ 0x140937CC0
+ * XREFs of EtwpUpdateGuidEnableInfo @ 0x140913860
  * Callers:
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpReferenceGuidEntry @ 0x140935A40 (EtwpReferenceGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x140936B20 (EtwpUnreferenceGuidEntry.c)
- *     EtwpUpdateGuidFilterData @ 0x140937FB0 (EtwpUpdateGuidFilterData.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpReferenceGuidEntry @ 0x1409115F0 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1409126C0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpUpdateGuidFilterData @ 0x140913B50 (EtwpUpdateGuidFilterData.c)
  */
 
 __int64 __fastcall EtwpUpdateGuidEnableInfo(
@@ -174,7 +174,7 @@ __int64 __fastcall EtwpUpdateGuidEnableInfo(
       return 0LL;
     }
   }
-  if ( (unsigned int)dword_140E08F48 > 5 && tlgKeywordOn((__int64)&dword_140E08F48, 0x200000000000LL) )
+  if ( (unsigned int)dword_140E08F78 > 5 && tlgKeywordOn((__int64)&dword_140E08F78, 0x200000000000LL) )
   {
     v48 = v34;
     v43 = &v40;
@@ -187,7 +187,7 @@ __int64 __fastcall EtwpUpdateGuidEnableInfo(
     v49 = &v39;
     v46 = 8LL;
     v50 = 4LL;
-    tlgWriteAgg((__int64)&dword_140E08F48, (unsigned __int8 *)&word_1400545CA, v33, 6u, &v42);
+    tlgWriteAgg((__int64)&dword_140E08F78, (unsigned __int8 *)&byte_1400555BD, v33, 6u, &v42);
   }
   return 3221225626LL;
 }

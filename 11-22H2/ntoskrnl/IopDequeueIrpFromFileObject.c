@@ -42,10 +42,10 @@ __int64 __fastcall IopDequeueIrpFromFileObject(__int64 a1, __int64 a2)
   ObfDereferenceObjectWithTag((PVOID)(v9 & 0xFFFFFFFFFFFFFFF9uLL), 0x70436F49u);
   *(_DWORD *)(a1 + 16) = *(_DWORD *)(a1 + 16) & 0xFFFF5FFF | 0x8000;
   result = KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v6 <= 0xFu
       && (unsigned __int8)result >= 2u )

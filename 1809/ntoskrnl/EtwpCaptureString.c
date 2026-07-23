@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCaptureString @ 0x14065A024
+ * XREFs of EtwpCaptureString @ 0x14065B1E4
  * Callers:
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
- *     EtwpAcquireLoggerContext @ 0x140659E50 (EtwpAcquireLoggerContext.c)
- *     EtwpFlushTrace @ 0x1406C2940 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
- *     EtwpSetSoftRestartInformation @ 0x1408CA9E4 (EtwpSetSoftRestartInformation.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
+ *     EtwpAcquireLoggerContext @ 0x14065B010 (EtwpAcquireLoggerContext.c)
+ *     EtwpFlushTrace @ 0x1406C3BE0 (EtwpFlushTrace.c)
+ *     EtwpUpdateTrace @ 0x140726D7C (EtwpUpdateTrace.c)
+ *     EtwpSetSoftRestartInformation @ 0x1408CBCA4 (EtwpSetSoftRestartInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlCreateUnicodeString @ 0x14065BBD0 (RtlCreateUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwpCaptureString(unsigned __int16 *a1, UNICODE_STRING *a2)

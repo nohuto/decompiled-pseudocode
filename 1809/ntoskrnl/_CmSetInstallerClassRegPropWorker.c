@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmSetInstallerClassRegPropWorker @ 0x1408F854C
+ * XREFs of _CmSetInstallerClassRegPropWorker @ 0x1408F980C
  * Callers:
- *     _CmSetInstallerClassRegProp @ 0x1408F83E8 (_CmSetInstallerClassRegProp.c)
+ *     _CmSetInstallerClassRegProp @ 0x1408F96A8 (_CmSetInstallerClassRegProp.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     _MapCmClassPropertyToRegValue @ 0x14015B5AC (_MapCmClassPropertyToRegValue.c)
- *     _CmClassPropertyRead @ 0x14015B61C (_CmClassPropertyRead.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
- *     _CmClassPropertyWrite @ 0x140329774 (_CmClassPropertyWrite.c)
- *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x14059EB8C (_CmOpenInstallerClassRegKey.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x1405AD180 (RtlValidRelativeSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1405CA090 (RtlLengthSecurityDescriptor.c)
- *     _CmRaisePropertyChangeEvent @ 0x1406E2D7C (_CmRaisePropertyChangeEvent.c)
- *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     _MapCmClassPropertyToRegValue @ 0x14015B6AC (_MapCmClassPropertyToRegValue.c)
+ *     _CmClassPropertyRead @ 0x14015B71C (_CmClassPropertyRead.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1401B9D10 (ZwDeleteValueKey.c)
+ *     _CmClassPropertyWrite @ 0x140329964 (_CmClassPropertyWrite.c)
+ *     _PnpOpenPropertiesKey @ 0x14059BA2C (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14059FB8C (_CmOpenInstallerClassRegKey.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1405AE180 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1405CB090 (RtlLengthSecurityDescriptor.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1406E401C (_CmRaisePropertyChangeEvent.c)
+ *     _RegRtlSetValue @ 0x1406FDE48 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassRegPropWorker(

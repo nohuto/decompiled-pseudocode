@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpLkmdEnumApcOrDpcDataCallback @ 0x1404EE100
+ * XREFs of DbgkpLkmdEnumApcOrDpcDataCallback @ 0x1404EE340
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall DbgkpLkmdEnumApcOrDpcDataCallback(__int64 a1, unsigned int a2, __int64 a3)

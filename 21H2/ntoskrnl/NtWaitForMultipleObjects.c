@@ -1,53 +1,53 @@
 /*
- * XREFs of NtWaitForMultipleObjects @ 0x1405FCC70
+ * XREFs of NtWaitForMultipleObjects @ 0x1406EC3D0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObWaitForMultipleObjects @ 0x1405FCDC0 (ObWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObWaitForMultipleObjects @ 0x1406EC520 (ObWaitForMultipleObjects.c)
  */
 
-__int64 __fastcall NtWaitForMultipleObjects(
-        unsigned int a1,
-        const void *a2,
-        unsigned int a3,
-        char a4,
-        unsigned __int64 a5)
+NTSTATUS __cdecl NtWaitForMultipleObjects(
+        ULONG Count,
+        HANDLE Handles[],
+        WAIT_TYPE WaitType,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   __int64 v8; // r14
   unsigned __int8 v9; // di
   __int64 v10; // rbx
-  unsigned __int64 v11; // rax
+  HANDLE *v11; // rax
   __int64 v13; // [rsp+48h] [rbp-240h] BYREF
   _BYTE v14[512]; // [rsp+50h] [rbp-238h] BYREF
 
-  v8 = a1;
+  v8 = Count;
   memset(v14, 0, sizeof(v14));
   v13 = 0LL;
   if ( (unsigned int)(v8 - 1) > 0x3F )
-    return 3221225711LL;
-  if ( a3 > 1 )
-    return 3221225713LL;
+    return -1073741585;
+  if ( (unsigned int)WaitType > WaitAny )
+    return -1073741583;
   v9 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
-  v10 = a5;
+  v10 = (__int64)Timeout;
   if ( v9 )
   {
-    if ( a5 )
+    if ( Timeout )
     {
-      if ( a5 >= 0x7FFFFFFF0000LL )
+      if ( (unsigned __int64)Timeout >= 0x7FFFFFFF0000LL )
         v10 = 0x7FFFFFFF0000LL;
       v13 = *(_QWORD *)v10;
       v10 = (__int64)&v13;
     }
     if ( 8 * v8 )
     {
-      v11 = (unsigned __int64)a2 + 8 * v8;
-      if ( v11 > 0x7FFFFFFF0000LL || v11 < (unsigned __int64)a2 )
+      v11 = &Handles[v8];
+      if ( (unsigned __int64)v11 > 0x7FFFFFFF0000LL || v11 < Handles )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
-  memmove(v14, a2, 8 * v8);
-  return ObWaitForMultipleObjects(v8, (unsigned int)v14, v9, a3, v9, a4, v10);
+  memmove(v14, Handles, 8 * v8);
+  return ObWaitForMultipleObjects(v8, (unsigned int)v14, v9, WaitType, v9, Alertable, v10);
 }

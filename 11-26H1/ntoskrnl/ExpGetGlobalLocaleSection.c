@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpGetGlobalLocaleSection @ 0x140AD41DC
+ * XREFs of ExpGetGlobalLocaleSection @ 0x140AD163C
  * Callers:
- *     NtInitializeNlsFiles @ 0x140AD4080 (NtInitializeNlsFiles.c)
+ *     NtInitializeNlsFiles @ 0x140AD14E0 (NtInitializeNlsFiles.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x140723D30 (ZwCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140728900 (ZwCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall ExpGetGlobalLocaleSection(struct _LIST_ENTRY **a1)

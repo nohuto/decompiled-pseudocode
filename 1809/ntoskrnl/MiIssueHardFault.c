@@ -2,7 +2,7 @@
  * XREFs of MiIssueHardFault @ 0x14001BCD0
  * Callers:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
+ *     MiInPagePageTable @ 0x140098720 (MiInPagePageTable.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     PfHardFaultRecord @ 0x140019E98 (PfHardFaultRecord.c)
@@ -23,18 +23,18 @@
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiLogPageAccess @ 0x14006BDB0 (MiLogPageAccess.c)
- *     MiLockPageAndSetDirty @ 0x140086028 (MiLockPageAndSetDirty.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiOkToSetPteDirtyForNotValidFault @ 0x14011A0EC (MiOkToSetPteDirtyForNotValidFault.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x1401407B8 (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiLogPageAccess @ 0x14006BDA0 (MiLogPageAccess.c)
+ *     MiLockPageAndSetDirty @ 0x140086018 (MiLockPageAndSetDirty.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiOkToSetPteDirtyForNotValidFault @ 0x14011A15C (MiOkToSetPteDirtyForNotValidFault.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x1401408B8 (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiIssueHardFault(__int64 a1, ULONG_PTR a2)
@@ -171,7 +171,7 @@ __int64 __fastcall MiIssueHardFault(__int64 a1, ULONG_PTR a2)
     v21 = *(_DWORD *)(a2 + 192);
     if ( (v21 & 0x200108) != 0x200008 )
     {
-      if ( ((PerfGlobalGroupMask & 0x2000) != 0 || (dword_1404D7554 & 1) != 0) && (v21 & 0x100) == 0 && (v21 & 8) == 0 )
+      if ( ((PerfGlobalGroupMask & 0x2000) != 0 || (dword_1404D8614 & 1) != 0) && (v21 & 0x100) == 0 && (v21 & 8) == 0 )
       {
         v33 = *(LARGE_INTEGER *)(a2 + 96);
         v34 = *(LARGE_INTEGER *)(a2 + 224);
@@ -252,9 +252,9 @@ LABEL_43:
       {
         v28 = (_QWORD *)v57;
 LABEL_25:
-        if ( dword_14043A8E8
+        if ( dword_14043B9A8
           && (_DWORD)v56 != 2
-          && (unsigned int)MiGetEffectivePagePriorityThread(v6) >= dword_14043A8EC )
+          && (unsigned int)MiGetEffectivePagePriorityThread(v6) >= dword_14043B9AC )
         {
           MiLogPageAccess(*v28, v24 | 1);
         }
@@ -282,7 +282,7 @@ LABEL_70:
         }
         goto LABEL_70;
       }
-      if ( !HIBYTE(word_14043A1AC) && (v43 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v43 & 1) != 0 )
         v43 |= v47;
       *(_QWORD *)v24 = v43;
       MiWritePteShadow(v24);
@@ -338,7 +338,7 @@ LABEL_60:
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
-        if ( !HIBYTE(word_14043A1AC) && (TransitionPteValid & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (TransitionPteValid & 1) != 0 )
           TransitionPteValid |= 0x8000000000000000uLL;
         *(_QWORD *)v24 = TransitionPteValid;
         MiWritePteShadow(v24);

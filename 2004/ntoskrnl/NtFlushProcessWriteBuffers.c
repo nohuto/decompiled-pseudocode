@@ -6,8 +6,8 @@
  *     KeFlushProcessWriteBuffers @ 0x1402FCFDC (KeFlushProcessWriteBuffers.c)
  */
 
-__int64 NtFlushProcessWriteBuffers()
+NTSTATUS NtFlushProcessWriteBuffers(void)
 {
   KeFlushProcessWriteBuffers(0LL);
-  return 0LL;
+  return 0;
 }

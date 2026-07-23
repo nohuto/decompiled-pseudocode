@@ -1,10 +1,10 @@
 /*
- * XREFs of PspTerminatePicoProcess @ 0x140681B88
+ * XREFs of PspTerminatePicoProcess @ 0x140681C6C
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     PspTerminateProcess @ 0x140507F68 (PspTerminateProcess.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     PspTerminateProcess @ 0x1404EAEF8 (PspTerminateProcess.c)
  */
 
 __int64 __fastcall PspTerminatePicoProcess(ULONG_PTR a1, unsigned int a2)

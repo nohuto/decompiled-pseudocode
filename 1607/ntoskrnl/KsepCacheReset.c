@@ -1,7 +1,7 @@
 /*
- * XREFs of KsepCacheReset @ 0x140653DFC
+ * XREFs of KsepCacheReset @ 0x140653EE0
  * Callers:
- *     KseResetDeviceCache @ 0x1406524A8 (KseResetDeviceCache.c)
+ *     KseResetDeviceCache @ 0x14065258C (KseResetDeviceCache.c)
  * Callees:
  *     <none>
  */

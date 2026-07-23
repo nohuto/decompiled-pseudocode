@@ -1,38 +1,38 @@
 /*
- * XREFs of IoRegisterPlugPlayNotification @ 0x140908ED0
+ * XREFs of IoRegisterPlugPlayNotification @ 0x1409AAA90
  * Callers:
- *     HalpAddDevice @ 0x140781BF0 (HalpAddDevice.c)
- *     PopRegisterTargetDeviceProtection @ 0x1407CB3E4 (PopRegisterTargetDeviceProtection.c)
- *     PopRegisterCoolingExtensionProtection @ 0x1407CBED8 (PopRegisterCoolingExtensionProtection.c)
- *     PopConnectToPolicyDevice @ 0x1407D746C (PopConnectToPolicyDevice.c)
- *     ExpAcquirePrmInterface @ 0x14083EDB0 (ExpAcquirePrmInterface.c)
- *     CmpHiveCacheSubscribePnpNotifications @ 0x140857820 (CmpHiveCacheSubscribePnpNotifications.c)
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
- *     PoInitDriverServices @ 0x140CCE614 (PoInitDriverServices.c)
- *     SbpWaitForVmbus @ 0x140D03BD0 (SbpWaitForVmbus.c)
+ *     HalpAddDevice @ 0x1407846F0 (HalpAddDevice.c)
+ *     PopRegisterTargetDeviceProtection @ 0x1407CE484 (PopRegisterTargetDeviceProtection.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x1407CEF78 (PopRegisterCoolingExtensionProtection.c)
+ *     PopConnectToPolicyDevice @ 0x1407DAA8C (PopConnectToPolicyDevice.c)
+ *     ExpAcquirePrmInterface @ 0x140844FF0 (ExpAcquirePrmInterface.c)
+ *     CmpHiveCacheSubscribePnpNotifications @ 0x14085DBB0 (CmpHiveCacheSubscribePnpNotifications.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
+ *     PoInitDriverServices @ 0x140CD4774 (PoInitDriverServices.c)
+ *     SbpWaitForVmbus @ 0x140D09EA0 (SbpWaitForVmbus.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ObReferenceObjectByPointerWithTag @ 0x14043DAF0 (ObReferenceObjectByPointerWithTag.c)
- *     PsGetServerSiloServiceSessionId @ 0x140487140 (PsGetServerSiloServiceSessionId.c)
- *     PnpGetRelatedTargetDevice @ 0x1404A15E4 (PnpGetRelatedTargetDevice.c)
- *     Feature_PreventInterfaceChangeConcurrentNotify__private_ReportDeviceUsage @ 0x1404B5E14 (Feature_PreventInterfaceChangeConcurrentNotify__private_ReportDeviceUsage.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PiRegisterKernelSoftRestartNotification @ 0x1407B2BE4 (PiRegisterKernelSoftRestartNotification.c)
- *     IoGetDeviceInterfaces @ 0x140908920 (IoGetDeviceInterfaces.c)
- *     PnpInitializeNotifyEntry @ 0x1409092E4 (PnpInitializeNotifyEntry.c)
- *     PnpDeferNotification @ 0x140909368 (PnpDeferNotification.c)
- *     PnpNotifyDriverCallback @ 0x1409DD5EC (PnpNotifyDriverCallback.c)
- *     IopGetSessionIdFromSymbolicName @ 0x140A97B50 (IopGetSessionIdFromSymbolicName.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x140436600 (ObReferenceObjectByPointerWithTag.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140480B10 (PsGetServerSiloServiceSessionId.c)
+ *     PnpGetRelatedTargetDevice @ 0x14049B114 (PnpGetRelatedTargetDevice.c)
+ *     Feature_PreventInterfaceChangeConcurrentNotify__private_ReportDeviceUsage @ 0x1404AF264 (Feature_PreventInterfaceChangeConcurrentNotify__private_ReportDeviceUsage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x1407B5C44 (PiRegisterKernelSoftRestartNotification.c)
+ *     PnpInitializeNotifyEntry @ 0x1409AAEA4 (PnpInitializeNotifyEntry.c)
+ *     PnpDeferNotification @ 0x1409AAF28 (PnpDeferNotification.c)
+ *     PnpNotifyDriverCallback @ 0x140A1A8A4 (PnpNotifyDriverCallback.c)
+ *     IoGetDeviceInterfaces @ 0x140A30A80 (IoGetDeviceInterfaces.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x140A9BCD0 (IopGetSessionIdFromSymbolicName.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterPlugPlayNotification(
@@ -176,7 +176,7 @@ LABEL_39:
         if ( RelatedTargetDevice >= 0 )
         {
           ExAcquireFastMutex(&PnpDeviceClassNotifyLock);
-          v21 = (char *)&unk_140FD77A0
+          v21 = (char *)&unk_140FD87B0
               + 16 * ((*v20 + *((_DWORD *)v19 + 21) + *((_DWORD *)v19 + 22) + *((_DWORD *)v19 + 23)) % 0xDu);
           v22 = (char **)*((_QWORD *)v21 + 1);
           if ( *v22 == v21 )

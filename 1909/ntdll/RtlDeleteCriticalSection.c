@@ -15,15 +15,15 @@
  *     RtlStdReleaseStackTrace @ 0x1800FAF00 (RtlStdReleaseStackTrace.c)
  */
 
-__int64 __fastcall RtlDeleteCriticalSection(__int64 *a1)
+NTSTATUS __cdecl RtlDeleteCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  char *v2; // rcx
-  unsigned int v3; // r14d
-  __int64 v4; // rdi
+  char *LockSemaphore; // rcx
+  NTSTATUS v3; // r14d
+  _RTL_CRITICAL_SECTION_DEBUG *DebugInfo; // rdi
   __int64 v6; // r15
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  _QWORD *v9; // rdx
+  _LIST_ENTRY *p_ProcessLocksList; // rcx
+  _LIST_ENTRY *Flink; // rax
+  _LIST_ENTRY *Blink; // rdx
   signed __int64 v10; // rax
   __int64 v11; // rdx
   signed __int64 v12; // rcx
@@ -39,27 +39,27 @@ __int64 __fastcall RtlDeleteCriticalSection(__int64 *a1)
   signed __int64 v22; // rax
   _QWORD *v23; // rax
 
-  v2 = (char *)a1[3];
-  if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-    v3 = NtClose(v2);
+  LockSemaphore = (char *)CriticalSection->LockSemaphore;
+  if ( (unsigned __int64)(LockSemaphore - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    v3 = NtClose(LockSemaphore);
   else
     v3 = 0;
-  v4 = *a1;
-  if ( (unsigned __int64)(*a1 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+  DebugInfo = CriticalSection->DebugInfo;
+  if ( (unsigned __int64)&CriticalSection->DebugInfo[-1].SpareUSHORT + 1 <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    v6 = a1[4] & 0x4000000;
+    v6 = CriticalSection->SpinCount & 0x4000000;
     RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
-    v7 = v4 + 16;
-    v8 = *(_QWORD *)(v4 + 16);
-    if ( v8 )
+    p_ProcessLocksList = &DebugInfo->ProcessLocksList;
+    Flink = DebugInfo->ProcessLocksList.Flink;
+    if ( Flink )
     {
-      v9 = *(_QWORD **)(v4 + 24);
-      if ( *(_QWORD *)(v8 + 8) != v7 || *v9 != v7 )
+      Blink = DebugInfo->ProcessLocksList.Blink;
+      if ( Flink->Blink != p_ProcessLocksList || Blink->Flink != p_ProcessLocksList )
         __fastfail(3u);
-      *v9 = v8;
-      *(_QWORD *)(v8 + 8) = v9;
+      Blink->Flink = Flink;
+      Flink->Blink = Blink;
     }
-    v10 = _InterlockedCompareExchange64(&RtlCriticalSectionLock, 0LL, 1LL);
+    v10 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlCriticalSectionLock, 0LL, 1LL);
     if ( v10 != 1 )
     {
       do
@@ -70,7 +70,7 @@ __int64 __fastcall RtlDeleteCriticalSection(__int64 *a1)
           v13 = -1LL;
         v14 = v10 + v13;
         v15 = v10;
-        v10 = _InterlockedCompareExchange64(&RtlCriticalSectionLock, v14, v10);
+        v10 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlCriticalSectionLock, v14, v10);
       }
       while ( v15 != v10 );
       if ( v12 == 2 )
@@ -94,21 +94,21 @@ LABEL_19:
             {
               *(_QWORD *)((v14 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v18;
               *(_QWORD *)(i + 16) = 0LL;
-              _InterlockedAnd64(&RtlCriticalSectionLock, 0xFFFFFFFFFFFFFFFBuLL);
+              _InterlockedAnd64((volatile signed __int64 *)&RtlCriticalSectionLock, 0xFFFFFFFFFFFFFFFBuLL);
               do
               {
 LABEL_25:
                 v21 = *(_QWORD *)(i + 16);
                 _interlockedbittestandset((volatile signed __int32 *)(i + 36), 2u);
                 if ( !_interlockedbittestandreset((volatile signed __int32 *)(i + 36), 1u) )
-                  ZwAlertThreadByThreadId(*(_QWORD *)(i + 24));
+                  ZwAlertThreadByThreadId(*(HANDLE *)(i + 24));
                 i = v21;
               }
               while ( v21 );
               goto LABEL_11;
             }
           }
-          v20 = _InterlockedCompareExchange64(&RtlCriticalSectionLock, 0LL, v14);
+          v20 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlCriticalSectionLock, 0LL, v14);
           v19 = v14 == v20;
           v14 = v20;
           if ( v19 )
@@ -116,7 +116,7 @@ LABEL_25:
         }
         while ( 1 )
         {
-          v22 = _InterlockedCompareExchange64(&RtlCriticalSectionLock, v14 - 4, v14);
+          v22 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlCriticalSectionLock, v14 - 4, v14);
           v19 = v14 == v22;
           v14 = v22;
           if ( v19 )
@@ -127,19 +127,19 @@ LABEL_25:
       }
     }
 LABEL_11:
-    v11 = *(unsigned __int16 *)(v4 + 2) + (*(unsigned __int16 *)(v4 + 44) << 16);
+    v11 = DebugInfo->CreatorBackTraceIndex + (DebugInfo->CreatorBackTraceIndexHigh << 16);
     if ( RtlpStackTraceDatabase
       && (_DWORD)v11
-      && (unsigned int)v11 <= *(_DWORD *)(RtlpStackTraceDatabase + 180)
-      && *(_QWORD *)(*(_QWORD *)(RtlpStackTraceDatabase + 184) - 8 * v11)
+      && (unsigned int)v11 <= HIDWORD(RtlpStackTraceDatabase[22].Ptr)
+      && *(_QWORD *)(RtlpStackTraceDatabase[23].Value - 8 * v11)
       && RtlpStackTraceDatabase )
     {
       RtlStdReleaseStackTrace();
     }
-    memset((void *)v4, 0, 0x30uLL);
+    memset(DebugInfo, 0, sizeof(_RTL_CRITICAL_SECTION_DEBUG));
     if ( !v6 )
-      RtlpFreeDebugInfo(v4);
+      RtlpFreeDebugInfo(DebugInfo);
   }
-  memset(a1, 0, 0x28uLL);
+  memset(CriticalSection, 0, sizeof(_RTL_CRITICAL_SECTION));
   return v3;
 }

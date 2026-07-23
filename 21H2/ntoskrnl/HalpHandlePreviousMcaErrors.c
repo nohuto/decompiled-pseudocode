@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpHandlePreviousMcaErrors @ 0x1409A6CB0
+ * XREFs of HalpHandlePreviousMcaErrors @ 0x1409A7BE0
  * Callers:
- *     HalpInitializeMce @ 0x1409A0E1C (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x1409A1D4C (HalpInitializeMce.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalpMceInitializeErrorPacketContents @ 0x1409A114C (HalpMceInitializeErrorPacketContents.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6DF0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalpMceInitializeErrorPacketContents @ 0x1409A207C (HalpMceInitializeErrorPacketContents.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A7D20 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall HalpHandlePreviousMcaErrors(char a1)
@@ -21,11 +21,11 @@ void __fastcall HalpHandlePreviousMcaErrors(char a1)
   ULONG ActiveProcessorCount; // ebp
   int *v6; // r14
   unsigned int v7; // edx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v9; // rcx
   __int64 i; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

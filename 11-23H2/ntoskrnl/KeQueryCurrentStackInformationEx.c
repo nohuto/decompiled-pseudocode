@@ -1,17 +1,17 @@
 /*
- * XREFs of KeQueryCurrentStackInformationEx @ 0x14022E9B0
+ * XREFs of KeQueryCurrentStackInformationEx @ 0x14022EAC0
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E7B0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     RtlpGetStackLimits @ 0x14022E960 (RtlpGetStackLimits.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271390 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     KeCheckStackAndTargetAddress @ 0x140346940 (KeCheckStackAndTargetAddress.c)
- *     KeQueryCurrentStackInformation @ 0x14034E9B0 (KeQueryCurrentStackInformation.c)
- *     RtlpGetStackLimitsEx @ 0x140353790 (RtlpGetStackLimitsEx.c)
- *     KasanWrapperRtlRestoreContext @ 0x140356BD0 (KasanWrapperRtlRestoreContext.c)
- *     WheaIsAltContextAllocPossible @ 0x140611CE0 (WheaIsAltContextAllocPossible.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E8C0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     RtlpGetStackLimits @ 0x14022EA70 (RtlpGetStackLimits.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271620 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KeCheckStackAndTargetAddress @ 0x140346BD0 (KeCheckStackAndTargetAddress.c)
+ *     KeQueryCurrentStackInformation @ 0x14034EB50 (KeQueryCurrentStackInformation.c)
+ *     RtlpGetStackLimitsEx @ 0x140353930 (RtlpGetStackLimitsEx.c)
+ *     KasanWrapperRtlRestoreContext @ 0x140356D70 (KasanWrapperRtlRestoreContext.c)
+ *     WheaIsAltContextAllocPossible @ 0x140612230 (WheaIsAltContextAllocPossible.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x14022EBD0 (KeAreInterruptsEnabled.c)
- *     KiRspInIstStack @ 0x14035AB90 (KiRspInIstStack.c)
+ *     KeAreInterruptsEnabled @ 0x14022ECE0 (KeAreInterruptsEnabled.c)
+ *     KiRspInIstStack @ 0x14035AD30 (KiRspInIstStack.c)
  */
 
 bool __fastcall KeQueryCurrentStackInformationEx(unsigned __int64 a1, _DWORD *a2, char **a3, unsigned __int64 *a4)

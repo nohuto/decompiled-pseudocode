@@ -1,11 +1,11 @@
 /*
- * XREFs of SepIsNgenImage @ 0x140ADC6EC
+ * XREFs of SepIsNgenImage @ 0x140AD9C3C
  * Callers:
- *     SeQuerySigningPolicyWorker @ 0x140A2A0A4 (SeQuerySigningPolicyWorker.c)
+ *     SeQuerySigningPolicyWorker @ 0x140A3D144 (SeQuerySigningPolicyWorker.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 char __fastcall SepIsNgenImage(unsigned __int16 *a1)

@@ -1,26 +1,26 @@
 /*
- * XREFs of ObpGetObjectSecurity @ 0x140853850
+ * XREFs of ObpGetObjectSecurity @ 0x14084FB10
  * Callers:
- *     PspCheckJobAccessState @ 0x140777614 (PspCheckJobAccessState.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14085CCAC (PspAllocateAndQueryNotificationChannel.c)
- *     ObpCheckTraverseAccess @ 0x140867E80 (ObpCheckTraverseAccess.c)
- *     ObpCheckObjectReference @ 0x14086802C (ObpCheckObjectReference.c)
- *     ObCheckCreateObjectAccess @ 0x1408682F0 (ObCheckCreateObjectAccess.c)
- *     MiAllowImageMap @ 0x1408694B4 (MiAllowImageMap.c)
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
- *     PopBootStatAccessCheck @ 0x140AA80F4 (PopBootStatAccessCheck.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x140AB5B80 (EtwpCheckCurrentUserProcessAccess.c)
+ *     PspCheckJobAccessState @ 0x140777834 (PspCheckJobAccessState.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1408331C0 (EtwpCheckCurrentUserProcessAccess.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x140858A1C (PspAllocateAndQueryNotificationChannel.c)
+ *     ObpCheckTraverseAccess @ 0x14086C170 (ObpCheckTraverseAccess.c)
+ *     ObpCheckObjectReference @ 0x14086C31C (ObpCheckObjectReference.c)
+ *     ObCheckCreateObjectAccess @ 0x14086C5E0 (ObCheckCreateObjectAccess.c)
+ *     MiAllowImageMap @ 0x14086D7E4 (MiAllowImageMap.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
+ *     PopBootStatAccessCheck @ 0x140AA31F4 (PopBootStatAccessCheck.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpSecurityMethod @ 0x140852E10 (CmpSecurityMethod.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x14087AEFC (ObpReferenceSecurityDescriptorSlow.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpSecurityMethod @ 0x14084F0D0 (CmpSecurityMethod.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x14087EDAC (ObpReferenceSecurityDescriptorSlow.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, PVOID *a2, _BYTE *a3, char a4)
+__int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, void **a2, _BYTE *a3, char a4)
 {
   ULONG_PTR v8; // rbp
   signed __int64 v9; // rdx
@@ -31,15 +31,15 @@ __int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, PVOID *a2
   __int64 result; // rax
   __int64 Pool2; // rax
   __int64 (__usercall *v16)@<rax>(ULONG_PTR@<rcx>, PULONG, int, int, __int64, char); // rax
-  PVOID v17; // r9
   int SetSecurityObject; // eax
-  int v19; // r12d
-  ULONG v20; // eax
+  int v18; // r12d
+  ULONG v19; // eax
+  ULONG_PTR v20; // rdx
   __int64 v21; // rax
   __int64 v22; // [rsp+28h] [rbp-60h]
   int v23; // [rsp+30h] [rbp-58h]
   __int64 v24; // [rsp+38h] [rbp-50h]
-  ULONG v25[4]; // [rsp+50h] [rbp-38h] BYREF
+  DWORD v25[4]; // [rsp+50h] [rbp-38h] BYREF
   ULONG Length; // [rsp+90h] [rbp+8h] BYREF
 
   v8 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)BugCheckParameter2 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)BugCheckParameter2 - 48) >> 8)];
@@ -47,19 +47,18 @@ __int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, PVOID *a2
   {
     v25[0] = 447;
     Length = ObpDefaultSecurityDescriptorLength;
-    Pool2 = ExAllocatePool2(0x100uLL);
-    *a2 = (PVOID)Pool2;
+    Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)ObpDefaultSecurityDescriptorLength, 0x7153624Fu);
+    *a2 = (void *)Pool2;
     if ( !Pool2 )
       return 3221225626LL;
     *a3 = 1;
     v16 = *(__int64 (__usercall **)@<rax>(ULONG_PTR@<rcx>, PULONG, int, int, __int64, char))(v8 + 152);
-    v17 = *a2;
     v24 = v8 + 76;
     v23 = *(_DWORD *)(v8 + 100);
     v22 = (__int64)(BugCheckParameter2 - 1);
     if ( (char *)v16 == (char *)CmpSecurityMethod )
     {
-      SetSecurityObject = CmpSecurityMethod(BugCheckParameter2, 1, v25, v17, &Length, v22, v23, v24);
+      SetSecurityObject = CmpSecurityMethod(BugCheckParameter2, 1, v25, *a2, &Length, v22, v23, v24);
     }
     else if ( v16 == IopGetSetSecurityObject )
     {
@@ -67,34 +66,35 @@ __int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, PVOID *a2
     }
     else
     {
-      SetSecurityObject = guard_dispatch_icall_no_overrides(BugCheckParameter2, 1LL, v25, v17);
+      SetSecurityObject = guard_dispatch_icall_no_overrides(BugCheckParameter2, 1LL);
     }
-    v19 = SetSecurityObject;
+    v18 = SetSecurityObject;
     if ( SetSecurityObject == -1073741789 )
     {
       ExFreePoolWithTag(*a2, 0);
+      v19 = Length;
       v20 = Length;
       *a3 = 0;
-      ObpDefaultSecurityDescriptorLength = v20;
-      v21 = ExAllocatePool2(0x100uLL);
-      *a2 = (PVOID)v21;
+      ObpDefaultSecurityDescriptorLength = v19;
+      v21 = ExAllocatePool2(0x100uLL, v20, 0x7153624Fu);
+      *a2 = (void *)v21;
       if ( !v21 )
         return 3221225626LL;
       *a3 = 1;
-      v19 = guard_dispatch_icall_no_overrides(BugCheckParameter2, 1LL, v25, *a2);
+      v18 = guard_dispatch_icall_no_overrides(BugCheckParameter2, 1LL);
     }
-    if ( v19 < 0 )
+    if ( v18 < 0 )
     {
       ExFreePoolWithTag(*a2, 0);
       *a2 = 0LL;
-      result = (unsigned int)v19;
+      result = (unsigned int)v18;
       *a3 = 0;
     }
     else
     {
       if ( !*a2 && ((*(_BYTE *)(v8 + 66) & 8) != 0 || (*((_BYTE *)BugCheckParameter2 - 22) & 2) != 0) )
         goto LABEL_19;
-      return (unsigned int)v19;
+      return (unsigned int)v18;
     }
     return result;
   }
@@ -116,7 +116,7 @@ __int64 __fastcall ObpGetObjectSecurity(ULONG_PTR *BugCheckParameter2, PVOID *a2
   v13 = v11 & 0xFFFFFFFFFFFFFFF0uLL;
   if ( (unsigned int)v12 <= 1 && v13 )
     v13 = ObpReferenceSecurityDescriptorSlow(BugCheckParameter2 - 6, v12, v13);
-  *a2 = (PVOID)v13;
+  *a2 = (void *)v13;
   *a3 = 0;
   if ( !*a2 && ((*(_BYTE *)(v8 + 66) & 8) != 0 || (*((_BYTE *)BugCheckParameter2 - 22) & 2) != 0) )
 LABEL_19:

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapExParametersInitialize @ 0x140676E6C
+ * XREFs of MiMapExParametersInitialize @ 0x14067802C
  * Callers:
- *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x140677DD0 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiGetUserReservationHighestAddress @ 0x14069624C (MiGetUserReservationHighestAddress.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiGetUserReservationHighestAddress @ 0x14069740C (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDeepSleepConstraintRundown @ 0x1404F2A9C
+ * XREFs of PopDiagTraceDeepSleepConstraintRundown @ 0x1404EC07C
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140AC0910 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140AC29B0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PopDiagTraceDeepSleepConstraintRundown()
@@ -30,18 +30,15 @@ void PopDiagTraceDeepSleepConstraintRundown()
   _QWORD v15[22]; // [rsp+98h] [rbp-70h]
 
   v0 = 0;
-  if ( byte_140E67628
-    && EtwEventEnabled(
-         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-         &POP_ETW_DEEP_SLEEP_CONSTRAINT_RUNDOWN) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_DEEP_SLEEP_CONSTRAINT_RUNDOWN) )
   {
-    v1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopWeakChargerLock.SchedulerApc.Thread);
-    v2 = *(_DWORD *)&PopWeakChargerLock.SchedulerApcFill5[72];
-    v3 = __popcnt(*(unsigned int *)&PopWeakChargerLock.SchedulerApcFill5[72]);
+    v1 = KeAcquireSpinLockRaiseToDpc(&PopDeepSleepDisengageReasonLock);
+    v2 = PopDeepSleepDisengageReasonMask;
+    v3 = __popcnt((unsigned int)PopDeepSleepDisengageReasonMask);
     v4 = v1;
     UserDataCount = v3 + 1;
     LOWORD(v12) = v3;
-    v6 = !_BitScanForward(&v7, *(unsigned int *)&PopWeakChargerLock.SchedulerApcFill5[72]);
+    v6 = !_BitScanForward(&v7, PopDeepSleepDisengageReasonMask);
     *(_QWORD *)&UserData.Size = 2LL;
     v13[0] = v7;
     UserData.Ptr = (ULONGLONG)&v12;
@@ -63,15 +60,7 @@ void PopDiagTraceDeepSleepConstraintRundown()
       }
       while ( !v6 );
     }
-    EtwWriteEx(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_DEEP_SLEEP_CONSTRAINT_RUNDOWN,
-      0LL,
-      0,
-      0LL,
-      0LL,
-      UserDataCount,
-      &UserData);
-    KeReleaseSpinLock((PKSPIN_LOCK)&PopWeakChargerLock.SchedulerApc.Thread, v4);
+    EtwWriteEx(PopDiagHandle, &POP_ETW_DEEP_SLEEP_CONSTRAINT_RUNDOWN, 0LL, 0, 0LL, 0LL, UserDataCount, &UserData);
+    KeReleaseSpinLock(&PopDeepSleepDisengageReasonLock, v4);
   }
 }

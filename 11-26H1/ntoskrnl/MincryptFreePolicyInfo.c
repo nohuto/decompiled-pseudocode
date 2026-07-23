@@ -1,9 +1,9 @@
 /*
- * XREFs of MincryptFreePolicyInfo @ 0x1408A3C78
+ * XREFs of MincryptFreePolicyInfo @ 0x1408AA088
  * Callers:
- *     SecureDump_ValidateAmeCertChain @ 0x1405D7424 (SecureDump_ValidateAmeCertChain.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x1405D9C14 (SecureDump_ValidateAmeCertChain.c)
  * Callees:
- *     I_MincryptFreeChainInfo @ 0x1408A3C58 (I_MincryptFreeChainInfo.c)
+ *     I_MincryptFreeChainInfo @ 0x1408AA068 (I_MincryptFreeChainInfo.c)
  */
 
 void __fastcall MincryptFreePolicyInfo(__int64 a1)

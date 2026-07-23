@@ -1,22 +1,22 @@
 /*
- * XREFs of PspSessionObjectCreate @ 0x140B2D6B4
+ * XREFs of PspSessionObjectCreate @ 0x140B2F734
  * Callers:
- *     PsSessionCreate @ 0x1409638D4 (PsSessionCreate.c)
+ *     PsSessionCreate @ 0x140A0975C (PsSessionCreate.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeInsertSchedulingGroup @ 0x140444BD0 (KeInsertSchedulingGroup.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     RtlStringCchPrintfW @ 0x1404B0AA4 (RtlStringCchPrintfW.c)
- *     KeGetSchedulingGroupSize @ 0x1404EB024 (KeGetSchedulingGroupSize.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeInsertSchedulingGroup @ 0x14043D6E0 (KeInsertSchedulingGroup.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     RtlStringCchPrintfW @ 0x1404AA134 (RtlStringCchPrintfW.c)
+ *     KeGetSchedulingGroupSize @ 0x1404E4608 (KeGetSchedulingGroupSize.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PspSessionObjectCreate()
@@ -56,7 +56,7 @@ __int64 PspSessionObjectCreate()
   Event = 0LL;
   v16 = 0LL;
   v0 = RtlLengthSid(SeAliasAdminsSid);
-  v1 = RtlLengthSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags) + 32 + v0;
+  v1 = RtlLengthSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4)) + 32 + v0;
   Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
   v3 = (char *)Pool2;
   if ( !Pool2 )
@@ -69,7 +69,7 @@ LABEL_15:
     ExFreePoolWithTag(v5, 0);
     return (unsigned int)Acl;
   }
-  Acl = RtlpAddKnownAce(v3, 2u, 0, 983043, *(unsigned __int8 **)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
+  Acl = RtlpAddKnownAce(v3, 2u, 0, 983043, *(unsigned __int8 **)((char *)&RtlpBootStatHandleLock.116 + 4), 0);
   if ( Acl < 0 )
   {
 LABEL_14:
@@ -121,7 +121,7 @@ LABEL_14:
     return 3221225626LL;
   }
 LABEL_9:
-  result = ObInsertObjectEx((char *)v9, 0LL, 1u, 0, 0, 0LL, v15);
+  result = ObInsertObjectEx((char *)v9, 0LL, 1, 0, 0, 0LL, v15);
   v8 = result;
   if ( (int)result >= 0 )
   {

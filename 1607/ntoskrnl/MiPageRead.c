@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPageRead @ 0x14002390C
+ * XREFs of MiPageRead @ 0x14002348C
  * Callers:
- *     MiPfExecuteReadList @ 0x14042C854 (MiPfExecuteReadList.c)
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiPfExecuteReadList @ 0x14042B724 (MiPfExecuteReadList.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
  *     <none>
  */

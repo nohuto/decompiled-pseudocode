@@ -1,5 +1,5 @@
 /*
- * XREFs of PopDelayedPowerRequestClearDpc @ 0x140131EFC
+ * XREFs of PopDelayedPowerRequestClearDpc @ 0x14013246C
  * Callers:
  *     <none>
  * Callees:

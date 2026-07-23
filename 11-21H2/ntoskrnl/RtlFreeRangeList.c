@@ -1,20 +1,20 @@
 /*
  * XREFs of RtlFreeRangeList @ 0x1408397E0
  * Callers:
- *     ArbCommitAllocation @ 0x140839460 (ArbCommitAllocation.c)
- *     ArbTestAllocation @ 0x140839900 (ArbTestAllocation.c)
+ *     sub_140839460 @ 0x140839460 (sub_140839460.c)
+ *     sub_140839900 @ 0x140839900 (sub_140839900.c)
  *     ArbBootAllocation @ 0x140839BE0 (ArbBootAllocation.c)
  *     RtlCopyRangeList @ 0x14083A400 (RtlCopyRangeList.c)
- *     ArbInitializeRangeList @ 0x14090B3B0 (ArbInitializeRangeList.c)
- *     ArbQueryConflict @ 0x14090B4C0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x14090B860 (ArbRetestAllocation.c)
+ *     sub_14090B3B0 @ 0x14090B3B0 (sub_14090B3B0.c)
+ *     sub_14090B4C0 @ 0x14090B4C0 (sub_14090B4C0.c)
+ *     sub_14090B860 @ 0x14090B860 (sub_14090B860.c)
  *     ArbRollbackAllocation @ 0x14090BA30 (ArbRollbackAllocation.c)
- *     ArbStartArbiter @ 0x14090BA50 (ArbStartArbiter.c)
- *     KiTpBuildExcludedKernelTracepointRangeList @ 0x140962930 (KiTpBuildExcludedKernelTracepointRangeList.c)
- *     KiTpIsExcludedKernelTracepointLocation @ 0x140962A18 (KiTpIsExcludedKernelTracepointLocation.c)
+ *     sub_14090BA50 @ 0x14090BA50 (sub_14090BA50.c)
+ *     sub_140962930 @ 0x140962930 (sub_140962930.c)
+ *     sub_140962A18 @ 0x140962A18 (sub_140962A18.c)
  *     RtlMergeRangeLists @ 0x1409B59D0 (RtlMergeRangeLists.c)
  * Callees:
- *     RtlpDeleteRangeListEntry @ 0x14083984C (RtlpDeleteRangeListEntry.c)
+ *     sub_14083984C @ 0x14083984C (sub_14083984C.c)
  */
 
 _QWORD *__fastcall RtlFreeRangeList(__int64 a1)
@@ -40,7 +40,7 @@ _QWORD *__fastcall RtlFreeRangeList(__int64 a1)
       __fastfail(3u);
     *v7 = v6;
     *(_QWORD *)(v6 + 8) = v7;
-    RtlpDeleteRangeListEntry(i);
+    sub_14083984C(i);
     i = v5;
     v3 = v5[5];
   }

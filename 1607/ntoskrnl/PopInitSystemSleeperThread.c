@@ -1,12 +1,12 @@
 /*
- * XREFs of PopInitSystemSleeperThread @ 0x1405319A0
+ * XREFs of PopInitSystemSleeperThread @ 0x140531EE0
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
  */
 
 NTSTATUS __fastcall PopInitSystemSleeperThread(LONG a1, struct _KEVENT *a2)

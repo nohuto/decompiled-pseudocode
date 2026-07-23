@@ -1,7 +1,7 @@
 /*
- * XREFs of MmCheckPartitionManagementSupported @ 0x1409324F4
+ * XREFs of MmCheckPartitionManagementSupported @ 0x1408F7C48
  * Callers:
- *     NtManagePartition @ 0x140933FF0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1408F6B10 (NtManagePartition.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierHalExamineMBR @ 0x14070C714
+ * XREFs of VerifierHalExamineMBR @ 0x14070C744
  * Callers:
  *     <none>
  * Callees:

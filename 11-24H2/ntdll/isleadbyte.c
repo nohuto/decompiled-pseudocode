@@ -1,8 +1,8 @@
 /*
- * XREFs of isleadbyte @ 0x180124A28
+ * XREFs of isleadbyte @ 0x180122C58
  * Callers:
- *     ReadString @ 0x18012B678 (ReadString.c)
- *     _input_l @ 0x18012B9E0 (_input_l.c)
+ *     ReadString @ 0x1801298A8 (ReadString.c)
+ *     _input_l @ 0x180129C10 (_input_l.c)
  * Callees:
  *     <none>
  */

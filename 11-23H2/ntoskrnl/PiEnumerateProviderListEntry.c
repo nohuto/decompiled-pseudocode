@@ -1,13 +1,13 @@
 /*
- * XREFs of PiEnumerateProviderListEntry @ 0x140838348
+ * XREFs of PiEnumerateProviderListEntry @ 0x140838648
  * Callers:
- *     PipCheckForUnsatisfiedDependencies @ 0x1406C982C (PipCheckForUnsatisfiedDependencies.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14079C344 (PipProcessRebuildPowerRelationsQueue.c)
- *     IopSortRelationListForRemove @ 0x1408687B8 (IopSortRelationListForRemove.c)
- *     PiQueryPowerDependencyRelations @ 0x14086ED78 (PiQueryPowerDependencyRelations.c)
- *     IopCheckIfMergeRequired @ 0x14096C92C (IopCheckIfMergeRequired.c)
+ *     PipCheckForUnsatisfiedDependencies @ 0x1406C985C (PipCheckForUnsatisfiedDependencies.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14079C534 (PipProcessRebuildPowerRelationsQueue.c)
+ *     IopSortRelationListForRemove @ 0x1408689F8 (IopSortRelationListForRemove.c)
+ *     PiQueryPowerDependencyRelations @ 0x14086EFB8 (PiQueryPowerDependencyRelations.c)
+ *     IopCheckIfMergeRequired @ 0x14096CB2C (IopCheckIfMergeRequired.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x140398484 (PiListEntryToDependencyEdge.c)
+ *     PiListEntryToDependencyEdge @ 0x140398664 (PiListEntryToDependencyEdge.c)
  */
 
 __int64 __fastcall PiEnumerateProviderListEntry(__int64 a1)

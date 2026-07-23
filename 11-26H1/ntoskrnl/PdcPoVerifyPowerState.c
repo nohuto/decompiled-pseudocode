@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoVerifyPowerState @ 0x1407DB7D0
+ * XREFs of PdcPoVerifyPowerState @ 0x1407DF7E0
  * Callers:
  *     <none>
  * Callees:
- *     PopVerifySystemPowerState @ 0x140B24424 (PopVerifySystemPowerState.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopVerifySystemPowerState @ 0x140B268C4 (PopVerifySystemPowerState.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoVerifyPowerState(__int64 a1, __int64 a2)

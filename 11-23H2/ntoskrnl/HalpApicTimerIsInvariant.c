@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpApicTimerIsInvariant @ 0x1403A4F98
+ * XREFs of HalpApicTimerIsInvariant @ 0x1403A5178
  * Callers:
- *     HalpApicTimerDiscover @ 0x1403A47BC (HalpApicTimerDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403A499C (HalpApicTimerDiscover.c)
  * Callees:
- *     HalSocRequestApi @ 0x1403783EC (HalSocRequestApi.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalSocRequestApi @ 0x14037858C (HalSocRequestApi.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall HalpApicTimerIsInvariant(__int64 a1)

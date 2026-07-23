@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpAllocateHeapBackend @ 0x1402FC934
+ * XREFs of RtlpHpAllocateHeapBackend @ 0x1402FCB24
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA0B0 (ExAllocateHeapPool.c)
  * Callees:
  *     RtlpHpSegAlloc @ 0x14000B118 (RtlpHpSegAlloc.c)
  */

@@ -10,44 +10,44 @@
  *     _LdrpIsSubstringFound@8 @ 0x4B332FBA (_LdrpIsSubstringFound@8.c)
  */
 
-int __fastcall LdrpIsVerifierActivationFilterMatched(int a1, int a2, int a3)
+int __fastcall LdrpIsVerifierActivationFilterMatched(int a1, void *a2, HANDLE a3)
 {
   int v3; // edi
-  unsigned __int16 *v4; // esi
-  unsigned __int16 *v5; // ebx
+  const WCHAR *v4; // esi
+  const WCHAR *v5; // ebx
   WCHAR v6; // ax
   WCHAR v7; // cx
   const WCHAR *v8; // edx
   const char *v9; // eax
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-224h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-224h] BYREF
   int v12; // [esp+18h] [ebp-21Ch]
-  unsigned __int16 *v13; // [esp+1Ch] [ebp-218h]
+  const WCHAR *v13; // [esp+1Ch] [ebp-218h]
   PCWSTR SourceString; // [esp+20h] [ebp-214h]
   int v15; // [esp+24h] [ebp-210h]
-  unsigned __int16 v16[258]; // [esp+28h] [ebp-20Ch] BYREF
+  ULONG Value[129]; // [esp+28h] [ebp-20Ch] BYREF
 
   v12 = a1;
   v3 = 0;
-  v16[0] = 0;
-  if ( RtlQueryApplicationKeyOption(a2, a3, (int)L"VerifierActivationFilter", 1, v16, 512, 0, 0) < 0 )
+  LOWORD(Value[0]) = 0;
+  if ( RtlQueryApplicationKeyOption(a2, a3, L"VerifierActivationFilter", 1, Value, 512, 0, 0) < 0 )
     return 1;
   if ( (ShowSnaps & 5) != 0 )
     LdrpLogDbgPrint(
       (int)"minkernel\\ntdll\\ldrinit.c",
       7173,
-      "LdrpIsVerifierActivationFilterMatched",
+      (int)"LdrpIsVerifierActivationFilterMatched",
       2,
       "VerifierActivationFilter found, contents = \"%ws\"\n",
-      v16);
-  if ( v16[0] == 42 || !v16[0] )
+      Value);
+  if ( LOWORD(Value[0]) == 42 || !LOWORD(Value[0]) )
   {
     v3 = 1;
   }
   else
   {
-    v4 = v16;
+    v4 = (const WCHAR *)Value;
     v15 = 9;
-    v5 = &v16[wcslen(v16)];
+    v5 = (const WCHAR *)Value + wcslen((const unsigned __int16 *)Value);
     v13 = v5;
     do
     {
@@ -79,7 +79,7 @@ int __fastcall LdrpIsVerifierActivationFilterMatched(int a1, int a2, int a3)
         break;
       *v4 = 0;
       RtlInitUnicodeString(&DestinationString, v8);
-      if ( LdrpIsSubstringFound((unsigned __int16 *)(*(_DWORD *)(v12 + 16) + 64), &DestinationString.Length) )
+      if ( LdrpIsSubstringFound(&DestinationString.Length, (unsigned __int16 *)(*(_DWORD *)(v12 + 16) + 64), (int)v4) )
         v3 = 1;
       ++v4;
     }
@@ -93,7 +93,7 @@ int __fastcall LdrpIsVerifierActivationFilterMatched(int a1, int a2, int a3)
     LdrpLogDbgPrint(
       (int)"minkernel\\ntdll\\ldrinit.c",
       7227,
-      "LdrpIsVerifierActivationFilterMatched",
+      (int)"LdrpIsVerifierActivationFilterMatched",
       2,
       "VerifierActivationFilter match %sfound.\n",
       v9);

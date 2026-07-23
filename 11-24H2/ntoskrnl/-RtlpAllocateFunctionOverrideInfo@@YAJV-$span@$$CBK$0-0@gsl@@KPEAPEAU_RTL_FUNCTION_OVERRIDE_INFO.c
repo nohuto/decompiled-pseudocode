@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RtlpAllocateFunctionOverrideInfo@@YAJV?$span@$$CBK$0?0@gsl@@KPEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@@Z @ 0x1409EC378
+ * XREFs of ?RtlpAllocateFunctionOverrideInfo@@YAJV?$span@$$CBK$0?0@gsl@@KPEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@@Z @ 0x14094070C
  * Callers:
- *     ?RtlpCreateFunctionOverrideFixupInfo@@YAJV?$span@$$CBE$0?0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@@Z @ 0x1409EB484 (-RtlpCreateFunctionOverrideFixupInfo@@YAJV-$span@$$CBE$0-0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAP.c)
+ *     ?RtlpCreateFunctionOverrideFixupInfo@@YAJV?$span@$$CBE$0?0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@@Z @ 0x14093F818 (-RtlpCreateFunctionOverrideFixupInfo@@YAJV-$span@$$CBE$0-0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAP.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x1404F8960 (-terminate@details@gsl@@YAXXZ.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6240 (-terminate@details@gsl@@YAXXZ.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall RtlpAllocateFunctionOverrideInfo(unsigned __int64 *a1, unsigned int a2, __int64 *a3)
@@ -25,17 +25,17 @@ __int64 __fastcall RtlpAllocateFunctionOverrideInfo(unsigned __int64 *a1, unsign
   unsigned __int64 v17; // r8
   __int64 v18; // r15
   unsigned __int128 v19; // rax
-  unsigned __int64 v20; // rdi
+  ULONG_PTR v20; // rdi
   unsigned int v21; // ebx
   __int64 v22; // rcx
   unsigned __int64 v23; // rax
-  unsigned __int64 v24; // rbx
+  ULONG_PTR v24; // rbx
   __int64 Pool2; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 *v28; // rdx
-  unsigned __int64 v29; // rbx
-  __int64 *v30; // r10
+  _QWORD *v26; // rdx
+  unsigned __int64 v27; // rbx
+  _QWORD *v28; // r10
+  _DWORD *v29; // r9
+  __int64 v30; // r8
   unsigned __int64 v31; // rax
   char v32; // al
   int v33; // eax
@@ -107,10 +107,10 @@ __int64 __fastcall RtlpAllocateFunctionOverrideInfo(unsigned __int64 *a1, unsign
     return 3221225595LL;
   if ( v24 > 0xFFFFFFFF )
     return 3221225495LL;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v24, 0x6F467452u);
   if ( !Pool2 )
     return 3221225495LL;
-  v28 = (__int64 *)(Pool2 + v16);
+  v26 = (_QWORD *)(Pool2 + v16);
   *(_QWORD *)Pool2 = v37;
   *(_QWORD *)(Pool2 + 24) = Pool2 + v16;
   *(_DWORD *)(Pool2 + 32) = v7;
@@ -119,38 +119,35 @@ __int64 __fastcall RtlpAllocateFunctionOverrideInfo(unsigned __int64 *a1, unsign
     goto LABEL_22;
   if ( v24 < v20 )
     goto LABEL_22;
-  v29 = v24 - v20;
-  if ( v29 == -1LL )
+  v27 = v24 - v20;
+  if ( v27 == -1LL )
     goto LABEL_22;
-  v30 = &v28[v18];
-  v27 = v20 + Pool2;
-  if ( v28 != v30 )
+  v28 = &v26[v18];
+  v29 = (_DWORD *)(v20 + Pool2);
+  if ( v26 != v28 )
   {
-    while ( 1 )
+    while ( v7 < v36 )
     {
-      v26 = v7;
-      if ( v7 >= v36 )
-        break;
-      v26 = (unsigned int)v38[v7];
-      if ( (_DWORD)v26 )
+      v30 = (unsigned int)v38[v7];
+      if ( (_DWORD)v30 )
       {
-        v31 = 8 * v26 + 4;
-        if ( v29 < v31 )
+        v31 = 8 * v30 + 4;
+        if ( v27 < v31 )
           break;
-        v29 -= v31;
-        v35 = (_DWORD *)v27;
-        if ( v29 == -1LL )
+        v27 -= v31;
+        v35 = v29;
+        if ( v27 == -1LL )
           break;
-        *v28 = v27;
-        v27 += v31;
-        *v35 = v26;
+        *v26 = v29;
+        v29 = (_DWORD *)((char *)v29 + v31);
+        *v35 = v30;
       }
       ++v7;
-      if ( ++v28 == v30 )
+      if ( ++v26 == v28 )
         goto LABEL_32;
     }
 LABEL_22:
-    gsl::details::terminate((gsl::details *)Pool2, (__int64)v28, v26, v27);
+    gsl::details::terminate((gsl::details *)Pool2, (__int64)v26);
     __debugbreak();
   }
 LABEL_32:

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExGetFirmwareEnvironmentVariable @ 0x140907830
+ * XREFs of ExGetFirmwareEnvironmentVariable @ 0x140A2F990
  * Callers:
- *     NtQuerySystemEnvironmentValueEx @ 0x140907320 (NtQuerySystemEnvironmentValueEx.c)
- *     PopCheckShutdownMarker @ 0x140CD0064 (PopCheckShutdownMarker.c)
+ *     NtQuerySystemEnvironmentValueEx @ 0x140A2F580 (NtQuerySystemEnvironmentValueEx.c)
+ *     PopCheckShutdownMarker @ 0x140CD620C (PopCheckShutdownMarker.c)
  * Callees:
- *     ExpUnicodeStringToNonpagedWStr @ 0x1409078BC (ExpUnicodeStringToNonpagedWStr.c)
- *     ExpGetFirmwareEnvironmentVariable @ 0x140907D64 (ExpGetFirmwareEnvironmentVariable.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpUnicodeStringToNonpagedWStr @ 0x140A2FA1C (ExpUnicodeStringToNonpagedWStr.c)
+ *     ExpGetFirmwareEnvironmentVariable @ 0x140A2FEC4 (ExpGetFirmwareEnvironmentVariable.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetFirmwareEnvironmentVariable(__int64 a1, int a2, int a3, int a4, __int64 a5)
@@ -14,7 +14,7 @@ __int64 __fastcall ExGetFirmwareEnvironmentVariable(__int64 a1, int a2, int a3, 
   void *v8; // rdi
   unsigned int FirmwareEnvironmentVariable; // ebx
 
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] != 2 )
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) != 2 )
     return 3221225474LL;
   v8 = (void *)ExpUnicodeStringToNonpagedWStr();
   if ( !v8 )

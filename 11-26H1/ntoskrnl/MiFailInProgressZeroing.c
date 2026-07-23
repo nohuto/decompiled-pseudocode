@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFailInProgressZeroing @ 0x14070E390
+ * XREFs of MiFailInProgressZeroing @ 0x140713090
  * Callers:
  *     <none>
  * Callees:
- *     MiGetZeroingContext @ 0x14045D650 (MiGetZeroingContext.c)
+ *     MiGetZeroingContext @ 0x140457050 (MiGetZeroingContext.c)
  */
 
 void __fastcall MiFailInProgressZeroing(__int64 a1)

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpCreateSplitBlock @ 0x180028890
+ * XREFs of RtlpCreateSplitBlock @ 0x180013960
  * Callers:
- *     RtlpReAllocateHeap @ 0x1800216E0 (RtlpReAllocateHeap.c)
- *     RtlpGrowBlockInPlace @ 0x180028190 (RtlpGrowBlockInPlace.c)
+ *     RtlpReAllocateHeap @ 0x18000C7B0 (RtlpReAllocateHeap.c)
+ *     RtlpGrowBlockInPlace @ 0x180013260 (RtlpGrowBlockInPlace.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpAnalyzeHeapFailure @ 0x1800257B0 (RtlpAnalyzeHeapFailure.c)
- *     RtlpDeCommitFreeBlock @ 0x180025C70 (RtlpDeCommitFreeBlock.c)
- *     RtlpInsertFreeBlock @ 0x180026CC0 (RtlpInsertFreeBlock.c)
- *     RtlpCommitBlock @ 0x1800274E0 (RtlpCommitBlock.c)
- *     RtlpBreakPointHeap @ 0x180027944 (RtlpBreakPointHeap.c)
- *     RtlpFindEntry @ 0x180029F40 (RtlpFindEntry.c)
- *     RtlpHeapAddListEntry @ 0x18007E3B0 (RtlpHeapAddListEntry.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
- *     RtlCompareMemoryUlong @ 0x180163260 (RtlCompareMemoryUlong.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180010880 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010D40 (RtlpDeCommitFreeBlock.c)
+ *     RtlpInsertFreeBlock @ 0x180011D90 (RtlpInsertFreeBlock.c)
+ *     RtlpCommitBlock @ 0x1800125B0 (RtlpCommitBlock.c)
+ *     RtlpBreakPointHeap @ 0x180012A14 (RtlpBreakPointHeap.c)
+ *     RtlpFindEntry @ 0x180015010 (RtlpFindEntry.c)
+ *     RtlpHeapAddListEntry @ 0x18006CAA0 (RtlpHeapAddListEntry.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
+ *     RtlCompareMemoryUlong @ 0x180163160 (RtlCompareMemoryUlong.c)
  */
 
 char __fastcall RtlpCreateSplitBlock(
@@ -87,8 +87,8 @@ char __fastcall RtlpCreateSplitBlock(
   int v68; // r8d
   _DWORD *v69; // rdx
   char v70; // al
-  unsigned __int64 v71; // r14
-  __int64 v72; // r15
+  SIZE_T v71; // r14
+  SIZE_T v72; // r15
   unsigned __int64 v73; // rsi
   _QWORD *v74; // rdi
   _QWORD *Entry; // r8
@@ -131,7 +131,7 @@ char __fastcall RtlpCreateSplitBlock(
   unsigned __int16 v113; // [rsp+B8h] [rbp+20h]
   __int16 v114; // [rsp+B8h] [rbp+20h]
   unsigned __int16 v115; // [rsp+B8h] [rbp+20h]
-  unsigned int v116; // [rsp+C8h] [rbp+30h]
+  int v116; // [rsp+C8h] [rbp+30h]
 
   *(_BYTE *)(a3 + 15) = 0;
   *(_BYTE *)(a3 + 10) = a4;
@@ -270,7 +270,7 @@ LABEL_113:
           v71 = 16LL * *(unsigned __int16 *)(v13 + 8) - 32;
           if ( (v70 & 2) != 0 && v71 > 4 )
             v71 = 16LL * *(unsigned __int16 *)(v13 + 8) - 36;
-          v72 = RtlCompareMemoryUlong(v13 + 32, v71, 4277075694LL);
+          v72 = RtlCompareMemoryUlong((PVOID)(v13 + 32), v71, 0xFEEEFEEE);
           if ( v72 != v71 )
           {
             if ( NtCurrentPeb()->Ldr )

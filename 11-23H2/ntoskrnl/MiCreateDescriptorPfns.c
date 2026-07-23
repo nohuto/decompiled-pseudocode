@@ -5,12 +5,12 @@
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
  *     MiMarkPfnVerified @ 0x140219BD0 (MiMarkPfnVerified.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
- *     MiInitializeNewPfns @ 0x140375770 (MiInitializeNewPfns.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
+ *     MiInitializeNewPfns @ 0x140375910 (MiInitializeNewPfns.c)
  *     MxCreateFreePfns @ 0x140B426A0 (MxCreateFreePfns.c)
  *     MxInsertEnclaveBootPages @ 0x140B99E40 (MxInsertEnclaveBootPages.c)
  */

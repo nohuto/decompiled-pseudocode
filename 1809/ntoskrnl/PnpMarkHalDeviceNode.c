@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpMarkHalDeviceNode @ 0x1409DCA48
+ * XREFs of PnpMarkHalDeviceNode @ 0x1409DDA48
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeFlags @ 0x1406E637C (PipSetDevNodeFlags.c)
  */
 
 __int64 PnpMarkHalDeviceNode()

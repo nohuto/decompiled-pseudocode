@@ -104,7 +104,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
   char v63; // [rsp+50h] [rbp-208h]
   char v64; // [rsp+51h] [rbp-207h]
   NTSTATUS v65; // [rsp+54h] [rbp-204h]
-  struct _PROCESSOR_NUMBER v66; // [rsp+5Ch] [rbp-1FCh] BYREF
+  _PROCESSOR_NUMBER v66; // [rsp+5Ch] [rbp-1FCh] BYREF
   unsigned __int16 v67; // [rsp+60h] [rbp-1F8h]
   HANDLE v68; // [rsp+68h] [rbp-1F0h]
   int v69; // [rsp+70h] [rbp-1E8h]
@@ -143,7 +143,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
   if ( v61 )
   {
     v10 = 1;
-    if ( ThreadInformationClass == (ThreadDescriptorTableEntry|0x20) )
+    if ( ThreadInformationClass == ThreadNameInformation )
     {
       v11 = 8;
     }
@@ -224,13 +224,13 @@ NTSTATUS __stdcall NtQueryInformationThread(
       {
         switch ( ThreadInformationClass )
         {
-          case 6:
+          case ThreadDescriptorTableEntry:
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
             if ( result < 0 )
               return result;
             v43 = xKdEnumerateDebuggingDevices();
             goto LABEL_156;
-          case 9:
+          case ThreadQuerySetWin32StartAddress:
             if ( ThreadInformationLength != 8 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -243,7 +243,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 8;
             goto LABEL_118;
-          case 11:
+          case ThreadPerformanceCount:
             if ( ThreadInformationLength != 8 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -255,7 +255,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 8;
             goto LABEL_118;
-          case 12:
+          case ThreadAmILastThread:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             if ( CurrentThread->Process[1].ThreadSeed[0] != 1 )
@@ -264,7 +264,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 14:
+          case ThreadPriorityBoost:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -277,7 +277,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return ContextThread;
-          case 16:
+          case ThreadIsIoPending:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -289,7 +289,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 17:
+          case ThreadHideFromDebugger:
             if ( ThreadInformationLength != 1 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -301,7 +301,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 1;
             goto LABEL_27;
-          case 18:
+          case ThreadBreakOnTermination:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -313,7 +313,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 20:
+          case ThreadIsTerminated:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -325,7 +325,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 21:
+          case ThreadLastSystemCall:
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
             if ( result < 0 )
               return result;
@@ -333,7 +333,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
 LABEL_156:
             v14 = v43;
             goto LABEL_157;
-          case 22:
+          case ThreadIoPriority:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -346,7 +346,7 @@ LABEL_156:
             if ( ReturnLength )
               *ReturnLength = 4;
             goto LABEL_27;
-          case 24:
+          case ThreadPagePriority:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -358,7 +358,7 @@ LABEL_156:
             if ( ReturnLength )
               *ReturnLength = 4;
             goto LABEL_27;
-          case 26:
+          case ThreadTebInformation:
             if ( ThreadInformationLength != 16 )
               return -1073741820;
             if ( v61 )
@@ -430,7 +430,7 @@ LABEL_187:
               }
             }
             break;
-          case 29:
+          case ThreadWow64Context:
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
             if ( result < 0 )
               return result;
@@ -439,7 +439,7 @@ LABEL_187:
             if ( ContextThread >= 0 && ReturnLength )
               *ReturnLength = 716;
             return ContextThread;
-          case 30:
+          case ThreadGroupInformation:
             if ( ThreadInformationLength != 16 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -452,7 +452,7 @@ LABEL_187:
             if ( ReturnLength )
               *ReturnLength = 16;
             goto LABEL_130;
-          case 31:
+          case ThreadUmsInformation:
             if ( ThreadInformationLength != 24 )
               return -1073741820;
             v48 = v6->m128i_i32[0];
@@ -477,7 +477,7 @@ LABEL_187:
             }
             ObfDereferenceObject(v78);
             goto LABEL_118;
-          case 32:
+          case ThreadCounterProfiling:
             if ( ThreadInformationLength != 1 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -490,20 +490,20 @@ LABEL_187:
             if ( ReturnLength )
               *ReturnLength = ThreadInformationLength;
             goto LABEL_118;
-          case 33:
+          case ThreadIdealProcessorEx:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
             if ( result < 0 )
               return result;
-            v66 = (struct _PROCESSOR_NUMBER)0x400000;
+            v66 = (_PROCESSOR_NUMBER)0x400000;
             KeSetIdealProcessorThreadByNumber((struct _KTHREAD *)Object, &v66, &v66);
             ObfDereferenceObjectWithTag(Object, 0x79517350u);
-            *(struct _PROCESSOR_NUMBER *)v6->m128i_i8 = v66;
+            *(_PROCESSOR_NUMBER *)v6->m128i_i8 = v66;
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 34:
+          case ThreadCpuAccountingInformation:
             if ( !ThreadInformationLength )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -515,7 +515,7 @@ LABEL_187:
               *ReturnLength = 1;
             v14 = v65;
             goto LABEL_157;
-          case 35:
+          case ThreadSuspendCount:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -530,7 +530,7 @@ LABEL_187:
               return v41;
             }
             return result;
-          case 36:
+          case ThreadHeterogeneousCpuPolicy:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             ContextThread = ObpReferenceObjectByHandleWithTag(
@@ -547,7 +547,7 @@ LABEL_187:
               *ReturnLength = 4;
             v52 = v51;
             goto LABEL_257;
-          case 37:
+          case ThreadContainerId:
             if ( ThreadInformationLength != 16 )
               return -1073741820;
             if ( ThreadHandle != (HANDLE)-2LL )
@@ -560,7 +560,7 @@ LABEL_187:
                 *ReturnLength = 16;
             }
             return result;
-          case 38:
+          case ThreadNameInformation:
             v64 = 0;
             Object = 0LL;
             v33 = 0;
@@ -627,7 +627,7 @@ LABEL_187:
             if ( v64 )
               ObfDereferenceObjectWithTag(v35, 0x79517350u);
             return v34;
-          case 39:
+          case ThreadSelectedCpuSets:
             if ( (ThreadInformationLength & 7) != 0 || ThreadInformationLength > 0xA0 )
               return -1073741820;
             v34 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -645,7 +645,7 @@ LABEL_187:
               memmove(v6, Src, v55);
             }
             return v34;
-          case 40:
+          case ThreadSystemThreadInformation:
             if ( ThreadInformationLength != 80 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -675,7 +675,7 @@ LABEL_187:
               return v56;
             }
             return result;
-          case 41:
+          case ThreadActualGroupAffinity:
             if ( ThreadInformationLength != 16 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -690,7 +690,7 @@ LABEL_187:
 LABEL_130:
             ObfDereferenceObjectWithTag(v32, 0x79517350u);
             goto LABEL_118;
-          case 42:
+          case ThreadDynamicCodePolicyInfo:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -702,7 +702,7 @@ LABEL_130:
             if ( ReturnLength )
               *ReturnLength = 4;
             goto LABEL_27;
-          case 43:
+          case ThreadExplicitCaseSensitivity:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x79517350u, (__int64)&Object, 0LL, 0LL);
@@ -716,7 +716,7 @@ LABEL_130:
 LABEL_157:
             v15 = Object;
             goto LABEL_27;
-          case 44:
+          case ThreadWorkOnBehalfTicket:
             if ( ThreadInformationLength != 16 )
               return -1073741820;
             if ( ThreadHandle != (HANDLE)-2LL )
@@ -738,7 +738,7 @@ LABEL_157:
             if ( ReturnLength )
               *ReturnLength = 16;
             return 0;
-          case 45:
+          case ThreadSubsystemInformation:
             if ( ThreadInformationLength != 4 )
               return -1073741820;
             v60 = 0;

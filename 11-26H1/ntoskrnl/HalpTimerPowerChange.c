@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTimerPowerChange @ 0x140582BE4
+ * XREFs of HalpTimerPowerChange @ 0x140585104
  * Callers:
- *     HalpTimerPowerCriticalTransitionCallback @ 0x140582D00 (HalpTimerPowerCriticalTransitionCallback.c)
+ *     HalpTimerPowerCriticalTransitionCallback @ 0x140585220 (HalpTimerPowerCriticalTransitionCallback.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpTimerClockPowerChange @ 0x1405811D0 (HalpTimerClockPowerChange.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x140582648 (HalpTimerPerformanceCounterPowerChange.c)
- *     HalpTimerStallCounterPowerChange @ 0x140582EE4 (HalpTimerStallCounterPowerChange.c)
- *     HalpTimerRestartProfileInterrupt @ 0x1405845EC (HalpTimerRestartProfileInterrupt.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpTimerClockPowerChange @ 0x1405836F0 (HalpTimerClockPowerChange.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x140584B68 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalpTimerStallCounterPowerChange @ 0x140585404 (HalpTimerStallCounterPowerChange.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x140586B0C (HalpTimerRestartProfileInterrupt.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall HalpTimerPowerChange(ULONG_PTR BugCheckParameter3, char a2)

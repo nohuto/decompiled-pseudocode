@@ -1,22 +1,22 @@
 /*
- * XREFs of ObpCaptureObjectCreateInformation @ 0x1408FDFD0
+ * XREFs of ObpCaptureObjectCreateInformation @ 0x14092DF60
  * Callers:
- *     ObReferenceObjectByNameEx @ 0x1408EBDCC (ObReferenceObjectByNameEx.c)
- *     NtCreateEvent @ 0x1408EF8C0 (NtCreateEvent.c)
- *     CmpCreateKeyBody @ 0x1408FBCB0 (CmpCreateKeyBody.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObCreateObject @ 0x140932FB0 (ObCreateObject.c)
- *     IopAllocRealFileObject @ 0x1409337E0 (IopAllocRealFileObject.c)
- *     EtwpRegisterUMProvider @ 0x140934B00 (EtwpRegisterUMProvider.c)
+ *     ObReferenceObjectByNameEx @ 0x1408F238C (ObReferenceObjectByNameEx.c)
+ *     NtCreateEvent @ 0x1408F5E80 (NtCreateEvent.c)
+ *     ObCreateObject @ 0x14090EB60 (ObCreateObject.c)
+ *     IopAllocRealFileObject @ 0x14090F390 (IopAllocRealFileObject.c)
+ *     EtwpRegisterUMProvider @ 0x1409106B0 (EtwpRegisterUMProvider.c)
+ *     CmpCreateKeyBody @ 0x14092BC40 (CmpCreateKeyBody.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     SeValidateSecurityQos @ 0x1408EBD40 (SeValidateSecurityQos.c)
- *     ObpCaptureObjectName @ 0x1408F26B0 (ObpCaptureObjectName.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     SeCaptureSecurityDescriptor @ 0x1409263C0 (SeCaptureSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     SeValidateSecurityQos @ 0x1408F2300 (SeValidateSecurityQos.c)
+ *     ObpCaptureObjectName @ 0x1408F8C70 (ObpCaptureObjectName.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     SeCaptureSecurityDescriptor @ 0x140901ED0 (SeCaptureSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCaptureObjectCreateInformation(char a1, char a2, void *a3, _OWORD *a4, __int64 a5, int a6)
@@ -24,7 +24,7 @@ __int64 __fastcall ObpCaptureObjectCreateInformation(char a1, char a2, void *a3,
   bool v8; // di
   unsigned int v9; // eax
   unsigned int *v10; // rsi
-  void *v11; // r15
+  unsigned __int16 *v11; // r15
   void *v12; // r14
   int v13; // edi
   void *v14; // rcx
@@ -84,7 +84,7 @@ __int64 __fastcall ObpCaptureObjectCreateInformation(char a1, char a2, void *a3,
       *(_DWORD *)a5 = v9;
       v10 = (unsigned int *)v25;
       v28 = v25;
-      v11 = v26;
+      v11 = (unsigned __int16 *)v26;
       v29 = v26;
       v12 = Src;
       v30 = Src;
@@ -101,7 +101,7 @@ LABEL_6:
       }
       if ( v11 )
       {
-        v13 = SeCaptureSecurityDescriptor(v11, a5 + 32);
+        v13 = SeCaptureSecurityDescriptor(v11, a1, 1, 1, (unsigned __int16 **)(a5 + 32));
         if ( v13 < 0 )
         {
           *(_QWORD *)(a5 + 32) = 0LL;

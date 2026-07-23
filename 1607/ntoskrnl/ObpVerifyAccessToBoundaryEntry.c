@@ -1,18 +1,18 @@
 /*
- * XREFs of ObpVerifyAccessToBoundaryEntry @ 0x1404793C8
+ * XREFs of ObpVerifyAccessToBoundaryEntry @ 0x140478298
  * Callers:
  *     <none>
  * Callees:
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     SeAccessCheckWithHint @ 0x140062B80 (SeAccessCheckWithHint.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlAddMandatoryAce @ 0x140420B10 (RtlAddMandatoryAce.c)
- *     RtlSetSaclSecurityDescriptor @ 0x14047AD08 (RtlSetSaclSecurityDescriptor.c)
- *     RtlIsPackageSid @ 0x14047AD70 (RtlIsPackageSid.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     SeAccessCheckWithHint @ 0x140062700 (SeAccessCheckWithHint.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlAddMandatoryAce @ 0x14041F9D0 (RtlAddMandatoryAce.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140479BD8 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlIsPackageSid @ 0x140479C40 (RtlIsPackageSid.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
  */
 
 __int64 __fastcall ObpVerifyAccessToBoundaryEntry(int *a1, __int64 a2)
@@ -39,7 +39,7 @@ __int64 __fastcall ObpVerifyAccessToBoundaryEntry(int *a1, __int64 a2)
   if ( *a1 == 2 )
   {
     v6 = 0;
-    if ( (unsigned __int8)RtlIsPackageSid(a1 + 2) )
+    if ( RtlIsPackageSid(a1 + 2) )
     {
       v11 = *(PSID **)(a2 + 32);
       if ( !v11 || RtlEqualSid(v3, *v11) )

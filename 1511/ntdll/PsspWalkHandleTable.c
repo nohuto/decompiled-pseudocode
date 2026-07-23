@@ -14,37 +14,37 @@
  */
 
 void __fastcall PsspWalkHandleTable(
-        __int64 a1,
+        void *a1,
         unsigned int *a2,
         unsigned int a3,
         int a4,
-        unsigned __int8 (__fastcall *a5)(__int64, _QWORD, _QWORD, __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned __int64, int),
+        _RTL_DYNAMIC_HASH_TABLE *a5,
         __int64 a6)
 {
   unsigned int v7; // ebx
   char v8; // di
-  __int64 v9; // rdx
+  void *v9; // rdx
   unsigned int v10; // r12d
   __int64 v11; // r9
   unsigned int v12; // ebx
   const wchar_t **v13; // rdi
   char v14; // [rsp+50h] [rbp-B0h]
   int v15; // [rsp+54h] [rbp-ACh] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE TargetHandle; // [rsp+58h] [rbp-A8h] BYREF
   unsigned int v17; // [rsp+60h] [rbp-A0h]
   unsigned int v18; // [rsp+64h] [rbp-9Ch]
   int v19; // [rsp+68h] [rbp-98h]
-  unsigned __int8 (__fastcall *v20)(__int64, _QWORD, _QWORD, __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned __int64, int); // [rsp+70h] [rbp-90h]
-  __int64 v21; // [rsp+78h] [rbp-88h]
+  PRTL_DYNAMIC_HASH_TABLE HashTable; // [rsp+70h] [rbp-90h]
+  void *v21; // [rsp+78h] [rbp-88h]
   __int64 v22; // [rsp+80h] [rbp-80h]
-  _BYTE v23[8]; // [rsp+90h] [rbp-70h] BYREF
+  _BYTE ObjectInformation[8]; // [rsp+90h] [rbp-70h] BYREF
   wchar_t *String1; // [rsp+98h] [rbp-68h]
   _BYTE v25[64]; // [rsp+140h] [rbp+40h] BYREF
   _BYTE v26[64]; // [rsp+180h] [rbp+80h] BYREF
   _WORD v27[264]; // [rsp+1C0h] [rbp+C0h] BYREF
 
   v19 = a4;
-  v20 = a5;
+  HashTable = a5;
   v7 = 0;
   v8 = a4;
   v22 = a6;
@@ -55,17 +55,17 @@ void __fastcall PsspWalkHandleTable(
   {
     while ( 1 )
     {
-      v9 = *a2;
+      v9 = (void *)*a2;
       v10 = 0;
-      Handle = 0LL;
+      TargetHandle = 0LL;
       v14 = 0;
       v15 = 0;
-      if ( (int)ZwDuplicateObject(a1, v9, -1LL, &Handle, 0, 0, 2) < 0 )
+      if ( ZwDuplicateObject(a1, v9, (HANDLE)0xFFFFFFFFFFFFFFFFLL, &TargetHandle, 0, 0, 2u) < 0 )
         goto LABEL_20;
       v10 = 4;
-      if ( (int)ZwQueryObject(Handle, 2LL, v23, 168LL, 0LL) >= 0 )
+      if ( ZwQueryObject(TargetHandle, ObjectTypeInformation, ObjectInformation, 0xA8u, 0LL) >= 0 )
         break;
-      NtClose(Handle);
+      NtClose(TargetHandle);
 LABEL_22:
       a1 = v21;
       ++v7;
@@ -79,11 +79,11 @@ LABEL_22:
       memset(v27, 0, sizeof(v27));
       if ( wcsicmp(String1, L"File") )
       {
-        if ( (int)ZwQueryObject(Handle, 1LL, v27, 528LL, 0LL) < 0 )
+        if ( ZwQueryObject(TargetHandle, ObjectNameInformation, v27, 0x210u, 0LL) < 0 )
           v27[8] = 0;
       }
     }
-    if ( (v8 & 0x10) != 0 && (int)ZwQueryObject(Handle, 0LL, v25, 56LL, 0LL) >= 0 )
+    if ( (v8 & 0x10) != 0 && ZwQueryObject(TargetHandle, ObjectBasicInformation, v25, 0x38u, 0LL) >= 0 )
       v10 = 20;
     v15 = 0;
     if ( (v8 & 0x20) != 0 )
@@ -97,7 +97,11 @@ LABEL_22:
         if ( v12 >= 6 )
           goto LABEL_19;
       }
-      if ( ((int (__fastcall *)(HANDLE, _BYTE *, __int64, int *))*(&funcs_18008A975 + 3 * v12))(Handle, v26, 64LL, &v15) >= 0 )
+      if ( ((int (__fastcall *)(HANDLE, _BYTE *, __int64, int *))*(&funcs_18008A975 + 3 * v12))(
+             TargetHandle,
+             v26,
+             64LL,
+             &v15) >= 0 )
       {
         if ( v15 )
         {
@@ -107,15 +111,15 @@ LABEL_22:
       }
     }
 LABEL_19:
-    NtClose(Handle);
+    NtClose(TargetHandle);
 LABEL_20:
     LOBYTE(v11) = v14;
-    if ( !v20(
+    if ( !((unsigned __int8 (__fastcall *)(__int64, _QWORD, _QWORD, __int64, unsigned __int64, unsigned __int64, unsigned __int64, unsigned __int64, int))HashTable)(
             v22,
             v10,
             *a2,
             v11,
-            (unsigned __int64)v23 & -(__int64)((v10 & 4) != 0),
+            (unsigned __int64)ObjectInformation & -(__int64)((v10 & 4) != 0),
             (unsigned __int64)v27 & -(__int64)((v10 & 4) != 0),
             (unsigned __int64)v25 & -(__int64)((v10 & 0x10) != 0),
             (unsigned __int64)v26 & -(__int64)((v10 & 0x20) != 0),

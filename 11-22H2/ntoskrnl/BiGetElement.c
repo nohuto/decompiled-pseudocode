@@ -12,30 +12,30 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall BiGetElement(__int64 a1, unsigned int a2, _QWORD *a3, unsigned int *a4)
+__int64 __fastcall BiGetElement(HANDLE BcdObjectHandle, ULONG BcdElement, _QWORD *a3, ULONG *a4)
 {
-  int ElementDataWithFlags; // ebx
+  NTSTATUS ElementDataWithFlags; // ebx
   void *Pool2; // rdi
-  __int64 v10; // r8
-  unsigned int v12; // [rsp+60h] [rbp+18h] BYREF
+  BCD_FLAGS v10; // r8d
+  ULONG BufferSize; // [rsp+60h] [rbp+18h] BYREF
 
-  v12 = 0;
+  BufferSize = 0;
   *a4 = 0;
   *a3 = 0LL;
-  ElementDataWithFlags = BcdGetElementDataWithFlags(a1, a2, (__int64)a3, 0LL, &v12);
+  ElementDataWithFlags = BcdGetElementDataWithFlags(BcdObjectHandle, BcdElement, (BCD_FLAGS)a3, 0LL, &BufferSize);
   if ( ElementDataWithFlags == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(258LL, v12, 1262764866LL);
+    Pool2 = (void *)ExAllocatePool2(258LL, BufferSize, 1262764866LL);
     if ( Pool2 )
     {
-      ElementDataWithFlags = BcdGetElementDataWithFlags(a1, a2, v10, (__int64)Pool2, &v12);
+      ElementDataWithFlags = BcdGetElementDataWithFlags(BcdObjectHandle, BcdElement, v10, Pool2, &BufferSize);
       if ( ElementDataWithFlags < 0 )
       {
         ExFreePoolWithTag(Pool2, 0x4B444342u);
       }
       else
       {
-        *a4 = v12;
+        *a4 = BufferSize;
         *a3 = Pool2;
       }
     }

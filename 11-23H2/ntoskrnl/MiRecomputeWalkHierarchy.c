@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRecomputeWalkHierarchy @ 0x14025BC40
+ * XREFs of MiRecomputeWalkHierarchy @ 0x14025BED0
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14025C170 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14025C400 (MiWalkPageTablesRecursively.c)
  * Callees:
  *     <none>
  */

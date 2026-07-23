@@ -27,7 +27,7 @@ __int64 __fastcall BiCloseStore(__int64 a1, char a2)
   if ( (v6 & 4) != 0 && BiWasFirmwareModified(v4) )
   {
     BiLogMessage(2LL, L"Exporting alterations to firmware.");
-    v7 = BiExportStoreAlterationsToFirmware((__int64)v5);
+    v7 = BiExportStoreAlterationsToFirmware(v5);
     v3 = v7;
     if ( v7 < 0 )
       BiLogMessage(4LL, L"Failed to export alterations to firmware. Status: %x", (unsigned int)v7);

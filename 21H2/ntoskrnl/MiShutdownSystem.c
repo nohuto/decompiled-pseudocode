@@ -1,26 +1,26 @@
 /*
- * XREFs of MiShutdownSystem @ 0x1409AFDB8
+ * XREFs of MiShutdownSystem @ 0x1409B0CE8
  * Callers:
- *     MmShutdownSystem @ 0x1409B0180 (MmShutdownSystem.c)
+ *     MmShutdownSystem @ 0x1409B10B0 (MmShutdownSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MmUnlockPagableImageSection @ 0x14031AA10 (MmUnlockPagableImageSection.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     CcNotifyWriteBehind @ 0x140384670 (CcNotifyWriteBehind.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MiFlushAllFilesystemPages @ 0x1405355C8 (MiFlushAllFilesystemPages.c)
- *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
- *     MmLockPagableSectionByHandle @ 0x1406EF0C0 (MmLockPagableSectionByHandle.c)
- *     MiFreeLoadedImportList @ 0x140773614 (MiFreeLoadedImportList.c)
- *     MiDeletePagingFiles @ 0x1408D059C (MiDeletePagingFiles.c)
- *     MiZeroAllPageFiles @ 0x1409AFF70 (MiZeroAllPageFiles.c)
- *     MiDeleteAllHardwareEnclaves @ 0x1409B09C0 (MiDeleteAllHardwareEnclaves.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MmUnlockPagableImageSection @ 0x140325760 (MmUnlockPagableImageSection.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     CcNotifyWriteBehind @ 0x1403847C0 (CcNotifyWriteBehind.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     MiFlushAllFilesystemPages @ 0x140535808 (MiFlushAllFilesystemPages.c)
+ *     MmReleaseLoadLock @ 0x1406A83F0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406A8450 (MmAcquireLoadLock.c)
+ *     MmLockPagableSectionByHandle @ 0x1407064A0 (MmLockPagableSectionByHandle.c)
+ *     MiFreeLoadedImportList @ 0x1407737D4 (MiFreeLoadedImportList.c)
+ *     MiDeletePagingFiles @ 0x1408D06FC (MiDeletePagingFiles.c)
+ *     MiZeroAllPageFiles @ 0x1409B0EA0 (MiZeroAllPageFiles.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x1409B18F0 (MiDeleteAllHardwareEnclaves.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 char MiShutdownSystem()
@@ -34,21 +34,24 @@ char MiShutdownSystem()
   PVOID Pool; // rax
   PVOID v7; // rsi
   PVOID v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  _DWORD *v11; // r9
 
-  if ( !dword_140C4E6C4 )
+  if ( !dword_140C4E704 )
   {
     CcNotifyWriteBehind();
     MiFlushAllFilesystemPages();
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C51190, 0LL);
-    dword_140C4E6C4 = 1;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C51190, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C51190);
-    KeAbPostRelease((ULONG_PTR)&qword_140C51190);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)qword_140C511D0, 0LL);
+    dword_140C4E704 = 1;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140C511D0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(qword_140C511D0);
+    KeAbPostRelease((ULONG_PTR)qword_140C511D0);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
-    KeSetEvent(&stru_140C50DE8, 0, 0);
-    if ( byte_140C4E6C2 == 1 )
+    KeSetEvent(&stru_140C50E28, 0, 0);
+    if ( byte_140C4E702 == 1 )
     {
       if ( (MiFlags & 4) == 0 )
         MmLockPagableSectionByHandle(ExPageLockHandle);
@@ -89,7 +92,7 @@ char MiShutdownSystem()
       v2 = (PVOID *)*v2;
     }
     MmReleaseLoadLock(v3);
-    MiDeletePagingFiles((__int64)&MiSystemPartition);
+    MiDeletePagingFiles((__int64)&MiSystemPartition, v9, v10, v11);
   }
   return 1;
 }

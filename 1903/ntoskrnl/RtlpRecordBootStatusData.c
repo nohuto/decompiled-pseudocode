@@ -19,5 +19,5 @@ NTSTATUS __fastcall RtlpRecordBootStatusData(char a1, __int64 a2, __int64 a3, __
   InputBuffer[2] = a3;
   if ( a1 )
     HIDWORD(v6) = 1;
-  return ZwPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+  return ZwPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
 }

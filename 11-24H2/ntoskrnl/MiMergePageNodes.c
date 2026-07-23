@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMergePageNodes @ 0x14068ADD0
+ * XREFs of MiMergePageNodes @ 0x14068BF00
  * Callers:
- *     MiFinishChildPartitionHotAdd @ 0x14068A330 (MiFinishChildPartitionHotAdd.c)
- *     MiInsertPartitionPageNodes @ 0x14068A6C4 (MiInsertPartitionPageNodes.c)
- *     MiReturnPartitionPagesToParent @ 0x14068B28C (MiReturnPartitionPagesToParent.c)
+ *     MiFinishChildPartitionHotAdd @ 0x14068B460 (MiFinishChildPartitionHotAdd.c)
+ *     MiInsertPartitionPageNodes @ 0x14068B7F4 (MiInsertPartitionPageNodes.c)
+ *     MiReturnPartitionPagesToParent @ 0x14068C3BC (MiReturnPartitionPagesToParent.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     RtlMergeBitMapsEx @ 0x1405E80E0 (RtlMergeBitMapsEx.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     RtlMergeBitMapsEx @ 0x1405E56D0 (RtlMergeBitMapsEx.c)
  */
 
 __int64 __fastcall MiMergePageNodes(__int64 a1, __int64 a2, unsigned __int64 *a3)

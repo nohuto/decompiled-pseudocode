@@ -235,9 +235,9 @@ __int64 __fastcall MiGetPageChain(
       v17 = KeGetCurrentIrql();
       BugCheckParameter2 = v17;
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( (_BYTE)v17 == 2 )
@@ -267,10 +267,10 @@ LABEL_80:
 LABEL_82:
     if ( (unsigned __int8)v111 < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v85 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v85 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v85 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v85 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v85 >= 2u )
         {
           v86 = KeGetCurrentPrcb();
           v87 = v86->SchedulerAssist;
@@ -458,7 +458,7 @@ LABEL_117:
       v51 = KeGetCurrentIrql();
       v116 = v51;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v51 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v51 <= 0xFu )
       {
         v60 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)v51 == 2 )
@@ -478,10 +478,10 @@ LABEL_117:
       *(_QWORD *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = ZeroPte;
       if ( v55 != 17 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v94 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v94 <= 0xFu && v55 <= 0xFu && v94 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v94 <= 0xFu && v55 <= 0xFu && v94 >= 2u )
           {
             v95 = KeGetCurrentPrcb();
             v96 = v95->SchedulerAssist;

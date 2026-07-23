@@ -1,5 +1,5 @@
 /*
- * XREFs of KseDsCompletionHookForPowerDevice @ 0x1401DD2DC
+ * XREFs of KseDsCompletionHookForPowerDevice @ 0x1401DD108
  * Callers:
  *     <none>
  * Callees:

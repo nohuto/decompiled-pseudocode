@@ -1,21 +1,21 @@
 /*
- * XREFs of PfTAccessTracingCleanup @ 0x14099A9FC
+ * XREFs of PfTAccessTracingCleanup @ 0x14099B9FC
  * Callers:
- *     PfTTraceListAdd @ 0x1406CD70C (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x1408E03BC (PfTCleanup.c)
- *     PfpPowerActionStartScenarioTracing @ 0x14099072C (PfpPowerActionStartScenarioTracing.c)
+ *     PfTTraceListAdd @ 0x14067C39C (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x1408E051C (PfTCleanup.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x14099172C (PfpPowerActionStartScenarioTracing.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     MmFreeAccessPfnBuffer @ 0x1402D4628 (MmFreeAccessPfnBuffer.c)
- *     MmGetDefaultPagePriority @ 0x1402D47AC (MmGetDefaultPagePriority.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     MmSetAccessLogging @ 0x140380B54 (MmSetAccessLogging.c)
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
- *     MmEnablePeriodicAccessClearing @ 0x1409904F8 (MmEnablePeriodicAccessClearing.c)
- *     PfTAccessTracingInitialize @ 0x14099AAF4 (PfTAccessTracingInitialize.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     MmFreeAccessPfnBuffer @ 0x140273308 (MmFreeAccessPfnBuffer.c)
+ *     MmGetDefaultPagePriority @ 0x14027348C (MmGetDefaultPagePriority.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     MmSetAccessLogging @ 0x1403806A4 (MmSetAccessLogging.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
+ *     MmEnablePeriodicAccessClearing @ 0x1409914F8 (MmEnablePeriodicAccessClearing.c)
+ *     PfTAccessTracingInitialize @ 0x14099BAF4 (PfTAccessTracingInitialize.c)
  */
 
 void __fastcall PfTAccessTracingCleanup(__int64 a1, __int64 a2, int a3)
@@ -35,9 +35,9 @@ void __fastcall PfTAccessTracingCleanup(__int64 a1, __int64 a2, int a3)
   *(_DWORD *)(a1 + 12) |= a3;
   DefaultPagePriority = MmGetDefaultPagePriority();
   MmSetAccessLogging(0, DefaultPagePriority);
-  dword_140CEC328 = 0;
+  dword_140CEC368 = 0;
   ExWaitForRundownProtectionRelease(&RunRef);
-  v9 = RtlpInterlockedFlushSList(&ListHead);
+  v9 = RtlpInterlockedFlushSList(&stru_140CEC380);
   while ( v9 )
   {
     p_Next = &v9->Next;

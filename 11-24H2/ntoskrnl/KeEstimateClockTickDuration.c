@@ -1,13 +1,13 @@
 /*
- * XREFs of KeEstimateClockTickDuration @ 0x1404CC19C
+ * XREFs of KeEstimateClockTickDuration @ 0x1404C560C
  * Callers:
- *     PpmEstimateIdleDuration @ 0x1404C0C0C (PpmEstimateIdleDuration.c)
+ *     PpmEstimateIdleDuration @ 0x1404BC1F4 (PpmEstimateIdleDuration.c)
  * Callees:
- *     Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline @ 0x14029D018 (Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline.c)
- *     KiGetClockTimerEarliestDeadline @ 0x1402A0600 (KiGetClockTimerEarliestDeadline.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KiGetNextTimerExpirationDueTime @ 0x1405BBBB0 (KiGetNextTimerExpirationDueTime.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline @ 0x1402ABB08 (Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiGetClockTimerEarliestDeadline @ 0x140317F70 (KiGetClockTimerEarliestDeadline.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1405B91E0 (KiGetNextTimerExpirationDueTime.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int *__fastcall KeEstimateClockTickDuration(
@@ -153,7 +153,7 @@ LABEL_20:
     v8 = v17 - a6;
 LABEL_28:
   *v30 = v8;
-  if ( (unsigned int)dword_140E070B8 > 5 )
+  if ( (unsigned int)dword_140E07080 > 5 )
   {
     v30 = (_QWORD *)a6;
     v34 = &v30;
@@ -186,8 +186,8 @@ LABEL_28:
     v53 = 1LL;
     v55 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E070B8,
-      (unsigned __int8 *)byte_140047CC5,
+      (__int64)&dword_140E07080,
+      (unsigned __int8 *)&dword_140047BAC,
       0LL,
       0LL,
       0xDu,

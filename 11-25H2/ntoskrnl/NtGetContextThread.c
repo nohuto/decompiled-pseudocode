@@ -8,7 +8,7 @@
  *     PspGetContextThreadInternal @ 0x140909940 (PspGetContextThreadInternal.c)
  */
 
-__int64 __fastcall NtGetContextThread(void *a1, __int64 a2)
+NTSTATUS __cdecl NtGetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
   KPROCESSOR_MODE PreviousMode; // si
   int ContextThreadInternal; // edi
@@ -17,15 +17,26 @@ __int64 __fastcall NtGetContextThread(void *a1, __int64 a2)
 
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  ContextThreadInternal = ObReferenceObjectByHandle(a1, 8u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  ContextThreadInternal = ObReferenceObjectByHandle(
+                            ThreadHandle,
+                            8u,
+                            (POBJECT_TYPE)PsThreadType,
+                            PreviousMode,
+                            &Object,
+                            0LL);
   if ( ContextThreadInternal >= 0 )
   {
     v5 = Object;
     if ( (*((_DWORD *)Object + 29) & 0x400) != 0 )
       ContextThreadInternal = -1073741816;
     else
-      ContextThreadInternal = PspGetContextThreadInternal((__int64)Object, a2, PreviousMode, PreviousMode, 1);
+      ContextThreadInternal = PspGetContextThreadInternal(
+                                (__int64)Object,
+                                (__int64)ThreadContext,
+                                PreviousMode,
+                                PreviousMode,
+                                1);
     ObfDereferenceObject(v5);
   }
-  return (unsigned int)ContextThreadInternal;
+  return ContextThreadInternal;
 }

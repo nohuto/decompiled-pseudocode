@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUpdateTebApc @ 0x1402C3B00
+ * XREFs of KiUpdateTebApc @ 0x14030E7C0
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateTebSchedulingPropertiesCurrentThread @ 0x1402C3B18 (KiUpdateTebSchedulingPropertiesCurrentThread.c)
+ *     KiUpdateTebSchedulingPropertiesCurrentThread @ 0x14030E7D8 (KiUpdateTebSchedulingPropertiesCurrentThread.c)
  */
 
 __int64 KiUpdateTebApc()

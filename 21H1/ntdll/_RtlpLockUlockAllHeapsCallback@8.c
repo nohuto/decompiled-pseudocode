@@ -7,11 +7,11 @@
  *     _RtlLockHeap@4 @ 0x4B2DDA90 (_RtlLockHeap@4.c)
  */
 
-int __thiscall RtlpLockUlockAllHeapsCallback(void *this, int a2, int a3)
+int __stdcall RtlpLockUlockAllHeapsCallback(PVOID HeapHandle, int a2)
 {
-  if ( a3 )
-    RtlLockHeap(a2);
+  if ( a2 )
+    RtlLockHeap(HeapHandle);
   else
-    RtlUnlockHeap(this, a2);
+    RtlUnlockHeap(HeapHandle);
   return 0;
 }

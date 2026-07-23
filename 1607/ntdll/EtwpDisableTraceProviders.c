@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpDisableTraceProviders @ 0x180053E90
+ * XREFs of EtwpDisableTraceProviders @ 0x180053E80
  * Callers:
- *     EtwpStopLoggerInstance @ 0x180051DA0 (EtwpStopLoggerInstance.c)
+ *     EtwpStopLoggerInstance @ 0x180051D90 (EtwpStopLoggerInstance.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x18002A95C (EtwpUpdateEnableInfoAndCallback.c)
- *     EtwpGetNextRegistration @ 0x1800541CC (EtwpGetNextRegistration.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18002A94C (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpGetNextRegistration @ 0x1800541BC (EtwpGetNextRegistration.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
@@ -19,26 +19,23 @@ __int64 __fastcall EtwpDisableTraceProviders(__int16 a1)
   _BYTE *v5; // rax
   __int64 v6; // rax
   __int64 result; // rax
-  char *v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rbx
-  char v12; // si
-  __int64 v13; // rax
-  __int64 v14; // rax
-  __int128 v15; // xmm0
-  _QWORD v16[15]; // [rsp+20h] [rbp-88h] BYREF
+  __int64 v8; // rbx
+  char v9; // si
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int128 v12; // xmm0
+  _QWORD v13[15]; // [rsp+20h] [rbp-88h] BYREF
 
-  memset(v16, 0, sizeof(v16));
-  LODWORD(v16[3]) = -1;
-  LODWORD(v16[9]) = 0;
-  LODWORD(v16[14]) = 0;
+  memset(v13, 0, sizeof(v13));
+  LODWORD(v13[3]) = -1;
+  LODWORD(v13[9]) = 0;
+  LODWORD(v13[14]) = 0;
   v2 = 0LL;
-  v16[0] = 0x7800000003LL;
+  v13[0] = 0x7800000003LL;
   while ( 1 )
   {
     result = EtwpGetNextRegistration(v2);
-    v11 = result;
+    v8 = result;
     if ( !result )
       return result;
     v3 = (_BYTE *)(result + 150);
@@ -54,45 +51,45 @@ __int64 __fastcall EtwpDisableTraceProviders(__int16 a1)
         goto LABEL_6;
       }
     }
-    v6 = v11 + 8 * (v4 + 2 * (v4 + 8));
+    v6 = v8 + 8 * (v4 + 2 * (v4 + 8));
 LABEL_6:
     if ( v6 )
     {
-      v12 = 0;
-      if ( *(_DWORD *)(v11 + 80) != LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
+      v9 = 0;
+      if ( *(_DWORD *)(v8 + 80) != LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
       {
-        RtlAcquireSRWLockExclusive(v11 + 64, v8, v9, v10);
-        v12 = 1;
-        *(_DWORD *)(v11 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v8 + 64));
+        v9 = 1;
+        *(_DWORD *)(v8 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
       }
-      v13 = 0LL;
+      v10 = 0LL;
       do
       {
         if ( *(v3 - 2) && *v3 == (_BYTE)a1 )
         {
-          v14 = v11 + 8 * (3 * v13 + 16);
+          v11 = v8 + 8 * (3 * v10 + 16);
           goto LABEL_18;
         }
-        v13 = (unsigned int)(v13 + 1);
+        v10 = (unsigned int)(v10 + 1);
         v3 += 24;
       }
-      while ( (unsigned int)v13 < 4 );
-      v14 = 0LL;
+      while ( (unsigned int)v10 < 4 );
+      v11 = 0LL;
 LABEL_18:
-      if ( v14 )
+      if ( v11 )
       {
-        v15 = *(_OWORD *)(v11 + 32);
-        LODWORD(v16[9]) = 0;
-        *(_OWORD *)&v16[5] = v15;
-        HIWORD(v16[9]) = a1 | 0x8000;
-        EtwpUpdateEnableInfoAndCallback(v11, (__int64)v16);
+        v12 = *(_OWORD *)(v8 + 32);
+        LODWORD(v13[9]) = 0;
+        *(_OWORD *)&v13[5] = v12;
+        HIWORD(v13[9]) = a1 | 0x8000;
+        EtwpUpdateEnableInfoAndCallback(v8, (__int64)v13);
       }
-      if ( v12 )
+      if ( v9 )
       {
-        *(_DWORD *)(v11 + 80) = 0;
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v11 + 64));
+        *(_DWORD *)(v8 + 80) = 0;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v8 + 64));
       }
     }
-    v2 = v11;
+    v2 = v8;
   }
 }

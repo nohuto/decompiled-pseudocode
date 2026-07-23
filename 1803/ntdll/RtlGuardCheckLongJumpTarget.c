@@ -12,62 +12,67 @@
  *     sub_18009F8D0 @ 0x18009F8D0 (sub_18009F8D0.c)
  */
 
-__int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1, char a2, char *a3)
+NTSTATUS __cdecl RtlGuardCheckLongJumpTarget(PVOID PcValue, BOOL IsFastFail, PBOOL IsLongJumpTarget)
 {
-  char v6; // bl
-  __int64 v7; // rax
-  rsize_t v8; // r8
-  __int64 v10; // [rsp+30h] [rbp-28h]
-  __int128 v11; // [rsp+38h] [rbp-20h] BYREF
+  bool v4; // bp
+  int v6; // eax
+  char v7; // bl
+  __int64 v8; // rax
+  rsize_t v9; // r8
+  unsigned __int64 PolicyValue; // [rsp+30h] [rbp-28h] BYREF
+  PVOID BaseOfImage[2]; // [rsp+38h] [rbp-20h]
   int Key; // [rsp+78h] [rbp+20h] BYREF
 
-  if ( !(unsigned int)LdrControlFlowGuardEnforced() )
+  v4 = IsFastFail;
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( !v6 )
   {
-    if ( !a3 )
-      return 0LL;
-    v6 = 1;
+    if ( !IsLongJumpTarget )
+      return 0;
+    v7 = 1;
 LABEL_15:
-    *a3 = v6;
-    return 0LL;
+    *(_BYTE *)IsLongJumpTarget = v7;
+    return 0;
   }
-  v6 = 0;
-  if ( a1 < *((_QWORD *)&xmmword_18016F4E0 + 1)
-    || a1 >= *((_QWORD *)&xmmword_18016F4E0 + 1) + (unsigned __int64)(unsigned int)qword_18016F4F0 )
+  v7 = 0;
+  if ( (unsigned __int64)PcValue < *((_QWORD *)&xmmword_18016F4E0 + 1)
+    || (unsigned __int64)PcValue >= *((_QWORD *)&xmmword_18016F4E0 + 1)
+                                  + (unsigned __int64)(unsigned int)qword_18016F4F0 )
   {
-    sub_18000EF10(a1, &v11);
+    sub_18000EF10(PcValue);
   }
   else
   {
-    v11 = xmmword_18016F4E0;
+    *(_OWORD *)BaseOfImage = xmmword_18016F4E0;
   }
-  if ( *((_QWORD *)&v11 + 1) )
+  if ( BaseOfImage[1] )
   {
-    v7 = sub_18002B3EC();
-    if ( !v7
-      || *(_DWORD *)v7 < 0xC0u
-      || (*(_DWORD *)(v7 + 144) & 0x10000) == 0
-      || (Key = a1 - DWORD2(v11), (v8 = *(_QWORD *)(v7 + 184)) != 0)
+    v8 = sub_18002B3EC(BaseOfImage[1]);
+    if ( !v8
+      || *(_DWORD *)v8 < 0xC0u
+      || (*(_DWORD *)(v8 + 144) & 0x10000) == 0
+      || (Key = (_DWORD)PcValue - LODWORD(BaseOfImage[1]), (v9 = *(_QWORD *)(v8 + 184)) != 0)
       && bsearch_s(
            &Key,
-           *(const void **)(v7 + 176),
-           v8,
-           (unsigned int)((*(_DWORD *)(v7 + 144) >> 28) + 4),
+           *(const void **)(v8 + 176),
+           v9,
+           (unsigned int)((*(_DWORD *)(v8 + 144) >> 28) + 4),
            CompareFunction,
            0LL) )
     {
 LABEL_10:
-      v6 = 1;
+      v7 = 1;
       goto LABEL_11;
     }
   }
-  else if ( (int)RtlQueryProtectedPolicy(&unk_18012F360) >= 0 && v10 )
+  else if ( RtlQueryProtectedPolicy((PGUID)&stru_18012F360, &PolicyValue) >= 0 && PolicyValue )
   {
     goto LABEL_10;
   }
-  if ( !a2 )
-    sub_18009F8D0(38LL, a1);
+  if ( !v4 )
+    sub_18009F8D0(38LL, PcValue);
 LABEL_11:
-  if ( a3 )
+  if ( IsLongJumpTarget )
     goto LABEL_15;
-  return 0LL;
+  return 0;
 }

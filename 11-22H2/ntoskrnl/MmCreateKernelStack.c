@@ -134,7 +134,7 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigne
             CurrentIrql = KeGetCurrentIrql();
             v41 = CurrentIrql;
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -187,10 +187,10 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigne
               v14 = (__int64)v46;
               LOBYTE(v4) = v48;
               LODWORD(v9) = v47;
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v34 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v41 <= 0xFu && v34 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v41 <= 0xFu && v34 >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   v36 = CurrentPrcb->SchedulerAssist;
@@ -208,10 +208,10 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigne
           v19 = v42;
           if ( v42 != 1 )
           {
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v29 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && v41 <= 0xFu && v29 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && v41 <= 0xFu && v29 >= 2u )
               {
                 v30 = KeGetCurrentPrcb();
                 v31 = v30->SchedulerAssist;

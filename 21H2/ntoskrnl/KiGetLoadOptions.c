@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetLoadOptions @ 0x140A7434C
+ * XREFs of KiGetLoadOptions @ 0x140A7534C
  * Callers:
- *     CcInitializeBcbProfiler @ 0x140A1B354 (CcInitializeBcbProfiler.c)
+ *     CcInitializeBcbProfiler @ 0x140A1C354 (CcInitializeBcbProfiler.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspAttachThreadToUmsCompletionList @ 0x14020F39C
+ * XREFs of PspAttachThreadToUmsCompletionList @ 0x14020F1C8
  * Callers:
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     RtlGetUmsContextExtendedSize @ 0x140218540 (RtlGetUmsContextExtendedSize.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     KeInitializeUmsThread @ 0x1406504F0 (KeInitializeUmsThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     RtlGetUmsContextExtendedSize @ 0x14021836C (RtlGetUmsContextExtendedSize.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     KeInitializeUmsThread @ 0x1406505D4 (KeInitializeUmsThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall PspAttachThreadToUmsCompletionList(struct _KTHREAD *a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnBeginTrace @ 0x14074D9B8
+ * XREFs of PfSnBeginTrace @ 0x14074DBA8
  * Callers:
- *     PfSnBeginScenario @ 0x1407503C0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x1407505B0 (PfSnBeginScenario.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     PfSnTraceBufferAllocate @ 0x1402F5D0C (PfSnTraceBufferAllocate.c)
- *     PfSnActivateTrace @ 0x1402F5D58 (PfSnActivateTrace.c)
- *     PsGetThreadId @ 0x140346770 (PsGetThreadId.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PfSnCleanupTrace @ 0x14074BAC8 (PfSnCleanupTrace.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     PfSnTraceBufferAllocate @ 0x1402F5F9C (PfSnTraceBufferAllocate.c)
+ *     PfSnActivateTrace @ 0x1402F5FE8 (PfSnActivateTrace.c)
+ *     PsGetThreadId @ 0x140346A00 (PsGetThreadId.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PfSnCleanupTrace @ 0x14074BCB8 (PfSnCleanupTrace.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

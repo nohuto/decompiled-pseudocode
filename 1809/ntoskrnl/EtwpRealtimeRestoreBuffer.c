@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpRealtimeRestoreBuffer @ 0x140750868
+ * XREFs of EtwpRealtimeRestoreBuffer @ 0x140751A58
  * Callers:
- *     EtwpRealtimeFlushSavedBuffers @ 0x1405C12F0 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1405C22F0 (EtwpRealtimeFlushSavedBuffers.c)
  * Callees:
- *     ZwReadFile @ 0x1401B8250 (ZwReadFile.c)
+ *     ZwReadFile @ 0x1401B83B0 (ZwReadFile.c)
  */
 
 int __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)

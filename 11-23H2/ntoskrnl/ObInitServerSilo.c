@@ -1,17 +1,17 @@
 /*
- * XREFs of ObInitServerSilo @ 0x14085596C
+ * XREFs of ObInitServerSilo @ 0x140855C6C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD0A0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409AD2A0 (PspInitializeServerSiloDeferred.c)
  *     ObInitSystem @ 0x140B4B2F8 (ObInitSystem.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x1402AF900 (PsIsHostSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x14031C840 (PsGetPermanentSiloContext.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ObReferenceObjectByNameEx @ 0x14071535C (ObReferenceObjectByNameEx.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x1402AFB90 (PsIsHostSilo.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x14031CAD0 (PsGetPermanentSiloContext.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ObReferenceObjectByNameEx @ 0x140715568 (ObReferenceObjectByNameEx.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
  */
 
 int __fastcall ObInitServerSilo(PVOID Object)

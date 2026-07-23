@@ -26,10 +26,10 @@
  *     PspFindThreadForTeb @ 0x14090C950 (PspFindThreadForTeb.c)
  */
 
-__int64 __fastcall KiSwapToUmsThread(_QWORD *a1)
+NTSTATUS __fastcall KiSwapToUmsThread(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 v3; // rdi
+  unsigned __int64 v3; // rdi
   __int64 ThreadForTeb; // rax
   __int64 v5; // r8
   __int64 v6; // rsi
@@ -55,8 +55,8 @@ __int64 __fastcall KiSwapToUmsThread(_QWORD *a1)
   HANDLE ThreadId; // rax
   __int64 v28; // r8
   unsigned __int64 v29; // rdx
-  __int64 v30; // [rsp+30h] [rbp+0h]
-  NTSTATUS ExitStatus[40]; // [rsp+40h] [rbp+10h] BYREF
+  unsigned __int64 v30; // [rsp+30h] [rbp+0h]
+  EXCEPTION_RECORD ExitStatus; // [rsp+40h] [rbp+10h] BYREF
   _DWORD v32[4]; // [rsp+E0h] [rbp+B0h] BYREF
   _DWORD v33[4]; // [rsp+F0h] [rbp+C0h] BYREF
   _DWORD *v34; // [rsp+100h] [rbp+D0h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall KiSwapToUmsThread(_QWORD *a1)
   int v38; // [rsp+118h] [rbp+E8h]
   int v39; // [rsp+11Ch] [rbp+ECh]
 
-  memset(ExitStatus, 0, 0x98uLL);
+  memset(&ExitStatus, 0, sizeof(ExitStatus));
   CurrentThread = KeGetCurrentThread();
   a1[12] = CurrentThread;
   v30 = *((_QWORD *)CurrentThread->WaitBlock[3].Object + 16);
@@ -95,9 +95,9 @@ __int64 __fastcall KiSwapToUmsThread(_QWORD *a1)
       if ( v12 <= (unsigned int)(MEMORY[0xFFFFF780000003E8] + 63) )
         v12 = 0xFFFFFFFFFFFFFF0LL;
       v13 = alloca(v12 & 0xFFFFFFFFFFFFFFF0uLL);
-      v14 = ((unsigned __int64)&ExitStatus[11] + 3) & 0xFFFFFFFFFFFFFFC0uLL;
+      v14 = ((unsigned __int64)&ExitStatus.ExceptionInformation[1] + 7) & 0xFFFFFFFFFFFFFFC0uLL;
       v15 = (a1[9] & 1) == 0;
-      a1[8] = ((unsigned __int64)&ExitStatus[11] + 3) & 0xFFFFFFFFFFFFFFC0uLL;
+      a1[8] = ((unsigned __int64)&ExitStatus.ExceptionInformation[1] + 7) & 0xFFFFFFFFFFFFFFC0uLL;
       if ( v15 )
       {
         KeSaveLegacyFloatingPointControlWord();
@@ -106,7 +106,7 @@ __int64 __fastcall KiSwapToUmsThread(_QWORD *a1)
       {
         memset((void *)(v14 + 512), 0, 0x40uLL);
         RtlXSave(
-          (_DWORD *)(((unsigned __int64)&ExitStatus[11] + 3) & 0xFFFFFFFFFFFFFFC0uLL),
+          (_DWORD *)(((unsigned __int64)&ExitStatus.ExceptionInformation[1] + 7) & 0xFFFFFFFFFFFFFFC0uLL),
           MEMORY[0xFFFFF780000003D8] & 0xFFFFFFFFFFFFFFFDuLL,
           v16);
       }
@@ -196,13 +196,13 @@ LABEL_30:
     ThreadId = 0LL;
   v28 = a1[10];
   v29 = a1[11];
-  *(_QWORD *)&ExitStatus[4] = 0LL;
-  ExitStatus[6] = 2;
-  *(_QWORD *)&ExitStatus[8] = ThreadId;
-  *(_QWORD *)&ExitStatus[10] = v3;
-  ExitStatus[0] = -1073740004;
-  ExitStatus[1] = 1;
-  KiDispatchException(ExitStatus, v29, v28, 1u, 0);
-  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus[0]);
-  return ZwTerminateThread(-2LL, (unsigned int)ExitStatus[0]);
+  ExitStatus.ExceptionAddress = 0LL;
+  ExitStatus.NumberParameters = 2;
+  ExitStatus.ExceptionInformation[0] = (unsigned __int64)ThreadId;
+  ExitStatus.ExceptionInformation[1] = v3;
+  ExitStatus.ExceptionCode = -1073740004;
+  ExitStatus.ExceptionFlags = 1;
+  KiDispatchException(&ExitStatus, v29, v28, 1u, 0);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus.ExceptionCode);
+  return ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus.ExceptionCode);
 }

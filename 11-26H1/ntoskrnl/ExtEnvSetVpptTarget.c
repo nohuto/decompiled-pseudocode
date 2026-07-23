@@ -1,16 +1,16 @@
 /*
- * XREFs of ExtEnvSetVpptTarget @ 0x1404D20BC
+ * XREFs of ExtEnvSetVpptTarget @ 0x1404358D0
  * Callers:
- *     HalpVpptUpdatePhysicalTimer @ 0x140426F38 (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x140434048 (HalpVpptUpdatePhysicalTimer.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptSetDestination @ 0x140425E10 (HalpInterruptSetDestination.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x140426C08 (HalpInterruptFindLinesForGsiRange.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptSetDestination @ 0x140432F20 (HalpInterruptSetDestination.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140433D18 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ExtEnvSetVpptTarget(__int64 a1, unsigned int a2)
@@ -53,7 +53,7 @@ __int64 __fastcall ExtEnvSetVpptTarget(__int64 a1, unsigned int a2)
   v26 = 0LL;
   memset_0(&v27, 0, 0x58uLL);
   v3 = (_DWORD *)HalpAlwaysOnTimer;
-  v4 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v2);
+  v4 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v2);
   *((_QWORD *)&v26 + 1) = (unsigned __int16)(v4 >> 6);
   *(_QWORD *)&v26 = 1LL << v4;
   if ( HalpAlwaysOnTimer && *(_DWORD *)(HalpAlwaysOnTimer + 228) == 12 )

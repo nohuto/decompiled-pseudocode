@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmGetDeviceInterfaceSubkeyPath @ 0x1409A1980
+ * XREFs of _CmGetDeviceInterfaceSubkeyPath @ 0x1409623E0
  * Callers:
- *     _CmGetDeviceInterfaceClassGuid @ 0x1409A2474 (_CmGetDeviceInterfaceClassGuid.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x140AF288C (_CmCreateDeviceInterfaceWorker.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x140962ED4 (_CmGetDeviceInterfaceClassGuid.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x140AF5078 (_CmCreateDeviceInterfaceWorker.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ScanHexFormat @ 0x1409A2050 (ScanHexFormat.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ScanHexFormat @ 0x140962AB0 (ScanHexFormat.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceSubkeyPath(

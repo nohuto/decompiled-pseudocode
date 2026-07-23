@@ -1,20 +1,20 @@
 /*
- * XREFs of PiQueryResourceRequirements @ 0x14098E5B0
+ * XREFs of PiQueryResourceRequirements @ 0x1409795E8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     PpIrpQueryResourceRequirements @ 0x14098E6E8 (PpIrpQueryResourceRequirements.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     PpIrpQueryResourceRequirements @ 0x140979720 (PpIrpQueryResourceRequirements.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryResourceRequirements(__int64 a1)

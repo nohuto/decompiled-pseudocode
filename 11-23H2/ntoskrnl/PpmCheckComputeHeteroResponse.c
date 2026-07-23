@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmCheckComputeHeteroResponse @ 0x140596470
+ * XREFs of PpmCheckComputeHeteroResponse @ 0x140596960
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmParkCalculateUnparkCount @ 0x140357E50 (PpmParkCalculateUnparkCount.c)
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x14039216C (PpmHeteroIsMultiClassParkingEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x1405968A8 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x1405979CC (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
- *     PpmEventTraceHeteroResponse @ 0x14059B8EC (PpmEventTraceHeteroResponse.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmParkCalculateUnparkCount @ 0x140357FF0 (PpmParkCalculateUnparkCount.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x14039234C (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140596D98 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x140597EBC (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ *     PpmEventTraceHeteroResponse @ 0x14059BDDC (PpmEventTraceHeteroResponse.c)
  */
 
 char PpmCheckComputeHeteroResponse()
@@ -71,7 +71,7 @@ char PpmCheckComputeHeteroResponse()
   _QWORD v53[64]; // [rsp+278h] [rbp+170h] BYREF
 
   v50 = 0LL;
-  v0 = 55LL * dword_140C3D86C;
+  v0 = 55LL * dword_140C3D96C;
   v49 = 0LL;
   v47 = &PpmCurrentProfile[v0 + 5];
   if ( PpmHeteroPolicy != 4 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of MmSetHardFaultBehavior @ 0x140368BF0
+ * XREFs of MmSetHardFaultBehavior @ 0x140368D90
  * Callers:
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140368A50 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140368BF0 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
  * Callees:
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 __int64 __fastcall MmSetHardFaultBehavior(__int64 a1, int a2)

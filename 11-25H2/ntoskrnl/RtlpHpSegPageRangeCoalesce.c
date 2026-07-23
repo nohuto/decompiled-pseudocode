@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, un
   __int64 v8; // rdx
   unsigned int v9; // r14d
   __int64 v10; // r15
-  __int64 v11; // rbp
+  _RTL_RB_TREE *v11; // rbp
   __int16 *v12; // r12
   __int64 v13; // rax
   __int64 v14; // rbp
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, int a3, un
     }
     if ( (unsigned int)v8 <= *(unsigned __int8 *)(a1 + 10) )
     {
-      v11 = a1 + 96;
+      v11 = (_RTL_RB_TREE *)(a1 + 96);
 LABEL_9:
       v12 = (__int16 *)(a1 + 22);
       goto LABEL_10;
@@ -62,10 +62,10 @@ LABEL_9:
     v10 = a2 - 32;
     if ( (*(_BYTE *)(a2 - 8) & 2) == 0 )
       v10 += -32LL * *(unsigned __int8 *)(v10 + 26);
-    v11 = a1 + 96;
+    v11 = (_RTL_RB_TREE *)(a1 + 96);
     if ( (*(_BYTE *)(v10 + 24) & 1) != 0 )
       goto LABEL_9;
-    RtlRbRemoveNode(v11, v10);
+    RtlRbRemoveNode(v11, (PRTL_BALANCED_NODE)v10);
     v12 = (__int16 *)(a1 + 22);
     *(_OWORD *)v10 = 0LL;
     *(_QWORD *)(v10 + 16) = 0LL;
@@ -82,7 +82,7 @@ LABEL_10:
     *(_BYTE *)(a2 + 24) |= 0x11u;
     if ( v7 )
     {
-      RtlRbRemoveNode(v11, v7);
+      RtlRbRemoveNode(v11, (PRTL_BALANCED_NODE)v7);
       *(_OWORD *)v7 = 0LL;
       *(_QWORD *)(v7 + 16) = 0LL;
       v23 = ~(unsigned __int16)*(_DWORD *)(v7 + 28);

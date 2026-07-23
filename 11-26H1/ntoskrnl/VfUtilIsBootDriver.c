@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilIsBootDriver @ 0x140C21900
+ * XREFs of VfUtilIsBootDriver @ 0x140C27910
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140C46B58 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x140C4CB68 (VfTargetDriversGetVerifierData.c)
  */
 
 __int64 __fastcall VfUtilIsBootDriver(__int64 a1)

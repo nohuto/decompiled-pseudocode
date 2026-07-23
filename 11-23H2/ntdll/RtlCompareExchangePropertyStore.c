@@ -12,10 +12,14 @@
  *     memmove @ 0x1800A7A40 (memmove.c)
  */
 
-__int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __int64 *a3, _QWORD *a4)
+NTSTATUS __cdecl RtlCompareExchangePropertyStore(
+        ULONG_PTR Key,
+        PULONG_PTR Comperand,
+        PULONG_PTR Exchange,
+        PULONG_PTR Context)
 {
   int v4; // r12d
-  __int64 v6; // r15
+  void *v6; // r15
   _OWORD *i; // rbp
   char *Heap; // rbx
   char *v10; // rax
@@ -25,13 +29,13 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __in
   unsigned int v14; // edi
   void *v15; // rsi
   __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rcx
-  unsigned int v19; // ebx
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // rcx
+  NTSTATUS v19; // ebx
 
   v4 = 0;
   v6 = 0LL;
-  for ( i = Key; ; i = Key )
+  for ( i = (_OWORD *)Key; ; i = (_OWORD *)Key )
   {
     RtlAcquireSRWLockExclusive(&RtlpPropStoreLock);
     Heap = (char *)RtlpPropStoreEntries;
@@ -68,7 +72,7 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __in
       v13 = 16;
     }
     RtlReleaseSRWLockExclusive(&RtlpPropStoreLock);
-    Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 24LL * v13);
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 24LL * v13);
     if ( !Heap )
     {
 LABEL_28:
@@ -83,33 +87,33 @@ LABEL_28:
       if ( RtlpPropStoreEntries )
       {
         memmove(Heap, RtlpPropStoreEntries, 24LL * (unsigned int)RtlpPropStoreEntriesActiveCount);
-        v6 = (__int64)v15;
+        v6 = v15;
       }
       RtlpPropStoreEntriesTotalCount = v13;
-      i = Key;
+      i = (_OWORD *)Key;
       RtlpPropStoreEntries = Heap;
       break;
     }
     RtlReleaseSRWLockExclusive(&RtlpPropStoreLock);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
   v16 = v12;
   v4 = 1;
   v14 = v12 + 1;
   LODWORD(RtlpPropStoreEntriesActiveCount) = v14;
   v10 = &Heap[24 * v16];
-  if ( a3 )
-    v17 = *a3;
+  if ( Exchange )
+    v17 = *Exchange;
   else
     v17 = 0LL;
   *((_QWORD *)v10 + 2) = v17;
   *(_OWORD *)v10 = *i;
 LABEL_20:
   v18 = *((_QWORD *)v10 + 2);
-  if ( !a3 || v18 == *a3 )
-    *((_QWORD *)v10 + 2) = a2;
-  if ( a4 )
-    *a4 = v18;
+  if ( !Exchange || v18 == *Exchange )
+    *((_QWORD *)v10 + 2) = Comperand;
+  if ( Context )
+    *Context = v18;
   if ( v4 )
   {
     qsort(Heap, v14, 0x18uLL, RtlpCompareProtectedPolicyEntry);
@@ -122,6 +126,6 @@ LABEL_20:
 LABEL_29:
   RtlReleaseSRWLockExclusive(&RtlpPropStoreLock);
   if ( v6 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
   return v19;
 }

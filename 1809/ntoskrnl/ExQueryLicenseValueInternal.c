@@ -1,25 +1,25 @@
 /*
- * XREFs of ExQueryLicenseValueInternal @ 0x1405A0260
+ * XREFs of ExQueryLicenseValueInternal @ 0x1405A1260
  * Callers:
- *     NtQueryLicenseValue @ 0x14059FF90 (NtQueryLicenseValue.c)
+ *     NtQueryLicenseValue @ 0x1405A0F90 (NtQueryLicenseValue.c)
  * Callees:
  *     sub_1400076D0 @ 0x1400076D0 (sub_1400076D0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x1405A0888 (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     ExpGetSubscriptionPfn @ 0x1408CF084 (ExpGetSubscriptionPfn.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x1405A1888 (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     ExpGetSubscriptionPfn @ 0x1408D0344 (ExpGetSubscriptionPfn.c)
  */
 
 __int64 __fastcall ExQueryLicenseValueInternal(
@@ -119,8 +119,8 @@ __int64 __fastcall ExQueryLicenseValueInternal(
   v8 = 0;
   v9 = a1;
   v10 = *a1;
-  v11 = &off_1409087E0;
-  v12 = &off_1409087E0;
+  v11 = &off_140909AA0;
+  v12 = &off_140909AA0;
   while ( 1 )
   {
     v13 = *((_WORD *)v12 + 4);
@@ -167,7 +167,7 @@ LABEL_10:
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+      ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096F4E0, 0LL);
       v14 = v57;
     }
     v17 = v48;
@@ -177,9 +177,9 @@ LABEL_10:
     v16 = 0LL;
     if ( v45 )
     {
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096E4E0, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)&qword_14096E4E0);
-      KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096F4E0, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)&qword_14096F4E0);
+      KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
       v47 = v44;
     }
@@ -208,8 +208,8 @@ LABEL_10:
   }
   v44 = 0;
   v49 = 0;
-  v44 = sub_1400076D0((__int64)&qword_140909158, 0LL, (__int64)&v49, 4u, (__int64)v60);
-  if ( v49 && qword_14096D398 )
+  v44 = sub_1400076D0((__int64)&qword_14090A418, 0LL, (__int64)&v49, 4u, (__int64)v60);
+  if ( v49 && qword_14096E398 )
   {
     v33 = *a1 + 2;
     PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v33, 0x20534C53u);
@@ -242,7 +242,7 @@ LABEL_69:
       {
         ExpGetSubscriptionPfn(v59);
         v40 = v46;
-        v41 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, wchar_t *, unsigned int, __int64, unsigned int, unsigned int *, __int64, _QWORD))qword_14096D398)(
+        v41 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, wchar_t *, unsigned int, __int64, unsigned int, unsigned int *, __int64, _QWORD))qword_14096E398)(
                 v59[0],
                 0LL,
                 0LL,
@@ -270,11 +270,11 @@ LABEL_69:
   {
     v42 = KeGetCurrentThread();
     --v42->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
-    byte_14096E4C1 = 1;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E4E0);
-    KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F4E0, 0LL);
+    byte_14096F4C1 = 1;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F4E0);
+    KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     v19 = v44;
   }

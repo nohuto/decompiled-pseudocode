@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpAeThresholdInitWorker @ 0x14065B1B0
+ * XREFs of ExpAeThresholdInitWorker @ 0x1406598D0
  * Callers:
  *     <none>
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiHaltOnAddress @ 0x1404FA2B8 (KiHaltOnAddress.c)
- *     KeCanUseHaltOnAddress @ 0x1404FA680 (KeCanUseHaltOnAddress.c)
- *     ExpAeMeasureContention @ 0x14065B16C (ExpAeMeasureContention.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiHaltOnAddress @ 0x1404F7B98 (KiHaltOnAddress.c)
+ *     KeCanUseHaltOnAddress @ 0x1404F7F60 (KeCanUseHaltOnAddress.c)
+ *     ExpAeMeasureContention @ 0x14065988C (ExpAeMeasureContention.c)
  */
 
 unsigned __int64 __fastcall ExpAeThresholdInitWorker(

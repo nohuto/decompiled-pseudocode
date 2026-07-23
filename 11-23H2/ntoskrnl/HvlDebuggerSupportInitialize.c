@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlDebuggerSupportInitialize @ 0x1403B62F4
+ * XREFs of HvlDebuggerSupportInitialize @ 0x1403B64D4
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     strncmp @ 0x1403D8E90 (strncmp.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
- *     atol @ 0x1403D9280 (atol.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D9070 (strncmp.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
+ *     atol @ 0x1403D9460 (atol.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
  */
 
 void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
@@ -36,7 +36,7 @@ void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
   char *v20; // rax
   char *v21; // rdi
   __int16 v22; // di
-  STRING SourceString; // [rsp+20h] [rbp-E0h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-E0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD v25[34]; // [rsp+40h] [rbp-C0h] BYREF
 

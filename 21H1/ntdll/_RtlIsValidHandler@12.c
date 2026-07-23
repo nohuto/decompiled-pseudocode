@@ -13,138 +13,155 @@
  *     _RtlReportException@12 @ 0x4B33A4D0 (_RtlReportException@12.c)
  */
 
-char __fastcall RtlIsValidHandler(_DWORD *a1, int a2, int a3)
+char __fastcall RtlIsValidHandler(PVOID BaseAddress, int a2, PCONTEXT ContextRecord)
 {
-  int v4; // edi
-  int v5; // eax
-  signed int v6; // ecx
+  _CONTEXT *v4; // edi
+  unsigned int v5; // eax
+  int v6; // ecx
   unsigned int v7; // esi
   signed int v8; // edx
   int v9; // edx
-  _BYTE v11[4]; // [esp+Ch] [ebp-98h] BYREF
-  int v12; // [esp+10h] [ebp-94h]
-  char v13; // [esp+20h] [ebp-84h]
-  int v14; // [esp+24h] [ebp-80h]
-  int v15; // [esp+28h] [ebp-7Ch] BYREF
-  int v16; // [esp+2Ch] [ebp-78h]
-  int v17; // [esp+30h] [ebp-74h]
-  int v18; // [esp+34h] [ebp-70h]
-  int v19; // [esp+38h] [ebp-6Ch]
-  int v20; // [esp+3Ch] [ebp-68h] BYREF
-  unsigned int v21; // [esp+40h] [ebp-64h] BYREF
-  int v22; // [esp+44h] [ebp-60h] BYREF
-  _DWORD v23[21]; // [esp+48h] [ebp-5Ch] BYREF
+  size_t v11; // [esp-4h] [ebp-A8h]
+  size_t v12; // [esp-4h] [ebp-A8h]
+  _BYTE MemoryInformation[4]; // [esp+Ch] [ebp-98h] BYREF
+  PVOID BaseOfImage; // [esp+10h] [ebp-94h]
+  char v15; // [esp+20h] [ebp-84h]
+  int v16; // [esp+24h] [ebp-80h]
+  int v17; // [esp+28h] [ebp-7Ch] BYREF
+  int v18; // [esp+2Ch] [ebp-78h]
+  int v19; // [esp+30h] [ebp-74h]
+  int v20; // [esp+34h] [ebp-70h]
+  PCONTEXT v21; // [esp+38h] [ebp-6Ch]
+  unsigned int v22; // [esp+3Ch] [ebp-68h] BYREF
+  int v23; // [esp+40h] [ebp-64h] BYREF
+  int ProcessInformation; // [esp+44h] [ebp-60h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [esp+48h] [ebp-5Ch] BYREF
   int savedregs; // [esp+A4h] [ebp+0h] BYREF
 
-  v22 = a2;
-  v4 = a3;
-  v19 = a3;
-  if ( (unsigned int)a1 < dword_4B3A9374[0] || (unsigned int)a1 >= dword_4B3A9374[0] + dword_4B3A9378[0] )
+  ProcessInformation = a2;
+  v4 = ContextRecord;
+  v21 = ContextRecord;
+  if ( (unsigned int)BaseAddress < dword_4B3A9374[0]
+    || (unsigned int)BaseAddress >= dword_4B3A9374[0] + dword_4B3A9378[0] )
   {
-    v5 = RtlpxLookupFunctionTable(&v15, a1, (int)&savedregs);
-    a2 = v22;
+    v5 = RtlpxLookupFunctionTable(BaseAddress, (int)&v17, (int)&savedregs, (ULONG_PTR *)&ContextRecord->ContextFlags);
+    a2 = ProcessInformation;
   }
   else
   {
-    v15 = dword_4B3A9370[0];
-    v16 = dword_4B3A9370[1];
-    v17 = dword_4B3A9370[2];
-    v18 = dword_4B3A9370[3];
+    v17 = dword_4B3A9370[0];
+    v18 = dword_4B3A9370[1];
+    v19 = dword_4B3A9370[2];
+    v20 = dword_4B3A9370[3];
     v5 = dword_4B3A9370[0];
-    v4 = v19;
+    v4 = v21;
   }
   if ( v5 )
   {
-    v6 = v18;
-    v7 = v16;
-    v21 = v18;
+    v6 = v20;
+    v7 = v18;
+    v23 = v20;
   }
   else
   {
-    v6 = v21;
-    v7 = v20;
+    v6 = v23;
+    v7 = v22;
   }
-  v20 = v5;
+  v22 = v5;
   if ( v5 && v6 )
   {
     if ( v5 == -1 && v6 == -1 )
     {
-      memset(v23, 0, 0x50u);
-      v23[5] = 1;
+      LODWORD(v11) = 80;
+      memset(&ExceptionRecord, 0, v11);
+      ExceptionRecord.ExceptionInformation[0] = 1;
     }
     else
     {
-      v21 = (unsigned int)a1 - v7;
+      v23 = (int)BaseAddress - v7;
       v8 = 0;
-      v20 = 0;
+      v22 = 0;
       while ( v6 >= v8 )
       {
         v9 = (v6 + v8) >> 1;
-        v4 = v19;
-        if ( v21 >= *(_DWORD *)(v5 + 4 * v9) )
+        v4 = v21;
+        if ( (unsigned int)v23 >= *(_DWORD *)(v5 + 4 * v9) )
         {
-          v4 = v19;
-          if ( v21 <= *(_DWORD *)(v5 + 4 * v9) )
+          v4 = v21;
+          if ( (unsigned int)v23 <= *(_DWORD *)(v5 + 4 * v9) )
             return 1;
           v8 = v9 + 1;
-          v20 = v8;
+          v22 = v8;
         }
         else
         {
           if ( !v9 )
             break;
           v6 = v9 - 1;
-          v8 = v20;
+          v8 = v22;
         }
       }
-      memset(v23, 0, 0x50u);
-      v23[5] = 2;
+      LODWORD(v11) = 80;
+      memset(&ExceptionRecord, 0, v11);
+      ExceptionRecord.ExceptionInformation[0] = 2;
     }
     goto LABEL_22;
   }
   if ( !a2 )
   {
-    if ( (int)ZwQueryInformationProcess(-1, 34, &v22, 4, 0) >= 0 )
+    if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessExecuteFlags, &ProcessInformation, 4u, 0) >= 0 )
     {
-      LOBYTE(a2) = v22;
+      LOBYTE(a2) = ProcessInformation;
     }
     else
     {
       LOBYTE(a2) = 0;
-      v22 = 0;
+      ProcessInformation = 0;
     }
   }
-  if ( (a2 & 0x30) == 0x30 || (int)NtQueryVirtualMemory(-1, a1, 0, v11, 28, 0) < 0 )
-    return 1;
-  if ( (v13 & 0xF0) != 0 )
+  if ( (a2 & 0x30) == 0x30
+    || NtQueryVirtualMemory(
+         (HANDLE)0xFFFFFFFF,
+         BaseAddress,
+         MemoryBasicInformation,
+         MemoryInformation,
+         0x1CuLL,
+         (PSIZE_T)HIDWORD(v11)) < 0 )
   {
-    if ( v14 == 0x1000000 )
+    return 1;
+  }
+  if ( (v15 & 0xF0) != 0 )
+  {
+    if ( v16 == 0x1000000 )
     {
-      RtlCaptureImageExceptionValues(v12, (unsigned int *)&v20, &v21);
-      if ( v20 && v21 )
+      RtlCaptureImageExceptionValues(BaseOfImage, &v22, (unsigned int *)&v23);
+      if ( v22 && v23 )
       {
-        memset(v23, 0, 0x50u);
-        v23[5] = 5;
+        LODWORD(v12) = 80;
+        memset(&ExceptionRecord, 0, v12);
+        ExceptionRecord.ExceptionInformation[0] = 5;
         goto LABEL_22;
       }
     }
-    else if ( (v22 & 0x20) == 0 )
+    else if ( (ProcessInformation & 0x20) == 0 )
     {
-      memset(v23, 0, 0x50u);
-      v23[5] = 4;
+      LODWORD(v12) = 80;
+      memset(&ExceptionRecord, 0, v12);
+      ExceptionRecord.ExceptionInformation[0] = 4;
       goto LABEL_22;
     }
     return 1;
   }
-  if ( (v22 & 0x10) != 0 )
+  if ( (ProcessInformation & 0x10) != 0 )
     return 1;
-  memset(v23, 0, 0x50u);
-  v23[5] = 3;
+  LODWORD(v12) = 80;
+  memset(&ExceptionRecord, 0, v12);
+  ExceptionRecord.ExceptionInformation[0] = 3;
 LABEL_22:
-  v23[1] = 1;
-  v23[4] = 1;
-  v23[0] = -1073741403;
-  v23[3] = a1;
-  RtlReportException(v23, v4, 0);
+  ExceptionRecord.ExceptionFlags = 1;
+  ExceptionRecord.NumberParameters = 1;
+  ExceptionRecord.ExceptionCode = -1073741403;
+  ExceptionRecord.ExceptionAddress = BaseAddress;
+  RtlReportException(&ExceptionRecord, v4, 0);
   return 0;
 }

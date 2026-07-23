@@ -1,19 +1,19 @@
 /*
- * XREFs of AnFwDisplayBackgroundUpdate @ 0x140C511F4
+ * XREFs of AnFwDisplayBackgroundUpdate @ 0x140C571F4
  * Callers:
- *     BgDisplayBackgroundUpdate @ 0x140C4F930 (BgDisplayBackgroundUpdate.c)
- *     BgpFwLibraryDisable @ 0x140C50AAC (BgpFwLibraryDisable.c)
+ *     BgDisplayBackgroundUpdate @ 0x140C55930 (BgDisplayBackgroundUpdate.c)
+ *     BgpFwLibraryDisable @ 0x140C56AAC (BgpFwLibraryDisable.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     BgpClearScreen @ 0x140715B44 (BgpClearScreen.c)
- *     xHalGetInterruptTranslator @ 0x140B23920 (xHalGetInterruptTranslator.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140C4F3CC (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpGxDrawBitmapImage @ 0x140C51AD0 (BgpGxDrawBitmapImage.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     BgpClearScreen @ 0x14071A834 (BgpClearScreen.c)
+ *     xHalGetInterruptTranslator @ 0x140B25D20 (xHalGetInterruptTranslator.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140C553CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpGxDrawBitmapImage @ 0x140C57AD0 (BgpGxDrawBitmapImage.c)
  */
 
 NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
@@ -34,7 +34,7 @@ NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
     AnFwDisableBackgroundUpdateTimer();
     return 0;
   }
-  if ( WheapPfaLock.SchedulerApc.Type )
+  if ( WheapPfaLock.SchedulerApc.ApcMode )
     return -1073741823;
   v2 = off_140E00A50();
   result = RtlULongLongMult(v2, 0x3E8uLL, &pullResult);
@@ -58,15 +58,15 @@ NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
       return BgpClearScreen(HIDWORD(gLoadedDiffHivesLock.MutantListHead.Blink));
     }
     *(_QWORD *)&gLoadedDiffHivesLock.UserAffinityPrimaryGroup = v3;
-    KeInitializeTimer(&stru_140E64E70);
-    KeInitializeDpc(&stru_140E64F30, AnFwpBackgroundUpdateTimer, 0LL);
-    if ( KeSetCoalescableTimer(&stru_140E64E70, 0LL, 0x64u, 0, &stru_140E64F30) )
+    KeInitializeTimer(&stru_140E65070);
+    KeInitializeDpc(&stru_140E65130, AnFwpBackgroundUpdateTimer, 0LL);
+    if ( KeSetCoalescableTimer(&stru_140E65070, 0LL, 0x64u, 0, &stru_140E65130) )
     {
-      KeCancelTimer(&stru_140E64E70);
-      WheapPfaLock.SchedulerApc.Type = 0;
+      KeCancelTimer(&stru_140E65070);
+      WheapPfaLock.SchedulerApc.ApcMode = 0;
       return BgpClearScreen(HIDWORD(gLoadedDiffHivesLock.MutantListHead.Blink));
     }
-    WheapPfaLock.SchedulerApc.Type = 1;
+    WheapPfaLock.SchedulerApc.ApcMode = 1;
     return 0;
   }
   return result;

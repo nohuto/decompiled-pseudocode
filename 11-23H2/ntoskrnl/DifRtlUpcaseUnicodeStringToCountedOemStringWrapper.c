@@ -1,12 +1,12 @@
 /*
- * XREFs of DifRtlUpcaseUnicodeStringToCountedOemStringWrapper @ 0x1405EC170
+ * XREFs of DifRtlUpcaseUnicodeStringToCountedOemStringWrapper @ 0x1405EC6E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140755B10 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140755D00 (RtlUpcaseUnicodeStringToCountedOemString.c)
  */
 
 NTSTATUS __fastcall DifRtlUpcaseUnicodeStringToCountedOemStringWrapper(

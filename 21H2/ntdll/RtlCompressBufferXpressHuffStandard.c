@@ -5,8 +5,8 @@
  * Callees:
  *     XpressDoHuffmanPass @ 0x18005B890 (XpressDoHuffmanPass.c)
  *     XpressBuildHuffmanEncodings @ 0x18005BB80 (XpressBuildHuffmanEncodings.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     RtlpMakeXpressCallback @ 0x18010DC04 (RtlpMakeXpressCallback.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     RtlpMakeXpressCallback @ 0x18010DBC4 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressHuffStandard(

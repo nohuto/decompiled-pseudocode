@@ -181,7 +181,7 @@ LABEL_57:
       if ( v30 && ($C6908ADE9723D0A04AF8EE82D8D15C40 *)v22->ApcState.ApcListHead[0].Flink != &v22->152 )
         KiCheckForKernelApcDelivery(v29);
       if ( _interlockedbittestandset64((volatile signed __int32 *)v23, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v23, v27, v23);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v23, (_RTL_BALANCED_NODE *)v27, v23);
       if ( v27 )
         *(_BYTE *)(v27 + 26) |= 1u;
       v10 = 0;
@@ -256,7 +256,7 @@ LABEL_68:
       }
       v38[32] |= 2u;
       if ( *((__int64 *)v38 + 4) < 0 )
-        KiAbEntryRemoveFromTree((__int64)v31->LockEntries + v36);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)((char *)&v31->LockEntries[0].TreeNode + v36));
       v32 = *((_DWORD *)v38 + 22) & 0x1FFFF;
       v39 = *((_DWORD *)v38 + 22) & 0xFFFE0000;
       v38[25] &= ~1u;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalWheaUpdateCmciPolicy @ 0x1403AD330
+ * XREFs of HalWheaUpdateCmciPolicy @ 0x1403AD510
  * Callers:
- *     WheapApplyPolicyChanges @ 0x140A09364 (WheapApplyPolicyChanges.c)
+ *     WheapApplyPolicyChanges @ 0x140A09614 (WheapApplyPolicyChanges.c)
  *     WheapLoadPolicy @ 0x140B6D580 (WheapLoadPolicy.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
  */
 
 LONGLONG __fastcall HalWheaUpdateCmciPolicy(int a1, unsigned int a2)

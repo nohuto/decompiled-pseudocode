@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuAcquireNewDomain @ 0x1404CBB44
+ * XREFs of HalpIommuAcquireNewDomain @ 0x1404CBD84
  * Callers:
- *     HalpIommuGetHardwareDomain @ 0x1404C95F4 (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C9834 (HalpIommuGetHardwareDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2)

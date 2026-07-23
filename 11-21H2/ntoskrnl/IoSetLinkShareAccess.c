@@ -2,7 +2,7 @@
  * XREFs of IoSetLinkShareAccess @ 0x14074BFF0
  * Callers:
  *     IoSetShareAccess @ 0x14074B8F0 (IoSetShareAccess.c)
- *     RawCreate @ 0x14074BC84 (RawCreate.c)
+ *     sub_14074BC84 @ 0x14074BC84 (sub_14074BC84.c)
  *     IoSetShareAccessEx @ 0x14080B900 (IoSetShareAccessEx.c)
  * Callees:
  *     <none>

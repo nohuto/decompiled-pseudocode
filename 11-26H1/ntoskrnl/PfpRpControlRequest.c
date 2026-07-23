@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpControlRequest @ 0x140B02D24
+ * XREFs of PfpRpControlRequest @ 0x140B04938
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
  * Callees:
- *     PfpRpControlRequestVerify @ 0x1404F43A8 (PfpRpControlRequestVerify.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PfpRpControlRequestCopy @ 0x140B02DF8 (PfpRpControlRequestCopy.c)
- *     PfpRpControlRequestPerform @ 0x140B02FDC (PfpRpControlRequestPerform.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PfpRpControlRequestVerify @ 0x1404ED988 (PfpRpControlRequestVerify.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PfpRpControlRequestCopy @ 0x140B04A0C (PfpRpControlRequestCopy.c)
+ *     PfpRpControlRequestPerform @ 0x140B04BF0 (PfpRpControlRequestPerform.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpControlRequest(__int64 a1, char a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PfpRpControlRequest(__int64 a1, char a2)
   v6 = 0LL;
   v7 = 0LL;
   v8 = 0LL;
-  if ( (stru_140E66B30.Padding[1] & 1) != 0 )
+  if ( (stru_140E66D40.Padding[1] & 1) != 0 )
   {
     v3 = *(unsigned int *)(a1 + 24);
     if ( (unsigned int)v3 < 0x18 )
@@ -36,7 +36,7 @@ __int64 __fastcall PfpRpControlRequest(__int64 a1, char a2)
         if ( (unsigned int)PfpRpControlRequestVerify(0LL) )
           return (unsigned int)-1073741701;
         else
-          return (unsigned int)PfpRpControlRequestPerform(&stru_140E66B30.KernelShadowStack, 0LL);
+          return (unsigned int)PfpRpControlRequestPerform(&stru_140E66D40.KernelShadowStack, 0LL);
       }
     }
   }

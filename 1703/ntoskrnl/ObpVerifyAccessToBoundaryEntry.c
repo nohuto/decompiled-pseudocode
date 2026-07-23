@@ -41,7 +41,7 @@ __int64 __fastcall ObpVerifyAccessToBoundaryEntry(int *a1, __int64 a2)
   if ( *a1 == 2 )
   {
     v5 = 0;
-    if ( !(unsigned __int8)RtlIsPackageSid(a1 + 2) )
+    if ( !RtlIsPackageSid(a1 + 2) )
     {
       RtlCreateAcl(&Acl, 0xA0u, 2u);
       RtlpAddKnownAce((int)&Acl, 2, 0, 983055, v3, 0);
@@ -98,7 +98,7 @@ LABEL_6:
                      (__int64)p_GenericMapping,
                      PreviousMode,
                      &v18,
-                     (int *)(a2 + 48));
+                     (NTSTATUS *)(a2 + 48));
       return v5;
     }
     if ( v2 == 1 )

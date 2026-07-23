@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegDupLanguageList @ 0x180013BF4
+ * XREFs of RtlpMuiRegDupLanguageList @ 0x180013BE4
  * Callers:
- *     RtlSetThreadPreferredUILanguages @ 0x180013860 (RtlSetThreadPreferredUILanguages.c)
- *     RtlGetThreadPreferredUILanguages @ 0x180013DA0 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180013850 (RtlSetThreadPreferredUILanguages.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180013D90 (RtlGetThreadPreferredUILanguages.c)
  * Callees:
- *     RtlpMuiRegCreateLanguageList @ 0x180071974 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x180071964 (RtlpMuiRegCreateLanguageList.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

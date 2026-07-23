@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAllocateTraceBufferPool @ 0x1800790B4
+ * XREFs of EtwpAllocateTraceBufferPool @ 0x1800678D4
  * Callers:
- *     EtwpStartUmLogger @ 0x180076EBC (EtwpStartUmLogger.c)
+ *     EtwpStartUmLogger @ 0x1800656DC (EtwpStartUmLogger.c)
  * Callees:
- *     EtwpAllocateFreeBuffers @ 0x1800127C4 (EtwpAllocateFreeBuffers.c)
- *     ZwAllocateVirtualMemory @ 0x18015F240 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x18015F300 (ZwFreeVirtualMemory.c)
+ *     EtwpAllocateFreeBuffers @ 0x18005DEF4 (EtwpAllocateFreeBuffers.c)
+ *     ZwAllocateVirtualMemory @ 0x18015F140 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x18015F200 (ZwFreeVirtualMemory.c)
  */
 
 __int64 __fastcall EtwpAllocateTraceBufferPool(__int64 a1)
@@ -17,12 +17,12 @@ __int64 __fastcall EtwpAllocateTraceBufferPool(__int64 a1)
   unsigned int v6; // edx
   unsigned __int64 v7; // r8
   unsigned int v9; // ebx
-  unsigned __int64 v10; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v11; // [rsp+58h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp+10h] BYREF
 
   v1 = *(_DWORD *)(a1 + 188);
   v3 = *(_DWORD *)(a1 + 200);
-  v11 = 0LL;
+  BaseAddress = 0LL;
   if ( v3 < 2 * v1 )
     v3 = 2 * v1 + 22;
   v4 = *(_DWORD *)(a1 + 204);
@@ -55,15 +55,15 @@ __int64 __fastcall EtwpAllocateTraceBufferPool(__int64 a1)
   v7 = *(unsigned int *)(a1 + 192);
   if ( 0xFFFFFFFFFFFFFFFFuLL / v3 < v7 )
     return 534LL;
-  v10 = v3 * v7;
-  if ( (int)ZwAllocateVirtualMemory(-1LL, &v11, 0LL, &v10, 0x2000, 4) < 0 )
+  RegionSize = v3 * v7;
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, 4u) < 0 )
     return 8LL;
   v9 = *(_DWORD *)(a1 + 204);
-  *(_QWORD *)(a1 + 408) = v11;
+  *(_QWORD *)(a1 + 408) = BaseAddress;
   if ( (unsigned int)EtwpAllocateFreeBuffers(a1, v9) != v9 )
   {
-    v10 = 0LL;
-    ZwFreeVirtualMemory(-1LL, a1 + 408, &v10, 0x8000LL);
+    RegionSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(a1 + 408), &RegionSize, 0x8000u);
     *(_QWORD *)(a1 + 408) = 0LL;
     return 8LL;
   }

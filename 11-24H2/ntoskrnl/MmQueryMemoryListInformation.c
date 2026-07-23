@@ -1,23 +1,23 @@
 /*
- * XREFs of MmQueryMemoryListInformation @ 0x1403D447C
+ * XREFs of MmQueryMemoryListInformation @ 0x1402623FC
  * Callers:
- *     EtwpLogMemInfo @ 0x1403D4060 (EtwpLogMemInfo.c)
- *     PfpMemoryListQuery @ 0x1403D4358 (PfpMemoryListQuery.c)
- *     PfpPfnPrioRequest @ 0x1409334C4 (PfpPfnPrioRequest.c)
- *     PfpVolumePrefetchMetadata @ 0x140952BE8 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchPrivatePages @ 0x14095328C (PfpPrefetchPrivatePages.c)
- *     PfpPrefetchDirectoryStream @ 0x140953524 (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchFilesTrickle @ 0x140954F78 (PfpPrefetchFilesTrickle.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x1409552C8 (PfpUpdateRepurposedByPrefetch.c)
- *     PfSnCheckActionsNeeded @ 0x140961228 (PfSnCheckActionsNeeded.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     EtwpLogMemInfo @ 0x140261FE0 (EtwpLogMemInfo.c)
+ *     PfpMemoryListQuery @ 0x1402622D8 (PfpMemoryListQuery.c)
+ *     PfpPfnPrioRequest @ 0x1408F5FDC (PfpPfnPrioRequest.c)
+ *     PfpVolumePrefetchMetadata @ 0x140936598 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchPrivatePages @ 0x140936C3C (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchDirectoryStream @ 0x140936ED4 (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchFilesTrickle @ 0x140938928 (PfpPrefetchFilesTrickle.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x140938C78 (PfpUpdateRepurposedByPrefetch.c)
+ *     PfSnCheckActionsNeeded @ 0x140948CE8 (PfSnCheckActionsNeeded.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     MiQueryMemoryListInformation @ 0x1403D46B0 (MiQueryMemoryListInformation.c)
- *     PsReferencePartitionSafe @ 0x1403D4B60 (PsReferencePartitionSafe.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     MiQueryMemoryListInformation @ 0x140262630 (MiQueryMemoryListInformation.c)
+ *     PsReferencePartitionSafe @ 0x140262AE0 (PsReferencePartitionSafe.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MmQueryMemoryListInformation(
@@ -46,7 +46,7 @@ __int64 __fastcall MmQueryMemoryListInformation(
   {
     if ( BugCheckParameter2 == (ULONG **)-1LL )
     {
-      v10 = (ULONG *)*((_QWORD *)qword_140E2FF88
+      v10 = (ULONG *)*((_QWORD *)qword_140E300C8
                      + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
     }
     else

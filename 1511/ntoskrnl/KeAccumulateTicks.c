@@ -19,55 +19,54 @@
  *     HvlInvokeHypervisorDebugger @ 0x1401AE35C (HvlInvokeHypervisorDebugger.c)
  */
 
-void __fastcall KeAccumulateTicks(struct _KPRCB *a1, int a2, __int64 a3, unsigned __int8 a4, char a5)
+void __fastcall KeAccumulateTicks(struct _KPRCB *a1, int a2, unsigned int a3, unsigned __int8 a4, char a5)
 {
-  unsigned int v6; // edi
   unsigned __int64 v9; // rsi
-  unsigned int v10; // edi
-  unsigned __int64 v11; // rax
-  char v12; // cl
-  unsigned int v13; // r14d
-  char v14; // dl
+  __int64 v10; // r8
+  unsigned int v11; // edi
+  unsigned __int64 v12; // rax
+  char v13; // cl
+  unsigned int v14; // r14d
+  char v15; // dl
   unsigned __int8 CurrentIrql; // r15
-  char v16; // al
+  char v17; // al
   __int64 p_TimerTable; // r9
   unsigned int LastTimerHand; // edx
-  char v19; // r10
-  unsigned int v20; // edx
-  unsigned __int16 v21; // ax
-  __int64 v22; // rcx
-  unsigned __int16 v23; // tt
+  char v20; // r10
+  unsigned int v21; // edx
+  unsigned __int16 v22; // ax
+  __int64 v23; // rcx
+  unsigned __int16 v24; // tt
   __int64 CurrentThread; // rsi
   unsigned int InterruptRate; // eax
-  __int64 v26; // rcx
-  bool v27; // zf
+  __int64 v27; // rcx
+  bool v28; // zf
   int DpcWatchdogPeriod; // ecx
   ULONG_PTR BugCheckParameter4; // r14
-  ULONG_PTR v30; // rbp
-  unsigned int v31; // ecx
-  __int16 v32; // cx
-  unsigned int v33; // ecx
-  int v34; // eax
+  ULONG_PTR v31; // rbp
+  unsigned int v32; // ecx
+  __int16 v33; // cx
+  unsigned int v34; // ecx
+  int v35; // eax
   unsigned int MaximumDpcQueueDepth; // eax
-  __int64 v36; // rdx
   __int64 v37; // rdx
+  __int64 v38; // rdx
   unsigned int DpcTimeLimit; // ecx
-  __int16 v39; // cx
-  unsigned __int64 v40; // [rsp+38h] [rbp-50h] BYREF
-  __int16 v41; // [rsp+40h] [rbp-48h]
-  _QWORD v42[2]; // [rsp+48h] [rbp-40h] BYREF
+  __int16 v40; // cx
+  unsigned __int64 v41; // [rsp+38h] [rbp-50h] BYREF
+  __int16 v42; // [rsp+40h] [rbp-48h]
+  _QWORD v43[2]; // [rsp+48h] [rbp-40h] BYREF
 
-  v6 = a3;
   v9 = MEMORY[0xFFFFF78000000008];
   if ( (a1->DpcRequestSummary & 8) == 0 )
   {
-    a3 = MEMORY[0xFFFFF78000000008] >> 18;
+    v10 = MEMORY[0xFFFFF78000000008] >> 18;
     if ( KiSerializeTimerExpiration )
     {
       if ( !a1->ClockOwner )
       {
 LABEL_4:
-        a1->LastTimerHand = a3;
+        a1->LastTimerHand = v10;
         goto LABEL_5;
       }
       p_TimerTable = KiProcessorBlock[0] + 13824;
@@ -79,31 +78,31 @@ LABEL_4:
     if ( !p_TimerTable )
       goto LABEL_4;
     LastTimerHand = a1->LastTimerHand;
-    if ( (unsigned int)a3 - LastTimerHand >= 0x100 )
-      a3 = LastTimerHand + 255;
-    v19 = 0;
-    v20 = LastTimerHand - 1;
-    while ( MEMORY[0xFFFFF78000000008] < *(_QWORD *)(32LL * (unsigned __int8)++v20 + p_TimerTable + 536) )
+    if ( (unsigned int)v10 - LastTimerHand >= 0x100 )
+      LODWORD(v10) = LastTimerHand + 255;
+    v20 = 0;
+    v21 = LastTimerHand - 1;
+    while ( MEMORY[0xFFFFF78000000008] < *(_QWORD *)(32LL * (unsigned __int8)++v21 + p_TimerTable + 536) )
     {
-      if ( v20 == (_DWORD)a3 )
+      if ( v21 == (_DWORD)v10 )
         goto LABEL_24;
     }
-    v19 = 1;
+    v20 = 1;
 LABEL_24:
-    a1->LastTimerHand = v20;
-    if ( v19 || a1->ClockOwner && KiNextTimer2DueTime <= v9 )
+    a1->LastTimerHand = v21;
+    if ( v20 || a1->ClockOwner && KiNextTimer2DueTime <= v9 )
     {
       _m_prefetchw(&a1->11756);
-      v21 = a1->DpcRequestSlot[0];
+      v22 = a1->DpcRequestSlot[0];
       do
       {
-        v22 = v21;
-        BYTE1(v22) = HIBYTE(v21);
-        v23 = v21;
-        v21 = _InterlockedCompareExchange16((volatile signed __int16 *)&a1->11756, v21 | 8, v21);
+        v23 = v22;
+        BYTE1(v23) = HIBYTE(v22);
+        v24 = v22;
+        v22 = _InterlockedCompareExchange16((volatile signed __int16 *)&a1->11756, v22 | 8, v22);
       }
-      while ( v23 != v21 );
-      if ( (v21 & 0x29) == 0 )
+      while ( v24 != v22 );
+      if ( (v22 & 0x29) == 0 )
       {
         if ( a1->NestingLevel )
         {
@@ -111,8 +110,8 @@ LABEL_24:
         }
         else
         {
-          LOBYTE(v22) = 2;
-          HalRequestSoftwareInterrupt(v22);
+          LOBYTE(v23) = 2;
+          HalRequestSoftwareInterrupt(v23);
         }
       }
     }
@@ -120,63 +119,63 @@ LABEL_24:
 LABEL_5:
   if ( a1->ClockOwner )
   {
-    v11 = v9 + KeMaximumIncrement;
-    v12 = KiHRTimerClockActive;
+    v12 = v9 + KeMaximumIncrement;
+    v13 = KiHRTimerClockActive;
     if ( KiHRTimerClockActive )
     {
-      if ( v11 > qword_1402E8928 )
+      if ( v12 > qword_1402E8928 )
         goto LABEL_6;
     }
-    else if ( v11 <= qword_1402E8928 )
+    else if ( v12 <= qword_1402E8928 )
     {
       goto LABEL_6;
     }
-    v13 = 0;
     v14 = 0;
+    v15 = 0;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( v12 == KiHRTimerClockActive )
+    if ( v13 == KiHRTimerClockActive )
     {
-      if ( v12 )
+      if ( v13 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)&KiClockIntervalRequests, KiHRTimerClockRequest);
+        RtlRbRemoveNode(&KiClockIntervalRequests, &KiHRTimerClockRequest);
         byte_1402E8998 = 0;
         KiSetClockIntervalToMinimumRequested();
-        v16 = 0;
+        v17 = 0;
       }
       else
       {
-        KiSetClockInterval(KeMinimumIncrement, (__int64)KiHRTimerClockRequest, a3);
-        v13 = KeMinimumIncrement;
-        v16 = 1;
+        KiSetClockInterval(KeMinimumIncrement, (__int64)&KiHRTimerClockRequest);
+        v14 = KeMinimumIncrement;
+        v17 = 1;
       }
-      KiHRTimerClockActive = v16;
-      v14 = 1;
+      KiHRTimerClockActive = v17;
+      v15 = 1;
     }
     __writecr8(CurrentIrql);
-    if ( v14 )
-      PoTraceSystemTimerResolutionKernel(v13, 1834242632LL);
+    if ( v15 )
+      PoTraceSystemTimerResolutionKernel(v14, 1834242632LL);
   }
 LABEL_6:
   if ( (DWORD2(PerfGlobalGroupMask) & 0x40000) != 0 && KeGetCurrentIrql() == 13 )
   {
-    v39 = 0;
-    v40 = v9;
-    v41 = 0;
+    v40 = 0;
+    v41 = v9;
+    v42 = 0;
     if ( a1->ClockOwner )
     {
-      v39 = 1;
-      v41 = 1;
+      v40 = 1;
+      v42 = 1;
     }
     if ( (a1->DpcRequestSummary & 8) != 0 )
-      v41 = v39 | 8;
-    v42[1] = 16LL;
-    v42[0] = &v40;
-    EtwTraceKernelEvent((int)v42, 1, 0x40040000u, 0xF4Fu, 4196866);
+      v42 = v40 | 8;
+    v43[1] = 16LL;
+    v43[0] = &v41;
+    EtwTraceKernelEvent((int)v43, 1, 0x40040000u, 0xF4Fu, 4196866);
   }
-  a1->LastTick = v6;
-  v10 = v6 - a2;
-  if ( v10 )
+  a1->LastTick = a3;
+  v11 = a3 - a2;
+  if ( v11 )
   {
     CurrentThread = (__int64)a1->CurrentThread;
     if ( a1->ClockOwner )
@@ -185,33 +184,33 @@ LABEL_6:
       {
         KiClockPollCycle = KiClockKeepAliveCycle;
         BugCheckParameter4 = (unsigned __int8)KiClockCheckSlot;
-        v30 = KiProcessorBlock[(unsigned __int8)KiClockCheckSlot];
-        v31 = (unsigned __int8)KiClockCheckSlot + 1;
-        if ( v31 >= (unsigned int)KeNumberProcessors_0 )
-          LOBYTE(v31) = 0;
-        KiClockCheckSlot = v31;
-        if ( (unsigned __int8)KiCheckKeepAlive(*(unsigned int *)(v30 + 36)) )
+        v31 = KiProcessorBlock[(unsigned __int8)KiClockCheckSlot];
+        v32 = (unsigned __int8)KiClockCheckSlot + 1;
+        if ( v32 >= (unsigned int)KeNumberProcessors_0 )
+          LOBYTE(v32) = 0;
+        KiClockCheckSlot = v32;
+        if ( (unsigned __int8)KiCheckKeepAlive(*(unsigned int *)(v31 + 36)) )
         {
-          if ( !*(_DWORD *)(v30 + 22624) && KeEnableWatchdogTimeout && (KiBugCheckActive & 3) == 0 )
+          if ( !*(_DWORD *)(v31 + 22624) && KeEnableWatchdogTimeout && (KiBugCheckActive & 3) == 0 )
           {
             HvlInvokeHypervisorDebugger(1LL, BugCheckParameter4);
-            KeBugCheckEx(0x101u, (unsigned __int8)KiClockKeepAliveCycle, 0LL, v30, BugCheckParameter4);
+            KeBugCheckEx(0x101u, (unsigned __int8)KiClockKeepAliveCycle, 0LL, v31, BugCheckParameter4);
           }
-          *(_DWORD *)(v30 + 22624) = 0;
+          *(_DWORD *)(v31 + 22624) = 0;
         }
       }
     }
     if ( a5 )
     {
-      a1->UserTime += v10;
-      *(_DWORD *)(CurrentThread + 732) += v10;
+      a1->UserTime += v11;
+      *(_DWORD *)(CurrentThread + 732) += v11;
     }
     else
     {
-      a1->KernelTime += v10;
+      a1->KernelTime += v11;
       if ( a1->NestingLevel == 2 && a1->DpcRoutineActive )
       {
-        a1->DpcTime += v10;
+        a1->DpcTime += v11;
         ++a1->DpcTimeCount;
         DpcTimeLimit = a1->DpcTimeLimit;
         if ( a1->DpcTimeCount > DpcTimeLimit && DpcTimeLimit )
@@ -229,11 +228,11 @@ LABEL_6:
       }
       else if ( a1->NestingLevel > 1u )
       {
-        a1->InterruptTime += v10;
+        a1->InterruptTime += v11;
       }
       else
       {
-        *(_DWORD *)(CurrentThread + 652) += v10;
+        *(_DWORD *)(CurrentThread + 652) += v11;
       }
       if ( a4 >= 2u )
       {
@@ -257,14 +256,14 @@ LABEL_39:
       && a1->NestingLevel <= 1u
       && (*(char *)(CurrentThread + 195) < 16
        && *(_QWORD *)(CurrentThread + 104)
-       && (v36 = *(_QWORD *)(CurrentThread + 104)) != 0
-       && (v37 = a1->ScbOffset + v36) != 0
-       && (unsigned int)KiGetThreadEffectiveRankNonZero(CurrentThread, v37, 0)
+       && (v37 = *(_QWORD *)(CurrentThread + 104)) != 0
+       && (v38 = a1->ScbOffset + v37) != 0
+       && (unsigned int)KiGetThreadEffectiveRankNonZero(CurrentThread, v38, 0)
        || *(char *)(CurrentThread + 195) < 8) )
     {
-      a1->AvailableTime += v10;
+      a1->AvailableTime += v11;
     }
-    if ( v10 >= 8 )
+    if ( v11 >= 8 )
     {
       a1->InterruptRate = 0;
     }
@@ -272,22 +271,22 @@ LABEL_39:
     {
       a1->InterruptRate += 15 * (a1->InterruptCount - a1->InterruptLastCount);
       InterruptRate = a1->InterruptRate;
-      v26 = v10;
+      v27 = v11;
       do
       {
         InterruptRate >>= 4;
-        --v26;
+        --v27;
       }
-      while ( v26 );
+      while ( v27 );
       a1->InterruptRate = InterruptRate;
     }
     a1->InterruptLastCount = a1->InterruptCount;
-    a1->DpcRequestRate = (a1->DpcRequestRate + a1->DpcData[0].DpcCount - a1->DpcLastCount) >> v10;
+    a1->DpcRequestRate = (a1->DpcRequestRate + a1->DpcData[0].DpcCount - a1->DpcLastCount) >> v11;
     a1->DpcLastCount = a1->DpcData[0].DpcCount;
-    if ( !a1->DpcData[0].DpcQueueDepth || (v32 = a1->DpcRequestSlot[0], (v32 & 3) != 0) )
+    if ( !a1->DpcData[0].DpcQueueDepth || (v33 = a1->DpcRequestSlot[0], (v33 & 3) != 0) )
     {
-      v27 = a1->AdjustDpcThreshold-- == 1;
-      if ( !v27
+      v28 = a1->AdjustDpcThreshold-- == 1;
+      if ( !v28
         || (a1->AdjustDpcThreshold = KiAdjustDpcThreshold,
             MaximumDpcQueueDepth = a1->MaximumDpcQueueDepth,
             MaximumDpcQueueDepth >= KiMaximumDpcQueueDepth) )
@@ -297,19 +296,19 @@ LABEL_47:
           KdCheckForDebugBreak();
         return;
       }
-      v34 = MaximumDpcQueueDepth + 1;
+      v35 = MaximumDpcQueueDepth + 1;
     }
     else
     {
       a1->AdjustDpcThreshold = KiAdjustDpcThreshold;
-      if ( (v32 & 0x2F) == 0 )
+      if ( (v33 & 0x2F) == 0 )
         KiRequestSoftwareInterrupt(a1, 2u);
-      v33 = a1->MaximumDpcQueueDepth;
-      if ( a1->DpcRequestRate >= KiIdealDpcRate || v33 <= 1 )
+      v34 = a1->MaximumDpcQueueDepth;
+      if ( a1->DpcRequestRate >= KiIdealDpcRate || v34 <= 1 )
         goto LABEL_47;
-      v34 = v33 - 1;
+      v35 = v34 - 1;
     }
-    a1->MaximumDpcQueueDepth = v34;
+    a1->MaximumDpcQueueDepth = v35;
     goto LABEL_47;
   }
 }

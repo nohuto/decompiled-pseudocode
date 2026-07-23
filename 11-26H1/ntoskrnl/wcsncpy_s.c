@@ -1,20 +1,20 @@
 /*
- * XREFs of wcsncpy_s @ 0x14053CCA0
+ * XREFs of wcsncpy_s @ 0x14053F120
  * Callers:
- *     _wsplitpath_s @ 0x14053C0F0 (_wsplitpath_s.c)
- *     EmonAddProfileSource @ 0x140594AB0 (EmonAddProfileSource.c)
- *     Amd64AddProfileSource @ 0x1405A3000 (Amd64AddProfileSource.c)
- *     CarInitializeTelemetryData @ 0x140649C90 (CarInitializeTelemetryData.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x1408269B8 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     ExpFindArcName @ 0x14083B5E0 (ExpFindArcName.c)
- *     ExpParseSignatureName @ 0x14083BBA0 (ExpParseSignatureName.c)
- *     LocalGetAclForString @ 0x1409243B0 (LocalGetAclForString.c)
- *     LocalGetStringForControl @ 0x140A627D4 (LocalGetStringForControl.c)
- *     GetOperatorIndexByName @ 0x140A62AF4 (GetOperatorIndexByName.c)
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
- *     HalpKdEnumerateDebuggingDevices @ 0x140C12590 (HalpKdEnumerateDebuggingDevices.c)
+ *     _wsplitpath_s @ 0x14053E570 (_wsplitpath_s.c)
+ *     EmonAddProfileSource @ 0x140597230 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1405A5810 (Amd64AddProfileSource.c)
+ *     CarInitializeTelemetryData @ 0x14064D870 (CarInitializeTelemetryData.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x14082CBF8 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     ExpFindArcName @ 0x140841820 (ExpFindArcName.c)
+ *     ExpParseSignatureName @ 0x140841DE0 (ExpParseSignatureName.c)
+ *     LocalGetAclForString @ 0x1408FFEC0 (LocalGetAclForString.c)
+ *     LocalGetStringForControl @ 0x140A6F7A4 (LocalGetStringForControl.c)
+ *     GetOperatorIndexByName @ 0x140A6FAC4 (GetOperatorIndexByName.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
+ *     HalpKdEnumerateDebuggingDevices @ 0x140C18590 (HalpKdEnumerateDebuggingDevices.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsncpy_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)

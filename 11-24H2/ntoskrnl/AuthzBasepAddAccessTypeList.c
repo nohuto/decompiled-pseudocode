@@ -1,17 +1,16 @@
 /*
- * XREFs of AuthzBasepAddAccessTypeList @ 0x140362738
+ * XREFs of AuthzBasepAddAccessTypeList @ 0x140446210
  * Callers:
- *     SepNormalAccessCheck @ 0x140344500 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x140362354 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x14036292C (SepNormalAccessCheckEx.c)
- *     SepMaximumAccessCheck @ 0x140363250 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheck @ 0x1404E8A30 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1404E9F90 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x1404EB6BC (SepNormalAccessCheckEx.c)
  * Callees:
- *     AuthzBasepSetAccessReasons @ 0x140427320 (AuthzBasepSetAccessReasons.c)
- *     AuthzBasepUpdateParentTypeList @ 0x1404B3690 (AuthzBasepUpdateParentTypeList.c)
- *     AuthzBasepSetAppContainerAccessReasons @ 0x140696D68 (AuthzBasepSetAppContainerAccessReasons.c)
+ *     AuthzBasepSetAccessReasons @ 0x14041B4B0 (AuthzBasepSetAccessReasons.c)
+ *     AuthzBasepUpdateParentTypeList @ 0x1404ADF00 (AuthzBasepUpdateParentTypeList.c)
+ *     AuthzBasepSetAppContainerAccessReasons @ 0x140697DE8 (AuthzBasepSetAppContainerAccessReasons.c)
  */
 
-int __fastcall AuthzBasepAddAccessTypeList(
+unsigned int __fastcall AuthzBasepAddAccessTypeList(
         __int64 a1,
         __int64 a2,
         unsigned int a3,
@@ -25,7 +24,7 @@ int __fastcall AuthzBasepAddAccessTypeList(
   unsigned int v11; // edi
   unsigned __int16 *v12; // rsi
   int v13; // ecx
-  int result; // eax
+  unsigned int result; // eax
   __int64 v15; // r10
   __int64 v16; // r8
   int v17; // ecx

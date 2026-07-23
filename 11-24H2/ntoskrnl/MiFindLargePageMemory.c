@@ -1,26 +1,26 @@
 /*
- * XREFs of MiFindLargePageMemory @ 0x140A92A7C
+ * XREFs of MiFindLargePageMemory @ 0x140A8F22C
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiPfnZeroingNeeded @ 0x140268E10 (MiPfnZeroingNeeded.c)
- *     MiSufficientAvailablePages @ 0x1402AA420 (MiSufficientAvailablePages.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1402EE2CC (MiConvertSmallPageRangeToLarge.c)
- *     MiProtectionToCacheAttribute @ 0x1402EF870 (MiProtectionToCacheAttribute.c)
- *     MiFindContiguousPagesEx @ 0x140304960 (MiFindContiguousPagesEx.c)
- *     MiInsertMdlPageNeedsZero @ 0x1403A10BC (MiInsertMdlPageNeedsZero.c)
- *     MiUpdateCacheAttributeListsForPage @ 0x140414640 (MiUpdateCacheAttributeListsForPage.c)
- *     MiChangePageAttributeAndZeroBatch @ 0x140414984 (MiChangePageAttributeAndZeroBatch.c)
- *     MiInitializeBestCandidatesContext @ 0x140414BC4 (MiInitializeBestCandidatesContext.c)
- *     MiDereferencePageChains @ 0x140491294 (MiDereferencePageChains.c)
- *     MiCreatePageChains @ 0x140493E84 (MiCreatePageChains.c)
- *     MiCleanupBestCandidatesContext @ 0x14049494C (MiCleanupBestCandidatesContext.c)
- *     MiGetLargestPageIndex @ 0x140494B50 (MiGetLargestPageIndex.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiInsertMdlPageNeedsZero @ 0x140217C1C (MiInsertMdlPageNeedsZero.c)
+ *     MiProtectionToCacheAttribute @ 0x140253A30 (MiProtectionToCacheAttribute.c)
+ *     MiChangePageAttributeAndZeroBatch @ 0x1402708E0 (MiChangePageAttributeAndZeroBatch.c)
+ *     MiDereferencePageChains @ 0x140270AC0 (MiDereferencePageChains.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     MiFindContiguousPagesEx @ 0x14030E840 (MiFindContiguousPagesEx.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x14034F90C (MiConvertSmallPageRangeToLarge.c)
+ *     MiSufficientAvailablePages @ 0x1403526D0 (MiSufficientAvailablePages.c)
+ *     MiPfnZeroingNeeded @ 0x1403934B0 (MiPfnZeroingNeeded.c)
+ *     MiInitializeBestCandidatesContext @ 0x1403973B0 (MiInitializeBestCandidatesContext.c)
+ *     MiUpdateCacheAttributeListsForPage @ 0x1403F8E00 (MiUpdateCacheAttributeListsForPage.c)
+ *     MiCreatePageChains @ 0x14048E910 (MiCreatePageChains.c)
+ *     MiCleanupBestCandidatesContext @ 0x14048F3DC (MiCleanupBestCandidatesContext.c)
+ *     MiGetLargestPageIndex @ 0x14048F5E0 (MiGetLargestPageIndex.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiFindLargePageMemory(int *a1, unsigned __int64 *a2)
@@ -59,7 +59,7 @@ __int64 __fastcall MiFindLargePageMemory(int *a1, unsigned __int64 *a2)
   unsigned int v33; // [rsp+90h] [rbp-70h]
   unsigned __int64 v34; // [rsp+98h] [rbp-68h]
   unsigned __int64 *v35; // [rsp+A0h] [rbp-60h]
-  __int64 v36; // [rsp+A8h] [rbp-58h]
+  unsigned __int64 v36; // [rsp+A8h] [rbp-58h]
   int *v37; // [rsp+B0h] [rbp-50h]
   _OWORD v38[2]; // [rsp+B8h] [rbp-48h] BYREF
   _BYTE v39[96]; // [rsp+E0h] [rbp-20h] BYREF
@@ -89,7 +89,7 @@ __int64 __fastcall MiFindLargePageMemory(int *a1, unsigned __int64 *a2)
       Pool = 0LL;
       v28 = 0;
       v30 = 0LL;
-      v32 = BugCheckParameter3;
+      v32 = qword_140E3D588;
       LargestPageIndex = MiGetLargestPageIndex();
       if ( LargestPageIndex < 3 )
       {
@@ -143,7 +143,7 @@ __int64 __fastcall MiFindLargePageMemory(int *a1, unsigned __int64 *a2)
                 if ( MiPfnZeroingNeeded(v14, v29) )
                 {
                   MiInsertMdlPageNeedsZero(v7, v14, 1LL);
-                  MiUpdateCacheAttributeListsForPage((__int64 *)v38, v14, v29, v16);
+                  MiUpdateCacheAttributeListsForPage((unsigned __int64 *)v38, v14, v29, v16);
                 }
                 v14 += 48LL;
               }
@@ -201,7 +201,7 @@ __int64 __fastcall MiFindLargePageMemory(int *a1, unsigned __int64 *a2)
           else
           {
 LABEL_31:
-            v32 = BugCheckParameter3;
+            v32 = qword_140E3D588;
             ++LargestPageIndex;
             MiCleanupBestCandidatesContext((void **)&v30, v39);
             v8 = v30;
@@ -214,7 +214,7 @@ LABEL_31:
           ExFreePoolWithTag(Pool, 0);
       }
 LABEL_36:
-      MiChangePageAttributeAndZeroBatch((__int64 *)v38, (__int64)v7, v29, CLFS_LSN_NULL_EXT);
+      MiChangePageAttributeAndZeroBatch(v38, (__int64)v7, v29, CLFS_LSN_NULL_EXT);
       MiDereferencePageChains(v7);
       MiCleanupBestCandidatesContext((void **)&v30, v39);
       result = (__int64)v35;

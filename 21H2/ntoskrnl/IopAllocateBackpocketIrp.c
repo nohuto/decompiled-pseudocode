@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAllocateBackpocketIrp @ 0x1405000D0
+ * XREFs of IopAllocateBackpocketIrp @ 0x140500050
  * Callers:
- *     IoAsynchronousPageWrite @ 0x1402CB1EC (IoAsynchronousPageWrite.c)
- *     IoSynchronousPageWriteEx @ 0x14031BE0C (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x14031C130 (IoPageReadEx.c)
+ *     IoAsynchronousPageWrite @ 0x14020CF7C (IoAsynchronousPageWrite.c)
+ *     IoSynchronousPageWriteEx @ 0x140326B5C (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x140326E80 (IoPageReadEx.c)
  * Callees:
- *     IoInitializeIrp @ 0x1402A73A0 (IoInitializeIrp.c)
- *     IopIsActivityTracingEnabled @ 0x1402EDEF0 (IopIsActivityTracingEnabled.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     IopInitActivityIdIrp @ 0x140500C9C (IopInitActivityIdIrp.c)
+ *     IopIsActivityTracingEnabled @ 0x14020D8C0 (IopIsActivityTracingEnabled.c)
+ *     IoInitializeIrp @ 0x1402254E0 (IoInitializeIrp.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     IopInitActivityIdIrp @ 0x140500C1C (IopInitActivityIdIrp.c)
  */
 
 __int64 __fastcall IopAllocateBackpocketIrp(__int64 a1, char a2, char a3)
@@ -26,17 +26,17 @@ __int64 __fastcall IopAllocateBackpocketIrp(__int64 a1, char a2, char a3)
   LARGE_INTEGER Timeout; // [rsp+68h] [rbp+20h] BYREF
 
   v3 = a2;
-  if ( a2 > byte_140C45CC0 )
+  if ( a2 > byte_140C45E00 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   if ( !a3 )
   {
-    if ( (struct _KTHREAD *)qword_140C45C98 != CurrentThread )
+    if ( (struct _KTHREAD *)qword_140C45DD8 != CurrentThread )
     {
       v10.QuadPart = -300000000LL;
-      while ( _InterlockedExchange(&dword_140C45C90, 1) == 1 )
+      while ( _InterlockedExchange(&dword_140C45DD0, 1) == 1 )
       {
-        if ( KeWaitForSingleObject(&stru_140C45CA0, Executive, 0, 0, &v10) == 258 )
+        if ( KeWaitForSingleObject(&stru_140C45DE0, Executive, 0, 0, &v10) == 258 )
         {
           LOBYTE(v9) = v3;
           result = IopAllocateIrpExReturn(a1, v9, 0LL, retaddr);
@@ -44,17 +44,17 @@ __int64 __fastcall IopAllocateBackpocketIrp(__int64 a1, char a2, char a3)
             return result;
         }
       }
-      v8 = qword_140C45C88;
-      IoInitializeIrp(qword_140C45C88, 72 * v3 + 352, v3 + 2);
+      v8 = qword_140C45DC8;
+      IoInitializeIrp(qword_140C45DC8, 72 * v3 + 352, v3 + 2);
       v8->AllocationFlags = 33;
-      qword_140C45C98 = (__int64)KeGetCurrentThread();
+      qword_140C45DD8 = (__int64)KeGetCurrentThread();
       goto LABEL_9;
     }
-    v8 = qword_140C45CB8;
-    if ( qword_140C45CB8 )
+    v8 = qword_140C45DF8;
+    if ( qword_140C45DF8 )
     {
 LABEL_19:
-      qword_140C45CB8 = *(PIRP *)&qword_140C45CB8->Type;
+      qword_140C45DF8 = *(PIRP *)&qword_140C45DF8->Type;
       IoInitializeIrp(v8, 72 * a2 + 352, a2 + 2);
       v8->Tail.Overlay.CurrentStackLocation -= 2;
       *((_QWORD *)&v8->Tail.CompletionKey + 10) = v8->Tail.Overlay.CurrentStackLocation;
@@ -63,17 +63,17 @@ LABEL_19:
     }
     return 0LL;
   }
-  if ( (struct _KTHREAD *)qword_140C45C68 == CurrentThread )
+  if ( (struct _KTHREAD *)qword_140C45DA8 == CurrentThread )
   {
-    v8 = qword_140C45CB8;
-    if ( !qword_140C45CB8 )
+    v8 = qword_140C45DF8;
+    if ( !qword_140C45DF8 )
       KeBugCheckEx(0x11Eu, 0LL, 0LL, 0LL, 0LL);
     goto LABEL_19;
   }
   Timeout.QuadPart = -300000000LL;
-  while ( _InterlockedExchange(&dword_140C45C60, 1) == 1 )
+  while ( _InterlockedExchange(&dword_140C45DA0, 1) == 1 )
   {
-    if ( KeWaitForSingleObject(&word_140C45C70, Executive, 0, 0, &Timeout) == 258 )
+    if ( KeWaitForSingleObject(&word_140C45DB0, Executive, 0, 0, &Timeout) == 258 )
     {
       LOBYTE(v6) = v3;
       result = IopAllocateIrpExReturn(a1, v6, 0LL, retaddr);
@@ -84,7 +84,7 @@ LABEL_19:
   v8 = Irp;
   IoInitializeIrp(Irp, 72 * v3 + 352, v3 + 2);
   v8->AllocationFlags = 33;
-  qword_140C45C68 = (__int64)KeGetCurrentThread();
+  qword_140C45DA8 = (__int64)KeGetCurrentThread();
 LABEL_9:
   v8->Tail.Overlay.CurrentStackLocation -= 2;
   *((_QWORD *)&v8->Tail.CompletionKey + 10) = v8->Tail.Overlay.CurrentStackLocation;

@@ -5,70 +5,70 @@
  * Callees:
  *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     RtlRbRemoveNode @ 0x14034D8D0 (RtlRbRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpAcquirePropStoreLockExclusive @ 0x1405E7AF0 (RtlpAcquirePropStoreLockExclusive.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_1405E7AF0 @ 0x1405E7AF0 (sub_1405E7AF0.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlRemovePointerMapping(__int64 a1, _QWORD *a2)
 {
   unsigned __int8 v4; // al
-  unsigned __int64 v5; // rbx
+  unsigned __int64 Root; // rbx
   unsigned __int64 v6; // rdi
   unsigned __int64 v7; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v10; // r9
   int v11; // eax
   bool v12; // zf
 
-  v4 = RtlpAcquirePropStoreLockExclusive(&RtlpPtrTreeLock);
-  v5 = (unsigned __int64)RtlpPtrTree;
+  v4 = sub_1405E7AF0(&dword_140D04904);
+  Root = (unsigned __int64)stru_140C0D780.Root;
   v6 = v4;
-  if ( (qword_140C0D788 & 1) != 0 && RtlpPtrTree )
-    v5 = (unsigned __int64)&RtlpPtrTree ^ (unsigned __int64)RtlpPtrTree;
-  while ( v5 )
+  if ( ((__int64)stru_140C0D780.Min & 1) != 0 && stru_140C0D780.Root )
+    Root = (unsigned __int64)&stru_140C0D780 ^ (unsigned __int64)stru_140C0D780.Root;
+  while ( Root )
   {
-    if ( a1 - *(_QWORD *)(v5 + 24) >= 0 )
+    if ( a1 - *(_QWORD *)(Root + 24) >= 0 )
     {
-      if ( a1 - *(_QWORD *)(v5 + 24) <= 0 )
+      if ( a1 - *(_QWORD *)(Root + 24) <= 0 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)&RtlpPtrTree, v5);
+        RtlRbRemoveNode(&stru_140C0D780, (PRTL_BALANCED_NODE)Root);
         break;
       }
-      v7 = *(_QWORD *)(v5 + 8);
+      v7 = *(_QWORD *)(Root + 8);
     }
     else
     {
-      v7 = *(_QWORD *)v5;
+      v7 = *(_QWORD *)Root;
     }
-    if ( (qword_140C0D788 & 1) != 0 && v7 )
-      v5 ^= v7;
+    if ( ((__int64)stru_140C0D780.Min & 1) != 0 && v7 )
+      Root ^= v7;
     else
-      v5 = v7;
+      Root = v7;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPtrTreeLock);
-  if ( KiIrqlFlags )
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140D04904);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = *((_QWORD *)CurrentPrcb + 4375);
         v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-        v12 = (v11 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v11;
+        v12 = (v11 & *(_DWORD *)(v10 + 20)) == 0;
+        *(_DWORD *)(v10 + 20) &= v11;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          sub_140418E4C((__int64)CurrentPrcb);
       }
     }
   }
   __writecr8(v6);
-  if ( !v5 )
+  if ( !Root )
     return 3221226021LL;
-  *a2 = *(_QWORD *)(v5 + 32);
-  ExFreePoolWithTag((PVOID)v5, 0);
+  *a2 = *(_QWORD *)(Root + 32);
+  ExFreePoolWithTag((PVOID)Root, 0);
   return 0LL;
 }

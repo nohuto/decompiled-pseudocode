@@ -1,15 +1,15 @@
 /*
- * XREFs of CcDereferenceVacbArray @ 0x1403F9050
+ * XREFs of CcDereferenceVacbArray @ 0x1403EF160
  * Callers:
- *     CcUnmapInactiveViewsInternal @ 0x1403F877C (CcUnmapInactiveViewsInternal.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1403EE88C (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     CcRemoveVacbArray @ 0x1404F6138 (CcRemoveVacbArray.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CcFreeVacbArray @ 0x140706BDC (CcFreeVacbArray.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     CcRemoveVacbArray @ 0x1404F3A38 (CcRemoveVacbArray.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CcFreeVacbArray @ 0x14070479C (CcFreeVacbArray.c)
  */
 
 __int64 __fastcall CcDereferenceVacbArray(__int64 a1, __int64 a2)

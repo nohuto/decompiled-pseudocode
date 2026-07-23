@@ -1,24 +1,24 @@
 /*
- * XREFs of MiRelocateImagePfn @ 0x140447780
+ * XREFs of MiRelocateImagePfn @ 0x140446650
  * Callers:
- *     MiValidateInPage @ 0x1400267B0 (MiValidateInPage.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiPrivateFixup @ 0x14010B3F0 (MiPrivateFixup.c)
- *     MiFillPerSessionProtos @ 0x140661E34 (MiFillPerSessionProtos.c)
+ *     MiValidateInPage @ 0x140026330 (MiValidateInPage.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiPrivateFixup @ 0x140109170 (MiPrivateFixup.c)
+ *     MiFillPerSessionProtos @ 0x140661F18 (MiFillPerSessionProtos.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiPerformFixups @ 0x140526B60 (MiPerformFixups.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiPerformFixups @ 0x140509BC0 (MiPerformFixups.c)
  */
 
 __int64 __fastcall MiRelocateImagePfn(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3, __int64 a4, __int64 a5)
@@ -64,7 +64,7 @@ __int64 __fastcall MiRelocateImagePfn(ULONG_PTR a1, ULONG_PTR a2, unsigned int a
   else
   {
     v22 = a2;
-    v14 = MiReservePtes((__int64)&qword_140327870, 1uLL, v10);
+    v14 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, v10);
     if ( !v14 )
     {
       if ( !a2 )
@@ -114,7 +114,7 @@ __int64 __fastcall MiRelocateImagePfn(ULONG_PTR a1, ULONG_PTR a2, unsigned int a
     }
     else
     {
-      MiReleasePtes((__int64)&qword_140327870, v14, 1u);
+      MiReleasePtes((__int64)&qword_1403278B0, v14, 1u);
     }
   }
   return 0LL;

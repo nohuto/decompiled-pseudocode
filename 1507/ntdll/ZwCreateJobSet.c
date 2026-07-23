@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCreateJobSet()
+NTSTATUS __cdecl ZwCreateJobSet(ULONG NumJob, PJOB_SET_ARRAY UserJobSet, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 162LL;
+  result = 162;
   __asm { syscall; Low latency system call }
   return result;
 }

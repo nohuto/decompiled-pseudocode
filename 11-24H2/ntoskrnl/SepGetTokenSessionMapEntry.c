@@ -1,11 +1,11 @@
 /*
- * XREFs of SepGetTokenSessionMapEntry @ 0x14047F254
+ * XREFs of SepGetTokenSessionMapEntry @ 0x14047A074
  * Callers:
- *     SepIsParentOfChildAppContainer @ 0x140794F90 (SepIsParentOfChildAppContainer.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x140A45514 (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenLowboxNumber @ 0x140A4BC18 (SepSetTokenLowboxNumber.c)
+ *     SepIsParentOfChildAppContainer @ 0x140795018 (SepIsParentOfChildAppContainer.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x140A3B0C0 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenLowboxNumber @ 0x140A42978 (SepSetTokenLowboxNumber.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepGetTokenSessionMapEntry(int a1, char a2, __int64 *a3)
@@ -34,7 +34,7 @@ LABEL_6:
     }
     if ( !a2 )
       return 3221226021LL;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x40uLL, 0x734C6553u);
     if ( Pool2 )
     {
       v11 = g_SessionLowboxMap;
@@ -55,7 +55,7 @@ LABEL_6:
   }
   if ( !a2 )
     return 3221226021LL;
-  v4 = (__int64 **)ExAllocatePool2(0x100uLL);
+  v4 = (__int64 **)ExAllocatePool2(0x100uLL, 0x10uLL, 0x734C6553u);
   g_SessionLowboxMap = (__int64)v4;
   if ( v4 )
   {

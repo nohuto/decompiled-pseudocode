@@ -1,21 +1,21 @@
 /*
- * XREFs of InbvAcquireLock @ 0x14027D2DC
+ * XREFs of InbvAcquireLock @ 0x14027D4CC
  * Callers:
- *     DisplayBootBitmap @ 0x14018175C (DisplayBootBitmap.c)
- *     FinalizeBootLogo @ 0x14027D58C (FinalizeBootLogo.c)
- *     InbvRotateGuiBootDisplay @ 0x14027D5E0 (InbvRotateGuiBootDisplay.c)
+ *     DisplayBootBitmap @ 0x14018189C (DisplayBootBitmap.c)
+ *     FinalizeBootLogo @ 0x14027D77C (FinalizeBootLogo.c)
+ *     InbvRotateGuiBootDisplay @ 0x14027D7D0 (InbvRotateGuiBootDisplay.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 (*InbvAcquireLock())(void)
 {
   __int64 (*result)(void); // rax
 
-  result = (__int64 (*)(void))qword_14043C6F8;
-  if ( qword_14043C6F8 )
+  result = (__int64 (*)(void))qword_14043D7B8;
+  if ( qword_14043D7B8 )
   {
-    result = *(__int64 (**)(void))(qword_14043C6F8 + 152);
+    result = *(__int64 (**)(void))(qword_14043D7B8 + 152);
     if ( result )
       return (__int64 (*)(void))result();
   }

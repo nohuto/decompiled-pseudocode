@@ -9,7 +9,11 @@
  *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall VfAvlInitializeTreeEx(_QWORD *TableContext, __int64 a2, int a3, RTL_AVL_FREE_ROUTINE *a4)
+__int64 __fastcall VfAvlInitializeTreeEx(
+        _QWORD *TableContext,
+        __int64 a2,
+        int a3,
+        void (__cdecl *a4)(_RTL_AVL_TABLE *, PVOID))
 {
   __int64 v6; // rdi
   int v7; // eax

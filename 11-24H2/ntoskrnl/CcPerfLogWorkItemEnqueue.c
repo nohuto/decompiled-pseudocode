@@ -1,19 +1,19 @@
 /*
- * XREFs of CcPerfLogWorkItemEnqueue @ 0x1402A7FF0
+ * XREFs of CcPerfLogWorkItemEnqueue @ 0x140279DE0
  * Callers:
- *     CcPostWorkQueueRegular @ 0x1402A74B4 (CcPostWorkQueueRegular.c)
- *     CcPostWorkQueueCachemapUninit @ 0x1402A7944 (CcPostWorkQueueCachemapUninit.c)
- *     CcAsyncLazywriteWorker @ 0x1402A8E24 (CcAsyncLazywriteWorker.c)
- *     CcPostWorkQueueSpecial @ 0x1404B6678 (CcPostWorkQueueSpecial.c)
- *     CcWorkerThread @ 0x1404DB3D0 (CcWorkerThread.c)
- *     CcPostWorkQueueAsyncLazywrite @ 0x1404DF0A0 (CcPostWorkQueueAsyncLazywrite.c)
- *     CcPostWorkQueueAsyncRead @ 0x1404DFCEC (CcPostWorkQueueAsyncRead.c)
- *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x14057AEF8 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     CcPostWorkQueueAsyncRead @ 0x14027372C (CcPostWorkQueueAsyncRead.c)
+ *     CcPostWorkQueueCachemapUninit @ 0x14027973C (CcPostWorkQueueCachemapUninit.c)
+ *     CcPostWorkQueueRegular @ 0x14027AE98 (CcPostWorkQueueRegular.c)
+ *     CcAsyncLazywriteWorker @ 0x14027B0C8 (CcAsyncLazywriteWorker.c)
+ *     CcPostWorkQueueSpecial @ 0x1404B0E58 (CcPostWorkQueueSpecial.c)
+ *     CcWorkerThread @ 0x1404D4DF0 (CcWorkerThread.c)
+ *     CcPostWorkQueueAsyncLazywrite @ 0x1404D8AC0 (CcPostWorkQueueAsyncLazywrite.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x140578388 (CcWaitForCurrentLazyWriterActivityOnNode.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14024109C (CcReferenceSharedCacheMapFileObject.c)
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402091EC (CcReferenceSharedCacheMapFileObject.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogWorkItemEnqueue(__int64 a1, __int64 a2, char a3, char a4)
@@ -116,7 +116,7 @@ LABEL_9:
   v19 = 24;
   v18 = &v16;
   if ( CurrentIrql >= 2u )
-    return EtwTraceKernelEvent((int)&v18, 1, 0x80020000, 5632, 5243138);
+    return EtwTraceKernelEvent((unsigned int)&v18, 1, -2147352576, 5632, 5243138);
   else
-    return EtwTraceKernelEvent((int)&v18, 1, 0x80020000, 5632, 5249282);
+    return EtwTraceKernelEvent((unsigned int)&v18, 1, -2147352576, 5632, 5249282);
 }

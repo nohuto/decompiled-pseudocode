@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckThreadAffinity @ 0x140115158
+ * XREFs of KiCheckThreadAffinity @ 0x1401151C8
  * Callers:
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140114DA4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiSelectNextThread @ 0x1400D71E8 (KiSelectNextThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140114E14 (KiUpdateGlobalCpuSetConfiguration.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopIsInputSuppressionEngaged @ 0x1407A9FD4
+ * XREFs of PopIsInputSuppressionEngaged @ 0x1407AA1C4
  * Callers:
- *     PopMonitorInvocation @ 0x1407A8F2C (PopMonitorInvocation.c)
+ *     PopMonitorInvocation @ 0x1407A911C (PopMonitorInvocation.c)
  * Callees:
  *     <none>
  */
@@ -54,7 +54,7 @@ bool __fastcall PopIsInputSuppressionEngaged(int a1)
   if ( PopEnableInputSuppression
     && !PopErrataReportingIncorrectLidState
     && !PopLidOpened
-    && dword_140C3D86C == 1
+    && dword_140C3D96C == 1
     && !PopConsoleExternalDisplayConnected )
   {
     return PopConsoleDisplayState == 0;

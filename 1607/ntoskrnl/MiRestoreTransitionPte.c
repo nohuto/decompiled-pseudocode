@@ -1,36 +1,36 @@
 /*
- * XREFs of MiRestoreTransitionPte @ 0x14001D1F0
+ * XREFs of MiRestoreTransitionPte @ 0x14001CD70
  * Callers:
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
- *     MiWriteCompletePfn @ 0x14004E5A0 (MiWriteCompletePfn.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiRelinkStandbyPage @ 0x1400BE514 (MiRelinkStandbyPage.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1401209F0 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiDiscardTransitionPte @ 0x1401238C0 (MiDiscardTransitionPte.c)
- *     MiReuseStandbyPage @ 0x1401F3A84 (MiReuseStandbyPage.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
+ *     MiWriteCompletePfn @ 0x14004E120 (MiWriteCompletePfn.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiRelinkStandbyPage @ 0x1400BC3A4 (MiRelinkStandbyPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140120F60 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiDiscardTransitionPte @ 0x140123E30 (MiDiscardTransitionPte.c)
+ *     MiReuseStandbyPage @ 0x1401F38B0 (MiReuseStandbyPage.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     MI_IS_RESET_PTE @ 0x14001EDB0 (MI_IS_RESET_PTE.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiVaToPfn @ 0x140083A00 (MiVaToPfn.c)
- *     MiDereferenceControlAreaPfnList @ 0x14008FC70 (MiDereferenceControlAreaPfnList.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MiGetTopLevelPfn @ 0x14010A970 (MiGetTopLevelPfn.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
- *     MiTransferSoftwarePte @ 0x1401F299C (MiTransferSoftwarePte.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     MI_IS_RESET_PTE @ 0x14001E930 (MI_IS_RESET_PTE.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiVaToPfn @ 0x140081B60 (MiVaToPfn.c)
+ *     MiDereferenceControlAreaPfnList @ 0x14008F3D0 (MiDereferenceControlAreaPfnList.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MiGetTopLevelPfn @ 0x1401086F0 (MiGetTopLevelPfn.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiTransferSoftwarePte @ 0x1401F27A4 (MiTransferSoftwarePte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 __fastcall MiRestoreTransitionPte(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -164,7 +164,7 @@ __int64 __fastcall MiRestoreTransitionPte(__int64 a1, __int64 a2, __int64 a3, __
       *(_BYTE *)(a1 + 35) &= 0xF8u;
       if ( P )
       {
-        KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_1403271C0, &LockHandle);
+        KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327200, &LockHandle);
         v35 = (unsigned __int64)P;
         if ( !P )
           goto LABEL_39;
@@ -186,16 +186,16 @@ __int64 __fastcall MiRestoreTransitionPte(__int64 a1, __int64 a2, __int64 a3, __
         else
         {
 LABEL_39:
-          v35 = (unsigned int)dword_140327188;
+          v35 = (unsigned int)dword_1403271C8;
           result = KxReleaseQueuedSpinLock(&LockHandle);
         }
       }
       else
       {
-        v35 = (unsigned int)dword_140327188;
+        v35 = (unsigned int)dword_1403271C8;
       }
       if ( v35 )
-        return KiInsertQueueDpc((ULONG_PTR)&dword_140327388, 0);
+        return KiInsertQueueDpc((ULONG_PTR)&dword_1403273C8, 0);
     }
   }
   return result;

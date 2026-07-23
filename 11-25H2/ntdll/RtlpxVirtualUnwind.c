@@ -132,7 +132,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
         if ( (*(_BYTE *)v26 & 0x20) == 0 )
           goto LABEL_4;
         if ( (unsigned int)++v27 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
         v26 = a2 + *(unsigned int *)(v26 + 12);
       }
     }

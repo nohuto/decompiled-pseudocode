@@ -16,8 +16,8 @@
 __int64 __fastcall HalpVpptUpdatePhysicalTimer(__int64 a1)
 {
   int v1; // ebx
-  unsigned __int64 v2; // rdi
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER v2; // rdi
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v4; // r8
   unsigned __int64 v5; // rbx
   __int64 result; // rax
@@ -28,10 +28,10 @@ __int64 __fastcall HalpVpptUpdatePhysicalTimer(__int64 a1)
   __int64 v11; // rdx
   __int64 v12; // rax
   __int64 v13; // rdx
-  unsigned __int64 v14; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = *(_DWORD *)(*(_QWORD *)&HalpVpptQueue + 16LL);
-  v2 = *(_QWORD *)(*(_QWORD *)&HalpVpptQueue + 32LL);
+  v2 = *(LARGE_INTEGER *)(*(_QWORD *)&HalpVpptQueue + 32LL);
   if ( HalpVpptPhysicalTimerTarget != v1 )
   {
     if ( *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL) != 3 )
@@ -52,16 +52,16 @@ __int64 __fastcall HalpVpptUpdatePhysicalTimer(__int64 a1)
       HalpVpptPhysicalTimerTarget = v1;
     }
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v14);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v4 = 0LL;
-  if ( InterruptTimePrecise <= v2 )
-    v4 = v2 - InterruptTimePrecise;
+  if ( InterruptTimePrecise.QuadPart <= (unsigned __int64)v2.QuadPart )
+    v4 = v2.QuadPart - InterruptTimePrecise.QuadPart;
   v5 = 0x989680uLL / *(_QWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 192LL);
   if ( v5 < 0x1388 )
     v5 = 5000LL;
   if ( v4 >= v5 )
     v5 = v4;
-  result = HalpSetTimerAnyMode(*(_QWORD *)&HalpVpptPhysicalTimer, v5, v4, &v14);
+  result = HalpSetTimerAnyMode(*(_QWORD *)&HalpVpptPhysicalTimer, v5, v4, &PerformanceCounter);
   if ( (int)result < 0 )
     ExtEnvCriticalFailure(v7, 277, HalpVpptPhysicalTimer, v5, (int)result);
   return result;

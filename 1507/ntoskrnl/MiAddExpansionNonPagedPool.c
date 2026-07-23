@@ -23,12 +23,12 @@ void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)
   __int64 v8; // rdx
   __int64 v9; // r12
   unsigned int v10; // edi
-  union _SLIST_HEADER *v11; // rdi
+  _SLIST_HEADER *v11; // rdi
   __int64 Next; // rax
   __int64 v13; // rax
   char v14; // cl
   char v15; // al
-  union _SLIST_HEADER *v16; // rbx
+  _SLIST_HEADER *v16; // rbx
   __int64 v17; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
   void *retaddr; // [rsp+78h] [rbp+38h]

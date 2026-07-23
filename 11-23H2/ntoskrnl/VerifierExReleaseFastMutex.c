@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierExReleaseFastMutex @ 0x140ADD250
+ * XREFs of VerifierExReleaseFastMutex @ 0x140ADD240
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140AC05B0 (VfKeIrqlTransitionReserveLogEntry.c)
- *     VfKeIrqlLogLower @ 0x140AD5CB4 (VfKeIrqlLogLower.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x140AC05A0 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     VfKeIrqlLogLower @ 0x140AD5CA4 (VfKeIrqlLogLower.c)
  */
 
 void __fastcall VerifierExReleaseFastMutex(__int64 a1, __int64 a2)

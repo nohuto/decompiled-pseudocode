@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpSetRvaListRvaStateBits @ 0x1406BBFDC
+ * XREFs of RtlpSetRvaListRvaStateBits @ 0x1406BD27C
  * Callers:
- *     RtlpCompressRvaList @ 0x1405F2F20 (RtlpCompressRvaList.c)
+ *     RtlpCompressRvaList @ 0x1405F3F20 (RtlpCompressRvaList.c)
  * Callees:
  *     <none>
  */

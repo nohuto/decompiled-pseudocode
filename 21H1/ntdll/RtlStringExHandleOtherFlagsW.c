@@ -7,13 +7,20 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall RtlStringExHandleOtherFlagsW(char *a1, size_t Size, int a3, char **a4, size_t *a5, __int16 a6)
+int __fastcall RtlStringExHandleOtherFlagsW(
+        char *a1,
+        unsigned int Size,
+        int a3,
+        char **a4,
+        unsigned int *a5,
+        __int16 a6)
 {
   __int16 v6; // ax
-  size_t v8; // edi
+  unsigned int v8; // edi
   char **v9; // edx
-  size_t *v10; // ecx
+  unsigned int *v10; // ecx
   char *v11; // eax
+  size_t v13; // [esp-4h] [ebp-10h]
 
   v6 = a6;
   v8 = Size >> 1;
@@ -25,7 +32,8 @@ int __fastcall RtlStringExHandleOtherFlagsW(char *a1, size_t Size, int a3, char 
   }
   if ( (a6 & 0x400) != 0 )
   {
-    memset(a1, (unsigned __int8)a6, Size);
+    LODWORD(v13) = Size;
+    memset(a1, (unsigned __int8)a6, v13);
     if ( (_BYTE)a6 )
     {
       if ( !v8 )

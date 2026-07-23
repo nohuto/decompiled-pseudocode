@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpXfgGetPdbSignature @ 0x180121BE0
+ * XREFs of RtlpXfgGetPdbSignature @ 0x180121BB0
  * Callers:
- *     RtlpXfgTlLogFailure @ 0x180121D6C (RtlpXfgTlLogFailure.c)
+ *     RtlpXfgTlLogFailure @ 0x180121D3C (RtlpXfgTlLogFailure.c)
  * Callees:
- *     RtlpImageNtHeader @ 0x180121B84 (RtlpImageNtHeader.c)
+ *     RtlpImageNtHeader @ 0x180121B54 (RtlpImageNtHeader.c)
  */
 
 __int64 __fastcall RtlpXfgGetPdbSignature(__int64 a1, unsigned __int64 a2, _OWORD *a3, _DWORD *a4, _QWORD *a5)

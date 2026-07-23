@@ -6,7 +6,7 @@
  *     RtlIpv6AddressToStringW @ 0x180066FE0 (RtlIpv6AddressToStringW.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     swprintf_s @ 0x180098160 (swprintf_s.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 LONG __stdcall RtlIpv6AddressToStringExW(

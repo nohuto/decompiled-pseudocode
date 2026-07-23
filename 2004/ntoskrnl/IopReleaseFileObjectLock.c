@@ -32,9 +32,9 @@ void __fastcall IopReleaseFileObjectLock(PADAPTER_OBJECT DmaAdapter)
 {
   ULONG_PTR v1; // rbp
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 v5; // r15
-  __int64 v6; // rdx
+  unsigned int v6; // edx
   bool v7; // zf
   __int64 v8; // rcx
   __int64 v9; // rdi
@@ -57,23 +57,23 @@ void __fastcall IopReleaseFileObjectLock(PADAPTER_OBJECT DmaAdapter)
       1);
   CurrentThread = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v1) == 1 )
-    SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
+    SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
   else
-    SessionId = 0xFFFFFFFFLL;
+    SessionId = -1;
   --CurrentThread->SpecialApcDisable;
   v5 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v6) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v6 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   v7 = !_BitScanReverse((unsigned int *)&v8, v6);
   if ( v7 )
     goto LABEL_21;
   while ( 1 )
   {
     v9 = (__int64)&CurrentThread->LockEntries[v8];
-    v6 = ~(1 << v8) & (unsigned int)v6;
+    v6 &= ~(1 << v8);
     if ( (*(_BYTE *)(v9 + 26) & 1) != 0
       && (*(_DWORD *)(v9 + 32) & 1) == 0
       && (*(_QWORD *)(v9 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v1 & 0x7FFFFFFFFFFFFFFCLL)
-      && *(_DWORD *)(v9 + 40) == (_DWORD)SessionId )
+      && *(_DWORD *)(v9 + 40) == SessionId )
     {
       *(_BYTE *)(v9 + 26) &= ~1u;
       if ( *(_QWORD *)(v9 + 32) )
@@ -87,13 +87,13 @@ void __fastcall IopReleaseFileObjectLock(PADAPTER_OBJECT DmaAdapter)
   {
 LABEL_21:
     if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v1, (unsigned int)SessionId, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v1, SessionId, 0LL);
   }
   else
   {
     *(_BYTE *)(v9 + 32) |= 2u;
     if ( *(__int64 *)(v9 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v9, v6, SessionId);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v9);
     v10 = *(_DWORD *)(v9 + 88) & 0xFFFE0000;
     *(_BYTE *)(v9 + 25) &= ~1u;
     *(_DWORD *)(v9 + 88) = v10;

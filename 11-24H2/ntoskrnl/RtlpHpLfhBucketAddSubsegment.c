@@ -1,82 +1,84 @@
 /*
- * XREFs of RtlpHpLfhBucketAddSubsegment @ 0x14045CC3C
+ * XREFs of RtlpHpLfhBucketAddSubsegment @ 0x14035EA3C
  * Callers:
- *     RtlpHpLfhOwnerCompact @ 0x1402B461C (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhBucketGetSubsegment @ 0x1402B55B8 (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1402B6D78 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x14049CB38 (RtlpHpLfhContextSlotStandbyProcess.c)
- *     RtlpHpLfhContextSlotAllocate @ 0x1404B9584 (RtlpHpLfhContextSlotAllocate.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x140606D74 (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x14035EE00 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x1403D81F0 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1404322C0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x1404977E0 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpLfhContextSlotAllocate @ 0x1404B4424 (RtlpHpLfhContextSlotAllocate.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x140604374 (RtlpHpLfhPrivateSlotShutdown.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14020D790 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhSubsegmentFree @ 0x1402B4ED8 (RtlpHpLfhSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1402B64D8 (RtlpHpLfhSubsegmentReformatAsMulti.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x1402B6864 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpReleaseLockExclusive @ 0x1402B9650 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140336AF0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x140360D90 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1403D90D8 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x1403D9464 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x1403D996C (RtlpHpLfhSubsegmentFree.c)
  */
 
-void __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, __int64 a2, __int64 **a3, char a4)
+char __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, __int64 a2, _QWORD *a3, char a4)
 {
-  __int64 *v4; // rdi
-  char v5; // r15
-  char v9; // al
-  __int64 *v10; // r8
-  unsigned __int8 v11; // di
-  __int64 v12; // rcx
-  int v13; // ebp
-  unsigned __int64 v14; // rdx
-  __int64 **v15; // rax
+  _UNKNOWN **v4; // rax
+  _QWORD *v5; // rdi
+  char v6; // r15
+  _QWORD *v10; // r8
+  __int64 v11; // rcx
+  int v12; // ebp
+  _QWORD *v13; // rdx
+  _QWORD *v14; // rax
+  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
 
-  v4 = *a3;
-  v5 = a4 & 0xC;
+  v4 = &retaddr;
+  v5 = (_QWORD *)*a3;
+  v6 = a4 & 0xC;
   if ( (a4 & 0xC) == 0 )
-    v5 = 8;
-  if ( v4 != (__int64 *)a3 )
+    v6 = 8;
+  if ( v5 != a3 )
   {
-    v13 = a4 & 2;
+    v12 = a4 & 2;
     do
     {
-      v14 = (unsigned __int64)v4;
-      v4 = (__int64 *)*v4;
-      if ( v13 || *(_WORD *)(v14 + 32) != *(_WORD *)(v14 + 34) )
+      v13 = v5;
+      v5 = (_QWORD *)*v5;
+      if ( v12 || (LOWORD(v4) = *((_WORD *)v13 + 17), *((_WORD *)v13 + 16) != (_WORD)v4) )
       {
-        if ( (*(_BYTE *)(v14 + 51) & 1) != 0 )
+        if ( (*((_BYTE *)v13 + 51) & 1) != 0 )
         {
-          *(_BYTE *)(v14 + 51) &= ~1u;
-          if ( (v5 & 8) == 0 )
-            RtlpHpLfhSubsegmentReformatAsMulti(a1, v14);
+          LOBYTE(v4) = *((_BYTE *)v13 + 51) & 0xFE;
+          *((_BYTE *)v13 + 51) = (_BYTE)v4;
+          if ( (v6 & 8) == 0 )
+            LOBYTE(v4) = RtlpHpLfhSubsegmentReformatAsMulti(a1, v13, 1LL);
         }
       }
       else
       {
-        if ( v4[1] != v14 || (v15 = *(__int64 ***)(v14 + 8), *v15 != (__int64 *)v14) )
+        if ( (_QWORD *)v5[1] != v13 || (v14 = (_QWORD *)v13[1], (_QWORD *)*v14 != v13) )
 LABEL_16:
           __fastfail(3u);
-        *v15 = v4;
-        v4[1] = (__int64)v15;
-        RtlpHpLfhSubsegmentFree((__int64 *)a1, v14, a2);
+        *v14 = v5;
+        v5[1] = v14;
+        LOBYTE(v4) = RtlpHpLfhSubsegmentFree(a1, v13, a2);
       }
     }
-    while ( v4 != (__int64 *)a3 );
+    while ( v5 != a3 );
   }
-  if ( *a3 != (__int64 *)a3 )
+  if ( (_QWORD *)*a3 != a3 )
   {
-    v9 = RtlpHpAcquireLockExclusive((int *)(a2 + 16), *(unsigned __int8 *)(a1 + 65), (__int64)a3);
-    v10 = *a3;
-    v11 = v9;
+    RtlpHpAcquireLockExclusive((int *)(a2 + 16), *(unsigned __int8 *)(a1 + 65));
+    v10 = (_QWORD *)*a3;
     do
     {
-      if ( (__int64 **)v10[1] != a3 )
+      if ( (_QWORD *)v10[1] != a3 )
         goto LABEL_16;
-      v12 = *v10;
-      if ( *(__int64 **)(*v10 + 8) != v10 )
+      v11 = *v10;
+      if ( *(_QWORD **)(*v10 + 8LL) != v10 )
         goto LABEL_16;
-      *a3 = (__int64 *)v12;
-      *(_QWORD *)(v12 + 8) = a3;
-      RtlpHpLfhOwnerMoveSubsegment(a1, (char *)a2, v10, 0, 0);
-      v10 = *a3;
+      *a3 = v11;
+      *(_QWORD *)(v11 + 8) = a3;
+      RtlpHpLfhOwnerMoveSubsegment(a1, a2, (_DWORD)v10, 0, 0);
+      v10 = (_QWORD *)*a3;
     }
-    while ( *a3 != (__int64 *)a3 );
-    RtlpHpReleaseLockExclusive(a2 + 16, *(unsigned __int8 *)(a1 + 65), v11);
+    while ( (_QWORD *)*a3 != a3 );
+    LOBYTE(v4) = RtlpHpReleaseLockExclusive(a2 + 16);
   }
+  return (char)v4;
 }

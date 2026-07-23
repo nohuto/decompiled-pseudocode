@@ -10,14 +10,14 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-__int64 __fastcall sub_180104BE8(unsigned int *a1, const void *a2, __int64 a3, unsigned int a4)
+__int64 __fastcall sub_180104BE8(_DWORD *a1, const void *a2, __int64 a3, unsigned int a4)
 {
   void *v8; // rax
   __int64 v9; // rdi
   size_t v10; // r8
   int v12; // [rsp+60h] [rbp+18h] BYREF
 
-  v8 = (void *)sub_18005F208(a1, *(_QWORD *)(a3 + 24), *(_QWORD *)(a3 + 32), a4, &v12);
+  v8 = (void *)sub_18005F208((__int64)a1, *(_QWORD *)(a3 + 24), *(_QWORD *)(a3 + 32), a4, &v12);
   v9 = (__int64)v8;
   if ( v8 )
   {

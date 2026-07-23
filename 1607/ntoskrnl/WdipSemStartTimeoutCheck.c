@@ -1,11 +1,11 @@
 /*
- * XREFs of WdipSemStartTimeoutCheck @ 0x140564810
+ * XREFs of WdipSemStartTimeoutCheck @ 0x140564D50
  * Callers:
- *     WdipSemCleanStart @ 0x140564790 (WdipSemCleanStart.c)
+ *     WdipSemCleanStart @ 0x140564CD0 (WdipSemCleanStart.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExAllocateTimer @ 0x140132AA0 (ExAllocateTimer.c)
- *     WdipSemSqmInit @ 0x140564898 (WdipSemSqmInit.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExAllocateTimer @ 0x140133010 (ExAllocateTimer.c)
+ *     WdipSemSqmInit @ 0x140564DD8 (WdipSemSqmInit.c)
  */
 
 __int64 WdipSemStartTimeoutCheck()
@@ -19,7 +19,7 @@ __int64 WdipSemStartTimeoutCheck()
     {
       WdipTimeoutWorkItem.Parameter = 0LL;
       WdipTimeoutWorkItem.List.Flink = 0LL;
-      qword_1402FDB68 = -1LL;
+      qword_1402FDB48 = -1LL;
       WdipTimeoutTimerParameters = 0LL;
       WdipTimeoutWorkItem.WorkerRoutine = (void (__fastcall *)(void *))WdipTimeoutCheckRoutine;
       ExQueueWorkItem(&WdipTimeoutWorkItem, DelayedWorkQueue);

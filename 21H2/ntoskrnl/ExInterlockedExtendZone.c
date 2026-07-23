@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInterlockedExtendZone @ 0x1405B6C90
+ * XREFs of ExInterlockedExtendZone @ 0x1405B6EC0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExExtendZone @ 0x1405B6BB0 (ExExtendZone.c)
+ *     ExExtendZone @ 0x1405B6DE0 (ExExtendZone.c)
  */
 
 NTSTATUS __stdcall ExInterlockedExtendZone(PZONE_HEADER Zone, PVOID Segment, ULONG SegmentSize, PKSPIN_LOCK Lock)

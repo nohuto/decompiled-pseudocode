@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerAdapterPublishRecState @ 0x14075B8C8
+ * XREFs of PopPowerAdapterPublishRecState @ 0x14075A5D4
  * Callers:
- *     PopBatteryWorker @ 0x140AC7D70 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x140AC5DB0 (PopBatteryWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExSystemTimeToLocalTime @ 0x140347CE0 (ExSystemTimeToLocalTime.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExSystemTimeToLocalTime @ 0x1403266E0 (ExSystemTimeToLocalTime.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
   LARGE_INTEGER v15; // [rsp+48h] [rbp-B8h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v17; // [rsp+58h] [rbp-A8h] BYREF
-  char v18; // [rsp+60h] [rbp-A0h] BYREF
+  char Buffer; // [rsp+60h] [rbp-A0h] BYREF
   __int16 v19; // [rsp+61h] [rbp-9Fh]
   char v20; // [rsp+63h] [rbp-9Dh]
   int v21; // [rsp+64h] [rbp-9Ch]
@@ -83,11 +83,11 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
     v22 = v8;
     v19 = 0;
     v20 = 0;
-    v18 = 0;
+    Buffer = 0;
     v21 = (HighPart >> 1) & 3;
     v23 = v7;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_ADAPTER_REC_STATUS, (__int64)&v18);
-    if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+    updated = ZwUpdateWnfStateData(&WNF_PO_POWER_ADAPTER_REC_STATUS, &Buffer, 0x18u, 0LL, 0LL, 0, 0);
+    if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
     {
       v9 = "Power Adapter Online";
       if ( (HighPart & 1) == 0 )
@@ -112,8 +112,8 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
       v17 = 0x1000000LL;
       v35 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E076F0,
-        (unsigned __int8 *)byte_14004BC71,
+        (__int64)&dword_140E07680,
+        (unsigned __int8 *)byte_14004CE8B,
         0LL,
         0LL,
         9u,

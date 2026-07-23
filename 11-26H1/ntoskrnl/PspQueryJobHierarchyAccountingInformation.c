@@ -1,19 +1,19 @@
 /*
- * XREFs of PspQueryJobHierarchyAccountingInformation @ 0x140772FF8
+ * XREFs of PspQueryJobHierarchyAccountingInformation @ 0x140775FF8
  * Callers:
- *     NtQueryInformationJobObject @ 0x1407F2FB0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1407F8B10 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     PsAddProcessEnergyValues @ 0x14041D0E0 (PsAddProcessEnergyValues.c)
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     ExReleaseFastResourceShared @ 0x140485E00 (ExReleaseFastResourceShared.c)
- *     KeQuerySchedulingGroupReadyTime @ 0x1404AAA60 (KeQuerySchedulingGroupReadyTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14095A350 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspLockJobShared @ 0x140A81FE8 (PspLockJobShared.c)
- *     PspUnlockJobShared @ 0x140AAD180 (PspUnlockJobShared.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     PsAddProcessEnergyValues @ 0x140414930 (PsAddProcessEnergyValues.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     ExReleaseFastResourceShared @ 0x14047F770 (ExReleaseFastResourceShared.c)
+ *     KeQuerySchedulingGroupReadyTime @ 0x1404A40F0 (KeQuerySchedulingGroupReadyTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1409FFC10 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspLockJobShared @ 0x140A87E58 (PspLockJobShared.c)
+ *     PspUnlockJobShared @ 0x140AAB240 (PspUnlockJobShared.c)
  */
 
 void __fastcall PspQueryJobHierarchyAccountingInformation(_QWORD *Object, __int64 a2)
@@ -155,7 +155,7 @@ void __fastcall PspQueryJobHierarchyAccountingInformation(_QWORD *Object, __int6
   if ( CurrentThread )
   {
     if ( CurrentThread->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     {
       KiCheckForKernelApcDelivery(v23, v22);
     }

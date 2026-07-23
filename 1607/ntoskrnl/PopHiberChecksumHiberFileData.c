@@ -4,8 +4,8 @@
  *     PopRequestWrite @ 0x1403CD62C (PopRequestWrite.c)
  *     PopRequestRead @ 0x1403CE5E8 (PopRequestRead.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     tcpxsum @ 0x140166AC0 (tcpxsum.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x140167030 (tcpxsum.c)
  *     PopCheckpointSystemSleep @ 0x1403CEBA4 (PopCheckpointSystemSleep.c)
  */
 
@@ -73,11 +73,11 @@ unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
       if ( a2 )
       {
         *(_QWORD *)(a1 + 424) = v10;
-        qword_1403038E8 += result;
+        qword_140303828 += result;
       }
       else
       {
-        qword_140303A18 += result;
+        qword_140303958 += result;
       }
     }
   }

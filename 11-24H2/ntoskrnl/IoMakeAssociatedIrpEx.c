@@ -1,9 +1,9 @@
 /*
- * XREFs of IoMakeAssociatedIrpEx @ 0x140374CD0
+ * XREFs of IoMakeAssociatedIrpEx @ 0x14025D590
  * Callers:
  *     <none>
  * Callees:
- *     IoMakeAssociatedIrpPriv @ 0x140374CE8 (IoMakeAssociatedIrpPriv.c)
+ *     IoMakeAssociatedIrpPriv @ 0x14025D5A8 (IoMakeAssociatedIrpPriv.c)
  */
 
 __int64 IoMakeAssociatedIrpEx()

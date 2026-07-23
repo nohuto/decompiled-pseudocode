@@ -3,11 +3,11 @@
  * Callers:
  *     BapdpProcessEDrvHintInfo @ 0x140B4D960 (BapdpProcessEDrvHintInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
  */
 
 int __fastcall BapdpRegisterEDrvHintInfo(_DWORD *a1)

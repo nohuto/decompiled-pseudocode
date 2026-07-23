@@ -1,13 +1,13 @@
 /*
  * XREFs of IopLiveDumpEstimateMemoryPages @ 0x1403DAE30
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1406266AC (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140626760 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     RtlClearAllBitsEx @ 0x1400966C4 (RtlClearAllBitsEx.c)
- *     RtlNumberOfSetBitsEx @ 0x14013ACD8 (RtlNumberOfSetBitsEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlCalculateLivedumpSize @ 0x1401C0298 (HvlCalculateLivedumpSize.c)
- *     IopLiveDumpTraceBufferEstimation @ 0x1401CAFF4 (IopLiveDumpTraceBufferEstimation.c)
+ *     RtlClearAllBitsEx @ 0x140095EC4 (RtlClearAllBitsEx.c)
+ *     RtlNumberOfSetBitsEx @ 0x14013B248 (RtlNumberOfSetBitsEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlCalculateLivedumpSize @ 0x1401C017C (HvlCalculateLivedumpSize.c)
+ *     IopLiveDumpTraceBufferEstimation @ 0x1401CAED8 (IopLiveDumpTraceBufferEstimation.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  *     IopLiveDumpCallRemovePagesCallbacks @ 0x1403DA4D0 (IopLiveDumpCallRemovePagesCallbacks.c)
  *     IopLiveDumpUncorralProcessors @ 0x1403DB958 (IopLiveDumpUncorralProcessors.c)
@@ -60,9 +60,9 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     }
     IopLiveDumpTraceBufferEstimation();
   }
-  RtlClearAllBitsEx(a1 + 368);
-  RtlClearAllBitsEx(a1 + 424);
-  RtlClearAllBitsEx(a1 + 464);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 368));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 424));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 464));
   *(_DWORD *)(a1 + 80) &= ~1u;
   return (unsigned int)v3;
 }

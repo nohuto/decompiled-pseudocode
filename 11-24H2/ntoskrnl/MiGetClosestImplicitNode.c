@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetClosestImplicitNode @ 0x1403F379C
+ * XREFs of MiGetClosestImplicitNode @ 0x140391F4C
  * Callers:
- *     MiInPagePageTable @ 0x1403F2FCC (MiInPagePageTable.c)
- *     MiAddPhysicalMemoryChunks @ 0x1407E8944 (MiAddPhysicalMemoryChunks.c)
- *     MiMapNewPfns @ 0x1407E96AC (MiMapNewPfns.c)
+ *     MiInPagePageTable @ 0x140391778 (MiInPagePageTable.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1407E8F14 (MiAddPhysicalMemoryChunks.c)
+ *     MiMapNewPfns @ 0x1407E9C7C (MiMapNewPfns.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall MiGetClosestImplicitNode(unsigned int a1)
 
   if ( a1 )
   {
-    v2 = (_DWORD *)(qword_140E2DAD0 + 4LL * (unsigned __int16)KeNumberNodes * (a1 - 1));
+    v2 = (_DWORD *)(qword_140E2DC10 + 4LL * (unsigned __int16)KeNumberNodes * (a1 - 1));
     if ( v2 < &v2[(unsigned __int16)KeNumberNodes] )
       return (unsigned int)(*v2 + 1);
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetProcessFreezeStateCallback @ 0x1404E951C
+ * XREFs of PspSetProcessFreezeStateCallback @ 0x1404CB60C
  * Callers:
  *     <none>
  * Callees:

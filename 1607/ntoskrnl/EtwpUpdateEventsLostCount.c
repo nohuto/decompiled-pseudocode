@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateEventsLostCount @ 0x1400AA15C
+ * XREFs of EtwpUpdateEventsLostCount @ 0x1400A86DC
  * Callers:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14007394C (EtwpLogSystemEventUnsafe.c)
- *     EtwpReserveTraceBuffer @ 0x1400D68F0 (EtwpReserveTraceBuffer.c)
- *     EtwpFailLogging @ 0x140224D98 (EtwpFailLogging.c)
- *     EtwpCompressBuffer @ 0x14022A108 (EtwpCompressBuffer.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1400734CC (EtwpLogSystemEventUnsafe.c)
+ *     EtwpReserveTraceBuffer @ 0x1400D4790 (EtwpReserveTraceBuffer.c)
+ *     EtwpFailLogging @ 0x140224BC4 (EtwpFailLogging.c)
+ *     EtwpCompressBuffer @ 0x140229F34 (EtwpCompressBuffer.c)
  * Callees:
  *     <none>
  */

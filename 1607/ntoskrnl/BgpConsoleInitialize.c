@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgpGetResolution @ 0x1400B5C34 (BgpGetResolution.c)
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
- *     BgpConsoleSetPointSize @ 0x1401412F0 (BgpConsoleSetPointSize.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     BgpGetResolution @ 0x1400B3A5C (BgpGetResolution.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
+ *     BgpConsoleSetPointSize @ 0x140141860 (BgpConsoleSetPointSize.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     BgpFoGetFontHandle @ 0x1407279B8 (BgpFoGetFontHandle.c)
  *     BgpDisplayCharacterGetContext @ 0x140728670 (BgpDisplayCharacterGetContext.c)
  *     BgpConsoleClearScreenEx @ 0x14072A364 (BgpConsoleClearScreenEx.c)
@@ -42,7 +42,7 @@ __int64 __fastcall BgpConsoleInitialize(unsigned __int16 a1, unsigned int a2, un
 
   BgpFwAcquireLock();
   Memory = (_DWORD *)BgpFwAllocateMemory(0x5E10uLL);
-  qword_140329968 = (__int64)Memory;
+  qword_140329998 = (__int64)Memory;
   if ( !Memory )
   {
     v11 = -1073741801;
@@ -68,15 +68,15 @@ __int64 __fastcall BgpConsoleInitialize(unsigned __int16 a1, unsigned int a2, un
   v27 = ((unsigned __int8)~(_BYTE)a1 >> 1) & 1;
   BgpConsoleGetFontName((unsigned int)dword_1402FA0E8, Str2);
   FontHandle = BgpFoGetFontHandle(Str2[0], &v25);
-  v10 = (unsigned int *)qword_140329968;
+  v10 = (unsigned int *)qword_140329998;
   v11 = FontHandle;
   if ( FontHandle >= 0 )
   {
     v11 = BgpConsoleSetPointSize(
-            *(_DWORD *)(qword_140329968 + 4),
-            *(_DWORD *)qword_140329968,
-            *(_DWORD *)(qword_140329968 + 24),
-            *(_DWORD *)(qword_140329968 + 20),
+            *(_DWORD *)(qword_140329998 + 4),
+            *(_DWORD *)qword_140329998,
+            *(_DWORD *)(qword_140329998 + 24),
+            *(_DWORD *)(qword_140329998 + 20),
             (__int64)v24,
             (__int64)Str2);
     if ( v11 >= 0 )
@@ -88,8 +88,8 @@ __int64 __fastcall BgpConsoleInitialize(unsigned __int16 a1, unsigned int a2, un
       if ( (a1 & 4) == 0 )
         v13 = 3LL;
       Context = BgpDisplayCharacterGetContext(v24, v10 + 12, v13);
-      v10 = (unsigned int *)qword_140329968;
-      *(_QWORD *)(qword_140329968 + 40) = Context;
+      v10 = (unsigned int *)qword_140329998;
+      *(_QWORD *)(qword_140329998 + 40) = Context;
       if ( Context )
       {
         v15 = 0LL;
@@ -129,7 +129,7 @@ __int64 __fastcall BgpConsoleInitialize(unsigned __int16 a1, unsigned int a2, un
   if ( v10 )
   {
     BgpFwFreeMemory((__int64)v10);
-    qword_140329968 = 0LL;
+    qword_140329998 = 0LL;
   }
 LABEL_14:
   BgpFwReleaseLock();

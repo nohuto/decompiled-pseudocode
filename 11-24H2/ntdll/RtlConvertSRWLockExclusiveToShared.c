@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlConvertSRWLockExclusiveToShared @ 0x18013AA60
+ * XREFs of RtlConvertSRWLockExclusiveToShared @ 0x180138C90
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     RtlpWakeSRWLock @ 0x1800DD340 (RtlpWakeSRWLock.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     RtlpWakeSRWLock @ 0x1800D84B0 (RtlpWakeSRWLock.c)
  */
 
 char __fastcall RtlConvertSRWLockExclusiveToShared(volatile signed __int64 *a1)

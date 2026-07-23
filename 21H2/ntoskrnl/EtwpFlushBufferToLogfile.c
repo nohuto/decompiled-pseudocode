@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpFlushBufferToLogfile @ 0x1406AB9A4
+ * XREFs of EtwpFlushBufferToLogfile @ 0x14060A094
  * Callers:
- *     EtwpFlushBuffer @ 0x140644AFC (EtwpFlushBuffer.c)
- *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushBuffer @ 0x14063990C (EtwpFlushBuffer.c)
+ *     EtwpBufferingModeFlush @ 0x14093D358 (EtwpBufferingModeFlush.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
- *     EtwpGenerateFileName @ 0x1406ABAFC (EtwpGenerateFileName.c)
- *     EtwpEventWriteTemplateAdmin @ 0x140939B5C (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateMaxFileSize @ 0x140939CC0 (EtwpEventWriteTemplateMaxFileSize.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     ZwWriteFile @ 0x1403FA680 (ZwWriteFile.c)
+ *     EtwpGenerateFileName @ 0x14060A1EC (EtwpGenerateFileName.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140939D2C (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateMaxFileSize @ 0x140939E90 (EtwpEventWriteTemplateMaxFileSize.c)
  */
 
 __int64 __fastcall EtwpFlushBufferToLogfile(__int64 a1, unsigned int *a2)

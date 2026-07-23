@@ -6,22 +6,25 @@
  *     sub_180074558 @ 0x180074558 (sub_180074558.c)
  */
 
-__int64 __fastcall RtlLookupEntryHashTable(__int64 a1, __int64 a2, char *a3)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlLookupEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        ULONG_PTR Signature,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
-  char *v4; // rbx
-  __int64 v5; // rdi
-  __int64 v6; // rax
+  PRTL_DYNAMIC_HASH_TABLE_CONTEXT v4; // rbx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v5; // rdi
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY *PrevLinkage; // rax
   char v8; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = &v8;
+  v4 = (PRTL_DYNAMIC_HASH_TABLE_CONTEXT)&v8;
   v5 = 0LL;
-  if ( a3 )
-    v4 = a3;
-  sub_180074558(a1, v4, a2);
-  v6 = *((_QWORD *)v4 + 1);
-  if ( *(_QWORD *)v4 == *(_QWORD *)v6 )
+  if ( Context )
+    v4 = Context;
+  sub_180074558(HashTable, v4, Signature);
+  PrevLinkage = (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)v4->PrevLinkage;
+  if ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v4->ChainHead == *PrevLinkage )
     return 0LL;
-  if ( *(_QWORD *)(*(_QWORD *)v6 + 16LL) == a2 )
-    return *(_QWORD *)v6;
+  if ( (*PrevLinkage)->Signature == Signature )
+    return *PrevLinkage;
   return v5;
 }

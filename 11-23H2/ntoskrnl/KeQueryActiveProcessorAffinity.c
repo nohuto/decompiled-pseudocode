@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryActiveProcessorAffinity @ 0x1405707A0
+ * XREFs of KeQueryActiveProcessorAffinity @ 0x140570CE0
  * Callers:
  *     <none>
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeQueryActiveProcessorAffinity(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogContinueTrim @ 0x1402B3180
+ * XREFs of MiLogContinueTrim @ 0x1402B3370
  * Callers:
- *     MiCheckSystemTrimEndCriteria @ 0x1402B2AEC (MiCheckSystemTrimEndCriteria.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x1402B2CDC (MiCheckSystemTrimEndCriteria.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void MiLogContinueTrim()
@@ -62,7 +62,7 @@ void MiLogContinueTrim()
       v18 = v0 + 7;
       v21 = v0 + 7;
       v24 = v0 + 7;
-      TlgWrite(v2, &unk_14036DEAB, 0LL, 0LL, 7u, &pData);
+      TlgWrite(v2, &unk_14036EE3B, 0LL, 0LL, 7u, &pData);
     }
   }
 }

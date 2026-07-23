@@ -1,7 +1,7 @@
 /*
  * XREFs of TxtpJustifyRectangle @ 0x14072B2C8
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140127284 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayCharacter @ 0x1401277F4 (BgpTxtDisplayCharacter.c)
  *     BgpTxtDisplayString @ 0x14072B0B0 (BgpTxtDisplayString.c)
  * Callees:
  *     <none>

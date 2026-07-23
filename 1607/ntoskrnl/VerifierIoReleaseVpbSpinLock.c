@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoReleaseVpbSpinLock @ 0x14070C87C
+ * XREFs of VerifierIoReleaseVpbSpinLock @ 0x14070C8AC
  * Callers:
  *     <none>
  * Callees:

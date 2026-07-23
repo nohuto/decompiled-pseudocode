@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnLogScenarioDecision @ 0x14066758C
+ * XREFs of PfSnLogScenarioDecision @ 0x14066874C
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
- *     PfSnBeginScenario @ 0x140667284 (PfSnBeginScenario.c)
+ *     PfSnBeginAppLaunch @ 0x140667DB4 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginScenario @ 0x140668444 (PfSnBeginScenario.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PfSnLogScenarioDecision(__int64 a1, int a2, __int16 a3, char a4, char a5, char a6, __int64 a7)

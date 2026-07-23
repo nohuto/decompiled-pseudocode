@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsPfnRangeFromSlabAllocation @ 0x1403C621C
+ * XREFs of MiIsPfnRangeFromSlabAllocation @ 0x1403D011C
  * Callers:
- *     MiFreeMdlPageRun @ 0x1403C4140 (MiFreeMdlPageRun.c)
- *     MiCreateBootSlabEntries @ 0x140CFE048 (MiCreateBootSlabEntries.c)
+ *     MiFreeMdlPageRun @ 0x1403CE04C (MiFreeMdlPageRun.c)
+ *     MiCreateBootSlabEntries @ 0x140D043F0 (MiCreateBootSlabEntries.c)
  * Callees:
  *     <none>
  */
@@ -12,10 +12,10 @@ __int64 __fastcall MiIsPfnRangeFromSlabAllocation(unsigned __int64 a1, __int64 a
   _BYTE *v2; // r9
   unsigned __int64 v3; // rcx
 
-  if ( byte_140E3BD26 )
+  if ( byte_140E3BEA6 )
   {
-    v2 = (_BYTE *)(qword_140E3D0C0 + 2 * (a1 >> 9));
-    v3 = qword_140E3D0C0 + 2 * ((a2 + a1 - 1) >> 9);
+    v2 = (_BYTE *)(qword_140E3D240 + 2 * (a1 >> 9));
+    v3 = qword_140E3D240 + 2 * ((a2 + a1 - 1) >> 9);
     while ( (unsigned __int64)v2 <= v3 )
     {
       if ( *v2 )

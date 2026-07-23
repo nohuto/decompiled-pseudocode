@@ -1,15 +1,15 @@
 /*
- * XREFs of SepQueryTypeString @ 0x1408F23FC
+ * XREFs of SepQueryTypeString @ 0x140913780
  * Callers:
- *     SepAdtObjectReferenceAuditAlarm @ 0x1407915CC (SepAdtObjectReferenceAuditAlarm.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1408508E0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14088A000 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1408F1C3C (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1408F2FA8 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x14079159C (SepAdtObjectReferenceAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14084CBA0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x14086395C (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14088DEB0 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140912CF0 (SeSecurityDescriptorChangedAuditAlarm.c)
  * Callees:
- *     ObQueryTypeName @ 0x1408F2EF0 (ObQueryTypeName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObQueryTypeName @ 0x140914530 (ObQueryTypeName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepQueryTypeString(__int64 a1, PVOID *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall SepQueryTypeString(__int64 a1, PVOID *a2)
   result = ((__int64 (__fastcall *)(__int64, __int128 *, _QWORD, unsigned int *))ObQueryTypeName)(a1, &v6, 0LL, &v7);
   if ( (_DWORD)result == -1073741820 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v7, 0x6E546553u);
     *a2 = (PVOID)Pool2;
     if ( Pool2 )
     {

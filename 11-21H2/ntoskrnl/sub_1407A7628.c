@@ -1,0 +1,47 @@
+/*
+ * XREFs of sub_1407A7628 @ 0x1407A7628
+ * Callers:
+ *     sub_140662130 @ 0x140662130 (sub_140662130.c)
+ *     sub_140662E08 @ 0x140662E08 (sub_140662E08.c)
+ *     sub_140663910 @ 0x140663910 (sub_140663910.c)
+ *     sub_1406640F0 @ 0x1406640F0 (sub_1406640F0.c)
+ *     sub_140664220 @ 0x140664220 (sub_140664220.c)
+ *     sub_1406652DC @ 0x1406652DC (sub_1406652DC.c)
+ *     sub_1406657C0 @ 0x1406657C0 (sub_1406657C0.c)
+ *     sub_140665B68 @ 0x140665B68 (sub_140665B68.c)
+ *     sub_1406666B4 @ 0x1406666B4 (sub_1406666B4.c)
+ *     sub_140667114 @ 0x140667114 (sub_140667114.c)
+ *     sub_140667A4C @ 0x140667A4C (sub_140667A4C.c)
+ *     sub_140668084 @ 0x140668084 (sub_140668084.c)
+ *     sub_14066AA00 @ 0x14066AA00 (sub_14066AA00.c)
+ *     sub_1406CBB84 @ 0x1406CBB84 (sub_1406CBB84.c)
+ *     sub_1406E0930 @ 0x1406E0930 (sub_1406E0930.c)
+ *     sub_14074DEF4 @ 0x14074DEF4 (sub_14074DEF4.c)
+ *     sub_14074E130 @ 0x14074E130 (sub_14074E130.c)
+ *     sub_14074E474 @ 0x14074E474 (sub_14074E474.c)
+ *     sub_14074E73C @ 0x14074E73C (sub_14074E73C.c)
+ *     sub_14074EB48 @ 0x14074EB48 (sub_14074EB48.c)
+ *     sub_1407A6A74 @ 0x1407A6A74 (sub_1407A6A74.c)
+ *     sub_1407A6CE4 @ 0x1407A6CE4 (sub_1407A6CE4.c)
+ *     sub_1407A8B00 @ 0x1407A8B00 (sub_1407A8B00.c)
+ *     sub_1407A9A80 @ 0x1407A9A80 (sub_1407A9A80.c)
+ *     sub_1407A9ED0 @ 0x1407A9ED0 (sub_1407A9ED0.c)
+ *     sub_1407AA950 @ 0x1407AA950 (sub_1407AA950.c)
+ *     sub_1407AACC0 @ 0x1407AACC0 (sub_1407AACC0.c)
+ *     sub_1407ABD80 @ 0x1407ABD80 (sub_1407ABD80.c)
+ *     sub_1407AD040 @ 0x1407AD040 (sub_1407AD040.c)
+ *     sub_1407AD8F0 @ 0x1407AD8F0 (sub_1407AD8F0.c)
+ *     sub_140965C1C @ 0x140965C1C (sub_140965C1C.c)
+ *     sub_1409663D0 @ 0x1409663D0 (sub_1409663D0.c)
+ *     sub_140966F60 @ 0x140966F60 (sub_140966F60.c)
+ * Callees:
+ *     sub_1407B0F40 @ 0x1407B0F40 (sub_1407B0F40.c)
+ *     sub_140966A84 @ 0x140966A84 (sub_140966A84.c)
+ */
+
+__int64 __fastcall sub_1407A7628(ULONG_PTR BugCheckParameter2)
+{
+  if ( dword_140C2A158 )
+    sub_140966A84();
+  return sub_1407B0F40(BugCheckParameter2);
+}

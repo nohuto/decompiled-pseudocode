@@ -1,10 +1,10 @@
 /*
- * XREFs of MmDisableModifiedWriteOfSection @ 0x140271A40
+ * XREFs of MmDisableModifiedWriteOfSection @ 0x14025F9E0
  * Callers:
- *     CcInitializeCacheMapEx @ 0x14022E5C0 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMapEx @ 0x1402D2E10 (CcInitializeCacheMapEx.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1402628E4 (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

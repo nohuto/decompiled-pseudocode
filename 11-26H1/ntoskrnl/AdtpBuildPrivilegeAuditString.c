@@ -1,13 +1,13 @@
 /*
- * XREFs of AdtpBuildPrivilegeAuditString @ 0x140AE727C
+ * XREFs of AdtpBuildPrivilegeAuditString @ 0x140AE50FC
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14043282C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpPackageParameters @ 0x140475440 (AdtpPackageParameters.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14041F85C (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpPackageParameters @ 0x14046EBC0 (AdtpPackageParameters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     AdtpLookupKnownPrivilegeNameQuickly @ 0x1404E2AA8 (AdtpLookupKnownPrivilegeNameQuickly.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     AdtpLookupKnownPrivilegeNameQuickly @ 0x1404DC188 (AdtpLookupKnownPrivilegeNameQuickly.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AdtpBuildPrivilegeAuditString(

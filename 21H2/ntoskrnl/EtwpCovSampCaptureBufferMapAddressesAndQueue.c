@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x14094207C
+ * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x14094224C
  * Callers:
- *     EtwpCovSampCaptureUserAddresses @ 0x1409429BC (EtwpCovSampCaptureUserAddresses.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x140942B8C (EtwpCovSampCaptureUserAddresses.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     EtwpCovSampCaptureBufferIsEmpty @ 0x1405AE668 (EtwpCovSampCaptureBufferIsEmpty.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x1405AE6E4 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x1405AE7A8 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x140941E94 (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampProcessMapAddresses @ 0x140945840 (EtwpCovSampProcessMapAddresses.c)
- *     EtwpCovSampStackHashCheck @ 0x140945D14 (EtwpCovSampStackHashCheck.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     EtwpCovSampCaptureBufferIsEmpty @ 0x1405AE898 (EtwpCovSampCaptureBufferIsEmpty.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x1405AE914 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x1405AE9D8 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x140942064 (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x140945A10 (EtwpCovSampProcessMapAddresses.c)
+ *     EtwpCovSampStackHashCheck @ 0x140945EE4 (EtwpCovSampStackHashCheck.c)
  */
 
 void __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64 a2)
@@ -59,7 +59,7 @@ void __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64
     EtwpCovSampCaptureBufferRelease(a1, v4);
   if ( v3 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140C198C0);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&stru_140C198C0);
     KeLeaveCriticalRegion();
   }
 }

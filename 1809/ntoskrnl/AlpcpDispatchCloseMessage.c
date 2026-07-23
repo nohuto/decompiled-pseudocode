@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpDispatchCloseMessage @ 0x1406141D8
+ * XREFs of AlpcpDispatchCloseMessage @ 0x1406151D8
  * Callers:
- *     AlpcpSendCloseMessage @ 0x140616910 (AlpcpSendCloseMessage.c)
+ *     AlpcpSendCloseMessage @ 0x140617910 (AlpcpSendCloseMessage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x140614368 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
- *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x140636190 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCDF0 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
- *     AlpcpLogClosePort @ 0x14084B7DC (AlpcpLogClosePort.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x140615368 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406366C0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406371B0 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BE090 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     AlpcpLogClosePort @ 0x14084CA3C (AlpcpLogClosePort.c)
  */
 
 __int64 __fastcall AlpcpDispatchCloseMessage(__int64 *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUpdateNumberProcessorsIpi @ 0x140BF5230
+ * XREFs of KiUpdateNumberProcessorsIpi @ 0x140BFB230
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateProcessorCount @ 0x140BF3458 (KiUpdateProcessorCount.c)
+ *     KiUpdateProcessorCount @ 0x140BF9458 (KiUpdateProcessorCount.c)
  */
 
 ULONG_PTR __fastcall KiUpdateNumberProcessorsIpi(volatile signed __int32 *Argument)
@@ -17,7 +17,7 @@ ULONG_PTR __fastcall KiUpdateNumberProcessorsIpi(volatile signed __int32 *Argume
       _mm_pause();
     KiUpdateProcessorCount(
       v2,
-      *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v2) >> 6);
+      (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v2) >> 6);
     *((_DWORD *)Argument + 4) = 1;
     while ( *((_DWORD *)Argument + 3) )
       _mm_pause();

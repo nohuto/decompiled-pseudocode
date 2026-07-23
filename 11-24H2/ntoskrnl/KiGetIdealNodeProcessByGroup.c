@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetIdealNodeProcessByGroup @ 0x14048B770
+ * XREFs of KiGetIdealNodeProcessByGroup @ 0x140486544
  * Callers:
- *     KeInitThread @ 0x140B69230 (KeInitThread.c)
+ *     KeInitThread @ 0x140B6A948 (KeInitThread.c)
  * Callees:
  *     <none>
  */

@@ -13,7 +13,7 @@ __int64 __fastcall EtwpTrackDebugIdForSession(__int64 a1, const void *a2, unsign
   __int64 *v3; // r14
   SIZE_T v4; // rsi
   __int64 *i; // rdi
-  __int64 Heap; // rax
+  _QWORD *Heap; // rax
   _QWORD *v10; // rbx
   _QWORD *v11; // rax
   __int64 v12; // rcx
@@ -27,12 +27,12 @@ __int64 __fastcall EtwpTrackDebugIdForSession(__int64 a1, const void *a2, unsign
   }
   if ( (int)v4 + 24 < (unsigned int)v4 )
     return 534LL;
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v4 + 24));
-  v10 = (_QWORD *)Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v4 + 24));
+  v10 = Heap;
   if ( !Heap )
     return 14LL;
-  *(_DWORD *)(Heap + 20) = v4;
-  memmove((void *)(Heap + 24), a2, v4);
+  *((_DWORD *)Heap + 5) = v4;
+  memmove(Heap + 3, a2, v4);
   v11 = (_QWORD *)(a1 + 448);
   v12 = *(_QWORD *)(a1 + 448);
   if ( *(_QWORD *)(v12 + 8) != a1 + 448 )

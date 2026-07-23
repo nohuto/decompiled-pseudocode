@@ -28,7 +28,7 @@ __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
   v4 = KiProcessorBlock[a1];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -49,10 +49,10 @@ __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
     --v9;
   }
   while ( v9 );
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;

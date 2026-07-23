@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockPagedAddress @ 0x14035B2A4
+ * XREFs of MiUnlockPagedAddress @ 0x14035B444
  * Callers:
- *     MiFreeCombinePool @ 0x14035B220 (MiFreeCombinePool.c)
- *     MiFreeClonePool @ 0x14066471C (MiFreeClonePool.c)
- *     MiLockPagedRange @ 0x140748340 (MiLockPagedRange.c)
- *     MiFreePatchTableProtos @ 0x140A36F3C (MiFreePatchTableProtos.c)
- *     MiFreeCloneDescriptor @ 0x140A48FF4 (MiFreeCloneDescriptor.c)
+ *     MiFreeCombinePool @ 0x14035B3C0 (MiFreeCombinePool.c)
+ *     MiFreeClonePool @ 0x140664C6C (MiFreeClonePool.c)
+ *     MiLockPagedRange @ 0x140748530 (MiLockPagedRange.c)
+ *     MiFreePatchTableProtos @ 0x140A371EC (MiFreePatchTableProtos.c)
+ *     MiFreeCloneDescriptor @ 0x140A492A4 (MiFreeCloneDescriptor.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockPagedAddress(unsigned __int64 a1)
@@ -30,10 +30,13 @@ __int64 __fastcall MiUnlockPagedAddress(unsigned __int64 a1)
   MiRemoveLockedPageChargeAndDecRef(v1);
   _InterlockedAnd64((volatile signed __int64 *)(v1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

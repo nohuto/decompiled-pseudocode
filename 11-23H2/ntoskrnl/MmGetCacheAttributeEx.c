@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetCacheAttributeEx @ 0x14061ECA0
+ * XREFs of MmGetCacheAttributeEx @ 0x14061F1F0
  * Callers:
- *     HalCreateCommonBufferFromMdl @ 0x140511E90 (HalCreateCommonBufferFromMdl.c)
- *     MmGetCacheAttribute @ 0x14061EC80 (MmGetCacheAttribute.c)
+ *     HalCreateCommonBufferFromMdl @ 0x1405123E0 (HalCreateCommonBufferFromMdl.c)
+ *     MmGetCacheAttribute @ 0x14061F1D0 (MmGetCacheAttribute.c)
  * Callees:
- *     MiIsPageInHugePfn @ 0x140336DAC (MiIsPageInHugePfn.c)
- *     MiLookupIoPageNode @ 0x1403B0938 (MiLookupIoPageNode.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MiIsPageInHugePfn @ 0x14033703C (MiIsPageInHugePfn.c)
+ *     MiLookupIoPageNode @ 0x1403B0B18 (MiLookupIoPageNode.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmGetCacheAttributeEx(unsigned __int64 a1, int a2, _DWORD *a3)

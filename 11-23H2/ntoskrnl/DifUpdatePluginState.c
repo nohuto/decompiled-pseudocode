@@ -1,10 +1,10 @@
 /*
- * XREFs of DifUpdatePluginState @ 0x1405D5410
+ * XREFs of DifUpdatePluginState @ 0x1405D5980
  * Callers:
- *     VfNotifyVerifierOfEvent @ 0x140AC2150 (VfNotifyVerifierOfEvent.c)
+ *     VfNotifyVerifierOfEvent @ 0x140AC2140 (VfNotifyVerifierOfEvent.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     MmManagePartitionMemoryInformation @ 0x1407600FC (MmManagePartitionMemoryInformation.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmManagePartitionMemoryInformation @ 0x1407602EC (MmManagePartitionMemoryInformation.c)
  */
 
 unsigned __int64 DifUpdatePluginState()

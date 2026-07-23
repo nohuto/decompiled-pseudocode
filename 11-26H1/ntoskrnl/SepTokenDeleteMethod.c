@@ -1,22 +1,22 @@
 /*
- * XREFs of SepTokenDeleteMethod @ 0x140B7CB10
+ * XREFs of SepTokenDeleteMethod @ 0x140B85580
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExDeleteResourceLite @ 0x140474A20 (ExDeleteResourceLite.c)
- *     SepFreeTokenCapabilities @ 0x1404A72A0 (SepFreeTokenCapabilities.c)
- *     SepDereferenceLuidToIndexEntry @ 0x1404F8D10 (SepDereferenceLuidToIndexEntry.c)
- *     Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063AE30 (Feature_295645497__private_IsEnabledDeviceUsageNoInline.c)
- *     SepModifyTokenPolicyCounter @ 0x140774FAC (SepModifyTokenPolicyCounter.c)
- *     SepRemoveTokenLogonSession @ 0x1408158D8 (SepRemoveTokenLogonSession.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x140A2C9E4 (SepDereferenceLowBoxNumberEntry.c)
- *     SepDereferenceCachedHandlesEntryInternal @ 0x140A8BBE8 (SepDereferenceCachedHandlesEntryInternal.c)
- *     SepDeleteClaimAttributes @ 0x140B215F0 (SepDeleteClaimAttributes.c)
- *     SepLogTokenSidManagement @ 0x140B2B4E0 (SepLogTokenSidManagement.c)
- *     SepDeReferenceLogonSession @ 0x140B7CDEC (SepDeReferenceLogonSession.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     ExDeleteResourceLite @ 0x14046E1A0 (ExDeleteResourceLite.c)
+ *     SepFreeTokenCapabilities @ 0x1404A0930 (SepFreeTokenCapabilities.c)
+ *     SepDereferenceLuidToIndexEntry @ 0x1404F2320 (SepDereferenceLuidToIndexEntry.c)
+ *     Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063DEF8 (Feature_295645497__private_IsEnabledDeviceUsageNoInline.c)
+ *     SepModifyTokenPolicyCounter @ 0x140777FAC (SepModifyTokenPolicyCounter.c)
+ *     SepRemoveTokenLogonSession @ 0x14081BA88 (SepRemoveTokenLogonSession.c)
+ *     SepDereferenceCachedHandlesEntryInternal @ 0x140A90EB0 (SepDereferenceCachedHandlesEntryInternal.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x140A9F480 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDeleteClaimAttributes @ 0x140B239F0 (SepDeleteClaimAttributes.c)
+ *     SepLogTokenSidManagement @ 0x140B2D560 (SepLogTokenSidManagement.c)
+ *     SepDeReferenceLogonSession @ 0x140B8585C (SepDeReferenceLogonSession.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepTokenDeleteMethod(__int64 a1)
@@ -63,7 +63,7 @@ void __fastcall SepTokenDeleteMethod(__int64 a1)
       SepDeleteClaimAttributes(v3);
     *(_QWORD *)(a1 + 1096) = 0LL;
   }
-  if ( RtlpBootStatHandleLock.WaitBlockFill7[128] )
+  if ( LOBYTE(RtlpBootStatHandleLock.Queue) )
   {
     if ( *(_QWORD *)(a1 + 1120) )
     {

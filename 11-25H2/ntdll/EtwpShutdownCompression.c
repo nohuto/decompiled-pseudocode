@@ -7,19 +7,19 @@
  *     ZwFreeVirtualMemory @ 0x1801635E0 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall EtwpShutdownCompression(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall EtwpShutdownCompression(__int64 a1)
 {
-  __int64 v4; // r8
-  __int64 result; // rax
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  void *v1; // r8
+  LOGICAL result; // eax
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = *(_QWORD *)(a1 + 416);
-  if ( v4 )
-    result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4, a4);
+  v1 = *(void **)(a1 + 416);
+  if ( v1 )
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   if ( *(_QWORD *)(a1 + 424) )
   {
-    v7 = 0LL;
-    return ZwFreeVirtualMemory(-1LL, a1 + 424, &v7, 0x8000LL);
+    RegionSize = 0LL;
+    return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(a1 + 424), &RegionSize, 0x8000u);
   }
   return result;
 }

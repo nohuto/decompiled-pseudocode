@@ -1,14 +1,14 @@
 /*
- * XREFs of IommuMapIdentityRangeEx @ 0x1404A9940
+ * XREFs of IommuMapIdentityRangeEx @ 0x1404A2FD0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x14047B014 (HalpIommuDomainFreeLogicalAddressRange.c)
- *     HalpIommuDomainMapLogicalRange @ 0x14047BE1C (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuDomainGetLogicalAddressRange @ 0x1404A5C2C (HalpIommuDomainGetLogicalAddressRange.c)
- *     HalpIommuDomainMapIdentityRange @ 0x1404A9B54 (HalpIommuDomainMapIdentityRange.c)
- *     IommupValidateMdl @ 0x140511904 (IommupValidateMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x140474984 (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x14047578C (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainGetLogicalAddressRange @ 0x14049F2BC (HalpIommuDomainGetLogicalAddressRange.c)
+ *     HalpIommuDomainMapIdentityRange @ 0x1404A31E4 (HalpIommuDomainMapIdentityRange.c)
+ *     IommupValidateMdl @ 0x14050B374 (IommupValidateMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuMapIdentityRangeEx(ULONG_PTR a1, unsigned int a2, __int64 a3)

@@ -3,14 +3,14 @@
  * Callers:
  *     MiDeleteSystemPageTable @ 0x14021DDF0 (MiDeleteSystemPageTable.c)
  *     MiEmptyPteBins @ 0x14021E150 (MiEmptyPteBins.c)
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiInsertCachedPte @ 0x1402CBB10 (MiInsertCachedPte.c)
- *     MiReleaseSmallPteMappings @ 0x1402CBF20 (MiReleaseSmallPteMappings.c)
- *     MiPageAttributeBatchChangeNeeded @ 0x1402F9B74 (MiPageAttributeBatchChangeNeeded.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     MiFreeSlabEntry @ 0x1403B86D0 (MiFreeSlabEntry.c)
- *     MiDeleteStaleCacheMaps @ 0x14062D9D0 (MiDeleteStaleCacheMaps.c)
- *     MiReleaseLargePdeMappings @ 0x14065F7D4 (MiReleaseLargePdeMappings.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiInsertCachedPte @ 0x1402CBDA0 (MiInsertCachedPte.c)
+ *     MiReleaseSmallPteMappings @ 0x1402CC1B0 (MiReleaseSmallPteMappings.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x1402F9E04 (MiPageAttributeBatchChangeNeeded.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     MiFreeSlabEntry @ 0x1403B88B0 (MiFreeSlabEntry.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062DF20 (MiDeleteStaleCacheMaps.c)
+ *     MiReleaseLargePdeMappings @ 0x14065FD24 (MiReleaseLargePdeMappings.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampEnumerateProcess @ 0x140940AF0
+ * XREFs of EtwpCovSampEnumerateProcess @ 0x140A33C00
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpCovSampImageNotify @ 0x140940E70 (EtwpCovSampImageNotify.c)
- *     FsRtlReleaseFileNameInformation @ 0x1409FDA00 (FsRtlReleaseFileNameInformation.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A7CF90 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     FsRtlReleaseFileNameInformation @ 0x140922600 (FsRtlReleaseFileNameInformation.c)
+ *     EtwpCovSampImageNotify @ 0x140A33F80 (EtwpCovSampImageNotify.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A82E00 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampEnumerateProcess(ULONG_PTR BugCheckParameter1)

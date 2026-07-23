@@ -12,7 +12,7 @@
  *     StringCchPrintfW @ 0x1800D131C (StringCchPrintfW.c)
  */
 
-__int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, UNICODE_STRING *a3)
+__int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
   int UniqueProcess; // ecx
   wchar_t *v7; // rdx
@@ -36,7 +36,7 @@ __int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, UNICODE_ST
       return (unsigned __int16)result;
     v7 = pszDest;
   }
-  if ( RtlCreateUnicodeString((__int64)a3, v7) )
+  if ( RtlCreateUnicodeString(a3, v7) )
     return 0LL;
   else
     return 8LL;

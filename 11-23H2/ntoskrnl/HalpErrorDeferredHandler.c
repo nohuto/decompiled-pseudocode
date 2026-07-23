@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpErrorDeferredHandler @ 0x140519620
+ * XREFs of HalpErrorDeferredHandler @ 0x140519B70
  * Callers:
  *     <none>
  * Callees:
- *     HalpFreeDrsPool @ 0x140519670 (HalpFreeDrsPool.c)
- *     HalpMemoryErrorDeferredHandler @ 0x140519840 (HalpMemoryErrorDeferredHandler.c)
- *     HalpPmemErrorDeferredHandler @ 0x140519A1C (HalpPmemErrorDeferredHandler.c)
+ *     HalpFreeDrsPool @ 0x140519BC0 (HalpFreeDrsPool.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x140519D90 (HalpMemoryErrorDeferredHandler.c)
+ *     HalpPmemErrorDeferredHandler @ 0x140519F6C (HalpPmemErrorDeferredHandler.c)
  */
 
 __int64 __fastcall HalpErrorDeferredHandler(__int64 a1, __int128 *a2)

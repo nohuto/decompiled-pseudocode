@@ -1,13 +1,13 @@
 /*
- * XREFs of SmInitSystem @ 0x140A4B43C
+ * XREFs of SmInitSystem @ 0x140A4C43C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
- *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
+ *     Phase1InitializationIoReady @ 0x140A4D104 (Phase1InitializationIoReady.c)
  * Callees:
- *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
- *     SmQueryRegistry @ 0x140A4B4A4 (SmQueryRegistry.c)
- *     SmGlobalsInitialize @ 0x140A4B528 (SmGlobalsInitialize.c)
+ *     EtwRegister @ 0x140762E70 (EtwRegister.c)
+ *     SmQueryRegistry @ 0x140A4C4A4 (SmQueryRegistry.c)
+ *     SmGlobalsInitialize @ 0x140A4C528 (SmGlobalsInitialize.c)
  */
 
 __int64 __fastcall SmInitSystem(int a1)

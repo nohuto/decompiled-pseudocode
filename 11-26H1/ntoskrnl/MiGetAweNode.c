@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetAweNode @ 0x140526364
+ * XREFs of MiGetAweNode @ 0x1405289D4
  * Callers:
- *     MiWriteAwePtes @ 0x140477F10 (MiWriteAwePtes.c)
- *     MiReferenceIncomingPhysicalPages @ 0x140702580 (MiReferenceIncomingPhysicalPages.c)
- *     MiProtectAwePrepare @ 0x140879020 (MiProtectAwePrepare.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140879900 (NtMapUserPhysicalPagesScatter.c)
- *     NtMapUserPhysicalPages @ 0x140B39FC0 (NtMapUserPhysicalPages.c)
+ *     MiWriteAwePtes @ 0x140471690 (MiWriteAwePtes.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140707250 (MiReferenceIncomingPhysicalPages.c)
+ *     MiProtectAwePrepare @ 0x14087F400 (MiProtectAwePrepare.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14087FCE0 (NtMapUserPhysicalPagesScatter.c)
+ *     NtMapUserPhysicalPages @ 0x140B3C1D0 (NtMapUserPhysicalPages.c)
  * Callees:
  *     <none>
  */

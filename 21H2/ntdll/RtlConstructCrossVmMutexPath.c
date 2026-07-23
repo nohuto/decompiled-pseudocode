@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlConstructCrossVmMutexPath @ 0x1800F5BD0
+ * XREFs of RtlConstructCrossVmMutexPath @ 0x1800F5B90
  * Callers:
  *     <none>
  * Callees:

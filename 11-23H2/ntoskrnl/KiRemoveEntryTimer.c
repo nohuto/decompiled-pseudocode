@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRemoveEntryTimer @ 0x1403C2E68
+ * XREFs of KiRemoveEntryTimer @ 0x1403C3048
  * Callers:
- *     KiInsertTimerTable @ 0x140253830 (KiInsertTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x14039A5E4 (KiAdjustTimerDueTimes.c)
- *     KiExpireTimerTable @ 0x14057C5D4 (KiExpireTimerTable.c)
+ *     KiInsertTimerTable @ 0x1402538F0 (KiInsertTimerTable.c)
+ *     KiAdjustTimerDueTimes @ 0x14039A7C4 (KiAdjustTimerDueTimes.c)
+ *     KiExpireTimerTable @ 0x14057CAC4 (KiExpireTimerTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
  */
 
 volatile signed __int64 *__fastcall KiRemoveEntryTimer(

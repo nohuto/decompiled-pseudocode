@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetClockOwner @ 0x1404F78E0
+ * XREFs of KeGetClockOwner @ 0x1404F51C0
  * Callers:
  *     <none>
  * Callees:

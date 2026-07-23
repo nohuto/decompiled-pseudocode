@@ -16,7 +16,7 @@
 
 __int64 HvCheckHive(__int64 a1, int a2, ...)
 {
-  struct _RTL_BITMAP *BitMapHeader; // rbp
+  _RTL_BITMAP *BitMapHeader; // rbp
   __int64 v3; // rcx
   __int64 v4; // r8
   unsigned int *v5; // r13
@@ -35,7 +35,7 @@ __int64 HvCheckHive(__int64 a1, int a2, ...)
   int v20; // [rsp+98h] [rbp+10h] BYREF
   __int64 v21; // [rsp+A0h] [rbp+18h] BYREF
   va_list va; // [rsp+A0h] [rbp+18h]
-  struct _RTL_BITMAP *v23; // [rsp+A8h] [rbp+20h]
+  _RTL_BITMAP *v23; // [rsp+A8h] [rbp+20h]
   __int64 v24; // [rsp+B0h] [rbp+28h]
   __int64 v25; // [rsp+B8h] [rbp+30h]
   va_list va1; // [rsp+C0h] [rbp+38h] BYREF
@@ -43,7 +43,7 @@ __int64 HvCheckHive(__int64 a1, int a2, ...)
   va_start(va1, a2);
   va_start(va, a2);
   v21 = va_arg(va1, _QWORD);
-  v23 = va_arg(va1, struct _RTL_BITMAP *);
+  v23 = va_arg(va1, _RTL_BITMAP *);
   v24 = va_arg(va1, _QWORD);
   v25 = va_arg(va1, _QWORD);
   v20 = a2;

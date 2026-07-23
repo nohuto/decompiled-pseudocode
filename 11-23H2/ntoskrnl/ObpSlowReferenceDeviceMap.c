@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpSlowReferenceDeviceMap @ 0x1407AF9A8
+ * XREFs of ObpSlowReferenceDeviceMap @ 0x1407AFB98
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
- *     ObpReferenceCurrentDeviceMap @ 0x1406FC8F0 (ObpReferenceCurrentDeviceMap.c)
- *     ObpReferenceDeviceMapFastRef @ 0x1407AF708 (ObpReferenceDeviceMapFastRef.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x1406FCB00 (ObpReferenceCurrentDeviceMap.c)
+ *     ObpReferenceDeviceMapFastRef @ 0x1407AF8F8 (ObpReferenceDeviceMapFastRef.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ObDereferenceDeviceMap @ 0x1407AFE5C (ObDereferenceDeviceMap.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ObDereferenceDeviceMap @ 0x1407B004C (ObDereferenceDeviceMap.c)
  */
 
 volatile signed __int64 *__fastcall ObpSlowReferenceDeviceMap(_QWORD *a1)

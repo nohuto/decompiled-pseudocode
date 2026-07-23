@@ -1,16 +1,16 @@
 /*
- * XREFs of PiGetServiceNameInfo @ 0x140872060
+ * XREFs of PiGetServiceNameInfo @ 0x1408722A0
  * Callers:
  *     IoOpenDriverRegistryKey @ 0x14068A0E0 (IoOpenDriverRegistryKey.c)
- *     IoGetDriverDirectory @ 0x140955400 (IoGetDriverDirectory.c)
+ *     IoGetDriverDirectory @ 0x140955600 (IoGetDriverDirectory.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
  *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x1407B6FC0 (RtlDuplicateUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1407B72A0 (RtlDuplicateUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x1402A47EC
+ * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x140221C2C
  * Callers:
- *     RtlpCSparseBitmapPageDecommit @ 0x1402A3A20 (RtlpCSparseBitmapPageDecommit.c)
- *     RtlCSparseBitmapBitmaskWrite @ 0x1402A3E48 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlSparseArrayElementAllocate @ 0x1402A4748 (RtlSparseArrayElementAllocate.c)
- *     RtlpCSparseBitmapPageCommit @ 0x1402A4A74 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140220E60 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x140221288 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlSparseArrayElementAllocate @ 0x140221B88 (RtlSparseArrayElementAllocate.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140221EB4 (RtlpCSparseBitmapPageCommit.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

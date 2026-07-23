@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpApplyIoCachePolicy @ 0x1405BFAAC
+ * XREFs of HvlpApplyIoCachePolicy @ 0x1405C231C
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x1405B9968 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x1405BC1D8 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 HvlpApplyIoCachePolicy()
@@ -27,12 +27,12 @@ __int64 HvlpApplyIoCachePolicy()
   v7 = 0LL;
   v8 = 0LL;
   LODWORD(v9) = 0;
-  if ( VslpReservedTransferLock.QueueListEntry.Flink )
+  if ( VslpReservedTransferLock.AffinityVersion )
   {
     v1 = HvlpAcquireHypercallPage((__int64)&v7, 1, (__int64)v10, 72LL);
     v2 = v9;
     *(_DWORD *)v1 = 49;
-    v1[1] = VslpReservedTransferLock.QueueListEntry.Flink;
+    v1[1] = VslpReservedTransferLock.AffinityVersion;
     v3 = HvcallInitiateHypercall(111LL, v2);
     HvlpReleaseHypercallPage((unsigned int *)&v7, v4, v5, v6);
     return v3 != 0 ? 0xC0000001 : 0;

@@ -1,169 +1,167 @@
 /*
- * XREFs of LdrpInitializeKernel32Functions @ 0x1800858A8
+ * XREFs of LdrpInitializeKernel32Functions @ 0x18007CC48
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrLoadDll @ 0x180043A10 (LdrLoadDll.c)
- *     LdrpCodeAuthzInitialize @ 0x1800454A0 (LdrpCodeAuthzInitialize.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpAppendUnicodeStringToFilenameBuffer @ 0x180051F90 (LdrpAppendUnicodeStringToFilenameBuffer.c)
- *     LdrpSnapKernelBaseExtensions @ 0x180082DF0 (LdrpSnapKernelBaseExtensions.c)
- *     LdrpFindLoadedDllInternal @ 0x180085670 (LdrpFindLoadedDllInternal.c)
- *     LdrGetProcedureAddressForCaller @ 0x180085C00 (LdrGetProcedureAddressForCaller.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     LdrLoadDll @ 0x18002DF80 (LdrLoadDll.c)
+ *     LdrpCodeAuthzInitialize @ 0x18002FA10 (LdrpCodeAuthzInitialize.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpAppendUnicodeStringToFilenameBuffer @ 0x18003C510 (LdrpAppendUnicodeStringToFilenameBuffer.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18007A190 (LdrpSnapKernelBaseExtensions.c)
+ *     LdrpFindLoadedDllInternal @ 0x18007CA10 (LdrpFindLoadedDllInternal.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18007CFA0 (LdrGetProcedureAddressForCaller.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpInitializeKernel32Functions(_QWORD *a1)
+__int64 __fastcall LdrpInitializeKernel32Functions(PVOID *ProcedureAddress)
 {
-  __int64 v2; // r8
-  __int64 v3; // r9
-  int v4; // eax
-  unsigned int v5; // ebx
-  __int64 v6; // rdi
-  int v7; // eax
+  NTSTATUS v2; // eax
+  unsigned int v3; // ebx
+  PVOID v4; // rdi
+  NTSTATUS v5; // eax
+  NTSTATUS v6; // eax
+  NTSTATUS ProcedureAddressForCaller; // eax
   int v8; // eax
-  int ProcedureAddressForCaller; // eax
-  int v10; // eax
-  char ArgList[8]; // [rsp+28h] [rbp-D8h]
-  char ArgLista[8]; // [rsp+28h] [rbp-D8h]
-  __int64 v14; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v15; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v16; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 (*v17)(void); // [rsp+58h] [rbp-A8h] BYREF
-  __int128 v18; // [rsp+60h] [rbp-A0h] BYREF
-  __int16 v19; // [rsp+70h] [rbp-90h] BYREF
-  __int64 retaddr; // [rsp+1A8h] [rbp+A8h]
+  PVOID *Callback; // [rsp+28h] [rbp-D8h]
+  PVOID *Callbacka; // [rsp+28h] [rbp-D8h]
+  __int64 v12; // [rsp+40h] [rbp-C0h] BYREF
+  PVOID DllHandle; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID ProcedureAddressa; // [rsp+58h] [rbp-A8h] BYREF
+  _UNICODE_STRING v16; // [rsp+60h] [rbp-A0h] BYREF
+  __int16 v17; // [rsp+70h] [rbp-90h] BYREF
+  PVOID *retaddr; // [rsp+1A8h] [rbp+A8h]
 
-  v17 = 0LL;
-  v16 = 0LL;
-  v15 = 0LL;
-  memset_thunk_772440563353939046(&v18, 0, 0x110uLL);
-  LODWORD(v14) = 0;
-  *((_QWORD *)&v18 + 1) = &v19;
-  *a1 = 0LL;
-  LODWORD(v18) = 0x1000000;
-  v19 = 0;
-  LdrpAppendUnicodeStringToFilenameBuffer((unsigned __int16 *)&v18, LdrpKernel32DllName, v2, v3);
-  if ( (int)LdrpFindLoadedDllInternal(&v18, 0LL, &v16, &v14, 32) >= 0 )
+  ProcedureAddressa = 0LL;
+  v14 = 0LL;
+  DllHandle = 0LL;
+  memset_thunk_772440563353939046(&v16, 0, 0x110uLL);
+  LODWORD(v12) = 0;
+  v16.Buffer = (wchar_t *)&v17;
+  *ProcedureAddress = 0LL;
+  *(_DWORD *)&v16.Length = 0x1000000;
+  v17 = 0;
+  LdrpAppendUnicodeStringToFilenameBuffer(&v16.Length, &LdrpKernel32DllName.Length);
+  if ( (int)LdrpFindLoadedDllInternal(&v16, 0, &v14, &v12, 0x20u) >= 0 )
   {
-    v6 = *(_QWORD *)(v16 + 48);
-    v15 = v6;
+    v4 = *(PVOID *)(v14 + 48);
+    DllHandle = v4;
     if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x20000000) == 0 )
       goto LABEL_6;
 LABEL_8:
-    v8 = LdrLoadDll(16385LL, 0LL, (__int64)&LdrpKernelbaseDllName, &v15);
-    v5 = v8;
-    if ( v8 < 0 )
+    v6 = LdrLoadDll((PWSTR)0x4001, 0LL, (PUNICODE_STRING)&LdrpKernelbaseDllName, &DllHandle);
+    v3 = v6;
+    if ( v6 < 0 )
     {
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrinit.c",
+        "minkernel\\ldr\\ldrinit.c",
         2250,
         (__int64)"LdrpInitializeKernel32Functions",
         0,
         "Loading Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
         &LdrpKernelbaseDllName,
-        v8);
+        v6);
     }
     else
     {
-      v5 = LdrpCodeAuthzInitialize();
-      if ( (int)(v5 + 0x80000000) < 0 || v5 == -1073741515 )
+      v3 = LdrpCodeAuthzInitialize();
+      if ( (int)(v3 + 0x80000000) < 0 || v3 == -1073741515 )
       {
         ProcedureAddressForCaller = LdrGetProcedureAddressForCaller(
-                                      v15,
-                                      (unsigned int)&unk_1801719C8,
+                                      DllHandle,
+                                      (PANSI_STRING)&stru_1801708B0,
                                       0,
-                                      (unsigned int)&v17,
+                                      &ProcedureAddressa,
                                       0,
                                       retaddr);
-        v5 = ProcedureAddressForCaller;
+        v3 = ProcedureAddressForCaller;
         if ( ProcedureAddressForCaller < 0 )
         {
-          *(_DWORD *)ArgLista = ProcedureAddressForCaller;
+          LODWORD(Callbacka) = ProcedureAddressForCaller;
           LdrpLogInternal(
-            (int)"minkernel\\ldr\\ldrinit.c",
+            "minkernel\\ldr\\ldrinit.c",
             2284,
             (__int64)"LdrpInitializeKernel32Functions",
             0,
             "Finding KernelbasePostInit failed with status 0x%08lx\n",
-            *(_QWORD *)ArgLista);
+            Callbacka);
         }
         else
         {
-          v10 = v17();
-          v5 = v10;
-          if ( v10 < 0 )
+          v8 = ((__int64 (*)(void))ProcedureAddressa)();
+          v3 = v8;
+          if ( v8 < 0 )
           {
-            *(_DWORD *)ArgLista = v10;
+            LODWORD(Callbacka) = v8;
             LdrpLogInternal(
-              (int)"minkernel\\ldr\\ldrinit.c",
+              "minkernel\\ldr\\ldrinit.c",
               2293,
               (__int64)"LdrpInitializeKernel32Functions",
               0,
               "Calling KernelbasePostInit failed with status 0x%08lx\n",
-              *(_QWORD *)ArgLista);
+              Callbacka);
           }
         }
       }
       else
       {
-        *(_DWORD *)ArgList = v5;
+        LODWORD(Callback) = v3;
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrinit.c",
+          "minkernel\\ldr\\ldrinit.c",
           2266,
           (__int64)"LdrpInitializeKernel32Functions",
           0,
           "LdrpCodeAuthzInitialize failed with status 0x%08lx\n",
-          *(_QWORD *)ArgList);
+          Callback);
       }
     }
-    return v5;
+    return v3;
   }
-  v4 = LdrLoadDll(16385LL, 0LL, (__int64)LdrpKernel32DllName, &v15);
-  v5 = v4;
-  if ( v4 == -1073741515 )
+  v2 = LdrLoadDll((PWSTR)0x4001, 0LL, (PUNICODE_STRING)&LdrpKernel32DllName, &DllHandle);
+  v3 = v2;
+  if ( v2 == -1073741515 )
     goto LABEL_8;
-  if ( v4 < 0 )
+  if ( v2 < 0 )
   {
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       2162,
       (__int64)"LdrpInitializeKernel32Functions",
       0,
       "Loading Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
-      LdrpKernel32DllName,
-      v4);
-    return v5;
+      &LdrpKernel32DllName,
+      v2);
+    return v3;
   }
-  LODWORD(v6) = v15;
+  v4 = DllHandle;
 LABEL_6:
-  v7 = LdrGetProcedureAddressForCaller(
-         v6,
-         (unsigned int)&::ArgList,
+  v5 = LdrGetProcedureAddressForCaller(
+         v4,
+         (PANSI_STRING)&stru_1801708A0,
          0,
-         (unsigned int)&Kernel32ThreadInitThunkFunction,
+         &Kernel32ThreadInitThunkFunction,
          0,
          retaddr);
-  v5 = v7;
-  if ( v7 < 0 )
+  v3 = v5;
+  if ( v5 < 0 )
   {
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       2185,
       (__int64)"LdrpInitializeKernel32Functions",
       0,
       "Locating procedure \"%Z\" in Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
-      &::ArgList,
-      LdrpKernel32DllName,
-      v7,
-      v14);
-    return v5;
+      &stru_1801708A0,
+      &LdrpKernel32DllName,
+      v5,
+      v12);
+    return v3;
   }
-  LdrGetProcedureAddressForCaller(v6, (unsigned int)&unk_1801719D8, 0, (_DWORD)a1, 0, retaddr);
-  v5 = (unsigned int)LdrpSnapKernelBaseExtensions();
-  if ( (v5 & 0x80000000) == 0 )
+  LdrGetProcedureAddressForCaller(v4, (PANSI_STRING)&stru_1801708C0, 0, ProcedureAddress, 0, retaddr);
+  v3 = (unsigned int)LdrpSnapKernelBaseExtensions();
+  if ( (v3 & 0x80000000) == 0 )
     goto LABEL_8;
-  return v5;
+  return v3;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of ExBlockOnAddressPushLock @ 0x14047EBC0
+ * XREFs of ExBlockOnAddressPushLock @ 0x140478530
  * Callers:
- *     CmUnRegisterCallback @ 0x1408505D0 (CmUnRegisterCallback.c)
- *     CmpRollbackLightWeightTransaction @ 0x1408AE484 (CmpRollbackLightWeightTransaction.c)
- *     CmLoadAppKey @ 0x1408B2250 (CmLoadAppKey.c)
- *     CmpTransSearchAddTrans @ 0x1408EC150 (CmpTransSearchAddTrans.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     MiLockImageSection @ 0x140A9BE78 (MiLockImageSection.c)
- *     PopBatteryUpdateCurrentState @ 0x140AB12D0 (PopBatteryUpdateCurrentState.c)
- *     CmFcpManagerProcessUsageDataProviders @ 0x140ABF658 (CmFcpManagerProcessUsageDataProviders.c)
- *     RtlUpdateSwapReference @ 0x140ABFBBC (RtlUpdateSwapReference.c)
- *     CmFcManagerFlushFeatureUsage @ 0x140B33E0C (CmFcManagerFlushFeatureUsage.c)
- *     PsSetVmProcessorHostProcess @ 0x140B688F0 (PsSetVmProcessorHostProcess.c)
+ *     CmUnRegisterCallback @ 0x1408568E0 (CmUnRegisterCallback.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1408B48C4 (CmpRollbackLightWeightTransaction.c)
+ *     CmLoadAppKey @ 0x1408B87F4 (CmLoadAppKey.c)
+ *     CmpTransSearchAddTrans @ 0x1408F2710 (CmpTransSearchAddTrans.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     MiLockImageSection @ 0x140A9E9E8 (MiLockImageSection.c)
+ *     PopBatteryUpdateCurrentState @ 0x140AAF2C0 (PopBatteryUpdateCurrentState.c)
+ *     CmFcpManagerProcessUsageDataProviders @ 0x140AC16F8 (CmFcpManagerProcessUsageDataProviders.c)
+ *     RtlUpdateSwapReference @ 0x140AC1C5C (RtlUpdateSwapReference.c)
+ *     CmFcManagerFlushFeatureUsage @ 0x140B3625C (CmFcManagerFlushFeatureUsage.c)
+ *     PsSetVmProcessorHostProcess @ 0x140B6B880 (PsSetVmProcessorHostProcess.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x1403682A0 (ExpUnblockPushLock.c)
- *     ExTimedWaitForUnblockPushLock @ 0x14047ECC0 (ExTimedWaitForUnblockPushLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExpUnblockPushLock @ 0x14036A040 (ExpUnblockPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x140478630 (ExTimedWaitForUnblockPushLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ExBlockOnAddressPushLock(signed __int64 *a1, _BYTE *a2, _BYTE *a3, __int64 a4, __int64 a5)

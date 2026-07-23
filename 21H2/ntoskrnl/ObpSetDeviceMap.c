@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpSetDeviceMap @ 0x1406BD6D4
+ * XREFs of ObpSetDeviceMap @ 0x14061C8E4
  * Callers:
- *     SeGetTokenDeviceMap @ 0x140692CBC (SeGetTokenDeviceMap.c)
- *     ObpSetSiloDeviceMap @ 0x1407A102C (ObpSetSiloDeviceMap.c)
- *     ObSetProcessDeviceMap @ 0x1408DF68C (ObSetProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1405F2340 (SeGetTokenDeviceMap.c)
+ *     ObpSetSiloDeviceMap @ 0x1407A122C (ObpSetSiloDeviceMap.c)
+ *     ObSetProcessDeviceMap @ 0x1408DF7EC (ObSetProcessDeviceMap.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObpCloseHandle @ 0x14061ABC0 (ObpCloseHandle.c)
- *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObpCloseHandle @ 0x140684820 (ObpCloseHandle.c)
+ *     ObfDereferenceDeviceMap @ 0x14068F1A4 (ObfDereferenceDeviceMap.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ObpSetDeviceMap(
@@ -35,7 +35,7 @@ NTSTATUS __fastcall ObpSetDeviceMap(
   struct _DMA_ADAPTER **v11; // rbx
   NTSTATUS v12; // ebp
   void *v13; // rbp
-  unsigned __int64 *v14; // rdi
+  struct _DMA_ADAPTER **v14; // rdi
   void ***ServerSiloGlobals; // rax
   struct _KTHREAD *CurrentThread; // rcx
   void ***v17; // rsi
@@ -93,7 +93,7 @@ LABEL_25:
     v19 = *((_QWORD *)Objecta + 38);
     if ( v19 )
     {
-      v14 = (unsigned __int64 *)v11;
+      v14 = v11;
       v11 = (struct _DMA_ADAPTER **)*((_QWORD *)Objecta + 38);
       _InterlockedIncrement((volatile signed __int32 *)(v19 + 24));
     }
@@ -118,7 +118,7 @@ LABEL_25:
     KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     if ( v14 )
     {
-      ObpCloseHandle(v14[2], 0);
+      ObpCloseHandle(v14[2], 0LL);
       HalPutDmaAdapter((PADAPTER_OBJECT)Objecta);
       v22 = v11[8];
       if ( v22 )

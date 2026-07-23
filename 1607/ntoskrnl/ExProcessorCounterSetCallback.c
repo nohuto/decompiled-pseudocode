@@ -1,18 +1,18 @@
 /*
- * XREFs of ExProcessorCounterSetCallback @ 0x140407468
+ * XREFs of ExProcessorCounterSetCallback @ 0x140406328
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x14000C2B8 (KeFindFirstSetRightGroupAffinity.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swscanf_s @ 0x140152FA8 (swscanf_s.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ExpQueryProcessorInformationCounters @ 0x140407C0C (ExpQueryProcessorInformationCounters.c)
- *     PcwAddInstance @ 0x1404F1B90 (PcwAddInstance.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x14000BE38 (KeFindFirstSetRightGroupAffinity.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swscanf_s @ 0x140153568 (swscanf_s.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ExpQueryProcessorInformationCounters @ 0x140406ACC (ExpQueryProcessorInformationCounters.c)
+ *     PcwAddInstance @ 0x1404D4324 (PcwAddInstance.c)
  */
 
 int __fastcall ExProcessorCounterSetCallback(int a1, __int64 *a2)

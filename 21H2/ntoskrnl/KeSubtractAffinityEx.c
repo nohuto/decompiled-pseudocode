@@ -1,21 +1,21 @@
 /*
- * XREFs of KeSubtractAffinityEx @ 0x14022B670
+ * XREFs of KeSubtractAffinityEx @ 0x1402CFF20
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140228E60 (PpmParkSteerInterrupts.c)
- *     PpmCheckContinueExecution @ 0x14022B780 (PpmCheckContinueExecution.c)
- *     KiIpiSendRequest @ 0x14027AED0 (KiIpiSendRequest.c)
- *     PpmParkReportParkedCores @ 0x1402AAAE0 (PpmParkReportParkedCores.c)
- *     PpmParkReportUnparkedCores @ 0x1402B0500 (PpmParkReportUnparkedCores.c)
- *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
- *     HalpRemoveProfileSourceFromList @ 0x1404BF12C (HalpRemoveProfileSourceFromList.c)
- *     KiStartProfileTarget @ 0x14051C0A0 (KiStartProfileTarget.c)
- *     KiStopProfileTarget @ 0x14051C360 (KiStopProfileTarget.c)
- *     PpmCheckInitProcessors @ 0x1407B9B18 (PpmCheckInitProcessors.c)
- *     RtlUpdateSwapReference @ 0x1407CACBC (RtlUpdateSwapReference.c)
- *     PpmPostProcessMediaBuffering @ 0x1408F5E28 (PpmPostProcessMediaBuffering.c)
+ *     PpmParkReportParkedCores @ 0x140228C20 (PpmParkReportParkedCores.c)
+ *     PpmParkReportUnparkedCores @ 0x14022E860 (PpmParkReportUnparkedCores.c)
+ *     KiIpiSendRequest @ 0x140268E70 (KiIpiSendRequest.c)
+ *     PpmParkSteerInterrupts @ 0x1402CD760 (PpmParkSteerInterrupts.c)
+ *     PpmCheckContinueExecution @ 0x1402D0030 (PpmCheckContinueExecution.c)
+ *     PpmIdleSelectStates @ 0x1403956D0 (PpmIdleSelectStates.c)
+ *     HalpRemoveProfileSourceFromList @ 0x1404BF36C (HalpRemoveProfileSourceFromList.c)
+ *     KiStartProfileTarget @ 0x14051C2E0 (KiStartProfileTarget.c)
+ *     KiStopProfileTarget @ 0x14051C5A0 (KiStopProfileTarget.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2A8 (PpmCheckInitProcessors.c)
+ *     RtlUpdateSwapReference @ 0x1407CAFDC (RtlUpdateSwapReference.c)
+ *     PpmPostProcessMediaBuffering @ 0x1408F5F88 (PpmPostProcessMediaBuffering.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KeSubtractAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, _BYTE *a3)

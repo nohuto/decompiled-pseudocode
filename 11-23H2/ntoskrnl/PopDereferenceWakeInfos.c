@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDereferenceWakeInfos @ 0x14058E3EC
+ * XREFs of PopDereferenceWakeInfos @ 0x14058E8DC
  * Callers:
- *     PopGetWakeSource @ 0x140987368 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x140987568 (PopGetWakeSource.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopWakeInfoDereference @ 0x14058E858 (PopWakeInfoDereference.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopWakeInfoDereference @ 0x14058ED48 (PopWakeInfoDereference.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -37,10 +37,10 @@ void __fastcall PopDereferenceWakeInfos(unsigned int a1, _QWORD *a2)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v11);
   OldIrql = v11.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

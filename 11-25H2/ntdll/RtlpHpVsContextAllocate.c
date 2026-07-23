@@ -23,11 +23,11 @@ __int64 __fastcall RtlpHpVsContextAllocate(_BYTE *a1, unsigned int a2, int a3, u
   int v9; // ebp
   unsigned int v10; // r12d
   __int64 v11; // r14
-  volatile signed __int32 *v12; // rsi
+  _RTL_SRWLOCK *v12; // rsi
   bool v13; // zf
   __int64 v14; // rdi
   __int64 Finalize; // rdi
-  __int128 v17; // [rsp+30h] [rbp-48h] BYREF
+  PRTL_SRWLOCK SRWLock[2]; // [rsp+30h] [rbp-48h] BYREF
   __int64 v18; // [rsp+40h] [rbp-38h]
 
   v4 = a1[4];
@@ -38,29 +38,29 @@ __int64 __fastcall RtlpHpVsContextAllocate(_BYTE *a1, unsigned int a2, int a3, u
   v9 = 0;
   v10 = (v4 & 1) + ((unsigned int)(v5 + 15) >> 4);
   v11 = (unsigned __int8)(a1[2] & BYTE1(NtCurrentTeb()->HeapData));
-  v12 = (volatile signed __int32 *)&a1[64 * (unsigned __int64)*(unsigned __int16 *)&a1[64 * v7 + 4 * v11]];
+  v12 = (_RTL_SRWLOCK *)&a1[64 * (unsigned __int64)*(unsigned __int16 *)&a1[64 * v7 + 4 * v11]];
   v13 = (a1[5] & 1) == 0;
-  v17 = 0LL;
+  *(_OWORD *)SRWLock = 0LL;
   v18 = 0LL;
   if ( v13 )
   {
-    *((_QWORD *)&v17 + 1) = v12 + 2;
-    if ( !(unsigned __int8)RtlTryAcquireSRWLockExclusive(v12 + 2) )
+    SRWLock[1] = v12 + 1;
+    if ( !RtlTryAcquireSRWLockExclusive(v12 + 1) )
     {
-      *((_QWORD *)&v17 + 1) = 0LL;
+      SRWLock[1] = 0LL;
       v9 = 1;
       if ( (a1[5] & 1) == 0 )
       {
-        *((_QWORD *)&v17 + 1) = v12 + 2;
-        RtlAcquireSRWLockExclusive(v12 + 2);
+        SRWLock[1] = v12 + 1;
+        RtlAcquireSRWLockExclusive(v12 + 1);
       }
     }
   }
-  v14 = RtlpHpVsSlotAllocate((_DWORD)a1, (_DWORD)v12, v10 + 1, (v10 + 1) << 16, (__int64)&v17);
+  v14 = RtlpHpVsSlotAllocate((_DWORD)a1, (_DWORD)v12, v10 + 1, (v10 + 1) << 16, (__int64)SRWLock);
   if ( v14 )
   {
     if ( (a1[5] & 1) == 0 )
-      RtlReleaseSRWLockExclusive(*((volatile signed __int64 **)&v17 + 1));
+      RtlReleaseSRWLockExclusive(SRWLock[1]);
     Finalize = RtlpHpVsContextAllocateFinalize(a1, v14, a2, a4);
   }
   else

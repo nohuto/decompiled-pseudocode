@@ -22,7 +22,7 @@
  *     VslFreeSecureHibernateResources @ 0x140687E08 (VslFreeSecureHibernateResources.c)
  */
 
-void __fastcall PopFreeHiberContext(__int64 a1, __int64 a2)
+void __fastcall PopFreeHiberContext(UNICODE_STRING *a1, BCD_OPEN_FLAGS a2)
 {
   ULONG_PTR v2; // rbx
   void *v3; // rcx
@@ -36,15 +36,15 @@ void __fastcall PopFreeHiberContext(__int64 a1, __int64 a2)
   __int16 v11; // dx
   void *v12; // rcx
   __int64 v13; // rcx
-  __int64 v14; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = qword_14034B1C0;
   if ( qword_14034B1C0 )
   {
-    if ( (int)BcdOpenStore(a1, a2, &v14) >= 0 )
+    if ( BcdOpenStore(a1, a2, &BcdStoreHandle) >= 0 )
     {
-      PopBcdClearPendingResume(v14);
-      BcdCloseStore(v14);
+      PopBcdClearPendingResume(BcdStoreHandle);
+      BcdCloseStore(BcdStoreHandle);
     }
     v3 = *(void **)(v2 + 248);
     if ( v3 )

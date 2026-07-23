@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCoalesceActivePagesIntoFree @ 0x14070B328
+ * XREFs of MiCoalesceActivePagesIntoFree @ 0x14070FFD8
  * Callers:
- *     MiFreeContiguousLargePageRun @ 0x140701770 (MiFreeContiguousLargePageRun.c)
- *     MiFreeCacheSlice @ 0x140711B48 (MiFreeCacheSlice.c)
+ *     MiFreeContiguousLargePageRun @ 0x140706440 (MiFreeContiguousLargePageRun.c)
+ *     MiFreeCacheSlice @ 0x140716848 (MiFreeCacheSlice.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiLargePagePromote @ 0x140479C00 (MiLargePagePromote.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiLargePagePromote @ 0x140473560 (MiLargePagePromote.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiCoalesceActivePagesIntoFree(__int64 a1, ULONG_PTR a2, unsigned int a3)

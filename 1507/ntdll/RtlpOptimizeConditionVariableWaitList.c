@@ -7,16 +7,16 @@
  *     RtlpWakeConditionVariable @ 0x1800638F4 (RtlpWakeConditionVariable.c)
  */
 
-signed __int64 __fastcall RtlpOptimizeConditionVariableWaitList(volatile signed __int64 *a1, signed __int64 a2)
+int __fastcall RtlpOptimizeConditionVariableWaitList(volatile signed __int64 *a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rdx
   _QWORD *v3; // r8
   _QWORD *v4; // rax
-  signed __int64 result; // rax
+  unsigned __int64 v5; // rax
   signed __int64 v6; // rtt
-  signed __int64 v7; // [rsp+38h] [rbp+10h]
+  signed __int64 v8; // [rsp+38h] [rbp+10h]
 
-  v7 = a2;
+  v8 = a2;
   while ( 1 )
   {
     v2 = a2 & 0xFFFFFFFFFFFFFFF0uLL;
@@ -32,14 +32,17 @@ signed __int64 __fastcall RtlpOptimizeConditionVariableWaitList(volatile signed 
       while ( !v3[1] );
     }
     *(_QWORD *)(v2 + 8) = v3[1];
-    v6 = v7;
-    result = _InterlockedCompareExchange64(a1, v2, v7);
-    a2 = result;
-    if ( v6 == result )
+    v6 = v8;
+    v5 = _InterlockedCompareExchange64(a1, v2, v8);
+    a2 = v5;
+    if ( v6 == v5 )
       break;
-    v7 = result;
-    if ( (result & 7) != 0 )
-      return RtlpWakeConditionVariable(a1, result, 0);
+    v8 = v5;
+    if ( (v5 & 7) != 0 )
+    {
+      LODWORD(v5) = RtlpWakeConditionVariable(a1, v5, 0);
+      return v5;
+    }
   }
-  return result;
+  return v5;
 }

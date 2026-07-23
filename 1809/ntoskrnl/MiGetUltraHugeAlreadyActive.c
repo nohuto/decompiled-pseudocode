@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetUltraHugeAlreadyActive @ 0x1401855F4
+ * XREFs of MiGetUltraHugeAlreadyActive @ 0x140185734
  * Callers:
- *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
+ *     MiGetHugePageToZero @ 0x1401855A4 (MiGetHugePageToZero.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
- *     MiDecrementHugeContext @ 0x140185A48 (MiDecrementHugeContext.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D9660 (RtlFindClearBitsAndSet.c)
+ *     MiDecrementHugeContext @ 0x140185B88 (MiDecrementHugeContext.c)
  */
 
 unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1, __int64 a2, int a3)
@@ -17,8 +17,8 @@ unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1, __int64 a2, in
   __int64 v8; // r8
   __int16 v9; // r15
   unsigned int *v10; // rbx
-  struct _RTL_BITMAP **v12; // r14
-  struct _RTL_BITMAP *i; // rsi
+  _RTL_BITMAP **v12; // r14
+  _RTL_BITMAP *i; // rsi
   ULONG v14; // eax
   __int64 v15; // rdx
   __int64 v16; // r8
@@ -50,10 +50,10 @@ unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1, __int64 a2, in
     MiDecrementHugeContext(p_Buffer);
     *(_QWORD *)(a2 + 216) = 0LL;
   }
-  v12 = (struct _RTL_BITMAP **)(v5 + 32);
-  for ( i = *v12; ; i = *(struct _RTL_BITMAP **)&i->SizeOfBitMap )
+  v12 = (_RTL_BITMAP **)(v5 + 32);
+  for ( i = *v12; ; i = *(_RTL_BITMAP **)&i->SizeOfBitMap )
   {
-    if ( i == (struct _RTL_BITMAP *)v12 )
+    if ( i == (_RTL_BITMAP *)v12 )
       return 0LL;
     p_Buffer = &i[-5].Buffer;
     v14 = RtlFindClearBitsAndSet(i + 1, 1u, 0);

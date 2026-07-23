@@ -1,23 +1,20 @@
 /*
- * XREFs of RtlpHeapHandleError @ 0x180031DD0
+ * XREFs of RtlpHeapHandleError @ 0x180010460
  * Callers:
- *     RtlpInsertFreeBlock @ 0x1800315E0 (RtlpInsertFreeBlock.c)
- *     RtlpDeCommitFreeBlock @ 0x180042E70 (RtlpDeCommitFreeBlock.c)
- *     RtlDestroyHeap @ 0x18008F580 (RtlDestroyHeap.c)
- *     RtlpCreateUCREntry @ 0x1800A0100 (RtlpCreateUCREntry.c)
- *     RtlpFindAndCommitPages @ 0x1800A03B0 (RtlpFindAndCommitPages.c)
- *     RtlpFindUCREntry @ 0x1800A0970 (RtlpFindUCREntry.c)
- *     RtlpPopulateListIndex @ 0x1800A9058 (RtlpPopulateListIndex.c)
- *     RtlpHpHeapHandleError @ 0x18011D8C0 (RtlpHpHeapHandleError.c)
+ *     RtlpPopulateListIndex @ 0x18000C23C (RtlpPopulateListIndex.c)
+ *     RtlpInsertFreeBlock @ 0x18000FC70 (RtlpInsertFreeBlock.c)
+ *     RtlDestroyHeap @ 0x1800280C0 (RtlDestroyHeap.c)
+ *     RtlpFindUCREntry @ 0x1800DBA60 (RtlpFindUCREntry.c)
+ *     RtlpHpHeapHandleError @ 0x18011BAF0 (RtlpHpHeapHandleError.c)
  * Callees:
- *     RtlpReportHeapFailure @ 0x18011F4EC (RtlpReportHeapFailure.c)
+ *     RtlpReportHeapFailure @ 0x18011D71C (RtlpReportHeapFailure.c)
  */
 
-__int64 RtlpHeapHandleError()
+__int64 __fastcall RtlpHeapHandleError(__int64 a1)
 {
   __int64 result; // rax
 
-  if ( !byte_1801D2908 )
-    return RtlpReportHeapFailure();
+  if ( !byte_1801D1908 )
+    return RtlpReportHeapFailure(a1);
   return result;
 }

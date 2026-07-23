@@ -1,30 +1,30 @@
 /*
- * XREFs of MiWsleFlush @ 0x1400B3310
+ * XREFs of MiWsleFlush @ 0x1400B3250
  * Callers:
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
  * Callees:
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiReservePageFileSpace @ 0x140081320 (MiReservePageFileSpace.c)
- *     MI_IS_RESET_PTE @ 0x140081D40 (MI_IS_RESET_PTE.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiLockVadCore @ 0x140087AD0 (MiLockVadCore.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiUnlockNestedPageTableWritePte @ 0x1400984D4 (MiUnlockNestedPageTableWritePte.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiGetWsleProtection @ 0x1400B5C20 (MiGetWsleProtection.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiUnlockVadCore @ 0x140125768 (MiUnlockVadCore.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiReservePageFileSpace @ 0x140081310 (MiReservePageFileSpace.c)
+ *     MI_IS_RESET_PTE @ 0x140081D30 (MI_IS_RESET_PTE.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiLockVadCore @ 0x140087AC0 (MiLockVadCore.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140098414 (MiUnlockNestedPageTableWritePte.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiGetWsleProtection @ 0x1400B5B60 (MiGetWsleProtection.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiUnlockVadCore @ 0x140125838 (MiUnlockVadCore.c)
  */
 
 unsigned __int64 __fastcall MiWsleFlush(char *a1, unsigned __int64 a2, __int64 a3, int *a4)
@@ -295,7 +295,7 @@ LABEL_8:
         {
           if ( (unsigned int)MiPteHasShadow(v47, v46) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (v62 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v62 & 1) != 0 )
               v46 |= 0x8000000000000000uLL;
             *(_QWORD *)v7 = v46;
             MiWritePteShadow(v7);
@@ -336,12 +336,12 @@ LABEL_98:
         }
       }
       v18 = v8 & 0xFFFFFFFFF000LL | (32 * ((*(_DWORD *)(v11 + 16) >> 5) & 0x1F | 0x40LL));
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
-        if ( (qword_14043A0C0 & v18) != 0 )
+        if ( (qword_14043B180 & v18) != 0 )
           v18 |= 0x10uLL;
         else
-          v18 |= qword_14043A0C0;
+          v18 |= qword_14043B180;
       }
       v73 = v18;
       if ( v16 )
@@ -371,7 +371,7 @@ LABEL_98:
       {
         if ( (unsigned int)MiPteHasShadow(0xFFFFF6FB7DBED7F8uLL, v73) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v24 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v24 & 1) != 0 )
             v24 |= v68;
           *(_QWORD *)v7 = v24;
           MiWritePteShadow(v7);
@@ -427,8 +427,8 @@ LABEL_31:
         if ( (v21 & 1) != 0 )
           return v15;
 LABEL_37:
-        if ( (!v21 || !qword_14043A0C0 || (v21 & qword_14043A0C0) != 0)
-          && *(_DWORD *)(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v11 + 40) >> 40) & 0x3FFLL)) + 1020LL)
+        if ( (!v21 || !qword_14043B180 || (v21 & qword_14043B180) != 0)
+          && *(_DWORD *)(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v11 + 40) >> 40) & 0x3FFLL)) + 1020LL)
           && (v21 & 2) == 0
           && ((v5[184] & 7) != 0 || !*((_QWORD *)MiGetSharedVm((__int64)v5) + 3))
           && (!MI_IS_RESET_PTE(v21) || (*(_BYTE *)(v11 + 34) & 0x10) != 0 || (*(_BYTE *)v7 & 0x42) != 0)

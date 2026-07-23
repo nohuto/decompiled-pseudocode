@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInsertCopyExtents @ 0x1406FA5AC
+ * XREFs of MiInsertCopyExtents @ 0x1406FF27C
  * Callers:
- *     MiAllocateEntireImageFileExtents @ 0x14086CD18 (MiAllocateEntireImageFileExtents.c)
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408730F8 (MiAllocateEntireImageFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiFormCopyExtents @ 0x1406FA11C (MiFormCopyExtents.c)
- *     MiInsertExtentList @ 0x1406FA658 (MiInsertExtentList.c)
- *     MiLockFileExtentsExclusive @ 0x140770630 (MiLockFileExtentsExclusive.c)
- *     MiUnlockFileExtentsExclusive @ 0x1407706A8 (MiUnlockFileExtentsExclusive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiFormCopyExtents @ 0x1406FEDEC (MiFormCopyExtents.c)
+ *     MiInsertExtentList @ 0x1406FF328 (MiInsertExtentList.c)
+ *     MiLockFileExtentsExclusive @ 0x140773630 (MiLockFileExtentsExclusive.c)
+ *     MiUnlockFileExtentsExclusive @ 0x1407736A8 (MiUnlockFileExtentsExclusive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInsertCopyExtents(__int64 a1, _DWORD *a2, signed int a3)
@@ -29,7 +29,7 @@ __int64 __fastcall MiInsertCopyExtents(__int64 a1, _DWORD *a2, signed int a3)
     MiLockFileExtentsExclusive();
     if ( a2 )
     {
-      v7 = (unsigned __int64 *)&stru_140E2D150.WaitBlockFill11[8 * v3 + 160];
+      v7 = (unsigned __int64 *)&stru_140E2D2D0.WaitBlockFill11[8 * v3 + 160];
       for ( i = 0LL; (unsigned int)i < *a2; i = (unsigned int)(i + 1) )
       {
         v9 = (__int64)&a2[12 * i + 2];

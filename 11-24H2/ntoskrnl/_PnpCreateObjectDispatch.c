@@ -1,22 +1,15 @@
 /*
- * XREFs of _PnpCreateObjectDispatch @ 0x14081AACC
+ * XREFs of _PnpCreateObjectDispatch @ 0x14081B20C
  * Callers:
- *     _PnpCreateObject @ 0x14081A95C (_PnpCreateObject.c)
+ *     _PnpCreateObject @ 0x14081B09C (_PnpCreateObject.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpObjectRaiseCreateEvent @ 0x1409D4F50 (_PnpObjectRaiseCreateEvent.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x1409FBFCC (_PnpCtxGetObjectDispatchCallback.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpObjectRaiseCreateEvent @ 0x1409C4D80 (_PnpObjectRaiseCreateEvent.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x1409F4D0C (_PnpCtxGetObjectDispatchCallback.c)
  */
 
-__int64 __fastcall PnpCreateObjectDispatch(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        int a4,
-        _QWORD *a5,
-        _BYTE *a6,
-        __int16 a7)
+__int64 __fastcall PnpCreateObjectDispatch(__int64 a1, __int64 a2, int a3, int a4, _QWORD *a5, _BYTE *a6, __int16 a7)
 {
   int ObjectDispatchCallback; // ebx
   int v12; // r10d
@@ -35,14 +28,14 @@ __int64 __fastcall PnpCreateObjectDispatch(
   }
   else
   {
-    ObjectDispatchCallback = PnpCtxGetObjectDispatchCallback(a1, a3, &v15);
+    ObjectDispatchCallback = PnpCtxGetObjectDispatchCallback(a1, (unsigned int)a3, &v15);
     if ( ObjectDispatchCallback >= 0 )
     {
       if ( v15 )
       {
         v16 = a4;
         v19 = v12;
-        ObjectDispatchCallback = guard_dispatch_icall_no_overrides(a1, a2, a3, 3LL);
+        ObjectDispatchCallback = guard_dispatch_icall_no_overrides(a1, a2);
         if ( ObjectDispatchCallback >= 0 )
         {
           v13 = v18;
@@ -50,8 +43,8 @@ __int64 __fastcall PnpCreateObjectDispatch(
           *a6 = v13;
           if ( v13 )
           {
-            if ( (int)a3 >= 7 )
-              PnpObjectRaiseCreateEvent(a1, a2, a3, *a5, &v16);
+            if ( a3 >= 7 )
+              PnpObjectRaiseCreateEvent(a1, a2, (unsigned int)a3, *a5, &v16);
           }
         }
       }

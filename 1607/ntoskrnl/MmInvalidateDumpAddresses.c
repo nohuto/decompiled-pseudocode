@@ -3,10 +3,10 @@
  * Callers:
  *     PopInvokeSystemStateHandler @ 0x1403CC110 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     KeFlushSingleCurrentTb @ 0x14012C860 (KeFlushSingleCurrentTb.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     KeFlushSingleCurrentTb @ 0x14012CDD0 (KeFlushSingleCurrentTb.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 struct _KTHREAD *__fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int64 a2)
@@ -41,7 +41,7 @@ struct _KTHREAD *__fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsig
     KeFlushSingleCurrentTb(v3, 0);
     v3 += 4096LL;
   }
-  v9 = (_QWORD *)qword_140327088;
+  v9 = (_QWORD *)qword_1403270C8;
   do
   {
     *v9 = 0LL;

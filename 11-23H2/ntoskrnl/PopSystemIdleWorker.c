@@ -1,17 +1,17 @@
 /*
- * XREFs of PopSystemIdleWorker @ 0x1407A6DA0
+ * XREFs of PopSystemIdleWorker @ 0x1407A6F90
  * Callers:
- *     PopPolicyWorkerThread @ 0x140361D90 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x140361F30 (PopPolicyWorkerThread.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopScanIdleList @ 0x14032C910 (PopScanIdleList.c)
- *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411374 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
- *     PopExecuteSystemIdleAction @ 0x1407A6F10 (PopExecuteSystemIdleAction.c)
- *     PopUpdateLastUserInputTime @ 0x1407A7330 (PopUpdateLastUserInputTime.c)
- *     PopIsSystemIdle @ 0x1407A7388 (PopIsSystemIdle.c)
- *     PopPulseSystemIdleEvent @ 0x1407A853C (PopPulseSystemIdleEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopScanIdleList @ 0x14032CBA0 (PopScanIdleList.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411580 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     PopExecuteSystemIdleAction @ 0x1407A7100 (PopExecuteSystemIdleAction.c)
+ *     PopUpdateLastUserInputTime @ 0x1407A7520 (PopUpdateLastUserInputTime.c)
+ *     PopIsSystemIdle @ 0x1407A7578 (PopIsSystemIdle.c)
+ *     PopPulseSystemIdleEvent @ 0x1407A872C (PopPulseSystemIdleEvent.c)
  */
 
 __int64 PopSystemIdleWorker()

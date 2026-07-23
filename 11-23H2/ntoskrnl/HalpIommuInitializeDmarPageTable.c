@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuInitializeDmarPageTable @ 0x14037F738
+ * XREFs of HalpIommuInitializeDmarPageTable @ 0x14037F8D8
  * Callers:
- *     HalpIommuCreateDmarPageTable @ 0x14037FEA8 (HalpIommuCreateDmarPageTable.c)
+ *     HalpIommuCreateDmarPageTable @ 0x140380048 (HalpIommuCreateDmarPageTable.c)
  * Callees:
  *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE20 (KeInvalidateRangeAllCachesNoIpi.c)
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14037E008 (HalpIommuAllocateAndZeroPageTable.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x14037E1A8 (HalpIommuAllocateAndZeroPageTable.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpIommuInitializeDmarPageTable(

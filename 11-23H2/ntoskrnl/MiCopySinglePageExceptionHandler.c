@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCopySinglePageExceptionHandler @ 0x14041A158
+ * XREFs of MiCopySinglePageExceptionHandler @ 0x14041A4E8
  * Callers:
- *     MiCopySinglePage @ 0x1402EE8BC (MiCopySinglePage.c)
+ *     MiCopySinglePage @ 0x1402EEB4C (MiCopySinglePage.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn MiCopySinglePageExceptionHandler(int **a1, __int64 a2, ULONG_PTR a3)

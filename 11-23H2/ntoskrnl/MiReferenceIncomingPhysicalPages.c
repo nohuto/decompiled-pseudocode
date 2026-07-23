@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceIncomingPhysicalPages @ 0x140A41DB8
+ * XREFs of MiReferenceIncomingPhysicalPages @ 0x140A42068
  * Callers:
- *     NtMapUserPhysicalPages @ 0x140A42880 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140A42B30 (NtMapUserPhysicalPagesScatter.c)
+ *     NtMapUserPhysicalPages @ 0x140A42B30 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x140A42DE0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiDecrementAweMapCount @ 0x140649648 (MiDecrementAweMapCount.c)
- *     MiGetAweNode @ 0x14064A8A4 (MiGetAweNode.c)
- *     MiGetAwePageSize @ 0x14064A918 (MiGetAwePageSize.c)
- *     MiGetAweViewPageSize @ 0x14064A9B8 (MiGetAweViewPageSize.c)
- *     MiIncrementAweMapCount @ 0x14064AAD0 (MiIncrementAweMapCount.c)
- *     MiGetVadCacheAttribute @ 0x140660BA4 (MiGetVadCacheAttribute.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiDecrementAweMapCount @ 0x140649B98 (MiDecrementAweMapCount.c)
+ *     MiGetAweNode @ 0x14064ADF4 (MiGetAweNode.c)
+ *     MiGetAwePageSize @ 0x14064AE68 (MiGetAwePageSize.c)
+ *     MiGetAweViewPageSize @ 0x14064AF08 (MiGetAweViewPageSize.c)
+ *     MiIncrementAweMapCount @ 0x14064B020 (MiIncrementAweMapCount.c)
+ *     MiGetVadCacheAttribute @ 0x1406610F4 (MiGetVadCacheAttribute.c)
  */
 
 __int64 __fastcall MiReferenceIncomingPhysicalPages(

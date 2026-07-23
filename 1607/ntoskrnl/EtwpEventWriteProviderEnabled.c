@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteProviderEnabled @ 0x1406A40F4
+ * XREFs of EtwpEventWriteProviderEnabled @ 0x1406A422C
  * Callers:
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteProviderEnabled(

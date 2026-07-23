@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmSetDeviceRegPropWorker @ 0x1406E2B88
+ * XREFs of _CmSetDeviceRegPropWorker @ 0x1406E3E28
  * Callers:
- *     _CmSetDeviceRegProp @ 0x1406E2A24 (_CmSetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x1406E3CC4 (_CmSetDeviceRegProp.c)
  * Callees:
  *     _CmDevicePropertyRead @ 0x140015BB4 (_CmDevicePropertyRead.c)
  *     _MapCmDevicePropertyToRegValue @ 0x140015C50 (_MapCmDevicePropertyToRegValue.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     _MapCmDevicePropertyToRegType @ 0x140138548 (_MapCmDevicePropertyToRegType.c)
- *     _CmDevicePropertyWrite @ 0x140159AD8 (_CmDevicePropertyWrite.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x1405AD180 (RtlValidRelativeSecurityDescriptor.c)
- *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     RtlLengthSecurityDescriptor @ 0x1405CA090 (RtlLengthSecurityDescriptor.c)
- *     _CmRaisePropertyChangeEvent @ 0x1406E2D7C (_CmRaisePropertyChangeEvent.c)
- *     _CmIsRootDevice @ 0x1406E978C (_CmIsRootDevice.c)
- *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     _MapCmDevicePropertyToRegType @ 0x140138648 (_MapCmDevicePropertyToRegType.c)
+ *     _CmDevicePropertyWrite @ 0x140159BD8 (_CmDevicePropertyWrite.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1401B9D10 (ZwDeleteValueKey.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1405AE180 (RtlValidRelativeSecurityDescriptor.c)
+ *     _CmOpenDeviceRegKey @ 0x1405C7EF0 (_CmOpenDeviceRegKey.c)
+ *     RtlLengthSecurityDescriptor @ 0x1405CB090 (RtlLengthSecurityDescriptor.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1406E401C (_CmRaisePropertyChangeEvent.c)
+ *     _CmIsRootDevice @ 0x1406EAA2C (_CmIsRootDevice.c)
+ *     _RegRtlSetValue @ 0x1406FDE48 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceRegPropWorker(

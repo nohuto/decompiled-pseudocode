@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpLookupUserFunctionTable @ 0x14029A894
+ * XREFs of RtlpLookupUserFunctionTable @ 0x140212224
  * Callers:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x14021DF60 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1402C2860 (RtlpLookupFunctionEntryForStackWalks.c)
  * Callees:
- *     RtlpLookupUserFunctionTableInverted @ 0x14029AAB0 (RtlpLookupUserFunctionTableInverted.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlCaptureImageExceptionValues @ 0x1403725AC (RtlCaptureImageExceptionValues.c)
+ *     RtlpLookupUserFunctionTableInverted @ 0x140212440 (RtlpLookupUserFunctionTableInverted.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlCaptureImageExceptionValues @ 0x1403720FC (RtlCaptureImageExceptionValues.c)
  *     MmGetImageInformation @ 0x1405CF098 (MmGetImageInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
@@ -24,19 +24,19 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
   __int64 v11; // rsi
   unsigned int v12; // eax
   int v13; // r14d
-  unsigned __int64 v14; // r11
+  char *v14; // r11
   int v15; // eax
   unsigned int v16; // edx
   int v17; // r8d
   int v18; // r10d
-  unsigned __int64 v19; // rcx
+  char *v19; // rcx
   unsigned __int64 v20; // rcx
   __int64 v21; // rdx
   unsigned __int64 v22; // rdx
   unsigned __int64 v23; // [rsp+20h] [rbp-98h] BYREF
   __int128 v24; // [rsp+28h] [rbp-90h]
   unsigned __int64 v25; // [rsp+38h] [rbp-80h]
-  unsigned __int64 v26; // [rsp+40h] [rbp-78h]
+  char *v26; // [rsp+40h] [rbp-78h]
   __int64 v27; // [rsp+48h] [rbp-70h] BYREF
   __int64 v28[13]; // [rsp+50h] [rbp-68h] BYREF
   int v29; // [rsp+D8h] [rbp+20h] BYREF
@@ -65,7 +65,7 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
         {
           if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
           {
-            v16 = dword_140C4CCB0;
+            v16 = dword_140C4CCF0;
             v17 = 4096;
           }
           else
@@ -81,9 +81,9 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
               if ( v18 < v10 )
                 goto LABEL_6;
               v13 = (v10 + v18) >> 1;
-              v26 = *(_QWORD *)&v9[6 * v13 + 6];
-              v14 = v26 + (unsigned int)v9[6 * v13 + 8];
-              if ( a1 >= v26 )
+              v26 = *(char **)&v9[6 * v13 + 6];
+              v14 = &v26[v9[6 * v13 + 8]];
+              if ( a1 >= (unsigned __int64)v26 )
                 break;
               if ( !v13 )
                 goto LABEL_6;
@@ -91,25 +91,25 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
             }
             if ( a1 > 0x7FFFFFFEFFFFLL
               && v17
-              && a1 >= v14 + v16
-              && a1 < v14 + v17 + v16
+              && a1 >= (unsigned __int64)&v14[v16]
+              && a1 < (unsigned __int64)&v14[v17 + v16]
               && v26 != PsNtosImageBase
               && v26 != PsHalImageBase )
             {
               break;
             }
-            if ( a1 < v14 )
+            if ( a1 < (unsigned __int64)v14 )
             {
               v24 = *(_OWORD *)&v9[6 * v13 + 4];
               v25 = *(_QWORD *)&v9[6 * v13 + 8];
               v17 = v25;
-              v19 = *((_QWORD *)&v24 + 1);
+              v19 = (char *)*((_QWORD *)&v24 + 1);
               goto LABEL_40;
             }
             v10 = v13 + 1;
           }
           *(_QWORD *)&v24 = &RtlRetpolineStubsFunctionTable;
-          v19 = v14 + v16;
+          v19 = &v14[v16];
           *((_QWORD *)&v24 + 1) = v19;
           v25 = __PAIR64__(RtlRetpolineStubsFunctionTableSize, v17);
 LABEL_40:

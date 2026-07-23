@@ -1,0 +1,49 @@
+/*
+ * XREFs of sub_1403B68E0 @ 0x1403B68E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
+ *     sub_140369FDC @ 0x140369FDC (sub_140369FDC.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ */
+
+__int64 sub_1403B68E0()
+{
+  unsigned __int64 v0; // rdi
+  unsigned int i; // ebx
+  __int64 result; // rax
+  struct _KPRCB *CurrentPrcb; // r10
+  __int64 v4; // r9
+  bool v5; // zf
+
+  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C234A8);
+  if ( MEMORY[0xFFFFF78000000008] >= (unsigned __int64)qword_140C222E8 )
+  {
+    for ( i = 0; i < dword_140C222E0; ++i )
+      sub_140369FDC(qword_140C234A0, 4u);
+    dword_140C222E0 = 0;
+  }
+  KeReleaseSpinLockFromDpcLevel(&qword_140C234A8);
+  result = (unsigned int)dword_140D06B08;
+  if ( dword_140D06B08 )
+  {
+    if ( (dword_140D06B08 & 1) != 0 )
+    {
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v0 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v4 = *((_QWORD *)CurrentPrcb + 4375);
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
+        v5 = ((unsigned int)result & *(_DWORD *)(v4 + 20)) == 0;
+        *(_DWORD *)(v4 + 20) &= result;
+        if ( v5 )
+          result = sub_140418E4C(CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(v0);
+  return result;
+}

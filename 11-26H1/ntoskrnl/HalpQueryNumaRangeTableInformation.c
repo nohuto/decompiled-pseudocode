@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpQueryNumaRangeTableInformation @ 0x140592A90
+ * XREFs of HalpQueryNumaRangeTableInformation @ 0x140595210
  * Callers:
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HalpQueryNumaRangeTableInformation(void *a1, size_t Size, unsigned int *a3)

@@ -1,25 +1,25 @@
 /*
- * XREFs of PiDevCfgInitDriverDatabaseCallback @ 0x14072A318
+ * XREFs of PiDevCfgInitDriverDatabaseCallback @ 0x140727F68
  * Callers:
- *     PiDrvDbEnumNodes @ 0x140736DEC (PiDrvDbEnumNodes.c)
+ *     PiDrvDbEnumNodes @ 0x140734D1C (PiDrvDbEnumNodes.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxCloseMachine @ 0x1408171F0 (_PnpCtxCloseMachine.c)
- *     _PnpCtxOpenMachine @ 0x140817690 (_PnpCtxOpenMachine.c)
- *     _CmDeleteDevice @ 0x140818298 (_CmDeleteDevice.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     PiDevCfgCopyObjectProperties @ 0x14099AE24 (PiDevCfgCopyObjectProperties.c)
- *     _CmCreateDevice @ 0x1409D41D8 (_CmCreateDevice.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x140A1A490 (_CmGetMatchingFilteredDeviceList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxCloseMachine @ 0x140817930 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxOpenMachine @ 0x140817DD0 (_PnpCtxOpenMachine.c)
+ *     _CmDeleteDevice @ 0x1408189D8 (_CmDeleteDevice.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _CmCreateDevice @ 0x1409C4008 (_CmCreateDevice.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1409CD594 (PiDevCfgCopyObjectProperties.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140A163D4 (_CmGetMatchingFilteredDeviceList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PiDevCfgInitDriverDatabaseCallback(int a1)
 {
   void *Pool2; // rbx
-  unsigned int v2; // edi
+  __int64 v2; // rdi
   int v3; // ecx
   int v4; // r8d
   unsigned int v5; // eax
@@ -39,7 +39,7 @@ char __fastcall PiDevCfgInitDriverDatabaseCallback(int a1)
   v16 = 0LL;
   Pool2 = 0LL;
   P = 0LL;
-  v2 = 0;
+  LODWORD(v2) = 0;
   v13 = 0;
   v15 = 0LL;
   Handle = 0LL;
@@ -50,12 +50,12 @@ char __fastcall PiDevCfgInitDriverDatabaseCallback(int a1)
     {
       v5 = 2048;
       v13 = 2048;
-      while ( v5 > v2 )
+      while ( v5 > (unsigned int)v2 )
       {
         v2 = v5;
         if ( Pool2 )
           ExFreePoolWithTag(Pool2, 0);
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, 2 * v2, 0x63647050u);
         if ( !Pool2 )
           goto LABEL_26;
         MatchingFilteredDeviceList = CmGetMatchingFilteredDeviceList(
@@ -71,7 +71,7 @@ char __fastcall PiDevCfgInitDriverDatabaseCallback(int a1)
         {
           if ( MatchingFilteredDeviceList >= 0 )
           {
-            if ( v2 )
+            if ( (_DWORD)v2 )
             {
               for ( i = Pool2; *i; i += v10 + 1 )
               {

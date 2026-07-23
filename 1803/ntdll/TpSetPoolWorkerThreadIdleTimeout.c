@@ -7,20 +7,24 @@
  *     sub_1801086C8 @ 0x1801086C8 (sub_1801086C8.c)
  */
 
-__int64 __fastcall TpSetPoolWorkerThreadIdleTimeout(__int64 a1, struct _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+NTSTATUS __fastcall TpSetPoolWorkerThreadIdleTimeout(__int64 a1, PPEB_LDR_DATA Ldr, __int64 a3)
 {
-  struct _PEB_LDR_DATA *v5; // [rsp+38h] [rbp+10h] BYREF
+  PPEB_LDR_DATA WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = Ldr;
+  WorkerFactoryInformation = Ldr;
   if ( a1 )
   {
     if ( (__int64)Ldr < 0 )
     {
       Ldr = NtCurrentPeb()->Ldr;
       if ( !Ldr->ShutdownInProgress )
-        return ZwSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 2LL, &v5);
+        return ZwSetInformationWorkerFactory(
+                 *(HANDLE *)(a1 + 56),
+                 WorkerFactoryIdleTimeout,
+                 &WorkerFactoryInformation,
+                 8u);
     }
   }
-  sub_1801086C8(a1, Ldr, a3, a4);
-  return 3221225485LL;
+  sub_1801086C8(a1, Ldr, a3);
+  return -1073741811;
 }

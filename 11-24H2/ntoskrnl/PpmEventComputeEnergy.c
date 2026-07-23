@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventComputeEnergy @ 0x140450300
+ * XREFs of PpmEventComputeEnergy @ 0x140445570
  * Callers:
- *     PpmCheckComputeEnergy @ 0x140450110 (PpmCheckComputeEnergy.c)
+ *     PpmCheckComputeEnergy @ 0x140445380 (PpmCheckComputeEnergy.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventComputeEnergy(int a1, __int64 a2)

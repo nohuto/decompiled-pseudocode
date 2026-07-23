@@ -1,21 +1,21 @@
 /*
- * XREFs of AdtpBuildAccessesString @ 0x1406D1680
+ * XREFs of AdtpBuildAccessesString @ 0x1406D17B8
  * Callers:
- *     AdtpPackageParameters @ 0x140144450 (AdtpPackageParameters.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x140238284 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x140238CF4 (AdtpBuildStagingReasonAuditStringInternal.c)
- *     AdtpBuildObjectTypeStrings @ 0x1406D1B10 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpPackageParameters @ 0x1401449C0 (AdtpPackageParameters.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1402380B0 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x140238B20 (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     AdtpBuildObjectTypeStrings @ 0x1406D1C48 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlIntegerToUnicodeString @ 0x1403F5E20 (RtlIntegerToUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     RtlIntegerToUnicodeString @ 0x1403F4CE4 (RtlIntegerToUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall AdtpBuildAccessesString(
@@ -91,7 +91,7 @@ __int64 __fastcall AdtpBuildAccessesString(
     if ( a6 )
     {
       a6[1] = (wchar_t *)4;
-      *a6 = (wchar_t *)&unk_140261FC8;
+      *a6 = (wchar_t *)&unk_140261FE8;
     }
     else if ( DestinationString )
     {
@@ -160,7 +160,7 @@ LABEL_15:
     }
     while ( v22 < 5 );
   }
-  v24 = &unk_140287924;
+  v24 = &unk_140287A14;
   do
   {
     if ( (v9 & *v24) != 0 )

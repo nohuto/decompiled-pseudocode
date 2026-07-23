@@ -1,7 +1,7 @@
 /*
- * XREFs of PspDereferenceQuota @ 0x14067CF54
+ * XREFs of PspDereferenceQuota @ 0x14067D038
  * Callers:
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
  * Callees:
  *     <none>
  */

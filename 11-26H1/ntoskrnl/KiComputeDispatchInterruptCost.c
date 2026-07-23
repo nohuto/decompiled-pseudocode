@@ -1,19 +1,19 @@
 /*
- * XREFs of KiComputeDispatchInterruptCost @ 0x140CC90C0
+ * XREFs of KiComputeDispatchInterruptCost @ 0x140CCF150
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     HviIsAnyHypervisorPresent @ 0x1404E63D0 (HviIsAnyHypervisorPresent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     HviGetEnlightenmentInformation @ 0x1406DC6E8 (HviGetEnlightenmentInformation.c)
- *     HviGetHypervisorFeatures @ 0x1406DC730 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     HviGetEnlightenmentInformation @ 0x1406E0980 (HviGetEnlightenmentInformation.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 KiComputeDispatchInterruptCost()

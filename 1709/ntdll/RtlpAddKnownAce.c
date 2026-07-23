@@ -22,20 +22,20 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-__int64 __fastcall RtlpAddKnownAce(__int64 a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src, char a6)
+__int64 __fastcall RtlpAddKnownAce(PACL Acl, unsigned int a2, int a3, int a4, unsigned __int8 *Sid, char a6)
 {
-  __int64 v10; // r9
+  char *v10; // r9
   unsigned __int16 v11; // r8
   __int64 result; // rax
   unsigned int v13; // eax
-  _QWORD v14[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( !(unsigned __int8)RtlValidSid(Src) )
+  if ( !RtlValidSid(Sid) )
     return 3221225592LL;
-  if ( *(_BYTE *)a1 > 4u || a2 > 4 )
+  if ( Acl->AclRevision > 4u || a2 > 4 )
     return 3221225561LL;
-  if ( *(_BYTE *)a1 > (unsigned __int8)a2 )
-    LOBYTE(a2) = *(_BYTE *)a1;
+  if ( Acl->AclRevision > (unsigned __int8)a2 )
+    LOBYTE(a2) = Acl->AclRevision;
   if ( (a3 & 0xFFFFFFE0) != 0 )
   {
     v13 = a3 & 0xFFFFFF20;
@@ -44,19 +44,19 @@ __int64 __fastcall RtlpAddKnownAce(__int64 a1, unsigned int a2, int a3, int a4, 
     if ( v13 )
       return 3221225485LL;
   }
-  if ( !(unsigned __int8)RtlValidAcl(a1) || !(unsigned __int8)RtlFirstFreeAce(a1, v14) )
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225591LL;
-  v10 = v14[0];
-  v11 = 4 * (Src[1] + 4);
-  if ( !v14[0] || v14[0] + (unsigned __int64)v11 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+  v10 = (char *)FirstFree;
+  v11 = 4 * (Sid[1] + 4);
+  if ( !FirstFree || (char *)FirstFree + v11 > (char *)Acl + Acl->AclSize )
     return 3221225625LL;
-  *(_WORD *)(v14[0] + 2LL) = v11;
-  *(_BYTE *)(v10 + 1) = a3;
-  *(_BYTE *)v10 = a6;
-  *(_DWORD *)(v10 + 4) = a4;
-  memmove((void *)(v10 + 8), Src, 4 * (unsigned int)Src[1] + 8);
-  ++*(_WORD *)(a1 + 4);
+  *((_WORD *)FirstFree + 1) = v11;
+  v10[1] = a3;
+  *v10 = a6;
+  *((_DWORD *)v10 + 1) = a4;
+  memmove(v10 + 8, Sid, 4 * (unsigned int)Sid[1] + 8);
+  ++Acl->AceCount;
   result = 0LL;
-  *(_BYTE *)a1 = a2;
+  Acl->AclRevision = a2;
   return result;
 }

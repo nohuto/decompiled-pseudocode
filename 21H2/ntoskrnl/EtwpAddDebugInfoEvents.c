@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpAddDebugInfoEvents @ 0x1406DF564
+ * XREFs of EtwpAddDebugInfoEvents @ 0x1406B6844
  * Callers:
- *     EtwpRealtimeNotifyConsumers @ 0x1406BC504 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpFinalizeHeader @ 0x1406DF770 (EtwpFinalizeHeader.c)
- *     EtwpAddLogHeader @ 0x1406E03E8 (EtwpAddLogHeader.c)
- *     EtwpSendDbgId @ 0x14093CD50 (EtwpSendDbgId.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x14061B674 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpFinalizeHeader @ 0x1406B6A50 (EtwpFinalizeHeader.c)
+ *     EtwpAddLogHeader @ 0x1406B76C8 (EtwpAddLogHeader.c)
+ *     EtwpSendDbgId @ 0x14093CF20 (EtwpSendDbgId.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     EtwpAddEventToBuffer @ 0x1406DF6F0 (EtwpAddEventToBuffer.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwpAddEventToBuffer @ 0x1406B69D0 (EtwpAddEventToBuffer.c)
  */
 
 void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *a4, int a5)

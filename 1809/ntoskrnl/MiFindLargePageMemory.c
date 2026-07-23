@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFindLargePageMemory @ 0x14085D180
+ * XREFs of MiFindLargePageMemory @ 0x14085E3E0
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  * Callees:
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiUpdateLargePagePfns @ 0x1402C5CF8 (MiUpdateLargePagePfns.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiUpdateLargePagePfns @ 0x1402C5EE8 (MiUpdateLargePagePfns.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFindLargePageMemory(
@@ -45,7 +45,7 @@ void __fastcall MiFindLargePageMemory(
     v10 = 0;
     v11 = MiProtectionToCacheAttribute(a4);
     v12 = 1;
-    v13 = qword_14043E508;
+    v13 = qword_14043F5C8;
     v24 = v11;
     v21 = *(_QWORD *)a6;
     while ( 1 )
@@ -56,7 +56,7 @@ void __fastcall MiFindLargePageMemory(
         {
           if ( v12 != 1 )
           {
-            v13 = qword_14043E508;
+            v13 = qword_14043F5C8;
             v9 = 0LL;
             v12 = 1;
             v10 = 1;

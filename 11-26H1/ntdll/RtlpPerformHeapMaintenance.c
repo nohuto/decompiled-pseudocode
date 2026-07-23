@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpPerformHeapMaintenance @ 0x180021680
+ * XREFs of RtlpPerformHeapMaintenance @ 0x18000C750
  * Callers:
- *     RtlpAllocateHeap @ 0x18001E7C0 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x180009890 (RtlpAllocateHeap.c)
  * Callees:
- *     RtlpInitializeUCRIndex @ 0x18007DE6C (RtlpInitializeUCRIndex.c)
- *     RtlpActivateLowFragmentationHeap @ 0x18007DF18 (RtlpActivateLowFragmentationHeap.c)
+ *     RtlpInitializeUCRIndex @ 0x18006C558 (RtlpInitializeUCRIndex.c)
+ *     RtlpActivateLowFragmentationHeap @ 0x18006C604 (RtlpActivateLowFragmentationHeap.c)
  */
 
-__int64 __fastcall RtlpPerformHeapMaintenance(__int64 a1)
+__int64 __fastcall RtlpPerformHeapMaintenance(_DWORD *a1)
 {
   int v1; // eax
   __int64 result; // rax
 
-  v1 = *(_DWORD *)(a1 + 120);
+  v1 = a1[30];
   if ( (v1 & 0x20000000) != 0 )
   {
-    *(_DWORD *)(a1 + 120) = v1 & 0xDFFFFFFF;
+    a1[30] = v1 & 0xDFFFFFFF;
     if ( (RtlpDisableHeapLookaside & 1) == 0 )
-      RtlpActivateLowFragmentationHeap();
+      RtlpActivateLowFragmentationHeap(a1);
   }
-  result = *(unsigned int *)(a1 + 120);
+  result = (unsigned int)a1[30];
   if ( (result & 0x10000000) != 0 )
   {
-    *(_DWORD *)(a1 + 120) = result & 0xEFFFFFFF;
+    a1[30] = result & 0xEFFFFFFF;
     result = RtlpInitializeUCRIndex(a1);
-    *(_DWORD *)(a1 + 120) &= ~0x10000000u;
+    a1[30] &= ~0x10000000u;
   }
   return result;
 }

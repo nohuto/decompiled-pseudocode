@@ -1,21 +1,21 @@
 /*
- * XREFs of MiRemoveVadCharges @ 0x14042FB20
+ * XREFs of MiRemoveVadCharges @ 0x14042E9F0
  * Callers:
- *     MiFinishVadDeletion @ 0x1400295E0 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x140029160 (MiFinishVadDeletion.c)
  * Callees:
- *     MiReturnFullProcessCharges @ 0x1400275E0 (MiReturnFullProcessCharges.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiFillCommitReturnInfo @ 0x1400284E8 (MiFillCommitReturnInfo.c)
- *     MiGetVadWakeList @ 0x140029A00 (MiGetVadWakeList.c)
- *     MiFreePhysicalView @ 0x140029B78 (MiFreePhysicalView.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiReturnPartitionResidentAvailable @ 0x1401718E8 (MiReturnPartitionResidentAvailable.c)
+ *     MiReturnFullProcessCharges @ 0x140027160 (MiReturnFullProcessCharges.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiFillCommitReturnInfo @ 0x140028068 (MiFillCommitReturnInfo.c)
+ *     MiGetVadWakeList @ 0x140029580 (MiGetVadWakeList.c)
+ *     MiFreePhysicalView @ 0x1400296F8 (MiFreePhysicalView.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiReturnPartitionResidentAvailable @ 0x140171DE4 (MiReturnPartitionResidentAvailable.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiResidentPagesForSpan @ 0x1404E730C (MiResidentPagesForSpan.c)
+ *     MiResidentPagesForSpan @ 0x1404C9880 (MiResidentPagesForSpan.c)
  */
 
 void __fastcall MiRemoveVadCharges(__int64 a1, ULONG_PTR a2)

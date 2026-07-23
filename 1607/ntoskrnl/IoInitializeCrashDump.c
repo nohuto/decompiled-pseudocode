@@ -1,15 +1,15 @@
 /*
- * XREFs of IoInitializeCrashDump @ 0x14056916C
+ * XREFs of IoInitializeCrashDump @ 0x1405696AC
  * Callers:
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
  *     IopInitCrashDumpDuringSysInit @ 0x1407AB1C0 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     IopRemoveDumpCapsuleSupport @ 0x140143020 (IopRemoveDumpCapsuleSupport.c)
- *     IopInitDumpCapsuleSupport @ 0x14014B880 (IopInitDumpCapsuleSupport.c)
- *     IopInitializeCrashDump @ 0x140569208 (IopInitializeCrashDump.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     IopRemoveDumpCapsuleSupport @ 0x140143590 (IopRemoveDumpCapsuleSupport.c)
+ *     IopInitDumpCapsuleSupport @ 0x14014BDF0 (IopInitDumpCapsuleSupport.c)
+ *     IopInitializeCrashDump @ 0x140569748 (IopInitializeCrashDump.c)
  */
 
 char __fastcall IoInitializeCrashDump(HANDLE Handle)

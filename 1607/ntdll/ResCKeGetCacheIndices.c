@@ -3,14 +3,14 @@
  * Callers:
  *     ResCKeCreateRuntimeView @ 0x1800FF07C (ResCKeCreateRuntimeView.c)
  * Callees:
- *     ResCKeOpenRuntimeView @ 0x18005A014 (ResCKeOpenRuntimeView.c)
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     ResCKeGetBaseFolder @ 0x18005A658 (ResCKeGetBaseFolder.c)
- *     ResCGetRegistryLatestIndex @ 0x18005D668 (ResCGetRegistryLatestIndex.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     ResCKeOpenRuntimeView @ 0x18005A004 (ResCKeOpenRuntimeView.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     ResCKeGetBaseFolder @ 0x18005A648 (ResCKeGetBaseFolder.c)
+ *     ResCGetRegistryLatestIndex @ 0x18005D658 (ResCGetRegistryLatestIndex.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     ResCCloseRuntimeView @ 0x1800FEF5C (ResCCloseRuntimeView.c)
- *     ResCGetHighestCacheIndex @ 0x180104E9C (ResCGetHighestCacheIndex.c)
- *     ResCGetHighestConsecutiveCacheIndex @ 0x180105034 (ResCGetHighestConsecutiveCacheIndex.c)
+ *     ResCGetHighestCacheIndex @ 0x180104DDC (ResCGetHighestCacheIndex.c)
+ *     ResCGetHighestConsecutiveCacheIndex @ 0x180104F74 (ResCGetHighestConsecutiveCacheIndex.c)
  */
 
 __int64 __fastcall ResCKeGetCacheIndices(int *a1, int *a2)
@@ -35,7 +35,7 @@ __int64 __fastcall ResCKeGetCacheIndices(int *a1, int *a2)
     v6 = 0LL;
   if ( a1 )
   {
-    v8 = (_QWORD *)ResCKeOpenRuntimeView();
+    v8 = ResCKeOpenRuntimeView();
     if ( v8 )
     {
       v10 = v8[2];
@@ -85,7 +85,7 @@ __int64 __fastcall ResCKeGetCacheIndices(int *a1, int *a2)
   else
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     return 0LL;
   }
 }

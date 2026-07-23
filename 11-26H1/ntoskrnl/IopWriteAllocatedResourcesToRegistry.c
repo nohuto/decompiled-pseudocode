@@ -1,19 +1,19 @@
 /*
- * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x140B33BE4
+ * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x140B36034
  * Callers:
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     PnpBuildCmResourceLists @ 0x1407B30F8 (PnpBuildCmResourceLists.c)
- *     PnpRestoreResourcesInternal @ 0x1407B359C (PnpRestoreResourcesInternal.c)
- *     IopLegacyResourceAllocation @ 0x140A8B3B4 (IopLegacyResourceAllocation.c)
- *     PnpReleaseResourcesInternal @ 0x140B33840 (PnpReleaseResourcesInternal.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     PnpBuildCmResourceLists @ 0x1407B6158 (PnpBuildCmResourceLists.c)
+ *     PnpRestoreResourcesInternal @ 0x1407B65FC (PnpRestoreResourcesInternal.c)
+ *     IopLegacyResourceAllocation @ 0x1409B81D4 (IopLegacyResourceAllocation.c)
+ *     PnpReleaseResourcesInternal @ 0x140B35C90 (PnpReleaseResourcesInternal.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
  */
 
 __int64 __fastcall IopWriteAllocatedResourcesToRegistry(__int64 a1, void *a2, ULONG a3)

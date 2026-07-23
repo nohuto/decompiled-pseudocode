@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmRemoveDeviceFromContainerWorker @ 0x140B1D980
+ * XREFs of _CmRemoveDeviceFromContainerWorker @ 0x140B1FA04
  * Callers:
- *     _CmRemoveDeviceFromContainer @ 0x140898054 (_CmRemoveDeviceFromContainer.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14089E454 (_CmRemoveDeviceFromContainer.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegDeleteValue @ 0x14090B324 (_PnpCtxRegDeleteValue.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x14090D72C (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _PnpCtxRegQueryInfoKey @ 0x14091B2F8 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _PnpCtxRegDeleteTree @ 0x140A2D8F8 (_PnpCtxRegDeleteTree.c)
- *     _CmDeleteDeviceContainer @ 0x140B1DC58 (_CmDeleteDeviceContainer.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140975D5C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x1409AD448 (_PnpCtxRegDeleteValue.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1409AF85C (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A3F304 (_PnpCtxRegDeleteTree.c)
+ *     _CmDeleteDeviceContainer @ 0x140B1FCDC (_CmDeleteDeviceContainer.c)
  */
 
 __int64 __fastcall CmRemoveDeviceFromContainerWorker(
@@ -21,7 +21,7 @@ __int64 __fastcall CmRemoveDeviceFromContainerWorker(
         _BYTE *a5)
 {
   _BYTE *v5; // rsi
-  __int64 *v10; // rdx
+  _QWORD *v10; // rdx
   int CachedNodeBaseKey; // ebx
   __int64 v12; // rax
   __int64 v13; // rax
@@ -47,14 +47,14 @@ __int64 __fastcall CmRemoveDeviceFromContainerWorker(
   v26 = 0LL;
   v25 = 0LL;
   *a5 = 0;
-  v10 = (__int64 *)a1[22];
+  v10 = (_QWORD *)a1[22];
   Handle = 0LL;
   v30 = 0;
   if ( !v10 )
   {
     v23 = (_QWORD *)a1[7];
     if ( v23 == a1 + 7 )
-      v10 = (__int64 *)a1[11];
+      v10 = (_QWORD *)a1[11];
     else
       v10 = v23 - 2;
     a1[22] = v10;

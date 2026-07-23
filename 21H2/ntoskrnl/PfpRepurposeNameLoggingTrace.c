@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpRepurposeNameLoggingTrace @ 0x1406C7914
+ * XREFs of PfpRepurposeNameLoggingTrace @ 0x140676204
  * Callers:
- *     PfTFreeTraceDump @ 0x1402D5024 (PfTFreeTraceDump.c)
+ *     PfTFreeTraceDump @ 0x140273D04 (PfTFreeTraceDump.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x1402D4690 (PfFbBufferListInsertInFree.c)
+ *     PfFbBufferListInsertInFree @ 0x140273370 (PfFbBufferListInsertInFree.c)
  */
 
 void __fastcall PfpRepurposeNameLoggingTrace(PVOID P)
 {
   PfFbBufferListInsertInFree(
-    (_SLIST_ENTRY *)&stru_140C4FCA0,
-    (struct _SLIST_ENTRY *)P,
+    (_SLIST_ENTRY *)&stru_140C4FCE0,
+    (_SLIST_ENTRY *)P,
     *((_DWORD *)P + 13),
     *((_DWORD *)P + 14),
     1);

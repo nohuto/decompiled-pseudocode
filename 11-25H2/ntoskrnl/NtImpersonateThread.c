@@ -12,11 +12,14 @@
  *     SeCreateClientSecurity @ 0x1408A6230 (SeCreateClientSecurity.c)
  */
 
-NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, struct _SECURITY_QUALITY_OF_SERVICE *a3)
+NTSTATUS __cdecl NtImpersonateThread(
+        HANDLE ServerThreadHandle,
+        HANDLE ClientThreadHandle,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos)
 {
   KPROCESSOR_MODE PreviousMode; // di
   NTSTATUS result; // eax
-  NTSTATUS v8; // edi
+  int v8; // edi
   PVOID v9; // rbx
   BOOLEAN EffectiveOnly; // r9
   PVOID v11; // rdi
@@ -33,15 +36,15 @@ NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, struct _SECURI
   *((_DWORD *)&ClientContext.SecurityQos + 3) = 0;
   memset_0(&ClientContext, 0, 0x44uLL);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && ((unsigned __int8)a3 & 3) != 0 )
+  if ( PreviousMode && ((unsigned __int8)SecurityQos & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  ClientSecurityQos = *a3;
+  ClientSecurityQos = *SecurityQos;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a2, 0x200u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ClientThreadHandle, 0x200u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v15 = 0LL;
-    v8 = ObReferenceObjectByHandle(Handle, 0x100u, (POBJECT_TYPE)PsThreadType, PreviousMode, &v15, 0LL);
+    v8 = ObReferenceObjectByHandle(ServerThreadHandle, 0x100u, (POBJECT_TYPE)PsThreadType, PreviousMode, &v15, 0LL);
     v9 = Object;
     if ( v8 >= 0 )
     {

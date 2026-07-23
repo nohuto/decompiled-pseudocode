@@ -13,7 +13,7 @@
  *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18004FF64 (RtlpWaitOnAddressRemoveWaitBlock.c)
  */
 
-__int64 __fastcall RtlpWaitOnAddress(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall RtlpWaitOnAddress(_QWORD *a1, _QWORD *a2, __int64 a3, LARGE_INTEGER *a4, unsigned int a5)
 {
   int v6; // ebx
   unsigned int v9; // ebp
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpWaitOnAddress(_QWORD *a1, _QWORD *a2, __int64 a3, __int64
   int v13; // ebx
   int v14; // ebx
   bool v15; // zf
-  _QWORD v17[5]; // [rsp+20h] [rbp-48h] BYREF
+  PVOID v17[5]; // [rsp+20h] [rbp-48h] BYREF
   int v18; // [rsp+48h] [rbp-20h]
 
   v6 = a3;

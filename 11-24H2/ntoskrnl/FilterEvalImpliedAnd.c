@@ -1,13 +1,13 @@
 /*
- * XREFs of FilterEvalImpliedAnd @ 0x1408D4048
+ * XREFs of FilterEvalImpliedAnd @ 0x1408D1A38
  * Callers:
- *     ConstraintEval @ 0x1408B4EA0 (ConstraintEval.c)
- *     PiDqQueryEvaluateFilter @ 0x1408CBE00 (PiDqQueryEvaluateFilter.c)
- *     ValidFilter @ 0x1409FA0B0 (ValidFilter.c)
+ *     ConstraintEval @ 0x1408B2790 (ConstraintEval.c)
+ *     PiDqQueryEvaluateFilter @ 0x1408C9830 (PiDqQueryEvaluateFilter.c)
+ *     ValidFilter @ 0x1409F2A20 (ValidFilter.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PiDqPropertyCallback @ 0x1408D4890 (PiDqPropertyCallback.c)
- *     PropertyEval @ 0x1408D4F30 (PropertyEval.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PiDqPropertyCallback @ 0x1408D2280 (PiDqPropertyCallback.c)
+ *     PropertyEval @ 0x1408D2920 (PropertyEval.c)
  */
 
 __int64 __fastcall FilterEvalImpliedAnd(
@@ -51,7 +51,7 @@ __int64 __fastcall FilterEvalImpliedAnd(
     if ( a1 == PiDqPropertyCallback )
       v14 = PiDqPropertyCallback(v8, v13, (int)&v18, (int)&v17, (__int64)&v19);
     else
-      v14 = guard_dispatch_icall_no_overrides(v8, v13, &v18, &v17);
+      v14 = guard_dispatch_icall_no_overrides(v8, v13);
     v5 = v14;
     if ( v14 == -1073741275 )
     {

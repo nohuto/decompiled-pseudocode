@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptGetNextProcessorLocalId @ 0x1405418CC
+ * XREFs of HalpInterruptGetNextProcessorLocalId @ 0x14053F1CC
  * Callers:
- *     HalpInterruptStartProcessor @ 0x140B4BED0 (HalpInterruptStartProcessor.c)
+ *     HalpInterruptStartProcessor @ 0x140B4DF10 (HalpInterruptStartProcessor.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140541F70 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14053F86C (HalpQueryMaximumRegisteredProcessorCount.c)
  */
 
 __int64 __fastcall HalpInterruptGetNextProcessorLocalId(char a1, _DWORD *a2)

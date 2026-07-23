@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerClearProblem @ 0x1404E3108
+ * XREFs of HalpTimerClearProblem @ 0x140435CB0
  * Callers:
- *     HalpSetTimerAnyMode @ 0x1404E3060 (HalpSetTimerAnyMode.c)
+ *     HalpSetTimerAnyMode @ 0x140435C08 (HalpSetTimerAnyMode.c)
  * Callees:
  *     <none>
  */

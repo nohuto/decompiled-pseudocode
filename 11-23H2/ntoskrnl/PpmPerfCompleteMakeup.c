@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfCompleteMakeup @ 0x14058D0A4
+ * XREFs of PpmPerfCompleteMakeup @ 0x14058D594
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x1403573E0 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x140357580 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of SeCodeIntegrityInitializePolicy @ 0x1409DC0B4
+ * XREFs of SeCodeIntegrityInitializePolicy @ 0x1409DD0B4
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     SeSecureBootRegisterPolicy @ 0x1409DC17C (SeSecureBootRegisterPolicy.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     SeSecureBootRegisterPolicy @ 0x1409DD17C (SeSecureBootRegisterPolicy.c)
  */
 
 __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
       SeCiDebugOptions |= 2u;
     if ( SeILSigningPolicy )
     {
-      if ( (v6 = ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, SystemInformation, 0x18u, 0LL), v6 >= 0)
+      if ( (v6 = ZwQuerySystemInformation(SystemSecureBootPolicyInformation, SystemInformation, 0x18u, 0LL), v6 >= 0)
         && (v10 & 0x10) != 0
         || v6 == -2143092730 )
       {
@@ -41,9 +41,9 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
           SeCiDebugOptions |= 4u;
       }
     }
-    if ( qword_14040DDC0 )
+    if ( qword_14040EE20 )
     {
-      v2 = qword_14040DDC0(v3, &v8, &v7);
+      v2 = qword_14040EE20(v3, &v8, &v7);
       if ( v2 >= 0 )
       {
         SeCiStateElements = v8;

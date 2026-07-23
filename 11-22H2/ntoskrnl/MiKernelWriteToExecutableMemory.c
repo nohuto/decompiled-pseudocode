@@ -18,14 +18,15 @@ __int64 __fastcall MiKernelWriteToExecutableMemory(__int64 a1, __int64 a2, struc
   __int64 v8; // rdi
   __int64 v9; // r12
   __int64 v10; // rbp
-  unsigned int v11; // ebx
+  HANDLE v11; // rcx
+  unsigned int v12; // ebx
 
   v6 = a3[1].ActiveProcessors.StaticBitmap[28];
   v7 = a1 + 56;
   v8 = ((*(_QWORD *)a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v9 = *(_QWORD *)(v6 + 632);
   v10 = MiReleaseFaultState(a1 + 56, 0x11u, 0LL);
-  if ( (int)NtWaitLowEventPair() >= 0 )
+  if ( NtWaitLowEventPair(v11) >= 0 )
   {
     MiRelockFaultState(v7, v10);
     if ( v9 == *(_QWORD *)(v6 + 632) && ((*(_BYTE *)(a1 + 69) & 1) == 0 || MmIsAddressValidEx(v8)) )
@@ -36,8 +37,8 @@ __int64 __fastcall MiKernelWriteToExecutableMemory(__int64 a1, __int64 a2, struc
   else
   {
     MiForceCrashForInvalidAccess(a3);
-    v11 = -1073739997;
+    v12 = -1073739997;
     MiRelockFaultState(v7, v10);
   }
-  return v11;
+  return v12;
 }

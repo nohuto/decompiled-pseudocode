@@ -1,18 +1,18 @@
 /*
- * XREFs of PoUserShutdownInitiated @ 0x140775630
+ * XREFs of PoUserShutdownInitiated @ 0x1407757F0
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     PpmBeginHighPerfRequest @ 0x1403A79D0 (PpmBeginHighPerfRequest.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopTransitionCheckpoint @ 0x140775778 (PopTransitionCheckpoint.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopQueueWorkItem @ 0x140251CA4 (PopQueueWorkItem.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     PpmBeginHighPerfRequest @ 0x1403A7B20 (PpmBeginHighPerfRequest.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopTransitionCheckpoint @ 0x140775938 (PopTransitionCheckpoint.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 char __fastcall PoUserShutdownInitiated(__int64 a1, __int64 a2)
@@ -28,7 +28,7 @@ char __fastcall PoUserShutdownInitiated(__int64 a1, __int64 a2)
   {
     PopTransitionCheckpoint(7LL, 0LL);
     result = PopQueueWorkItem((__int64)&PopSetUserShutdownMarkerWorkItem, DelayedWorkQueue);
-    if ( qword_140C543B8 )
+    if ( qword_140C543F8 )
     {
       PopAcquirePolicyLock(v3);
       if ( PopUserShutdownInProgress )
@@ -49,7 +49,7 @@ char __fastcall PoUserShutdownInitiated(__int64 a1, __int64 a2)
         }
         PopBsdShutdownInProgress = 1;
         PopReleasePolicyLock(v5, v4);
-        v6 = ((__int64 (*)(void))qword_140C543B8)();
+        v6 = ((__int64 (*)(void))qword_140C543F8)();
         result = KiSetTimerEx(
                    (__int64)&PopUserShutdownDelayTimer,
                    -900000000LL,

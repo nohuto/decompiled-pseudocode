@@ -1,16 +1,16 @@
 /*
- * XREFs of VfThunkApplyMandatoryThunks @ 0x14070F47C
+ * XREFs of VfThunkApplyMandatoryThunks @ 0x14070F4AC
  * Callers:
  *     VfSuspectDriversLoadCallback @ 0x140716114 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetNextSession @ 0x140086620 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MmIsDriverLoadedCurrentSession @ 0x1404990DC (MmIsDriverLoadedCurrentSession.c)
- *     MmQuitNextSession @ 0x1404F149C (MmQuitNextSession.c)
- *     ViThunkApplyMandatoryThunksCurrentSession @ 0x14070F700 (ViThunkApplyMandatoryThunksCurrentSession.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetNextSession @ 0x140087F10 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MmIsDriverLoadedCurrentSession @ 0x140499B6C (MmIsDriverLoadedCurrentSession.c)
+ *     MmQuitNextSession @ 0x1404D3590 (MmQuitNextSession.c)
+ *     ViThunkApplyMandatoryThunksCurrentSession @ 0x14070F730 (ViThunkApplyMandatoryThunksCurrentSession.c)
  */
 
 __int64 __fastcall VfThunkApplyMandatoryThunks(__int64 a1, unsigned int a2)

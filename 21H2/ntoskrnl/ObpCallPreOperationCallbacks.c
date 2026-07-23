@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpCallPreOperationCallbacks @ 0x1405E9760
+ * XREFs of ObpCallPreOperationCallbacks @ 0x1406D8EC0
  * Callers:
- *     ObpPreInterceptHandleCreate @ 0x1405E9930 (ObpPreInterceptHandleCreate.c)
- *     ObpPreInterceptHandleDuplicate @ 0x14062DAA8 (ObpPreInterceptHandleDuplicate.c)
+ *     ObpPreInterceptHandleDuplicate @ 0x1405E3B38 (ObpPreInterceptHandleDuplicate.c)
+ *     ObpPreInterceptHandleCreate @ 0x1406D9090 (ObpPreInterceptHandleCreate.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ObpCallPostOperationCallbacks @ 0x1408DDD00 (ObpCallPostOperationCallbacks.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ObpCallPostOperationCallbacks @ 0x1408DDE60 (ObpCallPostOperationCallbacks.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCallPreOperationCallbacks(__int64 a1, __int64 a2, _QWORD *a3)
@@ -26,25 +26,23 @@ __int64 __fastcall ObpCallPreOperationCallbacks(__int64 a1, __int64 a2, _QWORD *
   struct _EX_RUNDOWN_REF **v9; // r12
   struct _KTHREAD *v10; // rax
   struct _EX_RUNDOWN_REF *i; // rbx
-  __int64 v12; // rcx
-  struct _KTHREAD *v13; // rax
-  bool v14; // zf
+  struct _KTHREAD *v12; // rax
+  bool v13; // zf
   void (__fastcall *Count)(_QWORD, __int64); // rax
+  struct _KTHREAD *v15; // rax
   struct _KTHREAD *v16; // rax
-  __int64 v17; // rcx
-  struct _KTHREAD *v18; // rax
   _QWORD *PoolWithTag; // rax
-  _QWORD *v21; // rcx
-  __int128 v22; // [rsp+20h] [rbp-58h] BYREF
-  __int128 v23; // [rsp+30h] [rbp-48h]
-  __int128 v24; // [rsp+40h] [rbp-38h]
+  _QWORD *v19; // rcx
+  __int128 v20; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v21; // [rsp+30h] [rbp-48h]
+  __int128 v22; // [rsp+40h] [rbp-38h]
 
   v3 = a1 + 184;
-  v22 = 0LL;
+  v20 = 0LL;
   v4 = 0LL;
   v5 = 0LL;
-  v23 = 0LL;
-  v24 = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v9 = (struct _EX_RUNDOWN_REF **)(a1 + 200);
   --CurrentThread->KernelApcDisable;
@@ -54,16 +52,16 @@ __int64 __fastcall ObpCallPreOperationCallbacks(__int64 a1, __int64 a2, _QWORD *
   ExAcquirePushLockSharedEx(v3, 0LL);
   for ( i = *v9; i != (struct _EX_RUNDOWN_REF *)v9; i = (struct _EX_RUNDOWN_REF *)i->Count )
   {
-    if ( (HIDWORD(i[2].Ptr) & 1) != 0 && (i[2].Count & *(_DWORD *)a2) != 0 && ExAcquireRundownProtection_0(i + 7) )
+    if ( (HIDWORD(i[2].Ptr) & 1) != 0 && (i[2].Count & *(_DWORD *)a2) != 0 && ExAcquireRundownProtection(i + 7) )
     {
       ExReleasePushLockEx(v3, 0LL);
-      v13 = KeGetCurrentThread();
-      v14 = v13->SpecialApcDisable++ == -1;
-      if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)v13->ApcState.ApcListHead[0].Flink != &v13->152 )
-        KiCheckForKernelApcDelivery(v12);
+      v12 = KeGetCurrentThread();
+      v13 = v12->SpecialApcDisable++ == -1;
+      if ( v13 && ($C459BD0D405E8E46662177FB3D0A143F *)v12->ApcState.ApcListHead[0].Flink != &v12->152 )
+        KiCheckForKernelApcDelivery();
       if ( v5 )
       {
-        ExReleaseRundownProtection_0(v5);
+        ExReleaseRundownProtection(v5);
         v5 = 0LL;
       }
       if ( i[6].Count )
@@ -72,7 +70,7 @@ __int64 __fastcall ObpCallPreOperationCallbacks(__int64 a1, __int64 a2, _QWORD *
         v4 = PoolWithTag;
         if ( !PoolWithTag )
         {
-          ExReleaseRundownProtection_0(i + 7);
+          ExReleaseRundownProtection(i + 7);
           if ( (_QWORD *)*a3 == a3 )
           {
             KeLeaveCriticalRegion();
@@ -80,23 +78,23 @@ __int64 __fastcall ObpCallPreOperationCallbacks(__int64 a1, __int64 a2, _QWORD *
           }
           else
           {
-            v24 = 0xC000009AuLL;
-            *((_QWORD *)&v23 + 1) = 0LL;
-            *(_QWORD *)&v22 = *(_QWORD *)a2;
-            *(_QWORD *)&v23 = *(_QWORD *)(a2 + 16);
-            *((_QWORD *)&v22 + 1) = *(_QWORD *)(a2 + 8);
-            ObpCallPostOperationCallbacks(&v22, a3);
+            v22 = 0xC000009AuLL;
+            *((_QWORD *)&v21 + 1) = 0LL;
+            *(_QWORD *)&v20 = *(_QWORD *)a2;
+            *(_QWORD *)&v21 = *(_QWORD *)(a2 + 16);
+            *((_QWORD *)&v20 + 1) = *(_QWORD *)(a2 + 8);
+            ObpCallPostOperationCallbacks(&v20, a3);
           }
           return 3221225626LL;
         }
         PoolWithTag[2] = i;
         PoolWithTag[3] = 0LL;
-        v21 = (_QWORD *)a3[1];
-        if ( (_QWORD *)*v21 != a3 )
+        v19 = (_QWORD *)a3[1];
+        if ( (_QWORD *)*v19 != a3 )
           __fastfail(3u);
         *PoolWithTag = a3;
-        PoolWithTag[1] = v21;
-        *v21 = PoolWithTag;
+        PoolWithTag[1] = v19;
+        *v19 = PoolWithTag;
         a3[1] = PoolWithTag;
       }
       Count = (void (__fastcall *)(_QWORD, __int64))i[5].Count;
@@ -109,18 +107,18 @@ __int64 __fastcall ObpCallPreOperationCallbacks(__int64 a1, __int64 a2, _QWORD *
           v5 = i + 7;
         *(_QWORD *)(a2 + 24) = 0LL;
       }
-      v16 = KeGetCurrentThread();
-      --v16->SpecialApcDisable;
+      v15 = KeGetCurrentThread();
+      --v15->SpecialApcDisable;
       ExAcquirePushLockSharedEx(v3, 0LL);
     }
   }
   ExReleasePushLockEx(v3, 0LL);
-  v18 = KeGetCurrentThread();
-  v14 = v18->SpecialApcDisable++ == -1;
-  if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)v18->ApcState.ApcListHead[0].Flink != &v18->152 )
-    KiCheckForKernelApcDelivery(v17);
+  v16 = KeGetCurrentThread();
+  v13 = v16->SpecialApcDisable++ == -1;
+  if ( v13 && ($C459BD0D405E8E46662177FB3D0A143F *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
+    KiCheckForKernelApcDelivery();
   if ( v5 )
-    ExReleaseRundownProtection_0(v5);
+    ExReleaseRundownProtection(v5);
   if ( (_QWORD *)*a3 == a3 )
   {
     ObfDereferenceObjectWithTag(*(PVOID *)(a2 + 8), 0x6243624Fu);

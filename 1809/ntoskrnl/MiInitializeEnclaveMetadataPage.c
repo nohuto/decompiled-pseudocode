@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInitializeEnclaveMetadataPage @ 0x1409F72B8
+ * XREFs of MiInitializeEnclaveMetadataPage @ 0x1409F82B8
  * Callers:
- *     MiCreateEnclaveRegions @ 0x1409BA34C (MiCreateEnclaveRegions.c)
+ *     MiCreateEnclaveRegions @ 0x1409BB34C (MiCreateEnclaveRegions.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KeCreateEnclaveMetadataPage @ 0x14028FB54 (KeCreateEnclaveMetadataPage.c)
- *     MiGetEnclavePage @ 0x1402BDD48 (MiGetEnclavePage.c)
- *     MiReturnEnclavePage @ 0x1402BE8E0 (MiReturnEnclavePage.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeCreateEnclaveMetadataPage @ 0x14028FD44 (KeCreateEnclaveMetadataPage.c)
+ *     MiGetEnclavePage @ 0x1402BDF38 (MiGetEnclavePage.c)
+ *     MiReturnEnclavePage @ 0x1402BEAD0 (MiReturnEnclavePage.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 MiInitializeEnclaveMetadataPage()
@@ -30,7 +30,7 @@ __int64 MiInitializeEnclaveMetadataPage()
   bool v8; // zf
   __int64 result; // rax
 
-  v0 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+  v0 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
   if ( !v0 )
     return 0LL;
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x4D424D45u);
@@ -57,7 +57,7 @@ LABEL_16:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v7 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_12;
         v8 = (v6 & 1) == 0;
       }
@@ -76,16 +76,16 @@ LABEL_12:
       MiWritePteShadow(v0, v6);
     if ( (int)KeCreateEnclaveMetadataPage() >= 0 )
     {
-      qword_14043A1A0 = 0LL;
+      qword_14043B260 = 0LL;
       result = 1LL;
-      qword_14043A190 = (__int64)(v0 << 25) >> 16;
-      qword_14043A198 = (__int64)v2;
-      dword_14043A1A8 = 0;
+      qword_14043B250 = (__int64)(v0 << 25) >> 16;
+      qword_14043B258 = (__int64)v2;
+      dword_14043B268 = 0;
       return result;
     }
     goto LABEL_16;
   }
 LABEL_18:
-  MiReleasePtes((__int64)&qword_14043AFA0, v0, 1u);
+  MiReleasePtes((__int64)&qword_14043C060, v0, 1u);
   return 0LL;
 }

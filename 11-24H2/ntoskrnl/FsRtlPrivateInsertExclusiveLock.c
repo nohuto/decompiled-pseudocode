@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlPrivateInsertExclusiveLock @ 0x1402490B4
+ * XREFs of FsRtlPrivateInsertExclusiveLock @ 0x1402E32F4
  * Callers:
- *     FsRtlPrivateLock @ 0x140248460 (FsRtlPrivateLock.c)
- *     FsRtlPrivateInsertLock @ 0x140248AA0 (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateLock @ 0x1402E26A0 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateInsertLock @ 0x1402E2CE0 (FsRtlPrivateInsertLock.c)
  * Callees:
- *     RtlRealSuccessor @ 0x140248410 (RtlRealSuccessor.c)
+ *     RtlRealSuccessor @ 0x1402E2650 (RtlRealSuccessor.c)
  */
 
 PRTL_SPLAY_LINKS __fastcall FsRtlPrivateInsertExclusiveLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
 {
-  RTL_SPLAY_LINKS *v3; // rbp
-  RTL_SPLAY_LINKS *v4; // rdx
-  RTL_SPLAY_LINKS *v5; // r8
+  _RTL_SPLAY_LINKS *v3; // rbp
+  _RTL_SPLAY_LINKS *v4; // rdx
+  _RTL_SPLAY_LINKS *v5; // r8
   char v6; // r9
   PRTL_SPLAY_LINKS result; // rax
   bool v9; // zf
@@ -21,7 +21,7 @@ PRTL_SPLAY_LINKS __fastcall FsRtlPrivateInsertExclusiveLock(__int64 a1, _RTL_SPL
   _RTL_SPLAY_LINKS *v13; // rcx
 
   v3 = 0LL;
-  v4 = *(RTL_SPLAY_LINKS **)(a1 + 16);
+  v4 = *(_RTL_SPLAY_LINKS **)(a1 + 16);
   v5 = 0LL;
   v6 = 0;
   result = 0LL;

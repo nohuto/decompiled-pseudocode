@@ -1,23 +1,23 @@
 /*
- * XREFs of SLQueryLicenseValueInternal @ 0x14080F294
+ * XREFs of SLQueryLicenseValueInternal @ 0x14080F564
  * Callers:
- *     ntoskrnl_27 @ 0x1407AF260 (ntoskrnl_27.c)
+ *     ntoskrnl_27 @ 0x1407AF450 (ntoskrnl_27.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     sub_1403748D0 @ 0x1403748D0 (sub_1403748D0.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14080F86C (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     SLGetSubscriptionPfn @ 0x1409FA328 (SLGetSubscriptionPfn.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     sub_140374A70 @ 0x140374A70 (sub_140374A70.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14080FB3C (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     SLGetSubscriptionPfn @ 0x1409FA5B8 (SLGetSubscriptionPfn.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -124,8 +124,8 @@ __int64 __fastcall SLQueryLicenseValueInternal(
   v11 = *((_QWORD *)&v60 + 1);
   v12 = **((_WORD **)&v60 + 1);
   v48 = **((_WORD **)&v60 + 1);
-  v56 = &off_140A77700;
-  v13 = &off_140A77700;
+  v56 = &off_140A779B0;
+  v13 = &off_140A779B0;
   while ( 1 )
   {
     v14 = *((unsigned __int16 *)v13 + 4);
@@ -226,9 +226,9 @@ LABEL_11:
   }
   v47 = 0;
   v49 = 0;
-  v9 = sub_1403748D0(v7, (__int64)&qword_140A78140, 0LL, (__int64)&v49, 4, (__int64)&v58);
+  v9 = sub_140374A70(v7, (__int64)&qword_140A783E0, 0LL, (__int64)&v49, 4, (__int64)&v58);
   v47 = v9;
-  if ( !qword_140D533F8 || !v49 || RtlEqualUnicodeString(a2, &stru_140A78130, 0) )
+  if ( !qword_140D533F8 || !v49 || RtlEqualUnicodeString(a2, &stru_140A78400, 0) )
   {
 LABEL_15:
     v16 = v52;
@@ -294,7 +294,7 @@ LABEL_16:
   }
   if ( v18 )
   {
-    v9 = sub_1403748D0(v7, (__int64)&v60, v16, v55, a5, v17);
+    v9 = sub_140374A70(v7, (__int64)&v60, v16, v55, a5, v17);
     v47 = v9;
     if ( v9 == -1073741762 )
     {
@@ -315,7 +315,7 @@ LABEL_16:
   v22 = *((_QWORD *)&v60 + 1);
   v23 = **((_WORD **)&v60 + 1);
   v48 = **((_WORD **)&v60 + 1);
-  v24 = &off_140A77700;
+  v24 = &off_140A779B0;
   while ( 2 )
   {
     v25 = *((unsigned __int16 *)v24 + 4);

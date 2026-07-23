@@ -1267,8 +1267,18 @@ LABEL_74:
         v122 = OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO(v174);
         if ( v122 )
           LOBYTE(v122) = 1;
-        if ( (_BYTE)v122 && SepSidInTokenSidHash(v101 + 808, 0LL, SeConstrainedImpersonationCapabilitySid, 0, 1, 0, 0) )
+        if ( (_BYTE)v122
+          && SepSidInTokenSidHash(
+               (PSID_AND_ATTRIBUTES_HASH)(v101 + 808),
+               0LL,
+               SeConstrainedImpersonationCapabilitySid,
+               0,
+               1,
+               0,
+               0) )
+        {
           ObHandleRevocationBlockAddObject(*(_QWORD *)(v66 + 216) + 128LL, v60);
+        }
       }
       ExReleaseResourceLite(*(PERESOURCE *)(v101 + 48));
       KeLeaveCriticalRegion();

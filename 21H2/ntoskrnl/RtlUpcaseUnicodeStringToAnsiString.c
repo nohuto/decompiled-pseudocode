@@ -1,52 +1,60 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToAnsiString @ 0x14090FCE0
+ * XREFs of RtlUpcaseUnicodeStringToAnsiString @ 0x14090FE40
  * Callers:
  *     <none>
  * Callees:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1405EDF40 (RtlUpcaseUnicodeToMultiByteN.c)
- *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
- *     RtlxUnicodeStringToAnsiSize @ 0x14075DB90 (RtlxUnicodeStringToAnsiSize.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExpAllocateStringRoutine @ 0x1406006F0 (ExpAllocateStringRoutine.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1406DD6A0 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlxUnicodeStringToAnsiSize @ 0x14075DD50 (RtlxUnicodeStringToAnsiSize.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToAnsiString(unsigned __int16 *a1, const UNICODE_STRING *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToAnsiString(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   ULONG v6; // eax
-  PVOID StringRoutine; // rax
+  char *StringRoutine; // rax
   ULONG v9; // edx
-  NTSTATUS v10; // edi
+  int v10; // edi
   ULONG BytesInMultiByteString; // [rsp+78h] [rbp+20h] BYREF
 
   BytesInMultiByteString = 0;
-  v6 = RtlxUnicodeStringToAnsiSize(a2);
+  v6 = RtlxUnicodeStringToAnsiSize(SourceString);
   if ( v6 > 0xFFFF )
-    return 3221225712LL;
-  *a1 = v6 - 1;
-  if ( a3 )
+    return -1073741584;
+  DestinationString->Length = v6 - 1;
+  if ( AllocateDestinationString )
   {
-    a1[1] = v6;
-    StringRoutine = ExpAllocateStringRoutine(v6);
-    *((_QWORD *)a1 + 1) = StringRoutine;
+    DestinationString->MaximumLength = v6;
+    StringRoutine = (char *)ExpAllocateStringRoutine(v6);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
-      return 3221225495LL;
+      return -1073741801;
   }
-  else if ( (unsigned __int16)(v6 - 1) >= a1[1] )
+  else if ( (unsigned __int16)(v6 - 1) >= DestinationString->MaximumLength )
   {
-    return 2147483653LL;
+    return -2147483643;
   }
-  v10 = RtlUpcaseUnicodeToMultiByteN(*((PCHAR *)a1 + 1), *a1, &BytesInMultiByteString, a2->Buffer, a2->Length);
+  v10 = RtlUpcaseUnicodeToMultiByteN(
+          DestinationString->Buffer,
+          DestinationString->Length,
+          &BytesInMultiByteString,
+          SourceString->Buffer,
+          SourceString->Length);
   if ( v10 >= 0 )
   {
-    *(_BYTE *)(BytesInMultiByteString + *((_QWORD *)a1 + 1)) = 0;
+    DestinationString->Buffer[BytesInMultiByteString] = 0;
     v10 = 0;
   }
   if ( v10 < 0 )
   {
-    if ( a3 )
+    if ( AllocateDestinationString )
     {
-      ExFreePoolWithTag(*((PVOID *)a1 + 1), v9);
-      *((_QWORD *)a1 + 1) = 0LL;
+      ExFreePoolWithTag(DestinationString->Buffer, v9);
+      DestinationString->Buffer = 0LL;
     }
   }
-  return (unsigned int)v10;
+  return v10;
 }

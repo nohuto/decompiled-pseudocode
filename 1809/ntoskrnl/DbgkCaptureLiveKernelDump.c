@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkCaptureLiveKernelDump @ 0x14026DF6C
+ * XREFs of DbgkCaptureLiveKernelDump @ 0x14026E15C
  * Callers:
- *     NtSystemDebugControl @ 0x1408DA830 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x1408DBAF0 (NtSystemDebugControl.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140671500 (ObReferenceObjectByHandleWithTag.c)
- *     DbgkpWerAllocatePool @ 0x1408126E4 (DbgkpWerAllocatePool.c)
- *     DbgkpWerFreePool @ 0x140812CF8 (DbgkpWerFreePool.c)
- *     IoCaptureLiveDump @ 0x14081EF84 (IoCaptureLiveDump.c)
- *     ObOpenObjectByPointerWithTag @ 0x140861360 (ObOpenObjectByPointerWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1401B8510 (ZwQueryInformationFile.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406726C0 (ObReferenceObjectByHandleWithTag.c)
+ *     DbgkpWerAllocatePool @ 0x1408138E4 (DbgkpWerAllocatePool.c)
+ *     DbgkpWerFreePool @ 0x140813EF8 (DbgkpWerFreePool.c)
+ *     IoCaptureLiveDump @ 0x140820184 (IoCaptureLiveDump.c)
+ *     ObOpenObjectByPointerWithTag @ 0x1408625C0 (ObOpenObjectByPointerWithTag.c)
  */
 
 __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)

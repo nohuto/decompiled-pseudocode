@@ -1,28 +1,28 @@
 /*
- * XREFs of CcScheduleReadAheadNuma @ 0x140328FBC
+ * XREFs of CcScheduleReadAheadNuma @ 0x14032924C
  * Callers:
- *     CcCopyReadEx @ 0x140261D60 (CcCopyReadEx.c)
- *     CcAsyncReadPrefetch @ 0x1402BDAFC (CcAsyncReadPrefetch.c)
- *     CcAsyncCopyRead @ 0x1402C1070 (CcAsyncCopyRead.c)
- *     CcScheduleReadAheadEx @ 0x140328FA0 (CcScheduleReadAheadEx.c)
- *     CcScheduleReadAhead @ 0x140537920 (CcScheduleReadAhead.c)
+ *     CcCopyReadEx @ 0x140261FF0 (CcCopyReadEx.c)
+ *     CcAsyncReadPrefetch @ 0x1402BDD8C (CcAsyncReadPrefetch.c)
+ *     CcAsyncCopyRead @ 0x1402C1300 (CcAsyncCopyRead.c)
+ *     CcScheduleReadAheadEx @ 0x140329230 (CcScheduleReadAheadEx.c)
+ *     CcScheduleReadAhead @ 0x140537E70 (CcScheduleReadAhead.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x14029AFB4 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x14029B670 (CcAllocateWorkQueueEntry.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     IoReferenceIoAttributionFromThread @ 0x1402C0F30 (IoReferenceIoAttributionFromThread.c)
- *     PsGetPagePriorityThread @ 0x1402E1520 (PsGetPagePriorityThread.c)
- *     CcDetermineReadPattern @ 0x14032959C (CcDetermineReadPattern.c)
- *     CcGetCurrentNumaNode @ 0x140329650 (CcGetCurrentNumaNode.c)
- *     CcChargeThreadForReadAhead @ 0x140329698 (CcChargeThreadForReadAhead.c)
- *     CcPerfLogScheduleReadAhead @ 0x140393930 (CcPerfLogScheduleReadAhead.c)
- *     CcCanIWriteStream @ 0x140537424 (CcCanIWriteStream.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostWorkQueue @ 0x14029B244 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x14029B900 (CcAllocateWorkQueueEntry.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     IoReferenceIoAttributionFromThread @ 0x1402C11C0 (IoReferenceIoAttributionFromThread.c)
+ *     PsGetPagePriorityThread @ 0x1402E17B0 (PsGetPagePriorityThread.c)
+ *     CcDetermineReadPattern @ 0x14032982C (CcDetermineReadPattern.c)
+ *     CcGetCurrentNumaNode @ 0x1403298E0 (CcGetCurrentNumaNode.c)
+ *     CcChargeThreadForReadAhead @ 0x140329928 (CcChargeThreadForReadAhead.c)
+ *     CcPerfLogScheduleReadAhead @ 0x140393B10 (CcPerfLogScheduleReadAhead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcCanIWriteStream @ 0x140537974 (CcCanIWriteStream.c)
  */
 
 __int64 __fastcall CcScheduleReadAheadNuma(
@@ -200,10 +200,10 @@ LABEL_34:
                   LODWORD(Next->Next) |= 0x10000u;
                   LODWORD(Next->Next) ^= (LODWORD(Next->Next) ^ ((unsigned int)PsGetPagePriorityThread((__int64)KeGetCurrentThread()) << 18)) & 0x1C0000;
                   KxReleaseSpinLock((volatile signed __int64 *)&Next[5]);
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     CurrentIrql = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                       && CurrentIrql <= 0xFu
                       && (unsigned __int8)v20 <= 0xFu
                       && CurrentIrql >= 2u )
@@ -224,10 +224,10 @@ LABEL_34:
                     LODWORD(Next->Next) &= ~0x10000u;
                     v47 = v46;
                     result = KxReleaseSpinLock((volatile signed __int64 *)&Next[5]);
-                    if ( KiIrqlFlags )
+                    if ( (_DWORD)KiIrqlFlags )
                     {
                       result = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0
+                      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                         && (unsigned __int8)result <= 0xFu
                         && (unsigned __int8)v47 <= 0xFu
                         && (unsigned __int8)result >= 2u )
@@ -257,10 +257,13 @@ LABEL_34:
                     ++*(_DWORD *)(v11 + 544);
                     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
                     OldIrql = LockHandle.OldIrql;
-                    if ( KiIrqlFlags )
+                    if ( (_DWORD)KiIrqlFlags )
                     {
                       v40 = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && LockHandle.OldIrql <= 0xFu && v40 >= 2u )
+                      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                        && v40 <= 0xFu
+                        && LockHandle.OldIrql <= 0xFu
+                        && v40 >= 2u )
                       {
                         v41 = KeGetCurrentPrcb();
                         v42 = v41->SchedulerAssist;
@@ -297,10 +300,10 @@ LABEL_68:
             if ( (xmmword_140D1EAD0 & 0x20000) != 0 )
               CcPerfLogScheduleReadAhead(0, (_DWORD)Object, v23, v64, v19, Pattern, v62);
             result = KxReleaseSpinLock(v60);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               result = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                 && (unsigned __int8)result <= 0xFu
                 && (unsigned __int8)v20 <= 0xFu
                 && (unsigned __int8)result >= 2u )

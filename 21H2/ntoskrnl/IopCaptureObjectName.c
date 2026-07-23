@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCaptureObjectName @ 0x140997948
+ * XREFs of IopCaptureObjectName @ 0x140998948
  * Callers:
- *     IoBuildPoDeviceNotifyList @ 0x1409972B0 (IoBuildPoDeviceNotifyList.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409982B0 (IoBuildPoDeviceNotifyList.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ObQueryNameString @ 0x1406C6F80 (ObQueryNameString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall IopCaptureObjectName(void *a1)
@@ -14,7 +14,7 @@ _WORD *__fastcall IopCaptureObjectName(void *a1)
   _WORD *v1; // rbx
   _WORD *PoolWithTag; // rax
   ULONG ReturnLength[4]; // [rsp+20h] [rbp-228h] BYREF
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-218h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-218h] BYREF
 
   ReturnLength[0] = 0;
   v1 = 0LL;

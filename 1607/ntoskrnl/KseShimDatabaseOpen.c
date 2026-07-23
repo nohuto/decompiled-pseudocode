@@ -1,17 +1,17 @@
 /*
- * XREFs of KseShimDatabaseOpen @ 0x14048558C
+ * XREFs of KseShimDatabaseOpen @ 0x140514914
  * Callers:
- *     KsepDbGetDriverShims @ 0x14048471C (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x140534FDC (KsepDbCacheReadDevice.c)
- *     KsepDbGetShimInfo @ 0x140652718 (KsepDbGetShimInfo.c)
+ *     KsepDbGetDriverShims @ 0x140513AA4 (KsepDbGetDriverShims.c)
+ *     KsepDbCacheReadDevice @ 0x14053551C (KsepDbCacheReadDevice.c)
+ *     KsepDbGetShimInfo @ 0x1406527FC (KsepDbGetShimInfo.c)
  *     KseInitialize @ 0x14079DAE8 (KseInitialize.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KsepShimDbMapToMemory @ 0x140495074 (KsepShimDbMapToMemory.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KsepShimDbMapToMemory @ 0x140495B04 (KsepShimDbMapToMemory.c)
  */
 
 __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
@@ -41,7 +41,7 @@ __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
       ++KsepShimDbRefCount;
       v6 = 0;
       *a1 = KsepShimDbHandle;
-      _InterlockedIncrement(&dword_140307390);
+      _InterlockedIncrement(&dword_1403073D0);
       goto LABEL_8;
     }
     *a1 = 0LL;
@@ -53,7 +53,7 @@ __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
       ++KsepShimDbRefCount;
       v6 = 0;
       *a1 = KsepShimDbHandle;
-      _InterlockedIncrement(&dword_140307398);
+      _InterlockedIncrement(&dword_1403073D8);
       goto LABEL_8;
     }
     v6 = KsepShimDbMapToMemory();
@@ -61,11 +61,11 @@ __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
     {
       ++KsepShimDbRefCount;
       *a1 = KsepShimDbHandle;
-      _InterlockedIncrement(&dword_140307394);
+      _InterlockedIncrement(&dword_1403073D4);
       goto LABEL_8;
     }
     *a1 = 0LL;
-    _InterlockedIncrement(&dword_14030739C);
+    _InterlockedIncrement(&dword_1403073DC);
   }
   v6 = -1073741823;
 LABEL_8:

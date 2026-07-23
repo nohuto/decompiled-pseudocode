@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetDisableBoostProcess @ 0x140451D2C
+ * XREFs of KeSetDisableBoostProcess @ 0x140446DDC
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiSetDisableBoostThread @ 0x140451ED4 (KiSetDisableBoostThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiSetDisableBoostThread @ 0x140446F84 (KiSetDisableBoostThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeSetDisableBoostProcess(__int64 a1, unsigned int a2)

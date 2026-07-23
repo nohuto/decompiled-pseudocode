@@ -12,27 +12,27 @@
  *     sub_1800CDB44 @ 0x1800CDB44 (sub_1800CDB44.c)
  */
 
-__int64 __fastcall LdrCallEnclave_0(__int64 (__fastcall *a1)(_QWORD), __int64 a2, _QWORD *a3)
+NTSTATUS __cdecl LdrCallEnclave_0(PENCLAVE_ROUTINE Routine, ULONG Flags, PVOID *RoutineParamReturn)
 {
-  __int64 *v5; // rax
-  __int64 v6; // rdi
-  unsigned int v7; // ebx
+  __int64 *v6; // rax
+  __int64 *v7; // rdi
+  NTSTATUS v8; // ebx
 
-  v5 = sub_18001B2F8((unsigned __int64)a1, 0);
-  v6 = (__int64)v5;
-  v7 = 0;
-  if ( v5 )
+  v6 = sub_18001B2F8((unsigned __int64)Routine, 0);
+  v7 = v6;
+  v8 = 0;
+  if ( v6 )
   {
-    RtlLeaveCriticalSection((__int64)(v5 + 2));
-    sub_1800CDB44(v6);
-    if ( *(_DWORD *)(v6 + 56) == 16 )
-      return (unsigned int)sub_1800A05D0();
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v6 + 2));
+    sub_1800CDB44(v7);
+    if ( *((_DWORD *)v7 + 14) == 16 )
+      return sub_1800A05D0(Routine, 0LL, Flags, RoutineParamReturn);
     else
-      return (unsigned int)ZwCallEnclave();
+      return ZwCallEnclave(Routine, 0LL, Flags, RoutineParamReturn);
   }
   else
   {
-    *a3 = a1(*a3);
+    *RoutineParamReturn = (PVOID)((__int64 (__fastcall *)(PVOID))Routine)(*RoutineParamReturn);
   }
-  return v7;
+  return v8;
 }

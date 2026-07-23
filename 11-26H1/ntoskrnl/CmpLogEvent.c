@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLogEvent @ 0x1408B67A4
+ * XREFs of CmpLogEvent @ 0x1408BCD78
  * Callers:
- *     CmpInitHiveFromFile @ 0x1408B48B4 (CmpInitHiveFromFile.c)
- *     HvpFinishPrimaryWrite @ 0x140AAACE8 (HvpFinishPrimaryWrite.c)
+ *     CmpInitHiveFromFile @ 0x1408BAE88 (CmpInitHiveFromFile.c)
+ *     HvpFinishPrimaryWrite @ 0x140AA82C8 (HvpFinishPrimaryWrite.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall CmpLogEvent(PCEVENT_DESCRIPTOR EventDescriptor, int a2, unsigned __int16 *a3)
@@ -23,7 +23,7 @@ void __fastcall CmpLogEvent(PCEVENT_DESCRIPTOR EventDescriptor, int a2, unsigned
 
   v13 = a2;
   v6 = 0;
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     *(_QWORD *)&UserData.Size = 4LL;
     UserData.Ptr = (ULONGLONG)&v13;
@@ -39,6 +39,6 @@ void __fastcall CmpLogEvent(PCEVENT_DESCRIPTOR EventDescriptor, int a2, unsigned
       v11 = v5;
       v12 = 0;
     }
-    EtwWrite((REGHANDLE)EtwpSecurityLock.MutantListHead.Blink, EventDescriptor, 0LL, v4, &UserData);
+    EtwWrite(EtwKernelProvRegHandle, EventDescriptor, 0LL, v4, &UserData);
   }
 }

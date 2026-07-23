@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCopyExtendedContext @ 0x1402768B0
+ * XREFs of RtlpCopyExtendedContext @ 0x140264850
  * Callers:
- *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
- *     RtlpReadExtendedContext @ 0x140648200 (RtlpReadExtendedContext.c)
- *     RtlpWriteExtendedContext @ 0x140696398 (RtlpWriteExtendedContext.c)
+ *     KiDispatchException @ 0x1402612C0 (KiDispatchException.c)
+ *     RtlpWriteExtendedContext @ 0x1405F58E8 (RtlpWriteExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x14063CFF0 (RtlpReadExtendedContext.c)
  * Callees:
- *     RtlpCopyLegacyContextAmd64 @ 0x140276DB0 (RtlpCopyLegacyContextAmd64.c)
- *     RtlpCopyLegacyContextX86 @ 0x1402BDAF8 (RtlpCopyLegacyContextX86.c)
- *     RtlpCopyXStateChunk @ 0x1402C0D08 (RtlpCopyXStateChunk.c)
- *     RtlpCopyLegacyContextArm @ 0x14058F544 (RtlpCopyLegacyContextArm.c)
- *     RtlpCopyLegacyContextArm64 @ 0x14058F6A4 (RtlpCopyLegacyContextArm64.c)
+ *     RtlpCopyLegacyContextX86 @ 0x14023C138 (RtlpCopyLegacyContextX86.c)
+ *     RtlpCopyXStateChunk @ 0x14023F1A4 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyLegacyContextAmd64 @ 0x140264D50 (RtlpCopyLegacyContextAmd64.c)
+ *     RtlpCopyLegacyContextArm @ 0x14058F774 (RtlpCopyLegacyContextArm.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x14058F8D4 (RtlpCopyLegacyContextArm64.c)
  */
 
 __int64 __fastcall RtlpCopyExtendedContext(

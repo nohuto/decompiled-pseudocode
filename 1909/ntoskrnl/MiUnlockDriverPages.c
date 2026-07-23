@@ -16,8 +16,8 @@ void __fastcall MiUnlockDriverPages(__int64 *a1)
 {
   __int64 v2; // rdi
   __int64 PteAddress; // rsi
-  unsigned __int64 v4; // r8
-  unsigned __int64 SetBits; // rax
+  ULONG64 v4; // r8
+  ULONG64 SetBits; // rax
   unsigned __int64 v6; // rdi
 
   if ( a1[4] )
@@ -29,7 +29,7 @@ void __fastcall MiUnlockDriverPages(__int64 *a1)
     v4 = 0LL;
     while ( 1 )
     {
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)a1 + 3, 1uLL, v4);
+      SetBits = RtlFindSetBitsEx((PRTL_BITMAP_EX)(a1 + 3), 1uLL, v4);
       v6 = SetBits;
       if ( SetBits == -1LL )
         break;

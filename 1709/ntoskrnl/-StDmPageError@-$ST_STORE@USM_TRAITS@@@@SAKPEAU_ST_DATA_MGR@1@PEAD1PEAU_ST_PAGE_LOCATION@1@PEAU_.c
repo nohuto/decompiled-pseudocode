@@ -9,7 +9,13 @@
  *     SmEtwLogStoreCorruption @ 0x140272B48 (SmEtwLogStoreCorruption.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageError(__int64 a1, void *a2, void *a3, ULONG_PTR a4, __int64 a5, int a6)
+__int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageError(
+        __int64 a1,
+        void *a2,
+        UCHAR *a3,
+        ULONG_PTR a4,
+        __int64 a5,
+        int a6)
 {
   int v10; // ecx
   __int64 v11; // rdx

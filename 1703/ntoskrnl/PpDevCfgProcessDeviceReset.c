@@ -34,10 +34,10 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
   char *v4; // r15
   __int64 v5; // rdx
   __int64 v6; // rcx
-  UNICODE_STRING *p_UnicodeString; // r8
+  UNICODE_STRING *p_GuidString; // r8
   int v8; // eax
   int v9; // r13d
-  _QWORD *v10; // r8
+  GUID *p_Guid; // r8
   __int64 v11; // rax
   unsigned __int64 v12; // r14
   PVOID PoolWithTag; // rdi
@@ -77,21 +77,21 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
   HANDLE v48; // [rsp+78h] [rbp-88h] BYREF
   __int64 v49; // [rsp+80h] [rbp-80h]
   unsigned __int64 v50; // [rsp+88h] [rbp-78h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+90h] [rbp-70h] BYREF
+  UNICODE_STRING GuidString; // [rsp+90h] [rbp-70h] BYREF
   unsigned __int64 v52; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v53; // [rsp+A8h] [rbp-58h] BYREF
+  int v53[2]; // [rsp+A8h] [rbp-58h] BYREF
   _QWORD v54[6]; // [rsp+B0h] [rbp-50h] BYREF
-  _QWORD v55[10]; // [rsp+E0h] [rbp-20h] BYREF
-  _QWORD v56[2]; // [rsp+130h] [rbp+30h] BYREF
+  int v55[20]; // [rsp+E0h] [rbp-20h] BYREF
+  GUID Guid; // [rsp+130h] [rbp+30h] BYREF
 
   v1 = 0;
   v49 = a1;
   v2 = a1;
-  LODWORD(v55[0]) = 0;
-  memset(&v55[1], 0, 0x40uLL);
-  v53 = 0LL;
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0LL;
+  v55[0] = 0;
+  memset(&v55[2], 0, 0x40uLL);
+  *(_QWORD *)v53 = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   v42 = 0;
   v39 = 0;
   v46 = 1;
@@ -109,47 +109,47 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
   inited = PiDevCfgInitDeviceContext(*(_QWORD *)(v2 + 48), 0LL, v55);
   if ( inited >= 0 )
   {
-    v4 = (char *)v55[2];
-    v45 = (char *)v55[2];
+    v4 = *(char **)&v55[4];
+    v45 = *(char **)&v55[4];
     memset(v54, 0, 0x28uLL);
     v5 = *(_QWORD *)(v2 + 48);
     v54[0] = &DEVPKEY_Device_ClassGuid;
-    v54[2] = v56;
+    v54[2] = &Guid;
     LODWORD(v54[1]) = 13;
     LODWORD(v54[3]) = 16;
-    ObjectProperties = PiDevCfgQueryObjectProperties(v6, v5, 1u, (void *)v55[2], (__int64)v54, 1u);
+    ObjectProperties = PiDevCfgQueryObjectProperties(v6, v5, 1u, *(void **)&v55[4], (__int64)v54, 1u);
     inited = ObjectProperties;
     if ( ObjectProperties >= 0 )
     {
       if ( SLODWORD(v54[4]) >= 0 )
       {
-        ObjectProperties = RtlStringFromGUIDEx((unsigned int *)v56, (__int64)&UnicodeString, 1);
+        ObjectProperties = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
         inited = ObjectProperties;
         if ( ObjectProperties < 0 )
           goto LABEL_63;
         if ( (int)PnpOpenObjectRegKey(
                     *(__int64 *)&PiPnpRtlCtx,
-                    (__int64)UnicodeString.Buffer,
+                    (__int64)GuidString.Buffer,
                     2u,
                     131097,
                     0,
-                    (__int64)&v53,
+                    (__int64)v53,
                     0LL,
                     0) >= 0 )
         {
 LABEL_12:
-          p_UnicodeString = &UnicodeString;
-          if ( !UnicodeString.Buffer )
-            p_UnicodeString = 0LL;
-          v8 = PiDevCfgMigrateDevice(v2, (__int64)v55, &p_UnicodeString->Length, 0LL, &v39, 0LL);
+          p_GuidString = &GuidString;
+          if ( !GuidString.Buffer )
+            p_GuidString = 0LL;
+          v8 = PiDevCfgMigrateDevice(v2, (__int64)v55, &p_GuidString->Length, 0LL, &v39, 0LL);
           v9 = v39;
-          v10 = v56;
+          p_Guid = &Guid;
           if ( v8 < 0 )
             v9 = 0;
           v39 = v9;
-          if ( !UnicodeString.Buffer )
-            v10 = 0LL;
-          PiDevCfgResetDeviceDriverSettings(v2, (__int64)v55, v10, v53, 0LL);
+          if ( !GuidString.Buffer )
+            p_Guid = 0LL;
+          PiDevCfgResetDeviceDriverSettings(v2, (__int64)v55, p_Guid, *(__int64 *)v53, 0LL);
           if ( *(_QWORD *)&PiPnpRtlCtx )
           {
             v11 = **(_QWORD **)&PiPnpRtlCtx;
@@ -357,7 +357,7 @@ LABEL_92:
           v31 = 0LL;
           v32 = 0;
           IoGetStackLimits(&v50, &v52);
-          if ( (unsigned __int64)&v52 - v50 < 0x400
+          if ( (unsigned __int64)&v53[-2] - v50 < 0x400
             || (int)RegRtlOpenKeyTransacted(v4, L"Devices", 0, 0x3001Fu, &v48, 0LL) < 0 )
           {
 LABEL_120:
@@ -435,15 +435,15 @@ LABEL_117:
           v2 = v49;
           goto LABEL_118;
         }
-        RtlFreeUnicodeString(&UnicodeString);
+        RtlFreeUnicodeString(&GuidString);
       }
-      v56[1] = 0LL;
-      v56[0] = 0LL;
+      *(_QWORD *)Guid.Data4 = 0LL;
+      *(_QWORD *)&Guid.Data1 = 0LL;
       goto LABEL_12;
     }
   }
 LABEL_63:
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeUnicodeString(&GuidString);
   PiDevCfgFreeDeviceContext((__int64)v55);
   return (unsigned int)inited;
 }

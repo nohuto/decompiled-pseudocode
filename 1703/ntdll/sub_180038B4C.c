@@ -27,19 +27,19 @@ __int64 __fastcall sub_180038B4C(__int64 a1)
   int v2; // eax
   int v3; // esi
   __int64 v4; // rbp
-  unsigned __int64 v5; // r8
+  ULONG64 v5; // r8
   int v6; // r15d
   int v7; // ebx
   int v8; // r8d
-  unsigned __int16 *v9; // rdx
+  _UNICODE_STRING *v9; // rdx
   int v10; // eax
-  __int64 v11; // rdi
+  PIMAGE_NT_HEADERS v11; // rdi
   volatile signed __int32 *v12; // rbx
   __int64 v13; // rax
-  _DWORD *v15; // [rsp+30h] [rbp-38h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+30h] [rbp-38h] BYREF
   volatile signed __int32 *v16; // [rsp+80h] [rbp+18h] BYREF
-  unsigned int v17; // [rsp+88h] [rbp+20h] BYREF
-  int v18; // [rsp+8Ch] [rbp+24h]
+  DWORD TimeDateStamp; // [rsp+88h] [rbp+20h] BYREF
+  DWORD SizeOfImage; // [rsp+8Ch] [rbp+24h]
 
   v2 = sub_180038D24();
   v3 = v2;
@@ -49,41 +49,41 @@ __int64 __fastcall sub_180038B4C(__int64 a1)
     v5 = *(_QWORD *)(a1 + 152);
     v16 = 0LL;
     v6 = v2;
-    v3 = RtlImageNtHeaderEx(0, *(_QWORD *)(v4 + 48), v5, &v15);
+    v3 = RtlImageNtHeaderEx(0, *(PVOID *)(v4 + 48), v5, &OutHeaders);
     if ( v3 >= 0 )
     {
       v7 = sub_18003C6D0(v4 + 88);
-      RtlAcquireSRWLockExclusive(&qword_18015C040);
+      RtlAcquireSRWLockExclusive(&stru_18015C040);
       v8 = *(_DWORD *)(a1 + 24);
       v9 = 0LL;
       if ( (v8 & 0x20) == 0 )
-        v9 = (unsigned __int16 *)(v4 + 72);
-      v10 = sub_18003888C((unsigned __int16 *)(v4 + 88), v9, v8, &v16, v7);
-      v11 = (__int64)v15;
+        v9 = (_UNICODE_STRING *)(v4 + 72);
+      v10 = sub_18003888C((PUNICODE_STRING)(v4 + 88), v9, v8, &v16, v7);
+      v11 = OutHeaders;
       if ( v10 == -1073741515 )
       {
-        v17 = v15[2];
-        v18 = v15[20];
-        sub_18001BC68(*(_QWORD *)(v4 + 48), v15, &v17, &v16);
+        TimeDateStamp = OutHeaders->FileHeader.TimeDateStamp;
+        SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
+        sub_18001BC68(*(PVOID *)(v4 + 48), OutHeaders, &TimeDateStamp, &v16);
       }
       v12 = v16;
       if ( !v16 )
       {
         sub_18003A99C(v4);
-        sub_18001BB44(v4, v11);
+        sub_18001BB44(v4, (__int64)v11);
       }
-      RtlReleaseSRWLockExclusive(&qword_18015C040);
+      RtlReleaseSRWLockExclusive(&stru_18015C040);
       if ( v12 )
       {
         sub_180050570(a1);
       }
-      else if ( (HANDLE)qword_180155590 == NtCurrentTeb()->ClientId.UniqueThread )
+      else if ( CriticalSection.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
       {
         return (unsigned int)-1073741275;
       }
       else
       {
-        v3 = sub_1800389A8(a1, (__int64)v15, v6);
+        v3 = sub_1800389A8(a1, (__int64)OutHeaders, v6);
         if ( v3 >= 0 )
         {
           v3 = sub_18003A7B0(v4, 1LL);

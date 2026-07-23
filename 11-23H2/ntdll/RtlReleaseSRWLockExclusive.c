@@ -189,8 +189,8 @@
  *     RtlCompleteProcessCloning @ 0x18009E920 (RtlCompleteProcessCloning.c)
  *     RtlPrepareForProcessCloning @ 0x18009EA60 (RtlPrepareForProcessCloning.c)
  *     LdrpResetAppPackagesPath @ 0x18009EB80 (LdrpResetAppPackagesPath.c)
- *     RtlGetFeatureToggleConfiguration @ 0x18009F600 (RtlGetFeatureToggleConfiguration.c)
- *     __ft_record_impression @ 0x18009FE20 (__ft_record_impression.c)
+ *     RtlGetFeatureToggleConfiguration @ 0x18009F5C0 (RtlGetFeatureToggleConfiguration.c)
+ *     __ft_record_impression @ 0x18009FDE0 (__ft_record_impression.c)
  *     RtlpHeapTrkDereferenceStack @ 0x1800B0B44 (RtlpHeapTrkDereferenceStack.c)
  *     RtlpFcChangeRegistrationCallback @ 0x1800B0E20 (RtlpFcChangeRegistrationCallback.c)
  *     RtlpIsLFHZoneAllocation @ 0x1800B125C (RtlpIsLFHZoneAllocation.c)
@@ -219,72 +219,71 @@
  *     RtlDeregisterSecureMemoryCacheCallback @ 0x180104450 (RtlDeregisterSecureMemoryCacheCallback.c)
  *     RtlRegisterSecureMemoryCacheCallback @ 0x180104580 (RtlRegisterSecureMemoryCacheCallback.c)
  *     RtlpCallSecureMemoryCallbacks @ 0x180104634 (RtlpCallSecureMemoryCallbacks.c)
- *     RtlpHeapTrkDumpOutstandingAllocs @ 0x18010C2D4 (RtlpHeapTrkDumpOutstandingAllocs.c)
- *     RtlpHeapTrkDumpStacks @ 0x18010C440 (RtlpHeapTrkDumpStacks.c)
- *     RtlpHeapTrkFindStack @ 0x18010C594 (RtlpHeapTrkFindStack.c)
- *     RtlpHeapTrkTrackAdd @ 0x18010CBD8 (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkTrackRemove @ 0x18010CCB4 (RtlpHeapTrkTrackRemove.c)
- *     RtlpHeapTrkTrackRemoveHeap @ 0x18010CD9C (RtlpHeapTrkTrackRemoveHeap.c)
- *     RtlpHeapTrkTrackStack @ 0x18010CEDC (RtlpHeapTrkTrackStack.c)
- *     RtlpStdLockRelease @ 0x18010FBC4 (RtlpStdLockRelease.c)
- *     RtlpHpStackTraceAllocAdd @ 0x180116F94 (RtlpHpStackTraceAllocAdd.c)
- *     RtlpHpStackTraceAllocRemove @ 0x180117344 (RtlpHpStackTraceAllocRemove.c)
- *     RtlpHpStackTraceDisable @ 0x18011751C (RtlpHpStackTraceDisable.c)
- *     RtlpHpStackTraceEnable @ 0x180117570 (RtlpHpStackTraceEnable.c)
- *     RtlpFlsCloneComplete @ 0x18011981C (RtlpFlsCloneComplete.c)
- *     RtlpFlsClonePrepare @ 0x1801198CC (RtlpFlsClonePrepare.c)
- *     RtlpHpLfhOwnerListLockUnlock @ 0x180122B48 (RtlpHpLfhOwnerListLockUnlock.c)
- *     RtlpHpLfhOwnerLockUnlock @ 0x180122BB8 (RtlpHpLfhOwnerLockUnlock.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x180122CE8 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180123060 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
- *     RtlpHpUnlockHeapForCloning @ 0x180123404 (RtlpHpUnlockHeapForCloning.c)
- *     RtlpHpSegMgrCommitComplete @ 0x18012393C (RtlpHpSegMgrCommitComplete.c)
- *     RtlpHpSegMgrCommitInitiate @ 0x1801239DC (RtlpHpSegMgrCommitInitiate.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x180123B58 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x180123D00 (RtlpHpSegMgrVaCtxInsert.c)
- *     RtlpHpVsChunkDecommit @ 0x1801240DC (RtlpHpVsChunkDecommit.c)
- *     RtlpHpVsContextFreeInternal @ 0x180124394 (RtlpHpVsContextFreeInternal.c)
- *     RtlpHpVsContextFreeList @ 0x180124544 (RtlpHpVsContextFreeList.c)
- *     TpSetDefaultPoolCpuSets @ 0x180126B18 (TpSetDefaultPoolCpuSets.c)
- *     TpSetDefaultPoolMaxThreads @ 0x180126B70 (TpSetDefaultPoolMaxThreads.c)
- *     TpSetPoolThreadCpuSets @ 0x180126CC0 (TpSetPoolThreadCpuSets.c)
- *     TppDirectUnposted @ 0x180126E20 (TppDirectUnposted.c)
- *     TppQueueRemoveHead @ 0x180127C44 (TppQueueRemoveHead.c)
- *     RtlSetIoCompletionCallback @ 0x180127DD0 (RtlSetIoCompletionCallback.c)
- *     RtlpTpIoLookup @ 0x18012820C (RtlpTpIoLookup.c)
- *     RtlStackDbContextSerialize @ 0x18012D3B4 (RtlStackDbContextSerialize.c)
- *     RtlStackDbStackAdd @ 0x18012D728 (RtlStackDbStackAdd.c)
- *     RtlStackDbStackRemove @ 0x18012DCF4 (RtlStackDbStackRemove.c)
- *     RtlpStackDbSegmentFindOrCreate @ 0x18012E15C (RtlpStackDbSegmentFindOrCreate.c)
- *     RtlpStackDbSegmentRemoveRef @ 0x18012E784 (RtlpStackDbSegmentRemoveRef.c)
+ *     RtlpHeapTrkDumpOutstandingAllocs @ 0x18010C2A4 (RtlpHeapTrkDumpOutstandingAllocs.c)
+ *     RtlpHeapTrkDumpStacks @ 0x18010C410 (RtlpHeapTrkDumpStacks.c)
+ *     RtlpHeapTrkFindStack @ 0x18010C564 (RtlpHeapTrkFindStack.c)
+ *     RtlpHeapTrkTrackAdd @ 0x18010CBA8 (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkTrackRemove @ 0x18010CC84 (RtlpHeapTrkTrackRemove.c)
+ *     RtlpHeapTrkTrackRemoveHeap @ 0x18010CD6C (RtlpHeapTrkTrackRemoveHeap.c)
+ *     RtlpHeapTrkTrackStack @ 0x18010CEAC (RtlpHeapTrkTrackStack.c)
+ *     RtlpStdLockRelease @ 0x18010FB94 (RtlpStdLockRelease.c)
+ *     RtlpHpStackTraceAllocAdd @ 0x180116F64 (RtlpHpStackTraceAllocAdd.c)
+ *     RtlpHpStackTraceAllocRemove @ 0x180117314 (RtlpHpStackTraceAllocRemove.c)
+ *     RtlpHpStackTraceDisable @ 0x1801174EC (RtlpHpStackTraceDisable.c)
+ *     RtlpHpStackTraceEnable @ 0x180117540 (RtlpHpStackTraceEnable.c)
+ *     RtlpFlsCloneComplete @ 0x1801197EC (RtlpFlsCloneComplete.c)
+ *     RtlpFlsClonePrepare @ 0x18011989C (RtlpFlsClonePrepare.c)
+ *     RtlpHpLfhOwnerListLockUnlock @ 0x180122B18 (RtlpHpLfhOwnerListLockUnlock.c)
+ *     RtlpHpLfhOwnerLockUnlock @ 0x180122B88 (RtlpHpLfhOwnerLockUnlock.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x180122CB8 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180123030 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpUnlockHeapForCloning @ 0x1801233D4 (RtlpHpUnlockHeapForCloning.c)
+ *     RtlpHpSegMgrCommitComplete @ 0x18012390C (RtlpHpSegMgrCommitComplete.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x1801239AC (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x180123B28 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x180123CD0 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpVsChunkDecommit @ 0x1801240AC (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsContextFreeInternal @ 0x180124364 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeList @ 0x180124514 (RtlpHpVsContextFreeList.c)
+ *     TpSetDefaultPoolCpuSets @ 0x180126AE8 (TpSetDefaultPoolCpuSets.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x180126B40 (TpSetDefaultPoolMaxThreads.c)
+ *     TpSetPoolThreadCpuSets @ 0x180126C90 (TpSetPoolThreadCpuSets.c)
+ *     TppDirectUnposted @ 0x180126DF0 (TppDirectUnposted.c)
+ *     TppQueueRemoveHead @ 0x180127C14 (TppQueueRemoveHead.c)
+ *     RtlSetIoCompletionCallback @ 0x180127DA0 (RtlSetIoCompletionCallback.c)
+ *     RtlpTpIoLookup @ 0x1801281DC (RtlpTpIoLookup.c)
+ *     RtlStackDbContextSerialize @ 0x18012D3E0 (RtlStackDbContextSerialize.c)
+ *     RtlStackDbStackAdd @ 0x18012D754 (RtlStackDbStackAdd.c)
+ *     RtlStackDbStackRemove @ 0x18012DD20 (RtlStackDbStackRemove.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x18012E188 (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlpStackDbSegmentRemoveRef @ 0x18012E7B0 (RtlpStackDbSegmentRemoveRef.c)
  * Callees:
  *     <none>
  */
 
-signed __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   signed __int64 v2; // r8
   __int64 v3; // rdx
   signed __int64 v4; // rdx
   signed __int64 v5; // rtt
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 1LL);
-  if ( result != 1 )
+  v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
+  if ( v1 != 1 )
   {
     do
     {
-      v2 = result & 6;
+      v2 = v1 & 6;
       v3 = 3LL;
       if ( v2 != 2 )
         v3 = -1LL;
-      v4 = result + v3;
-      v5 = result;
-      result = _InterlockedCompareExchange64(a1, v4, result);
+      v4 = v1 + v3;
+      v5 = v1;
+      v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v4, v1);
     }
-    while ( v5 != result );
+    while ( v5 != v1 );
     if ( v2 == 2 )
-      return RtlpWakeSRWLock(a1, v4, 0);
+      RtlpWakeSRWLock((volatile signed __int64 *)SRWLock, v4, 0);
   }
-  return result;
 }

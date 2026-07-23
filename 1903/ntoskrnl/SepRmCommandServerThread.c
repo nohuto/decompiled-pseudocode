@@ -42,7 +42,7 @@
 void __fastcall SepRmCommandServerThread(PVOID StartContext)
 {
   NTSTATUS v1; // ebx
-  struct _PORT_MESSAGE *v2; // rdi
+  _PORT_MESSAGE *v2; // rdi
   NTSTATUS v3; // eax
   struct _LIST_ENTRY *HostSilo; // rbx
   __int16 v5; // ax
@@ -106,7 +106,7 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
               ReceiveMessage,
               v19);
             PsDetachSiloFromCurrentThread(v6);
-            v2 = (struct _PORT_MESSAGE *)v19;
+            v2 = (_PORT_MESSAGE *)v19;
             LODWORD(v19[3]) = *(_DWORD *)&ReceiveMessage[24];
             *(_OWORD *)&v19[1] = *(_OWORD *)&ReceiveMessage[8];
           }

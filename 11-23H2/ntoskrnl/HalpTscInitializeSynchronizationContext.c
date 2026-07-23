@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpTscInitializeSynchronizationContext @ 0x14039AD64
+ * XREFs of HalpTscInitializeSynchronizationContext @ 0x14039AF44
  * Callers:
- *     HalpTscSynchronization @ 0x14039AB10 (HalpTscSynchronization.c)
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
+ *     HalpTscSynchronization @ 0x14039ACF0 (HalpTscSynchronization.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
  */

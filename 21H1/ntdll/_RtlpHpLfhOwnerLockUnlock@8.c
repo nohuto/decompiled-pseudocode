@@ -14,32 +14,32 @@ void __fastcall RtlpHpLfhOwnerLockUnlock(int a1, int a2)
 {
   int v4; // edi
   int v5; // ecx
-  volatile signed __int32 *v6; // esi
+  _RTL_SRWLOCK *v6; // esi
 
   v4 = a2 & 1;
   if ( (a2 & 1) == 0 )
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 8));
-  RtlpHpLfhOwnerListLockUnlock(a1, (int **)(a1 + 12), a2, a1);
-  RtlpHpLfhOwnerListLockUnlock(v5, (int **)(a1 + 20), a2, v5);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
+  RtlpHpLfhOwnerListLockUnlock(a1, (_RTL_SRWLOCK **)(a1 + 12), a2, a1);
+  RtlpHpLfhOwnerListLockUnlock(v5, (_RTL_SRWLOCK **)(a1 + 20), a2, v5);
   if ( (*(_BYTE *)a1 & 1) != 0 )
   {
     if ( v4 )
     {
       if ( (a2 & 2) != 0 )
         *(_DWORD *)(a1 + 44) = 1;
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 44));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 44));
     }
     else
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 44));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 44));
     }
     RtlpHpLfhOwnerLockUnlock(**(_DWORD **)(a1 + 52), a2);
   }
   if ( v4 )
   {
-    v6 = (volatile signed __int32 *)(a1 + 8);
+    v6 = (_RTL_SRWLOCK *)(a1 + 8);
     if ( (a2 & 2) != 0 )
-      *v6 = 1;
+      v6->Value = 1;
     RtlReleaseSRWLockExclusive(v6);
   }
 }

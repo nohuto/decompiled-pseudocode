@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpPopulateKeyCachedInformation @ 0x140A7360C
+ * XREFs of CmpPopulateKeyCachedInformation @ 0x140A6CC2C
  * Callers:
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x140462458 (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x140457A68 (CmpQueryKeyDataFromKeyNodeStack.c)
  * Callees:
  *     <none>
  */

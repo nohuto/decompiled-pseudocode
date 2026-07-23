@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaQueueDpc @ 0x140369968
+ * XREFs of HalpMcaQueueDpc @ 0x140369B08
  * Callers:
- *     HalpTimerClockInterrupt @ 0x1402C4080 (HalpTimerClockInterrupt.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x14051E850 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerClockInterrupt @ 0x1402C4310 (HalpTimerClockInterrupt.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14051EDA0 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall HalpMcaQueueDpc(char a1, char a2))(_QWORD, _QWORD)

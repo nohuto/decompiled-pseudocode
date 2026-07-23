@@ -1,12 +1,12 @@
 /*
  * XREFs of MiInitializePteInfo @ 0x1407BB960
  * Callers:
- *     MiInitializeSystemSpaceMap @ 0x140535D20 (MiInitializeSystemSpaceMap.c)
+ *     MiInitializeSystemSpaceMap @ 0x140536260 (MiInitializeSystemSpaceMap.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiIssueNoPtesBugcheck @ 0x1401E7418 (MiIssueNoPtesBugcheck.c)
- *     MiInitializeDynamicBitmap @ 0x140535E80 (MiInitializeDynamicBitmap.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiIssueNoPtesBugcheck @ 0x1401E7244 (MiIssueNoPtesBugcheck.c)
+ *     MiInitializeDynamicBitmap @ 0x1405363C0 (MiInitializeDynamicBitmap.c)
  */
 
 char *__fastcall MiInitializePteInfo(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -14,7 +14,7 @@ char *__fastcall MiInitializePteInfo(__int64 a1, __int64 a2, unsigned __int64 a3
   ULONG_PTR v5; // rax
   char *result; // rax
 
-  v5 = MiReservePtes((__int64)&qword_140327870, 0x100uLL, a3);
+  v5 = MiReservePtes((__int64)&qword_1403278B0, 0x100uLL, a3);
   if ( !v5 )
     MiIssueNoPtesBugcheck(0x100uLL);
   MiInitializeDynamicBitmap((_QWORD *)a1, (__int64)(v5 << 25) >> 16, 0x800000LL, 3);

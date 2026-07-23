@@ -1,85 +1,84 @@
 /*
- * XREFs of RtlpUnlockHeapManagerForCloning @ 0x1800F4BC4
+ * XREFs of RtlpUnlockHeapManagerForCloning @ 0x1800F4B84
  * Callers:
- *     RtlLockHeapManagerForCloning @ 0x1800F2894 (RtlLockHeapManagerForCloning.c)
- *     RtlUnlockHeapManagerForCloning @ 0x1800F3218 (RtlUnlockHeapManagerForCloning.c)
+ *     RtlLockHeapManagerForCloning @ 0x1800F2854 (RtlLockHeapManagerForCloning.c)
+ *     RtlUnlockHeapManagerForCloning @ 0x1800F31D8 (RtlUnlockHeapManagerForCloning.c)
  * Callees:
  *     RtlpCSparseBitmapUnlock @ 0x18000643C (RtlpCSparseBitmapUnlock.c)
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
- *     RtlpHpUnlockHeapForCloning @ 0x18010E680 (RtlpHpUnlockHeapForCloning.c)
+ *     RtlpHpUnlockHeapForCloning @ 0x18010E640 (RtlpHpUnlockHeapForCloning.c)
  */
 
-__int64 __fastcall RtlpUnlockHeapManagerForCloning(unsigned int a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall RtlpUnlockHeapManagerForCloning(unsigned int a1, unsigned int a2)
 {
-  struct _PEB *v3; // r14
-  __int64 v5; // rsi
-  __int64 v6; // rbp
+  struct _PEB *v2; // r14
+  __int64 v4; // rsi
+  __int64 v5; // rbp
   void **ProcessHeaps; // rax
-  void *v8; // rbx
-  volatile signed __int64 *v9; // rcx
+  void *v7; // rbx
+  _RTL_SRWLOCK *v8; // rcx
+  __int64 v9; // rdx
   void *UniqueThread; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  int v14; // [rsp+20h] [rbp-28h] BYREF
-  char v15; // [rsp+24h] [rbp-24h]
-  void *v16; // [rsp+28h] [rbp-20h]
+  int v12; // [rsp+20h] [rbp-28h] BYREF
+  char v13; // [rsp+24h] [rbp-24h]
+  PVOID *v14; // [rsp+28h] [rbp-20h]
 
-  v3 = NtCurrentPeb();
-  if ( (_DWORD)a2 )
+  v2 = NtCurrentPeb();
+  if ( a2 )
   {
-    v5 = 0LL;
-    v6 = (unsigned int)a2;
+    v4 = 0LL;
+    v5 = a2;
     do
     {
-      ProcessHeaps = v3->ProcessHeaps;
-      v8 = ProcessHeaps[v5];
-      if ( *((_DWORD *)v8 + 4) == -571548178 )
+      ProcessHeaps = v2->ProcessHeaps;
+      v7 = ProcessHeaps[v4];
+      if ( *((_DWORD *)v7 + 4) == -571548178 )
       {
-        if ( (*((_BYTE *)v8 + 20) & 1) == 0 )
-          RtlpHpUnlockHeapForCloning(ProcessHeaps[v5], a1);
+        if ( (*((_BYTE *)v7 + 20) & 1) == 0 )
+          RtlpHpUnlockHeapForCloning(ProcessHeaps[v4], a1);
       }
-      else if ( (*((_BYTE *)v8 + 112) & 1) == 0 )
+      else if ( (*((_BYTE *)v7 + 112) & 1) == 0 )
       {
-        if ( *((_BYTE *)v8 + 418) == 2 )
-          v9 = (volatile signed __int64 *)*((_QWORD *)v8 + 51);
+        if ( *((_BYTE *)v7 + 418) == 2 )
+          v8 = (_RTL_SRWLOCK *)*((_QWORD *)v7 + 51);
         else
-          v9 = 0LL;
-        if ( v9 )
+          v8 = 0LL;
+        if ( v8 )
         {
           if ( a1 )
-            *v9 = 1LL;
-          RtlReleaseSRWLockExclusive(v9);
+            v8->Value = 1LL;
+          RtlReleaseSRWLockExclusive(v8);
         }
         if ( a1 )
         {
-          a2 = *((_QWORD *)v8 + 44);
-          *((_WORD *)v8 + 208) = 0;
-          *(_QWORD *)(a2 + 16) = NtCurrentTeb()->ClientId.UniqueThread;
-          *(_DWORD *)(a2 + 8) = -2;
-          *(_DWORD *)(a2 + 12) = 1;
-          *(_QWORD *)(a2 + 24) = 0LL;
+          v9 = *((_QWORD *)v7 + 44);
+          *((_WORD *)v7 + 208) = 0;
+          *(_QWORD *)(v9 + 16) = NtCurrentTeb()->ClientId.UniqueThread;
+          *(_DWORD *)(v9 + 8) = -2;
+          *(_DWORD *)(v9 + 12) = 1;
+          *(_QWORD *)(v9 + 24) = 0LL;
         }
-        RtlLeaveCriticalSection(*((_QWORD *)v8 + 44), a2, a3);
+        RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)v7 + 44));
       }
-      ++v5;
-      --v6;
+      ++v4;
+      --v5;
     }
-    while ( v6 );
+    while ( v5 );
   }
   if ( a1 )
   {
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_18016DC80 = -1LL;
-    qword_18016ACF0 = (__int64)UniqueThread;
-    dword_18016ACE8 = -2;
-    dword_18016ACEC = 1;
-    qword_18016ACF8 = 0LL;
-    qword_18016DC78 = 1LL;
+    qword_18016DC70 = -1LL;
+    RtlpProcessHeapsListLock.OwningThread = UniqueThread;
+    RtlpProcessHeapsListLock.LockCount = -2;
+    RtlpProcessHeapsListLock.RecursionCount = 1;
+    RtlpProcessHeapsListLock.LockSemaphore = 0LL;
+    qword_18016DC68 = 1LL;
   }
-  v14 = 1;
-  v16 = &unk_18016DC60;
-  v15 = -1;
-  RtlpCSparseBitmapUnlock((__int64)&v14);
-  return RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock, v11, v12);
+  v12 = 1;
+  v14 = BaseAddress;
+  v13 = -1;
+  RtlpCSparseBitmapUnlock((__int64)&v12);
+  return RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KzLowerIrql @ 0x1403FE9F0
+ * XREFs of KzLowerIrql @ 0x1403F8C90
  * Callers:
- *     KiVirtualizationException @ 0x1406BBD00 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x1406BCC00 (KiVirtualizationException.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __stdcall KzLowerIrql(KIRQL NewIrql)

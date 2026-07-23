@@ -1,9 +1,9 @@
 /*
- * XREFs of AccelpSiovIaaGetCompressionWorkspaceSize @ 0x1406DFF10
+ * XREFs of AccelpSiovIaaGetCompressionWorkspaceSize @ 0x1406E4190
  * Callers:
- *     AccelpSiovIaaOperationHandler @ 0x1406DFFF4 (AccelpSiovIaaOperationHandler.c)
+ *     AccelpSiovIaaOperationHandler @ 0x1406E4274 (AccelpSiovIaaOperationHandler.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x1403F4090 (RtlGetCompressionWorkSpaceSize.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x1403EDA40 (RtlGetCompressionWorkSpaceSize.c)
  */
 
 NTSTATUS __fastcall AccelpSiovIaaGetCompressionWorkspaceSize(int a1, int a2, int a3, char a4, ULONG *a5, int *a6)

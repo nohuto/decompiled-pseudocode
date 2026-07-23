@@ -1,14 +1,14 @@
 /*
- * XREFs of VfSetVerifierInformationEx @ 0x140ADD950
+ * XREFs of VfSetVerifierInformationEx @ 0x140ADD940
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfProbeAndCaptureUnicodeString @ 0x140AC2270 (VfProbeAndCaptureUnicodeString.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfSetVerifierRunningMode @ 0x140ADAD6C (VfSetVerifierRunningMode.c)
- *     VfWdSetCancelTimeout @ 0x140ADE1AC (VfWdSetCancelTimeout.c)
+ *     VfProbeAndCaptureUnicodeString @ 0x140AC2260 (VfProbeAndCaptureUnicodeString.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfSetVerifierRunningMode @ 0x140ADAD5C (VfSetVerifierRunningMode.c)
+ *     VfWdSetCancelTimeout @ 0x140ADE19C (VfWdSetCancelTimeout.c)
  */
 
 __int64 __fastcall VfSetVerifierInformationEx(int *a1)

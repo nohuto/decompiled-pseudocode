@@ -1,15 +1,17 @@
 /*
- * XREFs of Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline @ 0x14051205C
+ * XREFs of Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline @ 0x14050BACC
  * Callers:
- *     SepMandatorySubProcessToken @ 0x1405154C8 (SepMandatorySubProcessToken.c)
- *     SepOneWayLinkLogonSessions @ 0x14063AEE8 (SepOneWayLinkLogonSessions.c)
- *     PsBootPhaseComplete @ 0x1407EDCC0 (PsBootPhaseComplete.c)
- *     NtSetInformationToken @ 0x140810BD0 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
- *     SeGetTokenDeviceMap @ 0x140A18788 (SeGetTokenDeviceMap.c)
- *     SepDeReferenceLogonSession @ 0x140B7CDEC (SepDeReferenceLogonSession.c)
+ *     SepMandatorySubProcessToken @ 0x14050EF38 (SepMandatorySubProcessToken.c)
+ *     SepOneWayLinkLogonSessions @ 0x14063DFB0 (SepOneWayLinkLogonSessions.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     PsBootPhaseComplete @ 0x1407F3820 (PsBootPhaseComplete.c)
+ *     NtSetInformationToken @ 0x140816660 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
+ *     SeGetTokenDeviceMap @ 0x140A21DB8 (SeGetTokenDeviceMap.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
+ *     SepDeReferenceLogonSession @ 0x140B8585C (SepDeReferenceLogonSession.c)
  * Callees:
- *     Feature_ShadowAdmin__private_IsEnabledFallback @ 0x140532E14 (Feature_ShadowAdmin__private_IsEnabledFallback.c)
+ *     Feature_ShadowAdmin__private_IsEnabledFallback @ 0x1405352B4 (Feature_ShadowAdmin__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline()

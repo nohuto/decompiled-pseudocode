@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAdjustGroupsToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAdjustGroupsToken(
+        HANDLE TokenHandle,
+        BOOLEAN ResetToDefault,
+        PTOKEN_GROUPS NewState,
+        ULONG BufferLength,
+        PTOKEN_GROUPS PreviousState,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TokenHandle);
 }

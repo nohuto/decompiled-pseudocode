@@ -1,12 +1,12 @@
 /*
- * XREFs of MmEnoughMemoryForWrite @ 0x1403841D0
+ * XREFs of MmEnoughMemoryForWrite @ 0x140385F80
  * Callers:
- *     CcCanIWriteStreamEx @ 0x140383E50 (CcCanIWriteStreamEx.c)
+ *     CcCanIWriteStreamEx @ 0x140385C00 (CcCanIWriteStreamEx.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiLockSectionControlArea @ 0x14044FAD0 (MiLockSectionControlArea.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiLockSectionControlArea @ 0x140447C00 (MiLockSectionControlArea.c)
  */
 
 __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
@@ -45,7 +45,7 @@ __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
     if ( !v6 )
       return 1LL;
     v3 = v20;
-    v8 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v6 + 60) & 0x3FF));
+    v8 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v6 + 60) & 0x3FF));
   }
   else
   {
@@ -53,7 +53,7 @@ __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
   }
   v9 = *((_QWORD *)v8 + 2808);
   v10 = 450LL;
-  if ( (_BYTE)dword_140FBE22C )
+  if ( (_BYTE)dword_140FBF22C )
     v10 = 0x4000LL;
   if ( v9 >= v10 )
     goto LABEL_24;
@@ -69,7 +69,7 @@ __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
       {
         v15 = *v14;
         v16 = 0;
-        if ( dword_140E2D78C )
+        if ( dword_140E2D90C )
         {
           while ( 1 )
           {
@@ -78,7 +78,7 @@ __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
               break;
             ++v16;
             v15 += 8;
-            if ( v16 >= dword_140E2D78C )
+            if ( v16 >= dword_140E2D90C )
               goto LABEL_17;
           }
           v4 = a1;
@@ -107,7 +107,7 @@ LABEL_24:
   v17 = (_DWORD *)(v2 + 72);
   if ( v3 != 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v17 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v17, retaddr);
@@ -116,7 +116,7 @@ LABEL_24:
     __writecr8(v3);
     return v1;
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     *v17 = 0;
     return v1;

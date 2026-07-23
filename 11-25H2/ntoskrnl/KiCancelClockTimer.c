@@ -13,16 +13,16 @@
  *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
  */
 
-char __fastcall KiCancelClockTimer(__int64 a1, int a2, char a3)
+char __fastcall KiCancelClockTimer(__int64 a1, signed int a2, char a3)
 {
   char result; // al
-  __int64 InterruptTimePrecise; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rbx
   __int64 v7; // rdx
   __int64 v8; // r8
   char v9; // [rsp+30h] [rbp-9h] BYREF
-  unsigned __int64 v10; // [rsp+38h] [rbp-1h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp-1h] BYREF
   _BYTE v11[32]; // [rsp+40h] [rbp+7h] BYREF
-  unsigned __int64 *v12; // [rsp+60h] [rbp+27h]
+  LARGE_INTEGER *p_PerformanceCounter; // [rsp+60h] [rbp+27h]
   int v13; // [rsp+68h] [rbp+2Fh]
   int v14; // [rsp+6Ch] [rbp+33h]
   char *v15; // [rsp+70h] [rbp+37h]
@@ -35,8 +35,8 @@ char __fastcall KiCancelClockTimer(__int64 a1, int a2, char a3)
   {
     v14 = 0;
     v17 = 0;
-    v12 = &v10;
-    LODWORD(v10) = a2;
+    p_PerformanceCounter = &PerformanceCounter;
+    PerformanceCounter.LowPart = a2;
     v15 = &v9;
     v13 = 4;
     v9 = a3;
@@ -46,9 +46,9 @@ char __fastcall KiCancelClockTimer(__int64 a1, int a2, char a3)
   if ( a3 )
   {
     if ( KiClockTimerReducePreciseTimeQueries )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v10);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     else
-      InterruptTimePrecise = 0LL;
+      InterruptTimePrecise.QuadPart = 0LL;
     result = KiShouldRearmClockTimer(a1, InterruptTimePrecise, 1);
     if ( result )
     {

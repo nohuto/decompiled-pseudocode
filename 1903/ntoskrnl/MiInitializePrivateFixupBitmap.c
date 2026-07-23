@@ -8,7 +8,7 @@
  *     MiDoesPageRequireRetpolineFixups @ 0x14065CD58 (MiDoesPageRequireRetpolineFixups.c)
  */
 
-__int64 __fastcall MiInitializePrivateFixupBitmap(struct _RTL_BITMAP *a1, _QWORD *a2)
+__int64 __fastcall MiInitializePrivateFixupBitmap(_RTL_BITMAP *a1, _QWORD *a2)
 {
   _QWORD *v2; // rdi
   __int64 v3; // rsi

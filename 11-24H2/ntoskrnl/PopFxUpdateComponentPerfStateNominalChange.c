@@ -1,16 +1,15 @@
 /*
- * XREFs of PopFxUpdateComponentPerfStateNominalChange @ 0x1405D2040
+ * XREFs of PopFxUpdateComponentPerfStateNominalChange @ 0x1405CF760
  * Callers:
- *     PopPepDeviceDState @ 0x1403137A0 (PopPepDeviceDState.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140316EF0 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1402BFAA0 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepDeviceDState @ 0x1403A6948 (PopPepDeviceDState.c)
  * Callees:
- *     PopFxQueryCurrentComponentPerfState @ 0x1405D196C (PopFxQueryCurrentComponentPerfState.c)
- *     PopDiagTraceFxPerfNominalChange @ 0x1405D5130 (PopDiagTraceFxPerfNominalChange.c)
+ *     PopFxQueryCurrentComponentPerfState @ 0x1405CF08C (PopFxQueryCurrentComponentPerfState.c)
+ *     PopDiagTraceFxPerfNominalChange @ 0x1405D28F0 (PopDiagTraceFxPerfNominalChange.c)
  */
 
-_BYTE *__fastcall PopFxUpdateComponentPerfStateNominalChange(__int64 a1, int a2, char a3, __int64 a4)
+_BYTE *__fastcall PopFxUpdateComponentPerfStateNominalChange(__int64 a1, int a2, char a3, int a4)
 {
-  int v5; // r12d
   int v7; // edi
   _BYTE *result; // rax
   unsigned int v9; // esi
@@ -22,7 +21,6 @@ _BYTE *__fastcall PopFxUpdateComponentPerfStateNominalChange(__int64 a1, int a2,
   _BYTE *v15; // [rsp+70h] [rbp+8h] BYREF
   char v16; // [rsp+78h] [rbp+10h] BYREF
 
-  v5 = a4;
   v15 = 0LL;
   v16 = 0;
   v7 = 0;
@@ -35,8 +33,7 @@ _BYTE *__fastcall PopFxUpdateComponentPerfStateNominalChange(__int64 a1, int a2,
   {
     do
     {
-      LOBYTE(a4) = 1;
-      result = PopFxQueryCurrentComponentPerfState(a1, v10, v9, a4, &v15, &v16);
+      result = PopFxQueryCurrentComponentPerfState(a1, v10, v9, 1, &v15, &v16);
       if ( v16 )
       {
         result = v15;
@@ -55,7 +52,7 @@ _BYTE *__fastcall PopFxUpdateComponentPerfStateNominalChange(__int64 a1, int a2,
       LOBYTE(v13) = a3;
       v14 = *(_QWORD *)(v11 + 48);
       *(_BYTE *)(v11 + 72) = 1;
-      return (_BYTE *)PopDiagTraceFxPerfNominalChange(v11, v13, v5, v7, v14);
+      return (_BYTE *)PopDiagTraceFxPerfNominalChange(v11, v13, a4, v7, v14);
     }
   }
   return result;

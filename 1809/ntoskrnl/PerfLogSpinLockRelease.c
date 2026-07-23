@@ -1,14 +1,14 @@
 /*
- * XREFs of PerfLogSpinLockRelease @ 0x140313B38
+ * XREFs of PerfLogSpinLockRelease @ 0x140313D28
  * Callers:
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14031C3E8 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140291128 (KiReleaseSpinLockInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C494 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14031C5D8 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PerfLogSpinLockRelease(__int64 a1, __int64 a2, __int64 a3)

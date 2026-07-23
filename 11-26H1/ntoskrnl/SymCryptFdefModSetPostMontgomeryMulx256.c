@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefModSetPostMontgomeryMulx256 @ 0x140570110
+ * XREFs of SymCryptFdefModSetPostMontgomeryMulx256 @ 0x14056F2F0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptFdefModMulMontgomeryMulx256Asm @ 0x14056B250 (SymCryptFdefModMulMontgomeryMulx256Asm.c)
+ *     SymCryptFdefModMulMontgomeryMulx256Asm @ 0x14056A430 (SymCryptFdefModMulMontgomeryMulx256Asm.c)
  */
 
 unsigned __int64 __fastcall SymCryptFdefModSetPostMontgomeryMulx256(__int64 a1, unsigned __int64 *a2)

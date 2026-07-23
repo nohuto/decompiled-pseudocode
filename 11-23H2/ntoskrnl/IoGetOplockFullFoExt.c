@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetOplockFullFoExt @ 0x140301674
+ * XREFs of IoGetOplockFullFoExt @ 0x140301904
  * Callers:
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpOplockDequeueRH @ 0x140301520 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpOplockCleanup @ 0x1403011A4 (FsRtlpOplockCleanup.c)
+ *     FsRtlpOplockDequeueRH @ 0x1403017B0 (FsRtlpOplockDequeueRH.c)
  * Callees:
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x14030192C (IopGetFileObjectExtension.c)
  */
 
 __int64 __fastcall IoGetOplockFullFoExt(__int64 a1)

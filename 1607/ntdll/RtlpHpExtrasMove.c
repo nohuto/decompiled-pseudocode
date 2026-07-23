@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpExtrasMove @ 0x180051B88
+ * XREFs of RtlpHpExtrasMove @ 0x180051B78
  * Callers:
- *     RtlpHpReallocMove @ 0x1800430B0 (RtlpHpReallocMove.c)
- *     RtlpHpSegReAlloc @ 0x180043284 (RtlpHpSegReAlloc.c)
- *     RtlpHpLargeReAlloc @ 0x180051838 (RtlpHpLargeReAlloc.c)
+ *     RtlpHpReallocMove @ 0x1800430A0 (RtlpHpReallocMove.c)
+ *     RtlpHpSegReAlloc @ 0x180043274 (RtlpHpSegReAlloc.c)
+ *     RtlpHpLargeReAlloc @ 0x180051828 (RtlpHpLargeReAlloc.c)
  * Callees:
  *     <none>
  */

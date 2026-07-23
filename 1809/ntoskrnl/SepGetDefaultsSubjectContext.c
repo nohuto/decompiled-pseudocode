@@ -1,10 +1,10 @@
 /*
- * XREFs of SepGetDefaultsSubjectContext @ 0x1408A0294
+ * XREFs of SepGetDefaultsSubjectContext @ 0x1408A14F4
  * Callers:
- *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1405CB240 (RtlpSetSecurityObject.c)
  * Callees:
- *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
- *     SepLocateTokenIntegrity @ 0x1400A904C (SepLocateTokenIntegrity.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A8F44 (SepLocateTokenTrustLevel.c)
+ *     SepLocateTokenIntegrity @ 0x1400A8F8C (SepLocateTokenIntegrity.c)
  */
 
 __int64 __fastcall SepGetDefaultsSubjectContext(

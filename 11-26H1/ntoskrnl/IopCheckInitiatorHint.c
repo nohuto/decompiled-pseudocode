@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCheckInitiatorHint @ 0x140454DB0
+ * XREFs of IopCheckInitiatorHint @ 0x14044CEE0
  * Callers:
- *     IopAllocRealFileObject @ 0x1409337E0 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x14090F390 (IopAllocRealFileObject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetInitiatorProcess @ 0x140433670 (IoGetInitiatorProcess.c)
- *     IopGetSetSpecificExtension @ 0x140455360 (IopGetSetSpecificExtension.c)
- *     IopSetFileObjectExtensionFlag @ 0x140469800 (IopSetFileObjectExtensionFlag.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlIsSandboxedToken @ 0x1408F4B90 (RtlIsSandboxedToken.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetInitiatorProcess @ 0x140428740 (IoGetInitiatorProcess.c)
+ *     IopGetSetSpecificExtension @ 0x14044D490 (IopGetSetSpecificExtension.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140462F80 (IopSetFileObjectExtensionFlag.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlIsSandboxedToken @ 0x1408FBA10 (RtlIsSandboxedToken.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)

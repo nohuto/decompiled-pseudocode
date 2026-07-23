@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfQueryCurrentUserSID @ 0x1406101D0
+ * XREFs of ExpWnfQueryCurrentUserSID @ 0x1406111D0
  * Callers:
- *     ExpWnfGetCurrentScopeInstance @ 0x1406100F4 (ExpWnfGetCurrentScopeInstance.c)
+ *     ExpWnfGetCurrentScopeInstance @ 0x1406110F4 (ExpWnfGetCurrentScopeInstance.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
- *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x1406112AC (SeQueryUserSidToken.c)
+ *     PsReferenceEffectiveToken @ 0x14064A470 (PsReferenceEffectiveToken.c)
  */
 
 __int64 __fastcall ExpWnfQueryCurrentUserSID(

@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpDispatchReplyToPort @ 0x14071B1EC
+ * XREFs of AlpcpDispatchReplyToPort @ 0x14071B3EC
  * Callers:
- *     AlpcpDispatchMessage @ 0x1407172F0 (AlpcpDispatchMessage.c)
- *     AlpcpSendMessage @ 0x1407390A0 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x1407174F0 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x140739290 (AlpcpSendMessage.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     AlpcpReferenceReplyTargetPorts @ 0x14071B460 (AlpcpReferenceReplyTargetPorts.c)
- *     AlpcpUnlockMessage @ 0x14071BEB8 (AlpcpUnlockMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x14071BFF4 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpClearOwnerPortMessage @ 0x14071C028 (AlpcpClearOwnerPortMessage.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x14071C05C (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpCompleteDispatchMessage @ 0x140739E80 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     AlpcpReferenceReplyTargetPorts @ 0x14071B660 (AlpcpReferenceReplyTargetPorts.c)
+ *     AlpcpUnlockMessage @ 0x14071C0B8 (AlpcpUnlockMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x14071C1F4 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x14071C228 (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x14071C25C (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14073A070 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchReplyToPort(__int64 *a1)

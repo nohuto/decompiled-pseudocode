@@ -17,7 +17,7 @@
 __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, const void *a2, unsigned __int16 a3)
 {
   char *PoolWithTag; // rax
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   unsigned int v8; // ebx
   char *ProviderGroupFromTraits; // rax
   __int64 v11; // rdx
@@ -37,15 +37,11 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, const void *a2, unsigned 
   else
   {
     PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, a3 + 28LL, 0x54777445u);
-    v7 = (unsigned __int64)PoolWithTag;
+    v7 = (signed __int64)PoolWithTag;
     if ( PoolWithTag )
     {
       memmove(PoolWithTag + 28, a2, a3);
-      v8 = EtwpSetProviderTraitsCommon(
-             a1,
-             v7,
-             &EtwpProviderTraitsKmMutex,
-             (unsigned __int64 *)&EtwpProviderTraitsKmTree);
+      v8 = EtwpSetProviderTraitsCommon(a1, v7, &EtwpProviderTraitsKmMutex, (_RTL_RB_TREE *)&EtwpProviderTraitsKmTree);
       if ( !*(_QWORD *)(a1 + 40) )
       {
         ProviderGroupFromTraits = EtwpGetProviderGroupFromTraits((const char *)(*(_QWORD *)(a1 + 104) + 28LL));

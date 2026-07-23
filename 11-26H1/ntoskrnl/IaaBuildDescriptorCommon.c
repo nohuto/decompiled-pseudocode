@@ -1,12 +1,12 @@
 /*
- * XREFs of IaaBuildDescriptorCommon @ 0x1404BFAB4
+ * XREFs of IaaBuildDescriptorCommon @ 0x1404B9304
  * Callers:
- *     AccelpSiovDsaOperationHandler @ 0x1404BF8A4 (AccelpSiovDsaOperationHandler.c)
- *     AccelpSiovIaaCompressionDecompression @ 0x1406DFC80 (AccelpSiovIaaCompressionDecompression.c)
- *     AccelpSiovIaaOperationHandler @ 0x1406DFFF4 (AccelpSiovIaaOperationHandler.c)
- *     IaaBuildDescriptorFixedCompress @ 0x1406E12EC (IaaBuildDescriptorFixedCompress.c)
- *     IaaBuildDescriptorHuffmanCompress @ 0x1406E14B0 (IaaBuildDescriptorHuffmanCompress.c)
- *     IaaBuildDescriptorHuffmanDecompress @ 0x1406E15DC (IaaBuildDescriptorHuffmanDecompress.c)
+ *     AccelpSiovDsaOperationHandler @ 0x1404B90F4 (AccelpSiovDsaOperationHandler.c)
+ *     AccelpSiovIaaCompressionDecompression @ 0x1406E3F00 (AccelpSiovIaaCompressionDecompression.c)
+ *     AccelpSiovIaaOperationHandler @ 0x1406E4274 (AccelpSiovIaaOperationHandler.c)
+ *     IaaBuildDescriptorFixedCompress @ 0x1406E556C (IaaBuildDescriptorFixedCompress.c)
+ *     IaaBuildDescriptorHuffmanCompress @ 0x1406E5730 (IaaBuildDescriptorHuffmanCompress.c)
+ *     IaaBuildDescriptorHuffmanDecompress @ 0x1406E585C (IaaBuildDescriptorHuffmanDecompress.c)
  * Callees:
  *     <none>
  */

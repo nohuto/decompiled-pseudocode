@@ -1,11 +1,11 @@
 /*
- * XREFs of PoDiagTraceDirectedDripsCandidateDevice @ 0x1408E7FE4
+ * XREFs of PoDiagTraceDirectedDripsCandidateDevice @ 0x1408E8144
  * Callers:
- *     IoDiagTraceDirectedDripsCandidateDevices @ 0x1408B4598 (IoDiagTraceDirectedDripsCandidateDevices.c)
+ *     IoDiagTraceDirectedDripsCandidateDevices @ 0x1408B46F8 (IoDiagTraceDirectedDripsCandidateDevices.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PoDiagTraceDirectedDripsCandidateDevice()
@@ -45,13 +45,7 @@ void PoDiagTraceDirectedDripsCandidateDevice()
       v11 = 2LL;
       v13[1] = v1;
       v15 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C02228,
-        (unsigned __int8 *)&word_1400276FE,
-        0LL,
-        0LL,
-        7u,
-        &v5);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)byte_140027261, 0LL, 0LL, 7u, &v5);
     }
   }
 }

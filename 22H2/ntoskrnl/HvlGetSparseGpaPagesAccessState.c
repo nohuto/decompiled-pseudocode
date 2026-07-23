@@ -25,23 +25,18 @@ __int64 __fastcall HvlGetSparseGpaPagesAccessState(
   void *v13; // rcx
   const void *v14; // r13
   __int64 v15; // rbx
-  __int64 v16; // r9
-  __int64 v17; // rax
-  size_t v18; // rbx
+  __int64 v16; // rax
+  size_t v17; // rbx
   __int64 result; // rax
-  __int128 v20; // [rsp+20h] [rbp-40h] BYREF
-  __int128 v21; // [rsp+30h] [rbp-30h]
-  __int128 v22; // [rsp+40h] [rbp-20h] BYREF
-  __int128 v23; // [rsp+50h] [rbp-10h]
+  _OWORD v19[2]; // [rsp+20h] [rbp-40h] BYREF
+  _OWORD v20[2]; // [rsp+40h] [rbp-20h] BYREF
 
   v6 = 0;
   v10 = 0LL;
-  v22 = 0LL;
-  v23 = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
-  v11 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v22, 1, 0LL, 0LL);
-  v12 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v20, 2, 0LL, 0LL);
+  memset(v20, 0, sizeof(v20));
+  memset(v19, 0, sizeof(v19));
+  v11 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v20, 1, 0LL, 0LL);
+  v12 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v19, 2, 0LL, 0LL);
   *v11 = a1;
   v13 = v11 + 2;
   v11[1] = a2;
@@ -52,22 +47,22 @@ __int64 __fastcall HvlGetSparseGpaPagesAccessState(
     if ( a3 < 0x1FE )
       v15 = a3;
     memmove(v13, (const void *)(a4 + 8 * v10), 8 * v15);
-    v17 = HvcallInitiateHypercall(202, *((__int64 *)&v23 + 1), *((__int64 *)&v21 + 1), v16);
-    if ( (_WORD)v17 )
+    v16 = HvcallInitiateHypercall(202);
+    if ( (_WORD)v16 )
       break;
-    v18 = WORD2(v17) & 0xFFF;
-    memmove((void *)(v10 + a6), v14, v18);
+    v17 = WORD2(v16) & 0xFFF;
+    memmove((void *)(v10 + a6), v14, v17);
     v13 = v11 + 2;
-    v10 += v18;
-    a3 -= v18;
+    v10 += v17;
+    a3 -= v17;
     if ( !a3 )
       goto LABEL_8;
   }
-  v10 += WORD2(v17) & 0xFFF;
-  v6 = HvlpHvToNtStatus(v17);
+  v10 += WORD2(v16) & 0xFFF;
+  v6 = HvlpHvToNtStatus(v16);
 LABEL_8:
-  HvlpReleaseHypercallPage((__int64)&v20);
-  HvlpReleaseHypercallPage((__int64)&v22);
+  HvlpReleaseHypercallPage((__int64)v19);
+  HvlpReleaseHypercallPage((__int64)v20);
   result = v6;
   *a5 = v10;
   return result;

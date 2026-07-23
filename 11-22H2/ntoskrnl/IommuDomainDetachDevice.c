@@ -37,7 +37,7 @@ __int64 __fastcall IommuDomainDetachDevice(ULONG_PTR a1, __int64 a2, int a3)
   v5 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -69,10 +69,10 @@ __int64 __fastcall IommuDomainDetachDevice(ULONG_PTR a1, __int64 a2, int a3)
   *(_QWORD *)(v20 + 8) = v21;
 LABEL_15:
   KxReleaseSpinLock((volatile signed __int64 *)&HalpIommuParaVirtDeviceCacheLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v16 = CurrentPrcb->SchedulerAssist;

@@ -9,50 +9,50 @@
  *     NtWaitForMultipleObjects @ 0x18009D960 (NtWaitForMultipleObjects.c)
  */
 
-__int64 __fastcall WerpWaitForCrashReporting(void *a1, __int64 a2, __int64 a3)
+__int64 __fastcall WerpWaitForCrashReporting(void *a1, void *a2, void *a3, LARGE_INTEGER *a4)
 {
-  unsigned int v3; // edi
-  unsigned int v7; // esi
+  unsigned int v4; // edi
+  ULONG v9; // esi
   int UniqueProcess; // ebx
-  __int64 v9; // rax
-  __int64 v10; // rax
-  int v11; // eax
-  _QWORD v13[3]; // [rsp+30h] [rbp-48h]
+  __int64 v11; // rax
+  __int64 v12; // rax
+  NTSTATUS v13; // eax
+  HANDLE Handles[3]; // [rsp+30h] [rbp-48h] BYREF
 
-  v3 = 0;
-  v7 = 0;
+  v4 = 0;
+  v9 = 0;
   if ( a1 )
   {
     UniqueProcess = (int)NtCurrentTeb()->ClientId.UniqueProcess;
     if ( (unsigned int)WerpProcessId(a1) != UniqueProcess )
     {
-      v13[0] = a1;
-      v7 = 1;
+      Handles[0] = a1;
+      v9 = 1;
     }
   }
   if ( a2 )
   {
-    v9 = v7++;
-    v13[v9] = a2;
+    v11 = v9++;
+    Handles[v11] = a2;
   }
   if ( a3 )
   {
-    v10 = v7++;
-    v13[v10] = a3;
+    v12 = v9++;
+    Handles[v12] = a3;
   }
-  if ( v7 )
+  if ( v9 )
   {
-    if ( v7 <= 3 )
+    if ( v9 <= 3 )
     {
       do
       {
-        v11 = NtWaitForMultipleObjects();
-        if ( v11 < 0 )
-          return (unsigned int)v11;
-        if ( v11 < (int)v7 )
-          return v3;
+        v13 = NtWaitForMultipleObjects(v9, Handles, WaitAny, 1u, a4);
+        if ( v13 < 0 )
+          return (unsigned int)v13;
+        if ( v13 < (int)v9 )
+          return v4;
       }
-      while ( v11 != 258 );
+      while ( v13 != 258 );
       return (unsigned int)-1073741823;
     }
     else
@@ -60,5 +60,5 @@ __int64 __fastcall WerpWaitForCrashReporting(void *a1, __int64 a2, __int64 a3)
       return (unsigned int)-1073741684;
     }
   }
-  return v3;
+  return v4;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrGetFailureData @ 0x1800CDFD0
+ * XREFs of LdrGetFailureData @ 0x1800CDF90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void *LdrGetFailureData()
+PLDR_FAILURE_DATA LdrGetFailureData(void)
 {
-  return &LdrpFailureData;
+  return (PLDR_FAILURE_DATA)&LdrpFailureData;
 }

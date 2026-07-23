@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpCreateEvent @ 0x1407BFE50
+ * XREFs of PfpCreateEvent @ 0x1407C036C
  * Callers:
- *     PfTStart @ 0x1407BFA40 (PfTStart.c)
- *     PfpScenCtxStart @ 0x1407BFDD0 (PfpScenCtxStart.c)
- *     PfpParametersInitialize @ 0x140A6A864 (PfpParametersInitialize.c)
- *     PfSnInitializePrefetcher @ 0x140A6AA00 (PfSnInitializePrefetcher.c)
+ *     PfTStart @ 0x1407BFF5C (PfTStart.c)
+ *     PfpScenCtxStart @ 0x1407C02EC (PfpScenCtxStart.c)
+ *     PfpParametersInitialize @ 0x140A6B864 (PfpParametersInitialize.c)
+ *     PfSnInitializePrefetcher @ 0x140A6BA00 (PfSnInitializePrefetcher.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FAE80 (ZwCreateEvent.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpCreateEvent(UNICODE_STRING *a1, EVENT_TYPE a2, PVOID *a3)
@@ -47,10 +47,10 @@ __int64 __fastcall PfpCreateEvent(UNICODE_STRING *a1, EVENT_TYPE a2, PVOID *a3)
       Acl = RtlCreateAcl(PoolWithTag, v8, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v10, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0);
+        Acl = RtlpAddKnownAce(v10, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v10, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+          Acl = RtlpAddKnownAce(v10, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
           if ( Acl >= 0 )
           {
             Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v10, 0);

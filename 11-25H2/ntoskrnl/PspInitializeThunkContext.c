@@ -25,74 +25,50 @@ __int16 PspInitializeThunkContext()
 {
   struct _KTHREAD *CurrentThread; // rsi
   int v1; // ecx
-  __int64 v2; // r14
-  unsigned int v3; // r12d
+  unsigned __int64 v2; // r14
+  ULONG P2Home; // r12d
   $727077A9B6E167EAE1398C74674DC5A5 *v4; // rax
-  int v5; // ebx
+  signed int v5; // ebx
   unsigned __int64 v6; // rax
   void *v7; // rsp
-  union _RTL_RUN_ONCE *v8; // rbx
+  _RTL_RUN_ONCE *v8; // rbx
   __int64 v9; // r12
   struct _EX_RUNDOWN_REF *v10; // rax
   struct _EX_RUNDOWN_REF *v11; // r15
-  __int64 v12; // rdx
-  char *v13; // r15
+  __int64 P1Home_low; // rdx
+  _CONTEXT *v13; // r15
   void *v14; // rcx
-  void *InstrumentationCallback; // rcx
+  __int64 InstrumentationCallback; // rcx
   unsigned __int64 v16; // rcx
   unsigned __int64 BaseTrapFrame; // rbx
   __int64 v19; // rax
-  unsigned int Length; // [rsp+30h] [rbp+0h] BYREF
-  int Length_4; // [rsp+34h] [rbp+4h]
-  unsigned int v23; // [rsp+38h] [rbp+8h]
-  __int64 v24; // [rsp+40h] [rbp+10h] BYREF
-  __int64 v25; // [rsp+48h] [rbp+18h]
-  _QWORD v26[2]; // [rsp+50h] [rbp+20h] BYREF
-  ULONG_PTR v27[3]; // [rsp+60h] [rbp+30h] BYREF
-  int v28; // [rsp+78h] [rbp+48h]
-  char v29[76]; // [rsp+7Ch] [rbp+4Ch] BYREF
-  __int64 v30; // [rsp+C8h] [rbp+98h]
-  int v31[10]; // [rsp+100h] [rbp+D0h] BYREF
-  __int64 v32; // [rsp+128h] [rbp+F8h]
-  int v33; // [rsp+130h] [rbp+100h]
-  int v34; // [rsp+134h] [rbp+104h]
-  __int16 v35; // [rsp+138h] [rbp+108h]
-  int v36; // [rsp+13Ah] [rbp+10Ah]
-  int v37; // [rsp+13Eh] [rbp+10Eh]
-  __int16 v38; // [rsp+142h] [rbp+112h]
-  char *v39; // [rsp+180h] [rbp+150h]
-  void *v40; // [rsp+188h] [rbp+158h]
-  char *v41; // [rsp+198h] [rbp+168h]
-  __int64 v42; // [rsp+1C8h] [rbp+198h]
-  __int64 v43; // [rsp+1F8h] [rbp+1C8h]
-  __int16 v44; // [rsp+200h] [rbp+1D0h]
-  int v45; // [rsp+218h] [rbp+1E8h]
+  _CONTEXT ContextLength; // [rsp+30h] [rbp+0h] BYREF
 
-  memset_0(v29, 0, 0x7CuLL);
-  v24 = 0LL;
-  Length = 0;
-  v26[0] = 0LL;
+  memset_0((char *)&ContextLength.Dr0 + 4, 0, 0x7CuLL);
+  ContextLength.P3Home = 0LL;
+  LODWORD(ContextLength.P1Home) = 0;
+  ContextLength.P5Home = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v26[1] = CurrentThread;
+  ContextLength.P6Home = (unsigned __int64)CurrentThread;
   v1 = CurrentThread->MiscFlags & 0x100000;
   v2 = v1 != 0 ? 0x800 : 0;
-  v25 = v2;
-  v3 = v1 != 0 ? 1048667 : 1048603;
-  v23 = v3;
-  LODWORD(v4) = RtlGetExtendedContextLength2(v3, &Length, (unsigned int)v2);
+  ContextLength.P4Home = v2;
+  P2Home = v1 != 0 ? 1048667 : 1048603;
+  LODWORD(ContextLength.P2Home) = P2Home;
+  LODWORD(v4) = RtlGetExtendedContextLength2(P2Home, (PULONG)&ContextLength, (unsigned int)v2);
   v5 = (int)v4;
   if ( (int)v4 >= 0 )
   {
-    v6 = Length + 15LL;
-    if ( v6 <= Length )
+    v6 = LODWORD(ContextLength.P1Home) + 15LL;
+    if ( v6 <= LODWORD(ContextLength.P1Home) )
       v6 = 0xFFFFFFFFFFFFFF0LL;
     v7 = alloca(v6 & 0xFFFFFFFFFFFFFFF0uLL);
-    memset_0(&Length, 0, Length);
-    LODWORD(v4) = RtlInitializeExtendedContext2((__int64)&Length, v3, &v24, v2);
+    memset_0(&ContextLength, 0, LODWORD(ContextLength.P1Home));
+    LODWORD(v4) = RtlInitializeExtendedContext2(&ContextLength, P2Home, (PCONTEXT_EX *)&ContextLength.P3Home, v2);
     v5 = (int)v4;
     if ( (int)v4 >= 0 )
     {
-      memset_0(v31, 0, 0x4D0uLL);
+      memset_0(&ContextLength.R11, 0, sizeof(_CONTEXT));
       --CurrentThread->SpecialApcDisable;
       if ( (PspNotifyEnableMask & 0x10) != 0 )
       {
@@ -112,60 +88,63 @@ __int16 PspInitializeThunkContext()
           --v9;
         }
         while ( v9 );
-        v3 = v23;
+        P2Home = ContextLength.P2Home;
       }
-      LODWORD(v4) = PspGetContextThreadInternal((__int64)CurrentThread, (__int64)&Length, 0, 1, 0);
+      LODWORD(v4) = PspGetContextThreadInternal((__int64)CurrentThread, (__int64)&ContextLength, 0, 1, 0);
       v5 = (int)v4;
-      Length_4 = (int)v4;
+      HIDWORD(ContextLength.P1Home) = (_DWORD)v4;
       if ( (int)v4 >= 0 )
       {
-        v12 = Length;
-        v13 = (char *)((v30 - Length) & 0xFFFFFFFFFFFFFFF0uLL);
-        v41 = v13 - 40;
+        P1Home_low = LODWORD(ContextLength.P1Home);
+        v13 = (_CONTEXT *)((ContextLength.Rsp - LODWORD(ContextLength.P1Home)) & 0xFFFFFFFFFFFFFFF0uLL);
+        ContextLength.FltSave.FloatRegisters[4].High = (__int64)&v13[-1].DebugControl;
         v14 = PspSystemDlls[0][4];
-        v33 = 1048587;
-        v43 = qword_140FC6478;
-        v39 = v13;
-        v40 = v14;
-        v36 = 2818091;
-        v37 = 2818131;
-        v38 = 43;
-        v35 = 51;
-        v34 = 8064;
-        v44 = 639;
-        v45 = 8064;
-        InstrumentationCallback = CurrentThread->ApcState.Process->InstrumentationCallback;
+        ContextLength.Header[0].Low = 0x1F800010000BLL;
+        ContextLength.FltSave.XmmRegisters[2].High = qword_140FC6478;
+        ContextLength.FltSave.FloatRegisters[3].Low = (unsigned __int64)v13;
+        ContextLength.FltSave.FloatRegisters[3].High = (__int64)v14;
+        *(_DWORD *)((char *)&ContextLength.Header[0].High + 2) = 2818091;
+        *(_DWORD *)((char *)&ContextLength.Header[0].High + 6) = 2818131;
+        WORD1(ContextLength.Header[1].Low) = 43;
+        LOWORD(ContextLength.Header[0].High) = 51;
+        LOWORD(ContextLength.Xmm3.Low) = 639;
+        LODWORD(ContextLength.Xmm4.High) = 8064;
+        InstrumentationCallback = (__int64)CurrentThread->ApcState.Process->InstrumentationCallback;
         if ( InstrumentationCallback )
         {
-          v42 = qword_140FC6478;
-          v43 = (__int64)InstrumentationCallback;
+          ContextLength.FltSave.FloatRegisters[7].High = qword_140FC6478;
+          ContextLength.FltSave.XmmRegisters[2].High = InstrumentationCallback;
         }
-        v16 = (v30 - Length) & 0xFFFFFFFFFFFFFFF0uLL;
-        if ( (unsigned __int64)Length - 1 > 0xFFE )
+        v16 = (ContextLength.Rsp - LODWORD(ContextLength.P1Home)) & 0xFFFFFFFFFFFFFFF0uLL;
+        if ( (unsigned __int64)LODWORD(ContextLength.P1Home) - 1 > 0xFFE )
         {
-          ProbeForWrite(v13, Length, 0x10u);
+          ProbeForWrite(v13, LODWORD(ContextLength.P1Home), 0x10u);
         }
         else
         {
           if ( (unsigned __int64)v13 >= 0x7FFFFFFF0000LL )
             v16 = 0x7FFFFFFF0000LL;
           *(_BYTE *)v16 = *(_BYTE *)v16;
-          *(_BYTE *)(v16 + v12 - 1) = *(_BYTE *)(v16 + v12 - 1);
+          *(_BYTE *)(v16 + P1Home_low - 1) = *(_BYTE *)(v16 + P1Home_low - 1);
         }
-        LODWORD(v4) = RtlInitializeExtendedContext2((__int64)v13, v3, v26, v25);
+        LODWORD(v4) = RtlInitializeExtendedContext2(
+                        v13,
+                        P2Home,
+                        (PCONTEXT_EX *)&ContextLength.P5Home,
+                        ContextLength.P4Home);
         v5 = (int)v4;
-        Length_4 = (int)v4;
+        HIDWORD(ContextLength.P1Home) = (_DWORD)v4;
         if ( (int)v4 >= 0 )
         {
-          LODWORD(v4) = RtlCopyContext(v13, v3, &Length);
+          LODWORD(v4) = RtlCopyContext(v13, P2Home, &ContextLength);
           v5 = (int)v4;
-          Length_4 = (int)v4;
+          HIDWORD(ContextLength.P1Home) = (_DWORD)v4;
           if ( (int)v4 >= 0 )
-            LOWORD(v4) = (unsigned __int16)KePopulateContinuationContext(v32);
+            LOWORD(v4) = (unsigned __int16)KePopulateContinuationContext(ContextLength.Rip);
         }
         if ( v5 >= 0 )
         {
-          LODWORD(v4) = PspSetContextThreadInternal(CurrentThread, v31, 0, 1, 2);
+          LODWORD(v4) = PspSetContextThreadInternal(CurrentThread, (_CONTEXT *)&ContextLength.R11, 0, 1, 2);
           v5 = (int)v4;
         }
       }
@@ -179,13 +158,14 @@ __int16 PspInitializeThunkContext()
   }
   if ( v5 < 0 )
   {
-    v27[2] = qword_140FC6478;
-    v27[0] = (unsigned int)v5;
-    v28 = 0;
-    v27[1] = 0LL;
+    ContextLength.MxCsr = 0;
+    *(_QWORD *)&ContextLength.SegGs = qword_140FC6478;
+    ContextLength.ContextFlags = v5;
+    LODWORD(ContextLength.Dr0) = 0;
+    *(_QWORD *)&ContextLength.SegCs = 0LL;
     BaseTrapFrame = PspGetBaseTrapFrame((__int64)CurrentThread, 0LL);
     v19 = PspGetBaseTrapFrame((__int64)CurrentThread, 0LL);
-    LOWORD(v4) = KiDispatchException((NTSTATUS *)v27, v19 - 320, BaseTrapFrame, 1, 0);
+    LOWORD(v4) = KiDispatchException((PEXCEPTION_RECORD)&ContextLength.ContextFlags, v19 - 320, BaseTrapFrame, 1, 0);
   }
   return (__int16)v4;
 }

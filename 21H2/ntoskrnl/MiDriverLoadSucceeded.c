@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDriverLoadSucceeded @ 0x14075C644
+ * XREFs of MiDriverLoadSucceeded @ 0x14075C804
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9358 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
- *     DbgLoadImageSymbolsUnicode @ 0x140371FA4 (DbgLoadImageSymbolsUnicode.c)
- *     MiSessionUpdateImageCharges @ 0x14039EC00 (MiSessionUpdateImageCharges.c)
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     PsCallImageNotifyRoutines @ 0x14061B230 (PsCallImageNotifyRoutines.c)
- *     RtlGetNtSystemRoot @ 0x1406BC270 (RtlGetNtSystemRoot.c)
- *     MiCacheImageSymbols @ 0x14075DBC0 (MiCacheImageSymbols.c)
- *     MiProtectSystemImage @ 0x1407A168C (MiProtectSystemImage.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     MiDereferenceControlAreaFile @ 0x140361F34 (MiDereferenceControlAreaFile.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x140371AF4 (DbgLoadImageSymbolsUnicode.c)
+ *     MiSessionUpdateImageCharges @ 0x14039ED50 (MiSessionUpdateImageCharges.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     RtlGetNtSystemRoot @ 0x14061B3E0 (RtlGetNtSystemRoot.c)
+ *     PsCallImageNotifyRoutines @ 0x140684E90 (PsCallImageNotifyRoutines.c)
+ *     MiCacheImageSymbols @ 0x14075DD80 (MiCacheImageSymbols.c)
+ *     MiProtectSystemImage @ 0x1407A188C (MiProtectSystemImage.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, unsigned __int16 *a3, __int64 a4, __int64 a5, char a6)
@@ -28,36 +28,34 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, unsigned __int1
   char v11; // dl
   ULONG_PTR v12; // rbx
   wchar_t *Pool; // rbx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __m128i v16; // xmm0
-  __int64 NtSystemRoot; // rax
-  NTSTATUS v18; // eax
+  __m128i v14; // xmm0
+  PWSTR NtSystemRoot; // rax
+  NTSTATUS v16; // eax
   __int64 result; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
-  __int128 v21; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v22; // [rsp+50h] [rbp-30h]
-  __int128 v23; // [rsp+60h] [rbp-20h]
-  __int64 v24; // [rsp+70h] [rbp-10h]
+  __int128 v19; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v20; // [rsp+50h] [rbp-30h]
+  __int128 v21; // [rsp+60h] [rbp-20h]
+  __int64 v22; // [rsp+70h] [rbp-10h]
 
-  v24 = 0LL;
-  v21 = 0LL;
   v22 = 0LL;
-  v23 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
   if ( a6 == 1 )
   {
     *(_DWORD *)(a1 + 104) |= 0x41004000u;
     v9 = (__int64 *)MiSectionControlArea(a2);
     v10 = *v9;
-    BYTE8(v21) = 3;
+    BYTE8(v19) = 3;
     v11 = *(_BYTE *)(v10 + 15);
-    DWORD2(v22) = 0;
-    DWORD2(v23) = 0;
-    *(_QWORD *)&v23 = *(unsigned int *)(a1 + 64);
-    *(_QWORD *)&v22 = *(_QWORD *)(a1 + 48);
-    DWORD2(v21) = DWORD2(v21) & 0xFFF80FFF | ((v11 & 0xF1 | ((v11 & 0xE) << 7) | 1) << 8);
+    DWORD2(v20) = 0;
+    DWORD2(v21) = 0;
+    *(_QWORD *)&v21 = *(unsigned int *)(a1 + 64);
+    *(_QWORD *)&v20 = *(_QWORD *)(a1 + 48);
+    DWORD2(v19) = DWORD2(v19) & 0xFFF80FFF | ((v11 & 0xF1 | ((v11 & 0xE) << 7) | 1) << 8);
     v12 = MiReferenceControlAreaFile((__int64)v9);
-    PsCallImageNotifyRoutines(a3, 0LL, (__int64)&v21, v12);
+    PsCallImageNotifyRoutines(a3, 0LL, (__int64)&v19, v12);
     MiDereferenceControlAreaFile((__int64)v9, v12);
     if ( MiCacheImageSymbols(*(_QWORD *)(a1 + 48)) )
     {
@@ -67,18 +65,18 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, unsigned __int1
       {
         if ( *(_WORD *)a4 <= 0x16u || wcsnicmp(*(const wchar_t **)(a4 + 8), L"\\SystemRoot", 0xBuLL) )
         {
-          v18 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%wZ", a5);
+          v16 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%wZ", a5);
         }
         else
         {
-          v16 = *(__m128i *)a4;
+          v14 = *(__m128i *)a4;
           *(_QWORD *)&DestinationString.Length = *(_QWORD *)a4;
-          DestinationString.Buffer = (wchar_t *)(_mm_srli_si128(v16, 8).m128i_u64[0] + 22);
+          DestinationString.Buffer = (wchar_t *)(_mm_srli_si128(v14, 8).m128i_u64[0] + 22);
           DestinationString.Length -= 22;
-          NtSystemRoot = RtlGetNtSystemRoot(v15, v14);
-          v18 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%ws%wZ", NtSystemRoot + 4, &DestinationString);
+          NtSystemRoot = RtlGetNtSystemRoot();
+          v16 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%ws%wZ", NtSystemRoot + 2, &DestinationString);
         }
-        if ( v18 >= 0 )
+        if ( v16 >= 0 )
         {
           RtlInitUnicodeString(&DestinationString, Pool);
           if ( (unsigned int)DbgLoadImageSymbolsUnicode(&DestinationString, *(_QWORD *)(a1 + 48)) == 1 )

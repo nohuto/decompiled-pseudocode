@@ -1,31 +1,31 @@
 /*
- * XREFs of MmFreeSpecialPool @ 0x1401EC0A4
+ * XREFs of MmFreeSpecialPool @ 0x1401EBED0
  * Callers:
- *     MmAllocateSpecialPool @ 0x1401EBAE0 (MmAllocateSpecialPool.c)
+ *     MmAllocateSpecialPool @ 0x1401EB90C (MmAllocateSpecialPool.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MiCheckSpecialPoolSlop @ 0x1401EB574 (MiCheckSpecialPoolSlop.c)
- *     MiRemoveSpecialPoolRange @ 0x1401EB91C (MiRemoveSpecialPoolRange.c)
- *     VerifierFreeTrackedPool @ 0x1401EEE28 (VerifierFreeTrackedPool.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeLinkedListPte @ 0x1401F2740 (MiMakeLinkedListPte.c)
- *     MiUpdateLinkedListInPte @ 0x1401F2A14 (MiUpdateLinkedListInPte.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MiCheckSpecialPoolSlop @ 0x1401EB3A0 (MiCheckSpecialPoolSlop.c)
+ *     MiRemoveSpecialPoolRange @ 0x1401EB748 (MiRemoveSpecialPoolRange.c)
+ *     VerifierFreeTrackedPool @ 0x1401EEC54 (VerifierFreeTrackedPool.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeLinkedListPte @ 0x1401F256C (MiMakeLinkedListPte.c)
+ *     MiUpdateLinkedListInPte @ 0x1401F281C (MiUpdateLinkedListInPte.c)
  */
 
 void __fastcall MmFreeSpecialPool(ULONG_PTR a1)
@@ -110,11 +110,11 @@ void __fastcall MmFreeSpecialPool(ULONG_PTR a1)
   }
   if ( CurrentIrql > v10 )
     KeBugCheckEx(0xC1u, CurrentIrql, 1uLL, a1, 0x31uLL);
-  SpinLock = &qword_1403277C0;
+  SpinLock = &qword_140327800;
   if ( (v8 & 0x2000) != 0 )
   {
     v9 |= 0x20u;
-    SpinLock = (PKSPIN_LOCK)qword_140327EA8;
+    SpinLock = (PKSPIN_LOCK)qword_140327EE8;
   }
   v11 = *(_WORD *)v6 & 0x1FFF;
   if ( v5 == 1 )
@@ -183,7 +183,7 @@ void __fastcall MmFreeSpecialPool(ULONG_PTR a1)
     v38 = MI_READ_PTE_LOCK_FREE(v2);
     v18 = MI_GET_PFN_FROM_PTE(&v38);
     v19 = *(_QWORD *)(v18 + 40) & 0xFFFFFFFFFLL;
-    _InterlockedDecrement64(&qword_140326518);
+    _InterlockedDecrement64(&qword_140326558);
     v20 = 48 * v19 - 0x58000000000LL;
     LinkedListPte = MiMakeLinkedListPte(0xFFFFFFFFFLL);
     v38 = LinkedListPte;
@@ -197,7 +197,7 @@ void __fastcall MmFreeSpecialPool(ULONG_PTR a1)
     v45 = v25;
     v47 = v25;
     v48 = v25;
-    v44 = &qword_1403277C0 != SpinLock ? 2 : 0;
+    v44 = &qword_140327800 != SpinLock ? 2 : 0;
     MiInsertTbFlushEntry((__int64)&v44, v4, 1LL, v25);
     MiFlushTbList((__int64)&v44, v27, v28, v29);
     v30 = MiLockPageInline(v18);
@@ -221,10 +221,10 @@ void __fastcall MmFreeSpecialPool(ULONG_PTR a1)
     v43 = 1LL;
     v40 = 1LL;
   }
-  if ( _InterlockedExchangeAdd64(&qword_1403278F8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-    _InterlockedDecrement(&dword_140327788);
+  if ( _InterlockedExchangeAdd64(&qword_140327938, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+    _InterlockedDecrement(&dword_1403277C8);
   MiRemoveSpecialPoolRange(v26, v9, (unsigned __int64)v2);
-  if ( v26 != &qword_1403277C0 )
+  if ( v26 != &qword_140327800 )
     _InterlockedDecrement64((volatile signed __int64 *)v26 + 7);
   if ( v40 )
     MiReturnResidentAvailable(v40);

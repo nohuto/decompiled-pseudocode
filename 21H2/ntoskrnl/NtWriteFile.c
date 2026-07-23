@@ -1,12 +1,12 @@
 /*
- * XREFs of NtWriteFile @ 0x140650420
+ * XREFs of NtWriteFile @ 0x140645240
  * Callers:
- *     ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x14059D858 (-SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEA.c)
+ *     ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x14059DA88 (-SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEA.c)
  * Callees:
- *     IopFileObjectRevoked @ 0x14027BCE0 (IopFileObjectRevoked.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopFileObjectRevoked @ 0x140269C80 (IopFileObjectRevoked.c)
  *     IopWriteFile @ 0x1405CEB78 (IopWriteFile.c)
- *     ObReferenceFileObjectForWrite @ 0x140650510 (ObReferenceFileObjectForWrite.c)
+ *     ObReferenceFileObjectForWrite @ 0x140645330 (ObReferenceFileObjectForWrite.c)
  */
 
 NTSTATUS __stdcall NtWriteFile(

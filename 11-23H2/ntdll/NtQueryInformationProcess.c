@@ -28,12 +28,12 @@
  *     SetAssertBufferPtrinPeb @ 0x1800E94A0 (SetAssertBufferPtrinPeb.c)
  *     RtlpNotOwnerCriticalSection @ 0x1800F4D50 (RtlpNotOwnerCriticalSection.c)
  *     RtlpPossibleDeadlock @ 0x1800F4EB4 (RtlpPossibleDeadlock.c)
- *     RtlpCreateExecutionRequiredRequest @ 0x1801196D0 (RtlpCreateExecutionRequiredRequest.c)
- *     TppExceptionFilter @ 0x18012712C (TppExceptionFilter.c)
- *     PsspCaptureHandleTrace @ 0x1801296D8 (PsspCaptureHandleTrace.c)
- *     PsspCaptureProcessInformation @ 0x180129A28 (PsspCaptureProcessInformation.c)
- *     PsspCaptureHandleInformation @ 0x18012A744 (PsspCaptureHandleInformation.c)
- *     PsspDumpObject_Process @ 0x18012AAC0 (PsspDumpObject_Process.c)
+ *     RtlpCreateExecutionRequiredRequest @ 0x1801196A0 (RtlpCreateExecutionRequiredRequest.c)
+ *     TppExceptionFilter @ 0x1801270FC (TppExceptionFilter.c)
+ *     PsspCaptureHandleTrace @ 0x1801296A8 (PsspCaptureHandleTrace.c)
+ *     PsspCaptureProcessInformation @ 0x1801299F8 (PsspCaptureProcessInformation.c)
+ *     PsspCaptureHandleInformation @ 0x18012A714 (PsspCaptureHandleInformation.c)
+ *     PsspDumpObject_Process @ 0x18012AA90 (PsspDumpObject_Process.c)
  * Callees:
  *     <none>
  */

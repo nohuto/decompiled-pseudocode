@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbOpenDriverInfFileRegKey @ 0x140875FD8
+ * XREFs of DrvDbOpenDriverInfFileRegKey @ 0x140876218
  * Callers:
- *     DrvDbGetDriverInfFileMappedProperty @ 0x140875EB0 (DrvDbGetDriverInfFileMappedProperty.c)
- *     DrvDbDispatchDriverInfFile @ 0x140876020 (DrvDbDispatchDriverInfFile.c)
- *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x140A6BD30 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
- *     DrvDbSetDriverInfFileMappedProperty @ 0x140A6D080 (DrvDbSetDriverInfFileMappedProperty.c)
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x1408760F0 (DrvDbGetDriverInfFileMappedProperty.c)
+ *     DrvDbDispatchDriverInfFile @ 0x140876260 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x140A6BFE0 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
+ *     DrvDbSetDriverInfFileMappedProperty @ 0x140A6D330 (DrvDbSetDriverInfFileMappedProperty.c)
  * Callees:
- *     DrvDbOpenObjectRegKey @ 0x140876BB8 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140876DF8 (DrvDbOpenObjectRegKey.c)
  */
 
 __int64 __fastcall DrvDbOpenDriverInfFileRegKey(int a1, int a2, int a3, char a4, __int64 a5, __int64 a6)

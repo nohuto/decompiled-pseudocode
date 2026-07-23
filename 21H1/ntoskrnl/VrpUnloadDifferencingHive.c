@@ -20,7 +20,7 @@
  *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x1405CBE80 (VrpFindDiffHiveEntryForMountPointWithLock.c)
  */
 
-__int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
+__int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *String1)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 DiffHiveEntryForMountPointWithLock; // rax
@@ -36,23 +36,18 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
   __int64 v13; // rdx
   __int64 v14; // r8
   __int64 v15; // r9
-  __int64 v16; // rdx
-  int v17; // esi
-  struct _KTHREAD *v18; // rax
-  char v19; // bp
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  signed __int64 v24; // rax
+  NTSTATUS v16; // esi
+  struct _KTHREAD *v17; // rax
+  char v18; // bp
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  signed __int64 v23; // rax
   unsigned __int64 i; // rdx
-  signed __int64 v26; // rtt
-  __int128 v27; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v28; // [rsp+30h] [rbp-38h]
-  __int128 v29; // [rsp+40h] [rbp-28h]
+  signed __int64 v25; // rtt
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+20h] [rbp-48h] BYREF
 
-  v27 = 0LL;
-  v28 = 0LL;
-  v29 = 0LL;
+  memset(&TargetKey, 0, sizeof(TargetKey));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&gLoadedDiffHivesLock, 0LL);
@@ -81,25 +76,25 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
         ExfTryToWakePushLock(v4 + 24);
       KeAbPostRelease(v4 + 24);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
-      *((_QWORD *)&v27 + 1) = 0LL;
-      LODWORD(v27) = 48;
-      v29 = 0LL;
-      DWORD2(v28) = 576;
-      *(_QWORD *)&v28 = String1;
-      v17 = ZwUnloadKey((__int64)&v27, v16);
-      if ( v17 < 0 )
-        v17 = ZwUnloadKey2((__int64)&v27, 1LL);
-      v18 = KeGetCurrentThread();
-      --v18->KernelApcDisable;
+      TargetKey.RootDirectory = 0LL;
+      TargetKey.Length = 48;
+      *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+      TargetKey.Attributes = 576;
+      TargetKey.ObjectName = String1;
+      v16 = ZwUnloadKey(&TargetKey);
+      if ( v16 < 0 )
+        v16 = ZwUnloadKey2(&TargetKey, 1u);
+      v17 = KeGetCurrentThread();
+      --v17->KernelApcDisable;
       ExAcquirePushLockExclusiveEx(v4 + 24, 0LL);
-      if ( v17 < 0 )
+      if ( v16 < 0 )
       {
         *(_DWORD *)(v4 + 56) |= 1u;
         if ( ++*(_QWORD *)(v4 + 32) <= 1uLL )
         {
           _m_prefetchw((const void *)(v4 + 16));
-          v24 = *(_QWORD *)(v4 + 16);
-          for ( i = v24 + 1; ; i = v24 + 1 )
+          v23 = *(_QWORD *)(v4 + 16);
+          for ( i = v23 + 1; ; i = v23 + 1 )
           {
             if ( i <= 1 )
             {
@@ -107,9 +102,9 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
                 __fastfail(0xEu);
               __fastfail(0xEu);
             }
-            v26 = v24;
-            v24 = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 16), i, v24);
-            if ( v26 == v24 )
+            v25 = v23;
+            v23 = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 16), i, v23);
+            if ( v25 == v23 )
               break;
           }
         }
@@ -119,18 +114,18 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
     }
     else
     {
-      v17 = 0;
+      v16 = 0;
     }
-    v19 = _InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v19 & 2) != 0 && (v19 & 4) == 0 )
+    v18 = _InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v18 & 2) != 0 && (v18 & 4) == 0 )
       ExfTryToWakePushLock(v4 + 24);
     KeAbPostRelease(v4 + 24);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v20, v21, v22);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v19, v20, v21);
     VrpDereferenceDiffHiveEntry((PVOID)v4);
   }
   else
   {
     return (unsigned int)-1073741772;
   }
-  return (unsigned int)v17;
+  return (unsigned int)v16;
 }

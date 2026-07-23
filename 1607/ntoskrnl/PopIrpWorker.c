@@ -1,21 +1,21 @@
 /*
- * XREFs of PopIrpWorker @ 0x14012BB74
+ * XREFs of PopIrpWorker @ 0x14012C0E4
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSemaphoreEx @ 0x1400CF090 (KeReleaseSemaphoreEx.c)
- *     PoDeviceAcquireIrp @ 0x14012C0EC (PoDeviceAcquireIrp.c)
- *     PopPepDeviceDState @ 0x14012C2A0 (PopPepDeviceDState.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PsTerminateSystemThread @ 0x1404EDAF8 (PsTerminateSystemThread.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSemaphoreEx @ 0x1400CCF30 (KeReleaseSemaphoreEx.c)
+ *     PoDeviceAcquireIrp @ 0x14012C65C (PoDeviceAcquireIrp.c)
+ *     PopPepDeviceDState @ 0x14012C810 (PopPepDeviceDState.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsTerminateSystemThread @ 0x1404CFC1C (PsTerminateSystemThread.c)
  */
 
 NTSTATUS __fastcall PopIrpWorker(__int64 *Entry)
@@ -71,12 +71,12 @@ NTSTATUS __fastcall PopIrpWorker(__int64 *Entry)
   ExAcquireFastMutex(&PopIrpWorkerMutex);
   --PopIrpWorkerPendingCount;
   ++PopIrpWorkerCount;
-  if ( *(__int64 **)qword_140302778 != &PopIrpThreadList )
+  if ( *(__int64 **)qword_1403027D8 != &PopIrpThreadList )
     __fastfail(3u);
   v31[0] = &PopIrpThreadList;
-  v31[1] = qword_140302778;
-  *(_QWORD *)qword_140302778 = v31;
-  qword_140302778 = (__int64)v31;
+  v31[1] = qword_1403027D8;
+  *(_QWORD *)qword_1403027D8 = v31;
+  qword_1403027D8 = (__int64)v31;
 LABEL_7:
   KeReleaseGuardedMutex(&PopIrpWorkerMutex);
   do

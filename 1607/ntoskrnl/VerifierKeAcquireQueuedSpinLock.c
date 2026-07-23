@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeAcquireQueuedSpinLock @ 0x14070C95C
+ * XREFs of VerifierKeAcquireQueuedSpinLock @ 0x14070C98C
  * Callers:
  *     <none>
  * Callees:
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x1407130E8 (ViKeRaiseIrqlSanityChecks.c)
  */
 
@@ -14,7 +14,7 @@ __int64 __fastcall VerifierKeAcquireQueuedSpinLock(__int64 a1)
   __int64 result; // rax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  ++dword_140307208;
+  ++dword_140307248;
   v2 = retaddr;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(retaddr, 132LL);

@@ -11,7 +11,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 ObpAllocateAndQuerySecurityDescriptorInfo(ULONG_PTR BugCheckParameter2, ULONG a2, ...)
+__int64 ObpAllocateAndQuerySecurityDescriptorInfo(ULONG_PTR BugCheckParameter2, DWORD a2, ...)
 {
   _QWORD *v2; // r12
   __int64 v4; // r15
@@ -22,7 +22,7 @@ __int64 ObpAllocateAndQuerySecurityDescriptorInfo(ULONG_PTR BugCheckParameter2, 
   void *Pool2; // rax
   int v11; // [rsp+30h] [rbp-28h]
   ULONG Length; // [rsp+A0h] [rbp+48h] BYREF
-  ULONG SecurityInformation; // [rsp+A8h] [rbp+50h] BYREF
+  DWORD SecurityInformation; // [rsp+A8h] [rbp+50h] BYREF
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+B0h] [rbp+58h] BYREF
   va_list ObjectsSecurityDescriptora; // [rsp+B0h] [rbp+58h]
   _QWORD *v16; // [rsp+B8h] [rbp+60h]

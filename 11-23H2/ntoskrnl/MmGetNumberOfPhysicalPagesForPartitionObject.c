@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetNumberOfPhysicalPagesForPartitionObject @ 0x14086B248
+ * XREFs of MmGetNumberOfPhysicalPagesForPartitionObject @ 0x14086B488
  * Callers:
- *     CcInitializePartition @ 0x1403A0390 (CcInitializePartition.c)
- *     CcInitializePrivateVolumeCacheMap @ 0x1403C0AA8 (CcInitializePrivateVolumeCacheMap.c)
+ *     CcInitializePartition @ 0x1403A0570 (CcInitializePartition.c)
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403C0C88 (CcInitializePrivateVolumeCacheMap.c)
  *     CcInitializeCacheManager @ 0x140B49A88 (CcInitializeCacheManager.c)
  * Callees:
  *     <none>

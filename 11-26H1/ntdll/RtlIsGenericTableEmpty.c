@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsGenericTableEmpty @ 0x1800D7EF0
+ * XREFs of RtlIsGenericTableEmpty @ 0x1800D4EB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlIsGenericTableEmpty(_QWORD *a1)
+BOOLEAN __cdecl RtlIsGenericTableEmpty(PRTL_GENERIC_TABLE Table)
 {
-  return *a1 == 0LL;
+  return Table->TableRoot == 0LL;
 }

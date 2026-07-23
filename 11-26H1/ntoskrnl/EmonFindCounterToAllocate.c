@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonFindCounterToAllocate @ 0x1405954A4
+ * XREFs of EmonFindCounterToAllocate @ 0x140597C24
  * Callers:
- *     EmonAllocateCounter @ 0x140594CB8 (EmonAllocateCounter.c)
+ *     EmonAllocateCounter @ 0x140597438 (EmonAllocateCounter.c)
  * Callees:
  *     <none>
  */

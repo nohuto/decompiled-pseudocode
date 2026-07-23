@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCollectProfileOwnershipStatusInternal @ 0x14054574C
+ * XREFs of HalpCollectProfileOwnershipStatusInternal @ 0x14054300C
  * Callers:
- *     HalpCollectProfileOwnershipStatus @ 0x140545604 (HalpCollectProfileOwnershipStatus.c)
+ *     HalpCollectProfileOwnershipStatus @ 0x140542EC4 (HalpCollectProfileOwnershipStatus.c)
  * Callees:
- *     Feature_Test52061194__private_IsEnabledNoReportingNoInline @ 0x140441B90 (Feature_Test52061194__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_Test52061194__private_IsEnabledNoReportingNoInline @ 0x140435A90 (Feature_Test52061194__private_IsEnabledNoReportingNoInline.c)
  */
 
 __int64 __fastcall HalpCollectProfileOwnershipStatusInternal(int a1, __int64 a2, char a3, int a4)

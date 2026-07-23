@@ -1,10 +1,10 @@
 /*
  * XREFs of HalpHvInitDiscard @ 0x140B6DCC0
  * Callers:
- *     HalpHvInitSystem @ 0x140A91840 (HalpHvInitSystem.c)
+ *     HalpHvInitSystem @ 0x140A916C0 (HalpHvInitSystem.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 HalpHvInitDiscard()

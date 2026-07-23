@@ -3,12 +3,12 @@
  * Callers:
  *     WbGetInitializedEncryptionSegment @ 0x1405D702C (WbGetInitializedEncryptionSegment.c)
  * Callees:
- *     sub_1403F9654 @ 0x1403F9654 (sub_1403F9654.c)
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
- *     sub_1406873F0 @ 0x1406873F0 (sub_1406873F0.c)
- *     sub_140687AE4 @ 0x140687AE4 (sub_140687AE4.c)
+ *     sub_1403F9834 @ 0x1403F9834 (sub_1403F9834.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     sub_1405E6550 @ 0x1405E6550 (sub_1405E6550.c)
+ *     sub_1405E6C44 @ 0x1405E6C44 (sub_1405E6C44.c)
+ *     WbAlloc @ 0x140642A24 (WbAlloc.c)
  */
 
 __int64 __fastcall sub_1405D7C64(int *a1, __int64 a2, __int64 a3)
@@ -58,7 +58,7 @@ __int64 __fastcall sub_1405D7C64(int *a1, __int64 a2, __int64 a3)
   }
   else
   {
-    sub_1403F9654();
+    sub_1403F9834();
     if ( v6 )
     {
       v9 = -1073741811;
@@ -95,10 +95,10 @@ __int64 __fastcall sub_1405D7C64(int *a1, __int64 a2, __int64 a3)
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     memmove(*v15, *(const void **)(a2 + 8), v11);
-    v9 = sub_1406873F0(*(PVOID *)(a2 + 8));
+    v9 = sub_1405E6550(*(PVOID *)(a2 + 8));
     if ( v9 >= 0 )
     {
-      v9 = sub_140687AE4(*v15);
+      v9 = sub_1405E6C44(*v15);
       if ( v9 >= 0 )
       {
         if ( RtlCompareMemory(Source1, *v15, Length) != Length )
@@ -115,14 +115,14 @@ __int64 __fastcall sub_1405D7C64(int *a1, __int64 a2, __int64 a3)
         }
         else
         {
-          sub_1403F9654();
+          sub_1403F9834();
           if ( *(_DWORD *)(a3 + 48) )
           {
             v9 = -1073741811;
             goto LABEL_45;
           }
           *(_QWORD *)(a3 + 32) = *(_QWORD *)(a2 + 8) - (*((_DWORD *)*v15 + 10) & 0xFFFFFFF);
-          sub_1403F9654();
+          sub_1403F9834();
           if ( *(_DWORD *)(a3 + 48) )
           {
             v9 = -1073741811;

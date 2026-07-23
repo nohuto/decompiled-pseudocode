@@ -12,7 +12,7 @@ __int64 __fastcall ExpConvertLdrEntryToModuleInfo(__int64 a1, __int16 a2, __int6
   char *v5; // rcx
   __int16 v6; // ax
   __int64 result; // rax
-  STRING v8; // [rsp+20h] [rbp-18h] BYREF
+  _STRING v8; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)(a3 + 16) = 0LL;
   *(_QWORD *)(a3 + 24) = *(_QWORD *)(a1 + 48);

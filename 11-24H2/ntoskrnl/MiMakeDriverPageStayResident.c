@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakeDriverPageStayResident @ 0x1404373EC
+ * XREFs of MiMakeDriverPageStayResident @ 0x140429E6C
  * Callers:
- *     MiMakeDriverPagesPrivate @ 0x140436EA8 (MiMakeDriverPagesPrivate.c)
- *     MiProtectDriverSectionPte @ 0x14066B400 (MiProtectDriverSectionPte.c)
+ *     MiMakeDriverPagesPrivate @ 0x140429928 (MiMakeDriverPagesPrivate.c)
+ *     MiProtectDriverSectionPte @ 0x14066C5D0 (MiProtectDriverSectionPte.c)
  * Callees:
- *     MiGetWsleContents @ 0x1402E5390 (MiGetWsleContents.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiRemoveSystemImagePage @ 0x1404803C4 (MiRemoveSystemImagePage.c)
+ *     MiRemoveSystemImagePage @ 0x14020070C (MiRemoveSystemImagePage.c)
+ *     MiGetWsleContents @ 0x140344BE0 (MiGetWsleContents.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
-unsigned __int8 __fastcall MiMakeDriverPageStayResident(__int64 a1, __int64 a2, unsigned __int64 a3)
+unsigned __int8 __fastcall MiMakeDriverPageStayResident(__int64 a1, int a2, unsigned __int64 a3)
 {
   unsigned __int64 v4; // r9
   unsigned __int8 result; // al
@@ -34,7 +34,7 @@ unsigned __int8 __fastcall MiMakeDriverPageStayResident(__int64 a1, __int64 a2, 
           KeYieldProcessorEx(&v9);
         while ( *(__int64 *)(v8 + 24) < 0 );
       }
-      MiRemoveSystemImagePage(a2, v7, v8);
+      MiRemoveSystemImagePage(a2, (__int64)v7, v8);
       result = -1;
       _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }

@@ -23,7 +23,7 @@ __int64 __fastcall ExDisableHandleTracing(__int64 a1)
   struct _KTHREAD *v5; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v7; // r13
-  __int64 v8; // r8
+  unsigned int v8; // r8d
   bool v9; // zf
   __int64 v10; // rcx
   __int64 v11; // rdi
@@ -52,7 +52,7 @@ __int64 __fastcall ExDisableHandleTracing(__int64 a1)
     SessionId = 0xFFFFFFFFLL;
   --v5->SpecialApcDisable;
   v7 = ++v5->AbAllocationRegionCount;
-  LODWORD(v8) = ((char)v5->AbEntrySummary | (char)v5->AbOrphanedEntrySummary) ^ 0x3F;
+  v8 = ((char)v5->AbEntrySummary | (char)v5->AbOrphanedEntrySummary) ^ 0x3F;
   v9 = !_BitScanReverse((unsigned int *)&v10, v8);
   v17 = v10;
   if ( v9 )
@@ -60,7 +60,7 @@ __int64 __fastcall ExDisableHandleTracing(__int64 a1)
   while ( 1 )
   {
     v11 = (__int64)&v5->LockEntries[v10];
-    v8 = ~(1 << v10) & (unsigned int)v8;
+    v8 &= ~(1 << v10);
     if ( (*(_BYTE *)(v11 + 26) & 1) != 0
       && (*(_DWORD *)(v11 + 32) & 1) == 0
       && (*(_QWORD *)(v11 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v3 & 0x7FFFFFFFFFFFFFFCLL)
@@ -85,7 +85,7 @@ LABEL_16:
   {
     *(_BYTE *)(v11 + 32) |= 2u;
     if ( *(__int64 *)(v11 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v11, SessionId, v8);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11, SessionId);
     v16 = 0;
     v16 = *(_DWORD *)(v11 + 88) & 0x1FFFF;
     *(_DWORD *)(v11 + 88) &= 0xFFFE0000;

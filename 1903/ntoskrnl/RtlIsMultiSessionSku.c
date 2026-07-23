@@ -13,7 +13,7 @@
  *     PsGetCurrentServerSiloGlobals @ 0x1400E6EE0 (PsGetCurrentServerSiloGlobals.c)
  */
 
-char RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return *(_BYTE *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 138) + 28LL);

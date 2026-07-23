@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099F0BC
+ * XREFs of PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099F2BC
  * Callers:
- *     PopDirectedDripsNotifyTransitionFailed @ 0x140983AFC (PopDirectedDripsNotifyTransitionFailed.c)
+ *     PopDirectedDripsNotifyTransitionFailed @ 0x140983CFC (PopDirectedDripsNotifyTransitionFailed.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PopDirectedDripsDiagInsertErrorRecord @ 0x14099E1F0 (PopDirectedDripsDiagInsertErrorRecord.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PopDirectedDripsDiagInsertErrorRecord @ 0x14099E3F0 (PopDirectedDripsDiagInsertErrorRecord.c)
  */
 
 signed __int32 __fastcall PopDirectedDripsDiagTraceBroadcastFailureDevice(__int64 a1)
@@ -20,7 +20,7 @@ signed __int32 __fastcall PopDirectedDripsDiagTraceBroadcastFailureDevice(__int6
     *(_DWORD *)(v2 + 152) |= 0x20u;
   for ( i = (PVOID *)PopDirectedDripsDiagSessionContext; i != &PopDirectedDripsDiagSessionContext; i = (PVOID *)*i )
   {
-    if ( *((_DWORD *)i + 9) == dword_140C390C8 )
+    if ( *((_DWORD *)i + 9) == dword_140C391E8 )
     {
       ++*((_DWORD *)i + 53);
       if ( v2 )

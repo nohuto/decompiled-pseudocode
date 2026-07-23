@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDereferenceSegmentThread @ 0x140141554
+ * XREFs of MiDereferenceSegmentThread @ 0x140141AC4
  * Callers:
  *     <none>
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     MiDeleteEmptySubsections @ 0x140090380 (MiDeleteEmptySubsections.c)
- *     MiFreeClonePool @ 0x1400B47F4 (MiFreeClonePool.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
- *     MiProcessDereferenceList @ 0x14012259C (MiProcessDereferenceList.c)
- *     MiRemoveUnusedSegments @ 0x1401417C8 (MiRemoveUnusedSegments.c)
- *     CcUnmapInactiveViews @ 0x14014199C (CcUnmapInactiveViews.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiDeleteCachedSegment @ 0x1401DE4D8 (MiDeleteCachedSegment.c)
- *     MiDeleteControlAreaList @ 0x1401DEA38 (MiDeleteControlAreaList.c)
- *     MiProcessDeleteOnClose @ 0x1401DEEB8 (MiProcessDeleteOnClose.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     MiDeleteEmptySubsections @ 0x14008FAE0 (MiDeleteEmptySubsections.c)
+ *     MiFreeClonePool @ 0x1400B2674 (MiFreeClonePool.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
+ *     MiProcessDereferenceList @ 0x140122B0C (MiProcessDereferenceList.c)
+ *     MiRemoveUnusedSegments @ 0x140141D38 (MiRemoveUnusedSegments.c)
+ *     CcUnmapInactiveViews @ 0x140141F0C (CcUnmapInactiveViews.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiDeleteCachedSegment @ 0x1401DE304 (MiDeleteCachedSegment.c)
+ *     MiDeleteControlAreaList @ 0x1401DE864 (MiDeleteControlAreaList.c)
+ *     MiProcessDeleteOnClose @ 0x1401DECE4 (MiProcessDeleteOnClose.c)
  */
 
 void __fastcall MiDereferenceSegmentThread(int *StartContext)
@@ -37,8 +37,8 @@ void __fastcall MiDereferenceSegmentThread(int *StartContext)
   Object[4] = StartContext + 364;
   Object[3] = StartContext + 310;
   Object[5] = StartContext + 398;
-  Object[6] = &stru_140326938;
-  Object[7] = &stru_140326D18;
+  Object[6] = &stru_140326978;
+  Object[7] = &stru_140326D58;
   if ( StartContext == MiSystemPartition )
     v3 = 8;
   while ( 1 )
@@ -70,12 +70,12 @@ void __fastcall MiDereferenceSegmentThread(int *StartContext)
             MiDeleteControlAreaList(StartContext);
             break;
           case 6:
-            KeResetEvent(&stru_140326938);
+            KeResetEvent(&stru_140326978);
             MiFreeClonePool();
             break;
           case 7:
-            KeResetEvent(&stru_140326D18);
-            while ( (unsigned int)CcUnmapInactiveViews(64LL, 1LL, 0LL) && (unsigned __int64)qword_140326AC8 <= 0x8000000 )
+            KeResetEvent(&stru_140326D58);
+            while ( (unsigned int)CcUnmapInactiveViews(64LL, 1LL, 0LL) && (unsigned __int64)qword_140326B08 <= 0x8000000 )
               ;
             break;
         }

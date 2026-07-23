@@ -6,11 +6,21 @@
  *     <none>
  */
 
-__int64 NtCreateWorkerFactory()
+NTSTATUS __cdecl NtCreateWorkerFactory(
+        PHANDLE WorkerFactoryHandleReturn,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE CompletionPortHandle,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 190LL;
+  result = 190;
   __asm { syscall; Low latency system call }
   return result;
 }

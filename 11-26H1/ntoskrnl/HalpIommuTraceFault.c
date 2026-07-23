@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuTraceFault @ 0x140502F70
+ * XREFs of HalpIommuTraceFault @ 0x1404FC840
  * Callers:
- *     HalpIommuReportIommuFault @ 0x1405A02C0 (HalpIommuReportIommuFault.c)
+ *     HalpIommuReportIommuFault @ 0x1405A2AB0 (HalpIommuReportIommuFault.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void HalpIommuTraceFault(__int64 a1, __int64 a2, int a3, ...)
@@ -53,11 +53,11 @@ void HalpIommuTraceFault(__int64 a1, __int64 a2, int a3, ...)
     KxAcquireSpinLock(&HalpIommuEarlyFaultRecordsLock);
     if ( (HalpIommuEarlyFaultRecords & 1) == 0 )
     {
-      qword_140F87748 = v10;
-      qword_140F87750 = v11;
-      dword_140F87744 = v12;
+      qword_140F87B48 = v10;
+      qword_140F87B50 = v11;
+      dword_140F87B44 = v12;
       HalpIommuEarlyFaultRecords |= 1u;
-      qword_140F87758 = v13;
+      qword_140F87B58 = v13;
       KiInsertQueueDpc((ULONG_PTR)&HalpDeviceBlockUnblockPushLock.SystemCallNumber, 0LL, 0LL, 0LL, 0);
     }
     KxReleaseSpinLock(&HalpIommuEarlyFaultRecordsLock);

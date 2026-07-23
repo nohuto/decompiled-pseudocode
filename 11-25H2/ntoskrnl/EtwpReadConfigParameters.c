@@ -23,12 +23,11 @@ NTSTATUS EtwpReadConfigParameters()
   unsigned int *v7; // [rsp+88h] [rbp-78h]
   int v8; // [rsp+90h] [rbp-70h] BYREF
   _DWORD *v9; // [rsp+98h] [rbp-68h]
-  _QWORD v10[4]; // [rsp+B0h] [rbp-50h] BYREF
-  int v11; // [rsp+D0h] [rbp-30h]
-  __int64 (__fastcall *v12)(__int64, int, const WCHAR *, unsigned int, __int64, __int64); // [rsp+E8h] [rbp-18h]
-  const wchar_t *v13; // [rsp+F8h] [rbp-8h]
-  int *v14; // [rsp+100h] [rbp+0h]
-  int v15; // [rsp+108h] [rbp+8h]
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 (__fastcall *v11)(__int64, int, const WCHAR *, unsigned int, __int64, __int64); // [rsp+E8h] [rbp-18h]
+  const wchar_t *v12; // [rsp+F8h] [rbp-8h]
+  int *v13; // [rsp+100h] [rbp+0h]
+  int v14; // [rsp+108h] [rbp+8h]
 
   v2 = 10;
   *(&ObjectAttributes.Attributes + 1) = 0;
@@ -43,20 +42,20 @@ NTSTATUS EtwpReadConfigParameters()
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey((PHANDLE)&v3[1], 0x20019u, &ObjectAttributes) < 0 )
     goto LABEL_10;
-  memset_0(v10, 0, 0xA8uLL);
-  v10[0] = EtwpQueryRegistryCallback;
-  v11 = 4;
-  v10[3] = &v6;
+  memset_0(&QueryTable, 0, 0xA8uLL);
+  QueryTable.QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))EtwpQueryRegistryCallback;
+  QueryTable.DefaultType = 4;
+  QueryTable.EntryContext = &v6;
   v6 = 4;
-  v10[2] = L"MaxNonPagedPoolUsage";
-  v12 = EtwpQueryRegistryCallback;
+  QueryTable.Name = L"MaxNonPagedPoolUsage";
+  v11 = EtwpQueryRegistryCallback;
   v7 = &v2;
-  v15 = 4;
-  v14 = &v8;
-  v13 = L"StackCaptureTimeout";
+  v14 = 4;
+  v13 = &v8;
+  v12 = L"StackCaptureTimeout";
   v8 = 4;
   v9 = v3;
-  if ( (int)RtlQueryRegistryValuesEx(0x40000000, v3[1], (int)v10, 0) < 0 )
+  if ( RtlQueryRegistryValuesEx(0x40000000u, *(PCWSTR *)&v3[1], &QueryTable, 0LL, 0LL) < 0 )
   {
 LABEL_10:
     result = v2;

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledNoReportingNoInline @ 0x1405E957C
+ * XREFs of Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledNoReportingNoInline @ 0x1405EBEEC
  * Callers:
- *     KeFlushQueuedDpcs @ 0x14051BE50 (KeFlushQueuedDpcs.c)
+ *     KeFlushQueuedDpcs @ 0x1405163E0 (KeFlushQueuedDpcs.c)
  * Callees:
- *     Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledFallback @ 0x1405E955C (Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledFallback.c)
+ *     Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledFallback @ 0x1405EBECC (Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_FlushQueuedDpcsAtDispatchLevel__private_IsEnabledNoReportingNoInline()

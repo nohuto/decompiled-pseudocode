@@ -10,18 +10,18 @@
  *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
  */
 
-__int64 __fastcall sub_180086558(__int64 *a1)
+__int64 __fastcall sub_180086558(ULONGLONG *CallbackContext)
 {
-  __int128 v2; // xmm0
-  int v3; // eax
-  unsigned int v4; // ebx
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
+  GUID v2; // xmm0
+  NTSTATUS v3; // eax
+  unsigned __int32 v4; // ebx
+  GUID ProviderId; // [rsp+20h] [rbp-28h] BYREF
 
-  v2 = *(_OWORD *)(a1[1] - 16);
-  a1[5] = 0LL;
-  a1[6] = 0LL;
-  v6 = v2;
-  v3 = EtwEventRegister((int)&v6, (__int64)sub_1800872D0, (__int64)a1, (__int64)(a1 + 4));
+  v2 = *(GUID *)(CallbackContext[1] - 16);
+  CallbackContext[5] = 0LL;
+  CallbackContext[6] = 0LL;
+  ProviderId = v2;
+  v3 = EtwEventRegister(&ProviderId, EnableCallback, CallbackContext, CallbackContext + 4);
   v4 = v3;
   if ( v3 )
   {
@@ -30,7 +30,11 @@ __int64 __fastcall sub_180086558(__int64 *a1)
   }
   else
   {
-    EtwEventSetInformation(a1[4], 2, a1[1], *(unsigned __int16 *)a1[1]);
+    EtwEventSetInformation(
+      CallbackContext[4],
+      (EVENT_INFO_CLASS)2,
+      (PVOID)CallbackContext[1],
+      *(unsigned __int16 *)CallbackContext[1]);
   }
   return v4;
 }

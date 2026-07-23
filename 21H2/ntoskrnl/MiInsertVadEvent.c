@@ -1,47 +1,51 @@
 /*
- * XREFs of MiInsertVadEvent @ 0x14025B9BC
+ * XREFs of MiInsertVadEvent @ 0x14027CF2C
  * Callers:
- *     MiWaitForVadDeletion @ 0x14055BE10 (MiWaitForVadDeletion.c)
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
- *     MiCreateVadEventBitmap @ 0x14069F4CC (MiCreateVadEventBitmap.c)
- *     MiCreateRotateView @ 0x1406BD8A0 (MiCreateRotateView.c)
- *     MiCreateUserPhysicalView @ 0x1408D5BA8 (MiCreateUserPhysicalView.c)
- *     MiCreatePlaceholderStorage @ 0x1408D82D8 (MiCreatePlaceholderStorage.c)
- *     MiCreateLargePageVad @ 0x1408D9F64 (MiCreateLargePageVad.c)
+ *     MiWaitForVadDeletion @ 0x14055C050 (MiWaitForVadDeletion.c)
+ *     MiCreateVadEventBitmap @ 0x1405FE810 (MiCreateVadEventBitmap.c)
+ *     MiCreateRotateView @ 0x14061CAB0 (MiCreateRotateView.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiAddSecureEntry @ 0x140689430 (MiAddSecureEntry.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5D08 (MiCreateUserPhysicalView.c)
+ *     MiCreatePlaceholderStorage @ 0x1408D8438 (MiCreatePlaceholderStorage.c)
+ *     MiCreateLargePageVad @ 0x1408DA0C4 (MiCreateLargePageVad.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
  */
 
-void __fastcall MiInsertVadEvent(__int64 a1, _QWORD *a2, int a3)
+__int64 __fastcall MiInsertVadEvent(__int64 a1, __int64 *a2, int a3)
 {
+  __int64 *v3; // rsi
   LONG *v5; // rdi
   _KPROCESS *Process; // rbx
   char v7; // al
-  __int64 v8; // rbx
+  unsigned __int64 *v8; // rbx
   KIRQL v9; // al
-  unsigned __int8 v10; // dl
+  __int64 result; // rax
 
+  v3 = a2;
   if ( a3 == 1 )
   {
-    v5 = &dword_140C4F780;
+    v5 = &dword_140C4F7C0;
     Process = KeGetCurrentThread()->ApcState.Process;
     v7 = Process[1].IdealProcessorPadding[10];
-    v8 = (__int64)&Process[1].ActiveProcessorsPadding[6];
+    v8 = &Process[1].ActiveProcessorsPadding[6];
     if ( (v7 & 7) != 2 )
-      v5 = (LONG *)(v8 + 192);
+      v5 = (LONG *)(v8 + 24);
     v9 = ExAcquireSpinLockExclusive(v5);
     v5[1] = 0;
-    v10 = v9;
+    LOBYTE(a2) = v9;
   }
   else
   {
-    v10 = 17;
+    LOBYTE(a2) = 17;
     v8 = 0LL;
   }
-  *a2 = *(_QWORD *)(a1 + 56);
-  *(_QWORD *)(a1 + 56) = a2;
-  if ( v10 != 17 )
-    MiUnlockWorkingSetExclusive(v8, v10);
+  result = *(_QWORD *)(a1 + 56);
+  *v3 = result;
+  *(_QWORD *)(a1 + 56) = v3;
+  if ( (_BYTE)a2 != 17 )
+    return MiUnlockWorkingSetExclusive(v8, a2);
+  return result;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpStartRMLog @ 0x1404DAAE0
+ * XREFs of CmpStartRMLog @ 0x1404BE0E4
  * Callers:
- *     CmpInitCmRM @ 0x14049EB58 (CmpInitCmRM.c)
- *     CmpStartRMLogs @ 0x1404DA6EC (CmpStartRMLogs.c)
+ *     CmpStartRMLogs @ 0x1404BDCF0 (CmpStartRMLogs.c)
+ *     CmpInitCmRM @ 0x140516F64 (CmpInitCmRM.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpQueryFileSecurityDescriptor @ 0x1403F6164 (CmpQueryFileSecurityDescriptor.c)
- *     RtlStringFromGUIDEx @ 0x1403F7E8C (RtlStringFromGUIDEx.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     CmpQueryNameString @ 0x14049B4E4 (CmpQueryNameString.c)
- *     LockRMLog @ 0x1404A1D3C (LockRMLog.c)
- *     CmpStartCLFSLog @ 0x1404DAE78 (CmpStartCLFSLog.c)
- *     CmpRmAnalysisPhase @ 0x1406055CC (CmpRmAnalysisPhase.c)
- *     CmpRmReDoPhase @ 0x1406057D4 (CmpRmReDoPhase.c)
- *     CmpRmUnDoPhase @ 0x14060597C (CmpRmUnDoPhase.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1403F5028 (CmpQueryFileSecurityDescriptor.c)
+ *     RtlStringFromGUIDEx @ 0x1403F6D4C (RtlStringFromGUIDEx.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     CmpStartCLFSLog @ 0x1404BE47C (CmpStartCLFSLog.c)
+ *     CmpQueryNameString @ 0x1404CC8A8 (CmpQueryNameString.c)
+ *     LockRMLog @ 0x14051A148 (LockRMLog.c)
+ *     CmpRmAnalysisPhase @ 0x140605680 (CmpRmAnalysisPhase.c)
+ *     CmpRmReDoPhase @ 0x140605888 (CmpRmReDoPhase.c)
+ *     CmpRmUnDoPhase @ 0x140605A30 (CmpRmUnDoPhase.c)
  */
 
 __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
@@ -50,13 +50,13 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CLFS_LSN plsn2; // [rsp+50h] [rbp-79h] BYREF
   PVOID pvCursorContext; // [rsp+58h] [rbp-71h] BYREF
   PVOID P; // [rsp+60h] [rbp-69h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-61h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-61h] BYREF
   ULONG pcbInfoBuffer; // [rsp+78h] [rbp-51h] BYREF
   ULONG pcbRestartBuffer; // [rsp+7Ch] [rbp-4Dh] BYREF
   ULONG pcbReadBuffer; // [rsp+80h] [rbp-49h] BYREF
   PVOID pvReadContext; // [rsp+88h] [rbp-41h] BYREF
   PCUNICODE_STRING Source; // [rsp+90h] [rbp-39h]
-  UNICODE_STRING v40; // [rsp+98h] [rbp-31h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+98h] [rbp-31h] BYREF
   PVOID ppvRestartBuffer; // [rsp+A8h] [rbp-21h] BYREF
   CLFS_LSN plsn; // [rsp+B0h] [rbp-19h] BYREF
   CLFS_LSN plsnFirst; // [rsp+B8h] [rbp-11h] BYREF
@@ -71,14 +71,14 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
 
   v2 = 0;
   v50 = 1;
-  *(_DWORD *)&v40.Length = 0;
-  v40.Buffer = 0LL;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   pcbRestartBuffer = 0;
   pvCursorContext = 0LL;
   P = 0LL;
-  LockRMLog((__int64)a1);
+  LockRMLog(a1);
   if ( (*((_DWORD *)a1 + 26) & 1) != 0 )
     goto LABEL_41;
   PoolWithTag = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
@@ -98,10 +98,7 @@ LABEL_41:
     Source = &CmpLogPath;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(qword_1402F2E60 + 64) + 128LL) = *a2;
-    started = RtlStringFromGUIDEx(
-                (unsigned int *)(*(_QWORD *)(qword_1402F2E60 + 64) + 128LL),
-                (__int64)&UnicodeString,
-                1);
+    started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(qword_1402F2E60 + 64) + 128LL), &GuidString, 1u);
     if ( started < 0 )
       goto LABEL_33;
     v8 = (__int64)(a1 + 72);
@@ -110,16 +107,13 @@ LABEL_41:
   }
   else
   {
-    started = CmpQueryNameString(*(void **)(*((_QWORD *)a1 + 10) + 2664LL), &v40);
+    started = CmpQueryNameString(*(_QWORD *)(*((_QWORD *)a1 + 10) + 2664LL), &UnicodeString);
     if ( started < 0 )
       goto LABEL_33;
-    Source = &v40;
+    Source = &UnicodeString;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL) = *a2;
-    started = RtlStringFromGUIDEx(
-                (unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL),
-                (__int64)&UnicodeString,
-                1);
+    started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL), &GuidString, 1u);
     if ( started < 0 )
       goto LABEL_33;
     v9 = *((_QWORD *)a1 + 10);
@@ -138,7 +132,7 @@ LABEL_41:
     v12 = (__int64)(a1 + 68);
     while ( 1 )
     {
-      started = CmpStartCLFSLog(Source, &UnicodeString, ppvReadContext, v8, v12, (__int64)v11, (__int64)(a1 + 96));
+      started = CmpStartCLFSLog(Source, &GuidString, ppvReadContext, v8, v12, (__int64)v11, (__int64)(a1 + 96));
       if ( started < 0 )
         break;
       pcbInfoBuffer = 120;
@@ -258,10 +252,10 @@ LABEL_41:
 LABEL_33:
   ExReleaseResourceLite(*((PERESOURCE *)a1 + 16));
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v21, v22, v23);
-  if ( v40.Buffer )
-    RtlFreeAnsiString(&v40);
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
   ExFreePoolWithTag(PoolWithTag, 0);
   if ( P )
     ExFreePoolWithTag(P, 0);

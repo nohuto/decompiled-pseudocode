@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline @ 0x1405DAE78
+ * XREFs of Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline @ 0x1405DD678
  * Callers:
- *     PiIsDriverBlocked @ 0x140A250AC (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x140A3814C (PiIsDriverBlocked.c)
  * Callees:
- *     Feature_HvciScanHvptHandling__private_IsEnabledFallback @ 0x1405DAEB4 (Feature_HvciScanHvptHandling__private_IsEnabledFallback.c)
+ *     Feature_HvciScanHvptHandling__private_IsEnabledFallback @ 0x1405DD6B4 (Feature_HvciScanHvptHandling__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline()

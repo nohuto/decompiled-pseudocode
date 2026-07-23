@@ -1,54 +1,46 @@
 /*
- * XREFs of TppStopWaitCallbackGeneration @ 0x180110540
+ * XREFs of TppStopWaitCallbackGeneration @ 0x18010B800
  * Callers:
  *     <none>
  * Callees:
- *     TppFreeWait @ 0x1800204A0 (TppFreeWait.c)
- *     TppTimerpFree @ 0x1800204F0 (TppTimerpFree.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppCancelWait @ 0x18006ADE0 (TppCancelWait.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     TppFreeWait @ 0x18004CEA0 (TppFreeWait.c)
+ *     TppTimerpFree @ 0x18004CEF0 (TppTimerpFree.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppCancelWait @ 0x1800876C0 (TppCancelWait.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppStopWaitCallbackGeneration(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __fastcall TppStopWaitCallbackGeneration(__int64 a1, int a2)
 {
-  __int64 v3; // rdi
-  volatile signed __int64 *v4; // rsi
-  int v6; // ebx
-  __int64 result; // rax
-  unsigned int v8; // ecx
-  __int64 (__fastcall *v9)(__int64); // rax
-  signed int v10; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // rdi
+  _RTL_SRWLOCK *v3; // rsi
+  signed int v6; // ecx
+  void (__fastcall *v7)(__int64); // rax
+  signed int v8; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 144);
-  v4 = (volatile signed __int64 *)(a1 + 240);
-  v10 = 0;
-  v6 = (int)a2;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240), a2, a3);
-  TppCancelWait(a1, v3 + 112, v6 != 0 ? 2 : 0, &v10);
+  v2 = *(_QWORD *)(a1 + 144);
+  v3 = (_RTL_SRWLOCK *)(a1 + 240);
+  v8 = 0;
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  TppCancelWait(a1, v2 + 112, a2 != 0 ? 2 : 0, &v8);
   ++*(_BYTE *)(a1 + 355);
-  result = RtlReleaseSRWLockExclusive(v4);
-  if ( v10 < 0 )
+  RtlReleaseSRWLockExclusive(v3);
+  v6 = v8;
+  if ( v8 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a1, v8) == -v6 )
   {
-    v8 = -v10;
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, v10);
-    if ( (_DWORD)result == v8 )
+    v7 = **(void (__fastcall ***)(__int64))(a1 + 8);
+    if ( (char *)v7 == (char *)TppFreeWait )
     {
-      v9 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-      if ( v9 == TppFreeWait )
-      {
-        return TppFreeWait(a1);
-      }
-      else if ( v9 == TppTimerpFree )
-      {
-        return TppTimerpFree(a1);
-      }
-      else
-      {
-        return v9(a1);
-      }
+      TppFreeWait(a1);
+    }
+    else if ( (char *)v7 == (char *)TppTimerpFree )
+    {
+      TppTimerpFree((void *)a1);
+    }
+    else
+    {
+      v7(a1);
     }
   }
-  return result;
 }

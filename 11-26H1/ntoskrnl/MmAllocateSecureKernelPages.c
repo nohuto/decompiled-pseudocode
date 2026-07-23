@@ -1,24 +1,24 @@
 /*
- * XREFs of MmAllocateSecureKernelPages @ 0x1404E93EC
+ * XREFs of MmAllocateSecureKernelPages @ 0x1404E279C
  * Callers:
- *     PspIumAllocatePhysicalPages @ 0x1406163D0 (PspIumAllocatePhysicalPages.c)
+ *     PspIumAllocatePhysicalPages @ 0x1406193C0 (PspIumAllocatePhysicalPages.c)
  * Callees:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiIsPfnFromChargedSlabAllocation @ 0x140309350 (MiIsPfnFromChargedSlabAllocation.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiInitializeMdlPfn @ 0x14033BC60 (MiInitializeMdlPfn.c)
- *     MiPartitionObjectToPartition @ 0x1403486D4 (MiPartitionObjectToPartition.c)
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiIsPfnFromChargedSlabAllocation @ 0x1402EB3D0 (MiIsPfnFromChargedSlabAllocation.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiInitializeMdlPfn @ 0x14033DCE0 (MiInitializeMdlPfn.c)
+ *     MiPartitionObjectToPartition @ 0x14034A754 (MiPartitionObjectToPartition.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MmAllocateSecureKernelPages(

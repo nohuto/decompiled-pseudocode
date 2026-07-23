@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpFreeMessageFunction @ 0x1407C6190
+ * XREFs of AlpcpFreeMessageFunction @ 0x1407C6460
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExDestroyHandle @ 0x14073FA9C (ExDestroyHandle.c)
- *     ExMapHandleToPointerEx @ 0x1407C6238 (ExMapHandleToPointerEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExDestroyHandle @ 0x14073FC8C (ExDestroyHandle.c)
+ *     ExMapHandleToPointerEx @ 0x1407C6508 (ExMapHandleToPointerEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

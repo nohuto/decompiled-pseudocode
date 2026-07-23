@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTrimNoStealPagesFromWorkingSets @ 0x140531354
+ * XREFs of MiTrimNoStealPagesFromWorkingSets @ 0x140533854
  * Callers:
- *     MiFindContiguousPagesRetry @ 0x14028F92C (MiFindContiguousPagesRetry.c)
+ *     MiFindContiguousPagesRetry @ 0x14028EE8C (MiFindContiguousPagesRetry.c)
  * Callees:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
  */
 
 __int64 __fastcall MiTrimNoStealPagesFromWorkingSets(__int64 a1, char a2)
@@ -14,7 +14,7 @@ __int64 __fastcall MiTrimNoStealPagesFromWorkingSets(__int64 a1, char a2)
   __int128 v6; // [rsp+2Ch] [rbp-1Ch]
   int v7; // [rsp+3Ch] [rbp-Ch]
 
-  if ( LOBYTE(stru_140E36558.ReadyTime) )
+  if ( LOBYTE(stru_140E366D8.ReadyTime) )
   {
     v2 = 0;
     if ( (a2 & 2) != 0 && *(__int64 *)(a1 + 2136) > 1 )

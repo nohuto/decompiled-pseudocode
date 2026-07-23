@@ -11,70 +11,70 @@
  *     RtlpCapabilityCheckSystemCapability @ 0x18007A3A0 (RtlpCapabilityCheckSystemCapability.c)
  *     LdrpIsModuleUnderSystem32 @ 0x18007C6B0 (LdrpIsModuleUnderSystem32.c)
  *     LdrpCompareModuleName @ 0x1800850A4 (LdrpCompareModuleName.c)
- *     LdrpInitializeApplicationVerifierPackage @ 0x1800D0BE0 (LdrpInitializeApplicationVerifierPackage.c)
- *     LdrpCompareRedirectedFunction @ 0x1800D525C (LdrpCompareRedirectedFunction.c)
- *     RtlpIsEmptyImageFileOptionsKey @ 0x1800E38D8 (RtlpIsEmptyImageFileOptionsKey.c)
- *     RtlpMatchUILanguage @ 0x1800FD53C (RtlpMatchUILanguage.c)
- *     RtlpMatchUserLanguage @ 0x1800FD604 (RtlpMatchUserLanguage.c)
+ *     LdrpInitializeApplicationVerifierPackage @ 0x1800D0BA0 (LdrpInitializeApplicationVerifierPackage.c)
+ *     LdrpCompareRedirectedFunction @ 0x1800D521C (LdrpCompareRedirectedFunction.c)
+ *     RtlpIsEmptyImageFileOptionsKey @ 0x1800E3898 (RtlpIsEmptyImageFileOptionsKey.c)
+ *     RtlpMatchUILanguage @ 0x1800FD4FC (RtlpMatchUILanguage.c)
+ *     RtlpMatchUserLanguage @ 0x1800FD5C4 (RtlpMatchUserLanguage.c)
  * Callees:
  *     NLS_UPCASE @ 0x180016160 (NLS_UPCASE.c)
  */
 
-__int64 __fastcall RtlCompareUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+LONG __cdecl RtlCompareUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  unsigned __int16 *v3; // r9
+  wchar_t *Buffer; // r9
   unsigned __int64 v4; // rsi
   unsigned __int64 v5; // rbp
   unsigned __int64 v6; // rax
-  unsigned __int16 *v7; // r11
-  __int64 v8; // rbx
+  wchar_t *v7; // r11
+  char *v8; // rbx
   __int64 v9; // rcx
   unsigned __int16 v11; // r10
   int v12; // edi
   int v13; // eax
   int v14; // ecx
-  __int64 v15; // rdx
+  char *v15; // rdx
 
-  v3 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  v4 = (unsigned __int64)*a1 >> 1;
-  v5 = (unsigned __int64)*a2 >> 1;
+  Buffer = String1->Buffer;
+  v4 = (unsigned __int64)String1->Length >> 1;
+  v5 = (unsigned __int64)String2->Length >> 1;
   v6 = v4;
   if ( v4 > v5 )
-    v6 = (unsigned __int64)*a2 >> 1;
-  v7 = &v3[v6];
-  if ( v3 >= v7 )
-    return (unsigned int)(v4 - v5);
-  if ( a3 )
+    v6 = (unsigned __int64)String2->Length >> 1;
+  v7 = &Buffer[v6];
+  if ( Buffer >= v7 )
+    return v4 - v5;
+  if ( CaseInSensitive )
   {
-    v8 = *((_QWORD *)a2 + 1) - (_QWORD)v3;
+    v8 = (char *)((char *)String2->Buffer - (char *)Buffer);
     while ( 1 )
     {
-      v9 = *v3;
-      if ( (_WORD)v9 != *(unsigned __int16 *)((char *)v3 + v8) )
+      v9 = *Buffer;
+      if ( (_WORD)v9 != *(wchar_t *)((char *)Buffer + (_QWORD)v8) )
       {
         v12 = (unsigned __int16)NLS_UPCASE(v9);
         LOWORD(v13) = NLS_UPCASE(v11);
         if ( (_WORD)v12 != (_WORD)v13 )
           break;
       }
-      if ( ++v3 >= v7 )
-        return (unsigned int)(v4 - v5);
+      if ( ++Buffer >= v7 )
+        return v4 - v5;
     }
     v13 = (unsigned __int16)v13;
     v14 = v12;
   }
   else
   {
-    v15 = *((_QWORD *)a2 + 1) - (_QWORD)v3;
+    v15 = (char *)((char *)String2->Buffer - (char *)Buffer);
     while ( 1 )
     {
-      v14 = *v3;
-      v13 = *(unsigned __int16 *)((char *)v3 + v15);
+      v14 = *Buffer;
+      v13 = *(unsigned __int16 *)((char *)Buffer + (_QWORD)v15);
       if ( (_WORD)v14 != (_WORD)v13 )
         break;
-      if ( ++v3 >= v7 )
-        return (unsigned int)(v4 - v5);
+      if ( ++Buffer >= v7 )
+        return v4 - v5;
     }
   }
-  return (unsigned int)(v14 - v13);
+  return v14 - v13;
 }

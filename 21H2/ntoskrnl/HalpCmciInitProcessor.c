@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpCmciInitProcessor @ 0x140999D20
+ * XREFs of HalpCmciInitProcessor @ 0x14099AD20
  * Callers:
- *     HalpMcaResumeProcessorConfig @ 0x140995A40 (HalpMcaResumeProcessorConfig.c)
- *     HalpInitializeCmc @ 0x1409A11B8 (HalpInitializeCmc.c)
- *     HalpCmciInit @ 0x1409A1244 (HalpCmciInit.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140996A40 (HalpMcaResumeProcessorConfig.c)
+ *     HalpInitializeCmc @ 0x1409A20E8 (HalpInitializeCmc.c)
+ *     HalpCmciInit @ 0x1409A2174 (HalpCmciInit.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     HalpCmciPollProcessor @ 0x1403A0AAC (HalpCmciPollProcessor.c)
- *     HalpGetMcaPcrContext @ 0x1403A0BC8 (HalpGetMcaPcrContext.c)
- *     HalpCmciSetProcessorConfig @ 0x1403A0BF8 (HalpCmciSetProcessorConfig.c)
- *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     HalpCmciPollProcessor @ 0x1403A0BFC (HalpCmciPollProcessor.c)
+ *     HalpGetMcaPcrContext @ 0x1403A0D18 (HalpGetMcaPcrContext.c)
+ *     HalpCmciSetProcessorConfig @ 0x1403A0D48 (HalpCmciSetProcessorConfig.c)
+ *     HalpGetCpuInfo @ 0x1403A10C0 (HalpGetCpuInfo.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIsCmciImplementedAMD @ 0x1409A6F8C (HalpIsCmciImplementedAMD.c)
+ *     HalpIsCmciImplementedAMD @ 0x1409A7EBC (HalpIsCmciImplementedAMD.c)
  */
 
 BOOLEAN __fastcall HalpCmciInitProcessor(__int64 a1, __int64 a2)

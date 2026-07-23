@@ -1,9 +1,9 @@
 /*
- * XREFs of KiNotifyAvailableCpusChangeCpuPartition @ 0x1405E5B9C
+ * XREFs of KiNotifyAvailableCpusChangeCpuPartition @ 0x1405E850C
  * Callers:
- *     KiAddCpuToSystemCpuPartition @ 0x140BF54BC (KiAddCpuToSystemCpuPartition.c)
+ *     KiAddCpuToSystemCpuPartition @ 0x140BFB4BC (KiAddCpuToSystemCpuPartition.c)
  * Callees:
- *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404E01D0 (KiAvailableCpusSubscriptionQueueWorkItem.c)
+ *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404D98B0 (KiAvailableCpusSubscriptionQueueWorkItem.c)
  */
 
 void __fastcall KiNotifyAvailableCpusChangeCpuPartition(__int64 a1)

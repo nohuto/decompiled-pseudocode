@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmCreateDevicePanel @ 0x14081C7C0
+ * XREFs of _CmCreateDevicePanel @ 0x14081CF00
  * Callers:
- *     _CmAddPanelDeviceWorker @ 0x14081C610 (_CmAddPanelDeviceWorker.c)
- *     _CmUpdateDevicePanel @ 0x14098EE00 (_CmUpdateDevicePanel.c)
+ *     _CmAddPanelDeviceWorker @ 0x14081CD50 (_CmAddPanelDeviceWorker.c)
+ *     _CmUpdateDevicePanel @ 0x140979E38 (_CmUpdateDevicePanel.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmCreateDevicePanelWorker @ 0x14081C920 (_CmCreateDevicePanelWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmCreateDevicePanelWorker @ 0x14081D060 (_CmCreateDevicePanelWorker.c)
  */
 
 __int64 __fastcall CmCreateDevicePanel(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4, _BYTE *a5)
@@ -30,7 +30,7 @@ __int64 __fastcall CmCreateDevicePanel(__int64 a1, __int64 a2, __int64 a3, HANDL
   v15 = 4;
   if ( v8 )
   {
-    v9 = guard_dispatch_icall_no_overrides(a1, a2, 6LL, 2LL);
+    v9 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v9 == -1073741822 )
     {
       v8 = 0LL;
@@ -48,7 +48,7 @@ __int64 __fastcall CmCreateDevicePanel(__int64 a1, __int64 a2, __int64 a3, HANDL
   if ( v8 )
   {
     v14[0] = DevicePanelWorker;
-    v12 = guard_dispatch_icall_no_overrides(a1, a2, 6LL, 2LL);
+    v12 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v12 != -1073741822 )
     {
       if ( v12 != -1073741536 )

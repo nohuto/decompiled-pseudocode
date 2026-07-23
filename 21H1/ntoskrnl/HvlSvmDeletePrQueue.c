@@ -14,6 +14,6 @@ __int64 __fastcall HvlSvmDeletePrQueue(int a1)
 
   v3[1] = 0;
   v3[0] = a1;
-  v1 = HvcallFastExtended(65704LL, (__int64)v3, 8LL, 0LL, 0);
+  v1 = HvcallFastExtended(65704LL, (__int64)v3, 8u, 0, 0);
   return HvlpHvToNtStatus(v1);
 }

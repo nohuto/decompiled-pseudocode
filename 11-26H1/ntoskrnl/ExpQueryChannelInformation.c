@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpQueryChannelInformation @ 0x140B66418
+ * XREFs of ExpQueryChannelInformation @ 0x140B693A4
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetProcessPartitionId @ 0x1404A9E18 (MmGetProcessPartitionId.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     MmGetChannelInformation @ 0x140B0D228 (MmGetChannelInformation.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmGetProcessPartitionId @ 0x1404A34A8 (MmGetProcessPartitionId.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     MmGetChannelInformation @ 0x140B0E978 (MmGetChannelInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryChannelInformation(unsigned int *a1, unsigned int a2, _DWORD *a3, char a4)

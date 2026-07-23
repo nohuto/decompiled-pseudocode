@@ -1,14 +1,14 @@
 /*
- * XREFs of SepRemoveTokenLogonSession @ 0x1409D0334
+ * XREFs of SepRemoveTokenLogonSession @ 0x1409D0534
  * Callers:
- *     SepLinkLogonSessions @ 0x1403542A0 (SepLinkLogonSessions.c)
- *     SepTokenDeleteMethod @ 0x140729590 (SepTokenDeleteMethod.c)
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
- *     SepSetServerSiloToken @ 0x1409C9A20 (SepSetServerSiloToken.c)
+ *     SepLinkLogonSessions @ 0x140354440 (SepLinkLogonSessions.c)
+ *     SepTokenDeleteMethod @ 0x140729790 (SepTokenDeleteMethod.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
+ *     SepSetServerSiloToken @ 0x1409C9C20 (SepSetServerSiloToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

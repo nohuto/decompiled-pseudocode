@@ -10,36 +10,39 @@
  *     NtdllpFreeStringRoutine @ 0x18006D930 (NtdllpFreeStringRoutine.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeString(__int64 a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   unsigned __int16 v5; // ax
   __int64 v6; // r9
   __int64 v7; // r11
-  unsigned __int16 v8; // r8
-  unsigned int v10; // eax
-  __int64 StringRoutine; // rax
+  wchar_t v8; // r8
+  unsigned int Length; // eax
+  wchar_t *StringRoutine; // rax
 
-  if ( a3 )
+  if ( AllocateDestinationString )
   {
-    v10 = *a2;
-    *(_WORD *)(a1 + 2) = v10;
-    StringRoutine = NtdllpAllocateStringRoutine(v10, a2);
-    *(_QWORD *)(a1 + 8) = StringRoutine;
+    Length = SourceString->Length;
+    DestinationString->MaximumLength = Length;
+    StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(Length, SourceString);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
-      return 3221225495LL;
-    v5 = *a2;
+      return -1073741801;
+    v5 = SourceString->Length;
   }
   else
   {
-    v5 = *a2;
-    if ( *a2 > *(_WORD *)(a1 + 2) )
-      return 2147483653LL;
+    v5 = SourceString->Length;
+    if ( SourceString->Length > DestinationString->MaximumLength )
+      return -2147483643;
   }
   v6 = 0LL;
   v7 = Nls844UnicodeUpcaseTable;
   while ( (unsigned int)v6 < v5 >> 1 )
   {
-    v8 = *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * v6);
+    v8 = SourceString->Buffer[v6];
     if ( v8 >= 0x61u )
     {
       if ( v8 <= 0x7Au )
@@ -55,12 +58,12 @@ __int64 __fastcall RtlUpcaseUnicodeString(__int64 a1, unsigned __int16 *a2, char
                           + (unsigned int)*(unsigned __int16 *)(v7
                                                               + 2LL
                                                               * (((v8 >> 4) & 0xF)
-                                                               + (unsigned int)*(unsigned __int16 *)(v7 + 2 * ((unsigned __int64)v8 >> 8))))));
+                                                               + (unsigned int)*(unsigned __int16 *)(v7 + 2LL * HIBYTE(v8))))));
       }
     }
-    *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * v6) = v8;
+    DestinationString->Buffer[v6] = v8;
     v6 = (unsigned int)(v6 + 1);
   }
-  *(_WORD *)a1 = *a2;
-  return 0LL;
+  DestinationString->Length = SourceString->Length;
+  return 0;
 }

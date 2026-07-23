@@ -1,5 +1,5 @@
 /*
- * XREFs of HaliGetInterruptTranslator @ 0x140864810
+ * XREFs of HaliGetInterruptTranslator @ 0x140864A50
  * Callers:
  *     <none>
  * Callees:

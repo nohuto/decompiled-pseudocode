@@ -1,14 +1,20 @@
 /*
- * XREFs of KiComputeTopologyConstants @ 0x1405C8808
+ * XREFs of KiComputeTopologyConstants @ 0x1405C5F38
  * Callers:
- *     KiSetFeatureBits @ 0x140B59BF4 (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x140B5BC74 (KiSetFeatureBits.c)
  * Callees:
- *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B5004 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
- *     KiComputeTopologyConstantsAmd @ 0x1405C8920 (KiComputeTopologyConstantsAmd.c)
- *     KiComputeTopologyConstantsIntelCompatible @ 0x1405C8BF8 (KiComputeTopologyConstantsIntelCompatible.c)
+ *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B2278 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
+ *     KiComputeTopologyConstantsAmd @ 0x1405C6050 (KiComputeTopologyConstantsAmd.c)
+ *     KiComputeTopologyConstantsIntelCompatible @ 0x1405C6328 (KiComputeTopologyConstantsIntelCompatible.c)
  */
 
-char __fastcall KiComputeTopologyConstants(__int64 a1, __int64 a2, __int64 a3, __int128 *a4, __int128 *a5, int *a6)
+char __fastcall KiComputeTopologyConstants(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        __int128 *a4,
+        __int128 *a5,
+        int *a6)
 {
   int IsEnabledNoReportingNoInline; // eax
   int v7; // ecx
@@ -28,14 +34,10 @@ char __fastcall KiComputeTopologyConstants(__int64 a1, __int64 a2, __int64 a3, _
   {
     v11 = *a4;
     v12 = *a5;
-    ((void (__fastcall *)(_QWORD, __int128 *, __int128 *, int *))KiComputeTopologyConstantsAmd)(
-      (unsigned int)a3,
-      &v12,
-      &v11,
-      a6);
+    ((void (__fastcall *)(_QWORD, __int128 *, __int128 *, int *))KiComputeTopologyConstantsAmd)(a3, &v12, &v11, a6);
   }
   a6[1] = *a6;
-  IsEnabledNoReportingNoInline = Feature_PpmParkEx__private_IsEnabledNoReportingNoInline(a1, a2, a3, (__int64)a4);
+  IsEnabledNoReportingNoInline = Feature_PpmParkEx__private_IsEnabledNoReportingNoInline();
   v7 = *a6;
   if ( IsEnabledNoReportingNoInline )
   {

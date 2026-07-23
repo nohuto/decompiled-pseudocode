@@ -1,29 +1,29 @@
 /*
- * XREFs of NtEnumerateValueKey @ 0x1405D3890
+ * XREFs of NtEnumerateValueKey @ 0x1405D4890
  * Callers:
- *     AdtpObjsInitialize @ 0x140737228 (AdtpObjsInitialize.c)
+ *     AdtpObjsInitialize @ 0x140738418 (AdtpObjsInitialize.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpBounceContextCopyDataToCallerBuffer @ 0x1405D1B00 (CmpBounceContextCopyDataToCallerBuffer.c)
- *     CmpBounceContextStart @ 0x1405D2F60 (CmpBounceContextStart.c)
- *     CmpBounceContextCleanup @ 0x1405D3F34 (CmpBounceContextCleanup.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmEnumerateValueKey @ 0x1405D4080 (CmEnumerateValueKey.c)
- *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x1407F1544 (CmEnumerateValueKeyFromMergedView.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B30F8 (CmpIsRegistryLockAcquired.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpBounceContextCopyDataToCallerBuffer @ 0x1405D2B00 (CmpBounceContextCopyDataToCallerBuffer.c)
+ *     CmpBounceContextStart @ 0x1405D3F60 (CmpBounceContextStart.c)
+ *     CmpBounceContextCleanup @ 0x1405D4F34 (CmpBounceContextCleanup.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmEnumerateValueKey @ 0x1405D5080 (CmEnumerateValueKey.c)
+ *     CmpCallCallBacksEx @ 0x1405E6AE0 (CmpCallCallBacksEx.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063FDD0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x1407F2744 (CmEnumerateValueKeyFromMergedView.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtEnumerateValueKey(

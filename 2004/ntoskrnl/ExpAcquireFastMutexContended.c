@@ -49,7 +49,7 @@ LABEL_2:
         v2 = 3;
         v5 = 2;
         if ( a2 )
-          a2 = KeAbPreAcquire(BugCheckParameter2, a2, 0LL);
+          a2 = KeAbPreAcquire(BugCheckParameter2, a2, 0);
         goto LABEL_2;
       }
     }

@@ -19,38 +19,48 @@
  *     RtlpLogHeapExtendEvent @ 0x1800F1810 (RtlpLogHeapExtendEvent.c)
  */
 
-char __fastcall RtlpCommitBlock(__int64 a1, __int64 a2)
+char __fastcall RtlpCommitBlock(_DWORD *BaseAddress, __int64 a2)
 {
-  int HeapProtection; // eax
-  int v5; // esi
+  ULONG Protect; // eax
+  NTSTATUS v5; // esi
   char *v7; // r8
-  unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // [rsp+60h] [rbp+30h] BYREF
-  char *v10; // [rsp+68h] [rbp+38h] BYREF
+  ULONG_PTR v8; // rdx
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+30h] BYREF
+  PVOID BaseAddressa; // [rsp+68h] [rbp+38h] BYREF
 
-  RtlpGetFreeBlockInsidePageBoundaries(a1, a2, &v10, &v9);
-  HeapProtection = RtlpGetHeapProtection((_DWORD *)a1, 1);
-  v5 = ZwAllocateVirtualMemory(-1LL, &v10, 0LL, &v9, 4096, HeapProtection);
+  RtlpGetFreeBlockInsidePageBoundaries(BaseAddress, a2, &BaseAddressa, &RegionSize);
+  Protect = RtlpGetHeapProtection(BaseAddress, 1);
+  v5 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, Protect);
   if ( v5 >= 0 )
   {
     if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapCommit(a1, v10, v9, 8LL);
-    --*(_DWORD *)(a1 + 620);
-    *(_QWORD *)(a1 + 624) -= v9;
+      RtlpLogHeapCommit(BaseAddress, BaseAddressa, RegionSize, 8LL);
+    --BaseAddress[155];
+    *((_QWORD *)BaseAddress + 78) -= RegionSize;
     if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapExtendEvent(a1, (_DWORD)v10, v9, 16 * *(_QWORD *)(a1 + 192), MEMORY[0x7FFE0380]);
+      RtlpLogHeapExtendEvent(
+        (int)BaseAddress,
+        (int)BaseAddressa,
+        RegionSize,
+        16 * *((_QWORD *)BaseAddress + 24),
+        (HANDLE)MEMORY[0x7FFE0380]);
     if ( MEMORY[0x7FFE038A] )
-      RtlpLogHeapExtendEvent(a1, (_DWORD)v10, v9, 16 * *(_QWORD *)(a1 + 192), MEMORY[0x7FFE038A]);
-    ++*(_DWORD *)(a1 + 584);
+      RtlpLogHeapExtendEvent(
+        (int)BaseAddress,
+        (int)BaseAddressa,
+        RegionSize,
+        16 * *((_QWORD *)BaseAddress + 24),
+        (HANDLE)MEMORY[0x7FFE038A]);
+    ++BaseAddress[146];
     if ( (*(_BYTE *)(a2 + 10) & 4) == 0 )
       goto LABEL_7;
-    v7 = v10;
-    v8 = v9 >> 2;
-    if ( !(v9 >> 2) )
+    v7 = (char *)BaseAddressa;
+    v8 = RegionSize >> 2;
+    if ( !(RegionSize >> 2) )
       goto LABEL_7;
-    if ( ((unsigned __int8)v10 & 4) != 0 )
+    if ( ((unsigned __int8)BaseAddressa & 4) != 0 )
     {
-      *(_DWORD *)v10 = -17891602;
+      *(_DWORD *)BaseAddressa = -17891602;
       if ( !--v8 )
       {
 LABEL_7:
@@ -64,11 +74,16 @@ LABEL_7:
       *(_DWORD *)&v7[4 * v8 - 4] = -17891602;
     goto LABEL_7;
   }
-  ++*(_DWORD *)(a1 + 596);
+  ++BaseAddress[149];
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else
     DbgPrint("HEAP: ");
-  DbgPrint("ZwAllocateVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n", v5, (const void *)a1, v10, v9);
+  DbgPrint(
+    "ZwAllocateVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n",
+    v5,
+    BaseAddress,
+    BaseAddressa,
+    RegionSize);
   return 0;
 }

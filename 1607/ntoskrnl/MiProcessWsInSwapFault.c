@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProcessWsInSwapFault @ 0x140095530
+ * XREFs of MiProcessWsInSwapFault @ 0x140094D30
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiReleaseWsSwapReservationPfn @ 0x140095668 (MiReleaseWsSwapReservationPfn.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiReleaseWsSwapReservationPfn @ 0x140094E68 (MiReleaseWsSwapReservationPfn.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiProcessWsInSwapFault(_QWORD *a1)
@@ -48,7 +48,7 @@ void __fastcall MiProcessWsInSwapFault(_QWORD *a1)
         if ( v9 == 1023 )
           v10 = (struct _KEVENT *)MiSystemPartition;
         else
-          v10 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v9);
+          v10 = *(struct _KEVENT **)(qword_140327038 + 8LL * v9);
         _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( v8 )
           MiReleasePageFileInfo(v10, v8, 1);

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepCountReadyActivities @ 0x140313A54
+ * XREFs of PopPepCountReadyActivities @ 0x140313CE4
  * Callers:
- *     PopPepUpdateConstraints @ 0x14028D234 (PopPepUpdateConstraints.c)
- *     PopPepProcessEvent @ 0x140313900 (PopPepProcessEvent.c)
- *     PopPepIdleTimeoutRoutine @ 0x1403552F0 (PopPepIdleTimeoutRoutine.c)
- *     PopPepComponentSetLatency @ 0x14035B570 (PopPepComponentSetLatency.c)
- *     PopPepComponentSetResidency @ 0x1403B3D44 (PopPepComponentSetResidency.c)
- *     PopPepCompleteComponentIdleState @ 0x14059EBA4 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetWakeHint @ 0x14059ECB0 (PopPepComponentSetWakeHint.c)
+ *     PopPepUpdateConstraints @ 0x14028D4C4 (PopPepUpdateConstraints.c)
+ *     PopPepProcessEvent @ 0x140313B90 (PopPepProcessEvent.c)
+ *     PopPepIdleTimeoutRoutine @ 0x140355490 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepComponentSetLatency @ 0x14035B710 (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x1403B3F24 (PopPepComponentSetResidency.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059F094 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetWakeHint @ 0x14059F1A0 (PopPepComponentSetWakeHint.c)
  * Callees:
  *     <none>
  */

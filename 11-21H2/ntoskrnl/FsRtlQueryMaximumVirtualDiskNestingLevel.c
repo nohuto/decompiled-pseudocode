@@ -3,18 +3,18 @@
  * Callers:
  *     FsRtlGetVirtualDiskNestingLevel @ 0x140387570 (FsRtlGetVirtualDiskNestingLevel.c)
  * Callees:
- *     FsRtlpGetMaxVirtualDiskNestingLevel @ 0x1403DC618 (FsRtlpGetMaxVirtualDiskNestingLevel.c)
+ *     sub_1403DC618 @ 0x1403DC618 (sub_1403DC618.c)
  */
 
 ULONG FsRtlQueryMaximumVirtualDiskNestingLevel(void)
 {
   ULONG result; // eax
 
-  result = FsRtlVirtualDiskMaxTreeDepth;
-  if ( FsRtlVirtualDiskMaxTreeDepth == -1 )
+  result = dword_140C09748;
+  if ( dword_140C09748 == -1 )
   {
-    result = FsRtlpGetMaxVirtualDiskNestingLevel();
-    FsRtlVirtualDiskMaxTreeDepth = result;
+    result = sub_1403DC618();
+    dword_140C09748 = result;
   }
   return result;
 }

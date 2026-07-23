@@ -1,12 +1,12 @@
 /*
- * XREFs of CmGetVisibleMaxValueNameLenAndDataLen @ 0x140A6A090
+ * XREFs of CmGetVisibleMaxValueNameLenAndDataLen @ 0x140A76A30
  * Callers:
- *     CmpQueryKeyDataFromNode @ 0x1408C27F0 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromNode @ 0x1408C8DC0 (CmpQueryKeyDataFromNode.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
  */
 
 __int64 __fastcall CmGetVisibleMaxValueNameLenAndDataLen(

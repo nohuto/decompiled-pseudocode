@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwLockRegistryKey()
+NTSTATUS __cdecl ZwLockRegistryKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 251LL;
+  result = 251;
   __asm { syscall; Low latency system call }
   return result;
 }

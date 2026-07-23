@@ -1,9 +1,10 @@
 /*
- * XREFs of SepCapabilitiesHasAppSiloBaseSID @ 0x140364188
+ * XREFs of SepCapabilitiesHasAppSiloBaseSID @ 0x1403EB1A0
  * Callers:
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
  */
 
 char __fastcall SepCapabilitiesHasAppSiloBaseSID(unsigned int a1, __int64 a2)

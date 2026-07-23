@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDereferenceVad @ 0x140260450
+ * XREFs of MiDereferenceVad @ 0x140290A60
  * Callers:
- *     MiRemoveVad @ 0x1402601E8 (MiRemoveVad.c)
- *     MiDeprioritizeVad @ 0x1403FD204 (MiDeprioritizeVad.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x1404CDEA0 (MiUnlockAndDereferenceNestedVad.c)
- *     NtAreMappedFilesTheSame @ 0x1408E8130 (NtAreMappedFilesTheSame.c)
+ *     MiRemoveVad @ 0x1402907F8 (MiRemoveVad.c)
+ *     MiDeprioritizeVad @ 0x1403DAB20 (MiDeprioritizeVad.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x1404C7270 (MiUnlockAndDereferenceNestedVad.c)
+ *     NtAreMappedFilesTheSame @ 0x1408D8910 (NtAreMappedFilesTheSame.c)
  * Callees:
  *     <none>
  */

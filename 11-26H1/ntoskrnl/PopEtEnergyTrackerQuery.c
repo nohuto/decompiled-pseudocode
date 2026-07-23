@@ -1,25 +1,25 @@
 /*
- * XREFs of PopEtEnergyTrackerQuery @ 0x140B66F4C
+ * XREFs of PopEtEnergyTrackerQuery @ 0x140B69ED8
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     KeQueryTimelineBitmapTime @ 0x140485178 (KeQueryTimelineBitmapTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x140950E24 (PopEtEnergyTrackerCleanupAggregates.c)
- *     PsEnumProcesses @ 0x14096E8BC (PsEnumProcesses.c)
- *     PopEtDataSectionCopyData @ 0x140AADF24 (PopEtDataSectionCopyData.c)
- *     PopEtDataSectionReserve @ 0x140AEDE00 (PopEtDataSectionReserve.c)
- *     PopEtDataSectionStart @ 0x140B09F74 (PopEtDataSectionStart.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     KeQueryTimelineBitmapTime @ 0x14047EAE8 (KeQueryTimelineBitmapTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsEnumProcesses @ 0x1409BBF0C (PsEnumProcesses.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x1409CC764 (PopEtEnergyTrackerCleanupAggregates.c)
+ *     PopEtDataSectionCopyData @ 0x140AABFE4 (PopEtDataSectionCopyData.c)
+ *     PopEtDataSectionReserve @ 0x140AF0D98 (PopEtDataSectionReserve.c)
+ *     PopEtDataSectionStart @ 0x140B0BD34 (PopEtDataSectionStart.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerQuery(ULONG_PTR a1, __int64 a2, unsigned int a3)
@@ -121,8 +121,8 @@ __int64 __fastcall PopEtEnergyTrackerQuery(ULONG_PTR a1, __int64 a2, unsigned in
   }
   v7 = ObpReferenceObjectByHandleWithTag(
          a1,
-         1LL,
-         *(POBJECT_TYPE **)(PopEtGlobals + 32),
+         1,
+         *(_QWORD *)(PopEtGlobals + 32),
          KeGetCurrentThread()->PreviousMode,
          0x74456F50u,
          &v59,

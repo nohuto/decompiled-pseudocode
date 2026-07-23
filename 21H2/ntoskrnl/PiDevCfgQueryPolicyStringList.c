@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgQueryPolicyStringList @ 0x1408A7B44
+ * XREFs of PiDevCfgQueryPolicyStringList @ 0x1408A7CA4
  * Callers:
- *     PiDevCfgEnforceDevicePolicy @ 0x14076F0E8 (PiDevCfgEnforceDevicePolicy.c)
+ *     PiDevCfgEnforceDevicePolicy @ 0x14076F2A8 (PiDevCfgEnforceDevicePolicy.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryString @ 0x14036EF3C (PnpValidateRegistryString.c)
- *     PnpValidateRegistryDword @ 0x14039A9C8 (PnpValidateRegistryDword.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
- *     NtQueryKey @ 0x1406F8570 (NtQueryKey.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140253448 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x14036F0EC (PnpValidateRegistryString.c)
+ *     PnpValidateRegistryDword @ 0x14039AB18 (PnpValidateRegistryDword.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403FA7E0 (ZwEnumerateValueKey.c)
+ *     NtQueryKey @ 0x14070F950 (NtQueryKey.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgQueryPolicyStringList(void *a1, const WCHAR *a2, _QWORD *a3)
@@ -23,7 +23,7 @@ __int64 __fastcall PiDevCfgQueryPolicyStringList(void *a1, const WCHAR *a2, _QWO
   ULONG v3; // r12d
   int v4; // edi
   PVOID v5; // rsi
-  int RegistryValue; // ebx
+  NTSTATUS RegistryValue; // ebx
   unsigned int *v9; // rcx
   ULONG v10; // ebx
   unsigned int *PoolWithTag; // r14
@@ -33,37 +33,37 @@ __int64 __fastcall PiDevCfgQueryPolicyStringList(void *a1, const WCHAR *a2, _QWO
   unsigned int v15; // r13d
   NTSTATUS i; // eax
   unsigned int v17; // r15d
-  SIZE_T NumberOfBytes; // [rsp+30h] [rbp-69h] BYREF
-  ULONG Length[2]; // [rsp+38h] [rbp-61h] BYREF
+  ULONG ResultLength; // [rsp+30h] [rbp-69h] BYREF
+  size_t *pcchRemaining; // [rsp+38h] [rbp-61h] BYREF
   HANDLE KeyHandle; // [rsp+40h] [rbp-59h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-51h] BYREF
   _QWORD *v23; // [rsp+58h] [rbp-41h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-39h] BYREF
-  __int128 v25; // [rsp+90h] [rbp-9h] BYREF
+  __int128 KeyInformation; // [rsp+90h] [rbp-9h] BYREF
   __int128 v26; // [rsp+A0h] [rbp+7h]
   __int64 v27; // [rsp+B0h] [rbp+17h]
 
   v3 = 0;
   v23 = a3;
   KeyHandle = 0LL;
-  *(_QWORD *)Length = 0LL;
+  pcchRemaining = 0LL;
   v27 = 0LL;
-  LODWORD(NumberOfBytes) = 0;
+  ResultLength = 0;
   DestinationString = 0LL;
   v4 = 0;
   v5 = 0LL;
-  v25 = 0LL;
+  KeyInformation = 0LL;
   v26 = 0LL;
-  RegistryValue = IopGetRegistryValue(a1, a2, 0, Length);
+  RegistryValue = IopGetRegistryValue(a1, a2, 0, &pcchRemaining);
   if ( RegistryValue < 0 )
   {
-    PoolWithTag = *(unsigned int **)Length;
+    PoolWithTag = (unsigned int *)pcchRemaining;
 LABEL_36:
     if ( PoolWithTag )
       ExFreePoolWithTag(PoolWithTag, 0);
     goto LABEL_38;
   }
-  if ( PnpValidateRegistryDword(*(__int64 *)Length) )
+  if ( PnpValidateRegistryDword((__int64)pcchRemaining) )
     v4 = *(unsigned int *)((char *)v9 + v9[2]);
   ExFreePoolWithTag(v9, 0);
   if ( v4 != 1 )
@@ -77,7 +77,7 @@ LABEL_36:
   RegistryValue = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( RegistryValue >= 0 )
   {
-    RegistryValue = NtQueryKey(KeyHandle, 4u, &v25, 0x28u, &NumberOfBytes);
+    RegistryValue = NtQueryKey(KeyHandle, KeyCachedInformation, &KeyInformation, 0x28u, &ResultLength);
     if ( RegistryValue >= 0 )
     {
       if ( !DWORD1(v26) )
@@ -87,7 +87,7 @@ LABEL_5:
         goto LABEL_38;
       }
       v10 = HIDWORD(v26) + 2 * (DWORD2(v26) + 12);
-      Length[0] = v10;
+      LODWORD(pcchRemaining) = v10;
       PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v10, 0x63647050u);
       if ( !PoolWithTag )
       {
@@ -105,15 +105,15 @@ LABEL_5:
           v13 = v12 >> 1;
           v14 = 0;
           v15 = 0;
-          for ( i = ZwEnumerateValueKey(KeyHandle, 0, KeyValueFullInformation, PoolWithTag, v10, (PULONG)&NumberOfBytes);
+          for ( i = ZwEnumerateValueKey(KeyHandle, 0, KeyValueFullInformation, PoolWithTag, v10, &ResultLength);
                 ;
                 i = ZwEnumerateValueKey(
                       KeyHandle,
                       v3,
                       KeyValueFullInformation,
                       PoolWithTag,
-                      Length[0],
-                      (PULONG)&NumberOfBytes) )
+                      (ULONG)pcchRemaining,
+                      &ResultLength) )
           {
             RegistryValue = i;
             if ( i == -2147483622 )
@@ -121,8 +121,8 @@ LABEL_5:
             if ( i == -2147483643 )
             {
               ExFreePoolWithTag(PoolWithTag, 0);
-              Length[0] = NumberOfBytes;
-              PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x63647050u);
+              LODWORD(pcchRemaining) = ResultLength;
+              PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, ResultLength, 0x63647050u);
               if ( !PoolWithTag )
               {
                 RegistryValue = -1073741670;
@@ -158,7 +158,7 @@ LABEL_5:
             v17 = v14 + 1;
             if ( v13 < v17 )
             {
-              v10 = Length[0];
+              v10 = (unsigned int)pcchRemaining;
               v12 = 2 * v17;
               continue;
             }

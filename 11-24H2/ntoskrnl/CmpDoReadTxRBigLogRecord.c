@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDoReadTxRBigLogRecord @ 0x1407E0568
+ * XREFs of CmpDoReadTxRBigLogRecord @ 0x1407E0AB8
  * Callers:
- *     CmpRmReDoPhase @ 0x1407E09C4 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x1407E0F14 (CmpRmReDoPhase.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpVerifyBigLogRecordChunk @ 0x1407E0D2C (CmpVerifyBigLogRecordChunk.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpVerifyBigLogRecordChunk @ 0x1407E127C (CmpVerifyBigLogRecordChunk.c)
  */
 
 __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct _PRIVILEGE_SET **a4, unsigned int *a5)
@@ -42,7 +42,7 @@ __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct
   {
     v7 = v5[1];
     v14 = v5[12];
-    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, v7, 0x20204D43u);
     v9 = Pool;
     if ( Pool )
     {

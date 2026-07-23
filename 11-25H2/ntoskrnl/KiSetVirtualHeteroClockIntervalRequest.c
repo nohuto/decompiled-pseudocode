@@ -22,7 +22,7 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
   if ( a1 )
   {
     if ( byte_140E0ABE0 )
-      KiResetClockInterval((__int64)&KiVirtualHeteroClockRequest);
+      KiResetClockInterval(&KiVirtualHeteroClockRequest);
   }
   else if ( !byte_140E0ABE0 && KiQosHysteresisTimerPeriod )
   {

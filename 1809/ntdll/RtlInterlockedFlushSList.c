@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInterlockedFlushSList @ 0x1800764E0
+ * XREFs of RtlInterlockedFlushSList @ 0x1800764F0
  * Callers:
- *     RtlpHpVsDelayFreeContextFlush @ 0x18009FDF8 (RtlpHpVsDelayFreeContextFlush.c)
+ *     RtlpHpVsDelayFreeContextFlush @ 0x18009FE18 (RtlpHpVsDelayFreeContextFlush.c)
  * Callees:
  *     <none>
  */

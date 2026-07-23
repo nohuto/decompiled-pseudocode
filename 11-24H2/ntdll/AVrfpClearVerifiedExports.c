@@ -1,7 +1,7 @@
 /*
- * XREFs of AVrfpClearVerifiedExports @ 0x18011E4A4
+ * XREFs of AVrfpClearVerifiedExports @ 0x18011C6D4
  * Callers:
- *     AVrfpDllUnloadNotificationInternal @ 0x180117268 (AVrfpDllUnloadNotificationInternal.c)
+ *     AVrfpDllUnloadNotificationInternal @ 0x180112258 (AVrfpDllUnloadNotificationInternal.c)
  * Callees:
  *     <none>
  */

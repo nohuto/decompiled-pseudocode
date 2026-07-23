@@ -6,61 +6,61 @@
  *     _NLS_UPCASE@4 @ 0x4B2BFDC8 (_NLS_UPCASE@4.c)
  */
 
-unsigned int __stdcall RtlUpcaseUnicodeToCustomCPN(
-        int a1,
-        _BYTE *a2,
-        unsigned int a3,
-        unsigned int *a4,
-        unsigned __int16 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlUpcaseUnicodeToCustomCPN(
+        PCPTABLEINFO CustomCP,
+        PCH CustomCPString,
+        ULONG MaxBytesInCustomCPString,
+        PULONG BytesInCustomCPString,
+        PWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v6; // esi
-  unsigned int v7; // ebx
-  unsigned int v8; // edi
-  int v9; // ecx
-  unsigned int i; // esi
+  ULONG v6; // esi
+  ULONG v7; // ebx
+  ULONG v8; // edi
+  unsigned __int8 *v9; // ecx
+  ULONG i; // esi
   unsigned __int16 v11; // ax
-  _BYTE *v12; // edi
-  int v13; // ecx
-  unsigned __int16 *v14; // eax
+  PCH v12; // edi
+  unsigned __int16 *WideCharTable; // ecx
+  PWCH v14; // eax
   unsigned int v15; // eax
   int v16; // ecx
   int v17; // eax
   unsigned __int16 v18; // cx
-  __int16 v19; // dx
+  unsigned __int16 v19; // dx
   unsigned int v20; // eax
-  int v22; // [esp+10h] [ebp-Ch]
-  int v23; // [esp+10h] [ebp-Ch]
-  int v24; // [esp+14h] [ebp-8h]
-  unsigned __int16 *v25; // [esp+18h] [ebp-4h]
-  unsigned int v26; // [esp+38h] [ebp+1Ch]
+  unsigned __int8 *v22; // [esp+10h] [ebp-Ch]
+  unsigned __int16 *v23; // [esp+10h] [ebp-Ch]
+  PUSHORT DBCSOffsets; // [esp+14h] [ebp-8h]
+  PWCH v25; // [esp+18h] [ebp-4h]
+  ULONG BytesInUnicodeStringa; // [esp+38h] [ebp+1Ch]
 
-  v6 = a3;
-  v7 = a6 >> 1;
-  v26 = a6 >> 1;
-  if ( *(_WORD *)(a1 + 12) )
+  v6 = MaxBytesInCustomCPString;
+  v7 = BytesInUnicodeString >> 1;
+  BytesInUnicodeStringa = BytesInUnicodeString >> 1;
+  if ( CustomCP->DBCSCodePage )
   {
-    v12 = a2;
-    v13 = *(_DWORD *)(a1 + 32);
-    v24 = *(_DWORD *)(a1 + 40);
-    v23 = v13;
+    v12 = CustomCPString;
+    WideCharTable = (unsigned __int16 *)CustomCP->WideCharTable;
+    DBCSOffsets = CustomCP->DBCSOffsets;
+    v23 = WideCharTable;
     if ( v7 )
     {
-      v14 = a5;
-      v25 = a5;
+      v14 = UnicodeString;
+      v25 = UnicodeString;
       do
       {
         if ( !v6 )
           break;
         ++v25;
-        v15 = *(unsigned __int16 *)(v13 + 2 * *v14);
+        v15 = WideCharTable[(unsigned __int16)*v14];
         v16 = (unsigned __int8)v15;
-        v17 = *(unsigned __int16 *)(v24 + 2 * (v15 >> 8));
+        v17 = DBCSOffsets[v15 >> 8];
         if ( (_WORD)v17 )
-          v18 = *(_WORD *)(v24 + 2 * (v16 + v17));
+          v18 = DBCSOffsets[v16 + v17];
         else
-          v18 = *(_WORD *)(*(_DWORD *)(a1 + 28) + 2 * v16);
-        v19 = *(_WORD *)(v23 + 2 * NLS_UPCASE(v18));
+          v18 = CustomCP->MultiByteTable[v16];
+        v19 = v23[NLS_UPCASE(v18)];
         if ( HIBYTE(v19) )
         {
           v20 = v6--;
@@ -69,35 +69,35 @@ unsigned int __stdcall RtlUpcaseUnicodeToCustomCPN(
           *v12++ = HIBYTE(v19);
         }
         v14 = v25;
-        v13 = v23;
+        WideCharTable = v23;
         *v12++ = v19;
         --v6;
         --v7;
       }
       while ( v7 );
     }
-    if ( a4 )
-      *a4 = v12 - a2;
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = v12 - CustomCPString;
   }
   else
   {
     v8 = v7;
-    if ( v7 >= a3 )
-      v8 = a3;
-    if ( a4 )
-      *a4 = v8;
-    v9 = *(_DWORD *)(a1 + 32);
+    if ( v7 >= MaxBytesInCustomCPString )
+      v8 = MaxBytesInCustomCPString;
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = v8;
+    v9 = (unsigned __int8 *)CustomCP->WideCharTable;
     v22 = v9;
     if ( v8 )
     {
       for ( i = 0; i < v8; ++i )
       {
-        v11 = NLS_UPCASE(*(_WORD *)(*(_DWORD *)(a1 + 28) + 2 * *(unsigned __int8 *)(a5[i] + v9)));
+        v11 = NLS_UPCASE(CustomCP->MultiByteTable[v9[(unsigned __int16)UnicodeString[i]]]);
         v9 = v22;
-        a2[i] = *(_BYTE *)(v11 + v22);
+        CustomCPString[i] = v22[v11];
       }
-      v6 = a3;
-      v7 = v26;
+      v6 = MaxBytesInCustomCPString;
+      v7 = BytesInUnicodeStringa;
     }
   }
   return v6 < v7 ? 0x80000005 : 0;

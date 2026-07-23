@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPhysicalAddress @ 0x140263560
+ * XREFs of MiGetPhysicalAddress @ 0x140292DD0
  * Callers:
- *     MiDbgCopyPrivilegedData @ 0x14067EC28 (MiDbgCopyPrivilegedData.c)
+ *     MiDbgCopyPrivilegedData @ 0x14067FE28 (MiDbgCopyPrivilegedData.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiQueuePinDriverAddressLog @ 0x140264300 (MiQueuePinDriverAddressLog.c)
- *     MiVaToPfnEx @ 0x140264680 (MiVaToPfnEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiQueuePinDriverAddressLog @ 0x140293B70 (MiQueuePinDriverAddressLog.c)
+ *     MiVaToPfnEx @ 0x140293EF0 (MiVaToPfnEx.c)
  */
 
 __int64 __fastcall MiGetPhysicalAddress(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
@@ -84,7 +84,7 @@ __int64 __fastcall MiGetPhysicalAddress(unsigned __int64 a1, _QWORD *a2, _DWORD 
     v13 = *(_QWORD *)v24;
     if ( a1 >= 0xFFFF800000000000uLL )
     {
-      v4 = byte_140E389A8[((a1 >> 39) & 0x1FF) - 256];
+      v4 = byte_140E38AE8[((a1 >> 39) & 0x1FF) - 256];
       if ( v4 == 11 )
         MiQueuePinDriverAddressLog(a1, *(_QWORD *)v24, 0LL);
     }

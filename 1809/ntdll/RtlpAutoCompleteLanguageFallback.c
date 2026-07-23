@@ -4,7 +4,7 @@
  *     RtlpSetPreferredUILanguages @ 0x1800F0D10 (RtlpSetPreferredUILanguages.c)
  * Callees:
  *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18003C58C (RtlpMuiRegGetInstalledLanguageIndexByName.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlpGetCompleteLanguageFallback @ 0x1800F0028 (RtlpGetCompleteLanguageFallback.c)
  *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010077C (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  */

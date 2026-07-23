@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeSystemTrimCriteria @ 0x140271440
+ * XREFs of MiComputeSystemTrimCriteria @ 0x14025F3E0
  * Callers:
- *     MiProcessWorkingSets @ 0x140207BA0 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402AC4A0 (MiProcessWorkingSets.c)
  * Callees:
- *     MiGetStandbyRepurposed @ 0x1402717A4 (MiGetStandbyRepurposed.c)
- *     MiGetAvailablePagesBelowPriority @ 0x14027191C (MiGetAvailablePagesBelowPriority.c)
- *     MiComputeAgeDistribution @ 0x1402A6E8C (MiComputeAgeDistribution.c)
- *     MiPulseLowAvailableEvent @ 0x14055BFDC (MiPulseLowAvailableEvent.c)
+ *     MiComputeAgeDistribution @ 0x140224DFC (MiComputeAgeDistribution.c)
+ *     MiGetStandbyRepurposed @ 0x14025F744 (MiGetStandbyRepurposed.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025F8BC (MiGetAvailablePagesBelowPriority.c)
+ *     MiPulseLowAvailableEvent @ 0x14055C21C (MiPulseLowAvailableEvent.c)
  */
 
 __int64 __fastcall MiComputeSystemTrimCriteria(_QWORD *a1, __int64 a2)
@@ -60,7 +60,7 @@ __int64 __fastcall MiComputeSystemTrimCriteria(_QWORD *a1, __int64 a2)
   v46 = 0;
   v5 = *(_DWORD *)(v2 + 40);
   AvailablePagesBelowPriority = MiGetAvailablePagesBelowPriority(a1, 6LL);
-  StandbyRepurposed = MiGetStandbyRepurposed(v7);
+  StandbyRepurposed = MiGetStandbyRepurposed(v7, 1LL);
   v10 = *(_DWORD *)(v2 + 44);
   v11 = StandbyRepurposed;
   v12 = *(_DWORD *)(v2 + 120);
@@ -131,7 +131,7 @@ LABEL_9:
         v19 = 0x2000LL;
     }
   }
-  v25 = MiGetStandbyRepurposed(a1);
+  v25 = MiGetStandbyRepurposed(a1, 4LL);
   v28 = v25;
   if ( v19 )
   {
@@ -207,7 +207,7 @@ LABEL_17:
       goto LABEL_47;
     if ( !*(_WORD *)(v2 + 2346) )
       goto LABEL_21;
-    v36 = MiComputeAgeDistribution(a1, 1LL, 0LL);
+    v36 = MiComputeAgeDistribution((__int64)a1, 1);
     *(_WORD *)(v2 + 2346) = v36;
     if ( v36 )
       v31 = 11;

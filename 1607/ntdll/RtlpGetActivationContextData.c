@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetActivationContextData @ 0x18003E078
+ * XREFs of RtlpGetActivationContextData @ 0x18003E068
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18003DAF0 (RtlQueryInformationActivationContext.c)
- *     RtlQueryActivationContextApplicationSettings @ 0x180080A50 (RtlQueryActivationContextApplicationSettings.c)
- *     RtlpFindActivationContextSection_FillOutReturnedData @ 0x180082B28 (RtlpFindActivationContextSection_FillOutReturnedData.c)
+ *     RtlQueryInformationActivationContext @ 0x18003DAE0 (RtlQueryInformationActivationContext.c)
+ *     RtlQueryActivationContextApplicationSettings @ 0x180080A40 (RtlQueryActivationContextApplicationSettings.c)
+ *     RtlpFindActivationContextSection_FillOutReturnedData @ 0x180082B18 (RtlpFindActivationContextSection_FillOutReturnedData.c)
  * Callees:
  *     <none>
  */

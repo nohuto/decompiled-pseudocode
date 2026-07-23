@@ -1,10 +1,10 @@
 /*
- * XREFs of HaliPciInterfaceWriteConfig @ 0x14043A4B0
+ * XREFs of HaliPciInterfaceWriteConfig @ 0x14042CD60
  * Callers:
- *     HaliHandlePCIConfigSpaceAccess @ 0x140599B60 (HaliHandlePCIConfigSpaceAccess.c)
- *     HalpKdWritePCIConfig @ 0x1405A58D0 (HalpKdWritePCIConfig.c)
+ *     HaliHandlePCIConfigSpaceAccess @ 0x14059C2E0 (HaliHandlePCIConfigSpaceAccess.c)
+ *     HalpKdWritePCIConfig @ 0x1405A80E0 (HalpKdWritePCIConfig.c)
  * Callees:
- *     HalpPCIConfig @ 0x14043A4F0 (HalpPCIConfig.c)
+ *     HalpPCIConfig @ 0x14042CDA0 (HalpPCIConfig.c)
  */
 
 __int64 __fastcall HaliPciInterfaceWriteConfig(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, unsigned int a6)

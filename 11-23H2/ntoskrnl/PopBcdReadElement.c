@@ -1,28 +1,28 @@
 /*
- * XREFs of PopBcdReadElement @ 0x140802E94
+ * XREFs of PopBcdReadElement @ 0x140803164
  * Callers:
- *     PopBcdSetDefaultResumeObjectElements @ 0x140802854 (PopBcdSetDefaultResumeObjectElements.c)
- *     PopBcdRegenerateResumeObject @ 0x14099CC04 (PopBcdRegenerateResumeObject.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140802B24 (PopBcdSetDefaultResumeObjectElements.c)
+ *     PopBcdRegenerateResumeObject @ 0x14099CE04 (PopBcdRegenerateResumeObject.c)
  * Callees:
- *     BcdGetElementDataWithFlags @ 0x140804CBC (BcdGetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x140804F8C (BcdGetElementDataWithFlags.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PopBcdReadElement(int a1, int a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall PopBcdReadElement(HANDLE BcdObjectHandle, ULONG BcdElement, _QWORD *a3, _DWORD *a4)
 {
   void *Pool2; // rdi
-  int v9; // r8d
-  int ElementDataWithFlags; // ebx
-  _DWORD v12[6]; // [rsp+30h] [rbp-18h] BYREF
+  BCD_FLAGS v9; // r8d
+  NTSTATUS ElementDataWithFlags; // ebx
+  ULONG BufferSize[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  v12[0] = 0;
-  if ( (unsigned int)BcdGetElementDataWithFlags(a1, a2, (_DWORD)a3, 0, (__int64)v12) == -1073741789 )
+  BufferSize[0] = 0;
+  if ( BcdGetElementDataWithFlags(BcdObjectHandle, BcdElement, (BCD_FLAGS)a3, 0LL, BufferSize) == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v12[0], 1684226640LL);
+    Pool2 = (void *)ExAllocatePool2(256LL, BufferSize[0], 1684226640LL);
     if ( Pool2 )
     {
-      ElementDataWithFlags = BcdGetElementDataWithFlags(a1, a2, v9, (_DWORD)Pool2, (__int64)v12);
+      ElementDataWithFlags = BcdGetElementDataWithFlags(BcdObjectHandle, BcdElement, v9, Pool2, BufferSize);
       if ( ElementDataWithFlags < 0 )
       {
         ExFreePoolWithTag(Pool2, 0);
@@ -30,7 +30,7 @@ __int64 __fastcall PopBcdReadElement(int a1, int a2, _QWORD *a3, _DWORD *a4)
       else
       {
         ElementDataWithFlags = 0;
-        *a4 = v12[0];
+        *a4 = BufferSize[0];
         *a3 = Pool2;
       }
     }

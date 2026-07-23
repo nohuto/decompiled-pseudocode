@@ -3,8 +3,8 @@
  * Callers:
  *     CmInitBootFeatureConfigurations @ 0x140B3886C (CmInitBootFeatureConfigurations.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x140374854 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x14080E99C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403749F4 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x14080EC6C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
  *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140B389A8 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
  */
 

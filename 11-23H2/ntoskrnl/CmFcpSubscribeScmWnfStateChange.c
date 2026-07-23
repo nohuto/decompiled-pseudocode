@@ -1,9 +1,9 @@
 /*
- * XREFs of CmFcpSubscribeScmWnfStateChange @ 0x140419E1C
+ * XREFs of CmFcpSubscribeScmWnfStateChange @ 0x14041A1AC
  * Callers:
- *     CmFcpManagerSoftwareHiveReady @ 0x14080DBC0 (CmFcpManagerSoftwareHiveReady.c)
+ *     CmFcpManagerSoftwareHiveReady @ 0x14080DE90 (CmFcpManagerSoftwareHiveReady.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1407DAD30 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1407DB000 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 __fastcall CmFcpSubscribeScmWnfStateChange(__int64 a1)

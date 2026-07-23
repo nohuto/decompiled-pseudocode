@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x14030E400
+ * XREFs of ?KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1402D9BA0
  * Callers:
- *     KiAdvanceReadyQueueEnumerator @ 0x14030D8B0 (KiAdvanceReadyQueueEnumerator.c)
- *     ?KiAdvanceReadyQueueEnumeratorToNextList@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x14030DDC8 (-KiAdvanceReadyQueueEnumeratorToNextList@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
- *     ?KiAdvanceReadyQueueEnumeratorToNextPhase@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x14030DEF0 (-KiAdvanceReadyQueueEnumeratorToNextPhase@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
+ *     KiAdvanceReadyQueueEnumerator @ 0x1402D9050 (KiAdvanceReadyQueueEnumerator.c)
+ *     ?KiAdvanceReadyQueueEnumeratorToNextList@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1402D9568 (-KiAdvanceReadyQueueEnumeratorToNextList@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
+ *     ?KiAdvanceReadyQueueEnumeratorToNextPhase@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1402D9690 (-KiAdvanceReadyQueueEnumeratorToNextPhase@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
  * Callees:
- *     ?KiAdvanceReadyQueueEnumeratorToNextRootScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x14030E52C (-KiAdvanceReadyQueueEnumeratorToNextRootScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
+ *     ?KiAdvanceReadyQueueEnumeratorToNextRootScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1402D9CCC (-KiAdvanceReadyQueueEnumeratorToNextRootScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
  */
 
 __int64 __fastcall KiAdvanceReadyQueueEnumeratorToNextScb(struct _KI_READY_QUEUE_ENUMERATOR *a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertPageFileMemoryExtents @ 0x140660718
+ * XREFs of MiInsertPageFileMemoryExtents @ 0x140660C68
  * Callers:
- *     MiCreatePagefileMemoryExtents @ 0x140A46EF8 (MiCreatePagefileMemoryExtents.c)
+ *     MiCreatePagefileMemoryExtents @ 0x140A471A8 (MiCreatePagefileMemoryExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMovePageFileMemoryExtents @ 0x140660898 (MiMovePageFileMemoryExtents.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMovePageFileMemoryExtents @ 0x140660DE8 (MiMovePageFileMemoryExtents.c)
  */
 
 void __fastcall MiInsertPageFileMemoryExtents(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ void __fastcall MiInsertPageFileMemoryExtents(__int64 a1, __int64 a2)
   unsigned __int64 v7; // rbp
   int v8; // esi
   unsigned __int64 v9; // rax
-  _QWORD *v10; // rdx
+  _RTL_BALANCED_NODE *v10; // rdx
   unsigned __int64 v11; // rbx
   char v12; // al
   unsigned __int8 CurrentIrql; // al
@@ -40,7 +40,7 @@ void __fastcall MiInsertPageFileMemoryExtents(__int64 a1, __int64 a2)
       v9 = *(_QWORD *)v6;
       if ( *(_QWORD *)v6 )
         break;
-      v10 = (_QWORD *)(v6 + 8);
+      v10 = (_RTL_BALANCED_NODE *)(v6 + 8);
       v9 = *(_QWORD *)(v6 + 8);
       if ( v9 )
       {
@@ -49,20 +49,20 @@ LABEL_8:
           v6 ^= v9;
         else
           v6 = v9;
-        *v10 = 0LL;
+        v10->Children[0] = 0LL;
       }
       else
       {
         v11 = *(_QWORD *)(v6 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
         if ( v8 && v11 )
           v11 ^= v6;
-        MiMovePageFileMemoryExtents(v6, a1 + 256);
+        MiMovePageFileMemoryExtents((PRTL_BALANCED_NODE)v6, (PRTL_RB_TREE)(a1 + 256));
         if ( !v11 )
           goto LABEL_17;
         v6 = v11;
       }
     }
-    v10 = (_QWORD *)v6;
+    v10 = (_RTL_BALANCED_NODE *)v6;
     goto LABEL_8;
   }
 LABEL_17:
@@ -72,10 +72,13 @@ LABEL_17:
   if ( (v12 & 1) != 0 )
     *(_BYTE *)(a2 + 8) = 1;
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

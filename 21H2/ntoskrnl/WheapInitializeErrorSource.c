@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapInitializeErrorSource @ 0x1407AF744
+ * XREFs of WheapInitializeErrorSource @ 0x1407AF8E0
  * Callers:
- *     WheapInitializeDeferredErrorSources @ 0x1405BAE38 (WheapInitializeDeferredErrorSources.c)
- *     WheaAddErrorSource @ 0x1407AF2C0 (WheaAddErrorSource.c)
- *     WheapInitializeErrorSourceTable @ 0x140A6378C (WheapInitializeErrorSourceTable.c)
+ *     WheapInitializeDeferredErrorSources @ 0x1405BB068 (WheapInitializeDeferredErrorSources.c)
+ *     WheaAddErrorSource @ 0x1407AF4C0 (WheaAddErrorSource.c)
+ *     WheapInitializeErrorSourceTable @ 0x140A6478C (WheapInitializeErrorSourceTable.c)
  * Callees:
- *     WheapInitializeErrorRecordWrapper @ 0x1403BAEC8 (WheapInitializeErrorRecordWrapper.c)
- *     WheapCallErrorSourceCorrect @ 0x1403BAF50 (WheapCallErrorSourceCorrect.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     WheapInitializeErrorRecordWrapper @ 0x1403BB038 (WheapInitializeErrorRecordWrapper.c)
+ *     WheapCallErrorSourceCorrect @ 0x1403BB0C0 (WheapCallErrorSourceCorrect.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WheapInitializeErrorSource(__int64 a1)

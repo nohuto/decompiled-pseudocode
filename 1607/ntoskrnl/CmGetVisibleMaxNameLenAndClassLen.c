@@ -1,12 +1,12 @@
 /*
- * XREFs of CmGetVisibleMaxNameLenAndClassLen @ 0x1404BB9F4
+ * XREFs of CmGetVisibleMaxNameLenAndClassLen @ 0x1404A7724
  * Callers:
- *     CmpQueryKeyDataFromNode @ 0x140438210 (CmpQueryKeyDataFromNode.c)
- *     CmpQueryKeyDataFromCache @ 0x1404BB6F8 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1404370E0 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromCache @ 0x1404A7428 (CmpQueryKeyDataFromCache.c)
  * Callees:
- *     CmEqualTrans @ 0x1403FD9D0 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
- *     CmpIsKeyDeleted @ 0x140405030 (CmpIsKeyDeleted.c)
+ *     CmEqualTrans @ 0x1403FC890 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
+ *     CmpIsKeyDeleted @ 0x140403EF0 (CmpIsKeyDeleted.c)
  */
 
 __int64 __fastcall CmGetVisibleMaxNameLenAndClassLen(

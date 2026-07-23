@@ -1,17 +1,17 @@
 /*
- * XREFs of SiGetEfiSystemDevice @ 0x140894F48
+ * XREFs of SiGetEfiSystemDevice @ 0x14089B348
  * Callers:
- *     SiGetFirmwareSystemPartition @ 0x1408943B0 (SiGetFirmwareSystemPartition.c)
- *     SiGetSystemDisk @ 0x1408944E0 (SiGetSystemDisk.c)
+ *     SiGetFirmwareSystemPartition @ 0x14089A7B0 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14089A8E0 (SiGetSystemDisk.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SiLogMessage @ 0x140771464 (SiLogMessage.c)
- *     SyspartEnumerateDisks @ 0x140894798 (SyspartEnumerateDisks.c)
- *     SiDisambiguateSystemDevice @ 0x140894E70 (SiDisambiguateSystemDevice.c)
- *     SiGetEspFromFirmware @ 0x1408950EC (SiGetEspFromFirmware.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SiLogMessage @ 0x140774464 (SiLogMessage.c)
+ *     SyspartEnumerateDisks @ 0x14089AB98 (SyspartEnumerateDisks.c)
+ *     SiDisambiguateSystemDevice @ 0x14089B270 (SiDisambiguateSystemDevice.c)
+ *     SiGetEspFromFirmware @ 0x14089B4EC (SiGetEspFromFirmware.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetEfiSystemDevice(unsigned int a1, __int64 a2, wchar_t **a3)

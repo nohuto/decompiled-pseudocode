@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpMapEntryIsDiscardable @ 0x1408D9350
+ * XREFs of HvpMapEntryIsDiscardable @ 0x1408DF910
  * Callers:
- *     HvTrimHive @ 0x1408B8958 (HvTrimHive.c)
- *     HvpMapEntryGetFreeBin @ 0x1408B8FF0 (HvpMapEntryGetFreeBin.c)
- *     HvHiveCleanup @ 0x1408B9010 (HvHiveCleanup.c)
- *     HvIsCellAllocated @ 0x1408D9150 (HvIsCellAllocated.c)
- *     CmpCheckValueList @ 0x1408D96A0 (CmpCheckValueList.c)
- *     HvpFindFreeCell @ 0x1408DB370 (HvpFindFreeCell.c)
- *     CmpCheckKey @ 0x140A08360 (CmpCheckKey.c)
- *     CmpCheckLeaf @ 0x140A0A744 (CmpCheckLeaf.c)
- *     HvCheckHive @ 0x140A543C0 (HvCheckHive.c)
+ *     HvTrimHive @ 0x1408BEF28 (HvTrimHive.c)
+ *     HvpMapEntryGetFreeBin @ 0x1408BF5C0 (HvpMapEntryGetFreeBin.c)
+ *     HvHiveCleanup @ 0x1408BF5E0 (HvHiveCleanup.c)
+ *     HvIsCellAllocated @ 0x1408DF710 (HvIsCellAllocated.c)
+ *     CmpCheckValueList @ 0x1408DFC60 (CmpCheckValueList.c)
+ *     HvpFindFreeCell @ 0x1408E1930 (HvpFindFreeCell.c)
+ *     CmpCheckKey @ 0x140A1E430 (CmpCheckKey.c)
+ *     CmpCheckLeaf @ 0x140A20814 (CmpCheckLeaf.c)
+ *     HvCheckHive @ 0x140A5D6B0 (HvCheckHive.c)
  * Callees:
  *     <none>
  */

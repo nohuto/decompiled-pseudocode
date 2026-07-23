@@ -1,21 +1,21 @@
 /*
- * XREFs of PopIdleWakeNotifyModernStandbyExit @ 0x14057BA10
+ * XREFs of PopIdleWakeNotifyModernStandbyExit @ 0x14057BC50
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopIdleWakeStopActiveIntervalAccounting @ 0x14057BE14 (PopIdleWakeStopActiveIntervalAccounting.c)
- *     PopIdleWakeConvertIntervalBucketsTo @ 0x1408F4144 (PopIdleWakeConvertIntervalBucketsTo.c)
- *     PopIdleWakeSourceAccountingToDiagnostic @ 0x1408F45E0 (PopIdleWakeSourceAccountingToDiagnostic.c)
- *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x1408F4960 (PopIdleWakeTraceWakeSourceDiagnostic.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14057C054 (PopIdleWakeStopActiveIntervalAccounting.c)
+ *     PopIdleWakeConvertIntervalBucketsTo @ 0x1408F42A4 (PopIdleWakeConvertIntervalBucketsTo.c)
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x1408F4740 (PopIdleWakeSourceAccountingToDiagnostic.c)
+ *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x1408F4AC0 (PopIdleWakeTraceWakeSourceDiagnostic.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void PopIdleWakeNotifyModernStandbyExit()
@@ -34,7 +34,7 @@ void PopIdleWakeNotifyModernStandbyExit()
   unsigned int i; // edi
   __int16 v12; // [rsp+38h] [rbp-D0h] BYREF
   __int16 v13; // [rsp+3Ch] [rbp-CCh] BYREF
-  LARGE_INTEGER v14; // [rsp+40h] [rbp-C8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp-C8h] BYREF
   __int64 v15; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v16; // [rsp+50h] [rbp-B8h] BYREF
   PVOID v17[84]; // [rsp+58h] [rbp-B0h] BYREF
@@ -60,7 +60,7 @@ void PopIdleWakeNotifyModernStandbyExit()
   _BYTE v37[48]; // [rsp+378h] [rbp+270h] BYREF
 
   v0 = PopWnfCsEnterScenarioId;
-  v14.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   memset(v17, 0, sizeof(v17));
   v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v2 = (char *)PopIdleWakeContext;
@@ -87,7 +87,7 @@ void PopIdleWakeNotifyModernStandbyExit()
   __writecr8(v3);
   if ( v2 )
   {
-    RtlGetInterruptTimePrecise(&v14);
+    RtlGetInterruptTimePrecise(&PerformanceCounter);
     PopIdleWakeStopActiveIntervalAccounting(v2);
     PopIdleWakeConvertIntervalBucketsTo(6LL, v2 + 232, v37, 1000LL);
     if ( (unsigned int)dword_140C02228 > 5 && tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
@@ -116,7 +116,7 @@ void PopIdleWakeNotifyModernStandbyExit()
       v16 = 0x1000000LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02228,
-        (unsigned __int8 *)byte_140029A13,
+        (unsigned __int8 *)byte_140029D1D,
         0LL,
         0LL,
         8u,

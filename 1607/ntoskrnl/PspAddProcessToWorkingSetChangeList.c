@@ -1,12 +1,12 @@
 /*
- * XREFs of PspAddProcessToWorkingSetChangeList @ 0x140680194
+ * XREFs of PspAddProcessToWorkingSetChangeList @ 0x140680278
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspSetJobLimitsProcessCallback @ 0x1404ED22C (PspSetJobLimitsProcessCallback.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspSetJobLimitsProcessCallback @ 0x1404CF398 (PspSetJobLimitsProcessCallback.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14006ADC0 (ObReferenceObjectSafeWithTag.c)
- *     MmEnforceWorkingSetLimit @ 0x140076CF4 (MmEnforceWorkingSetLimit.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14006A940 (ObReferenceObjectSafeWithTag.c)
+ *     MmEnforceWorkingSetLimit @ 0x140076D74 (MmEnforceWorkingSetLimit.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

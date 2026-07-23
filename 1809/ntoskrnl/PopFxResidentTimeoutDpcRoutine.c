@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxResidentTimeoutDpcRoutine @ 0x1401296B0
+ * XREFs of PopFxResidentTimeoutDpcRoutine @ 0x140129780
  * Callers:
  *     <none>
  * Callees:
- *     PopFxArmResidentTimer @ 0x1401003A0 (PopFxArmResidentTimer.c)
- *     ExQueueWorkItemEx @ 0x1401296E4 (ExQueueWorkItemEx.c)
+ *     PopFxArmResidentTimer @ 0x140100420 (PopFxArmResidentTimer.c)
+ *     ExQueueWorkItemEx @ 0x1401297B4 (ExQueueWorkItemEx.c)
  */
 
 __int64 PopFxResidentTimeoutDpcRoutine()

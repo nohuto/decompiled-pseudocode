@@ -11,8 +11,6 @@
 __int64 __fastcall PopIntSteerSetMode(__int64 a1, int *a2, int a3)
 {
   int v3; // eax
-  __int64 v4; // rdx
-  __int64 v5; // r8
 
   if ( a3 != 4 )
     return 3221225485LL;
@@ -28,6 +26,6 @@ __int64 __fastcall PopIntSteerSetMode(__int64 a1, int *a2, int a3)
   PpmIntSteerDisabled = v3;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PpmCheckReInit();
-  PpmCheckCustomRun(4u, v4, v5);
+  PpmCheckCustomRun(4);
   return 0LL;
 }

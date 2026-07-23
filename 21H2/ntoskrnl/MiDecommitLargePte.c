@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecommitLargePte @ 0x14053CBE0
+ * XREFs of MiDecommitLargePte @ 0x14053CE20
  * Callers:
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiInsertLargeTbFlushEntry @ 0x14029A7DC (MiInsertLargeTbFlushEntry.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiSetLeafPfnBuddy @ 0x1402CA91C (MiSetLeafPfnBuddy.c)
- *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1402199E0 (MiInsertLargeTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiSetLeafPfnBuddy @ 0x14024920C (MiSetLeafPfnBuddy.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiGetLeafVa @ 0x140337BB0 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     MiReducePteUseCount @ 0x1403F45E0 (MiReducePteUseCount.c)
  */
 
@@ -66,12 +66,12 @@ _BOOL8 __fastcall MiDecommitLargePte(__int64 a1, unsigned __int64 a2, unsigned _
   {
     v12 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v31);
   }
-  else if ( qword_140C4DF40 )
+  else if ( qword_140C4DF80 )
   {
     if ( (v31 & 0x10) != 0 )
       v12 = v31 & 0xFFFFFFFFFFFFFFEFuLL;
     else
-      v12 = ~qword_140C4DF40 & v31;
+      v12 = ~qword_140C4DF80 & v31;
   }
   v13 = (_QWORD *)a2;
   v32 = (v12 >> 12) & 0xFFFFFFFFFLL;
@@ -88,16 +88,16 @@ LABEL_21:
       *v13 = v15;
       goto LABEL_22;
     }
-    if ( !HIBYTE(word_140C4E008) && (a3 & 1) != 0 )
+    if ( !HIBYTE(word_140C4E048) && (a3 & 1) != 0 )
       v15 = a3 | 0x8000000000000000uLL;
     *v13 = v15;
-    MiWritePteShadow((__int64)v13, v15, v17);
+    MiWritePteShadow((__int64)v13, v15);
 LABEL_22:
     ++v13;
   }
   v19 = v32;
   v20 = v33;
-  v21 = !a3 && v10 != 3 && MiReducePteUseCount(a2, (unsigned int)v30);
+  v21 = !a3 && v10 != 3 && MiReducePteUseCount(a2, v30);
   if ( v20 )
   {
     if ( v10 )

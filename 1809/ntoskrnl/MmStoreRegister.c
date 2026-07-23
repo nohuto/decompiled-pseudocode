@@ -1,20 +1,20 @@
 /*
- * XREFs of MmStoreRegister @ 0x14074BD2C
+ * XREFs of MmStoreRegister @ 0x14074CF1C
  * Callers:
- *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E88 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3F08 (-SmFirstTimeInit@@YAJKK@Z.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
- *     MiInsertPageFileInList @ 0x14074C910 (MiInsertPageFileInList.c)
- *     MiCreatePagefile @ 0x14074CB20 (MiCreatePagefile.c)
- *     MmStoreCheckPagefiles @ 0x14074CF5C (MmStoreCheckPagefiles.c)
- *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
+ *     MiInsertPageFileInList @ 0x14074DB00 (MiInsertPageFileInList.c)
+ *     MiCreatePagefile @ 0x14074DD10 (MiCreatePagefile.c)
+ *     MmStoreCheckPagefiles @ 0x14074E14C (MmStoreCheckPagefiles.c)
+ *     MiDeletePagefile @ 0x140854350 (MiDeletePagefile.c)
  */
 
 __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -22,8 +22,8 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
   char *PoolWithTag; // rax
   __int64 v7; // rdi
   int SystemThread; // ebx
-  struct _RTL_BITMAP *v9; // rax
-  struct _RTL_BITMAP *v10; // rsi
+  _RTL_BITMAP *v9; // rax
+  _RTL_BITMAP *v10; // rsi
   unsigned __int64 v11; // rdx
   __int64 *v12; // r8
   __int64 v13; // r9
@@ -38,7 +38,7 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
   HANDLE Handle; // [rsp+50h] [rbp-38h] BYREF
   PVOID Object; // [rsp+58h] [rbp-30h] BYREF
 
-  dword_14043CDBC = 1;
+  dword_14043DE7C = 1;
   if ( !(unsigned int)MmStoreCheckPagefiles() )
     return 3221225799LL;
   PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x70546D4Du);
@@ -64,20 +64,20 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
   }
   else
   {
-    v9 = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                 NonPagedPoolNx,
-                                 8 * (((unsigned int)dword_14054018C >> 6) + ((dword_14054018C & 0x3F) != 0) + 2),
-                                 0x20206D4Du);
+    v9 = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                          NonPagedPoolNx,
+                          8 * (((unsigned int)dword_14054118C >> 6) + ((dword_14054118C & 0x3F) != 0) + 2),
+                          0x20206D4Du);
     v10 = v9;
     if ( v9 )
     {
-      v9->SizeOfBitMap = dword_14054018C;
+      v9->SizeOfBitMap = dword_14054118C;
       v9->Buffer = &v9[1].SizeOfBitMap;
       RtlClearAllBits(v9);
       v11 = 0LL;
       if ( Count )
       {
-        v12 = qword_14043E520;
+        v12 = qword_14043F5E0;
         v13 = Count;
         do
         {
@@ -91,7 +91,7 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
         }
         while ( v13 );
       }
-      v16 = qword_14043E510 + v11;
+      v16 = qword_14043F5D0 + v11;
       v17 = 0xFFFFFFFLL;
       if ( v16 <= 0xFFFFFFF )
         v17 = v16;
@@ -107,18 +107,18 @@ __int64 __fastcall MmStoreRegister(__int64 a1, __int64 a2, __int64 a3, int a4)
         }
         else
         {
-          qword_14043CE28 = (__int64)v10;
-          dword_14043CDBC = 254;
+          qword_14043DEE8 = (__int64)v10;
+          dword_14043DE7C = 254;
           v21 = v20[102] & 0xF;
-          qword_14043CE30 = a3;
-          dword_14043CDB4 = v21;
+          qword_14043DEF0 = a3;
+          dword_14043DE74 = v21;
           ObReferenceObjectByHandle(v19, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
           v10 = 0LL;
           v20 = 0LL;
-          qword_14043CDD8 = (__int64)Object;
-          dword_14043CE38 = a4;
+          qword_14043DE98 = (__int64)Object;
+          dword_14043DEF8 = a4;
           SystemThread = 0;
-          dword_14043CDB8 = 1;
+          dword_14043DE78 = 1;
         }
       }
       else

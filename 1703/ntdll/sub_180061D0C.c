@@ -10,13 +10,13 @@
  *     sub_1800F45E4 @ 0x1800F45E4 (sub_1800F45E4.c)
  */
 
-__int64 sub_180061D0C(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4, int a5, _WORD *a6, ...)
+__int64 sub_180061D0C(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4, int a5, const WCHAR *a6, ...)
 {
   unsigned __int64 v7; // rdi
   int v10; // ebx
   unsigned __int64 v11; // r8
   _WORD *v12; // r15
-  _WORD *v13; // r9
+  const WCHAR *v13; // r9
   int v14; // eax
   __int64 v15; // rcx
   _WORD *v17; // [rsp+30h] [rbp-18h] BYREF
@@ -47,7 +47,7 @@ __int64 sub_180061D0C(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4, in
   v18[0] = a2 >> 1;
   if ( (a5 & 0x100) != 0 )
   {
-    v13 = &unk_18011B604;
+    v13 = &word_18011B604;
     if ( a6 )
       v13 = a6;
   }

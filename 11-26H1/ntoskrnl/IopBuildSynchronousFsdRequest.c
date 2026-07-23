@@ -1,10 +1,10 @@
 /*
- * XREFs of IopBuildSynchronousFsdRequest @ 0x140AD4020
+ * XREFs of IopBuildSynchronousFsdRequest @ 0x140AD1480
  * Callers:
  *     <none>
  * Callees:
- *     IopQueueThreadIrp @ 0x14032F090 (IopQueueThreadIrp.c)
- *     IopBuildAsynchronousFsdRequest @ 0x1404B4190 (IopBuildAsynchronousFsdRequest.c)
+ *     IopQueueThreadIrp @ 0x1403310C0 (IopQueueThreadIrp.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x1404AD760 (IopBuildAsynchronousFsdRequest.c)
  */
 
 __int64 __fastcall IopBuildSynchronousFsdRequest(

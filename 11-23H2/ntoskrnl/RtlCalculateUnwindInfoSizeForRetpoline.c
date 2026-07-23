@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlCalculateUnwindInfoSizeForRetpoline @ 0x1405B1FB4
+ * XREFs of RtlCalculateUnwindInfoSizeForRetpoline @ 0x1405B2524
  * Callers:
- *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405B2060 (RtlCopyRetpolineStubsUnwindInfo.c)
- *     RtlCreateRetpolineStubsFunctionTable @ 0x1405B2148 (RtlCreateRetpolineStubsFunctionTable.c)
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405B25D0 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x1405B26B8 (RtlCreateRetpolineStubsFunctionTable.c)
  * Callees:
  *     <none>
  */

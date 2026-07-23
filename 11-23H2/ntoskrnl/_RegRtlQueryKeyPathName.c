@@ -1,14 +1,14 @@
 /*
- * XREFs of _RegRtlQueryKeyPathName @ 0x14086216C
+ * XREFs of _RegRtlQueryKeyPathName @ 0x1408623AC
  * Callers:
- *     _PnpCtxRegQueryKeyPathName @ 0x1408598E8 (_PnpCtxRegQueryKeyPathName.c)
+ *     _PnpCtxRegQueryKeyPathName @ 0x140859B28 (_PnpCtxRegQueryKeyPathName.c)
  * Callees:
- *     RtlULongSub @ 0x140368FD8 (RtlULongSub.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryObject @ 0x14041AF60 (ZwQueryObject.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     _RegRtlIsPredefinedKey @ 0x1406CEE8C (_RegRtlIsPredefinedKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x14085C2FC (_RegRtlOpenPredefinedKey.c)
+ *     RtlULongSub @ 0x140369178 (RtlULongSub.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryObject @ 0x14041B2F0 (ZwQueryObject.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     _RegRtlIsPredefinedKey @ 0x1406CEEBC (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14085C53C (_RegRtlOpenPredefinedKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

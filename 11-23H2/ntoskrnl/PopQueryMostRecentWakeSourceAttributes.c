@@ -1,10 +1,10 @@
 /*
- * XREFs of PopQueryMostRecentWakeSourceAttributes @ 0x140987574
+ * XREFs of PopQueryMostRecentWakeSourceAttributes @ 0x140987774
  * Callers:
- *     PopPotsLogPowerTransitionReliability @ 0x1409A0A20 (PopPotsLogPowerTransitionReliability.c)
+ *     PopPotsLogPowerTransitionReliability @ 0x1409A0C20 (PopPotsLogPowerTransitionReliability.c)
  * Callees:
- *     PopGetMostRecentWakeInfo @ 0x14058E5E0 (PopGetMostRecentWakeInfo.c)
- *     PopWakeInfoDereference @ 0x14058E858 (PopWakeInfoDereference.c)
+ *     PopGetMostRecentWakeInfo @ 0x14058EAD0 (PopGetMostRecentWakeInfo.c)
+ *     PopWakeInfoDereference @ 0x14058ED48 (PopWakeInfoDereference.c)
  */
 
 void __fastcall PopQueryMostRecentWakeSourceAttributes(_DWORD *a1, _QWORD *a2, _QWORD *a3, _DWORD *a4)

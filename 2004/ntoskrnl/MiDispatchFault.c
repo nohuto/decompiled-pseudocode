@@ -266,7 +266,7 @@ LABEL_20:
             v25 = &ExpInterlockedPopEntrySListFault;
             v37 = *(_QWORD *)(v20 + 360);
             LOBYTE(Flink) = KiDynamicTraceEnabled
-                         && v37 >= qword_140CFCBD8
+                         && v37 >= ControlPc
                          && v37 < qword_140CFCBE0
                          && KeGetCurrentIrql() == 15;
           }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlFlushSingleTb @ 0x1401C1520
+ * XREFs of HvlFlushSingleTb @ 0x1401C1404
  * Callers:
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     KeFlushSingleCurrentTb @ 0x14012C860 (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x14012CDD0 (KeFlushSingleCurrentTb.c)
  * Callees:
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x1401BFFF8 (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvlpFlushRangeListTb @ 0x1401C1918 (HvlpFlushRangeListTb.c)
- *     HvlpFlushRangeListTbEx @ 0x1401C199C (HvlpFlushRangeListTbEx.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x1401BFEDC (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpFlushRangeListTb @ 0x1401C17FC (HvlpFlushRangeListTb.c)
+ *     HvlpFlushRangeListTbEx @ 0x1401C1880 (HvlpFlushRangeListTbEx.c)
  */
 
 __int64 __fastcall HvlFlushSingleTb(int a1, __int64 a2, int a3, __int64 a4)

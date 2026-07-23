@@ -1,9 +1,9 @@
 /*
- * XREFs of CmCallbackReleaseKeyObjectIDEx @ 0x140A82890
+ * XREFs of CmCallbackReleaseKeyObjectIDEx @ 0x140A88700
  * Callers:
  *     <none>
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
  */
 
 void __fastcall CmCallbackReleaseKeyObjectIDEx(void *a1)

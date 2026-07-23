@@ -1,17 +1,18 @@
 /*
- * XREFs of MiInitializeEnclave @ 0x1407F7674
+ * XREFs of MiInitializeEnclave @ 0x1407F7DE8
  * Callers:
- *     NtInitializeEnclave @ 0x1407F7D50 (NtInitializeEnclave.c)
+ *     NtInitializeEnclave @ 0x1407F84C0 (NtInitializeEnclave.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     KeInitializeEnclave @ 0x14073C144 (KeInitializeEnclave.c)
- *     MiInitializeVsmEnclave @ 0x1407F777C (MiInitializeVsmEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x140B63810 (MiReturnReservedEnclavePages.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     KeInitializeEnclave @ 0x14073A074 (KeInitializeEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x1407F7EF0 (MiInitializeVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x140B658E0 (MiReturnReservedEnclavePages.c)
  */
 
-__int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
 {
+  unsigned int v7; // edi
   __int64 v8; // rax
   __int64 v9; // r8
   __int64 v10; // rbx
@@ -21,7 +22,8 @@ __int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 
   unsigned int v15[6]; // [rsp+30h] [rbp-18h] BYREF
 
   v15[0] = 0;
-  v8 = MiObtainReferencedVadEx(a2, 0LL, (int *)v15);
+  v7 = a4;
+  v8 = MiObtainReferencedVadEx(a2, 0LL, (int *)v15, a4);
   v10 = v8;
   if ( !v8 )
     return v15[0];
@@ -34,7 +36,7 @@ __int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 
     }
     else if ( (v13 & 1) != 0 )
     {
-      if ( a4 == 4096 )
+      if ( v7 == 4096 )
       {
         v12 = KeInitializeEnclave((__int64)(*(_QWORD *)(v10 + 80) << 25) >> 16, a3, v9, a3 + 2048, v14, a5);
         if ( v12 >= 0 )
@@ -51,7 +53,7 @@ __int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 
     }
     else
     {
-      v12 = MiInitializeVsmEnclave(a1, v10, a3, a4);
+      v12 = MiInitializeVsmEnclave(a1, v10, a3, v7);
     }
   }
   else

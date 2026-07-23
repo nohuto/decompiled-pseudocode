@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlFindSetBitsAndClear @ 0x1402EEA30
+ * XREFs of RtlFindSetBitsAndClear @ 0x1402EEC20
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ ULONG __stdcall RtlFindSetBitsAndClear(PRTL_BITMAP BitMapHeader, ULONG NumberToF
 {
   unsigned int SizeOfBitMap; // r15d
   ULONG v4; // esi
-  struct _RTL_BITMAP *v6; // r13
+  _RTL_BITMAP *v6; // r13
   ULONG v7; // ebx
   unsigned int v8; // r9d
   ULONG v9; // ebx

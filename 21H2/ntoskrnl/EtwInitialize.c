@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwInitialize @ 0x140798D94
+ * XREFs of EtwInitialize @ 0x140798F94
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     CmCompleteRegistryInitialization @ 0x14079167C (CmCompleteRegistryInitialization.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
- *     EtwpBuffersFlushRequired @ 0x1402C7BAC (EtwpBuffersFlushRequired.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1403609B0 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
+ *     EtwpBuffersFlushRequired @ 0x140246400 (EtwpBuffersFlushRequired.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402A5670 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1402A58B0 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
  */
 
 void __fastcall EtwInitialize(unsigned int a1)

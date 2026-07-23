@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapPfaMemoryCheck @ 0x140A08CB8
+ * XREFs of WheapPfaMemoryCheck @ 0x140A08F68
  * Callers:
- *     WheapPredictiveFailureAnalysis @ 0x140A08FFC (WheapPredictiveFailureAnalysis.c)
+ *     WheapPredictiveFailureAnalysis @ 0x140A092AC (WheapPredictiveFailureAnalysis.c)
  * Callees:
- *     MmGetPageBadStatus @ 0x14062B490 (MmGetPageBadStatus.c)
- *     WheaAttemptPhysicalPageOffline @ 0x140A07D80 (WheaAttemptPhysicalPageOffline.c)
- *     WheapExecuteRowFailureCheck @ 0x140A089C0 (WheapExecuteRowFailureCheck.c)
- *     WheapPfaLogPageMonitorRemoval @ 0x140A08C20 (WheapPfaLogPageMonitorRemoval.c)
- *     WheapPfaRetireExpiredMemoryEntries @ 0x140A08F4C (WheapPfaRetireExpiredMemoryEntries.c)
+ *     MmGetPageBadStatus @ 0x14062B9E0 (MmGetPageBadStatus.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A08030 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapExecuteRowFailureCheck @ 0x140A08C70 (WheapExecuteRowFailureCheck.c)
+ *     WheapPfaLogPageMonitorRemoval @ 0x140A08ED0 (WheapPfaLogPageMonitorRemoval.c)
+ *     WheapPfaRetireExpiredMemoryEntries @ 0x140A091FC (WheapPfaRetireExpiredMemoryEntries.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

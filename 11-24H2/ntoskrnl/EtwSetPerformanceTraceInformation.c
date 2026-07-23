@@ -1,48 +1,48 @@
 /*
- * XREFs of EtwSetPerformanceTraceInformation @ 0x140A440A4
+ * XREFs of EtwSetPerformanceTraceInformation @ 0x140A39934
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     wcsnlen @ 0x140500090 (wcsnlen.c)
- *     wcsncpy_s @ 0x140504980 (wcsncpy_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1407A6C78 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1407A7EEC (EtwpGetMicroarchitecturalPmcAffinity.c)
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1407A91EC (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
- *     EtwpUpdateContextRegisterTraceEvents @ 0x1407A92B8 (EtwpUpdateContextRegisterTraceEvents.c)
- *     EtwpUpdatePmcEvents @ 0x1407A9378 (EtwpUpdatePmcEvents.c)
- *     EtwpUpdateTagFilter @ 0x1407A9424 (EtwpUpdateTagFilter.c)
- *     EtwpUserInAdminOrLogUsersGroup @ 0x1407A9470 (EtwpUserInAdminOrLogUsersGroup.c)
- *     EtwpSetPmcProfileSource @ 0x1407AA0E8 (EtwpSetPmcProfileSource.c)
- *     EtwpUpdateLastBranchTracingConfiguration @ 0x1407B19EC (EtwpUpdateLastBranchTracingConfiguration.c)
- *     EtwpUpdateLastBranchTracingEvents @ 0x1407B1A98 (EtwpUpdateLastBranchTracingEvents.c)
- *     EtwpUpdateProcessorTraceConfiguration @ 0x1407B1CAC (EtwpUpdateProcessorTraceConfiguration.c)
- *     EtwpUpdateProcessorTraceEvents @ 0x1407B1D54 (EtwpUpdateProcessorTraceEvents.c)
- *     EtwpSetCoverageSamplerInformation @ 0x1407B3064 (EtwpSetCoverageSamplerInformation.c)
- *     NtSetIntervalProfile @ 0x1407C43E0 (NtSetIntervalProfile.c)
- *     EtwpUpdateGroupMasks @ 0x140830E90 (EtwpUpdateGroupMasks.c)
- *     EtwpUpdateStackTracing @ 0x1408310EC (EtwpUpdateStackTracing.c)
- *     EtwpCheckLoggerControlAccess @ 0x140836724 (EtwpCheckLoggerControlAccess.c)
- *     EtwpCheckGuidAccess @ 0x14083848C (EtwpCheckGuidAccess.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
- *     EtwpCheckSystemTraceAccess @ 0x14095D9F0 (EtwpCheckSystemTraceAccess.c)
- *     EtwpEnableStackCaching @ 0x140A443E8 (EtwpEnableStackCaching.c)
- *     EtwpSetSoftRestartInformation @ 0x140A44534 (EtwpSetSoftRestartInformation.c)
- *     EtwpUpdatePmcCounters @ 0x140A9ED3C (EtwpUpdatePmcCounters.c)
- *     KiGetCpuVendor @ 0x140B6D9F4 (KiGetCpuVendor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     wcsnlen @ 0x1404FD950 (wcsnlen.c)
+ *     wcsncpy_s @ 0x140502240 (wcsncpy_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1407A6DB8 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1407A802C (EtwpGetMicroarchitecturalPmcAffinity.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1407A932C (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     EtwpUpdateContextRegisterTraceEvents @ 0x1407A93F8 (EtwpUpdateContextRegisterTraceEvents.c)
+ *     EtwpUpdatePmcEvents @ 0x1407A94B8 (EtwpUpdatePmcEvents.c)
+ *     EtwpUpdateTagFilter @ 0x1407A9564 (EtwpUpdateTagFilter.c)
+ *     EtwpUserInAdminOrLogUsersGroup @ 0x1407A95B0 (EtwpUserInAdminOrLogUsersGroup.c)
+ *     EtwpSetPmcProfileSource @ 0x1407AA228 (EtwpSetPmcProfileSource.c)
+ *     EtwpUpdateLastBranchTracingConfiguration @ 0x1407B1E3C (EtwpUpdateLastBranchTracingConfiguration.c)
+ *     EtwpUpdateLastBranchTracingEvents @ 0x1407B1EE8 (EtwpUpdateLastBranchTracingEvents.c)
+ *     EtwpUpdateProcessorTraceConfiguration @ 0x1407B20FC (EtwpUpdateProcessorTraceConfiguration.c)
+ *     EtwpUpdateProcessorTraceEvents @ 0x1407B21A4 (EtwpUpdateProcessorTraceEvents.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1407B34B4 (EtwpSetCoverageSamplerInformation.c)
+ *     NtSetIntervalProfile @ 0x1407C2200 (NtSetIntervalProfile.c)
+ *     EtwpCheckGuidAccess @ 0x140836754 (EtwpCheckGuidAccess.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1408375F4 (EtwpCheckLoggerControlAccess.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
+ *     EtwpCheckSystemTraceAccess @ 0x1409454B0 (EtwpCheckSystemTraceAccess.c)
+ *     EtwpUpdateGroupMasks @ 0x1409D112C (EtwpUpdateGroupMasks.c)
+ *     EtwpUpdateStackTracing @ 0x1409D1388 (EtwpUpdateStackTracing.c)
+ *     EtwpEnableStackCaching @ 0x140A39C78 (EtwpEnableStackCaching.c)
+ *     EtwpSetSoftRestartInformation @ 0x140A39DC4 (EtwpSetSoftRestartInformation.c)
+ *     EtwpUpdatePmcCounters @ 0x140A9A104 (EtwpUpdatePmcCounters.c)
+ *     KiGetCpuVendor @ 0x140B6F294 (KiGetCpuVendor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwSetPerformanceTraceInformation(
@@ -51,255 +51,242 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(
         KPROCESSOR_MODE PreviousMode)
 {
   unsigned int v4; // r14d
-  unsigned __int16 v6; // dx
-  unsigned __int8 v7; // r8
+  int v6; // ebx
+  unsigned __int16 v7; // dx
+  unsigned __int8 v8; // r8
   struct _LIST_ENTRY *Flink; // r15
   __int64 result; // rax
-  void *v10; // rcx
-  unsigned int v11; // edx
-  bool v12; // r14
-  struct _KTHREAD *v13; // rax
-  __int64 v14; // rax
-  unsigned int *v15; // rdi
-  int v16; // ebx
-  __int64 v17; // r9
-  unsigned int v18; // r14d
+  __int64 v11; // rcx
+  unsigned int v12; // edx
+  bool v13; // r14
+  struct _KTHREAD *v14; // rax
+  __int64 v15; // rax
+  unsigned int *v16; // rdi
+  int v17; // ebx
+  __int64 v18; // r9
   unsigned int v19; // r14d
-  char *v20; // r12
-  unsigned int v21; // edx
-  struct _KTHREAD *v22; // rax
-  __int64 v23; // rax
-  __int64 v24; // rdi
+  unsigned int v20; // r14d
+  char *v21; // r12
+  unsigned int v22; // edx
+  struct _KTHREAD *v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rdi
   unsigned int Blink_low; // edx
-  __int64 v27; // r9
   int updated; // eax
-  int v29; // r15d
-  unsigned int v30; // r12d
-  int v31; // r13d
-  int v32; // esi
-  unsigned int v33; // edi
-  unsigned int v34; // edx
-  struct _KTHREAD *v35; // rax
+  int v29; // esi
+  int v30; // r14d
+  int v31; // r15d
+  unsigned int v32; // r12d
+  int v33; // r13d
+  int v34; // esi
+  ULONG v35; // edi
   __int64 v36; // rax
-  unsigned int *v37; // rcx
-  unsigned int v38; // r14d
-  wchar_t *v39; // rax
-  wchar_t *v40; // rsi
-  ULONG v41; // edx
-  wchar_t *v42; // rcx
-  unsigned int v43; // r14d
-  unsigned int v44; // r14d
-  void *v45; // rbx
-  unsigned int v46; // edx
-  struct _KTHREAD *v47; // rax
-  __int64 v48; // rax
-  unsigned int v49; // r14d
-  unsigned int v50; // r14d
-  unsigned int v51; // edx
-  struct _KTHREAD *v52; // rax
-  __int64 v53; // rax
-  __int16 *v54; // r8
-  unsigned int v55; // esi
-  wchar_t *v56; // rax
-  wchar_t *v57; // rdi
-  __int64 v58; // r9
-  unsigned __int8 v59; // al
-  unsigned int v60; // r13d
-  unsigned int v61; // ebx
-  wchar_t *Pool2; // rax
-  wchar_t *v63; // r14
+  unsigned int v37; // edx
+  struct _KTHREAD *v38; // rax
+  __int64 v39; // rax
+  unsigned int *v40; // rcx
+  unsigned int v41; // r14d
+  wchar_t *v42; // rax
+  wchar_t *v43; // rsi
+  ULONG v44; // edx
+  wchar_t *v45; // rcx
+  unsigned int v46; // r14d
+  unsigned int v47; // r14d
+  __int64 v48; // rbx
+  unsigned int v49; // edx
+  struct _KTHREAD *v50; // rax
+  __int64 v51; // rax
+  unsigned int v52; // r14d
+  unsigned int v53; // r14d
+  __int64 v54; // rbx
+  unsigned int v55; // edx
+  struct _KTHREAD *v56; // rax
+  __int64 v57; // rax
+  __int16 *v58; // r8
+  unsigned int v59; // esi
+  wchar_t *v60; // rax
+  wchar_t *v61; // rdi
+  unsigned __int8 v62; // al
+  unsigned int v63; // r13d
+  unsigned int v64; // ebx
+  __int64 Pool2; // rax
+  __int64 v66; // r14
   int CpuVendor; // eax
-  __int64 v65; // r9
-  unsigned int v66; // edx
-  struct _KTHREAD *v67; // rax
-  __int64 v68; // rax
-  __int64 v69; // r8
-  __int64 v70; // r9
+  unsigned int v68; // edx
+  struct _KTHREAD *v69; // rax
+  __int64 v70; // rax
   struct _KTHREAD *CurrentThread; // rax
   __int64 v72; // rax
-  __int64 v73; // r8
-  __int64 v74; // r9
-  unsigned int v75; // r14d
-  unsigned int v76; // r14d
-  char *v77; // r12
-  unsigned int v78; // edx
-  struct _KTHREAD *v79; // rax
-  __int64 v80; // rax
-  char v81; // [rsp+30h] [rbp-1C8h]
-  unsigned __int8 v82; // [rsp+31h] [rbp-1C7h]
-  PVOID P; // [rsp+38h] [rbp-1C0h] BYREF
-  unsigned __int8 v84; // [rsp+40h] [rbp-1B8h]
-  int v86; // [rsp+44h] [rbp-1B4h]
-  int v87; // [rsp+48h] [rbp-1B0h]
-  int v88; // [rsp+4Ch] [rbp-1ACh]
-  unsigned int v89; // [rsp+50h] [rbp-1A8h]
-  unsigned int v90; // [rsp+54h] [rbp-1A4h]
-  int v91; // [rsp+58h] [rbp-1A0h]
-  int v92; // [rsp+5Ch] [rbp-19Ch]
-  int v93; // [rsp+60h] [rbp-198h]
-  int v94; // [rsp+64h] [rbp-194h]
-  unsigned int v95; // [rsp+68h] [rbp-190h]
-  int v96; // [rsp+6Ch] [rbp-18Ch]
-  unsigned int v97; // [rsp+70h] [rbp-188h]
-  __int128 v98; // [rsp+78h] [rbp-180h] BYREF
+  unsigned int v73; // r14d
+  unsigned int v74; // r14d
+  char *v75; // r12
+  unsigned int v76; // edx
+  struct _KTHREAD *v77; // rax
+  __int64 v78; // rax
+  char v79; // [rsp+30h] [rbp-1C8h]
+  unsigned __int8 v80; // [rsp+31h] [rbp-1C7h]
+  int v81; // [rsp+44h] [rbp-1B4h]
+  int v82; // [rsp+4Ch] [rbp-1ACh]
+  unsigned int v83; // [rsp+50h] [rbp-1A8h]
+  unsigned int v84; // [rsp+54h] [rbp-1A4h]
+  int v85; // [rsp+60h] [rbp-198h]
+  __int128 v86; // [rsp+78h] [rbp-180h] BYREF
   wchar_t *Src[2]; // [rsp+88h] [rbp-170h]
-  _DWORD v100[2]; // [rsp+A0h] [rbp-158h] BYREF
-  _DWORD v101[2]; // [rsp+A8h] [rbp-150h] BYREF
-  char v102[256]; // [rsp+B0h] [rbp-148h] BYREF
-  __int64 v103; // [rsp+1B0h] [rbp-48h] BYREF
-  int v104; // [rsp+1B8h] [rbp-40h]
+  _DWORD v88[2]; // [rsp+A0h] [rbp-158h] BYREF
+  _DWORD v89[2]; // [rsp+A8h] [rbp-150h] BYREF
+  char v90[256]; // [rsp+B0h] [rbp-148h] BYREF
+  __int64 v91; // [rsp+1B0h] [rbp-48h] BYREF
+  int v92; // [rsp+1B8h] [rbp-40h]
 
   v4 = Length;
   if ( (unsigned int)Length < 4 )
     return 3221225485LL;
-  v86 = *(_DWORD *)Address;
+  v6 = *(_DWORD *)Address;
+  v81 = *(_DWORD *)Address;
   Flink = PsGetCurrentServerSiloGlobals()[52].Flink;
-  if ( v86 > 17 )
+  if ( v6 > 17 )
   {
-    if ( v86 <= 23 )
+    if ( v6 <= 23 )
     {
-      if ( v86 == 23 )
+      if ( v6 == 23 )
       {
         if ( v4 < 0x18 )
           return 3221225476LL;
-        v98 = *(_OWORD *)Address;
+        v86 = *(_OWORD *)Address;
         Src[0] = *((wchar_t **)Address + 2);
-        Blink_low = WORD4(v98);
-        if ( WORD4(v98) == 0xFFFF )
+        Blink_low = WORD4(v86);
+        if ( WORD4(v86) == 0xFFFF )
           Blink_low = LOBYTE(Flink[281].Blink);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         v72 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, Blink_low, 1u);
-        v24 = v72;
+        v25 = v72;
         if ( v72 )
         {
-          v16 = EtwpCheckLoggerControlAccess(0x80u, v72);
-          if ( v16 >= 0 )
+          v17 = EtwpCheckLoggerControlAccess(0x80u, v72);
+          if ( v17 >= 0 )
           {
-            updated = EtwpUpdateProcessorTraceConfiguration(v24, (__int64)&v98, v73, v74);
+            updated = EtwpUpdateProcessorTraceConfiguration(v25, (__int64)&v86);
             goto LABEL_177;
           }
           goto LABEL_178;
         }
         goto LABEL_31;
       }
-      if ( v86 != 18 )
+      if ( v6 != 18 )
       {
-        if ( v86 != 19 )
+        if ( v6 != 19 )
         {
-          if ( v86 == 20 )
+          if ( v6 == 20 )
             goto LABEL_9;
-          if ( v86 == 21 )
+          if ( v6 == 21 )
           {
             if ( PreviousMode && !EtwpUserInAdminOrLogUsersGroup() )
               return 3221225506LL;
             if ( v4 - 36 > 0x1FC )
               return 3221225476LL;
-            v59 = Address[4];
-            if ( v59 < 2u || v59 > 3u )
+            v62 = Address[4];
+            if ( v62 < 2u || v62 > 3u )
               return 3221225561LL;
-            v60 = v4 - 34 + 280;
-            v61 = (v4 - 34) >> 1;
-            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
-            v63 = Pool2;
-            P = Pool2;
+            v63 = v4 - 34 + 280;
+            v64 = (v4 - 34) >> 1;
+            Pool2 = ExAllocatePool2(0x100uLL, v63, 0x50777445u);
+            v66 = Pool2;
             if ( !Pool2 )
               return 3221225495LL;
-            wcsncpy_s(Pool2 + 140, v61, (const wchar_t *)Address + 17, v61);
-            v103 = *((_QWORD *)Address + 2);
-            v104 = *((_DWORD *)Address + 6);
-            *((_DWORD *)v63 + 2) = *((_DWORD *)Address + 7);
-            v82 = Address[32];
-            v84 = v82;
+            wcsncpy_s((wchar_t *)(Pool2 + 280), v64, (const wchar_t *)Address + 17, v64);
+            v91 = *((_QWORD *)Address + 2);
+            v92 = *((_DWORD *)Address + 6);
+            *(_DWORD *)(v66 + 8) = *((_DWORD *)Address + 7);
+            v80 = Address[32];
             CpuVendor = KiGetCpuVendor();
             if ( CpuVendor == 2 )
             {
-              *(_BYTE *)v63 = Address[8];
-              *((_BYTE *)v63 + 1) = Address[9];
-              *((_BYTE *)v63 + 2) = Address[10];
-              *((_BYTE *)v63 + 3) = Address[11];
-              *((_BYTE *)v63 + 4) = Address[12];
-              *((_BYTE *)v63 + 5) = Address[13];
+              *(_BYTE *)v66 = Address[8];
+              *(_BYTE *)(v66 + 1) = Address[9];
+              *(_BYTE *)(v66 + 2) = Address[10];
+              *(_BYTE *)(v66 + 3) = Address[11];
+              *(_BYTE *)(v66 + 4) = Address[12];
+              *(_BYTE *)(v66 + 5) = Address[13];
             }
             else if ( CpuVendor == 1 )
             {
               if ( Address[4] == 2 )
               {
-                *v63 = Address[8];
-                *((_BYTE *)v63 + 2) = Address[9];
+                *(_WORD *)v66 = Address[8];
+                *(_BYTE *)(v66 + 2) = Address[9];
               }
               else
               {
-                *v63 = *((_WORD *)Address + 4);
-                *((_BYTE *)v63 + 2) = Address[10];
-                *((_BYTE *)v63 + 3) = Address[11];
-                *((_BYTE *)v63 + 4) = Address[12];
-                *((_BYTE *)v63 + 5) = Address[13];
-                *((_BYTE *)v63 + 6) = Address[14];
-                *((_BYTE *)v63 + 7) = Address[15];
+                *(_WORD *)v66 = *((_WORD *)Address + 4);
+                *(_BYTE *)(v66 + 2) = Address[10];
+                *(_BYTE *)(v66 + 3) = Address[11];
+                *(_BYTE *)(v66 + 4) = Address[12];
+                *(_BYTE *)(v66 + 5) = Address[13];
+                *(_BYTE *)(v66 + 6) = Address[14];
+                *(_BYTE *)(v66 + 7) = Address[15];
               }
             }
-            *((_DWORD *)v63 + 4) = 2097153;
-            *((_DWORD *)v63 + 5) = 0;
-            memset_0(v63 + 12, 0, 0x100uLL);
-            EtwpGetMicroarchitecturalPmcAffinity((__int64)&v103, v63 + 8);
-            v16 = guard_dispatch_icall_no_overrides(20LL, v60, v63, v65);
-            if ( v82 )
-              v16 = EtwpAddMicroarchitecturalPmcToRegistry((unsigned __int8 *)v63, &v103);
-            v42 = v63;
+            *(_DWORD *)(v66 + 16) = 2097153;
+            *(_DWORD *)(v66 + 20) = 0;
+            memset_0((void *)(v66 + 24), 0, 0x100uLL);
+            EtwpGetMicroarchitecturalPmcAffinity((__int64)&v91, (unsigned __int16 *)(v66 + 16));
+            v17 = guard_dispatch_icall_no_overrides(20LL, v63);
+            if ( v80 )
+              v17 = EtwpAddMicroarchitecturalPmcToRegistry((unsigned __int8 *)v66, &v91);
+            v45 = (wchar_t *)v66;
           }
           else
           {
-            v98 = 0LL;
+            v86 = 0LL;
             Src[0] = 0LL;
-            v100[1] = 0;
-            memset_0(v100, 0, 0x10CuLL);
-            LODWORD(P) = 0;
+            v88[1] = 0;
+            memset_0(v88, 0, 0x10CuLL);
             if ( PreviousMode && !EtwpUserInAdminOrLogUsersGroup() )
               return 3221225506LL;
             if ( v4 != 20 )
               return 3221225476LL;
-            v103 = *((_QWORD *)Address + 1);
-            v104 = *((_DWORD *)Address + 4);
-            LODWORD(v98) = *((_DWORD *)Address + 1);
-            v16 = guard_dispatch_icall_no_overrides(1LL, 24LL, &v98, &P);
-            if ( v16 < 0 )
-              return (unsigned int)v16;
-            v100[0] = v98;
-            v101[0] = 2097153;
-            v101[1] = 0;
-            memset_0(v102, 0, sizeof(v102));
-            EtwpGetMicroarchitecturalPmcAffinity((__int64)&v103, (unsigned __int16 *)v101);
-            v55 = wcsnlen(Src[0], 0xFFuLL);
-            v56 = (wchar_t *)ExAllocatePool2(0x100uLL);
-            v57 = v56;
-            if ( !v56 )
+            v91 = *((_QWORD *)Address + 1);
+            v92 = *((_DWORD *)Address + 4);
+            LODWORD(v86) = *((_DWORD *)Address + 1);
+            v17 = guard_dispatch_icall_no_overrides(1LL, 24LL);
+            if ( v17 < 0 )
+              return (unsigned int)v17;
+            v88[0] = v86;
+            v89[0] = 2097153;
+            v89[1] = 0;
+            memset_0(v90, 0, sizeof(v90));
+            EtwpGetMicroarchitecturalPmcAffinity((__int64)&v91, (unsigned __int16 *)v89);
+            v59 = wcsnlen(Src[0], 0xFFuLL);
+            v60 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * (v59 + 1), 0x50777445u);
+            v61 = v60;
+            if ( !v60 )
               return 3221225495LL;
-            wcsncpy_s(v56, v55 + 1, Src[0], v55);
-            v16 = guard_dispatch_icall_no_overrides(21LL, 272LL, v100, v58);
-            EtwpRemoveMicroarchitecturalPmcFromRegistry(v57, v55, (__int64)&v103);
-            v42 = v57;
+            wcsncpy_s(v60, v59 + 1, Src[0], v59);
+            v17 = guard_dispatch_icall_no_overrides(21LL, 272LL);
+            EtwpRemoveMicroarchitecturalPmcFromRegistry(v61, v59, (__int64)&v91);
+            v45 = v61;
           }
-          v41 = 1350005829;
+          v44 = 1350005829;
           goto LABEL_145;
         }
         if ( v4 < 0x18 )
           return 3221225476LL;
-        v98 = *(_OWORD *)Address;
+        v86 = *(_OWORD *)Address;
         Src[0] = *((wchar_t **)Address + 2);
-        v66 = WORD4(v98);
-        if ( WORD4(v98) == 0xFFFF )
-          v66 = LOBYTE(Flink[281].Blink);
-        v67 = KeGetCurrentThread();
-        --v67->KernelApcDisable;
-        v68 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v66, 1u);
-        v24 = v68;
-        if ( v68 )
+        v68 = WORD4(v86);
+        if ( WORD4(v86) == 0xFFFF )
+          v68 = LOBYTE(Flink[281].Blink);
+        v69 = KeGetCurrentThread();
+        --v69->KernelApcDisable;
+        v70 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v68, 1u);
+        v25 = v70;
+        if ( v70 )
         {
-          v16 = EtwpCheckLoggerControlAccess(0x80u, v68);
-          if ( v16 >= 0 )
+          v17 = EtwpCheckLoggerControlAccess(0x80u, v70);
+          if ( v17 >= 0 )
           {
-            updated = EtwpUpdateLastBranchTracingConfiguration(v24, LODWORD(Src[0]), v69, v70);
+            updated = EtwpUpdateLastBranchTracingConfiguration(v25, LODWORD(Src[0]));
             goto LABEL_177;
           }
           goto LABEL_178;
@@ -310,144 +297,137 @@ __int64 __fastcall EtwSetPerformanceTraceInformation(
     }
     else
     {
-      if ( v86 == 24 )
+      if ( v6 == 24 )
         goto LABEL_9;
-      if ( v86 != 25 )
+      if ( v6 != 25 )
       {
-        if ( v86 == 26 )
+        if ( v6 == 26 )
           goto LABEL_15;
-        if ( v86 != 27 )
+        if ( v6 != 27 )
           return (unsigned int)-1073741822;
         if ( v4 < 0x14 )
           return 3221225476LL;
-        v75 = v4 - 20;
-        if ( (v75 & 3) != 0 )
+        v73 = v4 - 20;
+        if ( (v73 & 3) != 0 )
           return 3221225485LL;
         if ( !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, 1) )
           return 3221225569LL;
-        v76 = v75 >> 2;
-        v77 = (char *)(Address + 20);
-        v88 = *((_DWORD *)Address + 4);
-        P = (PVOID)*((_QWORD *)Address + 1);
-        v78 = (unsigned __int16)P;
-        if ( (unsigned __int16)P == 0xFFFF )
-          v78 = LOBYTE(Flink[281].Blink);
-        v79 = KeGetCurrentThread();
-        --v79->KernelApcDisable;
-        v80 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v78, 1u);
-        v24 = v80;
-        if ( v80 )
+        v74 = v73 >> 2;
+        v75 = (char *)(Address + 20);
+        v82 = *((_DWORD *)Address + 4);
+        v76 = (unsigned __int16)*((_QWORD *)Address + 1);
+        if ( v76 == 0xFFFF )
+          v76 = LOBYTE(Flink[281].Blink);
+        v77 = KeGetCurrentThread();
+        --v77->KernelApcDisable;
+        v78 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v76, 1u);
+        v25 = v78;
+        if ( v78 )
         {
-          v16 = EtwpCheckLoggerControlAccess(0x80u, v80);
-          if ( v16 >= 0 )
+          v17 = EtwpCheckLoggerControlAccess(0x80u, v78);
+          if ( v17 >= 0 )
           {
-            updated = EtwpUpdateContextRegisterTraceEvents(v24, v88, (__int64)v77, v76);
+            updated = EtwpUpdateContextRegisterTraceEvents(v25, v82, (__int64)v75, v74);
             goto LABEL_177;
           }
           goto LABEL_178;
         }
         goto LABEL_31;
       }
-      return (unsigned int)EtwpSetCoverageSamplerInformation(Address, v4, v7);
+      return (unsigned int)EtwpSetCoverageSamplerInformation(Address, v4, v8);
     }
   }
-  if ( v86 == 17 )
+  if ( v6 == 17 )
   {
 LABEL_108:
     if ( v4 < 0x10 )
       return 3221225476LL;
-    v49 = v4 - 16;
-    if ( (v49 & 3) != 0 )
+    v52 = v4 - 16;
+    if ( (v52 & 3) != 0 )
       return 3221225485LL;
-    v50 = v49 >> 2;
-    if ( (unsigned __int16)v50 > v6 )
+    v53 = v52 >> 2;
+    if ( (unsigned __int16)v53 > v7 )
       return 3221225485LL;
     if ( PsIsCurrentThreadInServerSilo() )
       return 3221225506LL;
-    P = (PVOID)*((_QWORD *)Address + 1);
-    memmove(&v103, Address + 16, 4LL * (unsigned __int16)v50);
-    v51 = (unsigned __int16)P;
-    if ( (unsigned __int16)P == 0xFFFF )
-      v51 = LOBYTE(Flink[281].Blink);
-    v52 = KeGetCurrentThread();
-    --v52->KernelApcDisable;
-    v53 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v51, 1u);
-    v24 = v53;
-    if ( !v53 )
+    v54 = *((_QWORD *)Address + 1);
+    memmove(&v91, Address + 16, 4LL * (unsigned __int16)v53);
+    v55 = (unsigned __int16)v54;
+    if ( (unsigned __int16)v54 == 0xFFFF )
+      v55 = LOBYTE(Flink[281].Blink);
+    v56 = KeGetCurrentThread();
+    --v56->KernelApcDisable;
+    v57 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v55, 1u);
+    v25 = v57;
+    if ( !v57 )
       goto LABEL_31;
-    v37 = (unsigned int *)v53;
-    if ( (*(_DWORD *)(v53 + 12) & 0x2000000) != 0 )
+    v40 = (unsigned int *)v57;
+    if ( (*(_DWORD *)(v57 + 12) & 0x2000000) != 0 )
     {
-      v16 = EtwpCheckSystemTraceAccess(v53, 0x80u);
-      if ( v16 >= 0 )
+      v17 = EtwpCheckSystemTraceAccess(v57, 0x80u);
+      if ( v17 >= 0 )
       {
-        v54 = EtwpPoolTagFilter;
-        if ( v86 != 10 )
-          v54 = (__int16 *)&EtwpObjectTypeFilter;
-        EtwpUpdateTagFilter(&v103, v50, (__int64)&v54[10 * *(unsigned __int8 *)(v24 + 818)]);
+        v58 = EtwpPoolTagFilter;
+        if ( v81 != 10 )
+          v58 = (__int16 *)&EtwpObjectTypeFilter;
+        EtwpUpdateTagFilter(&v91, v53, (__int64)&v58[10 * *(unsigned __int8 *)(v25 + 818)]);
       }
       goto LABEL_178;
     }
 LABEL_84:
-    EtwpReleaseLoggerContext(v37, 1);
-    v16 = -1073741811;
+    EtwpReleaseLoggerContext(v40, 1);
+    v17 = -1073741811;
     goto LABEL_23;
   }
-  if ( v86 <= 10 )
+  if ( v6 <= 10 )
   {
-    if ( v86 != 10 )
+    if ( v6 != 10 )
     {
-      if ( v86 != 1 )
+      if ( v6 != 1 )
       {
-        switch ( v86 )
+        switch ( v6 )
         {
           case 3:
             if ( v4 != 8 )
               return 3221225476LL;
             if ( PsIsCurrentThreadInServerSilo() )
               return 3221225506LL;
-            v33 = *((_DWORD *)Address + 1);
-            v97 = v33;
+            v35 = *((_DWORD *)Address + 1);
             KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
-            v16 = NtSetIntervalProfile(v33, 0);
-            if ( v16 >= 0 )
-              EtwpProfileInterval = v33;
+            v17 = NtSetIntervalProfile(v35, ProfileTime);
+            if ( v17 >= 0 )
+              EtwpProfileInterval = v35;
             break;
           case 5:
             if ( ((v4 - 16) & 0xFFFFFFFB) != 0 )
               return 3221225476LL;
             result = EtwpCheckGuidAccess((__int64)&SystemTraceControlGuid, 0x80u, 0LL);
-            v16 = result;
+            v17 = result;
             if ( (int)result < 0 )
               return result;
             if ( PsIsCurrentThreadInServerSilo() )
               return 3221225506LL;
-            v29 = *((_DWORD *)Address + 1);
-            v94 = v29;
-            if ( !v29 )
-              return 3221225485LL;
-            v30 = *((_DWORD *)Address + 2);
-            v95 = v30;
-            if ( v30 < 0x3E8 )
-              return 3221225485LL;
-            v31 = *((_DWORD *)Address + 3);
-            v96 = v31;
+            v31 = *((_DWORD *)Address + 1);
             if ( !v31 )
               return 3221225485LL;
-            v32 = EtwpSpinLockHoldThreshold;
-            v87 = EtwpSpinLockHoldThreshold;
+            v32 = *((_DWORD *)Address + 2);
+            if ( v32 < 0x3E8 )
+              return 3221225485LL;
+            v33 = *((_DWORD *)Address + 3);
+            if ( !v33 )
+              return 3221225485LL;
+            v34 = EtwpSpinLockHoldThreshold;
             if ( v4 == 20 )
             {
-              v32 = *((_DWORD *)Address + 4);
-              v87 = v32;
-              if ( (unsigned int)(v32 - 1) <= 0xF423E )
+              v34 = *((_DWORD *)Address + 4);
+              if ( (unsigned int)(v34 - 1) <= 0xF423E )
                 return 3221225485LL;
             }
             KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
-            EtwpSpinLockHoldThreshold = v32;
-            EtwpSpinLockSpinThreshold = v29;
-            EtwpSpinLockAcquireSampleRate = v30;
-            EtwpSpinLockContentionSampleRate = v31;
+            EtwpSpinLockHoldThreshold = v34;
+            EtwpSpinLockSpinThreshold = v31;
+            EtwpSpinLockAcquireSampleRate = v32;
+            EtwpSpinLockContentionSampleRate = v33;
             break;
           case 6:
             goto LABEL_9;
@@ -455,151 +435,149 @@ LABEL_84:
             if ( v4 != 16 )
               return 3221225476LL;
             result = EtwpCheckGuidAccess((__int64)&SystemTraceControlGuid, 0x80u, 0LL);
-            v16 = result;
+            v17 = result;
             if ( (int)result < 0 )
               return result;
             if ( PsIsCurrentThreadInServerSilo() )
               return 3221225506LL;
-            v91 = *((_DWORD *)Address + 1);
-            v92 = *((_DWORD *)Address + 2);
-            v93 = *((_DWORD *)Address + 3);
+            v29 = *((_DWORD *)Address + 1);
+            v30 = *((_DWORD *)Address + 2);
+            v85 = *((_DWORD *)Address + 3);
             KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
-            EtwpExecutiveResourceReleaseSampleRate = v91;
-            EtwpExecutiveResourceContentionSampleRate = v92;
-            EtwpExecutiveResourceTimeout = v93;
+            EtwpExecutiveResourceReleaseSampleRate = v29;
+            EtwpExecutiveResourceContentionSampleRate = v30;
+            EtwpExecutiveResourceTimeout = v85;
             break;
           default:
             return (unsigned int)-1073741822;
         }
         KeReleaseMutex(&EtwpGroupMaskMutex, 0);
-        return (unsigned int)v16;
+        return (unsigned int)v17;
       }
       if ( v4 != 48 )
         return 3221225476LL;
-      P = (PVOID)*((_QWORD *)Address + 1);
-      v98 = *((_OWORD *)Address + 1);
+      v36 = *((_QWORD *)Address + 1);
+      v86 = *((_OWORD *)Address + 1);
       *(_OWORD *)Src = *((_OWORD *)Address + 2);
-      v34 = (unsigned __int16)P;
-      if ( (unsigned __int16)P == 0xFFFF )
-        v34 = LOBYTE(Flink[281].Blink);
-      v35 = KeGetCurrentThread();
-      --v35->KernelApcDisable;
-      v36 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v34, 1u);
-      v24 = v36;
-      if ( v36 )
+      v37 = (unsigned __int16)v36;
+      if ( (unsigned __int16)v36 == 0xFFFF )
+        v37 = LOBYTE(Flink[281].Blink);
+      v38 = KeGetCurrentThread();
+      --v38->KernelApcDisable;
+      v39 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v37, 1u);
+      v25 = v39;
+      if ( v39 )
       {
-        v37 = (unsigned int *)v36;
-        if ( (*(_DWORD *)(v36 + 12) & 0x2000000) != 0 )
+        v40 = (unsigned int *)v39;
+        if ( (*(_DWORD *)(v39 + 12) & 0x2000000) != 0 )
         {
-          v16 = EtwpCheckSystemTraceAccess(v36, 0x80u);
-          if ( v16 >= 0 )
+          v17 = EtwpCheckSystemTraceAccess(v39, 0x80u);
+          if ( v17 >= 0 )
           {
-            updated = EtwpUpdateGroupMasks((int *)v24, &v98);
+            updated = EtwpUpdateGroupMasks((int *)v25, &v86);
             goto LABEL_177;
           }
 LABEL_178:
-          EtwpReleaseLoggerContext((unsigned int *)v24, 1);
+          EtwpReleaseLoggerContext((unsigned int *)v25, 1);
           goto LABEL_23;
         }
         goto LABEL_84;
       }
 LABEL_31:
-      v16 = -1073741162;
+      v17 = -1073741162;
 LABEL_23:
       KeLeaveCriticalRegion();
-      return (unsigned int)v16;
+      return (unsigned int)v17;
     }
     goto LABEL_108;
   }
-  if ( v86 == 11 )
+  if ( v6 == 11 )
   {
-    v81 = 0;
+    v79 = 0;
     if ( v4 < 0x10 )
       return 3221225476LL;
-    v43 = v4 - 16;
-    if ( (v43 & 3) != 0 )
+    v46 = v4 - 16;
+    if ( (v46 & 3) != 0 )
       return 3221225485LL;
-    v44 = v43 >> 2;
-    if ( v44 > 1 )
+    v47 = v46 >> 2;
+    if ( v47 > 1 )
       return 3221225485LL;
-    v45 = (void *)*((_QWORD *)Address + 1);
-    P = v45;
-    if ( v44 )
+    v48 = *((_QWORD *)Address + 1);
+    if ( v47 )
     {
       if ( *((_DWORD *)Address + 4) != 1316 )
         return 3221225485LL;
-      v81 = 1;
+      v79 = 1;
     }
     if ( !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, PreviousMode) )
       return 3221225569LL;
     if ( PsIsCurrentThreadInServerSilo() )
       return 3221225506LL;
-    v46 = (unsigned __int16)v45;
-    if ( (unsigned __int16)v45 == 0xFFFF )
-      v46 = LOBYTE(Flink[281].Blink);
-    v47 = KeGetCurrentThread();
-    --v47->KernelApcDisable;
-    v48 = EtwpAcquireLoggerContextByLoggerId(EtwpHostSiloState, v46, 1u);
-    v24 = v48;
-    if ( v48 )
+    v49 = (unsigned __int16)v48;
+    if ( (unsigned __int16)v48 == 0xFFFF )
+      v49 = LOBYTE(Flink[281].Blink);
+    v50 = KeGetCurrentThread();
+    --v50->KernelApcDisable;
+    v51 = EtwpAcquireLoggerContextByLoggerId(EtwpHostSiloState, v49, 1u);
+    v25 = v51;
+    if ( v51 )
     {
-      v16 = EtwpCheckLoggerControlAccess(0x80u, v48);
-      if ( v16 >= 0 )
+      v17 = EtwpCheckLoggerControlAccess(0x80u, v51);
+      if ( v17 >= 0 )
       {
-        if ( v81 )
-          _InterlockedOr((volatile signed __int32 *)(v24 + 816), 0x400u);
+        if ( v79 )
+          _InterlockedOr((volatile signed __int32 *)(v25 + 816), 0x400u);
         else
-          _InterlockedAnd((volatile signed __int32 *)(v24 + 816), 0xFFFFFBFF);
+          _InterlockedAnd((volatile signed __int32 *)(v25 + 816), 0xFFFFFBFF);
       }
       goto LABEL_178;
     }
     goto LABEL_31;
   }
-  if ( v86 != 12 )
+  if ( v6 != 12 )
   {
-    if ( v86 == 14 || v86 == 15 )
+    if ( v6 == 14 || v6 == 15 )
     {
 LABEL_9:
       if ( v4 < 0x10 )
         return 3221225476LL;
-      v18 = v4 - 16;
-      if ( (v18 & 3) == 0 )
+      v19 = v4 - 16;
+      if ( (v19 & 3) == 0 )
       {
-        if ( PsIsCurrentThreadInServerSilo() && (unsigned int)(v86 - 14) <= 1 )
+        if ( PsIsCurrentThreadInServerSilo() && (unsigned int)(v6 - 14) <= 1 )
           return 3221225506LL;
-        v19 = v18 >> 2;
-        v20 = (char *)(Address + 16);
-        P = (PVOID)*((_QWORD *)Address + 1);
-        v21 = (unsigned __int16)P;
-        if ( (unsigned __int16)P == 0xFFFF )
-          v21 = LOBYTE(Flink[281].Blink);
-        v22 = KeGetCurrentThread();
-        --v22->KernelApcDisable;
-        v23 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v21, 1u);
-        v24 = v23;
-        if ( !v23 )
+        v20 = v19 >> 2;
+        v21 = (char *)(Address + 16);
+        v22 = (unsigned __int16)*((_QWORD *)Address + 1);
+        if ( v22 == 0xFFFF )
+          v22 = LOBYTE(Flink[281].Blink);
+        v23 = KeGetCurrentThread();
+        --v23->KernelApcDisable;
+        v24 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v22, 1u);
+        v25 = v24;
+        if ( !v24 )
           goto LABEL_31;
-        v16 = EtwpCheckLoggerControlAccess(0x80u, v23);
-        if ( v16 >= 0 )
+        v17 = EtwpCheckLoggerControlAccess(0x80u, v24);
+        if ( v17 >= 0 )
         {
-          switch ( v86 )
+          switch ( v81 )
           {
             case 6:
-              updated = EtwpUpdateStackTracing((RTL_BITMAP *)v24, (__int64)v20, v19);
+              updated = EtwpUpdateStackTracing((_RTL_BITMAP *)v25, (__int64)v21, v20);
 LABEL_177:
-              v16 = updated;
+              v17 = updated;
               goto LABEL_178;
             case 15:
-              updated = EtwpUpdatePmcCounters(v24, v20, v19);
+              updated = EtwpUpdatePmcCounters(v25, v21, v20);
               goto LABEL_177;
             case 14:
-              updated = EtwpUpdatePmcEvents(v24, (__int64)v20, v19);
+              updated = EtwpUpdatePmcEvents(v25, (__int64)v21, v20);
               goto LABEL_177;
             case 20:
-              EtwpUpdateLastBranchTracingEvents(v24, (__int64)v20, v19, v27);
+              EtwpUpdateLastBranchTracingEvents(v25, (__int64)v21, v20);
               break;
             case 24:
-              updated = EtwpUpdateProcessorTraceEvents(v24, (__int64)v20, v19);
+              updated = EtwpUpdateProcessorTraceEvents(v25, (__int64)v21, v20);
               goto LABEL_177;
           }
         }
@@ -607,36 +585,35 @@ LABEL_177:
       }
       return 3221225485LL;
     }
-    if ( v86 != 16 )
+    if ( v6 != 16 )
       return (unsigned int)-1073741822;
 LABEL_15:
     if ( v4 != 32 )
       return 3221225476LL;
-    v10 = (void *)*((_QWORD *)Address + 1);
-    P = v10;
-    v90 = *((_DWORD *)Address + 5);
-    v89 = *((_DWORD *)Address + 6);
+    v11 = *((_QWORD *)Address + 1);
+    v84 = *((_DWORD *)Address + 5);
+    v83 = *((_DWORD *)Address + 6);
     if ( !Address[16] )
       return 3221225659LL;
-    v11 = (unsigned __int16)v10;
-    if ( (unsigned __int16)v10 == 0xFFFF )
-      v11 = LOBYTE(Flink[281].Blink);
-    v12 = v86 == 26;
-    v13 = KeGetCurrentThread();
-    --v13->KernelApcDisable;
-    v14 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v11, 1u);
-    v15 = (unsigned int *)v14;
-    if ( v14 )
+    v12 = (unsigned __int16)v11;
+    if ( (unsigned __int16)v11 == 0xFFFF )
+      v12 = LOBYTE(Flink[281].Blink);
+    v13 = v6 == 26;
+    v14 = KeGetCurrentThread();
+    --v14->KernelApcDisable;
+    v15 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v12, 1u);
+    v16 = (unsigned int *)v15;
+    if ( v15 )
     {
-      v16 = EtwpCheckLoggerControlAccess(0x80u, v14);
-      if ( v16 >= 0 )
+      v17 = EtwpCheckLoggerControlAccess(0x80u, v15);
+      if ( v17 >= 0 )
       {
-        LOBYTE(v17) = v12;
-        v16 = EtwpEnableStackCaching(v15, v90, v89, v17);
+        LOBYTE(v18) = v13;
+        v17 = EtwpEnableStackCaching(v16, v84, v83, v18);
       }
-      KeReleaseMutex((PRKMUTEX)(v15 + 158), 0);
+      KeReleaseMutex((PRKMUTEX)(v16 + 158), 0);
       ExReleaseRundownProtectionCacheAwareEx(
-        *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v15 + 170) + 704LL) + 8LL * *v15),
+        *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v16 + 170) + 704LL) + 8LL * *v16),
         1u);
       goto LABEL_23;
     }
@@ -651,21 +628,20 @@ LABEL_15:
     {
       if ( !PsIsCurrentThreadInServerSilo() )
       {
-        v38 = (v4 - 16) >> 2;
-        if ( v38 > EtwpMaxProfilingSources )
+        v41 = (v4 - 16) >> 2;
+        if ( v41 > EtwpMaxProfilingSources )
           return 3221225485LL;
-        v39 = (wchar_t *)ExAllocatePool2(0x40uLL);
-        v40 = v39;
-        P = v39;
-        if ( v39 )
+        v42 = (wchar_t *)ExAllocatePool2(0x40uLL, 4LL * v41, 0x58777445u);
+        v43 = v42;
+        if ( v42 )
         {
-          memmove(v39, Address + 16, 4LL * v38);
-          v16 = EtwpSetPmcProfileSource(v40, v38);
-          v41 = 0;
-          v42 = v40;
+          memmove(v42, Address + 16, 4LL * v41);
+          v17 = EtwpSetPmcProfileSource(v43, v41);
+          v44 = 0;
+          v45 = v43;
 LABEL_145:
-          ExFreePoolWithTag(v42, v41);
-          return (unsigned int)v16;
+          ExFreePoolWithTag(v45, v44);
+          return (unsigned int)v17;
         }
         return 3221225495LL;
       }

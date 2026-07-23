@@ -2,7 +2,7 @@
  * XREFs of LdrpCorProcessImports @ 0x180084C94
  * Callers:
  *     LdrpMapDllWithSectionHandle @ 0x180014A90 (LdrpMapDllWithSectionHandle.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     LdrpLogDllState @ 0x18001A6CC (LdrpLogDllState.c)
  *     LdrpSendDllNotifications @ 0x18003DD70 (LdrpSendDllNotifications.c)

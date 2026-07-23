@@ -1,11 +1,11 @@
 /*
- * XREFs of PoGetWorkloadClassCount @ 0x140B5FDBC
+ * XREFs of PoGetWorkloadClassCount @ 0x140B61E88
  * Callers:
- *     KiInitializeWpsWorkloadClasses @ 0x140B56740 (KiInitializeWpsWorkloadClasses.c)
- *     PpmHeteroInitializeIntelWpsSupport @ 0x140C33C18 (PpmHeteroInitializeIntelWpsSupport.c)
- *     PpmHeteroInitializeAmdWpsSupport @ 0x140C33FDC (PpmHeteroInitializeAmdWpsSupport.c)
+ *     KiInitializeWpsWorkloadClasses @ 0x140B58790 (KiInitializeWpsWorkloadClasses.c)
+ *     PpmHeteroInitializeIntelWpsSupport @ 0x140C35D58 (PpmHeteroInitializeIntelWpsSupport.c)
+ *     PpmHeteroInitializeAmdWpsSupport @ 0x140C3611C (PpmHeteroInitializeAmdWpsSupport.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PoGetWorkloadClassCount(_DWORD *a1)

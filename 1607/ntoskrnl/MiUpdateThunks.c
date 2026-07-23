@@ -3,7 +3,7 @@
  * Callers:
  *     MiReloadBootLoadedDrivers @ 0x1407A57F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
  */
 
 unsigned __int64 __fastcall MiUpdateThunks(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

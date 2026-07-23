@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpControlAreaRefs @ 0x14010C9E8
+ * XREFs of MiUpControlAreaRefs @ 0x14010A768
  * Callers:
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiAllocateChildVads @ 0x140527B80 (MiAllocateChildVads.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiAllocateChildVads @ 0x14050ABE0 (MiAllocateChildVads.c)
  * Callees:
- *     MiReferenceSubsection @ 0x140021B6C (MiReferenceSubsection.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiUnlockNestedVad @ 0x140527FB0 (MiUnlockNestedVad.c)
- *     MiLockNestedVad @ 0x140527FE0 (MiLockNestedVad.c)
+ *     MiReferenceSubsection @ 0x1400216EC (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiUnlockNestedVad @ 0x14050B010 (MiUnlockNestedVad.c)
+ *     MiLockNestedVad @ 0x14050B040 (MiLockNestedVad.c)
  */
 
 void __fastcall MiUpControlAreaRefs(__int64 a1)

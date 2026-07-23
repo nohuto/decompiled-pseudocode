@@ -249,7 +249,7 @@ LABEL_56:
     goto LABEL_66;
   v33 = v57 & 0x1F;
   LOBYTE(v34) = 1;
-  v35 = (volatile signed __int32 *)(*(_QWORD *)(qword_14034F160 + 8) + 4 * (v57 >> 5));
+  v35 = (volatile signed __int32 *)qword_14034F160->Buffer + (v57 >> 5);
   if ( v33 + 1 <= 0x20 )
   {
     v36 = 1 << v33;

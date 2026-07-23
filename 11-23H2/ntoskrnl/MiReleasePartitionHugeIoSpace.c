@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReleasePartitionHugeIoSpace @ 0x1406224D0
+ * XREFs of MiReleasePartitionHugeIoSpace @ 0x140622A20
  * Callers:
- *     MiReturnPartitionPagesToParent @ 0x14065B458 (MiReturnPartitionPagesToParent.c)
+ *     MiReturnPartitionPagesToParent @ 0x14065B9A8 (MiReturnPartitionPagesToParent.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x1406220B8 (MiMoveBadHugeRangeCrossPartition.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x140622608 (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  */
 
 __int64 __fastcall MiReleasePartitionHugeIoSpace(ULONG_PTR BugCheckParameter2)
@@ -78,10 +78,10 @@ __int64 __fastcall MiReleasePartitionHugeIoSpace(ULONG_PTR BugCheckParameter2)
       if ( ((*(_QWORD *)(qword_140C67DF0 + 8LL * (v9[3] & 0x3FFFFF)) >> 4) & 0x7FFLL) == *(_WORD *)BugCheckParameter2 )
       {
         ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67310);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -102,10 +102,10 @@ __int64 __fastcall MiReleasePartitionHugeIoSpace(ULONG_PTR BugCheckParameter2)
     }
     v17 = *(_QWORD *)(BugCheckParameter2 + 16216);
     ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67310);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v6 <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v6 <= 0xFu && v18 >= 2u )
       {
         v19 = KeGetCurrentPrcb();
         v20 = v19->SchedulerAssist;

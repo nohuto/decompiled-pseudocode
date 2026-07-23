@@ -2,17 +2,17 @@
  * XREFs of MiAllocateAcceleratorDescriptor @ 0x1402220E0
  * Callers:
  *     MiAbsorbPossibleEngineChanges @ 0x140221054 (MiAbsorbPossibleEngineChanges.c)
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     MiZeroPageCalibrate @ 0x1403AA5F0 (MiZeroPageCalibrate.c)
- *     MiHugePageOperation @ 0x1406205A0 (MiHugePageOperation.c)
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     MiZeroPageCalibrate @ 0x1403AA7D0 (MiZeroPageCalibrate.c)
+ *     MiHugePageOperation @ 0x140620AF0 (MiHugePageOperation.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiEngineHasDescriptors @ 0x140654D3C (MiEngineHasDescriptors.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiEngineHasDescriptors @ 0x14065528C (MiEngineHasDescriptors.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -61,10 +61,13 @@ __int64 __fastcall MiAllocateAcceleratorDescriptor(__int64 a1, int a2, __int64 a
   }
 LABEL_2:
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C69820);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v10 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

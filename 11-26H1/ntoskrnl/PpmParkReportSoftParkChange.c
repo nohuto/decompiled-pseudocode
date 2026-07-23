@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkReportSoftParkChange @ 0x14042BF38
+ * XREFs of PpmParkReportSoftParkChange @ 0x140420608
  * Callers:
- *     PpmPerfAction @ 0x1402532A0 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x140254C00 (PpmPerfAction.c)
  * Callees:
- *     PpmIdleUpdateProcessorLatencyLimit @ 0x14028FA08 (PpmIdleUpdateProcessorLatencyLimit.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x14042C030 (KeInterlockedSetProcessorAffinityEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x14042C170 (KeInterlockedClearProcessorAffinityEx.c)
- *     KeTransitionProcessorParkState @ 0x14042C1D0 (KeTransitionProcessorParkState.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     PpmEventCoreParkingSoftParkedStateChange @ 0x14042D44C (PpmEventCoreParkingSoftParkedStateChange.c)
+ *     PpmIdleUpdateProcessorLatencyLimit @ 0x14028EF68 (PpmIdleUpdateProcessorLatencyLimit.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140420700 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140420840 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeTransitionProcessorParkState @ 0x1404208A0 (KeTransitionProcessorParkState.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     PpmEventCoreParkingSoftParkedStateChange @ 0x140421B1C (PpmEventCoreParkingSoftParkedStateChange.c)
  */
 
 __int64 __fastcall PpmParkReportSoftParkChange(struct _KPRCB *a1)

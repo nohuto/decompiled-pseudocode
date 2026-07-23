@@ -1,5 +1,5 @@
 /*
- * XREFs of IopRemovePagesRunsSort @ 0x1405D5FF0
+ * XREFs of IopRemovePagesRunsSort @ 0x1405D87E0
  * Callers:
  *     <none>
  * Callees:

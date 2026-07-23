@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFreeSecureKernelPage @ 0x1403C3010
+ * XREFs of MiFreeSecureKernelPage @ 0x1403CCF10
  * Callers:
- *     MmFreeSecureKernelPages @ 0x1403C1E80 (MmFreeSecureKernelPages.c)
- *     MmFreeNonChargedSecurePages @ 0x1403C2E54 (MmFreeNonChargedSecurePages.c)
+ *     MmFreeSecureKernelPages @ 0x1403CBD80 (MmFreeSecureKernelPages.c)
+ *     MmFreeNonChargedSecurePages @ 0x1403CCD54 (MmFreeNonChargedSecurePages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiFreeSmallPageFromMdl @ 0x1403C43F8 (MiFreeSmallPageFromMdl.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiGetSecurePageState @ 0x140531F30 (MiGetSecurePageState.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiFreeSmallPageFromMdl @ 0x1403CE304 (MiFreeSmallPageFromMdl.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiGetSecurePageState @ 0x1405343D0 (MiGetSecurePageState.c)
  */
 
 unsigned __int64 __fastcall MiFreeSecureKernelPage(
@@ -123,7 +123,7 @@ unsigned __int64 __fastcall MiFreeSecureKernelPage(
       result = v16;
       __writecr8(v16);
     }
-    _InterlockedDecrement64(&qword_140E2D7A8);
+    _InterlockedDecrement64(&qword_140E2D928);
     if ( (SecurePageState & 4) == 0 )
     {
       result = MiReleaseNonPagedResources(a2, 1LL);

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAttachToOwningSession @ 0x14010C45C
+ * XREFs of MiAttachToOwningSession @ 0x14010A1DC
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiCapturePfnVm @ 0x1401F7D38 (MiCapturePfnVm.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiCapturePfnVm @ 0x1401F7B64 (MiCapturePfnVm.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MiSelectSessionAttachProcess @ 0x140076748 (MiSelectSessionAttachProcess.c)
- *     MiGetTopLevelPfn @ 0x14010A970 (MiGetTopLevelPfn.c)
- *     MiTryToAcquireExpansionLockAtDpc @ 0x14010B044 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MiSelectSessionAttachProcess @ 0x1400767C8 (MiSelectSessionAttachProcess.c)
+ *     MiGetTopLevelPfn @ 0x1401086F0 (MiGetTopLevelPfn.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x140108DC4 (MiTryToAcquireExpansionLockAtDpc.c)
  */
 
 _QWORD *__fastcall MiAttachToOwningSession(__int64 a1, unsigned __int8 a2)

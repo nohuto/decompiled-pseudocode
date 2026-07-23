@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpRemoveResourcePort @ 0x140617574
+ * XREFs of AlpcpRemoveResourcePort @ 0x140618574
  * Callers:
- *     AlpcSecurityDestroyProcedure @ 0x140616C90 (AlpcSecurityDestroyProcedure.c)
- *     AlpcViewDestroyProcedure @ 0x140616E90 (AlpcViewDestroyProcedure.c)
- *     AlpcSectionDeleteProcedure @ 0x14061B210 (AlpcSectionDeleteProcedure.c)
- *     AlpcSectionDestroyProcedure @ 0x1406B9500 (AlpcSectionDestroyProcedure.c)
- *     AlpcReserveDestroyProcedure @ 0x1406C9420 (AlpcReserveDestroyProcedure.c)
- *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF40 (AlpcpMapLegacyPortRemoteView.c)
+ *     AlpcSecurityDestroyProcedure @ 0x140617C90 (AlpcSecurityDestroyProcedure.c)
+ *     AlpcViewDestroyProcedure @ 0x140617E90 (AlpcViewDestroyProcedure.c)
+ *     AlpcSectionDeleteProcedure @ 0x14061C210 (AlpcSectionDeleteProcedure.c)
+ *     AlpcSectionDestroyProcedure @ 0x1406BA7A0 (AlpcSectionDestroyProcedure.c)
+ *     AlpcReserveDestroyProcedure @ 0x1406CA6C0 (AlpcReserveDestroyProcedure.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x1406DC1E0 (AlpcpMapLegacyPortRemoteView.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall AlpcpRemoveResourcePort(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCatString @ 0x140179DA4
+ * XREFs of RtlUnicodeStringCatString @ 0x140179EA4
  * Callers:
- *     CmpLogTransactionAbortedWithChildName @ 0x1406CF668 (CmpLogTransactionAbortedWithChildName.c)
- *     PopFxGenerateFriendlyName @ 0x140725300 (PopFxGenerateFriendlyName.c)
- *     AslpPathWildcardAllocMatchNode @ 0x1408EB7F0 (AslpPathWildcardAllocMatchNode.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406D0908 (CmpLogTransactionAbortedWithChildName.c)
+ *     PopFxGenerateFriendlyName @ 0x1407265A0 (PopFxGenerateFriendlyName.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x1408ECAB0 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
  *     <none>
  */

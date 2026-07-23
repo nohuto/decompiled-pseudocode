@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipUnlinkInstanceSetFromGuidEntry @ 0x140882764
+ * XREFs of WmipUnlinkInstanceSetFromGuidEntry @ 0x1408829A4
  * Callers:
- *     WmipUpdateDataSource @ 0x1407FFAC8 (WmipUpdateDataSource.c)
- *     WmipDSCleanup @ 0x140882650 (WmipDSCleanup.c)
+ *     WmipUpdateDataSource @ 0x1407FFD98 (WmipUpdateDataSource.c)
+ *     WmipDSCleanup @ 0x140882890 (WmipDSCleanup.c)
  * Callees:
- *     WmipUnregisterEtwProvider @ 0x1409E1B10 (WmipUnregisterEtwProvider.c)
+ *     WmipUnregisterEtwProvider @ 0x1409E1DA0 (WmipUnregisterEtwProvider.c)
  */
 
 __int64 **__fastcall WmipUnlinkInstanceSetFromGuidEntry(__int64 *a1)

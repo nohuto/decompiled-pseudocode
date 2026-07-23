@@ -8,7 +8,7 @@
 
 __int64 __fastcall PspEnumerateCallback(int a1, _DWORD *a2, _QWORD *a3)
 {
-  union _RTL_RUN_ONCE *v4; // rcx
+  _RTL_RUN_ONCE *v4; // rcx
   __int64 v5; // rdx
   int v7; // ecx
 

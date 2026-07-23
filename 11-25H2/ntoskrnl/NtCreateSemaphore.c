@@ -18,7 +18,12 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, __int64 a3, LONG a4, int Limit)
+NTSTATUS __cdecl NtCreateSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LONG InitialCount,
+        LONG MaximumCount)
 {
   char PreviousMode; // r13
   __int64 v8; // rcx
@@ -26,7 +31,7 @@ __int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, __int64 a3, LONG a
   struct _KPRCB *CurrentPrcb; // r14
   _GENERAL_LOOKASIDE *P; // rdi
   __int64 v12; // rbx
-  int Information; // edi
+  NTSTATUS Information; // edi
   int v14; // ecx
   void *v15; // rcx
   struct _KPRCB *v16; // rdx
@@ -43,12 +48,12 @@ __int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, __int64 a3, LONG a
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a1;
+    if ( (unsigned __int64)SemaphoreHandle < 0x7FFFFFFF0000LL )
+      v8 = (__int64)SemaphoreHandle;
     *(_QWORD *)v8 = *(_QWORD *)v8;
   }
-  if ( Limit <= 0 || a4 < 0 || a4 > Limit )
-    return 3221225485LL;
+  if ( MaximumCount <= 0 || InitialCount < 0 || InitialCount > MaximumCount )
+    return -1073741811;
   v9 = ExSemaphoreObjectType;
   v24[0] = 0LL;
   v22 = 0LL;
@@ -71,7 +76,7 @@ __int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, __int64 a3, LONG a
   if ( v12 )
   {
     *(_DWORD *)v12 = CurrentPrcb->Number;
-    Information = ObpCaptureObjectCreateInformation(PreviousMode, PreviousMode, a3, v24, v12, 0);
+    Information = ObpCaptureObjectCreateInformation(PreviousMode, PreviousMode, (__int64)ObjectAttributes, v24, v12, 0);
     if ( Information >= 0 )
     {
       if ( (*(_DWORD *)v12 & (_DWORD)v9[9]) != 0 )
@@ -139,10 +144,10 @@ __int64 __fastcall NtCreateSemaphore(__int64 *a1, __int64 a2, __int64 a3, LONG a
 LABEL_23:
   if ( Information >= 0 )
   {
-    KeInitializeSemaphore(v18, a4, Limit);
+    KeInitializeSemaphore(v18, InitialCount, MaximumCount);
     Information = ObInsertObjectEx(v18, 0LL, 0, 0LL, (__int64)&v23);
     if ( Information >= 0 )
-      *a1 = v23;
+      *SemaphoreHandle = (HANDLE)v23;
   }
-  return (unsigned int)Information;
+  return Information;
 }

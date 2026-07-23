@@ -1,15 +1,15 @@
 /*
- * XREFs of PiUEventBroadcastEventWorker @ 0x140A5E370
+ * XREFs of PiUEventBroadcastEventWorker @ 0x140A56790
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x140724878 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x140724908 (PiUEventBroadcastPortsChangedEvent.c)
- *     PiUEventBroadcastVolumesChangedEvent @ 0x140724A64 (PiUEventBroadcastVolumesChangedEvent.c)
- *     PiUEventBroadcastDevnodesChangedEvent @ 0x140A5E4A0 (PiUEventBroadcastDevnodesChangedEvent.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x140722408 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x140722498 (PiUEventBroadcastPortsChangedEvent.c)
+ *     PiUEventBroadcastVolumesChangedEvent @ 0x1407225F4 (PiUEventBroadcastVolumesChangedEvent.c)
+ *     PiUEventBroadcastDevnodesChangedEvent @ 0x140A568C0 (PiUEventBroadcastDevnodesChangedEvent.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventBroadcastEventWorker(PVOID P)
@@ -45,7 +45,7 @@ void __fastcall PiUEventBroadcastEventWorker(PVOID P)
           }
           else
           {
-            PiUEventBroadcastHardwareProfilesChangedEvent(*((_DWORD *)v3 + 6), (__int64)(v3 + 28));
+            PiUEventBroadcastHardwareProfilesChangedEvent(*((_DWORD *)v3 + 6), v3 + 28);
           }
         }
         else

@@ -1,45 +1,45 @@
 /*
- * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x18009F9E0
+ * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x1800872D0
  * Callers:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpWnfWalkUserSubscriptionList @ 0x180021030 (RtlpWnfWalkUserSubscriptionList.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpHpTagFreeHeap @ 0x1800274C0 (RtlpHpTagFreeHeap.c)
- *     RtlpFreeNTHeapInternal @ 0x18002BD80 (RtlpFreeNTHeapInternal.c)
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlDebugSizeHeap @ 0x18003F690 (RtlDebugSizeHeap.c)
- *     RtlValidateHeap @ 0x18003F7D0 (RtlValidateHeap.c)
- *     RtlSizeHeap @ 0x1800406D0 (RtlSizeHeap.c)
- *     RtlDebugFreeHeap @ 0x18004178C (RtlDebugFreeHeap.c)
- *     RtlGetUserInfoHeap @ 0x1800423E0 (RtlGetUserInfoHeap.c)
- *     RtlDebugGetUserInfoHeap @ 0x1800426EC (RtlDebugGetUserInfoHeap.c)
- *     RtlDebugSetUserValueHeap @ 0x1800428AC (RtlDebugSetUserValueHeap.c)
- *     RtlCompactHeap @ 0x180043EC0 (RtlCompactHeap.c)
- *     TppSetTimer @ 0x18006B410 (TppSetTimer.c)
- *     RtlpHpTagAllocateHeap @ 0x180094EF0 (RtlpHpTagAllocateHeap.c)
- *     RtlSetUserValueHeap @ 0x18009BF90 (RtlSetUserValueHeap.c)
- *     RtlDebugAllocateHeap @ 0x18009CC30 (RtlDebugAllocateHeap.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlQueryUnbiasedInterruptTime @ 0x18009F930 (RtlQueryUnbiasedInterruptTime.c)
- *     RtlpReAllocateHeapInternal @ 0x1800A1040 (RtlpReAllocateHeapInternal.c)
- *     RtlpReAllocateHeap @ 0x1800A18B0 (RtlpReAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800A2A3C (RtlDebugReAllocateHeap.c)
- *     LdrpRedirectDelayloadFailure @ 0x1800DE6C0 (LdrpRedirectDelayloadFailure.c)
- *     RtlDebugSetUserFlagsHeap @ 0x18010E0EC (RtlDebugSetUserFlagsHeap.c)
- *     RtlSetUserFlagsHeap @ 0x18010E270 (RtlSetUserFlagsHeap.c)
- *     RtlDebugCompactHeap @ 0x18011EBF8 (RtlDebugCompactHeap.c)
- *     RtlDebugWalkHeap @ 0x18011EFE0 (RtlDebugWalkHeap.c)
- *     RtlDebugCreateTagHeap @ 0x180144A24 (RtlDebugCreateTagHeap.c)
- *     RtlDebugQueryTagHeap @ 0x180144B18 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugAllocateHeap @ 0x18001F7A4 (RtlDebugAllocateHeap.c)
+ *     RtlSetUserValueHeap @ 0x18001FB40 (RtlSetUserValueHeap.c)
+ *     RtlDebugSizeHeap @ 0x18001FFC0 (RtlDebugSizeHeap.c)
+ *     RtlValidateHeap @ 0x180020100 (RtlValidateHeap.c)
+ *     RtlSizeHeap @ 0x180021000 (RtlSizeHeap.c)
+ *     RtlDebugFreeHeap @ 0x180022020 (RtlDebugFreeHeap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlpWnfWalkUserSubscriptionList @ 0x18004DA30 (RtlpWnfWalkUserSubscriptionList.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpHpTagFreeHeap @ 0x180053EC0 (RtlpHpTagFreeHeap.c)
+ *     RtlpFreeNTHeapInternal @ 0x180058780 (RtlpFreeNTHeapInternal.c)
+ *     RtlpFreeHeap @ 0x18005A020 (RtlpFreeHeap.c)
+ *     RtlpReAllocateHeapInternal @ 0x18005AF10 (RtlpReAllocateHeapInternal.c)
+ *     RtlpReAllocateHeap @ 0x18005B780 (RtlpReAllocateHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18005C7E8 (RtlDebugReAllocateHeap.c)
+ *     RtlpHpTagAllocateHeap @ 0x180083CE0 (RtlpHpTagAllocateHeap.c)
+ *     RtlQueryUnbiasedInterruptTime @ 0x180087220 (RtlQueryUnbiasedInterruptTime.c)
+ *     TppSetTimer @ 0x180087CF0 (TppSetTimer.c)
+ *     LdrpRedirectDelayloadFailure @ 0x1800D9830 (LdrpRedirectDelayloadFailure.c)
+ *     RtlGetUserInfoHeap @ 0x1800E63B0 (RtlGetUserInfoHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x1800E66BC (RtlDebugGetUserInfoHeap.c)
+ *     RtlCompactHeap @ 0x180106E40 (RtlCompactHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x180108FCC (RtlDebugSetUserFlagsHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x180109150 (RtlSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x18010C554 (RtlDebugSetUserValueHeap.c)
+ *     RtlpAllocateHeap @ 0x1801159A0 (RtlpAllocateHeap.c)
+ *     RtlDebugCompactHeap @ 0x18011CE28 (RtlDebugCompactHeap.c)
+ *     RtlDebugWalkHeap @ 0x18011D210 (RtlDebugWalkHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x180142DD4 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x180142EC8 (RtlDebugQueryTagHeap.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
  */
 
-__int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
+ULONG __cdecl RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   unsigned int v2; // r11d
-  unsigned int v3; // edx
+  unsigned __int32 v3; // edx
   unsigned int v4; // r10d
   __int64 v5; // rcx
   __int64 v6; // r9
@@ -47,19 +47,19 @@ __int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
   unsigned int v8; // r8d
   int v9; // eax
 
-  if ( !a1 )
-    return 0LL;
-  if ( a1 == 259 )
-    return 997LL;
-  result = a1;
-  if ( (a1 & 0x20000000) == 0 )
+  if ( !Status )
+    return 0;
+  if ( Status == 259 )
+    return 997;
+  result = Status;
+  if ( (Status & 0x20000000) == 0 )
   {
-    if ( (a1 & 0xFF0000) != 0x70000 || ((HIBYTE(a1) - 128) & 0xFFFFFFBF) != 0 )
+    if ( (Status & 0xFF0000) != 0x70000 || ((HIBYTE(Status) - 128) & 0xFFFFFFBF) != 0 )
     {
-      v2 = 341;
-      v3 = a1 & 0xCFFFFFFF;
-      if ( (a1 & 0xF0000000) != 0xD0000000 )
-        v3 = a1;
+      v2 = 342;
+      v3 = Status & 0xCFFFFFFF;
+      if ( (Status & 0xF0000000) != 0xD0000000 )
+        v3 = Status;
       v4 = 0;
       do
       {
@@ -94,12 +94,12 @@ __int64 __fastcall RtlNtStatusToDosErrorNoTeb(unsigned int a1)
         DbgPrint("RTL: RtlNtStatusToDosError(0x%lx): No Valid Win32 Error Mapping\n", v3);
         DbgPrint("RTL: Edit ntos\\rtl\\generr.c to correct the problem\n");
         DbgPrint("RTL: ERROR_MR_MID_NOT_FOUND is being returned\n");
-        return 317LL;
+        return 317;
       }
     }
     else
     {
-      return (unsigned __int16)a1;
+      return (unsigned __int16)Status;
     }
   }
   return result;

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCheckProcessShadow @ 0x14023F100
+ * XREFs of MiCheckProcessShadow @ 0x14023F1D0
  * Callers:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiQueryAddressSpan @ 0x140273D60 (MiQueryAddressSpan.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MmCheckProcessShadow @ 0x1403D0240 (MmCheckProcessShadow.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiQueryAddressSpan @ 0x140273FF0 (MiQueryAddressSpan.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MmCheckProcessShadow @ 0x1403D0420 (MmCheckProcessShadow.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiWorkingSetIsContended @ 0x1402E69F0 (MiWorkingSetIsContended.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiCheckRelevantKernelShadows @ 0x1403CFD68 (MiCheckRelevantKernelShadows.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiWorkingSetIsContended @ 0x1402E6C80 (MiWorkingSetIsContended.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiCheckRelevantKernelShadows @ 0x1403CFF48 (MiCheckRelevantKernelShadows.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckProcessShadow(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

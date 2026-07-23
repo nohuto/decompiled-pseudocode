@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1403EA1D0
+ * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1403D9B90
  * Callers:
- *     PiDmEnumObjectsWithCallback @ 0x1408D0E10 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1408CE800 (PiDmEnumObjectsWithCallback.c)
  * Callees:
- *     RealSuccessor @ 0x1403EA370 (RealSuccessor.c)
- *     FindNodeOrParent @ 0x1403EA460 (FindNodeOrParent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RealSuccessor @ 0x1403D9D30 (RealSuccessor.c)
+ *     FindNodeOrParent @ 0x1403D9E20 (FindNodeOrParent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(
         PRTL_AVL_TABLE Table,
         PRTL_AVL_MATCH_FUNCTION MatchFunction,
@@ -18,24 +17,24 @@ PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(
         PULONG DeleteCount,
         PVOID Buffer)
 {
-  PVOID *v11; // rdi
-  void *v12; // r15
-  PVOID *v13; // rcx
-  int v14; // eax
+  PVOID *v10; // rdi
+  void *v11; // r15
+  PVOID *v12; // rcx
+  int v13; // eax
   int NodeOrParent; // eax
   PVOID *RestartKeya; // [rsp+70h] [rbp+28h]
 
-  v11 = (PVOID *)*RestartKey;
+  v10 = (PVOID *)*RestartKey;
   RestartKeya = (PVOID *)*RestartKey;
   if ( !Table->NumberGenericTableElements )
   {
     *RestartKey = 0LL;
     return 0LL;
   }
-  v12 = 0LL;
+  v11 = 0LL;
   if ( *DeleteCount == Table->DeleteCount )
   {
-    if ( v11 )
+    if ( v10 )
       goto LABEL_4;
   }
   else
@@ -47,30 +46,30 @@ PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(
   {
     if ( NodeOrParent != 3 )
     {
-      v11 = RestartKeya;
+      v10 = RestartKeya;
       goto LABEL_7;
     }
-    v13 = RestartKeya;
+    v12 = RestartKeya;
     goto LABEL_6;
   }
-  v11 = RestartKeya;
+  v10 = RestartKeya;
 LABEL_4:
   if ( !NextFlag )
     goto LABEL_7;
   do
   {
-    v13 = v11;
+    v12 = v10;
 LABEL_6:
-    v11 = (PVOID *)RealSuccessor(v13);
+    v10 = (PVOID *)RealSuccessor(v12);
 LABEL_7:
-    if ( !v11 )
+    if ( !v10 )
       return 0LL;
-    v14 = guard_dispatch_icall_no_overrides(Table, v11 + 4, MatchData, *(_QWORD *)&NextFlag);
+    v13 = guard_dispatch_icall_no_overrides(Table, v10 + 4);
   }
-  while ( v14 == -1073741198 );
-  *RestartKey = v11;
-  if ( !v14 )
-    v12 = v11 + 4;
+  while ( v13 == -1073741198 );
+  *RestartKey = v10;
+  if ( !v13 )
+    v11 = v10 + 4;
   *DeleteCount = Table->DeleteCount;
-  return v12;
+  return v11;
 }

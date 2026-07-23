@@ -1,26 +1,26 @@
 /*
- * XREFs of NtRemoveProcessDebug @ 0x140985870
+ * XREFs of NtRemoveProcessDebug @ 0x140947870
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     DbgkClearProcessDebugObject @ 0x140957E88 (DbgkClearProcessDebugObject.c)
- *     PsTestProtectedProcessIncompatibility @ 0x140985588 (PsTestProtectedProcessIncompatibility.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x140947588 (PsTestProtectedProcessIncompatibility.c)
+ *     DbgkClearProcessDebugObject @ 0x14094B8B8 (DbgkClearProcessDebugObject.c)
  */
 
-__int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
+NTSTATUS __cdecl NtRemoveProcessDebug(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _KPROCESS *v5; // rdi
   _KPROCESS_SECURE_STATE v6; // rbx
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   PVOID Object[2]; // [rsp+40h] [rbp-A8h] BYREF
   _BYTE v9[8]; // [rsp+50h] [rbp-98h] BYREF
   unsigned __int64 v10; // [rsp+58h] [rbp-90h]
@@ -28,8 +28,16 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object[0] = 0LL;
-  result = ObpReferenceObjectByHandleWithTag(a1, 2048LL, PsProcessType, PreviousMode, 0x4F676244u, Object, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ObpReferenceObjectByHandleWithTag(
+             (ULONG_PTR)ProcessHandle,
+             2048,
+             (__int64)PsProcessType,
+             PreviousMode,
+             0x4F676244u,
+             Object,
+             0LL,
+             0LL);
+  if ( result >= 0 )
   {
     v5 = (struct _KPROCESS *)Object[0];
     if ( PsTestProtectedProcessIncompatibility(
@@ -50,16 +58,16 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
             v7 >= 0) )
       {
         Object[0] = 0LL;
-        v7 = ObReferenceObjectByHandle(a2, 2u, DbgkDebugObjectType, PreviousMode, Object, 0LL);
+        v7 = ObReferenceObjectByHandle(DebugObjectHandle, 2u, DbgkDebugObjectType, PreviousMode, Object, 0LL);
         if ( v7 >= 0 )
         {
-          v7 = DbgkClearProcessDebugObject(v5, (__int64)Object[0]);
+          v7 = DbgkClearProcessDebugObject(v5);
           ObfDereferenceObject(Object[0]);
         }
       }
     }
     ObfDereferenceObjectWithTag(v5, 0x4F676244u);
-    return (unsigned int)v7;
+    return v7;
   }
   return result;
 }

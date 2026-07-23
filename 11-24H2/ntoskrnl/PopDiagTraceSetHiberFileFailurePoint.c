@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceSetHiberFileFailurePoint @ 0x140757914
+ * XREFs of PopDiagTraceSetHiberFileFailurePoint @ 0x140755D94
  * Callers:
- *     PopSetHiberFileType @ 0x1406F9BCC (PopSetHiberFileType.c)
- *     PopSetHiberFileSize @ 0x1406FA3E4 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x1406F780C (PopSetHiberFileType.c)
+ *     PopSetHiberFileSize @ 0x1406F8024 (PopSetHiberFileSize.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSetHiberFileFailurePoint(int a1, int a2)
@@ -46,7 +46,7 @@ void __fastcall PopDiagTraceSetHiberFileFailurePoint(int a1, int a2)
     v9 = 4;
     EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SET_HIBER_FILE_FAILURE, 0LL, 2u, &UserData);
   }
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v14 = 0;
     v17 = 0;
@@ -60,6 +60,6 @@ void __fastcall PopDiagTraceSetHiberFileFailurePoint(int a1, int a2)
     v16 = 4;
     v6 = 0x1000000LL;
     v19 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&word_1400497EE, 0LL, 0LL, 5u, &v11);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_14004904B, 0LL, 0LL, 5u, &v11);
   }
 }

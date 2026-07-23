@@ -1,11 +1,11 @@
 /*
- * XREFs of PipKsrCallback @ 0x1407B2D10
+ * XREFs of PipKsrCallback @ 0x1407B5D70
  * Callers:
  *     <none>
  * Callees:
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     PipKsrDeferredHardwareInit @ 0x1407B2E04 (PipKsrDeferredHardwareInit.c)
- *     PipKsrNotifyDrivers @ 0x1407B2EFC (PipKsrNotifyDrivers.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     PipKsrDeferredHardwareInit @ 0x1407B5E64 (PipKsrDeferredHardwareInit.c)
+ *     PipKsrNotifyDrivers @ 0x1407B5F5C (PipKsrNotifyDrivers.c)
  */
 
 void __fastcall PipKsrCallback(PVOID CallbackContext, char *Argument1, int *Argument2)
@@ -16,7 +16,7 @@ void __fastcall PipKsrCallback(PVOID CallbackContext, char *Argument1, int *Argu
   char *v6; // rdx
   char *v7; // rdx
   GUID *v8; // rcx
-  int v9; // [rsp+38h] [rbp+10h] BYREF
+  int SystemInformation; // [rsp+38h] [rbp+10h] BYREF
 
   if ( Argument1 )
   {
@@ -67,8 +67,8 @@ LABEL_16:
   {
     *Argument2 = PipKsrNotifyDrivers(&GUID_KERNEL_SOFT_RESTART_PREPARE);
     PnpKsrPrepared = 1;
-    v9 = 0;
-    ZwQuerySystemInformation(151LL, (__int64)&v9);
-    PnpKsrIsHhrPrepare = (v9 & 0x40) != 0;
+    SystemInformation = 0;
+    ZwQuerySystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u, 0LL);
+    PnpKsrIsHhrPrepare = (SystemInformation & 0x40) != 0;
   }
 }

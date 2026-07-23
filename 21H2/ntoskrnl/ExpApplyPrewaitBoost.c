@@ -1,28 +1,25 @@
 /*
- * XREFs of ExpApplyPrewaitBoost @ 0x1402B73B0
+ * XREFs of ExpApplyPrewaitBoost @ 0x140235590
  * Callers:
- *     ExpAcquireSharedStarveExclusive @ 0x14031E750 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1405B4D70 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1403294A0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4FA0 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     ExpApplyPriorityBoost @ 0x14022F000 (ExpApplyPriorityBoost.c)
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
+ *     ExpApplyPriorityBoost @ 0x1402D3850 (ExpApplyPriorityBoost.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
  */
 
 __int64 ExpApplyPrewaitBoost()
 {
   __int64 v0; // r8
-  int v1; // r10d
+  unsigned int v1; // r10d
   __int64 v2; // r11
-  int v3; // r9d
+  unsigned int v3; // r9d
   __int64 result; // rax
-  int v5; // edx
+  __int64 v5; // rdx
 
-  if ( (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) > 1
-    && ((unsigned __int8)(v1 + 4) & *(_BYTE *)(v2 + 26)) == 0 )
-  {
+  if ( (int)PsGetIoPriorityThread(KeGetCurrentThread()) > 1 && ((unsigned __int8)(v1 + 4) & *(_BYTE *)(v2 + 26)) == 0 )
     v1 += 4;
-  }
   v3 = v1 | 2;
   result = *(unsigned __int8 *)(v2 + 27);
   if ( (*(_BYTE *)(v2 + 26) & 2) != 0 )
@@ -30,7 +27,7 @@ __int64 ExpApplyPrewaitBoost()
   v5 = v3 | 0xFF00;
   if ( *(char *)(v0 + 195) <= (int)result )
     v5 = v3;
-  if ( v5 )
+  if ( (_DWORD)v5 )
     return ExpApplyPriorityBoost(v2, v5, v0);
   return result;
 }

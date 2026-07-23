@@ -1,32 +1,32 @@
 /*
- * XREFs of MiAddViewsForSection @ 0x140288770
+ * XREFs of MiAddViewsForSection @ 0x140288A00
  * Callers:
  *     MiReferenceDataSubsections @ 0x140211CA8 (MiReferenceDataSubsections.c)
- *     MmMapViewInSystemCache @ 0x14029F630 (MmMapViewInSystemCache.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiMapViewOfDataSection @ 0x140720280 (MiMapViewOfDataSection.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
- *     MiCommitPagefileBackedSection @ 0x1407DC088 (MiCommitPagefileBackedSection.c)
+ *     MmMapViewInSystemCache @ 0x14029F8C0 (MmMapViewInSystemCache.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiMapViewOfDataSection @ 0x140720480 (MiMapViewOfDataSection.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
+ *     MiCommitPagefileBackedSection @ 0x1407DC358 (MiCommitPagefileBackedSection.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiCreatePrototypePtes @ 0x14021BA80 (MiCreatePrototypePtes.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiReferenceActiveSubsection @ 0x140288DA0 (MiReferenceActiveSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsections @ 0x14029FA30 (MiDecrementSubsections.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiAllocateFileExtents @ 0x140A33068 (MiAllocateFileExtents.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiReferenceActiveSubsection @ 0x140289030 (MiReferenceActiveSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsections @ 0x14029FCC0 (MiDecrementSubsections.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiAllocateFileExtents @ 0x140A33318 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiAddViewsForSection(ULONG_PTR a1, unsigned __int64 a2, unsigned int a3)
@@ -199,7 +199,7 @@ __int64 __fastcall MiAddViewsForSection(ULONG_PTR a1, unsigned __int64 a2, unsig
   v100 = v4 & 0x180;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v42 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -241,10 +241,10 @@ __int64 __fastcall MiAddViewsForSection(ULONG_PTR a1, unsigned __int64 a2, unsig
     {
       v99 = *(_DWORD *)(v5 + 52) & 0x3FFFFFFF;
       ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v44 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && CurrentIrql <= 0xFu && v44 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && CurrentIrql <= 0xFu && v44 >= 2u )
         {
           v45 = KeGetCurrentPrcb();
           v46 = v45->SchedulerAssist;
@@ -430,10 +430,10 @@ LABEL_30:
     {
       FileExtents = -1073741800;
       ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v80 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v80 <= 0xFu && CurrentIrql <= 0xFu && v80 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v80 <= 0xFu && CurrentIrql <= 0xFu && v80 >= 2u )
         {
           v81 = KeGetCurrentPrcb();
           v82 = v81->SchedulerAssist;
@@ -466,10 +466,10 @@ LABEL_30:
     if ( v6 && (*(_DWORD *)(v5 + 52) & 0x40000000) != 0 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v58 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && CurrentIrql <= 0xFu && v58 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && CurrentIrql <= 0xFu && v58 >= 2u )
         {
           v59 = KeGetCurrentPrcb();
           v60 = v59->SchedulerAssist;
@@ -504,10 +504,10 @@ LABEL_156:
         if ( !v95 )
           goto LABEL_52;
         ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v63 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v63 <= 0xFu && CurrentIrql <= 0xFu && v63 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v63 <= 0xFu && CurrentIrql <= 0xFu && v63 >= 2u )
           {
             v64 = KeGetCurrentPrcb();
             v65 = v64->SchedulerAssist;
@@ -546,10 +546,10 @@ LABEL_19:
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v3 + 18, retaddr);
       else
         v3[18] = 0;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v76 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v76 <= 0xFu && CurrentIrql <= 0xFu && v76 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v76 <= 0xFu && CurrentIrql <= 0xFu && v76 >= 2u )
         {
           v77 = KeGetCurrentPrcb();
           v78 = v77->SchedulerAssist;
@@ -579,10 +579,10 @@ LABEL_19:
   if ( active == -1073741302 )
     goto LABEL_52;
   ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v67 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v67 <= 0xFu && CurrentIrql <= 0xFu && v67 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v67 <= 0xFu && CurrentIrql <= 0xFu && v67 >= 2u )
     {
       v68 = KeGetCurrentPrcb();
       v69 = v68->SchedulerAssist;
@@ -615,10 +615,10 @@ LABEL_179:
     v84 = ExAcquireSpinLockExclusive(v3 + 18);
     v85 = MiDecrementSubsections(a1);
     ExReleaseSpinLockExclusiveFromDpcLevel(v3 + 18);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v86 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v86 <= 0xFu && (unsigned __int8)v84 <= 0xFu && v86 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v86 <= 0xFu && (unsigned __int8)v84 <= 0xFu && v86 >= 2u )
       {
         v87 = KeGetCurrentPrcb();
         v88 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v84 + 1));

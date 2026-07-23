@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlQueryPriorityForWobTicket @ 0x180143F10
+ * XREFs of RtlQueryPriorityForWobTicket @ 0x180143E10
  * Callers:
  *     <none>
  * Callees:
- *     ZwManageWobTicket @ 0x1801612B0 (ZwManageWobTicket.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     ZwManageWobTicket @ 0x1801611B0 (ZwManageWobTicket.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlQueryPriorityForWobTicket(__int64 *a1, _DWORD *a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpProcessDetachNode @ 0x1800E3114
+ * XREFs of LdrpProcessDetachNode @ 0x1800DE6E4
  * Callers:
- *     LdrpUnloadNode @ 0x18001CA60 (LdrpUnloadNode.c)
+ *     LdrpUnloadNode @ 0x180049460 (LdrpUnloadNode.c)
  * Callees:
- *     RtlReportException @ 0x180001490 (RtlReportException.c)
- *     RtlDeactivateActivationContextUnsafeFast @ 0x18000F570 (RtlDeactivateActivationContextUnsafeFast.c)
- *     LdrpCallInitRoutine @ 0x180012C90 (LdrpCallInitRoutine.c)
- *     LdrpCallTlsInitializers @ 0x180012F30 (LdrpCallTlsInitializers.c)
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x1800703A0 (RtlActivateActivationContextUnsafeFast.c)
- *     LdrpRecordUnloadEvent @ 0x1800E3290 (LdrpRecordUnloadEvent.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x18003BF70 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     LdrpCallInitRoutine @ 0x18003F690 (LdrpCallInitRoutine.c)
+ *     LdrpCallTlsInitializers @ 0x18003F930 (LdrpCallTlsInitializers.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x18008CC80 (RtlActivateActivationContextUnsafeFast.c)
+ *     LdrpRecordUnloadEvent @ 0x1800DE860 (LdrpRecordUnloadEvent.c)
+ *     RtlReportException @ 0x18010B4F0 (RtlReportException.c)
  */
 
 void __fastcall LdrpProcessDetachNode(_QWORD **a1)
@@ -46,12 +46,13 @@ void __fastcall LdrpProcessDetachNode(_QWORD **a1)
     if ( v7 && (v3[13] & 0x80000) != 0 )
     {
       LdrpLogInternal(
-        (__int64)"minkernel\\ldr\\ldrsnap.c",
+        "minkernel\\ldr\\ldrsnap.c",
         2769,
         (__int64)"LdrpProcessDetachNode",
         2,
         "Uninitializing DLL \"%wZ\" (Init routine: %p)\n",
-        (_BYTE)i - 88);
+        v3 + 9,
+        v3[7]);
       v8[0] = 72LL;
       v8[1] = 1LL;
       v9 = 0LL;

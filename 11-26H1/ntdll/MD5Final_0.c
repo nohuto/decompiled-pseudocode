@@ -1,13 +1,13 @@
 /*
- * XREFs of MD5Final_0 @ 0x180038520
+ * XREFs of MD5Final_0 @ 0x180022A90
  * Callers:
- *     RtlpMD5Final @ 0x18013B580 (RtlpMD5Final.c)
+ *     RtlpMD5Final @ 0x18013B2F0 (RtlpMD5Final.c)
  * Callees:
- *     SymCryptHashCommonPaddingMd4Style @ 0x18003863C (SymCryptHashCommonPaddingMd4Style.c)
- *     ScRsa32Compat_Md5Import @ 0x180038748 (ScRsa32Compat_Md5Import.c)
- *     SymCryptWipeAsm @ 0x180137990 (SymCryptWipeAsm.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     SymCryptHashCommonPaddingMd4Style @ 0x180022BAC (SymCryptHashCommonPaddingMd4Style.c)
+ *     ScRsa32Compat_Md5Import @ 0x180022CB8 (ScRsa32Compat_Md5Import.c)
+ *     SymCryptWipeAsm @ 0x180137700 (SymCryptWipeAsm.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall MD5Final_0(__int64 a1)

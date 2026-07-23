@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpGetAutoLoggerEventNameFilter @ 0x1407C5D1C
+ * XREFs of EtwpGetAutoLoggerEventNameFilter @ 0x1407954E4
  * Callers:
- *     EtwpGetAutoLoggerProviderFilter @ 0x140795014 (EtwpGetAutoLoggerProviderFilter.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140794E6C (EtwpGetAutoLoggerProviderFilter.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     RtlUnicodeToUTF8N @ 0x1406B92D0 (RtlUnicodeToUTF8N.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlUnicodeToUTF8N @ 0x1406188F0 (RtlUnicodeToUTF8N.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64 a3, PVOID *a4, _DWORD *a5)
@@ -144,7 +144,7 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
     {
       memset(v52, 0, 0x498uLL);
       v41 = v24;
-      v52[0] = EtwpQueryRegistryCallback;
+      v52[0] = &EtwpQueryRegistryCallback;
       LODWORD(v52[4]) = 11;
       v52[3] = &v40;
       v40 = 11;
@@ -164,19 +164,19 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
       v49 = v24 + 18;
       v42 = 11;
       v52[38] = &v50;
-      v52[7] = EtwpQueryRegistryCallback;
+      v52[7] = &EtwpQueryRegistryCallback;
       v52[37] = L"Names";
       v52[40] = &v32;
-      v52[14] = EtwpQueryRegistryCallback;
+      v52[14] = &EtwpQueryRegistryCallback;
       LODWORD(v52[18]) = 4;
       v44 = 4;
-      v52[21] = EtwpQueryRegistryCallback;
+      v52[21] = &EtwpQueryRegistryCallback;
       LODWORD(v52[25]) = 4;
       v46 = 4;
-      v52[28] = EtwpQueryRegistryCallback;
+      v52[28] = &EtwpQueryRegistryCallback;
       LODWORD(v52[32]) = 4;
       v48 = 4;
-      v52[35] = EtwpQueryRegistryCallback;
+      v52[35] = &EtwpQueryRegistryCallback;
       p_UnicodeString = &UnicodeString;
       LODWORD(v52[39]) = 1;
       v50 = 1;

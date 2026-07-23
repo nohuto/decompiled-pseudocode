@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockMultipleZeroChunks @ 0x14020AC60
+ * XREFs of MiLockMultipleZeroChunks @ 0x140332A40
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
  * Callees:
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiLockHugePfnInternal @ 0x1403F9BD8 (MiLockHugePfnInternal.c)
- *     MiColdPageSizeSupported @ 0x14044D5AC (MiColdPageSizeSupported.c)
- *     MiSafeTryLockNestedPageAtDpc @ 0x14048A528 (MiSafeTryLockNestedPageAtDpc.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
+ *     MiLockHugePfnInternal @ 0x1403EFAE4 (MiLockHugePfnInternal.c)
+ *     MiColdPageSizeSupported @ 0x1404444AC (MiColdPageSizeSupported.c)
+ *     MiSafeTryLockNestedPageAtDpc @ 0x140485350 (MiSafeTryLockNestedPageAtDpc.c)
  */
 
 __int64 __fastcall MiLockMultipleZeroChunks(__int64 a1)
@@ -61,7 +61,7 @@ LABEL_15:
     v18 = 0LL;
     if ( v12 && *(_BYTE *)(v12 + 324) )
     {
-      v14 = qword_140E2FFC0 + 8 * ((v10 >> 12) & 0x3FFFFF);
+      v14 = qword_140E30100 + 8 * ((v10 >> 12) & 0x3FFFFF);
       v3 = v19;
     }
     else
@@ -70,7 +70,7 @@ LABEL_15:
       v14 = 48 * v13 - 0x220000000000LL;
     }
     if ( *(_QWORD *)(v5 + 672)
-      && (unsigned int)MiColdPageSizeSupported(v3, v8, v10, 0xFFFFDE0000000000uLL)
+      && (unsigned int)MiColdPageSizeSupported(v3, v8)
       && !*(_BYTE *)(*(_QWORD *)(a1 + 24) + 195LL)
       && !*(_BYTE *)(v4 + 324)
       && (v10 & 3) == 0 )
@@ -96,15 +96,15 @@ LABEL_15:
         *(_BYTE *)(a1 + 1) = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v8 + 15224));
       if ( BYTE8(v18) )
       {
-        result = MiSafeLockPage(v13, v5, v10, i);
+        result = MiSafeLockPage(v13);
         v15 = *(_QWORD *)(v11 + 24);
         *(_BYTE *)a1 = result;
         if ( (v15 & 1) != 0 )
         {
           if ( (_BYTE)result != 17 )
-            result = MiUnlockPage(v14, (unsigned __int8)result);
+            result = MiUnlockPage(v14, result);
           if ( v6 )
-            result = MiReleaseSpinLockExclusive(v8 + 15224, *(unsigned __int8 *)(a1 + 1));
+            result = MiReleaseSpinLockExclusive((_DWORD *)(v8 + 15224), *(_BYTE *)(a1 + 1));
           goto LABEL_14;
         }
         v16 = *(_QWORD *)(v11 + 24);
@@ -116,9 +116,9 @@ LABEL_15:
         if ( (v16 & 1) != 0 )
         {
           _InterlockedAnd(
-            (volatile signed __int32 *)(qword_140E2FFC8 + 4 * ((((v14 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-            ~(1 << (((v14 - qword_140E2FFC0) >> 3) & 0x1F)));
-          result = MiReleaseSpinLockExclusive(v8 + 15224, *(unsigned __int8 *)(a1 + 1));
+            (volatile signed __int32 *)(qword_140E30108 + 4 * ((((v14 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+            ~(1 << (((v14 - qword_140E30100) >> 3) & 0x1F)));
+          result = MiReleaseSpinLockExclusive((_DWORD *)(v8 + 15224), *(_BYTE *)(a1 + 1));
           goto LABEL_14;
         }
       }

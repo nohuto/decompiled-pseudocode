@@ -1,28 +1,28 @@
 /*
- * XREFs of IopGetPersistedStateLocation @ 0x140B3C924
+ * XREFs of IopGetPersistedStateLocation @ 0x140B3EBA4
  * Callers:
- *     IopCreateSecureDeviceClassSettings @ 0x140AF8694 (IopCreateSecureDeviceClassSettings.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x140AFAD74 (IopCreateSecureDeviceClassSettings.c)
  * Callees:
- *     RtlGetPersistedStateLocation @ 0x140A10D20 (RtlGetPersistedStateLocation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlGetPersistedStateLocation @ 0x140A0FF10 (RtlGetPersistedStateLocation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopGetPersistedStateLocation(__int64 a1, _WORD *a2, __int64 a3, _QWORD *a4)
+__int64 __fastcall IopGetPersistedStateLocation(__int64 a1, const WCHAR *a2, __int64 a3, WCHAR **a4)
 {
-  unsigned int v6; // esi
-  void *Pool2; // rdi
-  int PersistedStateLocation; // eax
+  ULONG BufferLengthIn; // esi
+  WCHAR *TargetPath; // rdi
+  NTSTATUS PersistedStateLocation; // eax
   unsigned int v9; // ebx
   __int64 result; // rax
-  __int64 v11; // [rsp+70h] [rbp+18h] BYREF
+  ULONG BufferLengthOut; // [rsp+70h] [rbp+18h] BYREF
 
-  LODWORD(v11) = 0;
-  v6 = 256;
+  BufferLengthOut = 0;
+  BufferLengthIn = 256;
   while ( 1 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
-    if ( !Pool2 )
+    TargetPath = (WCHAR *)ExAllocatePool2(0x100uLL);
+    if ( !TargetPath )
     {
       v9 = -1073741670;
       goto LABEL_5;
@@ -31,28 +31,28 @@ __int64 __fastcall IopGetPersistedStateLocation(__int64 a1, _WORD *a2, __int64 a
                                L"SecureDeviceClass",
                                0LL,
                                a2,
-                               0,
-                               Pool2,
-                               v6,
-                               (unsigned int *)&v11);
+                               LocationTypeRegistry,
+                               TargetPath,
+                               BufferLengthIn,
+                               &BufferLengthOut);
     v9 = PersistedStateLocation;
     if ( PersistedStateLocation != -2147483643 )
       break;
-    if ( (unsigned int)v11 <= v6 )
+    if ( BufferLengthOut <= BufferLengthIn )
     {
       v9 = -1073741595;
       goto LABEL_9;
     }
-    v6 = v11;
-    ExFreePoolWithTag(Pool2, 0);
+    BufferLengthIn = BufferLengthOut;
+    ExFreePoolWithTag(TargetPath, 0);
   }
   if ( PersistedStateLocation >= 0 )
     goto LABEL_5;
 LABEL_9:
-  ExFreePoolWithTag(Pool2, 0);
-  Pool2 = 0LL;
+  ExFreePoolWithTag(TargetPath, 0);
+  TargetPath = 0LL;
 LABEL_5:
   result = v9;
-  *a4 = Pool2;
+  *a4 = TargetPath;
   return result;
 }

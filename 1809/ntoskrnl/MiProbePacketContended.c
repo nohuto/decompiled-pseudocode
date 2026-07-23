@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProbePacketContended @ 0x14009659C
+ * XREFs of MiProbePacketContended @ 0x1400964DC
  * Callers:
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x1400949E0 (MmProbeAndLockSelectedPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140094920 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiPageTableLockIsContended @ 0x140096344 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
  */
 
 LOGICAL __fastcall MiProbePacketContended(__int64 a1)

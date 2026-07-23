@@ -3,14 +3,14 @@
  * Callers:
  *     PiLookupInDDB @ 0x140692E10 (PiLookupInDDB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041B260 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041B2A0 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x14041B6A0 (ZwCreateSection.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x14041B5F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x14041B630 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x14041BA30 (ZwCreateSection.c)
  *     SdbInitDatabaseInMemory @ 0x1406951D8 (SdbInitDatabaseInMemory.c)
- *     PnpLogEvent @ 0x140958AB0 (PnpLogEvent.c)
+ *     PnpLogEvent @ 0x140958CB0 (PnpLogEvent.c)
  */
 
 __int64 __fastcall PiInitializeDDB(PCWSTR SourceString, char a2, __int64 a3)

@@ -40,7 +40,7 @@ char __fastcall MiSignalLargePageRebuild(__int64 a1)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -82,10 +82,10 @@ char __fastcall MiSignalLargePageRebuild(__int64 a1)
         }
         ExReleaseSpinLockExclusiveFromDpcLevel(v6);
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v15 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v17 = CurrentPrcb->SchedulerAssist;

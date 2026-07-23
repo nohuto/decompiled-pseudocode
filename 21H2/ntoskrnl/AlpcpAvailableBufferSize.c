@@ -1,14 +1,14 @@
 /*
  * XREFs of AlpcpAvailableBufferSize @ 0x1405CF054
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x1405E0F88 (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpCaptureMessageData @ 0x1405E3D7C (AlpcpCaptureMessageData.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     AlpcpCaptureMessageDataSafe @ 0x1405E6080 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpReadMessageData @ 0x1405E7800 (AlpcpReadMessageData.c)
- *     LpcpCopyRequestData @ 0x1408C1C4C (LpcpCopyRequestData.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1406CF1B8 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x1406D06E8 (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1406D133C (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpCaptureMessageData @ 0x1406D34DC (AlpcpCaptureMessageData.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1406D57E0 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpReadMessageData @ 0x1406D6F60 (AlpcpReadMessageData.c)
+ *     LpcpCopyRequestData @ 0x1408C1DAC (LpcpCopyRequestData.c)
  * Callees:
  *     <none>
  */

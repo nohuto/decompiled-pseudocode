@@ -1,13 +1,13 @@
 /*
  * XREFs of MxCopyPage @ 0x1407977D0
  * Callers:
- *     MiMakeZeroedPageTableRange @ 0x140020CC8 (MiMakeZeroedPageTableRange.c)
+ *     MiMakeZeroedPageTableRange @ 0x140020848 (MiMakeZeroedPageTableRange.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeCopyPage @ 0x140161F20 (KeCopyPage.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeCopyPage @ 0x140162490 (KeCopyPage.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  *     MxGetPhase0Mapping @ 0x14079826C (MxGetPhase0Mapping.c)
  */
 

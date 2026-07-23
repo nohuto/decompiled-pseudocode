@@ -1,25 +1,25 @@
 /*
- * XREFs of MiAllocateSlabEntry @ 0x1402E6C40
+ * XREFs of MiAllocateSlabEntry @ 0x1402E6ED0
  * Callers:
- *     MiReplenishSlabAllocator @ 0x1402E6AC4 (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x1402E6D54 (MiReplenishSlabAllocator.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
  *     MiAbortCombineScan @ 0x14021AAAC (MiAbortCombineScan.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     RtlInterlockedSetClearRunEx @ 0x14027F070 (RtlInterlockedSetClearRunEx.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiPopLargePfnList @ 0x1402E700C (MiPopLargePfnList.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
- *     MiInitializeLargePfnList @ 0x1402E8F98 (MiInitializeLargePfnList.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402E8FBC (MiUpdateSlabPagePlaceholderState.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogSlabEntryAllocateFailure @ 0x1406570EC (MiLogSlabEntryAllocateFailure.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     RtlInterlockedSetClearRunEx @ 0x14027F300 (RtlInterlockedSetClearRunEx.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiPopLargePfnList @ 0x1402E729C (MiPopLargePfnList.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     MiAllocateLargeZeroPages @ 0x1402E7A70 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeLargePfnList @ 0x1402E9228 (MiInitializeLargePfnList.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402E924C (MiUpdateSlabPagePlaceholderState.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiLogSlabEntryAllocateFailure @ 0x14065763C (MiLogSlabEntryAllocateFailure.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -223,7 +223,7 @@ LABEL_47:
   CurrentIrql = KeGetCurrentIrql();
   v47 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql != 2 )
@@ -271,10 +271,10 @@ LABEL_47:
     v21 = P;
     LOBYTE(CurrentIrql) = v47;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v39 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v39 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v39 >= 2u )
     {
       v40 = KeGetCurrentPrcb();
       v41 = v40->SchedulerAssist;

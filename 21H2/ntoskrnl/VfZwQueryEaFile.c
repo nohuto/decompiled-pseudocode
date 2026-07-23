@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwQueryEaFile @ 0x1409EAE10
+ * XREFs of VfZwQueryEaFile @ 0x1409EBE10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViZwCheckVirtualAddress @ 0x1409EC944 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x1409EC990 (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViZwCheckVirtualAddress @ 0x1409ED944 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1409ED990 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwQueryEaFile(

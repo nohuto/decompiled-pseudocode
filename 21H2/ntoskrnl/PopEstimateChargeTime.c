@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEstimateChargeTime @ 0x1408EDA64
+ * XREFs of PopEstimateChargeTime @ 0x1408EDBC4
  * Callers:
- *     PopBatteryWorker @ 0x14077F810 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14077F9D0 (PopBatteryWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopBatteryEstimatesSpoiled @ 0x1408ED13C (PopBatteryEstimatesSpoiled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopBatteryEstimatesSpoiled @ 0x1408ED29C (PopBatteryEstimatesSpoiled.c)
  */
 
 unsigned __int64 PopEstimateChargeTime()
@@ -59,7 +59,7 @@ unsigned __int64 PopEstimateChargeTime()
   }
   else
   {
-    for ( i = qword_140C23650; (__int64 *)i != &qword_140C23650; i = *(_QWORD *)i )
+    for ( i = qword_140C23C70; (__int64 *)i != &qword_140C23C70; i = *(_QWORD *)i )
     {
       v7 = *(_DWORD *)(i + 64);
       if ( v7 != -1 )
@@ -132,7 +132,7 @@ unsigned __int64 PopEstimateChargeTime()
     v17 = v3;
     v13 = v4;
     v35 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)byte_1400295B3, 0LL, 0LL, 8u, &v18);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)&byte_140029A7F, 0LL, 0LL, 8u, &v18);
   }
   return v0;
 }

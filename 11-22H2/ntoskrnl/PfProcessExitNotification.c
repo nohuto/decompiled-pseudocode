@@ -18,53 +18,53 @@
 void __fastcall PfProcessExitNotification(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v3; // rdi
+  unsigned __int64 Root; // rdi
   int v4; // esi
   int v5; // eax
   unsigned __int64 v6; // rax
-  void *v7; // rcx
+  _RTL_BALANCED_NODE *v7; // rcx
 
   PfpLogApplicationEvent(a1, 0LL, 1);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C6A838, 0LL);
-  v3 = (unsigned __int64)qword_140C6A818;
-  if ( (xmmword_140C6A820 & 1) != 0 && qword_140C6A818 )
-    v3 = (unsigned __int64)&qword_140C6A818 ^ (unsigned __int64)qword_140C6A818;
-  v4 = xmmword_140C6A820 & 1;
-  while ( v3 )
+  Root = (unsigned __int64)Parent.Root;
+  if ( (*(_BYTE *)&Parent.0 & 1) != 0 && Parent.Root )
+    Root = (unsigned __int64)&Parent ^ (unsigned __int64)Parent.Root;
+  v4 = *(_BYTE *)&Parent.0 & 1;
+  while ( Root )
   {
-    v5 = PfSnAltProfileTreeCompareByProcess(a1, v3);
+    v5 = PfSnAltProfileTreeCompareByProcess(a1, Root);
     if ( v5 >= 0 )
     {
       if ( v5 <= 0 )
         break;
-      v6 = *(_QWORD *)(v3 + 8);
+      v6 = *(_QWORD *)(Root + 8);
     }
     else
     {
-      v6 = *(_QWORD *)v3;
+      v6 = *(_QWORD *)Root;
     }
     if ( v4 && v6 )
-      v3 ^= v6;
+      Root ^= v6;
     else
-      v3 = v6;
+      Root = v6;
   }
-  if ( v3 )
+  if ( Root )
   {
-    RtlRbRemoveNode((unsigned __int64 *)&qword_140C6A818, v3);
-    RtlRbRemoveNode((unsigned __int64 *)&xmmword_140C6A820 + 1, v3 + 24);
+    RtlRbRemoveNode(&Parent, (PRTL_BALANCED_NODE)Root);
+    RtlRbRemoveNode(&Tree, (PRTL_BALANCED_NODE)(Root + 24));
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C6A838, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C6A838);
   KeAbPostRelease((ULONG_PTR)&qword_140C6A838);
   KeLeaveCriticalRegion();
-  if ( v3 )
+  if ( Root )
   {
-    v7 = *(void **)(v3 + 48);
+    v7 = *(_RTL_BALANCED_NODE **)(Root + 48);
     if ( v7 )
       ObfDereferenceObjectWithTag(v7, 0x73576650u);
-    ExFreePoolWithTag((PVOID)v3, 0x66506343u);
+    ExFreePoolWithTag((PVOID)Root, 0x66506343u);
   }
   if ( PfSnNumActiveTraces )
     PfSnEndProcessTrace(a1, 2LL);

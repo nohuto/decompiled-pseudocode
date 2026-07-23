@@ -1,15 +1,15 @@
 /*
- * XREFs of PoSetThermalPassiveCooling @ 0x140A8F9C0
+ * XREFs of PoSetThermalPassiveCooling @ 0x140A8C000
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     PopPropogateCoolingChange @ 0x14042796C (PopPropogateCoolingChange.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140A8FAF8 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     PopPropogateCoolingChange @ 0x14041BAFC (PopPropogateCoolingChange.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140A8C138 (PopThermalUpdatePassiveTimeTracking.c)
  */
 
 __int64 __fastcall PoSetThermalPassiveCooling(__int64 a1, unsigned __int8 a2)

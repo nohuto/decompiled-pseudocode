@@ -1,17 +1,17 @@
 /*
- * XREFs of PopCompleteNotifyTransitionCommon @ 0x1403D8F34
+ * XREFs of PopCompleteNotifyTransitionCommon @ 0x1402F2208
  * Callers:
- *     PopCompleteDirectedPowerTransitionCallback @ 0x1403D77B8 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopSystemIrpCompletion @ 0x140B6F8E0 (PopSystemIrpCompletion.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x1402F1298 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopSystemIrpCompletion @ 0x140B71950 (PopSystemIrpCompletion.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     PopReadyChildWake @ 0x1403D7834 (PopReadyChildWake.c)
- *     PopReadyParentSleep @ 0x1403D78C4 (PopReadyParentSleep.c)
- *     KeReleaseSemaphore @ 0x1403D91C0 (KeReleaseSemaphore.c)
- *     PopPrepChildWake @ 0x140491A84 (PopPrepChildWake.c)
- *     PopDiagTraceDriverVeto @ 0x140B5F828 (PopDiagTraceDriverVeto.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     PopPrepChildWake @ 0x1402F0AEC (PopPrepChildWake.c)
+ *     PopReadyChildWake @ 0x1402F1314 (PopReadyChildWake.c)
+ *     PopReadyParentSleep @ 0x1402F13A4 (PopReadyParentSleep.c)
+ *     KeReleaseSemaphore @ 0x1402F2490 (KeReleaseSemaphore.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopDiagTraceDriverVeto @ 0x140B618A8 (PopDiagTraceDriverVeto.c)
  */
 
 void __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a3, __int64 a4)
@@ -20,29 +20,28 @@ void __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
   __int64 v6; // r13
   char v8; // r15
   LONG v9; // ebx
-  __int64 v10; // r8
-  __int64 *v11; // rdx
-  __int64 v12; // rbp
-  __int64 v13; // rcx
-  __int64 **v14; // rax
-  __int64 v15; // rax
-  __int64 **v16; // rdx
-  __int64 *v17; // r12
-  __int64 v18; // rax
-  __int64 **v19; // rdx
-  bool v20; // al
-  int v21; // ecx
-  __int64 *v22; // r11
+  __int64 *v10; // rdx
+  __int64 v11; // rbp
+  __int64 v12; // rcx
+  __int64 **v13; // rax
+  __int64 v14; // rax
+  __int64 **v15; // rdx
+  __int64 *v16; // r12
+  __int64 v17; // rax
+  __int64 **v18; // rdx
+  bool v19; // al
+  int v20; // ecx
+  __int64 *v21; // r11
   __int64 *i; // r10
-  int v24; // eax
-  bool v25; // al
-  __int64 *v26; // r14
-  int v27; // ecx
-  __int64 *v28; // r10
+  int v23; // eax
+  bool v24; // al
+  __int64 *v25; // r14
+  int v26; // ecx
+  __int64 *v27; // r10
   bool ready; // al
-  int v30; // ecx
+  int v29; // ecx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
-  char v32; // [rsp+80h] [rbp+8h]
+  char v31; // [rsp+80h] [rbp+8h]
 
   v4 = (_QWORD *)*(a2 - 19);
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -51,100 +50,96 @@ void __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
   if ( (PVOID)*(a2 - 18) != IopRootDeviceNode )
     v6 = *(a2 - 18);
   v9 = 0;
-  v32 = 0;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F0BDF0 + 1, &LockHandle);
-  v11 = (__int64 *)*a2;
-  v12 = a1 + 48;
-  v13 = 9LL * *((unsigned __int8 *)a2 + 56);
-  if ( *(__int64 **)(*a2 + 8) != a2 || (v14 = (__int64 **)a2[1], *v14 != a2) )
+  v31 = 0;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F0B910 + 1, &LockHandle);
+  v10 = (__int64 *)*a2;
+  v11 = a1 + 48;
+  v12 = 9LL * *((unsigned __int8 *)a2 + 56);
+  if ( *(__int64 **)(*a2 + 8) != a2 || (v13 = (__int64 **)a2[1], *v13 != a2) )
 LABEL_5:
     __fastfail(3u);
-  *v14 = v11;
-  v11[1] = (__int64)v14;
+  *v13 = v10;
+  v10[1] = (__int64)v13;
   if ( *(_BYTE *)(a1 + 464) )
   {
-    v18 = a1 + 72 + 8 * v13;
-    v19 = *(__int64 ***)(v18 + 8);
-    if ( *v19 != (__int64 *)v18 )
+    v17 = a1 + 72 + 8 * v12;
+    v18 = *(__int64 ***)(v17 + 8);
+    if ( *v18 != (__int64 *)v17 )
       goto LABEL_5;
-    *a2 = v18;
-    a2[1] = (__int64)v19;
-    *v19 = a2;
-    *(_QWORD *)(v18 + 8) = a2;
-    ++*(_DWORD *)(v12 + 8 * v13 + 20);
+    *a2 = v17;
+    a2[1] = (__int64)v18;
+    *v18 = a2;
+    *(_QWORD *)(v17 + 8) = a2;
+    ++*(_DWORD *)(v11 + 8 * v12 + 20);
     while ( v4 )
     {
       ready = PopReadyChildWake(v4 + 20, a1 + 48, *((_BYTE *)a2 + 56), v8);
       v4 = (_QWORD *)*v4;
-      v30 = v9 + 1;
+      v29 = v9 + 1;
       if ( !ready )
-        v30 = v9;
-      v9 = v30;
+        v29 = v9;
+      v9 = v29;
     }
-    v26 = (__int64 *)a2[2];
-    while ( v26 != a2 + 2 )
+    v25 = (__int64 *)a2[2];
+    while ( v25 != a2 + 2 )
     {
-      v25 = PopReadyChildWake((__int64 *)*(v26 - 1), a1 + 48, *((_BYTE *)a2 + 56), v8);
-      v26 = (__int64 *)*v26;
-      v27 = v9 + 1;
-      if ( !v25 )
-        v27 = v9;
-      v9 = v27;
+      v24 = PopReadyChildWake((__int64 *)*(v25 - 1), a1 + 48, *((_BYTE *)a2 + 56), v8);
+      v25 = (__int64 *)*v25;
+      v26 = v9 + 1;
+      if ( !v24 )
+        v26 = v9;
+      v9 = v26;
     }
   }
   else
   {
-    v15 = a1 + 104 + 8 * v13;
-    v16 = *(__int64 ***)(v15 + 8);
-    if ( *v16 != (__int64 *)v15 )
+    v14 = a1 + 104 + 8 * v12;
+    v15 = *(__int64 ***)(v14 + 8);
+    if ( *v15 != (__int64 *)v14 )
       goto LABEL_5;
-    *a2 = v15;
-    a2[1] = (__int64)v16;
-    *v16 = a2;
-    *(_QWORD *)(v15 + 8) = a2;
-    --*(_DWORD *)(v12 + 8 * v13 + 20);
+    *a2 = v14;
+    a2[1] = (__int64)v15;
+    *v15 = a2;
+    *(_QWORD *)(v14 + 8) = a2;
+    --*(_DWORD *)(v11 + 8 * v12 + 20);
     if ( v6 )
       v9 = PopReadyParentSleep((__int64 *)(v6 + 160), a1 + 48, *((_BYTE *)a2 + 56), v8);
-    v17 = (__int64 *)a2[4];
-    while ( v17 != a2 + 4 )
+    v16 = (__int64 *)a2[4];
+    while ( v16 != a2 + 4 )
     {
-      v20 = PopReadyParentSleep((__int64 *)v17[5], a1 + 48, *((_BYTE *)a2 + 56), v8);
-      v17 = (__int64 *)*v17;
-      v21 = v9 + 1;
-      if ( !v20 )
-        v21 = v9;
-      v9 = v21;
+      v19 = PopReadyParentSleep((__int64 *)v16[5], a1 + 48, *((_BYTE *)a2 + 56), v8);
+      v16 = (__int64 *)*v16;
+      v20 = v9 + 1;
+      if ( !v19 )
+        v20 = v9;
+      v9 = v20;
     }
     while ( v4 )
     {
-      LOBYTE(v10) = v8;
-      PopPrepChildWake(v4 + 20, a1 + 48, v10);
+      PopPrepChildWake(v4 + 20, a1 + 48, v8);
       v4 = (_QWORD *)*v4;
     }
-    v22 = a2 + 2;
-    for ( i = (__int64 *)a2[2]; i != v22; i = (__int64 *)*v28 )
-    {
-      LOBYTE(v10) = v8;
-      PopPrepChildWake(*(i - 1), a1 + 48, v10);
-    }
-    v24 = a3;
+    v21 = a2 + 2;
+    for ( i = (__int64 *)a2[2]; i != v21; i = (__int64 *)*v27 )
+      PopPrepChildWake((__int64 *)*(i - 1), a1 + 48, v8);
+    v23 = a3;
     if ( a3 < 0 )
     {
       if ( a4 && *(_BYTE *)a1 == 3 )
       {
         PopDiagTraceDriverVeto(a4, a2);
-        v24 = a3;
+        v23 = a3;
       }
-      if ( !*(_BYTE *)(a1 + 466) && (v24 != -1073741637 || !*(_BYTE *)(a1 + 467)) && *(int *)(a1 + 448) >= 0 )
+      if ( !*(_BYTE *)(a1 + 466) && (v23 != -1073741637 || !*(_BYTE *)(a1 + 467)) && *(int *)(a1 + 448) >= 0 )
       {
-        *(_DWORD *)(a1 + 448) = v24;
+        *(_DWORD *)(a1 + 448) = v23;
         *(_QWORD *)(a1 + 456) = a2[8];
-        v32 = 1;
+        v31 = 1;
       }
     }
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
-  if ( v32 )
+  if ( v31 )
   {
     KeSetEvent(*(PRKEVENT *)(a1 + 24), 0, 0);
   }

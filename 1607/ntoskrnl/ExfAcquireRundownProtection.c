@@ -1,20 +1,20 @@
 /*
- * XREFs of ExfAcquireRundownProtection @ 0x14008C5E0
+ * XREFs of ExfAcquireRundownProtection @ 0x14008BD40
  * Callers:
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x14008C5A0 (ExAcquireRundownProtectionCacheAware.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     PfFileInfoNotify @ 0x1400EEAD0 (PfFileInfoNotify.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     CmpConstructNameWithStatus @ 0x140437710 (CmpConstructNameWithStatus.c)
- *     NtEnumerateValueKey @ 0x140439540 (NtEnumerateValueKey.c)
- *     NtEnumerateKey @ 0x140439B70 (NtEnumerateKey.c)
- *     NtQueryKey @ 0x14043B2A0 (NtQueryKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     PsAcquireProcessExitSynchronization @ 0x1404B1F04 (PsAcquireProcessExitSynchronization.c)
- *     ExpCopyProcessInfo @ 0x140507350 (ExpCopyProcessInfo.c)
- *     ObReferenceProcessHandleTable @ 0x14050D150 (ObReferenceProcessHandleTable.c)
- *     ObpCallPreOperationCallbacks @ 0x140511820 (ObpCallPreOperationCallbacks.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x14008BD00 (ExAcquireRundownProtectionCacheAware.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     PfFileInfoNotify @ 0x1400EC950 (PfFileInfoNotify.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     CmpConstructNameWithStatus @ 0x1404365E0 (CmpConstructNameWithStatus.c)
+ *     NtEnumerateValueKey @ 0x140438410 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x140438A40 (NtEnumerateKey.c)
+ *     NtQueryKey @ 0x14043A170 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     PsAcquireProcessExitSynchronization @ 0x14049C2E4 (PsAcquireProcessExitSynchronization.c)
+ *     ExpCopyProcessInfo @ 0x1404EA2E0 (ExpCopyProcessInfo.c)
+ *     ObReferenceProcessHandleTable @ 0x1404F00E0 (ObReferenceProcessHandleTable.c)
+ *     ObpCallPreOperationCallbacks @ 0x1404F4C10 (ObpCallPreOperationCallbacks.c)
  * Callees:
  *     <none>
  */

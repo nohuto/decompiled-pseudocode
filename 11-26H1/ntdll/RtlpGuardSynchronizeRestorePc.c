@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGuardSynchronizeRestorePc @ 0x180127560
+ * XREFs of RtlpGuardSynchronizeRestorePc @ 0x1801272D0
  * Callers:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RcFrameConsolidation @ 0x180127350 (RcFrameConsolidation.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RcFrameConsolidation @ 0x1801270C0 (RcFrameConsolidation.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpIsSystemEntity @ 0x14040F144
+ * XREFs of CmpIsSystemEntity @ 0x14040E004
  * Callers:
- *     CmQueryLayeredKey @ 0x1401B3DE4 (CmQueryLayeredKey.c)
- *     NtDeleteValueKey @ 0x1403FA9B8 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x1403FBA58 (NtDeleteKey.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x140438760 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmQueryKey @ 0x14043A810 (CmQueryKey.c)
- *     CmpVEExecuteOpenLogic @ 0x1404402B0 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteCreateLogic @ 0x1404D91F4 (CmpVEExecuteCreateLogic.c)
- *     CmpVEPerformOpenAccessCheck @ 0x1404DB888 (CmpVEPerformOpenAccessCheck.c)
- *     NtSetInformationKey @ 0x14050FD50 (NtSetInformationKey.c)
- *     NtRenameKey @ 0x1405F9DF0 (NtRenameKey.c)
- *     CmKeyBodyRemapToVirtual @ 0x1405FFE48 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140600020 (CmKeyBodyReplicateToVirtual.c)
+ *     CmQueryLayeredKey @ 0x1401B3CC8 (CmQueryLayeredKey.c)
+ *     NtDeleteValueKey @ 0x1403F9878 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x1403FA918 (NtDeleteKey.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x140437630 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmQueryKey @ 0x1404396E0 (CmQueryKey.c)
+ *     CmpVEExecuteOpenLogic @ 0x14043F180 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteCreateLogic @ 0x1404BC7F8 (CmpVEExecuteCreateLogic.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1404BEE8C (CmpVEPerformOpenAccessCheck.c)
+ *     NtSetInformationKey @ 0x1404F2CE0 (NtSetInformationKey.c)
+ *     NtRenameKey @ 0x1405F9EA4 (NtRenameKey.c)
+ *     CmKeyBodyRemapToVirtual @ 0x1405FFEFC (CmKeyBodyRemapToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406000D4 (CmKeyBodyReplicateToVirtual.c)
  * Callees:
- *     CmpIsVirtEnabled @ 0x14040F1C8 (CmpIsVirtEnabled.c)
+ *     CmpIsVirtEnabled @ 0x14040E088 (CmpIsVirtEnabled.c)
  */
 
 bool __fastcall CmpIsSystemEntity(int *a1)

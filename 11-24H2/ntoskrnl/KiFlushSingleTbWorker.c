@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFlushSingleTbWorker @ 0x1405C9890
+ * XREFs of KiFlushSingleTbWorker @ 0x1405C6FC0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1406AB3E0 (KiSetUserTbFlushPending.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x1406AC380 (KiSetUserTbFlushPending.c)
  */
 
 __int64 __fastcall KiFlushSingleTbWorker(__int64 a1)

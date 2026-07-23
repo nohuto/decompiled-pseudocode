@@ -67,7 +67,7 @@ __int64 __fastcall MiReplacePageOfProtoPool(unsigned __int64 a1, __int64 a2, __i
   unsigned __int64 v55; // [rsp+40h] [rbp-99h]
   __int64 v56; // [rsp+48h] [rbp-91h] BYREF
   __int64 v57; // [rsp+50h] [rbp-89h]
-  RTL_BITMAP v58; // [rsp+58h] [rbp-81h] BYREF
+  _RTL_BITMAP v58; // [rsp+58h] [rbp-81h] BYREF
   __int64 v59; // [rsp+68h] [rbp-71h]
   __int128 v60; // [rsp+70h] [rbp-69h]
   __int128 v61; // [rsp+80h] [rbp-59h]

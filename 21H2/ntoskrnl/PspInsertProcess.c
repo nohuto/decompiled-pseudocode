@@ -1,32 +1,32 @@
 /*
- * XREFs of PspInsertProcess @ 0x140607710
+ * XREFs of PspInsertProcess @ 0x1406971A0
  * Callers:
- *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x1407CE460 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x140699C80 (NtCreateUserProcess.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x1407CE5D0 (PspCreateProcess.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     PspUnlockProcessListExclusive @ 0x1402523C8 (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x1402527AC (PspLockProcessListExclusive.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PspUnlockProcessExclusive @ 0x1402CB978 (PspUnlockProcessExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
- *     ObCheckRefTraceProcess @ 0x140607974 (ObCheckRefTraceProcess.c)
- *     DbgkCopyProcessDebugPort @ 0x1406079BC (DbgkCopyProcessDebugPort.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
- *     SeCreateAccessStateEx @ 0x1406618D0 (SeCreateAccessStateEx.c)
- *     PspValidateJobAffinityState @ 0x1406B693C (PspValidateJobAffinityState.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     SeAuditProcessCreation @ 0x1407BC598 (SeAuditProcessCreation.c)
- *     PspDeleteObjectAccessState @ 0x14090A0DC (PspDeleteObjectAccessState.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PspUnlockProcessExclusive @ 0x14024A0C8 (PspUnlockProcessExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x140285280 (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x140285664 (PspLockProcessListExclusive.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspValidateJobAffinityState @ 0x140615DFC (PspValidateJobAffinityState.c)
+ *     SeCreateAccessStateEx @ 0x1406566F0 (SeCreateAccessStateEx.c)
+ *     ObCheckRefTraceProcess @ 0x140697404 (ObCheckRefTraceProcess.c)
+ *     DbgkCopyProcessDebugPort @ 0x14069744C (DbgkCopyProcessDebugPort.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1406981E0 (SeAuditingWithTokenForSubcategory.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406F519C (PspImplicitAssignProcessToJob.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     SeAuditProcessCreation @ 0x1407BCD28 (SeAuditProcessCreation.c)
+ *     PspDeleteObjectAccessState @ 0x14090A23C (PspDeleteObjectAccessState.c)
  */
 
 __int64 __fastcall PspInsertProcess(
         char *Object,
         struct _KPROCESS *a2,
-        int a3,
+        ACCESS_MASK a3,
         unsigned int a4,
         HANDLE Handle,
         char a6,
@@ -40,33 +40,33 @@ __int64 __fastcall PspInsertProcess(
   _QWORD *v15; // rcx
   _QWORD *v16; // rax
   int v17; // ebp
-  int v18; // edx
+  struct _KPROCESS *v18; // rdx
   struct _ACCESS_STATE *v19; // rsi
   __int64 v20; // rcx
   NTSTATUS v22; // eax
   PVOID v23; // [rsp+88h] [rbp+10h] BYREF
-  int v24; // [rsp+90h] [rbp+18h]
+  ACCESS_MASK v24; // [rsp+90h] [rbp+18h]
 
   v24 = a3;
   CurrentThread = KeGetCurrentThread();
   v11 = 0LL;
   Process = CurrentThread->ApcState.Process;
   *(_DWORD *)(*((_QWORD *)Object + 174) + 40LL) = *((_DWORD *)Object + 272);
-  if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(134LL, 0LL) )
-    SeAuditProcessCreation((ULONG_PTR)Object);
+  if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(134LL) )
+    SeAuditProcessCreation((PEPROCESS)Object);
   if ( !a2
     || !a2[1].Affinity.Bitmap[16]
-    || (inserted = PspImplicitAssignProcessToJob(a2[1].Affinity.Bitmap[16], (__int64)Object, a4), inserted >= 0) )
+    || (inserted = PspImplicitAssignProcessToJob(a2[1].Affinity.Bitmap[16], Object, a4), inserted >= 0) )
   {
     PspLockProcessListExclusive((__int64)CurrentThread);
-    v15 = (_QWORD *)qword_140C1E208;
+    v15 = (_QWORD *)qword_140C1E258;
     v16 = Object + 1096;
-    if ( *(__int64 **)qword_140C1E208 != &PsActiveProcessHead )
+    if ( *(__int64 **)qword_140C1E258 != &PsActiveProcessHead )
       __fastfail(3u);
-    *((_QWORD *)Object + 138) = qword_140C1E208;
+    *((_QWORD *)Object + 138) = qword_140C1E258;
     *v16 = &PsActiveProcessHead;
     *v15 = v16;
-    qword_140C1E208 = (__int64)(Object + 1096);
+    qword_140C1E258 = (__int64)(Object + 1096);
     *((_QWORD *)Object + 287) = ++PspProcessSequenceNumber;
     PspUnlockProcessListExclusive((__int64)CurrentThread);
     if ( (Process[1].DirectoryTableBase & 0x800000000LL) != 0 )
@@ -92,26 +92,26 @@ __int64 __fastcall PspInsertProcess(
       if ( inserted >= 0 )
       {
         v17 = 0;
-        if ( !a2 || (v18 = (int)PsInitialSystemProcess, a2 != PsInitialSystemProcess) )
+        if ( !a2 || (v18 = PsInitialSystemProcess, a2 != PsInitialSystemProcess) )
         {
           if ( (a6 & 2) != 0 )
           {
-            v18 = (int)Object;
+            v18 = (struct _KPROCESS *)Object;
             v17 = 1;
           }
           else
           {
-            v18 = (int)Process;
+            v18 = Process;
           }
         }
         v19 = AccessState;
         inserted = SeCreateAccessStateEx(
-                     0,
+                     0LL,
                      v18,
-                     (_DWORD)AccessState,
-                     (int)AccessState + 160,
+                     AccessState,
+                     &AccessState[1].OperationID,
                      v24,
-                     (__int64)PsProcessType + 76);
+                     (GENERIC_MAPPING *)((char *)PsProcessType + 76));
         if ( inserted >= 0 )
         {
           ObfReferenceObjectWithTag(Object, 0x72437350u);
@@ -125,7 +125,7 @@ __int64 __fastcall PspInsertProcess(
               _InterlockedOr((volatile signed __int32 *)Object + 281, 0x4000000u);
               goto LABEL_20;
             }
-            inserted = PspValidateJobAffinityState(v20, Object);
+            inserted = PspValidateJobAffinityState(v20, (__int64)Object);
             if ( inserted >= 0 )
             {
 LABEL_20:

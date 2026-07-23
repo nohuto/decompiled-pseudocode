@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCheckLexicographicalOrder @ 0x1407AA3D0
+ * XREFs of CmpCheckLexicographicalOrder @ 0x1407AA5C0
  * Callers:
- *     CmpCheckRegistry2 @ 0x1406DFAD0 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x1406DFB00 (CmpCheckRegistry2.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpCompareCompressedName @ 0x1407C46E4 (CmpCompareCompressedName.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpCompareCompressedName @ 0x1407C49B4 (CmpCompareCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpCheckLexicographicalOrder(

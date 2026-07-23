@@ -1,19 +1,19 @@
 /*
- * XREFs of ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14035B3F4
+ * XREFs of ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1402A0194
  * Callers:
- *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x14035C1E8 (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
+ *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x1402A1118 (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
  * Callees:
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1402DE5C8 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1402DE790 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035B378 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmArrayGrow @ 0x14035B794 (SmArrayGrow.c)
- *     SmPerformStoreSwapOperation @ 0x14035B868 (SmPerformStoreSwapOperation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14028F918 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14028FAE0 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402A0118 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmArrayGrow @ 0x1402A0534 (SmArrayGrow.c)
+ *     SmPerformStoreSwapOperation @ 0x1402A0608 (SmPerformStoreSwapOperation.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
@@ -69,7 +69,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
   v3 = 0LL;
   PoolWithTag = 0LL;
   v4 = 0;
-  ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)a1);
+  ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)a1);
   v8 = *(unsigned int **)(a1 + 6568);
   if ( (unsigned __int64)v8 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
   {
@@ -111,7 +111,7 @@ LABEL_6:
     v13 = v10;
     v14 = (_DWORD *)(v12 + 4 * ((unsigned __int64)(v11 - 1) >> 5));
     v15 = (_DWORD *)(v12 + 4 * ((unsigned __int64)v10 >> 5));
-    if ( v15 != v14 && (*v15 | *((_DWORD *)qword_140011C70 + (v10 & 0x1F))) == -1 )
+    if ( v15 != v14 && (*v15 | *((_DWORD *)qword_140012120 + (v10 & 0x1F))) == -1 )
     {
       v13 = v10 - (v10 & 0x1F) + 32;
       for ( ++v15; v15 < v14 && *v15 == -1; ++v15 )
@@ -126,7 +126,7 @@ LABEL_6:
     if ( v15 != v14 )
     {
       v17 = v13 & 0x1F;
-      if ( (*v15 & ~*((_DWORD *)qword_140011C70 + (v13 & 0x1F))) == 0 )
+      if ( (*v15 & ~*((_DWORD *)qword_140012120 + (v13 & 0x1F))) == 0 )
       {
         v16 = 32 - v17;
         if ( v17 == 33 )
@@ -185,9 +185,9 @@ LABEL_22:
     }
   }
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 6024), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(a1 + 6024));
+    ExfReleasePushLockShared(a1 + 6024);
   KeAbPostRelease(a1 + 6024);
-  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+  KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
   v2 = 0;
   if ( v4 )
   {
@@ -232,9 +232,9 @@ LABEL_47:
     }
 LABEL_59:
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 6024), 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)(a1 + 6024));
+      ExfReleasePushLockShared(a1 + 6024);
     KeAbPostRelease(a1 + 6024);
-    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+    KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     goto LABEL_47;
   }
   v1 = 0LL;

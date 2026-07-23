@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrRangeCommitProcess @ 0x14048EEC4
+ * XREFs of RtlpHpVaMgrRangeCommitProcess @ 0x1404892C4
  * Callers:
- *     RtlpHpVaMgrRangeCommit @ 0x140605C28 (RtlpHpVaMgrRangeCommit.c)
- *     RtlpHpVaMgrRangeDecommit @ 0x140605D70 (RtlpHpVaMgrRangeDecommit.c)
+ *     RtlpHpVaMgrRangeCommit @ 0x140603268 (RtlpHpVaMgrRangeCommit.c)
+ *     RtlpHpVaMgrRangeDecommit @ 0x1406033B0 (RtlpHpVaMgrRangeDecommit.c)
  * Callees:
- *     RtlSparseArrayElementAllocated @ 0x1402C276C (RtlSparseArrayElementAllocated.c)
+ *     RtlSparseArrayElementAllocated @ 0x14035D950 (RtlSparseArrayElementAllocated.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRangeCommitProcess(__int64 a1, __m128i *a2, int a3)

@@ -10,34 +10,38 @@
 
 __int64 __fastcall RtlpAttachThreadToUmsCompletionList(__int64 a1, __int64 a2)
 {
-  struct _TEB *v2; // rsi
-  int v3; // edi
-  int UmsThreadContext; // eax
-  unsigned __int64 v5; // rbx
-  unsigned __int64 v7; // [rsp+60h] [rbp+18h] BYREF
+  struct _TEB *v3; // rsi
+  NTSTATUS v4; // edi
+  int v5; // eax
+  _QWORD *v6; // rbx
+  _QWORD ThreadInformation[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp+18h] BYREF
 
-  v7 = 0LL;
-  v2 = NtCurrentTeb();
-  v3 = -1073741811;
+  BaseAddress = 0LL;
+  v3 = NtCurrentTeb();
+  v4 = -1073741811;
   if ( a2 )
   {
-    UmsThreadContext = RtlCreateUmsThreadContext((__int64 *)&v7);
-    v5 = v7;
-    v3 = UmsThreadContext;
-    if ( UmsThreadContext < 0
-      || (*(_QWORD *)(v7 + 1248) = v2,
-          *(_QWORD *)(v5 + 1280) = v5,
-          *(_QWORD *)(v5 + 1272) = SLODWORD(v2->ClientId.UniqueThread),
-          v3 = NtSetInformationThread(),
-          v3 < 0) )
+    v5 = RtlCreateUmsThreadContext(&BaseAddress);
+    v6 = BaseAddress;
+    v4 = v5;
+    if ( v5 < 0
+      || (*((_QWORD *)BaseAddress + 156) = v3,
+          v6[160] = v6,
+          v6[159] = SLODWORD(v3->ClientId.UniqueThread),
+          ThreadInformation[0] = 1LL,
+          ThreadInformation[1] = a2,
+          ThreadInformation[2] = v6,
+          v4 = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUmsInformation, ThreadInformation, 0x18u),
+          v4 < 0) )
     {
-      if ( v5 )
-        RtlDeleteUmsThreadContext(v5);
+      if ( v6 )
+        RtlDeleteUmsThreadContext(v6);
     }
     else
     {
-      v2->TlsSlots[4] = (void *)v5;
+      v3->TlsSlots[4] = v6;
     }
   }
-  return (unsigned int)v3;
+  return (unsigned int)v4;
 }

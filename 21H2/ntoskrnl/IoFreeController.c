@@ -1,10 +1,10 @@
 /*
- * XREFs of IoFreeController @ 0x1405059F0
+ * XREFs of IoFreeController @ 0x140505970
  * Callers:
- *     IoAllocateController @ 0x140505810 (IoAllocateController.c)
+ *     IoAllocateController @ 0x140505790 (IoAllocateController.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeRemoveDeviceQueue @ 0x14051ABD0 (KeRemoveDeviceQueue.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeRemoveDeviceQueue @ 0x14051AE10 (KeRemoveDeviceQueue.c)
  */
 
 void __stdcall IoFreeController(PCONTROLLER_OBJECT ControllerObject)

@@ -1,15 +1,15 @@
 /*
- * XREFs of WdipSemActivateInstance @ 0x140AD9F30
+ * XREFs of WdipSemActivateInstance @ 0x140AD69E0
  * Callers:
- *     WdipSemEnableScenario @ 0x140AD9304 (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140AD9550 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x140AD5DB4 (WdipSemEnableScenario.c)
+ *     WdipSemDisableScenario @ 0x140AD6000 (WdipSemDisableScenario.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 void __fastcall WdipSemActivateInstance(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -19,19 +19,19 @@ void __fastcall WdipSemActivateInstance(__int64 a1, __int64 a2, __int64 a3, stru
   void *v7; // rdx
   signed __int8 v8; // cf
   AutoBoost *v9; // rbx
-  unsigned __int64 *v10; // rdx
-  struct _KTHREAD *Thread; // rtt
+  char *v10; // rdx
+  void *volatile StackLimit; // rtt
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F03F40.WaitBlock[0].Thread, 0LL, 0LL, a4);
-  v8 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140F03F40.WaitBlockFill11[24], 0LL);
+  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F049E8.StackLimit, 0LL, 0LL, a4);
+  v8 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140F049E8.StackLimit, 0LL);
   v9 = v6;
   if ( v8 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&stru_140F03F40.WaitBlock[0].Thread,
+      (unsigned __int64 *)&stru_140F049E8.StackLimit,
       v6,
-      (__int64)&stru_140F03F40.WaitBlock[0].Thread);
+      (__int64)&stru_140F049E8.StackLimit);
   if ( v9 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -40,19 +40,19 @@ void __fastcall WdipSemActivateInstance(__int64 a1, __int64 a2, __int64 a3, stru
       *((_BYTE *)v9 + 10) = 1;
   }
   *(_DWORD *)(a1 + 44) = 0;
-  _m_prefetchw(&stru_140F03F40.WaitBlockFill11[24]);
-  v10 = &stru_140F03F40.WaitBlock[0].Thread[-1].Padding[3];
-  if ( ((unsigned __int64)stru_140F03F40.WaitBlock[0].Thread & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  _m_prefetchw((const void *)&stru_140F049E8.StackLimit);
+  v10 = (char *)stru_140F049E8.StackLimit - 16;
+  if ( ((unsigned __int64)stru_140F049E8.StackLimit & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v10 = 0LL;
-  if ( (stru_140F03F40.WaitBlockFill5[24] & 2) != 0
-    || (Thread = stru_140F03F40.WaitBlock[0].Thread,
-        Thread != (struct _KTHREAD *)_InterlockedCompareExchange64(
-                                       (volatile signed __int64 *)&stru_140F03F40.WaitBlock[0].Thread,
-                                       (signed __int64)v10,
-                                       (signed __int64)stru_140F03F40.WaitBlock[0].Thread)) )
+  if ( ((__int64)stru_140F049E8.StackLimit & 2) != 0
+    || (StackLimit = stru_140F049E8.StackLimit,
+        StackLimit != (void *volatile)_InterlockedCompareExchange64(
+                                        (volatile signed __int64 *)&stru_140F049E8.StackLimit,
+                                        (signed __int64)v10,
+                                        (signed __int64)stru_140F049E8.StackLimit)) )
   {
-    ExfReleasePushLock(&stru_140F03F40.WaitBlock[0].Thread);
+    ExfReleasePushLock(&stru_140F049E8.StackLimit);
   }
-  KeAbPostRelease((unsigned __int64)&stru_140F03F40.WaitBlock[0].Thread);
+  KeAbPostRelease((unsigned __int64)&stru_140F049E8.StackLimit);
   KeLeaveCriticalRegion();
 }

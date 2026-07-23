@@ -1,8 +1,8 @@
 /*
  * XREFs of CcCopyWriteEx @ 0x1400312D0
  * Callers:
- *     CcCopyWrite @ 0x140269750 (CcCopyWrite.c)
- *     CcFastCopyWrite @ 0x140269980 (CcFastCopyWrite.c)
+ *     CcCopyWrite @ 0x140269940 (CcCopyWrite.c)
+ *     CcFastCopyWrite @ 0x140269B70 (CcFastCopyWrite.c)
  * Callees:
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
  */

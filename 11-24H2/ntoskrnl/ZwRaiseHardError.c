@@ -1,14 +1,21 @@
 /*
- * XREFs of ZwRaiseHardError @ 0x1406A92B0
+ * XREFs of ZwRaiseHardError @ 0x1406AA250
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRaiseHardError(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwRaiseHardError(
+        NTSTATUS ErrorStatus,
+        ULONG NumberOfParameters,
+        ULONG UnicodeStringParameterMask,
+        PULONG_PTR Parameters,
+        ULONG ValidResponseOptions,
+        PULONG Response)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&ErrorStatus);
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of ExFreeLargePool @ 0x14009ADD0
+ * XREFs of ExFreeLargePool @ 0x14009AD10
  * Callers:
- *     MmFreeContiguousMemory @ 0x140122FC0 (MmFreeContiguousMemory.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MmFreeContiguousMemory @ 0x140123090 (MmFreeContiguousMemory.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  * Callees:
  *     RtlpHpFreeHeap @ 0x140007BC0 (RtlpHpFreeHeap.c)
  *     ExGetHeapFromVA @ 0x14000E644 (ExGetHeapFromVA.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MmIsNonPagedPoolNx @ 0x14009B448 (MmIsNonPagedPoolNx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpFreePoolChecks @ 0x14009D77C (ExpFreePoolChecks.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpRemovePoolTrackerExpansion @ 0x140107680 (ExpRemovePoolTrackerExpansion.c)
- *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     VerifierFreeTrackedPool @ 0x1402BA41C (VerifierFreeTrackedPool.c)
- *     MiSessionPoolVector @ 0x140703DA0 (MiSessionPoolVector.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmIsNonPagedPoolNx @ 0x14009B388 (MmIsNonPagedPoolNx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpFreePoolChecks @ 0x14009D6BC (ExpFreePoolChecks.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     PsBoostThreadIo @ 0x1400BBEB0 (PsBoostThreadIo.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140107700 (ExpRemovePoolTrackerExpansion.c)
+ *     MiFreePoolPages @ 0x140161200 (MiFreePoolPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1401B7350 (EtwTracePool.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     VerifierFreeTrackedPool @ 0x1402BA60C (VerifierFreeTrackedPool.c)
+ *     MiSessionPoolVector @ 0x140705040 (MiSessionPoolVector.c)
  */
 
 void __fastcall ExFreeLargePool(ULONG_PTR BugCheckParameter3, unsigned int *a2, ULONG_PTR *a3, int a4)
@@ -102,9 +102,9 @@ void __fastcall ExFreeLargePool(ULONG_PTR BugCheckParameter3, unsigned int *a2, 
   v7 = ExAcquireSpinLockShared(&ExpLargePoolTableLock);
   if ( (v4 & 0x20) != 0 )
   {
-    v8 = *(_QWORD *)(qword_140439FC0 + 8248);
-    v9 = (volatile signed __int32 *)(qword_140439FC0 + 8120);
-    v10 = *(_QWORD *)(qword_140439FC0 + 8256);
+    v8 = *(_QWORD *)(qword_14043B080 + 8248);
+    v9 = (volatile signed __int32 *)(qword_14043B080 + 8120);
+    v10 = *(_QWORD *)(qword_14043B080 + 8256);
   }
   else
   {
@@ -127,9 +127,9 @@ LABEL_95:
         if ( (v4 & 0x21) != 0
           || v8 != PoolBigPageTable
           || (unsigned int)MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process) == -1
-          || (v8 = *(_QWORD *)(qword_140439FC0 + 8248),
-              v9 = (volatile signed __int32 *)(qword_140439FC0 + 8120),
-              v10 = *(_QWORD *)(qword_140439FC0 + 8256),
+          || (v8 = *(_QWORD *)(qword_14043B080 + 8248),
+              v9 = (volatile signed __int32 *)(qword_14043B080 + 8120),
+              v10 = *(_QWORD *)(qword_14043B080 + 8256),
               !v8)
           || !v10 )
         {

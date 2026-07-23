@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtRegisterProtocolAddressInformation()
+NTSTATUS __cdecl NtRegisterProtocolAddressInformation(
+        HANDLE ResourceManager,
+        PCRM_PROTOCOL_ID ProtocolId,
+        ULONG ProtocolInformationSize,
+        PVOID ProtocolInformation,
+        ULONG CreateOptions)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 338LL;
+  result = 338;
   __asm { syscall; Low latency system call }
   return result;
 }

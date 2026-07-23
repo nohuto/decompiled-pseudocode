@@ -9,30 +9,34 @@
  */
 
 unsigned __int64 __fastcall LdrpFetchAddressOfSecurityCookie(
-        unsigned __int64 a1,
+        void *a1,
         unsigned int a2,
-        __int64 a3,
+        _IMAGE_NT_HEADERS64 *a3,
         _DWORD *a4,
         __int64 *a5)
 {
   __int64 v5; // rbp
   __int64 Config; // rax
-  __int64 v9; // rdx
+  void *v9; // rdx
   unsigned __int64 v10; // rbx
-  __int64 v11; // rax
+  PIMAGE_SECTION_HEADER v11; // rax
   __int64 v12; // r11
-  __int64 v14; // [rsp+40h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS NtHeaders; // [rsp+40h] [rbp+18h] BYREF
 
-  v14 = a3;
+  NtHeaders = a3;
   v5 = a2;
-  RtlImageNtHeaderEx(1LL, a1, 0LL, &v14);
-  Config = LdrImageDirectoryEntryToLoadConfig(a1);
+  RtlImageNtHeaderEx(1u, a1, 0LL, &NtHeaders);
+  Config = LdrImageDirectoryEntryToLoadConfig((int)a1);
   if ( a4 )
     *a4 = 0;
-  if ( Config && *(_DWORD *)Config >= 0x70u && (v10 = *(_QWORD *)(Config + 88)) != 0 && v10 > a1 && v10 < v5 + a1 - 8 )
+  if ( Config
+    && *(_DWORD *)Config >= 0x70u
+    && (v10 = *(_QWORD *)(Config + 88)) != 0
+    && v10 > (unsigned __int64)a1
+    && v10 < (unsigned __int64)a1 + v5 - 8 )
   {
-    v11 = RtlSectionTableFromVirtualAddress(v14, v9, (unsigned int)(v10 - a1));
-    if ( v11 && *(int *)(v11 + 36) >= 0 && a4 )
+    v11 = RtlSectionTableFromVirtualAddress(NtHeaders, v9, (int)v10 - (int)a1);
+    if ( v11 && (v11->Characteristics & 0x80000000) == 0 && a4 )
       *a4 = 1;
     if ( a5 )
       *a5 = v12;

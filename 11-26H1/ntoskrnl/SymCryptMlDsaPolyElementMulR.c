@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMlDsaPolyElementMulR @ 0x140573454
+ * XREFs of SymCryptMlDsaPolyElementMulR @ 0x140572660
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
- *     SymCryptMlDsakeyComputeT @ 0x1405747F8 (SymCryptMlDsakeyComputeT.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsakeyComputeT @ 0x140573A5C (SymCryptMlDsakeyComputeT.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of MmStoreFlushOutstandingEvictions @ 0x14035A558
+ * XREFs of MmStoreFlushOutstandingEvictions @ 0x14029F2F8
  * Callers:
- *     SmStoreCompressionStart @ 0x14070F13C (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStart @ 0x1406BD78C (SmStoreCompressionStart.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -20,11 +20,11 @@ NTSTATUS MmStoreFlushOutstandingEvictions()
   int v5; // eax
   bool v6; // zf
 
-  v0 = ExAcquireSpinLockExclusive(&dword_140C51220);
-  if ( !dword_140C51210 )
+  v0 = ExAcquireSpinLockExclusive(&dword_140C51260);
+  if ( !dword_140C51250 )
     KeResetEvent(&Object);
-  ++dword_140C51210;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C51220);
+  ++dword_140C51250;
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C51260);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -43,6 +43,6 @@ NTSTATUS MmStoreFlushOutstandingEvictions()
     }
   }
   __writecr8(v0);
-  KeSetEvent(&stru_140C51230, 0, 0);
+  KeSetEvent(&stru_140C51270, 0, 0);
   return KeWaitForSingleObject(&Object, WrKernel, 0, 0, 0LL);
 }

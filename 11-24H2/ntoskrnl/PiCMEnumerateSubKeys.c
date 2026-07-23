@@ -1,18 +1,18 @@
 /*
- * XREFs of PiCMEnumerateSubKeys @ 0x14099245C
+ * XREFs of PiCMEnumerateSubKeys @ 0x14097D49C
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     PiCMReturnBufferResultData @ 0x1408C5620 (PiCMReturnBufferResultData.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x1408C7D10 (_PnpCtxGetCachedNodeBaseKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     PiCMCaptureEnumerateInputData @ 0x140992694 (PiCMCaptureEnumerateInputData.c)
- *     _PnpCtxRegEnumKey @ 0x140992734 (_PnpCtxRegEnumKey.c)
- *     _RegRtlEnumKey @ 0x140992974 (_RegRtlEnumKey.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140993F58 (_PnpCtxRegQueryInfoKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     PiCMReturnBufferResultData @ 0x1408C3020 (PiCMReturnBufferResultData.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x1408C5740 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     PiCMCaptureEnumerateInputData @ 0x14097D6D4 (PiCMCaptureEnumerateInputData.c)
+ *     _PnpCtxRegEnumKey @ 0x14097D774 (_PnpCtxRegEnumKey.c)
+ *     _RegRtlEnumKey @ 0x14097D9B4 (_RegRtlEnumKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14097EF98 (_PnpCtxRegQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMEnumerateSubKeys(
@@ -56,7 +56,7 @@ LABEL_20:
     InfoKey = -1073741811;
     goto LABEL_16;
   }
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, a4 - 20, 0x34706E50u);
   if ( Pool2 )
   {
     v12 = DWORD2(v22);

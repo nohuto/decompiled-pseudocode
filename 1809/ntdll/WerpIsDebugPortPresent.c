@@ -3,7 +3,7 @@
  * Callers:
  *     WerpBreakIntoDebuggerIfPresent @ 0x1800DEC28 (WerpBreakIntoDebuggerIfPresent.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x1800A0600 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1800A0620 (NtQueryInformationProcess.c)
  */
 
 __int64 WerpIsDebugPortPresent()

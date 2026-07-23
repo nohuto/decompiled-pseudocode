@@ -1,19 +1,19 @@
 /*
- * XREFs of PsBootPhaseComplete @ 0x1407717B8
+ * XREFs of PsBootPhaseComplete @ 0x1407719D8
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
- *     CmCompleteRegistryInitialization @ 0x1407CF20C (CmCompleteRegistryInitialization.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1407CF6FC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline @ 0x1405E4B64 (Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     PspIsDfssEnabled @ 0x140771D94 (PspIsDfssEnabled.c)
- *     PspQueryForwardersEnabled @ 0x140774408 (PspQueryForwardersEnabled.c)
- *     RtlQueryImageFileExecutionOptions @ 0x14077DA00 (RtlQueryImageFileExecutionOptions.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline @ 0x1405E208C (Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     PspIsDfssEnabled @ 0x140771FB4 (PspIsDfssEnabled.c)
+ *     PspQueryForwardersEnabled @ 0x140774628 (PspQueryForwardersEnabled.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x14077D930 (RtlQueryImageFileExecutionOptions.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
  */
 
 __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)

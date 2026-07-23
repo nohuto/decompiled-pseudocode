@@ -9,41 +9,42 @@
  *     _RtlpLockAtomTable@4 @ 0x4B2E04D4 (_RtlpLockAtomTable@4.c)
  */
 
-int __stdcall RtlEmptyAtomTable(int a1, char a2)
+NTSTATUS __cdecl RtlEmptyAtomTable(PVOID AtomTableHandle, BOOLEAN IncludePinnedAtoms)
 {
   unsigned int v3; // eax
-  int *v4; // ecx
-  int *v5; // ebx
-  int v6; // edi
-  char v7; // al
-  int *v8; // [esp+4h] [ebp-8h]
+  char *v4; // ecx
+  _BYTE **v5; // ebx
+  _BYTE *v6; // edi
+  BOOLEAN v7; // al
+  char *v8; // [esp+4h] [ebp-8h]
   unsigned int i; // [esp+8h] [ebp-4h]
 
-  if ( !RtlpLockAtomTable((volatile signed __int32 *)a1) )
+  if ( !RtlpLockAtomTable((_RTL_SRWLOCK *)AtomTableHandle) )
     return -1073741811;
   v3 = 0;
-  v4 = (int *)(a1 + 48);
-  for ( i = 0; v3 < *(_DWORD *)(a1 + 44); i = v3 )
+  v4 = (char *)AtomTableHandle + 48;
+  for ( i = 0; v3 < *((_DWORD *)AtomTableHandle + 11); i = v3 )
   {
-    v5 = v4++;
+    v5 = (_BYTE **)v4;
+    v4 += 4;
     v8 = v4;
     v6 = *v5;
     if ( *v5 )
     {
-      v7 = a2;
+      v7 = IncludePinnedAtoms;
       do
       {
-        if ( v7 || (*(_BYTE *)(v6 + 10) & 1) == 0 )
+        if ( v7 || (v6[10] & 1) == 0 )
         {
-          *v5 = *(_DWORD *)v6;
+          *v5 = *(_BYTE **)v6;
           *(_DWORD *)v6 = 0;
-          RtlpFreeHandleForAtom(a1, v6);
-          RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v6);
-          v7 = a2;
+          RtlpFreeHandleForAtom((int)AtomTableHandle, (int)v6);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
+          v7 = IncludePinnedAtoms;
         }
         else
         {
-          v5 = (int *)v6;
+          v5 = (_BYTE **)v6;
         }
         v6 = *v5;
       }
@@ -53,6 +54,6 @@ int __stdcall RtlEmptyAtomTable(int a1, char a2)
     }
     ++v3;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 8));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 2);
   return 0;
 }

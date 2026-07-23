@@ -12,18 +12,23 @@
  *     BcdGetElementDataWithFlags @ 0x140608AB0 (BcdGetElementDataWithFlags.c)
  */
 
-__int64 __fastcall BiGetElement(__int64 a1, unsigned int a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall BiGetElement(HANDLE BcdObjectHandle, ULONG BcdElement, _QWORD *a3, _DWORD *a4)
 {
   PVOID PoolWithTag; // rdi
-  int ElementDataWithFlags; // ebx
-  __int64 v10; // r8
+  NTSTATUS ElementDataWithFlags; // ebx
+  BCD_FLAGS v10; // r8d
   SIZE_T NumberOfBytes; // [rsp+60h] [rbp+18h] BYREF
 
   PoolWithTag = 0LL;
   LODWORD(NumberOfBytes) = 0;
   *a4 = 0;
   *a3 = 0LL;
-  ElementDataWithFlags = BcdGetElementDataWithFlags(a1, a2, (__int64)a3, 0LL, &NumberOfBytes);
+  ElementDataWithFlags = BcdGetElementDataWithFlags(
+                           BcdObjectHandle,
+                           BcdElement,
+                           (BCD_FLAGS)a3,
+                           0LL,
+                           (PULONG)&NumberOfBytes);
   if ( ElementDataWithFlags != -1073741789 )
   {
 LABEL_6:
@@ -34,7 +39,12 @@ LABEL_6:
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
   if ( !PoolWithTag )
     return (unsigned int)-1073741670;
-  ElementDataWithFlags = BcdGetElementDataWithFlags(a1, a2, v10, (__int64)PoolWithTag, &NumberOfBytes);
+  ElementDataWithFlags = BcdGetElementDataWithFlags(
+                           BcdObjectHandle,
+                           BcdElement,
+                           v10,
+                           PoolWithTag,
+                           (PULONG)&NumberOfBytes);
   if ( ElementDataWithFlags >= 0 )
   {
     *a4 = NumberOfBytes;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxHandleDirectedPowerTransition @ 0x1403B782C
+ * XREFs of PopFxHandleDirectedPowerTransition @ 0x1403C172C
  * Callers:
- *     PopFxDirectedPowerTransitionWorker @ 0x1403B77F0 (PopFxDirectedPowerTransitionWorker.c)
+ *     PopFxDirectedPowerTransitionWorker @ 0x1403C16F0 (PopFxDirectedPowerTransitionWorker.c)
  * Callees:
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     PopFxEnableWorkOrderWatchdog @ 0x1403AB570 (PopFxEnableWorkOrderWatchdog.c)
- *     PopDiagTraceFxDeviceDirectedTransition @ 0x1403B919C (PopDiagTraceFxDeviceDirectedTransition.c)
- *     PopFxCompleteDirectedPowerTransition @ 0x140604AB8 (PopFxCompleteDirectedPowerTransition.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     PopFxEnableWorkOrderWatchdog @ 0x1403B5280 (PopFxEnableWorkOrderWatchdog.c)
+ *     PopDiagTraceFxDeviceDirectedTransition @ 0x1403C309C (PopDiagTraceFxDeviceDirectedTransition.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x1406075B8 (PopFxCompleteDirectedPowerTransition.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 struct _KTHREAD *__fastcall PopFxHandleDirectedPowerTransition(ULONG_PTR BugCheckParameter3)
@@ -33,9 +33,9 @@ struct _KTHREAD *__fastcall PopFxHandleDirectedPowerTransition(ULONG_PTR BugChec
   v5 = v2 & 0x1000;
   LOBYTE(v3) = v5 != 0;
   PopDiagTraceFxDeviceDirectedTransition(*(_QWORD *)(BugCheckParameter3 + 48), v3);
-  v8 = dword_140F123D8;
+  v8 = *(_DWORD *)&PopFxBlockingDeviceListLock.PriorityFloorCounts[16];
   if ( !v5 )
-    v8 = dword_140F12408;
+    v8 = *(_DWORD *)&PopFxBlockingDeviceListLock.PriorityFloorCounts[20];
   PopFxEnableWorkOrderWatchdog(BugCheckParameter3 + 960, v8, v6, v7);
   guard_dispatch_icall_no_overrides(*(_QWORD *)(BugCheckParameter3 + 192), 0LL);
   v9 = *(_QWORD *)(BugCheckParameter3 + 1008);

@@ -17,7 +17,7 @@ char __fastcall KiAdjustTimer2DueTimes(__int64 a1)
 {
   int v1; // r14d
   _QWORD *v2; // rsi
-  _QWORD **v4; // r15
+  _RTL_BALANCED_NODE **p_Min; // r15
   _QWORD *v5; // rdi
   _BOOL8 v6; // rax
   __int64 v7; // rcx
@@ -44,10 +44,10 @@ char __fastcall KiAdjustTimer2DueTimes(__int64 a1)
   v2 = v24;
   v24[1] = v24;
   v24[0] = v24;
-  v4 = (_QWORD **)&unk_140338D88;
+  p_Min = &KiTimer2Collections.Min;
   do
   {
-    v5 = *v4;
+    v5 = *p_Min;
     while ( v5 )
     {
       v6 = (unsigned int)v1 >= 2 && v1 != 3;
@@ -138,7 +138,7 @@ char __fastcall KiAdjustTimer2DueTimes(__int64 a1)
       }
     }
     ++v1;
-    v4 += 3;
+    p_Min += 3;
   }
   while ( v1 < 5 );
   v18 = 0;

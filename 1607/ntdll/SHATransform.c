@@ -1,7 +1,7 @@
 /*
- * XREFs of SHATransform @ 0x18000A5A0
+ * XREFs of SHATransform @ 0x18000A590
  * Callers:
- *     A_SHAUpdate @ 0x18000A4D0 (A_SHAUpdate.c)
+ *     A_SHAUpdate @ 0x18000A4C0 (A_SHAUpdate.c)
  * Callees:
  *     <none>
  */

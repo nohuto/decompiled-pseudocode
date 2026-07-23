@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCreatePowerThread @ 0x140130AE0
+ * XREFs of PopCreatePowerThread @ 0x140131050
  * Callers:
- *     PopCreateDynamicIrpWorker @ 0x140124D50 (PopCreateDynamicIrpWorker.c)
+ *     PopCreateDynamicIrpWorker @ 0x1401252C0 (PopCreateDynamicIrpWorker.c)
  *     PopInitializeIrpWorkers @ 0x1407BB170 (PopInitializeIrpWorkers.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall PopCreatePowerThread(KSTART_ROUTINE *a1, void *a2)

@@ -18,391 +18,397 @@
  */
 
 __int64 __fastcall sxsisol_SearchActCtxForDllName(
-        __int128 *a1,
+        _UNICODE_STRING *a1,
         char a2,
         unsigned __int64 *a3,
         _DWORD *a4,
         unsigned __int16 *a5)
 {
-  __int128 v8; // xmm0
-  __int64 v9; // r15
-  int ActivationContextSectionString; // eax
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // r8
-  __int64 v13; // r9
-  int v14; // ebx
-  __int16 *v15; // rcx
-  __int64 v17; // r13
-  unsigned int v18; // esi
-  bool v19; // zf
-  int v20; // edx
-  int v21; // ecx
+  _UNICODE_STRING v8; // xmm0
+  _ACTIVATION_CONTEXT *hActCtx; // r15
+  NTSTATUS ActivationContextSectionString; // eax
+  int v11; // ebx
+  wchar_t *v12; // rcx
+  _DWORD *lpData; // r13
+  ULONG ulSectionTotalLength; // esi
+  unsigned __int64 v16; // rdx
+  unsigned int v17; // r8d
+  bool v18; // zf
+  int v19; // edx
+  int v20; // ecx
   int AssemblyStorageRoot; // eax
-  __int64 v23; // r15
+  char *v22; // r15
+  int v23; // edx
   unsigned __int64 v24; // rcx
   int v25; // r12d
-  __int64 v26; // r8
-  unsigned __int16 *v27; // r14
-  int v28; // eax
-  __int64 *v29; // rsi
-  __int64 v30; // rcx
-  unsigned __int64 v31; // rax
-  _WORD *v32; // rcx
-  __int64 v33; // rax
-  unsigned int v34; // ebx
-  char *v35; // r12
-  unsigned __int16 v36; // bx
-  unsigned __int64 *v37; // rax
-  __int64 v38; // rcx
-  unsigned __int64 v39; // rax
-  unsigned __int16 v40; // bx
-  int v41; // r10d
-  size_t v42; // r12
-  int v43; // eax
+  const void **v26; // rdx
+  __int64 v27; // r8
+  unsigned __int16 *v28; // r14
+  unsigned __int64 v29; // r8
+  int v30; // eax
+  __int64 *v31; // rsi
+  unsigned __int64 v32; // r8
+  __int64 v33; // rcx
+  unsigned __int64 v34; // rax
+  unsigned __int16 v35; // dx
+  const void **v36; // rcx
+  unsigned __int16 v37; // dx
+  __int64 v38; // rax
+  int v39; // ebx
+  wchar_t *Buffer; // r12
+  unsigned __int16 Length; // bx
+  unsigned __int64 *v42; // rax
+  unsigned __int64 v43; // r8
   __int64 v44; // rcx
   unsigned __int64 v45; // rax
-  void *v46; // rdx
-  unsigned __int64 v47; // rcx
-  int CharInUnicodeString; // eax
-  __int64 v49; // rcx
-  unsigned __int64 v50; // rax
-  unsigned __int64 v51; // rcx
-  __int64 v52; // [rsp+20h] [rbp-E0h]
-  int v53; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v54; // [rsp+38h] [rbp-C8h]
-  _WORD *v55; // [rsp+40h] [rbp-C0h] BYREF
-  void *Src[2]; // [rsp+48h] [rbp-B8h] BYREF
-  void *v57; // [rsp+58h] [rbp-A8h]
-  unsigned __int64 *v58; // [rsp+60h] [rbp-A0h]
-  _DWORD *v59; // [rsp+68h] [rbp-98h]
-  int v60; // [rsp+70h] [rbp-90h] BYREF
-  int v61; // [rsp+74h] [rbp-8Ch] BYREF
-  __int64 v62; // [rsp+78h] [rbp-88h]
-  unsigned int v63; // [rsp+80h] [rbp-80h]
-  __int64 v64; // [rsp+98h] [rbp-68h]
-  unsigned int v65; // [rsp+A0h] [rbp-60h]
-  __int64 v66; // [rsp+A8h] [rbp-58h]
-  int v67; // [rsp+B0h] [rbp-50h]
-  int v68; // [rsp+B4h] [rbp-4Ch]
-  int v69; // [rsp+E0h] [rbp-20h] BYREF
-  void *v70; // [rsp+E8h] [rbp-18h]
-  __int16 *v71; // [rsp+F0h] [rbp-10h]
-  __int16 *v72; // [rsp+F8h] [rbp-8h]
-  __int64 v73; // [rsp+100h] [rbp+0h]
-  __int64 v74; // [rsp+108h] [rbp+8h]
-  __int16 v75; // [rsp+110h] [rbp+10h] BYREF
+  unsigned __int16 v46; // bx
+  unsigned int v47; // r8d
+  int v48; // r10d
+  __int64 v49; // rdx
+  size_t v50; // r12
+  unsigned __int64 v51; // r8
+  int v52; // eax
+  __int64 v53; // rcx
+  unsigned __int64 v54; // rax
+  void *v55; // rdx
+  unsigned __int64 v56; // rcx
+  NTSTATUS CharInUnicodeString; // eax
+  __int64 v58; // rdx
+  __int64 v59; // rcx
+  unsigned __int64 v60; // rax
+  unsigned __int64 v61; // rcx
+  PACTCTX_SECTION_KEYED_DATA ReturnedData; // [rsp+20h] [rbp-E0h]
+  USHORT NonInclusivePrefixLength[2]; // [rsp+30h] [rbp-D0h] BYREF
+  _ACTIVATION_CONTEXT *v64; // [rsp+38h] [rbp-C8h]
+  const void **v65; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING StringToFind; // [rsp+48h] [rbp-B8h] BYREF
+  void *Src; // [rsp+58h] [rbp-A8h]
+  unsigned __int64 *v68; // [rsp+60h] [rbp-A0h]
+  _DWORD *v69; // [rsp+68h] [rbp-98h]
+  tagACTCTX_SECTION_KEYED_DATA v70; // [rsp+70h] [rbp-90h] BYREF
+  int v71; // [rsp+E0h] [rbp-20h] BYREF
+  void *v72; // [rsp+E8h] [rbp-18h]
+  wchar_t *v73; // [rsp+F0h] [rbp-10h]
+  wchar_t *v74; // [rsp+F8h] [rbp-8h]
+  __int64 v75; // [rsp+100h] [rbp+0h]
+  __int64 v76; // [rsp+108h] [rbp+8h]
+  __int16 v77; // [rsp+110h] [rbp+10h] BYREF
 
-  v58 = a3;
-  v59 = a4;
-  v60 = 112;
-  memset_thunk_772440563353939046(&v61, 0, 0x6CuLL);
+  v68 = a3;
+  v69 = a4;
+  v70.cbSize = 112;
+  memset_thunk_772440563353939046(&v70.ulDataFormatVersion, 0, 0x6CuLL);
   v8 = *a1;
-  v69 = 0x20000;
-  v55 = 0LL;
-  v71 = &v75;
-  v75 = 0;
-  v72 = &v75;
-  v73 = 2LL;
-  v74 = 2LL;
-  v70 = &v75;
-  v9 = 0LL;
-  *(_OWORD *)Src = v8;
-  ActivationContextSectionString = RtlFindActivationContextSectionString(3, 0, 2, (unsigned int)Src, (__int64)&v60);
-  v14 = ActivationContextSectionString;
+  v71 = 0x20000;
+  v65 = 0LL;
+  v73 = (wchar_t *)&v77;
+  v77 = 0;
+  v74 = (wchar_t *)&v77;
+  v75 = 2LL;
+  v76 = 2LL;
+  v72 = &v77;
+  hActCtx = 0LL;
+  StringToFind = v8;
+  ActivationContextSectionString = RtlFindActivationContextSectionString(3u, 0LL, 2u, &StringToFind, &v70);
+  v11 = ActivationContextSectionString;
   if ( ActivationContextSectionString < 0 )
   {
     if ( ActivationContextSectionString == -1072365567 )
-      v14 = -1072365560;
+      v11 = -1072365560;
     goto LABEL_4;
   }
   if ( a2 )
   {
-    v14 = 0;
+    v11 = 0;
     goto LABEL_4;
   }
-  v9 = v66;
-  v54 = v66;
-  if ( v63 < 0x14
-    || v61 != 1
-    || (v17 = v62, v18 = v65, v11 = *(unsigned int *)(v62 + 16), (unsigned int)v11 > v65)
-    || (v12 = *(unsigned int *)(v62 + 12), (unsigned int)v12 > 0x1FFFFFFF)
-    || v11 > 0xFFFFFFFF - 8 * (unsigned __int64)(unsigned int)v12
-    || (int)v11 + 8 * (int)v12 > v65 )
+  hActCtx = (_ACTIVATION_CONTEXT *)v70.hActCtx;
+  v64 = (_ACTIVATION_CONTEXT *)v70.hActCtx;
+  if ( v70.ulLength < 0x14
+    || v70.ulDataFormatVersion != 1
+    || (lpData = v70.lpData,
+        ulSectionTotalLength = v70.ulSectionTotalLength,
+        v16 = *((unsigned int *)v70.lpData + 4),
+        (unsigned int)v16 > v70.ulSectionTotalLength)
+    || (v17 = *((_DWORD *)v70.lpData + 3), v17 > 0x1FFFFFFF)
+    || v16 > 0xFFFFFFFF - 8 * (unsigned __int64)v17
+    || (unsigned int)v16 + 8 * v17 > v70.ulSectionTotalLength )
   {
 LABEL_60:
-    v14 = -1072365565;
+    v11 = -1072365565;
     goto LABEL_4;
   }
-  if ( (*(_BYTE *)(v62 + 4) & 2) == 0 )
+  if ( (*((_BYTE *)v70.lpData + 4) & 2) == 0 )
     goto LABEL_28;
-  v19 = (*(_BYTE *)(v62 + 4) & 4) == 0;
-  v20 = 0;
-  v53 = 0;
-  if ( !v19 )
+  v18 = (*((_BYTE *)v70.lpData + 4) & 4) == 0;
+  v19 = 0;
+  *(_DWORD *)NonInclusivePrefixLength = 0;
+  if ( !v18 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "[%x.%x] SXS: %s - Relative redirection plus env var expansion.\n",
       LODWORD(NtCurrentTeb()->ClientId.UniqueProcess),
       LODWORD(NtCurrentTeb()->ClientId.UniqueThread),
       "sxsisol_SearchActCtxForDllName");
     goto LABEL_60;
   }
-  if ( (v68 & 1) != 0 )
+  if ( (v70.ulFlags & 1) != 0 )
   {
-    if ( (v68 & 2) != 0 )
-    {
+    if ( (v70.ulFlags & 2) != 0 )
       RtlAssert(
         "Internal error check failed",
         "minkernel\\ntdll\\sxsisol.cpp",
-        1050LL,
-        "!(askd.Flags & ACTIVATION_CONTEXT_SECTION_KEYED_DATA_FLAG_FOUND_IN_SYSTEM_DEFAULT)");
-      v14 = -1073741595;
-      goto LABEL_4;
-    }
-    v20 = 1;
+        0x41Au,
+        (PSTR)"!(askd.Flags & ACTIVATION_CONTEXT_SECTION_KEYED_DATA_FLAG_FOUND_IN_SYSTEM_DEFAULT)");
+    v19 = 1;
   }
-  v21 = v20 | 2;
-  if ( (v68 & 2) == 0 )
-    v21 = v20;
-  AssemblyStorageRoot = RtlGetAssemblyStorageRoot(v21, v66, v67, (unsigned int)&v55, v52, (__int64)&v53);
-  v14 = AssemblyStorageRoot;
+  v20 = v19 | 2;
+  if ( (v70.ulFlags & 2) == 0 )
+    v20 = v19;
+  AssemblyStorageRoot = RtlGetAssemblyStorageRoot(
+                          v20,
+                          v70.hActCtx,
+                          v70.ulAssemblyRosterIndex,
+                          (unsigned int)&v65,
+                          (__int64)ReturnedData,
+                          (__int64)NonInclusivePrefixLength);
+  v11 = AssemblyStorageRoot;
   if ( AssemblyStorageRoot >= 0 )
   {
 LABEL_28:
-    v23 = v64 + *(unsigned int *)(v17 + 16);
-    v11 = 0LL;
+    v22 = (char *)v70.lpSectionBase + (unsigned int)lpData[4];
+    v23 = 0;
     *a3 = 0LL;
     v24 = 0LL;
-    v25 = *(_DWORD *)(v17 + 12);
-    v53 = v25;
+    v25 = lpData[3];
+    *(_DWORD *)NonInclusivePrefixLength = v25;
     if ( v25 )
     {
       while ( 1 )
       {
-        v13 = (unsigned int)v11;
-        v12 = *(unsigned int *)(v23 + 8LL * (unsigned int)v11 + 4);
-        if ( (unsigned int)v12 > v18 )
+        v47 = *(_DWORD *)&v22[8 * v23 + 4];
+        if ( v47 > ulSectionTotalLength )
           break;
-        v41 = *(_DWORD *)(v23 + 8LL * (unsigned int)v11);
-        if ( (unsigned int)v12 > ~v41 || v41 + (int)v12 > v18 )
+        v48 = *(_DWORD *)&v22[8 * v23];
+        if ( v47 > ~v48 || v48 + v47 > ulSectionTotalLength )
           break;
-        v11 = (unsigned int)(v11 + 1);
-        v24 += (unsigned __int16)v41;
+        ++v23;
+        v24 += (unsigned __int16)v48;
         *a3 = v24;
-        if ( (_DWORD)v11 == v25 )
+        if ( v23 == v25 )
           goto LABEL_29;
       }
-      v14 = -1072365565;
+      v11 = -1072365565;
       goto LABEL_56;
     }
 LABEL_29:
-    v11 = (unsigned __int64)v55;
-    if ( v55 )
-      *a3 = v24 + (unsigned __int16)*v55;
-    v26 = *(unsigned __int16 *)a3;
-    v27 = a5 + 16;
-    v12 = v26 + 2;
-    if ( v12 > 0xFFFE )
+    v26 = v65;
+    if ( v65 )
+      *a3 = v24 + *(unsigned __int16 *)v65;
+    v27 = *(unsigned __int16 *)a3;
+    v28 = a5 + 16;
+    v29 = v27 + 2;
+    if ( v29 > 0xFFFE )
     {
-      v14 = -1073741562;
+      v11 = -1073741562;
     }
-    else if ( (a5 == (unsigned __int16 *)-16LL || v12 > *(_QWORD *)v27)
-           && (v28 = RtlpEnsureBufferSize(0LL, a5 + 8), v11 = (unsigned __int64)v55, v28 < 0) )
+    else if ( (a5 == (unsigned __int16 *)-16LL || v29 > *(_QWORD *)v28)
+           && (v30 = RtlpEnsureBufferSize(0LL, a5 + 8), v26 = v65, v30 < 0) )
     {
-      v14 = -1073741801;
+      v11 = -1073741801;
     }
     else
     {
-      v14 = 0;
+      v11 = 0;
       *((_QWORD *)a5 + 1) = *((_QWORD *)a5 + 2);
-      a5[1] = *v27;
+      a5[1] = *v28;
     }
-    v29 = (__int64 *)(a5 + 8);
-    if ( v14 < 0 )
+    v31 = (__int64 *)(a5 + 8);
+    if ( v11 < 0 )
       goto LABEL_56;
-    if ( v11 )
+    if ( v26 )
     {
       *a5 = 0;
-      v12 = *(unsigned __int16 *)v11 + 2LL;
-      if ( v12 > 0xFFFE )
+      v32 = *(unsigned __int16 *)v26 + 2LL;
+      if ( v32 > 0xFFFE )
         goto LABEL_73;
-      if ( a5 == (unsigned __int16 *)-16LL || v12 > *(_QWORD *)v27 )
+      if ( a5 == (unsigned __int16 *)-16LL || v32 > *(_QWORD *)v28 )
       {
         if ( (int)RtlpEnsureBufferSize(0LL, a5 + 8) < 0 )
           goto LABEL_76;
-        v11 = (unsigned __int64)v55;
+        v26 = v65;
       }
-      v30 = *v29;
-      v31 = *a5;
-      *((_QWORD *)a5 + 1) = *v29;
-      memmove((void *)(v30 + 2 * (v31 >> 1)), *(const void **)(v11 + 8), *(unsigned __int16 *)v11);
-      v11 = *a5;
-      v32 = v55;
-      a5[1] = *v55 + v11 + 2;
-      LOWORD(v11) = *v32 + v11;
-      v33 = *((_QWORD *)a5 + 1);
-      *a5 = v11;
-      v24 = (unsigned __int64)(unsigned __int16)v11 >> 1;
-      *(_WORD *)(v33 + 2 * v24) = 0;
+      v33 = *v31;
+      v34 = *a5;
+      *((_QWORD *)a5 + 1) = *v31;
+      memmove((void *)(v33 + 2 * (v34 >> 1)), v26[1], *(unsigned __int16 *)v26);
+      v35 = *a5;
+      v36 = v65;
+      a5[1] = *(_WORD *)v65 + *a5 + 2;
+      v37 = *(_WORD *)v36 + v35;
+      v38 = *((_QWORD *)a5 + 1);
+      *a5 = v37;
+      v24 = (unsigned __int64)v37 >> 1;
+      *(_WORD *)(v38 + 2 * v24) = 0;
     }
-    v34 = 0;
+    v39 = 0;
     if ( v25 )
     {
       while ( 1 )
       {
-        v11 = *a5;
-        v42 = *(unsigned __int16 *)(v23 + 8LL * v34);
-        v12 = v42 + v11 + 2;
-        v57 = (void *)(v64 + *(unsigned int *)(v23 + 8LL * v34 + 4));
-        if ( v12 > 0xFFFE )
+        v49 = *a5;
+        v50 = *(unsigned __int16 *)&v22[8 * v39];
+        v51 = v50 + v49 + 2;
+        Src = (char *)v70.lpSectionBase + *(unsigned int *)&v22[8 * v39 + 4];
+        if ( v51 > 0xFFFE )
           break;
-        if ( a5 == (unsigned __int16 *)-16LL || v12 > *(_QWORD *)v27 )
+        if ( a5 == (unsigned __int16 *)-16LL || v51 > *(_QWORD *)v28 )
         {
-          v43 = RtlpEnsureBufferSize(0LL, a5 + 8);
-          v11 = *a5;
-          if ( v43 < 0 )
+          v52 = RtlpEnsureBufferSize(0LL, a5 + 8);
+          LOWORD(v49) = *a5;
+          if ( v52 < 0 )
             goto LABEL_76;
         }
-        v44 = *v29;
-        v45 = (unsigned __int16)v11;
-        v46 = v57;
-        *((_QWORD *)a5 + 1) = *v29;
-        memmove((void *)(v44 + 2 * (v45 >> 1)), v46, v42);
-        v47 = (unsigned __int16)(*a5 + v42);
-        ++v34;
-        *a5 = v47;
-        a5[1] = v47 + 2;
-        v24 = v47 >> 1;
+        v53 = *v31;
+        v54 = (unsigned __int16)v49;
+        v55 = Src;
+        *((_QWORD *)a5 + 1) = *v31;
+        memmove((void *)(v53 + 2 * (v54 >> 1)), v55, v50);
+        v56 = (unsigned __int16)(*a5 + v50);
+        ++v39;
+        *a5 = v56;
+        a5[1] = v56 + 2;
+        v24 = v56 >> 1;
         *(_WORD *)(*((_QWORD *)a5 + 1) + 2 * v24) = 0;
-        if ( v34 == v53 )
+        if ( v39 == *(_DWORD *)NonInclusivePrefixLength )
           goto LABEL_43;
       }
     }
     else
     {
 LABEL_43:
-      if ( (*(_BYTE *)(v17 + 4) & 1) != 0 )
+      if ( (lpData[1] & 1) != 0 )
       {
 LABEL_52:
-        if ( (*(_BYTE *)(v17 + 4) & 4) == 0 )
+        if ( (lpData[1] & 4) == 0 )
         {
 LABEL_53:
-          if ( v59 )
-            *v59 |= 2u;
-          v14 = 0;
+          if ( v69 )
+            *v69 |= 2u;
+          v11 = 0;
           goto LABEL_56;
         }
-        v14 = sxsisol_ExpandEnvironmentStrings_UEx(v24, a5, &v69);
-        if ( v14 >= 0 )
+        v11 = sxsisol_ExpandEnvironmentStrings_UEx(v24, a5, &v71);
+        if ( v11 >= 0 )
         {
-          v11 = (unsigned __int16)v69;
+          v58 = (unsigned __int16)v71;
           *a5 = 0;
-          v12 = v11 + 2;
-          if ( v11 + 2 <= 0xFFFE )
+          if ( (unsigned __int64)(v58 + 2) <= 0xFFFE )
           {
-            if ( a5 == (unsigned __int16 *)-16LL || v12 > *(_QWORD *)v27 )
+            if ( a5 == (unsigned __int16 *)-16LL || (unsigned __int64)(v58 + 2) > *(_QWORD *)v28 )
             {
               if ( (int)RtlpEnsureBufferSize(0LL, a5 + 8) < 0 )
               {
-                v14 = -1073741801;
+                v11 = -1073741801;
                 goto LABEL_56;
               }
-              LOWORD(v11) = v69;
+              LOWORD(v58) = v71;
             }
-            v49 = *v29;
-            v50 = (unsigned __int64)*a5 >> 1;
-            *((_QWORD *)a5 + 1) = *v29;
-            memmove((void *)(v49 + 2 * v50), v70, (unsigned __int16)v11);
-            v51 = (unsigned __int16)(*a5 + v69);
-            *a5 = v51;
-            a5[1] = v51 + 2;
-            *(_WORD *)(*((_QWORD *)a5 + 1) + 2 * (v51 >> 1)) = 0;
+            v59 = *v31;
+            v60 = (unsigned __int64)*a5 >> 1;
+            *((_QWORD *)a5 + 1) = *v31;
+            memmove((void *)(v59 + 2 * v60), v72, (unsigned __int16)v58);
+            v61 = (unsigned __int16)(*a5 + v71);
+            *a5 = v61;
+            a5[1] = v61 + 2;
+            *(_WORD *)(*((_QWORD *)a5 + 1) + 2 * (v61 >> 1)) = 0;
             goto LABEL_53;
           }
-          v14 = -1073741562;
+          v11 = -1073741562;
         }
 LABEL_56:
-        v9 = v54;
+        hActCtx = v64;
         goto LABEL_4;
       }
-      if ( (*(_BYTE *)(v17 + 4) & 8) != 0 )
+      if ( (lpData[1] & 8) != 0 )
       {
-        CharInUnicodeString = RtlFindCharInUnicodeString(1LL, Src, &RtlDosPathSeperatorsString, &v53);
-        v14 = CharInUnicodeString;
+        CharInUnicodeString = RtlFindCharInUnicodeString(
+                                1u,
+                                &StringToFind,
+                                &RtlDosPathSeperatorsString,
+                                NonInclusivePrefixLength);
+        v11 = CharInUnicodeString;
         if ( CharInUnicodeString < 0 )
         {
           if ( CharInUnicodeString == -1073741275 )
-          {
             RtlAssert(
               "Internal error check failed",
               "minkernel\\ntdll\\sxsisol.cpp",
-              1142LL,
-              "Status != STATUS_NOT_FOUND");
-            v14 = -1073741595;
-          }
+              0x476u,
+              (PSTR)"Status != STATUS_NOT_FOUND");
           goto LABEL_56;
         }
-        v36 = -2 - v53 + LOWORD(Src[0]);
-        v35 = (char *)Src[1] + 2 * ((unsigned __int64)(unsigned __int16)v53 >> 1) + 2;
+        Length = -2 - NonInclusivePrefixLength[0] + StringToFind.Length;
+        Buffer = &StringToFind.Buffer[((unsigned __int64)NonInclusivePrefixLength[0] >> 1) + 1];
       }
       else
       {
-        v35 = (char *)Src[1];
-        v36 = (unsigned __int16)Src[0];
+        Buffer = StringToFind.Buffer;
+        Length = StringToFind.Length;
       }
-      v37 = v58;
-      *v58 += v36;
-      if ( *v37 < 0xFFFF )
+      v42 = v68;
+      *v68 += Length;
+      if ( *v42 < 0xFFFF )
       {
-        v12 = v36 + *a5 + 2LL;
-        if ( v12 <= 0xFFFE )
+        v43 = Length + *a5 + 2LL;
+        if ( v43 <= 0xFFFE )
         {
-          if ( a5 != (unsigned __int16 *)-16LL && v12 <= *(_QWORD *)v27 || (int)RtlpEnsureBufferSize(0LL, a5 + 8) >= 0 )
+          if ( a5 != (unsigned __int16 *)-16LL && v43 <= *(_QWORD *)v28 || (int)RtlpEnsureBufferSize(0LL, a5 + 8) >= 0 )
           {
-            v38 = *v29;
-            v39 = (unsigned __int64)*a5 >> 1;
-            *((_QWORD *)a5 + 1) = *v29;
-            memmove((void *)(v38 + 2 * v39), v35, v36);
-            v40 = *a5 + v36;
-            *a5 = v40;
-            v24 = (unsigned __int64)v40 >> 1;
-            a5[1] = v40 + 2;
+            v44 = *v31;
+            v45 = (unsigned __int64)*a5 >> 1;
+            *((_QWORD *)a5 + 1) = *v31;
+            memmove((void *)(v44 + 2 * v45), Buffer, Length);
+            v46 = *a5 + Length;
+            *a5 = v46;
+            v24 = (unsigned __int64)v46 >> 1;
+            a5[1] = v46 + 2;
             *(_WORD *)(*((_QWORD *)a5 + 1) + 2 * v24) = 0;
             goto LABEL_52;
           }
 LABEL_76:
-          v14 = -1073741801;
+          v11 = -1073741801;
           goto LABEL_56;
         }
       }
     }
 LABEL_73:
-    v14 = -1073741562;
+    v11 = -1073741562;
     goto LABEL_56;
   }
-  if ( AssemblyStorageRoot == -1073741536 && v53 < 0 )
-    v14 = v53;
+  if ( AssemblyStorageRoot == -1073741536 && *(int *)NonInclusivePrefixLength < 0 )
+    v11 = *(_DWORD *)NonInclusivePrefixLength;
 LABEL_4:
-  v15 = v72;
-  if ( v71 )
+  v12 = v74;
+  if ( v73 )
   {
-    if ( v71 != v72 )
+    if ( v73 != v74 )
     {
-      Src[1] = v71;
-      RtlFreeUnicodeString((PUNICODE_STRING)Src);
-      v15 = v72;
+      StringToFind.Buffer = v73;
+      RtlFreeUnicodeString(&StringToFind);
+      v12 = v74;
     }
-    v73 = v74;
-    v71 = v15;
+    v75 = v76;
+    v73 = v12;
   }
-  v70 = v15;
-  if ( v15 )
-    *v15 = 0;
-  HIWORD(v69) = v74;
-  LOWORD(v69) = 0;
-  if ( v9 )
-    RtlReleaseActivationContext(v9, v11, v12, v13, v52);
-  return (unsigned int)v14;
+  v72 = v12;
+  if ( v12 )
+    *v12 = 0;
+  HIWORD(v71) = v76;
+  LOWORD(v71) = 0;
+  if ( hActCtx )
+    RtlReleaseActivationContext(hActCtx);
+  return (unsigned int)v11;
 }

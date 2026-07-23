@@ -1,24 +1,24 @@
 /*
- * XREFs of CcScheduleLazyWriteScan @ 0x1402F6D5C
+ * XREFs of CcScheduleLazyWriteScan @ 0x140301AAC
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x14022D68C (CcNotifyOfMappedWrite.c)
- *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
- *     CcInitializeCacheMapEx @ 0x14022E5C0 (CcInitializeCacheMapEx.c)
- *     CcRescheduleLazyWriteScan @ 0x140260454 (CcRescheduleLazyWriteScan.c)
- *     CcUninitializeCacheMap @ 0x1402F68B0 (CcUninitializeCacheMap.c)
- *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
- *     CcDecrementOpenCount @ 0x14031313C (CcDecrementOpenCount.c)
- *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
- *     CcChargeDirtyPages @ 0x140336210 (CcChargeDirtyPages.c)
- *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
- *     CcWaitForCurrentLazyWriterActivityInternal @ 0x14038148C (CcWaitForCurrentLazyWriterActivityInternal.c)
- *     CcAddDirtyPagesToExternalCache @ 0x140392670 (CcAddDirtyPagesToExternalCache.c)
- *     CcCoalescingCallBackHelper @ 0x1404E96C0 (CcCoalescingCallBackHelper.c)
- *     CcDeferWrite @ 0x1404EA040 (CcDeferWrite.c)
- *     CcDeleteSectionsForPartition @ 0x1404EBE84 (CcDeleteSectionsForPartition.c)
+ *     CcRescheduleLazyWriteScan @ 0x140281A20 (CcRescheduleLazyWriteScan.c)
+ *     CcNotifyOfMappedWrite @ 0x1402D1EDC (CcNotifyOfMappedWrite.c)
+ *     CcWriteBehindInternal @ 0x1402D22C0 (CcWriteBehindInternal.c)
+ *     CcInitializeCacheMapEx @ 0x1402D2E10 (CcInitializeCacheMapEx.c)
+ *     CcUninitializeCacheMap @ 0x140301600 (CcUninitializeCacheMap.c)
+ *     CcSetDirtyPinnedData @ 0x140304060 (CcSetDirtyPinnedData.c)
+ *     CcDecrementOpenCount @ 0x14031DE8C (CcDecrementOpenCount.c)
+ *     CcCanIWrite @ 0x14031DF20 (CcCanIWrite.c)
+ *     CcChargeDirtyPages @ 0x140340F60 (CcChargeDirtyPages.c)
+ *     CcSetDirtyInMask @ 0x1403411C0 (CcSetDirtyInMask.c)
+ *     CcWaitForCurrentLazyWriterActivityInternal @ 0x140380FDC (CcWaitForCurrentLazyWriterActivityInternal.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x1403927C0 (CcAddDirtyPagesToExternalCache.c)
+ *     CcCoalescingCallBackHelper @ 0x1404E9900 (CcCoalescingCallBackHelper.c)
+ *     CcDeferWrite @ 0x1404EA280 (CcDeferWrite.c)
+ *     CcDeleteSectionsForPartition @ 0x1404EC0C4 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     CcNotifyWriteBehindInternal @ 0x1402C2120 (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindInternal @ 0x1402405C0 (CcNotifyWriteBehindInternal.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
  */
 
 char __fastcall CcScheduleLazyWriteScan(__int64 a1, char a2, char a3)

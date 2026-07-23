@@ -1,93 +1,89 @@
 /*
- * XREFs of RtlDeleteCriticalSection @ 0x18008FEC0
+ * XREFs of RtlDeleteCriticalSection @ 0x180027610
  * Callers:
- *     EtwpFreeLoggerContext @ 0x18008EA0C (EtwpFreeLoggerContext.c)
- *     RtlDestroyHeap @ 0x18008F580 (RtlDestroyHeap.c)
- *     RtlDeleteResource @ 0x18008FE30 (RtlDeleteResource.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
- *     RtlTraceDatabaseDestroy @ 0x180148280 (RtlTraceDatabaseDestroy.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlDeleteResource @ 0x180027580 (RtlDeleteResource.c)
+ *     RtlDestroyHeap @ 0x1800280C0 (RtlDestroyHeap.c)
+ *     EtwpFreeLoggerContext @ 0x1800AA48C (EtwpFreeLoggerContext.c)
+ *     RtlTraceDatabaseDestroy @ 0x180146630 (RtlTraceDatabaseDestroy.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlStdReleaseStackTrace @ 0x18009CB10 (RtlStdReleaseStackTrace.c)
- *     RtlAbPostRelease @ 0x1800D3C50 (RtlAbPostRelease.c)
- *     RtlpFreeDebugInfo @ 0x1800F6260 (RtlpFreeDebugInfo.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
+ *     RtlStdReleaseStackTrace @ 0x1800310D0 (RtlStdReleaseStackTrace.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAbPostRelease @ 0x1800CEFC0 (RtlAbPostRelease.c)
+ *     RtlpFreeDebugInfo @ 0x1800F07C0 (RtlpFreeDebugInfo.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
  */
 
-__int64 __fastcall RtlDeleteCriticalSection(__int64 *a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl RtlDeleteCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  char *v5; // rcx
-  unsigned int v6; // r15d
-  _QWORD *v7; // rdx
-  __int64 v8; // rdi
-  __int64 v9; // r14
+  char *LockSemaphore; // rcx
+  NTSTATUS v3; // r15d
+  _QWORD *v4; // rdx
+  _RTL_CRITICAL_SECTION_DEBUG *DebugInfo; // rdi
+  __int64 v6; // r14
   _QWORD *SchedulerSharedDataSlot; // r8
-  __int64 v11; // rax
-  _QWORD *v12; // rcx
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  _QWORD *v16; // rdx
-  __int64 v17; // rdx
+  __int64 v8; // rax
+  _QWORD *v9; // rcx
+  _LIST_ENTRY *p_ProcessLocksList; // rcx
+  _LIST_ENTRY *Flink; // rax
+  _LIST_ENTRY *Blink; // rdx
+  __int64 v14; // rdx
 
-  v5 = (char *)a1[3];
-  if ( (unsigned __int64)(v5 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+  LockSemaphore = (char *)CriticalSection->LockSemaphore;
+  if ( (unsigned __int64)(LockSemaphore - 1) > 0xFFFFFFFFFFFFFFFDuLL )
   {
-    v7 = 0LL;
-    v6 = 0;
+    v4 = 0LL;
+    v3 = 0;
   }
   else
   {
-    v6 = NtClose(v5);
-    v7 = 0LL;
+    v3 = NtClose(LockSemaphore);
+    v4 = 0LL;
   }
-  v8 = *a1;
-  if ( (unsigned __int64)(*a1 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+  DebugInfo = CriticalSection->DebugInfo;
+  if ( (unsigned __int64)&CriticalSection->DebugInfo[-1].Identifier + 1 <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    v9 = a1[4] & 0x4000000;
+    v6 = CriticalSection->SpinCount & 0x4000000;
     SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
     if ( SchedulerSharedDataSlot )
     {
-      v11 = 0LL;
-      v12 = SchedulerSharedDataSlot;
-      while ( *v12 )
+      v8 = 0LL;
+      v9 = SchedulerSharedDataSlot;
+      while ( *v9 )
       {
-        v11 = (unsigned int)(v11 + 1);
-        ++v12;
-        if ( (unsigned int)v11 >= 8 )
+        v8 = (unsigned int)(v8 + 1);
+        ++v9;
+        if ( (unsigned int)v8 >= 8 )
           goto LABEL_11;
       }
-      v7 = &SchedulerSharedDataSlot[v11];
+      v4 = &SchedulerSharedDataSlot[v8];
     }
 LABEL_11:
-    if ( v7 )
-      *v7 = &RtlCriticalSectionLock;
+    if ( v4 )
+      *v4 = &RtlCriticalSectionLock;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&RtlCriticalSectionLock, 0LL) )
-      RtlpAcquireSRWLockExclusiveContended(
-        (unsigned __int64)&RtlCriticalSectionLock,
-        (unsigned __int64)v7,
-        SchedulerSharedDataSlot,
-        a4);
-    v14 = v8 + 16;
-    v15 = *(_QWORD *)(v8 + 16);
-    if ( v15 )
+      RtlpAcquireSRWLockExclusiveContended(&RtlCriticalSectionLock);
+    p_ProcessLocksList = &DebugInfo->ProcessLocksList;
+    Flink = DebugInfo->ProcessLocksList.Flink;
+    if ( Flink )
     {
-      v16 = *(_QWORD **)(v8 + 24);
-      if ( *(_QWORD *)(v15 + 8) != v14 || *v16 != v14 )
+      Blink = DebugInfo->ProcessLocksList.Blink;
+      if ( Flink->Blink != p_ProcessLocksList || Blink->Flink != p_ProcessLocksList )
         __fastfail(3u);
-      *v16 = v15;
-      *(_QWORD *)(v15 + 8) = v16;
+      Blink->Flink = Flink;
+      Flink->Blink = Blink;
     }
     RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
-    v17 = *(unsigned __int16 *)(v8 + 2) + (*(unsigned __int16 *)(v8 + 44) << 16);
+    v14 = DebugInfo->CreatorBackTraceIndex + (DebugInfo->CreatorBackTraceIndexHigh << 16);
     if ( RtlpStackTraceDatabase )
     {
-      if ( (_DWORD)v17 )
+      if ( (_DWORD)v14 )
       {
-        if ( (unsigned int)v17 <= *(_DWORD *)(RtlpStackTraceDatabase + 180) )
+        if ( (unsigned int)v14 <= HIDWORD(RtlpStackTraceDatabase[22].Ptr) )
         {
-          v17 = *(_QWORD *)(*(_QWORD *)(RtlpStackTraceDatabase + 184) - 8 * v17);
-          if ( v17 )
+          v14 = *(_QWORD *)(RtlpStackTraceDatabase[23].Value - 8 * v14);
+          if ( v14 )
           {
             if ( RtlpStackTraceDatabase )
               RtlStdReleaseStackTrace();
@@ -95,16 +91,16 @@ LABEL_11:
         }
       }
     }
-    *(_OWORD *)v8 = 0LL;
-    *(_OWORD *)(v8 + 16) = 0LL;
-    *(_OWORD *)(v8 + 32) = 0LL;
-    if ( !v9 )
-      RtlpFreeDebugInfo(v8, v17);
+    *(_OWORD *)&DebugInfo->Type = 0LL;
+    DebugInfo->ProcessLocksList = 0LL;
+    *(_OWORD *)&DebugInfo->EntryCount = 0LL;
+    if ( !v6 )
+      RtlpFreeDebugInfo(DebugInfo, v14);
   }
-  if ( (void *)a1[2] == NtCurrentTeb()->ClientId.UniqueThread )
-    RtlAbPostRelease(a1, 0LL, a3);
-  *(_OWORD *)a1 = 0LL;
-  *((_OWORD *)a1 + 1) = 0LL;
-  a1[4] = 0LL;
-  return v6;
+  if ( CriticalSection->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
+    RtlAbPostRelease(CriticalSection, 0LL);
+  *(_OWORD *)&CriticalSection->DebugInfo = 0LL;
+  *(_OWORD *)&CriticalSection->OwningThread = 0LL;
+  CriticalSection->SpinCount = 0LL;
+  return v3;
 }

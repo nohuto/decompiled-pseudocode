@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpGenerateFileName @ 0x1407E92A0
+ * XREFs of EtwpGenerateFileName @ 0x1407E9570
  * Callers:
- *     EtwpFlushBufferToLogfile @ 0x1406BB3D0 (EtwpFlushBufferToLogfile.c)
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpIncrementTraceFile @ 0x1409E7F30 (EtwpIncrementTraceFile.c)
+ *     EtwpFlushBufferToLogfile @ 0x1406BB400 (EtwpFlushBufferToLogfile.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
+ *     EtwpIncrementTraceFile @ 0x1409E81C0 (EtwpIncrementTraceFile.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
- *     wcsstr @ 0x1403DBBA0 (wcsstr.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
+ *     wcsstr @ 0x1403DBD80 (wcsstr.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

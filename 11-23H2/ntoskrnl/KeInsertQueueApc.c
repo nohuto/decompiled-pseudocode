@@ -1,37 +1,37 @@
 /*
- * XREFs of KeInsertQueueApc @ 0x1402CC640
+ * XREFs of KeInsertQueueApc @ 0x1402CC8D0
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x14028C3D0 (IopCopyCompleteReadIrp.c)
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopfCompleteRequest @ 0x1402C99B0 (IopfCompleteRequest.c)
- *     ExpTimerDpcRoutine @ 0x140369EC0 (ExpTimerDpcRoutine.c)
- *     EtwpQueueStackWalkApc @ 0x140468A86 (EtwpQueueStackWalkApc.c)
- *     IoRaiseHardError @ 0x140556A80 (IoRaiseHardError.c)
- *     IoRaiseInformationalHardError @ 0x140556D60 (IoRaiseInformationalHardError.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140601ACC (EtwpTraceThreadRundownWithStack.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140603480 (EtwpCovSampCaptureQueueApc.c)
- *     MiQueueSyncModifiedWriterApc @ 0x14063B428 (MiQueueSyncModifiedWriterApc.c)
- *     MiStoreModifiedWriteDereference @ 0x14065C854 (MiStoreModifiedWriteDereference.c)
+ *     IopCopyCompleteReadIrp @ 0x14028C660 (IopCopyCompleteReadIrp.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1402C9C40 (IopfCompleteRequest.c)
+ *     ExpTimerDpcRoutine @ 0x14036A060 (ExpTimerDpcRoutine.c)
+ *     EtwpQueueStackWalkApc @ 0x140468E86 (EtwpQueueStackWalkApc.c)
+ *     IoRaiseHardError @ 0x140557140 (IoRaiseHardError.c)
+ *     IoRaiseInformationalHardError @ 0x140557420 (IoRaiseInformationalHardError.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x14060201C (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1406039D0 (EtwpCovSampCaptureQueueApc.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x14063B978 (MiQueueSyncModifiedWriterApc.c)
+ *     MiStoreModifiedWriteDereference @ 0x14065CDA4 (MiStoreModifiedWriteDereference.c)
  *     PerfLogImageUnload @ 0x140697438 (PerfLogImageUnload.c)
- *     PspRecheckThreadOptionalXStateFeatures @ 0x14073F758 (PspRecheckThreadOptionalXStateFeatures.c)
- *     CmpPostNotify @ 0x140766860 (CmpPostNotify.c)
- *     PspSetContextThreadInternal @ 0x1407705F0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407707D4 (PspGetContextThreadInternal.c)
- *     NtQueueApcThreadEx2 @ 0x140779A80 (NtQueueApcThreadEx2.c)
- *     IopCancelIrpsInThreadList @ 0x1407C1AE8 (IopCancelIrpsInThreadList.c)
- *     DbgkpLkmdLaunchSnapApc @ 0x14093AE74 (DbgkpLkmdLaunchSnapApc.c)
- *     KeSpecialUserApcKernelRoutine @ 0x1409753E0 (KeSpecialUserApcKernelRoutine.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x1409AE908 (PspEnableProcessOptionalXStateFeatures.c)
- *     ExSwapinWorkerThreads @ 0x140A005C8 (ExSwapinWorkerThreads.c)
+ *     PspRecheckThreadOptionalXStateFeatures @ 0x14073F948 (PspRecheckThreadOptionalXStateFeatures.c)
+ *     CmpPostNotify @ 0x140766A50 (CmpPostNotify.c)
+ *     PspSetContextThreadInternal @ 0x1407707E0 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1407709C4 (PspGetContextThreadInternal.c)
+ *     NtQueueApcThreadEx2 @ 0x140779C70 (NtQueueApcThreadEx2.c)
+ *     IopCancelIrpsInThreadList @ 0x1407C1DB8 (IopCancelIrpsInThreadList.c)
+ *     DbgkpLkmdLaunchSnapApc @ 0x14093B074 (DbgkpLkmdLaunchSnapApc.c)
+ *     KeSpecialUserApcKernelRoutine @ 0x1409755E0 (KeSpecialUserApcKernelRoutine.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x1409AEB08 (PspEnableProcessOptionalXStateFeatures.c)
+ *     ExSwapinWorkerThreads @ 0x140A00858 (ExSwapinWorkerThreads.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140258520 (EtwpLevelKeywordEnabled.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KiInsertQueueApc @ 0x14030A16C (KiInsertQueueApc.c)
- *     KiSignalThreadForApc @ 0x14030B308 (KiSignalThreadForApc.c)
- *     EtwTiLogInsertQueueUserApc @ 0x140363DF4 (EtwTiLogInsertQueueUserApc.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402585E0 (EtwpLevelKeywordEnabled.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KiInsertQueueApc @ 0x14030A3FC (KiInsertQueueApc.c)
+ *     KiSignalThreadForApc @ 0x14030B598 (KiSignalThreadForApc.c)
+ *     EtwTiLogInsertQueueUserApc @ 0x140363F94 (EtwTiLogInsertQueueUserApc.c)
  */
 
 __int64 __fastcall KeInsertQueueApc(__int64 a1, __int64 a2, _DWORD *SchedulerAssist, unsigned int a4)
@@ -100,7 +100,7 @@ LABEL_9:
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -132,7 +132,7 @@ LABEL_9:
     v17 = 1;
   }
   *(_QWORD *)(v11 + 64) = 0LL;
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, a4, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, a4, CurrentIrql);
   if ( v14 )
   {
     if ( v17 )

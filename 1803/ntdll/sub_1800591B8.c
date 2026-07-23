@@ -11,7 +11,7 @@ __int64 __fastcall sub_1800591B8(volatile signed __int32 *a1, __int64 a2, __int6
 {
   unsigned int v3; // ebx
   __int64 *v5; // rcx
-  signed __int64 *v6; // rdx
+  _RTL_SRWLOCK *v6; // rdx
   __int64 result; // rax
   volatile signed __int32 *v8; // [rsp+30h] [rbp+8h] BYREF
 
@@ -27,12 +27,12 @@ LABEL_6:
   if ( a3 && (*(_BYTE *)(a3 + 56) & 2) != 0 )
   {
     v5 = &qword_18015D3A8;
-    v6 = (signed __int64 *)&unk_18015D3A0;
+    v6 = (_RTL_SRWLOCK *)&unk_18015D3A0;
   }
   else
   {
-    v5 = &qword_18015D3B8;
-    v6 = &qword_18015D3B0;
+    v5 = (__int64 *)&qword_18015D3B8;
+    v6 = &stru_18015D3B0;
   }
   result = sub_180059230(v5, v6, &v8);
   v3 = result;

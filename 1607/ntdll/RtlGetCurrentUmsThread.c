@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlGetCurrentUmsThread @ 0x180061980
+ * XREFs of RtlGetCurrentUmsThread @ 0x180061970
  * Callers:
- *     RtlEnterUmsSchedulingMode @ 0x1800EC770 (RtlEnterUmsSchedulingMode.c)
- *     RtlExecuteUmsThread @ 0x1800EC850 (RtlExecuteUmsThread.c)
+ *     RtlEnterUmsSchedulingMode @ 0x1800EC830 (RtlEnterUmsSchedulingMode.c)
+ *     RtlExecuteUmsThread @ 0x1800EC910 (RtlExecuteUmsThread.c)
  * Callees:
  *     <none>
  */

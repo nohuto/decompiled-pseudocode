@@ -7,11 +7,17 @@
  *     <none>
  */
 
-__int64 ZwQueryWnfStateData()
+NTSTATUS __cdecl ZwQueryWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        PWNF_CHANGE_STAMP ChangeStamp,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 329LL;
+  result = 329;
   __asm { syscall; Low latency system call }
   return result;
 }

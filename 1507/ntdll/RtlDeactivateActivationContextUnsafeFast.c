@@ -109,8 +109,8 @@ LABEL_31:
       v8 = *v5;
       v9 = 0;
       DbgPrintEx(
-        51,
-        2,
+        0x33u,
+        2u,
         "SXS: %s() Active frame is not the frame being deactivated %p != %p\n",
         "RtlDeactivateActivationContextUnsafeFast",
         ActivationContextStackPointer->ActiveFrame,

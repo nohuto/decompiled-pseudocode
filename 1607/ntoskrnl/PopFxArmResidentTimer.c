@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxArmResidentTimer @ 0x1400C2F94
+ * XREFs of PopFxArmResidentTimer @ 0x1400C0E24
  * Callers:
- *     PopFxResidentTimeoutDpcRoutine @ 0x1400A89D0 (PopFxResidentTimeoutDpcRoutine.c)
- *     PopFxResidentTimeoutRoutine @ 0x1400C0F9C (PopFxResidentTimeoutRoutine.c)
- *     PopFxIdleComponent @ 0x1400C1B10 (PopFxIdleComponent.c)
+ *     PopFxResidentTimeoutDpcRoutine @ 0x1400A6F50 (PopFxResidentTimeoutDpcRoutine.c)
+ *     PopFxResidentTimeoutRoutine @ 0x1400BEE2C (PopFxResidentTimeoutRoutine.c)
+ *     PopFxIdleComponent @ 0x1400BF9A0 (PopFxIdleComponent.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
  */
 
 void __fastcall PopFxArmResidentTimer(char a1)

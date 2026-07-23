@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpDeviceObjectToDeviceInstance @ 0x1406EB4A0
+ * XREFs of PnpDeviceObjectToDeviceInstance @ 0x1406EC740
  * Callers:
- *     PnpSaveDeviceCapabilities @ 0x1406E2870 (PnpSaveDeviceCapabilities.c)
- *     PiUpdateDevicePanel @ 0x1406E9A1C (PiUpdateDevicePanel.c)
- *     PipProcessStartPhase3 @ 0x1406EAB18 (PipProcessStartPhase3.c)
- *     PiCreateDriverSwDevices @ 0x1406EB4FC (PiCreateDriverSwDevices.c)
- *     PiQueryRemovableDeviceOverride @ 0x1406FFD78 (PiQueryRemovableDeviceOverride.c)
- *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
- *     PiGetDeviceRegistryProperty @ 0x140824718 (PiGetDeviceRegistryProperty.c)
+ *     PnpSaveDeviceCapabilities @ 0x1406E3B10 (PnpSaveDeviceCapabilities.c)
+ *     PiUpdateDevicePanel @ 0x1406EACBC (PiUpdateDevicePanel.c)
+ *     PipProcessStartPhase3 @ 0x1406EBDB8 (PipProcessStartPhase3.c)
+ *     PiCreateDriverSwDevices @ 0x1406EC79C (PiCreateDriverSwDevices.c)
+ *     PiQueryRemovableDeviceOverride @ 0x140701018 (PiQueryRemovableDeviceOverride.c)
+ *     IoReportDetectedDevice @ 0x14072E410 (IoReportDetectedDevice.c)
+ *     PiGetDeviceRegistryProperty @ 0x140825918 (PiGetDeviceRegistryProperty.c)
  * Callees:
- *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1405C7EF0 (_CmOpenDeviceRegKey.c)
  */
 
 __int64 __fastcall PnpDeviceObjectToDeviceInstance(__int64 a1, __int64 a2, int a3)

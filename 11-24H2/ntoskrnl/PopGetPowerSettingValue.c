@@ -1,15 +1,15 @@
 /*
- * XREFs of PopGetPowerSettingValue @ 0x14049172C
+ * XREFs of PopGetPowerSettingValue @ 0x14048C3EC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
- *     PopScanIdleList @ 0x1404EAE90 (PopScanIdleList.c)
- *     PopBatteryUpdateAlarms @ 0x1409B7D30 (PopBatteryUpdateAlarms.c)
- *     PopEsInStandbyEvaluate @ 0x140A3B940 (PopEsInStandbyEvaluate.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
+ *     PopScanIdleList @ 0x1404E1E10 (PopScanIdleList.c)
+ *     PopBatteryUpdateAlarms @ 0x14099E388 (PopBatteryUpdateAlarms.c)
+ *     PopEsInStandbyEvaluate @ 0x140A31120 (PopEsInStandbyEvaluate.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PopFindPowerSettingConfiguration @ 0x1409BCCB0 (PopFindPowerSettingConfiguration.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PopFindPowerSettingConfiguration @ 0x1409A3300 (PopFindPowerSettingConfiguration.c)
  */
 
 __int64 __fastcall PopGetPowerSettingValue(
@@ -27,7 +27,7 @@ __int64 __fastcall PopGetPowerSettingValue(
 
   ExAcquireFastMutex(&PopSettingLock);
   if ( (unsigned int)a3 > 1 )
-    a3 = dword_140F0BA4C;
+    a3 = dword_140F0B38C;
   PowerSettingConfiguration = PopFindPowerSettingConfiguration(a1, 0xFFFFFFFFLL);
   v10 = 0;
   if ( PowerSettingConfiguration && (v11 = *(_QWORD *)(PowerSettingConfiguration + 8LL * a3 + 64)) != 0 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViAllocateContextTable @ 0x140AC401C
+ * XREFs of ViAllocateContextTable @ 0x140AC400C
  * Callers:
- *     VfInsertContext @ 0x1405CE440 (VfInsertContext.c)
+ *     VfInsertContext @ 0x1405CE9B0 (VfInsertContext.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
  */
 
 char *__fastcall ViAllocateContextTable(__int16 a1)

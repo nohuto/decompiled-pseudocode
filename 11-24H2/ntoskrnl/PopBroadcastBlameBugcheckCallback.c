@@ -1,14 +1,14 @@
 /*
- * XREFs of PopBroadcastBlameBugcheckCallback @ 0x140B5F640
+ * XREFs of PopBroadcastBlameBugcheckCallback @ 0x140B616C0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     PopIrpWatchdogBugcheck @ 0x1405CD0D8 (PopIrpWatchdogBugcheck.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     PopIrpWatchdogBugcheck @ 0x1405CA848 (PopIrpWatchdogBugcheck.c)
  */
 
 void __fastcall PopBroadcastBlameBugcheckCallback(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ void __fastcall PopBroadcastBlameBugcheckCallback(__int64 a1, __int64 a2)
 
   memset(&v11, 0, sizeof(v11));
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F0BDF0 + 1, &v11);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F0B910 + 1, &v11);
   KeAcquireInStackQueuedSpinLock(&PopIrpLock, &LockHandle);
   PopIrpLockThread = (__int64)KeGetCurrentThread();
   v3 = (_QWORD *)(a2 + 432);

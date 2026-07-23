@@ -1,1218 +1,1218 @@
 /*
- * XREFs of CcPostVolumeTelemetry @ 0x14049BF90
+ * XREFs of CcPostVolumeTelemetry @ 0x140495AE0
  * Callers:
- *     CcTelemetryPeriodicTimerCallback @ 0x140B0FC90 (CcTelemetryPeriodicTimerCallback.c)
+ *     CcTelemetryPeriodicTimerCallback @ 0x140B114C0 (CcTelemetryPeriodicTimerCallback.c)
  * Callees:
  *     CcHasVolumeCumulativeTelemetryChanged @ 0x140200444 (CcHasVolumeCumulativeTelemetryChanged.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     CcAggregateCumulativeVolumeTelemetry @ 0x14049BCA4 (CcAggregateCumulativeVolumeTelemetry.c)
- *     CcHasVolumeTelemetryChanged @ 0x14049BF4C (CcHasVolumeTelemetryChanged.c)
- *     McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer @ 0x14049DB04 (McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteT.c)
- *     McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer @ 0x14049E230 (McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer.c)
- *     McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer @ 0x14049F390 (McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer.c)
- *     McTemplateK0xxxxxxxxxxxxxxxxxxq_EtwWriteTransfer @ 0x14049F720 (McTemplateK0xxxxxxxxxxxxxxxxxxq_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CcAggregateCumulativeGlobalTelemetry @ 0x140B3E600 (CcAggregateCumulativeGlobalTelemetry.c)
- *     CcResetGlobalTelemetry @ 0x140B5A31C (CcResetGlobalTelemetry.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     CcAggregateCumulativeVolumeTelemetry @ 0x1404957F4 (CcAggregateCumulativeVolumeTelemetry.c)
+ *     CcHasVolumeTelemetryChanged @ 0x140495A9C (CcHasVolumeTelemetryChanged.c)
+ *     McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer @ 0x140497654 (McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteT.c)
+ *     McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer @ 0x140497D80 (McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer.c)
+ *     McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer @ 0x140498EE0 (McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer.c)
+ *     McTemplateK0xxxxxxxxxxxxxxxxxxq_EtwWriteTransfer @ 0x140499270 (McTemplateK0xxxxxxxxxxxxxxxxxxq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CcAggregateCumulativeGlobalTelemetry @ 0x140B404D0 (CcAggregateCumulativeGlobalTelemetry.c)
+ *     CcResetGlobalTelemetry @ 0x140B5D638 (CcResetGlobalTelemetry.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 /*
- * Hex-Rays decompilation failed for CcPostVolumeTelemetry @ 0x14049BF90
- * Reason: Hex-Rays returned no pseudocode for 0x14049BF90
+ * Hex-Rays decompilation failed for CcPostVolumeTelemetry @ 0x140495AE0
+ * Reason: Hex-Rays returned no pseudocode for 0x140495AE0
  * Fallback: raw IDA disassembly follows.
  *
- * 000000014049BF90: mov     r11, rsp
- * 000000014049BF93: mov     [r11+8], rbx
- * 000000014049BF97: mov     [r11+10h], rsi
- * 000000014049BF9B: mov     [r11+18h], rdi
- * 000000014049BF9F: mov     [r11+20h], r12
- * 000000014049BFA3: push    r13
- * 000000014049BFA5: push    r14
- * 000000014049BFA7: push    r15
- * 000000014049BFA9: sub     rsp, 970h
- * 000000014049BFB0: mov     rax, cs:__security_cookie
- * 000000014049BFB7: xor     rax, rsp
- * 000000014049BFBA: mov     [rsp+988h+var_28], rax
- * 000000014049BFC2: xor     r14b, r14b
- * 000000014049BFC5: mov     [rsp+988h+var_718], r14b
- * 000000014049BFCD: xor     r13d, r13d
- * 000000014049BFD0: mov     [r11-700h], r13d
- * 000000014049BFD7: mov     [r11-6D8h], r13d
- * 000000014049BFDE: mov     rsi, 0FFFFF78000000014h
- * 000000014049BFE8: mov     rsi, [rsi]
- * 000000014049BFEB: mov     rbx, rsi
- * 000000014049BFEE: sub     rbx, cs:EmpParseLock.Queue
- * 000000014049BFF5: mov     rdi, rsi
- * 000000014049BFF8: sub     rdi, cs:EmpParseLock.Teb
- * 000000014049BFFF: cmp     rbx, qword ptr cs:EmpParseLock.Timer.Header
- * 000000014049C006: jge     short loc_14049C01A
- * 000000014049C008: mov     rax, cs:EmpParseLock.Timer.Header.WaitListHead.Blink
- * 000000014049C00F: test    rax, rax
- * 000000014049C012: jle     short loc_14049C01A
- * 000000014049C014: jmp     loc_14049DACB
- * 000000014049C01A: cmp     rdi, cs:EmpParseLock.Timer.Header.WaitListHead.Flink
- * 000000014049C021: jge     loc_14049DABB
- * 000000014049C027: cmp     cs:EmpParseLock.Timer.Header.WaitListHead.Blink, r13
- * 000000014049C02E: jz      loc_14049DABB
- * 000000014049C034: inc     cs:EmpParseLock.Timer.Header.WaitListHead.Blink
- * 000000014049C03B: mov     rax, cs:EmpParseLock.Timer.TimerListEntry.Flink
- * 000000014049C042: add     rax, 0Ah
- * 000000014049C046: mov     [rsp+988h+var_708], rax
- * 000000014049C04E: imul    rdx, rax, 9B0h; NumberOfBytes
- * 000000014049C055: mov     ecx, 600h; PoolType
- * 000000014049C05A: mov     r8d, 65546343h; Tag
- * 000000014049C060: call    ExAllocatePoolWithTag
- * 000000014049C065: mov     r15, rax
- * 000000014049C068: mov     [rsp+988h+var_6C0], rax
- * 000000014049C070: test    rax, rax
- * 000000014049C073: jz      loc_14049DACB
- * 000000014049C079: call    KeRcuReadLock
- * 000000014049C07E: mov     r12, qword ptr cs:EmpParseLock.___u95+8
- * 000000014049C085: mov     [rsp+988h+var_638], r12
- * 000000014049C08D: mov     rdx, [rsp+988h+var_708]
- * 000000014049C095: lea     rax, EmpParseLock.___u95+8
- * 000000014049C09C: cmp     r12, rax
- * 000000014049C09F: jz      loc_14049C185
- * 000000014049C0A5: mov     ecx, dword ptr [rsp+988h+var_6D8]
- * 000000014049C0AC: cmp     rcx, rdx
- * 000000014049C0AF: jnb     loc_14049C185
- * 000000014049C0B5: inc     ecx
- * 000000014049C0B7: mov     dword ptr [rsp+988h+var_6D8], ecx
- * 000000014049C0BE: mov     [rsp+988h+var_580], ecx
- * 000000014049C0C5: lea     rcx, [r12-18h]
- * 000000014049C0CA: call    CcHasVolumeTelemetryChanged
- * 000000014049C0CF: test    al, al
- * 000000014049C0D1: jnz     short loc_14049C0F0
- * 000000014049C0D3: test    r14b, r14b
- * 000000014049C0D6: jnz     short loc_14049C0E2
- * 000000014049C0D8: mov     r13d, dword ptr [rsp+988h+var_700]
- * 000000014049C0E0: jmp     short loc_14049C095
- * 000000014049C0E2: lea     rcx, [r12-18h]
- * 000000014049C0E7: call    CcHasVolumeCumulativeTelemetryChanged
- * 000000014049C0EC: test    al, al
- * 000000014049C0EE: jz      short loc_14049C0D8
- * 000000014049C0F0: lea     r14, [r12+0D0h]
- * 000000014049C0F8: mov     rcx, r14
- * 000000014049C0FB: call    CcAggregateCumulativeVolumeTelemetry
- * 000000014049C100: mov     r11d, dword ptr [rsp+988h+var_700]
- * 000000014049C108: imul    rcx, r11, 9B0h
- * 000000014049C10F: add     rcx, r15; void *
- * 000000014049C112: mov     rdx, r14; Src
- * 000000014049C115: mov     r8d, 9B0h; Size
- * 000000014049C11B: call    memmove
- * 000000014049C120: lea     rcx, [r12+0E0h]; void *
- * 000000014049C128: xor     edx, edx; Val
- * 000000014049C12A: mov     r8d, 4D0h; Size
- * 000000014049C130: call    memset_0
- * 000000014049C135: mov     r14b, [rsp+988h+var_718]
- * 000000014049C13D: test    r14b, r14b
- * 000000014049C140: jnz     short loc_14049C16E
- * 000000014049C142: mov     r12, [r12]
- * 000000014049C146: mov     [rsp+988h+var_638], r12
- * 000000014049C14E: mov     r13d, dword ptr [rsp+988h+var_700]
- * 000000014049C156: inc     r13d
- * 000000014049C159: mov     dword ptr [rsp+988h+var_700], r13d
- * 000000014049C161: mov     [rsp+988h+var_57C], r13d
- * 000000014049C169: jmp     loc_14049C08D
- * 000000014049C16E: lea     rcx, [r12+5B0h]; void *
- * 000000014049C176: xor     edx, edx; Val
- * 000000014049C178: mov     r8d, 4D0h; Size
- * 000000014049C17E: call    memset_0
- * 000000014049C183: jmp     short loc_14049C142
- * 000000014049C185: call    KeRcuReadUnlock
- * 000000014049C18A: call    CcAggregateCumulativeGlobalTelemetry
- * 000000014049C18F: mov     ecx, dword ptr cs:EmpParseLock.___u115+4
- * 000000014049C195: test    cl, 1
- * 000000014049C198: jz      loc_14049C299
- * 000000014049C19E: mov     rax, 6666666666666667h
- * 000000014049C1A8: imul    rbx
- * 000000014049C1AB: sar     rdx, 2
- * 000000014049C1AF: mov     r9, rdx
- * 000000014049C1B2: shr     r9, 3Fh
- * 000000014049C1B6: add     r9, rdx
- * 000000014049C1B9: mov     rax, qword ptr cs:EmpParseLock.___u33+18h
- * 000000014049C1C0: mov     qword ptr [rsp+988h+var_8F0+8], rax
- * 000000014049C1C8: mov     rax, qword ptr cs:EmpParseLock.___u33+10h
- * 000000014049C1CF: mov     qword ptr [rsp+988h+var_8F0], rax
- * 000000014049C1D7: mov     rax, qword ptr cs:EmpParseLock.___u33+8
- * 000000014049C1DE: mov     qword ptr [rsp+988h+var_900+8], rax
- * 000000014049C1E6: mov     rax, qword ptr cs:EmpParseLock.___u33
- * 000000014049C1ED: mov     qword ptr [rsp+988h+var_900], rax
- * 000000014049C1F5: mov     rax, qword ptr cs:EmpParseLock.Timer.Processor
- * 000000014049C1FC: mov     [rsp+988h+var_908], rax
- * 000000014049C204: mov     rax, qword ptr cs:EmpParseLock.___u33+68h
- * 000000014049C20B: mov     qword ptr [rsp+988h+var_918+8], rax
- * 000000014049C210: mov     rax, qword ptr cs:EmpParseLock.___u33+60h
- * 000000014049C217: mov     qword ptr [rsp+988h+var_918], rax
- * 000000014049C21C: mov     rax, qword ptr cs:EmpParseLock.___u33+58h
- * 000000014049C223: mov     qword ptr [rsp+988h+var_928+8], rax
- * 000000014049C228: mov     rax, qword ptr cs:EmpParseLock.___u33+50h
- * 000000014049C22F: mov     qword ptr [rsp+988h+var_928], rax
- * 000000014049C234: mov     rax, qword ptr cs:EmpParseLock.___u33+48h
- * 000000014049C23B: mov     qword ptr [rsp+988h+var_938+8], rax
- * 000000014049C240: mov     rax, qword ptr cs:EmpParseLock.___u33+40h
- * 000000014049C247: mov     qword ptr [rsp+988h+var_938], rax
- * 000000014049C24C: mov     rax, qword ptr cs:EmpParseLock.___u33+38h
- * 000000014049C253: mov     qword ptr [rsp+988h+var_948+8], rax
- * 000000014049C258: mov     rax, qword ptr cs:EmpParseLock.___u33+30h
- * 000000014049C25F: mov     qword ptr [rsp+988h+var_948], rax
- * 000000014049C264: mov     rax, qword ptr cs:EmpParseLock.___u33+28h
- * 000000014049C26B: mov     qword ptr [rsp+988h+var_958+8], rax
- * 000000014049C270: mov     rax, qword ptr cs:EmpParseLock.___u33+20h
- * 000000014049C277: mov     qword ptr [rsp+988h+var_958], rax
- * 000000014049C27C: mov     rax, cs:EmpParseLock.Timer.Dpc
- * 000000014049C283: mov     [rsp+988h+var_960], rax
- * 000000014049C288: mov     rax, cs:EmpParseLock.Timer.TimerListEntry.Blink
- * 000000014049C28F: mov     [rsp+988h+var_968], rax
- * 000000014049C294: call    McTemplateK0xxxxxxxxxxxxxxxxxxq_EtwWriteTransfer
- * 000000014049C299: mov     r8, 6666666666666667h
- * 000000014049C2A3: call    CcResetGlobalTelemetry
- * 000000014049C2A8: xor     r11d, r11d
- * 000000014049C2AB: test    r14b, r14b
- * 000000014049C2AE: jnz     loc_14049D312
- * 000000014049C2B4: lea     r14d, [r11+8]
- * 000000014049C2B8: lea     r12d, [r11+2]
- * 000000014049C2BC: mov     eax, r13d
- * 000000014049C2BF: mov     [rsp+988h+var_448], rax
- * 000000014049C2C7: mov     [rsp+988h+var_710], r11d
- * 000000014049C2CF: test    r13d, r13d
- * 000000014049C2D2: jz      loc_14049D2F4
- * 000000014049C2D8: mov     r13, r11
- * 000000014049C2DB: mov     [rsp+988h+var_708], r11
- * 000000014049C2E3: imul    rdi, r13, 9B0h
- * 000000014049C2EA: add     rdi, r15
- * 000000014049C2ED: mov     r8, [rdi+70h]
- * 000000014049C2F1: test    r8, r8
- * 000000014049C2F4: jz      loc_14049D30A
- * 000000014049C2FA: mov     rax, r8
- * 000000014049C2FD: sub     rax, [rdi+78h]
- * 000000014049C301: imul    rax, 64h ; 'd'
- * 000000014049C305: xor     edx, edx
- * 000000014049C307: div     r8
- * 000000014049C30A: mov     r9, rax
- * 000000014049C30D: mov     [rsp+988h+var_6D0], r9
- * 000000014049C315: mov     eax, dword ptr cs:EmpParseLock.___u115+4
- * 000000014049C31B: test    al, 1
- * 000000014049C31D: jnz     loc_1407673BB
- * 000000014049C323: mov     eax, dword ptr cs:EmpParseLock.___u115+4
- * 000000014049C329: test    al, 1
- * 000000014049C32B: jz      loc_14049C770
- * 000000014049C331: mov     rax, 6666666666666667h
- * 000000014049C33B: imul    rbx
- * 000000014049C33E: sar     rdx, 2
- * 000000014049C342: mov     rax, rdx
- * 000000014049C345: shr     rax, 3Fh
- * 000000014049C349: add     rdx, rax
- * 000000014049C34C: mov     rax, [rdi+4D8h]
- * 000000014049C353: mov     [rsp+988h+var_728], rax
- * 000000014049C35B: mov     rax, [rdi+4D0h]
- * 000000014049C362: mov     [rsp+988h+var_730], rax
- * 000000014049C36A: mov     rax, [rdi+4C8h]
- * 000000014049C371: mov     [rsp+988h+var_738], rax
- * 000000014049C379: mov     rax, [rdi+4C0h]
- * 000000014049C380: mov     [rsp+988h+var_740], rax
- * 000000014049C388: mov     rax, [rdi+4B8h]
- * 000000014049C38F: mov     [rsp+988h+var_748], rax
- * 000000014049C397: mov     rax, [rdi+4B0h]
- * 000000014049C39E: mov     [rsp+988h+var_750], rax
- * 000000014049C3A6: mov     rax, [rdi+4A8h]
- * 000000014049C3AD: mov     [rsp+988h+var_758], rax
- * 000000014049C3B5: mov     rax, [rdi+4A0h]
- * 000000014049C3BC: mov     [rsp+988h+var_760], rax
- * 000000014049C3C4: mov     rax, [rdi+498h]
- * 000000014049C3CB: mov     [rsp+988h+var_768], rax
- * 000000014049C3D3: mov     rax, [rdi+490h]
- * 000000014049C3DA: mov     [rsp+988h+var_770], rax
- * 000000014049C3E2: mov     rax, [rdi+488h]
- * 000000014049C3E9: mov     [rsp+988h+var_778], rax
- * 000000014049C3F1: mov     rax, [rdi+480h]
- * 000000014049C3F8: mov     [rsp+988h+var_780], rax
- * 000000014049C400: mov     rax, [rdi+478h]
- * 000000014049C407: mov     [rsp+988h+var_788], rax
- * 000000014049C40F: mov     rax, [rdi+470h]
- * 000000014049C416: mov     [rsp+988h+var_790], rax
- * 000000014049C41E: mov     rax, [rdi+468h]
- * 000000014049C425: mov     [rsp+988h+var_798], rax
- * 000000014049C42D: mov     rax, [rdi+460h]
- * 000000014049C434: mov     [rsp+988h+var_7A0], rax
- * 000000014049C43C: mov     rax, [rdi+458h]
- * 000000014049C443: mov     [rsp+988h+var_7A8], rax
- * 000000014049C44B: mov     rax, [rdi+450h]
- * 000000014049C452: mov     [rsp+988h+var_7B0], rax
- * 000000014049C45A: mov     rax, [rdi+448h]
- * 000000014049C461: mov     [rsp+988h+var_7B8], rax
- * 000000014049C469: mov     rax, [rdi+440h]
- * 000000014049C470: mov     [rsp+988h+var_7C0], rax
- * 000000014049C478: mov     rax, [rdi+438h]
- * 000000014049C47F: mov     [rsp+988h+var_7C8], rax
- * 000000014049C487: mov     rax, [rdi+430h]
- * 000000014049C48E: mov     [rsp+988h+var_7D0], rax
- * 000000014049C496: mov     rax, [rdi+428h]
- * 000000014049C49D: mov     [rsp+988h+var_7D8], rax
- * 000000014049C4A5: mov     rax, [rdi+420h]
- * 000000014049C4AC: mov     [rsp+988h+var_7E0], rax
- * 000000014049C4B4: mov     rax, [rdi+260h]
- * 000000014049C4BB: mov     [rsp+988h+var_7E8], rax
- * 000000014049C4C3: mov     rax, [rdi+258h]
- * 000000014049C4CA: mov     [rsp+988h+var_7F0], rax
- * 000000014049C4D2: mov     rax, [rdi+250h]
- * 000000014049C4D9: mov     [rsp+988h+var_7F8], rax
- * 000000014049C4E1: mov     rax, [rdi+248h]
- * 000000014049C4E8: mov     [rsp+988h+var_800], rax
- * 000000014049C4F0: mov     rax, [rdi+240h]
- * 000000014049C4F7: mov     [rsp+988h+var_808], rax
- * 000000014049C4FF: mov     rax, [rdi+238h]
- * 000000014049C506: mov     [rsp+988h+var_810], rax
- * 000000014049C50E: mov     rax, [rdi+230h]
- * 000000014049C515: mov     [rsp+988h+var_818], rax
- * 000000014049C51D: mov     rax, [rdi+228h]
- * 000000014049C524: mov     [rsp+988h+var_820], rax
- * 000000014049C52C: mov     rax, [rdi+220h]
- * 000000014049C533: mov     [rsp+988h+var_828], rax
- * 000000014049C53B: mov     rax, [rdi+218h]
- * 000000014049C542: mov     [rsp+988h+var_830], rax
- * 000000014049C54A: mov     rax, [rdi+210h]
- * 000000014049C551: mov     [rsp+988h+var_838], rax
- * 000000014049C559: mov     rax, [rdi+208h]
- * 000000014049C560: mov     [rsp+988h+var_840], rax
- * 000000014049C568: mov     rax, [rdi+200h]
- * 000000014049C56F: mov     [rsp+988h+var_848], rax
- * 000000014049C577: mov     rax, [rdi+1F8h]
- * 000000014049C57E: mov     [rsp+988h+var_850], rax
- * 000000014049C586: mov     rax, [rdi+1F0h]
- * 000000014049C58D: mov     [rsp+988h+var_858], rax
- * 000000014049C595: mov     rax, [rdi+1E8h]
- * 000000014049C59C: mov     [rsp+988h+var_860], rax
- * 000000014049C5A4: mov     rax, [rdi+1E0h]
- * 000000014049C5AB: mov     [rsp+988h+var_868], rax
- * 000000014049C5B3: mov     rax, [rdi+1D8h]
- * 000000014049C5BA: mov     [rsp+988h+var_870], rax
- * 000000014049C5C2: mov     rax, [rdi+1D0h]
- * 000000014049C5C9: mov     [rsp+988h+var_878], rax
- * 000000014049C5D1: mov     rax, [rdi+1C8h]
- * 000000014049C5D8: mov     [rsp+988h+var_880], rax
- * 000000014049C5E0: mov     rax, [rdi+1C0h]
- * 000000014049C5E7: mov     [rsp+988h+var_888], rax
- * 000000014049C5EF: mov     rax, [rdi+1B8h]
- * 000000014049C5F6: mov     [rsp+988h+var_890], rax
- * 000000014049C5FE: mov     rax, [rdi+1B0h]
- * 000000014049C605: mov     [rsp+988h+var_898], rax
- * 000000014049C60D: mov     rax, [rdi+1A8h]
- * 000000014049C614: mov     [rsp+988h+var_8A0], rax
- * 000000014049C61C: mov     rax, [rdi+1A0h]
- * 000000014049C623: mov     [rsp+988h+var_8A8], rax
- * 000000014049C62B: mov     rax, [rdi+198h]
- * 000000014049C632: mov     [rsp+988h+var_8B0], rax
- * 000000014049C63A: mov     rax, [rdi+190h]
- * 000000014049C641: mov     [rsp+988h+var_8B8], rax
- * 000000014049C649: mov     rax, [rdi+188h]
- * 000000014049C650: mov     [rsp+988h+var_8C0], rax
- * 000000014049C658: mov     rax, [rdi+180h]
- * 000000014049C65F: mov     [rsp+988h+var_8C8], rax
- * 000000014049C667: mov     rax, [rdi+178h]
- * 000000014049C66E: mov     [rsp+988h+var_8D0], rax
- * 000000014049C676: mov     rax, [rdi+170h]
- * 000000014049C67D: mov     [rsp+988h+var_8D8], rax
- * 000000014049C685: mov     rax, [rdi+168h]
- * 000000014049C68C: mov     [rsp+988h+var_8E0], rax
- * 000000014049C694: mov     rax, [rdi+160h]
- * 000000014049C69B: mov     qword ptr [rsp+988h+var_8F0+8], rax
- * 000000014049C6A3: mov     rax, [rdi+158h]
- * 000000014049C6AA: mov     qword ptr [rsp+988h+var_8F0], rax
- * 000000014049C6B2: mov     rax, [rdi+150h]
- * 000000014049C6B9: mov     qword ptr [rsp+988h+var_900+8], rax
- * 000000014049C6C1: mov     rax, [rdi+148h]
- * 000000014049C6C8: mov     qword ptr [rsp+988h+var_900], rax
- * 000000014049C6D0: mov     rax, [rdi+140h]
- * 000000014049C6D7: mov     [rsp+988h+var_908], rax
- * 000000014049C6DF: mov     rax, [rdi+138h]
- * 000000014049C6E6: mov     qword ptr [rsp+988h+var_918+8], rax
- * 000000014049C6EB: mov     rax, [rdi+130h]
- * 000000014049C6F2: mov     qword ptr [rsp+988h+var_918], rax
- * 000000014049C6F7: mov     rax, [rdi+128h]
- * 000000014049C6FE: mov     qword ptr [rsp+988h+var_928+8], rax
- * 000000014049C703: mov     rax, [rdi+120h]
- * 000000014049C70A: mov     qword ptr [rsp+988h+var_928], rax
- * 000000014049C70F: mov     rax, [rdi+118h]
- * 000000014049C716: mov     qword ptr [rsp+988h+var_938+8], rax
- * 000000014049C71B: mov     rax, [rdi+110h]
- * 000000014049C722: mov     qword ptr [rsp+988h+var_938], rax
- * 000000014049C727: mov     rax, [rdi+108h]
- * 000000014049C72E: mov     qword ptr [rsp+988h+var_948+8], rax
- * 000000014049C733: mov     rax, [rdi+100h]
- * 000000014049C73A: mov     qword ptr [rsp+988h+var_948], rax
- * 000000014049C73F: mov     rax, [rdi+0F8h]
- * 000000014049C746: mov     qword ptr [rsp+988h+var_958+8], rax
- * 000000014049C74B: mov     rax, [rdi+0F0h]
- * 000000014049C752: mov     qword ptr [rsp+988h+var_958], rax
- * 000000014049C757: mov     rax, [rdi+0E8h]
- * 000000014049C75E: mov     [rsp+988h+var_960], rax
- * 000000014049C763: mov     [rsp+988h+var_968], rdx
- * 000000014049C768: mov     r9, rdi
- * 000000014049C76B: call    McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer
- * 000000014049C770: mov     eax, dword ptr cs:EmpParseLock.___u115+4
- * 000000014049C776: test    al, 1
- * 000000014049C778: jnz     loc_14049D3B3
- * 000000014049C77E: xor     r11d, r11d
- * 000000014049C781: cmp     [rsp+988h+var_718], r11b
- * 000000014049C789: jz      loc_14049D2CB
- * 000000014049C78F: lea     edx, [r11+5]
- * 000000014049C793: cmp     cs:dword_140E06AF8, edx
- * 000000014049C799: jbe     loc_14049D2CB
- * 000000014049C79F: mov     r8, 400000000000h
- * 000000014049C7A9: test    cs:qword_140E06B08, r8
- * 000000014049C7B0: jz      loc_14049D2CB
- * 000000014049C7B6: mov     rax, cs:qword_140E06B10
- * 000000014049C7BD: and     rax, r8
- * 000000014049C7C0: cmp     rax, cs:qword_140E06B10
- * 000000014049C7C7: jnz     loc_14049D2CB
- * 000000014049C7CD: mov     [rsp+988h+var_640], 1000000h
- * 000000014049C7D9: lea     rax, [rsp+988h+var_640]
- * 000000014049C7E1: mov     [rsp+988h+var_418], rax
- * 000000014049C7E9: mov     [rsp+988h+var_410], 8
- * 000000014049C7F5: mov     [rsp+988h+var_714], dx
- * 000000014049C7FD: lea     rax, [rsp+988h+var_714]
- * 000000014049C805: mov     [rsp+988h+var_408], rax
- * 000000014049C80D: mov     [rsp+988h+var_400], 2
- * 000000014049C819: imul    r10, r13, 9B0h
- * 000000014049C820: add     r10, r15
- * 000000014049C823: mov     [rsp+988h+var_3F8], r10
- * 000000014049C82B: mov     [rsp+988h+var_3F0], 10h
- * 000000014049C837: mov     rax, 6666666666666667h
- * 000000014049C841: imul    rbx
- * 000000014049C844: sar     rdx, 2
- * 000000014049C848: mov     rax, rdx
- * 000000014049C84B: shr     rax, 3Fh
- * 000000014049C84F: add     rdx, rax
- * 000000014049C852: mov     [rsp+988h+var_648], rdx
- * 000000014049C85A: lea     rax, [rsp+988h+var_648]
- * 000000014049C862: mov     [rsp+988h+var_3E8], rax
- * 000000014049C86A: mov     [rsp+988h+var_3E0], 8
- * 000000014049C876: imul    rax, r13, 9B0h
- * 000000014049C87D: mov     rcx, [rax+r15+4E0h]
- * 000000014049C885: mov     [rsp+988h+var_578], rcx
- * 000000014049C88D: lea     rax, [rsp+988h+var_578]
- * 000000014049C895: mov     [rsp+988h+var_3D8], rax
- * 000000014049C89D: mov     [rsp+988h+var_3D0], 8
- * 000000014049C8A9: imul    rax, r13, 9B0h
- * 000000014049C8B0: mov     rcx, [rax+r15+4E8h]
- * 000000014049C8B8: mov     [rsp+988h+var_570], rcx
- * 000000014049C8C0: lea     rax, [rsp+988h+var_570]
- * 000000014049C8C8: mov     [rsp+988h+var_3C8], rax
- * 000000014049C8D0: mov     [rsp+988h+var_3C0], 8
- * 000000014049C8DC: imul    rax, r13, 9B0h
- * 000000014049C8E3: mov     rcx, [rax+r15+4F0h]
- * 000000014049C8EB: mov     [rsp+988h+var_568], rcx
- * 000000014049C8F3: lea     rax, [rsp+988h+var_568]
- * 000000014049C8FB: mov     [rsp+988h+var_3B8], rax
- * 000000014049C903: mov     [rsp+988h+var_3B0], 8
- * 000000014049C90F: imul    rax, r13, 9B0h
- * 000000014049C916: mov     rcx, [rax+r15+4F8h]
- * 000000014049C91E: mov     [rsp+988h+var_560], rcx
- * 000000014049C926: lea     rax, [rsp+988h+var_560]
- * 000000014049C92E: mov     [rsp+988h+var_3A8], rax
- * 000000014049C936: mov     [rsp+988h+var_3A0], 8
- * 000000014049C942: imul    rax, r13, 9B0h
- * 000000014049C949: mov     rcx, [rax+r15+500h]
- * 000000014049C951: mov     [rsp+988h+var_558], rcx
- * 000000014049C959: lea     rax, [rsp+988h+var_558]
- * 000000014049C961: mov     [rsp+988h+var_398], rax
- * 000000014049C969: mov     [rsp+988h+var_390], 8
- * 000000014049C975: imul    rax, r13, 9B0h
- * 000000014049C97C: mov     rcx, [rax+r15+508h]
- * 000000014049C984: mov     [rsp+988h+var_550], rcx
- * 000000014049C98C: lea     rax, [rsp+988h+var_550]
- * 000000014049C994: mov     [rsp+988h+var_388], rax
- * 000000014049C99C: mov     [rsp+988h+var_380], 8
- * 000000014049C9A8: imul    r9, r13, 9B0h
- * 000000014049C9AF: mov     rax, [r9+r15+588h]
- * 000000014049C9B7: mov     [rsp+988h+var_548], rax
- * 000000014049C9BF: lea     rax, [rsp+988h+var_548]
- * 000000014049C9C7: mov     [rsp+988h+var_378], rax
- * 000000014049C9CF: mov     [rsp+988h+var_370], 8
- * 000000014049C9DB: imul    r8, r13, 9B0h
- * 000000014049C9E2: mov     rax, [r8+r15+590h]
- * 000000014049C9EA: mov     [rsp+988h+var_540], rax
- * 000000014049C9F2: lea     rax, [rsp+988h+var_540]
- * 000000014049C9FA: mov     [rsp+988h+var_368], rax
- * 000000014049CA02: mov     [rsp+988h+var_360], 8
- * 000000014049CA0E: imul    rdx, r13, 9B0h
- * 000000014049CA15: mov     rax, [rdx+r15+598h]
- * 000000014049CA1D: mov     [rsp+988h+var_538], rax
- * 000000014049CA25: lea     rax, [rsp+988h+var_538]
- * 000000014049CA2D: mov     [rsp+988h+var_358], rax
- * 000000014049CA35: mov     [rsp+988h+var_350], 8
- * 000000014049CA41: imul    rax, r13, 9B0h
- * 000000014049CA48: mov     rcx, [rax+r15+5A0h]
- * 000000014049CA50: mov     [rsp+988h+var_530], rcx
- * 000000014049CA58: lea     rax, [rsp+988h+var_530]
- * 000000014049CA60: mov     [rsp+988h+var_348], rax
- * 000000014049CA68: mov     [rsp+988h+var_340], 8
- * 000000014049CA74: imul    rax, r13, 9B0h
- * 000000014049CA7B: mov     rcx, [rax+r15+510h]
- * 000000014049CA83: mov     [rsp+988h+var_528], rcx
- * 000000014049CA8B: lea     rax, [rsp+988h+var_528]
- * 000000014049CA93: mov     [rsp+988h+var_338], rax
- * 000000014049CA9B: mov     [rsp+988h+var_330], 8
- * 000000014049CAA7: imul    rax, r13, 9B0h
- * 000000014049CAAE: mov     rcx, [rax+r15+518h]
- * 000000014049CAB6: mov     [rsp+988h+var_520], rcx
- * 000000014049CABE: lea     rax, [rsp+988h+var_520]
- * 000000014049CAC6: mov     [rsp+988h+var_328], rax
- * 000000014049CACE: mov     [rsp+988h+var_320], 8
- * 000000014049CADA: imul    rax, r13, 9B0h
- * 000000014049CAE1: mov     rcx, [rax+r15+520h]
- * 000000014049CAE9: mov     [rsp+988h+var_518], rcx
- * 000000014049CAF1: lea     rax, [rsp+988h+var_518]
- * 000000014049CAF9: mov     [rsp+988h+var_318], rax
- * 000000014049CB01: mov     [rsp+988h+var_310], 8
- * 000000014049CB0D: imul    rax, r13, 9B0h
- * 000000014049CB14: mov     rcx, [rax+r15+528h]
- * 000000014049CB1C: mov     [rsp+988h+var_510], rcx
- * 000000014049CB24: lea     rax, [rsp+988h+var_510]
- * 000000014049CB2C: mov     [rsp+988h+var_308], rax
- * 000000014049CB34: mov     [rsp+988h+var_300], 8
- * 000000014049CB40: imul    rax, r13, 9B0h
- * 000000014049CB47: mov     rcx, [rax+r15+530h]
- * 000000014049CB4F: mov     [rsp+988h+var_508], rcx
- * 000000014049CB57: lea     rax, [rsp+988h+var_508]
- * 000000014049CB5F: mov     [rsp+988h+var_2F8], rax
- * 000000014049CB67: mov     [rsp+988h+var_2F0], 8
- * 000000014049CB73: imul    rax, r13, 9B0h
- * 000000014049CB7A: mov     rcx, [rax+r15+538h]
- * 000000014049CB82: mov     [rsp+988h+var_500], rcx
- * 000000014049CB8A: lea     rax, [rsp+988h+var_500]
- * 000000014049CB92: mov     [rsp+988h+var_2E8], rax
- * 000000014049CB9A: mov     [rsp+988h+var_2E0], 8
- * 000000014049CBA6: imul    rax, r13, 9B0h
- * 000000014049CBAD: mov     rcx, [rax+r15+540h]
- * 000000014049CBB5: mov     [rsp+988h+var_4F8], rcx
- * 000000014049CBBD: lea     rax, [rsp+988h+var_4F8]
- * 000000014049CBC5: mov     [rsp+988h+var_2D8], rax
- * 000000014049CBCD: mov     [rsp+988h+var_2D0], 8
- * 000000014049CBD9: imul    rax, r13, 9B0h
- * 000000014049CBE0: mov     rcx, [rax+r15+548h]
- * 000000014049CBE8: mov     [rsp+988h+var_4F0], rcx
- * 000000014049CBF0: lea     rax, [rsp+988h+var_4F0]
- * 000000014049CBF8: mov     [rsp+988h+var_2C8], rax
- * 000000014049CC00: mov     [rsp+988h+var_2C0], 8
- * 000000014049CC0C: mov     rax, [rsp+988h+var_6D0]
- * 000000014049CC14: mov     [rsp+988h+var_4E8], rax
- * 000000014049CC1C: lea     rax, [rsp+988h+var_4E8]
- * 000000014049CC24: mov     [rsp+988h+var_2B8], rax
- * 000000014049CC2C: mov     [rsp+988h+var_2B0], 8
- * 000000014049CC38: imul    rax, r13, 9B0h
- * 000000014049CC3F: mov     rcx, [rax+r15+550h]
- * 000000014049CC47: mov     [rsp+988h+var_4E0], rcx
- * 000000014049CC4F: lea     rax, [rsp+988h+var_4E0]
- * 000000014049CC57: mov     [rsp+988h+var_2A8], rax
- * 000000014049CC5F: mov     [rsp+988h+var_2A0], 8
- * 000000014049CC6B: imul    rax, r13, 9B0h
- * 000000014049CC72: mov     rcx, [rax+r15+570h]
- * 000000014049CC7A: mov     [rsp+988h+var_4D8], rcx
- * 000000014049CC82: lea     rax, [rsp+988h+var_4D8]
- * 000000014049CC8A: mov     [rsp+988h+var_298], rax
- * 000000014049CC92: mov     [rsp+988h+var_290], 8
- * 000000014049CC9E: imul    rax, r13, 9B0h
- * 000000014049CCA5: mov     rcx, [rax+r15+578h]
- * 000000014049CCAD: mov     [rsp+988h+var_4D0], rcx
- * 000000014049CCB5: lea     rax, [rsp+988h+var_4D0]
- * 000000014049CCBD: mov     [rsp+988h+var_288], rax
- * 000000014049CCC5: mov     [rsp+988h+var_280], 8
- * 000000014049CCD1: imul    rax, r13, 9B0h
- * 000000014049CCD8: mov     rcx, [rax+r15+580h]
- * 000000014049CCE0: mov     [rsp+988h+var_4C8], rcx
- * 000000014049CCE8: lea     rax, [rsp+988h+var_4C8]
- * 000000014049CCF0: mov     [rsp+988h+var_278], rax
- * 000000014049CCF8: mov     [rsp+988h+var_270], 8
- * 000000014049CD04: imul    rax, r13, 9B0h
- * 000000014049CD0B: mov     rcx, [rax+r15+558h]
- * 000000014049CD13: mov     [rsp+988h+var_4C0], rcx
- * 000000014049CD1B: lea     rax, [rsp+988h+var_4C0]
- * 000000014049CD23: mov     [rsp+988h+var_268], rax
- * 000000014049CD2B: mov     [rsp+988h+var_260], 8
- * 000000014049CD37: imul    rax, r13, 9B0h
- * 000000014049CD3E: mov     rcx, [rax+r15+560h]
- * 000000014049CD46: mov     [rsp+988h+var_4B8], rcx
- * 000000014049CD4E: lea     rax, [rsp+988h+var_4B8]
- * 000000014049CD56: mov     [rsp+988h+var_258], rax
- * 000000014049CD5E: mov     [rsp+988h+var_250], 8
- * 000000014049CD6A: imul    rax, r13, 9B0h
- * 000000014049CD71: mov     rcx, [rax+r15+568h]
- * 000000014049CD79: mov     [rsp+988h+var_4B0], rcx
- * 000000014049CD81: lea     rax, [rsp+988h+var_4B0]
- * 000000014049CD89: mov     [rsp+988h+var_248], rax
- * 000000014049CD91: mov     [rsp+988h+var_240], 8
- * 000000014049CD9D: imul    rax, r13, 9B0h
- * 000000014049CDA4: mov     rcx, [rax+r15+5A8h]
- * 000000014049CDAC: mov     [rsp+988h+var_4A8], rcx
- * 000000014049CDB4: lea     rax, [rsp+988h+var_4A8]
- * 000000014049CDBC: mov     [rsp+988h+var_238], rax
- * 000000014049CDC4: mov     [rsp+988h+var_230], 8
- * 000000014049CDD0: imul    rax, r13, 9B0h
- * 000000014049CDD7: mov     rcx, [rax+r15+5B0h]
- * 000000014049CDDF: mov     [rsp+988h+var_4A0], rcx
- * 000000014049CDE7: lea     rax, [rsp+988h+var_4A0]
- * 000000014049CDEF: mov     [rsp+988h+var_228], rax
- * 000000014049CDF7: mov     [rsp+988h+var_220], 8
- * 000000014049CE03: imul    rax, r13, 9B0h
- * 000000014049CE0A: mov     rcx, [rax+r15+738h]
- * 000000014049CE12: mov     [rsp+988h+var_498], rcx
- * 000000014049CE1A: lea     rax, [rsp+988h+var_498]
- * 000000014049CE22: mov     [rsp+988h+var_218], rax
- * 000000014049CE2A: mov     [rsp+988h+var_210], 8
- * 000000014049CE36: imul    rax, r13, 9B0h
- * 000000014049CE3D: mov     rcx, [rax+r15+740h]
- * 000000014049CE45: mov     [rsp+988h+var_490], rcx
- * 000000014049CE4D: lea     rax, [rsp+988h+var_490]
- * 000000014049CE55: mov     [rsp+988h+var_208], rax
- * 000000014049CE5D: mov     [rsp+988h+var_200], 8
- * 000000014049CE69: imul    rax, r13, 9B0h
- * 000000014049CE70: mov     rcx, [rax+r15+748h]
- * 000000014049CE78: mov     [rsp+988h+var_488], rcx
- * 000000014049CE80: lea     rax, [rsp+988h+var_488]
- * 000000014049CE88: mov     [rsp+988h+var_1F8], rax
- * 000000014049CE90: mov     [rsp+988h+var_1F0], 8
- * 000000014049CE9C: imul    rax, r13, 9B0h
- * 000000014049CEA3: mov     rcx, [rax+r15+750h]
- * 000000014049CEAB: mov     [rsp+988h+var_480], rcx
- * 000000014049CEB3: lea     rax, [rsp+988h+var_480]
- * 000000014049CEBB: mov     [rsp+988h+var_1E8], rax
- * 000000014049CEC3: mov     [rsp+988h+var_1E0], 8
- * 000000014049CECF: imul    rax, r13, 9B0h
- * 000000014049CED6: mov     rcx, [rax+r15+758h]
- * 000000014049CEDE: mov     [rsp+988h+var_478], rcx
- * 000000014049CEE6: lea     rax, [rsp+988h+var_478]
- * 000000014049CEEE: mov     [rsp+988h+var_1D8], rax
- * 000000014049CEF6: mov     [rsp+988h+var_1D0], 8
- * 000000014049CF02: imul    rax, r13, 9B0h
- * 000000014049CF09: mov     rcx, [rax+r15+8E0h]
- * 000000014049CF11: mov     [rsp+988h+var_470], rcx
- * 000000014049CF19: lea     rax, [rsp+988h+var_470]
- * 000000014049CF21: mov     [rsp+988h+var_1C8], rax
- * 000000014049CF29: mov     [rsp+988h+var_1C0], 8
- * 000000014049CF35: imul    rax, r13, 9B0h
- * 000000014049CF3C: mov     rcx, [rax+r15+8E8h]
- * 000000014049CF44: mov     [rsp+988h+var_468], rcx
- * 000000014049CF4C: lea     rax, [rsp+988h+var_468]
- * 000000014049CF54: mov     [rsp+988h+var_1B8], rax
- * 000000014049CF5C: mov     [rsp+988h+var_1B0], 8
- * 000000014049CF68: mov     rax, [r9+r15+588h]
- * 000000014049CF70: mov     [rsp+988h+var_460], rax
- * 000000014049CF78: lea     rax, [rsp+988h+var_460]
- * 000000014049CF80: mov     [rsp+988h+var_1A8], rax
- * 000000014049CF88: mov     [rsp+988h+var_1A0], 8
- * 000000014049CF94: mov     rax, [r8+r15+590h]
- * 000000014049CF9C: mov     [rsp+988h+var_458], rax
- * 000000014049CFA4: lea     rax, [rsp+988h+var_458]
- * 000000014049CFAC: mov     [rsp+988h+var_198], rax
- * 000000014049CFB4: mov     [rsp+988h+var_190], 8
- * 000000014049CFC0: mov     rax, [rdx+r15+598h]
- * 000000014049CFC8: mov     [rsp+988h+var_450], rax
- * 000000014049CFD0: lea     rax, [rsp+988h+var_450]
- * 000000014049CFD8: mov     [rsp+988h+var_188], rax
- * 000000014049CFE0: mov     [rsp+988h+var_180], 8
- * 000000014049CFEC: or      rax, 0FFFFFFFFFFFFFFFFh
- * 000000014049CFF0: lea     rcx, a256us1ms4ms16m; "256us, 1ms, 4ms, 16ms, 64ms, 128ms, 256"...
- * 000000014049CFF7: inc     rax
- * 000000014049CFFA: cmp     [rcx+rax*2], r11w
- * 000000014049CFFF: jnz     short loc_14049CFF7
- * 000000014049D001: mov     [rsp+988h+var_178], rcx
- * 000000014049D009: lea     eax, ds:2[rax*2]
- * 000000014049D010: mov     [rsp+988h+var_170], eax
- * 000000014049D017: mov     [rsp+988h+var_16C], r11d
- * 000000014049D01F: mov     edx, 0Ch
- * 000000014049D024: mov     [rsp+988h+var_6F8], dx
- * 000000014049D02C: lea     rax, [rsp+988h+var_6F8]
- * 000000014049D034: mov     [rsp+988h+var_168], rax
- * 000000014049D03C: mov     [rsp+988h+var_160], 2
- * 000000014049D048: lea     rax, [r10+5B8h]
- * 000000014049D04F: mov     [rsp+988h+var_158], rax
- * 000000014049D057: mov     [rsp+988h+var_150], 60h ; '`'
- * 000000014049D063: mov     [rsp+988h+var_6F4], dx
- * 000000014049D06B: lea     rax, [rsp+988h+var_6F4]
- * 000000014049D073: mov     [rsp+988h+var_148], rax
- * 000000014049D07B: mov     [rsp+988h+var_140], 2
- * 000000014049D087: lea     rax, [r10+618h]
- * 000000014049D08E: mov     [rsp+988h+var_138], rax
- * 000000014049D096: mov     [rsp+988h+var_130], 60h ; '`'
- * 000000014049D0A2: mov     [rsp+988h+var_6F0], dx
- * 000000014049D0AA: lea     rax, [rsp+988h+var_6F0]
- * 000000014049D0B2: mov     [rsp+988h+var_128], rax
- * 000000014049D0BA: mov     [rsp+988h+var_120], 2
- * 000000014049D0C6: lea     rax, [r10+678h]
- * 000000014049D0CD: mov     [rsp+988h+var_118], rax
- * 000000014049D0D5: mov     [rsp+988h+var_110], 60h ; '`'
- * 000000014049D0E1: mov     [rsp+988h+var_6EC], dx
- * 000000014049D0E9: lea     rax, [rsp+988h+var_6EC]
- * 000000014049D0F1: mov     [rsp+988h+var_108], rax
- * 000000014049D0F9: mov     [rsp+988h+var_100], 2
- * 000000014049D105: lea     rax, [r10+6D8h]
- * 000000014049D10C: mov     [rsp+988h+var_F8], rax
- * 000000014049D114: mov     [rsp+988h+var_F0], 60h ; '`'
- * 000000014049D120: mov     [rsp+988h+var_6E8], dx
- * 000000014049D128: lea     rax, [rsp+988h+var_6E8]
- * 000000014049D130: mov     [rsp+988h+var_E8], rax
- * 000000014049D138: mov     [rsp+988h+var_E0], 2
- * 000000014049D144: lea     rax, [r10+760h]
- * 000000014049D14B: mov     [rsp+988h+var_D8], rax
- * 000000014049D153: mov     [rsp+988h+var_D0], 60h ; '`'
- * 000000014049D15F: mov     [rsp+988h+var_6E4], dx
- * 000000014049D167: lea     rax, [rsp+988h+var_6E4]
- * 000000014049D16F: mov     [rsp+988h+var_C8], rax
- * 000000014049D177: mov     [rsp+988h+var_C0], 2
- * 000000014049D183: lea     rax, [r10+7C0h]
- * 000000014049D18A: mov     [rsp+988h+var_B8], rax
- * 000000014049D192: mov     [rsp+988h+var_B0], 60h ; '`'
- * 000000014049D19E: mov     [rsp+988h+var_6E0], dx
- * 000000014049D1A6: lea     rax, [rsp+988h+var_6E0]
- * 000000014049D1AE: mov     [rsp+988h+var_A8], rax
- * 000000014049D1B6: mov     [rsp+988h+var_A0], 2
- * 000000014049D1C2: lea     rax, [r10+820h]
- * 000000014049D1C9: mov     [rsp+988h+var_98], rax
- * 000000014049D1D1: mov     [rsp+988h+var_90], 60h ; '`'
- * 000000014049D1DD: mov     [rsp+988h+var_6DC], dx
- * 000000014049D1E5: lea     rax, [rsp+988h+var_6DC]
- * 000000014049D1ED: mov     [rsp+988h+var_88], rax
- * 000000014049D1F5: mov     [rsp+988h+var_80], 2
- * 000000014049D201: lea     rax, [r10+880h]
- * 000000014049D208: mov     [rsp+988h+var_78], rax
- * 000000014049D210: mov     [rsp+988h+var_70], 60h ; '`'
- * 000000014049D21C: mov     word ptr [rsp+988h+var_6D8], dx
- * 000000014049D224: lea     rax, [rsp+988h+var_6D8]
- * 000000014049D22C: mov     [rsp+988h+var_68], rax
- * 000000014049D234: mov     [rsp+988h+var_60], 2
- * 000000014049D240: lea     rax, [r10+8F0h]
- * 000000014049D247: mov     [rsp+988h+var_58], rax
- * 000000014049D24F: mov     [rsp+988h+var_50], 60h ; '`'
- * 000000014049D25B: mov     word ptr [rsp+988h+var_700], dx
- * 000000014049D263: lea     rax, [rsp+988h+var_700]
- * 000000014049D26B: mov     [rsp+988h+var_48], rax
- * 000000014049D273: mov     [rsp+988h+var_40], 2
- * 000000014049D27F: lea     rax, [r10+950h]
- * 000000014049D286: mov     [rsp+988h+var_38], rax
- * 000000014049D28E: mov     [rsp+988h+var_30], 60h ; '`'
- * 000000014049D29A: lea     rax, [rsp+988h+var_438]
- * 000000014049D2A2: mov     [rsp+988h+var_960], rax
- * 000000014049D2A7: mov     dword ptr [rsp+988h+var_968], 41h ; 'A'
- * 000000014049D2AF: xor     r9d, r9d
- * 000000014049D2B2: xor     r8d, r8d
- * 000000014049D2B5: lea     rdx, word_14004496E
- * 000000014049D2BC: lea     rcx, dword_140E06AF8
- * 000000014049D2C3: call    _tlgWriteTransfer_EtwWriteTransfer
- * 000000014049D2C8: xor     r11d, r11d
- * 000000014049D2CB: mov     edx, [rsp+988h+var_710]
- * 000000014049D2D2: inc     edx
- * 000000014049D2D4: mov     [rsp+988h+var_710], edx
- * 000000014049D2DB: mov     r13d, edx
- * 000000014049D2DE: mov     [rsp+988h+var_708], r13
- * 000000014049D2E6: cmp     r13, [rsp+988h+var_448]
- * 000000014049D2EE: jb      loc_14049C2E3
- * 000000014049D2F4: mov     cs:EmpParseLock.Queue, rsi
- * 000000014049D2FB: xor     edx, edx; Tag
- * 000000014049D2FD: mov     rcx, r15; P
- * 000000014049D300: call    ExFreePoolWithTag
- * 000000014049D305: jmp     loc_14049DACB
- * 000000014049D30A: mov     r9, r11
- * 000000014049D30D: jmp     loc_14049C30D
- * 000000014049D312: mov     r9d, 5
- * 000000014049D318: cmp     cs:dword_140E06AF8, r9d
- * 000000014049D31F: ja      loc_140767024
- * 000000014049D325: mov     r12d, 2
- * 000000014049D32B: lea     r14d, [r12+6]
- * 000000014049D330: mov     qword ptr cs:EmpParseLock.___u33+70h, r11
- * 000000014049D337: mov     qword ptr cs:EmpParseLock.___u33+78h, r11
- * 000000014049D33E: mov     qword ptr cs:EmpParseLock.___u33+80h, r11
- * 000000014049D345: mov     qword ptr cs:EmpParseLock.___u33+88h, r11
- * 000000014049D34C: mov     qword ptr cs:EmpParseLock.___u33+90h, r11
- * 000000014049D353: mov     qword ptr cs:EmpParseLock.___u33+98h, r11
- * 000000014049D35A: mov     qword ptr cs:EmpParseLock.___u33+0A0h, r11
- * 000000014049D361: mov     qword ptr cs:EmpParseLock.___u33+0A8h, r11
- * 000000014049D368: mov     qword ptr cs:EmpParseLock.___u33+0B0h, r11
- * 000000014049D36F: mov     qword ptr cs:EmpParseLock.___u33+0B8h, r11
- * 000000014049D376: mov     qword ptr cs:EmpParseLock.___u34, r11
- * 000000014049D37D: mov     cs:EmpParseLock.QueueListEntry.Flink, r11
- * 000000014049D384: mov     cs:EmpParseLock.QueueListEntry.Blink, r11
- * 000000014049D38B: mov     qword ptr cs:EmpParseLock.___u39, r11
- * 000000014049D392: mov     cs:EmpParseLock.Process, r11
- * 000000014049D399: mov     cs:EmpParseLock.UserAffinity, r11
- * 000000014049D3A0: mov     qword ptr cs:EmpParseLock.UserAffinityPrimaryGroup, r11
- * 000000014049D3A7: mov     cs:EmpParseLock.Teb, rsi
- * 000000014049D3AE: jmp     loc_14049C2BC
- * 000000014049D3B3: imul    rcx, r13, 9B0h
- * 000000014049D3BA: imul    r8, r13, 9B0h
- * 000000014049D3C1: imul    r9, r13, 9B0h
- * 000000014049D3C8: imul    r10, r13, 9B0h
- * 000000014049D3CF: imul    r11, r13, 9B0h
- * 000000014049D3D6: imul    rdi, r13, 9B0h
- * 000000014049D3DD: imul    r14, r13, 9B0h
- * 000000014049D3E4: imul    r15, r13, 9B0h
- * 000000014049D3EB: imul    r12, r13, 9B0h
- * 000000014049D3F2: imul    r13, 9B0h
- * 000000014049D3F9: mov     rdx, [rsp+988h+var_708]
- * 000000014049D401: imul    rax, rdx, 9B0h
- * 000000014049D408: mov     qword ptr [rsp+988h+var_6B0], rax
- * 000000014049D410: imul    rax, rdx, 9B0h
- * 000000014049D417: mov     [rsp+988h+var_6C8], rax
- * 000000014049D41F: imul    rax, rdx, 9B0h
- * 000000014049D426: mov     [rsp+988h+var_6B8], rax
- * 000000014049D42E: imul    rax, rdx, 9B0h
- * 000000014049D435: mov     qword ptr [rsp+988h+var_658+8], rax
- * 000000014049D43D: imul    rax, rdx, 9B0h
- * 000000014049D444: mov     qword ptr [rsp+988h+var_658], rax
- * 000000014049D44C: imul    rax, rdx, 9B0h
- * 000000014049D453: mov     [rsp+988h+var_660], rax
- * 000000014049D45B: imul    rax, rdx, 9B0h
- * 000000014049D462: mov     [rsp+988h+var_668], rax
- * 000000014049D46A: imul    rax, rdx, 9B0h
- * 000000014049D471: mov     [rsp+988h+var_670], rax
- * 000000014049D479: imul    rax, rdx, 9B0h
- * 000000014049D480: mov     [rsp+988h+var_678], rax
- * 000000014049D488: imul    rax, rdx, 9B0h
- * 000000014049D48F: mov     [rsp+988h+var_680], rax
- * 000000014049D497: imul    rax, rdx, 9B0h
- * 000000014049D49E: mov     [rsp+988h+var_688], rax
- * 000000014049D4A6: imul    rax, rdx, 9B0h
- * 000000014049D4AD: mov     [rsp+988h+var_690], rax
- * 000000014049D4B5: imul    rax, rdx, 9B0h
- * 000000014049D4BC: mov     qword ptr [rsp+988h+var_6A0+8], rax
- * 000000014049D4C4: imul    rax, rdx, 9B0h
- * 000000014049D4CB: mov     qword ptr [rsp+988h+var_6A0], rax
- * 000000014049D4D3: imul    rax, rdx, 9B0h
- * 000000014049D4DA: mov     qword ptr [rsp+988h+var_6B0+8], rax
- * 000000014049D4E2: imul    rax, rdx, 9B0h
- * 000000014049D4E9: mov     [rsp+988h+var_630], rax
- * 000000014049D4F1: imul    rax, rdx, 9B0h
- * 000000014049D4F8: mov     [rsp+988h+var_628], rax
- * 000000014049D500: imul    rax, rdx, 9B0h
- * 000000014049D507: mov     [rsp+988h+var_620], rax
- * 000000014049D50F: imul    rax, rdx, 9B0h
- * 000000014049D516: mov     [rsp+988h+var_618], rax
- * 000000014049D51E: imul    rax, rdx, 9B0h
- * 000000014049D525: mov     [rsp+988h+var_610], rax
- * 000000014049D52D: imul    rax, rdx, 9B0h
- * 000000014049D534: mov     [rsp+988h+var_608], rax
- * 000000014049D53C: imul    rax, rdx, 9B0h
- * 000000014049D543: mov     [rsp+988h+var_600], rax
- * 000000014049D54B: imul    rax, rdx, 9B0h
- * 000000014049D552: mov     [rsp+988h+var_5F8], rax
- * 000000014049D55A: imul    rax, rdx, 9B0h
- * 000000014049D561: mov     [rsp+988h+var_5F0], rax
- * 000000014049D569: imul    rax, rdx, 9B0h
- * 000000014049D570: mov     [rsp+988h+var_5E8], rax
- * 000000014049D578: imul    rax, rdx, 9B0h
- * 000000014049D57F: mov     [rsp+988h+var_5E0], rax
- * 000000014049D587: imul    rax, rdx, 9B0h
- * 000000014049D58E: mov     [rsp+988h+var_5D8], rax
- * 000000014049D596: imul    rax, rdx, 9B0h
- * 000000014049D59D: mov     [rsp+988h+var_5D0], rax
- * 000000014049D5A5: imul    rax, rdx, 9B0h
- * 000000014049D5AC: mov     [rsp+988h+var_5C8], rax
- * 000000014049D5B4: imul    rax, rdx, 9B0h
- * 000000014049D5BB: mov     [rsp+988h+var_5C0], rax
- * 000000014049D5C3: imul    rax, rdx, 9B0h
- * 000000014049D5CA: mov     [rsp+988h+var_5B8], rax
- * 000000014049D5D2: imul    rax, rdx, 9B0h
- * 000000014049D5D9: mov     [rsp+988h+var_5B0], rax
- * 000000014049D5E1: imul    rax, rdx, 9B0h
- * 000000014049D5E8: mov     [rsp+988h+var_5A8], rax
- * 000000014049D5F0: imul    rax, rdx, 9B0h
- * 000000014049D5F7: mov     [rsp+988h+var_5A0], rax
- * 000000014049D5FF: imul    rax, rdx, 9B0h
- * 000000014049D606: mov     [rsp+988h+var_598], rax
- * 000000014049D60E: imul    rax, rdx, 9B0h
- * 000000014049D615: mov     [rsp+988h+var_590], rax
- * 000000014049D61D: imul    rax, rdx, 9B0h
- * 000000014049D624: mov     [rsp+988h+var_588], rax
- * 000000014049D62C: imul    rax, rdx, 9B0h
- * 000000014049D633: mov     [rsp+988h+var_648], rax
- * 000000014049D63B: mov     rax, 6666666666666667h
- * 000000014049D645: imul    rbx
- * 000000014049D648: sar     rdx, 2
- * 000000014049D64C: mov     rax, rdx
- * 000000014049D64F: shr     rax, 3Fh
- * 000000014049D653: add     rdx, rax
- * 000000014049D656: mov     [rsp+988h+var_640], rdx
- * 000000014049D65E: imul    rdx, [rsp+988h+var_708], 9B0h
- * 000000014049D66A: mov     rax, [rsp+988h+var_6C0]
- * 000000014049D672: add     rdx, rax
- * 000000014049D675: mov     rax, [rcx+rax+408h]
- * 000000014049D67D: mov     [rsp+988h+var_7E8], rax
- * 000000014049D685: mov     rcx, [rsp+988h+var_6C0]
- * 000000014049D68D: mov     rax, [r8+rcx+400h]
- * 000000014049D695: mov     [rsp+988h+var_7F0], rax
- * 000000014049D69D: mov     rax, [r9+rcx+3F8h]
- * 000000014049D6A5: mov     [rsp+988h+var_7F8], rax
- * 000000014049D6AD: mov     rax, [r10+rcx+3F0h]
- * 000000014049D6B5: mov     [rsp+988h+var_800], rax
- * 000000014049D6BD: mov     rax, [r11+rcx+3E8h]
- * 000000014049D6C5: mov     [rsp+988h+var_808], rax
- * 000000014049D6CD: mov     rax, [rdi+rcx+3E0h]
- * 000000014049D6D5: mov     [rsp+988h+var_810], rax
- * 000000014049D6DD: mov     rax, [r14+rcx+3D8h]
- * 000000014049D6E5: mov     [rsp+988h+var_818], rax
- * 000000014049D6ED: mov     rax, [r15+rcx+3D0h]
- * 000000014049D6F5: mov     [rsp+988h+var_820], rax
- * 000000014049D6FD: mov     r15, rcx
- * 000000014049D700: mov     rax, [r12+rcx+3C8h]
- * 000000014049D708: mov     [rsp+988h+var_828], rax
- * 000000014049D710: mov     rax, [rcx+r13+3C0h]
- * 000000014049D718: mov     [rsp+988h+var_830], rax
- * 000000014049D720: mov     rax, qword ptr [rsp+988h+var_6B0]
- * 000000014049D728: mov     rax, [rax+rcx+3B8h]
- * 000000014049D730: mov     [rsp+988h+var_838], rax
- * 000000014049D738: mov     rax, [rsp+988h+var_6C8]
- * 000000014049D740: mov     rax, [rax+rcx+3B0h]
- * 000000014049D748: mov     [rsp+988h+var_840], rax
- * 000000014049D750: mov     rax, [rsp+988h+var_6B8]
- * 000000014049D758: mov     rax, [rax+rcx+3A8h]
- * 000000014049D760: mov     [rsp+988h+var_848], rax
- * 000000014049D768: mov     rax, qword ptr [rsp+988h+var_658+8]
- * 000000014049D770: mov     rax, [rax+rcx+3A0h]
- * 000000014049D778: mov     [rsp+988h+var_850], rax
- * 000000014049D780: mov     rax, qword ptr [rsp+988h+var_658]
- * 000000014049D788: mov     rax, [rax+rcx+398h]
- * 000000014049D790: mov     [rsp+988h+var_858], rax
- * 000000014049D798: mov     rax, [rsp+988h+var_660]
- * 000000014049D7A0: mov     rax, [rax+rcx+390h]
- * 000000014049D7A8: mov     [rsp+988h+var_860], rax
- * 000000014049D7B0: mov     rax, [rsp+988h+var_668]
- * 000000014049D7B8: mov     rax, [rax+rcx+388h]
- * 000000014049D7C0: mov     [rsp+988h+var_868], rax
- * 000000014049D7C8: mov     rax, [rsp+988h+var_670]
- * 000000014049D7D0: mov     rax, [rax+rcx+380h]
- * 000000014049D7D8: mov     [rsp+988h+var_870], rax
- * 000000014049D7E0: mov     rax, [rsp+988h+var_678]
- * 000000014049D7E8: mov     rax, [rax+rcx+378h]
- * 000000014049D7F0: mov     [rsp+988h+var_878], rax
- * 000000014049D7F8: mov     rax, [rsp+988h+var_680]
- * 000000014049D800: mov     rax, [rax+rcx+370h]
- * 000000014049D808: mov     [rsp+988h+var_880], rax
- * 000000014049D810: mov     rax, [rsp+988h+var_688]
- * 000000014049D818: mov     rax, [rax+rcx+368h]
- * 000000014049D820: mov     [rsp+988h+var_888], rax
- * 000000014049D828: mov     rax, [rsp+988h+var_690]
- * 000000014049D830: mov     rax, [rax+rcx+360h]
- * 000000014049D838: mov     [rsp+988h+var_890], rax
- * 000000014049D840: mov     rax, qword ptr [rsp+988h+var_6A0+8]
- * 000000014049D848: mov     rax, [rax+rcx+358h]
- * 000000014049D850: mov     [rsp+988h+var_898], rax
- * 000000014049D858: mov     rax, qword ptr [rsp+988h+var_6A0]
- * 000000014049D860: mov     rax, [rax+rcx+350h]
- * 000000014049D868: mov     [rsp+988h+var_8A0], rax
- * 000000014049D870: mov     rax, qword ptr [rsp+988h+var_6B0+8]
- * 000000014049D878: mov     rax, [rax+rcx+348h]
- * 000000014049D880: mov     [rsp+988h+var_8A8], rax
- * 000000014049D888: mov     rax, [rsp+988h+var_630]
- * 000000014049D890: mov     rax, [rax+rcx+340h]
- * 000000014049D898: mov     [rsp+988h+var_8B0], rax
- * 000000014049D8A0: mov     rax, [rsp+988h+var_628]
- * 000000014049D8A8: mov     rax, [rax+rcx+338h]
- * 000000014049D8B0: mov     [rsp+988h+var_8B8], rax
- * 000000014049D8B8: mov     rax, [rsp+988h+var_620]
- * 000000014049D8C0: mov     rax, [rax+rcx+330h]
- * 000000014049D8C8: mov     [rsp+988h+var_8C0], rax
- * 000000014049D8D0: mov     rax, [rsp+988h+var_618]
- * 000000014049D8D8: mov     rax, [rax+rcx+328h]
- * 000000014049D8E0: mov     [rsp+988h+var_8C8], rax
- * 000000014049D8E8: mov     rax, [rsp+988h+var_610]
- * 000000014049D8F0: mov     rax, [rax+rcx+320h]
- * 000000014049D8F8: mov     [rsp+988h+var_8D0], rax
- * 000000014049D900: mov     rax, [rsp+988h+var_608]
- * 000000014049D908: mov     rax, [rax+rcx+318h]
- * 000000014049D910: mov     [rsp+988h+var_8D8], rax
- * 000000014049D918: mov     rax, [rsp+988h+var_600]
- * 000000014049D920: mov     rax, [rax+rcx+310h]
- * 000000014049D928: mov     [rsp+988h+var_8E0], rax
- * 000000014049D930: mov     rax, [rsp+988h+var_5F8]
- * 000000014049D938: mov     rax, [rax+rcx+308h]
- * 000000014049D940: mov     qword ptr [rsp+988h+var_8F0+8], rax
- * 000000014049D948: mov     rax, [rsp+988h+var_5F0]
- * 000000014049D950: mov     rax, [rax+rcx+300h]
- * 000000014049D958: mov     qword ptr [rsp+988h+var_8F0], rax
- * 000000014049D960: mov     rax, [rsp+988h+var_5E8]
- * 000000014049D968: mov     rax, [rax+rcx+2F8h]
- * 000000014049D970: mov     qword ptr [rsp+988h+var_900+8], rax
- * 000000014049D978: mov     rax, [rsp+988h+var_5E0]
- * 000000014049D980: mov     rax, [rax+rcx+2F0h]
- * 000000014049D988: mov     qword ptr [rsp+988h+var_900], rax
- * 000000014049D990: mov     rax, [rsp+988h+var_5D8]
- * 000000014049D998: mov     rax, [rax+rcx+2E8h]
- * 000000014049D9A0: mov     [rsp+988h+var_908], rax
- * 000000014049D9A8: mov     rax, [rsp+988h+var_5D0]
- * 000000014049D9B0: mov     rax, [rax+rcx+2E0h]
- * 000000014049D9B8: mov     qword ptr [rsp+988h+var_918+8], rax
- * 000000014049D9BD: mov     rax, [rsp+988h+var_5C8]
- * 000000014049D9C5: mov     rax, [rax+rcx+2D8h]
- * 000000014049D9CD: mov     qword ptr [rsp+988h+var_918], rax
- * 000000014049D9D2: mov     rax, [rsp+988h+var_5C0]
- * 000000014049D9DA: mov     rax, [rax+rcx+2D0h]
- * 000000014049D9E2: mov     qword ptr [rsp+988h+var_928+8], rax
- * 000000014049D9E7: mov     rax, [rsp+988h+var_5B8]
- * 000000014049D9EF: mov     rax, [rax+rcx+2C8h]
- * 000000014049D9F7: mov     qword ptr [rsp+988h+var_928], rax
- * 000000014049D9FC: mov     rax, [rsp+988h+var_5B0]
- * 000000014049DA04: mov     rax, [rax+rcx+2C0h]
- * 000000014049DA0C: mov     qword ptr [rsp+988h+var_938+8], rax
- * 000000014049DA11: mov     rax, [rsp+988h+var_5A8]
- * 000000014049DA19: mov     rax, [rax+rcx+2B8h]
- * 000000014049DA21: mov     qword ptr [rsp+988h+var_938], rax
- * 000000014049DA26: mov     rax, [rsp+988h+var_5A0]
- * 000000014049DA2E: mov     rax, [rax+rcx+2B0h]
- * 000000014049DA36: mov     qword ptr [rsp+988h+var_948+8], rax
- * 000000014049DA3B: mov     rax, [rsp+988h+var_598]
- * 000000014049DA43: mov     rax, [rax+rcx+2A8h]
- * 000000014049DA4B: mov     qword ptr [rsp+988h+var_948], rax
- * 000000014049DA50: mov     rax, [rsp+988h+var_590]
- * 000000014049DA58: mov     rax, [rax+rcx+2A0h]
- * 000000014049DA60: mov     qword ptr [rsp+988h+var_958+8], rax
- * 000000014049DA65: mov     rax, [rsp+988h+var_588]
- * 000000014049DA6D: mov     rax, [rax+rcx+298h]
- * 000000014049DA75: mov     qword ptr [rsp+988h+var_958], rax
- * 000000014049DA7A: mov     rax, [rsp+988h+var_648]
- * 000000014049DA82: mov     rax, [rax+rcx+290h]
- * 000000014049DA8A: mov     [rsp+988h+var_960], rax
- * 000000014049DA8F: mov     rax, [rsp+988h+var_640]
- * 000000014049DA97: mov     [rsp+988h+var_968], rax
- * 000000014049DA9C: mov     r9, rdx
- * 000000014049DA9F: call    McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer
- * 000000014049DAA4: mov     r14d, 8
- * 000000014049DAAA: mov     r13, [rsp+988h+var_708]
- * 000000014049DAB2: lea     r12d, [r14-6]
- * 000000014049DAB6: jmp     loc_14049C77E
- * 000000014049DABB: mov     r14b, 1
- * 000000014049DABE: mov     [rsp+988h+var_718], r14b
- * 000000014049DAC6: jmp     loc_14049C034
- * 000000014049DACB: mov     rcx, [rsp+988h+var_28]
- * 000000014049DAD3: xor     rcx, rsp; StackCookie
- * 000000014049DAD6: call    __security_check_cookie
- * 000000014049DADB: lea     r11, [rsp+988h+var_18]
- * 000000014049DAE3: mov     rbx, [r11+20h]
- * 000000014049DAE7: mov     rsi, [r11+28h]
- * 000000014049DAEB: mov     rdi, [r11+30h]
- * 000000014049DAEF: mov     r12, [r11+38h]
- * 000000014049DAF3: mov     rsp, r11
- * 000000014049DAF6: pop     r15
- * 000000014049DAF8: pop     r14
- * 000000014049DAFA: pop     r13
- * 000000014049DAFC: retn
- * 00000001407495FE: push    rbp
- * 0000000140749600: sub     rsp, 270h
- * 0000000140749607: mov     rbp, rdx
- * 000000014074960A: call    KeRcuReadUnlock
- * 000000014074960F: nop
- * 0000000140749610: add     rsp, 270h
- * 0000000140749617: pop     rbp
- * 0000000140749618: retn
- * 0000000140767024: mov     rdx, 400000000000h
- * 000000014076702E: lea     rcx, dword_140E06AF8
- * 0000000140767035: call    _tlgKeywordOn
- * 000000014076703A: test    al, al
- * 000000014076703C: jz      loc_14049D325
- * 0000000140767042: mov     [rsp+988h+var_6D0], 1000000h
- * 000000014076704E: lea     rax, [rsp+988h+var_6D0]
- * 0000000140767056: mov     [rsp+988h+var_418], rax
- * 000000014076705E: mov     r14d, 8
- * 0000000140767064: mov     [rsp+988h+var_410], r14
- * 000000014076706C: mov     [rsp+988h+var_714], r9w
- * 0000000140767075: lea     rax, [rsp+988h+var_714]
- * 000000014076707D: mov     [rsp+988h+var_408], rax
- * 0000000140767085: lea     r12d, [r14-6]
- * 0000000140767089: mov     [rsp+988h+var_400], r12
- * 0000000140767091: mov     rax, r8
- * 0000000140767094: imul    rdi
- * 0000000140767097: sar     rdx, 2
- * 000000014076709B: mov     rax, rdx
- * 000000014076709E: shr     rax, 3Fh
- * 00000001407670A2: add     rdx, rax
- * 00000001407670A5: mov     [rsp+988h+var_708], rdx
- * 00000001407670AD: lea     rax, [rsp+988h+var_708]
- * 00000001407670B5: mov     [rsp+988h+var_3F8], rax
- * 00000001407670BD: mov     [rsp+988h+var_3F0], r14
- * 00000001407670C5: mov     eax, cs:CcNumberNumaNodes
- * 00000001407670CB: mov     [rsp+988h+var_710], eax
- * 00000001407670D2: lea     rax, [rsp+988h+var_710]
- * 00000001407670DA: mov     [rsp+988h+var_3E8], rax
- * 00000001407670E2: mov     [rsp+988h+var_3E0], 4
- * 00000001407670EE: mov     rax, qword ptr cs:EmpParseLock.___u33+70h
- * 00000001407670F5: mov     [rsp+988h+var_700], rax
- * 00000001407670FD: lea     rax, [rsp+988h+var_700]
- * 0000000140767105: mov     [rsp+988h+var_3D8], rax
- * 000000014076710D: mov     [rsp+988h+var_3D0], r14
- * 0000000140767115: mov     rax, qword ptr cs:EmpParseLock.___u33+78h
- * 000000014076711C: mov     [rsp+988h+var_6D8], rax
- * 0000000140767124: lea     rax, [rsp+988h+var_6D8]
- * 000000014076712C: mov     [rsp+988h+var_3C8], rax
- * 0000000140767134: mov     [rsp+988h+var_3C0], r14
- * 000000014076713C: mov     rax, qword ptr cs:EmpParseLock.___u33+0A8h
- * 0000000140767143: mov     qword ptr [rsp+988h+var_6B0+8], rax
- * 000000014076714B: lea     rax, [rsp+988h+var_6B0+8]
- * 0000000140767153: mov     [rsp+988h+var_3B8], rax
- * 000000014076715B: mov     [rsp+988h+var_3B0], r14
- * 0000000140767163: mov     rax, qword ptr cs:EmpParseLock.___u33+0B0h
- * 000000014076716A: mov     qword ptr [rsp+988h+var_6A0], rax
- * 0000000140767172: lea     rax, [rsp+988h+var_6A0]
- * 000000014076717A: mov     [rsp+988h+var_3A8], rax
- * 0000000140767182: mov     [rsp+988h+var_3A0], r14
- * 000000014076718A: mov     rax, qword ptr cs:EmpParseLock.___u33+0B8h
- * 0000000140767191: mov     qword ptr [rsp+988h+var_6A0+8], rax
- * 0000000140767199: lea     rax, [rsp+988h+var_6A0+8]
- * 00000001407671A1: mov     [rsp+988h+var_398], rax
- * 00000001407671A9: mov     [rsp+988h+var_390], r14
- * 00000001407671B1: mov     rax, qword ptr cs:EmpParseLock.___u34
- * 00000001407671B8: mov     [rsp+988h+var_690], rax
- * 00000001407671C0: lea     rax, [rsp+988h+var_690]
- * 00000001407671C8: mov     [rsp+988h+var_388], rax
- * 00000001407671D0: mov     [rsp+988h+var_380], r14
- * 00000001407671D8: mov     rax, cs:EmpParseLock.QueueListEntry.Flink
- * 00000001407671DF: mov     [rsp+988h+var_688], rax
- * 00000001407671E7: lea     rax, [rsp+988h+var_688]
- * 00000001407671EF: mov     [rsp+988h+var_378], rax
- * 00000001407671F7: mov     [rsp+988h+var_370], r14
- * 00000001407671FF: mov     rax, cs:EmpParseLock.QueueListEntry.Blink
- * 0000000140767206: mov     [rsp+988h+var_680], rax
- * 000000014076720E: lea     rax, [rsp+988h+var_680]
- * 0000000140767216: mov     [rsp+988h+var_368], rax
- * 000000014076721E: mov     [rsp+988h+var_360], r14
- * 0000000140767226: mov     rax, qword ptr cs:EmpParseLock.___u39
- * 000000014076722D: mov     [rsp+988h+var_678], rax
- * 0000000140767235: lea     rax, [rsp+988h+var_678]
- * 000000014076723D: mov     [rsp+988h+var_358], rax
- * 0000000140767245: mov     [rsp+988h+var_350], r14
- * 000000014076724D: mov     rax, cs:EmpParseLock.Process
- * 0000000140767254: mov     [rsp+988h+var_670], rax
- * 000000014076725C: lea     rax, [rsp+988h+var_670]
- * 0000000140767264: mov     [rsp+988h+var_348], rax
- * 000000014076726C: mov     [rsp+988h+var_340], r14
- * 0000000140767274: mov     rax, cs:EmpParseLock.UserAffinity
- * 000000014076727B: mov     [rsp+988h+var_668], rax
- * 0000000140767283: lea     rax, [rsp+988h+var_668]
- * 000000014076728B: mov     [rsp+988h+var_338], rax
- * 0000000140767293: mov     [rsp+988h+var_330], r14
- * 000000014076729B: mov     rax, qword ptr cs:EmpParseLock.UserAffinityPrimaryGroup
- * 00000001407672A2: mov     [rsp+988h+var_660], rax
- * 00000001407672AA: lea     rax, [rsp+988h+var_660]
- * 00000001407672B2: mov     [rsp+988h+var_328], rax
- * 00000001407672BA: mov     [rsp+988h+var_320], r14
- * 00000001407672C2: mov     rax, qword ptr cs:EmpParseLock.___u33+80h
- * 00000001407672C9: mov     qword ptr [rsp+988h+var_658], rax
- * 00000001407672D1: lea     rax, [rsp+988h+var_658]
- * 00000001407672D9: mov     [rsp+988h+var_318], rax
- * 00000001407672E1: mov     [rsp+988h+var_310], r14
- * 00000001407672E9: mov     rax, qword ptr cs:EmpParseLock.___u33+88h
- * 00000001407672F0: mov     qword ptr [rsp+988h+var_658+8], rax
- * 00000001407672F8: lea     rax, [rsp+988h+var_658+8]
- * 0000000140767300: mov     [rsp+988h+var_308], rax
- * 0000000140767308: mov     [rsp+988h+var_300], r14
- * 0000000140767310: mov     rax, qword ptr cs:EmpParseLock.___u33+90h
- * 0000000140767317: mov     [rsp+988h+var_6B8], rax
- * 000000014076731F: lea     rax, [rsp+988h+var_6B8]
- * 0000000140767327: mov     [rsp+988h+var_2F8], rax
- * 000000014076732F: mov     [rsp+988h+var_2F0], r14
- * 0000000140767337: mov     rax, qword ptr cs:EmpParseLock.___u33+98h
- * 000000014076733E: mov     [rsp+988h+var_6C8], rax
- * 0000000140767346: lea     rax, [rsp+988h+var_6C8]
- * 000000014076734E: mov     [rsp+988h+var_2E8], rax
- * 0000000140767356: mov     [rsp+988h+var_2E0], r14
- * 000000014076735E: mov     rax, qword ptr cs:EmpParseLock.___u33+0A0h
- * 0000000140767365: mov     qword ptr [rsp+988h+var_6B0], rax
- * 000000014076736D: lea     rax, [rsp+988h+var_6B0]
- * 0000000140767375: mov     [rsp+988h+var_2D8], rax
- * 000000014076737D: mov     [rsp+988h+var_2D0], r14
- * 0000000140767385: lea     rax, [rsp+988h+var_438]
- * 000000014076738D: mov     [rsp+988h+var_960], rax
- * 0000000140767392: mov     dword ptr [rsp+988h+var_968], 17h
- * 000000014076739A: xor     r9d, r9d
- * 000000014076739D: xor     r8d, r8d
- * 00000001407673A0: lea     rdx, word_140044F1A
- * 00000001407673A7: lea     rcx, dword_140E06AF8
- * 00000001407673AE: call    _tlgWriteTransfer_EtwWriteTransfer
- * 00000001407673B3: xor     r11d, r11d
- * 00000001407673B6: jmp     loc_14049D330
- * 00000001407673BB: mov     rax, 6666666666666667h
- * 00000001407673C5: imul    rbx
- * 00000001407673C8: sar     rdx, 2
- * 00000001407673CC: mov     rax, rdx
- * 00000001407673CF: shr     rax, 3Fh
- * 00000001407673D3: add     rdx, rax
- * 00000001407673D6: mov     rax, [rdi+418h]
- * 00000001407673DD: mov     [rsp+988h+var_850], rax
- * 00000001407673E5: mov     rax, [rdi+410h]
- * 00000001407673EC: mov     [rsp+988h+var_858], rax
- * 00000001407673F4: mov     rax, [rdi+288h]
- * 00000001407673FB: mov     [rsp+988h+var_860], rax
- * 0000000140767403: mov     rax, [rdi+280h]
- * 000000014076740A: mov     [rsp+988h+var_868], rax
- * 0000000140767412: mov     rax, [rdi+278h]
- * 0000000140767419: mov     [rsp+988h+var_870], rax
- * 0000000140767421: mov     rax, [rdi+270h]
- * 0000000140767428: mov     [rsp+988h+var_878], rax
- * 0000000140767430: mov     rax, [rdi+268h]
- * 0000000140767437: mov     [rsp+988h+var_880], rax
- * 000000014076743F: mov     rax, [rdi+0E0h]
- * 0000000140767446: mov     [rsp+988h+var_888], rax
- * 000000014076744E: mov     rax, [rdi+0D8h]
- * 0000000140767455: mov     [rsp+988h+var_890], rax
- * 000000014076745D: mov     rax, [rdi+98h]
- * 0000000140767464: mov     [rsp+988h+var_898], rax
- * 000000014076746C: mov     rax, [rdi+90h]
- * 0000000140767473: mov     [rsp+988h+var_8A0], rax
- * 000000014076747B: mov     rax, [rdi+88h]
- * 0000000140767482: mov     [rsp+988h+var_8A8], rax
- * 000000014076748A: mov     rax, [rdi+0B0h]
- * 0000000140767491: mov     [rsp+988h+var_8B0], rax
- * 0000000140767499: mov     rax, [rdi+0A8h]
- * 00000001407674A0: mov     [rsp+988h+var_8B8], rax
- * 00000001407674A8: mov     rax, [rdi+0A0h]
- * 00000001407674AF: mov     [rsp+988h+var_8C0], rax
- * 00000001407674B7: mov     [rsp+988h+var_8C8], r9
- * 00000001407674BF: mov     rax, [rdi+80h]
- * 00000001407674C6: mov     [rsp+988h+var_8D0], rax
- * 00000001407674CE: mov     rax, [rdi+78h]
- * 00000001407674D2: mov     [rsp+988h+var_8D8], rax
- * 00000001407674DA: mov     [rsp+988h+var_8E0], r8
- * 00000001407674E2: mov     rax, [rdi+68h]
- * 00000001407674E6: mov     qword ptr [rsp+988h+var_8F0+8], rax
- * 00000001407674EE: mov     rax, [rdi+60h]
- * 00000001407674F2: mov     qword ptr [rsp+988h+var_8F0], rax
- * 00000001407674FA: mov     rax, [rdi+58h]
- * 00000001407674FE: mov     qword ptr [rsp+988h+var_900+8], rax
- * 0000000140767506: mov     rax, [rdi+50h]
- * 000000014076750A: mov     qword ptr [rsp+988h+var_900], rax
- * 0000000140767512: mov     rax, [rdi+48h]
- * 0000000140767516: mov     [rsp+988h+var_908], rax
- * 000000014076751E: mov     rax, [rdi+40h]
- * 0000000140767522: mov     qword ptr [rsp+988h+var_918+8], rax
- * 0000000140767527: mov     rax, [rdi+0D0h]
- * 000000014076752E: mov     qword ptr [rsp+988h+var_918], rax
- * 0000000140767533: mov     rax, [rdi+0C8h]
- * 000000014076753A: mov     qword ptr [rsp+988h+var_928+8], rax
- * 000000014076753F: mov     rax, [rdi+0C0h]
- * 0000000140767546: mov     qword ptr [rsp+988h+var_928], rax
- * 000000014076754B: mov     rax, [rdi+0B8h]
- * 0000000140767552: mov     qword ptr [rsp+988h+var_938+8], rax
- * 0000000140767557: mov     rax, [rdi+38h]
- * 000000014076755B: mov     qword ptr [rsp+988h+var_938], rax
- * 0000000140767560: mov     rax, [rdi+30h]
- * 0000000140767564: mov     qword ptr [rsp+988h+var_948+8], rax
- * 0000000140767569: mov     rax, [rdi+28h]
- * 000000014076756D: mov     qword ptr [rsp+988h+var_948], rax
- * 0000000140767572: mov     rax, [rdi+20h]
- * 0000000140767576: mov     qword ptr [rsp+988h+var_958+8], rax
- * 000000014076757B: mov     rax, [rdi+18h]
- * 000000014076757F: mov     qword ptr [rsp+988h+var_958], rax
- * 0000000140767584: mov     rax, [rdi+10h]
- * 0000000140767588: mov     [rsp+988h+var_960], rax
- * 000000014076758D: mov     [rsp+988h+var_968], rdx
- * 0000000140767592: mov     r9, rdi
- * 0000000140767595: call    McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer
- * 000000014076759A: nop
- * 000000014076759B: jmp     loc_14049C323
+ * 0000000140495AE0: mov     r11, rsp
+ * 0000000140495AE3: mov     [r11+8], rbx
+ * 0000000140495AE7: mov     [r11+10h], rsi
+ * 0000000140495AEB: mov     [r11+18h], rdi
+ * 0000000140495AEF: mov     [r11+20h], r12
+ * 0000000140495AF3: push    r13
+ * 0000000140495AF5: push    r14
+ * 0000000140495AF7: push    r15
+ * 0000000140495AF9: sub     rsp, 970h
+ * 0000000140495B00: mov     rax, cs:__security_cookie
+ * 0000000140495B07: xor     rax, rsp
+ * 0000000140495B0A: mov     [rsp+988h+var_28], rax
+ * 0000000140495B12: xor     r14b, r14b
+ * 0000000140495B15: mov     [rsp+988h+var_718], r14b
+ * 0000000140495B1D: xor     r13d, r13d
+ * 0000000140495B20: mov     [r11-700h], r13d
+ * 0000000140495B27: mov     [r11-6D8h], r13d
+ * 0000000140495B2E: mov     rsi, 0FFFFF78000000014h
+ * 0000000140495B38: mov     rsi, [rsi]
+ * 0000000140495B3B: mov     rbx, rsi
+ * 0000000140495B3E: sub     rbx, cs:EmpParseLock.Teb
+ * 0000000140495B45: mov     rdi, rsi
+ * 0000000140495B48: sub     rdi, cs:EmpParseLock.RelativeTimerBias
+ * 0000000140495B4F: cmp     rbx, cs:EmpParseLock.Timer.Header.WaitListHead.Flink
+ * 0000000140495B56: jge     short loc_140495B6A
+ * 0000000140495B58: mov     rax, qword ptr cs:EmpParseLock.Timer.DueTime
+ * 0000000140495B5F: test    rax, rax
+ * 0000000140495B62: jle     short loc_140495B6A
+ * 0000000140495B64: jmp     loc_14049761B
+ * 0000000140495B6A: cmp     rdi, cs:EmpParseLock.Timer.Header.WaitListHead.Blink
+ * 0000000140495B71: jge     loc_14049760B
+ * 0000000140495B77: cmp     qword ptr cs:EmpParseLock.Timer.DueTime, r13
+ * 0000000140495B7E: jz      loc_14049760B
+ * 0000000140495B84: inc     qword ptr cs:EmpParseLock.Timer.DueTime
+ * 0000000140495B8B: mov     rax, cs:EmpParseLock.Timer.TimerListEntry.Blink
+ * 0000000140495B92: add     rax, 0Ah
+ * 0000000140495B96: mov     [rsp+988h+var_708], rax
+ * 0000000140495B9E: imul    rdx, rax, 9B0h; NumberOfBytes
+ * 0000000140495BA5: mov     ecx, 600h; PoolType
+ * 0000000140495BAA: mov     r8d, 65546343h; Tag
+ * 0000000140495BB0: call    ExAllocatePoolWithTag
+ * 0000000140495BB5: mov     r15, rax
+ * 0000000140495BB8: mov     [rsp+988h+var_6C0], rax
+ * 0000000140495BC0: test    rax, rax
+ * 0000000140495BC3: jz      loc_14049761B
+ * 0000000140495BC9: call    KeRcuReadLock
+ * 0000000140495BCE: mov     r12, cs:EmpParseLock.KernelWaitTime
+ * 0000000140495BD5: mov     [rsp+988h+var_638], r12
+ * 0000000140495BDD: mov     rdx, [rsp+988h+var_708]
+ * 0000000140495BE5: lea     rax, EmpParseLock.KernelWaitTime
+ * 0000000140495BEC: cmp     r12, rax
+ * 0000000140495BEF: jz      loc_140495CD5
+ * 0000000140495BF5: mov     ecx, dword ptr [rsp+988h+var_6D8]
+ * 0000000140495BFC: cmp     rcx, rdx
+ * 0000000140495BFF: jnb     loc_140495CD5
+ * 0000000140495C05: inc     ecx
+ * 0000000140495C07: mov     dword ptr [rsp+988h+var_6D8], ecx
+ * 0000000140495C0E: mov     [rsp+988h+var_580], ecx
+ * 0000000140495C15: lea     rcx, [r12-18h]
+ * 0000000140495C1A: call    CcHasVolumeTelemetryChanged
+ * 0000000140495C1F: test    al, al
+ * 0000000140495C21: jnz     short loc_140495C40
+ * 0000000140495C23: test    r14b, r14b
+ * 0000000140495C26: jnz     short loc_140495C32
+ * 0000000140495C28: mov     r13d, dword ptr [rsp+988h+var_700]
+ * 0000000140495C30: jmp     short loc_140495BE5
+ * 0000000140495C32: lea     rcx, [r12-18h]
+ * 0000000140495C37: call    CcHasVolumeCumulativeTelemetryChanged
+ * 0000000140495C3C: test    al, al
+ * 0000000140495C3E: jz      short loc_140495C28
+ * 0000000140495C40: lea     r14, [r12+0D0h]
+ * 0000000140495C48: mov     rcx, r14
+ * 0000000140495C4B: call    CcAggregateCumulativeVolumeTelemetry
+ * 0000000140495C50: mov     r11d, dword ptr [rsp+988h+var_700]
+ * 0000000140495C58: imul    rcx, r11, 9B0h
+ * 0000000140495C5F: add     rcx, r15; void *
+ * 0000000140495C62: mov     rdx, r14; Src
+ * 0000000140495C65: mov     r8d, 9B0h; Size
+ * 0000000140495C6B: call    memmove
+ * 0000000140495C70: lea     rcx, [r12+0E0h]; void *
+ * 0000000140495C78: xor     edx, edx; Val
+ * 0000000140495C7A: mov     r8d, 4D0h; Size
+ * 0000000140495C80: call    memset_0
+ * 0000000140495C85: mov     r14b, [rsp+988h+var_718]
+ * 0000000140495C8D: test    r14b, r14b
+ * 0000000140495C90: jnz     short loc_140495CBE
+ * 0000000140495C92: mov     r12, [r12]
+ * 0000000140495C96: mov     [rsp+988h+var_638], r12
+ * 0000000140495C9E: mov     r13d, dword ptr [rsp+988h+var_700]
+ * 0000000140495CA6: inc     r13d
+ * 0000000140495CA9: mov     dword ptr [rsp+988h+var_700], r13d
+ * 0000000140495CB1: mov     [rsp+988h+var_57C], r13d
+ * 0000000140495CB9: jmp     loc_140495BDD
+ * 0000000140495CBE: lea     rcx, [r12+5B0h]; void *
+ * 0000000140495CC6: xor     edx, edx; Val
+ * 0000000140495CC8: mov     r8d, 4D0h; Size
+ * 0000000140495CCE: call    memset_0
+ * 0000000140495CD3: jmp     short loc_140495C92
+ * 0000000140495CD5: call    KeRcuReadUnlock
+ * 0000000140495CDA: call    CcAggregateCumulativeGlobalTelemetry
+ * 0000000140495CDF: mov     ecx, dword ptr cs:EmpParseLock.SchedulerAssistLastYieldBoostTime+4
+ * 0000000140495CE5: test    cl, 1
+ * 0000000140495CE8: jz      loc_140495DE9
+ * 0000000140495CEE: mov     rax, 6666666666666667h
+ * 0000000140495CF8: imul    rbx
+ * 0000000140495CFB: sar     rdx, 2
+ * 0000000140495CFF: mov     r9, rdx
+ * 0000000140495D02: shr     r9, 3Fh
+ * 0000000140495D06: add     r9, rdx
+ * 0000000140495D09: mov     rax, qword ptr cs:EmpParseLock.___u33+20h
+ * 0000000140495D10: mov     qword ptr [rsp+988h+var_8F0+8], rax
+ * 0000000140495D18: mov     rax, qword ptr cs:EmpParseLock.___u33+18h
+ * 0000000140495D1F: mov     qword ptr [rsp+988h+var_8F0], rax
+ * 0000000140495D27: mov     rax, qword ptr cs:EmpParseLock.___u33+10h
+ * 0000000140495D2E: mov     qword ptr [rsp+988h+var_900+8], rax
+ * 0000000140495D36: mov     rax, qword ptr cs:EmpParseLock.___u33+8
+ * 0000000140495D3D: mov     qword ptr [rsp+988h+var_900], rax
+ * 0000000140495D45: mov     rax, qword ptr cs:EmpParseLock.___u33
+ * 0000000140495D4C: mov     [rsp+988h+var_908], rax
+ * 0000000140495D54: mov     rax, qword ptr cs:EmpParseLock.___u33+70h
+ * 0000000140495D5B: mov     qword ptr [rsp+988h+var_918+8], rax
+ * 0000000140495D60: mov     rax, qword ptr cs:EmpParseLock.___u33+68h
+ * 0000000140495D67: mov     qword ptr [rsp+988h+var_918], rax
+ * 0000000140495D6C: mov     rax, qword ptr cs:EmpParseLock.___u33+60h
+ * 0000000140495D73: mov     qword ptr [rsp+988h+var_928+8], rax
+ * 0000000140495D78: mov     rax, qword ptr cs:EmpParseLock.___u33+58h
+ * 0000000140495D7F: mov     qword ptr [rsp+988h+var_928], rax
+ * 0000000140495D84: mov     rax, qword ptr cs:EmpParseLock.___u33+50h
+ * 0000000140495D8B: mov     qword ptr [rsp+988h+var_938+8], rax
+ * 0000000140495D90: mov     rax, qword ptr cs:EmpParseLock.___u33+48h
+ * 0000000140495D97: mov     qword ptr [rsp+988h+var_938], rax
+ * 0000000140495D9C: mov     rax, qword ptr cs:EmpParseLock.___u33+40h
+ * 0000000140495DA3: mov     qword ptr [rsp+988h+var_948+8], rax
+ * 0000000140495DA8: mov     rax, qword ptr cs:EmpParseLock.___u33+38h
+ * 0000000140495DAF: mov     qword ptr [rsp+988h+var_948], rax
+ * 0000000140495DB4: mov     rax, qword ptr cs:EmpParseLock.___u33+30h
+ * 0000000140495DBB: mov     qword ptr [rsp+988h+var_958+8], rax
+ * 0000000140495DC0: mov     rax, qword ptr cs:EmpParseLock.___u33+28h
+ * 0000000140495DC7: mov     qword ptr [rsp+988h+var_958], rax
+ * 0000000140495DCC: mov     rax, qword ptr cs:EmpParseLock.Timer.Processor
+ * 0000000140495DD3: mov     [rsp+988h+var_960], rax
+ * 0000000140495DD8: mov     rax, cs:EmpParseLock.Timer.Dpc
+ * 0000000140495DDF: mov     [rsp+988h+var_968], rax
+ * 0000000140495DE4: call    McTemplateK0xxxxxxxxxxxxxxxxxxq_EtwWriteTransfer
+ * 0000000140495DE9: mov     r8, 6666666666666667h
+ * 0000000140495DF3: call    CcResetGlobalTelemetry
+ * 0000000140495DF8: xor     r11d, r11d
+ * 0000000140495DFB: test    r14b, r14b
+ * 0000000140495DFE: jnz     loc_140496E62
+ * 0000000140495E04: lea     r14d, [r11+8]
+ * 0000000140495E08: lea     r12d, [r11+2]
+ * 0000000140495E0C: mov     eax, r13d
+ * 0000000140495E0F: mov     [rsp+988h+var_448], rax
+ * 0000000140495E17: mov     [rsp+988h+var_710], r11d
+ * 0000000140495E1F: test    r13d, r13d
+ * 0000000140495E22: jz      loc_140496E44
+ * 0000000140495E28: mov     r13, r11
+ * 0000000140495E2B: mov     [rsp+988h+var_708], r11
+ * 0000000140495E33: imul    rdi, r13, 9B0h
+ * 0000000140495E3A: add     rdi, r15
+ * 0000000140495E3D: mov     r8, [rdi+70h]
+ * 0000000140495E41: test    r8, r8
+ * 0000000140495E44: jz      loc_140496E5A
+ * 0000000140495E4A: mov     rax, r8
+ * 0000000140495E4D: sub     rax, [rdi+78h]
+ * 0000000140495E51: imul    rax, 64h ; 'd'
+ * 0000000140495E55: xor     edx, edx
+ * 0000000140495E57: div     r8
+ * 0000000140495E5A: mov     r9, rax
+ * 0000000140495E5D: mov     [rsp+988h+var_6D0], r9
+ * 0000000140495E65: mov     eax, dword ptr cs:EmpParseLock.SchedulerAssistLastYieldBoostTime+4
+ * 0000000140495E6B: test    al, 1
+ * 0000000140495E6D: jnz     loc_14076B23D
+ * 0000000140495E73: mov     eax, dword ptr cs:EmpParseLock.SchedulerAssistLastYieldBoostTime+4
+ * 0000000140495E79: test    al, 1
+ * 0000000140495E7B: jz      loc_1404962C0
+ * 0000000140495E81: mov     rax, 6666666666666667h
+ * 0000000140495E8B: imul    rbx
+ * 0000000140495E8E: sar     rdx, 2
+ * 0000000140495E92: mov     rax, rdx
+ * 0000000140495E95: shr     rax, 3Fh
+ * 0000000140495E99: add     rdx, rax
+ * 0000000140495E9C: mov     rax, [rdi+4D8h]
+ * 0000000140495EA3: mov     [rsp+988h+var_728], rax
+ * 0000000140495EAB: mov     rax, [rdi+4D0h]
+ * 0000000140495EB2: mov     [rsp+988h+var_730], rax
+ * 0000000140495EBA: mov     rax, [rdi+4C8h]
+ * 0000000140495EC1: mov     [rsp+988h+var_738], rax
+ * 0000000140495EC9: mov     rax, [rdi+4C0h]
+ * 0000000140495ED0: mov     [rsp+988h+var_740], rax
+ * 0000000140495ED8: mov     rax, [rdi+4B8h]
+ * 0000000140495EDF: mov     [rsp+988h+var_748], rax
+ * 0000000140495EE7: mov     rax, [rdi+4B0h]
+ * 0000000140495EEE: mov     [rsp+988h+var_750], rax
+ * 0000000140495EF6: mov     rax, [rdi+4A8h]
+ * 0000000140495EFD: mov     [rsp+988h+var_758], rax
+ * 0000000140495F05: mov     rax, [rdi+4A0h]
+ * 0000000140495F0C: mov     [rsp+988h+var_760], rax
+ * 0000000140495F14: mov     rax, [rdi+498h]
+ * 0000000140495F1B: mov     [rsp+988h+var_768], rax
+ * 0000000140495F23: mov     rax, [rdi+490h]
+ * 0000000140495F2A: mov     [rsp+988h+var_770], rax
+ * 0000000140495F32: mov     rax, [rdi+488h]
+ * 0000000140495F39: mov     [rsp+988h+var_778], rax
+ * 0000000140495F41: mov     rax, [rdi+480h]
+ * 0000000140495F48: mov     [rsp+988h+var_780], rax
+ * 0000000140495F50: mov     rax, [rdi+478h]
+ * 0000000140495F57: mov     [rsp+988h+var_788], rax
+ * 0000000140495F5F: mov     rax, [rdi+470h]
+ * 0000000140495F66: mov     [rsp+988h+var_790], rax
+ * 0000000140495F6E: mov     rax, [rdi+468h]
+ * 0000000140495F75: mov     [rsp+988h+var_798], rax
+ * 0000000140495F7D: mov     rax, [rdi+460h]
+ * 0000000140495F84: mov     [rsp+988h+var_7A0], rax
+ * 0000000140495F8C: mov     rax, [rdi+458h]
+ * 0000000140495F93: mov     [rsp+988h+var_7A8], rax
+ * 0000000140495F9B: mov     rax, [rdi+450h]
+ * 0000000140495FA2: mov     [rsp+988h+var_7B0], rax
+ * 0000000140495FAA: mov     rax, [rdi+448h]
+ * 0000000140495FB1: mov     [rsp+988h+var_7B8], rax
+ * 0000000140495FB9: mov     rax, [rdi+440h]
+ * 0000000140495FC0: mov     [rsp+988h+var_7C0], rax
+ * 0000000140495FC8: mov     rax, [rdi+438h]
+ * 0000000140495FCF: mov     [rsp+988h+var_7C8], rax
+ * 0000000140495FD7: mov     rax, [rdi+430h]
+ * 0000000140495FDE: mov     [rsp+988h+var_7D0], rax
+ * 0000000140495FE6: mov     rax, [rdi+428h]
+ * 0000000140495FED: mov     [rsp+988h+var_7D8], rax
+ * 0000000140495FF5: mov     rax, [rdi+420h]
+ * 0000000140495FFC: mov     [rsp+988h+var_7E0], rax
+ * 0000000140496004: mov     rax, [rdi+260h]
+ * 000000014049600B: mov     [rsp+988h+var_7E8], rax
+ * 0000000140496013: mov     rax, [rdi+258h]
+ * 000000014049601A: mov     [rsp+988h+var_7F0], rax
+ * 0000000140496022: mov     rax, [rdi+250h]
+ * 0000000140496029: mov     [rsp+988h+var_7F8], rax
+ * 0000000140496031: mov     rax, [rdi+248h]
+ * 0000000140496038: mov     [rsp+988h+var_800], rax
+ * 0000000140496040: mov     rax, [rdi+240h]
+ * 0000000140496047: mov     [rsp+988h+var_808], rax
+ * 000000014049604F: mov     rax, [rdi+238h]
+ * 0000000140496056: mov     [rsp+988h+var_810], rax
+ * 000000014049605E: mov     rax, [rdi+230h]
+ * 0000000140496065: mov     [rsp+988h+var_818], rax
+ * 000000014049606D: mov     rax, [rdi+228h]
+ * 0000000140496074: mov     [rsp+988h+var_820], rax
+ * 000000014049607C: mov     rax, [rdi+220h]
+ * 0000000140496083: mov     [rsp+988h+var_828], rax
+ * 000000014049608B: mov     rax, [rdi+218h]
+ * 0000000140496092: mov     [rsp+988h+var_830], rax
+ * 000000014049609A: mov     rax, [rdi+210h]
+ * 00000001404960A1: mov     [rsp+988h+var_838], rax
+ * 00000001404960A9: mov     rax, [rdi+208h]
+ * 00000001404960B0: mov     [rsp+988h+var_840], rax
+ * 00000001404960B8: mov     rax, [rdi+200h]
+ * 00000001404960BF: mov     [rsp+988h+var_848], rax
+ * 00000001404960C7: mov     rax, [rdi+1F8h]
+ * 00000001404960CE: mov     [rsp+988h+var_850], rax
+ * 00000001404960D6: mov     rax, [rdi+1F0h]
+ * 00000001404960DD: mov     [rsp+988h+var_858], rax
+ * 00000001404960E5: mov     rax, [rdi+1E8h]
+ * 00000001404960EC: mov     [rsp+988h+var_860], rax
+ * 00000001404960F4: mov     rax, [rdi+1E0h]
+ * 00000001404960FB: mov     [rsp+988h+var_868], rax
+ * 0000000140496103: mov     rax, [rdi+1D8h]
+ * 000000014049610A: mov     [rsp+988h+var_870], rax
+ * 0000000140496112: mov     rax, [rdi+1D0h]
+ * 0000000140496119: mov     [rsp+988h+var_878], rax
+ * 0000000140496121: mov     rax, [rdi+1C8h]
+ * 0000000140496128: mov     [rsp+988h+var_880], rax
+ * 0000000140496130: mov     rax, [rdi+1C0h]
+ * 0000000140496137: mov     [rsp+988h+var_888], rax
+ * 000000014049613F: mov     rax, [rdi+1B8h]
+ * 0000000140496146: mov     [rsp+988h+var_890], rax
+ * 000000014049614E: mov     rax, [rdi+1B0h]
+ * 0000000140496155: mov     [rsp+988h+var_898], rax
+ * 000000014049615D: mov     rax, [rdi+1A8h]
+ * 0000000140496164: mov     [rsp+988h+var_8A0], rax
+ * 000000014049616C: mov     rax, [rdi+1A0h]
+ * 0000000140496173: mov     [rsp+988h+var_8A8], rax
+ * 000000014049617B: mov     rax, [rdi+198h]
+ * 0000000140496182: mov     [rsp+988h+var_8B0], rax
+ * 000000014049618A: mov     rax, [rdi+190h]
+ * 0000000140496191: mov     [rsp+988h+var_8B8], rax
+ * 0000000140496199: mov     rax, [rdi+188h]
+ * 00000001404961A0: mov     [rsp+988h+var_8C0], rax
+ * 00000001404961A8: mov     rax, [rdi+180h]
+ * 00000001404961AF: mov     [rsp+988h+var_8C8], rax
+ * 00000001404961B7: mov     rax, [rdi+178h]
+ * 00000001404961BE: mov     [rsp+988h+var_8D0], rax
+ * 00000001404961C6: mov     rax, [rdi+170h]
+ * 00000001404961CD: mov     [rsp+988h+var_8D8], rax
+ * 00000001404961D5: mov     rax, [rdi+168h]
+ * 00000001404961DC: mov     [rsp+988h+var_8E0], rax
+ * 00000001404961E4: mov     rax, [rdi+160h]
+ * 00000001404961EB: mov     qword ptr [rsp+988h+var_8F0+8], rax
+ * 00000001404961F3: mov     rax, [rdi+158h]
+ * 00000001404961FA: mov     qword ptr [rsp+988h+var_8F0], rax
+ * 0000000140496202: mov     rax, [rdi+150h]
+ * 0000000140496209: mov     qword ptr [rsp+988h+var_900+8], rax
+ * 0000000140496211: mov     rax, [rdi+148h]
+ * 0000000140496218: mov     qword ptr [rsp+988h+var_900], rax
+ * 0000000140496220: mov     rax, [rdi+140h]
+ * 0000000140496227: mov     [rsp+988h+var_908], rax
+ * 000000014049622F: mov     rax, [rdi+138h]
+ * 0000000140496236: mov     qword ptr [rsp+988h+var_918+8], rax
+ * 000000014049623B: mov     rax, [rdi+130h]
+ * 0000000140496242: mov     qword ptr [rsp+988h+var_918], rax
+ * 0000000140496247: mov     rax, [rdi+128h]
+ * 000000014049624E: mov     qword ptr [rsp+988h+var_928+8], rax
+ * 0000000140496253: mov     rax, [rdi+120h]
+ * 000000014049625A: mov     qword ptr [rsp+988h+var_928], rax
+ * 000000014049625F: mov     rax, [rdi+118h]
+ * 0000000140496266: mov     qword ptr [rsp+988h+var_938+8], rax
+ * 000000014049626B: mov     rax, [rdi+110h]
+ * 0000000140496272: mov     qword ptr [rsp+988h+var_938], rax
+ * 0000000140496277: mov     rax, [rdi+108h]
+ * 000000014049627E: mov     qword ptr [rsp+988h+var_948+8], rax
+ * 0000000140496283: mov     rax, [rdi+100h]
+ * 000000014049628A: mov     qword ptr [rsp+988h+var_948], rax
+ * 000000014049628F: mov     rax, [rdi+0F8h]
+ * 0000000140496296: mov     qword ptr [rsp+988h+var_958+8], rax
+ * 000000014049629B: mov     rax, [rdi+0F0h]
+ * 00000001404962A2: mov     qword ptr [rsp+988h+var_958], rax
+ * 00000001404962A7: mov     rax, [rdi+0E8h]
+ * 00000001404962AE: mov     [rsp+988h+var_960], rax
+ * 00000001404962B3: mov     [rsp+988h+var_968], rdx
+ * 00000001404962B8: mov     r9, rdi
+ * 00000001404962BB: call    McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer
+ * 00000001404962C0: mov     eax, dword ptr cs:EmpParseLock.SchedulerAssistLastYieldBoostTime+4
+ * 00000001404962C6: test    al, 1
+ * 00000001404962C8: jnz     loc_140496F03
+ * 00000001404962CE: xor     r11d, r11d
+ * 00000001404962D1: cmp     [rsp+988h+var_718], r11b
+ * 00000001404962D9: jz      loc_140496E1B
+ * 00000001404962DF: lea     edx, [r11+5]
+ * 00000001404962E3: cmp     cs:dword_140E06AF8, edx
+ * 00000001404962E9: jbe     loc_140496E1B
+ * 00000001404962EF: mov     r8, 400000000000h
+ * 00000001404962F9: test    cs:qword_140E06B08, r8
+ * 0000000140496300: jz      loc_140496E1B
+ * 0000000140496306: mov     rax, cs:qword_140E06B10
+ * 000000014049630D: and     rax, r8
+ * 0000000140496310: cmp     rax, cs:qword_140E06B10
+ * 0000000140496317: jnz     loc_140496E1B
+ * 000000014049631D: mov     [rsp+988h+var_640], 1000000h
+ * 0000000140496329: lea     rax, [rsp+988h+var_640]
+ * 0000000140496331: mov     [rsp+988h+var_418], rax
+ * 0000000140496339: mov     [rsp+988h+var_410], 8
+ * 0000000140496345: mov     [rsp+988h+var_714], dx
+ * 000000014049634D: lea     rax, [rsp+988h+var_714]
+ * 0000000140496355: mov     [rsp+988h+var_408], rax
+ * 000000014049635D: mov     [rsp+988h+var_400], 2
+ * 0000000140496369: imul    r10, r13, 9B0h
+ * 0000000140496370: add     r10, r15
+ * 0000000140496373: mov     [rsp+988h+var_3F8], r10
+ * 000000014049637B: mov     [rsp+988h+var_3F0], 10h
+ * 0000000140496387: mov     rax, 6666666666666667h
+ * 0000000140496391: imul    rbx
+ * 0000000140496394: sar     rdx, 2
+ * 0000000140496398: mov     rax, rdx
+ * 000000014049639B: shr     rax, 3Fh
+ * 000000014049639F: add     rdx, rax
+ * 00000001404963A2: mov     [rsp+988h+var_648], rdx
+ * 00000001404963AA: lea     rax, [rsp+988h+var_648]
+ * 00000001404963B2: mov     [rsp+988h+var_3E8], rax
+ * 00000001404963BA: mov     [rsp+988h+var_3E0], 8
+ * 00000001404963C6: imul    rax, r13, 9B0h
+ * 00000001404963CD: mov     rcx, [rax+r15+4E0h]
+ * 00000001404963D5: mov     [rsp+988h+var_578], rcx
+ * 00000001404963DD: lea     rax, [rsp+988h+var_578]
+ * 00000001404963E5: mov     [rsp+988h+var_3D8], rax
+ * 00000001404963ED: mov     [rsp+988h+var_3D0], 8
+ * 00000001404963F9: imul    rax, r13, 9B0h
+ * 0000000140496400: mov     rcx, [rax+r15+4E8h]
+ * 0000000140496408: mov     [rsp+988h+var_570], rcx
+ * 0000000140496410: lea     rax, [rsp+988h+var_570]
+ * 0000000140496418: mov     [rsp+988h+var_3C8], rax
+ * 0000000140496420: mov     [rsp+988h+var_3C0], 8
+ * 000000014049642C: imul    rax, r13, 9B0h
+ * 0000000140496433: mov     rcx, [rax+r15+4F0h]
+ * 000000014049643B: mov     [rsp+988h+var_568], rcx
+ * 0000000140496443: lea     rax, [rsp+988h+var_568]
+ * 000000014049644B: mov     [rsp+988h+var_3B8], rax
+ * 0000000140496453: mov     [rsp+988h+var_3B0], 8
+ * 000000014049645F: imul    rax, r13, 9B0h
+ * 0000000140496466: mov     rcx, [rax+r15+4F8h]
+ * 000000014049646E: mov     [rsp+988h+var_560], rcx
+ * 0000000140496476: lea     rax, [rsp+988h+var_560]
+ * 000000014049647E: mov     [rsp+988h+var_3A8], rax
+ * 0000000140496486: mov     [rsp+988h+var_3A0], 8
+ * 0000000140496492: imul    rax, r13, 9B0h
+ * 0000000140496499: mov     rcx, [rax+r15+500h]
+ * 00000001404964A1: mov     [rsp+988h+var_558], rcx
+ * 00000001404964A9: lea     rax, [rsp+988h+var_558]
+ * 00000001404964B1: mov     [rsp+988h+var_398], rax
+ * 00000001404964B9: mov     [rsp+988h+var_390], 8
+ * 00000001404964C5: imul    rax, r13, 9B0h
+ * 00000001404964CC: mov     rcx, [rax+r15+508h]
+ * 00000001404964D4: mov     [rsp+988h+var_550], rcx
+ * 00000001404964DC: lea     rax, [rsp+988h+var_550]
+ * 00000001404964E4: mov     [rsp+988h+var_388], rax
+ * 00000001404964EC: mov     [rsp+988h+var_380], 8
+ * 00000001404964F8: imul    r9, r13, 9B0h
+ * 00000001404964FF: mov     rax, [r9+r15+588h]
+ * 0000000140496507: mov     [rsp+988h+var_548], rax
+ * 000000014049650F: lea     rax, [rsp+988h+var_548]
+ * 0000000140496517: mov     [rsp+988h+var_378], rax
+ * 000000014049651F: mov     [rsp+988h+var_370], 8
+ * 000000014049652B: imul    r8, r13, 9B0h
+ * 0000000140496532: mov     rax, [r8+r15+590h]
+ * 000000014049653A: mov     [rsp+988h+var_540], rax
+ * 0000000140496542: lea     rax, [rsp+988h+var_540]
+ * 000000014049654A: mov     [rsp+988h+var_368], rax
+ * 0000000140496552: mov     [rsp+988h+var_360], 8
+ * 000000014049655E: imul    rdx, r13, 9B0h
+ * 0000000140496565: mov     rax, [rdx+r15+598h]
+ * 000000014049656D: mov     [rsp+988h+var_538], rax
+ * 0000000140496575: lea     rax, [rsp+988h+var_538]
+ * 000000014049657D: mov     [rsp+988h+var_358], rax
+ * 0000000140496585: mov     [rsp+988h+var_350], 8
+ * 0000000140496591: imul    rax, r13, 9B0h
+ * 0000000140496598: mov     rcx, [rax+r15+5A0h]
+ * 00000001404965A0: mov     [rsp+988h+var_530], rcx
+ * 00000001404965A8: lea     rax, [rsp+988h+var_530]
+ * 00000001404965B0: mov     [rsp+988h+var_348], rax
+ * 00000001404965B8: mov     [rsp+988h+var_340], 8
+ * 00000001404965C4: imul    rax, r13, 9B0h
+ * 00000001404965CB: mov     rcx, [rax+r15+510h]
+ * 00000001404965D3: mov     [rsp+988h+var_528], rcx
+ * 00000001404965DB: lea     rax, [rsp+988h+var_528]
+ * 00000001404965E3: mov     [rsp+988h+var_338], rax
+ * 00000001404965EB: mov     [rsp+988h+var_330], 8
+ * 00000001404965F7: imul    rax, r13, 9B0h
+ * 00000001404965FE: mov     rcx, [rax+r15+518h]
+ * 0000000140496606: mov     [rsp+988h+var_520], rcx
+ * 000000014049660E: lea     rax, [rsp+988h+var_520]
+ * 0000000140496616: mov     [rsp+988h+var_328], rax
+ * 000000014049661E: mov     [rsp+988h+var_320], 8
+ * 000000014049662A: imul    rax, r13, 9B0h
+ * 0000000140496631: mov     rcx, [rax+r15+520h]
+ * 0000000140496639: mov     [rsp+988h+var_518], rcx
+ * 0000000140496641: lea     rax, [rsp+988h+var_518]
+ * 0000000140496649: mov     [rsp+988h+var_318], rax
+ * 0000000140496651: mov     [rsp+988h+var_310], 8
+ * 000000014049665D: imul    rax, r13, 9B0h
+ * 0000000140496664: mov     rcx, [rax+r15+528h]
+ * 000000014049666C: mov     [rsp+988h+var_510], rcx
+ * 0000000140496674: lea     rax, [rsp+988h+var_510]
+ * 000000014049667C: mov     [rsp+988h+var_308], rax
+ * 0000000140496684: mov     [rsp+988h+var_300], 8
+ * 0000000140496690: imul    rax, r13, 9B0h
+ * 0000000140496697: mov     rcx, [rax+r15+530h]
+ * 000000014049669F: mov     [rsp+988h+var_508], rcx
+ * 00000001404966A7: lea     rax, [rsp+988h+var_508]
+ * 00000001404966AF: mov     [rsp+988h+var_2F8], rax
+ * 00000001404966B7: mov     [rsp+988h+var_2F0], 8
+ * 00000001404966C3: imul    rax, r13, 9B0h
+ * 00000001404966CA: mov     rcx, [rax+r15+538h]
+ * 00000001404966D2: mov     [rsp+988h+var_500], rcx
+ * 00000001404966DA: lea     rax, [rsp+988h+var_500]
+ * 00000001404966E2: mov     [rsp+988h+var_2E8], rax
+ * 00000001404966EA: mov     [rsp+988h+var_2E0], 8
+ * 00000001404966F6: imul    rax, r13, 9B0h
+ * 00000001404966FD: mov     rcx, [rax+r15+540h]
+ * 0000000140496705: mov     [rsp+988h+var_4F8], rcx
+ * 000000014049670D: lea     rax, [rsp+988h+var_4F8]
+ * 0000000140496715: mov     [rsp+988h+var_2D8], rax
+ * 000000014049671D: mov     [rsp+988h+var_2D0], 8
+ * 0000000140496729: imul    rax, r13, 9B0h
+ * 0000000140496730: mov     rcx, [rax+r15+548h]
+ * 0000000140496738: mov     [rsp+988h+var_4F0], rcx
+ * 0000000140496740: lea     rax, [rsp+988h+var_4F0]
+ * 0000000140496748: mov     [rsp+988h+var_2C8], rax
+ * 0000000140496750: mov     [rsp+988h+var_2C0], 8
+ * 000000014049675C: mov     rax, [rsp+988h+var_6D0]
+ * 0000000140496764: mov     [rsp+988h+var_4E8], rax
+ * 000000014049676C: lea     rax, [rsp+988h+var_4E8]
+ * 0000000140496774: mov     [rsp+988h+var_2B8], rax
+ * 000000014049677C: mov     [rsp+988h+var_2B0], 8
+ * 0000000140496788: imul    rax, r13, 9B0h
+ * 000000014049678F: mov     rcx, [rax+r15+550h]
+ * 0000000140496797: mov     [rsp+988h+var_4E0], rcx
+ * 000000014049679F: lea     rax, [rsp+988h+var_4E0]
+ * 00000001404967A7: mov     [rsp+988h+var_2A8], rax
+ * 00000001404967AF: mov     [rsp+988h+var_2A0], 8
+ * 00000001404967BB: imul    rax, r13, 9B0h
+ * 00000001404967C2: mov     rcx, [rax+r15+570h]
+ * 00000001404967CA: mov     [rsp+988h+var_4D8], rcx
+ * 00000001404967D2: lea     rax, [rsp+988h+var_4D8]
+ * 00000001404967DA: mov     [rsp+988h+var_298], rax
+ * 00000001404967E2: mov     [rsp+988h+var_290], 8
+ * 00000001404967EE: imul    rax, r13, 9B0h
+ * 00000001404967F5: mov     rcx, [rax+r15+578h]
+ * 00000001404967FD: mov     [rsp+988h+var_4D0], rcx
+ * 0000000140496805: lea     rax, [rsp+988h+var_4D0]
+ * 000000014049680D: mov     [rsp+988h+var_288], rax
+ * 0000000140496815: mov     [rsp+988h+var_280], 8
+ * 0000000140496821: imul    rax, r13, 9B0h
+ * 0000000140496828: mov     rcx, [rax+r15+580h]
+ * 0000000140496830: mov     [rsp+988h+var_4C8], rcx
+ * 0000000140496838: lea     rax, [rsp+988h+var_4C8]
+ * 0000000140496840: mov     [rsp+988h+var_278], rax
+ * 0000000140496848: mov     [rsp+988h+var_270], 8
+ * 0000000140496854: imul    rax, r13, 9B0h
+ * 000000014049685B: mov     rcx, [rax+r15+558h]
+ * 0000000140496863: mov     [rsp+988h+var_4C0], rcx
+ * 000000014049686B: lea     rax, [rsp+988h+var_4C0]
+ * 0000000140496873: mov     [rsp+988h+var_268], rax
+ * 000000014049687B: mov     [rsp+988h+var_260], 8
+ * 0000000140496887: imul    rax, r13, 9B0h
+ * 000000014049688E: mov     rcx, [rax+r15+560h]
+ * 0000000140496896: mov     [rsp+988h+var_4B8], rcx
+ * 000000014049689E: lea     rax, [rsp+988h+var_4B8]
+ * 00000001404968A6: mov     [rsp+988h+var_258], rax
+ * 00000001404968AE: mov     [rsp+988h+var_250], 8
+ * 00000001404968BA: imul    rax, r13, 9B0h
+ * 00000001404968C1: mov     rcx, [rax+r15+568h]
+ * 00000001404968C9: mov     [rsp+988h+var_4B0], rcx
+ * 00000001404968D1: lea     rax, [rsp+988h+var_4B0]
+ * 00000001404968D9: mov     [rsp+988h+var_248], rax
+ * 00000001404968E1: mov     [rsp+988h+var_240], 8
+ * 00000001404968ED: imul    rax, r13, 9B0h
+ * 00000001404968F4: mov     rcx, [rax+r15+5A8h]
+ * 00000001404968FC: mov     [rsp+988h+var_4A8], rcx
+ * 0000000140496904: lea     rax, [rsp+988h+var_4A8]
+ * 000000014049690C: mov     [rsp+988h+var_238], rax
+ * 0000000140496914: mov     [rsp+988h+var_230], 8
+ * 0000000140496920: imul    rax, r13, 9B0h
+ * 0000000140496927: mov     rcx, [rax+r15+5B0h]
+ * 000000014049692F: mov     [rsp+988h+var_4A0], rcx
+ * 0000000140496937: lea     rax, [rsp+988h+var_4A0]
+ * 000000014049693F: mov     [rsp+988h+var_228], rax
+ * 0000000140496947: mov     [rsp+988h+var_220], 8
+ * 0000000140496953: imul    rax, r13, 9B0h
+ * 000000014049695A: mov     rcx, [rax+r15+738h]
+ * 0000000140496962: mov     [rsp+988h+var_498], rcx
+ * 000000014049696A: lea     rax, [rsp+988h+var_498]
+ * 0000000140496972: mov     [rsp+988h+var_218], rax
+ * 000000014049697A: mov     [rsp+988h+var_210], 8
+ * 0000000140496986: imul    rax, r13, 9B0h
+ * 000000014049698D: mov     rcx, [rax+r15+740h]
+ * 0000000140496995: mov     [rsp+988h+var_490], rcx
+ * 000000014049699D: lea     rax, [rsp+988h+var_490]
+ * 00000001404969A5: mov     [rsp+988h+var_208], rax
+ * 00000001404969AD: mov     [rsp+988h+var_200], 8
+ * 00000001404969B9: imul    rax, r13, 9B0h
+ * 00000001404969C0: mov     rcx, [rax+r15+748h]
+ * 00000001404969C8: mov     [rsp+988h+var_488], rcx
+ * 00000001404969D0: lea     rax, [rsp+988h+var_488]
+ * 00000001404969D8: mov     [rsp+988h+var_1F8], rax
+ * 00000001404969E0: mov     [rsp+988h+var_1F0], 8
+ * 00000001404969EC: imul    rax, r13, 9B0h
+ * 00000001404969F3: mov     rcx, [rax+r15+750h]
+ * 00000001404969FB: mov     [rsp+988h+var_480], rcx
+ * 0000000140496A03: lea     rax, [rsp+988h+var_480]
+ * 0000000140496A0B: mov     [rsp+988h+var_1E8], rax
+ * 0000000140496A13: mov     [rsp+988h+var_1E0], 8
+ * 0000000140496A1F: imul    rax, r13, 9B0h
+ * 0000000140496A26: mov     rcx, [rax+r15+758h]
+ * 0000000140496A2E: mov     [rsp+988h+var_478], rcx
+ * 0000000140496A36: lea     rax, [rsp+988h+var_478]
+ * 0000000140496A3E: mov     [rsp+988h+var_1D8], rax
+ * 0000000140496A46: mov     [rsp+988h+var_1D0], 8
+ * 0000000140496A52: imul    rax, r13, 9B0h
+ * 0000000140496A59: mov     rcx, [rax+r15+8E0h]
+ * 0000000140496A61: mov     [rsp+988h+var_470], rcx
+ * 0000000140496A69: lea     rax, [rsp+988h+var_470]
+ * 0000000140496A71: mov     [rsp+988h+var_1C8], rax
+ * 0000000140496A79: mov     [rsp+988h+var_1C0], 8
+ * 0000000140496A85: imul    rax, r13, 9B0h
+ * 0000000140496A8C: mov     rcx, [rax+r15+8E8h]
+ * 0000000140496A94: mov     [rsp+988h+var_468], rcx
+ * 0000000140496A9C: lea     rax, [rsp+988h+var_468]
+ * 0000000140496AA4: mov     [rsp+988h+var_1B8], rax
+ * 0000000140496AAC: mov     [rsp+988h+var_1B0], 8
+ * 0000000140496AB8: mov     rax, [r9+r15+588h]
+ * 0000000140496AC0: mov     [rsp+988h+var_460], rax
+ * 0000000140496AC8: lea     rax, [rsp+988h+var_460]
+ * 0000000140496AD0: mov     [rsp+988h+var_1A8], rax
+ * 0000000140496AD8: mov     [rsp+988h+var_1A0], 8
+ * 0000000140496AE4: mov     rax, [r8+r15+590h]
+ * 0000000140496AEC: mov     [rsp+988h+var_458], rax
+ * 0000000140496AF4: lea     rax, [rsp+988h+var_458]
+ * 0000000140496AFC: mov     [rsp+988h+var_198], rax
+ * 0000000140496B04: mov     [rsp+988h+var_190], 8
+ * 0000000140496B10: mov     rax, [rdx+r15+598h]
+ * 0000000140496B18: mov     [rsp+988h+var_450], rax
+ * 0000000140496B20: lea     rax, [rsp+988h+var_450]
+ * 0000000140496B28: mov     [rsp+988h+var_188], rax
+ * 0000000140496B30: mov     [rsp+988h+var_180], 8
+ * 0000000140496B3C: or      rax, 0FFFFFFFFFFFFFFFFh
+ * 0000000140496B40: lea     rcx, a256us1ms4ms16m; "256us, 1ms, 4ms, 16ms, 64ms, 128ms, 256"...
+ * 0000000140496B47: inc     rax
+ * 0000000140496B4A: cmp     [rcx+rax*2], r11w
+ * 0000000140496B4F: jnz     short loc_140496B47
+ * 0000000140496B51: mov     [rsp+988h+var_178], rcx
+ * 0000000140496B59: lea     eax, ds:2[rax*2]
+ * 0000000140496B60: mov     [rsp+988h+var_170], eax
+ * 0000000140496B67: mov     [rsp+988h+var_16C], r11d
+ * 0000000140496B6F: mov     edx, 0Ch
+ * 0000000140496B74: mov     [rsp+988h+var_6F8], dx
+ * 0000000140496B7C: lea     rax, [rsp+988h+var_6F8]
+ * 0000000140496B84: mov     [rsp+988h+var_168], rax
+ * 0000000140496B8C: mov     [rsp+988h+var_160], 2
+ * 0000000140496B98: lea     rax, [r10+5B8h]
+ * 0000000140496B9F: mov     [rsp+988h+var_158], rax
+ * 0000000140496BA7: mov     [rsp+988h+var_150], 60h ; '`'
+ * 0000000140496BB3: mov     [rsp+988h+var_6F4], dx
+ * 0000000140496BBB: lea     rax, [rsp+988h+var_6F4]
+ * 0000000140496BC3: mov     [rsp+988h+var_148], rax
+ * 0000000140496BCB: mov     [rsp+988h+var_140], 2
+ * 0000000140496BD7: lea     rax, [r10+618h]
+ * 0000000140496BDE: mov     [rsp+988h+var_138], rax
+ * 0000000140496BE6: mov     [rsp+988h+var_130], 60h ; '`'
+ * 0000000140496BF2: mov     [rsp+988h+var_6F0], dx
+ * 0000000140496BFA: lea     rax, [rsp+988h+var_6F0]
+ * 0000000140496C02: mov     [rsp+988h+var_128], rax
+ * 0000000140496C0A: mov     [rsp+988h+var_120], 2
+ * 0000000140496C16: lea     rax, [r10+678h]
+ * 0000000140496C1D: mov     [rsp+988h+var_118], rax
+ * 0000000140496C25: mov     [rsp+988h+var_110], 60h ; '`'
+ * 0000000140496C31: mov     [rsp+988h+var_6EC], dx
+ * 0000000140496C39: lea     rax, [rsp+988h+var_6EC]
+ * 0000000140496C41: mov     [rsp+988h+var_108], rax
+ * 0000000140496C49: mov     [rsp+988h+var_100], 2
+ * 0000000140496C55: lea     rax, [r10+6D8h]
+ * 0000000140496C5C: mov     [rsp+988h+var_F8], rax
+ * 0000000140496C64: mov     [rsp+988h+var_F0], 60h ; '`'
+ * 0000000140496C70: mov     [rsp+988h+var_6E8], dx
+ * 0000000140496C78: lea     rax, [rsp+988h+var_6E8]
+ * 0000000140496C80: mov     [rsp+988h+var_E8], rax
+ * 0000000140496C88: mov     [rsp+988h+var_E0], 2
+ * 0000000140496C94: lea     rax, [r10+760h]
+ * 0000000140496C9B: mov     [rsp+988h+var_D8], rax
+ * 0000000140496CA3: mov     [rsp+988h+var_D0], 60h ; '`'
+ * 0000000140496CAF: mov     [rsp+988h+var_6E4], dx
+ * 0000000140496CB7: lea     rax, [rsp+988h+var_6E4]
+ * 0000000140496CBF: mov     [rsp+988h+var_C8], rax
+ * 0000000140496CC7: mov     [rsp+988h+var_C0], 2
+ * 0000000140496CD3: lea     rax, [r10+7C0h]
+ * 0000000140496CDA: mov     [rsp+988h+var_B8], rax
+ * 0000000140496CE2: mov     [rsp+988h+var_B0], 60h ; '`'
+ * 0000000140496CEE: mov     [rsp+988h+var_6E0], dx
+ * 0000000140496CF6: lea     rax, [rsp+988h+var_6E0]
+ * 0000000140496CFE: mov     [rsp+988h+var_A8], rax
+ * 0000000140496D06: mov     [rsp+988h+var_A0], 2
+ * 0000000140496D12: lea     rax, [r10+820h]
+ * 0000000140496D19: mov     [rsp+988h+var_98], rax
+ * 0000000140496D21: mov     [rsp+988h+var_90], 60h ; '`'
+ * 0000000140496D2D: mov     [rsp+988h+var_6DC], dx
+ * 0000000140496D35: lea     rax, [rsp+988h+var_6DC]
+ * 0000000140496D3D: mov     [rsp+988h+var_88], rax
+ * 0000000140496D45: mov     [rsp+988h+var_80], 2
+ * 0000000140496D51: lea     rax, [r10+880h]
+ * 0000000140496D58: mov     [rsp+988h+var_78], rax
+ * 0000000140496D60: mov     [rsp+988h+var_70], 60h ; '`'
+ * 0000000140496D6C: mov     word ptr [rsp+988h+var_6D8], dx
+ * 0000000140496D74: lea     rax, [rsp+988h+var_6D8]
+ * 0000000140496D7C: mov     [rsp+988h+var_68], rax
+ * 0000000140496D84: mov     [rsp+988h+var_60], 2
+ * 0000000140496D90: lea     rax, [r10+8F0h]
+ * 0000000140496D97: mov     [rsp+988h+var_58], rax
+ * 0000000140496D9F: mov     [rsp+988h+var_50], 60h ; '`'
+ * 0000000140496DAB: mov     word ptr [rsp+988h+var_700], dx
+ * 0000000140496DB3: lea     rax, [rsp+988h+var_700]
+ * 0000000140496DBB: mov     [rsp+988h+var_48], rax
+ * 0000000140496DC3: mov     [rsp+988h+var_40], 2
+ * 0000000140496DCF: lea     rax, [r10+950h]
+ * 0000000140496DD6: mov     [rsp+988h+var_38], rax
+ * 0000000140496DDE: mov     [rsp+988h+var_30], 60h ; '`'
+ * 0000000140496DEA: lea     rax, [rsp+988h+var_438]
+ * 0000000140496DF2: mov     [rsp+988h+var_960], rax
+ * 0000000140496DF7: mov     dword ptr [rsp+988h+var_968], 41h ; 'A'
+ * 0000000140496DFF: xor     r9d, r9d
+ * 0000000140496E02: xor     r8d, r8d
+ * 0000000140496E05: lea     rdx, byte_140045147
+ * 0000000140496E0C: lea     rcx, dword_140E06AF8
+ * 0000000140496E13: call    _tlgWriteTransfer_EtwWriteTransfer
+ * 0000000140496E18: xor     r11d, r11d
+ * 0000000140496E1B: mov     edx, [rsp+988h+var_710]
+ * 0000000140496E22: inc     edx
+ * 0000000140496E24: mov     [rsp+988h+var_710], edx
+ * 0000000140496E2B: mov     r13d, edx
+ * 0000000140496E2E: mov     [rsp+988h+var_708], r13
+ * 0000000140496E36: cmp     r13, [rsp+988h+var_448]
+ * 0000000140496E3E: jb      loc_140495E33
+ * 0000000140496E44: mov     cs:EmpParseLock.Teb, rsi
+ * 0000000140496E4B: xor     edx, edx; Tag
+ * 0000000140496E4D: mov     rcx, r15; P
+ * 0000000140496E50: call    ExFreePoolWithTag
+ * 0000000140496E55: jmp     loc_14049761B
+ * 0000000140496E5A: mov     r9, r11
+ * 0000000140496E5D: jmp     loc_140495E5D
+ * 0000000140496E62: mov     r9d, 5
+ * 0000000140496E68: cmp     cs:dword_140E06AF8, r9d
+ * 0000000140496E6F: ja      loc_14076AEA6
+ * 0000000140496E75: mov     r12d, 2
+ * 0000000140496E7B: lea     r14d, [r12+6]
+ * 0000000140496E80: mov     qword ptr cs:EmpParseLock.___u33+78h, r11
+ * 0000000140496E87: mov     qword ptr cs:EmpParseLock.___u33+80h, r11
+ * 0000000140496E8E: mov     qword ptr cs:EmpParseLock.___u33+88h, r11
+ * 0000000140496E95: mov     qword ptr cs:EmpParseLock.___u33+90h, r11
+ * 0000000140496E9C: mov     qword ptr cs:EmpParseLock.___u33+98h, r11
+ * 0000000140496EA3: mov     qword ptr cs:EmpParseLock.___u33+0A0h, r11
+ * 0000000140496EAA: mov     qword ptr cs:EmpParseLock.___u33+0A8h, r11
+ * 0000000140496EB1: mov     qword ptr cs:EmpParseLock.___u33+0B0h, r11
+ * 0000000140496EB8: mov     qword ptr cs:EmpParseLock.___u33+0B8h, r11
+ * 0000000140496EBF: mov     qword ptr cs:EmpParseLock.___u34, r11
+ * 0000000140496EC6: mov     cs:EmpParseLock.QueueListEntry.Flink, r11
+ * 0000000140496ECD: mov     cs:EmpParseLock.QueueListEntry.Blink, r11
+ * 0000000140496ED4: mov     qword ptr cs:EmpParseLock.___u39, r11
+ * 0000000140496EDB: mov     cs:EmpParseLock.Process, r11
+ * 0000000140496EE2: mov     cs:EmpParseLock.UserAffinity, r11
+ * 0000000140496EE9: mov     qword ptr cs:EmpParseLock.UserAffinityPrimaryGroup, r11
+ * 0000000140496EF0: mov     cs:EmpParseLock.AffinityVersion, r11
+ * 0000000140496EF7: mov     cs:EmpParseLock.RelativeTimerBias, rsi
+ * 0000000140496EFE: jmp     loc_140495E0C
+ * 0000000140496F03: imul    rcx, r13, 9B0h
+ * 0000000140496F0A: imul    r8, r13, 9B0h
+ * 0000000140496F11: imul    r9, r13, 9B0h
+ * 0000000140496F18: imul    r10, r13, 9B0h
+ * 0000000140496F1F: imul    r11, r13, 9B0h
+ * 0000000140496F26: imul    rdi, r13, 9B0h
+ * 0000000140496F2D: imul    r14, r13, 9B0h
+ * 0000000140496F34: imul    r15, r13, 9B0h
+ * 0000000140496F3B: imul    r12, r13, 9B0h
+ * 0000000140496F42: imul    r13, 9B0h
+ * 0000000140496F49: mov     rdx, [rsp+988h+var_708]
+ * 0000000140496F51: imul    rax, rdx, 9B0h
+ * 0000000140496F58: mov     qword ptr [rsp+988h+var_6B0], rax
+ * 0000000140496F60: imul    rax, rdx, 9B0h
+ * 0000000140496F67: mov     [rsp+988h+var_6C8], rax
+ * 0000000140496F6F: imul    rax, rdx, 9B0h
+ * 0000000140496F76: mov     [rsp+988h+var_6B8], rax
+ * 0000000140496F7E: imul    rax, rdx, 9B0h
+ * 0000000140496F85: mov     qword ptr [rsp+988h+var_658+8], rax
+ * 0000000140496F8D: imul    rax, rdx, 9B0h
+ * 0000000140496F94: mov     qword ptr [rsp+988h+var_658], rax
+ * 0000000140496F9C: imul    rax, rdx, 9B0h
+ * 0000000140496FA3: mov     [rsp+988h+var_660], rax
+ * 0000000140496FAB: imul    rax, rdx, 9B0h
+ * 0000000140496FB2: mov     [rsp+988h+var_668], rax
+ * 0000000140496FBA: imul    rax, rdx, 9B0h
+ * 0000000140496FC1: mov     [rsp+988h+var_670], rax
+ * 0000000140496FC9: imul    rax, rdx, 9B0h
+ * 0000000140496FD0: mov     [rsp+988h+var_678], rax
+ * 0000000140496FD8: imul    rax, rdx, 9B0h
+ * 0000000140496FDF: mov     [rsp+988h+var_680], rax
+ * 0000000140496FE7: imul    rax, rdx, 9B0h
+ * 0000000140496FEE: mov     [rsp+988h+var_688], rax
+ * 0000000140496FF6: imul    rax, rdx, 9B0h
+ * 0000000140496FFD: mov     [rsp+988h+var_690], rax
+ * 0000000140497005: imul    rax, rdx, 9B0h
+ * 000000014049700C: mov     [rsp+988h+var_698], rax
+ * 0000000140497014: imul    rax, rdx, 9B0h
+ * 000000014049701B: mov     [rsp+988h+var_6A0], rax
+ * 0000000140497023: imul    rax, rdx, 9B0h
+ * 000000014049702A: mov     qword ptr [rsp+988h+var_6B0+8], rax
+ * 0000000140497032: imul    rax, rdx, 9B0h
+ * 0000000140497039: mov     [rsp+988h+var_630], rax
+ * 0000000140497041: imul    rax, rdx, 9B0h
+ * 0000000140497048: mov     [rsp+988h+var_628], rax
+ * 0000000140497050: imul    rax, rdx, 9B0h
+ * 0000000140497057: mov     [rsp+988h+var_620], rax
+ * 000000014049705F: imul    rax, rdx, 9B0h
+ * 0000000140497066: mov     [rsp+988h+var_618], rax
+ * 000000014049706E: imul    rax, rdx, 9B0h
+ * 0000000140497075: mov     [rsp+988h+var_610], rax
+ * 000000014049707D: imul    rax, rdx, 9B0h
+ * 0000000140497084: mov     [rsp+988h+var_608], rax
+ * 000000014049708C: imul    rax, rdx, 9B0h
+ * 0000000140497093: mov     [rsp+988h+var_600], rax
+ * 000000014049709B: imul    rax, rdx, 9B0h
+ * 00000001404970A2: mov     [rsp+988h+var_5F8], rax
+ * 00000001404970AA: imul    rax, rdx, 9B0h
+ * 00000001404970B1: mov     [rsp+988h+var_5F0], rax
+ * 00000001404970B9: imul    rax, rdx, 9B0h
+ * 00000001404970C0: mov     [rsp+988h+var_5E8], rax
+ * 00000001404970C8: imul    rax, rdx, 9B0h
+ * 00000001404970CF: mov     [rsp+988h+var_5E0], rax
+ * 00000001404970D7: imul    rax, rdx, 9B0h
+ * 00000001404970DE: mov     [rsp+988h+var_5D8], rax
+ * 00000001404970E6: imul    rax, rdx, 9B0h
+ * 00000001404970ED: mov     [rsp+988h+var_5D0], rax
+ * 00000001404970F5: imul    rax, rdx, 9B0h
+ * 00000001404970FC: mov     [rsp+988h+var_5C8], rax
+ * 0000000140497104: imul    rax, rdx, 9B0h
+ * 000000014049710B: mov     [rsp+988h+var_5C0], rax
+ * 0000000140497113: imul    rax, rdx, 9B0h
+ * 000000014049711A: mov     [rsp+988h+var_5B8], rax
+ * 0000000140497122: imul    rax, rdx, 9B0h
+ * 0000000140497129: mov     [rsp+988h+var_5B0], rax
+ * 0000000140497131: imul    rax, rdx, 9B0h
+ * 0000000140497138: mov     [rsp+988h+var_5A8], rax
+ * 0000000140497140: imul    rax, rdx, 9B0h
+ * 0000000140497147: mov     [rsp+988h+var_5A0], rax
+ * 000000014049714F: imul    rax, rdx, 9B0h
+ * 0000000140497156: mov     [rsp+988h+var_598], rax
+ * 000000014049715E: imul    rax, rdx, 9B0h
+ * 0000000140497165: mov     [rsp+988h+var_590], rax
+ * 000000014049716D: imul    rax, rdx, 9B0h
+ * 0000000140497174: mov     [rsp+988h+var_588], rax
+ * 000000014049717C: imul    rax, rdx, 9B0h
+ * 0000000140497183: mov     [rsp+988h+var_648], rax
+ * 000000014049718B: mov     rax, 6666666666666667h
+ * 0000000140497195: imul    rbx
+ * 0000000140497198: sar     rdx, 2
+ * 000000014049719C: mov     rax, rdx
+ * 000000014049719F: shr     rax, 3Fh
+ * 00000001404971A3: add     rdx, rax
+ * 00000001404971A6: mov     [rsp+988h+var_640], rdx
+ * 00000001404971AE: imul    rdx, [rsp+988h+var_708], 9B0h
+ * 00000001404971BA: mov     rax, [rsp+988h+var_6C0]
+ * 00000001404971C2: add     rdx, rax
+ * 00000001404971C5: mov     rax, [rcx+rax+408h]
+ * 00000001404971CD: mov     [rsp+988h+var_7E8], rax
+ * 00000001404971D5: mov     rcx, [rsp+988h+var_6C0]
+ * 00000001404971DD: mov     rax, [r8+rcx+400h]
+ * 00000001404971E5: mov     [rsp+988h+var_7F0], rax
+ * 00000001404971ED: mov     rax, [r9+rcx+3F8h]
+ * 00000001404971F5: mov     [rsp+988h+var_7F8], rax
+ * 00000001404971FD: mov     rax, [r10+rcx+3F0h]
+ * 0000000140497205: mov     [rsp+988h+var_800], rax
+ * 000000014049720D: mov     rax, [r11+rcx+3E8h]
+ * 0000000140497215: mov     [rsp+988h+var_808], rax
+ * 000000014049721D: mov     rax, [rdi+rcx+3E0h]
+ * 0000000140497225: mov     [rsp+988h+var_810], rax
+ * 000000014049722D: mov     rax, [r14+rcx+3D8h]
+ * 0000000140497235: mov     [rsp+988h+var_818], rax
+ * 000000014049723D: mov     rax, [r15+rcx+3D0h]
+ * 0000000140497245: mov     [rsp+988h+var_820], rax
+ * 000000014049724D: mov     r15, rcx
+ * 0000000140497250: mov     rax, [r12+rcx+3C8h]
+ * 0000000140497258: mov     [rsp+988h+var_828], rax
+ * 0000000140497260: mov     rax, [rcx+r13+3C0h]
+ * 0000000140497268: mov     [rsp+988h+var_830], rax
+ * 0000000140497270: mov     rax, qword ptr [rsp+988h+var_6B0]
+ * 0000000140497278: mov     rax, [rax+rcx+3B8h]
+ * 0000000140497280: mov     [rsp+988h+var_838], rax
+ * 0000000140497288: mov     rax, [rsp+988h+var_6C8]
+ * 0000000140497290: mov     rax, [rax+rcx+3B0h]
+ * 0000000140497298: mov     [rsp+988h+var_840], rax
+ * 00000001404972A0: mov     rax, [rsp+988h+var_6B8]
+ * 00000001404972A8: mov     rax, [rax+rcx+3A8h]
+ * 00000001404972B0: mov     [rsp+988h+var_848], rax
+ * 00000001404972B8: mov     rax, qword ptr [rsp+988h+var_658+8]
+ * 00000001404972C0: mov     rax, [rax+rcx+3A0h]
+ * 00000001404972C8: mov     [rsp+988h+var_850], rax
+ * 00000001404972D0: mov     rax, qword ptr [rsp+988h+var_658]
+ * 00000001404972D8: mov     rax, [rax+rcx+398h]
+ * 00000001404972E0: mov     [rsp+988h+var_858], rax
+ * 00000001404972E8: mov     rax, [rsp+988h+var_660]
+ * 00000001404972F0: mov     rax, [rax+rcx+390h]
+ * 00000001404972F8: mov     [rsp+988h+var_860], rax
+ * 0000000140497300: mov     rax, [rsp+988h+var_668]
+ * 0000000140497308: mov     rax, [rax+rcx+388h]
+ * 0000000140497310: mov     [rsp+988h+var_868], rax
+ * 0000000140497318: mov     rax, [rsp+988h+var_670]
+ * 0000000140497320: mov     rax, [rax+rcx+380h]
+ * 0000000140497328: mov     [rsp+988h+var_870], rax
+ * 0000000140497330: mov     rax, [rsp+988h+var_678]
+ * 0000000140497338: mov     rax, [rax+rcx+378h]
+ * 0000000140497340: mov     [rsp+988h+var_878], rax
+ * 0000000140497348: mov     rax, [rsp+988h+var_680]
+ * 0000000140497350: mov     rax, [rax+rcx+370h]
+ * 0000000140497358: mov     [rsp+988h+var_880], rax
+ * 0000000140497360: mov     rax, [rsp+988h+var_688]
+ * 0000000140497368: mov     rax, [rax+rcx+368h]
+ * 0000000140497370: mov     [rsp+988h+var_888], rax
+ * 0000000140497378: mov     rax, [rsp+988h+var_690]
+ * 0000000140497380: mov     rax, [rax+rcx+360h]
+ * 0000000140497388: mov     [rsp+988h+var_890], rax
+ * 0000000140497390: mov     rax, [rsp+988h+var_698]
+ * 0000000140497398: mov     rax, [rax+rcx+358h]
+ * 00000001404973A0: mov     [rsp+988h+var_898], rax
+ * 00000001404973A8: mov     rax, [rsp+988h+var_6A0]
+ * 00000001404973B0: mov     rax, [rax+rcx+350h]
+ * 00000001404973B8: mov     [rsp+988h+var_8A0], rax
+ * 00000001404973C0: mov     rax, qword ptr [rsp+988h+var_6B0+8]
+ * 00000001404973C8: mov     rax, [rax+rcx+348h]
+ * 00000001404973D0: mov     [rsp+988h+var_8A8], rax
+ * 00000001404973D8: mov     rax, [rsp+988h+var_630]
+ * 00000001404973E0: mov     rax, [rax+rcx+340h]
+ * 00000001404973E8: mov     [rsp+988h+var_8B0], rax
+ * 00000001404973F0: mov     rax, [rsp+988h+var_628]
+ * 00000001404973F8: mov     rax, [rax+rcx+338h]
+ * 0000000140497400: mov     [rsp+988h+var_8B8], rax
+ * 0000000140497408: mov     rax, [rsp+988h+var_620]
+ * 0000000140497410: mov     rax, [rax+rcx+330h]
+ * 0000000140497418: mov     [rsp+988h+var_8C0], rax
+ * 0000000140497420: mov     rax, [rsp+988h+var_618]
+ * 0000000140497428: mov     rax, [rax+rcx+328h]
+ * 0000000140497430: mov     [rsp+988h+var_8C8], rax
+ * 0000000140497438: mov     rax, [rsp+988h+var_610]
+ * 0000000140497440: mov     rax, [rax+rcx+320h]
+ * 0000000140497448: mov     [rsp+988h+var_8D0], rax
+ * 0000000140497450: mov     rax, [rsp+988h+var_608]
+ * 0000000140497458: mov     rax, [rax+rcx+318h]
+ * 0000000140497460: mov     [rsp+988h+var_8D8], rax
+ * 0000000140497468: mov     rax, [rsp+988h+var_600]
+ * 0000000140497470: mov     rax, [rax+rcx+310h]
+ * 0000000140497478: mov     [rsp+988h+var_8E0], rax
+ * 0000000140497480: mov     rax, [rsp+988h+var_5F8]
+ * 0000000140497488: mov     rax, [rax+rcx+308h]
+ * 0000000140497490: mov     qword ptr [rsp+988h+var_8F0+8], rax
+ * 0000000140497498: mov     rax, [rsp+988h+var_5F0]
+ * 00000001404974A0: mov     rax, [rax+rcx+300h]
+ * 00000001404974A8: mov     qword ptr [rsp+988h+var_8F0], rax
+ * 00000001404974B0: mov     rax, [rsp+988h+var_5E8]
+ * 00000001404974B8: mov     rax, [rax+rcx+2F8h]
+ * 00000001404974C0: mov     qword ptr [rsp+988h+var_900+8], rax
+ * 00000001404974C8: mov     rax, [rsp+988h+var_5E0]
+ * 00000001404974D0: mov     rax, [rax+rcx+2F0h]
+ * 00000001404974D8: mov     qword ptr [rsp+988h+var_900], rax
+ * 00000001404974E0: mov     rax, [rsp+988h+var_5D8]
+ * 00000001404974E8: mov     rax, [rax+rcx+2E8h]
+ * 00000001404974F0: mov     [rsp+988h+var_908], rax
+ * 00000001404974F8: mov     rax, [rsp+988h+var_5D0]
+ * 0000000140497500: mov     rax, [rax+rcx+2E0h]
+ * 0000000140497508: mov     qword ptr [rsp+988h+var_918+8], rax
+ * 000000014049750D: mov     rax, [rsp+988h+var_5C8]
+ * 0000000140497515: mov     rax, [rax+rcx+2D8h]
+ * 000000014049751D: mov     qword ptr [rsp+988h+var_918], rax
+ * 0000000140497522: mov     rax, [rsp+988h+var_5C0]
+ * 000000014049752A: mov     rax, [rax+rcx+2D0h]
+ * 0000000140497532: mov     qword ptr [rsp+988h+var_928+8], rax
+ * 0000000140497537: mov     rax, [rsp+988h+var_5B8]
+ * 000000014049753F: mov     rax, [rax+rcx+2C8h]
+ * 0000000140497547: mov     qword ptr [rsp+988h+var_928], rax
+ * 000000014049754C: mov     rax, [rsp+988h+var_5B0]
+ * 0000000140497554: mov     rax, [rax+rcx+2C0h]
+ * 000000014049755C: mov     qword ptr [rsp+988h+var_938+8], rax
+ * 0000000140497561: mov     rax, [rsp+988h+var_5A8]
+ * 0000000140497569: mov     rax, [rax+rcx+2B8h]
+ * 0000000140497571: mov     qword ptr [rsp+988h+var_938], rax
+ * 0000000140497576: mov     rax, [rsp+988h+var_5A0]
+ * 000000014049757E: mov     rax, [rax+rcx+2B0h]
+ * 0000000140497586: mov     qword ptr [rsp+988h+var_948+8], rax
+ * 000000014049758B: mov     rax, [rsp+988h+var_598]
+ * 0000000140497593: mov     rax, [rax+rcx+2A8h]
+ * 000000014049759B: mov     qword ptr [rsp+988h+var_948], rax
+ * 00000001404975A0: mov     rax, [rsp+988h+var_590]
+ * 00000001404975A8: mov     rax, [rax+rcx+2A0h]
+ * 00000001404975B0: mov     qword ptr [rsp+988h+var_958+8], rax
+ * 00000001404975B5: mov     rax, [rsp+988h+var_588]
+ * 00000001404975BD: mov     rax, [rax+rcx+298h]
+ * 00000001404975C5: mov     qword ptr [rsp+988h+var_958], rax
+ * 00000001404975CA: mov     rax, [rsp+988h+var_648]
+ * 00000001404975D2: mov     rax, [rax+rcx+290h]
+ * 00000001404975DA: mov     [rsp+988h+var_960], rax
+ * 00000001404975DF: mov     rax, [rsp+988h+var_640]
+ * 00000001404975E7: mov     [rsp+988h+var_968], rax
+ * 00000001404975EC: mov     r9, rdx
+ * 00000001404975EF: call    McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer
+ * 00000001404975F4: mov     r14d, 8
+ * 00000001404975FA: mov     r13, [rsp+988h+var_708]
+ * 0000000140497602: lea     r12d, [r14-6]
+ * 0000000140497606: jmp     loc_1404962CE
+ * 000000014049760B: mov     r14b, 1
+ * 000000014049760E: mov     [rsp+988h+var_718], r14b
+ * 0000000140497616: jmp     loc_140495B84
+ * 000000014049761B: mov     rcx, [rsp+988h+var_28]
+ * 0000000140497623: xor     rcx, rsp; StackCookie
+ * 0000000140497626: call    __security_check_cookie
+ * 000000014049762B: lea     r11, [rsp+988h+var_18]
+ * 0000000140497633: mov     rbx, [r11+20h]
+ * 0000000140497637: mov     rsi, [r11+28h]
+ * 000000014049763B: mov     rdi, [r11+30h]
+ * 000000014049763F: mov     r12, [r11+38h]
+ * 0000000140497643: mov     rsp, r11
+ * 0000000140497646: pop     r15
+ * 0000000140497648: pop     r14
+ * 000000014049764A: pop     r13
+ * 000000014049764C: retn
+ * 000000014074E22E: push    rbp
+ * 000000014074E230: sub     rsp, 270h
+ * 000000014074E237: mov     rbp, rdx
+ * 000000014074E23A: call    KeRcuReadUnlock
+ * 000000014074E23F: nop
+ * 000000014074E240: add     rsp, 270h
+ * 000000014074E247: pop     rbp
+ * 000000014074E248: retn
+ * 000000014076AEA6: mov     rdx, 400000000000h
+ * 000000014076AEB0: lea     rcx, dword_140E06AF8
+ * 000000014076AEB7: call    _tlgKeywordOn
+ * 000000014076AEBC: test    al, al
+ * 000000014076AEBE: jz      loc_140496E75
+ * 000000014076AEC4: mov     [rsp+988h+var_6D0], 1000000h
+ * 000000014076AED0: lea     rax, [rsp+988h+var_6D0]
+ * 000000014076AED8: mov     [rsp+988h+var_418], rax
+ * 000000014076AEE0: mov     r14d, 8
+ * 000000014076AEE6: mov     [rsp+988h+var_410], r14
+ * 000000014076AEEE: mov     [rsp+988h+var_714], r9w
+ * 000000014076AEF7: lea     rax, [rsp+988h+var_714]
+ * 000000014076AEFF: mov     [rsp+988h+var_408], rax
+ * 000000014076AF07: lea     r12d, [r14-6]
+ * 000000014076AF0B: mov     [rsp+988h+var_400], r12
+ * 000000014076AF13: mov     rax, r8
+ * 000000014076AF16: imul    rdi
+ * 000000014076AF19: sar     rdx, 2
+ * 000000014076AF1D: mov     rax, rdx
+ * 000000014076AF20: shr     rax, 3Fh
+ * 000000014076AF24: add     rdx, rax
+ * 000000014076AF27: mov     [rsp+988h+var_708], rdx
+ * 000000014076AF2F: lea     rax, [rsp+988h+var_708]
+ * 000000014076AF37: mov     [rsp+988h+var_3F8], rax
+ * 000000014076AF3F: mov     [rsp+988h+var_3F0], r14
+ * 000000014076AF47: mov     eax, cs:CcNumberNumaNodes
+ * 000000014076AF4D: mov     [rsp+988h+var_710], eax
+ * 000000014076AF54: lea     rax, [rsp+988h+var_710]
+ * 000000014076AF5C: mov     [rsp+988h+var_3E8], rax
+ * 000000014076AF64: mov     [rsp+988h+var_3E0], 4
+ * 000000014076AF70: mov     rax, qword ptr cs:EmpParseLock.___u33+78h
+ * 000000014076AF77: mov     [rsp+988h+var_700], rax
+ * 000000014076AF7F: lea     rax, [rsp+988h+var_700]
+ * 000000014076AF87: mov     [rsp+988h+var_3D8], rax
+ * 000000014076AF8F: mov     [rsp+988h+var_3D0], r14
+ * 000000014076AF97: mov     rax, qword ptr cs:EmpParseLock.___u33+80h
+ * 000000014076AF9E: mov     [rsp+988h+var_6D8], rax
+ * 000000014076AFA6: lea     rax, [rsp+988h+var_6D8]
+ * 000000014076AFAE: mov     [rsp+988h+var_3C8], rax
+ * 000000014076AFB6: mov     [rsp+988h+var_3C0], r14
+ * 000000014076AFBE: mov     rax, qword ptr cs:EmpParseLock.___u33+0B0h
+ * 000000014076AFC5: mov     qword ptr [rsp+988h+var_6B0+8], rax
+ * 000000014076AFCD: lea     rax, [rsp+988h+var_6B0+8]
+ * 000000014076AFD5: mov     [rsp+988h+var_3B8], rax
+ * 000000014076AFDD: mov     [rsp+988h+var_3B0], r14
+ * 000000014076AFE5: mov     rax, qword ptr cs:EmpParseLock.___u33+0B8h
+ * 000000014076AFEC: mov     [rsp+988h+var_6A0], rax
+ * 000000014076AFF4: lea     rax, [rsp+988h+var_6A0]
+ * 000000014076AFFC: mov     [rsp+988h+var_3A8], rax
+ * 000000014076B004: mov     [rsp+988h+var_3A0], r14
+ * 000000014076B00C: mov     rax, qword ptr cs:EmpParseLock.___u34
+ * 000000014076B013: mov     [rsp+988h+var_698], rax
+ * 000000014076B01B: lea     rax, [rsp+988h+var_698]
+ * 000000014076B023: mov     [rsp+988h+var_398], rax
+ * 000000014076B02B: mov     [rsp+988h+var_390], r14
+ * 000000014076B033: mov     rax, cs:EmpParseLock.QueueListEntry.Flink
+ * 000000014076B03A: mov     [rsp+988h+var_690], rax
+ * 000000014076B042: lea     rax, [rsp+988h+var_690]
+ * 000000014076B04A: mov     [rsp+988h+var_388], rax
+ * 000000014076B052: mov     [rsp+988h+var_380], r14
+ * 000000014076B05A: mov     rax, cs:EmpParseLock.QueueListEntry.Blink
+ * 000000014076B061: mov     [rsp+988h+var_688], rax
+ * 000000014076B069: lea     rax, [rsp+988h+var_688]
+ * 000000014076B071: mov     [rsp+988h+var_378], rax
+ * 000000014076B079: mov     [rsp+988h+var_370], r14
+ * 000000014076B081: mov     rax, qword ptr cs:EmpParseLock.___u39
+ * 000000014076B088: mov     [rsp+988h+var_680], rax
+ * 000000014076B090: lea     rax, [rsp+988h+var_680]
+ * 000000014076B098: mov     [rsp+988h+var_368], rax
+ * 000000014076B0A0: mov     [rsp+988h+var_360], r14
+ * 000000014076B0A8: mov     rax, cs:EmpParseLock.Process
+ * 000000014076B0AF: mov     [rsp+988h+var_678], rax
+ * 000000014076B0B7: lea     rax, [rsp+988h+var_678]
+ * 000000014076B0BF: mov     [rsp+988h+var_358], rax
+ * 000000014076B0C7: mov     [rsp+988h+var_350], r14
+ * 000000014076B0CF: mov     rax, cs:EmpParseLock.UserAffinity
+ * 000000014076B0D6: mov     [rsp+988h+var_670], rax
+ * 000000014076B0DE: lea     rax, [rsp+988h+var_670]
+ * 000000014076B0E6: mov     [rsp+988h+var_348], rax
+ * 000000014076B0EE: mov     [rsp+988h+var_340], r14
+ * 000000014076B0F6: mov     rax, qword ptr cs:EmpParseLock.UserAffinityPrimaryGroup
+ * 000000014076B0FD: mov     [rsp+988h+var_668], rax
+ * 000000014076B105: lea     rax, [rsp+988h+var_668]
+ * 000000014076B10D: mov     [rsp+988h+var_338], rax
+ * 000000014076B115: mov     [rsp+988h+var_330], r14
+ * 000000014076B11D: mov     rax, cs:EmpParseLock.AffinityVersion
+ * 000000014076B124: mov     [rsp+988h+var_660], rax
+ * 000000014076B12C: lea     rax, [rsp+988h+var_660]
+ * 000000014076B134: mov     [rsp+988h+var_328], rax
+ * 000000014076B13C: mov     [rsp+988h+var_320], r14
+ * 000000014076B144: mov     rax, qword ptr cs:EmpParseLock.___u33+88h
+ * 000000014076B14B: mov     qword ptr [rsp+988h+var_658], rax
+ * 000000014076B153: lea     rax, [rsp+988h+var_658]
+ * 000000014076B15B: mov     [rsp+988h+var_318], rax
+ * 000000014076B163: mov     [rsp+988h+var_310], r14
+ * 000000014076B16B: mov     rax, qword ptr cs:EmpParseLock.___u33+90h
+ * 000000014076B172: mov     qword ptr [rsp+988h+var_658+8], rax
+ * 000000014076B17A: lea     rax, [rsp+988h+var_658+8]
+ * 000000014076B182: mov     [rsp+988h+var_308], rax
+ * 000000014076B18A: mov     [rsp+988h+var_300], r14
+ * 000000014076B192: mov     rax, qword ptr cs:EmpParseLock.___u33+98h
+ * 000000014076B199: mov     [rsp+988h+var_6B8], rax
+ * 000000014076B1A1: lea     rax, [rsp+988h+var_6B8]
+ * 000000014076B1A9: mov     [rsp+988h+var_2F8], rax
+ * 000000014076B1B1: mov     [rsp+988h+var_2F0], r14
+ * 000000014076B1B9: mov     rax, qword ptr cs:EmpParseLock.___u33+0A0h
+ * 000000014076B1C0: mov     [rsp+988h+var_6C8], rax
+ * 000000014076B1C8: lea     rax, [rsp+988h+var_6C8]
+ * 000000014076B1D0: mov     [rsp+988h+var_2E8], rax
+ * 000000014076B1D8: mov     [rsp+988h+var_2E0], r14
+ * 000000014076B1E0: mov     rax, qword ptr cs:EmpParseLock.___u33+0A8h
+ * 000000014076B1E7: mov     qword ptr [rsp+988h+var_6B0], rax
+ * 000000014076B1EF: lea     rax, [rsp+988h+var_6B0]
+ * 000000014076B1F7: mov     [rsp+988h+var_2D8], rax
+ * 000000014076B1FF: mov     [rsp+988h+var_2D0], r14
+ * 000000014076B207: lea     rax, [rsp+988h+var_438]
+ * 000000014076B20F: mov     [rsp+988h+var_960], rax
+ * 000000014076B214: mov     dword ptr [rsp+988h+var_968], 17h
+ * 000000014076B21C: xor     r9d, r9d
+ * 000000014076B21F: xor     r8d, r8d
+ * 000000014076B222: lea     rdx, word_140044F6E
+ * 000000014076B229: lea     rcx, dword_140E06AF8
+ * 000000014076B230: call    _tlgWriteTransfer_EtwWriteTransfer
+ * 000000014076B235: xor     r11d, r11d
+ * 000000014076B238: jmp     loc_140496E80
+ * 000000014076B23D: mov     rax, 6666666666666667h
+ * 000000014076B247: imul    rbx
+ * 000000014076B24A: sar     rdx, 2
+ * 000000014076B24E: mov     rax, rdx
+ * 000000014076B251: shr     rax, 3Fh
+ * 000000014076B255: add     rdx, rax
+ * 000000014076B258: mov     rax, [rdi+418h]
+ * 000000014076B25F: mov     [rsp+988h+var_850], rax
+ * 000000014076B267: mov     rax, [rdi+410h]
+ * 000000014076B26E: mov     [rsp+988h+var_858], rax
+ * 000000014076B276: mov     rax, [rdi+288h]
+ * 000000014076B27D: mov     [rsp+988h+var_860], rax
+ * 000000014076B285: mov     rax, [rdi+280h]
+ * 000000014076B28C: mov     [rsp+988h+var_868], rax
+ * 000000014076B294: mov     rax, [rdi+278h]
+ * 000000014076B29B: mov     [rsp+988h+var_870], rax
+ * 000000014076B2A3: mov     rax, [rdi+270h]
+ * 000000014076B2AA: mov     [rsp+988h+var_878], rax
+ * 000000014076B2B2: mov     rax, [rdi+268h]
+ * 000000014076B2B9: mov     [rsp+988h+var_880], rax
+ * 000000014076B2C1: mov     rax, [rdi+0E0h]
+ * 000000014076B2C8: mov     [rsp+988h+var_888], rax
+ * 000000014076B2D0: mov     rax, [rdi+0D8h]
+ * 000000014076B2D7: mov     [rsp+988h+var_890], rax
+ * 000000014076B2DF: mov     rax, [rdi+98h]
+ * 000000014076B2E6: mov     [rsp+988h+var_898], rax
+ * 000000014076B2EE: mov     rax, [rdi+90h]
+ * 000000014076B2F5: mov     [rsp+988h+var_8A0], rax
+ * 000000014076B2FD: mov     rax, [rdi+88h]
+ * 000000014076B304: mov     [rsp+988h+var_8A8], rax
+ * 000000014076B30C: mov     rax, [rdi+0B0h]
+ * 000000014076B313: mov     [rsp+988h+var_8B0], rax
+ * 000000014076B31B: mov     rax, [rdi+0A8h]
+ * 000000014076B322: mov     [rsp+988h+var_8B8], rax
+ * 000000014076B32A: mov     rax, [rdi+0A0h]
+ * 000000014076B331: mov     [rsp+988h+var_8C0], rax
+ * 000000014076B339: mov     [rsp+988h+var_8C8], r9
+ * 000000014076B341: mov     rax, [rdi+80h]
+ * 000000014076B348: mov     [rsp+988h+var_8D0], rax
+ * 000000014076B350: mov     rax, [rdi+78h]
+ * 000000014076B354: mov     [rsp+988h+var_8D8], rax
+ * 000000014076B35C: mov     [rsp+988h+var_8E0], r8
+ * 000000014076B364: mov     rax, [rdi+68h]
+ * 000000014076B368: mov     qword ptr [rsp+988h+var_8F0+8], rax
+ * 000000014076B370: mov     rax, [rdi+60h]
+ * 000000014076B374: mov     qword ptr [rsp+988h+var_8F0], rax
+ * 000000014076B37C: mov     rax, [rdi+58h]
+ * 000000014076B380: mov     qword ptr [rsp+988h+var_900+8], rax
+ * 000000014076B388: mov     rax, [rdi+50h]
+ * 000000014076B38C: mov     qword ptr [rsp+988h+var_900], rax
+ * 000000014076B394: mov     rax, [rdi+48h]
+ * 000000014076B398: mov     [rsp+988h+var_908], rax
+ * 000000014076B3A0: mov     rax, [rdi+40h]
+ * 000000014076B3A4: mov     qword ptr [rsp+988h+var_918+8], rax
+ * 000000014076B3A9: mov     rax, [rdi+0D0h]
+ * 000000014076B3B0: mov     qword ptr [rsp+988h+var_918], rax
+ * 000000014076B3B5: mov     rax, [rdi+0C8h]
+ * 000000014076B3BC: mov     qword ptr [rsp+988h+var_928+8], rax
+ * 000000014076B3C1: mov     rax, [rdi+0C0h]
+ * 000000014076B3C8: mov     qword ptr [rsp+988h+var_928], rax
+ * 000000014076B3CD: mov     rax, [rdi+0B8h]
+ * 000000014076B3D4: mov     qword ptr [rsp+988h+var_938+8], rax
+ * 000000014076B3D9: mov     rax, [rdi+38h]
+ * 000000014076B3DD: mov     qword ptr [rsp+988h+var_938], rax
+ * 000000014076B3E2: mov     rax, [rdi+30h]
+ * 000000014076B3E6: mov     qword ptr [rsp+988h+var_948+8], rax
+ * 000000014076B3EB: mov     rax, [rdi+28h]
+ * 000000014076B3EF: mov     qword ptr [rsp+988h+var_948], rax
+ * 000000014076B3F4: mov     rax, [rdi+20h]
+ * 000000014076B3F8: mov     qword ptr [rsp+988h+var_958+8], rax
+ * 000000014076B3FD: mov     rax, [rdi+18h]
+ * 000000014076B401: mov     qword ptr [rsp+988h+var_958], rax
+ * 000000014076B406: mov     rax, [rdi+10h]
+ * 000000014076B40A: mov     [rsp+988h+var_960], rax
+ * 000000014076B40F: mov     [rsp+988h+var_968], rdx
+ * 000000014076B414: mov     r9, rdi
+ * 000000014076B417: call    McTemplateK0jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_EtwWriteTransfer
+ * 000000014076B41C: nop
+ * 000000014076B41D: jmp     loc_140495E73
  */

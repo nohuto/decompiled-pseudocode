@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmPerfSnapDeliveredPerformance @ 0x140255F80
+ * XREFs of PpmPerfSnapDeliveredPerformance @ 0x140256040
  * Callers:
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140256E80 (PpmCheckSnapAllDeliveredPerformance.c)
- *     PpmPerfAction @ 0x1402BF9C0 (PpmPerfAction.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140256F40 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmPerfAction @ 0x1402BFC50 (PpmPerfAction.c)
  * Callees:
- *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140255308 (PpmPerfCheckForIllegalProcessorThrottle.c)
- *     PpmPerfUpdateHwDebugData @ 0x1402553BC (PpmPerfUpdateHwDebugData.c)
- *     PpmPerfSnapProcessorCyclesWorkloadClass @ 0x140255A1C (PpmPerfSnapProcessorCyclesWorkloadClass.c)
- *     PpmEventTraceDeliveredPerfChange @ 0x140255A70 (PpmEventTraceDeliveredPerfChange.c)
- *     PpmSnapPerformanceAccumulation @ 0x1402562D0 (PpmSnapPerformanceAccumulation.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     PpmHvSnapPerformanceAccumulation @ 0x1405A0104 (PpmHvSnapPerformanceAccumulation.c)
+ *     PpmPerfCheckForIllegalProcessorThrottle @ 0x1402553C8 (PpmPerfCheckForIllegalProcessorThrottle.c)
+ *     PpmPerfUpdateHwDebugData @ 0x14025547C (PpmPerfUpdateHwDebugData.c)
+ *     PpmPerfSnapProcessorCyclesWorkloadClass @ 0x140255ADC (PpmPerfSnapProcessorCyclesWorkloadClass.c)
+ *     PpmEventTraceDeliveredPerfChange @ 0x140255B30 (PpmEventTraceDeliveredPerfChange.c)
+ *     PpmSnapPerformanceAccumulation @ 0x140256390 (PpmSnapPerformanceAccumulation.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x1405A05F4 (PpmHvSnapPerformanceAccumulation.c)
  */
 
 char __fastcall PpmPerfSnapDeliveredPerformance(__int64 a1, char a2, int a3)

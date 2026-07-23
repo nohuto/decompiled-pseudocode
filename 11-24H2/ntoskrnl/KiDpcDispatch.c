@@ -1,5 +1,5 @@
 /*
- * XREFs of KiDpcDispatch @ 0x140C0A150
+ * XREFs of KiDpcDispatch @ 0x140C0C150
  * Callers:
  *     <none>
  * Callees:

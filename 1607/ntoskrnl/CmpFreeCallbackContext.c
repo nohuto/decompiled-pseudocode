@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFreeCallbackContext @ 0x1401B31CC
+ * XREFs of CmpFreeCallbackContext @ 0x1401B30B0
  * Callers:
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall CmpFreeCallbackContext(struct _SLIST_ENTRY *a1)
+void __fastcall CmpFreeCallbackContext(_SLIST_ENTRY *a1)
 {
   unsigned int v1; // edx
 

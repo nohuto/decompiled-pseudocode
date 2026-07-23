@@ -1,23 +1,23 @@
 /*
- * XREFs of NtEnumerateValueKey @ 0x140439540
+ * XREFs of NtEnumerateValueKey @ 0x140438410
  * Callers:
- *     AdtpObjsInitialize @ 0x14056FBF0 (AdtpObjsInitialize.c)
+ *     AdtpObjsInitialize @ 0x140570130 (AdtpObjsInitialize.c)
  * Callees:
- *     ExIsResourceAcquiredSharedLite @ 0x14002D250 (ExIsResourceAcquiredSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExfAcquireRundownProtection @ 0x14008C5E0 (ExfAcquireRundownProtection.c)
- *     ExfReleaseRundownProtection @ 0x140090D30 (ExfReleaseRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmEnumerateValueKey @ 0x140437F70 (CmEnumerateValueKey.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x140438760 (CmKeyBodyRemapToVirtualForEnum.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x1405FF9F4 (CmEnumerateValueKeyFromMergedView.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14002CDD0 (ExIsResourceAcquiredSharedLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExfAcquireRundownProtection @ 0x14008BD40 (ExfAcquireRundownProtection.c)
+ *     ExfReleaseRundownProtection @ 0x140090490 (ExfReleaseRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmEnumerateValueKey @ 0x140436E40 (CmEnumerateValueKey.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x140437630 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x1405FFAA8 (CmEnumerateValueKeyFromMergedView.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtEnumerateValueKey(

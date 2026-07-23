@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFilterCrashDumpPte @ 0x1406F6440
+ * XREFs of MiFilterCrashDumpPte @ 0x1406FB0B0
  * Callers:
  *     <none>
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiIsPageSecured @ 0x1405328B8 (MiIsPageSecured.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiIsPageSecured @ 0x140534D58 (MiIsPageSecured.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiFilterCrashDumpPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -65,11 +65,11 @@ __int64 __fastcall MiFilterCrashDumpPte(__int64 a1, unsigned __int64 a2, int a3)
     {
       if ( (v10 & 0xC00) != 0x800 )
         return 0LL;
-      if ( qword_140E2D740 && (v10 & 0x10) == 0 )
-        v10 &= qword_140E2D748;
+      if ( qword_140E2D8C0 && (v10 & 0x10) == 0 )
+        v10 &= qword_140E2D8C8;
     }
     v18 = (v10 >> 12) & 0xFFFFFFFFFFLL;
-    if ( v18 > qword_140E2D7A0 )
+    if ( v18 > qword_140E2D920 )
       return 0LL;
     if ( ((*(_QWORD *)(48 * v18 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
       return 0LL;
@@ -94,7 +94,7 @@ LABEL_43:
   if ( (v10 & 1) == 0 )
     return 0LL;
   v15 = (v10 >> 12) & 0xFFFFFFFFFFLL;
-  if ( v15 > qword_140E2D7A0 || ((*(_QWORD *)(48 * v15 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+  if ( v15 > qword_140E2D920 || ((*(_QWORD *)(48 * v15 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
     return 1LL;
   if ( (v10 & 0x80u) == 0LL )
     goto LABEL_43;

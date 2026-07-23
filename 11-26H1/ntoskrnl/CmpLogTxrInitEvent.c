@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogTxrInitEvent @ 0x140A77AA4
+ * XREFs of CmpLogTxrInitEvent @ 0x140A807C4
  * Callers:
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogTxrInitEvent(__int64 a1, __int64 a2, int a3)
@@ -35,7 +35,7 @@ NTSTATUS __fastcall CmpLogTxrInitEvent(__int64 a1, __int64 a2, int a3)
   result = *(_DWORD *)(a2 + 4168);
   v9 = result;
   LOWORD(v5) = 68;
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     if ( stru_140E098B8.WaitBlock[2].Thread != (struct _KTHREAD *)a2 )
     {
@@ -58,7 +58,7 @@ NTSTATUS __fastcall CmpLogTxrInitEvent(__int64 a1, __int64 a2, int a3)
     v20 = &v9;
     v19 = 4LL;
     v21 = 4LL;
-    return EtwWrite((REGHANDLE)EtwpSecurityLock.MutantListHead.Blink, &REG_EVENT_TXR_INIT, 0LL, 6u, &UserData);
+    return EtwWrite(EtwKernelProvRegHandle, &REG_EVENT_TXR_INIT, 0LL, 6u, &UserData);
   }
   return result;
 }

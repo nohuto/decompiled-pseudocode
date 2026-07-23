@@ -1,13 +1,13 @@
 /*
- * XREFs of CcAddExternalCacheInternal @ 0x1403D6E80
+ * XREFs of CcAddExternalCacheInternal @ 0x1403D7060
  * Callers:
- *     CcRegisterExternalCache @ 0x1403D6DA0 (CcRegisterExternalCache.c)
- *     CcAddExternalCacheToVolume @ 0x1403D6E24 (CcAddExternalCacheToVolume.c)
+ *     CcRegisterExternalCache @ 0x1403D6F80 (CcRegisterExternalCache.c)
+ *     CcAddExternalCacheToVolume @ 0x1403D7004 (CcAddExternalCacheToVolume.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcAddExternalCacheInternal(__int64 a1, __int64 a2)
@@ -35,10 +35,10 @@ __int64 __fastcall CcAddExternalCacheInternal(__int64 a1, __int64 a2)
     KeBugCheckEx(0x34u, 0x1E0AuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   CcNumberOfExternalCaches = v7 + 1;
   result = KxReleaseSpinLock((volatile signed __int64 *)&CcExternalCacheListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

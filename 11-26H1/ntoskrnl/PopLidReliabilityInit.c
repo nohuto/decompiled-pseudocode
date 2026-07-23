@@ -1,14 +1,14 @@
 /*
- * XREFs of PopLidReliabilityInit @ 0x14060799C
+ * XREFs of PopLidReliabilityInit @ 0x14060A4FC
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     PopOpenPersistedRegistryKey @ 0x1407C8E0C (PopOpenPersistedRegistryKey.c)
- *     PdcPoLidReliabilityUpdateCallback @ 0x1407D14E0 (PdcPoLidReliabilityUpdateCallback.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     PopOpenPersistedRegistryKey @ 0x1407CBEAC (PopOpenPersistedRegistryKey.c)
+ *     PdcPoLidReliabilityUpdateCallback @ 0x1407D4580 (PdcPoLidReliabilityUpdateCallback.c)
  */
 
 __int64 __fastcall PopLidReliabilityInit(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoRequestPowerIrp @ 0x14070CC18
+ * XREFs of VerifierPoRequestPowerIrp @ 0x14070CC48
  * Callers:
  *     <none>
  * Callees:

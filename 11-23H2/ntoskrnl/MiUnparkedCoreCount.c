@@ -4,8 +4,8 @@
  *     MiWakeZeroingThreads @ 0x1402224D4 (MiWakeZeroingThreads.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 __int64 __fastcall MiUnparkedCoreCount(__int64 a1, unsigned int a2)

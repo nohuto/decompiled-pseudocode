@@ -16,11 +16,11 @@
  *     RtlAllocateHeap @ 0x180050340 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlpMuiRegCreateLanguageList(int a1, char a2, __int64 a3)
+_WORD *__fastcall RtlpMuiRegCreateLanguageList(int a1, char a2, __int64 a3)
 {
   __int64 v3; // rax
   __int16 v6; // di
-  __int64 result; // rax
+  _WORD *result; // rax
   unsigned int v8; // ebx
 
   v3 = 4LL;
@@ -32,15 +32,15 @@ __int64 __fastcall RtlpMuiRegCreateLanguageList(int a1, char a2, __int64 a3)
   v8 = 6 * v3 + 64;
   if ( v8 < 0x40 )
     return 0LL;
-  result = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v8);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v8);
   if ( !result )
     return 0LL;
   *(_DWORD *)result = v8;
-  *(_WORD *)(result + 4) = 0;
-  *(_QWORD *)(result + 24) = result + 64;
-  *(_DWORD *)(result + 40) = 0;
-  *(_WORD *)(result + 6) = v6;
-  *(_BYTE *)(result + 8) = a2;
-  *(_QWORD *)(result + 16) = a3;
+  result[2] = 0;
+  *((_QWORD *)result + 3) = result + 32;
+  *((_DWORD *)result + 10) = 0;
+  result[3] = v6;
+  *((_BYTE *)result + 8) = a2;
+  *((_QWORD *)result + 2) = a3;
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUpdateProcessorTraceConfiguration @ 0x14094833C
+ * XREFs of EtwpUpdateProcessorTraceConfiguration @ 0x14094850C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938730 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     EtwpConstructIptData @ 0x140948298 (EtwpConstructIptData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     EtwpConstructIptData @ 0x140948468 (EtwpConstructIptData.c)
  */
 
 __int64 __fastcall EtwpUpdateProcessorTraceConfiguration(__int64 a1, __int64 a2)

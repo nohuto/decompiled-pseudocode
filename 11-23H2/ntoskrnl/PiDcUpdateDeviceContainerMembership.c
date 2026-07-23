@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDcUpdateDeviceContainerMembership @ 0x14079B5C0
+ * XREFs of PiDcUpdateDeviceContainerMembership @ 0x14079B7B0
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x14079B9C4 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x14079BBB4 (PipProcessStartPhase3.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     wcscmp @ 0x1403DB950 (wcscmp.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     PiPnpRtlEndOperation @ 0x1407887CC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x1407889D0 (PiPnpRtlBeginOperation.c)
- *     _CmSetDeviceRegProp @ 0x14079862C (_CmSetDeviceRegProp.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x14079B064 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmAddDeviceToContainer @ 0x14079B778 (_CmAddDeviceToContainer.c)
- *     PiDcContainerRequiresConfiguration @ 0x140877B50 (PiDcContainerRequiresConfiguration.c)
- *     PiDcResetChildDeviceContainers @ 0x14095B480 (PiDcResetChildDeviceContainers.c)
- *     _CmRemoveDeviceFromContainer @ 0x140A6463C (_CmRemoveDeviceFromContainer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     wcscmp @ 0x1403DBB30 (wcscmp.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     PiPnpRtlEndOperation @ 0x1407889BC (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140788BC0 (PiPnpRtlBeginOperation.c)
+ *     _CmSetDeviceRegProp @ 0x14079881C (_CmSetDeviceRegProp.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14079B254 (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmAddDeviceToContainer @ 0x14079B968 (_CmAddDeviceToContainer.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140877D90 (PiDcContainerRequiresConfiguration.c)
+ *     PiDcResetChildDeviceContainers @ 0x14095B680 (PiDcResetChildDeviceContainers.c)
+ *     _CmRemoveDeviceFromContainer @ 0x140A648EC (_CmRemoveDeviceFromContainer.c)
  */
 
 __int64 __fastcall PiDcUpdateDeviceContainerMembership(__int64 a1, __int64 a2, const wchar_t *a3)

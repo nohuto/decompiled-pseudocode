@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpAddGuidEntry @ 0x14048D600
+ * XREFs of EtwpAddGuidEntry @ 0x14048E090
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x14040C87C (EtwpAddRegEntryToGroup.c)
- *     EtwpRegisterUMGuid @ 0x14040E5E0 (EtwpRegisterUMGuid.c)
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
- *     EtwpRegisterProvider @ 0x140492024 (EtwpRegisterProvider.c)
+ *     EtwpAddRegEntryToGroup @ 0x14040B73C (EtwpAddRegEntryToGroup.c)
+ *     EtwpRegisterUMGuid @ 0x14040D4A0 (EtwpRegisterUMGuid.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
+ *     EtwpRegisterProvider @ 0x140492AB4 (EtwpRegisterProvider.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EtwpReferenceGuidEntry @ 0x14040E5A0 (EtwpReferenceGuidEntry.c)
- *     EtwpAllocGuidEntry @ 0x14048D770 (EtwpAllocGuidEntry.c)
- *     EtwpFreeGuidEntry @ 0x1404DF218 (EtwpFreeGuidEntry.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EtwpReferenceGuidEntry @ 0x14040D460 (EtwpReferenceGuidEntry.c)
+ *     EtwpAllocGuidEntry @ 0x14048E200 (EtwpAllocGuidEntry.c)
+ *     EtwpFreeGuidEntry @ 0x1404C281C (EtwpFreeGuidEntry.c)
  */
 
 __int64 __fastcall EtwpAddGuidEntry(__int64 a1, _DWORD *a2, int a3)

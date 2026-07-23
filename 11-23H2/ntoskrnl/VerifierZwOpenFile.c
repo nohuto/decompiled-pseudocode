@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwOpenFile @ 0x140AE5D90
+ * XREFs of VerifierZwOpenFile @ 0x140AE5D80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierZwOpenFile(__int64 a1, __int64 a2)

@@ -1,32 +1,32 @@
 /*
- * XREFs of CcUnpinFileDataEx @ 0x1402DF3C0
+ * XREFs of CcUnpinFileDataEx @ 0x1402C11D0
  * Callers:
- *     CcPinFileData @ 0x1402DF720 (CcPinFileData.c)
- *     CcGetDirtyPagesHelper @ 0x14039B880 (CcGetDirtyPagesHelper.c)
- *     CcZeroDataInCache @ 0x14039EF58 (CcZeroDataInCache.c)
- *     CcAcquireByteRangeForWrite @ 0x1403E2360 (CcAcquireByteRangeForWrite.c)
- *     CcReleaseByteRangeFromWrite @ 0x14046D170 (CcReleaseByteRangeFromWrite.c)
- *     CcMapDataForOverwrite @ 0x14048D85C (CcMapDataForOverwrite.c)
- *     CcUnpinRepinnedBcb @ 0x1404AA000 (CcUnpinRepinnedBcb.c)
- *     CcUnpinDataForThread @ 0x14078A260 (CcUnpinDataForThread.c)
- *     CcMapData @ 0x1409E2B50 (CcMapData.c)
- *     CcUnpinData @ 0x140A331B0 (CcUnpinData.c)
+ *     CcPinFileData @ 0x1402C1530 (CcPinFileData.c)
+ *     CcGetDirtyPagesHelper @ 0x14039D5E0 (CcGetDirtyPagesHelper.c)
+ *     CcZeroDataInCache @ 0x1403A0CB8 (CcZeroDataInCache.c)
+ *     CcAcquireByteRangeForWrite @ 0x1403E5550 (CcAcquireByteRangeForWrite.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1404668F0 (CcReleaseByteRangeFromWrite.c)
+ *     CcMapDataForOverwrite @ 0x14048739C (CcMapDataForOverwrite.c)
+ *     CcUnpinRepinnedBcb @ 0x1404A3690 (CcUnpinRepinnedBcb.c)
+ *     CcUnpinDataForThread @ 0x14078CD90 (CcUnpinDataForThread.c)
+ *     CcMapData @ 0x1409DFB60 (CcMapData.c)
+ *     CcUnpinData @ 0x140A4E110 (CcUnpinData.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     CcDeductDirtyPages @ 0x1403E2F2C (CcDeductDirtyPages.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x1403E305C (CcInsertIntoCleanSharedCacheMapList.c)
- *     CcDeallocateBcb @ 0x1404749E4 (CcDeallocateBcb.c)
- *     CcAdjustVacbLevelLockCount @ 0x140476740 (CcAdjustVacbLevelLockCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDeductDirtyPages @ 0x1403E611C (CcDeductDirtyPages.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x1403E624C (CcInsertIntoCleanSharedCacheMapList.c)
+ *     CcDeallocateBcb @ 0x14046E164 (CcDeallocateBcb.c)
+ *     CcAdjustVacbLevelLockCount @ 0x14046FEC0 (CcAdjustVacbLevelLockCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall CcUnpinFileDataEx(char *P, char a2, int a3)
@@ -152,7 +152,7 @@ LABEL_25:
     || (v23 = *(_QWORD *)(v8 + 104),
         v23 != _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 104), v22, v21)) )
   {
-    ExfReleasePushLock(v8 + 104, v22);
+    ExfReleasePushLock((_QWORD *)(v8 + 104));
   }
   KeAbPostRelease(v8 + 104);
   if ( *((_QWORD *)P + 23) )

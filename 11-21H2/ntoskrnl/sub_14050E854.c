@@ -1,0 +1,18 @@
+/*
+ * XREFs of sub_14050E854 @ 0x14050E854
+ * Callers:
+ *     sub_140B27364 @ 0x140B27364 (sub_140B27364.c)
+ * Callees:
+ *     sub_1403B37B0 @ 0x1403B37B0 (sub_1403B37B0.c)
+ *     sub_1403B3A6C @ 0x1403B3A6C (sub_1403B3A6C.c)
+ *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ */
+
+bool sub_14050E854()
+{
+  if ( !sub_1403B37B0() )
+    return sub_1403B3A6C() != 0;
+  _RAX = 1073741828LL;
+  __asm { cpuid }
+  return (_RAX & 0x10) != 0;
+}

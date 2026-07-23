@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlUnalignedStringCchLengthW @ 0x1400C38D0
+ * XREFs of RtlUnalignedStringCchLengthW @ 0x1400C1760
  * Callers:
- *     _PnpSetPropertyWorker @ 0x140486DF8 (_PnpSetPropertyWorker.c)
- *     _PnpParseIndirectResourceString @ 0x1404B8CA8 (_PnpParseIndirectResourceString.c)
- *     _PnpParseIndirectInfString @ 0x1404C0640 (_PnpParseIndirectInfString.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1404CE780 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _PnpDeletePropertyWorker @ 0x1404F0C10 (_PnpDeletePropertyWorker.c)
- *     _RegRtlCreateTreeTransacted @ 0x1404FA878 (_RegRtlCreateTreeTransacted.c)
- *     _PnpGetGenericStoreProperty @ 0x1404FAA14 (_PnpGetGenericStoreProperty.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
- *     _CmValidateDeviceName @ 0x1404FD9C0 (_CmValidateDeviceName.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1406DC208 (_PnpGetGenericStorePropertyKeys.c)
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1406DE9C4 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     _RegRtlDeletePathInternal @ 0x1406E06D0 (_RegRtlDeletePathInternal.c)
- *     DrvDbValidateDeviceIdName @ 0x1406E34A8 (DrvDbValidateDeviceIdName.c)
+ *     _PnpParseIndirectResourceString @ 0x1404A3088 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x1404AC370 (_PnpParseIndirectInfString.c)
+ *     _PnpDeletePropertyWorker @ 0x1404D2D04 (_PnpDeletePropertyWorker.c)
+ *     _RegRtlCreateTreeTransacted @ 0x1404DD804 (_RegRtlCreateTreeTransacted.c)
+ *     _PnpGetGenericStoreProperty @ 0x1404DD9A0 (_PnpGetGenericStoreProperty.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     _CmValidateDeviceName @ 0x1404E0950 (_CmValidateDeviceName.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14050B84C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _PnpSetPropertyWorker @ 0x140512B14 (_PnpSetPropertyWorker.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1406DC340 (_PnpGetGenericStorePropertyKeys.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1406DEAFC (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _RegRtlDeletePathInternal @ 0x1406E0808 (_RegRtlDeletePathInternal.c)
+ *     DrvDbValidateDeviceIdName @ 0x1406E35E0 (DrvDbValidateDeviceIdName.c)
  * Callees:
  *     <none>
  */

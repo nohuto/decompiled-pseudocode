@@ -1,7 +1,7 @@
 /*
- * XREFs of write_char_1 @ 0x140506028
+ * XREFs of write_char_1 @ 0x1405038E8
  * Callers:
- *     _woutput_s @ 0x1405056DC (_woutput_s.c)
+ *     _woutput_s @ 0x140502F9C (_woutput_s.c)
  * Callees:
  *     <none>
  */

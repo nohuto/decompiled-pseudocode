@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpAllocateCommonBufferVectorInternal @ 0x1404D18A4
+ * XREFs of HalpAllocateCommonBufferVectorInternal @ 0x1404CB450
  * Callers:
- *     HalAllocateCommonBufferVector @ 0x140588760 (HalAllocateCommonBufferVector.c)
+ *     HalAllocateCommonBufferVector @ 0x14058AE30 (HalAllocateCommonBufferVector.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpDmaDereferenceDomainObject @ 0x1403444A8 (HalpDmaDereferenceDomainObject.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x140348200 (MmAllocatePagesForMdlEx.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140348260 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     HalpDmaReferenceDomainObject @ 0x14034914C (HalpDmaReferenceDomainObject.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140346528 (HalpDmaDereferenceDomainObject.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x14034A280 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x14034A2E0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     HalpDmaReferenceDomainObject @ 0x14034B1CC (HalpDmaReferenceDomainObject.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpAllocateCommonBufferVectorInternal(

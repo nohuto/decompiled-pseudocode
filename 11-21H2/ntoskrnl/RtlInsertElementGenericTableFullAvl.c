@@ -2,11 +2,11 @@
  * XREFs of RtlInsertElementGenericTableFullAvl @ 0x1402DEFC0
  * Callers:
  *     RtlInsertElementGenericTableAvl @ 0x1402DEF50 (RtlInsertElementGenericTableAvl.c)
- *     PiDmAddCacheReferenceForObject @ 0x14076A3C4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlObjectEventCreate @ 0x14077A750 (PiPnpRtlObjectEventCreate.c)
+ *     sub_14076A3C4 @ 0x14076A3C4 (sub_14076A3C4.c)
+ *     sub_14077A750 @ 0x14077A750 (sub_14077A750.c)
  * Callees:
- *     RebalanceNode @ 0x1402DF0F8 (RebalanceNode.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_1402DF0F8 @ 0x1402DF0F8 (sub_1402DF0F8.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     memmove @ 0x140435B40 (memmove.c)
  */
 
@@ -19,76 +19,78 @@ PVOID __stdcall RtlInsertElementGenericTableFullAvl(
         TABLE_SEARCH_RESULT SearchResult)
 {
   size_t v7; // rsi
-  __int64 v10; // rax
-  char *v11; // rbx
-  _BYTE *v12; // rcx
-  _BYTE *v13; // r8
+  __int64 v10; // rdx
+  __int64 v11; // rax
+  char *v12; // rbx
+  _BYTE *v13; // rcx
+  _BYTE *v14; // r8
   _QWORD *i; // rdx
-  bool v15; // zf
-  char v16; // al
-  char v17; // dl
+  bool v16; // zf
+  char v17; // al
+  char v18; // dl
 
   v7 = BufferSize;
   if ( SearchResult == TableFoundNode )
   {
-    v11 = (char *)NodeOrParent;
+    v12 = (char *)NodeOrParent;
 LABEL_16:
     if ( NewElement )
       *NewElement = SearchResult != TableFoundNode;
     Table->WhichOrderedElement = 0;
     Table->OrderedPointer = 0LL;
-    return v11 + 32;
+    return v12 + 32;
   }
-  if ( BufferSize + 32 >= BufferSize )
+  v10 = BufferSize + 32;
+  if ( (unsigned int)v10 >= BufferSize )
   {
-    v10 = ((__int64 (*)(void))Table->AllocateRoutine)();
-    v11 = (char *)v10;
-    if ( v10 )
+    v11 = sub_14042A5E0(Table, v10);
+    v12 = (char *)v11;
+    if ( v11 )
     {
-      *(_OWORD *)v10 = 0LL;
-      *(_OWORD *)(v10 + 16) = 0LL;
+      *(_OWORD *)v11 = 0LL;
+      *(_OWORD *)(v11 + 16) = 0LL;
       ++Table->NumberGenericTableElements;
       if ( SearchResult )
       {
-        v12 = NodeOrParent;
-        v13 = (_BYTE *)v10;
+        v13 = NodeOrParent;
+        v14 = (_BYTE *)v11;
         if ( SearchResult == TableInsertAsLeft )
-          *((_QWORD *)NodeOrParent + 1) = v10;
+          *((_QWORD *)NodeOrParent + 1) = v11;
         else
-          *((_QWORD *)NodeOrParent + 2) = v10;
-        *(_QWORD *)v10 = NodeOrParent;
+          *((_QWORD *)NodeOrParent + 2) = v11;
+        *(_QWORD *)v11 = NodeOrParent;
         Table->BalancedRoot.Balance = -1;
-        for ( i = *(_QWORD **)v10; ; v12 = i )
+        for ( i = *(_QWORD **)v11; ; v13 = i )
         {
-          v15 = i[1] == (_QWORD)v13;
-          v16 = -1;
-          v17 = v12[24];
-          if ( !v15 )
-            v16 = 1;
-          if ( v17 )
+          v16 = i[1] == (_QWORD)v14;
+          v17 = -1;
+          v18 = v13[24];
+          if ( !v16 )
+            v17 = 1;
+          if ( v18 )
             break;
-          i = *(_QWORD **)v12;
-          v13 = v12;
-          v12[24] = v16;
+          i = *(_QWORD **)v13;
+          v14 = v13;
+          v13[24] = v17;
         }
-        if ( v17 == v16 )
+        if ( v18 == v17 )
         {
-          RebalanceNode(v12);
+          sub_1402DF0F8(v13);
         }
         else
         {
-          v12[24] = 0;
+          v13[24] = 0;
           if ( !Table->BalancedRoot.Balance )
             ++Table->DepthOfTree;
         }
       }
       else
       {
-        Table->BalancedRoot.RightChild = (_RTL_BALANCED_LINKS *)v10;
-        *(_QWORD *)v10 = Table;
+        Table->BalancedRoot.RightChild = (_RTL_BALANCED_LINKS *)v11;
+        *(_QWORD *)v11 = Table;
         Table->DepthOfTree = 1;
       }
-      memmove(v11 + 32, Buffer, v7);
+      memmove(v12 + 32, Buffer, v7);
       goto LABEL_16;
     }
   }

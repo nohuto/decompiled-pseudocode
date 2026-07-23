@@ -8,15 +8,12 @@
  *     memset @ 0x1800A6C80 (memset.c)
  */
 
-unsigned int *__fastcall LdrpGetNewTlsVector(unsigned int a1)
+_DWORD *__fastcall LdrpGetNewTlsVector(unsigned int a1)
 {
-  unsigned int *result; // rax
-  unsigned int *v3; // rbx
+  _DWORD *result; // rax
+  _DWORD *v3; // rbx
 
-  result = (unsigned int *)RtlAllocateHeap(
-                             NtCurrentPeb()->ProcessHeap,
-                             (unsigned int)(NtdllBaseTag + 786432),
-                             8LL * a1 + 16);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 786432, 8LL * a1 + 16);
   v3 = result;
   if ( result )
   {

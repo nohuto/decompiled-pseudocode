@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSharedInsertPfnChainInList @ 0x1402CE100
+ * XREFs of MiSharedInsertPfnChainInList @ 0x1402AFEC0
  * Callers:
- *     MiInsertPagesInList @ 0x1402CD600 (MiInsertPagesInList.c)
+ *     MiInsertPagesInList @ 0x1402AF3C0 (MiInsertPagesInList.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     MiSwizzleInvalidPte @ 0x1402D0130 (MiSwizzleInvalidPte.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     MiSwizzleInvalidPte @ 0x1402B1EF0 (MiSwizzleInvalidPte.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
  */
 
 signed __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)
@@ -89,13 +89,13 @@ signed __int64 __fastcall MiSharedInsertPfnChainInList(__int64 a1, _QWORD *a2)
       goto LABEL_15;
     }
     v44 = *(_DWORD *)(v9 + 32);
-    v45 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL));
+    v45 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL));
     if ( (*(_QWORD *)(v9 + 40) & 0x20000000000000LL) == 0 )
     {
       if ( (*(_DWORD *)(v9 + 32) & 0x8000000) == 0 )
         goto LABEL_60;
       if ( v9 >= 0xFFFFDE0000000000uLL
-        && v9 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+        && v9 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
         && !(unsigned int)MiIsDecayPfn(v8 / 48) )
       {
         if ( (v44 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v9) == 9 )
@@ -115,13 +115,13 @@ LABEL_15:
           goto LABEL_21;
         }
         v21 = *(_DWORD *)(v9 + 32);
-        v22 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL));
+        v22 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL));
         if ( (*(_QWORD *)(v9 + 40) & 0x20000000000000LL) == 0 )
         {
           if ( (*(_DWORD *)(v9 + 32) & 0x8000000) == 0 )
             goto LABEL_19;
           if ( v9 >= 0xFFFFDE0000000000uLL
-            && v9 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+            && v9 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
             && !(unsigned int)MiIsDecayPfn(v8 / 48) )
           {
             if ( (v21 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v9) == 9 )
@@ -146,8 +146,8 @@ LABEL_20:
   }
   v14 = *(_QWORD *)(v2 + 16);
   v15 = (v2 + 0x220000000000LL) / 48;
-  if ( qword_140E2D740 && (v14 & 0x10) == 0 )
-    v14 &= qword_140E2D748;
+  if ( qword_140E2D8C0 && (v14 & 0x10) == 0 )
+    v14 &= qword_140E2D8C8;
   v16 = *(_QWORD *)(v2 + 40);
   *v11 = v15 ^ (v15 ^ *v11) & 0xFFFFFF0000000000uLL;
   *(_QWORD *)(v9 + 24) = v16 ^ (v16 ^ *(_QWORD *)(v9 + 24)) & 0xFFFFFF0000000000uLL;
@@ -179,7 +179,7 @@ LABEL_21:
     BugCheckParameter2 = *(_QWORD *)a1;
     v51 = 48LL * *(_QWORD *)a1;
     v24 = v51 - 0x220000000000LL;
-    v47 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v51 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
+    v47 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v51 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
     v25 = (unsigned int)MiPageToNode(*(_QWORD *)a1);
     if ( !v2 )
     {
@@ -187,14 +187,14 @@ LABEL_21:
       if ( (*(_QWORD *)(v24 + 40) & 0x20000000000000LL) == 0
         && ((*(_DWORD *)(v24 + 32) & 0x8000000) == 0
          || v24 >= 0xFFFFDE0000000000uLL
-         && v24 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+         && v24 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
          && !(unsigned int)MiIsDecayPfn(v51 / 48)
          && ((v26 & 0x70000) == 0x60000 || (unsigned int)MiGetPfnSlabType(v24) != 9)) )
       {
         v13 = HIBYTE(v26) & 7;
       }
     }
-    if ( qword_140E2D6E8 )
+    if ( qword_140E2D868 )
       v27 = *((_BYTE *)MiSearchChannelTable(BugCheckParameter2) + 12);
     else
       v27 = 0;

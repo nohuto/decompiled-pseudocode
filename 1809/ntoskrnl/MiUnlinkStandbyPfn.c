@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUnlinkStandbyPfn @ 0x1401204A4
+ * XREFs of MiUnlinkStandbyPfn @ 0x140120514
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  * Callees:
@@ -7,11 +7,11 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyPfn(_QWORD *a1, char a2)
@@ -29,12 +29,12 @@ __int64 __fastcall MiUnlinkStandbyPfn(_QWORD *a1, char a2)
   int v14; // r8d
 
   v4 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a1);
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
     if ( (v4 & 0x10) != 0 )
       v4 &= ~0x10uLL;
     else
-      v4 &= ~qword_14043A0C0;
+      v4 &= ~qword_14043B180;
   }
   v5 = (v4 >> 12) & 0xFFFFFFFFFLL;
   v6 = 48 * v5 - 0x58000000000LL;
@@ -72,7 +72,7 @@ __int64 __fastcall MiUnlinkStandbyPfn(_QWORD *a1, char a2)
     if ( (unsigned int)MiPteHasShadow(v13, v12) )
     {
       v14 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_13;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

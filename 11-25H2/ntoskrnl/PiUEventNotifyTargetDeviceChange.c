@@ -33,15 +33,16 @@ __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1)
   __int64 v16; // rax
   __int64 v17; // rax
   __int64 v18; // rax
-  __int64 v19; // rdx
-  char v20; // [rsp+80h] [rbp+8h]
-  char v21; // [rsp+88h] [rbp+10h]
+  ULONG v19; // r8d
+  __int64 v20; // rdx
+  char v21; // [rsp+80h] [rbp+8h]
+  char v22; // [rsp+88h] [rbp+10h]
 
   Pool2 = 0LL;
   v2 = 0;
-  v20 = 0;
-  v3 = 0;
   v21 = 0;
+  v3 = 0;
+  v22 = 0;
   v4 = 0;
   v6 = *(_QWORD *)(a1 + 80) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
   if ( !v6 )
@@ -74,7 +75,7 @@ LABEL_4:
     {
       if ( v7 != 2 )
         return (unsigned int)v3;
-      v20 = 1;
+      v21 = 1;
       v8 = 136LL;
     }
     else
@@ -94,7 +95,7 @@ LABEL_4:
     v11 = *v10;
     if ( *v10 != v10 )
     {
-      v12 = v20;
+      v12 = v21;
       do
       {
         v13 = v11;
@@ -105,25 +106,25 @@ LABEL_4:
             || !(unsigned __int8)PiUEventApplyAdditionalFilters(a1, v13)
             || (v3 = PiUEventNotifyClient(a1, v13), v3 < 0) )
           {
-            v12 = v20;
+            v12 = v21;
           }
           else
           {
-            v12 = v20;
+            v12 = v21;
             if ( Pool2 )
             {
               if ( v4 >= 0x400 )
               {
                 v2 = 1;
-                v21 = 1;
+                v22 = 1;
                 continue;
               }
-              v19 = v4++;
-              Pool2[v19] = *((_DWORD *)v13 + 12);
+              v20 = v4++;
+              Pool2[v20] = *((_DWORD *)v13 + 12);
             }
           }
         }
-        v2 = v21;
+        v2 = v22;
       }
       while ( v11 != v10 );
     }
@@ -133,12 +134,14 @@ LABEL_4:
       {
         memset_0(Pool2 + 1, 0, 0xFFCuLL);
         *Pool2 = -1;
+        v19 = 4;
       }
       else
       {
+        v19 = 4096;
         *Pool2 = v4 - 1;
       }
-      ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)Pool2);
+      ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, Pool2, v19, 0LL, 0LL, 0, 0);
     }
     KeReleaseGuardedMutex(&PiUEventClientRegistrationListLock);
     if ( Pool2 )

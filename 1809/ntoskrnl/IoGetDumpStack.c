@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetDumpStack @ 0x1406DF084
+ * XREFs of IoGetDumpStack @ 0x1406E0324
  * Callers:
- *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x1406E07D4 (PopAllocateHiberContext.c)
  * Callees:
- *     IopLoadCrashdumpDriver @ 0x14017817C (IopLoadCrashdumpDriver.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IopLoadCrashdumpDriver @ 0x14017827C (IopLoadCrashdumpDriver.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IoGetDumpStack(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -13,7 +13,7 @@ __int64 __fastcall IoGetDumpStack(__int64 a1, __int64 a2, __int64 a3, unsigned i
 
   result = IopLoadCrashdumpDriver();
   if ( (int)result >= 0 )
-    return ((__int64 (__fastcall *)(const wchar_t *, __int64, __int64, _QWORD, _QWORD))qword_14043C7D0)(
+    return ((__int64 (__fastcall *)(const wchar_t *, __int64, __int64, _QWORD, _QWORD))qword_14043D890)(
              L"hiber_",
              a2,
              2LL,

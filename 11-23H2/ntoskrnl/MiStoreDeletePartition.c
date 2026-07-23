@@ -1,18 +1,18 @@
 /*
- * XREFs of MiStoreDeletePartition @ 0x14065C038
+ * XREFs of MiStoreDeletePartition @ 0x14065C588
  * Callers:
- *     MiDeletePartitionResources @ 0x140659488 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x1406599D8 (MiDeletePartitionResources.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiQueueSyncModifiedWriterApc @ 0x14063B428 (MiQueueSyncModifiedWriterApc.c)
- *     MmStoreFlushOutstandingEvictions @ 0x14065D034 (MmStoreFlushOutstandingEvictions.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x14063B978 (MiQueueSyncModifiedWriterApc.c)
+ *     MmStoreFlushOutstandingEvictions @ 0x14065D584 (MmStoreFlushOutstandingEvictions.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -49,10 +49,13 @@ void __fastcall MiStoreDeletePartition(__int64 a1)
     v2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1352));
     KeSetEvent((PRKEVENT)(a1 + 1264), 0, 0);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1352));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

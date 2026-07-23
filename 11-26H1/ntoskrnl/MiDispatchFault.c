@@ -1,26 +1,26 @@
 /*
- * XREFs of MiDispatchFault @ 0x1403A3E60
+ * XREFs of MiDispatchFault @ 0x1403A5BC0
  * Callers:
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiResolveDemandZeroFault @ 0x1402D4B40 (MiResolveDemandZeroFault.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
- *     MiPropagateFaultPacketFields @ 0x1403A5990 (MiPropagateFaultPacketFields.c)
- *     MiComputeMaximumFaultCluster @ 0x1403A5A20 (MiComputeMaximumFaultCluster.c)
- *     MiResolveProtoPteFault @ 0x1403A5DAC (MiResolveProtoPteFault.c)
- *     MiAccessCheck @ 0x1403A69D0 (MiAccessCheck.c)
- *     KeInvalidAccessAllowed @ 0x1403A6D10 (KeInvalidAccessAllowed.c)
- *     MiResolveTransitionFault @ 0x1403A6F04 (MiResolveTransitionFault.c)
- *     MiValidFault @ 0x1403A7338 (MiValidFault.c)
- *     MiCheckProtoAccess @ 0x140431F30 (MiCheckProtoAccess.c)
- *     MiGetVirtualFaultPageInfo @ 0x140525BB8 (MiGetVirtualFaultPageInfo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiResolveDemandZeroFault @ 0x1402B6900 (MiResolveDemandZeroFault.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
+ *     MiPropagateFaultPacketFields @ 0x1403A76F0 (MiPropagateFaultPacketFields.c)
+ *     MiComputeMaximumFaultCluster @ 0x1403A7780 (MiComputeMaximumFaultCluster.c)
+ *     MiResolveProtoPteFault @ 0x1403A7B0C (MiResolveProtoPteFault.c)
+ *     MiAccessCheck @ 0x1403A8730 (MiAccessCheck.c)
+ *     KeInvalidAccessAllowed @ 0x1403A8A70 (KeInvalidAccessAllowed.c)
+ *     MiResolveTransitionFault @ 0x1403A8C64 (MiResolveTransitionFault.c)
+ *     MiValidFault @ 0x1403A9098 (MiValidFault.c)
+ *     MiCheckProtoAccess @ 0x14041EF60 (MiCheckProtoAccess.c)
+ *     MiGetVirtualFaultPageInfo @ 0x140528228 (MiGetVirtualFaultPageInfo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiDispatchFault(__int128 *a1, __int64 a2, _QWORD *a3)
@@ -59,7 +59,7 @@ __int64 __fastcall MiDispatchFault(__int128 *a1, __int64 a2, _QWORD *a3)
   __int64 v35; // [rsp+40h] [rbp-C0h]
   unsigned __int64 v36; // [rsp+48h] [rbp-B8h] BYREF
   unsigned __int64 v37; // [rsp+50h] [rbp-B0h]
-  struct _SLIST_ENTRY *v38; // [rsp+58h] [rbp-A8h] BYREF
+  _SLIST_ENTRY *v38; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v39; // [rsp+60h] [rbp-A0h]
   __int64 v40; // [rsp+68h] [rbp-98h]
   _QWORD *SystemArgument1; // [rsp+70h] [rbp-90h]

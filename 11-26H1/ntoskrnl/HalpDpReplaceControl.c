@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDpReplaceControl @ 0x140BEE360
+ * XREFs of HalpDpReplaceControl @ 0x140BF4360
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpDpPostReplace @ 0x140BEDF84 (HalpDpPostReplace.c)
- *     HalpDpPreReplace @ 0x140BEE240 (HalpDpPreReplace.c)
- *     HalpDpStartProcessor @ 0x140BEE634 (HalpDpStartProcessor.c)
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140BEE7C0 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDpPostReplace @ 0x140BF3F84 (HalpDpPostReplace.c)
+ *     HalpDpPreReplace @ 0x140BF4240 (HalpDpPreReplace.c)
+ *     HalpDpStartProcessor @ 0x140BF4634 (HalpDpStartProcessor.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140BF47C0 (HalpInterruptSwapProcessorIdentifiers.c)
  */
 
 __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2)
@@ -51,7 +51,7 @@ __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2)
             v9 = v2 + 1;
             while ( v8 < v9 )
             {
-              if ( (++v7 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+              if ( (++v7 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
                 _mm_pause();
               else
                 guard_dispatch_icall_no_overrides(v7, a2);
@@ -61,7 +61,7 @@ __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2)
             _InterlockedIncrement((volatile signed __int32 *)(a2 + 52));
             while ( *(_DWORD *)(a2 + 52) < v9 )
             {
-              if ( (++v10 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+              if ( (++v10 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
                 _mm_pause();
               else
                 guard_dispatch_icall_no_overrides(v10, a2);
@@ -82,7 +82,7 @@ __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2)
       v13 = v2 + 1;
       while ( *(_DWORD *)(a2 + 48) < v13 )
       {
-        if ( (++v12 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+        if ( (++v12 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
           _mm_pause();
         else
           guard_dispatch_icall_no_overrides(v12, v11.QuadPart);
@@ -109,7 +109,7 @@ __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2)
       _InterlockedIncrement((volatile signed __int32 *)(a2 + 52));
       while ( *(_DWORD *)(a2 + 52) < v13 )
       {
-        if ( (++v18 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+        if ( (++v18 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
           _mm_pause();
         else
           guard_dispatch_icall_no_overrides(v18, v17.QuadPart);

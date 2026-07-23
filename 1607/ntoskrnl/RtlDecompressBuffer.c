@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlDecompressBuffer @ 0x14021127C
+ * XREFs of RtlDecompressBuffer @ 0x1402110A8
  * Callers:
- *     RtlDecompressChunks @ 0x140685B84 (RtlDecompressChunks.c)
+ *     RtlDecompressChunks @ 0x140685C68 (RtlDecompressChunks.c)
  * Callees:
  *     <none>
  */

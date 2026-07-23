@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogWsAging @ 0x14050B9EC
+ * XREFs of MiLogWsAging @ 0x14050545C
  * Callers:
- *     MiAgeWorkingSet @ 0x1402FD0D0 (MiAgeWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x1402DF150 (MiAgeWorkingSet.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogWsAging(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -80,9 +80,9 @@ char __fastcall MiLogWsAging(__int64 a1, __int64 a2, __int64 a3, int a4)
     --v10;
   }
   while ( v10 );
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
   {
-    LOBYTE(v11) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 1LL);
+    LOBYTE(v11) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 1LL);
     if ( (_BYTE)v11 )
     {
       v15 = *(_DWORD *)(v13 + 184) & 0xF;
@@ -125,7 +125,7 @@ char __fastcall MiLogWsAging(__int64 a1, __int64 a2, __int64 a3, int a4)
       v57 = 4LL;
       v59 = 64LL;
       v61 = 4LL;
-      LOBYTE(v11) = tlgWriteEx_EtwWriteEx(v18, (unsigned __int8 *)&byte_140057D5B, v18, 1u, v20, v21, 0x10u, &v34);
+      LOBYTE(v11) = tlgWriteEx_EtwWriteEx(v18, (unsigned __int8 *)&word_140058F1E, v18, 1u, v20, v21, 0x10u, &v34);
     }
   }
   return v11;

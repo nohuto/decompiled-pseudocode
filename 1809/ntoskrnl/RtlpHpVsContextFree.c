@@ -2,13 +2,13 @@
  * XREFs of RtlpHpVsContextFree @ 0x1400079BC
  * Callers:
  *     RtlpHpSegFree @ 0x140007CDC (RtlpHpSegFree.c)
- *     RtlpFreeHeapInternal @ 0x14011EEF0 (RtlpFreeHeapInternal.c)
+ *     RtlpFreeHeapInternal @ 0x14011EF60 (RtlpFreeHeapInternal.c)
  * Callees:
- *     READ_REGISTER_USHORT @ 0x140092140 (READ_REGISTER_USHORT.c)
- *     RtlInterlockedPushEntrySList @ 0x1401B62F0 (RtlInterlockedPushEntrySList.c)
- *     RtlpHpVsContextFreeList @ 0x1401B6BB0 (RtlpHpVsContextFreeList.c)
- *     RtlpHpVsDelayFreeContextFlush @ 0x1401B6D24 (RtlpHpVsDelayFreeContextFlush.c)
- *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
+ *     READ_REGISTER_USHORT @ 0x140092080 (READ_REGISTER_USHORT.c)
+ *     RtlInterlockedPushEntrySList @ 0x1401B6458 (RtlInterlockedPushEntrySList.c)
+ *     RtlpHpVsContextFreeList @ 0x1401B6D18 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsDelayFreeContextFlush @ 0x1401B6E8C (RtlpHpVsDelayFreeContextFlush.c)
+ *     RtlpLogHeapFailure @ 0x1402FBA28 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, unsigned int *a5)
@@ -27,8 +27,8 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   int v20; // r9d
   int v21; // ecx
   unsigned int v22; // ecx
-  struct _SLIST_ENTRY *v23; // rdx
-  union _SLIST_HEADER *v24; // rcx
+  _SLIST_ENTRY *v23; // rdx
+  _SLIST_HEADER *v24; // rcx
 
   v5 = *(_DWORD *)(a1 + 176);
   v10 = a3 - 16;

@@ -7,12 +7,13 @@
  *     NtContinueEx @ 0x1403FDCB0 (NtContinueEx.c)
  */
 
-__int64 __fastcall RtlContinueLongJump(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlContinueLongJump(_CONTEXT *a1)
 {
-  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+30h] [rbp-18h]
+  __int128 ContinueArgument; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v3; // [rsp+30h] [rbp-18h]
 
-  v5 = 0LL;
-  v6 = 0LL;
-  return NtContinueEx(a1, (unsigned __int64)&v5, a3, a4, 2);
+  ContinueArgument = 0LL;
+  LODWORD(ContinueArgument) = 2;
+  v3 = 0LL;
+  return NtContinueEx(a1, &ContinueArgument);
 }

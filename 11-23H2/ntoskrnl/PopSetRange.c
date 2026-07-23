@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSetRange @ 0x14058EF1C
+ * XREFs of PopSetRange @ 0x14058F40C
  * Callers:
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
- *     RtlMarkHiberPhase @ 0x1405B474C (RtlMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
+ *     RtlMarkHiberPhase @ 0x1405B4CBC (RtlMarkHiberPhase.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x140583160 (PopInternalAddToDumpFile.c)
- *     PopCloneRange @ 0x140AA1DE4 (PopCloneRange.c)
- *     PopDiscardRange @ 0x140AA27FC (PopDiscardRange.c)
- *     PopSetBootPhaseRange @ 0x140AA52D4 (PopSetBootPhaseRange.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x140583650 (PopInternalAddToDumpFile.c)
+ *     PopCloneRange @ 0x140AA1C54 (PopCloneRange.c)
+ *     PopDiscardRange @ 0x140AA266C (PopDiscardRange.c)
+ *     PopSetBootPhaseRange @ 0x140AA5144 (PopSetBootPhaseRange.c)
  */
 
 __int64 __fastcall PopSetRange(ULONG_PTR BugCheckParameter3, int a2, __int64 a3, __int64 a4, unsigned int a5)

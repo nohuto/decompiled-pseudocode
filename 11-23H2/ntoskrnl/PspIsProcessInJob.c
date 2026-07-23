@@ -3,7 +3,7 @@
  * Callers:
  *     NtIsProcessInJob @ 0x14069EDD0 (NtIsProcessInJob.c)
  *     PspGetJobAssignmentDisposition @ 0x1406A05A0 (PspGetJobAssignmentDisposition.c)
- *     PspChargeProcessWakeCounter @ 0x1407383D0 (PspChargeProcessWakeCounter.c)
+ *     PspChargeProcessWakeCounter @ 0x1407385C0 (PspChargeProcessWakeCounter.c)
  * Callees:
  *     <none>
  */

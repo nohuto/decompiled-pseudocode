@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipUpdateDataSource @ 0x140A0ABF4
+ * XREFs of WmipUpdateDataSource @ 0x140A09CB4
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x140A0B8AC (WmipProcessWmiRegInfo.c)
+ *     WmipProcessWmiRegInfo @ 0x140A0AADC (WmipProcessWmiRegInfo.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipGenerateBinaryMofNotification @ 0x140823E24 (WmipGenerateBinaryMofNotification.c)
- *     WmipUpdateModifyGuid @ 0x140824160 (WmipUpdateModifyGuid.c)
- *     WmipSendGuidUpdateNotifications @ 0x140A0C3E8 (WmipSendGuidUpdateNotifications.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140A0C854 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipEnableCollectionForNewGuid @ 0x140A0D350 (WmipEnableCollectionForNewGuid.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     WmipCachePtrs @ 0x140AE11FC (WmipCachePtrs.c)
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140AED0DC (WmipUnlinkInstanceSetFromGuidEntry.c)
- *     WmipFindISInDSByGuid @ 0x140B5000C (WmipFindISInDSByGuid.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14082A070 (WmipGenerateBinaryMofNotification.c)
+ *     WmipUpdateModifyGuid @ 0x14082A3AC (WmipUpdateModifyGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140A0B3B8 (WmipSendGuidUpdateNotifications.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140A0B824 (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140A0B87C (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140A0CDA0 (WmipEnableCollectionForNewGuid.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     WmipCachePtrs @ 0x140ADE6EC (WmipCachePtrs.c)
+ *     WmipFindISInDSByGuid @ 0x140B5289C (WmipFindISInDSByGuid.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
@@ -82,7 +82,7 @@ __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
   v41 = 0LL;
   v10 = 0LL;
   v42 = 0LL;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   if ( !*(_DWORD *)(a2 + 16) )
     goto LABEL_16;
   v11 = v44;
@@ -131,7 +131,7 @@ LABEL_14:
   v9 = v35;
   v7 = v43;
 LABEL_16:
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   WmipUnreferenceEntry(&WmipDSChunkInfo, v3);
   if ( v7 )
   {
@@ -147,7 +147,7 @@ LABEL_16:
         WmipGenerateBinaryMofNotification(*((_QWORD *)v23 + 1), &GUID_MOF_RESOURCE_REMOVED_NOTIFICATION);
       v24 = *((_QWORD *)v23 + 1);
       WmipDisableCollectionForRemovedGuid(v10[2 * v20], v24);
-      KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+      KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       if ( *(_QWORD *)v24 )
         WmipUnlinkInstanceSetFromGuidEntry(v24);
       if ( (*(_DWORD *)(v24 + 16) & 8) == 0 )
@@ -159,7 +159,7 @@ LABEL_16:
       *v26 = v25;
       *(_QWORD *)(v25 + 8) = v26;
       WmipUnreferenceEntry(&WmipISChunkInfo, v24);
-      KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+      KeReleaseMutex(&WmipSMMutex, 0);
       ++v20;
     }
     while ( v20 < v43 );

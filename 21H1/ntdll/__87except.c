@@ -17,55 +17,58 @@ int *__usercall _87except@<eax>(int a1@<ebp>, int a2, int a3, __int16 *a4)
   __int16 v4; // cx
   int v5; // edi
   int *result; // eax
-  unsigned int v7; // [esp-94h] [ebp-A0h]
-  int v8; // [esp-84h] [ebp-90h] BYREF
-  double v9[8]; // [esp-80h] [ebp-8Ch] BYREF
-  unsigned int v10; // [esp-40h] [ebp-4Ch]
-  int v11; // [esp+0h] [ebp-Ch]
-  void *v12; // [esp+4h] [ebp-8h]
+  ULONG_PTR v7; // [esp-A8h] [ebp-B4h]
+  unsigned int v8; // [esp-94h] [ebp-A0h]
+  int v9; // [esp-84h] [ebp-90h] BYREF
+  double v10[8]; // [esp-80h] [ebp-8Ch] BYREF
+  unsigned int v11; // [esp-40h] [ebp-4Ch]
+  int v12; // [esp+0h] [ebp-Ch]
+  void *v13; // [esp+4h] [ebp-8h]
   void *retaddr; // [esp+Ch] [ebp+0h]
 
-  v11 = a1;
-  v12 = retaddr;
+  v12 = a1;
+  v13 = retaddr;
   v4 = *a4;
-  v8 = (unsigned __int16)*a4;
+  v9 = (unsigned __int16)*a4;
   switch ( *(_DWORD *)a3 )
   {
     case 1:
       goto LABEL_13;
     case 2:
-      v7 = 4;
+      v8 = 4;
       goto LABEL_14;
     case 3:
-      v7 = 17;
+      v8 = 17;
       goto LABEL_14;
     case 4:
-      v7 = 18;
+      v8 = 18;
       goto LABEL_14;
     case 5:
 LABEL_13:
-      v7 = 8;
+      v8 = 8;
 LABEL_14:
-      v5 = v7;
-      if ( !_handle_exc(v7, (double *)(a3 + 24), v4) )
+      v5 = v8;
+      if ( !_handle_exc(v8, (double *)(a3 + 24), v4) )
       {
         if ( a2 == 16 || a2 == 22 || a2 == 29 )
         {
-          v9[6] = *(double *)(a3 + 16);
-          v10 = v10 & 0xFFFFFFE0 | 3;
+          v10[6] = *(double *)(a3 + 16);
+          v11 = v11 & 0xFFFFFFE0 | 3;
         }
         else
         {
-          v10 &= ~1u;
+          v11 &= ~1u;
         }
-        _raise_exc((ULONG_PTR)v9, (int)&v8, v5, a2, a3 + 8, a3 + 24);
+        HIDWORD(v7) = &v9;
+        LODWORD(v7) = v10;
+        _raise_exc(v7, v5, a2, a3 + 8, a3 + 24);
       }
       break;
     case 7:
       *(_DWORD *)a3 = 1;
       break;
     case 8:
-      v7 = 16;
+      v8 = 16;
       goto LABEL_14;
   }
   _ctrlfp();

@@ -1,20 +1,20 @@
 /*
- * XREFs of KiSynchNumaCounterSetCallback @ 0x140973FA0
+ * XREFs of KiSynchNumaCounterSetCallback @ 0x1409741A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BFC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KiQuerySubNodeActiveAffinity @ 0x140307E7C (KiQuerySubNodeActiveAffinity.c)
- *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x140392450 (KeInitializeSchedulerSubNodeEnumerationContext.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PcwAddInstance @ 0x14086D6E0 (PcwAddInstance.c)
- *     KiAddSynchCounters @ 0x140973E40 (KiAddSynchCounters.c)
- *     EtwDereferenceSpinLockCounters @ 0x1409EBF88 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1409EBFE4 (EtwReferenceSpinLockCounters.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1E8C (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x14030810C (KiQuerySubNodeActiveAffinity.c)
+ *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x140392630 (KeInitializeSchedulerSubNodeEnumerationContext.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PcwAddInstance @ 0x14086D920 (PcwAddInstance.c)
+ *     KiAddSynchCounters @ 0x140974040 (KiAddSynchCounters.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1409EC218 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1409EC274 (EtwReferenceSpinLockCounters.c)
  */
 
 int __fastcall KiSynchNumaCounterSetCallback(int a1, __int64 a2)

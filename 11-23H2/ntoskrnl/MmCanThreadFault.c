@@ -1,11 +1,11 @@
 /*
- * XREFs of MmCanThreadFault @ 0x14022784C
+ * XREFs of MmCanThreadFault @ 0x14022795C
  * Callers:
- *     RtlWalkFrameChain @ 0x140227760 (RtlWalkFrameChain.c)
- *     EtwpEventWriteFull @ 0x140258570 (EtwpEventWriteFull.c)
- *     EtwpGetStackCaptureSettings @ 0x140468904 (EtwpGetStackCaptureSettings.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x14046A2C8 (EtwpCovSampSafeForUserAddressCapture.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     RtlWalkFrameChain @ 0x140227870 (RtlWalkFrameChain.c)
+ *     EtwpEventWriteFull @ 0x140258630 (EtwpEventWriteFull.c)
+ *     EtwpGetStackCaptureSettings @ 0x140468D04 (EtwpGetStackCaptureSettings.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x14046A6C8 (EtwpCovSampSafeForUserAddressCapture.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
  */

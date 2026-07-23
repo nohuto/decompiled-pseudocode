@@ -4,12 +4,12 @@
  *     KsepEngineInitialize @ 0x140B611A8 (KsepEngineInitialize.c)
  * Callees:
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     RtlAssert @ 0x1405AA0C0 (RtlAssert.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x1405AA630 (RtlAssert.c)
  *     KsepRegistryOpenKey @ 0x1406944C4 (KsepRegistryOpenKey.c)
- *     KsepRegistryQueryDWORD @ 0x1408445D8 (KsepRegistryQueryDWORD.c)
- *     KsepRegistryCloseKey @ 0x140844828 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryDWORD @ 0x1408448D8 (KsepRegistryQueryDWORD.c)
+ *     KsepRegistryCloseKey @ 0x140844B28 (KsepRegistryCloseKey.c)
  */
 
 __int64 __fastcall KsepEngineReadFlags(int *a1)
@@ -36,7 +36,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   if ( !a1 )
   {
     v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C407C4[2 * v8] = -1073740768;
+    dword_140C40784[2 * v8] = -1073740768;
     KsepHistoryErrors[2 * v8] = 262244;
     if ( (KsepDebugFlag & 4) != 0 )
       RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x64u, 0LL);
@@ -84,7 +84,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   if ( v4 < 0 )
   {
     v10 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C407C4[2 * v10] = v5;
+    dword_140C40784[2 * v10] = v5;
     KsepHistoryErrors[2 * v10] = 262304;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: Error reading compatibility key: status: %08x\n", v5);
@@ -117,7 +117,7 @@ LABEL_8:
     else
     {
       v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140C407C4[2 * v11] = v5;
+      dword_140C40784[2 * v11] = v5;
       KsepHistoryErrors[2 * v11] = 262326;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(0LL, "KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);

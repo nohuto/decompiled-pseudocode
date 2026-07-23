@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeTbFlush @ 0x140CFF6B4
+ * XREFs of MiInitializeTbFlush @ 0x140D05A54
  * Callers:
- *     MiInitializeTbFlushing @ 0x140CFF7F0 (MiInitializeTbFlushing.c)
+ *     MiInitializeTbFlushing @ 0x140D05B90 (MiInitializeTbFlushing.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiCalibrateTbFlush @ 0x14070DF04 (MiCalibrateTbFlush.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiCalibrateTbFlush @ 0x140712BB4 (MiCalibrateTbFlush.c)
  */
 
 unsigned __int64 __fastcall MiInitializeTbFlush(unsigned int a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -26,12 +26,12 @@ unsigned __int64 __fastcall MiInitializeTbFlush(unsigned int a1, __int64 a2, __i
 
   v15 = 0LL;
   v16 = 0LL;
-  result = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, a1, a3, a4);
+  result = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, a1, a3, a4);
   v6 = result;
   if ( result )
   {
     v7 = 1;
-    ValidPte = MiMakeValidPte(result, qword_140E36038, 1);
+    ValidPte = MiMakeValidPte(result, qword_140E361B8, 1);
     v9 = (__int64)(v6 << 25) >> 16;
     if ( a1 )
     {
@@ -63,8 +63,8 @@ unsigned __int64 __fastcall MiInitializeTbFlush(unsigned int a1, __int64 a2, __i
       }
       while ( v14 > v7 + 1 );
     }
-    qword_140E2D790 = v7;
-    return MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v6, a1);
+    qword_140E2D910 = v7;
+    return MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v6, a1);
   }
   return result;
 }

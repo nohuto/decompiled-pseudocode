@@ -13,9 +13,10 @@ int __fastcall EtwpAllocateRegistration(_DWORD *a1, int a2, int a3, __int16 a4)
   signed __int32 v4; // esi
   unsigned __int32 v5; // eax
   int v6; // ebx
-  int Heap; // eax
+  _DWORD *Heap; // eax
   __int16 v8; // cx
   signed __int16 v9; // ax
+  SIZE_T v11; // [esp-4h] [ebp-1Ch]
 
   v4 = EtwpRegistrationCount;
   if ( (unsigned int)EtwpRegistrationCount < 0x800 )
@@ -29,25 +30,26 @@ int __fastcall EtwpAllocateRegistration(_DWORD *a1, int a2, int a3, __int16 a4)
       if ( v5 >= 0x800 )
         return 0;
     }
-    RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)&EtwpFreeRegistrationList >> 2) & 0x1F]);
+    RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)&EtwpFreeRegistrationList >> 2) & 0x1F));
     v6 = EtwpFreeRegistrationList;
     if ( EtwpFreeRegistrationList )
     {
       EtwpFreeRegistrationList = *(_DWORD *)EtwpFreeRegistrationList;
       LOWORD(dword_4B3A41E4) = dword_4B3A41E4 - 1;
     }
-    RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)&EtwpFreeRegistrationList >> 2) & 0x1F]);
+    RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)&EtwpFreeRegistrationList >> 2) & 0x1F));
     if ( !v6 )
     {
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 208);
-      v6 = Heap;
+      LODWORD(v11) = 208;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v11);
+      v6 = (int)Heap;
       if ( !Heap )
       {
         _InterlockedDecrement(&EtwpRegistrationCount);
         return v6;
       }
-      *(_DWORD *)(Heap + 36) = 0;
-      *(_DWORD *)(Heap + 40) = 0;
+      Heap[9] = 0;
+      Heap[10] = 0;
     }
     v8 = *(_WORD *)(v6 + 54);
     *(_DWORD *)(v6 + 12) = *a1;

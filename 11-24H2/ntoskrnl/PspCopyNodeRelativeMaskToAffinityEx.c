@@ -1,14 +1,14 @@
 /*
- * XREFs of PspCopyNodeRelativeMaskToAffinityEx @ 0x140C34CB4
+ * XREFs of PspCopyNodeRelativeMaskToAffinityEx @ 0x140C36DF4
  * Callers:
- *     PsInitializeBootCpuPartitions @ 0x140C3489C (PsInitializeBootCpuPartitions.c)
+ *     PsInitializeBootCpuPartitions @ 0x140C369DC (PsInitializeBootCpuPartitions.c)
  * Callees:
- *     KeQueryNodeActiveAffinityEx @ 0x140208AA0 (KeQueryNodeActiveAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140330080 (KeQueryNodeActiveAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PspCopyNodeRelativeMaskToAffinityEx(unsigned __int16 a1, __int64 a2, unsigned __int16 *a3)

@@ -1,34 +1,34 @@
 /*
- * XREFs of CcPinFileData @ 0x140031DE0
+ * XREFs of CcPinFileData @ 0x140031960
  * Callers:
- *     CcZeroDataInCache @ 0x14006D5D0 (CcZeroDataInCache.c)
- *     CcPinMappedData @ 0x1404471C0 (CcPinMappedData.c)
- *     CcMapData @ 0x1404475F0 (CcMapData.c)
- *     CcPreparePinWrite @ 0x140458274 (CcPreparePinWrite.c)
- *     CcMapDataCommon @ 0x140458440 (CcMapDataCommon.c)
- *     CcPinRead @ 0x1404BCAF0 (CcPinRead.c)
+ *     CcZeroDataInCache @ 0x14006D150 (CcZeroDataInCache.c)
+ *     CcPinMappedData @ 0x140446090 (CcPinMappedData.c)
+ *     CcMapData @ 0x1404464C0 (CcMapData.c)
+ *     CcPreparePinWrite @ 0x140457144 (CcPreparePinWrite.c)
+ *     CcMapDataCommon @ 0x140457310 (CcMapDataCommon.c)
+ *     CcPinRead @ 0x1404A8820 (CcPinRead.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     CcGetVirtualAddress @ 0x1400333C0 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x1400338E0 (CcMapAndRead.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     ExAcquireSharedStarveExclusive @ 0x140034660 (ExAcquireSharedStarveExclusive.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CcGetBcbListHeadLargeOffset @ 0x14006C720 (CcGetBcbListHeadLargeOffset.c)
- *     CcAllocateInitializeBcb @ 0x14006C9C4 (CcAllocateInitializeBcb.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExpAcquireFastMutexContended @ 0x1400C7E28 (ExpAcquireFastMutexContended.c)
- *     CcUnpinFileDataEx @ 0x1400CF860 (CcUnpinFileDataEx.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     CcDereferenceFileOffset @ 0x1401B2708 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x1401B2810 (CcReferenceFileOffset.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     CcGetVirtualAddress @ 0x140032F40 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x140033460 (CcMapAndRead.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1400341E0 (ExAcquireSharedStarveExclusive.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x14006C2A0 (CcGetBcbListHeadLargeOffset.c)
+ *     CcAllocateInitializeBcb @ 0x14006C544 (CcAllocateInitializeBcb.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExpAcquireFastMutexContended @ 0x1400C5CC8 (ExpAcquireFastMutexContended.c)
+ *     CcUnpinFileDataEx @ 0x1400CD700 (CcUnpinFileDataEx.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     CcDereferenceFileOffset @ 0x1401B25EC (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x1401B26F4 (CcReferenceFileOffset.c)
  */
 
 __int64 __fastcall CcPinFileData(
@@ -179,7 +179,7 @@ __int64 __fastcall CcPinFileData(
 LABEL_7:
   if ( v10 )
   {
-    if ( v15 < qword_140326910 || v15 >= qword_140326910 + 0x8000000000LL )
+    if ( v15 < qword_140326950 || v15 >= qword_140326950 + 0x8000000000LL )
       SessionId = -1;
     else
       SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
@@ -533,7 +533,7 @@ LABEL_50:
     v95 = v47;
     if ( v47 )
     {
-      if ( v43 < qword_140326910 || v43 >= qword_140326910 + 0x8000000000LL )
+      if ( v43 < qword_140326950 || v43 >= qword_140326950 + 0x8000000000LL )
         v48 = -1;
       else
         v48 = MmGetSessionIdEx(v44->ApcState.Process);

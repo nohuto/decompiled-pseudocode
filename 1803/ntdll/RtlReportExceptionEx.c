@@ -20,125 +20,150 @@
  *     sub_1800D7E44 @ 0x1800D7E44 (sub_1800D7E44.c)
  */
 
-__int64 __fastcall RtlReportExceptionEx(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlReportExceptionEx(
+        PEXCEPTION_RECORD ExceptionRecord,
+        PCONTEXT ContextRecord,
+        ULONG Flags,
+        PLARGE_INTEGER Timeout)
 {
-  unsigned int v8; // r13d
-  int v9; // eax
-  __int64 v10; // rdx
-  struct _TEB *v11; // r8
-  int v13; // ebx
-  _DWORD *v14; // rcx
-  _DWORD *v15; // rdx
-  _OWORD *v16; // r9
-  __int64 v17; // rax
-  __int64 v18; // [rsp+40h] [rbp-A8h] BYREF
-  _DWORD *v19; // [rsp+48h] [rbp-A0h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-98h]
-  __int64 v21; // [rsp+58h] [rbp-90h]
-  __int64 v22; // [rsp+60h] [rbp-88h]
-  __int64 v23; // [rsp+68h] [rbp-80h] BYREF
-  __int64 v24; // [rsp+70h] [rbp-78h] BYREF
-  int v25; // [rsp+78h] [rbp-70h]
-  __int64 v26; // [rsp+80h] [rbp-68h]
-  _QWORD v27[4]; // [rsp+88h] [rbp-60h] BYREF
+  ULONG v7; // r13d
+  int v8; // eax
+  __int64 v9; // rdx
+  struct _TEB *v10; // r8
+  int v12; // ebx
+  _QWORD *v13; // rcx
+  char *v14; // rdx
+  _OWORD *v15; // r9
+  __int64 v16; // rax
+  HANDLE EventHandle; // [rsp+40h] [rbp-A8h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-A0h] BYREF
+  HANDLE v19; // [rsp+50h] [rbp-98h] BYREF
+  HANDLE TargetHandle; // [rsp+58h] [rbp-90h] BYREF
+  HANDLE SourceHandle; // [rsp+60h] [rbp-88h]
+  HANDLE Handle; // [rsp+68h] [rbp-80h] BYREF
+  HANDLE CrashReportSharedMem; // [rsp+70h] [rbp-78h] BYREF
+  int v24; // [rsp+78h] [rbp-70h]
+  HANDLE v25; // [rsp+80h] [rbp-68h]
+  ULONG Flagsa[2]; // [rsp+88h] [rbp-60h] BYREF
+  HANDLE v27; // [rsp+90h] [rbp-58h]
+  HANDLE v28; // [rsp+98h] [rbp-50h]
+  HANDLE v29; // [rsp+A0h] [rbp-48h]
+  void *v30; // [rsp+110h] [rbp+28h]
 
-  v22 = a4;
-  v26 = a5;
-  v21 = 0LL;
-  v20 = 0LL;
-  v18 = 0LL;
-  v23 = 0LL;
-  v24 = 0LL;
+  SourceHandle = Timeout;
+  v25 = v30;
+  TargetHandle = 0LL;
   v19 = 0LL;
-  v8 = sub_180048C9C(a4);
-  v9 = sub_1800D7E14(a5);
-  v25 = v9;
-  v11 = NtCurrentTeb();
-  if ( v8 == LODWORD(v11->ClientId.UniqueProcess) && v9 == LODWORD(v11->ClientId.UniqueThread) )
-    return RtlReportException(a1, a2, a3);
-  if ( v8 == LODWORD(NtCurrentTeb()->ClientId.UniqueProcess) )
-    sub_1800D7B3C(a1, a2, a3);
-  if ( (a3 & 4) != 0 || (v13 = sub_1800D7DD8(v22, v10, v11), v13 >= 0) )
+  EventHandle = 0LL;
+  Handle = 0LL;
+  CrashReportSharedMem = 0LL;
+  BaseAddress = 0LL;
+  v7 = sub_180048C9C(Timeout);
+  v8 = sub_1800D7E14(v30);
+  v24 = v8;
+  v10 = NtCurrentTeb();
+  if ( v7 == LODWORD(v10->ClientId.UniqueProcess) && v8 == LODWORD(v10->ClientId.UniqueThread) )
+    return RtlReportException(ExceptionRecord, ContextRecord, Flags);
+  if ( v7 == LODWORD(NtCurrentTeb()->ClientId.UniqueProcess) )
+    sub_1800D7B3C(ExceptionRecord, ContextRecord);
+  if ( (Flags & 4) != 0 || (v12 = sub_1800D7DD8(SourceHandle, v9, v10), v12 >= 0) )
   {
-    v13 = sub_1800D7B88(&v18, v10, v11);
-    if ( v13 >= 0 )
+    v12 = sub_1800D7B88(&EventHandle);
+    if ( v12 >= 0 )
     {
-      v13 = sub_1800D7BF4(&v24, &v19);
-      if ( v13 >= 0 )
+      v12 = sub_1800D7BF4(&CrashReportSharedMem, &BaseAddress);
+      if ( v12 >= 0 )
       {
-        v13 = ZwDuplicateObject();
-        if ( v13 >= 0 )
+        v12 = ZwDuplicateObject(
+                (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                SourceHandle,
+                (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                &TargetHandle,
+                0x1FFFFFu,
+                2u,
+                0);
+        if ( v12 >= 0 )
         {
-          v13 = ZwDuplicateObject();
-          if ( v13 >= 0 )
+          v12 = ZwDuplicateObject(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  v25,
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  &v19,
+                  0x1FFFFFu,
+                  2u,
+                  0);
+          if ( v12 >= 0 )
           {
-            v14 = v19;
-            *v19 = 240;
-            *((_QWORD *)v14 + 21) = 1LL;
-            v14[1] = v8;
-            v14[2] = v25;
-            *((_QWORD *)v14 + 23) = v21;
-            *((_QWORD *)v14 + 24) = v20;
-            *((_QWORD *)v14 + 26) = v18;
-            *((_QWORD *)v14 + 27) = 0LL;
-            v14[56] = -1073741823;
-            v14[57] = a3;
-            v15 = v19;
-            v19[58] = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
-            v16 = v15 + 102;
-            *((_QWORD *)v15 + 30) = 1LL;
-            *((_OWORD *)v15 + 16) = *(_OWORD *)a1;
-            *((_OWORD *)v15 + 17) = *(_OWORD *)(a1 + 16);
-            *((_OWORD *)v15 + 18) = *(_OWORD *)(a1 + 32);
-            *((_OWORD *)v15 + 19) = *(_OWORD *)(a1 + 48);
-            *((_OWORD *)v15 + 20) = *(_OWORD *)(a1 + 64);
-            *((_OWORD *)v15 + 21) = *(_OWORD *)(a1 + 80);
-            *((_OWORD *)v15 + 22) = *(_OWORD *)(a1 + 96);
-            *((_OWORD *)v15 + 23) = *(_OWORD *)(a1 + 112);
-            *((_OWORD *)v15 + 24) = *(_OWORD *)(a1 + 128);
-            *((_QWORD *)v15 + 50) = *(_QWORD *)(a1 + 144);
-            if ( (a2 & 0xFFFFFFFFFFFFFFFDuLL) != 0 )
+            v13 = BaseAddress;
+            *(_DWORD *)BaseAddress = 240;
+            v13[21] = 1LL;
+            *((_DWORD *)v13 + 1) = v7;
+            *((_DWORD *)v13 + 2) = v24;
+            v13[23] = TargetHandle;
+            v13[24] = v19;
+            v13[26] = EventHandle;
+            v13[27] = 0LL;
+            *((_DWORD *)v13 + 56) = -1073741823;
+            *((_DWORD *)v13 + 57) = Flags;
+            v14 = (char *)BaseAddress;
+            *((_DWORD *)BaseAddress + 58) = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
+            v15 = v14 + 408;
+            *((_QWORD *)v14 + 30) = 1LL;
+            *((_OWORD *)v14 + 16) = *(_OWORD *)&ExceptionRecord->ExceptionCode;
+            *((_OWORD *)v14 + 17) = *(_OWORD *)&ExceptionRecord->ExceptionAddress;
+            *((_OWORD *)v14 + 18) = *(_OWORD *)ExceptionRecord->ExceptionInformation;
+            *((_OWORD *)v14 + 19) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[2];
+            *((_OWORD *)v14 + 20) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[4];
+            *((_OWORD *)v14 + 21) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[6];
+            *((_OWORD *)v14 + 22) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[8];
+            *((_OWORD *)v14 + 23) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[10];
+            *((_OWORD *)v14 + 24) = *(_OWORD *)&ExceptionRecord->ExceptionInformation[12];
+            *((_QWORD *)v14 + 50) = ExceptionRecord->ExceptionInformation[14];
+            if ( ((unsigned __int64)ContextRecord & 0xFFFFFFFFFFFFFFFDuLL) != 0 )
             {
-              *((_QWORD *)v15 + 31) = 1LL;
-              v17 = 9LL;
+              *((_QWORD *)v14 + 31) = 1LL;
+              v16 = 9LL;
               do
               {
-                *v16 = *(_OWORD *)a2;
-                v16[1] = *(_OWORD *)(a2 + 16);
-                v16[2] = *(_OWORD *)(a2 + 32);
-                v16[3] = *(_OWORD *)(a2 + 48);
-                v16[4] = *(_OWORD *)(a2 + 64);
-                v16[5] = *(_OWORD *)(a2 + 80);
-                v16[6] = *(_OWORD *)(a2 + 96);
-                v16 += 8;
-                *(v16 - 1) = *(_OWORD *)(a2 + 112);
-                a2 += 128LL;
-                --v17;
+                *v15 = *(_OWORD *)&ContextRecord->P1Home;
+                v15[1] = *(_OWORD *)&ContextRecord->P3Home;
+                v15[2] = *(_OWORD *)&ContextRecord->P5Home;
+                v15[3] = *(_OWORD *)&ContextRecord->ContextFlags;
+                v15[4] = *(_OWORD *)&ContextRecord->SegGs;
+                v15[5] = *(_OWORD *)&ContextRecord->Dr1;
+                v15[6] = *(_OWORD *)&ContextRecord->Dr3;
+                v15 += 8;
+                *(v15 - 1) = *(_OWORD *)&ContextRecord->Dr7;
+                ContextRecord = (PCONTEXT)((char *)ContextRecord + 128);
+                --v16;
               }
-              while ( v17 );
-              *v16 = *(_OWORD *)a2;
-              v16[1] = *(_OWORD *)(a2 + 16);
-              v16[2] = *(_OWORD *)(a2 + 32);
-              v16[3] = *(_OWORD *)(a2 + 48);
-              v16[4] = *(_OWORD *)(a2 + 64);
+              while ( v16 );
+              *v15 = *(_OWORD *)&ContextRecord->P1Home;
+              v15[1] = *(_OWORD *)&ContextRecord->P3Home;
+              v15[2] = *(_OWORD *)&ContextRecord->P5Home;
+              v15[3] = *(_OWORD *)&ContextRecord->ContextFlags;
+              v15[4] = *(_OWORD *)&ContextRecord->SegGs;
             }
             else
             {
-              *((_QWORD *)v15 + 31) = 2LL;
-              memset(v16, 0, 0x4D0uLL);
+              *((_QWORD *)v14 + 31) = 2LL;
+              memset(v15, 0, 0x4D0uLL);
             }
-            v27[0] = v18;
-            v27[1] = v24;
-            v27[2] = v21;
-            v27[3] = v20;
-            v13 = RtlWerpReportException_0(v8, v24, v27, 4u, a3, &v23);
-            if ( v13 >= 0 )
+            *(_QWORD *)Flagsa = EventHandle;
+            v27 = CrashReportSharedMem;
+            v28 = TargetHandle;
+            v29 = v19;
+            v12 = RtlWerpReportException_0(v7, CrashReportSharedMem, (ULONG)Flagsa, (PHANDLE)4);
+            if ( v12 >= 0 )
             {
-              v13 = sub_1800D7E44(v22, v18, v23, 0LL);
-              if ( v13 >= 0 )
+              v12 = sub_1800D7E44(SourceHandle, EventHandle, Handle, 0LL, Flags, &Handle);
+              if ( v12 >= 0 )
               {
-                if ( (a3 & 4) != 0 || (v13 = ZwTerminateProcess(), v13 >= 0) )
-                  v13 = 0;
+                if ( (Flags & 4) != 0
+                  || (v12 = ZwTerminateProcess(SourceHandle, ExceptionRecord->ExceptionCode), v12 >= 0) )
+                {
+                  v12 = 0;
+                }
               }
             }
           }
@@ -146,20 +171,20 @@ __int64 __fastcall RtlReportExceptionEx(__int64 a1, __int64 a2, unsigned int a3,
       }
     }
   }
-  if ( v23 )
-    ZwClose();
-  if ( v19 )
-    ZwUnmapViewOfSection();
-  if ( v24 )
-    ZwClose();
-  if ( v18 )
+  if ( Handle )
+    ZwClose(Handle);
+  if ( BaseAddress )
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+  if ( CrashReportSharedMem )
+    ZwClose(CrashReportSharedMem);
+  if ( EventHandle )
   {
-    ZwClose();
-    v18 = 0LL;
+    ZwClose(EventHandle);
+    EventHandle = 0LL;
   }
-  if ( v20 )
-    ZwClose();
-  if ( v21 )
-    ZwClose();
-  return (unsigned int)v13;
+  if ( v19 )
+    ZwClose(v19);
+  if ( TargetHandle )
+    ZwClose(TargetHandle);
+  return v12;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140717EE8
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x14071CBD8
  * Callers:
- *     KiBugCheckProgress @ 0x1405E7630 (KiBugCheckProgress.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140717EE8 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KiBugCheckProgress @ 0x1405E9FA0 (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14071CBD8 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     BcpConvertProgressToString @ 0x140716630 (BcpConvertProgressToString.c)
- *     BcpDisplayProgress @ 0x140717534 (BcpDisplayProgress.c)
- *     BcpDisplayProgressModernized @ 0x14071774C (BcpDisplayProgressModernized.c)
- *     BcpGetDisplayType @ 0x140717B10 (BcpGetDisplayType.c)
- *     BcpSetCursorPosition @ 0x140717E1C (BcpSetCursorPosition.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140717EE8 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     BcpConvertProgressToString @ 0x14071B320 (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x14071C224 (BcpDisplayProgress.c)
+ *     BcpDisplayProgressModernized @ 0x14071C43C (BcpDisplayProgressModernized.c)
+ *     BcpGetDisplayType @ 0x14071C800 (BcpGetDisplayType.c)
+ *     BcpSetCursorPosition @ 0x14071CB0C (BcpSetCursorPosition.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14071CBD8 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, _QWORD *a2, char a3)
@@ -28,7 +28,7 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, _QWORD *a
   unsigned __int64 v15; // rax
   LARGE_INTEGER v16; // r8
   void *p_StackBase; // rax
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v18; // rax
+  $241382875694CED3D471BC5892DE3337 *v18; // rax
   _LIST_ENTRY *p_FirstArgument; // rax
   _DWORD v21[14]; // [rsp+20h] [rbp-38h] BYREF
   LARGE_INTEGER v22; // [rsp+78h] [rbp+20h] BYREF
@@ -43,7 +43,7 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, _QWORD *a
   v7 = KeQueryPerformanceCounter(&v22);
   v8 = v22;
   v9 = v7.QuadPart - (unsigned __int64)gLoadedDiffHivesLock.ApcState.ApcListHead[0].Blink;
-  v10 = v7.QuadPart - (unsigned __int64)gLoadedDiffHivesLock.ApcState.ApcListHead[1].Flink;
+  v10 = v7.QuadPart - (unsigned __int64)gLoadedDiffHivesLock.ApcState.ApcListHead[0].Flink;
   v11.QuadPart = 2 * v22.QuadPart;
   if ( a3 && v10 < v11.QuadPart )
     v12 = 100 * v10 / v11.QuadPart;
@@ -51,9 +51,9 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, _QWORD *a
     LODWORD(v12) = 100;
   if ( a1 <= (unsigned int)v12 )
     LODWORD(v12) = a1;
-  if ( v9 < v11.QuadPart || (unsigned int)v12 < HIDWORD(gLoadedDiffHivesLock.RelativeTimerBias) )
+  if ( v9 < v11.QuadPart || (unsigned int)v12 < *(_DWORD *)&gLoadedDiffHivesLock.ApcStateFill[16] )
   {
-    LODWORD(v12) = HIDWORD(gLoadedDiffHivesLock.RelativeTimerBias);
+    LODWORD(v12) = *(_DWORD *)&gLoadedDiffHivesLock.ApcStateFill[16];
   }
   else
   {
@@ -62,30 +62,30 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, _QWORD *a
     v21[2] = HIDWORD(gLoadedDiffHivesLock.Timer.TimerListEntry.Blink);
     BcpGetDisplayType(v21);
     BcpSetCursorPosition(
-      *(int *)&gLoadedDiffHivesLock.ApcStateFill[24],
-      *(int *)&gLoadedDiffHivesLock.ApcStateFill[28],
-      &gLoadedDiffHivesLock.ApcStateFill[32]);
-    if ( BYTE1(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) )
+      *((int *)&gLoadedDiffHivesLock.SwapListEntry + 2),
+      *((int *)&gLoadedDiffHivesLock.SwapListEntry + 3),
+      &gLoadedDiffHivesLock.Queue);
+    if ( LOBYTE(gLoadedDiffHivesLock.SchedulerSharedSystemSlot) )
       BcpDisplayProgressModernized(v12, v14);
     else
       BcpDisplayProgress(v12, v14, v13);
     gLoadedDiffHivesLock.ApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)KeQueryPerformanceCounter(0LL).QuadPart;
-    HIDWORD(gLoadedDiffHivesLock.RelativeTimerBias) = v12;
+    *(_DWORD *)&gLoadedDiffHivesLock.ApcStateFill[16] = v12;
   }
   if ( a1 != 100 || (_DWORD)v12 == 100 )
   {
-    p_StackBase = &stru_140E3E928.StackBase;
+    p_StackBase = &stru_140E3EAA8.StackBase;
     if ( !a3 )
-      p_StackBase = (void *)&stru_140E3E928.CycleTime;
+      p_StackBase = (void *)&stru_140E3EAA8.CycleTime;
     *a2 = p_StackBase;
     BcpConvertProgressToString(v12, (__int64)(a2 + 3));
-    v18 = ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)((char *)&stru_140E3E928.116 + 4);
+    v18 = ($241382875694CED3D471BC5892DE3337 *)((char *)&stru_140E3EAA8.116 + 4);
     if ( a1 != 1 )
-      v18 = &stru_140E3E928.152;
+      v18 = &stru_140E3EAA8.152;
     a2[1] = v18;
-    p_FirstArgument = (_LIST_ENTRY *)&stru_140E3E928.FirstArgument;
+    p_FirstArgument = (_LIST_ENTRY *)&stru_140E3EAA8.FirstArgument;
     if ( a1 != 1 )
-      p_FirstArgument = &stru_140E3E928.ApcState.ApcListHead[1];
+      p_FirstArgument = &stru_140E3EAA8.ApcState.ApcListHead[1];
     a2[2] = p_FirstArgument;
   }
   else

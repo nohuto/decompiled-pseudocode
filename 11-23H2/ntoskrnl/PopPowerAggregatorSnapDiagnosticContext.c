@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorSnapDiagnosticContext @ 0x14088369C
+ * XREFs of PopPowerAggregatorSnapDiagnosticContext @ 0x1408838DC
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1403D5810 (PopIdlePhaseWatchdogCallback.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x1403D59F0 (PopIdlePhaseWatchdogCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCrc32(__int64 a1, __int64 a2, unsigned int a3)
+DWORD __cdecl RtlCrc32(const void *Buffer, size_t Size, DWORD InitialCrc)
 {
-  return sub_180084910(a1, a2, a3, &off_180110850);
+  return sub_180084910(Buffer, Size, InitialCrc, &off_180110850);
 }

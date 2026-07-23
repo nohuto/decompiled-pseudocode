@@ -1,22 +1,22 @@
 /*
- * XREFs of VmCreateMemoryRange @ 0x14081BDE0
+ * XREFs of VmCreateMemoryRange @ 0x140821FF0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     VmpInsertMemoryRange @ 0x1404D85B4 (VmpInsertMemoryRange.c)
- *     VmpProcessContextSetup @ 0x14081D0A4 (VmpProcessContextSetup.c)
- *     VmpLogCreateDeleteMemoryRange @ 0x14081E2F4 (VmpLogCreateDeleteMemoryRange.c)
- *     VmpAllocateMemoryRanges @ 0x140B00290 (VmpAllocateMemoryRanges.c)
- *     VmpFreeMemoryRanges @ 0x140B0037C (VmpFreeMemoryRanges.c)
- *     VmpValidateMemoryRangeParameters @ 0x140B08298 (VmpValidateMemoryRangeParameters.c)
- *     VmpDecodePreallocationRangeHandle @ 0x140B39CDC (VmpDecodePreallocationRangeHandle.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     VmpInsertMemoryRange @ 0x1404D1D84 (VmpInsertMemoryRange.c)
+ *     VmpProcessContextSetup @ 0x1408232B4 (VmpProcessContextSetup.c)
+ *     VmpLogCreateDeleteMemoryRange @ 0x140824504 (VmpLogCreateDeleteMemoryRange.c)
+ *     VmpAllocateMemoryRanges @ 0x140B01FC0 (VmpAllocateMemoryRanges.c)
+ *     VmpFreeMemoryRanges @ 0x140B020AC (VmpFreeMemoryRanges.c)
+ *     VmpValidateMemoryRangeParameters @ 0x140B0A3C8 (VmpValidateMemoryRangeParameters.c)
+ *     VmpDecodePreallocationRangeHandle @ 0x140B3BEEC (VmpDecodePreallocationRangeHandle.c)
  */
 
 __int64 __fastcall VmCreateMemoryRange(
@@ -27,7 +27,7 @@ __int64 __fastcall VmCreateMemoryRange(
         __int64 a5,
         int a6)
 {
-  unsigned __int64 MemoryRanges; // rsi
+  __int64 MemoryRanges; // rsi
   unsigned __int64 v9; // r10
   unsigned __int64 v10; // r11
   _KPROCESS *Process; // r14
@@ -95,14 +95,14 @@ __int64 __fastcall VmCreateMemoryRange(
         *(_QWORD *)(MemoryRanges + 32) = a3 + (a2 >> 12) - 1;
         if ( (a6 & 1) != 0 )
         {
-          if ( _bittest64(*(const signed __int64 **)(stru_140F066E8.ThreadLock + 8), 1u) )
+          if ( _bittest64(*((const signed __int64 **)stru_140F06A28.StackBase + 1), 1u) )
             NT_ASSERT("(VmpCheckFeatureEnabled(VmInterfaceFeaturePreserveAdjustable) == 0) || (0)");
           *(_DWORD *)(MemoryRanges + 72) |= 2u;
         }
         v21 = *(_QWORD *)(MemoryRanges + 40);
         *(_QWORD *)(v21 + 48) = a1 >> 12;
         *(_QWORD *)(v21 + 56) = a3 + (a1 >> 12) - 1;
-        inserted = VmpInsertMemoryRange((PEX_SPIN_LOCK)Blink, MemoryRanges, a4);
+        inserted = VmpInsertMemoryRange((PEX_SPIN_LOCK)Blink, (PRTL_BALANCED_NODE)MemoryRanges, a4);
         if ( inserted >= 0 )
         {
           MemoryRanges = 0LL;
@@ -120,9 +120,9 @@ __int64 __fastcall VmCreateMemoryRange(
     }
   }
 LABEL_29:
-  if ( stru_140F066E8.QuantumTarget
-    && *(_DWORD *)stru_140F066E8.QuantumTarget
-    && tlgKeywordOn(stru_140F066E8.QuantumTarget, 128LL) )
+  if ( stru_140F06A28.InitialStack
+    && *(_DWORD *)stru_140F06A28.InitialStack
+    && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 128LL) )
   {
     VmpLogCreateDeleteMemoryRange(v22, 0, v24, v23, a3, a5, a4, inserted);
   }

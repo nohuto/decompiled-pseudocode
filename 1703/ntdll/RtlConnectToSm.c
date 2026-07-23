@@ -10,53 +10,59 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall RtlConnectToSm(const void **a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __fastcall RtlConnectToSm(const void **a1, __int64 a2, int a3, HANDLE *a4)
 {
   size_t v9; // rbx
-  __int64 v10; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
-  int v12; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v13; // [rsp+80h] [rbp-80h]
-  __int64 v14; // [rsp+88h] [rbp-78h]
-  int v15; // [rsp+90h] [rbp-70h]
-  __int128 v16; // [rsp+98h] [rbp-68h]
-  __int64 v17[3]; // [rsp+B0h] [rbp-50h] BYREF
-  int v18; // [rsp+C8h] [rbp-38h]
-  int v19; // [rsp+D8h] [rbp-28h]
-  _WORD v20[122]; // [rsp+DCh] [rbp-24h] BYREF
-  _QWORD v21[10]; // [rsp+1D0h] [rbp+D0h] BYREF
+  ULONG_PTR BufferLength; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  _PORT_MESSAGE ConnectionMessage; // [rsp+B0h] [rbp-50h] BYREF
+  int v14; // [rsp+D8h] [rbp-28h]
+  _WORD v15[122]; // [rsp+DCh] [rbp-24h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+1D0h] [rbp+D0h] BYREF
 
   RtlInitUnicodeString(&DestinationString, L"\\SmApiPort");
-  memset(v21, 0, 0x48uLL);
-  LODWORD(v21[0]) = 0x10000;
-  LODWORD(v21[1]) = 2;
-  WORD2(v21[1]) = 257;
-  v21[2] = 328LL;
-  v21[4] = 10496LL;
+  memset(&PortAttributes, 0, sizeof(PortAttributes));
+  PortAttributes.Flags = 0x10000;
+  PortAttributes.SecurityQos.ImpersonationLevel = SecurityImpersonation;
+  *(_WORD *)&PortAttributes.SecurityQos.ContextTrackingMode = 257;
+  PortAttributes.MaxMessageLength = 328LL;
+  PortAttributes.MaxPoolUsage = 10496LL;
   if ( !a1 )
   {
-    v20[0] = 0;
-    v19 = 0;
+    v15[0] = 0;
+    v14 = 0;
 LABEL_3:
-    v12 = 48;
-    v13 = 0LL;
-    v15 = 512;
-    v14 = 0LL;
-    v16 = 0LL;
-    v18 = 0;
-    v17[0] = 18612468LL;
-    v10 = 288LL;
-    return ZwAlpcConnectPort(a4, &DestinationString, &v12, v21, 0x20000, 0LL, v17, &v10, 0LL, 0LL, 0LL);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 512;
+    ObjectAttributes.ObjectName = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    ConnectionMessage.MessageId = 0;
+    *(_QWORD *)&ConnectionMessage.u1.s1.DataLength = 18612468LL;
+    BufferLength = 288LL;
+    return ZwAlpcConnectPort(
+             a4,
+             &DestinationString,
+             &ObjectAttributes,
+             &PortAttributes,
+             0x20000u,
+             0LL,
+             &ConnectionMessage,
+             &BufferLength,
+             0LL,
+             0LL,
+             0LL);
   }
   if ( !a2 || !a3 )
-    return 3221225520LL;
+    return -1073741776;
   if ( *(_WORD *)a1 < 0xF0u )
   {
     v9 = *(unsigned __int16 *)a1;
-    memmove(v20, a1[1], v9);
-    v20[v9 >> 1] = 0;
-    v19 = a3;
+    memmove(v15, a1[1], v9);
+    v15[v9 >> 1] = 0;
+    v14 = a3;
     goto LABEL_3;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

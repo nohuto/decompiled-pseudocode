@@ -21,98 +21,108 @@
  *     RtlpHpStackTraceConfig @ 0x180115C20 (RtlpHpStackTraceConfig.c)
  */
 
-__int64 __fastcall RtlSetHeapInformation(__int64 a1, int a2, __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl RtlSetHeapInformation(
+        PVOID HeapHandle,
+        HEAP_INFORMATION_CLASS HeapInformationClass,
+        PVOID HeapInformation,
+        SIZE_T HeapInformationLength)
 {
-  unsigned int v4; // ebx
-  __int64 result; // rax
+  NTSTATUS v4; // ebx
+  NTSTATUS result; // eax
   __int64 v7; // rax
   __int64 *v8; // rcx
   __int64 v9; // rax
-  signed __int32 v10; // edi
-  __int64 DeferredCriticalSectionEvent; // r10
+  signed __int32 LockCount; // edi
+  void *LockSemaphore; // r10
   int v12; // eax
   signed __int32 v13[14]; // [rsp+0h] [rbp-38h] BYREF
   unsigned int v14; // [rsp+48h] [rbp+10h] BYREF
 
   v4 = 0;
-  switch ( a2 )
+  switch ( HeapInformationClass )
   {
     case -2147483646:
-      if ( !a3 || a4 != 48 )
-        return 3221225473LL;
-      result = RtlSetHeapDebuggingInformation(a1, a3);
+      if ( !HeapInformation || HeapInformationLength != 48 )
+        return -1073741823;
+      result = RtlSetHeapDebuggingInformation(HeapHandle);
 LABEL_9:
-      if ( (int)result < 0 )
+      if ( result < 0 )
         return result;
       return v4;
     case 0:
-      if ( a4 < 4 )
-        return 3221225507LL;
-      if ( *(_DWORD *)a3 == 2 )
+      if ( HeapInformationLength < 4 )
+        return -1073741789;
+      if ( *(_DWORD *)HeapInformation == 2 )
       {
-        if ( *(_DWORD *)(a1 + 16) != -571548178 )
+        if ( *((_DWORD *)HeapHandle + 4) != -571548178 )
         {
-          if ( (*(_DWORD *)(a1 + 112) & 0x75010F63) == 2 && (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
+          if ( (*((_DWORD *)HeapHandle + 28) & 0x75010F63) == 2 && (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
           {
             result = RtlpSetRequestedFrontEndHeap();
             goto LABEL_9;
           }
-          return 3221225485LL;
+          return -1073741811;
         }
         return v4;
       }
-      return 3221225473LL;
+      return -1073741823;
     case 1:
       RtlpDisableBreakOnFailureCookie = 0;
       return v4;
   }
-  if ( a2 != 4 )
+  if ( HeapInformationClass != 4 )
   {
-    if ( a2 == 3 )
+    if ( HeapInformationClass == HeapOptimizeResources )
     {
-      if ( !a3 || a4 < 4 || *(_DWORD *)a3 != 1 || a4 != 8 || *(_DWORD *)(a3 + 4) )
-        return 3221225485LL;
-      if ( a1 )
+      if ( !HeapInformation
+        || HeapInformationLength < 4
+        || *(_DWORD *)HeapInformation != 1
+        || HeapInformationLength != 8
+        || *((_DWORD *)HeapInformation + 1) )
       {
-        RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+        return -1073741811;
+      }
+      if ( HeapHandle )
+      {
+        RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
         v9 = 28LL;
-        if ( *(_DWORD *)(a1 + 16) != -571548178 )
+        if ( *((_DWORD *)HeapHandle + 4) != -571548178 )
           v9 = 208LL;
-        if ( *(_WORD *)(v9 + a1) != 0xFFFF )
-          RtlpFlushHeap(a1);
-        if ( !--dword_180178D4C )
+        if ( *(_WORD *)((char *)HeapHandle + v9) != 0xFFFF )
+          RtlpFlushHeap((__int64)HeapHandle);
+        if ( !--RtlpProcessHeapsListLock.RecursionCount )
         {
-          qword_180178D50 = 0LL;
-          v10 = _InterlockedCompareExchange(&dword_180178D48, -1, -2);
-          if ( v10 != -2 )
+          RtlpProcessHeapsListLock.OwningThread = 0LL;
+          LockCount = _InterlockedCompareExchange(&RtlpProcessHeapsListLock.LockCount, -1, -2);
+          if ( LockCount != -2 )
           {
-            if ( (dword_180178D48 & 1) != 0 )
+            if ( (RtlpProcessHeapsListLock.LockCount & 1) != 0 )
               RtlpNotOwnerCriticalSection(&RtlpProcessHeapsListLock);
-            DeferredCriticalSectionEvent = qword_180178D58;
-            if ( !qword_180178D58 )
-              DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
+            LockSemaphore = RtlpProcessHeapsListLock.LockSemaphore;
+            if ( !RtlpProcessHeapsListLock.LockSemaphore )
+              LockSemaphore = (void *)RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
             v14 = 0;
-            while ( v10 != _InterlockedCompareExchange(&dword_180178D48, (v10 & 2 | 1) + v10, v10) )
+            while ( LockCount != _InterlockedCompareExchange(
+                                   &RtlpProcessHeapsListLock.LockCount,
+                                   (LockCount & 2 | 1) + LockCount,
+                                   LockCount) )
             {
               RtlBackoff(&v14);
-              _m_prefetchw(&dword_180178D48);
-              v10 = dword_180178D48;
+              _m_prefetchw(&RtlpProcessHeapsListLock.LockCount);
+              LockCount = RtlpProcessHeapsListLock.LockCount;
             }
-            if ( (v10 & 2) != 0 )
+            if ( (LockCount & 2) != 0 )
             {
-              if ( DeferredCriticalSectionEvent == -1 )
+              if ( LockSemaphore == (void *)-1LL )
               {
                 _InterlockedOr(v13, 0);
-                RtlpWakeByAddress((unsigned __int64)&dword_180178D48, 0);
+                RtlpWakeByAddress((unsigned __int64)&RtlpProcessHeapsListLock.LockCount, 0);
               }
               else
               {
-                v12 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+                v12 = ZwSetEvent(LockSemaphore, 0LL);
                 if ( v12 < 0 )
-                {
-                  RtlRaiseStatus((unsigned int)v12);
-                  __debugbreak();
-                }
+                  RtlRaiseStatus(v12);
               }
             }
           }
@@ -124,62 +134,63 @@ LABEL_9:
       }
       return v4;
     }
-    if ( a2 != 5 )
+    if ( HeapInformationClass != 5 )
     {
-      if ( a2 != 6 )
+      if ( HeapInformationClass != 6 )
       {
-        if ( a2 == 7 )
+        if ( HeapInformationClass == HeapTag )
         {
-          if ( a1 && a3 && *(_DWORD *)(a1 + 16) == -571548178 && a4 == 8 )
-            *(_QWORD *)(a1 + 104) = *(_QWORD *)a3;
+          if ( HeapHandle && HeapInformation && *((_DWORD *)HeapHandle + 4) == -571548178 && HeapInformationLength == 8 )
+            *((_QWORD *)HeapHandle + 13) = *(_QWORD *)HeapInformation;
           else
-            return (unsigned int)-1073741811;
+            return -1073741811;
         }
         return v4;
       }
-      if ( a4 < 0x28
-        || *(_DWORD *)a3 != 1
-        || ((*(_QWORD *)(a3 + 8) + 4095LL) & 0xFFFFFFFFFFFFF000uLL) != *(_QWORD *)(a3 + 8) )
+      if ( HeapInformationLength < 0x28
+        || *(_DWORD *)HeapInformation != 1
+        || ((*((_QWORD *)HeapInformation + 1) + 4095LL) & 0xFFFFFFFFFFFFF000uLL) != *((_QWORD *)HeapInformation + 1) )
       {
-        return 3221225485LL;
+        return -1073741811;
       }
-      if ( a1 )
+      if ( HeapHandle )
       {
-        if ( *(_DWORD *)(a1 + 16) == -571548178 )
+        if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
         {
           v7 = 32LL;
         }
         else
         {
-          if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+          if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
             return v4;
           v7 = 376LL;
         }
-        v8 = (__int64 *)(v7 + a1);
+        v8 = (__int64 *)((char *)HeapHandle + v7);
       }
       else
       {
         v8 = &qword_18017AC18;
       }
-      v8[1] = *(_QWORD *)(a3 + 16);
-      v8[3] = *(_QWORD *)(a3 + 32);
-      *v8 = *(_QWORD *)(a3 + 8);
-      v8[2] = *(_QWORD *)(a3 + 24);
+      v8[1] = *((_QWORD *)HeapInformation + 2);
+      v8[3] = *((_QWORD *)HeapInformation + 4);
+      *v8 = *((_QWORD *)HeapInformation + 1);
+      v8[2] = *((_QWORD *)HeapInformation + 3);
       return v4;
     }
-    if ( !a3 || a4 < 0x10 || *(_WORD *)a3 != 1 || (*(_WORD *)(a3 + 2) & 0xFFFE) != 0 )
-      return 3221225485LL;
-    result = RtlpHpStackTraceConfig(a3);
+    if ( !HeapInformation
+      || HeapInformationLength < 0x10
+      || *(_WORD *)HeapInformation != 1
+      || (*((_WORD *)HeapInformation + 1) & 0xFFFE) != 0 )
+    {
+      return -1073741811;
+    }
+    result = RtlpHpStackTraceConfig(HeapInformation);
     goto LABEL_9;
   }
   if ( (RtlpHpHeapFeatures & 1) == 0 )
-    return 3221225485LL;
-  result = RtlRunOnceExecuteOnce(
-             &RtlpHpTagInitVar,
-             (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, __int64 *))RtlpHpTagRunOnceInit,
-             (__int64)&RtlpHpTagContext,
-             0LL);
-  if ( (int)result >= 0 )
+    return -1073741811;
+  result = RtlRunOnceExecuteOnce(&RtlpHpTagInitVar, (PRTL_RUN_ONCE_INIT_FN)RtlpHpTagRunOnceInit, &RtlpHpTagContext, 0LL);
+  if ( result >= 0 )
   {
     RtlpHpHeapFeatures |= 2u;
     return v4;

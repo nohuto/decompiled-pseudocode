@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringCbVPrintfA @ 0x1400F4E5C
+ * XREFs of RtlStringCbVPrintfA @ 0x1400F4EDC
  * Callers:
- *     KsepLogEtwMessage @ 0x1400F4D68 (KsepLogEtwMessage.c)
- *     vDbgPrintExWithPrefixInternal @ 0x140126350 (vDbgPrintExWithPrefixInternal.c)
+ *     KsepLogEtwMessage @ 0x1400F4DE8 (KsepLogEtwMessage.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x140126420 (vDbgPrintExWithPrefixInternal.c)
  * Callees:
- *     _vsnprintf @ 0x140194D20 (_vsnprintf.c)
+ *     _vsnprintf @ 0x140194E60 (_vsnprintf.c)
  */
 
 NTSTATUS __stdcall RtlStringCbVPrintfA(

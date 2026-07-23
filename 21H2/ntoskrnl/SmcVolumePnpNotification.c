@@ -1,11 +1,11 @@
 /*
- * XREFs of SmcVolumePnpNotification @ 0x14092E5D0
+ * XREFs of SmcVolumePnpNotification @ 0x14092E730
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SmcCacheDelete @ 0x14092D46C (SmcCacheDelete.c)
- *     SmcCacheReference @ 0x14092D704 (SmcCacheReference.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     SmcCacheDelete @ 0x14092D5CC (SmcCacheDelete.c)
+ *     SmcCacheReference @ 0x14092D864 (SmcCacheReference.c)
  */
 
 __int64 __fastcall SmcVolumePnpNotification(_QWORD *NotificationStructure, PVOID Context)
@@ -40,7 +40,7 @@ LABEL_7:
       {
         if ( *(_QWORD *)(v8.Count + 48) != NotificationStructure[3] )
           Count = 0LL;
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&unk_140D241C8 + 4 * (v7 & 0xF));
+        ExReleaseRundownProtection((PEX_RUNDOWN_REF)&unk_140D241C8 + 4 * (v7 & 0xF));
         if ( Count )
           SmcCacheDelete((__int64)&unk_140D241C0);
       }

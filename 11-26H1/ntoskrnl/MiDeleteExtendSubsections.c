@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteExtendSubsections @ 0x140778B40
+ * XREFs of MiDeleteExtendSubsections @ 0x14077B9E0
  * Callers:
- *     MiExtendSection @ 0x140A5838C (MiExtendSection.c)
+ *     MiExtendSection @ 0x140A6590C (MiExtendSection.c)
  * Callees:
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiGetControlAreaPartition @ 0x140457F60 (MiGetControlAreaPartition.c)
- *     MiDeleteSubsectionPages @ 0x1404919FC (MiDeleteSubsectionPages.c)
- *     MiPrepareDataFileSubsectionForDeletion @ 0x1404B5148 (MiPrepareDataFileSubsectionForDeletion.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiDeleteSubsection @ 0x1404DE398 (MiDeleteSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiGetControlAreaPartition @ 0x14044F7D0 (MiGetControlAreaPartition.c)
+ *     MiDeleteSubsectionPages @ 0x14048B54C (MiDeleteSubsectionPages.c)
+ *     MiPrepareDataFileSubsectionForDeletion @ 0x1404AE598 (MiPrepareDataFileSubsectionForDeletion.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiDeleteSubsection @ 0x1404D7A78 (MiDeleteSubsection.c)
  */
 
 void __fastcall MiDeleteExtendSubsections(__int64 a1)

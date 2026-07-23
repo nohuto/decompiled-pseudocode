@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMarvin32 @ 0x1403F5F08
+ * XREFs of SymCryptMarvin32 @ 0x1403F60E8
  * Callers:
- *     HvpGenerateLogEntryChecksums @ 0x140705678 (HvpGenerateLogEntryChecksums.c)
- *     HvpLogEntryCheckHeaderChecksum @ 0x1407FE274 (HvpLogEntryCheckHeaderChecksum.c)
- *     HvpLogEntryCheckDataChecksum @ 0x1407FE2DC (HvpLogEntryCheckDataChecksum.c)
+ *     HvpGenerateLogEntryChecksums @ 0x140705888 (HvpGenerateLogEntryChecksums.c)
+ *     HvpLogEntryCheckHeaderChecksum @ 0x1407FE544 (HvpLogEntryCheckHeaderChecksum.c)
+ *     HvpLogEntryCheckDataChecksum @ 0x1407FE5AC (HvpLogEntryCheckDataChecksum.c)
  * Callees:
  *     <none>
  */

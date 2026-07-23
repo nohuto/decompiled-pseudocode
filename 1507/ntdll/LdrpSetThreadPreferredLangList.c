@@ -29,9 +29,9 @@ char LdrpSetThreadPreferredLangList()
   __int64 v15; // rax
   struct _TEB *v16; // rcx
   __int64 v17; // rax
-  int ThreadPreferredUILanguages; // eax
-  int v19; // [rsp+30h] [rbp+8h] BYREF
-  char v20; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS ThreadPreferredUILanguages; // eax
+  ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
+  ULONG NumberOfLanguages; // [rsp+38h] [rbp+10h] BYREF
   __int64 v21; // [rsp+40h] [rbp+18h] BYREF
 
   v0 = 1;
@@ -106,8 +106,8 @@ char LdrpSetThreadPreferredLangList()
       *((_DWORD *)NtCurrentTeb()->MergedPrefLanguages + 10) = *((_DWORD *)NtCurrentTeb()->MergedPrefLanguages + 10) | 0x80;
     }
 LABEL_30:
-    v19 = 0;
-    ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(48, (__int64)&v20, 0LL, &v19);
+    ReturnLength = 0;
+    ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, 0LL, &ReturnLength);
     if ( (int)(ThreadPreferredUILanguages + 0x80000000) >= 0 && ThreadPreferredUILanguages != -1073741789
       || !NtCurrentTeb()->MergedPrefLanguages )
     {

@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpWorkerFactoryCheckCreate @ 0x1400CE220
+ * XREFs of ExpWorkerFactoryCheckCreate @ 0x1400CE2A0
  * Callers:
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1400CDDB0 (NtReleaseWorkerFactoryWorker.c)
- *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
- *     ExpWorkerFactoryManagerThread @ 0x14017FEA0 (ExpWorkerFactoryManagerThread.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1400CDE30 (NtReleaseWorkerFactoryWorker.c)
+ *     NtSetInformationWorkerFactory @ 0x140106180 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14017FFE0 (ExpWorkerFactoryManagerThread.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x14008DEC8 (ExpLeaveWorkerFactoryAwayMode.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpWorkerFactoryCreateThread @ 0x140106E1C (ExpWorkerFactoryCreateThread.c)
- *     ExpCheckThreadHistory @ 0x140123C50 (ExpCheckThreadHistory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     ExpSetWorkerFactoryDeferredCreateTimer @ 0x1406C4190 (ExpSetWorkerFactoryDeferredCreateTimer.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x14008DDE4 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpWorkerFactoryCreateThread @ 0x140106E9C (ExpWorkerFactoryCreateThread.c)
+ *     ExpCheckThreadHistory @ 0x140123D20 (ExpCheckThreadHistory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     ExpSetWorkerFactoryDeferredCreateTimer @ 0x1406C5430 (ExpSetWorkerFactoryDeferredCreateTimer.c)
  */
 
 __int64 __fastcall ExpWorkerFactoryCheckCreate(char *Object, PKLOCK_QUEUE_HANDLE LockHandle, __int64 a3)

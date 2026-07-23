@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCompressBufferXpressLz @ 0x1800B8E60
+ * XREFs of RtlCompressBufferXpressLz @ 0x1800B6380
  * Callers:
- *     EtwpWriteBufferCompressed @ 0x1800787C8 (EtwpWriteBufferCompressed.c)
+ *     EtwpWriteBufferCompressed @ 0x180066FE8 (EtwpWriteBufferCompressed.c)
  * Callees:
- *     RtlCompressBufferXpressLzStandard @ 0x1800B8F20 (RtlCompressBufferXpressLzStandard.c)
- *     RtlCompressBufferXpressLzMax @ 0x1801509A0 (RtlCompressBufferXpressLzMax.c)
+ *     RtlCompressBufferXpressLzStandard @ 0x1800B6440 (RtlCompressBufferXpressLzStandard.c)
+ *     RtlCompressBufferXpressLzMax @ 0x180150850 (RtlCompressBufferXpressLzMax.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressLz(

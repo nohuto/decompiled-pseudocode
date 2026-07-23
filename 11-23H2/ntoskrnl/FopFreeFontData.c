@@ -4,7 +4,7 @@
  *     BgpFoDestroy @ 0x140AEECA8 (BgpFoDestroy.c)
  *     FopInitializeFonts @ 0x140B9CF5C (FopInitializeFonts.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
  *     FopFreeMappingTable @ 0x140AEC2E8 (FopFreeMappingTable.c)
  */
 

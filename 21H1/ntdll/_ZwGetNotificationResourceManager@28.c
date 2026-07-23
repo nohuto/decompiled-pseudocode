@@ -6,7 +6,14 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwGetNotificationResourceManager(int a1, int a2, int a3, int a4, int a5, int a6, int a7)
+NTSTATUS __cdecl ZwGetNotificationResourceManager(
+        HANDLE ResourceManagerHandle,
+        PTRANSACTION_NOTIFICATION TransactionNotification,
+        ULONG NotificationLength,
+        PLARGE_INTEGER Timeout,
+        PULONG ReturnLength,
+        ULONG Asynchronous,
+        ULONG_PTR AsynchronousContext)
 {
   return Wow64SystemServiceCall();
 }

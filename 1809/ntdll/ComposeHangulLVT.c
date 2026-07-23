@@ -1,9 +1,9 @@
 /*
  * XREFs of ComposeHangulLVT @ 0x1800FBE24
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180083C50 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180083C60 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     IsHangulLV @ 0x18008C2F4 (IsHangulLV.c)
+ *     IsHangulLV @ 0x18008C304 (IsHangulLV.c)
  */
 
 __int64 __fastcall ComposeHangulLVT(int a1, int a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetNextAffinityWalker @ 0x140416990
+ * XREFs of MiGetNextAffinityWalker @ 0x140271ED0
  * Callers:
- *     MiFindBestZeroingProcessor @ 0x140209DE8 (MiFindBestZeroingProcessor.c)
- *     MiComputeIdealDpcGang @ 0x1403A8170 (MiComputeIdealDpcGang.c)
- *     MiLaunchZeroParent @ 0x140415C50 (MiLaunchZeroParent.c)
- *     MiLaunchZeroWorkers @ 0x140416850 (MiLaunchZeroWorkers.c)
+ *     MiComputeIdealDpcGang @ 0x14026F84C (MiComputeIdealDpcGang.c)
+ *     MiLaunchZeroParent @ 0x140271AB0 (MiLaunchZeroParent.c)
+ *     MiLaunchZeroWorkers @ 0x140271D90 (MiLaunchZeroWorkers.c)
+ *     MiFindBestZeroingProcessor @ 0x1403313C8 (MiFindBestZeroingProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetNextAffinityWalker(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -122,13 +122,13 @@ __int64 __fastcall MiGetNextAffinityWalker(ULONG_PTR BugCheckParameter2, __int64
         while ( v17 )
         {
           _BitScanForward64(&v18, v17);
-          v19 = *((unsigned int *)qword_140F21E78 + 64 * epi16 + (int)v18);
+          v19 = *((unsigned int *)qword_140F22998 + 64 * epi16 + (int)v18);
           v20 = KiProcessorBlock[v19];
           if ( v11 != -1 )
           {
             v47 = *(_DWORD *)(v20 + 47412);
             if ( *(_BYTE *)(v3 + 8) )
-              v47 += *(_DWORD *)(*(_QWORD *)(384LL * *(unsigned int *)(v20 + 34644) + qword_140E2DAF8 + 376) + 12LL);
+              v47 += *(_DWORD *)(*(_QWORD *)(384LL * *(unsigned int *)(v20 + 34644) + qword_140E2DC38 + 376) + 12LL);
             if ( v47 != *(_DWORD *)(v5 + v3 + 304) )
             {
               v17 &= ~*(_QWORD *)(v20 + 200);
@@ -214,7 +214,7 @@ __int64 __fastcall MiGetNextAffinityWalker(ULONG_PTR BugCheckParameter2, __int64
               if ( v24 )
               {
                 _BitScanForward64(&v46, v24);
-                LODWORD(v19) = *((_DWORD *)qword_140F21E78 + 64 * v15.m128i_u16[4] + (int)v46);
+                LODWORD(v19) = *((_DWORD *)qword_140F22998 + 64 * v15.m128i_u16[4] + (int)v46);
               }
               else
               {

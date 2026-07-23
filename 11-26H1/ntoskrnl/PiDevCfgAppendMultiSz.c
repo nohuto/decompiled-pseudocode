@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgAppendMultiSz @ 0x1407A8AFC
+ * XREFs of PiDevCfgAppendMultiSz @ 0x1407AB6AC
  * Callers:
- *     PiDevCfgRequestDriverConfigurations @ 0x1407AAE54 (PiDevCfgRequestDriverConfigurations.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x1407AC218 (PpDevCfgProcessDeviceExtensions.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x1407B7138 (PiDrvDbResolveFilePathKeyValues.c)
- *     PiDevCfgConfigureDevice @ 0x1409894D0 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140AD3638 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x1407ADE78 (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1407AF25C (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1407BA198 (PiDrvDbResolveFilePathKeyValues.c)
+ *     PiDevCfgConfigureDevice @ 0x140A43BF0 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140AEA96C (PiDevCfgQueryIncludedDriverConfigurations.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1404F5F44 (PnpDuplicateUnicodeString.c)
- *     PnpMultiSzContainsString @ 0x1404FAAEC (PnpMultiSzContainsString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PnpDuplicateUnicodeString @ 0x1404EF504 (PnpDuplicateUnicodeString.c)
+ *     PnpMultiSzContainsString @ 0x1404F40FC (PnpMultiSzContainsString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDevCfgAppendMultiSz(PUNICODE_STRING UnicodeString, const void **a2, const void **a3, char a4)

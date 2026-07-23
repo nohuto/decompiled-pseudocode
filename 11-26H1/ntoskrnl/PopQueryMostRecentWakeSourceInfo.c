@@ -1,12 +1,12 @@
 /*
- * XREFs of PopQueryMostRecentWakeSourceInfo @ 0x140B62680
+ * XREFs of PopQueryMostRecentWakeSourceInfo @ 0x140B65720
  * Callers:
- *     PopDiagTracePowerTransitionEnd @ 0x140B623B0 (PopDiagTracePowerTransitionEnd.c)
+ *     PopDiagTracePowerTransitionEnd @ 0x140B65450 (PopDiagTracePowerTransitionEnd.c)
  * Callees:
- *     PopGetMostRecentWakeInfo @ 0x1404F9218 (PopGetMostRecentWakeInfo.c)
- *     PopWakeInfoDereference @ 0x1404FE7D4 (PopWakeInfoDereference.c)
- *     PopGetCallerContextFromBuffer @ 0x140ABC0A8 (PopGetCallerContextFromBuffer.c)
- *     PopCloneUnicodeString @ 0x140B313BC (PopCloneUnicodeString.c)
+ *     PopGetMostRecentWakeInfo @ 0x1404F2828 (PopGetMostRecentWakeInfo.c)
+ *     PopWakeInfoDereference @ 0x1404F7D84 (PopWakeInfoDereference.c)
+ *     PopGetCallerContextFromBuffer @ 0x140ABDDA8 (PopGetCallerContextFromBuffer.c)
+ *     PopCloneUnicodeString @ 0x140B335BC (PopCloneUnicodeString.c)
  */
 
 void __fastcall PopQueryMostRecentWakeSourceInfo(

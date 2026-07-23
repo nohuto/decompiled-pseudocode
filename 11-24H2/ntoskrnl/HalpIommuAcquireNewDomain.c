@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuAcquireNewDomain @ 0x140551F5C
+ * XREFs of HalpIommuAcquireNewDomain @ 0x14054F89C
  * Callers:
- *     HalpIommuGetHardwareDomain @ 0x1404CE03C (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C7308 (HalpIommuGetHardwareDomain.c)
  * Callees:
- *     HalpIommuGetDomainId @ 0x1405523A4 (HalpIommuGetDomainId.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuGetDomainId @ 0x14054FCE4 (HalpIommuGetDomainId.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2, _DWORD *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2, _DWORD *a3)
     *(_DWORD *)(a2 + 48) = *a3;
 LABEL_7:
     if ( *(_QWORD *)(a1 + 72) )
-      return (unsigned int)guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 16), a2, 0LL, 0LL);
+      return (unsigned int)guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 16), a2);
     return (unsigned int)DomainId;
   }
   DomainId = HalpIommuGetDomainId(a1, &v7);

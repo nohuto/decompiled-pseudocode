@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpSegLockAcquire @ 0x14027F770
+ * XREFs of RtlpHpSegLockAcquire @ 0x14027ECE0
  * Callers:
- *     RtlpHpSegContextCompact @ 0x14034742C (RtlpHpSegContextCompact.c)
- *     RtlpHpSegPageRangeAllocate @ 0x14034B898 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x14034D840 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpSegPageRangeShrink @ 0x14034DB40 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegSuballocatorFree @ 0x1404DC6E0 (RtlpHpSegSuballocatorFree.c)
+ *     RtlpHpSegContextCompact @ 0x1403494AC (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14034D918 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14034F8C0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14034FBC0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegSuballocatorFree @ 0x1404D5DC0 (RtlpHpSegSuballocatorFree.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall RtlpHpSegLockAcquire(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -40,7 +40,7 @@ char __fastcall RtlpHpSegLockAcquire(__int64 a1, __int64 a2, __int64 a3, struct 
       LOBYTE(a2) = 2;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v11 = 0;
       if ( _interlockedbittestandset(v4, 0x1Fu) )

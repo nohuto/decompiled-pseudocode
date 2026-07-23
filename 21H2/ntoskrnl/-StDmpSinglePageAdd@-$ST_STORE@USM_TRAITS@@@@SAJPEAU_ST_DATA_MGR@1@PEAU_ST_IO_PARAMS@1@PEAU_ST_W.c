@@ -1,31 +1,31 @@
 /*
- * XREFs of ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1402D70CC
+ * XREFs of ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14028841C
  * Callers:
- *     ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DA900 (-StDmPageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?StNpLeafPageOut@?$ST_STORE@USM_TRAITS@@@@SA_KPEAUNP_CTX@NP_CONTEXT@@PEAX@Z @ 0x14059CBE0 (-StNpLeafPageOut@-$ST_STORE@USM_TRAITS@@@@SA_KPEAUNP_CTX@NP_CONTEXT@@PEAX@Z.c)
+ *     ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14028BC50 (-StDmPageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StNpLeafPageOut@?$ST_STORE@USM_TRAITS@@@@SA_KPEAUNP_CTX@NP_CONTEXT@@PEAX@Z @ 0x14059CE10 (-StNpLeafPageOut@-$ST_STORE@USM_TRAITS@@@@SA_KPEAUNP_CTX@NP_CONTEXT@@PEAX@Z.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x140253FFC (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     RtlComputeCrc32 @ 0x1402A2690 (RtlComputeCrc32.c)
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402A7A34 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
- *     ?StDmpDummyPageRecordAllocate@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1402D36D8 (-StDmpDummyPageRecordAllocate@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
- *     SmHpChunkFree @ 0x1402D51D8 (SmHpChunkFree.c)
- *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x1402D6DD0 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
- *     SmHpChunkAlloc @ 0x1402D6EDC (SmHpChunkAlloc.c)
- *     ?SmStAcquireStoreLockExclusive@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402DA478 (-SmStAcquireStoreLockExclusive@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     RtlCompressBuffer @ 0x1402DAB30 (RtlCompressBuffer.c)
- *     ?StDmpSinglePageInsert@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x1402DABBC (-StDmpSinglePageInsert@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_S.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ?StDmpCurrentRegionWrite@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059C72C (-StDmpCurrentRegionWrite@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
- *     SmCrAuthEncrypt @ 0x1405A00D4 (SmCrAuthEncrypt.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     RtlComputeCrc32 @ 0x14021FAD0 (RtlComputeCrc32.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x140225B74 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     ?StDmpDummyPageRecordAllocate@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1402519D0 (-StDmpDummyPageRecordAllocate@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14027556C (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
+ *     SmHpChunkFree @ 0x140286524 (SmHpChunkFree.c)
+ *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x140288120 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
+ *     SmHpChunkAlloc @ 0x14028822C (SmHpChunkAlloc.c)
+ *     ?SmStAcquireStoreLockExclusive@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14028B7C8 (-SmStAcquireStoreLockExclusive@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     RtlCompressBuffer @ 0x14028BE80 (RtlCompressBuffer.c)
+ *     ?StDmpSinglePageInsert@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14028BF0C (-StDmpSinglePageInsert@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_S.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ?StDmpCurrentRegionWrite@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059C95C (-StDmpCurrentRegionWrite@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     SmCrAuthEncrypt @ 0x1405A0304 (SmCrAuthEncrypt.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)
@@ -45,52 +45,55 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
   __int64 v18; // rcx
   __int64 v19; // rsi
   unsigned __int8 v20; // al
-  int v21; // ecx
-  UCHAR *v22; // r15
-  UCHAR *v23; // r12
-  ULONG v24; // edx
-  unsigned int v25; // r13d
-  size_t v26; // r8
-  UCHAR *v27; // rdx
-  _WORD *v28; // rax
-  ULONG v29; // eax
-  int *v30; // rsi
-  __int64 v31; // rax
-  __int64 v32; // rax
-  int v34; // eax
-  UCHAR *v35; // rsi
-  unsigned int v36; // ecx
-  __int64 v37; // r9
-  __int64 v38; // rcx
-  int v39; // eax
-  ULONG FinalCompressedSize; // [rsp+40h] [rbp-49h] BYREF
-  ULONG_PTR v41; // [rsp+44h] [rbp-45h] BYREF
-  int v42; // [rsp+4Ch] [rbp-3Dh]
-  _DWORD *v43; // [rsp+50h] [rbp-39h] BYREF
-  __int64 v44; // [rsp+58h] [rbp-31h]
-  unsigned __int8 v45[8]; // [rsp+60h] [rbp-29h] BYREF
-  int v46; // [rsp+68h] [rbp-21h]
-  _DWORD *v47; // [rsp+70h] [rbp-19h]
-  int *v48; // [rsp+78h] [rbp-11h]
-  __int64 v49; // [rsp+80h] [rbp-9h] BYREF
-  int v50; // [rsp+88h] [rbp-1h]
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  int v24; // ecx
+  UCHAR *v25; // r15
+  UCHAR *v26; // r12
+  ULONG v27; // edx
+  unsigned int v28; // r13d
+  size_t v29; // r8
+  UCHAR *v30; // rdx
+  _WORD *v31; // rax
+  ULONG v32; // eax
+  int *v33; // rsi
+  __int64 v34; // rax
+  __int64 v35; // rax
+  int v37; // eax
+  UCHAR *v38; // rsi
+  unsigned int v39; // ecx
+  __int64 v40; // r9
+  __int64 v41; // rcx
+  ULONG32 v42; // eax
+  ULONG Length; // [rsp+40h] [rbp-49h] BYREF
+  ULONG_PTR v44; // [rsp+44h] [rbp-45h] BYREF
+  int v45; // [rsp+4Ch] [rbp-3Dh]
+  ULONG32 *v46; // [rsp+50h] [rbp-39h] BYREF
+  __int64 v47; // [rsp+58h] [rbp-31h]
+  unsigned __int8 v48[8]; // [rsp+60h] [rbp-29h] BYREF
+  int v49; // [rsp+68h] [rbp-21h]
+  _DWORD *v50; // [rsp+70h] [rbp-19h]
+  int *v51; // [rsp+78h] [rbp-11h]
+  __int64 v52; // [rsp+80h] [rbp-9h] BYREF
+  int v53; // [rsp+88h] [rbp-1h]
 
-  v48 = (int *)a2;
-  v44 = a3;
-  v49 = 0LL;
-  v50 = 0;
+  v51 = (int *)a2;
+  v47 = a3;
+  v52 = 0LL;
+  v53 = 0;
   v6 = 0LL;
   v7 = (unsigned __int8)*(_DWORD *)(a1 + 776);
   v8 = *(_DWORD *)a2 & 7;
-  v47 = a4;
-  v43 = 0LL;
-  LODWORD(v41) = 0;
+  v50 = a4;
+  v46 = 0LL;
+  LODWORD(v44) = 0;
   v9 = 0;
-  v46 = 0;
-  FinalCompressedSize = 0;
+  v49 = 0;
+  Length = 0;
   if ( ((unsigned __int8)v7 == 0 ? 7 : 0) < v8 )
     v8 = v7 == 0 ? 7 : 0;
-  Space = ST_STORE<SM_TRAITS>::StDmpSinglePageFindSpace(a1, v8, *a4, &v43, (int *)&v41);
+  Space = ST_STORE<SM_TRAITS>::StDmpSinglePageFindSpace(a1, v8, *a4, &v46, (int *)&v44);
   if ( Space < 0 )
     goto LABEL_41;
   v11 = *(_QWORD *)(a1 + 800);
@@ -99,7 +102,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
     v12 = v11 + 6024;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v12);
-    v42 = 0;
+    v45 = 0;
     CurrentThread = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(v12) == 1 )
       SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
@@ -111,7 +114,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
     while ( 1 )
     {
       v17 = !_BitScanReverse((unsigned int *)&v18, v16);
-      HIDWORD(v41) = v18;
+      HIDWORD(v44) = v18;
       if ( v17 )
         break;
       v19 = (__int64)&CurrentThread->LockEntries[v18];
@@ -128,8 +131,8 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
           {
             *(_BYTE *)(v19 + 32) |= 2u;
             if ( *(__int64 *)(v19 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v19);
-            v42 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
+            v45 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
             *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v19 + 25) &= ~1u;
             *(_QWORD *)(v19 + 32) = 0LL;
@@ -151,94 +154,86 @@ LABEL_21:
     KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
     v17 = CurrentThread->SpecialApcDisable++ == -1;
     if ( v17 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(1LL);
+      KiCheckForKernelApcDelivery(1LL, v21, v22, v23);
     KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
   }
   v9 = 1;
-  v21 = *(_DWORD *)a2;
-  v22 = (UCHAR *)v43 + *(unsigned int *)(a1 + 824);
-  v23 = *(UCHAR **)(a2 + 8);
+  v24 = *(_DWORD *)a2;
+  v25 = (UCHAR *)v46 + *(unsigned int *)(a1 + 824);
+  v26 = *(UCHAR **)(a2 + 8);
   if ( *(int *)a2 >= 0 )
   {
-    v34 = *(_DWORD *)(a1 + 776);
-    if ( (v34 & 0x400) != 0 )
+    v37 = *(_DWORD *)(a1 + 776);
+    if ( (v37 & 0x400) != 0 )
     {
-      v24 = 4096;
+      v27 = 4096;
     }
     else
     {
-      if ( (v34 & 0x8000) != 0 )
+      if ( (v37 & 0x8000) != 0 )
       {
         memmove((void *)(*(_QWORD *)(a1 + 1784) + 4096LL), *(const void **)(a2 + 8), 0x1000uLL);
-        v21 = *(_DWORD *)a2;
-        v23 = (UCHAR *)(*(_QWORD *)(a1 + 1784) + 4096LL);
+        v24 = *(_DWORD *)a2;
+        v26 = (UCHAR *)(*(_QWORD *)(a1 + 1784) + 4096LL);
       }
-      v24 = 0;
+      v27 = 0;
     }
   }
   else
   {
-    v24 = *(_DWORD *)(*(_QWORD *)(v44 + 16) + 40LL);
+    v27 = *(_DWORD *)(*(_QWORD *)(v47 + 16) + 40LL);
   }
-  v25 = *(_DWORD *)(a1 + 816) - (v41 & *(_DWORD *)(a1 + 808));
-  FinalCompressedSize = v24;
-  if ( v21 < 0 )
+  v28 = *(_DWORD *)(a1 + 816) - (v44 & *(_DWORD *)(a1 + 808));
+  Length = v27;
+  if ( v24 < 0 )
   {
-    v26 = v24;
-    v27 = v23;
+    v29 = v27;
+    v30 = v26;
 LABEL_29:
-    memmove(v22, v27, v26);
+    memmove(v25, v30, v29);
     goto LABEL_30;
   }
-  if ( v25 >= *(_DWORD *)(a1 + 820) )
-    v35 = v22;
+  if ( v28 >= *(_DWORD *)(a1 + 820) )
+    v38 = v25;
   else
-    v35 = *(UCHAR **)(a1 + 1784);
-  if ( !v24 )
+    v38 = *(UCHAR **)(a1 + 1784);
+  if ( !v27 )
   {
-    if ( RtlCompressBuffer(
-           *(_WORD *)(a1 + 992),
-           v23,
-           0x1000u,
-           v35,
-           0x1000u,
-           0x1000u,
-           &FinalCompressedSize,
-           *(PVOID *)(a1 + 896)) >= 0 )
+    if ( RtlCompressBuffer(*(_WORD *)(a1 + 992), v26, 0x1000u, v38, 0x1000u, 0x1000u, &Length, *(PVOID *)(a1 + 896)) >= 0 )
     {
-      v24 = FinalCompressedSize;
+      v27 = Length;
     }
     else
     {
-      v24 = 4096;
-      FinalCompressedSize = 4096;
+      v27 = 4096;
+      Length = 4096;
     }
   }
-  if ( v35 != v22 )
+  if ( v38 != v25 )
   {
-    v36 = (v24 + *(_DWORD *)(a1 + 824) + 15) >> 4;
-    *v47 = v36;
-    if ( v36 > v25 )
+    v39 = (v27 + *(_DWORD *)(a1 + 824) + 15) >> 4;
+    *v50 = v39;
+    if ( v39 > v28 )
     {
       Space = -1073741267;
       goto LABEL_41;
     }
   }
-  if ( v24 > 0xFF0 )
+  if ( v27 > 0xFF0 )
   {
     if ( (*(_DWORD *)(a1 + 776) & 0x200) != 0 )
     {
       Space = -1073740762;
       goto LABEL_41;
     }
-    v24 = 4096;
-    v35 = v23;
-    FinalCompressedSize = 4096;
+    v27 = 4096;
+    v38 = v26;
+    Length = 4096;
   }
-  if ( v35 != v22 )
+  if ( v38 != v25 )
   {
-    v26 = v24;
-    v27 = v35;
+    v29 = v27;
+    v30 = v38;
     goto LABEL_29;
   }
 LABEL_30:
@@ -246,46 +241,46 @@ LABEL_30:
   {
     v9 = 0;
     SMKM_STORE<SM_TRAITS>::SmStAcquireStoreLockExclusive(*(_QWORD *)(a1 + 800));
-    v28 = SmHpChunkAlloc((_DWORD *)(a1 + 192));
-    v6 = (unsigned __int64)v28;
-    if ( !v28 )
+    v31 = SmHpChunkAlloc((_DWORD *)(a1 + 192));
+    v6 = (unsigned __int64)v31;
+    if ( !v31 )
     {
       Space = -1073741670;
       goto LABEL_41;
     }
-    ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, (__int64)v28);
+    ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, (__int64)v31);
     *(_QWORD *)(v6 + 4) = 0LL;
-    *(_DWORD *)v6 = v41;
-    v29 = FinalCompressedSize;
-    if ( FinalCompressedSize < 0x1000 )
+    *(_DWORD *)v6 = v44;
+    v32 = Length;
+    if ( Length < 0x1000 )
     {
-      *(_DWORD *)(v6 + 4) ^= FinalCompressedSize & 0xFFF;
-      v29 = FinalCompressedSize;
+      *(_DWORD *)(v6 + 4) ^= Length & 0xFFF;
+      v32 = Length;
     }
-    v30 = v48;
-    if ( *v48 >= 0 )
+    v33 = v51;
+    if ( *v51 >= 0 )
     {
-      *(_QWORD *)v45 = 0LL;
-      MetroHash64::Hash(v22, v29, v45);
-      LODWORD(v31) = *(_DWORD *)v45;
+      *(_QWORD *)v48 = 0LL;
+      MetroHash64::Hash(v25, v32, v48);
+      LODWORD(v34) = *(_DWORD *)v48;
     }
     else
     {
-      v31 = *(_QWORD *)(v44 + 96);
+      v34 = *(_QWORD *)(v47 + 96);
     }
-    *(_DWORD *)(v6 + 8) = v31;
-    v32 = *(_QWORD *)(a1 + 1016);
-    if ( *(_DWORD *)(v32 + 24) )
+    *(_DWORD *)(v6 + 8) = v34;
+    v35 = *(_QWORD *)(a1 + 1016);
+    if ( *(_DWORD *)(v35 + 24) )
     {
-      v37 = -*(_DWORD *)(v32 + 8) & (*(_DWORD *)(v32 + 8) + FinalCompressedSize - 1);
+      v40 = -*(_DWORD *)(v35 + 8) & (*(_DWORD *)(v35 + 8) + Length - 1);
       ++*(_QWORD *)(a1 + 1024);
       *(_DWORD *)(v6 + 12) = *(_DWORD *)(a1 + 1024);
       *(_WORD *)(v6 + 6) = *(_WORD *)(a1 + 1028);
-      LODWORD(v49) = FinalCompressedSize;
-      HIDWORD(v49) = *(_DWORD *)(v6 + 12);
-      v38 = *(_QWORD *)(a1 + 1016);
-      v50 = *(unsigned __int16 *)(v6 + 6);
-      if ( (int)SmCrAuthEncrypt(v38, v22, v22, v37, &v49) < 0 )
+      LODWORD(v52) = Length;
+      HIDWORD(v52) = *(_DWORD *)(v6 + 12);
+      v41 = *(_QWORD *)(a1 + 1016);
+      v53 = *(unsigned __int16 *)(v6 + 6);
+      if ( (int)SmCrAuthEncrypt(v41, v25, v25, v40, &v52) < 0 )
       {
         Space = -1073741174;
         goto LABEL_41;
@@ -293,10 +288,10 @@ LABEL_30:
     }
     else if ( *(_BYTE *)(a1 + 776) )
     {
-      v39 = RtlComputeCrc32(0, (char *)v22, FinalCompressedSize);
-      *v43 = v39;
+      v42 = RtlComputeCrc32(0, v25, Length);
+      *v46 = v42;
     }
-    Space = ST_STORE<SM_TRAITS>::StDmpSinglePageInsert(a1, v30, v6);
+    Space = ST_STORE<SM_TRAITS>::StDmpSinglePageInsert(a1, v33, v6);
     if ( Space >= 0 )
     {
       v6 = 0LL;

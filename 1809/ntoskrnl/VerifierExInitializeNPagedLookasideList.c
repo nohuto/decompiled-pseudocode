@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierExInitializeNPagedLookasideList @ 0x14093ED50
+ * XREFs of VerifierExInitializeNPagedLookasideList @ 0x14093FD50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfUtilSynchronizationObjectSanityChecks @ 0x140926400 (VfUtilSynchronizationObjectSanityChecks.c)
- *     VfCheckPoolType @ 0x1409275EC (VfCheckPoolType.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
- *     VfTargetDriversIsEnabled @ 0x140934AD4 (VfTargetDriversIsEnabled.c)
- *     ViLookasideTrackList @ 0x14093F204 (ViLookasideTrackList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x140927400 (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VfCheckPoolType @ 0x1409285EC (VfCheckPoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
+ *     VfTargetDriversIsEnabled @ 0x140935AD4 (VfTargetDriversIsEnabled.c)
+ *     ViLookasideTrackList @ 0x140940204 (ViLookasideTrackList.c)
  */
 
 __int64 __fastcall VerifierExInitializeNPagedLookasideList(

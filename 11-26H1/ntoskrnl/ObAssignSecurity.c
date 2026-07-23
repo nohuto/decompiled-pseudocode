@@ -1,12 +1,12 @@
 /*
- * XREFs of ObAssignSecurity @ 0x140A48D20
+ * XREFs of ObAssignSecurity @ 0x140A52010
  * Callers:
  *     <none>
  * Callees:
- *     ObpAssignSecurity @ 0x140A48D50 (ObpAssignSecurity.c)
+ *     ObpAssignSecurity @ 0x140A52040 (ObpAssignSecurity.c)
  */
 
-__int64 __fastcall ObAssignSecurity(int a1, int a2, int a3, int a4)
+__int64 __fastcall ObAssignSecurity(__int64 a1, __int64 a2)
 {
-  return ObpAssignSecurity(a1, a2, a3, a4, 0, 0);
+  return ObpAssignSecurity(a1, a2);
 }

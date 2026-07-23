@@ -33,7 +33,7 @@ __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, int a2)
   unsigned __int8 v16; // r14
   unsigned int v17; // r8d
   __int64 v18; // rcx
-  unsigned __int64 v19; // rdi
+  __int64 v19; // rdi
   __int64 v20; // rdx
   __int64 v21; // rcx
   int v22; // [rsp+70h] [rbp+18h] BYREF
@@ -87,7 +87,7 @@ __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, int a2)
       v15 = !_BitScanReverse((unsigned int *)&v18, v17);
       if ( v15 )
         break;
-      v19 = (unsigned __int64)&CurrentThread->LockEntries[v18];
+      v19 = (__int64)&CurrentThread->LockEntries[v18];
       v17 &= ~(1 << v18);
       if ( (*(_BYTE *)(v19 + 26) & 1) != 0
         && (*(_DWORD *)(v19 + 32) & 1) == 0
@@ -101,12 +101,12 @@ __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, int a2)
           {
             *(_BYTE *)(v19 + 32) |= 2u;
             if ( *(__int64 *)(v19 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v19);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
             v22 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
             *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v19 + 25) &= ~1u;
             *(_QWORD *)(v19 + 32) = 0LL;
-            v20 = (__int64)(v19 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+            v20 = (signed __int64)(v19 - (unsigned __int64)CurrentThread->LockEntries) / 96;
             if ( v16 == 1 )
               CurrentThread->AbEntrySummary |= 1 << v20;
             else

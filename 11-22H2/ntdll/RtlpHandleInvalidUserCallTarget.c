@@ -16,39 +16,45 @@
  *     RtlpXfgTlLogFailure @ 0x1801208BC (RtlpXfgTlLogFailure.c)
  */
 
-__int64 __fastcall RtlpHandleInvalidUserCallTarget(unsigned __int64 a1, __int64 a2, int a3, int a4)
+int __fastcall RtlpHandleInvalidUserCallTarget(void *a1, __int64 a2, int a3, __int64 a4)
 {
-  int v6; // ebp
-  __int64 result; // rax
+  int result; // eax
   int v9; // eax
+  _QWORD InputBuffer[2]; // [rsp+30h] [rbp-28h] BYREF
+  int v11; // [rsp+40h] [rbp-18h]
+  __int64 v12; // [rsp+48h] [rbp-10h]
 
-  v6 = a2;
   if ( a3 <= 1 )
   {
     if ( RtlGuardAllowSuppressedCalls && RtlpGuardIsSuppressedAddress(a1) )
     {
-      return RtlpGuardGrantSuppressedCallAccess(a1, 1u);
+      return RtlpGuardGrantSuppressedCallAccess((__int64)a1, 1u);
     }
     else
     {
       LOBYTE(v9) = LdrControlFlowGuardEnforcedWithExportSuppression();
       if ( !v9
         || !RtlGuardIsExportSuppressedAddress(a1)
-        || (result = RtlpUnsuppressForwardReferencingCallTarget(a1), (int)result < 0) )
+        || (result = RtlpUnsuppressForwardReferencingCallTarget(a1), result < 0) )
       {
         RtlFailFast2(0xAu);
       }
     }
   }
-  else if ( (unsigned int)LdrControlFlowGuardXfgEnabled(a1, a2) && (BYTE1(qword_1801993E8) & 3) == 1 )
+  else if ( (unsigned int)LdrControlFlowGuardXfgEnabled()
+         && (BYTE1(LdrSystemDllInitBlock.MitigationAuditOptionsMap.Map[2]) & 3) == 1 )
   {
-    RtlpXfgTlLogFailure(a3, v6, a1, a4, *(_QWORD *)(a1 - 8));
-    return RtlDisableXfgOnTarget(a1);
+    RtlpXfgTlLogFailure(a3, a2, (_DWORD)a1, a4, *((_QWORD *)a1 - 1));
+    return RtlDisableXfgOnTarget((__int64)a1);
   }
   else
   {
-    result = NtQuerySystemInformationEx();
-    if ( (int)result < 0 )
+    InputBuffer[0] = a2;
+    InputBuffer[1] = a1;
+    v11 = a3;
+    v12 = a4;
+    result = NtQuerySystemInformationEx(SystemXfgCheckFailureInformation, InputBuffer, 0x20u, 0LL, 0, 0LL);
+    if ( result < 0 )
       RtlFailFast3(0x40u);
   }
   return result;

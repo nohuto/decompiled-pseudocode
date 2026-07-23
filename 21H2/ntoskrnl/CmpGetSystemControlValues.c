@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpGetSystemControlValues @ 0x140A5FC0C
+ * XREFs of CmpGetSystemControlValues @ 0x140A60C0C
  * Callers:
- *     CmInitSystem0 @ 0x140A5F694 (CmInitSystem0.c)
+ *     CmInitSystem0 @ 0x140A60694 (CmInitSystem0.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpFindValueByName @ 0x14066963C (CmpFindValueByName.c)
- *     CmpInitSecurityCache @ 0x140720D1C (CmpInitSecurityCache.c)
- *     HvHiveInitialize @ 0x140720D58 (HvHiveInitialize.c)
- *     HvHiveStartMemoryBacked @ 0x14076FE14 (HvHiveStartMemoryBacked.c)
- *     CmpWalkPath @ 0x1407AC6F0 (CmpWalkPath.c)
- *     CmpFindSubKeyByName @ 0x1407AC8D4 (CmpFindSubKeyByName.c)
- *     CmpFindControlSet @ 0x1407ACB40 (CmpFindControlSet.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140A5F7C0 (CmSelectQualifiedInstallLanguage.c)
- *     CmpGetBootValueData @ 0x140A5FFE0 (CmpGetBootValueData.c)
- *     CmpConvertLangId @ 0x140A601F0 (CmpConvertLangId.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpFindValueByName @ 0x14065E45C (CmpFindValueByName.c)
+ *     CmpInitSecurityCache @ 0x1406F8190 (CmpInitSecurityCache.c)
+ *     HvHiveInitialize @ 0x1406F81CC (HvHiveInitialize.c)
+ *     HvHiveStartMemoryBacked @ 0x14076FFD4 (HvHiveStartMemoryBacked.c)
+ *     CmpWalkPath @ 0x1407AC8F0 (CmpWalkPath.c)
+ *     CmpFindSubKeyByName @ 0x1407ACAD4 (CmpFindSubKeyByName.c)
+ *     CmpFindControlSet @ 0x1407ACD40 (CmpFindControlSet.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140A607C0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpGetBootValueData @ 0x140A60FE0 (CmpGetBootValueData.c)
+ *     CmpConvertLangId @ 0x140A611F0 (CmpConvertLangId.c)
  */
 
 __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
@@ -27,7 +27,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
   unsigned int v7; // edi
   unsigned int ControlSet; // eax
   __int64 result; // rax
-  __int64 v10; // rdi
+  ULONG_PTR v10; // rdi
   unsigned int SubKeyByName; // r14d
   __int64 v12; // rcx
   unsigned int v13; // edi

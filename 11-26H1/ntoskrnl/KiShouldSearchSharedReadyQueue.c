@@ -1,9 +1,9 @@
 /*
- * XREFs of KiShouldSearchSharedReadyQueue @ 0x140439680
+ * XREFs of KiShouldSearchSharedReadyQueue @ 0x14042BF30
  * Callers:
- *     KiSearchForNewThread @ 0x14023E3D0 (KiSearchForNewThread.c)
- *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404ED5A4 (KiDisarmForceParkDutyCyclingIfNecessary.c)
- *     KiArmForceParkDutyCyclingForSharedReadyQueue @ 0x140529008 (KiArmForceParkDutyCyclingForSharedReadyQueue.c)
+ *     KiSearchForNewThread @ 0x14023FD30 (KiSearchForNewThread.c)
+ *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404E6B84 (KiDisarmForceParkDutyCyclingIfNecessary.c)
+ *     KiArmForceParkDutyCyclingForSharedReadyQueue @ 0x14052B5F8 (KiArmForceParkDutyCyclingForSharedReadyQueue.c)
  * Callees:
  *     <none>
  */

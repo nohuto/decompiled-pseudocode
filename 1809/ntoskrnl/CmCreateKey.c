@@ -1,8 +1,8 @@
 /*
- * XREFs of CmCreateKey @ 0x1405B5A60
+ * XREFs of CmCreateKey @ 0x1405B6A60
  * Callers:
- *     NtCreateKey @ 0x1405B59F0 (NtCreateKey.c)
- *     NtCreateKeyTransacted @ 0x140693C70 (NtCreateKeyTransacted.c)
+ *     NtCreateKey @ 0x1405B69F0 (NtCreateKey.c)
+ *     NtCreateKeyTransacted @ 0x140694E30 (NtCreateKeyTransacted.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithQuotaTag @ 0x140013018 (CmpAllocateTransientPoolWithQuotaTag.c)
@@ -10,18 +10,18 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
- *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpCleanupParseContext @ 0x1405B6FC4 (CmpCleanupParseContext.c)
+ *     ObOpenObjectByNameEx @ 0x1405E3E30 (ObOpenObjectByNameEx.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall CmCreateKey(

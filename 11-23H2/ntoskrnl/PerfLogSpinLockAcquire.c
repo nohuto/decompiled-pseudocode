@@ -1,15 +1,15 @@
 /*
- * XREFs of PerfLogSpinLockAcquire @ 0x140600D04
+ * XREFs of PerfLogSpinLockAcquire @ 0x140601254
  * Callers:
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x14046024E (KiTryToAcquireQueuedSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x140460430 (KiAcquireSpinLockInstrumented.c)
- *     KiTryToAcquireSpinLockInstrumented @ 0x1404604EC (KiTryToAcquireSpinLockInstrumented.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B5B6 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14046B648 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
- *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14060B120 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x14046064E (KiTryToAcquireQueuedSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140460830 (KiAcquireSpinLockInstrumented.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x1404608EC (KiTryToAcquireSpinLockInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B9B6 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14046BA48 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
+ *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14060B670 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  * Callees:
  *     <none>
  */

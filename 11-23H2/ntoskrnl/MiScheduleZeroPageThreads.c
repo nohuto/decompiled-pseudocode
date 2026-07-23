@@ -5,11 +5,11 @@
  * Callees:
  *     MiIsCalibrationWorthwhile @ 0x14021F624 (MiIsCalibrationWorthwhile.c)
  *     MiReduceZeroingThreads @ 0x140220A68 (MiReduceZeroingThreads.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
@@ -146,10 +146,10 @@ LABEL_15:
             if ( (_DWORD)v11 )
               KeSetEvent((PRKEVENT)&v30[8], 0, 0);
             ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v33 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v33 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -168,10 +168,10 @@ LABEL_15:
       if ( *(_QWORD *)(v5 + 22832) >= 0x2000uLL || *v6 )
         KeSetEvent((PRKEVENT)(v1 + 128), 0, 0);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 23160));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v25 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v25 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v25 >= 2u )
         {
           v26 = KeGetCurrentPrcb();
           v27 = v26->SchedulerAssist;

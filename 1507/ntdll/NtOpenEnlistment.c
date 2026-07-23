@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtOpenEnlistment()
+NTSTATUS __cdecl NtOpenEnlistment(
+        PHANDLE EnlistmentHandle,
+        ACCESS_MASK DesiredAccess,
+        HANDLE ResourceManagerHandle,
+        LPGUID EnlistmentGuid,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 264LL;
+  result = 264;
   __asm { syscall; Low latency system call }
   return result;
 }

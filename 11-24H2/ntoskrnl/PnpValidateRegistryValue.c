@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpValidateRegistryValue @ 0x1405A70B8
+ * XREFs of PnpValidateRegistryValue @ 0x1405A40A8
  * Callers:
- *     PiDevCfgResolveVariableConstant @ 0x14072B6A0 (PiDevCfgResolveVariableConstant.c)
- *     PiDevCfgResolveVariableKeyCopy @ 0x14072BD90 (PiDevCfgResolveVariableKeyCopy.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x14072BE70 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableConstant @ 0x140729690 (PiDevCfgResolveVariableConstant.c)
+ *     PiDevCfgResolveVariableKeyCopy @ 0x140729D80 (PiDevCfgResolveVariableKeyCopy.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x140729E60 (PiDevCfgResolveVariableKeyValue.c)
  * Callees:
- *     PnpValidateStringData @ 0x1404ACF1C (PnpValidateStringData.c)
- *     PnpValidateMultiSzData @ 0x1404B3254 (PnpValidateMultiSzData.c)
+ *     PnpValidateStringData @ 0x1404A7600 (PnpValidateStringData.c)
+ *     PnpValidateMultiSzData @ 0x1404ADA64 (PnpValidateMultiSzData.c)
  */
 
 char __fastcall PnpValidateRegistryValue(_DWORD *a1)

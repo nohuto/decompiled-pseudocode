@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpQuotaWarningWorker @ 0x1407D2380
+ * XREFs of CmpQuotaWarningWorker @ 0x1407D2870
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseHardError @ 0x140A4E2E0 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExRaiseHardError @ 0x140A44F60 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpQuotaWarningWorker(void *a1)

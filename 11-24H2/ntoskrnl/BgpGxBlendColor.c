@@ -1,8 +1,8 @@
 /*
- * XREFs of BgpGxBlendColor @ 0x14047293C
+ * XREFs of BgpGxBlendColor @ 0x14046EC0C
  * Callers:
- *     RaspAntiAlias @ 0x1404727DC (RaspAntiAlias.c)
- *     BgpGxBlendRectangle @ 0x140BB2400 (BgpGxBlendRectangle.c)
+ *     RaspAntiAlias @ 0x14046EAAC (RaspAntiAlias.c)
+ *     BgpGxBlendRectangle @ 0x140BB4400 (BgpGxBlendRectangle.c)
  * Callees:
  *     <none>
  */

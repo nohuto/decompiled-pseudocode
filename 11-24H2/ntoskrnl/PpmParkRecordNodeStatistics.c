@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmParkRecordNodeStatistics @ 0x140409AE4
+ * XREFs of PpmParkRecordNodeStatistics @ 0x140401FC4
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x140409260 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140401740 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     PpmParkComputeSnapStatistics @ 0x140437C50 (PpmParkComputeSnapStatistics.c)
- *     PpmEventParkNodeRecordedStats @ 0x140456C2C (PpmEventParkNodeRecordedStats.c)
- *     PpmEventParkNodeClassRecordedStats @ 0x1404CC608 (PpmEventParkNodeClassRecordedStats.c)
- *     PpmPerfRecordMostActiveWorkloadClass @ 0x1404EB798 (PpmPerfRecordMostActiveWorkloadClass.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventParkNodeClassRecordedStatsEx @ 0x1405DDDC8 (PpmEventParkNodeClassRecordedStatsEx.c)
- *     PpmEventParkNodeRecordedStatsEx @ 0x1405DE2A8 (PpmEventParkNodeRecordedStatsEx.c)
+ *     PpmParkComputeSnapStatistics @ 0x14042A6D0 (PpmParkComputeSnapStatistics.c)
+ *     PpmEventParkNodeRecordedStats @ 0x14044BBFC (PpmEventParkNodeRecordedStats.c)
+ *     PpmEventParkNodeClassRecordedStats @ 0x1404C5A78 (PpmEventParkNodeClassRecordedStats.c)
+ *     PpmPerfRecordMostActiveWorkloadClass @ 0x1404E26D8 (PpmPerfRecordMostActiveWorkloadClass.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventParkNodeClassRecordedStatsEx @ 0x1405DAC48 (PpmEventParkNodeClassRecordedStatsEx.c)
+ *     PpmEventParkNodeRecordedStatsEx @ 0x1405DB128 (PpmEventParkNodeRecordedStatsEx.c)
  */
 
 __int64 PpmParkRecordNodeStatistics()
@@ -42,10 +42,10 @@ __int64 PpmParkRecordNodeStatistics()
   unsigned __int16 v25; // [rsp+90h] [rbp+18h]
 
   v0 = (int)PpmCurrentProfile[0];
-  result = dword_140F0BA4C;
+  result = dword_140F0B38C;
   v2 = 0;
   v3 = PpmCheckMakeupCount;
-  v4 = 61LL * dword_140F0BA4C;
+  v4 = 61LL * dword_140F0B38C;
   v25 = 0;
   v5 = BYTE5(PpmCurrentProfile[0][v4 + 22]);
   v6 = HIBYTE(PpmCurrentProfile[0][v4 + 22]);
@@ -53,7 +53,7 @@ __int64 PpmParkRecordNodeStatistics()
   for ( i = v5; v2 < (unsigned int)PpmParkNumNodes; v25 = v2 )
   {
     LOBYTE(v0) = v5;
-    v7 = PpmParkNodes + 1288LL * v2;
+    v7 = PpmParkNodes + 1296LL * v2;
     v8 = (char *)(v7 + 1180);
     v9 = (_BYTE *)(v7 + 1176);
     if ( (unsigned __int8)PpmParkComputeSnapStatistics(v3, v0, v6, (int)v7 + 1112, v7 + 1176, v7 + 1178, v7 + 1180) )
@@ -78,7 +78,7 @@ __int64 PpmParkRecordNodeStatistics()
         do
         {
           LOBYTE(v10) = i;
-          v15 = *(_QWORD *)(v7 + 1280) + 640LL * v14;
+          v15 = *(_QWORD *)(v7 + 1288) + 640LL * v14;
           v16 = (char *)(v15 + 632);
           v17 = (char *)(v15 + 636);
           v18 = v15 + 576;

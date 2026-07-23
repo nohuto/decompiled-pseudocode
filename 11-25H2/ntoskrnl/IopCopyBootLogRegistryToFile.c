@@ -40,7 +40,7 @@ _QWORD *IopCopyBootLogRegistryToFile()
   LARGE_INTEGER LocalTime; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-A8h] BYREF
   HANDLE TimeFields; // [rsp+68h] [rbp-A0h] BYREF
-  TIME_FIELDS TimeFields_8; // [rsp+70h] [rbp-98h] BYREF
+  _TIME_FIELDS TimeFields_8; // [rsp+70h] [rbp-98h] BYREF
   UNICODE_STRING UnicodeString_8; // [rsp+80h] [rbp-88h] BYREF
   STRING DestinationString; // [rsp+90h] [rbp-78h] BYREF
   UNICODE_STRING v17; // [rsp+A0h] [rbp-68h] BYREF

@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpQueuePendingSurpriseRemoval @ 0x1406ED8AC
+ * XREFs of PnpQueuePendingSurpriseRemoval @ 0x1406EEB4C
  * Callers:
- *     PiEventRemovalPostSurpriseRemove @ 0x1406EF370 (PiEventRemovalPostSurpriseRemove.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x1406F0610 (PiEventRemovalPostSurpriseRemove.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x14059D8F4 (PnpAcquireDependencyRelationsLock.c)
- *     IopEnumerateRelations @ 0x1406EE0B4 (IopEnumerateRelations.c)
- *     IopIsDescendantNode @ 0x1406EE7CC (IopIsDescendantNode.c)
- *     IopAllocateRelationList @ 0x1406EE97C (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x1406EEA3C (IopFreeRelationList.c)
- *     PnpAllocateCriticalMemory @ 0x1406EEB64 (PnpAllocateCriticalMemory.c)
- *     IopCheckIfMergeRequired @ 0x14083AA68 (IopCheckIfMergeRequired.c)
- *     IopMergeRelationLists @ 0x14083AB68 (IopMergeRelationLists.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x14059E8F4 (PnpAcquireDependencyRelationsLock.c)
+ *     IopEnumerateRelations @ 0x1406EF354 (IopEnumerateRelations.c)
+ *     IopIsDescendantNode @ 0x1406EFA6C (IopIsDescendantNode.c)
+ *     IopAllocateRelationList @ 0x1406EFC1C (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x1406EFCDC (IopFreeRelationList.c)
+ *     PnpAllocateCriticalMemory @ 0x1406EFE04 (PnpAllocateCriticalMemory.c)
+ *     IopCheckIfMergeRequired @ 0x14083BCC8 (IopCheckIfMergeRequired.c)
+ *     IopMergeRelationLists @ 0x14083BDC8 (IopMergeRelationLists.c)
  */
 
 _QWORD *__fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, void **a2, int a3, int a4)
@@ -97,14 +97,14 @@ _QWORD *__fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, void **a2, int a3, i
   if ( v4 == v10 )
   {
     CriticalMemory = PnpAllocateCriticalMemory(3LL, 512LL, 112LL, 1416654416LL);
-    v12 = (__int64 *)qword_140434C08;
-    if ( *(PVOID **)qword_140434C08 != &IopPendingSurpriseRemovals )
+    v12 = (__int64 *)qword_140435CA8;
+    if ( *(PVOID **)qword_140435CA8 != &IopPendingSurpriseRemovals )
 LABEL_28:
       __fastfail(3u);
     *(_QWORD *)CriticalMemory = &IopPendingSurpriseRemovals;
     *(_QWORD *)(CriticalMemory + 8) = v12;
     *v12 = CriticalMemory;
-    qword_140434C08 = CriticalMemory;
+    qword_140435CA8 = CriticalMemory;
   }
   else
   {

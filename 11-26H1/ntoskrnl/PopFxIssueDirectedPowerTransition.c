@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxIssueDirectedPowerTransition @ 0x14060521C
+ * XREFs of PopFxIssueDirectedPowerTransition @ 0x140607D1C
  * Callers:
- *     PopIssueDirectedPowerTransition @ 0x140B5A580 (PopIssueDirectedPowerTransition.c)
+ *     PopIssueDirectedPowerTransition @ 0x140B5D89C (PopIssueDirectedPowerTransition.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxQueueWorkOrder @ 0x14039486C (PopFxQueueWorkOrder.c)
- *     PopFxReferenceDevice @ 0x1403948D4 (PopFxReferenceDevice.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxQueueWorkOrder @ 0x1403965EC (PopFxQueueWorkOrder.c)
+ *     PopFxReferenceDevice @ 0x140396654 (PopFxReferenceDevice.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
  */
 
 void __fastcall PopFxIssueDirectedPowerTransition(ULONG_PTR BugCheckParameter2, char a2, __int64 a3)

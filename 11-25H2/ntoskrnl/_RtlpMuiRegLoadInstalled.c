@@ -26,7 +26,7 @@ __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2, __int64 a3, u
     return 3221225485LL;
   if ( PsUILanguageComitted )
   {
-    InstallUILanguage = ZwQueryInstallUILanguage(a1 + 4, a2);
+    InstallUILanguage = ZwQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_14;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));

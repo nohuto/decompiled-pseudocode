@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpRegisterEnvironment @ 0x140141360
+ * XREFs of RtlpHpRegisterEnvironment @ 0x140141460
  * Callers:
- *     RtlpHpHeapCreate @ 0x140140AE0 (RtlpHpHeapCreate.c)
- *     RtlpHpHeapDestroy @ 0x1401544C4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapCreate @ 0x140140BE0 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapDestroy @ 0x1401545C4 (RtlpHpHeapDestroy.c)
  * Callees:
  *     RtlpHpEnvGetHeapManager @ 0x14000CE30 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x14014144C (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlpHpVaMgrCtxAllocatorDereference @ 0x14015921C (RtlpHpVaMgrCtxAllocatorDereference.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14014154C (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpVaMgrCtxAllocatorDereference @ 0x14015931C (RtlpHpVaMgrCtxAllocatorDereference.c)
  */
 
 __int64 __fastcall RtlpHpRegisterEnvironment(__int128 *a1)

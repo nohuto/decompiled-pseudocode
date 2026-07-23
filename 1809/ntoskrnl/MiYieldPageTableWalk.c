@@ -1,10 +1,10 @@
 /*
- * XREFs of MiYieldPageTableWalk @ 0x140122728
+ * XREFs of MiYieldPageTableWalk @ 0x1401227F8
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14006EE70 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiReleaseWalkLocks @ 0x140122798 (MiReleaseWalkLocks.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiReleaseWalkLocks @ 0x140122868 (MiReleaseWalkLocks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiYieldPageTableWalk(__int64 a1, int a2)

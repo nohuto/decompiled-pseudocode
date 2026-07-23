@@ -35,15 +35,17 @@ void __fastcall RtlpInsertFreeBlock(int a1, unsigned __int16 *a2, unsigned int a
   int v17; // eax
   int v18; // edx
   int v19; // eax
-  int v20; // [esp+10h] [ebp-14h]
-  unsigned int v21; // [esp+14h] [ebp-10h]
-  unsigned int v22; // [esp+18h] [ebp-Ch]
-  __int16 v23; // [esp+1Ch] [ebp-8h]
-  char v24; // [esp+23h] [ebp-1h]
+  SIZE_T v20; // [esp-8h] [ebp-2Ch]
+  ULONG v21; // [esp+0h] [ebp-24h]
+  int v22; // [esp+10h] [ebp-14h]
+  unsigned int v23; // [esp+14h] [ebp-10h]
+  unsigned int v24; // [esp+18h] [ebp-Ch]
+  __int16 v25; // [esp+1Ch] [ebp-8h]
+  char v26; // [esp+23h] [ebp-1h]
 
   v4 = (unsigned int)a2;
   v5 = a3;
-  v22 = a3;
+  v24 = a3;
   if ( a3 )
   {
     v6 = *(_WORD *)(a1 + 84) ^ a2[2];
@@ -64,20 +66,20 @@ void __fastcall RtlpInsertFreeBlock(int a1, unsigned __int16 *a2, unsigned int a
     }
     v7 = *(_BYTE *)(v4 + 6);
     if ( v7 )
-      v21 = (v4 & 0xFFFF0000) - (v7 << 16) + 0x10000;
+      v23 = (v4 & 0xFFFF0000) - (v7 << 16) + 0x10000;
     else
-      v21 = a1;
+      v23 = a1;
     v8 = *(_BYTE *)(v4 + 2);
-    v24 = v8;
+    v26 = v8;
     while ( 1 )
     {
       if ( v5 > 0xFE00 )
       {
-        v23 = -512;
+        v25 = -512;
         if ( v5 == 65025 )
         {
           LOWORD(v5) = -528;
-          v23 = -528;
+          v25 = -528;
         }
         else
         {
@@ -87,22 +89,22 @@ void __fastcall RtlpInsertFreeBlock(int a1, unsigned __int16 *a2, unsigned int a
       }
       else
       {
-        v23 = v5;
+        v25 = v5;
       }
       *(_BYTE *)(v4 + 2) = v8;
       *(_WORD *)(v4 + 4) = v6 ^ *(_WORD *)(a1 + 84);
-      if ( *(_DWORD *)(v21 + 24) == v21 )
+      if ( *(_DWORD *)(v23 + 24) == v23 )
       {
         LOBYTE(v9) = 0;
       }
       else
       {
-        v9 = ((v4 - v21) >> 16) + 1;
+        v9 = ((v4 - v23) >> 16) + 1;
         if ( v9 >= 0xFE )
         {
-          RtlpLogHeapFailure(v4, v21, 0, 0);
-          LOWORD(v5) = v23;
-          LOBYTE(v9) = ((v4 - v21) >> 16) + 1;
+          RtlpLogHeapFailure(v4, v23, 0, 0);
+          LOWORD(v5) = v25;
+          LOBYTE(v9) = ((v4 - v23) >> 16) + 1;
         }
       }
       *(_BYTE *)(v4 + 2) &= 0xF0u;
@@ -111,10 +113,12 @@ void __fastcall RtlpInsertFreeBlock(int a1, unsigned __int16 *a2, unsigned int a
       *(_BYTE *)(v4 + 3) = 0;
       v10 = (unsigned __int16)v5;
       *(_BYTE *)(v4 + 7) = 0;
-      v20 = (unsigned __int16)v5;
+      v22 = (unsigned __int16)v5;
       if ( (*(_BYTE *)(a1 + 64) & 0x40) != 0 )
       {
-        RtlFillMemoryUlong(v4 + 16, 8 * (unsigned __int16)v5 - 16, -17891602);
+        HIDWORD(v20) = -17891602;
+        LODWORD(v20) = 8 * (unsigned __int16)v5 - 16;
+        RtlFillMemoryUlong((PVOID)(v4 + 16), v20, v21);
         *(_BYTE *)(v4 + 2) |= 4u;
       }
       if ( *(_DWORD *)(a1 + 180) )
@@ -186,17 +190,17 @@ LABEL_21:
         *(_BYTE *)(v4 + 3) = *(_BYTE *)v4 ^ *(_BYTE *)(v4 + 2) ^ *(_BYTE *)(v4 + 1);
         *(_DWORD *)v4 ^= *(_DWORD *)(a1 + 80);
       }
-      v5 = v22 - v20;
-      v6 = v23;
-      v4 += 8 * v20;
-      v22 -= v20;
-      if ( v4 >= *(_DWORD *)(v21 + 40) )
+      v5 = v24 - v22;
+      v6 = v25;
+      v4 += 8 * v22;
+      v24 -= v22;
+      if ( v4 >= *(_DWORD *)(v23 + 40) )
         break;
-      v8 = v24;
+      v8 = v26;
       if ( !v5 )
       {
-        *(_WORD *)(v4 + 4) = v23 ^ *(_WORD *)(a1 + 84);
-        if ( !v23 && RtlpHeapErrorHandlerThreshold >= 1 && ((v4 + 4095) & 0xFFFFF000) != v4 )
+        *(_WORD *)(v4 + 4) = v25 ^ *(_WORD *)(a1 + 84);
+        if ( !v25 && RtlpHeapErrorHandlerThreshold >= 1 && ((v4 + 4095) & 0xFFFFF000) != v4 )
         {
           if ( NtCurrentPeb()->Ldr )
             DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);

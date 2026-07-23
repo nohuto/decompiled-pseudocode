@@ -1,21 +1,21 @@
 /*
- * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x1405BC394
+ * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x1405BD394
  * Callers:
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCaptureSecurityDescriptor @ 0x140630CC0 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14089F1D0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x14089F978 (SepQueryTypeString.c)
- *     SepIsAclEqual @ 0x1408A3B9C (SepIsAclEqual.c)
- *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1405BCA50 (SepAdtAuditThisEventWithContext.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSecurityDescriptor @ 0x140631CE0 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x140632870 (SeReleaseSecurityDescriptor.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1408A0430 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x1408A0BD8 (SepQueryTypeString.c)
+ *     SepIsAclEqual @ 0x1408A4DFC (SepIsAclEqual.c)
+ *     SepAuditFailed @ 0x1408A59E0 (SepAuditFailed.c)
  */
 
 void __fastcall SeTokenDefaultDaclChangedAuditAlarm(__int64 a1, __int64 a2, __int64 a3, ACL *a4, PACL Dacl)

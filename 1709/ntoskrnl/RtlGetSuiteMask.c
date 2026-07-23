@@ -7,10 +7,10 @@
  *     PsGetCurrentServerSiloGlobals @ 0x1400D2E30 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return *(unsigned int *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 138) + 20LL);
+    return *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 138) + 20LL);
   else
     return MEMORY[0xFFFFF780000002D0];
 }

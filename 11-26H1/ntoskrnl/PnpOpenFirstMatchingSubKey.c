@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpOpenFirstMatchingSubKey @ 0x1407A4830
+ * XREFs of PnpOpenFirstMatchingSubKey @ 0x1407A7370
  * Callers:
- *     PiQueryRemovableDeviceOverride @ 0x140AA7454 (PiQueryRemovableDeviceOverride.c)
- *     PiDevCfgConfigureDeviceLocation @ 0x140B393C0 (PiDevCfgConfigureDeviceLocation.c)
+ *     PiQueryRemovableDeviceOverride @ 0x1409DA988 (PiQueryRemovableDeviceOverride.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140B3B5D0 (PiDevCfgConfigureDeviceLocation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
  */
 
 __int64 __fastcall PnpOpenFirstMatchingSubKey(PCWSTR SourceString, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)

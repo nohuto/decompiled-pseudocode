@@ -1,10 +1,10 @@
 /*
- * XREFs of VfKeInsertQueueDpc @ 0x14093ABF0
+ * XREFs of VfKeInsertQueueDpc @ 0x14093BBF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfUtilCheckKernelAddress @ 0x1409260A4 (VfUtilCheckKernelAddress.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409270A4 (VfUtilCheckKernelAddress.c)
  */
 
 __int64 __fastcall VfKeInsertQueueDpc(ULONG_PTR a1, __int64 a2, __int64 a3)

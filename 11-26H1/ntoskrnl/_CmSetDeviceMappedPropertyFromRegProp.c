@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x140AAFDE8
+ * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x140AADA38
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140AAFB8C (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x140AAD7DC (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _CmSetDeviceRegProp @ 0x14090A0E8 (_CmSetDeviceRegProp.c)
- *     _PnpStringFromGuid @ 0x14090F21C (_PnpStringFromGuid.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _CmSetDeviceRegProp @ 0x1409AC6A0 (_CmSetDeviceRegProp.c)
+ *     _PnpStringFromGuid @ 0x1409B134C (_PnpStringFromGuid.c)
  */
 
 NTSTATUS __fastcall CmSetDeviceMappedPropertyFromRegProp(
@@ -54,9 +54,9 @@ NTSTATUS __fastcall CmSetDeviceMappedPropertyFromRegProp(
       if ( !v21 )
         break;
     }
+    v16 = 0LL;
     v8 = (unsigned int)(v8 + 1);
     v13 += 3;
-    v16 = 0LL;
   }
   while ( (unsigned int)v8 < 0x21 );
   if ( !v16 )

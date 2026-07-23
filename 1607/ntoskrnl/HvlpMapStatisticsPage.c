@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpMapStatisticsPage @ 0x1401BBBB4
+ * XREFs of HvlpMapStatisticsPage @ 0x1401BBA98
  * Callers:
- *     HvlpEnableNextLogicalProcessor @ 0x1401BB72C (HvlpEnableNextLogicalProcessor.c)
- *     HvlpInitializeBootProcessor @ 0x1401BBA78 (HvlpInitializeBootProcessor.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x1401BB610 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpInitializeBootProcessor @ 0x1401BB95C (HvlpInitializeBootProcessor.c)
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpMapStatisticsPage(int a1, _OWORD *a2, _QWORD *a3)

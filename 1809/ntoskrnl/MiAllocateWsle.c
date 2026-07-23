@@ -6,28 +6,28 @@
  *     MiCompletePrivateZeroFault @ 0x140047940 (MiCompletePrivateZeroFault.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  *     MiMakeSystemCacheRangeValid @ 0x14004B5A0 (MiMakeSystemCacheRangeValid.c)
- *     MiResolveProtoCombine @ 0x14007BF74 (MiResolveProtoCombine.c)
- *     MiMakeSystemCachePteValid @ 0x1400D7A80 (MiMakeSystemCachePteValid.c)
- *     MiInitializeWorkingSetList @ 0x1400F31B0 (MiInitializeWorkingSetList.c)
- *     MiCreateForkWsle @ 0x1402C944C (MiCreateForkWsle.c)
+ *     MiResolveProtoCombine @ 0x14007BF64 (MiResolveProtoCombine.c)
+ *     MiMakeSystemCachePteValid @ 0x1400D7B00 (MiMakeSystemCachePteValid.c)
+ *     MiInitializeWorkingSetList @ 0x1400F3230 (MiInitializeWorkingSetList.c)
+ *     MiCreateForkWsle @ 0x1402C963C (MiCreateForkWsle.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiAddWorkingSetEntries @ 0x140048CE0 (MiAddWorkingSetEntries.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiReleaseWsSwapReservationPfn @ 0x14013D8B0 (MiReleaseWsSwapReservationPfn.c)
- *     MiLogAllocateWsleEvent @ 0x1402A7CB4 (MiLogAllocateWsleEvent.c)
- *     MiCompleteSecureProcessFault @ 0x1402BBC04 (MiCompleteSecureProcessFault.c)
- *     MiFillVirtualFaultInfo @ 0x1402BBFA8 (MiFillVirtualFaultInfo.c)
- *     MiGetVirtualFaultPageInfo @ 0x1402BC200 (MiGetVirtualFaultPageInfo.c)
- *     MiGetAggregationVm @ 0x1402BF634 (MiGetAggregationVm.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetPagePrivilege @ 0x1400B29B0 (MiGetPagePrivilege.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiReleaseWsSwapReservationPfn @ 0x14013D9B0 (MiReleaseWsSwapReservationPfn.c)
+ *     MiLogAllocateWsleEvent @ 0x1402A7EA4 (MiLogAllocateWsleEvent.c)
+ *     MiCompleteSecureProcessFault @ 0x1402BBDF4 (MiCompleteSecureProcessFault.c)
+ *     MiFillVirtualFaultInfo @ 0x1402BC198 (MiFillVirtualFaultInfo.c)
+ *     MiGetVirtualFaultPageInfo @ 0x1402BC3F0 (MiGetVirtualFaultPageInfo.c)
+ *     MiGetAggregationVm @ 0x1402BF824 (MiGetAggregationVm.c)
  */
 
 __int64 __fastcall MiAllocateWsle(
@@ -173,7 +173,7 @@ __int64 __fastcall MiAllocateWsle(
     }
     v36 = BugCheckParameter2;
     v37 = MiReleaseWsSwapReservationPfn(BugCheckParameter2);
-    v38 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v36 + 40) >> 40) & 0x3FFLL));
+    v38 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v36 + 40) >> 40) & 0x3FFLL));
     v18 = v59;
     _InterlockedAnd64((volatile signed __int64 *)(v59 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v37 )
@@ -303,7 +303,7 @@ LABEL_26:
   {
     if ( (unsigned int)MiPteHasShadow(v25, v19) )
     {
-      if ( !HIBYTE(word_14043A1AC) && (v18 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v18 & 1) != 0 )
         v18 |= 0x8000000000000000uLL;
       *v31 = v18;
       MiWritePteShadow(v31);

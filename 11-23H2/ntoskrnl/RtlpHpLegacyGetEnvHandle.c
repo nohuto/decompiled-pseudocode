@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLegacyGetEnvHandle @ 0x140362E70
+ * XREFs of RtlpHpLegacyGetEnvHandle @ 0x140363010
  * Callers:
- *     RtlCreateHeap @ 0x1407D9080 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x1407D9350 (RtlCreateHeap.c)
  * Callees:
  *     <none>
  */

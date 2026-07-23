@@ -1,26 +1,26 @@
 /*
- * XREFs of NtAreMappedFilesTheSame @ 0x140961230
+ * XREFs of NtAreMappedFilesTheSame @ 0x140A06AE0
  * Callers:
- *     DifNtAreMappedFilesTheSameWrapper @ 0x14066DB40 (DifNtAreMappedFilesTheSameWrapper.c)
+ *     DifNtAreMappedFilesTheSameWrapper @ 0x140671720 (DifNtAreMappedFilesTheSameWrapper.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockVadShared @ 0x14027E8D0 (MiLockVadShared.c)
- *     MiUnlockVadShared @ 0x14027EC50 (MiUnlockVadShared.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiDereferenceVad @ 0x14041D560 (MiDereferenceVad.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiVadDeleted @ 0x140480A68 (MiVadDeleted.c)
- *     MiVadIsMetadataBitmap @ 0x1409611E0 (MiVadIsMetadataBitmap.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiLockVadShared @ 0x14027DE40 (MiLockVadShared.c)
+ *     MiUnlockVadShared @ 0x14027E1C0 (MiUnlockVadShared.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiDereferenceVad @ 0x140414DB0 (MiDereferenceVad.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiVadDeleted @ 0x14047A3A8 (MiVadDeleted.c)
+ *     MiVadIsMetadataBitmap @ 0x140A06A94 (MiVadIsMetadataBitmap.c)
  */
 
-__int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtAreMappedFilesTheSame(PVOID File1MappedAsAnImage, PVOID File2MappedAsFile)
 {
   struct _KTHREAD *CurrentThread; // r12
   ULONG_PTR v5; // rax
@@ -38,7 +38,7 @@ __int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64
   __int64 v17; // r13
   __int64 v18; // r15
   int v19; // ebx
-  unsigned int v20; // edi
+  NTSTATUS v20; // edi
   ULONG_PTR v21; // rax
   __int64 v22; // r8
   struct _KLOCK_ENTRIES *v23; // r9
@@ -52,35 +52,35 @@ __int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64
   int v32; // [rsp+60h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v5 = MiObtainReferencedVadEx(a1, 2LL, &v32);
+  v5 = MiObtainReferencedVadEx((unsigned __int64)File1MappedAsAnImage, 2LL, &v32);
   v6 = v5;
   if ( !v5 )
-    return 3221225793LL;
+    return -1073741503;
   MiUnlockVadShared((__int64)CurrentThread, v5);
-  v7 = MiObtainReferencedVadEx(a2, 2LL, &v32);
+  v7 = MiObtainReferencedVadEx((unsigned __int64)File2MappedAsFile, 2LL, &v32);
   v10 = v7;
   if ( !v7 )
   {
     MiLockVadShared((__int64)CurrentThread, v6, v8, v9);
     MiUnlockAndDereferenceVadShared(v6);
-    return 3221225793LL;
+    return -1073741503;
   }
   if ( v6 == v7 )
   {
     MiDereferenceVad(v6);
     MiUnlockAndDereferenceVadShared(v10);
-    return 0LL;
+    return 0;
   }
   else if ( (unsigned int)MiVadIsMetadataBitmap(v6) || (unsigned int)MiVadIsMetadataBitmap(v10) )
   {
     MiUnlockAndDereferenceVadShared(v10);
     MiLockVadShared((__int64)CurrentThread, v6, v25, v26);
     MiUnlockAndDereferenceVadShared(v6);
-    return 3221225496LL;
+    return -1073741800;
   }
   else
   {
-    if ( a1 <= a2 )
+    if ( File1MappedAsAnImage <= File2MappedAsFile )
     {
       MiUnlockVadShared((__int64)CurrentThread, v10);
       MiLockVadShared((__int64)CurrentThread, v6, v27, v28);

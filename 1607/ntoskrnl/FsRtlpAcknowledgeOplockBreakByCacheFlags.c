@@ -1,27 +1,27 @@
 /*
- * XREFs of FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1401343CC
+ * XREFs of FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x14013493C
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x14046A818 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1404696E8 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     FsRtlpRequestShareableOplock @ 0x140077994 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpComputeShareableOplockState @ 0x1400781F0 (FsRtlpComputeShareableOplockState.c)
- *     IoAcquireCancelSpinLock @ 0x140078440 (IoAcquireCancelSpinLock.c)
- *     FsRtlpOplockDequeueRH @ 0x140078498 (FsRtlpOplockDequeueRH.c)
- *     FsRtlpOplockKeysEqual @ 0x14007B1D8 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpClearOwner @ 0x14007B688 (FsRtlpClearOwner.c)
- *     FsRtlpModifyThreadPriorities @ 0x14007B6C8 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x1400A258C (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1400A26C4 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     FsRtlpCancelExclusiveIrp @ 0x14010EEC0 (FsRtlpCancelExclusiveIrp.c)
- *     FsRtlpGrantAnyOplockFromExclusive @ 0x1401B9880 (FsRtlpGrantAnyOplockFromExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     FsRtlpRequestShareableOplock @ 0x140077A14 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140078270 (FsRtlpComputeShareableOplockState.c)
+ *     IoAcquireCancelSpinLock @ 0x1400784C0 (IoAcquireCancelSpinLock.c)
+ *     FsRtlpOplockDequeueRH @ 0x140078518 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpOplockKeysEqual @ 0x14007B258 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpClearOwner @ 0x14007B708 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x14007B748 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1400A0EB4 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1400A0FEC (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14010F424 (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpGrantAnyOplockFromExclusive @ 0x1401B95D4 (FsRtlpGrantAnyOplockFromExclusive.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x14046AE18 (FsRtlpOplockUpperLowerCompatible.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x140469CE8 (FsRtlpOplockUpperLowerCompatible.c)
  */
 
 __int64 __fastcall FsRtlpAcknowledgeOplockBreakByCacheFlags(

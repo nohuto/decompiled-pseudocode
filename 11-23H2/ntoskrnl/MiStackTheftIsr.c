@@ -1,13 +1,13 @@
 /*
- * XREFs of MiStackTheftIsr @ 0x14062D460
+ * XREFs of MiStackTheftIsr @ 0x14062D9B0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeFlushSingleCurrentTb @ 0x14038CC20 (KeFlushSingleCurrentTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCopyKstack @ 0x14062CAE0 (MiCopyKstack.c)
- *     MiSwitchKstackPages @ 0x14062D678 (MiSwitchKstackPages.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeFlushSingleCurrentTb @ 0x14038CE00 (KeFlushSingleCurrentTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyKstack @ 0x14062D030 (MiCopyKstack.c)
+ *     MiSwitchKstackPages @ 0x14062DBC8 (MiSwitchKstackPages.c)
  */
 
 ULONG_PTR __fastcall MiStackTheftIsr(ULONG_PTR Argument)
@@ -36,7 +36,7 @@ ULONG_PTR __fastcall MiStackTheftIsr(ULONG_PTR Argument)
   v1 = *(_QWORD *)(Argument + 40);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -85,10 +85,10 @@ LABEL_10:
   }
 LABEL_21:
   KeFlushSingleCurrentTb(v1, 0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v15 = CurrentPrcb->SchedulerAssist;

@@ -1,37 +1,37 @@
 /*
- * XREFs of CcMapAndCopyInToCache @ 0x1404DD240
+ * XREFs of CcMapAndCopyInToCache @ 0x1404D6C60
  * Callers:
- *     CcCopyWriteEx @ 0x1404A1E30 (CcCopyWriteEx.c)
+ *     CcCopyWriteEx @ 0x14049CDC0 (CcCopyWriteEx.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x140245180 (IoDiskIoAttributionDereference.c)
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     CcDecrementVacbActiveCount @ 0x140272550 (CcDecrementVacbActiveCount.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     CcGetVirtualAddress @ 0x140273EF0 (CcGetVirtualAddress.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     CcFreeWorkQueueEntry @ 0x1402A7E6C (CcFreeWorkQueueEntry.c)
- *     CcFlushCachePriv @ 0x1402AC810 (CcFlushCachePriv.c)
- *     CcForceWriteThrough @ 0x1402CE010 (CcForceWriteThrough.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     CcWrapperMmCopyToCachedPage @ 0x1402EDA00 (CcWrapperMmCopyToCachedPage.c)
- *     MiLockSectionControlArea @ 0x140316190 (MiLockSectionControlArea.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140321360 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     IoReferenceIoAttributionFromThread @ 0x1403C6140 (IoReferenceIoAttributionFromThread.c)
- *     CcCopyToCacheHelper @ 0x14040C830 (CcCopyToCacheHelper.c)
- *     CcLockSystemCacheBuffer @ 0x14040CB58 (CcLockSystemCacheBuffer.c)
- *     FsRtlNormalizeNtstatus @ 0x1404563D0 (FsRtlNormalizeNtstatus.c)
- *     CcSetDirtyInMask @ 0x1404614E0 (CcSetDirtyInMask.c)
- *     CcCopyReadExceptionFilter @ 0x1404B3C44 (CcCopyReadExceptionFilter.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IoDiskIoAttributionDereference @ 0x14020D960 (IoDiskIoAttributionDereference.c)
+ *     CcDecrementVacbActiveCount @ 0x140227AE0 (CcDecrementVacbActiveCount.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     CcGetVirtualAddress @ 0x140229480 (CcGetVirtualAddress.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140273BD0 (IoReferenceIoAttributionFromThread.c)
+ *     CcFlushCachePriv @ 0x1402771F0 (CcFlushCachePriv.c)
+ *     CcFreeWorkQueueEntry @ 0x140279C5C (CcFreeWorkQueueEntry.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     MiLockSectionControlArea @ 0x1402BED40 (MiLockSectionControlArea.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402C9EF0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     CcWrapperMmCopyToCachedPage @ 0x14034F040 (CcWrapperMmCopyToCachedPage.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     CcCopyToCacheHelper @ 0x140404EC0 (CcCopyToCacheHelper.c)
+ *     CcLockSystemCacheBuffer @ 0x1404051E8 (CcLockSystemCacheBuffer.c)
+ *     CcForceWriteThrough @ 0x14040C010 (CcForceWriteThrough.c)
+ *     FsRtlNormalizeNtstatus @ 0x14044B3A0 (FsRtlNormalizeNtstatus.c)
+ *     CcSetDirtyInMask @ 0x140456AF0 (CcSetDirtyInMask.c)
+ *     CcCopyReadExceptionFilter @ 0x1404AE4E0 (CcCopyReadExceptionFilter.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall CcMapAndCopyInToCache(
@@ -50,7 +50,7 @@ char __fastcall CcMapAndCopyInToCache(
   char v11; // r13
   struct _KTHREAD *CurrentThread; // rdx
   int v13; // esi
-  struct _SLIST_ENTRY *v14; // rbx
+  _SLIST_ENTRY *v14; // rbx
   bool v15; // zf
   int v16; // r12d
   __int64 v17; // r8
@@ -59,7 +59,7 @@ char __fastcall CcMapAndCopyInToCache(
   __int64 v21; // rdi
   _QWORD *v22; // rdx
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v24; // rax
+  _SLIST_ENTRY **v24; // rax
   struct _KTHREAD *v25; // rax
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rcx
   unsigned __int64 v27; // rdi
@@ -79,7 +79,7 @@ char __fastcall CcMapAndCopyInToCache(
   int v42; // ebx
   bool v43; // r12
   unsigned int v44; // ecx
-  int v45; // edi
+  NTSTATUS v45; // edi
   int v46; // eax
   char v47; // al
   unsigned int v48; // edi
@@ -140,14 +140,14 @@ char __fastcall CcMapAndCopyInToCache(
   unsigned int v103; // [rsp+C4h] [rbp-DCh]
   int v104; // [rsp+C8h] [rbp-D8h]
   unsigned int v105; // [rsp+CCh] [rbp-D4h]
-  int v106; // [rsp+D0h] [rbp-D0h] BYREF
+  NTSTATUS Status; // [rsp+D0h] [rbp-D0h] BYREF
   unsigned int v107; // [rsp+D4h] [rbp-CCh]
   NTSTATUS Exception[4]; // [rsp+D8h] [rbp-C8h] BYREF
   __int64 v109; // [rsp+E8h] [rbp-B8h] BYREF
   struct _KTHREAD *v110; // [rsp+F0h] [rbp-B0h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+F8h] [rbp-A8h] BYREF
   int v112; // [rsp+110h] [rbp-90h]
-  int v113; // [rsp+114h] [rbp-8Ch]
+  NTSTATUS v113; // [rsp+114h] [rbp-8Ch]
   unsigned int v114; // [rsp+118h] [rbp-88h]
   int v115; // [rsp+11Ch] [rbp-84h]
   struct _MDL *v116; // [rsp+120h] [rbp-80h] BYREF
@@ -229,7 +229,7 @@ char __fastcall CcMapAndCopyInToCache(
       {
         KiAcquireQueuedSpinLockInstrumented((__int64)&v118, (volatile __int64 *)(v21 + 832));
       }
-      v14 = *(struct _SLIST_ENTRY **)(v10 + 504);
+      v14 = *(_SLIST_ENTRY **)(v10 + 504);
       if ( !v14 )
       {
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&v118);
@@ -238,7 +238,7 @@ char __fastcall CcMapAndCopyInToCache(
         RtlRaiseStatus(-1073741608);
       }
       Next = v14->Next;
-      v24 = (struct _SLIST_ENTRY **)*((_QWORD *)&v14->Next + 1);
+      v24 = (_SLIST_ENTRY **)*((_QWORD *)&v14->Next + 1);
       if ( *(&v14->Next->Next + 1) != v14 || *v24 != v14 )
         __fastfail(3u);
       *v24 = Next;
@@ -435,7 +435,7 @@ char __fastcall CcMapAndCopyInToCache(
         v116 = 0LL;
         v55 = 0LL;
         v122 = 0LL;
-        v106 = 0;
+        Status = 0;
         if ( v45 < 0 )
           RtlRaiseStatus(v45);
         v56 = v99;
@@ -445,10 +445,10 @@ char __fastcall CcMapAndCopyInToCache(
           v58 = v96;
           if ( v35 )
             v58 = 4096;
-          v55 = (char *)CcLockSystemCacheBuffer(v100, &v116, v58, IoWriteAccess, &v106);
+          v55 = (char *)CcLockSystemCacheBuffer(v100, &v116, v58, IoWriteAccess, &Status);
           v122 = v55;
           if ( !v55 )
-            RtlRaiseStatus(v106);
+            RtlRaiseStatus(Status);
           v54 = v116;
           v56 = v99;
         }

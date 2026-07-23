@@ -1,14 +1,14 @@
 /*
- * XREFs of PspReferenceCpuPartitionByHandle @ 0x1409B1634
+ * XREFs of PspReferenceCpuPartitionByHandle @ 0x1409B1834
  * Callers:
- *     NtQueryInformationCpuPartition @ 0x1409B05D0 (NtQueryInformationCpuPartition.c)
- *     PspAssignCpuPartitionsToProcess @ 0x1409B0D64 (PspAssignCpuPartitionsToProcess.c)
+ *     NtQueryInformationCpuPartition @ 0x1409B07D0 (NtQueryInformationCpuPartition.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x1409B0F64 (PspAssignCpuPartitionsToProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeCreateAccessState @ 0x1406C2E60 (SeCreateAccessState.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCheckObjectAccess @ 0x1407B6260 (ObCheckObjectAccess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeCreateAccessState @ 0x1406C2E90 (SeCreateAccessState.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCheckObjectAccess @ 0x1407B6540 (ObCheckObjectAccess.c)
  */
 
 __int64 __fastcall PspReferenceCpuPartitionByHandle(

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAddPhysicalPagesToCrashDump @ 0x1401E7524
+ * XREFs of MiAddPhysicalPagesToCrashDump @ 0x1401E7350
  * Callers:
- *     MmGetDumpRange @ 0x1401E7BA8 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1401E79D4 (MmGetDumpRange.c)
  * Callees:
  *     <none>
  */

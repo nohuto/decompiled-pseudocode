@@ -6,13 +6,13 @@
  *     _SafeReallocBlob @ 0x180116A54 (_SafeReallocBlob.c)
  */
 
-__int64 __fastcall RtlpMuiRegGrowLanguages(__int64 a1, unsigned int a2)
+unsigned __int16 *__fastcall RtlpMuiRegGrowLanguages(unsigned __int16 *a1, unsigned int a2)
 {
   __int64 v2; // rbx
   unsigned int v4; // r8d
-  __int64 v5; // rcx
+  _QWORD *v5; // rcx
   unsigned int v6; // edi
-  __int64 v7; // rax
+  _QWORD *v7; // rax
   __int64 v9; // [rsp+20h] [rbp-28h]
   __int64 v10; // [rsp+28h] [rbp-20h]
   unsigned int v11; // [rsp+58h] [rbp+10h] BYREF
@@ -21,8 +21,8 @@ __int64 __fastcall RtlpMuiRegGrowLanguages(__int64 a1, unsigned int a2)
   v2 = 0LL;
   if ( a1 )
   {
-    v4 = *(unsigned __int16 *)(a1 + 6);
-    if ( v4 + 4 >= *(unsigned __int16 *)(a1 + 4) )
+    v4 = a1[3];
+    if ( v4 + 4 >= a1[2] )
     {
       v11 = 0;
       v5 = 0LL;
@@ -34,16 +34,16 @@ __int64 __fastcall RtlpMuiRegGrowLanguages(__int64 a1, unsigned int a2)
         if ( v7 )
         {
           *(_DWORD *)v7 = v11;
-          *(_QWORD *)(v7 + 16) = v7 + 24;
-          *(_WORD *)(v7 + 4) = v6;
+          v7[2] = v7 + 3;
+          *((_WORD *)v7 + 2) = v6;
         }
       }
-      return v5;
+      return (unsigned __int16 *)v5;
     }
     else
     {
       return a1;
     }
   }
-  return v2;
+  return (unsigned __int16 *)v2;
 }

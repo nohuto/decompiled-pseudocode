@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAddSpecCtrlSsbdBit @ 0x140295764
+ * XREFs of KiAddSpecCtrlSsbdBit @ 0x140295954
  * Callers:
- *     KeOptimizeSpecCtrlSettings @ 0x14018EDF0 (KeOptimizeSpecCtrlSettings.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x14018EF30 (KeOptimizeSpecCtrlSettings.c)
  * Callees:
  *     <none>
  */

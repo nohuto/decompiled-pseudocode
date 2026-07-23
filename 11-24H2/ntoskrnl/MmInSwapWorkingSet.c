@@ -1,23 +1,23 @@
 /*
- * XREFs of MmInSwapWorkingSet @ 0x140404E48
+ * XREFs of MmInSwapWorkingSet @ 0x1403C6A50
  * Callers:
- *     PspChangeProcessExecutionState @ 0x140AD16D4 (PspChangeProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x140ACFA40 (PspChangeProcessExecutionState.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x140367B34 (MiReAllocateWorkingSetSwapSupport.c)
- *     MiGetWorkingSetSwapSupport @ 0x140405F90 (MiGetWorkingSetSwapSupport.c)
- *     MiProcessWsInSwapSupport @ 0x140406864 (MiProcessWsInSwapSupport.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     VmCheckLargePageInswap @ 0x14079E548 (VmCheckLargePageInswap.c)
- *     VmPrefetchVirtualAddresses @ 0x14079E6C8 (VmPrefetchVirtualAddresses.c)
- *     EtwTraceWorkingSetSwap @ 0x140A06D04 (EtwTraceWorkingSetSwap.c)
- *     MiContractWsSwapPageFile @ 0x140A07248 (MiContractWsSwapPageFile.c)
- *     MiFreeWorkingSetSwapContext @ 0x140A3D5EC (MiFreeWorkingSetSwapContext.c)
- *     MiInSwapStore @ 0x140A4CDC4 (MiInSwapStore.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1403C4138 (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiProcessWsInSwapSupport @ 0x1403C67DC (MiProcessWsInSwapSupport.c)
+ *     MiGetWorkingSetSwapSupport @ 0x1403C84EC (MiGetWorkingSetSwapSupport.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     VmCheckLargePageInswap @ 0x14079E658 (VmCheckLargePageInswap.c)
+ *     VmPrefetchVirtualAddresses @ 0x14079E7D8 (VmPrefetchVirtualAddresses.c)
+ *     EtwTraceWorkingSetSwap @ 0x140A03234 (EtwTraceWorkingSetSwap.c)
+ *     MiContractWsSwapPageFile @ 0x140A03778 (MiContractWsSwapPageFile.c)
+ *     MiFreeWorkingSetSwapContext @ 0x140A32EFC (MiFreeWorkingSetSwapContext.c)
+ *     MiInSwapStore @ 0x140A43954 (MiInSwapStore.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
@@ -38,7 +38,7 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
   p_Blink = &Process[2].ReadyListHead.Blink;
   v3 = 0LL;
   EtwTraceWorkingSetSwap(Process);
-  v4 = *((_QWORD *)qword_140E2FF88 + HIWORD(Process[2].ProcessListEntry.Blink));
+  v4 = *((_QWORD *)qword_140E300C8 + HIWORD(Process[2].ProcessListEntry.Blink));
   ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v4 + 1184));
   WorkingSetSwapSupport = MiGetWorkingSetSwapSupport(p_Blink);
   v7 = (__int64 *)WorkingSetSwapSupport;
@@ -54,8 +54,8 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
     }
     else
     {
-      v8 = &unk_140E38758;
-      v9 = &unk_140E38758;
+      v8 = &unk_140E38898;
+      v9 = &unk_140E38898;
       if ( ((_DWORD)p_Blink[23] & 0xF) != 1 )
         v9 = p_Blink + 27;
       *v9 = 1LL;
@@ -76,7 +76,7 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
         VmPrefetchVirtualAddresses(*v3);
       v12 = v7[7];
       if ( v12 )
-        MiProcessWsInSwapSupport(v12, 1LL);
+        MiProcessWsInSwapSupport(v12, 1u);
       if ( v7[1] )
       {
         v7[2] = 0LL;

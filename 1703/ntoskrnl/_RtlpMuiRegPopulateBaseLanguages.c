@@ -92,7 +92,7 @@ NTSTATUS __fastcall RtlpMuiRegPopulateBaseLanguages(_WORD *a1, __int64 a2, _WORD
                                                                                  + 768;
       *(_DWORD *)(((unsigned __int64)LanguageId & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 512;
       *(_WORD *)(((unsigned __int64)LanguageId & 0xFFFFFFFFFFFFFFE0uLL) + 0x32) = 170;
-      if ( RtlLCIDToCultureName(v13, (UNICODE_STRING *)(v4 + 48)) )
+      if ( RtlLCIDToCultureName(v13, (PUNICODE_STRING)(v4 + 48)) )
       {
         if ( ZwQueryValueKey(
                *(HANDLE *)(((unsigned __int64)LanguageId & 0xFFFFFFFFFFFFFFE0uLL) + 0x28),

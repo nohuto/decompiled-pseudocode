@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlpDepositPages @ 0x140584134
+ * XREFs of HvlpDepositPages @ 0x1405814B4
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
- *     HvlpHandleInsufficientMemory @ 0x1405831D4 (HvlpHandleInsufficientMemory.c)
- *     HvlpStartLogicalProcessor @ 0x140585648 (HvlpStartLogicalProcessor.c)
- *     HvlpAddRemovePhysicalMemory @ 0x1406A0D20 (HvlpAddRemovePhysicalMemory.c)
- *     HvlpCreateRootVirtualProcessor @ 0x14070F000 (HvlpCreateRootVirtualProcessor.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
+ *     HvlpHandleInsufficientMemory @ 0x140580554 (HvlpHandleInsufficientMemory.c)
+ *     HvlpStartLogicalProcessor @ 0x1405829C8 (HvlpStartLogicalProcessor.c)
+ *     HvlpAddRemovePhysicalMemory @ 0x1406A1D78 (HvlpAddRemovePhysicalMemory.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14070CB90 (HvlpCreateRootVirtualProcessor.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     MmAllocateNodePagesForMdlEx @ 0x140411F90 (MmAllocateNodePagesForMdlEx.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x1403953A0 (MmAllocateNodePagesForMdlEx.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3, char a4)
@@ -20,7 +20,7 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3, ch
   unsigned int v4; // esi
   char v5; // r12
   char v6; // r14
-  int v7; // ebx
+  __int64 v7; // rbx
   unsigned int v8; // edi
   unsigned __int16 v9; // ax
   unsigned int v10; // ecx
@@ -45,14 +45,14 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3, ch
   LODWORD(v25) = 0;
   v5 = a4;
   v6 = a3;
-  v7 = 0x200000;
+  v7 = 0x200000LL;
   v23 = 0LL;
   v8 = 113;
   v9 = *(_WORD *)(KeNodeBlock[a1] + 2);
   for ( i = v9; ; v9 = i )
   {
     v10 = (v8 & 0x20) != 0 ? (v4 + 511) & 0xFFFFFE00 : v4;
-    NodePagesForMdl = MmAllocateNodePagesForMdlEx(0, -1, v7, v10 << 12, 1, v9, v8);
+    NodePagesForMdl = MmAllocateNodePagesForMdlEx(0, -1, v7, v10 << 12, 1u, v9, v8);
     v12 = (char *)NodePagesForMdl;
     if ( NodePagesForMdl )
       break;
@@ -70,7 +70,7 @@ LABEL_20:
     if ( (v8 & 0x40) != 0 )
       goto LABEL_21;
     v8 = v8 & 0xFFFFFFDB | 4;
-    v7 = 0;
+    v7 = 0LL;
   }
   v14 = (*(_DWORD *)(NodePagesForMdl + 40) >> 12) + ((*(_DWORD *)(NodePagesForMdl + 40) & 0xFFF) != 0);
   if ( v4 < v14 )

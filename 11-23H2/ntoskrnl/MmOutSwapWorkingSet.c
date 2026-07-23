@@ -1,39 +1,39 @@
 /*
- * XREFs of MmOutSwapWorkingSet @ 0x140342000
+ * XREFs of MmOutSwapWorkingSet @ 0x140342290
  * Callers:
  *     PspChangeProcessExecutionState @ 0x1406A6C04 (PspChangeProcessExecutionState.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiVadSupportsPrivateCommit @ 0x140274B50 (MiVadSupportsPrivateCommit.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadMapsLargeImage @ 0x14027CF40 (MiVadMapsLargeImage.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     MiGetKernelStackSwapSupport @ 0x140341E0C (MiGetKernelStackSwapSupport.c)
- *     MiFindBestOutswapPagefile @ 0x140341F20 (MiFindBestOutswapPagefile.c)
- *     MiOutSwapWorkingSet @ 0x140342714 (MiOutSwapWorkingSet.c)
- *     MiGetWorkingSetSwapSupport @ 0x140342978 (MiGetWorkingSetSwapSupport.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x1403429A0 (MiReAllocateWorkingSetSwapSupport.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x1403429F8 (MiAllocateWorkingSetSwapSupport.c)
- *     SmStoreExistsForProcess @ 0x140344A94 (SmStoreExistsForProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiVadSupportsPrivateCommit @ 0x140274DE0 (MiVadSupportsPrivateCommit.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadMapsLargeImage @ 0x14027D1D0 (MiVadMapsLargeImage.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiGetKernelStackSwapSupport @ 0x14034209C (MiGetKernelStackSwapSupport.c)
+ *     MiFindBestOutswapPagefile @ 0x1403421B0 (MiFindBestOutswapPagefile.c)
+ *     MiOutSwapWorkingSet @ 0x1403429A4 (MiOutSwapWorkingSet.c)
+ *     MiGetWorkingSetSwapSupport @ 0x140342C08 (MiGetWorkingSetSwapSupport.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x140342C30 (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x140342C88 (MiAllocateWorkingSetSwapSupport.c)
+ *     SmStoreExistsForProcess @ 0x140344D24 (SmStoreExistsForProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     MiFreeWorkingSetSwapContext @ 0x14068196C (MiFreeWorkingSetSwapContext.c)
- *     MiFreeReservationRuns @ 0x1407B70F8 (MiFreeReservationRuns.c)
- *     EtwTraceWorkingSetSwap @ 0x1407B71A8 (EtwTraceWorkingSetSwap.c)
- *     SmStoreSetProcessVaRanges @ 0x1407B722C (SmStoreSetProcessVaRanges.c)
- *     VmCheckLargePageInswap @ 0x1409DBEC4 (VmCheckLargePageInswap.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x140A43194 (MiExtendWorkingSetSwapPagefile.c)
- *     MiReserveWorkingSetSwapSpace @ 0x140A432D0 (MiReserveWorkingSetSwapSpace.c)
+ *     MiFreeReservationRuns @ 0x1407B73D8 (MiFreeReservationRuns.c)
+ *     EtwTraceWorkingSetSwap @ 0x1407B7488 (EtwTraceWorkingSetSwap.c)
+ *     SmStoreSetProcessVaRanges @ 0x1407B750C (SmStoreSetProcessVaRanges.c)
+ *     VmCheckLargePageInswap @ 0x1409DC0C4 (VmCheckLargePageInswap.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x140A43444 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x140A43580 (MiReserveWorkingSetSwapSpace.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -207,10 +207,13 @@ __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
             v45 = -1073741558;
         }
         ExReleaseSpinLockExclusiveFromDpcLevel(v18);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v20 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v20 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             v55 = KeGetCurrentPrcb();
             v56 = v55->SchedulerAssist;
@@ -228,10 +231,10 @@ __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
       {
         *((_QWORD *)MiGetSharedVm(v22) + 3) = 1LL;
         ExReleaseSpinLockExclusiveFromDpcLevel(v18);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v58 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v58 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v58 >= 2u )
           {
             v59 = KeGetCurrentPrcb();
             v60 = v59->SchedulerAssist;
@@ -454,10 +457,10 @@ LABEL_55:
         }
         v7 = v75;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v75 + 1176));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v68 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v68 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v68 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v68 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v68 >= 2u )
           {
             v69 = KeGetCurrentPrcb();
             v70 = v69->SchedulerAssist;

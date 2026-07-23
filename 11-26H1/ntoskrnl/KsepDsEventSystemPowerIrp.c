@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventSystemPowerIrp @ 0x1405FF684
+ * XREFs of KsepDsEventSystemPowerIrp @ 0x1406020D4
  * Callers:
- *     KseDsCallbackHookIrpPowerFunction @ 0x1405FE6A0 (KseDsCallbackHookIrpPowerFunction.c)
+ *     KseDsCallbackHookIrpPowerFunction @ 0x1406010F0 (KseDsCallbackHookIrpPowerFunction.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventSystemPowerIrp(__int64 a1, __int64 a2, __int64 a3, int a4, char a5, char a6, char a7)
@@ -35,9 +35,9 @@ char __fastcall KsepDsEventSystemPowerIrp(__int64 a1, __int64 a2, __int64 a3, in
   v25 = a3;
   v24 = a2;
   v23 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    LOBYTE(v7) = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventSystemPowerIrp);
+    LOBYTE(v7) = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventSystemPowerIrp);
     if ( (_BYTE)v7 )
     {
       UserData.Ptr = (ULONGLONG)&v23;
@@ -55,7 +55,7 @@ char __fastcall KsepDsEventSystemPowerIrp(__int64 a1, __int64 a2, __int64 a3, in
       v19 = 4LL;
       v21 = 4LL;
       LOBYTE(v7) = EtwWriteEx(
-                     (REGHANDLE)stru_140E66B30.StackLimit,
+                     (REGHANDLE)stru_140E66D40.StackLimit,
                      &KseDsEventSystemPowerIrp,
                      0LL,
                      0,

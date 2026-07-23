@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMakeImageReadOnly @ 0x140129318
+ * XREFs of MiMakeImageReadOnly @ 0x1401293E8
  * Callers:
- *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x14061C7E0 (MiCreateNewSection.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 char __fastcall MiMakeImageReadOnly(__int64 a1)
@@ -68,7 +68,7 @@ char __fastcall MiMakeImageReadOnly(__int64 a1)
           if ( (unsigned int)MiPteHasShadow() )
           {
             v10 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
               goto LABEL_40;
           }
           else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )
@@ -96,7 +96,7 @@ LABEL_17:
         if ( (_DWORD)CurrentThread )
         {
           v8 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
           {
 LABEL_34:
             if ( (v7 & 1) != 0 )

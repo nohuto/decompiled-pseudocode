@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpHandleReplacedModule @ 0x1800C7590
+ * XREFs of LdrpHandleReplacedModule @ 0x1800C4D50
  * Callers:
- *     LdrpLoadDependentModuleInternal @ 0x18003AF90 (LdrpLoadDependentModuleInternal.c)
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpHandlePendingModuleReplaced @ 0x1800C7548 (LdrpHandlePendingModuleReplaced.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180025500 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpHandlePendingModuleReplaced @ 0x1800C4D08 (LdrpHandlePendingModuleReplaced.c)
  * Callees:
  *     <none>
  */

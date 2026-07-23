@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcConnectionDestroyProcedure @ 0x140696290
+ * XREFs of AlpcConnectionDestroyProcedure @ 0x140697450
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcConnectionDestroyProcedure(__int64 a1)
@@ -44,7 +44,7 @@ __int64 __fastcall AlpcConnectionDestroyProcedure(__int64 a1)
   if ( v6 )
   {
     if ( *(_QWORD *)(a1 + 56) == 16LL )
-      ExFreeToNPagedLookasideList(&stru_1404D7280, *(PVOID *)(a1 + 40));
+      ExFreeToNPagedLookasideList(&stru_1404D82C0, *(PVOID *)(a1 + 40));
     else
       ExFreePoolWithTag(v6, 0x61486C41u);
   }

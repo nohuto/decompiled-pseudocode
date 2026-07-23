@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14081E148
+ * XREFs of _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14081E888
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140995AA0 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x140980AE0 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxRegDeleteValue @ 0x14098FA7C (_PnpCtxRegDeleteValue.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x14097AAB4 (_PnpCtxRegDeleteValue.c)
  */
 
 __int64 __fastcall CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(__int64 a1, int a2, void *a3, __int64 a4)
@@ -22,7 +22,7 @@ __int64 __fastcall CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(__int64 a
   HANDLE Handle[2]; // [rsp+40h] [rbp-28h] BYREF
 
   v4 = *(_DWORD *)(a4 + 16);
-  v5 = &off_140B3B930;
+  v5 = &off_140B3D6F0;
   v7 = 0;
   v8 = 0LL;
   Handle[0] = 0LL;

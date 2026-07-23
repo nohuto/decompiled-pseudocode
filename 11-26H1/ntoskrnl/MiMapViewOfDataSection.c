@@ -1,23 +1,23 @@
 /*
- * XREFs of MiMapViewOfDataSection @ 0x1409C47B0
+ * XREFs of MiMapViewOfDataSection @ 0x140995790
  * Callers:
- *     MiMapViewOfSection @ 0x1409C31E8 (MiMapViewOfSection.c)
+ *     MiMapViewOfSection @ 0x1409941C8 (MiMapViewOfSection.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     MiInsertVad @ 0x140316000 (MiInsertVad.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiAllocateDataVad @ 0x1409C49A0 (MiAllocateDataVad.c)
- *     MiPrepareDataViewSubsections @ 0x1409C4B70 (MiPrepareDataViewSubsections.c)
- *     MiInitializeDataMapParameters @ 0x1409C4D18 (MiInitializeDataMapParameters.c)
- *     MiSelectDataMapAddress @ 0x1409C4E10 (MiSelectDataMapAddress.c)
- *     MiHandleInsertedDataVad @ 0x1409C5754 (MiHandleInsertedDataVad.c)
- *     MiInitializeDataVad @ 0x1409C5B30 (MiInitializeDataVad.c)
- *     MiDataVadErrorCleanup @ 0x1409C670C (MiDataVadErrorCleanup.c)
- *     MiPreparePlaceholderVadReplacement @ 0x140AEA978 (MiPreparePlaceholderVadReplacement.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     MiInsertVad @ 0x140318030 (MiInsertVad.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiAllocateDataVad @ 0x140995980 (MiAllocateDataVad.c)
+ *     MiPrepareDataViewSubsections @ 0x140995B50 (MiPrepareDataViewSubsections.c)
+ *     MiInitializeDataMapParameters @ 0x140995CF8 (MiInitializeDataMapParameters.c)
+ *     MiSelectDataMapAddress @ 0x140995DF0 (MiSelectDataMapAddress.c)
+ *     MiHandleInsertedDataVad @ 0x140996734 (MiHandleInsertedDataVad.c)
+ *     MiInitializeDataVad @ 0x140996B10 (MiInitializeDataVad.c)
+ *     MiDataVadErrorCleanup @ 0x1409976EC (MiDataVadErrorCleanup.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x140AED468 (MiPreparePlaceholderVadReplacement.c)
  */
 
 __int64 __fastcall MiMapViewOfDataSection(

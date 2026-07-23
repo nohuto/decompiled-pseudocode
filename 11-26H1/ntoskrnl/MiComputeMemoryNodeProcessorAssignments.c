@@ -1,15 +1,15 @@
 /*
- * XREFs of MiComputeMemoryNodeProcessorAssignments @ 0x140CFD468
+ * XREFs of MiComputeMemoryNodeProcessorAssignments @ 0x140D037E8
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
  *     KeQueryNodeActiveAffinity @ 0x140201320 (KeQueryNodeActiveAffinity.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403E9FB0 (KeFindFirstSetRightGroupAffinity.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14050E130 (KeQueryNodeActiveAffinity2.c)
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140CFDB40 (MiReassignProcessorsToMemoryOnlyNodes.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402F6E90 (KeFindFirstSetRightGroupAffinity.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140507BA0 (KeQueryNodeActiveAffinity2.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140D03EE8 (MiReassignProcessorsToMemoryOnlyNodes.c)
  */
 
 __int64 MiComputeMemoryNodeProcessorAssignments()
@@ -59,7 +59,7 @@ __int64 MiComputeMemoryNodeProcessorAssignments()
   {
     LOWORD(v32) = 0;
     LOWORD(Count) = 0;
-    v4 = *(_QWORD *)(384LL * v3 + qword_140E2D6B8 + 376);
+    v4 = *(_QWORD *)(384LL * v3 + qword_140E2D838 + 376);
     KeQueryNodeActiveAffinity2(v3, 0LL, 0, (unsigned __int16 *)&Count);
     v5 = Count;
     PoolMm = v4 + 48;
@@ -111,7 +111,7 @@ __int64 MiComputeMemoryNodeProcessorAssignments()
           ++*(_WORD *)(v12 + v4);
           if ( v15 != 1 )
             v14 = 2LL;
-          ++word_140E2D6AA[v14];
+          ++word_140E2D82A[v14];
           v16 = *(_QWORD *)(v13 + 200);
           v10 &= ~v16;
           v30[0] = v10;
@@ -121,7 +121,7 @@ __int64 MiComputeMemoryNodeProcessorAssignments()
             if ( v15 != 1 )
               v17 = 28LL;
             ++*(_WORD *)(v17 + v4);
-            ++word_140E2D6B0[v14];
+            ++word_140E2D830[v14];
             v9 |= *(_QWORD *)(v13 + 36512);
           }
         }
@@ -160,17 +160,17 @@ LABEL_27:
     v24 = (unsigned __int16)KeNumberNodes;
     *(_QWORD *)v4 = PoolMm;
     *(_WORD *)(v4 + 16) = v5;
-    word_140E2D6A8 += v5;
+    word_140E2D828 += v5;
     *(_DWORD *)(v4 + 44) = v3++;
     v0 = v3 < v24;
   }
-  dword_140E2D6A0 = v2;
-  qword_140E2D698 = ExAllocatePoolMm(
+  dword_140E2D820 = v2;
+  qword_140E2D818 = ExAllocatePoolMm(
                       64LL,
-                      16LL * (unsigned __int16)word_140E2D6A8,
+                      16LL * (unsigned __int16)word_140E2D828,
                       1632069965,
                       KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000);
-  if ( !qword_140E2D698 )
+  if ( !qword_140E2D818 )
     MxInstallMoreMemory(52);
   v25 = 0;
   if ( KeNumberNodes )
@@ -179,8 +179,8 @@ LABEL_27:
     v27 = (unsigned __int16)KeNumberNodes;
     do
     {
-      v28 = *(_QWORD *)(v26 + qword_140E2D6B8 + 376);
-      memmove((void *)(qword_140E2D698 + 16LL * v25), *(const void **)v28, 16LL * *(unsigned __int16 *)(v28 + 16));
+      v28 = *(_QWORD *)(v26 + qword_140E2D838 + 376);
+      memmove((void *)(qword_140E2D818 + 16LL * v25), *(const void **)v28, 16LL * *(unsigned __int16 *)(v28 + 16));
       v26 += 384LL;
       v25 += *(unsigned __int16 *)(v28 + 16);
       --v27;

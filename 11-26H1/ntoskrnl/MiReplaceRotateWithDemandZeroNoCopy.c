@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReplaceRotateWithDemandZeroNoCopy @ 0x140312684
+ * XREFs of MiReplaceRotateWithDemandZeroNoCopy @ 0x1403146B4
  * Callers:
- *     MmRotatePhysicalView @ 0x140AEC270 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x140AEF280 (MmRotatePhysicalView.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
- *     MiUnmapFrameBuffer @ 0x140312AA4 (MiUnmapFrameBuffer.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     MiUnlockOpportunisticPagesInPageTable @ 0x14031391C (MiUnlockOpportunisticPagesInPageTable.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiUnmapFrameBuffer @ 0x140314AD4 (MiUnmapFrameBuffer.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     MiUnlockOpportunisticPagesInPageTable @ 0x14031594C (MiUnlockOpportunisticPagesInPageTable.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(
@@ -100,7 +100,7 @@ __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(
           v4 = v15 + 4136;
           MiInitializeTbFlushList(v15 + 4136, (_DWORD)p_Blink, *(_DWORD *)(v15 + 4148), 24, 1);
         }
-        if ( v12 > qword_140E2D7A0 || ((*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+        if ( v12 > qword_140E2D920 || ((*(_QWORD *)(48 * v12 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
           MiInsertTbFlushEntry(v4, v12 << 12, 1LL);
         MiInsertTbFlushEntry(ProcessorFlushList, (__int64)((v7 << 25) - v32) >> 16, 1LL);
         ++v29;

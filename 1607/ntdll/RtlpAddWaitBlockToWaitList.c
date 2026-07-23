@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpAddWaitBlockToWaitList @ 0x1800669DC
+ * XREFs of RtlpAddWaitBlockToWaitList @ 0x1800669CC
  * Callers:
- *     RtlpWaitOnAddress @ 0x1800668E4 (RtlpWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x1800668D4 (RtlpWaitOnAddress.c)
  * Callees:
- *     RtlpOptimizeWaitOnAddressWaitList @ 0x180066B24 (RtlpOptimizeWaitOnAddressWaitList.c)
+ *     RtlpOptimizeWaitOnAddressWaitList @ 0x180066B14 (RtlpOptimizeWaitOnAddressWaitList.c)
  */
 
 __int64 __fastcall RtlpAddWaitBlockToWaitList(__int64 a1, __int64 a2)

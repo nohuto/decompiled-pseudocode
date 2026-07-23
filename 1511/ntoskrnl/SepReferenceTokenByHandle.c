@@ -26,21 +26,19 @@ __int64 __fastcall SepReferenceTokenByHandle(
   bool v11; // zf
   unsigned int CurrentThread; // ecx
   _QWORD *v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  _QWORD *v16; // r9
-  __int64 v17; // r10
+  _QWORD *v14; // r9
+  void *v15; // r10
+  int v16; // ecx
+  int v17; // ecx
   int v18; // ecx
   int v19; // ecx
-  int v20; // ecx
-  int v21; // ecx
-  PSID v22; // r11
-  __int64 v23; // r11
-  __int64 v24; // r10
-  int v25; // [rsp+30h] [rbp-18h] BYREF
-  int v26; // [rsp+34h] [rbp-14h] BYREF
+  PSID v20; // r11
+  __int64 v21; // r11
+  __int64 v22; // r10
+  int v23; // [rsp+30h] [rbp-18h] BYREF
+  int v24; // [rsp+34h] [rbp-14h] BYREF
   PVOID Object; // [rsp+38h] [rbp-10h] BYREF
-  char v28; // [rsp+50h] [rbp+8h] BYREF
+  char v26; // [rsp+50h] [rbp+8h] BYREF
 
   v6 = a5;
   v7 = a6;
@@ -69,72 +67,72 @@ __int64 __fastcall SepReferenceTokenByHandle(
   {
     v13 = (_QWORD *)PsReferenceEffectiveToken(
                       CurrentThread,
-                      (unsigned int)&v26,
+                      (unsigned int)&v24,
                       (unsigned int)&a6,
-                      (unsigned int)&v25,
+                      (unsigned int)&v23,
                       (__int64)&a5);
-    v16 = v13;
-    if ( v26 != 2 || v25 )
+    v14 = v13;
+    if ( v24 != 2 || v23 )
     {
 LABEL_9:
-      v17 = v16[138];
-      v18 = (unsigned __int8)a5;
+      v15 = (void *)v14[138];
+      v16 = (unsigned __int8)a5;
       *v6 = 0;
       *v7 = 0LL;
-      if ( v18 < 81 )
+      if ( v16 < 81 )
       {
 LABEL_10:
-        if ( !v17 )
+        if ( !v15 )
         {
 LABEL_11:
-          *a4 = v16;
+          *a4 = v14;
           return v8;
         }
-        if ( (unsigned __int8)RtlIsValidProcessTrustLabelSid(v17, v14, v15, v16) )
+        if ( RtlIsValidProcessTrustLabelSid(v15) )
         {
-          if ( v23 )
+          if ( v21 )
           {
-            if ( *(_DWORD *)(v23 + 8) >= *(_DWORD *)(v24 + 8) && *(_DWORD *)(v23 + 12) >= *(_DWORD *)(v24 + 12) )
+            if ( *(_DWORD *)(v21 + 8) >= *(_DWORD *)(v22 + 8) && *(_DWORD *)(v21 + 12) >= *(_DWORD *)(v22 + 12) )
               goto LABEL_11;
           }
-          else if ( !*(_DWORD *)(v24 + 8) )
+          else if ( !*(_DWORD *)(v22 + 8) )
           {
             goto LABEL_11;
           }
         }
 LABEL_32:
         *v6 = 1;
-        *v7 = v23;
+        *v7 = v21;
         goto LABEL_11;
       }
-      v19 = v18 - 81;
-      if ( v19 )
+      v17 = v16 - 81;
+      if ( v17 )
       {
-        v20 = v19 - 1;
-        if ( v20 )
+        v18 = v17 - 1;
+        if ( v18 )
         {
-          v21 = v20 - 15;
-          if ( v21 )
+          v19 = v18 - 15;
+          if ( v19 )
           {
-            if ( v21 != 1 )
+            if ( v19 != 1 )
               goto LABEL_10;
-            v22 = SeProcTrustWinTcbSid;
+            v20 = SeProcTrustWinTcbSid;
           }
           else
           {
-            v22 = SeProcTrustLiteWinTcbSid;
+            v20 = SeProcTrustLiteWinTcbSid;
           }
         }
         else
         {
-          v22 = SeProcTrustWinSid;
+          v20 = SeProcTrustWinSid;
         }
       }
       else
       {
-        v22 = SeProcTrustLiteWinSid;
+        v20 = SeProcTrustLiteWinSid;
       }
-      if ( v22 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v22, v14, v15, v16) )
+      if ( v20 && !RtlIsValidProcessTrustLabelSid(v20) )
         goto LABEL_32;
       goto LABEL_10;
     }
@@ -143,14 +141,14 @@ LABEL_32:
   v13 = (_QWORD *)PsReferenceImpersonationTokenEx(
                     CurrentThread,
                     0,
-                    (unsigned int)&v28,
+                    (unsigned int)&v26,
                     (unsigned int)&a6,
-                    (__int64)&v25,
+                    (__int64)&v23,
                     (__int64)&a5);
-  v16 = v13;
+  v14 = v13;
   if ( v13 )
   {
-    if ( v25 )
+    if ( v23 )
       goto LABEL_9;
 LABEL_14:
     ObfDereferenceObjectWithTag(v13, 0x746C6644u);

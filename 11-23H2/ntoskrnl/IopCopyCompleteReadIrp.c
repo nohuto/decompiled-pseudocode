@@ -1,23 +1,23 @@
 /*
- * XREFs of IopCopyCompleteReadIrp @ 0x14028C3D0
+ * XREFs of IopCopyCompleteReadIrp @ 0x14028C660
  * Callers:
  *     <none>
  * Callees:
  *     KeAreAllApcsDisabled @ 0x140215000 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopCopyCompleteReadRequest @ 0x14028C5D0 (IopCopyCompleteReadRequest.c)
- *     IopDropIrp @ 0x14028CDC8 (IopDropIrp.c)
- *     IopUnlockAndFreeMdl @ 0x14028CF2C (IopUnlockAndFreeMdl.c)
- *     IopFreeIrpExtension @ 0x14028FE18 (IopFreeIrpExtension.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopCopyCompleteReadRequest @ 0x14028C860 (IopCopyCompleteReadRequest.c)
+ *     IopDropIrp @ 0x14028D058 (IopDropIrp.c)
+ *     IopUnlockAndFreeMdl @ 0x14028D1BC (IopUnlockAndFreeMdl.c)
+ *     IopFreeIrpExtension @ 0x1402900A8 (IopFreeIrpExtension.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall IopCopyCompleteReadIrp(__int64 *a1, __int64 a2, unsigned int a3)
@@ -81,10 +81,13 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, __int64 a2, unsigned int a3)
   {
     v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v10 + 1496));
     KxReleaseSpinLock((volatile signed __int64 *)(v10 + 1496));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v12 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -123,10 +126,10 @@ char __fastcall IopCopyCompleteReadIrp(__int64 *a1, __int64 a2, unsigned int a3)
     v13 = KeGetCurrentIrql();
     __writecr8(1uLL);
     IopCopyCompleteReadRequest(v3 + 120, 0LL, 0LL, &v37, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && v13 <= 0xFu && v23 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && v13 <= 0xFu && v23 >= 2u )
       {
         v24 = KeGetCurrentPrcb();
         v14 = v24->SchedulerAssist;

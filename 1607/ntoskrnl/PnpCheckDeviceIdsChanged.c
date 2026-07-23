@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpCheckDeviceIdsChanged @ 0x140489604
+ * XREFs of PnpCheckDeviceIdsChanged @ 0x140511D78
  * Callers:
- *     PipProcessStartPhase3 @ 0x1403EEA60 (PipProcessStartPhase3.c)
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x140488964 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCompareUnicodeStrings @ 0x140489820 (RtlCompareUnicodeStrings.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     RtlCompareUnicodeStrings @ 0x140511FA0 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall PnpCheckDeviceIdsChanged(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         const WCHAR *a3,
         int a4,
         SIZE_T NumberOfBytes,
@@ -22,7 +22,7 @@ __int64 __fastcall PnpCheckDeviceIdsChanged(
 {
   bool v6; // cf
   _BYTE *v8; // rsi
-  int v9; // r14d
+  HANDLE v9; // r14
   int v10; // r15d
   PVOID PoolWithTag; // r12
   int DeviceRegProp; // edi
@@ -51,19 +51,27 @@ __int64 __fastcall PnpCheckDeviceIdsChanged(
   *a6 = 0;
   if ( !a2 )
   {
-    DeviceRegProp = CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), 16, 0, 983103, 0, (__int64)&Handle, 0LL);
+    DeviceRegProp = CmOpenDeviceRegKey(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      *(_QWORD *)(a1 + 48),
+                      0x10u,
+                      0,
+                      983103,
+                      0,
+                      (__int64)&Handle,
+                      0LL);
     if ( DeviceRegProp < 0 )
       goto LABEL_22;
-    v9 = (int)Handle;
+    v9 = Handle;
   }
   LODWORD(NumberOfBytes) = 512;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x75737050u);
   if ( PoolWithTag )
   {
     DeviceRegProp = CmGetDeviceRegProp(
-                      PiPnpRtlCtx,
+                      *(__int64 *)&PiPnpRtlCtx,
                       *(_QWORD *)(a1 + 48),
-                      v9,
+                      (__int64)v9,
                       v10 + 3,
                       (__int64)&a6,
                       (__int64)PoolWithTag,
@@ -76,9 +84,9 @@ __int64 __fastcall PnpCheckDeviceIdsChanged(
     if ( PoolWithTag )
     {
       DeviceRegProp = CmGetDeviceRegProp(
-                        PiPnpRtlCtx,
+                        *(__int64 *)&PiPnpRtlCtx,
                         *(_QWORD *)(a1 + 48),
-                        v9,
+                        (__int64)v9,
                         v10 + 3,
                         (__int64)&a6,
                         (__int64)PoolWithTag,

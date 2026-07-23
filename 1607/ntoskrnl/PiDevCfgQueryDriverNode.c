@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDevCfgQueryDriverNode @ 0x14063C23C
+ * XREFs of PiDevCfgQueryDriverNode @ 0x14063C2F0
  * Callers:
- *     PiDevCfgFindDeviceDriver @ 0x140637AD4 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgFindDeviceDriver @ 0x140637B88 (PiDevCfgFindDeviceDriver.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PnpDuplicateUnicodeString @ 0x1401CF450 (PnpDuplicateUnicodeString.c)
- *     PnpRegistryValueExists @ 0x1401CF52C (PnpRegistryValueExists.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PnpDuplicateUnicodeString @ 0x1401CF1E4 (PnpDuplicateUnicodeString.c)
+ *     PnpRegistryValueExists @ 0x1401CF2C0 (PnpRegistryValueExists.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateUnicodeString @ 0x1403F75E4 (RtlCreateUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
- *     _PnpOpenObjectRegKey @ 0x1404FC340 (_PnpOpenObjectRegKey.c)
- *     PiDevCfgQueryObjectProperties @ 0x14057A954 (PiDevCfgQueryObjectProperties.c)
- *     PipCheckComputerSupported @ 0x1406295F0 (PipCheckComputerSupported.c)
- *     PiDevCfgFreeDriverNode @ 0x140638D1C (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgGetDriverPackageId @ 0x140638FE0 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgOpenDriverConfiguration @ 0x14063B048 (PiDevCfgOpenDriverConfiguration.c)
+ *     RtlCreateUnicodeString @ 0x1403F64A4 (RtlCreateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
+ *     _PnpOpenObjectRegKey @ 0x1404DF2D0 (_PnpOpenObjectRegKey.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14057AE94 (PiDevCfgQueryObjectProperties.c)
+ *     PipCheckComputerSupported @ 0x1406296A4 (PipCheckComputerSupported.c)
+ *     PiDevCfgFreeDriverNode @ 0x140638DD0 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgGetDriverPackageId @ 0x140639094 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgOpenDriverConfiguration @ 0x14063B0FC (PiDevCfgOpenDriverConfiguration.c)
  */
 
 __int64 __fastcall PiDevCfgQueryDriverNode(PCWSTR SourceString, PCWSTR a2, int a3, int a4, char a5, __int64 *a6)

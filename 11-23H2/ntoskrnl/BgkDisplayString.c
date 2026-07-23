@@ -1,9 +1,9 @@
 /*
- * XREFs of BgkDisplayString @ 0x14054ECF0
+ * XREFs of BgkDisplayString @ 0x14054F3B0
  * Callers:
  *     <none>
  * Callees:
- *     BgkDisplayStringEx @ 0x14054EDA4 (BgkDisplayStringEx.c)
+ *     BgkDisplayStringEx @ 0x14054F464 (BgkDisplayStringEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

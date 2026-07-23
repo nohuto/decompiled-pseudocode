@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakeEntireHugePfnGood @ 0x140621514
+ * XREFs of MiMakeEntireHugePfnGood @ 0x140621A64
  * Callers:
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     RtlNumberOfSetBitsEx @ 0x1405A8B70 (RtlNumberOfSetBitsEx.c)
- *     MiHugePfnPartition @ 0x140620C50 (MiHugePfnPartition.c)
- *     MiUnlinkHugeRange @ 0x140622ABC (MiUnlinkHugeRange.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A90E0 (RtlNumberOfSetBitsEx.c)
+ *     MiHugePfnPartition @ 0x1406211A0 (MiHugePfnPartition.c)
+ *     MiUnlinkHugeRange @ 0x14062300C (MiUnlinkHugeRange.c)
  */
 
 unsigned __int64 *__fastcall MiMakeEntireHugePfnGood(__int64 a1)

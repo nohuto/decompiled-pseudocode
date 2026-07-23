@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAddPageToHeatRanges @ 0x14043F904
+ * XREFs of MiAddPageToHeatRanges @ 0x140435BC4
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
- *     MiDemoteLocalLargePage @ 0x1402F6020 (MiDemoteLocalLargePage.c)
- *     MmSetPfnListInfo @ 0x140308064 (MmSetPfnListInfo.c)
- *     MiMakeTransitionHeatBatch @ 0x140402D04 (MiMakeTransitionHeatBatch.c)
- *     MiAddPageToHeatList @ 0x14043F8DC (MiAddPageToHeatList.c)
- *     MiReplenishPageSlist @ 0x1404F40C0 (MiReplenishPageSlist.c)
+ *     MmSetPfnListInfo @ 0x140311F44 (MmSetPfnListInfo.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
+ *     MiDemoteLocalLargePage @ 0x14033E130 (MiDemoteLocalLargePage.c)
+ *     MiMakeTransitionHeatBatch @ 0x1403FD304 (MiMakeTransitionHeatBatch.c)
+ *     MiAddPageToHeatList @ 0x140435B9C (MiAddPageToHeatList.c)
+ *     MiReplenishPageSlist @ 0x1404F1A70 (MiReplenishPageSlist.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDoParentWork @ 0x140503998
+ * XREFs of MiDoParentWork @ 0x1404FD268
  * Callers:
- *     MiUseThreads @ 0x1403C3644 (MiUseThreads.c)
+ *     MiUseThreads @ 0x1403CD544 (MiUseThreads.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     MiThreadWorker @ 0x1403C32F0 (MiThreadWorker.c)
- *     MiGetNextAffinityWalker @ 0x1403E99EC (MiGetNextAffinityWalker.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     MiGetNextAffinityWalker @ 0x1402F68CC (MiGetNextAffinityWalker.c)
+ *     MiThreadWorker @ 0x1403CD1F0 (MiThreadWorker.c)
  */
 
 void __fastcall MiDoParentWork(__int64 a1)

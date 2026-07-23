@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpLogConnectFail @ 0x14084B840
+ * XREFs of AlpcpLogConnectFail @ 0x14084CAA0
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x1406136BC (AlpcpProcessConnectionRequest.c)
- *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1406146BC (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x1406A6DC0 (NtSecureConnectPort.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     AlpcpInvokeLogCallbacks @ 0x14084B748 (AlpcpInvokeLogCallbacks.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x14084C9A8 (AlpcpInvokeLogCallbacks.c)
  */
 
 __int64 __fastcall AlpcpLogConnectFail(int a1, int a2)

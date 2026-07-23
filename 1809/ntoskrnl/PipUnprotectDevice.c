@@ -1,13 +1,13 @@
 /*
- * XREFs of PipUnprotectDevice @ 0x1408419AC
+ * XREFs of PipUnprotectDevice @ 0x140842C0C
  * Callers:
- *     PiProcessDriversLoadedOnSecureDevice @ 0x1408418F4 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x140842B54 (PiProcessDriversLoadedOnSecureDevice.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PnpQueryInterface @ 0x1406F9178 (PnpQueryInterface.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PnpQueryInterface @ 0x1406FA418 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PipUnprotectDevice(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpLbrResumeRecording @ 0x140486240
+ * XREFs of HalpLbrResumeRecording @ 0x14047FBB0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall HalpLbrResumeRecording(__int64 a1)
@@ -18,8 +18,8 @@ unsigned __int64 __fastcall HalpLbrResumeRecording(__int64 a1)
   unsigned int v7; // rdx^4
   unsigned __int64 v8; // rax
 
-  result = (unsigned int)dword_140F87644;
-  if ( !dword_140F87644 )
+  result = (unsigned int)dword_140F87A24;
+  if ( !dword_140F87A24 )
     return result;
   if ( (_BYTE)a1 )
   {
@@ -31,25 +31,25 @@ unsigned __int64 __fastcall HalpLbrResumeRecording(__int64 a1)
       LOBYTE(a1) = CurrentIrql;
       KiRaiseIrqlProcessIrqlFlags(a1, 15LL);
     }
-    if ( dword_140F87664 == 1 || dword_140F87664 == 2 )
+    if ( dword_140F87A40 == 1 || dword_140F87A40 == 2 )
     {
       v5 = __readmsr(0x1D9u);
-      if ( dword_140F87664 == 1 )
+      if ( dword_140F87A40 == 1 )
       {
-        __writemsr(0x1C8u, (unsigned int)dword_140F87648);
-        __writemsr(0x1C9u, (unsigned int)(dword_140F87654 - 1));
+        __writemsr(0x1C8u, (unsigned int)dword_140F87A28);
+        __writemsr(0x1C9u, (unsigned int)(dword_140F87A2C - 1));
         v5 |= 1uLL;
       }
       __writemsr(0x1D9u, v5 | 0x800);
-      if ( dword_140F87664 != 2 )
+      if ( dword_140F87A40 != 2 )
         goto LABEL_18;
       v6 = 5326;
       v7 = 0;
-      LODWORD(v8) = dword_140F8764C | 1;
+      LODWORD(v8) = dword_140F87A38 | 1;
     }
     else
     {
-      if ( dword_140F87664 != 3 )
+      if ( dword_140F87A40 != 3 )
       {
 LABEL_18:
         if ( KiIrqlFlags )
@@ -58,7 +58,7 @@ LABEL_18:
         __writecr8(CurrentIrql);
         return result;
       }
-      __writemsr(0xC000010E, (unsigned int)dword_140F87648);
+      __writemsr(0xC000010E, (unsigned int)dword_140F87A28);
       __writemsr(0x1D9u, __readmsr(0x1D9u) | 0x801);
       v6 = -1073741553;
       v8 = __readmsr(0xC000010F) | 0x40;
@@ -67,9 +67,9 @@ LABEL_18:
     __writemsr(v6, __PAIR64__(v7, v8));
     goto LABEL_18;
   }
-  if ( dword_140F87664 == 1 || dword_140F87664 == 2 )
+  if ( dword_140F87A40 == 1 || dword_140F87A40 == 2 )
   {
-    if ( dword_140F87664 == 1 )
+    if ( dword_140F87A40 == 1 )
     {
       result = __readmsr(0x1D9u);
       if ( (result & 1) == 0 )
@@ -90,7 +90,7 @@ LABEL_10:
       }
     }
   }
-  else if ( dword_140F87664 == 3 )
+  else if ( dword_140F87A40 == 3 )
   {
     v4 = __readmsr(0xC000010F);
     if ( (v4 & 0x40) == 0 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of BcpDisplayEarlyBugCheckScreen @ 0x140A974E8
+ * XREFs of BcpDisplayEarlyBugCheckScreen @ 0x140A984E8
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x1405C5704 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5934 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     BgConsoleGetInterface @ 0x1409F1664 (BgConsoleGetInterface.c)
- *     BgConsoleDestroyInterface @ 0x1409F3F5C (BgConsoleDestroyInterface.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     BgConsoleGetInterface @ 0x1409F2664 (BgConsoleGetInterface.c)
+ *     BgConsoleDestroyInterface @ 0x1409F4F5C (BgConsoleDestroyInterface.c)
  */
 
 __int64 __fastcall BcpDisplayEarlyBugCheckScreen(unsigned int a1, _QWORD *a2, __int64 a3)

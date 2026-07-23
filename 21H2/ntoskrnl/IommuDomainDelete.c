@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuDomainDelete @ 0x1408667D0
+ * XREFs of IommuDomainDelete @ 0x140866930
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuFreeDmaDomain @ 0x1404C956C (HalpIommuFreeDmaDomain.c)
+ *     HalpIommuFreeDmaDomain @ 0x1404C97AC (HalpIommuFreeDmaDomain.c)
  */
 
 __int64 __fastcall IommuDomainDelete(__int64 a1)

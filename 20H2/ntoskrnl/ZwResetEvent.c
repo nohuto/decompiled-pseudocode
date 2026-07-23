@@ -9,9 +9,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwResetEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwResetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(EventHandle);
 }

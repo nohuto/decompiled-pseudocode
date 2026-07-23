@@ -1,15 +1,15 @@
 /*
- * XREFs of PopTraceZoneCr3Mitigated @ 0x1405D68B0
+ * XREFs of PopTraceZoneCr3Mitigated @ 0x1405D3EC4
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x14049EC88 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalZoneRemove @ 0x140754A10 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140499AC0 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalZoneRemove @ 0x140752D30 (PopThermalZoneRemove.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void *__fastcall PopTraceZoneCr3Mitigated(int a1, __int64 a2)
@@ -34,8 +34,8 @@ void *__fastcall PopTraceZoneCr3Mitigated(int a1, __int64 a2)
   if ( result )
   {
     if ( *(_QWORD *)(*((_QWORD *)result + 39) + 40LL)
-      && (unsigned int)dword_140E076F0 > 5
-      && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+      && (unsigned int)dword_140E07680 > 5
+      && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
     {
       v13 = 0;
       v16 = 0;
@@ -48,8 +48,8 @@ void *__fastcall PopTraceZoneCr3Mitigated(int a1, __int64 a2)
       v8 = a1;
       tlgCreate1Sz_wchar_t((__int64)v17, v7);
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E076F0,
-        (unsigned __int8 *)&dword_140049C9C,
+        (__int64)&dword_140E07680,
+        (unsigned __int8 *)byte_14004A3D0,
         0LL,
         0LL,
         5u,

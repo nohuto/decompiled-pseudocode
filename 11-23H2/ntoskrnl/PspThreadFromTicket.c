@@ -1,10 +1,10 @@
 /*
- * XREFs of PspThreadFromTicket @ 0x1406FAB28
+ * XREFs of PspThreadFromTicket @ 0x1406FAD38
  * Callers:
- *     NtSetInformationThread @ 0x1407335B0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1407337A0 (NtSetInformationThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsLookupThreadByThreadId @ 0x1406FAF10 (PsLookupThreadByThreadId.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsLookupThreadByThreadId @ 0x1406FB120 (PsLookupThreadByThreadId.c)
  */
 
 __int64 __fastcall PspThreadFromTicket(_QWORD *a1, PETHREAD *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetInterruptConnectionData @ 0x140A11E14
+ * XREFs of IopGetInterruptConnectionData @ 0x1409C0224
  * Callers:
- *     IopConnectLineBasedInterrupt @ 0x140A11790 (IopConnectLineBasedInterrupt.c)
- *     IoConnectInterruptEx @ 0x140A11B20 (IoConnectInterruptEx.c)
- *     IopConnectMessageBasedInterrupt @ 0x140A12B7C (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectLineBasedInterrupt @ 0x1409BFBA0 (IopConnectLineBasedInterrupt.c)
+ *     IoConnectInterruptEx @ 0x1409BFF30 (IoConnectInterruptEx.c)
+ *     IopConnectMessageBasedInterrupt @ 0x1409C0F8C (IopConnectMessageBasedInterrupt.c)
  * Callees:
- *     IoGetDevicePropertyData @ 0x140A11F10 (IoGetDevicePropertyData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetDevicePropertyData @ 0x1409C0320 (IoGetDevicePropertyData.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopGetInterruptConnectionData(PDEVICE_OBJECT Pdo, _QWORD *a2)
@@ -24,7 +24,7 @@ NTSTATUS __fastcall IopGetInterruptConnectionData(PDEVICE_OBJECT Pdo, _QWORD *a2
   result = IoGetDevicePropertyData(Pdo, &INTERRUPT_CONNECTION_DATA_PKEY, 0, 0, 0, 0LL, &RequiredSize, &Type);
   if ( result == -1073741789 && RequiredSize >= 0x60 )
   {
-    Data = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Data = (_DWORD *)ExAllocatePool2(0x40uLL, RequiredSize, 0x6F697050u);
     if ( !Data )
       return -1073741670;
     DevicePropertyData = IoGetDevicePropertyData(

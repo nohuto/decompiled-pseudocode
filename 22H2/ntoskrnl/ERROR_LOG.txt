@@ -1,201 +1,192 @@
 [EXCEPTION] KiUpdateSpeculationControl @ 0x14021ECC0: Hex-Rays returned no pseudocode for 0x14021ECC0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14021ECC0'), <traceback object at 0x0000026A71FE7300>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14021ECC0'), <traceback object at 0x0000026BD3426600>)
 
 [EXCEPTION] KiUpdateStibpPairing @ 0x14021F570: Hex-Rays returned no pseudocode for 0x14021F570
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14021F570'), <traceback object at 0x0000026A7208A5C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14021F570'), <traceback object at 0x0000026BCB24E600>)
 
 [EXCEPTION] KeExitRetpoline @ 0x1402F35B4: Hex-Rays returned no pseudocode for 0x1402F35B4
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1402F35B4'), <traceback object at 0x0000026A72099940>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1402F35B4'), <traceback object at 0x0000026BCB24FF80>)
 
 [EXCEPTION] KxExceptionDispatchOnExceptionStack @ 0x1403FE6C0: Hex-Rays returned no pseudocode for 0x1403FE6C0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FE6C0'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FE6C0'), <traceback object at 0x0000026BD340FF80>)
 
 [EXCEPTION] KiChainedDispatch @ 0x1403FEC40: Hex-Rays returned no pseudocode for 0x1403FEC40
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FEC40'), <traceback object at 0x0000026A7206FE40>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FEC40'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiInterruptDispatch @ 0x1403FF5C0: Hex-Rays returned no pseudocode for 0x1403FF5C0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FF5C0'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FF5C0'), <traceback object at 0x0000026BCB24EC00>)
 
 [EXCEPTION] KiInterruptDispatchNoLock @ 0x1403FF9B0: Hex-Rays returned no pseudocode for 0x1403FF9B0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FF9B0'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FF9B0'), <traceback object at 0x0000026BCB24EC00>)
 
 [EXCEPTION] KiInterruptDispatchNoLockNoEtw @ 0x1403FFDA0: Hex-Rays returned no pseudocode for 0x1403FFDA0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FFDA0'), <traceback object at 0x0000026A720B9DC0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403FFDA0'), <traceback object at 0x0000026BD33DEF80>)
 
 [EXCEPTION] KiInterruptDispatchNoEOI @ 0x140400190: Hex-Rays returned no pseudocode for 0x140400190
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140400190'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140400190'), <traceback object at 0x0000026BD340EB80>)
 
 [EXCEPTION] KiSpuriousDispatchNoEOI @ 0x140400580: Hex-Rays returned no pseudocode for 0x140400580
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140400580'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140400580'), <traceback object at 0x0000026BCB24EB80>)
 
 [EXCEPTION] KxIsrLinkage @ 0x1404011C0: Hex-Rays returned no pseudocode for 0x1404011C0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1404011C0'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1404011C0'), <traceback object at 0x0000026BD3426900>)
 
 [EXCEPTION] KiCallUserMode @ 0x140401950: Hex-Rays returned no pseudocode for 0x140401950
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140401950'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140401950'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiApcInterrupt @ 0x140402570: Hex-Rays returned no pseudocode for 0x140402570
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140402570'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140402570'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiHvInterrupt @ 0x140402C80: Hex-Rays returned no pseudocode for 0x140402C80
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140402C80'), <traceback object at 0x0000026A720CE7C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140402C80'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiVmbusInterrupt0 @ 0x140402F70: Hex-Rays returned no pseudocode for 0x140402F70
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140402F70'), <traceback object at 0x0000026A720CE7C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140402F70'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] KiVmbusInterrupt1 @ 0x140403260: Hex-Rays returned no pseudocode for 0x140403260
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403260'), <traceback object at 0x0000026A720CE7C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403260'), <traceback object at 0x0000026BCB24EC40>)
 
 [EXCEPTION] KiVmbusInterrupt2 @ 0x140403550: Hex-Rays returned no pseudocode for 0x140403550
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403550'), <traceback object at 0x0000026A720CE7C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403550'), <traceback object at 0x0000026BCB24EC40>)
 
 [EXCEPTION] KiVmbusInterrupt3 @ 0x140403840: Hex-Rays returned no pseudocode for 0x140403840
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403840'), <traceback object at 0x0000026A720CF5C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403840'), <traceback object at 0x0000026BD3426C40>)
 
 [EXCEPTION] KiHvInterruptDispatch @ 0x140403B30: Hex-Rays returned no pseudocode for 0x140403B30
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403B30'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403B30'), <traceback object at 0x0000026BCB24EC40>)
 
 [EXCEPTION] KiVmbusInterruptDispatch @ 0x140403F30: Hex-Rays returned no pseudocode for 0x140403F30
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403F30'), <traceback object at 0x0000026A7200FE80>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140403F30'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] KiSwInterrupt @ 0x1404045E0: Hex-Rays returned no pseudocode for 0x1404045E0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1404045E0'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1404045E0'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiDpcInterrupt @ 0x140404D10: Hex-Rays returned no pseudocode for 0x140404D10
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140404D10'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140404D10'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] KiDpcInterruptBypass @ 0x140405330: Hex-Rays returned no pseudocode for 0x140405330
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140405330'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140405330'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] KiIpiInterrupt @ 0x140405370: Hex-Rays returned no pseudocode for 0x140405370
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140405370'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140405370'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] SwapContext @ 0x140405E40: Hex-Rays returned no pseudocode for 0x140405E40
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140405E40'), <traceback object at 0x0000026A7206ED80>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140405E40'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KyStartUserThread @ 0x140406590: Hex-Rays returned no pseudocode for 0x140406590
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140406590'), <traceback object at 0x0000026A720C7AC0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140406590'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] _guard_dispatch_icall @ 0x140407C30: Hex-Rays returned no pseudocode for 0x140407C30
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140407C30'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140407C30'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] NtCallEnclave @ 0x140407D00: Hex-Rays returned no pseudocode for 0x140407D00
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140407D00'), <traceback object at 0x0000026A7208A400>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140407D00'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiDivideErrorFault @ 0x140409C00: Hex-Rays returned no pseudocode for 0x140409C00
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140409C00'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140409C00'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KxDebugTrapOrFault @ 0x14040A000: Hex-Rays returned no pseudocode for 0x14040A000
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040A000'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040A000'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiBreakpointTrap @ 0x14040A940: Hex-Rays returned no pseudocode for 0x14040A940
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040A940'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040A940'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] KiOverflowTrap @ 0x14040AC80: Hex-Rays returned no pseudocode for 0x14040AC80
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040AC80'), <traceback object at 0x0000026A71FE7300>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040AC80'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] KiBoundFault @ 0x14040AFC0: Hex-Rays returned no pseudocode for 0x14040AFC0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040AFC0'), <traceback object at 0x0000026A7200FE80>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040AFC0'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] KiInvalidOpcodeFault @ 0x14040B640: Hex-Rays returned no pseudocode for 0x14040B640
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040B640'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040B640'), <traceback object at 0x0000026BCB24EC00>)
 
 [EXCEPTION] KiStackFault @ 0x14040CC40: Hex-Rays returned no pseudocode for 0x14040CC40
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040CC40'), <traceback object at 0x0000026A7206E6C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040CC40'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiGeneralProtectionFault @ 0x14040CFC0: Hex-Rays returned no pseudocode for 0x14040CFC0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040CFC0'), <traceback object at 0x0000026A7206E6C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040CFC0'), <traceback object at 0x0000026BD33DEF80>)
 
 [EXCEPTION] KiPageFault @ 0x14040D300: Hex-Rays returned no pseudocode for 0x14040D300
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040D300'), <traceback object at 0x0000026A7206E6C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040D300'), <traceback object at 0x0000026BD3426C40>)
 
 [EXCEPTION] KiAlignmentFault @ 0x14040DE80: Hex-Rays returned no pseudocode for 0x14040DE80
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040DE80'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040DE80'), <traceback object at 0x0000026BCB24EC40>)
 
 [EXCEPTION] KiVirtualizationException @ 0x14040F200: Hex-Rays returned no pseudocode for 0x14040F200
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040F200'), <traceback object at 0x0000026A720CFE80>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040F200'), <traceback object at 0x0000026BD33FFA40>)
 
 [EXCEPTION] KiControlProtectionFault @ 0x14040F880: Hex-Rays returned no pseudocode for 0x14040F880
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040F880'), <traceback object at 0x0000026A720CCD00>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040F880'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiRaiseSecurityCheckFailure @ 0x14040FEC0: Hex-Rays returned no pseudocode for 0x14040FEC0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040FEC0'), <traceback object at 0x0000026A720A7EC0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14040FEC0'), <traceback object at 0x0000026BC0176F40>)
 
 [EXCEPTION] KiRaiseAssertion @ 0x140410200: Hex-Rays returned no pseudocode for 0x140410200
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140410200'), <traceback object at 0x0000026A720A7EC0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140410200'), <traceback object at 0x0000026BD3426F40>)
 
 [EXCEPTION] KiDebugServiceTrap @ 0x140410540: Hex-Rays returned no pseudocode for 0x140410540
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140410540'), <traceback object at 0x0000026A720A7EC0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140410540'), <traceback object at 0x0000026BC0176F40>)
 
 [EXCEPTION] KiSystemService @ 0x140410880: Hex-Rays returned no pseudocode for 0x140410880
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140410880'), <traceback object at 0x0000026A720CCD00>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140410880'), <traceback object at 0x0000026BD3426F40>)
 
 [EXCEPTION] KiSystemCall32 @ 0x140410B00: Hex-Rays returned no pseudocode for 0x140410B00
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140410B00'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140410B00'), <traceback object at 0x0000026BD3426F40>)
 
 [EXCEPTION] KiSystemCall64 @ 0x140411000: Hex-Rays returned no pseudocode for 0x140411000
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140411000'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140411000'), <traceback object at 0x0000026BC0176F40>)
 
 [EXCEPTION] KiUmsFastReturnToUser @ 0x140412700: Hex-Rays returned no pseudocode for 0x140412700
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140412700'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140412700'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiFlushCurrentRsb @ 0x140413380: Hex-Rays returned no pseudocode for 0x140413380
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140413380'), <traceback object at 0x0000026A7208AF40>)
-
-[EXCEPTION] HvlpGetRegister128 @ 0x1404F9E00: Hex-Rays returned no pseudocode for 0x1404F9E00
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1404F9E00'), <traceback object at 0x0000026A720A5280>)
-
-[EXCEPTION] HvlpGetRegister64 @ 0x1404F9E90: Hex-Rays returned no pseudocode for 0x1404F9E90
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1404F9E90'), <traceback object at 0x0000026A720A55C0>)
-
-[EXCEPTION] HvlpSetRegister64 @ 0x1404F9F80: Hex-Rays returned no pseudocode for 0x1404F9F80
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1404F9F80'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140413380'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiHandleMcheck @ 0x140512660: Hex-Rays returned no pseudocode for 0x140512660
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140512660'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140512660'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KiProcessNMI @ 0x1405129B0: Hex-Rays returned no pseudocode for 0x1405129B0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1405129B0'), <traceback object at 0x0000026A720A55C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1405129B0'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] KeFlushRsb @ 0x14051B158: Hex-Rays returned no pseudocode for 0x14051B158
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14051B158'), <traceback object at 0x0000026A720A7EC0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14051B158'), <traceback object at 0x0000026BCB24ED40>)
 
 [EXCEPTION] KePrepareToDispatchVirtualProcessor @ 0x14051B260: Hex-Rays returned no pseudocode for 0x14051B260
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14051B260'), <traceback object at 0x0000026A720A7EC0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14051B260'), <traceback object at 0x0000026BCB24ED40>)
 
 [EXCEPTION] KiFlushRsbTarget @ 0x14051B600: Hex-Rays returned no pseudocode for 0x14051B600
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14051B600'), <traceback object at 0x0000026A720A7F80>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14051B600'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] CmpCancelSubordinatePost @ 0x14068049C: Hex-Rays returned no pseudocode for 0x14068049C
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14068049C'), <traceback object at 0x0000026A72007F40>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14068049C'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] SmStoreResize @ 0x14092A6A8: Hex-Rays returned no pseudocode for 0x14092A6A8
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14092A6A8'), <traceback object at 0x0000026A720A5280>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14092A6A8'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] FsRtlMdlReadCompleteDevEx @ 0x1409F8010: Hex-Rays returned no pseudocode for 0x1409F8010
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1409F8010'), <traceback object at 0x0000026A7200FE80>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1409F8010'), <traceback object at 0x0000026BD341A4C0>)
 
 [EXCEPTION] KiSystemCall32Shadow @ 0x140A15E40: Hex-Rays returned no pseudocode for 0x140A15E40
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A15E40'), <traceback object at 0x0000026A7206E1C0>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A15E40'), <traceback object at 0x0000026BD3419D80>)
 
 [EXCEPTION] KiSystemCall64Shadow @ 0x140A161C0: Hex-Rays returned no pseudocode for 0x140A161C0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A161C0'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A161C0'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] __guard_retpoline_indirect_cfg_rax @ 0x140A172A0: Hex-Rays returned no pseudocode for 0x140A172A0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A172A0'), <traceback object at 0x0000026A72007F40>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A172A0'), <traceback object at 0x0000026BC0029CC0>)
 
 [EXCEPTION] __guard_retpoline_exit_indirect_rax @ 0x140A173A0: Hex-Rays returned no pseudocode for 0x140A173A0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A173A0'), <traceback object at 0x0000026A7206D540>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A173A0'), <traceback object at 0x0000026BC01A1CC0>)
 
 [EXCEPTION] __guard_retpoline_import_r10 @ 0x140A17420: Hex-Rays returned no pseudocode for 0x140A17420
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A17420'), <traceback object at 0x0000026A71FE7300>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A17420'), <traceback object at 0x0000026BCB24EF80>)
 
 [EXCEPTION] __guard_retpoline_import_r10_do_retpoline @ 0x140A174C0: Hex-Rays returned no pseudocode for 0x140A174C0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A174C0'), <traceback object at 0x0000026A7200FE80>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A174C0'), <traceback object at 0x0000026BCB23E440>)
 
 [EXCEPTION] __guard_retpoline_exit @ 0x140A17560: Hex-Rays returned no pseudocode for 0x140A17560
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A17560'), <traceback object at 0x0000026A71FE7300>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A17560'), <traceback object at 0x0000026BCB23A4C0>)
 
 [EXCEPTION] sub_140A1CEE4 @ 0x140A1CEE4: Hex-Rays returned no pseudocode for 0x140A1CEE4
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A1CEE4'), <traceback object at 0x0000026A71FA7080>)
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140A1CEE4'), <traceback object at 0x0000026BBE769D80>)
 

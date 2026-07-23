@@ -33,23 +33,24 @@ unsigned __int8 __fastcall PopCheckAndHandleThermalConditions(__int64 a1, __int6
   char v6; // dl
   unsigned __int8 result; // al
   __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
+  __int64 v9; // r8
   void *DeviceAttachmentBaseRefWithTag; // rax
-  void *v12; // rdi
+  void *v11; // rdi
+  __int64 v12; // rdx
   __int64 v13; // rdx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  char v16; // al
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  int v20; // eax
-  char v21; // al
-  char v22; // bl
-  unsigned __int64 v23; // [rsp+30h] [rbp-38h] BYREF
-  int v24; // [rsp+38h] [rbp-30h]
-  _QWORD v25[4]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v14; // r8
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  char v17; // al
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  int v21; // eax
+  char v22; // al
+  char v23; // bl
+  unsigned __int64 v24; // [rsp+30h] [rbp-38h] BYREF
+  int v25; // [rsp+38h] [rbp-30h]
+  _QWORD v26[4]; // [rsp+40h] [rbp-28h] BYREF
 
   v2 = *(_QWORD *)(a1 + 48);
   v3 = 0;
@@ -77,13 +78,13 @@ unsigned __int8 __fastcall PopCheckAndHandleThermalConditions(__int64 a1, __int6
     if ( (unsigned __int8)PopIsHibernateSupported(&PopCapabilities) )
     {
       PopThermalHibernateInitiated = 1;
-      PopThermalStandbyEndTracking(2LL, v8, v10);
-      v24 = 0;
-      v23 = 0xC000000400000003uLL;
-      v25[1] = 0LL;
-      v25[2] = 0LL;
-      v25[0] = 0x8000000001LL;
-      PopExecutePowerAction((unsigned int)v25, 0, (unsigned int)&v23, 5, 1);
+      PopThermalStandbyEndTracking(2LL, v8, v9);
+      v25 = 0;
+      v24 = 0xC000000400000003uLL;
+      v26[1] = 0LL;
+      v26[2] = 0LL;
+      v26[0] = 0x8000000001LL;
+      PopExecutePowerAction((unsigned int)v26, 0, (unsigned int)&v24, 5, 1);
     }
     else
     {
@@ -93,23 +94,23 @@ unsigned __int8 __fastcall PopCheckAndHandleThermalConditions(__int64 a1, __int6
   if ( v3 )
   {
     DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(v2, 0x746C6644u);
-    v12 = DeviceAttachmentBaseRefWithTag;
+    v11 = DeviceAttachmentBaseRefWithTag;
     if ( DeviceAttachmentBaseRefWithTag )
-      v13 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
+      v12 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
     else
-      v13 = 0LL;
-    PopThermalWriteShutdownToRegistry((v13 + 280) & -(__int64)(v13 != 0), -v13);
-    if ( v12 )
-      ObfDereferenceObjectWithTag(v12, 0x746C6644u);
+      v12 = 0LL;
+    PopThermalWriteShutdownToRegistry((v12 + 280) & -(__int64)(v12 != 0), -v12);
+    if ( v11 )
+      ObfDereferenceObjectWithTag(v11, 0x746C6644u);
     if ( !PopThermalCriticalShutdownInitiated )
     {
-      PopThermalStandbyEndTracking(3LL, v8, v10);
+      PopThermalStandbyEndTracking(3LL, v13, v14);
       PopThermalCriticalShutdownInitiated = 1;
       if ( PopThermalCriticalShutdownEnabled )
         PopCriticalShutdown();
     }
   }
-  PopReleasePolicyLock(v9, v8, v10);
+  PopReleasePolicyLock();
 LABEL_4:
   v6 = *(_BYTE *)(a1 + 224) != 0;
   if ( *(_BYTE *)(a1 + 73) != v6 )
@@ -121,10 +122,10 @@ LABEL_4:
   if ( *(_BYTE *)(a1 + 72) != result )
   {
     PopDiagTraceThermalStateChange(*(_QWORD *)(a1 + 48), result, &POP_ETW_EVENT_THERMAL_ZONE_THERMAL_STANDBY_UPDATE);
-    PopAcquirePolicyLock(v15, v14);
-    v16 = *(_BYTE *)(a1 + 211);
-    *(_BYTE *)(a1 + 72) = v16;
-    if ( v16 )
+    PopAcquirePolicyLock(v16, v15);
+    v17 = *(_BYTE *)(a1 + 211);
+    *(_BYTE *)(a1 + 72) = v17;
+    if ( v17 )
     {
       if ( ++dword_14034AB24 == 1 )
       {
@@ -133,38 +134,38 @@ LABEL_4:
         PopTraceCr3Tripped();
       }
       PopTraceZoneCr3Tripped((unsigned int)dword_14034AB28, a1);
-      v20 = dword_14034AB24;
+      v21 = dword_14034AB24;
     }
     else
     {
       PopTraceZoneCr3Mitigated((unsigned int)dword_14034AB28, a1);
-      v20 = --dword_14034AB24;
+      v21 = --dword_14034AB24;
     }
-    if ( v20 )
+    if ( v21 )
     {
-      v21 = HIBYTE(PopSystemThermalInfo);
-      v22 = 1;
+      v22 = HIBYTE(PopSystemThermalInfo);
+      v23 = 1;
     }
     else
     {
-      v22 = 0;
-      PopThermalStandbyEndTracking(0LL, v17, v19);
+      v23 = 0;
+      PopThermalStandbyEndTracking(0LL, v18, v20);
       PopTraceCr3Mitigated((unsigned int)dword_14034AB28);
-      v21 = HIBYTE(PopSystemThermalInfo);
+      v22 = HIBYTE(PopSystemThermalInfo);
       if ( HIBYTE(PopSystemThermalInfo) )
       {
         PopThermalStandbyNotify(0LL);
         HIBYTE(PopSystemThermalInfo) = 0;
-        return PopReleasePolicyLock(v18, v17, v19);
+        return PopReleasePolicyLock();
       }
     }
-    if ( !v4 && v22 && (_BYTE)PopSystemThermalInfo && !v21 )
+    if ( !v4 && v23 && (_BYTE)PopSystemThermalInfo && !v22 )
     {
-      LOBYTE(v18) = 1;
-      PopThermalStandbyNotify(v18);
+      LOBYTE(v19) = 1;
+      PopThermalStandbyNotify(v19);
       PopSystemThermalInfo = 256;
     }
-    return PopReleasePolicyLock(v18, v17, v19);
+    return PopReleasePolicyLock();
   }
   return result;
 }

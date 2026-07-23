@@ -1,20 +1,20 @@
 /*
- * XREFs of EXP_LOCK_RESOURCE @ 0x14022D8A4
+ * XREFs of EXP_LOCK_RESOURCE @ 0x14022D6D0
  * Callers:
- *     ExIsResourceAcquiredSharedLite @ 0x14002D250 (ExIsResourceAcquiredSharedLite.c)
- *     ExAcquireSharedStarveExclusive @ 0x140034660 (ExAcquireSharedStarveExclusive.c)
- *     ExpLockResource @ 0x14005DB60 (ExpLockResource.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     ExSetResourceOwnerPointerEx @ 0x140096EA0 (ExSetResourceOwnerPointerEx.c)
- *     ExConvertExclusiveToSharedLite @ 0x1400A5C20 (ExConvertExclusiveToSharedLite.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1401326C8 (ExAcquireSharedWaitForExclusive.c)
- *     ExTryConvertSharedToExclusiveLite @ 0x14022D9F4 (ExTryConvertSharedToExclusiveLite.c)
- *     ExTryToAcquireResourceExclusiveLite @ 0x14022DAA0 (ExTryToAcquireResourceExclusiveLite.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14002CDD0 (ExIsResourceAcquiredSharedLite.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1400341E0 (ExAcquireSharedStarveExclusive.c)
+ *     ExpLockResource @ 0x14005D6E0 (ExpLockResource.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     ExSetResourceOwnerPointerEx @ 0x1400966A0 (ExSetResourceOwnerPointerEx.c)
+ *     ExConvertExclusiveToSharedLite @ 0x1400A4198 (ExConvertExclusiveToSharedLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x140132C38 (ExAcquireSharedWaitForExclusive.c)
+ *     ExTryConvertSharedToExclusiveLite @ 0x14022D820 (ExTryConvertSharedToExclusiveLite.c)
+ *     ExTryToAcquireResourceExclusiveLite @ 0x14022D8CC (ExTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     KxWaitForLockOwnerShipWithIrql @ 0x140090910 (KxWaitForLockOwnerShipWithIrql.c)
- *     KiFastAcquireQueuedSpinLockInstrumented @ 0x1401D3A94 (KiFastAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShipWithIrql @ 0x140090070 (KxWaitForLockOwnerShipWithIrql.c)
+ *     KiFastAcquireQueuedSpinLockInstrumented @ 0x1401D38C0 (KiFastAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __fastcall EXP_LOCK_RESOURCE(__int64 a1, struct _KLOCK_QUEUE_HANDLE *a2)

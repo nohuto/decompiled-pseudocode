@@ -1,21 +1,21 @@
 /*
- * XREFs of IoRaiseHardError @ 0x1405CB060
+ * XREFs of IoRaiseHardError @ 0x1405CD930
  * Callers:
- *     DifIoRaiseHardErrorWrapper @ 0x14065D780 (DifIoRaiseHardErrorWrapper.c)
+ *     DifIoRaiseHardErrorWrapper @ 0x140661360 (DifIoRaiseHardErrorWrapper.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     IopGetThreadActiveConsoleId @ 0x140B272C8 (IopGetThreadActiveConsoleId.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     IopGetThreadActiveConsoleId @ 0x140B29378 (IopGetThreadActiveConsoleId.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __stdcall IoRaiseHardError(PIRP Irp, PVPB Vpb, PDEVICE_OBJECT RealDeviceObject)

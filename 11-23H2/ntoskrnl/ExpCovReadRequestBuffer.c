@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCovReadRequestBuffer @ 0x140A06EDC
+ * XREFs of ExpCovReadRequestBuffer @ 0x140A0716C
  * Callers:
- *     ExpCovQueryInformation @ 0x140A067AC (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x140A07054 (ExpCovResetInformation.c)
+ *     ExpCovQueryInformation @ 0x140A06A3C (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x140A072E4 (ExpCovResetInformation.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlDuplicateUnicodeString @ 0x1407B6FC0 (RtlDuplicateUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlDuplicateUnicodeString @ 0x1407B72A0 (RtlDuplicateUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

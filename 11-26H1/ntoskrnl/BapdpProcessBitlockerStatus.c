@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdpProcessBitlockerStatus @ 0x140CE24F4
+ * XREFs of BapdpProcessBitlockerStatus @ 0x140CE8894
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140CE2FFC (BapdpQueryData.c)
- *     BapdpRegisterBitlockerStatus @ 0x140CE31DC (BapdpRegisterBitlockerStatus.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140CE939C (BapdpQueryData.c)
+ *     BapdpRegisterBitlockerStatus @ 0x140CE957C (BapdpRegisterBitlockerStatus.c)
  */
 
 void __fastcall BapdpProcessBitlockerStatus(__int64 a1)

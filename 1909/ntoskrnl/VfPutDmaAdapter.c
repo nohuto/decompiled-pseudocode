@@ -19,7 +19,7 @@ __int64 (__fastcall *__fastcall VfPutDmaAdapter(ULONG_PTR a1))(ULONG_PTR)
   __int64 (__fastcall *result)(ULONG_PTR); // rax
   __int64 (__fastcall *v3)(ULONG_PTR); // r14
   KIRQL v4; // al
-  struct _LIST_ENTRY *Flink; // rbx
+  _LIST_ENTRY *Flink; // rbx
   char v6; // bp
   KIRQL v7; // r15
   int v8; // esi

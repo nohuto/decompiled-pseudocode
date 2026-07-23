@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlTraceDatabaseUnlock @ 0x180148490
+ * XREFs of RtlTraceDatabaseUnlock @ 0x180146840
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlTraceDatabaseUnlock(__int64 a1)
+NTSTATUS __fastcall RtlTraceDatabaseUnlock(__int64 a1)
 {
   *(_QWORD *)(a1 + 40) = 0LL;
-  return RtlLeaveCriticalSection(a1 + 48);
+  return RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
 }

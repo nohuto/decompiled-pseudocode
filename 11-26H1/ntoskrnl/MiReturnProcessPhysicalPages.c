@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReturnProcessPhysicalPages @ 0x140B457E0
+ * XREFs of MiReturnProcessPhysicalPages @ 0x140B47810
  * Callers:
- *     MiFreePhysicalPageChain @ 0x1403C73D4 (MiFreePhysicalPageChain.c)
+ *     MiFreePhysicalPageChain @ 0x1403D12C8 (MiFreePhysicalPageChain.c)
  * Callees:
  *     <none>
  */

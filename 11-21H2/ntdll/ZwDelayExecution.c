@@ -18,11 +18,11 @@
  *     <none>
  */
 
-__int64 ZwDelayExecution()
+NTSTATUS __cdecl ZwDelayExecution(BOOLEAN Alertable, PLARGE_INTEGER DelayInterval)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 52LL;
+  result = 52;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

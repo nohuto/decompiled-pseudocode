@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetEngineBackgroundQualifications @ 0x1404E9F3C
+ * XREFs of MiGetEngineBackgroundQualifications @ 0x1404E32EC
  * Callers:
- *     MiFindOptimalEngineToAddThread @ 0x14051F998 (MiFindOptimalEngineToAddThread.c)
+ *     MiFindOptimalEngineToAddThread @ 0x14052203C (MiFindOptimalEngineToAddThread.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ __int64 __fastcall MiGetEngineBackgroundQualifications(__int64 *a1, int a2)
     }
     else if ( v7 < *(_DWORD *)(v4 + v5 + 240) )
     {
-      v8 = *(_QWORD *)(384LL * *(unsigned int *)(*(_QWORD *)(v4 + v5 + 368) + 56LL) + qword_140E2D6B8 + 376);
+      v8 = *(_QWORD *)(384LL * *(unsigned int *)(*(_QWORD *)(v4 + v5 + 368) + 56LL) + qword_140E2D838 + 376);
       v9 = *(_QWORD *)(168LL * a2 + v8 + 144);
       if ( *((_BYTE *)a1 + 176) && (unsigned __int64)(v9 + a1[23]) > *(_QWORD *)(v8 + 576) )
       {

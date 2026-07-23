@@ -35,8 +35,8 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
   __int64 v17; // rdx
   __int64 v18; // r8
   const char *v19; // rcx
-  struct _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
-  STRING v21; // [rsp+50h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
+  _STRING v21; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   __int64 retaddr; // [rsp+98h] [rbp+28h]
   char v24; // [rsp+A8h] [rbp+38h] BYREF

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExCreateCallbackWrapper @ 0x1405D8120
+ * XREFs of DifExCreateCallbackWrapper @ 0x1405D8690
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     ExCreateCallback @ 0x1407DC330 (ExCreateCallback.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     ExCreateCallback @ 0x1407DC600 (ExCreateCallback.c)
  */
 
 NTSTATUS __fastcall DifExCreateCallbackWrapper(

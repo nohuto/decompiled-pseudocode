@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetDeviceInterfaceRegKeyPath @ 0x140644CEC
+ * XREFs of _CmGetDeviceInterfaceRegKeyPath @ 0x140639AFC
  * Callers:
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x14063D95C (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     PiDqGetRelativeObjectRegPath @ 0x1406A9B6C (PiDqGetRelativeObjectRegPath.c)
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x14072C7B4 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x140607AEC (PiDqGetRelativeObjectRegPath.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x14063276C (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x14072CC64 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
- *     RtlStringCchCatExW @ 0x1403C3520 (RtlStringCchCatExW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x140640854 (_CmGetDeviceInterfaceSubkeyPath.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchCatExW @ 0x1403C3950 (RtlStringCchCatExW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x140635664 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceRegKeyPath(

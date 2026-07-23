@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwShutdownWorkerFactory @ 0x180165560
+ * XREFs of ZwShutdownWorkerFactory @ 0x180163920
  * Callers:
- *     TpReleasePool @ 0x1800DEB80 (TpReleasePool.c)
+ *     TpReleasePool @ 0x1800D9CF0 (TpReleasePool.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwShutdownWorkerFactory()
+NTSTATUS __cdecl ZwShutdownWorkerFactory(HANDLE WorkerFactoryHandle, LONG *PendingWorkerCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 455LL;
+  result = 455;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

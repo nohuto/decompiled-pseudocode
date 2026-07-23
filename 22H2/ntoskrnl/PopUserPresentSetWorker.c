@@ -10,7 +10,7 @@
  *     PopNotifyConsoleUserPresent @ 0x140772DC0 (PopNotifyConsoleUserPresent.c)
  */
 
-LONG __fastcall PopUserPresentSetWorker(unsigned int a1, __int64 a2)
+LONG __fastcall PopUserPresentSetWorker(unsigned int a1, char a2)
 {
   LONG result; // eax
 
@@ -22,7 +22,7 @@ LONG __fastcall PopUserPresentSetWorker(unsigned int a1, __int64 a2)
     PopAwaymodeExitReason = a1;
     PopSetNotificationWork(0x40u);
   }
-  PopNotifyConsoleUserPresent(0LL, a2, a1);
+  PopNotifyConsoleUserPresent(0, a2, a1);
   _InterlockedExchange(&PopUserPresentSetStatus, 0);
   result = _InterlockedCompareExchange(&dword_140C23354, 0, 0);
   if ( result )

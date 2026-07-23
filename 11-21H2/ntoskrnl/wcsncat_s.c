@@ -1,14 +1,14 @@
 /*
  * XREFs of wcsncat_s @ 0x1403E7750
  * Callers:
- *     NtLockProductActivationKeys @ 0x14080D370 (NtLockProductActivationKeys.c)
- *     PnprGetPluginDriverImagePath @ 0x140952178 (PnprGetPluginDriverImagePath.c)
- *     SddlpUuidFromString @ 0x1409CFF00 (SddlpUuidFromString.c)
- *     ExpConvertArcName @ 0x1409FB95C (ExpConvertArcName.c)
- *     ExpFindArcName @ 0x1409FC2D0 (ExpFindArcName.c)
- *     ExpTranslateEfiPath @ 0x1409FE5F4 (ExpTranslateEfiPath.c)
+ *     sub_14080D370 @ 0x14080D370 (sub_14080D370.c)
+ *     sub_140952178 @ 0x140952178 (sub_140952178.c)
+ *     sub_1409CFF00 @ 0x1409CFF00 (sub_1409CFF00.c)
+ *     sub_1409FB95C @ 0x1409FB95C (sub_1409FB95C.c)
+ *     sub_1409FC2D0 @ 0x1409FC2D0 (sub_1409FC2D0.c)
+ *     sub_1409FE5F4 @ 0x1409FE5F4 (sub_1409FE5F4.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 errno_t __cdecl wcsncat_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)
@@ -28,7 +28,7 @@ errno_t __cdecl wcsncat_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src,
     if ( !Dst )
     {
 LABEL_28:
-      xHalTimerWatchdogStop();
+      _misaligned_access();
       return 22;
     }
   }
@@ -93,6 +93,6 @@ LABEL_23:
     v7 = 34;
   }
   *v5 = 0;
-  xHalTimerWatchdogStop();
+  _misaligned_access();
   return v7;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAddPagesToCompressedPageSet @ 0x140B5C3C4
+ * XREFs of PopAddPagesToCompressedPageSet @ 0x140B5E434
  * Callers:
- *     PopCompressHiberBlocks @ 0x140B5C604 (PopCompressHiberBlocks.c)
- *     PopWriteHiberImage @ 0x140B5E8E0 (PopWriteHiberImage.c)
+ *     PopCompressHiberBlocks @ 0x140B5E674 (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140B60960 (PopWriteHiberImage.c)
  * Callees:
- *     RtlCompressBuffer @ 0x14038A270 (RtlCompressBuffer.c)
- *     RtlCompressBufferProgress @ 0x1405F1040 (RtlCompressBufferProgress.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     RtlCompressBuffer @ 0x140383BB0 (RtlCompressBuffer.c)
+ *     RtlCompressBufferProgress @ 0x1405EE680 (RtlCompressBufferProgress.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 char *__fastcall PopAddPagesToCompressedPageSet(
@@ -48,28 +48,28 @@ char *__fastcall PopAddPagesToCompressedPageSet(
   if ( a5 )
   {
     v13 = *(UCHAR **)a2;
-    v14 = a1[487];
+    v14 = a1[491];
     memmove(*(void **)a2, a4, v9);
     v12 = v14 != 0 ? 4 : 0;
     goto LABEL_12;
   }
   v13 = (UCHAR *)a4;
   v15 = *(_DWORD *)(a2 + 160);
-  v16 = *((_QWORD *)qword_140F0ADE8 + 5) - *((_QWORD *)qword_140F0ADE8 + 7);
-  if ( !v15 || (v17 = *(_DWORD *)(a2 + 164), (int)(100 * v17 / v15) > dword_140F0AD84) )
+  v16 = *((_QWORD *)qword_140F0BC28 + 5) - *((_QWORD *)qword_140F0BC28 + 7);
+  if ( !v15 || (v17 = *(_DWORD *)(a2 + 164), (int)(100 * v17 / v15) > dword_140F0BBC4) )
   {
-    if ( v16 >= (__int64)((unsigned __int64)*((unsigned int *)qword_140F0ADE8 + 2) >> 1) )
+    if ( v16 >= (__int64)((unsigned __int64)*((unsigned int *)qword_140F0BC28 + 2) >> 1) )
     {
       v12 = 1;
       goto LABEL_11;
     }
     goto LABEL_9;
   }
-  v18 = *((_DWORD *)qword_140F0ADE8 + 2);
+  v18 = *((_DWORD *)qword_140F0BC28 + 2);
   if ( v16 < (__int64)((unsigned __int64)v18 >> 1) )
   {
 LABEL_9:
-    v12 = a1[488] != 0 ? 4 : 0;
+    v12 = a1[492] != 0 ? 4 : 0;
     goto LABEL_11;
   }
   *(_DWORD *)(a2 + 164) = v17 + 1;
@@ -79,11 +79,11 @@ LABEL_11:
   *(_DWORD *)(a2 + 160) = v15 + 1;
 LABEL_12:
   v19 = __rdtsc();
-  if ( !a1[486] || (v12 & 0xFFFFFFFA) != 0 || v12 == 5 )
+  if ( !a1[490] || (v12 & 0xFFFFFFFA) != 0 || v12 == 5 )
   {
     v20 = v12;
     v21 = RtlCompressBufferProgress(
-            *((_WORD *)qword_140028E98 + v12),
+            *((_WORD *)qword_140029310 + v12),
             v13,
             v9,
             v7,
@@ -97,7 +97,7 @@ LABEL_12:
   {
     v20 = v12;
     v21 = RtlCompressBuffer(
-            *((_WORD *)qword_140028E98 + v12),
+            *((_WORD *)qword_140029310 + v12),
             v13,
             v9,
             (PUCHAR)v7,

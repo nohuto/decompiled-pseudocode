@@ -20,19 +20,19 @@ char CcInitializeBcbProfiler()
 {
   struct _KTIMER *PoolWithTag; // rax
   const char *LoadOptions; // rax
-  PIMAGE_NT_HEADERS v2; // r9
+  _IMAGE_NT_HEADERS64 *v2; // r9
   unsigned __int64 v3; // rax
   unsigned __int128 v4; // rax
   __int64 v5; // rcx
   void *v6; // rax
   int v7; // esi
-  _DWORD *v8; // rbx
+  PIMAGE_SECTION_HEADER v8; // rbx
   unsigned int *v9; // r8
-  unsigned int v10; // r9d
+  unsigned int VirtualAddress; // r9d
   unsigned int *v11; // rdi
   int v12; // r14d
   unsigned int *v13; // r10
-  unsigned int v14; // ecx
+  unsigned int PhysicalAddress; // ecx
   unsigned int v15; // edx
   unsigned int v16; // eax
   int v17; // eax
@@ -149,10 +149,7 @@ char CcInitializeBcbProfiler()
         v7 = 0;
         v6 = CcBcbProfiler;
       }
-      v8 = (_DWORD *)RtlSectionTableFromVirtualAddress(
-                       (unsigned __int64)v2,
-                       0x140000000LL,
-                       (unsigned int)v6 - 0x40000000);
+      v8 = RtlSectionTableFromVirtualAddress(v2, (PVOID)0x140000000LL, (unsigned int)v6 - 0x40000000);
       v9 = (unsigned int *)RtlLookupFunctionTable((unsigned __int64)v8, v84, &v85);
       if ( !v9 || v85 < 0xC )
       {
@@ -161,18 +158,18 @@ LABEL_58:
         v74 = 324608;
         KeBugCheckEx(__ROR4__(324608, 170), 6uLL, (ULONG_PTR)v8, v17, 0LL);
       }
-      v10 = v8[3];
+      VirtualAddress = v8->VirtualAddress;
       v11 = 0LL;
       v12 = 0;
       v13 = &v9[3 * (v85 / 0xC)];
-      v14 = v8[2];
-      if ( v8[4] > v14 )
-        v14 = v8[4];
-      v15 = v14 + v10;
+      PhysicalAddress = v8->Misc.PhysicalAddress;
+      if ( v8->SizeOfRawData > PhysicalAddress )
+        PhysicalAddress = v8->SizeOfRawData;
+      v15 = PhysicalAddress + VirtualAddress;
       do
       {
         v16 = *v9;
-        if ( *v9 >= v10 )
+        if ( *v9 >= VirtualAddress )
         {
           if ( v16 >= v15 )
             break;

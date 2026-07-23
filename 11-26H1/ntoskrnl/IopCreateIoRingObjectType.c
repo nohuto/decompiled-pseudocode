@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCreateIoRingObjectType @ 0x140CBEE88
+ * XREFs of IopCreateIoRingObjectType @ 0x140CC4F58
  * Callers:
- *     IoCreateObjectTypes @ 0x140CBA8B8 (IoCreateObjectTypes.c)
+ *     IoCreateObjectTypes @ 0x140CC0930 (IoCreateObjectTypes.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
  */
 
 __int64 IopCreateIoRingObjectType()

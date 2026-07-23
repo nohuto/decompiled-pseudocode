@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDebugActiveProcess()
+NTSTATUS __cdecl NtDebugActiveProcess(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 191LL;
+  result = 191;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpConnectPort @ 0x1408E92E0
+ * XREFs of AlpcpConnectPort @ 0x1408EF8A0
  * Callers:
- *     NtAlpcConnectPortEx @ 0x1408E8C70 (NtAlpcConnectPortEx.c)
- *     NtAlpcConnectPort @ 0x1408E9260 (NtAlpcConnectPort.c)
+ *     NtAlpcConnectPortEx @ 0x1408EF230 (NtAlpcConnectPortEx.c)
+ *     NtAlpcConnectPort @ 0x1408EF820 (NtAlpcConnectPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     AlpcpProcessConnectionRequest @ 0x1408E7654 (AlpcpProcessConnectionRequest.c)
- *     SeCaptureSid @ 0x1408E9720 (SeCaptureSid.c)
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     SeCaptureSecurityDescriptor @ 0x1409263C0 (SeCaptureSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     AlpcpProcessConnectionRequest @ 0x1408EDC14 (AlpcpProcessConnectionRequest.c)
+ *     SeCaptureSid @ 0x1408EFCE0 (SeCaptureSid.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     SeCaptureSecurityDescriptor @ 0x140901ED0 (SeCaptureSecurityDescriptor.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpConnectPort(

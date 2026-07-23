@@ -2,7 +2,7 @@
  * XREFs of SwapSplayLinks @ 0x140014544
  * Callers:
  *     RtlDeleteNoSplay @ 0x140014470 (RtlDeleteNoSplay.c)
- *     RtlDelete @ 0x14008D4C0 (RtlDelete.c)
+ *     RtlDelete @ 0x14008D400 (RtlDelete.c)
  * Callees:
  *     <none>
  */

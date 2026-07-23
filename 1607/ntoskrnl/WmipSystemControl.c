@@ -1,5 +1,5 @@
 /*
- * XREFs of WmipSystemControl @ 0x1404BE100
+ * XREFs of WmipSystemControl @ 0x1404A9E30
  * Callers:
  *     <none>
  * Callees:

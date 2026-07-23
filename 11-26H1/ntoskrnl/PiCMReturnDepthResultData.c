@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCMReturnDepthResultData @ 0x140779204
+ * XREFs of PiCMReturnDepthResultData @ 0x14077C0A4
  * Callers:
- *     PiCMGetDeviceDepth @ 0x140AD6DD0 (PiCMGetDeviceDepth.c)
+ *     PiCMGetDeviceDepth @ 0x14094D0A0 (PiCMGetDeviceDepth.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMReturnDepthResultData(int a1, int a2, int a3, void *a4, unsigned int a5, _DWORD *a6)

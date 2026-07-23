@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDemotePfnListChain @ 0x1402C53D0
+ * XREFs of MiDemotePfnListChain @ 0x1402C55C0
  * Callers:
- *     MiMakeLargePageTable @ 0x1402B50E8 (MiMakeLargePageTable.c)
- *     MiMapUserLargePages @ 0x14085D558 (MiMapUserLargePages.c)
+ *     MiMakeLargePageTable @ 0x1402B52D8 (MiMakeLargePageTable.c)
+ *     MiMapUserLargePages @ 0x14085E7B8 (MiMapUserLargePages.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWriteNewContainingFrame @ 0x1402C5F60 (MiWriteNewContainingFrame.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWriteNewContainingFrame @ 0x1402C6150 (MiWriteNewContainingFrame.c)
  */
 
 __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
@@ -50,7 +50,7 @@ __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
     else
     {
       MiUpdateLargePageBitMap(
-        *(_QWORD *)(qword_14043A748 + 8 * ((v5[5] >> 40) & 0x3FFLL)),
+        *(_QWORD *)(qword_14043B808 + 8 * ((v5[5] >> 40) & 0x3FFLL)),
         (__int64)(v5 + 0xB000000000LL) / 48,
         MiLargePageSizes[v6],
         0,

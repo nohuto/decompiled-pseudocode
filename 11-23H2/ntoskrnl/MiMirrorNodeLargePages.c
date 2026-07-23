@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMirrorNodeLargePages @ 0x14064F504
+ * XREFs of MiMirrorNodeLargePages @ 0x14064FA54
  * Callers:
- *     MiMirrorGatherBrownPages @ 0x140626C78 (MiMirrorGatherBrownPages.c)
- *     MiMirrorReduceBlackWrites @ 0x140628060 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorGatherBrownPages @ 0x1406271C8 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorReduceBlackWrites @ 0x1406285B0 (MiMirrorReduceBlackWrites.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMirrorAddPagesToBrownList @ 0x140626B0C (MiMirrorAddPagesToBrownList.c)
- *     MiMirrorOmitPagesFromCopy @ 0x140627288 (MiMirrorOmitPagesFromCopy.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMirrorAddPagesToBrownList @ 0x14062705C (MiMirrorAddPagesToBrownList.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x1406277D8 (MiMirrorOmitPagesFromCopy.c)
  */
 
 volatile LONG *__fastcall MiMirrorNodeLargePages(__int64 a1, __int64 a2, int a3)
@@ -162,10 +162,10 @@ volatile LONG *__fastcall MiMirrorNodeLargePages(__int64 a1, __int64 a2, int a3)
       if ( !v38 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v37 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v37 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

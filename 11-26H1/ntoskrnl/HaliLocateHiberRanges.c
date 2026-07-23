@@ -1,18 +1,18 @@
 /*
- * XREFs of HaliLocateHiberRanges @ 0x140C08410
+ * XREFs of HaliLocateHiberRanges @ 0x140C0E620
  * Callers:
  *     <none>
  * Callees:
- *     HalpPciMarkHiberPhase @ 0x1404AFD2C (HalpPciMarkHiberPhase.c)
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
- *     HalpAcpiMarkHiberPhase @ 0x140503FD4 (HalpAcpiMarkHiberPhase.c)
- *     HalpDmaMarkHiberAdapter @ 0x14050C790 (HalpDmaMarkHiberAdapter.c)
- *     HalpExtEnvMarkHiberRegions @ 0x1405152B4 (HalpExtEnvMarkHiberRegions.c)
- *     HalpTimerMarkHiberPhase @ 0x140577AE4 (HalpTimerMarkHiberPhase.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpMmAllocCtxMarkHiberPhase @ 0x140BEA664 (HalpMmAllocCtxMarkHiberPhase.c)
- *     HalpExtMarkHiberPhase @ 0x140BEB168 (HalpExtMarkHiberPhase.c)
- *     HalpIommuMarkHiberPhase @ 0x140C08660 (HalpIommuMarkHiberPhase.c)
+ *     HalpPciMarkHiberPhase @ 0x1404A93BC (HalpPciMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
+ *     HalpAcpiMarkHiberPhase @ 0x1404FD8A4 (HalpAcpiMarkHiberPhase.c)
+ *     HalpDmaMarkHiberAdapter @ 0x140506200 (HalpDmaMarkHiberAdapter.c)
+ *     HalpExtEnvMarkHiberRegions @ 0x14050ED24 (HalpExtEnvMarkHiberRegions.c)
+ *     HalpTimerMarkHiberPhase @ 0x14057A014 (HalpTimerMarkHiberPhase.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpMmAllocCtxMarkHiberPhase @ 0x140BF0664 (HalpMmAllocCtxMarkHiberPhase.c)
+ *     HalpExtMarkHiberPhase @ 0x140BF1168 (HalpExtMarkHiberPhase.c)
+ *     HalpIommuMarkHiberPhase @ 0x140C0E870 (HalpIommuMarkHiberPhase.c)
  */
 
 void __fastcall HaliLocateHiberRanges(PVOID MemoryMap)
@@ -24,33 +24,33 @@ void __fastcall HaliLocateHiberRanges(PVOID MemoryMap)
 
   if ( MemoryMap )
   {
-    if ( dword_140FBCE60 )
+    if ( dword_140FBD200 )
       PoSetHiberRange(
         MemoryMap,
         0xC000u,
-        (PVOID)((unsigned __int64)(unsigned int)qword_140FBCE68 >> 12),
-        (unsigned __int64)(unsigned int)dword_140FBCE60 >> 12,
+        (PVOID)((unsigned __int64)(unsigned int)qword_140FBD208 >> 12),
+        (unsigned __int64)(unsigned int)dword_140FBD200 >> 12,
         0x446C6148u);
-    if ( dword_140FBD040 )
+    if ( dword_140FBD3E0 )
       PoSetHiberRange(
         MemoryMap,
         0xC000u,
-        (PVOID)((unsigned __int64)(unsigned int)qword_140FBD048 >> 12),
-        (unsigned __int64)(unsigned int)dword_140FBD040 >> 12,
+        (PVOID)((unsigned __int64)(unsigned int)qword_140FBD3E8 >> 12),
+        (unsigned __int64)(unsigned int)dword_140FBD3E0 >> 12,
         0x446C6148u);
-    if ( dword_140FBCF40 )
+    if ( dword_140FBD2E0 )
       PoSetHiberRange(
         MemoryMap,
         0xC000u,
-        (PVOID)(qword_140FBCF48 >> 12),
-        (unsigned __int64)(unsigned int)dword_140FBCF40 >> 12,
+        (PVOID)(qword_140FBD2E8 >> 12),
+        (unsigned __int64)(unsigned int)dword_140FBD2E0 >> 12,
         0x446C6148u);
-    if ( dword_140FBD120 )
+    if ( dword_140FBD4C0 )
       PoSetHiberRange(
         MemoryMap,
         0xC000u,
-        (PVOID)(qword_140FBD128 >> 12),
-        (unsigned __int64)(unsigned int)dword_140FBD120 >> 12,
+        (PVOID)(qword_140FBD4C8 >> 12),
+        (unsigned __int64)(unsigned int)dword_140FBD4C0 >> 12,
         0x446C6148u);
     HalpAcpiMarkHiberPhase(MemoryMap);
     HalpPciMarkHiberPhase(MemoryMap);
@@ -76,12 +76,12 @@ void __fastcall HaliLocateHiberRanges(PVOID MemoryMap)
     guard_dispatch_icall_no_overrides(v3, v2);
     PoSetHiberRange(0LL, 0x10000u, off_140E00A20, 0LL, 0x506C6148u);
     guard_dispatch_icall_no_overrides(v5, v4);
-    if ( HalpDeviceBlockUnblockPushLock.WaitBlock[1].WaitListEntry.Blink )
+    if ( HalpDeviceBlockUnblockPushLock.WaitBlock[0].Thread )
       PoSetHiberRange(
         0LL,
         0x10000u,
-        HalpDeviceBlockUnblockPushLock.WaitBlock[1].WaitListEntry.Blink,
-        *(unsigned int *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[52],
+        HalpDeviceBlockUnblockPushLock.WaitBlock[0].Thread,
+        *(unsigned int *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[16],
         0x556C6148u);
     HalpTimerMarkHiberPhase(0LL);
     HalpReEnableDiagnosticEventsOnResume = HalpDiagnosticEventsRegistered;

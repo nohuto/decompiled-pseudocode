@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMapSystemCachePage @ 0x1405370A4
+ * XREFs of MiMapSystemCachePage @ 0x1405372E4
  * Callers:
- *     MmCopyToCachedPage @ 0x140331500 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x14033C250 (MmCopyToCachedPage.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMapFrame @ 0x140536F84 (MiMapFrame.c)
+ *     MiMapFrame @ 0x1405371C4 (MiMapFrame.c)
  */
 
 __int64 __fastcall MiMapSystemCachePage(unsigned __int64 a1, unsigned __int64 a2, char a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopInitializeDirectedDrips @ 0x140CD0CA8
+ * XREFs of PopInitializeDirectedDrips @ 0x140CD6E50
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x140483414 (PopQueueDirectedDripsWork.c)
- *     PopDirectedDripsInitializePhase0 @ 0x140CD0A60 (PopDirectedDripsInitializePhase0.c)
- *     PopDirectedDripsInitializePhase3 @ 0x140CD0B50 (PopDirectedDripsInitializePhase3.c)
+ *     PopQueueDirectedDripsWork @ 0x14047CD84 (PopQueueDirectedDripsWork.c)
+ *     PopDirectedDripsInitializePhase0 @ 0x140CD6C08 (PopDirectedDripsInitializePhase0.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140CD6CF8 (PopDirectedDripsInitializePhase3.c)
  */
 
 void __fastcall PopInitializeDirectedDrips(int a1)

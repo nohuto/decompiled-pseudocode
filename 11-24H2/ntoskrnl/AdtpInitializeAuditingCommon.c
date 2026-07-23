@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpInitializeAuditingCommon @ 0x1408119A0
+ * XREFs of AdtpInitializeAuditingCommon @ 0x1408120E0
  * Callers:
- *     SepAdtInitializeAuditingOptions @ 0x140C3B150 (SepAdtInitializeAuditingOptions.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140C3D2A8 (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     AdtpDbInitializePrivilegeObject @ 0x140697430 (AdtpDbInitializePrivilegeObject.c)
- *     AdtpObjsInitialize @ 0x1408114B8 (AdtpObjsInitialize.c)
- *     AdtpInitializeDriveLetters @ 0x1408119E0 (AdtpInitializeDriveLetters.c)
+ *     AdtpDbInitializePrivilegeObject @ 0x1406984B0 (AdtpDbInitializePrivilegeObject.c)
+ *     AdtpObjsInitialize @ 0x140811BF8 (AdtpObjsInitialize.c)
+ *     AdtpInitializeDriveLetters @ 0x140812120 (AdtpInitializeDriveLetters.c)
  */
 
 NTSTATUS AdtpInitializeAuditingCommon()

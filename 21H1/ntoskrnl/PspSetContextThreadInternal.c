@@ -27,10 +27,10 @@
  *     EtwTiLogSetContextThread @ 0x1406FD8E4 (EtwTiLogSetContextThread.c)
  */
 
-__int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // r13
-  __int64 result; // rax
+  int result; // eax
   char v11; // di
   struct _KPROCESS *v12; // rbx
   __int64 v13; // r8
@@ -40,59 +40,59 @@ __int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char
   __int64 v17; // r9
   __int64 v18; // rcx
   __int64 v19; // rax
-  unsigned int v20; // edi
+  ULONG v20; // edi
   unsigned __int64 v21; // rax
   void *v22; // rsp
   __int64 v23; // rcx
   _QWORD *v24; // [rsp+20h] [rbp-20h]
-  unsigned int v25; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v26; // [rsp+44h] [rbp+4h] BYREF
-  __int64 v27; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextFlags; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+44h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _QWORD v28[48]; // [rsp+50h] [rbp+10h] BYREF
 
-  v27 = 0LL;
+  ContextEx = 0LL;
   memset(v28, 0, sizeof(v28));
-  v26 = 0;
+  ContextLength = 0;
   CurrentThread = KeGetCurrentThread();
   if ( a3 )
   {
     v19 = a2 + 48;
     if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
       v19 = 0x7FFFFFFF0000LL;
-    v25 = *(_DWORD *)v19;
+    ContextFlags = *(_DWORD *)v19;
   }
   else
   {
-    v25 = *(_DWORD *)(a2 + 48);
+    ContextFlags = *(_DWORD *)(a2 + 48);
   }
-  result = RtlpSanitizeContextFlags(&v25, a3);
-  if ( (int)result >= 0 )
+  result = RtlpSanitizeContextFlags(&ContextFlags, a3);
+  if ( result >= 0 )
   {
     if ( !a3 )
     {
       v28[15] = a2;
       goto LABEL_6;
     }
-    v20 = v25;
-    result = RtlGetExtendedContextLength(v25, &v26);
-    if ( (int)result >= 0 )
+    v20 = ContextFlags;
+    result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+    if ( result >= 0 )
     {
-      v21 = v26 + 15LL;
-      if ( v21 <= v26 )
+      v21 = ContextLength + 15LL;
+      if ( v21 <= ContextLength )
         v21 = 0xFFFFFFFFFFFFFF0LL;
       v22 = alloca(v21 & 0xFFFFFFFFFFFFFFF0uLL);
-      v28[15] = &v25;
-      memset(&v25, 0, v26);
-      result = RtlInitializeExtendedContext(v28[15], v20, (__int64)&v27);
-      if ( (int)result >= 0 )
+      v28[15] = &ContextFlags;
+      memset(&ContextFlags, 0, ContextLength);
+      result = RtlInitializeExtendedContext((PCONTEXT)v28[15], v20, &ContextEx);
+      if ( result >= 0 )
       {
-        v28[15] = v27 - 1232;
-        result = RtlpReadExtendedContext(v23, 1u, v27, v20, a2, 0LL);
-        if ( (int)result >= 0 )
+        v28[15] = (char *)ContextEx - 1232;
+        result = RtlpReadExtendedContext(v23, 1u, (__int64)ContextEx, v20, a2, 0LL);
+        if ( result >= 0 )
         {
 LABEL_6:
           if ( a4 && (Thread->MiscFlags & 0x400) != 0 )
-            return (unsigned int)-1073741776;
+            return -1073741776;
           BYTE1(v28[11]) &= ~4u;
           v11 = BYTE1(v28[11]);
           if ( a4 )
@@ -104,7 +104,7 @@ LABEL_6:
               {
                 v14 = KeVerifyContextRecord((__int64)Thread, v28[15], v13, 0LL, 0LL);
                 if ( v14 < 0 )
-                  return (unsigned int)v14;
+                  return v14;
                 v11 = BYTE1(v28[11]) | 4;
               }
             }
@@ -124,9 +124,9 @@ LABEL_15:
             if ( v28[11] >= 0 && a3 == 1 && a4 == 1 )
             {
               LOBYTE(v18) = KeGetCurrentThread()->PreviousMode;
-              EtwTiLogSetContextThread(v18, Thread, v28[15], v25, v24);
+              EtwTiLogSetContextThread(v18, Thread, v28[15], ContextFlags, v24);
             }
-            return (unsigned int)v14;
+            return v14;
           }
           BYTE1(v28[11]) = v11 & 0xFD | (2 * (a5 & 1)) | 1;
           KeInitializeGate((__int64)&v28[12]);
@@ -136,7 +136,7 @@ LABEL_15:
             KeWaitForGate((__int64)&v28[12], 0);
             goto LABEL_15;
           }
-          return (unsigned int)-1073741823;
+          return -1073741823;
         }
       }
     }

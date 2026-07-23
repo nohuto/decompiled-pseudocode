@@ -55,21 +55,21 @@
  *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopLoadDriver(HANDLE Handle, char a2, unsigned __int8 a3, int *a4)
+__int64 __fastcall IopLoadDriver(HANDLE KeyHandle, char a2, unsigned __int8 a3, int *a4)
 {
   ULONG_PTR v4; // rsi
   int v5; // ebx
   wchar_t *Buffer; // r12
-  int v8; // eax
+  NTSTATUS v8; // eax
   unsigned __int16 *v9; // rdi
   int DriverNameFromKeyNode; // r14d
   __int64 v11; // rcx
   wchar_t *Pool; // rax
   int SystemImage; // eax
-  __int64 v14; // rax
+  PIMAGE_NT_HEADERS v14; // rax
   _QWORD *v15; // rbx
-  __int64 v16; // rdx
-  __int64 v17; // rax
+  PIMAGE_NT_HEADERS v16; // rdx
+  char *v17; // rax
   HANDLE v18; // rdi
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS v20; // eax
@@ -82,77 +82,75 @@ __int64 __fastcall IopLoadDriver(HANDLE Handle, char a2, unsigned __int8 a3, int
   unsigned int i; // eax
   __int64 v28; // rdi
   struct _KTHREAD *Lock; // rbx
-  int ValueKey; // eax
-  __int64 v32; // rdx
+  __int64 v31; // rdx
   int RegistryValue; // eax
-  ULONG_PTR v34; // r9
-  PVOID *NewObject; // [rsp+20h] [rbp-E0h]
+  ULONG_PTR v33; // r9
   UNICODE_STRING Destination; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v38; // [rsp+68h] [rbp-98h] BYREF
-  UNICODE_STRING v39; // [rsp+70h] [rbp-90h] BYREF
-  char v40[4]; // [rsp+80h] [rbp-80h]
-  UNICODE_STRING v41; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v42; // [rsp+98h] [rbp-68h] BYREF
-  int v43; // [rsp+A0h] [rbp-60h] BYREF
-  HANDLE v44; // [rsp+A8h] [rbp-58h] BYREF
+  ULONG Length; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING v37; // [rsp+70h] [rbp-90h] BYREF
+  char v38[4]; // [rsp+80h] [rbp-80h]
+  UNICODE_STRING v39; // [rsp+88h] [rbp-78h] BYREF
+  PVOID BaseOfImage; // [rsp+98h] [rbp-68h] BYREF
+  int v41; // [rsp+A0h] [rbp-60h] BYREF
+  HANDLE Handle; // [rsp+A8h] [rbp-58h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+B0h] [rbp-50h] BYREF
-  int v46; // [rsp+B8h] [rbp-48h] BYREF
-  ULONG v47; // [rsp+BCh] [rbp-44h] BYREF
-  PVOID v48; // [rsp+C0h] [rbp-40h] BYREF
-  PVOID v49; // [rsp+C8h] [rbp-38h] BYREF
+  ULONG v44; // [rsp+B8h] [rbp-48h] BYREF
+  ULONG ReturnLength; // [rsp+BCh] [rbp-44h] BYREF
+  PVOID v46; // [rsp+C0h] [rbp-40h] BYREF
+  PVOID v47; // [rsp+C8h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+D0h] [rbp-30h] BYREF
   PVOID Object; // [rsp+E0h] [rbp-20h] BYREF
-  PVOID v52; // [rsp+E8h] [rbp-18h]
+  PVOID v50; // [rsp+E8h] [rbp-18h]
   PVOID P; // [rsp+F0h] [rbp-10h]
-  int *v54; // [rsp+F8h] [rbp-8h]
-  _DWORD v55[2]; // [rsp+100h] [rbp+0h] BYREF
-  __int64 v56; // [rsp+108h] [rbp+8h]
-  UNICODE_STRING *v57; // [rsp+110h] [rbp+10h]
-  int v58; // [rsp+118h] [rbp+18h]
-  int v59; // [rsp+11Ch] [rbp+1Ch]
-  __int128 v60; // [rsp+120h] [rbp+20h]
-  _WORD v61[40]; // [rsp+130h] [rbp+30h] BYREF
+  int *v52; // [rsp+F8h] [rbp-8h]
+  _DWORD v53[2]; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v54; // [rsp+108h] [rbp+8h]
+  UNICODE_STRING *v55; // [rsp+110h] [rbp+10h]
+  int v56; // [rsp+118h] [rbp+18h]
+  int v57; // [rsp+11Ch] [rbp+1Ch]
+  __int128 v58; // [rsp+120h] [rbp+20h]
+  _WORD KeyValueInformation[40]; // [rsp+130h] [rbp+30h] BYREF
 
   v4 = 0LL;
-  v54 = a4;
+  v52 = a4;
   *a4 = 0;
   v5 = a3;
   P = 0LL;
-  LODWORD(v38) = 0;
+  Length = 0;
   *(_QWORD *)&Destination.Length = 0LL;
   Buffer = 0LL;
-  *(_QWORD *)&v39.Length = 0LL;
-  v39.Buffer = 0LL;
-  v55[1] = 0;
-  v59 = 0;
+  *(_QWORD *)&v37.Length = 0LL;
+  v37.Buffer = 0LL;
+  v53[1] = 0;
+  v57 = 0;
   BugCheckParameter2 = 0LL;
-  *(_QWORD *)&v41.Length = 0LL;
+  *(_QWORD *)&v39.Length = 0LL;
   Object = 0LL;
-  v42 = 0LL;
-  *(_DWORD *)v40 = 0;
-  v44 = 0LL;
-  v41.Buffer = 0LL;
+  BaseOfImage = 0LL;
+  *(_DWORD *)v38 = 0;
+  Handle = 0LL;
+  v39.Buffer = 0LL;
   Destination.Buffer = 0LL;
-  v43 = 0;
-  v8 = NtQueryKey(Handle, 0, 0LL, 0, &v38);
+  v41 = 0;
+  v8 = NtQueryKey(KeyHandle, KeyBasicInformation, 0LL, 0, &Length);
   if ( v8 != -1073741789 && v8 != -2147483643 )
   {
     DriverNameFromKeyNode = -1073741472;
     goto LABEL_35;
   }
-  if ( (int)v38 + 8 < (unsigned int)v38 )
+  if ( Length + 8 < Length )
   {
     DriverNameFromKeyNode = -1073741675;
     goto LABEL_35;
   }
-  P = IopVerifierExAllocatePool(NonPagedPoolNx, (unsigned int)(v38 + 8));
+  P = IopVerifierExAllocatePool(NonPagedPoolNx, Length + 8);
   v9 = (unsigned __int16 *)P;
   if ( !P )
   {
     DriverNameFromKeyNode = -1073741670;
     goto LABEL_35;
   }
-  DriverNameFromKeyNode = NtQueryKey(Handle, 0, P, v38, &v38);
+  DriverNameFromKeyNode = NtQueryKey(KeyHandle, KeyBasicInformation, P, Length, &Length);
   if ( DriverNameFromKeyNode >= 0 )
   {
     v11 = v9[6];
@@ -160,37 +158,35 @@ __int64 __fastcall IopLoadDriver(HANDLE Handle, char a2, unsigned __int8 a3, int
     Destination.MaximumLength = v11 + 8;
     Destination.Buffer = v9 + 8;
     Pool = (wchar_t *)IopVerifierExAllocatePool(PagedPool, v11 + 2);
-    v39.Buffer = Pool;
+    v37.Buffer = Pool;
     Buffer = Pool;
     if ( Pool )
     {
-      v39.Length = Destination.Length;
-      v39.MaximumLength = Destination.Length + 2;
+      v37.Length = Destination.Length;
+      v37.MaximumLength = Destination.Length + 2;
       memmove(Pool, Destination.Buffer, Destination.Length);
       Buffer[(unsigned __int64)Destination.Length >> 1] = 0;
       RtlAppendUnicodeToString(&Destination, L".SYS");
       HeadlessKernelAddLogEntry();
-      PnpDiagnosticTraceObject(&KMPnPEvt_DriverLoad_Start, &v39.Length);
-      if ( (_DWORD)InitSafeBootMode )
+      PnpDiagnosticTraceObject(&KMPnPEvt_DriverLoad_Start, &v37.Length);
+      if ( InitSafeBootMode )
       {
         if ( a2 )
         {
-          v46 = 0;
+          v44 = 0;
           DestinationString = 0LL;
           RtlInitUnicodeString(&DestinationString, L"Group");
-          memset(v61, 0, 0x4CuLL);
-          LODWORD(NewObject) = 76;
-          ValueKey = NtQueryValueKey(
-                       Handle,
-                       (unsigned __int64)&DestinationString,
-                       2LL,
-                       (unsigned __int64)v61,
-                       (size_t)NewObject,
-                       (unsigned __int64)&v46);
-          if ( ValueKey < 0
-            || (DestinationString.Length = v61[4] - 2,
-                DestinationString.MaximumLength = v61[4] - 2,
-                DestinationString.Buffer = &v61[6],
+          memset(KeyValueInformation, 0, 0x4CuLL);
+          if ( NtQueryValueKey(
+                 KeyHandle,
+                 &DestinationString,
+                 KeyValuePartialInformation,
+                 KeyValueInformation,
+                 0x4Cu,
+                 &v44) < 0
+            || (DestinationString.Length = KeyValueInformation[4] - 2,
+                DestinationString.MaximumLength = KeyValueInformation[4] - 2,
+                DestinationString.Buffer = &KeyValueInformation[6],
                 !(unsigned __int8)IopSafebootDriverLoad(&DestinationString)) )
           {
             if ( !(unsigned __int8)IopSafebootDriverLoad(&Destination) )
@@ -198,23 +194,23 @@ __int64 __fastcall IopLoadDriver(HANDLE Handle, char a2, unsigned __int8 a3, int
               IopBootLog(&Destination);
               DbgPrint("SAFEBOOT: skipping device = %wZ(%wZ)\n", &Destination, &DestinationString);
               HeadlessKernelAddLogEntry();
-              ObCloseHandle(Handle, 0);
+              ObCloseHandle(KeyHandle, 0);
               return 3221226335LL;
             }
           }
         }
       }
-      DriverNameFromKeyNode = IopBuildFullDriverPath(&v39, Handle, &Destination);
+      DriverNameFromKeyNode = IopBuildFullDriverPath(&v37, KeyHandle, &Destination);
       if ( DriverNameFromKeyNode >= 0 )
       {
-        DriverNameFromKeyNode = IopGetDriverNameFromKeyNode(Handle, &v41);
+        DriverNameFromKeyNode = IopGetDriverNameFromKeyNode(KeyHandle, &v39);
         if ( DriverNameFromKeyNode >= 0 )
         {
-          v55[0] = 48;
-          v56 = 0LL;
-          v57 = &v41;
-          v58 = IopCaseInsensitive != 0 ? 592 : 528;
-          v60 = 0LL;
+          v53[0] = 48;
+          v54 = 0LL;
+          v55 = &v39;
+          v56 = IopCaseInsensitive != 0 ? 592 : 528;
+          v58 = 0LL;
           ExAcquireResourceExclusiveLite(&IopDriverLoadResource, 1u);
           SystemImage = MmLoadSystemImage(
                           (unsigned int)&Destination,
@@ -222,7 +218,7 @@ __int64 __fastcall IopLoadDriver(HANDLE Handle, char a2, unsigned __int8 a3, int
                           0,
                           0,
                           (__int64)&BugCheckParameter2,
-                          (__int64)&v42);
+                          (__int64)&BaseOfImage);
           DriverNameFromKeyNode = SystemImage;
           if ( SystemImage < 0 )
           {
@@ -231,19 +227,19 @@ __int64 __fastcall IopLoadDriver(HANDLE Handle, char a2, unsigned __int8 a3, int
             if ( (unsigned __int8)IopCheckIfNotNativeDriver((unsigned int)SystemImage, &Destination) == 1 )
             {
               DriverNameFromKeyNode = ((_BYTE)v5 != 0) - 1073740949;
-              IopLogBlockedDriverEvent(&Destination, v32, (unsigned int)DriverNameFromKeyNode);
+              IopLogBlockedDriverEvent(&Destination, v31, (unsigned int)DriverNameFromKeyNode);
             }
             if ( DriverNameFromKeyNode == -1073741554 )
             {
 LABEL_53:
               DriverNameFromKeyNode = ObOpenObjectByName(
-                                        (__int64)v55,
+                                        (__int64)v53,
                                         (__int64)IoDriverObjectType,
                                         0,
                                         0LL,
                                         0,
                                         0LL,
-                                        (__int64)&v44);
+                                        (__int64)&Handle);
               if ( DriverNameFromKeyNode < 0 )
               {
                 ExReleaseResourceLite(&IopDriverLoadResource);
@@ -252,13 +248,13 @@ LABEL_53:
                   DriverNameFromKeyNode = -1073740914;
                 goto LABEL_35;
               }
-              v48 = 0LL;
-              DriverNameFromKeyNode = ObReferenceObjectByHandle(v44, 0, IoDriverObjectType, 0, &v48, 0LL);
-              ZwClose(v44);
+              v46 = 0LL;
+              DriverNameFromKeyNode = ObReferenceObjectByHandle(Handle, 0, IoDriverObjectType, 0, &v46, 0LL);
+              ZwClose(Handle);
               if ( DriverNameFromKeyNode >= 0 )
               {
-                DriverNameFromKeyNode = IopResurrectDriver((__int64)v48);
-                HalPutDmaAdapter((PADAPTER_OBJECT)v48);
+                DriverNameFromKeyNode = IopResurrectDriver((__int64)v46);
+                HalPutDmaAdapter((PADAPTER_OBJECT)v46);
               }
             }
             ExReleaseResourceLite(&IopDriverLoadResource);
@@ -266,15 +262,15 @@ LABEL_53:
           }
           else
           {
-            v14 = RtlImageNtHeader(v42);
-            *(_WORD *)v40 = *(_WORD *)(v14 + 70);
-            *(_WORD *)&v40[2] = *(_WORD *)(v14 + 68);
-            DriverNameFromKeyNode = PnpPrepareDriverLoading((int)&v39, Handle, v42, v5, &v43);
+            v14 = RtlImageNtHeader(BaseOfImage);
+            *(_WORD *)v38 = v14->OptionalHeader.MinorImageVersion;
+            *(_WORD *)&v38[2] = v14->OptionalHeader.MajorImageVersion;
+            DriverNameFromKeyNode = PnpPrepareDriverLoading((int)&v37, KeyHandle, BaseOfImage, v5, &v41);
             if ( DriverNameFromKeyNode < 0
               || (DriverNameFromKeyNode = ObCreateObject(
                                             KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10],
                                             IoDriverObjectType,
-                                            (int)v55,
+                                            (int)v53,
                                             0,
                                             0,
                                             416,
@@ -292,69 +288,69 @@ LABEL_53:
               memset(Object, 0, 0x1A0uLL);
               v15[6] = v15 + 42;
               v15[42] = v15;
-              v47 = 28;
+              ReturnLength = 28;
               memset64(v15 + 14, (unsigned __int64)IopInvalidDeviceRequest, 0x1CuLL);
               *(_DWORD *)v15 = 22020100;
-              v16 = RtlImageNtHeader(v42);
-              *(_WORD *)v40 = *(_WORD *)(v16 + 70);
-              *(_WORD *)&v40[2] = *(_WORD *)(v16 + 68);
-              v17 = v42 + *(unsigned int *)(v16 + 40);
-              if ( (*(_WORD *)(v16 + 94) & 0x2000) == 0 )
+              v16 = RtlImageNtHeader(BaseOfImage);
+              *(_WORD *)v38 = v16->OptionalHeader.MinorImageVersion;
+              *(_WORD *)&v38[2] = v16->OptionalHeader.MajorImageVersion;
+              v17 = (char *)BaseOfImage + v16->OptionalHeader.AddressOfEntryPoint;
+              if ( (v16->OptionalHeader.DllCharacteristics & 0x2000) == 0 )
                 *((_DWORD *)v15 + 4) |= 2u;
               v15[11] = v17;
               v15[5] = BugCheckParameter2;
-              v15[3] = v42;
-              *((_DWORD *)v15 + 8) = *(_DWORD *)(v16 + 80);
-              DriverNameFromKeyNode = ObInsertObject(v15, 0LL, 1u, 0, 0LL, &v44);
+              v15[3] = BaseOfImage;
+              *((_DWORD *)v15 + 8) = v16->OptionalHeader.SizeOfImage;
+              DriverNameFromKeyNode = ObInsertObject(v15, 0LL, 1u, 0, 0LL, &Handle);
               ExReleaseResourceLite(&IopDriverLoadResource);
               if ( DriverNameFromKeyNode >= 0 )
               {
-                v18 = v44;
+                v18 = Handle;
                 PreviousMode = KeGetCurrentThread()->PreviousMode;
-                v49 = 0LL;
-                v20 = ObReferenceObjectByHandle(v44, 0, IoDriverObjectType, PreviousMode, &v49, 0LL);
+                v47 = 0LL;
+                v20 = ObReferenceObjectByHandle(Handle, 0, IoDriverObjectType, PreviousMode, &v47, 0LL);
                 if ( v20 )
-                  KeBugCheckEx(0x11Fu, (ULONG_PTR)v18, v20, (ULONG_PTR)v49, 0LL);
+                  KeBugCheckEx(0x11Fu, (ULONG_PTR)v18, v20, (ULONG_PTR)v47, 0LL);
                 ZwClose(v18);
-                v21 = (char *)v49;
-                *((_QWORD *)v49 + 9) = &CmRegistryMachineHardwareDescriptionSystemName;
-                v22 = IopVerifierExAllocatePool(NonPagedPoolNx, v41.MaximumLength);
+                v21 = (char *)v47;
+                *((_QWORD *)v47 + 9) = &CmRegistryMachineHardwareDescriptionSystemName;
+                v22 = IopVerifierExAllocatePool(NonPagedPoolNx, v39.MaximumLength);
                 *((_QWORD *)v21 + 8) = v22;
                 if ( v22 )
                 {
-                  *((_WORD *)v21 + 29) = v41.MaximumLength;
-                  *((_WORD *)v21 + 28) = v41.Length;
-                  memmove(*((void **)v21 + 8), v41.Buffer, v41.MaximumLength);
+                  *((_WORD *)v21 + 29) = v39.MaximumLength;
+                  *((_WORD *)v21 + 28) = v39.Length;
+                  memmove(*((void **)v21 + 8), v39.Buffer, v39.MaximumLength);
                 }
                 v23 = IopVerifierExAllocatePool(NonPagedPoolNx, 0x1000uLL);
                 if ( v23 )
                 {
-                  DriverNameFromKeyNode = NtQueryObject(Handle, ObjectNameInformation, v23, 0x1000u, &v47);
+                  DriverNameFromKeyNode = NtQueryObject(KeyHandle, ObjectNameInformation, v23, 0x1000u, &ReturnLength);
                   if ( DriverNameFromKeyNode < 0 )
                   {
                     ObMakeTemporaryObject(v21);
                     HalPutDmaAdapter((PADAPTER_OBJECT)v21);
                     ExFreePoolWithTag(v23, 0);
-                    Buffer = v39.Buffer;
+                    Buffer = v37.Buffer;
                   }
                   else
                   {
-                    Buffer = v39.Buffer;
-                    if ( v39.Buffer )
+                    Buffer = v37.Buffer;
+                    if ( v37.Buffer )
                     {
-                      MaximumLength = v39.MaximumLength;
+                      MaximumLength = v37.MaximumLength;
                       *(_QWORD *)(*((_QWORD *)v21 + 6) + 32LL) = IopVerifierExAllocatePool(
                                                                    NonPagedPoolNx,
-                                                                   v39.MaximumLength);
+                                                                   v37.MaximumLength);
                       v25 = *((_QWORD *)v21 + 6);
                       if ( *(_QWORD *)(v25 + 32) )
                       {
                         *(_WORD *)(v25 + 26) = MaximumLength;
-                        *(_WORD *)(*((_QWORD *)v21 + 6) + 24LL) = v39.Length;
+                        *(_WORD *)(*((_QWORD *)v21 + 6) + 24LL) = v37.Length;
                         memmove(*(void **)(*((_QWORD *)v21 + 6) + 32LL), Buffer, MaximumLength);
                       }
                     }
-                    if ( (v43 & 1) != 0 )
+                    if ( (v41 & 1) != 0 )
                       *((_DWORD *)v21 + 4) |= 0x100u;
                     PnpDiagnosticTraceObject(&KMPnPEvt_DriverInit_Start, (unsigned __int16 *)v23);
                     VfDifCaptureDriverEntry((__int64)v21);
@@ -368,7 +364,7 @@ LABEL_53:
                       &KMPnPEvt_DriverInit_Stop,
                       (unsigned __int16 *)v23,
                       DriverNameFromKeyNode);
-                    *v54 = DriverNameFromKeyNode;
+                    *v52 = DriverNameFromKeyNode;
                     if ( DriverNameFromKeyNode < 0 )
                       DriverNameFromKeyNode = -1073740955;
                     for ( i = 0; i <= 0x1B; ++i )
@@ -398,14 +394,14 @@ LABEL_53:
                 {
                   ObMakeTemporaryObject(v21);
                   HalPutDmaAdapter((PADAPTER_OBJECT)v21);
-                  Buffer = v39.Buffer;
+                  Buffer = v37.Buffer;
                   DriverNameFromKeyNode = -1073741670;
                 }
                 goto LABEL_35;
               }
             }
             IopBootLog(&Destination);
-            Buffer = v39.Buffer;
+            Buffer = v37.Buffer;
           }
         }
         goto LABEL_35;
@@ -421,28 +417,28 @@ LABEL_35:
   HeadlessKernelAddLogEntry();
   if ( (int)(DriverNameFromKeyNode + 0x80000000) >= 0 && DriverNameFromKeyNode != -1073741218 )
   {
-    v52 = 0LL;
+    v50 = 0LL;
     if ( DriverNameFromKeyNode != -1073741554 )
     {
-      PnpDriverLoadingFailed(Handle);
+      PnpDriverLoadingFailed(KeyHandle);
       if ( DriverNameFromKeyNode != -1073740955 )
       {
-        RegistryValue = IopGetRegistryValue(Handle);
+        RegistryValue = IopGetRegistryValue(KeyHandle);
         if ( RegistryValue >= 0 )
         {
-          if ( *((_DWORD *)v52 + 3)
+          if ( *((_DWORD *)v50 + 3)
             && (_BYTE)CmFirstTime == 1
-            && (unsigned int)(*(_DWORD *)((char *)v52 + *((unsigned int *)v52 + 2)) - 2) <= 1 )
+            && (unsigned int)(*(_DWORD *)((char *)v50 + *((unsigned int *)v50 + 2)) - 2) <= 1 )
           {
             if ( ((unsigned __int64)&Destination & -(__int64)(Destination.Buffer != 0LL)) != 0 )
-              v34 = *(_QWORD *)(((unsigned __int64)&Destination & -(__int64)(Destination.Buffer != 0LL)) + 8);
+              v33 = *(_QWORD *)(((unsigned __int64)&Destination & -(__int64)(Destination.Buffer != 0LL)) + 8);
             else
-              v34 = 0LL;
-            if ( ((unsigned __int64)&v41 & -(__int64)(v41.Buffer != 0LL)) != 0 )
-              v4 = *(_QWORD *)(((unsigned __int64)&v41 & -(__int64)(v41.Buffer != 0LL)) + 8);
-            KeBugCheckEx(0x5Au, 1uLL, v4, v34, DriverNameFromKeyNode);
+              v33 = 0LL;
+            if ( ((unsigned __int64)&v39 & -(__int64)(v39.Buffer != 0LL)) != 0 )
+              v4 = *(_QWORD *)(((unsigned __int64)&v39 & -(__int64)(v39.Buffer != 0LL)) + 8);
+            KeBugCheckEx(0x5Au, 1uLL, v4, v33, DriverNameFromKeyNode);
           }
-          ExFreePoolWithTag(v52, 0);
+          ExFreePoolWithTag(v50, 0);
         }
       }
     }
@@ -453,16 +449,16 @@ LABEL_35:
   {
     PnpDiagnosticTraceDriverFullInfo(
       &KMPnPEvt_DriverLoad_Stop,
-      &v39.Length,
+      &v37.Length,
       DriverNameFromKeyNode,
-      (__int64)&v41,
-      v40[0]);
+      (__int64)&v39,
+      v38[0]);
     ExFreePoolWithTag(Buffer, 0);
   }
-  if ( v41.Buffer )
-    ExFreePoolWithTag(v41.Buffer, 0);
+  if ( v39.Buffer )
+    ExFreePoolWithTag(v39.Buffer, 0);
   if ( Destination.Buffer )
     ExFreePoolWithTag(Destination.Buffer, 0);
-  ObCloseHandle(Handle, 0);
+  ObCloseHandle(KeyHandle, 0);
   return (unsigned int)DriverNameFromKeyNode;
 }

@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     KeQueryNodeActiveAffinity @ 0x140263730 (KeQueryNodeActiveAffinity.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x140349710 (ExpAllocatePoolWithTagFromNode.c)
+ *     sub_140348800 @ 0x140348800 (sub_140348800.c)
+ *     sub_140349710 @ 0x140349710 (sub_140349710.c)
  *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
  *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
@@ -30,12 +30,12 @@ ULONG_PTR __fastcall ExAllocateCacheAwarePushLock(char a1)
   unsigned int v13; // r15d
   struct _KPRCB *v14; // rax
   USHORT v15; // cx
-  _QWORD *PoolWithTagFromNode; // rax
+  _QWORD *v16; // rax
   _QWORD *v17; // rdi
   unsigned int v18; // [rsp+30h] [rbp-68h]
   _QWORD *v19; // [rsp+38h] [rbp-60h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-48h] BYREF
 
   v1 = 0;
   v2 = a1 & 1;
@@ -47,7 +47,7 @@ ULONG_PTR __fastcall ExAllocateCacheAwarePushLock(char a1)
   if ( !PoolWithTag )
     return 0LL;
   memset(PoolWithTag, 0, 0x100uLL);
-  if ( KeNumberNodes == 1 )
+  if ( word_140D05000 == 1 )
   {
     v6 = (char *)ExAllocatePoolWithTag(v3, 0x1000uLL, 0x6C636C50u);
     v7 = v6;
@@ -74,17 +74,17 @@ LABEL_28:
     ExFreeCacheAwarePushLock(v5);
     return v10;
   }
-  v12 = KeNumberProcessors_0;
+  v12 = dword_140D06884;
   v13 = 0;
-  v18 = KeNumberProcessors_0;
+  v18 = dword_140D06884;
   v19 = (_QWORD *)v5;
   while ( 1 )
   {
-    v14 = v13 >= v12 ? KeGetCurrentPrcb() : (struct _KPRCB *)KeGetPrcb(v13);
-    v15 = v14->SchedulerSubNode->Affinity.Reserved[0];
+    v14 = v13 >= v12 ? KeGetCurrentPrcb() : (struct _KPRCB *)sub_140348800(v13);
+    v15 = *(_WORD *)(*((_QWORD *)v14 + 24) + 138LL);
     if ( v2 )
     {
-      PoolWithTagFromNode = (_QWORD *)ExpAllocatePoolWithTagFromNode(NonPagedPoolNx, 0x80uLL, 1818455120LL, v15, 0);
+      v16 = (_QWORD *)sub_140349710(NonPagedPoolNx, 0x80uLL, 1818455120LL, v15, 0);
     }
     else
     {
@@ -98,12 +98,12 @@ LABEL_28:
         KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
         v1 = 1;
       }
-      PoolWithTagFromNode = ExAllocatePoolWithTag(v3, 0x80uLL, 0x6C636C50u);
+      v16 = ExAllocatePoolWithTag(v3, 0x80uLL, 0x6C636C50u);
     }
-    v17 = PoolWithTagFromNode;
-    if ( !PoolWithTagFromNode )
+    v17 = v16;
+    if ( !v16 )
       break;
-    memset(PoolWithTagFromNode, 0, 0x80uLL);
+    memset(v16, 0, 0x80uLL);
     ++v13;
     v17[2] = v5;
     *v19++ = v17;

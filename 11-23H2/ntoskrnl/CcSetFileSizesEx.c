@@ -1,23 +1,23 @@
 /*
- * XREFs of CcSetFileSizesEx @ 0x1402F0FA0
+ * XREFs of CcSetFileSizesEx @ 0x1402F1230
  * Callers:
- *     CcSetFileSizes @ 0x1402F2580 (CcSetFileSizes.c)
+ *     CcSetFileSizes @ 0x1402F2810 (CcSetFileSizes.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14023CBB0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     CcDecrementOpenCount @ 0x14029CB20 (CcDecrementOpenCount.c)
- *     CcUnmapVacbArray @ 0x14029EDC0 (CcUnmapVacbArray.c)
- *     CcPurgeCacheSection @ 0x1402F07D0 (CcPurgeCacheSection.c)
- *     CcPurgeAndClearCacheSection @ 0x1402F12D4 (CcPurgeAndClearCacheSection.c)
- *     CcExtendVacbArray @ 0x1402F2A44 (CcExtendVacbArray.c)
- *     CcDeleteMbcb @ 0x1402F3E04 (CcDeleteMbcb.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     FsRtlIsNtstatusExpected @ 0x140359D00 (FsRtlIsNtstatusExpected.c)
- *     CcDeleteBcbs @ 0x1403C6668 (CcDeleteBcbs.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MmExtendSection @ 0x140706504 (MmExtendSection.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14023CC80 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     CcDecrementOpenCount @ 0x14029CDB0 (CcDecrementOpenCount.c)
+ *     CcUnmapVacbArray @ 0x14029F050 (CcUnmapVacbArray.c)
+ *     CcPurgeCacheSection @ 0x1402F0A60 (CcPurgeCacheSection.c)
+ *     CcPurgeAndClearCacheSection @ 0x1402F1564 (CcPurgeAndClearCacheSection.c)
+ *     CcExtendVacbArray @ 0x1402F2CD4 (CcExtendVacbArray.c)
+ *     CcDeleteMbcb @ 0x1402F4094 (CcDeleteMbcb.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     FsRtlIsNtstatusExpected @ 0x140359EA0 (FsRtlIsNtstatusExpected.c)
+ *     CcDeleteBcbs @ 0x1403C6848 (CcDeleteBcbs.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MmExtendSection @ 0x140706714 (MmExtendSection.c)
  */
 
 NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES FileSizes)
@@ -39,7 +39,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
   unsigned __int64 v16; // r14
   __int64 v17; // rcx
   NTSTATUS v18; // eax
-  int v19; // r14d
+  NTSTATUS v19; // r14d
   unsigned __int64 v20; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -105,10 +105,10 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
     ++*(_DWORD *)(SharedCacheMap + 544);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
     OldIrql = v56.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v56.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v56.OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -122,10 +122,10 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
     __writecr8(OldIrql);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v16 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v26 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
       {
         v27 = KeGetCurrentPrcb();
         v28 = v27->SchedulerAssist;
@@ -157,7 +157,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
     if ( v19 < 0 )
     {
       KeReleaseInStackQueuedSpinLock(&v56);
-      RtlRaiseStatus((unsigned int)v19);
+      RtlRaiseStatus(v19);
     }
     SharedCacheMap = (__int64)v60->SharedCacheMap;
     if ( SharedCacheMap )
@@ -169,10 +169,10 @@ LABEL_4:
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
         v7 = v56.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v35 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && v56.OldIrql <= 0xFu && v35 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && v56.OldIrql <= 0xFu && v35 >= 2u )
           {
             v36 = KeGetCurrentPrcb();
             v37 = v36->SchedulerAssist;
@@ -186,10 +186,10 @@ LABEL_4:
         __writecr8(v7);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v8 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v39 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && LockHandle.OldIrql <= 0xFu && v39 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && LockHandle.OldIrql <= 0xFu && v39 >= 2u )
           {
             v40 = KeGetCurrentPrcb();
             v41 = v40->SchedulerAssist;
@@ -220,10 +220,10 @@ LABEL_4:
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
         v14 = v56.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v43 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v56.OldIrql <= 0xFu && v43 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v56.OldIrql <= 0xFu && v43 >= 2u )
           {
             v44 = KeGetCurrentPrcb();
             v45 = v44->SchedulerAssist;
@@ -253,10 +253,10 @@ LABEL_4:
       CcDecrementOpenCount(SharedCacheMap);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
       v12 = v56.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v47 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v56.OldIrql <= 0xFu && v47 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v56.OldIrql <= 0xFu && v47 >= 2u )
         {
           v48 = KeGetCurrentPrcb();
           v49 = v48->SchedulerAssist;
@@ -274,10 +274,10 @@ LABEL_4:
     {
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v56);
       v30 = v56.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v31 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && v56.OldIrql <= 0xFu && v31 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && v56.OldIrql <= 0xFu && v31 >= 2u )
         {
           v32 = KeGetCurrentPrcb();
           v33 = v32->SchedulerAssist;
@@ -296,10 +296,10 @@ LABEL_4:
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v20 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v51 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
       {
         if ( v51 <= 0xFu && LockHandle.OldIrql <= 0xFu && v51 >= 2u )
         {

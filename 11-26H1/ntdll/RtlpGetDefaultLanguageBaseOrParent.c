@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpGetDefaultLanguageBaseOrParent @ 0x180142888
+ * XREFs of RtlpGetDefaultLanguageBaseOrParent @ 0x180142788
  * Callers:
- *     RtlpGetCompleteLanguageFallback @ 0x180142724 (RtlpGetCompleteLanguageFallback.c)
- *     RtlpSetInstallLanguage @ 0x180142B80 (RtlpSetInstallLanguage.c)
+ *     RtlpGetCompleteLanguageFallback @ 0x180142624 (RtlpGetCompleteLanguageFallback.c)
+ *     RtlpSetInstallLanguage @ 0x180142A80 (RtlpSetInstallLanguage.c)
  * Callees:
- *     RtlLCIDToCultureName @ 0x180005BA0 (RtlLCIDToCultureName.c)
- *     RtlULongToUShort @ 0x180105680 (RtlULongToUShort.c)
- *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x18014D74C (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
- *     RtlpMuiRegGetString @ 0x18014D960 (RtlpMuiRegGetString.c)
+ *     RtlLCIDToCultureName @ 0x1800512D0 (RtlLCIDToCultureName.c)
+ *     RtlULongToUShort @ 0x180104ED4 (RtlULongToUShort.c)
+ *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x18014D5FC (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
+ *     RtlpMuiRegGetString @ 0x18014D810 (RtlpMuiRegGetString.c)
  */
 
 __int64 __fastcall RtlpGetDefaultLanguageBaseOrParent(
         __int64 a1,
         __int64 a2,
         _QWORD *a3,
-        __int64 a4,
+        wchar_t *a4,
         unsigned int a5,
         _QWORD *a6,
         _QWORD *a7)
@@ -25,13 +25,13 @@ __int64 __fastcall RtlpGetDefaultLanguageBaseOrParent(
   __int64 v14; // r12
   __int64 v15; // rdx
   int v17; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v18; // [rsp+38h] [rbp-40h] BYREF
+  _UNICODE_STRING String; // [rsp+38h] [rbp-40h] BYREF
   int v19; // [rsp+80h] [rbp+8h] BYREF
 
   v7 = 0;
   v19 = 0;
   v17 = 0;
-  v18 = 0LL;
+  String = 0LL;
   if ( !a1 || !a2 || !a4 || (*(_BYTE *)a2 & 2) == 0 && (*(_BYTE *)a2 & 4) == 0 )
     return (unsigned int)-1073741811;
   if ( a3 )
@@ -46,10 +46,10 @@ __int64 __fastcall RtlpGetDefaultLanguageBaseOrParent(
       break;
     if ( (*(_BYTE *)a2 & 4) == 0 )
     {
-      *((_QWORD *)&v18 + 1) = a4;
-      if ( (int)RtlULongToUShort(2 * (unsigned int)(unsigned __int16)v12, (__int16 *)&v18 + 1) >= 0 )
+      String.Buffer = a4;
+      if ( (int)RtlULongToUShort(2 * (unsigned int)(unsigned __int16)v12, (__int16 *)&String.MaximumLength) >= 0 )
       {
-        if ( (unsigned __int8)RtlLCIDToCultureName(v14, (__int64)&v18) )
+        if ( RtlLCIDToCultureName(v14, &String) )
           goto LABEL_21;
       }
     }
@@ -71,7 +71,7 @@ LABEL_28:
               a1,
               (unsigned __int16)v14,
               (unsigned int)&v17,
-              a4,
+              (_DWORD)a4,
               v12,
               (__int64)&v19) < 0
     || (v19 & 0x1000) != 0 )
@@ -84,11 +84,11 @@ LABEL_21:
   v15 = -1LL;
   do
     ++v15;
-  while ( *(_WORD *)(a4 + 2 * v15) );
+  while ( a4[v15] );
   if ( (unsigned int)v15 < v12 )
   {
     if ( a6 )
-      *a6 = a4 + 2LL * (unsigned int)v15;
+      *a6 = &a4[(unsigned int)v15];
     if ( a7 )
       *a7 = v12 - (unsigned int)v15;
   }

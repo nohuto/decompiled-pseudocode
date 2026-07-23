@@ -19,14 +19,14 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
+NTSTATUS __cdecl NtGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
   __int64 v5; // r14
   __int64 v6; // rax
-  int v7; // ebx
+  ULONG v7; // ebx
   struct _KTHREAD *CurrentThread; // rax
   char v9; // bl
-  int v10; // esi
+  NTSTATUS v10; // esi
   __int64 v11; // rdx
   __int64 v12; // r8
   __int64 v13; // r9
@@ -55,11 +55,11 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   Handle = 0LL;
   v26 = 0;
   v31 = 0;
-  if ( !KeGetCurrentThread()->PreviousMode || (_DWORD)InitSafeBootMode )
+  if ( !KeGetCurrentThread()->PreviousMode || InitSafeBootMode )
     goto LABEL_46;
-  if ( !a2 )
+  if ( !DataSize )
   {
-    if ( (a1 & 0xA) == 0 )
+    if ( (Flags & 0xA) == 0 )
       goto LABEL_47;
     Length = 0;
     v5 = 0x7FFFFFFF0000LL;
@@ -67,22 +67,22 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   }
   v5 = 0x7FFFFFFF0000LL;
   v6 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v6 = (__int64)a2;
+  if ( (unsigned __int64)DataSize < 0x7FFFFFFF0000LL )
+    v6 = (__int64)DataSize;
   Length = *(_DWORD *)v6;
   if ( !*(_DWORD *)v6 )
   {
 LABEL_11:
-    if ( a3 )
+    if ( Data )
       goto LABEL_47;
     goto LABEL_12;
   }
-  if ( !a3 )
+  if ( !Data )
     goto LABEL_47;
 LABEL_12:
   v7 = 1;
-  if ( a1 )
-    v7 = a1;
+  if ( Flags )
+    v7 = Flags;
   if ( (v7 & 0xFFFFFFF4) != 0 )
     goto LABEL_47;
   if ( !MUIRegistryLock )
@@ -203,15 +203,15 @@ LABEL_19:
   }
   v10 = 0;
 LABEL_23:
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v5 = (__int64)a2;
+  if ( (unsigned __int64)DataSize < 0x7FFFFFFF0000LL )
+    v5 = (__int64)DataSize;
   *(_DWORD *)v5 = *(_DWORD *)v5;
-  *a2 = MUIRegistryInfoSize;
+  *DataSize = MUIRegistryInfoSize;
   if ( v9 )
   {
-    ProbeForWrite(a3, Length, 1u);
-    memset((void *)a3, 0, Length);
-    memmove((void *)a3, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
+    ProbeForWrite(Data, Length, 1u);
+    memset(Data, 0, Length);
+    memmove(Data, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
   }
 LABEL_27:
   if ( v31 )
@@ -219,5 +219,5 @@ LABEL_27:
     ExReleaseResourceLite(MUIRegistryLock);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v12, v13);
   }
-  return (unsigned int)v10;
+  return v10;
 }

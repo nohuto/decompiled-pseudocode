@@ -1,32 +1,31 @@
 /*
- * XREFs of IopUnloadSafeCompletion @ 0x1403C2E70
+ * XREFs of IopUnloadSafeCompletion @ 0x1403B1A30
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     KeAreAllApcsDisabled @ 0x1403C3440 (KeAreAllApcsDisabled.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403C3480 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1409D2920 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpDeregisterObject @ 0x1409D2A68 (ObpDeregisterObject.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KeAreAllApcsDisabled @ 0x1403B2000 (KeAreAllApcsDisabled.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403B2040 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1409C2750 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObpDeregisterObject @ 0x1409C2898 (ObpDeregisterObject.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopUnloadSafeCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi
   volatile signed __int64 *v7; // rbp
-  __int64 v8; // r9
-  signed __int64 v9; // rax
-  bool v10; // cc
+  signed __int64 v8; // rax
+  bool v9; // cc
   signed __int64 BugCheckParameter4; // rax
-  BOOLEAN v13; // al
-  volatile signed __int64 *v14; // rcx
-  __int64 v15; // rax
+  BOOLEAN v12; // al
+  volatile signed __int64 *v13; // rcx
+  __int64 v14; // rax
 
   v3 = 0;
   if ( *(int *)(a2 + 48) < 0 )
@@ -36,14 +35,14 @@ __int64 __fastcall IopUnloadSafeCompletion(__int64 a1, __int64 a2, __int64 a3)
 LABEL_7:
     v7 = *(volatile signed __int64 **)a3;
     ObfReferenceObjectWithTag(*(PVOID *)a3, 0x70436F49u);
-    v3 = guard_dispatch_icall_no_overrides(a1, a2, *(_QWORD *)(a3 + 8), v8);
+    v3 = guard_dispatch_icall_no_overrides(a1, a2);
     ExFreePoolWithTag((PVOID)a3, 0);
     if ( ObpTraceFlags )
       ObpPushStackInfo((__int64)(v7 - 6), 0, 1u, 0x70436F49u);
-    v9 = _InterlockedExchangeAdd64(v7 - 6, 0xFFFFFFFFFFFFFFFFuLL);
-    v10 = v9 <= 1;
-    BugCheckParameter4 = v9 - 1;
-    if ( v10 )
+    v8 = _InterlockedExchangeAdd64(v7 - 6, 0xFFFFFFFFFFFFFFFFuLL);
+    v9 = v8 <= 1;
+    BugCheckParameter4 = v8 - 1;
+    if ( v9 )
     {
       if ( *((_QWORD *)v7 - 5) )
         KeBugCheckEx(
@@ -54,17 +53,17 @@ LABEL_7:
           *((_QWORD *)v7 - 5));
       if ( BugCheckParameter4 < 0 )
         KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)v7, 2uLL, BugCheckParameter4);
-      v13 = KeAreAllApcsDisabled();
-      v14 = v7 - 6;
-      if ( v13 )
+      v12 = KeAreAllApcsDisabled();
+      v13 = v7 - 6;
+      if ( v12 )
       {
-        ObpDeferObjectDeletion(v14);
+        ObpDeferObjectDeletion(v13);
       }
       else
       {
-        v15 = OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO(v14);
-        if ( v15 )
-          ObpHandleRevocationBlockRemoveObject(v15);
+        v14 = OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO(v13);
+        if ( v14 )
+          ObpHandleRevocationBlockRemoveObject(v14);
         if ( ObpTraceFlags )
           ObpDeregisterObject(v7 - 6);
         ObpRemoveObjectRoutine(v7 - 6, 0LL);

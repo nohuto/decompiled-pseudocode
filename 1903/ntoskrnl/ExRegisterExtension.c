@@ -18,14 +18,14 @@
 __int64 __fastcall ExRegisterExtension(__int64 *a1, int a2, unsigned __int16 *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v6; // rdi
+  PRTL_BALANCED_NODE v6; // rdi
   __int64 Host; // rdi
   unsigned __int16 v8; // ax
   unsigned int v9; // ecx
   struct _KTHREAD *v10; // rax
   volatile signed __int64 *v11; // rsi
-  __int64 v12; // rax
-  __int64 v13; // rbp
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // rbp
   void (__fastcall *v14)(_QWORD, _QWORD); // rax
   PVOID v15; // rdx
   void (__fastcall *v16)(__int64, _QWORD); // rax
@@ -40,7 +40,7 @@ __int64 __fastcall ExRegisterExtension(__int64 *a1, int a2, unsigned __int16 *a3
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpHostListLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(&ExpHostListLock, v6, (ULONG_PTR)&ExpHostListLock);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   Host = ExpFindHost(*a3, a3[1]);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpHostListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&ExpHostListLock);
@@ -76,7 +76,7 @@ LABEL_14:
   if ( _interlockedbittestandset64((volatile signed __int32 *)(Host + 72), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(Host + 72), v12, Host + 72);
   if ( v13 )
-    *(_BYTE *)(v13 + 26) |= 1u;
+    BYTE2(v13[1].Left) |= 1u;
   if ( *(_QWORD *)(Host + 80) || (*(_BYTE *)(Host + 88) & 1) != 0 )
   {
     if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

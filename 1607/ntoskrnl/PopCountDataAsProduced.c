@@ -19,10 +19,10 @@ char __fastcall PopCountDataAsProduced(__int64 a1, void *a2, _DWORD *a3, void *a
   unsigned __int64 v15; // rbx
   unsigned __int64 v16; // rax
 
-  v7 = (char *)qword_140303618;
+  v7 = (char *)qword_140303558;
   v11 = 8 * (unsigned __int8)*a3;
   v12 = ((*a3 >> 8) & 0x3FFFFF) + v11;
-  Buffer = ProducerGetBuffer(qword_140303618, v12 + 4, (unsigned int)(a5 << 12), a6);
+  Buffer = ProducerGetBuffer(qword_140303558, v12 + 4, (unsigned int)(a5 << 12), a6);
   result = 0;
   if ( Buffer )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViThunkReplaceAllSharedExports @ 0x140ADBE94
+ * XREFs of ViThunkReplaceAllSharedExports @ 0x140ADBE84
  * Callers:
- *     VfThunkApplyThunksCurrentSession @ 0x140ADB3DC (VfThunkApplyThunksCurrentSession.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140ADB3CC (VfThunkApplyThunksCurrentSession.c)
  * Callees:
- *     RtlNumberOfClearBits @ 0x140293540 (RtlNumberOfClearBits.c)
- *     ViThunkReplaceSharedExports @ 0x140ADC138 (ViThunkReplaceSharedExports.c)
+ *     RtlNumberOfClearBits @ 0x1402937D0 (RtlNumberOfClearBits.c)
+ *     ViThunkReplaceSharedExports @ 0x140ADC128 (ViThunkReplaceSharedExports.c)
  */
 
 __int64 __fastcall ViThunkReplaceAllSharedExports(_QWORD *a1)

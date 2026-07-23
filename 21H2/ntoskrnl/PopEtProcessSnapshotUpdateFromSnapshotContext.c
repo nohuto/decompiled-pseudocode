@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1406197CC
+ * XREFs of PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x14068342C
  * Callers:
- *     PopEtProcessSnapshotUpdate @ 0x1406190C8 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x140682D28 (PopEtProcessSnapshotUpdate.c)
  * Callees:
- *     PopEtStringSet @ 0x1406198B0 (PopEtStringSet.c)
+ *     PopEtStringSet @ 0x140683510 (PopEtStringSet.c)
  */
 
 __int16 __fastcall PopEtProcessSnapshotUpdateFromSnapshotContext(__int64 a1, _QWORD *a2)

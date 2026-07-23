@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogGetReadListsStart @ 0x140A50604
+ * XREFs of PfSnLogGetReadListsStart @ 0x140A598F4
  * Callers:
- *     PfSnPrefetchSections @ 0x140A4FBD4 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchSections @ 0x140A58EC4 (PfSnPrefetchSections.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogGetReadListsStart(__int64 a1, int a2)
@@ -27,9 +27,9 @@ void __fastcall PfSnLogGetReadListsStart(__int64 a1, int a2)
   if ( a1 )
   {
     v15 = a2;
-    if ( stru_140E66FF0.WaitBlock[0].Thread )
+    if ( stru_140E67200.WaitBlock[0].Thread )
     {
-      if ( EtwEventEnabled((REGHANDLE)stru_140E66FF0.WaitBlock[0].Thread, &PfSnEvt_GetReadLists_Start) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140E67200.WaitBlock[0].Thread, &PfSnEvt_GetReadLists_Start) )
       {
         v3 = -1LL;
         do
@@ -47,7 +47,7 @@ void __fastcall PfSnLogGetReadListsStart(__int64 a1, int a2)
         v10 = 4LL;
         v12 = 4LL;
         v14 = 4LL;
-        EtwWrite((REGHANDLE)stru_140E66FF0.WaitBlock[0].Thread, &PfSnEvt_GetReadLists_Start, 0LL, 5u, &UserData);
+        EtwWrite((REGHANDLE)stru_140E67200.WaitBlock[0].Thread, &PfSnEvt_GetReadLists_Start, 0LL, 5u, &UserData);
       }
     }
   }

@@ -259,7 +259,7 @@ LABEL_36:
     v26 = KeGetCurrentThread();
     --v26->KernelApcDisable;
     v27 = *(_QWORD *)&v82[1];
-    v28 = KeAbPreAcquire(*(_QWORD *)&v82[1] + 128LL, 0LL, 0LL);
+    v28 = KeAbPreAcquire(*(_QWORD *)&v82[1] + 128LL, 0LL, 0);
     LOBYTE(v82[0]) = 0;
     if ( _InterlockedExchange((volatile __int32 *)(v27 + 116), 1) )
     {
@@ -368,7 +368,7 @@ LABEL_204:
     v37->AssociatedIrp.MasterIrp = PoolWithQuota;
     memmove(PoolWithQuota, FileInformation, v5);
     if ( ((unsigned int)(v9 - 19) <= 1 || v9 == FilePositionInformation) && v89->Header.SignalState < 0 )
-      RtlRaiseStatus(3221225485LL);
+      RtlRaiseStatus(-1073741811);
     v37->Flags |= 0x830u;
     v42 = v86;
     *(_DWORD *)(v86 + 8) = v5;

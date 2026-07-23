@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpReferenceKeyControlBlockUnsafe @ 0x1408BC670
+ * XREFs of CmpReferenceKeyControlBlockUnsafe @ 0x1408C2C40
  * Callers:
- *     CmpLoadKeyCommon @ 0x14046E794 (CmpLoadKeyCommon.c)
- *     CmpCloneToUnbackedKcb @ 0x140859194 (CmpCloneToUnbackedKcb.c)
- *     CmLoadAppKey @ 0x1408B2250 (CmLoadAppKey.c)
- *     CmpGetSymbolicLinkTarget @ 0x1408BA354 (CmpGetSymbolicLinkTarget.c)
- *     CmpTransMgrFreeVolatileData @ 0x1408BC6D0 (CmpTransMgrFreeVolatileData.c)
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
- *     CmpLinkHiveToMaster @ 0x14097C11C (CmpLinkHiveToMaster.c)
- *     CmpEnumerateLayeredKey @ 0x140982A88 (CmpEnumerateLayeredKey.c)
- *     CmpCommitDiscardReplacePost @ 0x140A2F58C (CmpCommitDiscardReplacePost.c)
- *     CmpCreateSiloKeyLockEntry @ 0x140A2F80C (CmpCreateSiloKeyLockEntry.c)
- *     CmpFreezeHive @ 0x140A2F860 (CmpFreezeHive.c)
- *     CmpKeyEnumStackCreateResumeContext @ 0x140AE9194 (CmpKeyEnumStackCreateResumeContext.c)
- *     CmpCreateGlobalKeyLockEntry @ 0x140B4EA48 (CmpCreateGlobalKeyLockEntry.c)
+ *     CmpLoadKeyCommon @ 0x140467F14 (CmpLoadKeyCommon.c)
+ *     CmpCloneToUnbackedKcb @ 0x14085F524 (CmpCloneToUnbackedKcb.c)
+ *     CmLoadAppKey @ 0x1408B87F4 (CmLoadAppKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1408C0924 (CmpGetSymbolicLinkTarget.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1408C2CA0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
+ *     CmpLinkHiveToMaster @ 0x14093E12C (CmpLinkHiveToMaster.c)
+ *     CmpEnumerateLayeredKey @ 0x140944A98 (CmpEnumerateLayeredKey.c)
+ *     CmpCommitDiscardReplacePost @ 0x140A41418 (CmpCommitDiscardReplacePost.c)
+ *     CmpCreateSiloKeyLockEntry @ 0x140A41684 (CmpCreateSiloKeyLockEntry.c)
+ *     CmpFreezeHive @ 0x140A416D8 (CmpFreezeHive.c)
+ *     CmpKeyEnumStackCreateResumeContext @ 0x140AEB544 (CmpKeyEnumStackCreateResumeContext.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x140B512D8 (CmpCreateGlobalKeyLockEntry.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpReferenceKeyControlBlockUnsafe(volatile signed __int64 *BugCheckParameter2)

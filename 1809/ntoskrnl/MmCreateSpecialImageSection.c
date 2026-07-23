@@ -1,17 +1,17 @@
 /*
- * XREFs of MmCreateSpecialImageSection @ 0x14060A404
+ * XREFs of MmCreateSpecialImageSection @ 0x14060B404
  * Callers:
- *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PspLocateSystemDll @ 0x14075613C (PspLocateSystemDll.c)
+ *     NtCreateUserProcess @ 0x14060B950 (NtCreateUserProcess.c)
+ *     PspLocateSystemDll @ 0x14075732C (PspLocateSystemDll.c)
  * Callees:
  *     CcZeroEndOfLastPage @ 0x14001C250 (CcZeroEndOfLastPage.c)
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiCreateSection @ 0x1405DEAC0 (MiCreateSection.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
 __int64 __fastcall MmCreateSpecialImageSection(__int64 *a1, int a2, __int64 a3, char a4, __int64 a5, char a6)

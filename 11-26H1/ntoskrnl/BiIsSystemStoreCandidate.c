@@ -1,10 +1,10 @@
 /*
- * XREFs of BiIsSystemStoreCandidate @ 0x1409D01BC
+ * XREFs of BiIsSystemStoreCandidate @ 0x1409A119C
  * Callers:
- *     BiIsSystemStore @ 0x1409D0134 (BiIsSystemStore.c)
+ *     BiIsSystemStore @ 0x1409A1114 (BiIsSystemStore.c)
  * Callees:
- *     BiGetRegistryValue @ 0x1409D5CD4 (BiGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     BiGetRegistryValue @ 0x1409A6CB4 (BiGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall BiIsSystemStoreCandidate(__int64 a1)

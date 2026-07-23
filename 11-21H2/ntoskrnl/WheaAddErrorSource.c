@@ -3,12 +3,12 @@
  * Callers:
  *     WheaAddErrorSourceDeviceDriver @ 0x14084E340 (WheaAddErrorSourceDeviceDriver.c)
  * Callees:
- *     WheapAddErrorSource @ 0x1403C0774 (WheapAddErrorSource.c)
- *     WheapCallErrorSourceInitialize @ 0x1403C08BC (WheapCallErrorSourceInitialize.c)
+ *     sub_1403C0774 @ 0x1403C0774 (sub_1403C0774.c)
+ *     sub_1403C08BC @ 0x1403C08BC (sub_1403C08BC.c)
  *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     WheapIsNonHestErrorSource @ 0x1403D2BC0 (WheapIsNonHestErrorSource.c)
+ *     sub_1403D2BC0 @ 0x1403D2BC0 (sub_1403D2BC0.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WheapInitializeErrorSource @ 0x140825964 (WheapInitializeErrorSource.c)
+ *     sub_140825964 @ 0x140825964 (sub_140825964.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -45,7 +45,7 @@ __int64 __fastcall WheaAddErrorSource(__int128 *a1, __int64 a2)
 
   v2 = a1;
   v4 = 7LL;
-  if ( WheapIsNonHestErrorSource(*((_DWORD *)a1 + 2)) )
+  if ( sub_1403D2BC0(*((_DWORD *)a1 + 2)) )
   {
     Pool2 = ExAllocatePool2(64LL, 1072LL, 1634035799LL);
     v6 = Pool2;
@@ -76,7 +76,7 @@ __int64 __fastcall WheaAddErrorSource(__int128 *a1, __int64 a2)
       *(_OWORD *)(v7 + 48) = v8[3];
       *(_QWORD *)(v7 + 64) = *((_QWORD *)v8 + 8);
       *(_DWORD *)(v7 + 72) = *((_DWORD *)v8 + 18);
-      v12 = WheapInitializeErrorSource(v6);
+      v12 = sub_140825964(v6);
       if ( v12 )
       {
         ExFreePoolWithTag((PVOID)v6, 0x61656857u);
@@ -84,10 +84,10 @@ __int64 __fastcall WheaAddErrorSource(__int128 *a1, __int64 a2)
       else
       {
         *(_QWORD *)(v6 + 56) = a2;
-        WheapAddErrorSource(v11, v6);
-        if ( WheapInitializationComplete )
+        sub_1403C0774(v11, v6);
+        if ( byte_140CE1A88 )
           *(_DWORD *)(v6 + 108) = 2;
-        v12 = WheapCallErrorSourceInitialize(v6, 1u);
+        v12 = sub_1403C08BC(v6, 1u);
         if ( v12 < 0 )
           *(_DWORD *)(v6 + 108) = 1;
       }

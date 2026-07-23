@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140590ACC
+ * XREFs of Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x14058DAEC
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x140592F50 (IopAddBugcheckTriageDataFromParameters.c)
- *     KiCollectTriageDumpDataBlocks @ 0x1405B33A8 (KiCollectTriageDumpDataBlocks.c)
- *     PopPdcRegister @ 0x140ABEFF8 (PopPdcRegister.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14058FF74 (IopAddBugcheckTriageDataFromParameters.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x1405B0318 (KiCollectTriageDumpDataBlocks.c)
+ *     PopPdcRegister @ 0x140ABA068 (PopPdcRegister.c)
  * Callees:
- *     Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledFallback @ 0x140590B04 (Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledFallback.c)
+ *     Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledFallback @ 0x14058DB24 (Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline()

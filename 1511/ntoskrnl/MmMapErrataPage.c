@@ -17,8 +17,8 @@ ULONG_PTR __fastcall MmMapErrataPage(__int64 a1)
   v3 = a1;
   if ( ((unsigned int)KiSanitizeFpu & 0xFFF) != 0
     || !PsNtosImageBase
-    || ((unsigned __int64)KiSanitizeFpu < PsNtosImageBase || (unsigned __int64)KiSanitizeFpu >= PsNtosImageEnd)
-    && ((unsigned __int64)KiSanitizeFpu < PsHalImageBase || (unsigned __int64)KiSanitizeFpu >= PsHalImageEnd) )
+    || ((char *)KiSanitizeFpu < PsNtosImageBase || (unsigned __int64)KiSanitizeFpu >= PsNtosImageEnd)
+    && ((char *)KiSanitizeFpu < PsHalImageBase || (unsigned __int64)KiSanitizeFpu >= PsHalImageEnd) )
   {
     return 0LL;
   }

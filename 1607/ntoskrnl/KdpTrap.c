@@ -1,18 +1,18 @@
 /*
  * XREFs of KdpTrap @ 0x1406F312C
  * Callers:
- *     KdTrap @ 0x1400AE7E0 (KdTrap.c)
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
- *     KdpStub @ 0x1400F67A4 (KdpStub.c)
+ *     KdTrap @ 0x1400ACD48 (KdTrap.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
+ *     KdpStub @ 0x1400F45F4 (KdpStub.c)
  * Callees:
- *     KdpReport @ 0x1400F6510 (KdpReport.c)
- *     KdpPrint @ 0x1406F20D8 (KdpPrint.c)
- *     KdpSymbol @ 0x1406F25E4 (KdpSymbol.c)
+ *     KdpReport @ 0x1400F4360 (KdpReport.c)
+ *     KdpSymbol @ 0x1406F227C (KdpSymbol.c)
+ *     KdpPrint @ 0x1406F2E34 (KdpPrint.c)
  *     KdpCommandString @ 0x1406F3C28 (KdpCommandString.c)
  *     KdpPrompt @ 0x1406F5E00 (KdpPrompt.c)
  */
 
-char __fastcall KdpTrap(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, char a6)
+char KdpTrap(__int64 a1, _DWORD a2, __int64 a3, __int64 a4, char a5, char a6, ...)
 {
   char v6; // dl
   bool v8; // zf
@@ -79,7 +79,7 @@ LABEL_10:
       v17 = KdpPrint(
               *(_DWORD *)(a4 + 184),
               *(_DWORD *)(a4 + 192),
-              *(_QWORD *)(a4 + 128),
+              *(char **)(a4 + 128),
               *(_WORD *)(a4 + 136),
               a5,
               a1,

@@ -1,497 +1,497 @@
 /*
- * XREFs of KiUpdateSpeculationControl @ 0x14021ED00
+ * XREFs of KiUpdateSpeculationControl @ 0x1402C3600
  * Callers:
- *     KeOptimizeSpecCtrlSettings @ 0x1403C7840 (KeOptimizeSpecCtrlSettings.c)
- *     SwapContext @ 0x1404067C0 (SwapContext.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1403C79E0 (KeOptimizeSpecCtrlSettings.c)
+ *     SwapContext @ 0x1404069A0 (SwapContext.c)
  * Callees:
- *     KiUpdateStibpPairing @ 0x14021F5B0 (KiUpdateStibpPairing.c)
- *     KiIsBranchConfusionMitigationEnabled @ 0x1403F3130 (KiIsBranchConfusionMitigationEnabled.c)
- *     KiIsSrsoMitigationEnabled @ 0x1403F336C (KiIsSrsoMitigationEnabled.c)
- *     KiFlushCurrentRsb @ 0x140413D80 (KiFlushCurrentRsb.c)
- *     KiSynchronizeStibpPairing @ 0x14051B6D8 (KiSynchronizeStibpPairing.c)
- *     KiUpdateSpecCtrlEnhancedIBRS @ 0x14051B910 (KiUpdateSpecCtrlEnhancedIBRS.c)
- *     PsGetProcessSecurityDomain @ 0x140581944 (PsGetProcessSecurityDomain.c)
+ *     KiUpdateStibpPairing @ 0x1402C3EB0 (KiUpdateStibpPairing.c)
+ *     KiIsBranchConfusionMitigationEnabled @ 0x1403F3180 (KiIsBranchConfusionMitigationEnabled.c)
+ *     KiIsSrsoMitigationEnabled @ 0x1403F33BC (KiIsSrsoMitigationEnabled.c)
+ *     KiFlushCurrentRsb @ 0x140413E80 (KiFlushCurrentRsb.c)
+ *     KiSynchronizeStibpPairing @ 0x14051B918 (KiSynchronizeStibpPairing.c)
+ *     KiUpdateSpecCtrlEnhancedIBRS @ 0x14051BB50 (KiUpdateSpecCtrlEnhancedIBRS.c)
+ *     PsGetProcessSecurityDomain @ 0x140581BCC (PsGetProcessSecurityDomain.c)
  */
 
 /*
- * Hex-Rays decompilation failed for KiUpdateSpeculationControl @ 0x14021ED00
- * Reason: Hex-Rays returned no pseudocode for 0x14021ED00
+ * Hex-Rays decompilation failed for KiUpdateSpeculationControl @ 0x1402C3600
+ * Reason: Hex-Rays returned no pseudocode for 0x1402C3600
  * Fallback: raw IDA disassembly follows.
  *
- * 000000014021ED00: push    rbx
- * 000000014021ED02: push    r13
- * 000000014021ED04: sub     rsp, 88h
- * 000000014021ED0B: movups  xmm0, cs:KiSpeculationFeatures
- * 000000014021ED12: mov     rax, 1000000000h
- * 000000014021ED1C: mov     rbx, gs:20h
- * 000000014021ED25: movsd   xmm1, cs:qword_140CFC4B0
- * 000000014021ED2D: mov     r13, rcx
- * 000000014021ED30: movups  [rsp+98h+var_50], xmm0
- * 000000014021ED35: movsd   [rsp+98h+var_40], xmm1
- * 000000014021ED3B: test    qword ptr [rsp+98h+var_50], rax
- * 000000014021ED40: jz      loc_14021F595
- * 000000014021ED46: mov     [rsp+98h+var_20], rdi
- * 000000014021ED4B: cli
- * 000000014021ED4C: movzx   eax, word ptr [rbx+6E0h]
- * 000000014021ED53: mov     ecx, 0FFEFh
- * 000000014021ED58: and     ax, cx
- * 000000014021ED5B: mov     ecx, 0FFBFh
- * 000000014021ED60: and     ax, cx
- * 000000014021ED63: mov     ecx, 0FFFDh
- * 000000014021ED68: and     ax, cx
- * 000000014021ED6B: mov     ecx, 0FFFBh
- * 000000014021ED70: and     ax, cx
- * 000000014021ED73: mov     ecx, 0FFF7h
- * 000000014021ED78: and     ax, cx
- * 000000014021ED7B: mov     ecx, 0FDFFh
- * 000000014021ED80: and     ax, cx
- * 000000014021ED83: mov     ecx, 0FFDFh
- * 000000014021ED88: and     ax, cx
- * 000000014021ED8B: mov     rcx, r13
- * 000000014021ED8E: mov     [rbx+6E0h], ax
- * 000000014021ED95: call    PsGetProcessSecurityDomain
- * 000000014021ED9A: mov     rdi, rax
- * 000000014021ED9D: mov     rcx, 8000000000000h
- * 000000014021EDA7: mov     eax, [r13+87Ch]
- * 000000014021EDAE: mov     edx, 100h
- * 000000014021EDB3: and     eax, 400000h
- * 000000014021EDB8: mov     [rsp+98h+arg_18], eax
- * 000000014021EDBF: mov     eax, 1
- * 000000014021EDC4: cmovz   rdi, rax
- * 000000014021EDC8: mov     rax, qword ptr cs:KiSpeculationFeatures
- * 000000014021EDCF: mov     [rsp+98h+var_58], rdi
- * 000000014021EDD4: test    rcx, rax
- * 000000014021EDD7: jz      short loc_14021EDF9
- * 000000014021EDD9: movzx   eax, word ptr [rbx+6E0h]
- * 000000014021EDE0: test    rdi, rdi
- * 000000014021EDE3: jnz     short loc_14021EDEF
- * 000000014021EDE5: mov     ecx, 0FEFFh
- * 000000014021EDEA: and     ax, cx
- * 000000014021EDED: jmp     short loc_14021EDF2
- * 000000014021EDEF: or      ax, dx
- * 000000014021EDF2: mov     [rbx+6E0h], ax
- * 000000014021EDF9: test    byte ptr [rsp+98h+var_50], 1
- * 000000014021EDFE: jz      short loc_14021EE1D
- * 000000014021EE00: mov     rdx, r13
- * 000000014021EE03: mov     rcx, rbx
- * 000000014021EE06: call    KiUpdateSpecCtrlEnhancedIBRS
- * 000000014021EE0B: sti
- * 000000014021EE0C: mov     rdi, [rsp+98h+var_20]
- * 000000014021EE11: add     rsp, 88h
- * 000000014021EE18: pop     r13
- * 000000014021EE1A: pop     rbx
- * 000000014021EE1B: retn
- * 000000014021EE1D: movzx   r9d, word ptr [rbx+6E4h]
- * 000000014021EE25: mov     rax, 20000000000h
- * 000000014021EE2F: mov     [rsp+98h+arg_0], rbp
- * 000000014021EE37: mov     [rsp+98h+var_18], rsi
- * 000000014021EE3F: mov     [rsp+98h+var_28], r12
- * 000000014021EE44: mov     r12, qword ptr [rsp+98h+var_50]
- * 000000014021EE49: mov     [rsp+98h+var_30], r14
- * 000000014021EE4E: mov     r14, r12
- * 000000014021EE51: mov     [rsp+98h+var_38], r15
- * 000000014021EE56: mov     [rsp+98h+arg_8], 0
- * 000000014021EE5E: mov     [rsp+98h+arg_10], 0
- * 000000014021EE66: and     r14, rax
- * 000000014021EE69: jz      short loc_14021EE9D
- * 000000014021EE6B: movzx   eax, byte ptr [rbx+6D6h]
- * 000000014021EE72: test    al, 2
- * 000000014021EE74: jnz     short loc_14021EE9D
- * 000000014021EE76: test    al, 1
- * 000000014021EE78: jz      short loc_14021EE9D
- * 000000014021EE7A: movzx   eax, byte ptr [rbx+6D4h]
- * 000000014021EE81: movzx   r9d, word ptr [rbx+6D2h]
- * 000000014021EE89: shr     al, 4
- * 000000014021EE8C: and     al, 1
- * 000000014021EE8E: mov     [rsp+98h+arg_10], 1
- * 000000014021EE96: mov     [rsp+98h+arg_8], al
- * 000000014021EE9D: mov     rcx, 4000000000h
- * 000000014021EEA7: xor     eax, eax
- * 000000014021EEA9: test    rcx, r12
- * 000000014021EEAC: jz      short loc_14021EEC1
- * 000000014021EEAE: cmp     cs:KiSsbdMsr, 48h ; 'H'
- * 000000014021EEB5: jnz     short loc_14021EEC1
- * 000000014021EEB7: or      r9w, 4
- * 000000014021EEBC: mov     eax, 4
- * 000000014021EEC1: mov     [rbx+6E6h], ax
- * 000000014021EEC8: mov     rsi, rbx
- * 000000014021EECB: mov     [rbx+6EAh], ax
- * 000000014021EED2: mov     r15, rbx
- * 000000014021EED5: mov     [rbx+6D0h], ax
- * 000000014021EEDC: mov     rbp, rbx
- * 000000014021EEDF: mov     rax, r12
- * 000000014021EEE2: mov     ecx, 80h
- * 000000014021EEE7: and     eax, 2000h
- * 000000014021EEEC: mov     [rsp+98h+var_60], rax
- * 000000014021EEF1: jz      short loc_14021EF01
- * 000000014021EEF3: or      [rbx+6E6h], cx
- * 000000014021EEFA: or      [rbx+6D0h], cx
- * 000000014021EF01: mov     rax, 80000000000h
- * 000000014021EF0B: mov     rdx, r12
- * 000000014021EF0E: and     rdx, rax
- * 000000014021EF11: mov     [rsp+98h+var_70], rdx
- * 000000014021EF16: jz      short loc_14021EF28
- * 000000014021EF18: or      word ptr [rsi+6E6h], 2
- * 000000014021EF20: or      word ptr [rbp+6D0h], 2
- * 000000014021EF28: mov     rax, 40000000000000h
- * 000000014021EF32: mov     ecx, 400h
- * 000000014021EF37: and     r12, rax
- * 000000014021EF3A: jz      short loc_14021EF4A
- * 000000014021EF3C: or      [rsi+6E6h], cx
- * 000000014021EF43: or      [rbp+6D0h], cx
- * 000000014021EF4A: mov     eax, [r13+87Ch]
- * 000000014021EF51: mov     r10, qword ptr [rsp+98h+var_50]
- * 000000014021EF56: mov     rcx, [rbx+6D8h]
- * 000000014021EF5D: mov     r11, r10
- * 000000014021EF60: shr     eax, 17h
- * 000000014021EF63: movzx   r8d, r10b
- * 000000014021EF67: and     eax, 1
- * 000000014021EF6A: mov     [rsp+98h+var_68], rcx
- * 000000014021EF6F: mov     [rsp+98h+var_78], eax
- * 000000014021EF73: mov     rax, 2000000000h
- * 000000014021EF7D: and     r11, rax
- * 000000014021EF80: jnz     loc_14021F207
- * 000000014021EF86: test    rdi, rdi
- * 000000014021EF89: jnz     loc_14021F0B0
- * 000000014021EF8F: test    r10b, 2
- * 000000014021EF93: jz      short loc_14021EFB4
- * 000000014021EF95: test    r10b, 40h
- * 000000014021EF99: jz      loc_14021F088
- * 000000014021EF9F: or      word ptr [rbp+6D0h], 2
- * 000000014021EFA7: test    r14, r14
- * 000000014021EFAA: jnz     short loc_14021EFB4
- * 000000014021EFAC: or      word ptr [rsi+6E6h], 2
- * 000000014021EFB4: mov     eax, 0FFFBh
- * 000000014021EFB9: and     [rbx+6D2h], ax
- * 000000014021EFC0: movzx   eax, r8b
- * 000000014021EFC4: and     al, 42h
- * 000000014021EFC6: cmp     al, 42h ; 'B'
- * 000000014021EFC8: jnz     short loc_14021F005
- * 000000014021EFCA: mov     rax, 100000000h
- * 000000014021EFD4: test    rax, r10
- * 000000014021EFD7: jnz     short loc_14021EFE6
- * 000000014021EFD9: test    dword ptr [r13+9D0h], 40000000h
- * 000000014021EFE4: jz      short loc_14021F005
- * 000000014021EFE6: or      word ptr [r15+6EAh], 2
- * 000000014021EFEF: test    r14, r14
- * 000000014021EFF2: jz      short loc_14021F005
- * 000000014021EFF4: cmp     r13, cs:PsInitialSystemProcess
- * 000000014021EFFB: jz      short loc_14021F005
- * 000000014021EFFD: or      word ptr [rsi+6E6h], 2
- * 000000014021F005: test    rdx, rdx
- * 000000014021F008: jz      short loc_14021F013
- * 000000014021F00A: or      word ptr [r15+6EAh], 2
- * 000000014021F013: mov     rax, 8000000000h
- * 000000014021F01D: test    rax, r10
- * 000000014021F020: jz      short loc_14021F038
- * 000000014021F022: test    dword ptr [r13+9D4h], 2000h
- * 000000014021F02D: jz      short loc_14021F038
- * 000000014021F02F: or      word ptr [r15+6EAh], 4
- * 000000014021F038: mov     r10d, 400h
- * 000000014021F03E: test    r12, r12
- * 000000014021F041: jz      short loc_14021F04B
- * 000000014021F043: or      [r15+6EAh], r10w
- * 000000014021F04B: test    rcx, rcx
- * 000000014021F04E: jz      loc_14021F2CE
- * 000000014021F054: cmp     rcx, rdi
- * 000000014021F057: jz      loc_14021F2CE
- * 000000014021F05D: cmp     rcx, [r13+9E8h]
- * 000000014021F064: jz      loc_14021F2CE
- * 000000014021F06A: test    r9b, 1
- * 000000014021F06E: jz      loc_14021F292
- * 000000014021F074: test    r8b, 2
- * 000000014021F078: jnz     loc_14021F245
- * 000000014021F07E: and     r9w, 4
- * 000000014021F083: jmp     loc_14021F269
- * 000000014021F088: test    r8b, 10h
- * 000000014021F08C: jz      loc_14021EFB4
- * 000000014021F092: or      word ptr [rbp+6D0h], 1
- * 000000014021F09A: test    r14, r14
- * 000000014021F09D: jnz     loc_14021EFB4
- * 000000014021F0A3: or      word ptr [rsi+6E6h], 1
- * 000000014021F0AB: jmp     loc_14021EFB4
- * 000000014021F0B0: lea     rcx, [rsp+98h+var_50]
- * 000000014021F0B5: call    KiIsBranchConfusionMitigationEnabled
- * 000000014021F0BA: test    eax, eax
- * 000000014021F0BC: jnz     loc_14021F187
- * 000000014021F0C2: lea     rcx, [rsp+98h+var_50]
- * 000000014021F0C7: call    KiIsSrsoMitigationEnabled
- * 000000014021F0CC: test    eax, eax
- * 000000014021F0CE: jnz     loc_14021F187
- * 000000014021F0D4: test    r8b, 10h
- * 000000014021F0D8: jz      short loc_14021F106
- * 000000014021F0DA: or      word ptr [rbp+6D0h], 1
- * 000000014021F0E2: test    r14, r14
- * 000000014021F0E5: jnz     short loc_14021F0EF
- * 000000014021F0E7: or      word ptr [rsi+6E6h], 1
- * 000000014021F0EF: test    r8b, 20h
- * 000000014021F0F3: jnz     loc_14021F1E8
- * 000000014021F0F9: or      word ptr [rbx+6E0h], 2
- * 000000014021F101: jmp     loc_14021F1E8
- * 000000014021F106: movzx   eax, r8b
- * 000000014021F10A: and     al, 42h
- * 000000014021F10C: cmp     al, 42h ; 'B'
- * 000000014021F10E: jnz     short loc_14021F125
- * 000000014021F110: or      word ptr [rbp+6D0h], 2
- * 000000014021F118: test    r14, r14
- * 000000014021F11B: jnz     short loc_14021F125
- * 000000014021F11D: or      word ptr [rsi+6E6h], 2
- * 000000014021F125: movzx   eax, word ptr [rbx+6E0h]
- * 000000014021F12C: test    r14, r14
- * 000000014021F12F: jz      short loc_14021F169
- * 000000014021F131: or      ax, 10h
- * 000000014021F135: mov     [rbx+6E0h], ax
- * 000000014021F13C: test    r8b, 20h
- * 000000014021F140: jnz     short loc_14021F152
- * 000000014021F142: or      ax, 2
- * 000000014021F146: mov     [rbx+6E0h], ax
- * 000000014021F14D: jmp     loc_14021F1E8
- * 000000014021F152: test    r8b, 8
- * 000000014021F156: jnz     loc_14021F1E8
- * 000000014021F15C: or      ax, 40h
- * 000000014021F160: mov     [rbx+6E0h], ax
- * 000000014021F167: jmp     short loc_14021F1E8
- * 000000014021F169: or      ax, 8
- * 000000014021F16D: mov     [rbx+6E0h], ax
- * 000000014021F174: test    r8b, 8
- * 000000014021F178: jnz     short loc_14021F1E8
- * 000000014021F17A: or      ax, 2
- * 000000014021F17E: mov     [rbx+6E0h], ax
- * 000000014021F185: jmp     short loc_14021F1E8
- * 000000014021F187: movzx   eax, word ptr [rbx+6E0h]
- * 000000014021F18E: or      ax, 8
- * 000000014021F192: mov     [rbx+6E0h], ax
- * 000000014021F199: test    r8b, 8
- * 000000014021F19D: jnz     short loc_14021F1AA
- * 000000014021F19F: or      ax, 2
- * 000000014021F1A3: mov     [rbx+6E0h], ax
- * 000000014021F1AA: test    r8b, 2
- * 000000014021F1AE: jz      short loc_14021F1E8
- * 000000014021F1B0: test    r8b, 40h
- * 000000014021F1B4: jz      short loc_14021F1CD
- * 000000014021F1B6: or      word ptr [rbp+6D0h], 2
- * 000000014021F1BE: test    r14, r14
- * 000000014021F1C1: jnz     short loc_14021F1E8
- * 000000014021F1C3: or      word ptr [rsi+6E6h], 2
- * 000000014021F1CB: jmp     short loc_14021F1E8
- * 000000014021F1CD: test    r8b, 10h
- * 000000014021F1D1: jz      short loc_14021F1E8
- * 000000014021F1D3: or      word ptr [rbp+6D0h], 1
- * 000000014021F1DB: test    r14, r14
- * 000000014021F1DE: jnz     short loc_14021F1E8
- * 000000014021F1E0: or      word ptr [rsi+6E6h], 1
- * 000000014021F1E8: test    byte ptr [rbx+6E2h], 30h
- * 000000014021F1EF: mov     rcx, [rsp+98h+var_68]
- * 000000014021F1F4: mov     rdx, [rsp+98h+var_70]
- * 000000014021F1F9: jz      short loc_14021F207
- * 000000014021F1FB: mov     eax, 200h
- * 000000014021F200: or      [rbx+6E0h], ax
- * 000000014021F207: test    rdi, rdi
- * 000000014021F20A: jz      loc_14021EFB4
- * 000000014021F210: mov     rax, 8000000000h
- * 000000014021F21A: test    rax, r10
- * 000000014021F21D: jz      loc_14021EFB4
- * 000000014021F223: or      word ptr [rbp+6D0h], 4
- * 000000014021F22B: or      word ptr [rbx+6D2h], 4
- * 000000014021F233: or      word ptr [rsi+6E6h], 4
- * 000000014021F23B: or      r9w, 4
- * 000000014021F240: jmp     loc_14021EFC0
- * 000000014021F245: movzx   eax, word ptr [rbx+6ECh]
- * 000000014021F24C: test    al, 4
- * 000000014021F24E: jnz     short loc_14021F263
- * 000000014021F250: test    r14, r14
- * 000000014021F253: jz      short loc_14021F27A
- * 000000014021F255: test    byte ptr [rbx+6D6h], 1
- * 000000014021F25C: jnz     short loc_14021F27A
- * 000000014021F25E: and     r9w, 4
- * 000000014021F263: movzx   r8d, byte ptr [rsp+98h+var_50]
- * 000000014021F269: test    r9b, 1
- * 000000014021F26D: jnz     short loc_14021F2AB
- * 000000014021F26F: mov     al, 1
- * 000000014021F271: mov     [rsp+98h+arg_10], al
- * 000000014021F278: jmp     short loc_14021F2D6
- * 000000014021F27A: movzx   r8d, byte ptr [rsp+98h+var_50]
- * 000000014021F280: test    r8b, 40h
- * 000000014021F284: jz      short loc_14021F269
- * 000000014021F286: and     r9w, 4
- * 000000014021F28B: or      r9w, 2
- * 000000014021F290: jmp     short loc_14021F269
- * 000000014021F292: test    r11, r11
- * 000000014021F295: jnz     short loc_14021F2AB
- * 000000014021F297: test    r8b, 10h
- * 000000014021F29B: jnz     short loc_14021F2AB
- * 000000014021F29D: test    r14, r14
- * 000000014021F2A0: jz      short loc_14021F2CE
- * 000000014021F2A2: test    byte ptr [rbx+6D6h], 2
- * 000000014021F2A9: jnz     short loc_14021F2CE
- * 000000014021F2AB: movzx   eax, word ptr [rbx+6E0h]
- * 000000014021F2B2: or      ax, 4
- * 000000014021F2B6: mov     [rbx+6E0h], ax
- * 000000014021F2BD: test    r8b, 8
- * 000000014021F2C1: jnz     short loc_14021F2CE
- * 000000014021F2C3: or      ax, 20h
- * 000000014021F2C7: mov     [rbx+6E0h], ax
- * 000000014021F2CE: movzx   eax, [rsp+98h+arg_8]
- * 000000014021F2D6: mov     edx, 80h
- * 000000014021F2DB: movzx   ecx, r9w
- * 000000014021F2DF: or      cx, dx
- * 000000014021F2E2: cmp     [rsp+98h+var_60], 0
- * 000000014021F2E8: cmovz   cx, r9w
- * 000000014021F2ED: movzx   edx, cx
- * 000000014021F2F0: or      dx, 2
- * 000000014021F2F4: cmp     [rsp+98h+var_70], 0
- * 000000014021F2FA: cmovz   dx, cx
- * 000000014021F2FE: movzx   edi, dx
- * 000000014021F301: or      di, r10w
- * 000000014021F305: test    r12, r12
- * 000000014021F308: cmovz   di, dx
- * 000000014021F30C: test    al, al
- * 000000014021F30E: jz      short loc_14021F365
- * 000000014021F310: mov     eax, 1
- * 000000014021F315: xor     edx, edx
- * 000000014021F317: mov     ecx, 49h ; 'I'
- * 000000014021F31C: wrmsr
- * 000000014021F31E: test    r8b, 8
- * 000000014021F322: jnz     short loc_14021F329
- * 000000014021F324: call    KiFlushCurrentRsb
- * 000000014021F329: movzx   eax, word ptr [rbx+6E0h]
- * 000000014021F330: mov     ecx, 0FFFBh
- * 000000014021F335: and     ax, cx
- * 000000014021F338: mov     qword ptr [rbx+6D8h], 0
- * 000000014021F343: mov     ecx, 0FFDFh
- * 000000014021F348: mov     [rbx+6D2h], di
- * 000000014021F34F: and     ax, cx
- * 000000014021F352: mov     [rbx+6E0h], ax
- * 000000014021F359: mov     eax, 0FFAFh
- * 000000014021F35E: and     [rbx+6D4h], ax
- * 000000014021F365: movzx   eax, word ptr [rbx+6ECh]
- * 000000014021F36C: movzx   edx, di
- * 000000014021F36F: test    al, 4
- * 000000014021F371: jz      loc_14021F528
- * 000000014021F377: mov     rdx, [rsp+98h+var_58]
- * 000000014021F37C: mov     r12d, 2
- * 000000014021F382: mov     rax, [rbx+2DB0h]
- * 000000014021F389: cmp     [rsp+98h+var_68], rdx
- * 000000014021F38E: jz      short loc_14021F39B
- * 000000014021F390: lock or [rbx+6ECh], r12w
- * 000000014021F399: jmp     short loc_14021F3E5
- * 000000014021F39B: movzx   eax, word ptr [rax+6ECh]
- * 000000014021F3A2: movzx   ecx, word ptr [r15+6EAh]
- * 000000014021F3AA: test    al, 1
- * 000000014021F3AC: jnz     short loc_14021F3C9
- * 000000014021F3AE: or      cx, r12w
- * 000000014021F3B2: mov     [r15+6EAh], cx
- * 000000014021F3BA: test    r14, r14
- * 000000014021F3BD: jz      short loc_14021F3E5
- * 000000014021F3BF: or      [rsi+6E6h], r12w
- * 000000014021F3C7: jmp     short loc_14021F3E5
- * 000000014021F3C9: mov     eax, 0FFFDh
- * 000000014021F3CE: and     cx, ax
- * 000000014021F3D1: mov     [r15+6EAh], cx
- * 000000014021F3D9: test    r14, r14
- * 000000014021F3DC: jz      short loc_14021F3E5
- * 000000014021F3DE: and     [rsi+6E6h], ax
- * 000000014021F3E5: test    rdx, rdx
- * 000000014021F3E8: jnz     loc_14021F46E
- * 000000014021F3EE: mov     rcx, r13
- * 000000014021F3F1: call    KiUpdateStibpPairing
- * 000000014021F3F6: movzx   ecx, word ptr [rbx+6D2h]
- * 000000014021F3FD: mov     r9d, eax
- * 000000014021F400: movzx   r8d, word ptr [rbp+6D0h]
- * 000000014021F408: mov     eax, 0FFFCh
- * 000000014021F40D: and     cx, ax
- * 000000014021F410: and     r8w, 3
- * 000000014021F415: or      cx, r8w
- * 000000014021F419: movzx   edx, di
- * 000000014021F41C: and     dx, ax
- * 000000014021F41F: mov     [rbx+6D2h], cx
- * 000000014021F426: test    r14, r14
- * 000000014021F429: jz      short loc_14021F43A
- * 000000014021F42B: test    byte ptr [rbx+6D6h], 1
- * 000000014021F432: jz      short loc_14021F43A
- * 000000014021F434: neg     r8w
- * 000000014021F438: jmp     short loc_14021F445
- * 000000014021F43A: movzx   eax, byte ptr [rsi+6E6h]
- * 000000014021F441: and     al, 3
- * 000000014021F443: neg     al
- * 000000014021F445: sbb     ax, ax
- * 000000014021F448: mov     r8b, 1
- * 000000014021F44B: and     ax, r12w
- * 000000014021F44F: or      dx, ax
- * 000000014021F452: cmp     [rsp+98h+arg_18], 0
- * 000000014021F45A: jnz     loc_14021F534
- * 000000014021F460: lock or [rbx+6ECh], r12w
- * 000000014021F469: jmp     loc_14021F534
- * 000000014021F46E: cmp     [rsp+98h+var_78], 0
- * 000000014021F473: movzx   edx, di
- * 000000014021F476: jz      loc_14021F528
- * 000000014021F47C: prefetchw byte ptr [rbx+6ECh]
- * 000000014021F483: movzx   eax, word ptr [rbx+6ECh]
- * 000000014021F48A: mov     edx, 100h
- * 000000014021F48F: nop
- * 000000014021F490: movzx   ecx, ax
- * 000000014021F493: or      cx, dx
- * 000000014021F496: lock cmpxchg [rbx+6ECh], cx
- * 000000014021F49F: jnz     short loc_14021F490
- * 000000014021F4A1: movzx   ecx, ax
- * 000000014021F4A4: mov     rdx, 20000000000h
- * 000000014021F4AE: mov     rax, qword ptr cs:KiSpeculationFeatures
- * 000000014021F4B5: and     ecx, 1
- * 000000014021F4B8: test    rdx, rax
- * 000000014021F4BB: jz      short loc_14021F4F7
- * 000000014021F4BD: movzx   eax, word ptr [rbp+6D0h]
- * 000000014021F4C4: test    al, 3
- * 000000014021F4C6: jnz     short loc_14021F4D3
- * 000000014021F4C8: or      ax, r12w
- * 000000014021F4CC: mov     [rbp+6D0h], ax
- * 000000014021F4D3: movzx   eax, word ptr [rbx+6D2h]
- * 000000014021F4DA: test    al, 3
- * 000000014021F4DC: jnz     short loc_14021F4E9
- * 000000014021F4DE: or      ax, r12w
- * 000000014021F4E2: mov     [rbx+6D2h], ax
- * 000000014021F4E9: test    byte ptr [rbx+6D6h], 1
- * 000000014021F4F0: movzx   edx, di
- * 000000014021F4F3: jz      short loc_14021F51A
- * 000000014021F4F5: jmp     short loc_14021F510
- * 000000014021F4F7: movzx   eax, word ptr [rsi+6E6h]
- * 000000014021F4FE: test    al, 3
- * 000000014021F500: jnz     short loc_14021F50D
- * 000000014021F502: or      ax, r12w
- * 000000014021F506: mov     [rsi+6E6h], ax
- * 000000014021F50D: movzx   edx, di
- * 000000014021F510: test    dil, 3
- * 000000014021F514: jnz     short loc_14021F51A
- * 000000014021F516: or      dx, r12w
- * 000000014021F51A: lock or [rbx+6ECh], r12w
- * 000000014021F523: mov     r9d, ecx
- * 000000014021F526: jmp     short loc_14021F52B
- * 000000014021F528: xor     r9d, r9d
- * 000000014021F52B: movzx   r8d, [rsp+98h+arg_10]
- * 000000014021F534: mov     r15, [rsp+98h+var_38]
- * 000000014021F539: mov     r14, [rsp+98h+var_30]
- * 000000014021F53E: mov     r12, [rsp+98h+var_28]
- * 000000014021F543: mov     rsi, [rsp+98h+var_18]
- * 000000014021F54B: mov     rbp, [rsp+98h+arg_0]
- * 000000014021F553: cmp     dx, [rbx+6E4h]
- * 000000014021F55A: jz      short loc_14021F573
- * 000000014021F55C: mov     [rbx+6E4h], dx
- * 000000014021F563: mov     ecx, 48h ; 'H'
- * 000000014021F568: movzx   edx, dx
- * 000000014021F56B: mov     eax, edx
- * 000000014021F56D: shr     rdx, 20h
- * 000000014021F571: wrmsr
- * 000000014021F573: test    r8b, r8b
- * 000000014021F576: jz      short loc_14021F57F
- * 000000014021F578: or      byte ptr [rbx+6D6h], 2
- * 000000014021F57F: lfence
- * 000000014021F582: sti
- * 000000014021F583: test    r9d, r9d
- * 000000014021F586: jz      short loc_14021F590
- * 000000014021F588: mov     rcx, rbx
- * 000000014021F58B: call    KiSynchronizeStibpPairing
- * 000000014021F590: mov     rdi, [rsp+98h+var_20]
- * 000000014021F595: add     rsp, 88h
- * 000000014021F59C: pop     r13
- * 000000014021F59E: pop     rbx
- * 000000014021F59F: retn
+ * 00000001402C3600: push    rbx
+ * 00000001402C3602: push    r13
+ * 00000001402C3604: sub     rsp, 88h
+ * 00000001402C360B: movups  xmm0, cs:KiSpeculationFeatures
+ * 00000001402C3612: mov     rax, 1000000000h
+ * 00000001402C361C: mov     rbx, gs:20h
+ * 00000001402C3625: movsd   xmm1, cs:qword_140CFC4B0
+ * 00000001402C362D: mov     r13, rcx
+ * 00000001402C3630: movups  [rsp+98h+var_50], xmm0
+ * 00000001402C3635: movsd   [rsp+98h+var_40], xmm1
+ * 00000001402C363B: test    qword ptr [rsp+98h+var_50], rax
+ * 00000001402C3640: jz      loc_1402C3E95
+ * 00000001402C3646: mov     [rsp+98h+var_20], rdi
+ * 00000001402C364B: cli
+ * 00000001402C364C: movzx   eax, word ptr [rbx+6E0h]
+ * 00000001402C3653: mov     ecx, 0FFEFh
+ * 00000001402C3658: and     ax, cx
+ * 00000001402C365B: mov     ecx, 0FFBFh
+ * 00000001402C3660: and     ax, cx
+ * 00000001402C3663: mov     ecx, 0FFFDh
+ * 00000001402C3668: and     ax, cx
+ * 00000001402C366B: mov     ecx, 0FFFBh
+ * 00000001402C3670: and     ax, cx
+ * 00000001402C3673: mov     ecx, 0FFF7h
+ * 00000001402C3678: and     ax, cx
+ * 00000001402C367B: mov     ecx, 0FDFFh
+ * 00000001402C3680: and     ax, cx
+ * 00000001402C3683: mov     ecx, 0FFDFh
+ * 00000001402C3688: and     ax, cx
+ * 00000001402C368B: mov     rcx, r13
+ * 00000001402C368E: mov     [rbx+6E0h], ax
+ * 00000001402C3695: call    PsGetProcessSecurityDomain
+ * 00000001402C369A: mov     rdi, rax
+ * 00000001402C369D: mov     rcx, 8000000000000h
+ * 00000001402C36A7: mov     eax, [r13+87Ch]
+ * 00000001402C36AE: mov     edx, 100h
+ * 00000001402C36B3: and     eax, 400000h
+ * 00000001402C36B8: mov     [rsp+98h+arg_18], eax
+ * 00000001402C36BF: mov     eax, 1
+ * 00000001402C36C4: cmovz   rdi, rax
+ * 00000001402C36C8: mov     rax, qword ptr cs:KiSpeculationFeatures
+ * 00000001402C36CF: mov     [rsp+98h+var_58], rdi
+ * 00000001402C36D4: test    rcx, rax
+ * 00000001402C36D7: jz      short loc_1402C36F9
+ * 00000001402C36D9: movzx   eax, word ptr [rbx+6E0h]
+ * 00000001402C36E0: test    rdi, rdi
+ * 00000001402C36E3: jnz     short loc_1402C36EF
+ * 00000001402C36E5: mov     ecx, 0FEFFh
+ * 00000001402C36EA: and     ax, cx
+ * 00000001402C36ED: jmp     short loc_1402C36F2
+ * 00000001402C36EF: or      ax, dx
+ * 00000001402C36F2: mov     [rbx+6E0h], ax
+ * 00000001402C36F9: test    byte ptr [rsp+98h+var_50], 1
+ * 00000001402C36FE: jz      short loc_1402C371D
+ * 00000001402C3700: mov     rdx, r13
+ * 00000001402C3703: mov     rcx, rbx
+ * 00000001402C3706: call    KiUpdateSpecCtrlEnhancedIBRS
+ * 00000001402C370B: sti
+ * 00000001402C370C: mov     rdi, [rsp+98h+var_20]
+ * 00000001402C3711: add     rsp, 88h
+ * 00000001402C3718: pop     r13
+ * 00000001402C371A: pop     rbx
+ * 00000001402C371B: retn
+ * 00000001402C371D: movzx   r9d, word ptr [rbx+6E4h]
+ * 00000001402C3725: mov     rax, 20000000000h
+ * 00000001402C372F: mov     [rsp+98h+arg_0], rbp
+ * 00000001402C3737: mov     [rsp+98h+var_18], rsi
+ * 00000001402C373F: mov     [rsp+98h+var_28], r12
+ * 00000001402C3744: mov     r12, qword ptr [rsp+98h+var_50]
+ * 00000001402C3749: mov     [rsp+98h+var_30], r14
+ * 00000001402C374E: mov     r14, r12
+ * 00000001402C3751: mov     [rsp+98h+var_38], r15
+ * 00000001402C3756: mov     [rsp+98h+arg_8], 0
+ * 00000001402C375E: mov     [rsp+98h+arg_10], 0
+ * 00000001402C3766: and     r14, rax
+ * 00000001402C3769: jz      short loc_1402C379D
+ * 00000001402C376B: movzx   eax, byte ptr [rbx+6D6h]
+ * 00000001402C3772: test    al, 2
+ * 00000001402C3774: jnz     short loc_1402C379D
+ * 00000001402C3776: test    al, 1
+ * 00000001402C3778: jz      short loc_1402C379D
+ * 00000001402C377A: movzx   eax, byte ptr [rbx+6D4h]
+ * 00000001402C3781: movzx   r9d, word ptr [rbx+6D2h]
+ * 00000001402C3789: shr     al, 4
+ * 00000001402C378C: and     al, 1
+ * 00000001402C378E: mov     [rsp+98h+arg_10], 1
+ * 00000001402C3796: mov     [rsp+98h+arg_8], al
+ * 00000001402C379D: mov     rcx, 4000000000h
+ * 00000001402C37A7: xor     eax, eax
+ * 00000001402C37A9: test    rcx, r12
+ * 00000001402C37AC: jz      short loc_1402C37C1
+ * 00000001402C37AE: cmp     cs:KiSsbdMsr, 48h ; 'H'
+ * 00000001402C37B5: jnz     short loc_1402C37C1
+ * 00000001402C37B7: or      r9w, 4
+ * 00000001402C37BC: mov     eax, 4
+ * 00000001402C37C1: mov     [rbx+6E6h], ax
+ * 00000001402C37C8: mov     rsi, rbx
+ * 00000001402C37CB: mov     [rbx+6EAh], ax
+ * 00000001402C37D2: mov     r15, rbx
+ * 00000001402C37D5: mov     [rbx+6D0h], ax
+ * 00000001402C37DC: mov     rbp, rbx
+ * 00000001402C37DF: mov     rax, r12
+ * 00000001402C37E2: mov     ecx, 80h
+ * 00000001402C37E7: and     eax, 2000h
+ * 00000001402C37EC: mov     [rsp+98h+var_60], rax
+ * 00000001402C37F1: jz      short loc_1402C3801
+ * 00000001402C37F3: or      [rbx+6E6h], cx
+ * 00000001402C37FA: or      [rbx+6D0h], cx
+ * 00000001402C3801: mov     rax, 80000000000h
+ * 00000001402C380B: mov     rdx, r12
+ * 00000001402C380E: and     rdx, rax
+ * 00000001402C3811: mov     [rsp+98h+var_70], rdx
+ * 00000001402C3816: jz      short loc_1402C3828
+ * 00000001402C3818: or      word ptr [rsi+6E6h], 2
+ * 00000001402C3820: or      word ptr [rbp+6D0h], 2
+ * 00000001402C3828: mov     rax, 40000000000000h
+ * 00000001402C3832: mov     ecx, 400h
+ * 00000001402C3837: and     r12, rax
+ * 00000001402C383A: jz      short loc_1402C384A
+ * 00000001402C383C: or      [rsi+6E6h], cx
+ * 00000001402C3843: or      [rbp+6D0h], cx
+ * 00000001402C384A: mov     eax, [r13+87Ch]
+ * 00000001402C3851: mov     r10, qword ptr [rsp+98h+var_50]
+ * 00000001402C3856: mov     rcx, [rbx+6D8h]
+ * 00000001402C385D: mov     r11, r10
+ * 00000001402C3860: shr     eax, 17h
+ * 00000001402C3863: movzx   r8d, r10b
+ * 00000001402C3867: and     eax, 1
+ * 00000001402C386A: mov     [rsp+98h+var_68], rcx
+ * 00000001402C386F: mov     [rsp+98h+var_78], eax
+ * 00000001402C3873: mov     rax, 2000000000h
+ * 00000001402C387D: and     r11, rax
+ * 00000001402C3880: jnz     loc_1402C3B07
+ * 00000001402C3886: test    rdi, rdi
+ * 00000001402C3889: jnz     loc_1402C39B0
+ * 00000001402C388F: test    r10b, 2
+ * 00000001402C3893: jz      short loc_1402C38B4
+ * 00000001402C3895: test    r10b, 40h
+ * 00000001402C3899: jz      loc_1402C3988
+ * 00000001402C389F: or      word ptr [rbp+6D0h], 2
+ * 00000001402C38A7: test    r14, r14
+ * 00000001402C38AA: jnz     short loc_1402C38B4
+ * 00000001402C38AC: or      word ptr [rsi+6E6h], 2
+ * 00000001402C38B4: mov     eax, 0FFFBh
+ * 00000001402C38B9: and     [rbx+6D2h], ax
+ * 00000001402C38C0: movzx   eax, r8b
+ * 00000001402C38C4: and     al, 42h
+ * 00000001402C38C6: cmp     al, 42h ; 'B'
+ * 00000001402C38C8: jnz     short loc_1402C3905
+ * 00000001402C38CA: mov     rax, 100000000h
+ * 00000001402C38D4: test    rax, r10
+ * 00000001402C38D7: jnz     short loc_1402C38E6
+ * 00000001402C38D9: test    dword ptr [r13+9D0h], 40000000h
+ * 00000001402C38E4: jz      short loc_1402C3905
+ * 00000001402C38E6: or      word ptr [r15+6EAh], 2
+ * 00000001402C38EF: test    r14, r14
+ * 00000001402C38F2: jz      short loc_1402C3905
+ * 00000001402C38F4: cmp     r13, cs:PsInitialSystemProcess
+ * 00000001402C38FB: jz      short loc_1402C3905
+ * 00000001402C38FD: or      word ptr [rsi+6E6h], 2
+ * 00000001402C3905: test    rdx, rdx
+ * 00000001402C3908: jz      short loc_1402C3913
+ * 00000001402C390A: or      word ptr [r15+6EAh], 2
+ * 00000001402C3913: mov     rax, 8000000000h
+ * 00000001402C391D: test    rax, r10
+ * 00000001402C3920: jz      short loc_1402C3938
+ * 00000001402C3922: test    dword ptr [r13+9D4h], 2000h
+ * 00000001402C392D: jz      short loc_1402C3938
+ * 00000001402C392F: or      word ptr [r15+6EAh], 4
+ * 00000001402C3938: mov     r10d, 400h
+ * 00000001402C393E: test    r12, r12
+ * 00000001402C3941: jz      short loc_1402C394B
+ * 00000001402C3943: or      [r15+6EAh], r10w
+ * 00000001402C394B: test    rcx, rcx
+ * 00000001402C394E: jz      loc_1402C3BCE
+ * 00000001402C3954: cmp     rcx, rdi
+ * 00000001402C3957: jz      loc_1402C3BCE
+ * 00000001402C395D: cmp     rcx, [r13+9E8h]
+ * 00000001402C3964: jz      loc_1402C3BCE
+ * 00000001402C396A: test    r9b, 1
+ * 00000001402C396E: jz      loc_1402C3B92
+ * 00000001402C3974: test    r8b, 2
+ * 00000001402C3978: jnz     loc_1402C3B45
+ * 00000001402C397E: and     r9w, 4
+ * 00000001402C3983: jmp     loc_1402C3B69
+ * 00000001402C3988: test    r8b, 10h
+ * 00000001402C398C: jz      loc_1402C38B4
+ * 00000001402C3992: or      word ptr [rbp+6D0h], 1
+ * 00000001402C399A: test    r14, r14
+ * 00000001402C399D: jnz     loc_1402C38B4
+ * 00000001402C39A3: or      word ptr [rsi+6E6h], 1
+ * 00000001402C39AB: jmp     loc_1402C38B4
+ * 00000001402C39B0: lea     rcx, [rsp+98h+var_50]
+ * 00000001402C39B5: call    KiIsBranchConfusionMitigationEnabled
+ * 00000001402C39BA: test    eax, eax
+ * 00000001402C39BC: jnz     loc_1402C3A87
+ * 00000001402C39C2: lea     rcx, [rsp+98h+var_50]
+ * 00000001402C39C7: call    KiIsSrsoMitigationEnabled
+ * 00000001402C39CC: test    eax, eax
+ * 00000001402C39CE: jnz     loc_1402C3A87
+ * 00000001402C39D4: test    r8b, 10h
+ * 00000001402C39D8: jz      short loc_1402C3A06
+ * 00000001402C39DA: or      word ptr [rbp+6D0h], 1
+ * 00000001402C39E2: test    r14, r14
+ * 00000001402C39E5: jnz     short loc_1402C39EF
+ * 00000001402C39E7: or      word ptr [rsi+6E6h], 1
+ * 00000001402C39EF: test    r8b, 20h
+ * 00000001402C39F3: jnz     loc_1402C3AE8
+ * 00000001402C39F9: or      word ptr [rbx+6E0h], 2
+ * 00000001402C3A01: jmp     loc_1402C3AE8
+ * 00000001402C3A06: movzx   eax, r8b
+ * 00000001402C3A0A: and     al, 42h
+ * 00000001402C3A0C: cmp     al, 42h ; 'B'
+ * 00000001402C3A0E: jnz     short loc_1402C3A25
+ * 00000001402C3A10: or      word ptr [rbp+6D0h], 2
+ * 00000001402C3A18: test    r14, r14
+ * 00000001402C3A1B: jnz     short loc_1402C3A25
+ * 00000001402C3A1D: or      word ptr [rsi+6E6h], 2
+ * 00000001402C3A25: movzx   eax, word ptr [rbx+6E0h]
+ * 00000001402C3A2C: test    r14, r14
+ * 00000001402C3A2F: jz      short loc_1402C3A69
+ * 00000001402C3A31: or      ax, 10h
+ * 00000001402C3A35: mov     [rbx+6E0h], ax
+ * 00000001402C3A3C: test    r8b, 20h
+ * 00000001402C3A40: jnz     short loc_1402C3A52
+ * 00000001402C3A42: or      ax, 2
+ * 00000001402C3A46: mov     [rbx+6E0h], ax
+ * 00000001402C3A4D: jmp     loc_1402C3AE8
+ * 00000001402C3A52: test    r8b, 8
+ * 00000001402C3A56: jnz     loc_1402C3AE8
+ * 00000001402C3A5C: or      ax, 40h
+ * 00000001402C3A60: mov     [rbx+6E0h], ax
+ * 00000001402C3A67: jmp     short loc_1402C3AE8
+ * 00000001402C3A69: or      ax, 8
+ * 00000001402C3A6D: mov     [rbx+6E0h], ax
+ * 00000001402C3A74: test    r8b, 8
+ * 00000001402C3A78: jnz     short loc_1402C3AE8
+ * 00000001402C3A7A: or      ax, 2
+ * 00000001402C3A7E: mov     [rbx+6E0h], ax
+ * 00000001402C3A85: jmp     short loc_1402C3AE8
+ * 00000001402C3A87: movzx   eax, word ptr [rbx+6E0h]
+ * 00000001402C3A8E: or      ax, 8
+ * 00000001402C3A92: mov     [rbx+6E0h], ax
+ * 00000001402C3A99: test    r8b, 8
+ * 00000001402C3A9D: jnz     short loc_1402C3AAA
+ * 00000001402C3A9F: or      ax, 2
+ * 00000001402C3AA3: mov     [rbx+6E0h], ax
+ * 00000001402C3AAA: test    r8b, 2
+ * 00000001402C3AAE: jz      short loc_1402C3AE8
+ * 00000001402C3AB0: test    r8b, 40h
+ * 00000001402C3AB4: jz      short loc_1402C3ACD
+ * 00000001402C3AB6: or      word ptr [rbp+6D0h], 2
+ * 00000001402C3ABE: test    r14, r14
+ * 00000001402C3AC1: jnz     short loc_1402C3AE8
+ * 00000001402C3AC3: or      word ptr [rsi+6E6h], 2
+ * 00000001402C3ACB: jmp     short loc_1402C3AE8
+ * 00000001402C3ACD: test    r8b, 10h
+ * 00000001402C3AD1: jz      short loc_1402C3AE8
+ * 00000001402C3AD3: or      word ptr [rbp+6D0h], 1
+ * 00000001402C3ADB: test    r14, r14
+ * 00000001402C3ADE: jnz     short loc_1402C3AE8
+ * 00000001402C3AE0: or      word ptr [rsi+6E6h], 1
+ * 00000001402C3AE8: test    byte ptr [rbx+6E2h], 30h
+ * 00000001402C3AEF: mov     rcx, [rsp+98h+var_68]
+ * 00000001402C3AF4: mov     rdx, [rsp+98h+var_70]
+ * 00000001402C3AF9: jz      short loc_1402C3B07
+ * 00000001402C3AFB: mov     eax, 200h
+ * 00000001402C3B00: or      [rbx+6E0h], ax
+ * 00000001402C3B07: test    rdi, rdi
+ * 00000001402C3B0A: jz      loc_1402C38B4
+ * 00000001402C3B10: mov     rax, 8000000000h
+ * 00000001402C3B1A: test    rax, r10
+ * 00000001402C3B1D: jz      loc_1402C38B4
+ * 00000001402C3B23: or      word ptr [rbp+6D0h], 4
+ * 00000001402C3B2B: or      word ptr [rbx+6D2h], 4
+ * 00000001402C3B33: or      word ptr [rsi+6E6h], 4
+ * 00000001402C3B3B: or      r9w, 4
+ * 00000001402C3B40: jmp     loc_1402C38C0
+ * 00000001402C3B45: movzx   eax, word ptr [rbx+6ECh]
+ * 00000001402C3B4C: test    al, 4
+ * 00000001402C3B4E: jnz     short loc_1402C3B63
+ * 00000001402C3B50: test    r14, r14
+ * 00000001402C3B53: jz      short loc_1402C3B7A
+ * 00000001402C3B55: test    byte ptr [rbx+6D6h], 1
+ * 00000001402C3B5C: jnz     short loc_1402C3B7A
+ * 00000001402C3B5E: and     r9w, 4
+ * 00000001402C3B63: movzx   r8d, byte ptr [rsp+98h+var_50]
+ * 00000001402C3B69: test    r9b, 1
+ * 00000001402C3B6D: jnz     short loc_1402C3BAB
+ * 00000001402C3B6F: mov     al, 1
+ * 00000001402C3B71: mov     [rsp+98h+arg_10], al
+ * 00000001402C3B78: jmp     short loc_1402C3BD6
+ * 00000001402C3B7A: movzx   r8d, byte ptr [rsp+98h+var_50]
+ * 00000001402C3B80: test    r8b, 40h
+ * 00000001402C3B84: jz      short loc_1402C3B69
+ * 00000001402C3B86: and     r9w, 4
+ * 00000001402C3B8B: or      r9w, 2
+ * 00000001402C3B90: jmp     short loc_1402C3B69
+ * 00000001402C3B92: test    r11, r11
+ * 00000001402C3B95: jnz     short loc_1402C3BAB
+ * 00000001402C3B97: test    r8b, 10h
+ * 00000001402C3B9B: jnz     short loc_1402C3BAB
+ * 00000001402C3B9D: test    r14, r14
+ * 00000001402C3BA0: jz      short loc_1402C3BCE
+ * 00000001402C3BA2: test    byte ptr [rbx+6D6h], 2
+ * 00000001402C3BA9: jnz     short loc_1402C3BCE
+ * 00000001402C3BAB: movzx   eax, word ptr [rbx+6E0h]
+ * 00000001402C3BB2: or      ax, 4
+ * 00000001402C3BB6: mov     [rbx+6E0h], ax
+ * 00000001402C3BBD: test    r8b, 8
+ * 00000001402C3BC1: jnz     short loc_1402C3BCE
+ * 00000001402C3BC3: or      ax, 20h
+ * 00000001402C3BC7: mov     [rbx+6E0h], ax
+ * 00000001402C3BCE: movzx   eax, [rsp+98h+arg_8]
+ * 00000001402C3BD6: mov     edx, 80h
+ * 00000001402C3BDB: movzx   ecx, r9w
+ * 00000001402C3BDF: or      cx, dx
+ * 00000001402C3BE2: cmp     [rsp+98h+var_60], 0
+ * 00000001402C3BE8: cmovz   cx, r9w
+ * 00000001402C3BED: movzx   edx, cx
+ * 00000001402C3BF0: or      dx, 2
+ * 00000001402C3BF4: cmp     [rsp+98h+var_70], 0
+ * 00000001402C3BFA: cmovz   dx, cx
+ * 00000001402C3BFE: movzx   edi, dx
+ * 00000001402C3C01: or      di, r10w
+ * 00000001402C3C05: test    r12, r12
+ * 00000001402C3C08: cmovz   di, dx
+ * 00000001402C3C0C: test    al, al
+ * 00000001402C3C0E: jz      short loc_1402C3C65
+ * 00000001402C3C10: mov     eax, 1
+ * 00000001402C3C15: xor     edx, edx
+ * 00000001402C3C17: mov     ecx, 49h ; 'I'
+ * 00000001402C3C1C: wrmsr
+ * 00000001402C3C1E: test    r8b, 8
+ * 00000001402C3C22: jnz     short loc_1402C3C29
+ * 00000001402C3C24: call    KiFlushCurrentRsb
+ * 00000001402C3C29: movzx   eax, word ptr [rbx+6E0h]
+ * 00000001402C3C30: mov     ecx, 0FFFBh
+ * 00000001402C3C35: and     ax, cx
+ * 00000001402C3C38: mov     qword ptr [rbx+6D8h], 0
+ * 00000001402C3C43: mov     ecx, 0FFDFh
+ * 00000001402C3C48: mov     [rbx+6D2h], di
+ * 00000001402C3C4F: and     ax, cx
+ * 00000001402C3C52: mov     [rbx+6E0h], ax
+ * 00000001402C3C59: mov     eax, 0FFAFh
+ * 00000001402C3C5E: and     [rbx+6D4h], ax
+ * 00000001402C3C65: movzx   eax, word ptr [rbx+6ECh]
+ * 00000001402C3C6C: movzx   edx, di
+ * 00000001402C3C6F: test    al, 4
+ * 00000001402C3C71: jz      loc_1402C3E28
+ * 00000001402C3C77: mov     rdx, [rsp+98h+var_58]
+ * 00000001402C3C7C: mov     r12d, 2
+ * 00000001402C3C82: mov     rax, [rbx+2DB0h]
+ * 00000001402C3C89: cmp     [rsp+98h+var_68], rdx
+ * 00000001402C3C8E: jz      short loc_1402C3C9B
+ * 00000001402C3C90: lock or [rbx+6ECh], r12w
+ * 00000001402C3C99: jmp     short loc_1402C3CE5
+ * 00000001402C3C9B: movzx   eax, word ptr [rax+6ECh]
+ * 00000001402C3CA2: movzx   ecx, word ptr [r15+6EAh]
+ * 00000001402C3CAA: test    al, 1
+ * 00000001402C3CAC: jnz     short loc_1402C3CC9
+ * 00000001402C3CAE: or      cx, r12w
+ * 00000001402C3CB2: mov     [r15+6EAh], cx
+ * 00000001402C3CBA: test    r14, r14
+ * 00000001402C3CBD: jz      short loc_1402C3CE5
+ * 00000001402C3CBF: or      [rsi+6E6h], r12w
+ * 00000001402C3CC7: jmp     short loc_1402C3CE5
+ * 00000001402C3CC9: mov     eax, 0FFFDh
+ * 00000001402C3CCE: and     cx, ax
+ * 00000001402C3CD1: mov     [r15+6EAh], cx
+ * 00000001402C3CD9: test    r14, r14
+ * 00000001402C3CDC: jz      short loc_1402C3CE5
+ * 00000001402C3CDE: and     [rsi+6E6h], ax
+ * 00000001402C3CE5: test    rdx, rdx
+ * 00000001402C3CE8: jnz     loc_1402C3D6E
+ * 00000001402C3CEE: mov     rcx, r13
+ * 00000001402C3CF1: call    KiUpdateStibpPairing
+ * 00000001402C3CF6: movzx   ecx, word ptr [rbx+6D2h]
+ * 00000001402C3CFD: mov     r9d, eax
+ * 00000001402C3D00: movzx   r8d, word ptr [rbp+6D0h]
+ * 00000001402C3D08: mov     eax, 0FFFCh
+ * 00000001402C3D0D: and     cx, ax
+ * 00000001402C3D10: and     r8w, 3
+ * 00000001402C3D15: or      cx, r8w
+ * 00000001402C3D19: movzx   edx, di
+ * 00000001402C3D1C: and     dx, ax
+ * 00000001402C3D1F: mov     [rbx+6D2h], cx
+ * 00000001402C3D26: test    r14, r14
+ * 00000001402C3D29: jz      short loc_1402C3D3A
+ * 00000001402C3D2B: test    byte ptr [rbx+6D6h], 1
+ * 00000001402C3D32: jz      short loc_1402C3D3A
+ * 00000001402C3D34: neg     r8w
+ * 00000001402C3D38: jmp     short loc_1402C3D45
+ * 00000001402C3D3A: movzx   eax, byte ptr [rsi+6E6h]
+ * 00000001402C3D41: and     al, 3
+ * 00000001402C3D43: neg     al
+ * 00000001402C3D45: sbb     ax, ax
+ * 00000001402C3D48: mov     r8b, 1
+ * 00000001402C3D4B: and     ax, r12w
+ * 00000001402C3D4F: or      dx, ax
+ * 00000001402C3D52: cmp     [rsp+98h+arg_18], 0
+ * 00000001402C3D5A: jnz     loc_1402C3E34
+ * 00000001402C3D60: lock or [rbx+6ECh], r12w
+ * 00000001402C3D69: jmp     loc_1402C3E34
+ * 00000001402C3D6E: cmp     [rsp+98h+var_78], 0
+ * 00000001402C3D73: movzx   edx, di
+ * 00000001402C3D76: jz      loc_1402C3E28
+ * 00000001402C3D7C: prefetchw byte ptr [rbx+6ECh]
+ * 00000001402C3D83: movzx   eax, word ptr [rbx+6ECh]
+ * 00000001402C3D8A: mov     edx, 100h
+ * 00000001402C3D8F: nop
+ * 00000001402C3D90: movzx   ecx, ax
+ * 00000001402C3D93: or      cx, dx
+ * 00000001402C3D96: lock cmpxchg [rbx+6ECh], cx
+ * 00000001402C3D9F: jnz     short loc_1402C3D90
+ * 00000001402C3DA1: movzx   ecx, ax
+ * 00000001402C3DA4: mov     rdx, 20000000000h
+ * 00000001402C3DAE: mov     rax, qword ptr cs:KiSpeculationFeatures
+ * 00000001402C3DB5: and     ecx, 1
+ * 00000001402C3DB8: test    rdx, rax
+ * 00000001402C3DBB: jz      short loc_1402C3DF7
+ * 00000001402C3DBD: movzx   eax, word ptr [rbp+6D0h]
+ * 00000001402C3DC4: test    al, 3
+ * 00000001402C3DC6: jnz     short loc_1402C3DD3
+ * 00000001402C3DC8: or      ax, r12w
+ * 00000001402C3DCC: mov     [rbp+6D0h], ax
+ * 00000001402C3DD3: movzx   eax, word ptr [rbx+6D2h]
+ * 00000001402C3DDA: test    al, 3
+ * 00000001402C3DDC: jnz     short loc_1402C3DE9
+ * 00000001402C3DDE: or      ax, r12w
+ * 00000001402C3DE2: mov     [rbx+6D2h], ax
+ * 00000001402C3DE9: test    byte ptr [rbx+6D6h], 1
+ * 00000001402C3DF0: movzx   edx, di
+ * 00000001402C3DF3: jz      short loc_1402C3E1A
+ * 00000001402C3DF5: jmp     short loc_1402C3E10
+ * 00000001402C3DF7: movzx   eax, word ptr [rsi+6E6h]
+ * 00000001402C3DFE: test    al, 3
+ * 00000001402C3E00: jnz     short loc_1402C3E0D
+ * 00000001402C3E02: or      ax, r12w
+ * 00000001402C3E06: mov     [rsi+6E6h], ax
+ * 00000001402C3E0D: movzx   edx, di
+ * 00000001402C3E10: test    dil, 3
+ * 00000001402C3E14: jnz     short loc_1402C3E1A
+ * 00000001402C3E16: or      dx, r12w
+ * 00000001402C3E1A: lock or [rbx+6ECh], r12w
+ * 00000001402C3E23: mov     r9d, ecx
+ * 00000001402C3E26: jmp     short loc_1402C3E2B
+ * 00000001402C3E28: xor     r9d, r9d
+ * 00000001402C3E2B: movzx   r8d, [rsp+98h+arg_10]
+ * 00000001402C3E34: mov     r15, [rsp+98h+var_38]
+ * 00000001402C3E39: mov     r14, [rsp+98h+var_30]
+ * 00000001402C3E3E: mov     r12, [rsp+98h+var_28]
+ * 00000001402C3E43: mov     rsi, [rsp+98h+var_18]
+ * 00000001402C3E4B: mov     rbp, [rsp+98h+arg_0]
+ * 00000001402C3E53: cmp     dx, [rbx+6E4h]
+ * 00000001402C3E5A: jz      short loc_1402C3E73
+ * 00000001402C3E5C: mov     [rbx+6E4h], dx
+ * 00000001402C3E63: mov     ecx, 48h ; 'H'
+ * 00000001402C3E68: movzx   edx, dx
+ * 00000001402C3E6B: mov     eax, edx
+ * 00000001402C3E6D: shr     rdx, 20h
+ * 00000001402C3E71: wrmsr
+ * 00000001402C3E73: test    r8b, r8b
+ * 00000001402C3E76: jz      short loc_1402C3E7F
+ * 00000001402C3E78: or      byte ptr [rbx+6D6h], 2
+ * 00000001402C3E7F: lfence
+ * 00000001402C3E82: sti
+ * 00000001402C3E83: test    r9d, r9d
+ * 00000001402C3E86: jz      short loc_1402C3E90
+ * 00000001402C3E88: mov     rcx, rbx
+ * 00000001402C3E8B: call    KiSynchronizeStibpPairing
+ * 00000001402C3E90: mov     rdi, [rsp+98h+var_20]
+ * 00000001402C3E95: add     rsp, 88h
+ * 00000001402C3E9C: pop     r13
+ * 00000001402C3E9E: pop     rbx
+ * 00000001402C3E9F: retn
  */

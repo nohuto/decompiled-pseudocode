@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeKcbStack @ 0x1407F9F00
+ * XREFs of CmpInitializeKcbStack @ 0x1407FB100
  * Callers:
- *     CmQueryLayeredKey @ 0x14026BF18 (CmQueryLayeredKey.c)
- *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x14026C108 (CmQueryLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x14026CEBC (CmDeleteLayeredKey.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall CmpInitializeKcbStack(_WORD *a1)

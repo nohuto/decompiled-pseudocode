@@ -6,7 +6,7 @@
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x140340320 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1403405B0 (VslGetNestedPageProtectionFlags.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
@@ -47,8 +47,8 @@ char __fastcall MmInitSystem(__int64 a1, ULONG_PTR a2, __int64 a3)
   }
   if ( v4 == -1 )
   {
-    dword_140C12EA0 = 2048;
-    qword_140C12EA8 = (__int64)&unk_140C12EB0;
+    stru_140C12EA0.SizeOfBitMap = 2048;
+    stru_140C12EA0.Buffer = (unsigned int *)&unk_140C12EB0;
     word_140C13012 |= 1u;
     NestedPageProtectionFlags = VslGetNestedPageProtectionFlags();
     v12 = NestedPageProtectionFlags;

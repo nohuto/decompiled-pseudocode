@@ -8,53 +8,57 @@
  *     RtlFirstFreeAce @ 0x1406D4640 (RtlFirstFreeAce.c)
  */
 
-__int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, _DWORD *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlQueryInformationAcl(
+        PACL Acl,
+        PVOID AclInformation,
+        ULONG AclInformationLength,
+        ACL_INFORMATION_CLASS AclInformationClass)
 {
   int v4; // esi
-  int v6; // ecx
-  int v8; // r9d
-  __int64 v9; // rcx
+  int AclRevision; // ecx
+  __int32 v8; // r9d
+  PVOID v9; // rcx
   int v10; // ecx
-  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  PVOID v12; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = 0;
-  v6 = *a1;
+  AclRevision = Acl->AclRevision;
   v12 = 0LL;
-  if ( (unsigned __int8)(v6 - 2) <= 2u )
+  if ( (unsigned __int8)(AclRevision - 2) <= 2u )
   {
-    v8 = a4 - 1;
+    v8 = AclInformationClass - 1;
     if ( v8 )
     {
       if ( v8 != 1 )
-        return 3221225475LL;
-      if ( a3 >= 0xC )
+        return -1073741821;
+      if ( AclInformationLength >= 0xC )
       {
-        if ( RtlFirstFreeAce((__int64)a1, &v12) )
+        if ( RtlFirstFreeAce(Acl, &v12) )
         {
           v9 = v12;
-          *a2 = *((unsigned __int16 *)a1 + 2);
+          *(_DWORD *)AclInformation = Acl->AceCount;
           if ( v9 )
           {
-            v10 = v9 - (_DWORD)a1;
-            a2[1] = v10;
-            v4 = *((unsigned __int16 *)a1 + 1) - v10;
+            v10 = (_DWORD)v9 - (_DWORD)Acl;
+            *((_DWORD *)AclInformation + 1) = v10;
+            v4 = Acl->AclSize - v10;
           }
           else
           {
-            a2[1] = *((unsigned __int16 *)a1 + 1);
+            *((_DWORD *)AclInformation + 1) = Acl->AclSize;
           }
-          a2[2] = v4;
-          return 0LL;
+          *((_DWORD *)AclInformation + 2) = v4;
+          return 0;
         }
-        return 3221225485LL;
+        return -1073741811;
       }
     }
-    else if ( a3 >= 4 )
+    else if ( AclInformationLength >= 4 )
     {
-      *a2 = v6;
-      return 0LL;
+      *(_DWORD *)AclInformation = AclRevision;
+      return 0;
     }
-    return 3221225507LL;
+    return -1073741789;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

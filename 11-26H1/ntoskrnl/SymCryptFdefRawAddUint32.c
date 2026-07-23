@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefRawAddUint32 @ 0x140568BBC
+ * XREFs of SymCryptFdefRawAddUint32 @ 0x140567D9C
  * Callers:
- *     SymCryptFdefModSetRandomGeneric @ 0x140570150 (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x14056F330 (SymCryptFdefModSetRandomGeneric.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTracePassiveCooling @ 0x1407D390C
+ * XREFs of PopDiagTracePassiveCooling @ 0x1407D6A8C
  * Callers:
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ExSystemTimeToLocalTime @ 0x140215090 (ExSystemTimeToLocalTime.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ExSystemTimeToLocalTime @ 0x1402153C0 (ExSystemTimeToLocalTime.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTracePassiveCooling(__int64 a1, __int64 a2, char a3, int a4, unsigned int a5)
@@ -55,11 +55,11 @@ char __fastcall PopDiagTracePassiveCooling(__int64 a1, __int64 a2, char a3, int 
   LocalTime.QuadPart = 0LL;
   v18 = 0LL;
   LOWORD(v17) = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
     if ( a5
       || (LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwEventEnabled(
-                                                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+                                                     PopDiagHandle,
                                                      &POP_ETW_EVENT_PASSIVE_COOLING_DIAGNOSTIC),
           (_BYTE)DeviceAttachmentBaseRefWithTag) )
     {
@@ -67,7 +67,7 @@ char __fastcall PopDiagTracePassiveCooling(__int64 a1, __int64 a2, char a3, int 
       if ( a5 == 1 )
       {
         LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwEventEnabled(
-                                                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+                                                   PopDiagHandle,
                                                    &POP_ETW_EVENT_PASSIVE_COOLING_OPERATIONAL);
         if ( !(_BYTE)DeviceAttachmentBaseRefWithTag )
           return (char)DeviceAttachmentBaseRefWithTag;
@@ -115,7 +115,7 @@ char __fastcall PopDiagTracePassiveCooling(__int64 a1, __int64 a2, char a3, int 
             v41 = 4LL;
             if ( a5 )
               v14 = &POP_ETW_EVENT_PASSIVE_COOLING_OPERATIONAL;
-            EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v14, 0LL, 0xBu, &UserData);
+            EtwWrite(PopDiagHandle, v14, 0LL, 0xBu, &UserData);
           }
           LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v10, 0x67446F50u);
         }

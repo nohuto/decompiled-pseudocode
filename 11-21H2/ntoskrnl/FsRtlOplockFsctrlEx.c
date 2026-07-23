@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
+ *     sub_14071C610 @ 0x14071C610 (sub_14071C610.c)
  */
 
 NTSTATUS __stdcall FsRtlOplockFsctrlEx(POPLOCK Oplock, PIRP Irp, ULONG OpenCount, ULONG Flags)
 {
-  return FsRtlpOplockFsctrlInternal(Oplock, Irp, 28672);
+  return sub_14071C610(Oplock, Irp, 28672);
 }

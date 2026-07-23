@@ -1,11 +1,11 @@
 /*
- * XREFs of WdiDispatchControl @ 0x140AD91E8
+ * XREFs of WdiDispatchControl @ 0x140AD5C98
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     EtwGetProviderIdFromHandle @ 0x1404EA92C (EtwGetProviderIdFromHandle.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WdipStartEndScenario @ 0x140AD9258 (WdipStartEndScenario.c)
+ *     EtwGetProviderIdFromHandle @ 0x1404E3CDC (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WdipStartEndScenario @ 0x140AD5D08 (WdipStartEndScenario.c)
  */
 
 __int64 __fastcall WdiDispatchControl(unsigned int *a1)

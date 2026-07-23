@@ -1,13 +1,13 @@
 /*
- * XREFs of NtSerializeBoot @ 0x140761F70
+ * XREFs of NtSerializeBoot @ 0x140763160
  * Callers:
  *     <none>
  * Callees:
- *     PnpSerializeBoot @ 0x140192DB8 (PnpSerializeBoot.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
+ *     PnpSerializeBoot @ 0x140192EF8 (PnpSerializeBoot.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
  */
 
-NTSTATUS NtSerializeBoot()
+NTSTATUS NtSerializeBoot(void)
 {
   if ( KeGetCurrentThread()->PreviousMode != 1 )
     return -1073741790;

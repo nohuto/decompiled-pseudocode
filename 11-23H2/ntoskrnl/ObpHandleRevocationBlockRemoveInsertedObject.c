@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpHandleRevocationBlockRemoveInsertedObject @ 0x14097B38C
+ * XREFs of ObpHandleRevocationBlockRemoveInsertedObject @ 0x14097B58C
  * Callers:
  *     ObRevokeHandles @ 0x140682F10 (ObRevokeHandles.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1406E36A0 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObDestroyHandleRevocationBlock @ 0x14076D914 (ObDestroyHandleRevocationBlock.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1406E36D0 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObDestroyHandleRevocationBlock @ 0x14076DB04 (ObDestroyHandleRevocationBlock.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
  */
 
 void __fastcall ObpHandleRevocationBlockRemoveInsertedObject(

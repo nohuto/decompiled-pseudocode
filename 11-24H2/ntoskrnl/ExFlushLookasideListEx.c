@@ -1,53 +1,52 @@
 /*
- * XREFs of ExFlushLookasideListEx @ 0x1404760F0
+ * XREFs of ExFlushLookasideListEx @ 0x140472190
  * Callers:
- *     ExDeleteLookasideListEx @ 0x140476040 (ExDeleteLookasideListEx.c)
+ *     ExDeleteLookasideListEx @ 0x1404720E0 (ExDeleteLookasideListEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __stdcall ExFlushLookasideListEx(PLOOKASIDE_LIST_EX Lookaside)
 {
-  __int64 v2; // r8
-  ULONG_PTR v3; // r9
-  PSLIST_ENTRY v4; // r14
-  struct _SLIST_ENTRY *Next; // r15
-  unsigned __int64 v6; // rbx
-  _BYTE *v7; // rsi
+  PSLIST_ENTRY v2; // r14
+  _SLIST_ENTRY *Next; // r15
+  ULONG_PTR v4; // r9
+  unsigned __int64 v5; // rbx
+  _BYTE *v6; // rsi
 
-  v4 = RtlpInterlockedFlushSList(&Lookaside->L.ListHead);
-  if ( v4 )
+  v2 = RtlpInterlockedFlushSList(&Lookaside->L.ListHead);
+  if ( v2 )
   {
     do
     {
-      Next = v4->Next;
+      Next = v2->Next;
       if ( (void (__stdcall *)(PPRIVILEGE_SET))Lookaside->L.FreeEx == CmSiFreeMemory )
       {
-        v3 = (ULONG_PTR)(&v4->Next + 1);
-        v6 = Lookaside->L.Size - 8LL;
-        if ( byte_140FCDC28 )
+        v4 = (ULONG_PTR)(&v2->Next + 1);
+        v5 = Lookaside->L.Size - 8LL;
+        if ( byte_140FCECA8 )
         {
-          if ( v3 < 0xFFFF800000000000uLL )
-            KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v3, 0LL);
-          if ( (v3 & 7) != 0 )
-            KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v3, 8uLL);
-          if ( v3 + v6 < v3 )
-            KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v3, Lookaside->L.Size - 8LL);
-          v7 = (_BYTE *)(KasaniShadow + ((unsigned __int64)(&v4[0x80000000000LL].Next + 1) >> 3));
-          if ( v6 >> 3 )
+          if ( v4 < 0xFFFF800000000000uLL )
+            KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v4, 0LL);
+          if ( (v4 & 7) != 0 )
+            KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v4, 8uLL);
+          if ( v4 + v5 < v4 )
+            KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v4, Lookaside->L.Size - 8LL);
+          v6 = (_BYTE *)(KasaniShadow + ((unsigned __int64)(&v2[0x80000000000LL].Next + 1) >> 3));
+          if ( v5 >> 3 )
           {
-            memset_0((void *)(KasaniShadow + ((unsigned __int64)(&v4[0x80000000000LL].Next + 1) >> 3)), 0, v6 >> 3);
-            v7 += v6 >> 3;
+            memset_0((void *)(KasaniShadow + ((unsigned __int64)(&v2[0x80000000000LL].Next + 1) >> 3)), 0, v5 >> 3);
+            v6 += v5 >> 3;
           }
-          if ( (v6 & 7) != 0 )
-            *v7 = v6 & 7;
+          if ( (v5 & 7) != 0 )
+            *v6 = v5 & 7;
         }
       }
-      guard_dispatch_icall_no_overrides(v4, Lookaside, v2, v3);
-      v4 = Next;
+      guard_dispatch_icall_no_overrides(v2, Lookaside);
+      v2 = Next;
     }
     while ( Next );
   }

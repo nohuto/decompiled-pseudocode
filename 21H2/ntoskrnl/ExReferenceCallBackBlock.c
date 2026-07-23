@@ -1,31 +1,31 @@
 /*
- * XREFs of ExReferenceCallBackBlock @ 0x14025A950
+ * XREFs of ExReferenceCallBackBlock @ 0x14027BEC0
  * Callers:
- *     IoBoostThreadIoPriority @ 0x140358630 (IoBoostThreadIoPriority.c)
- *     KiEnumerateCallback @ 0x140380DE0 (KiEnumerateCallback.c)
- *     IoUnregisterPriorityCallback @ 0x140506610 (IoUnregisterPriorityCallback.c)
- *     KeDeregisterBoundCallback @ 0x140514130 (KeDeregisterBoundCallback.c)
- *     KiHandleBound @ 0x140514B70 (KiHandleBound.c)
- *     PoIssueCoalescingNotification @ 0x14056EA78 (PoIssueCoalescingNotification.c)
- *     ExCallCallBack @ 0x14061AE3C (ExCallCallBack.c)
- *     PspCallProcessNotifyRoutines @ 0x14061AEAC (PspCallProcessNotifyRoutines.c)
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
- *     PsCallImageNotifyRoutines @ 0x14061B230 (PsCallImageNotifyRoutines.c)
- *     PspCallThreadNotifyRoutines @ 0x14061B3C0 (PspCallThreadNotifyRoutines.c)
- *     ExCallSessionCallBack @ 0x140683678 (ExCallSessionCallBack.c)
- *     DbgkLkmdRegisterCallback @ 0x14078FAE0 (DbgkLkmdRegisterCallback.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x14078FF78 (PspSetCreateProcessNotifyRoutine.c)
- *     DbgkLkmdUnregisterCallback @ 0x140888170 (DbgkLkmdUnregisterCallback.c)
- *     DbgkpLkmdFireCallbacks @ 0x140888214 (DbgkpLkmdFireCallbacks.c)
- *     PoUnregisterCoalescingCallback @ 0x1408E6710 (PoUnregisterCoalescingCallback.c)
- *     PsRemoveCreateThreadNotifyRoutine @ 0x14090C3B0 (PsRemoveCreateThreadNotifyRoutine.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x14090C4A0 (PsRemoveLoadImageNotifyRoutine.c)
+ *     IoBoostThreadIoPriority @ 0x140363380 (IoBoostThreadIoPriority.c)
+ *     KiEnumerateCallback @ 0x140380930 (KiEnumerateCallback.c)
+ *     IoUnregisterPriorityCallback @ 0x140506590 (IoUnregisterPriorityCallback.c)
+ *     KeDeregisterBoundCallback @ 0x140514370 (KeDeregisterBoundCallback.c)
+ *     KiHandleBound @ 0x140514DB0 (KiHandleBound.c)
+ *     PoIssueCoalescingNotification @ 0x14056ECB8 (PoIssueCoalescingNotification.c)
+ *     ExCallSessionCallBack @ 0x1405E44F8 (ExCallSessionCallBack.c)
+ *     ExCallCallBack @ 0x140684A9C (ExCallCallBack.c)
+ *     PspCallProcessNotifyRoutines @ 0x140684B0C (PspCallProcessNotifyRoutines.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
+ *     PsCallImageNotifyRoutines @ 0x140684E90 (PsCallImageNotifyRoutines.c)
+ *     PspCallThreadNotifyRoutines @ 0x140685020 (PspCallThreadNotifyRoutines.c)
+ *     DbgkLkmdRegisterCallback @ 0x140791090 (DbgkLkmdRegisterCallback.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140791528 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkLkmdUnregisterCallback @ 0x1408882D0 (DbgkLkmdUnregisterCallback.c)
+ *     DbgkpLkmdFireCallbacks @ 0x140888374 (DbgkpLkmdFireCallbacks.c)
+ *     PoUnregisterCoalescingCallback @ 0x1408E6870 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x14090C510 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x14090C600 (PsRemoveLoadImageNotifyRoutine.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExAcquireRundownProtectionEx @ 0x140360A00 (ExAcquireRundownProtectionEx.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExAcquireRundownProtectionEx @ 0x1402A5900 (ExAcquireRundownProtectionEx.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -110,7 +110,7 @@ LABEL_31:
   {
     v9 = ExAcquireSpinLockShared(&ExpCallBackFlush);
     v5 = (struct _EX_RUNDOWN_REF *)(*a1 & 0xFFFFFFFFFFFFFFF0uLL);
-    if ( v5 && !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*a1 & 0xFFFFFFFFFFFFFFF0uLL)) )
+    if ( v5 && !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*a1 & 0xFFFFFFFFFFFFFFF0uLL)) )
       v5 = 0LL;
     ExReleaseSpinLockSharedFromDpcLevel(&ExpCallBackFlush);
     if ( KiIrqlFlags )

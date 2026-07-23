@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlLengthCurrentClearRunForwardEx @ 0x1405A8A40
+ * XREFs of RtlLengthCurrentClearRunForwardEx @ 0x1405A8FB0
  * Callers:
- *     RtlCSparseBitmapFindBitSetCapped @ 0x14024FB80 (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x14024FC50 (RtlCSparseBitmapFindBitSetCapped.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ __int64 __fastcall RtlLengthCurrentClearRunForwardEx(_QWORD *a1, unsigned __int6
     v6 = v2 + 4 * v5;
   v7 = a2 & 0x1F;
   v8 = 0LL;
-  v9 = *v3 & ~*((_DWORD *)qword_140016710 + v7);
+  v9 = *v3 & ~*((_DWORD *)qword_140016700 + v7);
   if ( (unsigned __int64)v3 <= v6 )
   {
     while ( !(_DWORD)v9 )
@@ -56,7 +56,7 @@ LABEL_4:
     if ( v8 )
       LODWORD(v9) = v3[1];
     v10 = -1;
-    v11 = !_BitScanForward64(&v9, (unsigned int)v9 | ~*((_DWORD *)qword_140016710 + v4));
+    v11 = !_BitScanForward64(&v9, (unsigned int)v9 | ~*((_DWORD *)qword_140016700 + v4));
     if ( !v11 )
       v10 = v9;
     v12 = (unsigned int)v10;

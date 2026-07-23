@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpGetIndex @ 0x140A7BCE8
+ * XREFs of SdbpGetIndex @ 0x140A75FE8
  * Callers:
- *     SdbpFindNextIndexedWildCardTag @ 0x14095B554 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x14095FB48 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140943014 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140947608 (SdbpFindFirstIndexedWildCardTag.c)
  * Callees:
- *     SdbpGetMappedTagData @ 0x14095FA14 (SdbpGetMappedTagData.c)
- *     SdbGetTagDataSize @ 0x14095FF20 (SdbGetTagDataSize.c)
- *     SdbGetTagFromTagID @ 0x1409600B0 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbpGetMappedTagData @ 0x1409474D4 (SdbpGetMappedTagData.c)
+ *     SdbGetTagDataSize @ 0x1409479E0 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x140947B70 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetIndex(__int64 a1, unsigned int a2, unsigned int *a3)
@@ -22,11 +22,7 @@ __int64 __fastcall SdbpGetIndex(__int64 a1, unsigned int a2, unsigned int *a3)
   }
   else
   {
-    AslLogCallPrintf(
-      1LL,
-      (__int64)"SdbpGetIndex",
-      1375LL,
-      (__int64)"Index tagid 0x%lx is not referring to the index bits");
+    AslLogCallPrintf(1LL, (__int64)"SdbpGetIndex");
     return 0LL;
   }
 }

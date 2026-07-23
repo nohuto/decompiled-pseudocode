@@ -1,381 +1,366 @@
 /*
- * XREFs of ExpWatchProductTypeInitialization @ 0x140CE4EEC
+ * XREFs of ExpWatchProductTypeInitialization @ 0x140CEB28C
  * Callers:
- *     ExInitSystemPhase2 @ 0x140CE4044 (ExInitSystemPhase2.c)
+ *     ExInitSystemPhase2 @ 0x140CEA3E4 (ExInitSystemPhase2.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     wcsncmp @ 0x1405381A0 (wcsncmp.c)
- *     wcscat_s @ 0x14053CA60 (wcscat_s.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExpGetNtProductTypeFromLicenseValue @ 0x140836A7C (ExpGetNtProductTypeFromLicenseValue.c)
- *     NtQueryValueKey @ 0x1408F2A10 (NtQueryValueKey.c)
- *     NtQueryKey @ 0x1408F4C30 (NtQueryKey.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     NtOpenKey @ 0x140974540 (NtOpenKey.c)
- *     NtNotifyChangeKey @ 0x14097A110 (NtNotifyChangeKey.c)
- *     NtEnumerateKey @ 0x140A5B7C0 (NtEnumerateKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ExpUpdateProductSuiteTypeInRegistry @ 0x140CE493C (ExpUpdateProductSuiteTypeInRegistry.c)
- *     ExpLicenseWatchInitWorker @ 0x140D01C04 (ExpLicenseWatchInitWorker.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     wcsncmp @ 0x14053A620 (wcsncmp.c)
+ *     wcscat_s @ 0x14053EEE0 (wcscat_s.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExpGetNtProductTypeFromLicenseValue @ 0x14083CCBC (ExpGetNtProductTypeFromLicenseValue.c)
+ *     NtQueryValueKey @ 0x1408F8FD0 (NtQueryValueKey.c)
+ *     NtQueryKey @ 0x140924BC0 (NtQueryKey.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     NtOpenKey @ 0x140936550 (NtOpenKey.c)
+ *     NtNotifyChangeKey @ 0x14093C120 (NtNotifyChangeKey.c)
+ *     NtEnumerateKey @ 0x140A68780 (NtEnumerateKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ExpUpdateProductSuiteTypeInRegistry @ 0x140CEACDC (ExpUpdateProductSuiteTypeInRegistry.c)
+ *     ExpLicenseWatchInitWorker @ 0x140D07FA4 (ExpLicenseWatchInitWorker.c)
  */
 
 char ExpWatchProductTypeInitialization()
 {
-  _LIST_ENTRY v0; // rdi
-  int v1; // eax
+  PVOID v0; // rsi
+  NTSTATUS v1; // eax
   NTSTATUS v2; // eax
-  int ValueKey; // eax
-  int v4; // eax
-  int v6; // eax
+  PVOID v3; // rdi
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // eax
   NTSTATUS v7; // eax
-  _KSCHEDULING_GROUP *Pool2; // rax
-  int v9; // eax
-  size_t v10; // r8
-  int v11; // eax
-  char v12; // si
-  __int64 v13; // rax
-  int Key; // eax
-  unsigned int v15; // r12d
-  ULONG_PTR v16; // r14
-  int v17; // r13d
-  ULONG_PTR v18; // rsi
-  bool v19; // di
-  _DWORD *v20; // r15
-  ULONG_PTR v21; // r8
-  unsigned int i; // edi
-  int v23; // eax
-  __int64 v24; // rax
-  __int64 v25; // rsi
-  int v26; // eax
-  int v27; // eax
-  wchar_t *v28; // rax
-  char *v29; // rcx
-  int v30; // eax
-  PVOID *Object; // [rsp+20h] [rbp-E0h]
-  PVOID *Objecta; // [rsp+20h] [rbp-E0h]
-  PVOID *Objectb; // [rsp+20h] [rbp-E0h]
-  PVOID *Objectc; // [rsp+20h] [rbp-E0h]
-  PVOID *Objectd; // [rsp+20h] [rbp-E0h]
-  PVOID *Objecte; // [rsp+20h] [rbp-E0h]
-  PVOID *Objectf; // [rsp+20h] [rbp-E0h]
-  ULONG_PTR BugCheckParameter2; // [rsp+50h] [rbp-B0h] BYREF
-  PVOID v39; // [rsp+58h] [rbp-A8h] BYREF
+  NTSTATUS v8; // eax
+  void *Pool2; // rax
+  NTSTATUS v10; // eax
+  size_t v11; // r8
+  NTSTATUS v12; // eax
+  char v13; // si
+  __int64 v14; // rax
+  NTSTATUS v15; // eax
+  ULONG v16; // r12d
+  ULONG_PTR v17; // r14
+  ULONG v18; // r13d
+  ULONG_PTR v19; // rsi
+  bool v20; // di
+  _DWORD *v21; // r15
+  ULONG_PTR v22; // r8
+  ULONG i; // edi
+  NTSTATUS v24; // eax
+  __int64 v25; // rax
+  __int64 v26; // rsi
+  NTSTATUS v27; // eax
+  NTSTATUS v28; // eax
+  wchar_t *v29; // rax
+  char *v30; // rcx
+  NTSTATUS v31; // eax
+  ULONG ResultLength; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID Object; // [rsp+58h] [rbp-A8h] BYREF
   wchar_t *Dst[2]; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE Handle; // [rsp+70h] [rbp-90h]
-  UNICODE_STRING v42; // [rsp+78h] [rbp-88h] BYREF
-  int v43; // [rsp+88h] [rbp-78h]
-  int v44; // [rsp+8Ch] [rbp-74h]
-  __int64 v45; // [rsp+90h] [rbp-70h]
-  void *p_DestinationString; // [rsp+98h] [rbp-68h]
-  int v47; // [rsp+A0h] [rbp-60h]
-  int v48; // [rsp+A4h] [rbp-5Ch]
-  __int128 v49; // [rsp+A8h] [rbp-58h]
+  HANDLE KeyHandle; // [rsp+70h] [rbp-90h] BYREF
+  UNICODE_STRING ValueName; // [rsp+78h] [rbp-88h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B8h] [rbp-48h] BYREF
-  UNICODE_STRING v51; // [rsp+C8h] [rbp-38h] BYREF
-  __int128 v52; // [rsp+D8h] [rbp-28h] BYREF
-  __int128 v53; // [rsp+E8h] [rbp-18h]
-  __int128 v54; // [rsp+F8h] [rbp-8h]
-  __int128 v55; // [rsp+108h] [rbp+8h] BYREF
-  _BYTE v56[12]; // [rsp+120h] [rbp+20h] BYREF
-  int v57; // [rsp+12Ch] [rbp+2Ch]
+  UNICODE_STRING v39; // [rsp+C8h] [rbp-38h] BYREF
+  __int128 KeyInformation; // [rsp+D8h] [rbp-28h] BYREF
+  __int128 v41; // [rsp+E8h] [rbp-18h]
+  __int128 v42; // [rsp+F8h] [rbp-8h]
+  __int128 v43; // [rsp+108h] [rbp+8h] BYREF
+  _BYTE KeyValueInformation[12]; // [rsp+120h] [rbp+20h] BYREF
+  int v45; // [rsp+12Ch] [rbp+2Ch]
 
-  v44 = 0;
-  v48 = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
-  LODWORD(BugCheckParameter2) = 0;
-  v42 = 0LL;
-  Handle = 0LL;
-  v0.Blink = 0LL;
-  v55 = 0LL;
+  ResultLength = 0;
+  ValueName = 0LL;
+  KeyHandle = 0LL;
+  v0 = 0LL;
+  v43 = 0LL;
   *(_BYTE *)(MmWriteableSharedUserData + 616) = 1;
-  BYTE4(ExpSysDbgLock.InitialStack) = 0;
-  LOBYTE(ExpSysDbgLock.SystemCallNumber) = 0;
+  ExpSysDbgLock.WaitRegister.Flags = 0;
+  ExpSysDbgLock.ApcStateFill[4] = 0;
   ExpGetNtProductTypeFromLicenseValue((_DWORD *)(MmWriteableSharedUserData + 612));
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\Setup");
-  v45 = 0LL;
-  p_DestinationString = &DestinationString;
-  v47 = 576;
-  v43 = 48;
-  v49 = 0LL;
-  v1 = NtOpenKey();
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.Length = 48;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v1 = NtOpenKey((PHANDLE)&ExpSysDbgLock.ApcState.ApcListHead[1].Flink, 0x2001Fu, &ObjectAttributes);
   if ( v1 < 0 )
     KeBugCheckEx(0x9Au, 2uLL, (unsigned int)v1, 0LL, 0LL);
-  v39 = 0LL;
-  v2 = ObReferenceObjectByHandle(ExpSysDbgLock.FirstArgument, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &v39, 0LL);
-  v0.Flink = (struct _LIST_ENTRY *)v39;
+  Object = 0LL;
+  v2 = ObReferenceObjectByHandle(
+         ExpSysDbgLock.ApcState.ApcListHead[1].Flink,
+         0,
+         (POBJECT_TYPE)CmKeyObjectType,
+         0,
+         &Object,
+         0LL);
+  v3 = Object;
   if ( v2 < 0 )
     KeBugCheckEx(0x9Au, 0xBuLL, (unsigned int)v2, 0LL, 0LL);
-  RtlInitUnicodeString(&v42, L"SetupType");
-  LODWORD(Object) = 72;
-  ValueKey = NtQueryValueKey(
-               ExpSysDbgLock.FirstArgument,
-               (unsigned int *)&v42.Length,
-               2LL,
-               (unsigned __int64)v56,
-               (size_t)Object,
-               (unsigned int *)&BugCheckParameter2);
-  if ( ValueKey < 0 )
-    KeBugCheckEx(0x9Au, 3uLL, (unsigned int)ValueKey, 0LL, 0LL);
-  if ( v57 == 1 || v57 == 4 )
-  {
-    BYTE4(ExpSysDbgLock.InitialStack) = 1;
-    *(_BYTE *)(MmWriteableSharedUserData + 616) = 0;
-    ObfDereferenceObjectWithTag(v0.Flink, 0x746C6644u);
-    v0.Flink = 0LL;
-  }
-  RtlInitUnicodeString(&v42, L"SystemSetupInProgress");
-  LODWORD(Objecta) = 72;
+  RtlInitUnicodeString(&ValueName, L"SetupType");
   v4 = NtQueryValueKey(
-         ExpSysDbgLock.FirstArgument,
-         (unsigned int *)&v42.Length,
-         2LL,
-         (unsigned __int64)v56,
-         (size_t)Objecta,
-         (unsigned int *)&BugCheckParameter2);
+         ExpSysDbgLock.ApcState.ApcListHead[1].Flink,
+         &ValueName,
+         KeyValuePartialInformation,
+         KeyValueInformation,
+         0x48u,
+         &ResultLength);
   if ( v4 < 0 )
     KeBugCheckEx(0x9Au, 3uLL, (unsigned int)v4, 0LL, 0LL);
-  if ( v57 == 1 )
-    LOBYTE(ExpSysDbgLock.SystemCallNumber) = 1;
+  if ( v45 == 1 || v45 == 4 )
+  {
+    ExpSysDbgLock.WaitRegister.Flags = 1;
+    *(_BYTE *)(MmWriteableSharedUserData + 616) = 0;
+    ObfDereferenceObjectWithTag(v3, 0x746C6644u);
+    v3 = 0LL;
+  }
+  RtlInitUnicodeString(&ValueName, L"SystemSetupInProgress");
+  v5 = NtQueryValueKey(
+         ExpSysDbgLock.ApcState.ApcListHead[1].Flink,
+         &ValueName,
+         KeyValuePartialInformation,
+         KeyValueInformation,
+         0x48u,
+         &ResultLength);
+  if ( v5 < 0 )
+    KeBugCheckEx(0x9Au, 3uLL, (unsigned int)v5, 0LL, 0LL);
+  if ( v45 == 1 )
+    ExpSysDbgLock.ApcStateFill[4] = 1;
   ExpLicenseWatchInitWorker();
   if ( InitIsWinPEMode )
   {
-    ExpSysDbgLock.ApcState.ApcListHead[0].Flink = v0.Flink;
+    *(_QWORD *)&ExpSysDbgLock.ApcStateFill[40] = v3;
     return 1;
   }
-  ExpSysDbgLock.CycleTime = (volatile unsigned __int64)ExpWatchProductTypeWork;
+  ExpSysDbgLock.StateSaveArea = (_XSAVE_FORMAT *)ExpWatchProductTypeWork;
+  ExpSysDbgLock.SchedulingGroup = 0LL;
   *(_QWORD *)&ExpSysDbgLock.CurrentRunTime = 0LL;
-  ExpSysDbgLock.StackBase = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions");
-  v43 = 48;
-  p_DestinationString = &DestinationString;
-  v45 = 0LL;
-  v47 = 576;
-  v49 = 0LL;
-  v6 = NtOpenKey();
-  if ( v6 >= 0 )
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v7 = NtOpenKey((PHANDLE)&ExpSysDbgLock.ApcState.ApcListHead[0].Blink, 0x2001Fu, &ObjectAttributes);
+  if ( v7 >= 0 )
   {
-    if ( !BYTE4(ExpSysDbgLock.InitialStack) )
+    if ( !ExpSysDbgLock.WaitRegister.Flags )
     {
-      v39 = 0LL;
-      v7 = ObReferenceObjectByHandle(
-             ExpSysDbgLock.ApcState.ApcListHead[1].Flink,
+      Object = 0LL;
+      v8 = ObReferenceObjectByHandle(
+             ExpSysDbgLock.ApcState.ApcListHead[0].Blink,
              0,
              (POBJECT_TYPE)CmKeyObjectType,
              0,
-             &v39,
+             &Object,
              0LL);
-      v0.Blink = (struct _LIST_ENTRY *)v39;
-      if ( v7 < 0 )
-        KeBugCheckEx(0x9Au, 0xCuLL, (unsigned int)v7, 0LL, 0LL);
+      v0 = Object;
+      if ( v8 < 0 )
+        KeBugCheckEx(0x9Au, 0xCuLL, (unsigned int)v8, 0LL, 0LL);
     }
-    ExpSysDbgLock.ApcState.ApcListHead[0] = v0;
+    *(_QWORD *)&ExpSysDbgLock.ApcStateFill[40] = v3;
+    ExpSysDbgLock.WaitStatus = (volatile __int64)v0;
     ExpUpdateProductSuiteTypeInRegistry();
-    RtlInitUnicodeString(&v42, L"ProductType");
-    Pool2 = (_KSCHEDULING_GROUP *)ExAllocatePool2(256LL, 0x22uLL, 0x2079654Bu);
-    ExpSysDbgLock.SchedulingGroup = Pool2;
+    RtlInitUnicodeString(&ValueName, L"ProductType");
+    Pool2 = (void *)ExAllocatePool2(256LL, 0x22uLL, 0x2079654Bu);
+    ExpSysDbgLock.StackLimit = Pool2;
     if ( Pool2 )
     {
-      LODWORD(Objectb) = 34;
-      v9 = NtQueryValueKey(
-             ExpSysDbgLock.ApcState.ApcListHead[1].Flink,
-             (unsigned int *)&v42.Length,
-             2LL,
-             (unsigned __int64)Pool2,
-             (size_t)Objectb,
-             (unsigned int *)&BugCheckParameter2);
-      if ( v9 >= 0 )
+      v10 = NtQueryValueKey(
+              ExpSysDbgLock.ApcState.ApcListHead[0].Blink,
+              &ValueName,
+              KeyValuePartialInformation,
+              Pool2,
+              0x22u,
+              &ResultLength);
+      if ( v10 >= 0 )
       {
-        RtlInitUnicodeString(&v42, L"ProductSuite");
-        LODWORD(Objectc) = 16;
-        if ( (unsigned int)NtQueryValueKey(
-                             ExpSysDbgLock.ApcState.ApcListHead[1].Flink,
-                             (unsigned int *)&v42.Length,
-                             2LL,
-                             (unsigned __int64)&v55,
-                             (size_t)Objectc,
-                             (unsigned int *)&BugCheckParameter2) != -2147483643 )
+        RtlInitUnicodeString(&ValueName, L"ProductSuite");
+        if ( NtQueryValueKey(
+               ExpSysDbgLock.ApcState.ApcListHead[0].Blink,
+               &ValueName,
+               KeyValuePartialInformation,
+               &v43,
+               0x10u,
+               &ResultLength) != -2147483643 )
           goto LABEL_29;
-        LODWORD(BugCheckParameter2) = BugCheckParameter2 + 16;
-        stru_140E3E928.AbWaitObject = (void *volatile)ExAllocatePool2(
-                                                        256LL,
-                                                        (unsigned int)BugCheckParameter2,
-                                                        0x2079654Bu);
-        if ( !stru_140E3E928.AbWaitObject )
-          KeBugCheckEx(0x9Au, 0x14uLL, (unsigned int)BugCheckParameter2, 2uLL, 0LL);
-        LODWORD(Objectd) = BugCheckParameter2;
-        if ( (int)NtQueryValueKey(
-                    ExpSysDbgLock.ApcState.ApcListHead[1].Flink,
-                    (unsigned int *)&v42.Length,
-                    2LL,
-                    (unsigned __int64)stru_140E3E928.AbWaitObject,
-                    (size_t)Objectd,
-                    (unsigned int *)&BugCheckParameter2) >= 0
-          || (ExFreePoolWithTag(stru_140E3E928.AbWaitObject, 0),
-              stru_140E3E928.AbWaitObject = 0LL,
-              !BYTE4(ExpSysDbgLock.InitialStack)) )
+        ResultLength += 16;
+        stru_140E62450.SListFaultAddress = (void *)ExAllocatePool2(256LL, ResultLength, 0x2079654Bu);
+        if ( !stru_140E62450.SListFaultAddress )
+          KeBugCheckEx(0x9Au, 0x14uLL, ResultLength, 2uLL, 0LL);
+        if ( NtQueryValueKey(
+               ExpSysDbgLock.ApcState.ApcListHead[0].Blink,
+               &ValueName,
+               KeyValuePartialInformation,
+               stru_140E62450.SListFaultAddress,
+               ResultLength,
+               &ResultLength) >= 0
+          || (ExFreePoolWithTag(stru_140E62450.SListFaultAddress, 0),
+              stru_140E62450.SListFaultAddress = 0LL,
+              !ExpSysDbgLock.WaitRegister.Flags) )
         {
 LABEL_29:
-          v10 = -1LL;
+          v11 = -1LL;
           do
-            ++v10;
-          while ( aLanmannt[v10] );
-          if ( !wcsncmp(L"LanmanNT", (const wchar_t *)&ExpSysDbgLock.SchedulingGroup->ChildMinRate, v10)
-            && (_DWORD)InitSafeBootMode == 3
-            && !BYTE4(ExpSysDbgLock.InitialStack) )
+            ++v11;
+          while ( aLanmannt[v11] );
+          if ( !wcsncmp(L"LanmanNT", (const wchar_t *)ExpSysDbgLock.StackLimit + 6, v11)
+            && InitSafeBootMode == 3
+            && !ExpSysDbgLock.WaitRegister.Flags )
           {
             *(_BYTE *)(MmWriteableSharedUserData + 616) = 1;
             *(_DWORD *)(MmWriteableSharedUserData + 612) = 3;
           }
-          v11 = NtNotifyChangeKey(
-                  *(int *)&ExpSysDbgLock.ApcStateFill[16],
+          v12 = NtNotifyChangeKey(
+                  ExpSysDbgLock.ApcState.ApcListHead[0].Blink,
+                  0LL,
+                  (PIO_APC_ROUTINE)&ExpSysDbgLock.CurrentRunTime,
+                  (PVOID)1,
+                  (PIO_STATUS_BLOCK)&ExpSysDbgLock.SystemCallNumber,
+                  0x10000005u,
                   0,
-                  (__int64)&ExpSysDbgLock.StackBase,
-                  1LL,
-                  &ExpSysDbgLock.KernelStack,
-                  268435461,
-                  0,
-                  &ExpSysDbgLock.WaitRegister,
-                  4,
-                  1);
-          if ( v11 >= 0 )
+                  (char *)&ExpSysDbgLock.InitialStack + 4,
+                  4u,
+                  1u);
+          if ( v12 >= 0 )
           {
             RtlInitUnicodeString(
               &DestinationString,
               L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\LicenseInfoSuites");
-            v43 = 48;
-            p_DestinationString = &DestinationString;
-            v45 = 0LL;
-            v47 = 576;
-            v49 = 0LL;
-            if ( (int)NtOpenKey() >= 0 )
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = &DestinationString;
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.Attributes = 576;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
             {
-              LODWORD(v39) = 0;
-              v52 = 0LL;
-              v12 = 0;
-              v13 = -1LL;
-              v53 = 0LL;
-              v54 = 0LL;
+              LODWORD(Object) = 0;
+              KeyInformation = 0LL;
+              v13 = 0;
+              v14 = -1LL;
+              v41 = 0LL;
+              v42 = 0LL;
               *(_OWORD *)Dst = 0LL;
-              v51 = 0LL;
+              v39 = 0LL;
               do
-                ++v13;
-              while ( aRegistryMachin_168[v13] );
-              LOWORD(Dst[0]) = 2 * (v13 + 64);
+                ++v14;
+              while ( aRegistryMachin_170[v14] );
+              LOWORD(Dst[0]) = 2 * (v14 + 64);
               WORD1(Dst[0]) = Dst[0];
               Dst[1] = (wchar_t *)ExAllocatePool2(64LL, LOWORD(Dst[0]), 0x2079654Bu);
               if ( !Dst[1] )
                 KeBugCheckEx(0x9Au, 0x14uLL, LOWORD(Dst[0]), 3uLL, 0LL);
-              Key = NtQueryKey(Handle, 2u, (unsigned __int64)&v52, 0x30u, (unsigned int *)&v39);
-              if ( Key < 0 )
-                KeBugCheckEx(0x9Au, 0x13uLL, Key, 1uLL, 0LL);
-              v15 = 2 * DWORD2(v53) + 56;
-              if ( v15 < DWORD2(v53) || v15 < 2 * (unsigned __int64)(unsigned int)(DWORD2(v53) + 16) )
-                v12 = 1;
-              v16 = ExAllocatePool2(64LL, v15, 0x2079654Bu);
-              if ( !v16 || v12 )
-                KeBugCheckEx(0x9Au, 0x14uLL, v15, 4uLL, 0LL);
-              v17 = DWORD2(v54) + 32;
-              v18 = (unsigned int)(DWORD2(v54) + 32);
-              v19 = (unsigned int)(DWORD2(v54) + 32) < DWORD2(v54);
-              v20 = (_DWORD *)ExAllocatePool2(64LL, v18, 0x2079654Bu);
-              if ( !v20 || v19 )
-                KeBugCheckEx(0x9Au, 0x14uLL, v18, 5uLL, 0LL);
-              LODWORD(ExpSysDbgLock.InitialStack) = DWORD1(v53);
-              v21 = 80LL * DWORD1(v53);
-              if ( v21 > 0xFFFFFFFF )
-                KeBugCheckEx(0x9Au, 0x14uLL, v21, 6uLL, 0LL);
-              ExpSysDbgLock.StackLimit = (void *volatile)ExAllocatePool2(64LL, (unsigned int)v21, 0x2079654Bu);
-              if ( !ExpSysDbgLock.StackLimit )
-                KeBugCheckEx(0x9Au, 0x14uLL, 80LL * LODWORD(ExpSysDbgLock.InitialStack), 6uLL, 0LL);
-              RtlInitUnicodeString(&v51, L"ConcurrentLimit");
+              v15 = NtQueryKey(KeyHandle, KeyFullInformation, &KeyInformation, 0x30u, (PULONG)&Object);
+              if ( v15 < 0 )
+                KeBugCheckEx(0x9Au, 0x13uLL, v15, 1uLL, 0LL);
+              v16 = 2 * DWORD2(v41) + 56;
+              if ( v16 < DWORD2(v41) || v16 < 2 * (unsigned __int64)(unsigned int)(DWORD2(v41) + 16) )
+                v13 = 1;
+              v17 = ExAllocatePool2(64LL, v16, 0x2079654Bu);
+              if ( !v17 || v13 )
+                KeBugCheckEx(0x9Au, 0x14uLL, v16, 4uLL, 0LL);
+              v18 = DWORD2(v42) + 32;
+              v19 = (unsigned int)(DWORD2(v42) + 32);
+              v20 = (unsigned int)(DWORD2(v42) + 32) < DWORD2(v42);
+              v21 = (_DWORD *)ExAllocatePool2(64LL, v19, 0x2079654Bu);
+              if ( !v21 || v20 )
+                KeBugCheckEx(0x9Au, 0x14uLL, v19, 5uLL, 0LL);
+              LODWORD(ExpSysDbgLock.ApcState.ApcListHead[0].Flink) = DWORD1(v41);
+              v22 = 80LL * DWORD1(v41);
+              if ( v22 > 0xFFFFFFFF )
+                KeBugCheckEx(0x9Au, 0x14uLL, v22, 6uLL, 0LL);
+              ExpSysDbgLock.TrapFrame = (_KTRAP_FRAME *)ExAllocatePool2(64LL, (unsigned int)v22, 0x2079654Bu);
+              if ( !ExpSysDbgLock.TrapFrame )
+                KeBugCheckEx(0x9Au, 0x14uLL, 80LL * LODWORD(ExpSysDbgLock.ApcState.ApcListHead[0].Flink), 6uLL, 0LL);
+              RtlInitUnicodeString(&v39, L"ConcurrentLimit");
               for ( i = 0; ; ++i )
               {
-                LODWORD(Objecte) = v15;
-                v23 = NtEnumerateKey(Handle, i, 0, v16, (size_t)Objecte, (unsigned int *)&v39);
-                if ( v23 == -2147483622 )
+                v24 = NtEnumerateKey(KeyHandle, i, KeyBasicInformation, (PVOID)v17, v16, (PULONG)&Object);
+                if ( v24 == -2147483622 )
                   break;
-                if ( v23 < 0 )
-                  KeBugCheckEx(0x9Au, 0x1AuLL, v23, 0LL, 0LL);
-                *(_WORD *)(v16 + 2 * ((unsigned __int64)*(unsigned int *)(v16 + 12) >> 1) + 16) = 0;
+                if ( v24 < 0 )
+                  KeBugCheckEx(0x9Au, 0x1AuLL, v24, 0LL, 0LL);
+                *(_WORD *)(v17 + 2 * ((unsigned __int64)*(unsigned int *)(v17 + 12) >> 1) + 16) = 0;
                 wcscpy_s(
                   Dst[1],
                   (unsigned __int64)WORD1(Dst[0]) >> 1,
                   L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\LicenseInfoSuites");
                 wcscat_s(Dst[1], (unsigned __int64)WORD1(Dst[0]) >> 1, L"\\");
-                wcscat_s(Dst[1], (unsigned __int64)WORD1(Dst[0]) >> 1, (const wchar_t *)(v16 + 16));
-                v24 = -1LL;
+                wcscat_s(Dst[1], (unsigned __int64)WORD1(Dst[0]) >> 1, (const wchar_t *)(v17 + 16));
+                v25 = -1LL;
                 do
-                  ++v24;
-                while ( Dst[1][v24] );
-                v45 = 0LL;
-                LOWORD(Dst[0]) = 2 * v24;
-                v43 = 48;
-                p_DestinationString = Dst;
-                v47 = 576;
-                v49 = 0LL;
-                v25 = 80LL * i;
-                v26 = NtOpenKey();
-                if ( v26 < 0 )
-                  KeBugCheckEx(0x9Au, 0x16uLL, v26, 1uLL, 0LL);
-                LODWORD(Objectf) = v17;
-                v27 = NtQueryValueKey(
-                        *(HANDLE *)((char *)ExpSysDbgLock.StackLimit + v25),
-                        (unsigned int *)&v51.Length,
-                        2LL,
-                        (unsigned __int64)v20,
-                        (size_t)Objectf,
-                        (unsigned int *)&v39);
+                  ++v25;
+                while ( Dst[1][v25] );
+                ObjectAttributes.RootDirectory = 0LL;
+                LOWORD(Dst[0]) = 2 * v25;
+                ObjectAttributes.Length = 48;
+                ObjectAttributes.ObjectName = (PUNICODE_STRING)Dst;
+                ObjectAttributes.Attributes = 576;
+                *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+                v26 = 80LL * i;
+                v27 = NtOpenKey((PHANDLE)((char *)ExpSysDbgLock.TrapFrame + v26), 0x2001Fu, &ObjectAttributes);
                 if ( v27 < 0 )
-                  KeBugCheckEx(0x9Au, 0x13uLL, v27, 2uLL, 0LL);
-                v28 = (wchar_t *)ExAllocatePool2(64LL, LOWORD(Dst[0]), 0x2079654Bu);
-                *(_QWORD *)((char *)ExpSysDbgLock.StackLimit + v25 + 16) = v28;
-                if ( !v28 )
+                  KeBugCheckEx(0x9Au, 0x16uLL, v27, 1uLL, 0LL);
+                v28 = NtQueryValueKey(
+                        *(HANDLE *)((char *)&ExpSysDbgLock.TrapFrame->P1Home + v26),
+                        &v39,
+                        KeyValuePartialInformation,
+                        v21,
+                        v18,
+                        (PULONG)&Object);
+                if ( v28 < 0 )
+                  KeBugCheckEx(0x9Au, 0x13uLL, v28, 2uLL, 0LL);
+                v29 = (wchar_t *)ExAllocatePool2(64LL, LOWORD(Dst[0]), 0x2079654Bu);
+                *(unsigned __int64 *)((char *)&ExpSysDbgLock.TrapFrame->P3Home + v26) = (unsigned __int64)v29;
+                if ( !v29 )
                   KeBugCheckEx(0x9Au, 0x14uLL, LOWORD(Dst[0]), 7uLL, 0LL);
-                wcscpy_s(v28, (unsigned __int64)LOWORD(Dst[0]) >> 1, Dst[1]);
-                v29 = (char *)ExpSysDbgLock.StackLimit + v25;
-                *((_DWORD *)v29 + 2) = v20[3];
-                *((_QWORD *)v29 + 6) = v29;
-                *((_QWORD *)v29 + 5) = ExpWatchLicenseInfoWork;
-                *((_QWORD *)v29 + 3) = 0LL;
-                v30 = NtNotifyChangeKey(
-                        *(_QWORD *)v29,
-                        0,
-                        (__int64)(v29 + 24),
-                        1LL,
-                        v29 + 56,
-                        268435461,
-                        1,
-                        v29 + 72,
-                        4,
-                        1);
-                if ( v30 < 0 )
-                  KeBugCheckEx(0x9Au, 0x18uLL, v30, 1uLL, 0LL);
+                wcscpy_s(v29, (unsigned __int64)LOWORD(Dst[0]) >> 1, Dst[1]);
+                v30 = (char *)ExpSysDbgLock.TrapFrame + v26;
+                *((_DWORD *)v30 + 2) = v21[3];
+                *((_QWORD *)v30 + 6) = v30;
+                *((_QWORD *)v30 + 5) = ExpWatchLicenseInfoWork;
+                *((_QWORD *)v30 + 3) = 0LL;
+                v31 = NtNotifyChangeKey(
+                        *(HANDLE *)v30,
+                        0LL,
+                        (PIO_APC_ROUTINE)(v30 + 24),
+                        (PVOID)1,
+                        (PIO_STATUS_BLOCK)(v30 + 56),
+                        0x10000005u,
+                        1u,
+                        v30 + 72,
+                        4u,
+                        1u);
+                if ( v31 < 0 )
+                  KeBugCheckEx(0x9Au, 0x18uLL, v31, 1uLL, 0LL);
               }
-              ExFreePoolWithTag((PVOID)v16, 0);
-              ExFreePoolWithTag(v20, 0);
+              ExFreePoolWithTag((PVOID)v17, 0);
+              ExFreePoolWithTag(v21, 0);
               ExFreePoolWithTag(Dst[1], 0);
-              NtClose(Handle);
+              NtClose(KeyHandle);
             }
             return 1;
           }
-          if ( !BYTE4(ExpSysDbgLock.InitialStack) )
-            KeBugCheckEx(0x9Au, 8uLL, (unsigned int)v11, 0LL, 0LL);
+          if ( !ExpSysDbgLock.WaitRegister.Flags )
+            KeBugCheckEx(0x9Au, 8uLL, (unsigned int)v12, 0LL, 0LL);
         }
       }
-      else if ( !BYTE4(ExpSysDbgLock.InitialStack) )
+      else if ( !ExpSysDbgLock.WaitRegister.Flags )
       {
-        KeBugCheckEx(0x9Au, 7uLL, (unsigned int)v9, 0LL, 0LL);
+        KeBugCheckEx(0x9Au, 7uLL, (unsigned int)v10, 0LL, 0LL);
       }
     }
   }
-  else if ( !BYTE4(ExpSysDbgLock.InitialStack) )
+  else if ( !ExpSysDbgLock.WaitRegister.Flags )
   {
-    KeBugCheckEx(0x9Au, 6uLL, (unsigned int)v6, 0LL, 0LL);
+    KeBugCheckEx(0x9Au, 6uLL, (unsigned int)v7, 0LL, 0LL);
   }
   return 0;
 }

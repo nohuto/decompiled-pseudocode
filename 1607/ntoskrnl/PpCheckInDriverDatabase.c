@@ -1,21 +1,21 @@
 /*
- * XREFs of PpCheckInDriverDatabase @ 0x14049D7A4
+ * XREFs of PpCheckInDriverDatabase @ 0x140515BB0
  * Callers:
- *     PnpPrepareDriverLoading @ 0x14049D6CC (PnpPrepareDriverLoading.c)
+ *     PnpPrepareDriverLoading @ 0x140515AD8 (PnpPrepareDriverLoading.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     Template_j @ 0x1401CE054 (Template_j.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     Template_j @ 0x1401CDEA0 (Template_j.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PiLookupInDDB @ 0x14049CFB8 (PiLookupInDDB.c)
- *     PiLookupInDDBCache @ 0x14049D88C (PiLookupInDDBCache.c)
- *     IopBuildFullDriverPath @ 0x14049DA9C (IopBuildFullDriverPath.c)
- *     PnpLogEvent @ 0x14062DA98 (PnpLogEvent.c)
+ *     PiLookupInDDB @ 0x1405158D4 (PiLookupInDDB.c)
+ *     PiLookupInDDBCache @ 0x140515C98 (PiLookupInDDBCache.c)
+ *     IopBuildFullDriverPath @ 0x140515EA8 (IopBuildFullDriverPath.c)
+ *     PnpLogEvent @ 0x14062DB4C (PnpLogEvent.c)
  */
 
-__int64 __fastcall PpCheckInDriverDatabase(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5, ULONGLONG a6)
+__int64 __fastcall PpCheckInDriverDatabase(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5, _OWORD *a6)
 {
   __int64 v8; // rdx
   __int64 v9; // rcx
@@ -59,7 +59,7 @@ __int64 __fastcall PpCheckInDriverDatabase(__int64 a1, __int64 a2, __int64 a3, u
   if ( (unsigned int)(v10 + 1073740949) <= 1 )
   {
     if ( (Microsoft_Windows_Kernel_PnPEnableBits & 0x20000) != 0 )
-      Template_j(v9, v8, v11, a6);
+      Template_j(v9, v8, v11, (ULONGLONG)a6);
   }
   else
   {

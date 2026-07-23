@@ -1,9 +1,9 @@
 /*
- * XREFs of HalBuildScatterGatherListDmaThinEx @ 0x1403EF6A0
+ * XREFs of HalBuildScatterGatherListDmaThinEx @ 0x1403E9070
  * Callers:
  *     <none>
  * Callees:
- *     HalpBuildScatterGatherListDmaThin @ 0x1403EF750 (HalpBuildScatterGatherListDmaThin.c)
+ *     HalpBuildScatterGatherListDmaThin @ 0x1403E9120 (HalpBuildScatterGatherListDmaThin.c)
  */
 
 __int64 __fastcall HalBuildScatterGatherListDmaThinEx(

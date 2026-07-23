@@ -1,22 +1,22 @@
 /*
- * XREFs of CMFCreateSecurityDescriptor @ 0x140842E8C
+ * XREFs of CMFCreateSecurityDescriptor @ 0x14084831C
  * Callers:
- *     CMFCheckAccess @ 0x140842C28 (CMFCheckAccess.c)
- *     CMFSystemThreadRoutine @ 0x140843E00 (CMFSystemThreadRoutine.c)
+ *     CMFCheckAccess @ 0x1408480B8 (CMFCheckAccess.c)
+ *     CMFSystemThreadRoutine @ 0x140849290 (CMFSystemThreadRoutine.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14047F970 (RtlSubAuthoritySid.c)
- *     RtlLengthRequiredSid @ 0x1408E9A40 (RtlLengthRequiredSid.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     RtlValidAcl @ 0x140928000 (RtlValidAcl.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x1409D8260 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlInitializeSid @ 0x140A6AF80 (RtlInitializeSid.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x1404792E0 (RtlSubAuthoritySid.c)
+ *     RtlLengthRequiredSid @ 0x1408F0000 (RtlLengthRequiredSid.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     RtlValidAcl @ 0x140903B10 (RtlValidAcl.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1409A9150 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlInitializeSid @ 0x140A77920 (RtlInitializeSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
@@ -46,14 +46,14 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
   unsigned int v25; // r9d
   unsigned int v26; // esi
   void *v27; // rax
-  struct _SID_IDENTIFIER_AUTHORITY v29; // [rsp+30h] [rbp-50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v29; // [rsp+30h] [rbp-50h] BYREF
   void *v30; // [rsp+38h] [rbp-48h]
   PSID Sid; // [rsp+40h] [rbp-40h]
   __int64 v32; // [rsp+48h] [rbp-38h]
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-30h] BYREF
   __int64 v34; // [rsp+70h] [rbp-10h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+D0h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v37; // [rsp+D8h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+D0h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v37; // [rsp+D8h] [rbp+58h] BYREF
 
   v2 = a1;
   *(_WORD *)&v29.Value[4] = 1280;
@@ -194,7 +194,7 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
                             Acl = RtlpAddKnownAce((int)v18, 2, 3, v21, v7, 0);
                             if ( (Acl & 0xC0000000) != 0xC0000000 )
                             {
-                              if ( (unsigned __int8)RtlValidAcl(v18) )
+                              if ( RtlValidAcl(v18) )
                               {
                                 Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v18, 0);
                                 if ( (Acl & 0xC0000000) != 0xC0000000 )

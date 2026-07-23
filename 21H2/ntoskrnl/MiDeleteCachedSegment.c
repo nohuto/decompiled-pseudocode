@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDeleteCachedSegment @ 0x140528BB8
+ * XREFs of MiDeleteCachedSegment @ 0x140528DF8
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403BD430 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x14052A6FC (MiRemoveUnusedSegments.c)
+ *     MiDereferenceSegmentThread @ 0x1403BD5A0 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x14052A93C (MiRemoveUnusedSegments.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
- *     MiUnlinkUnusedControlArea @ 0x1403574C8 (MiUnlinkUnusedControlArea.c)
- *     MiInsertUnusedSegment @ 0x140357560 (MiInsertUnusedSegment.c)
- *     MiDestroySection @ 0x14037F32C (MiDestroySection.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseControlAreaWaiters @ 0x140361FD4 (MiReleaseControlAreaWaiters.c)
+ *     MiUnlinkUnusedControlArea @ 0x140362218 (MiUnlinkUnusedControlArea.c)
+ *     MiInsertUnusedSegment @ 0x1403622B0 (MiInsertUnusedSegment.c)
+ *     MiDestroySection @ 0x14037EE7C (MiDestroySection.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFlushControlArea @ 0x140529794 (MiFlushControlArea.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiFlushControlArea @ 0x1405299D4 (MiFlushControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiDeleteCachedSegment(__int64 a1)

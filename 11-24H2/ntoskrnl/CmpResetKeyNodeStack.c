@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpResetKeyNodeStack @ 0x140916010
+ * XREFs of CmpResetKeyNodeStack @ 0x140909A80
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpKeyEnumStackReset @ 0x140916688 (CmpKeyEnumStackReset.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpKeyEnumStackReset @ 0x14090A0F8 (CmpKeyEnumStackReset.c)
  * Callees:
- *     CmpKeyNodeStackEntryReset @ 0x1409169DC (CmpKeyNodeStackEntryReset.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140916CB8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyNodeStackEntryReset @ 0x14090A44C (CmpKeyNodeStackEntryReset.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14090A728 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 void __fastcall CmpResetKeyNodeStack(__int16 *a1)

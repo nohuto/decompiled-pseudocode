@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x14079C094
+ * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x14079EBD4
  * Callers:
- *     IopMarkBootPartition @ 0x140CBD890 (IopMarkBootPartition.c)
+ *     IopMarkBootPartition @ 0x140CC3960 (IopMarkBootPartition.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x140723470 (ZwWaitForSingleObject.c)
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateEvent @ 0x140723CF0 (ZwCreateEvent.c)
- *     ZwResetEvent @ 0x1407264F0 (ZwResetEvent.c)
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     PipHardwareConfigOpenKey @ 0x140B698F0 (PipHardwareConfigOpenKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x140728040 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1407288C0 (ZwCreateEvent.c)
+ *     ZwResetEvent @ 0x14072B0C0 (ZwResetEvent.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
+ *     PipHardwareConfigOpenKey @ 0x140B6C880 (PipHardwareConfigOpenKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
@@ -96,7 +96,7 @@ __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
             Status = -1073741670;
             goto LABEL_39;
           }
-          ZwResetEvent((__int64)EventHandle, 0LL);
+          ZwResetEvent(EventHandle, 0LL);
           Status = ZwDeviceIoControlFile(
                      a2,
                      EventHandle,

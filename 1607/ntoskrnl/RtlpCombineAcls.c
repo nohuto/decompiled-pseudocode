@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCombineAcls @ 0x14041E240
+ * XREFs of RtlpCombineAcls @ 0x14041D100
  * Callers:
- *     RtlpNewSecurityObject @ 0x14041BF40 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x1404A56A0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14041AE00 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x14051DAA0 (RtlpSetSecurityObject.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlFirstFreeAce @ 0x140420A70 (RtlFirstFreeAce.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
+ *     RtlFirstFreeAce @ 0x14041F930 (RtlFirstFreeAce.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
  */
 
 __int64 __fastcall RtlpCombineAcls(

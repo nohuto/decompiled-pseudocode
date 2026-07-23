@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeJobStructures @ 0x140CD8FE0
+ * XREFs of PspInitializeJobStructures @ 0x140CDF360
  * Callers:
- *     PspInitPhase0 @ 0x140D06FAC (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140D0D27C (PspInitPhase0.c)
  * Callees:
- *     ExCreateHandleTable @ 0x140971AEC (ExCreateHandleTable.c)
+ *     ExCreateHandleTable @ 0x1409BCDDC (ExCreateHandleTable.c)
  */
 
 char PspInitializeJobStructures()
@@ -19,26 +19,25 @@ char PspInitializeJobStructures()
     v1 = PspJobTimeLimitsPeriodSeconds;
     KiSystemServiceTraceCallbackLock.StateSaveArea = (_XSAVE_FORMAT *)&KiSystemServiceTraceCallbackLock.KernelStack;
     KiSystemServiceTraceCallbackLock.KernelStack = &KiSystemServiceTraceCallbackLock.KernelStack;
-    PspSiloMonitorLock.AffinityVersion = 0LL;
+    PspSiloMonitorLock.Affinity = 0LL;
     PspSiloMonitorLock.PropagateBoostsEntry.Next = 0LL;
     if ( (unsigned int)(PspJobTimeLimitsPeriodSeconds - 1) > 9 )
     {
       v1 = 7;
       PspJobTimeLimitsPeriodSeconds = 7;
     }
-    PsAltSystemCallRegistrationLock.StackBase = PspJobNotificationWorker;
-    *($353D57E818BB6F967B4B818D974CF463 *)((char *)&PsAltSystemCallRegistrationLock.116 + 4) = ($353D57E818BB6F967B4B818D974CF463)PspJobTimeLimitsWork;
+    *(_QWORD *)&PsAltSystemCallRegistrationLock.ApcStateFill[40] = PspJobNotificationWorker;
+    *(_QWORD *)&PsAltSystemCallRegistrationLock.Timer.Header.Lock = PspJobTimeLimitsWork;
     PspJobTimeLimitsCount = v1;
-    KiSystemServiceTraceCallbackLock.ThreadLock = (unsigned __int64)&PspSiloMonitorLock.ForegroundDpcStackListEntry.Next
-                                                + 4;
-    PsAltSystemCallRegistrationLock.ThreadLock = 0LL;
-    PsAltSystemCallRegistrationLock.InitialStack = 0LL;
-    *(_QWORD *)&PsAltSystemCallRegistrationLock.SystemCallNumber = 0LL;
-    PsAltSystemCallRegistrationLock.SchedulingGroup = 0LL;
+    KiSystemServiceTraceCallbackLock.StackLimit = (char *)&PspSiloMonitorLock.ForegroundDpcStackListEntry.Next + 4;
+    PsAltSystemCallRegistrationLock.WaitStatus = 0LL;
+    PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink = 0LL;
+    PsAltSystemCallRegistrationLock.Timer.Header.WaitListHead.Flink = 0LL;
+    PsAltSystemCallRegistrationLock.Teb = 0LL;
     PspSiloMonitorLock.UserAffinity = 0LL;
-    LODWORD(KiSystemServiceTraceCallbackLock.StackBase) = 32;
-    LODWORD(KiSystemServiceTraceCallbackLock.InitialStack) = 256;
-    KiSystemServiceTraceCallbackLock.StackLimit = &unk_140FD75C0;
+    LODWORD(KiSystemServiceTraceCallbackLock.InitialStack) = 32;
+    LODWORD(KiSystemServiceTraceCallbackLock.StackBase) = 256;
+    KiSystemServiceTraceCallbackLock.ThreadLock = (unsigned __int64)&unk_140FD85D0;
     if ( !PspJobNoWakeChargeLimit )
       PspJobNoWakeChargeLimit = 50;
     if ( !PspSystemNoWakeChargeLimit )

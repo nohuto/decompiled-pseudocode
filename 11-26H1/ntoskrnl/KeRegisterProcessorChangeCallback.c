@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRegisterProcessorChangeCallback @ 0x1407BA2D0
+ * XREFs of KeRegisterProcessorChangeCallback @ 0x1407BD330
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     HalGetProcessorIdByNtNumber @ 0x140425B40 (HalGetProcessorIdByNtNumber.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExUnregisterCallback @ 0x1404ECF50 (ExUnregisterCallback.c)
- *     ExRegisterCallback @ 0x1404F0710 (ExRegisterCallback.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140432C50 (HalGetProcessorIdByNtNumber.c)
+ *     ExUnregisterCallback @ 0x1404E6530 (ExUnregisterCallback.c)
+ *     ExRegisterCallback @ 0x1404E9CF0 (ExRegisterCallback.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
  */
 
 PVOID __stdcall KeRegisterProcessorChangeCallback(
@@ -58,7 +58,7 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
   v19 = ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0);
   if ( v19 < 0 )
     return 0LL;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[144]);
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[56]);
   v8 = ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)CallbackFunction, CallbackContext);
   v22 = v8;
   ObfDereferenceObject(CallbackObject);
@@ -121,6 +121,6 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
       v8 = v22;
     }
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[144]);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[56]);
   return v8;
 }

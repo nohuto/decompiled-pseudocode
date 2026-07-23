@@ -34,7 +34,7 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
   unsigned int v18; // r8d
   bool v19; // zf
   __int64 v20; // rcx
-  unsigned __int64 v21; // rsi
+  __int64 v21; // rsi
   __int64 v22; // rdx
   __int64 v23; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -115,7 +115,7 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
         v30 = v20;
         if ( v19 )
           goto LABEL_17;
-        v21 = (unsigned __int64)&CurrentThread->LockEntries[v20];
+        v21 = (__int64)&CurrentThread->LockEntries[v20];
         v18 &= ~(1 << v20);
         if ( (*(_BYTE *)(v21 + 26) & 1) != 0
           && (*(_DWORD *)(v21 + 32) & 1) == 0
@@ -136,12 +136,12 @@ LABEL_17:
       }
       *(_BYTE *)(v21 + 32) |= 2u;
       if ( *(__int64 *)(v21 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v21);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v21);
       v31 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
       *(_DWORD *)(v21 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v21 + 25) &= ~1u;
       *(_QWORD *)(v21 + 32) = 0LL;
-      v22 = (__int64)(v21 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+      v22 = (signed __int64)(v21 - (unsigned __int64)CurrentThread->LockEntries) / 96;
       if ( v17 == 1 )
         CurrentThread->AbEntrySummary |= 1 << v22;
       else

@@ -1,11 +1,13 @@
 /*
- * XREFs of RtlpSetRequestedFrontEndHeap @ 0x180091E5C
+ * XREFs of RtlpSetRequestedFrontEndHeap @ 0x1800EC350
  * Callers:
- *     RtlSetHeapInformation @ 0x180111030 (RtlSetHeapInformation.c)
+ *     RtlSetHeapInformation @ 0x180110BC0 (RtlSetHeapInformation.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpIsProtectedHeap @ 0x18009178C (RtlpIsProtectedHeap.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpReleaseHeapListLock @ 0x1800762B0 (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x1800762FC (RtlpAcquireHeapListLock.c)
+ *     RtlpIsProtectedHeap @ 0x18007653C (RtlpIsProtectedHeap.c)
  */
 
 __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
@@ -15,24 +17,24 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
 
   v2 = 0;
   v3 = 0;
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+  RtlpAcquireHeapListLock();
   if ( (unsigned int)RtlpIsProtectedHeap(a1) )
   {
     v3 = -1073741811;
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
     v2 = 1;
     if ( !*(_BYTE *)(a1 + 419) )
     {
       *(_BYTE *)(a1 + 419) = 2;
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v2 = 0;
     }
   }
   if ( v2 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-  RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
+  RtlpReleaseHeapListLock(0);
   return v3;
 }

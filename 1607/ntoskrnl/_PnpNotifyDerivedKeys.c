@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpNotifyDerivedKeys @ 0x140506728
+ * XREFs of _PnpNotifyDerivedKeys @ 0x1404E96B8
  * Callers:
- *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x1404EDA34 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x140506388 (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _PnpUpdateInterfacesCallback @ 0x14054865C (_PnpUpdateInterfacesCallback.c)
- *     _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x1406DC07C (_PnpInstallerClassRaisePropertyChangeEventWorker.c)
- *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x1406DC114 (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
+ *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x1404CFAEC (_PnpInterfaceRaisePropertyChangeEventWorker.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1404E9318 (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _PnpUpdateInterfacesCallback @ 0x140548B9C (_PnpUpdateInterfacesCallback.c)
+ *     _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x1406DC1B4 (_PnpInstallerClassRaisePropertyChangeEventWorker.c)
+ *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x1406DC24C (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
  * Callees:
  *     <none>
  */

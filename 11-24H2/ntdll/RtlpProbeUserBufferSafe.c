@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpProbeUserBufferSafe @ 0x18002C980
+ * XREFs of RtlpProbeUserBufferSafe @ 0x180059380
  * Callers:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpFreeNTHeapInternal @ 0x18002BD80 (RtlpFreeNTHeapInternal.c)
- *     RtlSizeHeap @ 0x1800406D0 (RtlSizeHeap.c)
- *     RtlGetUserInfoHeap @ 0x1800423E0 (RtlGetUserInfoHeap.c)
- *     RtlSetUserValueHeap @ 0x18009BF90 (RtlSetUserValueHeap.c)
- *     RtlpReAllocateHeapInternal @ 0x1800A1040 (RtlpReAllocateHeapInternal.c)
- *     RtlSetUserFlagsHeap @ 0x18010E270 (RtlSetUserFlagsHeap.c)
+ *     RtlSetUserValueHeap @ 0x18001FB40 (RtlSetUserValueHeap.c)
+ *     RtlSizeHeap @ 0x180021000 (RtlSizeHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpFreeNTHeapInternal @ 0x180058780 (RtlpFreeNTHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x18005AF10 (RtlpReAllocateHeapInternal.c)
+ *     RtlGetUserInfoHeap @ 0x1800E63B0 (RtlGetUserInfoHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x180109150 (RtlSetUserFlagsHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHeapExceptionFilter @ 0x18010A4D0 (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHeapExceptionFilter @ 0x180105400 (RtlpHeapExceptionFilter.c)
  */
 
 unsigned __int8 *__fastcall RtlpProbeUserBufferSafe(__int64 a1, __int64 a2)

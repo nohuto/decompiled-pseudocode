@@ -1,10 +1,10 @@
 /*
- * XREFs of AslRegistryOpenSubKey @ 0x140A545F0
+ * XREFs of AslRegistryOpenSubKey @ 0x140A548A0
  * Callers:
- *     AslpProcessMatchRegNode @ 0x140A56AE0 (AslpProcessMatchRegNode.c)
+ *     AslpProcessMatchRegNode @ 0x140A56D90 (AslpProcessMatchRegNode.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */
 

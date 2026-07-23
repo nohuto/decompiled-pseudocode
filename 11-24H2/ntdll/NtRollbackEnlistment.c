@@ -1,16 +1,16 @@
 /*
- * XREFs of NtRollbackEnlistment @ 0x180164E20
+ * XREFs of NtRollbackEnlistment @ 0x1801631E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtRollbackEnlistment()
+NTSTATUS __cdecl NtRollbackEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 397LL;
+  result = 397;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

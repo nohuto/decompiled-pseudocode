@@ -1,28 +1,28 @@
 /*
- * XREFs of MinCrypK_VerifySignedDataKModeEx @ 0x140826868
+ * XREFs of MinCrypK_VerifySignedDataKModeEx @ 0x140827038
  * Callers:
- *     I_MinCryptVerifyRFC3161TimeStamp @ 0x140826598 (I_MinCryptVerifyRFC3161TimeStamp.c)
- *     MinCrypK_VerifySignedDataKMode @ 0x140826824 (MinCrypK_VerifySignedDataKMode.c)
+ *     I_MinCryptVerifyRFC3161TimeStamp @ 0x140826D68 (I_MinCryptVerifyRFC3161TimeStamp.c)
+ *     MinCrypK_VerifySignedDataKMode @ 0x140826FF4 (MinCrypK_VerifySignedDataKMode.c)
  * Callees:
- *     MinCryptHashMemory @ 0x14069F0F0 (MinCryptHashMemory.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MinCryptDecodeHashAlgorithmIdentifier @ 0x140824850 (MinCryptDecodeHashAlgorithmIdentifier.c)
- *     MinCryptVerifySignedHash2 @ 0x140824950 (MinCryptVerifySignedHash2.c)
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140824ED4 (MinCryptVerifyCertificateWithPolicy2.c)
- *     MincryptIsTimestampBeforeRevocation @ 0x140825D58 (MincryptIsTimestampBeforeRevocation.c)
- *     I_MinCryptFindSignerCertificateByIssuerAndSerialNumber @ 0x1408260D8 (I_MinCryptFindSignerCertificateByIssuerAndSerialNumber.c)
- *     I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x140826190 (I_MinCryptGetPlatformManifestBinaryIDAttribute.c)
- *     I_MinCryptGetSigningTime @ 0x140826220 (I_MinCryptGetSigningTime.c)
- *     I_MinCryptVerifySignerAuthenticatedAttributes @ 0x140826730 (I_MinCryptVerifySignerAuthenticatedAttributes.c)
- *     MinAsn1ParseSignedData @ 0x14082722C (MinAsn1ParseSignedData.c)
- *     MinAsn1ParseSignedDataCertificatesEx @ 0x140827270 (MinAsn1ParseSignedDataCertificatesEx.c)
- *     I_MinCryptBuildErrorPolicy @ 0x1408274E4 (I_MinCryptBuildErrorPolicy.c)
- *     I_MincryptFreeChainInfo @ 0x1408278DC (I_MincryptFreeChainInfo.c)
- *     MinAsn1ExtractContent @ 0x1408282B0 (MinAsn1ExtractContent.c)
- *     MinAsn1SignedDataGetContent @ 0x140828690 (MinAsn1SignedDataGetContent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MinCryptHashMemory @ 0x1406A01F4 (MinCryptHashMemory.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MinCryptDecodeHashAlgorithmIdentifier @ 0x140824FB0 (MinCryptDecodeHashAlgorithmIdentifier.c)
+ *     MinCryptVerifySignedHash2 @ 0x140825124 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408256A0 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MincryptIsTimestampBeforeRevocation @ 0x140826528 (MincryptIsTimestampBeforeRevocation.c)
+ *     I_MinCryptFindSignerCertificateByIssuerAndSerialNumber @ 0x1408268A8 (I_MinCryptFindSignerCertificateByIssuerAndSerialNumber.c)
+ *     I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x140826960 (I_MinCryptGetPlatformManifestBinaryIDAttribute.c)
+ *     I_MinCryptGetSigningTime @ 0x1408269F0 (I_MinCryptGetSigningTime.c)
+ *     I_MinCryptVerifySignerAuthenticatedAttributes @ 0x140826F00 (I_MinCryptVerifySignerAuthenticatedAttributes.c)
+ *     MinAsn1ParseSignedData @ 0x1408279FC (MinAsn1ParseSignedData.c)
+ *     MinAsn1ParseSignedDataCertificatesEx @ 0x140827A40 (MinAsn1ParseSignedDataCertificatesEx.c)
+ *     I_MinCryptBuildErrorPolicy @ 0x140827CB4 (I_MinCryptBuildErrorPolicy.c)
+ *     I_MincryptFreeChainInfo @ 0x1408280AC (I_MincryptFreeChainInfo.c)
+ *     MinAsn1ExtractContent @ 0x140828A80 (MinAsn1ExtractContent.c)
+ *     MinAsn1SignedDataGetContent @ 0x140828E60 (MinAsn1SignedDataGetContent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MinCrypK_VerifySignedDataKModeEx(
@@ -81,7 +81,7 @@ __int64 __fastcall MinCrypK_VerifySignedDataKModeEx(
   v39 = 0LL;
   v29 = 10;
   memset_0(a7, 0, 0x50uLL);
-  Pool2 = ExAllocatePool2(0x102uLL);
+  Pool2 = ExAllocatePool2(0x102uLL, 0xAD0uLL, 0x72634943u);
   v11 = (void *)Pool2;
   v35 = Pool2;
   if ( !Pool2 )
@@ -92,7 +92,7 @@ __int64 __fastcall MinCrypK_VerifySignedDataKModeEx(
   v13 = Pool2 + 2400;
   if ( (int)MinAsn1ParseSignedData(a1, a2, Pool2 + 2400) < 0 )
     goto LABEL_4;
-  if ( *(_DWORD *)(v13 + 32) != 9 || RtlCompareMemory(qword_140B3B860, *(const void **)(v13 + 40), 9uLL) != 9 )
+  if ( *(_DWORD *)(v13 + 32) != 9 || RtlCompareMemory(qword_140B3D618, *(const void **)(v13 + 40), 9uLL) != 9 )
     goto LABEL_55;
   v14 = v30;
   if ( !(_DWORD)v30 || (v15 = v34) == 0 )

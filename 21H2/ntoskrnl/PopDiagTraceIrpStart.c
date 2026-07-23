@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceIrpStart @ 0x14036E3E4
+ * XREFs of PopDiagTraceIrpStart @ 0x14036E594
  * Callers:
- *     PopRequestPowerIrp @ 0x14036DD20 (PopRequestPowerIrp.c)
- *     PopDequeueQuerySetIrp @ 0x14039814C (PopDequeueQuerySetIrp.c)
- *     PopQueueQuerySetIrp @ 0x140398344 (PopQueueQuerySetIrp.c)
+ *     PopRequestPowerIrp @ 0x14036DED0 (PopRequestPowerIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x14039829C (PopDequeueQuerySetIrp.c)
+ *     PopQueueQuerySetIrp @ 0x140398494 (PopQueueQuerySetIrp.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x140282184 (PopFxAddLogEntry.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIrpStart(__int64 a1, __int64 a2)

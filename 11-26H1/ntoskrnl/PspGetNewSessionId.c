@@ -1,15 +1,15 @@
 /*
- * XREFs of PspGetNewSessionId @ 0x1407FF284
+ * XREFs of PspGetNewSessionId @ 0x140804CB4
  * Callers:
- *     PsSessionCreate @ 0x1409638D4 (PsSessionCreate.c)
+ *     PsSessionCreate @ 0x140A0975C (PsSessionCreate.c)
  * Callees:
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
- *     MmMaximumUserSessionId @ 0x14070A274 (MmMaximumUserSessionId.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
+ *     MmMaximumUserSessionId @ 0x14070EF28 (MmMaximumUserSessionId.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PspGetNewSessionId()
@@ -27,7 +27,7 @@ __int64 PspGetNewSessionId()
 
   CurrentThread = KeGetCurrentThread();
   PspLockProcessListExclusive((__int64)CurrentThread);
-  ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)&NormalizationListLock.WaitBlockFill11[24], 1u, 0);
+  ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)&NormalizationListLock.WaitBlockFill11[56], 1u, 0);
   v2 = -1;
   v3 = ClearBitsAndSet;
   if ( ClearBitsAndSet != -1 )
@@ -36,7 +36,7 @@ LABEL_10:
     PspUnlockProcessListExclusive(CurrentThread);
     return v3;
   }
-  if ( (unsigned int)(*(_DWORD *)&NormalizationListLock.WaitBlockFill11[24] + 128) > *(_DWORD *)&NormalizationListLock.WaitBlockFill11[24] )
+  if ( (unsigned int)(*(_DWORD *)&NormalizationListLock.WaitBlockFill11[56] + 128) > *(_DWORD *)&NormalizationListLock.WaitBlockFill11[56] )
   {
     v4 = MmMaximumUserSessionId() & 0xFFFFFFC0;
     if ( v5 <= v4 )
@@ -50,13 +50,13 @@ LABEL_10:
       {
         memmove(
           Pool2,
-          NormalizationListLock.WaitBlock[0].Object,
-          (unsigned __int64)*(unsigned int *)&NormalizationListLock.WaitBlockFill11[24] >> 3);
-        if ( NormalizationListLock.WaitBlock[0].Object != &NormalizationListLock.WaitBlockFill11[40] )
-          ExFreePoolWithTag(NormalizationListLock.WaitBlock[0].Object, 0);
-        NormalizationListLock.WaitBlock[0].Object = v9;
-        *(_DWORD *)&NormalizationListLock.WaitBlockFill11[24] = 8 * v7;
-        v3 = RtlFindClearBitsAndSet((PRTL_BITMAP)&NormalizationListLock.WaitBlockFill11[24], 1u, 0);
+          *(const void **)&NormalizationListLock.WaitBlockFill11[64],
+          (unsigned __int64)*(unsigned int *)&NormalizationListLock.WaitBlockFill11[56] >> 3);
+        if ( *(struct _KTHREAD **)&NormalizationListLock.WaitBlockFill11[64] != (struct _KTHREAD *)&NormalizationListLock.WaitBlockFill11[72] )
+          ExFreePoolWithTag(*(PVOID *)&NormalizationListLock.WaitBlockFill11[64], 0);
+        *(_QWORD *)&NormalizationListLock.WaitBlockFill11[64] = v9;
+        *(_DWORD *)&NormalizationListLock.WaitBlockFill11[56] = 8 * v7;
+        v3 = RtlFindClearBitsAndSet((PRTL_BITMAP)&NormalizationListLock.WaitBlockFill11[56], 1u, 0);
       }
       goto LABEL_10;
     }

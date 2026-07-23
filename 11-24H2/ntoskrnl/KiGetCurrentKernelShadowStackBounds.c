@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetCurrentKernelShadowStackBounds @ 0x1405C6BCC
+ * XREFs of KiGetCurrentKernelShadowStackBounds @ 0x1405C42FC
  * Callers:
- *     KiProcessControlProtectionFromKernelMode @ 0x14043EA4C (KiProcessControlProtectionFromKernelMode.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x14043466C (KiProcessControlProtectionFromKernelMode.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
  */
 
 unsigned __int64 __fastcall KiGetCurrentKernelShadowStackBounds(unsigned __int64 *a1)

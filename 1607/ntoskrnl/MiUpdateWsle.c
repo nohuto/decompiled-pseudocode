@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdateWsle @ 0x14003C790
+ * XREFs of MiUpdateWsle @ 0x14003C310
  * Callers:
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiUpdateWsleHash @ 0x140048D80 (MiUpdateWsleHash.c)
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
- *     MiLocateIndirectHash @ 0x14004BB10 (MiLocateIndirectHash.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiGetWsleHashVa @ 0x1400FF1D4 (MiGetWsleHashVa.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiUpdateWsleHash @ 0x140048900 (MiUpdateWsleHash.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
+ *     MiLocateIndirectHash @ 0x14004B690 (MiLocateIndirectHash.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetWsleHashVa @ 0x1400FCF54 (MiGetWsleHashVa.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiUpdateWsle(
@@ -133,13 +133,15 @@ ULONG_PTR __fastcall MiUpdateWsle(
     v11 = (ULONG_PTR *)(*(_QWORD *)(a3 + 16) + 416LL);
   if ( v6 == 4 )
   {
-    if ( PsNtosImageBase && (a2 < PsNtosImageEnd && a2 >= PsNtosImageBase || a2 < PsHalImageEnd && a2 >= PsHalImageBase) )
+    if ( PsNtosImageBase
+      && (a2 < PsNtosImageEnd && a2 >= (unsigned __int64)PsNtosImageBase
+       || a2 < PsHalImageEnd && a2 >= (unsigned __int64)PsHalImageBase) )
     {
-      LODWORD(xmmword_140326868) = xmmword_140326868 + 1;
+      LODWORD(xmmword_1403268A8) = xmmword_1403268A8 + 1;
     }
-    else if ( a2 >= qword_140327FF0 && a2 < qword_140327FF0 + 0x8000000000LL )
+    else if ( a2 >= qword_140328030 && a2 < qword_140328030 + 0x8000000000LL )
     {
-      ++DWORD1(xmmword_140326868);
+      ++DWORD1(xmmword_1403268A8);
     }
   }
   CurrentThread = KeGetCurrentThread();
@@ -195,7 +197,7 @@ ULONG_PTR __fastcall MiUpdateWsle(
     if ( (_DWORD)v20 == 7 )
     {
       v28 = *(_WORD *)(a3 + 164);
-      v29 = v28 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v28);
+      v29 = v28 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v28);
       v30 = *((_QWORD *)v29 + 781);
       if ( *(_QWORD *)(a3 + 88) >= *(_QWORD *)(v30 + 64) )
       {
@@ -204,7 +206,7 @@ ULONG_PTR __fastcall MiUpdateWsle(
           v111 = (__int64)(v29 + 1564);
           if ( *((_QWORD *)v29 + 782) != a3 + 24 )
           {
-            KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327740, &LockHandle);
+            KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327780, &LockHandle);
             if ( *(_BYTE *)(v30 + 53) || (v83 = a3 + 24, !*(_QWORD *)(a3 + 24)) )
             {
               *(_BYTE *)(v30 + 54) = 1;

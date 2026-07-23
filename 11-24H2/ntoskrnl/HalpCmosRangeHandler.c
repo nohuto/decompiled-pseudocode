@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCmosRangeHandler @ 0x14049E924
+ * XREFs of HalpCmosRangeHandler @ 0x140499724
  * Callers:
- *     HalpcGetCmosDataByType @ 0x14049E900 (HalpcGetCmosDataByType.c)
- *     HalpcSetCmosDataByType @ 0x140561750 (HalpcSetCmosDataByType.c)
+ *     HalpcGetCmosDataByType @ 0x140499700 (HalpcGetCmosDataByType.c)
+ *     HalpcSetCmosDataByType @ 0x14055F380 (HalpcSetCmosDataByType.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpCmosRangeHandler(unsigned int a1, int a2, unsigned int a3, __int64 a4, int a5)
@@ -43,7 +43,7 @@ __int64 __fastcall HalpCmosRangeHandler(unsigned int a1, int a2, unsigned int a3
       }
       else
       {
-        v14 = guard_dispatch_icall_no_overrides(v5, a4 + v9, v13, a4);
+        v14 = guard_dispatch_icall_no_overrides(v5, a4 + v9);
         a4 = v16;
       }
       v8 += v14;

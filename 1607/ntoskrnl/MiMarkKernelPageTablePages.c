@@ -3,7 +3,7 @@
  * Callers:
  *     MmMarkHiberPhase @ 0x1403CAD7C (MmMarkHiberPhase.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
  *     MiMarkKernelPageTablesHelper @ 0x1403CB6B0 (MiMarkKernelPageTablesHelper.c)
  */
 

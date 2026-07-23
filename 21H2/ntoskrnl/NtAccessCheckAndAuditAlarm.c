@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAccessCheckAndAuditAlarm @ 0x14069E150
+ * XREFs of NtAccessCheckAndAuditAlarm @ 0x140693D00
  * Callers:
  *     <none>
  * Callees:
- *     SepAccessCheckAndAuditAlarm @ 0x1406260EC (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140692204 (SepAccessCheckAndAuditAlarm.c)
  */
 
 NTSTATUS __stdcall NtAccessCheckAndAuditAlarm(

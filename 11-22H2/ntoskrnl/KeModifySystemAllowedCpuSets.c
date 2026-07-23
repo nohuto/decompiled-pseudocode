@@ -23,10 +23,13 @@ __int64 __fastcall KeModifySystemAllowedCpuSets(int a1, int a2, __int64 a3, int 
   v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(KiSystemCpuPartition + 264));
   v8 = KiModifySystemAllowedCpuSetsWithLock(a1, a2, 0, a4, 0);
   KxReleaseSpinLock((volatile signed __int64 *)(KiSystemCpuPartition + 264));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

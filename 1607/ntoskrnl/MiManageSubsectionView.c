@@ -1,20 +1,20 @@
 /*
- * XREFs of MiManageSubsectionView @ 0x140013D20
+ * XREFs of MiManageSubsectionView @ 0x1400138A0
  * Callers:
- *     MmMapViewInSystemCache @ 0x140018A20 (MmMapViewInSystemCache.c)
- *     MmUnmapViewInSystemCache @ 0x1400492C0 (MmUnmapViewInSystemCache.c)
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiInsertInSystemSpace @ 0x1400FF2A0 (MiInsertInSystemSpace.c)
- *     MiRemoveFromSystemSpace @ 0x140100090 (MiRemoveFromSystemSpace.c)
- *     MiSessionInsertImage @ 0x14012FB6C (MiSessionInsertImage.c)
- *     MiSessionRemoveImage @ 0x140130440 (MiSessionRemoveImage.c)
- *     MiConstructLoaderEntry @ 0x140482408 (MiConstructLoaderEntry.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     MmMapViewInSystemCache @ 0x1400185A0 (MmMapViewInSystemCache.c)
+ *     MmUnmapViewInSystemCache @ 0x140048E40 (MmUnmapViewInSystemCache.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiInsertInSystemSpace @ 0x1400FD020 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x1400FDE10 (MiRemoveFromSystemSpace.c)
+ *     MiSessionInsertImage @ 0x1401300DC (MiSessionInsertImage.c)
+ *     MiSessionRemoveImage @ 0x1401309B0 (MiSessionRemoveImage.c)
+ *     MiConstructLoaderEntry @ 0x14048115C (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)

@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwAccessCheckByTypeResultList(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SecurityDescriptor, PrincipalSelfSid, ClientToken);
+  return KiServiceInternal(SecurityDescriptor);
 }

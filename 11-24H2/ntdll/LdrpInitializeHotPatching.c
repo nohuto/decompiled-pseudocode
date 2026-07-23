@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpInitializeHotPatching @ 0x1800663E8
+ * XREFs of LdrpInitializeHotPatching @ 0x1800AE5C8
  * Callers:
- *     LdrpInitializeInternal @ 0x180066800 (LdrpInitializeInternal.c)
+ *     LdrpInitializeInternal @ 0x1800AE9E0 (LdrpInitializeInternal.c)
  * Callees:
- *     ZwManageHotPatch @ 0x180163FC0 (ZwManageHotPatch.c)
+ *     ZwManageHotPatch @ 0x180162380 (ZwManageHotPatch.c)
  */
 
 struct _PEB *LdrpInitializeHotPatching()

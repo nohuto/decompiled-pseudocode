@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpCopyModifiedData @ 0x1407FE680
+ * XREFs of HvpCopyModifiedData @ 0x1407FE950
  * Callers:
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407FE5CC (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407FE89C (HvpApplyLogEntryDataToFileBackedHive.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     HvpMapEntryGetBlockAddress @ 0x1406E0234 (HvpMapEntryGetBlockAddress.c)
- *     HvpMapEntryReleaseBlockAddress @ 0x1407E8710 (HvpMapEntryReleaseBlockAddress.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvpMapEntryGetBlockAddress @ 0x1406E0264 (HvpMapEntryGetBlockAddress.c)
+ *     HvpMapEntryReleaseBlockAddress @ 0x1407E89E0 (HvpMapEntryReleaseBlockAddress.c)
  *     HvpGetBinContextInitialize @ 0x140AF5200 (HvpGetBinContextInitialize.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)
  */

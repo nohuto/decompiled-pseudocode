@@ -4,7 +4,7 @@
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  *     ExInitSystemPhase2 @ 0x1407A916C (ExInitSystemPhase2.c)
  * Callees:
- *     BapdpProcessEtwEvents @ 0x14013CE64 (BapdpProcessEtwEvents.c)
+ *     BapdpProcessEtwEvents @ 0x14013D3D4 (BapdpProcessEtwEvents.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     BapdpProcessEDrvHintInfo @ 0x1407A9388 (BapdpProcessEDrvHintInfo.c)
  *     BapdpProcessFwUpdateResults @ 0x1407A9410 (BapdpProcessFwUpdateResults.c)
@@ -23,7 +23,7 @@ void __fastcall BootApplicationPersistentDataProcess(int a1)
   PVOID *v2; // rbx
   PVOID *v3; // rax
 
-  if ( (__int64 *)qword_140341428 != &qword_140341428 )
+  if ( (__int64 *)qword_140341468 != &qword_140341468 )
   {
     if ( a1 )
     {
@@ -33,21 +33,21 @@ void __fastcall BootApplicationPersistentDataProcess(int a1)
         BapdpRecordIumStatus();
         BapdpProcessEtwEvents(v1);
         BapdpProcessHSTIResults();
-        v2 = (PVOID *)qword_140341430;
-        v3 = (PVOID *)*((_QWORD *)qword_140341430 + 1);
-        if ( *(__int64 **)qword_140341430 != &qword_140341428 || *v3 != qword_140341430 )
+        v2 = (PVOID *)qword_140341470;
+        v3 = (PVOID *)*((_QWORD *)qword_140341470 + 1);
+        if ( *(__int64 **)qword_140341470 != &qword_140341468 || *v3 != qword_140341470 )
           __fastfail(3u);
         while ( 1 )
         {
-          qword_140341430 = v3;
-          *v3 = &qword_140341428;
-          if ( v2 == (PVOID *)&qword_140341428 )
+          qword_140341470 = v3;
+          *v3 = &qword_140341468;
+          if ( v2 == (PVOID *)&qword_140341468 )
             break;
           ExFreePoolWithTag(v2[2], 0);
           ExFreePoolWithTag(v2, 0);
-          v2 = (PVOID *)qword_140341430;
-          v3 = (PVOID *)*((_QWORD *)qword_140341430 + 1);
-          if ( *(__int64 **)qword_140341430 != &qword_140341428 || *v3 != qword_140341430 )
+          v2 = (PVOID *)qword_140341470;
+          v3 = (PVOID *)*((_QWORD *)qword_140341470 + 1);
+          if ( *(__int64 **)qword_140341470 != &qword_140341468 || *v3 != qword_140341470 )
             __fastfail(3u);
         }
       }

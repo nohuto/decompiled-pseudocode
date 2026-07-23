@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpReleasePushLockExclusive @ 0x140849930
+ * XREFs of AlpcpReleasePushLockExclusive @ 0x14084AB90
  * Callers:
- *     AlpcAddHandleTableEntry @ 0x140618DEC (AlpcAddHandleTableEntry.c)
+ *     AlpcAddHandleTableEntry @ 0x140619DEC (AlpcAddHandleTableEntry.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall AlpcpReleasePushLockExclusive(volatile signed __int64 *BugCheckParameter2)

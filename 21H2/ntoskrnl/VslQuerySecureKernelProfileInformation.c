@@ -1,14 +1,14 @@
 /*
- * XREFs of VslQuerySecureKernelProfileInformation @ 0x1404FD0B0
+ * XREFs of VslQuerySecureKernelProfileInformation @ 0x1404FD030
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140277468 (HvlQueryVsmConnection.c)
- *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HvlQueryVsmConnection @ 0x140265408 (HvlQueryVsmConnection.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403941C4 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x140394218 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall VslQuerySecureKernelProfileInformation(__int64 a1, struct _MDL *a2, ULONG a3, _DWORD *a4)

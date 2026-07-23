@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x1401FFB38
+ * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x1401FF964
  * Callers:
- *     PopForceCompleteCsSleepStudySession @ 0x140126C08 (PopForceCompleteCsSleepStudySession.c)
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopForceCompleteCsSleepStudySession @ 0x140127178 (PopForceCompleteCsSleepStudySession.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x1402004E8 (PpmIdleCsVetoAccountingUpdateBlock.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x14020945C (PopDiagTraceSleepStudyBlocker.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140200314 (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x140209288 (PopDiagTraceSleepStudyBlocker.c)
  */
 
 void __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2, char a3)

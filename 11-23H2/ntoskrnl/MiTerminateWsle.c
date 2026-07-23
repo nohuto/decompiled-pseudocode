@@ -1,20 +1,20 @@
 /*
- * XREFs of MiTerminateWsle @ 0x140274850
+ * XREFs of MiTerminateWsle @ 0x140274AE0
  * Callers:
- *     MiDecommitPages @ 0x14027F7D0 (MiDecommitPages.c)
- *     MiRemoveSystemImagePage @ 0x140350E98 (MiRemoveSystemImagePage.c)
- *     MiDeleteEmptyPageTable @ 0x140357CE0 (MiDeleteEmptyPageTable.c)
+ *     MiDecommitPages @ 0x14027FA60 (MiDecommitPages.c)
+ *     MiRemoveSystemImagePage @ 0x140351038 (MiRemoveSystemImagePage.c)
+ *     MiDeleteEmptyPageTable @ 0x140357E80 (MiDeleteEmptyPageTable.c)
  * Callees:
  *     MiGetWsleContents @ 0x140216FB0 (MiGetWsleContents.c)
  *     MiRebuildPageTableLeafAges @ 0x1402188A0 (MiRebuildPageTableLeafAges.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiRemoveWsle @ 0x14027B450 (MiRemoveWsle.c)
- *     MiUnlockWsle @ 0x1402A2700 (MiUnlockWsle.c)
- *     MiEvictPageTableLock @ 0x1402E5230 (MiEvictPageTableLock.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1402E5D40 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiRemoveWsle @ 0x14027B6E0 (MiRemoveWsle.c)
+ *     MiUnlockWsle @ 0x1402A2990 (MiUnlockWsle.c)
+ *     MiEvictPageTableLock @ 0x1402E54C0 (MiEvictPageTableLock.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1402E5FD0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiTerminateWsle(__int64 a1, unsigned __int64 a2, char a3, int *a4)

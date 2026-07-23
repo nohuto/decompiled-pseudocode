@@ -1,11 +1,11 @@
 /*
- * XREFs of IoMountBootLayer @ 0x140793F80
+ * XREFs of IoMountBootLayer @ 0x140796AB0
  * Callers:
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     IopMountCompositeLayer @ 0x140D034D4 (IopMountCompositeLayer.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     IopMountCompositeLayer @ 0x140D09874 (IopMountCompositeLayer.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutEx @ 0x140263890 (KeExpandKernelStackAndCalloutEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140262E00 (KeExpandKernelStackAndCalloutEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 NTSTATUS __fastcall IoMountBootLayer(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3)

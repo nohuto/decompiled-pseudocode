@@ -15,7 +15,7 @@
  *     SepIsChildTokenByPointer @ 0x14061CCAC (SepIsChildTokenByPointer.c)
  */
 
-__int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
+NTSTATUS __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
 {
   char v2; // di
   PERESOURCE *v5; // rbx
@@ -23,20 +23,20 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
   struct _KTHREAD *v7; // rax
   int v8; // ebx
   int v9; // r15d
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char v11; // bl
   char v12; // [rsp+78h] [rbp+38h] BYREF
-  bool v13; // [rsp+80h] [rbp+40h] BYREF
+  BOOLEAN Dominates; // [rsp+80h] [rbp+40h] BYREF
   char v14; // [rsp+88h] [rbp+48h] BYREF
 
   v2 = 0;
   *a2 = 0;
   v12 = 0;
   v14 = 0;
-  v13 = 0;
+  Dominates = 0;
   v5 = (PERESOURCE *)PsReferencePrimaryToken(KeGetCurrentThread()->ApcState.Process);
   if ( !v5 )
-    return 3221225473LL;
+    return -1073741823;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(v5[6], 1u);
@@ -55,17 +55,17 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v8 == 2 && v9 < 2 )
-    return 3221225637LL;
-  result = RtlSidDominates(0LL, 0LL, &v13);
-  if ( (int)result >= 0 )
+    return -1073741659;
+  result = RtlSidDominates(0LL, 0LL, &Dominates);
+  if ( result >= 0 )
   {
-    if ( v13 )
+    if ( Dominates )
     {
       result = SepIsChildTokenByPointer(a1, &v12);
       v11 = v12;
       if ( !v12 )
       {
-        if ( (int)result < 0 )
+        if ( result < 0 )
           return result;
         result = SepIsSiblingTokenByPointer(a1, &v14);
       }
@@ -74,7 +74,7 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
     {
       v11 = v12;
     }
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       if ( v11 || v14 )
         v2 = 1;

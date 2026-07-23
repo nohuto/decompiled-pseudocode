@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpCreateRootVirtualProcessor @ 0x14070F000
+ * XREFs of HvlpCreateRootVirtualProcessor @ 0x14070CB90
  * Callers:
- *     HvlInitializeProcessor @ 0x14070EDCC (HvlInitializeProcessor.c)
+ *     HvlInitializeProcessor @ 0x14070C95C (HvlInitializeProcessor.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvcallInitInputControl @ 0x14045B1D0 (HvcallInitInputControl.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     HvlpDepositPages @ 0x140584134 (HvlpDepositPages.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvcallInitInputControl @ 0x140450570 (HvcallInitInputControl.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     HvlpDepositPages @ 0x1405814B4 (HvlpDepositPages.c)
  */
 
 __int64 __fastcall HvlpCreateRootVirtualProcessor(__int64 a1, int a2)

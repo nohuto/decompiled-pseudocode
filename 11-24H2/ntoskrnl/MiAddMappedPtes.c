@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddMappedPtes @ 0x140243C60
+ * XREFs of MiAddMappedPtes @ 0x140391F90
  * Callers:
- *     MiInsertInSystemSpace @ 0x140415F30 (MiInsertInSystemSpace.c)
- *     MiMapSystemImage @ 0x140A8B428 (MiMapSystemImage.c)
+ *     MiInsertInSystemSpace @ 0x140393BFC (MiInsertInSystemSpace.c)
+ *     MiMapSystemImage @ 0x140A87914 (MiMapSystemImage.c)
  * Callees:
- *     MiUnlockWorkingSetOptimal @ 0x14024231C (MiUnlockWorkingSetOptimal.c)
- *     MiLockWorkingSetOptimal @ 0x1402424F0 (MiLockWorkingSetOptimal.c)
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiGetSharedProtos @ 0x1403025FC (MiGetSharedProtos.c)
- *     MiOffsetToProtos @ 0x140319D40 (MiOffsetToProtos.c)
- *     MiAddMappedPtesPadding @ 0x1404D0B44 (MiAddMappedPtesPadding.c)
+ *     MiUnlockWorkingSetOptimal @ 0x14020A46C (MiUnlockWorkingSetOptimal.c)
+ *     MiLockWorkingSetOptimal @ 0x14020A640 (MiLockWorkingSetOptimal.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     MiOffsetToProtos @ 0x1402C28D0 (MiOffsetToProtos.c)
+ *     MiGetSharedProtos @ 0x14030CC0C (MiGetSharedProtos.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiAddMappedPtesPadding @ 0x1404C9B84 (MiAddMappedPtesPadding.c)
  */
 
 __int64 __fastcall MiAddMappedPtes(
@@ -18,7 +18,7 @@ __int64 __fastcall MiAddMappedPtes(
         unsigned __int64 a2,
         __int64 a3,
         _DWORD *a4,
-        _QWORD *a5,
+        unsigned __int64 *a5,
         unsigned int a6,
         int a7)
 {
@@ -31,52 +31,61 @@ __int64 __fastcall MiAddMappedPtes(
   unsigned __int64 v14; // r15
   unsigned __int64 v15; // rsi
   unsigned __int64 v16; // r12
-  int v17; // r14d
-  unsigned __int64 v18; // rax
-  __int64 v19; // rdx
-  __int64 v20; // rax
-  __int64 v21; // rdx
-  unsigned __int64 v22; // rax
-  __int64 v23; // rax
+  __int64 v17; // r9
+  int v18; // r14d
+  unsigned __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  ULONG_PTR v23; // rax
+  __int64 v24; // rax
   __int64 SharedProtos; // rax
-  __int64 v25; // rax
-  int v26; // r8d
-  __int64 v27; // rdx
-  unsigned int v28; // r8d
-  __int64 v30; // [rsp+40h] [rbp-68h] BYREF
-  unsigned __int64 v31; // [rsp+48h] [rbp-60h]
-  unsigned __int64 v32; // [rsp+50h] [rbp-58h]
-  BOOL v34; // [rsp+B8h] [rbp+10h]
-  __int64 v35; // [rsp+C0h] [rbp+18h]
+  __int64 v26; // rax
+  int v27; // r8d
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  unsigned __int64 v31; // [rsp+40h] [rbp-68h] BYREF
+  unsigned __int64 v32; // [rsp+48h] [rbp-60h]
+  unsigned __int64 v33; // [rsp+50h] [rbp-58h]
+  BOOL v35; // [rsp+B8h] [rbp+10h]
+  __int64 v36; // [rsp+C0h] [rbp+18h]
 
   v7 = a2;
-  v30 = 0LL;
-  v34 = 0;
-  if ( a7 && (MiFlags & 0x8000) != 0 )
-    v34 = (MiFlags & 0x4000) != 0;
-  v9 = a2 + 8 * a3;
   v31 = 0LL;
+  v35 = 0;
+  if ( a7 && (MiFlags & 0x8000) != 0 )
+    v35 = (MiFlags & 0x4000) != 0;
+  v9 = a2 + 8 * a3;
+  v32 = 0LL;
   DemandZeroPte = 0LL;
-  v35 = MiOffsetToProtos(a4, *a5, &v30);
-  v11 = v35;
-  if ( !v35 )
+  v36 = MiOffsetToProtos((__int64)a4, *a5, &v31);
+  v11 = v36;
+  if ( !v36 )
     return 3221225503LL;
-  v12 = *(_QWORD *)(v35 + 8);
+  v12 = *(_QWORD *)(v36 + 8);
   v13 = 0;
   v14 = 0LL;
-  v32 = *(unsigned int *)(*(_QWORD *)a4 + 8LL) | ((unsigned __int64)(*(_WORD *)(*(_QWORD *)a4 + 12LL) & 0x3FF) << 32);
+  v33 = *(unsigned int *)(*(_QWORD *)a4 + 8LL) | ((unsigned __int64)(*(_WORD *)(*(_QWORD *)a4 + 12LL) & 0x3FF) << 32);
   LOBYTE(a5) = 17;
-  v15 = v12 + 8 * v30;
-  v16 = v12 + 8LL * *(unsigned int *)(v35 + 44);
-  if ( (*(_DWORD *)(v35 + 32) & 0x20000) != 0 && (a4[14] & 0x8000000) != 0 )
-    v15 = 0LL;
-  v17 = 0;
+  v15 = v12 + 8 * v31;
+  v16 = v12 + 8LL * *(unsigned int *)(v36 + 44);
+  if ( (*(_DWORD *)(v36 + 32) & 0x20000) != 0 )
+  {
+    v17 = 0LL;
+    if ( (a4[14] & 0x8000000) != 0 )
+      v15 = 0LL;
+  }
+  else
+  {
+    v17 = 0LL;
+  }
+  v18 = 0;
   while ( v7 < v9 )
   {
     if ( v14 )
     {
       if ( (v7 & 0xFFF) != 0 )
-        goto LABEL_8;
+        goto LABEL_9;
       if ( v13 )
       {
         MiIncreaseUsedPtes(v12, v14, v13, 2LL);
@@ -84,49 +93,50 @@ __int64 __fastcall MiAddMappedPtes(
       }
       MiUnlockWorkingSetOptimal(a1, v14, (char)a5);
     }
-    v22 = MiLockWorkingSetOptimal(a1, v7, (unsigned __int8 *)&a5);
-    v11 = v35;
-    v14 = v22;
-LABEL_8:
+    v23 = MiLockWorkingSetOptimal(a1, v7, (unsigned __int8 *)&a5, v17);
+    v11 = v36;
+    v14 = v23;
+LABEL_9:
     if ( v15 >= v16 )
     {
-      v23 = *(_QWORD *)(v11 + 16);
-      if ( !v23 )
+      v24 = *(_QWORD *)(v11 + 16);
+      if ( !v24 )
       {
-        MiAddMappedPtesPadding(v11, a1, (unsigned __int8)a5, v7, v9, v32, v13);
+        MiAddMappedPtesPadding(v11, a1, (unsigned __int8)a5, v7, v9, v33, v13);
         return 0LL;
       }
       v11 = *(_QWORD *)(v11 + 16);
-      v35 = v23;
+      v36 = v24;
     }
     else if ( v15 )
     {
-      goto LABEL_10;
+      goto LABEL_11;
     }
     if ( (*(_DWORD *)(v11 + 32) & 0x20000) == 0
       || (a4[14] & 0x8000000) == 0
-      || (SharedProtos = MiGetSharedProtos(a4, a6, v11), v11 = v35, (v15 = *(_QWORD *)(SharedProtos + 72)) == 0) )
+      || (SharedProtos = MiGetSharedProtos((__int64)a4, a6, v11), v11 = v36, (v15 = *(_QWORD *)(SharedProtos + 72)) == 0) )
     {
       v15 = *(_QWORD *)(v11 + 8);
     }
-    v25 = *(unsigned int *)(v11 + 44);
-    v17 = 0;
-    v16 = v15 + 8 * v25;
-    if ( v34 && (v26 = *(_DWORD *)(v11 + 32) >> 1, (v26 & 2) != 0) )
+    v26 = *(unsigned int *)(v11 + 44);
+    v17 = 0LL;
+    v18 = 0;
+    v16 = v15 + 8 * v26;
+    if ( v35 && (v27 = *(_DWORD *)(v11 + 32) >> 1, (v27 & 2) != 0) )
     {
-      v27 = ((unsigned int)((*(_DWORD *)(v11 + 32) >> 20) + (*(_DWORD *)(v11 + 40) << 9)) >> 12)
+      v28 = ((unsigned int)((*(_DWORD *)(v11 + 32) >> 20) + (*(_DWORD *)(v11 + 40) << 9)) >> 12)
           + ((((*(_DWORD *)(v11 + 32) >> 20) + ((unsigned __int16)*(_DWORD *)(v11 + 40) << 9)) & 0xFFF) != 0);
-      v31 = v15 + 8 * v27;
-      v17 = ((8 * v25 - 8 * v27) >> 3) - (*(_DWORD *)(v11 + 52) & 0x3FFFFFFF);
-      v28 = v26 & 0x1D;
-      if ( !v28 )
-        v28 = 1;
-      DemandZeroPte = MiMakeDemandZeroPte(v28);
-LABEL_10:
-      if ( !v17 || v15 < v31 )
-        goto LABEL_11;
+      v32 = v15 + 8 * v28;
+      v18 = ((8 * v26 - 8 * v28) >> 3) - (*(_DWORD *)(v11 + 52) & 0x3FFFFFFF);
+      v29 = v27 & 0x1D;
+      if ( !(_DWORD)v29 )
+        v29 = 1LL;
+      DemandZeroPte = MiMakeDemandZeroPte((unsigned int)v29, v28, v29, 0LL);
+LABEL_11:
+      if ( !v18 || v15 < v32 )
+        goto LABEL_12;
       *(_QWORD *)v7 = DemandZeroPte;
-      --v17;
+      --v18;
       v7 += 8LL;
       ++v13;
       v15 += 8LL;
@@ -134,17 +144,17 @@ LABEL_10:
     }
     else
     {
-LABEL_11:
-      v18 = v15 << 16;
+LABEL_12:
+      v19 = v15 << 16;
       v12 = (v15 << 16) | 0x400;
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
-        v19 = v18 | qword_140E2DB80;
-        v20 = v18 | 0x410;
-        v21 = v19 | 0x400;
-        if ( (qword_140E2DB80 & v12) == 0 )
-          v20 = v21;
-        v12 = v20;
+        v20 = v19 | qword_140E2DCC0;
+        v21 = v19 | 0x410;
+        v22 = v20 | 0x400;
+        if ( (qword_140E2DCC0 & v12) == 0 )
+          v21 = v22;
+        v12 = v21;
       }
       if ( !a7 && (a4[14] & 0x20) != 0 )
         v12 |= 8uLL;

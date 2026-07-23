@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbpBuildAlternative @ 0x140706968
+ * XREFs of ArbpBuildAlternative @ 0x140704528
  * Callers:
- *     ArbBootAllocation @ 0x140704B90 (ArbBootAllocation.c)
- *     ArbQueryConflict @ 0x140705D10 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x140706240 (ArbRetestAllocation.c)
- *     ArbpBuildAllocationStack @ 0x140706810 (ArbpBuildAllocationStack.c)
+ *     ArbBootAllocation @ 0x140702750 (ArbBootAllocation.c)
+ *     ArbQueryConflict @ 0x1407038D0 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x140703E00 (ArbRetestAllocation.c)
+ *     ArbpBuildAllocationStack @ 0x1407043D0 (ArbpBuildAllocationStack.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ArbpBuildAlternative(__int64 a1, __int64 a2, __int64 *a3)
@@ -19,7 +19,7 @@ __int64 __fastcall ArbpBuildAlternative(__int64 a1, __int64 a2, __int64 *a3)
   int v10; // ecx
 
   a3[5] = a2;
-  result = guard_dispatch_icall_no_overrides(a2, a3, a3 + 1, a3 + 2);
+  result = guard_dispatch_icall_no_overrides(a2, a3);
   v6 = 0;
   if ( (int)result >= 0 )
   {

@@ -33,7 +33,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV2(
   __int64 v22; // rdx
   ULONG v23; // eax
   unsigned int SizeOfBitMap; // edx
-  RTL_BITMAP *v25; // rbx
+  _RTL_BITMAP *v25; // rbx
   __int64 result; // rax
   unsigned int v27; // eax
   unsigned int v28; // ecx
@@ -62,7 +62,7 @@ LABEL_29:
   }
   if ( a4 )
   {
-    v25 = *(RTL_BITMAP **)(a2 + 24);
+    v25 = *(_RTL_BITMAP **)(a2 + 24);
     if ( v25->SizeOfBitMap - RtlNumberOfSetBits(v25) < a3 )
       goto LABEL_29;
   }

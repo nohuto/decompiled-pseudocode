@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpDiscoverTopologyComplete @ 0x140C196CC
+ * XREFs of HvlpDiscoverTopologyComplete @ 0x140C1B6CC
  * Callers:
- *     HvlPhase2Initialize @ 0x140582B80 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x14057FF00 (HvlPhase2Initialize.c)
  * Callees:
- *     HvlpDiscoverTopologyWorker @ 0x14070F104 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x14070CC94 (HvlpDiscoverTopologyWorker.c)
  */
 
 void HvlpDiscoverTopologyComplete()
@@ -23,11 +23,11 @@ void HvlpDiscoverTopologyComplete()
     if ( v0[5] == -1 )
       HvlpDiscoverTopologyWorker();
     v2 = v0[3];
-    if ( v2 > dword_140E3ECC8 )
-      dword_140E3ECC8 = v0[3];
+    if ( v2 > dword_140E3EE08 )
+      dword_140E3EE08 = v0[3];
     v3 = v0[4];
-    if ( v3 > dword_140E3ECCC )
-      dword_140E3ECCC = v0[4];
+    if ( v3 > dword_140E3EE0C )
+      dword_140E3EE0C = v0[4];
     if ( *((_BYTE *)v0 + 98) )
     {
       v4 = HvlpLogicalProcessorRegions;

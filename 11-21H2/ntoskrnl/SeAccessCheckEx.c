@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
+ *     sub_140383ABC @ 0x140383ABC (sub_140383ABC.c)
  */
 
 __int64 __fastcall SeAccessCheckEx(
@@ -14,5 +14,5 @@ __int64 __fastcall SeAccessCheckEx(
         __int64 a5,
         char a6)
 {
-  return SepCommonAccessCheckEx(a1, a5, a6, 0);
+  return sub_140383ABC(a1, a5, a6, 0);
 }

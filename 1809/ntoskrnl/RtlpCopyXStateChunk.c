@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCopyXStateChunk @ 0x140141834
+ * XREFs of RtlpCopyXStateChunk @ 0x140141934
  * Callers:
- *     RtlpCopyExtendedContext @ 0x1400A210C (RtlpCopyExtendedContext.c)
- *     RtlCopyContext @ 0x140620E78 (RtlCopyContext.c)
+ *     RtlpCopyExtendedContext @ 0x1400A204C (RtlpCopyExtendedContext.c)
+ *     RtlCopyContext @ 0x140621E78 (RtlCopyContext.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RtlpCopyXStateChunk(char a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

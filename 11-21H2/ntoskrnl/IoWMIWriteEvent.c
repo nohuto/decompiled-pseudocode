@@ -1,16 +1,16 @@
 /*
  * XREFs of IoWMIWriteEvent @ 0x140223810
  * Callers:
- *     PpmFireWmiEvent @ 0x1405D868C (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x1405D8720 (PpmWmiFireIdleAccountingEvent.c)
+ *     sub_1405D868C @ 0x1405D868C (sub_1405D868C.c)
+ *     sub_1405D8720 @ 0x1405D8720 (sub_1405D8720.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     ExInterlockedInsertTailList @ 0x140223920 (ExInterlockedInsertTailList.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     WmipDoFindRegEntryByProviderId @ 0x1402E0130 (WmipDoFindRegEntryByProviderId.c)
+ *     sub_1402E0130 @ 0x1402E0130 (sub_1402E0130.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceEvent @ 0x140460192 (EtwTraceEvent.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_140460192 @ 0x140460192 (sub_140460192.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
 
@@ -18,10 +18,10 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
 {
   NTSTATUS v1; // edi
   int v3; // ebx
-  struct _LIST_ENTRY *PoolWithTag; // rbp
+  _LIST_ENTRY *PoolWithTag; // rbp
   unsigned int v5; // ebx
   unsigned __int64 v6; // r14
-  __int64 RegEntryByProviderId; // rax
+  __int64 v7; // rax
   struct _LIST_ENTRY *v8; // rbx
   NTSTATUS result; // eax
   int v10; // eax
@@ -29,12 +29,12 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
   __int64 v12; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v15; // r9
   int v16; // eax
   bool v17; // zf
 
   v1 = 0;
-  if ( !WmipServiceDeviceObject )
+  if ( !qword_140C164D8 )
     return -1073741823;
   v3 = *((_DWORD *)WnodeEventItem + 11);
   if ( (v3 & 0x60000) != 0 )
@@ -52,7 +52,7 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
     else if ( v10 >= 0 )
     {
 LABEL_16:
-      result = EtwTraceEvent(v12, WnodeEventItem, 48LL, 3222536192LL, 0);
+      result = sub_140460192(v12, WnodeEventItem, 48LL, 3222536192LL, 0);
       if ( v11 )
         return result;
       goto LABEL_3;
@@ -60,30 +60,30 @@ LABEL_16:
     return -2147483643;
   }
 LABEL_3:
-  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
+  PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
   if ( !PoolWithTag )
     return -1073741670;
   v5 = *((_DWORD *)WnodeEventItem + 1);
-  v6 = KeAcquireSpinLockRaiseToDpc(&WmipRegistrationSpinLock);
-  RegEntryByProviderId = WmipDoFindRegEntryByProviderId(v5);
-  v8 = (struct _LIST_ENTRY *)RegEntryByProviderId;
-  if ( RegEntryByProviderId )
-    _InterlockedIncrement((volatile signed __int32 *)(RegEntryByProviderId + 48));
-  KxReleaseSpinLock(&WmipRegistrationSpinLock);
-  if ( KiIrqlFlags )
+  v6 = KeAcquireSpinLockRaiseToDpc(&qword_140C16660);
+  v7 = sub_1402E0130(v5);
+  v8 = (struct _LIST_ENTRY *)v7;
+  if ( v7 )
+    _InterlockedIncrement((volatile signed __int32 *)(v7 + 48));
+  KeReleaseSpinLockFromDpcLevel(&qword_140C16660);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v15 = *((_QWORD *)CurrentPrcb + 4375);
         v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-        v17 = (v16 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v16;
+        v17 = (v16 & *(_DWORD *)(v15 + 20)) == 0;
+        *(_DWORD *)(v15 + 20) &= v16;
         if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
   }
@@ -91,8 +91,8 @@ LABEL_3:
   *((_DWORD *)WnodeEventItem + 10) = *((_DWORD *)WnodeEventItem + 2);
   PoolWithTag[1].Flink = v8;
   PoolWithTag[1].Blink = (struct _LIST_ENTRY *)WnodeEventItem;
-  ExInterlockedInsertTailList(&WmipNPEvent, PoolWithTag, &WmipNPNotificationSpinlock);
-  if ( _InterlockedIncrement(&WmipEventWorkItems) == 1 )
-    ExQueueWorkItem(&WmipEventWorkQueueItem, DelayedWorkQueue);
+  ExInterlockedInsertTailList(&stru_140C03668, PoolWithTag, &Lock);
+  if ( _InterlockedIncrement(&dword_140C16508) == 1 )
+    ExQueueWorkItem(&WorkItem, DelayedWorkQueue);
   return v1;
 }

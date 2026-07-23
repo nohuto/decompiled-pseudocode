@@ -1,15 +1,15 @@
 /*
  * XREFs of sub_1409FA10C @ 0x1409FA10C
  * Callers:
- *     SLUpdateLicenseDataInternal @ 0x1409FA6E0 (SLUpdateLicenseDataInternal.c)
+ *     sub_1409FA6E0 @ 0x1409FA6E0 (sub_1409FA6E0.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
  *     ZwClose @ 0x14041B940 (ZwClose.c)
  *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     SpRegOpenRedirectedKey @ 0x14085E1D0 (SpRegOpenRedirectedKey.c)
+ *     sub_14085E1D0 @ 0x14085E1D0 (sub_14085E1D0.c)
  */
 
 __int64 __fastcall sub_1409FA10C(__int64 a1)
@@ -26,12 +26,12 @@ __int64 __fastcall sub_1409FA10C(__int64 a1)
   KeyHandle = 0LL;
   v7 = 0;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   v2 = (signed __int64 *)(a1 + 46840);
   ExAcquirePushLockSharedEx(a1 + 46840, 0LL);
   if ( *(_QWORD *)(a1 + 46832) )
   {
-    v8 = SpRegOpenRedirectedKey(v4, v3, &KeyHandle);
+    v8 = sub_14085E1D0(v4, v3, &KeyHandle);
     if ( v8 >= 0 )
     {
       v7 = 1;
@@ -46,8 +46,8 @@ __int64 __fastcall sub_1409FA10C(__int64 a1)
   }
   if ( _InterlockedCompareExchange64(v2, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v2);
-  KeAbPostRelease((ULONG_PTR)v2);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  sub_1402AFC00((ULONG_PTR)v2);
+  sub_1402F9540((__int64)KeGetCurrentThread());
   if ( v7 == 1 )
     ZwClose(KeyHandle);
   return (unsigned int)v8;

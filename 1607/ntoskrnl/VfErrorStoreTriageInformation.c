@@ -1,8 +1,8 @@
 /*
- * XREFs of VfErrorStoreTriageInformation @ 0x14070EB30
+ * XREFs of VfErrorStoreTriageInformation @ 0x14070EB60
  * Callers:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViErrorFinishReport @ 0x14070EBC4 (ViErrorFinishReport.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViErrorFinishReport @ 0x14070EBF4 (ViErrorFinishReport.c)
  *     ViShutdownWatchdogExecuteDpc @ 0x1407119FC (ViShutdownWatchdogExecuteDpc.c)
  *     ViWdIrpTimedOut @ 0x140717060 (ViWdIrpTimedOut.c)
  *     ViCtxCheckAndReleaseIsrState @ 0x140719DC8 (ViCtxCheckAndReleaseIsrState.c)

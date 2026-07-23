@@ -23,7 +23,7 @@ __int64 __fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, bool
   struct _KTHREAD *v9; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v11; // r14
-  __int64 v12; // r8
+  unsigned int v12; // r8d
   int v13; // eax
   __int64 v14; // rcx
   _KLOCK_ENTRY *v15; // rdi
@@ -65,7 +65,7 @@ __int64 __fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, bool
     SessionId = 0xFFFFFFFFLL;
   --v9->SpecialApcDisable;
   v11 = ++v9->AbAllocationRegionCount;
-  LODWORD(v12) = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
+  v12 = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v16 = !_BitScanReverse((unsigned int *)&v17, v12);
@@ -75,7 +75,7 @@ __int64 __fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, bool
     v13 = 1 << v17;
     v14 = v17;
     v15 = &v9->LockEntries[v14];
-    v12 = ~v13 & (unsigned int)v12;
+    v12 &= ~v13;
     if ( (v15->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v15->LockState.0 & 1) == 0
       && (*(_QWORD *)&v15->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v7 & 0x7FFFFFFFFFFFFFFCLL)
@@ -95,7 +95,7 @@ LABEL_18:
   }
   v15->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v15->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v9->LockEntries[v14], SessionId, v12);
+    KiAbEntryRemoveFromTree(&v9->LockEntries[v14].TreeNode, SessionId);
   v22 = 0;
   v22 = v15->BoostBitmap.AllFields & 0x1FFFF;
   v15->BoostBitmap.AllFields &= 0xFFFE0000;

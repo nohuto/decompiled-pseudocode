@@ -16,7 +16,7 @@ void MiInitializeTopLevelBitmap()
   unsigned __int64 v1; // rsi
   unsigned __int64 v2; // rbx
   __int64 v3; // rdi
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   dword_14036C4F8 = (unsigned __int8)ExGenRandom(1);
   memset(dword_14036C4D8, 0, sizeof(dword_14036C4D8));

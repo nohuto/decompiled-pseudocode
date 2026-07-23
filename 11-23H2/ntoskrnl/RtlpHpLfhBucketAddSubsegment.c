@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpLfhBucketAddSubsegment @ 0x1403169A0
+ * XREFs of RtlpHpLfhBucketAddSubsegment @ 0x140316C30
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1402ADCC0 (RtlpHpLfhSlotAllocate.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315CC0 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402ADF50 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315F50 (RtlpHpLfhSubsegmentFreeBlock.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpLfhSubsegmentSetOwner @ 0x140316B7C (RtlpHpLfhSubsegmentSetOwner.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x140316BA4 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpAcquireLockExclusive @ 0x140316CC4 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhSubsegmentFree @ 0x140357228 (RtlpHpLfhSubsegmentFree.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhSubsegmentSetOwner @ 0x140316E0C (RtlpHpLfhSubsegmentSetOwner.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x140316E34 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140316F54 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x1403573C8 (RtlpHpLfhSubsegmentFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -40,10 +40,13 @@ void __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, __int64 a2, __int64 a3,
     if ( *(_BYTE *)(a1 + 57) )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 16));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

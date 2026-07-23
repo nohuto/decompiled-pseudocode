@@ -1,14 +1,14 @@
 /*
- * XREFs of IpmiLibpKcsSpinRegister @ 0x1406A0634
+ * XREFs of IpmiLibpKcsSpinRegister @ 0x1406A173C
  * Callers:
- *     IpmiLibpKcsHandleError @ 0x1406A00D8 (IpmiLibpKcsHandleError.c)
- *     IpmiLibpKcsReceiveResponseFromBmc @ 0x1406A0228 (IpmiLibpKcsReceiveResponseFromBmc.c)
- *     IpmiLibpKcsSendRequestToBMC @ 0x1406A0448 (IpmiLibpKcsSendRequestToBMC.c)
+ *     IpmiLibpKcsHandleError @ 0x1406A11DC (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x1406A132C (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x1406A1550 (IpmiLibpKcsSendRequestToBMC.c)
  * Callees:
- *     IpmiLibReadOneByte @ 0x14069FB48 (IpmiLibReadOneByte.c)
- *     IpmiLibpDelay @ 0x14069FF94 (IpmiLibpDelay.c)
- *     IpmiLibpGetTimeout @ 0x14069FFDC (IpmiLibpGetTimeout.c)
- *     IpmiLibpTimeAfter @ 0x1406A06F4 (IpmiLibpTimeAfter.c)
+ *     IpmiLibReadOneByte @ 0x1406A0C4C (IpmiLibReadOneByte.c)
+ *     IpmiLibpDelay @ 0x1406A1098 (IpmiLibpDelay.c)
+ *     IpmiLibpGetTimeout @ 0x1406A10E0 (IpmiLibpGetTimeout.c)
+ *     IpmiLibpTimeAfter @ 0x1406A17FC (IpmiLibpTimeAfter.c)
  */
 
 __int64 __fastcall IpmiLibpKcsSpinRegister(__int64 a1, __int64 a2, unsigned __int16 a3)
@@ -24,10 +24,10 @@ __int64 __fastcall IpmiLibpKcsSpinRegister(__int64 a1, __int64 a2, unsigned __in
   LARGE_INTEGER v13; // rcx
   ULONG v14; // edx
 
-  v3 = dword_140EF9C48;
+  v3 = dword_140EF9F48;
   v5 = 0;
   v6 = a3;
-  Timeout = IpmiLibpGetTimeout(a1, dword_140EF9C44);
+  Timeout = IpmiLibpGetTimeout(a1, dword_140EF9F44);
   while ( 1 )
   {
     ++v5;
@@ -48,8 +48,8 @@ __int64 __fastcall IpmiLibpKcsSpinRegister(__int64 a1, __int64 a2, unsigned __in
       break;
     if ( v3 < 0x32 && v5 == 40 )
       v3 += 100;
-    v14 = dword_140EF9C4C;
-    if ( v3 < dword_140EF9C4C )
+    v14 = dword_140EF9F4C;
+    if ( v3 < dword_140EF9F4C )
       v14 = v3;
     IpmiLibpDelay(v13, v14);
   }

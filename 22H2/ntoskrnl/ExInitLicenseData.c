@@ -76,7 +76,7 @@ void __fastcall ExInitLicenseData(__int64 a1, __int64 a2)
   memset(v26, 0, 32);
   v26[4] = 10800LL;
   v27 = 1;
-  if ( (_DWORD)InitSafeBootMode || InitIsWinPEMode )
+  if ( InitSafeBootMode || InitIsWinPEMode )
     v27 = 0;
   ExpSetKernelDataProtection((__int64)v2, (__int64)v26, -1, 1);
   if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

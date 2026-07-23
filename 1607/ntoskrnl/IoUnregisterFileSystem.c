@@ -1,11 +1,11 @@
 /*
- * XREFs of IoUnregisterFileSystem @ 0x140623B90
+ * XREFs of IoUnregisterFileSystem @ 0x140623C44
  * Callers:
- *     RawShutdown @ 0x140682EB8 (RawShutdown.c)
+ *     RawShutdown @ 0x140682F9C (RawShutdown.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  */
 
 void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)

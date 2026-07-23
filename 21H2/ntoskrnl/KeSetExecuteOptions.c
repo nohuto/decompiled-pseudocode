@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetExecuteOptions @ 0x1402CBD4C
+ * XREFs of KeSetExecuteOptions @ 0x14024A49C
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

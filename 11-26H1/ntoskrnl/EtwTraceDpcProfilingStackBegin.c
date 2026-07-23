@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceDpcProfilingStackBegin @ 0x14047A1E0
+ * XREFs of EtwTraceDpcProfilingStackBegin @ 0x140473B50
  * Callers:
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall EtwTraceDpcProfilingStackBegin(int a1, int a2, int a3, int a4, char a5)
@@ -30,7 +30,7 @@ int __fastcall EtwTraceDpcProfilingStackBegin(int a1, int a2, int a3, int a4, ch
   v19 = a3;
   v18 = a2;
   v17 = a1;
-  if ( qword_140F03598 )
+  if ( *(_QWORD *)&stru_140F03830.SchedulerApc.Type )
   {
     *(_QWORD *)&UserData.Size = 4LL;
     UserData.Ptr = (ULONGLONG)&v17;
@@ -43,7 +43,7 @@ int __fastcall EtwTraceDpcProfilingStackBegin(int a1, int a2, int a3, int a4, ch
     v13 = 4LL;
     v15 = 4LL;
     LODWORD(v5) = EtwWriteEx(
-                    qword_140F03598,
+                    *(REGHANDLE *)&stru_140F03830.SchedulerApc.Type,
                     &CPU_STARVATION_EVENT_DPC_PROFILING_STACK_BEGIN,
                     0LL,
                     0,

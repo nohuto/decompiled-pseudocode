@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerRequestStatsIdConcat @ 0x140B00BF0
+ * XREFs of PopPowerRequestStatsIdConcat @ 0x140B02920
  * Callers:
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A891F8 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A900E8 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403E4700 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x140438C68 (RtlUnicodeStringCatString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCat @ 0x1403E78F0 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x1404278C8 (RtlUnicodeStringCatString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsIdConcat(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)

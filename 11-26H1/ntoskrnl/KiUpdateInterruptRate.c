@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUpdateInterruptRate @ 0x140484B2C
+ * XREFs of KiUpdateInterruptRate @ 0x14047E49C
  * Callers:
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x1405C20CC
+ * XREFs of ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x1405C263C
  * Callers:
- *     ?SmStTrimWsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z @ 0x1405C1CC0 (-SmStTrimWsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z.c)
+ *     ?SmStTrimWsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z @ 0x1405C2230 (-SmStTrimWsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ZwQueryVirtualMemory @ 0x14041B1C0 (ZwQueryVirtualMemory.c)
- *     ZwUnlockVirtualMemory @ 0x14041E8C0 (ZwUnlockVirtualMemory.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C23F4 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ZwQueryVirtualMemory @ 0x14041B550 (ZwQueryVirtualMemory.c)
+ *     ZwUnlockVirtualMemory @ 0x14041EC50 (ZwUnlockVirtualMemory.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C2964 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -17,7 +17,7 @@
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
         __int64 a1,
         _DWORD *a2,
-        void **a3,
+        PVOID *a3,
         unsigned int a4,
         int a5,
         _QWORD *a6)
@@ -34,23 +34,23 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
   PVOID *Pool2; // rax
   unsigned int v17; // r13d
   unsigned int v18; // r10d
-  void **v19; // r9
-  void *v20; // rcx
+  PVOID *v19; // r9
+  char *v20; // rcx
   PVOID *v21; // r8
   __int64 v22; // r11
   unsigned int v23; // r15d
   unsigned int v24; // r13d
   unsigned int v25; // r12d
-  void *v26; // rcx
+  PVOID v26; // rcx
   _BYTE *v27; // rdx
   struct _KTHREAD *v28; // rax
   __int64 result; // rax
   int v30; // r8d
   int v31; // r9d
   int MemoryInformationLength; // [rsp+20h] [rbp-30h]
-  char *v33; // [rsp+30h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+30h] [rbp-20h] BYREF
   PVOID P; // [rsp+38h] [rbp-18h]
-  __int64 v35; // [rsp+40h] [rbp-10h]
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-10h] BYREF
   ULONG_PTR v36; // [rsp+48h] [rbp-8h]
   int v37; // [rsp+90h] [rbp+40h]
 
@@ -58,7 +58,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
   v6 = a1;
   v7 = a4;
   v9 = a2;
-  v33 = 0LL;
+  BaseAddress = 0LL;
   v10 = a1 + 6024;
   v36 = a1 + 6024;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 6024), 0LL, 17LL) != 17 )
@@ -69,7 +69,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
   if ( v12 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery();
   v13 = *(_DWORD *)(v6 + 6208);
-  v35 = v13;
+  RegionSize = v13;
   if ( a6 )
   {
     v15 = v13 >> 12;
@@ -84,9 +84,9 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
         v19 = a3;
         do
         {
-          v20 = *v19;
+          v20 = (char *)*v19;
           ++v18;
-          v33 = (char *)*v19;
+          BaseAddress = *v19;
           if ( v17 < v15 * v18 )
           {
             v21 = &Pool2[2 * v17];
@@ -96,8 +96,8 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
             {
               *v21 = v20;
               v21 += 2;
-              v20 = v33 + 4096;
-              v33 += 4096;
+              v20 = (char *)BaseAddress + 4096;
+              BaseAddress = (char *)BaseAddress + 4096;
               --v22;
             }
             while ( v22 );
@@ -110,7 +110,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
       if ( ZwQueryVirtualMemory(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
              *Pool2,
-             (MEMORY_INFORMATION_CLASS)4,
+             MemoryWorkingSetExInformation,
              Pool2,
              16 * v7 * v15,
              0LL) >= 0 )
@@ -123,7 +123,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
           do
           {
             v26 = 0LL;
-            v33 = 0LL;
+            BaseAddress = 0LL;
             if ( v23 < v25 )
             {
               v27 = P;
@@ -133,7 +133,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
                 {
                   v12 = (*a6)-- == 1LL;
                   v26 = *a3;
-                  v33 = (char *)*a3;
+                  BaseAddress = *a3;
                   if ( v12 )
                     break;
                 }
@@ -142,7 +142,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
               while ( v23 < v25 );
               v7 = a4;
               if ( v26 )
-                ZwUnlockVirtualMemory(-1LL, (__int64)&v33);
+                ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
             }
             if ( !*a6 )
               break;
@@ -172,8 +172,8 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
     v14 = v7;
     do
     {
-      v33 = (char *)*a3;
-      ZwUnlockVirtualMemory(-1LL, (__int64)&v33);
+      BaseAddress = *a3;
+      ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
       ++a3;
       --v14;
     }

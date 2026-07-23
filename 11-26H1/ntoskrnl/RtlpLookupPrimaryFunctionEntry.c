@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpLookupPrimaryFunctionEntry @ 0x140523030
+ * XREFs of RtlpLookupPrimaryFunctionEntry @ 0x1405256A0
  * Callers:
- *     RtlDispatchException @ 0x1403D5F30 (RtlDispatchException.c)
- *     RtlLookupExceptionHandler @ 0x140522F8C (RtlLookupExceptionHandler.c)
- *     CcInitializeBcbProfiler @ 0x140C80424 (CcInitializeBcbProfiler.c)
+ *     RtlDispatchException @ 0x1403D8F00 (RtlDispatchException.c)
+ *     RtlLookupExceptionHandler @ 0x1405255F8 (RtlLookupExceptionHandler.c)
+ *     CcInitializeBcbProfiler @ 0x140C86424 (CcInitializeBcbProfiler.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     ??0CUmaUnwindInfo@@QEAA@PEAU_UNWIND_INFO@@@Z @ 0x14041B284 (--0CUmaUnwindInfo@@QEAA@PEAU_UNWIND_INFO@@@Z.c)
- *     ??0CUmaFnEnt@@QEAA@PEAU_IMAGE_RUNTIME_FUNCTION_ENTRY@@@Z @ 0x1404E245C (--0CUmaFnEnt@@QEAA@PEAU_IMAGE_RUNTIME_FUNCTION_ENTRY@@@Z.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ??0CUmaUnwindInfo@@QEAA@PEAU_UNWIND_INFO@@@Z @ 0x140412AD4 (--0CUmaUnwindInfo@@QEAA@PEAU_UNWIND_INFO@@@Z.c)
+ *     ??0CUmaFnEnt@@QEAA@PEAU_IMAGE_RUNTIME_FUNCTION_ENTRY@@@Z @ 0x1404DBB3C (--0CUmaFnEnt@@QEAA@PEAU_IMAGE_RUNTIME_FUNCTION_ENTRY@@@Z.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 struct _IMAGE_RUNTIME_FUNCTION_ENTRY *__fastcall RtlpLookupPrimaryFunctionEntry(

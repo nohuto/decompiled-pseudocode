@@ -1,15 +1,15 @@
 /*
- * XREFs of MmInitializeProcessor @ 0x140C0013C
+ * XREFs of MmInitializeProcessor @ 0x140C0634C
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     KeGetProcessorNodeNumber @ 0x14046B620 (KeGetProcessorNodeNumber.c)
- *     MiAllocatePrcb @ 0x14070DEAC (MiAllocatePrcb.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     KeGetProcessorNodeNumber @ 0x140464DA0 (KeGetProcessorNodeNumber.c)
+ *     MiAllocatePrcb @ 0x140712B5C (MiAllocatePrcb.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmInitializeProcessor(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall MmInitializeProcessor(__int64 a1)
   if ( !Prcb )
     return 0LL;
   *(_DWORD *)(Prcb + 320) = 0;
-  *(_DWORD *)(a1 + 34644) = *(unsigned __int8 *)(56320 * ProcessorNodeNumber + qword_140E37CD0 + 14056);
+  *(_DWORD *)(a1 + 34644) = *(unsigned __int8 *)(56320 * ProcessorNodeNumber + qword_140E37E50 + 14056);
   *(_DWORD *)(a1 + 34640) = __rdtsc() >> 4;
   MiInitializePageColorBase(0LL, 3, ProcessorNodeNumber + 1, (__int64)v7);
   v7[0] = a1 + 34640;
@@ -41,7 +41,7 @@ __int64 __fastcall MmInitializeProcessor(__int64 a1)
     return 0LL;
   }
   result = 1LL;
-  v5[41] = *(_QWORD *)(384 * ProcessorNodeNumber + qword_140E2D6B8 + 376);
+  v5[41] = *(_QWORD *)(384 * ProcessorNodeNumber + qword_140E2D838 + 376);
   *(_QWORD *)(a1 + 34872) = v5;
   return result;
 }

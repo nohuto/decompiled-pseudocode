@@ -1,36 +1,39 @@
 /*
- * XREFs of RtlpStdExtendLowerWatermark @ 0x18010F868
+ * XREFs of RtlpStdExtendLowerWatermark @ 0x18010F838
  * Callers:
- *     RtlpStdGetSpaceForTrace @ 0x18010FAE4 (RtlpStdGetSpaceForTrace.c)
+ *     RtlpStdGetSpaceForTrace @ 0x18010FAB4 (RtlpStdGetSpaceForTrace.c)
  * Callees:
  *     ZwAllocateVirtualMemory @ 0x1800A11B0 (ZwAllocateVirtualMemory.c)
- *     RtlpStdLockAcquire @ 0x18010FBA4 (RtlpStdLockAcquire.c)
- *     RtlpStdLockRelease @ 0x18010FBC4 (RtlpStdLockRelease.c)
+ *     RtlpStdLockAcquire @ 0x18010FB74 (RtlpStdLockAcquire.c)
+ *     RtlpStdLockRelease @ 0x18010FB94 (RtlpStdLockRelease.c)
  */
 
 __int64 __fastcall RtlpStdExtendLowerWatermark(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi
   __int64 v5; // r14
-  unsigned __int64 v6; // rcx
+  void *v6; // rcx
   unsigned __int64 v7; // rdi
-  unsigned __int64 v9; // [rsp+50h] [rbp+8h]
-  unsigned __int64 v10; // [rsp+60h] [rbp+18h]
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = 0LL;
   RtlpStdLockAcquire(a1);
   v5 = *(_QWORD *)(a1 + 160);
-  v6 = *(_QWORD *)(a1 + 144);
-  v9 = v6;
+  v6 = *(void **)(a1 + 144);
+  BaseAddress = v6;
   v7 = v5 + a2;
   if ( !*(_BYTE *)(a1 + 128) )
   {
-    if ( v7 > v6 )
+    if ( v7 > (unsigned __int64)v6 )
     {
-      v10 = (a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      if ( v6 + v10 >= *(_QWORD *)(a1 + 152) || (int)ZwAllocateVirtualMemory() < 0 )
+      RegionSize = (a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+      if ( (unsigned __int64)v6 + RegionSize >= *(_QWORD *)(a1 + 152)
+        || ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
+      {
         goto LABEL_9;
-      *(_QWORD *)(a1 + 144) = v10 + v9;
+      }
+      *(_QWORD *)(a1 + 144) = (char *)BaseAddress + RegionSize;
     }
 LABEL_8:
     ++*(_DWORD *)(a1 + 192);

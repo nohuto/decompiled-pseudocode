@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x14064113C
+ * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x140644D1C
  * Callers:
- *     VfPutDmaAdapter @ 0x140C25690 (VfPutDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x140C2B6A0 (VfPutDmaAdapter.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140C22D7C (SUBTRACT_MAP_REGISTERS.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140C28D8C (SUBTRACT_MAP_REGISTERS.c)
  */
 
 void __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
@@ -35,7 +35,7 @@ void __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
       *v7 = v4;
       v4[1] = v7;
       SUBTRACT_MAP_REGISTERS(a1, *((unsigned int *)v6 + 12));
-      ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27B08.AffinityVersion, v6);
+      ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27C48.AffinityVersion, v6);
       break;
     }
   }

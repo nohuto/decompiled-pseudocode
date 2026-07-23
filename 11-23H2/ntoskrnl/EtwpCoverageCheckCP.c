@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageCheckCP @ 0x1409E82B8
+ * XREFs of EtwpCoverageCheckCP @ 0x1409E8548
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x140873E68 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1408740A8 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     TelemetryCoverageTableLocateInternal @ 0x140365318 (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x14036536C (EtwpCoverageValidateCP.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x1403654B8 (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x14036550C (EtwpCoverageValidateCP.c)
  */
 
 __int64 __fastcall EtwpCoverageCheckCP(__int64 a1, __int64 a2)

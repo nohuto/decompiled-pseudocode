@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFreeSlabEntry @ 0x1403B86D0
+ * XREFs of MiFreeSlabEntry @ 0x1403B88B0
  * Callers:
  *     MiFreeSlabEntries @ 0x14021F040 (MiFreeSlabEntries.c)
- *     MiReplenishSlabAllocator @ 0x1402E6AC4 (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x1402E6D54 (MiReplenishSlabAllocator.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
  *     MiChangePageAttributeBatch @ 0x14021C9B4 (MiChangePageAttributeBatch.c)
  *     MiTbFlushTimeStampMayNeedFlush @ 0x14021E394 (MiTbFlushTimeStampMayNeedFlush.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402E8FBC (MiUpdateSlabPagePlaceholderState.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiFreeLargePageMemory @ 0x1402E7728 (MiFreeLargePageMemory.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402E924C (MiUpdateSlabPagePlaceholderState.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

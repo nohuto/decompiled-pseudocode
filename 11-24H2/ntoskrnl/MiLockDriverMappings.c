@@ -1,24 +1,24 @@
 /*
- * XREFs of MiLockDriverMappings @ 0x1404AF5D4
+ * XREFs of MiLockDriverMappings @ 0x1404A9FD0
  * Callers:
- *     MiReleaseDriverPtes @ 0x140A67CE4 (MiReleaseDriverPtes.c)
- *     MiReserveDriverPtes @ 0x140AB636C (MiReserveDriverPtes.c)
+ *     MiReserveDriverPtes @ 0x140A555D0 (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x140A611E4 (MiReleaseDriverPtes.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
-__int64 __fastcall MiLockDriverMappings(__int64 a1)
+char *__fastcall MiLockDriverMappings(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 v2; // rbx
+  char *result; // rax
+  char *v2; // rbx
 
   --*(_WORD *)(a1 + 486);
-  result = (__int64)KeAbPreAcquire((__int64)&qword_140E2D858, 0LL);
+  result = (char *)KeAbPreAcquire((__int64)&qword_140E2D998, 0LL);
   v2 = result;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2D858, 0LL) )
-    result = ExfAcquirePushLockExclusiveEx(&qword_140E2D858, result, (__int64)&qword_140E2D858);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2D998, 0LL) )
+    result = (char *)ExfAcquirePushLockExclusiveEx(&qword_140E2D998, result, (__int64)&qword_140E2D998);
   if ( v2 )
-    *(_BYTE *)(v2 + 10) = 1;
+    v2[10] = 1;
   return result;
 }

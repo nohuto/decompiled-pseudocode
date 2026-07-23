@@ -1,14 +1,13 @@
 /*
- * XREFs of ZwSetInformationObject @ 0x1401B8D10
+ * XREFs of ZwSetInformationObject @ 0x1401B8E70
  * Callers:
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpCmdHiveClose @ 0x1405AFA08 (CmpCmdHiveClose.c)
- *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     CmpCmdHiveClose @ 0x1405B0A08 (CmpCmdHiveClose.c)
+ *     CmpFlushBackupHive @ 0x1407F5250 (CmpFlushBackupHive.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationObject(
         HANDLE ObjectHandle,
         OBJECT_INFORMATION_CLASS ObjectInformationClass,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwSetInformationObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectHandle, *(_QWORD *)&ObjectInformationClass, ObjectInformation);
+  return KiServiceInternal(ObjectHandle);
 }

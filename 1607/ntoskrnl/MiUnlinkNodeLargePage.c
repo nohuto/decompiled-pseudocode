@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkNodeLargePage @ 0x14008A830
+ * XREFs of MiUnlinkNodeLargePage @ 0x140089F30
  * Callers:
- *     MiReplenishFromNodeLargePages @ 0x14008A4D0 (MiReplenishFromNodeLargePages.c)
- *     MiGetLargePageToZero @ 0x14008A680 (MiGetLargePageToZero.c)
- *     MiScrubNodeLargePageList @ 0x1401FBCA8 (MiScrubNodeLargePageList.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1401FD350 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiReplenishFromNodeLargePages @ 0x140089BD0 (MiReplenishFromNodeLargePages.c)
+ *     MiGetLargePageToZero @ 0x140089D80 (MiGetLargePageToZero.c)
+ *     MiScrubNodeLargePageList @ 0x1401FBAD4 (MiScrubNodeLargePageList.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1401FD17C (MiGetLargePageDemoteAsNeeded.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiInsertLargePageInFreeOrZeroList @ 0x140064EF0 (MiInsertLargePageInFreeOrZeroList.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiUnlinkNodeLargePageHelper @ 0x14008AA80 (MiUnlinkNodeLargePageHelper.c)
- *     MiBeginLargePageAccessor @ 0x14008ADF8 (MiBeginLargePageAccessor.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiInsertLargePageInFreeOrZeroList @ 0x140064A70 (MiInsertLargePageInFreeOrZeroList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14008A180 (MiUnlinkNodeLargePageHelper.c)
+ *     MiBeginLargePageAccessor @ 0x14008A4F8 (MiBeginLargePageAccessor.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall MiUnlinkNodeLargePage(

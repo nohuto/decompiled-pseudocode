@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpCovSampContextGetModule @ 0x1409F128C
+ * XREFs of EtwpCovSampContextGetModule @ 0x1409F151C
  * Callers:
- *     EtwpCovSampImageNotify @ 0x1408A9820 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x1408A9A70 (EtwpCovSampImageNotify.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwCovSampHash @ 0x140469CA8 (EtwCovSampHash.c)
- *     ProcessForExeModule @ 0x14046A77A (ProcessForExeModule.c)
- *     EtwpCheckDebugInfoEqual @ 0x140602D68 (EtwpCheckDebugInfoEqual.c)
- *     EtwpFindDebugId @ 0x14077DECC (EtwpFindDebugId.c)
- *     EtwpCovSampCheckForSegments @ 0x1408A89AC (EtwpCovSampCheckForSegments.c)
- *     EtwpCovSampContextFastFindModule @ 0x1408A8DF8 (EtwpCovSampContextFastFindModule.c)
- *     EtwpCovSampContextPruneModules @ 0x1408A8F40 (EtwpCovSampContextPruneModules.c)
- *     EtwpCovSampModuleCleanup @ 0x1409F26A8 (EtwpCovSampModuleCleanup.c)
- *     EtwpCovSampModuleGetName @ 0x1409F26F8 (EtwpCovSampModuleGetName.c)
- *     EtwpCovSampModuleNameInfoCleanup @ 0x1409F2804 (EtwpCovSampModuleNameInfoCleanup.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwCovSampHash @ 0x14046A0A8 (EtwCovSampHash.c)
+ *     ProcessForExeModule @ 0x14046AB7A (ProcessForExeModule.c)
+ *     EtwpCheckDebugInfoEqual @ 0x1406032B8 (EtwpCheckDebugInfoEqual.c)
+ *     EtwpFindDebugId @ 0x14077E0BC (EtwpFindDebugId.c)
+ *     EtwpCovSampCheckForSegments @ 0x1408A8BFC (EtwpCovSampCheckForSegments.c)
+ *     EtwpCovSampContextFastFindModule @ 0x1408A9048 (EtwpCovSampContextFastFindModule.c)
+ *     EtwpCovSampContextPruneModules @ 0x1408A9190 (EtwpCovSampContextPruneModules.c)
+ *     EtwpCovSampModuleCleanup @ 0x1409F2938 (EtwpCovSampModuleCleanup.c)
+ *     EtwpCovSampModuleGetName @ 0x1409F2988 (EtwpCovSampModuleGetName.c)
+ *     EtwpCovSampModuleNameInfoCleanup @ 0x1409F2A94 (EtwpCovSampModuleNameInfoCleanup.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -30,7 +30,7 @@ __int64 __fastcall EtwpCovSampContextGetModule(__int64 a1, __int64 a2, __int64 a
   __int64 v8; // r12
   void *v9; // r13
   char *v10; // r14
-  __int64 v12; // rax
+  PIMAGE_NT_HEADERS v12; // rax
   __int64 v13; // rcx
   __int64 v14; // rcx
   __int64 v15; // rax
@@ -130,15 +130,15 @@ __int64 __fastcall EtwpCovSampContextGetModule(__int64 a1, __int64 a2, __int64 a
   v89 = 0LL;
   v90 = 0LL;
   *((_QWORD *)&v89 + 1) = *(_QWORD *)(a5 + 32);
-  v12 = RtlImageNtHeader(*(_QWORD *)(a5 + 16));
+  v12 = RtlImageNtHeader(*(PVOID *)(a5 + 16));
   v92[2] = v12;
   if ( !v12 )
   {
     Name = -1073741637;
     goto LABEL_131;
   }
-  LODWORD(v90) = *(_DWORD *)(v12 + 88);
-  DWORD1(v90) = *(_DWORD *)(v12 + 8);
+  LODWORD(v90) = v12->OptionalHeader.CheckSum;
+  DWORD1(v90) = v12->FileHeader.TimeDateStamp;
   if ( (*(_DWORD *)(a5 + 8) & 0x100) != 0 )
   {
     v13 = *(_QWORD *)(a5 + 16);
@@ -218,7 +218,7 @@ LABEL_17:
   v86 = 0;
   v82 = (__m128i *)v92;
   v99 = 1;
-  if ( (int)EtwpFindDebugId(*(_QWORD *)(a5 + 16), v20, (__int64 *)v10 + 6, (_DWORD *)v10 + 14) >= 0 )
+  if ( (int)EtwpFindDebugId(*(char **)(a5 + 16), v20, (__int64 *)v10 + 6, (_DWORD *)v10 + 14) >= 0 )
   {
     v21 = *((_QWORD *)v10 + 6);
     if ( *((_DWORD *)v10 + 14) <= 0x400u )

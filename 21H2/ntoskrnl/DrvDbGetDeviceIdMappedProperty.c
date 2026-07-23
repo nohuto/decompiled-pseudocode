@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbGetDeviceIdMappedProperty @ 0x1406C4158
+ * XREFs of DrvDbGetDeviceIdMappedProperty @ 0x140672A48
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1406C4020 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x140672910 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14063B5DC (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x1406C44C0 (DrvDbGetDeviceIdDriverInfMatches.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140735174 (DrvDbOpenDeviceIdRegKey.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x14097DE60 (DrvDbGetObjectDatabaseNodeName.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406303EC (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140635220 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x140672DB0 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140735334 (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x14097E040 (DrvDbGetObjectDatabaseNodeName.c)
  */
 
 __int64 __fastcall DrvDbGetDeviceIdMappedProperty(
@@ -28,7 +28,7 @@ __int64 __fastcall DrvDbGetDeviceIdMappedProperty(
   __int64 v13; // rax
   char v14; // di
   wchar_t *v15; // rax
-  const UNICODE_STRING *v16; // r12
+  __int64 *v16; // r12
   int v17; // eax
   int v18; // ecx
   int RegValueMappedProperty; // ebx
@@ -85,7 +85,7 @@ __int64 __fastcall DrvDbGetDeviceIdMappedProperty(
     }
 LABEL_65:
     v30 = 0;
-    for ( i = &off_140005168; ; i += 5 )
+    for ( i = &off_140004DC8; ; i += 5 )
     {
       v32 = *i;
       if ( *((_DWORD *)*i + 4) == v11 )
@@ -100,7 +100,7 @@ LABEL_65:
         return (unsigned int)-1073741802;
     }
     v34 = 5LL * v30;
-    v35 = &(&off_140005168)[5 * v30];
+    v35 = &(&off_140004DC8)[5 * v30];
     if ( v35 )
     {
       if ( !a3 )
@@ -139,8 +139,8 @@ LABEL_9:
     v15 = (wchar_t *)a2;
   if ( v15 == (wchar_t *)a2 && !v10[5] )
   {
-    v16 = (const UNICODE_STRING *)v10[2];
-    if ( v16 == (const UNICODE_STRING *)(v10 + 2) )
+    v16 = (__int64 *)v10[2];
+    if ( v16 == v10 + 2 )
       goto LABEL_20;
     while ( 1 )
     {
@@ -214,8 +214,8 @@ LABEL_32:
       }
       RegValueMappedProperty = 0;
 LABEL_17:
-      v16 = *(const UNICODE_STRING **)&v16->Length;
-      if ( v16 == (const UNICODE_STRING *)(v41 + 2) )
+      v16 = (__int64 *)*v16;
+      if ( v16 == v41 + 2 )
         goto LABEL_18;
     }
   }

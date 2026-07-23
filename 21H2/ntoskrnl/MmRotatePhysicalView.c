@@ -1,35 +1,35 @@
 /*
- * XREFs of MmRotatePhysicalView @ 0x140682910
+ * XREFs of MmRotatePhysicalView @ 0x1405E48E0
  * Callers:
  *     <none>
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
- *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
- *     MiSanitizePage @ 0x140295E68 (MiSanitizePage.c)
- *     MiDereferenceIoPages @ 0x140297968 (MiDereferenceIoPages.c)
- *     MiRotateComplete @ 0x14029804C (MiRotateComplete.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1402980D4 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiDeleteRotateAndStopFaults @ 0x140298624 (MiDeleteRotateAndStopFaults.c)
- *     MmSizeOfMdl @ 0x1402986E0 (MmSizeOfMdl.c)
- *     MiReplaceRotateWithDemandZero @ 0x140299824 (MiReplaceRotateWithDemandZero.c)
- *     MmBuildMdlForNonPagedPool @ 0x1402D6A20 (MmBuildMdlForNonPagedPool.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402FFBEC (MiLegitimatePageForDriversToMap.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiMarkMdlComplete @ 0x140539BC0 (MiMarkMdlComplete.c)
- *     MiSlowRotateCopy @ 0x140539CFC (MiSlowRotateCopy.c)
- *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
- *     MiLogVirtualRotateEvent @ 0x1408C8634 (MiLogVirtualRotateEvent.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiReferenceIoPages @ 0x1402176E4 (MiReferenceIoPages.c)
+ *     MiSanitizePage @ 0x140217B28 (MiSanitizePage.c)
+ *     MiDereferenceIoPages @ 0x1402183E8 (MiDereferenceIoPages.c)
+ *     MiRotateComplete @ 0x140218ACC (MiRotateComplete.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x140218B54 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiDeleteRotateAndStopFaults @ 0x1402190A4 (MiDeleteRotateAndStopFaults.c)
+ *     MmSizeOfMdl @ 0x140219160 (MmSizeOfMdl.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140219184 (MiReplaceRotateWithDemandZero.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140287D70 (MmBuildMdlForNonPagedPool.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     MiChargeCommit @ 0x1402BF3D0 (MiChargeCommit.c)
+ *     MiGetProcessPartition @ 0x1402BF640 (MiGetProcessPartition.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14030A93C (MiLegitimatePageForDriversToMap.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiMarkMdlComplete @ 0x140539E00 (MiMarkMdlComplete.c)
+ *     MiSlowRotateCopy @ 0x140539F3C (MiSlowRotateCopy.c)
+ *     MiSwitchToTransition @ 0x14053A154 (MiSwitchToTransition.c)
+ *     MiLogVirtualRotateEvent @ 0x1408C8794 (MiLogVirtualRotateEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall MmRotatePhysicalView(
@@ -44,7 +44,7 @@ NTSTATUS __stdcall MmRotatePhysicalView(
   unsigned __int64 v9; // rdi
   char *v10; // rsi
   SIZE_T v11; // r12
-  volatile signed __int32 *v12; // rax
+  __int64 v12; // rax
   int v13; // r8d
   int v14; // eax
   SIZE_T v15; // rdx
@@ -168,9 +168,9 @@ LABEL_41:
       *v27 = v55;
       return v20;
     }
-    v13 = *((_DWORD *)v12 + 12);
+    v13 = *(_DWORD *)(v12 + 48);
     if ( (v13 & 0x70) != 0x40
-      || (*((unsigned int *)v12 + 7) | ((unsigned __int64)*((unsigned __int8 *)v12 + 33) << 32)) < v56 >> 12 )
+      || (*(unsigned int *)(v12 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v12 + 33) << 32)) < v56 >> 12 )
     {
       v20 = -1073741800;
       goto LABEL_38;
@@ -231,14 +231,14 @@ LABEL_41:
             MmProbeAndLockPages(Pool, 1, IoReadAccess);
             *((_QWORD *)&v61 + 1) = v10;
             CurrentThread = KeGetCurrentThread();
-            MiDeleteRotateAndStopFaults(v9, v56, &v61);
+            MiDeleteRotateAndStopFaults(v9, v56, (unsigned __int64 *)&v61);
             if ( v50 == MmToFrameBuffer )
             {
               v23->MdlFlags |= 0x2000u;
               if ( ((int (__fastcall *)(struct _MDL *, struct _MDL *, PVOID))v59)(v7, v23, v58) < 0 )
                 MiSlowRotateCopy((__int64)v7, (__int64)v23, (__int64)v10);
             }
-            MiMapLockedPagesInUserSpaceHelper(v9, (__int64)&v7[1], (__int64)&v23[1], (_DWORD *)v46, v11 >> 12, 0LL, 16);
+            MiMapLockedPagesInUserSpaceHelper(v9, (__int64)&v7[1], &v23[1].Next, v46, v11 >> 12, 0LL, 16);
             MiRotateComplete((unsigned __int64 *)&v61);
             MiUnlockAndDereferenceVad(v10);
             MmUnlockPages(v23);

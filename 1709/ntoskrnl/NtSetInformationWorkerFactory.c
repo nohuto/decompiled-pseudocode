@@ -30,14 +30,18 @@
  *     ExRaiseDatatypeMisalignment @ 0x14075EBC0 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, int a4)
+NTSTATUS __cdecl NtSetInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // dl
   int v6; // eax
   unsigned int v7; // ebx
   __int64 v8; // rax
   NTSTATUS result; // eax
-  int Thread; // r12d
+  NTSTATUS Thread; // r12d
   bool v11; // r13
   char *v12; // rdi
   PKSPIN_LOCK *v13; // r8
@@ -73,42 +77,45 @@ NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, unsigne
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v38 = 0uLL;
-  if ( a2 == 9 )
+  if ( WorkerFactoryInformationClass == WorkerFactoryCallbackType )
   {
 LABEL_2:
     v6 = 4;
 LABEL_3:
-    if ( a4 != v6 )
+    if ( WorkerFactoryInformationLength != v6 )
       return -1073741820;
-    if ( a2 == 9 )
+    if ( WorkerFactoryInformationClass == WorkerFactoryCallbackType )
     {
       if ( PreviousMode )
       {
-        if ( (a3 & 3) != 0 )
+        if ( ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+        if ( (unsigned __int64)WorkerFactoryInformation + 4 > 0x7FFFFFFF0000LL
+          || (char *)WorkerFactoryInformation + 4 < WorkerFactoryInformation )
+        {
           MEMORY[0x7FFFFFFF0000] = 0;
+        }
       }
 LABEL_9:
-      v7 = *(_DWORD *)a3;
+      v7 = *(_DWORD *)WorkerFactoryInformation;
     }
     else
     {
-      switch ( a2 )
+      switch ( WorkerFactoryInformationClass )
       {
-        case 2:
-          if ( PreviousMode && (a3 & 3) != 0 )
+        case WorkerFactoryIdleTimeout:
+          if ( PreviousMode && ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          *(_QWORD *)&v38 = *(_QWORD *)a3;
+          *(_QWORD *)&v38 = *(_QWORD *)WorkerFactoryInformation;
           v7 = v38;
           goto LABEL_23;
-        case 3:
-        case 4:
-        case 5:
+        case WorkerFactoryBindingCount:
+        case WorkerFactoryThreadMinimum:
+        case WorkerFactoryThreadMaximum:
           if ( !PreviousMode )
             goto LABEL_9;
-          v8 = a3;
-          if ( a3 >= 0x7FFFFFFF0000LL )
+          v8 = (__int64)WorkerFactoryInformation;
+          if ( (unsigned __int64)WorkerFactoryInformation >= 0x7FFFFFFF0000LL )
             v8 = 0x7FFFFFFF0000LL;
           v7 = *(_DWORD *)v8;
           break;
@@ -118,10 +125,10 @@ LABEL_9:
     }
     LODWORD(v38) = v7;
 LABEL_23:
-    result = ObReferenceObjectByHandle(Handle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+    result = ObReferenceObjectByHandle(WorkerFactoryHandle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
     if ( result >= 0 )
     {
-      if ( a2 != 8 )
+      if ( WorkerFactoryInformationClass != WorkerFactoryAdjustThreadGoal )
       {
         Thread = 0;
         v11 = 0;
@@ -150,11 +157,11 @@ LABEL_23:
           v12 = (char *)Object;
           v7 = v38;
         }
-        if ( a2 != 9 )
+        if ( WorkerFactoryInformationClass != WorkerFactoryCallbackType )
         {
-          switch ( a2 )
+          switch ( WorkerFactoryInformationClass )
           {
-            case 2:
+            case WorkerFactoryIdleTimeout:
               if ( (__int64)v38 >= 0 )
                 goto LABEL_125;
               if ( (__int64)v38 > -10000000 )
@@ -171,7 +178,7 @@ LABEL_23:
               v41[1] = -1LL;
               KeSetTimer2((__int64)(v12 + 168), v31, -v31, (__int64)v41);
               goto LABEL_40;
-            case 3:
+            case WorkerFactoryBindingCount:
               v29 = *((_DWORD *)v12 + 37);
               if ( (v7 & 0x80000000) != 0 )
               {
@@ -200,7 +207,7 @@ LABEL_23:
                 goto LABEL_41;
               }
               goto LABEL_40;
-            case 4:
+            case WorkerFactoryThreadMinimum:
               if ( *((_BYTE *)*v13 + 33) )
               {
                 Thread = 128;
@@ -238,7 +245,7 @@ LABEL_23:
                 }
               }
               goto LABEL_40;
-            case 5:
+            case WorkerFactoryThreadMaximum:
               v30 = *v13;
               if ( *((_BYTE *)*v13 + 33) )
               {
@@ -435,24 +442,24 @@ LABEL_49:
   }
   else
   {
-    switch ( a2 )
+    switch ( WorkerFactoryInformationClass )
     {
-      case 2:
+      case WorkerFactoryIdleTimeout:
         v6 = 8;
         goto LABEL_3;
-      case 3:
-      case 4:
-      case 5:
-      case 8:
-      case 11:
-      case 12:
-      case 13:
-      case 14:
+      case WorkerFactoryBindingCount:
+      case WorkerFactoryThreadMinimum:
+      case WorkerFactoryThreadMaximum:
+      case WorkerFactoryAdjustThreadGoal:
+      case WorkerFactoryThreadBasePriority:
+      case WorkerFactoryTimeoutWaiters:
+      case WorkerFactoryFlags:
+      case WorkerFactoryThreadSoftMaximum:
         goto LABEL_2;
-      case 6:
+      case WorkerFactoryPaused:
         result = -1073741822;
         break;
-      case 10:
+      case WorkerFactoryStackInformation:
         v6 = 16;
         goto LABEL_3;
       default:

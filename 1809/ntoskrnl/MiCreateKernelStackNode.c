@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateKernelStackNode @ 0x1402AB4F4
+ * XREFs of MiCreateKernelStackNode @ 0x1402AB6E4
  * Callers:
- *     MiOutPageSingleKernelStack @ 0x14007FAB0 (MiOutPageSingleKernelStack.c)
+ *     MiOutPageSingleKernelStack @ 0x14007FAA0 (MiOutPageSingleKernelStack.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
@@ -29,11 +29,11 @@ _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
     result[3] = *a2 - 1LL;
     result[4] = a2[1];
     *((_WORD *)result + 20) = *a1;
-    v6 = ExAcquireSpinLockExclusive(&dword_14043ACA0);
-    v7 = (_QWORD *)qword_14043AC98;
+    v6 = ExAcquireSpinLockExclusive(&dword_14043BD60);
+    v7 = (_QWORD *)qword_14043BD58;
     v8 = 0;
     v9 = v6;
-    if ( qword_14043AC98 )
+    if ( qword_14043BD58 )
     {
       v10 = v5[3];
       while ( 1 )
@@ -59,8 +59,8 @@ _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
         v7 = v11;
       }
     }
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_14043AC98, (unsigned __int64)v7, v8, v5);
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043ACA0);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_14043BD58, (unsigned __int64)v7, v8, v5);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BD60);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v9 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();

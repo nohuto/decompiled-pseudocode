@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpRunDownCmRM @ 0x140A04740
+ * XREFs of CmpRunDownCmRM @ 0x140A00C70
  * Callers:
- *     CmShutdownCmRM @ 0x140A046F4 (CmShutdownCmRM.c)
+ *     CmShutdownCmRM @ 0x140A00C24 (CmShutdownCmRM.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ObDereferenceObjectDeferDelete @ 0x1403C5CE0 (ObDereferenceObjectDeferDelete.c)
- *     LOCK_TRANSACTION_LIST @ 0x14087B17C (LOCK_TRANSACTION_LIST.c)
- *     LOCK_CM_RM_LIST @ 0x140A05144 (LOCK_CM_RM_LIST.c)
- *     CmpCleanupTransactionState @ 0x140A05204 (CmpCleanupTransactionState.c)
- *     CmpDelayFreeCmRm @ 0x140AAF168 (CmpDelayFreeCmRm.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1403B48A0 (ObDereferenceObjectDeferDelete.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14087F02C (LOCK_TRANSACTION_LIST.c)
+ *     LOCK_CM_RM_LIST @ 0x140A01674 (LOCK_CM_RM_LIST.c)
+ *     CmpCleanupTransactionState @ 0x140A01734 (CmpCleanupTransactionState.c)
+ *     CmpDelayFreeCmRm @ 0x140AAA048 (CmpDelayFreeCmRm.c)
  */
 
 void __fastcall CmpRunDownCmRM(__int64 *a1, char a2)

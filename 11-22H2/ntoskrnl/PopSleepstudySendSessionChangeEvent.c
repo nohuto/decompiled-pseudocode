@@ -8,7 +8,7 @@
  *     PopSleepstudySendSessionChangeWnf @ 0x140875E6C (PopSleepstudySendSessionChangeWnf.c)
  */
 
-__int64 __fastcall PopSleepstudySendSessionChangeEvent(__int64 a1, __int64 a2)
+NTSTATUS __fastcall PopSleepstudySendSessionChangeEvent(__int64 a1, __int64 a2)
 {
   int *v4; // rdi
   __int64 v5; // rax

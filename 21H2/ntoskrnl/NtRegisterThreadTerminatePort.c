@@ -1,14 +1,14 @@
 /*
- * XREFs of NtRegisterThreadTerminatePort @ 0x1406BE310
+ * XREFs of NtRegisterThreadTerminatePort @ 0x14061D570
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
+NTSTATUS __cdecl NtRegisterThreadTerminatePort(HANDLE PortHandle)
 {
   struct _KTHREAD *CurrentThread; // rbx
   NTSTATUS result; // eax
@@ -18,7 +18,13 @@ NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
 
   CurrentThread = KeGetCurrentThread();
   DmaAdapter = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, LpcPortObjectType, CurrentThread->PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  result = ObReferenceObjectByHandle(
+             PortHandle,
+             1u,
+             LpcPortObjectType,
+             CurrentThread->PreviousMode,
+             (PVOID *)&DmaAdapter,
+             0LL);
   if ( result >= 0 )
   {
     PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x10uLL, 0x70547350u);

@@ -1,27 +1,27 @@
 /*
- * XREFs of MmInitializeImageViewExtensionCfg @ 0x140CFA144
+ * XREFs of MmInitializeImageViewExtensionCfg @ 0x140D004C4
  * Callers:
- *     MmInitializeImageViewExtension @ 0x140CFA084 (MmInitializeImageViewExtension.c)
+ *     MmInitializeImageViewExtension @ 0x140D00404 (MmInitializeImageViewExtension.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiInitializePfn @ 0x1402D7680 (MiInitializePfn.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiMapSinglePage @ 0x14036A87C (MiMapSinglePage.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiAllocateCombineBlock @ 0x14048F2C0 (MiAllocateCombineBlock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsInitializeScpCfgPages @ 0x140CD989C (PsInitializeScpCfgPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiInitializePfn @ 0x1402B9440 (MiInitializePfn.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiMapSinglePage @ 0x14036C61C (MiMapSinglePage.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiAllocateCombineBlock @ 0x140488D08 (MiAllocateCombineBlock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsInitializeScpCfgPages @ 0x140CDFC1C (PsInitializeScpCfgPages.c)
  */
 
 unsigned __int64 __fastcall MmInitializeImageViewExtensionCfg(char a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -50,7 +50,7 @@ unsigned __int64 __fastcall MmInitializeImageViewExtensionCfg(char a1, __int64 a
 
   v25 = 0LL;
   memset(v26, 0, sizeof(v26));
-  v4 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 4u, a3, a4);
+  v4 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 4u, a3, a4);
   v5 = (unsigned __int64 *)v4;
   if ( !v4 )
     goto LABEL_30;
@@ -71,7 +71,7 @@ unsigned __int64 __fastcall MmInitializeImageViewExtensionCfg(char a1, __int64 a
       if ( SlabPage == -1 )
         goto LABEL_30;
     }
-    CombineBlock = (_QWORD *)MiAllocateCombineBlock((__int64)&unk_140E3C1B8);
+    CombineBlock = (_QWORD *)MiAllocateCombineBlock((__int64)&unk_140E3C338);
     v15 = CombineBlock;
     if ( !CombineBlock )
       goto LABEL_30;
@@ -122,8 +122,8 @@ unsigned __int64 __fastcall MmInitializeImageViewExtensionCfg(char a1, __int64 a
       *(_QWORD *)((char *)&MiState + i + 3584) = v15;
     v23 += 4096;
   }
-  if ( (int)PsInitializeScpCfgPages((__int64)v26, v7, v8, qword_140E2D648, v21, v11) < 0 )
+  if ( (int)PsInitializeScpCfgPages((__int64)v26, v7, v8, qword_140E2D7C8, v21, v11) < 0 )
 LABEL_30:
     MxInstallMoreMemory(49);
-  return MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, v5, 4u);
+  return MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, v5, 4u);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerSettingPendingUpdateWatchdog @ 0x14058DB48
+ * XREFs of PopPowerSettingPendingUpdateWatchdog @ 0x14058E038
  * Callers:
- *     PopDeepSleepWatchdogTakeAction @ 0x1409A1024 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x1409A1224 (PopDeepSleepWatchdogTakeAction.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall PopPowerSettingPendingUpdateWatchdog(unsigned __int64 a1)
@@ -23,10 +23,13 @@ bool __fastcall PopPowerSettingPendingUpdateWatchdog(unsigned __int64 a1)
   if ( PopPendingPowerSettingUpdateTime )
     v2 = MEMORY[0xFFFFF78000000008] - PopPendingPowerSettingUpdateTime >= a1;
   KxReleaseSpinLock((volatile signed __int64 *)&PopPendingPowerSettingUpdateLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

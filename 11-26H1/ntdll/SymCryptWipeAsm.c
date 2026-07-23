@@ -1,18 +1,18 @@
 /*
- * XREFs of SymCryptWipeAsm @ 0x180137990
+ * XREFs of SymCryptWipeAsm @ 0x180137700
  * Callers:
- *     SymCryptMd5Result @ 0x1800384C0 (SymCryptMd5Result.c)
- *     MD5Final_0 @ 0x180038520 (MD5Final_0.c)
- *     SymCryptHashCommonPaddingMd4Style @ 0x18003863C (SymCryptHashCommonPaddingMd4Style.c)
- *     MD5Update_0 @ 0x1800387B0 (MD5Update_0.c)
- *     SymCryptSha1Result @ 0x180039BD0 (SymCryptSha1Result.c)
- *     SymCryptSha256Result @ 0x1800FE014 (SymCryptSha256Result.c)
- *     MD5Init_0 @ 0x18010FDB8 (MD5Init_0.c)
- *     RtlpA_SHAInit @ 0x18013B440 (RtlpA_SHAInit.c)
- *     MD4Init @ 0x180158930 (MD4Init.c)
- *     ScRsa32Compat_Md4ExportAndWipe @ 0x180158A50 (ScRsa32Compat_Md4ExportAndWipe.c)
- *     ScRsa32Compat_Sha1ExportAndWipe @ 0x180158B08 (ScRsa32Compat_Sha1ExportAndWipe.c)
- *     SymCryptMd4Result @ 0x18015E9D0 (SymCryptMd4Result.c)
+ *     SymCryptMd5Result @ 0x180022A30 (SymCryptMd5Result.c)
+ *     MD5Final_0 @ 0x180022A90 (MD5Final_0.c)
+ *     SymCryptHashCommonPaddingMd4Style @ 0x180022BAC (SymCryptHashCommonPaddingMd4Style.c)
+ *     MD5Update_0 @ 0x180022D20 (MD5Update_0.c)
+ *     SymCryptSha1Result @ 0x180024140 (SymCryptSha1Result.c)
+ *     SymCryptSha256Result @ 0x1800FD764 (SymCryptSha256Result.c)
+ *     MD5Init_0 @ 0x18010F948 (MD5Init_0.c)
+ *     RtlpA_SHAInit @ 0x18013B1B0 (RtlpA_SHAInit.c)
+ *     MD4Init @ 0x180158800 (MD4Init.c)
+ *     ScRsa32Compat_Md4ExportAndWipe @ 0x180158920 (ScRsa32Compat_Md4ExportAndWipe.c)
+ *     ScRsa32Compat_Sha1ExportAndWipe @ 0x1801589D8 (ScRsa32Compat_Sha1ExportAndWipe.c)
+ *     SymCryptMd4Result @ 0x18015E8D0 (SymCryptMd4Result.c)
  * Callees:
  *     <none>
  */

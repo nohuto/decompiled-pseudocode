@@ -1,11 +1,11 @@
 /*
- * XREFs of SepDereferenceSidValuesBlock @ 0x1409CF754
+ * XREFs of SepDereferenceSidValuesBlock @ 0x1409CF954
  * Callers:
- *     SepDeleteLogonSessionSidValues @ 0x1409CF69C (SepDeleteLogonSessionSidValues.c)
- *     SepDeleteTokenUserAndGroups @ 0x1409CF6CC (SepDeleteTokenUserAndGroups.c)
- *     SepSetTokenUserAndGroups @ 0x1409CF8FC (SepSetTokenUserAndGroups.c)
+ *     SepDeleteLogonSessionSidValues @ 0x1409CF89C (SepDeleteLogonSessionSidValues.c)
+ *     SepDeleteTokenUserAndGroups @ 0x1409CF8CC (SepDeleteTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x1409CFAFC (SepSetTokenUserAndGroups.c)
  * Callees:
- *     SepLogTokenSidManagement @ 0x1409C9C10 (SepLogTokenSidManagement.c)
+ *     SepLogTokenSidManagement @ 0x1409C9E10 (SepLogTokenSidManagement.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

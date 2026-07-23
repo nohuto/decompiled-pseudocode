@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipQueryAllData @ 0x140504C98
+ * XREFs of WmipQueryAllData @ 0x1404E7C28
  * Callers:
- *     WmipIoControl @ 0x1404749C4 (WmipIoControl.c)
- *     IoWMIQueryAllData @ 0x14057CFD8 (IoWMIQueryAllData.c)
- *     WmipQueryAllDataMultiple @ 0x14069E48C (WmipQueryAllDataMultiple.c)
+ *     WmipIoControl @ 0x140473894 (WmipIoControl.c)
+ *     IoWMIQueryAllData @ 0x14057D484 (IoWMIQueryAllData.c)
+ *     WmipQueryAllDataMultiple @ 0x14069E570 (WmipQueryAllDataMultiple.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByPointer @ 0x14007F760 (ObReferenceObjectByPointer.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByPointer @ 0x14007F7E0 (ObReferenceObjectByPointer.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     WmipPrepareForWnodeAD @ 0x1404747B0 (WmipPrepareForWnodeAD.c)
- *     WmipInsertStaticNames @ 0x140504A34 (WmipInsertStaticNames.c)
- *     WmipStaticInstanceNameSize @ 0x140504C18 (WmipStaticInstanceNameSize.c)
- *     WmipUnreferenceEntry @ 0x140505084 (WmipUnreferenceEntry.c)
- *     WmipForwardWmiIrp @ 0x14050514C (WmipForwardWmiIrp.c)
- *     WmipSendWmiIrp @ 0x1405496D8 (WmipSendWmiIrp.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     WmipPrepareForWnodeAD @ 0x140473680 (WmipPrepareForWnodeAD.c)
+ *     WmipInsertStaticNames @ 0x1404E79C4 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x1404E7BA8 (WmipStaticInstanceNameSize.c)
+ *     WmipUnreferenceEntry @ 0x1404E8014 (WmipUnreferenceEntry.c)
+ *     WmipForwardWmiIrp @ 0x1404E80DC (WmipForwardWmiIrp.c)
+ *     WmipSendWmiIrp @ 0x140549C18 (WmipSendWmiIrp.c)
  */
 
 __int64 __fastcall WmipQueryAllData(

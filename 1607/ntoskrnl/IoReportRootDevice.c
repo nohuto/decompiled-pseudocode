@@ -1,27 +1,27 @@
 /*
- * XREFs of IoReportRootDevice @ 0x140577E18
+ * XREFs of IoReportRootDevice @ 0x140578358
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
- *     _PnpSetObjectProperty @ 0x140488D1C (_PnpSetObjectProperty.c)
- *     _CmSetDeviceRegProp @ 0x140489A34 (_CmSetDeviceRegProp.c)
- *     PnpCleanupDeviceRegistryValues @ 0x1404C7C20 (PnpCleanupDeviceRegistryValues.c)
- *     _CmCreateDevice @ 0x1404E6E44 (_CmCreateDevice.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
- *     _CmDeleteDevice @ 0x1406D7CC0 (_CmDeleteDevice.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x140483B88 (PnpCleanupDeviceRegistryValues.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     _CmCreateDevice @ 0x14050D534 (_CmCreateDevice.c)
+ *     _PnpSetObjectProperty @ 0x140511490 (_PnpSetObjectProperty.c)
+ *     _CmSetDeviceRegProp @ 0x1405121B4 (_CmSetDeviceRegProp.c)
+ *     _CmDeleteDevice @ 0x1406D7DF8 (_CmDeleteDevice.c)
  */
 
 NTSTATUS __stdcall IoReportRootDevice(PDRIVER_OBJECT DriverObject)

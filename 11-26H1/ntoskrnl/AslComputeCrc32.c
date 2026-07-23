@@ -1,12 +1,12 @@
 /*
- * XREFs of AslComputeCrc32 @ 0x14088805C
+ * XREFs of AslComputeCrc32 @ 0x14088E458
  * Callers:
- *     AslpFileGetCrcChecksum @ 0x14088CAA8 (AslpFileGetCrcChecksum.c)
- *     AslpFileLargeGetCrcChecksum @ 0x14088F920 (AslpFileLargeGetCrcChecksum.c)
+ *     AslpFileGetCrcChecksum @ 0x140892EA4 (AslpFileGetCrcChecksum.c)
+ *     AslpFileLargeGetCrcChecksum @ 0x140895D1C (AslpFileLargeGetCrcChecksum.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     AslpComputeCrc32Impl @ 0x14088878C (AslpComputeCrc32Impl.c)
- *     AslpComputeCrc32Uma @ 0x1408887C8 (AslpComputeCrc32Uma.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     AslpComputeCrc32Impl @ 0x14088EB88 (AslpComputeCrc32Impl.c)
+ *     AslpComputeCrc32Uma @ 0x14088EBC4 (AslpComputeCrc32Uma.c)
  */
 
 __int64 __fastcall AslComputeCrc32(unsigned int a1, unsigned __int64 a2, unsigned int a3)

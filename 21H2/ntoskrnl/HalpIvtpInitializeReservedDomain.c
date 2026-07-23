@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIvtpInitializeReservedDomain @ 0x1409AACA8
+ * XREFs of HalpIvtpInitializeReservedDomain @ 0x1409ABBD8
  * Callers:
- *     IvtProcessDeviceExceptions @ 0x1409AA188 (IvtProcessDeviceExceptions.c)
+ *     IvtProcessDeviceExceptions @ 0x1409AB0B8 (IvtProcessDeviceExceptions.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     IvtAllocateContextTable @ 0x1404DF350 (IvtAllocateContextTable.c)
- *     IvtUpdateContextEntry @ 0x1404E0BBC (IvtUpdateContextEntry.c)
- *     IvtUpdateExtendedContextEntry @ 0x1404E0D70 (IvtUpdateExtendedContextEntry.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IvtAllocateContextTable @ 0x1404DF590 (IvtAllocateContextTable.c)
+ *     IvtUpdateContextEntry @ 0x1404E0DFC (IvtUpdateContextEntry.c)
+ *     IvtUpdateExtendedContextEntry @ 0x1404E0FB0 (IvtUpdateExtendedContextEntry.c)
  */
 
 __int64 __fastcall HalpIvtpInitializeReservedDomain(__int64 a1, int *a2)

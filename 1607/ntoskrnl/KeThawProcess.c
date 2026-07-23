@@ -1,14 +1,14 @@
 /*
- * XREFs of KeThawProcess @ 0x1400C7448
+ * XREFs of KeThawProcess @ 0x1400C52E8
  * Callers:
- *     PsThawProcess @ 0x14051DFE8 (PsThawProcess.c)
+ *     PsThawProcess @ 0x140501050 (PsThawProcess.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiThawSingleThread @ 0x1400C7560 (KiThawSingleThread.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     KiReleaseProcessLockExclusive @ 0x1400F2E8C (KiReleaseProcessLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiThawSingleThread @ 0x1400C5400 (KiThawSingleThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     KiReleaseProcessLockExclusive @ 0x1400F0CDC (KiReleaseProcessLockExclusive.c)
  */
 
 void __fastcall KeThawProcess(__int64 a1, char a2)

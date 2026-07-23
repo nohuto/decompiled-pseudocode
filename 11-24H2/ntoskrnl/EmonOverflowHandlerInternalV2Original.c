@@ -1,275 +1,272 @@
 /*
- * XREFs of EmonOverflowHandlerInternalV2Original @ 0x14055CF3C
+ * XREFs of EmonOverflowHandlerInternalV2Original @ 0x14055AB6C
  * Callers:
- *     EmonOverflowHandlerOriginal @ 0x14055D3E0 (EmonOverflowHandlerOriginal.c)
+ *     EmonOverflowHandlerOriginal @ 0x14055B010 (EmonOverflowHandlerOriginal.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     EmonIsModifiedByBadActorInternalOriginal @ 0x14048785C (EmonIsModifiedByBadActorInternalOriginal.c)
- *     KeProfileInterruptWithSource @ 0x140498080 (KeProfileInterruptWithSource.c)
- *     PoGetProcessorIdleAccounting @ 0x1404FA590 (PoGetProcessorIdleAccounting.c)
- *     EmonPebsOverflowHandler @ 0x14055D6FC (EmonPebsOverflowHandler.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     EmonIsModifiedByBadActorInternalOriginal @ 0x1404828CC (EmonIsModifiedByBadActorInternalOriginal.c)
+ *     KeProfileInterruptWithSource @ 0x140492A60 (KeProfileInterruptWithSource.c)
+ *     PoGetProcessorIdleAccounting @ 0x1404F7E70 (PoGetProcessorIdleAccounting.c)
+ *     EmonPebsOverflowHandler @ 0x14055B32C (EmonPebsOverflowHandler.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-unsigned __int64 __fastcall EmonOverflowHandlerInternalV2Original(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned __int64 a4)
+unsigned __int64 __fastcall EmonOverflowHandlerInternalV2Original(__int64 a1, unsigned int a2)
 {
-  __int64 v4; // r12
-  __int64 v5; // rdi
-  unsigned __int64 v6; // r14
-  __int64 *v7; // rbx
-  __int64 v8; // r15
-  __int64 v9; // rsi
-  unsigned __int64 v10; // rdi
-  bool v11; // zf
-  __int64 v12; // rsi
+  __int64 v2; // r12
+  __int64 v3; // rdi
+  unsigned __int64 v4; // r14
+  __int64 *v5; // rbx
+  __int64 v6; // r15
+  __int64 v7; // rsi
+  unsigned __int64 v8; // rdi
+  bool v9; // zf
+  __int64 v10; // rsi
+  int v11; // ecx
+  __int64 v12; // r15
   int v13; // ecx
-  __int64 v14; // r15
-  int v15; // ecx
-  int v16; // ecx
-  __int64 v17; // r8
-  int v18; // edx
-  __int64 v19; // rbx
-  unsigned __int64 v20; // r13
-  unsigned int v21; // ecx
-  unsigned int v22; // rdx^4
-  unsigned int v23; // eax
-  __int64 v24; // rdx
-  __int64 v25; // rdi
-  __int64 v26; // rbx
-  unsigned int v27; // ecx
-  __int64 v28; // r12
-  int v29; // eax
-  __int64 v30; // rax
+  int v14; // ecx
+  __int64 v15; // r8
+  int v16; // edx
+  __int64 v17; // rbx
+  unsigned __int64 v18; // r13
+  unsigned int v19; // ecx
+  unsigned int v20; // rdx^4
+  unsigned int v21; // eax
+  unsigned __int64 v22; // r9
+  __int64 v23; // rdx
+  __int64 v24; // rdi
+  __int64 v25; // rbx
+  unsigned int v26; // ecx
+  __int64 v27; // r12
+  int v28; // eax
+  __int64 v29; // rax
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 v32; // rcx
-  __int64 v33; // rax
-  int v34; // eax
-  LARGE_INTEGER v35; // rax
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  int v33; // eax
+  LARGE_INTEGER v34; // rax
+  __int64 v35; // r8
   __int64 v36; // r8
-  __int64 v37; // r8
   unsigned __int64 result; // rax
-  __int64 v39; // rax
-  unsigned int v40; // [rsp+20h] [rbp-40h]
-  __int64 v41; // [rsp+28h] [rbp-38h]
-  unsigned __int64 v42; // [rsp+30h] [rbp-30h]
-  __int64 v43; // [rsp+38h] [rbp-28h] BYREF
+  __int64 v38; // rax
+  unsigned int v39; // [rsp+20h] [rbp-40h]
+  __int64 v40; // [rsp+28h] [rbp-38h]
+  unsigned __int64 v41; // [rsp+30h] [rbp-30h]
+  __int64 v42; // [rsp+38h] [rbp-28h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp-20h] BYREF
-  unsigned __int64 v45; // [rsp+48h] [rbp-18h]
-  __int64 v46; // [rsp+50h] [rbp-10h]
-  unsigned __int64 v47; // [rsp+58h] [rbp-8h]
-  int v49; // [rsp+B0h] [rbp+50h] BYREF
-  int v50; // [rsp+B8h] [rbp+58h]
+  unsigned __int64 v44; // [rsp+48h] [rbp-18h]
+  __int64 v45; // [rsp+50h] [rbp-10h]
+  unsigned __int64 v46; // [rsp+58h] [rbp-8h]
+  int v48; // [rsp+B0h] [rbp+50h] BYREF
+  int v49; // [rsp+B8h] [rbp+58h]
 
-  v49 = 0;
-  v4 = a1;
-  v5 = a2;
-  v47 = EmonOverflowMask & __readmsr(0x38Eu);
-  v6 = v47;
-  if ( (v47 & 0x4000000000000000LL) != 0 )
+  v48 = 0;
+  v2 = a1;
+  v3 = a2;
+  v46 = EmonOverflowMask & __readmsr(0x38Eu);
+  v4 = v46;
+  if ( (v46 & 0x4000000000000000LL) != 0 )
   {
     EmonPebsOverflowHandler(910LL);
-    v6 = v47 & 0xBFFFFFFFFFFFFFFFuLL;
+    v4 = v46 & 0xBFFFFFFFFFFFFFFFuLL;
   }
-  v7 = (__int64 *)EmonReservedResourcesList;
-  v46 = v5;
-  v8 = v5;
+  v5 = (__int64 *)EmonReservedResourcesList;
+  v45 = v3;
+  v6 = v3;
   if ( (__int64 *)EmonReservedResourcesList != &EmonReservedResourcesList )
   {
-    v9 = 10 * v5;
+    v7 = 10 * v3;
     do
     {
-      v10 = v6 & v7[v9 + 4];
-      if ( v10 && v7[2] )
-        guard_dispatch_icall_no_overrides(v6 & v7[v9 + 4], v7, a3, a4);
-      v7 = (__int64 *)*v7;
-      v6 &= ~v10;
+      v8 = v4 & v5[v7 + 4];
+      if ( v8 && v5[2] )
+        guard_dispatch_icall_no_overrides(v4 & v5[v7 + 4], v5);
+      v5 = (__int64 *)*v5;
+      v4 &= ~v8;
     }
-    while ( v7 != &EmonReservedResourcesList );
+    while ( v5 != &EmonReservedResourcesList );
   }
-  v11 = !_BitScanForward64((unsigned __int64 *)&v12, v6);
-  while ( !v11 )
+  v9 = !_BitScanForward64((unsigned __int64 *)&v10, v4);
+  while ( !v9 )
   {
-    v13 = 0;
-    v6 &= ~(1LL << v12);
-    if ( (unsigned int)v12 >= 0x20 )
+    v11 = 0;
+    v4 &= ~(1LL << v10);
+    if ( (unsigned int)v10 >= 0x20 )
     {
-      v12 = (unsigned int)(v12 - 32);
-      v13 = 1;
+      v10 = (unsigned int)(v10 - 32);
+      v11 = 1;
     }
-    v14 = *(_QWORD *)(KiProcessorBlock[v8] + 88);
-    if ( v13 )
+    v12 = *(_QWORD *)(KiProcessorBlock[v6] + 88);
+    if ( v11 )
     {
-      v15 = v13 - 1;
-      if ( v15 )
+      v13 = v11 - 1;
+      if ( v13 )
       {
-        v16 = v15 - 99;
-        if ( v16 )
+        v14 = v13 - 99;
+        if ( v14 )
         {
-          if ( v16 == 1 )
-            v14 += 72LL;
+          if ( v14 == 1 )
+            v12 += 72LL;
           else
-            v14 = 0LL;
+            v12 = 0LL;
         }
         else
         {
-          v14 += 48LL;
+          v12 += 48LL;
         }
       }
       else
       {
-        v14 += 24LL;
+        v12 += 24LL;
       }
     }
-    v17 = *(_QWORD *)(v14 + 16) + 48 * v12;
-    if ( *(_DWORD *)(v17 + 24) )
+    v15 = *(_QWORD *)(v12 + 16) + 48 * v10;
+    if ( *(_DWORD *)(v15 + 24) )
       goto LABEL_57;
-    v18 = *(_DWORD *)v14;
-    v19 = 0LL;
+    v16 = *(_DWORD *)v12;
+    v17 = 0LL;
+    v40 = 0LL;
+    LODWORD(v18) = 0;
     v41 = 0LL;
-    LODWORD(v20) = 0;
-    v42 = 0LL;
-    LOBYTE(v49) = 0;
-    v45 = 0LL;
-    if ( v18 == 1 )
+    LOBYTE(v48) = 0;
+    v44 = 0LL;
+    if ( v16 == 1 )
     {
-      v50 = v12 + 32;
-      v42 = ~(15LL << (4 * (unsigned __int8)v12)) & __readmsr(0x38Du);
-      a4 = __readmsr(0x38Fu);
-      _bittestandreset64((__int64 *)&a4, (unsigned int)(v12 + 32));
-      v21 = 911;
-      v45 = a4;
-      v22 = HIDWORD(a4);
-      v23 = a4;
+      v49 = v10 + 32;
+      v41 = ~(15LL << (4 * (unsigned __int8)v10)) & __readmsr(0x38Du);
+      v22 = __readmsr(0x38Fu);
+      _bittestandreset64((__int64 *)&v22, (unsigned int)(v10 + 32));
+      v19 = 911;
+      v44 = v22;
+      v20 = HIDWORD(v22);
+      v21 = v22;
     }
     else
     {
-      v50 = v12;
-      if ( v18 )
+      v49 = v10;
+      if ( v16 )
         goto LABEL_26;
-      v21 = v12 + 390;
-      v50 = v12;
-      v42 = __readmsr((int)v12 + 390);
-      v22 = HIDWORD(v42);
-      v23 = v42 & 0xFFAFFFFF;
+      v19 = v10 + 390;
+      v49 = v10;
+      v41 = __readmsr((int)v10 + 390);
+      v20 = HIDWORD(v41);
+      v21 = v41 & 0xFFAFFFFF;
     }
-    v19 = v17;
-    __writemsr(v21, __PAIR64__(v22, v23));
-    v41 = v17;
+    v17 = v15;
+    __writemsr(v19, __PAIR64__(v20, v21));
+    v40 = v15;
 LABEL_26:
-    v24 = *(unsigned int *)(v19 + 36);
-    if ( (_DWORD)v24 )
+    v23 = *(unsigned int *)(v17 + 36);
+    if ( (_DWORD)v23 )
     {
-      KeProfileInterruptWithSource(v4, v24);
-      LODWORD(v20) = *(_DWORD *)v19;
+      KeProfileInterruptWithSource(v2, v23);
+      LODWORD(v18) = *(_DWORD *)v17;
       goto LABEL_38;
     }
-    v43 = 0LL;
+    v42 = 0LL;
     PerformanceFrequency.QuadPart = 0LL;
     if ( HalpTimerProfilingCallback )
-      guard_dispatch_icall_no_overrides(v4, v24, v17, a4);
+      guard_dispatch_icall_no_overrides(v2, v23);
     else
-      KeProfileInterruptWithSource(v4, 0LL);
-    v25 = HalpProfileData;
-    v26 = 296LL * KeGetPcr()->Prcb.Number;
-    v27 = *(_DWORD *)(v26 + HalpProfileData + 24);
-    if ( v27 )
+      KeProfileInterruptWithSource(v2, 0LL);
+    v24 = HalpProfileData;
+    v25 = 296LL * KeGetPcr()->Prcb.Number;
+    v26 = *(_DWORD *)(v25 + HalpProfileData + 24);
+    if ( v26 )
     {
-      LODWORD(v20) = *(_DWORD *)(v26 + HalpProfileData + 16);
-      v28 = v26 + 16LL * *(unsigned int *)(v26 + HalpProfileData + 32);
-      *(_DWORD *)(v26 + HalpProfileData + 32) = ((unsigned __int8)*(_DWORD *)(v26 + HalpProfileData + 32) + 1) & 0xF;
-      v29 = *(_DWORD *)(v26 + v25 + 20);
-      if ( !v29 )
+      LODWORD(v18) = *(_DWORD *)(v25 + HalpProfileData + 16);
+      v27 = v25 + 16LL * *(unsigned int *)(v25 + HalpProfileData + 32);
+      *(_DWORD *)(v25 + HalpProfileData + 32) = ((unsigned __int8)*(_DWORD *)(v25 + HalpProfileData + 32) + 1) & 0xF;
+      v28 = *(_DWORD *)(v25 + v24 + 20);
+      if ( !v28 )
       {
-        *(_DWORD *)(v26 + v25 + 20) = 0x2710 / v27;
-        if ( !(0x2710 / v27) )
-          *(_DWORD *)(v26 + v25 + 20) = 1;
-        PoGetProcessorIdleAccounting(&v43);
-        v30 = v43;
+        *(_DWORD *)(v25 + v24 + 20) = 0x2710 / v26;
+        if ( !(0x2710 / v26) )
+          *(_DWORD *)(v25 + v24 + 20) = 1;
+        PoGetProcessorIdleAccounting(&v42);
+        v29 = v42;
         goto LABEL_35;
       }
-      v34 = v29 - 1;
-      *(_DWORD *)(v26 + v25 + 20) = v34;
-      if ( !v34 )
+      v33 = v28 - 1;
+      *(_DWORD *)(v25 + v24 + 20) = v33;
+      if ( !v33 )
       {
-        v40 = 0x2710 / v27;
-        *(_DWORD *)(v26 + v25 + 20) = 0x2710 / v27;
-        if ( !(0x2710 / v27) )
+        v39 = 0x2710 / v26;
+        *(_DWORD *)(v25 + v24 + 20) = 0x2710 / v26;
+        if ( !(0x2710 / v26) )
         {
-          *(_DWORD *)(v26 + v25 + 20) = 1;
-          v40 = 1;
+          *(_DWORD *)(v25 + v24 + 20) = 1;
+          v39 = 1;
         }
-        PoGetProcessorIdleAccounting(&v43);
-        v30 = v43;
-        if ( v43 == *(_QWORD *)(v26 + v25 + 8) )
+        PoGetProcessorIdleAccounting(&v42);
+        v29 = v42;
+        if ( v42 == *(_QWORD *)(v25 + v24 + 8) )
         {
-          v43 = v40 * (unsigned int)v20;
-          v35 = KeQueryPerformanceCounter(&PerformanceFrequency);
-          v36 = HalpProfileData;
-          if ( v35.QuadPart != *(_QWORD *)(v26 + HalpProfileData) )
+          v42 = v39 * (unsigned int)v18;
+          v34 = KeQueryPerformanceCounter(&PerformanceFrequency);
+          v35 = HalpProfileData;
+          if ( v34.QuadPart != *(_QWORD *)(v25 + HalpProfileData) )
           {
-            v20 = PerformanceFrequency.QuadPart
-                * (v43
-                 * (unsigned __int64)*(unsigned int *)(v26 + HalpProfileData + 24)
-                 / (v35.QuadPart - *(_QWORD *)(v26 + HalpProfileData)))
+            v18 = PerformanceFrequency.QuadPart
+                * (v42
+                 * (unsigned __int64)*(unsigned int *)(v25 + HalpProfileData + 24)
+                 / (v34.QuadPart - *(_QWORD *)(v25 + HalpProfileData)))
                 / 0x989680;
-            if ( v20 - 4096 > 0x7FFFEFFF )
-              LODWORD(v20) = *(_DWORD *)(v26 + HalpProfileData + 28);
-            *(_DWORD *)(v26 + HalpProfileData + 16) = v20;
-            *(LARGE_INTEGER *)(v26 + v36) = v35;
+            if ( v18 - 4096 > 0x7FFFEFFF )
+              LODWORD(v18) = *(_DWORD *)(v25 + HalpProfileData + 28);
+            *(_DWORD *)(v25 + HalpProfileData + 16) = v18;
+            *(LARGE_INTEGER *)(v25 + v35) = v34;
           }
-          *(_DWORD *)(v28 + v25 + 40) = v20;
-          *(LARGE_INTEGER *)(v28 + v25 + 48) = v35;
+          *(_DWORD *)(v27 + v24 + 40) = v18;
+          *(LARGE_INTEGER *)(v27 + v24 + 48) = v34;
         }
         else
         {
 LABEL_35:
-          *(_QWORD *)(v26 + v25 + 8) = v30;
+          *(_QWORD *)(v25 + v24 + 8) = v29;
           PerformanceCounter = KeQueryPerformanceCounter(0LL);
-          v32 = HalpProfileData;
-          *(LARGE_INTEGER *)(v26 + HalpProfileData) = PerformanceCounter;
-          *(_DWORD *)(v28 + v25 + 40) = v20;
-          *(_QWORD *)(v28 + v25 + 48) = *(_QWORD *)(v26 + v32);
+          v31 = HalpProfileData;
+          *(LARGE_INTEGER *)(v25 + HalpProfileData) = PerformanceCounter;
+          *(_DWORD *)(v27 + v24 + 40) = v18;
+          *(_QWORD *)(v27 + v24 + 48) = *(_QWORD *)(v25 + v31);
         }
       }
-      v4 = a1;
+      v2 = a1;
     }
-    v19 = v41;
+    v17 = v40;
 LABEL_38:
-    if ( *(_DWORD *)v14 )
+    if ( *(_DWORD *)v12 )
     {
-      if ( *(_DWORD *)v14 == 1 )
+      if ( *(_DWORD *)v12 == 1 )
       {
         if ( (unsigned int)EmonFixedCounterResolution < 0x40 )
-          v33 = (1LL << EmonFixedCounterResolution) - 1;
+          v32 = (1LL << EmonFixedCounterResolution) - 1;
         else
-          v33 = -1LL;
-        __writemsr(v12 + 777, v33 & -(__int64)(unsigned int)v20);
-        __writemsr(0x38Fu, v45 | (1LL << v50));
+          v32 = -1LL;
+        __writemsr(v10 + 777, v32 & -(__int64)(unsigned int)v18);
+        __writemsr(0x38Fu, v44 | (1LL << v49));
       }
-      v37 = v42;
+      v36 = v41;
     }
     else
     {
       if ( (unsigned int)EmonCounterResolution < 0x40 )
-        v39 = (1LL << EmonCounterResolution) - 1;
+        v38 = (1LL << EmonCounterResolution) - 1;
       else
-        v39 = -1LL;
-      __writemsr(v12 + 193, v39 & -(__int64)(unsigned int)v20);
-      v37 = v42;
-      __writemsr(v12 + 390, v42 | 0x500000);
+        v38 = -1LL;
+      __writemsr(v10 + 193, v38 & -(__int64)(unsigned int)v18);
+      v36 = v41;
+      __writemsr(v10 + 390, v41 | 0x500000);
     }
-    EmonIsModifiedByBadActorInternalOriginal(v12, (int *)v14, v37, &v49);
-    if ( (_BYTE)v49 )
-      *(_BYTE *)(v19 + 40) = 1;
+    EmonIsModifiedByBadActorInternalOriginal(v10, (int *)v12, v36, &v48);
+    if ( (_BYTE)v48 )
+      *(_BYTE *)(v17 + 40) = 1;
 LABEL_57:
-    v11 = !_BitScanForward64((unsigned __int64 *)&v12, v6);
-    v8 = v46;
+    v9 = !_BitScanForward64((unsigned __int64 *)&v10, v4);
+    v6 = v45;
   }
-  result = v47;
-  __writemsr(0x390u, v47);
+  result = v46;
+  __writemsr(0x390u, v46);
   return result;
 }

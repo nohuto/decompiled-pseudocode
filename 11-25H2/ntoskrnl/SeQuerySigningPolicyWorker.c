@@ -25,15 +25,15 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   int Policy_Internal; // ecx
   char v13; // r15
   int v14; // r12d
-  int v15; // ebx
+  int Origin_low; // ebx
   bool v16; // zf
   char v17; // al
   unsigned __int8 v18; // al
   char v20; // [rsp+30h] [rbp-20h] BYREF
   _BYTE v21[3]; // [rsp+31h] [rbp-1Fh] BYREF
   PVOID TokenInformation; // [rsp+34h] [rbp-1Ch] BYREF
-  __int64 v23; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-8h] BYREF
+  _PS_PKG_CLAIM v23; // [rsp+40h] [rbp-10h] BYREF
+  unsigned __int64 v24; // [rsp+48h] [rbp-8h] BYREF
 
   v8 = a5;
   v21[0] = 0;
@@ -41,17 +41,12 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   v23 = 0LL;
   HIDWORD(TokenInformation) = 0;
   v24 = 0LL;
-  Policy_Internal = AppModelPolicy_GetPolicy_Internal(
-                      (__int64)a1,
-                      (__int64)a2,
-                      (int *)&TokenInformation + 1,
-                      &v23,
-                      &v24);
+  Policy_Internal = AppModelPolicy_GetPolicy_Internal(a1, (__int64)a2, (int *)&TokenInformation + 1, &v23, &v24);
   if ( Policy_Internal < 0 )
     return (unsigned int)Policy_Internal;
   v13 = 1;
   if ( (unsigned int)(HIDWORD(TokenInformation) - 3014657) > 1
-    || HIDWORD(TokenInformation) == 3014658 && (unsigned int)BYTE4(v23) - 4 > 1 )
+    || HIDWORD(TokenInformation) == 3014658 && (unsigned int)LOBYTE(v23.Origin) - 4 > 1 )
   {
     v14 = a3 & 1;
     goto LABEL_39;
@@ -59,18 +54,18 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   v14 = a3 & 1;
   if ( !v14 )
   {
-    v15 = BYTE4(v23);
-    if ( !BYTE4(v23) || BYTE4(v23) == 1 )
+    Origin_low = LOBYTE(v23.Origin);
+    if ( !LOBYTE(v23.Origin) || LOBYTE(v23.Origin) == 1 )
     {
-      if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() && (v23 & 0x200000) != 0 )
+      if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() && (v23.Flags & 0x200000) != 0 )
         return (unsigned int)-1073741790;
       *a6 = a5;
     }
     else
     {
-      if ( BYTE4(v23) != 2 )
+      if ( LOBYTE(v23.Origin) != 2 )
       {
-        switch ( BYTE4(v23) )
+        switch ( LOBYTE(v23.Origin) )
         {
           case 3u:
             v17 = 6;
@@ -82,10 +77,10 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
               v8 = 3;
             }
             else if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline()
-                   && (v23 & 0x200000) != 0
+                   && (v23.Flags & 0x200000) != 0
                    && !a5 )
             {
-              if ( v15 != 4 )
+              if ( Origin_low != 4 )
               {
 LABEL_62:
                 *a6 = v13;
@@ -97,7 +92,8 @@ LABEL_61:
             v13 = v8;
             goto LABEL_62;
           case 6u:
-            if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() && (v23 & 0x200000) != 0 )
+            if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline()
+              && (v23.Flags & 0x200000) != 0 )
             {
               v16 = a5 == 2;
               if ( a5 != 2 )
@@ -137,8 +133,12 @@ LABEL_39:
   {
     if ( v14 )
       goto LABEL_52;
-    if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline() && (v23 & 0x200000) != 0 && !a5 )
+    if ( (unsigned int)Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline()
+      && (v23.Flags & 0x200000) != 0
+      && !a5 )
+    {
       goto LABEL_62;
+    }
     goto LABEL_61;
   }
   LODWORD(TokenInformation) = 0;

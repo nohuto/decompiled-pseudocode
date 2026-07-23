@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpGetProcessHistory @ 0x140805DC0
+ * XREFs of SdbpGetProcessHistory @ 0x140806500
  * Callers:
- *     SdbpInitializeSearchDBContext @ 0x140804F10 (SdbpInitializeSearchDBContext.c)
+ *     SdbpInitializeSearchDBContext @ 0x140805650 (SdbpInitializeSearchDBContext.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AslEnvVarQuery @ 0x14080BF80 (AslEnvVarQuery.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AslEnvVarQuery @ 0x14080C6C0 (AslEnvVarQuery.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 _WORD *__fastcall SdbpGetProcessHistory(__int64 a1, _WORD *a2, _WORD *a3)

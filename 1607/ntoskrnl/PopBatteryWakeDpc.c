@@ -1,15 +1,15 @@
 /*
- * XREFs of PopBatteryWakeDpc @ 0x140126BD4
+ * XREFs of PopBatteryWakeDpc @ 0x140127144
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  */
 
 __int64 PopBatteryWakeDpc()
 {
-  byte_140303780 = 0;
-  KeSetEvent(&stru_140303768, 0, 0);
-  _InterlockedExchange(&dword_1403036E0, 0);
+  byte_1403036C0 = 0;
+  KeSetEvent(&stru_1403036A8, 0, 0);
+  _InterlockedExchange(&dword_140303620, 0);
   return PopBatteryQueueWork(1LL);
 }

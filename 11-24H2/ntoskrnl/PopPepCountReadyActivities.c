@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPepCountReadyActivities @ 0x140435920
+ * XREFs of PopPepCountReadyActivities @ 0x1404283A0
  * Callers:
- *     PopPepComponentSetResidency @ 0x1405DB904 (PopPepComponentSetResidency.c)
- *     PopPepComponentSetWakeHint @ 0x1405DBA00 (PopPepComponentSetWakeHint.c)
+ *     PopPepComponentSetResidency @ 0x1405D87D4 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x1405D88D0 (PopPepComponentSetWakeHint.c)
  * Callees:
  *     <none>
  */

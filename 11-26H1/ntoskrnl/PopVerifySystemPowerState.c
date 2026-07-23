@@ -1,14 +1,14 @@
 /*
- * XREFs of PopVerifySystemPowerState @ 0x140B24424
+ * XREFs of PopVerifySystemPowerState @ 0x140B268C4
  * Callers:
- *     PopActionRetrieveInitialState @ 0x1404F0404 (PopActionRetrieveInitialState.c)
- *     PdcPoVerifyPowerState @ 0x1407DB7D0 (PdcPoVerifyPowerState.c)
- *     PopVerifySystemPowerPolicy @ 0x1409442F4 (PopVerifySystemPowerPolicy.c)
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
- *     PopAdvanceSystemPowerState @ 0x140B55C34 (PopAdvanceSystemPowerState.c)
+ *     PopActionRetrieveInitialState @ 0x1404E99E4 (PopActionRetrieveInitialState.c)
+ *     PdcPoVerifyPowerState @ 0x1407DF7E0 (PdcPoVerifyPowerState.c)
+ *     PopVerifySystemPowerPolicy @ 0x1409BFC64 (PopVerifySystemPowerPolicy.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
+ *     PopAdvanceSystemPowerState @ 0x140B584D4 (PopAdvanceSystemPowerState.c)
  * Callees:
- *     PopIsHiberbootSupported @ 0x140776D5C (PopIsHiberbootSupported.c)
- *     PopIsHibernateSupported @ 0x140B2E808 (PopIsHibernateSupported.c)
+ *     PopIsHiberbootSupported @ 0x140779C04 (PopIsHiberbootSupported.c)
+ *     PopIsHibernateSupported @ 0x140B30758 (PopIsHibernateSupported.c)
  */
 
 void __fastcall PopVerifySystemPowerState(int *a1, unsigned int a2)
@@ -44,34 +44,34 @@ void __fastcall PopVerifySystemPowerState(int *a1, unsigned int a2)
                   goto LABEL_9;
 LABEL_34:
                 if ( !v6
-                  || !PopIsHiberbootSupported((__int64)&stru_140F10828.WaitBlock[0].Thread)
-                  && !(unsigned __int8)PopIsHibernateSupported(&stru_140F10828.WaitBlockFill11[24]) )
+                  || !PopIsHiberbootSupported((__int64)&PpmIdlePolicyLock.Padding[1])
+                  && !(unsigned __int8)PopIsHibernateSupported(&PpmIdlePolicyLock.Padding[1]) )
                 {
                   v4 = 1;
                 }
                 goto LABEL_9;
               }
 LABEL_33:
-              if ( stru_140F10828.WaitBlockFill5[29] )
+              if ( BYTE5(PpmIdlePolicyLock.Padding[1]) )
                 goto LABEL_9;
               goto LABEL_34;
             }
 LABEL_31:
-            if ( stru_140F10828.WaitBlockFill5[28] )
+            if ( BYTE4(PpmIdlePolicyLock.Padding[1]) )
               goto LABEL_9;
             v4 = 4;
             goto LABEL_33;
           }
 LABEL_29:
-          if ( stru_140F10828.WaitBlockFill5[27] )
+          if ( BYTE3(PpmIdlePolicyLock.Padding[1]) )
             goto LABEL_9;
           v4 = 3;
           goto LABEL_31;
         }
         if ( v4 == 5 )
         {
-          if ( PopIsHiberbootSupported((__int64)&stru_140F10828.WaitBlock[0].Thread)
-            || (unsigned __int8)PopIsHibernateSupported(&stru_140F10828.WaitBlockFill11[24]) )
+          if ( PopIsHiberbootSupported((__int64)&PpmIdlePolicyLock.Padding[1])
+            || (unsigned __int8)PopIsHibernateSupported(&PpmIdlePolicyLock.Padding[1]) )
           {
             goto LABEL_9;
           }
@@ -86,11 +86,11 @@ LABEL_29:
             goto LABEL_26;
           }
 LABEL_24:
-          if ( stru_140F10828.WaitBlockFill5[28] )
+          if ( BYTE4(PpmIdlePolicyLock.Padding[1]) )
             goto LABEL_9;
           v4 = 2;
 LABEL_26:
-          if ( stru_140F10828.WaitBlockFill5[27] )
+          if ( BYTE3(PpmIdlePolicyLock.Padding[1]) )
             goto LABEL_9;
           v4 = 1;
           if ( v2 != 1 )
@@ -99,7 +99,7 @@ LABEL_26:
           v4 = 2;
           goto LABEL_29;
         }
-        if ( stru_140F10828.WaitBlockFill5[29] )
+        if ( BYTE5(PpmIdlePolicyLock.Padding[1]) )
         {
 LABEL_9:
           *v3 = v4;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HashStringToDwordCaseInsensitiveLen @ 0x180120A94
+ * XREFs of HashStringToDwordCaseInsensitiveLen @ 0x180120844
  * Callers:
- *     WerEscalationLazyInit @ 0x1800D6160 (WerEscalationLazyInit.c)
+ *     WerEscalationLazyInit @ 0x1800D3120 (WerEscalationLazyInit.c)
  * Callees:
- *     NLS_UPCASE @ 0x180036DE0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x180021F40 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall HashStringToDwordCaseInsensitiveLen(unsigned __int16 *a1, int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall HashStringToDwordCaseInsensitiveLen(unsigned __int16 *a1, int
   v3 = a2;
   for ( i = 31415; v3; --v3 )
   {
-    v6 = NLS_UPCASE(qword_1801C6038, *a1);
+    v6 = NLS_UPCASE(qword_1801C5038, *a1);
     v8 = i * v7;
     ++a1;
     i *= 27183;

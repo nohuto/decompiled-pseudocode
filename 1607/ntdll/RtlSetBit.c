@@ -1,16 +1,12 @@
 /*
- * XREFs of RtlSetBit @ 0x180076E60
+ * XREFs of RtlSetBit @ 0x180076E50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-signed __int32 *__fastcall RtlSetBit(__int64 a1, unsigned int a2)
+void __cdecl RtlSetBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
-  signed __int32 *result; // rax
-
-  result = *(signed __int32 **)(a1 + 8);
-  _bittestandset(result, a2);
-  return result;
+  _bittestandset((signed __int32 *)BitMapHeader->Buffer, BitNumber);
 }

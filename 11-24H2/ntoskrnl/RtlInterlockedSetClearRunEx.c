@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInterlockedSetClearRunEx @ 0x140241B80
+ * XREFs of RtlInterlockedSetClearRunEx @ 0x140209CD0
  * Callers:
- *     MiReleasePteMappings @ 0x140241200 (MiReleasePteMappings.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiAttemptCoalesce @ 0x14046E710 (MiAttemptCoalesce.c)
+ *     MiReleasePteMappings @ 0x140209350 (MiReleasePteMappings.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiAttemptCoalesce @ 0x140468B98 (MiAttemptCoalesce.c)
  * Callees:
  *     <none>
  */

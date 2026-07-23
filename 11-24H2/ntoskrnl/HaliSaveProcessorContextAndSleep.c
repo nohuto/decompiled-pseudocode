@@ -1,11 +1,11 @@
 /*
- * XREFs of HaliSaveProcessorContextAndSleep @ 0x1406A60C0
+ * XREFs of HaliSaveProcessorContextAndSleep @ 0x1406A70F0
  * Callers:
- *     HaliAcpiSleep @ 0x1404D9F00 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x1404D3920 (HaliAcpiSleep.c)
  * Callees:
- *     HaliCompleteAcpiAPSleep @ 0x140569FA0 (HaliCompleteAcpiAPSleep.c)
- *     HalpSaveProcessorState @ 0x1406A5E90 (HalpSaveProcessorState.c)
- *     _guard_check_icall_no_overrides @ 0x1406B3DA0 (_guard_check_icall_no_overrides.c)
+ *     HaliCompleteAcpiAPSleep @ 0x140567430 (HaliCompleteAcpiAPSleep.c)
+ *     HalpSaveProcessorState @ 0x1406A6EB0 (HalpSaveProcessorState.c)
+ *     _guard_check_icall_no_overrides @ 0x1406B4D40 (_guard_check_icall_no_overrides.c)
  */
 
 __int64 __fastcall HaliSaveProcessorContextAndSleep(
@@ -19,9 +19,7 @@ __int64 __fastcall HaliSaveProcessorContextAndSleep(
   unsigned int v9; // eax
   __int64 v10; // rdx
   __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  unsigned int v14; // esi
+  unsigned int v12; // esi
 
   v8 = 0;
   v9 = HalpSaveProcessorState(a1);
@@ -46,8 +44,8 @@ __int64 __fastcall HaliSaveProcessorContextAndSleep(
     *a5 = 1;
   }
 LABEL_12:
-  v14 = v9;
+  v12 = v9;
   LOBYTE(v11) = *a5;
-  HaliCompleteAcpiAPSleep(v11, v10, v12, v13);
-  return v14;
+  HaliCompleteAcpiAPSleep(v11, v10);
+  return v12;
 }

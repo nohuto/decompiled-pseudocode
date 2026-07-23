@@ -6,17 +6,17 @@
  *     RtlFindMessage @ 0x1409AE2A0 (RtlFindMessage.c)
  */
 
-unsigned __int16 *__fastcall ResFwFindMessage(unsigned int a1)
+BYTE *__fastcall ResFwFindMessage(ULONG MessageId)
 {
-  unsigned __int16 *v2; // [rsp+48h] [rbp+10h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = 0LL;
+  MessageEntry = 0LL;
   if ( qword_140EEFE48
     && *(_QWORD *)qword_140EEFE48
-    && (int)RtlFindMessage(*(_QWORD *)qword_140EEFE48, 0xBu, 0, a1, &v2) >= 0
-    && (v2[1] & 1) != 0 )
+    && RtlFindMessage(*(PVOID *)qword_140EEFE48, 0xBu, 0, MessageId, &MessageEntry) >= 0
+    && (MessageEntry->Flags & 1) != 0 )
   {
-    return v2 + 2;
+    return MessageEntry->Text;
   }
   else
   {

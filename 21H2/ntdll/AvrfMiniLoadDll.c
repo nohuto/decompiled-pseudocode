@@ -1,7 +1,7 @@
 /*
- * XREFs of AvrfMiniLoadDll @ 0x1800DB6D0
+ * XREFs of AvrfMiniLoadDll @ 0x1800DB690
  * Callers:
- *     AVrfInitializeVerifier @ 0x1800D9948 (AVrfInitializeVerifier.c)
+ *     AVrfInitializeVerifier @ 0x1800D9908 (AVrfInitializeVerifier.c)
  * Callees:
  *     LdrpCfgProcessLoadConfig @ 0x18000FDB4 (LdrpCfgProcessLoadConfig.c)
  *     RtlCopyUnicodeString @ 0x1800102F0 (RtlCopyUnicodeString.c)
@@ -20,32 +20,32 @@
  *     DbgPrintEx @ 0x180051450 (DbgPrintEx.c)
  *     LdrpUnsuppressAddressTakenIat @ 0x18005424C (LdrpUnsuppressAddressTakenIat.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     ZwMapViewOfSection @ 0x18009DB40 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x18009DB80 (NtUnmapViewOfSection.c)
- *     NtOpenFile @ 0x18009DCA0 (NtOpenFile.c)
- *     ZwQueryAttributesFile @ 0x18009DDE0 (ZwQueryAttributesFile.c)
- *     NtCreateSection @ 0x18009DF80 (NtCreateSection.c)
- *     ZwProtectVirtualMemory @ 0x18009E040 (ZwProtectVirtualMemory.c)
- *     NtQuerySection @ 0x18009E060 (NtQuerySection.c)
- *     ZwOpenDirectoryObject @ 0x18009E140 (ZwOpenDirectoryObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x18009FBF0 (ZwOpenSymbolicLinkObject.c)
- *     NtQuerySymbolicLinkObject @ 0x1800A0210 (NtQuerySymbolicLinkObject.c)
- *     ZwSystemDebugControl @ 0x1800A0E10 (ZwSystemDebugControl.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x18009DB00 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x18009DB40 (NtUnmapViewOfSection.c)
+ *     NtOpenFile @ 0x18009DC60 (NtOpenFile.c)
+ *     ZwQueryAttributesFile @ 0x18009DDA0 (ZwQueryAttributesFile.c)
+ *     NtCreateSection @ 0x18009DF40 (NtCreateSection.c)
+ *     ZwProtectVirtualMemory @ 0x18009E000 (ZwProtectVirtualMemory.c)
+ *     NtQuerySection @ 0x18009E020 (NtQuerySection.c)
+ *     ZwOpenDirectoryObject @ 0x18009E100 (ZwOpenDirectoryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x18009FBB0 (ZwOpenSymbolicLinkObject.c)
+ *     NtQuerySymbolicLinkObject @ 0x1800A01D0 (NtQuerySymbolicLinkObject.c)
+ *     ZwSystemDebugControl @ 0x1800A0DD0 (ZwSystemDebugControl.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
-__int64 __fastcall AvrfMiniLoadDll(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, __int64 a5)
+__int64 __fastcall AvrfMiniLoadDll(__int64 a1, __int64 a2, __int64 a3, void *a4, __int64 a5)
 {
-  int SymbolicLinkObject; // esi
-  int AttributesFile; // eax
+  int appended; // esi
+  NTSTATUS v6; // eax
   NTSTATUS v7; // eax
   struct _TEB *v8; // rdi
   void *ArbitraryUserPointer; // rbx
-  int v10; // eax
-  __int64 v11; // rax
-  __int64 v12; // r13
-  unsigned __int64 v13; // r10
+  NTSTATUS v10; // eax
+  PIMAGE_NT_HEADERS v11; // rax
+  PIMAGE_NT_HEADERS v12; // r13
+  char *v13; // r10
   __int128 v14; // xmm0
   unsigned __int16 v15; // r9
   unsigned __int64 v16; // r8
@@ -53,89 +53,90 @@ __int64 __fastcall AvrfMiniLoadDll(__int64 a1, __int64 a2, __int64 a3, unsigned 
   __int16 v18; // ax
   _WORD *v19; // rdx
   __int16 v20; // cx
-  unsigned __int64 v21; // rax
+  char *v21; // rax
   __int64 v22; // rax
-  int Section; // eax
-  int v24; // eax
+  NTSTATUS v23; // eax
+  NTSTATUS v24; // eax
   __int64 v25; // rcx
-  int v26; // eax
+  NTSTATUS v26; // eax
   unsigned int *v27; // rcx
   __int64 v28; // r15
   __int64 v29; // rdi
   _QWORD *v30; // rbx
   __int64 v32; // rdi
-  unsigned __int64 v33; // r15
-  __int64 v34; // rcx
-  int v35; // ecx
-  __int64 v36; // rax
-  __int64 v37; // rdx
-  __int64 (__fastcall *v38)(__int64, _QWORD, __int64); // rcx
-  _DWORD *v39; // rdx
-  _OWORD *v40; // rcx
-  __int128 v41; // xmm1
-  __int128 v42; // xmm0
-  __int128 v43; // xmm1
-  __int128 v44; // xmm0
-  __int128 v45; // xmm1
-  __int128 v46; // xmm0
-  __int128 v47; // xmm1
-  __int128 v48; // xmm0
-  __int128 v49; // xmm1
-  __int64 v50; // rcx
-  __int128 v51; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int64 v52; // [rsp+60h] [rbp-A0h]
-  HANDLE Handle; // [rsp+68h] [rbp-98h]
-  int v54; // [rsp+70h] [rbp-90h] BYREF
-  int *v55; // [rsp+78h] [rbp-88h] BYREF
+  PVOID v33; // r15
+  int v34; // ecx
+  __int64 v35; // rax
+  __int64 v36; // rdx
+  __int64 (__fastcall *v37)(__int64, _QWORD, __int64); // rcx
+  _DWORD *v38; // rdx
+  _OWORD *v39; // rcx
+  __int128 v40; // xmm1
+  __int128 v41; // xmm0
+  __int128 v42; // xmm1
+  __int128 v43; // xmm0
+  __int128 v44; // xmm1
+  __int128 v45; // xmm0
+  __int128 v46; // xmm1
+  __int128 v47; // xmm0
+  __int128 v48; // xmm1
+  __int64 v49; // rcx
+  _UNICODE_STRING LinkTarget; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE SectionHandle; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v53; // [rsp+70h] [rbp-90h] BYREF
+  int *v54; // [rsp+78h] [rbp-88h] BYREF
   HANDLE FileHandle; // [rsp+80h] [rbp-80h] BYREF
-  HANDLE v57; // [rsp+88h] [rbp-78h]
-  HANDLE v58; // [rsp+90h] [rbp-70h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
-  unsigned __int64 v60; // [rsp+C8h] [rbp-38h]
-  __int64 v61; // [rsp+D0h] [rbp-30h] BYREF
-  int v62; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 v63; // [rsp+E0h] [rbp-20h]
-  __int64 v64; // [rsp+E8h] [rbp-18h]
+  HANDLE DirectoryHandle; // [rsp+88h] [rbp-78h] BYREF
+  HANDLE LinkHandle; // [rsp+90h] [rbp-70h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
+  PVOID BaseOfImage; // [rsp+C8h] [rbp-38h]
+  __int64 v60; // [rsp+D0h] [rbp-30h] BYREF
+  unsigned int v61; // [rsp+D8h] [rbp-28h] BYREF
+  ULONG OldProtect; // [rsp+DCh] [rbp-24h] BYREF
+  ULONG_PTR ViewSize; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 SectionInformation; // [rsp+E8h] [rbp-18h] BYREF
   __int64 v65; // [rsp+F0h] [rbp-10h] BYREF
-  unsigned int *v66; // [rsp+F8h] [rbp-8h] BYREF
+  __int64 v66; // [rsp+F8h] [rbp-8h] BYREF
   __int64 v67; // [rsp+100h] [rbp+0h]
   __int64 v68; // [rsp+108h] [rbp+8h]
   int v69; // [rsp+110h] [rbp+10h] BYREF
   __int64 (__fastcall *v70)(); // [rsp+118h] [rbp+18h]
-  struct _PEB *(__fastcall *v71)(__int64, __int64); // [rsp+120h] [rbp+20h]
+  int (__fastcall *v71)(__int64, __int64); // [rsp+120h] [rbp+20h]
   __int64 (__fastcall *v72)(); // [rsp+128h] [rbp+28h]
   __int64 v73; // [rsp+130h] [rbp+30h]
-  __int64 (*v74)(); // [rsp+138h] [rbp+38h]
-  __int64 (__fastcall *v75)(void *, int, __int64); // [rsp+140h] [rbp+40h]
-  __int64 (__fastcall *v76)(unsigned __int16 *, __int64, unsigned int, __int64, int, __int64); // [rsp+148h] [rbp+48h]
+  PVOID (__cdecl *v74)(PRTL_DEBUG_INFORMATION, SIZE_T); // [rsp+138h] [rbp+38h]
+  NTSTATUS (__cdecl *v75)(HANDLE, ULONG, PRTL_DEBUG_INFORMATION); // [rsp+140h] [rbp+40h]
+  __int64 (__fastcall *v76)(unsigned __int16 *, __int64, __int64, __int64, int, __int64); // [rsp+148h] [rbp+48h]
   __int128 v77; // [rsp+150h] [rbp+50h]
   _DWORD *v78; // [rsp+160h] [rbp+60h]
   __int64 v79; // [rsp+168h] [rbp+68h]
-  unsigned __int64 v80; // [rsp+170h] [rbp+70h]
+  PVOID v80; // [rsp+170h] [rbp+70h]
   __int64 (__fastcall *v81)(unsigned __int16, unsigned __int16); // [rsp+178h] [rbp+78h]
   __int64 (__fastcall *v82)(); // [rsp+180h] [rbp+80h]
   __int64 (__fastcall *v83)(); // [rsp+188h] [rbp+88h]
   __int64 (__fastcall *v84)(); // [rsp+190h] [rbp+90h]
   __int64 (__fastcall *v85)(_QWORD, _QWORD); // [rsp+198h] [rbp+98h]
   __int64 (__fastcall *v86)(_QWORD, _QWORD); // [rsp+1A0h] [rbp+A0h]
-  UNICODE_STRING DestinationString; // [rsp+1B0h] [rbp+B0h] BYREF
-  UNICODE_STRING v88; // [rsp+1C0h] [rbp+C0h] BYREF
-  UNICODE_STRING v89; // [rsp+1D0h] [rbp+D0h] BYREF
-  __int128 v90; // [rsp+1E0h] [rbp+E0h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+1F0h] [rbp+F0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+1B0h] [rbp+B0h] BYREF
+  _UNICODE_STRING v88; // [rsp+1C0h] [rbp+C0h] BYREF
+  _UNICODE_STRING Source; // [rsp+1D0h] [rbp+D0h] BYREF
+  _UNICODE_STRING InputBuffer; // [rsp+1E0h] [rbp+E0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+1F0h] [rbp+F0h] BYREF
   _QWORD v92[24]; // [rsp+200h] [rbp+100h] BYREF
-  _DWORD v93[2]; // [rsp+2F0h] [rbp+1F0h] BYREF
-  _BYTE v94[520]; // [rsp+2F8h] [rbp+1F8h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+2C0h] [rbp+1C0h] BYREF
+  _DWORD v94[2]; // [rsp+2F0h] [rbp+1F0h] BYREF
+  _BYTE v95[520]; // [rsp+2F8h] [rbp+1F8h] BYREF
 
   v67 = a2;
-  v57 = 0LL;
-  v58 = 0LL;
-  Handle = 0LL;
+  DirectoryHandle = 0LL;
+  LinkHandle = 0LL;
+  SectionHandle = 0LL;
   FileHandle = 0LL;
-  v52 = 0LL;
-  v63 = 0LL;
-  v55 = 0LL;
-  v60 = a4;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
+  v54 = 0LL;
+  BaseOfImage = a4;
   v68 = a3;
   RtlInitUnicodeString(&DestinationString, L"\\KnownDlls");
   ObjectAttributes.RootDirectory = 0LL;
@@ -143,78 +144,88 @@ __int64 __fastcall AvrfMiniLoadDll(__int64 a1, __int64 a2, __int64 a3, unsigned 
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 64;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  SymbolicLinkObject = ZwOpenDirectoryObject();
-  if ( SymbolicLinkObject >= 0 )
+  appended = ZwOpenDirectoryObject(&DirectoryHandle, 3u, &ObjectAttributes);
+  if ( appended >= 0 )
   {
     RtlInitUnicodeString(&v88, L"KnownDllPath");
-    ObjectAttributes.RootDirectory = v57;
+    ObjectAttributes.RootDirectory = DirectoryHandle;
     ObjectAttributes.Length = 48;
     ObjectAttributes.ObjectName = &v88;
     ObjectAttributes.Attributes = 64;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    SymbolicLinkObject = ZwOpenSymbolicLinkObject();
-    if ( SymbolicLinkObject >= 0 )
+    appended = ZwOpenSymbolicLinkObject(&LinkHandle, 1u, &ObjectAttributes);
+    if ( appended >= 0 )
     {
-      *((_QWORD *)&v51 + 1) = v94;
-      v93[0] = 4128860;
-      v93[1] = 6029375;
-      LODWORD(v51) = 0x2000000;
-      SymbolicLinkObject = NtQuerySymbolicLinkObject();
-      if ( SymbolicLinkObject >= 0 )
+      LinkTarget.Buffer = (wchar_t *)v95;
+      v94[0] = 4128860;
+      v94[1] = 6029375;
+      *(_DWORD *)&LinkTarget.Length = 0x2000000;
+      appended = NtQuerySymbolicLinkObject(LinkHandle, &LinkTarget, 0LL);
+      if ( appended >= 0 )
       {
-        *((_QWORD *)&v51 + 1) = v93;
-        LOWORD(v51) = v51 + 8;
-        WORD1(v51) += 8;
-        RtlInitUnicodeString(&v89, L"\\");
-        SymbolicLinkObject = RtlAppendUnicodeStringToString((unsigned __int16 *)&v51, (const void **)&v89);
-        if ( SymbolicLinkObject >= 0 )
+        LinkTarget.Buffer = (wchar_t *)v94;
+        LinkTarget.Length += 8;
+        LinkTarget.MaximumLength += 8;
+        RtlInitUnicodeString(&Source, L"\\");
+        appended = RtlAppendUnicodeStringToString(&LinkTarget, &Source);
+        if ( appended >= 0 )
         {
-          SymbolicLinkObject = RtlAppendUnicodeStringToString((unsigned __int16 *)&v51, &VerifierDllString);
-          if ( SymbolicLinkObject >= 0 )
+          appended = RtlAppendUnicodeStringToString(&LinkTarget, &VerifierDllString);
+          if ( appended >= 0 )
           {
             if ( (NtCurrentPeb()->NtGlobalFlag & 0x40000) != 0 )
             {
-              v90 = v51;
-              ZwSystemDebugControl();
+              InputBuffer = LinkTarget;
+              ZwSystemDebugControl(SysDbgKdPullRemoteFile, &InputBuffer, 0x10u, 0LL, 0, 0LL);
             }
             ObjectAttributes.Length = 48;
-            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v51;
+            ObjectAttributes.ObjectName = &LinkTarget;
             ObjectAttributes.RootDirectory = 0LL;
             ObjectAttributes.Attributes = 64;
             *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-            AttributesFile = ZwQueryAttributesFile();
-            if ( AttributesFile < 0 && AttributesFile != -1073741757 && AttributesFile != -1073741790 )
+            v6 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+            if ( v6 < 0 && v6 != -1073741757 && v6 != -1073741790 )
               goto LABEL_11;
             v7 = NtOpenFile(&FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
-            SymbolicLinkObject = v7;
+            appended = v7;
             if ( v7 >= 0 )
             {
-              SymbolicLinkObject = NtCreateSection();
-              if ( SymbolicLinkObject >= 0 )
+              appended = NtCreateSection(&SectionHandle, 0xDu, 0LL, 0LL, 0x10u, 0x1000000u, FileHandle);
+              if ( appended >= 0 )
               {
                 *(_WORD *)(a5 + 370) = 520;
                 *(_WORD *)(a5 + 368) = 0;
                 *(_QWORD *)(a5 + 376) = a5 + 384;
-                *((_QWORD *)&v51 + 1) = v94;
-                LOWORD(v51) = v51 - 8;
-                WORD1(v51) -= 8;
-                RtlCopyUnicodeString((unsigned __int16 *)(a5 + 368), (unsigned __int16 *)&v51);
+                LinkTarget.Buffer = (wchar_t *)v95;
+                LinkTarget.Length -= 8;
+                LinkTarget.MaximumLength -= 8;
+                RtlCopyUnicodeString((PUNICODE_STRING)(a5 + 368), &LinkTarget);
                 v8 = NtCurrentTeb();
                 ArbitraryUserPointer = v8->NtTib.ArbitraryUserPointer;
-                v8->NtTib.ArbitraryUserPointer = (void *)*((_QWORD *)&v51 + 1);
-                v10 = ZwMapViewOfSection();
+                v8->NtTib.ArbitraryUserPointer = LinkTarget.Buffer;
+                v10 = ZwMapViewOfSection(
+                        SectionHandle,
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        &BaseAddress,
+                        0LL,
+                        0LL,
+                        0LL,
+                        &ViewSize,
+                        ViewShare,
+                        0x800000u,
+                        2u);
                 v8->NtTib.ArbitraryUserPointer = ArbitraryUserPointer;
-                SymbolicLinkObject = v10;
+                appended = v10;
                 if ( v10 >= 0 )
                 {
-                  v11 = RtlImageNtHeader(v52);
+                  v11 = RtlImageNtHeader(BaseAddress);
                   v12 = v11;
                   if ( !v11 )
                     goto LABEL_18;
-                  v13 = v52;
-                  *(_QWORD *)(a5 + 48) = v52;
-                  *(_DWORD *)(a5 + 64) = *(_DWORD *)(v11 + 80);
-                  *(_DWORD *)(a5 + 128) = *(_DWORD *)(v11 + 8);
+                  v13 = (char *)BaseAddress;
+                  *(_QWORD *)(a5 + 48) = BaseAddress;
+                  *(_DWORD *)(a5 + 64) = v11->OptionalHeader.SizeOfImage;
+                  *(_DWORD *)(a5 + 128) = v11->FileHeader.TimeDateStamp;
                   *(_QWORD *)(a5 + 144) = 0LL;
                   v14 = *(_OWORD *)(a5 + 368);
                   *(_DWORD *)(a5 + 104) = 0;
@@ -239,12 +250,12 @@ LABEL_24:
                   }
                   *(_OWORD *)(a5 + 88) = v14;
 LABEL_26:
-                  if ( *(_DWORD *)(v12 + 40) )
-                    v21 = v13 + *(unsigned int *)(v12 + 40);
+                  if ( v12->OptionalHeader.AddressOfEntryPoint )
+                    v21 = &v13[v12->OptionalHeader.AddressOfEntryPoint];
                   else
                     v21 = 0LL;
                   *(_QWORD *)(a5 + 56) = v21;
-                  *(_QWORD *)(a5 + 248) = *(_QWORD *)(v12 + 48);
+                  *(_QWORD *)(a5 + 248) = v12->OptionalHeader.ImageBase;
                   *(_QWORD *)(a5 + 152) = a5 + 288;
                   memset((void *)(a5 + 288), 0, 0x50uLL);
                   *(_QWORD *)(a5 + 160) = a5 + 288;
@@ -255,35 +266,35 @@ LABEL_26:
                   v22 = *(_QWORD *)(a5 + 288);
                   *(_DWORD *)(a5 + 312) = -1;
                   *(_WORD *)(v22 - 52) = -1;
-                  Section = NtQuerySection();
-                  if ( Section < 0 )
+                  v23 = NtQuerySection(SectionHandle, SectionRelocationInformation, &SectionInformation, 8uLL, 0LL);
+                  if ( v23 < 0 )
                   {
-                    SymbolicLinkObject = Section;
+                    appended = v23;
                     goto LABEL_49;
                   }
-                  if ( v64 )
-                    *(_QWORD *)(a5 + 248) -= v64;
-                  if ( (*(_WORD *)(v12 + 22) & 0x2000) != 0 )
+                  if ( SectionInformation )
+                    *(_QWORD *)(a5 + 248) -= SectionInformation;
+                  if ( (v12->FileHeader.Characteristics & 0x2000) != 0 )
                     *(_DWORD *)(a5 + 104) |= 4u;
                   if ( (*(_DWORD *)(a5 + 104) & 4) == 0 )
                     *(_QWORD *)(a5 + 56) = 0LL;
-                  v24 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(a5 + 48), 1, 9u, &v54, &v65);
+                  v24 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(a5 + 48), 1, 9u, &v53, (char **)&v65);
                   v25 = v65;
                   if ( v24 < 0 )
                     v25 = 0LL;
-                  if ( v25 && v54 )
+                  if ( v25 && v53 )
                   {
-                    DbgPrintEx(93, 0, "AVRF: Verifier .dlls must not have thread locals\n");
+                    DbgPrintEx(0x5Du, 0, "AVRF: Verifier .dlls must not have thread locals\n");
                     __debugbreak();
                   }
-                  v26 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(a5 + 48), 1, 1u, &v62, (__int64 *)&v66);
-                  v27 = v66;
+                  v26 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(a5 + 48), 1, 1u, &v61, (char **)&v66);
+                  v27 = (unsigned int *)v66;
                   if ( v26 < 0 )
                     v27 = 0LL;
                   if ( !v27 )
                   {
 LABEL_18:
-                    SymbolicLinkObject = -1073741701;
+                    appended = -1073741701;
                     goto LABEL_49;
                   }
                   v28 = *v27;
@@ -293,28 +304,33 @@ LABEL_18:
                   {
                     memset(v92, 0, sizeof(v92));
                     v92[7] = a5;
-                    SymbolicLinkObject = LdrpPrepareImportAddressTableForSnap((__int64)v92);
-                    if ( SymbolicLinkObject >= 0 )
+                    appended = LdrpPrepareImportAddressTableForSnap((__int64)v92);
+                    if ( appended >= 0 )
                     {
                       if ( v92[13] )
                       {
                         v32 = v29 - v28;
-                        v33 = v60;
+                        v33 = BaseOfImage;
                         while ( 1 )
                         {
-                          SymbolicLinkObject = LdrpGetProcedureAddress(
-                                                 v33,
-                                                 (const char *)(*(_QWORD *)(a5 + 48) + *(unsigned int *)v30 + 2LL),
-                                                 0,
-                                                 (char **)((char *)v30 + v32));
-                          if ( SymbolicLinkObject < 0 )
+                          appended = LdrpGetProcedureAddress(
+                                       (unsigned __int64)v33,
+                                       (const char *)(*(_QWORD *)(a5 + 48) + *(unsigned int *)v30 + 2LL),
+                                       0,
+                                       (char **)((char *)v30 + v32));
+                          if ( appended < 0 )
                             break;
                           if ( !*++v30 )
                           {
-                            ZwProtectVirtualMemory();
-                            if ( LdrControlFlowGuardEnforcedWithExportSuppression(v34) )
-                              SymbolicLinkObject = LdrpUnsuppressAddressTakenIat(*(_QWORD *)(v92[7] + 48LL), 0, 0);
-                            if ( SymbolicLinkObject < 0 )
+                            ZwProtectVirtualMemory(
+                              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                              (PVOID *)&v92[13],
+                              &v92[14],
+                              v92[17],
+                              &OldProtect);
+                            if ( LdrControlFlowGuardEnforcedWithExportSuppression() )
+                              appended = LdrpUnsuppressAddressTakenIat(*(char **)(v92[7] + 48LL), 0, 0);
+                            if ( appended < 0 )
                               break;
                             goto LABEL_68;
                           }
@@ -322,38 +338,38 @@ LABEL_18:
                       }
                       else
                       {
-                        SymbolicLinkObject = -1073741701;
+                        appended = -1073741701;
                       }
                     }
                   }
                   else
                   {
-                    v33 = v60;
+                    v33 = BaseOfImage;
 LABEL_68:
-                    v35 = *(_DWORD *)(a5 + 104);
-                    if ( (v35 & 0x2004) == 4 )
+                    v34 = *(_DWORD *)(a5 + 104);
+                    if ( (v34 & 0x2004) == 4 )
                     {
-                      v61 = 0LL;
-                      v36 = LdrpGenRandom();
+                      v60 = 0LL;
+                      v35 = LdrpGenRandom();
                       LdrInitSecurityCookie(
-                        *(_QWORD *)(a5 + 48),
+                        *(void **)(a5 + 48),
                         *(unsigned int *)(a5 + 64),
                         0LL,
-                        v36 ^ (unsigned int)dword_180181388,
-                        &v61);
-                      SymbolicLinkObject = LdrpCfgProcessLoadConfig(a5, (unsigned __int16 *)v12, v61);
-                      if ( SymbolicLinkObject < 0 )
+                        v35 ^ LdrSystemDllInitBlock.RngData,
+                        &v60);
+                      appended = LdrpCfgProcessLoadConfig(a5, (unsigned __int16 *)v12, v60);
+                      if ( appended < 0 )
                         goto LABEL_49;
                       *(_DWORD *)(a5 + 104) |= 0x2000u;
-                      v35 = *(_DWORD *)(a5 + 104);
+                      v34 = *(_DWORD *)(a5 + 104);
                     }
-                    if ( (v35 & 0x200) == 0 )
+                    if ( (v34 & 0x200) == 0 )
                     {
-                      RtlInsertInvertedFunctionTable(v52, *(_DWORD *)(a5 + 64));
+                      RtlInsertInvertedFunctionTable((__int64)BaseAddress, *(_DWORD *)(a5 + 64));
                       *(_DWORD *)(a5 + 104) |= 0x200u;
                     }
-                    v37 = *(_QWORD *)(a5 + 48);
-                    v38 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(a5 + 56);
+                    v36 = *(_QWORD *)(a5 + 48);
+                    v37 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(a5 + 56);
                     v70 = RtlpGetStackTraceAddress;
                     v69 = 152;
                     v81 = RtlpGetStackTraceAddressEx;
@@ -370,47 +386,47 @@ LABEL_68:
                     v74 = RtlCommitDebugInfo;
                     v75 = RtlSetProcessDebugInformation;
                     v76 = RtlQueryImageFileExecutionOptions;
-                    v55 = &v69;
+                    v54 = &v69;
                     v77 = 0LL;
                     v78 = 0LL;
-                    if ( LdrpCallInitRoutine(v38, v37, 5u, (__int64)&v55)
-                      && v55 == &v69
-                      && (v39 = v78) != 0LL
+                    if ( LdrpCallInitRoutine(v37, v36, 5u, (__int64)&v54)
+                      && v54 == &v69
+                      && (v38 = v78) != 0LL
                       && *v78 == 80
-                      && (v40 = (_OWORD *)*((_QWORD *)&v77 + 1)) != 0LL
+                      && (v39 = (_OWORD *)*((_QWORD *)&v77 + 1)) != 0LL
                       && **((_DWORD **)&v77 + 1) == 176 )
                     {
-                      v41 = *(_OWORD *)(*((_QWORD *)&v77 + 1) + 16LL);
+                      v40 = *(_OWORD *)(*((_QWORD *)&v77 + 1) + 16LL);
                       *(_OWORD *)&dword_1801663F8 = **((_OWORD **)&v77 + 1);
-                      v42 = *(_OWORD *)(*((_QWORD *)&v77 + 1) + 32LL);
-                      *((_OWORD *)&dword_1801663F8 + 1) = v41;
-                      v43 = v40[3];
-                      *((_OWORD *)&dword_1801663F8 + 2) = v42;
-                      v44 = v40[4];
-                      *((_OWORD *)&dword_1801663F8 + 3) = v43;
-                      v45 = v40[5];
-                      *((_OWORD *)&dword_1801663F8 + 4) = v44;
-                      v46 = v40[6];
-                      *((_OWORD *)&dword_1801663F8 + 5) = v45;
-                      v47 = v40[8];
-                      *((_OWORD *)&dword_1801663F8 + 6) = v46;
-                      *((_OWORD *)&dword_1801663F8 + 7) = v40[7];
-                      v48 = v40[9];
-                      *((_OWORD *)&dword_1801663F8 + 8) = v47;
-                      v49 = v40[10];
-                      *((_OWORD *)&dword_1801663F8 + 9) = v48;
-                      *((_OWORD *)&dword_1801663F8 + 10) = v49;
-                      RtlpDebugPageHeapTable = (void *)v77;
-                      v39[10] = AVrfpVerifierFlags;
-                      v39[11] = AVrfpDebug;
-                      v50 = *(_QWORD *)(a5 + 48);
-                      v52 = 0LL;
-                      LdrpLogDllState(v50, a5 + 72, 0x14AEu);
+                      v41 = *(_OWORD *)(*((_QWORD *)&v77 + 1) + 32LL);
+                      *((_OWORD *)&dword_1801663F8 + 1) = v40;
+                      v42 = v39[3];
+                      *((_OWORD *)&dword_1801663F8 + 2) = v41;
+                      v43 = v39[4];
+                      *((_OWORD *)&dword_1801663F8 + 3) = v42;
+                      v44 = v39[5];
+                      *((_OWORD *)&dword_1801663F8 + 4) = v43;
+                      v45 = v39[6];
+                      *((_OWORD *)&dword_1801663F8 + 5) = v44;
+                      v46 = v39[8];
+                      *((_OWORD *)&dword_1801663F8 + 6) = v45;
+                      *((_OWORD *)&dword_1801663F8 + 7) = v39[7];
+                      v47 = v39[9];
+                      *((_OWORD *)&dword_1801663F8 + 8) = v46;
+                      v48 = v39[10];
+                      *((_OWORD *)&dword_1801663F8 + 9) = v47;
+                      *((_OWORD *)&dword_1801663F8 + 10) = v48;
+                      RtlpDebugPageHeapTable = (PULONG)v77;
+                      v38[10] = AVrfpVerifierFlags;
+                      v38[11] = AVrfpDebug;
+                      v49 = *(_QWORD *)(a5 + 48);
+                      BaseAddress = 0LL;
+                      LdrpLogDllState(v49, a5 + 72, 0x14AEu);
                       *(_DWORD *)(a5 + 344) = 9;
                     }
                     else
                     {
-                      SymbolicLinkObject = -1073741502;
+                      appended = -1073741502;
                     }
                   }
                 }
@@ -419,7 +435,7 @@ LABEL_68:
             else if ( v7 == -1073741772 )
             {
 LABEL_11:
-              SymbolicLinkObject = -1073741515;
+              appended = -1073741515;
             }
           }
         }
@@ -427,18 +443,18 @@ LABEL_11:
     }
   }
 LABEL_49:
-  if ( v52 )
+  if ( BaseAddress )
   {
-    NtUnmapViewOfSection();
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
     *(_QWORD *)(a5 + 48) = 0LL;
   }
   if ( FileHandle )
     NtClose(FileHandle);
-  if ( Handle )
-    NtClose(Handle);
-  if ( v57 )
-    NtClose(v57);
-  if ( v58 )
-    NtClose(v58);
-  return (unsigned int)SymbolicLinkObject;
+  if ( SectionHandle )
+    NtClose(SectionHandle);
+  if ( DirectoryHandle )
+    NtClose(DirectoryHandle);
+  if ( LinkHandle )
+    NtClose(LinkHandle);
+  return (unsigned int)appended;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpGetKeyNodeForKcb @ 0x140402930
+ * XREFs of CmpGetKeyNodeForKcb @ 0x1404017F0
  * Callers:
- *     CmpSetKeySecurity @ 0x14000A660 (CmpSetKeySecurity.c)
- *     CmpWalkOneLevel @ 0x14002D9B0 (CmpWalkOneLevel.c)
- *     CmpAssignKeySecurity @ 0x14014A9C8 (CmpAssignKeySecurity.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x1401B4234 (CmQueryMultipleValueForLayeredKey.c)
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1405FCCF0 (CmEnumerateValueFromLayeredKey.c)
- *     CmpEnumerateLayeredKey @ 0x1405FED24 (CmpEnumerateLayeredKey.c)
+ *     CmpSetKeySecurity @ 0x14000A1E0 (CmpSetKeySecurity.c)
+ *     CmpWalkOneLevel @ 0x14002D530 (CmpWalkOneLevel.c)
+ *     CmpAssignKeySecurity @ 0x14014AF38 (CmpAssignKeySecurity.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x1401B4118 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x1405FCDA4 (CmEnumerateValueFromLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405FEDD8 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x140402AD0 (CmpUpdateKeyNodeAccessBits.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x140401990 (CmpUpdateKeyNodeAccessBits.c)
  */
 
 __int64 __fastcall CmpGetKeyNodeForKcb(__int64 a1, __int64 a2, char a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiComputeBadImageHeaderType @ 0x140A57E48
+ * XREFs of MiComputeBadImageHeaderType @ 0x140A653C8
  * Callers:
- *     MiVerifyImageHeader @ 0x140A573AC (MiVerifyImageHeader.c)
+ *     MiVerifyImageHeader @ 0x140A6492C (MiVerifyImageHeader.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     MiCheckDosCalls @ 0x14087FC74 (MiCheckDosCalls.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     MiCheckDosCalls @ 0x140886074 (MiCheckDosCalls.c)
  */
 
 __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -24,9 +24,9 @@ __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned 
   if ( *(_WORD *)a1 != 17742 )
   {
     if ( *(_WORD *)a1 == 17740 )
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 68;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 68;
     else
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 69;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 69;
     return 3221225776LL;
   }
   if ( !(unsigned int)MiCheckDosCalls((unsigned __int16 *)a1, a3) )
@@ -34,14 +34,14 @@ __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned 
     v6 = *(_BYTE *)(a1 + 54);
     if ( v6 == 2 || !v6 && ((v7 = *(_WORD *)(a1 + 62) & 0xFF00, v7 == 512) || v7 == 768) )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 60;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 60;
       return 3221225777LL;
     }
   }
   v9 = *(_BYTE *)(a1 + 54);
   if ( v9 == 5 || *(_WORD *)(a1 + 4) == *(_WORD *)(a1 + 42) )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 61;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 61;
     return 3221225776LL;
   }
   if ( v9 != 1 )
@@ -64,7 +64,7 @@ LABEL_15:
     }
     if ( !v12 && ((v13 = *(_WORD *)(v11 + a2 + 56), v13 == 19280) || v13 == 20304 || v13 == 22096) )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 63;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 63;
     }
     else
     {
@@ -80,23 +80,23 @@ LABEL_43:
           v17 = (int)(v15 - v16);
           if ( v17 + 16 >= v17 && v17 + 16 < a3 && !memcmp((const void *)(a1 + v17 + 1), "1-2-3 Preloader", 0xFuLL) )
           {
-            *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 66;
+            *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 66;
             return 3221225776LL;
           }
-          *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 67;
+          *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 67;
         }
         else
         {
-          *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 65;
+          *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 65;
         }
         return 3221225755LL;
       }
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 64;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 64;
     }
   }
   else
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 62;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 62;
   }
   return 3221225776LL;
 }

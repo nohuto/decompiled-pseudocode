@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierExAllocatePoolWithTagPriority @ 0x1409256D0
+ * XREFs of VerifierExAllocatePoolWithTagPriority @ 0x1409266D0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x1409275EC (VfCheckPoolType.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x1409285EC (VfCheckPoolType.c)
  */
 
 PVOID __fastcall VerifierExAllocatePoolWithTagPriority(

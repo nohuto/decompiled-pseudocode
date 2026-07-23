@@ -1,10 +1,10 @@
 /*
- * XREFs of XmEffectiveOffset @ 0x140574E90
+ * XREFs of XmEffectiveOffset @ 0x140572320
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x140468DC4 (XmEvaluateAddressSpecifier.c)
- *     longjmp @ 0x1404FB920 (longjmp.c)
+ *     XmEvaluateAddressSpecifier @ 0x140461774 (XmEvaluateAddressSpecifier.c)
+ *     longjmp @ 0x1404F91E0 (longjmp.c)
  */
 
 __int64 __fastcall XmEffectiveOffset(__int64 a1)

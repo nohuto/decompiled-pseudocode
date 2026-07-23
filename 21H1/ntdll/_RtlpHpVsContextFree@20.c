@@ -9,7 +9,7 @@
  *     _RtlpHpVsContextFreeList@12 @ 0x4B37F65A (_RtlpHpVsContextFreeList@12.c)
  */
 
-int __fastcall RtlpHpVsContextFree(int a1, unsigned int a2, int a3, int a4, unsigned int *a5)
+int __fastcall RtlpHpVsContextFree(PRTL_SRWLOCK SRWLock, unsigned int a2, int a3, int a4, unsigned int *a5)
 {
   int v6; // edi
   int v7; // esi
@@ -20,10 +20,10 @@ int __fastcall RtlpHpVsContextFree(int a1, unsigned int a2, int a3, int a4, unsi
   int v12; // eax
   bool v13; // zf
   unsigned int v14; // ecx
-  unsigned int v15; // ecx
+  PRTL_SRWLOCK v15; // ecx
 
   v6 = a3 - 8;
-  if ( (*(_BYTE *)(a1 + 152) & 1) != 0 && (a3 & 0xFFF) == 0 )
+  if ( (*(_BYTE *)&SRWLock[38].0 & 1) != 0 && (a3 & 0xFFF) == 0 )
     v6 = a3 - 16;
   v7 = 0;
   if ( !a2 )
@@ -61,29 +61,29 @@ LABEL_11:
 LABEL_15:
   if ( (((unsigned __int16)(*(_WORD *)(a2 + 20) ^ *(_WORD *)(a2 + 22)) ^ 0x2BED) & 0x7FFF) != 0 )
   {
-    RtlpLogHeapFailure(18, a1 ^ *(_DWORD *)(a1 + 128), a2, 0, 0, 0);
+    RtlpLogHeapFailure(18, (unsigned int)SRWLock ^ SRWLock[32].Value, a2, 0, 0, 0);
     return v7;
   }
   v12 = v6 ^ RtlpHpHeapGlobals ^ *(_DWORD *)v6;
   if ( v12 < 0 )
   {
-    v13 = (*(_BYTE *)(a1 + 152) & 4) == 0;
+    v13 = (*(_BYTE *)&SRWLock[38].0 & 4) == 0;
     v14 = 8 * ((unsigned __int16)v12 >> 1) - 8;
     *a5 = v14;
     if ( !v13 && v14 < 0x1000 )
     {
-      v15 = a1 + 64;
-      if ( *(_WORD *)(a1 + 68) < 0x20u )
+      v15 = SRWLock + 16;
+      if ( *(_WORD *)&SRWLock[17].0 < 0x20u )
       {
-        RtlpInterlockedPushEntrySList(v15, (_DWORD *)(v6 + 8));
+        RtlpInterlockedPushEntrySList((unsigned int)v15, (_DWORD *)(v6 + 8));
         return 1;
       }
-      v7 = RtlpInterlockedFlushSList(v15);
+      v7 = RtlpInterlockedFlushSList((unsigned int)v15);
     }
     *(_DWORD *)(v6 + 8) = v7;
-    RtlpHpVsContextFreeList(v6 + 8);
+    RtlpHpVsContextFreeList(SRWLock, a4, v6 + 8);
     return 1;
   }
-  RtlpLogHeapFailure(8, a1 ^ *(_DWORD *)(a1 + 128), a3, v6, 0, 0);
+  RtlpLogHeapFailure(8, (unsigned int)SRWLock ^ SRWLock[32].Value, a3, v6, 0, 0);
   return v7;
 }

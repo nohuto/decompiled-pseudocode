@@ -1,12 +1,12 @@
 /*
- * XREFs of SepReferenceLogonSession @ 0x1404796A4
+ * XREFs of SepReferenceLogonSession @ 0x140478574
  * Callers:
- *     SepCreateTokenEx @ 0x14007FBC8 (SepCreateTokenEx.c)
- *     SepDuplicateLogonSessionReference @ 0x140080A04 (SepDuplicateLogonSessionReference.c)
- *     SepLinkLogonSessions @ 0x140080A90 (SepLinkLogonSessions.c)
- *     SepDuplicateToken @ 0x140412BD0 (SepDuplicateToken.c)
+ *     SepCreateTokenEx @ 0x14007FC48 (SepCreateTokenEx.c)
+ *     SepDuplicateLogonSessionReference @ 0x140080A84 (SepDuplicateLogonSessionReference.c)
+ *     SepLinkLogonSessions @ 0x140080B10 (SepLinkLogonSessions.c)
+ *     SepDuplicateToken @ 0x140411A90 (SepDuplicateToken.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
  */
 
 __int64 __fastcall SepReferenceLogonSession(__int64 a1, __int64 a2)

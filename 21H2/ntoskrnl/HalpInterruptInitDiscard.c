@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptInitDiscard @ 0x140A72AD4
+ * XREFs of HalpInterruptInitDiscard @ 0x140A73AD4
  * Callers:
- *     HalpInterruptInitSystem @ 0x14099B890 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x14099C890 (HalpInterruptInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x1405BEF70 (HviGetHardwareFeatures.c)
- *     HalpInitializeInterrupts @ 0x140A396FC (HalpInitializeInterrupts.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x1405BF1A0 (HviGetHardwareFeatures.c)
+ *     HalpInitializeInterrupts @ 0x140A3A6FC (HalpInitializeInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptInitDiscard(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

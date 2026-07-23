@@ -1,33 +1,33 @@
 /*
- * XREFs of RtlCheckPortableOperatingSystem @ 0x1400B3B38
+ * XREFs of RtlCheckPortableOperatingSystem @ 0x1400B19B8
  * Callers:
- *     ExpCheckPortableOperatingSystem @ 0x1404ED840 (ExpCheckPortableOperatingSystem.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1404CF8F8 (ExpCheckPortableOperatingSystem.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlCheckRegistryKey @ 0x1404ED8C0 (RtlCheckRegistryKey.c)
- *     RtlQueryRegistryValuesEx @ 0x1404F6E7C (RtlQueryRegistryValuesEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlCheckRegistryKey @ 0x1404CF978 (RtlCheckRegistryKey.c)
+ *     RtlQueryRegistryValuesEx @ 0x1404D9E08 (RtlQueryRegistryValuesEx.c)
  */
 
-__int64 __fastcall RtlCheckPortableOperatingSystem(bool *a1)
+NTSTATUS __cdecl RtlCheckPortableOperatingSystem(PBOOLEAN IsPortable)
 {
   int RegistryValues; // edi
-  _QWORD v4[14]; // [rsp+30h] [rbp-78h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[2]; // [rsp+30h] [rbp-78h] BYREF
   int v5; // [rsp+B8h] [rbp+10h] BYREF
 
   v5 = 0;
   RegistryValues = 0;
   if ( RtlCheckRegistryKey(2u, (PWSTR)L"MiniNT") >= 0 )
     goto LABEL_6;
-  memset(v4, 0, sizeof(v4));
-  LODWORD(v4[1]) = 292;
-  v4[2] = L"PortableOperatingSystem";
-  LODWORD(v4[4]) = 0x4000000;
-  v4[3] = &v5;
-  RegistryValues = RtlQueryRegistryValuesEx(2LL, 0LL, v4, 0LL, 0LL);
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].Flags = 292;
+  QueryTable[0].Name = (PWSTR)L"PortableOperatingSystem";
+  QueryTable[0].DefaultType = 0x4000000;
+  QueryTable[0].EntryContext = &v5;
+  RegistryValues = RtlQueryRegistryValuesEx(2u, 0LL, QueryTable, 0LL, 0LL);
   if ( RegistryValues == -1073741772 )
     RegistryValues = -1073741275;
   if ( RegistryValues >= 0 )
 LABEL_6:
-    *a1 = v5 != 0;
-  return (unsigned int)RegistryValues;
+    *IsPortable = v5 != 0;
+  return RegistryValues;
 }

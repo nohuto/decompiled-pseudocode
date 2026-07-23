@@ -1,9 +1,9 @@
 /*
- * XREFs of MincrypK_ParseCertificateChainWithPolicy @ 0x1408A1958
+ * XREFs of MincrypK_ParseCertificateChainWithPolicy @ 0x1408A7D68
  * Callers:
- *     SecureDump_ValidateAmeCertChain @ 0x1405D7424 (SecureDump_ValidateAmeCertChain.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x1405D9C14 (SecureDump_ValidateAmeCertChain.c)
  * Callees:
- *     MincrypK_ParseCertificateChainWithPolicy2 @ 0x1408A1970 (MincrypK_ParseCertificateChainWithPolicy2.c)
+ *     MincrypK_ParseCertificateChainWithPolicy2 @ 0x1408A7D80 (MincrypK_ParseCertificateChainWithPolicy2.c)
  */
 
 __int64 MincrypK_ParseCertificateChainWithPolicy()

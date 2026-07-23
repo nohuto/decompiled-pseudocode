@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxQueryCurrentComponentPerfState @ 0x14056BE3C
+ * XREFs of PopFxQueryCurrentComponentPerfState @ 0x14056C07C
  * Callers:
- *     PoFxQueryCurrentComponentPerfState @ 0x140569180 (PoFxQueryCurrentComponentPerfState.c)
- *     PopFxUpdateComponentPerfStateNominalChange @ 0x14056D4B0 (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     PoFxQueryCurrentComponentPerfState @ 0x1405693C0 (PoFxQueryCurrentComponentPerfState.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x14056D6F0 (PopFxUpdateComponentPerfStateNominalChange.c)
  * Callees:
- *     PopPluginQueryCurrentComponentPerfState @ 0x14056DD04 (PopPluginQueryCurrentComponentPerfState.c)
+ *     PopPluginQueryCurrentComponentPerfState @ 0x14056DF44 (PopPluginQueryCurrentComponentPerfState.c)
  */
 
 _BYTE *__fastcall PopFxQueryCurrentComponentPerfState(

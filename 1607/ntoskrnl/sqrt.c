@@ -1,9 +1,9 @@
 /*
- * XREFs of sqrt @ 0x14014E3EC
+ * XREFs of sqrt @ 0x14014E9AC
  * Callers:
  *     <none>
  * Callees:
- *     _handle_error @ 0x140151078 (_handle_error.c)
+ *     _handle_error @ 0x140151630 (_handle_error.c)
  */
 
 double __cdecl sqrt(double X)

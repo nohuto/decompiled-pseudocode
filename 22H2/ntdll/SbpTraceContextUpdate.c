@@ -10,30 +10,40 @@
  *     memset @ 0x1800A4600 (memset.c)
  */
 
-__int64 __fastcall SbpTraceContextUpdate(int a1, __int64 a2, __int16 a3, unsigned __int16 a4, __int64 a5)
+ULONG __fastcall SbpTraceContextUpdate(
+        REGHANDLE RegHandle,
+        unsigned __int64 a2,
+        __int16 a3,
+        unsigned __int16 a4,
+        __int64 a5)
 {
   unsigned int v6; // esi
-  int v9; // r8d
+  ULONG v9; // r8d
   __int16 v11; // [rsp+28h] [rbp-61h] BYREF
-  _QWORD v12[16]; // [rsp+38h] [rbp-51h] BYREF
-  unsigned __int16 v13; // [rsp+100h] [rbp+77h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-51h] BYREF
+  __int16 *v13; // [rsp+48h] [rbp-41h]
+  __int64 v14; // [rsp+50h] [rbp-39h]
+  __int16 *v15; // [rsp+58h] [rbp-31h]
+  __int64 v16; // [rsp+60h] [rbp-29h]
+  _QWORD v17[10]; // [rsp+68h] [rbp-21h] BYREF
+  unsigned __int16 v18; // [rsp+100h] [rbp+77h] BYREF
 
-  v13 = a4;
+  v18 = a4;
   v6 = a4;
-  memset(&v12[6], 0, 0x50uLL);
+  memset(v17, 0, sizeof(v17));
   v11 = a3;
-  v12[0] = a2;
-  v12[2] = &v11;
-  v12[4] = &v13;
-  v12[1] = 16LL;
+  UserData.Ptr = a2;
+  v13 = &v11;
+  v15 = (__int16 *)&v18;
+  *(_QWORD *)&UserData.Size = 16LL;
   v9 = 3;
-  v12[3] = 2LL;
-  v12[5] = 2LL;
+  v14 = 2LL;
+  v16 = 2LL;
   if ( (_WORD)v6 )
   {
     v9 = 4;
-    v12[6] = a5;
-    v12[7] = v6;
+    v17[0] = a5;
+    v17[1] = v6;
   }
-  return EtwEventWrite(a1, (int)&AeSbContextUpdateEvent, v9, (__int64)v12);
+  return EtwEventWrite(RegHandle, &AeSbContextUpdateEvent, v9, &UserData);
 }

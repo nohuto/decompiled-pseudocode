@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSignalDeferredPosts @ 0x14086A690
+ * XREFs of CmpSignalDeferredPosts @ 0x14086E9C0
  * Callers:
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
- *     CmpCloseKeyObject @ 0x140841890 (CmpCloseKeyObject.c)
- *     CmpReportNotifyHelper @ 0x140868820 (CmpReportNotifyHelper.c)
- *     CmpPostNotify @ 0x140868D58 (CmpPostNotify.c)
- *     CmDeleteKey @ 0x140869BFC (CmDeleteKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpPerformUnloadKey @ 0x14097B52C (CmpPerformUnloadKey.c)
- *     CmpSetKeySecurity @ 0x14099FAEC (CmpSetKeySecurity.c)
- *     CmpProcessLightWeightUOW @ 0x140A069C4 (CmpProcessLightWeightUOW.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
+ *     CmpSetKeySecurity @ 0x140830A20 (CmpSetKeySecurity.c)
+ *     CmpCloseKeyObject @ 0x14083DB50 (CmpCloseKeyObject.c)
+ *     CmpReportNotifyHelper @ 0x14086CB10 (CmpReportNotifyHelper.c)
+ *     CmpPostNotify @ 0x14086D048 (CmpPostNotify.c)
+ *     CmDeleteKey @ 0x14086DF2C (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpPerformUnloadKey @ 0x140963D3C (CmpPerformUnloadKey.c)
+ *     CmpProcessLightWeightUOW @ 0x140A02EF4 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     CmpFreePostBlock @ 0x14086A740 (CmpFreePostBlock.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     CmpFreePostBlock @ 0x14086EA70 (CmpFreePostBlock.c)
  */
 
 _QWORD *__fastcall CmpSignalDeferredPosts(_QWORD **a1)

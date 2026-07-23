@@ -1,7 +1,7 @@
 /*
- * XREFs of ExecuteHotpatchTestBootFunction @ 0x140559858
+ * XREFs of ExecuteHotpatchTestBootFunction @ 0x14055BCE8
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
  *     <none>
  */

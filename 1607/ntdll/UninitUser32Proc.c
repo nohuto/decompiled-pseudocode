@@ -1,5 +1,5 @@
 /*
- * XREFs of UninitUser32Proc @ 0x1800968A0
+ * XREFs of UninitUser32Proc @ 0x180096890
  * Callers:
  *     NtdllScrollBarWndProc_A @ 0x1800A6090 (NtdllScrollBarWndProc_A.c)
  *     NtdllScrollBarWndProc_W @ 0x1800A60A0 (NtdllScrollBarWndProc_W.c)
@@ -59,7 +59,7 @@
  *     NtdllGhostWndProcWorker @ 0x1800A6400 (NtdllGhostWndProcWorker.c)
  *     NtdllCtfHookProcWorker @ 0x1800A6410 (NtdllCtfHookProcWorker.c)
  * Callees:
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
  *     ZwTerminateProcess @ 0x1800A69A0 (ZwTerminateProcess.c)
  */
 

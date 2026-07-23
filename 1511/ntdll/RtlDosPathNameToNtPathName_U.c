@@ -8,7 +8,17 @@
  *     RtlpDosPathNameToRelativeNtPathName_U @ 0x180018194 (RtlpDosPathNameToRelativeNtPathName_U.c)
  */
 
-bool __fastcall RtlDosPathNameToNtPathName_U(__int64 a1, unsigned __int16 *a2, unsigned __int64 *a3, __int64 a4)
+BOOLEAN __cdecl RtlDosPathNameToNtPathName_U(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
-  return (int)RtlpDosPathNameToRelativeNtPathName_U(a1, 0, a1, a2, a3, a4) >= 0;
+  return RtlpDosPathNameToRelativeNtPathName_U(
+           (__int64)DosFileName,
+           0,
+           DosFileName,
+           NtFileName,
+           (unsigned __int64 *)FilePart,
+           (__int64)RelativeName) >= 0;
 }

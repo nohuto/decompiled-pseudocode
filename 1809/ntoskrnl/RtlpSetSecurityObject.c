@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlpSetSecurityObject @ 0x1405CA240
+ * XREFs of RtlpSetSecurityObject @ 0x1405CB240
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
- *     SeSetSecurityDescriptorInfo @ 0x1405CA200 (SeSetSecurityDescriptorInfo.c)
- *     SeSetSecurityDescriptorInfoEx @ 0x1406C1F70 (SeSetSecurityDescriptorInfoEx.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1405B8C5C (CmpSetSecurityDescriptorInfo.c)
+ *     SeSetSecurityDescriptorInfo @ 0x1405CB200 (SeSetSecurityDescriptorInfo.c)
+ *     SeSetSecurityDescriptorInfoEx @ 0x1406C3210 (SeSetSecurityDescriptorInfoEx.c)
  * Callees:
  *     RtlFindAceBySid @ 0x1400160E0 (RtlFindAceBySid.c)
- *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
- *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
- *     RtlpValidTrustSubjectContext @ 0x14016CABC (RtlpValidTrustSubjectContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SepValidLabelSubjectContext @ 0x1406096D0 (SepValidLabelSubjectContext.c)
- *     RtlpApplyAclToObject @ 0x14062F630 (RtlpApplyAclToObject.c)
- *     RtlpCombineAcls @ 0x14062F700 (RtlpCombineAcls.c)
- *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
- *     SepValidOwnerSubjectContext @ 0x1406A52CC (SepValidOwnerSubjectContext.c)
- *     RtlpComputeMergedAcl @ 0x1408944DC (RtlpComputeMergedAcl.c)
- *     RtlpCreateServerAcl @ 0x140894900 (RtlpCreateServerAcl.c)
- *     RtlpValidFilterAclSubjectContext @ 0x1408955B0 (RtlpValidFilterAclSubjectContext.c)
- *     SepGetDefaultsSubjectContext @ 0x1408A0294 (SepGetDefaultsSubjectContext.c)
+ *     RtlFindAceByType @ 0x1400A8EF0 (RtlFindAceByType.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A8F44 (SepLocateTokenTrustLevel.c)
+ *     RtlpValidTrustSubjectContext @ 0x14016CBBC (RtlpValidTrustSubjectContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SepValidLabelSubjectContext @ 0x14060A6D0 (SepValidLabelSubjectContext.c)
+ *     RtlpApplyAclToObject @ 0x140630650 (RtlpApplyAclToObject.c)
+ *     RtlpCombineAcls @ 0x140630720 (RtlpCombineAcls.c)
+ *     RtlValidSid @ 0x140632590 (RtlValidSid.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     RtlInitializeSid @ 0x140656830 (RtlInitializeSid.c)
+ *     SepValidOwnerSubjectContext @ 0x1406A656C (SepValidOwnerSubjectContext.c)
+ *     RtlpComputeMergedAcl @ 0x14089573C (RtlpComputeMergedAcl.c)
+ *     RtlpCreateServerAcl @ 0x140895B60 (RtlpCreateServerAcl.c)
+ *     RtlpValidFilterAclSubjectContext @ 0x140896810 (RtlpValidFilterAclSubjectContext.c)
+ *     SepGetDefaultsSubjectContext @ 0x1408A14F4 (SepGetDefaultsSubjectContext.c)
  */
 
 __int64 __fastcall RtlpSetSecurityObject(
@@ -48,7 +48,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int64 v16; // rcx
   __int16 v17; // ax
   __int64 v18; // rax
-  void *v19; // r13
+  ACL *v19; // r13
   __int16 v20; // r8
   int v21; // edx
   __int64 v22; // rax
@@ -81,7 +81,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   void *v49; // rdi
   void *v50; // rbx
   __int64 v52; // rax
-  __int64 TokenTrustLevel; // rsi
+  void *TokenTrustLevel; // rsi
   __int64 v54; // r8
   int v55; // ecx
   int v56; // r11d
@@ -98,9 +98,9 @@ __int64 __fastcall RtlpSetSecurityObject(
   __int64 v67; // rax
   __int64 v68; // rcx
   char *AceBySid; // rax
-  unsigned __int8 *AceByType; // rax
-  unsigned __int8 *v71; // rsi
-  unsigned __int8 *v72; // rax
+  _BYTE *AceByType; // rax
+  _BYTE *v71; // rsi
+  char *v72; // rax
   __int16 v73; // ax
   __int16 v74; // cx
   __int16 v75; // ax
@@ -124,7 +124,7 @@ __int64 __fastcall RtlpSetSecurityObject(
   int v93; // ecx
   char v94; // cl
   __int16 v95; // [rsp+58h] [rbp-B0h]
-  unsigned int v96; // [rsp+5Ch] [rbp-ACh] BYREF
+  ULONG Index; // [rsp+5Ch] [rbp-ACh] BYREF
   unsigned __int8 v97; // [rsp+60h] [rbp-A8h]
   bool v98; // [rsp+61h] [rbp-A7h]
   bool v99; // [rsp+62h] [rbp-A6h]
@@ -142,10 +142,10 @@ __int64 __fastcall RtlpSetSecurityObject(
   PVOID v111; // [rsp+88h] [rbp-80h]
   PVOID v112; // [rsp+90h] [rbp-78h]
   PVOID v113; // [rsp+98h] [rbp-70h]
-  struct _SID_IDENTIFIER_AUTHORITY PoolType; // [rsp+A0h] [rbp-68h] BYREF
+  _SID_IDENTIFIER_AUTHORITY PoolType; // [rsp+A0h] [rbp-68h] BYREF
   __int64 v115; // [rsp+A8h] [rbp-60h]
-  __int64 v116; // [rsp+B0h] [rbp-58h]
-  unsigned __int8 *v117; // [rsp+B8h] [rbp-50h] BYREF
+  void *v116; // [rsp+B0h] [rbp-58h]
+  char *v117; // [rsp+B8h] [rbp-50h] BYREF
   unsigned int v118; // [rsp+C0h] [rbp-48h]
   BOOL v119; // [rsp+C4h] [rbp-44h]
   void *v120; // [rsp+C8h] [rbp-40h]
@@ -229,13 +229,13 @@ __int64 __fastcall RtlpSetSecurityObject(
   {
     if ( v17 >= 0 )
     {
-      v19 = *(void **)(v16 + 24);
+      v19 = *(ACL **)(v16 + 24);
     }
     else
     {
       v18 = *(unsigned int *)(v16 + 12);
       if ( (_DWORD)v18 )
-        v19 = (void *)(v16 + v18);
+        v19 = (ACL *)(v16 + v18);
       else
         v19 = 0LL;
     }
@@ -372,10 +372,10 @@ LABEL_194:
   LODWORD(Size) = a2 & 0x10;
   if ( (a2 & 0x10) != 0 )
   {
-    v96 = 0;
+    Index = 0;
     do
     {
-      AceByType = RtlFindAceByType((__int64)Src, 17, &v96);
+      AceByType = RtlFindAceByType((PACL)Src, 0x11u, &Index);
       v71 = AceByType;
       if ( AceByType )
       {
@@ -397,11 +397,11 @@ LABEL_195:
       }
       if ( !(unsigned __int8)SepValidLabelSubjectContext(v121, v72, v97) )
         goto LABEL_195;
-      ++v96;
+      ++Index;
     }
     while ( v71 );
   }
-  TokenTrustLevel = SepLocateTokenTrustLevel(v121);
+  TokenTrustLevel = (void *)SepLocateTokenTrustLevel(v121);
   v116 = TokenTrustLevel;
   v129 = a2 & 0x80;
   if ( (a2 & 0x80) == 0 )
@@ -410,12 +410,12 @@ LABEL_84:
     LODWORD(v117) = a2 & 0x100;
     if ( (a2 & 0x100) != 0 )
     {
-      valid = RtlpValidFilterAclSubjectContext(Src, TokenTrustLevel);
+      valid = RtlpValidFilterAclSubjectContext((PACL)Src);
       if ( valid < 0 )
         goto LABEL_77;
       if ( (a5 & 2) == 0 )
       {
-        valid = RtlpValidFilterAclSubjectContext(v19, v116);
+        valid = RtlpValidFilterAclSubjectContext(v19);
         if ( valid < 0 )
           goto LABEL_77;
       }
@@ -450,7 +450,7 @@ LABEL_88:
                       a7,
                       2,
                       (__int64)&v124,
-                      (__int64)&v96);
+                      (__int64)&Index);
             if ( valid < 0 )
             {
               v47 = (void *)v124;
@@ -462,8 +462,8 @@ LABEL_88:
             v56 = (int)v109;
             v104 = 1;
             v111 = (PVOID)v124;
-            v59 = (2 * (v96 & 0x1400 | (2 * (v96 & 8 | 4)))) | v95;
-            v55 = v116;
+            v59 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v95;
+            v55 = (int)v116;
             v95 = v59;
           }
           else
@@ -498,7 +498,7 @@ LABEL_88:
                       a7,
                       2,
                       (__int64)&v125,
-                      (__int64)&v96);
+                      (__int64)&Index);
             if ( valid < 0 )
             {
               v48 = (void *)v125;
@@ -510,9 +510,9 @@ LABEL_88:
             v57 = Src;
             v56 = (int)v109;
             v112 = (PVOID)v125;
-            v59 = (2 * (v96 & 0x1400 | (2 * (v96 & 8 | 4)))) | v95;
+            v59 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v95;
             LOBYTE(v105) = 1;
-            v55 = v116;
+            v55 = (int)v116;
             v95 = v59;
           }
           else
@@ -558,7 +558,7 @@ LABEL_88:
                     a7,
                     2,
                     (__int64)&v126,
-                    (__int64)&v96);
+                    (__int64)&Index);
           if ( valid < 0 )
           {
             v49 = (void *)v126;
@@ -572,8 +572,8 @@ LABEL_88:
           v57 = Src;
           v56 = (int)v109;
           HIBYTE(v105) = 1;
-          v59 = (2 * (v96 & 0x1400 | (2 * (v96 & 8 | 4)))) | v95;
-          v55 = v116;
+          v59 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v95;
+          v55 = (int)v116;
           v95 = v59;
         }
         else
@@ -597,7 +597,7 @@ LABEL_97:
                       a7,
                       2,
                       (__int64)&v127,
-                      (__int64)&v96);
+                      (__int64)&Index);
             if ( valid < 0 )
             {
               v50 = (void *)v127;
@@ -627,7 +627,7 @@ LABEL_67:
             LODWORD(v57) = (_DWORD)Src;
             v56 = (int)v109;
             v106 = 1;
-            v59 = (2 * (v96 & 0x1400 | (2 * (v96 & 8 | 4)))) | v95;
+            v59 = (2 * (Index & 0x1400 | (2 * (Index & 8 | 4)))) | v95;
             v113 = (PVOID)v127;
             v95 = v59;
           }
@@ -732,7 +732,7 @@ LABEL_26:
                       a7,
                       1,
                       (__int64)&v131,
-                      (__int64)&v96);
+                      (__int64)&Index);
             if ( valid < 0 )
             {
 LABEL_62:
@@ -749,7 +749,7 @@ LABEL_66:
             }
             v29 = (unsigned __int16 *)v131;
             v102 = 1;
-            v95 |= v96 & 0x1408 | 4;
+            v95 |= Index & 0x1408 | 4;
           }
           else
           {
@@ -892,7 +892,7 @@ LABEL_66:
           if ( valid >= 0 )
           {
             v135 = 4;
-            v96 = 0;
+            Index = 0;
             while ( 1 )
             {
               v66 = *((_WORD *)v36 + 1);
@@ -912,11 +912,11 @@ LABEL_66:
               {
                 v68 = 0LL;
               }
-              AceBySid = RtlFindAceBySid(v68, &Sid, &v96);
+              AceBySid = RtlFindAceBySid(v68, &Sid, &Index);
               if ( !AceBySid )
                 break;
               v94 = AceBySid[1] & 0xF4 | 8;
-              ++v96;
+              ++Index;
               AceBySid[1] = v94;
             }
             v42 = v130;
@@ -955,7 +955,7 @@ LABEL_59:
                 a7,
                 2,
                 (__int64)&v128,
-                (__int64)&v96);
+                (__int64)&Index);
       if ( valid < 0 )
       {
         v46 = (void *)v128;
@@ -965,8 +965,8 @@ LABEL_59:
       v54 = v115;
       v103 = 1;
       v109 = (PVOID)v128;
-      v95 = 2 * (v96 & 0x1400 | (2 * (v96 & 8 | 0x2004)));
-      v55 = v116;
+      v95 = 2 * (Index & 0x1400 | (2 * (Index & 8 | 0x2004)));
+      v55 = (int)v116;
     }
     else
     {
@@ -979,20 +979,20 @@ LABEL_59:
   }
   if ( TokenTrustLevel )
   {
-    v96 = 0;
+    Index = 0;
     while ( 1 )
     {
-      v81 = RtlFindAceByType((__int64)Src, 20, &v96);
+      v81 = RtlFindAceByType((PACL)Src, 0x14u, &Index);
       v109 = v81;
       if ( v81 )
       {
         if ( (v81[1] & 0xFF000000) != 0 )
           goto LABEL_195;
-        if ( !RtlpValidTrustSubjectContext(TokenTrustLevel, (__int64)(v81 + 2), v82, &v117) )
+        if ( !RtlpValidTrustSubjectContext(TokenTrustLevel, v81 + 2, v82, (NTSTATUS *)&v117) )
           break;
         v81 = v109;
       }
-      ++v96;
+      ++Index;
       if ( !v81 )
         goto LABEL_84;
     }

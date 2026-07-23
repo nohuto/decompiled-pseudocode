@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeProcessAvailableCpuState @ 0x1404D61F4
+ * XREFs of KiInitializeProcessAvailableCpuState @ 0x1404CF9C4
  * Callers:
- *     KeInitializeProcess @ 0x140963BE4 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x140B58704 (KeInitializeProcess.c)
  * Callees:
  *     <none>
  */

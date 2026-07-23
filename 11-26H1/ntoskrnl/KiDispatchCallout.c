@@ -1,12 +1,12 @@
 /*
- * XREFs of KiDispatchCallout @ 0x14048D530
+ * XREFs of KiDispatchCallout @ 0x140487070
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeExitRetpoline @ 0x14048D73C (KeExitRetpoline.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeExitRetpoline @ 0x14048727C (KeExitRetpoline.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiDispatchCallout(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -50,7 +50,7 @@ __int64 __fastcall KiDispatchCallout(__int64 a1, __int64 a2, __int64 a3, __int64
   {
     v15 = *++v13;
     *v13 = (__int64)v9
-         + ((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(v11 ^ __ROL8__(KiWaitNever ^ *v13, KiWaitNever)))
+         + ((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(v11 ^ __ROL8__(KiWaitNever ^ *v13, KiWaitNever)))
          + v12;
     v11 = ((unsigned __int64)v9
          + __ROL8__(v14 ^ __ROR8__(v12 ^ (unsigned __int64)(200 - v12), ~(_BYTE)v15 & 0x3F), (v15 ^ 5) & 0x3F)) ^ 0x87806939;

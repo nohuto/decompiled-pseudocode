@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpEventHandleFullBuffer @ 0x1404AC2D0
+ * XREFs of PfpEventHandleFullBuffer @ 0x1404A5960
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PfTFullEventListAdd @ 0x1404AC31C (PfTFullEventListAdd.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PfTFullEventListAdd @ 0x1404A59AC (PfTFullEventListAdd.c)
  */
 
 unsigned int __fastcall PfpEventHandleFullBuffer(__int64 a1)

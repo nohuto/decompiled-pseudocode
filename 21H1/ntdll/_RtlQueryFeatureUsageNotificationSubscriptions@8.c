@@ -8,22 +8,21 @@
  *     _RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet@12 @ 0x4B3A130B (_RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet@12.c)
  */
 
-int __thiscall RtlQueryFeatureUsageNotificationSubscriptions(void *this, int a2, int a3)
+NTSTATUS __cdecl RtlQueryFeatureUsageNotificationSubscriptions(
+        PRTL_FEATURE_USAGE_SUBSCRIPTION_DETAILS Subscriptions,
+        PSIZE_T SubscriptionCount)
 {
+  int v2; // ecx
   int AllFeatureUsageSubscriptionNotificationsFromBufferSet; // esi
   int v5; // [esp+0h] [ebp-10h]
   int v6; // [esp+4h] [ebp-Ch] BYREF
   int v7; // [esp+Ch] [ebp-4h] BYREF
 
   v7 = 0;
-  AllFeatureUsageSubscriptionNotificationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers(
-                                                            (int)this,
-                                                            1,
-                                                            &v6,
-                                                            &v7);
+  AllFeatureUsageSubscriptionNotificationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers(v2, 1, &v6, &v7);
   if ( AllFeatureUsageSubscriptionNotificationsFromBufferSet >= 0 )
   {
-    AllFeatureUsageSubscriptionNotificationsFromBufferSet = RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet(a3);
+    AllFeatureUsageSubscriptionNotificationsFromBufferSet = RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet(SubscriptionCount);
     if ( AllFeatureUsageSubscriptionNotificationsFromBufferSet >= 0 )
       AllFeatureUsageSubscriptionNotificationsFromBufferSet = 0;
   }

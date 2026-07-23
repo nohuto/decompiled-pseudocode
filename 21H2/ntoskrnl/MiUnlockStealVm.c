@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnlockStealVm @ 0x14026D310
+ * XREFs of MiUnlockStealVm @ 0x14025B2B0
  * Callers:
- *     MiLockStealUserVm @ 0x14026AFD4 (MiLockStealUserVm.c)
- *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
- *     MiLockStealSystemVm @ 0x140298704 (MiLockStealSystemVm.c)
+ *     MiLockStealSystemVm @ 0x1402150E4 (MiLockStealSystemVm.c)
+ *     MiLockStealUserVm @ 0x140258F74 (MiLockStealUserVm.c)
+ *     MiStealPage @ 0x140259C44 (MiStealPage.c)
  * Callees:
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     KeForceDetachProcess @ 0x1402BA388 (KeForceDetachProcess.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MiAttachThreadDone @ 0x1402EF448 (MiAttachThreadDone.c)
- *     MiUnlockSystemVa @ 0x1403120FC (MiUnlockSystemVa.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     KeForceDetachProcess @ 0x140238598 (KeForceDetachProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MiAttachThreadDone @ 0x1402FA198 (MiAttachThreadDone.c)
+ *     MiUnlockSystemVa @ 0x14031CE4C (MiUnlockSystemVa.c)
  */
 
 void __fastcall MiUnlockStealVm(__int64 a1)
@@ -19,7 +19,7 @@ void __fastcall MiUnlockStealVm(__int64 a1)
   MiUnlockSystemVa(a1);
   if ( *(_QWORD *)(a1 + 64) )
   {
-    KeForceDetachProcess(a1 + 72, 0LL);
+    KeForceDetachProcess((_OWORD *)(a1 + 72), 0);
     MiAttachThreadDone(*(_QWORD *)(a1 + 64));
   }
   else

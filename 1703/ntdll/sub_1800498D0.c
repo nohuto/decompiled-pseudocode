@@ -17,11 +17,11 @@ __int64 __fastcall sub_1800498D0(
         __int64 a5,
         __int64 a6,
         __int64 a7,
-        __int64 a8,
+        PGENERIC_MAPPING GenericMapping,
         __int64 a9,
         int a10,
         unsigned int *a11,
-        __int64 a12,
+        PACL Acl,
         unsigned int *a13,
         _BYTE *a14)
 {
@@ -35,7 +35,7 @@ __int64 __fastcall sub_1800498D0(
   unsigned int v23; // eax
   bool v24; // [rsp+88h] [rbp-19h]
   _BYTE v25[15]; // [rsp+89h] [rbp-18h] BYREF
-  void *v26[8]; // [rsp+98h] [rbp-9h] BYREF
+  PVOID FirstFree[8]; // [rsp+98h] [rbp-9h] BYREF
 
   *(_QWORD *)&v25[3] = 0LL;
   v15 = 0;
@@ -52,10 +52,10 @@ __int64 __fastcall sub_1800498D0(
     if ( (v22 & 4) == 0 && ((v22 & 1) != 0 || (v22 & 2) != 0) )
       v24 = 1;
   }
-  if ( !(unsigned __int8)RtlFirstFreeAce(a12, v26) )
+  if ( !RtlFirstFreeAce(Acl, FirstFree) )
     return 3221225597LL;
-  v19 = v26[0];
-  if ( !v26[0] )
+  v19 = FirstFree[0];
+  if ( !FirstFree[0] )
     return 3221225597LL;
   if ( a2 )
   {
@@ -66,33 +66,33 @@ __int64 __fastcall sub_1800498D0(
   {
     goto LABEL_16;
   }
-  v16 = v26[0];
+  v16 = FirstFree[0];
   if ( !(unsigned __int8)sub_180049BCC(
                            Src,
                            a5,
                            a6,
                            a7,
-                           a8,
+                           GenericMapping,
                            a9,
                            a10,
-                           (__int64)v26,
+                           (__int64)FirstFree,
                            (__int64)&v25[7],
-                           a12,
+                           (__int64)Acl,
                            (__int64)a14,
                            (__int64)&v25[1],
                            (__int64)v25) )
     return 3221225597LL;
   v18 = v25[0];
   v17 = *(_DWORD *)&v25[7];
-  if ( !v25[0] && *(_DWORD *)&v25[7] && v19 && (unsigned __int8)sub_18004A080(a12, v19) )
+  if ( !v25[0] && *(_DWORD *)&v25[7] && v19 && (unsigned __int8)sub_18004A080(Acl, v19) )
   {
     *(_DWORD *)&v25[3] = v17;
-    --*(_WORD *)(a12 + 4);
+    --Acl->AceCount;
     v17 = 0;
   }
   else
   {
-    v19 = v26[0];
+    v19 = FirstFree[0];
   }
   v15 = v17;
 LABEL_16:
@@ -120,7 +120,7 @@ LABEL_18:
   v15 += *((unsigned __int16 *)Src + 1);
   if ( v15 <= 0xFFFF )
   {
-    if ( *((unsigned __int16 *)Src + 1) > a12 + *(unsigned __int16 *)(a12 + 2) - (_QWORD)v19 )
+    if ( *((unsigned __int16 *)Src + 1) > (__int64)Acl + Acl->AclSize - (_QWORD)v19 )
     {
       v18 = 1;
     }
@@ -128,14 +128,14 @@ LABEL_18:
     {
       memmove(v19, Src, *((unsigned __int16 *)Src + 1));
       v19[1] |= 8u;
-      ++*(_WORD *)(a12 + 4);
+      ++Acl->AceCount;
       if ( a3 )
       {
         v19[1] |= 0x10u;
-        if ( (unsigned __int8)sub_18004A080(a12, v19) )
+        if ( (unsigned __int8)sub_18004A080(Acl, v19) )
         {
           v20 = *(_DWORD *)&v25[3];
-          --*(_WORD *)(a12 + 4);
+          --Acl->AceCount;
           v23 = *((unsigned __int16 *)Src + 1);
           if ( v20 <= v23 )
             v20 = *((unsigned __int16 *)Src + 1);

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceJobSetQuery @ 0x1406A1970
+ * XREFs of EtwTraceJobSetQuery @ 0x1406A1AA8
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     NtQueryInformationJobObject @ 0x140466FD0 (NtQueryInformationJobObject.c)
- *     PspSetNetRateControl @ 0x140680BE0 (PspSetNetRateControl.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140465EA0 (NtQueryInformationJobObject.c)
+ *     PspSetNetRateControl @ 0x140680CC4 (PspSetNetRateControl.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpCopyJobGuidSafe @ 0x1406A1FCC (EtwpCopyJobGuidSafe.c)
- *     EtwpCopyJobIdSafe @ 0x1406A1FE8 (EtwpCopyJobIdSafe.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x1406A2104 (EtwpCopyJobGuidSafe.c)
+ *     EtwpCopyJobIdSafe @ 0x1406A2120 (EtwpCopyJobIdSafe.c)
  */
 
 __int64 __fastcall EtwTraceJobSetQuery(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, unsigned __int16 a6)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEvictPageTableLock @ 0x14029E998
+ * XREFs of MiEvictPageTableLock @ 0x14029DEE8
  * Callers:
- *     MiDeleteSystemPageTable @ 0x140309A60 (MiDeleteSystemPageTable.c)
- *     MiDeleteNonPagedPoolPte @ 0x140363600 (MiDeleteNonPagedPoolPte.c)
+ *     MiDeleteSystemPageTable @ 0x1402EBAE0 (MiDeleteSystemPageTable.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1403653A0 (MiDeleteNonPagedPoolPte.c)
  * Callees:
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiCleanupLazyStampedPageTable @ 0x1402A000C (MiCleanupLazyStampedPageTable.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiUnlockNestedPageTableWritePte @ 0x140325648 (MiUnlockNestedPageTableWritePte.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiCleanupLazyStampedPageTable @ 0x14029F55C (MiCleanupLazyStampedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140327678 (MiUnlockNestedPageTableWritePte.c)
  */
 
 __int64 __fastcall MiEvictPageTableLock(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -84,7 +84,7 @@ __int64 __fastcall MiEvictPageTableLock(__int64 a1, unsigned __int64 a2, __int64
     goto LABEL_34;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 0 )
     goto LABEL_7;
-  if ( v6 == 1 || (_UNKNOWN *)a1 == &unk_140E371C0 )
+  if ( v6 == 1 || (_UNKNOWN *)a1 == &unk_140E37340 )
     MiCleanupLazyStampedPageTable(a1, a2, v11);
   if ( (unsigned __int16)*(_QWORD *)(48 * v9 - 0x21FFFFFFFFE8LL) != 1 )
   {

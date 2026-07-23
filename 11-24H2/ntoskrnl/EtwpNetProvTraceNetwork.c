@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpNetProvTraceNetwork @ 0x1404471C8
+ * XREFs of EtwpNetProvTraceNetwork @ 0x14043F998
  * Callers:
- *     EtwpTraceNetwork @ 0x140447140 (EtwpTraceNetwork.c)
+ *     EtwpTraceNetwork @ 0x14043F910 (EtwpTraceNetwork.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
  */
 
 NTSTATUS __fastcall EtwpNetProvTraceNetwork(PEVENT_DATA_DESCRIPTOR UserData, unsigned __int16 a2)
@@ -34,7 +34,7 @@ NTSTATUS __fastcall EtwpNetProvTraceNetwork(PEVENT_DATA_DESCRIPTOR UserData, uns
   {
     if ( a2 == 2058 )
     {
-      v3 = &KNetEvt_SendIPV4Udp;
+      v3 = KNetEvt_SendIPV4Udp;
       return EtwWriteEx(EtwpNetProvRegHandle, (PCEVENT_DESCRIPTOR)v3, 0LL, 0, 0LL, 0LL, 1u, UserData);
     }
     result = 1554;

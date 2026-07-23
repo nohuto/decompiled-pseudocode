@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInitializeMdlBatchPages @ 0x1402F9310
+ * XREFs of MiInitializeMdlBatchPages @ 0x1402F95A0
  * Callers:
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
- *     MiReturnMdlExcess @ 0x140623728 (MiReturnMdlExcess.c)
+ *     MiAllocatePagesForMdl @ 0x1402F8F6C (MiAllocatePagesForMdl.c)
+ *     MiReturnMdlExcess @ 0x140623C78 (MiReturnMdlExcess.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
  *     MiAbortCombineScan @ 0x14021AAAC (MiAbortCombineScan.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9810 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiConvertLargePfnToSmall @ 0x14038FB8C (MiConvertLargePfnToSmall.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403B8360 (MiConvertSmallPageRangeToLarge.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceShouldYieldProcessor @ 0x1405FD4AC (EtwTraceShouldYieldProcessor.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9AA0 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiConvertLargePfnToSmall @ 0x14038FD6C (MiConvertLargePfnToSmall.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403B8540 (MiConvertSmallPageRangeToLarge.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1405FDA1C (EtwTraceShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiInitializeMdlBatchPages(__int64 a1)
@@ -187,7 +187,7 @@ LABEL_13:
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(SchedulerAssist);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = (unsigned __int64)KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -388,10 +388,10 @@ LABEL_55:
       }
       if ( v38 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v52 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v52 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v52 - 2) <= 0xDu )
           {
             v53 = KeGetCurrentPrcb();
             v54 = v53->SchedulerAssist;
@@ -408,9 +408,9 @@ LABEL_55:
         __writecr8(CurrentIrql);
         v39 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
-          if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
           {
             v40 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v39 == 2 )
@@ -434,10 +434,10 @@ LABEL_30:
     }
     while ( v20 < v6 );
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v57 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v57 <= 0xFu && CurrentIrql <= 0xFu && v57 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v57 <= 0xFu && CurrentIrql <= 0xFu && v57 >= 2u )
     {
       v58 = KeGetCurrentPrcb();
       v59 = v58->SchedulerAssist;

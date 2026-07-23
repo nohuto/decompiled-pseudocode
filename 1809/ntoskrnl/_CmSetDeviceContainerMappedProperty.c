@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmSetDeviceContainerMappedProperty @ 0x1406D5FE4
+ * XREFs of _CmSetDeviceContainerMappedProperty @ 0x1406D7284
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x1406EA050 (_PnpDispatchDeviceContainer.c)
- *     _CmDeleteDeviceContainerWorker @ 0x1408F8CB8 (_CmDeleteDeviceContainerWorker.c)
+ *     _PnpDispatchDeviceContainer @ 0x1406EB2F0 (_PnpDispatchDeviceContainer.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x1408F9F78 (_CmDeleteDeviceContainerWorker.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall CmSetDeviceContainerMappedProperty(__int64 a1, __int64 a2, __
   v5 = -1073741802;
   if ( !a4 )
   {
-    v6 = &off_140355000;
+    v6 = &off_140356000;
     v7 = 0;
     while ( 1 )
     {

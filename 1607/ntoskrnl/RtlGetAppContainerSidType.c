@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlGetAppContainerSidType @ 0x14047BB60
+ * XREFs of RtlGetAppContainerSidType @ 0x14047AA30
  * Callers:
- *     RtlGetAppContainerNamedObjectPath @ 0x14021091C (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x140210748 (RtlGetAppContainerNamedObjectPath.c)
  *     RtlIsParentOfChildAppContainer @ 0x1403E1C94 (RtlIsParentOfChildAppContainer.c)
- *     SepValidateReferencedLowBoxHandles @ 0x14047513C (SepValidateReferencedLowBoxHandles.c)
- *     NtCreateLowBoxToken @ 0x14047BBD8 (NtCreateLowBoxToken.c)
- *     RtlGetAppContainerParent @ 0x140683988 (RtlGetAppContainerParent.c)
+ *     SepValidateReferencedLowBoxHandles @ 0x14047400C (SepValidateReferencedLowBoxHandles.c)
+ *     NtCreateLowBoxToken @ 0x14047AAA8 (NtCreateLowBoxToken.c)
+ *     RtlGetAppContainerParent @ 0x140683A6C (RtlGetAppContainerParent.c)
  * Callees:
- *     RtlSubAuthorityCountSid @ 0x14002D248 (RtlSubAuthorityCountSid.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
+ *     RtlSubAuthorityCountSid @ 0x14002CDC8 (RtlSubAuthorityCountSid.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
  */
 
-__int64 __fastcall RtlGetAppContainerSidType(char *Sid, _DWORD *a2)
+NTSTATUS __cdecl RtlGetAppContainerSidType(PSID AppContainerSid, PAPPCONTAINER_SID_TYPE AppContainerSidType)
 {
   UCHAR v4; // cl
 
-  if ( (unsigned __int8)Sid[1] >= 2u
-    && *Sid == 1
-    && RtlCompareMemory(Sid + 2, &RtlpAppPackageAuthority, 6uLL) == 6
-    && *((_DWORD *)Sid + 2) == 2 )
+  if ( *((_BYTE *)AppContainerSid + 1) >= 2u
+    && *(_BYTE *)AppContainerSid == 1
+    && RtlCompareMemory((char *)AppContainerSid + 2, &RtlpAppPackageAuthority, 6uLL) == 6
+    && *((_DWORD *)AppContainerSid + 2) == 2 )
   {
-    v4 = *RtlSubAuthorityCountSid(Sid);
+    v4 = *RtlSubAuthorityCountSid(AppContainerSid);
     if ( v4 == 8 )
     {
-      *a2 = 2;
-      return 0LL;
+      *AppContainerSidType = ParentAppContainerSidType;
+      return 0;
     }
     if ( v4 == 12 )
     {
-      *a2 = 1;
-      return 0LL;
+      *AppContainerSidType = ChildAppContainerSidType;
+      return 0;
     }
-    *a2 = 3;
+    *AppContainerSidType = InvalidAppContainerSidType;
   }
   else
   {
-    *a2 = 0;
+    *AppContainerSidType = NotAppContainerSidType;
   }
-  return 3221266944LL;
+  return -1073700352;
 }

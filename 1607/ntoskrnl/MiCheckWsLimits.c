@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckWsLimits @ 0x1400AD810
+ * XREFs of MiCheckWsLimits @ 0x1400ABD78
  * Callers:
- *     MmAdjustWorkingSetSizeEx @ 0x1400AD44C (MmAdjustWorkingSetSizeEx.c)
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x1400AB9B4 (MmAdjustWorkingSetSizeEx.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
  */
 
 __int64 __fastcall MiCheckWsLimits(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3, char a4, char a5)

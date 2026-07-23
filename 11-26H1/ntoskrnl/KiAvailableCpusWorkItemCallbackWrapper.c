@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAvailableCpusWorkItemCallbackWrapper @ 0x1404E8460
+ * XREFs of KiAvailableCpusWorkItemCallbackWrapper @ 0x1404E1820
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall KiAvailableCpusWorkItemCallbackWrapper(__int64 a1, __int64 a2)

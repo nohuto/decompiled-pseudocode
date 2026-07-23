@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpGetEffectiveTokenMessage @ 0x14062D47C
+ * XREFs of AlpcpGetEffectiveTokenMessage @ 0x1405E350C
  * Callers:
- *     AlpcpQuerySidMessage @ 0x14062D314 (AlpcpQuerySidMessage.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x1408C23EC (AlpcpQueryTokenModifiedIdMessage.c)
+ *     AlpcpQuerySidMessage @ 0x1405E33A4 (AlpcpQuerySidMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x1408C254C (AlpcpQueryTokenModifiedIdMessage.c)
  * Callees:
- *     SeCreateClientSecurityEx @ 0x14065DF60 (SeCreateClientSecurityEx.c)
+ *     SeCreateClientSecurityEx @ 0x140652D80 (SeCreateClientSecurityEx.c)
  */
 
 __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, _BYTE *a5)
@@ -49,7 +49,7 @@ LABEL_5:
   v13 = *(_QWORD *)(a2 + 32);
   if ( !v13 )
     return 3221225506LL;
-  result = SeCreateClientSecurityEx(v13, v11 + 260, 0LL, a4);
+  result = SeCreateClientSecurityEx(v13, v11 + 260, 0LL);
   if ( (int)result >= 0 )
   {
     *a3 = *(_QWORD *)(a4 + 16);

@@ -1,38 +1,38 @@
 /*
  * XREFs of ExTryAcquireSpinLockSharedAtDpcLevel @ 0x1404619C0
  * Callers:
- *     MiFreezeIoPfnNode @ 0x140591724 (MiFreezeIoPfnNode.c)
- *     MmReadProcessPageTables @ 0x1405A6AE4 (MmReadProcessPageTables.c)
+ *     sub_140591724 @ 0x140591724 (sub_140591724.c)
+ *     sub_1405A6AE4 @ 0x1405A6AE4 (sub_1405A6AE4.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14063D914 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_14063D914 @ 0x14063D914 (sub_14063D914.c)
  */
 
 __int64 __fastcall ExTryAcquireSpinLockSharedAtDpcLevel(_DWORD *a1)
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  _DWORD *SchedulerAssist; // rdx
+  __int64 v3; // rdx
   int v4; // eax
   unsigned int v5; // edi
   signed __int32 v6; // ett
-  _DWORD *v7; // rcx
+  __int64 v7; // rcx
   int v8; // eax
 
   CurrentPrcb = KeGetCurrentPrcb();
-  SchedulerAssist = CurrentPrcb->SchedulerAssist;
-  if ( SchedulerAssist )
+  v3 = *((_QWORD *)CurrentPrcb + 4375);
+  if ( v3 )
   {
-    if ( CurrentPrcb->NestingLevel <= 1u )
+    if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
     {
-      v4 = SchedulerAssist[6];
-      SchedulerAssist[6] = v4 + 1;
+      v4 = *(_DWORD *)(v3 + 24);
+      *(_DWORD *)(v3 + 24) = v4 + 1;
       if ( v4 == -1 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        sub_140418E4C((__int64)CurrentPrcb);
     }
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
+  if ( (BYTE6(xmmword_140D06900) & 0x21) != 0 )
   {
-    v5 = ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented(a1);
+    v5 = sub_14063D914(a1);
   }
   else
   {
@@ -42,15 +42,15 @@ __int64 __fastcall ExTryAcquireSpinLockSharedAtDpcLevel(_DWORD *a1)
   }
   if ( !v5 )
   {
-    v7 = CurrentPrcb->SchedulerAssist;
+    v7 = *((_QWORD *)CurrentPrcb + 4375);
     if ( v7 )
     {
-      if ( CurrentPrcb->NestingLevel <= 1u )
+      if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
       {
-        v8 = v7[6] - 1;
-        v7[6] = v8;
+        v8 = *(_DWORD *)(v7 + 24) - 1;
+        *(_DWORD *)(v7 + 24) = v8;
         if ( !v8 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          sub_140418E4C((__int64)CurrentPrcb);
       }
     }
   }

@@ -142,7 +142,7 @@ NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
       v1 = (unsigned __int16 *)(a1 + 16);
     }
     ZwClose(Handle);
-    ZwResetEvent(*(_QWORD *)(a1 + 472), 0LL);
+    ZwResetEvent(*(HANDLE *)(a1 + 472), 0LL);
     v9 = PiDrvDbUnloadHive(v3, *(_QWORD *)(a1 + 472));
     if ( v9 == 259 )
     {

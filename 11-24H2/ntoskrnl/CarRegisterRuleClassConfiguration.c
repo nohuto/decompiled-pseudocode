@@ -1,11 +1,11 @@
 /*
- * XREFs of CarRegisterRuleClassConfiguration @ 0x140616F40
+ * XREFs of CarRegisterRuleClassConfiguration @ 0x140615500
  * Callers:
- *     CarRegisterDefaultRuleClassConfiguration @ 0x140616EF0 (CarRegisterDefaultRuleClassConfiguration.c)
+ *     CarRegisterDefaultRuleClassConfiguration @ 0x1406154B0 (CarRegisterDefaultRuleClassConfiguration.c)
  * Callees:
- *     CarDeregisterRuleClassConfiguration @ 0x140616860 (CarDeregisterRuleClassConfiguration.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     CarDeregisterRuleClassConfiguration @ 0x140614E20 (CarDeregisterRuleClassConfiguration.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CarRegisterRuleClassConfiguration(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall CarRegisterRuleClassConfiguration(__int64 a1)
   if ( a1 )
   {
     CarDeregisterRuleClassConfiguration(*(unsigned int *)(a1 + 4));
-    Pool2 = (char *)ExAllocatePool2(0x40uLL);
+    Pool2 = (char *)ExAllocatePool2(0x40uLL, 0x68uLL, 0x4E726143u);
     v4 = Pool2;
     if ( Pool2 )
     {
@@ -34,13 +34,13 @@ __int64 __fastcall CarRegisterRuleClassConfiguration(__int64 a1)
       *((_QWORD *)v4 + 10) = v4 + 72;
       *((_QWORD *)v4 + 9) = v4 + 72;
       v5 = v4 + 88;
-      v6 = (_QWORD *)qword_140F03998;
-      if ( *(__int64 **)qword_140F03998 != &CarConfigurationEntries )
+      v6 = (_QWORD *)qword_140F03C78;
+      if ( *(__int64 **)qword_140F03C78 != &CarConfigurationEntries )
         __fastfail(3u);
       *v5 = &CarConfigurationEntries;
       *((_QWORD *)v4 + 12) = v6;
       *v6 = v5;
-      qword_140F03998 = (__int64)(v4 + 88);
+      qword_140F03C78 = (__int64)(v4 + 88);
     }
     else
     {

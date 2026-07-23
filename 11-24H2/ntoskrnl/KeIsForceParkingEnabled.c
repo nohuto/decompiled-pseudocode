@@ -1,12 +1,12 @@
 /*
- * XREFs of KeIsForceParkingEnabled @ 0x140204250
+ * XREFs of KeIsForceParkingEnabled @ 0x14032B830
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140203248 (PpmHeteroUpdateHgsConfiguration.c)
- *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x140204120 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
- *     KiUpdateProcessAvailableCpuState @ 0x140204268 (KiUpdateProcessAvailableCpuState.c)
- *     KiScheduleThreadToIdleIsolationUnit @ 0x140256790 (KiScheduleThreadToIdleIsolationUnit.c)
- *     KiAttemptToScheduleThreadToBusyIsolationUnit @ 0x1403E1850 (KiAttemptToScheduleThreadToBusyIsolationUnit.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405B86B4 (KiUpdateSystemAvailableCpuState.c)
+ *     KiScheduleThreadToIdleIsolationUnit @ 0x140286DA0 (KiScheduleThreadToIdleIsolationUnit.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14032B704 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x14032B848 (KiUpdateProcessAvailableCpuState.c)
+ *     KiAttemptToScheduleThreadToBusyIsolationUnit @ 0x1403C9EC0 (KiAttemptToScheduleThreadToBusyIsolationUnit.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1404E2E24 (PpmHeteroUpdateHgsConfiguration.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405B5C94 (KiUpdateSystemAvailableCpuState.c)
  * Callees:
  *     <none>
  */

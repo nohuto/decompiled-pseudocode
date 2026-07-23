@@ -581,10 +581,13 @@ LABEL_32:
       break;
     KxReleaseQueuedSpinLock(&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -623,10 +626,10 @@ LABEL_32:
   _InterlockedExchangeAdd64(&qword_140C6A448[v31], v3);
   KxReleaseQueuedSpinLock(&LockHandle);
   v32 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v87 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v87 <= 0xFu && LockHandle.OldIrql <= 0xFu && v87 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v87 <= 0xFu && LockHandle.OldIrql <= 0xFu && v87 >= 2u )
     {
       v88 = KeGetCurrentPrcb();
       v89 = v88->SchedulerAssist;

@@ -1,27 +1,27 @@
 /*
- * XREFs of LdrpMapResourceFile @ 0x1403A7DC4
+ * XREFs of LdrpMapResourceFile @ 0x1403A7FA4
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1402F77DC (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402F7A6C (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateSection @ 0x14041B6A0 (ZwCreateSection.c)
- *     ZwCreateFile @ 0x14041B800 (ZwCreateFile.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     MmMapViewInSessionSpace @ 0x1407DE9B0 (MmMapViewInSessionSpace.c)
- *     MmUnmapViewInSystemSpace @ 0x1407E0410 (MmUnmapViewInSystemSpace.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateSection @ 0x14041BA30 (ZwCreateSection.c)
+ *     ZwCreateFile @ 0x14041BB90 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     MmMapViewInSessionSpace @ 0x1407DEC80 (MmMapViewInSessionSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x1407E06E0 (MmUnmapViewInSystemSpace.c)
  */
 
 __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a3, _QWORD *a4, ULONG_PTR *a5)
 {
   PVOID v8; // rdi
-  __int64 v9; // rax
-  unsigned __int16 v10; // si
+  PIMAGE_NT_HEADERS v9; // rax
+  unsigned __int16 MajorSubsystemVersion; // si
   NTSTATUS v11; // ebx
   PVOID v13; // rsi
   NTSTATUS v14; // eax
-  __int64 v15; // rax
+  PIMAGE_NT_HEADERS v15; // rax
   int v16; // ecx
   ULONG_PTR *v17; // rcx
   HANDLE SectionHandle; // [rsp+60h] [rbp-41h] BYREF
@@ -43,10 +43,10 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a
   IoStatusBlock = 0LL;
   if ( a1 && a2 && a4 )
   {
-    v9 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+    v9 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
     if ( v9 )
     {
-      v10 = *(_WORD *)(v9 + 72);
+      MajorSubsystemVersion = v9->OptionalHeader.MajorSubsystemVersion;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 576;
@@ -65,7 +65,7 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a
                 0xF0005u,
                 &ObjectAttributes,
                 &MaximumSize,
-                v10 < 6u ? 8 : 2,
+                MajorSubsystemVersion < 6u ? 8 : 2,
                 0x8000000u,
                 FileHandle);
         if ( v11 >= 0 )
@@ -81,7 +81,7 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a
             v11 = v14;
             if ( v14 >= 0 )
             {
-              v15 = RtlImageNtHeader((__int64)MappedBase);
+              v15 = RtlImageNtHeader(MappedBase);
               v16 = v11;
               if ( !v15 )
                 v16 = -1073741701;

@@ -40,7 +40,7 @@ void __fastcall PopBatteryCheckCompositeCapacity(_DWORD *a1, int a2, _DWORD *a3)
   unsigned int v31; // r10d
   unsigned int v32; // eax
   unsigned __int64 v33; // rax
-  int v34; // [rsp+40h] [rbp-C0h] BYREF
+  int Buffer; // [rsp+40h] [rbp-C0h] BYREF
   int v35; // [rsp+44h] [rbp-BCh] BYREF
   int v36; // [rsp+48h] [rbp-B8h] BYREF
   unsigned int v37; // [rsp+4Ch] [rbp-B4h] BYREF
@@ -145,8 +145,8 @@ LABEL_6:
   if ( byte_140C3D288 != (_BYTE)v7 )
   {
     byte_140C3D288 = v7;
-    v34 = (unsigned __int8)v7;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v34);
+    Buffer = (unsigned __int8)v7;
+    ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &Buffer, 4u, 0LL, 0LL, 0, 0);
     if ( (unsigned int)dword_140C03950 > 5 )
     {
       if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )

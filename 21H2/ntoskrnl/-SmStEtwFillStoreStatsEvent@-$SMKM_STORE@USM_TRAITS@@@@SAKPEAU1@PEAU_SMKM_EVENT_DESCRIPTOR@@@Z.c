@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SmStEtwFillStoreStatsEvent@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x14059F688
+ * XREFs of ?SmStEtwFillStoreStatsEvent@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x14059F8B8
  * Callers:
- *     SmKmEtwLogStoreStats @ 0x14092B17C (SmKmEtwLogStoreStats.c)
+ *     SmKmEtwLogStoreStats @ 0x14092B2DC (SmKmEtwLogStoreStats.c)
  * Callees:
- *     ?StCopyIoStats@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_IO_STATS@@PEAU_ST_IO_COUNTS@@@Z @ 0x14059A568 (-StCopyIoStats@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_IO_STATS@@PEAU_ST_IO_COUNTS@@@Z.c)
- *     StLcBucketsCopy @ 0x14059D550 (StLcBucketsCopy.c)
+ *     ?StCopyIoStats@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_IO_STATS@@PEAU_ST_IO_COUNTS@@@Z @ 0x14059A798 (-StCopyIoStats@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_IO_STATS@@PEAU_ST_IO_COUNTS@@@Z.c)
+ *     StLcBucketsCopy @ 0x14059D780 (StLcBucketsCopy.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStEtwFillStoreStatsEvent(__int64 a1, __int64 a2)

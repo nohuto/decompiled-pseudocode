@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlTimeFieldsToTime @ 0x14033B350
+ * XREFs of RtlTimeFieldsToTime @ 0x14033B5E0
  * Callers:
- *     ExGetExpirationDate @ 0x14080FC84 (ExGetExpirationDate.c)
- *     ExpRefreshSystemTime @ 0x14083EAF4 (ExpRefreshSystemTime.c)
- *     ExpRefreshTimeZoneInformation @ 0x14083EB98 (ExpRefreshTimeZoneInformation.c)
- *     RtlCutoverTimeToSystemTime @ 0x14083F068 (RtlCutoverTimeToSystemTime.c)
- *     HalpAcpiRealTimeToUtcTime @ 0x140932D40 (HalpAcpiRealTimeToUtcTime.c)
- *     PiDevCfgSplitDriverConfigurationId @ 0x14096263C (PiDevCfgSplitDriverConfigurationId.c)
- *     NtSetSystemTime @ 0x1409F8290 (NtSetSystemTime.c)
- *     I_MinAsn1AdjustFileTime @ 0x140A70D98 (I_MinAsn1AdjustFileTime.c)
- *     MinAsn1DecodeGeneralizedTime @ 0x140A70F9C (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1DecodeUtcTime @ 0x140A71464 (MinAsn1DecodeUtcTime.c)
+ *     ExGetExpirationDate @ 0x14080FF54 (ExGetExpirationDate.c)
+ *     ExpRefreshSystemTime @ 0x14083EDF4 (ExpRefreshSystemTime.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14083EE98 (ExpRefreshTimeZoneInformation.c)
+ *     RtlCutoverTimeToSystemTime @ 0x14083F368 (RtlCutoverTimeToSystemTime.c)
+ *     HalpAcpiRealTimeToUtcTime @ 0x140932F40 (HalpAcpiRealTimeToUtcTime.c)
+ *     PiDevCfgSplitDriverConfigurationId @ 0x14096283C (PiDevCfgSplitDriverConfigurationId.c)
+ *     NtSetSystemTime @ 0x1409F8520 (NtSetSystemTime.c)
+ *     I_MinAsn1AdjustFileTime @ 0x140A71048 (I_MinAsn1AdjustFileTime.c)
+ *     MinAsn1DecodeGeneralizedTime @ 0x140A7124C (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x140A71714 (MinAsn1DecodeUtcTime.c)
  *     ExUpdateSystemTimeFromCmos @ 0x140A88304 (ExUpdateSystemTimeFromCmos.c)
- *     HaliSetWakeAlarm @ 0x140A96500 (HaliSetWakeAlarm.c)
+ *     HaliSetWakeAlarm @ 0x140A96370 (HaliSetWakeAlarm.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B3E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B670 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
  */
 
 BOOLEAN __stdcall RtlTimeFieldsToTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmGetReferencedObjectFromProperty @ 0x1406F2948
+ * XREFs of PiDmGetReferencedObjectFromProperty @ 0x1406F3BE8
  * Callers:
- *     PiDmObjectProcessPropertyChange @ 0x1406F221C (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1406F34BC (PiDmObjectProcessPropertyChange.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PnpGetObjectProperty @ 0x140599EC8 (PnpGetObjectProperty.c)
- *     _PnpStringFromGuid @ 0x14059ACE4 (_PnpStringFromGuid.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1406F2A84 (PiDmObjectGetCachedObjectReference.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDmGetObject @ 0x1405999C8 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     PnpGetObjectProperty @ 0x14059AEC8 (PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x14059BCE4 (_PnpStringFromGuid.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x1406F3D24 (PiDmObjectGetCachedObjectReference.c)
  */
 
 __int64 __fastcall PiDmGetReferencedObjectFromProperty(

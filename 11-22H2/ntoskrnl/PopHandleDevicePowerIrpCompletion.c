@@ -42,5 +42,5 @@ LABEL_4:
     PopFxNotifyPostDIrpCompletion((__int64)v5, *(_DWORD *)(a1 + 192));
     goto LABEL_4;
   }
-  return PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (struct _LIST_ENTRY *)(a1 + 248));
+  return PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (_LIST_ENTRY *)(a1 + 248));
 }

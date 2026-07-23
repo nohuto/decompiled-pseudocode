@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpDoLocalizeNextHive @ 0x140984290
+ * XREFs of CmpDoLocalizeNextHive @ 0x14096CAA0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     CmpGetNextActiveHive @ 0x14090B0EC (CmpGetNextActiveHive.c)
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140984350 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     CmpGetNextActiveHive @ 0x1408E280C (CmpGetNextActiveHive.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x14096CB60 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 char __fastcall CmpDoLocalizeNextHive(_BYTE *a1, __int64 *a2, __int64 a3, __int64 a4)

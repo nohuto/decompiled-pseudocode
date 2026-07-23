@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSetQuantumTargetThread @ 0x1402B2AF0
+ * XREFs of KiSetQuantumTargetThread @ 0x1402B2D80
  * Callers:
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x140350190 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x140350330 (KeSetPriorityAndQuantumProcess.c)
  * Callees:
  *     KiGetProcessorEfficiencyClass @ 0x14020E8D4 (KiGetProcessorEfficiencyClass.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
- *     PoGetFrequencyBucket @ 0x140249C20 (PoGetFrequencyBucket.c)
- *     HalRequestSoftwareInterrupt @ 0x140254D10 (HalRequestSoftwareInterrupt.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiBeginCounterAccumulation @ 0x1405740F0 (KiBeginCounterAccumulation.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
+ *     PoGetFrequencyBucket @ 0x140249CF0 (PoGetFrequencyBucket.c)
+ *     HalRequestSoftwareInterrupt @ 0x140254DD0 (HalRequestSoftwareInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiBeginCounterAccumulation @ 0x140574630 (KiBeginCounterAccumulation.c)
  */
 
 __int64 __fastcall KiSetQuantumTargetThread(__int64 a1, __int64 a2, char a3, __int64 a4)

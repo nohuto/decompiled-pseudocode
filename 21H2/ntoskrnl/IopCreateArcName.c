@@ -1,27 +1,27 @@
 /*
- * XREFs of IopCreateArcName @ 0x140780318
+ * XREFs of IopCreateArcName @ 0x1407804D8
  * Callers:
- *     IoCreateArcName @ 0x140780300 (IoCreateArcName.c)
- *     IopCreateArcNamesDisk @ 0x140A61CE8 (IopCreateArcNamesDisk.c)
+ *     IoCreateArcName @ 0x1407804C0 (IoCreateArcName.c)
+ *     IopCreateArcNamesDisk @ 0x140A62CE8 (IopCreateArcNamesDisk.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopCreateUnicodeFromAnsiBuffer @ 0x1403B8534 (IopCreateUnicodeFromAnsiBuffer.c)
- *     RtlStringCchPrintfA @ 0x1403B856C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     IopBuildSynchronousFsdRequest @ 0x1406D1900 (IopBuildSynchronousFsdRequest.c)
- *     IoCreateSymbolicLink @ 0x14076DC20 (IoCreateSymbolicLink.c)
- *     IopVerifyDiskSignature @ 0x1407D4738 (IopVerifyDiskSignature.c)
- *     VhdiVerifyBootDisk @ 0x14098033C (VhdiVerifyBootDisk.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14026D570 (RtlStringCchPrintfW.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1402D09B0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopCreateUnicodeFromAnsiBuffer @ 0x1403B86A4 (IopCreateUnicodeFromAnsiBuffer.c)
+ *     RtlStringCchPrintfA @ 0x1403B86DC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1406A8BE0 (IopBuildSynchronousFsdRequest.c)
+ *     IoCreateSymbolicLink @ 0x14076DDE0 (IoCreateSymbolicLink.c)
+ *     IopVerifyDiskSignature @ 0x1407D48A8 (IopVerifyDiskSignature.c)
+ *     VhdiVerifyBootDisk @ 0x14098051C (VhdiVerifyBootDisk.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
@@ -45,7 +45,7 @@ __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
   const char *v20; // r12
   int v21; // edi
   _DWORD *Pool; // rax
-  __int64 v23; // rax
+  IRP *v23; // rax
   IRP *v24; // rbx
   unsigned __int64 v25; // rax
   unsigned __int64 v26; // rcx
@@ -58,7 +58,7 @@ __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
   struct _KEVENT Object; // [rsp+50h] [rbp-B0h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v36; // [rsp+88h] [rbp-78h] BYREF
+  LARGE_INTEGER v36; // [rsp+88h] [rbp-78h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
   __int128 v38; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v39; // [rsp+B0h] [rbp-50h]
@@ -270,7 +270,7 @@ LABEL_34:
             v15 = (PVOID *)*v15;
           }
         }
-        v36 = 0x8000LL;
+        v36.QuadPart = 0x8000LL;
         Pool = IopVerifierExAllocatePool(NonPagedPoolNxCacheAligned, v11);
         v3 = Pool;
         if ( Pool )
@@ -281,16 +281,16 @@ LABEL_34:
                   Pool,
                   HIDWORD(v39),
                   &v36,
-                  (__int64)&Object,
-                  (__int64)&IoStatusBlock,
+                  &Object,
+                  &IoStatusBlock,
                   retaddr);
-          v24 = (IRP *)v23;
+          v24 = v23;
           if ( !v23 )
           {
             Status = -1073741670;
             goto LABEL_38;
           }
-          *(_BYTE *)(*(_QWORD *)(v23 + 184) - 70LL) |= 2u;
+          v23->Tail.Overlay.CurrentStackLocation[-1].Flags |= 2u;
           KeInitializeEvent(&Object, NotificationEvent, 0);
           Status = IofCallDriver(DeviceObject, v24);
           if ( Status == 259 )

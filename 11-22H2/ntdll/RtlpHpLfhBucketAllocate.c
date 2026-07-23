@@ -18,13 +18,13 @@ __int64 __fastcall RtlpHpLfhBucketAllocate(unsigned __int64 a1, __int64 a2, unsi
     v5 = *(_BYTE *)(v4 + BYTE1(NtCurrentTeb()->HeapData) + a2);
   return RtlpHpLfhSlotAllocate(
            a1,
-           a2,
-           *(_QWORD *)(v4
-                     + *(unsigned __int8 *)(a1 + 56)
-                     - (unsigned __int64)((*(_BYTE *)(a1 + 56) - 1) & 7)
-                     + 7
-                     + 8LL * v5
-                     + a2),
-           (_QWORD *)a3,
+           (_RTL_SRWLOCK *)a2,
+           *(_RTL_SRWLOCK **)(v4
+                            + *(unsigned __int8 *)(a1 + 56)
+                            - (unsigned __int64)((*(_BYTE *)(a1 + 56) - 1) & 7)
+                            + 7
+                            + 8LL * v5
+                            + a2),
+           a3,
            a4);
 }

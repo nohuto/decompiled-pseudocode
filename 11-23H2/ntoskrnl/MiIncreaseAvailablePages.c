@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIncreaseAvailablePages @ 0x1402DD9A8
+ * XREFs of MiIncreaseAvailablePages @ 0x1402DDC38
  * Callers:
- *     MiUnlinkNodeLargePageHelper @ 0x1402D89C0 (MiUnlinkNodeLargePageHelper.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiReplenishPageSlist @ 0x1402E7AD0 (MiReplenishPageSlist.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1402D8C50 (MiUnlinkNodeLargePageHelper.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
+ *     MiReplenishPageSlist @ 0x1402E7D60 (MiReplenishPageSlist.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiUpdateAvailableEvents @ 0x1403AE720 (MiUpdateAvailableEvents.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiUpdateAvailableEvents @ 0x1403AE900 (MiUpdateAvailableEvents.c)
  */
 
 unsigned __int64 __fastcall MiIncreaseAvailablePages(__int64 a1, unsigned __int64 a2, __int64 a3)

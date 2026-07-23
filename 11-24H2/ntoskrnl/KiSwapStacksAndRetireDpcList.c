@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSwapStacksAndRetireDpcList @ 0x1406B2A20
+ * XREFs of KiSwapStacksAndRetireDpcList @ 0x1406B39C0
  * Callers:
- *     KiDispatchInterrupt @ 0x1402936B0 (KiDispatchInterrupt.c)
- *     KiSearchForNewThreadsWithinSearchContext @ 0x1404E9D80 (KiSearchForNewThreadsWithinSearchContext.c)
+ *     KiDispatchInterrupt @ 0x1402A32B0 (KiDispatchInterrupt.c)
+ *     KiSearchForNewThreadsWithinSearchContext @ 0x1404E0D30 (KiSearchForNewThreadsWithinSearchContext.c)
  * Callees:
  *     <none>
  */

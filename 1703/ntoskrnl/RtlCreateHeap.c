@@ -283,7 +283,7 @@ PVOID __stdcall RtlCreateHeap(
         if ( (v14 & 0x40000) != 0 && (v70 & 0x40) == 0 )
           goto LABEL_68;
         memset(MemoryInformation[0], 0, 0x1000uLL);
-        if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryBasicVlmInformation, v71, 0x20uLL, 0LL) < 0 )
+        if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryRegionInformation, v71, 0x20uLL, 0LL) < 0 )
           goto LABEL_68;
         InitialReserve = v72;
         v55 = v68;

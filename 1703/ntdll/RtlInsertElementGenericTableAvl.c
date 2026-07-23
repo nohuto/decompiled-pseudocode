@@ -7,11 +7,15 @@
  *     sub_18006938C @ 0x18006938C (sub_18006938C.c)
  */
 
-__int64 __fastcall RtlInsertElementGenericTableAvl(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
+PVOID __cdecl RtlInsertElementGenericTableAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement)
 {
-  int v8; // eax
-  _QWORD v10[3]; // [rsp+30h] [rbp-18h] BYREF
+  TABLE_SEARCH_RESULT SearchResult; // eax
+  PVOID NodeOrParent; // [rsp+30h] [rbp-18h]
 
-  v8 = sub_18006938C(a1, a2, v10);
-  return RtlInsertElementGenericTableFullAvl(a1, a2, a3, a4, v10[0], v8);
+  SearchResult = (unsigned int)sub_18006938C(Table, Buffer);
+  return RtlInsertElementGenericTableFullAvl(Table, Buffer, BufferSize, NewElement, NodeOrParent, SearchResult);
 }

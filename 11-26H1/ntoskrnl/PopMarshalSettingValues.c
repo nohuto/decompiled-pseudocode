@@ -1,14 +1,14 @@
 /*
- * XREFs of PopMarshalSettingValues @ 0x140A3CAA8
+ * XREFs of PopMarshalSettingValues @ 0x1409F84C8
  * Callers:
- *     PopDispatchNotificationsToList @ 0x140A3C908 (PopDispatchNotificationsToList.c)
- *     PopGetSettingValue @ 0x140A3D02C (PopGetSettingValue.c)
+ *     PopDispatchNotificationsToList @ 0x1409F8328 (PopDispatchNotificationsToList.c)
+ *     PopGetSettingValue @ 0x1409F8A4C (PopGetSettingValue.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     PopUnreferencePowerSetting @ 0x140A4045C (PopUnreferencePowerSetting.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     PopUnreferencePowerSetting @ 0x1409FBE7C (PopUnreferencePowerSetting.c)
  */
 
 __int64 __fastcall PopMarshalSettingValues(__int64 a1, char *a2, __int64 a3, unsigned int *a4)
@@ -16,7 +16,7 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, char *a2, __int64 a3, uns
   __int64 v5; // r9
   char PreviousMode; // r12
   unsigned int v7; // ebx
-  __int64 v8; // r10
+  __int64 Next_high; // r10
   __int64 v9; // rdx
   __int64 v10; // r13
   _DWORD *v11; // rax
@@ -49,7 +49,7 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, char *a2, __int64 a3, uns
   v32 = 0LL;
   v7 = 0;
   v28 = 0;
-  v8 = dword_140F106CC;
+  Next_high = SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v9 = 0LL;
   v10 = 3LL;
   while ( 1 )
@@ -59,7 +59,7 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, char *a2, __int64 a3, uns
       break;
     if ( (*(_DWORD *)(v5 + 52) & 8) != 0 )
     {
-      v12 = *(_DWORD **)(v5 + 8 * v8 + 64);
+      v12 = *(_DWORD **)(v5 + 8 * Next_high + 64);
       *((_QWORD *)&v31 + v9) = v12;
     }
     else

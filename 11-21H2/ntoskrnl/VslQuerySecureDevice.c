@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
+ *     sub_140358A20 @ 0x140358A20 (sub_140358A20.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -19,7 +19,7 @@ __int64 __fastcall VslQuerySecureDevice(__int64 a1, __int64 a2)
   v4 = *(_DWORD *)(a1 + 8);
   v6[1] = *(_QWORD *)a1;
   LODWORD(v6[2]) = v4;
-  result = VslpEnterIumSecureMode(2u, 67, 0, (__int64)v6);
+  result = sub_140358A20(2u, 67, 0, (__int64)v6);
   if ( (int)result >= 0 )
   {
     *(_WORD *)a2 = WORD2(v6[2]);

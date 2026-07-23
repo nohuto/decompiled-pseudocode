@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIpiUpdateThreadTag @ 0x1403FF0D0
+ * XREFs of KiIpiUpdateThreadTag @ 0x1403F9720
  * Callers:
- *     KiIpiProcessRequests @ 0x1403FEB60 (KiIpiProcessRequests.c)
+ *     KiIpiProcessRequests @ 0x1403F91B0 (KiIpiProcessRequests.c)
  * Callees:
  *     <none>
  */

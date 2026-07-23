@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdef369MontgomeryReduceAsm @ 0x14040F420
+ * XREFs of SymCryptFdef369MontgomeryReduceAsm @ 0x14040F600
  * Callers:
- *     SymCryptFdef369ModInvMontgomery @ 0x140409700 (SymCryptFdef369ModInvMontgomery.c)
- *     SymCryptFdef369ModMulMontgomery @ 0x1404097C0 (SymCryptFdef369ModMulMontgomery.c)
- *     SymCryptFdef369ModPreGetMontgomery @ 0x140409820 (SymCryptFdef369ModPreGetMontgomery.c)
- *     SymCryptFdef369ModSetPostMontgomery @ 0x1404098C0 (SymCryptFdef369ModSetPostMontgomery.c)
+ *     SymCryptFdef369ModInvMontgomery @ 0x1404098E0 (SymCryptFdef369ModInvMontgomery.c)
+ *     SymCryptFdef369ModMulMontgomery @ 0x1404099A0 (SymCryptFdef369ModMulMontgomery.c)
+ *     SymCryptFdef369ModPreGetMontgomery @ 0x140409A00 (SymCryptFdef369ModPreGetMontgomery.c)
+ *     SymCryptFdef369ModSetPostMontgomery @ 0x140409AA0 (SymCryptFdef369ModSetPostMontgomery.c)
  * Callees:
  *     <none>
  */

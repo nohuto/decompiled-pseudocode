@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteVaTail @ 0x140361270
+ * XREFs of MiDeleteVaTail @ 0x140363010
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiDecommitFreePagesTail @ 0x1402DA750 (MiDecommitFreePagesTail.c)
- *     MiRemoveWsleList @ 0x1402EA570 (MiRemoveWsleList.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiReducePteUseCount @ 0x140361410 (MiReducePteUseCount.c)
- *     MiDecayPfnFullyInitialized @ 0x140498358 (MiDecayPfnFullyInitialized.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiDecommitFreePagesTail @ 0x1402BC510 (MiDecommitFreePagesTail.c)
+ *     MiRemoveWsleList @ 0x1402CC5B0 (MiRemoveWsleList.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiReducePteUseCount @ 0x1403631B0 (MiReducePteUseCount.c)
+ *     MiDecayPfnFullyInitialized @ 0x140491EA8 (MiDecayPfnFullyInitialized.c)
  */
 
 __int64 __fastcall MiDeleteVaTail(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall MiDeleteVaTail(__int64 a1)
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
-  struct _SLIST_ENTRY *v9; // rcx
+  _SLIST_ENTRY *v9; // rcx
   char v10; // di
   unsigned __int64 v12; // rdx
 
@@ -51,7 +51,7 @@ __int64 __fastcall MiDeleteVaTail(__int64 a1)
     }
     *(_DWORD *)(v5 + 12376) = 0;
     MiReleaseProcessorFlushList(v7, v6, v8);
-    v9 = *(struct _SLIST_ENTRY **)(v3 + 104);
+    v9 = *(_SLIST_ENTRY **)(v3 + 104);
     *(_QWORD *)(v3 + 16) = 0LL;
     if ( v9 )
     {

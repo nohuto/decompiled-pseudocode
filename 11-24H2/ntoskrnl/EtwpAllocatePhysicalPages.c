@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpAllocatePhysicalPages @ 0x1407A6EFC
+ * XREFs of EtwpAllocatePhysicalPages @ 0x1407A703C
  * Callers:
- *     EtwpAllocateTraceBuffer @ 0x14040FF9C (EtwpAllocateTraceBuffer.c)
- *     EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x140830658 (EtwpAllocatePhysicalMemoryForTraceBuffers.c)
+ *     EtwpAllocateTraceBuffer @ 0x14047CE80 (EtwpAllocateTraceBuffer.c)
+ *     EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x1409CFA3C (EtwpAllocatePhysicalMemoryForTraceBuffers.c)
  * Callees:
- *     MmAllocatePagesForMdlEx @ 0x140411F30 (MmAllocatePagesForMdlEx.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmAllocatePagesForMdlEx @ 0x140395340 (MmAllocatePagesForMdlEx.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 size_t __fastcall EtwpAllocatePhysicalPages(char *Base, __int64 a2)

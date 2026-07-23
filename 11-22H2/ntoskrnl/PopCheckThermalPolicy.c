@@ -52,7 +52,7 @@ char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, int *a4)
   if ( v13 && *v12 >= v13 )
   {
     PopPrintEx(
-      0LL,
+      0,
       (__int64)"Thermal Zone %S (%p): Above critical temperature (_TMP %d, _CRT %d). Shutdown initiated\n",
       v11,
       (const void *)a1,

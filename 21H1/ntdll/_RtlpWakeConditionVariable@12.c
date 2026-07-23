@@ -9,36 +9,36 @@
  *     _ZwAlertThreadByThreadId@4 @ 0x4B2F3080 (_ZwAlertThreadByThreadId@4.c)
  */
 
-unsigned __int32 __fastcall RtlpWakeConditionVariable(volatile signed __int32 *a1, int a2, signed __int32 a3)
+int __fastcall RtlpWakeConditionVariable(volatile signed __int32 *a1, int a2, signed __int32 a3)
 {
   signed __int32 v3; // edi
-  unsigned __int32 v4; // esi
-  unsigned __int32 v6; // ecx
+  signed __int32 v4; // esi
+  signed __int32 v6; // ecx
   char v7; // al
   _DWORD *v8; // ecx
   unsigned int i; // ebx
-  unsigned __int32 *v10; // edx
-  unsigned __int32 *v11; // ecx
+  int *v10; // edx
+  int *v11; // ecx
   unsigned int v12; // edi
-  unsigned __int32 *v13; // eax
+  int *v13; // eax
   bool v14; // cc
-  unsigned __int32 result; // eax
+  int result; // eax
   int *v16; // esi
   int *v17; // edi
   _DWORD *v18; // eax
-  unsigned __int32 **v19; // [esp+Ch] [ebp-20h]
+  int **v19; // [esp+Ch] [ebp-20h]
   int *v21; // [esp+14h] [ebp-18h] BYREF
   signed __int32 v22; // [esp+18h] [ebp-14h]
-  unsigned __int32 v23; // [esp+1Ch] [ebp-10h]
+  int v23; // [esp+1Ch] [ebp-10h]
   volatile signed __int32 *v24; // [esp+20h] [ebp-Ch]
   unsigned int v25; // [esp+24h] [ebp-8h]
-  unsigned __int32 *v26; // [esp+28h] [ebp-4h]
+  int *v26; // [esp+28h] [ebp-4h]
 
   v21 = 0;
   v25 = 0;
   v3 = a3;
   v4 = a3;
-  v26 = (unsigned __int32 *)&v21;
+  v26 = (int *)&v21;
   v6 = a3;
   v24 = a1;
   v7 = a3;
@@ -49,23 +49,23 @@ unsigned __int32 __fastcall RtlpWakeConditionVariable(volatile signed __int32 *a
     v8 = (_DWORD *)(v6 & 0xFFFFFFF0);
     if ( (v7 & 7) == 7 )
       break;
-    v19 = (unsigned __int32 **)(v8 + 1);
+    v19 = (int **)(v8 + 1);
     for ( i = a2 + (v3 & 7); !v8[1]; v8[2] = v18 )
     {
       v18 = v8;
       v8 = (_DWORD *)*v8;
     }
-    v10 = (unsigned __int32 *)v8[1];
+    v10 = (int *)v8[1];
     if ( i <= v25 )
       goto LABEL_22;
     v11 = v26;
     v12 = v25;
     do
     {
-      v13 = (unsigned __int32 *)v10[2];
+      v13 = (int *)v10[2];
       if ( !v13 )
         break;
-      *v11 = (unsigned __int32)v10;
+      *v11 = (int)v10;
       ++v12;
       *v10 = 0;
       v11 = v10;
@@ -96,7 +96,7 @@ LABEL_22:
       v23 = result;
       if ( result == v3 )
       {
-        *v26 = (unsigned __int32)v10;
+        *v26 = (int)v10;
         *v10 = 0;
         goto LABEL_10;
       }
@@ -120,7 +120,7 @@ LABEL_10:
         if ( !v16[6] || (result = RtlpQueueWaitBlockToSRWLock(v16), !(_BYTE)result) )
         {
           _InterlockedOr(v16 + 5, 4u);
-          result = ZwAlertThreadByThreadId(v16[3]);
+          result = ZwAlertThreadByThreadId((HANDLE)v16[3]);
         }
       }
       v16 = v17;

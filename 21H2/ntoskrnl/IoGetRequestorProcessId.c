@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetRequestorProcessId @ 0x1403CF9D0
+ * XREFs of IoGetRequestorProcessId @ 0x1403CFB40
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRequestorProcess @ 0x1403591C0 (IoGetRequestorProcess.c)
+ *     IoGetRequestorProcess @ 0x140363F10 (IoGetRequestorProcess.c)
  */
 
 ULONG __stdcall IoGetRequestorProcessId(PIRP Irp)

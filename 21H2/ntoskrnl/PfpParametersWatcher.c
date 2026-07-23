@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpParametersWatcher @ 0x1408E0C00
+ * XREFs of PfpParametersWatcher @ 0x1408E0D60
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwNotifyChangeKey @ 0x1403FC6E0 (ZwNotifyChangeKey.c)
- *     PfpParametersRead @ 0x1407BF11C (PfpParametersRead.c)
- *     PfSnParametersRead @ 0x1407BF2F4 (PfSnParametersRead.c)
- *     PfSnDetermineEnablePrefetcher @ 0x1407D5630 (PfSnDetermineEnablePrefetcher.c)
- *     PfpParametersPropagate @ 0x1408E0AD4 (PfpParametersPropagate.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwNotifyChangeKey @ 0x1403FC8C0 (ZwNotifyChangeKey.c)
+ *     PfpParametersRead @ 0x1407BF638 (PfpParametersRead.c)
+ *     PfSnParametersRead @ 0x1407BF810 (PfSnParametersRead.c)
+ *     PfSnDetermineEnablePrefetcher @ 0x1407D57A0 (PfSnDetermineEnablePrefetcher.c)
+ *     PfpParametersPropagate @ 0x1408E0C34 (PfpParametersPropagate.c)
  */
 
 void __fastcall PfpParametersWatcher(__int64 a1)

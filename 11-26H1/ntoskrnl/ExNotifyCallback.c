@@ -1,25 +1,25 @@
 /*
- * XREFs of ExNotifyCallback @ 0x14047A7E0
+ * XREFs of ExNotifyCallback @ 0x140474150
  * Callers:
- *     PnprLockPagesForReplace @ 0x1407AF998 (PnprLockPagesForReplace.c)
- *     PnprUnlockPagesForReplace @ 0x1407B029C (PnprUnlockPagesForReplace.c)
- *     PopBroadcastLegacyLidSwitchChangeCallback @ 0x1407D1560 (PopBroadcastLegacyLidSwitchChangeCallback.c)
- *     PopDispatchAcDcCallback @ 0x1407D7380 (PopDispatchAcDcCallback.c)
- *     PopDispatchCallback @ 0x1407D73D0 (PopDispatchCallback.c)
- *     SLSendPolicyChangeNotifications @ 0x140839760 (SLSendPolicyChangeNotifications.c)
- *     AlpcpCompleteDispatchMessage @ 0x1409BF938 (AlpcpCompleteDispatchMessage.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     NtNotifyChangeSession @ 0x140B4CFC0 (NtNotifyChangeSession.c)
- *     PopNotifyCallbacksPreSleep @ 0x140B5BB0C (PopNotifyCallbacksPreSleep.c)
- *     PopUnlockAfterSleepWorker @ 0x140C04AB0 (PopUnlockAfterSleepWorker.c)
- *     KiFilterFiberContext @ 0x140C80D10 (KiFilterFiberContext.c)
+ *     PnprLockPagesForReplace @ 0x1407B29F8 (PnprLockPagesForReplace.c)
+ *     PnprUnlockPagesForReplace @ 0x1407B32FC (PnprUnlockPagesForReplace.c)
+ *     PopBroadcastLegacyLidSwitchChangeCallback @ 0x1407D4600 (PopBroadcastLegacyLidSwitchChangeCallback.c)
+ *     PopDispatchAcDcCallback @ 0x1407DA720 (PopDispatchAcDcCallback.c)
+ *     PopDispatchCallback @ 0x1407DA770 (PopDispatchCallback.c)
+ *     SLSendPolicyChangeNotifications @ 0x14083F9A0 (SLSendPolicyChangeNotifications.c)
+ *     AlpcpCompleteDispatchMessage @ 0x140990918 (AlpcpCompleteDispatchMessage.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     NtNotifyChangeSession @ 0x140B4ED50 (NtNotifyChangeSession.c)
+ *     PopNotifyCallbacksPreSleep @ 0x140B5EE28 (PopNotifyCallbacksPreSleep.c)
+ *     PopUnlockAfterSleepWorker @ 0x140C0ACC0 (PopUnlockAfterSleepWorker.c)
+ *     KiFilterFiberContext @ 0x140C86D10 (KiFilterFiberContext.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __stdcall ExNotifyCallback(PVOID CallbackObject, PVOID Argument1, PVOID Argument2)
@@ -63,7 +63,7 @@ void __stdcall ExNotifyCallback(PVOID CallbackObject, PVOID Argument1, PVOID Arg
             v10 = *((_BYTE *)v7 + 44) == 0;
             *((_DWORD *)v7 + 10) = v9;
             if ( !v10 && !v9 )
-              KeSetEvent(&word_140EFEF60, 0, 0);
+              KeSetEvent(&word_140EFF2A0, 0, 0);
           }
           v7 = (_QWORD *)*v7;
         }

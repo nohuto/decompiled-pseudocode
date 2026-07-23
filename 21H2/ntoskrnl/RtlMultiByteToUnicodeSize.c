@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMultiByteToUnicodeSize @ 0x14062C800
+ * XREFs of RtlMultiByteToUnicodeSize @ 0x140663990
  * Callers:
- *     RtlxAnsiStringToUnicodeSize @ 0x14062C7D0 (RtlxAnsiStringToUnicodeSize.c)
- *     RtlxOemStringToUnicodeSize @ 0x140760EF0 (RtlxOemStringToUnicodeSize.c)
+ *     RtlxAnsiStringToUnicodeSize @ 0x140663960 (RtlxAnsiStringToUnicodeSize.c)
+ *     RtlxOemStringToUnicodeSize @ 0x1407610B0 (RtlxOemStringToUnicodeSize.c)
  * Callees:
- *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
- *     RtlUTF8ToUnicodeN @ 0x1406B6350 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x140615810 (RtlUTF8ToUnicodeN.c)
+ *     RtlpIsUtf8Process @ 0x1406DDCE0 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
@@ -17,7 +17,7 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
   __int64 v8; // rax
 
   v4 = 0;
-  if ( RtlpIsUtf8Process(0) )
+  if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
   {
     if ( BytesInMultiByteString )
       RtlUTF8ToUnicodeN(0LL, 0, BytesInUnicodeString, MultiByteString, BytesInMultiByteString);

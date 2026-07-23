@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeSoloZeroingTime @ 0x14050130C
+ * XREFs of MiComputeSoloZeroingTime @ 0x1404FAAFC
  * Callers:
- *     MiInitializeThreadGroup @ 0x140501014 (MiInitializeThreadGroup.c)
+ *     MiInitializeThreadGroup @ 0x1404FA804 (MiInitializeThreadGroup.c)
  * Callees:
- *     MiTimeToWriteMemory @ 0x14048C810 (MiTimeToWriteMemory.c)
+ *     MiTimeToWriteMemory @ 0x140486350 (MiTimeToWriteMemory.c)
  */
 
 __int64 __fastcall MiComputeSoloZeroingTime(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall MiComputeSoloZeroingTime(__int64 a1)
   __int64 v6; // rdi
   __int64 v7; // rax
 
-  v2 = *(_QWORD *)(56320LL * *(unsigned int *)(a1 + 80) + qword_140E37CD0 + 14192);
+  v2 = *(_QWORD *)(56320LL * *(unsigned int *)(a1 + 80) + qword_140E37E50 + 14192);
   if ( !v2 )
     return 0LL;
   v3 = 0;

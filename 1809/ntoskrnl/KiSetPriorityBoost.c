@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetPriorityBoost @ 0x1401174E8
+ * XREFs of KiSetPriorityBoost @ 0x140117558
  * Callers:
- *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x140117314 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiQuantumEnd @ 0x1400D00A0 (KiQuantumEnd.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x140117384 (KiPrepareReadyThreadForRescheduling.c)
  * Callees:
- *     KiSetPriorityThread @ 0x1400CF640 (KiSetPriorityThread.c)
- *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
- *     KiSetLockOwnershipQuantum @ 0x140117540 (KiSetLockOwnershipQuantum.c)
+ *     KiSetPriorityThread @ 0x1400CF6C0 (KiSetPriorityThread.c)
+ *     KiUpdateThreadPriority @ 0x1400D0DC0 (KiUpdateThreadPriority.c)
+ *     KiSetLockOwnershipQuantum @ 0x1401175B0 (KiSetLockOwnershipQuantum.c)
  */
 
 __int64 __fastcall KiSetPriorityBoost(__int64 a1, __int64 a2, char a3, __int64 a4)

@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpCoverageResetCP @ 0x140935454
+ * XREFs of EtwpCoverageResetCP @ 0x140935624
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x140771BB8 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140771D78 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     EtwTelemetryCoverageReport @ 0x1402C84B0 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageTableLocateInternal @ 0x1402C858C (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x1402C85E0 (EtwpCoverageValidateCP.c)
- *     TelemetryCoverageStringHashInternal @ 0x1402C86A8 (TelemetryCoverageStringHashInternal.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpCoverageFlushPending @ 0x1406C21D0 (EtwpCoverageFlushPending.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EtwTelemetryCoverageReport @ 0x140246D10 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x140246DEC (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x140246E40 (EtwpCoverageValidateCP.c)
+ *     TelemetryCoverageStringHashInternal @ 0x140246F08 (TelemetryCoverageStringHashInternal.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpCoverageFlushPending @ 0x140620E90 (EtwpCoverageFlushPending.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
@@ -30,31 +30,34 @@ __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
   _BYTE *v11; // rcx
   __int64 v12; // rax
   __int64 v13; // rdx
-  unsigned int v15; // r9d
-  unsigned int v16; // r8d
-  _DWORD *v17; // rcx
-  _DWORD *v18; // rdx
-  int v19; // ecx
-  __int64 v20; // rax
-  __int64 v21; // rax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  unsigned int v18; // r9d
+  unsigned int v19; // r8d
+  _DWORD *v20; // rcx
+  _DWORD *v21; // rdx
+  int v22; // ecx
+  __int64 v23; // rax
+  __int64 v24; // rax
   unsigned int i; // esi
-  unsigned int *v23; // rax
-  unsigned int v24; // r11d
-  unsigned int v25; // [rsp+68h] [rbp+10h] BYREF
-  int v26; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int *v26; // rax
+  unsigned int v27; // r11d
+  unsigned int v28; // [rsp+68h] [rbp+10h] BYREF
+  int v29; // [rsp+70h] [rbp+18h] BYREF
   unsigned int *Internal; // [rsp+78h] [rbp+20h]
 
-  v25 = 0;
+  v28 = 0;
   PoolWithTag = 0LL;
   v4 = 0;
   *(_DWORD *)(a2 + 12) = 0;
-  if ( (unsigned int)dword_140C0EFC4 < MEMORY[0xFFFFF7800000037C] )
+  if ( (unsigned int)dword_140C0EFD4 < MEMORY[0xFFFFF7800000037C] )
   {
-    if ( !dword_140C0EFC0 )
-      dword_140C0EFC0 = TelemetryCoverageStringHashInternal(off_140C0EFB8, &v26);
-    EtwTelemetryCoverageReport(&off_140C0EFB8);
+    if ( !dword_140C0EFD0 )
+      dword_140C0EFD0 = TelemetryCoverageStringHashInternal(off_140C0EFC8, &v29);
+    EtwTelemetryCoverageReport((__int64 *)&off_140C0EFC8);
   }
-  if ( (unsigned int)EtwpCoverageValidateCP((__int64 *)a2, &v25) )
+  if ( (unsigned int)EtwpCoverageValidateCP((__int64 *)a2, &v28) )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -74,7 +77,7 @@ __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
         v8 = *(_QWORD **)(a1 + 48);
         if ( v8 != (_QWORD *)(a1 + 48) )
         {
-          v9 = v25;
+          v9 = v28;
           while ( 1 )
           {
             v10 = v8[3];
@@ -86,7 +89,7 @@ LABEL_18:
             if ( v8 == (_QWORD *)(a1 + 48) )
               goto LABEL_19;
           }
-          v12 = v25;
+          v12 = v28;
           while ( 1 )
           {
             v13 = -1LL;
@@ -97,47 +100,47 @@ LABEL_18:
             {
               if ( !strcmp(v11, *(const char **)a2) )
               {
-                memmove(v11, &v11[v25 + 1], v10 - (_QWORD)&v11[v25 + 1]);
+                memmove(v11, &v11[v28 + 1], v10 - (_QWORD)&v11[v28 + 1]);
                 v8[3] -= v9 + 1;
-                v15 = 0;
-                v16 = 0;
+                v18 = 0;
+                v19 = 0;
                 v8[4] = v8[3];
                 ++*(_DWORD *)(*(_QWORD *)(a1 + 16) + 12LL);
                 *Internal = 0;
                 --*(_DWORD *)(*(_QWORD *)(a1 + 16) + 32LL);
-                v17 = *(_DWORD **)(a1 + 16);
-                if ( v17[1] )
+                v20 = *(_DWORD **)(a1 + 16);
+                if ( v20[1] )
                 {
-                  v18 = *(_DWORD **)(a1 + 16);
+                  v21 = *(_DWORD **)(a1 + 16);
                   do
                   {
-                    v19 = v18[v16 + 13];
-                    if ( v19 )
+                    v22 = v21[v19 + 13];
+                    if ( v22 )
                     {
-                      v20 = v15++;
-                      PoolWithTag[v20] = v19;
-                      v17 = *(_DWORD **)(a1 + 16);
-                      v18 = v17;
-                      if ( v15 >= v17[8] )
+                      v23 = v18++;
+                      PoolWithTag[v23] = v22;
+                      v20 = *(_DWORD **)(a1 + 16);
+                      v21 = v20;
+                      if ( v18 >= v20[8] )
                         break;
                     }
-                    ++v16;
-                    v17 = v18;
+                    ++v19;
+                    v20 = v21;
                   }
-                  while ( v16 < v18[1] );
+                  while ( v19 < v21[1] );
                 }
-                memset(v17 + 13, 0, 4LL * (unsigned int)v17[1]);
-                v21 = *(_QWORD *)(a1 + 16);
-                for ( i = 0; i < *(_DWORD *)(v21 + 32); v21 = *(_QWORD *)(a1 + 16) )
+                memset(v20 + 13, 0, 4LL * (unsigned int)v20[1]);
+                v24 = *(_QWORD *)(a1 + 16);
+                for ( i = 0; i < *(_DWORD *)(v24 + 32); v24 = *(_QWORD *)(a1 + 16) )
                 {
-                  v23 = TelemetryCoverageTableLocateInternal(*(unsigned int **)(a1 + 16), PoolWithTag[i++]);
-                  *v23 = v24;
+                  v26 = TelemetryCoverageTableLocateInternal(*(unsigned int **)(a1 + 16), PoolWithTag[i++]);
+                  *v26 = v27;
                 }
                 v4 = 1;
-                *(_DWORD *)(a2 + 12) = *(_DWORD *)(v21 + 24);
+                *(_DWORD *)(a2 + 12) = *(_DWORD *)(v24 + 24);
                 break;
               }
-              v12 = v25;
+              v12 = v28;
             }
             v11 += v13 + 1;
             if ( (unsigned __int64)v11 >= v10 )
@@ -154,7 +157,7 @@ LABEL_19:
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCoverageLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&EtwpCoverageLock);
     KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
   }
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0x56777445u);

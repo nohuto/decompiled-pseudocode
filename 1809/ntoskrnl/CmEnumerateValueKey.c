@@ -1,24 +1,24 @@
 /*
- * XREFs of CmEnumerateValueKey @ 0x1405D4080
+ * XREFs of CmEnumerateValueKey @ 0x1405D5080
  * Callers:
- *     NtEnumerateValueKey @ 0x1405D3890 (NtEnumerateValueKey.c)
+ *     NtEnumerateValueKey @ 0x1405D4890 (NtEnumerateValueKey.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpGetKeyNodeForKcb @ 0x1405AA400 (CmpGetKeyNodeForKcb.c)
- *     CmpTryConvertKcbLockSharedToExclusive @ 0x1405CF40C (CmpTryConvertKcbLockSharedToExclusive.c)
- *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
- *     CmpQueryKeyValueData @ 0x1405D1B30 (CmpQueryKeyValueData.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpCleanUpKcbValueCache @ 0x1405D432C (CmpCleanUpKcbValueCache.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140693E50 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1407ED350 (CmEnumerateValueFromLayeredKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpGetKeyNodeForKcb @ 0x1405AB400 (CmpGetKeyNodeForKcb.c)
+ *     CmpTryConvertKcbLockSharedToExclusive @ 0x1405D040C (CmpTryConvertKcbLockSharedToExclusive.c)
+ *     CmpLockKcbExclusive @ 0x1405D2728 (CmpLockKcbExclusive.c)
+ *     CmpQueryKeyValueData @ 0x1405D2B30 (CmpQueryKeyValueData.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpCleanUpKcbValueCache @ 0x1405D532C (CmpCleanUpKcbValueCache.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405D78BC (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x140695010 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x1407EE550 (CmEnumerateValueFromLayeredKey.c)
  */
 
 __int64 __fastcall CmEnumerateValueKey(_QWORD *a1, unsigned int a2, int a3, _DWORD *a4, unsigned int a5, __int64 a6)

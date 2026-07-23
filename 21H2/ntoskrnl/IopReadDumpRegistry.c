@@ -1,13 +1,13 @@
 /*
- * XREFs of IopReadDumpRegistry @ 0x1403BFF74
+ * XREFs of IopReadDumpRegistry @ 0x1403C03A0
  * Callers:
- *     IoConfigureCrashDump @ 0x1403BFE04 (IoConfigureCrashDump.c)
- *     IopInitializeCrashDump @ 0x1407B77E8 (IopInitializeCrashDump.c)
+ *     IoConfigureCrashDump @ 0x1403C0230 (IoConfigureCrashDump.c)
+ *     IopInitializeCrashDump @ 0x1407B7D08 (IopInitializeCrashDump.c)
  * Callees:
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x140769C64 (IopOpenRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopReadDumpRegistry(__int64 a1, _DWORD *a2)

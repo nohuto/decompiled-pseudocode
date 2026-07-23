@@ -1,5 +1,5 @@
 /*
- * XREFs of KiVmbusInterrupt0Shadow @ 0x140C5A040
+ * XREFs of KiVmbusInterrupt0Shadow @ 0x140C60040
  * Callers:
  *     <none>
  * Callees:

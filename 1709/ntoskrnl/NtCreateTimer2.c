@@ -11,63 +11,69 @@
  *     ExRaiseDatatypeMisalignment @ 0x14075EBC0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateTimer2(__int64 *a1, unsigned __int64 a2, __int64 a3, int a4, ACCESS_MASK a5)
+NTSTATUS __cdecl NtCreateTimer2(
+        PHANDLE TimerHandle,
+        PVOID Reserved1,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Attributes,
+        ACCESS_MASK DesiredAccess)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char PreviousMode; // di
   __int64 v9; // rcx
-  int inserted; // ecx
+  NTSTATUS inserted; // ecx
   _QWORD *v11; // rdi
   __int64 v12; // [rsp+20h] [rbp-48h]
   PVOID Object; // [rsp+50h] [rbp-18h] BYREF
   __int64 v14; // [rsp+58h] [rbp-10h] BYREF
   unsigned int v15; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( a4 != 2 && a4 != 8 )
-    return 3221225714LL;
-  if ( a3 )
-    return 3221225713LL;
-  if ( a2 && a4 != 2 )
-    return 3221225712LL;
+  if ( Attributes != 2 && Attributes != 8 )
+    return -1073741582;
+  if ( ObjectAttributes )
+    return -1073741583;
+  if ( Reserved1 && Attributes != 2 )
+    return -1073741584;
   v15 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v9 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a1;
+    if ( (unsigned __int64)TimerHandle < 0x7FFFFFFF0000LL )
+      v9 = (__int64)TimerHandle;
     *(_QWORD *)v9 = *(_QWORD *)v9;
-    if ( a2 )
+    if ( Reserved1 )
     {
-      if ( (a2 & 3) != 0 )
+      if ( ((unsigned __int8)Reserved1 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( a2 + 4 > 0x7FFFFFFF0000LL || a2 + 4 < a2 )
+      if ( (unsigned __int64)Reserved1 + 4 > 0x7FFFFFFF0000LL || (char *)Reserved1 + 4 < Reserved1 )
         MEMORY[0x7FFFFFFF0000] = 0;
-      v15 = *(_DWORD *)a2;
+      v15 = *(_DWORD *)Reserved1;
     }
   }
-  else if ( a2 )
+  else if ( Reserved1 )
   {
-    v15 = *(_DWORD *)a2;
+    v15 = *(_DWORD *)Reserved1;
   }
-  if ( a4 != 2 || (LOBYTE(a2) = PreviousMode, result = ExpCheckIRTimerAccess(v15, a2), (int)result >= 0) )
+  if ( Attributes != 2
+    || (LOBYTE(Reserved1) = PreviousMode, result = ExpCheckIRTimerAccess(v15, Reserved1), result >= 0) )
   {
     inserted = ObCreateObjectEx(PreviousMode, ExpIRTimerObjectType, 0LL, PreviousMode, v12, 168, 0, 0, &Object, 0LL);
     if ( inserted >= 0 )
     {
       v11 = Object;
-      if ( a4 == 2 )
+      if ( Attributes == 2 )
         KeInitializeIRTimer((__int64)Object, 0LL, 0LL, (unsigned __int8 *)&v15, 2);
       else
         KeInitializeTimer2((__int64)Object);
       v11[17] = 0LL;
-      *((_DWORD *)v11 + 40) = a4;
-      inserted = ObInsertObjectEx(v11, 0LL, a5, 0, 0, 0LL, (unsigned __int64 *)&v14);
+      *((_DWORD *)v11 + 40) = Attributes;
+      inserted = ObInsertObjectEx(v11, 0LL, DesiredAccess, 0, 0, 0LL, (unsigned __int64 *)&v14);
       v15 = inserted;
       if ( inserted >= 0 )
-        *a1 = v14;
+        *TimerHandle = (HANDLE)v14;
     }
-    return (unsigned int)inserted;
+    return inserted;
   }
   return result;
 }

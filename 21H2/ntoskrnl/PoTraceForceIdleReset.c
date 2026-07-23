@@ -1,13 +1,13 @@
 /*
- * XREFs of PoTraceForceIdleReset @ 0x14056FCC8
+ * XREFs of PoTraceForceIdleReset @ 0x14056FF08
  * Callers:
- *     KiResetForceIdle @ 0x140523620 (KiResetForceIdle.c)
+ *     KiResetForceIdle @ 0x140523860 (KiResetForceIdle.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PoTraceForceIdleReset(int a1)
@@ -31,7 +31,7 @@ void __fastcall PoTraceForceIdleReset(int a1)
     v7 = 4;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02228,
-      (unsigned __int8 *)byte_140027C71,
+      (unsigned __int8 *)&dword_1400283C4,
       0LL,
       0LL,
       3u,

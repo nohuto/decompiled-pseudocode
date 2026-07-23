@@ -1,16 +1,16 @@
 /*
- * XREFs of IopConnectMessageBasedInterrupt @ 0x140761E54
+ * XREFs of IopConnectMessageBasedInterrupt @ 0x140762014
  * Callers:
- *     IoConnectInterruptEx @ 0x140761BD0 (IoConnectInterruptEx.c)
+ *     IoConnectInterruptEx @ 0x140761D90 (IoConnectInterruptEx.c)
  * Callees:
- *     HalGetMessageRoutingInfo @ 0x140377380 (HalGetMessageRoutingInfo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x1407628FC (IopGetInterruptConnectionData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalGetMessageRoutingInfo @ 0x140376ED0 (HalGetMessageRoutingInfo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoDisconnectInterrupt @ 0x140761BD0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14076238C (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x140762ABC (IopGetInterruptConnectionData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopConnectMessageBasedInterrupt(

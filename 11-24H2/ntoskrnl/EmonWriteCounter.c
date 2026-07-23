@@ -1,8 +1,8 @@
 /*
- * XREFs of EmonWriteCounter @ 0x14055EA24
+ * XREFs of EmonWriteCounter @ 0x14055C654
  * Callers:
- *     EmonRestartProfilingInternalEnhanced @ 0x14055E0E0 (EmonRestartProfilingInternalEnhanced.c)
- *     EmonRestartProfilingInternalOriginal @ 0x14055E1FC (EmonRestartProfilingInternalOriginal.c)
+ *     EmonRestartProfilingInternalEnhanced @ 0x14055BD10 (EmonRestartProfilingInternalEnhanced.c)
+ *     EmonRestartProfilingInternalOriginal @ 0x14055BE2C (EmonRestartProfilingInternalOriginal.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsAllocateAffinityToken @ 0x14036E950
+ * XREFs of PsAllocateAffinityToken @ 0x14036EAF0
  * Callers:
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

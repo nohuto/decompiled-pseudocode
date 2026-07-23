@@ -1,35 +1,38 @@
 /*
- * XREFs of PopIsInputSuppressionEngaged @ 0x140A37828
+ * XREFs of PopIsInputSuppressionEngaged @ 0x140A3AD68
  * Callers:
- *     PopPowerAggregatorHandleActiveIntent @ 0x140A376A0 (PopPowerAggregatorHandleActiveIntent.c)
- *     PopMonitorInvocation @ 0x140AC930C (PopMonitorInvocation.c)
+ *     PopPowerAggregatorHandleActiveIntent @ 0x140A3ABE0 (PopPowerAggregatorHandleActiveIntent.c)
+ *     PopMonitorInvocation @ 0x140AC7244 (PopMonitorInvocation.c)
  * Callees:
- *     <none>
+ *     Feature_NU4MP__private_IsEnabledDeviceUsageNoInline @ 0x1405CA3E4 (Feature_NU4MP__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 bool __fastcall PopIsInputSuppressionEngaged(int a1)
 {
-  char v1; // dl
+  char v1; // bl
   int v2; // ecx
   int v3; // ecx
   int v4; // ecx
+  int v5; // ecx
   int v6; // ecx
   int v7; // ecx
-  int v8; // ecx
+  char v8; // di
+  bool v9; // si
+  bool v10; // bp
 
   v1 = 0;
   if ( a1 > 36 )
   {
-    v6 = a1 - 37;
-    if ( v6 )
+    v5 = a1 - 37;
+    if ( v5 )
     {
-      v7 = v6 - 1;
-      if ( v7 )
+      v6 = v5 - 1;
+      if ( v6 )
       {
-        v8 = v7 - 1;
-        if ( v8 )
+        v7 = v6 - 1;
+        if ( v7 )
         {
-          if ( v8 != 15 )
+          if ( v7 != 15 )
             return v1;
         }
       }
@@ -52,13 +55,18 @@ bool __fastcall PopIsInputSuppressionEngaged(int a1)
       }
     }
   }
-  if ( PopEnableInputSuppression
-    && !PopErrataReportingIncorrectLidState
-    && !PopLidOpened
-    && (PopInputSuppressionIgnorePowerSource || dword_140F0BA4C == 1)
-    && !PopConsoleExternalDisplayConnected )
+  if ( PopEnableInputSuppression )
   {
-    return PopConsoleDisplayState == 0;
+    v8 = PopConsoleExternalDisplayConnected;
+    v9 = PopLidOpened == 0;
+    v10 = dword_140F0B38C == 1;
+    if ( (unsigned int)Feature_NU4MP__private_IsEnabledDeviceUsageNoInline() )
+    {
+      if ( v8 || (v8 = 0, PopUsb4DisplayPresent) )
+        v8 = 1;
+    }
+    if ( !PopErrataReportingIncorrectLidState && v9 && (PopInputSuppressionIgnorePowerSource || v10) && !v8 )
+      return PopConsoleDisplayState == 0;
   }
   return v1;
 }

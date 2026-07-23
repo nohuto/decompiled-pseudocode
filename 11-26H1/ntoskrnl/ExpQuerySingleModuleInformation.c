@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpQuerySingleModuleInformation @ 0x14077AC20
+ * XREFs of ExpQuerySingleModuleInformation @ 0x14077DB50
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     MmLockLoadedDataTableEntryShared @ 0x1404D9298 (MmLockLoadedDataTableEntryShared.c)
- *     MmUnlockLoadedDataTableEntryShared @ 0x1406FD1D0 (MmUnlockLoadedDataTableEntryShared.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140AB8D68 (ExpConvertLdrEntryToModuleInfo.c)
+ *     MmLockLoadedDataTableEntryShared @ 0x1404D2978 (MmLockLoadedDataTableEntryShared.c)
+ *     MmUnlockLoadedDataTableEntryShared @ 0x140701EA0 (MmUnlockLoadedDataTableEntryShared.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x14097E258 (ExpConvertLdrEntryToModuleInfo.c)
  */
 
 __int64 __fastcall ExpQuerySingleModuleInformation(__int64 a1, unsigned int a2, char a3, _DWORD *a4)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PipCreateComputerId @ 0x1409C9B84
+ * XREFs of PipCreateComputerId @ 0x1409CAB84
  * Callers:
- *     PipInitComputerIds @ 0x1409C8C60 (PipInitComputerIds.c)
+ *     PipInitComputerIds @ 0x1409C9C60 (PipInitComputerIds.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfExW @ 0x140128CB8 (RtlStringCbPrintfExW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _PnpStringFromGuid @ 0x14059ACE4 (_PnpStringFromGuid.c)
- *     RtlGenerateClass5Guid @ 0x14073BE90 (RtlGenerateClass5Guid.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfExW @ 0x140128D88 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _PnpStringFromGuid @ 0x14059BCE4 (_PnpStringFromGuid.c)
+ *     RtlGenerateClass5Guid @ 0x14073D080 (RtlGenerateClass5Guid.c)
  */
 
 __int64 __fastcall PipCreateComputerId(void *a1, void *a2, _WORD **a3, unsigned int a4, int *a5)
@@ -77,7 +77,7 @@ __int64 __fastcall PipCreateComputerId(void *a1, void *a2, _WORD **a3, unsigned 
       while ( v5 < a4 );
       *(_WORD *)v17 = 0;
       DataSize = v14;
-      Class5Guid = RtlGenerateClass5Guid((__int64)&unk_140358CC0, Data, (unsigned int)v14 - 2, (__int64)a5);
+      Class5Guid = RtlGenerateClass5Guid((__int64)&unk_140359BB0, Data, (unsigned int)v14 - 2, (__int64)a5);
       if ( Class5Guid >= 0 )
       {
         Class5Guid = PnpStringFromGuid(a5, SourceString);

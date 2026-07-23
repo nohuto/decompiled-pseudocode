@@ -14,15 +14,15 @@ void WheapLoadPolicy()
 {
   unsigned int v0; // ebx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  int v2; // [rsp+50h] [rbp+10h] BYREF
-  int v3; // [rsp+58h] [rbp+18h]
-  int v4; // [rsp+60h] [rbp+20h]
+  ULONG Type; // [rsp+50h] [rbp+10h] BYREF
+  ULONG ResultDataSize; // [rsp+58h] [rbp+18h] BYREF
+  int Data; // [rsp+60h] [rbp+20h] BYREF
 
   v0 = 0;
   BYTE2(WheapDispatchPtr.AttachedDevice) = 6;
-  v3 = 0;
-  v2 = 0;
-  v4 = 0;
+  ResultDataSize = 0;
+  Type = 0;
+  Data = 0;
   DestinationString = 0LL;
   LODWORD(WheapDispatchPtr.DriverObject) = 0;
   LOWORD(WheapDispatchPtr.AttachedDevice) = 0;
@@ -34,8 +34,12 @@ void WheapLoadPolicy()
   if ( !byte_140E0948C )
   {
     RtlInitUnicodeString(&DestinationString, L"Kernel-PersistDefectiveMemoryList");
-    if ( (int)ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v2) >= 0 && v2 == 4 && v3 == 4 )
-      *(_BYTE *)off_140E09478 = v4 != 0;
+    if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) >= 0
+      && Type == 4
+      && ResultDataSize == 4 )
+    {
+      *(_BYTE *)off_140E09478 = Data != 0;
+    }
   }
   if ( !*(_DWORD *)off_140E094B8 || !*(_DWORD *)off_140E094D8 )
     *(_BYTE *)off_140E09498 = 1;

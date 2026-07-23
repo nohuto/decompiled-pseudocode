@@ -1,9 +1,9 @@
 /*
- * XREFs of SshpBlockerActiveReferenceOperationCallback @ 0x14044DDDC
+ * XREFs of SshpBlockerActiveReferenceOperationCallback @ 0x140444CDC
  * Callers:
- *     SshpIterateParentBlockers @ 0x14044DD1C (SshpIterateParentBlockers.c)
+ *     SshpIterateParentBlockers @ 0x140444C1C (SshpIterateParentBlockers.c)
  * Callees:
- *     SshpSetBlockerActive @ 0x14044DE60 (SshpSetBlockerActive.c)
+ *     SshpSetBlockerActive @ 0x140444D60 (SshpSetBlockerActive.c)
  */
 
 char __fastcall SshpBlockerActiveReferenceOperationCallback(_DWORD *a1, __int64 a2, __int64 a3)

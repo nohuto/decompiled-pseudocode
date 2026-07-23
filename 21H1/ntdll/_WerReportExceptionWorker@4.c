@@ -13,19 +13,18 @@
 
 NTSTATUS __stdcall WerReportExceptionWorker(int a1)
 {
-  HANDLE v1; // esi
+  void *v1; // esi
   NTSTATUS v2; // esi
-  int v4; // [esp+4h] [ebp-8h] BYREF
-  int v5; // [esp+8h] [ebp-4h] BYREF
+  ULONG_PTR RegionSize; // [esp+4h] [ebp-8h] BYREF
 
-  v4 = 0;
-  v5 = a1;
-  RtlReportExceptionEx((_DWORD *)(a1 + 8), (const void *)2, *(_DWORD *)(a1 + 4) & 0x1F, -1, *(HANDLE *)a1);
-  v1 = *(HANDLE *)a1;
-  NtFreeVirtualMemory(-1, (int)&v5, (int)&v4, 0x8000);
-  ZwSetInformationThread((int)v1, 46, (int)&dword_4B294DCC, 4);
-  ZwResumeThread((int)v1, 0);
+  LODWORD(RegionSize) = 0;
+  HIDWORD(RegionSize) = a1;
+  RtlReportExceptionEx((PEXCEPTION_RECORD)(a1 + 8), (PCONTEXT)2, *(_DWORD *)(a1 + 4) & 0x1F, (PLARGE_INTEGER)0xFFFFFFFF);
+  v1 = *(void **)a1;
+  NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
+  ZwSetInformationThread(v1, ThreadDbgkWerReportActive, &dword_4B294DCC, 4u);
+  ZwResumeThread(v1, 0);
   v2 = NtClose(v1);
-  ZwTerminateThread(-2, 0);
+  ZwTerminateThread((HANDLE)0xFFFFFFFE, 0);
   return v2;
 }

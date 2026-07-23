@@ -1,108 +1,115 @@
 /*
- * XREFs of MiMarkLargePageRanges @ 0x140C4FF0C
+ * XREFs of MiMarkLargePageRanges @ 0x140C5209C
  * Callers:
- *     MiInitializePhysicalMemoryBlocks @ 0x140C4FB34 (MiInitializePhysicalMemoryBlocks.c)
+ *     MiInitializePhysicalMemoryBlocks @ 0x140C51CC4 (MiInitializePhysicalMemoryBlocks.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x1403A29EC (MiUpdateLargePageBitMap.c)
- *     MiFindDescriptorByPfn @ 0x140C4F100 (MiFindDescriptorByPfn.c)
- *     MiMarkLargePageMappings @ 0x140C4FDDC (MiMarkLargePageMappings.c)
+ *     MiUpdateLargePageBitMap @ 0x140219EE0 (MiUpdateLargePageBitMap.c)
+ *     MiFindDescriptorByPfn @ 0x140C51290 (MiFindDescriptorByPfn.c)
+ *     MiMarkLargePageMappings @ 0x140C51F6C (MiMarkLargePageMappings.c)
  */
 
-void __fastcall MiMarkLargePageRanges(__int64 a1)
+char __fastcall MiMarkLargePageRanges(__int64 a1)
 {
-  unsigned int v2; // ebp
-  __int64 v3; // r14
-  __int64 v4; // rcx
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // rcx
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rbx
-  unsigned __int64 v9; // r11
-  unsigned __int64 v10; // r12
-  __int64 v11; // rsi
-  unsigned __int64 v12; // r15
+  unsigned __int64 v2; // rax
+  unsigned int v3; // ebp
+  __int64 v4; // r14
+  __int64 v5; // rcx
+  unsigned __int64 v6; // rdx
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rdi
+  unsigned __int64 v9; // rbx
+  unsigned __int64 v10; // r11
+  unsigned __int64 v11; // r12
+  __int64 v12; // rsi
+  unsigned __int64 v13; // r15
   unsigned __int64 DescriptorByPfn; // rax
-  __int64 v14; // r11
-  int v15; // ecx
-  __int64 v16; // rax
+  __int64 v15; // r11
+  int v16; // ecx
   unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rax
 
   MiMarkLargePageMappings();
-  v2 = *(_DWORD *)MmPhysicalMemoryBlock;
+  LOBYTE(v2) = (_BYTE)MmPhysicalMemoryBlock;
+  v3 = *(_DWORD *)MmPhysicalMemoryBlock;
   if ( *(_DWORD *)MmPhysicalMemoryBlock )
   {
-    v3 = 16LL * v2;
+    v4 = 16LL * v3;
     do
     {
-      v3 -= 16LL;
-      --v2;
-      v4 = *(_QWORD *)((char *)MmPhysicalMemoryBlock + v3 + 16);
-      v5 = (v4 + *(_QWORD *)((char *)MmPhysicalMemoryBlock + v3 + 24)) & 0xFFFFFFFFFFFFFE00uLL;
-      v6 = (v4 + 511) & 0xFFFFFFFFFFFFFE00uLL;
-      if ( v6 )
+      LOBYTE(v2) = (_BYTE)MmPhysicalMemoryBlock;
+      v4 -= 16LL;
+      --v3;
+      v5 = *(_QWORD *)((char *)MmPhysicalMemoryBlock + v4 + 16);
+      v6 = (v5 + *(_QWORD *)((char *)MmPhysicalMemoryBlock + v4 + 24)) & 0xFFFFFFFFFFFFFE00uLL;
+      v7 = (v5 + 511) & 0xFFFFFFFFFFFFFE00uLL;
+      if ( v7 )
       {
-        if ( v6 < v5 )
+        if ( v7 < v6 )
         {
-          v7 = -1LL;
-          v8 = 0LL;
-          v9 = 48 * v6 - 0x220000000000LL;
-          v10 = v9 + 48 * (v5 - v6);
-          if ( v9 < v10 )
+          v8 = -1LL;
+          v9 = 0LL;
+          LOBYTE(v2) = 0;
+          v10 = 48 * v7 - 0x220000000000LL;
+          v11 = v10 + 48 * (v6 - v7);
+          if ( v10 < v11 )
           {
             do
             {
-              if ( (*(_QWORD *)(v9 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0
-                && (*(_BYTE *)(v9 + 34) & 7) == 6
-                && (*(_QWORD *)(v9 + 40) & 0xFFFFFFFFFFLL) == 0x3FFFFFFFFELL )
+              if ( (*(_QWORD *)(v10 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 0
+                && (*(_BYTE *)(v10 + 34) & 7) == 6
+                && (*(_QWORD *)(v10 + 40) & 0xFFFFFFFFFFLL) == 0x3FFFFFFFFELL )
               {
-                v11 = 1LL;
-                v12 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v9 + 0x220000000000LL) >> 4);
-                if ( !v8 )
-                  v7 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v9 + 0x220000000000LL) >> 4);
+                v12 = 1LL;
+                v13 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v10 + 0x220000000000LL) >> 4);
+                if ( !v9 )
+                  v8 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v10 + 0x220000000000LL) >> 4);
                 DescriptorByPfn = MiFindDescriptorByPfn(
                                     a1,
-                                    0xAAAAAAAAAAAAAAABuLL * ((__int64)(v9 + 0x220000000000LL) >> 4));
+                                    0xAAAAAAAAAAAAAAABuLL * ((__int64)(v10 + 0x220000000000LL) >> 4));
                 if ( DescriptorByPfn )
                 {
-                  v15 = *(_DWORD *)(DescriptorByPfn + 24);
-                  if ( (v15 & 0x20000000) == 0 && v15 != 2 && v15 != 24 )
-                    v11 = *(_QWORD *)(DescriptorByPfn + 32) + *(_QWORD *)(DescriptorByPfn + 40) - v12;
+                  v16 = *(_DWORD *)(DescriptorByPfn + 24);
+                  if ( (v16 & 0x20000000) == 0 && v16 != 2 && v16 != 24 )
+                    v12 = *(_QWORD *)(DescriptorByPfn + 32) + *(_QWORD *)(DescriptorByPfn + 40) - v13;
                 }
-                v8 += v11;
-                v16 = 48 * v11;
+                v9 += v12;
+                v2 = 48 * v12;
               }
               else
               {
-                if ( v8 < 0x200 )
+                if ( v9 < 0x200 )
                 {
-                  if ( !v8 )
-                    v7 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v9 + 0x220000000000LL) >> 4);
+                  if ( !v9 )
+                    v8 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v10 + 0x220000000000LL) >> 4);
                 }
                 else
                 {
-                  v8 &= 0xFFFFFFFFFFFFFE00uLL;
-                  MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v7, v8, 3);
+                  v9 &= 0xFFFFFFFFFFFFFE00uLL;
+                  MiUpdateLargePageBitMap((unsigned __int64)&MiSystemPartition, v8, v9, 3);
                 }
-                v17 = v8 + 512;
-                v8 = 0LL;
-                v18 = (v7 + v17) & 0xFFFFFFFFFFFFFE00uLL;
-                if ( !v18 )
+                v17 = v9 + 512;
+                v9 = 0LL;
+                v2 = (v8 + v17) & 0xFFFFFFFFFFFFFE00uLL;
+                if ( !v2 )
                   goto LABEL_26;
-                v14 = 48 * v18;
-                v16 = 0xFFFFDE0000000000uLL;
+                v15 = 48 * v2;
+                v2 = 0xFFFFDE0000000000uLL;
               }
-              v9 = v16 + v14;
+              v10 = v2 + v15;
             }
-            while ( v9 < v10 );
-            if ( v8 >= 0x200 )
-              MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v7, v8 & 0xFFFFFFFFFFFFFE00uLL, 3);
+            while ( v10 < v11 );
+            if ( v9 >= 0x200 )
+              LOBYTE(v2) = MiUpdateLargePageBitMap(
+                             (unsigned __int64)&MiSystemPartition,
+                             v8,
+                             v9 & 0xFFFFFFFFFFFFFE00uLL,
+                             3);
           }
         }
       }
 LABEL_26:
       ;
     }
-    while ( v2 );
+    while ( v3 );
   }
+  return v2;
 }

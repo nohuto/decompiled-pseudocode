@@ -1,8 +1,8 @@
 /*
- * XREFs of MiConvertCrossPartitionChargeTypeToAggregate @ 0x140503864
+ * XREFs of MiConvertCrossPartitionChargeTypeToAggregate @ 0x1404FD134
  * Callers:
- *     MiReturnCrossPartitionCharge @ 0x1405037E4 (MiReturnCrossPartitionCharge.c)
- *     MiApplyCrossPartitionCharges @ 0x1405058F4 (MiApplyCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharge @ 0x1404FD0B4 (MiReturnCrossPartitionCharge.c)
+ *     MiApplyCrossPartitionCharges @ 0x1404FF1A4 (MiApplyCrossPartitionCharges.c)
  * Callees:
  *     <none>
  */

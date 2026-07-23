@@ -19,19 +19,19 @@ __int64 PopWnfHibernatePolicyCallback()
   __int64 v2; // rdx
   __int64 v3; // rcx
   __int64 v4; // r8
-  bool v6; // [rsp+20h] [rbp-18h] BYREF
-  unsigned int v7[5]; // [rsp+24h] [rbp-14h] BYREF
+  __int64 v5; // r9
+  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v7[0] = 0;
-  v6 = 0;
-  HiberPersistedRegValue = PopQueryHiberPersistedRegValue(3, v7);
+  HIDWORD(v7[0]) = 0;
+  LOBYTE(v7[0]) = 0;
+  HiberPersistedRegValue = PopQueryHiberPersistedRegValue(3, (unsigned int *)v7 + 1);
   if ( HiberPersistedRegValue >= 0 )
   {
     PopAcquireTransitionLock(2);
     PopAcquirePolicyLock(v1);
-    PopAllowHibernateReg = v7[0];
-    HiberPersistedRegValue = PopHibernateEvaluation(1, 1, &v6);
-    PopReleasePolicyLock(v3, v2, v4);
+    PopAllowHibernateReg = HIDWORD(v7[0]);
+    HiberPersistedRegValue = PopHibernateEvaluation(1, 1, (bool *)v7);
+    PopReleasePolicyLock(v3, v2, v4, v5, v7[0], v7[1]);
     PopReleaseTransitionLock(2);
     PopTraceHibernatePolicyUpdate();
   }

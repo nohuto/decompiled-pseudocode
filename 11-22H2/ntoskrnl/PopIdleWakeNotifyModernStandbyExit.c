@@ -23,19 +23,22 @@ void PopIdleWakeNotifyModernStandbyExit()
   int v7; // eax
   bool v8; // zf
   LARGE_INTEGER v9; // rbx
-  LARGE_INTEGER v10; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = PopWnfCsEnterScenarioId;
-  v10.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
   v2 = (char *)PopIdleWakeContext;
   PopIdleWakeContext = 0LL;
   v3 = v1;
   KxReleaseSpinLock((volatile signed __int64 *)&PopIdleWakeContextLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -49,8 +52,8 @@ void PopIdleWakeNotifyModernStandbyExit()
   __writecr8(v3);
   if ( v2 )
   {
-    RtlGetInterruptTimePrecise(&v10);
-    v9 = v10;
+    RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v9 = PerformanceCounter;
     PopIdleWakeStopActiveIntervalAccounting(v2);
     *((_QWORD *)v2 + 4758) = v0;
     *((LARGE_INTEGER *)v2 + 4759) = v9;

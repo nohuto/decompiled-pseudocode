@@ -28,7 +28,7 @@ __int64 __fastcall PopDirectedDripsStartDisengageTimer(int a1)
   v7[1] = -1LL;
   if ( !KeCancelTimer2((__int64)(v1 + 3)) && ++*((_DWORD *)v1 + 5) == 1 )
     PopDirectedDripsSetDisengageReason(*(_DWORD *)v1);
-  KeSetTimer2((__int64)(v1 + 3), -10000000LL * *((unsigned int *)v1 + 1), 0LL, v7);
+  KeSetTimer2((__int64)(v1 + 3), -10000000LL * *((unsigned int *)v1 + 1), 0LL, (__int64)v7);
   ++*((_DWORD *)v1 + 4);
   KxReleaseSpinLock(v1 + 1);
   result = (unsigned int)KiIrqlFlags;

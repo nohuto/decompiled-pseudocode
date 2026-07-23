@@ -20,11 +20,11 @@
 int __fastcall RtlpHpMetadataAlloc(unsigned int a1, unsigned int a2, int a3, int a4, int a5)
 {
   int v5; // ebx
-  int *v9; // [esp+10h] [ebp-10h]
+  _DWORD **v9; // [esp+10h] [ebp-10h]
 
   v5 = 0;
-  v9 = (int *)RtlpHpMetadataHeapCtxGet(a4, a5);
-  if ( (int)RtlpHpMetadataHeapStart(a4, 0) >= 0 )
+  v9 = (_DWORD **)RtlpHpMetadataHeapCtxGet(a4, a5);
+  if ( RtlpHpMetadataHeapStart(a4, 0) >= 0 )
   {
     if ( a3 )
       return RtlpHpSegAlloc(a1, a2, a2 < a1 ? 83886080 : 0x1000000);

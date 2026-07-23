@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWnfDeleteSubscription @ 0x1404C1E2C
+ * XREFs of ExpWnfDeleteSubscription @ 0x1404ADB5C
  * Callers:
- *     ExUnsubscribeWnfStateChange @ 0x1404C19F8 (ExUnsubscribeWnfStateChange.c)
- *     ExpWnfDeleteProcessContext @ 0x1404C1A24 (ExpWnfDeleteProcessContext.c)
- *     NtUnsubscribeWnfStateChange @ 0x1404C1CA8 (NtUnsubscribeWnfStateChange.c)
+ *     ExUnsubscribeWnfStateChange @ 0x1404AD728 (ExUnsubscribeWnfStateChange.c)
+ *     ExpWnfDeleteProcessContext @ 0x1404AD754 (ExpWnfDeleteProcessContext.c)
+ *     NtUnsubscribeWnfStateChange @ 0x1404AD9D8 (NtUnsubscribeWnfStateChange.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1404630B4 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140461F84 (ExpWnfNotifyNameSubscribers.c)
  */
 
 void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, PEPROCESS a2)

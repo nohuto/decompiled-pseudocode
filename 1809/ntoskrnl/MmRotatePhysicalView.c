@@ -1,5 +1,5 @@
 /*
- * XREFs of MmRotatePhysicalView @ 0x14066B910
+ * XREFs of MmRotatePhysicalView @ 0x14066CAD0
  * Callers:
  *     <none>
  * Callees:
@@ -8,27 +8,27 @@
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
- *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
- *     MiSanitizePage @ 0x1400E63D4 (MiSanitizePage.c)
- *     MmBuildMdlForNonPagedPool @ 0x140101FC0 (MmBuildMdlForNonPagedPool.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010FC38 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MmSizeOfMdl @ 0x14011A740 (MmSizeOfMdl.c)
- *     MiReplaceRotateWithDemandZero @ 0x1401229F0 (MiReplaceRotateWithDemandZero.c)
- *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
- *     MiDeleteRotateAndStopFaults @ 0x14013A0F0 (MiDeleteRotateAndStopFaults.c)
- *     MiRotateComplete @ 0x14013A66C (MiRotateComplete.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MiMarkMdlComplete @ 0x1402AF414 (MiMarkMdlComplete.c)
- *     MiSlowRotateCopy @ 0x1402AF538 (MiSlowRotateCopy.c)
- *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiLogVirtualRotateEvent @ 0x14084F36C (MiLogVirtualRotateEvent.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiIsPfn @ 0x1400A8820 (MiIsPfn.c)
+ *     MiReferenceIoPages @ 0x1400E602C (MiReferenceIoPages.c)
+ *     MiSanitizePage @ 0x1400E6454 (MiSanitizePage.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140102040 (MmBuildMdlForNonPagedPool.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010FCB8 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MmSizeOfMdl @ 0x14011A7B0 (MmSizeOfMdl.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140122AC0 (MiReplaceRotateWithDemandZero.c)
+ *     MiDereferenceIoPages @ 0x140123704 (MiDereferenceIoPages.c)
+ *     MiDeleteRotateAndStopFaults @ 0x14013A1F0 (MiDeleteRotateAndStopFaults.c)
+ *     MiRotateComplete @ 0x14013A76C (MiRotateComplete.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MiMarkMdlComplete @ 0x1402AF604 (MiMarkMdlComplete.c)
+ *     MiSlowRotateCopy @ 0x1402AF728 (MiSlowRotateCopy.c)
+ *     MiSwitchToTransition @ 0x1402AF830 (MiSwitchToTransition.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiLogVirtualRotateEvent @ 0x1408505CC (MiLogVirtualRotateEvent.c)
  */
 
 NTSTATUS __stdcall MmRotatePhysicalView(

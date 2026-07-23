@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdatePagefilePeakUsage @ 0x14047FC40
+ * XREFs of MiUpdatePagefilePeakUsage @ 0x140479588
  * Callers:
- *     MiModwriterConfirmMdl @ 0x140408738 (MiModwriterConfirmMdl.c)
- *     MiStoreWriteModifiedPagePrepare @ 0x1404091C0 (MiStoreWriteModifiedPagePrepare.c)
+ *     MiModwriterConfirmMdl @ 0x140401828 (MiModwriterConfirmMdl.c)
+ *     MiStoreWriteModifiedPagePrepare @ 0x1404022B0 (MiStoreWriteModifiedPagePrepare.c)
  * Callees:
  *     <none>
  */

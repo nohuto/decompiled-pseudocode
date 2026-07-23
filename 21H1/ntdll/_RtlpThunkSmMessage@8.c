@@ -10,6 +10,7 @@ int __fastcall RtlpThunkSmMessage(int a1, int a2)
 {
   int v4; // eax
   int v5; // eax
+  size_t v7; // [esp-4h] [ebp-Ch]
 
   switch ( *(_DWORD *)(a1 + 24) )
   {
@@ -46,12 +47,14 @@ int __fastcall RtlpThunkSmMessage(int a1, int a2)
       break;
     case 4:
       *(_DWORD *)(a2 + 32) = *(_DWORD *)(a1 + 32);
-      memcpy((void *)(a2 + 36), (const void *)(a1 + 36), *(_DWORD *)(a1 + 32));
+      LODWORD(v7) = *(_DWORD *)(a1 + 32);
+      memcpy((void *)(a2 + 36), (const void *)(a1 + 36), v7);
       break;
     case 5:
       *(_DWORD *)(a2 + 36) = *(_DWORD *)(a1 + 36);
       *(_DWORD *)(a2 + 32) = *(_DWORD *)(a1 + 32);
-      memcpy((void *)(a2 + 40), (const void *)(a1 + 40), *(_DWORD *)(a1 + 36));
+      LODWORD(v7) = *(_DWORD *)(a1 + 36);
+      memcpy((void *)(a2 + 40), (const void *)(a1 + 40), v7);
       break;
     case 6:
       *(_DWORD *)(a2 + 32) = *(_DWORD *)(a1 + 32);

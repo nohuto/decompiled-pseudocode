@@ -1,39 +1,39 @@
 /*
- * XREFs of EtwQueryPerformanceTraceInformation @ 0x14093E008
+ * XREFs of EtwQueryPerformanceTraceInformation @ 0x140A31120
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlFindSetBits @ 0x1403F7770 (RtlFindSetBits.c)
- *     ExUnlockUserBuffer @ 0x14040FE00 (ExUnlockUserBuffer.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     EtwpUMGLEnabled @ 0x14082853C (EtwpUMGLEnabled.c)
- *     EtwpGetSoftRestartInformation @ 0x14082E1A8 (EtwpGetSoftRestartInformation.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1408EDBD0 (SeQuerySecurityDescriptorInfo.c)
- *     ExLockUserBuffer @ 0x140907E40 (ExLockUserBuffer.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     EtwpGetPmcProfileSource @ 0x14093D960 (EtwpGetPmcProfileSource.c)
- *     EtwpQueryCoverageSamplerInformation @ 0x14093E61C (EtwpQueryCoverageSamplerInformation.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
- *     EtwpCheckSystemTraceAccess @ 0x140A6F2BC (EtwpCheckSystemTraceAccess.c)
- *     EtwpCheckLoggerControlAccess @ 0x140A6FAA4 (EtwpCheckLoggerControlAccess.c)
- *     EtwpReferenceLoggerSecurityDescriptor @ 0x140A6FBA4 (EtwpReferenceLoggerSecurityDescriptor.c)
- *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140AAF534 (EtwpDereferenceLoggerSecurityDescriptor.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlFindSetBits @ 0x1403F1120 (RtlFindSetBits.c)
+ *     ExUnlockUserBuffer @ 0x14040F520 (ExUnlockUserBuffer.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     EtwpUMGLEnabled @ 0x14082E77C (EtwpUMGLEnabled.c)
+ *     EtwpGetSoftRestartInformation @ 0x1408343E8 (EtwpGetSoftRestartInformation.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1408F4190 (SeQuerySecurityDescriptorInfo.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpCheckLoggerControlAccess @ 0x14097A438 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReferenceLoggerSecurityDescriptor @ 0x14097A538 (EtwpReferenceLoggerSecurityDescriptor.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
+ *     ExLockUserBuffer @ 0x140A2FFA0 (ExLockUserBuffer.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x140A31734 (EtwpQueryCoverageSamplerInformation.c)
+ *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140AAD184 (EtwpDereferenceLoggerSecurityDescriptor.c)
+ *     EtwpCheckSystemTraceAccess @ 0x140AB2A20 (EtwpCheckSystemTraceAccess.c)
+ *     EtwpGetPmcProfileSource @ 0x140B712FC (EtwpGetPmcProfileSource.c)
  */
 
 __int64 __fastcall EtwQueryPerformanceTraceInformation(unsigned int *Src, unsigned int a2, char a3, unsigned int *a4)
@@ -41,67 +41,73 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(unsigned int *Src, unsign
   unsigned int v8; // edi
   int ULongFromUser; // esi
   struct _LIST_ENTRY *Flink; // rcx
+  __int64 v11; // r9
   __int64 result; // rax
-  int v13; // esi
-  __int64 v14; // rax
-  unsigned int v15; // edx
-  struct _KTHREAD *v16; // rax
-  unsigned int *v17; // rax
-  unsigned int *v18; // rsi
-  __int64 v19; // rax
-  unsigned int v20; // r8d
-  unsigned __int64 v21; // rax
-  unsigned int v22; // r13d
+  int v14; // esi
+  __int64 v15; // rax
+  unsigned int v16; // edx
+  struct _KTHREAD *v17; // rax
+  unsigned int *v18; // rax
+  unsigned int *v19; // rsi
+  __int64 v20; // rax
+  unsigned int v21; // r8d
+  unsigned __int64 v22; // rax
+  unsigned int v23; // r13d
   __int64 ULong64FromUser; // rax
   unsigned int Blink_low; // edx
   struct _KTHREAD *CurrentThread; // rax
-  ULONG v26; // eax
-  unsigned int v27; // ecx
-  ULONG v28; // r14d
-  _DWORD *v29; // r12
+  unsigned int *v27; // rax
+  ULONG v28; // eax
+  unsigned int v29; // ecx
+  DWORD v30; // r14d
+  _DWORD *v31; // r12
   ULONG SetBits; // eax
-  char *v31; // rcx
-  __int64 v32; // rax
-  unsigned int v33; // edx
-  __int64 v34; // rcx
-  struct _KTHREAD *v35; // rax
-  unsigned int *v36; // rax
-  unsigned int v37; // r13d
+  char *v33; // rcx
+  __int64 v34; // rax
+  unsigned int v35; // edx
+  __int64 v36; // rcx
+  struct _KTHREAD *v37; // rax
+  unsigned int *v38; // rax
+  HANDLE ProcessId; // rdx
+  unsigned int *v40; // r8
+  struct _KLOCK_ENTRIES *v41; // r9
+  unsigned int v42; // r13d
   struct _KPROCESS *i; // rcx
-  int v39; // esi
-  int v40; // esi
-  int v41; // esi
-  _DWORD *v42; // rcx
-  _DWORD *v43; // rcx
-  _DWORD *v44; // rcx
-  __int64 v45; // rdi
-  unsigned int v46; // edx
-  __int64 v47; // rcx
-  struct _KTHREAD *v48; // rax
-  unsigned int *v49; // rax
-  void *v50; // rbx
-  char v51; // dl
-  struct _LIST_ENTRY *v52; // rcx
-  __int64 v53; // rdx
-  unsigned int v54; // eax
-  size_t v55; // r8
-  void *v56; // rdx
-  struct _KPROCESS *NextProcess; // rax
-  struct _KPROCESS *v58; // rdi
-  int ProcessId; // edx
-  unsigned int v60; // eax
-  unsigned int *v61; // r8
-  _DWORD *v62; // rcx
-  _DWORD *v63; // rcx
-  ULONG v64; // [rsp+30h] [rbp-A8h]
-  unsigned int v65; // [rsp+30h] [rbp-A8h]
+  int v44; // esi
+  int v45; // esi
+  int v46; // esi
+  _DWORD *v47; // rcx
+  _DWORD *v48; // rcx
+  _DWORD *v49; // rcx
+  __int64 v50; // rdi
+  unsigned int v51; // edx
+  __int64 v52; // rcx
+  struct _KTHREAD *v53; // rax
+  unsigned int *v54; // rax
+  __int64 v55; // rdx
+  __int64 v56; // r8
+  struct _KLOCK_ENTRIES *v57; // r9
+  void *v58; // rbx
+  char v59; // dl
+  struct _LIST_ENTRY *v60; // rcx
+  __int64 v61; // rdx
+  unsigned int v62; // eax
+  size_t v63; // r8
+  void *v64; // rdx
+  LIST_ENTRY *NextProcess; // rax
+  struct _KPROCESS *v66; // rdi
+  unsigned int v67; // eax
+  _DWORD *v68; // rcx
+  _DWORD *v69; // rcx
+  ULONG v70; // [rsp+30h] [rbp-A8h]
+  unsigned int v71; // [rsp+30h] [rbp-A8h]
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+40h] [rbp-98h] BYREF
   ULONG Length; // [rsp+48h] [rbp-90h] BYREF
-  struct _LIST_ENTRY *v68; // [rsp+50h] [rbp-88h] BYREF
-  __int64 v69; // [rsp+58h] [rbp-80h]
-  ULONG SecurityInformation; // [rsp+60h] [rbp-78h] BYREF
-  unsigned int v71; // [rsp+68h] [rbp-70h]
-  int v72; // [rsp+6Ch] [rbp-6Ch]
+  struct _LIST_ENTRY *v74; // [rsp+50h] [rbp-88h] BYREF
+  __int64 v75; // [rsp+58h] [rbp-80h]
+  DWORD SecurityInformation; // [rsp+60h] [rbp-78h] BYREF
+  unsigned int v77; // [rsp+68h] [rbp-70h]
+  int v78; // [rsp+6Ch] [rbp-6Ch]
   _OWORD Srca[2]; // [rsp+70h] [rbp-68h] BYREF
 
   v8 = 0;
@@ -111,9 +117,9 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(unsigned int *Src, unsign
     ULongFromUser = RtlReadULongFromUser(Src);
   else
     ULongFromUser = *Src;
-  v72 = ULongFromUser;
+  v78 = ULongFromUser;
   Flink = PsGetCurrentServerSiloGlobals()[52].Flink;
-  v68 = Flink;
+  v74 = Flink;
   if ( ULongFromUser > 18 )
   {
     if ( ULongFromUser == 25 )
@@ -127,65 +133,66 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(unsigned int *Src, unsign
     if ( ULongFromUser == 6 )
     {
       Length = 0;
-      v64 = 0;
+      v70 = 0;
       ObjectsSecurityDescriptor = Src + 4;
       if ( a2 >= 0x10 )
       {
         if ( a3 )
         {
           ULong64FromUser = RtlReadULong64FromUser(Src + 2);
-          Flink = v68;
+          Flink = v74;
         }
         else
         {
           ULong64FromUser = *((_QWORD *)Src + 1);
         }
-        v69 = ULong64FromUser;
+        v75 = ULong64FromUser;
         Blink_low = (unsigned __int16)ULong64FromUser;
         if ( (unsigned __int16)ULong64FromUser == 0xFFFF )
           Blink_low = LOBYTE(Flink[281].Blink);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        v18 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, Blink_low, 1);
-        v69 = (__int64)v18;
-        if ( v18 )
+        v27 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, Blink_low, 1);
+        v19 = v27;
+        v75 = (__int64)v27;
+        if ( v27 )
         {
-          v8 = EtwpCheckLoggerControlAccess(1u);
+          v8 = EtwpCheckLoggerControlAccess(1u, (__int64)v27);
           if ( (v8 & 0x80000000) == 0 )
           {
-            if ( (v18[204] & 0x80u) != 0 )
+            if ( (v19[204] & 0x80u) != 0 )
             {
-              v26 = RtlNumberOfSetBits((PRTL_BITMAP)v18 + 65);
-              Length = v26;
+              v28 = RtlNumberOfSetBits((PRTL_BITMAP)v19 + 65);
+              Length = v28;
             }
             else
             {
-              v26 = Length;
+              v28 = Length;
             }
-            v27 = 4 * v26 + 16;
-            *a4 = v27;
-            if ( v27 > a2 )
+            v29 = 4 * v28 + 16;
+            *a4 = v29;
+            if ( v29 > a2 )
             {
               v8 = -1073741789;
             }
             else
             {
-              v28 = 0;
-              v29 = ObjectsSecurityDescriptor;
+              v30 = 0;
+              v31 = ObjectsSecurityDescriptor;
               while ( 1 )
               {
-                SecurityInformation = v28;
-                if ( v28 >= v26 )
+                SecurityInformation = v30;
+                if ( v30 >= v28 )
                   break;
-                SetBits = RtlFindSetBits((PRTL_BITMAP)v18 + 65, 1u, v64 + 1);
-                v64 = SetBits;
-                LODWORD(v68) = SetBits;
+                SetBits = RtlFindSetBits((PRTL_BITMAP)v19 + 65, 1u, v70 + 1);
+                v70 = SetBits;
+                LODWORD(v74) = SetBits;
                 if ( a3 )
-                  RtlWriteULongToUser(&v29[v28], SetBits);
+                  RtlWriteULongToUser(&v31[v30], SetBits);
                 else
-                  v29[v28] = SetBits;
-                ++v28;
-                v26 = Length;
+                  v31[v30] = SetBits;
+                ++v30;
+                v28 = Length;
               }
             }
           }
@@ -208,66 +215,66 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(unsigned int *Src, unsign
       }
       return 3221225476LL;
     }
-    v13 = ULongFromUser - 1;
-    if ( !v13 )
+    v14 = ULongFromUser - 1;
+    if ( !v14 )
     {
       *a4 = 48;
       if ( a2 == 48 )
       {
         if ( a3 )
         {
-          v14 = RtlReadULong64FromUser(Src + 2);
-          Flink = v68;
+          v15 = RtlReadULong64FromUser(Src + 2);
+          Flink = v74;
         }
         else
         {
-          v14 = *((_QWORD *)Src + 1);
+          v15 = *((_QWORD *)Src + 1);
         }
-        v69 = v14;
-        v15 = (unsigned __int16)v14;
-        if ( (unsigned __int16)v14 == 0xFFFF )
-          v15 = LOBYTE(Flink[281].Blink);
-        v16 = KeGetCurrentThread();
-        --v16->KernelApcDisable;
-        v17 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v15, 1);
-        v18 = v17;
-        ObjectsSecurityDescriptor = v17;
-        if ( v17 )
+        v75 = v15;
+        v16 = (unsigned __int16)v15;
+        if ( (unsigned __int16)v15 == 0xFFFF )
+          v16 = LOBYTE(Flink[281].Blink);
+        v17 = KeGetCurrentThread();
+        --v17->KernelApcDisable;
+        v18 = EtwpAcquireLoggerContextByLoggerId((__int64)Flink, v16, 1);
+        v19 = v18;
+        ObjectsSecurityDescriptor = v18;
+        if ( v18 )
         {
-          if ( (v17[3] & 0x2000000) != 0 )
+          if ( (v18[3] & 0x2000000) != 0 )
           {
-            v19 = 2LL * *((unsigned __int8 *)v17 + 818);
-            Srca[0] = *(_OWORD *)((char *)&v68[v19 + 284].Blink + 4);
-            Srca[1] = *(_OWORD *)((char *)&v68[v19 + 285].Blink + 4);
-            v20 = 0;
-            v71 = 0;
-            while ( v20 < 8 )
+            v20 = 2LL * *((unsigned __int8 *)v18 + 818);
+            Srca[0] = *(_OWORD *)((char *)&v74[v20 + 284].Blink + 4);
+            Srca[1] = *(_OWORD *)((char *)&v74[v20 + 285].Blink + 4);
+            v21 = 0;
+            v77 = 0;
+            while ( v21 < 8 )
             {
-              if ( (dword_140BDB2C4[2 * v20] & *((_DWORD *)Srca
-                                               + ((unsigned __int64)(unsigned int)dword_140BDB2C4[2 * v20] >> 29)) & 0x1FFFFFFF) != 0 )
+              if ( (dword_140BE2174[2 * v21] & *((_DWORD *)Srca
+                                               + ((unsigned __int64)(unsigned int)dword_140BE2174[2 * v21] >> 29)) & 0x1FFFFFFF) != 0 )
               {
-                v21 = (unsigned __int64)(unsigned int)EtwpEnableFlagMap[2 * v20] >> 29;
-                *((_DWORD *)Srca + v21) |= EtwpEnableFlagMap[2 * v20] & 0x1FFFFFFF;
+                v22 = (unsigned __int64)(unsigned int)EtwpEnableFlagMap[2 * v21] >> 29;
+                *((_DWORD *)Srca + v22) |= EtwpEnableFlagMap[2 * v21] & 0x1FFFFFFF;
               }
-              v71 = ++v20;
+              v77 = ++v21;
             }
-            v31 = (char *)(Src + 4);
+            v33 = (char *)(Src + 4);
             if ( a3 )
-              RtlCopyToUser(v31, Srca, 0x20uLL);
+              RtlCopyToUser(v33, Srca, 0x20uLL);
             else
-              RtlCopyVolatileMemory(v31, Srca, 0x20uLL);
+              RtlCopyVolatileMemory(v33, Srca, 0x20uLL);
 LABEL_57:
-            KeReleaseMutex((PRKMUTEX)(v18 + 158), 0);
+            KeReleaseMutex((PRKMUTEX)(v19 + 158), 0);
             ExReleaseRundownProtectionCacheAwareEx(
-              *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v18 + 170) + 704LL) + 8LL * *v18),
+              *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v19 + 170) + 704LL) + 8LL * *v19),
               1u);
 LABEL_58:
             KeLeaveCriticalRegion();
             return v8;
           }
-          KeReleaseMutex((PRKMUTEX)(v17 + 158), 0);
+          KeReleaseMutex((PRKMUTEX)(v18 + 158), 0);
           ExReleaseRundownProtectionCacheAwareEx(
-            *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v18 + 170) + 704LL) + 8LL * *v18),
+            *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v19 + 170) + 704LL) + 8LL * *v19),
             1u);
           KeLeaveCriticalRegion();
           return 3221225485LL;
@@ -278,23 +285,23 @@ LABEL_69:
       }
       return 3221225476LL;
     }
-    v39 = v13 - 1;
-    if ( !v39 )
+    v44 = v14 - 1;
+    if ( !v44 )
     {
       *a4 = 16;
       if ( a2 == 16 )
       {
-        v52 = PsGetCurrentServerSiloGlobals()[52].Flink;
+        v60 = PsGetCurrentServerSiloGlobals()[52].Flink;
         if ( a3 )
-          RtlWriteULong64ToUser((_QWORD *)Src + 1, (__int64)v52[275].Blink);
+          RtlWriteULong64ToUser((_QWORD *)Src + 1, (__int64)v60[275].Blink);
         else
-          *((_QWORD *)Src + 1) = v52[275].Blink;
+          *((_QWORD *)Src + 1) = v60[275].Blink;
         return v8;
       }
       return 3221225476LL;
     }
-    v40 = v39 - 1;
-    if ( !v40 )
+    v45 = v44 - 1;
+    if ( !v45 )
     {
       *a4 = 8;
       if ( a2 == 8 )
@@ -307,29 +314,29 @@ LABEL_69:
       }
       return 3221225476LL;
     }
-    v41 = v40 - 1;
-    if ( v41 )
+    v46 = v45 - 1;
+    if ( v46 )
     {
-      if ( v41 != 1 )
+      if ( v46 != 1 )
         return (unsigned int)-1073741822;
       *a4 = 20;
       if ( ((a2 - 16) & 0xFFFFFFFB) == 0 )
       {
-        v42 = Src + 1;
+        v47 = Src + 1;
         if ( a3 )
-          RtlWriteULongToUser(v42, EtwpSpinLockSpinThreshold);
+          RtlWriteULongToUser(v47, EtwpSpinLockSpinThreshold);
         else
-          *v42 = EtwpSpinLockSpinThreshold;
-        v43 = Src + 2;
+          *v47 = EtwpSpinLockSpinThreshold;
+        v48 = Src + 2;
         if ( a3 )
-          RtlWriteULongToUser(v43, EtwpSpinLockAcquireSampleRate);
+          RtlWriteULongToUser(v48, EtwpSpinLockAcquireSampleRate);
         else
-          *v43 = EtwpSpinLockAcquireSampleRate;
-        v44 = Src + 3;
+          *v48 = EtwpSpinLockAcquireSampleRate;
+        v49 = Src + 3;
         if ( a3 )
-          RtlWriteULongToUser(v44, EtwpSpinLockContentionSampleRate);
+          RtlWriteULongToUser(v49, EtwpSpinLockContentionSampleRate);
         else
-          *v44 = EtwpSpinLockContentionSampleRate;
+          *v49 = EtwpSpinLockContentionSampleRate;
         if ( a2 == 20 )
         {
           if ( a3 )
@@ -346,33 +353,33 @@ LABEL_69:
     if ( a2 < 0x18 )
       return 3221225476LL;
     if ( a3 )
-      v45 = RtlReadULong64FromUser(Src + 2);
+      v50 = RtlReadULong64FromUser(Src + 2);
     else
-      v45 = *((_QWORD *)Src + 1);
-    v69 = v45;
+      v50 = *((_QWORD *)Src + 1);
+    v75 = v50;
     if ( a3 )
       SecurityInformation = RtlReadULongFromUser(Src + 1);
     else
       RtlCopyVolatileMemory(&SecurityInformation, Src + 1, 4uLL);
-    v46 = (unsigned __int16)v45;
-    v47 = (__int64)v68;
-    if ( (unsigned __int16)v45 == 0xFFFF )
-      v46 = LOBYTE(v68[281].Blink);
-    v48 = KeGetCurrentThread();
-    --v48->KernelApcDisable;
-    v49 = EtwpAcquireLoggerContextByLoggerId(v47, v46, 0);
-    v18 = v49;
-    if ( !v49 )
+    v51 = (unsigned __int16)v50;
+    v52 = (__int64)v74;
+    if ( (unsigned __int16)v50 == 0xFFFF )
+      v51 = LOBYTE(v74[281].Blink);
+    v53 = KeGetCurrentThread();
+    --v53->KernelApcDisable;
+    v54 = EtwpAcquireLoggerContextByLoggerId(v52, v51, 0);
+    v19 = v54;
+    if ( !v54 )
       goto LABEL_69;
-    v50 = (void *)EtwpReferenceLoggerSecurityDescriptor(v49);
-    ObjectsSecurityDescriptor = v50;
+    v58 = (void *)EtwpReferenceLoggerSecurityDescriptor((__int64)v54, v55, v56, v57);
+    ObjectsSecurityDescriptor = v58;
     Length = a2 - 16;
     v8 = SeQuerySecurityDescriptorInfo(&SecurityInformation, Src + 4, &Length, &ObjectsSecurityDescriptor);
     *a4 = Length + 16;
-    EtwpDereferenceLoggerSecurityDescriptor(v18, v50);
-    v51 = 0;
+    EtwpDereferenceLoggerSecurityDescriptor(v19, v58);
+    v59 = 0;
 LABEL_122:
-    EtwpReleaseLoggerContext(v18, v51);
+    EtwpReleaseLoggerContext(v19, v59);
     goto LABEL_58;
   }
   switch ( ULongFromUser )
@@ -381,16 +388,16 @@ LABEL_122:
       *a4 = 16;
       if ( a2 == 16 )
       {
-        v62 = Src + 1;
+        v68 = Src + 1;
         if ( a3 )
-          RtlWriteULongToUser(v62, EtwpExecutiveResourceReleaseSampleRate);
+          RtlWriteULongToUser(v68, EtwpExecutiveResourceReleaseSampleRate);
         else
-          *v62 = EtwpExecutiveResourceReleaseSampleRate;
-        v63 = Src + 2;
+          *v68 = EtwpExecutiveResourceReleaseSampleRate;
+        v69 = Src + 2;
         if ( a3 )
-          RtlWriteULongToUser(v63, EtwpExecutiveResourceContentionSampleRate);
+          RtlWriteULongToUser(v69, EtwpExecutiveResourceContentionSampleRate);
         else
-          *v63 = EtwpExecutiveResourceContentionSampleRate;
+          *v69 = EtwpExecutiveResourceContentionSampleRate;
         if ( a3 )
           RtlWriteULongToUser(Src + 3, EtwpExecutiveResourceTimeout);
         else
@@ -400,42 +407,42 @@ LABEL_122:
       return 3221225476LL;
     case 8:
     case 9:
-      v65 = 0;
+      v71 = 0;
       if ( a2 < 8 )
         return 3221225476LL;
       if ( !PsIsCurrentThreadInServerSilo() )
       {
-        v37 = (a2 - 4) >> 2;
-        for ( i = 0LL; ; i = v58 )
+        v42 = (a2 - 4) >> 2;
+        for ( i = 0LL; ; i = v66 )
         {
-          NextProcess = (struct _KPROCESS *)PsGetNextProcess(i);
-          v58 = NextProcess;
+          NextProcess = PsGetNextProcess(i, (__int64)ProcessId, (__int64)v40, v41);
+          v66 = (struct _KPROCESS *)NextProcess;
           ObjectsSecurityDescriptor = NextProcess;
           if ( !NextProcess )
             break;
-          if ( (NextProcess[3].ActiveGroupsMask.Masks[1] & 0x100000000000LL) == 0
+          if ( (HIDWORD(NextProcess[95].Blink) & 0x1000) == 0
             && (ULongFromUser == 9 || EtwpUMGLEnabled((ULONG_PTR)NextProcess)) )
           {
-            ProcessId = (unsigned int)PsGetProcessId(v58);
-            v60 = v65;
-            if ( v65 < v37 )
+            ProcessId = PsGetProcessId(v66);
+            v67 = v71;
+            if ( v71 < v42 )
             {
-              v61 = &Src[v65];
+              v40 = &Src[v71];
               if ( a3 )
               {
-                RtlWriteULongToUser(v61 + 1, ProcessId);
-                v60 = v65;
+                RtlWriteULongToUser(v40 + 1, (int)ProcessId);
+                v67 = v71;
               }
               else
               {
-                v61[1] = ProcessId;
+                v40[1] = (unsigned int)ProcessId;
               }
             }
-            v65 = v60 + 1;
+            v71 = v67 + 1;
           }
         }
-        *a4 = 4 * v65 + 4;
-        return v37 < v65 ? 0xC0000023 : 0;
+        *a4 = 4 * v71 + 4;
+        return v42 < v71 ? 0xC0000023 : 0;
       }
       return 3221225506LL;
     case 10:
@@ -445,65 +452,66 @@ LABEL_122:
       if ( !PsIsCurrentThreadInServerSilo() )
       {
         if ( a3 )
-          v32 = RtlReadULong64FromUser(Src + 2);
+          v34 = RtlReadULong64FromUser(Src + 2);
         else
-          v32 = *((_QWORD *)Src + 1);
-        v69 = v32;
-        v33 = (unsigned __int16)v32;
-        v34 = (__int64)v68;
-        if ( (unsigned __int16)v32 == 0xFFFF )
-          v33 = LOBYTE(v68[281].Blink);
-        v35 = KeGetCurrentThread();
-        --v35->KernelApcDisable;
-        v36 = EtwpAcquireLoggerContextByLoggerId(v34, v33, 1);
-        v18 = v36;
-        v69 = (__int64)v36;
-        if ( !v36 )
+          v34 = *((_QWORD *)Src + 1);
+        v75 = v34;
+        v35 = (unsigned __int16)v34;
+        v36 = (__int64)v74;
+        if ( (unsigned __int16)v34 == 0xFFFF )
+          v35 = LOBYTE(v74[281].Blink);
+        v37 = KeGetCurrentThread();
+        --v37->KernelApcDisable;
+        v38 = EtwpAcquireLoggerContextByLoggerId(v36, v35, 1);
+        v19 = v38;
+        v75 = (__int64)v38;
+        if ( !v38 )
           goto LABEL_69;
-        if ( (v36[3] & 0x2000000) == 0 )
+        if ( (v38[3] & 0x2000000) == 0 )
         {
-          EtwpReleaseLoggerContext(v36, 1);
+          EtwpReleaseLoggerContext(v38, 1);
           v8 = -1073741811;
           goto LABEL_58;
         }
-        v8 = EtwpCheckSystemTraceAccess(v36, 1LL);
+        v8 = EtwpCheckSystemTraceAccess(v38, 1LL);
         if ( (v8 & 0x80000000) != 0 )
           goto LABEL_57;
-        v53 = 5LL * *((unsigned __int8 *)v18 + 818);
-        v54 = 4 * (unsigned __int16)EtwpPoolTagFilter[10 * *((unsigned __int8 *)v18 + 818)] + 16;
-        *a4 = v54;
-        if ( v54 > a2 )
+        v61 = 5LL * *((unsigned __int8 *)v19 + 818);
+        v62 = 4 * *(unsigned __int16 *)&stru_140F03830.ApcStateFill[20 * *((unsigned __int8 *)v19 + 818) + 24] + 16;
+        *a4 = v62;
+        if ( v62 > a2 )
         {
           v8 = -1073741789;
         }
         else
         {
-          v55 = 4LL * (unsigned __int16)EtwpPoolTagFilter[2 * v53];
-          v56 = (void *)(0x140000000LL + 4 * v53 + 15742692);
+          v63 = 4LL * *(unsigned __int16 *)&stru_140F03830.ApcStateFill[4 * v61 + 24];
+          v64 = (void *)(0x140000000LL + 4 * v61 + 15743204);
           if ( a3 )
-            RtlCopyToUser(ObjectsSecurityDescriptor, v56, v55);
+            RtlCopyToUser(ObjectsSecurityDescriptor, v64, v63);
           else
-            RtlCopyVolatileMemory(ObjectsSecurityDescriptor, v56, v55);
+            RtlCopyVolatileMemory(ObjectsSecurityDescriptor, v64, v63);
         }
-        v51 = 1;
+        v59 = 1;
         goto LABEL_122;
       }
       return 3221225506LL;
     case 12:
-      return (unsigned int)EtwpGetPmcProfileSource((__int64)Src, a2, a4, a3);
+      LOBYTE(v11) = a3;
+      return (unsigned int)EtwpGetPmcProfileSource(Src, a2, a4, v11);
   }
   if ( ULongFromUser != 13 )
     return (unsigned int)-1073741822;
   ObjectsSecurityDescriptor = 0LL;
-  v68 = 0LL;
+  v74 = 0LL;
   if ( a2 < 0x28 )
     return 3221225476LL;
-  v22 = a2 - 8;
-  result = ExLockUserBuffer((unsigned __int64)(Src + 2), v22, a3, 1, &v68, (struct _MDL **)&ObjectsSecurityDescriptor);
+  v23 = a2 - 8;
+  result = ExLockUserBuffer((unsigned __int64)(Src + 2), v23, a3, 1, &v74, (struct _MDL **)&ObjectsSecurityDescriptor);
   if ( (int)result >= 0 )
   {
-    v8 = guard_dispatch_icall_no_overrides(20LL, v22);
-    if ( v68 )
+    v8 = guard_dispatch_icall_no_overrides(20LL, v23);
+    if ( v74 )
       ExUnlockUserBuffer((struct _MDL *)ObjectsSecurityDescriptor);
     return v8;
   }

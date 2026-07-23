@@ -10,17 +10,17 @@
  *     _LdrpLogEtwEvent@24 @ 0x4B330117 (_LdrpLogEtwEvent@24.c)
  */
 
-void __fastcall LdrpLogDllStateEx2(int a1, const unsigned __int16 *a2, const unsigned __int16 *Src, int a4)
+void __fastcall LdrpLogDllStateEx2(int a1, const WCHAR *a2, const WCHAR *SourceString, int a4)
 {
   int v5; // eax
   char *v6; // eax
-  char v7; // bl
-  char v8; // al
-  UNICODE_STRING UnicodeString; // [esp+10h] [ebp-10h] BYREF
-  UNICODE_STRING v10; // [esp+18h] [ebp-8h] BYREF
+  BOOLEAN v7; // bl
+  BOOLEAN v8; // al
+  _UNICODE_STRING UnicodeString; // [esp+10h] [ebp-10h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-8h] BYREF
 
-  *(_DWORD *)&v10.Length = 0;
-  v10.Buffer = 0;
+  *(_DWORD *)&DestinationString.Length = 0;
+  DestinationString.Buffer = 0;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0;
   if ( RtlGetCurrentServiceSessionId() )
@@ -33,17 +33,17 @@ void __fastcall LdrpLogDllStateEx2(int a1, const unsigned __int16 *a2, const uns
     if ( (*v6 & 0x20) != 0 )
     {
       if ( !a2 )
-        a2 = (const unsigned __int16 *)&dword_4B285DEC;
-      v7 = RtlCreateUnicodeString((int)&v10, a2);
-      v8 = RtlCreateUnicodeString((int)&UnicodeString, Src);
+        a2 = (const WCHAR *)&dword_4B285DEC;
+      v7 = RtlCreateUnicodeString(&DestinationString, a2);
+      v8 = RtlCreateUnicodeString(&UnicodeString, SourceString);
       if ( v7 )
       {
         if ( v8 )
         {
-          LdrpLogEtwEvent(0, 0, &UnicodeString, &v10);
+          LdrpLogEtwEvent(0, 0, &UnicodeString, &DestinationString);
           RtlFreeAnsiString(&UnicodeString);
         }
-        RtlFreeAnsiString(&v10);
+        RtlFreeAnsiString(&DestinationString);
       }
     }
   }

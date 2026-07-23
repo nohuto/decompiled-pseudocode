@@ -1,12 +1,12 @@
 /*
- * XREFs of PiProcessReenumeration @ 0x140A437D8
+ * XREFs of PiProcessReenumeration @ 0x140A39068
  * Callers:
- *     PnpDeviceActionWorker @ 0x14046CD70 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x140467910 (PnpDeviceActionWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x140A438A0 (PiMarkDeviceTreeForReenumeration.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x140A39130 (PiMarkDeviceTreeForReenumeration.c)
  */
 
 __int64 __fastcall PiProcessReenumeration(__int64 a1, __int64 a2)

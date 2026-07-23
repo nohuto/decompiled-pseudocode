@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLaunchChildWorkers @ 0x1405172B8
+ * XREFs of MiLaunchChildWorkers @ 0x140510D28
  * Callers:
- *     MiUseThreads @ 0x1403C3644 (MiUseThreads.c)
+ *     MiUseThreads @ 0x1403CD544 (MiUseThreads.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x1402052D0 (KeQueryPriorityThread.c)
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     MiGetNextAffinityWalker @ 0x1403E99EC (MiGetNextAffinityWalker.c)
+ *     KeQueryPriorityThread @ 0x1402053B0 (KeQueryPriorityThread.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     MiGetNextAffinityWalker @ 0x1402F68CC (MiGetNextAffinityWalker.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
  */
 
 __int64 __fastcall MiLaunchChildWorkers(__int64 a1)

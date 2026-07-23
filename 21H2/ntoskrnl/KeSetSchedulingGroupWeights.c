@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetSchedulingGroupWeights @ 0x140287D40
+ * XREFs of KeSetSchedulingGroupWeights @ 0x140204EE0
  * Callers:
- *     PsSetCpuQuotaInformation @ 0x140581008 (PsSetCpuQuotaInformation.c)
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     PsSetCpuQuotaInformation @ 0x140581248 (PsSetCpuQuotaInformation.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiAssignSchedulingGroupWeights @ 0x140287F00 (KiAssignSchedulingGroupWeights.c)
- *     KiUpdateMinimumWeight @ 0x140288170 (KiUpdateMinimumWeight.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiAssignSchedulingGroupWeights @ 0x1402050A0 (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateMinimumWeight @ 0x140205310 (KiUpdateMinimumWeight.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

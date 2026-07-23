@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     SepDeReferenceLogonSessionDirect @ 0x1402D6A98 (SepDeReferenceLogonSessionDirect.c)
- *     SepReferenceLogonSessionSilo @ 0x14066B900 (SepReferenceLogonSessionSilo.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
+ *     sub_1402D6A98 @ 0x1402D6A98 (sub_1402D6A98.c)
+ *     sub_14066B900 @ 0x14066B900 (sub_14066B900.c)
+ *     sub_1407CDED0 @ 0x1407CDED0 (sub_1407CDED0.c)
  */
 
 __int64 __fastcall SeGetLinkedToken(int a1, __int64 a2, __int64 *a3)
@@ -35,7 +35,7 @@ __int64 __fastcall SeGetLinkedToken(int a1, __int64 a2, __int64 *a3)
   v8 = *(_DWORD *)(v7 + 32);
   if ( ((v8 & 4) == 0 || a1 != 2) && ((v8 & 2) == 0 || a1 != 3) )
     goto LABEL_9;
-  v9 = SepReferenceLogonSessionSilo((_DWORD *)(v7 + 16), *(_QWORD *)(v7 + 160), &v14);
+  v9 = sub_14066B900((_DWORD *)(v7 + 16), *(_QWORD *)(v7 + 160), &v14);
   v3 = (_QWORD *)v14;
   v10 = v9;
   if ( v9 >= 0 )
@@ -47,9 +47,9 @@ LABEL_9:
     *(_QWORD *)&v12 = 0LL;
     LODWORD(v11) = 48;
     v13 = 0LL;
-    v10 = SepDuplicateToken(v5, (__int64)&v11, 0, 1, 0, 0, 0, a3);
+    v10 = sub_1407CDED0(v5, (__int64)&v11, 0, 1, 0, 0, 0, a3);
   }
   if ( v3 )
-    SepDeReferenceLogonSessionDirect(v3);
+    sub_1402D6A98(v3);
   return v10;
 }

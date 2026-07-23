@@ -8,57 +8,68 @@
  *     NtdllpFreeStringRoutine @ 0x18006D930 (NtdllpFreeStringRoutine.c)
  */
 
-__int64 __fastcall sxsisol_CanonicalizeFullPathFileName(__int64 a1, int a2, _QWORD *a3)
+__int64 __fastcall sxsisol_CanonicalizeFullPathFileName(
+        PUNICODE_STRING FileName,
+        PUNICODE_STRING StaticString,
+        PUNICODE_STRING DynamicString)
 {
   bool v3; // r14
-  int v7; // r11d
-  int FullPathName_Ustr; // ebx
-  _QWORD *v9; // rcx
-  __int128 v10; // xmm0
+  RTL_PATH_TYPE v7; // r11d
+  NTSTATUS FullPathName_Ustr; // ebx
+  PUNICODE_STRING v9; // rcx
+  _UNICODE_STRING v10; // xmm0
   unsigned __int16 v11; // ax
-  __int64 v12; // rcx
-  __int64 v14; // rax
-  __int128 v15; // [rsp+40h] [rbp-10h]
-  int v16; // [rsp+70h] [rbp+20h] BYREF
-  _OWORD *v17; // [rsp+88h] [rbp+38h] BYREF
+  wchar_t *v12; // rcx
+  wchar_t *Buffer; // rax
+  _UNICODE_STRING v15; // [rsp+40h] [rbp-10h]
+  RTL_PATH_TYPE InputPathType; // [rsp+70h] [rbp+20h] BYREF
+  PUNICODE_STRING StringUsed; // [rsp+88h] [rbp+38h] BYREF
 
-  v17 = 0LL;
+  StringUsed = 0LL;
   v3 = 0;
-  if ( !a1 || a3 && a3[1] )
+  if ( !FileName || DynamicString && DynamicString->Buffer )
   {
     FullPathName_Ustr = -1073741811;
   }
   else
   {
-    v7 = RtlDetermineDosPathNameType_Ustr(a1);
-    v16 = v7;
-    if ( ((v7 - 1) & 0xFFFFFFFA) != 0 || v7 == 5 )
+    v7 = (unsigned int)RtlDetermineDosPathNameType_Ustr(FileName);
+    InputPathType = v7;
+    if ( ((v7 - 1) & 0xFFFFFFFA) != 0 || v7 == RtlPathTypeRelative )
       goto LABEL_11;
-    FullPathName_Ustr = RtlGetFullPathName_UstrEx(a1, a2, (_DWORD)a3, (unsigned int)&v17, 0LL, 0LL, (__int64)&v16, 0LL);
+    FullPathName_Ustr = RtlGetFullPathName_UstrEx(
+                          FileName,
+                          StaticString,
+                          DynamicString,
+                          &StringUsed,
+                          0LL,
+                          0LL,
+                          &InputPathType,
+                          0LL);
     if ( FullPathName_Ustr >= 0 )
     {
-      v9 = v17;
-      v10 = *v17;
-      v15 = *v17;
-      if ( v16 == 6 && (v14 = *(_QWORD *)(a1 + 8), *(_WORD *)(v14 + 10) == 58) && *(_WORD *)(v14 + 12) == 92 )
+      v9 = StringUsed;
+      v10 = *StringUsed;
+      v15 = *StringUsed;
+      if ( InputPathType == RtlPathTypeLocalDevice && (Buffer = FileName->Buffer, Buffer[5] == 58) && Buffer[6] == 92 )
       {
-        *((_QWORD *)&v15 + 1) += 8LL;
-        *(_QWORD *)(a1 + 8) = v14 + 8;
-        *(_WORD *)a1 -= 8;
-        v11 = v15 - 8;
-        *(_WORD *)(a1 + 2) -= 8;
-        WORD1(v15) -= 8;
-        LOWORD(v15) = v15 - 8;
+        v15.Buffer += 4;
+        FileName->Buffer = Buffer + 4;
+        FileName->Length -= 8;
+        v11 = v15.Length - 8;
+        FileName->MaximumLength -= 8;
+        v15.MaximumLength -= 8;
+        v15.Length -= 8;
         v10 = v15;
       }
       else
       {
-        v11 = *v17;
+        v11 = (unsigned __int16)*StringUsed;
       }
-      if ( *(_WORD *)a1 > v11 )
+      if ( FileName->Length > v11 )
       {
-        v3 = v9 == a3;
-        *(_OWORD *)a1 = v10;
+        v3 = v9 == DynamicString;
+        *FileName = v10;
       }
 LABEL_11:
       FullPathName_Ustr = 0;
@@ -66,12 +77,12 @@ LABEL_11:
         return (unsigned int)FullPathName_Ustr;
     }
   }
-  v12 = a3[1];
+  v12 = DynamicString->Buffer;
   if ( v12 )
   {
     NtdllpFreeStringRoutine(v12);
-    *a3 = 0LL;
-    a3[1] = 0LL;
+    *(_QWORD *)&DynamicString->Length = 0LL;
+    DynamicString->Buffer = 0LL;
   }
   return (unsigned int)FullPathName_Ustr;
 }

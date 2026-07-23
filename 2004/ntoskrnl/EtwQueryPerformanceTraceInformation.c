@@ -34,7 +34,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
         KPROCESSOR_MODE a3,
         unsigned int *a4)
 {
-  ULONG SetBits; // r15d
+  DWORD SetBits; // r15d
   unsigned int v8; // edi
   __int64 result; // rax
   int v10; // ebx
@@ -67,13 +67,13 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
   ULONG v37; // ebx
   unsigned int v38; // edx
   struct _KTHREAD *CurrentThread; // rax
-  RTL_BITMAP *v40; // rax
-  RTL_BITMAP *v41; // rsi
+  _RTL_BITMAP *v40; // rax
+  _RTL_BITMAP *v41; // rsi
   unsigned int v42; // eax
   ULONG v43; // ebx
   __int64 i; // r12
   ULONG Length; // [rsp+30h] [rbp-78h] BYREF
-  ULONG SecurityInformation; // [rsp+34h] [rbp-74h] BYREF
+  DWORD SecurityInformation; // [rsp+34h] [rbp-74h] BYREF
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+38h] [rbp-70h] BYREF
   PVOID Object; // [rsp+40h] [rbp-68h] BYREF
   __int64 v50; // [rsp+48h] [rbp-60h] BYREF
@@ -116,7 +116,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(
         v38 = *(unsigned __int8 *)(v12 + 4208);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v40 = (RTL_BITMAP *)EtwpAcquireLoggerContextByLoggerId(v12, v38, 1);
+      v40 = (_RTL_BITMAP *)EtwpAcquireLoggerContextByLoggerId(v12, v38, 1);
       v41 = v40;
       ObjectsSecurityDescriptor = v40;
       if ( v40 )

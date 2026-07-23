@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDqQueryRelease @ 0x14062E694
+ * XREFs of PiDqQueryRelease @ 0x14062371C
  * Callers:
- *     PiDqObjectManagerUnregisterQuery @ 0x14062E620 (PiDqObjectManagerUnregisterQuery.c)
- *     PiDqDispatch @ 0x14062EBF0 (PiDqDispatch.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x1406236A8 (PiDqObjectManagerUnregisterQuery.c)
+ *     PiDqDispatch @ 0x140623C70 (PiDqDispatch.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1407632E0 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x14050D860 (McTemplateK0p_EtwWriteTransfer.c)
- *     PiDqQueryFreeActiveData @ 0x14062E710 (PiDqQueryFreeActiveData.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x14050DAA0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     PiDqQueryFreeActiveData @ 0x140623798 (PiDqQueryFreeActiveData.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDqQueryRelease(PVOID P)

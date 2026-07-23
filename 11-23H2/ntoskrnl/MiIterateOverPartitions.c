@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIterateOverPartitions @ 0x14062940C
+ * XREFs of MiIterateOverPartitions @ 0x14062995C
  * Callers:
- *     MiFinishResume @ 0x1406268D0 (MiFinishResume.c)
- *     MiMirrorBlackPhase @ 0x140626BE4 (MiMirrorBlackPhase.c)
- *     MiResumeFromHibernate @ 0x14062881C (MiResumeFromHibernate.c)
- *     MiMirrorDiscardPageContents @ 0x14064F434 (MiMirrorDiscardPageContents.c)
- *     MiLockAllMemoryLists @ 0x140650938 (MiLockAllMemoryLists.c)
- *     MiUnlockAllMemoryLists @ 0x140652804 (MiUnlockAllMemoryLists.c)
- *     MiSendParkedCoreUpdateToAllChildPartitions @ 0x140655310 (MiSendParkedCoreUpdateToAllChildPartitions.c)
- *     MmEnumerateBadPages @ 0x140A2FBE4 (MmEnumerateBadPages.c)
+ *     MiFinishResume @ 0x140626E20 (MiFinishResume.c)
+ *     MiMirrorBlackPhase @ 0x140627134 (MiMirrorBlackPhase.c)
+ *     MiResumeFromHibernate @ 0x140628D6C (MiResumeFromHibernate.c)
+ *     MiMirrorDiscardPageContents @ 0x14064F984 (MiMirrorDiscardPageContents.c)
+ *     MiLockAllMemoryLists @ 0x140650E88 (MiLockAllMemoryLists.c)
+ *     MiUnlockAllMemoryLists @ 0x140652D54 (MiUnlockAllMemoryLists.c)
+ *     MiSendParkedCoreUpdateToAllChildPartitions @ 0x140655860 (MiSendParkedCoreUpdateToAllChildPartitions.c)
+ *     MmEnumerateBadPages @ 0x140A2FE94 (MmEnumerateBadPages.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiIterateOverPartitions(void (__fastcall *a1)(__int64, __int64), __int64 a2)

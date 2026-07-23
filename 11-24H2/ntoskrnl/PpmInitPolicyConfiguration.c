@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmInitPolicyConfiguration @ 0x140C302E8
+ * XREFs of PpmInitPolicyConfiguration @ 0x140C32408
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmPolicySettingsMaskMerge @ 0x1404A8828 (PpmPolicySettingsMaskMerge.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PpmBeginProfileAccumulation @ 0x1406FBD0C (PpmBeginProfileAccumulation.c)
- *     PpmEnableProfile @ 0x140763B2C (PpmEnableProfile.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PpmPolicySettingsMaskMerge @ 0x1404A2D98 (PpmPolicySettingsMaskMerge.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PpmBeginProfileAccumulation @ 0x1406F994C (PpmBeginProfileAccumulation.c)
+ *     PpmEnableProfile @ 0x1407634F0 (PpmEnableProfile.c)
  */
 
 LONG __fastcall PpmInitPolicyConfiguration(__int64 a1, __int64 a2, unsigned int a3)
@@ -41,7 +41,7 @@ LONG __fastcall PpmInitPolicyConfiguration(__int64 a1, __int64 a2, unsigned int 
   v16[9] = &PpmPolicyClassAgnosticQosSettingsMask;
   v15[1] = &PpmPolicyClassAgnosticQosSettingsMask;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock, a2, a3);
-  v3 = (unsigned __int8 *)&unk_140FC4F70;
+  v3 = (unsigned __int8 *)&unk_140FC5F80;
   v4 = 70LL;
   do
   {
@@ -71,10 +71,10 @@ LONG __fastcall PpmInitPolicyConfiguration(__int64 a1, __int64 a2, unsigned int 
     v10 = (_QWORD **)(v12 + 8);
   }
   while ( v13 != 1 );
-  qword_140F06D90 = -1LL;
+  qword_140F070B0 = -1LL;
   PpmDefaultProfile[0] = (__int64)PpmInfoDefaultProfileName;
-  xmmword_140F0698C = (__int128)CPER_EMPTY_GUID;
-  dword_140F0699C = 2;
+  xmmword_140F06CAC = (__int128)CPER_EMPTY_GUID;
+  dword_140F06CBC = 2;
   PpmEnableProfile((__int64)PpmDefaultProfile, v11);
   PpmBeginProfileAccumulation((__int64)PpmDefaultProfile, MEMORY[0xFFFFF78000000008]);
   qsort(&PpmPolicyConfigTable, 0x46uLL, 0x28uLL, (int (__cdecl *)(const void *, const void *))PpmInfoConfigComparer);

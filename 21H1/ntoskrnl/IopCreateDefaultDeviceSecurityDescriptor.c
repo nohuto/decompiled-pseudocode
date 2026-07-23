@@ -30,9 +30,9 @@ void *__fastcall IopCreateDefaultDeviceSecurityDescriptor(
   unsigned __int8 *v15; // rax
   ACL *PoolWithTag; // rax
   ACL *v17; // rsi
-  int v18; // [rsp+70h] [rbp+18h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+70h] [rbp+18h] BYREF
 
-  LOBYTE(v18) = a3;
+  LOBYTE(NtProductType) = a3;
   v7 = a7;
   if ( a7 )
     *a7 = 0;
@@ -58,11 +58,11 @@ LABEL_18:
     if ( a1 != 7 || (a2 & 1) == 0 )
       goto LABEL_9;
 LABEL_23:
-    v18 = 0;
+    NtProductType = 0;
     AclSize = SePublicDefaultUnrestrictedDacl->AclSize;
-    if ( !RtlGetNtProductType(&v18) )
+    if ( !RtlGetNtProductType(&NtProductType) )
       return 0LL;
-    if ( v18 == 1 )
+    if ( NtProductType == NtProductWinNt )
     {
       v15 = (unsigned __int8 *)SeInteractiveSid;
     }
@@ -76,15 +76,15 @@ LABEL_29:
         if ( !PoolWithTag )
           return 0LL;
         memmove(PoolWithTag, SePublicDefaultUnrestrictedDacl, SePublicDefaultUnrestrictedDacl->AclSize);
-        v13 = v18 == 1;
+        v13 = NtProductType == NtProductWinNt;
         v17->AclSize = AclSize;
         if ( v13 )
         {
-          RtlpAddKnownAce((__int64)v17, 2u, 0, -1073676288, (unsigned __int8 *)SeInteractiveSid, 0);
+          RtlpAddKnownAce(v17, 2u, 0, -1073676288, (unsigned __int8 *)SeInteractiveSid, 0);
         }
         else if ( a1 == 2 )
         {
-          RtlpAddKnownAce((__int64)v17, 2u, 0, 0x80000000, (unsigned __int8 *)SeWorldSid, 0);
+          RtlpAddKnownAce(v17, 2u, 0, 0x80000000, (unsigned __int8 *)SeWorldSid, 0);
         }
         RtlCreateSecurityDescriptor(a4, 1u);
         RtlSetDaclSecurityDescriptor(a4, 1u, v17, 0);

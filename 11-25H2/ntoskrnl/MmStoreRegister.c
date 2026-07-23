@@ -30,8 +30,8 @@ __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 
   int inserted; // ebx
   unsigned int *v11; // rbp
   int v12; // r14d
-  RTL_BITMAP *v13; // rax
-  RTL_BITMAP *v14; // r15
+  _RTL_BITMAP *v13; // rax
+  _RTL_BITMAP *v14; // r15
   void *v15; // r12
   unsigned int *Pagefile; // rax
   USHORT MaximumGroupCount; // ax
@@ -67,10 +67,10 @@ __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 
   {
     v11 = 0LL;
     v12 = 0;
-    v13 = (RTL_BITMAP *)MiAllocatePool(
-                          0x40uLL,
-                          8 * (((dword_140FC41FC & 0x3F) != 0) + 2 + ((unsigned int)dword_140FC41FC >> 6)),
-                          538996045);
+    v13 = (_RTL_BITMAP *)MiAllocatePool(
+                           0x40uLL,
+                           8 * (((dword_140FC41FC & 0x3F) != 0) + 2 + ((unsigned int)dword_140FC41FC >> 6)),
+                           538996045);
     v14 = v13;
     if ( !v13 )
     {

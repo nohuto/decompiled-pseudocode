@@ -14,11 +14,11 @@
  *     <none>
  */
 
-__int64 NtTerminateThread()
+NTSTATUS __cdecl NtTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 83LL;
+  result = 83;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

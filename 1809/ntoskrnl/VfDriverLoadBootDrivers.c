@@ -1,9 +1,9 @@
 /*
- * XREFs of VfDriverLoadBootDrivers @ 0x1409B76F8
+ * XREFs of VfDriverLoadBootDrivers @ 0x1409B86F8
  * Callers:
- *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x1409B8610 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfDriverLoadImage @ 0x140921264 (VfDriverLoadImage.c)
+ *     VfDriverLoadImage @ 0x140922264 (VfDriverLoadImage.c)
  */
 
 char __fastcall VfDriverLoadBootDrivers(_QWORD ***a1)

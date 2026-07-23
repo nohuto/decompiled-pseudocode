@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryStartedProcessors @ 0x1404F92F0
+ * XREFs of HvlQueryStartedProcessors @ 0x1404F6BD0
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x1409D8040 (EtwpFlushActiveBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x1409D1730 (EtwpFlushActiveBuffers.c)
  * Callees:
  *     <none>
  */

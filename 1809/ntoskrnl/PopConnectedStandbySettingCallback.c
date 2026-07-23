@@ -1,15 +1,15 @@
 /*
- * XREFs of PopConnectedStandbySettingCallback @ 0x14071EBD0
+ * XREFs of PopConnectedStandbySettingCallback @ 0x14071FE70
  * Callers:
  *     <none>
  * Callees:
- *     PopThermalCsEntry @ 0x1402DC334 (PopThermalCsEntry.c)
- *     PopThermalCsExit @ 0x1402DC384 (PopThermalCsExit.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopTransitionTelemetryOsState @ 0x1407454C8 (PopTransitionTelemetryOsState.c)
- *     PopDiagNextCsSleepStudySession @ 0x140870270 (PopDiagNextCsSleepStudySession.c)
- *     PopFanUpdateCsState @ 0x1408766D0 (PopFanUpdateCsState.c)
+ *     PopThermalCsEntry @ 0x1402DC524 (PopThermalCsEntry.c)
+ *     PopThermalCsExit @ 0x1402DC574 (PopThermalCsExit.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopTransitionTelemetryOsState @ 0x1407466B8 (PopTransitionTelemetryOsState.c)
+ *     PopDiagNextCsSleepStudySession @ 0x1408714D0 (PopDiagNextCsSleepStudySession.c)
+ *     PopFanUpdateCsState @ 0x140877930 (PopFanUpdateCsState.c)
  */
 
 __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, int *a2, int a3)
@@ -42,7 +42,7 @@ __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, int *a2, int a
         if ( v5 )
           return v4;
       }
-      else if ( (_DWORD)qword_140417704 || PopHiberBootForceMonitorOff )
+      else if ( (_DWORD)qword_1404187A4 || PopHiberBootForceMonitorOff )
       {
         PopMonitorOffDueToSleep = 1;
         return v4;
@@ -50,7 +50,7 @@ __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, int *a2, int a
       PopAcquirePolicyLock();
       if ( v5 )
       {
-        if ( v5 == 1 && qword_14043C388 )
+        if ( v5 == 1 && qword_14043D448 )
         {
           v10 = 2;
           PopTransitionTelemetryOsState(4LL, 6LL);

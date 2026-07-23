@@ -1,15 +1,15 @@
 /*
- * XREFs of KiReduceByEffectiveIdleSmtSet @ 0x14034B700
+ * XREFs of KiReduceByEffectiveIdleSmtSet @ 0x140369BE0
  * Callers:
- *     KiSelectIdleProcessor @ 0x14034AC10 (KiSelectIdleProcessor.c)
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
+ *     KiSelectIdleProcessor @ 0x1403690F0 (KiSelectIdleProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HalRequestSoftwareInterrupt @ 0x14034AB60 (HalRequestSoftwareInterrupt.c)
- *     KiQueryEffectivePriorityThread @ 0x14034BFE0 (KiQueryEffectivePriorityThread.c)
- *     KiEndCounterAccumulation @ 0x14034C52C (KiEndCounterAccumulation.c)
- *     KiUpdateThreadHgsFeedback @ 0x14034E8CC (KiUpdateThreadHgsFeedback.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalRequestSoftwareInterrupt @ 0x140369040 (HalRequestSoftwareInterrupt.c)
+ *     KiQueryEffectivePriorityThread @ 0x14036A4C0 (KiQueryEffectivePriorityThread.c)
+ *     KiEndCounterAccumulation @ 0x14036AA0C (KiEndCounterAccumulation.c)
+ *     KiUpdateThreadHgsFeedback @ 0x14036CDAC (KiUpdateThreadHgsFeedback.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 char __fastcall KiReduceByEffectiveIdleSmtSet(__int64 a1, __int64 a2)

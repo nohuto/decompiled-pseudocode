@@ -1,24 +1,24 @@
 /*
- * XREFs of _RegRtlCopyTreeInternal @ 0x140820BA0
+ * XREFs of _RegRtlCopyTreeInternal @ 0x1408212E0
  * Callers:
- *     _PnpCtxRegCopyTree @ 0x1408178CC (_PnpCtxRegCopyTree.c)
- *     _RegRtlCopyTreeInternal @ 0x140820BA0 (_RegRtlCopyTreeInternal.c)
+ *     _PnpCtxRegCopyTree @ 0x14081800C (_PnpCtxRegCopyTree.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408212E0 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     IoGetStackLimits @ 0x140281D40 (IoGetStackLimits.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     _RegRtlCopyTreeInternal @ 0x140820BA0 (_RegRtlCopyTreeInternal.c)
- *     _RegRtlGetKeySecurity @ 0x1408210D4 (_RegRtlGetKeySecurity.c)
- *     _RegRtlSetKeySecurity @ 0x1408213BC (_RegRtlSetKeySecurity.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlCreateKeyTransacted @ 0x140926504 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlEnumKey @ 0x140992974 (_RegRtlEnumKey.c)
- *     _RegRtlEnumValue @ 0x1409935EC (_RegRtlEnumValue.c)
- *     _RegRtlSetValue @ 0x140993B48 (_RegRtlSetValue.c)
- *     _RegRtlQueryInfoKey @ 0x140993F98 (_RegRtlQueryInfoKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetStackLimits @ 0x1402372D0 (IoGetStackLimits.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408212E0 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlGetKeySecurity @ 0x140821814 (_RegRtlGetKeySecurity.c)
+ *     _RegRtlSetKeySecurity @ 0x140821AFC (_RegRtlSetKeySecurity.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140928644 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlEnumKey @ 0x14097D9B4 (_RegRtlEnumKey.c)
+ *     _RegRtlEnumValue @ 0x14097E62C (_RegRtlEnumValue.c)
+ *     _RegRtlSetValue @ 0x14097EB88 (_RegRtlSetValue.c)
+ *     _RegRtlQueryInfoKey @ 0x14097EFD8 (_RegRtlQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlCopyTreeInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, __int64 a6, char a7)
@@ -32,7 +32,7 @@ __int64 __fastcall RegRtlCopyTreeInternal(__int64 a1, __int64 a2, __int64 a3, __
   int v16; // r13d
   ULONG v17; // eax
   unsigned __int64 v18; // rdi
-  ULONG v19; // r14d
+  ULONG_PTR v19; // r14
   void *v20; // rax
   int v21; // eax
   ULONG v22; // r13d
@@ -44,7 +44,7 @@ __int64 __fastcall RegRtlCopyTreeInternal(__int64 a1, __int64 a2, __int64 a3, __
   PVOID P; // [rsp+58h] [rbp-79h]
   unsigned int v30; // [rsp+60h] [rbp-71h] BYREF
   HANDLE KeyHandle; // [rsp+68h] [rbp-69h] BYREF
-  int v32; // [rsp+70h] [rbp-61h] BYREF
+  unsigned int v32; // [rsp+70h] [rbp-61h] BYREF
   int v33; // [rsp+74h] [rbp-5Dh] BYREF
   __int64 v34; // [rsp+78h] [rbp-59h] BYREF
   HANDLE Handle; // [rsp+80h] [rbp-51h] BYREF
@@ -100,7 +100,7 @@ __int64 __fastcall RegRtlCopyTreeInternal(__int64 a1, __int64 a2, __int64 a3, __
       {
         if ( Pool2 )
           ExFreePoolWithTag((PVOID)Pool2, 0);
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, v32, 0x4C474552u);
         if ( !Pool2 )
           goto LABEL_28;
       }
@@ -116,7 +116,7 @@ __int64 __fastcall RegRtlCopyTreeInternal(__int64 a1, __int64 a2, __int64 a3, __
       if ( (unsigned int)RegRtlQueryInfoKey((_DWORD)KeyHandle, 0, (unsigned int)&v28, 0, (__int64)&v27, (__int64)&v30) )
       {
         LODWORD(v18) = 0;
-        v19 = 0;
+        LODWORD(v19) = 0;
         goto LABEL_35;
       }
       v17 = v28;
@@ -133,11 +133,11 @@ __int64 __fastcall RegRtlCopyTreeInternal(__int64 a1, __int64 a2, __int64 a3, __
       {
         v19 = v30;
         v14 = 0;
-        if ( !(_DWORD)v18 || (v10 = (void *)ExAllocatePool2(0x100uLL)) != 0LL )
+        if ( !(_DWORD)v18 || (v10 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v18, 0x4C474552u)) != 0LL )
         {
-          if ( !v19 )
+          if ( !(_DWORD)v19 )
             goto LABEL_35;
-          v20 = (void *)ExAllocatePool2(0x100uLL);
+          v20 = (void *)ExAllocatePool2(0x100uLL, v19, 0x4C474552u);
           P = v20;
           if ( v20 )
           {
@@ -160,7 +160,7 @@ LABEL_35:
                 v14 = 0;
                 if ( v10 )
                   ExFreePoolWithTag(v10, 0);
-                v10 = (void *)ExAllocatePool2(0x100uLL);
+                v10 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v18, 0x4C474552u);
                 if ( !v10 )
                 {
                   v14 = -1073741801;
@@ -212,7 +212,7 @@ LABEL_35:
                     v14 = 0;
                     if ( v10 )
                       ExFreePoolWithTag(v10, 0);
-                    v10 = (void *)ExAllocatePool2(0x100uLL);
+                    v10 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v18, 0x4C474552u);
                     if ( !v10 )
                     {
                       v14 = -1073741801;
@@ -222,12 +222,12 @@ LABEL_66:
                     }
                   }
                   i = P;
-                  if ( v27 > v19 )
+                  if ( v27 > (unsigned int)v19 )
                   {
                     v19 = v27;
                     if ( P )
                       ExFreePoolWithTag(P, 0);
-                    i = (PVOID)ExAllocatePool2(0x100uLL);
+                    i = (PVOID)ExAllocatePool2(0x100uLL, v19, 0x4C474552u);
                     P = i;
                     if ( !i )
                       goto LABEL_31;

@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwCreateWaitCompletionPacket @ 0x140724E30
+ * XREFs of ZwCreateWaitCompletionPacket @ 0x140729A00
  * Callers:
- *     DifZwCreateWaitCompletionPacketWrapper @ 0x1406A33D0 (DifZwCreateWaitCompletionPacketWrapper.c)
+ *     DifZwCreateWaitCompletionPacketWrapper @ 0x1406A6FB0 (DifZwCreateWaitCompletionPacketWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateWaitCompletionPacket(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateWaitCompletionPacket(
+        PHANDLE WaitCompletionPacketHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WaitCompletionPacketHandle);
 }

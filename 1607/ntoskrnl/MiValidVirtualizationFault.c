@@ -1,15 +1,15 @@
 /*
- * XREFs of MiValidVirtualizationFault @ 0x1401EFD00
+ * XREFs of MiValidVirtualizationFault @ 0x1401EFB2C
  * Callers:
- *     MiValidFault @ 0x1400E6250 (MiValidFault.c)
- *     MiLargePageFault @ 0x1401EF82C (MiLargePageFault.c)
+ *     MiValidFault @ 0x1400E40F0 (MiValidFault.c)
+ *     MiLargePageFault @ 0x1401EF658 (MiLargePageFault.c)
  * Callees:
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiCompleteSecureProcessFault @ 0x1401EF744 (MiCompleteSecureProcessFault.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiCompleteSecureProcessFault @ 0x1401EF570 (MiCompleteSecureProcessFault.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiValidVirtualizationFault(__int64 a1, unsigned __int64 a2)

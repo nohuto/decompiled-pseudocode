@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpCheckFromStringVersion @ 0x1408078F4
+ * XREFs of SdbpCheckFromStringVersion @ 0x140808034
  * Callers:
- *     SdbpCheckApplicationTypeAttributes @ 0x140696028 (SdbpCheckApplicationTypeAttributes.c)
- *     SdbpCheckAttribute @ 0x1408075F4 (SdbpCheckAttribute.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x1406970F8 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckAttribute @ 0x140807D34 (SdbpCheckAttribute.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 __fastcall SdbpCheckFromStringVersion(unsigned __int16 *a1, unsigned __int16 *a2)

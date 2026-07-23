@@ -1,11 +1,11 @@
 /*
- * XREFs of IoUnregisterPlugPlayNotification @ 0x140B319C0
+ * XREFs of IoUnregisterPlugPlayNotification @ 0x140B33BC0
  * Callers:
- *     ExpPrmTargetDeviceChangeCallback @ 0x14083EFD0 (ExpPrmTargetDeviceChangeCallback.c)
- *     SbpWaitForVmbus @ 0x140D03BD0 (SbpWaitForVmbus.c)
+ *     ExpPrmTargetDeviceChangeCallback @ 0x140845210 (ExpPrmTargetDeviceChangeCallback.c)
+ *     SbpWaitForVmbus @ 0x140D09EA0 (SbpWaitForVmbus.c)
  * Callees:
- *     PnpUnregisterPlugPlayNotification @ 0x1404ABEF8 (PnpUnregisterPlugPlayNotification.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x1404A5588 (PnpUnregisterPlugPlayNotification.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall IoUnregisterPlugPlayNotification(PVOID NotificationEntry)

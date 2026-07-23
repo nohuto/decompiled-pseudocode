@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptGetIdentifiers @ 0x1404BACE0
+ * XREFs of HalpInterruptGetIdentifiers @ 0x1404B5B80
  * Callers:
- *     HalpConnectThermalInterrupt @ 0x140555ED0 (HalpConnectThermalInterrupt.c)
- *     HalpNumaQueryProcessorNode @ 0x140558250 (HalpNumaQueryProcessorNode.c)
- *     HalpNumaSwapP0NodeToFront @ 0x140558940 (HalpNumaSwapP0NodeToFront.c)
- *     HalpMcLoadMicrocodeWorker @ 0x140559A30 (HalpMcLoadMicrocodeWorker.c)
- *     Amd64InitializeCacheStatusEnhanced @ 0x14056B484 (Amd64InitializeCacheStatusEnhanced.c)
- *     Amd64InitializeCacheStatusOriginal @ 0x14056B6C0 (Amd64InitializeCacheStatusOriginal.c)
+ *     HalpConnectThermalInterrupt @ 0x140553810 (HalpConnectThermalInterrupt.c)
+ *     HalpNumaQueryProcessorNode @ 0x140555B90 (HalpNumaQueryProcessorNode.c)
+ *     HalpNumaSwapP0NodeToFront @ 0x140556280 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpMcLoadMicrocodeWorker @ 0x140557660 (HalpMcLoadMicrocodeWorker.c)
+ *     Amd64InitializeCacheStatusEnhanced @ 0x140568914 (Amd64InitializeCacheStatusEnhanced.c)
+ *     Amd64InitializeCacheStatusOriginal @ 0x140568B50 (Amd64InitializeCacheStatusOriginal.c)
  * Callees:
  *     <none>
  */

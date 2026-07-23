@@ -1,0 +1,48 @@
+/*
+ * XREFs of sub_1405F41D0 @ 0x1405F41D0
+ * Callers:
+ *     sub_1402FBEC0 @ 0x1402FBEC0 (sub_1402FBEC0.c)
+ *     sub_140722B40 @ 0x140722B40 (sub_140722B40.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ */
+
+__int64 __fastcall sub_1405F41D0(__int64 a1, unsigned int a2, __int64 *a3)
+{
+  __int64 v6; // r14
+  __int64 Pool2; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rdi
+  __int128 v11; // xmm0
+
+  *a3 = 0LL;
+  if ( a2 )
+  {
+    v6 = a2;
+    Pool2 = ExAllocatePool2(256LL, 48LL * a2, 1951360339LL);
+    if ( !Pool2 )
+      return 3221225626LL;
+    if ( a2 )
+    {
+      v9 = Pool2 + 2;
+      v10 = a1 - Pool2;
+      do
+      {
+        *(_WORD *)(v9 - 2) = *(_WORD *)(v10 + v9 - 2);
+        *(_WORD *)v9 = *(_WORD *)(v10 + v9);
+        *(_DWORD *)(v9 + 18) = *(_DWORD *)(v10 + v9 + 18);
+        v11 = *(_OWORD *)(v10 + v9 + 2);
+        *(_DWORD *)(v9 + 22) = 0;
+        *(_DWORD *)(v9 + 26) = 0;
+        *(_DWORD *)(v9 + 30) = 0;
+        *(_QWORD *)(v9 + 38) = 0LL;
+        *(_OWORD *)(v9 + 2) = v11;
+        v9 += 48LL;
+        --v6;
+      }
+      while ( v6 );
+    }
+    *a3 = Pool2;
+  }
+  return 0LL;
+}

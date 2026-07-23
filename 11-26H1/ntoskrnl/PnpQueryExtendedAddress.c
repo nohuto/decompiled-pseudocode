@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpQueryExtendedAddress @ 0x140AA7C14
+ * XREFs of PnpQueryExtendedAddress @ 0x1409DB148
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpQueryInterface @ 0x140AA8480 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpQueryInterface @ 0x1409DB9B4 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PnpQueryExtendedAddress(void *a1, _QWORD *a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSwitchKernelStackAndCallout @ 0x1404236C0
+ * XREFs of KiSwitchKernelStackAndCallout @ 0x140423A50
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271390 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271620 (KiExpandKernelStackAndCalloutOnStackSegment.c)
  * Callees:
  *     <none>
  */

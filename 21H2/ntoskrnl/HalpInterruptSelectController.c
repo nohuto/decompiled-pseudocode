@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptSelectController @ 0x1403A9360
+ * XREFs of HalpInterruptSelectController @ 0x1403AA0F0
  * Callers:
- *     HalpInitializeInterrupts @ 0x140A396FC (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140A3A6FC (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
- *     HalpFindInterruptController @ 0x1403A93E4 (HalpFindInterruptController.c)
+ *     HalpInterruptInitializeController @ 0x1403A37A8 (HalpInterruptInitializeController.c)
+ *     HalpFindInterruptController @ 0x1403AA174 (HalpFindInterruptController.c)
  */
 
 __int64 __fastcall HalpInterruptSelectController(__int64 a1)

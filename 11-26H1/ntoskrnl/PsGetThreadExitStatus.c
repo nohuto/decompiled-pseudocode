@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetThreadExitStatus @ 0x140A219D0
+ * XREFs of PsGetThreadExitStatus @ 0x140A2AFF0
  * Callers:
- *     MiInjectThreadForHotPatch @ 0x1408706B4 (MiInjectThreadForHotPatch.c)
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
+ *     MiInjectThreadForHotPatch @ 0x140876A14 (MiInjectThreadForHotPatch.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
  */
 
 NTSTATUS __stdcall PsGetThreadExitStatus(PETHREAD Thread)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RaspAntiAlias @ 0x140387AE0
+ * XREFs of RaspAntiAlias @ 0x140387CC0
  * Callers:
- *     BgpRasPrintGlyph @ 0x140385724 (BgpRasPrintGlyph.c)
+ *     BgpRasPrintGlyph @ 0x140385904 (BgpRasPrintGlyph.c)
  * Callees:
- *     BgpGxBlendColor @ 0x140387C48 (BgpGxBlendColor.c)
- *     BgpGxFillRectangle @ 0x140387D34 (BgpGxFillRectangle.c)
+ *     BgpGxBlendColor @ 0x140387E28 (BgpGxBlendColor.c)
+ *     BgpGxFillRectangle @ 0x140387F14 (BgpGxFillRectangle.c)
  */
 
 __int64 __fastcall RaspAntiAlias(__int64 a1, unsigned int *a2, unsigned int a3, unsigned int a4, unsigned int *a5)

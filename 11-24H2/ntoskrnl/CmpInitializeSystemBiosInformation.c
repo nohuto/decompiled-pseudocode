@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpInitializeSystemBiosInformation @ 0x140C47B10
+ * XREFs of CmpInitializeSystemBiosInformation @ 0x140C49C60
  * Callers:
- *     CmpInitializeMachineDependentConfiguration @ 0x140C4953C (CmpInitializeMachineDependentConfiguration.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140C4B660 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpBuildRegMultiSz @ 0x140C45D90 (CmpBuildRegMultiSz.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpBuildRegMultiSz @ 0x140C47EE0 (CmpBuildRegMultiSz.c)
  */
 
 void __fastcall CmpInitializeSystemBiosInformation(__int64 a1)
@@ -17,7 +17,7 @@ void __fastcall CmpInitializeSystemBiosInformation(__int64 a1)
   unsigned int v2; // esi
   unsigned int v3; // r14d
   unsigned int v4; // r15d
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   __int64 v6; // rdx
   char *v7; // rbx
   const void *v8; // r9

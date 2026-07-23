@@ -1,14 +1,14 @@
 /*
- * XREFs of GxpReadFrameBufferPixels @ 0x1409F1A40
+ * XREFs of GxpReadFrameBufferPixels @ 0x1409F2A40
  * Callers:
- *     BgpGxReadRectangle @ 0x1409F19D0 (BgpGxReadRectangle.c)
+ *     BgpGxReadRectangle @ 0x1409F29D0 (BgpGxReadRectangle.c)
  * Callees:
- *     BgpGetResolution @ 0x1402D3BC0 (BgpGetResolution.c)
- *     GxpAdjustRectangleToFrameBuffer @ 0x14039C154 (GxpAdjustRectangleToFrameBuffer.c)
- *     BgpGetBitsPerPixel @ 0x14039C280 (BgpGetBitsPerPixel.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     GxpGetRotatedPixelOffset @ 0x1405C4518 (GxpGetRotatedPixelOffset.c)
+ *     BgpGetResolution @ 0x140251E30 (BgpGetResolution.c)
+ *     GxpAdjustRectangleToFrameBuffer @ 0x14039C2A4 (GxpAdjustRectangleToFrameBuffer.c)
+ *     BgpGetBitsPerPixel @ 0x14039C3D0 (BgpGetBitsPerPixel.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     GxpGetRotatedPixelOffset @ 0x1405C4748 (GxpGetRotatedPixelOffset.c)
  */
 
 __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)

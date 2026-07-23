@@ -1,7 +1,7 @@
 /*
- * XREFs of KiFastGetCallersAddress @ 0x1409AB1DC
+ * XREFs of KiFastGetCallersAddress @ 0x1409AC1DC
  * Callers:
- *     KiLockServiceTable @ 0x1401738E4 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x1401739E4 (KiLockServiceTable.c)
  * Callees:
  *     <none>
  */

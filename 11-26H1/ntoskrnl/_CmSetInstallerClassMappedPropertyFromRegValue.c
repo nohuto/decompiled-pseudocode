@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140B44E74
+ * XREFs of _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140B47184
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x140B3E1DC (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x140B40214 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     _PnpOpenPropertiesKey @ 0x140995B20 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x14099E2B4 (_CmOpenInstallerClassRegKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpOpenPropertiesKey @ 0x140956580 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14095ED14 (_CmOpenInstallerClassRegKey.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
@@ -39,7 +39,7 @@ __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
   __int64 v29; // rax
   HANDLE v30; // rdx
   int v31; // eax
-  __int64 v33; // [rsp+28h] [rbp-38h]
+  int v33; // [rsp+28h] [rbp-38h]
   int v34; // [rsp+40h] [rbp-20h] BYREF
   HANDLE v35; // [rsp+48h] [rbp-18h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-10h] BYREF
@@ -49,11 +49,11 @@ __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
   v35 = 0LL;
   Handle = 0LL;
   v12 = 0LL;
-  v13 = &off_140BDB120;
+  v13 = &off_140BE1FD0;
   do
   {
     v14 = *v13;
-    v15 = &off_140BDB120 + 4 * (unsigned int)v12;
+    v15 = &off_140BE1FD0 + 4 * (unsigned int)v12;
     if ( *(_DWORD *)(a4 + 16) == (*v13)->pid )
     {
       v16 = *(_QWORD *)a4 - *(_QWORD *)&v14->fmtid.Data1;
@@ -62,9 +62,9 @@ __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
       if ( !v16 )
         break;
     }
+    v15 = 0LL;
     v12 = (unsigned int)(v12 + 1);
     v13 += 4;
-    v15 = 0LL;
   }
   while ( (unsigned int)v12 < 0xD );
   if ( !v15 )

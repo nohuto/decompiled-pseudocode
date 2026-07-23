@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockAndSelectSessionAttachProcess @ 0x140538FD0
+ * XREFs of MiLockAndSelectSessionAttachProcess @ 0x140539210
  * Callers:
- *     MmPrefetchVirtualMemory @ 0x1407108F8 (MmPrefetchVirtualMemory.c)
+ *     MmPrefetchVirtualMemory @ 0x1406BEF48 (MmPrefetchVirtualMemory.c)
  * Callees:
- *     MiSelectSessionAttachProcess @ 0x14020657C (MiSelectSessionAttachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSelectSessionAttachProcess @ 0x1402AAEAC (MiSelectSessionAttachProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

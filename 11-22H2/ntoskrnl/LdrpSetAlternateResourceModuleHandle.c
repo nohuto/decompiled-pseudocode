@@ -34,8 +34,8 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   unsigned int j; // eax
   unsigned __int64 v17; // rcx
   __int16 v18; // dx
-  __int64 v19; // rax
-  int v20; // r9d
+  PIMAGE_NT_HEADERS v19; // rax
+  unsigned int CheckSum; // r9d
   int v21; // r8d
   unsigned __int64 v22; // rcx
   char *v23; // rdx
@@ -133,10 +133,10 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
       }
     }
   }
-  v19 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+  v19 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
   if ( v19 )
   {
-    v20 = *(_DWORD *)(v19 + 88);
+    CheckSum = v19->OptionalHeader.CheckSum;
     v21 = AlternateResourceModuleCount;
     v22 = (unsigned __int64)(unsigned int)AlternateResourceModuleCount << 6;
     v23 = (char *)AlternateResourceModules;
@@ -161,7 +161,7 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
       *(_QWORD *)&v23[v22 + 48] = 0LL;
     }
     *(_WORD *)&v23[v22] = a5;
-    *(_DWORD *)&v23[v22 + 24] = v20;
+    *(_DWORD *)&v23[v22 + 24] = CheckSum;
     *(_DWORD *)&v23[v22 + 56] = a7;
     AlternateResourceModuleCount = v21 + 1;
   }

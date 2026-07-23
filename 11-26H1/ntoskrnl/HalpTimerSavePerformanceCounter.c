@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerSavePerformanceCounter @ 0x1404EB7B0
+ * XREFs of HalpTimerSavePerformanceCounter @ 0x1404E4D90
  * Callers:
- *     HalpAcpiPreSleep @ 0x140C08988 (HalpAcpiPreSleep.c)
+ *     HalpAcpiPreSleep @ 0x140C0EB98 (HalpAcpiPreSleep.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
  */
 
 __int64 HalpTimerSavePerformanceCounter()

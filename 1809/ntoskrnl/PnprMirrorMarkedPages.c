@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprMirrorMarkedPages @ 0x140579FFC
+ * XREFs of PnprMirrorMarkedPages @ 0x14057AFFC
  * Callers:
- *     PnprSwap @ 0x14028A8D0 (PnprSwap.c)
- *     PnprQuiesceProcessorDpc @ 0x14057A350 (PnprQuiesceProcessorDpc.c)
+ *     PnprSwap @ 0x14028AAC0 (PnprSwap.c)
+ *     PnprQuiesceProcessorDpc @ 0x14057B350 (PnprQuiesceProcessorDpc.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140021AC0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     RtlFindNextForwardRunClear @ 0x140028C00 (RtlFindNextForwardRunClear.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14007EE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlFindFirstRunClear @ 0x1402EE750 (RtlFindFirstRunClear.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14007EE50 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlFindFirstRunClear @ 0x1402EE940 (RtlFindFirstRunClear.c)
  */
 
 __int64 __fastcall PnprMirrorMarkedPages()
@@ -20,7 +20,7 @@ __int64 __fastcall PnprMirrorMarkedPages()
   bool v3; // r12
   __int64 v4; // rcx
   __int64 v5; // rax
-  struct _RTL_BITMAP *v6; // rdi
+  _RTL_BITMAP *v6; // rdi
   ULONG i; // eax
   int v8; // eax
   __int64 v9; // rcx
@@ -42,10 +42,10 @@ __int64 __fastcall PnprMirrorMarkedPages()
     {
       v4 = PnprContext;
       v5 = PnprContext + 152;
-      v6 = *(struct _RTL_BITMAP **)(PnprContext + 152);
+      v6 = *(_RTL_BITMAP **)(PnprContext + 152);
       while ( 2 )
       {
-        if ( v6 != (struct _RTL_BITMAP *)v5 )
+        if ( v6 != (_RTL_BITMAP *)v5 )
         {
           KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v4 + 168), &LockHandle);
           for ( i = RtlFindFirstRunClear(v6 + 2, &StartingIndex);
@@ -88,7 +88,7 @@ __int64 __fastcall PnprMirrorMarkedPages()
           if ( *(_DWORD *)(PnprContext + 200) != 3 )
           {
             v4 = PnprContext;
-            v6 = *(struct _RTL_BITMAP **)&v6->SizeOfBitMap;
+            v6 = *(_RTL_BITMAP **)&v6->SizeOfBitMap;
             v5 = PnprContext + 152;
             continue;
           }

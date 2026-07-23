@@ -7,10 +7,14 @@
  *     <none>
  */
 
-__int64 __fastcall TpSetPoolStackInformation(__int64 a1, __int64 a2)
+NTSTATUS __cdecl TpSetPoolStackInformation(PTP_POOL Pool, PTP_POOL_STACK_INFORMATION PoolStackInformation)
 {
-  if ( a1 && a2 )
-    return ZwSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 10LL, a2);
+  if ( Pool && PoolStackInformation )
+    return ZwSetInformationWorkerFactory(
+             *((HANDLE *)Pool + 7),
+             WorkerFactoryStackInformation,
+             PoolStackInformation,
+             0x10u);
   else
-    return 3221225485LL;
+    return -1073741811;
 }

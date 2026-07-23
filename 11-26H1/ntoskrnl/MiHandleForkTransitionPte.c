@@ -1,31 +1,31 @@
 /*
- * XREFs of MiHandleForkTransitionPte @ 0x14030E420
+ * XREFs of MiHandleForkTransitionPte @ 0x1402F04A0
  * Callers:
- *     MiBuildForkPte @ 0x14030AB74 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402ECBF4 (MiBuildForkPte.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiFinalizePageAttribute @ 0x1402D85E0 (MiFinalizePageAttribute.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14030B554 (MI_MAKE_PROTECT_WRITE_COPY.c)
- *     MiTransferPageFileOwnership @ 0x14030B56C (MiTransferPageFileOwnership.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiUnlockClonePageTable @ 0x14030B67C (MiUnlockClonePageTable.c)
- *     MiWriteUselessChildPte @ 0x14030D0DC (MiWriteUselessChildPte.c)
- *     MiDuplicateCloneLeaf @ 0x14030D374 (MiDuplicateCloneLeaf.c)
- *     MiReplenishCloneLeafPage @ 0x14030E9E0 (MiReplenishCloneLeafPage.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiGetCloneCharges @ 0x140369494 (MiGetCloneCharges.c)
- *     MiReturnCloneCharges @ 0x14036CAA4 (MiReturnCloneCharges.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiFinalizePageAttribute @ 0x1402BA3A0 (MiFinalizePageAttribute.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MI_MAKE_PROTECT_WRITE_COPY @ 0x1402ED5D4 (MI_MAKE_PROTECT_WRITE_COPY.c)
+ *     MiTransferPageFileOwnership @ 0x1402ED5EC (MiTransferPageFileOwnership.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiUnlockClonePageTable @ 0x1402ED6FC (MiUnlockClonePageTable.c)
+ *     MiWriteUselessChildPte @ 0x1402EF15C (MiWriteUselessChildPte.c)
+ *     MiDuplicateCloneLeaf @ 0x1402EF3F4 (MiDuplicateCloneLeaf.c)
+ *     MiReplenishCloneLeafPage @ 0x1402F0A60 (MiReplenishCloneLeafPage.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiGetCloneCharges @ 0x14036B234 (MiGetCloneCharges.c)
+ *     MiReturnCloneCharges @ 0x14036E844 (MiReturnCloneCharges.c)
  */
 
 __int64 __fastcall MiHandleForkTransitionPte(__int64 a1)
@@ -84,12 +84,12 @@ __int64 __fastcall MiHandleForkTransitionPte(__int64 a1)
   v8 = *(unsigned __int16 *)(v7 + 1198);
   v9 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
   v40 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
-  v10 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * v8);
+  v10 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * v8);
   v12 = *(unsigned __int16 *)(v11 + 1198);
   v42 = v10;
-  v13 = (v10 != *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * v12) ? 5 : 0) | 2;
+  v13 = (v10 != *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * v12) ? 5 : 0) | 2;
   if ( (*(_BYTE *)(a1 + 248) & 1) == 0 )
-    v13 = v10 != *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * v12) ? 5 : 0;
+    v13 = v10 != *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * v12) ? 5 : 0;
   if ( v13 && !(unsigned int)MiGetCloneCharges(v10) )
   {
     MiWriteUselessChildPte(a1, v3);
@@ -141,7 +141,7 @@ LABEL_8:
             MiInsertPageInList(v15, 8u);
         }
         *(_QWORD *)(v15 + 8) = BugCheckParameter4;
-        v23 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL));
+        v23 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL));
         if ( (*(_BYTE *)(v15 + 34) & 7) != 2 || (unsigned int)MiGetPfnSlabType(v15) == 9 )
         {
           v25 = 1;
@@ -186,7 +186,7 @@ LABEL_8:
             v40 &= ~8uLL;
             v9 = v40;
           }
-          MiReleasePageFileInfo(v42, v9, 1);
+          MiReleasePageFileInfo(v42, v9, 1LL);
         }
         if ( (*(_DWORD *)(a1 + 248) & 1) != 0 && (_DWORD)v16 != 24 )
           PrototypePteDirect |= 8uLL;

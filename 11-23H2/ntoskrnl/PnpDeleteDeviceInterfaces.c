@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpDeleteDeviceInterfaces @ 0x140956454
+ * XREFs of PnpDeleteDeviceInterfaces @ 0x140956654
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x14087A734 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x14087A974 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3F44 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D42B4 (PnpUnicodeStringToWstr.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1407D1938 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     _CmDeleteDeviceInterface @ 0x140A615CC (_CmDeleteDeviceInterface.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D3F74 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D42E4 (PnpUnicodeStringToWstr.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1407D1C08 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _CmDeleteDeviceInterface @ 0x140A6187C (_CmDeleteDeviceInterface.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

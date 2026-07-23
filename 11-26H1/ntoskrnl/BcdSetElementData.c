@@ -1,13 +1,13 @@
 /*
- * XREFs of BcdSetElementData @ 0x1409D30A4
+ * XREFs of BcdSetElementData @ 0x1409A4084
  * Callers:
- *     PopAdaptivePersistSystemInitatedRebootState @ 0x140610A68 (PopAdaptivePersistSystemInitatedRebootState.c)
- *     WheaPersistBadPageToBcd @ 0x1406D5E6C (WheaPersistBadPageToBcd.c)
+ *     PopAdaptivePersistSystemInitatedRebootState @ 0x140613D24 (PopAdaptivePersistSystemInitatedRebootState.c)
+ *     WheaPersistBadPageToBcd @ 0x1406D9F4C (WheaPersistBadPageToBcd.c)
  * Callees:
- *     BcdSetElementDataWithFlags @ 0x1409D30C4 (BcdSetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A40A4 (BcdSetElementDataWithFlags.c)
  */
 
-__int64 __fastcall BcdSetElementData(__int64 a1, __int64 a2, __int64 a3, int a4)
+NTSTATUS __cdecl BcdSetElementData(HANDLE BcdObjectHandle, ULONG BcdElement, PVOID Buffer, ULONG BufferSize)
 {
-  return BcdSetElementDataWithFlags(a1, a2, a3, a3, a4);
+  return BcdSetElementDataWithFlags(BcdObjectHandle, BcdElement, (BCD_FLAGS)Buffer, Buffer, BufferSize);
 }

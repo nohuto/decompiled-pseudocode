@@ -12,17 +12,17 @@
  *     NtCreateSection @ 0x1800A49B0 (NtCreateSection.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDllByMappingFile(UNICODE_STRING *a1, volatile signed __int32 **a2, _DWORD *a3)
+__int64 __fastcall LdrpFindLoadedDllByMappingFile(_UNICODE_STRING *a1, volatile signed __int32 **a2, _DWORD *a3)
 {
   ULONG v4; // eax
   NTSTATUS v6; // eax
   int LoadedDllByMapping; // ebx
-  unsigned __int64 v9; // [rsp+50h] [rbp-19h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-11h] BYREF
-  _DWORD *v11; // [rsp+60h] [rbp-9h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-1h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+Fh] BYREF
-  unsigned __int64 v14; // [rsp+D0h] [rbp+67h] BYREF
+  ULONG_PTR ViewSize; // [rsp+50h] [rbp-19h] BYREF
+  HANDLE SectionHandle; // [rsp+58h] [rbp-11h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp-9h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+Fh] BYREF
+  PVOID BaseAddress; // [rsp+D0h] [rbp+67h] BYREF
   HANDLE FileHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
   ObjectAttributes.RootDirectory = 0LL;
@@ -40,20 +40,30 @@ __int64 __fastcall LdrpFindLoadedDllByMappingFile(UNICODE_STRING *a1, volatile s
     && (LoadedDllByMapping = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u),
         LoadedDllByMapping >= 0) )
   {
-    LoadedDllByMapping = NtCreateSection(&Handle, 4LL, 0LL, 0LL, 2, 285212672, FileHandle);
+    LoadedDllByMapping = NtCreateSection(&SectionHandle, 4u, 0LL, 0LL, 2u, 0x11000000u, FileHandle);
     if ( LoadedDllByMapping >= 0 )
     {
-      v14 = 0LL;
-      v9 = 0LL;
-      LoadedDllByMapping = ZwMapViewOfSection(Handle, -1LL, &v14, 0LL, 0LL, 0LL, &v9, 1, 0, 2);
+      BaseAddress = 0LL;
+      ViewSize = 0LL;
+      LoadedDllByMapping = ZwMapViewOfSection(
+                             SectionHandle,
+                             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                             &BaseAddress,
+                             0LL,
+                             0LL,
+                             0LL,
+                             &ViewSize,
+                             ViewShare,
+                             0,
+                             2u);
       if ( LoadedDllByMapping >= 0 )
       {
-        LoadedDllByMapping = RtlImageNtHeaderEx(0, v14, v9, &v11);
+        LoadedDllByMapping = RtlImageNtHeaderEx(0, BaseAddress, ViewSize, &OutHeaders);
         if ( LoadedDllByMapping >= 0 )
-          LoadedDllByMapping = LdrpFindLoadedDllByMapping(v14, v11, a2, a3);
-        NtUnmapViewOfSection(-1LL);
+          LoadedDllByMapping = LdrpFindLoadedDllByMapping(BaseAddress, OutHeaders, a2, a3);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
       }
-      NtClose(Handle);
+      NtClose(SectionHandle);
     }
     NtClose(FileHandle);
   }

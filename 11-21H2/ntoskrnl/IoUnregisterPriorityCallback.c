@@ -1,14 +1,14 @@
 /*
  * XREFs of IoUnregisterPriorityCallback @ 0x140557E20
  * Callers:
- *     IopDeleteDriver @ 0x14085D640 (IopDeleteDriver.c)
+ *     sub_14085D640 @ 0x14085D640 (sub_14085D640.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x1403C7678 (ExCompareExchangeCallBack.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406D9550 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ExWaitForCallBacks @ 0x1409FB4DC (ExWaitForCallBacks.c)
+ *     sub_140281870 @ 0x140281870 (sub_140281870.c)
+ *     sub_1402AD030 @ 0x1402AD030 (sub_1402AD030.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_1403C7678 @ 0x1403C7678 (sub_1403C7678.c)
+ *     sub_1406D9550 @ 0x1406D9550 (sub_1406D9550.c)
+ *     sub_1409FB4DC @ 0x1409FB4DC (sub_1409FB4DC.c)
  */
 
 void __fastcall IoUnregisterPriorityCallback(__int64 a1)
@@ -26,11 +26,11 @@ void __fastcall IoUnregisterPriorityCallback(__int64 a1)
   if ( (*(_DWORD *)(a1 + 16) & 0x200) == 0 )
     return;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   v3 = 0LL;
-  for ( i = IopUpdatePriorityCallbackRoutine; ; ++i )
+  for ( i = qword_140C46D20; ; ++i )
   {
-    v5 = ExReferenceCallBackBlock(&IopUpdatePriorityCallbackRoutine[v3]);
+    v5 = sub_140281870(&qword_140C46D20[v3]);
     v6 = v5;
     if ( v5 )
     {
@@ -45,42 +45,42 @@ void __fastcall IoUnregisterPriorityCallback(__int64 a1)
           if ( v10 == v9 )
             goto LABEL_15;
         }
-        ExReleaseRundownProtection(v6);
+        sub_1402AD030(v6);
         goto LABEL_15;
       }
-      if ( ExCompareExchangeCallBack(&IopUpdatePriorityCallbackRoutine[v3], 0LL, (__int64)v5) )
+      if ( sub_1403C7678(&qword_140C46D20[v3], 0LL, (__int64)v5) )
         break;
     }
 LABEL_15:
     v3 = (unsigned int)(v3 + 1);
     if ( (unsigned int)v3 >= 8 )
     {
-      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+      sub_1402F9540((__int64)CurrentThread);
       return;
     }
   }
-  _InterlockedDecrement(&IopUpdatePriorityCallbackRoutineCount);
-  _m_prefetchw(&IopUpdatePriorityCallbackRoutine[v3]);
-  v7 = IopUpdatePriorityCallbackRoutine[v3];
+  _InterlockedDecrement(&dword_140D00A90);
+  _m_prefetchw(&qword_140C46D20[v3]);
+  v7 = qword_140C46D20[v3];
   if ( ((unsigned __int64)v6 ^ v7) >= 0xF )
   {
 LABEL_9:
-    ExReleaseRundownProtection(v6);
+    sub_1402AD030(v6);
   }
   else
   {
     while ( 1 )
     {
       v8 = v7;
-      v7 = _InterlockedCompareExchange64(&IopUpdatePriorityCallbackRoutine[v3], v7 + 1, v7);
+      v7 = _InterlockedCompareExchange64(&qword_140C46D20[v3], v7 + 1, v7);
       if ( v8 == v7 )
         break;
       if ( ((unsigned __int64)v6 ^ v7) >= 0xF )
         goto LABEL_9;
     }
   }
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-  ExWaitForCallBacks(v6);
-  SC_ENV::Free(v6);
+  sub_1402F9540((__int64)CurrentThread);
+  sub_1409FB4DC(v6);
+  sub_1406D9550(v6);
   *(_DWORD *)(a1 + 16) &= ~0x200u;
 }

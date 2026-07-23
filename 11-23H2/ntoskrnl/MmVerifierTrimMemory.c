@@ -1,11 +1,11 @@
 /*
- * XREFs of MmVerifierTrimMemory @ 0x140AE8100
+ * XREFs of MmVerifierTrimMemory @ 0x140AE80F0
  * Callers:
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD5DD8 (ViKeIrqlLogAndTrimMemory.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140AD5DC8 (ViKeIrqlLogAndTrimMemory.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14022E960 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x14041F130 (KeGetCurrentStackPointer.c)
- *     MiTrimAllSystemPagableMemory @ 0x140635290 (MiTrimAllSystemPagableMemory.c)
+ *     RtlpGetStackLimits @ 0x14022EA70 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x14041F4C0 (KeGetCurrentStackPointer.c)
+ *     MiTrimAllSystemPagableMemory @ 0x1406357E0 (MiTrimAllSystemPagableMemory.c)
  */
 
 char *MmVerifierTrimMemory()

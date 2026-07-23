@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlDeregisterUncProvider @ 0x140815000
+ * XREFs of FsRtlDeregisterUncProvider @ 0x140816200
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     KeReleaseSemaphore @ 0x1400C5E00 (KeReleaseSemaphore.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
  */
 
 void __stdcall FsRtlDeregisterUncProvider(HANDLE Handle)

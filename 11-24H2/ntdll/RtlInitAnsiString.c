@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInitAnsiString @ 0x1800E3C60
+ * XREFs of RtlInitAnsiString @ 0x1800DF230
  * Callers:
- *     RtlInitUTF8String @ 0x18010CD90 (RtlInitUTF8String.c)
- *     AVrfpVerifierStopInitialize @ 0x18011DC24 (AVrfpVerifierStopInitialize.c)
- *     ApiSetResolveToHost2 @ 0x180135420 (ApiSetResolveToHost2.c)
+ *     RtlInitUTF8String @ 0x180107BE0 (RtlInitUTF8String.c)
+ *     AVrfpVerifierStopInitialize @ 0x18011BE54 (AVrfpVerifierStopInitialize.c)
+ *     ApiSetResolveToHost2 @ 0x180133650 (ApiSetResolveToHost2.c)
  * Callees:
- *     strlen @ 0x180167CE0 (strlen.c)
+ *     strlen @ 0x1801660A0 (strlen.c)
  */
 
 void __stdcall RtlInitAnsiString(PSTRING DestinationString, PCSZ SourceString)

@@ -13,7 +13,7 @@ char __fastcall RtlpAcquireDescriptorPseudoGlobalLockEx(__int64 a1, char a2)
 {
   char v3; // di
   void *UniqueThread; // rsi
-  volatile signed __int32 *v5; // rcx
+  _RTL_SRWLOCK *v5; // rcx
 
   v3 = 1;
   if ( (*(_BYTE *)(a1 + 24) & 2) == 0 )
@@ -21,7 +21,7 @@ char __fastcall RtlpAcquireDescriptorPseudoGlobalLockEx(__int64 a1, char a2)
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
     if ( (_DWORD)UniqueThread != *(_DWORD *)(a1 + 36) )
     {
-      v5 = (volatile signed __int32 *)(a1 + 40);
+      v5 = (_RTL_SRWLOCK *)(a1 + 40);
       if ( a2 )
       {
         if ( !RtlTryAcquireSRWLockExclusive(v5) )

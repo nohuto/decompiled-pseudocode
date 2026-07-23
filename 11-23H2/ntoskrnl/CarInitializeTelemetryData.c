@@ -1,17 +1,17 @@
 /*
- * XREFs of CarInitializeTelemetryData @ 0x1405D3D90
+ * XREFs of CarInitializeTelemetryData @ 0x1405D4300
  * Callers:
- *     CarCreateTelemetryData @ 0x1405D3A3C (CarCreateTelemetryData.c)
+ *     CarCreateTelemetryData @ 0x1405D3FAC (CarCreateTelemetryData.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     wcsncpy_s @ 0x1403DFF30 (wcsncpy_s.c)
- *     CarCopyDriverName @ 0x1405D2778 (CarCopyDriverName.c)
- *     CarGetDriverInfoFromDriverName @ 0x1405D3040 (CarGetDriverInfoFromDriverName.c)
- *     CarGetDriverInfoFromViolationStack @ 0x1405D3098 (CarGetDriverInfoFromViolationStack.c)
- *     CarCreateViolationHashString @ 0x1405D555C (CarCreateViolationHashString.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     wcsncpy_s @ 0x1403E0110 (wcsncpy_s.c)
+ *     CarCopyDriverName @ 0x1405D2CE8 (CarCopyDriverName.c)
+ *     CarGetDriverInfoFromDriverName @ 0x1405D35B0 (CarGetDriverInfoFromDriverName.c)
+ *     CarGetDriverInfoFromViolationStack @ 0x1405D3608 (CarGetDriverInfoFromViolationStack.c)
+ *     CarCreateViolationHashString @ 0x1405D5ACC (CarCreateViolationHashString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     VfUtilGetDriverName @ 0x140AC26E0 (VfUtilGetDriverName.c)
+ *     VfUtilGetDriverName @ 0x140AC26D0 (VfUtilGetDriverName.c)
  */
 
 __int64 __fastcall CarInitializeTelemetryData(

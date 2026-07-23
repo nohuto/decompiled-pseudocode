@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpWriteOffsetArrayToFile @ 0x14085AACC
+ * XREFs of CmpWriteOffsetArrayToFile @ 0x140860DC0
  * Callers:
- *     CmDumpKeyToFile @ 0x14084D1E8 (CmDumpKeyToFile.c)
- *     CmpFlushBackupHive @ 0x14085A45C (CmpFlushBackupHive.c)
+ *     CmDumpKeyToFile @ 0x1408534F4 (CmDumpKeyToFile.c)
+ *     CmpFlushBackupHive @ 0x140860750 (CmpFlushBackupHive.c)
  * Callees:
- *     ZwSetInformationFile @ 0x1407238D0 (ZwSetInformationFile.c)
- *     ZwFlushBuffersFile @ 0x140723D50 (ZwFlushBuffersFile.c)
- *     CmpDoFileWrite @ 0x140AE6B08 (CmpDoFileWrite.c)
+ *     ZwSetInformationFile @ 0x1407284A0 (ZwSetInformationFile.c)
+ *     ZwFlushBuffersFile @ 0x140728920 (ZwFlushBuffersFile.c)
+ *     CmpDoFileWrite @ 0x140AE48C8 (CmpDoFileWrite.c)
  */
 
 NTSTATUS __fastcall CmpWriteOffsetArrayToFile(__int64 a1, int a2, int a3, int a4, HANDLE FileHandle)

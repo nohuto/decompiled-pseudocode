@@ -16,8 +16,8 @@ __int64 __fastcall HvlpSlowAcknowledgePageRequest(unsigned int a1, _QWORD *a2, i
   __int16 v7; // di
   char v8; // bp
   bool v9; // di
-  struct _SLIST_ENTRY *HypercallCachedPages; // rax
-  struct _SLIST_ENTRY *v11; // r15
+  _SLIST_ENTRY *HypercallCachedPages; // rax
+  _SLIST_ENTRY *v11; // r15
   struct _KPRCB *v12; // rsi
   _SLIST_ENTRY *Next; // r14
   __int64 v14; // rax
@@ -25,7 +25,7 @@ __int64 __fastcall HvlpSlowAcknowledgePageRequest(unsigned int a1, _QWORD *a2, i
   __int64 v16; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KPRCB *v19; // [rsp+28h] [rbp-50h]
-  struct _SLIST_ENTRY *v20; // [rsp+30h] [rbp-48h]
+  _SLIST_ENTRY *v20; // [rsp+30h] [rbp-48h]
   __int16 v21; // [rsp+70h] [rbp-8h]
   __int64 v23; // [rsp+98h] [rbp+20h]
   __int16 v24; // [rsp+9Ch] [rbp+24h]
@@ -39,7 +39,7 @@ __int64 __fastcall HvlpSlowAcknowledgePageRequest(unsigned int a1, _QWORD *a2, i
     v8 = 5;
     HIDWORD(v19) = 5;
     v9 = (v7 & 0x200) != 0;
-    HypercallCachedPages = (struct _SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
+    HypercallCachedPages = (_SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
     LOBYTE(v19) = v9;
     v11 = v20;
     v12 = v19;

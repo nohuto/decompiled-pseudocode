@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSqmThermalZoneEnumeration @ 0x140765A64
+ * XREFs of PopSqmThermalZoneEnumeration @ 0x140765434
  * Callers:
- *     PopDiagTraceThermalZoneEnumeration @ 0x1405D5850 (PopDiagTraceThermalZoneEnumeration.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x1405D2E64 (PopDiagTraceThermalZoneEnumeration.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopSqmThermalZoneEnumeration(
@@ -73,9 +73,9 @@ char __fastcall PopSqmThermalZoneEnumeration(
   int v60; // [rsp+13Ch] [rbp+3Ch]
 
   v12 = *(_QWORD *)(a2 + 8);
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
-    LOBYTE(v12) = tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL);
+    LOBYTE(v12) = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);
     if ( (_BYTE)v12 )
     {
       tlgCreate1Sz_wchar_t((__int64)v29, *(const wchar_t **)(v13 + 8));
@@ -121,8 +121,8 @@ char __fastcall PopSqmThermalZoneEnumeration(
       v27 = a12;
       v59 = 4;
       LOBYTE(v12) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140E076F0,
-                      (unsigned __int8 *)byte_14004F49D,
+                      (__int64)&dword_140E07680,
+                      (unsigned __int8 *)&dword_1400500CC,
                       0LL,
                       0LL,
                       0xEu,

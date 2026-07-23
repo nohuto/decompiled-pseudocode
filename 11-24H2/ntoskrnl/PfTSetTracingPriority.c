@@ -1,12 +1,12 @@
 /*
- * XREFs of PfTSetTracingPriority @ 0x140B5B62C
+ * XREFs of PfTSetTracingPriority @ 0x140B5D69C
  * Callers:
- *     PfpLogEventRequest @ 0x140AA86F4 (PfpLogEventRequest.c)
+ *     PfpLogEventRequest @ 0x140AA3778 (PfpLogEventRequest.c)
  * Callees:
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     PfpPartitionToParent @ 0x1404BCA40 (PfpPartitionToParent.c)
- *     MmSetAccessLogging @ 0x140683808 (MmSetAccessLogging.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     PfpPartitionToParent @ 0x1404B7BB0 (PfpPartitionToParent.c)
+ *     MmSetAccessLogging @ 0x1406849B8 (MmSetAccessLogging.c)
  */
 
 void __fastcall PfTSetTracingPriority(__int64 a1, int a2)

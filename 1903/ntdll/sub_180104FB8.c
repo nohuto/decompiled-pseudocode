@@ -20,46 +20,44 @@
  *     sub_18010A580 @ 0x18010A580 (sub_18010A580.c)
  */
 
-__int64 __fastcall sub_180104FB8(_DWORD *Src, int a2, __int64 a3)
+__int64 __fastcall sub_180104FB8(PRTL_CRITICAL_SECTION *Src, int a2, char *a3)
 {
-  unsigned int v6; // r14d
+  LOGICAL v6; // r14d
   int v8; // esi
   unsigned __int64 v9; // rdx
   struct _PEB *v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int16 v13; // dx
-  unsigned __int16 v14; // cx
-  wchar_t *v15; // rax
-  char v16; // [rsp+20h] [rbp-38h]
-  unsigned __int64 v17; // [rsp+28h] [rbp-30h]
-  unsigned int v18; // [rsp+68h] [rbp+10h]
-  unsigned __int16 v19; // [rsp+78h] [rbp+20h]
+  __int16 v11; // dx
+  unsigned __int16 v12; // cx
+  wchar_t *v13; // rax
+  char v14; // [rsp+20h] [rbp-38h]
+  unsigned __int64 v15; // [rsp+28h] [rbp-30h]
+  int Flags; // [rsp+68h] [rbp+10h]
+  unsigned __int16 v17; // [rsp+78h] [rbp+20h]
 
   v6 = 0;
-  v16 = 0;
-  if ( (Src[29] & 0x1000000) != 0 )
+  v14 = 0;
+  if ( (*((_DWORD *)Src + 29) & 0x1000000) != 0 )
     return (unsigned __int8)_guard_dispatch_icall_fptr();
   if ( sub_180019C74(Src, "RtlFreeHeap") )
   {
-    v8 = Src[29] | 0x10000000 | a2;
-    v18 = v8;
+    v8 = *((_DWORD *)Src + 29) | 0x10000000 | a2;
+    Flags = v8;
     if ( (v8 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
-      v16 = 1;
-      v18 = v8 | 1;
+      RtlEnterCriticalSection(Src[44]);
+      v14 = 1;
+      Flags = v8 | 1;
     }
-    sub_1801061B8(Src, 0LL);
-    v9 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    sub_1801061B8((_DWORD)Src);
+    v9 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v9 -= 16LL * *(unsigned __int8 *)(v9 + 14);
-    v17 = v9;
+    v15 = v9;
     if ( !sub_1800704A4((unsigned __int64)Src, v9, "RtlFreeHeap") )
       goto LABEL_34;
     v10 = NtCurrentPeb();
-    if ( a3 == qword_180163900 )
+    if ( a3 == (char *)qword_180163900 )
     {
       if ( v10->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -71,47 +69,47 @@ __int64 __fastcall sub_180104FB8(_DWORD *Src, int a2, __int64 a3)
     {
       if ( (v10->NtGlobalFlag & 0x800) == 0 )
         goto LABEL_33;
-      v13 = unk_180163908;
+      v11 = unk_180163908;
       if ( !unk_180163908 )
         goto LABEL_33;
-      if ( Src[31] )
+      if ( *((_DWORD *)Src + 31) )
       {
-        *(_DWORD *)(v17 + 8) ^= Src[34];
-        if ( *(_BYTE *)(v17 + 11) != (*(_BYTE *)(v17 + 8) ^ (unsigned __int8)(*(_BYTE *)(v17 + 9) ^ *(_BYTE *)(v17 + 10))) )
+        *(_DWORD *)(v15 + 8) ^= *((_DWORD *)Src + 34);
+        if ( *(_BYTE *)(v15 + 11) != (*(_BYTE *)(v15 + 8) ^ (unsigned __int8)(*(_BYTE *)(v15 + 9) ^ *(_BYTE *)(v15 + 10))) )
         {
-          sub_180101024((unsigned __int64)Src, v17);
-          v13 = unk_180163908;
+          sub_180101024((unsigned __int64)Src, v15);
+          v11 = unk_180163908;
         }
       }
-      if ( (*(_BYTE *)(v17 + 10) & 2) != 0 )
-        v14 = *(_WORD *)(sub_18006E8DC(v17) + 2);
+      if ( (*(_BYTE *)(v15 + 10) & 2) != 0 )
+        v12 = *(_WORD *)(sub_18006E8DC(v15) + 2);
       else
-        v14 = *(unsigned __int8 *)(v17 + 11);
-      v19 = v14;
-      if ( Src[31] )
+        v12 = *(unsigned __int8 *)(v15 + 11);
+      v17 = v12;
+      if ( *((_DWORD *)Src + 31) )
       {
-        *(_BYTE *)(v17 + 11) = *(_BYTE *)(v17 + 8) ^ *(_BYTE *)(v17 + 9) ^ *(_BYTE *)(v17 + 10);
-        *(_DWORD *)(v17 + 8) ^= Src[34];
+        *(_BYTE *)(v15 + 11) = *(_BYTE *)(v15 + 8) ^ *(_BYTE *)(v15 + 9) ^ *(_BYTE *)(v15 + 10);
+        *(_DWORD *)(v15 + 8) ^= *((_DWORD *)Src + 34);
       }
-      if ( !v14 || v14 != v13 || *((_WORD *)Src + 104) != word_18016390A )
+      if ( !v12 || v12 != v11 || *((_WORD *)Src + 104) != word_18016390A )
         goto LABEL_33;
       if ( NtCurrentPeb()->Ldr )
         DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
       else
         DbgPrint("HEAP: ");
-      v15 = sub_1800F0764((__int64)Src, v19);
-      DbgPrint("About to free block at %p with tag %ws\n", a3, v15);
+      v13 = sub_1800F0764((__int64)Src, v17);
+      DbgPrint("About to free block at %p with tag %ws\n", a3, v13);
     }
-    sub_180106190(v12, v11);
+    sub_180106190();
 LABEL_33:
-    v6 = RtlFreeHeap((__int64)Src, v18, a3);
+    v6 = RtlFreeHeap(Src, Flags, a3);
     sub_180106798(Src);
-    sub_1801061B8(Src, 0LL);
+    sub_1801061B8((_DWORD)Src);
     goto LABEL_34;
   }
   v6 = 0;
 LABEL_34:
-  if ( v16 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+  if ( v14 )
+    RtlLeaveCriticalSection(Src[44]);
   return v6;
 }

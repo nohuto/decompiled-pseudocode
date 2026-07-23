@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpEventWriteTemplateSession @ 0x140833614
+ * XREFs of EtwpEventWriteTemplateSession @ 0x1409D26F0
  * Callers:
- *     EtwpTransitionToRealtime @ 0x14064F408 (EtwpTransitionToRealtime.c)
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpStopTrace @ 0x1408325A4 (EtwpStopTrace.c)
- *     EtwpUpdateTrace @ 0x14083311C (EtwpUpdateTrace.c)
- *     EtwpFlushTrace @ 0x140833B94 (EtwpFlushTrace.c)
- *     EtwpLogger @ 0x1409D88E0 (EtwpLogger.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x140A9290C (EtwpUpdateLoggerSecurityDescriptor.c)
- *     EtwpTracingProvEnableCallback @ 0x140AAAD20 (EtwpTracingProvEnableCallback.c)
+ *     EtwpTransitionToRealtime @ 0x14064DB08 (EtwpTransitionToRealtime.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x1409D2184 (EtwpStopTrace.c)
+ *     EtwpFlushTrace @ 0x1409D2420 (EtwpFlushTrace.c)
+ *     EtwpLogger @ 0x1409D33F0 (EtwpLogger.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x140A8F0BC (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     EtwpTracingProvEnableCallback @ 0x140AA5F50 (EtwpTracingProvEnableCallback.c)
+ *     EtwpUpdateTrace @ 0x140ADA038 (EtwpUpdateTrace.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3)
@@ -26,12 +26,12 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRI
   __int64 v11; // [rsp+60h] [rbp-A0h]
   int v12; // [rsp+68h] [rbp-98h]
   int v13; // [rsp+6Ch] [rbp-94h]
-  __int64 *v14; // [rsp+70h] [rbp-90h]
+  int *v14; // [rsp+70h] [rbp-90h]
   __int64 v15; // [rsp+78h] [rbp-88h]
   __int64 v16; // [rsp+80h] [rbp-80h]
   int v17; // [rsp+88h] [rbp-78h]
   int v18; // [rsp+8Ch] [rbp-74h]
-  __int64 *v19; // [rsp+90h] [rbp-70h]
+  int *v19; // [rsp+90h] [rbp-70h]
   __int64 v20; // [rsp+98h] [rbp-68h]
   __int64 v21; // [rsp+A0h] [rbp-60h]
   __int64 v22; // [rsp+A8h] [rbp-58h]

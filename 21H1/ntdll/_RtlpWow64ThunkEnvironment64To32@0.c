@@ -9,43 +9,43 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __stdcall RtlpWow64ThunkEnvironment64To32()
+NTSTATUS __stdcall RtlpWow64ThunkEnvironment64To32()
 {
   unsigned int i; // esi
-  int result; // eax
+  NTSTATUS result; // eax
   bool v2; // bl
-  UNICODE_STRING v3; // [esp+10h] [ebp-238h] BYREF
-  _DWORD v4[2]; // [esp+18h] [ebp-230h] BYREF
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-228h] BYREF
-  UNICODE_STRING v6; // [esp+28h] [ebp-220h] BYREF
-  UNICODE_STRING v7; // [esp+30h] [ebp-218h] BYREF
+  _UNICODE_STRING Value; // [esp+10h] [ebp-238h] BYREF
+  _UNICODE_STRING v4; // [esp+18h] [ebp-230h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+20h] [ebp-228h] BYREF
+  _UNICODE_STRING v6; // [esp+28h] [ebp-220h] BYREF
+  _UNICODE_STRING Name; // [esp+30h] [ebp-218h] BYREF
   _BYTE v8[524]; // [esp+38h] [ebp-210h] BYREF
 
   for ( i = 0; i < 15; i += 5 )
   {
-    RtlInitUnicodeString(&DestinationString, Wow64EnvironmentThunkTable[i]);
-    RtlInitUnicodeString(&v6, off_4B281828[i]);
+    RtlInitUnicodeString(&DestinationString, (PCWSTR)Wow64EnvironmentThunkTable[i]);
+    RtlInitUnicodeString(&v6, (PCWSTR)off_4B281828[i]);
     if ( byte_4B281830[i * 4] )
     {
-      RtlInitUnicodeString(&v7, off_4B281824[i]);
-      *(_DWORD *)&v3.Length = 34078720;
-      v3.Buffer = (wchar_t *)v8;
-      result = RtlQueryEnvironmentVariable_U(0, &v7, &v3);
+      RtlInitUnicodeString(&Name, (PCWSTR)off_4B281824[i]);
+      *(_DWORD *)&Value.Length = 34078720;
+      Value.Buffer = (wchar_t *)v8;
+      result = RtlQueryEnvironmentVariable_U(0, &Name, &Value);
       if ( result >= 0 )
-        result = RtlSetEnvironmentVariable(0, &DestinationString, &v3);
+        result = RtlSetEnvironmentVariable(0, &DestinationString, &Value);
     }
     else
     {
-      v4[0] = 34078720;
-      v4[1] = v8;
-      v2 = RtlQueryEnvironmentVariable_U(0, &v6, v4) < 0;
-      RtlInitUnicodeString(&v3, off_4B281824[i]);
-      result = RtlQueryEnvironmentVariable_U(0, &DestinationString, v4);
+      *(_DWORD *)&v4.Length = 34078720;
+      v4.Buffer = (wchar_t *)v8;
+      v2 = RtlQueryEnvironmentVariable_U(0, &v6, &v4) < 0;
+      RtlInitUnicodeString(&Value, (PCWSTR)off_4B281824[i]);
+      result = RtlQueryEnvironmentVariable_U(0, &DestinationString, &v4);
       if ( result >= 0 )
       {
-        result = RtlSetEnvironmentVariable(0, &DestinationString, &v3);
+        result = RtlSetEnvironmentVariable(0, &DestinationString, &Value);
         if ( result >= 0 && v2 )
-          result = RtlSetEnvironmentVariable(0, &v6, v4);
+          result = RtlSetEnvironmentVariable(0, &v6, &v4);
       }
     }
   }

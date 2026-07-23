@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpAllocate @ 0x14087F0C0
+ * XREFs of CmpAllocate @ 0x140882F70
  * Callers:
- *     CmpCreateEmptyHiveClone @ 0x1407DE510 (CmpCreateEmptyHiveClone.c)
- *     CmpAddSubKeyToList @ 0x14087E9C8 (CmpAddSubKeyToList.c)
- *     HvpAdjustBitmap @ 0x14087EF7C (HvpAdjustBitmap.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407DEA60 (CmpCreateEmptyHiveClone.c)
+ *     CmpAddSubKeyToList @ 0x140882878 (CmpAddSubKeyToList.c)
+ *     HvpAdjustBitmap @ 0x140882E2C (HvpAdjustBitmap.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
  * Callees:
- *     CmpReleaseGlobalQuota @ 0x14087EEC0 (CmpReleaseGlobalQuota.c)
- *     CmpClaimGlobalQuota @ 0x14087F12C (CmpClaimGlobalQuota.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     CmpReleaseGlobalQuota @ 0x140882D70 (CmpReleaseGlobalQuota.c)
+ *     CmpClaimGlobalQuota @ 0x140882FDC (CmpClaimGlobalQuota.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall CmpAllocate(__int64 a1, char a2)
+__int64 __fastcall CmpAllocate(__int64 a1, char a2, ULONG a3)
 {
-  unsigned int v2; // ebx
+  unsigned int v4; // ebx
   __int64 Pool2; // rdi
 
-  v2 = a1;
+  v4 = a1;
   if ( !(unsigned __int8)CmpClaimGlobalQuota(a1) )
     return 0LL;
-  Pool2 = ExAllocatePool2(a2 != 0 ? 264LL : 256LL);
+  Pool2 = ExAllocatePool2(a2 != 0 ? 264LL : 256LL, v4, a3);
   if ( !Pool2 )
-    CmpReleaseGlobalQuota(v2);
+    CmpReleaseGlobalQuota(v4);
   return Pool2;
 }

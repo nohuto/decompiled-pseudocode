@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDirectedDripsInitializeBroadcast @ 0x1408E334C
+ * XREFs of PopDirectedDripsInitializeBroadcast @ 0x1408E34AC
  * Callers:
- *     PopDirectedDripsSuspendDevices @ 0x1408E3A78 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x1408E3BD8 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     IoControlPnpDeviceActionQueue @ 0x1402C6F2C (IoControlPnpDeviceActionQueue.c)
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569410 (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x14056A830 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
- *     PoInitializeBroadcast @ 0x140778238 (PoInitializeBroadcast.c)
- *     PopDirectedDripsQueryMitigationStatus @ 0x1408E37A8 (PopDirectedDripsQueryMitigationStatus.c)
- *     PopPowerAggregatorHandleIntent @ 0x1408EE308 (PopPowerAggregatorHandleIntent.c)
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1408F8CF0 (PopDirectedDripsBuildBroadcastTreePartial.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     IoControlPnpDeviceActionQueue @ 0x14024566C (IoControlPnpDeviceActionQueue.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569650 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x14056AA70 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
+ *     PoInitializeBroadcast @ 0x1407783F8 (PoInitializeBroadcast.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x1408E3908 (PopDirectedDripsQueryMitigationStatus.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1408EE468 (PopPowerAggregatorHandleIntent.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1408F8E50 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *a1)

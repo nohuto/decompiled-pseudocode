@@ -1,15 +1,15 @@
 /*
- * XREFs of StringCbLengthW @ 0x1402DF754
+ * XREFs of StringCbLengthW @ 0x140290AA4
  * Callers:
- *     sub_1405FD540 @ 0x1405FD540 (sub_1405FD540.c)
- *     SPCallServerHandleIsAppLicensed @ 0x1406B4BA0 (SPCallServerHandleIsAppLicensed.c)
- *     SPCallServerHandleGetAppPolicyValue @ 0x1406B6F48 (SPCallServerHandleGetAppPolicyValue.c)
- *     PfVerifyScenarioBuffer @ 0x1406CEF40 (PfVerifyScenarioBuffer.c)
- *     sub_140960F54 @ 0x140960F54 (sub_140960F54.c)
- *     sub_140961350 @ 0x140961350 (sub_140961350.c)
- *     sub_1409622DC @ 0x1409622DC (sub_1409622DC.c)
- *     sub_1409628F0 @ 0x1409628F0 (sub_1409628F0.c)
- *     sub_140963358 @ 0x140963358 (sub_140963358.c)
+ *     SPCallServerHandleIsAppLicensed @ 0x140614020 (SPCallServerHandleIsAppLicensed.c)
+ *     SPCallServerHandleGetAppPolicyValue @ 0x1406163A8 (SPCallServerHandleGetAppPolicyValue.c)
+ *     PfVerifyScenarioBuffer @ 0x1406A6220 (PfVerifyScenarioBuffer.c)
+ *     sub_1406ECCA0 @ 0x1406ECCA0 (sub_1406ECCA0.c)
+ *     sub_140961134 @ 0x140961134 (sub_140961134.c)
+ *     sub_140961530 @ 0x140961530 (sub_140961530.c)
+ *     sub_1409624BC @ 0x1409624BC (sub_1409624BC.c)
+ *     sub_140962AD0 @ 0x140962AD0 (sub_140962AD0.c)
+ *     sub_140963538 @ 0x140963538 (sub_140963538.c)
  * Callees:
  *     <none>
  */

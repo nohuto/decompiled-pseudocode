@@ -1,8 +1,8 @@
 /*
- * XREFs of PdcpResizeDiagnosticContext @ 0x1406075C0
+ * XREFs of PdcpResizeDiagnosticContext @ 0x140604BC8
  * Callers:
- *     Pdcv2ActivationClientRenewActivation @ 0x14078DB14 (Pdcv2ActivationClientRenewActivation.c)
- *     Pdcv2ActivationClientActivate @ 0x1409EDF3C (Pdcv2ActivationClientActivate.c)
+ *     Pdcv2ActivationClientRenewActivation @ 0x14078DA44 (Pdcv2ActivationClientRenewActivation.c)
+ *     Pdcv2ActivationClientActivate @ 0x1409EB97C (Pdcv2ActivationClientActivate.c)
  * Callees:
  *     <none>
  */

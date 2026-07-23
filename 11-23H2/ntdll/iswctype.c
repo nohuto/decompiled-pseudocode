@@ -17,7 +17,7 @@
  *     _whiteout @ 0x18009DC88 (_whiteout.c)
  *     _winput_s @ 0x18009DCE0 (_winput_s.c)
  *     RtlUnicodeStringToLcid @ 0x1800FB7BC (RtlUnicodeStringToLcid.c)
- *     RtlEthernetStringToAddressW @ 0x1801098F0 (RtlEthernetStringToAddressW.c)
+ *     RtlEthernetStringToAddressW @ 0x1801098C0 (RtlEthernetStringToAddressW.c)
  * Callees:
  *     <none>
  */

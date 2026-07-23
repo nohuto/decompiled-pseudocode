@@ -1,46 +1,46 @@
 /*
- * XREFs of ObpRemoveObjectRoutine @ 0x140923BC0
+ * XREFs of ObpRemoveObjectRoutine @ 0x1408FF6D0
  * Callers:
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PfSnGetFileInformation @ 0x140265CF0 (PfSnGetFileInformation.c)
- *     IopCompleteIrpInFileObjectList @ 0x140266C60 (IopCompleteIrpInFileObjectList.c)
- *     IopDropIrp @ 0x140268190 (IopDropIrp.c)
- *     IopFreeWaitCompletionPacket @ 0x140269810 (IopFreeWaitCompletionPacket.c)
- *     HalPutDmaAdapter @ 0x140269C10 (HalPutDmaAdapter.c)
- *     IopReleaseFileObjectLock @ 0x140269EC0 (IopReleaseFileObjectLock.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1402C2440 (NtReleaseWorkerFactoryWorker.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x1402C2960 (ExpLeaveWorkerFactoryAwayMode.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x14037CC40 (NtWaitForWorkViaWorkerFactory.c)
- *     IopProcessWorkItem @ 0x14037D550 (IopProcessWorkItem.c)
- *     IopDeleteFileObjectExtension @ 0x1403DB7A0 (IopDeleteFileObjectExtension.c)
- *     NtSignalAndWaitForSingleObject @ 0x1403DBD20 (NtSignalAndWaitForSingleObject.c)
- *     IopUnloadSafeCompletion @ 0x1403DDA80 (IopUnloadSafeCompletion.c)
- *     IopDequeueIrpFromFileObject @ 0x1403DE5B0 (IopDequeueIrpFromFileObject.c)
- *     ObpDereferenceNamedObject @ 0x1403DE82C (ObpDereferenceNamedObject.c)
- *     NtSetInformationWorkerFactory @ 0x1403DE960 (NtSetInformationWorkerFactory.c)
- *     ExpAddCurrentThreadToThreadHistory @ 0x14044D9E0 (ExpAddCurrentThreadToThreadHistory.c)
- *     ObpProcessRemoveObjectQueue @ 0x140A59D90 (ObpProcessRemoveObjectQueue.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PfSnGetFileInformation @ 0x140265260 (PfSnGetFileInformation.c)
+ *     IopCompleteIrpInFileObjectList @ 0x1402661D0 (IopCompleteIrpInFileObjectList.c)
+ *     IopDropIrp @ 0x140267700 (IopDropIrp.c)
+ *     IopFreeWaitCompletionPacket @ 0x140268D80 (IopFreeWaitCompletionPacket.c)
+ *     HalPutDmaAdapter @ 0x140269180 (HalPutDmaAdapter.c)
+ *     IopReleaseFileObjectLock @ 0x140269430 (IopReleaseFileObjectLock.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x14030D100 (NtReleaseWorkerFactoryWorker.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x14030D620 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14037E9F0 (NtWaitForWorkViaWorkerFactory.c)
+ *     IopProcessWorkItem @ 0x14037F300 (IopProcessWorkItem.c)
+ *     IopDeleteFileObjectExtension @ 0x1403DE990 (IopDeleteFileObjectExtension.c)
+ *     NtSignalAndWaitForSingleObject @ 0x1403DEF10 (NtSignalAndWaitForSingleObject.c)
+ *     IopUnloadSafeCompletion @ 0x1403E0C70 (IopUnloadSafeCompletion.c)
+ *     IopDequeueIrpFromFileObject @ 0x1403E17A0 (IopDequeueIrpFromFileObject.c)
+ *     ObpDereferenceNamedObject @ 0x1403E1A1C (ObpDereferenceNamedObject.c)
+ *     NtSetInformationWorkerFactory @ 0x1403E1B50 (NtSetInformationWorkerFactory.c)
+ *     ExpAddCurrentThreadToThreadHistory @ 0x140445B10 (ExpAddCurrentThreadToThreadHistory.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140A66D00 (ObpProcessRemoveObjectQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpFreeObject @ 0x140923CC0 (ObpFreeObject.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpFreeObject @ 0x1408FF7D0 (ObpFreeObject.c)
  */
 
 __int64 __fastcall ObpRemoveObjectRoutine(__int64 a1, __int64 a2)
 {
   char v3; // bp
-  _QWORD *v4; // rdi
+  ULONG_PTR v4; // rdi
 
   v3 = a2;
-  v4 = (_QWORD *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 + 24) ^ (unsigned __int64)BYTE1(a1)];
-  if ( v4 == ObpTypeObjectType )
-    KeBugCheckEx(0xF4u, (ULONG_PTR)v4, a1 + 48, 0LL, 0LL);
+  v4 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 + 24) ^ (unsigned __int64)BYTE1(a1)];
+  if ( v4 == *(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary )
+    KeBugCheckEx(0xF4u, v4, a1 + 48, 0LL, 0LL);
   if ( *(_QWORD *)(a1 + 40) )
     guard_dispatch_icall_no_overrides(a1 + 48, 2LL);
-  if ( v4[17] )
+  if ( *(_QWORD *)(v4 + 136) )
   {
     if ( !v3 )
       *(_BYTE *)(a1 + 27) |= 0x80u;

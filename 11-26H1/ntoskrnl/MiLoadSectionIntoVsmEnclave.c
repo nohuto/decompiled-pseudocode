@@ -1,22 +1,22 @@
 /*
- * XREFs of MiLoadSectionIntoVsmEnclave @ 0x140876988
+ * XREFs of MiLoadSectionIntoVsmEnclave @ 0x14087CD6C
  * Callers:
- *     NtLoadEnclaveData @ 0x140AEE740 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x140AF16E0 (NtLoadEnclaveData.c)
  * Callees:
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     MiComputePageCommitment @ 0x140311CE0 (MiComputePageCommitment.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiVadDeleted @ 0x140480A68 (MiVadDeleted.c)
- *     MiDecommitRegion @ 0x14095FDBC (MiDecommitRegion.c)
- *     MiCommitExistingVad @ 0x1409C7300 (MiCommitExistingVad.c)
- *     MiPrefetchControlArea @ 0x140A4F258 (MiPrefetchControlArea.c)
- *     VslLoadEnclaveModule @ 0x140B3352C (VslLoadEnclaveModule.c)
- *     MiUnmapImageForEnclaveUse @ 0x140B46178 (MiUnmapImageForEnclaveUse.c)
- *     MiMapImageForEnclaveUse @ 0x140B5ED58 (MiMapImageForEnclaveUse.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     MiComputePageCommitment @ 0x140313D10 (MiComputePageCommitment.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiVadDeleted @ 0x14047A3A8 (MiVadDeleted.c)
+ *     MiCommitExistingVad @ 0x1409982E0 (MiCommitExistingVad.c)
+ *     MiDecommitRegion @ 0x140A0567C (MiDecommitRegion.c)
+ *     MiPrefetchControlArea @ 0x140A58548 (MiPrefetchControlArea.c)
+ *     VslLoadEnclaveModule @ 0x140B3597C (VslLoadEnclaveModule.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140B481A8 (MiUnmapImageForEnclaveUse.c)
+ *     MiMapImageForEnclaveUse @ 0x140B61ED8 (MiMapImageForEnclaveUse.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiLoadSectionIntoVsmEnclave(

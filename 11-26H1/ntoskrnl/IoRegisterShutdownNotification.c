@@ -1,14 +1,14 @@
 /*
- * XREFs of IoRegisterShutdownNotification @ 0x140B4AEC0
+ * XREFs of IoRegisterShutdownNotification @ 0x140B4CC50
  * Callers:
- *     DifIoRegisterShutdownNotificationWrapper @ 0x14065DF20 (DifIoRegisterShutdownNotificationWrapper.c)
- *     RawInitialize @ 0x140CD9A40 (RawInitialize.c)
- *     WmipDriverEntry @ 0x140CE01C0 (WmipDriverEntry.c)
+ *     DifIoRegisterShutdownNotificationWrapper @ 0x140661B00 (DifIoRegisterShutdownNotificationWrapper.c)
+ *     RawInitialize @ 0x140CDFDC0 (RawInitialize.c)
+ *     WmipDriverEntry @ 0x140CE6560 (WmipDriverEntry.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     IopInterlockedInsertHeadList @ 0x140510EA4 (IopInterlockedInsertHeadList.c)
- *     IopLogAuditIoRegisterNotificationEvent @ 0x14077B6E8 (IopLogAuditIoRegisterNotificationEvent.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     IopInterlockedInsertHeadList @ 0x14050A914 (IopInterlockedInsertHeadList.c)
+ *     IopLogAuditIoRegisterNotificationEvent @ 0x14077E328 (IopLogAuditIoRegisterNotificationEvent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoRegisterShutdownNotification(PDEVICE_OBJECT DeviceObject)
@@ -22,7 +22,7 @@ NTSTATUS __stdcall IoRegisterShutdownNotification(PDEVICE_OBJECT DeviceObject)
     return -1073741670;
   *(_QWORD *)(Pool2 + 16) = DeviceObject;
   PsReferenceSiloContext(DeviceObject);
-  IopInterlockedInsertHeadList((__int64 *)&IopSessionNotificationLock.WaitBlock[0].Thread, v3);
+  IopInterlockedInsertHeadList((__int64 *)&IopNotifyShutdownQueueHead, v3);
   DeviceObject->Flags |= 0x800u;
   IopLogAuditIoRegisterNotificationEvent(&KERNEL_AUDIT_API_IOREGISTERSHUTDOWNNOTIFICATION, (__int64)DeviceObject);
   return 0;

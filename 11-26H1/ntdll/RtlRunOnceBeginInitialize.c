@@ -1,68 +1,68 @@
 /*
- * XREFs of RtlRunOnceBeginInitialize @ 0x18000EC60
+ * XREFs of RtlRunOnceBeginInitialize @ 0x18005A390
  * Callers:
- *     RtlCapabilityCheck @ 0x18000DFF0 (RtlCapabilityCheck.c)
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18006E03C (RtlpSubscribeWnfStateChangeNotificationInternal.c)
- *     RtlpFcEnsureSubscriptionManagerStarted @ 0x18006EA7C (RtlpFcEnsureSubscriptionManagerStarted.c)
- *     RtlpHpStackTraceHeapGetContext @ 0x18006F9E8 (RtlpHpStackTraceHeapGetContext.c)
- *     RtlpFeatureConfigurationClonePrepare @ 0x180148E9C (RtlpFeatureConfigurationClonePrepare.c)
- *     RtlpHpPerHeapStackTraceCleanup @ 0x18014F3D4 (RtlpHpPerHeapStackTraceCleanup.c)
+ *     RtlCapabilityCheck @ 0x180059720 (RtlCapabilityCheck.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18008E48C (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlpFcEnsureSubscriptionManagerStarted @ 0x18008EECC (RtlpFcEnsureSubscriptionManagerStarted.c)
+ *     RtlpHpStackTraceHeapGetContext @ 0x18008FE38 (RtlpHpStackTraceHeapGetContext.c)
+ *     RtlpFeatureConfigurationClonePrepare @ 0x180148D4C (RtlpFeatureConfigurationClonePrepare.c)
+ *     RtlpHpPerHeapStackTraceCleanup @ 0x18014F284 (RtlpHpPerHeapStackTraceCleanup.c)
  * Callees:
- *     RtlpRunOnceWaitForInit @ 0x180070048 (RtlpRunOnceWaitForInit.c)
+ *     RtlpRunOnceWaitForInit @ 0x180090498 (RtlpRunOnceWaitForInit.c)
  */
 
-__int64 __fastcall RtlRunOnceBeginInitialize(volatile signed __int64 *a1, int a2, unsigned __int64 *a3)
+NTSTATUS __cdecl RtlRunOnceBeginInitialize(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID *Context)
 {
-  signed __int64 v5; // rax
-  __int64 result; // rax
-  int v7; // ebx
-  signed __int64 v8; // rcx
+  unsigned __int64 Value; // rax
+  NTSTATUS result; // eax
+  ULONG v7; // ebx
+  unsigned __int64 v8; // rcx
   signed __int64 v9; // rdx
-  signed __int64 v10; // rcx
+  unsigned __int64 v10; // rcx
 
-  if ( ((a2 - 1) & a2) != 0 || (a2 & 0xFFFFFFFC) != 0 )
-    return 3221225712LL;
-  v5 = *a1;
-  if ( (*a1 & 3) == 2 )
+  if ( ((Flags - 1) & Flags) != 0 || (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741584;
+  Value = RunOnce->Value;
+  if ( (RunOnce->Value & 3) == 2 )
   {
-LABEL_6:
-    if ( a3 )
-      *a3 = v5 & 0xFFFFFFFFFFFFFFFCuLL;
-    return 0LL;
+LABEL_5:
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
+    return 0;
   }
-  else if ( (a2 & 1) != 0 )
+  else if ( (Flags & 1) != 0 )
   {
-    return 3221225473LL;
+    return -1073741823;
   }
   else
   {
-    v7 = a2 & 2;
+    v7 = Flags & 2;
     while ( 1 )
     {
       while ( 1 )
       {
-        v8 = v5 & 3;
-        if ( (v5 & 3) != 0 )
+        v8 = Value & 3;
+        if ( (Value & 3) != 0 )
           break;
         v9 = 1LL;
-        v10 = v5;
+        v10 = Value;
         if ( v7 )
           v9 = 3LL;
-        v5 = _InterlockedCompareExchange64(a1, v9, v5);
-        if ( v5 == v10 )
-          return 259LL;
+        Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, v9, Value);
+        if ( Value == v10 )
+          return 259;
       }
       if ( v8 != 1 )
         break;
       if ( v7 )
-        return 3221225712LL;
-      v5 = RtlpRunOnceWaitForInit(v5, a1);
+        return -1073741584;
+      Value = RtlpRunOnceWaitForInit(Value, RunOnce);
     }
     if ( v8 != 3 )
-      goto LABEL_6;
-    result = 259LL;
+      goto LABEL_5;
+    result = 259;
     if ( !v7 )
-      return 3221225712LL;
+      return -1073741584;
   }
   return result;
 }

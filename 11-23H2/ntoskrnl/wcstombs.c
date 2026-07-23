@@ -1,10 +1,10 @@
 /*
- * XREFs of wcstombs @ 0x1403DBC00
+ * XREFs of wcstombs @ 0x1403DBDE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeToMultiByteN @ 0x1406D9EE0 (RtlUnicodeToMultiByteN.c)
- *     RtlUnicodeToMultiByteSize @ 0x140758770 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x1406D9F10 (RtlUnicodeToMultiByteN.c)
+ *     RtlUnicodeToMultiByteSize @ 0x140758960 (RtlUnicodeToMultiByteSize.c)
  */
 
 size_t __cdecl wcstombs(char *Dest, const wchar_t *Source, size_t MaxCount)

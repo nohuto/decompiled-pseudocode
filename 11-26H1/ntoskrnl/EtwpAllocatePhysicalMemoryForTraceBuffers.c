@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x140A6D2F4
+ * XREFs of EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x140AB295C
  * Callers:
- *     EtwpAllocateTraceBufferPool @ 0x140A6D988 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpAllocateTraceBufferPool @ 0x140AB272C (EtwpAllocateTraceBufferPool.c)
  * Callees:
- *     EtwpAllocatePhysicalPages @ 0x140825018 (EtwpAllocatePhysicalPages.c)
- *     EtwpFreePfnArray @ 0x140825DC0 (EtwpFreePfnArray.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     EtwpAllocatePhysicalPages @ 0x14082B258 (EtwpAllocatePhysicalPages.c)
+ *     EtwpFreePfnArray @ 0x14082C000 (EtwpFreePfnArray.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAllocatePhysicalMemoryForTraceBuffers(__int64 a1)

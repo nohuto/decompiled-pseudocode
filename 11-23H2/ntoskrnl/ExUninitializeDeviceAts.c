@@ -1,15 +1,15 @@
 /*
- * XREFs of ExUninitializeDeviceAts @ 0x14060C50C
+ * XREFs of ExUninitializeDeviceAts @ 0x14060CA5C
  * Callers:
- *     PiIommuUninitializeDeviceAts @ 0x1403B69F0 (PiIommuUninitializeDeviceAts.c)
+ *     PiIommuUninitializeDeviceAts @ 0x1403B6BD0 (PiIommuUninitializeDeviceAts.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAtsDereferenceDevice @ 0x14060C694 (ExpAtsDereferenceDevice.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAtsDereferenceDevice @ 0x14060CBE4 (ExpAtsDereferenceDevice.c)
  */
 
 __int64 __fastcall ExUninitializeDeviceAts(__int64 a1)

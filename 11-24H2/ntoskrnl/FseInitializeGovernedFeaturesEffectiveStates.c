@@ -1,12 +1,12 @@
 /*
- * XREFs of FseInitializeGovernedFeaturesEffectiveStates @ 0x1408289BC
+ * XREFs of FseInitializeGovernedFeaturesEffectiveStates @ 0x14082918C
  * Callers:
- *     RtlpFcUpdateGovernedFeaturesEffectiveStates @ 0x140781DD8 (RtlpFcUpdateGovernedFeaturesEffectiveStates.c)
+ *     RtlpFcUpdateGovernedFeaturesEffectiveStates @ 0x140781D08 (RtlpFcUpdateGovernedFeaturesEffectiveStates.c)
  * Callees:
- *     AllocateZeroMemory @ 0x1406A09B0 (AllocateZeroMemory.c)
- *     SafeFree @ 0x1406A0A0C (SafeFree.c)
- *     FsepInitializeOverridesViewForGovernedFeatures @ 0x140828A68 (FsepInitializeOverridesViewForGovernedFeatures.c)
- *     FsepPropagateGovernedFeatureEffectiveState @ 0x140828BC4 (FsepPropagateGovernedFeatureEffectiveState.c)
+ *     AllocateZeroMemory @ 0x1406A1AB8 (AllocateZeroMemory.c)
+ *     SafeFree @ 0x1406A1B14 (SafeFree.c)
+ *     FsepInitializeOverridesViewForGovernedFeatures @ 0x140829238 (FsepInitializeOverridesViewForGovernedFeatures.c)
+ *     FsepPropagateGovernedFeatureEffectiveState @ 0x140829394 (FsepPropagateGovernedFeatureEffectiveState.c)
  */
 
 __int64 __fastcall FseInitializeGovernedFeaturesEffectiveStates(__int64 a1, __int64 a2, int *a3)

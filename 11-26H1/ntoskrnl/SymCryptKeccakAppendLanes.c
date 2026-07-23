@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptKeccakAppendLanes @ 0x1405758E0
+ * XREFs of SymCryptKeccakAppendLanes @ 0x140577D90
  * Callers:
- *     SymCryptKeccakAppend @ 0x1405757DC (SymCryptKeccakAppend.c)
+ *     SymCryptKeccakAppend @ 0x140577C8C (SymCryptKeccakAppend.c)
  * Callees:
- *     SymCryptKeccakPermute @ 0x140575BC0 (SymCryptKeccakPermute.c)
+ *     SymCryptKeccakPermute @ 0x140578070 (SymCryptKeccakPermute.c)
  */
 
 __int64 __fastcall SymCryptKeccakAppendLanes(__int64 a1, __int64 a2, unsigned __int64 a3)

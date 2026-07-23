@@ -1,19 +1,19 @@
 /*
  * XREFs of NtSetSecurityObject @ 0x1406B57C0
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407F8298 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlpSysVolTakeOwnership @ 0x1409BB4D8 (RtlpSysVolTakeOwnership.c)
+ *     sub_1407F8298 @ 0x1407F8298 (sub_1407F8298.c)
+ *     sub_1409BB4D8 @ 0x1409BB4D8 (sub_1409BB4D8.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     RtlGetSaclSecurityDescriptor @ 0x14066FE80 (RtlGetSaclSecurityDescriptor.c)
- *     SeSetSecurityAccessMask @ 0x1406B5B10 (SeSetSecurityAccessMask.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1406B5B9C (SeSecurityDescriptorChangedAuditAlarm.c)
- *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1406B5E34 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
+ *     sub_1406B5B10 @ 0x1406B5B10 (sub_1406B5B10.c)
+ *     sub_1406B5B9C @ 0x1406B5B9C (sub_1406B5B9C.c)
+ *     sub_1406B5E34 @ 0x1406B5E34 (sub_1406B5E34.c)
  *     ObSetSecurityObjectByPointer @ 0x140724D30 (ObSetSecurityObjectByPointer.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
  *     SeReleaseSecurityDescriptor @ 0x1407B3DA0 (SeReleaseSecurityDescriptor.c)
  *     SeCaptureSecurityDescriptor @ 0x1407B3DD0 (SeCaptureSecurityDescriptor.c)
- *     SepRmGlobalSaclFind @ 0x140882B96 (SepRmGlobalSaclFind.c)
+ *     sub_140882B96 @ 0x140882B96 (sub_140882B96.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -27,7 +27,7 @@ NTSTATUS __stdcall NtSetSecurityObject(
   SECURITY_INFORMATION v5; // edx
   int v6; // ecx
   int v7; // esi
-  KPROCESSOR_MODE PreviousMode; // r15
+  KPROCESSOR_MODE v8; // r15
   HANDLE v9; // r10
   int v10; // edx
   int v11; // edi
@@ -81,16 +81,16 @@ NTSTATUS __stdcall NtSetSecurityObject(
     if ( !v6 )
       v4 &= ~0x100u;
   }
-  SeSetSecurityAccessMask(v4, &DesiredAccess);
+  sub_1406B5B10(v4, &DesiredAccess);
   v7 = DesiredAccess;
   Object = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v40 = PreviousMode;
-  v11 = ObReferenceObjectByHandle(v9, DesiredAccess, 0LL, PreviousMode, &Object, &HandleInformation);
+  v8 = *((_BYTE *)KeGetCurrentThread() + 562);
+  v40 = v8;
+  v11 = ObReferenceObjectByHandle(v9, DesiredAccess, 0LL, v8, &Object, &HandleInformation);
   if ( v11 < 0 )
     return v11;
   LOBYTE(v12) = 1;
-  LOBYTE(v10) = PreviousMode;
+  LOBYTE(v10) = v8;
   v13 = SeCaptureSecurityDescriptor(v3, v10, 1, v12, (__int64)&v36);
   v16 = Object;
   v11 = v13;
@@ -110,7 +110,7 @@ LABEL_30:
       v7 &= 0xFFF3FFFF;
     if ( !v7 )
       goto LABEL_12;
-    v11 = ObpAllocateAndQuerySecurityDescriptorInfo(Object, 8LL, 0LL, &SecurityDescriptora);
+    v11 = sub_1406B5E34(Object, 8LL, 0LL, &SecurityDescriptora);
     if ( v11 < 0 )
     {
       v20 = v32;
@@ -138,10 +138,10 @@ LABEL_12:
       {
         DesiredAccess = 0LL;
         LOBYTE(v23) = 1;
-        v29 = (unsigned int)SepRmGlobalSaclFind(
+        v29 = (unsigned int)sub_140882B96(
                               &DesiredAccess,
                               0LL,
-                              ObTypeIndexTable[(unsigned __int8)(ObHeaderCookie ^ *((_BYTE *)v16 - 24) ^ ((unsigned __int16)((_WORD)v16 - 48) >> 8))]
+                              qword_140D07490[(unsigned __int8)(dword_140D06C0C ^ *((_BYTE *)v16 - 24) ^ ((unsigned __int16)((_WORD)v16 - 48) >> 8))]
                             + 16,
                               v23) != -1073741772;
       }
@@ -153,21 +153,21 @@ LABEL_12:
 LABEL_13:
           v20 = v32;
           if ( (v4 & 0x40) == 0
-            || ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*((_BYTE *)v16 - 24) ^ ((unsigned __int16)((_WORD)v16 - 48) >> 8))) == *((_BYTE *)IoFileObjectType + 40)
+            || ((unsigned __int8)dword_140D06C0C ^ (unsigned __int8)(*((_BYTE *)v16 - 24) ^ ((unsigned __int16)((_WORD)v16 - 48) >> 8))) == *((_BYTE *)IoFileObjectType + 40)
             && (*(_DWORD *)(v16[1] + 52LL) & 0x10) != 0
-            || (v11 = ObpAllocateAndQuerySecurityDescriptorInfo(v16, 64LL, 0LL, &v34), v11 >= 0) )
+            || (v11 = sub_1406B5E34(v16, 64LL, 0LL, &v34), v11 >= 0) )
           {
             if ( (LODWORD(DesiredAccess) = v4 & 0x20, (v4 & 0x20) == 0)
-              || ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*((_BYTE *)v16 - 24) ^ ((unsigned __int16)((_WORD)v16 - 48) >> 8))) == *((_BYTE *)IoFileObjectType + 40)
+              || ((unsigned __int8)dword_140D06C0C ^ (unsigned __int8)(*((_BYTE *)v16 - 24) ^ ((unsigned __int16)((_WORD)v16 - 48) >> 8))) == *((_BYTE *)IoFileObjectType + 40)
               && (*(_DWORD *)(v16[1] + 52LL) & 0x10) != 0
-              || (v11 = ObpAllocateAndQuerySecurityDescriptorInfo(v16, 32LL, 0LL, &P), v11 >= 0) )
+              || (v11 = sub_1406B5E34(v16, 32LL, 0LL, &P), v11 >= 0) )
             {
               v11 = ObSetSecurityObjectByPointer(v16, v4, v17);
               if ( v11 >= 0 && (v7 || (_DWORD)DesiredAccess) )
-                SeSecurityDescriptorChangedAuditAlarm(
+                sub_1406B5B9C(
                   0,
                   (_DWORD)v16,
-                  LODWORD(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)v16 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v16 - 48) >> 8)])
+                  LODWORD(qword_140D07490[(unsigned __int8)dword_140D06C0C ^ *((unsigned __int8 *)v16 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v16 - 48) >> 8)])
                 + 16,
                   0,
                   (__int64)Handle,
@@ -192,7 +192,7 @@ LABEL_13:
         v25 = v27 | 4;
         if ( (v7 & 0x40000) == 0 )
           v25 = v27;
-        v11 = ObpAllocateAndQuerySecurityDescriptorInfo(v16, v25, 0LL, &v32);
+        v11 = sub_1406B5E34(v16, v25, 0LL, &v32);
         if ( v11 >= 0 )
           goto LABEL_13;
       }
@@ -209,7 +209,7 @@ LABEL_25:
     goto LABEL_30;
   }
   LOBYTE(v14) = 1;
-  LOBYTE(v18) = PreviousMode;
+  LOBYTE(v18) = v8;
   SeReleaseSecurityDescriptor(v36, v18, v14, v15);
   ObfDereferenceObject(Object);
   return -1073741703;

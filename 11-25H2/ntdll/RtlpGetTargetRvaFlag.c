@@ -10,7 +10,7 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpGetTargetRvaFlag(unsigned __int64 a1, _BYTE *a2)
+char __fastcall RtlpGetTargetRvaFlag(PVOID BaseAddress, _BYTE *a2)
 {
   int v4; // ebx
   __int64 Config; // rax
@@ -28,7 +28,7 @@ char __fastcall RtlpGetTargetRvaFlag(unsigned __int64 a1, _BYTE *a2)
   v13 = 0LL;
   v14 = 0LL;
   Key = 0LL;
-  if ( (int)ZwQueryVirtualMemory(-1LL, a1, 6LL, &v13, 24LL, 0LL) < 0 )
+  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, MemoryImageInformation, &v13, 0x18uLL, 0LL) < 0 )
     return 0;
   v4 = v13;
   if ( !(_QWORD)v13 )
@@ -37,9 +37,9 @@ char __fastcall RtlpGetTargetRvaFlag(unsigned __int64 a1, _BYTE *a2)
     return 0;
   if ( (v14 & 1) != 0 )
     return 0;
-  if ( a1 < (unsigned __int64)v13 )
+  if ( (unsigned __int64)BaseAddress < (unsigned __int64)v13 )
     return 0;
-  Config = LdrImageDirectoryEntryToLoadConfig(v13);
+  Config = LdrImageDirectoryEntryToLoadConfig((void *)v13);
   if ( !Config )
     return 0;
   if ( *(_DWORD *)Config < 0x94u )
@@ -54,7 +54,7 @@ char __fastcall RtlpGetTargetRvaFlag(unsigned __int64 a1, _BYTE *a2)
   v9 = (v6 >> 28) + 4;
   if ( v9 <= 4 )
     return 0;
-  LODWORD(Key) = a1 - v4;
+  LODWORD(Key) = (_DWORD)BaseAddress - v4;
   v10 = bsearch_s(&Key, v8, v7, v9, (_CoreCrtSecureSearchSortCompareFunction)RtlpTargetCompare, 0LL);
   if ( !v10 )
     return 0;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpRpControlRequestUpdate @ 0x14094E7F8
+ * XREFs of PfpRpControlRequestUpdate @ 0x140A5EDA0
  * Callers:
- *     PfpRpControlRequestPerform @ 0x140A76194 (PfpRpControlRequestPerform.c)
+ *     PfpRpControlRequestPerform @ 0x140A5ED28 (PfpRpControlRequestPerform.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
- *     PfpRpCHashAddEntries @ 0x140950428 (PfpRpCHashAddEntries.c)
- *     PfpRpCHashDeleteEntries @ 0x140A289F4 (PfpRpCHashDeleteEntries.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
+ *     PfpRpCHashDeleteEntries @ 0x140A1D3B8 (PfpRpCHashDeleteEntries.c)
+ *     PfpRpCHashAddEntries @ 0x140A5EF34 (PfpRpCHashAddEntries.c)
  */
 
 __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)
@@ -16,13 +16,13 @@ __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)
   unsigned int v5; // esi
   _QWORD *v7; // r12
   unsigned int *v8; // r14
-  unsigned __int64 v9; // r13
+  _QWORD *v9; // r13
   void *v10; // rcx
   __int64 v11; // rbp
   PEPROCESS v12; // rcx
   __int64 result; // rax
-  int v14; // r9d
-  int v15; // r9d
+  unsigned int v14; // r9d
+  unsigned int v15; // r9d
   PEPROCESS Process; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = (unsigned int)(a2[2] + a2[1]);
@@ -31,7 +31,7 @@ __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)
   v5 = 0;
   v7 = a2 + 6;
   v8 = a2 + 6;
-  v9 = ((unsigned __int64)&a2[2 * v2 + 7] + 3) & 0xFFFFFFFFFFFFFFF8uLL;
+  v9 = (_QWORD *)(((unsigned __int64)&a2[2 * v2 + 7] + 3) & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (_DWORD)v2 )
   {
     do
@@ -64,14 +64,14 @@ __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)
     v14 = a2[2];
     if ( !v14
       || !*(_DWORD *)(a1 + 112)
-      || (result = PfpRpCHashDeleteEntries(a1, (int)a1 + 96, (int)a1 + 120, v14, (__int64)&a2[2 * a2[1] + 6]),
+      || (result = PfpRpCHashDeleteEntries(a1, a1 + 96, (volatile signed __int64 *)(a1 + 120), v14, &a2[2 * a2[1] + 6]),
           (int)result >= 0) )
     {
-      PfpRpCHashAddEntries(a1, a1 + 56, a1 + 88, v9 + 8LL * (unsigned int)a2[3], a2[4]);
+      PfpRpCHashAddEntries(a1, a1 + 56, a1 + 88, &v9[a2[3]], a2[4]);
       v15 = a2[3];
       if ( !v15 || !*(_DWORD *)(a1 + 72) )
         return 0LL;
-      result = PfpRpCHashDeleteEntries(a1, (int)a1 + 56, (int)a1 + 88, v15, v9);
+      result = PfpRpCHashDeleteEntries(a1, a1 + 56, (volatile signed __int64 *)(a1 + 88), v15, v9);
       if ( (int)result >= 0 )
       {
         *(_QWORD *)(a1 + 80) = 0LL;

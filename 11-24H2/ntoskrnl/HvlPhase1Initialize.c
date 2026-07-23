@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlPhase1Initialize @ 0x140582A60
+ * XREFs of HvlPhase1Initialize @ 0x14057FDE0
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140467D20 (KeRegisterBugCheckReasonCallback.c)
- *     HviIsAnyHypervisorPresent @ 0x1404A37D0 (HviIsAnyHypervisorPresent.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x1405823F0 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlpMapStatisticsPage @ 0x140584828 (HvlpMapStatisticsPage.c)
- *     HvlpSetupCachedHypercallPages @ 0x140585504 (HvlpSetupCachedHypercallPages.c)
- *     HvlpInitializePowerStatistics @ 0x1405899A0 (HvlpInitializePowerStatistics.c)
- *     HvlpInitializeHvCrashdump @ 0x14058AA2C (HvlpInitializeHvCrashdump.c)
- *     MiMarkRetpolineBits @ 0x140A88520 (MiMarkRetpolineBits.c)
- *     VslpIumPhase0Initialize @ 0x140C19E78 (VslpIumPhase0Initialize.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1404606D0 (KeRegisterBugCheckReasonCallback.c)
+ *     HviIsAnyHypervisorPresent @ 0x14049E730 (HviIsAnyHypervisorPresent.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x14057F770 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlpMapStatisticsPage @ 0x140581BA8 (HvlpMapStatisticsPage.c)
+ *     HvlpSetupCachedHypercallPages @ 0x140582884 (HvlpSetupCachedHypercallPages.c)
+ *     HvlpInitializePowerStatistics @ 0x140586C90 (HvlpInitializePowerStatistics.c)
+ *     HvlpInitializeHvCrashdump @ 0x140587D1C (HvlpInitializeHvCrashdump.c)
+ *     MiMarkRetpolineBits @ 0x140A84A10 (MiMarkRetpolineBits.c)
+ *     VslpIumPhase0Initialize @ 0x140C1BEB0 (VslpIumPhase0Initialize.c)
  */
 
 __int64 __fastcall HvlPhase1Initialize(__int64 a1)
@@ -40,7 +40,7 @@ __int64 __fastcall HvlPhase1Initialize(__int64 a1)
     {
       v3 = 0LL;
       if ( (int)HvlpMapStatisticsPage(1LL, &v3, &v4) >= 0 )
-        HvlpHypervisorStatsPage = MmMapIoSpaceEx(v4, 4096LL, 2u);
+        HvlpHypervisorStatsPage = MmMapIoSpaceEx(v4, 4096LL, 2LL);
     }
     HvlConfigureMemoryZeroingOnReset(1);
     HvlpFlags |= 8u;

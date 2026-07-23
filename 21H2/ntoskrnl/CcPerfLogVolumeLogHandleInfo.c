@@ -1,10 +1,10 @@
 /*
- * XREFs of CcPerfLogVolumeLogHandleInfo @ 0x1403C3F94
+ * XREFs of CcPerfLogVolumeLogHandleInfo @ 0x1403C43C4
  * Callers:
- *     CcPerfLogLoggedStreamsStats @ 0x1403C3EC8 (CcPerfLogLoggedStreamsStats.c)
+ *     CcPerfLogLoggedStreamsStats @ 0x1403C42F8 (CcPerfLogLoggedStreamsStats.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogVolumeLogHandleInfo(__int64 a1, char a2, int a3, __int64 a4, __int64 a5, __int64 a6)

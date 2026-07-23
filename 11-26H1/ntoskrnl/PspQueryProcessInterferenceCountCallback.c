@@ -1,13 +1,13 @@
 /*
- * XREFs of PspQueryProcessInterferenceCountCallback @ 0x1407F9000
+ * XREFs of PspQueryProcessInterferenceCountCallback @ 0x1407FEB00
  * Callers:
  *     <none>
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PsInvokeWin32Callout @ 0x140A41140 (PsInvokeWin32Callout.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     PsInvokeWin32Callout @ 0x1409FCB60 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PspQueryProcessInterferenceCountCallback(__int64 Object, __int64 a2)

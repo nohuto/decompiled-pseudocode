@@ -1,12 +1,12 @@
 /*
- * XREFs of _raise_exc_ex @ 0x18009F548
+ * XREFs of _raise_exc_ex @ 0x18009F538
  * Callers:
- *     _except1 @ 0x18009F150 (_except1.c)
- *     _raise_exc @ 0x18009F518 (_raise_exc.c)
+ *     _except1 @ 0x18009F140 (_except1.c)
+ *     _raise_exc @ 0x18009F508 (_raise_exc.c)
  * Callees:
- *     RaiseException @ 0x18009F070 (RaiseException.c)
- *     _clrfp @ 0x18009FA8C (_clrfp.c)
- *     _statfp @ 0x18009FB5C (_statfp.c)
+ *     RaiseException @ 0x18009F060 (RaiseException.c)
+ *     _clrfp @ 0x18009FA7C (_clrfp.c)
+ *     _statfp @ 0x18009FB4C (_statfp.c)
  */
 
 __int64 __fastcall raise_exc_ex(_DWORD *a1, _QWORD *a2, char a3, __int16 a4, _DWORD *a5, _DWORD *a6, int a7)

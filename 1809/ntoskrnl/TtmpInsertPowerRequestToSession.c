@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmpInsertPowerRequestToSession @ 0x140880B98
+ * XREFs of TtmpInsertPowerRequestToSession @ 0x140881DF8
  * Callers:
- *     PopNotifySessionUserPowerRequestCreated @ 0x140588440 (PopNotifySessionUserPowerRequestCreated.c)
- *     TtmNotifySessionPowerRequestPresent @ 0x14087FF60 (TtmNotifySessionPowerRequestPresent.c)
+ *     PopNotifySessionUserPowerRequestCreated @ 0x140589440 (PopNotifySessionUserPowerRequestCreated.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1408811C0 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     TtmpAcquireSessionById @ 0x140761674 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmpPowerRequestHashAllocator @ 0x140880F0C (TtmpPowerRequestHashAllocator.c)
- *     TtmpPowerRequestHashDeallocator @ 0x140880F30 (TtmpPowerRequestHashDeallocator.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     TtmpAcquireSessionById @ 0x140762864 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmpPowerRequestHashAllocator @ 0x14088216C (TtmpPowerRequestHashAllocator.c)
+ *     TtmpPowerRequestHashDeallocator @ 0x140882190 (TtmpPowerRequestHashDeallocator.c)
  */
 
 char __fastcall TtmpInsertPowerRequestToSession(int a1, int a2, int a3, __int64 a4, __int64 a5, int a6)

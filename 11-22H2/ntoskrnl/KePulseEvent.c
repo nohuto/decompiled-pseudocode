@@ -66,7 +66,7 @@ LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
   CurrentIrql = KeGetCurrentIrql();
   v40 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -107,7 +107,7 @@ LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
           p_Blink = &Blink->Blink;
           v32 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v32 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu )
           {
             v33 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v32 == 2 )
@@ -190,7 +190,7 @@ LABEL_73:
           v21 = &v20->Blink;
           v22 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
           {
             v23 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v22 == 2 )

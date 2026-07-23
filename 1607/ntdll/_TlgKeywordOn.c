@@ -1,7 +1,7 @@
 /*
- * XREFs of _TlgKeywordOn @ 0x1800D1CA4
+ * XREFs of _TlgKeywordOn @ 0x1800D1D64
  * Callers:
- *     LdrpResReportResourceAccessInternal @ 0x180082740 (LdrpResReportResourceAccessInternal.c)
+ *     LdrpResReportResourceAccessInternal @ 0x180082730 (LdrpResReportResourceAccessInternal.c)
  * Callees:
  *     <none>
  */

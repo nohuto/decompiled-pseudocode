@@ -1,7 +1,7 @@
 /*
  * XREFs of LdrpBuildImportRedirection @ 0x1800D7534
  * Callers:
- *     LdrpInitializeImportRedirection @ 0x180084E3C (LdrpInitializeImportRedirection.c)
+ *     LdrpInitializeImportRedirection @ 0x180084E4C (LdrpInitializeImportRedirection.c)
  * Callees:
  *     LdrpGetProcedureAddress @ 0x180009090 (LdrpGetProcedureAddress.c)
  *     LdrpAddRedirectedFunction @ 0x1800D7210 (LdrpAddRedirectedFunction.c)

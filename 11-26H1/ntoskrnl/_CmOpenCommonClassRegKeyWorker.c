@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmOpenCommonClassRegKeyWorker @ 0x1409A0580
+ * XREFs of _CmOpenCommonClassRegKeyWorker @ 0x140960FE0
  * Callers:
- *     _CmOpenInterfaceClassRegKey @ 0x140917D00 (_CmOpenInterfaceClassRegKey.c)
- *     _CmOpenCommonClassRegKey @ 0x14099F0C4 (_CmOpenCommonClassRegKey.c)
- *     IopGetDeviceInterfaces @ 0x14099F270 (IopGetDeviceInterfaces.c)
+ *     _CmOpenCommonClassRegKey @ 0x14095FB24 (_CmOpenCommonClassRegKey.c)
+ *     IopGetDeviceInterfaces @ 0x14095FCD0 (IopGetDeviceInterfaces.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x140972760 (_CmOpenInterfaceClassRegKey.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegCreateTree @ 0x14091E1FC (_PnpCtxRegCreateTree.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140996AB8 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _CmGetCommonClassRegKeyPath @ 0x1409A1650 (_CmGetCommonClassRegKeyPath.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2AEE0 (_SysCtxRegOpenCurrentUserKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140957518 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x1409620B0 (_CmGetCommonClassRegKeyPath.c)
+ *     _PnpCtxRegCreateTree @ 0x140978C5C (_PnpCtxRegCreateTree.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A3DF70 (_SysCtxRegOpenCurrentUserKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenCommonClassRegKeyWorker(
@@ -28,7 +28,7 @@ __int64 __fastcall CmOpenCommonClassRegKeyWorker(
         ACCESS_MASK a5,
         char a6,
         HANDLE *a7,
-        ULONG *a8)
+        _DWORD *a8)
 {
   unsigned int v8; // edi
   unsigned int v13; // r12d
@@ -40,8 +40,8 @@ __int64 __fastcall CmOpenCommonClassRegKeyWorker(
   const wchar_t *i; // rax
   unsigned __int64 v20; // r9
   unsigned __int64 v21; // r10
-  const wchar_t *v22; // rdi
-  __int64 *v23; // rdx
+  const WCHAR *v22; // rdi
+  _QWORD *v23; // rdx
   unsigned __int16 v25; // bx
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   const wchar_t *v27; // r8
@@ -53,13 +53,13 @@ __int64 __fastcall CmOpenCommonClassRegKeyWorker(
   struct _LIST_ENTRY *v33; // rbp
   unsigned __int64 v34; // r9
   unsigned __int64 v35; // r10
-  HANDLE v36; // rcx
+  char *v36; // rcx
   __int64 v37; // rax
   __int64 v38; // rax
   int Tree; // eax
   __int64 v40; // rcx
   __int64 v41; // rdx
-  HANDLE v42; // [rsp+40h] [rbp-58h] BYREF
+  char *v42; // [rsp+40h] [rbp-58h] BYREF
   HANDLE Handle[2]; // [rsp+48h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-40h] BYREF
 
@@ -97,8 +97,8 @@ __int64 __fastcall CmOpenCommonClassRegKeyWorker(
     inited = SysCtxRegOpenCurrentUserKey(v40, 0LL, 0x2000000LL, Handle);
     if ( inited < 0 )
       goto LABEL_25;
-    v36 = Handle[0];
-    v42 = Handle[0];
+    v36 = (char *)Handle[0];
+    v42 = (char *)Handle[0];
     goto LABEL_73;
   }
   inited = RtlInitUnicodeStringEx(&DestinationString, Pool2);
@@ -283,7 +283,7 @@ LABEL_58:
     v22 = Pool2 + 43;
   }
 LABEL_23:
-  v23 = *(__int64 **)(a1 + 8LL * v13 + 96);
+  v23 = *(_QWORD **)(a1 + 8LL * v13 + 96);
   if ( !v23 )
   {
     switch ( v13 )
@@ -297,11 +297,11 @@ LABEL_23:
         v41 = *(_QWORD *)(a1 + 56);
         if ( v41 == a1 + 56 )
           goto LABEL_103;
-        v23 = (__int64 *)(v41 - 16);
+        v23 = (_QWORD *)(v41 - 16);
         break;
       default:
 LABEL_103:
-        v23 = *(__int64 **)(a1 + 88);
+        v23 = *(_QWORD **)(a1 + 88);
         break;
     }
     *(_QWORD *)(a1 + 8LL * v13 + 96) = v23;
@@ -313,7 +313,7 @@ LABEL_103:
 LABEL_73:
   if ( a6 )
   {
-    Tree = PnpCtxRegCreateTree(a1, v36, v22, 0, a5, 0LL, a7, a8);
+    Tree = PnpCtxRegCreateTree(a1, v36, v22, 0LL, a5, 0LL, a7, a8);
   }
   else
   {
@@ -321,7 +321,7 @@ LABEL_73:
       v38 = *(_QWORD *)(v37 + 8);
     else
       v38 = 0LL;
-    Tree = RegRtlOpenKeyTransacted((char *)v36, v22, 0, a5, a7, v38);
+    Tree = RegRtlOpenKeyTransacted(v36, v22, 0, a5, a7, v38);
     if ( Tree >= 0 )
     {
       *a8 = 2;

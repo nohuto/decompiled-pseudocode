@@ -1,21 +1,21 @@
 /*
- * XREFs of SeCreateClientSecurityEx @ 0x14040F250
+ * XREFs of SeCreateClientSecurityEx @ 0x14040E110
  * Callers:
- *     AlpcpGetEffectiveTokenMessage @ 0x1403FEECC (AlpcpGetEffectiveTokenMessage.c)
- *     AlpcpExposeTokenAttribute @ 0x14044A690 (AlpcpExposeTokenAttribute.c)
- *     AlpcpImpersonateMessage @ 0x14050E0D0 (AlpcpImpersonateMessage.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x1403FDD8C (AlpcpGetEffectiveTokenMessage.c)
+ *     AlpcpExposeTokenAttribute @ 0x140449560 (AlpcpExposeTokenAttribute.c)
+ *     AlpcpImpersonateMessage @ 0x1404F1060 (AlpcpImpersonateMessage.c)
  * Callees:
- *     SepReconcileTrustSidWithProcessProtection @ 0x14000E7F0 (SepReconcileTrustSidWithProcessProtection.c)
- *     ObFastReferenceObject @ 0x14000F760 (ObFastReferenceObject.c)
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     PspUnlockProcessShared @ 0x1400C9C44 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x1400C9C88 (PspLockProcessShared.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     PsReferenceImpersonationTokenEx @ 0x140412120 (PsReferenceImpersonationTokenEx.c)
- *     SepCreateClientSecurityEx @ 0x140412280 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x140692638 (SepUpdateSiloInClientSecurity.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x14000E370 (SepReconcileTrustSidWithProcessProtection.c)
+ *     ObFastReferenceObject @ 0x14000F2E0 (ObFastReferenceObject.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     PspUnlockProcessShared @ 0x1400C7AE4 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x1400C7B28 (PspLockProcessShared.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140410FE0 (PsReferenceImpersonationTokenEx.c)
+ *     SepCreateClientSecurityEx @ 0x140411140 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x14069271C (SepUpdateSiloInClientSecurity.c)
  */
 
 __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, int a2, unsigned __int8 a3, __int64 a4)

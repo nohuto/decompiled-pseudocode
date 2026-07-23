@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRelinkStandbyPage @ 0x140299860
+ * XREFs of MiRelinkStandbyPage @ 0x140298DC0
  * Callers:
- *     MiUpdatePfnPriority @ 0x1402992A0 (MiUpdatePfnPriority.c)
- *     MiEmptyDecayClusterTimers @ 0x1402994DC (MiEmptyDecayClusterTimers.c)
- *     MmSetPfnListInfo @ 0x1402F21D0 (MmSetPfnListInfo.c)
- *     MiUpdatePfnForPrefetchByPte @ 0x1402F2FD0 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiUpdatePfnPriority @ 0x140298800 (MiUpdatePfnPriority.c)
+ *     MiEmptyDecayClusterTimers @ 0x140298A3C (MiEmptyDecayClusterTimers.c)
+ *     MmSetPfnListInfo @ 0x1402D4250 (MmSetPfnListInfo.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x1402D5050 (MiUpdatePfnForPrefetchByPte.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
  */
 
 __int64 __fastcall MiRelinkStandbyPage(ULONG_PTR a1, int a2)

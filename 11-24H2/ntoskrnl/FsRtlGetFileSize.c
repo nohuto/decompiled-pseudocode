@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlGetFileSize @ 0x140942760
+ * XREFs of FsRtlGetFileSize @ 0x14098C9D0
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x14044C520 (FsRtlCreateSectionForDataScan.c)
- *     ExpQueryElamCertInfo @ 0x1407B4C04 (ExpQueryElamCertInfo.c)
- *     MiShareExistingControlArea @ 0x1409425C0 (MiShareExistingControlArea.c)
- *     MiCreateDataFileMap @ 0x140943D3C (MiCreateDataFileMap.c)
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x140A6E09C (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140443420 (FsRtlCreateSectionForDataScan.c)
+ *     ExpQueryElamCertInfo @ 0x1407B5054 (ExpQueryElamCertInfo.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
+ *     MiCreateDataFileMap @ 0x14098A990 (MiCreateDataFileMap.c)
+ *     MiShareExistingControlArea @ 0x14098C830 (MiShareExistingControlArea.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x140A6759C (ExpQueryCodeIntegrityCertificateInfo.c)
  * Callees:
- *     IoAllocateIrpEx @ 0x140253BB0 (IoAllocateIrpEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     IoSetThreadHardErrorMode @ 0x14045D2F0 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoAllocateIrpEx @ 0x1402841C0 (IoAllocateIrpEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     IoSetThreadHardErrorMode @ 0x1404523B0 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall FsRtlGetFileSize(PFILE_OBJECT FileObject, PLARGE_INTEGER FileSize)
@@ -44,7 +44,7 @@ NTSTATUS __stdcall FsRtlGetFileSize(PFILE_OBJECT FileObject, PLARGE_INTEGER File
   FastIoDispatch = RelatedDeviceObject->DriverObject->FastIoDispatch;
   if ( !FastIoDispatch
     || !FastIoDispatch->FastIoQueryStandardInfo
-    || (LOBYTE(v4) = 1, !(unsigned __int8)guard_dispatch_icall_no_overrides(FileObject, v4, &v17, &v15)) )
+    || (LOBYTE(v4) = 1, !(unsigned __int8)guard_dispatch_icall_no_overrides(FileObject, v4)) )
   {
     memset(&Event, 0, sizeof(Event));
     KeInitializeEvent(&Event, NotificationEvent, 0);

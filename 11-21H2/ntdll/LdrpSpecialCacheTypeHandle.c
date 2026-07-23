@@ -14,7 +14,7 @@ __int64 __fastcall LdrpSpecialCacheTypeHandle(__int64 a1, char a2)
   char v4; // dl
   __int64 result; // rax
   void *v6; // rcx
-  void *Heap; // rax
+  PVOID Heap; // rax
   unsigned __int64 v8; // rdi
 
   if ( !a1 )
@@ -43,12 +43,12 @@ __int64 __fastcall LdrpSpecialCacheTypeHandle(__int64 a1, char a2)
       {
         if ( *(_DWORD *)(a1 + 56) == -1073741799 )
           return 3221225497LL;
-        Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(_QWORD *)(a1 + 48));
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(_QWORD *)(a1 + 48));
         v8 = (unsigned __int64)Heap;
         if ( !Heap )
           return 3221225495LL;
         memmove(Heap, (const void *)(*(_QWORD *)(a1 + 32) & 0xFFFFFFFFFFFFFFFCuLL), *(_QWORD *)(a1 + 48));
-        NtUnmapViewOfSection(-1LL);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(*(_QWORD *)(a1 + 32) & 0xFFFFFFFFFFFFFFFCuLL));
         *(_DWORD *)(a1 + 56) = -1073741799;
         *(_QWORD *)(a1 + 32) = v8 | 1;
       }

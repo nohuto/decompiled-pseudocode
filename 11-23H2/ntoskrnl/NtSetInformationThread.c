@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationThread @ 0x1407335B0
+ * XREFs of NtSetInformationThread @ 0x1407337A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,61 +8,61 @@
  *     KeIsSubsetAffinityEx @ 0x1402031E0 (KeIsSubsetAffinityEx.c)
  *     PsSetIoPriorityThread @ 0x140207824 (PsSetIoPriorityThread.c)
  *     PsGetEffectiveServerSilo @ 0x14020BFF0 (PsGetEffectiveServerSilo.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     PspRevertContainerImpersonation @ 0x140259E3C (PspRevertContainerImpersonation.c)
- *     PsImpersonateContainerOfThread @ 0x140259EE0 (PsImpersonateContainerOfThread.c)
- *     IoThreadToProcess @ 0x140289F80 (IoThreadToProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     PsGetProcessServerSilo @ 0x14028C180 (PsGetProcessServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     KeSetBasePriorityThread @ 0x1402B9DA0 (KeSetBasePriorityThread.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PsSetPagePriorityThread @ 0x1402C1748 (PsSetPagePriorityThread.c)
- *     MmGetDefaultPagePriority @ 0x1402F5F64 (MmGetDefaultPagePriority.c)
- *     MmGetMinWsPagePriority @ 0x1402FBDA0 (MmGetMinWsPagePriority.c)
- *     IoBoostThreadIoPriority @ 0x14031B320 (IoBoostThreadIoPriority.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CCB0 (PsAttachSiloToCurrentThread.c)
- *     KeVerifyGroupAffinity @ 0x140321374 (KeVerifyGroupAffinity.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1403495E0 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     KeQueryPrimaryGroupProcess @ 0x140365D18 (KeQueryPrimaryGroupProcess.c)
- *     KeUpdateThreadCpuSets @ 0x14039E0E8 (KeUpdateThreadCpuSets.c)
- *     KeSetIdealProcessorThread @ 0x1403CEDA0 (KeSetIdealProcessorThread.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x1403CEDF4 (KeSetIdealProcessorThreadByNumber.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeSetUserHeteroCpuPolicyThread @ 0x14056F094 (KeSetUserHeteroCpuPolicyThread.c)
- *     KeDisableProfiling @ 0x140573E38 (KeDisableProfiling.c)
- *     KeSetSelectedCpuSetsThread @ 0x140575B30 (KeSetSelectedCpuSetsThread.c)
- *     PsGetProcessSilo @ 0x1405A3D50 (PsGetProcessSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     PspRevertContainerImpersonation @ 0x14025A0CC (PspRevertContainerImpersonation.c)
+ *     PsImpersonateContainerOfThread @ 0x14025A170 (PsImpersonateContainerOfThread.c)
+ *     IoThreadToProcess @ 0x14028A210 (IoThreadToProcess.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     PsGetProcessServerSilo @ 0x14028C410 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x1402BA030 (KeSetBasePriorityThread.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PsSetPagePriorityThread @ 0x1402C19D8 (PsSetPagePriorityThread.c)
+ *     MmGetDefaultPagePriority @ 0x1402F61F4 (MmGetDefaultPagePriority.c)
+ *     MmGetMinWsPagePriority @ 0x1402FC030 (MmGetMinWsPagePriority.c)
+ *     IoBoostThreadIoPriority @ 0x14031B5B0 (IoBoostThreadIoPriority.c)
+ *     PsAttachSiloToCurrentThread @ 0x14031CF40 (PsAttachSiloToCurrentThread.c)
+ *     KeVerifyGroupAffinity @ 0x140321604 (KeVerifyGroupAffinity.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x140349CFC (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KeQueryPrimaryGroupProcess @ 0x140365EB8 (KeQueryPrimaryGroupProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x14039E2C8 (KeUpdateThreadCpuSets.c)
+ *     KeSetIdealProcessorThread @ 0x1403CEF80 (KeSetIdealProcessorThread.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x1403CEFD4 (KeSetIdealProcessorThreadByNumber.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeSetUserHeteroCpuPolicyThread @ 0x14056F5D4 (KeSetUserHeteroCpuPolicyThread.c)
+ *     KeDisableProfiling @ 0x140574378 (KeDisableProfiling.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140576070 (KeSetSelectedCpuSetsThread.c)
+ *     PsGetProcessSilo @ 0x1405A4240 (PsGetProcessSilo.c)
  *     EtwTraceThreadSetName @ 0x1406ACBBC (EtwTraceThreadSetName.c)
- *     RtlTestProtectedAccess @ 0x1406B828C (RtlTestProtectedAccess.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     PspThreadFromTicket @ 0x1406FAB28 (PspThreadFromTicket.c)
- *     PsImpersonateClient @ 0x140734A30 (PsImpersonateClient.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     PsGetNextProcessThread @ 0x140742AB0 (PsGetNextProcessThread.c)
- *     PspWriteTebIdealProcessor @ 0x14076FA3C (PspWriteTebIdealProcessor.c)
- *     PspWow64SetContextThread @ 0x1407A0458 (PspWow64SetContextThread.c)
- *     PspSetThreadPpmPolicy @ 0x1407CD220 (PspSetThreadPpmPolicy.c)
- *     SeCheckPrivilegedObject @ 0x1407E0064 (SeCheckPrivilegedObject.c)
- *     PspIsSiloInSilo @ 0x1407E5410 (PspIsSiloInSilo.c)
- *     KeSetDisableBoostThread @ 0x1407EAE74 (KeSetDisableBoostThread.c)
- *     KeEnableProfiling @ 0x140974DD8 (KeEnableProfiling.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlTestProtectedAccess @ 0x1406B82BC (RtlTestProtectedAccess.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspThreadFromTicket @ 0x1406FAD38 (PspThreadFromTicket.c)
+ *     PsImpersonateClient @ 0x140734C20 (PsImpersonateClient.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     PsGetNextProcessThread @ 0x140742CA0 (PsGetNextProcessThread.c)
+ *     PspWriteTebIdealProcessor @ 0x14076FC2C (PspWriteTebIdealProcessor.c)
+ *     PspWow64SetContextThread @ 0x1407A0648 (PspWow64SetContextThread.c)
+ *     PspSetThreadPpmPolicy @ 0x1407CD4F0 (PspSetThreadPpmPolicy.c)
+ *     SeCheckPrivilegedObject @ 0x1407E0334 (SeCheckPrivilegedObject.c)
+ *     PspIsSiloInSilo @ 0x1407E56E0 (PspIsSiloInSilo.c)
+ *     KeSetDisableBoostThread @ 0x1407EB144 (KeSetDisableBoostThread.c)
+ *     KeEnableProfiling @ 0x140974FD8 (KeEnableProfiling.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -171,7 +171,7 @@ NTSTATUS __stdcall NtSetInformationThread(
   char v101; // [rsp+61h] [rbp-387h]
   char v102; // [rsp+62h] [rbp-386h]
   __int16 v103[2]; // [rsp+68h] [rbp-380h] BYREF
-  struct _PROCESSOR_NUMBER v104; // [rsp+6Ch] [rbp-37Ch] BYREF
+  _PROCESSOR_NUMBER v104; // [rsp+6Ch] [rbp-37Ch] BYREF
   char v105; // [rsp+70h] [rbp-378h]
   LONG Increment; // [rsp+74h] [rbp-374h]
   void *v107; // [rsp+78h] [rbp-370h]
@@ -231,8 +231,8 @@ NTSTATUS __stdcall NtSetInformationThread(
   if ( (_BYTE)PreviousMode )
   {
     if ( ThreadInformationClass < ThreadEnableAlignmentFaultFixup && ThreadInformationClass >= ThreadImpersonationToken
-      || ThreadInformationClass >= (ThreadSuspendCount|ThreadAffinityMask)
-      && ThreadInformationClass < (ThreadCounterProfiling|ThreadIsIoPending) )
+      || ThreadInformationClass >= ThreadSelectedCpuSets
+      && ThreadInformationClass < ThreadManageWritesToExecutableMemory )
     {
 LABEL_4:
       v10 = 3;
@@ -245,8 +245,8 @@ LABEL_4:
         case ThreadAffinityMask:
         case ThreadGroupInformation:
         case ThreadCpuAccountingInformation:
-        case ThreadCpuAccountingInformation|ThreadAffinityMask:
-        case ThreadCounterProfiling|ThreadIsIoPending:
+        case ThreadNameInformation:
+        case ThreadManageWritesToExecutableMemory:
           v11 = 7LL;
           v10 = 3;
           break;
@@ -328,7 +328,7 @@ LABEL_21:
     }
     return -1073741820;
   }
-  if ( ThreadInformationClass != (ThreadCounterProfiling|ThreadAmILastThread) )
+  if ( ThreadInformationClass != ThreadWorkOnBehalfTicket )
   {
     switch ( ThreadInformationClass )
     {
@@ -913,7 +913,7 @@ LABEL_166:
       case ThreadIdealProcessorEx:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
-        v104 = *(struct _PROCESSOR_NUMBER *)ThreadInformation;
+        v104 = *(_PROCESSOR_NUMBER *)ThreadInformation;
         result = ObpReferenceObjectByHandleWithTag(
                    BugCheckParameter1,
                    32,
@@ -931,7 +931,7 @@ LABEL_166:
         {
           if ( (v44->MiscFlags & 0x400) == 0 )
             PspWriteTebIdealProcessor(CurrentThread, v44);
-          *(struct _PROCESSOR_NUMBER *)ThreadInformation = v104;
+          *(_PROCESSOR_NUMBER *)ThreadInformation = v104;
         }
         goto LABEL_107;
       case ThreadCpuAccountingInformation:
@@ -974,7 +974,7 @@ LABEL_166:
         }
         CurrentThread[1].ApcState.ApcListHead[1].Flink = v7;
         return 0;
-      case ThreadCounterProfiling|ThreadAffinityMask:
+      case ThreadHeterogeneousCpuPolicy:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v85 = MEMORY[4];
@@ -994,7 +994,7 @@ LABEL_166:
           return v17;
         KeSetUserHeteroCpuPolicyThread((__int64)Thread, v85);
         goto LABEL_32;
-      case ThreadCpuAccountingInformation|ThreadAffinityMask:
+      case ThreadNameInformation:
         v101 = 0;
         v33 = 0LL;
         v107 = 0LL;
@@ -1093,7 +1093,7 @@ LABEL_82:
         if ( v33 )
           ExFreePoolWithTag(v33, 0x6D4E6854u);
         return v25;
-      case ThreadSuspendCount|ThreadAffinityMask:
+      case ThreadSelectedCpuSets:
         if ( (v4 & 7) != 0 || (unsigned int)v4 > 0x100 )
           return -1073741820;
         memmove(v138, ThreadInformation, v4);
@@ -1129,7 +1129,7 @@ LABEL_82:
           return -1073741811;
         _InterlockedAnd((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0xFFFBFFFF);
         return 0;
-      case ThreadDynamicCodePolicyInfo|ThreadTimes:
+      case ThreadExplicitCaseSensitivity:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v86 = *(_DWORD *)ThreadInformation;
@@ -1138,7 +1138,9 @@ LABEL_82:
           goto LABEL_294;
         if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
           return -1073741727;
-        if ( !RtlTestProtectedAccess(BYTE2(CurrentThread->Process[2].Header.WaitListHead.Flink), 0x51u) )
+        if ( !RtlTestProtectedAccess(
+                (PS_PROTECTION)SBYTE2(CurrentThread->Process[2].Header.WaitListHead.Flink),
+                (PS_PROTECTION)81) )
           return -1073741790;
         LOBYTE(PreviousMode) = v96;
 LABEL_294:
@@ -1161,7 +1163,7 @@ LABEL_294:
 LABEL_176:
         ObfDereferenceObjectWithTag(Thread, 0x79517350u);
         return v98;
-      case ThreadDynamicCodePolicyInfo|ThreadAffinityMask:
+      case ThreadDbgkWerReportActive:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v87 = *(_DWORD *)ThreadInformation;
@@ -1183,7 +1185,7 @@ LABEL_176:
         else
           _InterlockedAnd((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0xFFDFFFFF);
         goto LABEL_176;
-      case ThreadSubsystemInformation|ThreadPriority:
+      case ThreadAttachContainer:
         if ( BugCheckParameter1 != -2LL )
           return -1073741811;
         if ( (_DWORD)v4 != 8 )
@@ -1238,9 +1240,9 @@ LABEL_52:
           ObfDereferenceObjectWithTag(v28, v29);
         }
         return 0;
-      case ThreadCounterProfiling|ThreadIsIoPending:
+      case ThreadManageWritesToExecutableMemory:
         return -1073741637;
-      case ThreadIdealProcessorEx|ThreadIsIoPending:
+      case ThreadPowerThrottlingState:
         if ( (_DWORD)v4 != 12 )
           return -1073741820;
         Object[0] = *(PVOID *)ThreadInformation;
@@ -1269,7 +1271,7 @@ LABEL_52:
           return result;
         PspSetThreadPpmPolicy(Thread, v10);
         goto LABEL_50;
-      case ThreadCpuAccountingInformation|ThreadIsIoPending:
+      case ThreadWorkloadClass:
         if ( BugCheckParameter1 != -2LL || (_BYTE)PreviousMode )
           return -1073741790;
         if ( (_DWORD)v4 != 4 )
@@ -1281,7 +1283,7 @@ LABEL_52:
         *((_DWORD *)&v74[1].SwapListEntry + 3) ^= (*((_DWORD *)&v74[1].SwapListEntry + 3) ^ (v125 << 11)) & 0x800;
         KeUpdateThreadCpuSets((__int64)v74);
         return 0;
-      case ThreadIdealProcessorEx|ThreadIsTerminated:
+      case ThreadStrongerBadHandleChecks:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         if ( BugCheckParameter1 != -2LL )

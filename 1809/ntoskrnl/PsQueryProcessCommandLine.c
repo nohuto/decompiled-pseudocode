@@ -1,16 +1,16 @@
 /*
- * XREFs of PsQueryProcessCommandLine @ 0x14012A260
+ * XREFs of PsQueryProcessCommandLine @ 0x14012A330
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
- *     SeAuditProcessCreation @ 0x1407495B0 (SeAuditProcessCreation.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
+ *     SeAuditProcessCreation @ 0x14074A7A0 (SeAuditProcessCreation.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MmCopyVirtualMemory @ 0x140644790 (MmCopyVirtualMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MmCopyVirtualMemory @ 0x1406457B0 (MmCopyVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PsQueryProcessCommandLine(

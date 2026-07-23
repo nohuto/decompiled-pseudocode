@@ -1,8 +1,8 @@
 /*
- * XREFs of GxpBitsToBytes @ 0x1404FDC2C
+ * XREFs of GxpBitsToBytes @ 0x1404F716C
  * Callers:
- *     AnFwDisplayFade @ 0x140C52BA0 (AnFwDisplayFade.c)
- *     BgpGxRectangleCreate @ 0x140C53640 (BgpGxRectangleCreate.c)
+ *     AnFwDisplayFade @ 0x140C58BA0 (AnFwDisplayFade.c)
+ *     BgpGxRectangleCreate @ 0x140C59640 (BgpGxRectangleCreate.c)
  * Callees:
  *     <none>
  */

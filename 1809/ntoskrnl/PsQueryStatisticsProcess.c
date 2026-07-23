@@ -1,19 +1,19 @@
 /*
- * XREFs of PsQueryStatisticsProcess @ 0x1405FE700
+ * XREFs of PsQueryStatisticsProcess @ 0x1405FF700
  * Callers:
- *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
- *     PspEnforceLimitsProcessCallback @ 0x1405FD500 (PspEnforceLimitsProcessCallback.c)
- *     ExpCopyProcessInfo @ 0x1405FE390 (ExpCopyProcessInfo.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x140600010 (PspQueryProcessAccountingInformationCallback.c)
- *     PspRemoveProcessFromJobChain @ 0x140600410 (PspRemoveProcessFromJobChain.c)
- *     EtwpPsProvTraceProcess @ 0x14066C050 (EtwpPsProvTraceProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     EtwTraceAppStateChange @ 0x1405B3C80 (EtwTraceAppStateChange.c)
+ *     PspEnforceLimitsProcessCallback @ 0x1405FE500 (PspEnforceLimitsProcessCallback.c)
+ *     ExpCopyProcessInfo @ 0x1405FF390 (ExpCopyProcessInfo.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x140601010 (PspQueryProcessAccountingInformationCallback.c)
+ *     PspRemoveProcessFromJobChain @ 0x140601410 (PspRemoveProcessFromJobChain.c)
+ *     EtwpPsProvTraceProcess @ 0x14066D210 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     KeQueryValuesThread @ 0x14008EF50 (KeQueryValuesThread.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
+ *     KeQueryValuesThread @ 0x14008EE70 (KeQueryValuesThread.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)

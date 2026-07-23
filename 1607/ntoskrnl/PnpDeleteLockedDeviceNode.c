@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNode @ 0x1404C58C8
+ * XREFs of PnpDeleteLockedDeviceNode @ 0x140485CFC
  * Callers:
- *     PnpDeleteLockedDeviceNodes @ 0x1404C55B8 (PnpDeleteLockedDeviceNodes.c)
- *     PnpCancelRemoveOnHungDevices @ 0x14062DD80 (PnpCancelRemoveOnHungDevices.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1404859EC (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x14062DE34 (PnpCancelRemoveOnHungDevices.c)
  * Callees:
- *     PoFxActivateDevice @ 0x140008080 (PoFxActivateDevice.c)
- *     PoFxIdleDevice @ 0x14000842C (PoFxIdleDevice.c)
- *     PipRestoreDevNodeState @ 0x14009E68C (PipRestoreDevNodeState.c)
- *     PnpRemoveLockedDeviceNode @ 0x14009E908 (PnpRemoveLockedDeviceNode.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x1404C3474 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x1404C4CE4 (PnpStartedDeviceNodeDependencyCheck.c)
- *     IopRemoveDevice @ 0x1404C6038 (IopRemoveDevice.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x14062E0BC (PnpQueryRemoveLockedDeviceNode.c)
+ *     PoFxActivateDevice @ 0x140007BF4 (PoFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x140007FA0 (PoFxIdleDevice.c)
+ *     PipRestoreDevNodeState @ 0x140084EBC (PipRestoreDevNodeState.c)
+ *     PnpRemoveLockedDeviceNode @ 0x140085A68 (PnpRemoveLockedDeviceNode.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1404837DC (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     IopRemoveDevice @ 0x140484840 (IopRemoveDevice.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x1404888E8 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x14062E170 (PnpQueryRemoveLockedDeviceNode.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNode(
@@ -58,7 +58,7 @@ __int64 __fastcall PnpDeleteLockedDeviceNode(
       *(_DWORD *)(BugCheckParameter2 + 704) &= ~4u;
       if ( *(_DWORD *)(BugCheckParameter2 + 300) == 784 )
       {
-        IopRemoveDevice(*(PDEVICE_OBJECT *)(BugCheckParameter2 + 32));
+        IopRemoveDevice(*(PDEVICE_OBJECT *)(BugCheckParameter2 + 32), 3);
         PipRestoreDevNodeState(BugCheckParameter2);
         PnpStartedDeviceNodeDependencyCheck(BugCheckParameter2);
       }

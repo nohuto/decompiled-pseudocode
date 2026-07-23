@@ -1,10 +1,10 @@
 /*
- * XREFs of x64toa_s @ 0x18009A00C
+ * XREFs of x64toa_s @ 0x18009A01C
  * Callers:
- *     _i64toa_s @ 0x180099F70 (_i64toa_s.c)
- *     _ui64toa_s @ 0x180099FD0 (_ui64toa_s.c)
+ *     _i64toa_s @ 0x180099F80 (_i64toa_s.c)
+ *     _ui64toa_s @ 0x180099FE0 (_ui64toa_s.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  */
 
 __int64 __fastcall x64toa_s(unsigned __int64 a1, char *a2, unsigned __int64 a3, unsigned int a4, int a5)

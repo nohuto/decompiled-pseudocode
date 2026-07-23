@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoPpmResetProfile @ 0x14066FAE4
+ * XREFs of PdcPoPpmResetProfile @ 0x14066FBC8
  * Callers:
  *     <none>
  * Callees:
- *     PpmAcquireLock @ 0x14000A528 (PpmAcquireLock.c)
- *     PpmReleaseLock @ 0x1400D46D4 (PpmReleaseLock.c)
- *     PpmEnableProfile @ 0x140577728 (PpmEnableProfile.c)
- *     PpmDisableProfile @ 0x140675B6C (PpmDisableProfile.c)
+ *     PpmAcquireLock @ 0x14000A0A8 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1400D2574 (PpmReleaseLock.c)
+ *     PpmEnableProfile @ 0x140577C68 (PpmEnableProfile.c)
+ *     PpmDisableProfile @ 0x140675C50 (PpmDisableProfile.c)
  */
 
 LONG __fastcall PdcPoPpmResetProfile(__int64 a1, char a2)

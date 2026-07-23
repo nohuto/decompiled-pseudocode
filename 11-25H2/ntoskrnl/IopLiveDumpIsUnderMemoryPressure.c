@@ -13,7 +13,7 @@
 bool __fastcall IopLiveDumpIsUnderMemoryPressure(__int64 a1)
 {
   bool v2; // bl
-  int SystemInformation; // eax
+  NTSTATUS v3; // eax
   unsigned __int64 v4; // rdx
   int v5; // r9d
   __int64 v6; // r8
@@ -21,22 +21,22 @@ bool __fastcall IopLiveDumpIsUnderMemoryPressure(__int64 a1)
   __int64 v8; // rax
   __int64 v9; // rcx
   unsigned __int64 v11; // rax
-  _OWORD v12[3]; // [rsp+20h] [rbp-48h] BYREF
+  _OWORD SystemInformation[3]; // [rsp+20h] [rbp-48h] BYREF
   __int64 v13; // [rsp+50h] [rbp-18h]
 
   v13 = 0LL;
   v2 = 0;
-  memset(v12, 0, sizeof(v12));
-  SystemInformation = ZwQuerySystemInformation(182LL, v12);
-  v4 = *((_QWORD *)&v12[0] + 1);
-  v5 = SystemInformation;
-  v6 = *(_QWORD *)&v12[0];
-  if ( SystemInformation >= 0 && (*(_DWORD *)(a1 + 40) & 0x10) != 0 && (*(_DWORD *)(a1 + 80) & 0x2000) != 0 )
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  v3 = ZwQuerySystemInformation(SystemMemoryUsageInformation, SystemInformation, 0x38u, 0LL);
+  v4 = *((_QWORD *)&SystemInformation[0] + 1);
+  v5 = v3;
+  v6 = *(_QWORD *)&SystemInformation[0];
+  if ( v3 >= 0 && (*(_DWORD *)(a1 + 40) & 0x10) != 0 && (*(_DWORD *)(a1 + 80) & 0x2000) != 0 )
   {
     v11 = *(_QWORD *)(a1 + 1176);
     if ( !v11 )
     {
-      v11 = (((unsigned __int64)(10 * ((unsigned int)(*(_QWORD *)&v12[0] >> 20) >> 10)) << 20) + 1790967807) & 0xFFFFFFFFC0000000uLL;
+      v11 = (((unsigned __int64)(10 * ((unsigned int)(*(_QWORD *)&SystemInformation[0] >> 20) >> 10)) << 20) + 1790967807) & 0xFFFFFFFFC0000000uLL;
       *(_QWORD *)(a1 + 1176) = v11;
     }
     v2 = v4 < v11;

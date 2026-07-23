@@ -1,9 +1,9 @@
 /*
- * XREFs of TmRollbackEnlistment @ 0x1405347D0
+ * XREFs of TmRollbackEnlistment @ 0x140536C50
  * Callers:
- *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
- *     CmpRollbackTransactionArray @ 0x1408D0204 (CmpRollbackTransactionArray.c)
- *     CmpAbortRollbackPacket @ 0x140B4CB14 (CmpAbortRollbackPacket.c)
+ *     CmpPerformUnloadKey @ 0x1408B6104 (CmpPerformUnloadKey.c)
+ *     CmpRollbackTransactionArray @ 0x1408D67C8 (CmpRollbackTransactionArray.c)
+ *     CmpAbortRollbackPacket @ 0x140B4E8A4 (CmpAbortRollbackPacket.c)
  * Callees:
  *     <none>
  */

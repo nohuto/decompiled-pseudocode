@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfEnumerateScopeInstances @ 0x1404C2A0C
+ * XREFs of ExpWnfEnumerateScopeInstances @ 0x1404AE73C
  * Callers:
- *     NtDeleteWnfStateName @ 0x1404C2274 (NtDeleteWnfStateName.c)
+ *     NtDeleteWnfStateName @ 0x1404ADFA4 (NtDeleteWnfStateName.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExpWnfGetHostSiloContext @ 0x140463CE8 (ExpWnfGetHostSiloContext.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExpWnfGetHostSiloContext @ 0x140462BB8 (ExpWnfGetHostSiloContext.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(unsigned int a1, struct _EX_RUNDOWN_REF *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of strncpy @ 0x180094DC0
+ * XREFs of strncpy @ 0x180094DD0
  * Callers:
  *     <none>
  * Callees:

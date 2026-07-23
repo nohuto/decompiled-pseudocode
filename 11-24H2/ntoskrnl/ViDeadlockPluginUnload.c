@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockPluginUnload @ 0x140613FC0
+ * XREFs of ViDeadlockPluginUnload @ 0x140612580
  * Callers:
  *     <none>
  * Callees:
- *     ViDeadlockDetectionApplySettings @ 0x140B99188 (ViDeadlockDetectionApplySettings.c)
+ *     ViDeadlockDetectionApplySettings @ 0x140B9B188 (ViDeadlockDetectionApplySettings.c)
  */
 
 void __noreturn ViDeadlockPluginUnload()

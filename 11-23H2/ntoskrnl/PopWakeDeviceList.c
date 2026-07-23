@@ -1,15 +1,15 @@
 /*
- * XREFs of PopWakeDeviceList @ 0x140590CBC
+ * XREFs of PopWakeDeviceList @ 0x1405911AC
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6A68 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140AA68D8 (PoBroadcastSystemState.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIsNotifyForDirectedPowerTransition @ 0x1405907F4 (PopIsNotifyForDirectedPowerTransition.c)
- *     PopIssueDirectedPowerTransition @ 0x14098BCE0 (PopIssueDirectedPowerTransition.c)
- *     PopNotifyDevice @ 0x140AA72CC (PopNotifyDevice.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIsNotifyForDirectedPowerTransition @ 0x140590CE4 (PopIsNotifyForDirectedPowerTransition.c)
+ *     PopIssueDirectedPowerTransition @ 0x14098BEE0 (PopIssueDirectedPowerTransition.c)
+ *     PopNotifyDevice @ 0x140AA713C (PopNotifyDevice.c)
  */
 
 int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
@@ -78,7 +78,7 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
     do
     {
       KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C3CD70 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C3CD10 + 1, &LockHandle);
       v9 = *v2;
       v10 = **v2;
       if ( (__int64 **)(*v2)[1] != v2
@@ -93,10 +93,13 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
       a1[55] = v9;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

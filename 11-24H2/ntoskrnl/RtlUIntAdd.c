@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUIntAdd @ 0x1404563B0
+ * XREFs of RtlUIntAdd @ 0x14044B380
  * Callers:
- *     sub_140973C40 @ 0x140973C40 (sub_140973C40.c)
+ *     sub_14095C450 @ 0x14095C450 (sub_14095C450.c)
  * Callees:
  *     <none>
  */

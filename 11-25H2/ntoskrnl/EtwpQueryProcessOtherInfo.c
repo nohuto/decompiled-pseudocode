@@ -10,15 +10,15 @@
  *     PsGetProcessSectionBaseAddress @ 0x14047FEE0 (PsGetProcessSectionBaseAddress.c)
  */
 
-unsigned __int64 __fastcall EtwpQueryProcessOtherInfo(__int64 a1, __int64 a2)
+__int64 __fastcall EtwpQueryProcessOtherInfo(__int64 a1, __int64 a2)
 {
-  unsigned __int64 result; // rax
+  __int64 result; // rax
 
   *(_QWORD *)a2 = 0LL;
   result = PsGetProcessSectionBaseAddress(a1);
   if ( result )
   {
-    result = RtlImageNtHeader(result);
+    result = (__int64)RtlImageNtHeader((PVOID)result);
     if ( result )
     {
       *(_DWORD *)a2 = *(_DWORD *)(result + 88);

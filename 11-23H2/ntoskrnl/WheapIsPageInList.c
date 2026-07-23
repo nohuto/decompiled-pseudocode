@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapIsPageInList @ 0x140A08608
+ * XREFs of WheapIsPageInList @ 0x140A088B8
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x140611D90 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToBcd @ 0x1406122E0 (WheaPersistBadPageToBcd.c)
  * Callees:
  *     <none>
  */

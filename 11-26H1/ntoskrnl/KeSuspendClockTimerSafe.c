@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSuspendClockTimerSafe @ 0x1405EE154
+ * XREFs of KeSuspendClockTimerSafe @ 0x1405F0AC4
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x1404A70C8 (IopLiveDumpProcessCorralStateChange.c)
- *     PnprQuiesceProcessorDpc @ 0x140BF2260 (PnprQuiesceProcessorDpc.c)
- *     PnprQuiesceProcessors @ 0x140BF26B4 (PnprQuiesceProcessors.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1404A0758 (IopLiveDumpProcessCorralStateChange.c)
+ *     PnprQuiesceProcessorDpc @ 0x140BF8260 (PnprQuiesceProcessorDpc.c)
+ *     PnprQuiesceProcessors @ 0x140BF86B4 (PnprQuiesceProcessors.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 KeSuspendClockTimerSafe()
@@ -37,7 +37,7 @@ __int64 KeSuspendClockTimerSafe()
       CurrentPrcb->PendingTickFlags &= ~1u;
     }
     if ( CurrentPrcb->Number == v8 )
-      ++dword_140F25C64;
+      ++dword_140F25F84;
     if ( CurrentPrcb->ClockOwner )
       CurrentPrcb->ClockOwner = 0;
   }
@@ -57,7 +57,7 @@ __int64 KeSuspendClockTimerSafe()
       v4->PendingTickFlags &= ~1u;
     }
     if ( v4->Number == v5 )
-      ++dword_140F25C64;
+      ++dword_140F25F84;
     if ( v4->ClockOwner )
       v4->ClockOwner = 0;
     if ( KiIrqlFlags )

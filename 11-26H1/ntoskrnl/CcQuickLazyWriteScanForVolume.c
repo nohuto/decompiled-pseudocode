@@ -1,13 +1,13 @@
 /*
- * XREFs of CcQuickLazyWriteScanForVolume @ 0x140389D20
+ * XREFs of CcQuickLazyWriteScanForVolume @ 0x14038BAD0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcFreeWorkQueueEntry @ 0x14038364C (CcFreeWorkQueueEntry.c)
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039C160 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcFreeWorkQueueEntry @ 0x1403853FC (CcFreeWorkQueueEntry.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039DEC0 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
  */
 
 __int64 __fastcall CcQuickLazyWriteScanForVolume(_QWORD *a1)

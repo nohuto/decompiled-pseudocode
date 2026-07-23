@@ -1,7 +1,7 @@
 /*
- * XREFs of KeUnsecureThread @ 0x1401D305C
+ * XREFs of KeUnsecureThread @ 0x1401D2E88
  * Callers:
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
  *     <none>
  */

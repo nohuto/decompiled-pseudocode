@@ -1,16 +1,17 @@
 /*
- * XREFs of MmCommitDecommitSecuredMemory @ 0x1407EDC74
+ * XREFs of MmCommitDecommitSecuredMemory @ 0x1407EE244
  * Callers:
- *     VmpUpdateCommitStateMemoryRange @ 0x14064B5C0 (VmpUpdateCommitStateMemoryRange.c)
+ *     VmpUpdateCommitStateMemoryRange @ 0x140649B80 (VmpUpdateCommitStateMemoryRange.c)
  * Callees:
- *     MiObtainReferencedSecureVad @ 0x140262864 (MiObtainReferencedSecureVad.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiFreeVirtualMemory @ 0x1408DBC38 (MiFreeVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
+ *     MiObtainReferencedSecureVad @ 0x140292568 (MiObtainReferencedSecureVad.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiFreeVirtualMemory @ 0x1408D9E68 (MiFreeVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall MmCommitDecommitSecuredMemory(__int64 a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall MmCommitDecommitSecuredMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
+  int v5; // r13d
   _KPROCESS *Process; // r15
   ULONG_PTR v7; // rbx
   __int64 v8; // r12
@@ -27,15 +28,16 @@ __int64 __fastcall MmCommitDecommitSecuredMemory(__int64 a1, __int64 a2, int a3,
 
   v18 = a1;
   LODWORD(v19) = 0;
+  v5 = a3;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v7 = a4 ^ qword_140E2DA80 ^ (unsigned __int64)Process;
-  v8 = MiObtainReferencedSecureVad(v7, &v19);
+  v7 = a4 ^ qword_140E2DBC0 ^ (unsigned __int64)Process;
+  v8 = MiObtainReferencedSecureVad(v7, &v19, a3, a4);
   if ( !v8 )
     return (unsigned int)v19;
   v9 = v18;
   v10 = a2 + v18 - 1;
   v19 = v10;
-  if ( !a3 )
+  if ( !v5 )
     return MiFreeVirtualMemory(Process, v8, &v18, &v19, a2, 0x4000, 0, 0, 0, 0LL, v7);
   memset_0(v12, 0, 0x80uLL);
   v17 = Process;
@@ -45,7 +47,7 @@ __int64 __fastcall MmCommitDecommitSecuredMemory(__int64 a1, __int64 a2, int a3,
   v12[0] = v9;
   v12[1] = v10;
   v12[3] = a2;
-  v14 = a3;
+  v14 = v5;
   v15 = 0;
   return MiAllocateVirtualMemory((unsigned int)v12, 0, v8, v7, (__int64)&v18);
 }

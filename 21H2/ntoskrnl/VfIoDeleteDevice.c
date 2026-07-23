@@ -1,18 +1,18 @@
 /*
- * XREFs of VfIoDeleteDevice @ 0x1409D6144
+ * XREFs of VfIoDeleteDevice @ 0x1409D7144
  * Callers:
- *     IovDeleteDevice @ 0x1409C5198 (IovDeleteDevice.c)
+ *     IovDeleteDevice @ 0x1409C6198 (IovDeleteDevice.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IovUtilMarkDeviceObject @ 0x1405A1D7C (IovUtilMarkDeviceObject.c)
- *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x1409CA328 (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
- *     VF_MARK_FOR_DEFERRED_REMOVE @ 0x1409CA50C (VF_MARK_FOR_DEFERRED_REMOVE.c)
- *     ViReleaseDmaAdapter @ 0x1409CF520 (ViReleaseDmaAdapter.c)
- *     ViDevObjRemove @ 0x1409D634C (ViDevObjRemove.c)
- *     IovUtilGetLowerDeviceObjectWithTag @ 0x1409D699C (IovUtilGetLowerDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x1409D6A4C (IovUtilIsDeviceObjectMarked.c)
- *     VfErrorReport9 @ 0x1409D8140 (VfErrorReport9.c)
- *     VfIrpLogDeleteDeviceLogs @ 0x1409E36F0 (VfIrpLogDeleteDeviceLogs.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     IovUtilMarkDeviceObject @ 0x1405A1FAC (IovUtilMarkDeviceObject.c)
+ *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x1409CB328 (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
+ *     VF_MARK_FOR_DEFERRED_REMOVE @ 0x1409CB50C (VF_MARK_FOR_DEFERRED_REMOVE.c)
+ *     ViReleaseDmaAdapter @ 0x1409D0520 (ViReleaseDmaAdapter.c)
+ *     ViDevObjRemove @ 0x1409D734C (ViDevObjRemove.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x1409D799C (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x1409D7A4C (IovUtilIsDeviceObjectMarked.c)
+ *     VfErrorReport9 @ 0x1409D9140 (VfErrorReport9.c)
+ *     VfIrpLogDeleteDeviceLogs @ 0x1409E46F0 (VfIrpLogDeleteDeviceLogs.c)
  */
 
 __int64 __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *BugCheckParameter2, __int64 a2)

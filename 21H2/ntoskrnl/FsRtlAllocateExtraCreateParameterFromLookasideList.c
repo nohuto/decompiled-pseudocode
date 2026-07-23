@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x140684300
+ * XREFs of FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1405DE140
  * Callers:
- *     IopSymlinkAllocateAndAddECP @ 0x14069E77C (IopSymlinkAllocateAndAddECP.c)
- *     IopSymlinkPropagateToExtensionIfNeeded @ 0x1407035D0 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405FD94C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x14071A9B0 (IopSymlinkPropagateToExtensionIfNeeded.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     FsRtlAllocateExtraCreateParameter @ 0x1406446A0 (FsRtlAllocateExtraCreateParameter.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140213400 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     FsRtlAllocateExtraCreateParameter @ 0x1406394B0 (FsRtlAllocateExtraCreateParameter.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterFromLookasideList(

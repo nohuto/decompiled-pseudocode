@@ -11,11 +11,11 @@
  *     _RtlpFcBufferManagerReferenceBuffers@12 @ 0x4B2E5302 (_RtlpFcBufferManagerReferenceBuffers@12.c)
  */
 
-int __fastcall RtlpFcReferenceFeatureConfigurationBuffers(int a1, char a2, _DWORD *a3, _DWORD *a4)
+NTSTATUS __fastcall RtlpFcReferenceFeatureConfigurationBuffers(int a1, char a2, _DWORD *a3, _DWORD *a4)
 {
   unsigned __int64 v5; // rdi
   void *v6; // edx
-  int result; // eax
+  NTSTATUS result; // eax
   int v8; // eax
   int v9; // [esp+0h] [ebp-18h]
   int v10; // [esp+4h] [ebp-14h]
@@ -38,7 +38,7 @@ int __fastcall RtlpFcReferenceFeatureConfigurationBuffers(int a1, char a2, _DWOR
   {
     RtlpFcBufferManagerDereferenceBuffers(v9, v10);
     HIDWORD(v12) = 0;
-    result = RtlpFcUpdateLocalConfiguration((int)&RtlpFcProcessManager, a2, v5);
+    result = RtlpFcUpdateLocalConfiguration(&RtlpFcProcessManager, a2, v5);
     if ( result < 0 )
       return result;
     RtlpFcBufferManagerReferenceBuffers((char *)&v12 + 4);

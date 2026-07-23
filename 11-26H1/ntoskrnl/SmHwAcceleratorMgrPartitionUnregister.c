@@ -1,16 +1,16 @@
 /*
- * XREFs of SmHwAcceleratorMgrPartitionUnregister @ 0x14081B3C8
+ * XREFs of SmHwAcceleratorMgrPartitionUnregister @ 0x1408215D8
  * Callers:
- *     SmHwAcceleratorMgrPartitionRegister @ 0x14081B298 (SmHwAcceleratorMgrPartitionRegister.c)
- *     SmHwAcceleratorPartitionMgrCleanup @ 0x14081B83C (SmHwAcceleratorPartitionMgrCleanup.c)
+ *     SmHwAcceleratorMgrPartitionRegister @ 0x1408214A8 (SmHwAcceleratorMgrPartitionRegister.c)
+ *     SmHwAcceleratorPartitionMgrCleanup @ 0x140821A4C (SmHwAcceleratorPartitionMgrCleanup.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     SmHwAcceleratorMgrReleaseAccelerators @ 0x14081B4C0 (SmHwAcceleratorMgrReleaseAccelerators.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SmHwAcceleratorMgrReleaseAccelerators @ 0x1408216D0 (SmHwAcceleratorMgrReleaseAccelerators.c)
  */
 
 void __fastcall SmHwAcceleratorMgrPartitionUnregister(

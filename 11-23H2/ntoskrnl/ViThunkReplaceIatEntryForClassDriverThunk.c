@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkReplaceIatEntryForClassDriverThunk @ 0x140ADC018
+ * XREFs of ViThunkReplaceIatEntryForClassDriverThunk @ 0x140ADC008
  * Callers:
- *     ViThunkReplaceAllThunkedImports @ 0x140ADBEF8 (ViThunkReplaceAllThunkedImports.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x140ADBEE8 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x14062CAC8 (MmReplaceImportEntry.c)
+ *     MmReplaceImportEntry @ 0x14062D018 (MmReplaceImportEntry.c)
  */
 
 __int64 __fastcall ViThunkReplaceIatEntryForClassDriverThunk(__int64 **a1, _QWORD *a2)

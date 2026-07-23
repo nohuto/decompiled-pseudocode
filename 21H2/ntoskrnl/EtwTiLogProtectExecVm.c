@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTiLogProtectExecVm @ 0x140629288
+ * XREFs of EtwTiLogProtectExecVm @ 0x1406906F0
  * Callers:
- *     NtProtectVirtualMemory @ 0x1405F8E40 (NtProtectVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x1406E85A0 (NtProtectVirtualMemory.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
- *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
- *     EtwpTiFillThreadIdentity @ 0x14025F884 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpTiFillThreadIdentity @ 0x14027E480 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillProcessIdentity @ 0x14027E4B8 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x14027E6F0 (EtwProviderEnabled.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 BOOLEAN EtwTiLogProtectExecVm(__int64 a1, char a2, ...)
@@ -62,7 +62,7 @@ BOOLEAN EtwTiLogProtectExecVm(__int64 a1, char a2, ...)
     if ( Process == (_KPROCESS *)a1 )
       v5 = 8LL;
     v8 = (__int64)CurrentThread->Process;
-    v9 = *(const EVENT_DESCRIPTOR **)((char *)off_1400062A0 + (a2 != 0 ? 0 : 0x10) + v5);
+    v9 = *(const EVENT_DESCRIPTOR **)((char *)off_1400065B0 + (a2 != 0 ? 0 : 0x10) + v5);
     result = EtwEventEnabled(EtwThreatIntProvRegHandle, v9);
     if ( result )
     {

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteVaTail @ 0x14033AB30
+ * XREFs of MiDeleteVaTail @ 0x140345880
  * Callers:
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
  * Callees:
- *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
- *     MiDeletePteRun @ 0x140236C60 (MiDeletePteRun.c)
- *     MiDecayPfnFullyInitialized @ 0x1402AB654 (MiDecayPfnFullyInitialized.c)
- *     MiTerminateWsleCluster @ 0x14033AD20 (MiTerminateWsleCluster.c)
- *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
- *     MiReplicatePteChange @ 0x1403A4544 (MiReplicatePteChange.c)
- *     KeFlushCurrentTbOnly @ 0x1403B7498 (KeFlushCurrentTbOnly.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x1403C951C (KeFlushMultipleRangeCurrentTb.c)
+ *     MiDecayPfnFullyInitialized @ 0x140229794 (MiDecayPfnFullyInitialized.c)
+ *     KeFlushTb @ 0x1402D4970 (KeFlushTb.c)
+ *     MiDeletePteRun @ 0x1402DB4B0 (MiDeletePteRun.c)
+ *     MiTerminateWsleCluster @ 0x140345A70 (MiTerminateWsleCluster.c)
+ *     KeFlushMultipleRangeTb @ 0x140346370 (KeFlushMultipleRangeTb.c)
+ *     MiReplicatePteChange @ 0x1403A4694 (MiReplicatePteChange.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B7608 (KeFlushCurrentTbOnly.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x1403C96BC (KeFlushMultipleRangeCurrentTb.c)
  */
 
 __int64 __fastcall MiDeleteVaTail(_QWORD *a1)
@@ -19,7 +19,7 @@ __int64 __fastcall MiDeleteVaTail(_QWORD *a1)
   __int64 v3; // rdi
   __int64 v4; // rcx
   unsigned __int64 v5; // rdi
-  ULONG_PTR v6; // rcx
+  _SLIST_ENTRY *v6; // rcx
   __int64 v8; // rcx
   __int64 v9; // rbp
   __int64 v10; // r8
@@ -36,7 +36,7 @@ __int64 __fastcall MiDeleteVaTail(_QWORD *a1)
   if ( !(_DWORD)v4 )
     goto LABEL_2;
   v10 = *(unsigned __int8 *)(v3 + 4);
-  v11 = qword_140C4DF90;
+  v11 = qword_140C4DFD0;
   if ( (v10 & 2) == 0 )
   {
     v12 = *(_DWORD *)v3;
@@ -103,7 +103,7 @@ LABEL_2:
       MiReplicatePteChange(v5, v9);
     *v1 = 0LL;
   }
-  v6 = v1[11];
+  v6 = (_SLIST_ENTRY *)v1[11];
   if ( v6 )
   {
     MiDecayPfnFullyInitialized(v6);

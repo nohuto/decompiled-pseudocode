@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSecureThreadStartup @ 0x1409B18F0
+ * XREFs of PspSecureThreadStartup @ 0x1409B1AF0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PspTerminateThreadByPointer @ 0x14076D980 (PspTerminateThreadByPointer.c)
- *     PspNotifyThreadCreation @ 0x14076F800 (PspNotifyThreadCreation.c)
- *     PspDisablePrimaryTokenExchange @ 0x14076F8E0 (PspDisablePrimaryTokenExchange.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PspTerminateThreadByPointer @ 0x14076DB70 (PspTerminateThreadByPointer.c)
+ *     PspNotifyThreadCreation @ 0x14076F9F0 (PspNotifyThreadCreation.c)
+ *     PspDisablePrimaryTokenExchange @ 0x14076FAD0 (PspDisablePrimaryTokenExchange.c)
  */
 
 __int64 PspSecureThreadStartup()
@@ -24,10 +24,10 @@ __int64 PspSecureThreadStartup()
   __int64 v7; // r8
   _BYTE v9[112]; // [rsp+20h] [rbp-88h] BYREF
 
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

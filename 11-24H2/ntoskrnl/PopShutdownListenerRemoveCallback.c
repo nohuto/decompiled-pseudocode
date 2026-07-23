@@ -1,11 +1,11 @@
 /*
- * XREFs of PopShutdownListenerRemoveCallback @ 0x1405D7AD0
+ * XREFs of PopShutdownListenerRemoveCallback @ 0x1405D4FF0
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopShutdownListenerRemoveCallback(__m256i *a1)

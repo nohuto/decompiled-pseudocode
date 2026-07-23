@@ -1,11 +1,11 @@
 /*
- * XREFs of CcInitializeVolumeCacheMap @ 0x1400A0E00
+ * XREFs of CcInitializeVolumeCacheMap @ 0x14009F728
  * Callers:
- *     CcInitializeCacheMapEx @ 0x1400E8440 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMapEx @ 0x1400E62E0 (CcInitializeCacheMapEx.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -66,14 +66,14 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, __int64 **a2)
     }
     v12 = (__int64 *)*v12;
   }
-  v14 = (_QWORD *)qword_140323008;
+  v14 = (_QWORD *)qword_140323028;
   v15 = v7 + 2;
-  if ( *(__int64 **)qword_140323008 != &CcVolumeCacheMapList )
+  if ( *(__int64 **)qword_140323028 != &CcVolumeCacheMapList )
     __fastfail(3u);
   *v15 = &CcVolumeCacheMapList;
   v7[3] = (__int64)v14;
   *v14 = v15;
-  qword_140323008 = (__int64)(v7 + 2);
+  qword_140323028 = (__int64)(v7 + 2);
 LABEL_8:
   KeReleaseQueuedSpinLock(5uLL, v8);
   *a2 = v7;

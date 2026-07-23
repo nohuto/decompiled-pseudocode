@@ -12,38 +12,40 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall sub_1800D576C(_DWORD **a1)
+__int64 __fastcall sub_1800D576C(PEXCEPTION_POINTERS ExceptionPointers)
 {
   struct _TEB *v2; // rcx
-  unsigned int v3; // eax
-  __int64 v4; // rsi
-  int InformationProcess; // eax
-  void (__fastcall *v6)(_DWORD **); // rsi
-  int v8; // [rsp+40h] [rbp+8h]
+  NTSTATUS ExceptionCode; // ebp
+  unsigned int v4; // eax
+  __int64 v5; // rsi
+  int v6; // eax
+  void (__fastcall *v7)(PEXCEPTION_POINTERS); // rsi
+  int ProcessInformation; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = NtCurrentTeb();
-  if ( **a1 == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
+  ExceptionCode = ExceptionPointers->ExceptionRecord->ExceptionCode;
+  if ( ExceptionCode == -1073741571 && v2->NtTib.StackLimit > v2->DeallocationStack )
   {
-    RtlReportSilentProcessExit(-1LL, -1073741571);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741571);
   }
   else
   {
-    v3 = dword_180166018;
-    v4 = qword_180165350;
+    v4 = dword_180166018;
+    v5 = qword_180165350;
     if ( !dword_180166018 )
     {
-      InformationProcess = ZwQueryInformationProcess();
-      if ( InformationProcess < 0 )
-        RtlRaiseStatus((unsigned int)InformationProcess);
-      v3 = v8;
-      dword_180166018 = v8;
+      v6 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
+      if ( v6 < 0 )
+        RtlRaiseStatus(v6);
+      v4 = ProcessInformation;
+      dword_180166018 = ProcessInformation;
     }
-    v6 = (void (__fastcall *)(_DWORD **))(v3 ^ __ROR8__(v4, 64 - (v3 & 0x3F)));
-    if ( v6 )
-      v6(a1);
+    v7 = (void (__fastcall *)(PEXCEPTION_POINTERS))(v4 ^ __ROR8__(v5, 64 - (v4 & 0x3F)));
+    if ( v7 )
+      v7(ExceptionPointers);
     else
-      RtlUnhandledExceptionFilter2(a1, &unk_18011D492);
+      RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&dword_18011D492);
   }
-  ZwTerminateProcess();
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionCode);
   return 0LL;
 }

@@ -16,14 +16,14 @@ PSLIST_ENTRY __fastcall MiFreePageFileHashPfns(__int64 a1)
 {
   PSLIST_ENTRY result; // rax
   unsigned __int64 v2; // rbx
-  union _SLIST_HEADER **v3; // r14
+  _SLIST_HEADER **v3; // r14
   __int64 v4; // r15
-  union _SLIST_HEADER *v5; // rcx
+  _SLIST_HEADER *v5; // rcx
   PSLIST_ENTRY v6; // rsi
-  struct _SLIST_ENTRY *Next; // r13
+  _SLIST_ENTRY *Next; // r13
   unsigned int v8; // ebp
   __int64 v9; // rax
-  union _SLIST_HEADER **v11; // [rsp+78h] [rbp+10h]
+  _SLIST_HEADER **v11; // [rsp+78h] [rbp+10h]
   __int64 v12; // [rsp+80h] [rbp+18h]
   unsigned __int8 CurrentIrql; // [rsp+88h] [rbp+20h]
 
@@ -31,9 +31,9 @@ PSLIST_ENTRY __fastcall MiFreePageFileHashPfns(__int64 a1)
   v2 = 0LL;
   if ( (_DWORD)result )
   {
-    v3 = (union _SLIST_HEADER **)(a1 + 5344);
+    v3 = (_SLIST_HEADER **)(a1 + 5344);
     v12 = *(unsigned int *)(a1 + 5336);
-    v11 = (union _SLIST_HEADER **)(a1 + 5344);
+    v11 = (_SLIST_HEADER **)(a1 + 5344);
     v4 = (unsigned int)result;
     do
     {

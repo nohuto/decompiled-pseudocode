@@ -1,13 +1,13 @@
 /*
- * XREFs of WbSetTrapFrame @ 0x140763048
+ * XREFs of WbSetTrapFrame @ 0x140763238
  * Callers:
- *     sub_14076286C @ 0x14076286C (sub_14076286C.c)
- *     WbHeapExecuteCall @ 0x140762C10 (WbHeapExecuteCall.c)
+ *     sub_140762A5C @ 0x140762A5C (sub_140762A5C.c)
+ *     WbHeapExecuteCall @ 0x140762E00 (WbHeapExecuteCall.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     PspSetContextThreadInternal @ 0x1407705F0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407707D4 (PspGetContextThreadInternal.c)
- *     WbSetWowTrapFrame @ 0x140A4DC40 (WbSetWowTrapFrame.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     PspSetContextThreadInternal @ 0x1407707E0 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1407709C4 (PspGetContextThreadInternal.c)
+ *     WbSetWowTrapFrame @ 0x140A4DEF0 (WbSetWowTrapFrame.c)
  */
 
 __int64 __fastcall WbSetTrapFrame(__int64 a1, __int64 a2)

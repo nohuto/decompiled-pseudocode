@@ -48,7 +48,7 @@ __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64
         {
           if ( a3 && *(_DWORD *)(v14 + 20) > 1u )
           {
-            v15 = ApiSetpSearchForApiSetHost(v14, *(_WORD **)(a3 + 8), *(_WORD *)a3 >> 1, a1);
+            v15 = ApiSetpSearchForApiSetHost(v14, *(const WCHAR **)(a3 + 8), *(_WORD *)a3 >> 1, a1);
             goto LABEL_12;
           }
           if ( *(_DWORD *)(v14 + 20) )

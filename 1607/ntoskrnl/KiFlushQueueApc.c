@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushQueueApc @ 0x1400CBB54
+ * XREFs of KiFlushQueueApc @ 0x1400C99F4
  * Callers:
- *     KeRundownApcQueues @ 0x14050BA4C (KeRundownApcQueues.c)
+ *     KeRundownApcQueues @ 0x1404EE9DC (KeRundownApcQueues.c)
  * Callees:
- *     KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C (KiAcquireThreadLockRaiseToDpc.c)
  */
 
 _QWORD *__fastcall KiFlushQueueApc(__int64 a1, char a2)

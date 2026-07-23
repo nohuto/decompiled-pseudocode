@@ -9,7 +9,7 @@
  *     HvpViewMapCreateViewsForRegion @ 0x140884B94 (HvpViewMapCreateViewsForRegion.c)
  */
 
-int __fastcall HvpViewMapStart(__int64 a1, void *a2, int a3, __int64 a4, int a5)
+int __fastcall HvpViewMapStart(ULONG_PTR a1, void *a2, int a3, __int64 a4, int a5)
 {
   char v5; // al
   int result; // eax
@@ -24,7 +24,7 @@ int __fastcall HvpViewMapStart(__int64 a1, void *a2, int a3, __int64 a4, int a5)
   result = CmSiCreateSectionForFile((HANDLE *)a1, (v5 & 1) != 0 ? 5 : 23, 2 * !(v5 & 1) + 2, a4, a2);
   if ( result >= 0 )
   {
-    result = CmSiGetSectionLength(*(_QWORD *)a1, &v11);
+    result = CmSiGetSectionLength(*(void **)a1, &v11);
     if ( result >= 0 )
     {
       v9 = v11;

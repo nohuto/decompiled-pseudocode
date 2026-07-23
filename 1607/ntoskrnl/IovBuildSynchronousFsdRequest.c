@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     XdvIoBuildSynchronousFsdRequest @ 0x140223480 (XdvIoBuildSynchronousFsdRequest.c)
- *     VfSetIoBuildRequest @ 0x14070C0AC (VfSetIoBuildRequest.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     XdvIoBuildSynchronousFsdRequest @ 0x1402232AC (XdvIoBuildSynchronousFsdRequest.c)
+ *     VfSetIoBuildRequest @ 0x14070C0DC (VfSetIoBuildRequest.c)
  */
 
 __int64 __fastcall IovBuildSynchronousFsdRequest(

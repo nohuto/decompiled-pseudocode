@@ -1,5 +1,5 @@
 /*
- * XREFs of IopOpenIoRing @ 0x1407CBFE0
+ * XREFs of IopOpenIoRing @ 0x1407CC2B0
  * Callers:
  *     <none>
  * Callees:

@@ -1,20 +1,20 @@
 /*
- * XREFs of SepSetTokenCachedHandles @ 0x14065BD9C
+ * XREFs of SepSetTokenCachedHandles @ 0x14065CF5C
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x1400DA14C (SepSetTokenBnoIsolation.c)
- *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
+ *     SepSetTokenBnoIsolation @ 0x1400DA1CC (SepSetTokenBnoIsolation.c)
+ *     NtCreateLowBoxToken @ 0x140656130 (NtCreateLowBoxToken.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     SepCloseCachedTokenHandles @ 0x1400DD4C0 (SepCloseCachedTokenHandles.c)
- *     SepReferenceCachedTokenHandles @ 0x1400DD694 (SepReferenceCachedTokenHandles.c)
- *     RtlCreateHashTable @ 0x14016A550 (RtlCreateHashTable.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepGetCachedHandlesEntry @ 0x14065BF58 (SepGetCachedHandlesEntry.c)
- *     SepValidateReferencedCachedHandles @ 0x14065D65C (SepValidateReferencedCachedHandles.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SepCloseCachedTokenHandles @ 0x1400DD540 (SepCloseCachedTokenHandles.c)
+ *     SepReferenceCachedTokenHandles @ 0x1400DD714 (SepReferenceCachedTokenHandles.c)
+ *     RtlCreateHashTable @ 0x14016A650 (RtlCreateHashTable.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepGetCachedHandlesEntry @ 0x14065D118 (SepGetCachedHandlesEntry.c)
+ *     SepValidateReferencedCachedHandles @ 0x14065E81C (SepValidateReferencedCachedHandles.c)
  */
 
 __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int a3, HANDLE *a4)

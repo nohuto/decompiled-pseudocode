@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSetPagePrivilege @ 0x140146DA4
+ * XREFs of KeSetPagePrivilege @ 0x140147314
  * Callers:
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
- *     MiDbgWriteCheck @ 0x14012C5DC (MiDbgWriteCheck.c)
- *     MiDeletePerSessionProtos @ 0x1401F4ECC (MiDeletePerSessionProtos.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
+ *     MiDbgWriteCheck @ 0x14012CB4C (MiDbgWriteCheck.c)
+ *     MiDeletePerSessionProtos @ 0x1401F4CF8 (MiDeletePerSessionProtos.c)
  *     ExpRevokeBootLoaderPagePrivileges @ 0x1407CD090 (ExpRevokeBootLoaderPagePrivileges.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x1400AA1D0 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1400A8750 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 int __fastcall KeSetPagePrivilege(__int64 a1, __int128 *a2, char a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetpFindHashInsertionPoint_V7 @ 0x140419370
+ * XREFs of ApiSetpFindHashInsertionPoint_V7 @ 0x140419700
  * Callers:
- *     ApiSetpInsertHashEntry_V7 @ 0x14041946C (ApiSetpInsertHashEntry_V7.c)
+ *     ApiSetpInsertHashEntry_V7 @ 0x1404197FC (ApiSetpInsertHashEntry_V7.c)
  * Callees:
  *     <none>
  */

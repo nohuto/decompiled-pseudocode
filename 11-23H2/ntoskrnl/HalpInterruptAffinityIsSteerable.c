@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptAffinityIsSteerable @ 0x140320404
+ * XREFs of HalpInterruptAffinityIsSteerable @ 0x140320694
  * Callers:
- *     HalGetMessageRoutingInfo @ 0x140320220 (HalGetMessageRoutingInfo.c)
+ *     HalGetMessageRoutingInfo @ 0x1403204B0 (HalGetMessageRoutingInfo.c)
  * Callees:
- *     KeQueryInterruptPartitionInformation @ 0x140320550 (KeQueryInterruptPartitionInformation.c)
- *     KeQueryInterruptPartitionCount @ 0x1403205C0 (KeQueryInterruptPartitionCount.c)
+ *     KeQueryInterruptPartitionInformation @ 0x1403207E0 (KeQueryInterruptPartitionInformation.c)
+ *     KeQueryInterruptPartitionCount @ 0x140320850 (KeQueryInterruptPartitionCount.c)
  */
 
 __int64 __fastcall HalpInterruptAffinityIsSteerable(__int64 a1, bool *a2)

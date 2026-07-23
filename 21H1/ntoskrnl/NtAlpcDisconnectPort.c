@@ -9,15 +9,18 @@
  *     AlpcpDisconnectPort @ 0x140647404 (AlpcpDisconnectPort.c)
  */
 
-__int64 __fastcall NtAlpcDisconnectPort(void *a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcDisconnectPort(HANDLE PortHandle, ULONG Flags)
 {
+  __int64 v2; // r8
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( (a2 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
     v5 = -1073741811;
   }
@@ -25,7 +28,7 @@ __int64 __fastcall NtAlpcDisconnectPort(void *a1, __int64 a2, __int64 a3, __int6
   {
     DmaAdapter = 0LL;
     v5 = ObReferenceObjectByHandle(
-           a1,
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -37,6 +40,6 @@ __int64 __fastcall NtAlpcDisconnectPort(void *a1, __int64 a2, __int64 a3, __int6
       HalPutDmaAdapter(DmaAdapter);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3, a4);
-  return (unsigned int)v5;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, v2, v3);
+  return v5;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x1405A17A4
+ * XREFs of SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14059E6E4
  * Callers:
- *     SecureDump_Init @ 0x1405A1CC4 (SecureDump_Init.c)
- *     SecureDump_ReInitialize @ 0x1405A248C (SecureDump_ReInitialize.c)
+ *     SecureDump_Init @ 0x14059EC04 (SecureDump_Init.c)
+ *     SecureDump_ReInitialize @ 0x14059F3CC (SecureDump_ReInitialize.c)
  * Callees:
- *     BCryptEncrypt @ 0x1404F8AE4 (BCryptEncrypt.c)
- *     SecureDump_LogErrorEvent @ 0x1405A214C (SecureDump_LogErrorEvent.c)
- *     BCryptCloseAlgorithmProvider @ 0x1406081C8 (BCryptCloseAlgorithmProvider.c)
- *     BCryptDestroyKey @ 0x140608220 (BCryptDestroyKey.c)
- *     BCryptImportKeyPair @ 0x14078F228 (BCryptImportKeyPair.c)
- *     BCryptGetProperty @ 0x140A45488 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x140AA6D0C (BCryptOpenAlgorithmProvider.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     BCryptEncrypt @ 0x1404F63C4 (BCryptEncrypt.c)
+ *     SecureDump_LogErrorEvent @ 0x14059F08C (SecureDump_LogErrorEvent.c)
+ *     BCryptCloseAlgorithmProvider @ 0x1406058CC (BCryptCloseAlgorithmProvider.c)
+ *     BCryptDestroyKey @ 0x140605924 (BCryptDestroyKey.c)
+ *     BCryptImportKeyPair @ 0x14078F1F8 (BCryptImportKeyPair.c)
+ *     BCryptGetProperty @ 0x140A3B034 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x140AA1E08 (BCryptOpenAlgorithmProvider.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 SecureDump_EncryptSymmetricKeyWithPublicKey()
@@ -43,11 +43,11 @@ __int64 SecureDump_EncryptSymmetricKeyWithPublicKey()
   pPaddingInfo[2] = 0LL;
   pbOutput = 0;
   v14 = 0;
-  dword_140E6612C = 2;
+  dword_140E6621C = 2;
   Property = BCryptExportKey(hObject, 0LL, L"KeyDataBlob", 0LL, 0, &cbInput, 0);
   if ( Property >= 0 )
   {
-    Pool2 = (UCHAR *)ExAllocatePool2(0x40uLL);
+    Pool2 = (UCHAR *)ExAllocatePool2(0x40uLL, cbInput, 0x706D6453u);
     v0 = Pool2;
     if ( !Pool2 )
     {
@@ -66,7 +66,7 @@ LABEL_3:
                      v2,
                      v5,
                      &phKey,
-                     *((PUCHAR *)&xmmword_140E660E8 + 1),
+                     *((PUCHAR *)&xmmword_140E661D8 + 1),
                      ::dwFlags,
                      dwFlags);
         if ( Property < 0
@@ -79,8 +79,8 @@ LABEL_3:
           Property = BCryptEncrypt(phKey, v0, cbInput, pPaddingInfo, 0LL, 0, 0LL, 0, &::pcbResult, 4u);
           if ( Property >= 0 )
           {
-            qword_140E66108 = (PVOID)ExAllocatePool2(0x40uLL);
-            if ( !qword_140E66108 )
+            qword_140E661F8 = (PVOID)ExAllocatePool2(0x40uLL, ::pcbResult, 0x706D6453u);
+            if ( !qword_140E661F8 )
               goto LABEL_3;
             Property = BCryptEncrypt(
                          phKey,
@@ -89,7 +89,7 @@ LABEL_3:
                          pPaddingInfo,
                          0LL,
                          0,
-                         (PUCHAR)qword_140E66108,
+                         (PUCHAR)qword_140E661F8,
                          ::pcbResult,
                          &::pcbResult,
                          4u);

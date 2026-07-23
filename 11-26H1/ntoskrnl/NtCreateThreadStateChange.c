@@ -1,21 +1,26 @@
 /*
- * XREFs of NtCreateThreadStateChange @ 0x140B2A0C0
+ * XREFs of NtCreateThreadStateChange @ 0x140B2C140
  * Callers:
- *     DifNtCreateThreadStateChangeWrapper @ 0x140673E90 (DifNtCreateThreadStateChangeWrapper.c)
+ *     DifNtCreateThreadStateChangeWrapper @ 0x140677A70 (DifNtCreateThreadStateChangeWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
-__int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, unsigned int a2, __int64 a3, ULONG_PTR a4, int a5)
+NTSTATUS __cdecl NtCreateThreadStateChange(
+        PHANDLE ThreadStateChangeHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ThreadHandle,
+        ULONG64 Reserved)
 {
   char PreviousMode; // si
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   _OWORD *v12; // rcx
   __int64 ULong64FromUser; // rax
   __int64 Tag; // [rsp+20h] [rbp-68h]
@@ -29,22 +34,30 @@ __int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, unsigned int a2, __int6
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(ThreadStateChangeHandle);
+    RtlWriteULong64ToUser(ThreadStateChangeHandle, ULong64FromUser);
   }
-  if ( a5 )
+  if ( (_DWORD)Reserved )
   {
     inserted = -1073741811;
   }
   else
   {
-    inserted = ObpReferenceObjectByHandleWithTag(a4, 32LL, PsThreadType, PreviousMode, 0x63547350u, &Object, 0LL, 0LL);
+    inserted = ObpReferenceObjectByHandleWithTag(
+                 (ULONG_PTR)ThreadHandle,
+                 32,
+                 (__int64)PsThreadType,
+                 PreviousMode,
+                 0x63547350u,
+                 &Object,
+                 0LL,
+                 0LL);
     if ( inserted >= 0 )
     {
       inserted = ObCreateObjectEx(
                    PreviousMode,
-                   *(_DWORD **)&stru_140FC01F0.WaitBlockFill11[64],
-                   a3,
+                   *(_DWORD **)&stru_140FC11F0.WaitBlockFill11[64],
+                   (__int64)ObjectAttributes,
                    PreviousMode,
                    Tag,
                    24,
@@ -61,13 +74,13 @@ __int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, unsigned int a2, __int6
         *(_QWORD *)v12 = Object;
         *((_DWORD *)v12 + 5) = 0;
         Object = 0LL;
-        inserted = ObInsertObjectEx((char *)v12, 0LL, a2, 0, 0, 0LL, &Handle);
+        inserted = ObInsertObjectEx((char *)v12, 0LL, DesiredAccess, 0, 0, 0LL, &Handle);
         if ( inserted >= 0 )
         {
           if ( PreviousMode )
-            RtlWriteULong64ToUser(a1, (__int64)Handle);
+            RtlWriteULong64ToUser(ThreadStateChangeHandle, (__int64)Handle);
           else
-            *a1 = Handle;
+            *ThreadStateChangeHandle = Handle;
           Handle = 0LL;
         }
       }
@@ -77,5 +90,5 @@ __int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, unsigned int a2, __int6
     ObfDereferenceObjectWithTag(Object, 0x63547350u);
   if ( Handle )
     NtClose(Handle);
-  return (unsigned int)inserted;
+  return inserted;
 }

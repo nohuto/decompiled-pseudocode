@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetNextTable @ 0x14058EBE4
+ * XREFs of PopGetNextTable @ 0x14058F0D4
  * Callers:
- *     PopCompressHiberBlocks @ 0x140AA1F74 (PopCompressHiberBlocks.c)
- *     PopWriteHiberImage @ 0x140AA589C (PopWriteHiberImage.c)
+ *     PopCompressHiberBlocks @ 0x140AA1DE4 (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140AA570C (PopWriteHiberImage.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     MmMapMemoryDumpMdlEx2 @ 0x1406306A8 (MmMapMemoryDumpMdlEx2.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x140630BF8 (MmMapMemoryDumpMdlEx2.c)
  */
 
 __int64 __fastcall PopGetNextTable(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4, char a5, __int64 a6)

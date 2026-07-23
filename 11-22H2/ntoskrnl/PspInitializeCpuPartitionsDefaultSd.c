@@ -32,7 +32,7 @@ __int64 PspInitializeCpuPartitionsDefaultSd()
   void *v11; // rdi
   char *v12; // r15
   ACL *v13; // r13
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+50h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+50h] [rbp+8h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;

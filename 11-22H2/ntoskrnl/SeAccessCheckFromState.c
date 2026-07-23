@@ -30,11 +30,11 @@ BOOLEAN __stdcall SeAccessCheckFromState(
   v12 = (int)SecurityDescriptor;
   memset(v17, 0, 0x498uLL);
   memset(v16, 0, 0x498uLL);
-  SepTokenFromAccessInformation((unsigned int **)PrimaryTokenInformation, (__int64)v17);
+  SepTokenFromAccessInformation((__int64)PrimaryTokenInformation, (__int64)v17);
   LODWORD(v14) = 0;
   if ( ClientTokenInformation )
   {
-    SepTokenFromAccessInformation((unsigned int **)ClientTokenInformation, (__int64)v16);
+    SepTokenFromAccessInformation((__int64)ClientTokenInformation, (__int64)v16);
     v14 = v16;
   }
   return SeAccessCheckFromStateEx(

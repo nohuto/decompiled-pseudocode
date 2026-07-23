@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFxPerfRequestProgress @ 0x140593BD0
+ * XREFs of PopDiagTraceFxPerfRequestProgress @ 0x1405940C0
  * Callers:
- *     PopFxProcessWork @ 0x140312634 (PopFxProcessWork.c)
- *     PopFxCompleteComponentPerfState @ 0x140589598 (PopFxCompleteComponentPerfState.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x14058ABB8 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxProcessWork @ 0x1403128C4 (PopFxProcessWork.c)
+ *     PopFxCompleteComponentPerfState @ 0x140589A88 (PopFxCompleteComponentPerfState.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x14058B0A8 (PopFxIssueComponentPerfStateChanges.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxPerfRequestProgress(__int64 *a1, int a2)

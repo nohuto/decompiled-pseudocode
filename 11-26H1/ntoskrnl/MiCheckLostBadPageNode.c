@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckLostBadPageNode @ 0x1406F0D10
+ * XREFs of MiCheckLostBadPageNode @ 0x1406F5980
  * Callers:
- *     MiGetListOfPendingBadPages @ 0x14052AB58 (MiGetListOfPendingBadPages.c)
+ *     MiGetListOfPendingBadPages @ 0x14052D078 (MiGetListOfPendingBadPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall MiCheckLostBadPageNode(unsigned __int64 a1)
@@ -32,11 +32,11 @@ char __fastcall MiCheckLostBadPageNode(unsigned __int64 a1)
   v4 = (_QWORD *)PoolMm;
   if ( !PoolMm )
     return PoolMm;
-  v5 = ExAcquireSpinLockExclusive(&dword_140E2EB10);
+  v5 = ExAcquireSpinLockExclusive(&dword_140E2EC90);
   if ( (*(_DWORD *)(a1 + 32) & 0x40000000) == 0 )
     goto LABEL_18;
-  v6 = (_QWORD *)qword_140E2EB00;
-  if ( qword_140E2EB00 )
+  v6 = (_QWORD *)qword_140E2EC80;
+  if ( qword_140E2EC80 )
   {
     do
     {
@@ -57,8 +57,8 @@ char __fastcall MiCheckLostBadPageNode(unsigned __int64 a1)
   }
   v4[3] = a1;
   v7 = 0;
-  v8 = (_QWORD *)qword_140E2EB00;
-  if ( !qword_140E2EB00 )
+  v8 = (_QWORD *)qword_140E2EC80;
+  if ( !qword_140E2EC80 )
     goto LABEL_17;
   while ( a1 < v8[3] )
   {
@@ -73,15 +73,15 @@ LABEL_15:
     goto LABEL_15;
   v7 = 1;
 LABEL_17:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E2EB00, (unsigned __int64)v8, v7, v4);
-  v10 = qword_140E2EB18-- == 1;
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E2EC80, (unsigned __int64)v8, v7, v4);
+  v10 = qword_140E2EC98-- == 1;
   v4 = 0LL;
   v2 = v10;
 LABEL_18:
   if ( v5 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EB10);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EC90);
   else
-    ExReleaseSpinLockExclusive(&dword_140E2EB10, v5);
+    ExReleaseSpinLockExclusive(&dword_140E2EC90, v5);
   if ( v4 )
     ExFreePoolWithTag(v4, 0);
   LOBYTE(PoolMm) = v2;

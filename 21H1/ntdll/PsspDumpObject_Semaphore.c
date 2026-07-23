@@ -6,11 +6,15 @@
  *     _ZwQuerySemaphore@20 @ 0x4B2F3F50 (_ZwQuerySemaphore@20.c)
  */
 
-int __stdcall PsspDumpObject_Semaphore(int a1, int a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __stdcall PsspDumpObject_Semaphore(
+        HANDLE SemaphoreHandle,
+        PVOID SemaphoreInformation,
+        unsigned int a3,
+        PULONG ReturnLength)
 {
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 >= 8 )
-    return ZwQuerySemaphore(a1, 0, a2, 8, (int)a4);
+    return ZwQuerySemaphore(SemaphoreHandle, SemaphoreBasicInformation, SemaphoreInformation, 8u, ReturnLength);
   else
     return -1073741789;
 }

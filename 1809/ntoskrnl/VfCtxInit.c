@@ -1,11 +1,11 @@
 /*
- * XREFs of VfCtxInit @ 0x140941B04
+ * XREFs of VfCtxInit @ 0x140942B04
  * Callers:
- *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x1409276D0 (VfInitVerifierComponents.c)
  * Callees:
- *     KeAllocateXStateContext @ 0x14012E7D0 (KeAllocateXStateContext.c)
- *     KeFreeXStateContext @ 0x14012F938 (KeFreeXStateContext.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeAllocateXStateContext @ 0x14012E8A0 (KeAllocateXStateContext.c)
+ *     KeFreeXStateContext @ 0x14012FA08 (KeFreeXStateContext.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __fastcall VfCtxInit(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ void __fastcall VfCtxInit(__int64 a1, __int64 a2)
       ViCtxXStateEnabledMask = MEMORY[0xFFFFF780000003D8];
       LODWORD(ViCtxXStateSize) = MEMORY[0xFFFFF780000003E8];
     }
-    v2 = (void **)&unk_140988730;
+    v2 = (void **)&unk_140989730;
     v3 = 16LL;
     do
     {

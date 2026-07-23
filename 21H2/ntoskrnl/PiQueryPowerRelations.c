@@ -1,20 +1,20 @@
 /*
- * XREFs of PiQueryPowerRelations @ 0x14074C3A4
+ * XREFs of PiQueryPowerRelations @ 0x14074C564
  * Callers:
- *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14074B56C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpDeviceActionWorker @ 0x140381DA0 (PnpDeviceActionWorker.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14074B72C (PipProcessRebuildPowerRelationsQueue.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     PnpQueryDeviceRelations @ 0x140746F38 (PnpQueryDeviceRelations.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14074C844 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     PiValidatePowerRelations @ 0x14074C8C0 (PiValidatePowerRelations.c)
- *     PiQueryPowerDependencyRelations @ 0x14074CA28 (PiQueryPowerDependencyRelations.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     PnpQueryDeviceRelations @ 0x1407470F8 (PnpQueryDeviceRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14074CA04 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PiValidatePowerRelations @ 0x14074CA80 (PiValidatePowerRelations.c)
+ *     PiQueryPowerDependencyRelations @ 0x14074CBE8 (PiQueryPowerDependencyRelations.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryPowerRelations(__int64 a1, char a2)

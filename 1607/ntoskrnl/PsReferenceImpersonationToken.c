@@ -1,14 +1,14 @@
 /*
- * XREFs of PsReferenceImpersonationToken @ 0x140499D10
+ * XREFs of PsReferenceImpersonationToken @ 0x1404A5010
  * Callers:
- *     CmpOpenHiveFile @ 0x1403F9400 (CmpOpenHiveFile.c)
- *     ObpReferenceDeviceMap @ 0x140421DE0 (ObpReferenceDeviceMap.c)
- *     CmpCmdHiveOpen @ 0x14049C7BC (CmpCmdHiveOpen.c)
- *     CmpBuildAdminInformation @ 0x14060049C (CmpBuildAdminInformation.c)
+ *     CmpOpenHiveFile @ 0x1403F82C0 (CmpOpenHiveFile.c)
+ *     ObpReferenceDeviceMap @ 0x140420CA0 (ObpReferenceDeviceMap.c)
+ *     CmpCmdHiveOpen @ 0x1404A4CD8 (CmpCmdHiveOpen.c)
+ *     CmpBuildAdminInformation @ 0x140600550 (CmpBuildAdminInformation.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     PspUnlockThreadSecurityShared @ 0x140087058 (PspUnlockThreadSecurityShared.c)
- *     PspLockThreadSecurityShared @ 0x1400870A0 (PspLockThreadSecurityShared.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     PspUnlockThreadSecurityShared @ 0x1400920C8 (PspUnlockThreadSecurityShared.c)
+ *     PspLockThreadSecurityShared @ 0x140092110 (PspLockThreadSecurityShared.c)
  */
 
 PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(

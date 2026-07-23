@@ -1,9 +1,9 @@
 /*
- * XREFs of MmStrongCodeGuaranteesEnforced @ 0x140D01330
+ * XREFs of MmStrongCodeGuaranteesEnforced @ 0x140D076D0
  * Callers:
- *     KiVerifyXcpt15 @ 0x140C803F0 (KiVerifyXcpt15.c)
- *     KeFreeInitializationCode @ 0x140C80CCC (KeFreeInitializationCode.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     KiVerifyXcpt15 @ 0x140C863F0 (KiVerifyXcpt15.c)
+ *     KeFreeInitializationCode @ 0x140C86CCC (KeFreeInitializationCode.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
  *     <none>
  */

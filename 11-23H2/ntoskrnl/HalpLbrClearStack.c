@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLbrClearStack @ 0x14045ED00
+ * XREFs of HalpLbrClearStack @ 0x14045F100
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char HalpLbrClearStack()
@@ -25,7 +25,7 @@ char HalpLbrClearStack()
     return 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -60,10 +60,10 @@ char HalpLbrClearStack()
     }
   }
   __writemsr(v3, v4 | 1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v7 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = CurrentPrcb->SchedulerAssist;
@@ -71,7 +71,7 @@ char HalpLbrClearStack()
       v11 = (v10 & v9[5]) == 0;
       v9[5] &= v10;
       if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

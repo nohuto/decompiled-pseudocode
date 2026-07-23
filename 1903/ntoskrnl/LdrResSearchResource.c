@@ -37,18 +37,17 @@ __int64 __fastcall LdrResSearchResource(
   __int64 result; // rax
   __int64 v16; // r15
   unsigned __int16 v17; // ax
-  int v18; // eax
-  ULONGLONG v19; // [rsp+50h] [rbp-88h] BYREF
-  void *v20; // [rsp+58h] [rbp-80h] BYREF
-  int v21; // [rsp+60h] [rbp-78h]
-  _QWORD *v22; // [rsp+68h] [rbp-70h]
-  __int64 v23; // [rsp+70h] [rbp-68h]
-  _QWORD v24[2]; // [rsp+78h] [rbp-60h] BYREF
-  unsigned __int64 v25; // [rsp+88h] [rbp-50h]
+  ULONGLONG v18; // [rsp+50h] [rbp-88h] BYREF
+  PVOID ResourceDllBase; // [rsp+58h] [rbp-80h] BYREF
+  int v20; // [rsp+60h] [rbp-78h]
+  _QWORD *v21; // [rsp+68h] [rbp-70h]
+  __int64 v22; // [rsp+70h] [rbp-68h]
+  _QWORD v23[2]; // [rsp+78h] [rbp-60h] BYREF
+  unsigned __int64 v24; // [rsp+88h] [rbp-50h]
 
   v8 = a3;
-  v22 = a5;
-  v23 = a8;
+  v21 = a5;
+  v22 = a8;
   v10 = 0LL;
   if ( !a1 || !a2 || a7 && !a8 )
     return (unsigned int)-1073741811;
@@ -94,18 +93,18 @@ LABEL_16:
 LABEL_17:
   if ( (v12 & 0x8000) != 0 && (~(_WORD)v12 & 0x810) != 0 || (v12 & 0x3000) == 0x3000 || (v12 & 0x18) == 0x18 )
     return (unsigned int)-1073741582;
-  v19 = 0LL;
+  v18 = 0LL;
   if ( (v12 & 0x20000) != 0 )
   {
     if ( (v12 & 0x400) == 0 || !a6 || !*a6 )
     {
       v14 = -1073741811;
-      v21 = -1073741811;
+      v20 = -1073741811;
       return v14;
     }
-    v19 = *a6;
+    v18 = *a6;
   }
-  memmove(v24, a2, 8LL * a3);
+  memmove(v23, a2, 8LL * a3);
   if ( v8 > 3 )
   {
     v8 = 3;
@@ -114,21 +113,21 @@ LABEL_17:
   {
     goto LABEL_28;
   }
-  if ( v25 >= 0x10000 )
+  if ( v24 >= 0x10000 )
   {
-    if ( *(_WORD *)v25 )
+    if ( *(_WORD *)v24 )
     {
-      v17 = DownLevelLanguageNameToLangID((const void *)v25, 2);
-      LODWORD(v20) = v17;
+      v17 = DownLevelLanguageNameToLangID((const void *)v24, 2);
+      LODWORD(ResourceDllBase) = v17;
     }
     else
     {
       v17 = 0;
-      LODWORD(v20) = 0;
+      LODWORD(ResourceDllBase) = 0;
     }
-    v25 = v17;
+    v24 = v17;
   }
-  else if ( v25 && ((v25 & 0x3FF) == 0 || v25 == 127 || !(unsigned int)DownLevelLangIDToLanguageName(v25, 0LL, 0, 2)) )
+  else if ( v24 && ((v24 & 0x3FF) == 0 || v24 == 127 || !(unsigned int)DownLevelLangIDToLanguageName(v24, 0LL, 0, 2)) )
   {
     return (unsigned int)-1073741811;
   }
@@ -142,30 +141,28 @@ LABEL_28:
     if ( (a1 & 1) != 0 )
       v10 = (void *)a1;
   }
-  result = LdrpResGetMappingSize(v10, &v19, v12);
+  result = LdrpResGetMappingSize(v10, &v18, v12);
   if ( (int)result >= 0 || (v12 & 0x1000) == 0 )
   {
 LABEL_31:
-    v16 = v23;
-    v14 = LdrpResSearchResourceMappedFile(v10, v19, v12, (__int64)v24, v8, v22, a6, a7, v23);
-    if ( v14 == -1073741686 && ((v24[0] - 16LL) & 0xFFFFFFFFFFFFFFF7uLL) != 0 )
+    v16 = v22;
+    v14 = LdrpResSearchResourceMappedFile(v10, v18, v12, (__int64)v23, v8, v21, a6, a7, v22);
+    if ( v14 == -1073741686
+      && ((v23[0] - 16LL) & 0xFFFFFFFFFFFFFFF7uLL) != 0
+      && LdrLoadAlternateResourceModuleEx(v10, 0xF2EEu, &ResourceDllBase, 0LL, 0x1000000u) >= 0 )
     {
-      v18 = LdrLoadAlternateResourceModuleEx((unsigned __int64)v10, 0xF2EEu, &v20, 0LL, 0x1000000);
-      if ( v18 >= 0 )
-      {
-        v19 = 0LL;
-        if ( (int)LdrpResGetMappingSize(v20, &v19, v12) >= 0 )
-          return (unsigned int)LdrpResSearchResourceMappedFile(
-                                 v20,
-                                 v19,
-                                 v12 | 0x1000000,
-                                 (__int64)v24,
-                                 v8,
-                                 v22,
-                                 a6,
-                                 a7,
-                                 v16);
-      }
+      v18 = 0LL;
+      if ( (int)LdrpResGetMappingSize(ResourceDllBase, &v18, v12) >= 0 )
+        return (unsigned int)LdrpResSearchResourceMappedFile(
+                               ResourceDllBase,
+                               v18,
+                               v12 | 0x1000000,
+                               (__int64)v23,
+                               v8,
+                               v21,
+                               a6,
+                               a7,
+                               v16);
     }
     return v14;
   }

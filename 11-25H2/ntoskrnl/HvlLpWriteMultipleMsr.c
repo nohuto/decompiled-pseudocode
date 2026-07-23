@@ -18,7 +18,7 @@ __int64 __fastcall HvlLpWriteMultipleMsr(int a1, unsigned int a2, int *a3, __int
   char *HypercallCachedPages; // rax
   int v10; // r8d
   char v11; // si
-  struct _SLIST_ENTRY *v12; // rdi
+  _SLIST_ENTRY *v12; // rdi
   _SLIST_ENTRY *v13; // rbx
   _DWORD *v14; // rcx
   int v15; // eax
@@ -58,7 +58,7 @@ LABEL_17:
   }
   v10 = a1;
   v11 = 1;
-  v12 = (struct _SLIST_ENTRY *)HypercallCachedPages;
+  v12 = (_SLIST_ENTRY *)HypercallCachedPages;
   *((_QWORD *)&v26 + 1) = CurrentPrcb;
 LABEL_5:
   v13 = (_SLIST_ENTRY *)*((_QWORD *)HypercallCachedPages + 2);

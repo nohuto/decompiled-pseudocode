@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetImageBaseAndLoadConfig @ 0x14043BE50
+ * XREFs of RtlGetImageBaseAndLoadConfig @ 0x14042E700
  * Callers:
- *     KiVerifyContextIpForUserCet @ 0x1403D7500 (KiVerifyContextIpForUserCet.c)
- *     RtlVerifyUserUnwindTarget @ 0x140A902C8 (RtlVerifyUserUnwindTarget.c)
+ *     KiVerifyContextIpForUserCet @ 0x1403DA4D0 (KiVerifyContextIpForUserCet.c)
+ *     RtlVerifyUserUnwindTarget @ 0x140A94E18 (RtlVerifyUserUnwindTarget.c)
  * Callees:
- *     RtlpLookupUserFunctionTableInverted @ 0x14043BF20 (RtlpLookupUserFunctionTableInverted.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x14077DECC (LdrImageDirectoryEntryToLoadConfig.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     MmGetImageInformation @ 0x140942C3C (MmGetImageInformation.c)
+ *     RtlpLookupUserFunctionTableInverted @ 0x14042E7D0 (RtlpLookupUserFunctionTableInverted.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x1407809CC (LdrImageDirectoryEntryToLoadConfig.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     MmGetImageInformation @ 0x140A35D4C (MmGetImageInformation.c)
  */
 
 __int64 __fastcall RtlGetImageBaseAndLoadConfig(__int64 a1, _QWORD *a2, __int64 *a3)

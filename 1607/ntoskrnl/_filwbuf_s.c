@@ -1,7 +1,7 @@
 /*
- * XREFs of _filwbuf_s @ 0x1401565D0
+ * XREFs of _filwbuf_s @ 0x140156B48
  * Callers:
- *     _fgetwc_nolock @ 0x1401564DC (_fgetwc_nolock.c)
+ *     _fgetwc_nolock @ 0x140156A54 (_fgetwc_nolock.c)
  * Callees:
  *     <none>
  */

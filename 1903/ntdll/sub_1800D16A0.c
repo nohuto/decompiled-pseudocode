@@ -7,13 +7,11 @@
  *     sub_180020D8C @ 0x180020D8C (sub_180020D8C.c)
  */
 
-__int64 __fastcall sub_1800D16A0(unsigned __int64 a1)
+__int64 __fastcall sub_1800D16A0(PVOID BaseAddress)
 {
-  unsigned int v2; // ebx
-  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp+10h] BYREF
 
-  RtlImageNtHeaderEx(3, a1, 0LL, &v4);
-  v2 = *(_DWORD *)(v4 + 80);
-  sub_180020D8C(a1, v2);
-  return sub_1800DFBC4(a1, v2);
+  RtlImageNtHeaderEx(3u, BaseAddress, 0LL, &OutHeaders);
+  sub_180020D8C((unsigned __int64)BaseAddress, OutHeaders->OptionalHeader.SizeOfImage);
+  return sub_1800DFBC4(BaseAddress);
 }

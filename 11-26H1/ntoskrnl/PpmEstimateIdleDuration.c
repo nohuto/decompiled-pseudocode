@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmEstimateIdleDuration @ 0x1404FC2AC
+ * XREFs of PpmEstimateIdleDuration @ 0x1404F57EC
  * Callers:
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
- *     PpmComputeIdleDurationHint @ 0x1404FC1F0 (PpmComputeIdleDurationHint.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
+ *     PpmComputeIdleDurationHint @ 0x1404F5730 (PpmComputeIdleDurationHint.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KeEstimateClockTickDuration @ 0x1404FC594 (KeEstimateClockTickDuration.c)
- *     PpmGetIdleConstrainedMask @ 0x140523230 (PpmGetIdleConstrainedMask.c)
- *     Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline @ 0x1405315E4 (Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KeEstimateClockTickDuration @ 0x1404F5AD4 (KeEstimateClockTickDuration.c)
+ *     PpmGetIdleConstrainedMask @ 0x1405258A0 (PpmGetIdleConstrainedMask.c)
+ *     Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline @ 0x140533AE4 (Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 *__fastcall PpmEstimateIdleDuration(
@@ -36,7 +36,7 @@ unsigned __int64 *__fastcall PpmEstimateIdleDuration(
   unsigned __int64 v22; // rsi
   int v23; // ebx
   __int64 v24; // rcx
-  unsigned int v25; // eax
+  ULONG v25; // eax
   unsigned __int64 v26; // r13
   int IsEnabledNoReportingNoInline; // eax
   unsigned int v28; // r9d

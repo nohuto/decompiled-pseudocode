@@ -12,8 +12,15 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
+  int v5; // r15d
+  int v7; // ebp
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
@@ -22,13 +29,15 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
   NTSTATUS v14; // eax
   __int64 v15; // rcx
   __int64 v16; // rbx
-  unsigned int v17; // edi
+  NTSTATUS v17; // edi
   KPROCESSOR_MODE v18; // r9
   NTSTATUS v19; // eax
   PVOID Object; // [rsp+30h] [rbp-38h] BYREF
   __int128 v22; // [rsp+38h] [rbp-30h] BYREF
 
+  v5 = (int)KeyHandle;
   v22 = 0LL;
+  v7 = (int)ObjectAttributes;
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v22);
   if ( !(unsigned __int8)CmpAcquireShutdownRundown(v10, v9, v11, v12) )
   {
@@ -37,7 +46,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v14 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
+  v14 = ObReferenceObjectByHandle(TransactionHandle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
   v16 = (__int64)Object;
   v17 = v14;
   if ( v14 != -1073741788 )
@@ -49,12 +58,12 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
   }
   v18 = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v19 = ObReferenceObjectByHandle(Handle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v18, &Object, 0LL);
+  v19 = ObReferenceObjectByHandle(TransactionHandle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v18, &Object, 0LL);
   v16 = (__int64)Object;
   v17 = v19;
   if ( v19 >= 0 )
 LABEL_4:
-    v17 = CmOpenKey(a1, a2, a3, a4, v16, KeGetCurrentThread()->PreviousMode);
+    v17 = CmOpenKey(v5, DesiredAccess, v7, OpenOptions, v16, KeGetCurrentThread()->PreviousMode);
 LABEL_5:
   if ( v16 )
     CmpTransDereferenceTransaction(v16);

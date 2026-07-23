@@ -1,7 +1,7 @@
 /*
- * XREFs of crc32_sse42_simd_ @ 0x140460E24
+ * XREFs of crc32_sse42_simd_ @ 0x1404562B4
  * Callers:
- *     crc32_z @ 0x140460B1C (crc32_z.c)
+ *     crc32_z @ 0x140455FAC (crc32_z.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ __int64 __fastcall crc32_sse42_simd_(const __m128i *a1, __int64 a2, unsigned int
   _XMM2 = _mm_xor_ps((__m128)_mm_cvtsi32_si128(a3), v3);
   if ( v4 >= 0x40 )
   {
-    _XMM4 = _mm_load_si128((const __m128i *)&xmmword_140019CB0);
+    _XMM4 = _mm_load_si128((const __m128i *)&xmmword_140019EE0);
     v11 = v4 >> 6;
     v4 += -64LL * (v4 >> 6);
     do
@@ -69,7 +69,7 @@ __int64 __fastcall crc32_sse42_simd_(const __m128i *a1, __int64 a2, unsigned int
     }
     while ( v11 );
   }
-  _XMM4 = _mm_load_si128((const __m128i *)&xmmword_1400198A0);
+  _XMM4 = _mm_load_si128((const __m128i *)&xmmword_140019AD0);
   _XMM1 = _XMM2;
   __asm
   {
@@ -104,7 +104,7 @@ __int64 __fastcall crc32_sse42_simd_(const __m128i *a1, __int64 a2, unsigned int
   }
   si128 = (__m128)_mm_load_si128((const __m128i *)&_xmm);
   _XMM1 = _XMM2;
-  _XMM0 = _mm_loadl_epi64((const __m128i *)&qword_140019890);
+  _XMM0 = _mm_loadl_epi64((const __m128i *)&qword_140019AC0);
   __asm { pclmulqdq xmm1, xmm4, 10h }
   v44 = _mm_xor_ps(_XMM1, (__m128)_mm_srli_si128(_XMM2, 8));
   v45 = (__m128)_mm_srli_si128((__m128i)v44, 4);
@@ -112,8 +112,8 @@ __int64 __fastcall crc32_sse42_simd_(const __m128i *a1, __int64 a2, unsigned int
   __asm { pclmulqdq xmm2, xmm0, 0 }
   v48 = _mm_xor_ps(_XMM2, v45);
   _XMM1 = _mm_and_ps(v48, si128);
-  __asm { pclmulqdq xmm1, cs:xmmword_140019880, 10h }
+  __asm { pclmulqdq xmm1, cs:xmmword_140019AB0, 10h }
   _XMM1 = _mm_and_ps(_XMM1, si128);
-  __asm { pclmulqdq xmm1, cs:xmmword_140019880, 0 }
+  __asm { pclmulqdq xmm1, cs:xmmword_140019AB0, 0 }
   return (unsigned int)_mm_extract_epi32((__m128i)_mm_xor_ps(_XMM1, v48), 1);
 }

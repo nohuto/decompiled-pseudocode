@@ -1,18 +1,18 @@
 /*
- * XREFs of MiChangingSubsectionProtos @ 0x1402B5430
+ * XREFs of MiChangingSubsectionProtos @ 0x1402B5620
  * Callers:
- *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
- *     MiPurgeFileOnlyPfn @ 0x1402B69A8 (MiPurgeFileOnlyPfn.c)
- *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
+ *     MmPurgeSection @ 0x1400E7D80 (MmPurgeSection.c)
+ *     MiPurgeFileOnlyPfn @ 0x1402B6B98 (MiPurgeFileOnlyPfn.c)
+ *     MiAllocateFileExtents @ 0x140853410 (MiAllocateFileExtents.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUnlinkSubsectionWaitBlock @ 0x1402B7180 (MiUnlinkSubsectionWaitBlock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x1402B7370 (MiUnlinkSubsectionWaitBlock.c)
  */
 
 __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a2, __int64 a3)
@@ -27,12 +27,12 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
   int v12; // edx
   __int64 **v13; // rdi
   _KLOCK_ENTRY *v14; // r13
-  __int64 v15; // rax
+  PRTL_BALANCED_NODE v15; // rax
   __int64 v16; // rdx
   struct _KPRCB *v17; // rcx
   struct _KPRCB *v18; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
-  __int64 v20; // rax
+  PRTL_BALANCED_NODE v20; // rax
   struct _KPRCB *v21; // rcx
   __int64 v23; // [rsp+20h] [rbp-48h]
   int v24; // [rsp+70h] [rbp+8h]
@@ -94,7 +94,7 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
           v15 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
           v14 = (_KLOCK_ENTRY *)v15;
           if ( v15 )
-            KeAbPreWait(v15, v16);
+            KeAbPreWait((__int64)v15, v16);
           v12 = v24;
         }
       }
@@ -126,7 +126,7 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
     {
       v20 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
       if ( v20 )
-        *(_BYTE *)(v20 + 26) |= 1u;
+        BYTE2(v20[1].Left) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(v8);
       if ( !KiIrqlFlags || (KiIrqlFlags & 1) == 0 || KeGetCurrentIrql() < 2u || v10 >= 2u )
         goto LABEL_58;
@@ -149,7 +149,7 @@ LABEL_57:
     v4 = v26;
     if ( v14 )
     {
-      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, (__int64)v14, 0);
+      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, &v14->TreeNode, 0);
       KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v14);
     }
     v6 = a2;

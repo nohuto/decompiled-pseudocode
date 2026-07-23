@@ -1,22 +1,22 @@
 /*
- * XREFs of PpmEventAddAffinityMaskAsSubset @ 0x140420DB0
+ * XREFs of PpmEventAddAffinityMaskAsSubset @ 0x1404185F0
  * Callers:
- *     PpmEventTraceMultiClassHeteroResponse @ 0x14041DAE0 (PpmEventTraceMultiClassHeteroResponse.c)
- *     PpmEventTraceHeteroResponse @ 0x14041EC50 (PpmEventTraceHeteroResponse.c)
- *     PpmEventParkNodeRecordedStats @ 0x14041F52C (PpmEventParkNodeRecordedStats.c)
- *     PpmEventHgsActiveWorkloadClass @ 0x14041F84C (PpmEventHgsActiveWorkloadClass.c)
- *     PpmEventHgsCoresUnparkedCount @ 0x14042076C (PpmEventHgsCoresUnparkedCount.c)
- *     PpmEventTraceSoftCoreParkingSelection @ 0x1404208F0 (PpmEventTraceSoftCoreParkingSelection.c)
- *     PpmEventTraceCoreParkingSelection @ 0x1404213F0 (PpmEventTraceCoreParkingSelection.c)
- *     PpmEventParkNodeRestriction @ 0x140421920 (PpmEventParkNodeRestriction.c)
- *     PpmEventParkNodeParkHintChanged @ 0x140514EC8 (PpmEventParkNodeParkHintChanged.c)
- *     PpmEventParkNodeClassRecordedStats @ 0x140527C0C (PpmEventParkNodeClassRecordedStats.c)
- *     PpmEventAffinityMask @ 0x14060DE10 (PpmEventAffinityMask.c)
- *     PpmEventParkNodeCapChange @ 0x14060E5D0 (PpmEventParkNodeCapChange.c)
- *     PpmEventParkNodePreference @ 0x14060E7C0 (PpmEventParkNodePreference.c)
- *     PpmEventParkTopologyDetected @ 0x14060E9F0 (PpmEventParkTopologyDetected.c)
- *     PpmEventTraceHeteroDistributeUtility @ 0x14060ECFC (PpmEventTraceHeteroDistributeUtility.c)
- *     PpmEventTraceParkNodeRundown @ 0x140B4A7D8 (PpmEventTraceParkNodeRundown.c)
+ *     PpmEventTraceMultiClassHeteroResponse @ 0x140415324 (PpmEventTraceMultiClassHeteroResponse.c)
+ *     PpmEventTraceHeteroResponse @ 0x140416490 (PpmEventTraceHeteroResponse.c)
+ *     PpmEventParkNodeRecordedStats @ 0x140416D6C (PpmEventParkNodeRecordedStats.c)
+ *     PpmEventHgsActiveWorkloadClass @ 0x14041708C (PpmEventHgsActiveWorkloadClass.c)
+ *     PpmEventHgsCoresUnparkedCount @ 0x140417FAC (PpmEventHgsCoresUnparkedCount.c)
+ *     PpmEventTraceSoftCoreParkingSelection @ 0x140418130 (PpmEventTraceSoftCoreParkingSelection.c)
+ *     PpmEventTraceCoreParkingSelection @ 0x140418C30 (PpmEventTraceCoreParkingSelection.c)
+ *     PpmEventParkNodeRestriction @ 0x140419160 (PpmEventParkNodeRestriction.c)
+ *     PpmEventParkNodeParkHintChanged @ 0x14050E938 (PpmEventParkNodeParkHintChanged.c)
+ *     PpmEventParkNodeClassRecordedStats @ 0x14052A27C (PpmEventParkNodeClassRecordedStats.c)
+ *     PpmEventAffinityMask @ 0x140610F10 (PpmEventAffinityMask.c)
+ *     PpmEventParkNodeCapChange @ 0x1406116D0 (PpmEventParkNodeCapChange.c)
+ *     PpmEventParkNodePreference @ 0x1406118C0 (PpmEventParkNodePreference.c)
+ *     PpmEventParkTopologyDetected @ 0x140611AF0 (PpmEventParkTopologyDetected.c)
+ *     PpmEventTraceHeteroDistributeUtility @ 0x140611DFC (PpmEventTraceHeteroDistributeUtility.c)
+ *     PpmEventTraceParkNodeRundown @ 0x140B4C568 (PpmEventTraceParkNodeRundown.c)
  * Callees:
  *     <none>
  */

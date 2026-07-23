@@ -92,7 +92,7 @@ __int64 __fastcall CmpInitCmRM(__int64 a1, char a2)
   FILE_OBJECT *pplfoLog; // [rsp+80h] [rbp-88h] BYREF
   PVOID ClientCookie; // [rsp+88h] [rbp-80h] BYREF
   ULONG CreateOptions; // [rsp+90h] [rbp-78h]
-  UNICODE_STRING UnicodeString; // [rsp+98h] [rbp-70h] BYREF
+  UNICODE_STRING GuidString; // [rsp+98h] [rbp-70h] BYREF
   PVOID Object; // [rsp+A8h] [rbp-60h] BYREF
   UNICODE_STRING Source; // [rsp+B0h] [rbp-58h] BYREF
   UNICODE_STRING LogFileName; // [rsp+C0h] [rbp-48h] BYREF
@@ -109,14 +109,14 @@ __int64 __fastcall CmpInitCmRM(__int64 a1, char a2)
 
   v46 = a2;
   result = 0LL;
-  *(_DWORD *)&UnicodeString.Length = 0;
+  *(_DWORD *)&GuidString.Length = 0;
   Object = 0LL;
   v64 = 0LL;
   v5 = 0;
   v65 = 0LL;
   *(_QWORD *)&ResourceManagerGuid.Data1 = 0LL;
   *(_QWORD *)ResourceManagerGuid.Data4 = 0LL;
-  UnicodeString.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   *(_DWORD *)&Source.Length = 0;
   Source.Buffer = 0LL;
   *(_DWORD *)&Destination.Length = 0;
@@ -227,7 +227,7 @@ LABEL_70:
       v17 = Uuid;
     }
     v19 = *(void **)(v6 + 1536);
-    v21 = RtlStringFromGUIDEx((unsigned int *)(*(_QWORD *)(v6 + 64) + 148LL), (__int64)&UnicodeString, 1);
+    v21 = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(v6 + 64) + 148LL), &GuidString, 1u);
     if ( v21 < 0 )
     {
       *(_DWORD *)(v6 + 4200) = 3;
@@ -248,7 +248,7 @@ LABEL_70:
       p_Source = (UNICODE_STRING *)&CmpLogPath;
       CreateOptions = 52;
     }
-    Destination.MaximumLength = UnicodeString.Length + CmpClfsLogPrefix.Length + TmLogExt.Length + p_Source->Length;
+    Destination.MaximumLength = GuidString.Length + CmpClfsLogPrefix.Length + TmLogExt.Length + p_Source->Length;
     Destination.Buffer = (wchar_t *)ExpAllocateStringRoutine(Destination.MaximumLength);
     if ( !Destination.Buffer )
     {
@@ -263,8 +263,8 @@ LABEL_102:
       }
       if ( pplfoLog )
         ClfsCloseLogFileObject(pplfoLog);
-      if ( UnicodeString.Buffer )
-        RtlFreeAnsiString(&UnicodeString);
+      if ( GuidString.Buffer )
+        RtlFreeAnsiString(&GuidString);
       if ( Source.Buffer )
         RtlFreeAnsiString(&Source);
       if ( Destination.Buffer )
@@ -289,9 +289,9 @@ LABEL_102:
     }
     RtlAppendUnicodeStringToString(&Destination, &CmpClfsLogPrefix);
     RtlAppendUnicodeStringToString(&Destination, p_Source);
-    RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
+    RtlAppendUnicodeStringToString(&Destination, &GuidString);
     RtlAppendUnicodeStringToString(&Destination, &TmLogExt);
-    RtlFreeAnsiString(&UnicodeString);
+    RtlFreeAnsiString(&GuidString);
     if ( a1 )
       RtlFreeAnsiString(&Source);
     v21 = CmpQueryFileSecurityDescriptor(v19, &P);

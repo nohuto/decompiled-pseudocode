@@ -1,18 +1,18 @@
 /*
- * XREFs of PiProcessResourceRequirementsChanged @ 0x14083A3CC
+ * XREFs of PiProcessResourceRequirementsChanged @ 0x14083B62C
  * Callers:
- *     PnpDeviceActionWorker @ 0x14015F300 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14015F400 (PnpDeviceActionWorker.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     PoFxIdleDevice @ 0x140159F28 (PoFxIdleDevice.c)
- *     PoFxActivateDevice @ 0x14015A08C (PoFxActivateDevice.c)
- *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x1406E64E0 (PipClearDevNodeFlags.c)
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
- *     PipClearDevNodeProblem @ 0x1406F6CD8 (PipClearDevNodeProblem.c)
- *     PnpReallocateResources @ 0x14083B354 (PnpReallocateResources.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     PoFxIdleDevice @ 0x14015A028 (PoFxIdleDevice.c)
+ *     PoFxActivateDevice @ 0x14015A18C (PoFxActivateDevice.c)
+ *     PipSetDevNodeFlags @ 0x1406E637C (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x1406E7780 (PipClearDevNodeFlags.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
+ *     PipClearDevNodeProblem @ 0x1406F7F78 (PipClearDevNodeProblem.c)
+ *     PnpReallocateResources @ 0x14083C5B4 (PnpReallocateResources.c)
  */
 
 __int64 __fastcall PiProcessResourceRequirementsChanged(__int64 *a1)

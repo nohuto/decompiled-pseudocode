@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceThreadRundown @ 0x140073744
+ * XREFs of EtwpTraceThreadRundown @ 0x1400732C4
  * Callers:
- *     EtwpThreadRundownApc @ 0x140229064 (EtwpThreadRundownApc.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140229098 (EtwpTraceThreadRundownWithStack.c)
- *     EtwpThreadEnumCallback @ 0x14045A860 (EtwpThreadEnumCallback.c)
+ *     EtwpThreadRundownApc @ 0x140228E90 (EtwpThreadRundownApc.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x140228EC4 (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpThreadEnumCallback @ 0x140459730 (EtwpThreadEnumCallback.c)
  * Callees:
- *     EtwpLogSystemEventUnsafe @ 0x14007394C (EtwpLogSystemEventUnsafe.c)
- *     PsGetPagePriorityThread @ 0x1400E7E00 (PsGetPagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1400734CC (EtwpLogSystemEventUnsafe.c)
+ *     PsGetPagePriorityThread @ 0x1400E5CA0 (PsGetPagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceThreadRundown(__int64 a1, __int64 a2)

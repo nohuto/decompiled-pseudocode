@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceFxComponentAccounting @ 0x14098F04C
+ * XREFs of PopDiagTraceFxComponentAccounting @ 0x14098F24C
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x14058BBFC (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x14058C0EC (PopFxStopDeviceAccounting.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopDiagQueryDevicePropertyString @ 0x14098C088 (PopDiagQueryDevicePropertyString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopDiagQueryDevicePropertyString @ 0x14098C288 (PopDiagQueryDevicePropertyString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -84,8 +84,8 @@ void __fastcall PopDiagTraceFxComponentAccounting(
   v19 = a1;
   DestinationString = 0LL;
   v21 = 0LL;
-  RtlInitUnicodeString(&DestinationString, &word_140887DD0);
-  RtlInitUnicodeString(&v21, &word_140887DD0);
+  RtlInitUnicodeString(&DestinationString, &word_140888010);
+  RtlInitUnicodeString(&v21, &word_140888010);
   if ( PopDiagSleepStudyHandleRegistered )
   {
     v8 = PopDiagSleepStudyHandle;
@@ -113,7 +113,7 @@ void __fastcall PopDiagTraceFxComponentAccounting(
           Buffer = DestinationString.Buffer;
           v13 = DevicePropertyString >= 0;
           v14 = v21.Buffer;
-          if ( (unsigned int)dword_140C064D8 > 5 && tlgKeywordOn((__int64)&dword_140C064D8, 0x400000000000LL) )
+          if ( (unsigned int)dword_140C06498 > 5 && tlgKeywordOn((__int64)&dword_140C06498, 0x400000000000LL) )
           {
             v22 = PopWnfCsEnterScenarioId;
             v36 = 8LL;
@@ -157,8 +157,8 @@ void __fastcall PopDiagTraceFxComponentAccounting(
             *(_QWORD *)&DestinationString.Length = 0x1000000LL;
             v64 = 8LL;
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140C064D8,
-              (unsigned __int8 *)byte_14002F830,
+              (__int64)&dword_140C06498,
+              (unsigned __int8 *)&word_14002F5CE,
               0LL,
               0LL,
               0x11u,

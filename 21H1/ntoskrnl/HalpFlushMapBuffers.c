@@ -30,31 +30,29 @@ void __fastcall HalpFlushMapBuffers(__int64 a1, __int64 a2, __int64 a3, unsigned
   int v22; // edx
   unsigned int v23; // ecx
   __int64 v24; // r10
-  __int64 v25; // r8
-  __int64 v26; // r9
-  unsigned __int8 v27; // al
+  __int64 v25; // r9
+  unsigned __int8 v26; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v30; // eax
-  bool v31; // zf
-  unsigned int v32; // r8d
-  unsigned __int64 v33; // r15
-  unsigned int v34; // r13d
-  int v35; // edx
-  unsigned int v36; // ecx
+  int v29; // eax
+  bool v30; // zf
+  unsigned int v31; // r8d
+  unsigned __int64 v32; // r15
+  unsigned int v33; // r13d
+  int v34; // edx
+  unsigned int v35; // ecx
+  __int64 v36; // r9
   __int64 v37; // r9
-  __int64 v38; // r8
-  __int64 v39; // r9
-  unsigned __int8 v40; // al
-  struct _KPRCB *v41; // r10
-  _DWORD *v42; // r9
-  int v43; // eax
-  unsigned int v44; // [rsp+68h] [rbp+10h]
-  int v46; // [rsp+78h] [rbp+20h]
+  unsigned __int8 v38; // al
+  struct _KPRCB *v39; // r10
+  _DWORD *v40; // r9
+  int v41; // eax
+  unsigned int v42; // [rsp+68h] [rbp+10h]
+  int v44; // [rsp+78h] [rbp+20h]
 
   AdapterCacheAlignment = HalpDmaGetAdapterCacheAlignment(a1);
   v11 = v10 & 0xFFF;
-  v46 = AdapterCacheAlignment;
+  v44 = AdapterCacheAlignment;
   v12 = 0LL;
   v13 = a4;
   v14 = v11;
@@ -107,10 +105,7 @@ LABEL_9:
     *(_DWORD *)(v24 + 40) = a4;
     MmBuildMdlForNonPagedPool(*(PMDL *)(a1 + 296));
     if ( !a6 )
-    {
-      LOBYTE(v25) = 1;
-      KeFlushIoBuffers(*(_QWORD *)(a1 + 296), a5 == 0, v25, v26);
-    }
+      KeFlushIoBuffers(*(_QWORD *)(a1 + 296), a5 == 0, 1, v25);
     if ( CurrentIrql <= 2u )
     {
       KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 304));
@@ -118,15 +113,15 @@ LABEL_9:
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v27 = KeGetCurrentIrql();
-          if ( v27 <= 0xFu && v18 <= 0xFu && v27 >= 2u )
+          v26 = KeGetCurrentIrql();
+          if ( v26 <= 0xFu && v18 <= 0xFu && v26 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v30 = ~(unsigned __int16)(-1LL << (v18 + 1));
-            v31 = (v30 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v30;
-            if ( v31 )
+            v29 = ~(unsigned __int16)(-1LL << (v18 + 1));
+            v30 = (v29 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v29;
+            if ( v30 )
               KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
@@ -136,36 +131,33 @@ LABEL_9:
   }
   else
   {
-    for ( ; a4; a4 -= v44 )
+    for ( ; a4; a4 -= v42 )
     {
-      v32 = a4;
+      v31 = a4;
       if ( a4 >= 4096 - v11 )
-        v32 = 4096 - v11;
-      v44 = v32;
-      v33 = (*(_QWORD *)(v9 + 48) & 0xFFFFFFFFFFFFF000uLL) + v11;
-      v34 = v32;
+        v31 = 4096 - v11;
+      v42 = v31;
+      v32 = (*(_QWORD *)(v9 + 48) & 0xFFFFFFFFFFFFF000uLL) + v11;
+      v33 = v31;
       if ( !a5 && !*(_BYTE *)(a1 + 437) )
       {
-        v35 = ~(v46 - 1);
-        v36 = v33 - (v35 & v33);
-        v33 -= v36;
-        v34 = v35 & (v32 + v46 + v36 - 1);
+        v34 = ~(v44 - 1);
+        v35 = v32 - (v34 & v32);
+        v32 -= v35;
+        v33 = v34 & (v31 + v44 + v35 - 1);
       }
       if ( CurrentIrql <= 2u )
         v18 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 304));
-      v37 = *(_QWORD *)(a1 + 296);
-      *(_QWORD *)v37 = 0LL;
-      *(_WORD *)(v37 + 10) = 0;
-      *(_QWORD *)(v37 + 32) = v33 & 0xFFFFFFFFFFFFF000uLL;
-      *(_WORD *)(v37 + 8) = 8 * ((((v33 & 0xFFF) + 4095 + v34) >> 12) + 6);
-      *(_DWORD *)(v37 + 44) = v33 & 0xFFF;
-      *(_DWORD *)(v37 + 40) = v34;
+      v36 = *(_QWORD *)(a1 + 296);
+      *(_QWORD *)v36 = 0LL;
+      *(_WORD *)(v36 + 10) = 0;
+      *(_QWORD *)(v36 + 32) = v32 & 0xFFFFFFFFFFFFF000uLL;
+      *(_WORD *)(v36 + 8) = 8 * ((((v32 & 0xFFF) + 4095 + v33) >> 12) + 6);
+      *(_DWORD *)(v36 + 44) = v32 & 0xFFF;
+      *(_DWORD *)(v36 + 40) = v33;
       MmBuildMdlForNonPagedPool(*(PMDL *)(a1 + 296));
       if ( !a6 )
-      {
-        LOBYTE(v38) = 1;
-        KeFlushIoBuffers(*(_QWORD *)(a1 + 296), a5 == 0, v38, v39);
-      }
+        KeFlushIoBuffers(*(_QWORD *)(a1 + 296), a5 == 0, 1, v37);
       if ( CurrentIrql <= 2u )
       {
         KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 304));
@@ -173,16 +165,16 @@ LABEL_9:
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v40 = KeGetCurrentIrql();
-            if ( v40 <= 0xFu && v18 <= 0xFu && v40 >= 2u )
+            v38 = KeGetCurrentIrql();
+            if ( v38 <= 0xFu && v18 <= 0xFu && v38 >= 2u )
             {
-              v41 = KeGetCurrentPrcb();
-              v42 = v41->SchedulerAssist;
-              v43 = ~(unsigned __int16)(-1LL << (v18 + 1));
-              v31 = (v43 & v42[5]) == 0;
-              v42[5] &= v43;
-              if ( v31 )
-                KiRemoveSystemWorkPriorityKick((__int64)v41);
+              v39 = KeGetCurrentPrcb();
+              v40 = v39->SchedulerAssist;
+              v41 = ~(unsigned __int16)(-1LL << (v18 + 1));
+              v30 = (v41 & v40[5]) == 0;
+              v40[5] &= v41;
+              if ( v30 )
+                KiRemoveSystemWorkPriorityKick((__int64)v39);
             }
           }
         }

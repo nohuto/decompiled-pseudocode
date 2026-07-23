@@ -1,34 +1,32 @@
 /*
- * XREFs of PopUmpoProcessPowerMessage @ 0x14077595C
+ * XREFs of PopUmpoProcessPowerMessage @ 0x1407DF428
  * Callers:
- *     PopUmpoProcessMessage @ 0x140AAA1C8 (PopUmpoProcessMessage.c)
+ *     PopUmpoProcessMessage @ 0x140AA77A8 (PopUmpoProcessMessage.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x1404A65D0 (PopPowerRequestHandleRequestOverrideQueryResponse.c)
- *     Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline @ 0x1406004D0 (Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PfIoPowerEventNotify @ 0x1407C5738 (PfIoPowerEventNotify.c)
- *     PopPowerRequestNotificationsBegin @ 0x1407C9544 (PopPowerRequestNotificationsBegin.c)
- *     PopPowerRequestOverrideInitialize @ 0x1407C9624 (PopPowerRequestOverrideInitialize.c)
- *     PopIdleTriggerAdaptiveStandbyAction @ 0x1407DA37C (PopIdleTriggerAdaptiveStandbyAction.c)
- *     PopAdaptiveStandbyHandlePowerMessage @ 0x1407DF87C (PopAdaptiveStandbyHandlePowerMessage.c)
- *     PopSetNewPolicyValue @ 0x140A3DED8 (PopSetNewPolicyValue.c)
- *     PopPowerAggregatorScheduleWorker @ 0x140ABB41C (PopPowerAggregatorScheduleWorker.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x14049FC60 (PopPowerRequestHandleRequestOverrideQueryResponse.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PfIoPowerEventNotify @ 0x1407C8798 (PfIoPowerEventNotify.c)
+ *     PopPowerRequestNotificationsBegin @ 0x1407CC5E4 (PopPowerRequestNotificationsBegin.c)
+ *     PopPowerRequestOverrideInitialize @ 0x1407CC6C4 (PopPowerRequestOverrideInitialize.c)
+ *     PopAdaptiveStandbyHandlePowerMessage @ 0x1407E4270 (PopAdaptiveStandbyHandlePowerMessage.c)
+ *     PopSetNewPolicyValue @ 0x1409F98F8 (PopSetNewPolicyValue.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140ABC8DC (PopPowerAggregatorScheduleWorker.c)
  */
 
 __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1, __int64 a2)
 {
-  int v3; // r10d
-  char v4; // al
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  int v7; // r9d
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  struct _KLOCK_ENTRIES *v10; // r9
-  __int64 v11; // rdx
-  __int64 v12; // rcx
+  int v2; // r11d
+  char v3; // al
+  __int64 v4; // r8
+  __int64 v5; // r9
+  int v6; // r10d
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  struct _KLOCK_ENTRIES *v9; // r9
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   __int64 result; // rax
 
   switch ( *(_DWORD *)a1 )
@@ -40,56 +38,49 @@ __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1, __int64 a2)
       break;
     case 7:
       if ( *(_BYTE *)(a1 + 20) )
-        PfIoPowerEventNotify(*(unsigned int *)(a1 + 12), a2, 1LL);
+        PfIoPowerEventNotify(*(_DWORD *)(a1 + 12), a2, 1u);
       break;
     case 8:
       PopPowerRequestHandleRequestOverrideQueryResponse((unsigned int *)(a1 + 8));
       break;
     case 0xA:
       if ( *(_BYTE *)(a1 + 8) )
-        PopPowerRequestNotificationsBegin();
+        PopPowerRequestNotificationsBegin(a1);
       PopPowerRequestOverrideInitialize();
-      PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, v8, v9, v10);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, v7, v8, v9);
       PopPowerAggregatorUmpoInitialized = 1;
-      PopPowerAggregatorScheduleWorker(&PopPowerAggregatorLock.Header.WaitListHead.Blink);
-      PopReleaseRwLock(&PopPowerAggregatorLock);
-      if ( qword_140E675F0 )
-        guard_dispatch_icall_no_overrides(v12, v11);
-      break;
-    case 0xE:
-      if ( !(unsigned int)Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline() )
-        PopIdleTriggerAdaptiveStandbyAction(*(unsigned int *)(a1 + 8));
+      PopPowerAggregatorScheduleWorker(PopPowerAggregatorContext);
+      PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
+      if ( qword_140E67850 )
+        guard_dispatch_icall_no_overrides(v11, v10);
       break;
     case 0x12:
-      v3 = *(_DWORD *)(a1 + 8);
-      v4 = *(_BYTE *)(a1 + 12);
-      v5 = *(_QWORD *)(a1 + 24);
-      v6 = *(_QWORD *)(a1 + 32);
-      v7 = *(_DWORD *)(a1 + 16);
-      if ( v3 )
+      v2 = *(_DWORD *)(a1 + 8);
+      v3 = *(_BYTE *)(a1 + 12);
+      v4 = *(_QWORD *)(a1 + 24);
+      v5 = *(_QWORD *)(a1 + 32);
+      v6 = *(_DWORD *)(a1 + 16);
+      if ( v2 )
       {
-        if ( v3 == 1 )
+        if ( v2 == 1 )
         {
-          *(_BYTE *)(a2 + 2) = v4;
-          *(_QWORD *)(a2 + 48) = v5;
-          *(_QWORD *)(a2 + 56) = v6;
-          *(_DWORD *)(a2 + 12) = v7;
+          *(_BYTE *)(a2 + 2) = v3;
+          *(_QWORD *)(a2 + 48) = v4;
+          *(_QWORD *)(a2 + 56) = v5;
+          *(_DWORD *)(a2 + 12) = v6;
         }
       }
       else
       {
-        *(_BYTE *)a2 = v4;
-        *(_QWORD *)(a2 + 32) = v5;
-        *(_QWORD *)(a2 + 40) = v6;
-        *(_DWORD *)(a2 + 8) = v7;
+        *(_BYTE *)a2 = v3;
+        *(_QWORD *)(a2 + 32) = v4;
+        *(_QWORD *)(a2 + 40) = v5;
+        *(_DWORD *)(a2 + 8) = v6;
       }
       break;
     default:
       if ( (unsigned int)(*(_DWORD *)a1 - 19) <= 1 )
-      {
-        if ( (unsigned int)Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline() )
-          PopAdaptiveStandbyHandlePowerMessage(a1);
-      }
+        PopAdaptiveStandbyHandlePowerMessage();
       break;
   }
   return 0LL;

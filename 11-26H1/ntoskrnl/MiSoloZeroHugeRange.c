@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSoloZeroHugeRange @ 0x140705384
+ * XREFs of MiSoloZeroHugeRange @ 0x14070A054
  * Callers:
- *     MiGroupZeroHugeRange @ 0x140705024 (MiGroupZeroHugeRange.c)
+ *     MiGroupZeroHugeRange @ 0x140709CF4 (MiGroupZeroHugeRange.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiReferenceAccelerator @ 0x140507D64 (MiReferenceAccelerator.c)
- *     MiReleaseProcessorHugeMappingAtDpc @ 0x140705328 (MiReleaseProcessorHugeMappingAtDpc.c)
- *     MiUseProcessorHugeMappingAtDpc @ 0x1407054FC (MiUseProcessorHugeMappingAtDpc.c)
- *     MiZeroHugeRangeWorker @ 0x1407055C0 (MiZeroHugeRangeWorker.c)
- *     MiDereferenceAccelerator @ 0x14070F68C (MiDereferenceAccelerator.c)
- *     MiInitializeAcceleratorDescriptor @ 0x14070F72C (MiInitializeAcceleratorDescriptor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiReferenceAccelerator @ 0x140501738 (MiReferenceAccelerator.c)
+ *     MiReleaseProcessorHugeMappingAtDpc @ 0x140709FF8 (MiReleaseProcessorHugeMappingAtDpc.c)
+ *     MiUseProcessorHugeMappingAtDpc @ 0x14070A1CC (MiUseProcessorHugeMappingAtDpc.c)
+ *     MiZeroHugeRangeWorker @ 0x14070A290 (MiZeroHugeRangeWorker.c)
+ *     MiDereferenceAccelerator @ 0x140714388 (MiDereferenceAccelerator.c)
+ *     MiInitializeAcceleratorDescriptor @ 0x140714428 (MiInitializeAcceleratorDescriptor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
  */
 
 int __fastcall MiSoloZeroHugeRange(unsigned __int64 a1, ULONG_PTR a2, unsigned int a3, int a4)

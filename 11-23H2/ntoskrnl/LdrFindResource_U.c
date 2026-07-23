@@ -1,13 +1,22 @@
 /*
- * XREFs of LdrFindResource_U @ 0x140822980
+ * XREFs of LdrFindResource_U @ 0x140822C80
  * Callers:
  *     FindBitmapResource @ 0x140B526E0 (FindBitmapResource.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     LdrpSearchResourceSection_U @ 0x140755D10 (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x140755F00 (LdrpSearchResourceSection_U.c)
  */
 
-__int64 __fastcall LdrFindResource_U(__int64 a1, __int64 *a2, unsigned int a3, unsigned int **a4)
+NTSTATUS __cdecl LdrFindResource_U(
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DATA_ENTRY *ResourceDataEntry)
 {
-  return LdrpSearchResourceSection_U(a1, a2, a3, 0, a4);
+  return LdrpSearchResourceSection_U(
+           (char *)DllHandle,
+           (__int64 *)ResourceInfo,
+           Level,
+           0,
+           (unsigned int **)ResourceDataEntry);
 }

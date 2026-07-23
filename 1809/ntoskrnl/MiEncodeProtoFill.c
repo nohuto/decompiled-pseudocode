@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEncodeProtoFill @ 0x140093A8C
+ * XREFs of MiEncodeProtoFill @ 0x1400939CC
  * Callers:
- *     MiInitializePrototypePtes @ 0x14061F030 (MiInitializePrototypePtes.c)
+ *     MiInitializePrototypePtes @ 0x140620030 (MiInitializePrototypePtes.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiEncodeProtoFill(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -50,7 +50,7 @@ LABEL_4:
     if ( (unsigned int)MiPteHasShadow(v10, v9) )
     {
       v11 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_5;
       v13 = (a3 & 1) == 0;
     }

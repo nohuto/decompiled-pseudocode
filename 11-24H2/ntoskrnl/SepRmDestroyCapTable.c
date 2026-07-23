@@ -1,23 +1,27 @@
 /*
- * XREFs of SepRmDestroyCapTable @ 0x140796214
+ * XREFs of SepRmDestroyCapTable @ 0x140796324
  * Callers:
- *     SepRmDereferenceCapTable @ 0x1404F5488 (SepRmDereferenceCapTable.c)
- *     SepBuildCapPolicyTable @ 0x1406096BC (SepBuildCapPolicyTable.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x140465250 (SepCommonAccessCheckEx.c)
+ *     SepRmDereferenceCapTable @ 0x1404F2D88 (SepRmDereferenceCapTable.c)
+ *     SepBuildCapPolicyTable @ 0x140607C74 (SepBuildCapPolicyTable.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     RtlInitWeakEnumerationHashTable @ 0x140356C60 (RtlInitWeakEnumerationHashTable.c)
- *     RtlEnumerateEntryHashTable @ 0x140357000 (RtlEnumerateEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x140357120 (RtlRemoveEntryHashTable.c)
- *     RtlEndWeakEnumerationHashTable @ 0x14043F0A0 (RtlEndWeakEnumerationHashTable.c)
- *     RtlDeleteHashTable @ 0x1404813D0 (RtlDeleteHashTable.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlEnumerateEntryHashTable @ 0x1403E3040 (RtlEnumerateEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x1403E3160 (RtlRemoveEntryHashTable.c)
+ *     RtlInitWeakEnumerationHashTable @ 0x1403E31D0 (RtlInitWeakEnumerationHashTable.c)
+ *     RtlEndWeakEnumerationHashTable @ 0x140434C50 (RtlEndWeakEnumerationHashTable.c)
+ *     RtlDeleteHashTable @ 0x14047C690 (RtlDeleteHashTable.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SepRmDestroyCapTable(struct _RTL_DYNAMIC_HASH_TABLE *P)
+void __fastcall SepRmDestroyCapTable(_RTL_DYNAMIC_HASH_TABLE *P)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v2; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v3; // rdi
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v2; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v3; // rdi
   void *v4; // rcx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&Enumerator, 0, sizeof(Enumerator));
   RtlInitWeakEnumerationHashTable(P, &Enumerator);

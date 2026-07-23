@@ -1,11 +1,11 @@
 /*
- * XREFs of PerfLogExecutiveResourceRelease @ 0x1402281F8
+ * XREFs of PerfLogExecutiveResourceRelease @ 0x140228024
  * Callers:
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpGetTrackingLockSlotForThread @ 0x140227F14 (EtwpGetTrackingLockSlotForThread.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x140227D40 (EtwpGetTrackingLockSlotForThread.c)
  */
 
 signed __int64 __fastcall PerfLogExecutiveResourceRelease(int a1, __int64 a2, int a3, unsigned int a4)

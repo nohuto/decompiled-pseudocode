@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwLogPfnInfoRundown @ 0x1408BE3DC
+ * XREFs of EtwLogPfnInfoRundown @ 0x1408BF69C
  * Callers:
- *     MmLogSystemShareablePfnInfo @ 0x14085B6D0 (MmLogSystemShareablePfnInfo.c)
- *     EtwpEnumerateWorkingSet @ 0x1408BE7B8 (EtwpEnumerateWorkingSet.c)
+ *     MmLogSystemShareablePfnInfo @ 0x14085C930 (MmLogSystemShareablePfnInfo.c)
+ *     EtwpEnumerateWorkingSet @ 0x1408BFA78 (EtwpEnumerateWorkingSet.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwLogPfnInfoRundown(__int64 a1, __int64 a2, unsigned int a3, __int64 *a4)

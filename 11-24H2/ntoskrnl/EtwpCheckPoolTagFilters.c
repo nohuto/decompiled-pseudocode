@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCheckPoolTagFilters @ 0x14064C6D8
+ * XREFs of EtwpCheckPoolTagFilters @ 0x14064ACE8
  * Callers:
- *     EtwTracePool @ 0x1403AA0C8 (EtwTracePool.c)
+ *     EtwTracePool @ 0x1403971E8 (EtwTracePool.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x140401588 (ExCheckSingleFilter.c)
+ *     ExCheckSingleFilter @ 0x1403FBEF8 (ExCheckSingleFilter.c)
  */
 
 char __fastcall EtwpCheckPoolTagFilters(unsigned int a1, int a2)

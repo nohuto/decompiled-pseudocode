@@ -1,15 +1,15 @@
 /*
- * XREFs of SepBuildCapPolicyTable @ 0x1403AE56C
+ * XREFs of SepBuildCapPolicyTable @ 0x1403AE74C
  * Callers:
- *     SepRmCapUpdateWrkr @ 0x14085CF30 (SepRmCapUpdateWrkr.c)
+ *     SepRmCapUpdateWrkr @ 0x14085D170 (SepRmCapUpdateWrkr.c)
  * Callees:
- *     RtlpCreateHashTable @ 0x14036F6A0 (RtlpCreateHashTable.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SepRegOpenKey @ 0x1407F5308 (SepRegOpenKey.c)
- *     SepReadAndPopulateCapes @ 0x14085D01C (SepReadAndPopulateCapes.c)
- *     SepReadAndInsertCaps @ 0x1409D1D0C (SepReadAndInsertCaps.c)
- *     SepRmDestroyCapTable @ 0x1409D237C (SepRmDestroyCapTable.c)
+ *     RtlpCreateHashTable @ 0x14036F840 (RtlpCreateHashTable.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SepRegOpenKey @ 0x1407F55D8 (SepRegOpenKey.c)
+ *     SepReadAndPopulateCapes @ 0x14085D25C (SepReadAndPopulateCapes.c)
+ *     SepReadAndInsertCaps @ 0x1409D1F0C (SepReadAndInsertCaps.c)
+ *     SepRmDestroyCapTable @ 0x1409D257C (SepRmDestroyCapTable.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

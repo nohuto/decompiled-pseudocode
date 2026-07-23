@@ -1,13 +1,13 @@
 /*
- * XREFs of PspQueryWorkingSetWatch @ 0x140888CD8
+ * XREFs of PspQueryWorkingSetWatch @ 0x140889F38
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     ExIsRestrictedCaller @ 0x1406AD9EC (ExIsRestrictedCaller.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExIsRestrictedCaller @ 0x1406AEC8C (ExIsRestrictedCaller.c)
  */
 
 __int64 __fastcall PspQueryWorkingSetWatch(

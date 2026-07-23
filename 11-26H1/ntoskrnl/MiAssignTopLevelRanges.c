@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAssignTopLevelRanges @ 0x140CF9118
+ * XREFs of MiAssignTopLevelRanges @ 0x140CFF498
  * Callers:
- *     MiInitializeSystemVa @ 0x140D0AC28 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140D10EF8 (MiInitializeSystemVa.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     MiHyperSpaceSize @ 0x14047F578 (MiHyperSpaceSize.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiAddSubRegionEntropy @ 0x140CF8E40 (MiAddSubRegionEntropy.c)
- *     MiAssignSystemVa @ 0x140CF9008 (MiAssignSystemVa.c)
+ *     MiHyperSpaceSize @ 0x140478EE8 (MiHyperSpaceSize.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiAddSubRegionEntropy @ 0x140CFF1C0 (MiAddSubRegionEntropy.c)
+ *     MiAssignSystemVa @ 0x140CFF388 (MiAssignSystemVa.c)
  */
 
 __int64 __fastcall MiAssignTopLevelRanges(unsigned int a1, __int64 a2)
@@ -169,17 +169,17 @@ __int64 __fastcall MiAssignTopLevelRanges(unsigned int a1, __int64 a2)
     v38 = *v36;
     v36 += 6;
     v38 *= 2LL;
-    qword_140E37B70[v38] = v37;
-    qword_140E37B78[v38] = *((_QWORD *)v36 - 1);
+    qword_140E37CF0[v38] = v37;
+    qword_140E37CF8[v38] = *((_QWORD *)v36 - 1);
     --v31;
   }
   while ( v31 );
-  v39 = qword_140E37C00;
-  qword_140E37C08 -= 0x10000000000LL;
-  qword_140E37C30 = qword_140E37C00;
-  qword_140E37C38 = 0x10000000000LL;
-  qword_140E37C00 += 0x10000000000LL;
-  qword_140E2DE58 = qword_140E37C30 + 0x8000000000LL;
-  MiAddSubRegionEntropy(qword_140E37C30 + 0x8000000000LL, v39);
+  v39 = qword_140E37D80;
+  qword_140E37D88 -= 0x10000000000LL;
+  qword_140E37DB0 = qword_140E37D80;
+  qword_140E37DB8 = 0x10000000000LL;
+  qword_140E37D80 += 0x10000000000LL;
+  qword_140E2DFD8 = qword_140E37DB0 + 0x8000000000LL;
+  MiAddSubRegionEntropy(qword_140E37DB0 + 0x8000000000LL, v39);
   return 1LL;
 }

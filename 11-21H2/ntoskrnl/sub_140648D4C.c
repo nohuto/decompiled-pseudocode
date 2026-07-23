@@ -3,14 +3,14 @@
  * Callers:
  *     sub_1407D0090 @ 0x1407D0090 (sub_1407D0090.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_140348B40 @ 0x140348B40 (sub_140348B40.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall sub_140648D4C(__int64 a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall sub_140648D4C(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int *v4; // r8
   const void *v5; // r12
@@ -57,21 +57,17 @@ __int64 __fastcall sub_140648D4C(__int64 a1, __int64 a2, int a3, __int64 a4)
   _DWORD *n; // rdx
   unsigned int v50; // eax
   __int64 v51; // r8
-  int v52; // r11d
-  unsigned int v53; // eax
-  unsigned int v54; // ecx
+  unsigned int v52; // eax
+  unsigned int v53; // ecx
   _DWORD *ii; // rdx
-  unsigned int v56; // eax
-  __int64 v58; // [rsp+20h] [rbp-38h]
-  int v59; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v55; // eax
+  __int64 v57; // [rsp+20h] [rbp-38h]
 
-  v59 = a3;
   v4 = *(unsigned int **)(a1 + 8);
   v5 = 0LL;
-  v59 = 0;
   if ( !v4 || *(_DWORD *)a1 <= 3u )
     return (unsigned int)-1073741811;
-  v9 = v4;
+  v9 = *(unsigned int **)(a1 + 8);
   for ( i = 0; i < 3; ++i )
   {
     v11 = *v9;
@@ -91,7 +87,7 @@ __int64 __fastcall sub_140648D4C(__int64 a1, __int64 a2, int a3, __int64 a4)
     v15 = v14;
   if ( v13 != 8 )
     return (unsigned int)-1073741789;
-  v58 = *(_QWORD *)v15;
+  v57 = *(_QWORD *)v15;
   if ( *(_DWORD *)a1 <= 4u )
     return (unsigned int)-1073741811;
   for ( j = 0; j < 4; ++j )
@@ -131,7 +127,7 @@ __int64 __fastcall sub_140648D4C(__int64 a1, __int64 a2, int a3, __int64 a4)
       v25 = 0LL;
       if ( !v23 )
         v25 = v5;
-      v26 = qword_140D3B428(v25, (unsigned int)v22, &v59);
+      v26 = sub_14042A5E0(v25, (unsigned int)v22);
     }
     else
     {
@@ -213,7 +209,7 @@ LABEL_57:
       if ( m + 12 > v41 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
         goto LABEL_57;
       *(_DWORD *)m = 8;
-      *(_QWORD *)(m + 4) = v58;
+      *(_QWORD *)(m + 4) = v57;
     }
     else
     {
@@ -263,26 +259,25 @@ LABEL_46:
 LABEL_85:
       ++*(_DWORD *)a4;
       v51 = *(_QWORD *)(a4 + 8);
-      v52 = v59;
       if ( !v51 )
       {
-        v53 = *(_DWORD *)(a4 + 4);
-        if ( v53 + 8 >= v53 )
+        v52 = *(_DWORD *)(a4 + 4);
+        if ( v52 + 8 >= v52 )
         {
           ++*(_DWORD *)a4;
           v16 = 0;
-          *(_DWORD *)(a4 + 4) = v53 + 8;
+          *(_DWORD *)(a4 + 4) = v52 + 8;
           goto LABEL_96;
         }
         goto LABEL_75;
       }
-      v54 = 0;
-      for ( ii = *(_DWORD **)(a4 + 8); v54 < *(_DWORD *)a4; ii = (_DWORD *)((char *)ii + v56) )
+      v53 = 0;
+      for ( ii = *(_DWORD **)(a4 + 8); v53 < *(_DWORD *)a4; ii = (_DWORD *)((char *)ii + v55) )
       {
-        v56 = *ii + 4;
-        if ( *ii >= 0xFFFFFFFC || (_DWORD *)((char *)ii + v56) < ii )
+        v55 = *ii + 4;
+        if ( *ii >= 0xFFFFFFFC || (_DWORD *)((char *)ii + v55) < ii )
           goto LABEL_76;
-        ++v54;
+        ++v53;
       }
       if ( ii + 1 >= ii )
       {
@@ -290,11 +285,11 @@ LABEL_85:
         if ( (unsigned __int64)(ii + 2) > v51 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
           goto LABEL_57;
         *ii = 4;
-        ii[1] = v52;
+        ii[1] = 0;
         ++*(_DWORD *)a4;
 LABEL_96:
         if ( v5 )
-          ExFreeHeapPool((ULONG_PTR)v5);
+          sub_140348B40((ULONG_PTR)v5);
         return (unsigned int)v16;
       }
       goto LABEL_76;

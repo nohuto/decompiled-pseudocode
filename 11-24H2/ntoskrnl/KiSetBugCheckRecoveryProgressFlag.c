@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetBugCheckRecoveryProgressFlag @ 0x1405C66A8
+ * XREFs of KiSetBugCheckRecoveryProgressFlag @ 0x1405C3DD8
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x1405C5784 (KiAttemptBugcheckRecovery.c)
- *     KiDeferredBugcheckRecoveryWorker @ 0x1405C6000 (KiDeferredBugcheckRecoveryWorker.c)
- *     KiHandleMultipleBugchecksDuringRecovery @ 0x1405C62C0 (KiHandleMultipleBugchecksDuringRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405C2EB4 (KiAttemptBugcheckRecovery.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x1405C3730 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiHandleMultipleBugchecksDuringRecovery @ 0x1405C39F0 (KiHandleMultipleBugchecksDuringRecovery.c)
  * Callees:
- *     KiUpdateBugcheckRecoveryProgress @ 0x1405C687C (KiUpdateBugcheckRecoveryProgress.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405C3FAC (KiUpdateBugcheckRecoveryProgress.c)
  */
 
 __int64 __fastcall KiSetBugCheckRecoveryProgressFlag(int a1)

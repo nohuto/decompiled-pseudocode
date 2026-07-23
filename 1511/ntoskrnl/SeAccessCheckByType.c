@@ -134,7 +134,7 @@ __int64 __fastcall SeAccessCheckByType(
   unsigned int v82; // ecx
   _DWORD *v83; // r8
   __int64 v84; // rax
-  __int64 v85; // rax
+  ACL *v85; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v88; // rdx
@@ -188,7 +188,7 @@ __int64 __fastcall SeAccessCheckByType(
   char *v136; // [rsp+100h] [rbp-138h]
   int v137; // [rsp+108h] [rbp-130h] BYREF
   _WORD *v138; // [rsp+110h] [rbp-128h]
-  __int64 v139; // [rsp+118h] [rbp-120h]
+  ACL *v139; // [rsp+118h] [rbp-120h]
   __int64 v140; // [rsp+120h] [rbp-118h]
   _QWORD *v141; // [rsp+128h] [rbp-110h] BYREF
   __int64 v142; // [rsp+130h] [rbp-108h] BYREF
@@ -577,7 +577,7 @@ LABEL_146:
   v39 = v130;
   if ( (__int16)*v138 >= 0 )
   {
-    v85 = *(_QWORD *)(v130 + 24);
+    v85 = *(ACL **)(v130 + 24);
   }
   else
   {
@@ -587,7 +587,7 @@ LABEL_146:
       v139 = 0LL;
       goto LABEL_60;
     }
-    v85 = v130 + v84;
+    v85 = (ACL *)(v130 + v84);
   }
   v139 = v85;
   if ( v85 )
@@ -794,7 +794,7 @@ LABEL_65:
       v97 = P;
       if ( !P )
       {
-        v98 = AuthzBasepInitializeResourceClaimsFromSacl(v139, &P);
+        v98 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v139, &P);
         v99 = (unsigned __int8)Src;
         if ( v98 < 0 )
           v99 = 1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpIcParseInstructionPrefix @ 0x140C57524
+ * XREFs of RtlpIcParseInstructionPrefix @ 0x140C5D524
  * Callers:
- *     RtlpIcParseInstruction @ 0x140C574F8 (RtlpIcParseInstruction.c)
+ *     RtlpIcParseInstruction @ 0x140C5D4F8 (RtlpIcParseInstruction.c)
  * Callees:
- *     RtlpIcFetchInstructionBytes @ 0x140C5745C (RtlpIcFetchInstructionBytes.c)
+ *     RtlpIcFetchInstructionBytes @ 0x140C5D45C (RtlpIcFetchInstructionBytes.c)
  */
 
 __int64 __fastcall RtlpIcParseInstructionPrefix(char *a1)

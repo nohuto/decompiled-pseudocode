@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmGetObjectConstraintList @ 0x1407FBF08
+ * XREFs of PiDmGetObjectConstraintList @ 0x1407FC1D8
  * Callers:
- *     PiDmGetCmObjectConstraintListFromCache @ 0x1407FBE74 (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x1407FC144 (PiDmGetCmObjectConstraintListFromCache.c)
  * Callees:
- *     PiDmListEnumObjectsWithCallback @ 0x1406D43D4 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmObjectRelease @ 0x1406D6B68 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1406D8120 (PiDmGetObject.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1406D4404 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmObjectRelease @ 0x1406D6B98 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D8150 (PiDmGetObject.c)
  */
 
 __int64 __fastcall PiDmGetObjectConstraintList(

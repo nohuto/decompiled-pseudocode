@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpQueryHiveRedirectionFileList @ 0x140AE1E78
+ * XREFs of CmpQueryHiveRedirectionFileList @ 0x140ADF368
  * Callers:
- *     CmpMountPreloadedHives @ 0x14084C298 (CmpMountPreloadedHives.c)
- *     CmLoadKey @ 0x140AE15E4 (CmLoadKey.c)
- *     CmpMachineHiveListInitialize @ 0x140B639D4 (CmpMachineHiveListInitialize.c)
+ *     CmpMountPreloadedHives @ 0x1408525A8 (CmpMountPreloadedHives.c)
+ *     CmLoadKey @ 0x140ADEAD4 (CmLoadKey.c)
+ *     CmpMachineHiveListInitialize @ 0x140B66A74 (CmpMachineHiveListInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
  */
 
 bool __fastcall CmpQueryHiveRedirectionFileList(PUNICODE_STRING ValueName, PUNICODE_STRING Destination)
@@ -30,10 +30,10 @@ bool __fastcall CmpQueryHiveRedirectionFileList(PUNICODE_STRING ValueName, PUNIC
   DestinationString = 0LL;
   memset(&ObjectAttributes, 0, 44);
   KeyHandle = 0LL;
-  if ( HIDWORD(WheapPfaLock.CycleTime) )
+  if ( HIDWORD(WheapPfaLock.KernelStack) )
   {
     Length = 512;
-    if ( !WheapPfaLock.RelativeTimerBias )
+    if ( !*(_QWORD *)&WheapPfaLock.Timer.Processor )
     {
       RtlInitUnicodeString(
         &DestinationString,
@@ -48,7 +48,7 @@ bool __fastcall CmpQueryHiveRedirectionFileList(PUNICODE_STRING ValueName, PUNIC
       if ( v5 < 0 )
         return v6;
       if ( _InterlockedCompareExchange64(
-             (volatile signed __int64 *)&WheapPfaLock.RelativeTimerBias,
+             (volatile signed __int64 *)&WheapPfaLock.Timer.Processor,
              (signed __int64)KeyHandle,
              0LL) )
       {
@@ -56,7 +56,7 @@ bool __fastcall CmpQueryHiveRedirectionFileList(PUNICODE_STRING ValueName, PUNIC
       }
     }
     v7 = ZwQueryValueKey(
-           (HANDLE)WheapPfaLock.RelativeTimerBias,
+           *(HANDLE *)&WheapPfaLock.Timer.Processor,
            ValueName,
            KeyValuePartialInformation,
            KeyValueInformation,

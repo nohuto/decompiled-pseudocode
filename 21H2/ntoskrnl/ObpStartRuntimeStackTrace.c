@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpStartRuntimeStackTrace @ 0x1408DEFB8
+ * XREFs of ObpStartRuntimeStackTrace @ 0x1408DF118
  * Callers:
- *     ObSetRefTraceInformation @ 0x1408DE2CC (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x1408DE42C (ObSetRefTraceInformation.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ObpInitStackAndObjectTables @ 0x1408DE970 (ObpInitStackAndObjectTables.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObpInitStackAndObjectTables @ 0x1408DEAD0 (ObpInitStackAndObjectTables.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
@@ -127,9 +127,9 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     Buffer = ObpRuntimeTraceProcessName.Buffer;
     ObpRuntimeTraceProcessName = *(UNICODE_STRING *)P;
     ObpRuntimeTracePoolTags = v20[0];
-    xmmword_140C25E10 = v20[1];
-    xmmword_140C25E20 = v20[2];
-    xmmword_140C25E30 = v20[3];
+    xmmword_140C25C50 = v20[1];
+    xmmword_140C25C60 = v20[2];
+    xmmword_140C25C70 = v20[3];
     ObpTraceFlags = v3 | ObpTraceFlags & 0xFFFFFF8E | 2;
     ObpRuntimeTraceFlags = ObpTraceFlags;
     ObpTracePoolTags = (unsigned __int64)&ObpRuntimeTracePoolTags & -(__int64)((ObpTraceFlags & 0x10) != 0);

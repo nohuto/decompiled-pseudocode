@@ -1,16 +1,16 @@
 /*
- * XREFs of ExtEnvRegisterIommu @ 0x140A8C9F0
+ * XREFs of ExtEnvRegisterIommu @ 0x140A8D9F0
  * Callers:
- *     HalpIommuProcessIvhdEntry @ 0x1404E1AE0 (HalpIommuProcessIvhdEntry.c)
- *     HalpIvtProcessDrhdEntry @ 0x1404E740C (HalpIvtProcessDrhdEntry.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1404E1D20 (HalpIommuProcessIvhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E764C (HalpIvtProcessDrhdEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     HalpExtBuildResourceIdString @ 0x1403ABF68 (HalpExtBuildResourceIdString.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     HalpExtBuildResourceIdString @ 0x1403ACCF8 (HalpExtBuildResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB428 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
@@ -150,14 +150,14 @@ __int64 __fastcall ExtEnvRegisterIommu(__int64 a1, __int64 a2, _QWORD *a3)
       *(_WORD *)(v14 + 514) = Length + 2;
       *(_DWORD *)(v14 + 504) = v20;
       RtlCopyUnicodeString((PUNICODE_STRING)(v14 + 512), &DestinationString);
-      v21 = (__int64 *)qword_140C49DB8;
-      if ( *(__int64 **)qword_140C49DB8 != &HalpIommuList )
+      v21 = (__int64 *)qword_140C49DF8;
+      if ( *(__int64 **)qword_140C49DF8 != &HalpIommuList )
         __fastfail(3u);
       ++HalpIommuCount;
       *(_QWORD *)v14 = &HalpIommuList;
       *(_QWORD *)(v14 + 8) = v21;
       *v21 = v14;
-      qword_140C49DB8 = v14;
+      qword_140C49DF8 = v14;
       if ( a3 )
         *a3 = *(_QWORD *)(v14 + 16);
     }

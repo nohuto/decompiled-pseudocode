@@ -11,9 +11,15 @@
  *     ObReferenceObjectByHandle @ 0x1405FB4B0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+NTSTATUS __cdecl NtQueueApcThreadEx(
+        HANDLE ThreadHandle,
+        HANDLE ReserveHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  void *v6; // rbx
+  HANDLE v6; // rbx
   KPROCESSOR_MODE PreviousMode; // si
   char v11; // r14
   NTSTATUS result; // eax
@@ -24,16 +30,16 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
   char *PoolWithQuotaTag; // rbx
   LONG_PTR (__fastcall *v18)(__int64); // r9
   void (__fastcall *v19)(char *); // rsi
-  NTSTATUS v20; // ebx
+  int v20; // ebx
   PVOID v21; // [rsp+40h] [rbp-38h] BYREF
   PVOID Object; // [rsp+88h] [rbp+10h] BYREF
 
   v6 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 != (void *)1 )
-    v6 = a2;
+  if ( ReserveHandle != (HANDLE)1 )
+    v6 = ReserveHandle;
   v11 = 1;
-  result = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ThreadHandle, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v13 = Object;
@@ -41,7 +47,7 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
       || (v13 = Object, (v14 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[6]) != 0)
       && ((v15 = *(_WORD *)(v14 + 8), v15 == 332) || v15 == 452)
       && ((v16 = *(_QWORD *)(*((_QWORD *)Object + 68) + 1064LL)) == 0 || *(_WORD *)(v16 + 8) == 0x8664)
-      && (unsigned __int64)-(a3 >> 2) <= 0xFFFFFFFF )
+      && (unsigned __int64)-((__int64)ApcRoutine >> 2) <= 0xFFFFFFFF )
     {
       v20 = -1073741816;
     }
@@ -57,8 +63,16 @@ NTSTATUS __fastcall NtQueueApcThreadEx(void *a1, void *a2, __int64 a3, __int64 a
           v19 = (void (__fastcall *)(char *))PspUserApcReserveKernelRoutine;
           PoolWithQuotaTag = (char *)v21 + 8;
 LABEL_15:
-          KeInitializeApc((__int64)PoolWithQuotaTag, (__int64)v13, 0, (__int64)v18, (__int64)v19, a3, v11, a4);
-          if ( KeInsertQueueApc((__int64)PoolWithQuotaTag, a5, a6, 0) )
+          KeInitializeApc(
+            (__int64)PoolWithQuotaTag,
+            (__int64)v13,
+            0,
+            (__int64)v18,
+            (__int64)v19,
+            (__int64)ApcRoutine,
+            v11,
+            (__int64)ApcArgument1);
+          if ( KeInsertQueueApc((__int64)PoolWithQuotaTag, (__int64)ApcArgument2, (__int64)ApcArgument3, 0) )
           {
             v20 = 0;
           }
@@ -80,9 +94,9 @@ LABEL_15:
       if ( PoolWithQuotaTag )
       {
         v18 = (LONG_PTR (__fastcall *)(__int64))KeSpecialUserApcKernelRoutine;
-        v11 = a2 != (void *)1;
+        v11 = ReserveHandle != (HANDLE)1;
         v19 = (void (__fastcall *)(char *))ExFreePoolWithTag;
-        if ( a2 != (void *)1 )
+        if ( ReserveHandle != (HANDLE)1 )
           v18 = RtlpSysVolFree;
         goto LABEL_15;
       }

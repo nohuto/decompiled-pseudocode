@@ -43,10 +43,13 @@ __int64 SepExpandSingletonArrays()
   if ( !v3 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(SepSingletonGlobal);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -69,10 +72,10 @@ __int64 SepExpandSingletonArrays()
   ++*((_DWORD *)v5 + 1);
   *((_QWORD *)v5 + 1) = v4;
   ExReleaseSpinLockExclusiveFromDpcLevel(v7);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v2 <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v2 <= 0xFu && v14 >= 2u )
     {
       v15 = KeGetCurrentPrcb();
       v16 = v15->SchedulerAssist;

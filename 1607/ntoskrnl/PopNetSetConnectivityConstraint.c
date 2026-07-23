@@ -1,14 +1,14 @@
 /*
- * XREFs of PopNetSetConnectivityConstraint @ 0x14057E94C
+ * XREFs of PopNetSetConnectivityConstraint @ 0x14057EDF8
  * Callers:
- *     PopNetUpdateStandbyRequest @ 0x14057E8BC (PopNetUpdateStandbyRequest.c)
- *     PopNetConnectivityInStandbyCallback @ 0x14058056C (PopNetConnectivityInStandbyCallback.c)
- *     PopNetCompliantNicUpdate @ 0x140673664 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x140673764 (PopNetNonCompliantDeviceUpdate.c)
- *     PopNetUserPresencePredictionNotify @ 0x1406737B4 (PopNetUserPresencePredictionNotify.c)
+ *     PopNetUpdateStandbyRequest @ 0x14057ED68 (PopNetUpdateStandbyRequest.c)
+ *     PopNetConnectivityInStandbyCallback @ 0x140580A18 (PopNetConnectivityInStandbyCallback.c)
+ *     PopNetCompliantNicUpdate @ 0x140673748 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x140673848 (PopNetNonCompliantDeviceUpdate.c)
+ *     PopNetUserPresencePredictionNotify @ 0x140673898 (PopNetUserPresencePredictionNotify.c)
  *     PopNetInitialize @ 0x140795FD0 (PopNetInitialize.c)
  * Callees:
- *     PopQueueWorkItem @ 0x14014B25C (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x14014B7CC (PopQueueWorkItem.c)
  */
 
 char __fastcall PopNetSetConnectivityConstraint(int a1)
@@ -26,6 +26,6 @@ char __fastcall PopNetSetConnectivityConstraint(int a1)
   if ( v2 == 2 )
     v3 = 1;
   if ( v3 )
-    LOBYTE(v2) = PopQueueWorkItem((__int64)&unk_140302668);
+    LOBYTE(v2) = PopQueueWorkItem((__int64)&unk_1403026A8);
   return v2;
 }

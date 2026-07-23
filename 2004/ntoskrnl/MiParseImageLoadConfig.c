@@ -21,7 +21,7 @@
  *     MiFreeImageLoadConfig @ 0x140758458 (MiFreeImageLoadConfig.c)
  */
 
-__int64 __fastcall MiParseImageLoadConfig(__int64 a1, __int64 a2, unsigned int a3, __int64 *a4, __int64 a5, __int64 a6)
+__int64 __fastcall MiParseImageLoadConfig(__int64 a1, char *a2, unsigned int a3, __int64 *a4, __int64 a5, __int64 a6)
 {
   ULONG_PTR v10; // r13
   int RetpolineRelocationInformation; // ebx
@@ -39,45 +39,44 @@ __int64 __fastcall MiParseImageLoadConfig(__int64 a1, __int64 a2, unsigned int a
   __int64 v23; // r8
   int v25; // eax
   size_t v26; // [rsp+28h] [rbp-350h]
-  unsigned int v27; // [rsp+84h] [rbp-2F4h] BYREF
-  __int64 v28; // [rsp+88h] [rbp-2F0h]
-  __int64 v29; // [rsp+90h] [rbp-2E8h]
-  int v30; // [rsp+98h] [rbp-2E0h]
-  __int64 v31; // [rsp+A0h] [rbp-2D8h]
-  __int64 v32; // [rsp+A8h] [rbp-2D0h]
-  __int64 v33; // [rsp+B0h] [rbp-2C8h]
-  __int64 v34; // [rsp+B8h] [rbp-2C0h]
-  __int64 v35; // [rsp+C0h] [rbp-2B8h]
-  __int64 v36; // [rsp+C8h] [rbp-2B0h]
-  __int64 *v37; // [rsp+D0h] [rbp-2A8h]
-  __int64 v38; // [rsp+D8h] [rbp-2A0h]
-  __int64 v39; // [rsp+E0h] [rbp-298h]
-  __int64 v40; // [rsp+E8h] [rbp-290h]
-  __int64 v41; // [rsp+F0h] [rbp-288h]
-  __int64 *v42; // [rsp+F8h] [rbp-280h]
+  unsigned int v27[3]; // [rsp+84h] [rbp-2F4h] BYREF
+  __int64 v28; // [rsp+90h] [rbp-2E8h]
+  int v29; // [rsp+98h] [rbp-2E0h]
+  __int64 v30; // [rsp+A0h] [rbp-2D8h]
+  __int64 v31; // [rsp+A8h] [rbp-2D0h]
+  __int64 v32; // [rsp+B0h] [rbp-2C8h]
+  __int64 v33; // [rsp+B8h] [rbp-2C0h]
+  __int64 v34; // [rsp+C0h] [rbp-2B8h]
+  char *v35; // [rsp+C8h] [rbp-2B0h]
+  __int64 *v36; // [rsp+D0h] [rbp-2A8h]
+  __int64 v37; // [rsp+D8h] [rbp-2A0h]
+  char *v38; // [rsp+E0h] [rbp-298h]
+  __int64 v39; // [rsp+E8h] [rbp-290h]
+  char *v40; // [rsp+F0h] [rbp-288h]
+  __int64 *v41; // [rsp+F8h] [rbp-280h]
   int Src[68]; // [rsp+100h] [rbp-278h] BYREF
-  _BYTE v44[288]; // [rsp+210h] [rbp-168h] BYREF
+  __int64 v43[36]; // [rsp+210h] [rbp-168h] BYREF
 
-  v28 = a1;
-  v35 = a1;
-  v40 = a1;
-  v36 = a2;
-  v41 = a2;
-  v30 = a3;
-  v37 = a4;
-  v42 = a4;
-  v38 = a6;
-  memset(v44, 0, 0x118uLL);
-  v27 = 0;
+  *(_QWORD *)&v27[1] = a1;
+  v34 = a1;
+  v39 = a1;
+  v35 = a2;
+  v40 = a2;
+  v29 = a3;
+  v36 = a4;
+  v41 = a4;
+  v37 = a6;
+  memset(v43, 0, 0x118uLL);
+  v27[0] = 0;
   v10 = 0LL;
-  v34 = 0LL;
+  v33 = 0LL;
   RetpolineRelocationInformation = 0;
   memset(Src, 0, sizeof(Src));
   v12 = *(_QWORD *)(*(_QWORD *)a1 + 56LL);
+  v30 = v12;
   v31 = v12;
-  v32 = v12;
-  v29 = *a4;
-  v33 = v29;
+  v28 = *a4;
+  v32 = v28;
   v13 = *((unsigned int *)a4 + 24);
   if ( (_DWORD)v13 )
   {
@@ -95,8 +94,8 @@ __int64 __fastcall MiParseImageLoadConfig(__int64 a1, __int64 a2, unsigned int a
     }
     if ( (unsigned int)v13 + v16 > (unsigned int)v13 && (unsigned int)v13 + v16 <= *((_DWORD *)a4 + 4) )
     {
-      v17 = (unsigned int *)(a2 + v13);
-      v39 = a2 + v13;
+      v17 = (unsigned int *)&a2[v13];
+      v38 = &a2[v13];
       if ( v14 >= v16 )
         goto LABEL_7;
       if ( *(_WORD *)(v12 + 48) == 332 )
@@ -111,25 +110,25 @@ LABEL_7:
           v18 = *((_DWORD *)a4 + 24);
           if ( v18 + v14 > v18 && v18 + v14 <= *((_DWORD *)a4 + 4) )
           {
-            memmove(v44, v17, v14);
-            v10 = MiReferenceControlAreaFile(v28);
-            MiLogRelocationRva(*((unsigned int *)a4 + 24), v14, v10, v28);
-            *(_QWORD *)Src = v40;
+            memmove(v43, v17, v14);
+            v10 = MiReferenceControlAreaFile(*(__int64 *)&v27[1]);
+            MiLogRelocationRva(*((unsigned int *)a4 + 24), v14, v10, *(_QWORD *)&v27[1]);
+            *(_QWORD *)Src = v39;
             *(_QWORD *)&Src[2] = v10;
-            *(_QWORD *)&Src[4] = v41;
-            *(_QWORD *)&Src[6] = v29;
-            Src[8] = v30;
+            *(_QWORD *)&Src[4] = v40;
+            *(_QWORD *)&Src[6] = v28;
+            Src[8] = v29;
             Src[9] = 0;
-            *(_QWORD *)&Src[10] = v42;
-            *(_QWORD *)&Src[12] = v44;
+            *(_QWORD *)&Src[10] = v41;
+            *(_QWORD *)&Src[12] = v43;
             Src[14] = v14;
-            RetpolineRelocationInformation = MiCaptureImageCfgContext(v28, v10, a2, v29, a3);
+            RetpolineRelocationInformation = MiCaptureImageCfgContext(v27[1], v10, (_DWORD)a2, v28, a3);
             if ( RetpolineRelocationInformation >= 0 )
             {
               v19 = *(_DWORD *)a6;
               *(_DWORD *)a6 = *(_DWORD *)a6;
-              v20 = v31;
-              *(_DWORD *)(a6 + 4) = *(_WORD *)(v31 + 48) == 452;
+              v20 = v30;
+              *(_DWORD *)(a6 + 4) = *(_WORD *)(v30 + 48) == 452;
               *(_WORD *)(a6 + 8) = *(_WORD *)(v20 + 48);
               v21 = 0;
               if ( (v19 & 1) != 0 )
@@ -152,7 +151,7 @@ LABEL_7:
               {
                 if ( (MiIsRetpolineEnabled() || MiIsImportOptimizationEnabled()) && *((_WORD *)a4 + 24) == 523 )
                 {
-                  v22 = MiCaptureDynamicRelocationTableRva(a2, a3, v29, 523, (__int64)v44, v14, (__int64)&v27);
+                  v22 = MiCaptureDynamicRelocationTableRva(a2, a3, (__int64)v43, v14, (__int64)v27);
                   RetpolineRelocationInformation = v22;
                   if ( v22 == -1073741637 )
                   {
@@ -162,7 +161,7 @@ LABEL_21:
                   }
                   if ( v22 >= 0 )
                   {
-                    v25 = MiCaptureRetpolineRelocationTables(a2, a3, v23, v27, (unsigned int *)&Src[24]);
+                    v25 = MiCaptureRetpolineRelocationTables(a2, a3, v23, v27[0], (unsigned int *)&Src[24]);
                     RetpolineRelocationInformation = v25;
                     if ( v25 == -1073741637 )
                       goto LABEL_21;
@@ -186,7 +185,7 @@ LABEL_29:
     MiFreeImageLoadConfig(a6);
 LABEL_22:
   if ( v10 )
-    MiDereferenceControlAreaFile(v28, v10);
+    MiDereferenceControlAreaFile(*(__int64 *)&v27[1], v10);
   MiFreeImageCfgContext((__int64)&Src[16]);
   MiFreeImageRetpolineContext(&Src[24]);
   return (unsigned int)RetpolineRelocationInformation;

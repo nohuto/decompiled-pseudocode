@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpFoDetermineFontInformation @ 0x140D139B0
+ * XREFs of BgpFoDetermineFontInformation @ 0x140D19B78
  * Callers:
- *     BgpBcInitializeCriticalMode @ 0x140D148A4 (BgpBcInitializeCriticalMode.c)
+ *     BgpBcInitializeCriticalMode @ 0x140D1AA6C (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFoGetTextMetrics @ 0x14051954C (BgpFoGetTextMetrics.c)
- *     BgpFoGetFontHandle @ 0x140C54508 (BgpFoGetFontHandle.c)
+ *     BgpFoGetTextMetrics @ 0x140512FBC (BgpFoGetTextMetrics.c)
+ *     BgpFoGetFontHandle @ 0x140C5A508 (BgpFoGetFontHandle.c)
  */
 
 __int64 __fastcall BgpFoDetermineFontInformation(
@@ -13,19 +13,19 @@ __int64 __fastcall BgpFoDetermineFontInformation(
         __int64 a3,
         _DWORD *a4,
         unsigned int *a5,
-        __int64 **a6)
+        struct _LIST_ENTRY **a6)
 {
   __int64 result; // rax
-  __int64 *v9; // rdi
+  struct _LIST_ENTRY *v9; // rdi
   unsigned int v10; // ebx
   unsigned int v11; // r15d
   int v12; // ecx
   unsigned int *v13; // rax
   _DWORD v14[2]; // [rsp+20h] [rbp-20h] BYREF
-  __int64 *v15; // [rsp+28h] [rbp-18h]
+  struct _LIST_ENTRY *v15; // [rsp+28h] [rbp-18h]
   unsigned int v16; // [rsp+30h] [rbp-10h]
   int v17; // [rsp+34h] [rbp-Ch]
-  __int64 *v18; // [rsp+78h] [rbp+38h] BYREF
+  struct _LIST_ENTRY *v18; // [rsp+78h] [rbp+38h] BYREF
   __int64 v19; // [rsp+80h] [rbp+40h] BYREF
 
   v16 = 0;

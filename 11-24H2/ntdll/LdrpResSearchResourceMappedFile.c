@@ -1,31 +1,31 @@
 /*
- * XREFs of LdrpResSearchResourceMappedFile @ 0x180079BD0
+ * XREFs of LdrpResSearchResourceMappedFile @ 0x180096010
  * Callers:
- *     LdrResGetRCConfig @ 0x1800795B0 (LdrResGetRCConfig.c)
- *     LdrResSearchResource @ 0x1800983B0 (LdrResSearchResource.c)
+ *     LdrResSearchResource @ 0x18002D200 (LdrResSearchResource.c)
+ *     LdrResGetRCConfig @ 0x1800959F0 (LdrResGetRCConfig.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     LdrIsResItemExist @ 0x18005F5C0 (LdrIsResItemExist.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpFindMessageInAlternateModule @ 0x1800640E0 (LdrpFindMessageInAlternateModule.c)
- *     LdrpIsReparsePoint @ 0x180064A20 (LdrpIsReparsePoint.c)
- *     LdrpResGetResourceDirectory @ 0x1800789A0 (LdrpResGetResourceDirectory.c)
- *     LdrpTraceLoadMUIDll @ 0x1800790FC (LdrpTraceLoadMUIDll.c)
- *     LdrpResGetMappingSize @ 0x1800791F0 (LdrpResGetMappingSize.c)
- *     LdrpResCompareServiceChecksum @ 0x18007951C (LdrpResCompareServiceChecksum.c)
- *     LdrResGetRCConfig @ 0x1800795B0 (LdrResGetRCConfig.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x18007A580 (LdrpResSearchResourceInsideDirectory.c)
- *     LdrResFallbackLangList @ 0x18007BF40 (LdrResFallbackLangList.c)
- *     RtlLcidToLocaleName @ 0x1800D26D0 (RtlLcidToLocaleName.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     LdrResFallbackLangList @ 0x180011F70 (LdrResFallbackLangList.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     LdrIsResItemExist @ 0x1800751A0 (LdrIsResItemExist.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpFindMessageInAlternateModule @ 0x180079CC0 (LdrpFindMessageInAlternateModule.c)
+ *     LdrpIsReparsePoint @ 0x18007A600 (LdrpIsReparsePoint.c)
+ *     LdrpTraceLoadMUIDll @ 0x18009540C (LdrpTraceLoadMUIDll.c)
+ *     LdrpResGetMappingSize @ 0x180095500 (LdrpResGetMappingSize.c)
+ *     LdrResGetRCConfig @ 0x1800959F0 (LdrResGetRCConfig.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1800969C0 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResCompareServiceChecksum @ 0x180097E0C (LdrpResCompareServiceChecksum.c)
+ *     LdrpResGetResourceDirectory @ 0x180097F40 (LdrpResGetResourceDirectory.c)
+ *     RtlLcidToLocaleName @ 0x180099060 (RtlLcidToLocaleName.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall LdrpResSearchResourceMappedFile(
-        __int64 a1,
-        unsigned __int64 a2,
+        PVOID DllHandle,
+        ULONG64 a2,
         unsigned int a3,
         __int64 a4,
         int a5,
@@ -34,14 +34,14 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
         void *a8,
         unsigned int *a9)
 {
-  __int64 v11; // rsi
+  PVOID v11; // rsi
   __int64 v12; // rcx
   unsigned __int16 v13; // r12
   int v14; // ebx
   int v15; // r13d
   int v16; // r14d
   bool v17; // di
-  unsigned __int64 v18; // rbx
+  ULONG64 v18; // rbx
   __int64 result; // rax
   __int64 v20; // r12
   bool v21; // bl
@@ -61,9 +61,9 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   __int16 v35; // cx
   int RCConfig; // eax
   __int64 v37; // r8
-  unsigned __int16 v38; // cx
-  int v39; // eax
-  unsigned __int64 v40; // rdx
+  LANGID v38; // cx
+  NTSTATUS v39; // eax
+  ULONG64 v40; // rdx
   __int64 v41; // rcx
   unsigned __int64 v42; // r8
   unsigned int v43; // r13d
@@ -72,37 +72,37 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   char v46; // [rsp+75h] [rbp-3C3h]
   char v47; // [rsp+76h] [rbp-3C2h]
   unsigned __int16 v48; // [rsp+78h] [rbp-3C0h] BYREF
-  unsigned __int64 v49; // [rsp+80h] [rbp-3B8h] BYREF
-  unsigned __int64 v50; // [rsp+88h] [rbp-3B0h] BYREF
-  __int64 v51; // [rsp+90h] [rbp-3A8h]
-  unsigned __int64 v52; // [rsp+98h] [rbp-3A0h]
+  ULONG_PTR ResourceOffset; // [rsp+80h] [rbp-3B8h] BYREF
+  PVOID ResourceDllBase; // [rsp+88h] [rbp-3B0h] BYREF
+  PVOID DllHandlea; // [rsp+90h] [rbp-3A8h]
+  ULONG64 Size; // [rsp+98h] [rbp-3A0h]
   int v53; // [rsp+A0h] [rbp-398h]
   __int64 v54; // [rsp+A8h] [rbp-390h] BYREF
   unsigned int **v55; // [rsp+B0h] [rbp-388h]
   unsigned int *v56; // [rsp+B8h] [rbp-380h]
   __int64 v57; // [rsp+C0h] [rbp-378h] BYREF
   __int64 v58; // [rsp+C8h] [rbp-370h] BYREF
-  unsigned __int64 v59; // [rsp+D0h] [rbp-368h] BYREF
-  unsigned __int64 v60; // [rsp+D8h] [rbp-360h] BYREF
+  __int64 v59; // [rsp+D0h] [rbp-368h]
+  __int64 v60; // [rsp+D8h] [rbp-360h]
   __int64 *v61; // [rsp+E0h] [rbp-358h]
   void *v62; // [rsp+E8h] [rbp-350h]
   _QWORD v63[2]; // [rsp+F0h] [rbp-348h] BYREF
-  __int128 v64; // [rsp+100h] [rbp-338h] BYREF
+  _UNICODE_STRING LocaleName; // [rsp+100h] [rbp-338h] BYREF
   _QWORD v65[2]; // [rsp+110h] [rbp-328h] BYREF
   __int64 v66; // [rsp+120h] [rbp-318h]
-  _WORD v67[2]; // [rsp+130h] [rbp-308h] BYREF
+  unsigned __int16 v67[2]; // [rsp+130h] [rbp-308h] BYREF
   _WORD v68[262]; // [rsp+134h] [rbp-304h]
   _WORD Src[88]; // [rsp+340h] [rbp-F8h] BYREF
 
   v66 = a4;
-  v52 = a2;
-  v11 = a1;
-  v51 = a1;
+  Size = a2;
+  v11 = DllHandle;
+  DllHandlea = DllHandle;
   v61 = a7;
   v55 = a6;
   v62 = a8;
   v56 = a9;
-  v50 = 0LL;
+  ResourceDllBase = 0LL;
   v59 = 0LL;
   v60 = 0LL;
   v57 = 0LL;
@@ -110,24 +110,24 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   v67[1] = 0;
   memset_thunk_772440563353939046(v67, 0, 0x206uLL);
   v48 = 0;
-  v49 = 0LL;
+  ResourceOffset = 0LL;
   v45 = 0;
   v53 = a3 & 0x40;
   v54 = 0LL;
   v46 = 0;
-  v64 = 0LL;
+  LocaleName = 0LL;
   v47 = 0;
   v63[0] = 4980810LL;
   v63[1] = L"LdrpResSearchResourceMappedFile Enter";
   v65[0] = 4849736LL;
   v65[1] = L"LdrpResSearchResourceMappedFile Exit";
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v12 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v12 = 2147353477LL;
   if ( (*(_BYTE *)v12 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v41 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v41 = 2147353476LL;
@@ -162,20 +162,20 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
              || (v35 & 0xF3FF) != 0
              || v35 == 3072 )
       {
-        RCConfig = LdrResGetRCConfig(v11, v52, 0LL, a3, 1);
+        RCConfig = LdrResGetRCConfig((__int64)v11, Size, 0LL, a3, 1);
         MessageInAlternateModule = RCConfig;
         v44 = RCConfig;
         if ( RCConfig >= 0 )
         {
-          v11 = v51;
-          v16 = v14 | LdrIsResItemExist(v51, (const wchar_t **)a4, v37, a3);
+          v11 = DllHandlea;
+          v16 = v14 | LdrIsResItemExist(DllHandlea, (const wchar_t **)a4, v37, a3);
         }
         else
         {
           if ( RCConfig != -1073741686 )
             goto LABEL_41;
           v16 = v14 | 0x80000;
-          v11 = v51;
+          v11 = DllHandlea;
         }
       }
       else
@@ -194,20 +194,20 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
     v68[0] = 0;
     if ( !v17 && a5 != 3 || (a3 & 0x10) != 0 && (a3 & 0x20) != 0 )
     {
-      v18 = v52;
+      v18 = Size;
     }
     else
     {
       if ( (a3 & 4) != 0 )
         v16 |= 4u;
-      v18 = v52;
-      result = LdrResFallbackLangList(v11, v52, v13, v16, (__int64)v67);
+      v18 = Size;
+      result = LdrResFallbackLangList(v11, Size, v13, v16, v67);
       if ( (int)result < 0 && (a3 & 0x1000) != 0 )
         return result;
     }
     if ( (a3 & 0x10) != 0 || (~v16 & 0x40000) != 0 || (v16 & 0x80000) != 0 )
     {
-      result = LdrpResGetResourceDirectory(v11, v18, a3, &v59, &v57);
+      result = LdrpResGetResourceDirectory(v11, v18, (__int64)&v57);
       if ( (int)result < 0 )
         return result;
     }
@@ -218,7 +218,7 @@ LABEL_15:
       v21 = v17;
     MessageInAlternateModule = 0;
     v44 = 0;
-    v49 = 0LL;
+    ResourceOffset = 0LL;
     v48 = 0;
     v23 = 0;
     while ( 1 )
@@ -233,7 +233,7 @@ LABEL_40:
           v17 = v21;
           if ( v21 )
           {
-            if ( v47 || v46 || (int)LdrpIsReparsePoint(v51) < 0 )
+            if ( v47 || v46 || (int)LdrpIsReparsePoint((__int64)DllHandlea) < 0 )
             {
               if ( (v16 & 0x40000) != 0 )
               {
@@ -275,12 +275,12 @@ LABEL_20:
         v28 = v59;
         if ( v21 )
           v28 = v60;
-        v29 = v52;
+        v29 = Size;
         if ( v21 )
-          v29 = v49;
-        v30 = v51;
+          v29 = ResourceOffset;
+        v30 = (int)DllHandlea;
         if ( v21 )
-          v30 = v50;
+          v30 = (int)ResourceDllBase;
         MessageInAlternateModule = LdrpResSearchResourceInsideDirectory(
                                      v30,
                                      0,
@@ -299,7 +299,12 @@ LABEL_20:
         if ( v53 && (~v16 & 0x40000) != 0 && MessageInAlternateModule >= 0 && v55 && v21 )
         {
           v42 = v61 ? *v61 : v54;
-          MessageInAlternateModule = LdrpFindMessageInAlternateModule(v50, *v55, v42, *(_DWORD *)(v20 + 24), 1);
+          MessageInAlternateModule = LdrpFindMessageInAlternateModule(
+                                       (unsigned __int64)ResourceDllBase,
+                                       *v55,
+                                       v42,
+                                       *(_DWORD *)(v20 + 24),
+                                       1);
           v44 = MessageInAlternateModule;
           if ( MessageInAlternateModule < 0 )
           {
@@ -315,13 +320,13 @@ LABEL_20:
           {
             if ( v48 )
             {
-              *((_QWORD *)&v64 + 1) = Src;
-              WORD1(v64) = 172;
-              MessageInAlternateModule = RtlLcidToLocaleName(v48, &v64, 2LL);
+              LocaleName.Buffer = Src;
+              LocaleName.MaximumLength = 172;
+              MessageInAlternateModule = RtlLcidToLocaleName(v48, &LocaleName, 2u, 0);
               v44 = MessageInAlternateModule;
               if ( MessageInAlternateModule < 0 )
                 goto LABEL_41;
-              v43 = (unsigned __int16)v64 >> 1;
+              v43 = LocaleName.Length >> 1;
               v31 = v56;
             }
             else
@@ -345,13 +350,13 @@ LABEL_20:
           }
           goto LABEL_40;
         }
-        if ( !v21 || LdrpResCompareServiceChecksum(v51, v52, v50, v49) )
+        if ( !v21 || (unsigned __int8)LdrpResCompareServiceChecksum(DllHandlea, Size, ResourceDllBase, ResourceOffset) )
           goto LABEL_40;
 LABEL_49:
         ++v23;
       }
-      v50 = 0LL;
-      v49 = 0LL;
+      ResourceDllBase = 0LL;
+      ResourceOffset = 0LL;
       v38 = v68[4 * v23];
       if ( v38 )
       {
@@ -362,22 +367,22 @@ LABEL_49:
           goto LABEL_49;
         }
         v48 = v68[4 * v23];
-        v39 = LdrLoadAlternateResourceModuleEx(v51, v38, (__int64 *)&v50, &v49, v16 | 0x1000u);
+        v39 = LdrLoadAlternateResourceModuleEx(DllHandlea, v38, &ResourceDllBase, &ResourceOffset, v16 | 0x1000);
         MessageInAlternateModule = v39;
         v44 = v39;
         if ( v39 >= 0 )
         {
           v46 = 1;
-          v40 = v49;
-          if ( !v49 )
+          v40 = ResourceOffset;
+          if ( !ResourceOffset )
           {
-            MessageInAlternateModule = LdrpResGetMappingSize(v50, &v49, 512, 1);
+            MessageInAlternateModule = LdrpResGetMappingSize((__int64)ResourceDllBase, &ResourceOffset, 512, 1);
             v44 = MessageInAlternateModule;
-            v40 = v49;
+            v40 = ResourceOffset;
           }
           if ( (a3 & 0x1000) != 0 && MessageInAlternateModule < 0 )
             goto LABEL_40;
-          MessageInAlternateModule = LdrpResGetResourceDirectory(v50, v40, a3, &v60, &v58);
+          MessageInAlternateModule = LdrpResGetResourceDirectory(ResourceDllBase, v40, (__int64)&v58);
           v44 = MessageInAlternateModule;
           if ( MessageInAlternateModule < 0 )
             goto LABEL_49;
@@ -405,14 +410,14 @@ LABEL_41:
   v32 = 2147353477LL;
   v33 = 2147353476LL;
 LABEL_42:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
     v32 = (__int64)NtCurrentPeb()->SharedData + 555;
     MessageInAlternateModule = v44;
   }
   if ( (*(_BYTE *)v32 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
       v33 = (__int64)NtCurrentPeb()->SharedData + 554;
       MessageInAlternateModule = v44;

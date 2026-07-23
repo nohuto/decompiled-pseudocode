@@ -1,12 +1,12 @@
 /*
  * XREFs of KeSaveStateForHibernate @ 0x140420460
  * Callers:
- *     HalpSaveProcessorState @ 0x14041B470 (HalpSaveProcessorState.c)
- *     HalpSetupRealModeResume @ 0x14041B4F0 (HalpSetupRealModeResume.c)
- *     PopSaveHiberContextWrapper @ 0x140429620 (PopSaveHiberContextWrapper.c)
- *     HalpDpOfflineProcessorForReplace @ 0x140A621FC (HalpDpOfflineProcessorForReplace.c)
+ *     sub_14041B470 @ 0x14041B470 (sub_14041B470.c)
+ *     sub_14041B4F0 @ 0x14041B4F0 (sub_14041B4F0.c)
+ *     sub_140429620 @ 0x140429620 (sub_140429620.c)
+ *     sub_140A621FC @ 0x140A621FC (sub_140A621FC.c)
  * Callees:
- *     KiSaveProcessorControlState @ 0x14041F720 (KiSaveProcessorControlState.c)
+ *     sub_14041F720 @ 0x14041F720 (sub_14041F720.c)
  *     RtlCaptureContext @ 0x1404299A0 (RtlCaptureContext.c)
  */
 
@@ -28,7 +28,7 @@ __int64 __fastcall KeSaveStateForHibernate(__int64 a1)
   *(_QWORD *)(a1 + 208) = __readmsr(0xC0000084);
   *(_QWORD *)(a1 + 488) = retaddr;
   *(_QWORD *)(a1 + 392) = &v4;
-  result = KiSaveProcessorControlState(a1, 0);
+  result = sub_14041F720(a1, 0);
   *(_QWORD *)(a1 + 16) &= 0xFFFFFFFFFFFFFFFCuLL;
   *(_QWORD *)(a1 + 24) &= ~0x800000uLL;
   _fxsave((void *)(a1 + 496));

@@ -1,11 +1,11 @@
 /*
- * XREFs of SeAccessCheckByType @ 0x14027DF60
+ * XREFs of SeAccessCheckByType @ 0x14026BF00
  * Callers:
- *     NtAccessCheck @ 0x14027E7E0 (NtAccessCheck.c)
- *     NtAccessCheckByType @ 0x1402B9350 (NtAccessCheckByType.c)
- *     NtAccessCheckByTypeResultList @ 0x140595D20 (NtAccessCheckByTypeResultList.c)
+ *     NtAccessCheckByType @ 0x140237560 (NtAccessCheckByType.c)
+ *     NtAccessCheck @ 0x14026C780 (NtAccessCheck.c)
+ *     NtAccessCheckByTypeResultList @ 0x140595F50 (NtAccessCheckByTypeResultList.c)
  * Callees:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
  */
 
 __int64 __fastcall SeAccessCheckByType(

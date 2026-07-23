@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapPrmInvokeHandler @ 0x1406D75C0
+ * XREFs of WheapPrmInvokeHandler @ 0x1406DB750
  * Callers:
- *     WheaPrmTranslateNormalizedAddressToPhysicalAddressAmd @ 0x1406D74F0 (WheaPrmTranslateNormalizedAddressToPhysicalAddressAmd.c)
- *     WheapPrmTranslateDimmAddressAmd @ 0x1406D7694 (WheapPrmTranslateDimmAddressAmd.c)
- *     WheapPrmTranslateDimmAddressIntel @ 0x1406D7740 (WheapPrmTranslateDimmAddressIntel.c)
- *     WheapPrmTranslatePhysicalAddressAmd @ 0x1406D7998 (WheapPrmTranslatePhysicalAddressAmd.c)
- *     WheapPrmTranslatePhysicalAddressIntel @ 0x1406D7A38 (WheapPrmTranslatePhysicalAddressIntel.c)
+ *     WheaPrmTranslateNormalizedAddressToPhysicalAddressAmd @ 0x1406DB680 (WheaPrmTranslateNormalizedAddressToPhysicalAddressAmd.c)
+ *     WheapPrmTranslateDimmAddressAmd @ 0x1406DB824 (WheapPrmTranslateDimmAddressAmd.c)
+ *     WheapPrmTranslateDimmAddressIntel @ 0x1406DB8D0 (WheapPrmTranslateDimmAddressIntel.c)
+ *     WheapPrmTranslatePhysicalAddressAmd @ 0x1406DBB28 (WheapPrmTranslatePhysicalAddressAmd.c)
+ *     WheapPrmTranslatePhysicalAddressIntel @ 0x1406DBBC8 (WheapPrmTranslatePhysicalAddressIntel.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall WheapPrmInvokeHandler(_QWORD *a1, __int64 a2, __int64 a3)

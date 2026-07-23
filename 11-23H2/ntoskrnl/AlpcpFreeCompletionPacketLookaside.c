@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpFreeCompletionPacketLookaside @ 0x1403644BC
+ * XREFs of AlpcpFreeCompletionPacketLookaside @ 0x14036465C
  * Callers:
- *     AlpcpDeletePort @ 0x140718710 (AlpcpDeletePort.c)
- *     AlpcpAssociateIoCompletionPort @ 0x140785A08 (AlpcpAssociateIoCompletionPort.c)
- *     AlpcpInitializeCompletionList @ 0x140979720 (AlpcpInitializeCompletionList.c)
+ *     AlpcpDeletePort @ 0x140718910 (AlpcpDeletePort.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x140785BF8 (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpInitializeCompletionList @ 0x140979920 (AlpcpInitializeCompletionList.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x1403056B8 (AlpcpDeferredFreeCompletionPacketLookaside.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x140305948 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall AlpcpFreeCompletionPacketLookaside(KSPIN_LOCK *P)
@@ -35,10 +35,10 @@ void __fastcall AlpcpFreeCompletionPacketLookaside(KSPIN_LOCK *P)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v9);
   OldIrql = v9.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

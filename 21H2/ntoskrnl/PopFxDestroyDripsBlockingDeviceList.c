@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxDestroyDripsBlockingDeviceList @ 0x1408E4684
+ * XREFs of PopFxDestroyDripsBlockingDeviceList @ 0x1408E47E4
  * Callers:
- *     PopFxBuildDripsBlockingDeviceList @ 0x140569684 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDripsWatchdogCallbackHandler @ 0x1408EEDD8 (PopDripsWatchdogCallbackHandler.c)
- *     PopDripsWatchdogTakeAction @ 0x1408FA6A0 (PopDripsWatchdogTakeAction.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405698C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x1408EEF38 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA800 (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PopFxReleaseDevice @ 0x14056C360 (PopFxReleaseDevice.c)
- *     IoLockUnlockPnpDeviceTree @ 0x14089E41C (IoLockUnlockPnpDeviceTree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     PopFxReleaseDevice @ 0x14056C5A0 (PopFxReleaseDevice.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x14089E57C (IoLockUnlockPnpDeviceTree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxDestroyDripsBlockingDeviceList(_QWORD *a1)
@@ -17,6 +17,9 @@ void __fastcall PopFxDestroyDripsBlockingDeviceList(_QWORD *a1)
   _QWORD *v2; // rbx
   __int64 v3; // rax
   void *v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
 
   while ( 1 )
   {
@@ -37,6 +40,6 @@ void __fastcall PopFxDestroyDripsBlockingDeviceList(_QWORD *a1)
     PopFxReleaseDevice((__int64)(v2 - 109));
   }
   ExReleasePushLockEx((ULONG_PTR)&PopFxBlockingDeviceListLock, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v6, v7);
   IoLockUnlockPnpDeviceTree(0);
 }

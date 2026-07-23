@@ -1,14 +1,14 @@
 /*
- * XREFs of SmcCacheDereference @ 0x14079D0D8
+ * XREFs of SmcCacheDereference @ 0x14079D1E8
  * Callers:
- *     SmcProcessCreateRequest @ 0x140798E7C (SmcProcessCreateRequest.c)
- *     SmcGetCacheStats @ 0x14079D63C (SmcGetCacheStats.c)
- *     SmcStoreCreate @ 0x14079D7E4 (SmcStoreCreate.c)
- *     SmcStoreDelete @ 0x14079DA44 (SmcStoreDelete.c)
- *     SmcStoreResize @ 0x14079DD30 (SmcStoreResize.c)
- *     SmcVolumePnpNotification @ 0x14079E340 (SmcVolumePnpNotification.c)
+ *     SmcProcessCreateRequest @ 0x140798F8C (SmcProcessCreateRequest.c)
+ *     SmcGetCacheStats @ 0x14079D74C (SmcGetCacheStats.c)
+ *     SmcStoreCreate @ 0x14079D8F4 (SmcStoreCreate.c)
+ *     SmcStoreDelete @ 0x14079DB54 (SmcStoreDelete.c)
+ *     SmcStoreResize @ 0x14079DE40 (SmcStoreResize.c)
+ *     SmcVolumePnpNotification @ 0x14079E450 (SmcVolumePnpNotification.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
  */
 
 void __fastcall SmcCacheDereference(__int64 a1, char a2)

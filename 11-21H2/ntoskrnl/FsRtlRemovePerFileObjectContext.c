@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoGetFileObjectFilterContext @ 0x1402A3610 (IoGetFileObjectFilterContext.c)
+ *     sub_1402A3610 @ 0x1402A3610 (sub_1402A3610.c)
  *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
  *     ExReleaseAutoExpandPushLockExclusive @ 0x1402AC890 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  */
 
 PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlRemovePerFileObjectContext(
@@ -25,12 +25,12 @@ PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlRemovePerFileObjectContext(
   BugCheckParameter2 = 0LL;
   if ( !FileObject )
     return 0LL;
-  IoGetFileObjectFilterContext(FileObject, &BugCheckParameter2, 0LL);
+  sub_1402A3610(FileObject, &BugCheckParameter2, 0LL);
   if ( !BugCheckParameter2 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   v6 = 0LL;
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   v7 = BugCheckParameter2;
   ExAcquireAutoExpandPushLockExclusive(BugCheckParameter2, 0LL);
   if ( InstanceId )
@@ -74,6 +74,6 @@ LABEL_9:
     }
   }
   ExReleaseAutoExpandPushLockExclusive(v7, 0LL);
-  KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+  sub_1402F9540(KeGetCurrentThread());
   return v6;
 }

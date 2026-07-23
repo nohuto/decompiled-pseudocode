@@ -1,16 +1,16 @@
 /*
- * XREFs of CcWaitForUninitializeCacheMap @ 0x140022280
+ * XREFs of CcWaitForUninitializeCacheMap @ 0x140021E00
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E6C0 (KeAcquireQueuedSpinLockAtDpcLevel.c)
- *     CcWriteBehind @ 0x14007161C (CcWriteBehind.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E240 (KeAcquireQueuedSpinLockAtDpcLevel.c)
+ *     CcWriteBehind @ 0x14007119C (CcWriteBehind.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall CcWaitForUninitializeCacheMap(__int64 a1)

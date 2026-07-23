@@ -1,16 +1,15 @@
 /*
- * XREFs of ExpCheckForWorker @ 0x1403D3B6C
+ * XREFs of ExpCheckForWorker @ 0x140261AEC
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExpFreePoolChecks @ 0x1402B0D90 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x14035B160 (ExpFreePoolChecks.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)

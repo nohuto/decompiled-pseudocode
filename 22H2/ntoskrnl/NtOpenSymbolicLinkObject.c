@@ -8,27 +8,30 @@
  *     ObOpenObjectByNameEx @ 0x1406CEA90 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtOpenSymbolicLinkObject(unsigned __int64 a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  _QWORD *v5; // rbx
+  PHANDLE v5; // rbx
   unsigned __int8 v6; // si
   POBJECT_TYPE v7; // rdi
   struct _LIST_ENTRY *CurrentSilo; // rax
-  __int64 result; // rax
-  _QWORD v10[5]; // [rsp+40h] [rbp-28h] BYREF
+  NTSTATUS result; // eax
+  void *v10; // [rsp+40h] [rbp-28h] BYREF
 
-  v5 = (_QWORD *)a1;
-  v10[0] = 0LL;
+  v5 = LinkHandle;
+  v10 = 0LL;
   v6 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
   if ( v6 )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+    if ( (unsigned __int64)LinkHandle >= 0x7FFFFFFF0000LL )
+      LinkHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *LinkHandle = *LinkHandle;
   }
   v7 = ObpSymbolicLinkObjectType;
   CurrentSilo = PsGetCurrentSilo();
-  result = ObOpenObjectByNameEx(a3, v7, v6, 0LL, a2, 0LL, CurrentSilo, v10);
-  *v5 = v10[0];
+  result = ObOpenObjectByNameEx(ObjectAttributes, v7, v6, 0LL, DesiredAccess, 0LL, CurrentSilo, &v10);
+  *v5 = v10;
   return result;
 }

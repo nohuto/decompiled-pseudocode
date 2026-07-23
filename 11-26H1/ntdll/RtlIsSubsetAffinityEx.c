@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsSubsetAffinityEx @ 0x18013FA60
+ * XREFs of RtlIsSubsetAffinityEx @ 0x18013F960
  * Callers:
  *     <none>
  * Callees:

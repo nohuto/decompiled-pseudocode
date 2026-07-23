@@ -1,16 +1,16 @@
 /*
- * XREFs of SmFpFree @ 0x140281020
+ * XREFs of SmFpFree @ 0x140280590
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     SmKmUnlockMdl @ 0x14040751C (SmKmUnlockMdl.c)
- *     SmKmStoreHelperCommandCleanup @ 0x140501F24 (SmKmStoreHelperCommandCleanup.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmUnlockMdl @ 0x14040060C (SmKmUnlockMdl.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x1404FB7F4 (SmKmStoreHelperCommandCleanup.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     SmAcquireReleaseCharges @ 0x140394610 (SmAcquireReleaseCharges.c)
- *     MmUnmapReservedMapping @ 0x1403C1C70 (MmUnmapReservedMapping.c)
- *     SmpFpReleaseResource @ 0x140405920 (SmpFpReleaseResource.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     SmAcquireReleaseCharges @ 0x140396390 (SmAcquireReleaseCharges.c)
+ *     MmUnmapReservedMapping @ 0x1403CBB70 (MmUnmapReservedMapping.c)
+ *     SmpFpReleaseResource @ 0x1403FEA14 (SmpFpReleaseResource.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SmFpFree(__int64 a1, int a2, __int64 a3, __int64 a4)

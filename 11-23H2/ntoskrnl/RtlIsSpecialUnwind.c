@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIsSpecialUnwind @ 0x1405B194C
+ * XREFs of RtlIsSpecialUnwind @ 0x1405B1EBC
  * Callers:
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x140976320 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x140976520 (KiTpBuildExcludedKernelTracepointBitmap.c)
  * Callees:
- *     RtlpConvertFunctionEntry @ 0x1402A6650 (RtlpConvertFunctionEntry.c)
- *     RtlpUnwindOpSlots @ 0x140464850 (RtlpUnwindOpSlots.c)
+ *     RtlpConvertFunctionEntry @ 0x1402A68E0 (RtlpConvertFunctionEntry.c)
+ *     RtlpUnwindOpSlots @ 0x140464C50 (RtlpUnwindOpSlots.c)
  */
 
 __int64 __fastcall RtlIsSpecialUnwind(__int64 a1, unsigned __int64 a2)

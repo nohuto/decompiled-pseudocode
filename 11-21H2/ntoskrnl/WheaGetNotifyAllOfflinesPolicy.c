@@ -8,5 +8,5 @@
 
 char WheaGetNotifyAllOfflinesPolicy()
 {
-  return WheapPolicyNotifyAllOfflines;
+  return byte_140D01199;
 }

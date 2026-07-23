@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCaptureWaitChainHeadEx @ 0x1402BB79C
+ * XREFs of KeCaptureWaitChainHeadEx @ 0x1402BBA2C
  * Callers:
- *     ExpReleaseResourceSharedForThreadLite @ 0x14023D880 (ExpReleaseResourceSharedForThreadLite.c)
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     ExpPrepareToWakeResourceShared @ 0x1402603E0 (ExpPrepareToWakeResourceShared.c)
- *     ExpReleaseResourceForThreadLite @ 0x140260600 (ExpReleaseResourceForThreadLite.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402BAD40 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x1403CB62C (ExpPrepareToWakeResourceExclusive.c)
- *     ExpPrepareToWakeFastResourceExclusive @ 0x140415E00 (ExpPrepareToWakeFastResourceExclusive.c)
- *     ExpPrepareToWakeFastResourceShared @ 0x140415ED0 (ExpPrepareToWakeFastResourceShared.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x14023D950 (ExpReleaseResourceSharedForThreadLite.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     ExpPrepareToWakeResourceShared @ 0x140260670 (ExpPrepareToWakeResourceShared.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140260890 (ExpReleaseResourceForThreadLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402BAFD0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x1403CB80C (ExpPrepareToWakeResourceExclusive.c)
+ *     ExpPrepareToWakeFastResourceExclusive @ 0x140416194 (ExpPrepareToWakeFastResourceExclusive.c)
+ *     ExpPrepareToWakeFastResourceShared @ 0x140416264 (ExpPrepareToWakeFastResourceShared.c)
  * Callees:
  *     <none>
  */

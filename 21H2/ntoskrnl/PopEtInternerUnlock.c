@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtInternerUnlock @ 0x1406BB800
+ * XREFs of PopEtInternerUnlock @ 0x14061A790
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
  */
 
 void PopEtInternerUnlock()

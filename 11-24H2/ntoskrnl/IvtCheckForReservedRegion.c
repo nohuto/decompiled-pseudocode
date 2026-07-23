@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtCheckForReservedRegion @ 0x1407046B0
+ * XREFs of IvtCheckForReservedRegion @ 0x140702270
  * Callers:
  *     <none>
  * Callees:
- *     HalpIvtCheckIdPathMatch @ 0x1404F994C (HalpIvtCheckIdPathMatch.c)
- *     DmrGetNextDeviceScope @ 0x140579740 (DmrGetNextDeviceScope.c)
- *     DmrGetNextRemappingStructure @ 0x140579788 (DmrGetNextRemappingStructure.c)
+ *     HalpIvtCheckIdPathMatch @ 0x1404F722C (HalpIvtCheckIdPathMatch.c)
+ *     DmrGetNextDeviceScope @ 0x140576BD0 (DmrGetNextDeviceScope.c)
+ *     DmrGetNextRemappingStructure @ 0x140576C18 (DmrGetNextRemappingStructure.c)
  */
 
 char __fastcall IvtCheckForReservedRegion(_DWORD *a1)
@@ -17,11 +17,11 @@ char __fastcall IvtCheckForReservedRegion(_DWORD *a1)
   unsigned __int64 v6; // r14
   char *NextDeviceScope; // rax
 
-  if ( *a1 == 1 && qword_140E65990 )
+  if ( *a1 == 1 && qword_140E65B10 )
   {
     for ( i = 0LL; ; i = (__int64)v4 )
     {
-      NextRemappingStructure = (_WORD *)DmrGetNextRemappingStructure(qword_140E65990, i);
+      NextRemappingStructure = (_WORD *)DmrGetNextRemappingStructure(qword_140E65B10, i);
       v4 = NextRemappingStructure;
       if ( !NextRemappingStructure )
         break;

@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefModDivSmallPow2Generic @ 0x14056F350
+ * XREFs of SymCryptFdefModDivSmallPow2Generic @ 0x14056E530
  * Callers:
- *     SymCryptFdefModDivSmallPow2 @ 0x14056F2E8 (SymCryptFdefModDivSmallPow2.c)
+ *     SymCryptFdefModDivSmallPow2 @ 0x14056E4C8 (SymCryptFdefModDivSmallPow2.c)
  * Callees:
  *     <none>
  */

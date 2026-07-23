@@ -1,12 +1,12 @@
 /*
- * XREFs of PspFreezeProcessWorker @ 0x1409B3C00
+ * XREFs of PspFreezeProcessWorker @ 0x1409B3E00
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     PsCaptureExceptionPort @ 0x14076E3A0 (PsCaptureExceptionPort.c)
- *     PsSuspendProcess @ 0x1409B60A0 (PsSuspendProcess.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     PsCaptureExceptionPort @ 0x14076E590 (PsCaptureExceptionPort.c)
+ *     PsSuspendProcess @ 0x1409B62A0 (PsSuspendProcess.c)
  */
 
 __int64 __fastcall PspFreezeProcessWorker(_DWORD *a1)

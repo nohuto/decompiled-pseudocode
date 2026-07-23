@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPfnsWorthTrying @ 0x14009A7B0
+ * XREFs of MiPfnsWorthTrying @ 0x14009A6F0
  * Callers:
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiFindRebuildCandidate @ 0x1402CE298 (MiFindRebuildCandidate.c)
- *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
- *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiFindRebuildCandidate @ 0x1402CE488 (MiFindRebuildCandidate.c)
+ *     MiScrubNode @ 0x1402CF8B8 (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x140860568 (MmRelocatePfnList.c)
  * Callees:
- *     MiPfnLargeBitSet @ 0x14009AB50 (MiPfnLargeBitSet.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiActivePageClaimCandidate @ 0x14009CA50 (MiActivePageClaimCandidate.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
- *     MiClusterVadFull @ 0x1402C6128 (MiClusterVadFull.c)
+ *     MiPfnLargeBitSet @ 0x14009AA90 (MiPfnLargeBitSet.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     MiActivePageClaimCandidate @ 0x14009C990 (MiActivePageClaimCandidate.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E9D4 (MiGetLeafPfnBuddy.c)
+ *     MiClusterVadFull @ 0x1402C6318 (MiClusterVadFull.c)
  */
 
 __int64 __fastcall MiPfnsWorthTrying(__int16 *a1, unsigned __int64 a2, __int64 a3, int a4, _DWORD *a5)
@@ -154,7 +154,7 @@ LABEL_12:
     if ( (*(_BYTE *)v7 & 1) == 0 )
     {
       v25 = (__int64)(v7 + 0x58000000000LL) / 48;
-      v26 = &qword_14043AE28;
+      v26 = &qword_14043BEE8;
       v27 = 0;
       while ( (PVOID)v25 != *v26 )
       {
@@ -163,7 +163,7 @@ LABEL_12:
         if ( v27 >= 4 )
         {
           v28 = 0;
-          v29 = &unk_14043AE08;
+          v29 = &unk_14043BEC8;
           while ( v25 != *v29 )
           {
             ++v28;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeModWriterEntry @ 0x14043A49C
+ * XREFs of MiFreeModWriterEntry @ 0x14042CCD0
  * Callers:
- *     MiMappedPageWriter @ 0x140369760 (MiMappedPageWriter.c)
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
- *     MiDeleteMappedMdls @ 0x140469D6C (MiDeleteMappedMdls.c)
- *     MiDeletePagefile @ 0x1407EEEF8 (MiDeletePagefile.c)
+ *     MiMappedPageWriter @ 0x1402EB500 (MiMappedPageWriter.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
+ *     MiDeleteMappedMdls @ 0x140462C9C (MiDeleteMappedMdls.c)
+ *     MiDeletePagefile @ 0x1407EF4C8 (MiDeletePagefile.c)
  * Callees:
- *     MiReleaseWriteInProgressCharges @ 0x14043A500 (MiReleaseWriteInProgressCharges.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleaseWriteInProgressCharges @ 0x14042CD34 (MiReleaseWriteInProgressCharges.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiFreeModWriterEntry(_QWORD *P, unsigned int a2)

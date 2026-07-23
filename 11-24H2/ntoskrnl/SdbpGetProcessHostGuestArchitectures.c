@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetProcessHostGuestArchitectures @ 0x140806EC0
+ * XREFs of SdbpGetProcessHostGuestArchitectures @ 0x140807600
  * Callers:
- *     SdbpGetPathAppPatchPreRS3 @ 0x1406963E0 (SdbpGetPathAppPatchPreRS3.c)
- *     SdbpGetPathCustomSdbPreRS3 @ 0x140696570 (SdbpGetPathCustomSdbPreRS3.c)
- *     SdbpGetPathAppraiser @ 0x140806AA0 (SdbpGetPathAppraiser.c)
- *     SdbpGetPathSystem @ 0x140806E00 (SdbpGetPathSystem.c)
+ *     SdbpGetPathAppPatchPreRS3 @ 0x1406974B0 (SdbpGetPathAppPatchPreRS3.c)
+ *     SdbpGetPathCustomSdbPreRS3 @ 0x140697640 (SdbpGetPathCustomSdbPreRS3.c)
+ *     SdbpGetPathAppraiser @ 0x1408071E0 (SdbpGetPathAppraiser.c)
+ *     SdbpGetPathSystem @ 0x140807540 (SdbpGetPathSystem.c)
  * Callees:
- *     AslEnvGetProcessWowInfo @ 0x14080BC18 (AslEnvGetProcessWowInfo.c)
- *     AslImageFileToArchitecture @ 0x14080C140 (AslImageFileToArchitecture.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     AslEnvGetProcessWowInfo @ 0x14080C358 (AslEnvGetProcessWowInfo.c)
+ *     AslImageFileToArchitecture @ 0x14080C880 (AslImageFileToArchitecture.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetProcessHostGuestArchitectures(__int16 *a1, __int16 *a2, unsigned __int16 *a3)

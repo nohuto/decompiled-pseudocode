@@ -1,37 +1,37 @@
 /*
- * XREFs of HaliQuerySystemInformation @ 0x140BED8E0
+ * XREFs of HaliQuerySystemInformation @ 0x140BF38E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerQueryClockSourceType @ 0x1404E0A34 (HalpTimerQueryClockSourceType.c)
- *     xKdEnumerateDebuggingDevices @ 0x1405306C0 (xKdEnumerateDebuggingDevices.c)
- *     RtlCopyDeviceMemory @ 0x14055978C (RtlCopyDeviceMemory.c)
- *     HalpTimerQueryWatchdogType @ 0x140577C70 (HalpTimerQueryWatchdogType.c)
- *     HalpGetDisplayBiosInformation @ 0x140578820 (HalpGetDisplayBiosInformation.c)
- *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x14057EEF8 (HalpDpQueryMaxHotPlugMemoryAddress.c)
- *     HalpQueryNumaRangeTableInformation @ 0x140592A90 (HalpQueryNumaRangeTableInformation.c)
- *     HalpHvQueryHyperlaunchEntrypoint @ 0x140592C24 (HalpHvQueryHyperlaunchEntrypoint.c)
- *     HalpGetHibernateResumePc @ 0x1405A2CC4 (HalpGetHibernateResumePc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpGetMcaLog @ 0x1407810BC (HalpGetMcaLog.c)
- *     HalpInterruptQueryControllerInfo @ 0x140781120 (HalpInterruptQueryControllerInfo.c)
- *     HalpInterruptGetIrtInfo @ 0x1407815A8 (HalpInterruptGetIrtInfo.c)
- *     HalpQueryPerDeviceMsiLimitInformation @ 0x1407816A4 (HalpQueryPerDeviceMsiLimitInformation.c)
- *     HalpQueryIommuReservedRegionInformation @ 0x1407824AC (HalpQueryIommuReservedRegionInformation.c)
- *     HalpDmaGetRemappingInformation @ 0x1407832FC (HalpDmaGetRemappingInformation.c)
- *     HalpQuerySecondaryInterruptInformation @ 0x1407840B0 (HalpQuerySecondaryInterruptInformation.c)
- *     HalpGetAcpiStaticNumaTopology @ 0x140784C78 (HalpGetAcpiStaticNumaTopology.c)
- *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x140784E08 (HalpQueryHeterogeneousMemoryAttributesInterface.c)
- *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x1407852F4 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
- *     HalpQueryPostSleepStats @ 0x1407853EC (HalpQueryPostSleepStats.c)
- *     HalpGetProcessorBrandString @ 0x140785D34 (HalpGetProcessorBrandString.c)
- *     HalpAuditQueryResults @ 0x140786054 (HalpAuditQueryResults.c)
- *     HalpChannelPowerRequest @ 0x140787250 (HalpChannelPowerRequest.c)
- *     xHalAllocatePmcCounterSet @ 0x140B11900 (xHalAllocatePmcCounterSet.c)
- *     HalpQueryProfileInformation @ 0x140B19488 (HalpQueryProfileInformation.c)
- *     HalpQueryDebuggerInformation @ 0x140C128B0 (HalpQueryDebuggerInformation.c)
- *     HalpQueryChannelTopologyInformation @ 0x140CB5078 (HalpQueryChannelTopologyInformation.c)
+ *     HalpTimerQueryClockSourceType @ 0x1404DA114 (HalpTimerQueryClockSourceType.c)
+ *     xKdEnumerateDebuggingDevices @ 0x140532BC0 (xKdEnumerateDebuggingDevices.c)
+ *     RtlCopyDeviceMemory @ 0x14055BC1C (RtlCopyDeviceMemory.c)
+ *     HalpTimerQueryWatchdogType @ 0x14057A1A0 (HalpTimerQueryWatchdogType.c)
+ *     HalpGetDisplayBiosInformation @ 0x14057AD50 (HalpGetDisplayBiosInformation.c)
+ *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x140581418 (HalpDpQueryMaxHotPlugMemoryAddress.c)
+ *     HalpQueryNumaRangeTableInformation @ 0x140595210 (HalpQueryNumaRangeTableInformation.c)
+ *     HalpHvQueryHyperlaunchEntrypoint @ 0x1405953A4 (HalpHvQueryHyperlaunchEntrypoint.c)
+ *     HalpGetHibernateResumePc @ 0x1405A54D4 (HalpGetHibernateResumePc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpGetMcaLog @ 0x140783BBC (HalpGetMcaLog.c)
+ *     HalpInterruptQueryControllerInfo @ 0x140783C20 (HalpInterruptQueryControllerInfo.c)
+ *     HalpInterruptGetIrtInfo @ 0x1407840A8 (HalpInterruptGetIrtInfo.c)
+ *     HalpQueryPerDeviceMsiLimitInformation @ 0x1407841A4 (HalpQueryPerDeviceMsiLimitInformation.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x140784FAC (HalpQueryIommuReservedRegionInformation.c)
+ *     HalpDmaGetRemappingInformation @ 0x140785E30 (HalpDmaGetRemappingInformation.c)
+ *     HalpQuerySecondaryInterruptInformation @ 0x140786BE4 (HalpQuerySecondaryInterruptInformation.c)
+ *     HalpGetAcpiStaticNumaTopology @ 0x1407877AC (HalpGetAcpiStaticNumaTopology.c)
+ *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x140787938 (HalpQueryHeterogeneousMemoryAttributesInterface.c)
+ *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x140787E24 (HalpQueryAcpiWakeAlarmSystemPowerState.c)
+ *     HalpQueryPostSleepStats @ 0x140787F1C (HalpQueryPostSleepStats.c)
+ *     HalpGetProcessorBrandString @ 0x140788864 (HalpGetProcessorBrandString.c)
+ *     HalpAuditQueryResults @ 0x140788B84 (HalpAuditQueryResults.c)
+ *     HalpChannelPowerRequest @ 0x140789D80 (HalpChannelPowerRequest.c)
+ *     xHalAllocatePmcCounterSet @ 0x140B13680 (xHalAllocatePmcCounterSet.c)
+ *     HalpQueryProfileInformation @ 0x140B1B8D8 (HalpQueryProfileInformation.c)
+ *     HalpQueryDebuggerInformation @ 0x140C188B0 (HalpQueryDebuggerInformation.c)
+ *     HalpQueryChannelTopologyInformation @ 0x140CBB0B8 (HalpQueryChannelTopologyInformation.c)
  */
 
 __int64 __fastcall HaliQuerySystemInformation(
@@ -42,9 +42,9 @@ __int64 __fastcall HaliQuerySystemInformation(
 {
   unsigned int PerDeviceMsiLimitInformation; // ebx
   int v9; // edi
-  __int64 HibernateResumePc; // rax
-  unsigned int Flink_high; // edi
-  char *Blink; // r15
+  struct _LIST_ENTRY *HibernateResumePc; // rax
+  unsigned int SignalState; // edi
+  char *Process; // r15
   int v14; // edi
   int v15; // edi
   int v16; // edi
@@ -90,7 +90,7 @@ __int64 __fastcall HaliQuerySystemInformation(
           v9 = 8;
           if ( a2 == 8 )
           {
-            HibernateResumePc = (__int64)HalpGetHibernateResumePc();
+            HibernateResumePc = (struct _LIST_ENTRY *)HalpGetHibernateResumePc();
             goto LABEL_18;
           }
           return (unsigned int)-1073741820;
@@ -98,7 +98,7 @@ __int64 __fastcall HaliQuerySystemInformation(
           v9 = 8;
           if ( a2 == 8 )
           {
-            HibernateResumePc = HalpDeviceBlockUnblockPushLock.WriteTransferCount;
+            HibernateResumePc = HalpDeviceBlockUnblockPushLock.GlobalForegroundListEntry.Blink;
             goto LABEL_18;
           }
           return (unsigned int)-1073741820;
@@ -125,27 +125,27 @@ LABEL_46:
         WatchdogType = HalpTimerQueryWatchdogType(a3);
         break;
       case '#':
-        Blink = (char *)HalpPmuArbiter.ApcState.ApcListHead[1].Blink;
-        if ( !HalpPmuArbiter.ApcState.ApcListHead[1].Blink )
+        Process = (char *)HalpPmuArbiter.ApcState.Process;
+        if ( !HalpPmuArbiter.ApcState.Process )
           return (unsigned int)-1073741822;
-        Flink_high = HIDWORD(HalpPmuArbiter.ApcState.ApcListHead[1].Blink->Flink);
-        v24 = Flink_high <= *(_DWORD *)&HalpPmuArbiter.ApcStateFill[16];
+        SignalState = HalpPmuArbiter.ApcState.Process->Header.SignalState;
+        v24 = SignalState <= *(_DWORD *)&HalpPmuArbiter.ApcStateFill[16];
 LABEL_61:
         if ( !v24 )
           return (unsigned int)-1073741822;
-        if ( a2 < Flink_high )
+        if ( a2 < SignalState )
           goto LABEL_21;
 LABEL_63:
-        if ( !Flink_high )
+        if ( !SignalState )
           return PerDeviceMsiLimitInformation;
         goto LABEL_64;
       case '$':
         return (unsigned int)HalpChannelPowerRequest((__int16 *)a3, a2, a4);
       case '%':
-        Blink = (char *)&off_14000BC80;
+        Process = (char *)&off_14000BDC0;
         if ( a2 < 0x10 )
-          Blink = 0LL;
-        Flink_high = a2 < 0x10 ? 0 : 0x10;
+          Process = 0LL;
+        SignalState = a2 < 0x10 ? 0 : 0x10;
         PerDeviceMsiLimitInformation = a2 < 0x10 ? 0xC0000004 : 0;
         goto LABEL_63;
       case '\'':
@@ -169,10 +169,10 @@ LABEL_63:
       case '-':
         return (unsigned int)HalpQueryProfileInformation((unsigned int)a1, a2, (__int64)a3, (unsigned int *)a4);
       case '.':
-        Flink_high = 8;
+        SignalState = 8;
         if ( a2 != 8 )
           return (unsigned int)-1073741820;
-        Blink = (char *)v27;
+        Process = (char *)v27;
         v27[0] = (_KWAIT_BLOCK *)HalpHvQueryHyperlaunchEntrypoint();
         goto LABEL_66;
       default:
@@ -185,11 +185,11 @@ LABEL_63:
   }
   if ( a1 == 34 )
   {
-    Blink = *(char **)&HalpPmuArbiter.ApcStateFill[40];
-    if ( !*(_QWORD *)&HalpPmuArbiter.ApcStateFill[40] )
+    Process = (char *)HalpPmuArbiter.ApcState.ApcListHead[1].Blink;
+    if ( !HalpPmuArbiter.ApcState.ApcListHead[1].Blink )
       return (unsigned int)-1073741822;
-    Flink_high = *(_DWORD *)(*(_QWORD *)&HalpPmuArbiter.ApcStateFill[40] + 4LL);
-    v24 = Flink_high <= *(_DWORD *)&HalpPmuArbiter.ApcStateFill[32];
+    SignalState = HIDWORD(HalpPmuArbiter.ApcState.ApcListHead[1].Blink->Flink);
+    v24 = SignalState <= *(_DWORD *)&HalpPmuArbiter.ApcStateFill[20];
     goto LABEL_61;
   }
   if ( a1 > 20 )
@@ -237,36 +237,36 @@ LABEL_63:
             HeterogeneousMemoryAttributesInterface = xKdEnumerateDebuggingDevices();
             goto LABEL_46;
           }
-          Flink_high = 56;
+          SignalState = 56;
           if ( a2 < 0x38 )
             return (unsigned int)-1073741820;
-          Blink = (char *)v27;
+          Process = (char *)v27;
           SecondaryInterruptInformation = HalpQuerySecondaryInterruptInformation((__int64)v27);
         }
         else
         {
-          Flink_high = 12;
+          SignalState = 12;
           if ( a2 < 0xC )
             return (unsigned int)-1073741820;
-          Blink = (char *)v27;
+          Process = (char *)v27;
           SecondaryInterruptInformation = HalpInterruptGetIrtInfo((__int64)v27);
         }
       }
       else
       {
-        Flink_high = 8;
+        SignalState = 8;
         if ( a2 < 8 )
           return (unsigned int)-1073741820;
-        Blink = (char *)v27;
+        Process = (char *)v27;
         SecondaryInterruptInformation = HalpAuditQueryResults(v27);
       }
     }
     else
     {
-      Flink_high = 12;
+      SignalState = 12;
       if ( a2 < 0xC )
         return (unsigned int)-1073741820;
-      Blink = (char *)v27;
+      Process = (char *)v27;
       SecondaryInterruptInformation = HalpTimerQueryClockSourceType(v27);
     }
     PerDeviceMsiLimitInformation = SecondaryInterruptInformation;
@@ -282,8 +282,8 @@ LABEL_63:
     case 8:
       return (unsigned int)-1073741496;
     case 9:
-      Blink = (char *)v27;
-      Flink_high = 4;
+      Process = (char *)v27;
+      SignalState = 4;
       LODWORD(v27[0]) = HalpGetDisplayBiosInformation();
       goto LABEL_64;
   }
@@ -300,7 +300,7 @@ LABEL_63:
             v9 = 8;
             if ( a2 == 8 )
             {
-              HibernateResumePc = (__int64)HalpDpQueryMaxHotPlugMemoryAddress();
+              HibernateResumePc = HalpDpQueryMaxHotPlugMemoryAddress();
 LABEL_18:
               *a3 = (__int64 (__fastcall *)(unsigned int, int, __int64, int))HibernateResumePc;
 LABEL_19:
@@ -311,28 +311,28 @@ LABEL_19:
           }
           return (unsigned int)-1073741496;
         }
-        Flink_high = 456;
+        SignalState = 456;
         if ( a2 < 0x1C8 )
         {
 LABEL_21:
-          *a4 = Flink_high;
+          *a4 = SignalState;
           return (unsigned int)-1073741820;
         }
-        Blink = (char *)&BadIOAddrList;
+        Process = (char *)&BadIOAddrList;
 LABEL_66:
-        *a4 = Flink_high;
-        RtlCopyDeviceMemory((char *)a3, Blink, Flink_high);
+        *a4 = SignalState;
+        RtlCopyDeviceMemory((char *)a3, Process, SignalState);
         return PerDeviceMsiLimitInformation;
       }
       return (unsigned int)HalpGetMcaLog();
     }
-    Blink = (char *)v27;
+    Process = (char *)v27;
     LODWORD(v27[0]) = *(_DWORD *)a3;
-    Flink_high = 144;
+    SignalState = 144;
     PerDeviceMsiLimitInformation = xHalAllocatePmcCounterSet();
 LABEL_64:
-    if ( a2 < Flink_high )
-      Flink_high = a2;
+    if ( a2 < SignalState )
+      SignalState = a2;
     goto LABEL_66;
   }
   if ( a2 != 64 )

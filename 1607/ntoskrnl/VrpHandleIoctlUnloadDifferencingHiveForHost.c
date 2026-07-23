@@ -1,16 +1,16 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140613F7C
+ * XREFs of VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140614030
  * Callers:
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     VrpUnloadDifferencingHive @ 0x140617878 (VrpUnloadDifferencingHive.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     VrpUnloadDifferencingHive @ 0x14061792C (VrpUnloadDifferencingHive.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDifferencingHiveForHost(__int64 a1, unsigned int a2, KPROCESSOR_MODE a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of IoUpdateLinkShareAccessEx @ 0x1409F8090
+ * XREFs of IoUpdateLinkShareAccessEx @ 0x1409F0A00
  * Callers:
- *     IoUpdateLinkShareAccess @ 0x140714EB0 (IoUpdateLinkShareAccess.c)
- *     IoUpdateShareAccess @ 0x1409F8070 (IoUpdateShareAccess.c)
+ *     IoUpdateLinkShareAccess @ 0x140712A40 (IoUpdateLinkShareAccess.c)
+ *     IoUpdateShareAccess @ 0x1409F09E0 (IoUpdateShareAccess.c)
  * Callees:
  *     <none>
  */

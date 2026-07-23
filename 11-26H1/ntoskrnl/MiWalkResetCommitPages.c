@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWalkResetCommitPages @ 0x1406E531C
+ * XREFs of MiWalkResetCommitPages @ 0x1406E9FCC
  * Callers:
- *     MiReleaseCommitForResetPages @ 0x1406E4EA0 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseCommitForResetPages @ 0x1406E9B50 (MiReleaseCommitForResetPages.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiWalkResetCommitPages(__int64 a1)

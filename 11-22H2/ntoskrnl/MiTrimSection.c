@@ -90,10 +90,13 @@ __int64 __fastcall MiTrimSection(_QWORD *a1, __int64 a2, int a3, int a4)
   {
     v44 = *(_QWORD **)(v9 + 8);
     ExReleaseSpinLockSharedFromDpcLevel(v15);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v16 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -119,10 +122,10 @@ __int64 __fastcall MiTrimSection(_QWORD *a1, __int64 a2, int a3, int a4)
         else
           v18 = 0;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v35 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v25 <= 0xFu && v35 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v25 <= 0xFu && v35 >= 2u )
           {
             v36 = KeGetCurrentPrcb();
             v37 = v36->SchedulerAssist;
@@ -206,10 +209,10 @@ LABEL_19:
     return (unsigned int)MayContainPage;
   }
   ExReleaseSpinLockSharedFromDpcLevel(v15);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

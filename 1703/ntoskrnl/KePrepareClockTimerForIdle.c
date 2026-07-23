@@ -25,7 +25,7 @@ void __fastcall KePrepareClockTimerForIdle(unsigned __int8 a1, unsigned __int64 
   int v9; // edx
   __int64 v10; // r13
   unsigned __int64 v11; // r15
-  __int64 InterruptTimePrecise; // r13
+  LARGE_INTEGER InterruptTimePrecise; // r13
   unsigned __int64 v13; // r15
   __int64 v14; // rcx
   bool v15; // cf
@@ -33,9 +33,9 @@ void __fastcall KePrepareClockTimerForIdle(unsigned __int8 a1, unsigned __int64 
   __int64 v17; // [rsp+30h] [rbp-78h] BYREF
   int v18; // [rsp+38h] [rbp-70h] BYREF
   unsigned __int64 v19; // [rsp+40h] [rbp-68h] BYREF
-  char v20[8]; // [rsp+48h] [rbp-60h] BYREF
+  _BYTE v20[8]; // [rsp+48h] [rbp-60h] BYREF
   unsigned __int64 v21; // [rsp+50h] [rbp-58h] BYREF
-  LARGE_INTEGER v22; // [rsp+58h] [rbp-50h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-50h] BYREF
   _QWORD v23[2]; // [rsp+60h] [rbp-48h] BYREF
 
   v17 = 0LL;
@@ -79,7 +79,7 @@ LABEL_4:
   v11 = v21;
   if ( a3 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v22);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   }
   else
   {
@@ -106,17 +106,17 @@ LABEL_4:
         goto LABEL_32;
       }
     }
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v22);
-    if ( v11 <= InterruptTimePrecise + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    if ( v11 <= InterruptTimePrecise.QuadPart + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
     {
 LABEL_37:
       v3 = 4;
       goto LABEL_32;
     }
   }
-  if ( v11 <= InterruptTimePrecise + (unsigned __int64)(unsigned int)KiMinDynamicTickDuration )
+  if ( v11 <= InterruptTimePrecise.QuadPart + (unsigned __int64)(unsigned int)KiMinDynamicTickDuration )
     goto LABEL_37;
-  v13 = v11 - InterruptTimePrecise;
+  v13 = v11 - InterruptTimePrecise.QuadPart;
   if ( v13 > v6 )
     v13 = v6;
   v19 = v13;
@@ -145,7 +145,7 @@ LABEL_37:
   {
     LOBYTE(v14) = 1;
     KiSetPendingTick(v14);
-    KiClockTimerOneShotStartTime = InterruptTimePrecise;
+    KiClockTimerOneShotStartTime = InterruptTimePrecise.QuadPart;
     KiEventClockStateChange(1LL, v8, &v17, &v19);
     if ( a3 )
       KiClockLatencyMeasurementEnabled = 1;
@@ -162,7 +162,7 @@ LABEL_37:
     if ( a1 )
       KiConsiderTimerRebasing = 1;
   }
-  KiClockTimerNextTickTime = InterruptTimePrecise + v17;
+  KiClockTimerNextTickTime = InterruptTimePrecise.QuadPart + v17;
 LABEL_32:
   if ( v8 != 4 )
     _InterlockedExchange(&KiClockState, v8);

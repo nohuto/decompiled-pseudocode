@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x14078F864
+ * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x14078FA54
  * Callers:
- *     PnpAllocateResources @ 0x14078F4C4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x14096D548 (PnpReallocateResources.c)
- *     PnpQueryRebalanceWorker @ 0x14096E698 (PnpQueryRebalanceWorker.c)
+ *     PnpAllocateResources @ 0x14078F6B4 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x14096D748 (PnpReallocateResources.c)
+ *     PnpQueryRebalanceWorker @ 0x14096E898 (PnpQueryRebalanceWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     IopQueryDeviceResources @ 0x14078FC24 (IopQueryDeviceResources.c)
- *     PipClearDevNodeFlags @ 0x14079805C (PipClearDevNodeFlags.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14081624C (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpFilterResourceRequirementsList @ 0x140816600 (PnpFilterResourceRequirementsList.c)
- *     IopResourceRequirementsListToReqList @ 0x140817A68 (IopResourceRequirementsListToReqList.c)
- *     IopRearrangeReqList @ 0x1408532DC (IopRearrangeReqList.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     IopQueryDeviceResources @ 0x14078FE14 (IopQueryDeviceResources.c)
+ *     PipClearDevNodeFlags @ 0x14079824C (PipClearDevNodeFlags.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x14081651C (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpFilterResourceRequirementsList @ 0x1408168D0 (PnpFilterResourceRequirementsList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140817D38 (IopResourceRequirementsListToReqList.c)
+ *     IopRearrangeReqList @ 0x1408535DC (IopRearrangeReqList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepGetShimCallbacksForDriver @ 0x140758650
+ * XREFs of KsepGetShimCallbacksForDriver @ 0x140758810
  * Callers:
- *     KseShimDriverIoCallbacks @ 0x140758524 (KseShimDriverIoCallbacks.c)
+ *     KseShimDriverIoCallbacks @ 0x1407586E4 (KseShimDriverIoCallbacks.c)
  * Callees:
- *     KsepLogInfo @ 0x1403717A8 (KsepLogInfo.c)
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     memset @ 0x140414200 (memset.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     RtlAssert @ 0x140588810 (RtlAssert.c)
- *     KsepIsModuleShimmed @ 0x14075B8D8 (KsepIsModuleShimmed.c)
+ *     KsepLogInfo @ 0x1403712F8 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x140588A40 (RtlAssert.c)
+ *     KsepIsModuleShimmed @ 0x14075BA98 (KsepIsModuleShimmed.c)
  */
 
 __int64 __fastcall KsepGetShimCallbacksForDriver(__int64 a1, _QWORD *a2)
@@ -41,7 +41,7 @@ __int64 __fastcall KsepGetShimCallbacksForDriver(__int64 a1, _QWORD *a2)
   if ( !a2 )
   {
     v6 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C2AAA4[2 * v6] = -1073740768;
+    dword_140C2AAC4[2 * v6] = -1073740768;
     KsepHistoryErrors[2 * v6] = 459523;
     if ( (KsepDebugFlag & 4) != 0 )
       RtlAssert("IoCallbacks != NULL", "minkernel\\ntos\\kshim\\kseloader.c", 0x303u, 0LL);
@@ -65,7 +65,7 @@ __int64 __fastcall KsepGetShimCallbacksForDriver(__int64 a1, _QWORD *a2)
         if ( !v11 )
         {
           v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C2AAA4[2 * v12] = -1073740768;
+          dword_140C2AAC4[2 * v12] = -1073740768;
           KsepHistoryErrors[2 * v12] = 459576;
           if ( (KsepDebugFlag & 4) != 0 )
           {
@@ -156,7 +156,7 @@ LABEL_46:
           if ( (unsigned int)v20 > 0x1B )
           {
             v22 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-            dword_140C2AAA4[2 * v22] = -1073741811;
+            dword_140C2AAC4[2 * v22] = -1073741811;
             KsepHistoryErrors[2 * v22] = 459680;
             if ( (KsepDebugFlag & 2) != 0 )
               KsepDebugPrint(9LL, "KSE: Invalid callback code encountered: %u\n", *(_DWORD *)(v18 + v19 + 8));
@@ -168,7 +168,7 @@ LABEL_46:
             v21 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
             KsepHistoryErrors[2 * (unsigned int)v21] = 459667;
 LABEL_40:
-            dword_140C2AAA4[2 * v21] = -1073741823;
+            dword_140C2AAC4[2 * v21] = -1073741823;
             if ( (KsepDebugFlag & 2) != 0 )
               KsepDebugPrint(9LL, "KSE: Two shims are hooking same callback! \n", v14);
             KsepLogError(9, "KSE: Two shims are hooking same callback! \n", v14);

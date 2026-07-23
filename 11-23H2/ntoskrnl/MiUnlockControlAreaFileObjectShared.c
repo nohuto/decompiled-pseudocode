@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockControlAreaFileObjectShared @ 0x1402F0624
+ * XREFs of MiUnlockControlAreaFileObjectShared @ 0x1402F08B4
  * Callers:
- *     MiTrimSection @ 0x1402EF974 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1402EFC04 (MiTrimSection.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 int __fastcall MiUnlockControlAreaFileObjectShared(__int64 a1)

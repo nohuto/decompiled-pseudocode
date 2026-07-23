@@ -32,7 +32,7 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   struct _KTHREAD *v11; // rcx
   __int16 v12; // ax
   const wchar_t *v13; // rdx
-  char v14; // [rsp+50h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+50h] [rbp+8h] BYREF
 
   if ( !a1 )
     return;
@@ -75,7 +75,13 @@ LABEL_8:
   if ( v1 == 1 )
   {
     PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-    NtTraceControl(2u, dword_14032B230, dword_14032B230[0], dword_14032B230, dword_14032B230[0], (ULONG64)&v14);
+    NtTraceControl(
+      EtwStopLoggerCode,
+      &InputBufferLength,
+      InputBufferLength,
+      &InputBufferLength,
+      InputBufferLength,
+      &ReturnLength);
     v9 = L"Diagnostics\\Performance\\BootCKCLSettings";
     goto LABEL_13;
   }
@@ -94,7 +100,13 @@ LABEL_8:
         if ( v1 == 5 )
         {
           PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-          NtTraceControl(2u, dword_14032B230, dword_14032B230[0], dword_14032B230, dword_14032B230[0], (ULONG64)&v14);
+          NtTraceControl(
+            EtwStopLoggerCode,
+            &InputBufferLength,
+            InputBufferLength,
+            &InputBufferLength,
+            InputBufferLength,
+            &ReturnLength);
           v9 = L"Diagnostics\\Performance\\SecondaryLogonCKCLSettings";
           goto LABEL_13;
         }
@@ -104,13 +116,25 @@ LABEL_8:
             goto LABEL_15;
           PerfDiagpSaveActiveDCLLogFileName();
           PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-          NtTraceControl(2u, dword_14032B230, dword_14032B230[0], dword_14032B230, dword_14032B230[0], (ULONG64)&v14);
+          NtTraceControl(
+            EtwStopLoggerCode,
+            &InputBufferLength,
+            InputBufferLength,
+            &InputBufferLength,
+            InputBufferLength,
+            &ReturnLength);
           v9 = L"Diagnostics\\Performance\\ShutdownCKCLSettings";
           goto LABEL_13;
         }
       }
       PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-      NtTraceControl(2u, dword_14032B230, dword_14032B230[0], dword_14032B230, dword_14032B230[0], (ULONG64)&v14);
+      NtTraceControl(
+        EtwStopLoggerCode,
+        &InputBufferLength,
+        InputBufferLength,
+        &InputBufferLength,
+        InputBufferLength,
+        &ReturnLength);
       v9 = L"WMI\\AutoLogger\\Circular Kernel Context Logger";
 LABEL_13:
       restarted = PerfDiagpRestartCKCL(v9);

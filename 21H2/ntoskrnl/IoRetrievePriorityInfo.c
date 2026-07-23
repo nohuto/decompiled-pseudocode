@@ -1,10 +1,10 @@
 /*
- * XREFs of IoRetrievePriorityInfo @ 0x1402569D0
+ * XREFs of IoRetrievePriorityInfo @ 0x140277F40
  * Callers:
  *     <none>
  * Callees:
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     IoGetIoPriorityHint @ 0x140254F60 (IoGetIoPriorityHint.c)
+ *     IoGetIoPriorityHint @ 0x1402764D0 (IoGetIoPriorityHint.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -44,7 +44,7 @@ NTSTATUS __stdcall IoRetrievePriorityInfo(
 LABEL_17:
     if ( !Thread )
       goto LABEL_33;
-    IoPriorityHint = (unsigned int)PsGetIoPriorityThread((__int64)Thread);
+    IoPriorityHint = (unsigned int)PsGetIoPriorityThread(Thread);
     goto LABEL_9;
   }
   FileObjectExtension = FileObject->FileObjectExtension;

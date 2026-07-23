@@ -1,8 +1,8 @@
 /*
- * XREFs of EmpSearchEntryDatabase @ 0x14038B44C
+ * XREFs of EmpSearchEntryDatabase @ 0x14038B62C
  * Callers:
- *     EmpProviderRegister @ 0x140825020 (EmpProviderRegister.c)
- *     EmProviderRegisterEntry @ 0x14093C8C0 (EmProviderRegisterEntry.c)
+ *     EmpProviderRegister @ 0x140825320 (EmpProviderRegister.c)
+ *     EmProviderRegisterEntry @ 0x14093CAC0 (EmProviderRegisterEntry.c)
  *     EmpParseEntryTypes @ 0x140B55B34 (EmpParseEntryTypes.c)
  *     EmpParseCallbacks @ 0x140B55CAC (EmpParseCallbacks.c)
  *     EmpParseRules @ 0x140B56520 (EmpParseRules.c)

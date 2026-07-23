@@ -15,7 +15,7 @@ __int64 ResCIncrementCMFMissCount()
 
   if ( !ResRuntimeView )
     return 0LL;
-  v0 = *(_QWORD *)(ResRuntimeView + 16);
+  v0 = *((_QWORD *)ResRuntimeView + 2);
   if ( !v0 )
     return 0LL;
   v1 = *(_QWORD *)(v0 + 24);

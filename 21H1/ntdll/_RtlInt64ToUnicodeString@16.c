@@ -8,21 +8,20 @@
  *     _RtlLargeIntegerToChar@16 @ 0x4B350590 (_RtlLargeIntegerToChar@16.c)
  */
 
-NTSTATUS __stdcall RtlInt64ToUnicodeString(int a1, char *a2, int a3, PUNICODE_STRING DestinationString)
+NTSTATUS __cdecl RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE_STRING String)
 {
   NTSTATUS result; // eax
-  STRING SourceString; // [esp+8h] [ebp-50h] BYREF
-  char v6[68]; // [esp+10h] [ebp-48h] BYREF
+  LARGE_INTEGER v4; // [esp+8h] [ebp-50h] BYREF
+  CHAR v5[68]; // [esp+10h] [ebp-48h] BYREF
 
-  *(_DWORD *)&SourceString.Length = a1;
-  SourceString.Buffer = a2;
-  result = RtlLargeIntegerToChar(&SourceString, a3, 65, v6);
+  v4.QuadPart = Value;
+  result = RtlLargeIntegerToChar(&v4, Base, 65, v5);
   if ( result >= 0 )
   {
-    SourceString.MaximumLength = 65;
-    SourceString.Buffer = v6;
-    SourceString.Length = strlen(v6);
-    return RtlAnsiStringToUnicodeString(DestinationString, &SourceString, 0);
+    HIWORD(v4.u.LowPart) = 65;
+    v4.HighPart = (int)v5;
+    LOWORD(v4.LowPart) = strlen(v5);
+    return RtlAnsiStringToUnicodeString(String, (PCANSI_STRING)&v4, 0);
   }
   return result;
 }

@@ -1,38 +1,32 @@
 /*
- * XREFs of VrpUnloadDifferencingHive @ 0x140979448
+ * XREFs of VrpUnloadDifferencingHive @ 0x14093B458
  * Callers:
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408A5864 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140978E48 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpCleanupNamespace @ 0x140979FC0 (VrpCleanupNamespace.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408ABCD4 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x14093AE58 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpCleanupNamespace @ 0x14093BFD0 (VrpCleanupNamespace.c)
  * Callees:
- *     ZwUnloadKey @ 0x140726F50 (ZwUnloadKey.c)
- *     ZwUnloadKey2 @ 0x140726F70 (ZwUnloadKey2.c)
- *     VrpLockDiffHiveEntry @ 0x1409798A8 (VrpLockDiffHiveEntry.c)
- *     VrpUnlockDiffHiveEntry @ 0x140979C74 (VrpUnlockDiffHiveEntry.c)
- *     VrpDereferenceDiffHiveEntry @ 0x140979CB0 (VrpDereferenceDiffHiveEntry.c)
- *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x140979D00 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
- *     VrpFindDiffHiveEntryForMountPoint @ 0x140979D3C (VrpFindDiffHiveEntryForMountPoint.c)
- *     VrpIncrementDiffHiveEntryHardRefCount @ 0x140979E0C (VrpIncrementDiffHiveEntryHardRefCount.c)
- *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x14097A034 (VrpBecomeDiffHiveEntryTransitionOwner.c)
- *     VrpDecrementDiffHiveEntryHardRefCount @ 0x14097A09C (VrpDecrementDiffHiveEntryHardRefCount.c)
+ *     ZwUnloadKey @ 0x14072BB20 (ZwUnloadKey.c)
+ *     ZwUnloadKey2 @ 0x14072BB40 (ZwUnloadKey2.c)
+ *     VrpLockDiffHiveEntry @ 0x14093B8B8 (VrpLockDiffHiveEntry.c)
+ *     VrpUnlockDiffHiveEntry @ 0x14093BC84 (VrpUnlockDiffHiveEntry.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x14093BCC0 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14093BD10 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
+ *     VrpFindDiffHiveEntryForMountPoint @ 0x14093BD4C (VrpFindDiffHiveEntryForMountPoint.c)
+ *     VrpIncrementDiffHiveEntryHardRefCount @ 0x14093BE1C (VrpIncrementDiffHiveEntryHardRefCount.c)
+ *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x14093C044 (VrpBecomeDiffHiveEntryTransitionOwner.c)
+ *     VrpDecrementDiffHiveEntryHardRefCount @ 0x14093C0AC (VrpDecrementDiffHiveEntryHardRefCount.c)
  */
 
-__int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
+__int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *a1)
 {
   __int64 DiffHiveEntryForMountPoint; // rax
   _DWORD *v3; // rbx
   char v4; // al
   char v5; // si
-  __int64 v6; // rdx
-  int v7; // edi
-  __int128 v9; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v10; // [rsp+30h] [rbp-20h]
-  __int128 v11; // [rsp+40h] [rbp-10h]
+  NTSTATUS v6; // edi
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+20h] [rbp-30h] BYREF
 
-  v9 = 0LL;
-  *(_QWORD *)&v11 = 0LL;
-  v10 = 0LL;
-  DWORD2(v11) = 0;
+  memset(&TargetKey, 0, 44);
   DiffHiveEntryForMountPoint = VrpFindDiffHiveEntryForMountPoint(a1);
   v3 = (_DWORD *)DiffHiveEntryForMountPoint;
   if ( DiffHiveEntryForMountPoint )
@@ -44,16 +38,16 @@ __int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
       v3[14] &= ~1u;
       v5 = v4;
       VrpUnlockDiffHiveEntry(v3);
-      LODWORD(v9) = 48;
-      *((_QWORD *)&v9 + 1) = 0LL;
-      v11 = 0LL;
-      DWORD2(v10) = 576;
-      *(_QWORD *)&v10 = a1;
-      v7 = ZwUnloadKey((__int64)&v9, v6);
-      if ( v7 < 0 )
-        v7 = ZwUnloadKey2((__int64)&v9, 1LL);
+      TargetKey.Length = 48;
+      TargetKey.RootDirectory = 0LL;
+      *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+      TargetKey.Attributes = 576;
+      TargetKey.ObjectName = a1;
+      v6 = ZwUnloadKey(&TargetKey);
+      if ( v6 < 0 )
+        v6 = ZwUnloadKey2(&TargetKey, 1u);
       VrpLockDiffHiveEntry(v3);
-      if ( v7 < 0 )
+      if ( v6 < 0 )
       {
         v3[14] |= 1u;
         VrpIncrementDiffHiveEntryHardRefCount(v3);
@@ -63,7 +57,7 @@ __int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
     }
     else
     {
-      v7 = 0;
+      v6 = 0;
     }
     VrpUnlockDiffHiveEntry(v3);
     VrpDereferenceDiffHiveEntry(v3);
@@ -72,5 +66,5 @@ __int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
   {
     return (unsigned int)-1073741772;
   }
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopCopyCompleteReadRequest @ 0x14040FD30
+ * XREFs of IopCopyCompleteReadRequest @ 0x14040F450
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x14040FA00 (IopCopyCompleteReadIrp.c)
- *     IopCopyAbortCopyReadRequest @ 0x1405CC000 (IopCopyAbortCopyReadRequest.c)
+ *     IopCopyCompleteReadIrp @ 0x14040F120 (IopCopyCompleteReadIrp.c)
+ *     IopCopyAbortCopyReadRequest @ 0x1405CE870 (IopCopyAbortCopyReadRequest.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopDropIrp @ 0x140268190 (IopDropIrp.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     IopDequeueIrpFromThread @ 0x14032F1A0 (IopDequeueIrpFromThread.c)
- *     IopDequeueIrpFromFileObject @ 0x1403DE5B0 (IopDequeueIrpFromFileObject.c)
- *     IopProcessBufferedIoCompletion @ 0x1404111D0 (IopProcessBufferedIoCompletion.c)
- *     IopUpdateIrpTransferCount @ 0x140411290 (IopUpdateIrpTransferCount.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopDropIrp @ 0x140267700 (IopDropIrp.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     IopDequeueIrpFromThread @ 0x1403311D0 (IopDequeueIrpFromThread.c)
+ *     IopDequeueIrpFromFileObject @ 0x1403E17A0 (IopDequeueIrpFromFileObject.c)
+ *     IopProcessBufferedIoCompletion @ 0x1404108F0 (IopProcessBufferedIoCompletion.c)
+ *     IopUpdateIrpTransferCount @ 0x1404109B0 (IopUpdateIrpTransferCount.c)
  */
 
 void __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR *a4)

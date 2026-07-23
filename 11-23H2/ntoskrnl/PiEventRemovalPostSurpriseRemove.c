@@ -1,10 +1,10 @@
 /*
- * XREFs of PiEventRemovalPostSurpriseRemove @ 0x140882FE4
+ * XREFs of PiEventRemovalPostSurpriseRemove @ 0x140883224
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867478 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408676B8 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpUnlinkDeviceRemovalRelations @ 0x140867E64 (PnpUnlinkDeviceRemovalRelations.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140883070 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1408680A4 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x1408832B0 (PnpQueuePendingSurpriseRemoval.c)
  */
 
 __int64 __fastcall PiEventRemovalPostSurpriseRemove(__int64 a1, unsigned int a2, __int64 *a3)

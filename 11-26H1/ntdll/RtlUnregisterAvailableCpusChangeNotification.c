@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUnregisterAvailableCpusChangeNotification @ 0x1801492D0
+ * XREFs of RtlUnregisterAvailableCpusChangeNotification @ 0x180149180
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18006E910 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
+ *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18008ED60 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
  */
 
-__int64 __fastcall RtlUnregisterAvailableCpusChangeNotification(__int64 *a1)
+LOGICAL __fastcall RtlUnregisterAvailableCpusChangeNotification(__int64 *BaseAddress)
 {
-  RtlUnsubscribeWnfNotificationWaitForCompletion(*a1);
-  return RtlFreeHeap_0();
+  RtlUnsubscribeWnfNotificationWaitForCompletion(*BaseAddress);
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

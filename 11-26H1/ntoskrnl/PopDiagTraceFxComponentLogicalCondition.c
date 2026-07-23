@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceFxComponentLogicalCondition @ 0x140395C74
+ * XREFs of PopDiagTraceFxComponentLogicalCondition @ 0x1403979F4
  * Callers:
- *     PopFxIdleWorkerTail @ 0x140395604 (PopFxIdleWorkerTail.c)
+ *     PopFxIdleWorkerTail @ 0x140397384 (PopFxIdleWorkerTail.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxComponentLogicalCondition(__int64 a1, int a2, unsigned __int8 a3)
@@ -24,14 +24,14 @@ void __fastcall PopDiagTraceFxComponentLogicalCondition(__int64 a1, int a2, unsi
 
   v14 = a2;
   v13 = a1;
-  if ( byte_140E67628 && *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+  if ( PopDiagHandleRegistered && PopDiagHandle )
   {
-    if ( (v3 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 32LL), *(_DWORD *)(v3 + 96))
+    if ( (v3 = *(_QWORD *)(PopDiagHandle + 32), *(_DWORD *)(v3 + 96))
       && ((v4 = *(_BYTE *)(v3 + 100), v4 >= 4u) || !v4)
       && (*(_DWORD *)(v3 + 112) & 0x100LL) != 0
       && (*(_QWORD *)(v3 + 120) & 0x100LL) == *(_QWORD *)(v3 + 120)
-      || *(_WORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 102LL)
-      && (v5 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 40LL), *(_DWORD *)(v5 + 96))
+      || *(_WORD *)(PopDiagHandle + 102)
+      && (v5 = *(_QWORD *)(PopDiagHandle + 40), *(_DWORD *)(v5 + 96))
       && ((v6 = *(_BYTE *)(v5 + 100), v6 >= 4u) || !v6)
       && (*(_DWORD *)(v5 + 112) & 0x100LL) != 0
       && (*(_QWORD *)(v5 + 120) & 0x100LL) == *(_QWORD *)(v5 + 120) )
@@ -43,15 +43,7 @@ void __fastcall PopDiagTraceFxComponentLogicalCondition(__int64 a1, int a2, unsi
       *(_QWORD *)&UserData.Size = 8LL;
       v10 = 4LL;
       v12 = 4LL;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_COMPONENT_CONDITION,
-        0LL,
-        1u,
-        0LL,
-        0LL,
-        3u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_CONDITION, 0LL, 1u, 0LL, 0LL, 3u, &UserData);
     }
   }
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwReleaseWorkerFactoryWorker @ 0x14041DCE0
+ * XREFs of ZwReleaseWorkerFactoryWorker @ 0x14041E070
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReleaseWorkerFactoryWorker(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WorkerFactoryHandle);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFinishChildPartitionHotAdd @ 0x14068A330
+ * XREFs of MiFinishChildPartitionHotAdd @ 0x14068B460
  * Callers:
- *     MiCompleteMemoryAddition @ 0x1407E901C (MiCompleteMemoryAddition.c)
+ *     MiCompleteMemoryAddition @ 0x1407E95EC (MiCompleteMemoryAddition.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     RtlNumberOfSetBitsEx @ 0x1404181F0 (RtlNumberOfSetBitsEx.c)
- *     MiComputeCommitThresholds @ 0x1404709E8 (MiComputeCommitThresholds.c)
- *     MiDeletePartitionPageNode @ 0x140689FF4 (MiDeletePartitionPageNode.c)
- *     MiMergePageNodes @ 0x14068ADD0 (MiMergePageNodes.c)
- *     MiMakePartitionMemoryBlock @ 0x1407FC61C (MiMakePartitionMemoryBlock.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     RtlNumberOfSetBitsEx @ 0x140407FA0 (RtlNumberOfSetBitsEx.c)
+ *     MiComputeCommitThresholds @ 0x14046B098 (MiComputeCommitThresholds.c)
+ *     MiDeletePartitionPageNode @ 0x14068B124 (MiDeletePartitionPageNode.c)
+ *     MiMergePageNodes @ 0x14068BF00 (MiMergePageNodes.c)
+ *     MiMakePartitionMemoryBlock @ 0x1407FCD8C (MiMakePartitionMemoryBlock.c)
  */
 
 __int64 __fastcall MiFinishChildPartitionHotAdd(__int64 a1, unsigned __int64 *a2)

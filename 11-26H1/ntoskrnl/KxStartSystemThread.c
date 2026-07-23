@@ -1,10 +1,10 @@
 /*
- * XREFs of KxStartSystemThread @ 0x140728F40
+ * XREFs of KxStartSystemThread @ 0x14072DB10
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __noreturn KxStartSystemThread()

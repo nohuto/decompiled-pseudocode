@@ -4,7 +4,7 @@
  *     RtlpHpVaMgrRangeCleanup @ 0x1400085AC (RtlpHpVaMgrRangeCleanup.c)
  *     RtlpHpVaMgrRangeCreate @ 0x14000A3F8 (RtlpHpVaMgrRangeCreate.c)
  *     RtlCSparseBitmapBitmaskWrite @ 0x14000A690 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlpHpSegSegmentFree @ 0x1401546C4 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegSegmentFree @ 0x1401547C4 (RtlpHpSegSegmentFree.c)
  * Callees:
  *     RtlpCSparseBitmapPageDecommit @ 0x140008938 (RtlpCSparseBitmapPageDecommit.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInterlockedClearBitRunEx @ 0x140112998
+ * XREFs of RtlInterlockedClearBitRunEx @ 0x140112F08
  * Callers:
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  * Callees:

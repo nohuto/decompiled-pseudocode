@@ -117,7 +117,9 @@ __int64 __fastcall MiSessionRemoveImage(ULONG_PTR BugCheckParameter2, __int64 a2
     v14 = 0LL;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v17 = v32;
     if ( v32 <= 0xFu && CurrentIrql >= 2u )

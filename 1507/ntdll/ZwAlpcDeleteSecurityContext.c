@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwAlpcDeleteSecurityContext()
+NTSTATUS __cdecl ZwAlpcDeleteSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 127LL;
+  result = 127;
   __asm { syscall; Low latency system call }
   return result;
 }

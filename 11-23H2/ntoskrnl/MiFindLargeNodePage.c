@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFindLargeNodePage @ 0x14061D668
+ * XREFs of MiFindLargeNodePage @ 0x14061DBB8
  * Callers:
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiSetPfnOwnedAndActive @ 0x1402E2D3C (MiSetPfnOwnedAndActive.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiGetLargePagesDemoteAsNeeded @ 0x1402E8E18 (MiGetLargePagesDemoteAsNeeded.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     MiSetPfnOwnedAndActive @ 0x1402E2FCC (MiSetPfnOwnedAndActive.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiGetLargePagesDemoteAsNeeded @ 0x1402E90A8 (MiGetLargePagesDemoteAsNeeded.c)
  */
 
 __int64 __fastcall MiFindLargeNodePage(__int64 a1, unsigned int a2, int *a3, int a4, int a5, char a6, unsigned int a7)

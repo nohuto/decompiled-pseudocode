@@ -1,33 +1,33 @@
 /*
- * XREFs of CmCreateKey @ 0x1409748F0
+ * XREFs of CmCreateKey @ 0x140936900
  * Callers:
- *     CmCreateKeyCallout @ 0x1409748A0 (CmCreateKeyCallout.c)
+ *     CmCreateKeyCallout @ 0x1409368B0 (CmCreateKeyCallout.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404869D8 (CmpAllocateTransientPoolWithQuota.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     CmpCaptureUnicodeStringBuffer @ 0x1408F2650 (CmpCaptureUnicodeStringBuffer.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
- *     CmpFreeParseContext @ 0x1409756C0 (CmpFreeParseContext.c)
- *     CmpAllocateParseContext @ 0x140976870 (CmpAllocateParseContext.c)
- *     CmpDoesBufferRequireCapturing @ 0x14097DDF0 (CmpDoesBufferRequireCapturing.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x140480350 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     CmpCaptureUnicodeStringBuffer @ 0x1408F8C10 (CmpCaptureUnicodeStringBuffer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
+ *     CmpFreeParseContext @ 0x1409376D0 (CmpFreeParseContext.c)
+ *     CmpAllocateParseContext @ 0x140938880 (CmpAllocateParseContext.c)
+ *     CmpDoesBufferRequireCapturing @ 0x14093FE00 (CmpDoesBufferRequireCapturing.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
 __int64 __fastcall CmCreateKey(
@@ -254,7 +254,7 @@ LABEL_18:
       goto LABEL_63;
     }
     if ( LOWORD(Src[0])
-      && ((_BYTE)PreviousMode || CmpFreezeListLock.RelativeTimerBias && MmIsUserAddress((unsigned __int64)Src[1])) )
+      && ((_BYTE)PreviousMode || CmpFreezeListLock.CycleTime && MmIsUserAddress((unsigned __int64)Src[1])) )
     {
       v10 = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuota();
       v47 = v10;
@@ -346,7 +346,7 @@ LABEL_18:
   }
   else
   {
-    if ( HvShutdownComplete && ((__int64)stru_140F10828.KernelShadowStackInitial & 8) != 0 )
+    if ( HvShutdownComplete && (PopShutdownCleanly & 8) != 0 )
       KeBugCheckEx(0x51u, 0xEuLL, 1uLL, v8, 0LL);
     v20 = -1073741431;
     v23 = 0LL;

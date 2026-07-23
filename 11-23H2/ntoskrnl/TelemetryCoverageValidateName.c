@@ -1,7 +1,7 @@
 /*
- * XREFs of TelemetryCoverageValidateName @ 0x14036540C
+ * XREFs of TelemetryCoverageValidateName @ 0x1403655AC
  * Callers:
- *     EtwpCoverageValidateCP @ 0x14036536C (EtwpCoverageValidateCP.c)
+ *     EtwpCoverageValidateCP @ 0x14036550C (EtwpCoverageValidateCP.c)
  * Callees:
  *     <none>
  */

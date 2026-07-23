@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpLogIommuInitStatus @ 0x1402787CC
+ * XREFs of HvlpLogIommuInitStatus @ 0x1402789BC
  * Callers:
- *     HvlPhase2Initialize @ 0x140193304 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x140193444 (HvlPhase2Initialize.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
- *     HvlpWriteEventLog @ 0x140278A38 (HvlpWriteEventLog.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
+ *     HvlpWriteEventLog @ 0x140278C28 (HvlpWriteEventLog.c)
  */
 
 __int64 HvlpLogIommuInitStatus()

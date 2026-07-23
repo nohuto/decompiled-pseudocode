@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveMountLogEntryApplied @ 0x140855554
+ * XREFs of CmpTraceHiveMountLogEntryApplied @ 0x14085B8EC
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x140AE00FC (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140ADD93C (HvpApplyIncrementalLogFile.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall CmpTraceHiveMountLogEntryApplied(int a1, int a2)

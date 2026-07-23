@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializePoolHeapManagement @ 0x140659E80
+ * XREFs of ExInitializePoolHeapManagement @ 0x140658520
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     ExCreateHeap @ 0x140659CA0 (ExCreateHeap.c)
- *     ExpDetermineLargePagePolicy @ 0x14065A0E4 (ExpDetermineLargePagePolicy.c)
- *     RtlHpKInitializeHeapManager @ 0x14065A518 (RtlHpKInitializeHeapManager.c)
- *     RtlpDynamicLookasideInitialize @ 0x1406A1B78 (RtlpDynamicLookasideInitialize.c)
- *     ExInitializePoolTracker @ 0x140C4246C (ExInitializePoolTracker.c)
- *     ExpInitializePrivatePools @ 0x140C44008 (ExpInitializePrivatePools.c)
+ *     ExCreateHeap @ 0x140658340 (ExCreateHeap.c)
+ *     ExpDetermineLargePagePolicy @ 0x140658784 (ExpDetermineLargePagePolicy.c)
+ *     RtlHpKInitializeHeapManager @ 0x140658BE8 (RtlHpKInitializeHeapManager.c)
+ *     RtlpDynamicLookasideInitialize @ 0x1406A2BC8 (RtlpDynamicLookasideInitialize.c)
+ *     ExInitializePoolTracker @ 0x140C445BC (ExInitializePoolTracker.c)
+ *     ExpInitializePrivatePools @ 0x140C46158 (ExpInitializePrivatePools.c)
  */
 
 __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
@@ -45,11 +45,11 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
     for ( i = 0; ; ++i )
     {
       v5 = 0x400000LL;
-      if ( i >= dword_140E6BC10 )
+      if ( i >= dword_140E6BE10 )
         break;
       v12 = 0LL;
       LOWORD(v12) = 259;
-      v6 = (__int64 *)((char *)&unk_140E6BC40 + 8384 * i);
+      v6 = (__int64 *)((char *)&unk_140E6BE40 + 8384 * i);
       BYTE2(v12) = i;
       if ( *((_QWORD *)&v18 + 1) )
         v5 = 71303168LL;
@@ -104,7 +104,7 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
       v10 = v20;
       *(_BYTE *)(v20 + 333) |= 8u;
       *(_BYTE *)(v10 + 525) |= 8u;
-      qword_140EEEC48 = v10;
+      qword_140EEEE48 = v10;
       if ( (a1 & 0x400) != 0 )
       {
         v11 = 0LL;
@@ -121,8 +121,8 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
         *(_BYTE *)(v11 + 525) |= 8u;
       }
       ExPoolLimitState = 0LL;
-      qword_140EEEC40[0] = v11;
-      qword_140E28F88 = 0LL;
+      qword_140EEEE40[0] = v11;
+      qword_140E290C8 = 0LL;
       result = ExInitializePoolTracker();
       if ( (int)result >= 0 )
       {

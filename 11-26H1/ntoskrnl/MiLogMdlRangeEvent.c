@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogMdlRangeEvent @ 0x1406EE848
+ * XREFs of MiLogMdlRangeEvent @ 0x1406F34E8
  * Callers:
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     MiGetPfnPidSafe @ 0x140416120 (MiGetPfnPidSafe.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     MiGetPfnPidSafe @ 0x14040A730 (MiGetPfnPidSafe.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogMdlRangeEvent(_KPROCESS *Process, _QWORD *a2, __int16 a3, __int64 a4, __int64 a5)

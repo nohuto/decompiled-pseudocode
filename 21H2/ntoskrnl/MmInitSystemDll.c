@@ -1,11 +1,11 @@
 /*
- * XREFs of MmInitSystemDll @ 0x140A4B9EC
+ * XREFs of MmInitSystemDll @ 0x140A4C9EC
  * Callers:
- *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4D104 (Phase1InitializationIoReady.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     PsQuerySystemDllInfo @ 0x14064E8DC (PsQuerySystemDllInfo.c)
- *     PspReferenceSystemDll @ 0x140712A44 (PspReferenceSystemDll.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     PsQuerySystemDllInfo @ 0x1406436FC (PsQuerySystemDllInfo.c)
+ *     PspReferenceSystemDll @ 0x1406C1094 (PspReferenceSystemDll.c)
  */
 
 void MmInitSystemDll()
@@ -19,7 +19,7 @@ void MmInitSystemDll()
   if ( SystemDllInfo )
   {
     v2 = (struct _DMA_ADAPTER *)PspReferenceSystemDll((signed __int64 *)(SystemDllInfo - 16));
-    qword_140C4DE10 = *(_QWORD *)(v1 + 24);
+    qword_140C4DE50 = *(_QWORD *)(v1 + 24);
     if ( v2 )
       ObFastDereferenceObject((signed __int64 *)(v1 - 16), v2);
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObDereferenceProcessHandleTable @ 0x1409E44F0
+ * XREFs of ObDereferenceProcessHandleTable @ 0x1409DEF50
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x140597158 (IoRevokeHandlesForProcess.c)
+ *     IoRevokeHandlesForProcess @ 0x1405940D8 (IoRevokeHandlesForProcess.c)
  * Callees:
- *     ExfReleaseRundownProtection @ 0x1402456A0 (ExfReleaseRundownProtection.c)
+ *     ExfReleaseRundownProtection @ 0x14020DE80 (ExfReleaseRundownProtection.c)
  */
 
 void __fastcall ObDereferenceProcessHandleTable(struct _EX_RUNDOWN_REF *a1)

@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiEnablePagingOfDriver @ 0x140553BF4 (MiEnablePagingOfDriver.c)
+ *     MiEnablePagingOfDriver @ 0x140554134 (MiEnablePagingOfDriver.c)
  *     MiLockPagableSections @ 0x1407A41E0 (MiLockPagableSections.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoFastQueryNetworkAttributes @ 0x140AA59C0
+ * XREFs of IoFastQueryNetworkAttributes @ 0x140AA0A30
  * Callers:
  *     <none>
  * Callees:
- *     IopFastQueryNetworkAttributes @ 0x140AA5A00 (IopFastQueryNetworkAttributes.c)
+ *     IopFastQueryNetworkAttributes @ 0x140AA0A70 (IopFastQueryNetworkAttributes.c)
  */
 
 BOOLEAN __stdcall IoFastQueryNetworkAttributes(

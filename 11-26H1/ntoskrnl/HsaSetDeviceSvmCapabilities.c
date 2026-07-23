@@ -1,10 +1,10 @@
 /*
- * XREFs of HsaSetDeviceSvmCapabilities @ 0x1405AA8D0
+ * XREFs of HsaSetDeviceSvmCapabilities @ 0x1405AD0E0
  * Callers:
  *     <none>
  * Callees:
- *     ExtEnvAllocateMemory @ 0x140597BA0 (ExtEnvAllocateMemory.c)
- *     ExtEnvFreeMemory @ 0x140597DF0 (ExtEnvFreeMemory.c)
+ *     ExtEnvAllocateMemory @ 0x14059A320 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x14059A570 (ExtEnvFreeMemory.c)
  */
 
 __int64 __fastcall HsaSetDeviceSvmCapabilities(unsigned __int64 a1, __int64 a2, int a3, char a4)

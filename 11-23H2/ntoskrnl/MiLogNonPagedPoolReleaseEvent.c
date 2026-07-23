@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLogNonPagedPoolReleaseEvent @ 0x140641740
+ * XREFs of MiLogNonPagedPoolReleaseEvent @ 0x140641C90
  * Callers:
  *     MiClearNonPagedPtes @ 0x140212458 (MiClearNonPagedPtes.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogNonPagedPoolReleaseEvent(_QWORD *a1)

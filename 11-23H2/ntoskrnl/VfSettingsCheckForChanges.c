@@ -1,14 +1,14 @@
 /*
- * XREFs of VfSettingsCheckForChanges @ 0x140ADADD4
+ * XREFs of VfSettingsCheckForChanges @ 0x140ADADC4
  * Callers:
- *     VfSetVerifierInformation @ 0x140ADD818 (VfSetVerifierInformation.c)
+ *     VfSetVerifierInformation @ 0x140ADD808 (VfSetVerifierInformation.c)
  * Callees:
- *     VfPendingCheckForChanges @ 0x140AD17F0 (VfPendingCheckForChanges.c)
- *     VfKeCheckForChanges @ 0x140AD5BF0 (VfKeCheckForChanges.c)
- *     ViDeadlockDetectionApplySettings @ 0x140AD8DBC (ViDeadlockDetectionApplySettings.c)
- *     VfSettingsApplyMiscellaneousChecks @ 0x140ADAD94 (VfSettingsApplyMiscellaneousChecks.c)
- *     ViSettingsEnableKernelHandleChecking @ 0x140ADAEEC (ViSettingsEnableKernelHandleChecking.c)
- *     ViSettingsIoCheckForChanges @ 0x140ADAF48 (ViSettingsIoCheckForChanges.c)
+ *     VfPendingCheckForChanges @ 0x140AD17E0 (VfPendingCheckForChanges.c)
+ *     VfKeCheckForChanges @ 0x140AD5BE0 (VfKeCheckForChanges.c)
+ *     ViDeadlockDetectionApplySettings @ 0x140AD8DAC (ViDeadlockDetectionApplySettings.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x140ADAD84 (VfSettingsApplyMiscellaneousChecks.c)
+ *     ViSettingsEnableKernelHandleChecking @ 0x140ADAEDC (ViSettingsEnableKernelHandleChecking.c)
+ *     ViSettingsIoCheckForChanges @ 0x140ADAF38 (ViSettingsIoCheckForChanges.c)
  */
 
 void __fastcall VfSettingsCheckForChanges(unsigned int a1, __int16 a2, unsigned __int16 a3, unsigned int a4)

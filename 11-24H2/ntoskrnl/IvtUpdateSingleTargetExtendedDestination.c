@@ -1,8 +1,8 @@
 /*
- * XREFs of IvtUpdateSingleTargetExtendedDestination @ 0x1405716BC
+ * XREFs of IvtUpdateSingleTargetExtendedDestination @ 0x14056EB4C
  * Callers:
- *     IvtUpdateRemappingDestination @ 0x140571590 (IvtUpdateRemappingDestination.c)
- *     HsaUpdateRemappingDestination @ 0x140573A30 (HsaUpdateRemappingDestination.c)
+ *     IvtUpdateRemappingDestination @ 0x14056EA20 (IvtUpdateRemappingDestination.c)
+ *     HsaUpdateRemappingDestination @ 0x140570EC0 (HsaUpdateRemappingDestination.c)
  * Callees:
  *     <none>
  */

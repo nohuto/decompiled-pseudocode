@@ -1,14 +1,15 @@
 /*
  * XREFs of ZwSetDriverEntryOrder @ 0x14041EAA0
  * Callers:
- *     DifZwSetDriverEntryOrderWrapper @ 0x140626CA0 (DifZwSetDriverEntryOrderWrapper.c)
+ *     sub_140626CA0 @ 0x140626CA0 (sub_140626CA0.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetDriverEntryOrder(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetDriverEntryOrder(PULONG Ids, ULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(Ids, *(_QWORD *)&Count);
 }

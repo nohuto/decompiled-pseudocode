@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDmCacheDataEncode @ 0x140A50FFC
+ * XREFs of PiDmCacheDataEncode @ 0x140A483AC
  * Callers:
- *     PiDmObjectProcessPropertyChange @ 0x1408BA158 (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x1408BB2BC (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiDmObjectCreate @ 0x140AC3894 (PiDmObjectCreate.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1408B7B08 (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1408B8C6C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectCreate @ 0x140ABF218 (PiDmObjectCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     _PnpStringFromGuid @ 0x1408B754C (_PnpStringFromGuid.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     _PnpStringFromGuid @ 0x1408B4EBC (_PnpStringFromGuid.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDmCacheDataEncode(int a1, int *a2, unsigned int a3, int a4, int a5, __int64 a6)
 {
-  size_t v6; // r15
+  ULONG_PTR v6; // r15
   int *v7; // rbp
   unsigned int v9; // edi
   int Object; // eax
@@ -70,7 +70,7 @@ LABEL_15:
 LABEL_4:
   if ( (unsigned int)v6 > 8 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v6, 0x5A706E50u);
     *(_QWORD *)(a6 + 16) = Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741670;

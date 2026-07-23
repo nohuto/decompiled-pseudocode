@@ -15,63 +15,63 @@
  *     memmove @ 0x1800AAB40 (memmove.c)
  */
 
-__int64 __fastcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING UnicodeString)
+NTSTATUS __cdecl RtlFormatCurrentUserKeyPath(PUNICODE_STRING CurrentUserKeyPath)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int16 v3; // r14
-  __int64 v4; // rcx
+  SIZE_T v4; // rcx
   wchar_t *StringRoutine; // rax
   unsigned int Length; // esi
   wchar_t *v7; // r15
   wchar_t *Buffer; // rax
   unsigned __int64 v9; // rdx
-  NTSTATUS v10; // edi
-  int v11; // [rsp+30h] [rbp-59h] BYREF
-  UNICODE_STRING UnicodeStringa; // [rsp+38h] [rbp-51h] BYREF
-  _BYTE v13[8]; // [rsp+48h] [rbp-41h] BYREF
-  PSID Sid[12]; // [rsp+50h] [rbp-39h] BYREF
+  int v10; // edi
+  ULONG StringLength; // [rsp+30h] [rbp-59h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-51h] BYREF
+  ULONG ReturnLength; // [rsp+48h] [rbp-41h] BYREF
+  PSID TokenInformation[12]; // [rsp+50h] [rbp-39h] BYREF
 
-  result = NtQueryInformationToken(-6LL, 1LL, Sid, 88LL, v13);
-  if ( (int)result >= 0 )
+  result = NtQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 1u, TokenInformation, 0x58u, &ReturnLength);
+  if ( result >= 0 )
   {
-    result = RtlLengthSidAsUnicodeString(Sid[0], &v11);
-    if ( (int)result >= 0 )
+    result = RtlLengthSidAsUnicodeString(TokenInformation[0], &StringLength);
+    if ( result >= 0 )
     {
-      v3 = v11;
-      UnicodeString->Length = 0;
+      v3 = StringLength;
+      CurrentUserKeyPath->Length = 0;
       v4 = (unsigned __int16)(v3 + 34);
-      UnicodeString->MaximumLength = v4;
+      CurrentUserKeyPath->MaximumLength = v4;
       StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v4);
-      UnicodeString->Buffer = StringRoutine;
+      CurrentUserKeyPath->Buffer = StringRoutine;
       if ( StringRoutine )
       {
-        if ( (int)RtlInitUnicodeStringEx(&UnicodeStringa, L"\\REGISTRY\\USER\\") >= 0 )
+        if ( RtlInitUnicodeStringEx(&DestinationString, L"\\REGISTRY\\USER\\") >= 0 )
         {
-          Length = UnicodeStringa.Length;
-          if ( UnicodeString->Length + (unsigned int)UnicodeStringa.Length <= UnicodeString->MaximumLength )
+          Length = DestinationString.Length;
+          if ( CurrentUserKeyPath->Length + (unsigned int)DestinationString.Length <= CurrentUserKeyPath->MaximumLength )
           {
-            v7 = &UnicodeString->Buffer[(unsigned __int64)UnicodeString->Length >> 1];
-            memmove(v7, L"\\REGISTRY\\USER\\", UnicodeStringa.Length);
-            UnicodeString->Length += Length;
-            if ( (unsigned int)UnicodeString->Length + 1 < UnicodeString->MaximumLength )
+            v7 = &CurrentUserKeyPath->Buffer[(unsigned __int64)CurrentUserKeyPath->Length >> 1];
+            memmove(v7, L"\\REGISTRY\\USER\\", DestinationString.Length);
+            CurrentUserKeyPath->Length += Length;
+            if ( (unsigned int)CurrentUserKeyPath->Length + 1 < CurrentUserKeyPath->MaximumLength )
               v7[(unsigned __int64)Length >> 1] = 0;
           }
         }
-        Buffer = UnicodeString->Buffer;
-        v9 = (unsigned __int64)UnicodeString->Length >> 1;
-        UnicodeStringa.MaximumLength = v3;
-        UnicodeStringa.Length = 0;
-        UnicodeStringa.Buffer = &Buffer[v9];
-        v10 = RtlConvertSidToUnicodeString(&UnicodeStringa, Sid[0], 0);
+        Buffer = CurrentUserKeyPath->Buffer;
+        v9 = (unsigned __int64)CurrentUserKeyPath->Length >> 1;
+        DestinationString.MaximumLength = v3;
+        DestinationString.Length = 0;
+        DestinationString.Buffer = &Buffer[v9];
+        v10 = RtlConvertSidToUnicodeString(&DestinationString, TokenInformation[0], 0);
         if ( v10 < 0 )
-          RtlFreeUnicodeString(UnicodeString);
+          RtlFreeUnicodeString(CurrentUserKeyPath);
         else
-          UnicodeString->Length += UnicodeStringa.Length;
-        return (unsigned int)v10;
+          CurrentUserKeyPath->Length += DestinationString.Length;
+        return v10;
       }
       else
       {
-        return 3221225495LL;
+        return -1073741801;
       }
     }
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventVetoReasonRundown @ 0x140878B28
+ * XREFs of PpmEventVetoReasonRundown @ 0x140879D88
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140764270 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140765460 (PpmEventTraceControlCallback.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PpmEventVetoReasonRundown()

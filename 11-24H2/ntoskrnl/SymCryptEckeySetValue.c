@@ -1,39 +1,39 @@
 /*
- * XREFs of SymCryptEckeySetValue @ 0x140522F10
+ * XREFs of SymCryptEckeySetValue @ 0x140520824
  * Callers:
- *     SymCryptEcDhSecretAgreementSelftest @ 0x140529594 (SymCryptEcDhSecretAgreementSelftest.c)
- *     SymCryptEcDsaSelftest @ 0x14052972C (SymCryptEcDsaSelftest.c)
- *     HashpVerifyEcdsaSignature @ 0x14082FC54 (HashpVerifyEcdsaSignature.c)
+ *     SymCryptEcDhSecretAgreementSelftest @ 0x140526EB4 (SymCryptEcDhSecretAgreementSelftest.c)
+ *     SymCryptEcDsaSelftest @ 0x14052704C (SymCryptEcDsaSelftest.c)
+ *     HashpVerifyEcdsaSignature @ 0x14083044C (HashpVerifyEcdsaSignature.c)
  * Callees:
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     SymCryptEcurveDigitsofScalarMultiplier @ 0x140522408 (SymCryptEcurveDigitsofScalarMultiplier.c)
- *     SymCryptEcurveSizeofFieldElement @ 0x140522AD8 (SymCryptEcurveSizeofFieldElement.c)
- *     SymCryptFdefIntGetValueLsbits32 @ 0x140522AE4 (SymCryptFdefIntGetValueLsbits32.c)
- *     SymCryptEckeyPerformPublicKeyValidation @ 0x140522DF8 (SymCryptEckeyPerformPublicKeyValidation.c)
- *     SymCryptDivisorFromModulus @ 0x140523754 (SymCryptDivisorFromModulus.c)
- *     SymCryptIntCopy @ 0x140523814 (SymCryptIntCopy.c)
- *     SymCryptIntCreate @ 0x140523844 (SymCryptIntCreate.c)
- *     SymCryptIntDivMod @ 0x14052385C (SymCryptIntDivMod.c)
- *     SymCryptIntDivPow2 @ 0x140523888 (SymCryptIntDivPow2.c)
- *     SymCryptIntFromModulus @ 0x1405238E0 (SymCryptIntFromModulus.c)
- *     SymCryptIntGetBits @ 0x140523910 (SymCryptIntGetBits.c)
- *     SymCryptIntIsEqualUint32 @ 0x140523988 (SymCryptIntIsEqualUint32.c)
- *     SymCryptIntIsLessThan @ 0x1405239A0 (SymCryptIntIsLessThan.c)
- *     SymCryptIntSetValue @ 0x140523A08 (SymCryptIntSetValue.c)
- *     SymCryptIntToModElement @ 0x140523ADC (SymCryptIntToModElement.c)
- *     SymCryptModDivPow2 @ 0x140523B7C (SymCryptModDivPow2.c)
- *     SymCryptModElementCreate @ 0x140523BD8 (SymCryptModElementCreate.c)
- *     SymCryptModElementToInt @ 0x140523D88 (SymCryptModElementToInt.c)
- *     SymCryptSizeofIntFromDigits @ 0x140523FFC (SymCryptSizeofIntFromDigits.c)
- *     SymCryptEcDhSecretAgreementSelftest @ 0x140529594 (SymCryptEcDhSecretAgreementSelftest.c)
- *     SymCryptEcDsaSelftest @ 0x14052972C (SymCryptEcDsaSelftest.c)
- *     SymCryptEcpointCreate @ 0x14052A980 (SymCryptEcpointCreate.c)
- *     SymCryptEcpointSetValue @ 0x14052ABC0 (SymCryptEcpointSetValue.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x14052B2D0 (SymCryptSizeofEcpointFromCurve.c)
- *     SymCryptEcpointIsEqual @ 0x14052E75C (SymCryptEcpointIsEqual.c)
- *     SymCryptEcpointScalarMul @ 0x14052E890 (SymCryptEcpointScalarMul.c)
- *     SymCryptCallbackAlloc @ 0x1406A5810 (SymCryptCallbackAlloc.c)
- *     SymCryptCallbackFree @ 0x1406A5848 (SymCryptCallbackFree.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     SymCryptEcurveDigitsofScalarMultiplier @ 0x14051FD4C (SymCryptEcurveDigitsofScalarMultiplier.c)
+ *     SymCryptEcurveSizeofFieldElement @ 0x1405203EC (SymCryptEcurveSizeofFieldElement.c)
+ *     SymCryptFdefIntGetValueLsbits32 @ 0x1405203F8 (SymCryptFdefIntGetValueLsbits32.c)
+ *     SymCryptEckeyPerformPublicKeyValidation @ 0x14052070C (SymCryptEckeyPerformPublicKeyValidation.c)
+ *     SymCryptDivisorFromModulus @ 0x14052106C (SymCryptDivisorFromModulus.c)
+ *     SymCryptIntCopy @ 0x14052112C (SymCryptIntCopy.c)
+ *     SymCryptIntCreate @ 0x14052115C (SymCryptIntCreate.c)
+ *     SymCryptIntDivMod @ 0x140521174 (SymCryptIntDivMod.c)
+ *     SymCryptIntDivPow2 @ 0x1405211A0 (SymCryptIntDivPow2.c)
+ *     SymCryptIntFromModulus @ 0x1405211F8 (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetBits @ 0x140521228 (SymCryptIntGetBits.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1405212A0 (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntIsLessThan @ 0x1405212B8 (SymCryptIntIsLessThan.c)
+ *     SymCryptIntSetValue @ 0x140521320 (SymCryptIntSetValue.c)
+ *     SymCryptIntToModElement @ 0x1405213F4 (SymCryptIntToModElement.c)
+ *     SymCryptModDivPow2 @ 0x140521494 (SymCryptModDivPow2.c)
+ *     SymCryptModElementCreate @ 0x1405214F0 (SymCryptModElementCreate.c)
+ *     SymCryptModElementToInt @ 0x1405216A0 (SymCryptModElementToInt.c)
+ *     SymCryptSizeofIntFromDigits @ 0x140521914 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptEcDhSecretAgreementSelftest @ 0x140526EB4 (SymCryptEcDhSecretAgreementSelftest.c)
+ *     SymCryptEcDsaSelftest @ 0x14052704C (SymCryptEcDsaSelftest.c)
+ *     SymCryptEcpointCreate @ 0x140528190 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointSetValue @ 0x1405283D0 (SymCryptEcpointSetValue.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x140528AE0 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointIsEqual @ 0x140528BD8 (SymCryptEcpointIsEqual.c)
+ *     SymCryptEcpointScalarMul @ 0x140528D0C (SymCryptEcpointScalarMul.c)
+ *     SymCryptCallbackAlloc @ 0x1406A6810 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x1406A6848 (SymCryptCallbackFree.c)
  */
 
 __int64 __fastcall SymCryptEckeySetValue(
@@ -102,7 +102,7 @@ LABEL_11:
         v14 = SymCryptIntSetValue(a1, a2, a5, v19);
         if ( v14 )
         {
-LABEL_53:
+LABEL_54:
           SymCryptWipe(v17, v36);
           SymCryptCallbackFree(v17);
           return v14;
@@ -145,7 +145,7 @@ LABEL_53:
         {
 LABEL_18:
           v14 = 32782;
-          goto LABEL_53;
+          goto LABEL_54;
         }
         SymCryptIntCopy(v19, *(_QWORD *)(a8 + 24));
         v16 = v36;
@@ -157,12 +157,12 @@ LABEL_18:
         goto LABEL_38;
       v14 = SymCryptEcpointSetValue(v12, v10, v9, a5, a6, *(_QWORD *)(a8 + 16), 1, v17, v16);
       if ( v14 )
-        goto LABEL_53;
+        goto LABEL_54;
       if ( (a7 & 0x200) == 0 )
       {
         v14 = SymCryptEckeyPerformPublicKeyValidation(a8, (a7 & 0x100) == 0, v17, v16);
         if ( v14 )
-          goto LABEL_53;
+          goto LABEL_54;
       }
       if ( (a7 & 0x100) == 0 && a1 )
       {
@@ -183,7 +183,7 @@ LABEL_38:
         v31 = v26;
         v14 = SymCryptEcpointScalarMul(v12, *(_QWORD *)(a8 + 24), 0, 32, v25, v24, v26);
         if ( v14 )
-          goto LABEL_53;
+          goto LABEL_54;
         if ( a3 )
         {
           if ( !(unsigned int)SymCryptEcpointIsEqual(v12, v39, *(_QWORD *)(a8 + 16), 0, v24, v31) )
@@ -193,16 +193,20 @@ LABEL_38:
         {
           v14 = SymCryptEckeyPerformPublicKeyValidation(a8, (a7 & 0x100) == 0, v17, v16);
           if ( v14 )
-            goto LABEL_53;
+            goto LABEL_54;
         }
       }
       *(_DWORD *)a8 = a7;
       if ( (a7 & 0x100) == 0 )
       {
-        if ( (a7 & 0x1000) != 0 && (g_SymCryptFipsSelftestsPerformed & 4) == 0 )
+        if ( (a7 & 0x1000) != 0 )
         {
-          SymCryptEcDsaSelftest();
-          _InterlockedOr(&g_SymCryptFipsSelftestsPerformed, 4u);
+          if ( (g_SymCryptFipsSelftestsPerformed & 4) == 0 )
+          {
+            SymCryptEcDsaSelftest();
+            _InterlockedOr(&g_SymCryptFipsSelftestsPerformed, 4u);
+          }
+          *(_DWORD *)a8 |= 1u;
         }
         if ( (a7 & 0x2000) != 0 && (g_SymCryptFipsSelftestsPerformed & 0x20) == 0 )
         {
@@ -210,7 +214,7 @@ LABEL_38:
           _InterlockedOr(&g_SymCryptFipsSelftestsPerformed, 0x20u);
         }
       }
-      goto LABEL_53;
+      goto LABEL_54;
     }
 LABEL_10:
     if ( v9 != *((_DWORD *)SymCryptEcpointFormatNumberofElements + a6)

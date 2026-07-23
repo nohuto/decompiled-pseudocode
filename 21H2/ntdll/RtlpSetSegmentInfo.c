@@ -5,7 +5,7 @@
  *     RtlpLowFragHeapAllocFromContext @ 0x18002B650 (RtlpLowFragHeapAllocFromContext.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
- *     RtlpLogHeapAffinitySlotAssign @ 0x180109E68 (RtlpLogHeapAffinitySlotAssign.c)
+ *     RtlpLogHeapAffinitySlotAssign @ 0x180109E28 (RtlpLogHeapAffinitySlotAssign.c)
  */
 
 __int64 __fastcall RtlpSetSegmentInfo(__int64 a1, volatile signed __int64 *a2)
@@ -71,7 +71,7 @@ __int64 __fastcall RtlpSetSegmentInfo(__int64 a1, volatile signed __int64 *a2)
       }
       while ( v13 != _InterlockedCompareExchange64(a2 + 20, v17, v13) );
       *(_QWORD *)a1 = a2;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v15 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v15 = 2147353472LL;

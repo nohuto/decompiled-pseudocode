@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSmbiosChange @ 0x1405D6484
+ * XREFs of PopTraceSmbiosChange @ 0x1405D3A98
  * Callers:
- *     PopUpdateSmbiosData @ 0x1407551FC (PopUpdateSmbiosData.c)
+ *     PopUpdateSmbiosData @ 0x14075351C (PopUpdateSmbiosData.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PopTraceSmbiosChange()
@@ -32,7 +32,7 @@ void PopTraceSmbiosChange()
   int v19; // [rsp+A8h] [rbp+3Fh]
   int v20; // [rsp+ACh] [rbp+43h]
 
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v11 = 0;
     v14 = 0;
@@ -50,6 +50,6 @@ void PopTraceSmbiosChange()
     v10 = 8;
     v4 = v3;
     v16 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)byte_140049B71, 0LL, 0LL, 6u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)&word_14004A416, 0LL, 0LL, 6u, &v8);
   }
 }

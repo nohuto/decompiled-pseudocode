@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCheckInitiatorHint @ 0x1404503E8
+ * XREFs of IopCheckInitiatorHint @ 0x140445658
  * Callers:
- *     IopAllocRealFileObject @ 0x14089A9B0 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x1408A3050 (IopAllocRealFileObject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     IoGetInitiatorProcess @ 0x14040A020 (IoGetInitiatorProcess.c)
- *     IopGetSetSpecificExtension @ 0x140426ED0 (IopGetSetSpecificExtension.c)
- *     IopSetFileObjectExtensionFlag @ 0x140434650 (IopSetFileObjectExtensionFlag.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     RtlIsSandboxedToken @ 0x14090C230 (RtlIsSandboxedToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IoGetInitiatorProcess @ 0x140402500 (IoGetInitiatorProcess.c)
+ *     IopGetSetSpecificExtension @ 0x14041AD50 (IopGetSetSpecificExtension.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1404278D0 (IopSetFileObjectExtensionFlag.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     RtlIsSandboxedToken @ 0x1408E3950 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)
@@ -43,7 +43,7 @@ __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)
     if ( SetSpecificExtension >= 0 )
     {
       v12 = 0LL;
-      SetSpecificExtension = IopGetSetSpecificExtension(a1, 1, 32LL, 1, &v12, 0LL);
+      SetSpecificExtension = IopGetSetSpecificExtension(a1, 1, 0x20u, 1, &v12, 0LL);
       if ( SetSpecificExtension < 0 )
       {
         ObfDereferenceObjectWithTag(Object, 0x746C6644u);

@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmiPublishDeviceEnumerationEvents @ 0x1409A2C7C
+ * XREFs of TtmiPublishDeviceEnumerationEvents @ 0x1409A2E7C
  * Callers:
- *     TtmiWriteEnumerationEventsToQueue @ 0x1409A4E1C (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1409A501C (TtmiWriteEnumerationEventsToQueue.c)
  * Callees:
- *     TtmpPublishDeviceEvent @ 0x1409A38E4 (TtmpPublishDeviceEvent.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
+ *     TtmpPublishDeviceEvent @ 0x1409A3AE4 (TtmpPublishDeviceEvent.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiPublishDeviceEnumerationEvents(__int64 a1, __int64 a2)

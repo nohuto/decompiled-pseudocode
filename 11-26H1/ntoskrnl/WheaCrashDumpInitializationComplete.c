@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaCrashDumpInitializationComplete @ 0x140849650
+ * XREFs of WheaCrashDumpInitializationComplete @ 0x14084F960
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     WheapReportDeferredLiveDumps @ 0x1408496B4 (WheapReportDeferredLiveDumps.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     WheapReportDeferredLiveDumps @ 0x14084F9C4 (WheapReportDeferredLiveDumps.c)
  */
 
 __int64 WheaCrashDumpInitializationComplete()
@@ -14,10 +14,10 @@ __int64 WheaCrashDumpInitializationComplete()
   bool v1; // bl
 
   v0 = 0;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpCallbackListLock.UserAffinity);
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpContextListLock.Process);
   WheapCrashDumpInitialized = 1;
-  v1 = CmpCallbackListLock.QueueListEntry.Flink != &CmpCallbackListLock.QueueListEntry;
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpCallbackListLock.UserAffinity);
+  v1 = *(_QWORD *)&CmpContextListLock.ThreadFlags2 != (_QWORD)&CmpContextListLock.512;
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpContextListLock.Process);
   if ( v1 )
     return (unsigned int)WheapReportDeferredLiveDumps();
   return v0;

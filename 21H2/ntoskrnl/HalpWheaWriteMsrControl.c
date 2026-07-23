@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpWheaWriteMsrControl @ 0x1403A0EE8
+ * XREFs of HalpWheaWriteMsrControl @ 0x1403A1038
  * Callers:
- *     HalpMcaSetProcessorConfig @ 0x140999E48 (HalpMcaSetProcessorConfig.c)
+ *     HalpMcaSetProcessorConfig @ 0x14099AE48 (HalpMcaSetProcessorConfig.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403A0F3C (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpGetCpuVendor @ 0x1403A108C (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpWheaWriteMsrControl(__int64 a1, int a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspGetMemoryPartitionContext @ 0x14060D560
+ * XREFs of PspGetMemoryPartitionContext @ 0x14060E560
  * Callers:
- *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
+ *     NtCreateUserProcess @ 0x14060B950 (NtCreateUserProcess.c)
+ *     PsCreateMinimalProcess @ 0x14075871C (PsCreateMinimalProcess.c)
  * Callees:
- *     PspGetMemoryPartitionImplicit @ 0x1406034D0 (PspGetMemoryPartitionImplicit.c)
- *     PspGetMemoryPartitionFromJobList @ 0x140889C28 (PspGetMemoryPartitionFromJobList.c)
+ *     PspGetMemoryPartitionImplicit @ 0x1406044D0 (PspGetMemoryPartitionImplicit.c)
+ *     PspGetMemoryPartitionFromJobList @ 0x14088AE88 (PspGetMemoryPartitionFromJobList.c)
  */
 
 __int64 __fastcall PspGetMemoryPartitionContext(__int64 a1, __int16 a2, __int64 a3, __int64 a4, _QWORD *a5)

@@ -16,7 +16,7 @@
  *     RtlpCleanupRegistryKeys @ 0x1800FBD00 (RtlpCleanupRegistryKeys.c)
  *     RtlpSetInstallLanguage @ 0x1800FCEB0 (RtlpSetInstallLanguage.c)
  *     RtlpSetPreferredUILanguages @ 0x1800FD570 (RtlpSetPreferredUILanguages.c)
- *     RtlpRefreshCachedUILanguage @ 0x1801147B0 (RtlpRefreshCachedUILanguage.c)
+ *     RtlpRefreshCachedUILanguage @ 0x180114780 (RtlpRefreshCachedUILanguage.c)
  * Callees:
  *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18000A534 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
  *     RtlpInitMuiCriticalSection @ 0x180011A44 (RtlpInitMuiCriticalSection.c)
@@ -24,10 +24,10 @@
  *     RtlLeaveCriticalSection @ 0x180027020 (RtlLeaveCriticalSection.c)
  */
 
-__int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
+__int64 __fastcall RtlpCreateProcessRegistryInfo(_QWORD *a1)
 {
-  __int64 v1; // rax
-  __int64 v2; // rbx
+  PVOID v1; // rax
+  PVOID v2; // rbx
   int RegistryInfo; // edi
 
   v1 = g_RegInfo;

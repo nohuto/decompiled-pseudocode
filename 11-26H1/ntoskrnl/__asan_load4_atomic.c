@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_load4_atomic @ 0x1405DEDA0
+ * XREFs of __asan_load4_atomic @ 0x1405E1710
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
  */
 
 void __fastcall _asan_load4_atomic(ULONG_PTR BugCheckParameter1)

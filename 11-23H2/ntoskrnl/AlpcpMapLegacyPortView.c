@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpMapLegacyPortView @ 0x1407B9910
+ * XREFs of AlpcpMapLegacyPortView @ 0x1407B9BF0
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x140716258 (AlpcpFormatConnectionRequest.c)
- *     AlpcpAcceptConnectPort @ 0x14071697C (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x140716458 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x140716B7C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteBlob @ 0x14071C11C (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140739E34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073BC40 (AlpcpUnlockBlob.c)
- *     AlpcpCreateSection @ 0x14076C3C8 (AlpcpCreateSection.c)
- *     AlpcpCreateSectionView @ 0x1407B9CC4 (AlpcpCreateSectionView.c)
- *     MmGetSectionInformation @ 0x1407BA090 (MmGetSectionInformation.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     AlpcpDeleteBlob @ 0x14071C31C (AlpcpDeleteBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14073A024 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x14073BE30 (AlpcpUnlockBlob.c)
+ *     AlpcpCreateSection @ 0x14076C5B8 (AlpcpCreateSection.c)
+ *     AlpcpCreateSectionView @ 0x1407B9FA4 (AlpcpCreateSectionView.c)
+ *     MmGetSectionInformation @ 0x1407BA370 (MmGetSectionInformation.c)
  */
 
 __int64 __fastcall AlpcpMapLegacyPortView(char *Object, __int64 a2, __int64 a3)

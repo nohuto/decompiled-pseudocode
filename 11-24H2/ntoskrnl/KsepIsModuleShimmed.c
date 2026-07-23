@@ -1,24 +1,24 @@
 /*
- * XREFs of KsepIsModuleShimmed @ 0x14095A46C
+ * XREFs of KsepIsModuleShimmed @ 0x140941F2C
  * Callers:
- *     KseDriverUnloadImage @ 0x140959CDC (KseDriverUnloadImage.c)
- *     KsepGetShimsForDriver @ 0x140959F74 (KsepGetShimsForDriver.c)
- *     KsepGetShimCallbacksForDriver @ 0x14095A360 (KsepGetShimCallbacksForDriver.c)
+ *     KseDriverUnloadImage @ 0x14094179C (KseDriverUnloadImage.c)
+ *     KsepGetShimsForDriver @ 0x140941A34 (KsepGetShimsForDriver.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140941E20 (KsepGetShimCallbacksForDriver.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // edi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v8; // rax
+  char *v8; // rax
   signed __int8 v9; // cf
-  _QWORD *v10; // rsi
+  char *v10; // rsi
   _QWORD *v11; // rax
   _QWORD *v13; // rdx
 
@@ -28,13 +28,13 @@ __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
   CurrentThread = KeGetCurrentThread();
   *a3 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v8 = KeAbPreAcquire((__int64)&qword_140E66B10, 0LL);
-  v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E66B10, 0LL);
+  v8 = (char *)KeAbPreAcquire((__int64)&qword_140E66C40, 0LL);
+  v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E66C40, 0LL);
   v10 = v8;
   if ( v9 )
-    ExfAcquirePushLockExclusiveEx(&qword_140E66B10, (__int64)v8, (__int64)&qword_140E66B10);
+    ExfAcquirePushLockExclusiveEx(&qword_140E66C40, v8, (__int64)&qword_140E66C40);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   v11 = *(_QWORD **)(a1 + 32);
   if ( v11 != (_QWORD *)(a1 + 32) )
   {
@@ -50,9 +50,9 @@ __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
       }
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E66B10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E66B10);
-  KeAbPostRelease((ULONG_PTR)&qword_140E66B10);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E66C40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E66C40);
+  KeAbPostRelease((ULONG_PTR)&qword_140E66C40);
   KeLeaveCriticalRegion();
   return v3;
 }

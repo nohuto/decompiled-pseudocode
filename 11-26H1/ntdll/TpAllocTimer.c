@@ -1,75 +1,82 @@
 /*
- * XREFs of TpAllocTimer @ 0x18004EC00
+ * XREFs of TpAllocTimer @ 0x180039180
  * Callers:
- *     RtlCreateTimer @ 0x1800674B0 (RtlCreateTimer.c)
- *     RtlpInitializeWnf @ 0x180070624 (RtlpInitializeWnf.c)
+ *     RtlCreateTimer @ 0x180087900 (RtlCreateTimer.c)
+ *     RtlpInitializeWnf @ 0x180090A74 (RtlpInitializeWnf.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     TppWorkInitialize @ 0x18004D8A0 (TppWorkInitialize.c)
- *     TppCleanupGroupAddMember @ 0x18004EB90 (TppCleanupGroupAddMember.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     NtSetInformationWorkerFactory @ 0x180162570 (NtSetInformationWorkerFactory.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     TppWorkInitialize @ 0x180037E20 (TppWorkInitialize.c)
+ *     TppCleanupGroupAddMember @ 0x180039110 (TppCleanupGroupAddMember.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     NtSetInformationWorkerFactory @ 0x180162470 (NtSetInformationWorkerFactory.c)
  */
 
-__int64 __fastcall TpAllocTimer(__int64 *a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __cdecl TpAllocTimer(
+        PTP_TIMER *Timer,
+        PTP_TIMER_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  __int64 Heap_0; // rbx
-  int v9; // r9d
-  __int64 result; // rax
-  __int64 v11; // rcx
+  int v5; // ebp
+  _TP_TIMER *Heap_0; // rbx
+  unsigned int Flags; // r9d
+  NTSTATUS result; // eax
+  _TP_POOL *Pool; // rcx
   int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h]
-  int v16; // [rsp+50h] [rbp+8h] BYREF
+  void *WorkerFactory; // rcx
+  void *retaddr; // [rsp+48h] [rbp+0h]
+  int WorkerFactoryInformation; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( !a1 || !a2 || a4 && (*(_DWORD *)(a4 + 56) & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  v5 = (int)Context;
+  if ( !Timer
+    || !Callback
+    || CallbackEnviron && (CallbackEnviron->u.Flags & 0xFFFFFFFC) != 0
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
-    return 3221225485LL;
+    return -1073741811;
   }
   else
   {
-    Heap_0 = RtlAllocateHeap_0();
+    Heap_0 = (_TP_TIMER *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x100000) | 8, 0x168uLL);
     if ( Heap_0 )
     {
-      *(_QWORD *)(Heap_0 + 176) = retaddr;
-      if ( a4 )
-        v9 = *(_DWORD *)(a4 + 56);
+      Heap_0->Work.CleanupGroupMember.AllocCaller.ReturnAddress = retaddr;
+      if ( CallbackEnviron )
+        Flags = CallbackEnviron->u.Flags;
       else
-        v9 = 0;
+        Flags = 0;
       result = TppWorkInitialize(
-                 Heap_0,
-                 a3,
-                 a4,
-                 v9,
-                 (__int64)TppTimerpCleanupGroupMemberVFuncs,
-                 (__int64)TppTimerpTaskVFuncs);
-      if ( (int)result >= 0 )
+                 (__int64)Heap_0,
+                 v5,
+                 (int)CallbackEnviron,
+                 Flags,
+                 (__int64)&TppTimerpCleanupGroupMemberVFuncs,
+                 (__int64)&TppTimerpTaskVFuncs);
+      if ( result >= 0 )
       {
-        v11 = *(_QWORD *)(Heap_0 + 144);
-        v12 = _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 432), 1u);
-        v13 = (unsigned int)(v12 + 1);
-        if ( v12 <= 0 && (int)v13 > 0 )
+        Pool = Heap_0->Work.CleanupGroupMember.Pool;
+        v12 = _InterlockedExchangeAdd(&Pool->BindingCount, 1u);
+        if ( v12 <= 0 && v12 + 1 > 0 )
         {
-          v14 = *(_QWORD *)(v11 + 56);
-          v16 = 1;
-          NtSetInformationWorkerFactory(v14, 3LL, &v16, 4LL);
+          WorkerFactory = Pool->WorkerFactory;
+          WorkerFactoryInformation = 1;
+          NtSetInformationWorkerFactory(WorkerFactory, WorkerFactoryBindingCount, &WorkerFactoryInformation, 4u);
         }
-        *(_QWORD *)(Heap_0 + 240) = 0LL;
-        *(_BYTE *)(Heap_0 + 353) = 0;
-        if ( a4 )
-          *(_QWORD *)(Heap_0 + 32) = *(_QWORD *)(a4 + 48);
-        if ( *(_QWORD *)(Heap_0 + 16) )
-          TppCleanupGroupAddMember(Heap_0, v13);
-        *(_QWORD *)(Heap_0 + 80) = a2;
-        result = 0LL;
-        *a1 = Heap_0;
+        Heap_0->Lock.Value = 0LL;
+        Heap_0->WaitTimer = 0;
+        if ( CallbackEnviron )
+          Heap_0->Work.CleanupGroupMember.FinalizationCallback = CallbackEnviron->FinalizationCallback;
+        if ( Heap_0->Work.CleanupGroupMember.CleanupGroup )
+          TppCleanupGroupAddMember((__int64)Heap_0);
+        Heap_0->Work.CleanupGroupMember.Callback = Callback;
+        result = 0;
+        *Timer = Heap_0;
       }
     }
     else
     {
-      return 3221225495LL;
+      return -1073741801;
     }
   }
   return result;

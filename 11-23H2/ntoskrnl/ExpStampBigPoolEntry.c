@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpStampBigPoolEntry @ 0x140313608
+ * XREFs of ExpStampBigPoolEntry @ 0x140313898
  * Callers:
  *     ExpStampPoolWithQuotaProcess @ 0x1402080F4 (ExpStampPoolWithQuotaProcess.c)
- *     ExReturnPoolQuota @ 0x1402ACCE0 (ExReturnPoolQuota.c)
+ *     ExReturnPoolQuota @ 0x1402ACF70 (ExReturnPoolQuota.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpBigPoolGetTrackerEntry @ 0x1403136D4 (ExpBigPoolGetTrackerEntry.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpBigPoolGetTrackerEntry @ 0x140313964 (ExpBigPoolGetTrackerEntry.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG_PTR __fastcall ExpStampBigPoolEntry(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, _QWORD *a4, _DWORD *a5)
@@ -38,10 +38,13 @@ ULONG_PTR __fastcall ExpStampBigPoolEntry(ULONG_PTR BugCheckParameter2, __int64 
     v11 = -1LL;
   }
   ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));

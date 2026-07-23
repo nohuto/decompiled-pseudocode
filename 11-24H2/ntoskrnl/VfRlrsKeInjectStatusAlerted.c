@@ -1,12 +1,12 @@
 /*
- * XREFs of VfRlrsKeInjectStatusAlerted @ 0x140B9F704
+ * XREFs of VfRlrsKeInjectStatusAlerted @ 0x140BA1704
  * Callers:
- *     VerifierKeDelayExecutionThread @ 0x140B954B0 (VerifierKeDelayExecutionThread.c)
- *     VerifierKeWaitForMultipleObjects @ 0x140B95D40 (VerifierKeWaitForMultipleObjects.c)
- *     VerifierKeWaitForSingleObject @ 0x140B95DF0 (VerifierKeWaitForSingleObject.c)
+ *     VerifierKeDelayExecutionThread @ 0x140B974B0 (VerifierKeDelayExecutionThread.c)
+ *     VerifierKeWaitForMultipleObjects @ 0x140B97D40 (VerifierKeWaitForMultipleObjects.c)
+ *     VerifierKeWaitForSingleObject @ 0x140B97DF0 (VerifierKeWaitForSingleObject.c)
  * Callees:
- *     VfUtilIsLocalSystem @ 0x140B83404 (VfUtilIsLocalSystem.c)
- *     VfFaultsInjectResourceFailure @ 0x140B96568 (VfFaultsInjectResourceFailure.c)
+ *     VfUtilIsLocalSystem @ 0x140B85404 (VfUtilIsLocalSystem.c)
+ *     VfFaultsInjectResourceFailure @ 0x140B98568 (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall VfRlrsKeInjectStatusAlerted(char a1)

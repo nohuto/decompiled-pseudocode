@@ -2,14 +2,14 @@
  * XREFs of IoIs32bitProcess @ 0x1402DF4A0
  * Callers:
  *     IoIsInitiator32bitProcess @ 0x14025D580 (IoIsInitiator32bitProcess.c)
- *     FsRtlGetMarkHandleInfo @ 0x140542128 (FsRtlGetMarkHandleInfo.c)
- *     EtwpGetScsiPassThroughCdb @ 0x14062EE14 (EtwpGetScsiPassThroughCdb.c)
+ *     sub_140542128 @ 0x140542128 (sub_140542128.c)
+ *     sub_14062EE14 @ 0x14062EE14 (sub_14062EE14.c)
  *     NtCopyFileChunk @ 0x1406588A0 (NtCopyFileChunk.c)
- *     WmipIoControl @ 0x1406C3540 (WmipIoControl.c)
- *     WmipProbeWmiOpenGuidBlock @ 0x1406C39F4 (WmipProbeWmiOpenGuidBlock.c)
- *     WmipProbeAndCaptureGuidObjectAttributes @ 0x1406C3AAC (WmipProbeAndCaptureGuidObjectAttributes.c)
- *     PiDqDispatch @ 0x140776650 (PiDqDispatch.c)
- *     PiCMFastIoDeviceDispatch @ 0x14077BC30 (PiCMFastIoDeviceDispatch.c)
+ *     sub_1406C3540 @ 0x1406C3540 (sub_1406C3540.c)
+ *     sub_1406C39F4 @ 0x1406C39F4 (sub_1406C39F4.c)
+ *     sub_1406C3AAC @ 0x1406C3AAC (sub_1406C3AAC.c)
+ *     sub_140776650 @ 0x140776650 (sub_140776650.c)
+ *     sub_14077BC30 @ 0x14077BC30 (sub_14077BC30.c)
  * Callees:
  *     <none>
  */
@@ -18,19 +18,19 @@ BOOLEAN __stdcall IoIs32bitProcess(PIRP Irp)
 {
   PETHREAD Thread; // rdx
   unsigned __int64 v2; // rax
-  _KPROCESS *Process; // rcx
+  __int64 v4; // rcx
   __int16 v5; // dx
   CCHAR ApcEnvironment; // al
   __int16 v7; // cx
 
   if ( !Irp )
   {
-    if ( KeGetCurrentThread()->PreviousMode != 1 )
+    if ( *((_BYTE *)KeGetCurrentThread() + 562) != 1 )
       return 0;
-    Process = KeGetCurrentThread()->ApcState.Process;
-    if ( !Process[1].Affinity.StaticBitmap[30] )
+    v4 = *((_QWORD *)KeGetCurrentThread() + 23);
+    if ( !*(_QWORD *)(v4 + 1408) )
       return 0;
-    v5 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+    v5 = *(_WORD *)(v4 + 2412);
     return v5 == 332 || v5 == 452;
   }
   if ( Irp->RequestorMode != 1 )
@@ -43,12 +43,12 @@ BOOLEAN __stdcall IoIs32bitProcess(PIRP Irp)
       ApcEnvironment = Irp->ApcEnvironment;
       if ( !ApcEnvironment )
       {
-        v2 = (unsigned __int64)Thread->Process;
+        v2 = *((_QWORD *)Thread + 68);
         goto LABEL_5;
       }
       if ( ApcEnvironment == 1 )
       {
-        v2 = (unsigned __int64)Thread->ApcState.Process;
+        v2 = *((_QWORD *)Thread + 23);
         goto LABEL_5;
       }
     }

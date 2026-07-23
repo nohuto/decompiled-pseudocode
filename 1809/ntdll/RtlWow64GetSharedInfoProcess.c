@@ -3,22 +3,24 @@
  * Callers:
  *     RtlWow64SuspendThread @ 0x1800DD780 (RtlWow64SuspendThread.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x1800A0600 (NtQueryInformationProcess.c)
- *     ZwReadVirtualMemory @ 0x1800A0AC0 (ZwReadVirtualMemory.c)
+ *     NtQueryInformationProcess @ 0x1800A0620 (NtQueryInformationProcess.c)
+ *     ZwReadVirtualMemory @ 0x1800A0AE0 (ZwReadVirtualMemory.c)
  */
 
-NTSTATUS __fastcall RtlWow64GetSharedInfoProcess(void *a1, _BYTE *a2)
+int __fastcall RtlWow64GetSharedInfoProcess(HANDLE ProcessHandle, _BYTE *a2, void *a3)
 {
-  NTSTATUS result; // eax
-  __int64 v4; // [rsp+58h] [rbp+20h] BYREF
+  int result; // eax
+  void *v7; // rdx
+  __int64 v8; // [rsp+58h] [rbp+20h] BYREF
 
-  result = NtQueryInformationProcess(a1, ProcessWow64Information, &v4, 8u, 0LL);
+  result = NtQueryInformationProcess(ProcessHandle, ProcessWow64Information, &v8, 8u, 0LL);
   if ( result >= 0 )
   {
-    if ( v4 )
+    if ( v8 )
     {
+      v7 = (void *)(v8 + 1152);
       *a2 = 1;
-      return ZwReadVirtualMemory();
+      return ZwReadVirtualMemory(ProcessHandle, v7, a3, 0x28uLL, 0LL);
     }
     else
     {

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSynchronousPageWrite @ 0x14026B4C4
+ * XREFs of MiSynchronousPageWrite @ 0x14026AA34
  * Callers:
- *     MiZeroPageFileFirstPage @ 0x14086CA9C (MiZeroPageFileFirstPage.c)
+ *     MiZeroPageFileFirstPage @ 0x140872E7C (MiZeroPageFileFirstPage.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IopSetDiskIoAttributionExtension @ 0x140269D74 (IopSetDiskIoAttributionExtension.c)
- *     MmIsFileObjectAPagingFile @ 0x14026C320 (MmIsFileObjectAPagingFile.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     IoSetDiskIoAttributionFromThread @ 0x14026CD00 (IoSetDiskIoAttributionFromThread.c)
- *     PsGetBaseIoPriorityThread @ 0x14026D230 (PsGetBaseIoPriorityThread.c)
- *     IopAllocateReserveIrp @ 0x14027006C (IopAllocateReserveIrp.c)
- *     IopQueueThreadIrp @ 0x14032F090 (IopQueueThreadIrp.c)
- *     IopAllocateBackpocketIrp @ 0x140531A0C (IopAllocateBackpocketIrp.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402692E4 (IopSetDiskIoAttributionExtension.c)
+ *     MmIsFileObjectAPagingFile @ 0x14026B890 (MmIsFileObjectAPagingFile.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14026C270 (IoSetDiskIoAttributionFromThread.c)
+ *     PsGetBaseIoPriorityThread @ 0x14026C7A0 (PsGetBaseIoPriorityThread.c)
+ *     IopAllocateReserveIrp @ 0x14026F5DC (IopAllocateReserveIrp.c)
+ *     IopQueueThreadIrp @ 0x1403310C0 (IopQueueThreadIrp.c)
+ *     IopAllocateBackpocketIrp @ 0x140533EB4 (IopAllocateBackpocketIrp.c)
  */
 
 NTSTATUS __fastcall MiSynchronousPageWrite(
@@ -83,11 +83,11 @@ NTSTATUS __fastcall MiSynchronousPageWrite(
         || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x2000000) != 0
         || KeGetCurrentThread()[1].TrapFrame == (_KTRAP_FRAME *)2 )
       {
-        ++LODWORD(IopSessionNotificationLock.StackLimit);
+        ++IoPagingWriteLowPriorityCount;
       }
       else
       {
-        ++HIDWORD(IopSessionNotificationLock.InitialStack);
+        ++IoPagingWriteLowPriorityBumpedCount;
         BaseIoPriorityThread = 2;
       }
     }

@@ -1,48 +1,48 @@
 /*
- * XREFs of IopSynchronousServiceTail @ 0x1408C3300
+ * XREFs of IopSynchronousServiceTail @ 0x1408C0CC0
  * Callers:
- *     IopQueueCopyWrite @ 0x140486DB0 (IopQueueCopyWrite.c)
- *     IopSetEaOrQuotaInformationFile @ 0x1407129A0 (IopSetEaOrQuotaInformationFile.c)
- *     NtQueryQuotaInformationFile @ 0x140717C10 (NtQueryQuotaInformationFile.c)
- *     NtSetVolumeInformationFile @ 0x140718380 (NtSetVolumeInformationFile.c)
- *     IopReadFile @ 0x1408C0610 (IopReadFile.c)
- *     IopWriteFile @ 0x1408C1630 (IopWriteFile.c)
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
- *     NtQueryDirectoryFileEx @ 0x1408C4800 (NtQueryDirectoryFileEx.c)
- *     NtQueryDirectoryFile @ 0x1408C5120 (NtQueryDirectoryFile.c)
- *     IopFlushBuffersFile @ 0x14096E4A4 (IopFlushBuffersFile.c)
- *     NtQueryEaFile @ 0x14096E890 (NtQueryEaFile.c)
- *     NtQueryVolumeInformationFile @ 0x14096EFA0 (NtQueryVolumeInformationFile.c)
- *     NtUnlockFile @ 0x140972480 (NtUnlockFile.c)
- *     NtLockFile @ 0x1409D2BE0 (NtLockFile.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x140A0BC30 (NtNotifyChangeDirectoryFileEx.c)
- *     NtSetEaFile @ 0x140A60FA0 (NtSetEaFile.c)
- *     IopReadFileScatter @ 0x140A8E968 (IopReadFileScatter.c)
- *     IopWriteFileGather @ 0x140A958BC (IopWriteFileGather.c)
+ *     IopQueueCopyWrite @ 0x140481E20 (IopQueueCopyWrite.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x140710530 (IopSetEaOrQuotaInformationFile.c)
+ *     NtQueryQuotaInformationFile @ 0x1407157A0 (NtQueryQuotaInformationFile.c)
+ *     NtSetVolumeInformationFile @ 0x140715F10 (NtSetVolumeInformationFile.c)
+ *     IopReadFile @ 0x1408BDFD0 (IopReadFile.c)
+ *     IopWriteFile @ 0x1408BEFF0 (IopWriteFile.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
+ *     NtQueryDirectoryFileEx @ 0x1408C21C0 (NtQueryDirectoryFileEx.c)
+ *     NtQueryDirectoryFile @ 0x1408C2AE0 (NtQueryDirectoryFile.c)
+ *     NtQueryEaFile @ 0x140956950 (NtQueryEaFile.c)
+ *     NtQueryVolumeInformationFile @ 0x140957060 (NtQueryVolumeInformationFile.c)
+ *     IopFlushBuffersFile @ 0x140957794 (IopFlushBuffersFile.c)
+ *     NtUnlockFile @ 0x14095AC90 (NtUnlockFile.c)
+ *     NtLockFile @ 0x1409C2A10 (NtLockFile.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x140A0AE70 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtSetEaFile @ 0x140A59680 (NtSetEaFile.c)
+ *     IopReadFileScatter @ 0x140A8AFD8 (IopReadFileScatter.c)
+ *     IopWriteFileGather @ 0x140A920EC (IopWriteFileGather.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x140253C60 (IopQueueThreadIrp.c)
- *     IopCompleteRequest @ 0x1402A5AC0 (IopCompleteRequest.c)
- *     IopReleaseFileObjectLock @ 0x14031D520 (IopReleaseFileObjectLock.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x140372F00 (IoGetBaseFileSystemDeviceObject.c)
- *     IopCallDriverReference @ 0x140373E80 (IopCallDriverReference.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     IoSetDiskIoAttributionFromThread @ 0x140374220 (IoSetDiskIoAttributionFromThread.c)
- *     ObDereferenceObjectDeferDelete @ 0x1403C5CE0 (ObDereferenceObjectDeferDelete.c)
- *     IopIoRingCompleteIrp @ 0x1403C5DA0 (IopIoRingCompleteIrp.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     IopSetIrpPriorityHintFromFileObject @ 0x140409F10 (IopSetIrpPriorityHintFromFileObject.c)
- *     IoGetIoPriorityHint @ 0x14040C7C0 (IoGetIoPriorityHint.c)
- *     IoSetActivityIdThread @ 0x14045C3B0 (IoSetActivityIdThread.c)
- *     IopQueueIrpToFileObject @ 0x1404E5980 (IopQueueIrpToFileObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PsIsProcessAppContainer @ 0x14085D560 (PsIsProcessAppContainer.c)
- *     IopIsIosbInLockedRange @ 0x140A2151C (IopIsIosbInLockedRange.c)
- *     IopCancelAlertedRequest @ 0x140A7BD74 (IopCancelAlertedRequest.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x14025B7C0 (IoGetBaseFileSystemDeviceObject.c)
+ *     IopCallDriverReference @ 0x14025C740 (IopCallDriverReference.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14025CAE0 (IoSetDiskIoAttributionFromThread.c)
+ *     IopQueueThreadIrp @ 0x140284270 (IopQueueThreadIrp.c)
+ *     IopReleaseFileObjectLock @ 0x1402C60B0 (IopReleaseFileObjectLock.c)
+ *     IopCompleteRequest @ 0x1402D51F0 (IopCompleteRequest.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1403B48A0 (ObDereferenceObjectDeferDelete.c)
+ *     IopIoRingCompleteIrp @ 0x1403B4960 (IopIoRingCompleteIrp.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     IopSetIrpPriorityHintFromFileObject @ 0x1404023F0 (IopSetIrpPriorityHintFromFileObject.c)
+ *     IoGetIoPriorityHint @ 0x140404E50 (IoGetIoPriorityHint.c)
+ *     IoSetActivityIdThread @ 0x140451750 (IoSetActivityIdThread.c)
+ *     IopQueueIrpToFileObject @ 0x1404DC180 (IopQueueIrpToFileObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PsIsProcessAppContainer @ 0x1408592D0 (PsIsProcessAppContainer.c)
+ *     IopIsIosbInLockedRange @ 0x140A16BB8 (IopIsIosbInLockedRange.c)
+ *     IopCancelAlertedRequest @ 0x140A76074 (IopCancelAlertedRequest.c)
  */
 
 __int64 __fastcall IopSynchronousServiceTail(
@@ -51,7 +51,7 @@ __int64 __fastcall IopSynchronousServiceTail(
         __int64 a3,
         char a4,
         KPROCESSOR_MODE a5,
-        unsigned __int8 a6,
+        char a6,
         unsigned int a7)
 {
   __int64 v7; // rax
@@ -132,7 +132,7 @@ LABEL_49:
   }
   if ( (v11 & 0x10) != 0 || v13 || !*(_QWORD *)(a3 + 208) || !(unsigned __int8)IopIsIosbInLockedRange(a3) )
 LABEL_7:
-    IopQueueThreadIrp(a2, a2, a3);
+    IopQueueThreadIrp(a2);
 LABEL_8:
   v14 = *(_DWORD **)(a3 + 208);
   if ( v14 && (*v14 & 4) != 0 && PsIsProcessAppContainer((__int64)KeGetCurrentThread()->ApcState.Process) )
@@ -177,7 +177,7 @@ LABEL_31:
     || (v42 = *((_QWORD *)Object + 3)) == 0
     || (*(_BYTE *)(v42 + 6) & 0x20) != 0
     || (IopSetIrpPriorityHintFromFileObject((__int64)Object, a2), IoGetIoPriorityHint((PIRP)a2) < IoPriorityNormal)
-    || (BYTE12(xmmword_140FC5B10) & 4) != 0 )
+    || (BYTE12(xmmword_140FC6B50) & 4) != 0 )
   {
     v20 = Object;
     if ( !a6 )
@@ -250,7 +250,7 @@ LABEL_31:
   if ( FastIoDispatch->SizeOfFastIoDispatch >= 0xF0 && *(_QWORD *)&FastIoDispatch[1].SizeOfFastIoDispatch )
   {
     v30 = DeviceObject;
-    if ( (unsigned __int8)guard_dispatch_icall_no_overrides(BaseFileSystemDeviceObject, a2, a6, Object) )
+    if ( (unsigned __int8)guard_dispatch_icall_no_overrides(BaseFileSystemDeviceObject, a2) )
     {
       v29 = 0;
     }

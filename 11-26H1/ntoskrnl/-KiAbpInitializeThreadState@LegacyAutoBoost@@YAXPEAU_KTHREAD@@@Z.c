@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiAbpInitializeThreadState@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x140497C10
+ * XREFs of ?KiAbpInitializeThreadState@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x140491760
  * Callers:
- *     KiAbInitializeThreadState @ 0x140497B24 (KiAbInitializeThreadState.c)
+ *     KiAbInitializeThreadState @ 0x140491674 (KiAbInitializeThreadState.c)
  * Callees:
  *     <none>
  */

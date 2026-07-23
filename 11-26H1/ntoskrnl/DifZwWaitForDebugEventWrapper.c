@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwWaitForDebugEventWrapper @ 0x1406BF180
+ * XREFs of DifZwWaitForDebugEventWrapper @ 0x1406C2D60
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwWaitForDebugEvent @ 0x140727090 (ZwWaitForDebugEvent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwWaitForDebugEvent @ 0x14072BC60 (ZwWaitForDebugEvent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwWaitForDebugEventWrapper(__int64 a1, char a2, __int64 a3, __int64 a4)
+__int64 __fastcall DifZwWaitForDebugEventWrapper(void *a1, BOOLEAN a2, LARGE_INTEGER *a3, _DBGUI_WAIT_STATE_CHANGE *a4)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v8; // rdx
@@ -61,18 +61,7 @@ __int64 __fastcall DifZwWaitForDebugEventWrapper(__int64 a1, char a2, __int64 a3
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LOBYTE(v8) = a2;
-  DWORD2(v20) = ZwWaitForDebugEvent(
-                  a1,
-                  v8,
-                  a3,
-                  a4,
-                  v18,
-                  *((_QWORD *)&v18 + 1),
-                  v19,
-                  *((_QWORD *)&v19 + 1),
-                  v20,
-                  *((_QWORD *)&v20 + 1));
+  DWORD2(v20) = ZwWaitForDebugEvent(a1, a2, a3, a4);
   if ( v9 )
   {
     if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

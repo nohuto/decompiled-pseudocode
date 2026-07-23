@@ -1,10 +1,10 @@
 /*
- * XREFs of SeSetSecurityDescriptorInfo @ 0x1405CA200
+ * XREFs of SeSetSecurityDescriptorInfo @ 0x1405CB200
  * Callers:
- *     ObSetSecurityDescriptorInfo @ 0x1405C8A30 (ObSetSecurityDescriptorInfo.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140699538 (IopSetDeviceSecurityDescriptor.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1405C9A30 (ObSetSecurityDescriptorInfo.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14069A6F8 (IopSetDeviceSecurityDescriptor.c)
  * Callees:
- *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1405CB240 (RtlpSetSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeSetSecurityDescriptorInfo(

@@ -3,9 +3,9 @@
  * Callers:
  *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvBufferCheckSum @ 0x140707FF8 (HvBufferCheckSum.c)
- *     CmpTransWriteLog @ 0x140708070 (CmpTransWriteLog.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvBufferCheckSum @ 0x140708208 (HvBufferCheckSum.c)
+ *     CmpTransWriteLog @ 0x140708280 (CmpTransWriteLog.c)
  */
 
 NTSTATUS __fastcall CmLogTmRmAction(__int64 a1, __int64 a2, unsigned int a3)

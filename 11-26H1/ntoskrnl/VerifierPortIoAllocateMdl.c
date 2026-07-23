@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierPortIoAllocateMdl @ 0x140C28DD0
+ * XREFs of VerifierPortIoAllocateMdl @ 0x140C2EDE0
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PMDL __fastcall VerifierPortIoAllocateMdl(void *a1, __int64 a2, BOOLEAN a3, BOOLEAN a4, PIRP Irp)

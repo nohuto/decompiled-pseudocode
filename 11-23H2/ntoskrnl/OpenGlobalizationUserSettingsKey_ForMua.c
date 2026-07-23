@@ -1,18 +1,18 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FA40
+ * XREFs of OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FF90
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1403719FC (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x140371B9C (OpenGlobalizationUserSettingsKey.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryInformationToken @ 0x14041B180 (ZwQueryInformationToken.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14060FCE0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     RtlGetPersistedStateLocation @ 0x1406C53D0 (RtlGetPersistedStateLocation.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlConvertSidToUnicodeString @ 0x1407FAD40 (RtlConvertSidToUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryInformationToken @ 0x14041B510 (ZwQueryInformationToken.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x140610230 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlGetPersistedStateLocation @ 0x1406C5400 (RtlGetPersistedStateLocation.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1407FB010 (RtlConvertSidToUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -31,7 +31,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a
   UNICODE_STRING Destination; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
-  WCHAR Source[264]; // [rsp+A0h] [rbp-60h] BYREF
+  WCHAR TargetPath[264]; // [rsp+A0h] [rbp-60h] BYREF
 
   UnicodeString = 0LL;
   v6 = 0;
@@ -56,7 +56,14 @@ LABEL_21:
     if ( InformationToken >= 0 )
     {
       ReturnLength[0] = 0;
-      InformationToken = RtlGetPersistedStateLocation(L"GlobalizationUserSettings", Source, 520, (__int64)ReturnLength);
+      InformationToken = RtlGetPersistedStateLocation(
+                           L"GlobalizationUserSettings",
+                           L"TargetNtPath",
+                           L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\International",
+                           LocationTypeRegistry,
+                           TargetPath,
+                           0x208u,
+                           ReturnLength);
       if ( InformationToken >= 0 )
       {
         v11 = LOWORD(ReturnLength[0]) + UnicodeString.Length + 4;
@@ -67,7 +74,7 @@ LABEL_21:
           *(_QWORD *)&Destination.Length = 0LL;
           Destination.MaximumLength = v11;
           Destination.Buffer = v12;
-          InformationToken = RtlAppendUnicodeToString(&Destination, Source);
+          InformationToken = RtlAppendUnicodeToString(&Destination, TargetPath);
           if ( InformationToken >= 0 )
           {
             InformationToken = RtlAppendUnicodeToString(&Destination, L"\\");

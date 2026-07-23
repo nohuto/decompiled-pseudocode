@@ -7,9 +7,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetBootEntryOrder(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetBootEntryOrder(PULONG Ids, ULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Ids);
 }

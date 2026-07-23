@@ -1,11 +1,11 @@
 /*
- * XREFs of PsAssignThreadId @ 0x14046A77C
+ * XREFs of PsAssignThreadId @ 0x140463114
  * Callers:
- *     KiAllocateDpcDelegateThread @ 0x1405B5908 (KiAllocateDpcDelegateThread.c)
- *     KiAllocateSmtIsolationThread @ 0x1405C2AE4 (KiAllocateSmtIsolationThread.c)
- *     PspAllocateThread @ 0x1408A49BC (PspAllocateThread.c)
+ *     KiAllocateDpcDelegateThread @ 0x1405B2BD0 (KiAllocateDpcDelegateThread.c)
+ *     KiAllocateSmtIsolationThread @ 0x1405C00B4 (KiAllocateSmtIsolationThread.c)
+ *     PspAllocateThread @ 0x1408FAFD4 (PspAllocateThread.c)
  * Callees:
- *     ExCreateHandle @ 0x140A264F4 (ExCreateHandle.c)
+ *     ExCreateHandle @ 0x140A1AF74 (ExCreateHandle.c)
  */
 
 __int64 __fastcall PsAssignThreadId(__int64 a1)

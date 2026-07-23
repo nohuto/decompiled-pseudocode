@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSetProcessAffinitySafe @ 0x140AFC7BC
+ * XREFs of PspSetProcessAffinitySafe @ 0x140AFE330
  * Callers:
- *     PspUpdateSingleProcessAffinity @ 0x1407F1588 (PspUpdateSingleProcessAffinity.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     PspApplyJobLimitsToProcess @ 0x140A8FEB8 (PspApplyJobLimitsToProcess.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1407F70E8 (PspUpdateSingleProcessAffinity.c)
+ *     PspApplyJobLimitsToProcess @ 0x140A94A08 (PspApplyJobLimitsToProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     ExReleaseFastResourceShared @ 0x140485E00 (ExReleaseFastResourceShared.c)
- *     KeSetAffinityProcess @ 0x14050BCE4 (KeSetAffinityProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     ExReleaseFastResourceShared @ 0x14047F770 (ExReleaseFastResourceShared.c)
+ *     KeSetAffinityProcess @ 0x140505754 (KeSetAffinityProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PspSetProcessAffinitySafe(

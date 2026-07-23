@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpSegMgrRelease @ 0x18005589C
+ * XREFs of RtlpHpSegMgrRelease @ 0x18006B47C
  * Callers:
- *     RtlpHpSegPageRangeShrink @ 0x1800544A0 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegSegmentFree @ 0x180090324 (RtlpHpSegSegmentFree.c)
- *     RtlpHpSegMgrAllocate @ 0x180091660 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegSegmentFree @ 0x180026FA4 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18006A080 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegMgrAllocate @ 0x18009C1EC (RtlpHpSegMgrAllocate.c)
  * Callees:
- *     RtlpHpSegMgrCommit @ 0x180091A20 (RtlpHpSegMgrCommit.c)
- *     RtlpHpVaMgrCtxFree @ 0x180092700 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpTlLogVAChange @ 0x180092B90 (RtlpHpTlLogVAChange.c)
- *     RtlpHpQueryVA @ 0x180093EA8 (RtlpHpQueryVA.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x180158240 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrCommit @ 0x18009C5B0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpVaMgrCtxFree @ 0x18009D290 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpTlLogVAChange @ 0x18009D720 (RtlpHpTlLogVAChange.c)
+ *     RtlpHpQueryVA @ 0x18009EF08 (RtlpHpQueryVA.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x180156600 (RtlpHpSegMgrVaCtxFree.c)
  */
 
 char __fastcall RtlpHpSegMgrRelease(int *a1, unsigned __int64 a2, int a3)
@@ -40,7 +40,7 @@ LABEL_2:
       v13 = a2 + v6 - v5;
       if ( a2 + v6 != v5 )
       {
-        LOBYTE(v5) = RtlpHpVaMgrCtxFree(&unk_1801CE978, &v12, &v13);
+        LOBYTE(v5) = RtlpHpVaMgrCtxFree(&unk_1801CD968, &v12, &v13);
         if ( (RtlpHpHeapFeatures & 8) != 0 )
           LOBYTE(v5) = RtlpHpTlLogVAChange(0x8000LL, v13, v12, 0LL);
       }
@@ -50,7 +50,7 @@ LABEL_2:
   if ( v6 >= 0x200000 )
     goto LABEL_10;
   if ( a3 > 0 )
-    RtlpHpSegMgrCommit((_DWORD)a1, a2, 0, (unsigned int)v6 >> 12, -a3, 0x4000, 0);
+    RtlpHpSegMgrCommit((int)a1, -a3, 0x4000, 0);
   v5 = RtlpHpSegMgrVaCtxFree(a1, a2, &v13);
   v12 = v5;
   a2 = v5;
@@ -69,7 +69,7 @@ LABEL_10:
       {
         LOWORD(v5) = *v8;
         if ( (*v8 & 0x7FF) != 0 )
-          LOBYTE(v5) = RtlpHpSegMgrCommit((_DWORD)a1, v12, v9, 512, -(v5 & 0x7FF), 0x4000, 0);
+          LOBYTE(v5) = RtlpHpSegMgrCommit((int)a1, -(v5 & 0x7FF), 0x4000, 0);
         ++v8;
         v9 += 512;
       }

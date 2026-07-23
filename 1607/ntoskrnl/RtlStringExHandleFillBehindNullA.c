@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringExHandleFillBehindNullA @ 0x1401B110C
+ * XREFs of RtlStringExHandleFillBehindNullA @ 0x1401B0FF0
  * Callers:
- *     RtlStringCbPrintfExA @ 0x1401B0F7C (RtlStringCbPrintfExA.c)
+ *     RtlStringCbPrintfExA @ 0x1401B0E60 (RtlStringCbPrintfExA.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __stdcall RtlStringExHandleFillBehindNullA(NTSTRSAFE_PSTR pszDestEnd, size_t cbRemaining, ULONG dwFlags)

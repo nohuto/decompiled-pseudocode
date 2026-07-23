@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReconfigureSubNodeSchedulingInformation @ 0x14056BECC
+ * XREFs of KiReconfigureSubNodeSchedulingInformation @ 0x14056C58C
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140A9F2E0 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9F150 (KiInitializeDynamicProcessorDpc.c)
  * Callees:
  *     <none>
  */

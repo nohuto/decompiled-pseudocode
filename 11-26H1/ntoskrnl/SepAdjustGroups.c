@@ -1,13 +1,13 @@
 /*
- * XREFs of SepAdjustGroups @ 0x140A467D0
+ * XREFs of SepAdjustGroups @ 0x1409E12C0
  * Callers:
- *     NtAdjustGroupsToken @ 0x140A46440 (NtAdjustGroupsToken.c)
+ *     NtAdjustGroupsToken @ 0x1409E0F30 (NtAdjustGroupsToken.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall SepAdjustGroups(

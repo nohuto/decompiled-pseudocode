@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSwapDirectoryTableBaseTarget @ 0x14015DD50
+ * XREFs of KiSwapDirectoryTableBaseTarget @ 0x14015DE50
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiSetAddressPolicy @ 0x1400BA140 (KiSetAddressPolicy.c)
- *     MmStealTopLevelPage @ 0x14015DE84 (MmStealTopLevelPage.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1402796C0 (HvlSwitchVirtualAddressSpace.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiSetAddressPolicy @ 0x1400BA080 (KiSetAddressPolicy.c)
+ *     MmStealTopLevelPage @ 0x14015DF84 (MmStealTopLevelPage.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1402798B0 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiSwapDirectoryTableBaseTarget(

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckSessionPoolAllocations @ 0x1407784F0
+ * XREFs of MiCheckSessionPoolAllocations @ 0x1407786B0
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x1407784E0 (MiDereferenceSessionFinal.c)
  * Callees:
- *     ExPoolCleanupExpansionTable @ 0x140389790 (ExPoolCleanupExpansionTable.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExPoolCleanupExpansionTable @ 0x1403898E0 (ExPoolCleanupExpansionTable.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void MiCheckSessionPoolAllocations()
@@ -22,7 +22,7 @@ void MiCheckSessionPoolAllocations()
   ULONG_PTR BugCheckParameter3; // [rsp+30h] [rbp-18h]
   ULONG_PTR v12; // [rsp+38h] [rbp-10h]
 
-  v9 = qword_140C4DDE0 + 4096;
+  v9 = qword_140C4DE20 + 4096;
   v0 = 292LL;
   if ( _BitScanReverse64((unsigned __int64 *)&v2, 0x124uLL) )
     v0 = 1LL << v2;

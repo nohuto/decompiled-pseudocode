@@ -1,12 +1,12 @@
 /*
- * XREFs of ObFastReferenceObject @ 0x1402A1650
+ * XREFs of ObFastReferenceObject @ 0x1402A18E0
  * Callers:
- *     CcReferenceSharedCacheMapFileObject @ 0x1402A14D0 (CcReferenceSharedCacheMapFileObject.c)
- *     MiReferenceInPageFile @ 0x1402A1504 (MiReferenceInPageFile.c)
- *     PspReferenceSystemDll @ 0x1407A34A4 (PspReferenceSystemDll.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402A1760 (CcReferenceSharedCacheMapFileObject.c)
+ *     MiReferenceInPageFile @ 0x1402A1794 (MiReferenceInPageFile.c)
+ *     PspReferenceSystemDll @ 0x1407A3694 (PspReferenceSystemDll.c)
  * Callees:
- *     ObpFastReplenishReference @ 0x1402245E4 (ObpFastReplenishReference.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ObpFastReplenishReference @ 0x1402246EC (ObpFastReplenishReference.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 unsigned __int64 __fastcall ObFastReferenceObject(signed __int64 *a1)

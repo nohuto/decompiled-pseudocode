@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpMatchUserLanguage @ 0x1800D10DC
+ * XREFs of RtlpMatchUserLanguage @ 0x18009A410
  * Callers:
- *     LdrpLangFallbackListAppendNode @ 0x180031E20 (LdrpLangFallbackListAppendNode.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800322A0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlLocaleNameToLcid @ 0x180032F80 (RtlLocaleNameToLcid.c)
- *     RtlCultureNameToLCID @ 0x1800330E0 (RtlCultureNameToLCID.c)
+ *     LdrpLangFallbackListAppendNode @ 0x180012EE0 (LdrpLangFallbackListAppendNode.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180013360 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlLocaleNameToLcid @ 0x180014040 (RtlLocaleNameToLcid.c)
+ *     RtlCultureNameToLCID @ 0x1800141A0 (RtlCultureNameToLCID.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x180072550 (RtlCompareUnicodeStrings.c)
- *     RtlpGetUserLocaleName @ 0x1800D2DDC (RtlpGetUserLocaleName.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlCompareUnicodeStrings @ 0x18008EE30 (RtlCompareUnicodeStrings.c)
+ *     RtlpGetUserLocaleName @ 0x180099D30 (RtlpGetUserLocaleName.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 bool __fastcall RtlpMatchUserLanguage(wchar_t *String)
 {
   size_t v3; // rax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-E8h] BYREF
+  PCWCH String2[4]; // [rsp+30h] [rbp-E8h] BYREF
   char v5; // [rsp+50h] [rbp-C8h] BYREF
 
-  *(_QWORD *)&DestinationString.Length = 11141120LL;
-  DestinationString.Buffer = (wchar_t *)&v5;
-  if ( (int)RtlpGetUserLocaleName(&DestinationString) < 0 )
+  String2[0] = (PCWCH)11141120;
+  String2[1] = (PCWCH)&v5;
+  if ( (int)RtlpGetUserLocaleName((PUNICODE_STRING)String2) < 0 )
     return 0;
   LOWORD(v3) = 0;
   if ( String )
@@ -29,10 +29,10 @@ bool __fastcall RtlpMatchUserLanguage(wchar_t *String)
     if ( v3 >= 0xFFFE )
       LOWORD(v3) = -4;
   }
-  return (unsigned int)RtlCompareUnicodeStrings(
-                         String,
-                         (unsigned __int64)(unsigned __int16)v3 >> 1,
-                         (_BYTE *)DestinationString.Buffer,
-                         (unsigned __int64)DestinationString.Length >> 1,
-                         1) == 0;
+  return RtlCompareUnicodeStrings(
+           String,
+           (unsigned __int64)(unsigned __int16)v3 >> 1,
+           String2[1],
+           (unsigned __int64)LOWORD(String2[0]) >> 1,
+           1u) == 0;
 }

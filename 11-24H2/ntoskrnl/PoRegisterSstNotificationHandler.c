@@ -1,11 +1,11 @@
 /*
- * XREFs of PoRegisterSstNotificationHandler @ 0x1405D3160
+ * XREFs of PoRegisterSstNotificationHandler @ 0x1405D0880
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PoRegisterSstNotificationHandler(__int64 a1, _QWORD *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PoRegisterSstNotificationHandler(__int64 a1, _QWORD *a2)
   {
     if ( *(_DWORD *)a1 <= 1u )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 0x28uLL, 0x72626968u);
       v6 = (_QWORD *)Pool2;
       if ( Pool2 )
       {
@@ -29,13 +29,13 @@ __int64 __fastcall PoRegisterSstNotificationHandler(__int64 a1, _QWORD *a2)
         *(_QWORD *)(Pool2 + 24) = *(_QWORD *)(a1 + 8);
         *(_QWORD *)(Pool2 + 32) = *(_QWORD *)(a1 + 16);
         v7 = KeAcquireSpinLockRaiseToDpc(&PopSstNotificationHandlerListLock);
-        v8 = (_QWORD *)qword_140F0D108;
-        if ( *(PVOID **)qword_140F0D108 != &PopSstNotificationHandlerList )
+        v8 = (_QWORD *)qword_140F0D438;
+        if ( *(PVOID **)qword_140F0D438 != &PopSstNotificationHandlerList )
           __fastfail(3u);
         *v6 = &PopSstNotificationHandlerList;
         v6[1] = v8;
         *v8 = v6;
-        qword_140F0D108 = (__int64)v6;
+        qword_140F0D438 = (__int64)v6;
         KeReleaseSpinLock(&PopSstNotificationHandlerListLock, v7);
         *a2 = v6;
       }

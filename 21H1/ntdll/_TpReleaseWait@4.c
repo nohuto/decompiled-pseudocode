@@ -13,29 +13,21 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpReleaseWait(int a1)
+void __cdecl TpReleaseWait(PTP_WAIT Wait)
 {
-  int result; // eax
-  int v2; // ecx
-  int v3; // [esp+8h] [ebp-4h] BYREF
+  int v1; // ecx
+  int v2; // [esp+8h] [ebp-4h] BYREF
   _UNKNOWN *retaddr; // [esp+10h] [ebp+4h]
 
-  result = TppWaitpValidateWait(0);
-  if ( result )
+  if ( TppWaitpValidateWait(0) && TppCleanupGroupMemberRelease(Wait, 1) )
   {
-    result = TppCleanupGroupMemberRelease(a1, 1);
-    if ( result )
-    {
-      *(_DWORD *)(a1 + 112) = retaddr;
-      RtlAcquireSRWLockExclusive(a1 + 144);
-      TppCancelWait(2, &v3);
-      ++*(_BYTE *)(a1 + 223);
-      RtlReleaseSRWLockExclusive(a1 + 144);
-      v2 = 1 - v3;
-      result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, v3 - 1);
-      if ( result == v2 )
-        return (**(int (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
-    }
+    *((_DWORD *)Wait + 28) = retaddr;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 36);
+    TppCancelWait(2, &v2);
+    ++*((_BYTE *)Wait + 223);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 36);
+    v1 = 1 - v2;
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v2 - 1) == v1 )
+      (**((void (__thiscall ***)(_DWORD, PTP_WAIT))Wait + 1))(**((_DWORD **)Wait + 1), Wait);
   }
-  return result;
 }

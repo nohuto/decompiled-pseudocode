@@ -9,24 +9,22 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __thiscall LdrpAppxEtwGenericIntegrityFailure(void *this)
+NTSTATUS __fastcall LdrpAppxEtwGenericIntegrityFailure(int a1)
 {
-  int result; // eax
-  int v2; // [esp+8h] [ebp-28h] BYREF
-  int v3; // [esp+Ch] [ebp-24h]
-  void *v4; // [esp+14h] [ebp-1Ch] BYREF
-  _DWORD v5[5]; // [esp+18h] [ebp-18h] BYREF
+  NTSTATUS result; // eax
+  ULONGLONG RegHandle; // [esp+8h] [ebp-28h] BYREF
+  int v3; // [esp+14h] [ebp-1Ch] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+18h] [ebp-18h] BYREF
 
-  v4 = this;
-  v5[0] = &v4;
-  v5[1] = 0;
-  v5[2] = 4;
-  v5[3] = 0;
-  result = EtwEventRegister(AppModelRuntimeProviderId, 0, 0, (int)&v2);
+  v3 = a1;
+  UserData.Ptr = (unsigned int)&v3;
+  UserData.Size = 4;
+  UserData.Reserved = 0;
+  result = EtwEventRegister(&AppModelRuntimeProviderId, 0, 0, &RegHandle);
   if ( !result )
   {
-    EtwEventWrite(v2, v3, AppModelGenericLibraryLoadFailureNoTermination, 1, (int)v5);
-    return EtwNotificationUnregister(v2, v3, 0);
+    EtwEventWrite(RegHandle, &AppModelGenericLibraryLoadFailureNoTermination, 1u, &UserData);
+    return EtwNotificationUnregister(RegHandle, 0);
   }
   return result;
 }

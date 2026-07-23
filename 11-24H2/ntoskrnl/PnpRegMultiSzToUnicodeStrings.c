@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpRegMultiSzToUnicodeStrings @ 0x140C26140
+ * XREFs of PnpRegMultiSzToUnicodeStrings @ 0x140C28190
  * Callers:
- *     PiInitCacheGroupInformation @ 0x140C1FECC (PiInitCacheGroupInformation.c)
+ *     PiInitCacheGroupInformation @ 0x140C21F0C (PiInitCacheGroupInformation.c)
  * Callees:
- *     PnpFreeUnicodeStringList @ 0x1405A92C0 (PnpFreeUnicodeStringList.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PnpFreeUnicodeStringList @ 0x1405A63AC (PnpFreeUnicodeStringList.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PnpRegMultiSzToUnicodeStrings(_DWORD *a1, ULONG_PTR *a2, unsigned int *a3)
+__int64 __fastcall PnpRegMultiSzToUnicodeStrings(_DWORD *a1, __int64 *a2, unsigned int *a3)
 {
-  ULONG_PTR *v3; // r12
+  __int64 *v3; // r12
   _WORD *v6; // rcx
   _WORD *v7; // rdi
   unsigned int v8; // edx
   _WORD *v9; // rax
   unsigned int v10; // eax
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   unsigned int v12; // ebp
   _WORD *v13; // rbx
   const void *v14; // r15

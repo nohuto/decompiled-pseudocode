@@ -74,10 +74,13 @@ __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
         ++*(_DWORD *)(a1 + 120);
         *(_QWORD *)(a1 + 96) = v10;
         KxReleaseSpinLock((volatile signed __int64 *)(a1 + 128));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v11 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -93,10 +96,10 @@ __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
       else
       {
         KxReleaseSpinLock((volatile signed __int64 *)(a1 + 128));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v13 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v13 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v13 >= 2u )
           {
             v14 = KeGetCurrentPrcb();
             v15 = v14->SchedulerAssist;

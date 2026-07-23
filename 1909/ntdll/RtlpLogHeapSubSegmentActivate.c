@@ -10,14 +10,18 @@
  *     memset @ 0x1800A3DC0 (memset.c)
  */
 
-__int64 __fastcall RtlpLogHeapSubSegmentActivate(__int64 a1, __int64 a2)
+NTSTATUS __fastcall RtlpLogHeapSubSegmentActivate(__int64 a1, __int64 a2)
 {
-  _QWORD v5[6]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v4; // rcx
+  _QWORD Fields[6]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(v5, 0, sizeof(v5));
-  v5[4] = a1;
-  HIWORD(v5[0]) = 4152;
-  v5[5] = a2;
-  RtlGetCurrentServiceSessionId();
-  return NtTraceEvent();
+  memset(Fields, 0, sizeof(Fields));
+  Fields[4] = a1;
+  HIWORD(Fields[0]) = 4152;
+  Fields[5] = a2;
+  if ( RtlGetCurrentServiceSessionId() )
+    v4 = (__int64)NtCurrentPeb()->SharedData + 550;
+  else
+    v4 = 2147353472LL;
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v4, 0x20402u, 0x10u, Fields);
 }

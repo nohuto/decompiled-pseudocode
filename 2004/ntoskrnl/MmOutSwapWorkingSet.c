@@ -461,7 +461,7 @@ LABEL_70:
       }
       *(_BYTE *)(v46 + 32) |= 2u;
       if ( *(__int64 *)(v46 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v46);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v46);
       LODWORD(v72) = *(_DWORD *)(v46 + 88) & 0x1FFFF;
       *(_DWORD *)(v46 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v46 + 25) &= ~1u;

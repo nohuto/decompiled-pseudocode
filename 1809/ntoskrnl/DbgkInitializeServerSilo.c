@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkInitializeServerSilo @ 0x14080E338
+ * XREFs of DbgkInitializeServerSilo @ 0x14080F538
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140887440 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1408886A0 (PspInitializeServerSiloDeferred.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     DbgkpInitializePhase1SiloState @ 0x140727A7C (DbgkpInitializePhase1SiloState.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     DbgkpInitializePhase1SiloState @ 0x140728D1C (DbgkpInitializePhase1SiloState.c)
  */
 
 __int64 __fastcall DbgkInitializeServerSilo(struct _LIST_ENTRY *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUpdateClaimDistribution @ 0x140433CD8
+ * XREFs of MiUpdateClaimDistribution @ 0x1404257E0
  * Callers:
- *     MiOrderTrimList @ 0x140433A4C (MiOrderTrimList.c)
+ *     MiOrderTrimList @ 0x140425554 (MiOrderTrimList.c)
  * Callees:
  *     <none>
  */

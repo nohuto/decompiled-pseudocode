@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTscDiscover @ 0x1403A45A8
+ * XREFs of HalpTscDiscover @ 0x1403A4788
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A434C (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A452C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     HalpTscGetAttributes @ 0x1403782C4 (HalpTscGetAttributes.c)
- *     HalSocRequestApi @ 0x1403783EC (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x140378AB4 (HalpTimerRegister.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     HalpTscGetAttributes @ 0x140378464 (HalpTscGetAttributes.c)
+ *     HalSocRequestApi @ 0x14037858C (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x140378C54 (HalpTimerRegister.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 HalpTscDiscover()

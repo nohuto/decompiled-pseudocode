@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpQueryTokenModifiedIdMessage @ 0x1407C0294
+ * XREFs of AlpcpQueryTokenModifiedIdMessage @ 0x1407C32F4
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x1407C0BF0 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcQueryInformationMessage @ 0x1407C3C50 (NtAlpcQueryInformationMessage.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     SeDeleteClientSecurity @ 0x1408E8BE0 (SeDeleteClientSecurity.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x140929D90 (AlpcpGetEffectiveTokenMessage.c)
- *     SeGetTokenControlInformation @ 0x140A5F5F0 (SeGetTokenControlInformation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     SeDeleteClientSecurity @ 0x1408EF1A0 (SeDeleteClientSecurity.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x1409058A0 (AlpcpGetEffectiveTokenMessage.c)
+ *     SeGetTokenControlInformation @ 0x140A6C5B0 (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall AlpcpQueryTokenModifiedIdMessage(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4, _DWORD *a5)

@@ -1,9 +1,9 @@
 /*
- * XREFs of I_MinAsn1AdjustFileTime @ 0x1408A3D14
+ * XREFs of I_MinAsn1AdjustFileTime @ 0x1408AA124
  * Callers:
- *     I_MinAsn1ConvertTime @ 0x1408A3EFC (I_MinAsn1ConvertTime.c)
+ *     I_MinAsn1ConvertTime @ 0x1408AA30C (I_MinAsn1ConvertTime.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1404522E0 (RtlTimeFieldsToTime.c)
+ *     RtlTimeFieldsToTime @ 0x14044A410 (RtlTimeFieldsToTime.c)
  */
 
 BOOLEAN __fastcall I_MinAsn1AdjustFileTime(__int64 *a1, __int16 a2, char a3)
@@ -12,7 +12,7 @@ BOOLEAN __fastcall I_MinAsn1AdjustFileTime(__int64 *a1, __int16 a2, char a3)
   BOOLEAN result; // al
   __int64 v7; // rcx
   LONGLONG v8; // rcx
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+58h] [rbp+28h] BYREF
 
   Time.QuadPart = 0LL;

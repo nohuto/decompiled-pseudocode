@@ -23,7 +23,7 @@ __int64 __fastcall KeForceResumeThread(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v9) = 4;
@@ -44,6 +44,6 @@ __int64 __fastcall KeForceResumeThread(__int64 a1)
   LOBYTE(v4) = 1;
   KiResumeThread(a1, CurrentPrcb, v4);
   _InterlockedAnd((volatile signed __int32 *)(a1 + 736), 0xFFFFFF7F);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return (unsigned int)(v6 + v5);
 }

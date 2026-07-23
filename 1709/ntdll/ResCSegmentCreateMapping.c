@@ -7,13 +7,13 @@
  *     _ResCCreateMappingExclusive @ 0x18010EF60 (_ResCCreateMappingExclusive.c)
  */
 
-__int64 __fastcall ResCSegmentCreateMapping(_WORD *Src, int a2, int a3, __int64 a4, int a5)
+__int64 __fastcall ResCSegmentCreateMapping(_WORD *Src, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 v6; // rax
   __int64 v7; // rbx
   char *v8; // rax
 
-  v6 = ResCCreateMappingExclusive((_DWORD)Src, a2, a3, a5 != 0 ? 2 : 0);
+  v6 = ResCCreateMappingExclusive(Src, a2, a3, a5 != 0 ? 2 : 0);
   v7 = v6;
   if ( v6 )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeBootDefaults @ 0x140CF1C18
+ * XREFs of MiInitializeBootDefaults @ 0x140CF7F98
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     strstr @ 0x140535B20 (strstr.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
  */
 
 __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
@@ -19,8 +19,8 @@ __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
   {
     MmSpecialPoolTag = 0;
     MmProtectFreedNonPagedPool = 0;
-    BYTE1(stru_140E36558.ReadyTime) = 1;
-    dword_140FBE20C = 0;
+    BYTE1(stru_140E366D8.ReadyTime) = 1;
+    dword_140FBF20C = 0;
     *(_BYTE *)(MmWriteableSharedUserData + 748) = 1;
   }
   else
@@ -48,15 +48,15 @@ __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
   MiFlags |= 8uLL;
   if ( (NtGlobalFlag & 0x80000) == 0 )
     MiFlags = v5 | 0x40;
-  *(_QWORD *)&stru_140E2D150.SuspendEvent.Header.Lock = 0LL;
-  stru_140E2D150.ThreadListEntry.Flink = (struct _LIST_ENTRY *)&stru_140E2D150.SuspendEvent.Header.WaitListHead.Blink;
-  stru_140E2D150.SuspendEvent.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&stru_140E2D150.SuspendEvent.Header.WaitListHead.Blink;
-  *(_QWORD *)&stru_140E2C7D0.Header.Lock = 0LL;
-  qword_140E2D620 = (__int64)&qword_140E2D618;
-  qword_140E2D618 = (__int64)&qword_140E2D618;
-  qword_140E2D610 = -10000000LL * dword_140FBE224;
-  qword_140E2CFF0 = 0x7FF5FFFFFFFFLL;
-  result = (unsigned __int8)ExGenRandom(1, -10000000LL * dword_140FBE224) << 16;
-  qword_140E2CFF0 += 0xFFFFFFFDFF800000uLL - result;
+  *(_QWORD *)&stru_140E2D2D0.SuspendEvent.Header.Lock = 0LL;
+  stru_140E2D2D0.ThreadListEntry.Flink = (struct _LIST_ENTRY *)&stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Blink;
+  stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Blink;
+  *(_QWORD *)&stru_140E2C950.Header.Lock = 0LL;
+  qword_140E2D7A0 = (__int64)&qword_140E2D798;
+  qword_140E2D798 = (__int64)&qword_140E2D798;
+  qword_140E2D790 = -10000000LL * dword_140FBF224;
+  qword_140E2D170 = 0x7FF5FFFFFFFFLL;
+  result = (unsigned __int8)ExGenRandom(1, -10000000LL * dword_140FBF224) << 16;
+  qword_140E2D170 += 0xFFFFFFFDFF800000uLL - result;
   return result;
 }

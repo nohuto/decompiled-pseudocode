@@ -6,7 +6,11 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtInitializeNlsFiles(int a1, int a2, int a3)
+NTSTATUS __cdecl NtInitializeNlsFiles(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
   return Wow64SystemServiceCall();
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCopyMergeOfLayeredKeyNode @ 0x1407FC8A8
+ * XREFs of CmpCopyMergeOfLayeredKeyNode @ 0x1407FDAA8
  * Callers:
- *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140805268 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmSaveKey @ 0x140803130 (CmSaveKey.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140806468 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpCopyCell @ 0x140695718 (CmpCopyCell.c)
- *     CmpGetSecurityCellForKeyNodeStack @ 0x1407F5438 (CmpGetSecurityCellForKeyNodeStack.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x1407F9EAC (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x140581AB8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpFreeKeyByCell @ 0x1405AE6F8 (CmpFreeKeyByCell.c)
+ *     HvAllocateCell @ 0x1405FCE54 (HvAllocateCell.c)
+ *     CmpCopyCell @ 0x1406968D8 (CmpCopyCell.c)
+ *     CmpGetSecurityCellForKeyNodeStack @ 0x1407F6638 (CmpGetSecurityCellForKeyNodeStack.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x1407FB0AC (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FB218 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpCopyMergeOfLayeredKeyNode(

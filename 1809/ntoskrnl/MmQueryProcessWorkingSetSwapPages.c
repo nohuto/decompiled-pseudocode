@@ -1,14 +1,14 @@
 /*
  * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x14001284C
  * Callers:
- *     PfpPrivSourceEnum @ 0x1405B1B60 (PfpPrivSourceEnum.c)
- *     SmStoreCompressionStart @ 0x1408AB700 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x1408AB77C (SmStoreCompressionStop.c)
+ *     PfpPrivSourceEnum @ 0x1405B2B60 (PfpPrivSourceEnum.c)
+ *     SmStoreCompressionStart @ 0x1408AC960 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1408AC9DC (SmStoreCompressionStop.c)
  * Callees:
  *     MiGetWorkingSetSwapSupport @ 0x14001290C (MiGetWorkingSetSwapSupport.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)
   if ( (unsigned __int64)MiGetWorkingSetSwapSupport(a1 + 1280) <= 2 )
     return 3221226021LL;
   v5 = -1073741275;
-  v6 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v2 + 174));
+  v6 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v2 + 174));
   v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v6 + 1120));
   WorkingSetSwapSupport = MiGetWorkingSetSwapSupport(v2);
   if ( WorkingSetSwapSupport > 2 )

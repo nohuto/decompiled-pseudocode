@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPlInitComponents @ 0x1409A0404
+ * XREFs of PopPlInitComponents @ 0x1409A0604
  * Callers:
- *     PopPlInitDevice @ 0x1409A0538 (PopPlInitDevice.c)
+ *     PopPlInitDevice @ 0x1409A0738 (PopPlInitDevice.c)
  * Callees:
- *     PopPlInitComponent @ 0x1409A0344 (PopPlInitComponent.c)
+ *     PopPlInitComponent @ 0x1409A0544 (PopPlInitComponent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

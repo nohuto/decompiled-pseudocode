@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnTraceGetLogEntry @ 0x1400D51C0
+ * XREFs of PfSnTraceGetLogEntry @ 0x1400D5240
  * Callers:
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
- *     PfSnLogPageFaultCommon @ 0x1400D4C04 (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLogSequenceNumber @ 0x1400D4D24 (PfSnCheckLogSequenceNumber.c)
- *     PfSnTraceTimerRoutine @ 0x14012BD50 (PfSnTraceTimerRoutine.c)
- *     PfSnLogHelper @ 0x14064B024 (PfSnLogHelper.c)
- *     PfSnLogIdentifier @ 0x1406687A0 (PfSnLogIdentifier.c)
- *     PfSnLogStreamDelete @ 0x1406CEFF0 (PfSnLogStreamDelete.c)
+ *     PfSnLogPageFaultCommon @ 0x1400D4C84 (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLogSequenceNumber @ 0x1400D4DA4 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnTraceTimerRoutine @ 0x14012BE20 (PfSnTraceTimerRoutine.c)
+ *     PfSnLogHelper @ 0x14064C1E4 (PfSnLogHelper.c)
+ *     PfSnLogIdentifier @ 0x140669960 (PfSnLogIdentifier.c)
+ *     PfSnLogStreamDelete @ 0x1406D0290 (PfSnLogStreamDelete.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     PfSnTraceBufferAllocate @ 0x1400E22D8 (PfSnTraceBufferAllocate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     PfSnTraceBufferAllocate @ 0x1400E2358 (PfSnTraceBufferAllocate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)

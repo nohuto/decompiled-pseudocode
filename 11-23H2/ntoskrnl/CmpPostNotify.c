@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpPostNotify @ 0x140766860
+ * XREFs of CmpPostNotify @ 0x140766A50
  * Callers:
  *     CmpFlushNotify @ 0x140699940 (CmpFlushNotify.c)
- *     CmpReportNotifyHelper @ 0x1406D5440 (CmpReportNotifyHelper.c)
- *     CmpNotifyChangeKey @ 0x1407674F0 (CmpNotifyChangeKey.c)
- *     CmpCloseKeyObject @ 0x140768090 (CmpCloseKeyObject.c)
+ *     CmpReportNotifyHelper @ 0x1406D5470 (CmpReportNotifyHelper.c)
+ *     CmpNotifyChangeKey @ 0x1407676E0 (CmpNotifyChangeKey.c)
+ *     CmpCloseKeyObject @ 0x140768280 (CmpCloseKeyObject.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpDelayedDerefKeys @ 0x1406D586C (CmpDelayedDerefKeys.c)
- *     CmpAddToDelayedDeref @ 0x14076785C (CmpAddToDelayedDeref.c)
- *     CmpCancelSubordinatePost @ 0x140767890 (CmpCancelSubordinatePost.c)
- *     CmpFreeSubordinatePost @ 0x1407678DC (CmpFreeSubordinatePost.c)
- *     CmpSignalDeferredPosts @ 0x1407682B4 (CmpSignalDeferredPosts.c)
- *     CmpFreePostBlock @ 0x140768350 (CmpFreePostBlock.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpDelayedDerefKeys @ 0x1406D589C (CmpDelayedDerefKeys.c)
+ *     CmpAddToDelayedDeref @ 0x140767A4C (CmpAddToDelayedDeref.c)
+ *     CmpCancelSubordinatePost @ 0x140767A80 (CmpCancelSubordinatePost.c)
+ *     CmpFreeSubordinatePost @ 0x140767ACC (CmpFreeSubordinatePost.c)
+ *     CmpSignalDeferredPosts @ 0x1407684A4 (CmpSignalDeferredPosts.c)
+ *     CmpFreePostBlock @ 0x140768540 (CmpFreePostBlock.c)
  */
 
 void __fastcall CmpPostNotify(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, void **a6, __int128 *a7)
@@ -174,7 +174,7 @@ LABEL_59:
           goto LABEL_59;
         *v27 = v26;
         *(_QWORD *)(v26 + 8) = v27;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v28 = KeGetCurrentIrql();
           if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v11) != 0

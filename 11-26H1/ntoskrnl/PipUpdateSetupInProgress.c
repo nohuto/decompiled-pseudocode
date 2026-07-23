@@ -1,11 +1,11 @@
 /*
- * XREFs of PipUpdateSetupInProgress @ 0x14079BCE0
+ * XREFs of PipUpdateSetupInProgress @ 0x14079E820
  * Callers:
- *     PipUpdateSetupInProgressNotify @ 0x14079BE08 (PipUpdateSetupInProgressNotify.c)
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     PipUpdateSetupInProgressNotify @ 0x14079E948 (PipUpdateSetupInProgressNotify.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PipUpdateSetupInProgress(HANDLE KeyHandle)

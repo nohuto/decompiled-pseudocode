@@ -1,25 +1,25 @@
 /*
- * XREFs of AlpcpReceiveMessage @ 0x1406322B0
+ * XREFs of AlpcpReceiveMessage @ 0x1406332D0
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x140632020 (NtAlpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x140633040 (NtAlpcSendWaitReceivePort.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     AlpcpAvailableBufferSize @ 0x140582068 (AlpcpAvailableBufferSize.c)
- *     AlpcpReadMessageData @ 0x140614164 (AlpcpReadMessageData.c)
- *     AlpcpCancelMessage @ 0x14061590C (AlpcpCancelMessage.c)
- *     AlpcpDestroyBlob @ 0x140618CB0 (AlpcpDestroyBlob.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     AlpcpReceiveMessagePort @ 0x140632980 (AlpcpReceiveMessagePort.c)
- *     AlpcpExposeAttributes @ 0x140633190 (AlpcpExposeAttributes.c)
- *     AlpcpReceiveDirectMessagePort @ 0x14069BA78 (AlpcpReceiveDirectMessagePort.c)
- *     AlpcpExposeCapturedContextAttribute @ 0x14069BEFC (AlpcpExposeCapturedContextAttribute.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406B628C (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1406D4A40 (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A598 (AlpcpEnterStateChangeEventMessageLog.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     AlpcpAvailableBufferSize @ 0x140583068 (AlpcpAvailableBufferSize.c)
+ *     AlpcpReadMessageData @ 0x140615164 (AlpcpReadMessageData.c)
+ *     AlpcpCancelMessage @ 0x14061690C (AlpcpCancelMessage.c)
+ *     AlpcpDestroyBlob @ 0x140619CB0 (AlpcpDestroyBlob.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     AlpcpReceiveMessagePort @ 0x1406339A0 (AlpcpReceiveMessagePort.c)
+ *     AlpcpExposeAttributes @ 0x1406341B0 (AlpcpExposeAttributes.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x14069CC38 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x14069D0BC (AlpcpExposeCapturedContextAttribute.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406B752C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1406D5CE0 (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14084B7F8 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, _QWORD *a3, _DWORD *a4, _QWORD *a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmAddPrivateDataToCrashDump @ 0x14057C5F8
+ * XREFs of MmAddPrivateDataToCrashDump @ 0x14057D5F8
  * Callers:
- *     IopLiveDumpMarkImportantDumpData @ 0x140578DC8 (IopLiveDumpMarkImportantDumpData.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x140579088 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x140579DC8 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x14057A088 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE400 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, __int64, __int64, __int64), char a2)
@@ -45,7 +45,7 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   }
   if ( (a2 & 4) != 0 )
   {
-    v9 = MmAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - PsNtosImageBase);
+    v9 = MmAddRangeToCrashDump(a1, (unsigned __int64)PsNtosImageBase, PsNtosImageEnd - (_QWORD)PsNtosImageBase);
     if ( v9 < 0 )
       v2 = v9;
   }
@@ -57,8 +57,8 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   }
   if ( (a2 & 0x10) != 0 )
   {
-    v11 = (__int64 *)qword_14043AF40;
-    while ( v11 != &qword_14043AF40 )
+    v11 = (__int64 *)qword_14043C000;
+    while ( v11 != &qword_14043C000 )
     {
       v12 = MmAddRangeToCrashDump(a1, (unsigned __int64)(v11 - 18), 20480LL);
       v11 = (__int64 *)*v11;

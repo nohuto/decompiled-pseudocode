@@ -1,30 +1,30 @@
 /*
- * XREFs of NtWaitForAlertByThreadId @ 0x180162BB0
+ * XREFs of NtWaitForAlertByThreadId @ 0x180162AB0
  * Callers:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     TppWaitCompletion @ 0x18002BB30 (TppWaitCompletion.c)
- *     RtlSleepConditionVariableSRW @ 0x18002CAF0 (RtlSleepConditionVariableSRW.c)
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     RtlpAcquireSRWLockSharedContended @ 0x18004B7F0 (RtlpAcquireSRWLockSharedContended.c)
- *     RtlSleepConditionVariableCS @ 0x18004BCD0 (RtlSleepConditionVariableCS.c)
- *     TppCancelTimer @ 0x1800686D0 (TppCancelTimer.c)
- *     TpSetTimerEx @ 0x180069020 (TpSetTimerEx.c)
- *     RtlpRunOnceWaitForInit @ 0x180070048 (RtlpRunOnceWaitForInit.c)
- *     RtlpWaitOnCriticalSection @ 0x18007A720 (RtlpWaitOnCriticalSection.c)
- *     RtlWaitOnAddress @ 0x18007B2E0 (RtlWaitOnAddress.c)
- *     RtlpWaitOnAddress @ 0x18007B580 (RtlpWaitOnAddress.c)
- *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18007B880 (RtlpWaitOnAddressRemoveWaitBlock.c)
- *     RtlpWaitOnAddressWithTimeout @ 0x18007BDC0 (RtlpWaitOnAddressWithTimeout.c)
- *     RtlDeleteTimerQueueEx @ 0x1800FBCA0 (RtlDeleteTimerQueueEx.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     TppWaitCompletion @ 0x180016C30 (TppWaitCompletion.c)
+ *     RtlSleepConditionVariableSRW @ 0x180017BF0 (RtlSleepConditionVariableSRW.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     RtlpAcquireSRWLockSharedContended @ 0x180035D70 (RtlpAcquireSRWLockSharedContended.c)
+ *     RtlSleepConditionVariableCS @ 0x180036250 (RtlSleepConditionVariableCS.c)
+ *     RtlpWaitOnCriticalSection @ 0x180068F40 (RtlpWaitOnCriticalSection.c)
+ *     RtlWaitOnAddress @ 0x180069B00 (RtlWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x180069DA0 (RtlpWaitOnAddress.c)
+ *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18006A0A0 (RtlpWaitOnAddressRemoveWaitBlock.c)
+ *     RtlpWaitOnAddressWithTimeout @ 0x18006A5E0 (RtlpWaitOnAddressWithTimeout.c)
+ *     TppCancelTimer @ 0x180088B20 (TppCancelTimer.c)
+ *     TpSetTimerEx @ 0x180089470 (TpSetTimerEx.c)
+ *     RtlpRunOnceWaitForInit @ 0x180090498 (RtlpRunOnceWaitForInit.c)
+ *     RtlDeleteTimerQueueEx @ 0x1800FB3F0 (RtlDeleteTimerQueueEx.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWaitForAlertByThreadId()
+NTSTATUS __cdecl NtWaitForAlertByThreadId(PVOID Address, PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 484LL;
+  result = 484;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

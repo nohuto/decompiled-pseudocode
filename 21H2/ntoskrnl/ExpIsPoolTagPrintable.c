@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpIsPoolTagPrintable @ 0x1409ED0D8
+ * XREFs of ExpIsPoolTagPrintable @ 0x1409EE0D8
  * Callers:
- *     ExAllocatePoolSanityChecks @ 0x1409ECDE4 (ExAllocatePoolSanityChecks.c)
+ *     ExAllocatePoolSanityChecks @ 0x1409EDDE4 (ExAllocatePoolSanityChecks.c)
  * Callees:
  *     <none>
  */

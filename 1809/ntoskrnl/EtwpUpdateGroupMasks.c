@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpUpdateGroupMasks @ 0x140725E48
+ * XREFs of EtwpUpdateGroupMasks @ 0x1407270E8
  * Callers:
- *     EtwpUpdateLoggerGroupMasks @ 0x140725D9C (EtwpUpdateLoggerGroupMasks.c)
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x14072703C (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwpCheckSiloGroupMasks @ 0x140312678 (EtwpCheckSiloGroupMasks.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpMapEnableFlags @ 0x1406CBBAC (EtwpMapEnableFlags.c)
- *     EtwpLogGroupMask @ 0x1407260F4 (EtwpLogGroupMask.c)
- *     EtwpKernelTraceRundown @ 0x140726174 (EtwpKernelTraceRundown.c)
- *     EtwpLogAlwaysPresentRundown @ 0x140726360 (EtwpLogAlwaysPresentRundown.c)
- *     EtwpCCSwapStart @ 0x140726CEC (EtwpCCSwapStart.c)
- *     EtwpCCSwapStop @ 0x140726DAC (EtwpCCSwapStop.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwpCheckSiloGroupMasks @ 0x140312868 (EtwpCheckSiloGroupMasks.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C6838 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpMapEnableFlags @ 0x1406CCE4C (EtwpMapEnableFlags.c)
+ *     EtwpLogGroupMask @ 0x140727394 (EtwpLogGroupMask.c)
+ *     EtwpKernelTraceRundown @ 0x140727414 (EtwpKernelTraceRundown.c)
+ *     EtwpLogAlwaysPresentRundown @ 0x140727600 (EtwpLogAlwaysPresentRundown.c)
+ *     EtwpCCSwapStart @ 0x140727F8C (EtwpCCSwapStart.c)
+ *     EtwpCCSwapStop @ 0x14072804C (EtwpCCSwapStop.c)
  */
 
 __int64 __fastcall EtwpUpdateGroupMasks(__int64 a1, __int64 a2)

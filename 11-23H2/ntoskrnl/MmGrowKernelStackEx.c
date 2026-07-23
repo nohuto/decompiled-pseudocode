@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGrowKernelStackEx @ 0x140361350
+ * XREFs of MmGrowKernelStackEx @ 0x1403614F0
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E7B0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KxSwitchKernelStackCallout @ 0x140423750 (KxSwitchKernelStackCallout.c)
- *     MmGrowKernelStack @ 0x14062D6B0 (MmGrowKernelStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E8C0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KxSwitchKernelStackCallout @ 0x140423AE0 (KxSwitchKernelStackCallout.c)
+ *     MmGrowKernelStack @ 0x14062DC00 (MmGrowKernelStack.c)
  * Callees:
- *     MiAllocateKernelStackPages @ 0x1402732C0 (MiAllocateKernelStackPages.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MI_GET_NODE_FROM_VALID_PTE @ 0x140361544 (MI_GET_NODE_FROM_VALID_PTE.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateKernelStackPages @ 0x140273550 (MiAllocateKernelStackPages.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     MI_GET_NODE_FROM_VALID_PTE @ 0x1403616E4 (MI_GET_NODE_FROM_VALID_PTE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
   v4 = *(_QWORD *)(qword_140C673C8 + 8LL * CurrentThread->Process[1].IdealProcessor[25]);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v11) = 4;
@@ -105,10 +105,10 @@ LABEL_29:
     v3 = -1073741801;
   }
 LABEL_8:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;

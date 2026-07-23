@@ -1,17 +1,17 @@
 /*
  * XREFs of RtlGetAce @ 0x1402A4750
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x140257C7C (SepAppendAceToTokenDefaultDacl.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x14041A13C (SepSetProcessTrustLabelAceForToken.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14064B9D8 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140678874 (PiDevCfgGetKeySecurityDescriptor.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140724550 (SepAppendAceToTokenObjectAcl.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407F8298 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     PopCreateHiberFileSecurityDescriptor @ 0x140801A80 (PopCreateHiberFileSecurityDescriptor.c)
- *     ObpGetDosDevicesProtection @ 0x14082C74C (ObpGetDosDevicesProtection.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140834D0C (CmpHiveRootSecurityDescriptor.c)
- *     ObInitSystem @ 0x140AFE184 (ObInitSystem.c)
+ *     sub_140257C7C @ 0x140257C7C (sub_140257C7C.c)
+ *     sub_14041A13C @ 0x14041A13C (sub_14041A13C.c)
+ *     sub_14064B9D8 @ 0x14064B9D8 (sub_14064B9D8.c)
+ *     sub_140675DA8 @ 0x140675DA8 (sub_140675DA8.c)
+ *     sub_140678874 @ 0x140678874 (sub_140678874.c)
+ *     sub_140724550 @ 0x140724550 (sub_140724550.c)
+ *     sub_1407F8298 @ 0x1407F8298 (sub_1407F8298.c)
+ *     sub_140801A80 @ 0x140801A80 (sub_140801A80.c)
+ *     sub_14082C74C @ 0x14082C74C (sub_14082C74C.c)
+ *     sub_140834D0C @ 0x140834D0C (sub_140834D0C.c)
+ *     sub_140AFE184 @ 0x140AFE184 (sub_140AFE184.c)
  * Callees:
  *     <none>
  */

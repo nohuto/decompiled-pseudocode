@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetEventBoostPriority @ 0x1401B8730
+ * XREFs of ZwSetEventBoostPriority @ 0x1401B8890
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwSetEventBoostPriority(HANDLE EventHandle)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EventHandle, v1, v2);
+  return KiServiceInternal(EventHandle);
 }

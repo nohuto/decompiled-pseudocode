@@ -24,7 +24,7 @@ unsigned __int64 __fastcall sub_18004A5DC(char *a1, unsigned int a2, unsigned in
   __int64 v21; // rdx
   __int64 v22; // r8
   unsigned __int64 v23; // rcx
-  __int16 HeapVirtualAffinity_high; // bx
+  __int16 HeapData_high; // bx
   unsigned __int64 v25; // rdi
   __int64 v26; // rdx
   __int64 v27; // rcx
@@ -102,9 +102,9 @@ unsigned __int64 __fastcall sub_18004A5DC(char *a1, unsigned int a2, unsigned in
       *((_DWORD *)a1 + 10) = v30 ^ qword_180163548 ^ ((unsigned int)a1 >> 12);
     }
   }
-  HeapVirtualAffinity_high = HIWORD(NtCurrentTeb()->HeapVirtualAffinity);
+  HeapData_high = HIWORD(NtCurrentTeb()->HeapData);
   v25 = (unsigned __int64)(unsigned int)sub_18004A7A0(v23, v21, v22) << 32;
   result = (v25 | (unsigned int)sub_18004A7A0(v27, v26, v28)) & 0x7F7F7F7F7F7F7F7FLL;
-  *(_QWORD *)&byte_180163580[8 * ((unsigned __int8)HeapVirtualAffinity_high >> 3)] = result;
+  *(_QWORD *)&byte_180163580[8 * ((unsigned __int8)HeapData_high >> 3)] = result;
   return result;
 }

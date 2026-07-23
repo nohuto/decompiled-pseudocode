@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpSortedValueEnumStackEntryStart @ 0x140A287B0
+ * XREFs of CmpSortedValueEnumStackEntryStart @ 0x140A1D230
  * Callers:
- *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A28364 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A1CDE4 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
  */
 
 __int64 __fastcall CmpSortedValueEnumStackEntryStart(__int64 a1, ULONG_PTR a2, __int64 a3)
@@ -39,10 +39,10 @@ __int64 __fastcall CmpSortedValueEnumStackEntryStart(__int64 a1, ULONG_PTR a2, _
   v9 = *(unsigned int *)(v8 + 36);
   if ( (_DWORD)v9 )
   {
-    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, 8 * v9, 0x38374D43u);
     if ( Pool )
     {
-      v22 = CmpAllocatePool(0x100uLL);
+      v22 = CmpAllocatePool(0x100uLL, 8 * v9, 0x38374D43u);
       if ( v22 )
       {
         v12 = *(unsigned int *)(a3 + 40);

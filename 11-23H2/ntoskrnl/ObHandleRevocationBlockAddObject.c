@@ -1,14 +1,14 @@
 /*
- * XREFs of ObHandleRevocationBlockAddObject @ 0x14097B2CC
+ * XREFs of ObHandleRevocationBlockAddObject @ 0x14097B4CC
  * Callers:
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F4E10 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1402F50A0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
  */
 
 void __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __int64 a2)

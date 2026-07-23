@@ -1,29 +1,29 @@
 /*
- * XREFs of HalpDmaSyncMapBuffers @ 0x14035BE40
+ * XREFs of HalpDmaSyncMapBuffers @ 0x14035DBE0
  * Callers:
- *     HalpAllocateAdapterCallbackV2 @ 0x14035AEF0 (HalpAllocateAdapterCallbackV2.c)
- *     HalPutScatterGatherListV2 @ 0x14035B580 (HalPutScatterGatherListV2.c)
- *     IopMapTransfer @ 0x14035C290 (IopMapTransfer.c)
- *     IoFlushAdapterBuffersV2 @ 0x14035C710 (IoFlushAdapterBuffersV2.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x14043E23C (HalpDmaFlushContiguousTransferV3.c)
- *     IoMapTransferInternal @ 0x14043F90C (IoMapTransferInternal.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x1404402F0 (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaMapScatterTransferV3 @ 0x140440BB4 (HalpDmaMapScatterTransferV3.c)
- *     HalpDmaMapContiguousTransferV3 @ 0x14044152C (HalpDmaMapContiguousTransferV3.c)
+ *     HalpAllocateAdapterCallbackV2 @ 0x14035CC90 (HalpAllocateAdapterCallbackV2.c)
+ *     HalPutScatterGatherListV2 @ 0x14035D320 (HalPutScatterGatherListV2.c)
+ *     IopMapTransfer @ 0x14035E030 (IopMapTransfer.c)
+ *     IoFlushAdapterBuffersV2 @ 0x14035E4B0 (IoFlushAdapterBuffersV2.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x140436D4C (HalpDmaFlushContiguousTransferV3.c)
+ *     IoMapTransferInternal @ 0x14043841C (IoMapTransferInternal.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x140438E00 (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x1404396C4 (HalpDmaMapScatterTransferV3.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x14043A03C (HalpDmaMapContiguousTransferV3.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HalpDmaAcquireBufferMappings @ 0x14035C1E8 (HalpDmaAcquireBufferMappings.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapReservedMapping @ 0x1403C1C70 (MmUnmapReservedMapping.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140441650 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpFlushMapBuffers @ 0x14058970C (HalpFlushMapBuffers.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalpDmaAcquireBufferMappings @ 0x14035DF88 (HalpDmaAcquireBufferMappings.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapReservedMapping @ 0x1403CBB70 (MmUnmapReservedMapping.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14043A160 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpFlushMapBuffers @ 0x14058BDDC (HalpFlushMapBuffers.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall HalpDmaSyncMapBuffers(
@@ -165,14 +165,14 @@ void __fastcall HalpDmaSyncMapBuffers(
       if ( (_BYTE)v36 )
       {
         MmUnmapReservedMapping(MemoryDescriptorList[1], 0x446C6148u, MemoryDescriptorList[0]);
-        if ( !stru_140E3E928.WaitBlockFill7[144] )
+        if ( !stru_140E3EAA8.WaitBlockFill7[144] )
         {
           KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)&LockHandle[1]);
           v28 = LockHandle[0];
           if ( _InterlockedExchangeAdd((volatile signed __int32 *)(LockHandle[0] + 24LL), 0xFFFFFFFF) == 1
             && !_InterlockedCompareExchange((volatile signed __int32 *)(v28 + 28), 1, 0) )
           {
-            RtlpInterlockedPushEntrySList((PSLIST_HEADER)&stru_140E3E928.WaitBlockFill11[152], (PSLIST_ENTRY)v28);
+            RtlpInterlockedPushEntrySList((PSLIST_HEADER)&stru_140E3EAA8.WaitBlockFill11[152], (PSLIST_ENTRY)v28);
           }
         }
       }

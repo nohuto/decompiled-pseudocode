@@ -1,39 +1,39 @@
 /*
- * XREFs of NtQueryDirectoryObject @ 0x1409E1C50
+ * XREFs of NtQueryDirectoryObject @ 0x1409DEC60
  * Callers:
- *     DifNtQueryDirectoryObjectWrapper @ 0x140681D30 (DifNtQueryDirectoryObjectWrapper.c)
+ *     DifNtQueryDirectoryObjectWrapper @ 0x140685910 (DifNtQueryDirectoryObjectWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObpLockDirectoryShared @ 0x1409E1EF0 (ObpLockDirectoryShared.c)
- *     ObpUnlockDirectory @ 0x1409E2240 (ObpUnlockDirectory.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObpLockDirectoryShared @ 0x1409DEF00 (ObpLockDirectoryShared.c)
+ *     ObpUnlockDirectory @ 0x1409DF250 (ObpUnlockDirectory.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryDirectoryObject(
-        HANDLE Handle,
-        char *Address,
-        SIZE_T Length,
-        char a4,
-        char a5,
-        unsigned int *a6,
-        unsigned int *a7)
+NTSTATUS __cdecl NtQueryDirectoryObject(
+        HANDLE DirectoryHandle,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        BOOLEAN RestartScan,
+        PULONG Context,
+        PULONG ReturnLength)
 {
-  unsigned int v7; // r14d
+  ULONG v7; // r14d
   KPROCESSOR_MODE PreviousMode; // di
-  unsigned int v10; // ebx
-  unsigned int *v11; // r12
-  unsigned int *v12; // r13
+  int v10; // ebx
+  PULONG v11; // r12
+  PULONG v12; // r13
   const void **Pool2; // rsi
-  NTSTATUS v14; // edi
+  int v14; // edi
   unsigned int v15; // r15d
   unsigned int v16; // edx
   int v17; // ecx
@@ -64,15 +64,13 @@ __int64 __fastcall NtQueryDirectoryObject(
   const void **v43; // [rsp+48h] [rbp-A0h]
   PVOID Object; // [rsp+50h] [rbp-98h] BYREF
   unsigned __int64 v45; // [rsp+58h] [rbp-90h]
-  unsigned int v46; // [rsp+60h] [rbp-88h]
+  int v46; // [rsp+60h] [rbp-88h]
   __int64 v47; // [rsp+68h] [rbp-80h]
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-70h] BYREF
   const void **v49; // [rsp+88h] [rbp-60h]
   __int128 v50; // [rsp+90h] [rbp-58h] BYREF
   __int64 v51; // [rsp+A0h] [rbp-48h]
-  unsigned int v53; // [rsp+100h] [rbp+18h]
 
-  v53 = Length;
   v7 = Length;
   DestinationString = 0LL;
   v50 = 0LL;
@@ -82,41 +80,41 @@ __int64 __fastcall NtQueryDirectoryObject(
   v10 = 0;
   if ( PreviousMode )
   {
-    ProbeForWrite(Address, (unsigned int)Length, 2u);
-    v12 = a6;
-    ULongFromUser = RtlReadULongFromUser(a6);
-    RtlWriteULongToUser(a6, ULongFromUser);
-    v11 = a7;
-    if ( a7 )
+    ProbeForWrite(Buffer, Length, 2u);
+    v12 = Context;
+    ULongFromUser = RtlReadULongFromUser(Context);
+    RtlWriteULongToUser(Context, ULongFromUser);
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
-      v29 = RtlReadULongFromUser(a7);
-      RtlWriteULongToUser(a7, v29);
+      v29 = RtlReadULongFromUser(ReturnLength);
+      RtlWriteULongToUser(ReturnLength, v29);
     }
-    if ( a5 )
+    if ( RestartScan )
     {
       v46 = 0;
     }
     else
     {
-      v10 = RtlReadULongFromUser(a6);
+      v10 = RtlReadULongFromUser(Context);
       v46 = v10;
     }
   }
   else
   {
-    v11 = a7;
-    v12 = a6;
-    if ( !a5 )
-      v10 = *a6;
+    v11 = ReturnLength;
+    v12 = Context;
+    if ( !RestartScan )
+      v10 = *Context;
   }
   if ( v7 >= v7 + 32 )
-    return 3221225485LL;
+    return -1073741811;
   Pool2 = (const void **)ExAllocatePool2(0x101uLL);
   v49 = Pool2;
   if ( !Pool2 )
-    return 3221225626LL;
+    return -1073741670;
   Object = 0LL;
-  v14 = ObReferenceObjectByHandle(Handle, 1u, ObpDirectoryObjectType, PreviousMode, &Object, 0LL);
+  v14 = ObReferenceObjectByHandle(DirectoryHandle, 1u, ObpDirectoryObjectType, PreviousMode, &Object, 0LL);
   if ( v14 >= 0 )
   {
     v43 = Pool2;
@@ -179,9 +177,9 @@ LABEL_8:
           if ( v31 > v7 )
           {
             v40 = v19;
-            v14 = a4 != 0 ? -1073741789 : 261;
+            v14 = ReturnSingleEntry != 0 ? -1073741789 : 261;
             v15 = v31;
-            if ( !a4 )
+            if ( !ReturnSingleEntry )
               v15 = v42;
             goto LABEL_15;
           }
@@ -201,7 +199,7 @@ LABEL_8:
           v21 = v43 + 4;
           v43 += 4;
           v22 = ++v38;
-          if ( a4 )
+          if ( ReturnSingleEntry )
             goto LABEL_16;
           ++v10;
           v17 = v40;
@@ -224,12 +222,12 @@ LABEL_16:
         {
           v39 = v22 - 1;
           memmove(v26, *(v27 - 2), *((unsigned __int16 *)v27 - 12));
-          *(v27 - 2) = &Address[v26 - (char *)Pool2];
+          *(v27 - 2) = (char *)Buffer + v26 - (char *)Pool2;
           v34 = *((unsigned __int16 *)v27 - 12);
           *(_WORD *)&v26[v34] = 0;
           v35 = &v26[v34];
           memmove(v35 + 2, *v27, *((unsigned __int16 *)v27 - 4));
-          *v27 = &Address[v35 + 2 - (char *)Pool2];
+          *v27 = (char *)Buffer + v35 + 2 - (char *)Pool2;
           v36 = *((unsigned __int16 *)v27 - 4);
           *(_WORD *)&v35[v36 + 2] = 0;
           v26 = &v35[v36 + 4];
@@ -237,18 +235,18 @@ LABEL_16:
           v22 = v39;
         }
         while ( v39 );
-        v7 = v53;
-        v11 = a7;
-        v12 = a6;
+        v7 = Length;
+        v11 = ReturnLength;
+        v12 = Context;
       }
     }
     ObpUnlockDirectory(&v50);
     if ( v15 <= v7 )
       v7 = v15;
     if ( v37 )
-      RtlCopyToUser(Address, Pool2, v7);
+      RtlCopyToUser(Buffer, Pool2, v7);
     else
-      RtlCopyVolatileMemory(Address, Pool2, v7);
+      RtlCopyVolatileMemory(Buffer, Pool2, v7);
     if ( v11 )
     {
       if ( v37 )
@@ -266,5 +264,5 @@ LABEL_16:
     ObfDereferenceObject(Object);
   }
   ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v14;
+  return v14;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceMonitorOnWithLidClosed @ 0x140A377B8
+ * XREFs of PopDiagTraceMonitorOnWithLidClosed @ 0x140A3ACF8
  * Callers:
- *     PopPowerAggregatorHandleActiveIntent @ 0x140A376A0 (PopPowerAggregatorHandleActiveIntent.c)
+ *     PopPowerAggregatorHandleActiveIntent @ 0x140A3ABE0 (PopPowerAggregatorHandleActiveIntent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PopDiagTraceMonitorOnWithLidClosed()
@@ -41,8 +41,8 @@ void PopDiagTraceMonitorOnWithLidClosed()
   int v28; // [rsp+B8h] [rbp+3Fh]
   int v29; // [rsp+BCh] [rbp+43h]
 
-  v0 = dword_140F0BA4C == 0;
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  v0 = dword_140F0B38C == 0;
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v14 = 0;
     v17 = 0;
@@ -68,6 +68,6 @@ void PopDiagTraceMonitorOnWithLidClosed()
     v6 = v4;
     v19 = 4;
     v7 = v0;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&word_140048F96, 0LL, 0LL, 8u, &v11);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)&word_140049836, 0LL, 0LL, 8u, &v11);
   }
 }

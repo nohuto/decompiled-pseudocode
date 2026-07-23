@@ -1,18 +1,18 @@
 /*
- * XREFs of MmSizeOfMdl @ 0x140488370
+ * XREFs of MmSizeOfMdl @ 0x140481EB0
  * Callers:
- *     VslObtainHotPatchUndoTable @ 0x14079251C (VslObtainHotPatchUndoTable.c)
- *     SmProcessStatsRequest @ 0x140819F3C (SmProcessStatsRequest.c)
- *     ExInitializeLeapSecondData @ 0x1408356F4 (ExInitializeLeapSecondData.c)
- *     NtStartProfile @ 0x140842840 (NtStartProfile.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140876584 (MiLoadDataIntoVsmEnclave.c)
- *     ExLockUserBuffer @ 0x140907E40 (ExLockUserBuffer.c)
- *     VslValidateDynamicCodePages @ 0x140AD5FA4 (VslValidateDynamicCodePages.c)
- *     MiRotateToFrameBuffer @ 0x140AEC740 (MiRotateToFrameBuffer.c)
- *     MiReplaceRotateWithDemandZero @ 0x140AECA38 (MiReplaceRotateWithDemandZero.c)
- *     VslCreateSecureSection @ 0x140AFB740 (VslCreateSecureSection.c)
- *     PspCreateSecureThread @ 0x140B342F8 (PspCreateSecureThread.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140B64218 (MiQueryMemoryPhysicalContiguity.c)
+ *     VslObtainHotPatchUndoTable @ 0x14079504C (VslObtainHotPatchUndoTable.c)
+ *     SmProcessStatsRequest @ 0x14082014C (SmProcessStatsRequest.c)
+ *     ExInitializeLeapSecondData @ 0x14083B934 (ExInitializeLeapSecondData.c)
+ *     NtStartProfile @ 0x14084B8E0 (NtStartProfile.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x14087C968 (MiLoadDataIntoVsmEnclave.c)
+ *     ExLockUserBuffer @ 0x140A2FFA0 (ExLockUserBuffer.c)
+ *     VslValidateDynamicCodePages @ 0x140AD2F54 (VslValidateDynamicCodePages.c)
+ *     MiRotateToFrameBuffer @ 0x140AEF750 (MiRotateToFrameBuffer.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140AEFA48 (MiReplaceRotateWithDemandZero.c)
+ *     VslCreateSecureSection @ 0x140AFD3C0 (VslCreateSecureSection.c)
+ *     PspCreateSecureThread @ 0x140B36748 (PspCreateSecureThread.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140B672B8 (MiQueryMemoryPhysicalContiguity.c)
  * Callees:
  *     <none>
  */

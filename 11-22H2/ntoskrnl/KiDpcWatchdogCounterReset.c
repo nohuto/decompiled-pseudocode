@@ -23,7 +23,7 @@ __int64 __fastcall KiDpcWatchdogCounterReset(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xDuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 13 )
@@ -36,10 +36,10 @@ __int64 __fastcall KiDpcWatchdogCounterReset(__int64 a1)
   if ( v3 && *(_DWORD *)(a1 + 32428) >= v3 )
     EtwTraceCumulativeDpcSoftTimeout(*(_QWORD *)(a1 + 8), a1);
   *(_DWORD *)(a1 + 32428) = 0;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v7 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = CurrentPrcb->SchedulerAssist;

@@ -10,7 +10,7 @@
 
 __int64 __fastcall sub_14076275C(__int64 a1, __int64 a2)
 {
-  int v3; // r10d
+  __int64 v3; // r10
   __int64 result; // rax
   int v5; // edx
   int v6; // r8d

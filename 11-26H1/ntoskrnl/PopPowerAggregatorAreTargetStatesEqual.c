@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorAreTargetStatesEqual @ 0x140A3F4CC
+ * XREFs of PopPowerAggregatorAreTargetStatesEqual @ 0x1409FAEEC
  * Callers:
- *     PopPowerAggregatorRecordIntent @ 0x140A3F340 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorRecordIntent @ 0x1409FAD60 (PopPowerAggregatorRecordIntent.c)
  * Callees:
  *     <none>
  */

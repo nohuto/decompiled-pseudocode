@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTpReadOperandValue @ 0x14029F3BC
+ * XREFs of KiTpReadOperandValue @ 0x14029F5AC
  * Callers:
- *     KiTpEmulateGroup0Instruction @ 0x14029E410 (KiTpEmulateGroup0Instruction.c)
- *     KiTpEmulateGroup1Instruction @ 0x14029E71C (KiTpEmulateGroup1Instruction.c)
- *     KiTpEmulateInstruction @ 0x14029E8FC (KiTpEmulateInstruction.c)
+ *     KiTpEmulateGroup0Instruction @ 0x14029E600 (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x14029E90C (KiTpEmulateGroup1Instruction.c)
+ *     KiTpEmulateInstruction @ 0x14029EAEC (KiTpEmulateInstruction.c)
  * Callees:
- *     KiTpAccessMemory @ 0x14029E0A0 (KiTpAccessMemory.c)
- *     KiTpSignExtendOperandValue @ 0x14029F6A8 (KiTpSignExtendOperandValue.c)
+ *     KiTpAccessMemory @ 0x14029E290 (KiTpAccessMemory.c)
+ *     KiTpSignExtendOperandValue @ 0x14029F898 (KiTpSignExtendOperandValue.c)
  */
 
 __int64 __fastcall KiTpReadOperandValue(__int64 a1, __int64 a2, volatile void *a3, char a4, char a5, _BYTE *a6)

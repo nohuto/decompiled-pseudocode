@@ -88,7 +88,7 @@ LABEL_40:
     v29 = v12;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -142,10 +142,10 @@ LABEL_40:
       v2 = v32;
       LODWORD(v11) = v34;
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v26 = CurrentPrcb->SchedulerAssist;

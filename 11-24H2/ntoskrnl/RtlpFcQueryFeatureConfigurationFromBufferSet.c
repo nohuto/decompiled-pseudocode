@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1406F9F24
+ * XREFs of RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1406F7B64
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x1403A7E90 (RtlQueryFeatureConfiguration.c)
- *     RtlQueryInternalFeatureConfiguration @ 0x1405E9260 (RtlQueryInternalFeatureConfiguration.c)
+ *     RtlQueryFeatureConfiguration @ 0x140496030 (RtlQueryFeatureConfiguration.c)
+ *     RtlQueryInternalFeatureConfiguration @ 0x1405E67B0 (RtlQueryInternalFeatureConfiguration.c)
  * Callees:
- *     RtlpFcValidateFeatureConfigurationType @ 0x1404C0220 (RtlpFcValidateFeatureConfigurationType.c)
- *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x14078CFF8 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14078D330 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcValidateFeatureConfigurationType @ 0x1404BB750 (RtlpFcValidateFeatureConfigurationType.c)
+ *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x14078CF28 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14078D260 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  */
 
 __int64 __fastcall RtlpFcQueryFeatureConfigurationFromBufferSet(

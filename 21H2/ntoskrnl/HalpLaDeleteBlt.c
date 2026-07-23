@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpLaDeleteBlt @ 0x1404DB0C4
+ * XREFs of HalpLaDeleteBlt @ 0x1404DB304
  * Callers:
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpLaBltAdd @ 0x1404DAFF8 (HalpLaBltAdd.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpLaBltAdd @ 0x1404DB238 (HalpLaBltAdd.c)
  */
 
 __int64 __fastcall HalpLaDeleteBlt(__int64 a1, unsigned __int64 a2)

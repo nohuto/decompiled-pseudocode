@@ -1,20 +1,20 @@
 /*
- * XREFs of SepInitSingletonEntry @ 0x1403CB190
+ * XREFs of SepInitSingletonEntry @ 0x1403B22B8
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x140A2B9A4 (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x140AB7B44 (SepAddLuidToIndexEntry.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1403CB24C (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1403B212C (SepGetSingletonEntryFromIndexNumber.c)
  */
 
-void __fastcall SepInitSingletonEntry(__int64 a1, __int64 a2)
+void __fastcall SepInitSingletonEntry(unsigned int a1, __int64 a2)
 {
   volatile LONG *SingletonEntryFromIndexNumber; // rax
   volatile LONG *v4; // rbx
   KIRQL v5; // al
 
-  SingletonEntryFromIndexNumber = (volatile LONG *)SepGetSingletonEntryFromIndexNumber();
+  SingletonEntryFromIndexNumber = (volatile LONG *)SepGetSingletonEntryFromIndexNumber(a1);
   v4 = SingletonEntryFromIndexNumber;
   if ( SingletonEntryFromIndexNumber )
   {

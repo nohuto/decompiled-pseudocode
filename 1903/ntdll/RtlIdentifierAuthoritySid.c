@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlIdentifierAuthoritySid(__int64 a1)
+PSID_IDENTIFIER_AUTHORITY __cdecl RtlIdentifierAuthoritySid(PSID Sid)
 {
-  return a1 + 2;
+  return (PSID_IDENTIFIER_AUTHORITY)((char *)Sid + 2);
 }

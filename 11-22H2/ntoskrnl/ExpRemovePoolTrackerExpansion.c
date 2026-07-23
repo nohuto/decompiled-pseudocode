@@ -54,10 +54,10 @@ int __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
     ExpPoolTrackerReturnLimit((a3 & 1) == 0, a2, PoolTrackTableExpansion + 80 * v6);
     LODWORD(CurrentIrql) = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
     OldIrql = v20.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LODWORD(CurrentIrql) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)CurrentIrql <= 0xFu
         && v20.OldIrql <= 0xFu
         && (unsigned __int8)CurrentIrql >= 2u )
@@ -78,10 +78,10 @@ int __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
 LABEL_6:
     CurrentIrql = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
     v10 = v20.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)CurrentIrql <= 0xFu
         && v20.OldIrql <= 0xFu
         && (unsigned __int8)CurrentIrql >= 2u )

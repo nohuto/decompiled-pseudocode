@@ -31,8 +31,8 @@ __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, __int64 a2, __
   __int64 v19; // rax
   unsigned int v20; // ebx
   wchar_t Dst[4]; // [rsp+30h] [rbp+0h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp+8h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp+18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp+8h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp+18h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

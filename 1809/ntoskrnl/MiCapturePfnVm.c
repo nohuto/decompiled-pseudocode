@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCapturePfnVm @ 0x140083648
+ * XREFs of MiCapturePfnVm @ 0x140083638
  * Callers:
- *     MiProcessCrcList @ 0x14061F320 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140620320 (MiProcessCrcList.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
- *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
- *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
- *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
- *     MiAttachToOwningSession @ 0x14011A4CC (MiAttachToOwningSession.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIsStoreProcess @ 0x1400837DC (MiIsStoreProcess.c)
+ *     MiGetTopLevelPfn @ 0x140083810 (MiGetTopLevelPfn.c)
+ *     MiCombineCandidate @ 0x1400B2610 (MiCombineCandidate.c)
+ *     MiAttachToOwningSession @ 0x14011A53C (MiAttachToOwningSession.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char *__fastcall MiCapturePfnVm(__int64 a1, ULONG_PTR a2, unsigned int a3, _QWORD *a4, unsigned __int64 *a5, int *a6)

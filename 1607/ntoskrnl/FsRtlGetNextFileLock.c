@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlGetNextFileLock @ 0x1401B8DC0
+ * XREFs of FsRtlGetNextFileLock @ 0x1401B8A04
  * Callers:
  *     <none>
  * Callees:
- *     RtlRealSuccessor @ 0x1400AB488 (RtlRealSuccessor.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x1400C553C (FsRtlFindFirstOverlappingSharedNode.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1400C5F48 (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRealSuccessor @ 0x1400A9A08 (RtlRealSuccessor.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x1400C33DC (FsRtlFindFirstOverlappingSharedNode.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1400C3DE8 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Restart)
@@ -20,7 +20,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   char v8; // si
   __int128 v9; // xmm0
   PRTL_SPLAY_LINKS FirstOverlappingExclusiveNode; // rax
-  struct _RTL_SPLAY_LINKS *v11; // rcx
+  _RTL_SPLAY_LINKS *v11; // rcx
   _RTL_SPLAY_LINKS *v12; // r15
   _RTL_SPLAY_LINKS *v13; // r12
   int v14; // r13d
@@ -29,11 +29,11 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   __int64 j; // rax
   __int128 v18; // xmm1
   __int128 v19; // xmm0
-  struct _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
+  _RTL_SPLAY_LINKS *FirstOverlappingSharedNode; // rax
   _RTL_SPLAY_LINKS *Parent; // rbx
   bool v22; // cf
   PRTL_SPLAY_LINKS v23; // rax
-  struct _RTL_SPLAY_LINKS *v24; // rax
+  _RTL_SPLAY_LINKS *v24; // rax
   __int64 v25; // rax
   __int64 i; // rcx
   __int128 v27; // xmm0
@@ -67,7 +67,7 @@ PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Rest
   NewIrql = KeAcquireSpinLockRaiseToDpc(LockInformation + 3);
   if ( Restart )
   {
-    v24 = (struct _RTL_SPLAY_LINKS *)LockInformation[5];
+    v24 = (_RTL_SPLAY_LINKS *)LockInformation[5];
     if ( v24 )
     {
       do
@@ -154,12 +154,12 @@ LABEL_23:
     }
     goto LABEL_24;
   }
-  FirstOverlappingSharedNode = (struct _RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
-                                                            LockInformation[4],
-                                                            (unsigned __int64 *)&v35,
-                                                            (unsigned __int64 *)&v36[24],
-                                                            &Links,
-                                                            &v38);
+  FirstOverlappingSharedNode = (_RTL_SPLAY_LINKS *)FsRtlFindFirstOverlappingSharedNode(
+                                                     LockInformation[4],
+                                                     (unsigned __int64 *)&v35,
+                                                     (unsigned __int64 *)&v36[24],
+                                                     &Links,
+                                                     &v38);
   if ( FirstOverlappingSharedNode )
     goto LABEL_36;
   if ( v38 )
@@ -175,7 +175,7 @@ LABEL_23:
   if ( FirstOverlappingSharedNode )
   {
 LABEL_36:
-    if ( FirstOverlappingSharedNode != (struct _RTL_SPLAY_LINKS *)24 )
+    if ( FirstOverlappingSharedNode != (_RTL_SPLAY_LINKS *)24 )
     {
       Parent = FirstOverlappingSharedNode[-1].Parent;
       if ( !Parent )

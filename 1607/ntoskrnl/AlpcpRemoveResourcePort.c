@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpRemoveResourcePort @ 0x14042B344
+ * XREFs of AlpcpRemoveResourcePort @ 0x14042A214
  * Callers:
- *     AlpcViewDestroyProcedure @ 0x14042B168 (AlpcViewDestroyProcedure.c)
- *     AlpcReserveDestroyProcedure @ 0x1404C0D64 (AlpcReserveDestroyProcedure.c)
- *     AlpcSectionDeleteProcedure @ 0x1404C0DD0 (AlpcSectionDeleteProcedure.c)
- *     AlpcSecurityDestroyProcedure @ 0x1404C0E34 (AlpcSecurityDestroyProcedure.c)
- *     AlpcSectionDestroyProcedure @ 0x1404D7F3C (AlpcSectionDestroyProcedure.c)
+ *     AlpcViewDestroyProcedure @ 0x14042A038 (AlpcViewDestroyProcedure.c)
+ *     AlpcReserveDestroyProcedure @ 0x1404ACA94 (AlpcReserveDestroyProcedure.c)
+ *     AlpcSectionDeleteProcedure @ 0x1404ACB00 (AlpcSectionDeleteProcedure.c)
+ *     AlpcSecurityDestroyProcedure @ 0x1404ACB64 (AlpcSecurityDestroyProcedure.c)
+ *     AlpcSectionDestroyProcedure @ 0x1404BB540 (AlpcSectionDestroyProcedure.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 unsigned __int64 __fastcall AlpcpRemoveResourcePort(__int64 a1, __int64 a2)

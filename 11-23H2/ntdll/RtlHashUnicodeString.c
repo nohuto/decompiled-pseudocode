@@ -6,12 +6,16 @@
  *     <none>
  */
 
-__int64 __fastcall RtlHashUnicodeString(unsigned __int16 *a1, char a2, unsigned int a3, int *a4)
+NTSTATUS __cdecl RtlHashUnicodeString(
+        PUNICODE_STRING String,
+        BOOLEAN CaseInSensitive,
+        ULONG HashAlgorithm,
+        PULONG HashValue)
 {
   __int64 v4; // rsi
-  unsigned int v5; // r10d
-  int v7; // r11d
-  unsigned __int16 *v8; // rbx
+  NTSTATUS v5; // r10d
+  ULONG v7; // r11d
+  wchar_t *Buffer; // rbx
   int v9; // r9d
   unsigned __int64 v10; // r8
   int v12; // eax
@@ -19,56 +23,58 @@ __int64 __fastcall RtlHashUnicodeString(unsigned __int16 *a1, char a2, unsigned 
   v4 = qword_180184808;
   v5 = 0;
   v7 = 0;
-  if ( a1 && a4 && (v8 = (unsigned __int16 *)*((_QWORD *)a1 + 1), *a4 = 0, v9 = *a1 >> 1, a3 <= 1) )
+  if ( !String )
+    return -1073741811;
+  if ( !HashValue )
+    return -1073741811;
+  Buffer = String->Buffer;
+  *HashValue = 0;
+  v9 = String->Length >> 1;
+  if ( HashAlgorithm > 1 )
+    return -1073741811;
+  if ( v9 )
   {
-    if ( v9 )
+    if ( CaseInSensitive )
     {
-      if ( a2 )
+      do
       {
-        do
+        v10 = *Buffer;
+        --v9;
+        ++Buffer;
+        if ( (unsigned int)v10 >= 0x61 )
         {
-          v10 = *v8;
-          --v9;
-          ++v8;
-          if ( (unsigned int)v10 >= 0x61 )
+          if ( (unsigned int)v10 > 0x7A )
           {
-            if ( (unsigned int)v10 > 0x7A )
-            {
-              if ( v4 && (unsigned __int16)v10 >= 0xC0u )
-                LOWORD(v10) = *(_WORD *)(v4
-                                       + 2
-                                       * ((v10 & 0xF)
-                                        + *(unsigned __int16 *)(v4
-                                                              + 2LL
-                                                              * (((unsigned __int8)v10 >> 4)
-                                                               + (unsigned int)*(unsigned __int16 *)(v4 + 2 * (v10 >> 8))))))
-                            + v10;
-            }
-            else
-            {
-              LOWORD(v10) = v10 - 32;
-            }
+            if ( v4 && (unsigned __int16)v10 >= 0xC0u )
+              LOWORD(v10) = *(_WORD *)(v4
+                                     + 2
+                                     * ((v10 & 0xF)
+                                      + *(unsigned __int16 *)(v4
+                                                            + 2LL
+                                                            * (((unsigned __int8)v10 >> 4)
+                                                             + (unsigned int)*(unsigned __int16 *)(v4 + 2 * (v10 >> 8))))))
+                          + v10;
           }
-          v7 = (unsigned __int16)v10 + 65599 * v7;
+          else
+          {
+            LOWORD(v10) = v10 - 32;
+          }
         }
-        while ( v9 );
+        v7 = (unsigned __int16)v10 + 65599 * v7;
       }
-      else
-      {
-        do
-        {
-          v12 = *v8++;
-          v7 = v12 + 65599 * v7;
-          --v9;
-        }
-        while ( v9 );
-      }
+      while ( v9 );
     }
-    *a4 = v7;
+    else
+    {
+      do
+      {
+        v12 = *Buffer++;
+        v7 = v12 + 65599 * v7;
+        --v9;
+      }
+      while ( v9 );
+    }
   }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
+  *HashValue = v7;
   return v5;
 }

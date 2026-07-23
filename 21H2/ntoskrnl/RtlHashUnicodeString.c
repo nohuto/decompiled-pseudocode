@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlHashUnicodeString @ 0x140636CA0
+ * XREFs of RtlHashUnicodeString @ 0x14062BAB0
  * Callers:
- *     PiUEventHashStringIntoBucket @ 0x1402EE488 (PiUEventHashStringIntoBucket.c)
- *     KsepCacheHwIdHash @ 0x1403803C0 (KsepCacheHwIdHash.c)
- *     PiDmInitializeComparisonObject @ 0x140636BA4 (PiDmInitializeComparisonObject.c)
- *     SepGetCachedHandlesEntry @ 0x140717DC4 (SepGetCachedHandlesEntry.c)
- *     PiDevCfgBuildDriverNodeStrongName @ 0x14073B7C0 (PiDevCfgBuildDriverNodeStrongName.c)
- *     PiDmObjectCreate @ 0x140749D10 (PiDmObjectCreate.c)
- *     PipFindDeviceOverrideEntry @ 0x1407641FC (PipFindDeviceOverrideEntry.c)
- *     PnpGenerateDeviceIdsHash @ 0x14076B3D4 (PnpGenerateDeviceIdsHash.c)
- *     KsepCacheDeviceHash @ 0x140772BA0 (KsepCacheDeviceHash.c)
- *     PiDevCfgResolveVariable @ 0x14077B570 (PiDevCfgResolveVariable.c)
- *     PiCreateDriverSwDeviceCallback @ 0x1408B46E0 (PiCreateDriverSwDeviceCallback.c)
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x1408E4720 (PopFxInitializeSocSubsystemStaticInfo.c)
- *     PopPluginQuerySocSubsystemBlockingTime @ 0x1408E5D3C (PopPluginQuerySocSubsystemBlockingTime.c)
- *     PopPluginQuerySocSubsystemMetadata @ 0x1408E5E8C (PopPluginQuerySocSubsystemMetadata.c)
- *     PipInitDeviceOverrideCache @ 0x140A5CBAC (PipInitDeviceOverrideCache.c)
+ *     PiUEventHashStringIntoBucket @ 0x1402F91D4 (PiUEventHashStringIntoBucket.c)
+ *     KsepCacheHwIdHash @ 0x14037FF10 (KsepCacheHwIdHash.c)
+ *     PiDmInitializeComparisonObject @ 0x14062B9B4 (PiDmInitializeComparisonObject.c)
+ *     SepGetCachedHandlesEntry @ 0x1406C6414 (SepGetCachedHandlesEntry.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x14073B980 (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PiDmObjectCreate @ 0x140749ED0 (PiDmObjectCreate.c)
+ *     PipFindDeviceOverrideEntry @ 0x1407643BC (PipFindDeviceOverrideEntry.c)
+ *     PnpGenerateDeviceIdsHash @ 0x14076B594 (PnpGenerateDeviceIdsHash.c)
+ *     KsepCacheDeviceHash @ 0x140772D60 (KsepCacheDeviceHash.c)
+ *     PiDevCfgResolveVariable @ 0x14077B730 (PiDevCfgResolveVariable.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x1408B4840 (PiCreateDriverSwDeviceCallback.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x1408E4880 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemBlockingTime @ 0x1408E5E9C (PopPluginQuerySocSubsystemBlockingTime.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1408E5FEC (PopPluginQuerySocSubsystemMetadata.c)
+ *     PipInitDeviceOverrideCache @ 0x140A5DBAC (PipInitDeviceOverrideCache.c)
  * Callees:
  *     <none>
  */

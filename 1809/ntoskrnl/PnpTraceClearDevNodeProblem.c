@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceClearDevNodeProblem @ 0x14070DDBC
+ * XREFs of PnpTraceClearDevNodeProblem @ 0x14070F05C
  * Callers:
- *     PipClearDevNodeProblem @ 0x1406F6CD8 (PipClearDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x1406F7F78 (PipClearDevNodeProblem.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceClearDevNodeProblem(unsigned __int16 *a1, __int64 a2, int a3)
@@ -32,9 +32,9 @@ void __fastcall PnpTraceClearDevNodeProblem(unsigned __int16 *a1, __int64 a2, in
   int *v23; // [rsp+C0h] [rbp+37h]
   __int64 v24; // [rsp+C8h] [rbp+3Fh]
 
-  if ( a3 != 1 && stru_1403FFB90.LevelPlus1 > 5 )
+  if ( a3 != 1 && stru_140400B90.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFB90, 0x800000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400B90, 0x800000000000uLL) )
     {
       v9 = 1LL;
       v11 = &v9;
@@ -55,7 +55,7 @@ void __fastcall PnpTraceClearDevNodeProblem(unsigned __int16 *a1, __int64 a2, in
       v20[1] = 0;
       v22 = 4LL;
       v24 = 4LL;
-      TlgWriteAgg((__int64)&stru_1403FFB90, (unsigned __int8 *)dword_14036D8BB, 0LL, v4, 9u, &v10);
+      TlgWriteAgg((__int64)&stru_140400B90, (unsigned __int8 *)dword_14036E8DB, 0LL, v4, 9u, &v10);
     }
   }
 }

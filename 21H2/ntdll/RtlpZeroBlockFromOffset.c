@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpGrowBlockInPlace @ 0x18001F630 (RtlpGrowBlockInPlace.c)
  * Callees:
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 unsigned __int8 __fastcall RtlpZeroBlockFromOffset(__int64 a1, __int64 a2, __int64 a3)

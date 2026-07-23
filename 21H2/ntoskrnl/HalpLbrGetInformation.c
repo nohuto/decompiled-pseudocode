@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpLbrGetInformation @ 0x1403CFCB0
+ * XREFs of HalpLbrGetInformation @ 0x1403CFE20
  * Callers:
  *     <none>
  * Callees:

@@ -195,10 +195,13 @@ _QWORD *__fastcall MiSharePages(__int64 *a1, _QWORD *a2, int a3)
     v69 = MiPrepareAttachThread(v14, &v14[1].ActiveProcessors.StaticBitmap[26]);
     KxReleaseQueuedSpinLock(&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -530,10 +533,10 @@ LABEL_52:
         *(_BYTE *)(v45 + 34) = *(_BYTE *)(v45 + 34) & 0xF8 | 6;
         MiDecrementShareCount(v45);
         _InterlockedAnd64((volatile signed __int64 *)(v45 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v53 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v53 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v53 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v53 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v53 >= 2u )
           {
             v54 = KeGetCurrentPrcb();
             v55 = v54->SchedulerAssist;

@@ -1,15 +1,15 @@
 /*
- * XREFs of SmHwAcceleratorParitionCtxCreate @ 0x14081B58C
+ * XREFs of SmHwAcceleratorParitionCtxCreate @ 0x14082179C
  * Callers:
- *     SmHwAcceleratorMgrCreatePartitionAccelerators @ 0x14081B110 (SmHwAcceleratorMgrCreatePartitionAccelerators.c)
+ *     SmHwAcceleratorMgrCreatePartitionAccelerators @ 0x140821320 (SmHwAcceleratorMgrCreatePartitionAccelerators.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExAcquireRundownProtectionEx @ 0x140375100 (ExAcquireRundownProtectionEx.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     InterlockedPushListSList @ 0x140730D40 (InterlockedPushListSList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SmHwInitializeAccelDescriptor @ 0x14081BA80 (SmHwInitializeAccelDescriptor.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     ExAcquireRundownProtectionEx @ 0x140376EB0 (ExAcquireRundownProtectionEx.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     InterlockedPushListSList @ 0x140735910 (InterlockedPushListSList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SmHwInitializeAccelDescriptor @ 0x140821C90 (SmHwInitializeAccelDescriptor.c)
  */
 
 __int64 __fastcall SmHwAcceleratorParitionCtxCreate(_QWORD *a1, __int64 a2, int a3)
@@ -29,15 +29,15 @@ __int64 __fastcall SmHwAcceleratorParitionCtxCreate(_QWORD *a1, __int64 a2, int 
   unsigned __int64 v16; // r12
   char *v17; // rax
   char *v18; // rbx
-  struct _SLIST_ENTRY *v19; // r12
+  _SLIST_ENTRY *v19; // r12
   unsigned __int64 v20; // r14
   _SLIST_ENTRY *v21; // r14
   _SLIST_ENTRY *v22; // r15
-  struct _SLIST_ENTRY *v23; // rdi
+  _SLIST_ENTRY *v23; // rdi
   unsigned __int64 v24; // r12
   unsigned __int64 v26; // [rsp+20h] [rbp-58h]
   _SLIST_ENTRY *v27; // [rsp+20h] [rbp-58h]
-  struct _SLIST_ENTRY *v28; // [rsp+28h] [rbp-50h]
+  _SLIST_ENTRY *v28; // [rsp+28h] [rbp-50h]
   ULONG Count; // [rsp+30h] [rbp-48h]
   struct _EX_RUNDOWN_REF *v30; // [rsp+38h] [rbp-40h]
   __int64 v32; // [rsp+88h] [rbp+10h] BYREF
@@ -80,10 +80,10 @@ __int64 __fastcall SmHwAcceleratorParitionCtxCreate(_QWORD *a1, __int64 a2, int 
   if ( v17 )
   {
     memset_0(v17, 0, 0x50uLL);
-    v19 = (struct _SLIST_ENTRY *)&v18[v16];
+    v19 = (_SLIST_ENTRY *)&v18[v16];
     v20 = v33;
     *((_DWORD *)v18 + 14) = v14;
-    v21 = (struct _SLIST_ENTRY *)((char *)v19 + v20);
+    v21 = (_SLIST_ENTRY *)((char *)v19 + v20);
     *((_QWORD *)v18 + 4) = a2;
     v22 = (_SLIST_ENTRY *)(v18 + 80);
     *((_DWORD *)v18 + 15) = v4;
@@ -91,7 +91,7 @@ __int64 __fastcall SmHwAcceleratorParitionCtxCreate(_QWORD *a1, __int64 a2, int 
     *((_QWORD *)v18 + 5) = v32;
     *((_QWORD *)v18 + 6) = 0LL;
     v28 = v19;
-    v27 = (struct _SLIST_ENTRY *)((char *)v19 + v26);
+    v27 = (_SLIST_ENTRY *)((char *)v19 + v26);
     if ( v21 < v27 )
     {
       v24 = v33;

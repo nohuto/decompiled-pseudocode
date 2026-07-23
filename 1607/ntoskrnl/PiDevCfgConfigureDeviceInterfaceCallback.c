@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceInterfaceCallback @ 0x1401CEB74
+ * XREFs of PiDevCfgConfigureDeviceInterfaceCallback @ 0x1401CE908
  * Callers:
  *     <none>
  * Callees:
- *     PiDevCfgConfigureDeviceInterface @ 0x1406351BC (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x140635270 (PiDevCfgConfigureDeviceInterface.c)
  */
 
 char __fastcall PiDevCfgConfigureDeviceInterfaceCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

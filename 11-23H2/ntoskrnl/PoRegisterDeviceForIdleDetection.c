@@ -1,13 +1,13 @@
 /*
- * XREFs of PoRegisterDeviceForIdleDetection @ 0x140305040
+ * XREFs of PoRegisterDeviceForIdleDetection @ 0x1403052D0
  * Callers:
- *     PoRunDownDeviceObject @ 0x140304F58 (PoRunDownDeviceObject.c)
+ *     PoRunDownDeviceObject @ 0x1403051E8 (PoRunDownDeviceObject.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopCheckForWork @ 0x14032CBB8 (PopCheckForWork.c)
- *     PopGetDope @ 0x1403C5248 (PopGetDope.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopCheckForWork @ 0x14032CE48 (PopCheckForWork.c)
+ *     PopGetDope @ 0x1403C5428 (PopGetDope.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PULONG __stdcall PoRegisterDeviceForIdleDetection(
@@ -66,10 +66,13 @@ PULONG __stdcall PoRegisterDeviceForIdleDetection(
       p_IdleList->Flink = p_IdleList;
 LABEL_4:
       KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -108,19 +111,19 @@ LABEL_35:
   if ( (_QWORD *)*v24 == v24 )
   {
     *(_DWORD *)(v22 + 56) = 1;
-    v25 = (_QWORD *)qword_140C3D768;
-    if ( *(__int64 **)qword_140C3D768 != &PopIdleDetectList )
+    v25 = (_QWORD *)qword_140C3D648;
+    if ( *(__int64 **)qword_140C3D648 != &PopIdleDetectList )
       goto LABEL_35;
     *v24 = &PopIdleDetectList;
     *(_QWORD *)(v22 + 40) = v25;
     *v25 = v24;
-    qword_140C3D768 = v22 + 32;
+    qword_140C3D648 = v22 + 32;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

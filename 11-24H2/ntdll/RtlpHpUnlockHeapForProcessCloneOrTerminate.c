@@ -1,34 +1,36 @@
 /*
- * XREFs of RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x1800422B0
+ * XREFs of RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x1800D6080
  * Callers:
- *     RtlUnlockProcessHeapOnProcessTerminate @ 0x1800416F0 (RtlUnlockProcessHeapOnProcessTerminate.c)
- *     RtlpUnlockHeapForClone @ 0x180142C0C (RtlpUnlockHeapForClone.c)
+ *     RtlUnlockProcessHeapOnProcessTerminate @ 0x1800ACAD4 (RtlUnlockProcessHeapOnProcessTerminate.c)
+ *     RtlpUnlockHeapForClone @ 0x180140FBC (RtlpUnlockHeapForClone.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpLfhContextLockUnlock @ 0x1800A4A18 (RtlpHpLfhContextLockUnlock.c)
- *     RtlpHpVsContextLockUnlock @ 0x18011C3B8 (RtlpHpVsContextLockUnlock.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhContextLockUnlock @ 0x1800D638C (RtlpHpLfhContextLockUnlock.c)
+ *     RtlpHpVsContextLockUnlock @ 0x18011A5E8 (RtlpHpVsContextLockUnlock.c)
  */
 
-__int64 __fastcall RtlpHpUnlockHeapForProcessCloneOrTerminate(_QWORD *a1, int a2)
+void __fastcall RtlpHpUnlockHeapForProcessCloneOrTerminate(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  _QWORD *v4; // rcx
+  int v3; // esi
+  _RTL_SRWLOCK *v4; // rcx
   __int64 v5; // rdi
   __int64 v6; // rdx
-  _QWORD *v7; // rax
-  _QWORD *v8; // rax
-  _QWORD *v9; // rcx
+  unsigned __int64 *v7; // rax
+  unsigned __int64 *v8; // rax
+  _RTL_SRWLOCK *v9; // rcx
 
-  RtlpHpLfhContextLockUnlock(a1 + 104);
-  RtlpHpVsContextLockUnlock(a1 + 88, (unsigned int)a2);
+  v3 = a2;
+  RtlpHpLfhContextLockUnlock(&a1[104], a2);
+  RtlpHpVsContextLockUnlock(&a1[88], (unsigned int)v3);
   v4 = a1 + 29;
   v5 = 2LL;
-  if ( a2 >= 2 )
-    *v4 = 1LL;
+  if ( v3 >= 2 )
+    v4->Value = 1LL;
   RtlReleaseSRWLockExclusive(v4);
-  if ( a2 >= 2 )
+  if ( v3 >= 2 )
   {
     v6 = 2LL;
-    v7 = a1 + 54;
+    v7 = (unsigned __int64 *)&a1[54];
     do
     {
       *v7 = 1LL;
@@ -39,13 +41,13 @@ __int64 __fastcall RtlpHpUnlockHeapForProcessCloneOrTerminate(_QWORD *a1, int a2
   }
   RtlReleaseSRWLockExclusive(a1 + 54);
   RtlReleaseSRWLockExclusive(a1 + 78);
-  if ( a2 < 2 )
+  if ( v3 < 2 )
   {
     v9 = a1 + 8;
   }
   else
   {
-    v8 = a1 + 48;
+    v8 = (unsigned __int64 *)&a1[48];
     do
     {
       *v8 = 1LL;
@@ -54,9 +56,9 @@ __int64 __fastcall RtlpHpUnlockHeapForProcessCloneOrTerminate(_QWORD *a1, int a2
     }
     while ( v5 );
     v9 = a1 + 8;
-    a1[8] = 1LL;
+    a1[8].Value = 1LL;
   }
   RtlReleaseSRWLockExclusive(v9);
   RtlReleaseSRWLockExclusive(a1 + 48);
-  return RtlReleaseSRWLockExclusive(a1 + 72);
+  RtlReleaseSRWLockExclusive(a1 + 72);
 }

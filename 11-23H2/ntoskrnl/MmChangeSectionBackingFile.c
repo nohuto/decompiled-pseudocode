@@ -1,15 +1,15 @@
 /*
- * XREFs of MmChangeSectionBackingFile @ 0x14035EFB8
+ * XREFs of MmChangeSectionBackingFile @ 0x14035F158
  * Callers:
- *     FsRtlChangeBackingFileObject @ 0x1403D6760 (FsRtlChangeBackingFileObject.c)
- *     MiShareExistingControlArea @ 0x140723CDC (MiShareExistingControlArea.c)
+ *     FsRtlChangeBackingFileObject @ 0x1403D6940 (FsRtlChangeBackingFileObject.c)
+ *     MiShareExistingControlArea @ 0x140723EDC (MiShareExistingControlArea.c)
  * Callees:
  *     MiLockSectionControlArea @ 0x1402100C8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObFastReplaceObject @ 0x14029A578 (ObFastReplaceObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObFastReplaceObject @ 0x14029A808 (ObFastReplaceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmChangeSectionBackingFile(_QWORD *a1, _QWORD *a2, int a3)
@@ -60,7 +60,9 @@ LABEL_9:
     if ( (v8 & 0x200) != 0 && ((__int64)KeGetCurrentThread()[1].Queue & 0x40) == 0 )
       *(_DWORD *)(v6 + 56) = v8 & 0xFFFFFDFF;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v9 = v16;
       if ( v16 <= 0xFu && CurrentIrql >= 2u )

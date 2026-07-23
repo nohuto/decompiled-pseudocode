@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaFreeCrashdumpRegistersInternal @ 0x1404EFF74
+ * XREFs of HalpDmaFreeCrashdumpRegistersInternal @ 0x1404E9554
  * Callers:
- *     HalDmaFreeCrashDumpRegistersEx @ 0x1404EFF50 (HalDmaFreeCrashDumpRegistersEx.c)
- *     HalpDmaFreeChildAdapter @ 0x14050FED0 (HalpDmaFreeChildAdapter.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x1404E9530 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     HalpDmaFreeChildAdapter @ 0x140509940 (HalpDmaFreeChildAdapter.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpDmaFreeMapRegisters @ 0x140359820 (HalpDmaFreeMapRegisters.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpDmaFreeMapRegisters @ 0x14035B5C0 (HalpDmaFreeMapRegisters.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpDmaFreeCrashdumpRegistersInternal(__int64 a1, __int64 a2, unsigned int a3)

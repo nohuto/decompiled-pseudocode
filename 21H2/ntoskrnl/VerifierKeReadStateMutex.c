@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeReadStateMutex @ 0x1409DAF50
+ * XREFs of VerifierKeReadStateMutex @ 0x1409DBF50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierKeReadStateMutex()

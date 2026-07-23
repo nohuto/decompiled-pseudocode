@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwQueryDefaultUILanguage @ 0x1409EAB90
+ * XREFs of VfZwQueryDefaultUILanguage @ 0x1409EBB90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViZwCheckVirtualAddress @ 0x1409EC944 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x1409EC990 (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViZwCheckVirtualAddress @ 0x1409ED944 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1409ED990 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwQueryDefaultUILanguage(ULONG_PTR BugCheckParameter3)

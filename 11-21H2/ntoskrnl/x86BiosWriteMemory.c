@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     x86BiosTranslateAddress @ 0x1403A3520 (x86BiosTranslateAddress.c)
+ *     sub_1403A3520 @ 0x1403A3520 (sub_1403A3520.c)
  */
 
 __int64 __fastcall x86BiosWriteMemory(unsigned __int16 a1, unsigned __int16 a2, char *a3, int a4)
@@ -21,7 +21,7 @@ __int64 __fastcall x86BiosWriteMemory(unsigned __int16 a1, unsigned __int16 a2, 
   {
     do
     {
-      v8 = x86BiosTranslateAddress(a1, v6);
+      v8 = sub_1403A3520(a1, v6);
       v9 = *a3;
       ++v6;
       ++a3;

@@ -17,13 +17,13 @@
 void *__fastcall MiGetInPageSupportBlock(unsigned int a1)
 {
   int v2; // esi
-  union _SLIST_HEADER *v3; // rcx
+  _SLIST_HEADER *v3; // rcx
   void *PoolWithTag; // rax
   void *v5; // rbx
   SIZE_T v7; // rdx
 
   v2 = a1 & 1;
-  v3 = (union _SLIST_HEADER *)((char *)&unk_14034F6B0 + 16 * ((a1 & 1) == 0));
+  v3 = (_SLIST_HEADER *)((char *)&unk_14034F6B0 + 16 * ((a1 & 1) == 0));
   if ( LOWORD(v3->Alignment) )
   {
     PoolWithTag = RtlpInterlockedPopEntrySList(v3);

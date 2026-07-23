@@ -1,19 +1,19 @@
 /*
- * XREFs of MiObtainDynamicVa @ 0x1402A4DF8
+ * XREFs of MiObtainDynamicVa @ 0x1402A4348
  * Callers:
- *     MiReservePoolMemory @ 0x1402A4C9C (MiReservePoolMemory.c)
- *     MiObtainSystemVa @ 0x1402A4D3C (MiObtainSystemVa.c)
+ *     MiReservePoolMemory @ 0x1402A41EC (MiReservePoolMemory.c)
+ *     MiObtainSystemVa @ 0x1402A428C (MiObtainSystemVa.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiReduceSystemRegionType @ 0x1402A5914 (MiReduceSystemRegionType.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlFindClearBitsEx @ 0x14035F9A0 (RtlFindClearBitsEx.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     MiExtendDynamicBitMap @ 0x1404FFA5C (MiExtendDynamicBitMap.c)
- *     MiFindNextAlignedForwardRunClearEx @ 0x14050694C (MiFindNextAlignedForwardRunClearEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiReduceSystemRegionType @ 0x1402A4E64 (MiReduceSystemRegionType.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlFindClearBitsEx @ 0x140361740 (RtlFindClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     MiExtendDynamicBitMap @ 0x1404F924C (MiExtendDynamicBitMap.c)
+ *     MiFindNextAlignedForwardRunClearEx @ 0x1405001FC (MiFindNextAlignedForwardRunClearEx.c)
  */
 
 unsigned __int64 __fastcall MiObtainDynamicVa(struct _KTHREAD *a1, unsigned int a2, unsigned int a3)
@@ -109,13 +109,13 @@ LABEL_20:
     v7 += v18;
     a3 = MiReduceSystemRegionType(a3);
   }
-  if ( a1 == (struct _KTHREAD *)&stru_140E2D930.QueueListEntry.Blink )
+  if ( a1 == (struct _KTHREAD *)&stru_140E2DAB0.QueueListEntry.Blink )
   {
-    stru_140E2D930.KernelStack = (char *)stru_140E2D930.KernelStack - 0x200000 * v3;
-    if ( stru_140E2D930.KernelStack <= (void *)0x8000000 )
+    stru_140E2DAB0.KernelStack = (char *)stru_140E2DAB0.KernelStack - 0x200000 * v3;
+    if ( stru_140E2DAB0.KernelStack <= (void *)0x8000000 )
       KeSetEvent(&Event, 0, 0);
   }
-  _InterlockedAdd64(&qword_140E379C8[a3], v3);
+  _InterlockedAdd64(&qword_140E37B48[a3], v3);
   if ( v14 == 17 )
     ExReleaseSpinLockExclusiveFromDpcLevel(p_ThreadLock);
   else

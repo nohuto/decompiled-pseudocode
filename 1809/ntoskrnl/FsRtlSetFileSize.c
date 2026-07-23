@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlSetFileSize @ 0x1406CAA60
+ * XREFs of FsRtlSetFileSize @ 0x1406CBD00
  * Callers:
- *     MiCreateDataFileMap @ 0x14061BFCC (MiCreateDataFileMap.c)
- *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
+ *     MiCreateDataFileMap @ 0x14061CFCC (MiCreateDataFileMap.c)
+ *     MmExtendSection @ 0x14061D8CC (MmExtendSection.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IoAllocateIrpEx @ 0x1400B9270 (IoAllocateIrpEx.c)
- *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x1400B91B0 (IoAllocateIrpEx.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EEDD0 (IoSetThreadHardErrorMode.c)
  */
 
 __int64 __fastcall FsRtlSetFileSize(PFILE_OBJECT FileObject, __int64 *a2)

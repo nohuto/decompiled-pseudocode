@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlInitBarrier @ 0x1800E4E50
+ * XREFs of RtlInitBarrier @ 0x1800E4F10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlInitBarrier(__int64 a1, int a2)
+NTSTATUS __cdecl RtlInitBarrier(PRTL_BARRIER Barrier, ULONG TotalThreads, ULONG SpinCount)
 {
-  unsigned __int64 v2; // rcx
-  __int64 result; // rax
+  unsigned __int64 v3; // rcx
+  NTSTATUS result; // eax
 
-  v2 = (a1 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-  if ( !v2 )
-    return 3221225485LL;
-  result = 0LL;
-  *(_DWORD *)(v2 + 16) = a2;
-  *(_QWORD *)(v2 + 8) = 0LL;
-  *(_QWORD *)v2 = 0LL;
+  v3 = ((unsigned __int64)&Barrier->Reserved2 + 3) & 0xFFFFFFFFFFFFFFF8uLL;
+  if ( !v3 )
+    return -1073741811;
+  result = 0;
+  *(_DWORD *)(v3 + 16) = TotalThreads;
+  *(_QWORD *)(v3 + 8) = 0LL;
+  *(_QWORD *)v3 = 0LL;
   return result;
 }

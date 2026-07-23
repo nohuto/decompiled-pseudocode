@@ -13,17 +13,17 @@ NTSTATUS __stdcall FsRtlGetNextExtraCreateParameter(
         PVOID *NextEcpContext,
         ULONG *NextEcpContextSize)
 {
-  _LIST_ENTRY *p_EcpList; // rax
-  _LIST_ENTRY *Flink; // rcx
-  struct _LIST_ENTRY **p_Blink; // rcx
+  _QWORD *v5; // rax
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rcx
   NTSTATUS v8; // edx
 
-  p_EcpList = &EcpList->EcpList;
+  v5 = (_QWORD *)((char *)EcpList + 8);
   if ( CurrentEcpContext )
-    Flink = (_LIST_ENTRY *)*((_QWORD *)CurrentEcpContext - 8);
+    v6 = (_QWORD *)*((_QWORD *)CurrentEcpContext - 8);
   else
-    Flink = p_EcpList->Flink;
-  if ( Flink == p_EcpList || (p_Blink = &Flink[-1].Blink) == 0LL )
+    v6 = (_QWORD *)*v5;
+  if ( v6 == v5 || (v7 = v6 - 1) == 0LL )
   {
     v8 = -1073741275;
     if ( NextEcpContext )
@@ -37,11 +37,11 @@ NTSTATUS __stdcall FsRtlGetNextExtraCreateParameter(
   {
     v8 = 0;
     if ( NextEcpContext )
-      *NextEcpContext = p_Blink + 9;
+      *NextEcpContext = v7 + 9;
     if ( NextEcpContextSize )
-      *NextEcpContextSize = *((_DWORD *)p_Blink + 13) - 72;
+      *NextEcpContextSize = *((_DWORD *)v7 + 13) - 72;
     if ( NextEcpType )
-      *NextEcpType = *(LPGUID)(p_Blink + 3);
+      *NextEcpType = *(LPGUID)(v7 + 3);
   }
   return v8;
 }

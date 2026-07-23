@@ -1,22 +1,22 @@
 /*
- * XREFs of IopGetDriverNameFromKeyNode @ 0x140A129AC
+ * XREFs of IopGetDriverNameFromKeyNode @ 0x140A11B9C
  * Callers:
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140916458 (PipCallDriverAddDeviceQueryRoutine.c)
- *     PiGetDefaultMessageString @ 0x140A26864 (PiGetDefaultMessageString.c)
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     IopUnloadDriver @ 0x140B2ADF8 (IopUnloadDriver.c)
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     IopInitializeSystemDrivers @ 0x140D04488 (IopInitializeSystemDrivers.c)
- *     PipInitializeCoreDriversByGroup @ 0x140D05030 (PipInitializeCoreDriversByGroup.c)
- *     PipInitializeEarlyLaunchDrivers @ 0x140D051F4 (PipInitializeEarlyLaunchDrivers.c)
- *     PnpLoadBootFilterDriver @ 0x140D0B274 (PnpLoadBootFilterDriver.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140970EC4 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PiGetDefaultMessageString @ 0x140A39904 (PiGetDefaultMessageString.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     IopUnloadDriver @ 0x140B2CE78 (IopUnloadDriver.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140D0A758 (IopInitializeSystemDrivers.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140D0B300 (PipInitializeCoreDriversByGroup.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140D0B4C4 (PipInitializeEarlyLaunchDrivers.c)
+ *     PnpLoadBootFilterDriver @ 0x140D11544 (PnpLoadBootFilterDriver.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetDriverNameFromKeyNode(HANDLE KeyHandle, PUNICODE_STRING Destination)

@@ -2,7 +2,7 @@
  * XREFs of RtlStringCchCatW @ 0x1800FB6E8
  * Callers:
  *     RtlpSetPreferredUILanguages @ 0x1800FD570 (RtlpSetPreferredUILanguages.c)
- *     RtlpOpenAndMapCustomCultureFile @ 0x18010B4A8 (RtlpOpenAndMapCustomCultureFile.c)
+ *     RtlpOpenAndMapCustomCultureFile @ 0x18010B478 (RtlpOpenAndMapCustomCultureFile.c)
  * Callees:
  *     <none>
  */

@@ -2,7 +2,7 @@
  * XREFs of RtlpHpLargeAlloc @ 0x140009ED8
  * Callers:
  *     RtlpHpAllocateHeapInternal @ 0x14000981C (RtlpHpAllocateHeapInternal.c)
- *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA0B0 (ExAllocateHeapPool.c)
  * Callees:
  *     RtlpHpMetadataFree @ 0x1400080A4 (RtlpHpMetadataFree.c)
  *     RtlpHpLargeLockAcquire @ 0x1400097B4 (RtlpHpLargeLockAcquire.c)
@@ -13,11 +13,11 @@
  *     RtlpHpFreeVA @ 0x14000D214 (RtlpHpFreeVA.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int64 a2, size_t a3, int a4)
@@ -37,10 +37,10 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int64 a2, size_t a3, int a4)
   unsigned __int64 v18; // rdx
   unsigned __int64 v19; // rax
   char v20; // di
-  __int64 v21; // r8
-  unsigned __int8 v22; // r14
-  __int64 v23; // rax
-  unsigned __int64 v24; // rdx
+  unsigned __int8 v21; // r14
+  __int64 v22; // rax
+  unsigned __int64 v23; // rdx
+  BOOLEAN v24; // r8
   int v25; // ecx
   unsigned __int64 v26; // rax
   void *v28; // [rsp+38h] [rbp-79h] BYREF
@@ -143,64 +143,64 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int64 a2, size_t a3, int a4)
         *(_QWORD *)(v9 + 32) = v18 ^ (unsigned __int8)(v18 ^ (4 * v19)) & 0xFC;
         *(_WORD *)(v9 + 24) = ((_WORD)v17 << 12) - v41;
         v20 = v42;
-        v22 = RtlpHpLargeLockAcquire((_DWORD *)a1, v42);
-        v23 = *(_QWORD *)(a1 + 80);
-        v24 = *(_QWORD *)(a1 + 72);
-        if ( (v23 & 1) != 0 && v24 )
-          v24 ^= a1 + 72;
-        LOBYTE(v21) = 0;
-        v25 = v23 & 1;
-        if ( v24 )
+        v21 = RtlpHpLargeLockAcquire((_DWORD *)a1, v42);
+        v22 = *(_QWORD *)(a1 + 80);
+        v23 = *(_QWORD *)(a1 + 72);
+        if ( (v22 & 1) != 0 && v23 )
+          v23 ^= a1 + 72;
+        v24 = 0;
+        v25 = v22 & 1;
+        if ( v23 )
         {
           while ( 1 )
           {
-            if ( (unsigned __int64)v28 < (*(_QWORD *)(v24 + 24) & 0xFFFFFFFFFFFF0000uLL) )
+            if ( (unsigned __int64)v28 < (*(_QWORD *)(v23 + 24) & 0xFFFFFFFFFFFF0000uLL) )
             {
-              v26 = *(_QWORD *)v24;
+              v26 = *(_QWORD *)v23;
               if ( v25 )
               {
                 if ( !v26 )
                   goto LABEL_35;
-                v26 ^= v24;
+                v26 ^= v23;
               }
               if ( !v26 )
               {
 LABEL_35:
-                LOBYTE(v21) = 0;
+                v24 = 0;
                 break;
               }
             }
             else
             {
-              v26 = *(_QWORD *)(v24 + 8);
+              v26 = *(_QWORD *)(v23 + 8);
               if ( v25 )
               {
                 if ( !v26 )
                   goto LABEL_29;
-                v26 ^= v24;
+                v26 ^= v23;
               }
               if ( !v26 )
               {
 LABEL_29:
-                LOBYTE(v21) = 1;
+                v24 = 1;
                 break;
               }
             }
-            v24 = v26;
+            v23 = v26;
           }
         }
-        RtlRbInsertNodeEx(a1 + 72, v24, v21, v9);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 72), (PRTL_BALANCED_NODE)v23, v24, (PRTL_BALANCED_NODE)v9);
         if ( (v20 & 1) == 0 )
         {
           if ( (*(_DWORD *)a1 & 1) != 0 )
           {
             ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v22 < 2u )
+            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v21 < 2u )
             {
               _InterlockedAnd((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0xFFFEFFFF);
               KiRemoveSystemWorkPriorityKick();
             }
-            __writecr8(v22);
+            __writecr8(v21);
           }
           else
           {

@@ -1,7 +1,7 @@
 /*
- * XREFs of scan_tree @ 0x1406037A4
+ * XREFs of scan_tree @ 0x140600DE4
  * Callers:
- *     _tr_flush_block @ 0x140602828 (_tr_flush_block.c)
+ *     _tr_flush_block @ 0x1405FFE68 (_tr_flush_block.c)
  * Callees:
  *     <none>
  */

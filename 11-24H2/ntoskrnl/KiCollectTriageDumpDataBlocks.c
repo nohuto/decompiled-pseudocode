@@ -1,18 +1,18 @@
 /*
- * XREFs of KiCollectTriageDumpDataBlocks @ 0x1405B33A8
+ * XREFs of KiCollectTriageDumpDataBlocks @ 0x1405B0318
  * Callers:
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KiIsAddressRangeValid @ 0x1404AB6BC (KiIsAddressRangeValid.c)
- *     KiMarkBugCheckRegions @ 0x1405084B8 (KiMarkBugCheckRegions.c)
- *     Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140590ACC (Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
- *     IopAddBugcheckTriageThread @ 0x14059FD0C (IopAddBugcheckTriageThread.c)
- *     KiCollectFullProcessName @ 0x1405B3360 (KiCollectFullProcessName.c)
- *     KiSaveCurrentEtwTraceBuffer @ 0x1405B42A4 (KiSaveCurrentEtwTraceBuffer.c)
- *     PopInternalAddToDumpFile @ 0x1405CCEA0 (PopInternalAddToDumpFile.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1404A5A08 (KiIsAddressRangeValid.c)
+ *     KiMarkBugCheckRegions @ 0x140505D78 (KiMarkBugCheckRegions.c)
+ *     Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x14058DAEC (Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
+ *     IopAddBugcheckTriageThread @ 0x14059CC30 (IopAddBugcheckTriageThread.c)
+ *     KiCollectFullProcessName @ 0x1405B02D0 (KiCollectFullProcessName.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x1405B1220 (KiSaveCurrentEtwTraceBuffer.c)
+ *     PopInternalAddToDumpFile @ 0x1405CA610 (PopInternalAddToDumpFile.c)
  */
 
 char __fastcall KiCollectTriageDumpDataBlocks(int a1, char a2)
@@ -66,7 +66,7 @@ LABEL_18:
           IopAddBugcheckTriageThread(*(__int64 *)&KeSwapProcessOrStackThread);
           goto LABEL_30;
         }
-        if ( qword_140F22748 == 396 )
+        if ( qword_140F22A08 == 396 )
         {
           if ( KdpBreakpointChangeCount )
             IoAddTriageDumpDataBlock((ULONG)&KdpBreakpointChangeCount, (PVOID)4);
@@ -81,18 +81,18 @@ LABEL_29:
           }
         }
       }
-      else if ( qword_140F22748 == 4 || qword_140F22748 == 100 )
+      else if ( qword_140F22A08 == 4 || qword_140F22A08 == 100 )
       {
         goto LABEL_18;
       }
     }
     else
     {
-      KiMarkBugCheckRegions(qword_140F22748, qword_140F22750, qword_140F22758, qword_140F22760);
-      if ( qword_140F22760 == 47 )
+      KiMarkBugCheckRegions(qword_140F22A08, qword_140F22A10, qword_140F22A18, qword_140F22A20);
+      if ( qword_140F22A20 == 47 )
       {
-        v10 = qword_140F22758;
-        if ( MmIsAddressValidEx(qword_140F22758 + 1288) )
+        v10 = qword_140F22A18;
+        if ( MmIsAddressValidEx(qword_140F22A18 + 1288) )
         {
           Flink = *(struct _LIST_ENTRY **)(v10 + 1288);
           Blink_low = 4096LL;

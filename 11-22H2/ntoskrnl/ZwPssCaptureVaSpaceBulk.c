@@ -6,9 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwPssCaptureVaSpaceBulk(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwPssCaptureVaSpaceBulk(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PNTPSS_MEMORY_BULK_INFORMATION BulkInformation,
+        SIZE_T BulkInformationLength,
+        PSIZE_T ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

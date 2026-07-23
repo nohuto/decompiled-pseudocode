@@ -1,71 +1,71 @@
 /*
- * XREFs of KeCpuPartitionMoveCpus @ 0x1405BF6B0
+ * XREFs of KeCpuPartitionMoveCpus @ 0x1405BCCE0
  * Callers:
- *     KeDeleteCpuPartition @ 0x14073C878 (KeDeleteCpuPartition.c)
- *     NtSetInformationCpuPartition @ 0x140775EC0 (NtSetInformationCpuPartition.c)
- *     PsCpuPartitionMoveCpus @ 0x14077641C (PsCpuPartitionMoveCpus.c)
+ *     KeDeleteCpuPartition @ 0x14073A7A8 (KeDeleteCpuPartition.c)
+ *     NtSetInformationCpuPartition @ 0x1407760E0 (NtSetInformationCpuPartition.c)
+ *     PsCpuPartitionMoveCpus @ 0x14077663C (PsCpuPartitionMoveCpus.c)
  * Callees:
- *     KiUpdateProcessAvailableCpuState @ 0x140204268 (KiUpdateProcessAvailableCpuState.c)
- *     KeOrAffinityEx2 @ 0x1402067F0 (KeOrAffinityEx2.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeSubtractAffinityEx2 @ 0x140354F10 (KeSubtractAffinityEx2.c)
- *     KeIsSubsetAffinityEx @ 0x1403B34F0 (KeIsSubsetAffinityEx.c)
- *     KiAcquireCpuPartitionLock @ 0x1403C65B4 (KiAcquireCpuPartitionLock.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x1403C82C8 (KiModifySystemAllowedCpuSetsWithLock.c)
- *     KeIsEqualAffinityEx @ 0x1403C8980 (KeIsEqualAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiNotifyAvailableCpusChangeProcess @ 0x1404FB240 (KiNotifyAvailableCpusChangeProcess.c)
- *     KiNotifyAvailableCpusChangeCpuPartition @ 0x1405B8688 (KiNotifyAvailableCpusChangeCpuPartition.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405B86B4 (KiUpdateSystemAvailableCpuState.c)
- *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405BFF0C (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
- *     KiCpuPartitionUpdatePrcbs @ 0x1405C0204 (KiCpuPartitionUpdatePrcbs.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeSubtractAffinityEx2 @ 0x1402B2C40 (KeSubtractAffinityEx2.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x14032B848 (KiUpdateProcessAvailableCpuState.c)
+ *     KeOrAffinityEx2 @ 0x14032DDD0 (KeOrAffinityEx2.c)
+ *     KeIsSubsetAffinityEx @ 0x1403A1D00 (KeIsSubsetAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x1403A3520 (KeIsEqualAffinityEx.c)
+ *     KiAcquireCpuPartitionLock @ 0x14048B51C (KiAcquireCpuPartitionLock.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x14048B680 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiNotifyAvailableCpusChangeProcess @ 0x1404F8B20 (KiNotifyAvailableCpusChangeProcess.c)
+ *     KiNotifyAvailableCpusChangeCpuPartition @ 0x1405B5C68 (KiNotifyAvailableCpusChangeCpuPartition.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405B5C94 (KiUpdateSystemAvailableCpuState.c)
+ *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405BD53C (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
+ *     KiCpuPartitionUpdatePrcbs @ 0x1405BD834 (KiCpuPartitionUpdatePrcbs.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeCpuPartitionMoveCpus(__int64 a1, __int64 a2, struct _KAFFINITY_EX *a3, char a4)
 {
   __int64 v5; // rsi
   unsigned int v7; // edi
+  __int64 v9; // rbx
   void *Pool2; // r13
-  __int64 v10; // rax
-  void *v11; // r12
-  struct _KAFFINITY_EX *v12; // rbx
-  _QWORD *v13; // rbp
-  _QWORD *v14; // r15
-  unsigned __int16 v15; // si
-  __int64 v16; // rbx
-  __int64 v17; // r8
+  __int64 v11; // rax
+  void *v12; // r12
+  struct _KAFFINITY_EX *v13; // rbx
+  _QWORD *v14; // rbp
+  _QWORD *v15; // r15
+  unsigned __int16 v16; // si
+  __int64 v17; // rbx
   _QWORD *v18; // r15
   unsigned __int16 v19; // si
   __int64 v20; // rbx
-  __int64 v21; // r8
-  unsigned __int8 v23[4]; // [rsp+30h] [rbp-38h] BYREF
-  __int16 v24; // [rsp+34h] [rbp-34h]
+  unsigned __int8 v22[4]; // [rsp+30h] [rbp-38h] BYREF
+  __int16 v23; // [rsp+34h] [rbp-34h]
 
-  v23[0] = 0;
+  v22[0] = 0;
   v5 = a2;
-  v24 = KiActiveGroups;
+  v23 = KiActiveGroups;
   v7 = 0;
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
-  v10 = ExAllocatePool2(0x40uLL);
-  v11 = (void *)v10;
-  if ( !Pool2 || !v10 )
+  v9 = (unsigned __int16)KiActiveGroups;
+  Pool2 = (void *)ExAllocatePool2(0x40uLL, 8LL * (unsigned __int16)KiActiveGroups, 0x7543694Bu);
+  v11 = ExAllocatePool2(0x40uLL, 16 * v9, 0x7543694Bu);
+  v12 = (void *)v11;
+  if ( !Pool2 || !v11 )
   {
     v7 = -1073741670;
     if ( !Pool2 )
       goto LABEL_29;
     goto LABEL_28;
   }
-  KiAcquireCpuPartitionLock(v5, v23);
-  v12 = *(struct _KAFFINITY_EX **)v5;
+  KiAcquireCpuPartitionLock(v5, v22);
+  v13 = *(struct _KAFFINITY_EX **)v5;
   if ( (unsigned int)KeIsSubsetAffinityEx(&a3->Count, *(unsigned __int16 **)v5)
-    && (a4 || !(unsigned int)KeIsEqualAffinityEx(&a3->Count, &v12->Count)) )
+    && (a4 || !(unsigned int)KeIsEqualAffinityEx(&a3->Count, &v13->Count)) )
   {
     if ( v5 != a1 )
     {
-      KeSubtractAffinityEx2(v12, a3, v12);
+      KeSubtractAffinityEx2(v13, a3, v13);
       if ( v5 == KiSystemCpuPartition )
         v7 = KiModifySystemAllowedCpuSetsWithLock(0, 0LL, &a3->Count, 0, 2);
       KxReleaseSpinLock((volatile signed __int64 *)(v5 + 8));
@@ -76,32 +76,32 @@ __int64 __fastcall KeCpuPartitionMoveCpus(__int64 a1, __int64 a2, struct _KAFFIN
         v7 = KiModifySystemAllowedCpuSetsWithLock(0, 0LL, &a3->Count, 0, 1);
       KxReleaseSpinLock((volatile signed __int64 *)(a1 + 8));
       KxAcquireSpinLock(&KiCpuPartitionAssignmentLock);
-      v13 = (_QWORD *)(v5 + 16);
-      v14 = *(_QWORD **)(v5 + 16);
-      if ( v14 != (_QWORD *)(v5 + 16) )
+      v14 = (_QWORD *)(v5 + 16);
+      v15 = *(_QWORD **)(v5 + 16);
+      if ( v15 != (_QWORD *)(v5 + 16) )
       {
-        v15 = v24;
+        v16 = v23;
         do
         {
-          v16 = *(v14 - 2);
-          v14 = (_QWORD *)*v14;
-          KiAdjustProcessCpuSetsAfterCpuPartitionChange(v16, v11, Pool2, v15, 0LL);
-          KiUpdateProcessAvailableCpuState(v16, 1, v17);
-          KiNotifyAvailableCpusChangeProcess(v16);
+          v17 = *(v15 - 2);
+          v15 = (_QWORD *)*v15;
+          KiAdjustProcessCpuSetsAfterCpuPartitionChange(v17, v12, Pool2, v16, 0LL);
+          KiUpdateProcessAvailableCpuState(v17, 1);
+          KiNotifyAvailableCpusChangeProcess(v17);
         }
-        while ( v14 != v13 );
+        while ( v15 != v14 );
         v5 = a2;
       }
       v18 = *(_QWORD **)(a1 + 16);
       if ( v18 != (_QWORD *)(a1 + 16) )
       {
-        v19 = v24;
+        v19 = v23;
         do
         {
           v20 = *(v18 - 2);
           v18 = (_QWORD *)*v18;
-          KiAdjustProcessCpuSetsAfterCpuPartitionChange(v20, v11, Pool2, v19, 0LL);
-          KiUpdateProcessAvailableCpuState(v20, 1, v21);
+          KiAdjustProcessCpuSetsAfterCpuPartitionChange(v20, v12, Pool2, v19, 0LL);
+          KiUpdateProcessAvailableCpuState(v20, 1);
           KiNotifyAvailableCpusChangeProcess(v20);
         }
         while ( v18 != (_QWORD *)(a1 + 16) );
@@ -123,12 +123,12 @@ __int64 __fastcall KeCpuPartitionMoveCpus(__int64 a1, __int64 a2, struct _KAFFIN
   KxReleaseSpinLock((volatile signed __int64 *)(v5 + 8));
 LABEL_24:
   if ( KiIrqlFlags )
-    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v23[0]);
-  __writecr8(v23[0]);
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v22[0]);
+  __writecr8(v22[0]);
 LABEL_28:
   ExFreePoolWithTag(Pool2, 0);
 LABEL_29:
-  if ( v11 )
-    ExFreePoolWithTag(v11, 0);
+  if ( v12 )
+    ExFreePoolWithTag(v12, 0);
   return v7;
 }

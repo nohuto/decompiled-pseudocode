@@ -57,7 +57,7 @@ void __fastcall CcDeleteMbcb(__int64 a1)
       *(_QWORD *)(v7 + 8) = v8;
       v9 = (unsigned int *)*((_QWORD *)v6 + 5);
       if ( v9 && v9 != v4 + 24 )
-        ExFreeToNPagedLookasideList(&CcBitmapLookasideList, v9);
+        ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&CcBitmapLookasideList, v9);
       if ( v6 < v4 || v6 >= v4 + 48 )
       {
         v11 = p_P;

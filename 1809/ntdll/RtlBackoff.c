@@ -5,8 +5,8 @@
  *     RtlAcquireSRWLockShared @ 0x180009F00 (RtlAcquireSRWLockShared.c)
  *     RtlpHpLfhSlotAllocate @ 0x1800110C0 (RtlpHpLfhSlotAllocate.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlTryAcquireSRWLockShared @ 0x18007B650 (RtlTryAcquireSRWLockShared.c)
- *     RtlpQueueWaitBlockToSRWLock @ 0x18007F868 (RtlpQueueWaitBlockToSRWLock.c)
+ *     RtlTryAcquireSRWLockShared @ 0x18007B660 (RtlTryAcquireSRWLockShared.c)
+ *     RtlpQueueWaitBlockToSRWLock @ 0x18007F878 (RtlpQueueWaitBlockToSRWLock.c)
  * Callees:
  *     <none>
  */

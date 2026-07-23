@@ -1,11 +1,11 @@
 /*
- * XREFs of MmLoadSystemImage @ 0x14075BAC0
+ * XREFs of MmLoadSystemImage @ 0x14075BC80
  * Callers:
- *     IoLoadCrashDumpDriver @ 0x1405026F0 (IoLoadCrashDumpDriver.c)
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     IoLoadCrashDumpDriver @ 0x140502670 (IoLoadCrashDumpDriver.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
  * Callees:
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
  */
 
 __int64 __fastcall MmLoadSystemImage(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

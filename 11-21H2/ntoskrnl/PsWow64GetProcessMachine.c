@@ -1,9 +1,9 @@
 /*
  * XREFs of PsWow64GetProcessMachine @ 0x1407048B0
  * Callers:
- *     RtlpWalkFrameChain @ 0x140296110 (RtlpWalkFrameChain.c)
- *     KiVerifyContextRecord @ 0x140298680 (KiVerifyContextRecord.c)
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
+ *     sub_140296110 @ 0x140296110 (sub_140296110.c)
+ *     sub_140298680 @ 0x140298680 (sub_140298680.c)
+ *     sub_140299280 @ 0x140299280 (sub_140299280.c)
  * Callees:
  *     <none>
  */

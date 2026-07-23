@@ -1,5 +1,5 @@
 /*
- * XREFs of IoSetMasterIrpStatus @ 0x140097B9C
+ * XREFs of IoSetMasterIrpStatus @ 0x14009739C
  * Callers:
  *     <none>
  * Callees:

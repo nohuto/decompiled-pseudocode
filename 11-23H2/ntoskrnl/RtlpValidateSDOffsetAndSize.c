@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpValidateSDOffsetAndSize @ 0x14070DC80
+ * XREFs of RtlpValidateSDOffsetAndSize @ 0x14070DE90
  * Callers:
- *     RtlValidRelativeSecurityDescriptor @ 0x14070DB20 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14070DD30 (RtlValidRelativeSecurityDescriptor.c)
  * Callees:
  *     <none>
  */

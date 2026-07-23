@@ -1,12 +1,12 @@
 /*
- * XREFs of MmLockLoadedModuleListExclusive @ 0x140084CB8
+ * XREFs of MmLockLoadedModuleListExclusive @ 0x140082E18
  * Callers:
- *     RtlInsertInvertedFunctionTable @ 0x140084A5C (RtlInsertInvertedFunctionTable.c)
- *     MiProcessLoaderEntry @ 0x140084B4C (MiProcessLoaderEntry.c)
- *     RtlRemoveInvertedFunctionTable @ 0x14012E504 (RtlRemoveInvertedFunctionTable.c)
- *     MiSessionInsertImage @ 0x14012FB6C (MiSessionInsertImage.c)
- *     MiSessionRemoveImage @ 0x140130440 (MiSessionRemoveImage.c)
- *     MiShowBadMapper @ 0x1401E14D4 (MiShowBadMapper.c)
+ *     RtlInsertInvertedFunctionTable @ 0x140082BBC (RtlInsertInvertedFunctionTable.c)
+ *     MiProcessLoaderEntry @ 0x140082CAC (MiProcessLoaderEntry.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x14012EA74 (RtlRemoveInvertedFunctionTable.c)
+ *     MiSessionInsertImage @ 0x1401300DC (MiSessionInsertImage.c)
+ *     MiSessionRemoveImage @ 0x1401309B0 (MiSessionRemoveImage.c)
+ *     MiShowBadMapper @ 0x1401E1300 (MiShowBadMapper.c)
  * Callees:
  *     <none>
  */

@@ -2,7 +2,7 @@
  * XREFs of RtlpHpSegSubAllocate @ 0x18001DA74
  * Callers:
  *     RtlpHpSegLfhAllocate @ 0x18001DA60 (RtlpHpSegLfhAllocate.c)
- *     RtlpHpSegVsAllocate @ 0x1800820B0 (RtlpHpSegVsAllocate.c)
+ *     RtlpHpSegVsAllocate @ 0x1800820C0 (RtlpHpSegVsAllocate.c)
  * Callees:
  *     RtlpHpSegAlloc @ 0x18001DB14 (RtlpHpSegAlloc.c)
  *     RtlpHpSegPageRangeComputeLargePageCost @ 0x18010DE0C (RtlpHpSegPageRangeComputeLargePageCost.c)

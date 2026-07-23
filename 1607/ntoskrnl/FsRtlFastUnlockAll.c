@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlFastUnlockAll @ 0x1400AB18C
+ * XREFs of FsRtlFastUnlockAll @ 0x1400A970C
  * Callers:
- *     FsRtlProcessFileLock @ 0x140132C48 (FsRtlProcessFileLock.c)
+ *     FsRtlProcessFileLock @ 0x1401331B8 (FsRtlProcessFileLock.c)
  * Callees:
- *     FsRtlPrivateFastUnlockAll @ 0x1400AB1A8 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x1400A9728 (FsRtlPrivateFastUnlockAll.c)
  */
 
 NTSTATUS __stdcall FsRtlFastUnlockAll(PFILE_LOCK FileLock, PFILE_OBJECT FileObject, PEPROCESS ProcessId, PVOID Context)

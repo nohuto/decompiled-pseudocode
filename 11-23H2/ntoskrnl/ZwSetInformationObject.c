@@ -1,17 +1,21 @@
 /*
- * XREFs of ZwSetInformationObject @ 0x14041B8E0
+ * XREFs of ZwSetInformationObject @ 0x14041BC70
  * Callers:
- *     DifZwSetInformationObjectWrapper @ 0x1405F71E0 (DifZwSetInformationObjectWrapper.c)
+ *     DifZwSetInformationObjectWrapper @ 0x1405F7750 (DifZwSetInformationObjectWrapper.c)
  *     CmpCmdHiveClose @ 0x14068B0E4 (CmpCmdHiveClose.c)
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
- *     CmpFlushBackupHive @ 0x140A1A8E8 (CmpFlushBackupHive.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
+ *     CmpFlushBackupHive @ 0x140A1AB98 (CmpFlushBackupHive.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Handle);
 }

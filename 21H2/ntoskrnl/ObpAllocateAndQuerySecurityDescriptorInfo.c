@@ -1,31 +1,31 @@
 /*
- * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x140697B7C
+ * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1405F8810
  * Callers:
- *     NtSetSecurityObject @ 0x140697440 (NtSetSecurityObject.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     NtSetSecurityObject @ 0x1405F8450 (NtSetSecurityObject.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     SeQuerySecurityDescriptorInfo @ 0x140665520 (SeQuerySecurityDescriptorInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x14065A340 (SeQuerySecurityDescriptorInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ObpAllocateAndQuerySecurityDescriptorInfo(__int64 a1, ULONG a2, void *a3, _QWORD *a4)
+__int64 __fastcall ObpAllocateAndQuerySecurityDescriptorInfo(__int64 a1, DWORD a2, void *a3, _QWORD *a4)
 {
   __int64 v6; // r13
   PVOID v7; // rax
   void *v8; // rbx
   PVOID v9; // r9
-  __int64 (__fastcall *v10)(__int64, __int64, ULONG *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int); // rax
+  __int64 (__fastcall *v10)(__int64, __int64, DWORD *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int); // rax
   int v11; // esi
   PVOID PoolWithTag; // rax
   NTSTATUS v14; // eax
   PVOID v15; // rax
   int v16; // [rsp+30h] [rbp-30h]
   int v17; // [rsp+40h] [rbp-20h]
-  __int64 (__fastcall *v18)(__int64, __int64, ULONG *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int); // [rsp+50h] [rbp-10h]
+  __int64 (__fastcall *v18)(__int64, __int64, DWORD *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int); // [rsp+50h] [rbp-10h]
   ULONG Length; // [rsp+A0h] [rbp+40h] BYREF
-  ULONG SecurityInformation; // [rsp+A8h] [rbp+48h] BYREF
+  DWORD SecurityInformation; // [rsp+A8h] [rbp+48h] BYREF
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+B0h] [rbp+50h] BYREF
 
   ObjectsSecurityDescriptor = a3;
@@ -53,7 +53,7 @@ LABEL_11:
     return 3221225626LL;
   v9 = v7;
   v16 = *(_DWORD *)(v6 + 100);
-  v10 = *(__int64 (__fastcall **)(__int64, __int64, ULONG *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int))(v6 + 152);
+  v10 = *(__int64 (__fastcall **)(__int64, __int64, DWORD *, PVOID, ULONG *, PSECURITY_DESCRIPTOR, _DWORD, __int64, int))(v6 + 152);
   ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)(a1 - 8);
   v18 = v10;
   v11 = v10(a1, 1LL, &SecurityInformation, v9, &Length, (PSECURITY_DESCRIPTOR)(a1 - 8), v16, v6 + 76, 0);

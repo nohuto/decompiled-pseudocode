@@ -6,14 +6,10 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpCallbackSetEventOnCompletion(int a1, int a2)
+void __cdecl TpCallbackSetEventOnCompletion(PTP_CALLBACK_INSTANCE Instance, HANDLE Event)
 {
-  int result; // eax
-
-  result = a1;
-  if ( !a1 || !a2 || a2 == -1 || *(_DWORD *)(a1 + 84) )
+  if ( !Instance || !Event || Event == (HANDLE)-1 || *((_DWORD *)Instance + 21) )
     TppRaiseInvalidParameter();
-  *(_DWORD *)(a1 + 80) |= 4u;
-  *(_DWORD *)(a1 + 84) = a2;
-  return result;
+  *((_DWORD *)Instance + 20) |= 4u;
+  *((_DWORD *)Instance + 21) = Event;
 }

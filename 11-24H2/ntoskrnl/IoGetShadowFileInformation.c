@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetShadowFileInformation @ 0x140596AE0
+ * XREFs of IoGetShadowFileInformation @ 0x140593AC0
  * Callers:
  *     <none>
  * Callees:

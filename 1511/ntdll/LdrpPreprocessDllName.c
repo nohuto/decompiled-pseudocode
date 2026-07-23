@@ -12,7 +12,7 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, int a3, _BYTE *a4)
+__int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3, _BYTE *a4)
 {
   bool v5; // zf
   int appended; // ebx
@@ -32,7 +32,7 @@ __int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 
   v9 = 0;
   if ( v5 )
   {
-    appended = LdrpApplyFileNameRedirection(a3, (_DWORD)a1, a3, (_DWORD)a2, (__int64)&v18);
+    appended = LdrpApplyFileNameRedirection(a3, a1, a3, a2, &v18);
     if ( appended < 0 )
     {
 LABEL_34:
@@ -93,7 +93,7 @@ LABEL_12:
     if ( (unsigned __int64)j < v13 )
     {
 LABEL_30:
-      appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, L"\b\n");
+      appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, &LdrpDefaultExtension.Length);
       goto LABEL_23;
     }
     if ( *j == 46 )

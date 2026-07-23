@@ -22,11 +22,11 @@
  *     MiFreeBootDriverPages @ 0x140A4E704 (MiFreeBootDriverPages.c)
  */
 
-void __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4)
+void __fastcall MiFreeInitializationCode(_QWORD *a1, unsigned __int64 a2, __int64 a3, int a4)
 {
-  unsigned __int64 v6; // rsi
+  PVOID v6; // rsi
   __int64 v7; // rbp
-  unsigned __int64 v8; // r13
+  _QWORD *v8; // r13
   unsigned __int64 v9; // r14
   unsigned __int64 v10; // rdi
   __int64 PteAddress; // rax
@@ -54,8 +54,8 @@ void __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int64 a
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 48);
-    v7 = a1 + 160;
+    v6 = (PVOID)a1[6];
+    v7 = (__int64)(a1 + 20);
     v8 = a1;
   }
   v9 = (__int64)(a2 << 25) >> 16;
@@ -63,7 +63,7 @@ void __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int64 a
   if ( !a4 )
   {
     MiLockLoaderEntry(v7, 0LL);
-    PteAddress = MiGetPteAddress(v6);
+    PteAddress = MiGetPteAddress((unsigned __int64)v6);
     RtlClearBits(*(PRTL_BITMAP *)(v7 + 112), (__int64)(a2 - PteAddress) >> 3, v10);
     MiUnlockLoaderEntry(v7, 0);
   }
@@ -85,7 +85,7 @@ void __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int64 a
   }
   else if ( a4 )
   {
-    MiFreeBootDriverPages(v6, a2, v10, 1, 0LL);
+    MiFreeBootDriverPages((_DWORD)v6, a2, v10, 1, 0LL);
     if ( v6 == PsNtosImageBase )
       MxKernelFreedGapCharges += v10;
     else
@@ -93,7 +93,7 @@ void __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int64 a
   }
   else
   {
-    v13 = *(_QWORD *)(v8 + 112);
+    v13 = v8[14];
     if ( v13 )
     {
       v14 = MiSectionControlArea(v13);

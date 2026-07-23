@@ -10,40 +10,41 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-size_t __stdcall RtlGetCurrentDirectory_U(unsigned int a1, char *a2)
+ULONG __cdecl RtlGetCurrentDirectory_U(ULONG BufferLength, PWSTR Buffer)
 {
   int v2; // eax
-  int v3; // esi
-  wchar_t *Buffer; // ecx
+  HANDLE *v3; // esi
+  wchar_t *v4; // ecx
   unsigned int Length; // edi
   unsigned int v6; // edi
-  size_t v7; // ebx
+  unsigned int v7; // ebx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // eax
+  size_t v10; // [esp-4h] [ebp-14h]
 
   v2 = RtlpReferenceCurrentDirectory(1);
-  v3 = v2;
+  v3 = (HANDLE *)v2;
   if ( v2 )
   {
-    Buffer = *(wchar_t **)(v2 + 16);
+    v4 = *(wchar_t **)(v2 + 16);
     Length = *(unsigned __int16 *)(v2 + 12);
   }
   else
   {
     ProcessParameters = NtCurrentPeb()->ProcessParameters;
-    Buffer = ProcessParameters->CurrentDirectory.DosPath.Buffer;
+    v4 = ProcessParameters->CurrentDirectory.DosPath.Buffer;
     Length = ProcessParameters->CurrentDirectory.DosPath.Length;
   }
   v6 = Length >> 1;
-  if ( v6 < 2 || Buffer[v6 - 2] == 58 )
+  if ( v6 < 2 || v4[v6 - 2] == 58 )
   {
-    v7 = 2 * v6;
-    if ( a1 > 2 * v6 )
+    v7 = v6;
+    if ( BufferLength > 2 * v6 )
       goto LABEL_6;
     if ( v3 )
     {
       if ( !_InterlockedExchangeAdd((volatile signed __int32 *)v3, 0xFFFFFFFF) )
       {
-        NtClose(*(HANDLE *)(v3 + 4));
+        NtClose(v3[1]);
         RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
       }
     }
@@ -51,20 +52,21 @@ size_t __stdcall RtlGetCurrentDirectory_U(unsigned int a1, char *a2)
     {
       RtlLeaveCriticalSection(&FastPebLock);
     }
-    return v7 + 2;
+    return v7 * 2 + 2;
   }
   else
   {
-    v7 = 2 * v6;
-    if ( a1 >= 2 * v6 )
+    v7 = v6;
+    if ( BufferLength >= 2 * v6 )
     {
 LABEL_6:
-      memcpy(a2, Buffer, v7);
+      LODWORD(v10) = v7 * 2;
+      memcpy(Buffer, v4, v10);
       if ( v3 )
       {
         if ( !_InterlockedExchangeAdd((volatile signed __int32 *)v3, 0xFFFFFFFF) )
         {
-          NtClose(*(HANDLE *)(v3 + 4));
+          NtClose(v3[1]);
           RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
         }
       }
@@ -72,14 +74,14 @@ LABEL_6:
       {
         RtlLeaveCriticalSection(&FastPebLock);
       }
-      if ( v6 > 1 && *(_WORD *)&a2[2 * v6 - 4] == 58 )
+      if ( v6 > 1 && Buffer[v6 - 2] == 58 )
       {
-        *(_WORD *)&a2[v7] = 0;
+        Buffer[v7] = 0;
       }
       else
       {
         --v6;
-        *(_WORD *)&a2[v7 - 2] = 0;
+        Buffer[v7 - 1] = 0;
       }
       return 2 * v6;
     }
@@ -87,7 +89,7 @@ LABEL_6:
     {
       if ( !_InterlockedExchangeAdd((volatile signed __int32 *)v3, 0xFFFFFFFF) )
       {
-        NtClose(*(HANDLE *)(v3 + 4));
+        NtClose(v3[1]);
         RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
       }
     }

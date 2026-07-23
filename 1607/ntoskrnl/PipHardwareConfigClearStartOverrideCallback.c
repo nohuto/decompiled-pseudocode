@@ -1,13 +1,13 @@
 /*
- * XREFs of PipHardwareConfigClearStartOverrideCallback @ 0x140629770
+ * XREFs of PipHardwareConfigClearStartOverrideCallback @ 0x140629824
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _PnpCtxRegDeleteValue @ 0x1404F0DB4 (_PnpCtxRegDeleteValue.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _PnpCtxRegDeleteValue @ 0x1404D2EA8 (_PnpCtxRegDeleteValue.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigClearStartOverrideCallback(_QWORD *a1, __int64 a2, __int64 a3, const WCHAR *a4)

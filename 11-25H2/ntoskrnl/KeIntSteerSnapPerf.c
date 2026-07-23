@@ -15,7 +15,7 @@
  *     memset_0 @ 0x1406B4D40 (memset_0.c)
  */
 
-__int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 *a4)
+__int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, LARGE_INTEGER *a4)
 {
   int v4; // edi
   __int64 v5; // rsi
@@ -25,8 +25,8 @@ __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 
   unsigned __int64 v9; // r8
   __int64 v10; // rax
   void *v11; // rsp
-  __int64 InterruptTimePrecise; // rax
-  __int64 v13; // r15
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LONGLONG v13; // r15
   int *v14; // rbx
   __int64 v15; // rbx
   __int64 CurrentIrql; // rdi
@@ -52,13 +52,13 @@ __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 
   unsigned __int64 v37; // [rsp+28h] [rbp+8h]
   __int64 v38; // [rsp+30h] [rbp+10h]
   __int64 v39; // [rsp+38h] [rbp+18h]
-  __int64 v40; // [rsp+40h] [rbp+20h]
+  LONGLONG v40; // [rsp+40h] [rbp+20h]
   int **v41; // [rsp+48h] [rbp+28h]
   __int64 v42; // [rsp+50h] [rbp+30h]
   _DWORD *v43; // [rsp+58h] [rbp+38h]
-  __int64 v44; // [rsp+60h] [rbp+40h]
-  __int64 *v45; // [rsp+68h] [rbp+48h]
-  unsigned __int64 v46; // [rsp+70h] [rbp+50h] BYREF
+  LARGE_INTEGER v44; // [rsp+60h] [rbp+40h]
+  LARGE_INTEGER *v45; // [rsp+68h] [rbp+48h]
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp+50h] BYREF
   __int64 retaddr; // [rsp+A8h] [rbp+88h]
 
   v4 = PpmIntSteerLoadMax;
@@ -86,14 +86,14 @@ __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 
     if ( (_DWORD)v6 )
       memset_0(&v36, 0, 8LL * (unsigned int)v6);
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v46);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v44 = InterruptTimePrecise;
-  v13 = InterruptTimePrecise - KiIntSteerPreviousPerfSnap;
-  v40 = InterruptTimePrecise - KiIntSteerPreviousPerfSnap;
-  if ( (unsigned __int64)(InterruptTimePrecise - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
+  v13 = InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap;
+  v40 = InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap;
+  if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
   {
     v14 = (int *)KiIntSteerDistributionContext;
-    KiIntSteerPreviousPerfSnap = InterruptTimePrecise;
+    KiIntSteerPreviousPerfSnap = InterruptTimePrecise.QuadPart;
     KiIntSteerPreviousPerfSnapDelta = v13;
     memset_0(KiIntSteerDistributionContext, 0, 0x204uLL);
     *v14 = v4;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPlInitPowerPlane @ 0x140765618
+ * XREFs of PopPlInitPowerPlane @ 0x140764FE8
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x1404D1D78 (PopPlRegisterPowerPlane.c)
+ *     PopPlRegisterPowerPlane @ 0x1404CADB8 (PopPlRegisterPowerPlane.c)
  * Callees:
- *     PopPlInitDevices @ 0x14076549C (PopPlInitDevices.c)
- *     PopPlInitWString @ 0x14076570C (PopPlInitWString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopPlInitDevices @ 0x140764E6C (PopPlInitDevices.c)
+ *     PopPlInitWString @ 0x1407650DC (PopPlInitWString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitPowerPlane(__int64 a1, __int64 a2, unsigned __int64 a3, UNICODE_STRING **a4)
@@ -20,7 +20,7 @@ __int64 __fastcall PopPlInitPowerPlane(__int64 a1, __int64 a2, unsigned __int64 
   v4 = 0LL;
   if ( a1 + 52 <= a3 )
   {
-    Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x40uLL);
+    Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x40uLL, 0x40uLL, 0x6C506F50u);
     v4 = Pool2;
     if ( Pool2 )
     {

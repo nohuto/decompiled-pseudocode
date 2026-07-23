@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpVsContextInitialize @ 0x18007F868
+ * XREFs of RtlpHpVsContextInitialize @ 0x18007F858
  * Callers:
- *     RtlpHpSegHeapCreate @ 0x18007F470 (RtlpHpSegHeapCreate.c)
+ *     RtlpHpSegHeapCreate @ 0x18007F460 (RtlpHpSegHeapCreate.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiRemoveLockedPageFromWorkingSet @ 0x1400BAB0C
+ * XREFs of MiRemoveLockedPageFromWorkingSet @ 0x1400B899C
  * Callers:
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MmUnmapViewInSystemCache @ 0x1400492C0 (MmUnmapViewInSystemCache.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiUnlockVa @ 0x1400BAA10 (MiUnlockVa.c)
- *     MiTerminateWsle @ 0x1400E22C0 (MiTerminateWsle.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MmUnmapViewInSystemCache @ 0x140048E40 (MmUnmapViewInSystemCache.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiUnlockVa @ 0x1400B88A0 (MiUnlockVa.c)
+ *     MiTerminateWsle @ 0x1400E0160 (MiTerminateWsle.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiUnlockPageTableCharges @ 0x1400BAC48 (MiUnlockPageTableCharges.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiUnlockPageTableCharges @ 0x1400B8AD8 (MiUnlockPageTableCharges.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
  */
 
 __int64 __fastcall MiRemoveLockedPageFromWorkingSet(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)

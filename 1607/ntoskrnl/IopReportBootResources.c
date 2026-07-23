@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpDetermineResourceListSize @ 0x1404C8F50 (PnpDetermineResourceListSize.c)
- *     IopAllocateBootResources @ 0x140556138 (IopAllocateBootResources.c)
+ *     PnpDetermineResourceListSize @ 0x14050F344 (PnpDetermineResourceListSize.c)
+ *     IopAllocateBootResources @ 0x140556678 (IopAllocateBootResources.c)
  */
 
 __int64 __fastcall IopReportBootResources(unsigned int a1, __int64 a2, _DWORD *a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of ExReleaseResourceForThreadLite @ 0x14025FD60
+ * XREFs of ExReleaseResourceForThreadLite @ 0x14025FFF0
  * Callers:
- *     DifExReleaseResourceForThreadLiteWrapper @ 0x1405D9BE0 (DifExReleaseResourceForThreadLiteWrapper.c)
- *     CcUnpinDataForThread @ 0x140936C10 (CcUnpinDataForThread.c)
+ *     DifExReleaseResourceForThreadLiteWrapper @ 0x1405DA150 (DifExReleaseResourceForThreadLiteWrapper.c)
+ *     CcUnpinDataForThread @ 0x140936E10 (CcUnpinDataForThread.c)
  * Callees:
- *     ExpFindCurrentThread @ 0x140260200 (ExpFindCurrentThread.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     ExpPrepareToWakeResourceShared @ 0x1402603E0 (ExpPrepareToWakeResourceShared.c)
- *     ExpFreeOwnerEntry @ 0x140260B60 (ExpFreeOwnerEntry.c)
- *     ExpCommitWakeResourceShared @ 0x140260C30 (ExpCommitWakeResourceShared.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402BAD40 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     ExpFastResourceLegacyRelease @ 0x1403CA7A0 (ExpFastResourceLegacyRelease.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PerfLogExecutiveResourceRelease @ 0x140600874 (PerfLogExecutiveResourceRelease.c)
+ *     ExpFindCurrentThread @ 0x140260490 (ExpFindCurrentThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     ExpPrepareToWakeResourceShared @ 0x140260670 (ExpPrepareToWakeResourceShared.c)
+ *     ExpFreeOwnerEntry @ 0x140260DF0 (ExpFreeOwnerEntry.c)
+ *     ExpCommitWakeResourceShared @ 0x140260EC0 (ExpCommitWakeResourceShared.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402BAFD0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     ExpFastResourceLegacyRelease @ 0x1403CA980 (ExpFastResourceLegacyRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     PerfLogExecutiveResourceRelease @ 0x140600DC4 (PerfLogExecutiveResourceRelease.c)
  */
 
 void __stdcall ExReleaseResourceForThreadLite(PERESOURCE Resource, ERESOURCE_THREAD ResourceThreadId)
@@ -105,7 +105,7 @@ LABEL_18:
   v39[1] = &Resource->SpinLock;
   v11 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v11 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v11 <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)v11 == 2 )
@@ -164,10 +164,10 @@ LABEL_18:
       }
       KxReleaseQueuedSpinLock(v39);
       v34 = (unsigned __int8)v40;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v35 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v35 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v35 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v33 = CurrentPrcb->SchedulerAssist;
@@ -191,10 +191,10 @@ LABEL_18:
       v23 = v20 >> 3;
       KxReleaseQueuedSpinLock(v39);
       v24 = (unsigned __int8)v40;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v25 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v25 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v25 >= 2u )
         {
           v26 = KeGetCurrentPrcb();
           v27 = v26->SchedulerAssist;

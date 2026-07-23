@@ -73,10 +73,10 @@ __int64 __fastcall MiCheckFreeModifiedReservations(__int64 a1)
                     *(_DWORD *)(v10 + 124) = dword_140D1D1DC;
                   }
                   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v10 + 232));
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     CurrentIrql = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                       && CurrentIrql <= 0xFu
                       && (unsigned __int8)v13 <= 0xFu
                       && CurrentIrql >= 2u )

@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepCopyoutInternalSecurityAttributes @ 0x140A343AC
+ * XREFs of AuthzBasepCopyoutInternalSecurityAttributes @ 0x140A4F30C
  * Callers:
- *     SepGetTokenAccessInformationBufferSize @ 0x140A34000 (SepGetTokenAccessInformationBufferSize.c)
- *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x140A342B0 (AuthzBasepQueryInternalSecurityAttributesToken.c)
+ *     SepGetTokenAccessInformationBufferSize @ 0x140A4EF60 (SepGetTokenAccessInformationBufferSize.c)
+ *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x140A4F210 (AuthzBasepQueryInternalSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x1404197DC (AuthzBasepCopyoutInternalSecurityAttributeValues.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AuthzBasepProbeAndInsertTailList @ 0x140A34588 (AuthzBasepProbeAndInsertTailList.c)
+ *     AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x14040DD0C (AuthzBasepCopyoutInternalSecurityAttributeValues.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AuthzBasepProbeAndInsertTailList @ 0x140A4F4E8 (AuthzBasepProbeAndInsertTailList.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutInternalSecurityAttributes(unsigned int *a1, char *a2, unsigned int a3)

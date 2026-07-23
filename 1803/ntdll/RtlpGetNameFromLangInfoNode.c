@@ -9,12 +9,12 @@
  *     sub_1800377C0 @ 0x1800377C0 (sub_1800377C0.c)
  */
 
-__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, _UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   __int16 v5; // ax
-  unsigned __int16 Length; // si
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  USHORT Length; // si
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
   if ( a1 && a2 && a3 )
@@ -32,10 +32,10 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
         (PCWSTR)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL)
                + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL) + 2LL * v5)));
       Length = DestinationString.Length;
-      if ( DestinationString.Length <= *(_WORD *)(a3 + 2)
-        && (int)sub_1800377C0(*(_WORD **)(a3 + 8), *(unsigned __int16 *)(a3 + 2), (__int64)DestinationString.Buffer) >= 0 )
+      if ( DestinationString.Length <= a3->MaximumLength
+        && (int)sub_1800377C0(a3->Buffer, a3->MaximumLength, (__int64)DestinationString.Buffer) >= 0 )
       {
-        *(_WORD *)a3 = Length;
+        a3->Length = Length;
         return v3;
       }
     }

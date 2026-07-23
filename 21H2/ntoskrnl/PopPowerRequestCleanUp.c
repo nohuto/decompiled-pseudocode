@@ -1,28 +1,28 @@
 /*
- * XREFs of PopPowerRequestCleanUp @ 0x14028278C
+ * XREFs of PopPowerRequestCleanUp @ 0x140270A38
  * Callers:
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
- *     PopDeletePowerRequestObject @ 0x14067C4F0 (PopDeletePowerRequestObject.c)
- *     PopClosePowerRequestObject @ 0x14067CF10 (PopClosePowerRequestObject.c)
- *     PoDeletePowerRequest @ 0x14067D5C0 (PoDeletePowerRequest.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
+ *     PopDeletePowerRequestObject @ 0x140670030 (PopDeletePowerRequestObject.c)
+ *     PopClosePowerRequestObject @ 0x140670E10 (PopClosePowerRequestObject.c)
+ *     PoDeletePowerRequest @ 0x140671380 (PoDeletePowerRequest.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     PopPowerRequestExecuteCallbacks @ 0x1402826D8 (PopPowerRequestExecuteCallbacks.c)
- *     PoDestroyReasonContext @ 0x140282BD8 (PoDestroyReasonContext.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PopPowerRequestExecuteCallbacks @ 0x140270918 (PopPowerRequestExecuteCallbacks.c)
+ *     PoDestroyReasonContext @ 0x140270E84 (PoDestroyReasonContext.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopStatsDeletePowerRequest @ 0x14062B904 (PopStatsDeletePowerRequest.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopPowerRequestIsExecutionRequiredCapable @ 0x14067B184 (PopPowerRequestIsExecutionRequiredCapable.c)
- *     PopUpdatePowerRequestProcessWakeCounter @ 0x14067BC50 (PopUpdatePowerRequestProcessWakeCounter.c)
- *     PopReleasePowerRequestPushLock @ 0x14067C12C (PopReleasePowerRequestPushLock.c)
- *     PopUmpoSendPowerRequestOverrideCleanup @ 0x14067C368 (PopUmpoSendPowerRequestOverrideCleanup.c)
- *     PopDiagTracePowerRequestClose @ 0x14067C410 (PopDiagTracePowerRequestClose.c)
- *     PopPowerRequestDeleteEntryById @ 0x14067C4A0 (PopPowerRequestDeleteEntryById.c)
- *     PopProcessDisplayRequiredChange @ 0x14067CD44 (PopProcessDisplayRequiredChange.c)
- *     PopNotifySessionUserPowerRequestDeleted @ 0x14067CD68 (PopNotifySessionUserPowerRequestDeleted.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopPowerRequestIsExecutionRequiredCapable @ 0x14066E8C4 (PopPowerRequestIsExecutionRequiredCapable.c)
+ *     PopUpdatePowerRequestProcessWakeCounter @ 0x14066F390 (PopUpdatePowerRequestProcessWakeCounter.c)
+ *     PopReleasePowerRequestPushLock @ 0x14066F86C (PopReleasePowerRequestPushLock.c)
+ *     PopStatsDeletePowerRequest @ 0x14066FAA8 (PopStatsDeletePowerRequest.c)
+ *     PopUmpoSendPowerRequestOverrideCleanup @ 0x14066FEAC (PopUmpoSendPowerRequestOverrideCleanup.c)
+ *     PopDiagTracePowerRequestClose @ 0x14066FF54 (PopDiagTracePowerRequestClose.c)
+ *     PopPowerRequestDeleteEntryById @ 0x14066FFE4 (PopPowerRequestDeleteEntryById.c)
+ *     PopProcessDisplayRequiredChange @ 0x140670990 (PopProcessDisplayRequiredChange.c)
+ *     PopNotifySessionUserPowerRequestDeleted @ 0x1406709B4 (PopNotifySessionUserPowerRequestDeleted.c)
  */
 
 __int64 __fastcall PopPowerRequestCleanUp(unsigned int *Object)
@@ -74,7 +74,7 @@ __int64 __fastcall PopPowerRequestCleanUp(unsigned int *Object)
   *v9 = v8;
   v8[1] = (unsigned int *)v9;
   *(_QWORD *)v5 = 0LL;
-  if ( v5[11] && (byte_140C24074 || v1) )
+  if ( v5[11] && (byte_140C23434 || v1) )
   {
     v5[11] = 0;
     if ( !v1 && (v5[6] & 8) == 0 )

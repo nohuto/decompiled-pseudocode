@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpWorkQueueManagerThread @ 0x140A039A0
+ * XREFs of ExpWorkQueueManagerThread @ 0x140A77D60
  * Callers:
  *     <none>
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KeTimeOutQueueWaiters @ 0x1403E00A8 (KeTimeOutQueueWaiters.c)
- *     KeSetUserAffinityThread @ 0x1403F7154 (KeSetUserAffinityThread.c)
- *     ExpNewThreadNecessary @ 0x14045D290 (ExpNewThreadNecessary.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140476C00 (KeQueryNodeActiveAffinityEx.c)
- *     ExpGetNodeSubQueueConcurrencyCount @ 0x1404DFF18 (ExpGetNodeSubQueueConcurrencyCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KeSetMaximumCountPriQueue @ 0x1405F971C (KeSetMaximumCountPriQueue.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140772290 (ExpPartitionCreatePoolDelayed.c)
- *     ExpCreateWorkerThread @ 0x140A0346C (ExpCreateWorkerThread.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KeTimeOutQueueWaiters @ 0x1403E3298 (KeTimeOutQueueWaiters.c)
+ *     KeSetUserAffinityThread @ 0x1403F0B04 (KeSetUserAffinityThread.c)
+ *     ExpNewThreadNecessary @ 0x140456C90 (ExpNewThreadNecessary.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140470380 (KeQueryNodeActiveAffinityEx.c)
+ *     ExpGetNodeSubQueueConcurrencyCount @ 0x1404D95F8 (ExpGetNodeSubQueueConcurrencyCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KeSetMaximumCountPriQueue @ 0x1405FC13C (KeSetMaximumCountPriQueue.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x140775290 (ExpPartitionCreatePoolDelayed.c)
+ *     ExpCreateWorkerThread @ 0x140A78ABC (ExpCreateWorkerThread.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpWorkQueueManagerThread(__int64 *a1)
@@ -139,15 +139,15 @@ void __fastcall ExpWorkQueueManagerThread(__int64 *a1)
           v45 = *v1;
           v46 = v43;
           v47 = *(_QWORD *)(v45 + 8);
-          v48 = i + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (v2 + 8 * **v7);
+          v48 = i + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (v2 + 8 * **v7);
           if ( ((unsigned __int8)*(_QWORD *)(v47 + 8 * v48) & (unsigned __int8)v10) == 0 )
             v46 = *(_QWORD *)(v47 + 8 * v48);
           if ( *(_DWORD *)(v46 + 704) == *(_DWORD *)(v46 + 708) && ExpNewThreadNecessary(v46, 0x3FFF) )
           {
-            if ( (ExSaPageGroupDescriptorArrayLock.WaitBlockFill6[84] & 2) != 0 )
+            if ( (ExSaPageGroupDescriptorArrayLock.SchedulerApcFill3[32] & 2) != 0 )
               KeBugCheckEx(
                 0x163u,
-                *(unsigned int *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[84],
+                *(unsigned int *)&ExSaPageGroupDescriptorArrayLock.SchedulerApcFill5[32],
                 2uLL,
                 0LL,
                 v43);
@@ -161,7 +161,7 @@ void __fastcall ExpWorkQueueManagerThread(__int64 *a1)
               ExQueueWorkItem(v3, NormalWorkQueue);
               v51 = 1;
             }
-            WorkerThread = ExpCreateWorkerThread(v46, (int)a1 + 276);
+            WorkerThread = ExpCreateWorkerThread(v46, (char *)a1 + 276);
             v43 = 0LL;
             v10 = 1;
             if ( WorkerThread < 0 )
@@ -184,7 +184,7 @@ LABEL_38:
         {
           do
           {
-            v34 = v33 + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (v31 + 8 * *v32);
+            v34 = v33 + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (v31 + 8 * *v32);
             v35 = 0LL;
             if ( ((unsigned __int8)*(_QWORD *)(*(_QWORD *)(*v1 + 8) + 8 * v34) & (unsigned __int8)v10) == 0 )
               v35 = *(_DWORD **)(*(_QWORD *)(*v1 + 8) + 8 * v34);
@@ -212,7 +212,7 @@ LABEL_38:
         v38 = *v7;
         for ( j = 0; j < *((_DWORD *)*v7 + 30); ++j )
         {
-          v40 = j + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (v2 + 8 * *v38);
+          v40 = j + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (v2 + 8 * *v38);
           v41 = 0LL;
           if ( (*(_QWORD *)(*(_QWORD *)(*v1 + 8) + 8 * v40) & 1) == 0 )
             v41 = *(_DWORD **)(*(_QWORD *)(*v1 + 8) + 8 * v40);
@@ -281,7 +281,7 @@ LABEL_28:
           v26 = *v1;
           v27 = 0LL;
           v28 = *(_QWORD *)(v26 + 8);
-          v29 = (unsigned int)(v2 + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * v25);
+          v29 = (unsigned int)(v2 + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * v25);
           if ( (*(_QWORD *)(v28 + 8 * v29) & 1) == 0 )
             v27 = *(_QWORD *)(v28 + 8 * v29);
           if ( v27 )
@@ -311,7 +311,7 @@ LABEL_28:
         if ( ((unsigned __int8)*(_QWORD *)(*(_QWORD *)(*v1 + 8)
                                          + 8LL
                                          * (n
-                                          + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32]
+                                          + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72]
                                           * (v2 + 8 * *v11))) & (unsigned __int8)v10) != 0
           && (PoolDelayed = ExpPartitionCreatePoolDelayed(*v1, v11, v2, n), v10 = 1, PoolDelayed < 0) )
         {
@@ -319,7 +319,7 @@ LABEL_28:
         }
         else
         {
-          v14 = n + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (v2 + 8 * **v7);
+          v14 = n + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (v2 + 8 * **v7);
           v15 = 0LL;
           if ( ((unsigned __int8)*(_QWORD *)(*(_QWORD *)(*v1 + 8) + 8 * v14) & (unsigned __int8)v10) == 0 )
             v15 = *(_QWORD *)(*(_QWORD *)(*v1 + 8) + 8 * v14);
@@ -327,7 +327,7 @@ LABEL_28:
           {
             if ( ExpNewThreadNecessary(v15, *(_DWORD *)(v15 + 720)) )
             {
-              v21 = ExpCreateWorkerThread(v20, (int)v1 + 276);
+              v21 = ExpCreateWorkerThread(v20, (char *)v1 + 276);
               v10 = 1;
               if ( v21 < 0 )
                 v8 = 1;

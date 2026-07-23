@@ -8,24 +8,24 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __thiscall RtlpOpenBaseImageFileOptionsKey(int *this)
+int __thiscall RtlpOpenBaseImageFileOptionsKey(_DWORD *this)
 {
-  int v1; // edx
+  HANDLE v1; // edx
   int result; // eax
-  HANDLE Handle; // [esp+Ch] [ebp-4h]
+  HANDLE Handle; // [esp+Ch] [ebp-4h] BYREF
 
-  v1 = dword_4B3A67EC;
+  v1 = (HANDLE)dword_4B3A67EC;
   Handle = (HANDLE)dword_4B3A67EC;
   if ( dword_4B3A67EC )
     goto LABEL_2;
-  result = RtlpOpenBaseImageFileOptionsKeyEx(0);
+  result = RtlpOpenBaseImageFileOptionsKeyEx(&Handle, 9, 0);
   if ( result >= 0 )
   {
-    v1 = 0;
-    if ( _InterlockedCompareExchange(&dword_4B3A67EC, 0, 0) )
+    v1 = Handle;
+    if ( _InterlockedCompareExchange(&dword_4B3A67EC, (signed __int32)Handle, 0) )
     {
-      NtClose(Handle);
-      v1 = dword_4B3A67EC;
+      NtClose(v1);
+      v1 = (HANDLE)dword_4B3A67EC;
     }
 LABEL_2:
     *this = v1;

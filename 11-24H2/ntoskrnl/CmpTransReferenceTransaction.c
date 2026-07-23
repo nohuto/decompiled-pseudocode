@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpTransReferenceTransaction @ 0x140879088
+ * XREFs of CmpTransReferenceTransaction @ 0x14087D3B8
  * Callers:
- *     CmpCreateKeyBody @ 0x14083E100 (CmpCreateKeyBody.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmQueryKey @ 0x140877890 (CmQueryKey.c)
- *     CmpTransSearchAddLightWeightTrans @ 0x1408790E8 (CmpTransSearchAddLightWeightTrans.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140879368 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpTransSearchAddTrans @ 0x14087A4F0 (CmpTransSearchAddTrans.c)
- *     CmpTransInitializeTransaction @ 0x140A04118 (CmpTransInitializeTransaction.c)
+ *     CmpCreateKeyBody @ 0x14083A700 (CmpCreateKeyBody.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmQueryKey @ 0x14087BBC0 (CmQueryKey.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x14087D418 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14087D698 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransSearchAddTrans @ 0x14087E39C (CmpTransSearchAddTrans.c)
+ *     CmpTransInitializeTransaction @ 0x140A00648 (CmpTransInitializeTransaction.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     TmIsTransactionActive @ 0x1404FC4D0 (TmIsTransactionActive.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     TmIsTransactionActive @ 0x1404F9D90 (TmIsTransactionActive.c)
  */
 
 __int64 __fastcall CmpTransReferenceTransaction(__int64 a1)

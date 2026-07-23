@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpSegPageRangeAllocate @ 0x14034B898
+ * XREFs of RtlpHpSegPageRangeAllocate @ 0x14034D918
  * Callers:
- *     RtlpHpSegAlloc @ 0x14034B0CC (RtlpHpSegAlloc.c)
+ *     RtlpHpSegAlloc @ 0x14034D14C (RtlpHpSegAlloc.c)
  * Callees:
- *     RtlpHpSegLockAcquire @ 0x14027F770 (RtlpHpSegLockAcquire.c)
- *     RtlpHpSegFreeRangeInsert @ 0x14034B28C (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegPageRangeSplit @ 0x14034B3E0 (RtlpHpSegPageRangeSplit.c)
- *     RtlpHpSegLockRelease @ 0x14034BF04 (RtlpHpSegLockRelease.c)
- *     RtlpHpSegSegmentAllocate @ 0x14034FDFC (RtlpHpSegSegmentAllocate.c)
- *     RtlpHpSegSegmentInitialize @ 0x1403503FC (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpSegFreeRangeRemove @ 0x140377C00 (RtlpHpSegFreeRangeRemove.c)
- *     RtlpHpSegHeapAddSegment @ 0x1404BE45C (RtlpHpSegHeapAddSegment.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x14051C3D4 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegLockAcquire @ 0x14027ECE0 (RtlpHpSegLockAcquire.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14034D30C (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegPageRangeSplit @ 0x14034D460 (RtlpHpSegPageRangeSplit.c)
+ *     RtlpHpSegLockRelease @ 0x14034DF84 (RtlpHpSegLockRelease.c)
+ *     RtlpHpSegSegmentAllocate @ 0x140351E7C (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentInitialize @ 0x14035247C (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x1403799B0 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlpHpSegHeapAddSegment @ 0x1404B7CAC (RtlpHpSegHeapAddSegment.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x140518FC4 (RtlpHpSegLargeRangeAllocate.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -95,7 +95,7 @@ LABEL_23:
 LABEL_10:
   v15 = RtlpHpSegPageRangeSplit(v14, v9, v7);
   if ( v15 )
-    RtlpHpSegFreeRangeInsert(a1, v15, 0LL);
+    RtlpHpSegFreeRangeInsert(a1, v15, 0);
   if ( (v6 & 4) != 0 )
     *(_DWORD *)(v9 + 8) |= 2u;
   LOBYTE(v16) = v10;

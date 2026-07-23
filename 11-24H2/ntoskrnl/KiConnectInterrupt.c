@@ -1,14 +1,14 @@
 /*
- * XREFs of KiConnectInterrupt @ 0x1403B70E8
+ * XREFs of KiConnectInterrupt @ 0x1402B339C
  * Callers:
- *     KeConnectInterrupt @ 0x1403B6EEC (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x1402B31A0 (KeConnectInterrupt.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KiInsertInterruptObjectOrdered @ 0x1404A2AF8 (KiInsertInterruptObjectOrdered.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1402B4BF8 (KiInsertInterruptObjectOrdered.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiConnectInterrupt(__int64 a1)
@@ -29,8 +29,8 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
   __int64 (__fastcall *v16)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16); // rax
   __int64 v17; // r11
   __int64 v18; // r10
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   v1 = *(unsigned int *)(a1 + 88);
   v2 = 0;

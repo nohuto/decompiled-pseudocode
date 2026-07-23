@@ -25,7 +25,7 @@ char __fastcall EtwpSwitchBuffer(int a1, int a2, int a3)
   v12 = 0;
   v4 = a2;
   v9 = *(_DWORD *)(a1 + 212) & 0x400;
-  RtlEnterCriticalSection(a1 + 72);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   for ( i = *(_DWORD *)(a1 + 4 * a3 + 388); ; i = *(_DWORD *)(a1 + 4 * a3 + 388) )
   {
     v11 = i;
@@ -52,7 +52,7 @@ char __fastcall EtwpSwitchBuffer(int a1, int a2, int a3)
       v7 = 0;
       goto LABEL_6;
     }
-    RtlSleepConditionVariableCS(a1 + 68, a1 + 72, 0);
+    RtlSleepConditionVariableCS((PRTL_CONDITION_VARIABLE)(a1 + 68), (PRTL_CRITICAL_SECTION)(a1 + 72), 0);
   }
   *(_WORD *)(v6 + 40) = *(_WORD *)(*(_DWORD *)(a1 + 376) + 4 * a3 + 2);
   *(_WORD *)(v6 + 42) = *(_WORD *)(*(_DWORD *)(a1 + 376) + 4 * a3);
@@ -74,14 +74,14 @@ LABEL_5:
   **(_DWORD **)(a1 + 188) = v4 + 32;
   *(_DWORD *)(a1 + 188) = v4 + 32;
 LABEL_6:
-  RtlLeaveCriticalSection(a1 + 72);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   if ( v4 )
     _InterlockedDecrement((volatile signed __int32 *)(v4 + 12));
   if ( v12
     && (!*(_DWORD *)(a1 + 256)
      || (unsigned int)(*(_DWORD *)(a1 + 156) - *(_DWORD *)(a1 + 136) - *(_DWORD *)(a1 + 160)) >= *(_DWORD *)(a1 + 256)) )
   {
-    NtSetEvent(*(_DWORD *)(a1 + 96), 0);
+    NtSetEvent(*(HANDLE *)(a1 + 96), 0);
   }
   return v7;
 }

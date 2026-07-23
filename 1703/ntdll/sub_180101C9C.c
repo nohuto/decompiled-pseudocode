@@ -14,37 +14,37 @@
  *     sub_1800F22CC @ 0x1800F22CC (sub_1800F22CC.c)
  */
 
-char __fastcall sub_180101C9C(unsigned __int64 a1, int a2, __int64 a3, unsigned int a4, unsigned int a5)
+BOOLEAN __fastcall sub_180101C9C(PRTL_CRITICAL_SECTION *BaseAddress, int a2, char *a3, ULONG a4, ULONG UserFlagsSet)
 {
-  char v9; // di
+  BOOLEAN v9; // di
   char v10; // r14
-  int v12; // esi
+  ULONG v12; // esi
   unsigned __int64 v13; // rdx
 
   v9 = 0;
   v10 = 0;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return ((__int64 (__fastcall *)(unsigned __int64))qword_180155480)(a1);
-  if ( ((a5 | a4) & 0xFFFFF1FF) != 0 )
+  if ( (*((_DWORD *)BaseAddress + 29) & 0x1000000) != 0 )
+    return ((__int64 (__fastcall *)(PRTL_CRITICAL_SECTION *))qword_180155480)(BaseAddress);
+  if ( ((UserFlagsSet | a4) & 0xFFFFF1FF) != 0 )
     return 0;
-  if ( sub_18001F9B0((_DWORD *)a1, "RtlSetUserFlagsHeap") )
+  if ( sub_18001F9B0(BaseAddress, "RtlSetUserFlagsHeap") )
   {
-    v12 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v12 = *((_DWORD *)BaseAddress + 29) | 0x10000000 | a2;
     if ( (v12 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(BaseAddress[44]);
       v10 = 1;
       v12 |= 1u;
     }
-    sub_180090710(a1, 0);
-    v13 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    sub_180090710((PVOID *)BaseAddress, 0);
+    v13 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v13 -= 16LL * *(unsigned __int8 *)(v13 + 14);
-    if ( sub_180078084(a1, v13, "RtlSetUserFlagsHeap") )
+    if ( sub_180078084((unsigned __int64)BaseAddress, v13, "RtlSetUserFlagsHeap") )
     {
-      v9 = RtlSetUserFlagsHeap(a1, v12, a3, a4, a5);
-      sub_180090710(a1, 0);
+      v9 = RtlSetUserFlagsHeap(BaseAddress, v12, a3, a4, UserFlagsSet);
+      sub_180090710((PVOID *)BaseAddress, 0);
     }
   }
   else
@@ -52,6 +52,6 @@ char __fastcall sub_180101C9C(unsigned __int64 a1, int a2, __int64 a3, unsigned 
     v9 = 0;
   }
   if ( v10 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(BaseAddress[44]);
   return v9;
 }

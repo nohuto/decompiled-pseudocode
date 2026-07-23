@@ -1,21 +1,21 @@
 /*
- * XREFs of DifNtAccessCheckWrapper @ 0x140669BA0
+ * XREFs of DifNtAccessCheckWrapper @ 0x14066D780
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifNtAccessCheckWrapper(
         void *a1,
-        __int64 a2,
-        int a3,
+        void *a2,
+        unsigned int a3,
         void *a4,
         void *a5,
         unsigned int *a6,
@@ -33,8 +33,8 @@ __int64 __fastcall DifNtAccessCheckWrapper(
   BOOLEAN v19; // di
   __int128 *j; // rbx
   _QWORD v22[6]; // [rsp+68h] [rbp-39h] BYREF
-  int v23; // [rsp+98h] [rbp-9h]
-  __int64 v24; // [rsp+A0h] [rbp-1h]
+  unsigned int v23; // [rsp+98h] [rbp-9h]
+  void *v24; // [rsp+A0h] [rbp-1h]
   void *v25; // [rsp+A8h] [rbp+7h]
   unsigned int v26; // [rsp+B0h] [rbp+Fh]
   void *retaddr; // [rsp+E0h] [rbp+3Fh]
@@ -78,7 +78,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v26 = SeAccessCheckByType(a1, 0LL, a2, a3, 0LL, 0, a4, a5, a6, a7, a8, 0);
+  v26 = SeAccessCheckByType(a1, 0LL, a2, (struct _KLOCK_ENTRIES *)a3, 0LL, 0, a4, a5, a6, a7, a8, 0);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkGetCursorState @ 0x140AF1090
+ * XREFs of BgkGetCursorState @ 0x140AF10A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x14054EF88 (BgkpAcquireConsole.c)
- *     BgkpReleaseConsole @ 0x14054EFD4 (BgkpReleaseConsole.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14054F648 (BgkpAcquireConsole.c)
+ *     BgkpReleaseConsole @ 0x14054F694 (BgkpReleaseConsole.c)
  */
 
 __int64 __fastcall BgkGetCursorState(__int64 a1, __int64 a2, __int64 a3)

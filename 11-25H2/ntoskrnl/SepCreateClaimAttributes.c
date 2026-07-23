@@ -21,10 +21,10 @@ __int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, 
   _DWORD *v9; // r14
   _DWORD *v10; // rsi
   char v11; // r12
-  char *v12; // rbp
+  _SID_AND_ATTRIBUTES *v12; // rbp
   __int64 v13; // rdx
   __int64 v14; // rcx
-  _QWORD *ClaimCollectionNoLists; // rdi
+  _DWORD *ClaimCollectionNoLists; // rdi
   __int64 SecurityAttributesList; // rax
   __int64 v17; // rax
   unsigned int v18; // ebx
@@ -69,7 +69,7 @@ LABEL_37:
       if ( v8 < 0 )
         goto LABEL_30;
       v25 = 1;
-      ClaimCollectionNoLists[72] = v9;
+      *((_QWORD *)ClaimCollectionNoLists + 72) = v9;
     }
     if ( a3 )
     {
@@ -105,7 +105,7 @@ LABEL_30:
         goto LABEL_31;
       }
       v11 = 1;
-      ClaimCollectionNoLists[73] = v10;
+      *((_QWORD *)ClaimCollectionNoLists + 73) = v10;
     }
     if ( !a5 || !a4 )
       goto LABEL_24;
@@ -114,15 +114,15 @@ LABEL_30:
       goto LABEL_27;
     v18 = v23;
     Pool2 = (char *)ExAllocatePool2(0x100uLL);
-    v12 = Pool2;
+    v12 = (_SID_AND_ATTRIBUTES *)Pool2;
     if ( Pool2 )
     {
       v8 = SeCaptureSidAndAttributesArray(a5, a4, 0, Pool2, v18, v20, v21, &v24, &v23);
       if ( v8 >= 0 )
       {
-        *(_DWORD *)ClaimCollectionNoLists = a4;
-        ClaimCollectionNoLists[1] = v12;
-        RtlSidHashInitialize((__int64 *)v12, a4, ClaimCollectionNoLists + 4);
+        *ClaimCollectionNoLists = a4;
+        *((_QWORD *)ClaimCollectionNoLists + 1) = v12;
+        RtlSidHashInitialize(v12, a4, (PSID_AND_ATTRIBUTES_HASH)(ClaimCollectionNoLists + 8));
 LABEL_24:
         *a1 = ClaimCollectionNoLists;
         return (unsigned int)v8;

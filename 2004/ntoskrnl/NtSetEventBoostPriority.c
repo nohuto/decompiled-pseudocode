@@ -8,15 +8,15 @@
  *     ObReferenceObjectByHandle @ 0x1405F5C90 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetEventBoostPriority(void *a1)
+NTSTATUS __cdecl NtSetEventBoostPriority(HANDLE EventHandle)
 {
-  NTSTATUS v1; // edi
+  int v1; // edi
   struct _DMA_ADAPTER *v2; // rbx
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
   DmaAdapter = 0LL;
   v1 = ObReferenceObjectByHandle(
-         a1,
+         EventHandle,
          2u,
          (POBJECT_TYPE)ExEventObjectType,
          KeGetCurrentThread()->PreviousMode,
@@ -31,5 +31,5 @@ __int64 __fastcall NtSetEventBoostPriority(void *a1)
       v1 = -1073741788;
     HalPutDmaAdapter(v2);
   }
-  return (unsigned int)v1;
+  return v1;
 }

@@ -117,7 +117,7 @@ char __fastcall SepCommonAccessCheckEx(
   __int64 v81; // rcx
   __int16 v82; // dx
   __int64 v83; // rax
-  __int64 v84; // rax
+  ACL *v84; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v87; // rdx
@@ -487,7 +487,7 @@ LABEL_100:
     goto LABEL_40;
   if ( v82 >= 0 )
   {
-    v84 = *(_QWORD *)(v81 + 24);
+    v84 = *(ACL **)(v81 + 24);
   }
   else
   {
@@ -499,9 +499,9 @@ LABEL_40:
       v36 = 0;
       goto LABEL_41;
     }
-    v84 = v81 + v83;
+    v84 = (ACL *)(v81 + v83);
   }
-  v203 = v84;
+  v203 = (__int64)v84;
   if ( !v84 )
     goto LABEL_40;
   ScopedPolicySid = (void *)SepGetScopedPolicySid(v84);
@@ -524,7 +524,7 @@ LABEL_40:
 LABEL_41:
   if ( !(_BYTE)v31 || (*(_DWORD *)(v6 + 16) & 0x2060000) != 0 || v36 )
   {
-    IsOwner = SepTokenIsOwner(PrimaryToken, *(_QWORD *)(*(_QWORD *)(v6 + 8) + 8LL));
+    IsOwner = SepTokenIsOwner(PrimaryToken);
     v181 = IsOwner;
     v22 = 0LL;
   }

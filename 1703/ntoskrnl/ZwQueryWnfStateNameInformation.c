@@ -6,9 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwQueryWnfStateNameInformation(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwQueryWnfStateNameInformation(
+        PCWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        const void *ExplicitScope,
+        PVOID InfoBuffer,
+        ULONG InfoBufferSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(StateName);
 }

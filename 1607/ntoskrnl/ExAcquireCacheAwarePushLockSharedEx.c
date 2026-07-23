@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAcquireCacheAwarePushLockSharedEx @ 0x1400C7A90
+ * XREFs of ExAcquireCacheAwarePushLockSharedEx @ 0x1400C5930
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     ExfTryAcquirePushLockShared @ 0x1400C7C18 (ExfTryAcquirePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x1400C5AB8 (ExfTryAcquirePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 volatile signed __int64 *__fastcall ExAcquireCacheAwarePushLockSharedEx(
@@ -61,7 +61,7 @@ LABEL_24:
     _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0xFu);
     goto LABEL_9;
   }
-  if ( v2 < qword_140326910 || v2 >= qword_140326910 + 0x8000000000LL )
+  if ( v2 < qword_140326950 || v2 >= qword_140326950 + 0x8000000000LL )
     SessionId = -1;
   else
     SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentReserveBlock @ 0x140475080
+ * XREFs of RtlpHpLfhSubsegmentReserveBlock @ 0x14046E800
  * Callers:
- *     RtlpHpLfhSlotActiveSubsegmentReset @ 0x1403467D0 (RtlpHpLfhSlotActiveSubsegmentReset.c)
+ *     RtlpHpLfhSlotActiveSubsegmentReset @ 0x140348850 (RtlpHpLfhSlotActiveSubsegmentReset.c)
  * Callees:
  *     <none>
  */

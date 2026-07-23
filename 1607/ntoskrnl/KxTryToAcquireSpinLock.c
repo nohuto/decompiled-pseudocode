@@ -1,10 +1,10 @@
 /*
- * XREFs of KxTryToAcquireSpinLock @ 0x1400825BC
+ * XREFs of KxTryToAcquireSpinLock @ 0x140083238
  * Callers:
- *     KeFreezeExecution @ 0x1400822D0 (KeFreezeExecution.c)
- *     KeTryToAcquireSpinLockAtDpcLevel @ 0x1400825B4 (KeTryToAcquireSpinLockAtDpcLevel.c)
- *     KiProcessNMI @ 0x14008269C (KiProcessNMI.c)
- *     EtwpTraceStackKey @ 0x14022B1D8 (EtwpTraceStackKey.c)
+ *     KeFreezeExecution @ 0x140082F4C (KeFreezeExecution.c)
+ *     KeTryToAcquireSpinLockAtDpcLevel @ 0x140083230 (KeTryToAcquireSpinLockAtDpcLevel.c)
+ *     KiProcessNMI @ 0x140083318 (KiProcessNMI.c)
+ *     EtwpTraceStackKey @ 0x14022B004 (EtwpTraceStackKey.c)
  * Callees:
  *     <none>
  */

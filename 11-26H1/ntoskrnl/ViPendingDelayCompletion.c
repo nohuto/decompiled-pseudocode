@@ -1,17 +1,17 @@
 /*
- * XREFs of ViPendingDelayCompletion @ 0x140C30308
+ * XREFs of ViPendingDelayCompletion @ 0x140C36318
  * Callers:
- *     VfPendingMoreProcessingRequired @ 0x140C45F00 (VfPendingMoreProcessingRequired.c)
+ *     VfPendingMoreProcessingRequired @ 0x140C4BF10 (VfPendingMoreProcessingRequired.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimerEx @ 0x1404A5F90 (KeInitializeTimerEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViPendingQueuePassiveLevelCompletion @ 0x140C30470 (ViPendingQueuePassiveLevelCompletion.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimerEx @ 0x14049F620 (KeInitializeTimerEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViPendingQueuePassiveLevelCompletion @ 0x140C36480 (ViPendingQueuePassiveLevelCompletion.c)
  */
 
 __int64 __fastcall ViPendingDelayCompletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

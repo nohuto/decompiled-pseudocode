@@ -1,33 +1,33 @@
 /*
- * XREFs of EtwQueryPerformanceTraceInformation @ 0x14095E9DC
+ * XREFs of EtwQueryPerformanceTraceInformation @ 0x14094649C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ExUnlockUserBuffer @ 0x14026893C (ExUnlockUserBuffer.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlFindSetBits @ 0x1403F3D00 (RtlFindSetBits.c)
- *     RtlNumberOfSetBits @ 0x14042B480 (RtlNumberOfSetBits.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpGetPmcProfileSource @ 0x1407A9CE0 (EtwpGetPmcProfileSource.c)
- *     EtwpUMGLEnabled @ 0x1407AA62C (EtwpUMGLEnabled.c)
- *     EtwpGetSoftRestartInformation @ 0x1407AF770 (EtwpGetSoftRestartInformation.c)
- *     EtwpCheckLoggerControlAccess @ 0x140836724 (EtwpCheckLoggerControlAccess.c)
- *     EtwpReferenceLoggerSecurityDescriptor @ 0x140836818 (EtwpReferenceLoggerSecurityDescriptor.c)
- *     SeQuerySecurityDescriptorInfo @ 0x140878A10 (SeQuerySecurityDescriptorInfo.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
- *     EtwpCheckSystemTraceAccess @ 0x14095D9F0 (EtwpCheckSystemTraceAccess.c)
- *     EtwpQueryCoverageSamplerInformation @ 0x14095EFC8 (EtwpQueryCoverageSamplerInformation.c)
- *     ExLockUserBuffer @ 0x140966B28 (ExLockUserBuffer.c)
- *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140A2B970 (EtwpDereferenceLoggerSecurityDescriptor.c)
+ *     ExUnlockUserBuffer @ 0x14025FDEC (ExUnlockUserBuffer.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlNumberOfSetBits @ 0x140377880 (RtlNumberOfSetBits.c)
+ *     RtlFindSetBits @ 0x1403E6CF0 (RtlFindSetBits.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpGetPmcProfileSource @ 0x1407A9E20 (EtwpGetPmcProfileSource.c)
+ *     EtwpUMGLEnabled @ 0x1407AA76C (EtwpUMGLEnabled.c)
+ *     EtwpGetSoftRestartInformation @ 0x1407AFBC0 (EtwpGetSoftRestartInformation.c)
+ *     EtwpReferenceLoggerSecurityDescriptor @ 0x14083732C (EtwpReferenceLoggerSecurityDescriptor.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1408375F4 (EtwpCheckLoggerControlAccess.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x14087CD40 (SeQuerySecurityDescriptorInfo.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
+ *     EtwpCheckSystemTraceAccess @ 0x1409454B0 (EtwpCheckSystemTraceAccess.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x140946A88 (EtwpQueryCoverageSamplerInformation.c)
+ *     ExLockUserBuffer @ 0x14094F5B8 (ExLockUserBuffer.c)
+ *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140A1F830 (EtwpDereferenceLoggerSecurityDescriptor.c)
  */
 
 __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int a2, __int64 a3, unsigned int *a4)
@@ -55,7 +55,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
   unsigned int *v28; // rax
   ULONG v29; // ecx
   unsigned int v30; // eax
-  ULONG v31; // esi
+  DWORD v31; // esi
   _DWORD *v32; // r14
   _OWORD *v33; // rsi
   __int64 v34; // rax
@@ -74,7 +74,7 @@ __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, unsigned int 
   __int64 *NextProcess; // rax
   struct _KPROCESS *v48; // rdi
   unsigned int ProcessId; // eax
-  ULONG SecurityInformation; // [rsp+34h] [rbp-54h] BYREF
+  DWORD SecurityInformation; // [rsp+34h] [rbp-54h] BYREF
   __int64 v51; // [rsp+38h] [rbp-50h] BYREF
   int v52; // [rsp+40h] [rbp-48h]
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+48h] [rbp-40h] BYREF
@@ -252,7 +252,7 @@ LABEL_60:
       for ( i = 0; i < 8; ++i )
       {
         if ( v33
-          && (dword_140B3D6E4[2 * i] & *((_DWORD *)v33 + ((unsigned __int64)(unsigned int)dword_140B3D6E4[2 * i] >> 29)) & 0x1FFFFFFF) != 0 )
+          && (dword_140B3F494[2 * i] & *((_DWORD *)v33 + ((unsigned __int64)(unsigned int)dword_140B3F494[2 * i] >> 29)) & 0x1FFFFFFF) != 0 )
         {
           v36 = (unsigned __int64)(unsigned int)EtwpEnableFlagMap[2 * i] >> 29;
           *((_DWORD *)v33 + v36) |= EtwpEnableFlagMap[2 * i] & 0x1FFFFFFF;
@@ -339,7 +339,7 @@ LABEL_60:
             {
               memmove(
                 v54,
-                (const void *)(0x140000000LL + 4 * v24 + 15723876),
+                (const void *)(0x140000000LL + 4 * v24 + 15726116),
                 4LL * (unsigned __int16)EtwpPoolTagFilter[2 * v24]);
 LABEL_39:
               KeReleaseMutex((PRKMUTEX)(v20 + 158), 0);
@@ -376,7 +376,7 @@ LABEL_89:
   result = ExLockUserBuffer(a1 + 8, v16, v11, 1LL, &v51, &ObjectsSecurityDescriptor);
   if ( (int)result >= 0 )
   {
-    v8 = guard_dispatch_icall_no_overrides(20LL, v16, v51, a4);
+    v8 = guard_dispatch_icall_no_overrides(20LL, v16);
     if ( v51 )
       ExUnlockUserBuffer((struct _MDL *)ObjectsSecurityDescriptor);
     return v8;

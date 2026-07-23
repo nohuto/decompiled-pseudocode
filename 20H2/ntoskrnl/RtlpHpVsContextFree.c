@@ -49,9 +49,9 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   __int16 v32; // ax
   unsigned __int64 v33; // rcx
   unsigned __int64 v34; // rdx
-  unsigned __int8 v35; // al
+  BOOLEAN v35; // al
   unsigned __int64 v36; // rax
-  union _SLIST_HEADER *v38; // rcx
+  _SLIST_HEADER *v38; // rcx
   int v39; // ecx
   int v40; // ecx
   __int64 v41; // r8
@@ -118,7 +118,7 @@ LABEL_64:
     v12 = 0LL;
     if ( (v9 & 4) != 0 && v11 < 0x1000 )
     {
-      v38 = (union _SLIST_HEADER *)(a1 + 64);
+      v38 = (_SLIST_HEADER *)(a1 + 64);
       if ( *(_WORD *)(a1 + 64) < 0x20u )
       {
         RtlpInterlockedPushEntrySList(v38, (PSLIST_ENTRY)(v10 + 16));
@@ -290,7 +290,7 @@ LABEL_44:
               v34 = v36;
             }
           }
-          RtlRbInsertNodeEx(a1 + 16, v34, v35, v16 + 8);
+          RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)v34, v35, (PRTL_BALANCED_NODE)(v16 + 8));
         }
         else
         {

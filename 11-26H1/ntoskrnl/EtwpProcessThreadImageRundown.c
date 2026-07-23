@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpProcessThreadImageRundown @ 0x14096E924
+ * XREFs of EtwpProcessThreadImageRundown @ 0x1409BBF74
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A70518 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A99DCC (EtwpKernelTraceRundown.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     EtwpProcessEnumCallback @ 0x14096EA90 (EtwpProcessEnumCallback.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
- *     EtwpIsStackWalkingEnabled @ 0x14096F28C (EtwpIsStackWalkingEnabled.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     EtwpProcessEnumCallback @ 0x1409BC0E0 (EtwpProcessEnumCallback.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
+ *     EtwpIsStackWalkingEnabled @ 0x1409BCA58 (EtwpIsStackWalkingEnabled.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpProcessThreadImageRundown(__int64 a1, __int64 a2, char a3, unsigned int **a4, unsigned int a5)
@@ -33,7 +33,7 @@ __int64 __fastcall EtwpProcessThreadImageRundown(__int64 a1, __int64 a2, char a3
 
   Process = 0LL;
   v8 = 0;
-  memset_0(v17, 0, 0x48uLL);
+  memset_0(v17, 0, 0x50uLL);
   v17[0] = a1;
   v20 = a2;
   v10 = 1283LL;
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpProcessThreadImageRundown(__int64 a1, __int64 a2, char a3
     v10 = 1284LL;
   IsStackWalkingEnabled = EtwpIsStackWalkingEnabled(a2, v10);
   if ( a1 && (*(_DWORD *)(a1 + 16) & 0x40) != 0 && (*(_DWORD *)(a2 + 12) & 0x2000000) != 0 )
-    v17[1] = (char *)&EtwpObjectTypeFilter + 20 * *(unsigned __int8 *)(a2 + 818);
+    v17[1] = (char *)&stru_140F03830.WaitBlock[1] + 20 * *(unsigned __int8 *)(a2 + 818);
   P = (PVOID)ExAllocatePool2(0x40uLL);
   if ( P )
     v19 = 0x2000;

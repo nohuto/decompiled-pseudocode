@@ -1,12 +1,12 @@
 /*
- * XREFs of KiConfigureCpuSetSchedulingInformation @ 0x1403B66BC
+ * XREFs of KiConfigureCpuSetSchedulingInformation @ 0x1403B682C
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x1408BA358 (KeConfigureHeteroProcessors.c)
- *     KiConfigureSchedulingInformation @ 0x14099FD80 (KiConfigureSchedulingInformation.c)
+ *     KeConfigureHeteroProcessors @ 0x1408BA4B8 (KeConfigureHeteroProcessors.c)
+ *     KiConfigureSchedulingInformation @ 0x1409A0CB0 (KiConfigureSchedulingInformation.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     RtlWriteAcquireTickLock @ 0x1402AB51C (RtlWriteAcquireTickLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlWriteAcquireTickLock @ 0x14022965C (RtlWriteAcquireTickLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

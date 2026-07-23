@@ -1,15 +1,16 @@
 /*
- * XREFs of EtwpFailLogging @ 0x14032A9F0
+ * XREFs of EtwpFailLogging @ 0x1403FABA0
  * Callers:
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     EtwpReleaseTraceBuffer @ 0x14032ACC0 (EtwpReleaseTraceBuffer.c)
- *     EtwpTraceLostEvent @ 0x14032BB34 (EtwpTraceLostEvent.c)
- *     EtwpUpdateEventsLostCount @ 0x14032BF28 (EtwpUpdateEventsLostCount.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x14040CCA0 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     EtwpReleaseTraceBuffer @ 0x1403FAE70 (EtwpReleaseTraceBuffer.c)
+ *     EtwpTraceLostEvent @ 0x1403FAEA8 (EtwpTraceLostEvent.c)
+ *     EtwpUpdateEventsLostCount @ 0x1403FB298 (EtwpUpdateEventsLostCount.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140405330 (ExAcquireRundownProtectionCacheAwareEx.c)
  */
 
 void __fastcall EtwpFailLogging(
@@ -28,7 +29,7 @@ void __fastcall EtwpFailLogging(
 {
   __int64 v12; // r14
   unsigned int v14; // esi
-  unsigned __int8 v16; // r9
+  __int64 v16; // r9
   unsigned __int16 v17; // bx
   bool v18; // zf
   unsigned int v19; // ecx
@@ -67,7 +68,7 @@ void __fastcall EtwpFailLogging(
         if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_EVENT) )
           EtwpTraceLostEvent(a3 + 40, a8, v32 + 136, a6, a7, a10, a11, a9, a12);
       }
-      EtwpReleaseTraceBuffer(v34 + 2, a2, a3);
+      EtwpReleaseTraceBuffer(v34 + 2, a2, a3, v16);
       if ( a9 )
         ExReleaseRundownProtectionCacheAwareEx(
           *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v12 + 704) + 8LL * *v23),
@@ -76,7 +77,7 @@ void __fastcall EtwpFailLogging(
     }
     while ( v14 < *(_DWORD *)(a4 + 768) );
     a2 = v31;
-    v16 = a1;
+    LOBYTE(v16) = a1;
   }
   v17 = a5;
   v18 = !_BitScanForward(&v19, a5);
@@ -100,7 +101,7 @@ LABEL_14:
       v29 = ExAcquireRundownProtectionCacheAwareEx(
               *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v12 + 704) + 8 * v25),
               1u);
-      v16 = a1;
+      LOBYTE(v16) = a1;
       if ( !v29 )
         goto LABEL_14;
       LODWORD(v25) = v26;
@@ -122,7 +123,7 @@ LABEL_14:
     }
     ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v12 + 704) + v27), 1u);
 LABEL_23:
-    v16 = a1;
+    LOBYTE(v16) = a1;
     goto LABEL_14;
   }
 }

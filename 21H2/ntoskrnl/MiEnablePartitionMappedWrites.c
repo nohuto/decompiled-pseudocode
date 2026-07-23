@@ -1,15 +1,15 @@
 /*
- * XREFs of MiEnablePartitionMappedWrites @ 0x1406D3284
+ * XREFs of MiEnablePartitionMappedWrites @ 0x1406AA564
  * Callers:
- *     MiCreateNewSection @ 0x1406D2BC0 (MiCreateNewSection.c)
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     MiCreateNewSection @ 0x1406A9EA0 (MiCreateNewSection.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
  * Callees:
- *     MiMakePartitionActive @ 0x1402E5DA8 (MiMakePartitionActive.c)
- *     MiAllocateMappedWriterMdls @ 0x1403CC350 (MiAllocateMappedWriterMdls.c)
- *     MiUnlockPartitionSystemThreads @ 0x1403CF2DC (MiUnlockPartitionSystemThreads.c)
- *     MiLockPartitionSystemThreads @ 0x1403D0014 (MiLockPartitionSystemThreads.c)
- *     MiDeleteMappedMdls @ 0x14053557C (MiDeleteMappedMdls.c)
- *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
+ *     MiMakePartitionActive @ 0x1402970F8 (MiMakePartitionActive.c)
+ *     MiAllocateMappedWriterMdls @ 0x1403CC4C0 (MiAllocateMappedWriterMdls.c)
+ *     MiUnlockPartitionSystemThreads @ 0x1403CF44C (MiUnlockPartitionSystemThreads.c)
+ *     MiLockPartitionSystemThreads @ 0x1403D0184 (MiLockPartitionSystemThreads.c)
+ *     MiDeleteMappedMdls @ 0x1405357BC (MiDeleteMappedMdls.c)
+ *     PsCreateSystemThreadEx @ 0x1406A7470 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiEnablePartitionMappedWrites(_QWORD *a1)

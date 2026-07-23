@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSkipFractionalPagefileRegion @ 0x14046A7B4
+ * XREFs of MiSkipFractionalPagefileRegion @ 0x14046314C
  * Callers:
- *     MiQueryAddressState @ 0x140300420 (MiQueryAddressState.c)
+ *     MiQueryAddressState @ 0x14030ABA0 (MiQueryAddressState.c)
  * Callees:
  *     <none>
  */

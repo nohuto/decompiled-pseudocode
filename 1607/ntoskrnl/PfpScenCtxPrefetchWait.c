@@ -2,16 +2,16 @@
  * XREFs of PfpScenCtxPrefetchWait @ 0x1403D02EC
  * Callers:
  *     PfPowerActionNotify @ 0x1403CFF90 (PfPowerActionNotify.c)
- *     PfpProcessScenarioPhase @ 0x1405453E8 (PfpProcessScenarioPhase.c)
+ *     PfpProcessScenarioPhase @ 0x140545928 (PfpProcessScenarioPhase.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     PfpScenCtxWaiterTimedOut @ 0x140126BB8 (PfpScenCtxWaiterTimedOut.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x140127128 (PfpScenCtxWaiterTimedOut.c)
  */
 
 __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3)
@@ -36,7 +36,7 @@ __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, 
   v3 = 0;
   v4 = 0;
   v6 = a2;
-  v8 = dword_140328218 < (unsigned int)dword_14032821C ? 0x7D0 : 0;
+  v8 = dword_140328258 < (unsigned int)dword_14032825C ? 0x7D0 : 0;
   while ( 1 )
   {
     CurrentThread = KeGetCurrentThread();

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegSetExtraPresent @ 0x140595048
+ * XREFs of RtlpHpSegSetExtraPresent @ 0x140595278
  * Callers:
- *     RtlpHpExtrasSetPresent @ 0x1405949DC (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x140594C0C (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     RtlpHpSegDescriptorValidate @ 0x1403422D0 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpVsChunkSetExtraPresent @ 0x1405956D0 (RtlpHpVsChunkSetExtraPresent.c)
+ *     RtlpHpSegDescriptorValidate @ 0x14034D020 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpVsChunkSetExtraPresent @ 0x140595900 (RtlpHpVsChunkSetExtraPresent.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegSetExtraPresent(__int64 a1, unsigned __int64 a2)

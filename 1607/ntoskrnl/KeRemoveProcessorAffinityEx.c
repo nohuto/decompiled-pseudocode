@@ -1,20 +1,20 @@
 /*
- * XREFs of KeRemoveProcessorAffinityEx @ 0x140030FBC
+ * XREFs of KeRemoveProcessorAffinityEx @ 0x140030B3C
  * Callers:
- *     KxFlushNonGlobalTb @ 0x140030C90 (KxFlushNonGlobalTb.c)
- *     KeFreezeExecution @ 0x1400822D0 (KeFreezeExecution.c)
- *     KiSendFreeze @ 0x140083960 (KiSendFreeze.c)
- *     KiCheckKeepAlive @ 0x14009F7D8 (KiCheckKeepAlive.c)
- *     KxFlushMultipleTb @ 0x1400B5DC8 (KxFlushMultipleTb.c)
- *     KeFlushProcessWriteBuffers @ 0x1400C892C (KeFlushProcessWriteBuffers.c)
- *     PpmParkUnblockIdle @ 0x1400D520C (PpmParkUnblockIdle.c)
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
- *     KxFlushSingleTb @ 0x14010A720 (KxFlushSingleTb.c)
- *     PpmPerfApplyProcessorStates @ 0x14012F1C0 (PpmPerfApplyProcessorStates.c)
- *     KxFlushEntireTb @ 0x14013CFFC (KxFlushEntireTb.c)
- *     KeSynchronizeAddressPolicy @ 0x1401D232C (KeSynchronizeAddressPolicy.c)
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
- *     PpmUnlockProcessors @ 0x1402014F8 (PpmUnlockProcessors.c)
+ *     KxFlushNonGlobalTb @ 0x140030810 (KxFlushNonGlobalTb.c)
+ *     KeFreezeExecution @ 0x140082F4C (KeFreezeExecution.c)
+ *     KiSendFreeze @ 0x1400845E0 (KiSendFreeze.c)
+ *     KiCheckKeepAlive @ 0x14009E100 (KiCheckKeepAlive.c)
+ *     KxFlushMultipleTb @ 0x1400B3BF0 (KxFlushMultipleTb.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400C67CC (KeFlushProcessWriteBuffers.c)
+ *     PpmParkUnblockIdle @ 0x1400D30AC (PpmParkUnblockIdle.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
+ *     KxFlushSingleTb @ 0x1401084A0 (KxFlushSingleTb.c)
+ *     PpmPerfApplyProcessorStates @ 0x14012F730 (PpmPerfApplyProcessorStates.c)
+ *     KxFlushEntireTb @ 0x14013D56C (KxFlushEntireTb.c)
+ *     KeSynchronizeAddressPolicy @ 0x1401D2158 (KeSynchronizeAddressPolicy.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
+ *     PpmUnlockProcessors @ 0x140201324 (PpmUnlockProcessors.c)
  *     PnprQuiesceProcessors @ 0x1403DC8B8 (PnprQuiesceProcessors.c)
  * Callees:
  *     <none>

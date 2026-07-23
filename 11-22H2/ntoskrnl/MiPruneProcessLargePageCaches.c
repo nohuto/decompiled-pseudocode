@@ -129,7 +129,9 @@ LABEL_31:
       *(_QWORD *)(a1 + 16096) = v10;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 16084));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v11 = v28;
       if ( v28 <= 0xFu && CurrentIrql >= 2u )

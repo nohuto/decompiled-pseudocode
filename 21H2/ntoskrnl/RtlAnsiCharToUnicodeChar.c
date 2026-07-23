@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlAnsiCharToUnicodeChar @ 0x1405EE4B0
+ * XREFs of RtlAnsiCharToUnicodeChar @ 0x1406DDC10
  * Callers:
- *     _safecrt_mbtowc @ 0x1403D2950 (_safecrt_mbtowc.c)
- *     toupper @ 0x1403D3D30 (toupper.c)
- *     _mbstrlen @ 0x1403D5D48 (_mbstrlen.c)
+ *     _safecrt_mbtowc @ 0x1403D2AC0 (_safecrt_mbtowc.c)
+ *     toupper @ 0x1403D3EA0 (toupper.c)
+ *     _mbstrlen @ 0x1403D5EB8 (_mbstrlen.c)
  * Callees:
- *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
- *     RtlUTF8ToUnicodeN @ 0x1406B6350 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x140615810 (RtlUTF8ToUnicodeN.c)
+ *     RtlpIsUtf8Process @ 0x1406DDCE0 (RtlpIsUtf8Process.c)
  */
 
-__int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
+WCHAR __cdecl RtlAnsiCharToUnicodeChar(PUCHAR *SourceCharacter)
 {
   char IsUtf8Process; // al
   const CHAR *v3; // rdi
@@ -31,8 +31,8 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
 
   UnicodeStringDestination = 32;
   IsUtf8Process = RtlpIsUtf8Process(0LL);
-  v3 = *a1;
-  v4 = *(unsigned __int8 *)*a1;
+  v3 = (const CHAR *)*SourceCharacter;
+  v4 = **SourceCharacter;
   v5 = 1;
   if ( IsUtf8Process )
   {
@@ -119,6 +119,6 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
     }
     while ( v11 );
   }
-  *a1 += UTF8StringByteCount;
+  *SourceCharacter += UTF8StringByteCount;
   return UnicodeStringDestination;
 }

@@ -13,7 +13,7 @@ __int64 __fastcall WheaReportHwErrorDeviceDriver(
         unsigned int a4,
         _OWORD *a5,
         int a6,
-        const char *a7)
+        __int64 a7)
 {
   __int64 v8; // [rsp+38h] [rbp-20h]
   __int64 v9; // [rsp+40h] [rbp-18h]

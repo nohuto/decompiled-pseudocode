@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitBackupHive @ 0x14085A834
+ * XREFs of CmpInitBackupHive @ 0x140860B28
  * Callers:
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
- *     CmpFlushBackupHive @ 0x14085A45C (CmpFlushBackupHive.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
+ *     CmpFlushBackupHive @ 0x140860750 (CmpFlushBackupHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     RtlAppendStringToString @ 0x140B20220 (RtlAppendStringToString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x140B22640 (RtlAppendStringToString.c)
  */
 
 NTSTATUS __fastcall CmpInitBackupHive(__int64 a1, const WCHAR *a2)
@@ -29,7 +29,7 @@ NTSTATUS __fastcall CmpInitBackupHive(__int64 a1, const WCHAR *a2)
   RtlInitUnicodeString(&DestinationString, a2);
   RtlAppendStringToString(&Destination, (const STRING *)&DestinationString);
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&Destination;
-  ObjectAttributes.SecurityDescriptor = (PVOID)WheapPfaLock.WaitStatus;
+  ObjectAttributes.SecurityDescriptor = *(PVOID *)&WheapPfaLock.Timer.Header.Lock;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;

@@ -38,7 +38,7 @@ _QWORD *__fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
   unsigned int v17; // esi
   char *v18; // rcx
   __int64 v19; // rcx
-  NTSTATUS v20; // eax
+  int v20; // eax
   __int16 v21; // ax
   struct _SECURITY_SUBJECT_CONTEXT *SubjectContext; // [rsp+48h] [rbp-70h]
   __int64 v25; // [rsp+60h] [rbp-58h]

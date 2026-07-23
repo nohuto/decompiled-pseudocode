@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetElementGenericTable @ 0x1400A0B70
+ * XREFs of RtlGetElementGenericTable @ 0x14009F498
  * Callers:
  *     <none>
  * Callees:

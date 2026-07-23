@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAllocatePoolSanityChecks @ 0x140AE7CAC
+ * XREFs of ExAllocatePoolSanityChecks @ 0x140AE7C9C
  * Callers:
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ExAllocatePoolSanityChecks(int a1, ULONG_PTR a2, _DWORD *a3, __int64 a4)

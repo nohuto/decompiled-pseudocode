@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSectionProtectReturnCharges @ 0x140A80EE4
+ * XREFs of MiSectionProtectReturnCharges @ 0x140A86D54
  * Callers:
- *     MiSetProtectionOnSection @ 0x140304DE0 (MiSetProtectionOnSection.c)
+ *     MiSetProtectionOnSection @ 0x1402E6E60 (MiSetProtectionOnSection.c)
  * Callees:
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnFullProcessCharges @ 0x1404C9B60 (MiReturnFullProcessCharges.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnFullProcessCharges @ 0x1404C3598 (MiReturnFullProcessCharges.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
  */
 
 void __fastcall MiSectionProtectReturnCharges(__int64 a1)

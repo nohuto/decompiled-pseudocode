@@ -1,14 +1,14 @@
 /*
- * XREFs of IoUnregisterPriorityCallback @ 0x1405CB4D0
+ * XREFs of IoUnregisterPriorityCallback @ 0x1405CDDA0
  * Callers:
- *     IopDeleteDriver @ 0x140AC7560 (IopDeleteDriver.c)
+ *     IopDeleteDriver @ 0x140AC9150 (IopDeleteDriver.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
- *     ExWaitForCallBacks @ 0x140B5EF7C (ExWaitForCallBacks.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
+ *     ExWaitForCallBacks @ 0x140B620FC (ExWaitForCallBacks.c)
  */
 
 void __fastcall IoUnregisterPriorityCallback(__int64 a1, signed __int64 a2)
@@ -26,17 +26,17 @@ void __fastcall IoUnregisterPriorityCallback(__int64 a1, signed __int64 a2)
     --CurrentThread->KernelApcDisable;
     for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
     {
-      v5 = ExReferenceCallBackBlock((signed __int64 *)&IopSessionNotificationLock.CycleTime + i, a2);
+      v5 = ExReferenceCallBackBlock(&IopUpdatePriorityCallbackRoutine[i], a2);
       v6 = v5;
       if ( v5 )
       {
-        v7 = (signed __int64 *)(&IopSessionNotificationLock.CycleTime + i);
+        v7 = &IopUpdatePriorityCallbackRoutine[i];
         if ( v5[4].Count == a1 )
         {
           if ( ExCompareExchangeCallBack(v7, 0LL, (__int64)v5) )
           {
             _InterlockedAdd(&IopUpdatePriorityCallbackRoutineCount, 0xFFFFFFFF);
-            ExDereferenceCallBackBlock((signed __int64 *)&IopSessionNotificationLock.CycleTime + i, v6);
+            ExDereferenceCallBackBlock(&IopUpdatePriorityCallbackRoutine[i], v6);
             KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v8);
             ExWaitForCallBacks(v6);
             PspUserApcKernelRoutine(v6);

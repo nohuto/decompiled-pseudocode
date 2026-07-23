@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlpSlowFlushListTbEx @ 0x1403E7DF8
+ * XREFs of HvlpSlowFlushListTbEx @ 0x1402F4CD8
  * Callers:
- *     HvlpFlushRangeListTbEx @ 0x1403E755C (HvlpFlushRangeListTbEx.c)
+ *     HvlpFlushRangeListTbEx @ 0x1402F443C (HvlpFlushRangeListTbEx.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlpCopyFlushVaList @ 0x14032BEF0 (HvlpCopyFlushVaList.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1403E77FC (HvlpAffinityToHvProcessorSet.c)
- *     VslSlowFlushSecureRangeList @ 0x1404A26E0 (VslSlowFlushSecureRangeList.c)
- *     HvlpSecureFlushLargeRangeList @ 0x1404A27EC (HvlpSecureFlushLargeRangeList.c)
- *     VslFlushSecureAddressSpace @ 0x1404A28FC (VslFlushSecureAddressSpace.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1402F46DC (HvlpAffinityToHvProcessorSet.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     HvlpCopyFlushVaList @ 0x14032DF20 (HvlpCopyFlushVaList.c)
+ *     VslSlowFlushSecureRangeList @ 0x14049C100 (VslSlowFlushSecureRangeList.c)
+ *     HvlpSecureFlushLargeRangeList @ 0x14049C20C (HvlpSecureFlushLargeRangeList.c)
+ *     VslFlushSecureAddressSpace @ 0x14049C31C (VslFlushSecureAddressSpace.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HvlpSlowFlushListTbEx(
@@ -21,41 +21,39 @@ __int64 __fastcall HvlpSlowFlushListTbEx(
         int a3,
         char a4,
         unsigned int a5,
-        __int64 *a6,
+        __int64 a6,
         unsigned int a7)
 {
   char v10; // r14
   __int64 v11; // rbx
   _QWORD *v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  _QWORD *v16; // rdi
-  __int64 v17; // rcx
-  int v18; // r12d
-  unsigned int v19; // eax
-  char v20; // si
-  char v22[8]; // [rsp+38h] [rbp-71h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-69h]
-  int v24; // [rsp+48h] [rbp-61h]
-  __int64 *v25; // [rsp+50h] [rbp-59h]
-  __int128 v26; // [rsp+58h] [rbp-51h] BYREF
-  __int64 v27; // [rsp+68h] [rbp-41h]
-  unsigned __int64 v28; // [rsp+70h] [rbp-39h]
-  __int64 v29; // [rsp+78h] [rbp-31h]
-  _BYTE v30[64]; // [rsp+80h] [rbp-29h] BYREF
+  _QWORD *v13; // rdi
+  __int64 v14; // rcx
+  int v15; // r12d
+  unsigned int v16; // eax
+  __int64 v17; // r8
+  char v18; // si
+  char v20[8]; // [rsp+38h] [rbp-71h] BYREF
+  __int64 v21; // [rsp+40h] [rbp-69h]
+  int v22; // [rsp+48h] [rbp-61h]
+  __int64 v23; // [rsp+50h] [rbp-59h]
+  __int128 v24; // [rsp+58h] [rbp-51h] BYREF
+  __int64 v25; // [rsp+68h] [rbp-41h]
+  __int64 v26; // [rsp+70h] [rbp-39h]
+  __int64 v27; // [rsp+78h] [rbp-31h]
+  _BYTE v28[64]; // [rsp+80h] [rbp-29h] BYREF
 
-  v25 = a6;
-  v29 = a2;
-  v27 = 0LL;
-  LODWORD(v28) = 0;
-  v24 = 0;
+  v23 = a6;
+  v27 = a2;
+  v25 = 0LL;
+  LODWORD(v26) = 0;
+  v22 = 0;
   v10 = 1;
   v11 = 0LL;
-  v26 = 0LL;
-  v12 = HvlpAcquireHypercallPage((__int64)&v26, 1, (__int64)v30, 32LL);
-  v16 = v12;
-  if ( (v26 & 2) != 0 )
+  v24 = 0LL;
+  v12 = (_QWORD *)HvlpAcquireHypercallPage(&v24, 1LL, v28, 32LL);
+  v13 = v12;
+  if ( (v24 & 2) != 0 )
   {
     if ( a4 )
     {
@@ -70,69 +68,70 @@ __int64 __fastcall HvlpSlowFlushListTbEx(
   {
     if ( a4 )
     {
-      v17 = v29;
+      v14 = v27;
       *v12 = *a1;
       v12[1] = a1[1];
-      v18 = HvlpAffinityToHvProcessorSet(v17, v12 + 2, 0xFE0u);
-      v19 = v18 + 32;
-      v24 = v18 + 32;
+      v15 = HvlpAffinityToHvProcessorSet(v14, v12 + 2, 0xFE0u);
+      v16 = v15 + 32;
+      v22 = v15 + 32;
     }
     else
     {
-      v18 = 0;
-      v19 = 0;
+      v15 = 0;
+      v16 = 0;
     }
-    v14 = v19;
-    if ( v19 + 8 * (unsigned __int64)a7 > 0x1000 )
+    if ( v16 + 8 * (unsigned __int64)a7 > 0x1000 )
     {
       if ( a3 == 2 )
       {
         if ( a4 )
-          memmove(v30, v16, v19);
-        HvlpReleaseHypercallPage((unsigned int *)&v26, v13, v14, v15);
-        LODWORD(v16) = (unsigned int)HvlpAcquireHypercallPage((__int64)&v26, 9, (__int64)v30, 32LL);
+          memmove(v28, v13, v16);
+        HvlpReleaseHypercallPage(&v24);
+        LODWORD(v13) = HvlpAcquireHypercallPage(&v24, 9LL, v28, 32LL);
       }
       if ( a4 )
       {
-        v23 = ((v18 + 7) << 14) & 0x3FE0000 | 0x13LL;
-        v11 = v23;
+        v21 = ((v15 + 7) << 14) & 0x3FE0000 | 0x13LL;
+        v11 = v21;
       }
     }
     else
     {
-      HvlpCopyFlushVaList(a5, v25, (HvlpFlags & 0x2000) != 0, (__int64)v16 + v19);
+      v17 = HvlpFlags >> 13;
+      LOBYTE(v17) = (HvlpFlags & 0x2000) != 0;
+      HvlpCopyFlushVaList(a5, v23, v17, (char *)v13 + v16);
       if ( a4 )
       {
         if ( (HvlpFlags & 0x2000) == 0 )
-          v16[1] |= 8uLL;
-        LODWORD(v23) = ((v18 + 7) << 14) & 0x3FE0000 | 0x14;
-        HIDWORD(v23) = a7 & 0xFFF;
-        v11 = v23;
+          v13[1] |= 8uLL;
+        LODWORD(v21) = ((v15 + 7) << 14) & 0x3FE0000 | 0x14;
+        HIDWORD(v21) = a7 & 0xFFF;
+        v11 = v21;
       }
       v10 = 0;
     }
   }
   if ( !a3 )
     goto LABEL_26;
-  v20 = 0;
-  v22[0] = 0;
+  v18 = 0;
+  v20[0] = 0;
   if ( v10 )
   {
     if ( a3 == 2 )
-      v20 = HvlpSecureFlushLargeRangeList(2LL, a5, v25);
+      v18 = HvlpSecureFlushLargeRangeList(2LL, a5, v23);
     else
       VslFlushSecureAddressSpace();
   }
   else
   {
-    VslSlowFlushSecureRangeList(v28, (_DWORD)v16, a3, a7, v24, (__int64)v22);
-    v20 = v22[0];
+    VslSlowFlushSecureRangeList(v26, (_DWORD)v13, a3, a7, v22, (__int64)v20);
+    v18 = v20[0];
   }
-  if ( !v20 )
+  if ( !v18 )
   {
 LABEL_26:
     if ( a4 )
-      HvcallInitiateHypercall(v11, v28);
+      HvcallInitiateHypercall(v11, v26, 0LL);
   }
-  return HvlpReleaseHypercallPage((unsigned int *)&v26, v13, v14, v15);
+  return HvlpReleaseHypercallPage(&v24);
 }

@@ -1,47 +1,47 @@
 /*
- * XREFs of EtwpNotifyGuid @ 0x1406E1804
+ * XREFs of EtwpNotifyGuid @ 0x1406B8AE4
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
- *     EtwpSendSessionNotification @ 0x1406E14E8 (EtwpSendSessionNotification.c)
+ *     EtwpSendSessionNotification @ 0x1406B87C8 (EtwpSendSessionNotification.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     KeEnterCriticalRegion @ 0x140351210 (KeEnterCriticalRegion.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpFindGuidEntryByGuid @ 0x1405EB9B0 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
- *     EtwpAccessCheck @ 0x140643B58 (EtwpAccessCheck.c)
- *     EtwpCreateUmReplyObject @ 0x14069C0FC (EtwpCreateUmReplyObject.c)
- *     EtwpApplyTransientFilters @ 0x1406C3300 (EtwpApplyTransientFilters.c)
- *     EtwpAllocDataBlock @ 0x1406E1760 (EtwpAllocDataBlock.c)
- *     EtwpFreeFilterInfo @ 0x1406E2C4C (EtwpFreeFilterInfo.c)
- *     EtwpSendDataBlock @ 0x1406E4054 (EtwpSendDataBlock.c)
- *     EtwpUnreferenceDataBlock @ 0x1406E4984 (EtwpUnreferenceDataBlock.c)
- *     EtwpDemuxPrivateTraceHandle @ 0x14093F01C (EtwpDemuxPrivateTraceHandle.c)
- *     EtwpValidateTraceControlFilterDescriptors @ 0x140940CEC (EtwpValidateTraceControlFilterDescriptors.c)
- *     EtwpCheckCurrentUserGuidAccess @ 0x1409414C0 (EtwpCheckCurrentUserGuidAccess.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409414D8 (EtwpCheckCurrentUserProcessAccess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetProcessId @ 0x140269640 (PsGetProcessId.c)
+ *     PsGetCurrentThreadProcessId @ 0x14029E930 (PsGetCurrentThreadProcessId.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     KeEnterCriticalRegion @ 0x14035BF60 (KeEnterCriticalRegion.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpCreateUmReplyObject @ 0x1405FB2BC (EtwpCreateUmReplyObject.c)
+ *     EtwpAccessCheck @ 0x140638968 (EtwpAccessCheck.c)
+ *     EtwpAllocDataBlock @ 0x1406B8A40 (EtwpAllocDataBlock.c)
+ *     EtwpFreeFilterInfo @ 0x1406B9F2C (EtwpFreeFilterInfo.c)
+ *     EtwpSendDataBlock @ 0x1406BB334 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406BBC64 (EtwpUnreferenceDataBlock.c)
+ *     EtwpApplyTransientFilters @ 0x1406BCE64 (EtwpApplyTransientFilters.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1406DB110 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406ECBA8 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpDemuxPrivateTraceHandle @ 0x14093F1EC (EtwpDemuxPrivateTraceHandle.c)
+ *     EtwpValidateTraceControlFilterDescriptors @ 0x140940EBC (EtwpValidateTraceControlFilterDescriptors.c)
+ *     EtwpCheckCurrentUserGuidAccess @ 0x140941690 (EtwpCheckCurrentUserGuidAccess.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409416A8 (EtwpCheckCurrentUserProcessAccess.c)
  */
 
 __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
 {
-  int v3; // esi
+  unsigned int v3; // esi
   __int64 v7; // r8
   int v9; // ebx
   unsigned __int64 v10; // rcx
   unsigned int v11; // eax
   ACCESS_MASK v12; // ebx
   int v13; // eax
-  __int64 *GuidEntryByGuid; // rax
+  __int64 GuidEntryByGuid; // rax
   __int64 v15; // rsi
-  __int64 *v16; // r14
-  __int64 *v17; // r13
+  _QWORD *v16; // r14
+  _QWORD *v17; // r13
   int v18; // r15d
-  __int64 i; // rbx
+  _QWORD *i; // rbx
   __int16 v20; // ax
   __int64 v21; // rsi
   unsigned int ProcessId; // eax
@@ -53,9 +53,9 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
   __int64 v28; // [rsp+28h] [rbp-61h] BYREF
   __int64 v29; // [rsp+30h] [rbp-59h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+38h] [rbp-51h] BYREF
-  __int64 v31; // [rsp+40h] [rbp-49h]
+  unsigned __int64 v31; // [rsp+40h] [rbp-49h]
   __int64 v32; // [rsp+48h] [rbp-41h] BYREF
-  __int64 v33[18]; // [rsp+50h] [rbp-39h] BYREF
+  _QWORD v33[18]; // [rsp+50h] [rbp-39h] BYREF
   __int16 v34; // [rsp+F8h] [rbp+6Fh] BYREF
   int v35; // [rsp+108h] [rbp+7Fh]
 
@@ -99,8 +99,8 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
       goto LABEL_60;
     }
     v12 = 128;
-    v27 = (int)EtwpCheckCurrentUserGuidAccess(PrivateLoggerSecurityGuid, 128LL) < 0;
-    *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
+    v27 = (int)EtwpCheckCurrentUserGuidAccess(&PrivateLoggerSecurityGuid, 128LL) < 0;
+    *(GUID *)(a2 + 40) = PrivateLoggerNotificationGuid;
   }
   else
   {
@@ -110,9 +110,9 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
   v13 = *(_DWORD *)(a2 + 32);
   *(_DWORD *)(a2 + 20) = 0;
   v26 = v13;
-  GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, (_DWORD *)(a2 + 40), v3);
+  GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, a2 + 40, v3);
   v15 = 0LL;
-  v16 = GuidEntryByGuid;
+  v16 = (_QWORD *)GuidEntryByGuid;
   if ( !GuidEntryByGuid )
   {
     v9 = -1073741163;
@@ -122,7 +122,7 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
   {
     if ( *(_DWORD *)a2 != 4 )
     {
-      v9 = EtwpAccessCheck((PSECURITY_DESCRIPTOR)GuidEntryByGuid[9], v12, 0LL);
+      v9 = EtwpAccessCheck(*(PSECURITY_DESCRIPTOR *)(GuidEntryByGuid + 72), v12, 0LL);
       if ( v9 < 0 )
         goto LABEL_59;
     }
@@ -130,8 +130,8 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(v16 + 51), 0LL);
   v17 = v16 + 7;
-  v16[52] = (__int64)KeGetCurrentThread();
-  if ( (__int64 *)*v17 == v17 )
+  v16[52] = KeGetCurrentThread();
+  if ( (_QWORD *)*v17 == v17 )
   {
     v9 = -1073741162;
     goto LABEL_53;
@@ -150,15 +150,15 @@ LABEL_27:
     v9 = -1073741801;
     goto LABEL_53;
   }
-  for ( i = *v17; (__int64 *)i != v17; i = *(_QWORD *)i )
+  for ( i = (_QWORD *)*v17; i != v17; i = (_QWORD *)*i )
   {
-    v20 = *(_WORD *)(i + 98);
+    v20 = *((_WORD *)i + 49);
     v21 = v29;
     if ( (v20 & 2) == 0
       || (v20 & 0x40) != 0
-      || v31 && !EtwpApplyTransientFilters(i, v31, v33[10], v33)
-      || v26 && (unsigned int)PsGetProcessId(*(PEPROCESS *)(i + 80)) != v26
-      || v27 && (v18 = EtwpCheckCurrentUserProcessAccess(*(_QWORD *)(i + 80)), v18 < 0) )
+      || v31 && !(unsigned __int8)EtwpApplyTransientFilters(i, v31, v33[10], v33)
+      || v26 && (unsigned int)PsGetProcessId((PEPROCESS)i[10]) != v26
+      || v27 && (v18 = EtwpCheckCurrentUserProcessAccess(i[10]), v18 < 0) )
     {
       v15 = 0LL;
     }
@@ -169,7 +169,7 @@ LABEL_27:
         v34 = 0;
         if ( *(_DWORD *)(a2 + 76) != 1 )
         {
-          ProcessId = (unsigned int)PsGetProcessId(*(PEPROCESS *)(i + 80));
+          ProcessId = (unsigned int)PsGetProcessId((PEPROCESS)i[10]);
           v15 = 0LL;
           v18 = EtwpDemuxPrivateTraceHandle(ProcessId, *(_WORD *)(a2 + 80) & 0x7FFF, &v34);
           if ( v18 < 0 )

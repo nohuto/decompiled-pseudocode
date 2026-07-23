@@ -8,7 +8,7 @@
 
 void *__cdecl _memccpy(void *Dst, const void *Src, int Val, size_t Size)
 {
-  size_t v4; // ecx
+  int v4; // ecx
   void *result; // eax
   char *v6; // esi
   char v7; // bl
@@ -16,7 +16,7 @@ void *__cdecl _memccpy(void *Dst, const void *Src, int Val, size_t Size)
   char v9; // bl
 
   v4 = Size;
-  if ( !Size )
+  if ( !(_DWORD)Size )
     return 0;
   result = Dst;
   v6 = (char *)Src;
@@ -29,7 +29,7 @@ void *__cdecl _memccpy(void *Dst, const void *Src, int Val, size_t Size)
   if ( v7 == (_BYTE)Val )
     return result;
   v4 = Size - 1;
-  if ( Size == 1 )
+  if ( (_DWORD)Size == 1 )
     return 0;
 LABEL_5:
   while ( 1 )

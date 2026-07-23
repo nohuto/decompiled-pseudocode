@@ -1,11 +1,11 @@
 /*
- * XREFs of SPCallServerHandleClepKdf @ 0x1406849A4
+ * XREFs of SPCallServerHandleClepKdf @ 0x140685B64
  * Callers:
- *     sub_140685840 @ 0x140685840 (sub_140685840.c)
+ *     sub_140686A00 @ 0x140686A00 (sub_140686A00.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleClepKdf(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -243,7 +243,7 @@ LABEL_126:
 LABEL_69:
   if ( v13 >= 0 )
   {
-    v38 = qword_14096D3C0 ? qword_14096D3C0(v71, v23, v32, v30, v7, v36, v74, 32) : -1073741637;
+    v38 = qword_14096E3C0 ? qword_14096E3C0(v71, v23, v32, v30, v7, v36, v74, 32) : -1073741637;
     v13 = v38;
     if ( v38 >= 0 )
     {

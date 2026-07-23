@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryThreadPlaceholderCompatibilityMode @ 0x140897C60
+ * XREFs of RtlQueryThreadPlaceholderCompatibilityMode @ 0x140898EC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char RtlQueryThreadPlaceholderCompatibilityMode()
+CHAR RtlQueryThreadPlaceholderCompatibilityMode(void)
 {
   struct _KTHREAD *CurrentThread; // rcx
   _BYTE *Teb; // rax

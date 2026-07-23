@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTbFlushTimeStampMayNeedFlush @ 0x1404519BC
+ * XREFs of MiTbFlushTimeStampMayNeedFlush @ 0x140446A68
  * Callers:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiReleasePteMappings @ 0x140241200 (MiReleasePteMappings.c)
- *     MiFreeSlabEntry @ 0x1402D2150 (MiFreeSlabEntry.c)
- *     MiGetPageChainSmallPageProcess @ 0x1402FBB90 (MiGetPageChainSmallPageProcess.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
- *     MiReleaseLargePdeMappings @ 0x140491DC4 (MiReleaseLargePdeMappings.c)
- *     MiDeleteStaleCacheMaps @ 0x140675880 (MiDeleteStaleCacheMaps.c)
+ *     MiReleasePteMappings @ 0x140209350 (MiReleasePteMappings.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140253A70 (MiGetPageChainSmallPageProcess.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
+ *     MiFreeSlabEntry @ 0x1403533C8 (MiFreeSlabEntry.c)
+ *     MiReleaseLargePdeMappings @ 0x14048CC64 (MiReleaseLargePdeMappings.c)
+ *     MiDeleteStaleCacheMaps @ 0x140676A50 (MiDeleteStaleCacheMaps.c)
  * Callees:
  *     <none>
  */

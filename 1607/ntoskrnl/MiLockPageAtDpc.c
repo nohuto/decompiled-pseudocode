@@ -1,8 +1,8 @@
 /*
- * XREFs of MiLockPageAtDpc @ 0x1401593E0
+ * XREFs of MiLockPageAtDpc @ 0x140159950
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x14003B6F0 (MiCompletePrivateZeroFault.c)
- *     MiUpdateLargePagePfns @ 0x1401F5E58 (MiUpdateLargePagePfns.c)
+ *     MiCompletePrivateZeroFault @ 0x14003B270 (MiCompletePrivateZeroFault.c)
+ *     MiUpdateLargePagePfns @ 0x1401F5C84 (MiUpdateLargePagePfns.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of NtSetBootOptions @ 0x1408D54A0
+ * XREFs of NtSetBootOptions @ 0x1408D6760
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     IoSetEnvironmentVariableEx @ 0x1408215E8 (IoSetEnvironmentVariableEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     IoSetEnvironmentVariableEx @ 0x1408227E8 (IoSetEnvironmentVariableEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
@@ -29,7 +29,7 @@ NTSTATUS __stdcall NtSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToCha
   v2 = FieldsToChange;
   Timeout = 0;
   v14[0] = 0;
-  if ( dword_140409D90 != 2 )
+  if ( dword_14040ADF0 != 2 )
     return -1073741822;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   p_Length = (unsigned __int64)&BootOptions->Length;

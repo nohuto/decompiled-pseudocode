@@ -4,7 +4,7 @@
  *     RtlpHpSegAlloc @ 0x14000B118 (RtlpHpSegAlloc.c)
  *     RtlpHpSegPageRangeCoalesce @ 0x14000B82C (RtlpHpSegPageRangeCoalesce.c)
  *     RtlpHpSegLfhVsDecommit @ 0x14000BDB0 (RtlpHpSegLfhVsDecommit.c)
- *     RtlpHpMetadataCommit @ 0x14019210C (RtlpHpMetadataCommit.c)
+ *     RtlpHpMetadataCommit @ 0x14019224C (RtlpHpMetadataCommit.c)
  * Callees:
  *     RtlpHpSegMgrCommit @ 0x14000C244 (RtlpHpSegMgrCommit.c)
  *     RtlpHpSegPageRangeHandleCommit @ 0x14000C760 (RtlpHpSegPageRangeHandleCommit.c)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMirrorGatherBrownPages @ 0x140152560
+ * XREFs of MiMirrorGatherBrownPages @ 0x140152660
  * Callers:
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
- *     MiMirrorAddPagesToBrownList @ 0x1401527BC (MiMirrorAddPagesToBrownList.c)
- *     MiMirrorNodeLargePages @ 0x140152BA8 (MiMirrorNodeLargePages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiIsDecayPfn @ 0x140118C7C (MiIsDecayPfn.c)
+ *     MiMirrorAddPagesToBrownList @ 0x1401528BC (MiMirrorAddPagesToBrownList.c)
+ *     MiMirrorNodeLargePages @ 0x140152CA8 (MiMirrorNodeLargePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMirrorGatherBrownPages(__int64 a1, __int64 a2, int a3, unsigned int a4)
@@ -53,7 +53,7 @@ __int64 __fastcall MiMirrorGatherBrownPages(__int64 a1, __int64 a2, int a3, unsi
         v9 = &MiSystemPartition + 4 * a4 + a4 + 296;
       if ( v4 != 3 )
         goto LABEL_7;
-      if ( *v9 != qword_14043E7B0 )
+      if ( *v9 != qword_14043F870 )
         break;
 LABEL_19:
       if ( ++v4 > 4 )
@@ -73,8 +73,8 @@ LABEL_7:
           if ( v4 == 2 && MiIsDecayPfn(v11) )
           {
             v20 = v12[2];
-            if ( qword_14043A0C0 && (v20 & 0x10) == 0 )
-              v20 &= ~qword_14043A0C0;
+            if ( qword_14043B180 && (v20 & 0x10) == 0 )
+              v20 &= ~qword_14043B180;
             v21 = (v20 >> 12) & 0xFFFFFFFFFLL;
             if ( v21 != v11 )
             {
@@ -110,7 +110,7 @@ LABEL_7:
     __writecr8(OldIrql);
     if ( v4 <= 1 )
     {
-      if ( ++v7 >= dword_14043A08C )
+      if ( ++v7 >= dword_14043B14C )
       {
         v7 = 0;
         if ( v4 == 1 )
@@ -136,8 +136,8 @@ LABEL_7:
     goto LABEL_19;
   }
 LABEL_20:
-  KeAcquireInStackQueuedSpinLock(&qword_14043E760, &LockHandle);
-  v14 = (__int64 *)&unk_14043D410;
+  KeAcquireInStackQueuedSpinLock(&qword_14043F820, &LockHandle);
+  v14 = (__int64 *)&unk_14043E4D0;
   do
   {
     for ( i = *v14; i != 0xFFFFFFFFFLL; i = *v16 & 0xFFFFFFFFFLL )
@@ -149,7 +149,7 @@ LABEL_20:
     --v8;
   }
   while ( v8 );
-  for ( j = qword_14043D3D0; j != 0xFFFFFFFFFLL; j = *v24 & 0xFFFFFFFFFLL )
+  for ( j = qword_14043E490; j != 0xFFFFFFFFFLL; j = *v24 & 0xFFFFFFFFFLL )
   {
     v24 = (_QWORD *)(48 * j - 0x58000000000LL);
     MiMirrorAddPagesToBrownList(j, 1LL);

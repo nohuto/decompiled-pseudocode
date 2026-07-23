@@ -34,9 +34,9 @@ __int64 __fastcall KiEnumerateNmiSxCallback(PVOID **a1, unsigned __int8 *a2, _QW
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         LODWORD(v12) = 4;
@@ -64,10 +64,10 @@ LABEL_9:
     v10 = *a2;
     if ( (unsigned __int8)v10 < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v13 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v13 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));

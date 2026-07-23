@@ -1,40 +1,40 @@
 /*
- * XREFs of SepSetTokenClaims @ 0x140A56B64
+ * XREFs of SepSetTokenClaims @ 0x140A4E9F4
  * Callers:
- *     SepCreateTokenEx @ 0x1403645F4 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x1403E9CAC (SepCreateTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SepCompareClaimAttributes @ 0x140A23800 (SepCompareClaimAttributes.c)
- *     SepCreateClaimAttributes @ 0x140A56BE0 (SepCreateClaimAttributes.c)
- *     SepDeleteClaimAttributes @ 0x140A77774 (SepDeleteClaimAttributes.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SepCompareClaimAttributes @ 0x140A17C10 (SepCompareClaimAttributes.c)
+ *     SepCreateClaimAttributes @ 0x140A4EA70 (SepCreateClaimAttributes.c)
+ *     SepDeleteClaimAttributes @ 0x140A71894 (SepDeleteClaimAttributes.c)
  */
 
-__int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, __int64 a5)
+__int64 __fastcall SepSetTokenClaims(__int64 a1)
 {
-  char v6; // r14
+  char v2; // r14
   __int64 result; // rax
-  unsigned int v8; // r15d
-  PVOID v9; // rbx
+  unsigned int v4; // r15d
+  PVOID v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v11; // rsi
-  _QWORD *v12; // rax
-  _QWORD *v13; // rbp
-  __int64 v14; // rcx
-  __int64 v15; // rsi
-  PVOID P; // [rsp+30h] [rbp-28h] BYREF
+  unsigned __int64 *v7; // rsi
+  char *v8; // rax
+  char *v9; // rbp
+  __int64 v10; // rcx
+  __int64 v11; // rsi
+  PVOID P[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  P = 0LL;
-  v6 = 0;
-  result = SepCreateClaimAttributes((unsigned int)&P, a2, a3, a4, a5);
-  v8 = result;
+  P[0] = 0LL;
+  v2 = 0;
+  result = SepCreateClaimAttributes(P);
+  v4 = result;
   if ( (int)result >= 0 )
   {
-    v9 = P;
-    if ( !P )
+    v5 = P[0];
+    if ( !P[0] )
     {
       *(_QWORD *)(a1 + 1096) = 0LL;
       return result;
@@ -43,40 +43,40 @@ __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, __int64
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v11 = (unsigned __int64 *)(*(_QWORD *)(a1 + 216) + 112LL);
-      v12 = KeAbPreAcquire((__int64)v11, 0LL);
-      v13 = v12;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v11, (__int64)v12, (__int64)v11);
-      if ( v13 )
-        *((_BYTE *)v13 + 10) = 1;
-      v14 = *(_QWORD *)(a1 + 216);
-      if ( !*(_QWORD *)(v14 + 120) )
+      v7 = (unsigned __int64 *)(*(_QWORD *)(a1 + 216) + 112LL);
+      v8 = (char *)KeAbPreAcquire((__int64)v7, 0LL);
+      v9 = v8;
+      if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
+        ExfAcquirePushLockExclusiveEx(v7, v8, (__int64)v7);
+      if ( v9 )
+        v9[10] = 1;
+      v10 = *(_QWORD *)(a1 + 216);
+      if ( !*(_QWORD *)(v10 + 120) )
       {
-        v6 = 1;
-        *(_QWORD *)(v14 + 120) = P;
+        v2 = 1;
+        *(PVOID *)(v10 + 120) = P[0];
       }
-      v15 = *(_QWORD *)(a1 + 216);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v15 + 112), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(v15 + 112));
-      KeAbPostRelease(v15 + 112);
+      v11 = *(_QWORD *)(a1 + 216);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v11 + 112), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)(v11 + 112));
+      KeAbPostRelease(v11 + 112);
       KeLeaveCriticalRegion();
-      v9 = P;
-      if ( v6 )
+      v5 = P[0];
+      if ( v2 )
         goto LABEL_17;
     }
-    if ( SepCompareClaimAttributes((unsigned int *)v9, *(unsigned int **)(*(_QWORD *)(a1 + 216) + 120LL)) )
+    if ( SepCompareClaimAttributes((unsigned int *)v5, *(unsigned int **)(*(_QWORD *)(a1 + 216) + 120LL)) )
     {
 LABEL_17:
       *(_QWORD *)(a1 + 1096) = *(_QWORD *)(*(_QWORD *)(a1 + 216) + 120LL);
-      if ( !v6 )
-        SepDeleteClaimAttributes(v9);
+      if ( !v2 )
+        SepDeleteClaimAttributes(v5);
     }
     else
     {
       *(_DWORD *)(a1 + 200) |= 0x8000u;
-      *(_QWORD *)(a1 + 1096) = v9;
+      *(_QWORD *)(a1 + 1096) = v5;
     }
   }
-  return v8;
+  return v4;
 }

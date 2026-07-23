@@ -12,11 +12,11 @@
  *     <none>
  */
 
-__int64 NtQueryInstallUILanguage()
+NTSTATUS __cdecl NtQueryInstallUILanguage(LANGID *InstallUILanguageId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 311LL;
+  result = 311;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlComputeCrc32 @ 0x180104C80
+ * XREFs of RtlComputeCrc32 @ 0x180104000
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlComputeCrc32()
+ULONG32 __cdecl RtlComputeCrc32(ULONG32 PartialCrc, PVOID Buffer, ULONG Length)
 {
-  return crc32();
+  return crc32(PartialCrc, Buffer, Length);
 }

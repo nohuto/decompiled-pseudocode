@@ -1,11 +1,11 @@
 /*
- * XREFs of AslpFileGetImageCodeSectionHeader @ 0x14080DE08
+ * XREFs of AslpFileGetImageCodeSectionHeader @ 0x14080E548
  * Callers:
- *     AslpFileGetCrcChecksumBoot @ 0x14080D344 (AslpFileGetCrcChecksumBoot.c)
+ *     AslpFileGetCrcChecksumBoot @ 0x14080DA84 (AslpFileGetCrcChecksumBoot.c)
  * Callees:
- *     AslpMemoryRangeCheckBounds @ 0x140696A84 (AslpMemoryRangeCheckBounds.c)
- *     AslpMemorySpanCheckBounds @ 0x140696AC0 (AslpMemorySpanCheckBounds.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     AslpMemoryRangeCheckBounds @ 0x140697B54 (AslpMemoryRangeCheckBounds.c)
+ *     AslpMemorySpanCheckBounds @ 0x140697B90 (AslpMemorySpanCheckBounds.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetImageCodeSectionHeader(unsigned __int64 *a1, __int64 a2, unsigned __int64 *a3)

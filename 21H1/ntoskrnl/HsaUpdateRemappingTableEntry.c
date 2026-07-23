@@ -19,7 +19,7 @@ char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a
   __int64 DeviceAperture; // rax
   __int64 v9; // rcx
   __int128 *v10; // rsi
-  RTL_BITMAP *v11; // rcx
+  _RTL_BITMAP *v11; // rcx
   ULONG_PTR v12; // rdi
   int v13; // edx
   __int64 v15; // rax
@@ -48,7 +48,7 @@ char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a
   {
     v10 = &HsaSharedRemappingTable;
   }
-  v11 = (RTL_BITMAP *)((char *)v10 + 24);
+  v11 = (_RTL_BITMAP *)((char *)v10 + 24);
   if ( a2 )
     RtlSetBits(v11, v5, 1u);
   else

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetDefaultHardErrorPort @ 0x1408624E0
+ * XREFs of NtSetDefaultHardErrorPort @ 0x140862720
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
  */
 
-NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle)
+NTSTATUS __cdecl NtSetDefaultHardErrorPort(HANDLE DefaultHardErrorPort)
 {
   _DWORD *CurrentServerSiloGlobals; // rbx
   NTSTATUS result; // eax
@@ -23,7 +23,13 @@ NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle)
   if ( CurrentServerSiloGlobals[224] == 1 )
     return -1073741823;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 0, LpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             DefaultHardErrorPort,
+             0,
+             LpcPortObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             &Object,
+             0LL);
   *((_QWORD *)CurrentServerSiloGlobals + 111) = Object;
   if ( result >= 0 )
   {

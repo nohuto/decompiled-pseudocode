@@ -289,7 +289,7 @@ LABEL_95:
   v21 = 0;
 LABEL_96:
   if ( PrivateCacheMap )
-    ExFreeToLookasideListEx(&CcPrivateCacheMapLookasideList, PrivateCacheMap);
+    ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CcPrivateCacheMapLookasideList, PrivateCacheMap);
   if ( v20 )
   {
     v24 = 0;
@@ -348,7 +348,7 @@ LABEL_113:
     v27 = *((_QWORD *)P + 3);
     if ( v27 )
       IoDiskIoAttributionDereference(v27);
-    CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)P);
+    CcFreeWorkQueueEntry((_SLIST_ENTRY *)P);
   }
   if ( v6 )
     CcDereferencePartitionAndPrivateVolumeCacheMap(v6, v7);

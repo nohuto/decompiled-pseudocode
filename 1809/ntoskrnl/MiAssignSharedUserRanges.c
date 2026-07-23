@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAssignSharedUserRanges @ 0x140187950
+ * XREFs of MiAssignSharedUserRanges @ 0x140187A90
  * Callers:
- *     MiInitializeSystemVa @ 0x1409D23A8 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x1409D33A8 (MiInitializeSystemVa.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D9660 (RtlFindClearBitsAndSet.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiAssignSharedUserRanges(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall MiAssignSharedUserRanges(__int64 a1)
   __int64 v3; // rsi
   __int16 v4; // ax
   __int64 result; // rax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-39h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-39h] BYREF
   _QWORD v7[6]; // [rsp+38h] [rbp-29h] BYREF
   _BYTE v8[64]; // [rsp+68h] [rbp+7h] BYREF
 
@@ -40,13 +40,13 @@ __int64 __fastcall MiAssignSharedUserRanges(__int64 a1)
     --v3;
   }
   while ( v3 );
-  qword_14043A4F8 = v7[1];
-  qword_14043A500 = v7[1];
-  qword_14043A508 = v7[1];
-  qword_14043A418 = v7[5];
-  qword_14043A410 = v7[4];
+  qword_14043B5B8 = v7[1];
+  qword_14043B5C0 = v7[1];
+  qword_14043B5C8 = v7[1];
+  qword_14043B4D8 = v7[5];
+  qword_14043B4D0 = v7[4];
   *(_QWORD *)(*(_QWORD *)(a1 + 240) + 2888LL) = v7[4];
-  result = qword_14043A418;
-  *(_QWORD *)(*(_QWORD *)(a1 + 240) + 2896LL) = qword_14043A418;
+  result = qword_14043B4D8;
+  *(_QWORD *)(*(_QWORD *)(a1 + 240) + 2896LL) = qword_14043B4D8;
   return result;
 }

@@ -10,26 +10,37 @@
 
 size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
 {
-  size_t result; // eax
-  size_t v4; // [esp+8h] [ebp-4h] BYREF
+  size_t result; // rax
+  ULONG BytesInUnicodeString; // [esp+8h] [ebp-4h] BYREF
 
-  if ( !Dest )
-    return strlen(Source);
-  if ( !MaxCount )
-    return 0;
-  v4 = _mbstrlen(Source);
-  if ( RtlMultiByteToUnicodeN((char *)Dest, 2 * MaxCount, &v4, (char *)Source, v4 + 1) >= 0 )
+  if ( Dest )
   {
-    result = v4 >> 1;
-    v4 = result;
-    if ( !Dest[result - 1] )
-      --result;
+    if ( (_DWORD)MaxCount )
+    {
+      BytesInUnicodeString = _mbstrlen(Source);
+      if ( RtlMultiByteToUnicodeN((PWCH)Dest, 2 * MaxCount, &BytesInUnicodeString, Source, BytesInUnicodeString + 1) >= 0 )
+      {
+        LODWORD(result) = BytesInUnicodeString >> 1;
+        BytesInUnicodeString = result;
+        if ( !Dest[(_DWORD)result - 1] )
+          LODWORD(result) = result - 1;
+      }
+      else
+      {
+        *_errno() = 42;
+        *Dest = 0;
+        LODWORD(result) = -1;
+      }
+    }
+    else
+    {
+      LODWORD(result) = 0;
+    }
   }
   else
   {
-    *_errno() = 42;
-    *Dest = 0;
-    return -1;
+    HIDWORD(result) = Source + 1;
+    LODWORD(result) = strlen(Source);
   }
   return result;
 }

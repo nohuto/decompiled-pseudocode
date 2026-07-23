@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptSha1Result @ 0x18015A100
+ * XREFs of SymCryptSha1Result @ 0x1801584C0
  * Callers:
- *     RtlCreateServiceSid @ 0x1800D0430 (RtlCreateServiceSid.c)
- *     RtlCreateVirtualAccountSid @ 0x1800D0580 (RtlCreateVirtualAccountSid.c)
- *     A_SHAFinal @ 0x180119AF0 (A_SHAFinal.c)
+ *     RtlCreateServiceSid @ 0x1800CD9A0 (RtlCreateServiceSid.c)
+ *     RtlCreateVirtualAccountSid @ 0x1800CDAF0 (RtlCreateVirtualAccountSid.c)
+ *     A_SHAFinal @ 0x180117D20 (A_SHAFinal.c)
  * Callees:
- *     SymCryptWipeAsm @ 0x180131590 (SymCryptWipeAsm.c)
- *     SymCryptSha1AppendBlocks @ 0x180158F00 (SymCryptSha1AppendBlocks.c)
- *     SymCryptSha1Init @ 0x18015A0D0 (SymCryptSha1Init.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     SymCryptWipeAsm @ 0x18012F7C0 (SymCryptWipeAsm.c)
+ *     SymCryptSha1AppendBlocks @ 0x1801572C0 (SymCryptSha1AppendBlocks.c)
+ *     SymCryptSha1Init @ 0x180158490 (SymCryptSha1Init.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall SymCryptSha1Result(unsigned int *a1, _QWORD *a2)

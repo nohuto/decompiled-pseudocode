@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpPoolCompact @ 0x140346EA0
+ * XREFs of ExpPoolCompact @ 0x140348F20
  * Callers:
- *     ExpPoolMgrCompactPools @ 0x140AC36CC (ExpPoolMgrCompactPools.c)
+ *     ExpPoolMgrCompactPools @ 0x140AC533C (ExpPoolMgrCompactPools.c)
  * Callees:
- *     ExpHpCompactHeapCallback @ 0x140346EF0 (ExpHpCompactHeapCallback.c)
+ *     ExpHpCompactHeapCallback @ 0x140348F70 (ExpHpCompactHeapCallback.c)
  */
 
 __int64 __fastcall ExpPoolCompact(__int64 a1)

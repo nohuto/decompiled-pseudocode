@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCovQueryHypervisorInformation @ 0x140A06548
+ * XREFs of ExpCovQueryHypervisorInformation @ 0x140A067D8
  * Callers:
- *     ExpCovQueryInformation @ 0x140A067AC (ExpCovQueryInformation.c)
+ *     ExpCovQueryInformation @ 0x140A06A3C (ExpCovQueryInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     HvlGetCoverageData @ 0x14053F5B8 (HvlGetCoverageData.c)
- *     HvlGetCoverageInfo @ 0x14053F718 (HvlGetCoverageInfo.c)
- *     HvlResetCoverageVector @ 0x14053FC3C (HvlResetCoverageVector.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvlGetCoverageData @ 0x14053FC78 (HvlGetCoverageData.c)
+ *     HvlGetCoverageInfo @ 0x14053FDD8 (HvlGetCoverageInfo.c)
+ *     HvlResetCoverageVector @ 0x1405402FC (HvlResetCoverageVector.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

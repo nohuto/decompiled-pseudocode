@@ -14,34 +14,34 @@
  *     AlpcpDereferenceBlobEx @ 0x1408B27D0 (AlpcpDereferenceBlobEx.c)
  */
 
-__int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcCreateSecurityContext(HANDLE PortHandle, ULONG Flags, PALPC_SECURITY_ATTR SecurityAttribute)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v7; // rcx
   __m128i v8; // xmm1
   unsigned __int64 v9; // xmm1_8
-  unsigned __int64 v10; // rbx
+  PSECURITY_QUALITY_OF_SERVICE QoS; // rbx
   __int64 v11; // rdx
-  NTSTATUS v12; // edi
+  int v12; // edi
   __int64 v13; // r8
   PVOID v14; // r14
   ULONG_PTR v15; // rbx
   PVOID Object; // [rsp+30h] [rbp-58h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-50h] BYREF
   __int128 v19; // [rsp+40h] [rbp-48h]
-  __int64 v20; // [rsp+50h] [rbp-38h]
+  ALPC_HANDLE ContextHandle; // [rsp+50h] [rbp-38h]
   __int64 v21; // [rsp+58h] [rbp-30h] BYREF
   int v22; // [rsp+60h] [rbp-28h]
 
   v19 = 0LL;
-  LODWORD(v20) = 0;
+  LODWORD(ContextHandle) = 0;
   v21 = 0LL;
   v22 = 0;
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v12 = -1073741811;
   }
@@ -50,17 +50,17 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, unsigned _
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode )
     {
-      if ( (a3 & 7) != 0 )
+      if ( ((unsigned __int8)SecurityAttribute & 7) != 0 )
         ExRaiseDatatypeMisalignment();
       v7 = 0x7FFFFFFF0000LL;
-      if ( a3 < 0x7FFFFFFF0000LL )
-        v7 = a3;
+      if ( (unsigned __int64)SecurityAttribute < 0x7FFFFFFF0000LL )
+        v7 = (__int64)SecurityAttribute;
       *(_BYTE *)v7 = *(_BYTE *)v7;
       *(_BYTE *)(v7 + 23) = *(_BYTE *)(v7 + 23);
-      v8 = *(__m128i *)a3;
-      v20 = *(_QWORD *)(a3 + 16);
+      v8 = *(__m128i *)&SecurityAttribute->Flags;
+      ContextHandle = SecurityAttribute->ContextHandle;
       v9 = _mm_srli_si128(v8, 8).m128i_u64[0];
-      v10 = v9;
+      QoS = (PSECURITY_QUALITY_OF_SERVICE)v9;
       if ( v9 )
       {
         v11 = v9;
@@ -71,18 +71,18 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, unsigned _
     }
     else
     {
-      v10 = *(_QWORD *)(a3 + 8);
-      if ( v10 )
+      QoS = SecurityAttribute->QoS;
+      if ( QoS )
       {
-        v21 = *(_QWORD *)v10;
-        v22 = *(_DWORD *)(v10 + 8);
+        v21 = *(_QWORD *)&QoS->Length;
+        v22 = *(_DWORD *)&QoS->ContextTrackingMode;
       }
     }
     Object = 0LL;
-    v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v12 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( v12 >= 0 )
     {
-      if ( !v10 )
+      if ( !QoS )
       {
         v21 = *(_QWORD *)((char *)Object + 260);
         v22 = *((_DWORD *)Object + 67);
@@ -93,12 +93,12 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, unsigned _
       if ( v12 >= 0 )
       {
         v15 = BugCheckParameter2;
-        *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 8);
+        SecurityAttribute->ContextHandle = *(ALPC_HANDLE *)(BugCheckParameter2 + 8);
         AlpcpDereferenceBlobEx(v15);
       }
       ObfDereferenceObject(v14);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v12;
+  return v12;
 }

@@ -4,15 +4,15 @@
  *     <none>
  * Callees:
  *     LdrProtectMrdata @ 0x180012224 (LdrProtectMrdata.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlInitializeNtUserPfn(void *Src, size_t Size, void *a3, size_t a4, void *Srca, size_t Sizea)
 {
-  __int64 v6; // r12
+  ULONG_PTR CfgBitMap; // r12
   __int64 v11; // rbp
 
-  v6 = qword_1801813A8;
+  CfgBitMap = LdrSystemDllInitBlock.CfgBitMap;
   v11 = *(_QWORD *)_guard_check_icall_fptr;
   if ( byte_1801811D8
     || (Size & 7) != 0
@@ -30,7 +30,7 @@ __int64 __fastcall RtlInitializeNtUserPfn(void *Src, size_t Size, void *a3, size
   memmove(off_180181180, Srca, Sizea);
   byte_1801811D8 = 1;
   LdrProtectMrdata(1);
-  if ( v6 != qword_1801813A8 || v11 != *(_QWORD *)_guard_check_icall_fptr )
+  if ( CfgBitMap != LdrSystemDllInitBlock.CfgBitMap || v11 != *(_QWORD *)_guard_check_icall_fptr )
     __fastfail(0x13u);
   return 0LL;
 }

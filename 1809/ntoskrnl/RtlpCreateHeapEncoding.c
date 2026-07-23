@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCreateHeapEncoding @ 0x1402F0AFC
+ * XREFs of RtlpCreateHeapEncoding @ 0x1402F0CEC
  * Callers:
- *     RtlCreateHeap @ 0x14070AF20 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x14070C1C0 (RtlCreateHeap.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
  */

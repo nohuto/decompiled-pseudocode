@@ -19,7 +19,7 @@
  *     KiPollFreezeExecution @ 0x140576D00 (KiPollFreezeExecution.c)
  */
 
-ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
+void __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
 {
   struct _KPRCB *CurrentPrcb; // r14
   __int64 v3; // r12
@@ -32,7 +32,7 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
   unsigned __int64 v10; // rcx
   unsigned int v11; // edi
   __int64 v12; // r11
-  int v13; // r9d
+  ULONG v13; // r9d
   unsigned __int64 v14; // rdx
   __int64 v15; // r9
   int v16; // eax
@@ -40,12 +40,12 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
   __int64 v18; // r11
   char v19; // bp
   __int64 v20; // rbx
-  ULONG_PTR result; // rax
-  __int64 v22; // rbx
+  __int64 v21; // rbx
   LARGE_INTEGER PerformanceCounter; // rax
-  struct _KPRCB *v24; // rcx
-  _DWORD *v25; // r8
-  int v26; // ett
+  struct _KPRCB *v23; // rcx
+  signed __int32 *v24; // r8
+  signed __int32 v25; // eax
+  signed __int32 v26; // ett
   ULARGE_INTEGER Dividend; // [rsp+30h] [rbp-68h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-60h] BYREF
   unsigned __int64 v29; // [rsp+40h] [rbp-58h]
@@ -88,8 +88,8 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
       *(_QWORD *)(Argument + 16) += v12;
     }
     v13 = KeMaximumIncrement;
-    v29 = v8 / (unsigned int)KeMaximumIncrement;
-    v14 = v8 % (unsigned int)KeMaximumIncrement;
+    v29 = v8 / KeMaximumIncrement;
+    v14 = v8 % KeMaximumIncrement;
     *(_QWORD *)(MmWriteableSharedUserData + 944) += *(_QWORD *)(Argument + 8);
     KiTickOffset = v13 - v14;
     if ( MEMORY[0xFFFFF780000003B0] < 0 )
@@ -124,13 +124,12 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
     KeRemoveQueueDpc(&CurrentPrcb->TimerExpirationDpc);
     KeInsertQueueDpc(&CurrentPrcb->TimerExpirationDpc, (PVOID)(unsigned int)(v20 - 256), 0LL);
   }
-  result = MEMORY[0xFFFFF78000000320];
   CurrentPrcb->LastTick = MEMORY[0xFFFFF78000000320];
-  v22 = *(_QWORD *)(Argument + 8);
+  v21 = *(_QWORD *)(Argument + 8);
   if ( *(_BYTE *)Argument )
   {
     HalCalibratePerformanceCounter((volatile signed __int32 *)(Argument + 24), *(_QWORD *)(Argument + 16));
-    result = KeRebaselineInterruptTime().QuadPart;
+    KeRebaselineInterruptTime();
     if ( (xmmword_140D1EAD0 & 0x8000) != 0 )
     {
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
@@ -138,29 +137,28 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
       v30 = PerformanceCounter;
       v33 = 8;
       v32 = &v30;
-      result = EtwTraceKernelEvent((int)&v32, 1, 0x80008000, 4658, 4200450);
+      EtwTraceKernelEvent((int)&v32, 1, 0x80008000, 4658, 4200450);
     }
   }
   if ( CurrentPrcb->ClockOwner )
-    result = KiUpdateSystemTime(v22, 0LL, 3);
+    KiUpdateSystemTime(v21, 0LL, 3);
   if ( v19 )
   {
-    v24 = KeGetCurrentPrcb();
-    v25 = v24->SchedulerAssist;
-    if ( v25 )
+    v23 = KeGetCurrentPrcb();
+    v24 = (signed __int32 *)v23->SchedulerAssist;
+    if ( v24 )
     {
-      _m_prefetchw(v25);
-      LODWORD(result) = *v25;
+      _m_prefetchw(v24);
+      v25 = *v24;
       do
       {
-        v26 = result;
-        result = (unsigned int)_InterlockedCompareExchange(v25, result & 0xFFDFFFFF, result);
+        v26 = v25;
+        v25 = _InterlockedCompareExchange(v24, v25 & 0xFFDFFFFF, v25);
       }
-      while ( v26 != (_DWORD)result );
-      if ( (result & 0x200000) != 0 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v24);
+      while ( v26 != v25 );
+      if ( (v25 & 0x200000) != 0 )
+        KiRemoveSystemWorkPriorityKick((__int64)v23);
     }
     _enable();
   }
-  return result;
 }

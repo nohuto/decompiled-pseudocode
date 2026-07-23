@@ -86,7 +86,7 @@ LABEL_15:
   while ( v12 );
   v6[54] = 0LL;
   v6[52] = (__int64)v6;
-  *((_OWORD *)v6 + 4) = SecurityProviderGuid;
+  *((GUID *)v6 + 4) = SecurityProviderGuid;
   *((_QWORD *)PsGetServerSiloGlobals(a1) + 108) = v6;
   return v4;
 }

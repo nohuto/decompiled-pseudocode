@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwFreeUserPhysicalPages()
+NTSTATUS __cdecl ZwFreeUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 222LL;
+  result = 222;
   __asm { syscall; Low latency system call }
   return result;
 }

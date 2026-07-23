@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpUpdateDisallowList @ 0x1409343E0
+ * XREFs of EtwpUpdateDisallowList @ 0x1409345B0
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
- *     EtwStartAutoLogger @ 0x14079B594 (EtwStartAutoLogger.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
+ *     EtwStartAutoLogger @ 0x14079B794 (EtwStartAutoLogger.c)
  * Callees:
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpUpdateDisallowedGuids @ 0x14094163C (EtwpUpdateDisallowedGuids.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpUpdateDisallowedGuids @ 0x14094180C (EtwpUpdateDisallowedGuids.c)
  */
 
 __int64 __fastcall EtwpUpdateDisallowList(__int64 a1, unsigned int a2, unsigned __int16 a3, __int64 a4)

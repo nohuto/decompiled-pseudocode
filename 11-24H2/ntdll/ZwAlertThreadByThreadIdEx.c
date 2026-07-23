@@ -1,22 +1,22 @@
 /*
- * XREFs of ZwAlertThreadByThreadIdEx @ 0x180162AC0
+ * XREFs of ZwAlertThreadByThreadIdEx @ 0x180160E80
  * Callers:
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     TppBarrierAdjust @ 0x180011D50 (TppBarrierAdjust.c)
- *     LdrpCallTlsInitializers @ 0x180012F30 (LdrpCallTlsInitializers.c)
- *     RtlpWakeByAddress @ 0x180014E60 (RtlpWakeByAddress.c)
- *     RtlpxLookupFunctionTable @ 0x1800166E0 (RtlpxLookupFunctionTable.c)
- *     LdrpFindLoadedDllByName @ 0x180018180 (LdrpFindLoadedDllByName.c)
- *     LdrpIncrementModuleLoadCount @ 0x180019B00 (LdrpIncrementModuleLoadCount.c)
- *     TppWorkerFindTask @ 0x180023100 (TppWorkerFindTask.c)
- *     LdrSetDllDirectory @ 0x180026100 (LdrSetDllDirectory.c)
- *     RtlSleepConditionVariableSRW @ 0x180049EB0 (RtlSleepConditionVariableSRW.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlpQueueWaitBlockToSRWLock @ 0x18004AC20 (RtlpQueueWaitBlockToSRWLock.c)
- *     RtlpHpSegPageRangeShrink @ 0x1800544A0 (RtlpHpSegPageRangeShrink.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpWakeSRWLock @ 0x1800DD340 (RtlpWakeSRWLock.c)
- *     RtlpOptimizeSRWLockList @ 0x1800E84FC (RtlpOptimizeSRWLockList.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     TppBarrierAdjust @ 0x18003E750 (TppBarrierAdjust.c)
+ *     LdrpCallTlsInitializers @ 0x18003F930 (LdrpCallTlsInitializers.c)
+ *     RtlpWakeByAddress @ 0x180041860 (RtlpWakeByAddress.c)
+ *     RtlpxLookupFunctionTable @ 0x1800430E0 (RtlpxLookupFunctionTable.c)
+ *     LdrpFindLoadedDllByName @ 0x180044B80 (LdrpFindLoadedDllByName.c)
+ *     LdrpIncrementModuleLoadCount @ 0x180046500 (LdrpIncrementModuleLoadCount.c)
+ *     TppWorkerFindTask @ 0x18004FB00 (TppWorkerFindTask.c)
+ *     LdrSetDllDirectory @ 0x180052B00 (LdrSetDllDirectory.c)
+ *     RtlSleepConditionVariableSRW @ 0x18005FA90 (RtlSleepConditionVariableSRW.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlpQueueWaitBlockToSRWLock @ 0x180060800 (RtlpQueueWaitBlockToSRWLock.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18006A080 (RtlpHpSegPageRangeShrink.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpWakeSRWLock @ 0x1800D84B0 (RtlpWakeSRWLock.c)
+ *     RtlpOptimizeSRWLockList @ 0x1800E3BEC (RtlpOptimizeSRWLockList.c)
  * Callees:
  *     <none>
  */

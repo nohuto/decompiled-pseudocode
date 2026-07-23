@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePolicyChange @ 0x140824E84
+ * XREFs of PopDiagTracePolicyChange @ 0x140825184
  * Callers:
- *     PopAdaptivePowerSettingCallback @ 0x140824C50 (PopAdaptivePowerSettingCallback.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140824F50 (PopAdaptivePowerSettingCallback.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 BOOLEAN PopDiagTracePolicyChange()

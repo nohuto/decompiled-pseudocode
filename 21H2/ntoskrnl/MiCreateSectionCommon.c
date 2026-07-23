@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateSectionCommon @ 0x140707430
+ * XREFs of MiCreateSectionCommon @ 0x14071E810
  * Callers:
- *     NtCreateSection @ 0x1407077C0 (NtCreateSection.c)
- *     NtCreateSectionEx @ 0x1408C79F0 (NtCreateSectionEx.c)
+ *     NtCreateSection @ 0x14071EBA0 (NtCreateSection.c)
+ *     NtCreateSectionEx @ 0x1408C7B50 (NtCreateSectionEx.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     CcZeroEndOfLastPage @ 0x1403570FC (CcZeroEndOfLastPage.c)
- *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     MiCreateSection @ 0x140705710 (MiCreateSection.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     MiCaptureSectionCreateExtendedParameters @ 0x14070775C (MiCaptureSectionCreateExtendedParameters.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     CcZeroEndOfLastPage @ 0x140361E4C (CcZeroEndOfLastPage.c)
+ *     MiDereferenceControlAreaFile @ 0x140361F34 (MiDereferenceControlAreaFile.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     MiCreateSection @ 0x14071CAF0 (MiCreateSection.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     MiCaptureSectionCreateExtendedParameters @ 0x14071EB3C (MiCaptureSectionCreateExtendedParameters.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCreateSectionCommon(

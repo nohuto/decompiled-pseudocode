@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIpiEnlightenedGuestPriorityKick @ 0x140254640
+ * XREFs of KiIpiEnlightenedGuestPriorityKick @ 0x140254700
  * Callers:
- *     KiIpiSendRequest @ 0x140254020 (KiIpiSendRequest.c)
+ *     KiIpiSendRequest @ 0x1402540E0 (KiIpiSendRequest.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x1402B2E20 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x1402B30B0 (KiHvEnlightenedGuestPriorityKick.c)
  */
 
 _UNKNOWN **__fastcall KiIpiEnlightenedGuestPriorityKick(__int64 a1)

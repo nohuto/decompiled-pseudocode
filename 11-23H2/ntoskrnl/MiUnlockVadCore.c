@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockVadCore @ 0x1402EAAE4
+ * XREFs of MiUnlockVadCore @ 0x1402EAD74
  * Callers:
  *     MiCaptureWriteWatchDirtyBit @ 0x1402170B0 (MiCaptureWriteWatchDirtyBit.c)
- *     MiMoveDirtyBitsToPfns @ 0x140285A10 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1402EA260 (NtGetWriteWatch.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140285CA0 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x1402EA4F0 (NtGetWriteWatch.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockVadCore(__int64 a1, unsigned __int8 a2)
@@ -28,10 +28,10 @@ __int64 __fastcall MiUnlockVadCore(__int64 a1, unsigned __int8 a2)
   }
   while ( v4 != v2 );
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a2 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

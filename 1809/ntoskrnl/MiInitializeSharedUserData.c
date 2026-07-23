@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeSharedUserData @ 0x1409D95F0
+ * XREFs of MiInitializeSharedUserData @ 0x1409DA5F0
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -9,11 +9,11 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     HvlGetSharedPageVa @ 0x1406CA844 (HvlGetSharedPageVa.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     HvlGetSharedPageVa @ 0x1406CBAE4 (HvlGetSharedPageVa.c)
  */
 
 __int64 MiInitializeSharedUserData()
@@ -56,7 +56,7 @@ __int64 MiInitializeSharedUserData()
       v4 = v2 & 0xF;
       if ( v4 )
         v3 = v4;
-      qword_14043A008 = (v3 + 524256) << 12;
+      qword_14043B0C8 = (v3 + 524256) << 12;
     }
   }
   result = (__int64)ExAllocatePoolWithTag(PagedPool, 8 * v0, 0x20206D4Du);
@@ -74,7 +74,7 @@ __int64 MiInitializeSharedUserData()
         if ( (unsigned int)MiPteHasShadow() )
         {
           v12 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
             goto LABEL_20;
         }
         else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )
@@ -87,7 +87,7 @@ LABEL_20:
       *v10 = v11;
       if ( v12 )
         MiWritePteShadow(v6 + 8 * v7, v11);
-      qword_140439FF8[v7] = (__int64)v10;
+      qword_14043B0B8[v7] = (__int64)v10;
       v13 = 48 * v8 - 0x58000000000LL;
       v14 = MiLockPageInline(v13);
       *(_QWORD *)(v13 + 16) = MiSwizzleInvalidPte(128LL);

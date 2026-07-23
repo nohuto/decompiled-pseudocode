@@ -20,174 +20,176 @@
  *     RtlAssert @ 0x1800EA280 (RtlAssert.c)
  */
 
-__int64 __fastcall RtlDosApplyFileIsolationRedirection_Ustr(
-        unsigned int a1,
-        __int128 *a2,
-        _WORD *a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        _DWORD *a7,
-        _QWORD *a8,
-        _QWORD *a9)
+NTSTATUS __cdecl RtlDosApplyFileIsolationRedirection_Ustr(
+        ULONG Flags,
+        PUNICODE_STRING OriginalName,
+        PUNICODE_STRING Extension,
+        PUNICODE_STRING StaticString,
+        PUNICODE_STRING DynamicString,
+        PUNICODE_STRING *NewName,
+        PULONG NewFlags,
+        PSIZE_T FileNameSize,
+        PSIZE_T RequiredLength)
 {
   char v9; // r15
   __int64 v11; // r8
-  int v12; // r13d
-  _QWORD *v14; // rcx
+  ULONG v12; // r13d
+  PSIZE_T v14; // rcx
   __int64 v15; // r9
   char v16; // si
-  int CharInUnicodeString; // eax
-  int appended; // ebx
+  NTSTATUS CharInUnicodeString; // eax
+  NTSTATUS appended; // ebx
   bool v19; // si
-  int v20; // r11d
-  __int128 v21; // xmm0
-  unsigned __int16 v22; // ax
+  RTL_PATH_TYPE v20; // r11d
+  _UNICODE_STRING v21; // xmm0
+  unsigned __int16 Length; // ax
   unsigned __int16 v23; // cx
-  _DWORD *v24; // rsi
-  unsigned __int64 v26; // rcx
-  _WORD *v27; // rax
-  _QWORD *v28; // rdi
-  unsigned __int16 v29; // [rsp+48h] [rbp-C0h] BYREF
-  __int128 v30; // [rsp+58h] [rbp-B0h] BYREF
-  int v31; // [rsp+68h] [rbp-A0h] BYREF
-  int v32; // [rsp+6Ch] [rbp-9Ch] BYREF
-  _QWORD v33[3]; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v34; // [rsp+88h] [rbp-80h] BYREF
-  __int64 v35; // [rsp+90h] [rbp-78h]
-  _BYTE v36[4]; // [rsp+98h] [rbp-70h] BYREF
-  unsigned int v37; // [rsp+9Ch] [rbp-6Ch]
-  _DWORD *v38; // [rsp+A0h] [rbp-68h]
-  _QWORD *v39; // [rsp+A8h] [rbp-60h]
-  __int64 v40; // [rsp+B0h] [rbp-58h] BYREF
-  int v41; // [rsp+B8h] [rbp-50h] BYREF
-  char *v42; // [rsp+C0h] [rbp-48h]
-  UNICODE_STRING v43; // [rsp+C8h] [rbp-40h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+D8h] [rbp-30h] BYREF
-  _OWORD v45[2]; // [rsp+E8h] [rbp-20h] BYREF
-  __int128 v46; // [rsp+108h] [rbp+0h] BYREF
-  wchar_t *v47; // [rsp+118h] [rbp+10h]
-  wchar_t *v48; // [rsp+120h] [rbp+18h]
-  __int64 v49; // [rsp+128h] [rbp+20h]
-  __int64 v50; // [rsp+130h] [rbp+28h]
-  _QWORD v51[12]; // [rsp+148h] [rbp+40h] BYREF
-  _WORD v52[16]; // [rsp+1A8h] [rbp+A0h] BYREF
-  char v53; // [rsp+1C8h] [rbp+C0h] BYREF
+  PULONG v24; // rsi
+  unsigned __int64 MaximumLength; // rcx
+  _UNICODE_STRING *Buffer; // rax
+  PSIZE_T v28; // rdi
+  USHORT v29; // [rsp+48h] [rbp-C0h] BYREF
+  _UNICODE_STRING StringToSearch_8; // [rsp+58h] [rbp-B0h] BYREF
+  RTL_PATH_TYPE InputPathType; // [rsp+68h] [rbp-A0h] BYREF
+  ULONG v32; // [rsp+6Ch] [rbp-9Ch] BYREF
+  _QWORD StringUsed[3]; // [rsp+70h] [rbp-98h] BYREF
+  _UNICODE_STRING v34; // [rsp+88h] [rbp-80h] BYREF
+  USHORT NonInclusivePrefixLength[2]; // [rsp+98h] [rbp-70h] BYREF
+  ULONG v36; // [rsp+9Ch] [rbp-6Ch]
+  PULONG v37; // [rsp+A0h] [rbp-68h]
+  PSIZE_T v38; // [rsp+A8h] [rbp-60h]
+  __int64 v39; // [rsp+B0h] [rbp-58h] BYREF
+  _UNICODE_STRING StaticStringa; // [rsp+B8h] [rbp-50h] BYREF
+  _UNICODE_STRING v41; // [rsp+C8h] [rbp-40h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+D8h] [rbp-30h] BYREF
+  _OWORD v43[2]; // [rsp+E8h] [rbp-20h] BYREF
+  _UNICODE_STRING v44; // [rsp+108h] [rbp+0h] BYREF
+  wchar_t *v45; // [rsp+118h] [rbp+10h]
+  wchar_t *v46; // [rsp+120h] [rbp+18h]
+  __int64 v47; // [rsp+128h] [rbp+20h]
+  __int64 v48; // [rsp+130h] [rbp+28h]
+  _UNICODE_STRING v49[6]; // [rsp+148h] [rbp+40h] BYREF
+  _WORD v50[16]; // [rsp+1A8h] [rbp+A0h] BYREF
+  char v51; // [rsp+1C8h] [rbp+C0h] BYREF
 
   v9 = 0;
-  v11 = a1;
+  v11 = Flags;
   v12 = 0;
-  v37 = a1;
-  v14 = a8;
-  v38 = a7;
-  v39 = a8;
-  LODWORD(v34) = 0;
-  v35 = 0LL;
-  v41 = 0x800000;
-  v42 = &v53;
-  v40 = 0LL;
+  v36 = Flags;
+  v14 = FileNameSize;
+  v37 = NewFlags;
+  v38 = FileNameSize;
+  *(_DWORD *)&v34.Length = 0;
+  v34.Buffer = 0LL;
+  *(_DWORD *)&StaticStringa.Length = 0x800000;
+  StaticStringa.Buffer = (wchar_t *)&v51;
+  v39 = 0LL;
   v29 = 0;
   v32 = 0;
-  if ( a7 )
-    *a7 = 0;
-  if ( a8 )
-    *a8 = 0LL;
-  if ( a9 )
-    *a9 = 520LL;
-  if ( a5 )
+  if ( NewFlags )
+    *NewFlags = 0;
+  if ( FileNameSize )
+    *FileNameSize = 0LL;
+  if ( RequiredLength )
+    *RequiredLength = 520LL;
+  if ( DynamicString )
   {
-    *(_DWORD *)a5 = 0;
-    *(_QWORD *)(a5 + 8) = 0LL;
+    *(_DWORD *)&DynamicString->Length = 0;
+    DynamicString->Buffer = 0LL;
   }
-  v52[0] = 0;
-  v49 = 32LL;
-  v47 = v52;
-  v48 = v52;
-  v50 = 32LL;
+  v50[0] = 0;
+  v47 = 32LL;
+  v45 = v50;
+  v46 = v50;
+  v48 = 32LL;
   v15 = 2LL;
-  *((_QWORD *)&v46 + 1) = v52;
-  LODWORD(v46) = 0x200000;
-  if ( a4 )
+  v44.Buffer = v50;
+  *(_DWORD *)&v44.Length = 0x200000;
+  if ( StaticString )
   {
-    v26 = *(unsigned __int16 *)(a4 + 2);
-    v27 = *(_WORD **)(a4 + 8);
-    if ( v26 < 2 )
+    MaximumLength = StaticString->MaximumLength;
+    Buffer = (_UNICODE_STRING *)StaticString->Buffer;
+    if ( MaximumLength < 2 )
     {
-      v27 = &v51[6];
-      v26 = 2LL;
+      Buffer = &v49[3];
+      MaximumLength = 2LL;
     }
-    v51[2] = v27;
-    v51[4] = v26;
-    v51[3] = v27;
-    v51[5] = v26;
-    v51[1] = v27;
-    if ( v27 )
-      *v27 = 0;
-    WORD1(v51[0]) = v26;
-    v14 = v39;
-    LOWORD(v51[0]) = 0;
+    *(_QWORD *)&v49[1].Length = Buffer;
+    *(_QWORD *)&v49[2].Length = MaximumLength;
+    v49[1].Buffer = &Buffer->Length;
+    v49[2].Buffer = (wchar_t *)MaximumLength;
+    v49[0].Buffer = &Buffer->Length;
+    if ( Buffer )
+      Buffer->Length = 0;
+    v49[0].MaximumLength = MaximumLength;
+    v14 = v38;
+    v49[0].Length = 0;
   }
   else
   {
-    v51[4] = 2LL;
-    v51[2] = &v51[6];
-    v51[3] = &v51[6];
-    v51[1] = &v51[6];
-    v51[5] = 2LL;
-    LOWORD(v51[6]) = 0;
-    LODWORD(v51[0]) = 0x20000;
+    *(_QWORD *)&v49[2].Length = 2LL;
+    *(_QWORD *)&v49[1].Length = &v49[3];
+    v49[1].Buffer = &v49[3].Length;
+    v49[0].Buffer = &v49[3].Length;
+    v49[2].Buffer = (wchar_t *)2;
+    v49[3].Length = 0;
+    *(_DWORD *)&v49[0].Length = 0x20000;
   }
-  v51[9] = a6;
-  v51[7] = a4;
-  v51[8] = a5;
-  LOBYTE(v51[10]) = 1;
+  v49[4].Buffer = (wchar_t *)NewName;
+  v49[3].Buffer = &StaticString->Length;
+  *(_QWORD *)&v49[4].Length = DynamicString;
+  LOBYTE(v49[5].Length) = 1;
   if ( (v11 & 0xFFFFFFFE) != 0 )
   {
     appended = -1073741811;
     goto LABEL_47;
   }
-  if ( !a2 )
+  if ( !OriginalName )
   {
     appended = -1073741811;
     goto LABEL_47;
   }
-  if ( a4 )
+  if ( StaticString )
   {
-    if ( a5 && !a6 )
+    if ( DynamicString && !NewName )
       goto LABEL_97;
   }
-  else if ( !a5 && v14 )
+  else if ( !DynamicString && v14 )
   {
 LABEL_97:
     appended = -1073741811;
     goto LABEL_47;
   }
-  v30 = *a2;
-  if ( !a3 || !*a3 )
+  StringToSearch_8 = *OriginalName;
+  if ( !Extension || !Extension->Length )
     goto LABEL_22;
   v16 = 0;
-  CharInUnicodeString = RtlFindCharInUnicodeString(1LL, &v30, &unk_1801135D0, v36);
+  CharInUnicodeString = RtlFindCharInUnicodeString(
+                          1u,
+                          &StringToSearch_8,
+                          (PUNICODE_STRING)&CharSet,
+                          NonInclusivePrefixLength);
   appended = CharInUnicodeString;
   if ( CharInUnicodeString >= 0 )
   {
     v16 = 1;
 LABEL_19:
-    a2 = 0LL;
+    OriginalName = 0LL;
     appended = 0;
     goto LABEL_20;
   }
   if ( CharInUnicodeString == -1073741275 )
     goto LABEL_19;
-  a2 = 0LL;
+  OriginalName = 0LL;
 LABEL_20:
   if ( appended < 0 )
     goto LABEL_47;
   if ( v16 )
     goto LABEL_22;
-  v45[0] = v30;
-  LOWORD(v46) = 0;
-  v45[1] = *(_OWORD *)a3;
-  appended = RtlMultiAppendUnicodeStringBuffer(&v46, 2LL, v45);
+  v43[0] = StringToSearch_8;
+  v44.Length = 0;
+  v43[1] = *Extension;
+  appended = RtlMultiAppendUnicodeStringBuffer(&v44, 2LL, v43);
   if ( appended >= 0 )
   {
     v9 = 1;
@@ -197,46 +199,56 @@ LABEL_22:
   if ( appended < 0 )
     goto LABEL_47;
   if ( v9 )
-    v30 = v46;
+    StringToSearch_8 = v44;
   v19 = 0;
-  v33[1] = 0LL;
-  if ( v35 )
+  StringUsed[1] = 0LL;
+  if ( v34.Buffer )
   {
     appended = -1073741811;
   }
   else
   {
-    v20 = RtlDetermineDosPathNameType_Ustr(&v30, a2, v11, v15);
-    v31 = v20;
-    if ( ((v20 - 1) & 0xFFFFFFFA) != 0 || v20 == 5 )
+    v20 = (unsigned int)RtlDetermineDosPathNameType_Ustr(&StringToSearch_8, OriginalName, v11, v15);
+    InputPathType = v20;
+    if ( ((v20 - 1) & 0xFFFFFFFA) != 0 || v20 == RtlPathTypeRelative )
       goto LABEL_34;
-    appended = RtlGetFullPathName_UstrEx((__int64)&v30, (__int64)&v41, (__int64)&v34, &v33[1], 0LL, 0LL, &v31, 0LL);
+    appended = RtlGetFullPathName_UstrEx(
+                 &StringToSearch_8,
+                 &StaticStringa,
+                 &v34,
+                 (PUNICODE_STRING *)&StringUsed[1],
+                 0LL,
+                 0LL,
+                 &InputPathType,
+                 0LL);
     if ( appended >= 0 )
     {
-      a2 = (__int128 *)v33[1];
-      v21 = *(_OWORD *)v33[1];
-      *(_OWORD *)&v33[1] = *(_OWORD *)v33[1];
-      if ( v31 == 6 && *(_WORD *)(*((_QWORD *)&v30 + 1) + 10LL) == 58 && *(_WORD *)(*((_QWORD *)&v30 + 1) + 12LL) == 92 )
+      OriginalName = (PUNICODE_STRING)StringUsed[1];
+      v21 = *(_UNICODE_STRING *)StringUsed[1];
+      *(_OWORD *)&StringUsed[1] = *(_OWORD *)StringUsed[1];
+      if ( InputPathType == RtlPathTypeLocalDevice
+        && StringToSearch_8.Buffer[5] == 58
+        && StringToSearch_8.Buffer[6] == 92 )
       {
-        v33[2] += 8LL;
-        WORD1(v30) -= 8;
-        v22 = v30 - 8;
-        *((_QWORD *)&v30 + 1) += 8LL;
-        v23 = LOWORD(v33[1]) - 8;
-        LOWORD(v30) = v30 - 8;
-        WORD1(v33[1]) -= 8;
-        LOWORD(v33[1]) -= 8;
-        v21 = *(_OWORD *)&v33[1];
+        StringUsed[2] += 8LL;
+        StringToSearch_8.MaximumLength -= 8;
+        Length = StringToSearch_8.Length - 8;
+        StringToSearch_8.Buffer += 4;
+        v23 = LOWORD(StringUsed[1]) - 8;
+        StringToSearch_8.Length -= 8;
+        WORD1(StringUsed[1]) -= 8;
+        LOWORD(StringUsed[1]) -= 8;
+        v21 = *(_UNICODE_STRING *)&StringUsed[1];
       }
       else
       {
-        v22 = v30;
-        v23 = v33[1];
+        Length = StringToSearch_8.Length;
+        v23 = StringUsed[1];
       }
-      if ( v22 > v23 )
+      if ( Length > v23 )
       {
-        v30 = v21;
-        v19 = a2 == (__int128 *)&v34;
+        StringToSearch_8 = v21;
+        v19 = OriginalName == &v34;
       }
 LABEL_34:
       appended = 0;
@@ -244,22 +256,22 @@ LABEL_34:
         goto LABEL_37;
     }
   }
-  if ( v35 )
+  if ( v34.Buffer )
   {
-    NtdllpFreeStringRoutine(v35);
-    v34 = 0LL;
-    v35 = 0LL;
+    NtdllpFreeStringRoutine(v34.Buffer);
+    *(_QWORD *)&v34.Length = 0LL;
+    v34.Buffer = 0LL;
   }
 LABEL_37:
   if ( appended < 0 )
     goto LABEL_47;
-  if ( (v37 & 1) != 0 )
+  if ( (v36 & 1) != 0 )
   {
     if ( NtCurrentPeb()->ProcessParameters )
     {
       if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x1000) != 0 )
       {
-        appended = sxsisol_RespectDotLocal((__int64)&v30, (unsigned __int16 *)v51, &v32);
+        appended = sxsisol_RespectDotLocal(&StringToSearch_8, &v49[0].Length, &v32);
         if ( appended < 0 )
           goto LABEL_47;
       }
@@ -268,90 +280,85 @@ LABEL_37:
   }
   if ( (v12 & 1) != 0 )
   {
-    v24 = v38;
+    v24 = v37;
   }
   else
   {
-    if ( a4 || a5 )
-      LODWORD(a2) = 0;
+    if ( StaticString || DynamicString )
+      LODWORD(OriginalName) = 0;
     else
-      LOBYTE(a2) = 1;
-    v24 = v38;
+      LOBYTE(OriginalName) = 1;
+    v24 = v37;
     appended = sxsisol_SearchActCtxForDllName(
-                 (unsigned int)&v30,
-                 (_DWORD)a2,
-                 (unsigned int)&v40,
-                 (_DWORD)v38,
-                 (__int64)v51);
+                 (unsigned int)&StringToSearch_8,
+                 (_DWORD)OriginalName,
+                 (unsigned int)&v39,
+                 (_DWORD)v37,
+                 (__int64)v49);
     if ( appended < 0 )
       goto LABEL_47;
   }
-  if ( !a5 && a4 && v51[1] != *(_QWORD *)(a4 + 8) )
+  if ( !DynamicString && StaticString && v49[0].Buffer != StaticString->Buffer )
   {
     appended = -1073741789;
     goto LABEL_47;
   }
-  v28 = v39;
-  if ( v39 )
+  v28 = v38;
+  if ( v38 )
   {
-    appended = RtlFindCharInUnicodeString(1LL, v51, &RtlDosPathSeperatorsString, &v29);
+    appended = RtlFindCharInUnicodeString(1u, v49, &RtlDosPathSeperatorsString, &v29);
     if ( appended < 0 )
       goto LABEL_47;
     *v28 = ((unsigned __int64)v29 >> 1) + 1;
   }
-  appended = sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success(v51);
+  appended = sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success(v49);
   if ( appended >= 0 )
   {
     if ( v24 )
       *v24 = v12;
     appended = 0;
   }
-  while ( 1 )
-  {
 LABEL_47:
-    if ( appended < 0 )
+  if ( appended < 0 )
+  {
+    if ( LOBYTE(v49[5].Length) )
     {
-      if ( LOBYTE(v51[10]) )
+      if ( *(_QWORD *)&v49[1].Length && *(wchar_t **)&v49[1].Length != v49[1].Buffer )
       {
-        if ( v51[2] && v51[2] != v51[3] )
-        {
-          v43.Buffer = (wchar_t *)v51[2];
-          RtlFreeAnsiString(&v43);
-        }
-        if ( v51[3] )
-          *(_WORD *)v51[3] = 0;
+        v41.Buffer = *(wchar_t **)&v49[1].Length;
+        RtlFreeAnsiString(&v41);
       }
-      memset(v51, 0, 0x58uLL);
+      if ( v49[1].Buffer )
+        *v49[1].Buffer = 0;
     }
-    if ( v35 )
+    memset(v49, 0, 0x58uLL);
+  }
+  if ( v34.Buffer )
+  {
+    NtdllpFreeStringRoutine(v34.Buffer);
+    *(_QWORD *)&v34.Length = 0LL;
+    v34.Buffer = 0LL;
+  }
+  if ( v45 )
+  {
+    if ( v45 != v46 )
     {
-      NtdllpFreeStringRoutine(v35);
-      v34 = 0LL;
-      v35 = 0LL;
+      UnicodeString.Buffer = v45;
+      RtlFreeAnsiString(&UnicodeString);
     }
-    if ( v47 )
-    {
-      if ( v47 != v48 )
-      {
-        UnicodeString.Buffer = v47;
-        RtlFreeAnsiString(&UnicodeString);
-      }
-      v47 = v48;
-      v49 = v50;
-    }
-    *((_QWORD *)&v46 + 1) = v48;
-    if ( v48 )
-      *v48 = 0;
-    WORD1(v46) = v50;
-    LOWORD(v46) = 0;
-    if ( appended != -1072365567 )
-      break;
+    v45 = v46;
+    v47 = v48;
+  }
+  v44.Buffer = v46;
+  if ( v46 )
+    *v46 = 0;
+  v44.MaximumLength = v48;
+  v44.Length = 0;
+  if ( appended == -1072365567 )
     RtlAssert(
       "Internal error check failed",
       "minkernel\\ntdll\\sxsisol.cpp",
-      434LL,
-      "Status != STATUS_SXS_SECTION_NOT_FOUND");
-    appended = -1073741595;
-  }
-  return (unsigned int)appended;
+      0x1B2u,
+      (PSTR)"Status != STATUS_SXS_SECTION_NOT_FOUND");
+  return appended;
 }

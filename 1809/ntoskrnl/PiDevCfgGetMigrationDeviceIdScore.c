@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgGetMigrationDeviceIdScore @ 0x14028913C
+ * XREFs of PiDevCfgGetMigrationDeviceIdScore @ 0x14028932C
  * Callers:
- *     PiDevCfgFindDeviceMigrationNode @ 0x14082C66C (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x14082D898 (PiDevCfgFindDeviceMigrationNode.c)
  * Callees:
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
  */
 
 __int64 __fastcall PiDevCfgGetMigrationDeviceIdScore(wchar_t *Str1, wchar_t *Str2)

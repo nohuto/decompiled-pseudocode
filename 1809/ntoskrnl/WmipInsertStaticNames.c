@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipInsertStaticNames @ 0x14059D964
+ * XREFs of WmipInsertStaticNames @ 0x14059E964
  * Callers:
- *     WmipQueryAllData @ 0x14059DBCC (WmipQueryAllData.c)
- *     WmipIncludeStaticNames @ 0x1408B3738 (WmipIncludeStaticNames.c)
+ *     WmipQueryAllData @ 0x14059EBCC (WmipQueryAllData.c)
+ *     WmipIncludeStaticNames @ 0x1408B4998 (WmipIncludeStaticNames.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
  *     RtlStringCbCatW @ 0x140007428 (RtlStringCbCatW.c)
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     WmipStaticInstanceNameSize @ 0x14059DB44 (WmipStaticInstanceNameSize.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     WmipStaticInstanceNameSize @ 0x14059EB44 (WmipStaticInstanceNameSize.c)
  */
 
 __int64 __fastcall WmipInsertStaticNames(unsigned int *a1, unsigned int a2, __int64 a3)

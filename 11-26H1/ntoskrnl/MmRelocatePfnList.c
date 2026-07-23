@@ -1,19 +1,19 @@
 /*
- * XREFs of MmRelocatePfnList @ 0x140B6D1F4
+ * XREFs of MmRelocatePfnList @ 0x140B705C4
  * Callers:
- *     PfpPfnPrioRequest @ 0x140A5345C (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x140A5C74C (PfpPfnPrioRequest.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     MiClaimPhysicalRun @ 0x140291700 (MiClaimPhysicalRun.c)
- *     MiAdjustCachedStacks @ 0x1402A8504 (MiAdjustCachedStacks.c)
- *     MiIdentifyPfnWrapper @ 0x1402F0D20 (MiIdentifyPfnWrapper.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiIsPfn @ 0x14042D9E0 (MiIsPfn.c)
- *     MiMakeColor @ 0x14042FB20 (MiMakeColor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     MiClaimPhysicalRun @ 0x140290C60 (MiClaimPhysicalRun.c)
+ *     MiAdjustCachedStacks @ 0x1402A7914 (MiAdjustCachedStacks.c)
+ *     MiIdentifyPfnWrapper @ 0x1402D2DA0 (MiIdentifyPfnWrapper.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiIsPfn @ 0x14041A8F0 (MiIsPfn.c)
+ *     MiMakeColor @ 0x14041CB50 (MiMakeColor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -37,7 +37,7 @@ __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, un
   v17 = 0LL;
   if ( a3 >= (unsigned __int16)KeNumberNodes )
     return 3221225712LL;
-  if ( a4 >= (unsigned __int8)byte_140E2D718 )
+  if ( a4 >= (unsigned __int8)byte_140E2D898 )
     return 3221225713LL;
   MiInitializePageColorBase(
     (__int64)&KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink,
@@ -72,7 +72,7 @@ __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, un
            (__int64)&MiSystemPartition,
            v10,
            1LL,
-           qword_140E2D7A0,
+           qword_140E2D920,
            (__int64)v18,
            4210688,
            Color,

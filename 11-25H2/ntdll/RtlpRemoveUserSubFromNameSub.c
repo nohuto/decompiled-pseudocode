@@ -13,98 +13,98 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpRemoveUserSubFromNameSub(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall RtlpRemoveUserSubFromNameSub(char *BaseAddress, _QWORD *a2, _DWORD *a3)
 {
-  __int64 v5; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rcx
-  _DWORD *v12; // rcx
-  unsigned int v13; // edx
-  int v14; // eax
-  __int64 v15; // r8
-  _DWORD *v16; // rdx
+  _RTL_SRWLOCK *v5; // rcx
+  __int64 v7; // rcx
+  _DWORD *v8; // rcx
+  unsigned int v9; // edx
+  int v10; // eax
+  ULONG v11; // r8d
+  _DWORD *v12; // rdx
   unsigned int i; // ecx
-  unsigned int v18; // edi
-  int v19; // eax
-  __int64 v21; // [rsp+50h] [rbp+8h] BYREF
-  void (__fastcall *v22)(__int64); // [rsp+58h] [rbp+10h] BYREF
-  __int64 v23; // [rsp+60h] [rbp+18h] BYREF
+  unsigned __int32 v14; // edi
+  NTSTATUS v15; // eax
+  unsigned __int64 SubscriptionId; // [rsp+50h] [rbp+8h] BYREF
+  void (__fastcall *v18)(__int64); // [rsp+58h] [rbp+10h]
+  __int64 v19; // [rsp+60h] [rbp+18h]
 
-  v21 = 0LL;
-  v22 = 0LL;
-  v5 = qword_1801D0200 + 8;
-  v23 = 0LL;
+  SubscriptionId = 0LL;
+  v18 = 0LL;
+  v5 = (_RTL_SRWLOCK *)(qword_1801D0200 + 8);
+  v19 = 0LL;
   *a3 = 0;
   RtlAcquireSRWLockExclusive(v5);
-  RtlAcquireSRWLockExclusive(a1 + 64);
-  if ( *(_DWORD *)(a2 + 76) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
+  if ( *((_DWORD *)a2 + 19) )
   {
-    RtlReleaseSRWLockExclusive(a1 + 64);
-    RtlReleaseSRWLockExclusive(qword_1801D0200 + 8);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_1801D0200 + 8));
     return 3221225473LL;
   }
   else
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8, v7, v9, v10) )
-      v11 = (__int64)NtCurrentPeb()->SharedData + 564;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 564;
     else
-      v11 = 2147353486LL;
-    if ( *(_BYTE *)v11 )
+      v7 = 2147353486LL;
+    if ( *(_BYTE *)v7 )
       RtlpWnfETWEventUnsubscribe(
-        *(_QWORD *)(a1 + 16),
-        a2,
-        a1,
-        *(_DWORD *)(a1 + 88),
-        *(_QWORD *)(a2 + 40),
-        *(_DWORD *)(a2 + 72));
-    v12 = (_DWORD *)(a1 + 104);
-    v13 = 0;
-    *(_DWORD *)(a2 + 76) = 1;
+        *((_QWORD *)BaseAddress + 2),
+        (_DWORD)a2,
+        (_DWORD)BaseAddress,
+        *((_DWORD *)BaseAddress + 22),
+        a2[5],
+        *((_DWORD *)a2 + 18));
+    v8 = BaseAddress + 104;
+    v9 = 0;
+    *((_DWORD *)a2 + 19) = 1;
     *a3 = 1;
     do
     {
-      v14 = *(_DWORD *)(a2 + 72);
-      if ( _bittest(&v14, v13) )
-        --*v12;
-      ++v13;
-      ++v12;
+      v10 = *((_DWORD *)a2 + 18);
+      if ( _bittest(&v10, v9) )
+        --*v8;
+      ++v9;
+      ++v8;
     }
-    while ( v13 < 5 );
-    v15 = 0LL;
-    v16 = (_DWORD *)(a1 + 104);
+    while ( v9 < 5 );
+    v11 = 0;
+    v12 = BaseAddress + 104;
     for ( i = 0; i < 5; ++i )
     {
-      if ( *v16 )
-        v15 = (1 << i) | (unsigned int)v15;
-      ++v16;
+      if ( *v12 )
+        v11 |= 1 << i;
+      ++v12;
     }
-    --*(_DWORD *)(a1 + 96);
-    if ( (*(_BYTE *)(a2 + 68) & 4) != 0 )
-      --*(_DWORD *)(a1 + 100);
-    v18 = 0;
-    if ( *(_QWORD *)(a1 + 8) )
+    --*((_DWORD *)BaseAddress + 24);
+    if ( (*((_BYTE *)a2 + 68) & 4) != 0 )
+      --*((_DWORD *)BaseAddress + 25);
+    v14 = 0;
+    if ( *((_QWORD *)BaseAddress + 1) )
     {
-      v19 = NtSubscribeWnfStateChange(a1 + 16, *(unsigned int *)(a1 + 24), v15, &v21);
-      v18 = v19;
-      if ( v19 < 0 )
+      v15 = NtSubscribeWnfStateChange(
+              (PCWNF_STATE_NAME)BaseAddress + 2,
+              *((_DWORD *)BaseAddress + 6),
+              v11,
+              &SubscriptionId);
+      v14 = v15;
+      if ( v15 < 0 )
       {
-        if ( v19 == -1073741431 || v19 == -1073741772 )
-          v18 = 0;
+        if ( v15 == -1073741431 || v15 == -1073741772 )
+          v14 = 0;
       }
       else
       {
-        *(_QWORD *)(a1 + 8) = v21;
+        *((_QWORD *)BaseAddress + 1) = SubscriptionId;
       }
     }
-    RtlpDereferenceWnfUserSubscription(a2, &v22, &v23);
-    RtlReleaseSRWLockExclusive(a1 + 64);
-    RtlReleaseSRWLockExclusive(qword_1801D0200 + 8);
-    if ( v22 )
-      v22(v23);
-    RtlpDereferenceWnfNameSubscription(a1);
-    return v18;
+    RtlpDereferenceWnfUserSubscription(a2);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_1801D0200 + 8));
+    if ( v18 )
+      v18(v19);
+    RtlpDereferenceWnfNameSubscription(BaseAddress);
+    return v14;
   }
 }

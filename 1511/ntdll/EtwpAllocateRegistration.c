@@ -7,13 +7,13 @@
  *     RtlpInterlockedPopEntrySList @ 0x1800A88F0 (RtlpInterlockedPopEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpAllocateRegistration(struct _SLIST_ENTRY *a1, _SLIST_ENTRY *a2, __int64 a3, __int16 a4)
+PSLIST_ENTRY __fastcall EtwpAllocateRegistration(_SLIST_ENTRY *a1, _SLIST_ENTRY *a2, __int64 a3, __int16 a4)
 {
   signed __int32 v4; // r11d
   unsigned __int32 v9; // eax
   PSLIST_ENTRY v10; // rcx
-  __int64 Heap; // rax
-  struct _SLIST_ENTRY v12; // xmm0
+  _SLIST_ENTRY *Heap; // rax
+  _SLIST_ENTRY v12; // xmm0
   __int16 v13; // ax
   signed __int16 v14; // ax
 
@@ -32,12 +32,12 @@ PSLIST_ENTRY __fastcall EtwpAllocateRegistration(struct _SLIST_ENTRY *a1, _SLIST
     v10 = RtlpInterlockedPopEntrySList(&EtwpFreeRegistrationList);
     if ( !v10 )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 256LL);
-      v10 = (PSLIST_ENTRY)Heap;
+      Heap = (_SLIST_ENTRY *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x100uLL);
+      v10 = Heap;
       if ( !Heap )
         goto LABEL_10;
-      *(_QWORD *)(Heap + 64) = 0LL;
-      *(_QWORD *)(Heap + 72) = 0LL;
+      Heap[4].Next = 0LL;
+      *((_QWORD *)&Heap[4].Next + 1) = 0LL;
     }
     if ( v10 )
     {

@@ -1,24 +1,24 @@
 /*
- * XREFs of CcZeroDataOnDisk @ 0x14048BF20
+ * XREFs of CcZeroDataOnDisk @ 0x140260430
  * Callers:
- *     CcZeroData @ 0x1402CC9B0 (CcZeroData.c)
+ *     CcZeroData @ 0x14040BA30 (CcZeroData.c)
  * Callees:
- *     MiZeroPageWrite @ 0x140268964 (MiZeroPageWrite.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     MiZeroPageWrite @ 0x14025FE14 (MiZeroPageWrite.c)
  */
 
-unsigned __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)
+unsigned __int64 __fastcall CcZeroDataOnDisk(struct _FILE_OBJECT *a1, LARGE_INTEGER *a2, _QWORD *a3)
 {
   char v3; // bp
   __int64 v5; // rbx
   unsigned int v6; // edi
-  int v7; // ecx
+  NTSTATUS v7; // ecx
   unsigned __int64 result; // rax
   unsigned int i; // esi
-  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER v10; // [rsp+48h] [rbp+10h] BYREF
 
   v3 = 0;
-  v5 = *a3 - *a2;
+  v5 = *a3 - a2->QuadPart;
   v10 = *a2;
   if ( v5 >= (unsigned int)CcMaxZeroTransferSize )
   {

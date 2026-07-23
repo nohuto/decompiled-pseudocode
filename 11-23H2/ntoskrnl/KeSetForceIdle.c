@@ -1,26 +1,26 @@
 /*
- * XREFs of KeSetForceIdle @ 0x14057CC94
+ * XREFs of KeSetForceIdle @ 0x14057D184
  * Callers:
- *     PopDeepSleepClearDisengageReason @ 0x14028E75C (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14028E9EC (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14057D294 (KiSetForceIdleState.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14057D784 (KiSetForceIdleState.c)
  */
 
 void KeSetForceIdle()
 {
   int v0; // edi
-  __int64 v1; // rbx
+  LARGE_INTEGER v1; // rbx
   struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 *SchedulerAssist; // r8
   signed __int32 v4; // eax
   signed __int32 v5; // ett
   int v6; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v7; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
-  v7.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   _disable();
   v6 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
@@ -32,12 +32,13 @@ void KeSetForceIdle()
   if ( !KiForceIdleDisabled )
   {
     v0 = KiForceIdleState;
-    v1 = RtlGetInterruptTimePrecise(&v7) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    v1.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+                + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
     if ( !v0 )
     {
       KiSetForceIdleState(2LL);
 LABEL_10:
-      KiForceIdleStartTime = v1;
+      KiForceIdleStartTime = v1.QuadPart;
       goto LABEL_11;
     }
     if ( v0 == 3 )

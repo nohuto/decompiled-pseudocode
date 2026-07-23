@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRelocateAmount @ 0x140B26E3C
+ * XREFs of MiRelocateAmount @ 0x140B2909C
  * Callers:
- *     MmGetSectionInformation @ 0x1408E5780 (MmGetSectionInformation.c)
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
+ *     MmGetSectionInformation @ 0x1408EBD40 (MmGetSectionInformation.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
  * Callees:
  *     <none>
  */

@@ -3,12 +3,12 @@
  * Callers:
  *     KiReselectIdealProcessorAfterAffinityChange @ 0x14020377C (KiReselectIdealProcessorAfterAffinityChange.c)
  *     KeSelectInitialIdealProcessorForThread @ 0x14020380C (KeSelectInitialIdealProcessorForThread.c)
- *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x14057681C (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
+ *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x140576D0C (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
  *     ExpNodeCreateSystemThread @ 0x140683660 (ExpNodeCreateSystemThread.c)
- *     ExpWorkQueueManagerInitialize @ 0x140849990 (ExpWorkQueueManagerInitialize.c)
+ *     ExpWorkQueueManagerInitialize @ 0x140849C90 (ExpWorkQueueManagerInitialize.c)
  * Callees:
  *     KiSelectIdealProcessor @ 0x140203904 (KiSelectIdealProcessor.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
  */
 
 ULONG __fastcall KeSelectIdealProcessor(__int64 a1, _WORD *a2, _QWORD *a3, unsigned int a4)
@@ -17,7 +17,7 @@ ULONG __fastcall KeSelectIdealProcessor(__int64 a1, _WORD *a2, _QWORD *a3, unsig
   __int64 *v7; // rdx
   unsigned int v8; // eax
   unsigned __int8 v9; // al
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = *(_QWORD *)a1;
   v7 = &KiGroupBlock[4 * *(unsigned __int16 *)(a1 + 8)];

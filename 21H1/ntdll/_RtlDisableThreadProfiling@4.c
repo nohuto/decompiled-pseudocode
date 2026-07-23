@@ -7,17 +7,17 @@
  *     _ZwSetInformationThread@16 @ 0x4B2F2A30 (_ZwSetInformationThread@16.c)
  */
 
-int __stdcall RtlDisableThreadProfiling(int a1)
+NTSTATUS __cdecl RtlDisableThreadProfiling(PVOID PerformanceDataHandle)
 {
   int v1; // esi
-  _BYTE v3[12]; // [esp+8h] [ebp-18h] BYREF
+  _BYTE ThreadInformation[12]; // [esp+8h] [ebp-18h] BYREF
   int v4; // [esp+14h] [ebp-Ch]
-  int v5; // [esp+18h] [ebp-8h]
+  PVOID v5; // [esp+18h] [ebp-8h]
 
   v4 = 0;
-  v5 = a1;
-  v1 = ZwSetInformationThread(-2, 32, (int)v3, 24);
+  v5 = PerformanceDataHandle;
+  v1 = ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadCounterProfiling, ThreadInformation, 0x18u);
   if ( v1 >= 0 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, PerformanceDataHandle);
   return v1;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of deflate_fast @ 0x1801227A0
+ * XREFs of deflate_fast @ 0x180122510
  * Callers:
  *     <none>
  * Callees:
- *     fill_window @ 0x18010B76C (fill_window.c)
- *     flush_pending @ 0x1801557E4 (flush_pending.c)
- *     longest_match @ 0x180155928 (longest_match.c)
- *     _tr_flush_block @ 0x1801569B4 (_tr_flush_block.c)
+ *     fill_window @ 0x18010B0DC (fill_window.c)
+ *     flush_pending @ 0x1801556B4 (flush_pending.c)
+ *     longest_match @ 0x1801557F8 (longest_match.c)
+ *     _tr_flush_block @ 0x180156884 (_tr_flush_block.c)
  */
 
 __int64 __fastcall deflate_fast(__int64 *a1, int a2)

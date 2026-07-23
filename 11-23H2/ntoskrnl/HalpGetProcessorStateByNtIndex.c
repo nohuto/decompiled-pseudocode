@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetProcessorStateByNtIndex @ 0x140384B38
+ * XREFs of HalpGetProcessorStateByNtIndex @ 0x140384D18
  * Callers:
- *     HalpInterruptEnablePerformanceEvents @ 0x14037BD58 (HalpInterruptEnablePerformanceEvents.c)
- *     HalGetProcessorIdByNtNumber @ 0x140384B00 (HalGetProcessorIdByNtNumber.c)
- *     HalpInterruptStartBlockedProcessors @ 0x14051AA54 (HalpInterruptStartBlockedProcessors.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x14037BEF8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140384CE0 (HalGetProcessorIdByNtNumber.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x14051AFA4 (HalpInterruptStartBlockedProcessors.c)
  * Callees:
  *     <none>
  */

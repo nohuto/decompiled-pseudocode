@@ -1,9 +1,9 @@
 /*
- * XREFs of PspWow64CopyUnicodeString @ 0x1400ABEC0
+ * XREFs of PspWow64CopyUnicodeString @ 0x1400AA428
  * Callers:
- *     PspWow64ThunkProcessParameters @ 0x1400ABA50 (PspWow64ThunkProcessParameters.c)
+ *     PspWow64ThunkProcessParameters @ 0x1400A9FB8 (PspWow64ThunkProcessParameters.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall PspWow64CopyUnicodeString(void **a1, __int64 a2, __int64 a3)

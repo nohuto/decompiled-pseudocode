@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmEventHgsHardwareTable @ 0x14025D178
+ * XREFs of PpmEventHgsHardwareTable @ 0x1404E42EC
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x14025B888 (PpmHeteroUpdateHgsConfiguration.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x140517458 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventHgsHardwareTable(char a1)
@@ -50,13 +50,13 @@ void __fastcall PpmEventHgsHardwareTable(char a1)
   v15 = *(_DWORD *)(PpmHeteroCapability + 4);
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v2) )
+    if ( EtwEventEnabled(PpmEtwHandle, v2) )
     {
       v17 = MaximumProcessorCount * v15;
       Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
       if ( Pool2 )
       {
-        v4 = qword_140E0B638[0];
+        v4 = PpmCheckRegistered.Bitmap[0];
         LOWORD(v5) = 0;
         UserData.Ptr = (ULONGLONG)&v18;
         p_MaximumProcessorCount = &MaximumProcessorCount;
@@ -73,8 +73,7 @@ void __fastcall PpmEventHgsHardwareTable(char a1)
           {
             _BitScanForward64(&v6, v4);
             v4 &= ~(1LL << v6);
-            v7 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                 + 64 * (unsigned __int16)v5
+            v7 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v5].Flink
                  + (unsigned __int8)v6);
             Prcb = KeGetPrcb(v7);
             v9 = 0;
@@ -91,22 +90,14 @@ void __fastcall PpmEventHgsHardwareTable(char a1)
             }
           }
           v5 = (unsigned __int16)(v5 + 1);
-          if ( (unsigned int)v5 >= LOWORD(PpmCheckRegistered[0]) )
+          if ( (unsigned int)v5 >= PpmCheckRegistered.Count )
             break;
-          v4 = qword_140E0B638[v5];
+          v4 = PpmCheckRegistered.Bitmap[v5];
         }
         v26 = Pool2;
         v28 = 0;
         v27 = 10 * v17;
-        EtwWriteEx(
-          (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-          v2,
-          0LL,
-          0,
-          0LL,
-          0LL,
-          5u,
-          &UserData);
+        EtwWriteEx(PpmEtwHandle, v2, 0LL, 0, 0LL, 0LL, 5u, &UserData);
         ExFreePoolWithTag(Pool2, 0x654D5050u);
       }
     }

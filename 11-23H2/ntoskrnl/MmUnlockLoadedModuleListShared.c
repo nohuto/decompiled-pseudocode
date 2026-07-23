@@ -1,15 +1,15 @@
 /*
- * XREFs of MmUnlockLoadedModuleListShared @ 0x1402A7D8C
+ * XREFs of MmUnlockLoadedModuleListShared @ 0x1402A801C
  * Callers:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     MiAddWorkingSetEntries @ 0x14026BD20 (MiAddWorkingSetEntries.c)
- *     RtlpxLookupFunctionTable @ 0x1402A3C80 (RtlpxLookupFunctionTable.c)
- *     MiIsDriverPage @ 0x1403398C0 (MiIsDriverPage.c)
- *     RtlPcToFileName @ 0x1403AA390 (RtlPcToFileName.c)
- *     MiIsAddressInDriverView @ 0x140633EBC (MiIsAddressInDriverView.c)
+ *     MiAddWorkingSetEntries @ 0x14026BFB0 (MiAddWorkingSetEntries.c)
+ *     RtlpxLookupFunctionTable @ 0x1402A3F10 (RtlpxLookupFunctionTable.c)
+ *     MiIsDriverPage @ 0x140339B50 (MiIsDriverPage.c)
+ *     RtlPcToFileName @ 0x1403AA570 (RtlPcToFileName.c)
+ *     MiIsAddressInDriverView @ 0x14063440C (MiIsAddressInDriverView.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MmUnlockLoadedModuleListShared(unsigned __int8 a1)
@@ -25,10 +25,10 @@ void __fastcall MmUnlockLoadedModuleListShared(unsigned __int8 a1)
   ExReleaseSpinLockSharedFromDpcLevel(&PsLoadedModuleSpinLock);
   if ( (unsigned __int8)v1 < 0xFu )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

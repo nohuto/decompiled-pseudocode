@@ -1,7 +1,7 @@
 /*
- * XREFs of KdReadEntryCount @ 0x1404BB460
+ * XREFs of KdReadEntryCount @ 0x1404B4C40
  * Callers:
- *     KdEnterDebugger @ 0x140C17858 (KdEnterDebugger.c)
+ *     KdEnterDebugger @ 0x140C1D858 (KdEnterDebugger.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDevCfgVerifyService @ 0x140A7E540
+ * XREFs of PiDevCfgVerifyService @ 0x1409C8528
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x140A7DF0C (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1409C7EF4 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryDword @ 0x1404C71B4 (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PipOpenServiceEnumKeys @ 0x1409CAB04 (PipOpenServiceEnumKeys.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryDword @ 0x1404C0614 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PipOpenServiceEnumKeys @ 0x1409B5D44 (PipOpenServiceEnumKeys.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgVerifyService(PCWSTR SourceString, bool *a2, _DWORD *a3)

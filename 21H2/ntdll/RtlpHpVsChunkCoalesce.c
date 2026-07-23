@@ -2,7 +2,7 @@
  * XREFs of RtlpHpVsChunkCoalesce @ 0x18002782C
  * Callers:
  *     RtlpHpVsChunkSplit @ 0x180029280 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsChunkFree @ 0x18010FB5C (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkFree @ 0x18010FB1C (RtlpHpVsChunkFree.c)
  * Callees:
  *     RtlpHpVsFreeChunkRemove @ 0x180066448 (RtlpHpVsFreeChunkRemove.c)
  */

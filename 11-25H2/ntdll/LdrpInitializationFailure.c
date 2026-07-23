@@ -10,18 +10,17 @@
  *     NtRaiseHardError @ 0x1801660B0 (NtRaiseHardError.c)
  */
 
-__int64 __fastcall LdrpInitializationFailure(int a1)
+NTSTATUS __fastcall LdrpInitializationFailure(int a1)
 {
-  __int64 v1; // rbx
-  __int64 result; // rax
-  __int64 v3; // [rsp+30h] [rbp-8h]
-  int v4; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v5; // [rsp+50h] [rbp+18h] BYREF
+  unsigned __int64 v1; // rbx
+  NTSTATUS result; // eax
+  ULONG Response; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 Parameters; // [rsp+50h] [rbp+18h] BYREF
 
-  v4 = 0;
+  Response = 0;
   v1 = a1;
   LdrpLogInternal(
-    (__int64)"minkernel\\ldr\\ldrinit.c",
+    "minkernel\\ldr\\ldrinit.c",
     2998,
     (__int64)"LdrpInitializationFailure",
     0,
@@ -30,8 +29,8 @@ __int64 __fastcall LdrpInitializationFailure(int a1)
   result = LdrpLogFatalLdrEtwEvent(&NtCurrentPeb()->ProcessParameters->ImagePathName, "\a");
   if ( !LdrpFatalHardErrorCount )
   {
-    v5 = v1;
-    return NtRaiseHardError(3221225797LL, 1LL, 0LL, &v5, 1, &v4, v3);
+    Parameters = v1;
+    return NtRaiseHardError(-1073741499, 1u, 0, &Parameters, 1u, &Response);
   }
   return result;
 }

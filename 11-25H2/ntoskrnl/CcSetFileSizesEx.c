@@ -43,7 +43,7 @@ NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES File
   unsigned int v12; // r8d
   __int64 v13; // rcx
   NTSTATUS v14; // eax
-  int v15; // edi
+  NTSTATUS v15; // edi
   NTSTATUS result; // eax
   LARGE_INTEGER v17; // rax
   LARGE_INTEGER v18; // rdi

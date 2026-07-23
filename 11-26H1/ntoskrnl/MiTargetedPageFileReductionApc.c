@@ -1,24 +1,24 @@
 /*
- * XREFs of MiTargetedPageFileReductionApc @ 0x14070D818
+ * XREFs of MiTargetedPageFileReductionApc @ 0x1407124C8
  * Callers:
- *     MiAttemptPageFileReductionApc @ 0x14070D510 (MiAttemptPageFileReductionApc.c)
+ *     MiAttemptPageFileReductionApc @ 0x1407121C0 (MiAttemptPageFileReductionApc.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiCoalescePageFileBitmapsCache @ 0x14044C2E0 (MiCoalescePageFileBitmapsCache.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x14047DE74 (MiInvalidatePageFileBitmapsCache.c)
- *     RtlFindLastBackwardRunClear @ 0x140485A90 (RtlFindLastBackwardRunClear.c)
- *     MiChangePagingFileMaximum @ 0x1406F88B0 (MiChangePagingFileMaximum.c)
- *     MiPagefileMaximumChangePrepare @ 0x1406F8F04 (MiPagefileMaximumChangePrepare.c)
- *     MiIncreaseCommitLimits @ 0x140705868 (MiIncreaseCommitLimits.c)
- *     MiReduceCommitLimits @ 0x140705B5C (MiReduceCommitLimits.c)
- *     MiReleasePageHash @ 0x14070FEE0 (MiReleasePageHash.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140444400 (MiCoalescePageFileBitmapsCache.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1404777E4 (MiInvalidatePageFileBitmapsCache.c)
+ *     RtlFindLastBackwardRunClear @ 0x14047F400 (RtlFindLastBackwardRunClear.c)
+ *     MiChangePagingFileMaximum @ 0x1406FD580 (MiChangePagingFileMaximum.c)
+ *     MiPagefileMaximumChangePrepare @ 0x1406FDBD4 (MiPagefileMaximumChangePrepare.c)
+ *     MiIncreaseCommitLimits @ 0x14070A538 (MiIncreaseCommitLimits.c)
+ *     MiReduceCommitLimits @ 0x14070A82C (MiReduceCommitLimits.c)
+ *     MiReleasePageHash @ 0x140714BDC (MiReleasePageHash.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiTargetedPageFileReductionApc(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall MiTargetedPageFileReductionApc(__int64 a1)
   KIRQL v9; // r11
   __int64 v10; // rax
   __int64 v11; // r15
-  RTL_BITMAP *v12; // rdx
+  _RTL_BITMAP *v12; // rdx
   __int64 v13; // rax
   int v14; // r10d
   ULONG v15; // r15d
@@ -67,7 +67,7 @@ __int64 __fastcall MiTargetedPageFileReductionApc(__int64 a1)
   int v43; // r8d
   __int64 v44; // rcx
   unsigned __int64 v45; // rdx
-  RTL_BITMAP *v46; // rcx
+  _RTL_BITMAP *v46; // rcx
   volatile LONG *v47; // rcx
   __int64 v48; // rsi
   PVOID v49; // rdi
@@ -83,13 +83,13 @@ __int64 __fastcall MiTargetedPageFileReductionApc(__int64 a1)
   volatile LONG *v59; // rcx
   __int64 v60; // rcx
   PVOID v62; // [rsp+30h] [rbp-39h]
-  RTL_BITMAP *v63; // [rsp+38h] [rbp-31h]
+  _RTL_BITMAP *v63; // [rsp+38h] [rbp-31h]
   PVOID P; // [rsp+40h] [rbp-29h] BYREF
   unsigned __int64 v65; // [rsp+48h] [rbp-21h] BYREF
   ULONG *v66; // [rsp+50h] [rbp-19h]
   PRTL_BITMAP v67; // [rsp+58h] [rbp-11h]
-  RTL_BITMAP BitMapHeader; // [rsp+60h] [rbp-9h] BYREF
-  RTL_BITMAP v69; // [rsp+70h] [rbp+7h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+60h] [rbp-9h] BYREF
+  _RTL_BITMAP v69; // [rsp+70h] [rbp+7h] BYREF
   KIRQL OldIrql; // [rsp+D0h] [rbp+67h]
   KIRQL OldIrqla; // [rsp+D0h] [rbp+67h]
   unsigned int v72; // [rsp+D8h] [rbp+6Fh]
@@ -128,7 +128,7 @@ LABEL_111:
   OldIrql = v9;
   v10 = *(_QWORD *)(v1 + 80);
   v11 = v10 + 8;
-  v12 = (RTL_BITMAP *)(v10 + 24);
+  v12 = (_RTL_BITMAP *)(v10 + 24);
   v67 = (PRTL_BITMAP)(v10 + 8);
   v13 = *(_QWORD *)(a1 + 40);
   v63 = v12;

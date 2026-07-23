@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcDoesFeatureHaveUniqueState @ 0x14078CEF4
+ * XREFs of RtlpFcDoesFeatureHaveUniqueState @ 0x14078CE24
  * Callers:
- *     RtlpFcApplyUpdateAndAddFeature @ 0x14078CE14 (RtlpFcApplyUpdateAndAddFeature.c)
- *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x14078CE88 (RtlpFcCreateAndAddFeatureFromUpdate.c)
- *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140A9731C (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ *     RtlpFcApplyUpdateAndAddFeature @ 0x14078CD44 (RtlpFcApplyUpdateAndAddFeature.c)
+ *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x14078CDB8 (RtlpFcCreateAndAddFeatureFromUpdate.c)
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140A93B4C (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
  * Callees:
  *     <none>
  */

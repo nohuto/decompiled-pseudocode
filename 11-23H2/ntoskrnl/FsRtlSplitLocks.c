@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlSplitLocks @ 0x14032855C
+ * XREFs of FsRtlSplitLocks @ 0x1403287EC
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x140326A34 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlFastUnlockSingleShared @ 0x1403272F8 (FsRtlFastUnlockSingleShared.c)
- *     FsRtlPrivateInsertSharedLock @ 0x140327960 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x140326CC4 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlFastUnlockSingleShared @ 0x140327588 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x140327BF0 (FsRtlPrivateInsertSharedLock.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRealSuccessor @ 0x140326CF0 (RtlRealSuccessor.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x140326F80 (RtlRealSuccessor.c)
  */
 
 void __fastcall FsRtlSplitLocks(__int64 a1, _RTL_SPLAY_LINKS *a2, unsigned __int64 *a3, _RTL_SPLAY_LINKS **a4)
 {
-  RTL_SPLAY_LINKS *v5; // rbp
+  _RTL_SPLAY_LINKS *v5; // rbp
   _RTL_SPLAY_LINKS *v6; // rbx
   unsigned __int64 v7; // rdi
   _RTL_SPLAY_LINKS *Parent; // r14
@@ -22,14 +22,14 @@ void __fastcall FsRtlSplitLocks(__int64 a1, _RTL_SPLAY_LINKS *a2, unsigned __int
   unsigned __int64 v13; // rcx
   _RTL_SPLAY_LINKS *v14; // rax
   _RTL_SPLAY_LINKS *v15; // rax
-  RTL_SPLAY_LINKS *v16; // r15
+  _RTL_SPLAY_LINKS *v16; // r15
   int v17; // edx
   _RTL_SPLAY_LINKS *v18; // r14
   PRTL_SPLAY_LINKS v19; // rax
   _RTL_SPLAY_LINKS *RightChild; // rax
   int v21; // [rsp+50h] [rbp+8h]
 
-  v5 = (RTL_SPLAY_LINKS *)a1;
+  v5 = (_RTL_SPLAY_LINKS *)a1;
   v6 = 0LL;
   v21 = 0;
   if ( *(_BYTE *)(a1 + 8) )

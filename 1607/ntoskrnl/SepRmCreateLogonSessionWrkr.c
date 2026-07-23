@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmCreateLogonSessionWrkr @ 0x1404E69C4
+ * XREFs of SepRmCreateLogonSessionWrkr @ 0x1404C9334
  * Callers:
  *     <none>
  * Callees:
- *     SepCreateLogonSessionTrack @ 0x1404E69EC (SepCreateLogonSessionTrack.c)
+ *     SepCreateLogonSessionTrack @ 0x1404C935C (SepCreateLogonSessionTrack.c)
  */
 
 __int64 __fastcall SepRmCreateLogonSessionWrkr(__int64 a1, __int64 a2)

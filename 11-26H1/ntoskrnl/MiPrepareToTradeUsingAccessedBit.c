@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPrepareToTradeUsingAccessedBit @ 0x140314C54
+ * XREFs of MiPrepareToTradeUsingAccessedBit @ 0x140316C84
  * Callers:
- *     MiLockTargetPageForTrade @ 0x140295360 (MiLockTargetPageForTrade.c)
+ *     MiLockTargetPageForTrade @ 0x1402948C0 (MiLockTargetPageForTrade.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 unsigned __int64 __fastcall MiPrepareToTradeUsingAccessedBit(__int64 a1, unsigned __int64 a2)
@@ -18,7 +18,7 @@ unsigned __int64 __fastcall MiPrepareToTradeUsingAccessedBit(__int64 a1, unsigne
   v3 = (__int64)(a2 << 25) >> 16;
   if ( (*(_BYTE *)(a1 + 35) & 0x10) != 0 )
   {
-    _InterlockedIncrement(&dword_140EF8CAC);
+    _InterlockedIncrement(&dword_140EF900C);
     return *(_QWORD *)&CLFS_LSN_NULL_EXT;
   }
   PteShadow = *(_QWORD *)a2;
@@ -26,7 +26,7 @@ unsigned __int64 __fastcall MiPrepareToTradeUsingAccessedBit(__int64 a1, unsigne
     PteShadow = MiReadPteShadow(a2, *(_QWORD *)a2);
   if ( (PteShadow & 0x200) != 0 || (PteShadow & 0x20) == 0 )
   {
-    _InterlockedIncrement(&dword_140EF8CB0);
+    _InterlockedIncrement(&dword_140EF9010);
     return *(_QWORD *)&CLFS_LSN_NULL_EXT;
   }
   v5 = PteShadow & 0xFFFFFFFFFFFFFFDFuLL;
@@ -38,7 +38,7 @@ unsigned __int64 __fastcall MiPrepareToTradeUsingAccessedBit(__int64 a1, unsigne
   }
   else
   {
-    _InterlockedIncrement(&dword_140EF8CB4);
+    _InterlockedIncrement(&dword_140EF9014);
     return *(_QWORD *)&CLFS_LSN_NULL_EXT;
   }
   return v5;

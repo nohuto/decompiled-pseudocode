@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_RecordCachedUsage @ 0x140500C10
+ * XREFs of wil_details_RecordCachedUsage @ 0x1404FA400
  * Callers:
- *     wil_details_OnFeatureUsageProviderFlushNotification @ 0x140B58170 (wil_details_OnFeatureUsageProviderFlushNotification.c)
+ *     wil_details_OnFeatureUsageProviderFlushNotification @ 0x140B5AF90 (wil_details_OnFeatureUsageProviderFlushNotification.c)
  * Callees:
- *     RtlRecordFeatureUsage @ 0x1404D4AD0 (RtlRecordFeatureUsage.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlRecordFeatureUsage @ 0x1404CE340 (RtlRecordFeatureUsage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall wil_details_RecordCachedUsage(int a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSetPageAttributesTable @ 0x140B6DC40
+ * XREFs of KiSetPageAttributesTable @ 0x140B6F4E0
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x1404CD748 (KeRestoreProcessorSpecificFeatures.c)
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x1404C6B18 (KeRestoreProcessorSpecificFeatures.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KeFlushCurrentTbImmediately @ 0x1404ADC80 (KeFlushCurrentTbImmediately.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KeFlushCurrentTbImmediately @ 0x1404A8590 (KeFlushCurrentTbImmediately.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int64 KiSetPageAttributesTable()

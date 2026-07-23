@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x14029CA84
+ * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x14029CD14
  * Callers:
- *     MiDereferenceDataSubsections @ 0x14066B108 (MiDereferenceDataSubsections.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiMapViewOfDataSection @ 0x140720280 (MiMapViewOfDataSection.c)
- *     MiReleaseReadListResources @ 0x140721350 (MiReleaseReadListResources.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiDereferenceDataSubsections @ 0x14066B658 (MiDereferenceDataSubsections.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiMapViewOfDataSection @ 0x140720480 (MiMapViewOfDataSection.c)
+ *     MiReleaseReadListResources @ 0x140721550 (MiReleaseReadListResources.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveViewsFromSection @ 0x14029F8E8 (MiRemoveViewsFromSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveViewsFromSection @ 0x14029FB78 (MiRemoveViewsFromSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2)
@@ -32,10 +32,13 @@ __int64 __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2)
   v5 = MiRemoveViewsFromSection((ULONG_PTR)BugCheckParameter2);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 72));
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

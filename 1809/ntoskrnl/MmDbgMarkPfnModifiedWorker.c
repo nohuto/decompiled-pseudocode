@@ -1,13 +1,13 @@
 /*
- * XREFs of MmDbgMarkPfnModifiedWorker @ 0x14018F9C4
+ * XREFs of MmDbgMarkPfnModifiedWorker @ 0x14018FB04
  * Callers:
- *     ExpDebuggerWorker @ 0x140915030 (ExpDebuggerWorker.c)
+ *     ExpDebuggerWorker @ 0x140916030 (ExpDebuggerWorker.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int MmDbgMarkPfnModifiedWorker()
@@ -25,18 +25,18 @@ int MmDbgMarkPfnModifiedWorker()
 
   v0 = &retaddr;
   v1 = 0LL;
-  v2 = qword_14043A958;
+  v2 = qword_14043BA18;
   do
   {
     v3 = *v2;
     if ( (*v2 & 1) != 0 )
     {
-      _InterlockedAnd64(&qword_14043A958[v1], 0LL);
+      _InterlockedAnd64(&qword_14043BA18[v1], 0LL);
       v4 = v3 - 1;
       v5 = MiLockPageInline(v4);
       v6 = MiCaptureDirtyBitToPfn(v4);
       MiRemoveLockedPageChargeAndDecRef(v4);
-      v7 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL));
+      v7 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL));
       _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v5 < 2u )
       {

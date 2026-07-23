@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierMmCreateMdl @ 0x140AE2D60
+ * XREFs of VerifierMmCreateMdl @ 0x140AE2D50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
- *     ViPtLogStackTrace @ 0x140ADF08C (ViPtLogStackTrace.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
+ *     ViPtLogStackTrace @ 0x140ADF07C (ViPtLogStackTrace.c)
  */
 
 __int64 __fastcall VerifierMmCreateMdl(__int64 a1, __int64 a2, __int64 a3)

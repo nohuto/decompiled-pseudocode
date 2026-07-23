@@ -5,7 +5,7 @@
  *     RtlpHpLfhBucketAddSubsegment @ 0x18001D778 (RtlpHpLfhBucketAddSubsegment.c)
  * Callees:
  *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x18001D624 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentFree(__int64 a1, __int64 a2, __int64 a3, char a4)

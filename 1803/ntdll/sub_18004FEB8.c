@@ -14,9 +14,9 @@
  *     bsearch_s @ 0x18008DC50 (bsearch_s.c)
  */
 
-__int64 __fastcall sub_18004FEB8(unsigned __int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall sub_18004FEB8(char *BaseOfImage, unsigned int a2, unsigned int a3)
 {
-  unsigned __int64 v5; // r12
+  char *v5; // r12
   unsigned int v6; // esi
   _DWORD *v7; // rax
   __int64 v8; // rcx
@@ -29,17 +29,17 @@ __int64 __fastcall sub_18004FEB8(unsigned __int64 a1, unsigned int a2, unsigned 
   __int64 v16; // r12
   char v17[8]; // [rsp+30h] [rbp-40h] BYREF
   unsigned int *Context; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+40h] [rbp-30h] BYREF
-  unsigned __int64 v20; // [rsp+48h] [rbp-28h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp-30h] BYREF
+  char *v20; // [rsp+48h] [rbp-28h]
   _QWORD Key[2]; // [rsp+50h] [rbp-20h] BYREF
 
-  v20 = a1;
+  v20 = BaseOfImage;
   Context = 0LL;
   Key[0] = 0LL;
   Key[1] = 0LL;
-  v5 = a1;
+  v5 = BaseOfImage;
   v6 = 0;
-  RtlImageNtHeaderEx(3, a1, 0LL, &v19);
+  RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders);
   v7 = sub_18002B3EC(v5);
   if ( v7 )
   {
@@ -48,7 +48,7 @@ __int64 __fastcall sub_18004FEB8(unsigned __int64 a1, unsigned int a2, unsigned 
       v8 = *((_QWORD *)v7 + 21);
       if ( v8 )
       {
-        if ( (*(_WORD *)(v19 + 94) & 0x4000) != 0 )
+        if ( (OutHeaders->OptionalHeader.DllCharacteristics & 0x4000) != 0 )
         {
           v9 = v7[36];
           if ( (v9 & 0x4000) != 0 )
@@ -77,10 +77,10 @@ LABEL_15:
                   v14 = *v10;
                   if ( v15 >= (unsigned int)v14 )
                     return (unsigned int)-1073741701;
-                  v16 = *(_QWORD *)(v14 + v5);
+                  v16 = *(_QWORD *)&v5[v14];
                   if ( (unsigned int)sub_180050068(v16, v17) != 1 && (v17[0] & 0x10) != 0 )
                   {
-                    v6 = sub_18004FB50(v16, 4u, &v19);
+                    v6 = sub_18004FB50(v16, 4u, &OutHeaders);
                     if ( (v6 & 0x80000000) != 0 )
                       return v6;
                   }

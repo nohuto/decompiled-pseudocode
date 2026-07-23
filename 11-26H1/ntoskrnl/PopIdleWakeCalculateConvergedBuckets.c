@@ -1,7 +1,7 @@
 /*
- * XREFs of PopIdleWakeCalculateConvergedBuckets @ 0x140B510B0
+ * XREFs of PopIdleWakeCalculateConvergedBuckets @ 0x140B53948
  * Callers:
- *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x140B0B0E0 (PopIdleWakeTraceWakeSourceDiagnostic.c)
+ *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x140B0C830 (PopIdleWakeTraceWakeSourceDiagnostic.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemUpdateProviderTableWithEvent @ 0x140B60058
+ * XREFs of WdipSemUpdateProviderTableWithEvent @ 0x140B630F4
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140820244 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140826454 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WdipSemWriteProviderLimitExceededEvent @ 0x140821394 (WdipSemWriteProviderLimitExceededEvent.c)
- *     WdipSemFastAllocate @ 0x140ADB300 (WdipSemFastAllocate.c)
- *     WdipSemQueryProviderTable @ 0x140B60124 (WdipSemQueryProviderTable.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WdipSemWriteProviderLimitExceededEvent @ 0x1408275A4 (WdipSemWriteProviderLimitExceededEvent.c)
+ *     WdipSemFastAllocate @ 0x140AD7DB0 (WdipSemFastAllocate.c)
+ *     WdipSemQueryProviderTable @ 0x140B631C0 (WdipSemQueryProviderTable.c)
  */
 
 __int64 __fastcall WdipSemUpdateProviderTableWithEvent(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall WdipSemUpdateProviderTableWithEvent(__int64 a1)
     {
       *(_QWORD *)(a1 + 40) = ProviderTable;
     }
-    else if ( (unsigned int)dword_140F060A0 < 0x400 )
+    else if ( (unsigned int)dword_140F06A20 < 0x400 )
     {
       v4 = WdipSemFastAllocate(2, 0x50u);
       v5 = v4;
@@ -33,7 +33,7 @@ __int64 __fastcall WdipSemUpdateProviderTableWithEvent(__int64 a1)
       {
         memset_0(v4, 0, 0x50uLL);
         *v5 = *(_OWORD *)a1;
-        *((_QWORD *)&stru_140F03F40.WaitBlock[0].Object + (unsigned int)dword_140F060A0++) = v5;
+        *((_QWORD *)&stru_140F049E8.StackBase + (unsigned int)dword_140F06A20++) = v5;
         *(_QWORD *)(a1 + 40) = v5;
       }
       else
@@ -43,7 +43,7 @@ __int64 __fastcall WdipSemUpdateProviderTableWithEvent(__int64 a1)
     }
     else
     {
-      if ( EtwEventEnabled((REGHANDLE)stru_140F03F40.Timer.TimerListEntry.Flink, &WDI_SEM_EVENT_INIT_PROVIDER_MAX) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140F06A28.Header.WaitListHead.Flink, &WDI_SEM_EVENT_INIT_PROVIDER_MAX) )
         WdipSemWriteProviderLimitExceededEvent(a1);
       return (unsigned int)-1073741823;
     }

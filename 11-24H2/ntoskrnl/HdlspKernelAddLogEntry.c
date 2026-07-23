@@ -1,12 +1,12 @@
 /*
- * XREFs of HdlspKernelAddLogEntry @ 0x140BADD70
+ * XREFs of HdlspKernelAddLogEntry @ 0x140BAFD70
  * Callers:
- *     HeadlessKernelAddLogEntry @ 0x1404AD660 (HeadlessKernelAddLogEntry.c)
+ *     HeadlessKernelAddLogEntry @ 0x1404A7D40 (HeadlessKernelAddLogEntry.c)
  * Callees:
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     HdlspDispatch @ 0x140BAD320 (HdlspDispatch.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     HdlspDispatch @ 0x140BAF320 (HdlspDispatch.c)
  */
 
 __int64 __fastcall HdlspKernelAddLogEntry(unsigned int a1, unsigned __int16 *a2)

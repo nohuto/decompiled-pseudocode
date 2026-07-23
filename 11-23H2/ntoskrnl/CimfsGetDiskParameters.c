@@ -4,7 +4,7 @@
  *     IopGetBootDiskInformationLite @ 0x140B55908 (IopGetBootDiskInformationLite.c)
  *     CimfsInitialize @ 0x140B74594 (CimfsInitialize.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall CimfsGetDiskParameters(__int64 a1, _DWORD *a2, _QWORD *a3)

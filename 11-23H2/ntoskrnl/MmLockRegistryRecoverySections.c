@@ -1,16 +1,16 @@
 /*
- * XREFs of MmLockRegistryRecoverySections @ 0x14061A888
+ * XREFs of MmLockRegistryRecoverySections @ 0x14061ADD8
  * Callers:
  *     CmInitSystem2 @ 0x140B39668 (CmInitSystem2.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     MiLockCode @ 0x140282330 (MiLockCode.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiSnapDriverRange @ 0x1407036F8 (MiSnapDriverRange.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     MiLockCode @ 0x1402825C0 (MiLockCode.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiSnapDriverRange @ 0x140703908 (MiSnapDriverRange.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
  */
 
 __int64 MmLockRegistryRecoverySections()

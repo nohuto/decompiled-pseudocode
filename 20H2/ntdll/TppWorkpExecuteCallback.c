@@ -10,7 +10,7 @@
  *     RtlpTpETWCallbackStop @ 0x180112970 (RtlpTpETWCallbackStop.c)
  */
 
-struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2)
+struct _PEB *__fastcall TppWorkpExecuteCallback(_QWORD *Instance, __int64 a2)
 {
   _QWORD *v2; // rbx
   int v3; // ebp
@@ -40,7 +40,7 @@ struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2)
     v7 = 2147353478LL;
   if ( *(_BYTE *)v7 )
     TppETWCallbackDequeue(v2[18], a2, v2[10], v2[11], v2[13]);
-  result = (struct _PEB *)TppWorkCallbackPrologRelease(a1, (__int64)v2, 0);
+  result = (struct _PEB *)TppWorkCallbackPrologRelease(Instance, (__int64)v2, 0);
   if ( (_DWORD)result )
   {
     v9 = NtCurrentPeb()->SharedData;
@@ -72,9 +72,9 @@ struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2)
     {
       v18 = 0LL;
     }
-    *(_QWORD *)(a1 + 88) = v13;
-    *(_QWORD *)(a1 + 96) = v2[11];
-    ((void (__fastcall *)(__int64, _QWORD, _QWORD *))v2[10])(a1, v2[11], v2);
+    Instance[11] = v13;
+    Instance[12] = v2[11];
+    ((void (__fastcall *)(_QWORD *, _QWORD, _QWORD *))v2[10])(Instance, v2[11], v2);
     result = NtCurrentPeb();
     v19 = result->SharedData;
     if ( v19 && *v19 )

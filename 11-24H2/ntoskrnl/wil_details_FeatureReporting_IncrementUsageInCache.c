@@ -1,7 +1,7 @@
 /*
- * XREFs of wil_details_FeatureReporting_IncrementUsageInCache @ 0x1403A4C40
+ * XREFs of wil_details_FeatureReporting_IncrementUsageInCache @ 0x14021E0F0
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1403A4B50 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x14021E000 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
  * Callees:
  *     <none>
  */

@@ -40,16 +40,16 @@ __int64 __fastcall PspDisassociateUmsThreadFromPrimary(PETHREAD Thread, __int64 
   int v14; // r12d
   unsigned __int64 v15; // rax
   void *v16; // rsp
-  __int64 v17; // rbx
-  __int64 v18; // r12
+  CONTEXT_CHUNK *p_XState; // rbx
+  PCONTEXT_EX v18; // r12
   __int64 v19; // rdx
   __int64 v20; // rcx
   __int64 v21; // rdx
   void *v22; // rcx
   __int64 v23; // r13
   int v24; // eax
-  __int64 v26; // [rsp+30h] [rbp+0h] BYREF
-  __int64 v27; // [rsp+38h] [rbp+8h]
+  ULONG ContextLength[2]; // [rsp+30h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+38h] [rbp+8h] BYREF
   int CycleTime; // [rsp+40h] [rbp+10h] BYREF
   int v29; // [rsp+44h] [rbp+14h]
   unsigned int CurrentRunTime; // [rsp+48h] [rbp+18h]
@@ -96,24 +96,24 @@ LABEL_10:
     {
       KeSetCurrentUmsTeb(Thread, (unsigned __int64)Thread->Teb);
       v14 = MEMORY[0xFFFFF780000003D8] != 0LL ? 0x40 : 0;
-      RtlGetExtendedContextLength((unsigned int)(v14 + 1048603));
-      v15 = (unsigned int)v26 + 15LL;
-      if ( v15 <= (unsigned int)v26 )
+      RtlGetExtendedContextLength(v14 + 1048603, ContextLength);
+      v15 = ContextLength[0] + 15LL;
+      if ( v15 <= ContextLength[0] )
         v15 = 0xFFFFFFFFFFFFFF0LL;
       v16 = alloca(v15 & 0xFFFFFFFFFFFFFFF0uLL);
-      memset(&v26, 0, (unsigned int)v26);
-      RtlInitializeExtendedContext((__int64)&v26, v14 + 1048603);
-      v17 = v27 - 1232;
-      v26 = v27 - 1232;
-      PspGetContextThreadInternal((__int64)Thread, v27 - 1232, 0, 1, 1);
-      v27 = **(_QWORD **)(Object + 496);
-      v18 = v27;
-      KeFixUserSwitchContext(Object, v27, 0LL, v17);
-      updated = KeRemoveUmsThreadCidOwnership(v18, 1);
+      memset(ContextLength, 0, ContextLength[0]);
+      RtlInitializeExtendedContext((PCONTEXT)ContextLength, v14 + 1048603, &ContextEx);
+      p_XState = &ContextEx[-39].XState;
+      *(_QWORD *)ContextLength = (char *)ContextEx - 1232;
+      PspGetContextThreadInternal((__int64)Thread, (__int64)&ContextEx[-39].XState, 0, 1, 1);
+      ContextEx = **(PCONTEXT_EX **)(Object + 496);
+      v18 = ContextEx;
+      KeFixUserSwitchContext(Object, (__int64)ContextEx, 0LL, (__int64)p_XState);
+      updated = KeRemoveUmsThreadCidOwnership((__int64)v18, 1);
       v9 = v8;
       if ( updated < 0 )
         goto LABEL_24;
-      v19 = v26;
+      v19 = *(_QWORD *)ContextLength;
       *a3 |= 2u;
       updated = PspSetUmsThreadContext(Object, v19, a3);
       if ( updated < 0 )
@@ -132,8 +132,8 @@ LABEL_10:
         *(_QWORD *)(v21 + 8) = v13[1];
         *(_QWORD *)(*(_QWORD *)(Object + 496) + 16LL) = v13[2];
       }
-      v23 = v26;
-      updated = KeBuildPrimaryThreadContext((__int64)Thread, 0LL, v26, 1, 0LL, 0LL);
+      v23 = *(_QWORD *)ContextLength;
+      updated = KeBuildPrimaryThreadContext((__int64)Thread, 0LL, *(__int64 *)ContextLength, 1, 0LL, 0LL);
       v9 = v8;
       if ( updated < 0 )
         goto LABEL_24;
@@ -141,7 +141,7 @@ LABEL_10:
       *a3 |= 8u;
       if ( !v8 )
         goto LABEL_24;
-      updated = KeUpdateUmsThreadState(v27, 0, 1);
+      updated = KeUpdateUmsThreadState((__int64)ContextEx, 0, 1);
     }
     v9 = v8;
     goto LABEL_24;

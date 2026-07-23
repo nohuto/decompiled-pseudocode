@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierPortKeAcquireSpinLock @ 0x1409DBB30
+ * XREFs of VerifierPortKeAcquireSpinLock @ 0x1409DCB30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C758C (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DD27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 __fastcall VerifierPortKeAcquireSpinLock(ULONG_PTR a1, _BYTE *a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall VerifierPortKeAcquireSpinLock(ULONG_PTR a1, _BYTE *a2, __int6
   __int64 v6; // rbx
   __int64 result; // rax
 
-  ++dword_140C2A868;
+  ++dword_140C2A8A8;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(a3, 156LL);
   VfUtilCheckKernelAddress(a1, 8uLL);

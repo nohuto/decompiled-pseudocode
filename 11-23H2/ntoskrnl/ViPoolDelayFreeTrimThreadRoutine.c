@@ -1,17 +1,17 @@
 /*
- * XREFs of ViPoolDelayFreeTrimThreadRoutine @ 0x140ADA260
+ * XREFs of ViPoolDelayFreeTrimThreadRoutine @ 0x140ADA250
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall __noreturn ViPoolDelayFreeTrimThreadRoutine(union _SLIST_HEADER *StartContext)
+void __fastcall __noreturn ViPoolDelayFreeTrimThreadRoutine(_SLIST_HEADER *StartContext)
 {
   PSLIST_ENTRY v2; // rax
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
 
   while ( 1 )
   {

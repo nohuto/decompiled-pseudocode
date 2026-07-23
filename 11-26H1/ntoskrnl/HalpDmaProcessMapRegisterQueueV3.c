@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaProcessMapRegisterQueueV3 @ 0x14043E9DC
+ * XREFs of HalpDmaProcessMapRegisterQueueV3 @ 0x1404374EC
  * Callers:
- *     IoFreeMapRegistersV3 @ 0x14043EBE0 (IoFreeMapRegistersV3.c)
- *     HalpGrowMapBufferWorker @ 0x1404EE5A0 (HalpGrowMapBufferWorker.c)
+ *     IoFreeMapRegistersV3 @ 0x1404376F0 (IoFreeMapRegistersV3.c)
+ *     HalpGrowMapBufferWorker @ 0x1404E7B80 (HalpGrowMapBufferWorker.c)
  * Callees:
- *     HalpAllocateDmaResourcesInternal @ 0x14043E70C (HalpAllocateDmaResourcesInternal.c)
- *     HalpDmaDequeueAdapter @ 0x140589338 (HalpDmaDequeueAdapter.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14043721C (HalpAllocateDmaResourcesInternal.c)
+ *     HalpDmaDequeueAdapter @ 0x14058BA08 (HalpDmaDequeueAdapter.c)
  */
 
 char __fastcall HalpDmaProcessMapRegisterQueueV3(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
  * XREFs of KeFlushEntireTb @ 0x1403C39C0
  * Callers:
- *     MiRebaseDynamicRelocationRegions @ 0x140B06C7C (MiRebaseDynamicRelocationRegions.c)
+ *     sub_140B06C7C @ 0x140B06C7C (sub_140B06C7C.c)
  * Callees:
- *     KiPreprocessFlushTb @ 0x1402F3FE0 (KiPreprocessFlushTb.c)
- *     KxFlushEntireTb @ 0x1402F411C (KxFlushEntireTb.c)
- *     KiFlushAddressSpaceTb @ 0x14039D960 (KiFlushAddressSpaceTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFlushTb @ 0x14063F75C (ExFlushTb.c)
+ *     sub_1402F3FE0 @ 0x1402F3FE0 (sub_1402F3FE0.c)
+ *     sub_1402F411C @ 0x1402F411C (sub_1402F411C.c)
+ *     sub_14039D960 @ 0x14039D960 (sub_14039D960.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_14063F75C @ 0x14063F75C (sub_14063F75C.c)
  */
 
 __int64 KeFlushEntireTb()
@@ -15,10 +15,10 @@ __int64 KeFlushEntireTb()
   __int64 v0; // r8
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r10
+  __int64 v3; // r10
   unsigned __int8 v4; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v6; // r8
+  __int64 v6; // r8
   int v7; // eax
   bool v8; // zf
   char v9; // [rsp+50h] [rbp+18h] BYREF
@@ -26,40 +26,40 @@ __int64 KeFlushEntireTb()
 
   v9 = 0;
   v10 = 0;
-  KiPreprocessFlushTb(1, 3u, 2, &v9, &v10);
+  sub_1402F3FE0(1, 3u, 2, &v9, &v10);
   if ( v9 )
   {
     LOBYTE(v0) = 1;
-    result = KiFlushAddressSpaceTb(0LL, 0LL, v0, 1);
+    result = sub_14039D960(0LL, 0LL, v0, 1);
   }
   else
   {
-    result = KxFlushEntireTb(2);
+    result = sub_1402F411C(2);
   }
-  if ( ExTbFlushActive )
+  if ( dword_140D01470 )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
     {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
+      v3 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+      *(_DWORD *)(v3 + 20) |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
     }
-    ExFlushTb(0LL, 0LL, 3LL);
-    if ( KiIrqlFlags )
+    sub_14063F75C(0LL, 0LL, 3LL);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         v4 = KeGetCurrentIrql();
         if ( v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v6 = CurrentPrcb->SchedulerAssist;
+          v6 = *((_QWORD *)CurrentPrcb + 4375);
           v7 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v8 = (v7 & v6[5]) == 0;
-          v6[5] &= v7;
+          v8 = (v7 & *(_DWORD *)(v6 + 20)) == 0;
+          *(_DWORD *)(v6 + 20) &= v7;
           if ( v8 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            sub_140418E4C(CurrentPrcb);
         }
       }
     }

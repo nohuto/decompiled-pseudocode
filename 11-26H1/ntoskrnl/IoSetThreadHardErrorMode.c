@@ -1,15 +1,15 @@
 /*
- * XREFs of IoSetThreadHardErrorMode @ 0x140491610
+ * XREFs of IoSetThreadHardErrorMode @ 0x14048B160
  * Callers:
- *     EtwpPsProvCaptureState @ 0x14082FE4C (EtwpPsProvCaptureState.c)
- *     CmpCmdHiveOpen @ 0x1408B4674 (CmpCmdHiveOpen.c)
- *     CmpCmdHiveClose @ 0x1408B81BC (CmpCmdHiveClose.c)
- *     ObKillProcess @ 0x140958EE4 (ObKillProcess.c)
- *     EtwTraceProcess @ 0x14096E118 (EtwTraceProcess.c)
- *     FsRtlGetFileSize @ 0x140A56DE0 (FsRtlGetFileSize.c)
- *     FsRtlSetFileSize @ 0x140A57278 (FsRtlSetFileSize.c)
- *     EtwpKernelTraceRundown @ 0x140A70518 (EtwpKernelTraceRundown.c)
- *     CmpDoFileSetSizeEx @ 0x140AAA978 (CmpDoFileSetSizeEx.c)
+ *     EtwpPsProvCaptureState @ 0x14083608C (EtwpPsProvCaptureState.c)
+ *     CmpCmdHiveOpen @ 0x1408BAC48 (CmpCmdHiveOpen.c)
+ *     CmpCmdHiveClose @ 0x1408BE78C (CmpCmdHiveClose.c)
+ *     EtwTraceProcess @ 0x1409D02D8 (EtwTraceProcess.c)
+ *     ObKillProcess @ 0x1409FE7A8 (ObKillProcess.c)
+ *     FsRtlGetFileSize @ 0x140A64360 (FsRtlGetFileSize.c)
+ *     FsRtlSetFileSize @ 0x140A647F8 (FsRtlSetFileSize.c)
+ *     EtwpKernelTraceRundown @ 0x140A99DCC (EtwpKernelTraceRundown.c)
+ *     CmpDoFileSetSizeEx @ 0x140AA7F58 (CmpDoFileSetSizeEx.c)
  * Callees:
  *     <none>
  */

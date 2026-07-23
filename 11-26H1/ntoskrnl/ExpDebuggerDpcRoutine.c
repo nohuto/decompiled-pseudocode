@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpDebuggerDpcRoutine @ 0x1406D0A90
+ * XREFs of ExpDebuggerDpcRoutine @ 0x1406D4AC0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void ExpDebuggerDpcRoutine()
 {
-  ExQueueWorkItem((PWORK_QUEUE_ITEM)&ExSaPageGroupDescriptorArrayLock.648, DelayedWorkQueue);
+  ExQueueWorkItem((PWORK_QUEUE_ITEM)&ExSaPageGroupDescriptorArrayLock.SchedulerApcFill5[40], DelayedWorkQueue);
 }

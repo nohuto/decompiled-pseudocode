@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpWalkUnicodeStringPath @ 0x140825BB0
+ * XREFs of CmpWalkUnicodeStringPath @ 0x140825EB0
  * Callers:
- *     CmpWalkPath @ 0x140825B68 (CmpWalkPath.c)
+ *     CmpWalkPath @ 0x140825E68 (CmpWalkPath.c)
  *     CmpFindHiveSubKey @ 0x140B590B8 (CmpFindHiveSubKey.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x140825970 (CmpFindSubKeyByNameWithStatus.c)
- *     CmpGetNextName @ 0x140825C74 (CmpGetNextName.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x140825C70 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpGetNextName @ 0x140825F74 (CmpGetNextName.c)
  */
 
 __int64 __fastcall CmpWalkUnicodeStringPath(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, __int128 *a3)

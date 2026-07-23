@@ -1,21 +1,21 @@
 /*
- * XREFs of PopSystemIrpCompletion @ 0x140AA75C0
+ * XREFs of PopSystemIrpCompletion @ 0x140AA7430
  * Callers:
- *     PopFxHandleReportDevicePoweredOn @ 0x14028D050 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x14028D2E0 (PopFxHandleReportDevicePoweredOn.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopFreeIrp @ 0x14028E298 (PopFreeIrp.c)
- *     PopDequeueQuerySetIrp @ 0x14028E3BC (PopDequeueQuerySetIrp.c)
- *     KeReleaseSemaphore @ 0x140321430 (KeReleaseSemaphore.c)
- *     IoFindDeviceThatFailedIrp @ 0x140367DA4 (IoFindDeviceThatFailedIrp.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxIncrementDeviceSleepCount @ 0x14058A634 (PopFxIncrementDeviceSleepCount.c)
- *     PopCompleteNotifyTransitionCommon @ 0x14059049C (PopCompleteNotifyTransitionCommon.c)
- *     PopDiagTraceIrpPended @ 0x14059419C (PopDiagTraceIrpPended.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopFreeIrp @ 0x14028E528 (PopFreeIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x14028E64C (PopDequeueQuerySetIrp.c)
+ *     KeReleaseSemaphore @ 0x1403216C0 (KeReleaseSemaphore.c)
+ *     IoFindDeviceThatFailedIrp @ 0x140367F44 (IoFindDeviceThatFailedIrp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x14058AB24 (PopFxIncrementDeviceSleepCount.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x14059098C (PopCompleteNotifyTransitionCommon.c)
+ *     PopDiagTraceIrpPended @ 0x14059468C (PopDiagTraceIrpPended.c)
  */
 
 __int64 __fastcall PopSystemIrpCompletion(__int64 a1, IRP *a2, __int64 a3)
@@ -72,10 +72,13 @@ __int64 __fastcall PopSystemIrpCompletion(__int64 a1, IRP *a2, __int64 a3)
           _InterlockedOr((volatile signed __int32 *)(v9 + 32), 0x400u);
           PopDiagTraceIrpPended((__int64)a2);
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v5 - 18);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v10 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -92,10 +95,10 @@ __int64 __fastcall PopSystemIrpCompletion(__int64 a1, IRP *a2, __int64 a3)
       }
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v5 - 18);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v16 >= 2u )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;
@@ -122,8 +125,8 @@ __int64 __fastcall PopSystemIrpCompletion(__int64 a1, IRP *a2, __int64 a3)
   }
   PopDequeueQuerySetIrp((__int64)a2);
   PopFreeIrp(a2);
-  v22 = (PRKSEMAPHORE *)qword_140C3CD70;
-  if ( (*(_BYTE *)qword_140C3CD70 == 2 || *(_BYTE *)qword_140C3CD70 == 3) && *((int *)qword_140C3CD70 + 1) > 1 )
+  v22 = (PRKSEMAPHORE *)qword_140C3CD10;
+  if ( (*(_BYTE *)qword_140C3CD10 == 2 || *(_BYTE *)qword_140C3CD10 == 3) && *((int *)qword_140C3CD10 + 1) > 1 )
   {
     PopFxIncrementDeviceSleepCount(*(v5 - 16));
     ObfDereferenceObjectWithTag((PVOID)*(v5 - 16), 0x72496F50u);

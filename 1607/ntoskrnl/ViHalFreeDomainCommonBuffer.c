@@ -1,10 +1,10 @@
 /*
- * XREFs of ViHalFreeDomainCommonBuffer @ 0x140709A1C
+ * XREFs of ViHalFreeDomainCommonBuffer @ 0x140709A4C
  * Callers:
- *     VfFreeCommonBuffer @ 0x140707280 (VfFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x1407072B0 (VfFreeCommonBuffer.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

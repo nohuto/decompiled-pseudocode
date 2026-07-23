@@ -1,11 +1,11 @@
 /*
- * XREFs of KiConfigureHeteroMultiCoreProcessors @ 0x140A9028C
+ * XREFs of KiConfigureHeteroMultiCoreProcessors @ 0x140A8C988
  * Callers:
- *     KiComputeHeteroConfig @ 0x140438A8C (KiComputeHeteroConfig.c)
+ *     KiComputeHeteroConfig @ 0x14042B64C (KiComputeHeteroConfig.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KiPrepareUpdateCoresHeteroMask @ 0x14073AE3C (KiPrepareUpdateCoresHeteroMask.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KiPrepareUpdateCoresHeteroMask @ 0x140738D6C (KiPrepareUpdateCoresHeteroMask.c)
  */
 
 __int64 __fastcall KiConfigureHeteroMultiCoreProcessors(__int64 a1, __int64 a2, int a3, char a4)

@@ -11,7 +11,7 @@
 __int64 __fastcall SC_GPT::CreatePartitionTable(SC_GPT *this, struct _CREATE_DISK *a2)
 {
   __int128 v4; // xmm0
-  ULONG MaxPartitionCount; // eax
+  DWORD MaxPartitionCount; // eax
   _QWORD v7[24]; // [rsp+20h] [rbp-D8h] BYREF
 
   memset(v7, 0, sizeof(v7));

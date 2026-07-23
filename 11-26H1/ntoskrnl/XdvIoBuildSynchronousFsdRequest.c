@@ -1,9 +1,9 @@
 /*
- * XREFs of XdvIoBuildSynchronousFsdRequest @ 0x140645300
+ * XREFs of XdvIoBuildSynchronousFsdRequest @ 0x140648EE0
  * Callers:
- *     IovBuildSynchronousFsdRequest @ 0x140C20D70 (IovBuildSynchronousFsdRequest.c)
+ *     IovBuildSynchronousFsdRequest @ 0x140C26D80 (IovBuildSynchronousFsdRequest.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall XdvIoBuildSynchronousFsdRequest(__int64 a1, __int64 a2)

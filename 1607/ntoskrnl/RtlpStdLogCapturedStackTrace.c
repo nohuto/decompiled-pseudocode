@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpStdLogCapturedStackTrace @ 0x140211BF4
+ * XREFs of RtlpStdLogCapturedStackTrace @ 0x140211A20
  * Callers:
- *     RtlStdLogStackTrace @ 0x140211758 (RtlStdLogStackTrace.c)
+ *     RtlStdLogStackTrace @ 0x140211584 (RtlStdLogStackTrace.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlpStdGetSpaceForTrace @ 0x140211B38 (RtlpStdGetSpaceForTrace.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlpStdGetSpaceForTrace @ 0x140211964 (RtlpStdGetSpaceForTrace.c)
  */
 
 KSPIN_LOCK __fastcall RtlpStdLogCapturedStackTrace(PKSPIN_LOCK SpinLock, __int64 a2, unsigned int a3)
@@ -17,7 +17,7 @@ KSPIN_LOCK __fastcall RtlpStdLogCapturedStackTrace(PKSPIN_LOCK SpinLock, __int64
   __int64 v8; // rbx
   KSPIN_LOCK *v9; // rbp
   KSPIN_LOCK i; // rbx
-  struct _SLIST_ENTRY *SpaceForTrace; // rax
+  _SLIST_ENTRY *SpaceForTrace; // rax
   __int16 v12; // cx
   __int64 v13; // rdx
   __int16 v14; // cx

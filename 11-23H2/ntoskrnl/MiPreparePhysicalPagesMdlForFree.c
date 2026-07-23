@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPreparePhysicalPagesMdlForFree @ 0x14064B0E8
+ * XREFs of MiPreparePhysicalPagesMdlForFree @ 0x14064B638
  * Callers:
- *     NtFreeUserPhysicalPages @ 0x140A42320 (NtFreeUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x140A425D0 (NtFreeUserPhysicalPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPreparePhysicalPagesMdlForFree(__int64 a1, unsigned __int64 a2)
@@ -58,7 +58,7 @@ __int64 __fastcall MiPreparePhysicalPagesMdlForFree(__int64 a1, unsigned __int64
   v8 = (unsigned __int64)(unsigned int)*v3 >> 12;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -81,10 +81,10 @@ __int64 __fastcall MiPreparePhysicalPagesMdlForFree(__int64 a1, unsigned __int64
     _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( (++v7 & 0x3F) == 0 && KeShouldYieldProcessor() )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v15 = CurrentPrcb->SchedulerAssist;
@@ -98,7 +98,7 @@ __int64 __fastcall MiPreparePhysicalPagesMdlForFree(__int64 a1, unsigned __int64
       __writecr8(CurrentIrql);
       v18 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
       {
         v19 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v18 == 2 )
@@ -110,10 +110,10 @@ __int64 __fastcall MiPreparePhysicalPagesMdlForFree(__int64 a1, unsigned __int64
     }
     ++v2;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

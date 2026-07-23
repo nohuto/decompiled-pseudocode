@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpHandleInvalidUserCallTarget @ 0x180121450
+ * XREFs of LdrpHandleInvalidUserCallTarget @ 0x18011F680
  * Callers:
- *     LdrpValidateUserCallTarget @ 0x180121510 (LdrpValidateUserCallTarget.c)
- *     LdrpValidateUserCallTargetES @ 0x180121560 (LdrpValidateUserCallTargetES.c)
- *     LdrpDispatchUserCallTarget @ 0x1801215B0 (LdrpDispatchUserCallTarget.c)
- *     LdrpDispatchUserCallTargetES @ 0x180121610 (LdrpDispatchUserCallTargetES.c)
+ *     LdrpValidateUserCallTarget @ 0x18011F740 (LdrpValidateUserCallTarget.c)
+ *     LdrpValidateUserCallTargetES @ 0x18011F790 (LdrpValidateUserCallTargetES.c)
+ *     LdrpDispatchUserCallTarget @ 0x18011F7E0 (LdrpDispatchUserCallTarget.c)
+ *     LdrpDispatchUserCallTargetES @ 0x18011F840 (LdrpDispatchUserCallTargetES.c)
  * Callees:
- *     RtlpHandleInvalidUserCallTarget @ 0x1801467D0 (RtlpHandleInvalidUserCallTarget.c)
+ *     RtlpHandleInvalidUserCallTarget @ 0x180144B80 (RtlpHandleInvalidUserCallTarget.c)
  */
 
 void __fastcall LdrpHandleInvalidUserCallTarget()

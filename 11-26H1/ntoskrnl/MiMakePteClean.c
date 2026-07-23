@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMakePteClean @ 0x14031A2A0
+ * XREFs of MiMakePteClean @ 0x14031C2D0
  * Callers:
- *     MiWalkPtesForWriteWatchState @ 0x1403178F8 (MiWalkPtesForWriteWatchState.c)
- *     MiMoveDirtyBitsToPfns @ 0x140319470 (MiMoveDirtyBitsToPfns.c)
+ *     MiWalkPtesForWriteWatchState @ 0x140319928 (MiWalkPtesForWriteWatchState.c)
+ *     MiMoveDirtyBitsToPfns @ 0x14031B4A0 (MiMoveDirtyBitsToPfns.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiCompressTbFlushList @ 0x1404DAB9C (MiCompressTbFlushList.c)
- *     qsort @ 0x140536F00 (qsort.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiCompressTbFlushList @ 0x1404D427C (MiCompressTbFlushList.c)
+ *     qsort @ 0x140539380 (qsort.c)
  */
 
 char __fastcall MiMakePteClean(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
@@ -116,7 +116,7 @@ char __fastcall MiMakePteClean(unsigned __int64 a1, unsigned __int64 a2, __int64
   if ( MiPteHasShadow() )
   {
     v13 = 1;
-    if ( !BYTE5(stru_140E2D930.Header.WaitListHead.Blink) )
+    if ( !BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) )
     {
       v33 = v43;
       if ( (v43 & 1) != 0 )
@@ -227,7 +227,7 @@ LABEL_21:
 LABEL_48:
   LOBYTE(v34) = -1;
   v35 = (v4 >> 12) & 0xFFFFFFFFFFLL;
-  if ( v35 <= qword_140E2D7A0 )
+  if ( v35 <= qword_140E2D920 )
   {
     v34 = *(_QWORD *)(48 * v35 - 0x21FFFFFFFFD8LL);
     if ( (v34 & 0x40000000000000LL) != 0 )
@@ -243,9 +243,9 @@ LABEL_48:
       v34 = MiCaptureDirtyBitToPfn(v36);
       if ( v34 )
       {
-        v37 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v36 + 40) >> 43) & 0x3FFLL));
+        v37 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v36 + 40) >> 43) & 0x3FFLL));
         _InterlockedAnd64((volatile signed __int64 *)(v36 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        LOBYTE(v34) = MiReleasePageFileInfo(v37, v34, 1);
+        LOBYTE(v34) = MiReleasePageFileInfo(v37, v34, 1LL);
       }
       else
       {

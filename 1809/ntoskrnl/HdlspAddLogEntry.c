@@ -1,18 +1,18 @@
 /*
- * XREFs of HdlspAddLogEntry @ 0x14094BAE0
+ * XREFs of HdlspAddLogEntry @ 0x14094CAE0
  * Callers:
- *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x14094CE50 (HdlspDispatch.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcscmp @ 0x140197700 (wcscmp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcscmp @ 0x140197840 (wcscmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HdlspAddLogEntry(_WORD *Src)

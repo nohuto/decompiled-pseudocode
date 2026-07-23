@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIssueNextState @ 0x140569344
+ * XREFs of PopIssueNextState @ 0x14056A344
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140569DB8 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     PopHandleNextState @ 0x140569410 (PopHandleNextState.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     PopHandleNextState @ 0x14056A410 (PopHandleNextState.c)
  */
 
 __int64 __fastcall PopIssueNextState(__int64 a1, _DWORD *a2, __int32 a3)

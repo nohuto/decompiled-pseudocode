@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteNonPagedPoolPte @ 0x140363600
+ * XREFs of MiDeleteNonPagedPoolPte @ 0x1403653A0
  * Callers:
- *     MiClearNonPagedPtes @ 0x1403633B8 (MiClearNonPagedPtes.c)
+ *     MiClearNonPagedPtes @ 0x140365158 (MiClearNonPagedPtes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiEvictPageTableLock @ 0x14029E998 (MiEvictPageTableLock.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140363B4C (MiInsertRecursiveTbFlushEntries.c)
- *     MiDecommitLargePoolVa @ 0x1403C3720 (MiDecommitLargePoolVa.c)
- *     MiBadRefCount @ 0x1405067A4 (MiBadRefCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiEvictPageTableLock @ 0x14029DEE8 (MiEvictPageTableLock.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1403658EC (MiInsertRecursiveTbFlushEntries.c)
+ *     MiDecommitLargePoolVa @ 0x1403CD620 (MiDecommitLargePoolVa.c)
+ *     MiBadRefCount @ 0x140500054 (MiBadRefCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -67,7 +67,7 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
           *v9 = (__int64)ProcessorFlushList;
           MiInitializeTbFlushList(
             (__int64)ProcessorFlushList,
-            (__int64)&unk_140E37440,
+            (__int64)&unk_140E375C0,
             *((_DWORD *)ProcessorFlushList + 3),
             0,
             1);
@@ -81,7 +81,7 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
       v10 = 48 * ((v3 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
       if ( a3 == 1 )
       {
-        if ( !(unsigned int)MiEvictPageTableLock((__int64)&unk_140E37440, a2, 1LL, *(__int64 *)&CLFS_LSN_NULL_EXT) )
+        if ( !(unsigned int)MiEvictPageTableLock((__int64)&unk_140E375C0, a2, 1LL, *(__int64 *)&CLFS_LSN_NULL_EXT) )
           return 0LL;
         v11 = (_DWORD *)v9 + 9;
       }
@@ -91,7 +91,7 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
         if ( (*((_DWORD *)v9 + 9) & 1) == 0 )
           return 0LL;
         if ( (v3 & 0x200) != 0 )
-          _InterlockedDecrement64(&qword_140E2C740);
+          _InterlockedDecrement64(&qword_140E2C8C0);
         *(_QWORD *)a2 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
         if ( (*(_BYTE *)(v10 + 35) & 0x10) == 0 )
           ++*((_DWORD *)v9 + 11);
@@ -130,12 +130,12 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
           *v9 = (__int64)v18;
           *((_DWORD *)v18 + 4) = 0;
           *((_DWORD *)v18 + 5) = 1;
-          *v18 = (__int64)&unk_140E37440;
-          *((_BYTE *)v18 + 24) = (dword_140E374F8 & 0x40) != 0;
-          if ( (dword_140E374F8 & 0xF) != 0
-            || &unk_140E37440 == (_UNKNOWN *)&KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
+          *v18 = (__int64)&unk_140E375C0;
+          *((_BYTE *)v18 + 24) = (dword_140E37678 & 0x40) != 0;
+          if ( (dword_140E37678 & 0xF) != 0
+            || &unk_140E375C0 == (_UNKNOWN *)&KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
           {
-            v19 = (dword_140E374F8 & 0xF) == 0;
+            v19 = (dword_140E37678 & 0xF) == 0;
           }
           else
           {
@@ -191,10 +191,10 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
           _InterlockedOr(v32, 0);
           if ( v14 )
           {
-            if ( qword_140E2D740 )
+            if ( qword_140E2D8C0 )
             {
               v30 = v14;
-              v31 = qword_140E2D748 & v14;
+              v31 = qword_140E2D8C8 & v14;
               v14 &= ~0x10uLL;
               if ( (v30 & 0x10) == 0 )
                 v14 = v31;
@@ -205,19 +205,19 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
             v14 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
           }
           v15 = v14 & 0x800000007FFFFFFFuLL | ((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 31);
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
-            if ( (qword_140E2D740 & v15) != 0 )
+            if ( (qword_140E2D8C0 & v15) != 0 )
               v15 |= 0x10uLL;
             else
-              v15 |= qword_140E2D740;
+              v15 |= qword_140E2D8C0;
           }
           v33[0] = v15;
           v13 = v15;
           *(_QWORD *)a2 = v15;
         }
-        if ( qword_140E2D740 && (v13 & 0x10) == 0 )
-          v13 &= qword_140E2D748;
+        if ( qword_140E2D8C0 && (v13 & 0x10) == 0 )
+          v13 &= qword_140E2D8C8;
         if ( !(unsigned int)(v13 >> 31) )
         {
           if ( *v9 )
@@ -228,7 +228,7 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
           {
             v28 = MiGetProcessorFlushList();
             *v9 = (__int64)v28;
-            MiInitializeTbFlushList((__int64)v28, (__int64)&unk_140E37440, *((_DWORD *)v28 + 3), 0, 1);
+            MiInitializeTbFlushList((__int64)v28, (__int64)&unk_140E375C0, *((_DWORD *)v28 + 3), 0, 1);
           }
           MiInsertTbFlushEntry(*v9, (__int64)(a2 << 25) >> 16, v29, 0);
         }

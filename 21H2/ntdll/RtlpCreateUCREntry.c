@@ -7,8 +7,8 @@
  * Callees:
  *     RtlpInsertUCRBlock @ 0x18000EA8C (RtlpInsertUCRBlock.c)
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x180108280 (RtlpHeapHandleError.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x180108240 (RtlpHeapHandleError.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  */
 
 __int64 *__fastcall RtlpCreateUCREntry(

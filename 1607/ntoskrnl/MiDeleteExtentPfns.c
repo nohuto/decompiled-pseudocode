@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteExtentPfns @ 0x1401ED590
+ * XREFs of MiDeleteExtentPfns @ 0x1401ED3BC
  * Callers:
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  */
 
 void __fastcall MiDeleteExtentPfns(__int64 a1)
@@ -15,16 +15,16 @@ void __fastcall MiDeleteExtentPfns(__int64 a1)
 
   do
   {
-    while ( qword_140326670 )
+    while ( qword_1403266B0 )
       MiRemovePhysicalMemory(0LL, 0LL, 50LL);
-    v2 = ExAcquireSpinLockExclusive(&dword_140326678);
-    v3 = qword_140326670;
-    if ( !qword_140326670 )
+    v2 = ExAcquireSpinLockExclusive(&dword_1403266B8);
+    v3 = qword_1403266B0;
+    if ( !qword_1403266B0 )
     {
       if ( a1 )
-        byte_1403266A0 = qword_140326670;
+        byte_1403266E0 = qword_1403266B0;
     }
-    ExReleaseSpinLockExclusive(&dword_140326678, v2);
+    ExReleaseSpinLockExclusive(&dword_1403266B8, v2);
   }
   while ( v3 );
 }

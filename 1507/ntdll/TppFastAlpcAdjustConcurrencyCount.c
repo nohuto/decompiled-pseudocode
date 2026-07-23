@@ -24,7 +24,7 @@ __int64 __fastcall TppFastAlpcAdjustConcurrencyCount(__int64 a1)
       if ( (int)result >= v3 && (int)result <= (int)(v4 + MEMORY[0x7FFE03C0]) )
         break;
       if ( (_DWORD)result == _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 276), v4, result) )
-        AlpcAdjustCompletionListConcurrencyCount(*(_QWORD *)(a1 + 264), v4);
+        AlpcAdjustCompletionListConcurrencyCount(*(HANDLE *)(a1 + 264), v4);
     }
   }
   return result;

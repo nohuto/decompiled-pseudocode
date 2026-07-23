@@ -10,13 +10,13 @@ int __thiscall SetAssertBufferPtrinPeb(void *this)
 {
   int v2; // esi
   struct _PEB *v3; // eax
-  struct _PEB *v5; // [esp+8h] [ebp-4h] BYREF
+  struct _PEB *ProcessInformation; // [esp+8h] [ebp-4h] BYREF
 
-  v5 = 0;
+  ProcessInformation = 0;
   v2 = -1073741823;
-  ZwQueryInformationProcess(-1, 26, (int)&v5, 4, 0);
+  ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessWow64Information, &ProcessInformation, 4u, 0);
   v3 = NtCurrentPeb();
-  if ( v3 && (v5 == v3 || !v5) )
+  if ( v3 && (ProcessInformation == v3 || !ProcessInformation) )
   {
     v3->WerShipAssertPtr = this;
     return 0;

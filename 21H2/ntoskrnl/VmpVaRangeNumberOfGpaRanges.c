@@ -1,9 +1,9 @@
 /*
- * XREFs of VmpVaRangeNumberOfGpaRanges @ 0x1405A55D0
+ * XREFs of VmpVaRangeNumberOfGpaRanges @ 0x1405A5800
  * Callers:
- *     VmpMergeMemoryRanges @ 0x1405A4340 (VmpMergeMemoryRanges.c)
- *     VmpRemoveMemoryRange @ 0x1405A4E54 (VmpRemoveMemoryRange.c)
- *     VmpSplitMemoryRange @ 0x1405A5144 (VmpSplitMemoryRange.c)
+ *     VmpMergeMemoryRanges @ 0x1405A4570 (VmpMergeMemoryRanges.c)
+ *     VmpRemoveMemoryRange @ 0x1405A5084 (VmpRemoveMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x1405A5374 (VmpSplitMemoryRange.c)
  * Callees:
  *     <none>
  */

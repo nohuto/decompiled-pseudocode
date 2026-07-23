@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateHyperSpace @ 0x14045E5F0
+ * XREFs of MiAllocateHyperSpace @ 0x140458190
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x14036C478 (MiCopyDataPageToImagePage.c)
+ *     MiCopyDataPageToImagePage @ 0x14036E218 (MiCopyDataPageToImagePage.c)
  * Callees:
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
  */
 
 unsigned __int64 __fastcall MiAllocateHyperSpace(__int64 a1)

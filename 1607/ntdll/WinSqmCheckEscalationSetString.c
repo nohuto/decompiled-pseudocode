@@ -1,8 +1,8 @@
 /*
- * XREFs of WinSqmCheckEscalationSetString @ 0x180086890
+ * XREFs of WinSqmCheckEscalationSetString @ 0x180086880
  * Callers:
- *     _call_matherr @ 0x18009E8C8 (_call_matherr.c)
- *     _umatherr @ 0x18009F7F8 (_umatherr.c)
+ *     _call_matherr @ 0x18009E8B8 (_call_matherr.c)
+ *     _umatherr @ 0x18009F7E8 (_umatherr.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierKfRaiseIrql @ 0x14093A8B0
+ * XREFs of VerifierKfRaiseIrql @ 0x14093B8B0
  * Callers:
  *     <none>
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x14093B048 (ViKeRaiseIrqlSanityChecks.c)
+ *     KeAreInterruptsEnabled @ 0x1400CADE4 (KeAreInterruptsEnabled.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x14093607C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x14093C048 (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKfRaiseIrql(char a1)
@@ -21,7 +21,7 @@ __int64 __fastcall VerifierKfRaiseIrql(char a1)
   v1 = (__int64 (__fastcall *)(__int64))pXdvKfRaiseIrql;
   if ( KeAreInterruptsEnabled() )
   {
-    ++dword_14041A984;
+    ++dword_14041BA64;
     if ( (MmVerifierData & 0x1000) != 0 )
       ViTargetIncrementCounter(retaddr, 144LL);
   }

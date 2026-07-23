@@ -1,13 +1,13 @@
 /*
- * XREFs of ObQueryObjectAuditingByHandle @ 0x1409728D0
+ * XREFs of ObQueryObjectAuditingByHandle @ 0x1409BA6D0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     ExMapHandleToPointer @ 0x1408FA200 (ExMapHandleToPointer.c)
- *     ObReferenceProcessHandleTable @ 0x1409717D0 (ObReferenceProcessHandleTable.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     ExMapHandleToPointer @ 0x14092A190 (ExMapHandleToPointer.c)
+ *     ObReferenceProcessHandleTable @ 0x1409BB940 (ObReferenceProcessHandleTable.c)
  */
 
 NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN GenerateOnClose)
@@ -16,7 +16,7 @@ NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN Generat
   struct _KTHREAD *CurrentThread; // r14
   __int64 v5; // rbx
   struct _EX_RUNDOWN_REF *Process; // rsi
-  unsigned __int64 Count; // rdi
+  __int64 Count; // rdi
   signed __int64 *v8; // rax
   __int64 v9; // rdx
   __int64 v10; // rbx

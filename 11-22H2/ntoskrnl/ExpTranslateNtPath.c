@@ -19,7 +19,7 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
+int __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
 {
   int v5; // esi
   const WCHAR *v8; // rbx
@@ -28,7 +28,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   unsigned __int64 v11; // rdx
   __int64 v12; // rax
   wchar_t *v13; // r14
-  NTSTATUS result; // eax
+  int result; // eax
   wchar_t *Buffer; // rbx
   int OutputARC; // esi
   NTSTATUS v17; // ebx
@@ -36,7 +36,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   _DWORD *i; // rax
   NTSTATUS v20; // r15d
   _DWORD *v21; // rbx
-  unsigned int *v22; // rbx
+  GUID *v22; // rbx
   __int64 v23; // rcx
   int v24; // eax
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
@@ -132,11 +132,11 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
       ZwClose(FileHandle);
       if ( LODWORD(OutputBuffer[0]) == 1 )
       {
-        v22 = (unsigned int *)&OutputBuffer[6];
+        v22 = (GUID *)&OutputBuffer[6];
       }
       else
       {
-        v22 = (unsigned int *)&v32;
+        v22 = (GUID *)&v32;
         v9 = 0;
       }
       if ( v5 != 4 )

@@ -27,7 +27,7 @@
  *     HvpReviveDiscardedBin @ 0x1406A0FE8 (HvpReviveDiscardedBin.c)
  */
 
-__int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3)
+__int64 __fastcall HvpAddBin(__int64 BugCheckParameter2, unsigned int a2, int a3)
 {
   unsigned int *v3; // r13
   __int64 v4; // r12
@@ -73,7 +73,7 @@ __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int 
   _DWORD *v46; // rcx
   __int64 v47; // rcx
   _QWORD *v48; // r13
-  __int64 *v49; // rax
+  __int64 v49; // rax
   __int64 v50; // rcx
   int v51; // ebx
   ULONG v52; // eax
@@ -94,8 +94,8 @@ __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int 
   void *v67; // [rsp+80h] [rbp-19h] BYREF
   __int64 v68; // [rsp+88h] [rbp-11h]
   __int64 v69; // [rsp+90h] [rbp-9h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+98h] [rbp-1h] BYREF
-  struct _RTL_BITMAP v71; // [rsp+A8h] [rbp+Fh] BYREF
+  _RTL_BITMAP Destination; // [rsp+98h] [rbp-1h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+A8h] [rbp+Fh] BYREF
   char v72; // [rsp+100h] [rbp+67h]
   char v73; // [rsp+108h] [rbp+6Fh]
   int v74; // [rsp+118h] [rbp+7Fh]
@@ -169,26 +169,26 @@ __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int 
           if ( !*(_QWORD *)&Size[1] )
             goto LABEL_68;
           v30 = *(_QWORD *)(BugCheckParameter2 + 80) == 0LL;
+          Destination.SizeOfBitMap = (unsigned int)v63;
           BitMapHeader.SizeOfBitMap = (unsigned int)v63;
-          v71.SizeOfBitMap = (unsigned int)v63;
-          BitMapHeader.Buffer = v3;
-          v71.Buffer = *(unsigned int **)&Size[1];
+          Destination.Buffer = v3;
+          BitMapHeader.Buffer = *(unsigned int **)&Size[1];
           if ( v30 )
           {
             memset(v3, 0, Size[0]);
           }
           else
           {
-            RtlCopyBitMap((int *)(BugCheckParameter2 + 72), (__int64)&BitMapHeader, 0);
-            RtlClearBits(&BitMapHeader, StartingIndex, (_DWORD)v63 - StartingIndex);
+            RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 72), &Destination, 0);
+            RtlClearBits(&Destination, StartingIndex, (_DWORD)v63 - StartingIndex);
             (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter2 + 32))(
               *(_QWORD *)(BugCheckParameter2 + 80),
               *(unsigned int *)(BugCheckParameter2 + 92));
           }
           if ( *(_QWORD *)(BugCheckParameter2 + 104) )
           {
-            RtlCopyBitMap((int *)(BugCheckParameter2 + 96), (__int64)&v71, 0);
-            RtlClearBits(&v71, StartingIndex, (_DWORD)v63 - StartingIndex);
+            RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 96), &BitMapHeader, 0);
+            RtlClearBits(&BitMapHeader, StartingIndex, (_DWORD)v63 - StartingIndex);
             (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter2 + 32))(
               *(_QWORD *)(BugCheckParameter2 + 104),
               *(unsigned int *)(BugCheckParameter2 + 92));
@@ -269,14 +269,14 @@ LABEL_27:
           v23 = v74;
           v48 = (_QWORD *)v68;
           HvpPointMapEntriesToBuffer(BugCheckParameter2, v21, v22, v74 - v6, v6 + ((_DWORD)v4 << 31), v68);
-          v49 = (__int64 *)(BugCheckParameter2 + v69 + 2008);
-          v50 = *v49;
-          if ( *(__int64 **)(*v49 + 8) != v49 )
+          v49 = BugCheckParameter2 + v69 + 2008;
+          v50 = *(_QWORD *)v49;
+          if ( *(_QWORD *)(*(_QWORD *)v49 + 8LL) != v49 )
             __fastfail(3u);
           *v48 = v50;
           v48[1] = v49;
           *(_QWORD *)(v50 + 8) = v48;
-          *v49 = (__int64)v48;
+          *(_QWORD *)v49 = v48;
         }
         else
         {

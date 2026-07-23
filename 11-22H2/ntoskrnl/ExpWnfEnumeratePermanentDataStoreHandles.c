@@ -6,7 +6,7 @@
  *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140855A3C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
  */
 
-NTSTATUS __fastcall ExpWnfEnumeratePermanentDataStoreHandles(int a1, int a2, int a3, HANDLE *a4)
+int __fastcall ExpWnfEnumeratePermanentDataStoreHandles(int a1, int a2, int a3, HANDLE *a4)
 {
   if ( a1 == 2 || a3 )
     return -1073741772;

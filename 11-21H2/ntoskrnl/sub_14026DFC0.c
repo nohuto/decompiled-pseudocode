@@ -1,0 +1,115 @@
+/*
+ * XREFs of sub_14026DFC0 @ 0x14026DFC0
+ * Callers:
+ *     sub_1402019FC @ 0x1402019FC (sub_1402019FC.c)
+ *     sub_140227DF0 @ 0x140227DF0 (sub_140227DF0.c)
+ *     sub_140227ED0 @ 0x140227ED0 (sub_140227ED0.c)
+ *     sub_140230F28 @ 0x140230F28 (sub_140230F28.c)
+ *     sub_14023A12C @ 0x14023A12C (sub_14023A12C.c)
+ *     sub_14023FBE4 @ 0x14023FBE4 (sub_14023FBE4.c)
+ *     sub_140245DF4 @ 0x140245DF4 (sub_140245DF4.c)
+ *     sub_140249930 @ 0x140249930 (sub_140249930.c)
+ *     MmProtectDriverSection @ 0x14025D5E0 (MmProtectDriverSection.c)
+ *     sub_140260054 @ 0x140260054 (sub_140260054.c)
+ *     sub_140263404 @ 0x140263404 (sub_140263404.c)
+ *     sub_14026AEB0 @ 0x14026AEB0 (sub_14026AEB0.c)
+ *     sub_14026C808 @ 0x14026C808 (sub_14026C808.c)
+ *     sub_14026D048 @ 0x14026D048 (sub_14026D048.c)
+ *     sub_14026D460 @ 0x14026D460 (sub_14026D460.c)
+ *     sub_14026DAB0 @ 0x14026DAB0 (sub_14026DAB0.c)
+ *     sub_14026DC5C @ 0x14026DC5C (sub_14026DC5C.c)
+ *     sub_1402704A0 @ 0x1402704A0 (sub_1402704A0.c)
+ *     sub_14027938C @ 0x14027938C (sub_14027938C.c)
+ *     sub_140279590 @ 0x140279590 (sub_140279590.c)
+ *     sub_140279DB0 @ 0x140279DB0 (sub_140279DB0.c)
+ *     sub_14027B820 @ 0x14027B820 (sub_14027B820.c)
+ *     sub_1402810B0 @ 0x1402810B0 (sub_1402810B0.c)
+ *     sub_14028F080 @ 0x14028F080 (sub_14028F080.c)
+ *     sub_1402C1F50 @ 0x1402C1F50 (sub_1402C1F50.c)
+ *     sub_1402CE240 @ 0x1402CE240 (sub_1402CE240.c)
+ *     sub_1402D0500 @ 0x1402D0500 (sub_1402D0500.c)
+ *     sub_1402D8F30 @ 0x1402D8F30 (sub_1402D8F30.c)
+ *     sub_1402DAC64 @ 0x1402DAC64 (sub_1402DAC64.c)
+ *     sub_1402DBA28 @ 0x1402DBA28 (sub_1402DBA28.c)
+ *     sub_140312BB0 @ 0x140312BB0 (sub_140312BB0.c)
+ *     sub_140316400 @ 0x140316400 (sub_140316400.c)
+ *     sub_140318330 @ 0x140318330 (sub_140318330.c)
+ *     sub_1403199E0 @ 0x1403199E0 (sub_1403199E0.c)
+ *     sub_140319F70 @ 0x140319F70 (sub_140319F70.c)
+ *     sub_14031E900 @ 0x14031E900 (sub_14031E900.c)
+ *     sub_14032CE60 @ 0x14032CE60 (sub_14032CE60.c)
+ *     sub_14033BC30 @ 0x14033BC30 (sub_14033BC30.c)
+ *     sub_14033EF50 @ 0x14033EF50 (sub_14033EF50.c)
+ *     sub_14033F41C @ 0x14033F41C (sub_14033F41C.c)
+ *     sub_140366DA8 @ 0x140366DA8 (sub_140366DA8.c)
+ *     sub_140367190 @ 0x140367190 (sub_140367190.c)
+ *     sub_14036D62C @ 0x14036D62C (sub_14036D62C.c)
+ *     sub_14037E338 @ 0x14037E338 (sub_14037E338.c)
+ *     sub_1403C6E24 @ 0x1403C6E24 (sub_1403C6E24.c)
+ *     sub_1403C84E4 @ 0x1403C84E4 (sub_1403C84E4.c)
+ *     sub_1403C89A0 @ 0x1403C89A0 (sub_1403C89A0.c)
+ *     sub_1403C8D10 @ 0x1403C8D10 (sub_1403C8D10.c)
+ *     sub_140582B18 @ 0x140582B18 (sub_140582B18.c)
+ *     sub_1405905F0 @ 0x1405905F0 (sub_1405905F0.c)
+ *     sub_14059368C @ 0x14059368C (sub_14059368C.c)
+ *     sub_140593A80 @ 0x140593A80 (sub_140593A80.c)
+ *     sub_1405A1D20 @ 0x1405A1D20 (sub_1405A1D20.c)
+ *     sub_1405A1F60 @ 0x1405A1F60 (sub_1405A1F60.c)
+ *     sub_1405A2A48 @ 0x1405A2A48 (sub_1405A2A48.c)
+ *     sub_1405A2F88 @ 0x1405A2F88 (sub_1405A2F88.c)
+ *     sub_1405A3E3C @ 0x1405A3E3C (sub_1405A3E3C.c)
+ *     sub_1405A40C4 @ 0x1405A40C4 (sub_1405A40C4.c)
+ *     sub_1405A511C @ 0x1405A511C (sub_1405A511C.c)
+ *     sub_1405B585C @ 0x1405B585C (sub_1405B585C.c)
+ *     sub_1406AC9A4 @ 0x1406AC9A4 (sub_1406AC9A4.c)
+ *     sub_1406D59B8 @ 0x1406D59B8 (sub_1406D59B8.c)
+ *     sub_1406F3884 @ 0x1406F3884 (sub_1406F3884.c)
+ *     sub_1406F4FB8 @ 0x1406F4FB8 (sub_1406F4FB8.c)
+ *     sub_140700A40 @ 0x140700A40 (sub_140700A40.c)
+ *     sub_14075F23C @ 0x14075F23C (sub_14075F23C.c)
+ *     sub_14080C354 @ 0x14080C354 (sub_14080C354.c)
+ *     sub_14082B1B4 @ 0x14082B1B4 (sub_14082B1B4.c)
+ *     sub_14082B4E0 @ 0x14082B4E0 (sub_14082B4E0.c)
+ *     sub_1409680B0 @ 0x1409680B0 (sub_1409680B0.c)
+ *     sub_140968160 @ 0x140968160 (sub_140968160.c)
+ *     MmReturnChargesToLockPagedPool @ 0x14096CA90 (MmReturnChargesToLockPagedPool.c)
+ *     sub_140970AB4 @ 0x140970AB4 (sub_140970AB4.c)
+ *     sub_140971068 @ 0x140971068 (sub_140971068.c)
+ *     sub_1409779A4 @ 0x1409779A4 (sub_1409779A4.c)
+ *     sub_140978990 @ 0x140978990 (sub_140978990.c)
+ *     sub_14098325C @ 0x14098325C (sub_14098325C.c)
+ *     sub_140A4FA24 @ 0x140A4FA24 (sub_140A4FA24.c)
+ *     sub_140A4FD14 @ 0x140A4FD14 (sub_140A4FD14.c)
+ *     sub_140A4FDB0 @ 0x140A4FDB0 (sub_140A4FDB0.c)
+ *     sub_140A4FE40 @ 0x140A4FE40 (sub_140A4FE40.c)
+ *     sub_140AF4588 @ 0x140AF4588 (sub_140AF4588.c)
+ *     sub_140B05B1C @ 0x140B05B1C (sub_140B05B1C.c)
+ *     sub_140B0675C @ 0x140B0675C (sub_140B0675C.c)
+ *     sub_140B0681C @ 0x140B0681C (sub_140B0681C.c)
+ *     sub_140B06A84 @ 0x140B06A84 (sub_140B06A84.c)
+ *     sub_140B07C00 @ 0x140B07C00 (sub_140B07C00.c)
+ *     sub_140B08434 @ 0x140B08434 (sub_140B08434.c)
+ *     sub_140B190F0 @ 0x140B190F0 (sub_140B190F0.c)
+ *     sub_140B29DA0 @ 0x140B29DA0 (sub_140B29DA0.c)
+ *     sub_140B2F9C4 @ 0x140B2F9C4 (sub_140B2F9C4.c)
+ * Callees:
+ *     <none>
+ */
+
+char *__fastcall sub_14026DFC0(int a1)
+{
+  __int64 v1; // rax
+  char *v2; // rcx
+
+  if ( a1 < 1 )
+  {
+    v1 = 3LL * a1;
+    v2 = (char *)&unk_140C59200;
+  }
+  else
+  {
+    v1 = 5LL * a1;
+    v2 = (char *)&unk_140C53580;
+  }
+  return &v2[64 * v1];
+}

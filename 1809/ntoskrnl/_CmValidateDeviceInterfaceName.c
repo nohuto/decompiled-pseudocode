@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmValidateDeviceInterfaceName @ 0x1405C6810
+ * XREFs of _CmValidateDeviceInterfaceName @ 0x1405C7810
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x14059AE70 (_PnpDispatchDeviceInterface.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x14059EAFC (_CmSetDeviceInterfacePathFormat.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1405C65E8 (_CmGetDeviceInterfaceSubkeyPath.c)
- *     IoGetDeviceInterfaceAlias @ 0x1406D52A0 (IoGetDeviceInterfaceAlias.c)
- *     _CmGetDeviceInterfacePathFormat @ 0x1406D55E8 (_CmGetDeviceInterfacePathFormat.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1406D5674 (_CmGetDeviceInterfaceReferenceString.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x14070FF68 (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     _CmDeviceClassesSubkeyCallback @ 0x14074AE80 (_CmDeviceClassesSubkeyCallback.c)
+ *     _PnpDispatchDeviceInterface @ 0x14059BE70 (_PnpDispatchDeviceInterface.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x14059FAFC (_CmSetDeviceInterfacePathFormat.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1405C75E8 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1406D6540 (IoGetDeviceInterfaceAlias.c)
+ *     _CmGetDeviceInterfacePathFormat @ 0x1406D6888 (_CmGetDeviceInterfacePathFormat.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x1406D6914 (_CmGetDeviceInterfaceReferenceString.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140711208 (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x14074C070 (_CmDeviceClassesSubkeyCallback.c)
  * Callees:
  *     RtlStringCchCopyNExW @ 0x140015A04 (RtlStringCchCopyNExW.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     RtlPrefixUnicodeString @ 0x1405C8460 (RtlPrefixUnicodeString.c)
  */
 
 NTSTATUS __fastcall CmValidateDeviceInterfaceName(__int64 a1, __int64 a2)
@@ -33,8 +33,8 @@ NTSTATUS __fastcall CmValidateDeviceInterfaceName(__int64 a1, __int64 a2)
   v3 = 0LL;
   if ( RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)a2) < 0
     || (DestinationString.MaximumLength & 0xFFFEu) < 0x62
-    || !RtlPrefixUnicodeString(&stru_14034F608, &DestinationString, 0)
-    && !RtlPrefixUnicodeString(&stru_14034F618, &DestinationString, 0) )
+    || !RtlPrefixUnicodeString(&stru_140350608, &DestinationString, 0)
+    && !RtlPrefixUnicodeString(&stru_140350618, &DestinationString, 0) )
   {
     return -1073741773;
   }

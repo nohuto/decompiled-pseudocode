@@ -1,0 +1,24 @@
+/*
+ * XREFs of sub_140400AB4 @ 0x140400AB4
+ * Callers:
+ *     sub_1403FEE6C @ 0x1403FEE6C (sub_1403FEE6C.c)
+ *     sub_1403FF10C @ 0x1403FF10C (sub_1403FF10C.c)
+ *     sub_1403FF3BC @ 0x1403FF3BC (sub_1403FF3BC.c)
+ *     sub_1403FF8AC @ 0x1403FF8AC (sub_1403FF8AC.c)
+ *     sub_1403FF93C @ 0x1403FF93C (sub_1403FF93C.c)
+ *     sub_1404000A8 @ 0x1404000A8 (sub_1404000A8.c)
+ *     sub_140401470 @ 0x140401470 (sub_140401470.c)
+ *     sub_1404079EC @ 0x1404079EC (sub_1404079EC.c)
+ *     sub_14040844C @ 0x14040844C (sub_14040844C.c)
+ *     sub_140408730 @ 0x140408730 (sub_140408730.c)
+ *     sub_140409DC8 @ 0x140409DC8 (sub_140409DC8.c)
+ *     sub_14040B698 @ 0x14040B698 (sub_14040B698.c)
+ *     sub_140A375DC @ 0x140A375DC (sub_140A375DC.c)
+ * Callees:
+ *     sub_14040CFD4 @ 0x14040CFD4 (sub_14040CFD4.c)
+ */
+
+__int64 sub_140400AB4()
+{
+  return sub_14040CFD4();
+}

@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpCMFRemoveFromStandbyQueue @ 0x18008A244
+ * XREFs of LdrpCMFRemoveFromStandbyQueue @ 0x18008A234
  * Callers:
- *     LdrpSetAlternateResourceModuleHandle @ 0x1800726C0 (LdrpSetAlternateResourceModuleHandle.c)
- *     LdrpCMFAddToStanbyQueue @ 0x1800DBF68 (LdrpCMFAddToStanbyQueue.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x1800726B0 (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpCMFAddToStanbyQueue @ 0x1800DC028 (LdrpCMFAddToStanbyQueue.c)
  * Callees:
  *     <none>
  */

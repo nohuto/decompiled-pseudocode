@@ -30,15 +30,13 @@ void __stdcall RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD Ex
   _EXCEPTION_REGISTRATION_RECORD *v14; // [esp+1Ch] [ebp-37Ch] BYREF
   EXCEPTION_RECORD v15; // [esp+20h] [ebp-378h] BYREF
   _DWORD v16[20]; // [esp+70h] [ebp-328h] BYREF
-  _BYTE v17[176]; // [esp+C0h] [ebp-2D8h] BYREF
-  PVOID v18; // [esp+170h] [ebp-228h]
-  int v19; // [esp+184h] [ebp-214h]
+  _CONTEXT ContextRecord; // [esp+C0h] [ebp-2D8h] BYREF
   _UNKNOWN *retaddr; // [esp+39Ch] [ebp+4h]
 
   v4 = ExceptionRecord;
-  RtlpCaptureContext(v17);
-  v19 += 16;
-  v18 = ReturnValue;
+  RtlpCaptureContext(&ContextRecord);
+  ContextRecord.Esp += 16;
+  ContextRecord.Eax = (unsigned int)ReturnValue;
   RtlpGetStackLimits(&v13, &v12);
   if ( !ExceptionRecord )
   {
@@ -61,7 +59,7 @@ void __stdcall RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD Ex
     {
       if ( ExceptionList == TargetFrame )
       {
-        ZwContinue(v17, 0);
+        ZwContinue(&ContextRecord, 0);
         v6 = v10;
         v7 = v11;
       }
@@ -77,7 +75,7 @@ void __stdcall RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD Ex
         || (unsigned int)&ExceptionList[1] > v6
         || ((unsigned __int8)ExceptionList & 3) != 0
         || (Handler = ExceptionList->Handler, (unsigned int)Handler < v10) && (unsigned int)Handler >= v7
-        || !(unsigned __int8)RtlIsValidHandler(v17) )
+        || !(unsigned __int8)RtlIsValidHandler(Handler, &ContextRecord) )
       {
         v15.NumberParameters = 0;
         v15.ExceptionCode = -1073741784;
@@ -85,7 +83,7 @@ void __stdcall RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD Ex
         v15.ExceptionRecord = v4;
         RtlRaiseException(&v15);
       }
-      v9 = RtlpExecuteHandlerForUnwind(v4, ExceptionList, v17, &v14, ExceptionList->Handler) - 1;
+      v9 = RtlpExecuteHandlerForUnwind(v4, ExceptionList, &ContextRecord, &v14, ExceptionList->Handler) - 1;
       if ( v9 )
       {
         if ( v9 != 2 )
@@ -105,7 +103,7 @@ void __stdcall RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD Ex
     while ( ExceptionList != (_EXCEPTION_REGISTRATION_RECORD *)-1 );
   }
   if ( TargetFrame == (PVOID)-1 )
-    ZwContinue(v17, 0);
+    ZwContinue(&ContextRecord, 0);
   else
-    ZwRaiseException(v4, v17, 0);
+    ZwRaiseException(v4, &ContextRecord, 0);
 }

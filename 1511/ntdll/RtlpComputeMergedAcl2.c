@@ -14,14 +14,14 @@ __int64 __fastcall RtlpComputeMergedAcl2(
         __int16 a4,
         __int64 a5,
         __int64 a6,
-        __int64 a7,
+        GENERIC_MAPPING *a7,
         int a8,
-        unsigned int *a9,
-        __int64 a10,
+        ULONG *a9,
+        PACL Acl,
         _DWORD *a11)
 {
-  unsigned int *v11; // r12
-  __int64 v12; // r15
+  ULONG *v11; // r12
+  PACL v12; // r15
   char v13; // r14
   bool v17; // bp
   unsigned int v18; // edi
@@ -29,18 +29,18 @@ __int64 __fastcall RtlpComputeMergedAcl2(
   int v20; // ebx
   __int64 result; // rax
   unsigned int v22; // ecx
-  unsigned int v23; // ecx
-  _DWORD v24[18]; // [rsp+70h] [rbp-48h] BYREF
-  int v26; // [rsp+D8h] [rbp+20h] BYREF
+  ULONG v23; // ecx
+  unsigned int v24[18]; // [rsp+70h] [rbp-48h] BYREF
+  unsigned int v26; // [rsp+D8h] [rbp+20h] BYREF
 
   v11 = a9;
-  v12 = a10;
+  v12 = Acl;
   v13 = 0;
   v26 = 0;
   v24[0] = 0;
   v17 = 1;
   v18 = 2;
-  RtlCreateAcl(a10, *a9, 2);
+  RtlCreateAcl(Acl, *a9, 2u);
   v19 = a11;
   *a11 = 1024;
   if ( (a4 & 0x1000) != 0 )
@@ -121,8 +121,8 @@ LABEL_17:
     *v11 = v23;
     if ( v13 )
       return 3221225507LL;
-    *(_WORD *)(v12 + 2) = v23;
-    *(_BYTE *)v12 = v18;
+    v12->AclSize = v23;
+    v12->AclRevision = v18;
   }
   else
   {

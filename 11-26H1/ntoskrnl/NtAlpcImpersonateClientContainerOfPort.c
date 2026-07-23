@@ -1,27 +1,27 @@
 /*
- * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x1407C0410
+ * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x1407C3470
  * Callers:
- *     DifNtAlpcImpersonateClientContainerOfPortWrapper @ 0x14066CCA0 (DifNtAlpcImpersonateClientContainerOfPortWrapper.c)
+ *     DifNtAlpcImpersonateClientContainerOfPortWrapper @ 0x140670880 (DifNtAlpcImpersonateClientContainerOfPortWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObDereferenceObjectDeferDelete @ 0x140265670 (ObDereferenceObjectDeferDelete.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PsGetWorkOnBehalfThread @ 0x14045F7E0 (PsGetWorkOnBehalfThread.c)
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x140476D00 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     PoEnergyEstimationEnabled @ 0x14047C5D0 (PoEnergyEstimationEnabled.c)
- *     PsImpersonateContainerOfThread @ 0x1404B1D38 (PsImpersonateContainerOfThread.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpLookupMessage @ 0x1409BEA70 (AlpcpLookupMessage.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
- *     AlpcpCaptureIdMessage @ 0x140A8F3C8 (AlpcpCaptureIdMessage.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140264BE0 (ObDereferenceObjectDeferDelete.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PsGetWorkOnBehalfThread @ 0x140458EE0 (PsGetWorkOnBehalfThread.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x140470480 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     PoEnergyEstimationEnabled @ 0x140475F40 (PoEnergyEstimationEnabled.c)
+ *     PsImpersonateContainerOfThread @ 0x1404AB3F8 (PsImpersonateContainerOfThread.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x14098FA50 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x140A94098 (AlpcpCaptureIdMessage.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64 a2, int a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   PVOID v5; // rsi
-  NTSTATUS v6; // edi
+  signed int v6; // edi
   int v7; // r9d
   ULONG_PTR v8; // r14
   __int64 v9; // rcx
@@ -37,7 +37,7 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   PVOID Object; // [rsp+48h] [rbp-30h] BYREF
   __int64 v21; // [rsp+50h] [rbp-28h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+90h] [rbp+18h]
-  NTSTATUS v23; // [rsp+98h] [rbp+20h] BYREF
+  signed int v23; // [rsp+98h] [rbp+20h] BYREF
 
   v23 = 0;
   v18[0] = 0;
@@ -48,16 +48,16 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   --CurrentThread->KernelApcDisable;
   v5 = 0LL;
   Object = 0LL;
-  if ( a3 )
+  if ( Flags )
   {
     v6 = -1073741811;
   }
   else
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
-    AlpcpCaptureIdMessage(a2, &v17, &v23);
+    AlpcpCaptureIdMessage(Message, &v17, &v23);
     Object = 0LL;
-    v6 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v6 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     v5 = Object;
     if ( v6 >= 0 )
     {
@@ -130,5 +130,5 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   if ( v5 )
     ObfDereferenceObject(v5);
   KeLeaveCriticalRegion();
-  return (unsigned int)v6;
+  return v6;
 }

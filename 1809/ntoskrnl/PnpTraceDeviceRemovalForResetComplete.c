@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x140839778
+ * XREFs of PnpTraceDeviceRemovalForResetComplete @ 0x14083A9D8
  * Callers:
- *     IopDeviceRemovalForResetComplete @ 0x140826980 (IopDeviceRemovalForResetComplete.c)
+ *     IopDeviceRemovalForResetComplete @ 0x140827B80 (IopDeviceRemovalForResetComplete.c)
  * Callees:
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char PnpTraceDeviceRemovalForResetComplete()
@@ -45,15 +45,15 @@ char PnpTraceDeviceRemovalForResetComplete()
   __int64 v32; // [rsp+110h] [rbp+10h]
   _DWORD v33[2]; // [rsp+118h] [rbp+18h] BYREF
 
-  LOBYTE(v0) = TraceLoggingProviderEnabled(&stru_1403FFBC8, 0, 0x400000000000uLL);
+  LOBYTE(v0) = TraceLoggingProviderEnabled(&stru_140400BC8, 0, 0x400000000000uLL);
   if ( (_BYTE)v0 )
   {
     v0 = *(_QWORD *)(v1 + 184);
     if ( v0 )
       v0 = *(_QWORD *)(v0 + 312);
-    if ( stru_1403FFBC8.LevelPlus1 > 5 )
+    if ( stru_140400BC8.LevelPlus1 > 5 )
     {
-      LOBYTE(v0) = TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL);
+      LOBYTE(v0) = TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL);
       if ( (_BYTE)v0 )
       {
         v6 = *(_DWORD *)(v2 + 300);
@@ -86,7 +86,7 @@ char PnpTraceDeviceRemovalForResetComplete()
         v29 = 4LL;
         v31 = 2LL;
         v33[1] = v4;
-        LOBYTE(v0) = TlgWrite(&stru_1403FFBC8, &unk_14036D482, 0LL, 0LL, 0xDu, &pData);
+        LOBYTE(v0) = TlgWrite(&stru_140400BC8, &unk_14036E4DA, 0LL, 0LL, 0xDu, &pData);
       }
     }
   }

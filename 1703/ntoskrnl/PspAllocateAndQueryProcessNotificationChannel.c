@@ -17,21 +17,21 @@
  *     RtlpAddKnownAce @ 0x14050C130 (RtlpAddKnownAce.c)
  */
 
-__int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi
   char v7; // r13
   char v8; // r14
   char v9; // al
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v11; // ecx
-  _DWORD *v12; // rdx
-  __int64 v13; // r8
+  int *v12; // rdx
+  int v13; // r8d
   int v14; // eax
   unsigned __int8 v15; // cf
   char v16; // [rsp+40h] [rbp-E8h]
   _BYTE SecurityDescriptor[40]; // [rsp+48h] [rbp-E0h] BYREF
-  _QWORD v18[2]; // [rsp+70h] [rbp-B8h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+70h] [rbp-B8h] BYREF
   ACL Acl; // [rsp+80h] [rbp-A8h] BYREF
 
   v3 = a2 + 2016;
@@ -39,15 +39,15 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
   v7 = 0;
   v8 = 0;
   v9 = 0;
-  v18[0] = 0LL;
+  StateName = 0LL;
   if ( !*(_QWORD *)(a2 + 2016) )
   {
     RtlCreateAcl(&Acl, 0x58u, 2u);
     RtlpAddKnownAce(&Acl, 2u, 0, 1, (unsigned __int8 *)SeWorldSid, 0);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    result = ZwCreateWnfStateName((__int64)v18, 3LL, 4LL);
-    if ( (int)result < 0 )
+    result = ZwCreateWnfStateName(&StateName, WnfTemporaryStateName, WnfDataScopeMachine, 0, 0LL, 0, SecurityDescriptor);
+    if ( result < 0 )
       return result;
     --*(_WORD *)(a1 + 484);
     ExAcquirePushLockExclusiveEx(a2 + 728, 0LL);
@@ -57,7 +57,7 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
     }
     else
     {
-      *(_QWORD *)v3 = v18[0];
+      *(_WNF_STATE_NAME *)v3 = StateName;
       *(_QWORD *)(a2 + 2052) = *(_QWORD *)(a3 + 36);
       v16 = 1;
     }
@@ -68,14 +68,13 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
     v9 = v16;
   }
   v11 = 0;
-  v12 = (_DWORD *)(a3 + 8);
+  v12 = (int *)(a3 + 8);
   *(_OWORD *)a3 = *(_OWORD *)v3;
   *(_OWORD *)(a3 + 16) = *(_OWORD *)(v3 + 16);
   *(_OWORD *)(a3 + 32) = *(_OWORD *)(v3 + 32);
   do
   {
-    v13 = (unsigned int)*v12;
-    LODWORD(v13) = v13 & 0x7FFFFFFF;
+    v13 = *v12 & 0x7FFFFFFF;
     *v12 = v13;
     if ( v9 )
     {
@@ -84,7 +83,7 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
       v9 = v16;
       if ( v15 )
       {
-        if ( (_DWORD)v13 )
+        if ( v13 )
           v8 = 1;
       }
     }
@@ -93,8 +92,8 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
   }
   while ( v11 < 7 );
   if ( v8 )
-    ZwUpdateWnfStateData(v3, 0LL, 0LL);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)v3, 0LL, 0, 0LL, 0LL, 0, 0);
   if ( v7 )
-    ZwDeleteWnfStateName((__int64)v18, (__int64)v12, v13);
-  return 0LL;
+    ZwDeleteWnfStateName(&StateName);
+  return 0;
 }

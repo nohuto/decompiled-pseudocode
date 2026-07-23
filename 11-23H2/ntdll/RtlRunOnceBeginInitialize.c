@@ -2,52 +2,52 @@
  * XREFs of RtlRunOnceBeginInitialize @ 0x180060E90
  * Callers:
  *     RtlpFcEnsureSubscriptionManagerStarted @ 0x180060E30 (RtlpFcEnsureSubscriptionManagerStarted.c)
- *     RtlpHpPerHeapStackTraceCleanup @ 0x180116A70 (RtlpHpPerHeapStackTraceCleanup.c)
- *     RtlpHpStackTraceHeapGetContext @ 0x18011784C (RtlpHpStackTraceHeapGetContext.c)
+ *     RtlpHpPerHeapStackTraceCleanup @ 0x180116A40 (RtlpHpPerHeapStackTraceCleanup.c)
+ *     RtlpHpStackTraceHeapGetContext @ 0x18011781C (RtlpHpStackTraceHeapGetContext.c)
  * Callees:
  *     RtlpRunOnceWaitForInit @ 0x180061B7C (RtlpRunOnceWaitForInit.c)
  */
 
-__int64 __fastcall RtlRunOnceBeginInitialize(volatile signed __int64 *a1, int a2, unsigned __int64 *a3)
+NTSTATUS __cdecl RtlRunOnceBeginInitialize(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID *Context)
 {
-  signed __int64 v5; // rax
-  unsigned int v6; // edi
-  int v8; // ebx
-  signed __int64 v9; // rcx
-  signed __int64 v10; // rtt
+  unsigned __int64 Value; // rax
+  NTSTATUS v6; // edi
+  ULONG v8; // ebx
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rtt
 
-  if ( ((a2 - 1) & a2) != 0 || (a2 & 0xFFFFFFFC) != 0 )
-    return 3221225712LL;
-  v5 = *a1;
+  if ( ((Flags - 1) & Flags) != 0 || (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741584;
+  Value = RunOnce->Value;
   v6 = 0;
-  if ( (*a1 & 3) == 2 )
+  if ( (RunOnce->Value & 3) == 2 )
   {
 LABEL_6:
-    if ( a3 )
-      *a3 = v5 & 0xFFFFFFFFFFFFFFFCuLL;
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
   }
   else
   {
-    if ( (a2 & 1) != 0 )
-      return 3221225473LL;
-    v8 = a2 & 2;
+    if ( (Flags & 1) != 0 )
+      return -1073741823;
+    v8 = Flags & 2;
     while ( 1 )
     {
       while ( 1 )
       {
-        v9 = v5 & 3;
-        if ( (v5 & 3) != 0 )
+        v9 = Value & 3;
+        if ( (Value & 3) != 0 )
           break;
-        v10 = v5;
-        v5 = _InterlockedCompareExchange64(a1, v8 != 0 ? 3LL : 1LL, v5);
-        if ( v10 == v5 )
+        v10 = Value;
+        Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, v8 != 0 ? 3LL : 1LL, Value);
+        if ( v10 == Value )
           return 259;
       }
       if ( v9 != 1 )
         break;
       if ( v8 )
-        return (unsigned int)-1073741584;
-      v5 = RtlpRunOnceWaitForInit(v5, a1);
+        return -1073741584;
+      Value = RtlpRunOnceWaitForInit(Value, RunOnce);
     }
     if ( v9 != 3 )
       goto LABEL_6;

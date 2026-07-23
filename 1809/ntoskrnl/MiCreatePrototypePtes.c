@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCreatePrototypePtes @ 0x140095B30
+ * XREFs of MiCreatePrototypePtes @ 0x140095A70
  * Callers:
- *     MiAddViewsForSection @ 0x140077170 (MiAddViewsForSection.c)
+ *     MiAddViewsForSection @ 0x140077160 (MiAddViewsForSection.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,23 +10,23 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiIncrementSubsectionViewCount @ 0x140077A50 (MiIncrementSubsectionViewCount.c)
- *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     MiControlAreaRequiresCharge @ 0x140079E68 (MiControlAreaRequiresCharge.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiGetCommittedPages @ 0x140095894 (MiGetCommittedPages.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiGetSubsectionCharges @ 0x1402C4A94 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiInitializePrototypePtes @ 0x14061F030 (MiInitializePrototypePtes.c)
- *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
- *     MiChargeLargeProtoSubsection @ 0x1408528D4 (MiChargeLargeProtoSubsection.c)
+ *     MiIncrementSubsectionViewCount @ 0x140077A40 (MiIncrementSubsectionViewCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400794B0 (MiDecrementSubsectionViewCount.c)
+ *     MiControlAreaRequiresCharge @ 0x140079E58 (MiControlAreaRequiresCharge.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiGetCommittedPages @ 0x1400957D4 (MiGetCommittedPages.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiGetSubsectionCharges @ 0x1402C4C84 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiInitializePrototypePtes @ 0x140620030 (MiInitializePrototypePtes.c)
+ *     MiAllocateFileExtents @ 0x140853410 (MiAllocateFileExtents.c)
+ *     MiChargeLargeProtoSubsection @ 0x140853B34 (MiChargeLargeProtoSubsection.c)
  */
 
 __int64 __fastcall MiCreatePrototypePtes(__int64 *BugCheckParameter2, __int16 a2, unsigned int a3, unsigned int a4)
@@ -230,7 +230,7 @@ LABEL_93:
         }
         *(_BYTE *)(v49 + 32) |= 2u;
         if ( *(__int64 *)(v49 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v49, SessionId);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v49, SessionId);
         v56 = 0;
         v56 = *(_DWORD *)(v49 + 88) & 0x1FFFF;
         *(_DWORD *)(v49 + 88) &= 0xFFFE0000;
@@ -256,7 +256,7 @@ LABEL_105:
       v14 = 2;
       if ( v60 )
       {
-        MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043A748 + 8LL * (v11[15] & 0x3FF)), v43, v60);
+        MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043B808 + 8LL * (v11[15] & 0x3FF)), v43, v60);
         v14 = 2;
         LOWORD(v13) = -1;
       }
@@ -358,7 +358,7 @@ LABEL_25:
           {
             *(_BYTE *)(v32 + 32) |= 2u;
             if ( *(__int64 *)(v32 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v32, v30);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v32, v30);
             v57 = 0;
             v57 = *(_DWORD *)(v32 + 88) & 0x1FFFF;
             *(_DWORD *)(v32 + 88) &= 0xFFFE0000;
@@ -387,7 +387,7 @@ LABEL_50:
     v24 = 0LL;
   }
   if ( CommittedPages )
-    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043A748 + 8LL * (v58[15] & 0x3FF)), v24, CommittedPages);
+    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043B808 + 8LL * (v58[15] & 0x3FF)), v24, CommittedPages);
   if ( P )
     ExFreePoolWithTag(P, 0);
   return (unsigned int)SubsectionCharges;

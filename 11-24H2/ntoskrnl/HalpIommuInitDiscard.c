@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIommuInitDiscard @ 0x140C0FD18
+ * XREFs of HalpIommuInitDiscard @ 0x140C11D18
  * Callers:
- *     HalpIommuInitSystem @ 0x140B4D550 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x140B4F5A0 (HalpIommuInitSystem.c)
  * Callees:
- *     HviGetHardwareFeatures @ 0x1404A3740 (HviGetHardwareFeatures.c)
- *     HalpIommuRegisterBuiltinPlugins @ 0x140567690 (HalpIommuRegisterBuiltinPlugins.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x14049E6A0 (HviGetHardwareFeatures.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x14056511C (HalpIommuRegisterBuiltinPlugins.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 HalpIommuInitDiscard()
@@ -24,13 +24,13 @@ __int64 HalpIommuInitDiscard()
   HalpIommuDeviceCreatedListPushLock = 0LL;
   IommuInterfaceStateChangeCallbackPushLock = 0LL;
   v0 = HalpHvCpuManager == 0;
-  qword_140F8ECE8 = (__int64)&HalpIommuParaVirtDeviceCache;
+  qword_140F8EED8 = (__int64)&HalpIommuParaVirtDeviceCache;
   HalpIommuParaVirtDeviceCache = (__int64)&HalpIommuParaVirtDeviceCache;
-  qword_140FC0B18 = (__int64)&HalpIommuDeviceCreatedList;
+  qword_140FC0D78 = (__int64)&HalpIommuDeviceCreatedList;
   HalpIommuDeviceCreatedList = (__int64)&HalpIommuDeviceCreatedList;
-  qword_140FC0BB8 = (__int64)&HalpRidAliasList;
+  qword_140FC0E18 = (__int64)&HalpRidAliasList;
   HalpRidAliasList = (__int64)&HalpRidAliasList;
-  qword_140F8ECD8 = (__int64)&IommuInterfaceStateChangeCallbackListHead;
+  qword_140F8EEC8 = (__int64)&IommuInterfaceStateChangeCallbackListHead;
   IommuInterfaceStateChangeCallbackListHead = (__int64)&IommuInterfaceStateChangeCallbackListHead;
   v1 = (_QWORD *)HalIommuDispatch;
   v18 = 0LL;
@@ -52,7 +52,7 @@ __int64 HalpIommuInitDiscard()
   v1[19] = IommuGetAtsSettings;
   v1[20] = IommuCreateAtsDevice;
   v1[21] = IommuDeleteAtsDevice;
-  qword_140FC0B48 = (__int64)&HalpIommuAtsDeviceList;
+  qword_140FC0DA8 = (__int64)&HalpIommuAtsDeviceList;
   HalpIommuAtsDeviceList = (__int64)&HalpIommuAtsDeviceList;
   HalpHvIommu = 0;
   if ( !v0 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopGetLegacyVetoListDrivers @ 0x140405564
+ * XREFs of IopGetLegacyVetoListDrivers @ 0x140404424
  * Callers:
- *     IoGetLegacyVetoList @ 0x1403F3ED0 (IoGetLegacyVetoList.c)
+ *     IoGetLegacyVetoList @ 0x1403F2D94 (IoGetLegacyVetoList.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14015A780 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x14015C2A0 (ZwQueryDirectoryObject.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x14015ACF0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x14015C810 (ZwQueryDirectoryObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByName @ 0x140405BE0 (ObReferenceObjectByName.c)
- *     IopAppendLegacyVeto @ 0x14062A498 (IopAppendLegacyVeto.c)
+ *     ObReferenceObjectByName @ 0x140404AA0 (ObReferenceObjectByName.c)
+ *     IopAppendLegacyVeto @ 0x14062A54C (IopAppendLegacyVeto.c)
  */
 
 void __fastcall IopGetLegacyVetoListDrivers(__int64 a1)

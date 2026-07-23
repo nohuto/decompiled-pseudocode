@@ -1,14 +1,16 @@
 /*
- * XREFs of ZwTestAlert @ 0x14041E760
+ * XREFs of ZwTestAlert @ 0x14041EAF0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwTestAlert(__int64 a1, __int64 a2)
+NTSTATUS ZwTestAlert(void)
 {
+  __int64 v0; // rcx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(v0);
 }

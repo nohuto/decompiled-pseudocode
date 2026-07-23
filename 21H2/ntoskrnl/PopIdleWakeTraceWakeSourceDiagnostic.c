@@ -1,14 +1,14 @@
 /*
- * XREFs of PopIdleWakeTraceWakeSourceDiagnostic @ 0x1408F4960
+ * XREFs of PopIdleWakeTraceWakeSourceDiagnostic @ 0x1408F4AC0
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExit @ 0x14057BA10 (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x14057BC50 (PopIdleWakeNotifyModernStandbyExit.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopIdleWakeTraceWakeSourceDiagnostic(__int64 a1, __int64 a2)
@@ -135,7 +135,7 @@ void __fastcall PopIdleWakeTraceWakeSourceDiagnostic(__int64 a1, __int64 a2)
   DestinationString = 0LL;
   v40 = 0LL;
   v39 = 0LL;
-  RtlInitUnicodeString(&DestinationString, &word_1407D7BA0);
+  RtlInitUnicodeString(&DestinationString, &word_1407D7CE0);
   if ( *(_DWORD *)a2 == 5 )
   {
     v5 = *(_DWORD *)(a2 + 408);
@@ -255,7 +255,7 @@ void __fastcall PopIdleWakeTraceWakeSourceDiagnostic(__int64 a1, __int64 a2)
     v104 = 24LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02228,
-      (unsigned __int8 *)byte_140029A91,
+      (unsigned __int8 *)byte_140029AD3,
       0LL,
       0LL,
       0x21u,

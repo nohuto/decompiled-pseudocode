@@ -1,20 +1,20 @@
 /*
- * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x1407BC220
+ * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x1407BC4F0
  * Callers:
- *     NtSetSecurityObject @ 0x1407BBD30 (NtSetSecurityObject.c)
+ *     NtSetSecurityObject @ 0x1407BC000 (NtSetSecurityObject.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     SeMaximumAuditMask @ 0x1405B79D8 (SeMaximumAuditMask.c)
- *     SepAdtAuditThisEventWithContext @ 0x1406C34D0 (SepAdtAuditThisEventWithContext.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     SepQueryNameString @ 0x1407F4EEC (SepQueryNameString.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409CCC40 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x1409CD3F0 (SepQueryTypeString.c)
- *     SepIsAclEqual @ 0x1409D11D8 (SepIsAclEqual.c)
- *     SepIsSidEqual @ 0x1409D1258 (SepIsSidEqual.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409D2424 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     SeMaximumAuditMask @ 0x1405B7F48 (SeMaximumAuditMask.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1406C3500 (SepAdtAuditThisEventWithContext.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     SepQueryNameString @ 0x1407F51BC (SepQueryNameString.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409CCE40 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x1409CD5F0 (SepQueryTypeString.c)
+ *     SepIsAclEqual @ 0x1409D13D8 (SepIsAclEqual.c)
+ *     SepIsSidEqual @ 0x1409D1458 (SepIsSidEqual.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409D2624 (SeMaximumAuditMaskFromGlobalSacl.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

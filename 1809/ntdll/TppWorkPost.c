@@ -8,8 +8,8 @@
  *     TpPostTask @ 0x1800159A0 (TpPostTask.c)
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
- *     TppIteWakeWaiters @ 0x180073E38 (TppIteWakeWaiters.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     TppIteWakeWaiters @ 0x180073E48 (TppIteWakeWaiters.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     RtlpTpETWCallbackEnqueue @ 0x180110B04 (RtlpTpETWCallbackEnqueue.c)
  */
 
@@ -33,7 +33,7 @@ __int64 __fastcall TppWorkPost(__int64 a1)
   {
     if ( v2 )
     {
-      RtlReleaseSRWLockExclusive(a1 + 64);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
       v2 = 0;
     }
     v4 = v3;
@@ -42,7 +42,7 @@ __int64 __fastcall TppWorkPost(__int64 a1)
     {
       v5 &= ~0x8000000000000000uLL;
       v2 = 1;
-      RtlAcquireSRWLockExclusive(a1 + 64);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     }
     v3 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 56), v5, v4);
   }
@@ -51,7 +51,7 @@ __int64 __fastcall TppWorkPost(__int64 a1)
   {
     v11 = *(_QWORD *)(a1 + 72);
     *(_QWORD *)(a1 + 72) = 0LL;
-    RtlReleaseSRWLockExclusive(a1 + 64);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     TppIteWakeWaiters(v11);
   }
   _m_prefetchw((const void *)(a1 + 232));

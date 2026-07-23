@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpInternEntryHash @ 0x140698760
+ * XREFs of RtlpInternEntryHash @ 0x1405F7458
  * Callers:
- *     RtlInternTableIntern @ 0x1406982C0 (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x1405F6FB8 (RtlInternTableIntern.c)
  * Callees:
  *     <none>
  */

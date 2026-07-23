@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPowerAggregatorEnterScreenOff @ 0x140877CD4
+ * XREFs of PopPowerAggregatorEnterScreenOff @ 0x140877F14
  * Callers:
- *     PopPowerAggregatorScreenOffActiveToScreenOffStateHandler @ 0x140877C20 (PopPowerAggregatorScreenOffActiveToScreenOffStateHandler.c)
- *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140885840 (PopPowerAggregatorScreenOffEnterStateHandler.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x14099357C (PopPowerAggregatorDisengageModernStandby.c)
- *     PopPowerAggregatorScreenOffExitStateHandler @ 0x140993EA0 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ *     PopPowerAggregatorScreenOffActiveToScreenOffStateHandler @ 0x140877E60 (PopPowerAggregatorScreenOffActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140885A80 (PopPowerAggregatorScreenOffEnterStateHandler.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099377C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x1409940A0 (PopPowerAggregatorScreenOffExitStateHandler.c)
  * Callees:
- *     PopPowerRequestReferenceRelease @ 0x14032B428 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14032B828 (PopPowerRequestReferenceAcquire.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x1403C799C (PopGetMonitorReasonFromPowerEventId.c)
- *     PopPdcEngagePhases @ 0x140877DBC (PopPdcEngagePhases.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140877DE8 (PopPowerAggregatorSetCurrentState.c)
- *     PopSleepstudyStartNextSession @ 0x140878644 (PopSleepstudyStartNextSession.c)
- *     PdcPoPerfOverride @ 0x1409979A8 (PdcPoPerfOverride.c)
- *     PopPdcDisengagePhases @ 0x140998050 (PopPdcDisengagePhases.c)
+ *     PopPowerRequestReferenceRelease @ 0x14032B6B8 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14032BAB8 (PopPowerRequestReferenceAcquire.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopGetMonitorReasonFromPowerEventId @ 0x1403C7B7C (PopGetMonitorReasonFromPowerEventId.c)
+ *     PopPdcEngagePhases @ 0x140877FFC (PopPdcEngagePhases.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140878028 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSleepstudyStartNextSession @ 0x140878884 (PopSleepstudyStartNextSession.c)
+ *     PdcPoPerfOverride @ 0x140997BA8 (PdcPoPerfOverride.c)
+ *     PopPdcDisengagePhases @ 0x140998250 (PopPdcDisengagePhases.c)
  */
 
 struct _KTHREAD *__fastcall PopPowerAggregatorEnterScreenOff(__int64 a1)

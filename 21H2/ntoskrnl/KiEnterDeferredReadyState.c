@@ -1,14 +1,14 @@
 /*
- * XREFs of KiEnterDeferredReadyState @ 0x140248780
+ * XREFs of KiEnterDeferredReadyState @ 0x1402ECFD0
  * Callers:
- *     KiReadyOutSwappedThreads @ 0x140248460 (KiReadyOutSwappedThreads.c)
- *     KiSearchForNewThread @ 0x140256CB8 (KiSearchForNewThread.c)
- *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
- *     KiFastReadyThread @ 0x140278190 (KiFastReadyThread.c)
- *     KiInsertDeferredReadyList @ 0x1402EA540 (KiInsertDeferredReadyList.c)
- *     KiSetThreadSchedulingGroup @ 0x1402EC058 (KiSetThreadSchedulingGroup.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
- *     KiSearchForNewThreadOnProcessor @ 0x140347370 (KiSearchForNewThreadOnProcessor.c)
+ *     KiFastReadyThread @ 0x140266130 (KiFastReadyThread.c)
+ *     KiSearchForNewThread @ 0x140278228 (KiSearchForNewThread.c)
+ *     KiQueueReadyThread @ 0x14027A920 (KiQueueReadyThread.c)
+ *     KiInsertDeferredReadyList @ 0x14029B890 (KiInsertDeferredReadyList.c)
+ *     KiSetThreadSchedulingGroup @ 0x14029D3A8 (KiSetThreadSchedulingGroup.c)
+ *     KiReadyOutSwappedThreads @ 0x1402ECCB0 (KiReadyOutSwappedThreads.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1403520C0 (KiSearchForNewThreadOnProcessor.c)
  * Callees:
  *     <none>
  */

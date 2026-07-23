@@ -14,7 +14,7 @@ __int64 __fastcall ViThunkCreateSharedExportInformation(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        struct _RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         _QWORD *a5)
 {
   unsigned int v9; // ebx

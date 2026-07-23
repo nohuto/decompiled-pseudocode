@@ -20,7 +20,7 @@
 
 __int64 __fastcall CmpInitializeDriverStores(__int64 a1)
 {
-  int SymbolicLinkObject; // edi
+  NTSTATUS v2; // edi
   wchar_t *PoolWithTag; // rax
   wchar_t *v4; // rsi
   __int64 **v5; // rax
@@ -31,12 +31,12 @@ __int64 __fastcall CmpInitializeDriverStores(__int64 a1)
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
   STRING SourceString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
-  HANDLE Handle; // [rsp+B8h] [rbp+38h] BYREF
+  HANDLE LinkHandle; // [rsp+B8h] [rbp+38h] BYREF
   HANDLE DirectoryHandle; // [rsp+C0h] [rbp+40h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  Handle = 0LL;
+  LinkHandle = 0LL;
   DirectoryHandle = 0LL;
   Destination = 0LL;
   SourceString = 0LL;
@@ -48,8 +48,8 @@ __int64 __fastcall CmpInitializeDriverStores(__int64 a1)
   ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 592;
-  SymbolicLinkObject = ZwCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes);
-  if ( SymbolicLinkObject >= 0 )
+  v2 = ZwCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes);
+  if ( v2 >= 0 )
   {
     PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x20204D43u);
     v4 = PoolWithTag;
@@ -67,10 +67,10 @@ __int64 __fastcall CmpInitializeDriverStores(__int64 a1)
       ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
       Destination.MaximumLength = Destination.Length;
       ObjectAttributes.Attributes = 592;
-      SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-      if ( SymbolicLinkObject >= 0 )
+      v2 = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &Destination);
+      if ( v2 >= 0 )
       {
-        ZwClose(Handle);
+        ZwClose(LinkHandle);
         v5 = (__int64 **)(*(_QWORD *)(a1 + 240) + 312LL);
         v6 = *v5;
         while ( v6 != (__int64 *)v5 )
@@ -78,8 +78,8 @@ __int64 __fastcall CmpInitializeDriverStores(__int64 a1)
           if ( (*((_DWORD *)v6 + 6) & 0x80u) != 0 )
           {
             RtlInitAnsiString(&SourceString, (PCSZ)v6[11]);
-            SymbolicLinkObject = RtlAnsiStringToUnicodeString(&DestinationString, &SourceString, 1u);
-            if ( SymbolicLinkObject < 0 )
+            v2 = RtlAnsiStringToUnicodeString(&DestinationString, &SourceString, 1u);
+            if ( v2 < 0 )
               break;
             *(_QWORD *)&Destination.Length = 0x10000000LL;
             Destination.Buffer = v4;
@@ -106,10 +106,10 @@ __int64 __fastcall CmpInitializeDriverStores(__int64 a1)
             ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
             Destination.MaximumLength = Destination.Length;
             ObjectAttributes.Attributes = 592;
-            SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-            if ( SymbolicLinkObject < 0 )
+            v2 = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &Destination);
+            if ( v2 < 0 )
               break;
-            ZwClose(Handle);
+            ZwClose(LinkHandle);
           }
           v6 = (__int64 *)*v6;
           v5 = (__int64 **)(*(_QWORD *)(a1 + 240) + 312LL);
@@ -119,10 +119,10 @@ __int64 __fastcall CmpInitializeDriverStores(__int64 a1)
     }
     else
     {
-      SymbolicLinkObject = -1073741670;
+      v2 = -1073741670;
     }
   }
   if ( DirectoryHandle )
     ZwClose(DirectoryHandle);
-  return (unsigned int)SymbolicLinkObject;
+  return (unsigned int)v2;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of VfInitBootDriversLoaded @ 0x140A4ED74
+ * XREFs of VfInitBootDriversLoaded @ 0x140A4FD74
  * Callers:
- *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x140A4F6F4 (MiInitializeDriverImages.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     NtSetDebugFilterState @ 0x1407A54C0 (NtSetDebugFilterState.c)
- *     VfDriverLoadImage @ 0x1409C2090 (VfDriverLoadImage.c)
- *     VfAvlInitializeTreeEx @ 0x1409C2634 (VfAvlInitializeTreeEx.c)
- *     VfLookasideInitializeInternalNPagedList @ 0x1409C2748 (VfLookasideInitializeInternalNPagedList.c)
- *     IoVerifierInit @ 0x1409C476C (IoVerifierInit.c)
- *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
- *     VfObjectContextInit @ 0x1409C8408 (VfObjectContextInit.c)
- *     VfDriverLoadBootDrivers @ 0x140A4EE74 (VfDriverLoadBootDrivers.c)
- *     VfThunkFindExportAddressAllTables @ 0x140A4EED0 (VfThunkFindExportAddressAllTables.c)
- *     VfThunkInit @ 0x140A4F16C (VfThunkInit.c)
- *     ViLogAndLoadXdv @ 0x140A938F4 (ViLogAndLoadXdv.c)
- *     VfTriageAddDrivers @ 0x140A93974 (VfTriageAddDrivers.c)
- *     VfSuspectDriversParseRegistryString @ 0x140A93DD8 (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x140A93F94 (VfXdvExcludeParseRegistryString.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     NtSetDebugFilterState @ 0x1407A56C0 (NtSetDebugFilterState.c)
+ *     VfDriverLoadImage @ 0x1409C3090 (VfDriverLoadImage.c)
+ *     VfAvlInitializeTreeEx @ 0x1409C3634 (VfAvlInitializeTreeEx.c)
+ *     VfLookasideInitializeInternalNPagedList @ 0x1409C3748 (VfLookasideInitializeInternalNPagedList.c)
+ *     IoVerifierInit @ 0x1409C576C (IoVerifierInit.c)
+ *     VfInitVerifierComponents @ 0x1409C7E70 (VfInitVerifierComponents.c)
+ *     VfObjectContextInit @ 0x1409C9408 (VfObjectContextInit.c)
+ *     VfDriverLoadBootDrivers @ 0x140A4FE74 (VfDriverLoadBootDrivers.c)
+ *     VfThunkFindExportAddressAllTables @ 0x140A4FED0 (VfThunkFindExportAddressAllTables.c)
+ *     VfThunkInit @ 0x140A5016C (VfThunkInit.c)
+ *     ViLogAndLoadXdv @ 0x140A948F4 (ViLogAndLoadXdv.c)
+ *     VfTriageAddDrivers @ 0x140A94974 (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140A94DD8 (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x140A94F94 (VfXdvExcludeParseRegistryString.c)
  */
 
 void __fastcall VfInitBootDriversLoaded(__int64 a1)
@@ -48,7 +48,7 @@ void __fastcall VfInitBootDriversLoaded(__int64 a1)
     }
     else
     {
-      dword_140C1D0A8 = 0;
+      dword_140C1D308 = 0;
       _InterlockedExchange(&ViTargetInitialized, 1);
     }
   }
@@ -57,7 +57,7 @@ void __fastcall VfInitBootDriversLoaded(__int64 a1)
   VfThunkFindExportAddressAllTables(a1);
   if ( ViVerifierDriverAddedThunkListHead )
   {
-    NtSetDebugFilterState(0x5Du, 0, 1);
+    NtSetDebugFilterState(0x5Du, 0, 1u);
     if ( MmVerifyDriverBufferLength )
       VfSuspectDriversParseRegistryString();
     if ( VfXdvSuppressDriversBufferLength )

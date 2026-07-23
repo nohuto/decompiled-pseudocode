@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnPfnList @ 0x14013EB5C
+ * XREFs of MiReturnPfnList @ 0x14013F0CC
  * Callers:
- *     MiPfnRangeIsZero @ 0x14013E6D4 (MiPfnRangeIsZero.c)
- *     MiJoinBitmapPages @ 0x1401EB324 (MiJoinBitmapPages.c)
- *     MiInitializeDynamicBitmap @ 0x140535E80 (MiInitializeDynamicBitmap.c)
- *     MiDeleteLargePfnBitMap @ 0x1406648A0 (MiDeleteLargePfnBitMap.c)
+ *     MiPfnRangeIsZero @ 0x14013EC44 (MiPfnRangeIsZero.c)
+ *     MiJoinBitmapPages @ 0x1401EB150 (MiJoinBitmapPages.c)
+ *     MiInitializeDynamicBitmap @ 0x1405363C0 (MiInitializeDynamicBitmap.c)
+ *     MiDeleteLargePfnBitMap @ 0x140664984 (MiDeleteLargePfnBitMap.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
  */
 
 __int64 __fastcall MiReturnPfnList(__int64 a1)

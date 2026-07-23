@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMcExportAllData @ 0x140860920
+ * XREFs of HalpMcExportAllData @ 0x140860B60
  * Callers:
- *     HalpMcExportAndChargeNeededData @ 0x1408608B0 (HalpMcExportAndChargeNeededData.c)
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
+ *     HalpMcExportAndChargeNeededData @ 0x140860AF0 (HalpMcExportAndChargeNeededData.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

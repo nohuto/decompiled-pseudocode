@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRmIsKCBVisible @ 0x1409A73F0
+ * XREFs of CmRmIsKCBVisible @ 0x1409909A0
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x14087D660 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumberEx @ 0x140881510 (CmpFindSubKeyByNumberEx.c)
  * Callees:
- *     CmpTransUowIsEqual @ 0x1406FB46C (CmpTransUowIsEqual.c)
+ *     CmpTransUowIsEqual @ 0x1406F90AC (CmpTransUowIsEqual.c)
  */
 
 char __fastcall CmRmIsKCBVisible(__int64 a1, __int64 a2)

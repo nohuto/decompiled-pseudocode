@@ -1,17 +1,17 @@
 /*
- * XREFs of PspDisablePrimaryTokenExchange @ 0x1406478CC
+ * XREFs of PspDisablePrimaryTokenExchange @ 0x14063C6BC
  * Callers:
- *     PspSystemThreadStartup @ 0x1402EC130 (PspSystemThreadStartup.c)
- *     PspUserThreadStartup @ 0x140646E40 (PspUserThreadStartup.c)
+ *     PspSystemThreadStartup @ 0x14029D480 (PspSystemThreadStartup.c)
+ *     PspUserThreadStartup @ 0x14063BC30 (PspUserThreadStartup.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeSynchronizeAddressPolicy @ 0x1402C247C (KeSynchronizeAddressPolicy.c)
- *     PspLockUnlockProcessExclusive @ 0x1402C3004 (PspLockUnlockProcessExclusive.c)
- *     KeKvaShadowingActive @ 0x1402CF588 (KeKvaShadowingActive.c)
- *     MiDeleteProcessShadow @ 0x140305768 (MiDeleteProcessShadow.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x140607210 (PspOneDirectionSecurityDomainCombine.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SeTokenIsAdmin @ 0x140717530 (SeTokenIsAdmin.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeSynchronizeAddressPolicy @ 0x14024091C (KeSynchronizeAddressPolicy.c)
+ *     PspLockUnlockProcessExclusive @ 0x140241524 (PspLockUnlockProcessExclusive.c)
+ *     KeKvaShadowingActive @ 0x14024D904 (KeKvaShadowingActive.c)
+ *     MiDeleteProcessShadow @ 0x1403104B8 (MiDeleteProcessShadow.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x140696CA0 (PspOneDirectionSecurityDomainCombine.c)
+ *     SeTokenIsAdmin @ 0x1406C5B80 (SeTokenIsAdmin.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  */
 
 void __fastcall PspDisablePrimaryTokenExchange(__int64 a1)
@@ -21,7 +21,8 @@ void __fastcall PspDisablePrimaryTokenExchange(__int64 a1)
   BOOL v3; // edi
   BOOL v4; // ebx
   __int64 v5; // r8
-  signed __int32 v6[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v6; // r9
+  signed __int32 v7[10]; // [rsp+0h] [rbp-28h] BYREF
 
   v1 = *(_QWORD *)(a1 + 184);
   if ( (*(_DWORD *)(v1 + 1120) & 0x8000) == 0 )
@@ -53,18 +54,18 @@ void __fastcall PspDisablePrimaryTokenExchange(__int64 a1)
       if ( v4 )
       {
         *(_BYTE *)(v1 + 912) = 1;
-        _InterlockedOr(v6, 0);
+        _InterlockedOr(v7, 0);
       }
       KeSynchronizeAddressPolicy(v1);
       if ( !_interlockedbittestandset((volatile signed __int32 *)(v1 + 2172), 0xEu)
         && *(_BYTE *)(v1 + 912) == 1
         && (PEPROCESS)v1 != PsInitialSystemProcess )
       {
-        MiDeleteProcessShadow(v1, 1, v5);
+        MiDeleteProcessShadow(v1, 1, v5, v6);
       }
     }
     if ( !_interlockedbittestandset((volatile signed __int32 *)(v1 + 2172), 0x16u) )
-      PspOneDirectionSecurityDomainCombine(v1);
+      PspOneDirectionSecurityDomainCombine((PVOID)v1);
   }
-  _InterlockedOr(v6, 0);
+  _InterlockedOr(v7, 0);
 }

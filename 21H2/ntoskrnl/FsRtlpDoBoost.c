@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpDoBoost @ 0x1402CA830
+ * XREFs of FsRtlpDoBoost @ 0x140249120
  * Callers:
- *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403799C4 (FsRtlpModifyThreadPriorities.c)
  * Callees:
- *     KeSetPriorityBoost @ 0x14022F6F0 (KeSetPriorityBoost.c)
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
- *     IoBoostThreadIoPriority @ 0x140358630 (IoBoostThreadIoPriority.c)
+ *     KeSetPriorityBoost @ 0x1402D3F40 (KeSetPriorityBoost.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x140363380 (IoBoostThreadIoPriority.c)
  */
 
 unsigned __int8 __fastcall FsRtlpDoBoost(__int64 a1, __int64 a2, _BYTE *a3, _BYTE *a4, __int64 a5)
@@ -41,7 +41,7 @@ unsigned __int8 __fastcall FsRtlpDoBoost(__int64 a1, __int64 a2, _BYTE *a3, _BYT
       LOBYTE(a3) = 1;
       PsBoostThreadIoEx(a1, 0LL, a3, a5);
       *(_DWORD *)a4 |= 0x20u;
-      return IoBoostThreadIoPriority(a1, (*(_DWORD *)(a2 + 1296) >> 9) & 7, 0LL);
+      return IoBoostThreadIoPriority(a1, (*(_DWORD *)(a2 + 1296) >> 9) & 7);
     }
   }
   return result;

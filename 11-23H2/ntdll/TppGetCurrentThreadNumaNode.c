@@ -10,32 +10,33 @@
  *     TpAllocWait @ 0x18004D980 (TpAllocWait.c)
  *     TpReserveTaskPost @ 0x18004F8B0 (TpReserveTaskPost.c)
  *     TpAllocJobNotification @ 0x180050B40 (TpAllocJobNotification.c)
- *     RtlpTpIoAlloc @ 0x180127F5C (RtlpTpIoAlloc.c)
+ *     RtlpTpIoAlloc @ 0x180127F2C (RtlpTpIoAlloc.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180033C40 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)
- *     TppAdjustRunningThreadGoalWithLock @ 0x180126D70 (TppAdjustRunningThreadGoalWithLock.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x180126D40 (TppAdjustRunningThreadGoalWithLock.c)
  */
 
-signed __int64 __fastcall TppGetCurrentThreadNumaNode(__int64 a1, int *a2, _BYTE *a3, _WORD *a4)
+void __fastcall TppGetCurrentThreadNumaNode(__int64 a1, int *a2, _BYTE *a3, _WORD *a4)
 {
   unsigned __int64 Number; // r12
   int v9; // r15d
   int Group; // ebp
-  signed __int64 result; // rax
+  int v11; // eax
   int v12; // edx
   __int64 v13; // r9
+  __int64 v14; // rax
 
   Number = NtCurrentTeb()->CurrentIdealProcessor.Number;
   v9 = TppNumberNodes;
   Group = NtCurrentTeb()->CurrentIdealProcessor.Group;
-  if ( !a1 || (result = *(unsigned int *)(a1 + 440), !(_DWORD)result) )
-    result = MEMORY[0x7FFE03C0];
-  if ( *(_DWORD *)(a1 + 424) != (_DWORD)result )
+  if ( !a1 || (v11 = *(_DWORD *)(a1 + 440)) == 0 )
+    v11 = MEMORY[0x7FFE03C0];
+  if ( *(_DWORD *)(a1 + 424) != v11 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 72);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     TppAdjustRunningThreadGoalWithLock(a1);
-    result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   }
   v12 = 0;
   if ( TppNumberNodes )
@@ -43,11 +44,10 @@ signed __int64 __fastcall TppGetCurrentThreadNumaNode(__int64 a1, int *a2, _BYTE
     v13 = *(_QWORD *)(a1 + 48);
     while ( 1 )
     {
-      result = 2LL * (unsigned int)(Group + TppMaximumGroups * v12);
       if ( *(_WORD *)(v13 + 16LL * (unsigned int)(Group + TppMaximumGroups * v12) + 8) == (_WORD)Group )
       {
-        result = *(_QWORD *)(v13 + 16LL * (unsigned int)(Group + TppMaximumGroups * v12));
-        if ( _bittest64(&result, Number) )
+        v14 = *(_QWORD *)(v13 + 16LL * (unsigned int)(Group + TppMaximumGroups * v12));
+        if ( _bittest64(&v14, Number) )
           break;
       }
       if ( ++v12 >= (unsigned int)TppNumberNodes )
@@ -61,5 +61,4 @@ LABEL_13:
     *a3 = Number;
   if ( a4 )
     *a4 = Group;
-  return result;
 }

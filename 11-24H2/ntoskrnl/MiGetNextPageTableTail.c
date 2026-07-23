@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetNextPageTableTail @ 0x14045ACD0
+ * XREFs of MiGetNextPageTableTail @ 0x140450100
  * Callers:
  *     <none>
  * Callees:
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
  */
 
 __int64 __fastcall MiGetNextPageTableTail(__int64 a1)

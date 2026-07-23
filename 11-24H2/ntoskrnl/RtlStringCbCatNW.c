@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCbCatNW @ 0x1406968C0
+ * XREFs of RtlStringCbCatNW @ 0x140697990
  * Callers:
- *     AslPathWildcardFindNext @ 0x14080A69C (AslPathWildcardFindNext.c)
+ *     AslPathWildcardFindNext @ 0x14080ADDC (AslPathWildcardFindNext.c)
  * Callees:
  *     <none>
  */

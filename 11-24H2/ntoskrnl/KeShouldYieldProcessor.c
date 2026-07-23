@@ -1,74 +1,74 @@
 /*
- * XREFs of KeShouldYieldProcessor @ 0x1402DA180
+ * XREFs of KeShouldYieldProcessor @ 0x14023BA60
  * Callers:
- *     MiDispatchFault @ 0x1402142B0 (MiDispatchFault.c)
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
- *     NtUnlockVirtualMemory @ 0x1402333D0 (NtUnlockVirtualMemory.c)
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiProtectPrivateMemory @ 0x140237480 (MiProtectPrivateMemory.c)
- *     MiPurgeSubsection @ 0x14023C9F0 (MiPurgeSubsection.c)
- *     MiChangePageAttributeBatch @ 0x1402668E4 (MiChangePageAttributeBatch.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiSoftFaultMappedView @ 0x1402E7B9C (MiSoftFaultMappedView.c)
- *     MiCommitPoolMemory @ 0x1402EB010 (MiCommitPoolMemory.c)
- *     MiFillPoolCommitPageTable @ 0x1402EB2D0 (MiFillPoolCommitPageTable.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1402EE2CC (MiConvertSmallPageRangeToLarge.c)
- *     MiUnlockMdlWritePages @ 0x1402F1FF0 (MiUnlockMdlWritePages.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiConvertLargeActivePageToChain @ 0x1403083C0 (MiConvertLargeActivePageToChain.c)
- *     MiMapUserLargePages @ 0x14036E280 (MiMapUserLargePages.c)
- *     MiWritePageFileHash @ 0x14039E350 (MiWritePageFileHash.c)
- *     MiDoGangAssignment @ 0x1403A8984 (MiDoGangAssignment.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403CE11C (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiQueryAddressSpan @ 0x1403CE718 (MiQueryAddressSpan.c)
- *     MiDereferenceIoPages @ 0x1403CE8E0 (MiDereferenceIoPages.c)
- *     MiInsertViewOfPhysicalSection @ 0x1403CEF18 (MiInsertViewOfPhysicalSection.c)
- *     MiGetPageChainYield @ 0x1403CF100 (MiGetPageChainYield.c)
- *     MiFastTrimWorkingSet @ 0x1403CF450 (MiFastTrimWorkingSet.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1403CFA04 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiProbePacketContended @ 0x1403CFF40 (MiProbePacketContended.c)
- *     MiDecommitHardwareEnclavePages @ 0x1403D172C (MiDecommitHardwareEnclavePages.c)
- *     MiDeleteEmptySubsections @ 0x1403F7FC0 (MiDeleteEmptySubsections.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiInitializeMdlBatchPages @ 0x140413004 (MiInitializeMdlBatchPages.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x140414A8C (MiInitializeLargeMdlLeafPfns.c)
- *     MiConvertLargeFreePageToActive @ 0x14041F464 (MiConvertLargeFreePageToActive.c)
- *     MiConvertActiveLargePageToSmall @ 0x14041F5E8 (MiConvertActiveLargePageToSmall.c)
- *     MiDemoteSlabEntriesDpc @ 0x140442780 (MiDemoteSlabEntriesDpc.c)
- *     MiCommitEnclavePages @ 0x140473ACC (MiCommitEnclavePages.c)
- *     MiAddPagesToEnclave @ 0x140473CEC (MiAddPagesToEnclave.c)
- *     IopMcShouldYield @ 0x1404BCC78 (IopMcShouldYield.c)
- *     MiUpdatePrivateDemandZeroView @ 0x1404C119C (MiUpdatePrivateDemandZeroView.c)
- *     MiPurgeZeroListHead @ 0x1404C6774 (MiPurgeZeroListHead.c)
- *     MiDecrementLargeSubsections @ 0x1404C8E10 (MiDecrementLargeSubsections.c)
- *     MiArePageContentsZero @ 0x1404CA060 (MiArePageContentsZero.c)
- *     MiProtectEnclavePages @ 0x1404CACEC (MiProtectEnclavePages.c)
- *     MiVadRangeIsIoSpace @ 0x1404CB498 (MiVadRangeIsIoSpace.c)
- *     MiMoveDirtyBitsToPfns @ 0x1404F32E4 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1404F3710 (NtGetWriteWatch.c)
- *     MiFlushFileOnlyDeleteChain @ 0x1404F4DE4 (MiFlushFileOnlyDeleteChain.c)
- *     KeAlertMultipleThreadByThreadId @ 0x1405B7AE8 (KeAlertMultipleThreadByThreadId.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MiHugePurgeZeroList @ 0x140670894 (MiHugePurgeZeroList.c)
- *     MiSetGraphicsPtes @ 0x140672698 (MiSetGraphicsPtes.c)
- *     MiDeleteStaleCacheMaps @ 0x140675880 (MiDeleteStaleCacheMaps.c)
- *     MiMarkHugeRangeIoPfnDeleted @ 0x140676870 (MiMarkHugeRangeIoPfnDeleted.c)
- *     MiEnableLargeSubsection @ 0x14067AA74 (MiEnableLargeSubsection.c)
- *     MiQueryVaPhysicalContiguity @ 0x140680DC0 (MiQueryVaPhysicalContiguity.c)
- *     MiBuildPhysicalPageFreeChain @ 0x140681434 (MiBuildPhysicalPageFreeChain.c)
- *     MiPreparePhysicalPagesMdlForFree @ 0x140682854 (MiPreparePhysicalPagesMdlForFree.c)
- *     MiSoloZeroHugeRange @ 0x140685E14 (MiSoloZeroHugeRange.c)
- *     MiTransferPartitionPageRun @ 0x14068B4FC (MiTransferPartitionPageRun.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14068CDFC (MiMakeVaRangePhysicallyContiguous.c)
- *     MiScrubLargeMappedPage @ 0x14068D548 (MiScrubLargeMappedPage.c)
- *     MiZeroPageCalibrateDpc @ 0x140694280 (MiZeroPageCalibrateDpc.c)
+ *     MiPurgeSubsection @ 0x140204780 (MiPurgeSubsection.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x140211610 (MiProtectPrivateMemory.c)
+ *     NtUnlockVirtualMemory @ 0x140213FA0 (NtUnlockVirtualMemory.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiUnlockMdlWritePages @ 0x140257B30 (MiUnlockMdlWritePages.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     MiMapUserLargePages @ 0x14026A20C (MiMapUserLargePages.c)
+ *     MiDoGangAssignment @ 0x14026FEE4 (MiDoGangAssignment.c)
+ *     MiDeleteEmptySubsections @ 0x140292788 (MiDeleteEmptySubsections.c)
+ *     MiConvertLargeFreePageToActive @ 0x1402EDE58 (MiConvertLargeFreePageToActive.c)
+ *     MiConvertActiveLargePageToSmall @ 0x1402EDFDC (MiConvertActiveLargePageToSmall.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiConvertLargeActivePageToChain @ 0x1403122A0 (MiConvertLargeActivePageToChain.c)
+ *     MiDispatchFault @ 0x140333520 (MiDispatchFault.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MiSoftFaultMappedView @ 0x1403491DC (MiSoftFaultMappedView.c)
+ *     MiCommitPoolMemory @ 0x14034C650 (MiCommitPoolMemory.c)
+ *     MiFillPoolCommitPageTable @ 0x14034C910 (MiFillPoolCommitPageTable.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x14034F90C (MiConvertSmallPageRangeToLarge.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x14038E15C (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiDereferenceIoPages @ 0x14038E760 (MiDereferenceIoPages.c)
+ *     MiGetPageChainYield @ 0x14038F588 (MiGetPageChainYield.c)
+ *     MiFastTrimWorkingSet @ 0x140390500 (MiFastTrimWorkingSet.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x140390E28 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiProbePacketContended @ 0x140391364 (MiProbePacketContended.c)
+ *     MiInitializeMdlBatchPages @ 0x140393678 (MiInitializeMdlBatchPages.c)
+ *     MiChangePageAttributeBatch @ 0x1403A8860 (MiChangePageAttributeBatch.c)
+ *     MiInsertViewOfPhysicalSection @ 0x1403C8524 (MiInsertViewOfPhysicalSection.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiWritePageFileHash @ 0x140426540 (MiWritePageFileHash.c)
+ *     MiDemoteSlabEntriesDpc @ 0x14043B750 (MiDemoteSlabEntriesDpc.c)
+ *     MiQueryAddressSpan @ 0x14044AF24 (MiQueryAddressSpan.c)
+ *     MiDecommitHardwareEnclavePages @ 0x14046CF84 (MiDecommitHardwareEnclavePages.c)
+ *     MiCommitEnclavePages @ 0x14046D738 (MiCommitEnclavePages.c)
+ *     MiAddPagesToEnclave @ 0x14046D958 (MiAddPagesToEnclave.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x1404A6B00 (MiInitializeLargeMdlLeafPfns.c)
+ *     IopMcShouldYield @ 0x1404B7DE8 (IopMcShouldYield.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x1404BC78C (MiUpdatePrivateDemandZeroView.c)
+ *     MiPurgeZeroListHead @ 0x1404BFBD4 (MiPurgeZeroListHead.c)
+ *     MiDecrementLargeSubsections @ 0x1404C22C0 (MiDecrementLargeSubsections.c)
+ *     MiArePageContentsZero @ 0x1404C33B0 (MiArePageContentsZero.c)
+ *     MiProtectEnclavePages @ 0x1404C420C (MiProtectEnclavePages.c)
+ *     MiVadRangeIsIoSpace @ 0x1404C49B8 (MiVadRangeIsIoSpace.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1404F0C98 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x1404F10C0 (NtGetWriteWatch.c)
+ *     MiFlushFileOnlyDeleteChain @ 0x1404F26E4 (MiFlushFileOnlyDeleteChain.c)
+ *     KeAlertMultipleThreadByThreadId @ 0x1405B50C0 (KeAlertMultipleThreadByThreadId.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MiHugePurgeZeroList @ 0x140671A64 (MiHugePurgeZeroList.c)
+ *     MiSetGraphicsPtes @ 0x140673868 (MiSetGraphicsPtes.c)
+ *     MiDeleteStaleCacheMaps @ 0x140676A50 (MiDeleteStaleCacheMaps.c)
+ *     MiMarkHugeRangeIoPfnDeleted @ 0x140677A40 (MiMarkHugeRangeIoPfnDeleted.c)
+ *     MiEnableLargeSubsection @ 0x14067BC54 (MiEnableLargeSubsection.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140681F6C (MiQueryVaPhysicalContiguity.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140682624 (MiBuildPhysicalPageFreeChain.c)
+ *     MiPreparePhysicalPagesMdlForFree @ 0x140683A44 (MiPreparePhysicalPagesMdlForFree.c)
+ *     MiSoloZeroHugeRange @ 0x140686F44 (MiSoloZeroHugeRange.c)
+ *     MiTransferPartitionPageRun @ 0x14068C62C (MiTransferPartitionPageRun.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14068DF2C (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiScrubLargeMappedPage @ 0x14068E678 (MiScrubLargeMappedPage.c)
+ *     MiZeroPageCalibrateDpc @ 0x140695350 (MiZeroPageCalibrateDpc.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402DBE00 (EtwTraceShouldYieldProcessor.c)
+ *     EtwTraceShouldYieldProcessor @ 0x14023D6E0 (EtwTraceShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LOGICAL KeShouldYieldProcessor(void)
@@ -83,9 +83,10 @@ LOGICAL KeShouldYieldProcessor(void)
   _KTHREAD *NextThread; // rcx
   unsigned int v9; // edi
   struct _KPRCB *v10; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v12; // eax
-  signed __int32 v13; // ett
+  unsigned __int32 *SchedulerAssist; // r8
+  unsigned __int32 v12; // eax
+  __int64 v13; // rdx
+  unsigned __int32 v14; // ett
 
   CurrentPrcb = KeGetCurrentPrcb();
   v1 = 0;
@@ -118,7 +119,7 @@ LABEL_24:
     CurrentPrcb->DpcWatchdogCount = 0;
     CurrentPrcb->DpcTimeCount = 0;
     v10 = KeGetCurrentPrcb();
-    SchedulerAssist = (signed __int32 *)v10->SchedulerAssist;
+    SchedulerAssist = (unsigned __int32 *)v10->SchedulerAssist;
     if ( SchedulerAssist )
     {
       _m_prefetchw(SchedulerAssist);
@@ -126,11 +127,13 @@ LABEL_24:
       do
       {
         v13 = v12;
-        v12 = _InterlockedCompareExchange(SchedulerAssist, v12 & 0xFFDFFFFF, v12);
+        LODWORD(v13) = v12 & 0xFFDFFFFF;
+        v14 = v12;
+        v12 = _InterlockedCompareExchange((volatile signed __int32 *)SchedulerAssist, v12 & 0xFFDFFFFF, v12);
       }
-      while ( v13 != v12 );
+      while ( v14 != v12 );
       if ( (v12 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick((__int64)v10);
+        KiRemoveSystemWorkPriorityKick(v10, v13, SchedulerAssist, v3);
     }
     _enable();
     v9 = 0;

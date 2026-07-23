@@ -37,7 +37,7 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   _BYTE v21[2]; // [rsp+78h] [rbp-100h] BYREF
   __int64 v22; // [rsp+7Ah] [rbp-FEh]
   unsigned __int64 v23; // [rsp+88h] [rbp-F0h]
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+A0h] [rbp-D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+A0h] [rbp-D8h] BYREF
 
   v10 = a1;
   memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));

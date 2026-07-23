@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDecrementCompletionContextUsageCount @ 0x1401B3F8C
+ * XREFs of IopDecrementCompletionContextUsageCount @ 0x1401B3E2C
  * Callers:
- *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
- *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
- *     NtLockFile @ 0x1405FA000 (NtLockFile.c)
+ *     IopCompleteRequest @ 0x1400BFC50 (IopCompleteRequest.c)
+ *     IopXxxControlFile @ 0x1405E9BD0 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x1405FB000 (NtLockFile.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x140063080 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeReleaseSpinLock @ 0x140063070 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall IopDecrementCompletionContextUsageCount(ULONG_PTR BugCheckParameter1)

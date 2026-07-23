@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeNumaGraph @ 0x1409BA764
+ * XREFs of MiInitializeNumaGraph @ 0x1409BB764
  * Callers:
- *     MiCreatePfnDatabase @ 0x1409BA550 (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x1409BB550 (MiCreatePfnDatabase.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
  */
 
 void __fastcall MiInitializeNumaGraph(__int64 a1)
@@ -86,7 +86,7 @@ void __fastcall MiInitializeNumaGraph(__int64 a1)
             v20 = v1 * v8 + v17;
             p_Base += 8;
             ++v17;
-            *((_WORD *)qword_14043A050 + v20) = v19;
+            *((_WORD *)qword_14043B110 + v20) = v19;
           }
           while ( v17 < v8 );
         }
@@ -99,7 +99,7 @@ void __fastcall MiInitializeNumaGraph(__int64 a1)
   v3 = (unsigned __int16)KeNumberNodes;
   while ( v1 < v3 )
   {
-    for ( j = v1; j < v3 + v1; *((_WORD *)qword_14043A050 + v5) = (v6 % v3) & 0x3F )
+    for ( j = v1; j < v3 + v1; *((_WORD *)qword_14043B110 + v5) = (v6 % v3) & 0x3F )
     {
       v5 = v1 * (v3 - 1) + j;
       v6 = j++;

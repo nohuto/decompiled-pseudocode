@@ -1,10 +1,10 @@
 /*
- * XREFs of CpPutByte @ 0x14023DC38
+ * XREFs of CpPutByte @ 0x14023DB1C
  * Callers:
  *     <none>
  * Callees:
- *     MY_READ_PORT_UCHAR @ 0x140171A74 (MY_READ_PORT_UCHAR.c)
- *     CpReadLsr @ 0x14023DCCC (CpReadLsr.c)
+ *     MY_READ_PORT_UCHAR @ 0x140171F74 (MY_READ_PORT_UCHAR.c)
+ *     CpReadLsr @ 0x14023DBB0 (CpReadLsr.c)
  */
 
 unsigned __int8 __fastcall CpPutByte(__int64 a1, __int64 a2)

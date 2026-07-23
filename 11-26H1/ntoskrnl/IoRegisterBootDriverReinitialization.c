@@ -1,12 +1,12 @@
 /*
- * XREFs of IoRegisterBootDriverReinitialization @ 0x140B51D30
+ * XREFs of IoRegisterBootDriverReinitialization @ 0x140B545D0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     IopInterlockedInsertTailList @ 0x1405CA9EC (IopInterlockedInsertTailList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     IopInterlockedInsertTailList @ 0x1405CD2BC (IopInterlockedInsertTailList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __stdcall IoRegisterBootDriverReinitialization(
@@ -26,7 +26,7 @@ void __stdcall IoRegisterBootDriverReinitialization(
       Pool2[2] = DriverObject;
       Pool2[3] = DriverReinitializationRoutine;
       Pool2[4] = Context;
-      IopInterlockedInsertTailList((__int64)&IopSessionNotificationLock.WaitBlock[1].WaitListEntry.Blink, Pool2);
+      IopInterlockedInsertTailList((__int64)&IopBootDriverReinitializeQueueHead, Pool2);
     }
     else
     {

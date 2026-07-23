@@ -1,17 +1,17 @@
 /*
- * XREFs of MiQueryVaPhysicalContiguity @ 0x1407004D4
+ * XREFs of MiQueryVaPhysicalContiguity @ 0x1407051A4
  * Callers:
- *     MiProcessVaContiguityInformation @ 0x14070B810 (MiProcessVaContiguityInformation.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140B64218 (MiQueryMemoryPhysicalContiguity.c)
+ *     MiProcessVaContiguityInformation @ 0x1407104C0 (MiProcessVaContiguityInformation.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140B672B8 (MiQueryMemoryPhysicalContiguity.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiGetNextPageTable @ 0x140318050 (MiGetNextPageTable.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiCheckContiguityTradeEligible @ 0x140700448 (MiCheckContiguityTradeEligible.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiGetNextPageTable @ 0x14031A080 (MiGetNextPageTable.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiCheckContiguityTradeEligible @ 0x140705118 (MiCheckContiguityTradeEligible.c)
  */
 
 __int64 __fastcall MiQueryVaPhysicalContiguity(__int64 a1, unsigned __int64 a2, int a3, char a4)

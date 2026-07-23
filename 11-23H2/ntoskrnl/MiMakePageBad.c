@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMakePageBad @ 0x14065E2B0
+ * XREFs of MiMakePageBad @ 0x14065E800
  * Callers:
- *     MiScrubLargeMappedPage @ 0x14065E43C (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x140A46670 (MiScrubNode.c)
+ *     MiScrubLargeMappedPage @ 0x14065E98C (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x140A46920 (MiScrubNode.c)
  * Callees:
  *     MiIsPageOnBadList @ 0x1402186C0 (MiIsPageOnBadList.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiSetPfnRemovalRequested @ 0x14064DEB4 (MiSetPfnRemovalRequested.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSetPfnRemovalRequested @ 0x14064E404 (MiSetPfnRemovalRequested.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -45,10 +45,13 @@ void __fastcall MiMakePageBad(ULONG_PTR a1, char a2)
       MiInsertPageInFreeOrZeroedList(a1, 2);
   }
   _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

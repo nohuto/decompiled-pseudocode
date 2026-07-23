@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpRecordParseFailure @ 0x14068A510
+ * XREFs of CmpRecordParseFailure @ 0x1405E99A0
  * Callers:
- *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
- *     CmpDoWritethroughReparse @ 0x140655080 (CmpDoWritethroughReparse.c)
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406FC410 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
- *     CmpCreateHiveRootCell @ 0x14078DBF0 (CmpCreateHiveRootCell.c)
+ *     CmpDoWritethroughReparse @ 0x140649EA0 (CmpDoWritethroughReparse.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmpWalkOneLevel @ 0x1406E5B20 (CmpWalkOneLevel.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1407137F0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpCreateKeyBody @ 0x140713A70 (CmpCreateKeyBody.c)
+ *     CmpCreateHiveRootCell @ 0x14078DDB0 (CmpCreateHiveRootCell.c)
  * Callees:
  *     <none>
  */

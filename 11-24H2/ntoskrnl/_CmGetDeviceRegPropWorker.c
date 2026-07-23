@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetDeviceRegPropWorker @ 0x1408C5D70
+ * XREFs of _CmGetDeviceRegPropWorker @ 0x1408C37A0
  * Callers:
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     _MapCmDevicePropertyToRegType @ 0x14046F164 (_MapCmDevicePropertyToRegType.c)
- *     RtlStringCbCopyNExW @ 0x140488CD0 (RtlStringCbCopyNExW.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _PnpRegQueryValueIndirect @ 0x1408C6550 (_PnpRegQueryValueIndirect.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmGetInstallerClassRegProp @ 0x14099405C (_CmGetInstallerClassRegProp.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     _MapCmDevicePropertyToRegType @ 0x140469874 (_MapCmDevicePropertyToRegType.c)
+ *     RtlStringCbCopyNExW @ 0x140483DC0 (RtlStringCbCopyNExW.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _PnpRegQueryValueIndirect @ 0x1408C3F80 (_PnpRegQueryValueIndirect.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmGetInstallerClassRegProp @ 0x14097F09C (_CmGetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall CmGetDeviceRegPropWorker(
@@ -40,36 +40,35 @@ __int64 __fastcall CmGetDeviceRegPropWorker(
   HANDLE v22; // r8
   NTSTATUS DeviceRegProp; // eax
   int InstallerClassRegProp; // eax
-  unsigned int v25; // r12d
-  int v26; // eax
-  wchar_t *v27; // rax
-  const wchar_t *v28; // r8
-  _DWORD *v29; // rdx
-  __int64 v30; // rax
-  int v31; // r9d
+  int v25; // eax
+  wchar_t *v26; // rax
+  const wchar_t *v27; // r8
+  _DWORD *v28; // rdx
+  __int64 v29; // rax
+  int v30; // r9d
   NTSTRSAFE_PWSTR *ppszDestEnd; // [rsp+20h] [rbp-E0h]
   NTSTRSAFE_PWSTR *ppszDestEnda; // [rsp+20h] [rbp-E0h]
   size_t *pcbRemaining; // [rsp+28h] [rbp-D8h]
   ULONG dwFlags; // [rsp+30h] [rbp-D0h]
   unsigned int cbDest; // [rsp+60h] [rbp-A0h]
   unsigned int cbDest_4; // [rsp+64h] [rbp-9Ch] BYREF
-  int v38; // [rsp+68h] [rbp-98h] BYREF
-  _DWORD *v39; // [rsp+70h] [rbp-90h]
+  int v37; // [rsp+68h] [rbp-98h] BYREF
+  _DWORD *v38; // [rsp+70h] [rbp-90h]
   HANDLE Handle; // [rsp+78h] [rbp-88h] BYREF
   STRSAFE_PCNZWCH pszSrc; // [rsp+80h] [rbp-80h]
-  int v42; // [rsp+88h] [rbp-78h] BYREF
+  int v41; // [rsp+88h] [rbp-78h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v44[76]; // [rsp+A0h] [rbp-60h] BYREF
-  __int16 v45; // [rsp+ECh] [rbp-14h]
+  _BYTE v43[76]; // [rsp+A0h] [rbp-60h] BYREF
+  __int16 v44; // [rsp+ECh] [rbp-14h]
 
-  v39 = a5;
+  v38 = a5;
   v10 = a2;
   inited = 0;
   pszSrc = a2;
   Handle = 0LL;
-  v38 = 0;
+  v37 = 0;
   cbDest_4 = 0;
-  v42 = 0;
+  v41 = 0;
   DestinationString = 0LL;
   if ( a8 )
     return 3221225485LL;
@@ -244,8 +243,8 @@ LABEL_14:
                         (__int64)v10,
                         (__int64)v22,
                         9u,
-                        (__int64)&v38,
-                        (__int64)v44,
+                        (__int64)&v37,
+                        (__int64)v43,
                         (__int64)&cbDest_4,
                         0);
       inited = DeviceRegProp;
@@ -255,12 +254,12 @@ LABEL_14:
       }
       else if ( !DeviceRegProp )
       {
-        v45 = 0;
-        ppszDestEnda = (NTSTRSAFE_PWSTR *)v39;
+        v44 = 0;
+        ppszDestEnda = (NTSTRSAFE_PWSTR *)v38;
         *a7 = cbDest;
         InstallerClassRegProp = CmGetInstallerClassRegProp(
                                   a1,
-                                  (unsigned int)v44,
+                                  (unsigned int)v43,
                                   0,
                                   8,
                                   (__int64)ppszDestEnda,
@@ -271,18 +270,18 @@ LABEL_14:
       }
       break;
     case 23:
-      v27 = wcschr(v10, 0x5Cu);
-      if ( v27 )
+      v26 = wcschr(v10, 0x5Cu);
+      if ( v26 )
       {
-        v28 = pszSrc;
-        v29 = v39;
-        *a7 = (_DWORD)v27 - (_DWORD)pszSrc + 2;
-        *v29 = 1;
-        v30 = *a7;
-        if ( cbDest < (unsigned int)v30 )
+        v27 = pszSrc;
+        v28 = v38;
+        *a7 = (_DWORD)v26 - (_DWORD)pszSrc + 2;
+        *v28 = 1;
+        v29 = *a7;
+        if ( cbDest < (unsigned int)v29 )
           inited = -1073741789;
         else
-          inited = RtlStringCbCopyNExW(v14, cbDest, v28, v30 - 2, ppszDestEnd, pcbRemaining, dwFlags);
+          inited = RtlStringCbCopyNExW(v14, cbDest, v27, v29 - 2, ppszDestEnd, pcbRemaining, dwFlags);
       }
       else
       {
@@ -290,23 +289,23 @@ LABEL_14:
       }
       break;
     case 36:
-      v31 = (int)Handle;
+      v30 = (int)Handle;
       if ( a3 )
-        v31 = (int)a3;
+        v30 = (int)a3;
       InstallerClassRegProp = PnpGetObjectProperty(
                                 a1,
                                 (_DWORD)v10,
                                 1,
-                                v31,
+                                v30,
                                 0LL,
                                 (__int64)&DEVPKEY_Device_LocationPaths,
-                                (__int64)&v42,
+                                (__int64)&v41,
                                 (__int64)v14,
                                 v13,
                                 (__int64)a7,
                                 0);
       inited = InstallerClassRegProp;
-      *v39 = 7;
+      *v38 = 7;
       if ( InstallerClassRegProp < 0 )
       {
 LABEL_42:
@@ -319,49 +318,33 @@ LABEL_43:
       switch ( a4 )
       {
         case 15:
-          v25 = 1;
-          goto LABEL_58;
         case 20:
-          v25 = 2;
-          goto LABEL_58;
         case 21:
-          v25 = 3;
-          goto LABEL_58;
         case 22:
-          v25 = 4;
-          goto LABEL_58;
         case 31:
-          v25 = 5;
-          goto LABEL_58;
         case 32:
-          v25 = 6;
-          goto LABEL_58;
         case 33:
-          v25 = 10;
-          goto LABEL_58;
         case 35:
-          v25 = 11;
-LABEL_58:
           inited = RtlInitUnicodeStringEx(&DestinationString, v10);
           if ( inited < 0 )
             goto LABEL_29;
           if ( *(_QWORD *)(a1 + 256) )
           {
-            v26 = guard_dispatch_icall_no_overrides(a1, &DestinationString, v25, v14);
-            inited = v26;
-            if ( v26 == -2147483643 )
+            v25 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
+            inited = v25;
+            if ( v25 == -2147483643 )
             {
               inited = -1073741789;
             }
             else
             {
-              if ( v26 == -1073741772 )
+              if ( v25 == -1073741772 )
                 goto LABEL_43;
-              if ( v26 < 0 && v26 != -1073741789 )
+              if ( v25 < 0 && v25 != -1073741789 )
                 goto LABEL_29;
             }
             *a7 = cbDest;
-            *v39 = MapCmDevicePropertyToRegType(a4);
+            *v38 = MapCmDevicePropertyToRegType(a4);
             goto LABEL_29;
           }
           inited = -1073741822;
@@ -388,9 +371,9 @@ LABEL_17:
           if ( a3 )
             v18 = a3;
           if ( !v17 || v17 == PnpRegQueryValueIndirect )
-            v19 = PnpRegQueryValueIndirect(a1, v18, v16, &v38, v14, &cbDest_4, 0LL);
+            v19 = PnpRegQueryValueIndirect(a1, v18, v16, &v37, v14, &cbDest_4, 0LL);
           else
-            v19 = guard_dispatch_icall_no_overrides(a1, v18, v16, &v38);
+            v19 = guard_dispatch_icall_no_overrides(a1, v18);
           if ( v19 == -1073741772 || v19 == -1073741444 )
             goto LABEL_43;
           if ( (int)(v19 + 0x80000000) >= 0 && v19 != -1073741789 )
@@ -398,8 +381,8 @@ LABEL_17:
             inited = v19;
             goto LABEL_29;
           }
-          v20 = v38;
-          if ( v38 == 1 )
+          v20 = v37;
+          if ( v37 == 1 )
           {
             if ( cbDest_4 < 2 )
             {
@@ -407,17 +390,17 @@ LABEL_17:
               goto LABEL_29;
             }
           }
-          else if ( v38 == 7 )
+          else if ( v37 == 7 )
           {
             if ( cbDest_4 < 2 )
               goto LABEL_43;
           }
-          else if ( cbDest_4 != 4 && v38 == 4 )
+          else if ( cbDest_4 != 4 && v37 == 4 )
           {
             goto LABEL_43;
           }
           *a7 = cbDest_4;
-          *v39 = v20;
+          *v38 = v20;
           if ( v19 || !cbDest )
             inited = -1073741789;
           goto LABEL_29;

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMSetRegistryProperty @ 0x14098D258
+ * XREFs of PiCMSetRegistryProperty @ 0x14094DCB8
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1404C2EA8 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     _CmSetInstallerClassRegProp @ 0x1408971E0 (_CmSetInstallerClassRegProp.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x14098D0F4 (PiPnpRtlSetDeviceRegProperty.c)
- *     PiCMReleaseRegistryPropertyInputData @ 0x14098D430 (PiCMReleaseRegistryPropertyInputData.c)
- *     PiCMConvertRegistryProperty @ 0x14098D490 (PiCMConvertRegistryProperty.c)
- *     PiAuDoesClientHaveAccess @ 0x14098DE50 (PiAuDoesClientHaveAccess.c)
- *     PiCMCaptureRegistryPropertyInputData @ 0x140997AF8 (PiCMCaptureRegistryPropertyInputData.c)
- *     PiCMReturnBasicResultData @ 0x14099A4D4 (PiCMReturnBasicResultData.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1404BC6F8 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     _CmSetInstallerClassRegProp @ 0x14089D5E0 (_CmSetInstallerClassRegProp.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x14094DB54 (PiPnpRtlSetDeviceRegProperty.c)
+ *     PiCMReleaseRegistryPropertyInputData @ 0x14094DE90 (PiCMReleaseRegistryPropertyInputData.c)
+ *     PiCMConvertRegistryProperty @ 0x14094DEF0 (PiCMConvertRegistryProperty.c)
+ *     PiAuDoesClientHaveAccess @ 0x14094E8B0 (PiAuDoesClientHaveAccess.c)
+ *     PiCMCaptureRegistryPropertyInputData @ 0x140958558 (PiCMCaptureRegistryPropertyInputData.c)
+ *     PiCMReturnBasicResultData @ 0x14095AF34 (PiCMReturnBasicResultData.c)
  */
 
 __int64 __fastcall PiCMSetRegistryProperty(void *a1, __int64 a2, __int64 a3, unsigned int a4, int a5, _DWORD *a6)
@@ -24,7 +24,7 @@ __int64 __fastcall PiCMSetRegistryProperty(void *a1, __int64 a2, __int64 a3, uns
   ULONG v13; // r15d
   int v14; // ebx
   int v15; // edi
-  unsigned int v17; // [rsp+48h] [rbp-29h] BYREF
+  int v17; // [rsp+48h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-21h] BYREF
   __int128 v19; // [rsp+60h] [rbp-11h] BYREF
   PCWSTR SourceString[2]; // [rsp+70h] [rbp-1h]
@@ -63,7 +63,7 @@ LABEL_14:
       }
       if ( v10 == 1 )
       {
-        v15 = PiPnpRtlSetDeviceRegProperty(*(__int64 *)&PiPnpRtlCtx, v11, 0LL, v17, v21, v12, v13, 0);
+        v15 = PiPnpRtlSetDeviceRegProperty(PiPnpRtlCtx, v11, 0, v17, v21, v12, v13, 0);
         v14 = v15;
         if ( v15 >= 0 )
         {

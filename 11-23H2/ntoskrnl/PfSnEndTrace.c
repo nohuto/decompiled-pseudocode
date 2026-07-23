@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnEndTrace @ 0x14074A848
+ * XREFs of PfSnEndTrace @ 0x14074AA38
  * Callers:
- *     PfSnEndTraceWorkerThreadRoutine @ 0x14074A830 (PfSnEndTraceWorkerThreadRoutine.c)
+ *     PfSnEndTraceWorkerThreadRoutine @ 0x14074AA20 (PfSnEndTraceWorkerThreadRoutine.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     PfSnDeactivateTrace @ 0x1402F521C (PfSnDeactivateTrace.c)
- *     PfFbBufferListFlushStandby @ 0x1402F573C (PfFbBufferListFlushStandby.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PfSnBuildDumpFromTrace @ 0x14074AA90 (PfSnBuildDumpFromTrace.c)
- *     PfSnCleanupTrace @ 0x14074BAC8 (PfSnCleanupTrace.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     PfSnDeactivateTrace @ 0x1402F54AC (PfSnDeactivateTrace.c)
+ *     PfFbBufferListFlushStandby @ 0x1402F59CC (PfFbBufferListFlushStandby.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PfSnBuildDumpFromTrace @ 0x14074AC80 (PfSnBuildDumpFromTrace.c)
+ *     PfSnCleanupTrace @ 0x14074BCB8 (PfSnCleanupTrace.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

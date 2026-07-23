@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpResumePoint @ 0x1406A6090
+ * XREFs of HalpResumePoint @ 0x1406A70C0
  * Callers:
- *     HalpSecureResumePoint @ 0x1406A5FA0 (HalpSecureResumePoint.c)
+ *     HalpSecureResumePoint @ 0x1406A6FD0 (HalpSecureResumePoint.c)
  * Callees:
- *     KasanHibernationResume @ 0x1405A9CE0 (KasanHibernationResume.c)
+ *     KasanHibernationResume @ 0x1405A6C50 (KasanHibernationResume.c)
  */
 
 __int64 __fastcall HalpResumePoint(ULONG_PTR a1)

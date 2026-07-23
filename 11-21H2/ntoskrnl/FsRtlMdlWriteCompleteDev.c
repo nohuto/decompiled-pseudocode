@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcMdlWriteComplete2 @ 0x1402581E0 (CcMdlWriteComplete2.c)
+ *     sub_1402581E0 @ 0x1402581E0 (sub_1402581E0.c)
  */
 
 BOOLEAN __stdcall FsRtlMdlWriteCompleteDev(
@@ -14,6 +14,6 @@ BOOLEAN __stdcall FsRtlMdlWriteCompleteDev(
 {
   if ( (FileObject->Flags & 0x10) != 0 )
     return 0;
-  CcMdlWriteComplete2((__int64)FileObject, (__int64 *)FileOffset, MdlChain, (int)DeviceObject);
+  sub_1402581E0((__int64)FileObject, (__int64 *)FileOffset, MdlChain, (int)DeviceObject);
   return 1;
 }

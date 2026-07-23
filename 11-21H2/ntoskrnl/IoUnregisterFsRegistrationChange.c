@@ -6,7 +6,7 @@
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -20,9 +20,9 @@ void __stdcall IoUnregisterFsRegistrationChange(
   __int64 **v7; // rdx
 
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(&IopDatabaseResource, 1u);
-  for ( i = (__int64 *)IopFsNotifyChangeQueueHead; i != &IopFsNotifyChangeQueueHead; i = (__int64 *)*i )
+  --*((_WORD *)CurrentThread + 242);
+  ExAcquireResourceExclusiveLite(&stru_140C46E20, 1u);
+  for ( i = (__int64 *)qword_140C46FA0; i != &qword_140C46FA0; i = (__int64 *)*i )
   {
     if ( (PDRIVER_OBJECT)i[2] == DriverObject && (PDRIVER_FS_NOTIFICATION)i[3] == DriverNotificationRoutine )
     {
@@ -35,7 +35,7 @@ void __stdcall IoUnregisterFsRegistrationChange(
       break;
     }
   }
-  ExReleaseResourceLite(&IopDatabaseResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  ExReleaseResourceLite(&stru_140C46E20);
+  sub_1402F9540((__int64)KeGetCurrentThread());
   ObfDereferenceObject(DriverObject);
 }

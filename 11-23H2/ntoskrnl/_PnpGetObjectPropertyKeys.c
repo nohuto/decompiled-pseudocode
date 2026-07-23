@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpGetObjectPropertyKeys @ 0x14083A52C
+ * XREFs of _PnpGetObjectPropertyKeys @ 0x14083A82C
  * Callers:
- *     PiDqPnPGetObjectPropertyKeys @ 0x14083A43C (PiDqPnPGetObjectPropertyKeys.c)
- *     PiDevCfgCopyObjectProperties @ 0x14087C3F4 (PiDevCfgCopyObjectProperties.c)
- *     PiCMGetObjectPropertyKeys @ 0x14096A018 (PiCMGetObjectPropertyKeys.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x14083A73C (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiDevCfgCopyObjectProperties @ 0x14087C634 (PiDevCfgCopyObjectProperties.c)
+ *     PiCMGetObjectPropertyKeys @ 0x14096A218 (PiCMGetObjectPropertyKeys.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x14083A644 (_PnpGetObjectPropertyKeysWorker.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x14083A944 (_PnpGetObjectPropertyKeysWorker.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyKeys(

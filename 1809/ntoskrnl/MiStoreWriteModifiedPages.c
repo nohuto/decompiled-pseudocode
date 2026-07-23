@@ -1,7 +1,7 @@
 /*
- * XREFs of MiStoreWriteModifiedPages @ 0x14014CBA0
+ * XREFs of MiStoreWriteModifiedPages @ 0x14014CCA0
  * Callers:
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -9,30 +9,30 @@
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiStoreFreeWriteSupport @ 0x14014CAE8 (MiStoreFreeWriteSupport.c)
- *     MiStoreModifiedWriteDereference @ 0x14014CB1C (MiStoreModifiedWriteDereference.c)
- *     MiStoreCheckCandidatePage @ 0x14014D394 (MiStoreCheckCandidatePage.c)
- *     MiStoreWriteIssue @ 0x14014D5D0 (MiStoreWriteIssue.c)
- *     MiUpdatePfnBackingStore @ 0x14014F5B8 (MiUpdatePfnBackingStore.c)
- *     MiUpdatePagefilePeakUsage @ 0x14014F678 (MiUpdatePagefilePeakUsage.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14014F8FC (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14014FAA8 (MiDerefPageFileSpaceBitmaps.c)
- *     MiStoreUpdatePagefileHash @ 0x14014FB2C (MiStoreUpdatePagefileHash.c)
- *     MiStoreLogNotCandidate @ 0x140158088 (MiStoreLogNotCandidate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     MiStoreLogFullPagefile @ 0x1402C3F40 (MiStoreLogFullPagefile.c)
- *     MiStoreLogWriteDisabled @ 0x1402C4040 (MiStoreLogWriteDisabled.c)
- *     MiStoreLogWriteIssueFailure @ 0x1402C40FC (MiStoreLogWriteIssueFailure.c)
- *     MiStoreLogWriteIssueRetry @ 0x1402C4244 (MiStoreLogWriteIssueRetry.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiStoreFreeWriteSupport @ 0x14014CBE8 (MiStoreFreeWriteSupport.c)
+ *     MiStoreModifiedWriteDereference @ 0x14014CC1C (MiStoreModifiedWriteDereference.c)
+ *     MiStoreCheckCandidatePage @ 0x14014D494 (MiStoreCheckCandidatePage.c)
+ *     MiStoreWriteIssue @ 0x14014D6D0 (MiStoreWriteIssue.c)
+ *     MiUpdatePfnBackingStore @ 0x14014F6B8 (MiUpdatePfnBackingStore.c)
+ *     MiUpdatePagefilePeakUsage @ 0x14014F778 (MiUpdatePagefilePeakUsage.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14014F9FC (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14014FBA8 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiStoreUpdatePagefileHash @ 0x14014FC2C (MiStoreUpdatePagefileHash.c)
+ *     MiStoreLogNotCandidate @ 0x140158188 (MiStoreLogNotCandidate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     MiStoreLogFullPagefile @ 0x1402C4130 (MiStoreLogFullPagefile.c)
+ *     MiStoreLogWriteDisabled @ 0x1402C4230 (MiStoreLogWriteDisabled.c)
+ *     MiStoreLogWriteIssueFailure @ 0x1402C42EC (MiStoreLogWriteIssueFailure.c)
+ *     MiStoreLogWriteIssueRetry @ 0x1402C4434 (MiStoreLogWriteIssueRetry.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
@@ -113,7 +113,7 @@ __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
   int v74; // [rsp+48h] [rbp-B8h]
   ULONG v75; // [rsp+4Ch] [rbp-B4h]
   __int64 v76; // [rsp+50h] [rbp-B0h]
-  struct _SLIST_ENTRY *ListEntry; // [rsp+58h] [rbp-A8h]
+  _SLIST_ENTRY *ListEntry; // [rsp+58h] [rbp-A8h]
   _QWORD *v78; // [rsp+60h] [rbp-A0h]
   __int64 v79; // [rsp+68h] [rbp-98h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+70h] [rbp-90h]
@@ -176,7 +176,7 @@ LABEL_4:
   while ( v12 < v10 )
   {
     v13 = 1;
-    j = *v11 == qword_14043ADC8;
+    j = *v11 == qword_14043BE88;
     v83 = *v11;
     v72 = 1;
     if ( j || !*(_QWORD *)(v7 + 24) )
@@ -292,7 +292,7 @@ LABEL_37:
       ListEntry = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(v5 + 1216));
       if ( !ListEntry )
       {
-        ListEntry = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x78uLL, 0x57536D4Du);
+        ListEntry = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x78uLL, 0x57536D4Du);
         if ( !ListEntry )
         {
           v74 = 1;
@@ -480,7 +480,7 @@ LABEL_58:
     {
       _bittestandreset(*(signed __int32 **)(*(_QWORD *)(v5 + 1256) + 8LL), v40);
       v55 = *(_QWORD *)(v86 + 8LL * v40);
-      if ( v55 == qword_14043ADC8 )
+      if ( v55 == qword_14043BE88 )
       {
         updated = MiUpdatePageFileHighInPte(updated, v40 + (unsigned int)v41);
         MiReleasePageFileInfo((struct _KEVENT *)v5, updated, 2);
@@ -515,7 +515,7 @@ LABEL_58:
 LABEL_70:
   KiLeaveCriticalRegionUnsafe(v57);
   if ( ListEntry )
-    MiStoreFreeWriteSupport(ListEntry, (union _SLIST_HEADER *)v5);
+    MiStoreFreeWriteSupport(ListEntry, (_SLIST_HEADER *)v5);
   if ( v89 )
   {
     v59 = (void *)MiDerefPageFileSpaceBitmaps(v7, &v89, 0LL);

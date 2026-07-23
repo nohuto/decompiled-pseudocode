@@ -1,23 +1,23 @@
 /*
- * XREFs of SeQueryMandatoryLabel @ 0x1408696DC
+ * XREFs of SeQueryMandatoryLabel @ 0x14086DA0C
  * Callers:
- *     MiAllowImageMap @ 0x1408694B4 (MiAllowImageMap.c)
+ *     MiAllowImageMap @ 0x14086D7E4 (MiAllowImageMap.c)
  * Callees:
- *     RtlFindAceByType @ 0x14040C700 (RtlFindAceByType.c)
- *     RtlSubAuthoritySid @ 0x14044FDD0 (RtlSubAuthoritySid.c)
- *     RtlSubAuthorityCountSid @ 0x1404600D0 (RtlSubAuthorityCountSid.c)
+ *     RtlFindAceByType @ 0x140404D90 (RtlFindAceByType.c)
+ *     RtlSubAuthoritySid @ 0x140445040 (RtlSubAuthoritySid.c)
+ *     RtlSubAuthorityCountSid @ 0x140454FB0 (RtlSubAuthorityCountSid.c)
  */
 
 __int64 __fastcall SeQueryMandatoryLabel(__int64 a1)
 {
   __int16 v1; // ax
   unsigned int v2; // ebx
-  __int64 v3; // rdi
+  ACL *v3; // rdi
   __int64 v4; // rax
   PSID v5; // rsi
-  unsigned __int8 *AceByType; // rax
+  char *AceByType; // rax
   int v7; // ecx
-  unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
+  ULONG Index; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_WORD *)(a1 + 2);
   v2 = 0;
@@ -25,27 +25,27 @@ __int64 __fastcall SeQueryMandatoryLabel(__int64 a1)
     goto LABEL_2;
   if ( v1 >= 0 )
   {
-    v3 = *(_QWORD *)(a1 + 24);
+    v3 = *(ACL **)(a1 + 24);
     goto LABEL_6;
   }
   v4 = *(unsigned int *)(a1 + 12);
   if ( (_DWORD)v4 )
-    v3 = a1 + v4;
+    v3 = (ACL *)(a1 + v4);
   else
 LABEL_2:
     v3 = 0LL;
 LABEL_6:
   v5 = SepDefaultMandatorySid;
-  v9 = 0;
+  Index = 0;
   while ( 1 )
   {
-    AceByType = RtlFindAceByType(v3, 17, &v9);
+    AceByType = (char *)RtlFindAceByType(v3, 0x11u, &Index);
     if ( AceByType )
     {
       if ( (AceByType[1] & 8) == 0 )
         break;
     }
-    ++v9;
+    ++Index;
     if ( !AceByType )
       goto LABEL_9;
   }

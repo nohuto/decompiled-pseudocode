@@ -1,10 +1,10 @@
 /*
- * XREFs of VfLeaveDmaDomain @ 0x14030A190
+ * XREFs of VfLeaveDmaDomain @ 0x14030A380
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViGetRealDmaOperation @ 0x14092DB34 (ViGetRealDmaOperation.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaOperation @ 0x14092EB34 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfLeaveDmaDomain(__int64 a1)

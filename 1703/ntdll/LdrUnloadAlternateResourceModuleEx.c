@@ -16,74 +16,76 @@
  *     ZwUnmapViewOfSection @ 0x1800A5840 (ZwUnmapViewOfSection.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int16 a2)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  char v4; // bl
+  __int16 v2; // r12
+  BOOLEAN v4; // bl
   unsigned int v5; // edi
   int v6; // r14d
   int v7; // r13d
-  __int64 v8; // rsi
+  char *v8; // rsi
   _QWORD *v9; // rbx
   __int64 v10; // rdx
-  unsigned __int64 v11; // rdx
-  __int64 v12; // rcx
+  void *v11; // rdx
+  void *v12; // rcx
   int v13; // ebx
   bool v14; // zf
   __int64 v15; // rax
-  __int64 Heap; // rax
-  __int64 v18; // [rsp+20h] [rbp-38h]
+  PVOID Heap; // rax
+  int i; // [rsp+24h] [rbp-34h]
   int v19; // [rsp+60h] [rbp+8h]
-  __int64 v20; // [rsp+70h] [rbp+18h]
+  char *v20; // [rsp+70h] [rbp+18h]
 
+  v2 = Flags;
   v4 = 0;
-  if ( !a1 )
+  if ( !DllHandle )
     return 0;
-  RtlAcquireSRWLockExclusive(&unk_18015C3B0);
+  RtlAcquireSRWLockExclusive(&stru_18015C3B0);
   v5 = dword_18015A268;
   if ( dword_18015A268 )
   {
     v6 = dword_18015A268;
-    for ( HIDWORD(v18) = dword_18015A268; ; HIDWORD(v18) = v7 )
+    for ( i = dword_18015A268; ; i = v7 )
     {
       if ( v6 <= 0 )
         goto LABEL_34;
       v7 = v6 - 1;
-      v8 = qword_18015A260 + 72LL * (v6 - 1);
-      if ( *(_QWORD *)(v8 + 8) == a1 )
+      v8 = (char *)BaseAddress + 72 * v6 - 72;
+      if ( *((PVOID *)v8 + 1) == DllHandle )
         break;
 LABEL_6:
       v6 = v7;
     }
-    v20 = qword_18015A260 + 72LL * v7;
-    v9 = (_QWORD *)(v8 + 32);
-    v10 = *(_QWORD *)(v8 + 32);
-    if ( v10 && (!a2 || a2 == *(_WORD *)v8) && v10 != -1 && *(_DWORD *)(v8 + 56) == -1 )
+    v20 = (char *)BaseAddress + 72 * v7;
+    v9 = v8 + 32;
+    v10 = *((_QWORD *)v8 + 4);
+    if ( v10 && (!v2 || v2 == *(_WORD *)v8) && v10 != -1 && *((_DWORD *)v8 + 14) == -1 )
     {
-      v11 = v10 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( *(_DWORD *)(v8 + 64) == -1073741799 )
+      v11 = (void *)(v10 & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( *((_DWORD *)v8 + 16) == -1073741799 )
       {
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
-        v6 = HIDWORD(v18);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
+        v6 = i;
         v8 = v20;
       }
       else
       {
-        ZwUnmapViewOfSection(-1LL, v11);
+        ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v11);
       }
-      v12 = *(_QWORD *)(v8 + 40);
+      v12 = (void *)*((_QWORD *)v8 + 5);
       if ( v12 )
       {
         ZwClose(v12);
-        *(_QWORD *)(v8 + 40) = 0LL;
+        *((_QWORD *)v8 + 5) = 0LL;
       }
       *v9 = 0LL;
       v5 = dword_18015A268;
     }
-    v13 = *(_DWORD *)(v8 + 56);
+    v13 = *((_DWORD *)v8 + 14);
     v19 = v13;
     if ( v13 == -1 )
     {
-      v13 = *(_DWORD *)(v8 + 60);
+      v13 = *((_DWORD *)v8 + 15);
       v19 = v13;
     }
     if ( v6 != v5 )
@@ -92,8 +94,8 @@ LABEL_6:
     dword_18015A268 = v5;
     if ( v14 )
     {
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
-      qword_18015A260 = 0LL;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+      BaseAddress = 0LL;
       dword_18015A26C = 0;
     }
     else
@@ -101,13 +103,13 @@ LABEL_6:
       v15 = (unsigned int)(dword_18015A26C - 32);
       if ( v5 >= (unsigned int)v15 )
         goto LABEL_22;
-      Heap = RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, qword_18015A260, 72 * v15, v18);
+      Heap = RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress, 72 * v15);
       if ( !Heap )
       {
         v4 = 0;
         goto LABEL_34;
       }
-      qword_18015A260 = Heap;
+      BaseAddress = Heap;
       dword_18015A26C -= 32;
     }
     v13 = v19;
@@ -116,18 +118,16 @@ LABEL_22:
     if ( v13 == -1 )
     {
       v4 = 1;
-      LOBYTE(v18) = 1;
     }
     else
     {
       v4 = sub_180003824(v13);
-      LOBYTE(v18) = v4;
       v5 = dword_18015A268;
     }
     goto LABEL_6;
   }
   v4 = 1;
 LABEL_34:
-  RtlReleaseSRWLockExclusive(&unk_18015C3B0);
+  RtlReleaseSRWLockExclusive(&stru_18015C3B0);
   return v4;
 }

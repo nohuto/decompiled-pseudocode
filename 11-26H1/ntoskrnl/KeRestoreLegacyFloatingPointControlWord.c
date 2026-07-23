@@ -1,5 +1,5 @@
 /*
- * XREFs of KeRestoreLegacyFloatingPointControlWord @ 0x1407273C0
+ * XREFs of KeRestoreLegacyFloatingPointControlWord @ 0x14072BF90
  * Callers:
  *     <none>
  * Callees:

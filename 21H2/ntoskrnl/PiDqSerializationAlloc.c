@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqSerializationAlloc @ 0x1406B9500
+ * XREFs of PiDqSerializationAlloc @ 0x140618BC0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqSerializationAlloc(__int64 a1, _QWORD *a2, unsigned int *a3)

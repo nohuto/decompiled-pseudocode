@@ -12,7 +12,7 @@ int __fastcall LdrpAllocateUnicodeString(int a1, int a2)
 {
   __int16 v3; // bx
   int v4; // esi
-  int StringRoutine; // eax
+  PVOID StringRoutine; // eax
 
   v3 = a2 + 2;
   v4 = 0;

@@ -1,22 +1,22 @@
 /*
- * XREFs of VrpIoctlDeviceDispatch @ 0x140929280
+ * XREFs of VrpIoctlDeviceDispatch @ 0x14092B3C0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408293FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x1408296E4 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
- *     VrpHandleIoctlModifyFlags @ 0x14082991C (VrpHandleIoctlModifyFlags.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140829A24 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
- *     VRegEnabledInJob @ 0x1409296E0 (VRegEnabledInJob.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14092974C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlGetVirtualRootKey @ 0x1409299A4 (VrpHandleIoctlGetVirtualRootKey.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x14092A298 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x1409FE37C (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140A63480 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140829C2C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140829F14 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlModifyFlags @ 0x14082A14C (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x14082A254 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VRegEnabledInJob @ 0x14092B820 (VRegEnabledInJob.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x14092B88C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlGetVirtualRootKey @ 0x14092BAE4 (VrpHandleIoctlGetVirtualRootKey.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x14092C3D8 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1409F75EC (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140A5BD80 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
  */
 
 __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
@@ -57,15 +57,15 @@ __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
   if ( (unsigned int)VRegEnabledInJob(&v23) && !VrpAllowContainerNesting )
   {
     v13 = -1073741808;
-    if ( (unsigned int)dword_140E0A5B0 > 2 )
+    if ( (unsigned int)dword_140E0A620 > 2 )
     {
       v29 = 0;
       v27 = &v23;
       v23 = v5;
       v28 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E0A5B0,
-        (unsigned __int8 *)byte_140058B31,
+        (__int64)&dword_140E0A620,
+        (unsigned __int8 *)word_140059722,
         &v24,
         0LL,
         3u,
@@ -74,21 +74,21 @@ __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
     goto LABEL_9;
   }
   EtwActivityIdControl(1u, &ActivityId);
-  v8 = dword_140E0A5B0;
-  if ( (unsigned int)dword_140E0A5B0 > 4 )
+  v8 = dword_140E0A620;
+  if ( (unsigned int)dword_140E0A620 > 4 )
   {
     v29 = 0;
     v27 = &v23;
     v23 = v5;
     v28 = 4;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E0A5B0,
-      (unsigned __int8 *)word_140058B9A,
+      (__int64)&dword_140E0A620,
+      (unsigned __int8 *)&word_1400596D6,
       &v24,
       &ActivityId,
       3u,
       v26);
-    v8 = dword_140E0A5B0;
+    v8 = dword_140E0A620;
   }
   v9 = v5 - 2228228;
   if ( !v9 )
@@ -201,19 +201,19 @@ LABEL_8:
     v23 = v20;
     v28 = 4;
     v27 = &v23;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A5B0, (unsigned __int8 *)qword_140058AE8, &v24, 0LL, 3u, v26);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A620, (unsigned __int8 *)word_1400596AA, &v24, 0LL, 3u, v26);
   }
   v13 = -1073741808;
 LABEL_9:
   *(_DWORD *)(a2 + 48) = v13;
   IofCompleteRequest((PIRP)a2, 0);
-  if ( (unsigned int)dword_140E0A5B0 > 4 )
+  if ( (unsigned int)dword_140E0A620 > 4 )
   {
     v29 = 0;
     v27 = &v23;
     v23 = v13;
     v28 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A5B0, (unsigned __int8 *)byte_140058B73, &v24, 0LL, 3u, v26);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A620, (unsigned __int8 *)byte_1400596FB, &v24, 0LL, 3u, v26);
   }
   return v13;
 }

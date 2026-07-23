@@ -15,9 +15,6 @@ __int64 __fastcall PopPowerRequestCallbackExecutionRequired(__int64 a1, int a2, 
   int v5; // ebx
   char v6; // al
   int v7; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
 
   if ( a2 == 3 )
   {
@@ -49,5 +46,5 @@ LABEL_7:
   if ( !v7 )
     dword_140C3CD80 = dword_140C3CD48;
   PopCheckResiliencyScenarios();
-  return PopReleasePolicyLock(v9, v8, v10);
+  return PopReleasePolicyLock();
 }

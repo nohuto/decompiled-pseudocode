@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpComputeFraction @ 0x1405330F0
+ * XREFs of RtlpComputeFraction @ 0x140535570
  * Callers:
- *     RtlGenerateQpcToIncrementConstants @ 0x1404F4860 (RtlGenerateQpcToIncrementConstants.c)
- *     KiInitializeProcessorCycleAccumulation @ 0x1405E51A4 (KiInitializeProcessorCycleAccumulation.c)
- *     KiSetupTimeIncrement @ 0x1405E53C8 (KiSetupTimeIncrement.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x1404EDE40 (RtlGenerateQpcToIncrementConstants.c)
+ *     KiInitializeProcessorCycleAccumulation @ 0x1405E7B14 (KiInitializeProcessorCycleAccumulation.c)
+ *     KiSetupTimeIncrement @ 0x1405E7D38 (KiSetupTimeIncrement.c)
  * Callees:
- *     RtlpCountLeadingZeroes64 @ 0x140620198 (RtlpCountLeadingZeroes64.c)
+ *     RtlpCountLeadingZeroes64 @ 0x1406231E8 (RtlpCountLeadingZeroes64.c)
  */
 
 unsigned __int64 __fastcall RtlpComputeFraction(__int64 a1, __int64 a2, _BYTE *a3)

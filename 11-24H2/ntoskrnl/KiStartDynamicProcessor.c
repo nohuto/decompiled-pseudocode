@@ -1,62 +1,62 @@
 /*
- * XREFs of KiStartDynamicProcessor @ 0x14073B478
+ * XREFs of KiStartDynamicProcessor @ 0x1407393A8
  * Callers:
- *     KeStartDynamicProcessor @ 0x14073C4E0 (KeStartDynamicProcessor.c)
+ *     KeStartDynamicProcessor @ 0x14073A410 (KeStartDynamicProcessor.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x1402C7030 (MmUnlockPagableImageSection.c)
- *     KiRcuProcessorInitialize @ 0x1404D5904 (KiRcuProcessorInitialize.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalStartDynamicProcessor @ 0x1405416E0 (HalStartDynamicProcessor.c)
- *     HalRegisterDynamicProcessor @ 0x140544150 (HalRegisterDynamicProcessor.c)
- *     KiAllocateIdleSearchStructures @ 0x1405B5990 (KiAllocateIdleSearchStructures.c)
- *     KiAllocateLocalSharedReadyQueue @ 0x1405B5B3C (KiAllocateLocalSharedReadyQueue.c)
- *     KiAllocatePrcbThreads @ 0x1405B5BB8 (KiAllocatePrcbThreads.c)
- *     KiAllocateProcessorStateInitializationParameters @ 0x1405B5EB0 (KiAllocateProcessorStateInitializationParameters.c)
- *     KiAllocateStaticRescheduleContext @ 0x1405B5F24 (KiAllocateStaticRescheduleContext.c)
- *     KiDynamicProcessorInitialization @ 0x1405B6BFC (KiDynamicProcessorInitialization.c)
- *     KiFreeIdleSearchStructures @ 0x1405B6E18 (KiFreeIdleSearchStructures.c)
- *     KiFreeLocalSharedReadyQueue @ 0x1405B6E9C (KiFreeLocalSharedReadyQueue.c)
- *     KiFreePrcbThreads @ 0x1405B6ED0 (KiFreePrcbThreads.c)
- *     KiFreeProcessorStateInitializationParameters @ 0x1405B7038 (KiFreeProcessorStateInitializationParameters.c)
- *     KiFreeStaticRescheduleContext @ 0x1405B70B0 (KiFreeStaticRescheduleContext.c)
- *     KiInitializeProcessorStateInitializationParameters @ 0x1405B72DC (KiInitializeProcessorStateInitializationParameters.c)
- *     KiQueryProcessorNode @ 0x1405BB8C0 (KiQueryProcessorNode.c)
- *     KiUnassignProcessorNumberFromPrcb @ 0x1405BBB18 (KiUnassignProcessorNumberFromPrcb.c)
- *     KiAllocateProcessorHiberSwapShadowStacks @ 0x1405BC3A4 (KiAllocateProcessorHiberSwapShadowStacks.c)
- *     KiDynamicProcessorAddNotification @ 0x1405BC578 (KiDynamicProcessorAddNotification.c)
- *     KiAllocateForceParkingData @ 0x1405C8218 (KiAllocateForceParkingData.c)
- *     KiFreeForceParkingData @ 0x1405C8508 (KiFreeForceParkingData.c)
- *     ExInitializeProcessor @ 0x140653874 (ExInitializeProcessor.c)
- *     ExDeletePoolTagTable @ 0x140653F80 (ExDeletePoolTagTable.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CcInitializeProcessor @ 0x140706B20 (CcInitializeProcessor.c)
- *     HvlDeleteProcessor @ 0x14070ED24 (HvlDeleteProcessor.c)
- *     HvlInitializeProcessor @ 0x14070EDCC (HvlInitializeProcessor.c)
- *     IoInitializeProcessor @ 0x1407115FC (IoInitializeProcessor.c)
- *     KiInitializeProcessorState @ 0x14073CAB0 (KiInitializeProcessorState.c)
- *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x14073CF28 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
- *     ObInitializeProcessor @ 0x1407431B8 (ObInitializeProcessor.c)
- *     EtwDeleteProcessor @ 0x1407A63E0 (EtwDeleteProcessor.c)
- *     EtwInitializeProcessor @ 0x1407A65DC (EtwInitializeProcessor.c)
- *     EtwpInitializeActivityIdSeed @ 0x1407A80C4 (EtwpInitializeActivityIdSeed.c)
- *     ExCreatePoolTagTable @ 0x1407B7CFC (ExCreatePoolTagTable.c)
- *     CmInitializeProcessorCallbacks @ 0x1407D145C (CmInitializeProcessorCallbacks.c)
- *     CmInitializeProcessor @ 0x1407D4BCC (CmInitializeProcessor.c)
- *     MmDeleteProcessor @ 0x1407E8154 (MmDeleteProcessor.c)
- *     MmLockPagableSectionByHandle @ 0x140A3FE90 (MmLockPagableSectionByHandle.c)
- *     KeInitializeTimerTable @ 0x140A7BB0C (KeInitializeTimerTable.c)
- *     KiFreeThreadCycleTable @ 0x140B561D0 (KiFreeThreadCycleTable.c)
- *     KiInitializeThreadCycleTable @ 0x140B566D0 (KiInitializeThreadCycleTable.c)
- *     KiInitializePrcbContext @ 0x140B56930 (KiInitializePrcbContext.c)
- *     KiInitializeDynamicProcessor @ 0x140B57558 (KiInitializeDynamicProcessor.c)
- *     KiUnshadowProcessorAllocation @ 0x140B5ACA4 (KiUnshadowProcessorAllocation.c)
- *     KiComputeProcessorDataSize @ 0x140B5AD64 (KiComputeProcessorDataSize.c)
- *     KiAddProcessorToGroupSchedulingDatabase @ 0x140B5AD94 (KiAddProcessorToGroupSchedulingDatabase.c)
- *     WheaInitializeProcessor @ 0x140B61B24 (WheaInitializeProcessor.c)
- *     MmInitializeProcessor @ 0x140B62038 (MmInitializeProcessor.c)
- *     VmInitializeProcessor @ 0x140B6E698 (VmInitializeProcessor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmUnlockPagableImageSection @ 0x1402BBBB0 (MmUnlockPagableImageSection.c)
+ *     KiRcuProcessorInitialize @ 0x1404CED4C (KiRcuProcessorInitialize.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalStartDynamicProcessor @ 0x14053EFE0 (HalStartDynamicProcessor.c)
+ *     HalRegisterDynamicProcessor @ 0x140541AA0 (HalRegisterDynamicProcessor.c)
+ *     KiAllocateIdleSearchStructures @ 0x1405B2C58 (KiAllocateIdleSearchStructures.c)
+ *     KiAllocateLocalSharedReadyQueue @ 0x1405B2E04 (KiAllocateLocalSharedReadyQueue.c)
+ *     KiAllocatePrcbThreads @ 0x1405B2E80 (KiAllocatePrcbThreads.c)
+ *     KiAllocateProcessorStateInitializationParameters @ 0x1405B3178 (KiAllocateProcessorStateInitializationParameters.c)
+ *     KiAllocateStaticRescheduleContext @ 0x1405B31EC (KiAllocateStaticRescheduleContext.c)
+ *     KiDynamicProcessorInitialization @ 0x1405B3EBC (KiDynamicProcessorInitialization.c)
+ *     KiFreeIdleSearchStructures @ 0x1405B40D8 (KiFreeIdleSearchStructures.c)
+ *     KiFreeLocalSharedReadyQueue @ 0x1405B415C (KiFreeLocalSharedReadyQueue.c)
+ *     KiFreePrcbThreads @ 0x1405B4190 (KiFreePrcbThreads.c)
+ *     KiFreeProcessorStateInitializationParameters @ 0x1405B42F8 (KiFreeProcessorStateInitializationParameters.c)
+ *     KiFreeStaticRescheduleContext @ 0x1405B4370 (KiFreeStaticRescheduleContext.c)
+ *     KiInitializeProcessorStateInitializationParameters @ 0x1405B463C (KiInitializeProcessorStateInitializationParameters.c)
+ *     KiQueryProcessorNode @ 0x1405B8EF0 (KiQueryProcessorNode.c)
+ *     KiUnassignProcessorNumberFromPrcb @ 0x1405B9148 (KiUnassignProcessorNumberFromPrcb.c)
+ *     KiAllocateProcessorHiberSwapShadowStacks @ 0x1405B99D4 (KiAllocateProcessorHiberSwapShadowStacks.c)
+ *     KiDynamicProcessorAddNotification @ 0x1405B9BA8 (KiDynamicProcessorAddNotification.c)
+ *     KiAllocateForceParkingData @ 0x1405C5948 (KiAllocateForceParkingData.c)
+ *     KiFreeForceParkingData @ 0x1405C5C38 (KiFreeForceParkingData.c)
+ *     ExInitializeProcessor @ 0x140651FD4 (ExInitializeProcessor.c)
+ *     ExDeletePoolTagTable @ 0x1406526E8 (ExDeletePoolTagTable.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CcInitializeProcessor @ 0x1407046E0 (CcInitializeProcessor.c)
+ *     HvlDeleteProcessor @ 0x14070C8B4 (HvlDeleteProcessor.c)
+ *     HvlInitializeProcessor @ 0x14070C95C (HvlInitializeProcessor.c)
+ *     IoInitializeProcessor @ 0x14070F18C (IoInitializeProcessor.c)
+ *     KiInitializeProcessorState @ 0x14073A9E0 (KiInitializeProcessorState.c)
+ *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x14073AE58 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
+ *     ObInitializeProcessor @ 0x1407410E8 (ObInitializeProcessor.c)
+ *     EtwDeleteProcessor @ 0x1407A6520 (EtwDeleteProcessor.c)
+ *     EtwInitializeProcessor @ 0x1407A671C (EtwInitializeProcessor.c)
+ *     EtwpInitializeActivityIdSeed @ 0x1407A8204 (EtwpInitializeActivityIdSeed.c)
+ *     ExCreatePoolTagTable @ 0x1407B814C (ExCreatePoolTagTable.c)
+ *     CmInitializeProcessorCallbacks @ 0x1407D194C (CmInitializeProcessorCallbacks.c)
+ *     CmInitializeProcessor @ 0x1407D50BC (CmInitializeProcessor.c)
+ *     MmDeleteProcessor @ 0x1407E8724 (MmDeleteProcessor.c)
+ *     MmLockPagableSectionByHandle @ 0x140A35770 (MmLockPagableSectionByHandle.c)
+ *     KeInitializeTimerTable @ 0x140A75E0C (KeInitializeTimerTable.c)
+ *     KiFreeThreadCycleTable @ 0x140B58220 (KiFreeThreadCycleTable.c)
+ *     KiInitializeThreadCycleTable @ 0x140B58720 (KiInitializeThreadCycleTable.c)
+ *     KiInitializePrcbContext @ 0x140B58980 (KiInitializePrcbContext.c)
+ *     KiInitializeDynamicProcessor @ 0x140B595D8 (KiInitializeDynamicProcessor.c)
+ *     KiUnshadowProcessorAllocation @ 0x140B5CD14 (KiUnshadowProcessorAllocation.c)
+ *     KiComputeProcessorDataSize @ 0x140B5CDD4 (KiComputeProcessorDataSize.c)
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x140B5CE04 (KiAddProcessorToGroupSchedulingDatabase.c)
+ *     WheaInitializeProcessor @ 0x140B63BF4 (WheaInitializeProcessor.c)
+ *     MmInitializeProcessor @ 0x140B64108 (MmInitializeProcessor.c)
+ *     VmInitializeProcessor @ 0x140B7054C (VmInitializeProcessor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiStartDynamicProcessor(__int64 a1, int a2, unsigned __int16 a3, unsigned int a4)
@@ -66,10 +66,10 @@ __int64 __fastcall KiStartDynamicProcessor(__int64 a1, int a2, unsigned __int16 
   __int64 v7; // r13
   _OWORD *v8; // rsi
   struct _KPRCB *v9; // rdi
+  __int64 v10; // rdx
+  __int64 *v11; // r8
   int ProcessorStateInitializationParameters; // ebx
-  __int64 v11; // r9
-  int v12; // r9d
-  __int64 v13; // rdx
+  int v13; // r9d
   int v14; // r8d
   int v15; // r9d
   PVOID v16; // rcx
@@ -80,7 +80,7 @@ __int64 __fastcall KiStartDynamicProcessor(__int64 a1, int a2, unsigned __int16 
   _OWORD *v21; // rcx
   __int128 v22; // xmm1
   SIZE_T v23; // rdx
-  MEMORY_CACHING_TYPE v24; // r8d
+  __int64 v24; // r8
   void *VmInternal; // rcx
   unsigned __int16 v27; // [rsp+30h] [rbp-D0h] BYREF
   ULONG_PTR v28; // [rsp+38h] [rbp-C8h] BYREF
@@ -107,35 +107,18 @@ __int64 __fastcall KiStartDynamicProcessor(__int64 a1, int a2, unsigned __int16 
   v8 = 0LL;
   v9 = 0LL;
   KiInitializeProcessorStateInitializationParameters(v32);
+  v11 = KeNodeBlock;
   if ( (unsigned int)KeNumberProcessors_0 >= 0x800
     || KeNumprocSpecified && (unsigned int)KeNumberProcessors_0 >= KeNumprocSpecified )
   {
     ProcessorStateInitializationParameters = -1073741223;
-    goto LABEL_48;
-  }
-  ProcessorStateInitializationParameters = HalRegisterDynamicProcessor();
-  if ( ProcessorStateInitializationParameters < 0 )
-    goto LABEL_48;
-  v27 = a3;
-  ProcessorStateInitializationParameters = KiQueryProcessorNode(v5, (int *)&v28, &v27, v11);
-  if ( ProcessorStateInitializationParameters )
-    goto LABEL_42;
-  v32[0] = 1;
-  v32[4] = KiComputeProcessorDataSize((unsigned int)KeMaximumProcessors, &v29, &v30);
-  v32[9] = v29;
-  v32[10] = v30;
-  v32[5] = v27;
-  v32[6] = v5;
-  v32[7] = v12;
-  ProcessorStateInitializationParameters = KiAllocateProcessorStateInitializationParameters((__int64)v32, v27);
-  if ( ProcessorStateInitializationParameters < 0 )
-  {
-LABEL_48:
+LABEL_49:
     KiBarrierWait = 0;
     if ( v7 )
     {
       v20 = 6LL;
       v21 = (_OWORD *)v7;
+      v10 = 128LL;
       do
       {
         *v21 = *v8;
@@ -181,10 +164,31 @@ LABEL_48:
       KiUnassignProcessorNumberFromPrcb((__int64)v9);
     }
     if ( v6 )
-      ExDeletePoolTagTable(v5);
+      ExDeletePoolTagTable(v5, v10, (__int64)v11);
     if ( v9 )
       KiUnshadowProcessorAllocation(v9, BugCheckParameter1, v32);
-    goto LABEL_62;
+    goto LABEL_63;
+  }
+  ProcessorStateInitializationParameters = HalRegisterDynamicProcessor();
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_48;
+  v27 = a3;
+  ProcessorStateInitializationParameters = KiQueryProcessorNode(v5, (int *)&v28, &v27);
+  if ( ProcessorStateInitializationParameters )
+    goto LABEL_42;
+  v32[0] = 1;
+  v32[4] = KiComputeProcessorDataSize((unsigned int)KeMaximumProcessors, &v29, &v30);
+  v32[9] = v29;
+  v32[10] = v30;
+  v32[5] = v27;
+  v32[6] = v5;
+  v32[7] = v13;
+  ProcessorStateInitializationParameters = KiAllocateProcessorStateInitializationParameters((__int64)v32, v27);
+  if ( ProcessorStateInitializationParameters < 0 )
+  {
+LABEL_48:
+    v11 = KeNodeBlock;
+    goto LABEL_49;
   }
   PoolTagTable = ExCreatePoolTagTable((unsigned int)v5, v27);
   v6 = PoolTagTable;
@@ -192,7 +196,7 @@ LABEL_48:
   {
     ProcessorStateInitializationParameters = -1073741670;
     KiBarrierWait = 0;
-LABEL_62:
+LABEL_63:
     KiFreeProcessorStateInitializationParameters((__int64)v32);
     return (unsigned int)ProcessorStateInitializationParameters;
   }
@@ -238,7 +242,7 @@ LABEL_62:
   ProcessorStateInitializationParameters = HvlInitializeProcessor((__int64)v9, v5, v28);
   if ( ProcessorStateInitializationParameters < 0 )
     goto LABEL_48;
-  ProcessorStateInitializationParameters = KiAllocatePrcbThreads((__int64)v9, v13, v14, v15);
+  ProcessorStateInitializationParameters = KiAllocatePrcbThreads((__int64)v9, v10, v14, v15);
   if ( ProcessorStateInitializationParameters < 0 )
     goto LABEL_48;
   ProcessorStateInitializationParameters = KiAllocateLocalSharedReadyQueue((__int64)v9);

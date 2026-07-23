@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateBootSlabEntries @ 0x140A4F8C0
+ * XREFs of MiCreateBootSlabEntries @ 0x140A508C0
  * Callers:
- *     MiCreateKernelHalSlabRange @ 0x140A4F6A0 (MiCreateKernelHalSlabRange.c)
- *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140A564C0 (MiCreateSlabAllocationsFromLoaderBlock.c)
+ *     MiCreateKernelHalSlabRange @ 0x140A506A0 (MiCreateKernelHalSlabRange.c)
+ *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140A574C0 (MiCreateSlabAllocationsFromLoaderBlock.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     MiInsertSlabEntry @ 0x14039A0CC (MiInsertSlabEntry.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     MiInsertSlabEntry @ 0x14039A21C (MiInsertSlabEntry.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -16,8 +16,8 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
   __int64 v5; // r14
   unsigned __int64 v6; // rsi
   __int64 v8; // rdi
-  RTL_BITMAP *Pool; // rax
-  unsigned __int64 v10; // rbx
+  _RTL_BITMAP *Pool; // rax
+  __int64 v10; // rbx
   int v12; // ecx
 
   v5 = a3;
@@ -27,8 +27,8 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
     return 0LL;
   while ( 1 )
   {
-    Pool = (RTL_BITMAP *)MiAllocatePool(64, 0x90uLL, 0x6553694Du);
-    v10 = (unsigned __int64)Pool;
+    Pool = (_RTL_BITMAP *)MiAllocatePool(64, 0x90uLL, 0x6553694Du);
+    v10 = (__int64)Pool;
     if ( !Pool )
       break;
     Pool[2].Buffer = (unsigned int *)a1;
@@ -45,15 +45,15 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
       do
       {
         if ( !*(_QWORD *)(v8 + 8) )
-          --qword_140C4EFB8;
+          --qword_140C4EFF8;
         v8 += 48LL;
         --v12;
       }
       while ( v12 );
     }
-    if ( _bittest64((const signed __int64 *)qword_140C52588, v6 >> 9) )
+    if ( _bittest64((const signed __int64 *)qword_140C525C8, v6 >> 9) )
       KeBugCheckEx(0x1Au, 0x3030311uLL, *(_QWORD *)(v10 + 24), *(int *)(a1 + 48), 0LL);
-    _bittestandset64((signed __int64 *)qword_140C52588, v6 >> 9);
+    _bittestandset64((signed __int64 *)qword_140C525C8, v6 >> 9);
     MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v6, 0x200uLL, 1, 0);
     MiInsertSlabEntry((__int64)&MiSystemPartition, a1, v10);
     v6 += 512LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpChargePagedPoolQuota @ 0x1409BC9CC
+ * XREFs of AlpcpChargePagedPoolQuota @ 0x14098D9AC
  * Callers:
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x1408E7E00 (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpCaptureMessageData @ 0x1409BBCD0 (AlpcpCaptureMessageData.c)
- *     AlpcpCreateReserve @ 0x1409BC024 (AlpcpCreateReserve.c)
- *     AlpcpCreateSecurityContext @ 0x1409BC550 (AlpcpCreateSecurityContext.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
- *     AlpcpCaptureMessageDataSafe @ 0x1409C09E8 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x1408EE3C0 (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpCaptureMessageData @ 0x14098CCB0 (AlpcpCaptureMessageData.c)
+ *     AlpcpCreateReserve @ 0x14098D004 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x14098D530 (AlpcpCreateSecurityContext.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1409919C8 (AlpcpCaptureMessageDataSafe.c)
  * Callees:
- *     PsChargeProcessPagedPoolQuota @ 0x140972810 (PsChargeProcessPagedPoolQuota.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x1409BDB00 (PsChargeProcessPagedPoolQuota.c)
  */
 
 __int64 __fastcall AlpcpChargePagedPoolQuota(__int64 a1, unsigned __int64 a2)

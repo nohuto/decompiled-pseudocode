@@ -1,8 +1,8 @@
 /*
- * XREFs of IommupDeviceGetPasidSettings @ 0x14054E0B0
+ * XREFs of IommupDeviceGetPasidSettings @ 0x14054B960
  * Callers:
- *     HalpIommuCreateDevice @ 0x14054D63C (HalpIommuCreateDevice.c)
- *     IommupDeviceEnablePasidTaggedDma @ 0x1406FF3F4 (IommupDeviceEnablePasidTaggedDma.c)
+ *     HalpIommuCreateDevice @ 0x14054AEFC (HalpIommuCreateDevice.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x1406FD034 (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
  *     <none>
  */

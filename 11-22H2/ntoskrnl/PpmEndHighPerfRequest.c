@@ -44,10 +44,10 @@ __int64 __fastcall PpmEndHighPerfRequest(int a1)
     KiSetTimerEx((__int64)&PpmHighPerfEndTimer, MEMORY[0xFFFFF78000000008] - v4, 0, 0, (__int64)&PpmHighPerfEndDpc);
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PpmHighPerfRequestLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

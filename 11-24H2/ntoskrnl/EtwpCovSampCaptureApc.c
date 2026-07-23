@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpCovSampCaptureApc @ 0x14043E480
+ * XREFs of EtwpCovSampCaptureApc @ 0x1404340A0
  * Callers:
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmCanThreadFault @ 0x14027DC40 (MmCanThreadFault.c)
- *     EtwpCovSampCaptureApcRelease @ 0x14043E5C4 (EtwpCovSampCaptureApcRelease.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     EtwpCovSampCaptureUserAddresses @ 0x1409003C4 (EtwpCovSampCaptureUserAddresses.c)
+ *     MmCanThreadFault @ 0x1402331D0 (MmCanThreadFault.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x1404341E4 (EtwpCovSampCaptureApcRelease.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x140922CA4 (EtwpCovSampCaptureUserAddresses.c)
  */
 
 struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(__int64 a1, _QWORD *a2, __int64 *a3, __int64 *a4)
 {
   __int64 v4; // rbp
-  struct _SLIST_ENTRY *v5; // rsi
+  _SLIST_ENTRY *v5; // rsi
   __int64 v6; // r14
   KIRQL v7; // al
   __int64 v8; // rdx
   unsigned __int64 v9; // rdi
-  unsigned __int8 CurrentIrql; // dl
+  __int64 CurrentIrql; // rdx
   struct _KTHREAD *CurrentThread; // rcx
   BOOL v12; // ebx
   struct _KTHREAD *result; // rax
@@ -27,7 +27,7 @@ struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(__int64 a1, _QWORD *a2, __int6
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   v4 = *a3;
-  v5 = (struct _SLIST_ENTRY *)(a1 - 56);
+  v5 = (_SLIST_ENTRY *)(a1 - 56);
   v6 = *a4;
   *a2 = 0LL;
   _InterlockedOr(v14, 0);
@@ -51,9 +51,9 @@ struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(__int64 a1, _QWORD *a2, __int6
   CurrentIrql = KeGetCurrentIrql();
   CurrentThread = KeGetCurrentThread();
   v12 = (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0 || !CurrentThread->Teb;
-  if ( CurrentIrql < 2u
+  if ( (unsigned __int8)CurrentIrql < 2u
     && !KeGetCurrentThread()->WaitBlock[3].SpareLong
-    && MmCanThreadFault()
+    && MmCanThreadFault((__int64)CurrentThread, CurrentIrql)
     && KeGetCurrentThread()->ApcStateIndex != 1
     && !v12 )
   {

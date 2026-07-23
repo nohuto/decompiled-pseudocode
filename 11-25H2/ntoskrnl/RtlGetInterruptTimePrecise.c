@@ -68,14 +68,14 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall RtlGetInterruptTimePrecise(unsigned __int64 *a1)
+LARGE_INTEGER __cdecl RtlGetInterruptTimePrecise(PLARGE_INTEGER PerformanceCounter)
 {
   __int64 v1; // rbx
   unsigned __int64 v2; // rdx
   __int64 i; // r10
   __int64 v4; // rbp
   unsigned __int64 v5; // r15
-  __int64 v6; // r12
+  LARGE_INTEGER v6; // r12
   __int64 v7; // rsi
   __int64 v8; // rcx
   unsigned __int64 v9; // rax
@@ -84,6 +84,7 @@ __int64 __fastcall RtlGetInterruptTimePrecise(unsigned __int64 *a1)
   __int64 v12; // r14
   unsigned __int64 v13; // r11
   __int64 v14; // r11
+  LARGE_INTEGER result; // rax
   __int64 v16; // rcx
   __int64 (__fastcall *v17)(__int64, __int64); // rax
   __int64 v18; // rdx
@@ -133,7 +134,7 @@ __int64 __fastcall RtlGetInterruptTimePrecise(unsigned __int64 *a1)
       _mm_pause();
     v4 = HalpPerformanceCounter;
     v5 = MEMORY[0xFFFFF78000000350];
-    v6 = MEMORY[0xFFFFF78000000008];
+    v6.QuadPart = MEMORY[0xFFFFF78000000008];
     if ( *(_DWORD *)(HalpPerformanceCounter + 228) != 5 )
     {
       v7 = *(_QWORD *)(HalpPerformanceCounter + 192);
@@ -382,11 +383,17 @@ LABEL_18:
       break;
     _mm_pause();
   }
-  *a1 = v13;
+  PerformanceCounter->QuadPart = v13;
   if ( v13 <= v5 )
+  {
     return v6;
-  v14 = v13 - v5 - 1;
-  if ( MEMORY[0xFFFFF78000000369] )
-    v14 <<= MEMORY[0xFFFFF78000000369];
-  return (((unsigned __int64)v14 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64) + v6;
+  }
+  else
+  {
+    v14 = v13 - v5 - 1;
+    if ( MEMORY[0xFFFFF78000000369] )
+      v14 <<= MEMORY[0xFFFFF78000000369];
+    result.QuadPart = (((unsigned __int64)v14 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64) + v6.QuadPart;
+  }
+  return result;
 }

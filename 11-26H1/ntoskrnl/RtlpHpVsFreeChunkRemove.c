@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVsFreeChunkRemove @ 0x140378D40
+ * XREFs of RtlpHpVsFreeChunkRemove @ 0x14037AAF0
  * Callers:
- *     RtlpHpVsChunkSplit @ 0x14024B9E0 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsSlotCompactChunks @ 0x14041BD80 (RtlpHpVsSlotCompactChunks.c)
+ *     RtlpHpVsChunkSplit @ 0x14024D340 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x1404135D0 (RtlpHpVsSlotCompactChunks.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     KasanMarkAddressValidNoInline @ 0x140523160 (KasanMarkAddressValidNoInline.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     KasanMarkAddressValidNoInline @ 0x1405257D0 (KasanMarkAddressValidNoInline.c)
  */
 
-__int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, __int64 a2, int a3, ULONG_PTR a4)
+__int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, _RTL_RB_TREE *a2, int a3, ULONG_PTR a4)
 {
   unsigned int v7; // r8d
   unsigned __int64 v8; // rdx
@@ -20,8 +20,8 @@ __int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, __int64 a2, int a3, ULONG
   __int64 result; // rax
   int v15; // ecx
 
-  RtlRbRemoveNode(a2 + 16, a4 + 8);
-  if ( (RtlpHpLfhPerfFlags & 0x20000) != 0 && byte_140FC7BE8 )
+  RtlRbRemoveNode(a2 + 1, (PRTL_BALANCED_NODE)(a4 + 8));
+  if ( (RtlpHpLfhPerfFlags & 0x20000) != 0 && byte_140FC8BD8 )
     KasanMarkAddressValidNoInline(
       a4,
       16LL * (WORD1(a4) ^ WORD1(*(_QWORD *)a4) ^ *(_WORD *)&PspTlsContext.Timer.TimerType));

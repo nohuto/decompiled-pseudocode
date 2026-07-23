@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFcAddDelayedUsageReportToBuffer @ 0x140356FCC
+ * XREFs of RtlpFcAddDelayedUsageReportToBuffer @ 0x140358D6C
  * Callers:
- *     CmFcManagerNotifyFeatureUsage @ 0x140356ED8 (CmFcManagerNotifyFeatureUsage.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x140358C78 (CmFcManagerNotifyFeatureUsage.c)
  * Callees:
- *     RtlBackoff @ 0x140335EF0 (RtlBackoff.c)
- *     RtlInterlockedSetClearRun @ 0x140357CF0 (RtlInterlockedSetClearRun.c)
- *     RtlFindClearBits @ 0x140358780 (RtlFindClearBits.c)
+ *     RtlBackoff @ 0x140337F20 (RtlBackoff.c)
+ *     RtlInterlockedSetClearRun @ 0x140359A90 (RtlInterlockedSetClearRun.c)
+ *     RtlFindClearBits @ 0x14035A520 (RtlFindClearBits.c)
  */
 
 __int64 __fastcall RtlpFcAddDelayedUsageReportToBuffer(unsigned __int32 *a1, _QWORD *a2)
@@ -13,7 +13,7 @@ __int64 __fastcall RtlpFcAddDelayedUsageReportToBuffer(unsigned __int32 *a1, _QW
   unsigned int v2; // edi
   unsigned __int32 v5; // esi
   __int64 ClearBits; // rbp
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-28h] BYREF
   unsigned int v9; // [rsp+50h] [rbp+8h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 64LL;

@@ -13,39 +13,39 @@
  *     wcschr @ 0x18009BA10 (wcschr.c)
  */
 
-__int64 __fastcall LdrSetDllDirectory(__int64 a1)
+NTSTATUS __cdecl LdrSetDllDirectory(PUNICODE_STRING DllDirectory)
 {
-  const wchar_t *v2; // rcx
-  __int64 v3; // rdi
-  __int64 v4; // rbx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
+  const wchar_t *Buffer; // rcx
+  void *v3; // rdi
+  void *v4; // rbx
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
 
   if ( (dword_180158674 & 4) == 0 )
-    return 3221225485LL;
-  v2 = *(const wchar_t **)(a1 + 8);
-  if ( !v2 )
+    return -1073741811;
+  Buffer = DllDirectory->Buffer;
+  if ( !Buffer )
   {
     RtlInitUnicodeString(&DestinationString, 0LL);
     goto LABEL_5;
   }
-  if ( wcschr(v2, 0x3Bu) )
-    return 3221225485LL;
-  if ( !(unsigned __int8)RtlCreateUnicodeString(&DestinationString, *(_QWORD *)(a1 + 8)) )
-    return 3221225495LL;
+  if ( wcschr(Buffer, 0x3Bu) )
+    return -1073741811;
+  if ( !RtlCreateUnicodeString(&DestinationString, DllDirectory->Buffer) )
+    return -1073741801;
 LABEL_5:
-  RtlAcquireSRWLockExclusive(&unk_18015C3A8);
-  UnicodeString = (UNICODE_STRING)xmmword_18015BF60;
-  xmmword_18015BF60 = (__int128)DestinationString;
-  RtlReleaseSRWLockExclusive(&unk_18015C3A8);
-  RtlAcquireSRWLockExclusive(&unk_18015C3A0);
-  v3 = sub_180089230(&unk_18015A2E0);
-  v4 = sub_180089230(&unk_18015A2D0);
-  RtlReleaseSRWLockExclusive(&unk_18015C3A0);
+  RtlAcquireSRWLockExclusive(&SRWLock);
+  UnicodeString = stru_18015BF60;
+  stru_18015BF60 = DestinationString;
+  RtlReleaseSRWLockExclusive(&SRWLock);
+  RtlAcquireSRWLockExclusive(&stru_18015C3A0);
+  v3 = (void *)sub_180089230(&unk_18015A2E0);
+  v4 = (void *)sub_180089230(&unk_18015A2D0);
+  RtlReleaseSRWLockExclusive(&stru_18015C3A0);
   RtlFreeUnicodeString(&UnicodeString);
   if ( v3 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   if ( v4 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
-  return 1LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
+  return 1;
 }

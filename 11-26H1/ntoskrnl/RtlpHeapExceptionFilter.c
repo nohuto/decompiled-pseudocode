@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHeapExceptionFilter @ 0x140625734
+ * XREFs of RtlpHeapExceptionFilter @ 0x140628784
  * Callers:
- *     RtlpCreateHeap @ 0x1404E3978 (RtlpCreateHeap.c)
- *     RtlpHpHeapHandleError @ 0x140526918 (RtlpHpHeapHandleError.c)
- *     RtlpHeapFatalExceptionFilter @ 0x14061985C (RtlpHeapFatalExceptionFilter.c)
- *     RtlpAnalyzeHeapFailure @ 0x14062584C (RtlpAnalyzeHeapFailure.c)
- *     RtlZeroHeap @ 0x140805E00 (RtlZeroHeap.c)
+ *     RtlpCreateHeap @ 0x1404DCF18 (RtlpCreateHeap.c)
+ *     RtlpHpHeapHandleError @ 0x140528F88 (RtlpHpHeapHandleError.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x14061C8AC (RtlpHeapFatalExceptionFilter.c)
+ *     RtlpAnalyzeHeapFailure @ 0x14062889C (RtlpAnalyzeHeapFailure.c)
+ *     RtlZeroHeap @ 0x14080B8A0 (RtlZeroHeap.c)
  * Callees:
  *     <none>
  */
@@ -23,17 +23,17 @@ __int64 __fastcall RtlpHeapExceptionFilter(int a1, __int64 a2)
   if ( a1 == -1073741571 || a1 == -1073741420 || a1 == -1073741801 )
     return 0LL;
   v2 = *(_OWORD **)a2;
-  unk_140E0C7A0 = *(_OWORD *)*(_QWORD *)a2;
-  *((_OWORD *)&unk_140E0C7A0 + 1) = v2[1];
-  *((_OWORD *)&unk_140E0C7A0 + 2) = v2[2];
-  *((_OWORD *)&unk_140E0C7A0 + 3) = v2[3];
-  *((_OWORD *)&unk_140E0C7A0 + 4) = v2[4];
-  *((_OWORD *)&unk_140E0C7A0 + 5) = v2[5];
-  *((_OWORD *)&unk_140E0C7A0 + 6) = v2[6];
-  *((_OWORD *)&unk_140E0C7A0 + 7) = v2[7];
-  *((_OWORD *)&unk_140E0C7A0 + 8) = v2[8];
-  *((_QWORD *)&unk_140E0C7A0 + 18) = *((_QWORD *)v2 + 18);
-  v3 = &unk_140E0C840;
+  unk_140E0C810 = *(_OWORD *)*(_QWORD *)a2;
+  *((_OWORD *)&unk_140E0C810 + 1) = v2[1];
+  *((_OWORD *)&unk_140E0C810 + 2) = v2[2];
+  *((_OWORD *)&unk_140E0C810 + 3) = v2[3];
+  *((_OWORD *)&unk_140E0C810 + 4) = v2[4];
+  *((_OWORD *)&unk_140E0C810 + 5) = v2[5];
+  *((_OWORD *)&unk_140E0C810 + 6) = v2[6];
+  *((_OWORD *)&unk_140E0C810 + 7) = v2[7];
+  *((_OWORD *)&unk_140E0C810 + 8) = v2[8];
+  *((_QWORD *)&unk_140E0C810 + 18) = *((_QWORD *)v2 + 18);
+  v3 = &unk_140E0C8B0;
   v4 = *(_OWORD **)(a2 + 8);
   v5 = 9LL;
   do

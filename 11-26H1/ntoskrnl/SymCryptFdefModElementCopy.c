@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefModElementCopy @ 0x14056F468
+ * XREFs of SymCryptFdefModElementCopy @ 0x14056E648
  * Callers:
- *     SymCryptModElementCopy @ 0x14055C56C (SymCryptModElementCopy.c)
+ *     SymCryptModElementCopy @ 0x14055EA54 (SymCryptModElementCopy.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void *__fastcall SymCryptFdefModElementCopy(__int64 a1, const void *a2, void *a3)

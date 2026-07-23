@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCreate @ 0x140316FF0
+ * XREFs of RtlpHpLfhSubsegmentCreate @ 0x140317280
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1402ADCC0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402ADF50 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpAcquireLockShared @ 0x140315B28 (RtlpHpAcquireLockShared.c)
- *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x140316F44 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
- *     RtlpCalculateSubsegmentSizeIndex @ 0x14031726C (RtlpCalculateSubsegmentSizeIndex.c)
- *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x14031729C (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
- *     RtlpHpLfhSubsegmentInitialize @ 0x140317350 (RtlpHpLfhSubsegmentInitialize.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpAcquireLockShared @ 0x140315DB8 (RtlpHpAcquireLockShared.c)
+ *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x1403171D4 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
+ *     RtlpCalculateSubsegmentSizeIndex @ 0x1403174FC (RtlpCalculateSubsegmentSizeIndex.c)
+ *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x14031752C (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1403175E0 (RtlpHpLfhSubsegmentInitialize.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned int a3)
@@ -128,10 +128,10 @@ __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned in
     if ( *(_BYTE *)(a1 + 57) )
     {
       ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

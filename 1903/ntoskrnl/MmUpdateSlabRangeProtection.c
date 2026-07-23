@@ -22,14 +22,14 @@ __int64 __fastcall MmUpdateSlabRangeProtection(
   __int64 result; // rax
   ULONG_PTR v4; // rsi
   ULONG_PTR v5; // r13
-  unsigned __int64 v7; // rbp
+  __int64 v7; // rbp
   __int64 v8; // r14
   char ProtectionMask; // al
   __int64 v10; // r15
   KIRQL v11; // r12
   struct _KPRCB *CurrentPrcb; // rcx
   ULONG_PTR v13; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v14; // [rsp+38h] [rbp-30h]
+  __int64 v14; // [rsp+38h] [rbp-30h]
 
   result = (unsigned int)dword_140468484;
   v4 = BugCheckParameter3;
@@ -58,7 +58,7 @@ __int64 __fastcall MmUpdateSlabRangeProtection(
       if ( result != v8 )
       {
         v11 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v8 + 16));
-        MiRemoveSlabEntry((__int64)&MiSystemPartition, (unsigned __int64 *)v8, v7);
+        MiRemoveSlabEntry((__int64)&MiSystemPartition, (_RTL_RB_TREE *)v8, v7);
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v8 + 16));
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v11 < 2u )
         {

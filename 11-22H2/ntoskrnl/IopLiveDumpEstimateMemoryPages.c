@@ -138,9 +138,9 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
   }
   *(_QWORD *)(a1 + 440) = IopLiveDumpGetMillisecondCounter(0) - v3;
   IopLiveDumpTraceBufferEstimation();
-  RtlClearAllBitsEx(a1 + 544);
-  RtlClearAllBitsEx(a1 + 600);
-  RtlClearAllBitsEx(a1 + 656);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 544));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 600));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 656));
   *(_DWORD *)(a1 + 80) &= ~1u;
   if ( (unsigned int)dword_140C03870 > 5 && tlgKeywordOn((__int64)&dword_140C03870, 0x400000000000LL) )
   {

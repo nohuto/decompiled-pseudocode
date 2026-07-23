@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCsqCancelRoutine @ 0x14016BB10
+ * XREFs of IopCsqCancelRoutine @ 0x14016BC10
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopCsqCancelRoutine(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14074C844
+ * XREFs of PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14074CA04
  * Callers:
- *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
- *     PiQueryPowerRelations @ 0x14074C3A4 (PiQueryPowerRelations.c)
+ *     PnpDeviceActionWorker @ 0x140381DA0 (PnpDeviceActionWorker.c)
+ *     PiQueryPowerRelations @ 0x14074C564 (PiQueryPowerRelations.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746040 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746200 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent(ULONG_PTR MaxDataSize, int a2)

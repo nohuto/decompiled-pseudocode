@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpLargeAllocationDestroy @ 0x18008ED18
+ * XREFs of RtlpHpLargeAllocationDestroy @ 0x1800E0740
  * Callers:
- *     RtlpHpHeapDestroy @ 0x18008E4B4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1800DFE7C (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlpHpMetadataFree @ 0x180087EE8 (RtlpHpMetadataFree.c)
- *     RtlpHeapLogRangeRelease @ 0x18008A90C (RtlpHeapLogRangeRelease.c)
- *     RtlpHpTlLogVAChange @ 0x18008BD58 (RtlpHpTlLogVAChange.c)
- *     RtlpHpVaMgrCtxFree @ 0x18008C0B4 (RtlpHpVaMgrCtxFree.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpHeapLogRangeRelease @ 0x18006DD44 (RtlpHeapLogRangeRelease.c)
+ *     RtlpHpTlLogVAChange @ 0x18006F198 (RtlpHpTlLogVAChange.c)
+ *     RtlpHpVaMgrCtxFree @ 0x18006F4F4 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpMetadataFree @ 0x18007F268 (RtlpHpMetadataFree.c)
  */
 
-__int64 __fastcall RtlpHpLargeAllocationDestroy(__int64 a1, __int128 *a2)
+NTSTATUS __fastcall RtlpHpLargeAllocationDestroy(__int64 a1, __int128 *a2)
 {
   unsigned __int64 v3; // r10
   unsigned __int64 v5; // rax
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpLargeAllocationDestroy(__int64 a1, __int128 *a2)
   __int64 v7; // rcx
   __int128 v9; // [rsp+20h] [rbp-18h] BYREF
   __int64 v10; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v11; // [rsp+48h] [rbp+10h] BYREF
+  signed __int64 v11; // [rsp+48h] [rbp+10h] BYREF
 
   v3 = *(_QWORD *)(a1 + 24) & 0xFFFFFFFFFFFF0000uLL;
   v5 = *(_QWORD *)(a1 + 32);
@@ -32,11 +32,11 @@ __int64 __fastcall RtlpHpLargeAllocationDestroy(__int64 a1, __int128 *a2)
       - 1;
   if ( v10 )
   {
-    RtlpHpVaMgrCtxFree((__int64)&unk_1801C7908, &v11, &v10);
+    RtlpHpVaMgrCtxFree((__int64)&unk_1801C6958, (PVOID *)&v11, (ULONG_PTR *)&v10);
     if ( (RtlpHpHeapFeatures & 0x10) != 0 )
-      RtlpHpTlLogVAChange(0x8000, v10, v11, 0LL);
+      RtlpHpTlLogVAChange(0x8000, v10, v11, 0);
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
     v7 = 2147353480LL;

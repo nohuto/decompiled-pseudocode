@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPerformCombineScan @ 0x140282EC0
+ * XREFs of MiPerformCombineScan @ 0x140283150
  * Callers:
- *     MiComputeCombineHash @ 0x140281C50 (MiComputeCombineHash.c)
+ *     MiComputeCombineHash @ 0x140281EE0 (MiComputeCombineHash.c)
  * Callees:
- *     MiComputeHash64 @ 0x140282F40 (MiComputeHash64.c)
+ *     MiComputeHash64 @ 0x1402831D0 (MiComputeHash64.c)
  */
 
 __int64 __fastcall MiPerformCombineScan(__int64 a1, __int64 a2)

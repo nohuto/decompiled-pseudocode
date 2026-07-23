@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetpSearchForApiSet @ 0x1403A3330
+ * XREFs of ApiSetpSearchForApiSet @ 0x1403A3480
  * Callers:
- *     ApiSetResolveToHost @ 0x140371E5C (ApiSetResolveToHost.c)
- *     ApiSetValidateSchemaFormat @ 0x1405BE2E4 (ApiSetValidateSchemaFormat.c)
- *     ApiSetComposeSchema @ 0x1405BE5A0 (ApiSetComposeSchema.c)
+ *     ApiSetResolveToHost @ 0x1403719AC (ApiSetResolveToHost.c)
+ *     ApiSetValidateSchemaFormat @ 0x1405BE514 (ApiSetValidateSchemaFormat.c)
+ *     ApiSetComposeSchema @ 0x1405BE7D0 (ApiSetComposeSchema.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140681C90 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x1405DCCD0 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, const WCHAR *a2, unsigned __int16 a3)

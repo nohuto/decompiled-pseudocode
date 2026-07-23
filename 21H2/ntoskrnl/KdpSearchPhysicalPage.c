@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpSearchPhysicalPage @ 0x1409B8230
+ * XREFs of KdpSearchPhysicalPage @ 0x1409B9230
  * Callers:
- *     KdpSearchPhysicalPageRange @ 0x1409B8450 (KdpSearchPhysicalPageRange.c)
+ *     KdpSearchPhysicalPageRange @ 0x1409B9450 (KdpSearchPhysicalPageRange.c)
  * Callees:
- *     MmDbgCopyMemory @ 0x140546A9C (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x140546CDC (MmDbgCopyMemory.c)
  */
 
 __int64 __fastcall KdpSearchPhysicalPage(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4, int a5)

@@ -71,14 +71,14 @@
 
 PSLIST_ENTRY __stdcall RtlpInterlockedPopEntrySList(PSLIST_HEADER ListHead)
 {
-  struct _SLIST_ENTRY *v1; // r8
+  _SLIST_ENTRY *v1; // r8
   unsigned __int64 Alignment; // rbx
-  union _SLIST_HEADER v3; // rt0
+  _SLIST_HEADER v3; // rt0
 
   _m_prefetchw(ListHead);
   while ( 1 )
   {
-    v1 = (struct _SLIST_ENTRY *)(ListHead->Region & 0xFFFFFFFFFFFFFFF0uLL);
+    v1 = (_SLIST_ENTRY *)(ListHead->Region & 0xFFFFFFFFFFFFFFF0uLL);
     if ( !v1 )
       break;
     Alignment = ListHead->Alignment;

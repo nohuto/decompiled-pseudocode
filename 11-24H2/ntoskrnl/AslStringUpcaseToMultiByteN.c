@@ -1,14 +1,14 @@
 /*
- * XREFs of AslStringUpcaseToMultiByteN @ 0x14095ACAC
+ * XREFs of AslStringUpcaseToMultiByteN @ 0x14094276C
  * Callers:
- *     SdbpFindNextIndexedWildCardTag @ 0x14095B554 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x14095FB48 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140943014 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140947608 (SdbpFindFirstIndexedWildCardTag.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     RtlUpcaseUnicodeString @ 0x140962470 (RtlUpcaseUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     RtlUpcaseUnicodeString @ 0x140949F30 (RtlUpcaseUnicodeString.c)
  */
 
 __int64 __fastcall AslStringUpcaseToMultiByteN(__int64 a1, __int64 a2, const WCHAR *a3)

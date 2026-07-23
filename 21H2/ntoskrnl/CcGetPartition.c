@@ -1,52 +1,52 @@
 /*
- * XREFs of CcGetPartition @ 0x140313800
+ * XREFs of CcGetPartition @ 0x14031E550
  * Callers:
- *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
- *     CcNotifyOfMappedWrite @ 0x14022D68C (CcNotifyOfMappedWrite.c)
- *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
- *     CcSetFileSizesEx @ 0x14022E120 (CcSetFileSizesEx.c)
- *     CcInitializeCacheMapEx @ 0x14022E5C0 (CcInitializeCacheMapEx.c)
- *     CcSetAdditionalCacheAttributesEx @ 0x1402AA2F0 (CcSetAdditionalCacheAttributesEx.c)
- *     CcSetAdditionalCacheAttributes @ 0x1402AA420 (CcSetAdditionalCacheAttributes.c)
- *     CcMapDataForOverwrite @ 0x1402AF3C8 (CcMapDataForOverwrite.c)
- *     CcAmILowPriorityWriter @ 0x1402B0950 (CcAmILowPriorityWriter.c)
- *     CcWaitForUninitializeCacheMap @ 0x1402B87C0 (CcWaitForUninitializeCacheMap.c)
- *     CcGetFlushedValidData @ 0x1402B9D30 (CcGetFlushedValidData.c)
- *     CcSetLogHandleForFileEx @ 0x1402B9FA0 (CcSetLogHandleForFileEx.c)
- *     CcPrepareMdlWrite @ 0x1402CC660 (CcPrepareMdlWrite.c)
- *     CcForceWriteThrough @ 0x1402CC9DC (CcForceWriteThrough.c)
- *     CcNotifyOfMappedWriteComplete @ 0x1402D0220 (CcNotifyOfMappedWriteComplete.c)
- *     CcMdlWriteComplete2 @ 0x1402D05D8 (CcMdlWriteComplete2.c)
- *     CcDeleteBcbs @ 0x1402D2640 (CcDeleteBcbs.c)
- *     CcGetPartitionFromFileObject @ 0x1402E86C4 (CcGetPartitionFromFileObject.c)
- *     CcUpdateSharedCacheMapFlag @ 0x1402EE374 (CcUpdateSharedCacheMapFlag.c)
- *     CcPurgeCacheSection @ 0x1402F0920 (CcPurgeCacheSection.c)
- *     CcDeleteMbcb @ 0x1402F293C (CcDeleteMbcb.c)
- *     CcDeleteSharedCacheMap @ 0x1402F3DDC (CcDeleteSharedCacheMap.c)
- *     CcShouldLazyWriteCacheMap @ 0x1402F6014 (CcShouldLazyWriteCacheMap.c)
- *     CcWriteBehind @ 0x1402F6160 (CcWriteBehind.c)
- *     CcUninitializeCacheMap @ 0x1402F68B0 (CcUninitializeCacheMap.c)
- *     CcAsyncCopyRead @ 0x1402F8440 (CcAsyncCopyRead.c)
- *     CcScheduleReadAheadEx @ 0x1402F8E00 (CcScheduleReadAheadEx.c)
- *     CcPerformReadAhead @ 0x1402F9DF0 (CcPerformReadAhead.c)
- *     CcSetParallelFlushFile @ 0x14030FB70 (CcSetParallelFlushFile.c)
- *     CcAcquireByteRangeForWrite @ 0x14030FF40 (CcAcquireByteRangeForWrite.c)
- *     CcGetVacbMiss @ 0x1403109C0 (CcGetVacbMiss.c)
- *     CcDeductDirtyPages @ 0x140312DEC (CcDeductDirtyPages.c)
- *     CcUnmapVacbArray @ 0x140312E70 (CcUnmapVacbArray.c)
- *     CcDecrementOpenCount @ 0x14031313C (CcDecrementOpenCount.c)
- *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
- *     CcUnpinRepinnedBcb @ 0x1404EA760 (CcUnpinRepinnedBcb.c)
- *     CcSetLogHandleForFile @ 0x1404EADC0 (CcSetLogHandleForFile.c)
- *     CcUnmapInactiveViewsInternal @ 0x1404EB544 (CcUnmapInactiveViewsInternal.c)
- *     CcMdlWriteAbort @ 0x1404EBB70 (CcMdlWriteAbort.c)
+ *     CcSetAdditionalCacheAttributesEx @ 0x140228430 (CcSetAdditionalCacheAttributesEx.c)
+ *     CcSetAdditionalCacheAttributes @ 0x140228560 (CcSetAdditionalCacheAttributes.c)
+ *     CcMapDataForOverwrite @ 0x14022D728 (CcMapDataForOverwrite.c)
+ *     CcAmILowPriorityWriter @ 0x14022ECB0 (CcAmILowPriorityWriter.c)
+ *     CcWaitForUninitializeCacheMap @ 0x1402369D0 (CcWaitForUninitializeCacheMap.c)
+ *     CcGetFlushedValidData @ 0x140237F40 (CcGetFlushedValidData.c)
+ *     CcSetLogHandleForFileEx @ 0x1402381B0 (CcSetLogHandleForFileEx.c)
+ *     CcPrepareMdlWrite @ 0x14024ACC0 (CcPrepareMdlWrite.c)
+ *     CcForceWriteThrough @ 0x14024B03C (CcForceWriteThrough.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x14024E5A0 (CcNotifyOfMappedWriteComplete.c)
+ *     CcMdlWriteComplete2 @ 0x14024E958 (CcMdlWriteComplete2.c)
+ *     CcDeleteBcbs @ 0x140250A10 (CcDeleteBcbs.c)
+ *     CcGetPartitionFromFileObject @ 0x140299A14 (CcGetPartitionFromFileObject.c)
+ *     CcFlushCachePriv @ 0x1402D13F0 (CcFlushCachePriv.c)
+ *     CcNotifyOfMappedWrite @ 0x1402D1EDC (CcNotifyOfMappedWrite.c)
+ *     CcWriteBehindInternal @ 0x1402D22C0 (CcWriteBehindInternal.c)
+ *     CcSetFileSizesEx @ 0x1402D2970 (CcSetFileSizesEx.c)
+ *     CcInitializeCacheMapEx @ 0x1402D2E10 (CcInitializeCacheMapEx.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402F90C0 (CcUpdateSharedCacheMapFlag.c)
+ *     CcPurgeCacheSection @ 0x1402FB670 (CcPurgeCacheSection.c)
+ *     CcDeleteMbcb @ 0x1402FD68C (CcDeleteMbcb.c)
+ *     CcDeleteSharedCacheMap @ 0x1402FEB2C (CcDeleteSharedCacheMap.c)
+ *     CcShouldLazyWriteCacheMap @ 0x140300D64 (CcShouldLazyWriteCacheMap.c)
+ *     CcWriteBehind @ 0x140300EB0 (CcWriteBehind.c)
+ *     CcUninitializeCacheMap @ 0x140301600 (CcUninitializeCacheMap.c)
+ *     CcAsyncCopyRead @ 0x140303190 (CcAsyncCopyRead.c)
+ *     CcScheduleReadAheadEx @ 0x140303B50 (CcScheduleReadAheadEx.c)
+ *     CcPerformReadAhead @ 0x140304B40 (CcPerformReadAhead.c)
+ *     CcSetParallelFlushFile @ 0x14031A8C0 (CcSetParallelFlushFile.c)
+ *     CcAcquireByteRangeForWrite @ 0x14031AC90 (CcAcquireByteRangeForWrite.c)
+ *     CcGetVacbMiss @ 0x14031B710 (CcGetVacbMiss.c)
+ *     CcDeductDirtyPages @ 0x14031DB3C (CcDeductDirtyPages.c)
+ *     CcUnmapVacbArray @ 0x14031DBC0 (CcUnmapVacbArray.c)
+ *     CcDecrementOpenCount @ 0x14031DE8C (CcDecrementOpenCount.c)
+ *     CcCanIWrite @ 0x14031DF20 (CcCanIWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x1404EA9A0 (CcUnpinRepinnedBcb.c)
+ *     CcSetLogHandleForFile @ 0x1404EB000 (CcSetLogHandleForFile.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB784 (CcUnmapInactiveViewsInternal.c)
+ *     CcMdlWriteAbort @ 0x1404EBDB0 (CcMdlWriteAbort.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402315C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402D5E10 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5FBC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall CcGetPartition(_QWORD *a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -87,7 +87,7 @@ __int64 __fastcall CcGetPartition(_QWORD *a1, __int64 a2, __int64 a3, _DWORD *Sc
     }
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     {
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C4C980, CurrentIrql);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C4C9C0, CurrentIrql);
     }
     else
     {
@@ -104,7 +104,7 @@ __int64 __fastcall CcGetPartition(_QWORD *a1, __int64 a2, __int64 a3, _DWORD *Sc
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      if ( _interlockedbittestandset(&dword_140C4C980, 0x1Fu) )
+      if ( _interlockedbittestandset(&dword_140C4C9C0, 0x1Fu) )
       {
         v14 = CurrentPrcb->SchedulerAssist;
         if ( v14 )
@@ -118,38 +118,38 @@ __int64 __fastcall CcGetPartition(_QWORD *a1, __int64 a2, __int64 a3, _DWORD *Sc
           }
         }
         v25 = ExpWaitForSpinLockExclusiveAndAcquire(
-                (unsigned __int64)&dword_140C4C980,
+                (unsigned __int64)&dword_140C4C9C0,
                 CurrentIrql,
                 a3,
                 SchedulerAssist);
       }
-      v9 = (unsigned int)dword_140C4C980;
-      if ( (dword_140C4C980 & 0xBFFFFFFF) != 0x80000000 )
+      v9 = (unsigned int)dword_140C4C9C0;
+      if ( (dword_140C4C9C0 & 0xBFFFFFFF) != 0x80000000 )
       {
         do
         {
           if ( (v9 & 0x40000000) == 0 )
           {
-            v18 = _InterlockedCompareExchange(&dword_140C4C980, v9 | 0x40000000, v9);
+            v18 = _InterlockedCompareExchange(&dword_140C4C9C0, v9 | 0x40000000, v9);
             v17 = (_DWORD)v9 == v18;
             v9 = v18;
             if ( !v17 )
               continue;
           }
           KeYieldProcessorEx(&v25, v9, a3, (__int64)SchedulerAssist);
-          v9 = (unsigned int)dword_140C4C980;
+          v9 = (unsigned int)dword_140C4C9C0;
         }
         while ( (v9 & 0xBFFFFFFF) != 0x80000000 );
       }
     }
     if ( *(_QWORD *)v5 )
-      v10 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * (*(_WORD *)(*(_QWORD *)v5 + 60LL) & 0x3FF));
+      v10 = *(ULONG_PTR **)(qword_140C4E688 + 8LL * (*(_WORD *)(*(_QWORD *)v5 + 60LL) & 0x3FF));
     else
       v10 = &MiSystemPartition;
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C4C980, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C4C9C0, retaddr);
     else
-      dword_140C4C980 = 0;
+      dword_140C4C9C0 = 0;
     v11 = KeGetCurrentPrcb();
     v12 = v11->SchedulerAssist;
     if ( v12 )

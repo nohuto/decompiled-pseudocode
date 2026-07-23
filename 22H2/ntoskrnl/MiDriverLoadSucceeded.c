@@ -28,36 +28,34 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, unsigned __int1
   char v11; // dl
   ULONG_PTR v12; // rbx
   wchar_t *Pool; // rbx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __m128i v16; // xmm0
-  __int64 NtSystemRoot; // rax
-  NTSTATUS v18; // eax
+  __m128i v14; // xmm0
+  PWSTR NtSystemRoot; // rax
+  NTSTATUS v16; // eax
   __int64 result; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
-  __int128 v21; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v22; // [rsp+50h] [rbp-30h]
-  __int128 v23; // [rsp+60h] [rbp-20h]
-  __int64 v24; // [rsp+70h] [rbp-10h]
+  __int128 v19; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v20; // [rsp+50h] [rbp-30h]
+  __int128 v21; // [rsp+60h] [rbp-20h]
+  __int64 v22; // [rsp+70h] [rbp-10h]
 
-  v24 = 0LL;
-  v21 = 0LL;
   v22 = 0LL;
-  v23 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
+  v21 = 0LL;
   if ( a6 == 1 )
   {
     *(_DWORD *)(a1 + 104) |= 0x41004000u;
     v9 = (__int64 *)MiSectionControlArea(a2);
     v10 = *v9;
-    BYTE8(v21) = 3;
+    BYTE8(v19) = 3;
     v11 = *(_BYTE *)(v10 + 15);
-    DWORD2(v22) = 0;
-    DWORD2(v23) = 0;
-    *(_QWORD *)&v23 = *(unsigned int *)(a1 + 64);
-    *(_QWORD *)&v22 = *(_QWORD *)(a1 + 48);
-    DWORD2(v21) = DWORD2(v21) & 0xFFF80FFF | ((v11 & 0xF1 | ((v11 & 0xE) << 7) | 1) << 8);
+    DWORD2(v20) = 0;
+    DWORD2(v21) = 0;
+    *(_QWORD *)&v21 = *(unsigned int *)(a1 + 64);
+    *(_QWORD *)&v20 = *(_QWORD *)(a1 + 48);
+    DWORD2(v19) = DWORD2(v19) & 0xFFF80FFF | ((v11 & 0xF1 | ((v11 & 0xE) << 7) | 1) << 8);
     v12 = MiReferenceControlAreaFile((__int64)v9);
-    PsCallImageNotifyRoutines(a3, 0LL, (__int64)&v21, v12);
+    PsCallImageNotifyRoutines(a3, 0LL, (__int64)&v19, v12);
     MiDereferenceControlAreaFile((__int64)v9, v12);
     if ( MiCacheImageSymbols(*(_QWORD *)(a1 + 48)) )
     {
@@ -67,18 +65,18 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, unsigned __int1
       {
         if ( *(_WORD *)a4 <= 0x16u || wcsnicmp(*(const wchar_t **)(a4 + 8), L"\\SystemRoot", 0xBuLL) )
         {
-          v18 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%wZ", a5);
+          v16 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%wZ", a5);
         }
         else
         {
-          v16 = *(__m128i *)a4;
+          v14 = *(__m128i *)a4;
           *(_QWORD *)&DestinationString.Length = *(_QWORD *)a4;
-          DestinationString.Buffer = (wchar_t *)(_mm_srli_si128(v16, 8).m128i_u64[0] + 22);
+          DestinationString.Buffer = (wchar_t *)(_mm_srli_si128(v14, 8).m128i_u64[0] + 22);
           DestinationString.Length -= 22;
-          NtSystemRoot = RtlGetNtSystemRoot(v15, v14);
-          v18 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%ws%wZ", NtSystemRoot + 4, &DestinationString);
+          NtSystemRoot = RtlGetNtSystemRoot();
+          v16 = RtlStringCbPrintfW(Pool, 0x100uLL, L"%ws%wZ", NtSystemRoot + 2, &DestinationString);
         }
-        if ( v18 >= 0 )
+        if ( v16 >= 0 )
         {
           RtlInitUnicodeString(&DestinationString, Pool);
           if ( (unsigned int)DbgLoadImageSymbolsUnicode(&DestinationString, *(_QWORD *)(a1 + 48)) == 1 )

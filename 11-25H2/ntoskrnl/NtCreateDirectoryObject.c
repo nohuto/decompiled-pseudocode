@@ -10,7 +10,10 @@
  *     ObpCreateDirectoryObject @ 0x140A41B20 (ObpCreateDirectoryObject.c)
  */
 
-__int64 __fastcall NtCreateDirectoryObject(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtCreateDirectoryObject(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  return ObpCreateDirectoryObject(a1, a2, a3, 0LL, 0);
+  return ObpCreateDirectoryObject(DirectoryHandle, DesiredAccess, ObjectAttributes, 0LL, 0);
 }

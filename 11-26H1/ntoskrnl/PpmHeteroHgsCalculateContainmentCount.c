@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroHgsCalculateContainmentCount @ 0x14060A754
+ * XREFs of PpmHeteroHgsCalculateContainmentCount @ 0x14060D428
  * Callers:
- *     PpmParkCalculateUnparkCount @ 0x140420130 (PpmParkCalculateUnparkCount.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417970 (PpmParkCalculateUnparkCount.c)
  * Callees:
- *     PpmEventHgsContainmentUnparkedCount @ 0x14050ACF4 (PpmEventHgsContainmentUnparkedCount.c)
- *     Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline @ 0x14060A6F8 (Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventHgsContainmentUnparkedCount @ 0x140504764 (PpmEventHgsContainmentUnparkedCount.c)
+ *     Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline @ 0x14060D370 (Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 BOOLEAN __fastcall PpmHeteroHgsCalculateContainmentCount(__int64 a1, int *a2, unsigned __int16 a3)
@@ -52,15 +52,15 @@ BOOLEAN __fastcall PpmHeteroHgsCalculateContainmentCount(__int64 a1, int *a2, un
     v9 = *(_QWORD *)(a1 + 1240);
     v38 = *(_WORD *)(a1 + 1226);
     v34 = *(_WORD *)(a1 + 1224);
-    v10 = 89LL * dword_140F106CC;
-    v11 = HIDWORD(PpmCurrentProfile[v10 + 90]);
+    v10 = 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
+    v11 = *(_DWORD *)((char *)PpmCurrentProfile + v10 + 724);
     if ( !v11 )
       v11 = *(unsigned __int16 *)(v9 + 8);
-    v12 = PpmCurrentProfile[v10 + 91];
+    v12 = *(_DWORD *)((char *)PpmCurrentProfile + v10 + 728);
     if ( !v12 )
       v12 = *(unsigned __int16 *)(v9 + 10);
-    v13 = HIDWORD(PpmCurrentProfile[v10 + 89]);
-    v14 = PpmCurrentProfile[v10 + 90];
+    v13 = *(_DWORD *)((char *)PpmCurrentProfile + v10 + 716);
+    v14 = *(_DWORD *)((char *)PpmCurrentProfile + v10 + 720);
     v15 = *(unsigned __int16 *)(a1 + 1224);
     v36 = *(_DWORD *)(v9 + 4);
     v16 = *(_DWORD *)(v9 + 828);

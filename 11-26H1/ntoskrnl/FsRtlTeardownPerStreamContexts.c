@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlTeardownPerStreamContexts @ 0x140A36AA0
+ * XREFs of FsRtlTeardownPerStreamContexts @ 0x140919AA0
  * Callers:
- *     RawCleanupVcb @ 0x140A36A0C (RawCleanupVcb.c)
+ *     RawCleanupVcb @ 0x140919A0C (RawCleanupVcb.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     FsRtlReleasePushLock @ 0x1402C23EC (FsRtlReleasePushLock.c)
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x140449634 (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1404497DC (FsRtlReleaseAutoExpandPushLockExclusive.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1404499E8 (FsRtlAcquirePushLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x14021AF74 (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x14021B11C (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     FsRtlReleasePushLock @ 0x14030D0AC (FsRtlReleasePushLock.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1404C0ECC (FsRtlAcquirePushLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)
@@ -49,7 +49,7 @@ void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER Advance
         goto LABEL_22;
       goto LABEL_19;
     }
-    FsRtlAcquireAutoExpandPushLockExclusive((__int64)AePushLock, v1, v2, v3);
+    FsRtlAcquireAutoExpandPushLockExclusive((__int64)AePushLock);
     while ( 1 )
     {
       Flink = p_FilterContexts->Flink;
@@ -78,7 +78,7 @@ void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER Advance
       v14 = *((_BYTE *)AdvancedHeader + 7) >> 4;
       if ( v14 >= 3u && *p_AePushLock )
       {
-        FsRtlAcquireAutoExpandPushLockExclusive((__int64)*p_AePushLock, v1, v2, v3);
+        FsRtlAcquireAutoExpandPushLockExclusive((__int64)*p_AePushLock);
       }
       else if ( v14 )
       {

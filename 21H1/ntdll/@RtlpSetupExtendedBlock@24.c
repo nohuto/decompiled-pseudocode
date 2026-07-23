@@ -31,7 +31,7 @@ int __fastcall RtlpSetupExtendedBlock(int a1, unsigned __int8 a2, int a3, int a4
   {
     if ( ((a2 | *(_BYTE *)(v6 + 68)) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_DWORD *)(v6 + 200));
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(v6 + 200));
       v16 = 1;
     }
     if ( *(_DWORD *)(v6 + 76) )
@@ -97,6 +97,6 @@ int __fastcall RtlpSetupExtendedBlock(int a1, unsigned __int8 a2, int a3, int a4
   *(_WORD *)(v10 - 4) = v9 + a5;
   *(_DWORD *)(v10 - 8) = a6;
   if ( v16 )
-    RtlLeaveCriticalSection(*(_DWORD *)(v6 + 200));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(v6 + 200));
   return v10;
 }

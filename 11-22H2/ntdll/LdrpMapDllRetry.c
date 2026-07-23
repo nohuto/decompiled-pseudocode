@@ -18,8 +18,8 @@ __int64 __fastcall LdrpMapDllRetry(__int64 a1)
   const void **v3; // rsi
   unsigned int ExistingModule; // ebx
   int appended; // eax
-  volatile signed __int32 *v7; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING v8; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v7; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING v8; // [rsp+40h] [rbp-C0h] BYREF
   _WORD v9[128]; // [rsp+50h] [rbp-B0h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
@@ -28,8 +28,8 @@ __int64 __fastcall LdrpMapDllRetry(__int64 a1)
   v3 = (const void **)(v1 + 72);
   v9[0] = 0;
   ExistingModule = LdrpFindExistingModule(
-                     (unsigned __int16 *)(v1 + 88),
-                     (unsigned __int16 *)(v1 + 72),
+                     (PUNICODE_STRING)(v1 + 88),
+                     (PUNICODE_STRING)(v1 + 72),
                      *(_DWORD *)(a1 + 32),
                      *(_DWORD *)(v1 + 264),
                      &v7);
@@ -42,12 +42,12 @@ __int64 __fastcall LdrpMapDllRetry(__int64 a1)
     if ( (*(_DWORD *)(a1 + 32) & 0x10000000) != 0 )
       appended = LdrpAppendUnicodeStringToFilenameBuffer(&v8.Length, v3);
     else
-      appended = LdrpGetNtPathFromDosPath((__m128i *)v3, (__int64)&v8);
+      appended = LdrpGetNtPathFromDosPath((_UNICODE_STRING *)v3, &v8);
     ExistingModule = appended;
     if ( appended >= 0 )
       ExistingModule = LdrpMapDllNtFileName(a1, &v8);
   }
   if ( v9 != v8.Buffer )
-    NtdllpFreeStringRoutine((__int64)v8.Buffer);
+    NtdllpFreeStringRoutine(v8.Buffer);
   return ExistingModule;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPepCancelActivityRange @ 0x140468500
+ * XREFs of PopPepCancelActivityRange @ 0x140461BB0
  * Callers:
- *     PopPepUpdateConstraints @ 0x1403B37EC (PopPepUpdateConstraints.c)
+ *     PopPepUpdateConstraints @ 0x1403BD4FC (PopPepUpdateConstraints.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ void __fastcall PopPepCancelActivityRange(__int64 a1, int a2, int a3, int a4, vo
   if ( a3 <= a4 )
   {
     v5 = (int **)(a1 + 8LL * a3);
-    v6 = (_DWORD *)&qword_140001D28[17 * a2] + a3;
+    v6 = (_DWORD *)&qword_140001A78[17 * a2] + a3;
     v7 = (unsigned int)(a4 - a3 + 1);
     do
     {

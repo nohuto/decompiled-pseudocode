@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLiveDumpValidateProtectedProcessExclusions @ 0x1405D2F6C
+ * XREFs of IopLiveDumpValidateProtectedProcessExclusions @ 0x1405D575C
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x1405CEFA0 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1405D17B0 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     IopLiveDumpLookupProcessFilter @ 0x1405D02BC (IopLiveDumpLookupProcessFilter.c)
+ *     IopLiveDumpLookupProcessFilter @ 0x1405D2ACC (IopLiveDumpLookupProcessFilter.c)
  */
 
 __int64 __fastcall IopLiveDumpValidateProtectedProcessExclusions(__int64 a1)
 {
-  struct _KTHREAD *Thread; // r11
+  struct _KTHREAD *Flink; // r11
   __int64 *v3; // r10
   LIST_ENTRY *p_WaitListHead; // rbx
   char v5; // cl
@@ -19,15 +19,15 @@ __int64 __fastcall IopLiveDumpValidateProtectedProcessExclusions(__int64 a1)
   char v10; // cl
   char v11; // cl
 
-  Thread = PsAltSystemCallRegistrationLock.WaitBlock[0].Thread;
+  Flink = (struct _KTHREAD *)PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Flink;
   LODWORD(v3) = 0;
-  while ( Thread != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[24] )
+  while ( Flink != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[96] )
   {
-    p_WaitListHead = &Thread[-1].SuspendEvent.Header.WaitListHead;
-    v5 = *((_BYTE *)&Thread->KernelShadowStackLimit.1 + 2) & 7;
+    p_WaitListHead = &Flink[-1].SuspendEvent.Header.WaitListHead;
+    v5 = *((_BYTE *)&Flink->KernelShadowStackLimit.1 + 2) & 7;
     if ( v5 == 2 )
     {
-      if ( (*((_BYTE *)&Thread->KernelShadowStackLimit.1 + 2) & 0xF0) == 0x70 )
+      if ( (*((_BYTE *)&Flink->KernelShadowStackLimit.1 + 2) & 0xF0) == 0x70 )
         goto LABEL_19;
     }
     else if ( v5 != 1 )
@@ -69,7 +69,7 @@ LABEL_18:
     if ( *(_DWORD *)(v7 + 32) != 2 )
       *(_DWORD *)(v7 + 32) = 2;
 LABEL_19:
-    Thread = *(struct _KTHREAD **)&Thread->Header.Lock;
+    Flink = *(struct _KTHREAD **)&Flink->Header.Lock;
   }
   return (unsigned int)v3;
 }

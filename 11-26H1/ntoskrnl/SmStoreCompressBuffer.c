@@ -1,13 +1,13 @@
 /*
- * XREFs of SmStoreCompressBuffer @ 0x14024B590
+ * XREFs of SmStoreCompressBuffer @ 0x14024CEF0
  * Callers:
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14024B0D0 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14024CA30 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
  * Callees:
- *     RtlCompressBuffer @ 0x14046A480 (RtlCompressBuffer.c)
- *     ?SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z @ 0x14063ED3C (-SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z.c)
- *     SmHwAcceleratorIssueRequest @ 0x14063FA78 (SmHwAcceleratorIssueRequest.c)
- *     SmHwAcceleratorWaitForRequest @ 0x140640060 (SmHwAcceleratorWaitForRequest.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCompressBuffer @ 0x140463C00 (RtlCompressBuffer.c)
+ *     ?SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z @ 0x14064291C (-SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z.c)
+ *     SmHwAcceleratorIssueRequest @ 0x140643658 (SmHwAcceleratorIssueRequest.c)
+ *     SmHwAcceleratorWaitForRequest @ 0x140643C40 (SmHwAcceleratorWaitForRequest.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall SmStoreCompressBuffer(
@@ -41,7 +41,7 @@ __int64 __fastcall SmStoreCompressBuffer(
   v6 = 0;
   v9 = a2;
   v10 = 0;
-  v11 = word_140016AB8[a1];
+  v11 = word_140017648[a1];
   v12 = 0;
   v13 = 4096 - ((unsigned __int16)a3 & 0xFFF);
   if ( !a1 )

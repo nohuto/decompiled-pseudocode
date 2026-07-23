@@ -1,7 +1,7 @@
 /*
  * XREFs of KsrClaimPersistedMemory_0 @ 0x1400012A0
  * Callers:
- *     EtwpQueryPersistedMemory @ 0x1406AA194 (EtwpQueryPersistedMemory.c)
+ *     EtwpQueryPersistedMemory @ 0x1406AA2CC (EtwpQueryPersistedMemory.c)
  * Callees:
  *     <none>
  */

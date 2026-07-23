@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpMapEntryGetFreeBin @ 0x14070810C
+ * XREFs of HvpMapEntryGetFreeBin @ 0x14071F4EC
  * Callers:
- *     HvpFindNextDirtyBlock @ 0x14064611C (HvpFindNextDirtyBlock.c)
- *     HvCheckHive @ 0x140709848 (HvCheckHive.c)
- *     HvHiveCleanup @ 0x140709C24 (HvHiveCleanup.c)
- *     HvpSetRangeProtection @ 0x140709E78 (HvpSetRangeProtection.c)
- *     HvpTruncateBins @ 0x140721484 (HvpTruncateBins.c)
- *     HvFreeHivePartial @ 0x14072153C (HvFreeHivePartial.c)
- *     HvpDropPagedBins @ 0x14079F728 (HvpDropPagedBins.c)
+ *     HvpFindNextDirtyBlock @ 0x14063AF08 (HvpFindNextDirtyBlock.c)
+ *     HvpTruncateBins @ 0x1406F8CDC (HvpTruncateBins.c)
+ *     HvFreeHivePartial @ 0x1406F8D94 (HvFreeHivePartial.c)
+ *     HvCheckHive @ 0x140720C28 (HvCheckHive.c)
+ *     HvHiveCleanup @ 0x140721004 (HvHiveCleanup.c)
+ *     HvpSetRangeProtection @ 0x140721258 (HvpSetRangeProtection.c)
+ *     HvpDropPagedBins @ 0x14079F928 (HvpDropPagedBins.c)
  * Callees:
  *     <none>
  */

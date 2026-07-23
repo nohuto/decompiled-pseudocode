@@ -1,13 +1,13 @@
 /*
- * XREFs of IoReplacePartitionUnit @ 0x140629E88
+ * XREFs of IoReplacePartitionUnit @ 0x140629F3C
  * Callers:
- *     NtReplacePartitionUnit @ 0x14023E080 (NtReplacePartitionUnit.c)
+ *     NtReplacePartitionUnit @ 0x14023DF64 (NtReplacePartitionUnit.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PnpReplacePartitionUnit @ 0x1406430D4 (PnpReplacePartitionUnit.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PnpReplacePartitionUnit @ 0x1406431B8 (PnpReplacePartitionUnit.c)
  */
 
 NTSTATUS __stdcall IoReplacePartitionUnit(PDEVICE_OBJECT TargetPdo, PDEVICE_OBJECT SparePdo, ULONG Flags)

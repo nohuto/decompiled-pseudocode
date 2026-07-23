@@ -1,14 +1,14 @@
 /*
- * XREFs of SepAdtObjectReferenceAuditAlarm @ 0x1409CBF3C
+ * XREFs of SepAdtObjectReferenceAuditAlarm @ 0x1409CC13C
  * Callers:
- *     SeObjectReferenceAuditAlarm @ 0x1406C31D0 (SeObjectReferenceAuditAlarm.c)
+ *     SeObjectReferenceAuditAlarm @ 0x1406C3200 (SeObjectReferenceAuditAlarm.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x14039B780 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SepQueryNameString @ 0x1407F4EEC (SepQueryNameString.c)
- *     SepQueryTypeString @ 0x1409CD3F0 (SepQueryTypeString.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ *     SepAdtLogAuditRecord @ 0x14039B960 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SepQueryNameString @ 0x1407F51BC (SepQueryNameString.c)
+ *     SepQueryTypeString @ 0x1409CD5F0 (SepQueryTypeString.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

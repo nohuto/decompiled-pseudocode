@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSignalThread @ 0x1402B85D0
+ * XREFs of KiSignalThread @ 0x1402B8860
  * Callers:
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     ExpQueueWorkItem @ 0x1402B76A0 (ExpQueueWorkItem.c)
- *     KeAlertThreadByThreadId @ 0x1402B97E0 (KeAlertThreadByThreadId.c)
- *     KeAlertThread @ 0x140309850 (KeAlertThread.c)
- *     KiSuspendThread @ 0x140309F1C (KiSuspendThread.c)
- *     KiResumeThread @ 0x14030ACF8 (KiResumeThread.c)
- *     KiSignalThreadForApc @ 0x14030B308 (KiSignalThreadForApc.c)
- *     KiTryUnwaitThreadWithPriority @ 0x140357548 (KiTryUnwaitThreadWithPriority.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     ExpQueueWorkItem @ 0x1402B7930 (ExpQueueWorkItem.c)
+ *     KeAlertThreadByThreadId @ 0x1402B9A70 (KeAlertThreadByThreadId.c)
+ *     KeAlertThread @ 0x140309AE0 (KeAlertThread.c)
+ *     KiSuspendThread @ 0x14030A1AC (KiSuspendThread.c)
+ *     KiResumeThread @ 0x14030AF88 (KiResumeThread.c)
+ *     KiSignalThreadForApc @ 0x14030B598 (KiSignalThreadForApc.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x1403576E8 (KiTryUnwaitThreadWithPriority.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
  */
 
 char __fastcall KiSignalThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetAwePageSizeFromVa @ 0x140682524
+ * XREFs of MiGetAwePageSizeFromVa @ 0x140683714
  * Callers:
- *     MmSetGraphicsPtes @ 0x1407EB910 (MmSetGraphicsPtes.c)
+ *     MmSetGraphicsPtes @ 0x1407EBEE0 (MmSetGraphicsPtes.c)
  * Callees:
- *     MiGetAweViewPageSize @ 0x1404BA0FC (MiGetAweViewPageSize.c)
- *     MiGetAweNode @ 0x1404F51EC (MiGetAweNode.c)
+ *     MiGetAweViewPageSize @ 0x1404B4F9C (MiGetAweViewPageSize.c)
+ *     MiGetAweNode @ 0x1404F2AEC (MiGetAweNode.c)
  */
 
 __int64 __fastcall MiGetAwePageSizeFromVa(unsigned __int64 a1)

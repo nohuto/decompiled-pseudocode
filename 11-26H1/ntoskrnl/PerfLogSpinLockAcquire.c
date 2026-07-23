@@ -1,11 +1,11 @@
 /*
- * XREFs of PerfLogSpinLockAcquire @ 0x1404DA444
+ * XREFs of PerfLogSpinLockAcquire @ 0x1404D3B24
  * Callers:
- *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14029B710 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
- *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x1402B3438 (KiTryToAcquireQueuedSpinLockInstrumented.c)
- *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140417030 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140433D10 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiTryToAcquireSpinLockInstrumented @ 0x1404BAD14 (KiTryToAcquireSpinLockInstrumented.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14029AC70 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
+ *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x1402FE108 (KiTryToAcquireQueuedSpinLockInstrumented.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14040B640 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140428DE0 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x1404B45A4 (KiTryToAcquireSpinLockInstrumented.c)
  * Callees:
  *     <none>
  */

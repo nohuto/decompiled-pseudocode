@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpAddDriverToList @ 0x140CEE5C0
+ * XREFs of CmpAddDriverToList @ 0x140CF493C
  * Callers:
- *     CmpFindDrivers @ 0x140CEEE14 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140CF5190 (CmpFindDrivers.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpValueToData @ 0x140860380 (CmpValueToData.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
- *     CmpFindTagIndex @ 0x140CEF488 (CmpFindTagIndex.c)
- *     CmpGetNodeName @ 0x140CEF7BC (CmpGetNodeName.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpValueToData @ 0x140866670 (CmpValueToData.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
+ *     CmpFindTagIndex @ 0x140CF5804 (CmpFindTagIndex.c)
+ *     CmpGetNodeName @ 0x140CF5B38 (CmpGetNodeName.c)
  */
 
 char __fastcall CmpAddDriverToList(
@@ -28,9 +28,9 @@ char __fastcall CmpAddDriverToList(
         __int64 *a6,
         char a7)
 {
-  int TagIndex; // r15d
+  int TagIndex; // r14d
   bool v9; // zf
-  __int64 v10; // r14
+  __int64 v10; // r15
   __int64 v11; // rdi
   char v12; // r12
   __int64 CellPaged; // rax
@@ -47,7 +47,7 @@ char __fastcall CmpAddDriverToList(
   __int64 v24; // rcx
   __int64 v25; // rcx
   ULONG_PTR CellFlat; // rax
-  PVOID v27; // r15
+  PVOID v27; // r14
   size_t v28; // rsi
   wchar_t *v29; // rax
   const UNICODE_STRING *v30; // rsi

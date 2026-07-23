@@ -13,7 +13,7 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a3)
+NTSTATUS __cdecl NtAlpcCreateSecurityContext(HANDLE PortHandle, ULONG Flags, PALPC_SECURITY_ATTR SecurityAttribute)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r12
@@ -21,7 +21,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
   ULONG64 v8; // xmm2_8
   ULONG64 v9; // r14
   ULONG64 v10; // rcx
-  NTSTATUS SecurityContext; // esi
+  int SecurityContext; // esi
   signed __int64 v12; // rdi
   bool v13; // cc
   ULONG_PTR v14; // rdi
@@ -32,12 +32,12 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
   __int64 v20; // [rsp+38h] [rbp-40h]
   int v21; // [rsp+40h] [rbp-38h]
   __m128i v22; // [rsp+48h] [rbp-30h]
-  __int64 v23; // [rsp+58h] [rbp-20h]
+  ALPC_HANDLE ContextHandle; // [rsp+58h] [rbp-20h]
   ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp+20h]
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     SecurityContext = -1073741811;
   }
@@ -46,15 +46,15 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode )
     {
-      if ( ((unsigned __int8)a3 & 7) != 0 )
+      if ( ((unsigned __int8)SecurityAttribute & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v7 = a3;
-      if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+      v7 = SecurityAttribute;
+      if ( (unsigned __int64)SecurityAttribute >= MmUserProbeAddress )
         v7 = (_BYTE *)MmUserProbeAddress;
       *v7 = *v7;
       v7[23] = v7[23];
-      v22 = *a3;
-      v23 = a3[1].m128i_i64[0];
+      v22 = *(__m128i *)&SecurityAttribute->Flags;
+      ContextHandle = SecurityAttribute->ContextHandle;
       v8 = _mm_srli_si128(v22, 8).m128i_u64[0];
       v9 = v8;
       if ( v8 )
@@ -68,8 +68,8 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
     }
     else
     {
-      v22 = *a3;
-      v23 = a3[1].m128i_i64[0];
+      v22 = *(__m128i *)&SecurityAttribute->Flags;
+      ContextHandle = SecurityAttribute->ContextHandle;
       v18 = _mm_srli_si128(v22, 8).m128i_u64[0];
       v9 = v18;
       if ( v18 )
@@ -78,7 +78,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
         v21 = *(_DWORD *)(v18 + 8);
       }
     }
-    SecurityContext = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    SecurityContext = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( SecurityContext >= 0 )
     {
       if ( !v9 )
@@ -89,7 +89,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
       SecurityContext = AlpcpCreateSecurityContext(Object);
       if ( SecurityContext >= 0 )
       {
-        a3[1].m128i_i64[0] = *(_QWORD *)(BugCheckParameter2 + 8);
+        SecurityAttribute->ContextHandle = *(ALPC_HANDLE *)(BugCheckParameter2 + 8);
         v12 = _InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter2 - 24), 0xFFFFFFFFFFFFFFFFuLL);
         v13 = v12 <= 1;
         v14 = v12 - 1;
@@ -112,5 +112,5 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)SecurityContext;
+  return SecurityContext;
 }

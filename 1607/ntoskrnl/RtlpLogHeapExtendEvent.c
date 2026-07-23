@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpLogHeapExtendEvent @ 0x14021914C
+ * XREFs of RtlpLogHeapExtendEvent @ 0x140218F78
  * Callers:
- *     RtlpExtendHeap @ 0x140092FE4 (RtlpExtendHeap.c)
- *     RtlpAllocateHeap @ 0x14009409C (RtlpAllocateHeap.c)
- *     RtlpFindAndCommitPages @ 0x140094D74 (RtlpFindAndCommitPages.c)
+ *     RtlpExtendHeap @ 0x1400927E4 (RtlpExtendHeap.c)
+ *     RtlpAllocateHeap @ 0x14009389C (RtlpAllocateHeap.c)
+ *     RtlpFindAndCommitPages @ 0x140094574 (RtlpFindAndCommitPages.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     GetUCBytes @ 0x14021855C (GetUCBytes.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     GetUCBytes @ 0x140218388 (GetUCBytes.c)
  */
 
 __int64 __fastcall RtlpLogHeapExtendEvent(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)

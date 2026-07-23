@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteLargePfnBitMap @ 0x1406648A0
+ * XREFs of MiDeleteLargePfnBitMap @ 0x140664984
  * Callers:
- *     MiDeletePartitionResources @ 0x1401F13D0 (MiDeletePartitionResources.c)
- *     MiCreateLargePfnBitMaps @ 0x140575FB0 (MiCreateLargePfnBitMaps.c)
+ *     MiDeletePartitionResources @ 0x1401F11FC (MiDeletePartitionResources.c)
+ *     MiCreateLargePfnBitMaps @ 0x1405764F0 (MiCreateLargePfnBitMaps.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     MiGetPdeAddress @ 0x1400AB5EC (MiGetPdeAddress.c)
- *     MiReturnPfnList @ 0x14013EB5C (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x14014B990 (MiReturnSplitPageCharges.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     MiGetPdeAddress @ 0x1400847A4 (MiGetPdeAddress.c)
+ *     MiReturnPfnList @ 0x14013F0CC (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x14014BF00 (MiReturnSplitPageCharges.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiDeleteLargePfnBitMap(__int64 a1)
@@ -39,17 +39,17 @@ void __fastcall MiDeleteLargePfnBitMap(__int64 a1)
   __int64 v20; // [rsp+78h] [rbp+20h]
 
   v1 = MiLargePageSizes;
-  v2 = qword_140326A90 + 1;
+  v2 = qword_140326AD0 + 1;
   v3 = (unsigned __int64 *)(a1 + 5600);
   v4 = 0LL;
-  v20 = qword_140326A90 + 1;
+  v20 = qword_140326AD0 + 1;
   v5 = 2LL;
   do
   {
     if ( *v3 )
     {
       PteAddress = MiGetPteAddress(*v3);
-      v8 = qword_1403A9348 ^ (qword_1403A9348 ^ (qword_1403276A0 << 12)) & 0xFFFFFFFFF000LL | 0x21;
+      v8 = qword_1403A9348 ^ (qword_1403A9348 ^ (qword_1403276E0 << 12)) & 0xFFFFFFFFF000LL | 0x21;
       if ( PteAddress >= 0xFFFFF6FB40000000uLL && PteAddress <= 0xFFFFF6FB7FFFFFFFuLL )
         v8 &= ~qword_1403A9350 & 0x7FFFFFFFFFFFFFFFLL;
       if ( PteAddress <= MiGetPteAddress(v6) && PteAddress >= MiGetPteAddress(0LL)
@@ -86,7 +86,7 @@ void __fastcall MiDeleteLargePfnBitMap(__int64 a1)
         v13 = v19;
         v2 = v20;
       }
-      MiReleasePtes((__int64)&qword_140327870, PteAddress - 8 * v13, v13);
+      MiReleasePtes((__int64)&qword_1403278B0, PteAddress - 8 * v13, v13);
     }
     v3 += 2;
     ++v1;

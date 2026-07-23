@@ -9,20 +9,20 @@
  *     SeCompareSigningLevels @ 0x1405040A0 (SeCompareSigningLevels.c)
  */
 
-__int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall SeGetImageRequiredSigningLevel(PVOID Object, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
 {
-  NTSTATUS IsUntrustedObject; // edi
+  NTSTATUS v5; // edi
   char v6; // bl
   unsigned int v9; // ecx
   _KPROCESS *Process; // rcx
   char v11; // [rsp+30h] [rbp-18h] BYREF
   char v12; // [rsp+31h] [rbp-17h] BYREF
-  _BYTE v13[22]; // [rsp+32h] [rbp-16h] BYREF
+  BOOLEAN IsUntrustedObject[22]; // [rsp+32h] [rbp-16h] BYREF
 
-  IsUntrustedObject = 0;
+  v5 = 0;
   v6 = a3;
   if ( qword_140362690 )
-    return (unsigned int)((__int64 (__fastcall *)(__int64, __int64, __int64))qword_140362690)(a1, a2, a3);
+    return (unsigned int)((__int64 (__fastcall *)(PVOID, __int64, __int64))qword_140362690)(Object, a2, a3);
   if ( (unsigned int)SeCompareSigningLevels() )
     goto LABEL_3;
   v9 = (unsigned __int8)SeILSigningPolicy;
@@ -34,24 +34,24 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, __int6
   {
 LABEL_3:
     *a5 = v6;
-    return (unsigned int)IsUntrustedObject;
+    return (unsigned int)v5;
   }
   if ( (Process[2].UserDirectoryTableBase & 0x800000) != 0 )
     goto LABEL_17;
   if ( !qword_140362658 )
     return (unsigned int)-1073741823;
-  IsUntrustedObject = qword_140362658(a1, &v11, &v12);
-  if ( IsUntrustedObject >= 0 )
+  v5 = qword_140362658(Object, &v11, &v12);
+  if ( v5 >= 0 )
   {
     if ( !v11 && !v12 )
     {
-      IsUntrustedObject = RtlIsUntrustedObject(0LL, a1, v13);
-      if ( IsUntrustedObject >= 0 )
-        *a5 = v13[0] != 0 ? 6 : 0;
-      return (unsigned int)IsUntrustedObject;
+      v5 = RtlIsUntrustedObject(0LL, Object, IsUntrustedObject);
+      if ( v5 >= 0 )
+        *a5 = IsUntrustedObject[0] != 0 ? 6 : 0;
+      return (unsigned int)v5;
     }
 LABEL_17:
     *a5 = 6;
   }
-  return (unsigned int)IsUntrustedObject;
+  return (unsigned int)v5;
 }

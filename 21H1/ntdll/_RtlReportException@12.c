@@ -19,19 +19,19 @@
  *     _WerpIsProcessNative@4 @ 0x4B33B266 (_WerpIsProcessNative@4.c)
  */
 
-int __stdcall RtlReportException(int a1, int a2, int a3)
+NTSTATUS __cdecl RtlReportException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, ULONG Flags)
 {
   int *v3; // esi
-  int v5; // esi
+  NTSTATUS v5; // esi
   int v6; // [esp+4h] [ebp-8h] BYREF
   int v7; // [esp+8h] [ebp-4h]
 
   v3 = 0;
   v6 = 0;
   v7 = 0;
-  if ( (a3 & 0xFFFFFFE0) != 0 )
+  if ( (Flags & 0xFFFFFFE0) != 0 )
     return -1073741811;
-  WerpBreakIntoDebuggerIfPresent(a3);
+  WerpBreakIntoDebuggerIfPresent(ExceptionRecord, ContextRecord, Flags);
   if ( LdrpIsSecureProcess )
     return 0;
   if ( WerpIsProcessNative() )
@@ -40,7 +40,7 @@ int __stdcall RtlReportException(int a1, int a2, int a3)
     v3 = &v6;
     v6 = -300000000;
   }
-  v5 = RtlReportExceptionHelper(a3, v3);
-  WerpBreakIntoDebuggerIfPresent(a3);
+  v5 = RtlReportExceptionHelper(Flags, v3);
+  WerpBreakIntoDebuggerIfPresent(ExceptionRecord, ContextRecord, Flags);
   return v5;
 }

@@ -8,9 +8,9 @@
  *     RtlpHpVsContextFree @ 0x180036AF0 (RtlpHpVsContextFree.c)
  *     RtlpHpLfhSubsegmentFreeBlock @ 0x18003C490 (RtlpHpLfhSubsegmentFreeBlock.c)
  *     RtlpHpLfhBucketUpdateStats @ 0x180066FBC (RtlpHpLfhBucketUpdateStats.c)
- *     RtlpLogHeapFreeEvent @ 0x1801187B0 (RtlpLogHeapFreeEvent.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
- *     RtlpHpSegGetDescriptorValidateSafe @ 0x1801236BC (RtlpHpSegGetDescriptorValidateSafe.c)
+ *     RtlpLogHeapFreeEvent @ 0x180118780 (RtlpLogHeapFreeEvent.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
+ *     RtlpHpSegGetDescriptorValidateSafe @ 0x18012368C (RtlpHpSegGetDescriptorValidateSafe.c)
  */
 
 __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
   __int64 v16; // rcx
   __int64 v17; // rcx
   __int64 v18; // r8
-  unsigned int v19; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v19; // [rsp+58h] [rbp+20h] BYREF
 
   if ( (RtlpHpAppCompatFlags & 1) != 0 )
   {
@@ -76,14 +76,14 @@ LABEL_39:
     }
     else
     {
-      v10 = RtlpHpVsContextFree(*(_QWORD *)(a1 + 32), v9, a2, a3, &v19);
+      v10 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(a1 + 32), v9, a2, a3, &v19);
       v14 = 1;
       if ( v10 )
       {
         v17 = *(_QWORD *)(a1 + 24);
-        if ( v19 <= (unsigned int)*(unsigned __int16 *)(v17 + 60) - 16 )
+        if ( (unsigned int)v19 <= (unsigned int)*(unsigned __int16 *)(v17 + 60) - 16 )
         {
-          RtlpHpLfhBucketUpdateStats(v17, v19, 0LL);
+          RtlpHpLfhBucketUpdateStats(v17, (unsigned int)v19, 0LL);
           v14 = 1;
         }
       }

@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpHpSegReportCounters @ 0x1800FA030
  * Callers:
- *     RtlpQueryExtendedInformationHeap @ 0x180095020 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x180095010 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
  *     <none>
  */

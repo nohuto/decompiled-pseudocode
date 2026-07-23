@@ -1,11 +1,11 @@
 /*
- * XREFs of PiRestartDevice @ 0x140B3AFB0
+ * XREFs of PiRestartDevice @ 0x140B3D230
  * Callers:
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
- *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
+ *     PnpRestartDeviceNode @ 0x140B23CFC (PnpRestartDeviceNode.c)
  */
 
 __int64 __fastcall PiRestartDevice(__int64 a1)
@@ -43,7 +43,7 @@ LABEL_6:
         BYTE4(v6) = PnPBootDriversInitialized;
         LODWORD(v6) = 3;
         PsReferenceSiloContext(*(void **)(v3 + 32));
-        PipProcessDevNodeTree(v3, a1, (int)&v6, 0, 0, 0, 0);
+        PipProcessDevNodeTree(v3, a1, (__int64)&v6, 0, 0, 0, 0);
       }
       break;
     case 775:

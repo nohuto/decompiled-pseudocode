@@ -18,20 +18,20 @@ __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
 {
   int v3; // eax
   PCWSTR v4; // rbx
-  unsigned __int16 *Message; // rax
-  unsigned __int16 *v6; // rax
-  unsigned __int16 *v7; // rax
-  unsigned __int16 *v8; // rax
-  unsigned __int16 *v9; // rax
-  unsigned __int16 *v10; // rax
-  unsigned __int16 *v11; // rax
-  unsigned __int16 *v12; // rax
-  unsigned __int16 *v13; // rax
-  unsigned __int16 *v14; // rax
-  unsigned __int16 *v15; // rax
-  unsigned __int16 *v16; // rax
-  unsigned __int16 *v17; // rax
-  unsigned __int16 *v18; // rax
+  const wchar_t *Message; // rax
+  const wchar_t *v6; // rax
+  const wchar_t *v7; // rax
+  const wchar_t *v8; // rax
+  const wchar_t *v9; // rax
+  const wchar_t *v10; // rax
+  const wchar_t *v11; // rax
+  const wchar_t *v12; // rax
+  const wchar_t *v13; // rax
+  const wchar_t *v14; // rax
+  const wchar_t *v15; // rax
+  const wchar_t *v16; // rax
+  const wchar_t *v17; // rax
+  const wchar_t *v18; // rax
   int ProgressMessages; // eax
   int v20; // edx
   int v21; // r8d

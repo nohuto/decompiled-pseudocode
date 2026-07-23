@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceRebalanceResult @ 0x140649328
+ * XREFs of PnpTraceRebalanceResult @ 0x14064940C
  * Callers:
- *     PnpRebalance @ 0x1406303D0 (PnpRebalance.c)
+ *     PnpRebalance @ 0x140630484 (PnpRebalance.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     TraceLoggingProviderEnabled @ 0x140088D10 (TraceLoggingProviderEnabled.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     TraceLoggingProviderEnabled @ 0x14010CF00 (TraceLoggingProviderEnabled.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PnpTraceRebalanceResult(__int64 a1, UCHAR a2)
@@ -101,7 +101,7 @@ BOOLEAN __fastcall PnpTraceRebalanceResult(__int64 a1, UCHAR a2)
         v38 = 4LL;
         v40 = 8LL;
         v42 = 8LL;
-        return TlgWrite(&stru_1402F3230, &unk_14027BD19, 0LL, 0LL, 0xFu, &pData);
+        return TlgWrite(&stru_1402F3230, &unk_14027BE19, 0LL, 0LL, 0xFu, &pData);
       }
     }
   }

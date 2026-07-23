@@ -10,7 +10,7 @@
 
 __int64 __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD *a2)
 {
-  unsigned int v2; // esi
+  RTL_FEATURE_ID v2; // esi
   bool v3; // cf
   int v5; // ebx
   __int64 v6; // rcx

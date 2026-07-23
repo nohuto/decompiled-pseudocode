@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FA4
+ * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x1406FB244
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x1406F9C08 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1406FAEA8 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PiDevCfgParseVariableName @ 0x14015D090 (PiDevCfgParseVariableName.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
- *     PiDevCfgParseInterfaceKeyName @ 0x140289390 (PiDevCfgParseInterfaceKeyName.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059ED20 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     PiDevCfgResolveVariable @ 0x1406F33FC (PiDevCfgResolveVariable.c)
- *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14082C014 (PiDevCfgConfigureDeviceInterface.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PiDevCfgParseVariableName @ 0x14015D190 (PiDevCfgParseVariableName.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1401B8930 (ZwEnumerateKey.c)
+ *     PiDevCfgParseInterfaceKeyName @ 0x140289580 (PiDevCfgParseInterfaceKeyName.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059FD20 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     PiDevCfgResolveVariable @ 0x1406F469C (PiDevCfgResolveVariable.c)
+ *     IopRegisterDeviceInterface @ 0x14070AD74 (IopRegisterDeviceInterface.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x14082D214 (PiDevCfgConfigureDeviceInterface.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceInterfaces(__int64 a1, void *a2, __int64 a3)

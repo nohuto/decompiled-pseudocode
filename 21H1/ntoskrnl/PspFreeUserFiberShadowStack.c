@@ -17,9 +17,9 @@ __int64 PspFreeUserFiberShadowStack()
   unsigned __int64 v4; // rdi
   _QWORD *InitialStack; // rdx
   _QWORD *i; // r8
-  _QWORD v9[20]; // [rsp+40h] [rbp-B8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-B8h] BYREF
 
-  memset(v9, 0, 0x98uLL);
+  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   v0 = __readmsr(0x6A7u);
   if ( (v0 & 7) != 0
     || (_RDX = *(_QWORD *)v0, v3 = *(_QWORD *)(v0 + 8), (v3 & 3) != 3)
@@ -38,11 +38,12 @@ __int64 PspFreeUserFiberShadowStack()
       return (unsigned int)v1;
     }
   }
-  v9[2] = 0LL;
-  v9[0] = 0x1C0000409LL;
-  LODWORD(v9[3]) = 1;
-  v9[1] = 0LL;
-  v9[4] = v1;
+  ExceptionRecord.ExceptionFlags = 1;
+  ExceptionRecord.ExceptionAddress = 0LL;
+  ExceptionRecord.ExceptionCode = -1073740791;
+  ExceptionRecord.NumberParameters = 1;
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.ExceptionInformation[0] = v1;
   InitialStack = KeGetCurrentThread()->InitialStack;
   for ( i = InitialStack; (i[1] & 1) != 0; i = (_QWORD *)i[5] )
     ;
@@ -52,6 +53,6 @@ __int64 PspFreeUserFiberShadowStack()
       InitialStack = (_QWORD *)InitialStack[5];
     while ( (InitialStack[1] & 1) != 0 );
   }
-  KiDispatchException((NTSTATUS *)v9, (unsigned __int64)(InitialStack - 90), (__int64)(i - 50), 1u, 0);
+  KiDispatchException(&ExceptionRecord, (unsigned __int64)(InitialStack - 90), (__int64)(i - 50), 1u, 0);
   return (unsigned int)v1;
 }

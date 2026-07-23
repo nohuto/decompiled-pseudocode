@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPlCommitPowerPlaneRegistration @ 0x1405DC960
+ * XREFs of PopPlCommitPowerPlaneRegistration @ 0x1405D9830
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall PopPlCommitPowerPlaneRegistration(__int64 a1)

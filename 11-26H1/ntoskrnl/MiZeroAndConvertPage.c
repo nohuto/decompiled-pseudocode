@@ -1,21 +1,21 @@
 /*
- * XREFs of MiZeroAndConvertPage @ 0x1402A14B0
+ * XREFs of MiZeroAndConvertPage @ 0x1402A0A00
  * Callers:
- *     MiZeroChainWorker @ 0x1402A0D50 (MiZeroChainWorker.c)
- *     MiAllocateLargeZeroPages @ 0x1403C673C (MiAllocateLargeZeroPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1406EE640 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiZeroChainWorker @ 0x1402A02A0 (MiZeroChainWorker.c)
+ *     MiAllocateLargeZeroPages @ 0x1403D0630 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1406F32E0 (MiInitializeMdlOneNodeBatchPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiPfnBestZeroAttribute @ 0x1402A18AC (MiPfnBestZeroAttribute.c)
- *     AccelFillMemory @ 0x1402A19C4 (AccelFillMemory.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     MxGetPhase0Mapping @ 0x140C80058 (MxGetPhase0Mapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiPfnBestZeroAttribute @ 0x1402A0DFC (MiPfnBestZeroAttribute.c)
+ *     AccelFillMemory @ 0x1402A0F14 (AccelFillMemory.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x140C86058 (MxGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MiZeroAndConvertPage(__int64 a1, __int64 a2, int a3, unsigned int a4, unsigned int a5)
@@ -98,7 +98,7 @@ LABEL_23:
     v31 = v17;
     v30 = v16;
     v19 = (__int64)((unsigned __int128)(v15 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
-    v20 = *(_DWORD *)(qword_140E2D6B8
+    v20 = *(_DWORD *)(qword_140E2D838
                     + 384LL * (unsigned int)MiPageToNode(v19 + (v19 >> 63))
                     + 4 * (v7 + 4LL * ((*(_DWORD *)(v16 + 32) >> 22) & 3))
                     + 120);
@@ -125,7 +125,7 @@ LABEL_23:
     {
       if ( (int)AccelFillMemory(a1, Phase0Mapping, 4096, 0, 3LL) >= 0 )
         goto LABEL_16;
-      _InterlockedIncrement(&dword_140EF4A84);
+      _InterlockedIncrement(&dword_140EF4DEC);
     }
     KeZeroPages(Phase0Mapping, 4096LL);
 LABEL_16:

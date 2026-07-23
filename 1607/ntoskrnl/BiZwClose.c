@@ -1,12 +1,12 @@
 /*
- * XREFs of BiZwClose @ 0x14012E078
+ * XREFs of BiZwClose @ 0x14012E5E8
  * Callers:
- *     BiDeleteKey @ 0x140532A4C (BiDeleteKey.c)
- *     BiDeleteRegistryValue @ 0x14053C69C (BiDeleteRegistryValue.c)
- *     BiCreateKey @ 0x14053D6A0 (BiCreateKey.c)
- *     BiGetRegistryValue @ 0x14053D91C (BiGetRegistryValue.c)
- *     BiOpenKey @ 0x14053DE4C (BiOpenKey.c)
- *     BiCloseKey @ 0x14053DFCC (BiCloseKey.c)
+ *     BiDeleteKey @ 0x140532F8C (BiDeleteKey.c)
+ *     BiDeleteRegistryValue @ 0x14053CBDC (BiDeleteRegistryValue.c)
+ *     BiCreateKey @ 0x14053DBE0 (BiCreateKey.c)
+ *     BiGetRegistryValue @ 0x14053DE5C (BiGetRegistryValue.c)
+ *     BiOpenKey @ 0x14053E38C (BiOpenKey.c)
+ *     BiCloseKey @ 0x14053E50C (BiCloseKey.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpInitMap @ 0x1405A5BE0
+ * XREFs of HvpInitMap @ 0x1405A6BE0
  * Callers:
- *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x14073CFDC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvLoadHive @ 0x1405A5C9C (HvLoadHive.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x14073E1CC (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     HvpFreeMap @ 0x1406C8A28 (HvpFreeMap.c)
- *     HvpAllocateMap @ 0x1406CD0F0 (HvpAllocateMap.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     HvpFreeMap @ 0x1406C9CC8 (HvpFreeMap.c)
+ *     HvpAllocateMap @ 0x1406CE390 (HvpAllocateMap.c)
  */
 
 __int64 __fastcall HvpInitMap(__int64 a1, __int64 a2)

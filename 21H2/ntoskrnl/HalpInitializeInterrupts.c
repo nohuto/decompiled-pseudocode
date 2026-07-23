@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpInitializeInterrupts @ 0x140A396FC
+ * XREFs of HalpInitializeInterrupts @ 0x140A3A6FC
  * Callers:
- *     HalpInterruptInitDiscard @ 0x140A72AD4 (HalpInterruptInitDiscard.c)
+ *     HalpInterruptInitDiscard @ 0x140A73AD4 (HalpInterruptInitDiscard.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
- *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
- *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
- *     HalpInterruptParseAcpiTables @ 0x1403A8B90 (HalpInterruptParseAcpiTables.c)
- *     HalpInterruptInitializeIpis @ 0x1403A92CC (HalpInterruptInitializeIpis.c)
- *     HalpInterruptSelectController @ 0x1403A9360 (HalpInterruptSelectController.c)
- *     HalpApicDiscover @ 0x1403AABC0 (HalpApicDiscover.c)
- *     HalpPicDiscover @ 0x1403AAF70 (HalpPicDiscover.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A27FC (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptInitializeController @ 0x1403A37A8 (HalpInterruptInitializeController.c)
+ *     HalpInterruptParseAcpiTables @ 0x1403A9920 (HalpInterruptParseAcpiTables.c)
+ *     HalpInterruptInitializeIpis @ 0x1403AA05C (HalpInterruptInitializeIpis.c)
+ *     HalpInterruptSelectController @ 0x1403AA0F0 (HalpInterruptSelectController.c)
+ *     HalpApicDiscover @ 0x1403AB950 (HalpApicDiscover.c)
+ *     HalpPicDiscover @ 0x1403ABD00 (HalpPicDiscover.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB428 (HalpMmAllocateMemoryInternal.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpInitializeInterrupts(__int64 a1)
@@ -47,10 +47,10 @@ __int64 __fastcall HalpInitializeInterrupts(__int64 a1)
   v27 = 0LL;
   HalpInterruptOverridesLock = 0LL;
   HalpInterruptLocalUnitErrorLock = 0LL;
-  qword_140C49888 = (__int64)&HalpInterruptOverrides;
+  qword_140C498C8 = (__int64)&HalpInterruptOverrides;
   HalpInterruptOverrides = (__int64)&HalpInterruptOverrides;
   HalpInterruptPhysicalTargets = 1310721;
-  memset(&unk_140C4BA44, 0, 0xA4uLL);
+  memset(&unk_140C4BA84, 0, 0xA4uLL);
   v3 = HalpInterruptParseAcpiTables(a1, 0);
   if ( v3 < 0 )
     goto LABEL_32;

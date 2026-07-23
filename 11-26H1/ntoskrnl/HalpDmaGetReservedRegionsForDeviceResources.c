@@ -1,161 +1,188 @@
 /*
- * XREFs of HalpDmaGetReservedRegionsForDeviceResources @ 0x14058A82C
+ * XREFs of HalpDmaGetReservedRegionsForDeviceResources @ 0x14058CF5C
  * Callers:
- *     HalpDmaAllocateDomain @ 0x14058A460 (HalpDmaAllocateDomain.c)
+ *     HalpDmaAllocateDomain @ 0x14058CB90 (HalpDmaAllocateDomain.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     RtlCmDecodeMemIoResource @ 0x1404D4880 (RtlCmDecodeMemIoResource.c)
- *     HalpDmaGetIommuInterface @ 0x140578E28 (HalpDmaGetIommuInterface.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     RtlCmDecodeMemIoResource @ 0x1404CE0F0 (RtlCmDecodeMemIoResource.c)
+ *     HalpDmaGetIommuInterface @ 0x14057B358 (HalpDmaGetIommuInterface.c)
+ *     Feature_DmaReservedRegionsPdoReference__private_IsEnabledDeviceUsageNoInline @ 0x14058C0A0 (Feature_DmaReservedRegionsPdoReference__private_IsEnabledDeviceUsageNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
  */
 
-__int64 __fastcall HalpDmaGetReservedRegionsForDeviceResources(struct _DEVICE_OBJECT *Object, int a2)
+__int64 __fastcall HalpDmaGetReservedRegionsForDeviceResources(__int64 DeviceObject, int a2)
 {
-  struct _DEVICE_OBJECT *v2; // rsi
-  __int64 v3; // rdi
-  int v4; // r13d
-  __int64 v5; // rdx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  _DWORD *v8; // rbx
+  bool v3; // r12
+  __int64 v4; // rdi
+  struct _DEVICE_OBJECT *v5; // r14
+  int v6; // r15d
+  char v7; // si
+  __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // rcx
-  char *v11; // rax
-  __int64 v12; // r9
-  unsigned int v13; // edx
-  __int64 v14; // r8
-  __int64 v15; // r14
-  __int64 v16; // r15
-  _DWORD *v17; // r12
-  unsigned int v18; // ebx
-  struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *v19; // rcx
-  ULONGLONG v20; // rax
-  __int64 v21; // r8
-  ULONGLONG v22; // rcx
-  ULONGLONG v23; // r9
-  unsigned __int64 v24; // rcx
-  ULONGLONG Start; // [rsp+30h] [rbp-49h] BYREF
-  char *v27; // [rsp+38h] [rbp-41h]
-  _BYTE v28[8]; // [rsp+40h] [rbp-39h] BYREF
-  __int64 v29; // [rsp+48h] [rbp-31h]
-  __int64 v30; // [rsp+88h] [rbp+Fh]
-  struct _DEVICE_OBJECT *v31; // [rsp+E0h] [rbp+67h]
+  unsigned int *v10; // rbx
+  __int64 v11; // rcx
+  __int64 v12; // rcx
+  char *v13; // rax
+  __int64 v14; // r9
+  unsigned int v15; // edx
+  __int64 v16; // r8
+  unsigned int v17; // r15d
+  __int64 v18; // r12
+  unsigned int *v19; // r13
+  unsigned int v20; // ebx
+  struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *v21; // rcx
+  ULONGLONG v22; // rax
+  __int64 v23; // r8
+  ULONGLONG v24; // rcx
+  ULONGLONG v25; // r9
+  unsigned __int64 v26; // rcx
+  __int64 v27; // rdx
+  bool v29; // [rsp+30h] [rbp-49h]
+  int v30; // [rsp+34h] [rbp-45h]
+  ULONGLONG Start; // [rsp+38h] [rbp-41h] BYREF
+  __int64 v32; // [rsp+40h] [rbp-39h]
+  char *v33; // [rsp+48h] [rbp-31h]
+  _BYTE v34[8]; // [rsp+50h] [rbp-29h] BYREF
+  __int64 v35; // [rsp+58h] [rbp-21h]
+  __int64 v36; // [rsp+98h] [rbp+1Fh]
   ULONG BufferLength; // [rsp+F0h] [rbp+77h] BYREF
-  unsigned int v34; // [rsp+F8h] [rbp+7Fh]
+  unsigned int v39; // [rsp+F8h] [rbp+7Fh]
 
-  v31 = Object;
   Start = 0LL;
-  v2 = Object;
   BufferLength = 0;
-  memset_0(v28, 0, 0x50uLL);
-  v3 = 0LL;
-  v34 = 0;
-  v4 = 0;
-  if ( (int)HalpDmaGetIommuInterface((__int64)v2, (__int64)v28) >= 0 )
+  memset_0(v34, 0, 0x50uLL);
+  v3 = 0;
+  v30 = 0;
+  v29 = 0;
+  v39 = 0;
+  v4 = 0LL;
+  v5 = 0LL;
+  v6 = 0;
+  v7 = 0;
+  if ( (int)HalpDmaGetIommuInterface(DeviceObject, (__int64)v34) >= 0 )
   {
-    if ( v30 )
+    v7 = 1;
+    if ( v36 )
     {
-      v2 = (struct _DEVICE_OBJECT *)guard_dispatch_icall_no_overrides(v29, v5);
-      v31 = v2;
+      v5 = (struct _DEVICE_OBJECT *)guard_dispatch_icall_no_overrides(v35, v8);
+      v32 = (__int64)v5;
+      v3 = (unsigned int)Feature_DmaReservedRegionsPdoReference__private_IsEnabledDeviceUsageNoInline() != 0;
+      v29 = v3;
     }
-    if ( IoGetDeviceProperty(v2, DevicePropertyAllocatedResources, 0, 0LL, &BufferLength) == -1073741789 )
+    else
     {
-      v27 = (char *)HalpMmAllocCtxAlloc(v7, BufferLength);
-      v8 = v27;
-      if ( v27 )
+      v5 = (struct _DEVICE_OBJECT *)DeviceObject;
+      v32 = DeviceObject;
+    }
+    if ( IoGetDeviceProperty(v5, DevicePropertyAllocatedResources, 0, 0LL, &BufferLength) == -1073741789 )
+    {
+      v33 = (char *)HalpMmAllocCtxAlloc(v9, BufferLength);
+      v10 = (unsigned int *)v33;
+      if ( v33 )
       {
-        if ( IoGetDeviceProperty(v2, DevicePropertyAllocatedResources, BufferLength, v27, &BufferLength) >= 0 )
+        if ( IoGetDeviceProperty(v5, DevicePropertyAllocatedResources, BufferLength, v33, &BufferLength) >= 0 )
         {
-          v10 = *(unsigned int *)v27;
-          if ( (_DWORD)v10 )
+          v12 = *(unsigned int *)v33;
+          if ( (_DWORD)v12 )
           {
-            v11 = v27 + 20;
-            v12 = (unsigned int)v10;
+            v13 = v33 + 20;
+            v14 = (unsigned int)v12;
             do
             {
-              v13 = *((_DWORD *)v11 - 1);
-              if ( v13 )
+              v15 = *((_DWORD *)v13 - 1);
+              if ( v15 )
               {
-                v10 = (__int64)v11;
-                v14 = v13;
+                v12 = (__int64)v13;
+                v16 = v15;
                 do
                 {
-                  if ( *(_BYTE *)v10 == 3 || *(_BYTE *)v10 == 7 )
-                    ++v4;
-                  v10 += 20LL;
-                  --v14;
+                  if ( *(_BYTE *)v12 == 3 || *(_BYTE *)v12 == 7 )
+                    ++v6;
+                  v12 += 20LL;
+                  --v16;
                 }
-                while ( v14 );
+                while ( v16 );
+                v30 = v6;
               }
-              v11 += 36;
-              --v12;
+              v13 += 36;
+              --v14;
             }
-            while ( v12 );
+            while ( v14 );
           }
-          BufferLength = 32 * v4;
-          v3 = HalpMmAllocCtxAlloc(v10, (unsigned int)(32 * v4));
-          if ( v3 )
+          BufferLength = 32 * v6;
+          v4 = HalpMmAllocCtxAlloc(v12, (unsigned int)(32 * v6));
+          if ( v4 )
           {
-            v15 = 0LL;
-            if ( *(_DWORD *)v27 )
+            v17 = 0;
+            if ( *(_DWORD *)v33 )
             {
               do
               {
-                v16 = 0LL;
-                v17 = &v8[8 * v15 + 3 + (unsigned int)v15];
-                if ( v17[1] )
+                v18 = 0LL;
+                v19 = &v10[8 * v17 + 3 + v17];
+                if ( v19[1] )
                 {
-                  v18 = v34;
+                  v20 = v39;
                   do
                   {
-                    v19 = (struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *)&v17[4 * v16 + 2 + (unsigned int)v16];
-                    if ( ((v19->Type - 3) & 0xFB) == 0 )
+                    v21 = (struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *)&v19[4 * v18 + 2 + (unsigned int)v18];
+                    if ( ((v21->Type - 3) & 0xFB) == 0 )
                     {
-                      v20 = RtlCmDecodeMemIoResource(v19, &Start);
-                      v21 = 32LL * v18;
+                      v22 = RtlCmDecodeMemIoResource(v21, &Start);
+                      v23 = 32LL * v20;
                       if ( a2 == 2 )
                       {
-                        v22 = Start;
-                        v23 = v20 - (Start & 0xFFFFFF8000000000uLL);
+                        v24 = Start;
+                        v25 = v22 - (Start & 0xFFFFFF8000000000uLL);
                         Start &= 0xFFFFFF8000000000uLL;
-                        *(_QWORD *)(v21 + v3 + 8) = Start;
-                        v24 = ((v23 + v22 + 0x7FFFFFFFFFLL) >> 12) & 0xFFFFFF8000000LL;
+                        *(_QWORD *)(v23 + v4 + 8) = Start;
+                        v26 = ((v25 + v24 + 0x7FFFFFFFFFLL) >> 12) & 0xFFFFFF8000000LL;
                       }
                       else
                       {
-                        *(_QWORD *)(v21 + v3 + 8) = Start & 0xFFFFFFFFFFFFF000uLL;
-                        v24 = ((v20 & 0xFFF) != 0) + (v20 >> 12);
+                        *(_QWORD *)(v23 + v4 + 8) = Start & 0xFFFFFFFFFFFFF000uLL;
+                        v26 = ((v22 & 0xFFF) != 0) + (v22 >> 12);
                       }
-                      ++v18;
-                      *(_QWORD *)(v21 + v3 + 16) = v24;
-                      *(_BYTE *)(v21 + v3 + 24) = 0;
-                      *(_QWORD *)(v21 + v3) = v3 + 32LL * v18;
+                      ++v20;
+                      *(_QWORD *)(v23 + v4 + 16) = v26;
+                      *(_BYTE *)(v23 + v4 + 24) = 0;
+                      *(_QWORD *)(v23 + v4) = v4 + 32LL * v20;
                     }
-                    v16 = (unsigned int)(v16 + 1);
+                    v18 = (unsigned int)(v18 + 1);
                   }
-                  while ( (unsigned int)v16 < v17[1] );
-                  v34 = v18;
-                  v8 = v27;
+                  while ( (unsigned int)v18 < v19[1] );
+                  v39 = v20;
+                  v10 = (unsigned int *)v33;
                 }
-                v15 = (unsigned int)(v15 + 1);
+                ++v17;
               }
-              while ( (unsigned int)v15 < *v8 );
-              v2 = v31;
+              while ( v17 < *v10 );
+              v5 = (struct _DEVICE_OBJECT *)v32;
+              v3 = v29;
             }
-            v9 = 32LL * (unsigned int)(v4 - 1);
-            *(_QWORD *)(v9 + v3) = 0LL;
+            v11 = 32LL * (unsigned int)(v30 - 1);
+            *(_QWORD *)(v11 + v4) = 0LL;
           }
         }
-        HalpMmAllocCtxFree(v9, (__int64)v8);
+        HalpMmAllocCtxFree(v11, (__int64)v10);
       }
     }
-    if ( v2 )
-      ObfDereferenceObjectWithTag(v2, 0x746C6644u);
-    guard_dispatch_icall_no_overrides(v29, v6);
   }
-  return v3;
+  if ( !(unsigned int)Feature_DmaReservedRegionsPdoReference__private_IsEnabledDeviceUsageNoInline() )
+  {
+    if ( !v5 )
+      goto LABEL_38;
+    goto LABEL_37;
+  }
+  if ( v3 )
+LABEL_37:
+    ObfDereferenceObjectWithTag(v5, 0x746C6644u);
+LABEL_38:
+  if ( v7 )
+    guard_dispatch_icall_no_overrides(v35, v27);
+  return v4;
 }

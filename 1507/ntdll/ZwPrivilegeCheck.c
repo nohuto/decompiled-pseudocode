@@ -9,11 +9,11 @@
  *     <none>
  */
 
-__int64 ZwPrivilegeCheck()
+NTSTATUS __cdecl ZwPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredPrivileges, PBOOLEAN Result)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 290LL;
+  result = 290;
   __asm { syscall; Low latency system call }
   return result;
 }

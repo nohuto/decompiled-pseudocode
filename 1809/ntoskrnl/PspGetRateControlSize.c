@@ -1,10 +1,10 @@
 /*
- * XREFs of PspGetRateControlSize @ 0x140698A94
+ * XREFs of PspGetRateControlSize @ 0x140699C54
  * Callers:
- *     PspFreeRateControl @ 0x1406989B4 (PspFreeRateControl.c)
- *     PspAllocateRateControl @ 0x140698A00 (PspAllocateRateControl.c)
+ *     PspFreeRateControl @ 0x140699B74 (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x140699BC0 (PspAllocateRateControl.c)
  * Callees:
- *     KeGetSchedulingGroupSize @ 0x14011580C (KeGetSchedulingGroupSize.c)
+ *     KeGetSchedulingGroupSize @ 0x14011587C (KeGetSchedulingGroupSize.c)
  */
 
 __int64 __fastcall PspGetRateControlSize(int a1)

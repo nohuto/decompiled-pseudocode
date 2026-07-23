@@ -1,70 +1,68 @@
 /*
- * XREFs of RtlLookupElementGenericTableFullAvl @ 0x180071F40
+ * XREFs of RtlLookupElementGenericTableFullAvl @ 0x18008E820
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x180072550 (RtlCompareUnicodeStrings.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlCompareUnicodeStrings @ 0x18008EE30 (RtlCompareUnicodeStrings.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFullAvl(
-        unsigned __int16 *a1,
-        unsigned __int16 *a2,
-        _QWORD *a3,
-        _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  __int64 i; // rbx
-  __int64 (__fastcall *v9)(); // rax
-  int v10; // eax
-  int v12; // [rsp+20h] [rbp-28h]
+  _RTL_BALANCED_LINKS *i; // rbx
+  LONG (__cdecl *CompareRoutine)(PUNICODE_STRING, PUNICODE_STRING, BOOLEAN); // rax
+  _RTL_BALANCED_LINKS *CaseInSensitive; // r8
+  int v11; // eax
 
-  if ( *((_DWORD *)a1 + 11) )
+  if ( Table->NumberGenericTableElements )
   {
-    for ( i = *((_QWORD *)a1 + 2); ; i = *(_QWORD *)(i + 16) )
+    for ( i = Table->BalancedRoot.RightChild; ; i = i->RightChild )
     {
       while ( 1 )
       {
-        v9 = (__int64 (__fastcall *)())*((_QWORD *)a1 + 9);
-        if ( v9 == RtlCompareUnicodeString )
-        {
-          LOBYTE(v12) = i + 32;
-          v10 = RtlCompareUnicodeStrings(
-                  *((_QWORD *)a1 + 1),
-                  (unsigned __int64)*a1 >> 1,
-                  *((_QWORD *)a2 + 1),
-                  (unsigned __int64)*a2 >> 1,
-                  v12);
-        }
-        else
-        {
-          v10 = ((__int64 (__fastcall *)(unsigned __int16 *, unsigned __int16 *, __int64))v9)(a1, a2, i + 32);
-        }
-        if ( v10 )
+        CompareRoutine = (LONG (__cdecl *)(PUNICODE_STRING, PUNICODE_STRING, BOOLEAN))Table->CompareRoutine;
+        CaseInSensitive = i + 1;
+        v11 = CompareRoutine == RtlCompareUnicodeString
+            ? RtlCompareUnicodeStrings(
+                (PCWCH)Table->BalancedRoot.LeftChild,
+                (unsigned __int64)LOWORD(Table->BalancedRoot.Parent) >> 1,
+                *((PCWCH *)Buffer + 1),
+                (unsigned __int64)*(unsigned __int16 *)Buffer >> 1,
+                (BOOLEAN)CaseInSensitive)
+            : ((__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID, _RTL_BALANCED_LINKS *))CompareRoutine)(
+                Table,
+                Buffer,
+                CaseInSensitive);
+        if ( v11 )
           break;
-        if ( !*(_QWORD *)(i + 8) )
+        if ( !i->LeftChild )
         {
-          *a3 = i;
-          *a4 = 2;
+          *NodeOrParent = i;
+          *SearchResult = TableInsertAsLeft;
           return 0LL;
         }
-        i = *(_QWORD *)(i + 8);
+        i = i->LeftChild;
       }
-      if ( v10 != 1 )
+      if ( v11 != 1 )
       {
-        *a3 = i;
-        *a4 = 1;
-        return *a3 + 32LL;
+        *NodeOrParent = i;
+        *SearchResult = TableFoundNode;
+        return (char *)*NodeOrParent + 32;
       }
-      if ( !*(_QWORD *)(i + 16) )
+      if ( !i->RightChild )
         break;
     }
-    *a3 = i;
-    *a4 = 3;
+    *NodeOrParent = i;
+    *SearchResult = TableInsertAsRight;
     return 0LL;
   }
   else
   {
-    *a4 = 0;
+    *SearchResult = TableEmptyTree;
     return 0LL;
   }
 }

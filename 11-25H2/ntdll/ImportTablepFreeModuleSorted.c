@@ -6,36 +6,36 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall ImportTablepFreeModuleSorted(_QWORD **a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall ImportTablepFreeModuleSorted(_QWORD **BaseAddress)
 {
-  _QWORD *v4; // rdi
-  __int64 v5; // rbx
-  _QWORD *v6; // r8
+  _QWORD *v1; // rdi
+  _QWORD *v2; // rbx
+  _QWORD *v3; // r8
   _QWORD *i; // rsi
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    v4 = *a1;
-    v5 = (__int64)a1;
+    v1 = *BaseAddress;
+    v2 = BaseAddress;
     while ( 1 )
     {
-      v6 = *(_QWORD **)(v5 + 16);
-      if ( v6 )
+      v3 = (_QWORD *)v2[2];
+      if ( v3 )
       {
-        for ( i = (_QWORD *)*v6; ; i = (_QWORD *)*i )
+        for ( i = (_QWORD *)*v3; ; i = (_QWORD *)*i )
         {
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v6, a4);
-          v6 = i;
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+          v3 = i;
           if ( !i )
             break;
         }
       }
-      result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5, a4);
-      v5 = (__int64)v4;
-      if ( !v4 )
+      result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
+      v2 = v1;
+      if ( !v1 )
         break;
-      v4 = (_QWORD *)*v4;
+      v1 = (_QWORD *)*v1;
     }
   }
   return result;

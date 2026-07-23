@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpInitializeAutoLoggers @ 0x14074185C
+ * XREFs of EtwpInitializeAutoLoggers @ 0x140742A4C
  * Callers:
- *     EtwInitializeSiloState @ 0x140741434 (EtwInitializeSiloState.c)
+ *     EtwInitializeSiloState @ 0x140742624 (EtwInitializeSiloState.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
- *     EtwpEnumerateAutologgerPath @ 0x140741C28 (EtwpEnumerateAutologgerPath.c)
- *     EtwStartAutoLogger @ 0x140741E68 (EtwStartAutoLogger.c)
- *     EtwpFreeKeyNameList @ 0x140742A8C (EtwpFreeKeyNameList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGetPersistedStateLocation @ 0x140613450 (RtlGetPersistedStateLocation.c)
+ *     EtwpEnumerateAutologgerPath @ 0x140742E18 (EtwpEnumerateAutologgerPath.c)
+ *     EtwStartAutoLogger @ 0x140743058 (EtwStartAutoLogger.c)
+ *     EtwpFreeKeyNameList @ 0x140743C7C (EtwpFreeKeyNameList.c)
  */
 
 __int64 EtwpInitializeAutoLoggers()
@@ -30,10 +30,10 @@ __int64 EtwpInitializeAutoLoggers()
   __int128 v12; // xmm0
   __int128 v13; // xmm1
   __int64 v14; // rax
-  PVOID PoolWithTag; // rbx
-  PVOID v16; // rdi
-  unsigned int v18[4]; // [rsp+48h] [rbp-C0h] BYREF
-  struct _RTL_AVL_TABLE Table; // [rsp+58h] [rbp-B0h] BYREF
+  PVOID TargetPath; // rbx
+  PVOID PoolWithTag; // rdi
+  ULONG BufferLengthOut[4]; // [rsp+48h] [rbp-C0h] BYREF
+  _RTL_AVL_TABLE Table; // [rsp+58h] [rbp-B0h] BYREF
   WCHAR SourceString[16]; // [rsp+C8h] [rbp-40h] BYREF
   _OWORD Path[8]; // [rsp+E8h] [rbp-20h] BYREF
   int v22; // [rsp+168h] [rbp+60h]
@@ -80,32 +80,46 @@ __int64 EtwpInitializeAutoLoggers()
     (PRTL_AVL_ALLOCATE_ROUTINE)EtwpAllocateKeyNameEntry,
     (PRTL_AVL_FREE_ROUTINE)EtwpFreeKeyNameEntry,
     0LL);
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1FEuLL, 0x74777445u);
-  if ( !PoolWithTag )
+  TargetPath = ExAllocatePoolWithTag(PagedPool, 0x1FEuLL, 0x74777445u);
+  if ( !TargetPath )
     return EtwpFreeKeyNameList(&Table);
-  if ( (unsigned int)RtlGetPersistedStateLocation(L"ETWAutoLoggerPath", 0LL, 0LL, 0, PoolWithTag, 0x1FEu, v18) )
+  if ( RtlGetPersistedStateLocation(
+         L"ETWAutoLoggerPath",
+         0LL,
+         0LL,
+         LocationTypeRegistry,
+         (PWCHAR)TargetPath,
+         0x1FEu,
+         BufferLengthOut) )
   {
-    ExFreePoolWithTag(PoolWithTag, 0x74777445u);
-    PoolWithTag = 0LL;
+    ExFreePoolWithTag(TargetPath, 0x74777445u);
+    TargetPath = 0LL;
   }
-  v16 = ExAllocatePoolWithTag(PagedPool, 0x1FEuLL, 0x74777445u);
-  if ( v16 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1FEuLL, 0x74777445u);
+  if ( PoolWithTag )
   {
-    if ( (unsigned int)RtlGetPersistedStateLocation(L"ETWGlobalLoggerPath", 0LL, 0LL, 0, v16, 0x1FEu, v18) )
+    if ( RtlGetPersistedStateLocation(
+           L"ETWGlobalLoggerPath",
+           0LL,
+           0LL,
+           LocationTypeRegistry,
+           (PWCHAR)PoolWithTag,
+           0x1FEu,
+           BufferLengthOut) )
     {
-      ExFreePoolWithTag(v16, 0x74777445u);
-      v16 = 0LL;
+      ExFreePoolWithTag(PoolWithTag, 0x74777445u);
+      PoolWithTag = 0LL;
     }
     EtwStartAutoLogger(SourceString, (PCWSTR)v23);
     EtwpEnumerateAutologgerPath((PCWSTR)Path);
-    if ( !PoolWithTag )
+    if ( !TargetPath )
       goto LABEL_8;
-    EtwpEnumerateAutologgerPath((PCWSTR)PoolWithTag);
+    EtwpEnumerateAutologgerPath((PCWSTR)TargetPath);
   }
+  if ( TargetPath )
+    ExFreePoolWithTag(TargetPath, 0x74777445u);
+LABEL_8:
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0x74777445u);
-LABEL_8:
-  if ( v16 )
-    ExFreePoolWithTag(v16, 0x74777445u);
   return EtwpFreeKeyNameList(&Table);
 }

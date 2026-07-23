@@ -1,37 +1,37 @@
 /*
- * XREFs of BgpFwFreeMemory @ 0x14037DE10
+ * XREFs of BgpFwFreeMemory @ 0x14045EC7C
  * Callers:
- *     RaspFreeMemory @ 0x140467304 (RaspFreeMemory.c)
- *     BgpFwQueryBootGraphicsInformation @ 0x1404C3450 (BgpFwQueryBootGraphicsInformation.c)
- *     BgpDisplayCharacterDestroyContext @ 0x140BB0834 (BgpDisplayCharacterDestroyContext.c)
- *     BgpDisplayCharacterGetContext @ 0x140BB0860 (BgpDisplayCharacterGetContext.c)
- *     BgConsoleDestroyInterface @ 0x140BB0940 (BgConsoleDestroyInterface.c)
- *     BgpConsoleInitialize @ 0x140BB10B0 (BgpConsoleInitialize.c)
- *     BgpFwLibraryDestroy @ 0x140BB1678 (BgpFwLibraryDestroy.c)
- *     BgpFwLibraryDisable @ 0x140BB1724 (BgpFwLibraryDisable.c)
- *     ResFwpDestroyBackground @ 0x140BB1B3C (ResFwpDestroyBackground.c)
- *     ResFwpPageInBackground @ 0x140BB1BB0 (ResFwpPageInBackground.c)
- *     ResFwpPageOutBackground @ 0x140BB1C34 (ResFwpPageOutBackground.c)
- *     BgpFoDestroy @ 0x140BB273C (BgpFoDestroy.c)
- *     FopFreeFontData @ 0x140BB2800 (FopFreeFontData.c)
- *     FopFreeMappingTable @ 0x140BB28AC (FopFreeMappingTable.c)
- *     BgpTxtCreateRegion @ 0x140BB2908 (BgpTxtCreateRegion.c)
- *     BgpTxtDestroyRegion @ 0x140BB2B5C (BgpTxtDestroyRegion.c)
- *     AnFwDisplayFade @ 0x140BB36EC (AnFwDisplayFade.c)
- *     BgpGxRectangleDestroy @ 0x140BB3F04 (BgpGxRectangleDestroy.c)
- *     TxtpDestroyCacheEntry @ 0x140BB43D4 (TxtpDestroyCacheEntry.c)
- *     BgpFwLibraryInitialize @ 0x140BB5400 (BgpFwLibraryInitialize.c)
- *     BgpFoInitialize @ 0x140C6FFA0 (BgpFoInitialize.c)
- *     FopReadCmapTable @ 0x140C70344 (FopReadCmapTable.c)
- *     FopReadMappingTable @ 0x140C70494 (FopReadMappingTable.c)
- *     FopReadNamingTable @ 0x140C70680 (FopReadNamingTable.c)
- *     FopValidateFontNameTable @ 0x140C70804 (FopValidateFontNameTable.c)
- *     BgpBcInitializeCriticalMode @ 0x140C70D44 (BgpBcInitializeCriticalMode.c)
+ *     RaspFreeMemory @ 0x14045EC60 (RaspFreeMemory.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x1404BE988 (BgpFwQueryBootGraphicsInformation.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x140BB2834 (BgpDisplayCharacterDestroyContext.c)
+ *     BgpDisplayCharacterGetContext @ 0x140BB2860 (BgpDisplayCharacterGetContext.c)
+ *     BgConsoleDestroyInterface @ 0x140BB2940 (BgConsoleDestroyInterface.c)
+ *     BgpConsoleInitialize @ 0x140BB30B0 (BgpConsoleInitialize.c)
+ *     BgpFwLibraryDestroy @ 0x140BB3678 (BgpFwLibraryDestroy.c)
+ *     BgpFwLibraryDisable @ 0x140BB3724 (BgpFwLibraryDisable.c)
+ *     ResFwpDestroyBackground @ 0x140BB3B3C (ResFwpDestroyBackground.c)
+ *     ResFwpPageInBackground @ 0x140BB3BB0 (ResFwpPageInBackground.c)
+ *     ResFwpPageOutBackground @ 0x140BB3C34 (ResFwpPageOutBackground.c)
+ *     BgpFoDestroy @ 0x140BB473C (BgpFoDestroy.c)
+ *     FopFreeFontData @ 0x140BB4800 (FopFreeFontData.c)
+ *     FopFreeMappingTable @ 0x140BB48AC (FopFreeMappingTable.c)
+ *     BgpTxtCreateRegion @ 0x140BB4908 (BgpTxtCreateRegion.c)
+ *     BgpTxtDestroyRegion @ 0x140BB4B5C (BgpTxtDestroyRegion.c)
+ *     AnFwDisplayFade @ 0x140BB56EC (AnFwDisplayFade.c)
+ *     BgpGxRectangleDestroy @ 0x140BB5F04 (BgpGxRectangleDestroy.c)
+ *     TxtpDestroyCacheEntry @ 0x140BB63D4 (TxtpDestroyCacheEntry.c)
+ *     BgpFwLibraryInitialize @ 0x140BB7400 (BgpFwLibraryInitialize.c)
+ *     BgpFoInitialize @ 0x140C72100 (BgpFoInitialize.c)
+ *     FopReadCmapTable @ 0x140C724A4 (FopReadCmapTable.c)
+ *     FopReadMappingTable @ 0x140C725F4 (FopReadMappingTable.c)
+ *     FopReadNamingTable @ 0x140C727E0 (FopReadNamingTable.c)
+ *     FopValidateFontNameTable @ 0x140C72964 (FopValidateFontNameTable.c)
+ *     BgpBcInitializeCriticalMode @ 0x140C72EA4 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall BgpFwFreeMemory(__int64 a1)
@@ -48,7 +48,7 @@ void __fastcall BgpFwFreeMemory(__int64 a1)
   v2 = *(_DWORD *)(a1 - 24);
   if ( v2 == 1262700354 )
   {
-    v3 = a1 - 24 - qword_140E64E00 - 8;
+    v3 = a1 - 24 - qword_140E623C8 - 8;
     RtlClearBits(&BitMapHeader, v3, *(_DWORD *)(a1 - 16));
     if ( v3 < HintIndex )
       HintIndex = v3;
@@ -74,7 +74,7 @@ void __fastcall BgpFwFreeMemory(__int64 a1)
     {
       v9 = *(struct _MDL **)(a1 - 8);
       MmUnmapLockedPages(v8, v9);
-      MiFreePagesFromMdl((ULONG_PTR)v9);
+      MiFreePagesFromMdl((ULONG_PTR)v9, 0, 0, 0);
       v2 = 0;
       v8 = v9;
     }

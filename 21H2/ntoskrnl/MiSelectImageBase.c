@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSelectImageBase @ 0x140714524
+ * XREFs of MiSelectImageBase @ 0x1406C2B74
  * Callers:
- *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
- *     MiRelocateImageAgain @ 0x1407142BC (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x1406AC790 (MiRelocateImage.c)
+ *     MiRelocateImageAgain @ 0x1406C290C (MiRelocateImageAgain.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     MiGetImageBitMapInfo @ 0x14035F2F4 (MiGetImageBitMapInfo.c)
- *     MiSetControlAreaSystemVa @ 0x14037F3E4 (MiSetControlAreaSystemVa.c)
- *     MiBytesToMapSystemImage @ 0x1406D1870 (MiBytesToMapSystemImage.c)
- *     MiObtainRelocationBits @ 0x140714818 (MiObtainRelocationBits.c)
- *     MiSelectRelocationStartHint @ 0x1407148F4 (MiSelectRelocationStartHint.c)
- *     MiGetImageWowSubsystemIndex @ 0x140714AA8 (MiGetImageWowSubsystemIndex.c)
- *     MiSelectSystemImageAddress @ 0x14075FE58 (MiSelectSystemImageAddress.c)
- *     MiImageCanUseHighOverflowArea @ 0x1408D7CD0 (MiImageCanUseHighOverflowArea.c)
- *     MiSelectOverflowDllBase @ 0x1408D7CFC (MiSelectOverflowDllBase.c)
+ *     MiGetImageBitMapInfo @ 0x1402A4224 (MiGetImageBitMapInfo.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     MiSetControlAreaSystemVa @ 0x14037EF34 (MiSetControlAreaSystemVa.c)
+ *     MiBytesToMapSystemImage @ 0x1406A8B50 (MiBytesToMapSystemImage.c)
+ *     MiObtainRelocationBits @ 0x1406C2E68 (MiObtainRelocationBits.c)
+ *     MiSelectRelocationStartHint @ 0x1406C2F44 (MiSelectRelocationStartHint.c)
+ *     MiGetImageWowSubsystemIndex @ 0x1406C30F8 (MiGetImageWowSubsystemIndex.c)
+ *     MiSelectSystemImageAddress @ 0x140760018 (MiSelectSystemImageAddress.c)
+ *     MiImageCanUseHighOverflowArea @ 0x1408D7E30 (MiImageCanUseHighOverflowArea.c)
+ *     MiSelectOverflowDllBase @ 0x1408D7E5C (MiSelectOverflowDllBase.c)
  */
 
 __int64 __fastcall MiSelectImageBase(__int64 a1, __int64 a2, unsigned int a3, int a4, __int64 *a5)
@@ -88,7 +88,7 @@ LABEL_7:
   LODWORD(v13) = *(_DWORD *)(a1 + 8);
   if ( !a3 )
   {
-    if ( !dword_140C4CCB0 )
+    if ( !dword_140C4CCF0 )
       goto LABEL_9;
     v26 = ((unsigned int)MiUserHotPatchReserveSize >> 12) + ((MiUserHotPatchReserveSize & 0xFFF) != 0);
     if ( !v26 )

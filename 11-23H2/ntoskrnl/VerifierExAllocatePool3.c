@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExAllocatePool3 @ 0x140AD0B50
+ * XREFs of VerifierExAllocatePool3 @ 0x140AD0B40
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  */
 

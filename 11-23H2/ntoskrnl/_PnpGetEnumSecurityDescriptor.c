@@ -1,22 +1,22 @@
 /*
- * XREFs of _PnpGetEnumSecurityDescriptor @ 0x140859D98
+ * XREFs of _PnpGetEnumSecurityDescriptor @ 0x140859FD8
  * Callers:
- *     _PnpCtxGetCachedNodeBaseKey @ 0x1406CEF3C (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x1406CEF6C (_PnpCtxGetCachedNodeBaseKey.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x140297AD0 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x140297D60 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710F40 (RtlLengthSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlValidSid @ 0x1407373A0 (RtlValidSid.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140781FF0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
- *     RtlValidSecurityDescriptor @ 0x1407B4D10 (RtlValidSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1407EF0C0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x140711150 (RtlLengthSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlValidSid @ 0x140737590 (RtlValidSid.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1407821E0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
+ *     RtlValidSecurityDescriptor @ 0x1407B4FF0 (RtlValidSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1407EF390 (RtlSetGroupSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -32,9 +32,9 @@ void *PnpGetEnumSecurityDescriptor()
   ULONG v6; // eax
   void *v7; // rax
   void *v8; // rbx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-29h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v11; // [rsp+40h] [rbp-21h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v12; // [rsp+48h] [rbp-19h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-29h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v11; // [rsp+40h] [rbp-21h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v12; // [rsp+48h] [rbp-19h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-11h] BYREF
   __int64 v14; // [rsp+70h] [rbp+Fh]
   unsigned __int8 Sid[12]; // [rsp+78h] [rbp+17h] BYREF
@@ -80,9 +80,9 @@ void *PnpGetEnumSecurityDescriptor()
                   if ( Pool2 )
                   {
                     if ( RtlCreateAcl(Pool2, v3, 2u) >= 0
-                      && (int)RtlpAddKnownAce((__int64)v5, 2u, 2, 983103, Sid, 0) >= 0
-                      && (int)RtlpAddKnownAce((__int64)v5, 2u, 2, 0x20000, Src, 0) >= 0
-                      && (int)RtlpAddKnownAce((__int64)v5, 2u, 2, 131097, v17, 0) >= 0
+                      && (int)RtlpAddKnownAce(v5, 2u, 2, 983103, Sid, 0) >= 0
+                      && (int)RtlpAddKnownAce(v5, 2u, 2, 0x20000, Src, 0) >= 0
+                      && (int)RtlpAddKnownAce(v5, 2u, 2, 131097, v17, 0) >= 0
                       && RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
                       && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v5, 0) >= 0
                       && RtlSetOwnerSecurityDescriptor(SecurityDescriptor, Owner, 1u) >= 0

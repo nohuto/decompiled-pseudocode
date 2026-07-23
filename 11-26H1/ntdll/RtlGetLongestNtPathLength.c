@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetLongestNtPathLength @ 0x1800FDA30
+ * XREFs of RtlGetLongestNtPathLength @ 0x1800FD180
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlGetLongestNtPathLength()
+ULONG RtlGetLongestNtPathLength(void)
 {
-  return 269LL;
+  return 269;
 }

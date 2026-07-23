@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindProcessorsForMemoryOnlyNode @ 0x140C58810
+ * XREFs of MiFindProcessorsForMemoryOnlyNode @ 0x140C5A9A0
  * Callers:
- *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140C58B8C (MiReassignProcessorsToMemoryOnlyNodes.c)
+ *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140C5AD1C (MiReassignProcessorsToMemoryOnlyNodes.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x1403B4C70 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x140371000 (KeFindFirstSetRightGroupAffinity.c)
  */
 
 __int64 __fastcall MiFindProcessorsForMemoryOnlyNode(unsigned int a1, unsigned int a2)
@@ -42,8 +42,8 @@ __int64 __fastcall MiFindProcessorsForMemoryOnlyNode(unsigned int a1, unsigned i
   int v34; // [rsp+C0h] [rbp+18h]
   unsigned int v35; // [rsp+C8h] [rbp+20h]
 
-  v30 = *(_DWORD **)(384LL * a1 + qword_140E2DAF8 + 376);
-  v3 = qword_140E2DAD0 + 4LL * (unsigned __int16)KeNumberNodes * a1;
+  v30 = *(_DWORD **)(384LL * a1 + qword_140E2DC38 + 376);
+  v3 = qword_140E2DC10 + 4LL * (unsigned __int16)KeNumberNodes * a1;
   v4 = v3 + 4LL * (unsigned __int16)KeNumberNodes;
   v5 = (unsigned int *)(v3 + 4);
   v31 = v4;
@@ -54,7 +54,7 @@ LABEL_2:
   v6 = 1;
   v35 = *v5;
   v34 = 1;
-  v7 = *(_QWORD **)(384LL * *v5 + qword_140E2DAF8 + 376);
+  v7 = *(_QWORD **)(384LL * *v5 + qword_140E2DC38 + 376);
   v8 = 1LL;
   v25 = v7;
   for ( i = (_WORD *)v7 + 13; ; ++i )

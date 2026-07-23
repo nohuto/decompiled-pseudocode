@@ -1,20 +1,20 @@
 /*
- * XREFs of IoReferenceIoAttributionFromThread @ 0x1403C6140
+ * XREFs of IoReferenceIoAttributionFromThread @ 0x140273BD0
  * Callers:
- *     CcAsyncCopyRead @ 0x1402A94F0 (CcAsyncCopyRead.c)
- *     MiCheckAndUpdateIoAttribution @ 0x1403C6078 (MiCheckAndUpdateIoAttribution.c)
- *     CcScheduleReadAheadNuma @ 0x1404992C0 (CcScheduleReadAheadNuma.c)
- *     CcCopyReadEx @ 0x1404DBF70 (CcCopyReadEx.c)
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x140273B00 (MiCheckAndUpdateIoAttribution.c)
+ *     CcAsyncCopyRead @ 0x140273E20 (CcAsyncCopyRead.c)
+ *     CcScheduleReadAheadNuma @ 0x140493C50 (CcScheduleReadAheadNuma.c)
+ *     CcCopyReadEx @ 0x1404D5990 (CcCopyReadEx.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IoReferenceIoAttributionFromThread(struct _KTHREAD *a1, unsigned __int64 *a2)
@@ -79,7 +79,7 @@ LABEL_2:
   if ( v5 )
   {
     if ( ObpTraceFlags )
-      ObpPushStackInfo(Object - 48, 0, 1u, 0x746C6644u);
+      ObpPushStackInfo(Object - 48);
     v8 = _InterlockedExchangeAdd64((volatile signed __int64 *)(Object - 48), 0xFFFFFFFFFFFFFFFFuLL);
     v9 = v8 <= 1;
     BugCheckParameter4 = v8 - 1;

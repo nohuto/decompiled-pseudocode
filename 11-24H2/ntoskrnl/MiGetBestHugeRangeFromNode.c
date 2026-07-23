@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetBestHugeRangeFromNode @ 0x14066FE80
+ * XREFs of MiGetBestHugeRangeFromNode @ 0x140671050
  * Callers:
- *     MiGetHugeRange @ 0x1406700C4 (MiGetHugeRange.c)
+ *     MiGetHugeRange @ 0x140671294 (MiGetHugeRange.c)
  * Callees:
- *     MiGetPerfectFreeOrZeroHugeRange @ 0x1406704EC (MiGetPerfectFreeOrZeroHugeRange.c)
- *     MiRemoveHugeRangeAnyColor @ 0x140671978 (MiRemoveHugeRangeAnyColor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiGetPerfectFreeOrZeroHugeRange @ 0x1406716BC (MiGetPerfectFreeOrZeroHugeRange.c)
+ *     MiRemoveHugeRangeAnyColor @ 0x140672B48 (MiRemoveHugeRangeAnyColor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall MiGetBestHugeRangeFromNode(__int64 a1, unsigned int a2, unsigned int a3)

@@ -1,21 +1,21 @@
 /*
  * XREFs of RtlAddAtomToAtomTableEx @ 0x1402F1090
  * Callers:
- *     NtAddAtomEx @ 0x1406BFED0 (NtAddAtomEx.c)
+ *     sub_1406BFED0 @ 0x1406BFED0 (sub_1406BFED0.c)
  *     RtlAddAtomToAtomTable @ 0x1406E0820 (RtlAddAtomToAtomTable.c)
  * Callees:
- *     RtlpReferenceAtom @ 0x1402F0AA0 (RtlpReferenceAtom.c)
- *     RtlpAllocateAtomTableEntry @ 0x1403547BC (RtlpAllocateAtomTableEntry.c)
+ *     sub_1402F0AA0 @ 0x1402F0AA0 (sub_1402F0AA0.c)
+ *     sub_1403547BC @ 0x1403547BC (sub_1403547BC.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpFreeAtom @ 0x1406AB544 (RtlpFreeAtom.c)
- *     RtlpInsertStringAtom @ 0x1406C5878 (RtlpInsertStringAtom.c)
- *     RtlpUnlockAtomTable @ 0x1407A09E4 (RtlpUnlockAtomTable.c)
+ *     sub_1406AB544 @ 0x1406AB544 (sub_1406AB544.c)
+ *     sub_1406C5878 @ 0x1406C5878 (sub_1406C5878.c)
+ *     sub_1407A09E4 @ 0x1407A09E4 (sub_1407A09E4.c)
  *     RtlGetIntegerAtom @ 0x1407A0DF0 (RtlGetIntegerAtom.c)
- *     RtlpLockAtomTable @ 0x1407A0EA0 (RtlpLockAtomTable.c)
- *     RtlpHashStringToAtom @ 0x1407A0EE0 (RtlpHashStringToAtom.c)
+ *     sub_1407A0EA0 @ 0x1407A0EA0 (sub_1407A0EA0.c)
+ *     sub_1407A0EE0 @ 0x1407A0EE0 (sub_1407A0EE0.c)
  */
 
-__int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int16 *a3, unsigned int a4)
+__int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, WCHAR *a2, USHORT *a3, unsigned int a4)
 {
   int v8; // edi
   __int64 v9; // rcx
@@ -24,8 +24,8 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int
   __int64 v12; // rsi
   unsigned __int64 v13; // rbx
   __int64 v14; // rcx
-  unsigned __int16 v15; // ax
-  unsigned __int16 v17[2]; // [rsp+40h] [rbp-58h] BYREF
+  USHORT v15; // ax
+  USHORT IntegerAtom[2]; // [rsp+40h] [rbp-58h] BYREF
   int v18; // [rsp+44h] [rbp-54h]
   size_t Size; // [rsp+48h] [rbp-50h] BYREF
   __int64 v20; // [rsp+50h] [rbp-48h] BYREF
@@ -35,17 +35,17 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int
   v21 = 0LL;
   v22 = 0LL;
   LODWORD(Size) = 0;
-  v17[0] = 0;
+  IntegerAtom[0] = 0;
   v20 = 0LL;
-  if ( (unsigned __int8)RtlpLockAtomTable() )
+  if ( (unsigned __int8)sub_1407A0EA0() )
   {
-    if ( (unsigned __int8)RtlGetIntegerAtom(a2, v17) )
+    if ( RtlGetIntegerAtom(a2, IntegerAtom) )
     {
-      v15 = v17[0];
-      if ( v17[0] >= 0xC000u )
+      v15 = IntegerAtom[0];
+      if ( IntegerAtom[0] >= 0xC000u )
       {
         v15 = 0;
-        v17[0] = 0;
+        IntegerAtom[0] = 0;
         v8 = -1073741811;
         v18 = -1073741811;
       }
@@ -60,17 +60,17 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int
     }
     if ( *a2 )
     {
-      v8 = RtlpHashStringToAtom(a1, a2, 0LL, &v22, &Size, &v20, &v21);
+      v8 = sub_1407A0EE0(a1, a2, 0LL, &v22, &Size, &v20, &v21);
       v18 = v8;
       if ( v8 < 0 )
       {
 LABEL_27:
-        RtlpUnlockAtomTable(a1);
+        sub_1407A09E4(a1);
         return (unsigned int)v8;
       }
       if ( v21 )
       {
-        RtlpReferenceAtom(v21, v20);
+        sub_1402F0AA0(v21, v20);
         if ( a3 )
           *a3 = *(_WORD *)(v9 + 10);
         v8 = 0;
@@ -82,7 +82,7 @@ LABEL_27:
       {
         v8 = -1073741801;
         v18 = -1073741801;
-        v11 = RtlpAllocateAtomTableEntry((unsigned int)Size, &v20, a4);
+        v11 = sub_1403547BC((unsigned int)Size, &v20, a4);
         v12 = v11;
         v21 = v11;
         if ( v11 )
@@ -92,7 +92,7 @@ LABEL_27:
           v14 = (unsigned __int8)(v13 >> 1);
           *(_BYTE *)(v12 + 40) = v14;
           *(_WORD *)(v12 + 2 * v14 + 42) = 0;
-          if ( (unsigned __int8)RtlpInsertStringAtom(a1, v12) )
+          if ( (unsigned __int8)sub_1406C5878(a1, v12) )
           {
             *(_WORD *)(v12 + 10) = *(_WORD *)(v12 + 8) | 0xC000;
             *v10 = v12;
@@ -104,8 +104,8 @@ LABEL_27:
           else
           {
             if ( v20 && v20 != v12 + 16 )
-              RtlpFreeAtom(v20);
-            RtlpFreeAtom(v12);
+              sub_1406AB544(v20);
+            sub_1406AB544(v12);
           }
         }
         goto LABEL_27;

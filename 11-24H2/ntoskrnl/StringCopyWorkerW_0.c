@@ -1,7 +1,7 @@
 /*
- * XREFs of StringCopyWorkerW_0 @ 0x14069637C
+ * XREFs of StringCopyWorkerW_0 @ 0x14069744C
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x1408119E0 (AdtpInitializeDriveLetters.c)
+ *     AdtpInitializeDriveLetters @ 0x140812120 (AdtpInitializeDriveLetters.c)
  * Callees:
  *     <none>
  */

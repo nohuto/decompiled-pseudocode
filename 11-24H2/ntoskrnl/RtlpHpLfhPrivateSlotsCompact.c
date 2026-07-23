@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhPrivateSlotsCompact @ 0x140606FAC
+ * XREFs of RtlpHpLfhPrivateSlotsCompact @ 0x1406045AC
  * Callers:
- *     RtlpHpLfhContextCompact @ 0x1402B445C (RtlpHpLfhContextCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x140432100 (RtlpHpLfhContextCompact.c)
  * Callees:
- *     RtlpHpLfhPrivateSlotListCompact @ 0x140606C4C (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x14060428C (RtlpHpLfhPrivateSlotListCompact.c)
  */
 
 __int64 __fastcall RtlpHpLfhPrivateSlotsCompact(__int64 a1)

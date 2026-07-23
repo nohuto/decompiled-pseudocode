@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpCheckSharingAgainstOplockOwner @ 0x140A35090
+ * XREFs of FsRtlpCheckSharingAgainstOplockOwner @ 0x140919890
  * Callers:
- *     FsRtlpOplockBreakByCacheFlags @ 0x1403F8A0C (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1403F5200 (FsRtlpOplockBreakByCacheFlags.c)
  * Callees:
- *     IoCheckLinkShareAccess @ 0x140A35A00 (IoCheckLinkShareAccess.c)
+ *     IoCheckLinkShareAccess @ 0x14091A710 (IoCheckLinkShareAccess.c)
  */
 
 __int64 __fastcall FsRtlpCheckSharingAgainstOplockOwner(__int64 a1, _BYTE *a2, int a3, unsigned __int16 a4)

@@ -19,7 +19,7 @@ void __fastcall ExpWnfDeleteStateData(__int64 a1)
   void *v5; // rdi
 
   v1 = (unsigned __int64 *)(a1 + 80);
-  v3 = KeAbPreAcquire(a1 + 80, 0LL, 0LL);
+  v3 = KeAbPreAcquire(a1 + 80, 0LL, 0);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
     ExfAcquirePushLockExclusiveEx(v1, v3, (ULONG_PTR)v1);

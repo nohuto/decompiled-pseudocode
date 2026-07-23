@@ -6,7 +6,7 @@
  *     RtlIpv4AddressToStringA @ 0x18007E250 (RtlIpv4AddressToStringA.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     sprintf_s @ 0x180097BE0 (sprintf_s.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 LONG __stdcall RtlIpv4AddressToStringExA(

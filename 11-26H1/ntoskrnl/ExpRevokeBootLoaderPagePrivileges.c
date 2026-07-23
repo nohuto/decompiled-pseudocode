@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpRevokeBootLoaderPagePrivileges @ 0x140CAA540
+ * XREFs of ExpRevokeBootLoaderPagePrivileges @ 0x140CB0540
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     KeSetPagePrivilege @ 0x1404B0F70 (KeSetPagePrivilege.c)
+ *     KeSetPagePrivilege @ 0x1404AA600 (KeSetPagePrivilege.c)
  */
 
 _UNKNOWN **__fastcall ExpRevokeBootLoaderPagePrivileges(__int64 a1)

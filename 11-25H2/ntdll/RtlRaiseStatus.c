@@ -60,33 +60,16 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  __int64 v2; // r8
-  char v3; // bl
-  unsigned int v4; // eax
-  _DWORD v5[2]; // [rsp+20h] [rbp-578h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-570h]
-  __int64 v7; // [rsp+30h] [rbp-568h]
-  int v8; // [rsp+38h] [rbp-560h]
-  _BYTE v9[132]; // [rsp+3Ch] [rbp-55Ch] BYREF
-  _BYTE v10[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  struct _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  memset_thunk_772440563353939046(v9, 0, 0x7CuLL);
-  v6 = 0LL;
-  v8 = 0;
-  v7 = -1LL;
-  v5[0] = a1;
-  v3 = 1;
-  v5[1] = 129;
-  do
-  {
-    LOBYTE(v2) = v3;
-    v4 = RtlRaiseNoncontinuableException(v5, v10, v2);
-    if ( NtCurrentPeb()->BeingDebugged )
-      break;
-    --v3;
-  }
-  while ( !v3 );
-  RtlRaiseStatus(v4);
+  memset_thunk_772440563353939046(&ExceptionRecord.NumberParameters + 1, 0, 0x7CuLL);
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionAddress = (void *)-1LL;
+  ExceptionRecord.ExceptionCode = Status;
+  ExceptionRecord.ExceptionFlags = 129;
+  RtlRaiseNoncontinuableException(&ExceptionRecord, &ContextRecord);
 }

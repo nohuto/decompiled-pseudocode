@@ -17,82 +17,88 @@
  *     ZwCreateFile @ 0x18009F890 (ZwCreateFile.c)
  */
 
-char __fastcall RtlpFileIsWin32WithRCManifest(__int64 a1)
+char __fastcall RtlpFileIsWin32WithRCManifest(const WCHAR *a1)
 {
   char v1; // di
   char v2; // si
-  __int64 v3; // rbx
-  __int64 v4; // rdx
-  int v5; // r14d
-  int v6; // ebx
-  __int64 v7; // rbx
-  __int64 v9; // [rsp+68h] [rbp-A0h] BYREF
-  HANDLE v10; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v11; // [rsp+78h] [rbp-90h] BYREF
-  HANDLE Handle; // [rsp+80h] [rbp-88h] BYREF
-  _DWORD *v13; // [rsp+88h] [rbp-80h] BYREF
-  _BYTE v14[8]; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v15; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v16; // [rsp+A0h] [rbp-68h] BYREF
-  __int128 v17; // [rsp+A8h] [rbp-60h] BYREF
-  __int128 v18; // [rsp+B8h] [rbp-50h] BYREF
-  __int64 v19; // [rsp+C8h] [rbp-40h]
-  int v20; // [rsp+D8h] [rbp-30h] BYREF
-  __int64 v21; // [rsp+E0h] [rbp-28h]
-  __int128 *v22; // [rsp+E8h] [rbp-20h]
-  int v23; // [rsp+F0h] [rbp-18h]
-  __int128 v24; // [rsp+F8h] [rbp-10h]
-  _BYTE v25[16]; // [rsp+108h] [rbp+0h] BYREF
-  _QWORD v26[3]; // [rsp+118h] [rbp+10h] BYREF
+  wchar_t *Buffer; // rbx
+  unsigned __int64 ContainingDirectory; // rdx
+  NTSTATUS v5; // r14d
+  NTSTATUS v6; // ebx
+  void *v7; // rbx
+  PVOID BaseAddress; // [rsp+68h] [rbp-A0h] BYREF
+  HANDLE FileHandle; // [rsp+70h] [rbp-98h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+78h] [rbp-90h] BYREF
+  HANDLE SectionHandle; // [rsp+80h] [rbp-88h] BYREF
+  _DWORD *v13; // [rsp+88h] [rbp-80h]
+  ULONG_PTR ViewSize; // [rsp+98h] [rbp-70h] BYREF
+  __int64 v15; // [rsp+A0h] [rbp-68h] BYREF
+  _UNICODE_STRING NtFileName; // [rsp+A8h] [rbp-60h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+B8h] [rbp-50h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-30h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+108h] [rbp+0h] BYREF
+  const wchar_t *v20; // [rsp+118h] [rbp+10h]
+  __int64 v21; // [rsp+120h] [rbp+18h]
+  __int64 v22; // [rsp+128h] [rbp+20h]
 
   v1 = 0;
-  v10 = 0LL;
+  FileHandle = 0LL;
   v2 = 0;
-  v9 = 0LL;
+  BaseAddress = 0LL;
   v13 = 0LL;
-  if ( (unsigned __int8)RtlDosPathNameToRelativeNtPathName_U(a1, &v17, 0LL, &v18) )
+  if ( RtlDosPathNameToRelativeNtPathName_U(a1, &NtFileName, 0LL, &RelativeName) )
   {
-    v3 = *((_QWORD *)&v17 + 1);
-    if ( (_WORD)v18 )
+    Buffer = NtFileName.Buffer;
+    if ( RelativeName.RelativeName.Length )
     {
-      v4 = v19;
-      v17 = v18;
+      ContainingDirectory = (unsigned __int64)RelativeName.ContainingDirectory;
+      NtFileName = RelativeName.RelativeName;
     }
     else
     {
-      v4 = 0LL;
-      v19 = 0LL;
+      ContainingDirectory = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
     }
-    v20 = 48;
-    v23 = 64;
-    v21 = v4 & -(__int64)(v3 != 0);
-    v22 = &v17;
-    v24 = 0LL;
-    v5 = ZwCreateFile(&v10, 2148532352LL, &v20, v25, 0LL, 0, 5, 1, 0, 0LL, 0);
-    if ( v3 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.RootDirectory = (HANDLE)(ContainingDirectory & -(__int64)(Buffer != 0LL));
+    ObjectAttributes.ObjectName = &NtFileName;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v5 = ZwCreateFile(&FileHandle, 0x80100080, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 5u, 1u, 0, 0LL, 0);
+    if ( Buffer )
     {
-      RtlReleaseRelativeName(&v18);
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v3);
+      RtlReleaseRelativeName(&RelativeName);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
     }
     if ( v5 >= 0 )
     {
       v2 = 1;
-      if ( (int)NtCreateSection(&Handle, 983045LL, 0LL, 0LL, 2, 0x8000000, v10) >= 0 )
+      if ( NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, 2u, 0x8000000u, FileHandle) >= 0 )
       {
-        v11 = 0LL;
-        v15 = 0LL;
-        v6 = ZwMapViewOfSection(Handle, -1LL, &v9, 0LL, 0LL, &v11, &v15, 1, 0, 8);
-        NtClose(Handle);
+        SectionOffset.QuadPart = 0LL;
+        ViewSize = 0LL;
+        v6 = ZwMapViewOfSection(
+               SectionHandle,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               &BaseAddress,
+               0LL,
+               0LL,
+               &SectionOffset,
+               &ViewSize,
+               ViewShare,
+               0,
+               8u);
+        NtClose(SectionHandle);
         if ( v6 >= 0 )
         {
-          if ( RtlImageNtHeader(v9) )
+          if ( RtlImageNtHeader(BaseAddress) )
           {
-            v26[0] = L"MUI";
-            v26[1] = 1LL;
-            v7 = v9 | 1;
-            v26[2] = 0LL;
-            if ( (int)LdrpSearchResourceSection_U((unsigned int)v9 | 1, (unsigned int)v26, 3, 48, (__int64)&v16) >= 0
-              && (int)LdrpAccessResourceDataNoMultipleLanguage(v7, v16, &v13, v14) >= 0
+            v20 = L"MUI";
+            v21 = 1LL;
+            v7 = (void *)((unsigned __int64)BaseAddress | 1);
+            v22 = 0LL;
+            if ( (int)LdrpSearchResourceSection_U((PVOID)((unsigned __int64)BaseAddress | 1), (__int64)&v15) >= 0
+              && (int)LdrpAccessResourceDataNoMultipleLanguage(v7) >= 0
               && *v13 == -20054323 )
             {
               v1 = 1;
@@ -102,9 +108,9 @@ char __fastcall RtlpFileIsWin32WithRCManifest(__int64 a1)
       }
     }
   }
-  if ( v9 )
-    NtUnmapViewOfSection(-1LL);
+  if ( BaseAddress )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   if ( v2 )
-    NtClose(v10);
+    NtClose(FileHandle);
   return v1;
 }

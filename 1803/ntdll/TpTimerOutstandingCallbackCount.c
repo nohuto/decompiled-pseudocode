@@ -11,17 +11,14 @@
 
 __int64 __fastcall TpTimerOutstandingCallbackCount(__int64 a1)
 {
-  unsigned __int64 v2; // rdx
-  unsigned __int64 *v3; // r8
-  __int64 v4; // r9
-  volatile signed __int64 *v5; // rdi
-  unsigned int v6; // ebx
+  _RTL_SRWLOCK *v2; // rdi
+  unsigned int v3; // ebx
 
-  if ( !(unsigned int)sub_180025DA4((struct _PEB_LDR_DATA *)a1, 0LL, 0LL) )
+  if ( !(unsigned int)sub_180025DA4((PPEB_LDR_DATA)a1, 0LL, 0LL) )
     return 0LL;
-  v5 = (volatile signed __int64 *)(a1 + 240);
-  RtlAcquireSRWLockExclusive(a1 + 240, v2, v3, v4);
-  v6 = *(_DWORD *)(a1 + 56);
-  RtlReleaseSRWLockExclusive(v5);
-  return v6;
+  v2 = (_RTL_SRWLOCK *)(a1 + 240);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  v3 = *(_DWORD *)(a1 + 56);
+  RtlReleaseSRWLockExclusive(v2);
+  return v3;
 }

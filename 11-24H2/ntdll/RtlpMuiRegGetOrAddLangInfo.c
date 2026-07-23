@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpMuiRegGetOrAddLangInfo @ 0x180149894
+ * XREFs of RtlpMuiRegGetOrAddLangInfo @ 0x180147C44
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x1801491C0 (RtlpMuiRegAddLanguageByName.c)
- *     _RtlpMuiRegAddBaseLanguage @ 0x180149E98 (_RtlpMuiRegAddBaseLanguage.c)
- *     _RtlpMuiRegValidateInstalled @ 0x18014AC60 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x180147570 (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x180148248 (_RtlpMuiRegAddBaseLanguage.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180149010 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlpMuiRegGetLangInfoIndex @ 0x18014976C (RtlpMuiRegGetLangInfoIndex.c)
- *     RtlpMuiRegGrowLanguages @ 0x1801499EC (RtlpMuiRegGrowLanguages.c)
+ *     RtlpMuiRegGetLangInfoIndex @ 0x180147B1C (RtlpMuiRegGetLangInfoIndex.c)
+ *     RtlpMuiRegGrowLanguages @ 0x180147D9C (RtlpMuiRegGrowLanguages.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetOrAddLangInfo(__int64 *a1, __int64 a2, __int16 *a3)

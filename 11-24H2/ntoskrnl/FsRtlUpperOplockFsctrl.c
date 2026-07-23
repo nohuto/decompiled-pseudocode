@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlUpperOplockFsctrl @ 0x14070B440
+ * XREFs of FsRtlUpperOplockFsctrl @ 0x140709000
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x140A15260 (FsRtlpOplockUpperLowerCompatible.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140A20DD0 (FsRtlpOplockFsctrlInternal.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1409E0F60 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x140A0E080 (FsRtlpOplockUpperLowerCompatible.c)
  */
 
 __int64 __fastcall FsRtlUpperOplockFsctrl(POPLOCK Oplock, PIRP Irp, __int64 a3, char a4)

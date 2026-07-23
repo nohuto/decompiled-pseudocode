@@ -1,21 +1,21 @@
 /*
- * XREFs of KiCallInterruptServiceRoutine @ 0x14032D7C0
+ * XREFs of KiCallInterruptServiceRoutine @ 0x14032F7F0
  * Callers:
- *     KiInvokeInterruptServiceRoutine @ 0x1402C3770 (KiInvokeInterruptServiceRoutine.c)
- *     KiScanInterruptObjectList @ 0x140729D60 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x140729EA0 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x140729F50 (KiInterruptSubDispatchNoLock.c)
- *     KiInterruptSubDispatchNoLockNoEtw @ 0x140729FF0 (KiInterruptSubDispatchNoLockNoEtw.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x14030E430 (KiInvokeInterruptServiceRoutine.c)
+ *     KiScanInterruptObjectList @ 0x14072E930 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x14072EA70 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x14072EB20 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x14072EBC0 (KiInterruptSubDispatchNoLockNoEtw.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KiProcessDeferredDpcWatchdogViolation @ 0x14032D1E8 (KiProcessDeferredDpcWatchdogViolation.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiResetForceIdle @ 0x140336934 (KiResetForceIdle.c)
- *     KiCheckAndRearmForceIdle @ 0x140336E2C (KiCheckAndRearmForceIdle.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403E9FB0 (KeFindFirstSetRightGroupAffinity.c)
- *     KiIntRedirectQueueRequestOnProcessor @ 0x1403EADB0 (KiIntRedirectQueueRequestOnProcessor.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402F6E90 (KeFindFirstSetRightGroupAffinity.c)
+ *     KiIntRedirectQueueRequestOnProcessor @ 0x1402F8398 (KiIntRedirectQueueRequestOnProcessor.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiProcessDeferredDpcWatchdogViolation @ 0x14032F218 (KiProcessDeferredDpcWatchdogViolation.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiResetForceIdle @ 0x1403389B4 (KiResetForceIdle.c)
+ *     KiCheckAndRearmForceIdle @ 0x140338EAC (KiCheckAndRearmForceIdle.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall KiCallInterruptServiceRoutine(__int64 a1, char a2, __int64 a3)
@@ -54,13 +54,12 @@ char __fastcall KiCallInterruptServiceRoutine(__int64 a1, char a2, __int64 a3)
   v6 = *(_QWORD *)(a1 + 272);
   if ( v6
     && *(_BYTE *)(v6 + 16)
-    && (v19 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL
-                                                                                          * KeGetPcr()->Prcb.Number),
+    && (v19 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + KeGetPcr()->Prcb.Number),
         a3 = v19 >> 6,
         (((_DWORD)a3 == *(unsigned __int16 *)(*(_QWORD *)(a1 + 272) + 8LL)) & (unsigned int)(*(_QWORD *)v6 >> v19)) == 0) )
   {
-    FirstSetRightGroupAffinity = KeFindFirstSetRightGroupAffinity(*(_QWORD *)(a1 + 272));
-    KiIntRedirectQueueRequestOnProcessor(FirstSetRightGroupAffinity);
+    FirstSetRightGroupAffinity = KeFindFirstSetRightGroupAffinity(*(unsigned __int64 **)(a1 + 272));
+    KiIntRedirectQueueRequestOnProcessor(FirstSetRightGroupAffinity, *(_DWORD *)(a1 + 88));
     return 2;
   }
   else
@@ -75,7 +74,7 @@ char __fastcall KiCallInterruptServiceRoutine(__int64 a1, char a2, __int64 a3)
     if ( a2 )
     {
       v11 = *(volatile signed __int32 **)(a1 + 72);
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         if ( _interlockedbittestandset64(v11, 0LL) )
           KxWaitForSpinLockAndAcquire(v11);
@@ -86,7 +85,7 @@ char __fastcall KiCallInterruptServiceRoutine(__int64 a1, char a2, __int64 a3)
       }
       v13 = guard_dispatch_icall_no_overrides(a1, *(_QWORD *)(a1 + 48), a3);
       v14 = *(volatile signed __int64 **)(a1 + 72);
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         _InterlockedAnd64(v14, 0LL);
       else
         KiReleaseSpinLockInstrumented(v14, retaddr);
@@ -120,7 +119,7 @@ char __fastcall KiCallInterruptServiceRoutine(__int64 a1, char a2, __int64 a3)
     }
     CurrentPrcb->IsrDpcStats = IsrDpcStats;
     *(_BYTE *)(a1 + 224) = 0;
-    if ( CurrentPrcb == (struct _KPRCB *)KsepShimDbLock.MutantListHead.Blink && CurrentPrcb->NestingLevel == 2 )
+    if ( CurrentPrcb == *(struct _KPRCB **)&KsepShimDbLock.PriorityFloorCounts[16] && CurrentPrcb->NestingLevel == 2 )
     {
       if ( CurrentPrcb->DpcRoutineActive )
         KiProcessDeferredDpcWatchdogViolation(*(_QWORD *)(a1 + 136));

@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpReleaseResourcesInternal @ 0x140B33840
+ * XREFs of PnpReleaseResourcesInternal @ 0x140B35C90
  * Callers:
- *     IopReleaseResources @ 0x1407A5300 (IopReleaseResources.c)
- *     PnpReallocateResources @ 0x1407B33A8 (PnpReallocateResources.c)
+ *     IopReleaseResources @ 0x1407A7E40 (IopReleaseResources.c)
+ *     PnpReallocateResources @ 0x1407B6408 (PnpReallocateResources.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopFindLegacyBusDeviceNode @ 0x140AF9384 (IopFindLegacyBusDeviceNode.c)
- *     IopCallArbiter @ 0x140B33A94 (IopCallArbiter.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x140B33BE4 (IopWriteAllocatedResourcesToRegistry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopFindLegacyBusDeviceNode @ 0x140AFBA64 (IopFindLegacyBusDeviceNode.c)
+ *     IopCallArbiter @ 0x140B35EE4 (IopCallArbiter.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x140B36034 (IopWriteAllocatedResourcesToRegistry.c)
  */
 
 __int64 __fastcall PnpReleaseResourcesInternal(_QWORD *a1)

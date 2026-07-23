@@ -1,12 +1,12 @@
 /*
- * XREFs of XmShiftDouble @ 0x1404E5910
+ * XREFs of XmShiftDouble @ 0x1404E5B50
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
- *     XmEvaluateAddressSpecifier @ 0x140397014 (XmEvaluateAddressSpecifier.c)
- *     XmGetCodeByte @ 0x140397368 (XmGetCodeByte.c)
+ *     XmSetSourceValue @ 0x140397058 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403970E8 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140397164 (XmEvaluateAddressSpecifier.c)
+ *     XmGetCodeByte @ 0x1403974B8 (XmGetCodeByte.c)
  */
 
 __int64 __fastcall XmShiftDouble(__int64 a1)

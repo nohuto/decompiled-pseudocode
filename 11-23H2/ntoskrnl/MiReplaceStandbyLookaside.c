@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReplaceStandbyLookaside @ 0x140330C08
+ * XREFs of MiReplaceStandbyLookaside @ 0x140330E98
  * Callers:
- *     MiReplaceTransitionPage @ 0x140330670 (MiReplaceTransitionPage.c)
- *     MiLockStandbyLookasidePage @ 0x14046CE70 (MiLockStandbyLookasidePage.c)
- *     MiLockStandbyOldestPage @ 0x140650D1C (MiLockStandbyOldestPage.c)
- *     MiSwapNumaStandbyPage @ 0x140651DD0 (MiSwapNumaStandbyPage.c)
+ *     MiReplaceTransitionPage @ 0x140330900 (MiReplaceTransitionPage.c)
+ *     MiLockStandbyLookasidePage @ 0x14046D270 (MiLockStandbyLookasidePage.c)
+ *     MiLockStandbyOldestPage @ 0x14065126C (MiLockStandbyOldestPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140652320 (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiGetStandbyLookaside @ 0x14026EB70 (MiGetStandbyLookaside.c)
- *     MiPfnToStandbyLookaside @ 0x1402DDEF0 (MiPfnToStandbyLookaside.c)
- *     MiWriteStandbyLookasideEntry @ 0x1403310CC (MiWriteStandbyLookasideEntry.c)
- *     MiFindSuitableLookasideReplacement @ 0x140331130 (MiFindSuitableLookasideReplacement.c)
- *     MiPageStandbyLookasideStatus @ 0x140331450 (MiPageStandbyLookasideStatus.c)
+ *     MiGetStandbyLookaside @ 0x14026EE00 (MiGetStandbyLookaside.c)
+ *     MiPfnToStandbyLookaside @ 0x1402DE180 (MiPfnToStandbyLookaside.c)
+ *     MiWriteStandbyLookasideEntry @ 0x14033135C (MiWriteStandbyLookasideEntry.c)
+ *     MiFindSuitableLookasideReplacement @ 0x1403313C0 (MiFindSuitableLookasideReplacement.c)
+ *     MiPageStandbyLookasideStatus @ 0x1403316E0 (MiPageStandbyLookasideStatus.c)
  */
 
 __int64 __fastcall MiReplaceStandbyLookaside(__int64 a1, __int64 a2, int a3)

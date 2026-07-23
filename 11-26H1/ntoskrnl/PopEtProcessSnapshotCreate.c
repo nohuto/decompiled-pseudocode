@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEtProcessSnapshotCreate @ 0x140951EC8
+ * XREFs of PopEtProcessSnapshotCreate @ 0x1409CD808
  * Callers:
- *     PopEtProcessSnapshotUpdate @ 0x140951054 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x1409CC994 (PopEtProcessSnapshotUpdate.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopEtBucketsFree @ 0x1407DBBC4 (PopEtBucketsFree.c)
- *     PopEtAggregateKeyCopyFromProcess @ 0x140950C88 (PopEtAggregateKeyCopyFromProcess.c)
- *     PopEtAggregateKeyCleanup @ 0x140950F58 (PopEtAggregateKeyCleanup.c)
- *     RtlInternEntryDereference @ 0x1409518B8 (RtlInternEntryDereference.c)
- *     PopEtAllocate @ 0x140AFC170 (PopEtAllocate.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopEtBucketsFree @ 0x1407DFDE4 (PopEtBucketsFree.c)
+ *     PopEtAggregateKeyCopyFromProcess @ 0x1409CC5C8 (PopEtAggregateKeyCopyFromProcess.c)
+ *     PopEtAggregateKeyCleanup @ 0x1409CC898 (PopEtAggregateKeyCleanup.c)
+ *     RtlInternEntryDereference @ 0x1409CD1F8 (RtlInternEntryDereference.c)
+ *     PopEtAllocate @ 0x140AFDD70 (PopEtAllocate.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopEtProcessSnapshotCreate(__int64 a1, __int64 **a2)

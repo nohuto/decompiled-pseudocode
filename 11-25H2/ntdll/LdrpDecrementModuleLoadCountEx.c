@@ -62,7 +62,7 @@ __int64 __fastcall LdrpDecrementModuleLoadCountEx(__int64 a1, unsigned int a2)
       v11 = 2147353476LL;
     if ( *(_BYTE *)v11 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v13 = (__int64)NtCurrentPeb()->SharedData + 555;
       else
         v13 = 2147353477LL;

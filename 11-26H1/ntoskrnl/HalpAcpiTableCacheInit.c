@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpAcpiTableCacheInit @ 0x140D0A55C
+ * XREFs of HalpAcpiTableCacheInit @ 0x140D1082C
  * Callers:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     HalpSetupAcpiPhase0 @ 0x140CB3904 (HalpSetupAcpiPhase0.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     HalpSetupAcpiPhase0 @ 0x140CB9944 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetCachedTable @ 0x140342C6C (HalpAcpiGetCachedTable.c)
- *     HalpMap @ 0x1403439AC (HalpMap.c)
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     HalpUnmapVirtualAddress @ 0x140509DE0 (HalpUnmapVirtualAddress.c)
- *     HalpAcpiCopyBiosTable @ 0x1405254AC (HalpAcpiCopyBiosTable.c)
- *     HalpAcpiAllocateMemory @ 0x14052554C (HalpAcpiAllocateMemory.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpAcpiCacheTable @ 0x140579510 (HalpAcpiCacheTable.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpAcpiCacheOverrideTables @ 0x140CAD6E4 (HalpAcpiCacheOverrideTables.c)
- *     HalpAcpiCalculateCacheSizeForOverrideTables @ 0x140CAD788 (HalpAcpiCalculateCacheSizeForOverrideTables.c)
- *     HalpAcpiFindRsdp @ 0x140CAD7DC (HalpAcpiFindRsdp.c)
+ *     HalpAcpiGetCachedTable @ 0x140344CEC (HalpAcpiGetCachedTable.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     HalpUnmapVirtualAddress @ 0x140503890 (HalpUnmapVirtualAddress.c)
+ *     HalpAcpiCopyBiosTable @ 0x140527B1C (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiAllocateMemory @ 0x140527BBC (HalpAcpiAllocateMemory.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpAcpiCacheTable @ 0x14057BA40 (HalpAcpiCacheTable.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpAcpiCacheOverrideTables @ 0x140CB3724 (HalpAcpiCacheOverrideTables.c)
+ *     HalpAcpiCalculateCacheSizeForOverrideTables @ 0x140CB37C8 (HalpAcpiCalculateCacheSizeForOverrideTables.c)
+ *     HalpAcpiFindRsdp @ 0x140CB381C (HalpAcpiFindRsdp.c)
  */
 
 __int64 __fastcall HalpAcpiTableCacheInit(__int64 a1)
@@ -48,7 +48,7 @@ __int64 __fastcall HalpAcpiTableCacheInit(__int64 a1)
   HalpAcpiTableCacheLock.Count = 1;
   HalpAcpiTableCacheLock.Event.Header.WaitListHead.Blink = &HalpAcpiTableCacheLock.Event.Header.WaitListHead;
   HalpAcpiTableCacheLock.Event.Header.WaitListHead.Flink = &HalpAcpiTableCacheLock.Event.Header.WaitListHead;
-  qword_140E0F5D8 = (__int64)&HalpAcpiTableCacheList;
+  qword_140E0F708 = (__int64)&HalpAcpiTableCacheList;
   HalpAcpiTableCacheList = (__int64)&HalpAcpiTableCacheList;
   HalpAcpiTableCacheLock.Owner = 0LL;
   HalpAcpiTableCacheLock.Contention = 0;

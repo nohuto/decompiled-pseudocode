@@ -1,12 +1,12 @@
 /*
- * XREFs of IopIsPciRootBus @ 0x140828AA0
+ * XREFs of IopIsPciRootBus @ 0x140829CA0
  * Callers:
- *     IopMemQueryConflict @ 0x140828BA0 (IopMemQueryConflict.c)
+ *     IopMemQueryConflict @ 0x140829DA0 (IopMemQueryConflict.c)
  * Callees:
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IoGetDeviceProperty @ 0x1405886E0 (IoGetDeviceProperty.c)
  */
 
 NTSTATUS __fastcall IopIsPciRootBus(PDEVICE_OBJECT DeviceObject, _BYTE *a2)

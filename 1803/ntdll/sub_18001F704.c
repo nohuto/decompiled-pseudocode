@@ -20,10 +20,10 @@ __int64 sub_18001F704()
 {
   __int64 result; // rax
 
-  if ( !qword_18016F380 )
+  if ( !LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] )
     return 0LL;
   result = 1LL;
-  if ( (byte_18016F36C & 1) != 0 || (BYTE5(xmmword_18016F370) & 3) != 3 )
+  if ( (LdrSystemDllInitBlock.Flags & 1) != 0 || (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) != 3 )
     return 0LL;
   return result;
 }

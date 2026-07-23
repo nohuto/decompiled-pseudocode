@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCoalescingCallbackWorker @ 0x140B14140
+ * XREFs of PopCoalescingCallbackWorker @ 0x140B16240
  * Callers:
  *     <none>
  * Callees:
- *     PoIssueCoalescingNotification @ 0x140435CBC (PoIssueCoalescingNotification.c)
- *     PopCoalescingSetActiveState @ 0x1404C32B4 (PopCoalescingSetActiveState.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PoIssueCoalescingNotification @ 0x1404247C8 (PoIssueCoalescingNotification.c)
+ *     PopCoalescingSetActiveState @ 0x1404BCB04 (PopCoalescingSetActiveState.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopCoalescingCallbackWorker(__int64 a1, __int64 a2)
@@ -29,27 +29,27 @@ __int64 __fastcall PopCoalescingCallbackWorker(__int64 a1, __int64 a2)
   while ( 1 )
   {
     PopAcquirePolicyLock(a1, a2);
-    if ( (stru_140F11D08.AbWaitEntryCount & 2) == 0 )
+    if ( (PopCoalescingState & 2) == 0 )
       break;
-    if ( (stru_140F11D08.AbWaitEntryCount & 1) != 0 )
+    if ( (PopCoalescingState & 1) != 0 )
     {
-      if ( (stru_140F11D08.AbWaitEntryCount & 4) == 0 )
+      if ( (PopCoalescingState & 4) == 0 )
         goto LABEL_6;
-      stru_140F11D08.AbWaitEntryCount &= ~4u;
+      PopCoalescingState &= ~4u;
       PopReleasePolicyLock(v3, v2, v4, v5, v16);
       v6 = 3;
     }
     else
     {
-      stru_140F11D08.AbWaitEntryCount &= ~4u;
+      PopCoalescingState &= ~4u;
       PopCoalescingSetActiveState(1);
       PopReleasePolicyLock(v13, v12, v14, v15, v16);
       v6 = 1;
     }
 LABEL_8:
-    PoIssueCoalescingNotification(*(__int64 *)&stru_140F11D08.AffinityPrimaryGroup, v6);
+    PoIssueCoalescingNotification(PopCoalescingRegistration, v6);
   }
-  if ( (stru_140F11D08.AbWaitEntryCount & 1) != 0 )
+  if ( (PopCoalescingState & 1) != 0 )
   {
     PopCoalescingSetActiveState(0);
     PopReleasePolicyLock(v9, v8, v10, v11, v16);
@@ -57,6 +57,6 @@ LABEL_8:
     goto LABEL_8;
   }
 LABEL_6:
-  stru_140F11D08.AbWaitEntryCount &= ~8u;
+  PopCoalescingState &= ~8u;
   return PopReleasePolicyLock(v3, v2, v4, v5, v16);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptEcpointIsZero @ 0x140567FFC
+ * XREFs of SymCryptEcpointIsZero @ 0x1405671B0
  * Callers:
- *     SymCryptEckeyPerformPublicKeyValidation @ 0x14055B7B4 (SymCryptEckeyPerformPublicKeyValidation.c)
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140563700 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x140563C20 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptEcDhSecretAgreement @ 0x140574A80 (SymCryptEcDhSecretAgreement.c)
+ *     SymCryptEckeyPerformPublicKeyValidation @ 0x14055DC98 (SymCryptEckeyPerformPublicKeyValidation.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140565AF0 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x140566010 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptEcDhSecretAgreement @ 0x140573CE4 (SymCryptEcDhSecretAgreement.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAllocateLargeProcessPagesFromCache @ 0x14066713C
+ * XREFs of MiAllocateLargeProcessPagesFromCache @ 0x14066768C
  * Callers:
- *     MiCreateLargePfnList @ 0x1406679EC (MiCreateLargePfnList.c)
+ *     MiCreateLargePfnList @ 0x140667F3C (MiCreateLargePfnList.c)
  * Callees:
  *     MiFreeLargeZeroPages @ 0x140212098 (MiFreeLargeZeroPages.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPopLargePfnList @ 0x1402E700C (MiPopLargePfnList.c)
- *     MiInitializeLargePfnList @ 0x1402E8F98 (MiInitializeLargePfnList.c)
- *     MiZeroLargePage @ 0x1402EC08C (MiZeroLargePage.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiComputePreferredNode @ 0x140617790 (MiComputePreferredNode.c)
- *     MiGetVadCacheAttribute @ 0x140660BA4 (MiGetVadCacheAttribute.c)
- *     MiAppendTailList @ 0x14066767C (MiAppendTailList.c)
- *     MiCreateLargePfnList @ 0x1406679EC (MiCreateLargePfnList.c)
- *     MiCreateProcessLargePageCacheAnchor @ 0x140667D98 (MiCreateProcessLargePageCacheAnchor.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPopLargePfnList @ 0x1402E729C (MiPopLargePfnList.c)
+ *     MiInitializeLargePfnList @ 0x1402E9228 (MiInitializeLargePfnList.c)
+ *     MiZeroLargePage @ 0x1402EC31C (MiZeroLargePage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiComputePreferredNode @ 0x140617CE0 (MiComputePreferredNode.c)
+ *     MiGetVadCacheAttribute @ 0x1406610F4 (MiGetVadCacheAttribute.c)
+ *     MiAppendTailList @ 0x140667BCC (MiAppendTailList.c)
+ *     MiCreateLargePfnList @ 0x140667F3C (MiCreateLargePfnList.c)
+ *     MiCreateProcessLargePageCacheAnchor @ 0x1406682E8 (MiCreateProcessLargePageCacheAnchor.c)
  */
 
 __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
@@ -161,10 +161,13 @@ LABEL_10:
         ++v23;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v22);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)i <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)i <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -284,10 +287,10 @@ LABEL_59:
     v21[2] = (__int64 *)v58[8];
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v56 + 288));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v50 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v50 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v50 >= 2u )
     {
       v51 = KeGetCurrentPrcb();
       v52 = v51->SchedulerAssist;

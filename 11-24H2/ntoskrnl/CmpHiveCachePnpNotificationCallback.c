@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpHiveCachePnpNotificationCallback @ 0x1407E5720
+ * XREFs of CmpHiveCachePnpNotificationCallback @ 0x1407E5CF0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpHiveCacheEntryCleanup @ 0x1407E54D8 (CmpHiveCacheEntryCleanup.c)
- *     CmpHiveCacheEntryLockAcquire @ 0x1407E5678 (CmpHiveCacheEntryLockAcquire.c)
- *     CmpHiveCacheEntryLockRelease @ 0x1407E56DC (CmpHiveCacheEntryLockRelease.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpHiveCacheEntryCleanup @ 0x1407E5AA8 (CmpHiveCacheEntryCleanup.c)
+ *     CmpHiveCacheEntryLockAcquire @ 0x1407E5C48 (CmpHiveCacheEntryLockAcquire.c)
+ *     CmpHiveCacheEntryLockRelease @ 0x1407E5CAC (CmpHiveCacheEntryLockRelease.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
 __int64 __fastcall CmpHiveCachePnpNotificationCallback(PVOID NotificationStructure, _QWORD *Context)

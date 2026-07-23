@@ -1,9 +1,9 @@
 /*
- * XREFs of IopRetestConfiguration @ 0x14062C910
+ * XREFs of IopRetestConfiguration @ 0x14062C9C4
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x140555E0C (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x14055634C (PnpFindBestConfigurationWorker.c)
  * Callees:
- *     PnpLookupArbitersNewResources @ 0x140555FF8 (PnpLookupArbitersNewResources.c)
+ *     PnpLookupArbitersNewResources @ 0x140556538 (PnpLookupArbitersNewResources.c)
  */
 
 __int64 __fastcall IopRetestConfiguration(__int64 a1, unsigned int a2, _QWORD **a3)

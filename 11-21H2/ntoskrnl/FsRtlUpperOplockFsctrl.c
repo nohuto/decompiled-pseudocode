@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x14071CAB0 (FsRtlpOplockUpperLowerCompatible.c)
+ *     sub_14071C610 @ 0x14071C610 (sub_14071C610.c)
+ *     sub_14071CAB0 @ 0x14071CAB0 (sub_14071CAB0.c)
  */
 
 __int64 __fastcall FsRtlUpperOplockFsctrl(__int64 *Oplock, PIRP Irp, unsigned int a3, char a4, int a5)
@@ -30,7 +30,7 @@ __int64 __fastcall FsRtlUpperOplockFsctrl(__int64 *Oplock, PIRP Irp, unsigned in
     Options = CurrentStackLocation->Parameters.Create.Options;
     if ( (Options & 0x100000) != 0 && (v12 & 0x4000) == 0 || (Options & 0x10000) != 0 && (v12 & 0x2000) == 0 )
       return (unsigned int)-1073741598;
-    return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
+    return (unsigned int)sub_14071C610(Oplock, v10, a3, a5, v12);
   }
   switch ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart )
   {
@@ -53,7 +53,7 @@ __int64 __fastcall FsRtlUpperOplockFsctrl(__int64 *Oplock, PIRP Irp, unsigned in
         if ( MasterIrp->Type <= 1u )
         {
           if ( ((__int64)MasterIrp->MdlAddress & 2) != 0 )
-            return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
+            return (unsigned int)sub_14071C610(Oplock, v10, a3, a5, v12);
           v9 = ((*(_DWORD *)(&MasterIrp->Size + 1) & 6) << 12) | ((*(_DWORD *)(&MasterIrp->Size + 1) & 1) << 12);
         }
         else
@@ -67,12 +67,12 @@ __int64 __fastcall FsRtlUpperOplockFsctrl(__int64 *Oplock, PIRP Irp, unsigned in
       }
       break;
     default:
-      return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
+      return (unsigned int)sub_14071C610(Oplock, v10, a3, a5, v12);
   }
-  if ( FsRtlpOplockUpperLowerCompatible(v9, v12) )
+  if ( sub_14071CAB0(v9, v12) )
   {
     if ( !v5 )
-      return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
+      return (unsigned int)sub_14071C610(Oplock, v10, a3, a5, v12);
   }
   else
   {

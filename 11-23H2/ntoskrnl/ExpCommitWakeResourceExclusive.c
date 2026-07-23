@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpCommitWakeResourceExclusive @ 0x1403CB5F0
+ * XREFs of ExpCommitWakeResourceExclusive @ 0x1403CB7D0
  * Callers:
- *     ExpReleaseFastResourceExclusive @ 0x1403CB3B4 (ExpReleaseFastResourceExclusive.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x14060A6C4 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseFastResourceExclusive @ 0x1403CB594 (ExpReleaseFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x14060AC14 (ExpReleaseDisownedFastResourceExclusive.c)
  * Callees:
- *     KeWakeWaitChain @ 0x140260940 (KeWakeWaitChain.c)
+ *     KeWakeWaitChain @ 0x140260BD0 (KeWakeWaitChain.c)
  */
 
 __int64 __fastcall ExpCommitWakeResourceExclusive(

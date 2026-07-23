@@ -3,11 +3,11 @@
  * Callers:
  *     WmipDriverEntry @ 0x14079CA30 (WmipDriverEntry.c)
  * Callees:
- *     WmipAllocRegEntry @ 0x14012DE98 (WmipAllocRegEntry.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     WmipAddDataSource @ 0x140537074 (WmipAddDataSource.c)
- *     WmipAddMofResource @ 0x140550C40 (WmipAddMofResource.c)
+ *     WmipAllocRegEntry @ 0x14012E408 (WmipAllocRegEntry.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     WmipAddDataSource @ 0x1405375B4 (WmipAddDataSource.c)
+ *     WmipAddMofResource @ 0x140551180 (WmipAddMofResource.c)
  */
 
 __int64 WmipInitializeDataStructs()
@@ -23,13 +23,13 @@ __int64 WmipInitializeDataStructs()
 
   *(_QWORD *)&v5 = 0x11D1AADBC7BF35D0LL;
   WmipDSHeadPtr = (__int64)&WmipDSHead;
-  qword_1402FDA18 = (__int64)&WmipDSHead;
+  qword_1402FD9F8 = (__int64)&WmipDSHead;
   WmipDSHead = (__int64)&WmipDSHead;
   WmipGEHeadPtr = (__int64)&WmipGEHead;
-  qword_1402FDA38 = (__int64)&WmipGEHead;
+  qword_1402FDA18 = (__int64)&WmipGEHead;
   WmipGEHead = (__int64)&WmipGEHead;
   WmipMRHeadPtr = (__int64)&WmipMRHead;
-  qword_1402FDA48 = (__int64)&WmipMRHead;
+  qword_1402FDA28 = (__int64)&WmipMRHead;
   WmipMRHead = (__int64)&WmipMRHead;
   *((_QWORD *)&v5 + 1) = 0x102906C9A0004ABFLL;
   *(_QWORD *)&v6 = 0x11D23915E3DFF7BDLL;

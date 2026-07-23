@@ -6,7 +6,7 @@
  *     ZwUnlockVirtualMemory @ 0x18009E310 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 sub_180085B98()
+NTSTATUS sub_180085B98()
 {
   struct _TEB *v0; // rdx
   __int64 v1; // rax
@@ -14,8 +14,8 @@ __int64 sub_180085B98()
   __int64 v4; // [rsp+38h] [rbp+10h] BYREF
 
   v0 = NtCurrentTeb();
-  v1 = (char *)v0->NtTib.StackBase - ((char *)v0->DeallocationStack + *(unsigned int *)&v0->ReservedPad1 + 20480);
-  v4 = (__int64)v0->DeallocationStack + *(unsigned int *)&v0->ReservedPad1 + 20480;
+  v1 = (char *)v0->NtTib.StackBase - ((char *)v0->DeallocationStack + v0->GuaranteedStackBytes + 20480);
+  v4 = (__int64)v0->DeallocationStack + v0->GuaranteedStackBytes + 20480;
   v3 = v1;
-  return ZwUnlockVirtualMemory(-1LL, &v4, &v3, 1LL);
+  return ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)&v4, (PSIZE_T)&v3, 1u);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PoTraceDynamicTickDisabled @ 0x140207528
+ * XREFs of PoTraceDynamicTickDisabled @ 0x140207354
  * Callers:
- *     KePrepareClockTimerForIdle @ 0x1400D8760 (KePrepareClockTimerForIdle.c)
+ *     KePrepareClockTimerForIdle @ 0x1400D6600 (KePrepareClockTimerForIdle.c)
  *     KeInitializeClock @ 0x1407B87A4 (KeInitializeClock.c)
  * Callees:
- *     EtwWriteEx @ 0x140013360 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140012EE0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 BOOLEAN PoTraceDynamicTickDisabled()

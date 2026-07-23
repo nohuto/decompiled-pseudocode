@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetPerfectFreeOrZeroPage @ 0x1402F55E0
+ * XREFs of MiGetPerfectFreeOrZeroPage @ 0x14033D370
  * Callers:
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
  * Callees:
- *     MiGetPerfectColorHeadPage @ 0x1402F59B0 (MiGetPerfectColorHeadPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402F6568 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiArePageContentsZero @ 0x1404CA060 (MiArePageContentsZero.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
+ *     MiGetPerfectColorHeadPage @ 0x14033D740 (MiGetPerfectColorHeadPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14033E678 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiArePageContentsZero @ 0x1404C33B0 (MiArePageContentsZero.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall MiGetPerfectFreeOrZeroPage(__int64 a1, int a2, int a3)
@@ -18,7 +18,7 @@ __int64 __fastcall MiGetPerfectFreeOrZeroPage(__int64 a1, int a2, int a3)
   __int64 *v6; // rax
   char v7; // r13
   unsigned __int64 v8; // r15
-  union _SLIST_HEADER *v9; // r12
+  _SLIST_HEADER *v9; // r12
   unsigned __int64 v10; // rdx
   volatile signed __int32 *v11; // r8
   __int64 v12; // r9
@@ -53,7 +53,7 @@ __int64 __fastcall MiGetPerfectFreeOrZeroPage(__int64 a1, int a2, int a3)
   v28 = 1;
   v29 = a2;
   v5 = (a3 & 0x10) == 0;
-  v6 = MiZeroThenZero;
+  v6 = &MiZeroThenZero;
   if ( (a3 & 0x10) == 0 )
     v6 = &MiFreeThenFree;
   v27 = v6;
@@ -65,7 +65,7 @@ __int64 __fastcall MiGetPerfectFreeOrZeroPage(__int64 a1, int a2, int a3)
   {
     if ( !_bittest64(*(const signed __int64 **)(a1 + 16 * (v5 + 928LL) + 8), v8) )
       goto LABEL_22;
-    v9 = (union _SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * v5 + 14944) + 16 * v8);
+    v9 = (_SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * v5 + 14944) + 16 * v8);
     v13 = RtlpInterlockedPopEntrySList(v9);
     if ( v13 )
       goto LABEL_8;
@@ -178,7 +178,7 @@ LABEL_10:
   }
   if ( (MiFlags & 0x80u) == 0LL )
     goto LABEL_10;
-  if ( (++dword_140E30170 & MmPageValidationFrequency) != 0 )
+  if ( (++dword_140E302B0 & MmPageValidationFrequency) != 0 )
     goto LABEL_10;
   MiArePageContentsZero(0xAAAAAAAAAAAAAAABuLL * ((__int64)&v13[0x22000000000LL] >> 4));
   v13->Next = 0LL;

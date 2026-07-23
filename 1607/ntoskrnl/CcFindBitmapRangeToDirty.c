@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFindBitmapRangeToDirty @ 0x14006FD44
+ * XREFs of CcFindBitmapRangeToDirty @ 0x14006F8C4
  * Callers:
- *     CcSetDirtyInMask @ 0x14006F660 (CcSetDirtyInMask.c)
+ *     CcSetDirtyInMask @ 0x14006F1E0 (CcSetDirtyInMask.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

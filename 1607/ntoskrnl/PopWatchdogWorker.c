@@ -1,16 +1,16 @@
 /*
- * XREFs of PopWatchdogWorker @ 0x14020B81C
+ * XREFs of PopWatchdogWorker @ 0x14020B648
  * Callers:
  *     <none>
  * Callees:
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PopResolveWatchdogParam @ 0x14020B4B8 (PopResolveWatchdogParam.c)
- *     PopUpdateWatchdogNoWorkersEvent @ 0x14020B780 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PopResolveWatchdogParam @ 0x14020B2E4 (PopResolveWatchdogParam.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x14020B5AC (PopUpdateWatchdogNoWorkersEvent.c)
  */
 
 void __fastcall PopWatchdogWorker(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiHotAddBootDescriptor @ 0x140CF4E60
+ * XREFs of MiHotAddBootDescriptor @ 0x140CFB1E0
  * Callers:
- *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140CF4BBC (MiHotAddBootDeferredDescriptorsDiscardable.c)
+ *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140CFAF3C (MiHotAddBootDeferredDescriptorsDiscardable.c)
  * Callees:
- *     MiAddPhysicalMemoryChunks @ 0x140865468 (MiAddPhysicalMemoryChunks.c)
+ *     MiAddPhysicalMemoryChunks @ 0x14086B848 (MiAddPhysicalMemoryChunks.c)
  */
 
 __int64 __fastcall MiHotAddBootDescriptor(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimWorkingSetVpabCallback @ 0x1403BA950
+ * XREFs of MiTrimWorkingSetVpabCallback @ 0x1403C47C0
  * Callers:
  *     <none>
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiTrimPteWorker @ 0x140320BF0 (MiTrimPteWorker.c)
- *     MiTrimmedEnough @ 0x1403BAA50 (MiTrimmedEnough.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiTrimPteWorker @ 0x140322C20 (MiTrimPteWorker.c)
+ *     MiTrimmedEnough @ 0x1403C48C0 (MiTrimmedEnough.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetVpabCallback(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, __int64 a5)

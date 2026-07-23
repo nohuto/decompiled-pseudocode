@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __fastcall RtlRunOnceInitialize(_QWORD *a1)
+void __cdecl RtlRunOnceInitialize(PRTL_RUN_ONCE RunOnce)
 {
-  *a1 = 0LL;
+  RunOnce->Ptr = 0LL;
 }

@@ -6,19 +6,19 @@
  *     _RtlAnsiCharToUnicodeChar@4 @ 0x4B2E1DF0 (_RtlAnsiCharToUnicodeChar@4.c)
  */
 
-_BYTE *__cdecl _safecrt_mbtowc(__int16 *a1, _BYTE *a2, int a3)
+UCHAR *__cdecl _safecrt_mbtowc(WCHAR *a1, PUCHAR SourceCharacter, int a3)
 {
-  _BYTE *v3; // esi
+  PUCHAR v3; // esi
 
-  v3 = a2;
-  if ( !a2 || !a3 )
+  v3 = SourceCharacter;
+  if ( !SourceCharacter || !a3 )
     return 0;
-  if ( !*a2 )
+  if ( !*SourceCharacter )
   {
     if ( a1 )
       *a1 = 0;
     return 0;
   }
-  *a1 = RtlAnsiCharToUnicodeChar(&a2);
-  return (_BYTE *)(a2 - v3);
+  *a1 = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+  return (UCHAR *)(SourceCharacter - v3);
 }

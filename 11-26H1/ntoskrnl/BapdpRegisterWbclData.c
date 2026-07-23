@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdpRegisterWbclData @ 0x140CE3814
+ * XREFs of BapdpRegisterWbclData @ 0x140CE9BB4
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     BapdRegisterSiData @ 0x140C07E54 (BapdRegisterSiData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140CE2FFC (BapdpQueryData.c)
+ *     BapdRegisterSiData @ 0x140C0E064 (BapdRegisterSiData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140CE939C (BapdpQueryData.c)
  */
 
 void __fastcall BapdpRegisterWbclData(__int64 a1)
@@ -37,7 +37,7 @@ void __fastcall BapdpRegisterWbclData(__int64 a1)
     v7 = 803227664;
   }
   v8 = 0;
-  v2 = BapdpQueryData(a1, &v5, 0, 0LL, &v8, 0LL);
+  v2 = BapdpQueryData(a1, (struct _LIST_ENTRY **)&v5, 0, 0LL, &v8, 0LL);
   if ( v2 == -1073741789 )
   {
     Pool2 = (ULONG *)ExAllocatePool2(64LL, v8, 0x64506142u);
@@ -50,7 +50,7 @@ void __fastcall BapdpRegisterWbclData(__int64 a1)
     if ( v2 < 0 )
       return;
   }
-  if ( (int)BapdpQueryData(v3, &v5, 0, Pool2, &v8, 0LL) >= 0 )
+  if ( (int)BapdpQueryData(v3, (struct _LIST_ENTRY **)&v5, 0, Pool2, &v8, 0LL) >= 0 )
     BapdRegisterSiData(Pool2, v8, v1);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0);

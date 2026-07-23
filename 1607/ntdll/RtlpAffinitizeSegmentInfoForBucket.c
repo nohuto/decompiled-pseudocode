@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpAffinitizeSegmentInfoForBucket @ 0x180080594
+ * XREFs of RtlpAffinitizeSegmentInfoForBucket @ 0x180080584
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x1800240C0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18004EFB0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800240B0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x18004EFA0 (RtlpLocalInfoAllocFromCache.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpExtendLowFragHeapSegment @ 0x180028F00 (RtlpExtendLowFragHeapSegment.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpExtendLowFragHeapSegment @ 0x180028EF0 (RtlpExtendLowFragHeapSegment.c)
  */
 
 __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a2)
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
   int v4; // edi
   __int64 v5; // r15
   __int64 v6; // r14
-  int v7; // edi
+  NTSTATUS v7; // edi
   __int64 v8; // rax
   _WORD *v9; // rcx
   _QWORD *v10; // rdx
@@ -32,7 +32,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
     if ( *(_QWORD *)(a1 + 8 * v3 + 2224) )
     {
       v7 = -1073741302;
@@ -64,7 +64,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
         *(_QWORD *)(a1 + 8 * v3 + 2224) = v8;
       }
     }
-    RtlLeaveCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
   }
   return (unsigned int)v7;
 }

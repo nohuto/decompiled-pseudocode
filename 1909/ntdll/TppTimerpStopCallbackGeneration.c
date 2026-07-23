@@ -10,13 +10,13 @@
 
 char __fastcall TppTimerpStopCallbackGeneration(__int64 a1)
 {
-  __int64 v2; // rdx
+  _RTL_SRWLOCK *v2; // rdx
   signed __int32 v3; // eax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-  v2 = *(_QWORD *)(a1 + 144);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  v2 = *(_RTL_SRWLOCK **)(a1 + 144);
   ++*(_BYTE *)(a1 + 355);
-  LOBYTE(v3) = TppCancelTimer(a1, v2 + 112, 0);
+  LOBYTE(v3) = TppCancelTimer(a1, v2 + 14, 0);
   if ( (_BYTE)v3 )
   {
     v3 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);

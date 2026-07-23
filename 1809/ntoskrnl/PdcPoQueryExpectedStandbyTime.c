@@ -1,10 +1,10 @@
 /*
- * XREFs of PdcPoQueryExpectedStandbyTime @ 0x14086ED40
+ * XREFs of PdcPoQueryExpectedStandbyTime @ 0x14086FFA0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoQueryExpectedStandbyTime(unsigned __int64 *a1)
@@ -17,14 +17,14 @@ __int64 __fastcall PdcPoQueryExpectedStandbyTime(unsigned __int64 *a1)
   if ( (unsigned int)result <= 1 || PopPdcLastCsEnterReason == 12 )
   {
     PopAcquirePolicyLock();
-    if ( dword_14041764C == -1 || dword_140417648 >= (unsigned int)dword_14041764C )
+    if ( dword_1404186CC == -1 || dword_1404186C8 >= (unsigned int)dword_1404186CC )
     {
-      if ( ((dword_14041764C + 1) & 0xFFFFFFFE) == 0 )
+      if ( ((dword_1404186CC + 1) & 0xFFFFFFFE) == 0 )
         v1 = -1LL;
     }
     else
     {
-      v1 = (unsigned int)PopIdleScanInterval + (unsigned __int64)(unsigned int)(dword_14041764C - dword_140417648);
+      v1 = (unsigned int)PopIdleScanInterval + (unsigned __int64)(unsigned int)(dword_1404186CC - dword_1404186C8);
     }
     result = PopReleasePolicyLock();
   }

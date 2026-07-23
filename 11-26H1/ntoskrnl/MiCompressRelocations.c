@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCompressRelocations @ 0x140A05450
+ * XREFs of MiCompressRelocations @ 0x1409F0C40
  * Callers:
- *     MiRelocateValidateFixups @ 0x1409CB26C (MiRelocateValidateFixups.c)
+ *     MiRelocateValidateFixups @ 0x14099C24C (MiRelocateValidateFixups.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCompressRelocations(__int64 a1, int a2)

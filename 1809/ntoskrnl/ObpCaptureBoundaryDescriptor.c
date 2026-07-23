@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpCaptureBoundaryDescriptor @ 0x140654898
+ * XREFs of ObpCaptureBoundaryDescriptor @ 0x140655A58
  * Callers:
- *     NtCreatePrivateNamespace @ 0x140654360 (NtCreatePrivateNamespace.c)
- *     NtOpenPrivateNamespace @ 0x1406C25D0 (NtOpenPrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x140655520 (NtCreatePrivateNamespace.c)
+ *     NtOpenPrivateNamespace @ 0x1406C3870 (NtOpenPrivateNamespace.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
- *     ObpCheckDuplicateEntries @ 0x140654B08 (ObpCheckDuplicateEntries.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x140654CC4 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeCaptureSubjectContextEx @ 0x1405E17F0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x14063D370 (SeQueryInformationToken.c)
+ *     ObpCheckDuplicateEntries @ 0x140655CC8 (ObpCheckDuplicateEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140655E84 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ObpCaptureBoundaryDescriptor(__m128i *Src, char **a2)

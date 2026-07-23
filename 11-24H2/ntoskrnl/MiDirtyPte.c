@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDirtyPte @ 0x140241184
+ * XREFs of MiDirtyPte @ 0x1402092D4
  * Callers:
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
  * Callees:
- *     MiWriteValidPteNewProtection @ 0x140219260 (MiWriteValidPteNewProtection.c)
- *     MiUnlockWorkingSetOptimal @ 0x14024231C (MiUnlockWorkingSetOptimal.c)
- *     MiLockWorkingSetOptimal @ 0x1402424F0 (MiLockWorkingSetOptimal.c)
+ *     MiUnlockWorkingSetOptimal @ 0x14020A46C (MiUnlockWorkingSetOptimal.c)
+ *     MiLockWorkingSetOptimal @ 0x14020A640 (MiLockWorkingSetOptimal.c)
+ *     MiWriteValidPteNewProtection @ 0x140245FB0 (MiWriteValidPteNewProtection.c)
  */
 
 void __fastcall MiDirtyPte(__int64 a1, __int64 *a2, __int16 a3)
@@ -26,7 +26,7 @@ void __fastcall MiDirtyPte(__int64 a1, __int64 *a2, __int16 a3)
       v7 = *a2;
       v8 = v5;
       if ( (*a2 & 1) != 0 && (v7 & 0x42) == 0 && (v7 & 0x800) != 0 )
-        MiWriteValidPteNewProtection((ULONG_PTR)a2, v7 | 0x62);
+        MiWriteValidPteNewProtection((ULONG_PTR)a2);
       LOBYTE(v6) = v9;
       MiUnlockWorkingSetOptimal(a1, v8, v6);
     }

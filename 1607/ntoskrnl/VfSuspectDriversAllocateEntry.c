@@ -1,13 +1,13 @@
 /*
  * XREFs of VfSuspectDriversAllocateEntry @ 0x140715E70
  * Callers:
- *     VfDriverEnableVerifierForAll @ 0x140704C44 (VfDriverEnableVerifierForAll.c)
+ *     VfDriverEnableVerifierForAll @ 0x140704C74 (VfDriverEnableVerifierForAll.c)
  *     VfSuspectDriversLoadCallback @ 0x140716114 (VfSuspectDriversLoadCallback.c)
  *     VfAddVerifierEntry @ 0x140720E78 (VfAddVerifierEntry.c)
  *     VfTriageAddDrivers @ 0x1407D16BC (VfTriageAddDrivers.c)
  *     VfSuspectDriversParseRegistryString @ 0x1407D1AE4 (VfSuspectDriversParseRegistryString.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

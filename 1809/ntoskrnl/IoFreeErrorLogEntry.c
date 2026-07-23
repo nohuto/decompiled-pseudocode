@@ -1,10 +1,10 @@
 /*
- * XREFs of IoFreeErrorLogEntry @ 0x140283070
+ * XREFs of IoFreeErrorLogEntry @ 0x140283260
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoFreeErrorLogEntry(PVOID ElEntry)

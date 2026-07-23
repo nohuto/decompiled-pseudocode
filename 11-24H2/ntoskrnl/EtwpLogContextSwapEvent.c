@@ -1,39 +1,40 @@
 /*
- * XREFs of EtwpLogContextSwapEvent @ 0x140421EE0
+ * XREFs of EtwpLogContextSwapEvent @ 0x140415D90
  * Callers:
- *     KiSwapThread @ 0x1402A6990 (KiSwapThread.c)
- *     EtwTraceContextSwap @ 0x140421D90 (EtwTraceContextSwap.c)
+ *     KiSwapThread @ 0x1402D60C0 (KiSwapThread.c)
+ *     EtwTraceContextSwap @ 0x140415C40 (EtwTraceContextSwap.c)
  * Callees:
- *     EtwpTraceLastBranchRecord @ 0x140259A00 (EtwpTraceLastBranchRecord.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     EtwpReserveTraceBuffer @ 0x140327DF0 (EtwpReserveTraceBuffer.c)
- *     EtwpReserveWithPmcCounters @ 0x140328350 (EtwpReserveWithPmcCounters.c)
- *     EtwpGetLoggerTimeStamp @ 0x14034F8C0 (EtwpGetLoggerTimeStamp.c)
- *     EtwpStackTraceDispatcher @ 0x1403ED650 (EtwpStackTraceDispatcher.c)
- *     EtwpTraceLostSystemEvent @ 0x1404B94AC (EtwpTraceLostSystemEvent.c)
- *     EtwpReserveWithPebsIndex @ 0x1404CC08C (EtwpReserveWithPebsIndex.c)
- *     EtwpContextRegisterTracingDispatcher @ 0x1404CE964 (EtwpContextRegisterTracingDispatcher.c)
- *     EtwpCCSwapTrace @ 0x1404EF7D0 (EtwpCCSwapTrace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpTraceLastBranchRecord @ 0x14028A010 (EtwpTraceLastBranchRecord.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0980 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveWithPmcCounters @ 0x1402D0EE0 (EtwpReserveWithPmcCounters.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14036DDA0 (EtwpGetLoggerTimeStamp.c)
+ *     EtwpStackTraceDispatcher @ 0x1403DD620 (EtwpStackTraceDispatcher.c)
+ *     EtwpTraceLostSystemEvent @ 0x1404B434C (EtwpTraceLostSystemEvent.c)
+ *     EtwpReserveWithPebsIndex @ 0x1404C54FC (EtwpReserveWithPebsIndex.c)
+ *     EtwpContextRegisterTracingDispatcher @ 0x1404C7B30 (EtwpContextRegisterTracingDispatcher.c)
+ *     EtwpCCSwapTrace @ 0x1404ED100 (EtwpCCSwapTrace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v4; // r13d
+  unsigned int v3; // r13d
   signed __int64 CurrentPrcb; // rax
-  int v6; // r12d
-  __int64 v7; // r15
-  bool v8; // zf
-  unsigned int v10; // ecx
-  __int64 v12; // rdi
-  __int64 v13; // rax
-  int v14; // ebx
-  __int64 v15; // rbx
-  int v16; // eax
-  signed __int64 v17; // rdx
-  __int64 v18; // rdx
-  __int64 v19; // rcx
+  int v5; // r12d
+  __int64 v6; // r15
+  bool v7; // zf
+  unsigned int v9; // ecx
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  int v13; // ebx
+  __int64 v14; // rbx
+  int v15; // eax
+  signed __int64 v16; // rdx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  unsigned int v19; // r9d
   struct _KPRCB *v20; // rax
   _PPM_IDLE_STATES *IdleStates; // rax
   __int64 v22; // rcx
@@ -57,87 +58,87 @@ char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3, __in
   __int128 v41; // [rsp+80h] [rbp-1h]
   __int64 v42; // [rsp+90h] [rbp+Fh]
 
-  v4 = *(_DWORD *)(a1 + 4520);
+  v3 = *(_DWORD *)(a1 + 4520);
   LOBYTE(CurrentPrcb) = 0;
-  v6 = 0;
+  v5 = 0;
   v38 = 0LL;
-  v7 = a1;
+  v6 = a1;
   LoggerTimeStamp.QuadPart = 0LL;
-  v8 = !_BitScanForward((unsigned int *)&a1, v4);
-  v36 = v10;
+  v7 = !_BitScanForward((unsigned int *)&a1, v3);
+  v36 = v9;
   v37 = 0LL;
-  if ( !v8 )
+  if ( !v7 )
   {
     while ( 1 )
     {
-      v4 &= v4 - 1;
-      CurrentPrcb = v7 + 32LL * (unsigned int)a1 + 4556;
+      v3 &= v3 - 1;
+      CurrentPrcb = v6 + 32LL * (unsigned int)a1 + 4556;
       if ( CurrentPrcb )
       {
         LODWORD(CurrentPrcb) = *(_DWORD *)(CurrentPrcb + 4);
         if ( (CurrentPrcb & 4) != 0 )
         {
-          LODWORD(CurrentPrcb) = *(unsigned __int8 *)(v7 + 2 * a1 + 4504);
-          if ( (unsigned int)CurrentPrcb < *(_DWORD *)(v7 + 16) )
+          LODWORD(CurrentPrcb) = *(unsigned __int8 *)(v6 + 2 * a1 + 4504);
+          if ( (unsigned int)CurrentPrcb < *(_DWORD *)(v6 + 16) )
           {
             _mm_lfence();
-            CurrentPrcb = *(_QWORD *)(v7 + 712);
-            v12 = *(_QWORD *)(CurrentPrcb + 8LL * *(unsigned __int8 *)(v7 + 2 * a1 + 4504));
-            if ( (v12 & 1) == 0 )
+            CurrentPrcb = *(_QWORD *)(v6 + 712);
+            v11 = *(_QWORD *)(CurrentPrcb + 8LL * *(unsigned __int8 *)(v6 + 2 * a1 + 4504));
+            if ( (v11 & 1) == 0 )
               break;
           }
         }
       }
 LABEL_81:
-      v8 = !_BitScanForward((unsigned int *)&a1, v4);
+      v7 = !_BitScanForward((unsigned int *)&a1, v3);
       v36 = a1;
-      if ( v8 )
+      if ( v7 )
         return CurrentPrcb;
     }
-    v13 = v7 + 32LL * v36 + 4556;
-    if ( v13 && (*(_DWORD *)(v13 + 4) & 0x100) != 0 )
+    v12 = v6 + 32LL * v36 + 4556;
+    if ( v12 && (*(_DWORD *)(v12 + 4) & 0x100) != 0 )
     {
-      v14 = 1 << *(_DWORD *)(v12 + 200);
-      LOBYTE(CurrentPrcb) = ~(_BYTE)v6;
-      if ( (~v6 & v14) != 0 )
+      v13 = 1 << *(_DWORD *)(v11 + 200);
+      LOBYTE(CurrentPrcb) = ~(_BYTE)v5;
+      if ( (~v5 & v13) != 0 )
       {
-        LoggerTimeStamp = EtwpGetLoggerTimeStamp(v12);
-        LOBYTE(CurrentPrcb) = EtwpCCSwapTrace(a2, a3, *(unsigned int *)(v12 + 200), &LoggerTimeStamp);
-        v6 |= v14;
+        LoggerTimeStamp = EtwpGetLoggerTimeStamp(v11);
+        LOBYTE(CurrentPrcb) = EtwpCCSwapTrace(a2, a3, *(unsigned int *)(v11 + 200), &LoggerTimeStamp);
+        v5 |= v13;
       }
-      v15 = v12;
+      v14 = v11;
 LABEL_49:
       if ( a3 )
       {
-        if ( (*(_DWORD *)(v15 + 816) & 0x80u) != 0 && (*(_BYTE *)(*(_QWORD *)(v15 + 1048) + 164LL) & 0x10) != 0 )
-          EtwpStackTraceDispatcher(v15, (unsigned int *)&LoggerTimeStamp, (_KTHREAD *)a3, 0x505A05u);
-        LODWORD(CurrentPrcb) = *(_DWORD *)(v15 + 820);
+        if ( (*(_DWORD *)(v14 + 816) & 0x80u) != 0 && (*(_BYTE *)(*(_QWORD *)(v14 + 1048) + 164LL) & 0x10) != 0 )
+          EtwpStackTraceDispatcher(v14, (unsigned int *)&LoggerTimeStamp, (_KTHREAD *)a3, 0x505A05u);
+        LODWORD(CurrentPrcb) = *(_DWORD *)(v14 + 820);
         if ( (CurrentPrcb & 2) != 0 )
         {
-          LODWORD(CurrentPrcb) = *(_DWORD *)(v15 + 1284);
+          LODWORD(CurrentPrcb) = *(_DWORD *)(v14 + 1284);
           v27 = 0LL;
           if ( (_DWORD)CurrentPrcb )
           {
-            while ( *(_WORD *)(v15 + 2 * v27 + 1288) != 1316 )
+            while ( *(_WORD *)(v14 + 2 * v27 + 1288) != 1316 )
             {
-              LODWORD(CurrentPrcb) = *(_DWORD *)(v15 + 1284);
+              LODWORD(CurrentPrcb) = *(_DWORD *)(v14 + 1284);
               v27 = (unsigned int)(v27 + 1);
               if ( (unsigned int)v27 >= (unsigned int)CurrentPrcb )
                 goto LABEL_59;
             }
-            LOBYTE(CurrentPrcb) = EtwpContextRegisterTracingDispatcher(v15, &LoggerTimeStamp, a3, 5265925LL);
+            LOBYTE(CurrentPrcb) = EtwpContextRegisterTracingDispatcher(v14, &LoggerTimeStamp, a3, 5265925LL);
           }
         }
 LABEL_59:
-        if ( (*(_DWORD *)(v15 + 816) & 0x8000) != 0 )
+        if ( (*(_DWORD *)(v14 + 816) & 0x8000) != 0 )
         {
-          CurrentPrcb = *(_QWORD *)(v15 + 1072);
+          CurrentPrcb = *(_QWORD *)(v14 + 1072);
           v28 = 0LL;
           if ( *(_DWORD *)(CurrentPrcb + 8) )
           {
             while ( 1 )
             {
-              v29 = *(_QWORD *)(v15 + 1072);
+              v29 = *(_QWORD *)(v14 + 1072);
               if ( *(_WORD *)(v29 + 2 * v28 + 12) == 1316 )
                 break;
               LODWORD(CurrentPrcb) = *(_DWORD *)(v29 + 8);
@@ -145,19 +146,19 @@ LABEL_59:
               if ( (unsigned int)v28 >= (unsigned int)CurrentPrcb )
                 goto LABEL_65;
             }
-            LOBYTE(CurrentPrcb) = EtwpTraceLastBranchRecord(v15, &LoggerTimeStamp, (struct _KTHREAD *)a3, 5265925);
+            LOBYTE(CurrentPrcb) = EtwpTraceLastBranchRecord(v14, &LoggerTimeStamp, (struct _KTHREAD *)a3, 5265925);
           }
         }
 LABEL_65:
-        if ( (*(_DWORD *)(v15 + 816) & 0x4000000) != 0 )
+        if ( (*(_DWORD *)(v14 + 816) & 0x4000000) != 0 )
         {
-          CurrentPrcb = *(_QWORD *)(v15 + 1080);
+          CurrentPrcb = *(_QWORD *)(v14 + 1080);
           v30 = 0LL;
           if ( *(_DWORD *)(CurrentPrcb + 24) )
           {
             while ( 1 )
             {
-              v31 = *(_QWORD *)(v15 + 1080);
+              v31 = *(_QWORD *)(v14 + 1080);
               if ( *(_WORD *)(v31 + 2 * v30 + 28) == 1316 )
                 break;
               LODWORD(CurrentPrcb) = *(_DWORD *)(v31 + 24);
@@ -172,61 +173,61 @@ LABEL_65:
             CurrentPrcb = (signed __int64)KeGetCurrentPrcb();
             if ( *(struct _KTHREAD **)(CurrentPrcb + 24) != KeGetCurrentThread() )
             {
-              *(_QWORD *)&v39 = v15;
+              *(_QWORD *)&v39 = v14;
               LODWORD(v42) = 5265925;
               LODWORD(v40) = *(_DWORD *)(a3 + 1288);
               DWORD1(v40) = *(_DWORD *)(a3 + 1296);
               *((LARGE_INTEGER *)&v39 + 1) = LoggerTimeStamp;
               *((_QWORD *)&v40 + 1) = *(_QWORD *)(v31 + 8);
-              LOBYTE(CurrentPrcb) = guard_dispatch_icall_no_overrides(*(_QWORD *)v31, &v39, v31, a4);
+              LOBYTE(CurrentPrcb) = guard_dispatch_icall_no_overrides(*(_QWORD *)v31, &v39);
             }
           }
         }
       }
       goto LABEL_81;
     }
-    v16 = *(_DWORD *)(v12 + 816);
-    v15 = v12;
-    if ( (v16 & 0xC00) == 0 )
+    v15 = *(_DWORD *)(v11 + 816);
+    v14 = v11;
+    if ( (v15 & 0xC00) == 0 )
       goto LABEL_18;
-    if ( (v16 & 0x400) != 0 )
+    if ( (v15 & 0x400) != 0 )
     {
-      CurrentPrcb = EtwpReserveWithPebsIndex(v12, 1316, 28, (unsigned int)&v37, (__int64)&LoggerTimeStamp, 5265925);
-      v17 = CurrentPrcb;
+      CurrentPrcb = EtwpReserveWithPebsIndex(v11, 1316, 28, (unsigned int)&v37, (__int64)&LoggerTimeStamp, 5265925);
+      v16 = CurrentPrcb;
       goto LABEL_20;
     }
-    if ( (v16 & 0x800) != 0 && (v18 = 0LL, *(_DWORD *)(*(_QWORD *)(v12 + 1064) + 8LL)) )
+    if ( (v15 & 0x800) != 0 && (v17 = 0LL, *(_DWORD *)(*(_QWORD *)(v11 + 1064) + 8LL)) )
     {
       while ( 1 )
       {
-        v19 = *(_QWORD *)(v12 + 1064);
-        if ( *(_WORD *)(v19 + 2 * v18 + 12) == 1316 )
+        v18 = *(_QWORD *)(v11 + 1064);
+        if ( *(_WORD *)(v18 + 2 * v17 + 12) == 1316 )
           break;
-        v18 = (unsigned int)(v18 + 1);
-        if ( (unsigned int)v18 >= *(_DWORD *)(v19 + 8) )
+        v17 = (unsigned int)(v17 + 1);
+        if ( (unsigned int)v17 >= *(_DWORD *)(v18 + 8) )
           goto LABEL_18;
       }
       CurrentPrcb = EtwpReserveWithPmcCounters(
-                      v12,
+                      v11,
                       1316,
                       28,
                       (unsigned __int64 *)&v37,
                       (signed __int64 *)&LoggerTimeStamp,
                       23045);
-      v17 = CurrentPrcb;
+      v16 = CurrentPrcb;
     }
     else
     {
 LABEL_18:
       CurrentPrcb = EtwpReserveTraceBuffer(
-                      (unsigned int *)v12,
+                      (unsigned int *)v11,
                       0x2Cu,
                       (unsigned __int64 *)&v37,
                       (signed __int64 *)&LoggerTimeStamp,
                       23045);
       if ( !CurrentPrcb )
       {
-        a4 = 1316LL;
+        v19 = 1316;
 LABEL_73:
         if ( EtwpEventTracingProvRegHandle )
         {
@@ -241,39 +242,39 @@ LABEL_73:
                                         64LL),
                 (_BYTE)CurrentPrcb) )
           {
-            LOBYTE(CurrentPrcb) = EtwpTraceLostSystemEvent((unsigned int)a4, v12 + 136, 5265925LL, 3221225495LL);
+            LOBYTE(CurrentPrcb) = EtwpTraceLostSystemEvent(v19, v11 + 136, 5265925LL, 3221225495LL);
           }
         }
         goto LABEL_81;
       }
-      v17 = CurrentPrcb + 16;
+      v16 = CurrentPrcb + 16;
       *(LARGE_INTEGER *)(CurrentPrcb + 8) = LoggerTimeStamp;
       *(_DWORD *)CurrentPrcb = -1072627707;
       *(_DWORD *)(CurrentPrcb + 4) = 86245420;
     }
 LABEL_20:
-    a4 = 1316LL;
-    if ( v17 )
+    v19 = 1316;
+    if ( v16 )
     {
-      *(_OWORD *)v17 = 0LL;
-      *(_QWORD *)(v17 + 16) = 0LL;
-      *(_DWORD *)(v17 + 24) = 0;
+      *(_OWORD *)v16 = 0LL;
+      *(_QWORD *)(v16 + 16) = 0LL;
+      *(_DWORD *)(v16 + 24) = 0;
       if ( a2 )
       {
-        *(_DWORD *)(v17 + 4) = *(_DWORD *)(a2 + 1296);
-        *(_BYTE *)(v17 + 9) = *(_BYTE *)(a2 + 195);
-        *(_BYTE *)(v17 + 12) = *(_BYTE *)(a2 + 643);
-        *(_BYTE *)(v17 + 13) ^= (*(_BYTE *)(a2 + 391) ^ *(_BYTE *)(v17 + 13)) & 1;
-        *(_BYTE *)(v17 + 14) = *(_BYTE *)(a2 + 388);
-        *(_BYTE *)(v17 + 15) = *(_BYTE *)(a2 + 588);
-        *(_BYTE *)(v17 + 13) ^= (*(_BYTE *)(v17 + 13) ^ (2 * *(_BYTE *)(a2 + 516))) & 0xE;
-        *(_DWORD *)(v17 + 20) = (*(_QWORD *)(a2 + 32) - *(_QWORD *)(a2 + 72)) >> 10;
+        *(_DWORD *)(v16 + 4) = *(_DWORD *)(a2 + 1296);
+        *(_BYTE *)(v16 + 9) = *(_BYTE *)(a2 + 195);
+        *(_BYTE *)(v16 + 12) = *(_BYTE *)(a2 + 643);
+        *(_BYTE *)(v16 + 13) ^= (*(_BYTE *)(a2 + 391) ^ *(_BYTE *)(v16 + 13)) & 1;
+        *(_BYTE *)(v16 + 14) = *(_BYTE *)(a2 + 388);
+        *(_BYTE *)(v16 + 15) = *(_BYTE *)(a2 + 588);
+        *(_BYTE *)(v16 + 13) ^= (*(_BYTE *)(v16 + 13) ^ (2 * *(_BYTE *)(a2 + 516))) & 0xE;
+        *(_DWORD *)(v16 + 20) = (*(_QWORD *)(a2 + 32) - *(_QWORD *)(a2 + 72)) >> 10;
         v20 = KeGetCurrentPrcb();
         if ( (_KTHREAD *)a2 == v20->IdleThread )
         {
           IdleStates = v20->PowerState.IdleStates;
           if ( IdleStates )
-            *(_BYTE *)(v17 + 10) = IdleStates->ActualState;
+            *(_BYTE *)(v16 + 10) = IdleStates->ActualState;
         }
         else
         {
@@ -297,24 +298,24 @@ LABEL_20:
             LOBYTE(v22) = -1;
           }
 LABEL_33:
-          *(_BYTE *)(v17 + 10) = v22;
+          *(_BYTE *)(v16 + 10) = v22;
         }
         if ( *(_DWORD *)(a2 + 484) )
-          *(_BYTE *)(v17 + 24) |= 1u;
+          *(_BYTE *)(v16 + 24) |= 1u;
         if ( *(_WORD *)(a2 + 486) || *(_BYTE *)(a2 + 390) )
-          *(_BYTE *)(v17 + 24) |= 2u;
+          *(_BYTE *)(v16 + 24) |= 2u;
       }
       if ( a3 )
       {
-        *(_DWORD *)v17 = *(_DWORD *)(a3 + 1296);
-        *(_BYTE *)(v17 + 8) = *(_BYTE *)(a3 + 195);
-        *(_BYTE *)(v17 + 11) = *(_BYTE *)(a3 + 518);
-        *(_BYTE *)(v17 + 13) ^= (*(_BYTE *)(v17 + 13) ^ (16 * *(_BYTE *)(a3 + 516))) & 0x70;
-        *(_DWORD *)(v17 + 16) = MEMORY[0xFFFFF78000000320] - *(_DWORD *)(a3 + 436);
+        *(_DWORD *)v16 = *(_DWORD *)(a3 + 1296);
+        *(_BYTE *)(v16 + 8) = *(_BYTE *)(a3 + 195);
+        *(_BYTE *)(v16 + 11) = *(_BYTE *)(a3 + 518);
+        *(_BYTE *)(v16 + 13) ^= (*(_BYTE *)(v16 + 13) ^ (16 * *(_BYTE *)(a3 + 516))) & 0x70;
+        *(_DWORD *)(v16 + 16) = MEMORY[0xFFFFF78000000320] - *(_DWORD *)(a3 + 436);
         if ( *(_DWORD *)(a3 + 484) )
-          *(_BYTE *)(v17 + 24) |= 4u;
+          *(_BYTE *)(v16 + 24) |= 4u;
         if ( *(_WORD *)(a3 + 486) || *(_BYTE *)(a3 + 390) )
-          *(_BYTE *)(v17 + 24) |= 8u;
+          *(_BYTE *)(v16 + 24) |= 8u;
       }
       v24 = (signed __int64 *)*((_QWORD *)&v37 + 1);
       _m_prefetchw(*((const void **)&v37 + 1));

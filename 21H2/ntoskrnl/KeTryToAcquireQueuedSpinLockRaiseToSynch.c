@@ -1,9 +1,9 @@
 /*
- * XREFs of KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1405162D0
+ * XREFs of KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x140516510
  * Callers:
- *     VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1409DB7E0 (VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch.c)
+ *     VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x1409DC7E0 (VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch.c)
  * Callees:
- *     KxTryToAcquireQueuedSpinLock @ 0x14029976C (KxTryToAcquireQueuedSpinLock.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x14021614C (KxTryToAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

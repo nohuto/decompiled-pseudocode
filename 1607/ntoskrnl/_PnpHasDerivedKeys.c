@@ -1,7 +1,7 @@
 /*
- * XREFs of _PnpHasDerivedKeys @ 0x140506698
+ * XREFs of _PnpHasDerivedKeys @ 0x1404E9628
  * Callers:
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x140506388 (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1404E9318 (_PnpDeviceRaisePropertyChangeEventWorker.c)
  * Callees:
  *     <none>
  */

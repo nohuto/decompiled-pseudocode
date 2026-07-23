@@ -1,15 +1,15 @@
 /*
- * XREFs of PoInitializeBroadcast @ 0x140778238
+ * XREFs of PoInitializeBroadcast @ 0x1407783F8
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x1408E334C (PopDirectedDripsInitializeBroadcast.c)
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
- *     PnprQuiesceDevices @ 0x1409AE210 (PnprQuiesceDevices.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1408E34AC (PopDirectedDripsInitializeBroadcast.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
+ *     PnprQuiesceDevices @ 0x1409AF140 (PnprQuiesceDevices.c)
  * Callees:
- *     PopHaltDeviceIdle @ 0x140388DC8 (PopHaltDeviceIdle.c)
- *     PpmBeginHighPerfRequest @ 0x1403A79D0 (PpmBeginHighPerfRequest.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopBuildDeviceNotifyList @ 0x1409971B8 (PopBuildDeviceNotifyList.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PopHaltDeviceIdle @ 0x140388F18 (PopHaltDeviceIdle.c)
+ *     PpmBeginHighPerfRequest @ 0x1403A7B20 (PpmBeginHighPerfRequest.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopBuildDeviceNotifyList @ 0x1409981B8 (PopBuildDeviceNotifyList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PoInitializeBroadcast()
@@ -49,7 +49,7 @@ __int64 PoInitializeBroadcast()
     while ( v4 );
     PpmBeginHighPerfRequest();
     PopCurrentBroadcast = 0uLL;
-    qword_140C23430 = v2;
+    qword_140C23A50 = v2;
     PopBuildDeviceNotifyList(v2 + 6);
     PopHaltDeviceIdle();
   }

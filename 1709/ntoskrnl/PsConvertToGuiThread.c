@@ -18,10 +18,10 @@ __int64 PsConvertToGuiThread()
   int UserDirectoryTableBase; // esi
   __int64 v3; // rdx
   __int64 v4; // rcx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 result; // rax
   int v7; // esi
-  union _RTL_RUN_ONCE *v8; // rax
+  _RTL_RUN_ONCE *v8; // rax
   int v9; // edi
   _KPROCESS *v10; // [rsp+20h] [rbp-28h] BYREF
   int v11; // [rsp+28h] [rbp-20h]

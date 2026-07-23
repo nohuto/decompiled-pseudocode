@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpRecordBootDriverFailure @ 0x1405DA300
+ * XREFs of PnpRecordBootDriverFailure @ 0x1405DCB00
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x1404937E0 (PnpDeviceCompletionRoutine.c)
+ *     PnpDeviceCompletionRoutine @ 0x14048D330 (PnpDeviceCompletionRoutine.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PnpRecordBootDriverFailure(__int64 a1, int a2, __int64 a3, int a4)

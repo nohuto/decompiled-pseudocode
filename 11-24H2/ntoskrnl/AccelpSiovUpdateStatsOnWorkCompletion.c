@@ -1,9 +1,9 @@
 /*
- * XREFs of AccelpSiovUpdateStatsOnWorkCompletion @ 0x1406669F0
+ * XREFs of AccelpSiovUpdateStatsOnWorkCompletion @ 0x1406652E0
  * Callers:
- *     AccelpSiovDsaOperationHandler @ 0x14040A930 (AccelpSiovDsaOperationHandler.c)
+ *     AccelpSiovDsaOperationHandler @ 0x140402E10 (AccelpSiovDsaOperationHandler.c)
  * Callees:
- *     AccelpSiovGetOperationType @ 0x1406662E0 (AccelpSiovGetOperationType.c)
+ *     AccelpSiovGetOperationType @ 0x140664BD0 (AccelpSiovGetOperationType.c)
  */
 
 void __fastcall AccelpSiovUpdateStatsOnWorkCompletion(__int64 a1, __int64 a2)

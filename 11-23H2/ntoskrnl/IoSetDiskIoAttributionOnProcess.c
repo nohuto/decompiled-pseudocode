@@ -1,14 +1,14 @@
 /*
- * XREFs of IoSetDiskIoAttributionOnProcess @ 0x140367598
+ * XREFs of IoSetDiskIoAttributionOnProcess @ 0x140367738
  * Callers:
  *     PspEstablishJobHierarchy @ 0x14069F8F4 (PspEstablishJobHierarchy.c)
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
- *     PspSetJobIoAttributionProcessCallback @ 0x1407E1A20 (PspSetJobIoAttributionProcessCallback.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
+ *     PspSetJobIoAttributionProcessCallback @ 0x1407E1CF0 (PspSetJobIoAttributionProcessCallback.c)
  * Callees:
  *     IoDiskIoAttributionDereference @ 0x14020C878 (IoDiskIoAttributionDereference.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall IoSetDiskIoAttributionOnProcess(__int64 a1, __int64 a2)
@@ -31,10 +31,13 @@ void __fastcall IoSetDiskIoAttributionOnProcess(__int64 a1, __int64 a2)
     v6 = v4;
     *(_QWORD *)(a2 + 2392) = a1;
     ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

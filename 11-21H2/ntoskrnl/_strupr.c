@@ -2,15 +2,15 @@
  * XREFs of _strupr @ 0x1403E03F0
  * Callers:
  *     HalInitializeBios @ 0x1403D0150 (HalInitializeBios.c)
- *     InbvDetermineFunction @ 0x1403D71A4 (InbvDetermineFunction.c)
- *     KdInitSystem @ 0x140A70470 (KdInitSystem.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
- *     InbvDriverInitialize @ 0x140B25898 (InbvDriverInitialize.c)
- *     BvgaDriverInitialize @ 0x140B25950 (BvgaDriverInitialize.c)
- *     RamdiskStart @ 0x140B550AC (RamdiskStart.c)
+ *     sub_1403D71A4 @ 0x1403D71A4 (sub_1403D71A4.c)
+ *     sub_140A70470 @ 0x140A70470 (sub_140A70470.c)
+ *     sub_140AFB264 @ 0x140AFB264 (sub_140AFB264.c)
+ *     sub_140AFBDF4 @ 0x140AFBDF4 (sub_140AFBDF4.c)
+ *     sub_140B25898 @ 0x140B25898 (sub_140B25898.c)
+ *     sub_140B25950 @ 0x140B25950 (sub_140B25950.c)
+ *     sub_140B550AC @ 0x140B550AC (sub_140B550AC.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 char *__cdecl strupr(char *String)
@@ -32,7 +32,7 @@ char *__cdecl strupr(char *String)
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return 0LL;
   }
 }

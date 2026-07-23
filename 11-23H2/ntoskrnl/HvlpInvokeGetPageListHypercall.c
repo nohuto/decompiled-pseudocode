@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpInvokeGetPageListHypercall @ 0x14054A2C8
+ * XREFs of HvlpInvokeGetPageListHypercall @ 0x14054A988
  * Callers:
- *     HvlpMarkHypervisorPagesForHibernation @ 0x140547114 (HvlpMarkHypervisorPagesForHibernation.c)
- *     HvlAddPagesCallbackRoutine @ 0x140547320 (HvlAddPagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromHypervisor @ 0x140547CB8 (HvlpGetEncryptedDataFromHypervisor.c)
- *     HvlpGetPageList @ 0x14054A1F4 (HvlpGetPageList.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x1405477D4 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x1405479E0 (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x140548378 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpGetPageList @ 0x14054A8B4 (HvlpGetPageList.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
  */
 
 char __fastcall HvlpInvokeGetPageListHypercall(__int64 a1, LONGLONG a2)

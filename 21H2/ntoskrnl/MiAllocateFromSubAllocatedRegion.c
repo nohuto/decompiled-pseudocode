@@ -1,24 +1,24 @@
 /*
- * XREFs of MiAllocateFromSubAllocatedRegion @ 0x14064C180
+ * XREFs of MiAllocateFromSubAllocatedRegion @ 0x140640FA0
  * Callers:
- *     MiCreatePebOrTeb @ 0x14064C104 (MiCreatePebOrTeb.c)
+ *     MiCreatePebOrTeb @ 0x140640F24 (MiCreatePebOrTeb.c)
  * Callees:
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
- *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
- *     RtlFindClearBitsAndSetEx @ 0x1402793D0 (RtlFindClearBitsAndSetEx.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316788 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14031698C (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
- *     MiFreeToSubAllocatedRegion @ 0x1406E9484 (MiFreeToSubAllocatedRegion.c)
+ *     RtlFindClearBitsAndSetEx @ 0x140267370 (RtlFindClearBitsAndSetEx.c)
+ *     MiVadDeleted @ 0x14027C8A0 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14027C900 (MiReferenceVad.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031FFDC (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1403214D8 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403216DC (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1405FE4DC (MiAllocateNewSubAllocatedRegion.c)
+ *     MiFreeToSubAllocatedRegion @ 0x140700864 (MiFreeToSubAllocatedRegion.c)
  */
 
-__int64 MiAllocateFromSubAllocatedRegion(unsigned int a1, __int64 a2, unsigned __int64 *a3, ...)
+__int64 MiAllocateFromSubAllocatedRegion(int a1, __int64 a2, unsigned __int64 *a3, ...)
 {
   __int64 v3; // r14
   unsigned __int64 v4; // r12
@@ -48,7 +48,7 @@ __int64 MiAllocateFromSubAllocatedRegion(unsigned int a1, __int64 a2, unsigned _
   va_start(va1, a3);
   va_start(va, a3);
   v28 = va_arg(va1, _QWORD);
-  v3 = (int)a1;
+  v3 = a1;
   v4 = (unsigned __int64)(a2 + 4095) >> 12;
   v22 = 0;
   v5 = 0LL;

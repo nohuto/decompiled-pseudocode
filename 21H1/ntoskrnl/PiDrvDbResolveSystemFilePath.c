@@ -23,10 +23,10 @@ __int64 __fastcall PiDrvDbResolveSystemFilePath(
   bool v7; // r15
   NTSTATUS appended; // ebx
   const UNICODE_STRING *v10; // r13
-  char *v12; // rsi
-  char *SystemFilePathToken; // rax
-  char *v14; // rax
-  char *v15; // rax
+  PWCHAR v12; // rsi
+  PWCHAR SystemFilePathToken; // rax
+  PWCHAR v14; // rax
+  PWCHAR v15; // rax
   unsigned __int64 Length; // rax
   __int16 v17; // r8
   unsigned __int16 v18; // r15
@@ -78,7 +78,7 @@ __int64 __fastcall PiDrvDbResolveSystemFilePath(
     {
       if ( a3 && !v7 )
       {
-        SystemFilePathToken = PiDrvDbFindSystemFilePathToken((__m128i *)&Source, &PiDrvDbSystemRootNt.Length);
+        SystemFilePathToken = PiDrvDbFindSystemFilePathToken(&Source, (UNICODE_STRING *)&PiDrvDbSystemRootNt);
         if ( SystemFilePathToken )
         {
           v10 = a3;
@@ -92,7 +92,7 @@ __int64 __fastcall PiDrvDbResolveSystemFilePath(
       }
       if ( v6 && !v28 )
       {
-        v14 = PiDrvDbFindSystemFilePathToken((__m128i *)&Source, &PiDrvDbSystemRootWin32.Length);
+        v14 = PiDrvDbFindSystemFilePathToken(&Source, (UNICODE_STRING *)&PiDrvDbSystemRootWin32);
         if ( v14 )
         {
           if ( !v12 || v14 < v12 )
@@ -110,7 +110,7 @@ __int64 __fastcall PiDrvDbResolveSystemFilePath(
     }
     if ( v36 && v6 && !v30 && String1 && String1->Length > 2u )
     {
-      v15 = PiDrvDbFindSystemFilePathToken((__m128i *)&Source, &String1->Length);
+      v15 = PiDrvDbFindSystemFilePathToken(&Source, String1);
       if ( !v15 )
       {
         v30 = 1;
@@ -133,9 +133,9 @@ LABEL_30:
     if ( !v12 )
       goto LABEL_54;
     v17 = *a1;
-    v18 = 2 * ((v12 - (char *)Destinationa) >> 1);
+    v18 = 2 * (((char *)v12 - (char *)Destinationa) >> 1);
     Source.Length = v18;
-    v19 = (wchar_t *)&v12[2 * (Length >> 1)];
+    v19 = &v12[Length >> 1];
     v34.Buffer = v19;
     v20 = v17 - 2 * ((__int64)((unsigned int)v12 + 2 * (unsigned int)(Length >> 1) - *((_DWORD *)a1 + 2)) >> 1);
     v21 = v20;

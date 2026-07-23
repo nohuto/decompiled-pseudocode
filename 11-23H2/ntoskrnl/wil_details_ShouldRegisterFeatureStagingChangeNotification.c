@@ -3,7 +3,7 @@
  * Callers:
  *     CmInitSystem0 @ 0x140B534F0 (CmInitSystem0.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x140374854 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403749F4 (wil_details_FeatureDescriptors_SkipPadding.c)
  */
 
 __int64 (__fastcall **wil_details_ShouldRegisterFeatureStagingChangeNotification())()

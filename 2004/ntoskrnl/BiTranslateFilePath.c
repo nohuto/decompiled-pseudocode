@@ -12,25 +12,29 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, _FILE_PATH **a3)
 {
-  PVOID PoolWithTag; // rdi
-  int v7; // ebx
-  int v8; // eax
-  unsigned int v10[10]; // [rsp+20h] [rbp-28h] BYREF
+  _FILE_PATH *v5; // rdi
+  NTSTATUS v7; // ebx
+  NTSTATUS v8; // eax
+  _FILE_PATH *PoolWithTag; // rax
+  unsigned int v11[10]; // [rsp+20h] [rbp-28h] BYREF
+  ULONG OutputFilePathLength; // [rsp+68h] [rbp+20h] BYREF
 
-  *(_QWORD *)v10 = 0LL;
-  PoolWithTag = 0LL;
-  v7 = BiAcquirePrivilege(0x16u, (__int64)v10);
+  *(_QWORD *)v11 = 0LL;
+  v5 = 0LL;
+  v7 = BiAcquirePrivilege(0x16u, (__int64)v11);
   if ( v7 >= 0 )
   {
-    v8 = ZwTranslateFilePath(a1, a2);
+    OutputFilePathLength = 0;
+    v8 = ZwTranslateFilePath(InputFilePath, OutputType, 0LL, &OutputFilePathLength);
     v7 = v8;
     if ( v8 == -1073741789 )
     {
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0LL, 0x4B444342u);
+      PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B444342u);
+      v5 = PoolWithTag;
       if ( PoolWithTag )
-        v7 = ZwTranslateFilePath(a1, a2);
+        v7 = ZwTranslateFilePath(InputFilePath, OutputType, PoolWithTag, &OutputFilePathLength);
       else
         v7 = -1073741670;
     }
@@ -38,15 +42,15 @@ __int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
     {
       v7 = -1073741811;
     }
-    BiReleasePrivilege(v10);
+    BiReleasePrivilege(v11);
     if ( v7 < 0 )
     {
-      if ( PoolWithTag )
-        ExFreePoolWithTag(PoolWithTag, 0x4B444342u);
+      if ( v5 )
+        ExFreePoolWithTag(v5, 0x4B444342u);
     }
     else
     {
-      *a3 = PoolWithTag;
+      *a3 = v5;
     }
   }
   return (unsigned int)v7;

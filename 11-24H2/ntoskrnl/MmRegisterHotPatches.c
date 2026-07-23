@@ -1,24 +1,24 @@
 /*
- * XREFs of MmRegisterHotPatches @ 0x140C56C7C
+ * XREFs of MmRegisterHotPatches @ 0x140C58E0C
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     MiAcquireLoadLock @ 0x1402C6F98 (MiAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     VslDetermineHotPatchType @ 0x14070F70C (VslDetermineHotPatchType.c)
- *     MiAllocateHotPatchRecord @ 0x1407F0B60 (MiAllocateHotPatchRecord.c)
- *     MiAllocateSecureImageActivePatch @ 0x1407F0C00 (MiAllocateSecureImageActivePatch.c)
- *     MiCompareHotPatchNodes @ 0x1407F2484 (MiCompareHotPatchNodes.c)
- *     MiInsertHotPatchRecord @ 0x1407F3340 (MiInsertHotPatchRecord.c)
- *     MiInsertSecureImageActivePatch @ 0x1407F35F8 (MiInsertSecureImageActivePatch.c)
- *     MiLogHotPatchOperationStatus @ 0x1407F3CA4 (MiLogHotPatchOperationStatus.c)
- *     MiHandleDriverNonPagedSections @ 0x140A3DA08 (MiHandleDriverNonPagedSections.c)
- *     MiFindHotPatchRecord @ 0x140A570A8 (MiFindHotPatchRecord.c)
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
- *     MiLoadHotPatch @ 0x140A9F9D4 (MiLoadHotPatch.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAcquireLoadLock @ 0x1402BBB18 (MiAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     VslDetermineHotPatchType @ 0x14070D29C (VslDetermineHotPatchType.c)
+ *     MiAllocateHotPatchRecord @ 0x1407F1130 (MiAllocateHotPatchRecord.c)
+ *     MiAllocateSecureImageActivePatch @ 0x1407F11D0 (MiAllocateSecureImageActivePatch.c)
+ *     MiCompareHotPatchNodes @ 0x1407F2A54 (MiCompareHotPatchNodes.c)
+ *     MiInsertHotPatchRecord @ 0x1407F3934 (MiInsertHotPatchRecord.c)
+ *     MiInsertSecureImageActivePatch @ 0x1407F3BEC (MiInsertSecureImageActivePatch.c)
+ *     MiLogHotPatchOperationStatus @ 0x1407F4298 (MiLogHotPatchOperationStatus.c)
+ *     MiHandleDriverNonPagedSections @ 0x140A33318 (MiHandleDriverNonPagedSections.c)
+ *     MiFindHotPatchRecord @ 0x140A4EF38 (MiFindHotPatchRecord.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
+ *     MiLoadHotPatch @ 0x140A9ADA4 (MiLoadHotPatch.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmRegisterHotPatches(__int64 a1)
@@ -83,7 +83,7 @@ __int64 __fastcall MmRegisterHotPatches(__int64 a1)
       v9 = (void *)HotPatchRecord;
       if ( !HotPatchRecord )
         goto LABEL_14;
-      if ( (unsigned int)MiInsertHotPatchRecord((unsigned __int64 *)&qword_140E37478, HotPatchRecord, 0) == 255 )
+      if ( (unsigned int)MiInsertHotPatchRecord((unsigned __int64 *)&qword_140E375B8, HotPatchRecord, 0) == 255 )
         ExFreePoolWithTag(v9, 0);
       MiLogHotPatchOperationStatus(*((_DWORD *)i + 8), *((_DWORD *)i + 9), (UNICODE_STRING *)i + 1, 0, 4);
       if ( (i[5] & 2) != 0 )
@@ -112,16 +112,16 @@ LABEL_15:
   }
   v4 = 2LL;
   memset_0(v27, 0, 0x40uLL);
-  for ( j = *(_QWORD **)&qword_140E37478; j; j = (_QWORD *)*j )
+  for ( j = *(_QWORD **)&qword_140E375B8; j; j = (_QWORD *)*j )
     BugCheckParameter4 = (ULONG_PTR)j;
   while ( BugCheckParameter4 )
   {
-    v13 = (_QWORD *)qword_140E37488;
+    v13 = (_QWORD *)qword_140E375C8;
     v14 = *(_DWORD *)(BugCheckParameter4 + 24);
     v15 = *(_DWORD *)(BugCheckParameter4 + 28);
     v28 = v14;
     v29 = v15;
-    if ( !qword_140E37488 )
+    if ( !qword_140E375C8 )
       goto LABEL_60;
     do
     {
@@ -174,7 +174,7 @@ LABEL_60:
   }
   v4 = 3LL;
   BugCheckParameter4 = *(_QWORD *)(a1 + 240) + 3784LL;
-  if ( (dword_140E374B4 & 1) != 0 )
+  if ( (dword_140E375F4 & 1) != 0 )
     BugCheckParameter4 = *(_QWORD *)BugCheckParameter4;
   while ( BugCheckParameter4 != *(_QWORD *)(a1 + 240) + 3784LL )
   {
@@ -183,7 +183,7 @@ LABEL_60:
       v20 = *(_DWORD *)(BugCheckParameter4 + 36);
       v28 = *(_DWORD *)(BugCheckParameter4 + 32);
       v29 = v20;
-      v21 = MiFindHotPatchRecord((__int64 *)&qword_140E37478, 0, v28, v20, 0, 0LL, 0LL);
+      v21 = MiFindHotPatchRecord((__int64 *)&qword_140E375B8, 0, v28, v20, 0, 0LL, 0LL);
       v31 = *(_DWORD *)(BugCheckParameter4 + 32);
       v22 = (((v21 >> 31) & 0xFFFFFFFD) + 4) | 8;
       v30 = *(_DWORD *)(BugCheckParameter4 + 36);
@@ -224,6 +224,6 @@ LABEL_60:
   }
   MmReleaseLoadLock(Lock);
   result = 0LL;
-  byte_140E374A8 = 1;
+  byte_140E375E8 = 1;
   return result;
 }

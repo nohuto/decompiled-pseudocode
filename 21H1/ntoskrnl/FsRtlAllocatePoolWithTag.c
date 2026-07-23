@@ -13,6 +13,6 @@ PVOID __fastcall FsRtlAllocatePoolWithTag(POOL_TYPE a1, unsigned int a2, ULONG a
 
   result = ExAllocatePoolWithTag(a1, a2, a3);
   if ( !result )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   return result;
 }

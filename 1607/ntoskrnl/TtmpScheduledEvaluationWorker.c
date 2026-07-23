@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpScheduledEvaluationWorker @ 0x14067811C
+ * XREFs of TtmpScheduledEvaluationWorker @ 0x140678200
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     TtmiScheduleSessionWorker @ 0x140678D08 (TtmiScheduleSessionWorker.c)
- *     TtmpAcquireSessionLock @ 0x140678E60 (TtmpAcquireSessionLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     TtmiScheduleSessionWorker @ 0x140678DEC (TtmiScheduleSessionWorker.c)
+ *     TtmpAcquireSessionLock @ 0x140678F44 (TtmpAcquireSessionLock.c)
  */
 
 LONG_PTR __fastcall TtmpScheduledEvaluationWorker(volatile __int32 *Object)

@@ -12,31 +12,31 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028090 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_1800389D0(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall sub_1800389D0(__int64 a1)
 {
-  unsigned int v5; // edi
-  __int64 v6; // rcx
-  int v7; // eax
+  unsigned int v2; // edi
+  __int64 v3; // rcx
+  int v4; // eax
 
-  v5 = 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D070, a2, a3, a4);
-  v6 = *(_QWORD *)(a1 + 152);
-  v7 = *(_DWORD *)(v6 + 24);
-  if ( v7 != -1 )
+  v2 = 0;
+  RtlAcquireSRWLockExclusive(&stru_18015D070);
+  v3 = *(_QWORD *)(a1 + 152);
+  v4 = *(_DWORD *)(v3 + 24);
+  if ( v4 != -1 )
   {
-    if ( v7 )
+    if ( v4 )
     {
-      *(_DWORD *)(v6 + 24) = v7 + 1;
+      *(_DWORD *)(v3 + 24) = v4 + 1;
     }
     else if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
-      ++*(_DWORD *)(v6 + 28);
+      ++*(_DWORD *)(v3 + 28);
     }
     else
     {
-      v5 = -1073741515;
+      v2 = -1073741515;
     }
   }
-  RtlReleaseSRWLockExclusive(&qword_18015D070);
-  return v5;
+  RtlReleaseSRWLockExclusive(&stru_18015D070);
+  return v2;
 }

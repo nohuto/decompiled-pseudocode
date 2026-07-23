@@ -1,15 +1,15 @@
 /*
- * XREFs of CarWriteEarlyRuleViolationEvents @ 0x140619618
+ * XREFs of CarWriteEarlyRuleViolationEvents @ 0x140617BD8
  * Callers:
- *     CarInitLogging @ 0x1406160A0 (CarInitLogging.c)
+ *     CarInitLogging @ 0x140614660 (CarInitLogging.c)
  * Callees:
- *     RtlEnumerateGenericTableAvl @ 0x1403EA300 (RtlEnumerateGenericTableAvl.c)
- *     ViPtRaiseIrqlSafe @ 0x14061195C (ViPtRaiseIrqlSafe.c)
- *     CarEtwWriteBugCheckEvent @ 0x140615B58 (CarEtwWriteBugCheckEvent.c)
- *     CarAcquireDbLockAtDpcLevelSafe @ 0x140618FFC (CarAcquireDbLockAtDpcLevelSafe.c)
- *     CarCleanDbLockContext @ 0x1406192D4 (CarCleanDbLockContext.c)
- *     CarReleaseDbLockFromDpcLevel @ 0x1406195CC (CarReleaseDbLockFromDpcLevel.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403D9CC0 (RtlEnumerateGenericTableAvl.c)
+ *     ViPtRaiseIrqlSafe @ 0x14060FF1C (ViPtRaiseIrqlSafe.c)
+ *     CarEtwWriteBugCheckEvent @ 0x140614118 (CarEtwWriteBugCheckEvent.c)
+ *     CarAcquireDbLockAtDpcLevelSafe @ 0x1406175BC (CarAcquireDbLockAtDpcLevelSafe.c)
+ *     CarCleanDbLockContext @ 0x140617894 (CarCleanDbLockContext.c)
+ *     CarReleaseDbLockFromDpcLevel @ 0x140617B8C (CarReleaseDbLockFromDpcLevel.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _UNKNOWN **CarWriteEarlyRuleViolationEvents()

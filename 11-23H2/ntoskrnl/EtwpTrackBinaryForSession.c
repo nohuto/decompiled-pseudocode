@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTrackBinaryForSession @ 0x1408AB250
+ * XREFs of EtwpTrackBinaryForSession @ 0x1408AB4A0
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x14077DC5C (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x14077DE4C (EtwpProviderArrivalCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

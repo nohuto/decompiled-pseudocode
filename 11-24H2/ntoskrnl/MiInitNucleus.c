@@ -1,66 +1,66 @@
 /*
- * XREFs of MiInitNucleus @ 0x140C4F298
+ * XREFs of MiInitNucleus @ 0x140C51428
  * Callers:
- *     MmInitSystem @ 0x140BDE2E8 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140BE02E8 (MmInitSystem.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14045FB10 (ExInitializeNPagedLookasideListInternal.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x14046A884 (MiEnumerateSlabAllocatorsEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExInitializePoolHeapManagement @ 0x140659E80 (ExInitializePoolHeapManagement.c)
- *     MxInstallMoreMemory @ 0x14066C6F0 (MxInstallMoreMemory.c)
- *     MiFreeUnusedPfnPages @ 0x14066CDB0 (MiFreeUnusedPfnPages.c)
- *     MiInitializePageFaultResources @ 0x1406785C8 (MiInitializePageFaultResources.c)
- *     MiInitializeDebuggerSupport @ 0x14067FAEC (MiInitializeDebuggerSupport.c)
- *     MiInitializeCommitment @ 0x140686338 (MiInitializeCommitment.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407EA844 (MiInitializeSystemWorkingSetList.c)
- *     MiInitializeSections @ 0x1407EB7A8 (MiInitializeSections.c)
- *     MiInitializeWsSwapping @ 0x1407FB20C (MiInitializeWsSwapping.c)
- *     MmInitializeProcessor @ 0x140B62038 (MmInitializeProcessor.c)
- *     MiInitializeNumaRangesPermanent @ 0x140C4D9E8 (MiInitializeNumaRangesPermanent.c)
- *     MiInitializeNumaRangesTemporary @ 0x140C4DA58 (MiInitializeNumaRangesTemporary.c)
- *     MiInitializeBootDefaults @ 0x140C4E26C (MiInitializeBootDefaults.c)
- *     MiClearLoaderDescriptorFlags @ 0x140C4ED58 (MiClearLoaderDescriptorFlags.c)
- *     MiConstructLoaderMemoryTree @ 0x140C4EDC8 (MiConstructLoaderMemoryTree.c)
- *     MiCreatePfnDatabase @ 0x140C4EE90 (MiCreatePfnDatabase.c)
- *     MiExamineHalVa @ 0x140C4F004 (MiExamineHalVa.c)
- *     MiInitializeDummyPages @ 0x140C4F7E0 (MiInitializeDummyPages.c)
- *     MiInitializeFunctionOverrides @ 0x140C4F99C (MiInitializeFunctionOverrides.c)
- *     MiInitializeKasan @ 0x140C4FA24 (MiInitializeKasan.c)
- *     MiInitializePhysicalMemoryBlocks @ 0x140C4FB34 (MiInitializePhysicalMemoryBlocks.c)
- *     MiMapDummyPages @ 0x140C4FC6C (MiMapDummyPages.c)
- *     MiProtectSharedUserPage @ 0x140C50154 (MiProtectSharedUserPage.c)
- *     MiZeroBootMappings @ 0x140C503D0 (MiZeroBootMappings.c)
- *     MxMarkValidMappings @ 0x140C50440 (MxMarkValidMappings.c)
- *     MiInitializeLoaderDescriptors @ 0x140C51834 (MiInitializeLoaderDescriptors.c)
- *     MiInitializePfnsForValidMappings @ 0x140C518FC (MiInitializePfnsForValidMappings.c)
- *     MiRemoveLargeFreeLoaderDescriptors @ 0x140C51ABC (MiRemoveLargeFreeLoaderDescriptors.c)
- *     MiSwitchToPfns @ 0x140C51F10 (MiSwitchToPfns.c)
- *     MiCreateHugeIoRanges @ 0x140C535FC (MiCreateHugeIoRanges.c)
- *     MiBuildPagedPool @ 0x140C53B98 (MiBuildPagedPool.c)
- *     MiInitializeNonPagedPool @ 0x140C53CA4 (MiInitializeNonPagedPool.c)
- *     MiBuildSystemDataViews @ 0x140C54094 (MiBuildSystemDataViews.c)
- *     MiFillGapAddresses @ 0x140C54D0C (MiFillGapAddresses.c)
- *     MiInitializeDynamicVa @ 0x140C54F1C (MiInitializeDynamicVa.c)
- *     MiCheckLargePageOk @ 0x140C55B84 (MiCheckLargePageOk.c)
- *     MiMemoryLicense @ 0x140C561FC (MiMemoryLicense.c)
- *     MiInitializeKernelStacks @ 0x140C57458 (MiInitializeKernelStacks.c)
- *     MiInitializeChannelRangesPermanent @ 0x140C577C4 (MiInitializeChannelRangesPermanent.c)
- *     MiInitializeChannelRangesTemporary @ 0x140C5782C (MiInitializeChannelRangesTemporary.c)
- *     MiCompensateForProcessorErrata @ 0x140C57D58 (MiCompensateForProcessorErrata.c)
- *     MiCreateResidentBasePfnTemplate @ 0x140C580B8 (MiCreateResidentBasePfnTemplate.c)
- *     MiCreateResidentPfnTemplate @ 0x140C58120 (MiCreateResidentPfnTemplate.c)
- *     MiInitializeZeroingAttributes @ 0x140C58B14 (MiInitializeZeroingAttributes.c)
- *     MiMeasureDemandCoalesceTimeBounds @ 0x140C59ADC (MiMeasureDemandCoalesceTimeBounds.c)
- *     MiInitializeNonCachedMappingRegion @ 0x140C59D18 (MiInitializeNonCachedMappingRegion.c)
- *     MiInitializeSystemPtes @ 0x140C59F78 (MiInitializeSystemPtes.c)
- *     MiInitMachineDependent @ 0x140C5C234 (MiInitMachineDependent.c)
- *     MiInitializeSystemPteTracker @ 0x140C5C288 (MiInitializeSystemPteTracker.c)
- *     MiInitializeDecayPfns @ 0x140C5C2D8 (MiInitializeDecayPfns.c)
- *     MiCreateTopLevelUltraMappings @ 0x140C5C384 (MiCreateTopLevelUltraMappings.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404549D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14046321C (MiEnumerateSlabAllocatorsEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExInitializePoolHeapManagement @ 0x140658520 (ExInitializePoolHeapManagement.c)
+ *     MxInstallMoreMemory @ 0x14066D8C0 (MxInstallMoreMemory.c)
+ *     MiFreeUnusedPfnPages @ 0x14066DF80 (MiFreeUnusedPfnPages.c)
+ *     MiInitializePageFaultResources @ 0x140679754 (MiInitializePageFaultResources.c)
+ *     MiInitializeDebuggerSupport @ 0x140680CEC (MiInitializeDebuggerSupport.c)
+ *     MiInitializeCommitment @ 0x140687468 (MiInitializeCommitment.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407EAE14 (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeSections @ 0x1407EBD78 (MiInitializeSections.c)
+ *     MiInitializeWsSwapping @ 0x1407FB97C (MiInitializeWsSwapping.c)
+ *     MmInitializeProcessor @ 0x140B64108 (MmInitializeProcessor.c)
+ *     MiInitializeNumaRangesPermanent @ 0x140C4FB84 (MiInitializeNumaRangesPermanent.c)
+ *     MiInitializeNumaRangesTemporary @ 0x140C4FBF4 (MiInitializeNumaRangesTemporary.c)
+ *     MiInitializeBootDefaults @ 0x140C503FC (MiInitializeBootDefaults.c)
+ *     MiClearLoaderDescriptorFlags @ 0x140C50EE8 (MiClearLoaderDescriptorFlags.c)
+ *     MiConstructLoaderMemoryTree @ 0x140C50F58 (MiConstructLoaderMemoryTree.c)
+ *     MiCreatePfnDatabase @ 0x140C51020 (MiCreatePfnDatabase.c)
+ *     MiExamineHalVa @ 0x140C51194 (MiExamineHalVa.c)
+ *     MiInitializeDummyPages @ 0x140C51970 (MiInitializeDummyPages.c)
+ *     MiInitializeFunctionOverrides @ 0x140C51B2C (MiInitializeFunctionOverrides.c)
+ *     MiInitializeKasan @ 0x140C51BB4 (MiInitializeKasan.c)
+ *     MiInitializePhysicalMemoryBlocks @ 0x140C51CC4 (MiInitializePhysicalMemoryBlocks.c)
+ *     MiMapDummyPages @ 0x140C51DFC (MiMapDummyPages.c)
+ *     MiProtectSharedUserPage @ 0x140C522E4 (MiProtectSharedUserPage.c)
+ *     MiZeroBootMappings @ 0x140C52560 (MiZeroBootMappings.c)
+ *     MxMarkValidMappings @ 0x140C525D0 (MxMarkValidMappings.c)
+ *     MiInitializeLoaderDescriptors @ 0x140C539C4 (MiInitializeLoaderDescriptors.c)
+ *     MiInitializePfnsForValidMappings @ 0x140C53A8C (MiInitializePfnsForValidMappings.c)
+ *     MiRemoveLargeFreeLoaderDescriptors @ 0x140C53C4C (MiRemoveLargeFreeLoaderDescriptors.c)
+ *     MiSwitchToPfns @ 0x140C540A0 (MiSwitchToPfns.c)
+ *     MiCreateHugeIoRanges @ 0x140C5578C (MiCreateHugeIoRanges.c)
+ *     MiBuildPagedPool @ 0x140C55D28 (MiBuildPagedPool.c)
+ *     MiInitializeNonPagedPool @ 0x140C55E34 (MiInitializeNonPagedPool.c)
+ *     MiBuildSystemDataViews @ 0x140C56224 (MiBuildSystemDataViews.c)
+ *     MiFillGapAddresses @ 0x140C56E9C (MiFillGapAddresses.c)
+ *     MiInitializeDynamicVa @ 0x140C570AC (MiInitializeDynamicVa.c)
+ *     MiCheckLargePageOk @ 0x140C57D14 (MiCheckLargePageOk.c)
+ *     MiMemoryLicense @ 0x140C5838C (MiMemoryLicense.c)
+ *     MiInitializeKernelStacks @ 0x140C595E8 (MiInitializeKernelStacks.c)
+ *     MiInitializeChannelRangesPermanent @ 0x140C59954 (MiInitializeChannelRangesPermanent.c)
+ *     MiInitializeChannelRangesTemporary @ 0x140C599BC (MiInitializeChannelRangesTemporary.c)
+ *     MiCompensateForProcessorErrata @ 0x140C59EE8 (MiCompensateForProcessorErrata.c)
+ *     MiCreateResidentBasePfnTemplate @ 0x140C5A248 (MiCreateResidentBasePfnTemplate.c)
+ *     MiCreateResidentPfnTemplate @ 0x140C5A2B0 (MiCreateResidentPfnTemplate.c)
+ *     MiInitializeZeroingAttributes @ 0x140C5ACA4 (MiInitializeZeroingAttributes.c)
+ *     MiMeasureDemandCoalesceTimeBounds @ 0x140C5BC6C (MiMeasureDemandCoalesceTimeBounds.c)
+ *     MiInitializeNonCachedMappingRegion @ 0x140C5BEA8 (MiInitializeNonCachedMappingRegion.c)
+ *     MiInitializeSystemPtes @ 0x140C5C108 (MiInitializeSystemPtes.c)
+ *     MiInitMachineDependent @ 0x140C5E3C4 (MiInitMachineDependent.c)
+ *     MiInitializeSystemPteTracker @ 0x140C5E418 (MiInitializeSystemPteTracker.c)
+ *     MiInitializeDecayPfns @ 0x140C5E468 (MiInitializeDecayPfns.c)
+ *     MiCreateTopLevelUltraMappings @ 0x140C5E514 (MiCreateTopLevelUltraMappings.c)
  */
 
 __int64 __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
@@ -79,18 +79,18 @@ __int64 __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
   char *AnyMultiplexedVm; // rax
   _QWORD *v14; // rcx
 
-  if ( dword_140E30148 )
-    KeBugCheckEx(0x1Au, 0x300uLL, dword_140E30148, 0LL, 0LL);
+  if ( dword_140E30288 )
+    KeBugCheckEx(0x1Au, 0x300uLL, dword_140E30288, 0LL, 0LL);
   MiConstructLoaderMemoryTree(BugCheckParameter2);
-  qword_141007808 = KeQueryPerformanceCounter(0LL).QuadPart;
-  byte_140E375F4 = 4;
-  byte_140E2DB41 = KeGetCurrentPrcb()->CpuVendor == 1;
+  qword_141008808 = KeQueryPerformanceCounter(0LL).QuadPart;
+  byte_140E37734 = 4;
+  byte_140E2DC81 = KeGetCurrentPrcb()->CpuVendor == 1;
   MiCompensateForProcessorErrata(BugCheckParameter2);
   MiInitMachineDependent();
   MiLowHalVa = MiExamineHalVa();
   MiInitializeBootDefaults(BugCheckParameter2);
   MiInitializeSystemPteTracker();
-  v2 = qword_140E37180;
+  v2 = qword_140E372C0;
   v3 = 2LL;
   do
   {
@@ -99,28 +99,28 @@ __int64 __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
     --v3;
   }
   while ( v3 );
-  xmmword_140E37200 = 0LL;
+  xmmword_140E37340 = 0LL;
   MiInitializeDynamicVa();
   MiInitializeNumaRangesTemporary();
   MiInitializeChannelRangesTemporary();
   MiMemoryLicense(BugCheckParameter2);
-  qword_141007810 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_141008810 = KeQueryPerformanceCounter(0LL).QuadPart;
   MiRemoveLargeFreeLoaderDescriptors(BugCheckParameter2);
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  qword_140E2DBD0 = -1LL;
-  qword_141007818 = PerformanceCounter.QuadPart;
+  qword_140E2DD10 = -1LL;
+  qword_141008818 = PerformanceCounter.QuadPart;
   MiInitializeLoaderDescriptors(BugCheckParameter2);
   MiCheckLargePageOk(BugCheckParameter2);
-  MiCreateResidentPfnTemplate(&unk_140E2FE40);
-  MiCreateResidentBasePfnTemplate(&unk_140E2FE70);
+  MiCreateResidentPfnTemplate(&unk_140E2FF80);
+  MiCreateResidentBasePfnTemplate(&unk_140E2FFB0);
   MxMarkValidMappings(0xFFFFF6FB7DBED800uLL, 0xFFFFF6FB7DBEDFF8uLL, 3LL, BugCheckParameter2);
-  qword_141007820 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_141008820 = KeQueryPerformanceCounter(0LL).QuadPart;
   MiCreatePfnDatabase(BugCheckParameter2);
-  qword_141007828 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_141008828 = KeQueryPerformanceCounter(0LL).QuadPart;
   MiInitializePfnsForValidMappings(BugCheckParameter2);
-  qword_141007830 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_141008830 = KeQueryPerformanceCounter(0LL).QuadPart;
   MiSwitchToPfns(BugCheckParameter2);
-  qword_141007838 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_141008838 = KeQueryPerformanceCounter(0LL).QuadPart;
   MiInitializeZeroingAttributes();
   MiInitializeSections((__int64)&MiSystemPartition);
   MiInitializeCommitment((__int64)&MiSystemPartition);
@@ -133,16 +133,16 @@ __int64 __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
     MxInstallMoreMemory(5);
   MiMapDummyPages();
   MiInitializeKasan(BugCheckParameter2);
-  qword_141007840 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_141008840 = KeQueryPerformanceCounter(0LL).QuadPart;
   if ( (int)ExInitializePoolHeapManagement(((unsigned __int64)MiFlags >> 5) & 0x400) < 0 )
     MxInstallMoreMemory(11);
   MiInitializePhysicalMemoryBlocks(BugCheckParameter2);
   MiZeroBootMappings();
   MiInitializeFunctionOverrides(BugCheckParameter2);
   MiInitializeDecayPfns();
-  if ( ((unsigned __int8)&stru_140E35C40 & 0xF) != 0 )
+  if ( ((unsigned __int8)&stru_140E35D80 & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
-  stru_140E35C40 = 0LL;
+  stru_140E35D80 = 0LL;
   v5 = 0;
   if ( KeNumberNodes )
   {
@@ -171,18 +171,18 @@ __int64 __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
       v11 = v5++;
       v12 = 3 * v11;
       LODWORD(v11) = (unsigned __int16)KeNumberNodes;
-      *(_QWORD *)(qword_140E2DAF8 + (v12 << 7) + 376) = v8;
+      *(_QWORD *)(qword_140E2DC38 + (v12 << 7) + 376) = v8;
     }
     while ( v5 < (unsigned int)v11 );
   }
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  v14 = &unk_140E38740;
+  v14 = &unk_140E38880;
   if ( (*((_DWORD *)AnyMultiplexedVm + 46) & 0xF) != 1 )
     v14 = AnyMultiplexedVm + 192;
-  *v14 = &unk_140E2D8C0;
-  if ( (int)MiInitializeSystemWorkingSetList((__int64)&MiSystemPartition, (__int64)AnyMultiplexedVm, 3, 0LL) < 0 )
+  *v14 = &unk_140E2DA00;
+  if ( (int)MiInitializeSystemWorkingSetList((__int64)&MiSystemPartition, (__int64)AnyMultiplexedVm, 3u, 0LL) < 0 )
     MxInstallMoreMemory(16);
-  MiInitializeSystemWorkingSetList((__int64)&MiSystemPartition, (__int64)&unk_140E38600, 9, 0LL);
+  MiInitializeSystemWorkingSetList((__int64)&MiSystemPartition, (__int64)&unk_140E38740, 9u, 0LL);
   if ( !(unsigned int)MiInitializeKernelStacks() )
     MxInstallMoreMemory(13);
   if ( !(unsigned int)MiInitializeNonCachedMappingRegion() )
@@ -193,11 +193,11 @@ __int64 __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
     MxInstallMoreMemory(15);
   if ( !(unsigned int)MiBuildSystemDataViews() )
     MxInstallMoreMemory(51);
-  MiFillGapAddresses(0xFFFFDE0000000000uLL, 48 * qword_140E2DBE0 - 0x21FFFFFFFFD1LL);
+  MiFillGapAddresses(0xFFFFDE0000000000uLL, 48 * qword_140E2DD20 - 0x21FFFFFFFFD1LL);
   MiFlags |= 0x20000000uLL;
-  qword_141007848 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_141008848 = KeQueryPerformanceCounter(0LL).QuadPart;
   MiFreeUnusedPfnPages(0LL);
-  qword_141007850 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_141008850 = KeQueryPerformanceCounter(0LL).QuadPart;
   if ( !(unsigned int)MiInitializePageFaultResources() )
     MxInstallMoreMemory(20);
   if ( !(unsigned int)MiBuildPagedPool() )
@@ -210,5 +210,5 @@ __int64 __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
   ExInitializeNPagedLookasideListInternal((__int64)&Lookaside, 0LL, 0LL, 512, 192, 1800170829, 0, 0);
   MiMeasureDemandCoalesceTimeBounds();
   MiFlags |= 0x400000000uLL;
-  return MiEnumerateSlabAllocatorsEx((__int64)&MiSystemPartition, (__int64)MiInitialSlabPopulate, 0LL, 0xFFFFFFFFLL, 9u);
+  return MiEnumerateSlabAllocatorsEx((__int64)&MiSystemPartition, (__int64)MiInitialSlabPopulate, 0LL, 0xFFFFFFFF, 9u);
 }

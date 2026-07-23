@@ -83,10 +83,13 @@ __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *
     v12 = HalpAcquireHighLevelLock(&HalpInterruptLock);
     v7 = HalpInterruptSetLineStateInternal(v9, (__int64)&v20, v19);
     KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v12 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

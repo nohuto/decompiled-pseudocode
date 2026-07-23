@@ -1,11 +1,11 @@
 /*
- * XREFs of ViScatterGatherCallback @ 0x14070A358
+ * XREFs of ViScatterGatherCallback @ 0x14070A388
  * Callers:
  *     <none>
  * Callees:
- *     ExInterlockedInsertHeadList @ 0x1400A7B70 (ExInterlockedInsertHeadList.c)
- *     ADD_MAP_REGISTERS @ 0x140705A88 (ADD_MAP_REGISTERS.c)
- *     VF_MARK_SCATTER_GATHER_LIST @ 0x1407061B0 (VF_MARK_SCATTER_GATHER_LIST.c)
+ *     ExInterlockedInsertHeadList @ 0x1400A60E8 (ExInterlockedInsertHeadList.c)
+ *     ADD_MAP_REGISTERS @ 0x140705AB8 (ADD_MAP_REGISTERS.c)
+ *     VF_MARK_SCATTER_GATHER_LIST @ 0x1407061E0 (VF_MARK_SCATTER_GATHER_LIST.c)
  */
 
 __int64 __fastcall ViScatterGatherCallback(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4)

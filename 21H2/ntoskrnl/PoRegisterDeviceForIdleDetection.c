@@ -1,12 +1,12 @@
 /*
- * XREFs of PoRegisterDeviceForIdleDetection @ 0x140361200
+ * XREFs of PoRegisterDeviceForIdleDetection @ 0x1402A6260
  * Callers:
- *     PoRunDownDeviceObject @ 0x140360EE8 (PoRunDownDeviceObject.c)
+ *     PoRunDownDeviceObject @ 0x1402A5F48 (PoRunDownDeviceObject.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopCheckForWork @ 0x140281280 (PopCheckForWork.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopGetDope @ 0x140399D04 (PopGetDope.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopCheckForWork @ 0x14026F4C0 (PopCheckForWork.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopGetDope @ 0x140399E54 (PopGetDope.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -111,13 +111,13 @@ LABEL_30:
   if ( (_QWORD *)*v18 == v18 )
   {
     *(_DWORD *)(v16 + 56) = 1;
-    v19 = (_QWORD *)qword_140C23F58;
-    if ( *(__int64 **)qword_140C23F58 != &PopIdleDetectList )
+    v19 = (_QWORD *)qword_140C230D8;
+    if ( *(__int64 **)qword_140C230D8 != &PopIdleDetectList )
       goto LABEL_30;
     *v18 = &PopIdleDetectList;
     *(_QWORD *)(v16 + 40) = v19;
     *v19 = v18;
-    qword_140C23F58 = v16 + 32;
+    qword_140C230D8 = v16 + 32;
   }
   KxReleaseSpinLock(&PopDopeGlobalLock);
   if ( KiIrqlFlags )

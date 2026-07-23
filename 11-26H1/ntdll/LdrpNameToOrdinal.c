@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpNameToOrdinal @ 0x1800BA660
+ * XREFs of LdrpNameToOrdinal @ 0x1800B7B90
  * Callers:
- *     LdrpSnapModule @ 0x18011B530 (LdrpSnapModule.c)
+ *     LdrpSnapModule @ 0x18011B2E0 (LdrpSnapModule.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
  */
 
 __int64 __fastcall LdrpNameToOrdinal(
-        const char *ArgList,
+        const char *a1,
         unsigned int a2,
         _BYTE *a3,
         unsigned int a4,
@@ -30,8 +30,8 @@ __int64 __fastcall LdrpNameToOrdinal(
     v8 = v7 / 2;
   while ( v7 >= v6 )
   {
-    v10 = ArgList;
-    v11 = &a3[*(unsigned int *)(a5 + 4LL * v8)] - ArgList;
+    v10 = a1;
+    v11 = &a3[*(unsigned int *)(a5 + 4LL * v8)] - a1;
     while ( 1 )
     {
       v12 = *v10;
@@ -57,12 +57,12 @@ LABEL_8:
     v8 = (v6 + v15) / 2;
   }
   LdrpLogInternal(
-    (int)"minkernel\\ldr\\ldrsnap.c",
+    "minkernel\\ldr\\ldrsnap.c",
     2286,
     (__int64)"LdrpNameToOrdinal",
     1,
     "Procedure \"%s\" could not be located in DLL at base 0x%p.\n",
-    ArgList,
+    a1,
     a3);
   return 0xFFFFFFFFLL;
 }

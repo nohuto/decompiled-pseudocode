@@ -3,9 +3,9 @@
  * Callers:
  *     MiClearNonPagedPtes @ 0x140212458 (MiClearNonPagedPtes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiReduceShareCount @ 0x140367F14 (MiReduceShareCount.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiReduceShareCount @ 0x1403680B4 (MiReduceShareCount.c)
  */
 
 __int64 __fastcall MiDeleteNonPagedPoolTail(__int64 a1)

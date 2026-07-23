@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpGetSystemEmulationProcessorInformation @ 0x1404CCA9C
+ * XREFs of ExpGetSystemEmulationProcessorInformation @ 0x1404C623C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
  */
 
 __int64 __fastcall ExpGetSystemEmulationProcessorInformation(__int64 a1)

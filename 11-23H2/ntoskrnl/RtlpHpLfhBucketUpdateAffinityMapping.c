@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpLfhBucketUpdateAffinityMapping @ 0x14034A2F0
+ * XREFs of RtlpHpLfhBucketUpdateAffinityMapping @ 0x14034A488
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1402ADCC0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402ADF50 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpAcquireLockExclusive @ 0x140316CC4 (RtlpHpAcquireLockExclusive.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1403264B0 (KeGetCurrentProcessorNumberEx.c)
- *     RtlpHpLfhBucketAllocateSlot @ 0x1403D4C84 (RtlpHpLfhBucketAllocateSlot.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140316F54 (RtlpHpAcquireLockExclusive.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140326740 (KeGetCurrentProcessorNumberEx.c)
+ *     RtlpHpLfhBucketAllocateSlot @ 0x1403D4E64 (RtlpHpLfhBucketAllocateSlot.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
@@ -115,10 +115,13 @@ LABEL_16:
     if ( *(_BYTE *)(a1 + 57) )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 80));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v13 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -152,10 +155,10 @@ LABEL_16:
   if ( *(_BYTE *)(a1 + 57) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 80));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v27 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v27 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v27 >= 2u )
       {
         v28 = KeGetCurrentPrcb();
         v29 = v28->SchedulerAssist;

@@ -3,7 +3,7 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x14035E6A4 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x14035E844 (PopQueueDirectedDripsWork.c)
  *     PopDirectedDripsInitializePhase3 @ 0x140B6C83C (PopDirectedDripsInitializePhase3.c)
  *     PopDirectedDripsInitializePhase0 @ 0x140B71C9C (PopDirectedDripsInitializePhase0.c)
  */

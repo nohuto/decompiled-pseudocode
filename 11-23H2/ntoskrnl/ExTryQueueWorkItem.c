@@ -1,10 +1,10 @@
 /*
- * XREFs of ExTryQueueWorkItem @ 0x1402B9B30
+ * XREFs of ExTryQueueWorkItem @ 0x1402B9DC0
  * Callers:
- *     PopFxQueueWorkItem @ 0x14028C22C (PopFxQueueWorkItem.c)
- *     PopFxRequestWorkerInternal @ 0x140314F74 (PopFxRequestWorkerInternal.c)
+ *     PopFxQueueWorkItem @ 0x14028C4BC (PopFxQueueWorkItem.c)
+ *     PopFxRequestWorkerInternal @ 0x140315204 (PopFxRequestWorkerInternal.c)
  * Callees:
- *     ExpTryQueueWorkItem @ 0x1402B993C (ExpTryQueueWorkItem.c)
+ *     ExpTryQueueWorkItem @ 0x1402B9BCC (ExpTryQueueWorkItem.c)
  */
 
 char __fastcall ExTryQueueWorkItem(__int64 *a1, unsigned int a2)

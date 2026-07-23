@@ -1,14 +1,14 @@
 /*
- * XREFs of PsSetVmProcessorHostProcess @ 0x140B688F0
+ * XREFs of PsSetVmProcessorHostProcess @ 0x140B6B880
  * Callers:
- *     VmSetVpHostProcess @ 0x14081C120 (VmSetVpHostProcess.c)
+ *     VmSetVpHostProcess @ 0x140822330 (VmSetVpHostProcess.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     ExBlockOnAddressPushLock @ 0x14047EBC0 (ExBlockOnAddressPushLock.c)
- *     PspSynchronizeThreadIsolationDomains @ 0x1404C6128 (PspSynchronizeThreadIsolationDomains.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     ExBlockOnAddressPushLock @ 0x140478530 (ExBlockOnAddressPushLock.c)
+ *     PspSynchronizeThreadIsolationDomains @ 0x1404BFAD8 (PspSynchronizeThreadIsolationDomains.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
  */
 
 NTSTATUS __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)
@@ -52,9 +52,11 @@ NTSTATUS __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
       _InterlockedAnd(v1, 0xFEFFFFFF);
       _InterlockedOr(v6, 0);
-      result = (NTSTATUS)PsAltSystemCallRegistrationLock.FirstArgument;
-      if ( PsAltSystemCallRegistrationLock.FirstArgument )
-        return ExfUnblockPushLock((volatile __int64 *)&PsAltSystemCallRegistrationLock.FirstArgument, 0LL);
+      result = (NTSTATUS)PsAltSystemCallRegistrationLock.Timer.Header.WaitListHead.Blink;
+      if ( PsAltSystemCallRegistrationLock.Timer.Header.WaitListHead.Blink )
+        return ExfUnblockPushLock(
+                 (volatile __int64 *)&PsAltSystemCallRegistrationLock.Timer.Header.WaitListHead.Blink,
+                 0LL);
       return result;
     }
   }
@@ -62,7 +64,12 @@ NTSTATUS __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)
   {
     do
     {
-      ExBlockOnAddressPushLock((signed __int64 *)&PsAltSystemCallRegistrationLock.FirstArgument, v1, &v9, 4LL, 0LL);
+      ExBlockOnAddressPushLock(
+        (signed __int64 *)&PsAltSystemCallRegistrationLock.Timer.Header.WaitListHead.Blink,
+        v1,
+        &v9,
+        4LL,
+        0LL);
       v9 = *((_DWORD *)a1 + 383);
       result = v9;
     }

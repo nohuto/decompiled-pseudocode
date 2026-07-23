@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCsqRemoveNextIrp @ 0x140338E80
+ * XREFs of IoCsqRemoveNextIrp @ 0x140339110
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 PIRP __stdcall IoCsqRemoveNextIrp(PIO_CSQ Csq, PVOID PeekContext)

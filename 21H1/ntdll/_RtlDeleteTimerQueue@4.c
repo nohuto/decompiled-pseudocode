@@ -6,7 +6,7 @@
  *     _RtlDeleteTimerQueueEx@8 @ 0x4B2A8AC0 (_RtlDeleteTimerQueueEx@8.c)
  */
 
-int __stdcall RtlDeleteTimerQueue(int a1)
+NTSTATUS __cdecl RtlDeleteTimerQueue(HANDLE TimerQueueHandle)
 {
-  return RtlDeleteTimerQueueEx(a1, 0);
+  return RtlDeleteTimerQueueEx(TimerQueueHandle, 0);
 }

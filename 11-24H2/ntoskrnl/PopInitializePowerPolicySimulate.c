@@ -1,15 +1,15 @@
 /*
- * XREFs of PopInitializePowerPolicySimulate @ 0x140A85F80
+ * XREFs of PopInitializePowerPolicySimulate @ 0x140A80AC0
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
  */
 
 NTSTATUS PopInitializePowerPolicySimulate()

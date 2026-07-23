@@ -1,22 +1,22 @@
 /*
  * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1403D7610
  * Callers:
- *     SmFpAllocate @ 0x14037DA00 (SmFpAllocate.c)
+ *     sub_14037DA00 @ 0x14037DA00 (sub_14037DA00.c)
  *     sub_1403F9550 @ 0x1403F9550 (sub_1403F9550.c)
- *     HalpDmaAcquireBufferMappings @ 0x140456CC6 (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140513544 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140513C1C (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     PnprCopyReservedMapping @ 0x140562A80 (PnprCopyReservedMapping.c)
- *     PspIumFreePhysicalPages @ 0x1405E281C (PspIumFreePhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1409ED100 (EtwpSavePersistedLogger.c)
- *     PnprMapPhysicalPages @ 0x140A6804C (PnprMapPhysicalPages.c)
+ *     sub_140456CC6 @ 0x140456CC6 (sub_140456CC6.c)
+ *     sub_140513544 @ 0x140513544 (sub_140513544.c)
+ *     sub_140513C1C @ 0x140513C1C (sub_140513C1C.c)
+ *     sub_140562A80 @ 0x140562A80 (sub_140562A80.c)
+ *     sub_1405E281C @ 0x1405E281C (sub_1405E281C.c)
+ *     sub_1409ED100 @ 0x1409ED100 (sub_1409ED100.c)
+ *     sub_140A6804C @ 0x140A6804C (sub_140A6804C.c)
  * Callees:
- *     MiLegitimatePageForDriversToMap @ 0x14021378C (MiLegitimatePageForDriversToMap.c)
+ *     sub_14021378C @ 0x14021378C (sub_14021378C.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     sub_140317A10 @ 0x140317A10 (sub_140317A10.c)
  *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     MiMapMdlCommon @ 0x1403D77D4 (MiMapMdlCommon.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_1403D77D4 @ 0x1403D77D4 (sub_1403D77D4.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -41,7 +41,7 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
   struct _MDL *Next; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v23; // r9
   int v24; // eax
   bool v25; // zf
 
@@ -69,20 +69,20 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
     v10 = *(_QWORD *)(v10 + 8);
   }
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C53050);
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v23 = *((_QWORD *)CurrentPrcb + 4375);
         v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-        v25 = (v24 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v24;
+        v25 = (v24 & *(_DWORD *)(v23 + 20)) == 0;
+        *(_DWORD *)(v23 + 20) &= v24;
         if ( v25 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
   }
@@ -107,7 +107,7 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
     v16 = (((unsigned __int64)MappingAddress >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     for ( BugCheckParameter4 = v16 + 8 * v15; v16 < BugCheckParameter4; v16 += 8LL )
     {
-      if ( MI_READ_PTE_LOCK_FREE(v16) )
+      if ( sub_140317A10(v16) )
         KeBugCheckEx(0xDAu, 0x107uLL, (ULONG_PTR)MappingAddress, v16, BugCheckParameter4);
     }
     for ( i = MemoryDescriptorList + 1; ; i = (PMDL)((char *)i + 8) )
@@ -115,12 +115,12 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
       Next = i->Next;
       if ( i->Next <= (struct _MDL *)qword_140C50840
         && (*(_QWORD *)(48LL * (_QWORD)Next - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0
-        && (int)MiLegitimatePageForDriversToMap(48LL * (_QWORD)Next - 0x220000000000LL) < 0 )
+        && (int)sub_14021378C(48LL * (_QWORD)Next - 0x220000000000LL) < 0 )
       {
         break;
       }
       if ( !--v7 )
-        return (PVOID)MiMapMdlCommon(
+        return (PVOID)sub_1403D77D4(
                         (_DWORD)MemoryDescriptorList,
                         (unsigned int)((unsigned __int64)MappingAddress >> 9) & 0xFFFFFFF8,
                         0,

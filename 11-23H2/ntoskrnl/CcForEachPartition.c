@@ -1,22 +1,22 @@
 /*
- * XREFs of CcForEachPartition @ 0x140310DCC
+ * XREFs of CcForEachPartition @ 0x14031105C
  * Callers:
- *     CcGetDirtyPages @ 0x140310350 (CcGetDirtyPages.c)
- *     CcIsThereDirtyData @ 0x1403AC960 (CcIsThereDirtyData.c)
- *     CcWaitForCurrentLazyWriterActivity @ 0x1403D7030 (CcWaitForCurrentLazyWriterActivity.c)
- *     CcCoalescingCallBack @ 0x1405354A0 (CcCoalescingCallBack.c)
- *     CcNotifyWriteBehind @ 0x1405369D8 (CcNotifyWriteBehind.c)
- *     MiFlushAllFilesystemPages @ 0x140629294 (MiFlushAllFilesystemPages.c)
- *     CcTelemetryPeriodicTimerCallback @ 0x140880BC0 (CcTelemetryPeriodicTimerCallback.c)
+ *     CcGetDirtyPages @ 0x1403105E0 (CcGetDirtyPages.c)
+ *     CcIsThereDirtyData @ 0x1403ACB40 (CcIsThereDirtyData.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x1403D7210 (CcWaitForCurrentLazyWriterActivity.c)
+ *     CcCoalescingCallBack @ 0x1405359F0 (CcCoalescingCallBack.c)
+ *     CcNotifyWriteBehind @ 0x140536F28 (CcNotifyWriteBehind.c)
+ *     MiFlushAllFilesystemPages @ 0x1406297E4 (MiFlushAllFilesystemPages.c)
+ *     CcTelemetryPeriodicTimerCallback @ 0x140880E00 (CcTelemetryPeriodicTimerCallback.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     PsGetNextPartitionUnsafe @ 0x140310EF0 (PsGetNextPartitionUnsafe.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1403D0E70 (CcForEachPrivateVolumeCacheMap.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     PsGetNextPartitionUnsafe @ 0x140311180 (PsGetNextPartitionUnsafe.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403D1050 (CcForEachPrivateVolumeCacheMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 LONG_PTR __fastcall CcForEachPartition(
@@ -85,10 +85,13 @@ LABEL_6:
       }
     }
     KxReleaseSpinLock((volatile signed __int64 *)&CcGlobalPartitionLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v15 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

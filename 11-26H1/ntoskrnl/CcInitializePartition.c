@@ -1,18 +1,18 @@
 /*
- * XREFs of CcInitializePartition @ 0x1405B285C
+ * XREFs of CcInitializePartition @ 0x1405B506C
  * Callers:
- *     CcCreatePartition @ 0x1405B2188 (CcCreatePartition.c)
+ *     CcCreatePartition @ 0x1405B4998 (CcCreatePartition.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     ExAllocatePoolWithTagFromNode @ 0x140398280 (ExAllocatePoolWithTagFromNode.c)
- *     CcForEachNumaNode @ 0x1403E41A8 (CcForEachNumaNode.c)
- *     CcInitializePartitionVacbs @ 0x1405B2EE8 (CcInitializePartitionVacbs.c)
- *     CcInitializeNumaNode @ 0x1405B33B0 (CcInitializeNumaNode.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140399FE0 (ExAllocatePoolWithTagFromNode.c)
+ *     CcForEachNumaNode @ 0x1403E7398 (CcForEachNumaNode.c)
+ *     CcInitializePartitionVacbs @ 0x1405B56F8 (CcInitializePartitionVacbs.c)
+ *     CcInitializeNumaNode @ 0x1405B5BC0 (CcInitializeNumaNode.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
@@ -137,8 +137,8 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
   StartContext[1043] = 0;
   v9 = (unsigned __int16 **)*((_QWORD *)StartContext + 1);
   StartContext[1048] = 1;
-  v10 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * **v9) + 22288LL);
-  if ( (_BYTE)dword_140FBE22C )
+  v10 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * **v9) + 22288LL);
+  if ( (_BYTE)dword_140FBF22C )
   {
     v11 = v10 >> 1;
     if ( (unsigned int)CcAzure_TopBottomDPTEqual < 2 )
@@ -148,7 +148,7 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
     *((_QWORD *)StartContext + 136) = v11;
     *((_QWORD *)StartContext + 137) = v12;
     *((_QWORD *)StartContext + 135) = v11;
-    v13 = LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadListEntry.Flink) - 1;
+    v13 = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[48] - 1;
   }
   else
   {
@@ -160,10 +160,10 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
   *((_DWORD *)StartContext + 216) = v13;
   *((_DWORD *)StartContext + 282) = 10;
   *((_QWORD *)StartContext + 139) = 10 * v10;
-  v14 = LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadListEntry.Flink) - 1;
+  v14 = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[48] - 1;
   *((_QWORD *)StartContext + 140) = 0LL;
   *((_DWORD *)StartContext + 210) = v14;
-  *((_DWORD *)StartContext + 217) = HIDWORD(EmpParseLock.ForegroundDpcStackListEntry.Next);
+  *((_DWORD *)StartContext + 217) = EmpParseLock.SchedulerAssistPriorityFloor;
   v15 = (*((_QWORD *)StartContext + 135) >> 1) + (*((_QWORD *)StartContext + 135) >> 2);
   if ( CcAzure_LazyWriterPercentageOfNumProcs )
   {

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMapContiguousMemory @ 0x140363E10
+ * XREFs of MiMapContiguousMemory @ 0x140365BB0
  * Callers:
- *     MiAllocateContiguousMemory @ 0x14034A28C (MiAllocateContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x14034C30C (MiAllocateContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
  * Callees:
- *     MiMappingHasIoReferences @ 0x14024DE74 (MiMappingHasIoReferences.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiMapContiguousMemoryLarge @ 0x1402A29AC (MiMapContiguousMemoryLarge.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiSanitizePage @ 0x1404A096C (MiSanitizePage.c)
- *     MiInsertPteTracker @ 0x1405033CC (MiInsertPteTracker.c)
- *     KasanTrackAddressNoInline @ 0x140532270 (KasanTrackAddressNoInline.c)
- *     KasanMarkAddressInvalidNoInline @ 0x1405DD740 (KasanMarkAddressInvalidNoInline.c)
- *     KasanMarkAddressRedZoneNoInline @ 0x1405DD820 (KasanMarkAddressRedZoneNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiMappingHasIoReferences @ 0x14024F7D4 (MiMappingHasIoReferences.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiMapContiguousMemoryLarge @ 0x1402A1EFC (MiMapContiguousMemoryLarge.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiSanitizePage @ 0x14049A4BC (MiSanitizePage.c)
+ *     MiInsertPteTracker @ 0x1404FCC9C (MiInsertPteTracker.c)
+ *     KasanTrackAddressNoInline @ 0x140534710 (KasanTrackAddressNoInline.c)
+ *     KasanMarkAddressInvalidNoInline @ 0x1405E00B0 (KasanMarkAddressInvalidNoInline.c)
+ *     KasanMarkAddressRedZoneNoInline @ 0x1405E0190 (KasanMarkAddressRedZoneNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiMapContiguousMemory(
@@ -103,9 +103,9 @@ unsigned __int64 __fastcall MiMapContiguousMemory(
     ++v9;
   if ( v9 > v14 )
     return 0LL;
-  p_WaitBlockList = (_KWAIT_BLOCK **)&unk_140E34A40;
+  p_WaitBlockList = (_KWAIT_BLOCK **)&unk_140E34BC0;
   if ( (v5 & 0x18) == 0 )
-    p_WaitBlockList = &stru_140E36558.WaitBlockList;
+    p_WaitBlockList = &stru_140E366D8.WaitBlockList;
   v20 = (unsigned __int64 *)MiReservePtes((__int64)p_WaitBlockList, v9, v11, v12);
   v21 = v20;
   if ( !v20 )
@@ -125,7 +125,7 @@ LABEL_28:
   v23 = v26 & 1;
   if ( (v26 & 1) != 0 )
     MiMappingHasIoReferences(v16);
-  if ( (dword_140FBE20C & 1) != 0 )
+  if ( (dword_140FBF20C & 1) != 0 )
   {
     v36[3] = v16;
     v36[0] = 0LL;
@@ -140,7 +140,7 @@ LABEL_28:
     v24 = MiProtectionToCacheAttribute(v5);
     MiInsertPteTracker(v36, 1LL, v23, v24);
   }
-  if ( byte_140FC7BE8 )
+  if ( byte_140FC8BD8 )
   {
     v25 = v9 << 12;
     if ( (int)KasanTrackAddressNoInline(v17, v25, 0LL) < 0 )
@@ -148,10 +148,10 @@ LABEL_28:
       MiUnmapContiguousMemory(v17, v25, 0);
       return 0LL;
     }
-    if ( byte_140FC7BE8 )
+    if ( byte_140FC8BD8 )
     {
       KasanMarkAddressInvalidNoInline(v17, v8);
-      if ( byte_140FC7BE8 )
+      if ( byte_140FC8BD8 )
         KasanMarkAddressRedZoneNoInline(v17 + v8, v30, BugCheckParameter4);
     }
   }

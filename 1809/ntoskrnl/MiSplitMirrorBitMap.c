@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSplitMirrorBitMap @ 0x1406DFBA8
+ * XREFs of MiSplitMirrorBitMap @ 0x1406E0E48
  * Callers:
- *     MiActOnMirrorBitmap @ 0x1406DFB0C (MiActOnMirrorBitmap.c)
- *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
+ *     MiActOnMirrorBitmap @ 0x1406E0DAC (MiActOnMirrorBitmap.c)
+ *     MiAddPhysicalMemory @ 0x14084DAF4 (MiAddPhysicalMemory.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
  */

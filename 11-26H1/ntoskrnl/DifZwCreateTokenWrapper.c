@@ -1,31 +1,31 @@
 /*
- * XREFs of DifZwCreateTokenWrapper @ 0x1406A2BE0
+ * XREFs of DifZwCreateTokenWrapper @ 0x1406A67C0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCreateToken @ 0x140724D90 (ZwCreateToken.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCreateToken @ 0x140729960 (ZwCreateToken.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwCreateTokenWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        __int64 a12,
-        __int64 a13)
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        TOKEN_TYPE a4,
+        struct _LUID *AuthenticationId,
+        LARGE_INTEGER *ExpirationTime,
+        _TOKEN_USER *User,
+        struct _TOKEN_GROUPS *Groups,
+        struct _TOKEN_PRIVILEGES *Privileges,
+        _TOKEN_OWNER *Owner,
+        _TOKEN_PRIMARY_GROUP *PrimaryGroup,
+        _TOKEN_DEFAULT_DACL *DefaultDacl,
+        struct _TOKEN_SOURCE *Source)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v17; // rdx
@@ -39,10 +39,10 @@ __int64 __fastcall DifZwCreateTokenWrapper(
   _QWORD **v25; // rsi
   _QWORD *j; // rbx
   _QWORD v28[10]; // [rsp+78h] [rbp-79h] BYREF
-  unsigned int v29; // [rsp+C8h] [rbp-29h]
-  __int64 v30; // [rsp+D0h] [rbp-21h]
-  unsigned int v31; // [rsp+D8h] [rbp-19h]
-  __int64 v32; // [rsp+E0h] [rbp-11h]
+  TOKEN_TYPE v29; // [rsp+C8h] [rbp-29h]
+  OBJECT_ATTRIBUTES *v30; // [rsp+D0h] [rbp-21h]
+  ACCESS_MASK v31; // [rsp+D8h] [rbp-19h]
+  HANDLE *v32; // [rsp+E0h] [rbp-11h]
   unsigned int Token; // [rsp+E8h] [rbp-9h]
   void *retaddr; // [rsp+120h] [rbp+2Fh]
 
@@ -66,15 +66,15 @@ __int64 __fastcall DifZwCreateTokenWrapper(
 LABEL_7:
   v21 = 0;
   v32 = a1;
-  v28[9] = a5;
-  v28[8] = a6;
-  v28[7] = a7;
-  v28[6] = a8;
-  v28[5] = a9;
-  v28[4] = a10;
-  v28[3] = a11;
-  v28[2] = a12;
-  v28[1] = a13;
+  v28[9] = AuthenticationId;
+  v28[8] = ExpirationTime;
+  v28[7] = User;
+  v28[6] = Groups;
+  v28[5] = Privileges;
+  v28[4] = Owner;
+  v28[3] = PrimaryGroup;
+  v28[2] = DefaultDacl;
+  v28[1] = Source;
   v31 = a2;
   v30 = a3;
   v29 = a4;
@@ -90,7 +90,20 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  Token = ZwCreateToken(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13);
+  Token = ZwCreateToken(
+            a1,
+            a2,
+            a3,
+            a4,
+            AuthenticationId,
+            ExpirationTime,
+            User,
+            Groups,
+            Privileges,
+            Owner,
+            PrimaryGroup,
+            DefaultDacl,
+            Source);
   if ( v18 )
   {
     if ( (v24 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

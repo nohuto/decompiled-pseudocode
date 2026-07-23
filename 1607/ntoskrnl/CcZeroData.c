@@ -1,15 +1,15 @@
 /*
- * XREFs of CcZeroData @ 0x1404584CC
+ * XREFs of CcZeroData @ 0x14045739C
  * Callers:
- *     FsRtlCopyWrite @ 0x14061D638 (FsRtlCopyWrite.c)
- *     FsRtlPrepareMdlWriteDev @ 0x14061E018 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlCopyWrite @ 0x14061D6EC (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14061E0CC (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     CcZeroDataOnDisk @ 0x14006B1EC (CcZeroDataOnDisk.c)
- *     MmGetAvailablePages @ 0x14006D5BC (MmGetAvailablePages.c)
- *     CcZeroDataInCache @ 0x14006D5D0 (CcZeroDataInCache.c)
- *     CcFlushCache @ 0x14008F434 (CcFlushCache.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     CcZeroDataOnDisk @ 0x14006AD6C (CcZeroDataOnDisk.c)
+ *     MmGetAvailablePages @ 0x14006D13C (MmGetAvailablePages.c)
+ *     CcZeroDataInCache @ 0x14006D150 (CcZeroDataInCache.c)
+ *     CcFlushCache @ 0x14008EB94 (CcFlushCache.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
  */
 
 BOOLEAN __stdcall CcZeroData(

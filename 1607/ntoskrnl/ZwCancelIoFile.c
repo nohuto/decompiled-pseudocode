@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCancelIoFile @ 0x14015A820
+ * XREFs of ZwCancelIoFile @ 0x14015AD90
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwCancelIoFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock, v2);
+  return KiServiceInternal(FileHandle);
 }

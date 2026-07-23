@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceLpacAccessFailure @ 0x1409ED0B4
+ * XREFs of EtwTraceLpacAccessFailure @ 0x1409ED344
  * Callers:
- *     SepLogLpacAccessFailure @ 0x1405B7D68 (SepLogLpacAccessFailure.c)
+ *     SepLogLpacAccessFailure @ 0x1405B82D8 (SepLogLpacAccessFailure.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     KeQuerySystemTimePrecise @ 0x1402BE530 (KeQuerySystemTimePrecise.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     KeQuerySystemTimePrecise @ 0x1402BE7C0 (KeQuerySystemTimePrecise.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceLpacAccessFailure(int a1)

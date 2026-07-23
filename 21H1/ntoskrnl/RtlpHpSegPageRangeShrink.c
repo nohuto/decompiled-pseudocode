@@ -33,11 +33,11 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, __int64 a3, 
   unsigned int v10; // edx
   __int64 v11; // rax
   char v12; // dl
-  unsigned __int64 v13; // rdi
+  __int64 v13; // rdi
   char v14; // al
-  unsigned __int64 v15; // rdx
-  bool v16; // al
-  unsigned __int64 v17; // rax
+  __int64 v15; // rdx
+  BOOLEAN v16; // al
+  __int64 v17; // rax
   __int64 result; // rax
   _QWORD *v19; // r15
   struct _KPRCB *CurrentPrcb; // rcx
@@ -45,9 +45,9 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, __int64 a3, 
   unsigned __int8 v22; // di
   char v23; // al
   struct _KTHREAD *v24; // rbx
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 v26; // bp
-  __int64 v27; // rdx
+  unsigned int v27; // edx
   bool v28; // zf
   __int64 v29; // rcx
   __int64 v30; // rdi
@@ -147,7 +147,7 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, __int64 a3, 
     if ( (v12 & 7) != 0 )
       v14 = RtlpHpSegPageRangeComputeLargePageCost(
               a1,
-              ((__int64)(v13 - (v13 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)) + (v13 & *(_QWORD *)a1),
+              ((v13 - (v13 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)) + (v13 & *(_QWORD *)a1),
               *(unsigned __int8 *)(v13 + 31) << *(_BYTE *)(a1 + 8));
     else
       v14 = 4;
@@ -200,7 +200,7 @@ LABEL_28:
         v15 = v17;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 96), v15, v16, v13);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v15, v16, (PRTL_BALANCED_NODE)v13);
     result = *(__int16 *)(a1 + 22);
     _InterlockedExchangeAdd64((volatile signed __int64 *)(result + a1 + 16), (unsigned __int16)~*(_WORD *)(v13 + 28));
     v19 = 0LL;
@@ -254,12 +254,12 @@ LABEL_28:
       v44 = 0;
       v24 = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType(a1 + 64) == 1 )
-        SessionId = (unsigned int)MmGetSessionIdEx((__int64)v24->ApcState.Process);
+        SessionId = MmGetSessionIdEx((__int64)v24->ApcState.Process);
       else
-        SessionId = 0xFFFFFFFFLL;
+        SessionId = -1;
       --v24->SpecialApcDisable;
       v26 = ++v24->AbAllocationRegionCount;
-      LODWORD(v27) = ((char)v24->AbEntrySummary | (char)v24->AbOrphanedEntrySummary) ^ 0x3F;
+      v27 = ((char)v24->AbEntrySummary | (char)v24->AbOrphanedEntrySummary) ^ 0x3F;
       v28 = !_BitScanReverse((unsigned int *)&v29, v27);
       v46 = v29;
       if ( v28 )
@@ -267,11 +267,11 @@ LABEL_28:
       while ( 1 )
       {
         v30 = (__int64)&v24->LockEntries[v29];
-        v27 = ~(1 << v29) & (unsigned int)v27;
+        v27 &= ~(1 << v29);
         if ( (*(_BYTE *)(v30 + 26) & 1) != 0
           && (*(_DWORD *)(v30 + 32) & 1) == 0
           && (*(_QWORD *)(v30 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 64) & 0x7FFFFFFFFFFFFFFCLL)
-          && *(_DWORD *)(v30 + 40) == (_DWORD)SessionId )
+          && *(_DWORD *)(v30 + 40) == SessionId )
         {
           *(_BYTE *)(v30 + 26) &= ~1u;
           if ( *(_QWORD *)(v30 + 32) )
@@ -286,13 +286,13 @@ LABEL_28:
       {
 LABEL_66:
         if ( (*((_DWORD *)&v24->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)v24, a1 + 64, (unsigned int)SessionId, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)v24, a1 + 64, SessionId, 0LL);
       }
       else
       {
         *(_BYTE *)(v30 + 32) |= 2u;
         if ( *(__int64 *)(v30 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v30, v27, SessionId);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v30);
         v44 = *(_DWORD *)(v30 + 88) & 0x1FFFF;
         *(_DWORD *)(v30 + 88) &= 0xFFFE0000;
         *(_BYTE *)(v30 + 25) &= ~1u;

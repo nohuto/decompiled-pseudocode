@@ -38,7 +38,7 @@ void BapdpMarshallBootDataToRegistry()
   ULONG v18; // ecx
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE v20; // [rsp+50h] [rbp-B8h] BYREF
-  _QWORD v21[2]; // [rsp+58h] [rbp-B0h] BYREF
+  UNICODE_STRING GuidString; // [rsp+58h] [rbp-B0h] BYREF
   UNICODE_STRING String; // [rsp+68h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-90h] BYREF
   __int64 v24; // [rsp+80h] [rbp-88h]
@@ -125,13 +125,13 @@ LABEL_40:
             if ( *v12 )
             {
               v13 = **v12;
-              LODWORD(v21[0]) = 5111808;
-              v21[1] = &v27;
+              *(_DWORD *)&GuidString.Length = 5111808;
+              GuidString.Buffer = (wchar_t *)&v27;
               DestinationString = v13;
-              if ( (int)RtlStringFromGUIDEx(&DestinationString, v21, 0LL) >= 0 )
+              if ( RtlStringFromGUIDEx((PGUID)&DestinationString, &GuidString, 0) >= 0 )
               {
                 ObjectAttributes.RootDirectory = v20;
-                ObjectAttributes.ObjectName = (PUNICODE_STRING)v21;
+                ObjectAttributes.ObjectName = &GuidString;
                 ObjectAttributes.Length = 48;
                 ObjectAttributes.Attributes = 576;
                 *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

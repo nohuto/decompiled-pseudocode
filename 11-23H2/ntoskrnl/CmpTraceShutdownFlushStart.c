@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceShutdownFlushStart @ 0x140A13048
+ * XREFs of CmpTraceShutdownFlushStart @ 0x140A132F8
  * Callers:
- *     CmShutdownSystem1 @ 0x140615BC4 (CmShutdownSystem1.c)
+ *     CmShutdownSystem1 @ 0x140616114 (CmShutdownSystem1.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 BOOLEAN CmpTraceShutdownFlushStart()

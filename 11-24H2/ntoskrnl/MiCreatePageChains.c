@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreatePageChains @ 0x140493E84
+ * XREFs of MiCreatePageChains @ 0x14048E910
  * Callers:
- *     MiZeroAndReleasePages @ 0x1403A0C10 (MiZeroAndReleasePages.c)
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1404133A0 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiGroupZeroHugeRange @ 0x140685AB4 (MiGroupZeroHugeRange.c)
- *     MiFindLargePageMemory @ 0x140A92A7C (MiFindLargePageMemory.c)
+ *     MiZeroAndReleasePages @ 0x140217770 (MiZeroAndReleasePages.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140393A14 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiGroupZeroHugeRange @ 0x140686BE4 (MiGroupZeroHugeRange.c)
+ *     MiFindLargePageMemory @ 0x140A8F22C (MiFindLargePageMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetOptimalEngineMix @ 0x1404940F8 (MiGetOptimalEngineMix.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiGetOptimalEngineMix @ 0x14048EB84 (MiGetOptimalEngineMix.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCreatePageChains(__int64 a1, unsigned int a2, int a3, __int64 a4)
@@ -45,12 +45,12 @@ __int64 __fastcall MiCreatePageChains(__int64 a1, unsigned int a2, int a3, __int
   OptimalEngineMix = 0;
   v30 = 0LL;
   v31 = 0;
-  v8 = *(_QWORD *)(qword_140E2DAF8 + 384LL * a2 + 376);
+  v8 = *(_QWORD *)(qword_140E2DC38 + 384LL * a2 + 376);
   if ( (*(_DWORD *)(v8 + 36) & 1) != 0 )
   {
     v9 = 0;
     v10 = 1;
-    for ( i = &unk_140E2DAF2; (__int64)i < (__int64)&word_140E2DAF6; ++i )
+    for ( i = &unk_140E2DC32; (__int64)i < (__int64)&word_140E2DC36; ++i )
     {
       OptimalEngineMix = (unsigned __int16)*i;
       if ( *i )
@@ -61,7 +61,7 @@ __int64 __fastcall MiCreatePageChains(__int64 a1, unsigned int a2, int a3, __int
           OptimalEngineMix = 1;
           v10 = (KeGetCurrentPrcb()->PowerState.ArchitecturalEfficiencyClass != 1) + 1;
         }
-        v9 = word_140E2DAE8;
+        v9 = word_140E2DC28;
         *((_DWORD *)&v30 + v10) = OptimalEngineMix;
         break;
       }
@@ -72,14 +72,14 @@ __int64 __fastcall MiCreatePageChains(__int64 a1, unsigned int a2, int a3, __int
   {
     v22 = 4LL;
     v23 = a2 * (unsigned __int16)KeNumberNodes;
-    v24 = (unsigned int *)(qword_140E2DAD0 + 4 * v23);
+    v24 = (unsigned int *)(qword_140E2DC10 + 4 * v23);
     v25 = &v24[(unsigned __int16)KeNumberNodes];
 LABEL_14:
     if ( v24 < v25 )
     {
       v6 = *v24;
       v26 = 0LL;
-      for ( j = (_WORD *)(*(_QWORD *)(qword_140E2DAF8 + 384 * v6 + 376) + 24LL); ; ++j )
+      for ( j = (_WORD *)(*(_QWORD *)(qword_140E2DC38 + 384 * v6 + 376) + 24LL); ; ++j )
       {
         if ( v26 >= 3 )
         {
@@ -106,7 +106,7 @@ LABEL_14:
         v22 = 8LL;
       *(_DWORD *)((char *)&v30 + v22) = 1;
     }
-    v9 = *(_WORD *)(*(_QWORD *)(384LL * (unsigned int)v6 + qword_140E2DAF8 + 376) + 16LL);
+    v9 = *(_WORD *)(*(_QWORD *)(384LL * (unsigned int)v6 + qword_140E2DC38 + 376) + 16LL);
   }
   v12 = (unsigned __int64)OptimalEngineMix << 7;
   v13 = OptimalEngineMix;

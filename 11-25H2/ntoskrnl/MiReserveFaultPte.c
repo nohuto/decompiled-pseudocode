@@ -12,7 +12,7 @@ __int64 MiReserveFaultPte()
 {
   KIRQL v0; // bl
   __int64 ClearBitsAndSet; // rdi
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 16LL;
   BitMapHeader.Buffer = (unsigned int *)byte_140E370D4;

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiComputeEstimatedMaximumProcessors @ 0x1405EA980
+ * XREFs of KiComputeEstimatedMaximumProcessors @ 0x1405ED2F0
  * Callers:
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
- *     HalEnumerateProcessors @ 0x14057C4A0 (HalEnumerateProcessors.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
+ *     HalEnumerateProcessors @ 0x14057E9D0 (HalEnumerateProcessors.c)
  */
 
 __int64 __fastcall KiComputeEstimatedMaximumProcessors(unsigned int *a1, unsigned int *a2, _DWORD *a3)

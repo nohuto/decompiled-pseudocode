@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmCreateInterfaceClass @ 0x14074BB54
+ * XREFs of _CmCreateInterfaceClass @ 0x14074BD14
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x14063B450 (_PnpDispatchInterfaceClass.c)
- *     PiCMOpenClassKey @ 0x1406BEA68 (PiCMOpenClassKey.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x14074B99C (_CmCreateDeviceInterfaceWorker.c)
+ *     PiCMOpenClassKey @ 0x140622BDC (PiCMOpenClassKey.c)
+ *     _PnpDispatchInterfaceClass @ 0x140630260 (_PnpDispatchInterfaceClass.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x14074BB5C (_CmCreateDeviceInterfaceWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     _CmCreateInterfaceClassWorker @ 0x14074BCD0 (_CmCreateInterfaceClassWorker.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _CmCreateInterfaceClassWorker @ 0x14074BE90 (_CmCreateInterfaceClassWorker.c)
  */
 
 __int64 __fastcall CmCreateInterfaceClass(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)

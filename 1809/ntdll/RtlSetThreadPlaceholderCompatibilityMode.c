@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlSetThreadPlaceholderCompatibilityMode @ 0x180081890
+ * XREFs of RtlSetThreadPlaceholderCompatibilityMode @ 0x1800818A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlSetThreadPlaceholderCompatibilityMode(char a1)
+CHAR __cdecl RtlSetThreadPlaceholderCompatibilityMode(CHAR Mode)
 {
   struct _TEB *v1; // rdx
-  char result; // al
+  CHAR result; // al
 
-  if ( (unsigned __int8)a1 > 3u )
+  if ( (unsigned __int8)Mode > 3u )
     return -1;
   v1 = NtCurrentTeb();
   if ( !v1 )
     return -2;
   result = v1->PlaceholderCompatibilityMode;
-  v1->PlaceholderCompatibilityMode = a1;
+  v1->PlaceholderCompatibilityMode = Mode;
   return result;
 }

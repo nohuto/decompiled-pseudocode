@@ -7,31 +7,39 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall RtlSendMsgToSm(__int64 a1, _WORD *a2)
+NTSTATUS __fastcall RtlSendMsgToSm(HANDLE PortHandle, PPORT_MESSAGE SendMessageA)
 {
   __int64 v4; // rbx
   int v5; // edi
-  __int16 v6; // ax
+  CSHORT v6; // ax
   int v7; // edi
-  _WORD *v8; // rax
-  __int64 result; // rax
-  __int64 v10; // [rsp+68h] [rbp+10h] BYREF
+  _PORT_MESSAGE *ReceiveMessage; // rax
+  NTSTATUS result; // eax
+  ULONG_PTR BufferLength; // [rsp+68h] [rbp+10h] BYREF
 
-  if ( *((_DWORD *)a2 + 10) > 7u )
-    return 3221225474LL;
-  v4 = 2LL * *((int *)a2 + 10);
-  v5 = *((_DWORD *)&unk_180123740 + 4 * *((int *)a2 + 10) + 2);
-  memset(a2, 0, 0x28uLL);
+  if ( SendMessageA[1].u1.Length > 7 )
+    return -1073741822;
+  v4 = 2LL * (int)SendMessageA[1].u1.Length;
+  v5 = *((_DWORD *)&unk_180123740 + 4 * (int)SendMessageA[1].u1.Length + 2);
+  memset(SendMessageA, 0, sizeof(_PORT_MESSAGE));
   v6 = *((_WORD *)&unk_180123740 + 4 * v4) + 8;
-  v10 = 328LL;
-  *a2 = v6;
-  a2[1] = v6 + 40;
+  BufferLength = 328LL;
+  SendMessageA->u1.s1.DataLength = v6;
+  SendMessageA->u1.s1.TotalLength = v6 + 40;
   v7 = v5 & 1;
-  v8 = a2;
+  ReceiveMessage = SendMessageA;
   if ( v7 )
-    v8 = 0LL;
-  result = ZwAlpcSendWaitReceivePort(a1, v7 == 0 ? 0x20000 : 0, a2, 0LL, v8, &v10, 0LL, 0LL);
-  if ( (int)result >= 0 )
-    return *((unsigned int *)a2 + 11);
+    ReceiveMessage = 0LL;
+  result = ZwAlpcSendWaitReceivePort(
+             PortHandle,
+             v7 == 0 ? 0x20000 : 0,
+             SendMessageA,
+             0LL,
+             ReceiveMessage,
+             &BufferLength,
+             0LL,
+             0LL);
+  if ( result >= 0 )
+    return SendMessageA[1].u2.ZeroInit;
   return result;
 }

@@ -29,8 +29,9 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtFlushKey(int a1)
+NTSTATUS __cdecl NtFlushKey(HANDLE KeyHandle)
 {
+  int v1; // ebx
   ULONG_PTR *v2; // rdi
   char v3; // r15
   __int64 v4; // rdx
@@ -42,7 +43,7 @@ __int64 __fastcall NtFlushKey(int a1)
   int v10; // r9d
   char v11; // r13
   char PreviousMode; // si
-  signed int v13; // ebx
+  int v13; // ebx
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR v15; // rcx
   struct _EX_RUNDOWN_REF *v16; // rsi
@@ -59,6 +60,7 @@ __int64 __fastcall NtFlushKey(int a1)
   _OWORD v28[2]; // [rsp+C8h] [rbp+7h] BYREF
 
   v23 = 0LL;
+  v1 = (int)KeyHandle;
   v25 = 0LL;
   memset(v26, 0, sizeof(v26));
   memset(&ApcState, 0, sizeof(ApcState));
@@ -76,7 +78,7 @@ __int64 __fastcall NtFlushKey(int a1)
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     LOBYTE(v10) = PreviousMode;
-    v13 = CmObReferenceObjectByHandle(a1, 0, v9, v10, (__int64)&Object, (__int64)&v23);
+    v13 = CmObReferenceObjectByHandle(v1, 0, v9, v10, (__int64)&Object, (__int64)&v23);
     if ( v13 >= 0 )
     {
       CurrentThread = KeGetCurrentThread();
@@ -157,5 +159,5 @@ LABEL_16:
   if ( v11 )
     CmpReleaseShutdownRundown(v8);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v25);
-  return (unsigned int)v13;
+  return v13;
 }

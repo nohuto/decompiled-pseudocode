@@ -1,17 +1,17 @@
 /*
- * XREFs of VfFreeAdapterChannel @ 0x14092AD60
+ * XREFs of VfFreeAdapterChannel @ 0x14092BD60
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViRemoveChannelWcb @ 0x14030A378 (ViRemoveChannelWcb.c)
- *     DECREMENT_ADAPTER_CHANNELS @ 0x140929288 (DECREMENT_ADAPTER_CHANNELS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140929580 (SUBTRACT_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x1409296A0 (VF_ASSERT_IRQL.c)
- *     ViFreeMapRegisterFile @ 0x14092D524 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x14092D868 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x14092DB34 (ViGetRealDmaOperation.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViRemoveChannelWcb @ 0x14030A568 (ViRemoveChannelWcb.c)
+ *     DECREMENT_ADAPTER_CHANNELS @ 0x14092A288 (DECREMENT_ADAPTER_CHANNELS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x14092A580 (SUBTRACT_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x14092A6A0 (VF_ASSERT_IRQL.c)
+ *     ViFreeMapRegisterFile @ 0x14092E524 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x14092E868 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x14092EB34 (ViGetRealDmaOperation.c)
  */
 
 void __fastcall VfFreeAdapterChannel(__int64 a1)

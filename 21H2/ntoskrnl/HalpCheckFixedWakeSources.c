@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCheckFixedWakeSources @ 0x1409960B0
+ * XREFs of HalpCheckFixedWakeSources @ 0x1409970B0
  * Callers:
- *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140996B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpAcpiPmRegisterAvailable @ 0x14037CA20 (HalpAcpiPmRegisterAvailable.c)
- *     HalpAcpiPmRegisterRead @ 0x140399640 (HalpAcpiPmRegisterRead.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x14037C570 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x140399790 (HalpAcpiPmRegisterRead.c)
  */
 
 bool HalpCheckFixedWakeSources()
@@ -16,8 +16,8 @@ bool HalpCheckFixedWakeSources()
   bool result; // al
   __int16 v5; // [rsp+40h] [rbp+8h] BYREF
 
-  v0 = dword_140C4A050;
-  v1 = byte_140C49FE8;
+  v0 = dword_140C4A090;
+  v1 = byte_140C4A028;
   v5 = 0;
   v2 = 0;
   if ( (int)HalpAcpiPmRegisterAvailable(0) >= 0 )

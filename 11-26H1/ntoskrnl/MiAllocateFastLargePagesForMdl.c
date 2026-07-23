@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllocateFastLargePagesForMdl @ 0x1406EDF70
+ * XREFs of MiAllocateFastLargePagesForMdl @ 0x1406F2C10
  * Callers:
- *     MiFindPagesForMdl @ 0x140337DE8 (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x140339E68 (MiFindPagesForMdl.c)
  * Callees:
- *     MiFreeLargeZeroPages @ 0x1402A5600 (MiFreeLargeZeroPages.c)
- *     MiAllocateLargeZeroPages @ 0x1403C673C (MiAllocateLargeZeroPages.c)
- *     MiInitializeLargePfnList @ 0x1404617F0 (MiInitializeLargePfnList.c)
- *     MiInitializeFastLargePagesMdlPfns @ 0x1406EE130 (MiInitializeFastLargePagesMdlPfns.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiFreeLargeZeroPages @ 0x1402A4B50 (MiFreeLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x1403D0630 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeLargePfnList @ 0x14045A7B0 (MiInitializeLargePfnList.c)
+ *     MiInitializeFastLargePagesMdlPfns @ 0x1406F2DD0 (MiInitializeFastLargePagesMdlPfns.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 *a1, unsigned int a2, char a3)
@@ -75,7 +75,7 @@ unsigned __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 *a1, unsigned
   v20 = -1LL;
   while ( 1 )
   {
-    v14 = qword_140E2D7C8;
+    v14 = qword_140E2D948;
     result = *a1;
     if ( (unsigned __int64)a1[2] < *(_QWORD *)(*a1 + 22280) )
       break;
@@ -84,7 +84,7 @@ unsigned __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 *a1, unsigned
     v16 = v23;
     if ( !v23 )
       break;
-    if ( v14 == qword_140E2D7C8 )
+    if ( v14 == qword_140E2D948 )
     {
       MiInitializeFastLargePagesMdlPfns(a1, a2, v25, v23);
       *(_QWORD *)(v6 + 16) = 0LL;

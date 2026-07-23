@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwPrivilegeObjectAuditAlarm(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SubsystemName, HandleId, ClientToken);
+  return KiServiceInternal(SubsystemName);
 }

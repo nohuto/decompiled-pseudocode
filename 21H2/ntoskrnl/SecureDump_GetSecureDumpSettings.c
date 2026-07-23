@@ -1,9 +1,9 @@
 /*
- * XREFs of SecureDump_GetSecureDumpSettings @ 0x1403BFF24
+ * XREFs of SecureDump_GetSecureDumpSettings @ 0x1403C0350
  * Callers:
- *     KeCapturePersistentThreadState @ 0x140505040 (KeCapturePersistentThreadState.c)
- *     IopInitializeCrashDump @ 0x1407B77E8 (IopInitializeCrashDump.c)
- *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
+ *     KeCapturePersistentThreadState @ 0x140504FC0 (KeCapturePersistentThreadState.c)
+ *     IopInitializeCrashDump @ 0x1407B7D08 (IopInitializeCrashDump.c)
+ *     IoCaptureLiveDump @ 0x1408963F8 (IoCaptureLiveDump.c)
  * Callees:
  *     <none>
  */
@@ -16,10 +16,10 @@ __int64 __fastcall SecureDump_GetSecureDumpSettings(__int64 a1)
     return 3221225485LL;
   if ( SecureDmpEncryptionContext == 2 )
   {
-    *(_BYTE *)a1 = byte_140C4C854;
+    *(_BYTE *)a1 = byte_140C4C894;
     *(_DWORD *)(a1 + 4) = pbInput;
-    *(_BYTE *)(a1 + 1) = dword_140C4C898 == 1;
-    v1 = dword_140C4C8A0;
+    *(_BYTE *)(a1 + 1) = dword_140C4C8D8 == 1;
+    v1 = dword_140C4C8E0;
   }
   else
   {

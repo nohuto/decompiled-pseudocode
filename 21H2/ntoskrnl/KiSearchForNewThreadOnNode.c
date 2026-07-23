@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSearchForNewThreadOnNode @ 0x140256F0C
+ * XREFs of KiSearchForNewThreadOnNode @ 0x14027847C
  * Callers:
- *     KiSearchForNewThread @ 0x140256CB8 (KiSearchForNewThread.c)
+ *     KiSearchForNewThread @ 0x140278228 (KiSearchForNewThread.c)
  * Callees:
- *     KiSearchForNewThreadOnProcessor @ 0x140347370 (KiSearchForNewThreadOnProcessor.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1403520C0 (KiSearchForNewThreadOnProcessor.c)
  */
 
 __int64 __fastcall KiSearchForNewThreadOnNode(__int64 a1, _QWORD *a2)

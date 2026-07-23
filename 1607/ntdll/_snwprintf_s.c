@@ -1,7 +1,7 @@
 /*
  * XREFs of _snwprintf_s @ 0x1800A1410
  * Callers:
- *     RtlQueryAtomInAtomTable @ 0x1800678B0 (RtlQueryAtomInAtomTable.c)
+ *     RtlQueryAtomInAtomTable @ 0x1800678A0 (RtlQueryAtomInAtomTable.c)
  * Callees:
  *     _vsnwprintf_s @ 0x1800A1440 (_vsnwprintf_s.c)
  */

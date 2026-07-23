@@ -57,7 +57,7 @@ unsigned __int64 __fastcall KiAdjustTimersAfterDripsExit(__int64 a1, __int64 a2)
       CurrentIrql = KeGetCurrentIrql();
       v7 = (unsigned int)(v4 + 2);
       __writecr8(v7);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         v9 = v4 + 4;
@@ -66,10 +66,10 @@ unsigned __int64 __fastcall KiAdjustTimersAfterDripsExit(__int64 a1, __int64 a2)
         SchedulerAssist[5] |= v9;
       }
       KiAdjustTimerDueTimes((__int64)KeGetCurrentPrcb(), active, (__int64)&v15);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v10 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= (unsigned __int8)v7 )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= (unsigned __int8)v7 )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v12 = CurrentPrcb->SchedulerAssist;

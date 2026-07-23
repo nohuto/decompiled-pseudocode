@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeLargeMdlLeafPfns @ 0x1406EE360
+ * XREFs of MiInitializeLargeMdlLeafPfns @ 0x1406F3000
  * Callers:
- *     MiInitializeFastLargePagesMdlPfns @ 0x1406EE130 (MiInitializeFastLargePagesMdlPfns.c)
- *     MiInitializeLargeMdlLeafPfnsWorker @ 0x1406EE460 (MiInitializeLargeMdlLeafPfnsWorker.c)
+ *     MiInitializeFastLargePagesMdlPfns @ 0x1406F2DD0 (MiInitializeFastLargePagesMdlPfns.c)
+ *     MiInitializeLargeMdlLeafPfnsWorker @ 0x1406F3100 (MiInitializeLargeMdlLeafPfnsWorker.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiInitializeMdlLeafPfns @ 0x1406EE498 (MiInitializeMdlLeafPfns.c)
- *     MiMakeMdlPfnsDesiredSize @ 0x1406EEA20 (MiMakeMdlPfnsDesiredSize.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiInitializeMdlLeafPfns @ 0x1406F3138 (MiInitializeMdlLeafPfns.c)
+ *     MiMakeMdlPfnsDesiredSize @ 0x1406F36C0 (MiMakeMdlPfnsDesiredSize.c)
  */
 
 unsigned __int64 __fastcall MiInitializeLargeMdlLeafPfns(__int64 a1, int a2, int a3, int a4)

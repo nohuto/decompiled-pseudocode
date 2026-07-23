@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlFreeHandle @ 0x1800E2210
+ * XREFs of RtlFreeHandle @ 0x1800DFD10
  * Callers:
  *     <none>
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-char __fastcall RtlFreeHandle(__int64 a1, _QWORD *a2)
+BOOLEAN __cdecl RtlFreeHandle(PRTL_HANDLE_TABLE HandleTable, PRTL_HANDLE_TABLE_ENTRY Handle)
 {
-  char result; // al
+  BOOLEAN result; // al
 
-  memset_thunk_772440563353939046(a2, 0, *(unsigned int *)(a1 + 4));
-  *a2 = *(_QWORD *)(a1 + 16);
+  memset_thunk_772440563353939046(Handle, 0, HandleTable->SizeOfHandleTableEntry);
+  *Handle = (_RTL_HANDLE_TABLE_ENTRY)HandleTable->FreeHandles;
   result = 1;
-  *(_QWORD *)(a1 + 16) = a2;
+  HandleTable->FreeHandles = Handle;
   return result;
 }

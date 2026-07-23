@@ -3,10 +3,10 @@
  * Callers:
  *     CmInitBootFeatureConfigurations @ 0x140B3886C (CmInitBootFeatureConfigurations.c)
  * Callees:
- *     RtlpFcWriteHighLowHigh @ 0x1403746C0 (RtlpFcWriteHighLowHigh.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlpFcBufferManagerUpdateBuffers @ 0x14080DC94 (RtlpFcBufferManagerUpdateBuffers.c)
- *     CmFcpIncrementChangeStamp @ 0x14080E6B4 (CmFcpIncrementChangeStamp.c)
+ *     RtlpFcWriteHighLowHigh @ 0x140374860 (RtlpFcWriteHighLowHigh.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x14080DF64 (RtlpFcBufferManagerUpdateBuffers.c)
+ *     CmFcpIncrementChangeStamp @ 0x14080E984 (CmFcpIncrementChangeStamp.c)
  */
 
 char __fastcall CmFcManagerStartBootPhase(
@@ -28,7 +28,7 @@ char __fastcall CmFcManagerStartBootPhase(
   char result; // al
   _QWORD v15[10]; // [rsp+20h] [rbp-68h] BYREF
 
-  v10 = CmFcpIncrementChangeStamp(qword_140C14038);
+  v10 = CmFcpIncrementChangeStamp(qword_140C13FF8);
   v15[8] = a5;
   v15[1] = v11;
   v15[2] = v12;
@@ -38,12 +38,12 @@ char __fastcall CmFcManagerStartBootPhase(
   v15[3] = v10;
   v15[6] = v10;
   v15[7] = v13;
-  RtlpFcBufferManagerUpdateBuffers(qword_140C14090, v10, (__int64)v15);
-  RtlpFcWriteHighLowHigh((__int64)&qword_140C14038, v10);
-  qword_140C14178[0] = a6;
-  qword_140C14518 = a8;
+  RtlpFcBufferManagerUpdateBuffers(qword_140C14050, v10, (__int64)v15);
+  RtlpFcWriteHighLowHigh((__int64)&qword_140C13FF8, v10);
+  qword_140C14138[0] = a6;
+  qword_140C144D8 = a8;
   result = a10;
-  byte_140C146E8 = a10;
-  byte_140C14173 = 0;
+  byte_140C146A8 = a10;
+  byte_140C14133 = 0;
   return result;
 }

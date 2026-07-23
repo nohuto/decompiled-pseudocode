@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpHandlePreviousMcaErrors @ 0x140A94FF0
+ * XREFs of HalpHandlePreviousMcaErrors @ 0x140A94E60
  * Callers:
  *     HalpInitializeMce @ 0x140A8ADA0 (HalpInitializeMce.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     HalpMceInitializeErrorPacketContents @ 0x140A8AB48 (HalpMceInitializeErrorPacketContents.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A95130 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A94FA0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -21,11 +21,11 @@ void __fastcall HalpHandlePreviousMcaErrors(char a1)
   ULONG ActiveProcessorCount; // ebp
   int *v6; // r14
   unsigned int v7; // edx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v9; // rcx
   __int64 i; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

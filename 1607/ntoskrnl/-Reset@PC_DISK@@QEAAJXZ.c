@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Reset@PC_DISK@@QEAAJXZ @ 0x140147670
+ * XREFs of ?Reset@PC_DISK@@QEAAJXZ @ 0x140147BE0
  * Callers:
- *     PcReadPartitionTable @ 0x1401474EC (PcReadPartitionTable.c)
- *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x1401475BC (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
- *     PcWritePartitionTable @ 0x14023B81C (PcWritePartitionTable.c)
- *     ?SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023BC98 (-SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     PcReadPartitionTable @ 0x140147A5C (PcReadPartitionTable.c)
+ *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x140147B2C (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
+ *     PcWritePartitionTable @ 0x14023B700 (PcWritePartitionTable.c)
+ *     ?SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023BB7C (-SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  * Callees:
- *     ?ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14014757C (-ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?IsVbr@PC_DISK@@QEAAEXZ @ 0x14023CC1C (-IsVbr@PC_DISK@@QEAAEXZ.c)
+ *     ?ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x140147AEC (-ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?IsVbr@PC_DISK@@QEAAEXZ @ 0x14023CB00 (-IsVbr@PC_DISK@@QEAAEXZ.c)
  */
 
 __int64 __fastcall PC_DISK::Reset(PC_DISK *this)

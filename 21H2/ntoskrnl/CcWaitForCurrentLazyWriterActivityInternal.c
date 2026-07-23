@@ -1,16 +1,16 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivityInternal @ 0x14038148C
+ * XREFs of CcWaitForCurrentLazyWriterActivityInternal @ 0x140380FDC
  * Callers:
- *     CcWaitForCurrentLazyWriterActivityHelper @ 0x140381460 (CcWaitForCurrentLazyWriterActivityHelper.c)
- *     CcExitPartition @ 0x1404EC154 (CcExitPartition.c)
+ *     CcWaitForCurrentLazyWriterActivityHelper @ 0x140380FB0 (CcWaitForCurrentLazyWriterActivityHelper.c)
+ *     CcExitPartition @ 0x1404EC394 (CcExitPartition.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     CcAllocateWorkQueueEntry @ 0x1402F67D0 (CcAllocateWorkQueueEntry.c)
- *     CcScheduleLazyWriteScan @ 0x1402F6D5C (CcScheduleLazyWriteScan.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     CcPerfLogWorkItemEnqueue @ 0x1403BD5AC (CcPerfLogWorkItemEnqueue.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcAllocateWorkQueueEntry @ 0x140301520 (CcAllocateWorkQueueEntry.c)
+ *     CcScheduleLazyWriteScan @ 0x140301AAC (CcScheduleLazyWriteScan.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x1403BD71C (CcPerfLogWorkItemEnqueue.c)
  */
 
 int __fastcall CcWaitForCurrentLazyWriterActivityInternal(__int64 a1)

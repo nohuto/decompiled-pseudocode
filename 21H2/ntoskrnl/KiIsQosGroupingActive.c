@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsQosGroupingActive @ 0x140398E54
+ * XREFs of KiIsQosGroupingActive @ 0x140398FA4
  * Callers:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     KiCheckPreferredHeteroProcessor @ 0x140258C00 (KiCheckPreferredHeteroProcessor.c)
- *     KeUpdateQosGroupingSets @ 0x140398DFC (KeUpdateQosGroupingSets.c)
- *     KiHeteroChooseTargetProcessor @ 0x14051F500 (KiHeteroChooseTargetProcessor.c)
- *     KiSelectProcessorToPreempt @ 0x14051FD78 (KiSelectProcessorToPreempt.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x14027A170 (KiCheckPreferredHeteroProcessor.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     KeUpdateQosGroupingSets @ 0x140398F4C (KeUpdateQosGroupingSets.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14051F740 (KiHeteroChooseTargetProcessor.c)
+ *     KiSelectProcessorToPreempt @ 0x14051FFB8 (KiSelectProcessorToPreempt.c)
  * Callees:
  *     <none>
  */

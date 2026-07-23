@@ -1,18 +1,18 @@
 /*
- * XREFs of PoFxRegisterDebugger @ 0x140CD6094
+ * XREFs of PoFxRegisterDebugger @ 0x140CDC3E8
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PoFxActivateComponent @ 0x14037AAB0 (PoFxActivateComponent.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     PoFxStartDevicePowerManagement @ 0x1404EAC40 (PoFxStartDevicePowerManagement.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PoFxRegisterCoreDevice @ 0x1407CCFA0 (PoFxRegisterCoreDevice.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PoFxActivateComponent @ 0x14037C860 (PoFxActivateComponent.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     PoFxStartDevicePowerManagement @ 0x1404E3FF0 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PoFxRegisterCoreDevice @ 0x1407D0040 (PoFxRegisterCoreDevice.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PoFxRegisterDebugger()

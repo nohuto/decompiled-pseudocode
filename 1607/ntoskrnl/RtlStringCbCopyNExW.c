@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringCbCopyNExW @ 0x1400AC124
+ * XREFs of RtlStringCbCopyNExW @ 0x1400AA68C
  * Callers:
- *     _CmGetDeviceRegPropWorker @ 0x1404FE360 (_CmGetDeviceRegPropWorker.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1404E12F0 (_CmGetDeviceRegPropWorker.c)
  * Callees:
- *     RtlStringCopyWorkerW_1 @ 0x1400AC1C0 (RtlStringCopyWorkerW_1.c)
+ *     RtlStringCopyWorkerW @ 0x1400AA728 (RtlStringCopyWorkerW.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyNExW(
@@ -43,7 +43,7 @@ NTSTATUS __stdcall RtlStringCbCopyNExW(
         v9 = pszDest != 0LL ? -2147483643 : -1073741811;
         goto LABEL_14;
       }
-      v9 = RtlStringCopyWorkerW_1(pszDest, cbDest >> 1, &v13, pszSrc, v11);
+      v9 = RtlStringCopyWorkerW(pszDest, cbDest >> 1, &v13, pszSrc, v11);
       if ( v9 < 0 )
       {
 LABEL_14:

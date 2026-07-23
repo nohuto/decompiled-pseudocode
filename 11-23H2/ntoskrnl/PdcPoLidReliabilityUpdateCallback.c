@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoLidReliabilityUpdateCallback @ 0x140823460
+ * XREFs of PdcPoLidReliabilityUpdateCallback @ 0x140823760
  * Callers:
- *     PopLidReliabilityInit @ 0x140389DAC (PopLidReliabilityInit.c)
+ *     PopLidReliabilityInit @ 0x140389F8C (PopLidReliabilityInit.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x14032D388 (PopBsdHandleRequest.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7570 (PopSetPowerSettingValueAcDc.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x14032D618 (PopBsdHandleRequest.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1407A7760 (PopSetPowerSettingValueAcDc.c)
  */
 
 void __fastcall PdcPoLidReliabilityUpdateCallback(char a1)

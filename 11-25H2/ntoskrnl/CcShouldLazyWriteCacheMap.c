@@ -52,8 +52,7 @@ LABEL_5:
   {
     v12 = *(_QWORD *)(a1 + 248);
     return *(_DWORD *)(v12 + 104)
-        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v12 + 136)
-                                                + 0x9896800uLL / (unsigned int)KeMaximumIncrement)
+        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v12 + 136) + 0x9896800uLL / KeMaximumIncrement)
         || *(_DWORD *)(a1 + 112) >= 0x40u;
   }
   if ( (v8 & 0x200) == 0 )

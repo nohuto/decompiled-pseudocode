@@ -1,8 +1,8 @@
 /*
- * XREFs of VrpDecrementDiffHiveEntryHardRefCount @ 0x14097A09C
+ * XREFs of VrpDecrementDiffHiveEntryHardRefCount @ 0x14093C0AC
  * Callers:
- *     VrpUnloadDifferencingHive @ 0x140979448 (VrpUnloadDifferencingHive.c)
- *     VrpLoadDifferencingHive @ 0x14097955C (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14093B458 (VrpUnloadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14093B56C (VrpLoadDifferencingHive.c)
  * Callees:
  *     <none>
  */

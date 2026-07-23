@@ -18,7 +18,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   bool v5; // si
   bool v6; // r14
   bool v7; // bp
-  _QWORD *UserPrefLanguages; // rdi
+  PVOID *UserPrefLanguages; // rdi
   __int64 v9; // rax
   unsigned __int16 v10; // r8
   __int64 v11; // r10
@@ -39,26 +39,25 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   __int64 v27; // rax
   struct _TEB *v28; // rcx
   __int64 v29; // rax
-  __int64 v30; // rcx
-  struct _TEB *v31; // rax
-  char v32; // di
-  char v33; // al
-  __int64 v34; // rcx
-  unsigned int v35; // r9d
+  _BYTE *v30; // rcx
+  char v31; // di
+  char v32; // al
+  __int64 v33; // rcx
+  unsigned int v34; // r9d
   unsigned int i; // r8d
-  char v37; // cl
-  int v38; // eax
-  __int64 v40; // [rsp+90h] [rbp+18h] BYREF
-  __int64 v41; // [rsp+98h] [rbp+20h] BYREF
+  char v36; // cl
+  int v37; // eax
+  __int64 v39; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v40; // [rsp+98h] [rbp+20h] BYREF
 
-  v40 = 0LL;
+  v39 = 0LL;
   updated = 0;
-  v41 = 0LL;
+  v40 = 0LL;
   v4 = 0;
   v5 = 0;
   v6 = 0;
   v7 = 0;
-  UserPrefLanguages = NtCurrentTeb()->UserPrefLanguages;
+  UserPrefLanguages = (PVOID *)NtCurrentTeb()->UserPrefLanguages;
   if ( a2 )
   {
     v9 = *(_QWORD *)(a2 + 24);
@@ -102,14 +101,14 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
             }
             else if ( (*(_BYTE *)v11 & 1) == 0 )
             {
-              v35 = 0;
+              v34 = 0;
               for ( i = 0; i < 3; ++i )
               {
                 if ( ((*(_WORD *)(v11 + 8) >> (2 * i)) & 3) != 0 )
-                  ++v35;
+                  ++v34;
               }
               updated = 0;
-              v7 = v35 > 1;
+              v7 = v34 > 1;
             }
             v24 = NtCurrentTeb();
             v25 = v24->WowTebOffset;
@@ -141,7 +140,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
             goto LABEL_43;
           if ( *UserPrefLanguages )
           {
-            v20 = *(_QWORD *)(*UserPrefLanguages + 16LL);
+            v20 = *((_QWORD *)*UserPrefLanguages + 2);
             if ( v20 )
             {
               if ( *(_DWORD *)(v20 + 12) < *(_DWORD *)(a2 + 12) )
@@ -152,38 +151,36 @@ LABEL_36:
                   v30 = *UserPrefLanguages;
                   if ( *UserPrefLanguages )
                   {
-                    v6 = (*(_BYTE *)(v30 + 40) & 2) != 0;
-                    v5 = (*(_BYTE *)(v30 + 40) & 4) != 0;
-                    if ( (*(_BYTE *)(v30 + 40) & 2) != 0 || (*(_BYTE *)(v30 + 40) & 4) != 0 )
-                      v4 = *(_DWORD *)(v30 + 40) & 0xFFFF0000;
-                    ((void (*)(void))RtlpMuiRegFreeLanguageList)();
+                    v6 = (v30[40] & 2) != 0;
+                    v5 = (v30[40] & 4) != 0;
+                    if ( (v30[40] & 2) != 0 || (v30[40] & 4) != 0 )
+                      v4 = *((_DWORD *)v30 + 10) & 0xFFFF0000;
+                    RtlpMuiRegFreeLanguageList(v30);
                     *UserPrefLanguages = 0LL;
                   }
                 }
                 if ( NtCurrentTeb()->MergedPrefLanguages )
-                {
-                  v31 = NtCurrentTeb();
-                  *((_DWORD *)v31->MergedPrefLanguages + 10) |= 0x80u;
-                }
+                  *((_DWORD *)NtCurrentTeb()->MergedPrefLanguages + 10) = *((_DWORD *)NtCurrentTeb()->MergedPrefLanguages
+                                                                          + 10) | 0x80;
               }
             }
           }
           if ( UserPrefLanguages && *UserPrefLanguages )
           {
-            v21 = *(_DWORD *)(*UserPrefLanguages + 40LL);
+            v21 = *((_DWORD *)*UserPrefLanguages + 10);
             if ( a1 )
               v22 = (v21 & 0x20) == 0;
             else
               v22 = (v21 & 0x10) == 0;
             if ( !v22 )
               return (unsigned int)updated;
-            v37 = v6;
+            v36 = v6;
             if ( (v21 & 2) != 0 )
-              v37 = 1;
-            v6 = v37;
+              v36 = 1;
+            v6 = v36;
             if ( (v21 & 4) != 0 )
               v5 = 1;
-            if ( v37 || v5 )
+            if ( v36 || v5 )
               v4 = v21 & 0xFFFF0000;
             RtlpMuiRegFreeLanguageList(*UserPrefLanguages);
             *UserPrefLanguages = 0LL;
@@ -195,46 +192,46 @@ LABEL_36:
           }
           if ( v7 )
           {
-            v32 = a1;
+            v31 = a1;
             goto LABEL_84;
           }
 LABEL_43:
-          v32 = a1;
+          v31 = a1;
           if ( !a1 && !v6 && !v5 )
           {
-            v33 = 1;
+            v32 = 1;
 LABEL_47:
-            updated = InitializeUserOrMachineLangList(a2, 1, (unsigned int)&v40, v19, v33);
+            updated = InitializeUserOrMachineLangList(a2, 1, (unsigned int)&v39, v19, v32);
             if ( updated >= 0 )
             {
-              v34 = v40;
-              if ( v40 )
+              v33 = v39;
+              if ( v39 )
               {
-                if ( v32 )
-                  *(_DWORD *)(v40 + 40) |= 0x20u;
+                if ( v31 )
+                  *(_DWORD *)(v39 + 40) |= 0x20u;
                 else
-                  *(_DWORD *)(v40 + 40) |= 0x10u;
+                  *(_DWORD *)(v39 + 40) |= 0x10u;
                 if ( v6 )
-                  *(_DWORD *)(v34 + 40) |= 2u;
+                  *(_DWORD *)(v33 + 40) |= 2u;
                 if ( v5 )
-                  *(_DWORD *)(v34 + 40) |= 4u;
+                  *(_DWORD *)(v33 + 40) |= 4u;
                 if ( v6 || v5 )
-                  *(_DWORD *)(v34 + 40) |= v4;
-                updated = RtlpUpdateTEBLanguage(v34, 0LL, 4LL);
+                  *(_DWORD *)(v33 + 40) |= v4;
+                updated = RtlpUpdateTEBLanguage(v33, 0LL, 4LL);
               }
               if ( v7 )
               {
-                v38 = RtlpLoadLanguageConfigList(8LL, &v41, a2);
-                updated = v38;
-                if ( v38 >= 0 )
-                  return (unsigned int)RtlpUpdateTEBLanguage(0LL, v41, 5LL);
+                v37 = RtlpLoadLanguageConfigList(8LL, &v40, a2);
+                updated = v37;
+                if ( v37 >= 0 )
+                  return (unsigned int)RtlpUpdateTEBLanguage(0LL, v40, 5LL);
               }
             }
             return (unsigned int)updated;
           }
 LABEL_84:
-          v33 = 0;
-          if ( v32 )
+          v32 = 0;
+          if ( v31 )
             v19 = 2;
           goto LABEL_47;
         }

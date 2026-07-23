@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpSlowAcknowledgePageRequest @ 0x1404F778C
+ * XREFs of HvlpSlowAcknowledgePageRequest @ 0x1404F770C
  * Callers:
- *     HvlSvmAcknowledgePageRequest @ 0x1404F69C0 (HvlSvmAcknowledgePageRequest.c)
+ *     HvlSvmAcknowledgePageRequest @ 0x1404F6940 (HvlSvmAcknowledgePageRequest.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
- *     HvlpFastAcknowledgePageRequest @ 0x1404F7580 (HvlpFastAcknowledgePageRequest.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpFastAcknowledgePageRequest @ 0x1404F7500 (HvlpFastAcknowledgePageRequest.c)
  */
 
 __int64 __fastcall HvlpSlowAcknowledgePageRequest(unsigned int a1, const void *a2, int *a3)

@@ -1,23 +1,23 @@
 /*
- * XREFs of MmCreatePeb @ 0x140ACA4F0
+ * XREFs of MmCreatePeb @ 0x140ACC600
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
  *     KeFindFirstSetRightGroupMask @ 0x140200980 (KeFindFirstSetRightGroupMask.c)
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     KeQueryGroupMaskProcess @ 0x140499E54 (KeQueryGroupMaskProcess.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     MmMapViewOfSection @ 0x1409C1F50 (MmMapViewOfSection.c)
- *     MiCreatePebOrTeb @ 0x1409C8ED0 (MiCreatePebOrTeb.c)
- *     MiCaptureImageHeaderFieldsForPeb @ 0x140ACAAB8 (MiCaptureImageHeaderFieldsForPeb.c)
- *     MiInitializeWowPeb @ 0x140ACAE74 (MiInitializeWowPeb.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     KeQueryGroupMaskProcess @ 0x1404939A4 (KeQueryGroupMaskProcess.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     MmMapViewOfSection @ 0x140992F30 (MmMapViewOfSection.c)
+ *     MiCreatePebOrTeb @ 0x140999EB0 (MiCreatePebOrTeb.c)
+ *     MiCaptureImageHeaderFieldsForPeb @ 0x140ACCBC8 (MiCaptureImageHeaderFieldsForPeb.c)
+ *     MiInitializeWowPeb @ 0x140ACCF84 (MiInitializeWowPeb.c)
  */
 
 __int64 __fastcall MmCreatePeb(__int64 BugCheckParameter1, char *a2, _QWORD *a3, __int64 a4)
@@ -95,15 +95,15 @@ __int64 __fastcall MmCreatePeb(__int64 BugCheckParameter1, char *a2, _QWORD *a3,
   Blink = (__int16)CurrentServerSiloGlobals[83].Blink;
   v22 = 2;
   v24 = CmNtCSDVersion;
-  v25 = qword_140FBE248;
-  v26 = qword_140FBE240;
+  v25 = qword_140FBF248;
+  v26 = qword_140FBF240;
   v27 = KeNumberProcessors_0;
   v28 = NtGlobalFlag;
   v29 = NtGlobalFlag2;
-  v31 = qword_140E2D610;
-  v32 = (unsigned int)dword_140FBE228;
-  v33 = qword_140FBE238;
-  v34 = qword_140FBE230;
+  v31 = qword_140E2D790;
+  v32 = (unsigned int)dword_140FBF228;
+  v33 = qword_140FBF238;
+  v34 = qword_140FBF230;
   v35 = *a2;
   v36[0] = a2[3];
   v37 = *((_QWORD *)a2 + 1);
@@ -150,10 +150,10 @@ __int64 __fastcall MmCreatePeb(__int64 BugCheckParameter1, char *a2, _QWORD *a3,
   RtlCopyToUser(v12 + 496, v42, 4uLL);
   RtlCopyToUser(v12 + 47, &NtGlobalFlag, 4uLL);
   RtlCopyToUser(v12 + 497, &NtGlobalFlag2, 4uLL);
-  RtlCopyToUser(v12 + 48, &qword_140E2D610, 8uLL);
-  RtlCopyToUser(v12 + 198, &dword_140FBE228, 4uLL);
-  RtlCopyToUser(v12 + 54, &qword_140FBE238, 8uLL);
-  RtlCopyToUser(v12 + 56, &qword_140FBE230, 8uLL);
+  RtlCopyToUser(v12 + 48, &qword_140E2D790, 8uLL);
+  RtlCopyToUser(v12 + 198, &dword_140FBF228, 4uLL);
+  RtlCopyToUser(v12 + 54, &qword_140FBF238, 8uLL);
+  RtlCopyToUser(v12 + 56, &qword_140FBF230, 8uLL);
   RtlWriteULongToUser(v12 + 46, KeNumberProcessors_0);
   if ( !*(_QWORD *)(BugCheckParameter1 + 784) || (v9 = MiInitializeWowPeb(v17, BugCheckParameter1), v9 >= 0) )
   {

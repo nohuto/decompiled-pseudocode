@@ -1,10 +1,10 @@
 /*
- * XREFs of _ungetc_nolock @ 0x1403E31A8
+ * XREFs of _ungetc_nolock @ 0x1403E3388
  * Callers:
- *     ReadString @ 0x1403E1684 (ReadString.c)
- *     _input_s @ 0x1403E19D4 (_input_s.c)
+ *     ReadString @ 0x1403E1864 (ReadString.c)
+ *     _input_s @ 0x1403E1BB4 (_input_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
  */
 
 int __cdecl ungetc_nolock(int Ch, FILE *File)

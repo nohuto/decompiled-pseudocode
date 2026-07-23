@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationResourceManager(
         HANDLE ResourceManagerHandle,
         RESOURCEMANAGER_INFORMATION_CLASS ResourceManagerInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryInformationResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, *(_QWORD *)&ResourceManagerInformationClass);
+  return KiServiceInternal(ResourceManagerHandle);
 }

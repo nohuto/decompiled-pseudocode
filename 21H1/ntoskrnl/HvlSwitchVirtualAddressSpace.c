@@ -12,7 +12,7 @@
  *     HvcallInitiateHypercall @ 0x14038CF90 (HvcallInitiateHypercall.c)
  */
 
-__int64 __fastcall HvlSwitchVirtualAddressSpace(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 HvlSwitchVirtualAddressSpace()
 {
-  return HvcallInitiateHypercall(65537, a1, 0LL, a4);
+  return HvcallInitiateHypercall(65537);
 }

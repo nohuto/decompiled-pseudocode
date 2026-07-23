@@ -1,16 +1,16 @@
 /*
- * XREFs of KiMcheckAbort @ 0x14016D140
+ * XREFs of KiMcheckAbort @ 0x14016D640
  * Callers:
  *     KiMcheckAbortShadow @ 0x14023F880 (KiMcheckAbortShadow.c)
  * Callees:
- *     KiCheckForSListAddress @ 0x14008C180 (KiCheckForSListAddress.c)
- *     KeWakeProcessor @ 0x1400B1D48 (KeWakeProcessor.c)
- *     KiRestoreDebugRegisterState @ 0x14015D990 (KiRestoreDebugRegisterState.c)
- *     KiSaveDebugRegisterState @ 0x14015DA00 (KiSaveDebugRegisterState.c)
- *     KiRestoreSetContextState @ 0x14015E540 (KiRestoreSetContextState.c)
- *     KiSetSpecCtrlNmi @ 0x140161C00 (KiSetSpecCtrlNmi.c)
- *     KxMcheckAbort @ 0x14016D580 (KxMcheckAbort.c)
- *     KiBugCheckDispatch @ 0x14016FC00 (KiBugCheckDispatch.c)
+ *     KiCheckForSListAddress @ 0x14008B8E0 (KiCheckForSListAddress.c)
+ *     KeWakeProcessor @ 0x1400AFC88 (KeWakeProcessor.c)
+ *     KiRestoreDebugRegisterState @ 0x14015DF00 (KiRestoreDebugRegisterState.c)
+ *     KiSaveDebugRegisterState @ 0x14015DF70 (KiSaveDebugRegisterState.c)
+ *     KiRestoreSetContextState @ 0x14015EAB0 (KiRestoreSetContextState.c)
+ *     KiSetSpecCtrlNmi @ 0x140162170 (KiSetSpecCtrlNmi.c)
+ *     KxMcheckAbort @ 0x14016DA80 (KxMcheckAbort.c)
+ *     KiBugCheckDispatch @ 0x140170100 (KiBugCheckDispatch.c)
  */
 
 __int64 __fastcall KiMcheckAbort(

@@ -1,16 +1,16 @@
 /*
- * XREFs of PspQueryQuotaLimits @ 0x1407BCB94
+ * XREFs of PspQueryQuotaLimits @ 0x1407BCE64
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCA90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406FCCA0 (NtQueryInformationProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     MmQueryWorkingSetInformation @ 0x14034C258 (MmQueryWorkingSetInformation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     MmQueryWorkingSetInformation @ 0x14034C3F8 (MmQueryWorkingSetInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PspQueryQuotaLimits(

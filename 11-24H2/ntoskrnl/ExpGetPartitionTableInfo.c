@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpGetPartitionTableInfo @ 0x140A640EC
+ * XREFs of ExpGetPartitionTableInfo @ 0x140A5C9EC
  * Callers:
- *     ExpDiskEnumCallback @ 0x1404FA228 (ExpDiskEnumCallback.c)
- *     ExpFindDiskSignature @ 0x140A63F20 (ExpFindDiskSignature.c)
+ *     ExpDiskEnumCallback @ 0x1404F7B08 (ExpDiskEnumCallback.c)
+ *     ExpFindDiskSignature @ 0x140A5C820 (ExpFindDiskSignature.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x1406A64F0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1406A7490 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpGetPartitionTableInfo(PCWSTR SourceString, _QWORD *a2)
@@ -40,7 +40,7 @@ NTSTATUS __fastcall ExpGetPartitionTableInfo(PCWSTR SourceString, _QWORD *a2)
   {
     for ( OutputBufferLength = 2352; ; OutputBufferLength *= 2 )
     {
-      OutputBuffer = (void *)ExAllocatePool2(0x40uLL);
+      OutputBuffer = (void *)ExAllocatePool2(0x40uLL, OutputBufferLength, 0x72766E45u);
       v6 = OutputBuffer;
       if ( !OutputBuffer )
         break;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReturnPageTablePageCommitment @ 0x140434210
+ * XREFs of MiReturnPageTablePageCommitment @ 0x1404330E0
  * Callers:
- *     MiFinishVadDeletion @ 0x1400295E0 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x140029160 (MiFinishVadDeletion.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiVadPureReserve @ 0x14002BA90 (MiVadPureReserve.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiGetPdeAddress @ 0x1400AB5EC (MiGetPdeAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReturnFullProcessCommitment @ 0x1404BCCE8 (MiReturnFullProcessCommitment.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiVadPureReserve @ 0x14002B610 (MiVadPureReserve.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiGetPdeAddress @ 0x1400847A4 (MiGetPdeAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReturnFullProcessCommitment @ 0x1404A8A18 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiReturnPageTablePageCommitment(
@@ -71,10 +71,10 @@ LABEL_58:
     goto LABEL_58;
 LABEL_3:
   v13 = MiVadPureReserve(a6);
-  v14 = (_DWORD *)(qword_140327F90 + 276840448);
+  v14 = (_DWORD *)(qword_140327FD0 + 276840448);
   v15 = a1 >> 21;
   v16 = a2 >> 21;
-  v39 = qword_140327F90 + 276840448;
+  v39 = qword_140327FD0 + 276840448;
   v37 = v13;
   LOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, v17);
   v18 = a7;

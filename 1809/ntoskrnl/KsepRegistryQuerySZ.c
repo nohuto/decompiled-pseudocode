@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepRegistryQuerySZ @ 0x14072827C
+ * XREFs of KsepRegistryQuerySZ @ 0x14072946C
  * Callers:
- *     KsepRegistryQueryDriverShims @ 0x14067DC94 (KsepRegistryQueryDriverShims.c)
- *     KsepRegistryQueryMULTISZ @ 0x140728250 (KsepRegistryQueryMULTISZ.c)
- *     KsepMatchInitBiosInfo @ 0x1409AF2B4 (KsepMatchInitBiosInfo.c)
+ *     KsepRegistryQueryDriverShims @ 0x14067EE54 (KsepRegistryQueryDriverShims.c)
+ *     KsepRegistryQueryMULTISZ @ 0x140729440 (KsepRegistryQueryMULTISZ.c)
+ *     KsepMatchInitBiosInfo @ 0x1409B02B4 (KsepMatchInitBiosInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KsepPoolFreePaged @ 0x1400F4D34 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4D5C (KsepPoolAllocatePaged.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlAssert @ 0x1402EFA50 (RtlAssert.c)
  */
 
 __int64 __fastcall KsepRegistryQuerySZ(

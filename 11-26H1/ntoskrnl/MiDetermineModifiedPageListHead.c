@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDetermineModifiedPageListHead @ 0x140298990
+ * XREFs of MiDetermineModifiedPageListHead @ 0x140297EF0
  * Callers:
- *     MiUnlinkProtoPages @ 0x140297A00 (MiUnlinkProtoPages.c)
- *     MiReplaceTransitionPageInList @ 0x1402FC830 (MiReplaceTransitionPageInList.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x14033F350 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiUpdatePageAttributeStamp @ 0x1404CD228 (MiUpdatePageAttributeStamp.c)
- *     MiInsertPageLockModifiedList @ 0x14051E9C8 (MiInsertPageLockModifiedList.c)
+ *     MiUnlinkProtoPages @ 0x140296F60 (MiUnlinkProtoPages.c)
+ *     MiReplaceTransitionPageInList @ 0x1402DE8B0 (MiReplaceTransitionPageInList.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403413D0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiUpdatePageAttributeStamp @ 0x1404C69C8 (MiUpdatePageAttributeStamp.c)
+ *     MiInsertPageLockModifiedList @ 0x140520FD8 (MiInsertPageLockModifiedList.c)
  * Callees:
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
  */
 
 __int64 __fastcall MiDetermineModifiedPageListHead(__int64 a1, __int64 a2, char a3)
@@ -57,8 +57,8 @@ __int64 __fastcall MiDetermineModifiedPageListHead(__int64 a1, __int64 a2, char 
     return a2 + 88 * v6 + 4608;
   if ( (_DWORD)v6 == *(_DWORD *)(a2 + 1300) )
   {
-    if ( qword_140E2D740 && (v3 & 0x10) == 0 )
-      v3 &= qword_140E2D748;
+    if ( qword_140E2D8C0 && (v3 & 0x10) == 0 )
+      v3 &= qword_140E2D8C8;
     v7 = HIDWORD(v3);
     if ( (unsigned int)v7 >= 2 && (unsigned int)v7 < 5 )
     {
@@ -106,21 +106,21 @@ __int64 __fastcall MiDetermineModifiedPageListHead(__int64 a1, __int64 a2, char 
             v32 = *(unsigned __int16 *)(v27 + 172);
             if ( v31 )
             {
-              if ( qword_140E2D740 )
+              if ( qword_140E2D8C0 )
               {
                 v33 = v31;
-                v34 = qword_140E2D748 & v31;
+                v34 = qword_140E2D8C8 & v31;
                 LODWORD(v31) = v31 & 0xFFFFFFEF;
                 if ( (v33 & 0x10) == 0 )
                   LODWORD(v31) = v34;
               }
               PageFilePte = (unsigned int)v31 | 0x300000000LL;
-              if ( qword_140E2D740 )
+              if ( qword_140E2D8C0 )
               {
-                if ( (qword_140E2D740 & PageFilePte) != 0 )
+                if ( (qword_140E2D8C0 & PageFilePte) != 0 )
                   PageFilePte |= 0x10uLL;
                 else
-                  PageFilePte |= qword_140E2D740;
+                  PageFilePte |= qword_140E2D8C0;
               }
             }
             else
@@ -183,21 +183,21 @@ LABEL_29:
     v16 = *(unsigned __int16 *)(v11 + 172);
     if ( v15 )
     {
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         v17 = v15;
-        v18 = qword_140E2D748 & v15;
+        v18 = qword_140E2D8C8 & v15;
         LODWORD(v15) = v15 & 0xFFFFFFEF;
         if ( (v17 & 0x10) == 0 )
           LODWORD(v15) = v18;
       }
       v19 = (unsigned int)v15 | 0x300000000LL;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        if ( (qword_140E2D740 & v19) != 0 )
+        if ( (qword_140E2D8C0 & v19) != 0 )
           v19 |= 0x10uLL;
         else
-          v19 |= qword_140E2D740;
+          v19 |= qword_140E2D8C0;
       }
     }
     else

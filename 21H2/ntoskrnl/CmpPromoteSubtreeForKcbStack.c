@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpPromoteSubtreeForKcbStack @ 0x14088083C
+ * XREFs of CmpPromoteSubtreeForKcbStack @ 0x14088099C
  * Callers:
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
  * Callees:
- *     CmpPromoteSubtree @ 0x1407291E8 (CmpPromoteSubtree.c)
+ *     CmpPromoteSubtree @ 0x140729698 (CmpPromoteSubtree.c)
  */
 
 __int64 __fastcall CmpPromoteSubtreeForKcbStack(__int64 a1)

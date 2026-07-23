@@ -1,9 +1,9 @@
 /*
- * XREFs of AslStringUpper @ 0x1406C55C4
+ * XREFs of AslStringUpper @ 0x1406C56FC
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x1406C421C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1406C4354 (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 void __fastcall AslStringUpper(__int64 a1)

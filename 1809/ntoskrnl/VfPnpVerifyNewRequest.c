@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPnpVerifyNewRequest @ 0x1409409A0
+ * XREFs of VfPnpVerifyNewRequest @ 0x1409419A0
  * Callers:
  *     <none>
  * Callees:
- *     MmIsNonPagedSystemAddressValid @ 0x1402AB9D0 (MmIsNonPagedSystemAddressValid.c)
- *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1402ABBC0 (MmIsNonPagedSystemAddressValid.c)
+ *     ViErrorReport1 @ 0x14030B12C (ViErrorReport1.c)
  */
 
 void __fastcall VfPnpVerifyNewRequest(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, const void *a6)

@@ -46,10 +46,10 @@ unsigned __int8 __fastcall KzSetIrqlUnsafe(unsigned __int8 a1)
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql > a1 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && (unsigned __int8)v1 <= 0xFu && v6 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && (unsigned __int8)v1 <= 0xFu && v6 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -66,7 +66,10 @@ unsigned __int8 __fastcall KzSetIrqlUnsafe(unsigned __int8 a1)
   {
     v3 = KeGetCurrentIrql();
     __writecr8(a1);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v3 <= 0xFu && (unsigned __int8)(a1 - 2) <= 0xDu )
+    if ( (_DWORD)KiIrqlFlags
+      && ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && v3 <= 0xFu
+      && (unsigned __int8)(a1 - 2) <= 0xDu )
     {
       v4 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v3 == a1 )

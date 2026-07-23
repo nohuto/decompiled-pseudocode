@@ -26,136 +26,141 @@
  *     ZwAlertThreadByThreadIdEx @ 0x180164050 (ZwAlertThreadByThreadIdEx.c)
  */
 
-__int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
+char *__fastcall RtlpxLookupFunctionTable(PVOID BaseAddress, char **a2)
 {
   bool v3; // zf
-  __int64 v5; // rdi
+  char *v5; // rdi
   char *SchedulerSharedDataSlot; // rdx
   unsigned int i; // r8d
   char *v8; // rcx
-  signed __int64 v9; // rax
-  int v10; // r8d
-  int v11; // r9d
-  int v12; // eax
-  char *v13; // r10
-  unsigned __int64 v14; // rdx
-  signed __int64 v15; // rax
-  signed __int64 v16; // rcx
-  char *v17; // rdx
+  int v9; // r8d
+  int v10; // r9d
+  int v11; // eax
+  char *v12; // r10
+  unsigned __int64 v13; // rdx
+  signed __int64 v14; // rax
+  signed __int64 v15; // rcx
+  char *v16; // rdx
   unsigned int k; // ecx
-  char *v19; // rsi
-  signed __int64 v21; // r8
-  signed __int64 v22; // rax
-  _QWORD *v23; // rax
+  char *v18; // rsi
+  signed __int64 v20; // r8
+  signed __int64 v21; // rax
+  _QWORD *v22; // rax
   __int64 j; // rdx
-  __int64 v25; // r8
-  __int64 v26; // rax
-  signed __int64 v27; // rdx
-  signed __int64 v28; // rax
-  __int64 *v29; // r14
-  _QWORD *v30; // r9
-  __int64 v31; // r8
-  __int64 v32; // rax
-  signed __int64 v33; // rax
-  unsigned __int64 v34; // rdx
-  bool v35; // si
-  unsigned __int64 v36; // rbp
-  int v37; // eax
-  __int64 v38; // rcx
-  int v39; // edx
-  __int16 v40; // ax
-  __int64 v41; // rdx
-  __int64 v42; // rsi
-  __int64 v43; // rcx
-  signed __int64 v44; // rax
+  __int64 v24; // r8
+  __int64 v25; // rax
+  signed __int64 v26; // rdx
+  signed __int64 v27; // rax
+  _RTL_SRWLOCK *v28; // r14
+  _QWORD *v29; // r9
+  __int64 v30; // r8
+  __int64 v31; // rax
+  signed __int64 v32; // rax
+  unsigned __int64 v33; // rdx
+  bool v34; // si
+  char *v35; // rbp
+  NTSTATUS v36; // eax
+  PIMAGE_NT_HEADERS v37; // rcx
+  int v38; // edx
+  unsigned __int16 Magic; // ax
+  __int64 VirtualAddress; // rdx
+  __int64 v41; // rsi
+  __int64 v42; // rcx
+  signed __int64 v43; // rax
+  int v44; // eax
   int v45; // eax
-  int v46; // eax
-  _QWORD *v47; // rax
-  __int128 v48; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v49; // [rsp+40h] [rbp-38h]
-  __int64 v50; // [rsp+88h] [rbp+10h] BYREF
-  __int64 v51; // [rsp+90h] [rbp+18h] BYREF
+  _QWORD *v46; // rax
+  __int128 MemoryInformation; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v48; // [rsp+40h] [rbp-38h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+88h] [rbp+10h] BYREF
+  char *v50; // [rsp+90h] [rbp+18h] BYREF
 
   v3 = LdrInitState == 3;
   v5 = 0LL;
-  *(_QWORD *)(a2 + 8) = 0LL;
-  *(_DWORD *)(a2 + 16) = 0;
+  a2[1] = 0LL;
+  *((_DWORD *)a2 + 4) = 0;
   if ( !v3 )
   {
 LABEL_55:
-    v49 = 0LL;
     v48 = 0LL;
-    if ( (int)ZwQueryVirtualMemory(-1LL, a1, 6LL, &v48, 24LL, 0LL) < 0
-      || (v34 = v48) == 0
-      || (v49 & 2) != 0
-      || (v49 & 1) != 0
-      || a1 < (unsigned __int64)v48 )
+    MemoryInformation = 0LL;
+    if ( ZwQueryVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           BaseAddress,
+           MemoryImageInformation,
+           &MemoryInformation,
+           0x18uLL,
+           0LL) < 0
+      || (v33 = MemoryInformation) == 0
+      || (v48 & 2) != 0
+      || (v48 & 1) != 0
+      || (unsigned __int64)BaseAddress < (unsigned __int64)MemoryInformation )
     {
-      *(_QWORD *)(a2 + 8) = 0LL;
+      a2[1] = 0LL;
     }
     else
     {
-      *(_DWORD *)(a2 + 16) = DWORD2(v48);
-      *(_QWORD *)(a2 + 8) = v34;
-      if ( v34 )
+      *((_DWORD *)a2 + 4) = DWORD2(MemoryInformation);
+      a2[1] = (char *)v33;
+      if ( v33 )
       {
+        OutHeaders = 0LL;
+        v34 = 1;
         v50 = 0LL;
-        v35 = 1;
-        v51 = 0LL;
-        v36 = v34;
+        v35 = (char *)v33;
         v5 = 0LL;
-        if ( (v34 & 3) != 0 )
+        if ( (v33 & 3) != 0 )
         {
-          v36 = v34 & 0xFFFFFFFFFFFFFFFCuLL;
-          v35 = (v34 & 1) == 0;
+          v35 = (char *)(v33 & 0xFFFFFFFFFFFFFFFCuLL);
+          v34 = (v33 & 1) == 0;
         }
-        v37 = RtlImageNtHeaderEx(1, v36, 0LL, &v50);
-        v38 = v50;
-        v39 = v37;
-        if ( v50 )
+        v36 = RtlImageNtHeaderEx(1u, v35, 0LL, &OutHeaders);
+        v37 = OutHeaders;
+        v38 = v36;
+        if ( OutHeaders )
         {
-          v40 = *(_WORD *)(v50 + 24);
-          if ( v40 == 267 )
+          Magic = OutHeaders->OptionalHeader.Magic;
+          if ( Magic == 267 )
           {
-            v45 = RtlpImageDirectoryEntryToData32(v36, v35, 3, (int)a2 + 20, v50, (__int64)&v51);
-            v5 = v51;
-            v39 = v45;
+            v44 = RtlpImageDirectoryEntryToData32((_DWORD)v35, v34, 3, (int)a2 + 20, (__int64)OutHeaders, (__int64)&v50);
+            v5 = v50;
+            v38 = v44;
           }
-          else if ( v40 == 523 && *(_DWORD *)(v50 + 132) > 3u )
+          else if ( Magic == 523 && OutHeaders->OptionalHeader.NumberOfRvaAndSizes > 3 )
           {
-            v41 = *(unsigned int *)(v50 + 160);
-            if ( (_DWORD)v41 )
+            VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[3].VirtualAddress;
+            if ( (_DWORD)VirtualAddress )
             {
-              *(_DWORD *)(a2 + 20) = *(_DWORD *)(v50 + 164);
-              if ( v35 || (unsigned int)v41 < *(_DWORD *)(v38 + 84) )
+              *((_DWORD *)a2 + 5) = OutHeaders->OptionalHeader.DataDirectory[3].Size;
+              if ( v34 || (unsigned int)VirtualAddress < v37->OptionalHeader.SizeOfHeaders )
               {
-                v5 = v41 + v36;
-                v39 = 0;
+                v5 = &v35[VirtualAddress];
+                v38 = 0;
               }
               else
               {
-                v5 = RtlAddressInSectionTable(v38, v36, v41);
-                v46 = 0;
+                v5 = (char *)RtlAddressInSectionTable(v37, v35, VirtualAddress);
+                v45 = 0;
                 if ( !v5 )
-                  v46 = -1073741811;
-                v39 = v46;
+                  v45 = -1073741811;
+                v38 = v45;
               }
             }
             else
             {
-              v39 = -1073741822;
+              v38 = -1073741822;
             }
           }
           else
           {
-            v39 = -1073741811;
+            v38 = -1073741811;
           }
         }
-        if ( v39 < 0 )
+        if ( v38 < 0 )
           v5 = 0LL;
         if ( !v5 )
-          *(_DWORD *)(a2 + 20) = 0;
-        *(_QWORD *)a2 = v5;
+          *((_DWORD *)a2 + 5) = 0;
+        *a2 = v5;
       }
     }
     return v5;
@@ -174,152 +179,154 @@ LABEL_55:
       }
     }
   }
-  v9 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, 17LL, 0LL);
-  if ( v9 )
-    RtlpAcquireSRWLockSharedContended(&LdrpInvertedFunctionTableSRWLock, SchedulerSharedDataSlot, v9);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, 17LL, 0LL) )
+    RtlpAcquireSRWLockSharedContended(&LdrpInvertedFunctionTableSRWLock);
   if ( LdrpInvertedFunctionTables[0] != 1 )
   {
-    v10 = 1;
-    v11 = LdrpInvertedFunctionTables[0] - 1;
-    while ( v11 >= v10 )
+    v9 = 1;
+    v10 = LdrpInvertedFunctionTables[0] - 1;
+    while ( v10 >= v9 )
     {
-      v12 = (v10 + v11) >> 1;
-      v13 = (char *)&xmmword_1801E9430 + 24 * v12;
-      v14 = *((_QWORD *)v13 + 1);
-      if ( a1 < v14 )
+      v11 = (v9 + v10) >> 1;
+      v12 = (char *)&xmmword_1801E9430 + 24 * v11;
+      v13 = *((_QWORD *)v12 + 1);
+      if ( (unsigned __int64)BaseAddress < v13 )
       {
-        if ( !v12 )
+        if ( !v11 )
           break;
-        v11 = v12 - 1;
+        v10 = v11 - 1;
       }
       else
       {
-        if ( a1 < v14 + *((unsigned int *)v13 + 4) )
+        if ( (unsigned __int64)BaseAddress < v13 + *((unsigned int *)v12 + 4) )
         {
-          *(_OWORD *)a2 = *(_OWORD *)v13;
-          *(_QWORD *)(a2 + 16) = *((_QWORD *)v13 + 2);
-          v5 = *(_QWORD *)a2;
+          *(_OWORD *)a2 = *(_OWORD *)v12;
+          a2[2] = (char *)*((_QWORD *)v12 + 2);
+          v5 = *a2;
           break;
         }
-        v10 = v12 + 1;
+        v9 = v11 + 1;
       }
     }
   }
-  v15 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, 0LL, 17LL);
-  v16 = v15;
-  if ( v15 != 17 )
+  v14 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, 0LL, 17LL);
+  v15 = v14;
+  if ( v14 != 17 )
   {
-    if ( (v15 & 1) == 0 )
-      RtlRaiseStatus(3221226084LL);
-    while ( (v16 & 2) == 0 )
+    if ( (v14 & 1) == 0 )
+      RtlRaiseStatus(-1073741212);
+    while ( (v15 & 2) == 0 )
     {
-      v21 = 0LL;
-      if ( (v16 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
-        v21 = v16 - 16;
-      v22 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v21, v16);
-      v3 = v16 == v22;
-      v16 = v22;
+      v20 = 0LL;
+      if ( (v15 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
+        v20 = v15 - 16;
+      v21 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, v20, v15);
+      v3 = v15 == v21;
+      v15 = v21;
       if ( v3 )
         goto LABEL_20;
     }
-    if ( (v16 & 8) != 0 )
+    if ( (v15 & 8) != 0 )
     {
-      v23 = (_QWORD *)(v16 & 0xFFFFFFFFFFFFFFF0uLL);
-      for ( j = *(_QWORD *)((v16 & 0xFFFFFFFFFFFFFFF0uLL) + 8); !j; j = v23[1] )
-        v23 = (_QWORD *)*v23;
+      v22 = (_QWORD *)(v15 & 0xFFFFFFFFFFFFFFF0uLL);
+      for ( j = *(_QWORD *)((v15 & 0xFFFFFFFFFFFFFFF0uLL) + 8); !j; j = v22[1] )
+        v22 = (_QWORD *)*v22;
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)(j + 32), 0xFFFFFFFF) > 1 )
         goto LABEL_20;
-      v25 = -9LL;
+      v24 = -9LL;
     }
     else
     {
-      v25 = -1LL;
+      v24 = -1LL;
     }
     while ( 1 )
     {
-      if ( (v16 & 4) != 0 || (v26 = v25 + 4, (v16 & 2) == 0) )
-        v26 = v25;
-      v27 = v26 + v16;
-      v28 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v26 + v16, v16);
-      if ( v16 == v28 )
+      if ( (v15 & 4) != 0 || (v25 = v24 + 4, (v15 & 2) == 0) )
+        v25 = v24;
+      v26 = v25 + v15;
+      v27 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, v25 + v15, v15);
+      if ( v15 == v27 )
         break;
-      v16 = v28;
+      v15 = v27;
     }
-    if ( (v16 & 6) == 2 )
+    if ( (v15 & 6) == 2 )
     {
-      v29 = &LdrpInvertedFunctionTableSRWLock;
+      v28 = &LdrpInvertedFunctionTableSRWLock;
       while ( 1 )
       {
-        while ( (v27 & 1) != 0 )
+        while ( (v26 & 1) != 0 )
         {
-          v44 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v27 - 4, v27);
-          v3 = v27 == v44;
-          v27 = v44;
+          v43 = _InterlockedCompareExchange64(
+                  (volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock,
+                  v26 - 4,
+                  v26);
+          v3 = v26 == v43;
+          v26 = v43;
           if ( v3 )
             goto LABEL_20;
         }
-        v30 = (_QWORD *)(v27 & 0xFFFFFFFFFFFFFFF0uLL);
-        v31 = *(_QWORD *)((v27 & 0xFFFFFFFFFFFFFFF0uLL) + 8);
-        if ( !v31 )
+        v29 = (_QWORD *)(v26 & 0xFFFFFFFFFFFFFFF0uLL);
+        v30 = *(_QWORD *)((v26 & 0xFFFFFFFFFFFFFFF0uLL) + 8);
+        if ( !v30 )
         {
           do
           {
-            v47 = v30;
-            v30 = (_QWORD *)*v30;
-            v30[2] = v47;
-            v31 = v30[1];
+            v46 = v29;
+            v29 = (_QWORD *)*v29;
+            v29[2] = v46;
+            v30 = v29[1];
           }
-          while ( !v31 );
-          if ( v30 != (_QWORD *)(v27 & 0xFFFFFFFFFFFFFFF0uLL) )
-            *(_QWORD *)((v27 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v31;
+          while ( !v30 );
+          if ( v29 != (_QWORD *)(v26 & 0xFFFFFFFFFFFFFFF0uLL) )
+            *(_QWORD *)((v26 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v30;
         }
-        if ( (*(_DWORD *)(v31 + 36) & 1) != 0 )
+        if ( (*(_DWORD *)(v30 + 36) & 1) != 0 )
         {
-          v32 = *(_QWORD *)(v31 + 16);
-          if ( v32 )
+          v31 = *(_QWORD *)(v30 + 16);
+          if ( v31 )
             break;
         }
-        v29 = 0LL;
-        v33 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, 0LL, v27);
-        v3 = v27 == v33;
-        v27 = v33;
+        v28 = 0LL;
+        v32 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, 0LL, v26);
+        v3 = v26 == v32;
+        v26 = v32;
         if ( v3 )
           goto LABEL_76;
       }
-      *(_QWORD *)((v27 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v32;
-      *(_QWORD *)(v31 + 16) = 0LL;
-      _InterlockedAnd64(&LdrpInvertedFunctionTableSRWLock, 0xFFFFFFFFFFFFFFFBuLL);
+      *(_QWORD *)((v26 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v31;
+      *(_QWORD *)(v30 + 16) = 0LL;
+      _InterlockedAnd64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_76:
-        v42 = *(_QWORD *)(v31 + 16);
-        v43 = *(_QWORD *)(v31 + 24);
-        _interlockedbittestandset((volatile signed __int32 *)(v31 + 36), 2u);
-        if ( !_interlockedbittestandreset((volatile signed __int32 *)(v31 + 36), 1u) )
-          ZwAlertThreadByThreadIdEx(v43, v29, v31, v30);
-        v31 = v42;
+        v41 = *(_QWORD *)(v30 + 16);
+        v42 = *(_QWORD *)(v30 + 24);
+        _interlockedbittestandset((volatile signed __int32 *)(v30 + 36), 2u);
+        if ( !_interlockedbittestandreset((volatile signed __int32 *)(v30 + 36), 1u) )
+          ZwAlertThreadByThreadIdEx(v42, v28, v30, v29);
+        v30 = v41;
       }
-      while ( v42 );
+      while ( v41 );
     }
   }
 LABEL_20:
-  v17 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
-  if ( v17 )
+  v16 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
+  if ( v16 )
   {
     for ( k = 0; k < 8; ++k )
     {
-      v19 = &v17[8 * k];
-      if ( (*(_QWORD *)v19 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&LdrpInvertedFunctionTableSRWLock & 0x7FFFFFFFFFFFFFFCLL) )
+      v18 = &v16[8 * k];
+      if ( (*(_QWORD *)v18 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&LdrpInvertedFunctionTableSRWLock & 0x7FFFFFFFFFFFFFFCLL) )
       {
-        if ( v19 )
+        if ( v18 )
         {
-          *v19 |= 2u;
-          if ( v19[7] < 0 )
+          *v18 |= 2u;
+          if ( v18[7] < 0 )
           {
-            v48 = (unsigned __int64)((v19 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3);
-            NtSetInformationThread(-2LL, 56LL, &v48);
+            MemoryInformation = (unsigned __int64)((v18 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3);
+            NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, &MemoryInformation, 0x10u);
           }
-          *(_QWORD *)v19 = 0LL;
+          *(_QWORD *)v18 = 0LL;
         }
         break;
       }

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampContextRemoveAndFreeModule @ 0x1409F2114
+ * XREFs of EtwpCovSampContextRemoveAndFreeModule @ 0x1409F23A4
  * Callers:
- *     EtwpCovSampContextCleanup @ 0x1409F1044 (EtwpCovSampContextCleanup.c)
+ *     EtwpCovSampContextCleanup @ 0x1409F12D4 (EtwpCovSampContextCleanup.c)
  * Callees:
- *     EtwpCovSampModuleCleanup @ 0x1409F26A8 (EtwpCovSampModuleCleanup.c)
+ *     EtwpCovSampModuleCleanup @ 0x1409F2938 (EtwpCovSampModuleCleanup.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

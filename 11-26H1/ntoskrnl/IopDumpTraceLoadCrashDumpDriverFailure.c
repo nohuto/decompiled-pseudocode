@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDumpTraceLoadCrashDumpDriverFailure @ 0x14050DC74
+ * XREFs of IopDumpTraceLoadCrashDumpDriverFailure @ 0x1405076E4
  * Callers:
- *     IopInitializeCrashDump @ 0x140793598 (IopInitializeCrashDump.c)
- *     IoGetDumpStack @ 0x140B5FFE0 (IoGetDumpStack.c)
+ *     IopInitializeCrashDump @ 0x1407960C8 (IopInitializeCrashDump.c)
+ *     IoGetDumpStack @ 0x140B6307C (IoGetDumpStack.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     IopDumpIsTracingEnabled @ 0x14052CC84 (IopDumpIsTracingEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     IopDumpIsTracingEnabled @ 0x14052F1A4 (IopDumpIsTracingEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall IopDumpTraceLoadCrashDumpDriverFailure(int a1)
@@ -45,7 +45,7 @@ char __fastcall IopDumpTraceLoadCrashDumpDriverFailure(int a1)
       v9 = 4LL;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140E06CD8,
-               (unsigned __int8 *)&byte_140046E17,
+               (unsigned __int8 *)byte_140047288,
                0LL,
                0LL,
                4u,

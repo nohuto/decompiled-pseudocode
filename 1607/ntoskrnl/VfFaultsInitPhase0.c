@@ -1,11 +1,11 @@
 /*
  * XREFs of VfFaultsInitPhase0 @ 0x140710C58
  * Callers:
- *     VfInitVerifierComponents @ 0x140703300 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x140703330 (VfInitVerifierComponents.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ViFaultsAddAllApps @ 0x140711110 (ViFaultsAddAllApps.c)
  *     ViFaultsAddAllTags @ 0x1407111BC (ViFaultsAddAllTags.c)
  */
@@ -28,13 +28,13 @@ __int64 VfFaultsInitPhase0()
   ViFaultTraces = (__int64)ExAllocatePoolWithTagPriority(NonPagedPoolNx, 72 * v0, 0x74746C46u, HighPoolPriority);
   v1 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
   ViHaveFaultTags = 0;
-  qword_1403005E8 = (__int64)&ViFaultTagsList;
+  qword_1403005C8 = (__int64)&ViFaultTagsList;
   ViFaultTagsList = &ViFaultTagsList;
   KeReleaseSpinLock(&ViFaultInjectionLock, v1);
   if ( (unsigned int)(VerifierFaultTagsBufferSize - 2) <= 0xFE )
     ViFaultsAddAllTags(&VerifierFaultTagsBuffer, ((unsigned __int64)(unsigned int)VerifierFaultTagsBufferSize - 2) >> 1);
   v2 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
-  qword_1403005C8 = (__int64)&ViFaultApplicationsList;
+  qword_1403005A8 = (__int64)&ViFaultApplicationsList;
   ViFaultApplicationsList = &ViFaultApplicationsList;
   KeReleaseSpinLock(&ViFaultInjectionLock, v2);
   result = (unsigned int)(VerifierFaultApplicationsBufferSize - 2);

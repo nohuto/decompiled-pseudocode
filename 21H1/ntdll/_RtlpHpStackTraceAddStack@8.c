@@ -15,24 +15,23 @@
  *     _RtlStackDbStackRemove@8 @ 0x4B38A807 (_RtlStackDbStackRemove@8.c)
  */
 
-int __usercall RtlpHpStackTraceAddStack@<eax>(int a1@<edx>, int a2@<ecx>, int a3@<ebp>)
+void __usercall RtlpHpStackTraceAddStack(int a1@<edx>, int a2@<ecx>, int a3@<ebp>)
 {
   PVOID *v3; // esi
   PVOID *v4; // eax
   USHORT v5; // ax
   int v6; // eax
   int v7; // eax
-  int result; // eax
-  _DWORD v9[5]; // [esp-8h] [ebp-14h] BYREF
+  _DWORD v8[5]; // [esp-8h] [ebp-14h] BYREF
   _UNKNOWN *retaddr; // [esp+Ch] [ebp+0h]
 
-  v9[2] = a3;
-  v9[3] = retaddr;
-  v9[0] = a2;
-  v9[1] = a1;
+  v8[2] = a3;
+  v8[3] = retaddr;
+  v8[0] = a2;
+  v8[1] = a1;
   v3 = 0;
   RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext);
-  if ( (dword_4B3A6834 & 1) != 0 && (dword_4B3A6834 & 2) != 0 && (int)RtlpHpStackTraceHeapGetContext(v9) >= 0 )
+  if ( (dword_4B3A6834 & 1) != 0 && (dword_4B3A6834 & 2) != 0 && (int)RtlpHpStackTraceHeapGetContext(v8) >= 0 )
   {
     v4 = (PVOID *)RtlpHpMetadataAlloc(0, RtlpHpEnvHandle, dword_4B3A446C);
     v3 = v4;
@@ -51,8 +50,7 @@ int __usercall RtlpHpStackTraceAddStack@<eax>(int a1@<edx>, int a2@<ecx>, int a3
       }
     }
   }
-  result = RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
   if ( v3 )
-    return RtlpHpMetadataFree(RtlpHpEnvHandle, dword_4B3A446C);
-  return result;
+    RtlpHpMetadataFree(RtlpHpEnvHandle, dword_4B3A446C);
 }

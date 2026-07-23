@@ -7,31 +7,29 @@
  *     NtQueryInformationProcess @ 0x1800A4390 (NtQueryInformationProcess.c)
  */
 
-__int64 RtlpInitRandomExVector()
+__int64 __fastcall RtlpInitRandomExVector(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  NTSTATUS v0; // eax
-  __int64 v1; // rdx
-  __int64 v2; // r8
-  __int32 *v3; // r9
-  unsigned __int64 v4; // r8
-  __int64 v5; // r10
+  int v3; // eax
+  __int32 *v4; // r9
+  unsigned __int64 v5; // r8
+  __int64 v6; // r10
   __int64 result; // rax
   int ProcessInformation; // [rsp+58h] [rbp+20h] BYREF
 
-  v0 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
-  if ( v0 < 0 )
-    RtlRaiseStatus(v0, v1, v2);
-  v3 = RtlpRandomExConstantVector;
-  LODWORD(v4) = dword_18018F388 ^ ProcessInformation;
-  v5 = 128LL;
+  v3 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
+  if ( v3 < 0 )
+    RtlRaiseStatus(v3);
+  v4 = RtlpRandomExConstantVector;
+  LODWORD(v5) = LdrSystemDllInitBlock.RngData ^ ProcessInformation;
+  v6 = 128LL;
   do
   {
-    v4 = (2147483629 * (unsigned __int64)(unsigned int)v4 + 2147483587) % 0x7FFFFFFF;
-    *v3++ = v4;
-    --v5;
+    v5 = (2147483629 * (unsigned __int64)(unsigned int)v5 + 2147483587) % 0x7FFFFFFF;
+    *v4++ = v5;
+    --v6;
   }
-  while ( v5 );
+  while ( v6 );
   result = 1LL;
-  RtlpRandomExAuxVarY = (2147483629 * (unsigned __int64)(unsigned int)v4 + 2147483587) % 0x7FFFFFFF;
+  RtlpRandomExAuxVarY = (2147483629 * (unsigned __int64)(unsigned int)v5 + 2147483587) % 0x7FFFFFFF;
   return result;
 }

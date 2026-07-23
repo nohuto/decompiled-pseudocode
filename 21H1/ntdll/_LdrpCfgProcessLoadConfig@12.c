@@ -14,7 +14,7 @@
  *     _ZwProtectVirtualMemory@20 @ 0x4B2F2E80 (_ZwProtectVirtualMemory@20.c)
  */
 
-int __fastcall LdrpCfgProcessLoadConfig(unsigned int *a1, unsigned int a2, int a3)
+NTSTATUS __fastcall LdrpCfgProcessLoadConfig(unsigned int *a1, int a2, int a3)
 {
   int valid; // eax
   int v5; // edi
@@ -24,19 +24,20 @@ int __fastcall LdrpCfgProcessLoadConfig(unsigned int *a1, unsigned int a2, int a
   int v9; // edx
   int v10; // eax
   unsigned int v11; // ecx
-  int result; // eax
-  int (**v13)(); // edi
-  unsigned int v14; // ecx
-  int (*v15)(); // eax
-  int v16; // edi
-  int v17; // [esp+Ch] [ebp-18h] BYREF
-  int v18; // [esp+10h] [ebp-14h] BYREF
-  int v19; // [esp+14h] [ebp-10h] BYREF
-  int v20; // [esp+18h] [ebp-Ch] BYREF
-  int v21; // [esp+1Ch] [ebp-8h] BYREF
-  unsigned int v22; // [esp+20h] [ebp-4h]
+  int v12; // eax
+  int v13; // eax
+  NTSTATUS result; // eax
+  int (**v15)(); // edi
+  unsigned int v16; // ecx
+  int (*v17)(); // eax
+  int v18; // edi
+  int v19; // [esp+Ch] [ebp-18h] BYREF
+  int v20; // [esp+10h] [ebp-14h] BYREF
+  ULONG OldProtect; // [esp+14h] [ebp-10h] BYREF
+  PVOID BaseAddress; // [esp+18h] [ebp-Ch] BYREF
+  ULONG_PTR RegionSize; // [esp+1Ch] [ebp-8h] BYREF
 
-  v22 = a2;
+  HIDWORD(RegionSize) = a2;
   if ( !a3 || *(_DWORD *)a3 < 0x5Cu )
     return 0;
   valid = LdrpValidPathComponentsMask();
@@ -45,74 +46,76 @@ int __fastcall LdrpCfgProcessLoadConfig(unsigned int *a1, unsigned int a2, int a
   if ( (v5 & valid) != 0 && (unsigned __int8)LdrpIsModuleUnderSystem32(a1) )
   {
     if ( a1 == (unsigned int *)LdrpImageEntry )
-      v16 = v5 | 0x200;
+      v18 = v5 | 0x200;
     else
-      v16 = v5 | 0x100;
-    a1[40] = v16;
+      v18 = v5 | 0x100;
+    a1[40] = v18;
   }
   if ( (*(_DWORD *)(a3 + 88) & 0x1000) != 0 && (a1[13] |= 0x8000u, (*(_DWORD *)(a3 + 88) & 0x2000) != 0) )
   {
-    if ( RtlpImageDirectoryEntryToDataEx(a1[6], 1, 0xDu, &v17, &v18) < 0 )
+    if ( RtlpImageDirectoryEntryToDataEx(a1[6], 1, 0xDu, (unsigned int *)&v19, &v20) < 0 )
       v6 = 0;
     else
-      v6 = v18;
-    v7 = v22;
+      v6 = v20;
+    v7 = HIDWORD(RegionSize);
     if ( v6 )
     {
-      v8 = *(unsigned __int16 *)(v22 + 20);
-      v22 = 0;
+      v8 = *(unsigned __int16 *)(HIDWORD(RegionSize) + 20);
+      HIDWORD(RegionSize) = 0;
       v9 = v8 + v7 + 24;
       if ( *(_WORD *)(v7 + 6) )
       {
         v10 = *(_DWORD *)(v6 + 12);
         v11 = *(unsigned __int16 *)(v7 + 6);
-        v18 = v10;
+        v20 = v10;
         while ( (unsigned int)(v10 - *(_DWORD *)(v9 + 12)) >= *(_DWORD *)(v9 + 8) )
         {
           v9 += 40;
-          ++v22;
-          v10 = v18;
-          if ( v22 >= v11 )
+          ++HIDWORD(RegionSize);
+          v10 = v20;
+          if ( HIDWORD(RegionSize) >= v11 )
             goto LABEL_15;
         }
-        v20 = *(_DWORD *)(v9 + 12) + a1[6];
-        v21 = *(_DWORD *)(v9 + 8);
+        BaseAddress = (PVOID)(*(_DWORD *)(v9 + 12) + a1[6]);
+        LODWORD(RegionSize) = *(_DWORD *)(v9 + 8);
         LdrpMakePermanentImageCommit();
-        ZwProtectVirtualMemory(-1, &v20, &v21, 2, &v19);
+        ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 2u, &OldProtect);
       }
     }
   }
   else
   {
-    v7 = v22;
+    v7 = HIDWORD(RegionSize);
   }
 LABEL_15:
-  if ( LdrControlFlowGuardEnforced() && ((*(_WORD *)(v7 + 94) & 0x4000) == 0 || (*(_DWORD *)(a3 + 88) & 0x100) == 0) )
+  LOBYTE(v12) = LdrControlFlowGuardEnforced();
+  if ( v12 && ((*(_WORD *)(v7 + 94) & 0x4000) == 0 || (*(_DWORD *)(a3 + 88) & 0x100) == 0) )
     LdrpLogCFGModuleInfoTelemetry((int)a1, v7);
-  if ( !LdrControlFlowGuardEnforced() || (*(_WORD *)(v7 + 94) & 0x4000) == 0 || (*(_DWORD *)(a3 + 88) & 0x100) == 0 )
+  LOBYTE(v13) = LdrControlFlowGuardEnforced();
+  if ( !v13 || (*(_WORD *)(v7 + 94) & 0x4000) == 0 || (*(_DWORD *)(a3 + 88) & 0x100) == 0 )
     return 0;
-  v13 = *(int (***)())(a3 + 72);
-  if ( !v13 || (v14 = a1[6], (unsigned int)v13 < v14) || (unsigned int)v13 >= v14 + a1[8] - 4 || !*v13 )
+  v15 = *(int (***)())(a3 + 72);
+  if ( !v15 || (v16 = a1[6], (unsigned int)v15 < v16) || (unsigned int)v15 >= v16 + a1[8] - 4 || !*v15 )
   {
-    v13 = 0;
+    v15 = 0;
     goto LABEL_30;
   }
-  v20 = *(_DWORD *)(a3 + 72);
-  v21 = 4;
-  result = ZwProtectVirtualMemory(-1, &v20, &v21, 4, &v19);
+  BaseAddress = *(PVOID *)(a3 + 72);
+  LODWORD(RegionSize) = 4;
+  result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 4u, &OldProtect);
   if ( result >= 0 )
   {
     if ( !LdrControlFlowGuardEnforcedWithExportSuppression()
-      || (v15 = LdrpValidateUserCallTargetES, (*(_DWORD *)(a3 + 88) & 0x4000) == 0) )
+      || (v17 = LdrpValidateUserCallTargetES, (*(_DWORD *)(a3 + 88) & 0x4000) == 0) )
     {
-      v15 = LdrpValidateUserCallTarget;
+      v17 = LdrpValidateUserCallTarget;
     }
-    *v13 = v15;
-    result = ZwProtectVirtualMemory(-1, &v20, &v21, v19, &v19);
+    *v15 = v17;
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, OldProtect, &OldProtect);
     if ( result >= 0 )
     {
 LABEL_30:
-      if ( !v13 || *v13 != LdrpValidateUserCallTarget && *v13 != LdrpValidateUserCallTargetES )
+      if ( !v15 || *v15 != LdrpValidateUserCallTarget && *v15 != LdrpValidateUserCallTargetES )
         return -1073741762;
       return 0;
     }

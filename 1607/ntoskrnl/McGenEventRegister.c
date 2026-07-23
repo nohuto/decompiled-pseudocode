@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventRegister @ 0x14013C3BC
+ * XREFs of McGenEventRegister @ 0x14013C92C
  * Callers:
- *     FsRtlpHeatRegisterVolume @ 0x14061F89C (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14061F950 (FsRtlpHeatRegisterVolume.c)
  *     PnpDiagInitialize @ 0x14079CC74 (PnpDiagInitialize.c)
  *     PiUEventInit @ 0x14079D7F0 (PiUEventInit.c)
  * Callees:

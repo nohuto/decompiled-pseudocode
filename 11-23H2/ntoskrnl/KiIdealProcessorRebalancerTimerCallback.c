@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIdealProcessorRebalancerTimerCallback @ 0x140358450
+ * XREFs of KiIdealProcessorRebalancerTimerCallback @ 0x1403585F0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void KiIdealProcessorRebalancerTimerCallback()

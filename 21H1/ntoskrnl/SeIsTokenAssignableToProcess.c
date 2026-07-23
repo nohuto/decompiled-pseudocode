@@ -15,7 +15,7 @@
  *     SepIsChildTokenByPointer @ 0x1406C803C (SepIsChildTokenByPointer.c)
  */
 
-__int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
+NTSTATUS __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
 {
   char v2; // di
   struct _KPROCESS *Process; // rcx
@@ -30,10 +30,10 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
   __int64 v14; // rdx
   __int64 v15; // r8
   __int64 v16; // r9
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char v18; // bl
   char v19; // [rsp+78h] [rbp+38h] BYREF
-  bool v20; // [rsp+80h] [rbp+40h] BYREF
+  BOOLEAN Dominates; // [rsp+80h] [rbp+40h] BYREF
   char v21; // [rsp+88h] [rbp+48h] BYREF
 
   v2 = 0;
@@ -41,10 +41,10 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
   v19 = 0;
   v21 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v20 = 0;
+  Dominates = 0;
   v6 = (PERESOURCE *)PsReferencePrimaryToken(Process);
   if ( !v6 )
-    return 3221225473LL;
+    return -1073741823;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(v6[6], 1u);
@@ -63,17 +63,17 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
   if ( v12 == 2 && v13 < 2 )
-    return 3221225637LL;
-  result = RtlSidDominates(0LL, 0LL, &v20);
-  if ( (int)result >= 0 )
+    return -1073741659;
+  result = RtlSidDominates(0LL, 0LL, &Dominates);
+  if ( result >= 0 )
   {
-    if ( v20 )
+    if ( Dominates )
     {
       result = SepIsChildTokenByPointer(a1, &v19);
       v18 = v19;
       if ( !v19 )
       {
-        if ( (int)result < 0 )
+        if ( result < 0 )
           return result;
         result = SepIsSiblingTokenByPointer(a1, &v21);
       }
@@ -82,7 +82,7 @@ __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
     {
       v18 = v19;
     }
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       if ( v18 || v21 )
         v2 = 1;

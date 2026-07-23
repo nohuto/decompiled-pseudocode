@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAuditAllocateRsdtArrayTable @ 0x140C13EB0
+ * XREFs of HalpAuditAllocateRsdtArrayTable @ 0x140C15EB0
  * Callers:
- *     HalpAuditEnumerateRsdts @ 0x140C13F58 (HalpAuditEnumerateRsdts.c)
- *     HalpAuditEnumerateRsdtsInRange @ 0x140C1404C (HalpAuditEnumerateRsdtsInRange.c)
+ *     HalpAuditEnumerateRsdts @ 0x140C15F58 (HalpAuditEnumerateRsdts.c)
+ *     HalpAuditEnumerateRsdtsInRange @ 0x140C1604C (HalpAuditEnumerateRsdtsInRange.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpAuditAllocateRsdtArrayTable(_DWORD **a1)

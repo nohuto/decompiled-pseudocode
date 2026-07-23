@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlDetermineDosPathNameType_Ustr @ 0x18001E5F8
+ * XREFs of RtlDetermineDosPathNameType_Ustr @ 0x18001E5E8
  * Callers:
- *     LdrpPreprocessDllName @ 0x180015890 (LdrpPreprocessDllName.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
- *     sxsisol_CanonicalizeFullPathFileName @ 0x18001BADC (sxsisol_CanonicalizeFullPathFileName.c)
- *     RtlGetFullPathName_Ustr @ 0x18001D830 (RtlGetFullPathName_Ustr.c)
- *     RtlpIsDosDeviceName_Ustr @ 0x18001E290 (RtlpIsDosDeviceName_Ustr.c)
- *     RtlDosPathNameToRelativeNtPathName @ 0x1800222B0 (RtlDosPathNameToRelativeNtPathName.c)
- *     RtlDosSearchPath_Ustr @ 0x180042810 (RtlDosSearchPath_Ustr.c)
- *     RtlpDetermineDosPathNameType4 @ 0x18006C524 (RtlpDetermineDosPathNameType4.c)
- *     RtlpInitCurrentDir @ 0x1800793F8 (RtlpInitCurrentDir.c)
- *     RtlpComputeBackupIndex @ 0x1800823A8 (RtlpComputeBackupIndex.c)
+ *     LdrpPreprocessDllName @ 0x180015880 (LdrpPreprocessDllName.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
+ *     sxsisol_CanonicalizeFullPathFileName @ 0x18001BACC (sxsisol_CanonicalizeFullPathFileName.c)
+ *     RtlGetFullPathName_Ustr @ 0x18001D820 (RtlGetFullPathName_Ustr.c)
+ *     RtlpIsDosDeviceName_Ustr @ 0x18001E280 (RtlpIsDosDeviceName_Ustr.c)
+ *     RtlDosPathNameToRelativeNtPathName @ 0x1800222A0 (RtlDosPathNameToRelativeNtPathName.c)
+ *     RtlDosSearchPath_Ustr @ 0x180042800 (RtlDosSearchPath_Ustr.c)
+ *     RtlpDetermineDosPathNameType4 @ 0x18006C514 (RtlpDetermineDosPathNameType4.c)
+ *     RtlpInitCurrentDir @ 0x1800793E8 (RtlpInitCurrentDir.c)
+ *     RtlpComputeBackupIndex @ 0x180082398 (RtlpComputeBackupIndex.c)
  *     RtlNtPathNameToDosPathName @ 0x1800CFD00 (RtlNtPathNameToDosPathName.c)
  * Callees:
  *     <none>

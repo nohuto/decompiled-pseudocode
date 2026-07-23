@@ -7,15 +7,15 @@
  *     _LdrpGetDelayloadDescriptor@8 @ 0x4B32F7C7 (_LdrpGetDelayloadDescriptor@8.c)
  */
 
-int __stdcall LdrResolveDelayLoadsFromDll(_BYTE *a1, int a2, int a3)
+NTSTATUS __cdecl LdrResolveDelayLoadsFromDll(PVOID ParentModuleBase, PCSTR TargetDllName, ULONG Flags)
 {
-  int DelayloadDescriptor; // eax
+  const IMAGE_DELAYLOAD_DESCRIPTOR *DelayloadDescriptor; // eax
 
-  if ( a3 )
+  if ( Flags )
     return -1073741811;
-  DelayloadDescriptor = LdrpGetDelayloadDescriptor(a1);
+  DelayloadDescriptor = (const IMAGE_DELAYLOAD_DESCRIPTOR *)LdrpGetDelayloadDescriptor(ParentModuleBase);
   if ( DelayloadDescriptor )
-    return LdrpResolveDelayLoadDescriptor(a1, DelayloadDescriptor);
+    return LdrpResolveDelayLoadDescriptor((char *)ParentModuleBase, DelayloadDescriptor);
   else
     return -1073741515;
 }

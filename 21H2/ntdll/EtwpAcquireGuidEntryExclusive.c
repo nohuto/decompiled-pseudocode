@@ -10,15 +10,11 @@
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-struct _TEB *__fastcall EtwpAcquireGuidEntryExclusive(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+struct _TEB *__fastcall EtwpAcquireGuidEntryExclusive(__int64 a1)
 {
   struct _TEB *result; // rax
 
-  RtlAcquireSRWLockExclusive(a1 + 40, a2, a3, a4);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   result = NtCurrentTeb();
   *(_DWORD *)(a1 + 48) = result->ClientId.UniqueThread;
   return result;

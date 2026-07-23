@@ -32,7 +32,7 @@ char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)
   __int128 v15; // xmm0
   __int128 v16; // xmm0
   _OWORD v18[12]; // [rsp+40h] [rbp-E8h] BYREF
-  __int128 v19; // [rsp+100h] [rbp-28h] BYREF
+  __int128 Buffer; // [rsp+100h] [rbp-28h] BYREF
   char v20; // [rsp+110h] [rbp-18h]
 
   v1 = 0;
@@ -95,8 +95,8 @@ char __fastcall PopDiagNextCsSleepStudySession(GUID *a1)
       KeReleaseMutex(&PopWdiTimerMutex, 0);
       v16 = *(_OWORD *)PopWdiCurrentScenario;
       v20 = PopWdiCurrentScenarioInstanceId;
-      v19 = v16;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_SCENARIO_CHANGE, (__int64)&v19, 20LL);
+      Buffer = v16;
+      ZwUpdateWnfStateData(&WNF_PO_SCENARIO_CHANGE, &Buffer, 0x14u, 0LL, 0LL, 0, 0);
     }
   }
   return v1;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkSetLpiCap @ 0x14059D28C
+ * XREFs of PpmParkSetLpiCap @ 0x14059D77C
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     PpmCheckCustomRun @ 0x14032B63C (PpmCheckCustomRun.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PpmParkApplyPolicy @ 0x140392600 (PpmParkApplyPolicy.c)
- *     PpmCheckReInit @ 0x14082CAEC (PpmCheckReInit.c)
+ *     PpmCheckCustomRun @ 0x14032B8CC (PpmCheckCustomRun.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x1403927E0 (PpmParkApplyPolicy.c)
+ *     PpmCheckReInit @ 0x14082CDEC (PpmCheckReInit.c)
  */
 
 __int64 __fastcall PpmParkSetLpiCap(int a1, int a2, unsigned int *a3)

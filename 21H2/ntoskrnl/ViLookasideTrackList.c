@@ -1,10 +1,10 @@
 /*
- * XREFs of ViLookasideTrackList @ 0x1409E17BC
+ * XREFs of ViLookasideTrackList @ 0x1409E27BC
  * Callers:
- *     VerifierExInitializeNPagedLookasideList @ 0x1409E12F0 (VerifierExInitializeNPagedLookasideList.c)
- *     VerifierExInitializePagedLookasideList @ 0x1409E1410 (VerifierExInitializePagedLookasideList.c)
+ *     VerifierExInitializeNPagedLookasideList @ 0x1409E22F0 (VerifierExInitializeNPagedLookasideList.c)
+ *     VerifierExInitializePagedLookasideList @ 0x1409E2410 (VerifierExInitializePagedLookasideList.c)
  * Callees:
- *     ViLookasideAdd @ 0x1409E15B4 (ViLookasideAdd.c)
+ *     ViLookasideAdd @ 0x1409E25B4 (ViLookasideAdd.c)
  */
 
 void __fastcall ViLookasideTrackList(ULONG_PTR a1, int a2)

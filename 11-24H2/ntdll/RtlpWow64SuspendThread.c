@@ -1,176 +1,192 @@
 /*
- * XREFs of RtlpWow64SuspendThread @ 0x1800F8F50
+ * XREFs of RtlpWow64SuspendThread @ 0x1800F3B20
  * Callers:
- *     RtlWow64SuspendThread @ 0x1801101A0 (RtlWow64SuspendThread.c)
- *     RtlWow64ChangeThreadState @ 0x1801126A0 (RtlWow64ChangeThreadState.c)
+ *     RtlWow64SuspendThread @ 0x18010B240 (RtlWow64SuspendThread.c)
+ *     RtlWow64ChangeThreadState @ 0x18010D980 (RtlWow64ChangeThreadState.c)
  * Callees:
- *     RtlpCreateUserThreadEx @ 0x18008C310 (RtlpCreateUserThreadEx.c)
- *     NtWaitForSingleObject @ 0x180161D10 (NtWaitForSingleObject.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwQueryObject @ 0x180161E90 (ZwQueryObject.c)
- *     NtQueryInformationProcess @ 0x180161FB0 (NtQueryInformationProcess.c)
- *     ZwQueryInformationThread @ 0x180162130 (ZwQueryInformationThread.c)
- *     NtOpenProcess @ 0x180162150 (NtOpenProcess.c)
- *     ZwDuplicateObject @ 0x180162410 (ZwDuplicateObject.c)
- *     ZwReadVirtualMemory @ 0x180162470 (ZwReadVirtualMemory.c)
- *     ZwResumeThread @ 0x1801626D0 (ZwResumeThread.c)
- *     NtChangeThreadState @ 0x180162FA0 (NtChangeThreadState.c)
- *     NtSuspendThread @ 0x180165660 (NtSuspendThread.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpCreateUserThreadEx @ 0x1800A7DD0 (RtlpCreateUserThreadEx.c)
+ *     NtWaitForSingleObject @ 0x1801600D0 (NtWaitForSingleObject.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwQueryObject @ 0x180160250 (ZwQueryObject.c)
+ *     NtQueryInformationProcess @ 0x180160370 (NtQueryInformationProcess.c)
+ *     ZwQueryInformationThread @ 0x1801604F0 (ZwQueryInformationThread.c)
+ *     NtOpenProcess @ 0x180160510 (NtOpenProcess.c)
+ *     ZwDuplicateObject @ 0x1801607D0 (ZwDuplicateObject.c)
+ *     ZwReadVirtualMemory @ 0x180160830 (ZwReadVirtualMemory.c)
+ *     ZwResumeThread @ 0x180160A90 (ZwResumeThread.c)
+ *     NtChangeThreadState @ 0x180161360 (NtChangeThreadState.c)
+ *     NtSuspendThread @ 0x180163A20 (NtSuspendThread.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpWow64SuspendThread(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall RtlpWow64SuspendThread(
+        HANDLE ThreadHandle,
+        HANDLE ThreadStateChangeHandle,
+        PULONG PreviousSuspendCount)
 {
-  int VirtualMemory; // ebx
+  NTSTATUS VirtualMemory; // ebx
   void *UniqueProcess; // rcx
   HANDLE v8; // rdi
   int v9; // edi
-  __int64 v11; // rcx
-  __int64 v12; // [rsp+30h] [rbp-D0h]
+  void *v11; // rcx
+  ACCESS_MASK DesiredAccess[2]; // [rsp+20h] [rbp-E0h]
+  ULONG HandleAttributes[2]; // [rsp+28h] [rbp-D8h]
+  ULONG Options; // [rsp+30h] [rbp-D0h]
   HANDLE ProcessHandle; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v15; // [rsp+70h] [rbp-90h] BYREF
-  HANDLE v16; // [rsp+78h] [rbp-88h] BYREF
-  __int128 v17; // [rsp+80h] [rbp-80h]
-  __int128 v18; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v19; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v20; // [rsp+B0h] [rbp-50h]
-  int v21; // [rsp+B8h] [rbp-48h]
-  _DWORD v22[2]; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v23; // [rsp+C8h] [rbp-38h]
-  __int64 v24; // [rsp+D0h] [rbp-30h]
-  int v25; // [rsp+D8h] [rbp-28h]
-  int v26; // [rsp+DCh] [rbp-24h]
-  __int128 v27; // [rsp+E0h] [rbp-20h]
-  _OWORD v28[2]; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v29; // [rsp+110h] [rbp+10h]
-  int v30; // [rsp+118h] [rbp+18h]
-  _OWORD v31[2]; // [rsp+120h] [rbp+20h] BYREF
-  __int64 v32; // [rsp+140h] [rbp+40h]
-  _OWORD v33[3]; // [rsp+148h] [rbp+48h] BYREF
-  __int64 v34; // [rsp+178h] [rbp+78h]
+  HANDLE TargetHandle; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE SourceHandle; // [rsp+70h] [rbp-90h] BYREF
+  HANDLE Handle; // [rsp+78h] [rbp-88h] BYREF
+  _CLIENT_ID v19; // [rsp+80h] [rbp-80h]
+  __int128 ThreadInformation; // [rsp+90h] [rbp-70h] BYREF
+  _CLIENT_ID ClientId; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v22; // [rsp+B0h] [rbp-50h]
+  int v23; // [rsp+B8h] [rbp-48h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C0h] [rbp-40h] BYREF
+  _OWORD v25[2]; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v26; // [rsp+110h] [rbp+10h]
+  int v27; // [rsp+118h] [rbp+18h]
+  _OWORD Buffer[2]; // [rsp+120h] [rbp+20h] BYREF
+  __int64 v29; // [rsp+140h] [rbp+40h]
+  _OWORD ObjectInformation[3]; // [rsp+148h] [rbp+48h] BYREF
+  __int64 v31; // [rsp+178h] [rbp+78h]
 
   ProcessHandle = 0LL;
-  v15 = 0LL;
-  v16 = 0LL;
-  v29 = 0LL;
-  memset(v28, 0, sizeof(v28));
-  v30 = 0;
-  v34 = 0LL;
-  memset(v33, 0, sizeof(v33));
-  v32 = 0LL;
-  v22[1] = 0;
-  v26 = 0;
-  memset(v31, 0, sizeof(v31));
-  v20 = 0LL;
-  v21 = 0;
-  v18 = 0LL;
+  SourceHandle = 0LL;
   Handle = 0LL;
-  v19 = 0LL;
-  VirtualMemory = ZwDuplicateObject(-1LL, a1, -1LL, &Handle, 2048, 0, 0);
+  v26 = 0LL;
+  memset(v25, 0, sizeof(v25));
+  v27 = 0;
+  v31 = 0LL;
+  memset(ObjectInformation, 0, sizeof(ObjectInformation));
+  v29 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  memset(Buffer, 0, sizeof(Buffer));
+  v22 = 0LL;
+  v23 = 0;
+  ThreadInformation = 0LL;
+  TargetHandle = 0LL;
+  ClientId = 0LL;
+  VirtualMemory = ZwDuplicateObject(
+                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                    ThreadHandle,
+                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                    &TargetHandle,
+                    0x800u,
+                    0,
+                    0);
   if ( VirtualMemory < 0 )
     goto LABEL_15;
-  VirtualMemory = ZwQueryInformationThread(Handle, 0LL, &v18, 48LL, 0LL);
-  NtClose(Handle);
+  VirtualMemory = ZwQueryInformationThread(TargetHandle, ThreadBasicInformation, &ThreadInformation, 0x30u, 0LL);
+  NtClose(TargetHandle);
   if ( VirtualMemory < 0 )
     goto LABEL_15;
   UniqueProcess = NtCurrentTeb()->ClientId.UniqueProcess;
-  v17 = v19;
-  if ( (void *)v19 == UniqueProcess )
+  v19 = ClientId;
+  if ( ClientId.UniqueProcess == UniqueProcess )
   {
     ProcessHandle = (HANDLE)-1LL;
   }
   else
   {
-    v22[0] = 48;
-    v23 = 0LL;
-    v25 = 0;
-    v24 = 0LL;
-    v27 = 0LL;
-    VirtualMemory = NtOpenProcess(&ProcessHandle, 1106LL, v22, &v19);
+    ObjectAttributes.Length = 48;
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    VirtualMemory = NtOpenProcess(&ProcessHandle, 0x452u, &ObjectAttributes, &ClientId);
   }
   if ( VirtualMemory < 0 )
     goto LABEL_15;
-  if ( v17 == *(_OWORD *)&NtCurrentTeb()->ClientId )
+  if ( *(_OWORD *)&v19 == *(_OWORD *)&NtCurrentTeb()->ClientId )
     goto LABEL_11;
   v8 = ProcessHandle;
-  Handle = 0LL;
-  VirtualMemory = NtQueryInformationProcess(ProcessHandle, ProcessWow64Information, &Handle, 8u, 0LL);
+  TargetHandle = 0LL;
+  VirtualMemory = NtQueryInformationProcess(ProcessHandle, ProcessWow64Information, &TargetHandle, 8u, 0LL);
   if ( VirtualMemory < 0 )
     goto LABEL_15;
-  if ( !Handle )
+  if ( !TargetHandle )
     goto LABEL_11;
-  VirtualMemory = ZwReadVirtualMemory(v8, (char *)Handle + 1160, v31, 40LL, 0LL);
+  VirtualMemory = ZwReadVirtualMemory(v8, (char *)TargetHandle + 1168, Buffer, 0x28uLL, 0LL);
   if ( VirtualMemory < 0 )
     goto LABEL_15;
-  if ( (BYTE4(v31[0]) & 2) == 0 )
+  if ( (BYTE4(Buffer[0]) & 2) == 0 )
   {
 LABEL_11:
     v9 = 0;
 LABEL_12:
-    if ( a2 )
+    if ( ThreadStateChangeHandle )
     {
-      VirtualMemory = NtChangeThreadState(a2, a1, 0LL, 0LL, 0, 0);
+      HandleAttributes[0] = 0;
+      DesiredAccess[0] = 0;
+      VirtualMemory = NtChangeThreadState(
+                        ThreadStateChangeHandle,
+                        ThreadHandle,
+                        ThreadStateChangeSuspend,
+                        0LL,
+                        *(SIZE_T *)DesiredAccess,
+                        *(ULONG64 *)HandleAttributes);
       if ( v9 )
-        ZwResumeThread(a1, 0LL);
+        ZwResumeThread(ThreadHandle, 0LL);
     }
     else if ( !v9 )
     {
-      VirtualMemory = NtSuspendThread(a1, a3);
+      VirtualMemory = NtSuspendThread(ThreadHandle, PreviousSuspendCount);
     }
     goto LABEL_15;
   }
-  VirtualMemory = ZwQueryObject(a1, 0LL, v33, 56LL, 0LL);
+  VirtualMemory = ZwQueryObject(ThreadHandle, ObjectBasicInformation, ObjectInformation, 0x38u, 0LL);
   if ( VirtualMemory < 0 )
     goto LABEL_15;
-  if ( (BYTE4(v33[0]) & 2) == 0 )
+  if ( (BYTE4(ObjectInformation[0]) & 2) == 0 )
   {
     VirtualMemory = -1073741790;
     goto LABEL_15;
   }
-  LODWORD(v12) = 0;
-  VirtualMemory = ZwDuplicateObject(-1LL, a1, ProcessHandle, &v15, 1050634, 0, v12);
+  VirtualMemory = ZwDuplicateObject(
+                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                    ThreadHandle,
+                    ProcessHandle,
+                    &SourceHandle,
+                    0x10080Au,
+                    0,
+                    0);
   if ( VirtualMemory >= 0 )
   {
     v9 = 1;
-    v11 = v15;
-    if ( (void *)v17 != NtCurrentTeb()->ClientId.UniqueProcess )
-      v11 = v15 | 1;
+    v11 = SourceHandle;
+    if ( v19.UniqueProcess != NtCurrentTeb()->ClientId.UniqueProcess )
+      v11 = (void *)((unsigned __int64)SourceHandle | 1);
     VirtualMemory = RtlpCreateUserThreadEx(
-                      (__int64)ProcessHandle,
+                      ProcessHandle,
                       0LL,
                       102,
                       0,
                       0LL,
                       0LL,
-                      v12,
-                      (__int64)RtlpWow64SuspendThreadWorker,
+                      Options,
+                      RtlpWow64SuspendThreadWorker,
                       v11,
-                      &v16,
+                      &Handle,
                       0LL);
     if ( VirtualMemory >= 0 )
     {
-      NtWaitForSingleObject(v16, 0, 0LL);
-      ZwQueryInformationThread(v16, 0LL, v28, 48LL, 0LL);
-      VirtualMemory = v28[0];
-      if ( SLODWORD(v28[0]) >= 0 )
+      NtWaitForSingleObject(Handle, 0, 0LL);
+      ZwQueryInformationThread(Handle, ThreadBasicInformation, v25, 0x30u, 0LL);
+      VirtualMemory = v25[0];
+      if ( SLODWORD(v25[0]) >= 0 )
       {
-        if ( a3 )
-          *a3 = v28[0];
+        if ( PreviousSuspendCount )
+          *PreviousSuspendCount = v25[0];
         VirtualMemory = 0;
         goto LABEL_12;
       }
     }
   }
 LABEL_15:
-  if ( v15 )
-  {
-    LODWORD(v12) = 3;
-    ZwDuplicateObject(ProcessHandle, v15, 0LL, 0LL, 0, 0, v12);
-  }
+  if ( SourceHandle )
+    ZwDuplicateObject(ProcessHandle, SourceHandle, 0LL, 0LL, 0, 0, 3u);
   if ( ProcessHandle )
     NtClose(ProcessHandle);
-  if ( v16 )
-    NtClose(v16);
+  if ( Handle )
+    NtClose(Handle);
   return (unsigned int)VirtualMemory;
 }

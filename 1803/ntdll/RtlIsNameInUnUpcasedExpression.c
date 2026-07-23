@@ -9,34 +9,36 @@
  *     sub_1800F5100 @ 0x1800F5100 (sub_1800F5100.c)
  */
 
-char __fastcall RtlIsNameInUnUpcasedExpression(int a1, UNICODE_STRING *p_UnicodeString, char a3, __int64 a4)
+BOOLEAN __cdecl RtlIsNameInUnUpcasedExpression(
+        PUNICODE_STRING Expression,
+        PUNICODE_STRING Name,
+        BOOLEAN IgnoreCase,
+        PWCH UpcaseTable)
 {
-  __int64 v4; // rdi
-  UNICODE_STRING *v5; // rbx
-  int v6; // eax
-  int v7; // eax
-  char v8; // bl
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-28h] BYREF
-  UNICODE_STRING v11; // [rsp+40h] [rbp-18h] BYREF
+  PWCH v4; // rdi
+  NTSTATUS v6; // eax
+  NTSTATUS v7; // eax
+  BOOLEAN v8; // bl
+  _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING v11; // [rsp+40h] [rbp-18h] BYREF
 
-  v4 = a4;
-  LODWORD(v5) = a1;
+  v4 = UpcaseTable;
   UnicodeString.Buffer = 0LL;
   v11.Buffer = 0LL;
-  if ( a3 && !a4 )
+  if ( IgnoreCase && !UpcaseTable )
   {
-    v6 = sub_1800F5100(&UnicodeString);
+    v6 = sub_1800F5100(&UnicodeString, Name);
     if ( v6 < 0 )
       RtlRaiseStatus(v6);
-    v7 = sub_1800F5100(&v11);
+    v7 = sub_1800F5100(&v11, Expression);
     if ( v7 < 0 )
       RtlRaiseStatus(v7);
-    p_UnicodeString = &UnicodeString;
-    v5 = &v11;
-    a3 = 0;
+    Name = &UnicodeString;
+    Expression = &v11;
+    IgnoreCase = 0;
   }
-  LOBYTE(a4) = 1;
-  v8 = sub_1800F4B74((_DWORD)v5, (_DWORD)p_UnicodeString, a3, a4, v4);
+  LOBYTE(UpcaseTable) = 1;
+  v8 = sub_1800F4B74((_DWORD)Expression, (_DWORD)Name, IgnoreCase, (_DWORD)UpcaseTable, (__int64)v4);
   if ( UnicodeString.Buffer )
     RtlFreeUnicodeString(&UnicodeString);
   if ( v11.Buffer )

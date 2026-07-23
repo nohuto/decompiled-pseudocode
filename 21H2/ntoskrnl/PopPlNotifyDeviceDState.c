@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPlNotifyDeviceDState @ 0x1403A049C
+ * XREFs of PopPlNotifyDeviceDState @ 0x1403A05EC
  * Callers:
- *     PopPepDeviceDState @ 0x1403A0220 (PopPepDeviceDState.c)
+ *     PopPepDeviceDState @ 0x1403A0370 (PopPepDeviceDState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlCalculateDevicePowerDraw @ 0x14057E364 (PopPlCalculateDevicePowerDraw.c)
- *     PopPlPublishSystemPowerChange @ 0x14057E778 (PopPlPublishSystemPowerChange.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14057E5A4 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E9B8 (PopPlPublishSystemPowerChange.c)
  */
 
 void __fastcall PopPlNotifyDeviceDState(__int64 a1, int a2, int a3, char a4)
@@ -145,7 +145,7 @@ void __fastcall PopPlNotifyDeviceDState(__int64 a1, int a2, int a3, char a4)
         v54 = v20;
         tlgWriteEx_EtwWriteEx(
           (__int64)&dword_140C02228,
-          (unsigned __int8 *)&dword_14002A22C,
+          (unsigned __int8 *)&byte_14002A537,
           v22,
           v23,
           v30,

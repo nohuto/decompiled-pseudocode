@@ -1,10 +1,10 @@
 /*
- * XREFs of ObAssignObjectSecurityDescriptor @ 0x1407BDF64
+ * XREFs of ObAssignObjectSecurityDescriptor @ 0x1407BE234
  * Callers:
- *     WmipSecurityMethod @ 0x1407BDD80 (WmipSecurityMethod.c)
- *     CmpAssignKeySecurity @ 0x14085838C (CmpAssignKeySecurity.c)
+ *     WmipSecurityMethod @ 0x1407BE050 (WmipSecurityMethod.c)
+ *     CmpAssignKeySecurity @ 0x1408585CC (CmpAssignKeySecurity.c)
  * Callees:
- *     ObLogSecurityDescriptor @ 0x140728CC0 (ObLogSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x140728EC0 (ObLogSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

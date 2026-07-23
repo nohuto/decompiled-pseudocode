@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepCompletionSafeWrapper @ 0x1404E34F0
+ * XREFs of KsepCompletionSafeWrapper @ 0x1404DCA90
  * Callers:
  *     <none>
  * Callees:
- *     KsepPoolFreeNonPaged @ 0x1404E35A0 (KsepPoolFreeNonPaged.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KsepPoolFreeNonPaged @ 0x1404DCB40 (KsepPoolFreeNonPaged.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KsepCompletionSafeWrapper(__int64 a1, __int64 a2, __int64 a3)

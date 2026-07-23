@@ -1,26 +1,26 @@
 /*
- * XREFs of MmInSwapWorkingSet @ 0x14035C504
+ * XREFs of MmInSwapWorkingSet @ 0x1402A1434
  * Callers:
- *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x1406F5340 (PspChangeProcessExecutionState.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiGetWorkingSetSwapSupport @ 0x1402D5F60 (MiGetWorkingSetSwapSupport.c)
- *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x14035CF20 (MiReAllocateWorkingSetSwapSupport.c)
- *     MiProcessWsInSwapSupport @ 0x14035CFC8 (MiProcessWsInSwapSupport.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiGetWorkingSetSwapSupport @ 0x1402872B0 (MiGetWorkingSetSwapSupport.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1402A1E50 (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiProcessWsInSwapSupport @ 0x1402A1EF8 (MiProcessWsInSwapSupport.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItemToPartition @ 0x1403025FC (ExQueueWorkItemToPartition.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInSwapStore @ 0x1407103DC (MiInSwapStore.c)
- *     MiFreeWorkingSetSwapContext @ 0x140710620 (MiFreeWorkingSetSwapContext.c)
- *     MiContractWsSwapPageFile @ 0x14071068C (MiContractWsSwapPageFile.c)
- *     EtwTraceWorkingSetSwap @ 0x14071071C (EtwTraceWorkingSetSwap.c)
- *     SmStoreSetProcessVaRanges @ 0x140710A9C (SmStoreSetProcessVaRanges.c)
- *     VmCheckLargePageInswap @ 0x14092E804 (VmCheckLargePageInswap.c)
- *     VmPrefetchVirtualAddresses @ 0x14092E850 (VmPrefetchVirtualAddresses.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiInSwapStore @ 0x1406BEA2C (MiInSwapStore.c)
+ *     MiFreeWorkingSetSwapContext @ 0x1406BEC70 (MiFreeWorkingSetSwapContext.c)
+ *     MiContractWsSwapPageFile @ 0x1406BECDC (MiContractWsSwapPageFile.c)
+ *     EtwTraceWorkingSetSwap @ 0x1406BED6C (EtwTraceWorkingSetSwap.c)
+ *     SmStoreSetProcessVaRanges @ 0x1406BF0EC (SmStoreSetProcessVaRanges.c)
+ *     VmCheckLargePageInswap @ 0x14092E964 (VmCheckLargePageInswap.c)
+ *     VmPrefetchVirtualAddresses @ 0x14092E9B0 (VmPrefetchVirtualAddresses.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
@@ -29,43 +29,47 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
   void **v3; // r14
   __int64 v4; // r15
   unsigned __int64 v5; // rsi
+  __int64 v6; // rdx
   __int64 WorkingSetSwapSupport; // rax
-  __int64 v7; // rcx
-  _QWORD *v8; // rdi
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  unsigned int v12; // ebx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  _QWORD *v10; // rdi
+  unsigned int v11; // ebx
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  unsigned int v16; // ebx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v17; // eax
-  bool v18; // zf
-  unsigned __int8 v19; // al
-  struct _KPRCB *v20; // r9
-  _DWORD *v21; // r8
-  int v22; // eax
+  int v21; // eax
+  bool v22; // zf
+  unsigned __int8 v23; // al
+  struct _KPRCB *v24; // r9
+  _DWORD *v25; // r8
+  int v26; // eax
 
   v1 = &Process[1].ActiveProcessorsPadding[6];
   v3 = 0LL;
   EtwTraceWorkingSetSwap(Process);
-  v4 = *(_QWORD *)(qword_140C4E648 + 8LL * *((unsigned __int16 *)v1 + 87));
+  v4 = *(_QWORD *)(qword_140C4E688 + 8LL * *((unsigned __int16 *)v1 + 87));
   v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v4 + 1136));
-  WorkingSetSwapSupport = MiGetWorkingSetSwapSupport((__int64)v1);
-  v8 = (_QWORD *)WorkingSetSwapSupport;
+  WorkingSetSwapSupport = MiGetWorkingSetSwapSupport((__int64)v1, v6);
+  v10 = (_QWORD *)WorkingSetSwapSupport;
   if ( WorkingSetSwapSupport )
   {
     if ( WorkingSetSwapSupport == 1 )
     {
-      v12 = -1073740682;
+      v16 = -1073740682;
     }
     else if ( WorkingSetSwapSupport == 2 )
     {
-      v12 = -1073741558;
+      v16 = -1073741558;
     }
     else
     {
-      *((_QWORD *)MiGetSharedVm(v7) + 3) = 1LL;
+      *(_QWORD *)(MiGetSharedVm(v9, v8) + 24) = 1LL;
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1136));
       if ( KiIrqlFlags )
       {
@@ -76,10 +80,10 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-            v18 = (v17 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v17;
-            if ( v18 )
+            v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+            v22 = (v21 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v21;
+            if ( v22 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
@@ -90,59 +94,59 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
         MiInSwapStore(Process);
         SmStoreSetProcessVaRanges(0LL);
       }
-      v9 = 0;
-      if ( Process[2].Affinity.Bitmap[5] && *(_QWORD *)(*v8 + 16LL) )
+      v11 = 0;
+      if ( Process[2].Affinity.Bitmap[5] && *(_QWORD *)(*v10 + 16LL) )
       {
-        v3 = (void **)MiReAllocateWorkingSetSwapSupport(*v8);
+        v3 = (void **)MiReAllocateWorkingSetSwapSupport(*v10);
         if ( v3 )
-          v9 = (*(_BYTE *)(*v8 + 32LL) & 1) == 0;
+          v11 = (*(_BYTE *)(*v10 + 32LL) & 1) == 0;
         if ( (unsigned int)VmCheckLargePageInswap(Process) )
-          v9 |= 4u;
+          v11 |= 4u;
       }
-      MiProcessWsInSwapSupport(*v8, v9);
+      MiProcessWsInSwapSupport(*v10, v11);
       if ( v3 )
         VmPrefetchVirtualAddresses(*v3);
-      v10 = v8[7];
-      if ( v10 )
-        MiProcessWsInSwapSupport(v10, 1LL);
-      if ( v8[1] )
+      v12 = v10[7];
+      if ( v12 )
+        MiProcessWsInSwapSupport(v12, 1LL);
+      if ( v10[1] )
       {
-        v8[5] = v8;
-        v8[4] = MiInSwapSharedWorkingSetWorker;
-        v8[2] = 0LL;
+        v10[5] = v10;
+        v10[4] = MiInSwapSharedWorkingSetWorker;
+        v10[2] = 0LL;
         ObfReferenceObjectWithTag(Process, 0x73576D4Du);
-        v8[6] = Process;
-        ExQueueWorkItemToPartition(v8 + 2, 3, 0xFFFFFFFF, *(_QWORD *)(v4 + 176));
+        v10[6] = Process;
+        ExQueueWorkItemToPartition((ULONG_PTR)(v10 + 2));
       }
       else
       {
-        MiFreeWorkingSetSwapContext(v4, v8);
+        MiFreeWorkingSetSwapContext(v4, v10);
       }
       LOBYTE(v5) = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v4 + 1136));
-      if ( MiGetWorkingSetSwapSupport((__int64)v1) == 1 )
-        *((_QWORD *)MiGetSharedVm(v11) + 3) = 0LL;
-      v12 = 0;
+      if ( MiGetWorkingSetSwapSupport((__int64)v1, v13) == 1 )
+        *(_QWORD *)(MiGetSharedVm(v15, v14) + 24) = 0LL;
+      v16 = 0;
     }
   }
   else
   {
-    v12 = -1073741275;
+    v16 = -1073741275;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1136));
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v19 = KeGetCurrentIrql();
-      if ( v19 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v19 >= 2u )
+      v23 = KeGetCurrentIrql();
+      if ( v23 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v23 >= 2u )
       {
-        v20 = KeGetCurrentPrcb();
-        v21 = v20->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v18 = (v22 & v21[5]) == 0;
-        v21[5] &= v22;
-        if ( v18 )
-          KiRemoveSystemWorkPriorityKick(v20);
+        v24 = KeGetCurrentPrcb();
+        v25 = v24->SchedulerAssist;
+        v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v22 = (v26 & v25[5]) == 0;
+        v25[5] &= v26;
+        if ( v22 )
+          KiRemoveSystemWorkPriorityKick(v24);
       }
     }
   }
@@ -151,5 +155,5 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
     ExFreePoolWithTag(v3, 0);
   MiContractWsSwapPageFile(v4);
   EtwTraceWorkingSetSwap(Process);
-  return v12;
+  return v16;
 }

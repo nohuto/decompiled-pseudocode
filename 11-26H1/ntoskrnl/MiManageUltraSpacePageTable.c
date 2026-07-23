@@ -1,27 +1,27 @@
 /*
- * XREFs of MiManageUltraSpacePageTable @ 0x14049504C
+ * XREFs of MiManageUltraSpacePageTable @ 0x14048EB9C
  * Callers:
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiReuseUltraPageTable @ 0x14029F784 (MiReuseUltraPageTable.c)
- *     MiDeleteUltraMapContext @ 0x1404655E0 (MiDeleteUltraMapContext.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiReuseUltraPageTable @ 0x14029ECD4 (MiReuseUltraPageTable.c)
+ *     MiDeleteUltraMapContext @ 0x14045E5A0 (MiDeleteUltraMapContext.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KiFlushAddressSpaceTb @ 0x14024FEF8 (KiFlushAddressSpaceTb.c)
- *     KeFlushTb @ 0x1402507D0 (KeFlushTb.c)
- *     KxFlushEntireTb @ 0x14025128C (KxFlushEntireTb.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiSetPfnBlink @ 0x1402C8380 (MiSetPfnBlink.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KiFlushAddressSpaceTb @ 0x140251858 (KiFlushAddressSpaceTb.c)
+ *     KeFlushTb @ 0x140252130 (KeFlushTb.c)
+ *     KxFlushEntireTb @ 0x140252BEC (KxFlushEntireTb.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiSetPfnBlink @ 0x1402AA140 (MiSetPfnBlink.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiManageUltraSpacePageTable(__int64 a1, unsigned __int64 a2, int a3)
@@ -62,10 +62,10 @@ __int64 __fastcall MiManageUltraSpacePageTable(__int64 a1, unsigned __int64 a2, 
   int v39; // [rsp+98h] [rbp+20h]
 
   v3 = 0;
-  v35 = *(_QWORD *)(384 * ((a2 >> 9) & 0x3F) + qword_140E2D6B8 + 376);
+  v35 = *(_QWORD *)(384 * ((a2 >> 9) & 0x3F) + qword_140E2D838 + 376);
   v4 = v35 + 712;
   v5 = (__int64 *)(v35 + 840);
-  v39 = *(_DWORD *)(*(_QWORD *)&stru_140E37DC8.WaitRegister.Flags + 4LL);
+  v39 = *(_DWORD *)(*(_QWORD *)&stru_140E37F48.WaitRegister.Flags + 4LL);
   v6 = (volatile LONG *)(v35 + 872);
   if ( KeGetCurrentIrql() == 2 )
   {
@@ -112,8 +112,8 @@ __int64 __fastcall MiManageUltraSpacePageTable(__int64 a1, unsigned __int64 a2, 
           *(_QWORD *)(48 * v14 - 0x220000000000LL) = *(_QWORD *)v4 ^ (*(_QWORD *)v4 ^ *(_QWORD *)(48 * v14
                                                                                                 - 0x220000000000LL)) & 0xFFFFFF0000000000uLL;
           MiSetPfnBlink(48 * v15 - 0x220000000000LL, v14, 0);
-          v5[1] = *(_QWORD *)(v4 + 8);
           v9 = 0x3FFFFFFFFFLL;
+          v5[1] = *(_QWORD *)(v4 + 8);
           v5[2] += *(_QWORD *)(v4 + 16);
         }
         *(_QWORD *)(v4 + 16) = 0LL;
@@ -153,7 +153,7 @@ __int64 __fastcall MiManageUltraSpacePageTable(__int64 a1, unsigned __int64 a2, 
           LOBYTE(v19) = CurrentIrql;
           KiRaiseIrqlProcessIrqlFlags(v19, 15LL);
         }
-        guard_dispatch_icall_no_overrides(ExSaPageGroupDescriptorArrayLock.Timer.Dpc, 0LL);
+        guard_dispatch_icall_no_overrides((_ULARGE_INTEGER)ExSaPageGroupDescriptorArrayLock.Timer.DueTime.QuadPart, 0LL);
         if ( KiIrqlFlags )
           KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
         __writecr8(CurrentIrql);
@@ -229,7 +229,7 @@ LABEL_35:
     {
       v32 = *v21 & 0xFFFFFFFFFFLL;
       if ( (MiFlags & 0x80u) != 0LL
-        && (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
+        && (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
       {
         MiArePageContentsZero((__int64)(v21 + 0x44000000000LL) / 48);
       }

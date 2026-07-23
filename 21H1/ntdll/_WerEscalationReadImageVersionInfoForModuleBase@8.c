@@ -12,50 +12,49 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned int a1, _DWORD *a2)
+int __fastcall WerEscalationReadImageVersionInfoForModuleBase(PVOID BaseOfImage, unsigned int *a2)
 {
   __int64 v3; // rax
-  _DWORD *v4; // ecx
+  PIMAGE_NT_HEADERS v4; // ecx
   bool v5; // cc
   int v6; // esi
   int v7; // edi
   int v8; // esi
   size_t v10; // [esp+0h] [ebp-28h]
-  size_t *v11; // [esp+4h] [ebp-24h]
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-18h] BYREF
-  unsigned int v13; // [esp+18h] [ebp-10h] BYREF
-  int v14; // [esp+1Ch] [ebp-Ch]
+  size_t *v11; // [esp+8h] [ebp-20h]
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-18h] BYREF
+  _UNICODE_STRING String2; // [esp+18h] [ebp-10h] BYREF
   wchar_t psz[2]; // [esp+20h] [ebp-8h] BYREF
-  _DWORD *v16; // [esp+24h] [ebp-4h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+24h] [ebp-4h] BYREF
 
-  *(_DWORD *)psz = a1;
-  v13 = a1;
+  *(_DWORD *)psz = BaseOfImage;
+  *(_DWORD *)&String2.Length = BaseOfImage;
   *a2 = 0;
   a2[1] = 0;
   a2[2] = 0;
   a2[3] = 0;
-  LODWORD(v3) = RtlImageNtHeaderEx(3, a1, 0, 0, &v16);
+  LODWORD(v3) = RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders);
   if ( (int)v3 >= 0 )
   {
-    v4 = v16;
-    *a2 = v16[2];
-    a2[1] = v4[22];
-    v5 = v4[29] <= 2u;
-    LODWORD(v3) = v4[20];
-    v14 = v3;
+    v4 = OutHeaders;
+    *a2 = OutHeaders->FileHeader.TimeDateStamp;
+    a2[1] = v4->OptionalHeader.CheckSum;
+    v5 = HIDWORD(v4->OptionalHeader.SizeOfHeapReserve) <= 2;
+    LODWORD(v3) = v4->OptionalHeader.SizeOfImage;
+    String2.Buffer = (wchar_t *)v3;
     if ( !v5 )
     {
-      LODWORD(v3) = v4[34];
+      LODWORD(v3) = v4->OptionalHeader.DataDirectory[0].VirtualAddress;
       if ( (_DWORD)v3 )
       {
-        if ( v4[35] >= 0x10u )
+        if ( v4->OptionalHeader.DataDirectory[0].Size >= 0x10 )
         {
           v3 = ValidatePointer(16);
           v6 = (_DWORD)v3 != 0 ? HIDWORD(v3) : 0;
           if ( v6 )
           {
             LODWORD(v3) = GetResourceDirectoryEntry(
-                            (int)&v13,
+                            (int)&String2,
                             (_DWORD)v3 != 0 ? HIDWORD(v3) : 0,
                             *(unsigned __int16 *)((_DWORD)v3 != 0 ? HIDWORD(v3) + 0xC : 12));
             if ( (_DWORD)v3 )
@@ -67,7 +66,7 @@ int __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned int a1, _
                 v3 = ValidatePointer(16);
                 if ( (_DWORD)v3 )
                 {
-                  LODWORD(v3) = GetResourceDirectoryEntry((int)&v13, SHIDWORD(v3), *(unsigned __int16 *)(v7 + 12));
+                  LODWORD(v3) = GetResourceDirectoryEntry((int)&String2, SHIDWORD(v3), *(unsigned __int16 *)(v7 + 12));
                   if ( (_DWORD)v3 )
                   {
                     LODWORD(v3) = FindDirectoryEntry(*(unsigned __int16 *)(v7 + 14), 1);
@@ -76,7 +75,7 @@ int __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned int a1, _
                       v3 = ValidatePointer(16);
                       if ( (_DWORD)v3 )
                       {
-                        LODWORD(v3) = GetResourceDirectoryEntry((int)&v13, SHIDWORD(v3), 0);
+                        LODWORD(v3) = GetResourceDirectoryEntry((int)&String2, SHIDWORD(v3), 0);
                         if ( (_DWORD)v3 )
                         {
                           LODWORD(v3) = *(_DWORD *)(v3 + 4);
@@ -98,16 +97,13 @@ int __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned int a1, _
                                     if ( (_DWORD)v3 )
                                     {
                                       RtlInitUnicodeString(&DestinationString, L"VS_VERSION_INFO");
-                                      v14 = v8 + 6;
+                                      String2.Buffer = (wchar_t *)(v8 + 6);
                                       LODWORD(v3) = StringCbLengthW(psz, v10, v11);
                                       if ( (int)v3 >= 0 )
                                       {
-                                        LOWORD(v13) = psz[0];
-                                        HIWORD(v13) = 32;
-                                        LODWORD(v3) = RtlCompareUnicodeString(
-                                                        &DestinationString.Length,
-                                                        (unsigned __int16 *)&v13,
-                                                        0);
+                                        String2.Length = psz[0];
+                                        String2.MaximumLength = 32;
+                                        LODWORD(v3) = RtlCompareUnicodeString(&DestinationString, &String2, 0);
                                         if ( !(_DWORD)v3 )
                                         {
                                           a2[2] = *(_DWORD *)(v8 + 48);

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpAcquireLockShared @ 0x140349FDC
+ * XREFs of RtlpHpAcquireLockShared @ 0x14034C05C
  * Callers:
- *     RtlpHpLfhOwnerCompact @ 0x140347910 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x140349E18 (RtlpHpLfhSubsegmentReformatCheck.c)
- *     RtlpHpLargeLockAcquireShared @ 0x14053162C (RtlpHpLargeLockAcquireShared.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140349990 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x14034BE98 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpLargeLockAcquireShared @ 0x140533B2C (RtlpHpLargeLockAcquireShared.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 KIRQL __fastcall RtlpHpAcquireLockShared(struct _KTHREAD *a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

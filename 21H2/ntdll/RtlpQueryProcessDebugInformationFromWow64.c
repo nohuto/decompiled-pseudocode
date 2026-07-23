@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlpQueryProcessDebugInformationFromWow64 @ 0x1800D8D10
+ * XREFs of RtlpQueryProcessDebugInformationFromWow64 @ 0x1800D8CD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCreateQueryDebugBuffer @ 0x1800D7430 (RtlCreateQueryDebugBuffer.c)
- *     RtlDestroyQueryDebugBuffer @ 0x1800D76E0 (RtlDestroyQueryDebugBuffer.c)
- *     RtlQueryProcessDebugInformation @ 0x1800D78B0 (RtlQueryProcessDebugInformation.c)
+ *     RtlCreateQueryDebugBuffer @ 0x1800D73F0 (RtlCreateQueryDebugBuffer.c)
+ *     RtlDestroyQueryDebugBuffer @ 0x1800D76A0 (RtlDestroyQueryDebugBuffer.c)
+ *     RtlQueryProcessDebugInformation @ 0x1800D7870 (RtlQueryProcessDebugInformation.c)
  */
 
-__int64 __fastcall RtlpQueryProcessDebugInformationFromWow64(unsigned int a1, unsigned int *a2)
+__int64 __fastcall RtlpQueryProcessDebugInformationFromWow64(ULONG Flags, unsigned int *a2)
 {
-  __int64 QueryDebugBuffer; // rax
-  __int64 v6; // rbx
-  int ProcessDebugInformation; // edi
+  PRTL_DEBUG_INFORMATION QueryDebugBuffer; // rax
+  PRTL_DEBUG_INFORMATION v6; // rbx
+  NTSTATUS ProcessDebugInformation; // edi
   __int64 v8; // rsi
 
-  if ( ((a1 - 1024) & 0xFFFFFBFF) != 0 )
+  if ( ((Flags - 1024) & 0xFFFFFBFF) != 0 )
     return 3221225485LL;
-  QueryDebugBuffer = RtlCreateQueryDebugBuffer(0);
+  QueryDebugBuffer = RtlCreateQueryDebugBuffer(0, 0);
   v6 = QueryDebugBuffer;
   if ( QueryDebugBuffer )
   {
     v8 = *((_QWORD *)a2 + 1);
-    *(_QWORD *)(QueryDebugBuffer + 160) = *(unsigned int *)(v8 + 80);
-    ProcessDebugInformation = RtlQueryProcessDebugInformation((_QWORD *)*a2, a1, QueryDebugBuffer);
+    QueryDebugBuffer->CriticalSectionHandle = (HANDLE)*(unsigned int *)(v8 + 80);
+    ProcessDebugInformation = RtlQueryProcessDebugInformation((HANDLE)*a2, Flags, QueryDebugBuffer);
     if ( ProcessDebugInformation >= 0 )
     {
-      *(_DWORD *)(v8 + 80) = *(_DWORD *)(v6 + 160);
-      *(_DWORD *)(v8 + 84) = *(_DWORD *)(v6 + 168);
+      *(_DWORD *)(v8 + 80) = v6->CriticalSectionHandle;
+      *(_DWORD *)(v8 + 84) = v6->CriticalSectionOwnerThread;
     }
-    RtlDestroyQueryDebugBuffer((HANDLE *)v6);
+    RtlDestroyQueryDebugBuffer(v6);
   }
   else
   {

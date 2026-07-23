@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptMd5Result @ 0x1403FDB00
+ * XREFs of SymCryptMd5Result @ 0x1403FDCE0
  * Callers:
- *     HashpHashMemory @ 0x140A7701C (HashpHashMemory.c)
+ *     HashpHashMemory @ 0x140A772CC (HashpHashMemory.c)
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
- *     SymCryptHashCommonPaddingMd4Style @ 0x140402FB8 (SymCryptHashCommonPaddingMd4Style.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
+ *     SymCryptHashCommonPaddingMd4Style @ 0x140403198 (SymCryptHashCommonPaddingMd4Style.c)
  */
 
 __int64 __fastcall SymCryptMd5Result(__int64 a1, _OWORD *a2)

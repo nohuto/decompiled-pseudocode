@@ -1,11 +1,11 @@
 /*
- * XREFs of KiCompleteRescheduleContextEntry @ 0x140307D90
+ * XREFs of KiCompleteRescheduleContextEntry @ 0x140308020
  * Callers:
  *     KiCompleteRescheduleContext @ 0x140201EB0 (KiCompleteRescheduleContext.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x1402B2E20 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x1402B30B0 (KiHvEnlightenedGuestPriorityKick.c)
  */
 
 __int64 __fastcall KiCompleteRescheduleContextEntry(__int64 a1, __int64 a2)

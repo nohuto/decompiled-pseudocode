@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpPublishEventForPcaResolver @ 0x140A12B18
+ * XREFs of CmpPublishEventForPcaResolver @ 0x140A12DC8
  * Callers:
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x14020BB00 (PsGetCurrentThreadProcess.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
  */

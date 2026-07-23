@@ -4,7 +4,7 @@
  *     PspIoRateEntryActivate @ 0x1405D81B0 (PspIoRateEntryActivate.c)
  * Callees:
  *     IopIoRateStartRateControl @ 0x1402007C8 (IopIoRateStartRateControl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IoStartIoRateControl(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5)

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPsTerminateSystemThread @ 0x14070CCCC
+ * XREFs of VerifierPsTerminateSystemThread @ 0x14070CCFC
  * Callers:
  *     <none>
  * Callees:

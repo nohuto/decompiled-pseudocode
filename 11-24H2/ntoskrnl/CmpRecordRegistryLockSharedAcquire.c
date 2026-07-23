@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRecordRegistryLockSharedAcquire @ 0x140667FC0
+ * XREFs of CmpRecordRegistryLockSharedAcquire @ 0x1406668AC
  * Callers:
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
  * Callees:
- *     CmpGetThreadInfo @ 0x1404F0110 (CmpGetThreadInfo.c)
+ *     CmpGetThreadInfo @ 0x1404EDBB0 (CmpGetThreadInfo.c)
  */
 
 _KAFFINITY_EX *__fastcall CmpRecordRegistryLockSharedAcquire(unsigned __int64 a1)

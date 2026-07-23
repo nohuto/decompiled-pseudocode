@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmCapturePerformanceDistribution @ 0x140597A1C
+ * XREFs of PpmCapturePerformanceDistribution @ 0x140597F0C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFB1C (PopExecuteOnTargetProcessors.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmCapturePerformanceDistributionCallback @ 0x140597C50 (PpmCapturePerformanceDistributionCallback.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x1402BFDAC (PopExecuteOnTargetProcessors.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x140598140 (PpmCapturePerformanceDistributionCallback.c)
  */
 
 __int64 __fastcall PpmCapturePerformanceDistribution(_DWORD *a1, unsigned int a2, int a3, __int64 a4, int *a5)
@@ -56,7 +56,7 @@ __int64 __fastcall PpmCapturePerformanceDistribution(_DWORD *a1, unsigned int a2
     Prcb = KeGetPrcb(v22);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -66,10 +66,10 @@ __int64 __fastcall PpmCapturePerformanceDistribution(_DWORD *a1, unsigned int a2
       SchedulerAssist[5] |= v13;
     }
     v14 = PpmCapturePerformanceDistributionCallback(Prcb);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v17 = CurrentPrcb->SchedulerAssist;

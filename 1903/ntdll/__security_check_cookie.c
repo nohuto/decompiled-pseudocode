@@ -209,7 +209,7 @@
  *     RtlSystemTimeToLocalTime @ 0x18007A7F0 (RtlSystemTimeToLocalTime.c)
  *     RtlIpv4StringToAddressA @ 0x18007AEE0 (RtlIpv4StringToAddressA.c)
  *     sub_18007B540 @ 0x18007B540 (sub_18007B540.c)
- *     sub_18007C370 @ 0x18007C370 (sub_18007C370.c)
+ *     InitFn @ 0x18007C370 (InitFn.c)
  *     RtlQueryWnfStateData @ 0x18007C570 (RtlQueryWnfStateData.c)
  *     RtlPublishWnfStateData @ 0x18007C830 (RtlPublishWnfStateData.c)
  *     LdrLoadAlternateResourceModule @ 0x18007C990 (LdrLoadAlternateResourceModule.c)
@@ -494,17 +494,17 @@
  *     <none>
  */
 
-void __cdecl _security_check_cookie(uintptr_t StackCookie)
+void __cdecl _security_check_cookie(uintptr_t _StackCookie)
 {
   __int64 v1; // rcx
 
-  if ( StackCookie != _security_cookie )
+  if ( _StackCookie != _security_cookie )
 LABEL_4:
-    _report_gsfailure(StackCookie);
-  v1 = __ROL8__(StackCookie, 16);
+    _report_gsfailure(_StackCookie);
+  v1 = __ROL8__(_StackCookie, 16);
   if ( (_WORD)v1 )
   {
-    StackCookie = __ROR8__(v1, 16);
+    _StackCookie = __ROR8__(v1, 16);
     goto LABEL_4;
   }
 }

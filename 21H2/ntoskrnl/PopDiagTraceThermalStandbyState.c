@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceThermalStandbyState @ 0x140573100
+ * XREFs of PopDiagTraceThermalStandbyState @ 0x140573340
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1403C50F8 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalZoneRemove @ 0x1408E7D80 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C5528 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalZoneRemove @ 0x1408E7EE0 (PopThermalZoneRemove.c)
  * Callees:
- *     PopDiagTraceThermalStateChange @ 0x14057311C (PopDiagTraceThermalStateChange.c)
+ *     PopDiagTraceThermalStateChange @ 0x14057335C (PopDiagTraceThermalStateChange.c)
  */
 
 __int64 __fastcall PopDiagTraceThermalStandbyState(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockJobListExclusive @ 0x1404A2590
+ * XREFs of PspLockJobListExclusive @ 0x14051A99C
  * Callers:
- *     PspJobDelete @ 0x1400888BC (PspJobDelete.c)
- *     NtCreateJobObject @ 0x1404A20AC (NtCreateJobObject.c)
+ *     PspJobDelete @ 0x14010CAAC (PspJobDelete.c)
+ *     NtCreateJobObject @ 0x14051A4B8 (NtCreateJobObject.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall PspLockJobListExclusive(__int64 a1)

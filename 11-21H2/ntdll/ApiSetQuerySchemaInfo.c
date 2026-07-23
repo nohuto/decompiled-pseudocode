@@ -35,10 +35,8 @@ __int64 __fastcall ApiSetQuerySchemaInfo(__int64 a1, unsigned __int16 *a2, bool 
   int v29; // r9d
   int v31; // eax
   unsigned __int16 v32; // ax
-  unsigned __int16 v33[4]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v34; // [rsp+28h] [rbp-40h]
-  int v35; // [rsp+30h] [rbp-38h] BYREF
-  const wchar_t *v36; // [rsp+38h] [rbp-30h]
+  _UNICODE_STRING String1; // [rsp+20h] [rbp-48h] BYREF
+  _UNICODE_STRING String2; // [rsp+30h] [rbp-38h] BYREF
 
   v4 = *a2;
   v5 = 0;
@@ -54,21 +52,21 @@ __int64 __fastcall ApiSetQuerySchemaInfo(__int64 a1, unsigned __int16 *a2, bool 
   v13 = *((_QWORD *)a2 + 1);
   if ( !v11 )
   {
-    v34 = *((_QWORD *)a2 + 1);
+    String1.Buffer = (wchar_t *)*((_QWORD *)a2 + 1);
     if ( (unsigned __int16)v4 < 0x14u )
     {
       v32 = v4;
-      v33[0] = v4;
+      String1.Length = v4;
     }
     else
     {
       v32 = 20;
-      v33[0] = 20;
+      String1.Length = 20;
     }
-    v33[1] = v32;
-    v35 = 1310740;
-    v36 = L"SchemaExt-";
-    if ( !(unsigned int)RtlCompareUnicodeString(v33, (unsigned __int16 *)&v35, 1) )
+    String1.MaximumLength = v32;
+    *(_DWORD *)&String2.Length = 1310740;
+    String2.Buffer = L"SchemaExt-";
+    if ( !RtlCompareUnicodeString(&String1, &String2, 1u) )
     {
       v9 = ApiSetpSearchForApiSet(a1, v13, (unsigned __int16)v4 >> 1) != 0;
       v10 = v9;

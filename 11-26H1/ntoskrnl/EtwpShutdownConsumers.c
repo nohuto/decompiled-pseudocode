@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpShutdownConsumers @ 0x140A6D194
+ * XREFs of EtwpShutdownConsumers @ 0x140A153E4
  * Callers:
- *     EtwpFreeLoggerContext @ 0x140A6CBB4 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x140A16604 (EtwpFreeLoggerContext.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     EtwpRealtimeDisconnectAllConsumers @ 0x140A1520C (EtwpRealtimeDisconnectAllConsumers.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x140A14400 (EtwpRealtimeDisconnectAllConsumers.c)
  */
 
 void __fastcall EtwpShutdownConsumers(__int64 a1)

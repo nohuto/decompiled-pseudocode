@@ -3,11 +3,11 @@
  * Callers:
  *     WbGetInitializedEncryptionSegment @ 0x1405D702C (WbGetInitializedEncryptionSegment.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     WbAddWarbirdEncryptionSegment @ 0x1405D6CE0 (WbAddWarbirdEncryptionSegment.c)
  *     sub_1405D6E10 @ 0x1405D6E10 (sub_1405D6E10.c)
  *     sub_1405D72F4 @ 0x1405D72F4 (sub_1405D72F4.c)
@@ -18,7 +18,7 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v7; // rbx
-  __int64 v8; // rdi
+  PRTL_BALANCED_NODE v8; // rdi
   int v9; // edi
   __int64 v10; // rbx
   int v12; // eax
@@ -36,7 +36,7 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v7, v8, (ULONG_PTR)v7);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v9 = sub_1405D7328(a1, a2, &v16, &v15);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)v7);

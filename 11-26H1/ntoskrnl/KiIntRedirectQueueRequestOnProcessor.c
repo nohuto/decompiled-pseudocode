@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntRedirectQueueRequestOnProcessor @ 0x1403EADB0
+ * XREFs of KiIntRedirectQueueRequestOnProcessor @ 0x1402F8398
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x14032D7C0 (KiCallInterruptServiceRoutine.c)
+ *     KiCallInterruptServiceRoutine @ 0x14032F7F0 (KiCallInterruptServiceRoutine.c)
  * Callees:
- *     HalRequestIpiSpecifyVector @ 0x1403EC570 (HalRequestIpiSpecifyVector.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalRequestIpiSpecifyVector @ 0x1402F95B0 (HalRequestIpiSpecifyVector.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiIntRedirectQueueRequestOnProcessor(ULONG_PTR BugCheckParameter3, unsigned int a2)
@@ -24,8 +24,8 @@ __int64 __fastcall KiIntRedirectQueueRequestOnProcessor(ULONG_PTR BugCheckParame
   memset_0(v10, 0, 0x100uLL);
   v9 = 2097153LL;
   memset_0(v10, 0, 0x100uLL);
-  v4 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v3) & 0x3F;
-  v5 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v3) >> 6;
+  v4 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v3) & 0x3F;
+  v5 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v3) >> 6;
   if ( !(_DWORD)v5 )
     goto LABEL_2;
   if ( WORD1(v9) > (unsigned int)v5 )

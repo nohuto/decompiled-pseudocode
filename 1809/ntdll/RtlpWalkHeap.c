@@ -4,7 +4,7 @@
  *     RtlpWalkHeapInternal @ 0x18005B71C (RtlpWalkHeapInternal.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     RtlpGetExtraStuffPointerUnsafe @ 0x1800F3640 (RtlpGetExtraStuffPointerUnsafe.c)
  *     RtlpLogHeapWalkEvent @ 0x1801065E4 (RtlpLogHeapWalkEvent.c)
  *     RtlDebugWalkHeap @ 0x180108C28 (RtlDebugWalkHeap.c)
@@ -552,7 +552,7 @@ LABEL_67:
   }
   v76 = -2147483622;
 LABEL_192:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v66 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v66 = 2147353472LL;

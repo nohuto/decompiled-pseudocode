@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x1401BCD58
+ * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x1401BCC3C
  * Callers:
- *     HvlGetReferenceTime @ 0x1401BCD24 (HvlGetReferenceTime.c)
+ *     HvlGetReferenceTime @ 0x1401BCC08 (HvlGetReferenceTime.c)
  * Callees:
- *     HvlpGetRegister64 @ 0x1401C13BC (HvlpGetRegister64.c)
- *     RtlUnsignedMultiplyHigh @ 0x1402163F4 (RtlUnsignedMultiplyHigh.c)
+ *     HvlpGetRegister64 @ 0x1401C12A0 (HvlpGetRegister64.c)
+ *     RtlUnsignedMultiplyHigh @ 0x140216220 (RtlUnsignedMultiplyHigh.c)
  */
 
 __int64 HvlGetReferenceTimeUsingTscPage()

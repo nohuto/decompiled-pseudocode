@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedProperty @ 0x1408FFBAC
+ * XREFs of _CmSetInterfaceClassMappedProperty @ 0x140900E6C
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x14059DFC0 (_PnpDispatchInterfaceClass.c)
- *     _CmDeleteInterfaceClassWorker @ 0x1408F80BC (_CmDeleteInterfaceClassWorker.c)
+ *     _PnpDispatchInterfaceClass @ 0x14059EFC0 (_PnpDispatchInterfaceClass.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x1408F937C (_CmDeleteInterfaceClassWorker.c)
  * Callees:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5AE4 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x1408FD2CC (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1408FFCEC (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E6D84 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x1408FE58C (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140900FAC (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedProperty(
@@ -33,7 +33,7 @@ __int64 __fastcall CmSetInterfaceClassMappedProperty(
   v11 = -1073741802;
   if ( !a4 )
   {
-    v12 = &off_140908BC8;
+    v12 = &off_140909E88;
     v13 = 0;
     while ( 1 )
     {
@@ -61,7 +61,7 @@ __int64 __fastcall CmSetInterfaceClassMappedProperty(
     if ( v11 != -1073741802 )
       return v11;
 LABEL_16:
-    v17 = &off_140908C88;
+    v17 = &off_140909F48;
     v18 = 0;
     while ( 1 )
     {

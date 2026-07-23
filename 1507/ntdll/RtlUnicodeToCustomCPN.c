@@ -6,42 +6,42 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUnicodeToCustomCPN(
-        __int64 a1,
-        _BYTE *a2,
-        unsigned int a3,
-        unsigned int *a4,
-        unsigned __int16 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlUnicodeToCustomCPN(
+        PCPTABLEINFO CustomCP,
+        PCH CustomCPString,
+        ULONG MaxBytesInCustomCPString,
+        PULONG BytesInCustomCPString,
+        PWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v6; // r10d
-  unsigned int v7; // ebx
-  unsigned int v8; // edi
-  __int64 v9; // r9
+  ULONG v6; // r10d
+  ULONG v7; // ebx
+  ULONG v8; // edi
+  _BYTE *WideCharTable; // r9
   __int64 v10; // r11
-  _BYTE *v11; // rdx
-  unsigned __int16 *v12; // r8
+  CHAR *v11; // rdx
+  WCHAR *v12; // r8
   __int64 v13; // rax
-  __int64 v14; // rsi
+  _WORD *v14; // rsi
   int v15; // edi
-  unsigned __int16 *v16; // r8
+  PWCH v16; // r8
   __int64 v17; // rax
   __int16 v18; // r11
   unsigned int v19; // eax
 
-  v6 = a6 >> 1;
-  v7 = a3;
-  if ( !*(_WORD *)(a1 + 12) )
+  v6 = BytesInUnicodeString >> 1;
+  v7 = MaxBytesInCustomCPString;
+  if ( !CustomCP->DBCSCodePage )
   {
-    v8 = a3;
-    if ( v6 < a3 )
-      v8 = a6 >> 1;
-    if ( a4 )
-      *a4 = v8;
-    v9 = *(_QWORD *)(a1 + 40);
+    v8 = MaxBytesInCustomCPString;
+    if ( v6 < MaxBytesInCustomCPString )
+      v8 = BytesInUnicodeString >> 1;
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = v8;
+    WideCharTable = CustomCP->WideCharTable;
     v10 = v8 & 0xF;
-    v11 = &a2[v10 - 15];
-    v12 = &a5[v10 - 15];
+    v11 = &CustomCPString[v10 - 15];
+    v12 = &UnicodeString[v10 - 15];
     while ( (unsigned int)v10 <= 8 )
     {
       if ( (_DWORD)v10 == 8 )
@@ -95,65 +95,65 @@ LABEL_40:
                   v13 = v12[15];
                   v12 += 16;
                   v11 += 16;
-                  *(v11 - 1) = *(_BYTE *)(v13 + v9);
+                  *(v11 - 1) = WideCharTable[v13];
                 }
-                *v11 = *(_BYTE *)(*v12 + v9);
+                *v11 = WideCharTable[*v12];
               }
-              v11[1] = *(_BYTE *)(v12[1] + v9);
+              v11[1] = WideCharTable[v12[1]];
             }
-            v11[2] = *(_BYTE *)(v12[2] + v9);
+            v11[2] = WideCharTable[v12[2]];
           }
-          v11[3] = *(_BYTE *)(v12[3] + v9);
+          v11[3] = WideCharTable[v12[3]];
         }
-        v11[4] = *(_BYTE *)(v12[4] + v9);
+        v11[4] = WideCharTable[v12[4]];
       }
-      v11[5] = *(_BYTE *)(v12[5] + v9);
+      v11[5] = WideCharTable[v12[5]];
     }
-    v11[6] = *(_BYTE *)(v12[6] + v9);
+    v11[6] = WideCharTable[v12[6]];
 LABEL_32:
-    v11[7] = *(_BYTE *)(v12[7] + v9);
+    v11[7] = WideCharTable[v12[7]];
 LABEL_33:
-    v11[8] = *(_BYTE *)(v12[8] + v9);
+    v11[8] = WideCharTable[v12[8]];
 LABEL_34:
-    v11[9] = *(_BYTE *)(v12[9] + v9);
+    v11[9] = WideCharTable[v12[9]];
 LABEL_35:
-    v11[10] = *(_BYTE *)(v12[10] + v9);
+    v11[10] = WideCharTable[v12[10]];
 LABEL_36:
-    v11[11] = *(_BYTE *)(v12[11] + v9);
+    v11[11] = WideCharTable[v12[11]];
 LABEL_37:
-    v11[12] = *(_BYTE *)(v12[12] + v9);
+    v11[12] = WideCharTable[v12[12]];
 LABEL_38:
-    v11[13] = *(_BYTE *)(v12[13] + v9);
+    v11[13] = WideCharTable[v12[13]];
 LABEL_39:
-    v11[14] = *(_BYTE *)(v12[14] + v9);
+    v11[14] = WideCharTable[v12[14]];
     goto LABEL_40;
   }
-  v14 = *(_QWORD *)(a1 + 40);
-  v15 = (int)a2;
+  v14 = CustomCP->WideCharTable;
+  v15 = (int)CustomCPString;
   if ( v6 )
   {
-    v16 = a5;
+    v16 = UnicodeString;
     do
     {
       if ( !v7 )
         break;
       v17 = *v16++;
-      v18 = *(_WORD *)(v14 + 2 * v17);
+      v18 = v14[v17];
       if ( HIBYTE(v18) )
       {
         v19 = v7--;
         if ( v19 < 2 )
           break;
-        *a2++ = HIBYTE(v18);
+        *CustomCPString++ = HIBYTE(v18);
       }
-      *a2 = v18;
+      *CustomCPString = v18;
       --v7;
-      ++a2;
+      ++CustomCPString;
       --v6;
     }
     while ( v6 );
   }
-  if ( a4 )
-    *a4 = (_DWORD)a2 - v15;
+  if ( BytesInCustomCPString )
+    *BytesInCustomCPString = (_DWORD)CustomCPString - v15;
   return v7 < v6 ? 0x80000005 : 0;
 }

@@ -182,7 +182,7 @@ LABEL_49:
           PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * ((v24 >> 1) + 1), 0x6E725346u);
           P = PoolWithTag;
           if ( !PoolWithTag )
-            RtlRaiseStatus(3221225495LL);
+            RtlRaiseStatus(-1073741801);
           v49 = *(_QWORD *)&Name.Length;
           v23 = PoolWithTag;
           v10 = v62;

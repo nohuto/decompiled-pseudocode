@@ -1,51 +1,48 @@
 /*
- * XREFs of RtlReplaceSystemDirectoryInPath @ 0x180035310
+ * XREFs of RtlReplaceSystemDirectoryInPath @ 0x180020470
  * Callers:
- *     LdrpGetModuleName @ 0x180033E20 (LdrpGetModuleName.c)
+ *     LdrpGetModuleName @ 0x18001EF80 (LdrpGetModuleName.c)
  * Callees:
- *     RtlpWow64SelectSystem32PathInternal @ 0x1800364B8 (RtlpWow64SelectSystem32PathInternal.c)
- *     RtlFindUnicodeSubstring @ 0x180036C40 (RtlFindUnicodeSubstring.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpWow64SelectSystem32PathInternal @ 0x180021618 (RtlpWow64SelectSystem32PathInternal.c)
+ *     RtlFindUnicodeSubstring @ 0x180021DA0 (RtlFindUnicodeSubstring.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlReplaceSystemDirectoryInPath(__int64 a1, __int64 a2, unsigned __int16 a3, char a4)
+ULONG __cdecl RtlReplaceSystemDirectoryInPath(
+        PUNICODE_STRING Destination,
+        USHORT Machine,
+        USHORT TargetMachine,
+        BOOLEAN IncludePathSeperator)
 {
-  unsigned __int16 v5; // si
-  __int64 result; // rax
+  USHORT v5; // si
+  ULONG result; // eax
   __int64 v8; // rdx
-  unsigned int v9; // ebx
-  __int64 v10; // r8
-  unsigned int v11; // edi
-  void *UnicodeSubstring; // rax
-  __int128 v13; // [rsp+20h] [rbp-28h] BYREF
+  ULONG v9; // ebx
+  unsigned int v10; // edi
+  PWCHAR UnicodeSubstring; // rax
+  _UNICODE_STRING SearchString; // [rsp+20h] [rbp-28h] BYREF
   void *Src[2]; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = a2;
+  v5 = Machine;
   *(_OWORD *)Src = 0LL;
-  v13 = 0LL;
-  if ( (_WORD)a2 == a3 )
-    return 0LL;
-  LOBYTE(a2) = a4;
-  result = RtlpWow64SelectSystem32PathInternal(a3, a2, Src);
+  SearchString = 0LL;
+  if ( Machine == TargetMachine )
+    return 0;
+  LOBYTE(Machine) = IncludePathSeperator;
+  result = RtlpWow64SelectSystem32PathInternal(TargetMachine, Machine, Src);
   v9 = 0;
-  if ( (int)result >= 0 )
+  if ( (result & 0x80000000) == 0 )
   {
-    LOBYTE(v8) = a4;
-    result = RtlpWow64SelectSystem32PathInternal(v5, v8, &v13);
-    if ( (int)result >= 0 )
+    LOBYTE(v8) = IncludePathSeperator;
+    result = RtlpWow64SelectSystem32PathInternal(v5, v8, &SearchString);
+    if ( (result & 0x80000000) == 0 )
     {
-      v11 = LOWORD(Src[0]);
-      if ( (_WORD)v13 == LOWORD(Src[0]) )
-      {
-        LOBYTE(v10) = 1;
-        UnicodeSubstring = (void *)RtlFindUnicodeSubstring(a1, &v13, v10);
-        if ( UnicodeSubstring )
-          memmove(UnicodeSubstring, Src[1], v11);
-      }
-      else
-      {
-        return (unsigned int)-1073741811;
-      }
+      v10 = LOWORD(Src[0]);
+      if ( SearchString.Length != LOWORD(Src[0]) )
+        return -1073741811;
+      UnicodeSubstring = RtlFindUnicodeSubstring(Destination, &SearchString, 1u);
+      if ( UnicodeSubstring )
+        memmove(UnicodeSubstring, Src[1], v10);
       return v9;
     }
   }

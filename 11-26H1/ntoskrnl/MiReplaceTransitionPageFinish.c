@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReplaceTransitionPageFinish @ 0x140294918
+ * XREFs of MiReplaceTransitionPageFinish @ 0x140293E78
  * Callers:
- *     MiReplaceTransitionPage @ 0x140293C88 (MiReplaceTransitionPage.c)
- *     MiTradePageMarkedTransition @ 0x1402FD5C0 (MiTradePageMarkedTransition.c)
+ *     MiReplaceTransitionPage @ 0x1402931E8 (MiReplaceTransitionPage.c)
+ *     MiTradePageMarkedTransition @ 0x1402DF640 (MiTradePageMarkedTransition.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
  */
 
 __int64 __fastcall MiReplaceTransitionPageFinish(__int64 a1, __int64 a2, __int64 a3)
@@ -90,21 +90,21 @@ __int64 __fastcall MiReplaceTransitionPageFinish(__int64 a1, __int64 a2, __int64
     }
   }
   v14 = *(_QWORD *)(a1 + 24);
-  if ( qword_140E2D740 )
+  if ( qword_140E2D8C0 )
   {
     if ( (v11 & 0x10) != 0 )
       v11 &= ~0x10uLL;
     else
-      v11 &= qword_140E2D748;
+      v11 &= qword_140E2D8C8;
   }
   Process = (_KPROCESS *)(v14 << 12);
   v16 = (v14 << 12) ^ (v11 ^ (v14 << 12)) & 0xFFF0000000000FFFuLL;
-  if ( qword_140E2D740 )
+  if ( qword_140E2D8C0 )
   {
-    if ( (qword_140E2D740 & v16) != 0 )
+    if ( (qword_140E2D8C0 & v16) != 0 )
       v16 |= 0x10uLL;
     else
-      v16 |= qword_140E2D740;
+      v16 |= qword_140E2D8C0;
   }
   v34 = v16;
   v17 = 0LL;
@@ -113,7 +113,7 @@ __int64 __fastcall MiReplaceTransitionPageFinish(__int64 a1, __int64 a2, __int64
     if ( MiPteHasShadow(Process, 0LL, v16) )
     {
       v17 = 1LL;
-      if ( BYTE5(stru_140E2D930.Header.WaitListHead.Blink) )
+      if ( BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) )
         goto LABEL_11;
       v30 = v34;
       v31 = (v34 & 1) == 0;

@@ -1,20 +1,21 @@
 /*
- * XREFs of KiAttachProcess @ 0x140322460
+ * XREFs of KiAttachProcess @ 0x1402CAFF0
  * Callers:
- *     KeAttachProcess @ 0x14047B6B0 (KeAttachProcess.c)
+ *     KeAttachProcess @ 0x140477330 (KeAttachProcess.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiInSwapSingleProcess @ 0x1402A67C4 (KiInSwapSingleProcess.c)
- *     KiSetAddressPolicy @ 0x140321A30 (KiSetAddressPolicy.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1404D48A0 (HvlSwitchVirtualAddressSpace.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiSetAddressPolicy @ 0x1402CA5C0 (KiSetAddressPolicy.c)
+ *     KiInSwapSingleProcess @ 0x1402D5EF4 (KiInSwapSingleProcess.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1403E20F0 (HvlSwitchVirtualAddressSpace.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall KiAttachProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 a3, char a4, __int64 a5)
+__int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   _QWORD *v5; // r10
+  char v7; // bp
   unsigned __int64 v8; // r14
   _QWORD *v10; // rcx
   __int64 v11; // rdx
@@ -35,7 +36,8 @@ __int64 __fastcall KiAttachProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 a3,
   unsigned __int64 v26; // rax
 
   v5 = (_QWORD *)(a1 + 152);
-  v8 = a3;
+  v7 = a4;
+  v8 = (unsigned __int8)a3;
   *(_QWORD *)(a5 + 32) = *(_QWORD *)(a1 + 184);
   *(_BYTE *)(a5 + 40) = *(_BYTE *)(a1 + 192);
   *(_BYTE *)(a5 + 41) = *(_BYTE *)(a1 + 193);
@@ -82,7 +84,7 @@ __int64 __fastcall KiAttachProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 a3,
   if ( (a4 & 1) == 0 && (_InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 264), 8u) & 7) != 0 )
   {
     *(_QWORD *)(a1 + 64) = 0LL;
-    KiInSwapSingleProcess(a1, a2, a3);
+    KiInSwapSingleProcess(a1, a2, (unsigned __int8)a3);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
@@ -108,7 +110,7 @@ __int64 __fastcall KiAttachProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 a3,
   }
   *(_DWORD *)(a1 + 116) |= 0x800u;
   *(_QWORD *)(a1 + 184) = a2;
-  v13 = a4 & 2;
+  v13 = v7 & 2;
   if ( !v13 )
     *(_QWORD *)(a1 + 64) = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
@@ -123,7 +125,7 @@ __int64 __fastcall KiAttachProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 a3,
     if ( (v18 & 2) == 0 )
       v19 = *(_QWORD *)(a2 + 40);
     __writegsqword(0xB000u, v19);
-    KiSetAddressPolicy(*(unsigned __int8 *)(a2 + 352), v11);
+    KiSetAddressPolicy(*(unsigned __int8 *)(a2 + 352), v11, a3, a4);
   }
   if ( (HvlEnlightenments & 1) != 0 )
     HvlSwitchVirtualAddressSpace(v18);

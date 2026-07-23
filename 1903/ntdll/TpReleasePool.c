@@ -16,133 +16,123 @@
  *     sub_18010F990 @ 0x18010F990 (sub_18010F990.c)
  */
 
-__int64 __fastcall TpReleasePool(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl TpReleasePool(PTP_POOL Pool)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  signed __int64 v9; // rax
-  signed __int64 v10; // rtt
-  __int64 v11; // rcx
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  signed __int64 v8; // rax
+  signed __int64 v9; // rtt
+  __int64 v10; // rcx
   int i; // edi
   __int64 j; // rsi
-  __int64 v14; // rax
-  __int64 result; // rax
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // rcx
-  __int64 v19; // rcx
-  signed __int64 *v20; // rdx
-  __int64 *v21; // rcx
-  __int64 v22; // [rsp+20h] [rbp-58h]
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  PPEB_LDR_DATA Ldr; // rcx
+  _RTL_SRWLOCK *v16; // rdx
+  const void **v17; // rcx
+  __int64 v18; // [rsp+20h] [rbp-58h]
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h]
-  char v24; // [rsp+88h] [rbp+10h]
-  signed __int64 v25; // [rsp+90h] [rbp+18h]
+  char v20; // [rsp+88h] [rbp+10h]
+  signed __int64 v21; // [rsp+90h] [rbp+18h]
 
-  v24 = 0;
-  if ( !a1 || a1 == qword_180166470 || a1 == qword_180166458 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  v20 = 0;
+  if ( !Pool || Pool == qword_180166470 || Pool == (PTP_POOL)qword_180166458 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = (__int64)NtCurrentPeb();
-    v19 = *(_QWORD *)(result + 24);
-    if ( !*(_BYTE *)(v19 + 72) )
-      return sub_18010EFC8(v19, a2, a3, a4);
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      sub_18010EFC8(Ldr, v1, v2);
   }
   else
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 368));
-    if ( *(_BYTE *)(a1 + 377) )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Pool + 46);
+    if ( *((_BYTE *)Pool + 377) )
     {
-      sub_18010EFC8(v6, v5, v7, v8);
+      sub_18010EFC8(v5, v4, v6);
     }
     else
     {
-      if ( !*(_BYTE *)(a1 + 376) )
+      if ( !*((_BYTE *)Pool + 376) )
       {
-        *(_BYTE *)(a1 + 376) = 1;
-        ZwShutdownWorkerFactory(*(_QWORD *)(a1 + 56), a1);
+        *((_BYTE *)Pool + 376) = 1;
+        ZwShutdownWorkerFactory(*((HANDLE *)Pool + 7), (LONG *)Pool);
       }
       while ( 1 )
       {
-        _m_prefetchw((const void *)(a1 + 8));
-        v9 = *(_QWORD *)(a1 + 8);
-        LODWORD(v25) = v9;
+        _m_prefetchw((char *)Pool + 8);
+        v8 = *((_QWORD *)Pool + 1);
+        LODWORD(v21) = v8;
         do
         {
-          if ( !HIDWORD(v9) )
+          if ( !HIDWORD(v8) )
             break;
-          HIDWORD(v25) = HIDWORD(v9) - 1;
-          v10 = v9;
-          v9 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v25, v9);
-          LODWORD(v25) = v9;
+          HIDWORD(v21) = HIDWORD(v8) - 1;
+          v9 = v8;
+          v8 = _InterlockedCompareExchange64((volatile signed __int64 *)Pool + 1, v21, v8);
+          LODWORD(v21) = v8;
         }
-        while ( v10 != v9 );
-        if ( !HIDWORD(v9) )
+        while ( v9 != v8 );
+        if ( !HIDWORD(v8) )
           break;
-        v11 = 0LL;
+        v10 = 0LL;
         for ( i = 0; ; ++i )
         {
-          HIDWORD(v22) = i;
+          HIDWORD(v18) = i;
           if ( i >= 3 )
             break;
-          if ( v11 )
+          if ( v10 )
             goto LABEL_27;
           for ( j = 0LL; ; j = (unsigned int)(j + 1) )
           {
-            LODWORD(v22) = j;
-            if ( (unsigned int)j >= dword_180166074 || v11 )
+            LODWORD(v18) = j;
+            if ( (unsigned int)j >= dword_180166074 || v10 )
               break;
-            v14 = sub_18010F990(*(_QWORD *)(a1 + 8LL * i + 16) + 24 * j, i, v7, v8, v22);
-            if ( v14 )
-              v11 = v14 - 16;
+            v13 = sub_18010F990(*((_QWORD *)Pool + i + 2) + 24 * j, i, v6, v7, v18);
+            if ( v13 )
+              v10 = v13 - 16;
             else
-              v11 = 0LL;
+              v10 = 0LL;
           }
         }
-        if ( !v11 )
+        if ( !v10 )
           continue;
 LABEL_27:
-        if ( *(_QWORD *)v11 && *(_QWORD *)(*(_QWORD *)v11 + 8LL) )
+        if ( *(_QWORD *)v10 && *(_QWORD *)(*(_QWORD *)v10 + 8LL) )
           _guard_dispatch_icall_fptr();
       }
-      *(_QWORD *)(a1 + 408) = retaddr;
-      *(_BYTE *)(a1 + 377) = 1;
-      v24 = 1;
+      *((_QWORD *)Pool + 51) = retaddr;
+      *((_BYTE *)Pool + 377) = 1;
+      v20 = 1;
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 368));
-    result = (__int64)RtlGetCurrentServiceSessionId();
-    if ( (_DWORD)result )
-    {
-      result = (__int64)NtCurrentPeb();
-      v18 = *(_QWORD *)(result + 144) + 556LL;
-    }
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Pool + 46);
+    if ( RtlGetCurrentServiceSessionId() )
+      v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
+      v14 = 2147353478LL;
+    if ( *(_BYTE *)v14 )
+      sub_18010F398(Pool);
+    if ( v20 )
     {
-      v18 = 2147353478LL;
-    }
-    if ( *(_BYTE *)v18 )
-      result = sub_18010F398(a1);
-    if ( v24 )
-    {
-      if ( a1 == qword_180166470 )
+      if ( Pool == qword_180166470 )
       {
-        v20 = &qword_180166480;
-        v21 = &qword_180166470;
+        v16 = &stru_180166480;
+        v17 = (const void **)&qword_180166470;
       }
       else
       {
-        if ( a1 != qword_180166458 )
+        if ( Pool != (PTP_POOL)qword_180166458 )
         {
-          result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-          if ( (_DWORD)result == 1 )
-            return sub_180081630(a1, v16, v17);
-          return result;
+          if ( _InterlockedExchangeAdd((volatile signed __int32 *)Pool, 0xFFFFFFFF) == 1 )
+            sub_180081630(Pool);
+          return;
         }
-        v20 = (signed __int64 *)&unk_180166468;
-        v21 = &qword_180166458;
+        v16 = &stru_180166468;
+        v17 = (const void **)&qword_180166458;
       }
-      return sub_18002F2D4((const void **)v21, (__int64)v20);
+      sub_18002F2D4(v17, v16);
     }
   }
-  return result;
 }

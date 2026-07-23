@@ -1,57 +1,57 @@
 /*
- * XREFs of MiChargeCommit @ 0x14021AAD0
+ * XREFs of MiChargeCommit @ 0x1402BF3D0
  * Callers:
- *     MiProbeLockFrame @ 0x14020ACD0 (MiProbeLockFrame.c)
- *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     MiObtainFaultCharges @ 0x14021BA90 (MiObtainFaultCharges.c)
- *     MiDeletePteRun @ 0x140236C60 (MiDeletePteRun.c)
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
- *     MiChargeForWriteInProgressPage @ 0x14025A5C4 (MiChargeForWriteInProgressPage.c)
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     MmChargeResources @ 0x1402DEA0C (MmChargeResources.c)
- *     MiObtainSystemCharges @ 0x1402E5ABC (MiObtainSystemCharges.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiMakePartitionActive @ 0x1402E5DA8 (MiMakePartitionActive.c)
- *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
- *     MiInitializePoolCommitPacket @ 0x14030BBD8 (MiInitializePoolCommitPacket.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
- *     MiChargeForLockedPage @ 0x140328AA0 (MiChargeForLockedPage.c)
- *     MmCreateKernelStack @ 0x14032A560 (MmCreateKernelStack.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     MiSessionInsertImage @ 0x1403A2974 (MiSessionInsertImage.c)
- *     MiPurgeImageSection @ 0x1403A53C4 (MiPurgeImageSection.c)
- *     MiInitializeCommitment @ 0x1403BF628 (MiInitializeCommitment.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x14052C368 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiSetPagesModified @ 0x1405350B0 (MiSetPagesModified.c)
- *     MiAttemptPageFileReductionApc @ 0x140542AD0 (MiAttemptPageFileReductionApc.c)
- *     MiGetSubsectionCharges @ 0x140554EC8 (MiGetSubsectionCharges.c)
- *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x14055AA64 (MiHandleForkTransitionPte.c)
- *     MiReferenceCloneProto @ 0x14055B598 (MiReferenceCloneProto.c)
- *     MiCreateLargePfnList @ 0x14055DEFC (MiCreateLargePfnList.c)
- *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
- *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
- *     MiChargeSegmentCommit @ 0x14061FED0 (MiChargeSegmentCommit.c)
- *     MmRotatePhysicalView @ 0x140682910 (MmRotatePhysicalView.c)
- *     MiAllocatePerSessionProtos @ 0x1406BCA38 (MiAllocatePerSessionProtos.c)
- *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
- *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
- *     MiSessionCreate @ 0x14078620C (MiSessionCreate.c)
- *     MiSessionCreateInternal @ 0x140786C10 (MiSessionCreateInternal.c)
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     MiChargeForWriteInProgressPage @ 0x14027BB34 (MiChargeForWriteInProgressPage.c)
+ *     MmChargeResources @ 0x14028FD5C (MmChargeResources.c)
+ *     MiObtainSystemCharges @ 0x140296E0C (MiObtainSystemCharges.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiMakePartitionActive @ 0x1402970F8 (MiMakePartitionActive.c)
+ *     MiProbeLockFrame @ 0x1402AF5D0 (MiProbeLockFrame.c)
+ *     MiResolveProtoPteFault @ 0x1402B9CD0 (MiResolveProtoPteFault.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     MiObtainFaultCharges @ 0x1402C0390 (MiObtainFaultCharges.c)
+ *     MiDeletePteRun @ 0x1402DB4B0 (MiDeletePteRun.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiCopyOnWrite @ 0x1402E3B50 (MiCopyOnWrite.c)
+ *     MiInsertInSystemSpace @ 0x140305B30 (MiInsertInSystemSpace.c)
+ *     MiInitializePoolCommitPacket @ 0x140316928 (MiInitializePoolCommitPacket.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
+ *     MiChargeForLockedPage @ 0x1403337F0 (MiChargeForLockedPage.c)
+ *     MmCreateKernelStack @ 0x1403352B0 (MmCreateKernelStack.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     MiSessionInsertImage @ 0x1403A2AC4 (MiSessionInsertImage.c)
+ *     MiPurgeImageSection @ 0x1403A5514 (MiPurgeImageSection.c)
+ *     MiInitializeCommitment @ 0x1403BFA54 (MiInitializeCommitment.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14052C5A8 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiSetPagesModified @ 0x1405352F0 (MiSetPagesModified.c)
+ *     MiAttemptPageFileReductionApc @ 0x140542D10 (MiAttemptPageFileReductionApc.c)
+ *     MiGetSubsectionCharges @ 0x140555108 (MiGetSubsectionCharges.c)
+ *     MiBuildForkPte @ 0x1405584FC (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x14055ACA4 (MiHandleForkTransitionPte.c)
+ *     MiReferenceCloneProto @ 0x14055B7D8 (MiReferenceCloneProto.c)
+ *     MiCreateLargePfnList @ 0x14055E13C (MiCreateLargePfnList.c)
+ *     MmRotatePhysicalView @ 0x1405E48E0 (MmRotatePhysicalView.c)
+ *     MiAllocatePerSessionProtos @ 0x14061BC08 (MiAllocatePerSessionProtos.c)
+ *     MiCreatePagingFileMap @ 0x1406861B8 (MiCreatePagingFileMap.c)
+ *     MiChargeSegmentCommit @ 0x140689B40 (MiChargeSegmentCommit.c)
+ *     MmCreateProcessAddressSpace @ 0x1406A77C4 (MmCreateProcessAddressSpace.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
+ *     MiRelocateImage @ 0x1406AC790 (MiRelocateImage.c)
+ *     MiChargeFullProcessCommitment @ 0x1406E8830 (MiChargeFullProcessCommitment.c)
+ *     MiSessionCreate @ 0x1407863CC (MiSessionCreate.c)
+ *     MiSessionCreateInternal @ 0x140786DD0 (MiSessionCreateInternal.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
  * Callees:
- *     MiReplenishLocalCommit @ 0x1402BA3E4 (MiReplenishLocalCommit.c)
- *     MiFreeExcessSegments @ 0x140314D50 (MiFreeExcessSegments.c)
- *     MiSyncCommitSignals @ 0x1403BF928 (MiSyncCommitSignals.c)
- *     MiIssuePageExtendRequest @ 0x140543944 (MiIssuePageExtendRequest.c)
- *     MiApplyCommitDelay @ 0x140550230 (MiApplyCommitDelay.c)
- *     MiCauseOverCommitPopup @ 0x1405503F0 (MiCauseOverCommitPopup.c)
- *     MiConsumeOverCommit @ 0x14055045C (MiConsumeOverCommit.c)
- *     MiPulseCommitSignal @ 0x140550554 (MiPulseCommitSignal.c)
+ *     MiReplenishLocalCommit @ 0x1402385F4 (MiReplenishLocalCommit.c)
+ *     MiFreeExcessSegments @ 0x14031FAA0 (MiFreeExcessSegments.c)
+ *     MiSyncCommitSignals @ 0x1403BFD54 (MiSyncCommitSignals.c)
+ *     MiIssuePageExtendRequest @ 0x140543B84 (MiIssuePageExtendRequest.c)
+ *     MiApplyCommitDelay @ 0x140550470 (MiApplyCommitDelay.c)
+ *     MiCauseOverCommitPopup @ 0x140550630 (MiCauseOverCommitPopup.c)
+ *     MiConsumeOverCommit @ 0x14055069C (MiConsumeOverCommit.c)
+ *     MiPulseCommitSignal @ 0x140550794 (MiPulseCommitSignal.c)
  */
 
 __int64 __fastcall MiChargeCommit(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -162,7 +162,7 @@ LABEL_12:
         if ( (v10 & 4) != 0 )
         {
           if ( !v11 )
-            ++dword_140C4E7BC;
+            ++dword_140C4E7FC;
           goto LABEL_60;
         }
         if ( (v10 & 2) != 0 )
@@ -209,7 +209,7 @@ LABEL_12:
         return 0LL;
       }
       if ( !v11 )
-        ++dword_140C4E7C0;
+        ++dword_140C4E800;
 LABEL_60:
       if ( a2 )
         break;
@@ -246,7 +246,7 @@ LABEL_25:
               v22 = v17;
               v23 = 256 - v21 + v17;
               if ( v23 > v22 && v11 + v23 > v22 && v11 + v23 <= v19 )
-                MiReplenishLocalCommit(a1, CurrentPrcb);
+                MiReplenishLocalCommit(a1, (__int64)CurrentPrcb, v22, 256 - v21);
             }
           }
           return 1LL;

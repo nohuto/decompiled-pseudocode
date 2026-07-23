@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagTracePowerLimitExtension @ 0x1407D3F9C
+ * XREFs of PopDiagTracePowerLimitExtension @ 0x1407D711C
  * Callers:
- *     PopAssociatePowerLimitRequest @ 0x1407CA800 (PopAssociatePowerLimitRequest.c)
- *     PopDisablePowerLimitExtension @ 0x1407CAA88 (PopDisablePowerLimitExtension.c)
- *     PopPowerLimitPnpNotification @ 0x1407CB110 (PopPowerLimitPnpNotification.c)
- *     PopRundownPowerLimitRequests @ 0x140AC1560 (PopRundownPowerLimitRequests.c)
+ *     PopAssociatePowerLimitRequest @ 0x1407CD8A0 (PopAssociatePowerLimitRequest.c)
+ *     PopDisablePowerLimitExtension @ 0x1407CDB28 (PopDisablePowerLimitExtension.c)
+ *     PopPowerLimitPnpNotification @ 0x1407CE1B0 (PopPowerLimitPnpNotification.c)
+ *     PopRundownPowerLimitRequests @ 0x140AC3600 (PopRundownPowerLimitRequests.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerLimitExtension(__int64 a1, const EVENT_DESCRIPTOR *a2)
@@ -44,9 +44,9 @@ void __fastcall PopDiagTracePowerLimitExtension(__int64 a1, const EVENT_DESCRIPT
 
   v15 = 0;
   i = 0LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], a2) )
+    if ( EtwEventEnabled(PopDiagHandle, a2) )
     {
       v4 = (_DWORD *)(a1 + 72);
       v5 = 44 * *(_DWORD *)(a1 + 72);
@@ -97,7 +97,7 @@ void __fastcall PopDiagTracePowerLimitExtension(__int64 a1, const EVENT_DESCRIPT
               v25 = Pool2;
               v26 = v5;
               v27 = 0;
-              EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], a2, 0LL, 5u, &UserData);
+              EtwWrite(PopDiagHandle, a2, 0LL, 5u, &UserData);
             }
             ObfDereferenceObjectWithTag(v8, 0x67446F50u);
           }

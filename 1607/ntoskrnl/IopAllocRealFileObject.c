@@ -1,24 +1,24 @@
 /*
- * XREFs of IopAllocRealFileObject @ 0x140442AB0
+ * XREFs of IopAllocRealFileObject @ 0x140441980
  * Callers:
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     IopCheckInitiatorHint @ 0x14009CF4C (IopCheckInitiatorHint.c)
- *     PsIsSystemThread @ 0x1400A3DEC (PsIsSystemThread.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
- *     ObpFreeObjectNameBuffer @ 0x140405DC0 (ObpFreeObjectNameBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ObpCaptureObjectCreateInformation @ 0x140419770 (ObpCaptureObjectCreateInformation.c)
- *     ObpAllocateObject @ 0x14041BB10 (ObpAllocateObject.c)
- *     SeReleaseSecurityDescriptor @ 0x14044DB84 (SeReleaseSecurityDescriptor.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x14046B43C (IopAllocateFoExtensionsOnCreate.c)
- *     IopRetrieveTransactionParameters @ 0x1404B9FD0 (IopRetrieveTransactionParameters.c)
- *     ObpRegisterObject @ 0x1406681FC (ObpRegisterObject.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     IopCheckInitiatorHint @ 0x14009C74C (IopCheckInitiatorHint.c)
+ *     PsIsSystemThread @ 0x1400A2714 (PsIsSystemThread.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
+ *     ObpFreeObjectNameBuffer @ 0x140404C80 (ObpFreeObjectNameBuffer.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ObpCaptureObjectCreateInformation @ 0x140418630 (ObpCaptureObjectCreateInformation.c)
+ *     ObpAllocateObject @ 0x14041A9D0 (ObpAllocateObject.c)
+ *     SeReleaseSecurityDescriptor @ 0x14044CA54 (SeReleaseSecurityDescriptor.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14046A30C (IopAllocateFoExtensionsOnCreate.c)
+ *     IopRetrieveTransactionParameters @ 0x1404A5D00 (IopRetrieveTransactionParameters.c)
+ *     ObpRegisterObject @ 0x1406682E0 (ObpRegisterObject.c)
  */
 
 __int64 __fastcall IopAllocRealFileObject(

@@ -9,24 +9,24 @@
  *     ZwDelayExecution @ 0x1800A46F0 (ZwDelayExecution.c)
  */
 
-__int64 __fastcall LdrpInitMuiCrits(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS LdrpInitMuiCrits()
 {
-  __int64 result; // rax
-  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   while ( _InterlockedCompareExchange(&DataLoadLockCount, 1, 0) )
   {
-    result = (unsigned int)DataLoadLockCount;
+    result = DataLoadLockCount;
     if ( DataLoadLockCount == 1 )
     {
-      ZwDelayExecution(0LL, &v5);
-      result = (unsigned int)DataLoadLockCount;
+      ZwDelayExecution(0, &DelayInterval);
+      result = DataLoadLockCount;
     }
-    if ( (_DWORD)result == 2 )
+    if ( result == 2 )
       return result;
   }
-  result = RtlInitializeCriticalSectionEx((__int64)&LoadAsDataCrits, 0LL, 0LL, a4);
+  result = RtlInitializeCriticalSectionEx(&LoadAsDataCrits, 0, 0);
   DataLoadLockCount = 2;
   return result;
 }

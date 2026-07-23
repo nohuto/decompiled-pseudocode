@@ -1,25 +1,25 @@
 /*
- * XREFs of MiComputePageCommitment @ 0x140311CE0
+ * XREFs of MiComputePageCommitment @ 0x140313D10
  * Callers:
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
- *     MiPerformVadSplitting @ 0x140315B44 (MiPerformVadSplitting.c)
- *     MiLoadDataIntoVsmEnclave @ 0x140876584 (MiLoadDataIntoVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x140876988 (MiLoadSectionIntoVsmEnclave.c)
- *     MiSectionProtectGetCharges @ 0x1409C6FE0 (MiSectionProtectGetCharges.c)
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
- *     MiCopyPagesIntoEnclave @ 0x140AEEB74 (MiCopyPagesIntoEnclave.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
+ *     MiPerformVadSplitting @ 0x140317B74 (MiPerformVadSplitting.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x14087C968 (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14087CD6C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiSectionProtectGetCharges @ 0x140997FC0 (MiSectionProtectGetCharges.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
+ *     MiCopyPagesIntoEnclave @ 0x140AF1B14 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiIsPteDecommittedPage @ 0x140312010 (MiIsPteDecommittedPage.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiGetNextPageTable @ 0x140318050 (MiGetNextPageTable.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiIsPteDecommittedPage @ 0x140314040 (MiIsPteDecommittedPage.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiGetNextPageTable @ 0x14031A080 (MiGetNextPageTable.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
  */
 
 __int64 __fastcall MiComputePageCommitment(
@@ -166,7 +166,7 @@ LABEL_51:
         {
           v6 = v24;
           if ( !v25
-            && *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock
+            && *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock
                                      + 8
                                      * ((*(_QWORD *)(48 * ((PteShadow >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL))
                          + 256LL) != *a5 )

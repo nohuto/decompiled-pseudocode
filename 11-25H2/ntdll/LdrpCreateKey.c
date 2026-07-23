@@ -7,16 +7,15 @@
  *     ZwCreateKey @ 0x1801635C0 (ZwCreateKey.c)
  */
 
-__int64 __fastcall LdrpCreateKey(__int64 a1, __int64 a2, int a3, unsigned int a4, _QWORD *a5)
+NTSTATUS __fastcall LdrpCreateKey(_UNICODE_STRING *a1, void *a2, ULONG a3, ACCESS_MASK a4, PHANDLE KeyHandle)
 {
-  _QWORD v6[4]; // [rsp+40h] [rbp-38h] BYREF
-  __int128 v7; // [rsp+60h] [rbp-18h]
+  _OBJECT_ATTRIBUTES v6; // [rsp+40h] [rbp-38h] BYREF
 
-  v6[2] = a1;
-  v6[1] = a2;
-  v6[0] = 48LL;
-  v6[3] = 64LL;
-  *a5 = 0LL;
-  v7 = 0LL;
-  return ZwCreateKey(a5, a4, v6, 0LL, 0LL, a3, 0LL);
+  v6.ObjectName = a1;
+  v6.RootDirectory = a2;
+  *(_QWORD *)&v6.Length = 48LL;
+  *(_QWORD *)&v6.Attributes = 64LL;
+  *KeyHandle = 0LL;
+  *(_OWORD *)&v6.SecurityDescriptor = 0LL;
+  return ZwCreateKey(KeyHandle, a4, &v6, 0, 0LL, a3, 0LL);
 }

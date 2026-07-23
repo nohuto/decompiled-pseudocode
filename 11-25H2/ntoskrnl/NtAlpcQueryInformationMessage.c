@@ -15,31 +15,31 @@
  *     AlpcpQuerySidMessage @ 0x140A0A58C (AlpcpQuerySidMessage.c)
  */
 
-__int64 __fastcall NtAlpcQueryInformationMessage(
-        HANDLE Handle,
-        __int64 a2,
-        int a3,
-        _QWORD *a4,
-        unsigned int a5,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r10
   char v11; // r9
   __int64 v12; // rcx
-  unsigned int v13; // esi
-  int v14; // eax
+  unsigned int MessageId; // esi
+  unsigned int CallbackId; // eax
   unsigned __int64 v15; // rdx
   unsigned __int64 v16; // rcx
   unsigned __int64 v17; // rcx
-  _DWORD *v18; // rdi
+  PULONG v18; // rdi
   __int64 v19; // r8
-  int v20; // ebx
+  NTSTATUS v20; // ebx
   __int64 v21; // r9
   ULONG_PTR v22; // rsi
-  int v23; // r14d
-  int v24; // r14d
-  int TokenModifiedIdMessage; // eax
+  __int32 v23; // r14d
+  __int32 v24; // r14d
+  NTSTATUS TokenModifiedIdMessage; // eax
   unsigned int v27; // [rsp+30h] [rbp-28h]
   int v28; // [rsp+34h] [rbp-24h]
   PVOID Object; // [rsp+38h] [rbp-20h] BYREF
@@ -54,43 +54,43 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
   v11 = v31->PreviousMode;
   if ( v11 )
   {
-    v12 = a2 & 3;
-    if ( (a2 & 3) != 0 )
+    v12 = (unsigned __int8)PortMessage & 3;
+    if ( ((unsigned __int8)PortMessage & 3) != 0 )
       goto LABEL_3;
     v19 = 0x7FFFFFFF0000LL;
   }
   else
   {
-    v12 = a2 & 3;
+    v12 = (unsigned __int8)PortMessage & 3;
     v19 = 0x7FFFFFFF0000LL;
   }
-  if ( (*(_WORD *)(a2 + 4) & 0x1000) != 0 )
+  if ( (PortMessage->u2.s2.Type & 0x1000) != 0 )
   {
-    v13 = *(_DWORD *)(a2 + 16);
-    v27 = v13;
-    v14 = *(_DWORD *)(a2 + 20);
+    MessageId = *((_DWORD *)&PortMessage->DoNotUseThisField + 2);
+    v27 = MessageId;
+    CallbackId = *((_DWORD *)&PortMessage->DoNotUseThisField + 3);
   }
   else
   {
     if ( v11 && v12 )
       goto LABEL_3;
-    v13 = *(_DWORD *)(a2 + 24);
-    v27 = v13;
-    v14 = *(_DWORD *)(a2 + 32);
+    MessageId = PortMessage->MessageId;
+    v27 = MessageId;
+    CallbackId = PortMessage->CallbackId;
   }
-  v28 = v14;
+  v28 = CallbackId;
   if ( !PreviousMode )
   {
-    v18 = (_DWORD *)a6;
+    v18 = ReturnLength;
     goto LABEL_27;
   }
-  if ( a5 )
+  if ( Length )
   {
-    v15 = (unsigned __int64)a4;
-    if ( ((unsigned __int8)a4 & 3) == 0 )
+    v15 = (unsigned __int64)MessageInformation;
+    if ( ((unsigned __int8)MessageInformation & 3) == 0 )
     {
-      v16 = (unsigned __int64)a4 + a5 - 1;
-      if ( v16 >= 0x7FFFFFFF0000LL || (unsigned __int64)a4 > v16 )
+      v16 = (unsigned __int64)MessageInformation + Length - 1;
+      if ( v16 >= 0x7FFFFFFF0000LL || (unsigned __int64)MessageInformation > v16 )
         ExRaiseAccessViolation();
       v17 = (v16 & 0xFFFFFFFFFFFFF000uLL) + 4096;
       do
@@ -99,32 +99,32 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
         v15 = (v15 & 0xFFFFFFFFFFFFF000uLL) + 4096;
       }
       while ( v15 != v17 );
-      v13 = v27;
+      MessageId = v27;
       goto LABEL_13;
     }
 LABEL_3:
     ExRaiseDatatypeMisalignment();
   }
 LABEL_13:
-  v18 = (_DWORD *)a6;
-  if ( a6 )
+  v18 = ReturnLength;
+  if ( ReturnLength )
   {
-    if ( a6 < 0x7FFFFFFF0000LL )
-      v19 = a6;
+    if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+      v19 = (__int64)ReturnLength;
     *(_DWORD *)v19 = *(_DWORD *)v19;
-    v13 = v27;
+    MessageId = v27;
   }
 LABEL_27:
-  if ( !v13 )
+  if ( !MessageId )
   {
     v20 = -1073741811;
     goto LABEL_39;
   }
   Object = 0LL;
-  v20 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v20 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v20 >= 0 )
   {
-    v20 = AlpcpLookupMessage((__int64)Object, v13, v28, v21, &BugCheckParameter2);
+    v20 = AlpcpLookupMessage((__int64)Object, MessageId, v28, v21, &BugCheckParameter2);
     if ( v20 < 0 )
     {
 LABEL_38:
@@ -137,12 +137,17 @@ LABEL_38:
       v20 = -1073740029;
       goto LABEL_37;
     }
-    if ( a3 )
+    if ( MessageInformationClass )
     {
-      v23 = a3 - 1;
+      v23 = MessageInformationClass - 1;
       if ( !v23 )
       {
-        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage((__int64)Object, BugCheckParameter2, a4, a5, v18);
+        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage(
+                                   (__int64)Object,
+                                   BugCheckParameter2,
+                                   MessageInformation,
+                                   Length,
+                                   v18);
         goto LABEL_36;
       }
       v24 = v23 - 1;
@@ -153,8 +158,8 @@ LABEL_38:
           TokenModifiedIdMessage = AlpcpQueryHandleInformationMessage(
                                      (_DWORD)Object,
                                      BugCheckParameter2,
-                                     (_DWORD)a4,
-                                     a5,
+                                     (_DWORD)MessageInformation,
+                                     Length,
                                      (__int64)v18);
 LABEL_36:
           v20 = TokenModifiedIdMessage;
@@ -163,7 +168,7 @@ LABEL_37:
           goto LABEL_38;
         }
       }
-      else if ( !a4 && !a5 && !v18 )
+      else if ( !MessageInformation && !Length && !v18 )
       {
         v20 = (*(_DWORD *)(BugCheckParameter2 + 40) & 7) != 4 ? 0x103 : 0;
         goto LABEL_37;
@@ -171,10 +176,15 @@ LABEL_37:
       v20 = -1073741811;
       goto LABEL_37;
     }
-    TokenModifiedIdMessage = AlpcpQuerySidMessage((_DWORD)Object, BugCheckParameter2, (_DWORD)a4, a5, (__int64)v18);
+    TokenModifiedIdMessage = AlpcpQuerySidMessage(
+                               (_DWORD)Object,
+                               BugCheckParameter2,
+                               (_DWORD)MessageInformation,
+                               Length,
+                               (__int64)v18);
     goto LABEL_36;
   }
 LABEL_39:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v20;
+  return v20;
 }

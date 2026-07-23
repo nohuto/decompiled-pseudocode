@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDeviceRegistration @ 0x1407CF5EC
+ * XREFs of PiDeviceRegistration @ 0x1407CF8BC
  * Callers:
- *     PpDeviceRegistration @ 0x1407CF564 (PpDeviceRegistration.c)
+ *     PpDeviceRegistration @ 0x1407CF834 (PpDeviceRegistration.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3F44 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D42B4 (PnpUnicodeStringToWstr.c)
- *     PnpConcatenateUnicodeStrings @ 0x140793624 (PnpConcatenateUnicodeStrings.c)
- *     PpForEachDeviceInstanceDriver @ 0x1407CF798 (PpForEachDeviceInstanceDriver.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D3F74 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D42E4 (PnpUnicodeStringToWstr.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140793814 (PnpConcatenateUnicodeStrings.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1407CFA68 (PpForEachDeviceInstanceDriver.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

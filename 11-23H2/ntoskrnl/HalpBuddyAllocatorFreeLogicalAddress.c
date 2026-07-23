@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpBuddyAllocatorFreeLogicalAddress @ 0x14045F060
+ * XREFs of HalpBuddyAllocatorFreeLogicalAddress @ 0x14045F460
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpBuddyAllocatorBltAdd @ 0x140531FE0 (HalpBuddyAllocatorBltAdd.c)
- *     HalpBuddyAllocatorBltPopBuddy @ 0x140532224 (HalpBuddyAllocatorBltPopBuddy.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x140532530 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpBuddyAllocatorBltPopBuddy @ 0x140532774 (HalpBuddyAllocatorBltPopBuddy.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorFreeLogicalAddress(__int64 a1, unsigned __int64 a2)

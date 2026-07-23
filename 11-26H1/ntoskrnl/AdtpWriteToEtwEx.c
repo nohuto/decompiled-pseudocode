@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpWriteToEtwEx @ 0x1404750AC
+ * XREFs of AdtpWriteToEtwEx @ 0x14046E82C
  * Callers:
- *     SeAuditPlugAndPlay @ 0x140B32F14 (SeAuditPlugAndPlay.c)
+ *     SeAuditPlugAndPlay @ 0x140B35364 (SeAuditPlugAndPlay.c)
  * Callees:
- *     EtwWriteKMSecurityEvent @ 0x140214E28 (EtwWriteKMSecurityEvent.c)
- *     AdtpNormalizeAuditInfoHelper @ 0x140475300 (AdtpNormalizeAuditInfoHelper.c)
- *     AdtpPackageParameters @ 0x140475440 (AdtpPackageParameters.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AdtpGetCategoryAndSubCategoryId @ 0x140AB0D84 (AdtpGetCategoryAndSubCategoryId.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwWriteKMSecurityEvent @ 0x140215158 (EtwWriteKMSecurityEvent.c)
+ *     AdtpNormalizeAuditInfoHelper @ 0x14046EA80 (AdtpNormalizeAuditInfoHelper.c)
+ *     AdtpPackageParameters @ 0x14046EBC0 (AdtpPackageParameters.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AdtpGetCategoryAndSubCategoryId @ 0x140AAED68 (AdtpGetCategoryAndSubCategoryId.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpWriteToEtwEx(__int64 a1, _BYTE *a2)

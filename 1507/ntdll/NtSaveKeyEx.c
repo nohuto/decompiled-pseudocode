@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSaveKeyEx()
+NTSTATUS __cdecl NtSaveKeyEx(HANDLE KeyHandle, HANDLE FileHandle, ULONG Format)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 360LL;
+  result = 360;
   __asm { syscall; Low latency system call }
   return result;
 }

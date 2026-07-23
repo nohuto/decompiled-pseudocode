@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwDebugContinue()
+NTSTATUS __cdecl ZwDebugContinue(HANDLE DebugObjectHandle, PCLIENT_ID ClientId, NTSTATUS ContinueStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 198LL;
+  result = 198;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

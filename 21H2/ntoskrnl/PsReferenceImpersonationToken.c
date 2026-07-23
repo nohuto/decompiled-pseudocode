@@ -1,9 +1,9 @@
 /*
- * XREFs of PsReferenceImpersonationToken @ 0x140699900
+ * XREFs of PsReferenceImpersonationToken @ 0x1405F8AC0
  * Callers:
  *     <none>
  * Callees:
- *     PsReferenceImpersonationTokenEx @ 0x140656960 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14064B780 (PsReferenceImpersonationTokenEx.c)
  */
 
 PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
@@ -12,11 +12,11 @@ PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
         PBOOLEAN EffectiveOnly,
         PSECURITY_IMPERSONATION_LEVEL ImpersonationLevel)
 {
-  return PsReferenceImpersonationTokenEx(
-           (__int64)Thread,
-           1,
-           CopyOnOpen,
-           (bool *)EffectiveOnly,
-           (int *)ImpersonationLevel,
-           0LL);
+  return (PACCESS_TOKEN)PsReferenceImpersonationTokenEx(
+                          (_DWORD)Thread,
+                          1,
+                          (_DWORD)CopyOnOpen,
+                          (_DWORD)EffectiveOnly,
+                          (__int64)ImpersonationLevel,
+                          0LL);
 }

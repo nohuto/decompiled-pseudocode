@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpInvalidateRelationsInList @ 0x1404C54CC
+ * XREFs of PnpInvalidateRelationsInList @ 0x140485900
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
- *     PnpProcessCompletedEject @ 0x14062DF9C (PnpProcessCompletedEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessCompletedEject @ 0x14062E050 (PnpProcessCompletedEject.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     PipClearDevNodeFlags @ 0x1403F3414 (PipClearDevNodeFlags.c)
- *     IopSetRelationsTag @ 0x1404C3E48 (IopSetRelationsTag.c)
- *     IopAddRelationToList @ 0x1404C4DAC (IopAddRelationToList.c)
- *     IopEnumerateRelations @ 0x1404C5848 (IopEnumerateRelations.c)
- *     IopAllocateRelationList @ 0x1404C5958 (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x1404C59AC (IopFreeRelationList.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     PipClearDevNodeFlags @ 0x1403F22D8 (PipClearDevNodeFlags.c)
+ *     IopSetRelationsTag @ 0x14048421C (IopSetRelationsTag.c)
+ *     IopEnumerateRelations @ 0x140485C7C (IopEnumerateRelations.c)
+ *     IopAllocateRelationList @ 0x140485D8C (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x140485DE0 (IopFreeRelationList.c)
+ *     IopAddRelationToList @ 0x140486010 (IopAddRelationToList.c)
  */
 
 __int64 __fastcall PnpInvalidateRelationsInList(_QWORD *a1, unsigned int a2, char a3, char a4)
 {
-  _BYTE *RelationList; // r14
+  void *RelationList; // r14
   _DWORD *v9; // rdx
   unsigned int i; // r8d
   __int64 v11; // rax
@@ -31,7 +31,7 @@ __int64 __fastcall PnpInvalidateRelationsInList(_QWORD *a1, unsigned int a2, cha
   _DWORD v22[3]; // [rsp+34h] [rbp-1Ch] BYREF
   PVOID Object[2]; // [rsp+40h] [rbp-10h] BYREF
 
-  RelationList = (_BYTE *)IopAllocateRelationList(a2);
+  RelationList = (void *)IopAllocateRelationList(a2);
   if ( !RelationList )
     return 3221225626LL;
   v9 = (_DWORD *)*a1;
@@ -59,7 +59,7 @@ LABEL_5:
         {
 LABEL_27:
           if ( j )
-            IopAddRelationToList(RelationList, (__int64)j, 2LL, 0);
+            IopAddRelationToList(RelationList, j, 2LL);
           goto LABEL_5;
         }
         v16 = j[39];

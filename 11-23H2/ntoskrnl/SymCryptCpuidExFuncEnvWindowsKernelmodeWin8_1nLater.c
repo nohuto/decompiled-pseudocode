@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptCpuidExFuncEnvWindowsKernelmodeWin8_1nLater @ 0x1403F32E8
+ * XREFs of SymCryptCpuidExFuncEnvWindowsKernelmodeWin8_1nLater @ 0x1403F34C8
  * Callers:
- *     SymCryptCpuidExFunc @ 0x1403B6A88 (SymCryptCpuidExFunc.c)
+ *     SymCryptCpuidExFunc @ 0x1403B6C68 (SymCryptCpuidExFunc.c)
  * Callees:
  *     <none>
  */

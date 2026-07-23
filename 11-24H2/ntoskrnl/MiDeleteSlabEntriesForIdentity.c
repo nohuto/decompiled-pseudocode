@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteSlabEntriesForIdentity @ 0x140687540
+ * XREFs of MiDeleteSlabEntriesForIdentity @ 0x140688670
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiFreeSlabEntry @ 0x1402D2150 (MiFreeSlabEntry.c)
- *     MiRemoveSlabEntry @ 0x140414068 (MiRemoveSlabEntry.c)
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     MiRelinkTransitionSlabPages @ 0x14044334C (MiRelinkTransitionSlabPages.c)
- *     MiUnlinkTransitionSlabPages @ 0x14044342C (MiUnlinkTransitionSlabPages.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiChangeSlabEntryIdentity @ 0x140686560 (MiChangeSlabEntryIdentity.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiFreeSlabEntry @ 0x1403533C8 (MiFreeSlabEntry.c)
+ *     MiRemoveSlabEntry @ 0x14043C298 (MiRemoveSlabEntry.c)
+ *     MiRelinkTransitionSlabPages @ 0x14043C4D4 (MiRelinkTransitionSlabPages.c)
+ *     MiUnlinkTransitionSlabPages @ 0x14043C5B4 (MiUnlinkTransitionSlabPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiChangeSlabEntryIdentity @ 0x140687690 (MiChangeSlabEntryIdentity.c)
  */
 
 __int64 __fastcall MiDeleteSlabEntriesForIdentity(__int64 a1, __int64 a2, char a3)

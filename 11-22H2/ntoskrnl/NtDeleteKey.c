@@ -32,7 +32,7 @@
  *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
  */
 
-__int64 __fastcall NtDeleteKey(HANDLE Handle)
+NTSTATUS __cdecl NtDeleteKey(HANDLE KeyHandle)
 {
   char v2; // r13
   char v3; // r12
@@ -46,7 +46,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
   int v11; // r9d
   char v12; // bl
   int v13; // eax
-  signed int v14; // edi
+  int v14; // edi
   char v15; // si
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v17; // rbx
@@ -100,7 +100,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
     goto LABEL_37;
   }
   LOBYTE(v11) = PreviousMode;
-  v13 = CmObReferenceObjectByHandle((_DWORD)Handle, 0x10000, v10, v11, (__int64)&Object, (__int64)&v34);
+  v13 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 0x10000, v10, v11, (__int64)&Object, (__int64)&v34);
   v14 = v13;
   if ( v13 == -1073741790 )
   {
@@ -108,7 +108,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
     if ( CmDoVirtualTest((__int64)&SubjectContext, (__int64)&v33) )
     {
       LOBYTE(v25) = PreviousMode;
-      v14 = CmObReferenceObjectByHandle((_DWORD)Handle, 131097, v24, v25, (__int64)&Object, (__int64)&v34);
+      v14 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 131097, v24, v25, (__int64)&Object, (__int64)&v34);
       if ( v14 < 0 )
         goto LABEL_61;
       v17 = Object;
@@ -198,7 +198,7 @@ LABEL_26:
         {
           p_TransactionId = 0LL;
         }
-        SeDeleteObjectAuditAlarmWithTransaction(v17, Handle, p_TransactionId);
+        SeDeleteObjectAuditAlarmWithTransaction(v17, KeyHandle, p_TransactionId);
       }
       goto LABEL_28;
     }
@@ -234,5 +234,5 @@ LABEL_37:
   if ( v12 )
     CmpReleaseShutdownRundown(v9, v8);
   CmCleanupThreadInfo((__int64 *)&v38);
-  return (unsigned int)v14;
+  return v14;
 }

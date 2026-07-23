@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceWakeCounter @ 0x1409368A8
+ * XREFs of EtwTraceWakeCounter @ 0x140936A78
  * Callers:
- *     PspChargeProcessWakeCounter @ 0x1405E6B10 (PspChargeProcessWakeCounter.c)
- *     PspChargeJobWakeCounter @ 0x140617E18 (PspChargeJobWakeCounter.c)
+ *     PspChargeJobWakeCounter @ 0x140681A78 (PspChargeJobWakeCounter.c)
+ *     PspChargeProcessWakeCounter @ 0x1406D6270 (PspChargeProcessWakeCounter.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceWakeCounter(__int64 a1, __int16 a2, __int64 a3, __int64 a4, __int64 a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpFreezeThawWorker @ 0x140857350
+ * XREFs of CmpFreezeThawWorker @ 0x14085D6E0
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmThawRegistry @ 0x1408571F0 (CmThawRegistry.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmThawRegistry @ 0x14085D580 (CmThawRegistry.c)
  */
 
 _KAFFINITY_EX *CmpFreezeThawWorker()
@@ -16,8 +16,8 @@ _KAFFINITY_EX *CmpFreezeThawWorker()
   v1 = 0LL;
   v2 = 0LL;
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v1);
-  *(_DWORD *)&WheapPfaLock.ApcStateFill[8] = 0;
-  if ( *(_DWORD *)&WheapPfaLock.ApcStateFill[12] == 1 )
+  LODWORD(WheapPfaLock.WaitListEntry.Flink) = 0;
+  if ( HIDWORD(WheapPfaLock.SwapListEntry.Next) == 1 )
     CmThawRegistry();
   return CmCleanupThreadInfo((_KAFFINITY_EX **)&v1);
 }

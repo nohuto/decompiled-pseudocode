@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlExpandHashTable @ 0x14041CBE0
+ * XREFs of RtlExpandHashTable @ 0x140410C30
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x14041CE10 (RtlpGetChainHead.c)
- *     RtlpAllocateSecondLevelDir @ 0x140481380 (RtlpAllocateSecondLevelDir.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpGetChainHead @ 0x140410E60 (RtlpGetChainHead.c)
+ *     RtlpAllocateSecondLevelDir @ 0x14047C640 (RtlpAllocateSecondLevelDir.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
@@ -43,7 +43,7 @@ BOOLEAN __stdcall RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
   if ( TableSize == 128 )
   {
     Directory = HashTable->Directory;
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x80uLL, 0x62615448u);
     v22 = (_QWORD *)Pool2;
     if ( !Pool2 )
       return 0;

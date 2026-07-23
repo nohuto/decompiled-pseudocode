@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmReinitializeHeteroEngine @ 0x140A9CE8C
+ * XREFs of PpmReinitializeHeteroEngine @ 0x140AD89F8
  * Callers:
- *     PpmHeteroHgsUpdateWorker @ 0x1404F7B10 (PpmHeteroHgsUpdateWorker.c)
- *     PpmPerfClearBootOverrides @ 0x1404FE288 (PpmPerfClearBootOverrides.c)
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
- *     PpmInitializePepWpsSupport @ 0x1407E3250 (PpmInitializePepWpsSupport.c)
- *     PpmEnableProfile @ 0x140A9C6CC (PpmEnableProfile.c)
- *     PpmHvEnableQosEnlightenment @ 0x140A9CE18 (PpmHvEnableQosEnlightenment.c)
+ *     PpmHeteroHgsUpdateWorker @ 0x1404F1120 (PpmHeteroHgsUpdateWorker.c)
+ *     PpmPerfClearBootOverrides @ 0x1404F77C8 (PpmPerfClearBootOverrides.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
+ *     PpmInitializePepWpsSupport @ 0x1407E82E0 (PpmInitializePepWpsSupport.c)
+ *     PpmEnableProfile @ 0x140AD850C (PpmEnableProfile.c)
+ *     PpmHvEnableQosEnlightenment @ 0x140AEBAB8 (PpmHvEnableQosEnlightenment.c)
  * Callees:
- *     PpmReapplyPerfPolicy @ 0x140A9D088 (PpmReapplyPerfPolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x140AD8B10 (PpmReapplyPerfPolicy.c)
  */
 
 __int64 __fastcall PpmReinitializeHeteroEngine(char a1, char a2, char a3)

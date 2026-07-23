@@ -13,9 +13,9 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtStopProfile(void *a1)
+NTSTATUS __cdecl NtStopProfile(HANDLE ProfileHandle)
 {
-  int v1; // ebp
+  NTSTATUS v1; // ebp
   NTSTATUS result; // eax
   PADAPTER_OBJECT v3; // r14
   void *v4; // rbx
@@ -26,7 +26,7 @@ NTSTATUS __fastcall NtStopProfile(void *a1)
   v1 = 0;
   DmaAdapter = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             ProfileHandle,
              1u,
              ExProfileObjectType,
              KeGetCurrentThread()->PreviousMode,

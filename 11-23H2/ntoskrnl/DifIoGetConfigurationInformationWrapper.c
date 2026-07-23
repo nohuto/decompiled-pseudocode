@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoGetConfigurationInformationWrapper @ 0x1405DF4F0
+ * XREFs of DifIoGetConfigurationInformationWrapper @ 0x1405DFA60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoGetConfigurationInformation @ 0x140875820 (IoGetConfigurationInformation.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoGetConfigurationInformation @ 0x140875A60 (IoGetConfigurationInformation.c)
  */
 
 PCONFIGURATION_INFORMATION DifIoGetConfigurationInformationWrapper()

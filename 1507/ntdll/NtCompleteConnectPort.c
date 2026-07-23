@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtCompleteConnectPort()
+NTSTATUS __cdecl NtCompleteConnectPort(HANDLE PortHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 151LL;
+  result = 151;
   __asm { syscall; Low latency system call }
   return result;
 }

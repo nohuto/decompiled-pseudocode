@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdatePidFilterData @ 0x1408C24B4
+ * XREFs of EtwpUpdatePidFilterData @ 0x1408C3774
  * Callers:
- *     EtwpUpdateFilterData @ 0x140657014 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x1406581D4 (EtwpUpdateFilterData.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdatePidFilterData(__int64 a1, __int64 a2, char a3)

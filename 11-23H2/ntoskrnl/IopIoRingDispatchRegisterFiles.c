@@ -1,10 +1,10 @@
 /*
- * XREFs of IopIoRingDispatchRegisterFiles @ 0x1409499B0
+ * XREFs of IopIoRingDispatchRegisterFiles @ 0x140949BB0
  * Callers:
- *     IopProcessIoRingEntry @ 0x140949F78 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x14094A178 (IopProcessIoRingEntry.c)
  * Callees:
- *     IopExceptionFilter @ 0x1405554E8 (IopExceptionFilter.c)
- *     IopCompleteIoRingEntry @ 0x14055935C (IopCompleteIoRingEntry.c)
+ *     IopExceptionFilter @ 0x140555BA8 (IopExceptionFilter.c)
+ *     IopCompleteIoRingEntry @ 0x140559A1C (IopCompleteIoRingEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

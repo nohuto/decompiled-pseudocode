@@ -1,17 +1,23 @@
 /*
- * XREFs of RtlGetSetBootStatusData @ 0x1407EC7F0
+ * XREFs of RtlGetSetBootStatusData @ 0x1407ECAC0
  * Callers:
- *     PopBootStatGet @ 0x1407EC4E8 (PopBootStatGet.c)
- *     PopBootStatSet @ 0x1407EEA78 (PopBootStatSet.c)
+ *     PopBootStatGet @ 0x1407EC7B8 (PopBootStatGet.c)
+ *     PopBootStatSet @ 0x1407EED48 (PopBootStatSet.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpGetSetBootStatusData @ 0x1407EC96C (RtlpGetSetBootStatusData.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpGetSetBootStatusData @ 0x1407ECC3C (RtlpGetSetBootStatusData.c)
  */
 
-__int64 __fastcall RtlGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, _BYTE *a4, int a5, _DWORD *a6)
+NTSTATUS __cdecl RtlGetSetBootStatusData(
+        HANDLE FileHandle,
+        BOOLEAN Read,
+        RTL_BSD_ITEM_TYPE DataClass,
+        PVOID Buffer,
+        ULONG BufferSize,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v11; // rcx
   char v12; // al
   _BYTE *v13; // rdx
@@ -22,22 +28,22 @@ __int64 __fastcall RtlGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, _
 
   LODWORD(v16) = 0;
   memset(v17, 0, sizeof(v17));
-  if ( a2 )
-    return RtlpGetSetBootStatusData(FileHandle, a5, (__int64)a6);
-  if ( a3 == 15 )
-    return 3221225485LL;
+  if ( Read )
+    return RtlpGetSetBootStatusData(FileHandle, BufferSize, (__int64)ReturnLength);
+  if ( DataClass == RtlBsdItemChecksum )
+    return -1073741811;
   result = RtlpGetSetBootStatusData(FileHandle, 1, 0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     result = RtlpGetSetBootStatusData(FileHandle, 192, 0LL);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
-      result = RtlpGetSetBootStatusData(FileHandle, a5, (__int64)&v16);
-      if ( (int)result >= 0 )
+      result = RtlpGetSetBootStatusData(FileHandle, BufferSize, (__int64)&v16);
+      if ( result >= 0 )
       {
         v11 = (unsigned int)v16;
-        if ( a6 )
-          *a6 = v16;
+        if ( ReturnLength )
+          *ReturnLength = v16;
         v12 = 0;
         if ( (_DWORD)v11 )
         {
@@ -52,7 +58,8 @@ __int64 __fastcall RtlGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, _
           v15 = v11;
           do
           {
-            v12 -= *a4++;
+            v12 -= *(_BYTE *)Buffer;
+            Buffer = (char *)Buffer + 1;
             --v15;
           }
           while ( v15 );

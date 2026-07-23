@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceUmEvent @ 0x18005B8D8
+ * XREFs of EtwpTraceUmEvent @ 0x18005B8C8
  * Callers:
- *     EtwLogTraceEvent @ 0x18005B880 (EtwLogTraceEvent.c)
+ *     EtwLogTraceEvent @ 0x18005B870 (EtwLogTraceEvent.c)
  *     EtwTraceEventInstance @ 0x1800FD4F0 (EtwTraceEventInstance.c)
  * Callees:
- *     EtwpRelogEvent @ 0x18005BC20 (EtwpRelogEvent.c)
- *     EtwpReserveTraceBuffer @ 0x18005BD10 (EtwpReserveTraceBuffer.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     EtwpRelogEvent @ 0x18005BC10 (EtwpRelogEvent.c)
+ *     EtwpReserveTraceBuffer @ 0x18005BD00 (EtwpReserveTraceBuffer.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
@@ -127,7 +127,7 @@ LABEL_17:
         if ( (v31 & 0x200) != 0 )
         {
           v26 = 1;
-          LODWORD(v15) = 0;
+          v15 = 0LL;
         }
         else
         {
@@ -136,7 +136,7 @@ LABEL_17:
         }
         v39 = NtCurrentTeb();
         v7 = v32;
-        v16 = (char *)EtwpReserveTraceBuffer(v32, v28, v39->CurrentIdealProcessor.Reserved, (_DWORD)v15, (__int64)&v34);
+        v16 = (char *)EtwpReserveTraceBuffer(v32, v28, v39->CurrentIdealProcessor.Reserved, v15, &v34);
         v17 = v16;
         v38 = v16;
         if ( v16 )

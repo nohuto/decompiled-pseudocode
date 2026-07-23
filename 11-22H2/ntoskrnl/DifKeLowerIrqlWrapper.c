@@ -9,7 +9,7 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifKeLowerIrqlWrapper(unsigned __int8 a1)
+void __fastcall DifKeLowerIrqlWrapper(unsigned __int8 a1)
 {
   unsigned __int64 v1; // rbp
   __int64 *APIThunkContextById; // rax
@@ -21,10 +21,10 @@ __int64 __fastcall DifKeLowerIrqlWrapper(unsigned __int8 a1)
   int v8; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v14; // eax
   bool v15; // zf
   _QWORD **v16; // rdi
   _QWORD *j; // rbx
@@ -64,19 +64,21 @@ LABEL_12:
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v18);
   }
 LABEL_17:
-  result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
-      v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
+      v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
+      v15 = (v14 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v14;
       if ( v15 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v1);
@@ -85,10 +87,8 @@ LABEL_17:
     v16 = (_QWORD **)(v7 + 6);
     for ( j = *v16; j != v16; j = (_QWORD *)*j )
     {
-      result = (__int64)(j - 2);
       if ( j != (_QWORD *)16 )
-        result = (*(__int64 (__fastcall **)(__int128 *))(result + 8))(&v18);
+        ((void (__fastcall *)(__int128 *))*(j - 1))(&v18);
     }
   }
-  return result;
 }

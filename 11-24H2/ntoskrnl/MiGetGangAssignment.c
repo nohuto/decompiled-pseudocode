@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetGangAssignment @ 0x1404F700C
+ * XREFs of MiGetGangAssignment @ 0x1404F48F0
  * Callers:
- *     MiStartDpcGang @ 0x1403A875C (MiStartDpcGang.c)
- *     MiDpcGangTarget @ 0x140691650 (MiDpcGangTarget.c)
+ *     MiStartDpcGang @ 0x140270670 (MiStartDpcGang.c)
+ *     MiDpcGangTarget @ 0x140692720 (MiDpcGangTarget.c)
  * Callees:
  *     <none>
  */

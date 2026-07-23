@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpExpirationThread @ 0x1406AD040
+ * XREFs of ExpExpirationThread @ 0x1406AD178
  * Callers:
  *     <none>
  * Callees:
- *     PsTerminateSystemThread @ 0x1404EDAF8 (PsTerminateSystemThread.c)
- *     ExRaiseHardError @ 0x1406B6068 (ExRaiseHardError.c)
+ *     PsTerminateSystemThread @ 0x1404CFC1C (PsTerminateSystemThread.c)
+ *     ExRaiseHardError @ 0x1406B61A0 (ExRaiseHardError.c)
  */
 
 void __fastcall ExpExpirationThread(PVOID StartContext)

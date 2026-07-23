@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpFreeDumpBuffers @ 0x140626FD8
+ * XREFs of IopLiveDumpFreeDumpBuffers @ 0x14062708C
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x140626C5C (IopLiveDumpAllocateDumpBuffers.c)
- *     IopLiveDumpReleaseResources @ 0x1406272E8 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFile @ 0x140627610 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithHvPages @ 0x14062782C (IopLiveDumpWriteDumpFileWithHvPages.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140626D10 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpReleaseResources @ 0x14062739C (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1406276C4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithHvPages @ 0x1406278E0 (IopLiveDumpWriteDumpFileWithHvPages.c)
  * Callees:
- *     VslIsSecureKernelRunning @ 0x1400B5F98 (VslIsSecureKernelRunning.c)
- *     VslAbortLiveDump @ 0x1401C25F0 (VslAbortLiveDump.c)
+ *     VslIsSecureKernelRunning @ 0x1400B3DC0 (VslIsSecureKernelRunning.c)
+ *     VslAbortLiveDump @ 0x1401C24D4 (VslAbortLiveDump.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     MmFreeIndependentPages @ 0x1403E1F14 (MmFreeIndependentPages.c)
  */

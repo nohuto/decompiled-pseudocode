@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTrackRaiseLimitNotification @ 0x140608A84
+ * XREFs of ExpTrackRaiseLimitNotification @ 0x140608FD4
  * Callers:
- *     ExpLimitDpcInsertEntry @ 0x1406081D0 (ExpLimitDpcInsertEntry.c)
- *     ExpTrackTableGetMoreLimit @ 0x140608AF0 (ExpTrackTableGetMoreLimit.c)
+ *     ExpLimitDpcInsertEntry @ 0x140608720 (ExpLimitDpcInsertEntry.c)
+ *     ExpTrackTableGetMoreLimit @ 0x140609040 (ExpTrackTableGetMoreLimit.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall ExpTrackRaiseLimitNotification(__int64 a1)

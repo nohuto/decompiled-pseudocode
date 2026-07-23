@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuConstructReservedPageTable @ 0x140BEBC40
+ * XREFs of HalpIommuConstructReservedPageTable @ 0x140BF1C40
  * Callers:
- *     HalpIommuProcessReservedDomains @ 0x140BEBD4C (HalpIommuProcessReservedDomains.c)
+ *     HalpIommuProcessReservedDomains @ 0x140BF1D4C (HalpIommuProcessReservedDomains.c)
  * Callees:
- *     HalpIommuMapLogicalRange @ 0x14047BE6C (HalpIommuMapLogicalRange.c)
- *     HalpIommuGetPageTableType @ 0x14058DA18 (HalpIommuGetPageTableType.c)
- *     HalpIommuCreateDmarPageTable @ 0x1405A089C (HalpIommuCreateDmarPageTable.c)
- *     HalpIommuGetDmarptRootAddress @ 0x1405A0B0C (HalpIommuGetDmarptRootAddress.c)
+ *     HalpIommuMapLogicalRange @ 0x1404757DC (HalpIommuMapLogicalRange.c)
+ *     HalpIommuGetPageTableType @ 0x140590198 (HalpIommuGetPageTableType.c)
+ *     HalpIommuCreateDmarPageTable @ 0x1405A30AC (HalpIommuCreateDmarPageTable.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x1405A331C (HalpIommuGetDmarptRootAddress.c)
  */
 
 __int64 __fastcall HalpIommuConstructReservedPageTable(__int64 a1, PHYSICAL_ADDRESS *a2, unsigned int a3)

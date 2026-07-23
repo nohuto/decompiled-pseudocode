@@ -3,7 +3,7 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     KiInitializeMutant @ 0x14033ADEC (KiInitializeMutant.c)
+ *     KiInitializeMutant @ 0x14033B07C (KiInitializeMutant.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

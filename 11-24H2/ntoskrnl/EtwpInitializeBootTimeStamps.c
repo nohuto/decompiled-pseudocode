@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpInitializeBootTimeStamps @ 0x140C3D738
+ * XREFs of EtwpInitializeBootTimeStamps @ 0x140C3F888
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14034EB80 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeQueryBootTimeValues @ 0x14049462C (KeQueryBootTimeValues.c)
- *     RtlGetMultiTimePrecise @ 0x1404970A0 (RtlGetMultiTimePrecise.c)
+ *     RtlGetSystemTimePrecise @ 0x14036D060 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeQueryBootTimeValues @ 0x14048F0BC (KeQueryBootTimeValues.c)
+ *     RtlGetMultiTimePrecise @ 0x140491A30 (RtlGetMultiTimePrecise.c)
  */
 
 LARGE_INTEGER __fastcall EtwpInitializeBootTimeStamps(char a1)
 {
   int v1; // edi
-  __int64 SystemTimePrecise; // rax
+  LARGE_INTEGER SystemTimePrecise; // rax
   __int128 v4; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v5; // [rsp+30h] [rbp-10h]
+  LARGE_INTEGER v5; // [rsp+30h] [rbp-10h]
   int v6; // [rsp+50h] [rbp+10h] BYREF
   LARGE_INTEGER v7; // [rsp+58h] [rbp+18h] BYREF
   __int64 v8; // [rsp+60h] [rbp+20h] BYREF
@@ -22,7 +22,7 @@ LARGE_INTEGER __fastcall EtwpInitializeBootTimeStamps(char a1)
   v7.QuadPart = 0LL;
   v6 = 0;
   v8 = 0LL;
-  v5 = 0LL;
+  v5.QuadPart = 0LL;
   v1 = 3;
   v4 = 0LL;
   if ( !a1 )
@@ -50,7 +50,7 @@ LARGE_INTEGER __fastcall EtwpInitializeBootTimeStamps(char a1)
       SystemTimePrecise = v5;
     else
       SystemTimePrecise = RtlGetSystemTimePrecise();
-    EtwpRefTimeSystem = SystemTimePrecise;
+    EtwpRefTimeSystem = SystemTimePrecise.QuadPart;
   }
   return KeQueryPerformanceCounter(&EtwPerfFreq);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepComponentGetResidencyIdleState @ 0x140483CB4
+ * XREFs of PopPepComponentGetResidencyIdleState @ 0x14047D624
  * Callers:
- *     PopPepIdleTimeoutRoutine @ 0x140483A70 (PopPepIdleTimeoutRoutine.c)
- *     PopPepComponentSetResidency @ 0x140611524 (PopPepComponentSetResidency.c)
- *     PopPepRegisterDevice @ 0x140B3B7A8 (PopPepRegisterDevice.c)
+ *     PopPepIdleTimeoutRoutine @ 0x14047D3E0 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepComponentSetResidency @ 0x140614364 (PopPepComponentSetResidency.c)
+ *     PopPepRegisterDevice @ 0x140B3DA28 (PopPepRegisterDevice.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall PopPepComponentGetResidencyIdleState(__int64 a1, unsigned __i
   bool v4; // zf
 
   v2 = (unsigned int)(*(_DWORD *)(a1 + 188) - 1);
-  if ( !byte_140F0B0A0 && *(_DWORD *)(a1 + 188) != 1 )
+  if ( !PopDirectedDripsDiagLock.SchedulerApcFill3[48] && *(_DWORD *)(a1 + 188) != 1 )
   {
     do
     {

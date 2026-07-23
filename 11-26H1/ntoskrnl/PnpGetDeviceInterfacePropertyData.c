@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpGetDeviceInterfacePropertyData @ 0x1409DA6C4
+ * XREFs of PnpGetDeviceInterfacePropertyData @ 0x140A17914
  * Callers:
- *     IoGetDeviceInterfacePropertyData @ 0x1409DA680 (IoGetDeviceInterfacePropertyData.c)
+ *     IoGetDeviceInterfacePropertyData @ 0x140A178D0 (IoGetDeviceInterfacePropertyData.c)
  * Callees:
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     DownLevelLangIDToLanguageName @ 0x1404EF488 (DownLevelLangIDToLanguageName.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     PnpUnicodeStringToWstrFree @ 0x1409DB5D0 (PnpUnicodeStringToWstrFree.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     DownLevelLangIDToLanguageName @ 0x1404E8A68 (DownLevelLangIDToLanguageName.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140A18820 (PnpUnicodeStringToWstrFree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpGetDeviceInterfacePropertyData(
@@ -48,9 +48,9 @@ __int64 __fastcall PnpGetDeviceInterfacePropertyData(
     if ( a3 == 4096 )
       return (unsigned int)-1073741823;
     DbgPrint("!!! RTLMUI: Reusing LocaleBuffer !!!");
-    if ( (int)DownLevelLangIDToLanguageName(a3, word_140E62240, 64, 2) <= 0 )
+    if ( (int)DownLevelLangIDToLanguageName(a3, word_140E623D0, 64, 2) <= 0 )
       return (unsigned int)-1073741823;
-    RtlInitUnicodeString(&DestinationString, word_140E62240);
+    RtlInitUnicodeString(&DestinationString, word_140E623D0);
     Buffer = DestinationString.Buffer;
   }
   else

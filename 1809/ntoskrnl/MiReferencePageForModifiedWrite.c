@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReferencePageForModifiedWrite @ 0x14011BB94
+ * XREFs of MiReferencePageForModifiedWrite @ 0x14011BC04
  * Callers:
- *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
- *     MiBuildMappedCluster @ 0x14007FF80 (MiBuildMappedCluster.c)
- *     MiBuildReservationCluster @ 0x1401500BC (MiBuildReservationCluster.c)
- *     MiGetPageForWriteCluster @ 0x140150660 (MiGetPageForWriteCluster.c)
- *     MiAddToReservationCluster @ 0x14015086C (MiAddToReservationCluster.c)
- *     MiFillNoReservationCluster @ 0x140150D48 (MiFillNoReservationCluster.c)
- *     MmStoreProbeAndLockPages @ 0x140153D74 (MmStoreProbeAndLockPages.c)
+ *     MiGatherMappedPages @ 0x14007E6A0 (MiGatherMappedPages.c)
+ *     MiBuildMappedCluster @ 0x14007FF70 (MiBuildMappedCluster.c)
+ *     MiBuildReservationCluster @ 0x1401501BC (MiBuildReservationCluster.c)
+ *     MiGetPageForWriteCluster @ 0x140150760 (MiGetPageForWriteCluster.c)
+ *     MiAddToReservationCluster @ 0x14015096C (MiAddToReservationCluster.c)
+ *     MiFillNoReservationCluster @ 0x140150E48 (MiFillNoReservationCluster.c)
+ *     MmStoreProbeAndLockPages @ 0x140153E74 (MmStoreProbeAndLockPages.c)
  * Callees:
  *     MiChargeForWriteInProgressPage @ 0x14002CEBC (MiChargeForWriteInProgressPage.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiGetPagePrivilege @ 0x1400B29B0 (MiGetPagePrivilege.c)
  */
 
 __int64 __fastcall MiReferencePageForModifiedWrite(ULONG_PTR BugCheckParameter2, char a2)
@@ -25,7 +25,7 @@ __int64 __fastcall MiReferencePageForModifiedWrite(ULONG_PTR BugCheckParameter2,
   int v9; // r8d
   char v10; // dl
 
-  v4 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL));
+  v4 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL));
   if ( (a2 & 1) != 0 )
   {
     v5 = 1;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAdapterRecOverrideWnfCallback @ 0x14075BC40
+ * XREFs of PopPowerAdapterRecOverrideWnfCallback @ 0x14075A940
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopBatteryQueueWork @ 0x1404A42EC (PopBatteryQueueWork.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x140A3BB60 (ExQueryWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopBatteryQueueWork @ 0x14049F07C (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x140A31340 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopPowerAdapterRecOverrideWnfCallback(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PopPowerAdapterRecOverrideWnfCallback(__int64 a1)
     PopPowerAdapterRecOverride = v3[0];
     PopBatteryQueueWork(0x80u);
   }
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v9 = 0;
     v12 = 0;
@@ -48,7 +48,7 @@ __int64 __fastcall PopPowerAdapterRecOverrideWnfCallback(__int64 a1)
     v11 = 4;
     v5 = 0x1000000LL;
     v14 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)byte_14004BB40, 0LL, 0LL, 5u, &v6);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_14004CE20, 0LL, 0LL, 5u, &v6);
   }
   return (unsigned int)v1;
 }

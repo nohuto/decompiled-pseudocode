@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaGetPageFault @ 0x1404E37E0
+ * XREFs of HsaGetPageFault @ 0x1404E3A20
  * Callers:
  *     <none>
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HsaDismissPageFault @ 0x1404E2A40 (HsaDismissPageFault.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HsaDismissPageFault @ 0x1404E2C80 (HsaDismissPageFault.c)
  */
 
 __int64 __fastcall HsaGetPageFault(

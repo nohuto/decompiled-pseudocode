@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSetJobRateControl @ 0x1409096B0
+ * XREFs of PspSetJobRateControl @ 0x140909810
  * Callers:
- *     PspSetNetRateControl @ 0x1409098C4 (PspSetNetRateControl.c)
+ *     PspSetNetRateControl @ 0x140909A24 (PspSetNetRateControl.c)
  * Callees:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspFreeRateControl @ 0x14067F51C (PspFreeRateControl.c)
- *     PspAllocateRateControl @ 0x14067F56C (PspAllocateRateControl.c)
- *     PspModifyAncestorBits @ 0x140908FCC (PspModifyAncestorBits.c)
- *     PspRemoveRateControl @ 0x14090927C (PspRemoveRateControl.c)
+ *     PspFreeRateControl @ 0x1405D9FBC (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x1405DA00C (PspAllocateRateControl.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140681C50 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspModifyAncestorBits @ 0x14090912C (PspModifyAncestorBits.c)
+ *     PspRemoveRateControl @ 0x1409093DC (PspRemoveRateControl.c)
  */
 
 __int64 __fastcall PspSetJobRateControl(_QWORD *Object, __int64 a2, char a3)
@@ -15,9 +15,9 @@ __int64 __fastcall PspSetJobRateControl(_QWORD *Object, __int64 a2, char a3)
   int v3; // r14d
   int v4; // edi
   int v5; // eax
-  char **v6; // rsi
+  PVOID *v6; // rsi
   int v7; // r14d
-  char **RateControl; // rax
+  PVOID *RateControl; // rax
   __int64 v10; // r8
   _QWORD *v11; // rcx
   __int64 v13[2]; // [rsp+30h] [rbp-30h] BYREF
@@ -41,7 +41,7 @@ __int64 __fastcall PspSetJobRateControl(_QWORD *Object, __int64 a2, char a3)
         v4 = -1073741637;
         goto LABEL_15;
       }
-      RateControl = (char **)PspAllocateRateControl(0LL);
+      RateControl = (PVOID *)PspAllocateRateControl(0LL);
       v6 = RateControl;
       if ( !RateControl )
       {

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlIdnToUnicode @ 0x140916600
+ * XREFs of RtlIdnToUnicode @ 0x140916760
  * Callers:
  *     <none>
  * Callees:
- *     IdnaMemAlloc @ 0x14058D190 (IdnaMemAlloc.c)
- *     RtlpIdnToUnicodeWorker @ 0x14058D204 (RtlpIdnToUnicodeWorker.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IdnaMemAlloc @ 0x14058D3C0 (IdnaMemAlloc.c)
+ *     RtlpIdnToUnicodeWorker @ 0x14058D434 (RtlpIdnToUnicodeWorker.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlIdnToUnicode(

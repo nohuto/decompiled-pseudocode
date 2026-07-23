@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerPrepareClockInterrupt @ 0x1403A24EC
+ * XREFs of HalpTimerPrepareClockInterrupt @ 0x1403A263C
  * Callers:
- *     HalpTimerClockActivate @ 0x1403A2470 (HalpTimerClockActivate.c)
+ *     HalpTimerClockActivate @ 0x1403A25C0 (HalpTimerClockActivate.c)
  * Callees:
- *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A26D4 (HalpTimerConfigureInterrupt.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpTimerPrepareClockInterrupt(__int64 a1, __int64 a2, __int64 a3, int a4)

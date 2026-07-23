@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryProfileSourceList @ 0x1404BF010
+ * XREFs of HalpQueryProfileSourceList @ 0x1404BF250
  * Callers:
- *     EmonQueryInformation @ 0x140376BF0 (EmonQueryInformation.c)
- *     Amd64QueryInformation @ 0x1404DDDA0 (Amd64QueryInformation.c)
- *     DefaultQueryInformation @ 0x1408647F0 (DefaultQueryInformation.c)
+ *     EmonQueryInformation @ 0x140376740 (EmonQueryInformation.c)
+ *     Amd64QueryInformation @ 0x1404DDFE0 (Amd64QueryInformation.c)
+ *     DefaultQueryInformation @ 0x140864950 (DefaultQueryInformation.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     wcscpy_s @ 0x1403D83E0 (wcscpy_s.c)
  */
 
 __int64 __fastcall HalpQueryProfileSourceList(

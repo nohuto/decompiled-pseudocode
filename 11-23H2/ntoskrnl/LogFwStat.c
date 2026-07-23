@@ -6,9 +6,9 @@
  *     AnFwpFadeAnimationTimer @ 0x140AED110 (AnFwpFadeAnimationTimer.c)
  *     AnFwDisplayProgressIndicator @ 0x140AED598 (AnFwDisplayProgressIndicator.c)
  *     AnFwpProgressIndicatorTimer @ 0x140AED710 (AnFwpProgressIndicatorTimer.c)
- *     AnFwpProgressAnimationManual @ 0x140AF22AC (AnFwpProgressAnimationManual.c)
+ *     AnFwpProgressAnimationManual @ 0x140AF22BC (AnFwpProgressAnimationManual.c)
  * Callees:
- *     BgpFwQueryPerformanceCounter @ 0x140384F70 (BgpFwQueryPerformanceCounter.c)
+ *     BgpFwQueryPerformanceCounter @ 0x140385150 (BgpFwQueryPerformanceCounter.c)
  */
 
 LARGE_INTEGER __fastcall LogFwStat(int a1, int a2, LARGE_INTEGER *a3)
@@ -38,20 +38,20 @@ LARGE_INTEGER __fastcall LogFwStat(int a1, int a2, LARGE_INTEGER *a3)
     return result;
   }
   v6 = (LARGE_INTEGER)(*(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - stru_140C70D80[v4].QuadPart);
-  qword_140CF7B80 = v6.QuadPart;
+  qword_140CF7B78 = v6.QuadPart;
   if ( !(_DWORD)v4 )
   {
     v7.QuadPart = qword_140C0B708;
     if ( v6.QuadPart < qword_140C0B708 )
       v7 = v6;
     qword_140C0B708 = v7.QuadPart;
-    v8.QuadPart = qword_140CF7B00;
-    if ( v6.QuadPart > qword_140CF7B00 )
+    v8.QuadPart = qword_140CF7AF8;
+    if ( v6.QuadPart > qword_140CF7AF8 )
       v8 = v6;
 LABEL_8:
-    qword_140CF7B10 += v6.QuadPart;
-    ++dword_140CF7B24;
-    qword_140CF7B00 = v8.QuadPart;
+    qword_140CF7B60 += v6.QuadPart;
+    ++dword_140CF7B1C;
+    qword_140CF7AF8 = v8.QuadPart;
     goto LABEL_9;
   }
   v9 = v4 - 1;
@@ -61,8 +61,8 @@ LABEL_8:
     if ( v6.QuadPart < qword_140C0B708 )
       v18 = v6;
     qword_140C0B708 = v18.QuadPart;
-    v8.QuadPart = qword_140CF7B00;
-    if ( v6.QuadPart > qword_140CF7B00 )
+    v8.QuadPart = qword_140CF7AF8;
+    if ( v6.QuadPart > qword_140CF7AF8 )
       v8 = v6;
     qword_140D18050 += v6.QuadPart;
     goto LABEL_8;
@@ -73,13 +73,13 @@ LABEL_8:
     v11 = v10 - 1;
     if ( !v11 )
     {
-      qword_140CF7B90 += v6.QuadPart;
+      qword_140CF7B88 += v6.QuadPart;
       return (LARGE_INTEGER)qword_140CF7B58;
     }
     v12 = v11 - 1;
     if ( !v12 )
     {
-      qword_140CF7B88 += v6.QuadPart;
+      qword_140CF7B80 += v6.QuadPart;
       return (LARGE_INTEGER)qword_140CF7B58;
     }
     v13 = v12 - 1;
@@ -108,20 +108,20 @@ LABEL_8:
         v16.QuadPart = qword_140CF7B40;
         if ( v6.QuadPart > qword_140CF7B40 )
           v16 = v6;
-        qword_140CF7B18 += v6.QuadPart;
+        qword_140CF7B10 += v6.QuadPart;
         qword_140CF7B50 += v6.QuadPart;
-        ++dword_140CF7B3C;
+        ++dword_140CF7B08;
         qword_140CF7B40 = v16.QuadPart;
       }
       return (LARGE_INTEGER)qword_140CF7B58;
     }
-    qword_140CF7B18 += v6.QuadPart;
-    qword_140CF7B30 = v6.QuadPart;
+    qword_140CF7B10 += v6.QuadPart;
+    qword_140CF7B28 = v6.QuadPart;
   }
   else
   {
-    qword_140CF7B10 += v6.QuadPart;
-    qword_140CF7B70 = v6.QuadPart;
+    qword_140CF7B60 += v6.QuadPart;
+    qword_140CF7B68 = v6.QuadPart;
   }
 LABEL_9:
   qword_140CF7B50 += v6.QuadPart;

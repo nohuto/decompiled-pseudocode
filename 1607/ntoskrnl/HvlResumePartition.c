@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlResumePartition @ 0x1401BD8A4
+ * XREFs of HvlResumePartition @ 0x1401BD788
  * Callers:
  *     <none>
  * Callees:

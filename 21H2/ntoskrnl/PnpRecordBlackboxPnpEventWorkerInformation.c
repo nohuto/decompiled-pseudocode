@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpRecordBlackboxPnpEventWorkerInformation @ 0x140677734
+ * XREFs of PnpRecordBlackboxPnpEventWorkerInformation @ 0x14066AE74
  * Callers:
- *     PnpRecordBlackbox @ 0x1406775B0 (PnpRecordBlackbox.c)
+ *     PnpRecordBlackbox @ 0x14066ACF0 (PnpRecordBlackbox.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PnpRecordBlackboxPnpEventWorkerInformation(__int64 a1)

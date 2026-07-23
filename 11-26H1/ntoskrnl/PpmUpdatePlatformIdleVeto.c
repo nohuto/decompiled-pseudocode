@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmUpdatePlatformIdleVeto @ 0x14042CC80
+ * XREFs of PpmUpdatePlatformIdleVeto @ 0x140421350
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDeepSleepSetDisengageReason @ 0x1403B40FC (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1403B42F8 (PopDeepSleepClearDisengageReason.c)
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     PpmUpdateIdleVeto @ 0x14042CE70 (PpmUpdateIdleVeto.c)
- *     PpmEventPlatformVetoRequest @ 0x14042D18C (PpmEventPlatformVetoRequest.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     KeFindFirstSetLeftAffinityEx @ 0x14042D560 (KeFindFirstSetLeftAffinityEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1403BE008 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1403BE204 (PopDeepSleepClearDisengageReason.c)
+ *     PpmUpdateIdleVeto @ 0x140421540 (PpmUpdateIdleVeto.c)
+ *     PpmEventPlatformVetoRequest @ 0x14042185C (PpmEventPlatformVetoRequest.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     KeFindFirstSetLeftAffinityEx @ 0x140421C30 (KeFindFirstSetLeftAffinityEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PpmUpdatePlatformIdleVeto(__int64 a1)
@@ -44,7 +44,7 @@ __int64 __fastcall PpmUpdatePlatformIdleVeto(__int64 a1)
   if ( (unsigned int)v3 >= *(_DWORD *)PpmPlatformStates )
     return (unsigned int)-1073741811;
   v4 = 448 * v3;
-  v5 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.KcsanThread);
+  v5 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
   LOBYTE(v6) = *(_BYTE *)(a1 + 12);
   v7 = v5;
   updated = PpmUpdateIdleVeto(v6, *(unsigned int *)(a1 + 8), v4 + v2 + 80, v16);
@@ -57,11 +57,11 @@ __int64 __fastcall PpmUpdatePlatformIdleVeto(__int64 a1)
 LABEL_5:
     if ( !v16[0] || (unsigned int)KeCheckProcessorAffinityEx(v4 + v2 + 128, KeGetCurrentPrcb()->Number) )
       goto LABEL_7;
-    KeReleaseSpinLock(&stru_140F10070.KcsanThread, v7);
+    KeReleaseSpinLock(&PpmIdleVetoLock, v7);
     v17 = 2097153LL;
     memset_0(v18, 0, 0x100uLL);
-    v11 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                    + 4LL * (unsigned int)KeFindFirstSetLeftAffinityEx(v4 + v2 + 128));
+    v11 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock
+          + (unsigned int)KeFindFirstSetLeftAffinityEx(v4 + v2 + 128));
     v12 = v11 & 0x3F;
     v13 = v11 >> 6;
     if ( (unsigned __int16)v17 <= (unsigned int)v13 )
@@ -87,6 +87,6 @@ LABEL_15:
     goto LABEL_5;
   }
 LABEL_7:
-  KeReleaseSpinLock(&stru_140F10070.KcsanThread, v7);
+  KeReleaseSpinLock(&PpmIdleVetoLock, v7);
   return (unsigned int)updated;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockNameHashEntryExclusive @ 0x140A52DE0
+ * XREFs of CmpLockNameHashEntryExclusive @ 0x140A5C0D0
  * Callers:
- *     CmpGetNameControlBlock @ 0x1408C4A20 (CmpGetNameControlBlock.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x1408C5558 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpGetNameControlBlock @ 0x1408CAFF0 (CmpGetNameControlBlock.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x1408CBB28 (CmpDereferenceNameControlBlockWithLock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall CmpLockNameHashEntryExclusive(unsigned int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

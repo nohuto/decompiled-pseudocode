@@ -11,45 +11,45 @@
  *     _RtlpGenerateIFEOKeyFilterId@4 @ 0x4B3424DE (_RtlpGenerateIFEOKeyFilterId@4.c)
  */
 
-int __fastcall RtlpCreateIFEOKeyFilterKey(_DWORD *a1, int a2, int a3, int a4)
+NTSTATUS __fastcall RtlpCreateIFEOKeyFilterKey(HANDLE *a1, void *a2, ACCESS_MASK DesiredAccess, int a4)
 {
-  void *v4; // eax
-  int IFEOKeyFilterId; // esi
-  _DWORD v9[6]; // [esp+Ch] [ebp-3Ch] BYREF
-  UNICODE_STRING UnicodeString; // [esp+24h] [ebp-24h] BYREF
-  int v11; // [esp+2Ch] [ebp-1Ch] BYREF
-  void *v12; // [esp+30h] [ebp-18h] BYREF
-  _BYTE v13[16]; // [esp+34h] [ebp-14h] BYREF
+  HANDLE v4; // eax
+  NTSTATUS v7; // esi
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+Ch] [ebp-3Ch] BYREF
+  _UNICODE_STRING GuidString; // [esp+24h] [ebp-24h] BYREF
+  ULONG Disposition; // [esp+2Ch] [ebp-1Ch] BYREF
+  HANDLE KeyHandle; // [esp+30h] [ebp-18h] BYREF
+  GUID Guid; // [esp+34h] [ebp-14h] BYREF
 
   v4 = 0;
-  v11 = 1;
-  v12 = 0;
+  Disposition = 1;
+  KeyHandle = 0;
   while ( 1 )
   {
     if ( v4 )
       NtClose(v4);
-    IFEOKeyFilterId = RtlpGenerateIFEOKeyFilterId(v13);
-    if ( IFEOKeyFilterId < 0 )
+    v7 = RtlpGenerateIFEOKeyFilterId(&Guid);
+    if ( v7 < 0 )
       break;
-    IFEOKeyFilterId = RtlStringFromGUIDEx((int)v13, (int)&UnicodeString, 1);
-    if ( IFEOKeyFilterId < 0 )
+    v7 = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
+    if ( v7 < 0 )
       break;
-    v9[0] = 24;
-    v9[2] = &UnicodeString;
-    v9[1] = a2;
-    v9[3] = 576;
-    v9[4] = 0;
-    v9[5] = 0;
-    IFEOKeyFilterId = ZwCreateKey((int)&v12, a3, (int)v9, 0, 0, 0, (int)&v11);
-    RtlFreeAnsiString(&UnicodeString);
-    if ( IFEOKeyFilterId < 0 )
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &GuidString;
+    ObjectAttributes.RootDirectory = a2;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    v7 = ZwCreateKey(&KeyHandle, DesiredAccess, &ObjectAttributes, 0, 0, 0, &Disposition);
+    RtlFreeAnsiString(&GuidString);
+    if ( v7 < 0 )
       break;
-    v4 = v12;
-    if ( v11 != 2 )
+    v4 = KeyHandle;
+    if ( Disposition != 2 )
     {
-      *a1 = v12;
-      return IFEOKeyFilterId;
+      *a1 = KeyHandle;
+      return v7;
     }
   }
-  return IFEOKeyFilterId;
+  return v7;
 }

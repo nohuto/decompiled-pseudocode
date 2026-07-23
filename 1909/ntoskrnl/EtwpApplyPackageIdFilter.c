@@ -26,35 +26,29 @@ char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
   char v15; // [rsp+30h] [rbp-D0h] BYREF
   char v16; // [rsp+31h] [rbp-CFh] BYREF
   __int64 v17; // [rsp+38h] [rbp-C8h]
-  _QWORD v18[52]; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG_PTR PackageSize[52]; // [rsp+40h] [rbp-C0h] BYREF
 
   v17 = a1;
-  memset(v18, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   v6 = 0;
   v7 = a3 == 0LL;
   v8 = PsReferencePrimaryToken(*(PEPROCESS *)(a1 + 80));
   PsQueryProcessAttributesByToken((__int64)v8, &v15, (struct _KTHREAD *)&v16);
   if ( v15 )
   {
-    v18[0] = 256LL;
-    v18[1] = 130LL;
-    if ( (int)RtlQueryPackageIdentity(
-                (__int64)v8,
-                (__int64)&v18[2],
-                (__int64)v18,
-                (__int64)&v18[34],
-                (__int64)&v18[1],
-                0LL) >= 0 )
+    PackageSize[0] = 256LL;
+    PackageSize[1] = 130LL;
+    if ( RtlQueryPackageIdentity(v8, (PWSTR)&PackageSize[2], PackageSize, (PWSTR)&PackageSize[34], &PackageSize[1], 0LL) >= 0 )
     {
       v9 = a2 == 0LL;
       if ( a2 )
       {
         v10 = 0;
-        v11 = (v18[0] >> 1) - 1;
+        v11 = (PackageSize[0] >> 1) - 1;
         if ( *a2 )
         {
           while ( (unsigned __int16)a2[8 * v10 + 4] != v11
-               || wcsnicmp(*(const wchar_t **)&a2[8 * v10 + 8], (const wchar_t *)&v18[2], v11) )
+               || wcsnicmp(*(const wchar_t **)&a2[8 * v10 + 8], (const wchar_t *)&PackageSize[2], v11) )
           {
             if ( ++v10 >= *a2 )
               goto LABEL_8;
@@ -70,11 +64,11 @@ LABEL_8:
       if ( a3 )
       {
         v12 = 0;
-        v13 = (v18[1] >> 1) - 1;
+        v13 = (PackageSize[1] >> 1) - 1;
         if ( *a3 )
         {
           while ( (unsigned __int16)a3[8 * v12 + 4] != v13
-               || wcsnicmp(*(const wchar_t **)&a3[8 * v12 + 8], (const wchar_t *)&v18[34], v13) )
+               || wcsnicmp(*(const wchar_t **)&a3[8 * v12 + 8], (const wchar_t *)&PackageSize[34], v13) )
           {
             if ( ++v12 >= *a3 )
               goto LABEL_14;

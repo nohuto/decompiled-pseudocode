@@ -1,5 +1,5 @@
 /*
- * XREFs of KeRaiseIrqlToDpcLevel @ 0x14002E69C
+ * XREFs of KeRaiseIrqlToDpcLevel @ 0x14002E21C
  * Callers:
  *     <none>
  * Callees:

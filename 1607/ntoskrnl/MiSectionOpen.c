@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSectionOpen @ 0x14042E3AC
+ * XREFs of MiSectionOpen @ 0x14042D27C
  * Callers:
  *     <none>
  * Callees:
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
  */
 
 __int64 __fastcall MiSectionOpen(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsRecoveryPossibleOnCurrentStack @ 0x1405FA444
+ * XREFs of KiIsRecoveryPossibleOnCurrentStack @ 0x1405FCE64
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x1405F9734 (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405FC154 (KiAttemptBugcheckRecovery.c)
  * Callees:
  *     <none>
  */
@@ -15,14 +15,14 @@ bool KiIsRecoveryPossibleOnCurrentStack()
   result = !KeGetPcr()->Prcb.CombinedNmiMceActive
         && (CurrentPrcb = KeGetCurrentPrcb(), NestingLevel = CurrentPrcb->NestingLevel, NestingLevel < 2u)
         && (NestingLevel != 1 || CurrentPrcb->DpcRoutineActive)
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 127
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 226
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 251
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 265
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 273
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 313
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 395
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 456
-        && LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) != 131073;
+        && (_DWORD)KiBugCheckData != 127
+        && (_DWORD)KiBugCheckData != 226
+        && (_DWORD)KiBugCheckData != 251
+        && (_DWORD)KiBugCheckData != 265
+        && (_DWORD)KiBugCheckData != 273
+        && (_DWORD)KiBugCheckData != 313
+        && (_DWORD)KiBugCheckData != 395
+        && (_DWORD)KiBugCheckData != 456
+        && (_DWORD)KiBugCheckData != 131073;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwSetEventEx @ 0x180162370
+ * XREFs of ZwSetEventEx @ 0x180162270
  * Callers:
- *     LdrpAddUnicodeStringToSnapsBuffer @ 0x1800476B0 (LdrpAddUnicodeStringToSnapsBuffer.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpUnWaitCriticalSection @ 0x18013E050 (RtlpUnWaitCriticalSection.c)
+ *     LdrpAddUnicodeStringToSnapsBuffer @ 0x180031C30 (LdrpAddUnicodeStringToSnapsBuffer.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpUnWaitCriticalSection @ 0x18013DF00 (RtlpUnWaitCriticalSection.c)
  * Callees:
  *     <none>
  */

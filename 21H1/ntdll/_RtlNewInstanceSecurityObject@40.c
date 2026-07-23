@@ -8,36 +8,47 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlNewInstanceSecurityObject(
-        char a1,
-        char a2,
-        _DWORD *a3,
-        _DWORD *a4,
-        int a5,
-        _BYTE *a6,
-        _DWORD *a7,
-        int a8,
-        void *a9,
-        int a10)
+NTSTATUS __cdecl RtlNewInstanceSecurityObject(
+        BOOLEAN ParentDescriptorChanged,
+        BOOLEAN CreatorDescriptorChanged,
+        PLUID OldClientTokenModifiedId,
+        PLUID NewClientTokenModifiedId,
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CreatorDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        BOOLEAN IsDirectoryObject,
+        HANDLE TokenHandle,
+        PGENERIC_MAPPING GenericMapping)
 {
-  int result; // eax
-  _BYTE v11[4]; // [esp+1Ch] [ebp-44h] BYREF
-  _BYTE v12[48]; // [esp+20h] [ebp-40h] BYREF
-  int v13; // [esp+50h] [ebp-10h]
-  int v14; // [esp+54h] [ebp-Ch]
+  NTSTATUS result; // eax
+  ULONG ReturnLength; // [esp+1Ch] [ebp-44h] BYREF
+  _BYTE TokenInformation[48]; // [esp+20h] [ebp-40h] BYREF
+  _LUID v13; // [esp+50h] [ebp-10h]
 
-  result = ZwQueryInformationToken((int)a9, 10, (int)v12, 56, (int)v11);
+  result = ZwQueryInformationToken(TokenHandle, 0xAu, TokenInformation, 0x38u, &ReturnLength);
   if ( result >= 0 )
   {
-    *a4 = v13;
-    a4[1] = v14;
-    if ( *a4 != *a3 || a4[1] != a3[1] || a1 || a2 )
+    *NewClientTokenModifiedId = v13;
+    if ( NewClientTokenModifiedId->LowPart != OldClientTokenModifiedId->LowPart
+      || NewClientTokenModifiedId->HighPart != OldClientTokenModifiedId->HighPart
+      || ParentDescriptorChanged
+      || CreatorDescriptorChanged )
     {
-      return RtlpNewSecurityObject(a5, a6, a7, 0, 0, a8, 0, a9, a10, 0);
+      return RtlpNewSecurityObject(
+               (int)ParentDescriptor,
+               CreatorDescriptor,
+               NewDescriptor,
+               0,
+               0,
+               IsDirectoryObject,
+               0,
+               TokenHandle,
+               GenericMapping,
+               0);
     }
     else
     {
-      *a7 = 0;
+      *NewDescriptor = 0;
       return 0;
     }
   }

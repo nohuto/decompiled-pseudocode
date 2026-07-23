@@ -14,7 +14,7 @@ __int64 __fastcall ResCDirectoryValidateHeader(_DWORD *a1, unsigned int a2)
   unsigned int v3; // eax
   unsigned int v4; // eax
   int v5; // eax
-  unsigned int v7; // ecx
+  LONG v7; // ecx
 
   if ( a2 - 1 <= 0x66 || *(_QWORD *)a1 != 0x52494443534552LL || a1[2] != 3 )
   {

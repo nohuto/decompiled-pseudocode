@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSessionLookupImage @ 0x1402CF668
+ * XREFs of MiSessionLookupImage @ 0x14024D9E8
  * Callers:
- *     MiSharedVaToPartition @ 0x14024144C (MiSharedVaToPartition.c)
- *     MmIsSessionExecutionValid @ 0x1402CF5C0 (MmIsSessionExecutionValid.c)
- *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
- *     MiSessionRemoveImage @ 0x14038AFF8 (MiSessionRemoveImage.c)
- *     MiSessionUpdateImageCharges @ 0x14039EC00 (MiSessionUpdateImageCharges.c)
- *     MiSessionReferenceImage @ 0x1403A7974 (MiSessionReferenceImage.c)
- *     MiResolveImageReferences @ 0x14075D20C (MiResolveImageReferences.c)
- *     MiUnloadApproved @ 0x140771F1C (MiUnloadApproved.c)
- *     MiSessionUnloadAllImages @ 0x1407785DC (MiSessionUnloadAllImages.c)
- *     MmIsDriverLoadedCurrentSession @ 0x14078E258 (MmIsDriverLoadedCurrentSession.c)
- *     MmEnumerateSystemImages @ 0x140797DE0 (MmEnumerateSystemImages.c)
- *     MiSessionApplyNonPagedImageCharges @ 0x1408DA95C (MiSessionApplyNonPagedImageCharges.c)
+ *     MmIsSessionExecutionValid @ 0x14024D940 (MmIsSessionExecutionValid.c)
+ *     MiMakeDriverPagesPrivate @ 0x140298244 (MiMakeDriverPagesPrivate.c)
+ *     MiSharedVaToPartition @ 0x1402E5C9C (MiSharedVaToPartition.c)
+ *     MiSessionRemoveImage @ 0x14038B148 (MiSessionRemoveImage.c)
+ *     MiSessionUpdateImageCharges @ 0x14039ED50 (MiSessionUpdateImageCharges.c)
+ *     MiSessionReferenceImage @ 0x1403A7AC4 (MiSessionReferenceImage.c)
+ *     MiResolveImageReferences @ 0x14075D3CC (MiResolveImageReferences.c)
+ *     MiUnloadApproved @ 0x1407720DC (MiUnloadApproved.c)
+ *     MiSessionUnloadAllImages @ 0x14077879C (MiSessionUnloadAllImages.c)
+ *     MmIsDriverLoadedCurrentSession @ 0x14078E418 (MmIsDriverLoadedCurrentSession.c)
+ *     MmEnumerateSystemImages @ 0x140797FE0 (MmEnumerateSystemImages.c)
+ *     MiSessionApplyNonPagedImageCharges @ 0x1408DAABC (MiSessionApplyNonPagedImageCharges.c)
  * Callees:
  *     <none>
  */

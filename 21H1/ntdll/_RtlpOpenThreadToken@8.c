@@ -6,12 +6,12 @@
  *     _NtOpenThreadTokenEx@20 @ 0x4B2F2C70 (_NtOpenThreadTokenEx@20.c)
  */
 
-int __fastcall RtlpOpenThreadToken(int a1, int a2)
+int __fastcall RtlpOpenThreadToken(ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)
 {
   int result; // eax
 
-  result = NtOpenThreadTokenEx(-2, a1, 1, 512, a2);
+  result = NtOpenThreadTokenEx((HANDLE)0xFFFFFFFE, DesiredAccess, 1u, 0x200u, TokenHandle);
   if ( result < 0 )
-    return NtOpenThreadTokenEx(-2, a1, 0, 512, a2);
+    return NtOpenThreadTokenEx((HANDLE)0xFFFFFFFE, DesiredAccess, 0, 0x200u, TokenHandle);
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDoCompareKeyName @ 0x140512350
+ * XREFs of CmpDoCompareKeyName @ 0x1404F5740
  * Callers:
- *     CmpFindSubKeyByNameWithStatus @ 0x1405120D0 (CmpFindSubKeyByNameWithStatus.c)
- *     CmpCompareInIndex @ 0x1405126A0 (CmpCompareInIndex.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x140512A60 (CmpFindSubKeyInLeafWithStatus.c)
- *     CmpSelectLeaf @ 0x14060ACEC (CmpSelectLeaf.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1404F54C0 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpCompareInIndex @ 0x1404F5A90 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1404F5E50 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpSelectLeaf @ 0x14060ADA0 (CmpSelectLeaf.c)
  * Callees:
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
- *     CmpCompareCompressedName @ 0x140512960 (CmpCompareCompressedName.c)
- *     CmpCompareTwoCompressedNames @ 0x1406069B0 (CmpCompareTwoCompressedNames.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1404F5D50 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140606A64 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpDoCompareKeyName(__int64 a1, const UNICODE_STRING *a2, unsigned __int16 *a3, unsigned int a4)

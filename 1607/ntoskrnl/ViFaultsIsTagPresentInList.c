@@ -4,7 +4,7 @@
  *     ViFaultsAddTagNoDuplicates @ 0x140711364 (ViFaultsAddTagNoDuplicates.c)
  *     ViFaultsIsTagTarget @ 0x14071165C (ViFaultsIsTagTarget.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x14015988C (ExCheckSingleFilter.c)
+ *     ExCheckSingleFilter @ 0x140159DFC (ExCheckSingleFilter.c)
  */
 
 __int64 __fastcall ViFaultsIsTagPresentInList(int a1)

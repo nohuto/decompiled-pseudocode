@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDmAddCacheReferenceForObject @ 0x1406F1AE0
+ * XREFs of PiDmAddCacheReferenceForObject @ 0x1406F2D80
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1406F19AC (PiPnpRtlGatherInstallerClassChangeInfo.c)
- *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
- *     IopProcessSetInterfaceState @ 0x14070F8F8 (IopProcessSetInterfaceState.c)
- *     PiDmListInitEnumCallback @ 0x14072C750 (PiDmListInitEnumCallback.c)
- *     PiPnpRtlEnsureObjectCached @ 0x140828D2C (PiPnpRtlEnsureObjectCached.c)
+ *     PiPnpRtlCmActionCallback @ 0x14059A080 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1406F2C4C (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     IopRegisterDeviceInterface @ 0x14070AD74 (IopRegisterDeviceInterface.c)
+ *     IopProcessSetInterfaceState @ 0x140710B98 (IopProcessSetInterfaceState.c)
+ *     PiDmListInitEnumCallback @ 0x14072D940 (PiDmListInitEnumCallback.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x140829F2C (PiPnpRtlEnsureObjectCached.c)
  * Callees:
  *     RtlLookupElementGenericTableFullAvl @ 0x140006B20 (RtlLookupElementGenericTableFullAvl.c)
  *     RtlInsertElementGenericTableFullAvl @ 0x140006F70 (RtlInsertElementGenericTableFullAvl.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PiDmInitializeComparisonObject @ 0x140598AE8 (PiDmInitializeComparisonObject.c)
- *     PiDmGetObjectManagerForObjectType @ 0x140598CD0 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PiDmObjectCreate @ 0x1406F1C30 (PiDmObjectCreate.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PiDmInitializeComparisonObject @ 0x140599AE8 (PiDmInitializeComparisonObject.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x140599CD0 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     PiDmObjectCreate @ 0x1406F2ED0 (PiDmObjectCreate.c)
  */
 
 __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, wchar_t *a2, volatile signed __int32 **a3)

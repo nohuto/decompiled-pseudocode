@@ -1,15 +1,15 @@
 /*
- * XREFs of PopInitializePowerPolicySimulate @ 0x140B2CC10
+ * XREFs of PopInitializePowerPolicySimulate @ 0x140B2EC90
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
  */
 
 NTSTATUS PopInitializePowerPolicySimulate()
@@ -28,7 +28,7 @@ NTSTATUS PopInitializePowerPolicySimulate()
 
   KeyHandle = 0LL;
   v10 = 0;
-  *(_DWORD *)&stru_140F10828.WaitBlockFill11[100] = *(_DWORD *)&stru_140E66FF0.SchedulerApcFill5[56];
+  LODWORD(PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime) = stru_140E67200.GlobalUpdateVpThreadPriorityListEntry.Flink;
   Disposition = 0;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&PspSiloMonitorLock.WriteTransferCount;
   Handle = 0LL;
@@ -62,7 +62,7 @@ NTSTATUS PopInitializePowerPolicySimulate()
              &ResultLength) >= 0
         && DWORD2(KeyValueInformation) == 4 )
       {
-        dword_140F0FD40 = HIDWORD(KeyValueInformation);
+        PopSimulateHiberBugcheck = HIDWORD(KeyValueInformation);
       }
       RtlInitUnicodeString(&DestinationString, L"PowerPolicySimulate");
       v2 = ZwQueryValueKey(
@@ -76,7 +76,7 @@ NTSTATUS PopInitializePowerPolicySimulate()
       if ( v2 >= 0 && DWORD2(KeyValueInformation) == 4 )
       {
         result = HIDWORD(KeyValueInformation);
-        *(_DWORD *)&stru_140F10828.WaitBlockFill11[100] |= HIDWORD(KeyValueInformation);
+        LODWORD(PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime) |= HIDWORD(KeyValueInformation);
       }
     }
   }

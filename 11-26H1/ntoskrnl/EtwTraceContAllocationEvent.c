@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceContAllocationEvent @ 0x14034A910
+ * XREFs of EtwTraceContAllocationEvent @ 0x14034C990
  * Callers:
- *     MiAllocateContiguousMemory @ 0x14034A28C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x14034C30C (MiAllocateContiguousMemory.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     EtwpGetDurationSince @ 0x1403491B8 (EtwpGetDurationSince.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     EtwpGetDurationSince @ 0x14034B238 (EtwpGetDurationSince.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceContAllocationEvent(
@@ -37,7 +37,9 @@ BOOLEAN __fastcall EtwTraceContAllocationEvent(
   int v26; // [rsp+98h] [rbp-29h]
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+A8h] [rbp-19h] BYREF
 
-  result = EtwEventEnabled(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_CONT_ALLOCATION);
+  result = EtwEventEnabled(
+             (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink,
+             &KERNEL_MEM_EVENT_CONT_ALLOCATION);
   if ( result )
   {
     PhysicalAddress.QuadPart = -1LL;
@@ -59,7 +61,15 @@ BOOLEAN __fastcall EtwTraceContAllocationEvent(
     v19[6] = BaseAddress;
     v26 = 0;
     *(_QWORD *)&UserData.Size = 84LL;
-    return EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_CONT_ALLOCATION, 0LL, 1u, 0LL, 0LL, 1u, &UserData);
+    return EtwWriteEx(
+             (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink,
+             &KERNEL_MEM_EVENT_CONT_ALLOCATION,
+             0LL,
+             1u,
+             0LL,
+             0LL,
+             1u,
+             &UserData);
   }
   return result;
 }

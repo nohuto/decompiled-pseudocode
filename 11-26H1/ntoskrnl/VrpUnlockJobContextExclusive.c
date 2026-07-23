@@ -1,18 +1,18 @@
 /*
- * XREFs of VrpUnlockJobContextExclusive @ 0x1409787A4
+ * XREFs of VrpUnlockJobContextExclusive @ 0x14093A7B4
  * Callers:
- *     VrpHandleIoctlModifyFlags @ 0x1408A5754 (VrpHandleIoctlModifyFlags.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14097854C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140978E48 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140979150 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140AFF5E4 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     VrpPreLoadKey @ 0x140B1B118 (VrpPreLoadKey.c)
- *     VrpPreUnloadKey @ 0x140B27FF4 (VrpPreUnloadKey.c)
- *     VrpPostUnloadKey @ 0x140B60EDC (VrpPostUnloadKey.c)
+ *     VrpHandleIoctlModifyFlags @ 0x1408ABBC4 (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x14093A55C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x14093AE58 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14093B160 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140B01274 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpPreLoadKey @ 0x140B1D3C8 (VrpPreLoadKey.c)
+ *     VrpPreUnloadKey @ 0x140B29C84 (VrpPreUnloadKey.c)
+ *     VrpPostUnloadKey @ 0x140B63F7C (VrpPostUnloadKey.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall VrpUnlockJobContextExclusive(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiValidVirtualizationFault @ 0x140548F5C
+ * XREFs of MiValidVirtualizationFault @ 0x14054919C
  * Callers:
- *     MiValidFault @ 0x140209750 (MiValidFault.c)
- *     MiLargePageFault @ 0x140548AB4 (MiLargePageFault.c)
+ *     MiValidFault @ 0x1402AE050 (MiValidFault.c)
+ *     MiLargePageFault @ 0x140548CF4 (MiLargePageFault.c)
  * Callees:
- *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPerformSafePdeWrite @ 0x14038179C (MiPerformSafePdeWrite.c)
- *     MiCompleteSecureProcessFault @ 0x140548184 (MiCompleteSecureProcessFault.c)
- *     MiFillVirtualFaultInfo @ 0x1405484E4 (MiFillVirtualFaultInfo.c)
- *     MiGetVirtualFaultPageInfo @ 0x14054876C (MiGetVirtualFaultPageInfo.c)
- *     MiSetFaultPacketDirectives @ 0x140548F38 (MiSetFaultPacketDirectives.c)
+ *     MiCopyOnWrite @ 0x1402E3B50 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPerformSafePdeWrite @ 0x1403812EC (MiPerformSafePdeWrite.c)
+ *     MiCompleteSecureProcessFault @ 0x1405483C4 (MiCompleteSecureProcessFault.c)
+ *     MiFillVirtualFaultInfo @ 0x140548724 (MiFillVirtualFaultInfo.c)
+ *     MiGetVirtualFaultPageInfo @ 0x1405489AC (MiGetVirtualFaultPageInfo.c)
+ *     MiSetFaultPacketDirectives @ 0x140549178 (MiSetFaultPacketDirectives.c)
  */
 
 __int64 __fastcall MiValidVirtualizationFault(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3)

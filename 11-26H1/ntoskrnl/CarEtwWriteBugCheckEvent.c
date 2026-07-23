@@ -1,16 +1,16 @@
 /*
- * XREFs of CarEtwWriteBugCheckEvent @ 0x140648C28
+ * XREFs of CarEtwWriteBugCheckEvent @ 0x14064C808
  * Callers:
- *     CarHandleEtwEvent @ 0x140649078 (CarHandleEtwEvent.c)
- *     CarWriteEarlyRuleViolationEvents @ 0x14064C650 (CarWriteEarlyRuleViolationEvents.c)
+ *     CarHandleEtwEvent @ 0x14064CC58 (CarHandleEtwEvent.c)
+ *     CarWriteEarlyRuleViolationEvents @ 0x140650230 (CarWriteEarlyRuleViolationEvents.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     McTemplateK0dszud_EtwWriteTransfer @ 0x1406494E0 (McTemplateK0dszud_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VfUtilGetDriverFullName @ 0x140C21760 (VfUtilGetDriverFullName.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     McTemplateK0dszud_EtwWriteTransfer @ 0x14064D0C0 (McTemplateK0dszud_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VfUtilGetDriverFullName @ 0x140C27770 (VfUtilGetDriverFullName.c)
  */
 
 __int64 __fastcall CarEtwWriteBugCheckEvent(__int64 a1, const WCHAR *a2, int a3, const CHAR *a4, char a5, int a6)
@@ -46,11 +46,11 @@ __int64 __fastcall CarEtwWriteBugCheckEvent(__int64 a1, const WCHAR *a2, int a3,
   if ( !DriverFullName )
     DriverFullName = (__int64)a2;
   LOBYTE(v14) = 4;
-  if ( (unsigned int)dword_140E08EA8 > 5 && tlgKeywordOn((__int64)&dword_140E08EA8, 0x800000000000LL) )
+  if ( (unsigned int)dword_140E08E50 > 5 && tlgKeywordOn((__int64)&dword_140E08E50, 0x800000000000LL) )
   {
     v18 = 0;
     v23 = &v18;
-    v19 = *(_DWORD *)&stru_140F066E8.WaitBlockFill11[40];
+    v19 = CarTipTag;
     v25 = &v19;
     v27 = &v17;
     v24 = v14;
@@ -65,7 +65,7 @@ __int64 __fastcall CarEtwWriteBugCheckEvent(__int64 a1, const WCHAR *a2, int a3,
     v33 = &v21;
     v20 = a3;
     v21 = a6;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E08EA8, (unsigned __int8 *)word_140052B0A, 0LL, 0LL, 9u, &v22);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E08E50, (unsigned __int8 *)byte_140053D58, 0LL, 0LL, 9u, &v22);
     LOBYTE(v14) = 4;
   }
   if ( ((unsigned __int8)v14 & (unsigned __int8)Microsoft_Windows_Kernel_XDVEnableBits) != 0 )

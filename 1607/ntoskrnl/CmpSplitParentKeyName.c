@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpSplitParentKeyName @ 0x140606D24
+ * XREFs of CmpSplitParentKeyName @ 0x140606DD8
  * Callers:
- *     CmpDoReDoCreateKey @ 0x14061180C (CmpDoReDoCreateKey.c)
- *     CmpDoReOpenTransKey @ 0x140611C1C (CmpDoReOpenTransKey.c)
+ *     CmpDoReDoCreateKey @ 0x1406118C0 (CmpDoReDoCreateKey.c)
+ *     CmpDoReOpenTransKey @ 0x140611CD0 (CmpDoReOpenTransKey.c)
  * Callees:
  *     <none>
  */

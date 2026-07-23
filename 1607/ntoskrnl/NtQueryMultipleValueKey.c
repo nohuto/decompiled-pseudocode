@@ -1,25 +1,25 @@
 /*
- * XREFs of NtQueryMultipleValueKey @ 0x1404DD5F8
+ * XREFs of NtQueryMultipleValueKey @ 0x1404C0BFC
  * Callers:
  *     <none>
  * Callees:
- *     ExIsResourceAcquiredSharedLite @ 0x14002D250 (ExIsResourceAcquiredSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpCaptureKeyValueArray @ 0x1401B2C8C (CmpCaptureKeyValueArray.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14002CDD0 (ExIsResourceAcquiredSharedLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpCaptureKeyValueArray @ 0x1401B2B70 (CmpCaptureKeyValueArray.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmQueryMultipleValueKey @ 0x140402254 (CmQueryMultipleValueKey.c)
- *     CmObReferenceObjectByHandle @ 0x14040370C (CmObReferenceObjectByHandle.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x140438760 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmPostCallbackNotification @ 0x140439490 (CmPostCallbackNotification.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
+ *     CmQueryMultipleValueKey @ 0x140401114 (CmQueryMultipleValueKey.c)
+ *     CmObReferenceObjectByHandle @ 0x1404025CC (CmObReferenceObjectByHandle.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x140437630 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmPostCallbackNotification @ 0x140438360 (CmPostCallbackNotification.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
  */
 
 NTSTATUS __stdcall NtQueryMultipleValueKey(

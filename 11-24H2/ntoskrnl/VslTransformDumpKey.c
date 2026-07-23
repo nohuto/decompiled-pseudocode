@@ -1,17 +1,17 @@
 /*
- * XREFs of VslTransformDumpKey @ 0x1407106EC
+ * XREFs of VslTransformDumpKey @ 0x14070E27C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslTransformDumpKey(
@@ -47,7 +47,7 @@ __int64 __fastcall VslTransformDumpKey(
         v12 = 4096;
         if ( a4 <= 0x1000 )
           v12 = a4;
-        Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL);
+        Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL, (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x54736D56u);
         v10 = Pool2;
         if ( Pool2 )
         {
@@ -58,7 +58,7 @@ __int64 __fastcall VslTransformDumpKey(
             v15 = 1;
             v18 = v16[0];
             v19 = v16[7];
-            v11 = VslpEnterIumSecureMode(2u, 89LL, 0, (__int64)v17);
+            v11 = VslpEnterIumSecureMode(2u, 0x59u, 0, (__int64)v17);
             if ( v11 >= 0 )
             {
               memmove(a3, v10, v12);

@@ -1,9 +1,9 @@
 /*
- * XREFs of wcstoul @ 0x180128230
+ * XREFs of wcstoul @ 0x180126460
  * Callers:
  *     <none>
  * Callees:
- *     wcstoxlX @ 0x180127F9C (wcstoxlX.c)
+ *     wcstoxlX @ 0x1801261CC (wcstoxlX.c)
  */
 
 unsigned int __cdecl wcstoul(const wchar_t *String, wchar_t **EndPtr, int Radix)

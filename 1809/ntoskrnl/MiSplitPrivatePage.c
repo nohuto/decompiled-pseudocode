@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSplitPrivatePage @ 0x140083B70
+ * XREFs of MiSplitPrivatePage @ 0x140083B60
  * Callers:
- *     MiCopyToCfgBitMap @ 0x1405F2A10 (MiCopyToCfgBitMap.c)
+ *     MiCopyToCfgBitMap @ 0x1405F3A10 (MiCopyToCfgBitMap.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -16,23 +16,23 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiMakeProtoLeafValid @ 0x14012736C (MiMakeProtoLeafValid.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
- *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
- *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
- *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
+ *     MiVadPureReserve @ 0x140070D20 (MiVadPureReserve.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetNextPageTable @ 0x140084230 (MiGetNextPageTable.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiGetUsedPtesHandle @ 0x140098640 (MiGetUsedPtesHandle.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiIncreaseUsedPtesCount @ 0x1401100E4 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiMakeProtoLeafValid @ 0x14012743C (MiMakeProtoLeafValid.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB40C (MiCopyOnWriteCheckConditions.c)
+ *     MiChargeFullProcessCommitment @ 0x1405E1510 (MiChargeFullProcessCommitment.c)
+ *     MiCommitPageTablesForVad @ 0x1405EDBB0 (MiCommitPageTablesForVad.c)
+ *     MiReturnFullProcessCommitment @ 0x1405F3998 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiSplitPrivatePage(ULONG_PTR a1, __int64 a2)
@@ -154,7 +154,7 @@ LABEL_6:
       {
         if ( (unsigned int)MiPteHasShadow(v27, v26) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v14 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v14 & 1) != 0 )
             v26 |= 0x8000000000000000uLL;
           *(_QWORD *)v5 = v26;
           MiWritePteShadow(v5);
@@ -209,8 +209,8 @@ LABEL_116:
       if ( !MiIsPrototypePteVadLookup(v14) )
       {
         v45 = v14;
-        if ( qword_14043A0C0 && (v14 & 0x10) == 0 )
-          v45 = v14 & ~qword_14043A0C0;
+        if ( qword_14043B180 && (v14 & 0x10) == 0 )
+          v45 = v14 & ~qword_14043B180;
         if ( v45 >> 16 != v28 )
           goto LABEL_9;
       }
@@ -240,7 +240,7 @@ LABEL_20:
           if ( (unsigned int)MiPteHasShadow(v23, v22) )
           {
             v57 = v56;
-            if ( !HIBYTE(word_14043A1AC) && (v56 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v56 & 1) != 0 )
               v57 = v56 | 0x8000000000000000uLL;
             *(_QWORD *)v5 = v57;
             MiWritePteShadow(v5);
@@ -310,7 +310,7 @@ LABEL_67:
           {
             v40->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v40->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v32->LockEntries[v39], v35);
+              KiAbEntryRemoveFromTree(&v32->LockEntries[v39].TreeNode, v35);
             v58 = 0;
             v58 = v40->BoostBitmap.AllFields & 0x1FFFF;
             v40->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -405,7 +405,7 @@ LABEL_109:
   {
     v53->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v53->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v46->LockEntries[v52], v49);
+      KiAbEntryRemoveFromTree(&v46->LockEntries[v52].TreeNode, v49);
     v73 = 0;
     v73 = v53->BoostBitmap.AllFields & 0x1FFFF;
     v53->BoostBitmap.AllFields &= 0xFFFE0000;

@@ -17,7 +17,7 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
 {
   NTSTATUS v1; // edi
   int v3; // ebx
-  struct _LIST_ENTRY *PoolWithTag; // rbp
+  _LIST_ENTRY *PoolWithTag; // rbp
   int v5; // ebx
   KIRQL v6; // r14
   _DWORD *RegEntryByProviderId; // rax
@@ -51,7 +51,7 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
     if ( v11 )
       return result;
   }
-  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
+  PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
   if ( !PoolWithTag )
     return -1073741670;
   v5 = *((_DWORD *)WnodeEventItem + 1);

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfFbLogEntryComplete @ 0x14028BE80
+ * XREFs of PfFbLogEntryComplete @ 0x14028C110
  * Callers:
- *     PfLogEvent @ 0x14028C088 (PfLogEvent.c)
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
- *     PfLogDeleteHelper @ 0x140360F40 (PfLogDeleteHelper.c)
+ *     PfLogEvent @ 0x14028C318 (PfLogEvent.c)
+ *     PfFileInfoNotify @ 0x1402DF7B0 (PfFileInfoNotify.c)
+ *     PfLogDeleteHelper @ 0x1403610E0 (PfLogDeleteHelper.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PfFbLogEntryComplete(PSLIST_ENTRY ListEntry, __int64 a2, __int64 a3)

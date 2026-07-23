@@ -1,21 +1,38 @@
 /*
- * XREFs of NtCreateProcess @ 0x1407EFBF0
+ * XREFs of NtCreateProcess @ 0x1407F5750
  * Callers:
- *     DifNtCreateProcessWrapper @ 0x140672CB0 (DifNtCreateProcessWrapper.c)
+ *     DifNtCreateProcessWrapper @ 0x140676890 (DifNtCreateProcessWrapper.c)
  * Callees:
- *     NtCreateProcessEx @ 0x140B67C40 (NtCreateProcessEx.c)
+ *     NtCreateProcessEx @ 0x140B6ABD0 (NtCreateProcessEx.c)
  */
 
-__int64 __fastcall NtCreateProcess(int a1, int a2, int a3, int a4, char a5, __int64 a6, __int64 a7, __int64 a8)
+NTSTATUS __cdecl NtCreateProcess(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ParentProcess,
+        BOOLEAN InheritObjectTable,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle)
 {
   int v9; // r11d
-  int v10; // ecx
+  ULONG Flags; // ecx
 
-  v9 = a6 & 1 | 2;
-  if ( (a7 & 1) == 0 )
-    v9 = a6 & 1;
-  v10 = v9 | 4;
-  if ( !a5 )
-    v10 = v9;
-  return NtCreateProcessEx(a1, a2, a3, a4, v10, a6, a7, a8);
+  v9 = (unsigned __int8)SectionHandle & 1 | 2;
+  if ( ((unsigned __int8)DebugPort & 1) == 0 )
+    v9 = (unsigned __int8)SectionHandle & 1;
+  Flags = v9 | 4;
+  if ( !InheritObjectTable )
+    Flags = v9;
+  return NtCreateProcessEx(
+           ProcessHandle,
+           DesiredAccess,
+           ObjectAttributes,
+           ParentProcess,
+           Flags,
+           SectionHandle,
+           DebugPort,
+           TokenHandle,
+           0);
 }

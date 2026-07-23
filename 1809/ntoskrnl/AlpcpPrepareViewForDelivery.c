@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpPrepareViewForDelivery @ 0x140617954
+ * XREFs of AlpcpPrepareViewForDelivery @ 0x140618954
  * Callers:
- *     AlpcpCaptureViewAttributeInternal @ 0x140617818 (AlpcpCaptureViewAttributeInternal.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x140618818 (AlpcpCaptureViewAttributeInternal.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MmUnsecureVirtualMemory @ 0x1405F4430 (MmUnsecureVirtualMemory.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x140617E4C (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpReferenceBlob @ 0x140619428 (AlpcpReferenceBlob.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140619664 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpUnlockBlob @ 0x140638060 (AlpcpUnlockBlob.c)
  */
 
 __int64 __fastcall AlpcpPrepareViewForDelivery(ULONG_PTR BugCheckParameter2, char a2, unsigned __int8 a3)

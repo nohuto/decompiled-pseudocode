@@ -1,8 +1,8 @@
 /*
- * XREFs of KiKernelIstExit @ 0x140A15C40
+ * XREFs of KiKernelIstExit @ 0x140A16C40
  * Callers:
- *     KiDebugTrapOrFault @ 0x14040A940 (KiDebugTrapOrFault.c)
- *     KiNmiInterruptStart @ 0x14040AE40 (KiNmiInterruptStart.c)
+ *     KiDebugTrapOrFault @ 0x14040AA40 (KiDebugTrapOrFault.c)
+ *     KiNmiInterruptStart @ 0x14040AF40 (KiNmiInterruptStart.c)
  * Callees:
  *     <none>
  */

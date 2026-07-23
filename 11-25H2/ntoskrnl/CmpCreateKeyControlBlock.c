@@ -273,7 +273,7 @@ LABEL_82:
   if ( (unsigned int)*v10 + v24 + 2 > 0xFFFF )
     return (unsigned int)-1073741811;
   _InterlockedIncrement64(&CmPerfCounters);
-  v30 = ExAllocateFromLookasideListEx(&CmpKcbLookaside);
+  v30 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside);
   v31 = (ULONG_PTR)v30;
   if ( !v30 )
     return (unsigned int)-1073741670;

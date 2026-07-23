@@ -1,9 +1,9 @@
 /*
- * XREFs of KeIdleSpecCtrl @ 0x1404E75A0
+ * XREFs of KeIdleSpecCtrl @ 0x1404DE260
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
- *     PoIdle @ 0x140449020 (PoIdle.c)
- *     KiExecuteSmtIsolationThread @ 0x1405C2BD0 (KiExecuteSmtIsolationThread.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
+ *     PoIdle @ 0x140441770 (PoIdle.c)
+ *     KiExecuteSmtIsolationThread @ 0x1405C01A0 (KiExecuteSmtIsolationThread.c)
  * Callees:
  *     <none>
  */

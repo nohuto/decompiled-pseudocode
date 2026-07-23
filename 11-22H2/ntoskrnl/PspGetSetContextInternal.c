@@ -27,7 +27,7 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v5; // rbx
   struct _KTHREAD *CurrentThread; // r14
   __int64 v8; // rax
-  unsigned int v9; // r12d
+  ULONG v9; // r12d
   __int64 TrapFrame; // r15
   int SetSecureContext; // eax
   _QWORD *i; // rcx
@@ -38,11 +38,11 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v17; // rdx
   __int64 v18; // rdx
   char v19; // r9
-  __int64 v20; // rdi
+  _CONTEXT *v20; // rdi
   __int64 result; // rax
   __int64 v22; // [rsp+78h] [rbp-90h] BYREF
   _QWORD *v23; // [rsp+80h] [rbp-88h]
-  unsigned __int64 v24; // [rsp+88h] [rbp-80h] BYREF
+  ULONG ContextLength[2]; // [rsp+88h] [rbp-80h] BYREF
   unsigned __int64 v25; // [rsp+90h] [rbp-78h] BYREF
   unsigned __int64 v26; // [rsp+98h] [rbp-70h] BYREF
   __int64 v27; // [rsp+A0h] [rbp-68h] BYREF
@@ -84,16 +84,16 @@ __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   CurrentThread = KeGetCurrentThread();
   v8 = *(_QWORD *)(a1 + 120);
   v23 = a3;
-  LODWORD(v24) = 0;
+  ContextLength[0] = 0;
   v9 = *(_DWORD *)(v8 + 48);
   LOWORD(v22) = 0;
   if ( *(_BYTE *)(a1 + 88) )
   {
     if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 0x200) != 0 )
     {
-      if ( (int)RtlGetExtendedContextLength(v9, (__int64)&v24) >= 0 )
+      if ( RtlGetExtendedContextLength(v9, ContextLength) >= 0 )
       {
-        SetSecureContext = VslGetSetSecureContext(a2, *(_QWORD *)(v5 + 120), (unsigned int)v24);
+        SetSecureContext = VslGetSetSecureContext(a2, *(_QWORD *)(v5 + 120), ContextLength[0]);
         a3 = v23;
         a1 = v5;
         goto LABEL_60;
@@ -231,8 +231,8 @@ LABEL_23:
     {
 LABEL_28:
       v17 = *(_QWORD *)(v5 + 120);
-      v24 = 0LL;
-      SetSecureContext = KeVerifyContextXStateCetU((__int64)CurrentThread, v17, &v24);
+      *(_QWORD *)ContextLength = 0LL;
+      SetSecureContext = KeVerifyContextXStateCetU((__int64)CurrentThread, v17, (unsigned __int64 *)ContextLength);
       if ( SetSecureContext < 0 )
       {
         a3 = v23;
@@ -245,7 +245,11 @@ LABEL_28:
         v31 = 0LL;
         LODWORD(v31) = 3;
         v32 = 0LL;
-        SetSecureContext = KeVerifyContextIpForUserCet((__int64)CurrentThread, v18, (unsigned int *)&v31, (__int64)&v24);
+        SetSecureContext = KeVerifyContextIpForUserCet(
+                             (__int64)CurrentThread,
+                             v18,
+                             (unsigned int *)&v31,
+                             (__int64)ContextLength);
         if ( SetSecureContext < 0 )
         {
           a3 = v23;
@@ -288,11 +292,11 @@ LABEL_28:
     _fxsave((void *)(*(_QWORD *)(v5 + 120) + 256LL));
   if ( CurrentThread[1].WaitBlock[3].Thread && *(_BYTE *)(v5 + 88) == 1 )
   {
-    v20 = *(_QWORD *)(v5 + 120);
-    PspGetContext(TrapFrame, (__int64)v4, v20);
+    v20 = *(_CONTEXT **)(v5 + 120);
+    PspGetContext(TrapFrame, (__int64)v4, (__int64)v20);
     if ( (CurrentThread->Header.Reserved1 & 8) != 0 )
     {
-      RtlCopyContext(v20, *(unsigned int *)(v20 + 48), CurrentThread[1].WaitBlock[3].Thread);
+      RtlCopyContext(v20, v20->ContextFlags, (PCONTEXT)CurrentThread[1].WaitBlock[3].Thread);
       a3 = v23;
       SetSecureContext = 0;
       v3 = v22;

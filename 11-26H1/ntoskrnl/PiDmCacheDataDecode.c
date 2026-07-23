@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmCacheDataDecode @ 0x1409A21E0
+ * XREFs of PiDmCacheDataDecode @ 0x140962C40
  * Callers:
- *     PiDmObjectProcessPropertyChange @ 0x140991140 (PiDmObjectProcessPropertyChange.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x140AF4174 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectProcessPropertyChange @ 0x140951BA0 (PiDmObjectProcessPropertyChange.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140B16780 (PiDmListUpdateAggregationCountWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ScanHexFormat @ 0x1409A2050 (ScanHexFormat.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ScanHexFormat @ 0x140962AB0 (ScanHexFormat.c)
  */
 
 __int64 __fastcall PiDmCacheDataDecode(_DWORD *a1, _DWORD *a2, _BYTE *a3, unsigned int a4, unsigned int *a5)

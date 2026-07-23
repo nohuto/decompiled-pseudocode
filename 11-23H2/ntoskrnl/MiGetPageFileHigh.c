@@ -1,7 +1,7 @@
 /*
  * XREFs of MiGetPageFileHigh @ 0x140201DB0
  * Callers:
- *     MiFreeReservationRun @ 0x1407B7144 (MiFreeReservationRun.c)
+ *     MiFreeReservationRun @ 0x1407B7424 (MiFreeReservationRun.c)
  * Callees:
  *     <none>
  */

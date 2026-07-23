@@ -22,13 +22,13 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   struct _KTHREAD *CurrentThread; // r14
   __int64 v4; // rdi
   unsigned __int64 *v7; // rsi
-  __int64 v8; // rbp
+  PRTL_BALANCED_NODE v8; // rbp
   int v9; // ebp
   _QWORD *v10; // rcx
   struct _KTHREAD *v12; // rax
-  __int64 v13; // rax
+  _RTL_BALANCED_NODE *v13; // rax
   int v14; // r8d
-  __int64 v15; // rbp
+  _RTL_BALANCED_NODE *v15; // rbp
   _QWORD *v16; // r14
   __int64 v17; // [rsp+70h] [rbp+8h] BYREF
   _QWORD *v18; // [rsp+78h] [rbp+10h] BYREF
@@ -42,7 +42,7 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v7, v8, (ULONG_PTR)v7);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v17 = 0LL;
   v9 = sub_1405CB1F4((int)a1 + 88, (_DWORD)CurrentThread, 8, (unsigned int)&v17, 0LL);
   if ( v9 >= 0 )
@@ -75,7 +75,7 @@ LABEL_26:
     if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
       ExfAcquirePushLockExclusiveEx(v7, v13, (ULONG_PTR)v7);
     if ( v15 )
-      *(_BYTE *)(v15 + 26) |= 1u;
+      BYTE2(v15[1].Left) |= 1u;
     v16 = v18;
     v9 = sub_1406B1270((int)a1 + 88, (_DWORD)v18, v14, *v18, 8, -1);
     if ( v9 >= 0 )

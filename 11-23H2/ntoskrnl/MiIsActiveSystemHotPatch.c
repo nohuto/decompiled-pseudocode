@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsActiveSystemHotPatch @ 0x140A37F30
+ * XREFs of MiIsActiveSystemHotPatch @ 0x140A381E0
  * Callers:
- *     MiLogHotPatchRundown @ 0x140A396B0 (MiLogHotPatchRundown.c)
- *     MiQueryProcessActivePatches @ 0x140A3B59C (MiQueryProcessActivePatches.c)
+ *     MiLogHotPatchRundown @ 0x140A39960 (MiLogHotPatchRundown.c)
+ *     MiQueryProcessActivePatches @ 0x140A3B84C (MiQueryProcessActivePatches.c)
  * Callees:
  *     <none>
  */

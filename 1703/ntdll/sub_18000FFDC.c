@@ -16,91 +16,97 @@
  *     sub_1800DF560 @ 0x1800DF560 (sub_1800DF560.c)
  */
 
-__int64 __fastcall sub_18000FFDC(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall sub_18000FFDC(char *BaseAddress, _QWORD *a2, _DWORD *a3)
 {
-  __int64 v5; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rcx
-  _DWORD *v12; // r8
-  unsigned int v13; // edx
-  _DWORD *v14; // rcx
-  int v15; // eax
-  unsigned int v16; // edx
+  _RTL_SRWLOCK *v5; // rcx
+  __int64 v7; // rcx
+  _DWORD *v8; // r8
+  unsigned int v9; // edx
+  _DWORD *v10; // rcx
+  int v11; // eax
+  ULONG v12; // edx
   unsigned int i; // ecx
-  unsigned int v18; // edi
-  int v19; // eax
-  void (__fastcall *v21)(__int64); // [rsp+50h] [rbp+8h] BYREF
-  __int64 v22; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v23; // [rsp+60h] [rbp+18h] BYREF
+  unsigned __int32 v14; // edi
+  NTSTATUS v15; // eax
+  void (__fastcall *v17)(__int64); // [rsp+50h] [rbp+8h] BYREF
+  __int64 v18; // [rsp+58h] [rbp+10h] BYREF
+  unsigned __int64 SubscriptionId; // [rsp+60h] [rbp+18h] BYREF
 
-  v21 = 0LL;
-  v22 = 0LL;
-  v5 = qword_18015C008 + 8;
+  v17 = 0LL;
+  v18 = 0LL;
+  v5 = (_RTL_SRWLOCK *)(qword_18015C008 + 8);
   *a3 = 0;
   RtlAcquireSRWLockExclusive(v5);
-  RtlAcquireSRWLockExclusive(a1 + 56);
-  if ( *(_DWORD *)(a2 + 96) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
+  if ( *((_DWORD *)a2 + 24) )
   {
-    RtlReleaseSRWLockExclusive(a1 + 56);
-    RtlReleaseSRWLockExclusive(qword_18015C008 + 8);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 8));
     return 3221225473LL;
   }
   else
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8, v7, v9, v10) )
-      v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 564;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[7];
     else
-      v11 = 2147353486LL;
-    if ( *(_BYTE *)v11 )
-      sub_1800DF560(*(_QWORD *)(a1 + 16), a2, a1, *(_DWORD *)(a1 + 108), *(_QWORD *)(a2 + 32), *(_DWORD *)(a2 + 64));
-    v12 = (_DWORD *)(a1 + 88);
-    v13 = 0;
-    *(_DWORD *)(a2 + 96) = 1;
+      v7 = 2147353486LL;
+    if ( *(_BYTE *)v7 )
+      sub_1800DF560(
+        *((_QWORD *)BaseAddress + 2),
+        (_DWORD)a2,
+        (_DWORD)BaseAddress,
+        *((_DWORD *)BaseAddress + 27),
+        a2[4],
+        *((_DWORD *)a2 + 16));
+    v8 = BaseAddress + 88;
+    v9 = 0;
+    *((_DWORD *)a2 + 24) = 1;
     *a3 = 1;
-    v14 = (_DWORD *)(a1 + 88);
+    v10 = BaseAddress + 88;
     do
     {
-      v15 = *(_DWORD *)(a2 + 64);
-      if ( _bittest(&v15, v13) )
-        --*v14;
-      ++v13;
-      ++v14;
+      v11 = *((_DWORD *)a2 + 16);
+      if ( _bittest(&v11, v9) )
+        --*v10;
+      ++v9;
+      ++v10;
     }
-    while ( v13 < 5 );
-    v16 = 0;
+    while ( v9 < 5 );
+    v12 = 0;
     for ( i = 0; i < 5; ++i )
     {
-      if ( *v12 )
-        v16 |= 1 << i;
-      ++v12;
+      if ( *v8 )
+        v12 |= 1 << i;
+      ++v8;
     }
-    --*(_DWORD *)(a1 + 80);
-    if ( (*(_BYTE *)(a2 + 60) & 4) != 0 )
-      --*(_DWORD *)(a1 + 84);
-    v18 = 0;
-    if ( *(_QWORD *)(a1 + 8) )
+    --*((_DWORD *)BaseAddress + 20);
+    if ( (*((_BYTE *)a2 + 60) & 4) != 0 )
+      --*((_DWORD *)BaseAddress + 21);
+    v14 = 0;
+    if ( *((_QWORD *)BaseAddress + 1) )
     {
-      v19 = ZwSubscribeWnfStateChange(a1 + 16, *(unsigned int *)(a1 + 24), v16, &v23);
-      v18 = v19;
-      if ( v19 < 0 )
+      v15 = ZwSubscribeWnfStateChange(
+              (PCWNF_STATE_NAME)BaseAddress + 2,
+              *((_DWORD *)BaseAddress + 6),
+              v12,
+              &SubscriptionId);
+      v14 = v15;
+      if ( v15 < 0 )
       {
-        if ( v19 == -1073741772 || v19 == -1073741431 )
-          v18 = 0;
+        if ( v15 == -1073741772 || v15 == -1073741431 )
+          v14 = 0;
       }
       else
       {
-        *(_QWORD *)(a1 + 8) = v23;
+        *((_QWORD *)BaseAddress + 1) = SubscriptionId;
       }
     }
-    sub_18000FF10(a2, &v21, &v22);
-    RtlReleaseSRWLockExclusive(a1 + 56);
-    RtlReleaseSRWLockExclusive(qword_18015C008 + 8);
-    if ( v21 )
-      v21(v22);
-    sub_1800129DC(a1);
-    return v18;
+    sub_18000FF10((volatile signed __int32 *)a2, &v17, &v18);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 8));
+    if ( v17 )
+      v17(v18);
+    sub_1800129DC(BaseAddress);
+    return v14;
   }
 }

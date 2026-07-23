@@ -197,9 +197,9 @@ LABEL_33:
     }
     v17 = SpareLong0;
     v18 = KernelTime;
-    if ( v16 > (unsigned int)KeMaximumIncrement )
+    if ( v16 > KeMaximumIncrement )
     {
-      v19 = v16 / (unsigned int)KeMaximumIncrement;
+      v19 = v16 / KeMaximumIncrement;
       v17 = v19 + SpareLong0 - 1;
       v18 = v19 + KernelTime - 1;
     }
@@ -215,7 +215,7 @@ LABEL_18:
     if ( IdleAccounting && IdleStates )
       *(_QWORD *)a2 += *(_QWORD *)(a2 + 8) + *(_QWORD *)(a2 + 16) + *(_QWORD *)(a2 + 24);
     else
-      *(_QWORD *)a2 = v17 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      *(_QWORD *)a2 = v17 * (unsigned __int64)KeMaximumIncrement;
   }
   if ( a3 )
   {

@@ -27,69 +27,69 @@
  *     EtwTiLogSetContextThread @ 0x1406E66C4 (EtwTiLogSetContextThread.c)
  */
 
-__int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // r13
-  __int64 result; // rax
+  int result; // eax
   char v11; // di
   struct _KPROCESS *v12; // rbx
   __int64 v13; // r8
   int v14; // ebx
   __int64 v15; // rcx
   __int64 v16; // rax
-  unsigned int v17; // edi
+  ULONG v17; // edi
   unsigned __int64 v18; // rax
   void *v19; // rsp
   __int64 v20; // rcx
   _QWORD *v21; // [rsp+20h] [rbp-20h]
-  unsigned int v22; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v23; // [rsp+44h] [rbp+4h] BYREF
-  __int64 v24; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextFlags; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+44h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _QWORD v25[48]; // [rsp+50h] [rbp+10h] BYREF
 
-  v24 = 0LL;
+  ContextEx = 0LL;
   memset(v25, 0, sizeof(v25));
-  v23 = 0;
+  ContextLength = 0;
   CurrentThread = KeGetCurrentThread();
   if ( a3 )
   {
     v16 = a2 + 48;
     if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
       v16 = 0x7FFFFFFF0000LL;
-    v22 = *(_DWORD *)v16;
+    ContextFlags = *(_DWORD *)v16;
   }
   else
   {
-    v22 = *(_DWORD *)(a2 + 48);
+    ContextFlags = *(_DWORD *)(a2 + 48);
   }
-  result = RtlpSanitizeContextFlags(&v22, a3);
-  if ( (int)result >= 0 )
+  result = RtlpSanitizeContextFlags(&ContextFlags, a3);
+  if ( result >= 0 )
   {
     if ( !a3 )
     {
       v25[15] = a2;
       goto LABEL_6;
     }
-    v17 = v22;
-    result = RtlGetExtendedContextLength(v22, &v23);
-    if ( (int)result >= 0 )
+    v17 = ContextFlags;
+    result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+    if ( result >= 0 )
     {
-      v18 = v23 + 15LL;
-      if ( v18 <= v23 )
+      v18 = ContextLength + 15LL;
+      if ( v18 <= ContextLength )
         v18 = 0xFFFFFFFFFFFFFF0LL;
       v19 = alloca(v18 & 0xFFFFFFFFFFFFFFF0uLL);
-      v25[15] = &v22;
-      memset(&v22, 0, v23);
-      result = RtlInitializeExtendedContext(v25[15], v17, (__int64)&v24);
-      if ( (int)result >= 0 )
+      v25[15] = &ContextFlags;
+      memset(&ContextFlags, 0, ContextLength);
+      result = RtlInitializeExtendedContext((PCONTEXT)v25[15], v17, &ContextEx);
+      if ( result >= 0 )
       {
-        v25[15] = v24 - 1232;
-        result = RtlpReadExtendedContext(v20, 1u, v24, v17, a2, 0LL);
-        if ( (int)result >= 0 )
+        v25[15] = (char *)ContextEx - 1232;
+        result = RtlpReadExtendedContext(v20, 1u, (__int64)ContextEx, v17, a2, 0LL);
+        if ( result >= 0 )
         {
 LABEL_6:
           if ( a4 && (Thread->MiscFlags & 0x400) != 0 )
-            return (unsigned int)-1073741776;
+            return -1073741776;
           BYTE1(v25[11]) &= ~4u;
           v11 = BYTE1(v25[11]);
           if ( a4 )
@@ -101,7 +101,7 @@ LABEL_6:
               {
                 v14 = KeVerifyContextRecord((__int64)Thread, v25[15], v13, 0LL, 0LL);
                 if ( v14 < 0 )
-                  return (unsigned int)v14;
+                  return v14;
                 v11 = BYTE1(v25[11]) | 4;
               }
             }
@@ -121,9 +121,9 @@ LABEL_15:
             if ( v25[11] >= 0 && a3 == 1 && a4 == 1 )
             {
               LOBYTE(v15) = KeGetCurrentThread()->PreviousMode;
-              EtwTiLogSetContextThread(v15, Thread, v25[15], v22, v21);
+              EtwTiLogSetContextThread(v15, Thread, v25[15], ContextFlags, v21);
             }
-            return (unsigned int)v14;
+            return v14;
           }
           BYTE1(v25[11]) = v11 & 0xFD | (2 * (a5 & 1)) | 1;
           KeInitializeGate((__int64)&v25[12]);
@@ -133,7 +133,7 @@ LABEL_15:
             KeWaitForGate((__int64)&v25[12], 0);
             goto LABEL_15;
           }
-          return (unsigned int)-1073741823;
+          return -1073741823;
         }
       }
     }

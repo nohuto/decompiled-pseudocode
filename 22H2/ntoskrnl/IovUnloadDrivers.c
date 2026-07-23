@@ -22,8 +22,7 @@ __int64 IovUnloadDrivers()
   struct _DMA_ADAPTER *v8; // rcx
   PVOID *v9; // rdi
   struct _DMA_ADAPTER *v10; // rcx
-  int v11; // [rsp+40h] [rbp+8h] BYREF
-  int v12; // [rsp+44h] [rbp+Ch]
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !PopShutdownCleanly )
     return 3221225473LL;
@@ -73,9 +72,8 @@ __int64 IovUnloadDrivers()
     }
     if ( v5 )
     {
-      v12 = -1;
-      v11 = -100000000;
-      ZwDelayExecution(0LL, (__int64)&v11);
+      DelayInterval.QuadPart = -100000000LL;
+      ZwDelayExecution(0, &DelayInterval);
       v4 = 1;
     }
     v1 = v6;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceDriverBlocked @ 0x140732858
+ * XREFs of PnpTraceDriverBlocked @ 0x140730868
  * Callers:
- *     PiIsDriverBlocked @ 0x1409C6E6C (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x1409BA914 (PiIsDriverBlocked.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PnpTraceDriverBlocked()
@@ -51,6 +51,6 @@ void PnpTraceDriverBlocked()
     v12 = v2;
     v13 = 16;
     v4 = v3;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06FA8, (unsigned __int8 *)&dword_140046A0C, 0LL, 0LL, 7u, &v7);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06FA8, (unsigned __int8 *)&word_140046EDE, 0LL, 0LL, 7u, &v7);
   }
 }

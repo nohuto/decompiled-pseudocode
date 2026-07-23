@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlAddSIDToBoundaryDescriptorEx @ 0x18000B784
+ * XREFs of RtlAddSIDToBoundaryDescriptorEx @ 0x18000B774
  * Callers:
- *     RtlAddSIDToBoundaryDescriptor @ 0x1800094D0 (RtlAddSIDToBoundaryDescriptor.c)
- *     RtlAddIntegrityLabelToBoundaryDescriptor @ 0x1800E2FA0 (RtlAddIntegrityLabelToBoundaryDescriptor.c)
+ *     RtlAddSIDToBoundaryDescriptor @ 0x1800094C0 (RtlAddSIDToBoundaryDescriptor.c)
+ *     RtlAddIntegrityLabelToBoundaryDescriptor @ 0x1800E3060 (RtlAddIntegrityLabelToBoundaryDescriptor.c)
  * Callees:
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x180009500 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     RtlLengthRequiredSid @ 0x18000BB10 (RtlLengthRequiredSid.c)
- *     RtlValidSid @ 0x180014F80 (RtlValidSid.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x1800094F0 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlLengthRequiredSid @ 0x18000BB00 (RtlLengthRequiredSid.c)
+ *     RtlValidSid @ 0x180014F70 (RtlValidSid.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
 __int64 __fastcall RtlAddSIDToBoundaryDescriptorEx(__int64 a1, unsigned __int8 *a2, char a3)
 {
-  int v6; // eax
+  ULONG v6; // eax
   _DWORD *v7; // rbp
   unsigned int v8; // edi
   unsigned int v9; // eax
   _DWORD *Heap; // rax
   _DWORD *v11; // rsi
   __int64 v12; // rbx
-  unsigned int v13; // eax
+  ULONG v13; // eax
   int v14; // ebx
   __int64 result; // rax
 
-  if ( !(unsigned __int8)RtlValidSid(a2) )
+  if ( !RtlValidSid(a2) )
     return 3221225485LL;
   v6 = RtlLengthRequiredSid(a2[1]);
   v7 = *(_DWORD **)a1;
@@ -34,7 +34,7 @@ __int64 __fastcall RtlAddSIDToBoundaryDescriptorEx(__int64 a1, unsigned __int8 *
   v9 = v8 + *(_DWORD *)(*(_QWORD *)a1 + 8LL);
   if ( v9 < v8 )
     return 3221225843LL;
-  Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v9);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v9);
   v11 = Heap;
   if ( !Heap )
     return 3221225626LL;
@@ -49,12 +49,12 @@ __int64 __fastcall RtlAddSIDToBoundaryDescriptorEx(__int64 a1, unsigned __int8 *
   v14 = RtlEnumerateBoundaryDescriptorEntries(v11);
   if ( v14 < 0 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v11);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
     return (unsigned int)v14;
   }
   else
   {
-    NtdllpFreeStringRoutine((__int64)v7);
+    NtdllpFreeStringRoutine(v7);
     result = 0LL;
     *(_QWORD *)a1 = v11;
   }

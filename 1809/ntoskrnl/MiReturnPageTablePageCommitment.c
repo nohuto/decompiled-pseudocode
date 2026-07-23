@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReturnPageTablePageCommitment @ 0x1405EC380
+ * XREFs of MiReturnPageTablePageCommitment @ 0x1405ED380
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
  * Callees:
  *     RtlAreBitsClear @ 0x14000F1D0 (RtlAreBitsClear.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
- *     MiIsVadLarge @ 0x140070D90 (MiIsVadLarge.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     MiBitmapRangeZero @ 0x140097470 (MiBitmapRangeZero.c)
- *     MiCreateSystemWsles @ 0x1400F31A4 (MiCreateSystemWsles.c)
- *     MiUpdateChargedWsles @ 0x1402CB68C (MiUpdateChargedWsles.c)
- *     MiGetAweVadPageSize @ 0x14084FF04 (MiGetAweVadPageSize.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiVadPureReserve @ 0x140070D20 (MiVadPureReserve.c)
+ *     MiIsVadLarge @ 0x140070D80 (MiIsVadLarge.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiReturnFullProcessCharges @ 0x14007FF00 (MiReturnFullProcessCharges.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     MiBitmapRangeZero @ 0x1400973B0 (MiBitmapRangeZero.c)
+ *     MiCreateSystemWsles @ 0x1400F3224 (MiCreateSystemWsles.c)
+ *     MiUpdateChargedWsles @ 0x1402CB87C (MiUpdateChargedWsles.c)
+ *     MiGetAweVadPageSize @ 0x140851164 (MiGetAweVadPageSize.c)
  */
 
 __int64 __fastcall MiReturnPageTablePageCommitment(

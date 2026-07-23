@@ -1,19 +1,19 @@
 /*
- * XREFs of PopWnfAudioCallback @ 0x140946B50
+ * XREFs of PopWnfAudioCallback @ 0x1409C24C0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PopGetDozeTimerSource @ 0x14060CAA8 (PopGetDozeTimerSource.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x14077C938 (PopUpdateSmartUserPresencePredictions.c)
- *     PopAudioAccountingCallback @ 0x140946740 (PopAudioAccountingCallback.c)
- *     PopPowerRequestNotifyAudioStateChanged @ 0x140946794 (PopPowerRequestNotifyAudioStateChanged.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140948918 (ExpWnfAcquireSubscriptionNameInstance.c)
- *     ExpWnfReadStateData @ 0x14094A158 (ExpWnfReadStateData.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PopGetDozeTimerSource @ 0x14060FC08 (PopGetDozeTimerSource.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x14077F42C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopAudioAccountingCallback @ 0x1409C20B0 (PopAudioAccountingCallback.c)
+ *     PopPowerRequestNotifyAudioStateChanged @ 0x1409C2104 (PopPowerRequestNotifyAudioStateChanged.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x1409C4288 (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     ExpWnfReadStateData @ 0x1409C5AC8 (ExpWnfReadStateData.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopWnfAudioCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -66,17 +66,17 @@ __int64 __fastcall PopWnfAudioCallback(__int64 a1, __int64 a2, __int64 a3, int a
         PopAcquirePolicyLock(v9, v8);
         if ( (v21[0] & 2) != 0 )
         {
-          byte_140F1070D = 1;
+          *((_BYTE *)&PpmIdlePolicyLock.ForegroundLossTime + 5) = 1;
           PopAudioAccountingCallback(1);
           if ( (unsigned int)PopGetDozeTimerSource() == 2 )
             PopUpdateSmartUserPresencePredictions(0LL, 5u);
         }
         else
         {
-          byte_140F1070D = 0;
+          *((_BYTE *)&PpmIdlePolicyLock.ForegroundLossTime + 5) = 0;
           PopAudioAccountingCallback(0);
         }
-        PopPowerRequestNotifyAudioStateChanged(byte_140F1070D, v10, v11, v12);
+        PopPowerRequestNotifyAudioStateChanged(*((char *)&PpmIdlePolicyLock.ForegroundLossTime + 5), v10, v11, v12);
         PopReleasePolicyLock(v14, v13, v15, v16, v18);
       }
     }

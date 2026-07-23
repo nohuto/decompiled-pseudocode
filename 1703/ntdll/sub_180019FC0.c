@@ -19,63 +19,49 @@
  *     sub_1800D62F0 @ 0x1800D62F0 (sub_1800D62F0.c)
  */
 
-__int64 __fastcall sub_180019FC0(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 sub_180019FC0()
 {
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rbx
-  __int64 v8; // rcx
-  __int64 v9; // rdi
-  unsigned int v10; // esi
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rdx
-  struct _PEB *v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  int v20; // r8d
-  int v21; // r9d
-  char *v22; // rcx
-  int v23; // r8d
-  int v24; // r9d
+  __int64 v0; // rbx
+  __int64 v1; // rcx
+  __int64 v2; // rdi
+  unsigned __int32 v3; // esi
+  int v5; // r8d
+  int v6; // r9d
+  USHORT *v7; // rcx
+  int v8; // r8d
+  int v9; // r9d
 
-  v7 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
-    v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  v0 = 2147353476LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v1 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   else
-    v8 = 2147353476LL;
-  v9 = 2147353477LL;
-  if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+    v1 = 2147353476LL;
+  v2 = 2147353477LL;
+  if ( *(_BYTE *)v1 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v22 = (unsigned int)RtlGetCurrentServiceSessionId(v8, v4, v5, v6)
-        ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-        : (char *)2147353477;
-    if ( (*v22 & 0x20) != 0 )
+    v7 = RtlGetCurrentServiceSessionId()
+       ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+       : (USHORT *)2147353477;
+    if ( (*(_BYTE *)v7 & 0x20) != 0 )
     {
-      LOBYTE(v21) = -1;
-      LOBYTE(v20) = -1;
-      sub_1800D62F0(5248, -1, v20, v21, 0LL, 0LL);
+      LOBYTE(v6) = -1;
+      LOBYTE(v5) = -1;
+      sub_1800D62F0(5248, -1, v5, v6, 0LL, 0LL);
     }
   }
-  v10 = RtlEnterCriticalSection(&off_1801555A8);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v12, v11, v13, v14) )
+  v3 = RtlEnterCriticalSection(&stru_1801555A8);
+  if ( RtlGetCurrentServiceSessionId() )
+    v0 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
+  if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v16 = NtCurrentPeb();
-    v7 = (__int64)v16->HotpatchInformation + 554;
-  }
-  if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
-  {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v16, v15, v17, v18) )
-      v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
-    if ( (*(_BYTE *)v9 & 0x20) != 0 )
+    if ( RtlGetCurrentServiceSessionId() )
+      v2 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
+    if ( (*(_BYTE *)v2 & 0x20) != 0 )
     {
-      LOBYTE(v24) = -1;
-      LOBYTE(v23) = -1;
-      sub_1800D62F0(5249, -1, v23, v24, 0LL, 0LL);
+      LOBYTE(v9) = -1;
+      LOBYTE(v8) = -1;
+      sub_1800D62F0(5249, -1, v8, v9, 0LL, 0LL);
     }
   }
-  return v10;
+  return v3;
 }

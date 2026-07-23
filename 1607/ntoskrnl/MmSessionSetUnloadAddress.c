@@ -1,10 +1,10 @@
 /*
- * XREFs of MmSessionSetUnloadAddress @ 0x140131938
+ * XREFs of MmSessionSetUnloadAddress @ 0x140131EA8
  * Callers:
- *     ExpInitializeSessionDriver @ 0x140547D54 (ExpInitializeSessionDriver.c)
+ *     ExpInitializeSessionDriver @ 0x140548294 (ExpInitializeSessionDriver.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall MmSessionSetUnloadAddress(__int64 a1)
@@ -19,7 +19,7 @@ void __fastcall MmSessionSetUnloadAddress(__int64 a1)
   if ( !v1 )
     v1 = 1LL;
   v3 = Process[1].ActiveProcessors.Bitmap[2];
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
   if ( !*(_QWORD *)(v3 + 3360) )
     *(_QWORD *)(v3 + 3360) = v1;
   KeReleaseInStackQueuedSpinLock(&LockHandle);

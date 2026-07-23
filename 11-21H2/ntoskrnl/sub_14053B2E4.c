@@ -1,0 +1,60 @@
+/*
+ * XREFs of sub_14053B2E4 @ 0x14053B2E4
+ * Callers:
+ *     sub_14053B0B8 @ 0x14053B0B8 (sub_14053B0B8.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ */
+
+unsigned int *__fastcall sub_14053B2E4(unsigned int *a1)
+{
+  unsigned int v1; // edx
+  __int64 v3; // r10
+  int v4; // r8d
+  _QWORD *v5; // rcx
+  int v6; // eax
+  unsigned int *result; // rax
+  __int64 v8; // r8
+  unsigned int **v9; // rcx
+
+  v1 = 0;
+  if ( a1[1] )
+    KeBugCheckEx(0x34u, 0x20DuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  v3 = *a1;
+  if ( *(unsigned int **)(qword_140C49AC0 + 8 * v3) != a1 )
+    KeBugCheckEx(0x34u, 0x213uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  v4 = dword_140C548D4;
+  if ( (_DWORD)v3 == dword_140C548D4 && dword_140C548D4 )
+  {
+    v5 = (_QWORD *)(qword_140C49AC0 + 8LL * (unsigned int)dword_140C548D4);
+    while ( !*v5 )
+    {
+      --v5;
+      if ( !--v4 )
+        goto LABEL_10;
+    }
+    dword_140C548D4 = v4;
+  }
+LABEL_10:
+  v6 = dword_140C49AE0;
+  *(_QWORD *)(qword_140C49AC0 + 8 * v3) = 0LL;
+  if ( !v6 )
+    KeBugCheckEx(0x34u, 0x22FuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  dword_140C49AE0 = v6 - 1;
+  do
+  {
+    result = &a1[10 * v1 + 8];
+    v8 = *(_QWORD *)result;
+    if ( *(unsigned int **)(*(_QWORD *)result + 8LL) != result
+      || (v9 = (unsigned int **)*((_QWORD *)result + 1), *v9 != result) )
+    {
+      __fastfail(3u);
+    }
+    ++v1;
+    *v9 = (unsigned int *)v8;
+    *(_QWORD *)(v8 + 8) = v9;
+  }
+  while ( v1 < 0xCCC );
+  dword_140C49AB8 -= 3276;
+  return result;
+}

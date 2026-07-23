@@ -1,9 +1,9 @@
 /*
- * XREFs of HalWheaUpdateCmciPolicy @ 0x14057A800
+ * XREFs of HalWheaUpdateCmciPolicy @ 0x14057CD30
  * Callers:
- *     WheapPropagatePolicyToHal @ 0x140B501A0 (WheapPropagatePolicyToHal.c)
+ *     WheapPropagatePolicyToHal @ 0x140B52A30 (WheapPropagatePolicyToHal.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 LONGLONG __fastcall HalWheaUpdateCmciPolicy(int a1, unsigned int a2)
@@ -63,17 +63,17 @@ LONGLONG __fastcall HalWheaUpdateCmciPolicy(int a1, unsigned int a2)
       }
       else
       {
-        dword_140E10810 = a2;
+        dword_140E10940 = a2;
       }
     }
     else
     {
-      dword_140E10814 = a2;
+      dword_140E10944 = a2;
     }
   }
   else
   {
-    byte_140E1080C = a2;
+    byte_140E1093C = a2;
   }
   return result;
 }

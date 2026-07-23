@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierExReleaseFastMutex @ 0x1409421D0
+ * XREFs of VerifierExReleaseFastMutex @ 0x1409431D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViKeIrqlLogCommon @ 0x14093AEAC (ViKeIrqlLogCommon.c)
- *     VfDeadlockReleaseResource @ 0x14093C260 (VfDeadlockReleaseResource.c)
- *     ViExReleaseFastMutexCommon @ 0x140942768 (ViExReleaseFastMutexCommon.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViKeIrqlLogCommon @ 0x14093BEAC (ViKeIrqlLogCommon.c)
+ *     VfDeadlockReleaseResource @ 0x14093D260 (VfDeadlockReleaseResource.c)
+ *     ViExReleaseFastMutexCommon @ 0x140943768 (ViExReleaseFastMutexCommon.c)
  */
 
 void __fastcall VerifierExReleaseFastMutex(const void *a1)

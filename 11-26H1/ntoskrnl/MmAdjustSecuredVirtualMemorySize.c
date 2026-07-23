@@ -1,12 +1,12 @@
 /*
- * XREFs of MmAdjustSecuredVirtualMemorySize @ 0x14086AC5C
+ * XREFs of MmAdjustSecuredVirtualMemorySize @ 0x14087103C
  * Callers:
- *     VmpUnsecureMemoryForPin @ 0x14081DEE4 (VmpUnsecureMemoryForPin.c)
+ *     VmpUnsecureMemoryForPin @ 0x1408240F4 (VmpUnsecureMemoryForPin.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiWriteSecureFlags @ 0x1404CD974 (MiWriteSecureFlags.c)
- *     PfpPartitionToParent @ 0x1404D5F40 (PfpPartitionToParent.c)
- *     MiObtainReferencedSecureVad @ 0x1404E4F18 (MiObtainReferencedSecureVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiWriteSecureFlags @ 0x1404C73A4 (MiWriteSecureFlags.c)
+ *     PfpPartitionToParent @ 0x1404CF710 (PfpPartitionToParent.c)
+ *     MiObtainReferencedSecureVad @ 0x1404DE4B8 (MiObtainReferencedSecureVad.c)
  */
 
 __int64 __fastcall MmAdjustSecuredVirtualMemorySize(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -18,10 +18,10 @@ __int64 __fastcall MmAdjustSecuredVirtualMemorySize(__int64 a1, unsigned __int64
   __int64 v10; // r10
   unsigned int v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = qword_140E2D640 ^ a1;
+  v4 = qword_140E2D7C0 ^ a1;
   v5 = 0;
   v11 = 0;
-  if ( !MiObtainReferencedSecureVad(qword_140E2D640 ^ a1, &v11, a3) )
+  if ( !MiObtainReferencedSecureVad(qword_140E2D7C0 ^ a1, &v11, a3) )
     return v11;
   v8 = PfpPartitionToParent(v4 + 24);
   if ( a2 < (v8 & 0xFFFFFFFFFFFFF000uLL)

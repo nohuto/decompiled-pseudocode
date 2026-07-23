@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIncreaseExposedCommit @ 0x1404586F8
+ * XREFs of MiIncreaseExposedCommit @ 0x14044DBA8
  * Callers:
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
  * Callees:
  *     <none>
  */

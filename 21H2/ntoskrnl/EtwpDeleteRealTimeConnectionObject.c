@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpDeleteRealTimeConnectionObject @ 0x1406C34C0
+ * XREFs of EtwpDeleteRealTimeConnectionObject @ 0x1406220C0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
  */
 
 void __fastcall EtwpDeleteRealTimeConnectionObject(__int64 a1)

@@ -30,11 +30,11 @@ BOOLEAN __stdcall CcZeroData(
   unsigned int v12; // r14d
   unsigned int v13; // edi
   LONGLONG v14; // rax
-  int v15; // ebx
+  NTSTATUS v15; // ebx
   LONGLONG v17; // [rsp+48h] [rbp-60h] BYREF
-  int v18; // [rsp+50h] [rbp-58h]
+  NTSTATUS v18; // [rsp+50h] [rbp-58h]
   int v19; // [rsp+54h] [rbp-54h]
-  __int128 v20; // [rsp+58h] [rbp-50h] BYREF
+  NTSTATUS Status[4]; // [rsp+58h] [rbp-50h] BYREF
   __int64 v21; // [rsp+68h] [rbp-40h]
   unsigned int SectorSize; // [rsp+B0h] [rbp+8h]
   __int64 *v23; // [rsp+B8h] [rbp+10h] BYREF
@@ -67,15 +67,15 @@ BOOLEAN __stdcall CcZeroData(
     {
       if ( (v12 & (unsigned int)v17) != 0 )
       {
-        v20 = 0LL;
+        *(_OWORD *)Status = 0LL;
         v17 = v12 + QuadPart;
         LODWORD(v17) = v17 & ~v12;
         v13 = v17 - *(_DWORD *)v23;
         if ( !CcZeroDataInCache((int)FileObject, v23, v13, v25) )
           goto LABEL_32;
-        CcFlushCachePriv(FileObject->SectionObjectPointer, (__int64)v23, v13, 0LL, 0, &v20, 0LL);
-        if ( (int)v20 < 0 )
-          RtlRaiseStatus(v20);
+        CcFlushCachePriv(FileObject->SectionObjectPointer, (__int64)v23, v13, 0LL, 0, (__int128 *)Status, 0LL);
+        if ( Status[0] < 0 )
+          RtlRaiseStatus(Status[0]);
         QuadPart = v17;
       }
 LABEL_16:
@@ -112,9 +112,9 @@ LABEL_13:
     }
     if ( v9 <= 0x200000 )
       goto LABEL_13;
-    DWORD1(v20) = (QuadPart + 0x200000 + (unsigned __int64)v12) >> 32;
+    Status[1] = (QuadPart + 0x200000 + (unsigned __int64)v12) >> 32;
     v15 = (QuadPart + 0x200000 + v12) & ~v12;
-    LODWORD(v20) = v15;
+    Status[0] = v15;
     goto LABEL_31;
   }
 LABEL_32:

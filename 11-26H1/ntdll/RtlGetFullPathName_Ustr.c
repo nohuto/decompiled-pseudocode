@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlGetFullPathName_Ustr @ 0x180047AE0
+ * XREFs of RtlGetFullPathName_Ustr @ 0x180032060
  * Callers:
- *     RtlGetFullPathName_U @ 0x180036180 (RtlGetFullPathName_U.c)
- *     LdrpApplyFileNameRedirection @ 0x180042DA0 (LdrpApplyFileNameRedirection.c)
- *     RtlpDosPathNameToRelativeNtPathName @ 0x180044540 (RtlpDosPathNameToRelativeNtPathName.c)
- *     LdrpPreprocessDllName @ 0x180045C10 (LdrpPreprocessDllName.c)
- *     LdrpGetFullPath @ 0x1800850A0 (LdrpGetFullPath.c)
- *     RtlSetCurrentDirectory_U @ 0x1800A4CB0 (RtlSetCurrentDirectory_U.c)
- *     RtlGetFullPathName_UstrEx @ 0x1800A6A60 (RtlGetFullPathName_UstrEx.c)
- *     RtlGetFullPathName_UEx @ 0x1800CD6E0 (RtlGetFullPathName_UEx.c)
+ *     RtlGetFullPathName_U @ 0x1800212E0 (RtlGetFullPathName_U.c)
+ *     LdrpApplyFileNameRedirection @ 0x18002D310 (LdrpApplyFileNameRedirection.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x18002EAB0 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     LdrpPreprocessDllName @ 0x180030180 (LdrpPreprocessDllName.c)
+ *     LdrpGetFullPath @ 0x18007C440 (LdrpGetFullPath.c)
+ *     RtlSetCurrentDirectory_U @ 0x1800A3DE0 (RtlSetCurrentDirectory_U.c)
+ *     RtlGetFullPathName_UstrEx @ 0x1800A5B90 (RtlGetFullPathName_UstrEx.c)
+ *     RtlGetFullPathName_UEx @ 0x1800CAE50 (RtlGetFullPathName_UEx.c)
  * Callees:
- *     NLS_UPCASE @ 0x180036DE0 (NLS_UPCASE.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlpIsDosDeviceName_Ustr @ 0x180048E70 (RtlpIsDosDeviceName_Ustr.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpCheckRelativeDrive @ 0x18009B244 (RtlpCheckRelativeDrive.c)
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
- *     RtlWideCharArrayCopyStringWorker @ 0x1800A4ED0 (RtlWideCharArrayCopyStringWorker.c)
- *     RtlpReferenceCurrentDirectory @ 0x1800A5210 (RtlpReferenceCurrentDirectory.c)
- *     RtlpComputeBackupIndex @ 0x1800A5F44 (RtlpComputeBackupIndex.c)
- *     RtlUnicodeStringValidateWorker @ 0x1800A6A10 (RtlUnicodeStringValidateWorker.c)
- *     RtlUnicodeStringCopy @ 0x1800C8E70 (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringValidateWorker_0 @ 0x1800D7510 (RtlUnicodeStringValidateWorker_0.c)
- *     RtlpCheckDeviceName @ 0x18010B478 (RtlpCheckDeviceName.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     NLS_UPCASE @ 0x180021F40 (NLS_UPCASE.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlpIsDosDeviceName_Ustr @ 0x1800333F0 (RtlpIsDosDeviceName_Ustr.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpCheckRelativeDrive @ 0x18009A374 (RtlpCheckRelativeDrive.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x1800A4000 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlpReferenceCurrentDirectory @ 0x1800A4340 (RtlpReferenceCurrentDirectory.c)
+ *     RtlpComputeBackupIndex @ 0x1800A5074 (RtlpComputeBackupIndex.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1800A5B40 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringCopy @ 0x1800C6630 (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1800D44D0 (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlpCheckDeviceName @ 0x18010ADE8 (RtlpCheckDeviceName.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlGetFullPathName_Ustr(
@@ -50,7 +50,7 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   int v18; // eax
   __int64 v19; // rcx
   int *v20; // r11
-  __int64 v21; // rdx
+  HANDLE *v21; // rdx
   char v22; // r8
   unsigned int i; // ebx
   unsigned int v24; // r13d
@@ -84,7 +84,7 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   int v52; // ecx
   __int64 v53; // r10
   __int64 v54; // r11
-  __int64 v55; // rax
+  _CURDIR *v55; // rax
   _CURDIR *v56; // rcx
   __m128i v57; // xmm1
   _WORD *v58; // r13
@@ -94,7 +94,7 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   unsigned __int64 v62; // r11
   __int64 v63; // rcx
   int v64; // eax
-  __int64 v65; // rax
+  _CURDIR *v65; // rax
   _CURDIR *p_CurrentDirectory; // rbx
   wchar_t v67; // ax
   wchar_t v68; // r14
@@ -103,13 +103,13 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   __int16 v71; // cx
   __int16 v72; // dx
   unsigned __int16 v73; // r8
-  int v74; // eax
+  NTSTATUS v74; // eax
   __int64 v75; // rbx
   unsigned __int16 v76; // cx
   unsigned __int16 v77; // dx
   __int64 v78; // rax
   __m128i v79; // xmm0
-  __int64 v80; // rax
+  _CURDIR *v80; // rax
   _CURDIR *v81; // r11
   unsigned int v82; // eax
   _UNICODE_STRING *v83; // r11
@@ -153,9 +153,9 @@ __int64 __fastcall RtlGetFullPathName_Ustr(
   unsigned int v121; // [rsp+4Ch] [rbp-19Ch]
   __int64 v122; // [rsp+58h] [rbp-190h] BYREF
   _WORD *v123; // [rsp+60h] [rbp-188h]
-  __int64 v124; // [rsp+68h] [rbp-180h]
+  PVOID BaseAddress; // [rsp+68h] [rbp-180h]
   _UNICODE_STRING DosPath; // [rsp+70h] [rbp-178h] BYREF
-  unsigned __int64 v126; // [rsp+80h] [rbp-168h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+80h] [rbp-168h] BYREF
   int v127; // [rsp+88h] [rbp-160h]
   int v128; // [rsp+8Ch] [rbp-15Ch]
   int v129; // [rsp+90h] [rbp-158h]
@@ -353,7 +353,7 @@ LABEL_27:
   DosPath = 0LL;
   v20 = 0LL;
   v21 = 0LL;
-  v124 = 0LL;
+  BaseAddress = 0LL;
   v22 = 0;
   v114 = 0;
   i = 0;
@@ -381,15 +381,15 @@ LABEL_27:
         DosPath.MaximumLength = a1[1];
         goto LABEL_172;
       case 3:
-        v65 = RtlpReferenceCurrentDirectory(0LL, 0LL);
-        v124 = v65;
+        v65 = (_CURDIR *)RtlpReferenceCurrentDirectory(0LL, 0LL);
+        BaseAddress = v65;
         v114 = 1;
         if ( v65 )
-          p_CurrentDirectory = (_CURDIR *)(v65 + 24);
+          p_CurrentDirectory = v65 + 1;
         else
           p_CurrentDirectory = &NtCurrentPeb()->ProcessParameters->CurrentDirectory;
-        NLS_UPCASE(qword_1801C6038, *p_CurrentDirectory->DosPath.Buffer);
-        v67 = NLS_UPCASE(qword_1801C6038, **((unsigned __int16 **)a1 + 1));
+        NLS_UPCASE(qword_1801C5038, *p_CurrentDirectory->DosPath.Buffer);
+        v67 = NLS_UPCASE(qword_1801C5038, **((unsigned __int16 **)a1 + 1));
         v68 = v67;
         if ( v69 == v67 )
         {
@@ -426,7 +426,7 @@ LABEL_163:
         }
         LOWORD(v136) = v71;
         WORD1(v136) = v72 + 2;
-        v126 = 0LL;
+        ReturnLength = 0LL;
         v129 = 0;
         v74 = RtlQueryEnvironmentVariable(
                 0LL,
@@ -434,10 +434,10 @@ LABEL_163:
                 (unsigned __int64)v73 >> 1,
                 a3,
                 (unsigned __int64)v116 >> 1,
-                &v126);
+                &ReturnLength);
         v129 = v74;
         v75 = 0x7FFFLL;
-        if ( v126 > 0x7FFF )
+        if ( ReturnLength > 0x7FFF )
         {
           v129 = -1073741801;
         }
@@ -445,17 +445,17 @@ LABEL_163:
         {
           if ( v74 == -1073741789 )
           {
-            v77 = 2 * (v126 - 1);
+            v77 = 2 * (ReturnLength - 1);
             v26 = v77;
             LOWORD(v122) = v77;
             v76 = v77;
           }
           else
           {
-            v76 = 2 * v126;
-            v26 = 2 * v126;
-            LOWORD(v122) = 2 * v126;
-            v77 = 2 * v126;
+            v76 = 2 * ReturnLength;
+            v26 = 2 * ReturnLength;
+            LOWORD(v122) = 2 * ReturnLength;
+            v77 = 2 * ReturnLength;
           }
           if ( v74 >= 0 )
           {
@@ -484,7 +484,7 @@ LABEL_163:
               v27 = 0;
               v37 = v8 >> 1;
               v22 = 1;
-              v21 = v124;
+              v21 = (HANDLE *)BaseAddress;
               goto LABEL_213;
             }
 LABEL_199:
@@ -540,11 +540,11 @@ LABEL_197:
         goto LABEL_199;
       case 4:
         LOBYTE(v19) = 1;
-        v80 = RtlpReferenceCurrentDirectory(v19, 0LL);
-        v124 = v80;
+        v80 = (_CURDIR *)RtlpReferenceCurrentDirectory(v19, 0LL);
+        BaseAddress = v80;
         v114 = 1;
         if ( v80 )
-          v81 = (_CURDIR *)(v80 + 24);
+          v81 = v80 + 1;
         else
           v81 = &NtCurrentPeb()->ProcessParameters->CurrentDirectory;
         v82 = RtlpComputeBackupIndex(v81);
@@ -562,13 +562,13 @@ LABEL_172:
         v20 = 0LL;
         goto LABEL_29;
       case 5:
-        v55 = RtlpReferenceCurrentDirectory(0LL, 0LL);
-        v124 = v55;
+        v55 = (_CURDIR *)RtlpReferenceCurrentDirectory(0LL, 0LL);
+        BaseAddress = v55;
         v114 = 1;
         if ( v55 )
         {
-          v56 = (_CURDIR *)(v55 + 24);
-          a6[1] = *(_DWORD *)(v55 + 40);
+          v56 = v55 + 1;
+          a6[1] = (int)v55[1].Handle;
         }
         else
         {
@@ -576,7 +576,7 @@ LABEL_172:
         }
         v57 = (__m128i)v56->DosPath;
         DosPath = v56->DosPath;
-        LODWORD(v126) = RtlpComputeBackupIndex(v56);
+        LODWORD(ReturnLength) = RtlpComputeBackupIndex(v56);
         v144 = 0LL;
         v145 = 0LL;
         if ( (int)RtlUnicodeStringValidateWorker_0(&v122) >= 0 )
@@ -636,15 +636,15 @@ LABEL_145:
           v26 = 2 * v63;
           LOWORD(v122) = 2 * v63;
           v20 = 0LL;
-          v24 = v126;
+          v24 = ReturnLength;
           goto LABEL_31;
         }
         LOWORD(v25) = DosPath.Length;
-        v24 = v126;
+        v24 = ReturnLength;
         goto LABEL_30;
       case 6:
       case 7:
-        LODWORD(v126) = 4;
+        LODWORD(ReturnLength) = 4;
         i = 4;
         if ( v9 < 4 )
           i = v9;
@@ -724,7 +724,7 @@ LABEL_131:
         if ( v26 >= 6u )
           a3[2] = *(_WORD *)(*((_QWORD *)a1 + 1) + 4LL);
         v20 = 0LL;
-        v24 = v126;
+        v24 = ReturnLength;
         if ( *v136 == 7 )
           v115 = 0;
         goto LABEL_31;
@@ -734,7 +734,7 @@ LABEL_131:
         goto LABEL_213;
     }
   }
-  LODWORD(v126) = 3;
+  LODWORD(ReturnLength) = 3;
   Length = DosPath.Length;
   v24 = 3;
 LABEL_29:
@@ -753,7 +753,7 @@ LABEL_31:
         v27 = v135 + (unsigned __int16)v25 - 2 * i + 2;
       v37 = v121;
       v22 = v114;
-      v21 = v124;
+      v21 = (HANDLE *)BaseAddress;
       goto LABEL_213;
     }
     if ( v9 != 1 )
@@ -763,7 +763,7 @@ LABEL_31:
         v27 = (unsigned int)v20;
       v37 = v121;
       v22 = v114;
-      v21 = v124;
+      v21 = (HANDLE *)BaseAddress;
       goto LABEL_213;
     }
     if ( (_WORD)v25 == 8 )
@@ -773,7 +773,7 @@ LABEL_31:
         v27 = 10;
         v37 = v121;
         v22 = v114;
-        v21 = v124;
+        v21 = (HANDLE *)BaseAddress;
         goto LABEL_213;
       }
     }
@@ -783,7 +783,7 @@ LABEL_31:
       {
         v37 = v121;
         v22 = v114;
-        v21 = v124;
+        v21 = (HANDLE *)BaseAddress;
         goto LABEL_213;
       }
       v45 = v26;
@@ -921,7 +921,7 @@ LABEL_46:
   }
   v27 = (unsigned __int16)(2 * v30);
   v22 = v114;
-  v21 = v124;
+  v21 = (HANDLE *)BaseAddress;
 LABEL_213:
   if ( v22 )
   {
@@ -929,8 +929,8 @@ LABEL_213:
     {
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)v21, 0xFFFFFFFF) == 1 )
       {
-        NtClose(*(HANDLE *)(v21 + 8));
-        RtlFreeHeap_0();
+        NtClose(v21[1]);
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
         LOWORD(v20) = 0;
       }
     }

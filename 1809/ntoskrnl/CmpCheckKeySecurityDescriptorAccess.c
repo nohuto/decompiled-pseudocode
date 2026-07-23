@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x1406C9FB0
+ * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x1406CB250
  * Callers:
- *     CmpCheckSecurityCellAccess @ 0x1406C9F2C (CmpCheckSecurityCellAccess.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmpCheckKcbStackAccess @ 0x1407F47E4 (CmpCheckKcbStackAccess.c)
- *     CmpCheckKeyNodeStackAccess @ 0x1407F4AA0 (CmpCheckKeyNodeStackAccess.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x1407F4E14 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpCheckSecurityCellAccess @ 0x1406CB1CC (CmpCheckSecurityCellAccess.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmpCheckKcbStackAccess @ 0x1407F59E4 (CmpCheckKcbStackAccess.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x1407F5CA0 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x1407F6014 (CmpDoAccessCheckOnLayeredSubtree.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCreateAccessStateEx @ 0x140612280 (SeCreateAccessStateEx.c)
- *     CmpSetAccessStateForBackupRestore @ 0x1407055F0 (CmpSetAccessStateForBackupRestore.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x140613280 (SeCreateAccessStateEx.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x140706890 (CmpSetAccessStateForBackupRestore.c)
  */
 
 __int64 __fastcall CmpCheckKeySecurityDescriptorAccess(

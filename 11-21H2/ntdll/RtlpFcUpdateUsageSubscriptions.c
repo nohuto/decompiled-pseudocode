@@ -12,51 +12,55 @@
 __int64 __fastcall RtlpFcUpdateUsageSubscriptions(__int64 a1, unsigned __int64 a2, unsigned __int8 a3)
 {
   int v4; // r14d
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   int v7; // esi
   unsigned __int64 v8; // rax
+  ULONG v9; // ebp
   _DWORD *Heap; // rax
-  __int64 v10; // rdi
-  unsigned int v11; // edx
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int128 v14; // xmm0
+  _DWORD *v11; // rdi
+  unsigned int v12; // edx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int128 v15; // xmm0
 
   v4 = a3;
   if ( a2 <= 0xFFFFFFFF )
   {
     v7 = a2;
     v8 = 20LL * (unsigned int)a2;
-    if ( v8 > 0xFFFFFFFF || (unsigned int)v8 >= 0xFFFFFFFC )
+    if ( v8 > 0xFFFFFFFF )
+      return (unsigned int)-1073741675;
+    v9 = v8 + 4;
+    if ( (unsigned int)v8 >= 0xFFFFFFFC )
     {
       return (unsigned int)-1073741675;
     }
     else
     {
-      Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v8 + 4));
-      v10 = (__int64)Heap;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v9);
+      v11 = Heap;
       if ( Heap )
       {
         *Heap = v7;
-        v11 = 0;
+        v12 = 0;
         if ( a2 )
         {
-          v12 = 0LL;
+          v13 = 0LL;
           do
           {
-            v13 = 5 * v12;
-            ++v11;
-            *(_DWORD *)(v10 + 4 * v13 + 4) = v4;
-            v14 = *(_OWORD *)(a1 + 16 * v12);
-            v12 = v11;
-            *(_OWORD *)(v10 + 4 * v13 + 8) = v14;
+            v14 = 5 * v13;
+            ++v12;
+            v11[v14 + 1] = v4;
+            v15 = *(_OWORD *)(a1 + 16 * v13);
+            v13 = v12;
+            *(_OWORD *)&v11[v14 + 2] = v15;
           }
-          while ( v11 < a2 );
+          while ( v12 < a2 );
         }
-        v6 = ZwSetSystemInformation();
+        v6 = ZwSetSystemInformation(SystemFeatureUsageSubscriptionInformation, v11, v9);
         if ( v6 >= 0 )
           v6 = 0;
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
       }
       else
       {

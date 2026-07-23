@@ -1,0 +1,32 @@
+/*
+ * XREFs of sub_140B1041C @ 0x140B1041C
+ * Callers:
+ *     sub_140B0F20C @ 0x140B0F20C (sub_140B0F20C.c)
+ * Callees:
+ *     <none>
+ */
+
+_BYTE *__fastcall sub_140B1041C(char a1, char a2, _BYTE *a3, int a4)
+{
+  unsigned __int64 v4; // r9
+  _BYTE *v5; // r10
+  _WORD *i; // r8
+
+  v4 = (unsigned __int64)&a3[a4 - 2];
+  while ( 1 )
+  {
+    v5 = 0LL;
+    if ( (unsigned __int64)a3 >= v4 )
+      break;
+    if ( *a3 == a1 )
+    {
+      v5 = a3;
+      if ( *a3 != 2 || a3 + 14 <= &a3[(unsigned __int8)a3[1]] && a3[13] == a2 )
+        break;
+    }
+    for ( i = &a3[(unsigned __int8)a3[1]]; (unsigned __int64)i < v4 && *i; i = (_WORD *)((char *)i + 1) )
+      ;
+    a3 = i + 1;
+  }
+  return v5;
+}

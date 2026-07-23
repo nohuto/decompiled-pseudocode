@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 (__fastcall *RtlGetReturnAddressHijackTarget())()
+ULONG_PTR RtlGetReturnAddressHijackTarget(void)
 {
-  return RtlRaiseExceptionForReturnAddressHijack;
+  return (ULONG_PTR)RtlRaiseExceptionForReturnAddressHijack;
 }

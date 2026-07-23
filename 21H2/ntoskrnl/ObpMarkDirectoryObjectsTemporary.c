@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x140691AB8
+ * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x1405F1928
  * Callers:
- *     ObpMarkDirectoryTreeTemporary @ 0x140691A40 (ObpMarkDirectoryTreeTemporary.c)
+ *     ObpMarkDirectoryTreeTemporary @ 0x1405F18B0 (ObpMarkDirectoryTreeTemporary.c)
  * Callees:
- *     ObpUnlockDirectory @ 0x14027EB0C (ObpUnlockDirectory.c)
- *     ObpLockDirectoryExclusive @ 0x1402AB5F0 (ObpLockDirectoryExclusive.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ObpDeleteSymbolicLinkName @ 0x140691CBC (ObpDeleteSymbolicLinkName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObpLockDirectoryExclusive @ 0x140229730 (ObpLockDirectoryExclusive.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObpUnlockDirectory @ 0x14026CAAC (ObpUnlockDirectory.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ObpDeleteSymbolicLinkName @ 0x1405F1B2C (ObpDeleteSymbolicLinkName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpMarkDirectoryObjectsTemporary(PADAPTER_OBJECT DmaAdapter)

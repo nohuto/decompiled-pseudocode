@@ -34,7 +34,7 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
   unsigned int v22; // r8d
   unsigned int v23; // eax
   unsigned __int64 v24; // rax
-  int v26; // [rsp+48h] [rbp-C0h] BYREF
+  int Buffer; // [rsp+48h] [rbp-C0h] BYREF
   int v27; // [rsp+4Ch] [rbp-BCh] BYREF
   int v28; // [rsp+50h] [rbp-B8h] BYREF
   unsigned int v29; // [rsp+54h] [rbp-B4h] BYREF
@@ -78,8 +78,8 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
   if ( byte_140F0AC80 != a2 )
   {
     byte_140F0AC80 = a2;
-    v26 = a2;
-    LOBYTE(v2) = ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v26);
+    Buffer = a2;
+    LOBYTE(v2) = ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &Buffer, 4u, 0LL, 0LL, 0, 0);
     if ( (unsigned int)dword_140E07680 > 5 )
     {
       LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL);

@@ -1,23 +1,27 @@
 /*
- * XREFs of AlpcInitializeMessageAttribute @ 0x1800E4AA0
+ * XREFs of AlpcInitializeMessageAttribute @ 0x1800DFF50
  * Callers:
  *     <none>
  * Callees:
- *     AlpcGetHeaderSize @ 0x1800E4B40 (AlpcGetHeaderSize.c)
+ *     AlpcGetHeaderSize @ 0x1800DFFF0 (AlpcGetHeaderSize.c)
  */
 
-__int64 __fastcall AlpcInitializeMessageAttribute(int a1, _DWORD *a2, unsigned __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl AlpcInitializeMessageAttribute(
+        ULONG AttributeFlags,
+        PALPC_MESSAGE_ATTRIBUTES Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T RequiredBufferSize)
 {
-  unsigned int HeaderSize; // eax
+  ULONG HeaderSize; // eax
 
-  HeaderSize = AlpcGetHeaderSize();
-  *a4 = HeaderSize;
-  if ( HeaderSize > a3 )
-    return 3221225507LL;
-  if ( a2 )
+  HeaderSize = AlpcGetHeaderSize(AttributeFlags);
+  *RequiredBufferSize = HeaderSize;
+  if ( HeaderSize > BufferSize )
+    return -1073741789;
+  if ( Buffer )
   {
-    a2[1] = 0;
-    *a2 = a1;
+    Buffer->ValidAttributes = 0;
+    Buffer->AllocatedAttributes = AttributeFlags;
   }
-  return 0LL;
+  return 0;
 }

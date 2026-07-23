@@ -1,19 +1,18 @@
 /*
- * XREFs of RtlInsertElementGenericTableFullAvl @ 0x1403F0BC0
+ * XREFs of RtlInsertElementGenericTableFullAvl @ 0x1403E48E0
  * Callers:
- *     PiDmAddCacheReferenceForObject @ 0x1408B4924 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlObjectEventCreate @ 0x1408CB870 (PiPnpRtlObjectEventCreate.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x1408CC2D0 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1408B2214 (PiDmAddCacheReferenceForObject.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1408C92A0 (PiPnpRtlObjectEventCreate.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1408C9D00 (PiPnpRtlCacheObjectBaseKey.c)
  * Callees:
- *     RebalanceNode @ 0x1403F0D50 (RebalanceNode.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PiPnpRtlOperationAllocateGenericTableEntry @ 0x140A26850 (PiPnpRtlOperationAllocateGenericTableEntry.c)
- *     SshpCacheDatabaseAllocate @ 0x140A64230 (SshpCacheDatabaseAllocate.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     RebalanceNode @ 0x1403E4A70 (RebalanceNode.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PiPnpRtlOperationAllocateGenericTableEntry @ 0x140A1B2D0 (PiPnpRtlOperationAllocateGenericTableEntry.c)
+ *     SshpCacheDatabaseAllocate @ 0x140A5CB30 (SshpCacheDatabaseAllocate.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 PVOID __stdcall RtlInsertElementGenericTableFullAvl(
         PRTL_AVL_TABLE Table,
         PVOID Buffer,
@@ -61,11 +60,7 @@ LABEL_18:
     {
       GenericTableEntry = (char *)AllocateRoutine == (char *)ExAllocatePoolWithTag
                         ? (_RTL_BALANCED_LINKS *)ExAllocatePoolWithTag((POOL_TYPE)Table, v10, BufferSize)
-                        : (_RTL_BALANCED_LINKS *)guard_dispatch_icall_no_overrides(
-                                                   Table,
-                                                   v10,
-                                                   *(_QWORD *)&BufferSize,
-                                                   NewElement);
+                        : (_RTL_BALANCED_LINKS *)guard_dispatch_icall_no_overrides(Table, v10);
     }
     v13 = (char *)GenericTableEntry;
     if ( GenericTableEntry )

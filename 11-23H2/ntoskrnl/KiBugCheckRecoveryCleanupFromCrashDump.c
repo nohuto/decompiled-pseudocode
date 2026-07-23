@@ -1,13 +1,13 @@
 /*
- * XREFs of KiBugCheckRecoveryCleanupFromCrashDump @ 0x14057A6A8
+ * XREFs of KiBugCheckRecoveryCleanupFromCrashDump @ 0x14057AB98
  * Callers:
- *     KiCaptureDumpPostRecovery @ 0x14057AC90 (KiCaptureDumpPostRecovery.c)
+ *     KiCaptureDumpPostRecovery @ 0x14057B180 (KiCaptureDumpPostRecovery.c)
  * Callees:
  *     KiSendThawExecution @ 0x14020D210 (KiSendThawExecution.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvlResumeFromRootCrashdump @ 0x1405454E4 (HvlResumeFromRootCrashdump.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x14057B878 (KiUpdateBugcheckRecoveryProgress.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvlResumeFromRootCrashdump @ 0x140545BA4 (HvlResumeFromRootCrashdump.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x14057BD68 (KiUpdateBugcheckRecoveryProgress.c)
  */
 
 __int64 __fastcall KiBugCheckRecoveryCleanupFromCrashDump(unsigned __int8 a1, char a2)
@@ -38,10 +38,10 @@ __int64 __fastcall KiBugCheckRecoveryCleanupFromCrashDump(unsigned __int8 a1, ch
     }
     KiSendThawExecution(1);
     result = off_140C01CC8[0]();
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v3 <= 0xFu
         && (unsigned __int8)result >= 2u )

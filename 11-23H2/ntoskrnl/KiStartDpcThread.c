@@ -1,12 +1,12 @@
 /*
- * XREFs of KiStartDpcThread @ 0x1408217A0
+ * XREFs of KiStartDpcThread @ 0x140821AA0
  * Callers:
- *     KiInitializeDynamicProcessor @ 0x140A9F278 (KiInitializeDynamicProcessor.c)
+ *     KiInitializeDynamicProcessor @ 0x140A9F0E8 (KiInitializeDynamicProcessor.c)
  *     KeInitSystem @ 0x140B4DED4 (KeInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall KiStartDpcThread(__int64 a1)

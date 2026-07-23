@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_Servicing_DeadlineQosReschedule__private_ReportUsageFallback @ 0x1405C20CC
+ * XREFs of Feature_Servicing_DeadlineQosReschedule__private_ReportUsageFallback @ 0x1405BF69C
  * Callers:
- *     Feature_Servicing_DeadlineQosReschedule__private_ReportDeviceUsage @ 0x140476EC0 (Feature_Servicing_DeadlineQosReschedule__private_ReportDeviceUsage.c)
+ *     Feature_Servicing_DeadlineQosReschedule__private_ReportDeviceUsage @ 0x140473460 (Feature_Servicing_DeadlineQosReschedule__private_ReportDeviceUsage.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void __fastcall Feature_Servicing_DeadlineQosReschedule__private_ReportUsageFallback(char a1, int a2)

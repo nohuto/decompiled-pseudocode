@@ -1,11 +1,11 @@
 /*
- * XREFs of AccelWaitForWorkCompletion @ 0x1402A1F3C
+ * XREFs of AccelWaitForWorkCompletion @ 0x1402A148C
  * Callers:
- *     AccelpSubmitWork @ 0x1402A1EE4 (AccelpSubmitWork.c)
- *     SmHwAcceleratorWaitForRequest @ 0x140640060 (SmHwAcceleratorWaitForRequest.c)
+ *     AccelpSubmitWork @ 0x1402A1434 (AccelpSubmitWork.c)
+ *     SmHwAcceleratorWaitForRequest @ 0x140643C40 (SmHwAcceleratorWaitForRequest.c)
  * Callees:
- *     AccelpInternalOperationHandler @ 0x140531E58 (AccelpInternalOperationHandler.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpInternalOperationHandler @ 0x1405342F8 (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelWaitForWorkCompletion(__int64 *a1, __int64 a2, unsigned int a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpEnterCorralledState @ 0x14059A980
+ * XREFs of IopLiveDumpEnterCorralledState @ 0x140597900
  * Callers:
- *     IopLiveDumpCapture @ 0x140599EC4 (IopLiveDumpCapture.c)
- *     IopLiveDumpEndMirroringCallback @ 0x14059A8D0 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpCapture @ 0x140596E48 (IopLiveDumpCapture.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140597850 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpCorralProcessors @ 0x14059A660 (IopLiveDumpCorralProcessors.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpCorralProcessors @ 0x1405975E0 (IopLiveDumpCorralProcessors.c)
  */
 
 __int64 __fastcall IopLiveDumpEnterCorralledState(_QWORD *a1)

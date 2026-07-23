@@ -8,33 +8,48 @@
  *     NtQueryInformationToken @ 0x18009D900 (NtQueryInformationToken.c)
  */
 
-__int64 __fastcall RtlNewInstanceSecurityObject(
-        char a1,
-        char a2,
-        _DWORD *a3,
-        __int64 a4,
-        __int64 a5,
-        _BYTE *a6,
-        __int64 *a7,
-        char a8,
-        __int64 a9,
-        __int64 a10)
+NTSTATUS __cdecl RtlNewInstanceSecurityObject(
+        BOOLEAN ParentDescriptorChanged,
+        BOOLEAN CreatorDescriptorChanged,
+        PLUID OldClientTokenModifiedId,
+        PLUID NewClientTokenModifiedId,
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CreatorDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        BOOLEAN IsDirectoryObject,
+        HANDLE TokenHandle,
+        PGENERIC_MAPPING GenericMapping)
 {
-  __int64 result; // rax
-  __int64 v15; // [rsp+90h] [rbp-38h]
+  NTSTATUS result; // eax
+  ULONG ReturnLength; // [rsp+50h] [rbp-78h] BYREF
+  __int64 v16; // [rsp+58h] [rbp-70h]
+  _QWORD v17[7]; // [rsp+60h] [rbp-68h] BYREF
 
-  result = NtQueryInformationToken();
-  if ( (int)result >= 0 )
+  v16 = (__int64)GenericMapping;
+  result = NtQueryInformationToken(TokenHandle, 0xAu, v17, 0x38u, &ReturnLength);
+  if ( result >= 0 )
   {
-    *(_QWORD *)a4 = v15;
-    if ( *(_DWORD *)a4 != *a3 || *(_DWORD *)(a4 + 4) != a3[1] || a1 || a2 )
+    *NewClientTokenModifiedId = (_LUID)v17[6];
+    if ( NewClientTokenModifiedId->LowPart != OldClientTokenModifiedId->LowPart
+      || NewClientTokenModifiedId->HighPart != OldClientTokenModifiedId->HighPart
+      || ParentDescriptorChanged
+      || CreatorDescriptorChanged )
     {
-      return RtlpNewSecurityObject(a5, a6, a7, 0LL, 0, a8, 0, a9, a10);
+      return RtlpNewSecurityObject(
+               (__int64)ParentDescriptor,
+               CreatorDescriptor,
+               NewDescriptor,
+               0LL,
+               0,
+               IsDirectoryObject,
+               0,
+               TokenHandle,
+               (GENERIC_MAPPING *)v16);
     }
     else
     {
-      *a7 = 0LL;
-      return 0LL;
+      *NewDescriptor = 0LL;
+      return 0;
     }
   }
   return result;

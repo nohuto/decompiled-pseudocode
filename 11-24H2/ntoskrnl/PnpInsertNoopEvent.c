@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpInsertNoopEvent @ 0x1408B3754
+ * XREFs of PnpInsertNoopEvent @ 0x1408B1044
  * Callers:
- *     PnpDeferNotification @ 0x1408B3660 (PnpDeferNotification.c)
+ *     PnpDeferNotification @ 0x1408B0F50 (PnpDeferNotification.c)
  * Callees:
- *     PnpCreateDeviceEventEntry @ 0x1408B3920 (PnpCreateDeviceEventEntry.c)
- *     PnpInsertEventInQueue @ 0x1408B3950 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x1408B1210 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x1408B1240 (PnpInsertEventInQueue.c)
  */
 
 __int64 __fastcall PnpInsertNoopEvent(__int64 a1, __int64 a2)

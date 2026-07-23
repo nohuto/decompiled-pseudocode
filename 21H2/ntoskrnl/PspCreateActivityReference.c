@@ -1,14 +1,14 @@
 /*
- * XREFs of PspCreateActivityReference @ 0x140731498
+ * XREFs of PspCreateActivityReference @ 0x140731658
  * Callers:
- *     NtAcquireProcessActivityReference @ 0x140731390 (NtAcquireProcessActivityReference.c)
+ *     NtAcquireProcessActivityReference @ 0x140731550 (NtAcquireProcessActivityReference.c)
  * Callees:
- *     PsChargeProcessWakeCounter @ 0x1406BF030 (PsChargeProcessWakeCounter.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     PsChargeProcessWakeCounter @ 0x1406BCA00 (PsChargeProcessWakeCounter.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall PspCreateActivityReference(__int64 Object, unsigned __int64 *a2)
+__int64 __fastcall PspCreateActivityReference(__int64 a1, unsigned __int64 *a2)
 {
   char PreviousMode; // r9
   __int64 result; // rax
@@ -45,7 +45,7 @@ __int64 __fastcall PspCreateActivityReference(__int64 Object, unsigned __int64 *
   if ( (int)result >= 0 )
   {
     v6 = (char *)DmaAdapter;
-    *(_QWORD *)v6 = PsChargeProcessWakeCounter(Object, 0, 5u, (__int64)DmaAdapter);
+    *(_QWORD *)v6 = PsChargeProcessWakeCounter(a1);
     return ObInsertObjectEx(v6, 0LL, 0xF0000u, 0, 0, 0LL, a2);
   }
   return result;

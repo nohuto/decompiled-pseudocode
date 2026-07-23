@@ -1,16 +1,16 @@
 /*
- * XREFs of PoNotifySystemTimeSet @ 0x1403A7804
+ * XREFs of PoNotifySystemTimeSet @ 0x1403A7954
  * Callers:
- *     ExpRefreshSystemTime @ 0x1407A909C (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x14094BD10 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140998FC8 (ExpSetSystemTime.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     ExpRefreshSystemTime @ 0x1407A929C (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x14094BEE0 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140999FC8 (ExpSetSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     PopCheckForWork @ 0x140281280 (PopCheckForWork.c)
- *     PopGetPolicyWorker @ 0x140281B10 (PopGetPolicyWorker.c)
- *     ExNotifyWithProcessing @ 0x1402B0658 (ExNotifyWithProcessing.c)
+ *     ExNotifyWithProcessing @ 0x14022E9B8 (ExNotifyWithProcessing.c)
+ *     PopCheckForWork @ 0x14026F4C0 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14026FD50 (PopGetPolicyWorker.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceSystemTimeChange @ 0x140998CE8 (EtwTraceSystemTimeChange.c)
+ *     EtwTraceSystemTimeChange @ 0x140999CE8 (EtwTraceSystemTimeChange.c)
  */
 
 void __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2)
@@ -26,7 +26,7 @@ void __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2)
   if ( PsWin32CalloutsEstablished )
   {
     PopTimeChangeInfo = *a1;
-    qword_140C25108 = *a2;
+    qword_140C251D8 = *a2;
     EtwTraceSystemTimeChange();
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);

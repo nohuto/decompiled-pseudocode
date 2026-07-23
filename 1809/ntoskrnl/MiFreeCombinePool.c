@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeCombinePool @ 0x14013A250
+ * XREFs of MiFreeCombinePool @ 0x14013A350
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiUnlockPagedAddress @ 0x14013A2C8 (MiUnlockPagedAddress.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiUnlockPagedAddress @ 0x14013A3C8 (MiUnlockPagedAddress.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeCombinePool(__int64 a1)

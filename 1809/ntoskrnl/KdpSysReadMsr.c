@@ -1,8 +1,8 @@
 /*
- * XREFs of KdpSysReadMsr @ 0x14028CEDC
+ * XREFs of KdpSysReadMsr @ 0x14028D0CC
  * Callers:
- *     KdSystemDebugControl @ 0x1408422B0 (KdSystemDebugControl.c)
- *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
+ *     KdSystemDebugControl @ 0x140843510 (KdSystemDebugControl.c)
+ *     KdpSendWaitContinue @ 0x140918100 (KdpSendWaitContinue.c)
  * Callees:
  *     <none>
  */

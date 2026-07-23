@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepDbQueryRegistryDeviceData @ 0x1409E5B5C
+ * XREFs of KsepDbQueryRegistryDeviceData @ 0x1409D70DC
  * Callers:
- *     KseQueryDeviceData @ 0x1409E5A00 (KseQueryDeviceData.c)
+ *     KseQueryDeviceData @ 0x1409D6F80 (KseQueryDeviceData.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     KsepRegistryQueryValue @ 0x1407BF4FC (KsepRegistryQueryValue.c)
- *     KsepRegistryCloseKey @ 0x1409E42F0 (KsepRegistryCloseKey.c)
- *     KsepStringConcatenate @ 0x1409E5358 (KsepStringConcatenate.c)
- *     KsepStringTransform @ 0x1409E5CF0 (KsepStringTransform.c)
- *     KsepStringDuplicate @ 0x1409E5E2C (KsepStringDuplicate.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     KsepRegistryQueryValue @ 0x1407C255C (KsepRegistryQueryValue.c)
+ *     KsepStringTransform @ 0x1409D7270 (KsepStringTransform.c)
+ *     KsepStringDuplicate @ 0x1409D73AC (KsepStringDuplicate.c)
+ *     KsepStringConcatenate @ 0x1409D7A8C (KsepStringConcatenate.c)
+ *     KsepRegistryCloseKey @ 0x1409D8784 (KsepRegistryCloseKey.c)
  */
 
 __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _DWORD *a3, _DWORD *a4, void *a5)
@@ -23,7 +23,7 @@ __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _D
   __int64 v15; // [rsp+40h] [rbp-19h] BYREF
   void *v16; // [rsp+48h] [rbp-11h]
   __int64 v17; // [rsp+50h] [rbp-9h] BYREF
-  _WORD *v18; // [rsp+58h] [rbp-1h]
+  void *v18; // [rsp+58h] [rbp-1h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
 
   v17 = 0LL;
@@ -38,10 +38,10 @@ __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _D
     KeyHandle = 0LL;
     if ( v18 )
       v11 = KsepStringConcatenate(
-              (__int64)&v15,
+              &v15,
               L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility\\Device",
               v18,
-              1);
+              1LL);
     else
       v11 = KsepStringDuplicate(&v15, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility\\Device");
     v12 = v11;
@@ -56,7 +56,7 @@ __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _D
       if ( v12 >= 0 )
       {
         v8 = KeyHandle;
-        _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.RelativeTimerBias);
+        _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.WaitBlockList);
       }
     }
     if ( v16 )

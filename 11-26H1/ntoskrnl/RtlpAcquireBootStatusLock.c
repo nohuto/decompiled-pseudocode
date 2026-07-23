@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpAcquireBootStatusLock @ 0x1404E3E70
+ * XREFs of RtlpAcquireBootStatusLock @ 0x1404DD410
  * Callers:
- *     PopBootStatSet @ 0x140ACB570 (PopBootStatSet.c)
- *     RtlUnlockBootStatusData @ 0x140ACBD70 (RtlUnlockBootStatusData.c)
- *     RtlLockBootStatusData @ 0x140B12DA0 (RtlLockBootStatusData.c)
- *     PopBootStatRestoreDefaults @ 0x140B516E4 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatSet @ 0x140ACD7B0 (PopBootStatSet.c)
+ *     RtlUnlockBootStatusData @ 0x140ACDFB0 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140B14C40 (RtlLockBootStatusData.c)
+ *     PopBootStatRestoreDefaults @ 0x140B53F84 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall RtlpAcquireBootStatusLock(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

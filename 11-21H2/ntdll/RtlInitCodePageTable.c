@@ -6,51 +6,48 @@
  *     <none>
  */
 
-void __fastcall RtlInitCodePageTable(unsigned __int16 *a1, __int64 a2)
+void __cdecl RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTable)
 {
-  __int64 v2; // r10
+  wchar_t *v2; // r10
   __int64 v4; // r8
   unsigned __int16 v5; // r11
-  __int64 v6; // rax
-  __int64 v7; // rcx
+  USHORT *v6; // rax
+  USHORT *v7; // rcx
   __int64 v8; // r8
-  __int16 v9; // ax
+  unsigned __int16 v9; // ax
 
   v2 = 0LL;
-  if ( !a1 || a1[1] == 0xFDE9 )
+  if ( !TableBase || TableBase[1] == 0xFDE9 )
   {
-    *(_OWORD *)a2 = Utf8TableInfo;
-    *(_OWORD *)(a2 + 16) = xmmword_180177720;
-    *(_OWORD *)(a2 + 32) = xmmword_180177730;
-    *(_OWORD *)(a2 + 48) = xmmword_180177740;
+    *CodePageTable = Utf8TableInfo;
   }
   else
   {
-    v4 = *a1;
-    v5 = *a1 + a1[v4];
-    *(_WORD *)(a2 + 2) = a1[2];
-    *(_WORD *)(a2 + 4) = a1[3];
-    *(_WORD *)(a2 + 6) = a1[4];
-    *(_WORD *)(a2 + 8) = a1[5];
-    *(_WORD *)(a2 + 10) = a1[6];
-    *(_QWORD *)(a2 + 14) = *(_QWORD *)(a1 + 7);
-    *(_DWORD *)(a2 + 22) = *(_DWORD *)(a1 + 11);
-    v6 = (__int64)&a1[v4 + 1];
-    v7 = v6 + 512;
-    *(_QWORD *)(a2 + 32) = v6;
-    v8 = *(_WORD *)(v6 + 512) != 0 ? 0x200 : 0;
-    if ( *(_WORD *)(v8 + v6 + 512 + 2) )
+    v4 = *TableBase;
+    v5 = *TableBase + TableBase[v4];
+    CodePageTable->MaximumCharacterSize = TableBase[2];
+    CodePageTable->DefaultChar = TableBase[3];
+    CodePageTable->UniDefaultChar = TableBase[4];
+    CodePageTable->TransDefaultChar = TableBase[5];
+    CodePageTable->TransUniDefaultChar = TableBase[6];
+    *(_QWORD *)CodePageTable->LeadByte = *(_QWORD *)(TableBase + 7);
+    *(_DWORD *)&CodePageTable->LeadByte[8] = *(_DWORD *)(TableBase + 11);
+    v6 = &TableBase[v4 + 1];
+    v7 = v6 + 256;
+    CodePageTable->MultiByteTable = v6;
+    v8 = v6[256] != 0 ? 0x200 : 0;
+    if ( *(USHORT *)((char *)v6 + v8 + 514) )
     {
       v9 = 1;
-      v2 = v8 + v7 + 4;
+      v2 = (USHORT *)((char *)v7 + v8 + 4);
     }
     else
     {
       v9 = 0;
     }
-    *(_QWORD *)(a2 + 56) = v2;
-    *(_WORD *)(a2 + 12) = v9;
-    *(_QWORD *)(a2 + 40) = &a1[v5 + 1];
-    *(_WORD *)a2 = a1[1];
+    CodePageTable->DBCSOffsets = v2;
+    CodePageTable->DBCSCodePage = v9;
+    CodePageTable->WideCharTable = &TableBase[v5 + 1];
+    CodePageTable->CodePage = TableBase[1];
   }
 }

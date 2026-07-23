@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDestroyActiveConnectBlock @ 0x140A12918
+ * XREFs of IopDestroyActiveConnectBlock @ 0x1409C0D28
  * Callers:
- *     IoDisconnectInterrupt @ 0x140A121C0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x140A12470 (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x1409C05D0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1409C0880 (IopConnectInterrupt.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
  */
 
 void __fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)

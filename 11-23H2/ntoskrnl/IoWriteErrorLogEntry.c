@@ -1,19 +1,19 @@
 /*
- * XREFs of IoWriteErrorLogEntry @ 0x1403C7310
+ * XREFs of IoWriteErrorLogEntry @ 0x1403C74F0
  * Callers:
- *     IopDisassociateThreadIrp @ 0x140555134 (IopDisassociateThreadIrp.c)
- *     DifIoWriteErrorLogEntryWrapper @ 0x1405E1C80 (DifIoWriteErrorLogEntryWrapper.c)
- *     FsRtlLogCcFlushError @ 0x14093D0E0 (FsRtlLogCcFlushError.c)
- *     IopLogBlockedDriverEvent @ 0x14094524C (IopLogBlockedDriverEvent.c)
- *     PnpLogEvent @ 0x140958AB0 (PnpLogEvent.c)
- *     MiLogFailedDriverLoad @ 0x140A30284 (MiLogFailedDriverLoad.c)
- *     MiBadMemoryLogger @ 0x140A42E80 (MiBadMemoryLogger.c)
+ *     IopDisassociateThreadIrp @ 0x1405557F4 (IopDisassociateThreadIrp.c)
+ *     DifIoWriteErrorLogEntryWrapper @ 0x1405E21F0 (DifIoWriteErrorLogEntryWrapper.c)
+ *     FsRtlLogCcFlushError @ 0x14093D2E0 (FsRtlLogCcFlushError.c)
+ *     IopLogBlockedDriverEvent @ 0x14094544C (IopLogBlockedDriverEvent.c)
+ *     PnpLogEvent @ 0x140958CB0 (PnpLogEvent.c)
+ *     MiLogFailedDriverLoad @ 0x140A30534 (MiLogFailedDriverLoad.c)
+ *     MiBadMemoryLogger @ 0x140A43130 (MiBadMemoryLogger.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -65,10 +65,13 @@ void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
       ExQueueWorkItem(&IopErrorLogWorkItem, DelayedWorkQueue);
     }
     KxReleaseSpinLock((volatile signed __int64 *)&IopErrorLogLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

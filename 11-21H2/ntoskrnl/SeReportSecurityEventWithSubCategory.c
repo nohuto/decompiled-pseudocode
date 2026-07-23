@@ -2,14 +2,14 @@
  * XREFs of SeReportSecurityEventWithSubCategory @ 0x1402EC620
  * Callers:
  *     SeReportSecurityEvent @ 0x1405F4C40 (SeReportSecurityEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x1409188E8 (CmpReportAuditVirtualizationEvent.c)
+ *     sub_1409188E8 @ 0x1409188E8 (sub_1409188E8.c)
  * Callees:
- *     SepAuditingForSubCategory @ 0x1402EC884 (SepAuditingForSubCategory.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
+ *     sub_1402EC884 @ 0x1402EC884 (sub_1402EC884.c)
+ *     sub_1403CD84C @ 0x1403CD84C (sub_1403CD84C.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     memset @ 0x140435E00 (memset.c)
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
+ *     sub_140724320 @ 0x140724320 (sub_140724320.c)
  *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
  */
@@ -75,7 +75,7 @@ NTSTATUS __stdcall SeReportSecurityEventWithSubCategory(
                     v12 = 0LL;
                   LOBYTE(UserSid) = Type == 16;
                   LOBYTE(SourceName) = Type == 8;
-                  if ( !(unsigned __int8)SepAdtAuditThisEventWithContext(AuditSubcategoryId, SourceName, UserSid, v12) )
+                  if ( !(unsigned __int8)sub_140724320(AuditSubcategoryId, SourceName, UserSid, v12) )
                   {
 LABEL_19:
                     if ( v11 )
@@ -90,11 +90,11 @@ LABEL_19:
                 else
                 {
                   LOBYTE(SourceName) = Type == 8;
-                  if ( !(unsigned __int8)SepAuditingForSubCategory(AuditSubcategoryId, SourceName) )
+                  if ( !(unsigned __int8)sub_1402EC884(AuditSubcategoryId, SourceName) )
                     return 0;
                   v11 = v6;
                   if ( !v6 )
-                    v11 = (unsigned __int8 *)SeLocalSystemSid;
+                    v11 = (unsigned __int8 *)Group;
                 }
                 memset(Src, 0, 0x418uLL);
                 AuditId = AuditParameters->AuditId;
@@ -105,7 +105,7 @@ LABEL_19:
                 WORD1(Src[2]) = Type;
                 LODWORD(Src[3]) = 4;
                 HIDWORD(Src[3]) = 4 * v14 + 8;
-                Src[10] = &SeSubsystemName;
+                Src[10] = &qword_140001B08;
                 Src[6] = v11;
                 Src[7] = 0x2000000001LL;
                 LODWORD(Src[1]) = 2;
@@ -130,7 +130,7 @@ LABEL_19:
                 ParameterCount = AuditParameters->ParameterCount;
                 memmove(&Src[4 * v15 + 3], AuditParameters->Parameters, 32LL * ParameterCount);
                 LODWORD(Src[1]) += ParameterCount;
-                SepAdtLogAuditRecord(Src);
+                sub_1403CD84C(Src);
                 if ( LOBYTE(SubjectContext[0]) >= 2u )
                   return 0;
                 goto LABEL_19;

@@ -20,7 +20,7 @@ __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
   LARGE_INTEGER v4; // rax
   PVOID v5; // rax
   __int64 v6; // rcx
-  RTL_BITMAP *v7; // rcx
+  _RTL_BITMAP *v7; // rcx
   __int64 v8; // rcx
   __int64 v9; // rax
   PULONG BitMapBuffer; // [rsp+30h] [rbp+8h] BYREF

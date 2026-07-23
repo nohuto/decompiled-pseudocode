@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage @ 0x1404101A8
+ * XREFs of Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage @ 0x140410284
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080A920 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14080ABF0 (CmCompleteRegistryInitialization.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage()

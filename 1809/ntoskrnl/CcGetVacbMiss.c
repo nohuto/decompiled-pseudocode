@@ -1,7 +1,7 @@
 /*
  * XREFs of CcGetVacbMiss @ 0x1400216E0
  * Callers:
- *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x1400AFB80 (CcGetVirtualAddress.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
@@ -12,19 +12,19 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     CcSetVacbInFreeList @ 0x140079BD0 (CcSetVacbInFreeList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x14012CED4 (CcReleaseBcbLockAndVacbLock.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
- *     CcUnmapVacb @ 0x1405F284C (CcUnmapVacb.c)
+ *     CcSetVacbInFreeList @ 0x140079BC0 (CcSetVacbInFreeList.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     MmMapViewInSystemCache @ 0x1400AD870 (MmMapViewInSystemCache.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14012CFA4 (CcReleaseBcbLockAndVacbLock.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcUnmapInactiveViews @ 0x14026AB50 (CcUnmapInactiveViews.c)
+ *     CcUnmapVacb @ 0x1405F384C (CcUnmapVacb.c)
  */
 
 _QWORD *__fastcall CcGetVacbMiss(__int64 a1, __int64 a2, unsigned int a3, int a4)

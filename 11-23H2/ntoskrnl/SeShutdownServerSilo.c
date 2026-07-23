@@ -1,11 +1,11 @@
 /*
- * XREFs of SeShutdownServerSilo @ 0x1409C8EE0
+ * XREFs of SeShutdownServerSilo @ 0x1409C90E0
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x1409ACDB8 (PspDeleteExternalServerSiloState.c)
+ *     PspDeleteExternalServerSiloState @ 0x1409ACFB8 (PspDeleteExternalServerSiloState.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeReferenceLogonSessionDirect @ 0x140370B20 (SepDeReferenceLogonSessionDirect.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409CFF10 (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140370CC0 (SepDeReferenceLogonSessionDirect.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409D0110 (SepDeleteUnreferencedLogonSessionsInSilo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

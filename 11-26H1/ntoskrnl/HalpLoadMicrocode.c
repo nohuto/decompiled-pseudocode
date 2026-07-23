@@ -1,32 +1,32 @@
 /*
- * XREFs of HalpLoadMicrocode @ 0x140784E40
+ * XREFs of HalpLoadMicrocode @ 0x140787970
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x1404AAD60 (KeIpiGenericCall.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpMcUpdateUnlock @ 0x1404ECD1C (HalpMcUpdateUnlock.c)
- *     HalpMcUpdateLock @ 0x1404ECD50 (HalpMcUpdateLock.c)
- *     HalpMcUpdatePostUpdate @ 0x140509770 (HalpMcUpdatePostUpdate.c)
- *     HalpGetMicrocodePatchRecord @ 0x140593124 (HalpGetMicrocodePatchRecord.c)
- *     HalpMcGetLoadConfiguration @ 0x1405935E8 (HalpMcGetLoadConfiguration.c)
- *     HalpMcGetRollbackRequest @ 0x1405936A8 (HalpMcGetRollbackRequest.c)
- *     HalpMcParallelLoadSupported @ 0x140593814 (HalpMcParallelLoadSupported.c)
- *     HalpMcPatchConfiguration @ 0x14059384C (HalpMcPatchConfiguration.c)
- *     HalpMcStaging @ 0x140593950 (HalpMcStaging.c)
- *     HalpMcStagingHypervisor @ 0x140593A60 (HalpMcStagingHypervisor.c)
- *     HalpMcStagingSupport @ 0x140593C48 (HalpMcStagingSupport.c)
- *     PrExtControlOperations @ 0x1406DCA28 (PrExtControlOperations.c)
- *     PrExtExportRecordData @ 0x1406DCB78 (PrExtExportRecordData.c)
- *     PrExtGetRecordDataLength @ 0x1406DCD20 (PrExtGetRecordDataLength.c)
- *     PrExtLogLatencyTime @ 0x1406DCD44 (PrExtLogLatencyTime.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpLoadMicrocodeSerialized @ 0x140785120 (HalpLoadMicrocodeSerialized.c)
- *     HalpMcExportAndChargeNeededData @ 0x1407851F4 (HalpMcExportAndChargeNeededData.c)
- *     PoDisableSleepStates @ 0x1407CC6C0 (PoDisableSleepStates.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x1404A43F0 (KeIpiGenericCall.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpMcUpdateUnlock @ 0x1404E62FC (HalpMcUpdateUnlock.c)
+ *     HalpMcUpdateLock @ 0x1404E6330 (HalpMcUpdateLock.c)
+ *     HalpMcUpdatePostUpdate @ 0x140503220 (HalpMcUpdatePostUpdate.c)
+ *     HalpGetMicrocodePatchRecord @ 0x1405958A4 (HalpGetMicrocodePatchRecord.c)
+ *     HalpMcGetLoadConfiguration @ 0x140595D68 (HalpMcGetLoadConfiguration.c)
+ *     HalpMcGetRollbackRequest @ 0x140595E28 (HalpMcGetRollbackRequest.c)
+ *     HalpMcParallelLoadSupported @ 0x140595F94 (HalpMcParallelLoadSupported.c)
+ *     HalpMcPatchConfiguration @ 0x140595FCC (HalpMcPatchConfiguration.c)
+ *     HalpMcStaging @ 0x1405960D0 (HalpMcStaging.c)
+ *     HalpMcStagingHypervisor @ 0x1405961E0 (HalpMcStagingHypervisor.c)
+ *     HalpMcStagingSupport @ 0x1405963C8 (HalpMcStagingSupport.c)
+ *     PrExtControlOperations @ 0x1406E0CC8 (PrExtControlOperations.c)
+ *     PrExtExportRecordData @ 0x1406E0E18 (PrExtExportRecordData.c)
+ *     PrExtGetRecordDataLength @ 0x1406E0FC0 (PrExtGetRecordDataLength.c)
+ *     PrExtLogLatencyTime @ 0x1406E0FE4 (PrExtLogLatencyTime.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpLoadMicrocodeSerialized @ 0x140787C50 (HalpLoadMicrocodeSerialized.c)
+ *     HalpMcExportAndChargeNeededData @ 0x140787D24 (HalpMcExportAndChargeNeededData.c)
+ *     PoDisableSleepStates @ 0x1407CF760 (PoDisableSleepStates.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpLoadMicrocode(__int64 a1)
@@ -41,7 +41,7 @@ __int64 __fastcall HalpLoadMicrocode(__int64 a1)
   size_t Size; // [rsp+38h] [rbp-28h] BYREF
   void *Src; // [rsp+40h] [rbp-20h] BYREF
   __int64 v12; // [rsp+48h] [rbp-18h] BYREF
-  struct _KTHREAD *v13; // [rsp+50h] [rbp-10h] BYREF
+  struct _LIST_ENTRY *v13; // [rsp+50h] [rbp-10h] BYREF
   __int64 Pool2; // [rsp+98h] [rbp+38h] BYREF
   char v15; // [rsp+A0h] [rbp+40h]
   bool IsMicrosoftCompatibleHvLoaded; // [rsp+A8h] [rbp+48h]
@@ -86,7 +86,7 @@ __int64 __fastcall HalpLoadMicrocode(__int64 a1)
           if ( v6 >= 0 )
           {
             HalpMicrocodeData = Pool2;
-            if ( IsMicrosoftCompatibleHvLoaded && qword_140FBB210 )
+            if ( IsMicrosoftCompatibleHvLoaded && qword_140FBB5B0 )
             {
               if ( (HalpMicrocodeFeatures & 1) == 0
                 || (MicrocodePatchRecord = HalpMcStagingHypervisor(), MicrocodePatchRecord >= 0) )
@@ -98,7 +98,7 @@ __int64 __fastcall HalpLoadMicrocode(__int64 a1)
                   MicrocodePatchRecord = PrExtControlOperations(10, &v9, 4LL);
                   if ( MicrocodePatchRecord >= 0 )
                   {
-                    if ( qword_140FBB218 )
+                    if ( qword_140FBB5B8 )
                     {
                       guard_dispatch_icall_no_overrides((__int64)&v13, v7);
                       PrExtLogLatencyTime(v13);

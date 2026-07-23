@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwCheckCoverage @ 0x18010C940
+ * XREFs of EtwCheckCoverage @ 0x18010C490
  * Callers:
  *     <none>
  * Callees:
- *     TelemetryCoverageCheckTableForCoverageInternal @ 0x18010C98C (TelemetryCoverageCheckTableForCoverageInternal.c)
+ *     TelemetryCoverageCheckTableForCoverageInternal @ 0x18010C4DC (TelemetryCoverageCheckTableForCoverageInternal.c)
  */
 
-char __fastcall EtwCheckCoverage(__int64 a1)
+BOOLEAN __cdecl EtwCheckCoverage(PTELEMETRY_COVERAGE_POINT CoveragePoint)
 {
   _BYTE *TelemetryCoverageHeader; // rcx
   int v4; // ebx
@@ -18,7 +18,7 @@ char __fastcall EtwCheckCoverage(__int64 a1)
   if ( (TelemetryCoverageHeader[2] & 1) != 0 )
     return 0;
   v4 = *((_DWORD *)TelemetryCoverageHeader + 6);
-  if ( !(unsigned int)TelemetryCoverageCheckTableForCoverageInternal(TelemetryCoverageHeader, *(unsigned int *)(a1 + 8)) )
+  if ( !(unsigned int)TelemetryCoverageCheckTableForCoverageInternal(TelemetryCoverageHeader, CoveragePoint->Hash) )
     return 0;
   *(_DWORD *)(v5 + 12) = v4;
   return 1;

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSignalThreadForApc @ 0x1400F1F84
+ * XREFs of KiSignalThreadForApc @ 0x1400F2004
  * Callers:
- *     KeRequestTerminationThread @ 0x1400F1348 (KeRequestTerminationThread.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     KiSchedulerApc @ 0x1400F17D0 (KiSchedulerApc.c)
- *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
- *     KiSuspendThread @ 0x1400F23A8 (KiSuspendThread.c)
- *     KiInsertDeferredPreemptionApc @ 0x1400F27E8 (KiInsertDeferredPreemptionApc.c)
- *     KeTryToInsertQueueApc @ 0x140294C20 (KeTryToInsertQueueApc.c)
+ *     KeRequestTerminationThread @ 0x1400F13C8 (KeRequestTerminationThread.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     KiSchedulerApc @ 0x1400F1850 (KiSchedulerApc.c)
+ *     KiResumeThread @ 0x1400F1CE0 (KiResumeThread.c)
+ *     KiSuspendThread @ 0x1400F2428 (KiSuspendThread.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1400F2868 (KiInsertDeferredPreemptionApc.c)
+ *     KeTryToInsertQueueApc @ 0x140294E10 (KeTryToInsertQueueApc.c)
  * Callees:
  *     KiSendSoftwareInterrupt @ 0x140003AE4 (KiSendSoftwareInterrupt.c)
- *     KiSignalThread @ 0x1400CE800 (KiSignalThread.c)
+ *     KiSignalThread @ 0x1400CE880 (KiSignalThread.c)
  */
 
 char __fastcall KiSignalThreadForApc(__int64 a1, __int64 a2, char a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetImageProtoProtection @ 0x1402BB36C
+ * XREFs of MiGetImageProtoProtection @ 0x14023957C
  * Callers:
- *     MiGetPageProtection @ 0x140330DA0 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x14033BAF0 (MiGetPageProtection.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiGetSharedProtos @ 0x1403A6358 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiGetImageProtoProtection(__int64 a1, unsigned __int64 a2)

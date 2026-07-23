@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaAddErrorSourceDeviceDriver @ 0x140847BD0
+ * XREFs of WheaAddErrorSourceDeviceDriver @ 0x14084DEA0
  * Callers:
- *     WheaAddErrorSourceDeviceDriverV1 @ 0x1406D4EA0 (WheaAddErrorSourceDeviceDriverV1.c)
+ *     WheaAddErrorSourceDeviceDriverV1 @ 0x1406D8F80 (WheaAddErrorSourceDeviceDriverV1.c)
  * Callees:
- *     WheapDeviceDriverGetPacketLength @ 0x1406D5644 (WheapDeviceDriverGetPacketLength.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WheaAddErrorSource @ 0x140847770 (WheaAddErrorSource.c)
- *     WheaConfigureErrorSource @ 0x140BFFC80 (WheaConfigureErrorSource.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WheapDeviceDriverGetPacketLength @ 0x1406D9724 (WheapDeviceDriverGetPacketLength.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WheaAddErrorSource @ 0x14084D9D0 (WheaAddErrorSource.c)
+ *     WheaConfigureErrorSource @ 0x140C05E90 (WheaConfigureErrorSource.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheaAddErrorSourceDeviceDriver(__int64 a1, __int64 a2, int a3)
@@ -46,7 +46,7 @@ __int64 __fastcall WheaAddErrorSourceDeviceDriver(__int64 a1, __int64 a2, int a3
   {
     v8 = *(_DWORD *)(a2 + 48) + 2;
     v9 = *(_DWORD *)(a2 + 44) * v8;
-    if ( !LOBYTE(WheapInUsePageOfflineNotifyLock.Spare35[0]) )
+    if ( !LOBYTE(WheapInUsePageOfflineNotifyLock.KernelShadowStackInitial) )
       WheaConfigureErrorSource(16LL, &WheaDeviceDriverDefaultSourceConfig);
     memset_0(v17, 0, 0x3CCuLL);
     v10 = *(_OWORD *)(a2 + 52);

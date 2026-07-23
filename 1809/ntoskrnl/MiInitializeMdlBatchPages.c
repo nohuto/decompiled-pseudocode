@@ -5,11 +5,11 @@
  * Callees:
  *     MiPageAttributeBatchChangeNeeded @ 0x1400118DC (MiPageAttributeBatchChangeNeeded.c)
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
- *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     MiZeroInParallel @ 0x14013C544 (MiZeroInParallel.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiChangePageAttributeBatch @ 0x1400823E0 (MiChangePageAttributeBatch.c)
+ *     MiZeroInParallel @ 0x14013C644 (MiZeroInParallel.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiInitializeMdlBatchPages(__int64 a1, char a2, int a3)
@@ -45,7 +45,7 @@ void __fastcall MiInitializeMdlBatchPages(__int64 a1, char a2, int a3)
 
   v4 = a3;
   memset(v27, 0, sizeof(v27));
-  v6 = dword_14043A08C;
+  v6 = dword_14043B14C;
   v7 = 0LL;
   v23 = 0LL;
   v8 = 0LL;
@@ -98,7 +98,7 @@ void __fastcall MiInitializeMdlBatchPages(__int64 a1, char a2, int a3)
         if ( v6 == 1 )
           v17 = 0LL;
         else
-          v17 = dword_14043A088 & *v25 | (*(_QWORD *)(v16 + 40) >> 58 << byte_14043A049) | (((unsigned int)(*(_QWORD *)(v16 + 40) >> 36) & 3) << byte_14043A04A);
+          v17 = dword_14043B148 & *v25 | (*(_QWORD *)(v16 + 40) >> 58 << byte_14043B109) | (((unsigned int)(*(_QWORD *)(v16 + 40) >> 36) & 3) << byte_14043B10A);
         v18 = 3 * v17;
         v15 = 1;
         *(_QWORD *)v16 = *(_QWORD *)&PoolWithTag[24 * v17 + 16];
@@ -135,7 +135,7 @@ LABEL_30:
       v7 = v33;
       goto LABEL_5;
     }
-    if ( !v15 || dword_14043A118[4 * ((unsigned __int64)*(unsigned __int8 *)(v16 + 34) >> 6) + v4] == (_DWORD)v4 )
+    if ( !v15 || dword_14043B1D8[4 * ((unsigned __int64)*(unsigned __int8 *)(v16 + 34) >> 6) + v4] == (_DWORD)v4 )
     {
       v7 = v16;
       v8 = v24;

@@ -1,14 +1,14 @@
 /*
  * XREFs of SeQuerySecurityDescriptorInfo @ 0x1407213B0
  * Callers:
- *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1406B5E34 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
- *     IopGetSetSecurityObject @ 0x14071E8F0 (IopGetSetSecurityObject.c)
- *     CmpQueryKeySecurity @ 0x140721254 (CmpQueryKeySecurity.c)
- *     ObQuerySecurityDescriptorInfo @ 0x140722584 (ObQuerySecurityDescriptorInfo.c)
- *     EtwQueryPerformanceTraceInformation @ 0x14081C05C (EtwQueryPerformanceTraceInformation.c)
+ *     sub_1406B5E34 @ 0x1406B5E34 (sub_1406B5E34.c)
+ *     sub_14071E8F0 @ 0x14071E8F0 (sub_14071E8F0.c)
+ *     sub_140721254 @ 0x140721254 (sub_140721254.c)
+ *     sub_140722584 @ 0x140722584 (sub_140722584.c)
+ *     sub_14081C05C @ 0x14081C05C (sub_14081C05C.c)
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpFilterSacl @ 0x140721DAC (RtlpFilterSacl.c)
+ *     sub_140721DAC @ 0x140721DAC (sub_140721DAC.c)
  */
 
 NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(
@@ -33,13 +33,13 @@ NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(
   char *v18; // r11
   unsigned __int64 v19; // rcx
   unsigned int v20; // ebx
-  ULONG v21; // r9d
-  ULONG v22; // edx
-  ULONG v23; // eax
+  DWORD v21; // r9d
+  DWORD v22; // edx
+  DWORD v23; // eax
   int v24; // eax
   __int16 v25; // dx
   char *v26; // rbx
-  ULONG v27; // eax
+  DWORD v27; // eax
   PSECURITY_INFORMATION v28; // r15
   int v29; // esi
   char v30; // si
@@ -191,7 +191,7 @@ LABEL_14:
   }
   if ( (v21 & 0x1F8) != 0 && (BYTE2(v39) & 0x10) != 0 && v18 )
   {
-    RtlpFilterSacl(v18, 0LL, &v33);
+    sub_140721DAC(v18, 0LL, &v33);
     v20 += v33;
     LOWORD(v19) = v35;
     v5 = SecurityDescriptor;
@@ -262,7 +262,7 @@ LABEL_14:
     {
       if ( v36 )
       {
-        RtlpFilterSacl(v36, v26, &v33);
+        sub_140721DAC(v36, v26, &v33);
         *((_DWORD *)SecurityDescriptor + 3) = (_DWORD)v26 - (_DWORD)SecurityDescriptor;
         v37 = &v26[v33];
       }

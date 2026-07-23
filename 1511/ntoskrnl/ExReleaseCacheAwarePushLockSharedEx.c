@@ -61,7 +61,7 @@ unsigned __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(
       {
         *(_BYTE *)(v9 + 32) |= 2u;
         if ( *(__int64 *)(v9 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v9, v10, v11);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v9, v10, v11);
         v13 = *(_WORD *)(v12 + 88);
         if ( v13 )
         {

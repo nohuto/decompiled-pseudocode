@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpComputeRegEntryEnableInfo @ 0x1406BE254
+ * XREFs of EtwpComputeRegEntryEnableInfo @ 0x1406BE284
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x1406BE810 (EtwpAddRegEntryToGroup.c)
- *     EtwpRegisterUMProvider @ 0x1406BF210 (EtwpRegisterUMProvider.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE40 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpCalculateUpdateNotification @ 0x1407814A0 (EtwpCalculateUpdateNotification.c)
- *     EtwpRegisterKMProvider @ 0x14078D8C4 (EtwpRegisterKMProvider.c)
- *     SendCaptureStateNotificationsWorker @ 0x1409ECDD0 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpAddRegEntryToGroup @ 0x1406BE840 (EtwpAddRegEntryToGroup.c)
+ *     EtwpRegisterUMProvider @ 0x1406BF240 (EtwpRegisterUMProvider.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE70 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpCalculateUpdateNotification @ 0x140781690 (EtwpCalculateUpdateNotification.c)
+ *     EtwpRegisterKMProvider @ 0x14078DAB4 (EtwpRegisterKMProvider.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1409ED060 (SendCaptureStateNotificationsWorker.c)
  * Callees:
  *     <none>
  */

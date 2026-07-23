@@ -1,16 +1,16 @@
 /*
- * XREFs of ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1403F1260
+ * XREFs of ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1403E4F80
  * Callers:
- *     VfAvlDeleteTreeNode @ 0x1403F0144 (VfAvlDeleteTreeNode.c)
- *     VfAvlInsertReservedTreeNode @ 0x1403F0328 (VfAvlInsertReservedTreeNode.c)
- *     VfTargetDriversRemove @ 0x1403F0E5C (VfTargetDriversRemove.c)
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     DifEnumeratePluginData @ 0x140610580 (DifEnumeratePluginData.c)
- *     VfAvlDeleteAllTreeNodes @ 0x140B83BAC (VfAvlDeleteAllTreeNodes.c)
- *     VfAvlEnumerateNodes @ 0x140B83C24 (VfAvlEnumerateNodes.c)
+ *     VfAvlDeleteTreeNode @ 0x1403E3E20 (VfAvlDeleteTreeNode.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1403E4050 (VfAvlInsertReservedTreeNode.c)
+ *     VfTargetDriversRemove @ 0x1403E4B7C (VfTargetDriversRemove.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     DifEnumeratePluginData @ 0x14060EB40 (DifEnumeratePluginData.c)
+ *     VfAvlDeleteAllTreeNodes @ 0x140B85BAC (VfAvlDeleteAllTreeNodes.c)
+ *     VfAvlEnumerateNodes @ 0x140B85C24 (VfAvlEnumerateNodes.c)
  * Callees:
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403F1490 (ViAvlReleaseTableLockFromDpcLevel.c)
- *     ViAvlAcquireTableLockAtDpcLevel @ 0x1403F1694 (ViAvlAcquireTableLockAtDpcLevel.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403E51B0 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlAcquireTableLockAtDpcLevel @ 0x1403E53B4 (ViAvlAcquireTableLockAtDpcLevel.c)
  */
 
 __int64 __fastcall ViAvlAcquireTableLockAtDpcLevelSafe(__int64 a1, __int64 a2)

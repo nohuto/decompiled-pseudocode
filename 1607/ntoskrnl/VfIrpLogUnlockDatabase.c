@@ -1,10 +1,10 @@
 /*
  * XREFs of VfIrpLogUnlockDatabase @ 0x140719924
  * Callers:
- *     ViDdiDispatchWmiQueryAllData @ 0x1407045A4 (ViDdiDispatchWmiQueryAllData.c)
+ *     ViDdiDispatchWmiQueryAllData @ 0x1407045D4 (ViDdiDispatchWmiQueryAllData.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

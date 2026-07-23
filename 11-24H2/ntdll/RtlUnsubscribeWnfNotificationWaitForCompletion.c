@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180099E20
+ * XREFs of RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18002EC70
  * Callers:
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x1800991AC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
- *     RtlUnsubscribeWnfStateChangeNotification @ 0x180099EA0 (RtlUnsubscribeWnfStateChangeNotification.c)
- *     RtlWaitForWnfMetaNotification @ 0x1800F6A40 (RtlWaitForWnfMetaNotification.c)
- *     RtlpCtContextFree @ 0x180147998 (RtlpCtContextFree.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18002DFFC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlUnsubscribeWnfStateChangeNotification @ 0x18002ECF0 (RtlUnsubscribeWnfStateChangeNotification.c)
+ *     RtlWaitForWnfMetaNotification @ 0x1800F0FA0 (RtlWaitForWnfMetaNotification.c)
+ *     RtlpCtContextFree @ 0x180145D48 (RtlpCtContextFree.c)
  * Callees:
- *     RtlUnsubscribeWnfStateChangeNotification @ 0x180099EA0 (RtlUnsubscribeWnfStateChangeNotification.c)
- *     RtlpWaitOnAddress @ 0x18009B780 (RtlpWaitOnAddress.c)
+ *     RtlUnsubscribeWnfStateChangeNotification @ 0x18002ECF0 (RtlUnsubscribeWnfStateChangeNotification.c)
+ *     RtlpWaitOnAddress @ 0x1800305D0 (RtlpWaitOnAddress.c)
  */
 
 __int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(__int64 a1)
@@ -19,13 +19,13 @@ __int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(__int64 a1)
     __fastfail(5u);
   v2 = 0;
   *(_QWORD *)(a1 + 88) = &v2;
-  RtlUnsubscribeWnfStateChangeNotification();
+  RtlUnsubscribeWnfStateChangeNotification((PWNF_USER_CALLBACK)a1);
   v3 = 0;
   do
   {
-    if ( byte_1801D2908 )
+    if ( byte_1801D1908 )
       break;
-    RtlpWaitOnAddress((unsigned int)&v2, (unsigned int)&v3, 4, 0, (_DWORD)RtlpWaitOnAddressSpinCycleCount, 0LL);
+    RtlpWaitOnAddress(&v2, &v3, 4LL);
     v3 = v2;
   }
   while ( !v2 );

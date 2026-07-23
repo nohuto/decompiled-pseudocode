@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetZeroingPfn @ 0x140433140
+ * XREFs of MiGetZeroingPfn @ 0x140428210
  * Callers:
- *     MiMoveZeroedPage @ 0x14051F60C (MiMoveZeroedPage.c)
+ *     MiMoveZeroedPage @ 0x140521CB0 (MiMoveZeroedPage.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall MiGetZeroingPfn(__int64 a1, __int64 a2, unsigned __int64 a3)
   if ( v3 && *(_BYTE *)(v3 + 68) )
   {
     result = a1;
-    *(_QWORD *)a1 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v4 & 0x3FFFFF);
+    *(_QWORD *)a1 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v4 & 0x3FFFFF);
   }
   else
   {

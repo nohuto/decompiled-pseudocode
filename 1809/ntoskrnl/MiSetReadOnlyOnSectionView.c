@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetReadOnlyOnSectionView @ 0x140085B00
+ * XREFs of MiSetReadOnlyOnSectionView @ 0x140085AF0
  * Callers:
- *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140619664 (MmSecureVirtualMemoryAgainstWrites.c)
  * Callees:
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -9,20 +9,20 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiWriteValidPteVolatile @ 0x140085FA0 (MiWriteValidPteVolatile.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiSetProtectionOnTransitionPte @ 0x140093BB8 (MiSetProtectionOnTransitionPte.c)
- *     MiRevertValidPte @ 0x1400B2360 (MiRevertValidPte.c)
- *     MiGetWsleProtection @ 0x1400B5C20 (MiGetWsleProtection.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiUpdatePfnProtection @ 0x1402BF55C (MiUpdatePfnProtection.c)
+ *     MiVadPureReserve @ 0x140070D20 (MiVadPureReserve.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiWriteValidPteVolatile @ 0x140085F90 (MiWriteValidPteVolatile.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     MiSetProtectionOnTransitionPte @ 0x140093AF8 (MiSetProtectionOnTransitionPte.c)
+ *     MiRevertValidPte @ 0x1400B22A0 (MiRevertValidPte.c)
+ *     MiGetWsleProtection @ 0x1400B5B60 (MiGetWsleProtection.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiUpdatePfnProtection @ 0x1402BF74C (MiUpdatePfnProtection.c)
  */
 
 __int64 __fastcall MiSetReadOnlyOnSectionView(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -207,7 +207,7 @@ LABEL_14:
             if ( (unsigned int)MiPteHasShadow(v35, Process) )
             {
               v39 = v36;
-              if ( !HIBYTE(word_14043A1AC) && (v36 & 1) != 0 )
+              if ( !HIBYTE(word_14043B26C) && (v36 & 1) != 0 )
                 v39 = v38 | v36;
               goto LABEL_55;
             }
@@ -227,7 +227,7 @@ LABEL_14:
           v40 = Process;
           if ( !v42 )
           {
-            if ( !HIBYTE(word_14043A1AC) && (Process & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (Process & 1) != 0 )
               v40 = v43 | Process;
             *(_QWORD *)v11 = v40;
             MiWritePteShadow(v11);
@@ -269,7 +269,7 @@ LABEL_26:
           if ( (unsigned int)MiPteHasShadow(v45, Process) )
           {
             v39 = v46;
-            if ( !HIBYTE(word_14043A1AC) && (v46 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v46 & 1) != 0 )
               v39 = v46 | 0x8000000000000000uLL;
 LABEL_55:
             *(_QWORD *)v11 = v39;

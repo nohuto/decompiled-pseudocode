@@ -1,29 +1,31 @@
 /*
- * XREFs of NtQueryDefaultLocale @ 0x14069F740
+ * XREFs of NtQueryDefaultLocale @ 0x1405FEA80
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionLocaleId @ 0x140620240 (MmGetSessionLocaleId.c)
+ *     MmGetSessionLocaleId @ 0x140689EB0 (MmGetSessionLocaleId.c)
  */
 
-__int64 __fastcall NtQueryDefaultLocale(char a1, int *a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtQueryDefaultLocale(BOOLEAN UserProfile, PLCID DefaultLocaleId)
 {
-  unsigned int v3; // r8d
-  __int64 v4; // rcx
-  int SessionLocaleId; // eax
+  BOOLEAN v2; // r9
+  NTSTATUS v3; // r8d
+  DWORD SessionLocaleId; // eax
 
+  v2 = UserProfile;
   v3 = 0;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    v4 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v4 = (__int64)a2;
-    *(_DWORD *)v4 = *(_DWORD *)v4;
+    *(_QWORD *)&UserProfile = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)DefaultLocaleId < 0x7FFFFFFF0000LL )
+      *(_QWORD *)&UserProfile = DefaultLocaleId;
+    *(_DWORD *)UserProfile = *(_DWORD *)UserProfile;
   }
-  if ( a1 )
-    SessionLocaleId = MmGetSessionLocaleId();
+  if ( v2 )
+    SessionLocaleId = MmGetSessionLocaleId(UserProfile, DefaultLocaleId, 0LL);
   else
     SessionLocaleId = PsDefaultSystemLocaleId;
-  *a2 = SessionLocaleId;
+  *DefaultLocaleId = SessionLocaleId;
   return v3;
 }

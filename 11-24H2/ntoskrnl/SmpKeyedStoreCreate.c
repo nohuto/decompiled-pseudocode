@@ -1,19 +1,19 @@
 /*
- * XREFs of SmpKeyedStoreCreate @ 0x140A42B64
+ * XREFs of SmpKeyedStoreCreate @ 0x140A383F4
  * Callers:
- *     SmProcessCreateNotification @ 0x140A42B04 (SmProcessCreateNotification.c)
+ *     SmProcessCreateNotification @ 0x140A38394 (SmProcessCreateNotification.c)
  * Callees:
- *     SmKmStoreGet @ 0x140245714 (SmKmStoreGet.c)
- *     SmpKeyedStoreEntryGet @ 0x1402457A0 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x1404492D0 (SmKmStoreDeleteWhenEmpty.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SmpDirtyStoreCreate @ 0x140A42CBC (SmpDirtyStoreCreate.c)
+ *     SmKmStoreGet @ 0x14020DEF4 (SmKmStoreGet.c)
+ *     SmpKeyedStoreEntryGet @ 0x14020DF80 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140441A20 (SmKmStoreDeleteWhenEmpty.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SmpDirtyStoreCreate @ 0x140A3854C (SmpDirtyStoreCreate.c)
  */
 
 __int64 __fastcall SmpKeyedStoreCreate(ULONG_PTR a1, struct _SM_PARTITION *a2, __int64 a3)
@@ -21,17 +21,19 @@ __int64 __fastcall SmpKeyedStoreCreate(ULONG_PTR a1, struct _SM_PARTITION *a2, _
   __int64 v6; // rdi
   _KPROCESS *v7; // rcx
   int v8; // ebx
-  _OWORD v10[3]; // [rsp+28h] [rbp-60h] BYREF
+  __int64 v9; // r8
+  __int64 v10; // r9
+  _OWORD v12[3]; // [rsp+28h] [rbp-60h] BYREF
 
-  memset(v10, 0, sizeof(v10));
+  memset(v12, 0, sizeof(v12));
   v6 = 0LL;
   SmpGetProcessPartition(a3);
-  KiStackAttachProcess(v7, 0, (__int64)v10);
+  KiStackAttachProcess(v7, 0, (__int64)v12);
   v8 = SmpDirtyStoreCreate(a2);
-  KiUnstackDetachProcess((__int64)v10, 0);
+  KiUnstackDetachProcess((__int64)v12, 0, v9, v10);
   if ( v8 >= 0 )
   {
-    v6 = SmAllocEx(24LL, 1397779827LL, -1);
+    v6 = SmAllocEx(0x18uLL, 0x53506D73u, -1);
     if ( v6 )
     {
       *(_OWORD *)v6 = 0LL;

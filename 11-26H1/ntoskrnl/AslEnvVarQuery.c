@@ -1,18 +1,18 @@
 /*
- * XREFs of AslEnvVarQuery @ 0x14088B668
+ * XREFs of AslEnvVarQuery @ 0x140891A64
  * Callers:
- *     SdbpGetProcessHistory @ 0x140885D40 (SdbpGetProcessHistory.c)
- *     AslEnvExpandStrings @ 0x14088B0EC (AslEnvExpandStrings.c)
+ *     SdbpGetProcessHistory @ 0x14088C140 (SdbpGetProcessHistory.c)
+ *     AslEnvExpandStrings @ 0x1408914E8 (AslEnvExpandStrings.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     RtlGetNtSystemRoot @ 0x140A79090 (RtlGetNtSystemRoot.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     RtlGetNtSystemRoot @ 0x1409E50B0 (RtlGetNtSystemRoot.c)
  */
 
 __int64 __fastcall AslEnvVarQuery(
@@ -29,7 +29,7 @@ __int64 __fastcall AslEnvVarQuery(
   char *v12; // rax
   unsigned int v13; // ebx
   WCHAR *v14; // rax
-  _WORD *NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   unsigned __int64 v16; // rbx
   size_t v17; // rbx
   int v18; // r8d
@@ -64,7 +64,7 @@ __int64 __fastcall AslEnvVarQuery(
   {
     if ( !wcsnicmp((const wchar_t *)v8, L"systemroot", 0xAuLL) )
     {
-      NtSystemRoot = (_WORD *)RtlGetNtSystemRoot();
+      NtSystemRoot = RtlGetNtSystemRoot();
       v16 = -1LL;
       do
         ++v16;

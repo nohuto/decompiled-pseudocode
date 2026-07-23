@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCommitPageTableRangesForVad @ 0x1406437A4
+ * XREFs of MiCommitPageTableRangesForVad @ 0x140643CF4
  * Callers:
- *     MiInsertChildVads @ 0x140A4908C (MiInsertChildVads.c)
+ *     MiInsertChildVads @ 0x140A4933C (MiInsertChildVads.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCommitPageTablesForVad @ 0x1406F9470 (MiCommitPageTablesForVad.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCommitPageTablesForVad @ 0x1406F9680 (MiCommitPageTablesForVad.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

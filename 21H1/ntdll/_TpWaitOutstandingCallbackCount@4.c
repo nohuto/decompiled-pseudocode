@@ -8,15 +8,15 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-int __thiscall TpWaitOutstandingCallbackCount(_DWORD *this)
+unsigned int __thiscall TpWaitOutstandingCallbackCount(_RTL_SRWLOCK *this)
 {
-  _DWORD *v2; // edi
-  int v3; // esi
+  _RTL_SRWLOCK *v2; // edi
+  unsigned int Value; // esi
 
   TppWaitpValidateWait(0);
   v2 = this + 36;
   RtlAcquireSRWLockExclusive(this + 36);
-  v3 = this[8];
+  Value = this[8].Value;
   RtlReleaseSRWLockExclusive(v2);
-  return v3;
+  return Value;
 }

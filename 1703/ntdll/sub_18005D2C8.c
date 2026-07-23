@@ -19,18 +19,12 @@
  *     sub_180109360 @ 0x180109360 (sub_180109360.c)
  */
 
-__int64 __fastcall sub_18005D2C8(
-        unsigned __int64 a1,
-        unsigned __int16 a2,
-        __int64 a3,
-        __int64 a4,
-        _DWORD *a5,
-        _QWORD *a6)
+__int64 __fastcall sub_18005D2C8(PVOID BaseOfImage, unsigned __int16 a2, int a3, char a4, _DWORD *a5, _QWORD *a6)
 {
   __int64 v8; // rbx
   int v9; // r12d
   __int64 v10; // rdx
-  __int64 v11; // rax
+  _QWORD *v11; // rax
   __int64 v13; // rcx
   __int64 v14; // rax
   int v15; // edi
@@ -49,24 +43,22 @@ __int64 __fastcall sub_18005D2C8(
   unsigned int v28; // [rsp+40h] [rbp-C0h] BYREF
   int v29; // [rsp+44h] [rbp-BCh] BYREF
   int v30; // [rsp+48h] [rbp-B8h]
-  unsigned int LastErrorValue; // [rsp+4Ch] [rbp-B4h]
-  _BYTE v32[2]; // [rsp+50h] [rbp-B0h] BYREF
-  __int16 v33; // [rsp+52h] [rbp-AEh]
-  char *v34; // [rsp+58h] [rbp-A8h]
-  __int128 v35; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v36; // [rsp+70h] [rbp-90h] BYREF
-  char v37; // [rsp+80h] [rbp-80h] BYREF
+  LONG Win32Error; // [rsp+4Ch] [rbp-B4h]
+  _UNICODE_STRING LocaleName; // [rsp+50h] [rbp-B0h] BYREF
+  __int128 v33; // [rsp+60h] [rbp-A0h] BYREF
+  __int128 v34; // [rsp+70h] [rbp-90h] BYREF
+  char v35; // [rsp+80h] [rbp-80h] BYREF
 
   v30 = a3;
-  LastErrorValue = NtCurrentTeb()->LastErrorValue;
+  Win32Error = NtCurrentTeb()->LastErrorValue;
   v8 = 0LL;
   v28 = 0;
   v9 = a4 & 0x80;
-  sub_18002FBD4(&dword_18015A250, (__int64)&unk_18015A280, a3, a4);
+  sub_18002FBD4(&dword_18015A250, &stru_18015A280);
   v11 = qword_18015A258;
   if ( !qword_18015A258 )
   {
-    RtlEnterCriticalSection((__int64)&unk_18015A280);
+    RtlEnterCriticalSection(&stru_18015A280);
     if ( !qword_18015A258 )
     {
       v29 = 0;
@@ -79,24 +71,21 @@ __int64 __fastcall sub_18005D2C8(
       }
       if ( !v22 )
         v22 = -1LL;
-      qword_18015A258 = v22;
+      qword_18015A258 = (PVOID)v22;
     }
-    RtlLeaveCriticalSection((__int64)&unk_18015A280);
+    RtlLeaveCriticalSection(&stru_18015A280);
     v11 = qword_18015A258;
   }
-  if ( v11 != -1
-    && (!v11
-     || (v13 = *(_QWORD *)(v11 + 16)) != 0
-     && (v14 = *(_QWORD *)(v13 + 24)) != 0
-     && (*(_DWORD *)(v14 + 48) & 0x100000) == 0) )
+  if ( v11 != (_QWORD *)-1LL
+    && (!v11 || (v13 = v11[2]) != 0 && (v14 = *(_QWORD *)(v13 + 24)) != 0 && (*(_DWORD *)(v14 + 48) & 0x100000) == 0) )
   {
     if ( a2 == 1024 || a2 == 2048 || a2 == 3072 || a2 == 5120 )
     {
-      v34 = &v37;
-      v33 = 170;
-      if ( (int)RtlLcidToLocaleName(a2, (__int64)v32, 2, 0) < 0 )
+      LocaleName.Buffer = (PWCH)&v35;
+      LocaleName.MaximumLength = 170;
+      if ( RtlLcidToLocaleName(a2, &LocaleName, 2u, 0) < 0 )
         goto LABEL_3;
-      v15 = sub_180109360(v26, v34);
+      v15 = sub_180109360(v26, LocaleName.Buffer);
       if ( !v15 )
         goto LABEL_3;
     }
@@ -104,20 +93,20 @@ __int64 __fastcall sub_18005D2C8(
     {
       v15 = a2;
     }
-    v16 = sub_18003660C(a1, v10, 0, 1);
+    v16 = sub_18003660C(BaseOfImage, v10, 0, 1);
     if ( v16 && *v16 == -20054323 )
     {
       v18 = *(_OWORD *)(v16 + 7);
       v19 = v30;
-      v35 = v18;
-      v8 = sub_18005D768(v17, (unsigned int)&v35, v15, v30, 16, (__int64)&v28, (__int64)a5);
+      v33 = v18;
+      v8 = sub_18005D768(v17, (unsigned int)&v33, v15, v30, 16, (__int64)&v28, (__int64)a5);
       if ( v8 == -2 )
       {
         if ( v9
-          || (RtlEnterCriticalSection((__int64)&unk_18015A280),
-              v36 = v18,
-              v8 = sub_18005D768(v25, (unsigned int)&v36, v15, v19, 0, (__int64)&v28, (__int64)a5),
-              RtlLeaveCriticalSection((__int64)&unk_18015A280),
+          || (RtlEnterCriticalSection(&stru_18015A280),
+              v34 = v18,
+              v8 = sub_18005D768(v25, (unsigned int)&v34, v15, v19, 0, (__int64)&v28, (__int64)a5),
+              RtlLeaveCriticalSection(&stru_18015A280),
               v8 == -2) )
         {
           v8 = 0LL;
@@ -127,18 +116,18 @@ __int64 __fastcall sub_18005D2C8(
       {
         if ( word_18015BF84 )
         {
-          RtlEnterCriticalSection((__int64)&unk_18015A280);
+          RtlEnterCriticalSection(&stru_18015A280);
           for ( i = 0; i < (unsigned __int16)word_18015BF84; sub_1800E20D4(dword_18015BF70[i++]) )
             ;
           word_18015BF84 = 0;
-          RtlLeaveCriticalSection((__int64)&unk_18015A280);
+          RtlLeaveCriticalSection(&stru_18015A280);
         }
         v8 = 0LL;
       }
     }
   }
 LABEL_3:
-  RtlSetLastWin32Error(LastErrorValue);
+  RtlSetLastWin32Error(Win32Error);
   if ( v8 )
   {
     if ( a6 )

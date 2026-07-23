@@ -1,15 +1,15 @@
 /*
- * XREFs of ExConvertExclusiveToSharedLite @ 0x140120F50
+ * XREFs of ExConvertExclusiveToSharedLite @ 0x140121020
  * Callers:
  *     FsRtlAcquireFileForModWriteEx @ 0x14001B150 (FsRtlAcquireFileForModWriteEx.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
- *     NtMapCMFModule @ 0x1407067A0 (NtMapCMFModule.c)
- *     CmpReplicateKeyToVirtual @ 0x1407F3798 (CmpReplicateKeyToVirtual.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ADDA4 (PspAllocateAndQueryNotificationChannel.c)
+ *     NtMapCMFModule @ 0x140707A40 (NtMapCMFModule.c)
+ *     CmpReplicateKeyToVirtual @ 0x1407F4998 (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     ExpConvertExclusiveToSharedLite @ 0x140120FD8 (ExpConvertExclusiveToSharedLite.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x140164960 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExpConvertExclusiveToSharedLite @ 0x1401210A8 (ExpConvertExclusiveToSharedLite.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x140164A60 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __stdcall ExConvertExclusiveToSharedLite(PERESOURCE Resource)

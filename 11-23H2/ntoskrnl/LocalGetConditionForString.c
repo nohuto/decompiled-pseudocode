@@ -1,18 +1,18 @@
 /*
- * XREFs of LocalGetConditionForString @ 0x1409D4914
+ * XREFs of LocalGetConditionForString @ 0x1409D4B14
  * Callers:
  *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     iswspace @ 0x1403DA1D0 (iswspace.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     iswspace @ 0x1403DA3B0 (iswspace.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     AppendCondition @ 0x1409D2C34 (AppendCondition.c)
- *     FreeOperandValue @ 0x1409D30B8 (FreeOperandValue.c)
- *     GetConditionToken @ 0x1409D33A8 (GetConditionToken.c)
- *     GetOperandValue @ 0x1409D35CC (GetOperandValue.c)
- *     GetOperatorIndexByToken @ 0x1409D3D40 (GetOperatorIndexByToken.c)
- *     IsArrayType @ 0x1409D4800 (IsArrayType.c)
- *     IsValueSizeFixed @ 0x1409D48C4 (IsValueSizeFixed.c)
+ *     AppendCondition @ 0x1409D2E34 (AppendCondition.c)
+ *     FreeOperandValue @ 0x1409D32B8 (FreeOperandValue.c)
+ *     GetConditionToken @ 0x1409D35A8 (GetConditionToken.c)
+ *     GetOperandValue @ 0x1409D37CC (GetOperandValue.c)
+ *     GetOperatorIndexByToken @ 0x1409D3F40 (GetOperatorIndexByToken.c)
+ *     IsArrayType @ 0x1409D4A00 (IsArrayType.c)
+ *     IsValueSizeFixed @ 0x1409D4AC4 (IsValueSizeFixed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

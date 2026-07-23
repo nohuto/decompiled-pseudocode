@@ -1,18 +1,18 @@
 /*
- * XREFs of IoConvertFileHandleToKernelHandle @ 0x14072A4C0
+ * XREFs of IoConvertFileHandleToKernelHandle @ 0x14072A970
  * Callers:
- *     IopOpenLinkOrRenameTarget @ 0x1406089A8 (IopOpenLinkOrRenameTarget.c)
- *     CmpNameFromAttributes @ 0x14066F2CC (CmpNameFromAttributes.c)
- *     NtSaveKeyEx @ 0x140728950 (NtSaveKeyEx.c)
- *     NtRestoreKey @ 0x1408694D0 (NtRestoreKey.c)
- *     NtSaveMergedKeys @ 0x1408697A0 (NtSaveMergedKeys.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x14094A69C (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x14094A8D8 (ExpQueryElamCertInfo.c)
+ *     CmpNameFromAttributes @ 0x1406657AC (CmpNameFromAttributes.c)
+ *     IopOpenLinkOrRenameTarget @ 0x140698458 (IopOpenLinkOrRenameTarget.c)
+ *     NtSaveKeyEx @ 0x140728E00 (NtSaveKeyEx.c)
+ *     NtRestoreKey @ 0x140869630 (NtRestoreKey.c)
+ *     NtSaveMergedKeys @ 0x140869900 (NtSaveMergedKeys.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x14094A86C (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x14094AAA8 (ExpQueryElamCertInfo.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     ObDuplicateObject @ 0x1406E4910 (ObDuplicateObject.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall IoConvertFileHandleToKernelHandle(

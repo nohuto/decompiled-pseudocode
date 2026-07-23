@@ -1,12 +1,12 @@
 /*
- * XREFs of IopWriteTriageDumpToFirmware @ 0x1405CA3D8
+ * XREFs of IopWriteTriageDumpToFirmware @ 0x1405CCCA8
  * Callers:
- *     IoWriteCrashDump @ 0x1405C7FAC (IoWriteCrashDump.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CA224 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IoWriteCrashDump @ 0x1405CA87C (IoWriteCrashDump.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CCAF4 (IopWriteCapsuleTriageDumpToFirmware.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     KiScanBugCheckCallbackList @ 0x1405E8A4C (KiScanBugCheckCallbackList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     KiScanBugCheckCallbackList @ 0x1405EB3BC (KiScanBugCheckCallbackList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IopWriteTriageDumpToFirmware(PHYSICAL_ADDRESS *BaseAddress)

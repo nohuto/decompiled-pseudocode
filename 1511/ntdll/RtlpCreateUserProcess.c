@@ -9,137 +9,146 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlpCreateUserProcess(
+NTSTATUS __fastcall RtlpCreateUserProcess(
         unsigned __int16 *a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
+        void *a2,
+        void *a3,
+        void *a4,
+        ULONG_PTR a5,
         __int16 a6,
-        int a7,
-        int a8,
-        __int64 a9,
-        __int64 a10,
-        _DWORD *a11)
+        ULONG a7,
+        ULONG ThreadFlags,
+        ULONG_PTR a9,
+        ULONG_PTR a10,
+        void *a11)
 {
-  _DWORD *v11; // r14
+  HANDLE *v11; // r14
   unsigned int v16; // ecx
   __int64 v17; // rax
-  __int64 v18; // rdx
+  ULONG_PTR v18; // rdx
   __int64 v19; // rax
-  __int64 v20; // rdx
+  ULONG_PTR v20; // rdx
   __int64 v21; // rax
   __int64 v22; // rax
-  int v23; // r8d
+  ULONG ProcessFlags; // r8d
   __int64 v24; // rax
   unsigned int v26; // [rsp+60h] [rbp-A0h] BYREF
-  int v27; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v28; // [rsp+70h] [rbp-90h]
-  __int64 v29; // [rsp+78h] [rbp-88h]
-  int v30; // [rsp+80h] [rbp-80h]
-  __int64 v31; // [rsp+88h] [rbp-78h]
-  __int64 v32; // [rsp+90h] [rbp-70h]
-  int v33; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v34; // [rsp+A0h] [rbp-60h]
-  __int64 v35; // [rsp+A8h] [rbp-58h]
-  int v36; // [rsp+B0h] [rbp-50h]
-  __int64 v37; // [rsp+B8h] [rbp-48h]
-  __int64 v38; // [rsp+C0h] [rbp-40h]
-  _QWORD v39[12]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v40; // [rsp+130h] [rbp+30h] BYREF
-  __int64 v41; // [rsp+138h] [rbp+38h]
-  __int64 v42; // [rsp+140h] [rbp+40h]
-  _DWORD *v43; // [rsp+148h] [rbp+48h]
-  _QWORD v44[34]; // [rsp+150h] [rbp+50h]
+  _OBJECT_ATTRIBUTES ProcessObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
+  _OBJECT_ATTRIBUTES ThreadObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
+  _PS_CREATE_INFO CreateInfo; // [rsp+D0h] [rbp-30h] BYREF
+  _PS_ATTRIBUTE_LIST AttributeList; // [rsp+130h] [rbp+30h] BYREF
+  __int64 v31; // [rsp+158h] [rbp+58h]
+  __int64 v32; // [rsp+160h] [rbp+60h]
+  char *v33; // [rsp+168h] [rbp+68h]
+  __int64 v34; // [rsp+170h] [rbp+70h]
+  __int64 v35; // [rsp+178h] [rbp+78h]
+  __int64 v36; // [rsp+180h] [rbp+80h]
+  __int64 v37; // [rsp+188h] [rbp+88h]
+  __int64 v38; // [rsp+190h] [rbp+90h]
+  __int64 v39; // [rsp+198h] [rbp+98h]
+  __int64 v40; // [rsp+1A0h] [rbp+A0h]
+  unsigned int *v41; // [rsp+1A8h] [rbp+A8h]
+  __int64 v42; // [rsp+1B0h] [rbp+B0h]
 
-  v11 = a11;
+  v11 = (HANDLE *)a11;
   memset(a11, 0, 0x68uLL);
-  v31 = a3;
-  v27 = 48;
-  v33 = 48;
-  *v11 = 104;
-  v30 = 512;
-  v28 = 0LL;
-  v29 = 0LL;
-  v32 = 0LL;
-  v34 = 0LL;
-  v36 = 512;
-  v35 = 0LL;
-  v37 = a4;
-  v38 = 0LL;
-  memset(v39, 0, 0x58uLL);
-  LOBYTE(v39[2]) |= 4u;
-  v43 = v11 + 6;
-  v44[3] = v11 + 10;
-  v39[0] = 88LL;
+  ProcessObjectAttributes.SecurityDescriptor = a3;
+  ProcessObjectAttributes.Length = 48;
+  ThreadObjectAttributes.Length = 48;
+  *(_DWORD *)v11 = 104;
+  ProcessObjectAttributes.Attributes = 512;
+  ProcessObjectAttributes.RootDirectory = 0LL;
+  ProcessObjectAttributes.ObjectName = 0LL;
+  ProcessObjectAttributes.SecurityQualityOfService = 0LL;
+  ThreadObjectAttributes.RootDirectory = 0LL;
+  ThreadObjectAttributes.Attributes = 512;
+  ThreadObjectAttributes.ObjectName = 0LL;
+  ThreadObjectAttributes.SecurityDescriptor = a4;
+  ThreadObjectAttributes.SecurityQualityOfService = 0LL;
+  memset(&CreateInfo, 0, sizeof(CreateInfo));
+  *(_BYTE *)&CreateInfo.InitState.1 |= 4u;
+  AttributeList.Attributes[0].Value = (ULONG_PTR)(v11 + 3);
+  v33 = (char *)(v11 + 5);
+  CreateInfo.Size = 88LL;
   v16 = 2;
-  v41 = 65539LL;
-  v42 = 16LL;
-  v44[0] = 0LL;
-  v44[1] = 6LL;
-  v44[2] = 64LL;
-  v44[4] = 0LL;
+  AttributeList.Attributes[0].Attribute = 65539LL;
+  AttributeList.Attributes[0].Size = 16LL;
+  AttributeList.Attributes[0].ReturnLength = 0LL;
+  v31 = 6LL;
+  v32 = 64LL;
+  v34 = 0LL;
   if ( a1 )
   {
     v16 = 4;
-    v44[6] = *a1;
-    v44[7] = *((_QWORD *)a1 + 1);
-    v44[5] = 131077LL;
-    v44[8] = 0LL;
+    v36 = *a1;
+    v37 = *((_QWORD *)a1 + 1);
+    v35 = 131077LL;
+    v38 = 0LL;
     v26 = v26 & 0xFFFFFFE0 | 2;
-    v44[11] = &v26;
-    v44[9] = 131082LL;
-    v44[10] = 8LL;
-    v44[12] = 0LL;
+    v41 = &v26;
+    v39 = 131082LL;
+    v40 = 8LL;
+    v42 = 0LL;
   }
   if ( a5 )
   {
-    v17 = 4LL * v16++;
-    *(__int64 *)((char *)&v41 + v17 * 8) = 393216LL;
-    *(__int64 *)((char *)&v42 + v17 * 8) = 8LL;
-    v44[v17] = 0LL;
-    v44[v17 - 1] = a5;
+    v17 = v16++;
+    AttributeList.Attributes[v17].Attribute = 393216LL;
+    AttributeList.Attributes[v17].Size = 8LL;
+    AttributeList.Attributes[v17].ReturnLength = 0LL;
+    *(ULONG_PTR *)((char *)&AttributeList.Attributes[0].Value + v17 * 32) = a5;
   }
   v18 = a9;
   if ( a9 )
   {
-    v19 = 4LL * v16++;
-    *(__int64 *)((char *)&v41 + v19 * 8) = 393217LL;
-    *(__int64 *)((char *)&v42 + v19 * 8) = 8LL;
-    v44[v19] = 0LL;
-    v44[v19 - 1] = v18;
+    v19 = v16++;
+    AttributeList.Attributes[v19].Attribute = 393217LL;
+    AttributeList.Attributes[v19].Size = 8LL;
+    AttributeList.Attributes[v19].ReturnLength = 0LL;
+    *(ULONG_PTR *)((char *)&AttributeList.Attributes[0].Value + v19 * 32) = v18;
   }
   v20 = a10;
   if ( a10 )
   {
-    v21 = 4LL * v16++;
-    *(__int64 *)((char *)&v41 + v21 * 8) = 393218LL;
-    *(__int64 *)((char *)&v42 + v21 * 8) = 8LL;
-    v44[v21] = 0LL;
-    v44[v21 - 1] = v20;
+    v21 = v16++;
+    AttributeList.Attributes[v21].Attribute = 393218LL;
+    AttributeList.Attributes[v21].Size = 8LL;
+    AttributeList.Attributes[v21].ReturnLength = 0LL;
+    *(ULONG_PTR *)((char *)&AttributeList.Attributes[0].Value + v21 * 32) = v20;
   }
   if ( a6 )
   {
     --a6;
-    v22 = 4LL * v16++;
-    *(__int64 *)((char *)&v42 + v22 * 8) = 2LL;
-    v23 = a7;
-    *(__int64 *)((char *)&v41 + v22 * 8) = 131085LL;
-    v44[v22] = 0LL;
-    v44[v22 - 1] = &a6;
+    v22 = v16++;
+    AttributeList.Attributes[v22].Size = 2LL;
+    ProcessFlags = a7;
+    AttributeList.Attributes[v22].Attribute = 131085LL;
+    AttributeList.Attributes[v22].ReturnLength = 0LL;
+    *(ULONG_PTR *)((char *)&AttributeList.Attributes[0].Value + v22 * 32) = (ULONG_PTR)&a6;
   }
   else
   {
-    v23 = a7 | 0x100;
+    ProcessFlags = a7 | 0x100;
   }
-  if ( (v23 & 0x40) != 0 )
+  if ( (ProcessFlags & 0x40) != 0 )
   {
-    v24 = 4LL * v16++;
-    *(__int64 *)((char *)&v41 + v24 * 8) = 393233LL;
-    *(__int64 *)((char *)&v42 + v24 * 8) = 1LL;
-    v44[v24] = 0LL;
-    v44[v24 - 1] = 97LL;
+    v24 = v16++;
+    AttributeList.Attributes[v24].Attribute = 393233LL;
+    AttributeList.Attributes[v24].Size = 1LL;
+    AttributeList.Attributes[v24].ReturnLength = 0LL;
+    *(ULONG_PTR *)((char *)&AttributeList.Attributes[0].Value + v24 * 32) = 97LL;
   }
-  v40 = 32LL * v16 + 8;
-  return NtCreateUserProcess(v11 + 2, v11 + 4, 0x2000000LL, 0x2000000LL, &v27, &v33, v23, a8, a2, v39, &v40);
+  AttributeList.TotalLength = 32LL * v16 + 8;
+  return NtCreateUserProcess(
+           v11 + 1,
+           v11 + 2,
+           0x2000000u,
+           0x2000000u,
+           &ProcessObjectAttributes,
+           &ThreadObjectAttributes,
+           ProcessFlags,
+           ThreadFlags,
+           a2,
+           &CreateInfo,
+           &AttributeList);
 }

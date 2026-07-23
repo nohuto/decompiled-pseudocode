@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHugePagesSupported @ 0x140495838
+ * XREFs of MiHugePagesSupported @ 0x1404900F8
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x1407F84C8 (MiAllocateUserPhysicalPages.c)
- *     MmManagePartitionMoveMemory @ 0x1407FCEC4 (MmManagePartitionMoveMemory.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1408DEC10 (MiAllocateVirtualMemoryPrepare.c)
- *     MiInitializeCreateSectionPacket @ 0x1409413D0 (MiInitializeCreateSectionPacket.c)
+ *     MiAllocateUserPhysicalPages @ 0x1407F8C38 (MiAllocateUserPhysicalPages.c)
+ *     MmManagePartitionMoveMemory @ 0x1407FD634 (MmManagePartitionMoveMemory.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1409157C0 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiInitializeCreateSectionPacket @ 0x14098B630 (MiInitializeCreateSectionPacket.c)
  * Callees:
  *     <none>
  */

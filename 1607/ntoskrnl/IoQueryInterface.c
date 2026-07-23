@@ -1,10 +1,10 @@
 /*
- * XREFs of IoQueryInterface @ 0x1405761A0
+ * XREFs of IoQueryInterface @ 0x1405766E0
  * Callers:
- *     ExpPrepareNewSvmDevice @ 0x14022F1BC (ExpPrepareNewSvmDevice.c)
+ *     ExpPrepareNewSvmDevice @ 0x14022EFE8 (ExpPrepareNewSvmDevice.c)
  * Callees:
- *     PnpQueryInterface @ 0x1404CDDFC (PnpQueryInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x1405761E8 (IopQueryInterfaceRecurseUp.c)
+ *     PnpQueryInterface @ 0x14050E494 (PnpQueryInterface.c)
+ *     IopQueryInterfaceRecurseUp @ 0x140576728 (IopQueryInterfaceRecurseUp.c)
  */
 
 __int64 __fastcall IoQueryInterface(

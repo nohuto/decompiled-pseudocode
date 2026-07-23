@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDbgCopyMemory @ 0x1406FD730
+ * XREFs of MiDbgCopyMemory @ 0x140702400
  * Callers:
- *     MmDbgCopyMemory @ 0x1406FEF24 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x140703BF4 (MmDbgCopyMemory.c)
  * Callees:
- *     MiDbgCopyMemoryInLiveSystem @ 0x1406FD7DC (MiDbgCopyMemoryInLiveSystem.c)
- *     MiDbgCopyMemoryInternal @ 0x1406FD8F0 (MiDbgCopyMemoryInternal.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiDbgCopyMemoryInLiveSystem @ 0x1407024AC (MiDbgCopyMemoryInLiveSystem.c)
+ *     MiDbgCopyMemoryInternal @ 0x1407025C0 (MiDbgCopyMemoryInternal.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiDbgCopyMemory(__int64 a1, __int64 a2, int a3, int a4, int a5)

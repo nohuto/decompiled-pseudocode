@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFwMarkHiberPhase @ 0x140AF1DE4
+ * XREFs of BgpFwMarkHiberPhase @ 0x140AF1DF4
  * Callers:
- *     BgMarkHiberPhase @ 0x140AF1344 (BgMarkHiberPhase.c)
+ *     BgMarkHiberPhase @ 0x140AF1354 (BgMarkHiberPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
  */
 
 __int64 BgpFwMarkHiberPhase()

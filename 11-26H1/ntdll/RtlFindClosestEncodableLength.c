@@ -1,51 +1,51 @@
 /*
- * XREFs of RtlFindClosestEncodableLength @ 0x180144140
+ * XREFs of RtlFindClosestEncodableLength @ 0x180144040
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlFindClosestEncodableLength(unsigned __int64 a1, unsigned __int64 *a2)
+NTSTATUS __cdecl RtlFindClosestEncodableLength(ULONGLONG SourceLength, PULONGLONG TargetLength)
 {
-  __int64 v2; // rax
-  __int64 v3; // rax
+  ULONGLONG v2; // rax
+  ULONGLONG v3; // rax
 
-  if ( a1 <= 0xFFFFFFFF )
+  if ( SourceLength <= 0xFFFFFFFF )
     goto LABEL_12;
-  if ( a1 > 0xFFFFFFFF00LL )
+  if ( SourceLength > 0xFFFFFFFF00LL )
     goto LABEL_16;
-  v2 = a1 & 0xFFFFFFFF00LL;
-  if ( a1 == (a1 & 0xFFFFFFFFFFFFFF00uLL) )
+  v2 = SourceLength & 0xFFFFFFFF00LL;
+  if ( SourceLength == (SourceLength & 0xFFFFFFFFFFFFFF00uLL) )
     goto LABEL_12;
-  a1 = v2 + 256;
-  *a2 = v2 + 256;
-  if ( (unsigned __int64)(v2 + 256) > 0xFFFFFFFF00LL )
+  SourceLength = v2 + 256;
+  *TargetLength = v2 + 256;
+  if ( v2 + 256 > 0xFFFFFFFF00LL )
   {
 LABEL_16:
-    if ( a1 > 0xFFFFFFFF0000LL )
+    if ( SourceLength > 0xFFFFFFFF0000LL )
       goto LABEL_8;
-    v3 = a1 & 0xFFFFFFFF0000LL;
-    if ( a1 == (a1 & 0xFFFFFFFFFFFF0000uLL) )
+    v3 = SourceLength & 0xFFFFFFFF0000LL;
+    if ( SourceLength == (SourceLength & 0xFFFFFFFFFFFF0000uLL) )
       goto LABEL_12;
-    a1 = v3 + 0x10000;
-    *a2 = v3 + 0x10000;
-    if ( (unsigned __int64)(v3 + 0x10000) > 0xFFFFFFFF0000LL )
+    SourceLength = v3 + 0x10000;
+    *TargetLength = v3 + 0x10000;
+    if ( v3 + 0x10000 > 0xFFFFFFFF0000LL )
     {
 LABEL_8:
-      if ( a1 > 0xFFFFFFFF00000000uLL )
+      if ( SourceLength > 0xFFFFFFFF00000000uLL )
       {
-        *a2 = 0LL;
-        return 3221225473LL;
+        *TargetLength = 0LL;
+        return -1073741823;
       }
-      if ( a1 != (a1 & 0xFFFFFFFF00000000uLL) )
+      if ( SourceLength != (SourceLength & 0xFFFFFFFF00000000uLL) )
       {
-        *a2 = (a1 & 0xFFFFFFFF00000000uLL) + 0x100000000LL;
-        return 0LL;
+        *TargetLength = (SourceLength & 0xFFFFFFFF00000000uLL) + 0x100000000LL;
+        return 0;
       }
 LABEL_12:
-      *a2 = a1;
+      *TargetLength = SourceLength;
     }
   }
-  return 0LL;
+  return 0;
 }

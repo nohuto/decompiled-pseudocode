@@ -1,7 +1,7 @@
 /*
- * XREFs of CmFcpSwapSectionState @ 0x1406F5934
+ * XREFs of CmFcpSwapSectionState @ 0x1406F3934
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140C4D180 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140C4F31C (CmFcManagerStartRuntimePhase.c)
  * Callees:
  *     <none>
  */

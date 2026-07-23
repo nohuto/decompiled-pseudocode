@@ -1,15 +1,15 @@
 /*
- * XREFs of KiLogUserCetSetContextIpValidationFailureWorker @ 0x1407BB690
+ * XREFs of KiLogUserCetSetContextIpValidationFailureWorker @ 0x1407BE6F0
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x14082BEAC (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1408320EC (EtwTimLogUserCetSetContextIpValidationFailure.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiLogUserCetSetContextIpValidationFailureWorker(_QWORD *P)

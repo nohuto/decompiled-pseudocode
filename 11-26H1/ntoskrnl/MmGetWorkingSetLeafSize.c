@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGetWorkingSetLeafSize @ 0x1404AF464
+ * XREFs of MmGetWorkingSetLeafSize @ 0x1404A8AF4
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140A5C194 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140A69154 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
- *     MiTranslateWsType @ 0x1404AF4D4 (MiTranslateWsType.c)
+ *     MiTranslateWsType @ 0x1404A8B64 (MiTranslateWsType.c)
  */
 
 __int64 __fastcall MmGetWorkingSetLeafSize(int a1)
@@ -13,7 +13,7 @@ __int64 __fastcall MmGetWorkingSetLeafSize(int a1)
 
   if ( a1 == 1 )
   {
-    v1 = *(_QWORD *)(stru_140E2EB88.ThreadLock
+    v1 = *(_QWORD *)(stru_140E2ED08.ThreadLock
                    + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
     if ( !*(_BYTE *)(v1 + 22300) )
       return 0LL;
@@ -23,7 +23,7 @@ __int64 __fastcall MmGetWorkingSetLeafSize(int a1)
   }
   else
   {
-    v3 = (char *)&unk_140E36CC0 + 320 * (int)MiTranslateWsType();
+    v3 = (char *)&unk_140E36E40 + 320 * (int)MiTranslateWsType();
   }
   return *((_QWORD *)v3 + 17);
 }

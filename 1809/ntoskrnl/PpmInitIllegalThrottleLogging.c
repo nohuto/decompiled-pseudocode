@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmInitIllegalThrottleLogging @ 0x14018D7F0
+ * XREFs of PpmInitIllegalThrottleLogging @ 0x14018D930
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PopOpenKey @ 0x140178B54 (PopOpenKey.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x140178C54 (PopOpenKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
  */
 
 NTSTATUS PpmInitIllegalThrottleLogging()

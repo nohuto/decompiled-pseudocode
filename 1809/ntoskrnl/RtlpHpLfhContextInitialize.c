@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhContextInitialize @ 0x140140F84
+ * XREFs of RtlpHpLfhContextInitialize @ 0x140141084
  * Callers:
- *     RtlpHpHeapCreate @ 0x140140AE0 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x140140BE0 (RtlpHpHeapCreate.c)
  * Callees:
  *     RtlpHeapGenerateRandomValue64 @ 0x140009608 (RtlpHeapGenerateRandomValue64.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
@@ -45,7 +45,7 @@ unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
     v15 = a3;
   *(_BYTE *)(a1 + 56) = v15;
   if ( v15 > 1u )
-    *(_QWORD *)(a1 + 48) = (char *)&unk_14035AFB0
+    *(_QWORD *)(a1 + 48) = (char *)&unk_14035BEB0
                          + ((unsigned __int64)((62 - (64 - v15)) * (64 - (unsigned int)v15 + 61)) >> 1);
   v16 = 32LL;
   memset64((void *)(a1 + 128), 1uLL, 0x81uLL);

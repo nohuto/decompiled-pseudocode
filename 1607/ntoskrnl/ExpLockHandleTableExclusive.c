@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpLockHandleTableExclusive @ 0x1400A8A84
+ * XREFs of ExpLockHandleTableExclusive @ 0x1400A7004
  * Callers:
- *     ExDisableHandleTracing @ 0x14022C9EC (ExDisableHandleTracing.c)
- *     ExQueryHandleExceptionsPermanency @ 0x14022CB34 (ExQueryHandleExceptionsPermanency.c)
- *     ExReferenceHandleDebugInfo @ 0x1404D4164 (ExReferenceHandleDebugInfo.c)
- *     ExEnableHandleExceptions @ 0x1404D41B4 (ExEnableHandleExceptions.c)
- *     ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1404D4250 (ExEnableRaiseUMExceptionOnInvalidHandleClose.c)
- *     ExEnableHandleTracing @ 0x1406AD3A4 (ExEnableHandleTracing.c)
+ *     ExDisableHandleTracing @ 0x14022C818 (ExDisableHandleTracing.c)
+ *     ExQueryHandleExceptionsPermanency @ 0x14022C960 (ExQueryHandleExceptionsPermanency.c)
+ *     ExReferenceHandleDebugInfo @ 0x1404B7C04 (ExReferenceHandleDebugInfo.c)
+ *     ExEnableHandleExceptions @ 0x1404B7C54 (ExEnableHandleExceptions.c)
+ *     ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1404B7CF0 (ExEnableRaiseUMExceptionOnInvalidHandleClose.c)
+ *     ExEnableHandleTracing @ 0x1406AD4DC (ExEnableHandleTracing.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall ExpLockHandleTableExclusive(__int64 a1, __int64 a2)

@@ -17,7 +17,7 @@ void __fastcall PipInitializeEarlyLaunchDrivers(UNICODE_STRING *a1, __int64 a2)
   UNICODE_STRING *v4; // rbx
   UNICODE_STRING *v5; // rdi
   __int64 v6; // rax
-  ULONGLONG v7; // rcx
+  unsigned __int64 v7; // rcx
   NTSTATUS DriverNameFromKeyNode; // ebp
   int v9; // [rsp+38h] [rbp-50h]
   UNICODE_STRING Destination; // [rsp+50h] [rbp-38h] BYREF

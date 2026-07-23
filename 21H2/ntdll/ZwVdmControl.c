@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwVdmControl @ 0x1800A1050
+ * XREFs of ZwVdmControl @ 0x1800A1010
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwVdmControl()
+NTSTATUS __cdecl ZwVdmControl(VDMSERVICECLASS Service, PVOID ServiceData)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 465LL;
+  result = 465;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

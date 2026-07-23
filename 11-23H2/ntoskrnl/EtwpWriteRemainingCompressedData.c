@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpWriteRemainingCompressedData @ 0x1409EE63C
+ * XREFs of EtwpWriteRemainingCompressedData @ 0x1409EE8CC
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1409EDA44 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x1409EDCD4 (EtwpSavePersistedLogger.c)
  * Callees:
- *     ZwWriteFile @ 0x14041AE60 (ZwWriteFile.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ZwWriteFile @ 0x14041B1F0 (ZwWriteFile.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall EtwpWriteRemainingCompressedData(__int64 a1, _DWORD *a2, _DWORD *a3)

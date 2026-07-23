@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpSetProcUserMachineLangList @ 0x180012958
+ * XREFs of RtlpSetProcUserMachineLangList @ 0x180012948
  * Callers:
- *     RtlGetThreadPreferredUILanguages @ 0x180013DA0 (RtlGetThreadPreferredUILanguages.c)
- *     InitializeUserOrMachineLangList @ 0x180070A08 (InitializeUserOrMachineLangList.c)
- *     RtlpMuiRegLoadRegistryInfo @ 0x180070DC0 (RtlpMuiRegLoadRegistryInfo.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007B0E0 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180013D90 (RtlGetThreadPreferredUILanguages.c)
+ *     InitializeUserOrMachineLangList @ 0x1800709F8 (InitializeUserOrMachineLangList.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x180070DB0 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18007B0D0 (RtlGetSystemPreferredUILanguages.c)
  * Callees:
- *     RtlpInitMuiCriticalSection @ 0x180013B94 (RtlpInitMuiCriticalSection.c)
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712D8 (RtlpMuiRegLoadPreferredUILanguages.c)
- *     RtlpMuiRegCreateLanguageList @ 0x180071974 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpInitMuiCriticalSection @ 0x180013B84 (RtlpInitMuiCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712C8 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x180071964 (RtlpMuiRegCreateLanguageList.c)
  */
 
 __int64 __fastcall RtlpSetProcUserMachineLangList(__int64 a1, unsigned int a2)

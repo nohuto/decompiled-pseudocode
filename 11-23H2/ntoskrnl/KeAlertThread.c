@@ -1,15 +1,15 @@
 /*
- * XREFs of KeAlertThread @ 0x140309850
+ * XREFs of KeAlertThread @ 0x140309AE0
  * Callers:
- *     KeRequestTerminationThread @ 0x1403099FC (KeRequestTerminationThread.c)
- *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x1403659D0 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
- *     IoDecrementKeepAliveCount @ 0x140557FC0 (IoDecrementKeepAliveCount.c)
- *     KeAlertResumeThread @ 0x14056ECD0 (KeAlertResumeThread.c)
- *     NtAlertThread @ 0x1409B5F00 (NtAlertThread.c)
+ *     KeRequestTerminationThread @ 0x140309C8C (KeRequestTerminationThread.c)
+ *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x140365B70 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
+ *     IoDecrementKeepAliveCount @ 0x140558680 (IoDecrementKeepAliveCount.c)
+ *     KeAlertResumeThread @ 0x14056F210 (KeAlertResumeThread.c)
+ *     NtAlertThread @ 0x1409B6100 (NtAlertThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiSignalThread @ 0x1402B85D0 (KiSignalThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiSignalThread @ 0x1402B8860 (KiSignalThread.c)
  */
 
 char __fastcall KeAlertThread(__int64 a1, char a2)
@@ -27,7 +27,7 @@ char __fastcall KeAlertThread(__int64 a1, char a2)
   v2 = a2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -58,6 +58,6 @@ char __fastcall KeAlertThread(__int64 a1, char a2)
     }
   }
   *(_QWORD *)(a1 + 64) = 0LL;
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 2u, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 2u, CurrentIrql);
   return v6;
 }

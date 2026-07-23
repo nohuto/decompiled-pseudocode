@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCheckCpuPartitionCreateAccess @ 0x1407F2950
+ * XREFs of PspCheckCpuPartitionCreateAccess @ 0x1407F84B0
  * Callers:
- *     PsCreateCpuPartition @ 0x1407F2660 (PsCreateCpuPartition.c)
+ *     PsCreateCpuPartition @ 0x1407F81C0 (PsCreateCpuPartition.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     SeCreateAccessState @ 0x140A10980 (SeCreateAccessState.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     SeCreateAccessState @ 0x140A0FB70 (SeCreateAccessState.c)
  */
 
 __int64 __fastcall PspCheckCpuPartitionCreateAccess(char a1)
@@ -16,7 +16,7 @@ __int64 __fastcall PspCheckCpuPartitionCreateAccess(char a1)
   unsigned int v3; // [rsp+60h] [rbp-1A8h] BYREF
   unsigned int v4; // [rsp+64h] [rbp-1A4h] BYREF
   _BYTE v5[32]; // [rsp+70h] [rbp-198h] BYREF
-  _BYTE v6[128]; // [rsp+90h] [rbp-178h] BYREF
+  int v6[32]; // [rsp+90h] [rbp-178h] BYREF
   _BYTE v7[224]; // [rsp+110h] [rbp-F8h] BYREF
 
   memset_0(v5, 0, 0xA0uLL);
@@ -31,7 +31,7 @@ __int64 __fastcall PspCheckCpuPartitionCreateAccess(char a1)
     SeAccessCheckWithHint(
       PsCpuPartitionDefaultSd,
       7,
-      (__int64)v6,
+      v6,
       0,
       0x2000000u,
       0,

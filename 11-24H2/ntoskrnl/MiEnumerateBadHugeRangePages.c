@@ -1,8 +1,8 @@
 /*
- * XREFs of MiEnumerateBadHugeRangePages @ 0x14066FC50
+ * XREFs of MiEnumerateBadHugeRangePages @ 0x140670E20
  * Callers:
- *     MiEnumerateQuarantinedBadHugeRangePages @ 0x1406739AC (MiEnumerateQuarantinedBadHugeRangePages.c)
- *     MiGetListOfPendingBadPages @ 0x140673AD0 (MiGetListOfPendingBadPages.c)
+ *     MiEnumerateQuarantinedBadHugeRangePages @ 0x140674B7C (MiEnumerateQuarantinedBadHugeRangePages.c)
+ *     MiGetListOfPendingBadPages @ 0x140674CA0 (MiGetListOfPendingBadPages.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +27,7 @@ __int64 __fastcall MiEnumerateBadHugeRangePages(unsigned __int64 *a1, __int64 a2
   unsigned __int64 v20; // rcx
   _QWORD *v21; // rcx
 
-  v3 = (_QWORD *)qword_140E2FF20;
+  v3 = (_QWORD *)qword_140E30060;
   v4 = 0LL;
   j = 0LL;
   while ( v3 )
@@ -37,7 +37,7 @@ __int64 __fastcall MiEnumerateBadHugeRangePages(unsigned __int64 *a1, __int64 a2
   }
   while ( j )
   {
-    if ( (*(_QWORD *)(qword_140E2FFC0 + 8LL * (*(_DWORD *)(j + 24) & 0x3FFFFF)) & 7) == 4 )
+    if ( (*(_QWORD *)(qword_140E30100 + 8LL * (*(_DWORD *)(j + 24) & 0x3FFFFF)) & 7) == 4 )
     {
       if ( (a3 & 1) == 0 )
         goto LABEL_32;

@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpInvalidateRelationsInList @ 0x1406EDCB0
+ * XREFs of PnpInvalidateRelationsInList @ 0x1406EEF50
  * Callers:
- *     PiInvalidateSpeculativeRelations @ 0x1406EF064 (PiInvalidateSpeculativeRelations.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
- *     PnpProcessCompletedEject @ 0x140828280 (PnpProcessCompletedEject.c)
+ *     PiInvalidateSpeculativeRelations @ 0x1406F0304 (PiInvalidateSpeculativeRelations.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessCompletedEject @ 0x140829480 (PnpProcessCompletedEject.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14015F004 (PnpRequestDeviceAction.c)
- *     PipClearDevNodeFlags @ 0x1406E64E0 (PipClearDevNodeFlags.c)
- *     IopAddRelationToList @ 0x1406EC988 (IopAddRelationToList.c)
- *     IopSetRelationsTag @ 0x1406ECA18 (IopSetRelationsTag.c)
- *     IopEnumerateRelations @ 0x1406EE0B4 (IopEnumerateRelations.c)
- *     IopAllocateRelationList @ 0x1406EE97C (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x1406EEA3C (IopFreeRelationList.c)
+ *     PnpRequestDeviceAction @ 0x14015F104 (PnpRequestDeviceAction.c)
+ *     PipClearDevNodeFlags @ 0x1406E7780 (PipClearDevNodeFlags.c)
+ *     IopAddRelationToList @ 0x1406EDC28 (IopAddRelationToList.c)
+ *     IopSetRelationsTag @ 0x1406EDCB8 (IopSetRelationsTag.c)
+ *     IopEnumerateRelations @ 0x1406EF354 (IopEnumerateRelations.c)
+ *     IopAllocateRelationList @ 0x1406EFC1C (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x1406EFCDC (IopFreeRelationList.c)
  */
 
 __int64 __fastcall PnpInvalidateRelationsInList(_QWORD *a1, unsigned int a2, char a3, char a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAnyProtosAreMapped @ 0x1402EE910
+ * XREFs of MiAnyProtosAreMapped @ 0x1402F9660
  * Callers:
- *     MiTrimSection @ 0x1402EF6E0 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1402FA430 (MiTrimSection.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiCheckProtoPtePageState @ 0x14023B270 (MiCheckProtoPtePageState.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x1402DFAC0 (MiCheckProtoPtePageState.c)
  */
 
 __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)

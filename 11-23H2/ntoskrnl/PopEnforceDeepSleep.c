@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEnforceDeepSleep @ 0x140994184
+ * XREFs of PopEnforceDeepSleep @ 0x140994384
  * Callers:
- *     PopEnforceResiliencyScenarios @ 0x140994238 (PopEnforceResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x140994438 (PopEnforceResiliencyScenarios.c)
  * Callees:
- *     PopDeepSleepEnabled @ 0x14028E748 (PopDeepSleepEnabled.c)
- *     PopDeepSleepClearDisengageReason @ 0x14028E75C (PopDeepSleepClearDisengageReason.c)
- *     PopDeepSleepSetDisengageReason @ 0x14028E848 (PopDeepSleepSetDisengageReason.c)
- *     KeSetMaxDynamicTickDuration @ 0x14056CA78 (KeSetMaxDynamicTickDuration.c)
+ *     PopDeepSleepEnabled @ 0x14028E9D8 (PopDeepSleepEnabled.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14028E9EC (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14028EAD8 (PopDeepSleepSetDisengageReason.c)
+ *     KeSetMaxDynamicTickDuration @ 0x14056D138 (KeSetMaxDynamicTickDuration.c)
  */
 
 char PopEnforceDeepSleep()
@@ -42,7 +42,7 @@ char PopEnforceDeepSleep()
     KeSetMaxDynamicTickDuration(PopMaxDynamicTickDurationOriginalValue);
     PopDeepSleepEnforced = 0;
     result = PopDeepSleepSetDisengageReason(0);
-    if ( !byte_140C3DA34 )
+    if ( !byte_140C3DA14 )
       return PopDeepSleepSetDisengageReason(1u);
   }
   return result;

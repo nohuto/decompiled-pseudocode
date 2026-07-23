@@ -10,27 +10,22 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall WerpCreateCrashDataSection(HANDLE *a1, void **a2)
+__int64 __fastcall WerpCreateCrashDataSection(HANDLE *a1, PVOID *a2)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   HANDLE v5; // rcx
-  void *v6; // rdx
-  _DWORD v8[2]; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v9; // [rsp+58h] [rbp-28h]
-  __int64 v10; // [rsp+60h] [rbp-20h]
-  int v11; // [rsp+68h] [rbp-18h]
-  int v12; // [rsp+6Ch] [rbp-14h]
-  __int128 v13; // [rsp+70h] [rbp-10h]
-  void *v14; // [rsp+B0h] [rbp+30h] BYREF
-  HANDLE Handle; // [rsp+B8h] [rbp+38h] BYREF
-  __int64 v16; // [rsp+C0h] [rbp+40h]
-  __int64 v17; // [rsp+C8h] [rbp+48h] BYREF
+  PVOID v6; // rdx
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  PVOID BaseAddress; // [rsp+B0h] [rbp+30h] BYREF
+  HANDLE SectionHandle; // [rsp+B8h] [rbp+38h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+C0h] [rbp+40h] BYREF
+  ULONG_PTR ViewSize; // [rsp+C8h] [rbp+48h] BYREF
 
-  v8[1] = 0;
-  v12 = 0;
-  Handle = 0LL;
-  v14 = 0LL;
-  v17 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  SectionHandle = 0LL;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
   if ( a1 )
     *a1 = 0LL;
   if ( a2 )
@@ -39,34 +34,46 @@ __int64 __fastcall WerpCreateCrashDataSection(HANDLE *a1, void **a2)
   {
     if ( a2 )
     {
-      v8[0] = 48;
-      v9 = 0LL;
-      v13 = 0LL;
-      v11 = 2;
-      v10 = 0LL;
-      v16 = 1648LL;
-      v4 = NtCreateSection(&Handle, 983047LL, v8);
-      if ( v4 < 0 || (v4 = ZwMapViewOfSection(Handle, -1LL, &v14, 0LL, 0LL, 0LL, &v17, 1, 0, 4), v4 < 0) )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      ObjectAttributes.Attributes = 2;
+      ObjectAttributes.ObjectName = 0LL;
+      MaximumSize.QuadPart = 1648LL;
+      v4 = NtCreateSection(&SectionHandle, 0xF0007u, &ObjectAttributes, &MaximumSize, 4u, 0x8000000u, 0LL);
+      if ( v4 < 0
+        || (v4 = ZwMapViewOfSection(
+                   SectionHandle,
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   &BaseAddress,
+                   0LL,
+                   0LL,
+                   0LL,
+                   &ViewSize,
+                   ViewShare,
+                   0,
+                   4u),
+            v4 < 0) )
       {
-        v5 = Handle;
-        v6 = v14;
+        v5 = SectionHandle;
+        v6 = BaseAddress;
       }
       else
       {
-        memset_thunk_772440563353939046(v14, 0, 0xF8uLL);
+        memset_thunk_772440563353939046(BaseAddress, 0, 0xF8uLL);
         v5 = 0LL;
-        *a1 = Handle;
+        *a1 = SectionHandle;
         v6 = 0LL;
         v4 = 0;
-        *a2 = v14;
-        Handle = 0LL;
-        v14 = 0LL;
+        *a2 = BaseAddress;
+        SectionHandle = 0LL;
+        BaseAddress = 0LL;
       }
       if ( v6 )
       {
-        NtUnmapViewOfSection(-1LL);
-        v5 = Handle;
-        v14 = 0LL;
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v6);
+        v5 = SectionHandle;
+        BaseAddress = 0LL;
       }
       if ( v5 )
         NtClose(v5);

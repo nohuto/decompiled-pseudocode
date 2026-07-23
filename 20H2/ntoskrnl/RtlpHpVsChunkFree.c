@@ -10,7 +10,7 @@
  *     RtlpHpVsSubsegmentCleanup @ 0x14031A86C (RtlpHpVsSubsegmentCleanup.c)
  */
 
-__int64 __fastcall RtlpHpVsChunkFree(__int64 a1, __int64 a2, unsigned __int64 a3, int a4, __int64 a5)
+__int64 __fastcall RtlpHpVsChunkFree(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 v6; // r12
   unsigned int i; // r14d

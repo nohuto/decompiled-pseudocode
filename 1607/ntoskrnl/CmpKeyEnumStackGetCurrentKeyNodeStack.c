@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpKeyEnumStackGetCurrentKeyNodeStack @ 0x140581810
+ * XREFs of CmpKeyEnumStackGetCurrentKeyNodeStack @ 0x140581CC0
  * Callers:
- *     CmpPartialPromoteSubkeys @ 0x1401B3204 (CmpPartialPromoteSubkeys.c)
+ *     CmpPartialPromoteSubkeys @ 0x1401B30E8 (CmpPartialPromoteSubkeys.c)
  * Callees:
  *     <none>
  */

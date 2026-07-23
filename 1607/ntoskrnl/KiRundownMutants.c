@@ -1,19 +1,19 @@
 /*
- * XREFs of KiRundownMutants @ 0x1400F2320
+ * XREFs of KiRundownMutants @ 0x1400F0170
  * Callers:
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x140057DA0 (KiTryUnwaitThread.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x140057920 (KiTryUnwaitThread.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  */
 
 void __fastcall KiRundownMutants(ULONG_PTR BugCheckParameter1)

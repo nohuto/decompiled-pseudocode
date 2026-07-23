@@ -6,7 +6,7 @@
  *     sub_1800043F8 @ 0x1800043F8 (sub_1800043F8.c)
  */
 
-unsigned __int64 RtlGetExtendedFeaturesMask()
+ULONG64 __cdecl RtlGetExtendedFeaturesMask(PCONTEXT_EX ContextEx)
 {
-  return *(_QWORD *)sub_1800043F8() & 0xFFFFFFFFFFFFFFFCuLL;
+  return *(_QWORD *)sub_1800043F8(ContextEx) & 0xFFFFFFFFFFFFFFFCuLL;
 }

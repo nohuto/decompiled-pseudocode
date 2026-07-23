@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlNotifyUpdateBuffer @ 0x1404BFB78
+ * XREFs of FsRtlNotifyUpdateBuffer @ 0x1404AB8A8
  * Callers:
- *     FsRtlNotifyFilterReportChange @ 0x1404BF290 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1404AAFC0 (FsRtlNotifyFilterReportChange.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlOemToUnicodeN @ 0x140549AD0 (RtlOemToUnicodeN.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlOemToUnicodeN @ 0x14054A010 (RtlOemToUnicodeN.c)
  */
 
 char __fastcall FsRtlNotifyUpdateBuffer(__int64 a1, int a2, PCCH *a3, PCCH *a4, PCCH *a5, char a6, int a7)

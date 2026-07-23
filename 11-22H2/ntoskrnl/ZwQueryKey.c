@@ -32,7 +32,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryKey(
         HANDLE KeyHandle,
         KEY_INFORMATION_CLASS KeyInformationClass,
@@ -42,5 +41,5 @@ NTSTATUS __stdcall ZwQueryKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&KeyInformationClass);
+  return KiServiceInternal(KeyHandle);
 }

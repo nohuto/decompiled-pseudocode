@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlSendSyntheticClusterIpi @ 0x1403CC2A0
+ * XREFs of HvlSendSyntheticClusterIpi @ 0x1403CC480
  * Callers:
  *     <none>
  * Callees:
- *     EtwGetKernelTraceTimestampSilo @ 0x1402A2FB0 (EtwGetKernelTraceTimestampSilo.c)
- *     EtwTraceTimedEvent @ 0x140338D50 (EtwTraceTimedEvent.c)
- *     HvcallpNoHypervisorPresent @ 0x14036E650 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x140546208 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1405464CC (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     EtwGetKernelTraceTimestampSilo @ 0x1402A3240 (EtwGetKernelTraceTimestampSilo.c)
+ *     EtwTraceTimedEvent @ 0x140338FE0 (EtwTraceTimedEvent.c)
+ *     HvcallpNoHypervisorPresent @ 0x14036E7F0 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1405468C8 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x140546B8C (HvlpSlowSendSyntheticClusterIpiEx.c)
  */
 
 __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, unsigned int a2)

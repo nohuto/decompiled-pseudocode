@@ -1,14 +1,14 @@
 /*
- * XREFs of PopRegisterCoolingExtensionProtection @ 0x140983294
+ * XREFs of PopRegisterCoolingExtensionProtection @ 0x140983494
  * Callers:
- *     PopAssociateThermalRequest @ 0x14084E000 (PopAssociateThermalRequest.c)
+ *     PopAssociateThermalRequest @ 0x14084E300 (PopAssociateThermalRequest.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x140302AF0 (IoGetDeviceAttachmentBaseRef.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x140302D80 (IoGetDeviceAttachmentBaseRef.c)
  *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     IoGetDeviceObjectPointer @ 0x14075B260 (IoGetDeviceObjectPointer.c)
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
+ *     IoGetDeviceObjectPointer @ 0x14075B450 (IoGetDeviceObjectPointer.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

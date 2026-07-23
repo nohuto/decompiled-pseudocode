@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPluginComponentIdleState @ 0x140130F90
+ * XREFs of PopPluginComponentIdleState @ 0x140131500
  * Callers:
- *     PopFxProcessWork @ 0x1400C124C (PopFxProcessWork.c)
- *     PoFxCompleteIdleState @ 0x140131644 (PoFxCompleteIdleState.c)
+ *     PopFxProcessWork @ 0x1400BF0DC (PopFxProcessWork.c)
+ *     PoFxCompleteIdleState @ 0x140131BB4 (PoFxCompleteIdleState.c)
  * Callees:
- *     PopPepProcessEvent @ 0x1400C2248 (PopPepProcessEvent.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
- *     PopPluginNotifyIdleState @ 0x1402045C8 (PopPluginNotifyIdleState.c)
+ *     PopPepProcessEvent @ 0x1400C00D8 (PopPepProcessEvent.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
+ *     PopPluginNotifyIdleState @ 0x1402043F4 (PopPluginNotifyIdleState.c)
  */
 
 char __fastcall PopPluginComponentIdleState(__int64 a1, unsigned int a2, __int64 a3, void *a4)

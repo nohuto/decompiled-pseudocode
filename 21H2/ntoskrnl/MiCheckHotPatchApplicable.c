@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckHotPatchApplicable @ 0x1408C97A0
+ * XREFs of MiCheckHotPatchApplicable @ 0x1408C9900
  * Callers:
  *     <none>
  * Callees:
- *     RtlAreBitsClearEx @ 0x140348F90 (RtlAreBitsClearEx.c)
- *     RtlAreBitsSetEx @ 0x140586CD0 (RtlAreBitsSetEx.c)
+ *     RtlAreBitsClearEx @ 0x140353CE0 (RtlAreBitsClearEx.c)
+ *     RtlAreBitsSetEx @ 0x140586F00 (RtlAreBitsSetEx.c)
  */
 
 __int64 __fastcall MiCheckHotPatchApplicable(__int64 a1, unsigned int a2, unsigned int a3, _BYTE *a4)

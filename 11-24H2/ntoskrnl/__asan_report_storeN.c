@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_report_storeN @ 0x1405AC5B0
+ * XREFs of __asan_report_storeN @ 0x1405A9520
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
  */
 
 struct _KTHREAD *__fastcall _asan_report_storeN(ULONG_PTR a1, ULONG_PTR a2)

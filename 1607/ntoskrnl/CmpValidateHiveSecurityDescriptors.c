@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpValidateHiveSecurityDescriptors @ 0x1403F8C28
+ * XREFs of CmpValidateHiveSecurityDescriptors @ 0x1403F7AE8
  * Callers:
- *     CmCheckRegistry @ 0x140480374 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x14047F0C8 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x1403F7044 (RtlValidRelativeSecurityDescriptor.c)
- *     CmpAddSecurityCellToCache @ 0x1403FB3A8 (CmpAddSecurityCellToCache.c)
- *     HvIsCellAllocated @ 0x1404399C0 (HvIsCellAllocated.c)
- *     CmpInitSecurityCache @ 0x140480298 (CmpInitSecurityCache.c)
- *     CmpDestroySecurityCache @ 0x14049FDD4 (CmpDestroySecurityCache.c)
- *     CmpCheckSecurityCellAccess @ 0x1404EA7B4 (CmpCheckSecurityCellAccess.c)
- *     CmpAdjustSecurityCacheSize @ 0x1404EB17C (CmpAdjustSecurityCacheSize.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpResetCachedSecurity @ 0x14060B7A8 (CmpResetCachedSecurity.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1403F5F04 (RtlValidRelativeSecurityDescriptor.c)
+ *     CmpAddSecurityCellToCache @ 0x1403FA268 (CmpAddSecurityCellToCache.c)
+ *     HvIsCellAllocated @ 0x140438890 (HvIsCellAllocated.c)
+ *     CmpInitSecurityCache @ 0x14047EFEC (CmpInitSecurityCache.c)
+ *     CmpCheckSecurityCellAccess @ 0x1404CC9B8 (CmpCheckSecurityCellAccess.c)
+ *     CmpAdjustSecurityCacheSize @ 0x1404CD300 (CmpAdjustSecurityCacheSize.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpDestroySecurityCache @ 0x1405181E0 (CmpDestroySecurityCache.c)
+ *     CmpResetCachedSecurity @ 0x14060B85C (CmpResetCachedSecurity.c)
  */
 
 __int64 __fastcall CmpValidateHiveSecurityDescriptors(ULONG_PTR BugCheckParameter2, int a2, _BYTE *a3, __int64 a4)

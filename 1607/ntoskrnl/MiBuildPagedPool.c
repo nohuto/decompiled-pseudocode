@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiIssueNoPtesBugcheck @ 0x1401E7418 (MiIssueNoPtesBugcheck.c)
- *     MiInitializeDynamicBitmap @ 0x140535E80 (MiInitializeDynamicBitmap.c)
- *     MiInitializeSystemWorkingSetList @ 0x1405362FC (MiInitializeSystemWorkingSetList.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiIssueNoPtesBugcheck @ 0x1401E7244 (MiIssueNoPtesBugcheck.c)
+ *     MiInitializeDynamicBitmap @ 0x1405363C0 (MiInitializeDynamicBitmap.c)
+ *     MiInitializeSystemWorkingSetList @ 0x14053683C (MiInitializeSystemWorkingSetList.c)
  *     MiInitializeDynamicRegion @ 0x1407A517C (MiInitializeDynamicRegion.c)
  *     InitializePagedPool @ 0x1407B47A0 (InitializePagedPool.c)
  */
@@ -22,24 +22,24 @@ __int64 MiBuildPagedPool()
 
   if ( (MiFlags & 1) != 0 || MmSpecialPoolTag || MmProtectFreedNonPagedPool == 1 )
   {
-    dword_1403264D0 = 0;
+    dword_140326510 = 0;
   }
-  else if ( qword_140324DD0 < 0x80000 )
+  else if ( qword_140324E10 < 0x80000 )
   {
-    if ( qword_140324DD0 < 0x40000 )
-      dword_1403264D0 = 8;
+    if ( qword_140324E10 < 0x40000 )
+      dword_140326510 = 8;
     else
-      dword_1403264D0 *= 2;
+      dword_140326510 *= 2;
   }
   else
   {
-    dword_1403264D0 *= 8;
+    dword_140326510 *= 8;
   }
-  v0 = qword_140327F30;
-  if ( !(unsigned int)MiInitializeDynamicRegion(6LL, qword_140327F30, 0xF8000000000LL) )
+  v0 = qword_140327F70;
+  if ( !(unsigned int)MiInitializeDynamicRegion(6LL, qword_140327F70, 0xF8000000000LL) )
     return 0LL;
-  qword_140327840 = ((v0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  qword_140327868 = 4160749568LL;
+  qword_140327880 = ((v0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  qword_1403278A8 = 4160749568LL;
   MmSizeOfPagedPoolInBytes = 0xF8000000000LL;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
   if ( !(unsigned int)MiInitializeSystemWorkingSetList(
@@ -48,16 +48,16 @@ __int64 MiBuildPagedPool()
                         3,
                         0x100000000uLL) )
     return 0LL;
-  v3 = MiReservePtes((__int64)&qword_140327870, 0x1F000uLL, v2);
+  v3 = MiReservePtes((__int64)&qword_1403278B0, 0x1F000uLL, v2);
   if ( !v3 )
     MiIssueNoPtesBugcheck(0x1F000uLL);
-  MiInitializeDynamicBitmap(&qword_140327830, (__int64)(v3 << 25) >> 16, qword_140327868, 19);
-  qword_140327830 = 0LL;
-  qword_140327828 = 0LL;
-  qword_140327848 = qword_140327868;
+  MiInitializeDynamicBitmap(&qword_140327870, (__int64)(v3 << 25) >> 16, qword_1403278A8, 19);
+  qword_140327870 = 0LL;
+  qword_140327868 = 0LL;
+  qword_140327888 = qword_1403278A8;
   InitializePagedPool();
   result = 1LL;
-  qword_1403264C0 = 7680LL;
-  qword_1403264C8 = 15360LL;
+  qword_140326500 = 7680LL;
+  qword_140326508 = 15360LL;
   return result;
 }

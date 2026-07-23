@@ -1,21 +1,21 @@
 /*
- * XREFs of PopDirectedDripsDiagDestroyDeviceDiagnostic @ 0x140A74970
+ * XREFs of PopDirectedDripsDiagDestroyDeviceDiagnostic @ 0x140A6EC90
  * Callers:
- *     PoFxAbandonDevice @ 0x140A74894 (PoFxAbandonDevice.c)
+ *     PoFxAbandonDevice @ 0x140A6EBB4 (PoFxAbandonDevice.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagDestroyDeviceDiagnostic(__int64 a1)
 {
   __int64 result; // rax
   int v3; // ett
-  _QWORD *v4; // rax
+  char *v4; // rax
   signed __int8 v5; // cf
-  _QWORD *v6; // rbx
+  char *v6; // rbx
   __int64 v7; // rax
 
   _m_prefetchw(&PopDirectedDripsState);
@@ -31,13 +31,13 @@ __int64 __fastcall PopDirectedDripsDiagDestroyDeviceDiagnostic(__int64 a1)
   while ( v3 != (_DWORD)result );
   if ( (result & 1) != 0 )
   {
-    v4 = KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL);
+    v4 = (char *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL);
     v5 = _interlockedbittestandset64((volatile signed __int32 *)&PopDirectedDripsDiagLock, 0LL);
     v6 = v4;
     if ( v5 )
-      ExfAcquirePushLockExclusiveEx(&PopDirectedDripsDiagLock, (__int64)v4, (__int64)&PopDirectedDripsDiagLock);
+      ExfAcquirePushLockExclusiveEx(&PopDirectedDripsDiagLock, v4, (__int64)&PopDirectedDripsDiagLock);
     if ( v6 )
-      *((_BYTE *)v6 + 10) = 1;
+      v6[10] = 1;
     v7 = *(_QWORD *)(a1 + 776);
     if ( v7 )
     {

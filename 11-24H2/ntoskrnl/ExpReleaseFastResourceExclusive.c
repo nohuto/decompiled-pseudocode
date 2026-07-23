@@ -1,55 +1,58 @@
 /*
- * XREFs of ExpReleaseFastResourceExclusive @ 0x14025D6D0
+ * XREFs of ExpReleaseFastResourceExclusive @ 0x14028DCE0
  * Callers:
- *     ExReleaseFastResourceShared @ 0x1404F49A0 (ExReleaseFastResourceShared.c)
- *     ExReleaseFastResourceExclusive @ 0x140656950 (ExReleaseFastResourceExclusive.c)
+ *     ExReleaseFastResourceShared @ 0x1404F22A0 (ExReleaseFastResourceShared.c)
+ *     ExReleaseFastResourceExclusive @ 0x140655050 (ExReleaseFastResourceExclusive.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     ExpReleaseFastResourceExclusiveSlow @ 0x14025D7C0 (ExpReleaseFastResourceExclusiveSlow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     ExpReleaseFastResourceExclusiveSlow @ 0x14028DDD0 (ExpReleaseFastResourceExclusiveSlow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall ExpReleaseFastResourceExclusive(__int64 *BugCheckParameter2)
+__int64 __fastcall ExpReleaseFastResourceExclusive(__int64 *BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
-  bool v1; // zf
+  bool v4; // zf
   __int64 result; // rax
-  ULONG_PTR v4; // rdi
-  __int64 v5; // rdx
-  _QWORD *v6; // rcx
+  ULONG_PTR v7; // rdi
+  __int64 v8; // rdx
+  _QWORD *v9; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  __int64 v9; // rtt
-  signed __int32 v10; // eax
-  signed __int32 v11; // ett
+  unsigned __int32 *SchedulerAssist; // r8
+  __int64 v12; // rtt
+  unsigned __int32 v13; // eax
+  __int64 v14; // rdx
+  unsigned __int32 v15; // ett
 
-  v1 = (*((_DWORD *)BugCheckParameter2 + 24))-- == 1;
+  v4 = (*((_DWORD *)BugCheckParameter2 + 24))-- == 1;
   result = (__int64)(BugCheckParameter2 + 8);
-  if ( v1 )
+  if ( v4 )
   {
-    v4 = *((unsigned __int8 *)BugCheckParameter2 + 100);
+    v7 = *((unsigned __int8 *)BugCheckParameter2 + 100);
     _disable();
-    v5 = *(_QWORD *)result;
-    v6 = (_QWORD *)BugCheckParameter2[9];
-    if ( *(_QWORD *)(*(_QWORD *)result + 8LL) != result || *v6 != result )
+    v8 = *(_QWORD *)result;
+    v9 = (_QWORD *)BugCheckParameter2[9];
+    if ( *(_QWORD *)(*(_QWORD *)result + 8LL) != result || *v9 != result )
       __fastfail(3u);
-    *v6 = v5;
-    *(_QWORD *)(v5 + 8) = v6;
+    *v9 = v8;
+    *(_QWORD *)(v8 + 8) = v9;
     *(_QWORD *)result = 0LL;
     *(_QWORD *)(result + 8) = 0LL;
     CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
+    SchedulerAssist = (unsigned __int32 *)CurrentPrcb->SchedulerAssist;
     if ( SchedulerAssist )
     {
       _m_prefetchw(SchedulerAssist);
-      v10 = *SchedulerAssist;
+      v13 = *SchedulerAssist;
       do
       {
-        v11 = v10;
-        v10 = _InterlockedCompareExchange(SchedulerAssist, v10 & 0xFFDFFFFF, v10);
+        v14 = v13;
+        LODWORD(v14) = v13 & 0xFFDFFFFF;
+        v15 = v13;
+        v13 = _InterlockedCompareExchange((volatile signed __int32 *)SchedulerAssist, v13 & 0xFFDFFFFF, v13);
       }
-      while ( v11 != v10 );
-      if ( (v10 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      while ( v15 != v13 );
+      if ( (v13 & 0x200000) != 0 )
+        KiRemoveSystemWorkPriorityKick(CurrentPrcb, v14, SchedulerAssist, a4);
     }
     _enable();
     BugCheckParameter2[10] = 0LL;
@@ -60,12 +63,12 @@ __int64 __fastcall ExpReleaseFastResourceExclusive(__int64 *BugCheckParameter2)
     {
       if ( (result & 2) != 0 )
         return ExpReleaseFastResourceExclusiveSlow((ULONG_PTR)BugCheckParameter2);
-      v9 = result;
+      v12 = result;
       result = _InterlockedCompareExchange64(BugCheckParameter2, 0LL, result);
     }
-    while ( v9 != result );
-    if ( (_BYTE)v4 )
-      return KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v4);
+    while ( v12 != result );
+    if ( (_BYTE)v7 )
+      return KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v7);
   }
   return result;
 }

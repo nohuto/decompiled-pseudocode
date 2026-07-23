@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQueryObject()
+NTSTATUS __cdecl ZwQueryObject(
+        HANDLE Handle,
+        OBJECT_INFORMATION_CLASS ObjectInformationClass,
+        PVOID ObjectInformation,
+        ULONG ObjectInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 16LL;
+  result = 16;
   __asm { syscall; Low latency system call }
   return result;
 }

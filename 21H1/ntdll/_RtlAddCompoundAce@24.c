@@ -9,41 +9,41 @@
  *     _RtlFirstFreeAce@8 @ 0x4B2D7F40 (_RtlFirstFreeAce@8.c)
  */
 
-int __stdcall RtlAddCompoundAce(
-        int a1,
-        unsigned int a2,
-        unsigned __int8 a3,
-        int a4,
-        unsigned __int8 *Src,
-        unsigned __int8 *a6)
+NTSTATUS __cdecl RtlAddCompoundAce(
+        PACL Acl,
+        ULONG AceRevision,
+        UCHAR AceType,
+        ACCESS_MASK AccessMask,
+        PSID ServerSid,
+        PSID ClientSid)
 {
-  unsigned __int8 v6; // bl
-  unsigned int v7; // edi
+  unsigned __int8 AclRevision; // bl
+  _DWORD *v7; // edi
   unsigned __int16 v8; // ax
-  int result; // eax
-  unsigned int v10; // [esp+10h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  PVOID FirstFree; // [esp+10h] [ebp-4h] BYREF
 
-  if ( !RtlValidSid(Src) || !RtlValidSid(a6) )
+  if ( !RtlValidSid(ServerSid) || !RtlValidSid(ClientSid) )
     return -1073741704;
-  v6 = *(_BYTE *)a1;
-  if ( *(_BYTE *)a1 > 4u || a2 < 3 || a2 > 4 )
+  AclRevision = Acl->AclRevision;
+  if ( Acl->AclRevision > 4u || AceRevision < 3 || AceRevision > 4 )
     return -1073741735;
-  if ( v6 <= (unsigned __int8)a2 )
-    v6 = a2;
-  if ( !RtlValidAcl(a1) || !RtlFirstFreeAce(a1, &v10) )
+  if ( AclRevision <= (unsigned __int8)AceRevision )
+    AclRevision = AceRevision;
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741705;
-  v7 = v10;
-  v8 = 4 * (a6[1] + 7 + Src[1]);
-  if ( !v10 || v10 + v8 > a1 + (unsigned int)*(unsigned __int16 *)(a1 + 2) )
+  v7 = FirstFree;
+  v8 = 4 * (*((unsigned __int8 *)ClientSid + 1) + 7 + *((unsigned __int8 *)ServerSid + 1));
+  if ( !FirstFree || (char *)FirstFree + v8 > (char *)Acl + Acl->AclSize )
     return -1073741671;
-  *(_WORD *)(v10 + 2) = v8;
-  *(_DWORD *)(v7 + 4) = a4;
-  *(_WORD *)(v7 + 8) = a3;
+  *((_WORD *)FirstFree + 1) = v8;
+  v7[1] = AccessMask;
+  *((_WORD *)v7 + 4) = AceType;
   *(_WORD *)v7 = 4;
-  RtlCopySid(4 * Src[1] + 8, (void *)(v7 + 12), Src);
-  RtlCopySid(4 * a6[1] + 8, (void *)(v7 + 4 * (Src[1] + 5)), a6);
-  ++*(_WORD *)(a1 + 4);
+  RtlCopySid(4 * *((unsigned __int8 *)ServerSid + 1) + 8, v7 + 3, ServerSid);
+  RtlCopySid(4 * *((unsigned __int8 *)ClientSid + 1) + 8, &v7[*((unsigned __int8 *)ServerSid + 1) + 5], ClientSid);
+  ++Acl->AceCount;
   result = 0;
-  *(_BYTE *)a1 = v6;
+  Acl->AclRevision = AclRevision;
   return result;
 }

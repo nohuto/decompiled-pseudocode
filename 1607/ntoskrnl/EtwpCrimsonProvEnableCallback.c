@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCrimsonProvEnableCallback @ 0x14054AE98
+ * XREFs of EtwpCrimsonProvEnableCallback @ 0x14054B3D8
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     EtwProviderEnabled @ 0x1400B7664 (EtwProviderEnabled.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     EtwProviderEnabled @ 0x1400B54FC (EtwProviderEnabled.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpPsProvCaptureState @ 0x1406A7D1C (EtwpPsProvCaptureState.c)
+ *     EtwpPsProvCaptureState @ 0x1406A7E54 (EtwpPsProvCaptureState.c)
  */
 
 void __fastcall EtwpCrimsonProvEnableCallback(

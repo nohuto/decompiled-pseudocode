@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpLogRefreshTimeZoneInformationCutoverFail @ 0x14094B900
+ * XREFs of ExpLogRefreshTimeZoneInformationCutoverFail @ 0x14094BAD0
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int __fastcall ExpLogRefreshTimeZoneInformationCutoverFail(__int64 a1, __int64 a2, __int64 *a3, char a4)
@@ -101,7 +101,7 @@ int __fastcall ExpLogRefreshTimeZoneInformationCutoverFail(__int64 a1, __int64 a
     v46 = 4LL;
     LODWORD(CurrentServerSiloGlobals) = tlgWriteTransfer_EtwWriteTransfer(
                                           (__int64)&dword_140C02C60,
-                                          (unsigned __int8 *)byte_14002DB71,
+                                          (unsigned __int8 *)byte_14002E11B,
                                           0LL,
                                           0LL,
                                           0x10u,

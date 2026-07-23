@@ -1,14 +1,14 @@
 /*
- * XREFs of KeAcquireInStackQueuedSpinLockForDpc @ 0x140393920
+ * XREFs of KeAcquireInStackQueuedSpinLockForDpc @ 0x14038D250
  * Callers:
- *     KeRemoveByKeyDeviceQueue @ 0x140393600 (KeRemoveByKeyDeviceQueue.c)
- *     KeInsertByKeyDeviceQueue @ 0x140393850 (KeInsertByKeyDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1405BCF90 (KeRemoveByKeyDeviceQueueIfBusy.c)
- *     DifKeAcquireInStackQueuedSpinLockForDpcWrapper @ 0x14062C410 (DifKeAcquireInStackQueuedSpinLockForDpcWrapper.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x14038CF30 (KeRemoveByKeyDeviceQueue.c)
+ *     KeInsertByKeyDeviceQueue @ 0x14038D180 (KeInsertByKeyDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1405BA5C0 (KeRemoveByKeyDeviceQueueIfBusy.c)
+ *     DifKeAcquireInStackQueuedSpinLockForDpcWrapper @ 0x14062A9D0 (DifKeAcquireInStackQueuedSpinLockForDpcWrapper.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall KeAcquireInStackQueuedSpinLockForDpc(PKSPIN_LOCK SpinLock, PKLOCK_QUEUE_HANDLE LockHandle)

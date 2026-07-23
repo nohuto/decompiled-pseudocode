@@ -1,19 +1,19 @@
 /*
- * XREFs of ?KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x1404458E0
+ * XREFs of ?KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x14043E3E4
  * Callers:
- *     KeInsertSchedulingGroup @ 0x140444BD0 (KeInsertSchedulingGroup.c)
- *     KeSetSchedulingGroupCpuRates @ 0x1404452DC (KeSetSchedulingGroupCpuRates.c)
- *     ?KiUpdateChildrenCpuTarget@@YAXPEAU_LIST_ENTRY@@E@Z @ 0x1405F9130 (-KiUpdateChildrenCpuTarget@@YAXPEAU_LIST_ENTRY@@E@Z.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1405F9184 (KeUpdateGroupSchedulingConstants.c)
+ *     KeInsertSchedulingGroup @ 0x14043D6E0 (KeInsertSchedulingGroup.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x14043DDE8 (KeSetSchedulingGroupCpuRates.c)
+ *     ?KiUpdateChildrenCpuTarget@@YAXPEAU_LIST_ENTRY@@E@Z @ 0x1405FBB50 (-KiUpdateChildrenCpuTarget@@YAXPEAU_LIST_ENTRY@@E@Z.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1405FBBA4 (KeUpdateGroupSchedulingConstants.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     ?KiResetScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@@Z @ 0x140445BE8 (-KiResetScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@@Z.c)
- *     ?KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x140445CD8 (-KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@.c)
- *     ?KiUpdateChildrenCpuTarget@@YAXPEAU_LIST_ENTRY@@E@Z @ 0x1405F9130 (-KiUpdateChildrenCpuTarget@@YAXPEAU_LIST_ENTRY@@E@Z.c)
- *     EtwTraceScbRankChange @ 0x1406C4D3C (EtwTraceScbRankChange.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     ?KiResetScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@@Z @ 0x14043E6EC (-KiResetScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@@Z.c)
+ *     ?KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x14043E7DC (-KiCheckForEffectivePriorityChange@@YAXPEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@.c)
+ *     ?KiUpdateChildrenCpuTarget@@YAXPEAU_LIST_ENTRY@@E@Z @ 0x1405FBB50 (-KiUpdateChildrenCpuTarget@@YAXPEAU_LIST_ENTRY@@E@Z.c)
+ *     EtwTraceScbRankChange @ 0x1406C897C (EtwTraceScbRankChange.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall KiUpdateCpuTargetByRate(struct _KSCHEDULING_GROUP *a1, unsigned __int8 a2)
@@ -33,7 +33,7 @@ void __fastcall KiUpdateCpuTargetByRate(struct _KSCHEDULING_GROUP *a1, unsigned 
   union _KISOLATION_UNIT_LOCK_HANDLE *v16; // rdx
   __int64 v17; // r9
   __int64 v18; // rbx
-  signed __int64 v19; // rcx
+  struct _LIST_ENTRY *Flink; // rcx
   volatile _KSCHEDULING_GROUP_MAX_QUOTA_TRACKER v20; // rt0
   unsigned __int8 v21; // tt
   _KSCB *Parent; // rbx
@@ -66,13 +66,17 @@ void __fastcall KiUpdateCpuTargetByRate(struct _KSCHEDULING_GROUP *a1, unsigned 
   {
     v18 = v6 * (unsigned int)KeNumberProcessors_0;
     a1->MaxQuotaLimitCycles = v18;
-    v19 = KiGenerationEndTick;
+    Flink = KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink;
     _m_prefetchw((const void *)&a1->MaxQuotaTracker);
     do
     {
       MaxQuotaTracker = a1->MaxQuotaTracker;
       v20 = MaxQuotaTracker;
-      v21 = _InterlockedCompareExchange128(&a1->MaxQuotaTracker.CyclesRemaining, v19, v18, &v20.CyclesRemaining);
+      v21 = _InterlockedCompareExchange128(
+              &a1->MaxQuotaTracker.CyclesRemaining,
+              (signed __int64)Flink,
+              v18,
+              &v20.CyclesRemaining);
       MaxQuotaTracker = v20;
     }
     while ( !v21 );
@@ -112,7 +116,7 @@ void __fastcall KiUpdateCpuTargetByRate(struct _KSCHEDULING_GROUP *a1, unsigned 
           }
         }
         KiReleasePrcbLocksForIsolationUnit(&v25);
-        if ( v23 && (WORD2(xmmword_140FBFC10) & 0x4000) != 0 )
+        if ( v23 && (WORD2(xmmword_140FC0C10) & 0x4000) != 0 )
         {
           LOBYTE(v17) = (*(_BYTE *)&a1->PerProcessor[v10].0 & 2) != 0;
           EtwTraceScbRankChange(a1, (unsigned int)v8, a1->PerProcessor[v10].Rank, v17);

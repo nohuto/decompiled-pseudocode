@@ -1,14 +1,14 @@
 /*
- * XREFs of ObCheckActiveHandles @ 0x140AF42CC
+ * XREFs of ObCheckActiveHandles @ 0x140AF6940
  * Callers:
- *     MiFinishCreateSection @ 0x1409BAAFC (MiFinishCreateSection.c)
+ *     MiFinishCreateSection @ 0x14098BADC (MiFinishCreateSection.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 bool __fastcall ObCheckActiveHandles(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

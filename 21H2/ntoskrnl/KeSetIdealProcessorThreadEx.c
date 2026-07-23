@@ -1,35 +1,35 @@
 /*
- * XREFs of KeSetIdealProcessorThreadEx @ 0x1402EAD48
+ * XREFs of KeSetIdealProcessorThreadEx @ 0x14029C098
  * Callers:
- *     MiZeroInParallelWorker @ 0x1402E6010 (MiZeroInParallelWorker.c)
- *     MiSetIdealProcessorThread @ 0x1402ECE20 (MiSetIdealProcessorThread.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x14037A874 (KeSetIdealProcessorThreadByNumber.c)
+ *     MiZeroInParallelWorker @ 0x140297360 (MiZeroInParallelWorker.c)
+ *     MiSetIdealProcessorThread @ 0x14029E170 (MiSetIdealProcessorThread.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14037A3C4 (KeSetIdealProcessorThreadByNumber.c)
  * Callees:
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x140230DF0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
- *     KiPrcbInGroupAffinity @ 0x1402EBA74 (KiPrcbInGroupAffinity.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadStateLock @ 0x14029B7D0 (KiReleaseThreadStateLock.c)
+ *     KiPrcbInGroupAffinity @ 0x14029CDC4 (KiPrcbInGroupAffinity.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402D5640 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiAcquireThreadStateLock @ 0x1402D5790 (KiAcquireThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x1405A7844 (EtwTraceIdealProcessor.c)
+ *     EtwTraceIdealProcessor @ 0x1405A7A74 (EtwTraceIdealProcessor.c)
  */
 
-__int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
+__int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, int a2, unsigned int *a3)
 {
-  int v5; // ebp
-  unsigned int v6; // r13d
+  unsigned int v5; // r13d
   unsigned __int8 CurrentIrql; // r14
   struct _KPRCB *CurrentPrcb; // rdi
-  _DWORD *v9; // rcx
-  unsigned int v10; // esi
-  unsigned int v11; // r12d
-  unsigned int v12; // r15d
-  unsigned int v13; // edi
-  int v14; // eax
-  __int64 v15; // rcx
-  unsigned int v16; // ebp
-  _DWORD *v18; // rcx
+  _DWORD *v8; // rcx
+  unsigned int v9; // esi
+  unsigned int v10; // r12d
+  unsigned int v11; // r15d
+  unsigned int v12; // edi
+  int v13; // eax
+  __int64 v14; // rcx
+  unsigned int v15; // ebp
+  _DWORD *v17; // rcx
+  _DWORD *SchedulerAssist; // r9
   int v19; // eax
   int v20; // eax
   unsigned __int8 v22; // al
@@ -40,92 +40,89 @@ __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, __int64 a2, __int64 a
   __int64 v27[11]; // [rsp+20h] [rbp-58h] BYREF
   __int64 v28; // [rsp+80h] [rbp+8h]
   int v29; // [rsp+88h] [rbp+10h] BYREF
-  _DWORD *v30; // [rsp+90h] [rbp+18h]
+  unsigned int *v30; // [rsp+90h] [rbp+18h]
   volatile signed __int64 *v31; // [rsp+98h] [rbp+20h] BYREF
 
-  v30 = (_DWORD *)a3;
+  v30 = a3;
   v27[0] = 0LL;
   v31 = 0LL;
-  v5 = a2;
-  v6 = -1073741823;
-  v28 = KiProcessorBlock[(unsigned int)a2];
+  v5 = -1073741823;
+  v28 = KiProcessorBlock[a2];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    a2 = (-1LL << (CurrentIrql + 1)) & 4;
-    a3 = (unsigned int)a2 | SchedulerAssist[5];
-    SchedulerAssist[5] = a3;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   CurrentPrcb = KeGetCurrentPrcb();
   v29 = 0;
   while ( 1 )
   {
-    v9 = CurrentPrcb->SchedulerAssist;
-    if ( v9 )
+    v8 = CurrentPrcb->SchedulerAssist;
+    if ( v8 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v19 = v9[6];
-        v9[6] = v19 + 1;
+        v19 = v8[6];
+        v8[6] = v19 + 1;
         if ( v19 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
       break;
-    v18 = CurrentPrcb->SchedulerAssist;
-    if ( v18 )
+    v17 = CurrentPrcb->SchedulerAssist;
+    if ( v17 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v20 = v18[6] - 1;
-        v18[6] = v20;
+        v20 = v17[6] - 1;
+        v17[6] = v20;
         if ( !v20 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v29, a2, a3, (__int64)SchedulerAssist);
+      KeYieldProcessorEx(&v29);
     while ( *(_QWORD *)(a1 + 64) );
   }
-  v10 = *(_DWORD *)(a1 + 588);
-  v11 = *(_DWORD *)(a1 + 196);
+  v9 = *(_DWORD *)(a1 + 588);
+  v10 = *(_DWORD *)(a1 + 196);
   if ( (struct _KTHREAD *)a1 == KeGetCurrentThread() || (*(_DWORD *)(a1 + 116) & 8) == 0 )
   {
-    v12 = *(_DWORD *)(a1 + 588);
-    v13 = v12;
+    v11 = *(_DWORD *)(a1 + 588);
+    v12 = v11;
     if ( (unsigned int)KiPrcbInGroupAffinity(v28, a1 + 576) )
     {
-      KiAcquireThreadStateLock(a1, v27, (volatile signed __int32 **)&v31);
-      v14 = *(_DWORD *)(a1 + 116);
-      *(_DWORD *)(a1 + 588) = v5;
-      if ( (v14 & 8) == 0 )
-        *(_DWORD *)(a1 + 196) = v5;
+      KiAcquireThreadStateLock(a1, v27, &v31);
+      v13 = *(_DWORD *)(a1 + 116);
+      *(_DWORD *)(a1 + 588) = a2;
+      if ( (v13 & 8) == 0 )
+        *(_DWORD *)(a1 + 196) = a2;
       KiUpdateSharedReadyQueueAffinityThread(v28, a1);
-      KiReleaseThreadStateLock(v15, v27[0], v31);
-      v13 = *(_DWORD *)(a1 + 588);
-      v6 = 0;
+      KiReleaseThreadStateLock(v14, v27[0], v31);
+      v12 = *(_DWORD *)(a1 + 588);
+      v5 = 0;
     }
   }
   else
   {
-    v12 = *(_DWORD *)(a1 + 196);
+    v11 = *(_DWORD *)(a1 + 196);
     if ( (unsigned int)KiPrcbInGroupAffinity(v28, a1 + 552) )
     {
-      v6 = 0;
-      *(_DWORD *)(a1 + 196) = v5;
+      v5 = 0;
+      *(_DWORD *)(a1 + 196) = a2;
     }
-    v13 = v10;
+    v12 = v9;
   }
-  v16 = *(_DWORD *)(a1 + 196);
+  v15 = *(_DWORD *)(a1 + 196);
   KiReleaseThreadLockSafe(a1);
   if ( (xmmword_140CFC490 & 0x8000000) != 0 )
   {
-    EtwTraceIdealProcessor(a1, 1350LL, v10, v13);
+    EtwTraceIdealProcessor(a1, 1350LL, v9, v12);
     if ( (xmmword_140CFC490 & 0x8000000) != 0 )
-      EtwTraceIdealProcessor(a1, 1351LL, v11, v16);
+      EtwTraceIdealProcessor(a1, 1351LL, v10, v15);
   }
   if ( KiIrqlFlags )
   {
@@ -146,6 +143,6 @@ __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, __int64 a2, __int64 a
   }
   __writecr8(CurrentIrql);
   if ( v30 )
-    *v30 = v12;
-  return v6;
+    *v30 = v11;
+  return v5;
 }

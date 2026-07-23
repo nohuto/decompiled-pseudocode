@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwTraceEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwTraceEvent(HANDLE TraceHandle, ULONG Flags, ULONG FieldSize, PVOID Fields)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TraceHandle);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of TppTimerpFree @ 0x1800DA420
+ * XREFs of TppTimerpFree @ 0x1800D73E0
  * Callers:
  *     <none>
  * Callees:
- *     TppDestroyTimer @ 0x1800DA4B4 (TppDestroyTimer.c)
+ *     TppDestroyTimer @ 0x1800D7474 (TppDestroyTimer.c)
  */
 
-__int64 TppTimerpFree()
+LOGICAL __fastcall TppTimerpFree(PVOID BaseAddress)
 {
   TppDestroyTimer();
-  return RtlFreeHeap_0();
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x100000, BaseAddress);
 }

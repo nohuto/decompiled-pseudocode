@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlNotifyFilterReportChange @ 0x14084B490
+ * XREFs of FsRtlNotifyFilterReportChange @ 0x14084B790
  * Callers:
- *     FsRtlNotifyFullReportChange @ 0x14084B430 (FsRtlNotifyFullReportChange.c)
- *     FsRtlNotifyReportChange @ 0x1409400D0 (FsRtlNotifyReportChange.c)
+ *     FsRtlNotifyFullReportChange @ 0x14084B730 (FsRtlNotifyFullReportChange.c)
+ *     FsRtlNotifyReportChange @ 0x1409402D0 (FsRtlNotifyReportChange.c)
  * Callees:
  *     PsChargePoolQuota @ 0x140207F00 (PsChargePoolQuota.c)
  *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     RtlUIntAdd @ 0x1402504DC (RtlUIntAdd.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlIsNtstatusExpected @ 0x140359D00 (FsRtlIsNtstatusExpected.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlUIntAdd @ 0x1402505AC (RtlUIntAdd.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlIsNtstatusExpected @ 0x140359EA0 (FsRtlIsNtstatusExpected.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     FsRtlNotifyCompleteIrpList @ 0x14068A9F0 (FsRtlNotifyCompleteIrpList.c)
- *     RtlxOemStringToUnicodeSize @ 0x140773CD0 (RtlxOemStringToUnicodeSize.c)
- *     FsRtlNotifyUpdateBuffer @ 0x140940118 (FsRtlNotifyUpdateBuffer.c)
+ *     RtlxOemStringToUnicodeSize @ 0x140773EC0 (RtlxOemStringToUnicodeSize.c)
+ *     FsRtlNotifyUpdateBuffer @ 0x140940318 (FsRtlNotifyUpdateBuffer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -96,13 +96,13 @@ void __stdcall FsRtlNotifyFilterReportChange(
   unsigned __int16 Length; // [rsp+54h] [rbp-124h]
   int v73; // [rsp+58h] [rbp-120h]
   _QWORD *v74; // [rsp+70h] [rbp-108h]
-  STRING OemString; // [rsp+78h] [rbp-100h] BYREF
+  OEM_STRING OemString; // [rsp+78h] [rbp-100h] BYREF
   UINT puResult[2]; // [rsp+88h] [rbp-F0h] BYREF
   UINT *v77; // [rsp+90h] [rbp-E8h]
   __int64 v78; // [rsp+98h] [rbp-E0h]
   char *v79; // [rsp+A0h] [rbp-D8h]
   _WORD *v80; // [rsp+A8h] [rbp-D0h]
-  STRING v81; // [rsp+B0h] [rbp-C8h] BYREF
+  OEM_STRING v81; // [rsp+B0h] [rbp-C8h] BYREF
   UINT v82; // [rsp+C0h] [rbp-B8h]
   _QWORD *v83; // [rsp+C8h] [rbp-B0h]
   _QWORD *v84; // [rsp+D0h] [rbp-A8h]

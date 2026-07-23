@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeDynamicPfnsTarget @ 0x1401E1F14
+ * XREFs of MiInitializeDynamicPfnsTarget @ 0x1401E1D40
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiInitializeUnusablePfns @ 0x14013B380 (MiInitializeUnusablePfns.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiInitializeUnusablePfns @ 0x14013B8F0 (MiInitializeUnusablePfns.c)
  */
 
 __int64 __fastcall MiInitializeDynamicPfnsTarget(__int64 a1, __int64 *a2, volatile signed __int32 *a3, __int64 a4)
@@ -36,7 +36,7 @@ __int64 __fastcall MiInitializeDynamicPfnsTarget(__int64 a1, __int64 *a2, volati
   }
   while ( 1 )
   {
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140323628);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140323668);
     v9 = a2[1];
     if ( !v9 )
       break;
@@ -46,10 +46,10 @@ __int64 __fastcall MiInitializeDynamicPfnsTarget(__int64 a1, __int64 *a2, volati
       v10 = a2[2];
     a2[1] = v9 - v10;
     *a2 = v11 + v10;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140323628);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140323668);
     MiInitializeUnusablePfns((_QWORD *)(48 * v11 - 0x58000000000LL), v10, *((_WORD *)a2 + 12), *((_DWORD *)a2 + 7));
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140323628);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140323668);
   v12 = _InterlockedDecrement((volatile signed __int32 *)a4);
   v13 = ~v12 & 0x80000000;
   if ( (v12 & 0x7FFFFFFF) != 0 )

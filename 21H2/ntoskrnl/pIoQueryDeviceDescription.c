@@ -1,18 +1,18 @@
 /*
- * XREFs of pIoQueryDeviceDescription @ 0x14078AB64
+ * XREFs of pIoQueryDeviceDescription @ 0x14078AD24
  * Callers:
- *     pIoQueryBusDescription @ 0x14078B104 (pIoQueryBusDescription.c)
+ *     pIoQueryBusDescription @ 0x14078B2C4 (pIoQueryBusDescription.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlIntegerToUnicodeString @ 0x14062C070 (RtlIntegerToUnicodeString.c)
- *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
- *     IopGetRegistryKeyInformation @ 0x14076A5E4 (IopGetRegistryKeyInformation.c)
- *     IopGetRegistryValues @ 0x14078B474 (IopGetRegistryValues.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlIntegerToUnicodeString @ 0x14060F3A0 (RtlIntegerToUnicodeString.c)
+ *     IopOpenRegistryKey @ 0x140769C64 (IopOpenRegistryKey.c)
+ *     IopGetRegistryKeyInformation @ 0x14076A7A4 (IopGetRegistryKeyInformation.c)
+ *     IopGetRegistryValues @ 0x14078B634 (IopGetRegistryValues.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall pIoQueryDeviceDescription(unsigned int **a1, _OWORD *a2, __int64 a3, unsigned int a4, __int64 a5)

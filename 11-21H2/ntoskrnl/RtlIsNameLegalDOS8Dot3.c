@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1407596C0 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     sub_1407CDA20 @ 0x1407CDA20 (sub_1407CDA20.c)
  */
 
 BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PCUNICODE_STRING Name, POEM_STRING OemName, PBOOLEAN NameContainsSpaces)
@@ -16,7 +16,7 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PCUNICODE_STRING Name, POEM_STRING OemN
   BOOLEAN v5; // bp
   bool v6; // r15
   __int64 v7; // r12
-  _QWORD *CurrentServerSiloGlobals; // rax
+  _QWORD *v10; // rax
   unsigned int Length; // ecx
   unsigned int v12; // edx
   char *v13; // r11
@@ -34,12 +34,12 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PCUNICODE_STRING Name, POEM_STRING OemN
   v19 = 0LL;
   v6 = 0;
   v7 = 0LL;
-  if ( !(unsigned __int8)RtlpIsUtf8Process(Name) )
+  if ( !(unsigned __int8)sub_1407CDA20(Name) )
   {
     _InterlockedOr(v18, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v7 = CurrentServerSiloGlobals[152];
-    v6 = *((_WORD *)CurrentServerSiloGlobals + 570) != 0;
+    v10 = sub_140347DB0();
+    v7 = v10[152];
+    v6 = *((_WORD *)v10 + 570) != 0;
   }
   if ( v3->Length > 0x18u )
     return 0;
@@ -84,7 +84,7 @@ LABEL_9:
     {
       if ( (unsigned __int8)v14 < 0x80u )
       {
-        v17 = *((_DWORD *)RtlFatIllegalTable + (v14 >> 5));
+        v17 = *((_DWORD *)qword_140A38378 + (v14 >> 5));
         if ( _bittest(&v17, v14 & 0x1F) )
           return 0;
       }

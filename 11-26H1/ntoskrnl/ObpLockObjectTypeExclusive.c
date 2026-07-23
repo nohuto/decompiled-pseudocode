@@ -1,18 +1,18 @@
 /*
- * XREFs of ObpLockObjectTypeExclusive @ 0x1409242F0
+ * XREFs of ObpLockObjectTypeExclusive @ 0x1408FFE00
  * Callers:
- *     ObUnRegisterCallbacks @ 0x1407C4040 (ObUnRegisterCallbacks.c)
- *     ObpFreeObject @ 0x140923CC0 (ObpFreeObject.c)
- *     ObpIncrementHandleCountEx @ 0x14092E8D0 (ObpIncrementHandleCountEx.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
- *     ObRegisterCallbacks @ 0x140A5A730 (ObRegisterCallbacks.c)
- *     ObpInsertCallbackByAltitude @ 0x140A5A934 (ObpInsertCallbackByAltitude.c)
- *     ObpCreateTypeArray @ 0x140A5A9E4 (ObpCreateTypeArray.c)
- *     ExpWorkerInitialization @ 0x140CE6768 (ExpWorkerInitialization.c)
+ *     ObUnRegisterCallbacks @ 0x1407C70A0 (ObUnRegisterCallbacks.c)
+ *     ObpFreeObject @ 0x1408FF7D0 (ObpFreeObject.c)
+ *     ObpIncrementHandleCountEx @ 0x14090A400 (ObpIncrementHandleCountEx.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
+ *     ObRegisterCallbacks @ 0x140A676A0 (ObRegisterCallbacks.c)
+ *     ObpInsertCallbackByAltitude @ 0x140A678A4 (ObpInsertCallbackByAltitude.c)
+ *     ObpCreateTypeArray @ 0x140A67954 (ObpCreateTypeArray.c)
+ *     ExpWorkerInitialization @ 0x140CECB08 (ExpWorkerInitialization.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall ObpLockObjectTypeExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

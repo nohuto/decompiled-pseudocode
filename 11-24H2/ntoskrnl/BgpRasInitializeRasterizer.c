@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpRasInitializeRasterizer @ 0x140C71314
+ * XREFs of BgpRasInitializeRasterizer @ 0x140C73474
  * Callers:
- *     FopInitializeFonts @ 0x140C701EC (FopInitializeFonts.c)
+ *     FopInitializeFonts @ 0x140C7234C (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x1404665BC (FioFwReadBytesAtOffset.c)
- *     FopGetTableOffsetAndSize @ 0x140C700E8 (FopGetTableOffsetAndSize.c)
+ *     FioFwReadBytesAtOffset @ 0x14045DF18 (FioFwReadBytesAtOffset.c)
+ *     FopGetTableOffsetAndSize @ 0x140C72248 (FopGetTableOffsetAndSize.c)
  */
 
 __int64 __fastcall BgpRasInitializeRasterizer(__int64 a1)
@@ -81,10 +81,10 @@ __int64 __fastcall BgpRasInitializeRasterizer(__int64 a1)
                 *(_DWORD *)(a1 + 96) = 96;
                 if ( v9 )
                 {
-                  dword_140EEFF34 = 0;
-                  qword_140EEFF08 = (__int64)&RaspBitmapCache;
+                  dword_140EF0174 = 0;
+                  qword_140EF0148 = (__int64)&RaspBitmapCache;
                   RaspBitmapCache = (__int64)&RaspBitmapCache;
-                  dword_140EEFF30 = 100;
+                  dword_140EF0170 = 100;
                   RasterizerInitialized = 1;
                 }
               }

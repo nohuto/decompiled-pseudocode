@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaUpdateRemappingDestination @ 0x1405310B0
+ * XREFs of HsaUpdateRemappingDestination @ 0x140531600
  * Callers:
  *     <none>
  * Callees:
- *     IvtUpdateExtendedDestination @ 0x14052DB0C (IvtUpdateExtendedDestination.c)
- *     HsaGetDeviceAperture @ 0x140530010 (HsaGetDeviceAperture.c)
- *     HsaInvalidateRemappingTableEntries @ 0x140530534 (HsaInvalidateRemappingTableEntries.c)
+ *     IvtUpdateExtendedDestination @ 0x14052E05C (IvtUpdateExtendedDestination.c)
+ *     HsaGetDeviceAperture @ 0x140530560 (HsaGetDeviceAperture.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x140530A84 (HsaInvalidateRemappingTableEntries.c)
  */
 
 __int64 __fastcall HsaUpdateRemappingDestination(__int64 a1, __int64 a2, int a3, int a4, int a5)

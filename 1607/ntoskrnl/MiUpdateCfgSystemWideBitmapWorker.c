@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x14042F650
+ * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x14042E520
  * Callers:
- *     MiUpdateCfgSystemWideBitmap @ 0x14046E4C8 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14046D398 (MiUpdateCfgSystemWideBitmap.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiLocatePagefileSubsection @ 0x14002D040 (MiLocatePagefileSubsection.c)
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiCfgEliminateZeroPages @ 0x1404B8B60 (MiCfgEliminateZeroPages.c)
- *     MiChargeSegmentCommit @ 0x1404BA400 (MiChargeSegmentCommit.c)
- *     MiQueryImageRvaList @ 0x1404D7874 (MiQueryImageRvaList.c)
- *     MmUnmapViewInSystemSpace @ 0x140525E34 (MmUnmapViewInSystemSpace.c)
- *     MmMapViewInSystemSpaceEx @ 0x140525EA8 (MmMapViewInSystemSpaceEx.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiLocatePagefileSubsection @ 0x14002CBC0 (MiLocatePagefileSubsection.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiCfgEliminateZeroPages @ 0x1404A2F40 (MiCfgEliminateZeroPages.c)
+ *     MiChargeSegmentCommit @ 0x1404A6130 (MiChargeSegmentCommit.c)
+ *     MiQueryImageRvaList @ 0x1404BAE78 (MiQueryImageRvaList.c)
+ *     MmUnmapViewInSystemSpace @ 0x140508E94 (MmUnmapViewInSystemSpace.c)
+ *     MmMapViewInSystemSpaceEx @ 0x140508F08 (MmMapViewInSystemSpaceEx.c)
  */
 
 __int64 MiUpdateCfgSystemWideBitmapWorker(
@@ -46,7 +46,7 @@ __int64 MiUpdateCfgSystemWideBitmapWorker(
   unsigned int BugCheckParameter3; // [rsp+30h] [rbp-28h] BYREF
   unsigned int BugCheckParameter3_4; // [rsp+34h] [rbp-24h]
   unsigned __int64 i; // [rsp+38h] [rbp-20h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+40h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+40h] [rbp-18h] BYREF
   unsigned __int64 v29; // [rsp+98h] [rbp+40h] BYREF
   PVOID MappedBase; // [rsp+A0h] [rbp+48h] BYREF
   unsigned __int64 v31; // [rsp+A8h] [rbp+50h] BYREF

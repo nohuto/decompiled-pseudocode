@@ -74,10 +74,13 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
     {
       *(_QWORD *)(MiGetSharedVm(v8, v7, v9, v10, 0LL) + 24) = 1LL;
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1176));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v5 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -133,10 +136,10 @@ __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)
     v12 = -1073741275;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1176));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;

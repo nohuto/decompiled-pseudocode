@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpViewMapStart @ 0x1405A51A0
+ * XREFs of HvpViewMapStart @ 0x1405A61A0
  * Callers:
- *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
- *     HvHiveStartEmptyClone @ 0x1407F7254 (HvHiveStartEmptyClone.c)
+ *     HvLoadHive @ 0x1405A5C9C (HvLoadHive.c)
+ *     HvHiveStartEmptyClone @ 0x1407F8454 (HvHiveStartEmptyClone.c)
  * Callees:
  *     CmSiGetSectionLength @ 0x14000F130 (CmSiGetSectionLength.c)
  *     CmSiCreateSectionForFile @ 0x14000F16C (CmSiCreateSectionForFile.c)
- *     HvpViewMapCreateViewsForRegion @ 0x1405A524C (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x1405A624C (HvpViewMapCreateViewsForRegion.c)
  */
 
 NTSTATUS __fastcall HvpViewMapStart(__int64 a1, void *a2, int a3, __int64 a4, int a5)

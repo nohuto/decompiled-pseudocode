@@ -8,5 +8,5 @@
 
 void __fastcall KdSetEventLoggingPresent(char a1)
 {
-  KdEventLoggingPresent = a1;
+  byte_140C40504 = a1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64IsModifiedByBadActor @ 0x1404CF0B0
+ * XREFs of Amd64IsModifiedByBadActor @ 0x1404C8AE0
  * Callers:
  *     <none>
  * Callees:
- *     Amd64IsModifiedByBadActorInternal @ 0x1404CF194 (Amd64IsModifiedByBadActorInternal.c)
+ *     Amd64IsModifiedByBadActorInternal @ 0x1404C8BC4 (Amd64IsModifiedByBadActorInternal.c)
  */
 
 __int64 __fastcall Amd64IsModifiedByBadActor(unsigned int a1, unsigned int a2, __int64 a3)
@@ -25,7 +25,7 @@ __int64 __fastcall Amd64IsModifiedByBadActor(unsigned int a1, unsigned int a2, _
       if ( a2 != 100 )
       {
         if ( a2 != 101 )
-          return Amd64IsModifiedByBadActorInternal(a1, a2, __readmsr(*((_DWORD *)&xmmword_140F87600 + v7 + a1)), v4);
+          return Amd64IsModifiedByBadActorInternal(a1, a2, __readmsr(*((_DWORD *)&xmmword_140F879E0 + v7 + a1)), v4);
         if ( *(_QWORD *)(KiProcessorBlock[a3] + 88) == -48LL )
           v7 = 0;
         else
@@ -41,7 +41,7 @@ __int64 __fastcall Amd64IsModifiedByBadActor(unsigned int a1, unsigned int a2, _
     if ( v10 )
       v3 = *(_DWORD *)(v10 + 4);
     v7 += v3;
-    return Amd64IsModifiedByBadActorInternal(a1, a2, __readmsr(*((_DWORD *)&xmmword_140F87600 + v7 + a1)), v4);
+    return Amd64IsModifiedByBadActorInternal(a1, a2, __readmsr(*((_DWORD *)&xmmword_140F879E0 + v7 + a1)), v4);
   }
   return 3221225712LL;
 }

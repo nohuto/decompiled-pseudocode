@@ -1,14 +1,14 @@
 /*
- * XREFs of WdipSemWriteSemActionsEvent @ 0x1404E4274
+ * XREFs of WdipSemWriteSemActionsEvent @ 0x1404C6F2C
  * Callers:
- *     WdipSemDisableScenario @ 0x1404E3DA4 (WdipSemDisableScenario.c)
- *     WdipSemEnableScenario @ 0x1405417D8 (WdipSemEnableScenario.c)
+ *     WdipSemDisableScenario @ 0x1404C6A5C (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x140541D18 (WdipSemEnableScenario.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     WdipSemFastFree @ 0x1404E4414 (WdipSemFastFree.c)
- *     WdipSemFastAllocate @ 0x1404E4438 (WdipSemFastAllocate.c)
- *     WdipSemWriteEvent @ 0x1404E4470 (WdipSemWriteEvent.c)
- *     WdipSemGetLoggerDroppedEventCount @ 0x1404E44E4 (WdipSemGetLoggerDroppedEventCount.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     WdipSemFastFree @ 0x1404C70CC (WdipSemFastFree.c)
+ *     WdipSemFastAllocate @ 0x1404C70F0 (WdipSemFastAllocate.c)
+ *     WdipSemWriteEvent @ 0x1404C7128 (WdipSemWriteEvent.c)
+ *     WdipSemGetLoggerDroppedEventCount @ 0x1404C719C (WdipSemGetLoggerDroppedEventCount.c)
  */
 
 __int64 __fastcall WdipSemWriteSemActionsEvent(__int64 a1, __int64 a2)

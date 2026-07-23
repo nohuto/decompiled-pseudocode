@@ -1,13 +1,13 @@
 /*
- * XREFs of DifNtWriteFileWrapper @ 0x1405E8370
+ * XREFs of DifNtWriteFileWrapper @ 0x1405E88E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     NtWriteFile @ 0x1406B6A20 (NtWriteFile.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     NtWriteFile @ 0x1406B6BD0 (NtWriteFile.c)
  */
 
 NTSTATUS __fastcall DifNtWriteFileWrapper(

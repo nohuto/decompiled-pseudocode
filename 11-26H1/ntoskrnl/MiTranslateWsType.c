@@ -1,8 +1,8 @@
 /*
- * XREFs of MiTranslateWsType @ 0x1404AF4D4
+ * XREFs of MiTranslateWsType @ 0x1404A8B64
  * Callers:
- *     MmGetWorkingSetLeafSize @ 0x1404AF464 (MmGetWorkingSetLeafSize.c)
- *     MiInitializeSystemWorkingSetList @ 0x1408676D4 (MiInitializeSystemWorkingSetList.c)
+ *     MmGetWorkingSetLeafSize @ 0x1404A8AF4 (MmGetWorkingSetLeafSize.c)
+ *     MiInitializeSystemWorkingSetList @ 0x14086DAB4 (MiInitializeSystemWorkingSetList.c)
  * Callees:
  *     <none>
  */

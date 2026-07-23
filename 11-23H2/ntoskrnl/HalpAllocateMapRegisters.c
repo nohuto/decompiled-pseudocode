@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpAllocateMapRegisters @ 0x140933640
+ * XREFs of HalpAllocateMapRegisters @ 0x140933840
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403AF000 (HalpDmaExtractFromVerifierShadowAdapter.c)
- *     HalpDmaAllocateMapRegisters @ 0x14045BF9E (HalpDmaAllocateMapRegisters.c)
- *     IoFreeMapRegistersThunk @ 0x1405010C4 (IoFreeMapRegistersThunk.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x140934520 (HalpDmaGrowContiguousMapBuffers.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x140934624 (HalpDmaGrowScatterMapBuffers.c)
+ *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403AF1E0 (HalpDmaExtractFromVerifierShadowAdapter.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045C39E (HalpDmaAllocateMapRegisters.c)
+ *     IoFreeMapRegistersThunk @ 0x140501614 (IoFreeMapRegistersThunk.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x140934720 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140934824 (HalpDmaGrowScatterMapBuffers.c)
  */
 
 __int64 __fastcall HalpAllocateMapRegisters(__int64 a1, unsigned int a2, unsigned int a3, __int64 *a4)

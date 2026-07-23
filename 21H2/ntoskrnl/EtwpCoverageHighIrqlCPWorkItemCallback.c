@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405A6800
+ * XREFs of EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405A6A30
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     TelemetryCoverageStringHashInternal @ 0x1402C86A8 (TelemetryCoverageStringHashInternal.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     TelemetryCoverageStringHashInternal @ 0x140246F08 (TelemetryCoverageStringHashInternal.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCoverageRecord @ 0x1406B5CE4 (EtwpCoverageRecord.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     EtwpCoverageRecord @ 0x1406151A4 (EtwpCoverageRecord.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCoverageHighIrqlCPWorkItemCallback(_QWORD *a1)

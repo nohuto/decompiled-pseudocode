@@ -6,7 +6,16 @@
  *     _LdrResSearchResource@32 @ 0x4B2BA8B0 (_LdrResSearchResource@32.c)
  */
 
-int __stdcall LdrResFindResource(wchar_t *a1, int a2, int a3, int a4, int a5, int *a6, int a7, int a8, int a9)
+NTSTATUS __stdcall LdrResFindResource(
+        const WCHAR *a1,
+        int a2,
+        int a3,
+        int a4,
+        int a5,
+        _DWORD *a6,
+        int a7,
+        int a8,
+        int a9)
 {
   _DWORD Src[3]; // [esp+0h] [ebp-Ch] BYREF
 

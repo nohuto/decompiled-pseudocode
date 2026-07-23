@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetSharedProtosAtDpcLevel @ 0x140369E1C
+ * XREFs of MiGetSharedProtosAtDpcLevel @ 0x140369FBC
  * Callers:
- *     MiImageProtoChargedCommit @ 0x14035EBF8 (MiImageProtoChargedCommit.c)
- *     MiGetSharedProtos @ 0x140369D8C (MiGetSharedProtos.c)
+ *     MiImageProtoChargedCommit @ 0x14035ED98 (MiImageProtoChargedCommit.c)
+ *     MiGetSharedProtos @ 0x140369F2C (MiGetSharedProtos.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 __int64 *__fastcall MiGetSharedProtosAtDpcLevel(__int64 a1, unsigned int a2, __int64 a3)

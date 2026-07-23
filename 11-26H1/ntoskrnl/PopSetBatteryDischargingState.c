@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSetBatteryDischargingState @ 0x140946E00
+ * XREFs of PopSetBatteryDischargingState @ 0x1409C2770
  * Callers:
- *     PopBatteryCheckCompositeCapacity @ 0x140946C64 (PopBatteryCheckCompositeCapacity.c)
+ *     PopBatteryCheckCompositeCapacity @ 0x1409C25D4 (PopBatteryCheckCompositeCapacity.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
 char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
@@ -34,7 +34,7 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
   __int64 v22; // r9
   unsigned int v23; // eax
   unsigned __int64 v24; // rax
-  int v26; // [rsp+48h] [rbp-C0h] BYREF
+  int Buffer; // [rsp+48h] [rbp-C0h] BYREF
   int v27; // [rsp+4Ch] [rbp-BCh] BYREF
   int v28; // [rsp+50h] [rbp-B8h] BYREF
   unsigned int v29; // [rsp+54h] [rbp-B4h] BYREF
@@ -75,22 +75,22 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
   _UNKNOWN *retaddr; // [rsp+1D0h] [rbp+C8h] BYREF
 
   v2 = &retaddr;
-  if ( byte_140F10040 != a2 )
+  if ( byte_140F10800 != a2 )
   {
-    byte_140F10040 = a2;
-    v26 = a2;
-    LOBYTE(v2) = ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v26);
-    if ( (unsigned int)dword_140E07598 > 5 )
+    byte_140F10800 = a2;
+    Buffer = a2;
+    LOBYTE(v2) = ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &Buffer, 4u, 0LL, 0LL, 0, 0);
+    if ( (unsigned int)dword_140E07560 > 5 )
     {
-      LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+      LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
       if ( (_BYTE)v2 )
       {
         v37 = &v27;
         v4 = "AC Power";
-        v28 = dword_140F0FE74;
+        v28 = dword_140F10634;
         v39 = &v28;
         v5 = (*a1 & 1) == 0;
-        v27 = (unsigned __int8)byte_140F10040;
+        v27 = (unsigned __int8)byte_140F10800;
         if ( v5 )
           v4 = "DC Power";
         v38 = 4LL;
@@ -125,25 +125,25 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
           v18 = v17;
         tlgCreate1Sz_char((__int64)v48, v18);
         v20 = "Platform BCL Enabled";
-        if ( ((__int64)stru_140F10070.FirstArgument & 1) == 0 )
+        if ( (byte_140F108B8 & 1) == 0 )
           v20 = v19;
         tlgCreate1Sz_char((__int64)v49, v20);
         v22 = (unsigned int)a1[1];
-        if ( (_DWORD)xmmword_140F0FED8 )
-          v23 = (((unsigned int)xmmword_140F0FED8 >> 1) + 100 * (_DWORD)v22) / (unsigned int)xmmword_140F0FED8;
+        if ( (_DWORD)xmmword_140F10698 )
+          v23 = (((unsigned int)xmmword_140F10698 >> 1) + 100 * (_DWORD)v22) / (unsigned int)xmmword_140F10698;
         else
           v23 = 0;
         v29 = v23;
         v50 = &v29;
         v51 = 4LL;
-        if ( (_DWORD)xmmword_140F0FED8 )
-          v24 = 100000 * v22 / (unsigned __int64)(unsigned int)xmmword_140F0FED8;
+        if ( (_DWORD)xmmword_140F10698 )
+          v24 = 100000 * v22 / (unsigned __int64)(unsigned int)xmmword_140F10698;
         else
           LODWORD(v24) = 0;
         v30 = v24;
         v31 = v22;
         v52 = &v30;
-        v32 = xmmword_140F0FED8;
+        v32 = xmmword_140F10698;
         v54 = &v31;
         v53 = 4LL;
         v56 = &v32;
@@ -159,8 +159,8 @@ char __fastcall PopSetBatteryDischargingState(_DWORD *a1, unsigned __int8 a2)
         v35 = v21;
         v63 = 4LL;
         LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_140E07598,
-                       (unsigned __int8 *)word_14004D9A2,
+                       (__int64)&dword_140E07560,
+                       (unsigned __int8 *)byte_14004DEB5,
                        0LL,
                        0LL,
                        0x14u,

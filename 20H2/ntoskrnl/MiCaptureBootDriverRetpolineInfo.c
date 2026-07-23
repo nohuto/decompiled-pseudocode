@@ -11,7 +11,7 @@
  *     LdrImageDirectoryEntryToLoadConfig @ 0x140756028 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
-__int64 __fastcall MiCaptureBootDriverRetpolineInfo(unsigned __int64 a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall MiCaptureBootDriverRetpolineInfo(PVOID BaseOfImage, ULONG64 Size, _QWORD *a3)
 {
   __int64 v4; // rbp
   int RetpolineRelocationInformation; // ebx
@@ -20,34 +20,34 @@ __int64 __fastcall MiCaptureBootDriverRetpolineInfo(unsigned __int64 a1, unsigne
   int v9; // esi
   __int64 v10; // r8
   unsigned int v12[18]; // [rsp+40h] [rbp-48h] BYREF
-  unsigned int v13; // [rsp+98h] [rbp+10h] BYREF
-  __int64 v14; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 v13; // [rsp+98h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS v14; // [rsp+A8h] [rbp+20h] BYREF
 
-  v13 = 0;
+  LODWORD(v13) = 0;
   v14 = 0LL;
-  v4 = a2;
+  v4 = (unsigned int)Size;
   memset(v12, 0, 32);
-  RetpolineRelocationInformation = RtlImageNtHeaderEx(0, a1, a2, &v14);
+  RetpolineRelocationInformation = RtlImageNtHeaderEx(0, BaseOfImage, (unsigned int)Size, &v14);
   if ( RetpolineRelocationInformation >= 0 )
   {
-    Config = LdrImageDirectoryEntryToLoadConfig(a1);
+    Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage);
     if ( Config && *(int *)Config >= 228 )
     {
       v8 = *(_QWORD *)(Config + 120);
       v9 = 0;
-      if ( v8 && v8 >= a1 && v8 < v4 + a1 - 8 )
-        v9 = v8 - a1;
+      if ( v8 && v8 >= (unsigned __int64)BaseOfImage && v8 < (unsigned __int64)BaseOfImage + v4 - 8 )
+        v9 = v8 - (_DWORD)BaseOfImage;
       RetpolineRelocationInformation = MiCaptureDynamicRelocationTableRva(
-                                         a1,
-                                         v4,
+                                         (char *)BaseOfImage,
+                                         (unsigned int)v4,
                                          0LL,
-                                         *(_WORD *)(v14 + 24),
+                                         v14->OptionalHeader.Magic,
                                          Config,
                                          *(_DWORD *)Config,
                                          &v13);
       if ( RetpolineRelocationInformation >= 0 )
       {
-        RetpolineRelocationInformation = MiCaptureRetpolineRelocationTables(a1, v4, v10, v13, v12);
+        RetpolineRelocationInformation = MiCaptureRetpolineRelocationTables((char *)BaseOfImage, v4, v10, v13, v12);
         if ( RetpolineRelocationInformation >= 0 )
         {
           RetpolineRelocationInformation = MiCreateRetpolineRelocationInformation((__int64)v12, v9, v4, a3);

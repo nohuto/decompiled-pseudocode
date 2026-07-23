@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpSegPageRangeCommit @ 0x180069850
+ * XREFs of RtlpHpSegPageRangeCommit @ 0x180089CA0
  * Callers:
- *     RtlpHpSegPageRangeCoalesce @ 0x18006A960 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpMetadataCommit @ 0x18008DCD8 (RtlpHpMetadataCommit.c)
- *     RtlpHpSegReAlloc @ 0x1800B1A2C (RtlpHpSegReAlloc.c)
- *     RtlpHpSegAlloc @ 0x1800E0094 (RtlpHpSegAlloc.c)
- *     RtlpHpSegSuballocatorCommit @ 0x1800FF5A0 (RtlpHpSegSuballocatorCommit.c)
- *     RtlpHpSegSuballocatorDecommit @ 0x1801070E0 (RtlpHpSegSuballocatorDecommit.c)
+ *     RtlpHpSegReAlloc @ 0x18008159C (RtlpHpSegReAlloc.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x18008ADB0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegAlloc @ 0x1800DD93C (RtlpHpSegAlloc.c)
+ *     RtlpHpMetadataCommit @ 0x1800E7268 (RtlpHpMetadataCommit.c)
+ *     RtlpHpSegSuballocatorCommit @ 0x1800FECF0 (RtlpHpSegSuballocatorCommit.c)
+ *     RtlpHpSegSuballocatorDecommit @ 0x180106AE0 (RtlpHpSegSuballocatorDecommit.c)
  * Callees:
- *     RtlpHpSegMgrCommit @ 0x180069E10 (RtlpHpSegMgrCommit.c)
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18006A8B0 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlpLogHeapCommit @ 0x1800721FC (RtlpLogHeapCommit.c)
- *     RtlpLogHeapDecommit @ 0x180114C28 (RtlpLogHeapDecommit.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlpHpSegMgrCommit @ 0x18008A260 (RtlpHpSegMgrCommit.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18008AD00 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     RtlpLogHeapCommit @ 0x1800956B0 (RtlpLogHeapCommit.c)
+ *     RtlpLogHeapDecommit @ 0x180114424 (RtlpLogHeapDecommit.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeCommit(
@@ -99,17 +99,7 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(
   __int64 v82; // [rsp+98h] [rbp-68h] BYREF
   __int64 v83; // [rsp+A0h] [rbp-60h] BYREF
   _DWORD *v84; // [rsp+A8h] [rbp-58h]
-  char v85[32]; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 *v86; // [rsp+D0h] [rbp-30h]
-  __int64 v87; // [rsp+D8h] [rbp-28h]
-  __int64 *v88; // [rsp+E0h] [rbp-20h]
-  __int64 v89; // [rsp+E8h] [rbp-18h]
-  __int64 *v90; // [rsp+F0h] [rbp-10h]
-  __int64 v91; // [rsp+F8h] [rbp-8h]
-  __int64 *v92; // [rsp+100h] [rbp+0h]
-  __int64 v93; // [rsp+108h] [rbp+8h]
-  __int64 *v94; // [rsp+110h] [rbp+10h]
-  __int64 v95; // [rsp+118h] [rbp+18h]
+  __int64 v85[14]; // [rsp+B0h] [rbp-50h] BYREF
 
   v6 = a1;
   v81 = a1;
@@ -381,30 +371,24 @@ LABEL_40:
     if ( (RtlpHpHeapFeatures & 0x10) != 0 )
     {
       v61 = (__int64 *)(v6 + *(__int16 *)(v6 + 22));
-      if ( (unsigned int)dword_1801C5680 > 5 )
+      if ( (unsigned int)dword_1801C4680 > 5 )
       {
         v73 = *(_QWORD *)(v6 + 56);
-        v87 = 8LL;
-        v86 = &v73;
+        v85[5] = 8LL;
+        v85[4] = (__int64)&v73;
         v75 = *v61;
-        v88 = &v75;
+        v85[6] = (__int64)&v75;
         v69 = v61[1];
-        v90 = &v69;
+        v85[8] = (__int64)&v69;
         v82 = v61[2];
-        v92 = &v82;
+        v85[10] = (__int64)&v82;
         v83 = v61[3];
-        v94 = &v83;
-        v89 = 8LL;
-        v91 = 8LL;
-        v93 = 8LL;
-        v95 = 8LL;
-        tlgWriteTransfer_EtwEventWriteTransfer(
-          (unsigned int)&dword_1801C5680,
-          (unsigned int)&unk_18019BE3D,
-          v42,
-          v43,
-          7,
-          (__int64)v85);
+        v85[12] = (__int64)&v83;
+        v85[7] = 8LL;
+        v85[9] = 8LL;
+        v85[11] = 8LL;
+        v85[13] = 8LL;
+        tlgWriteTransfer_EtwEventWriteTransfer((int)&dword_1801C4680, (int)&dword_18019AEB0, v42, v43, 7u, (__int64)v85);
       }
     }
     v9 = v71;

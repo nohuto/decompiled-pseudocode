@@ -1,15 +1,12 @@
 /*
- * XREFs of EtwTraceMessage @ 0x18005A350
+ * XREFs of EtwTraceMessage @ 0x18005A340
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceMessageVa @ 0x18005A380 (EtwTraceMessageVa.c)
+ *     EtwTraceMessageVa @ 0x18005A370 (EtwTraceMessageVa.c)
  */
 
-__int64 EtwTraceMessage(int a1, int a2, int a3, int a4, ...)
+__int64 __fastcall EtwTraceMessage(void *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  va_list va; // [rsp+60h] [rbp+28h] BYREF
-
-  va_start(va, a4);
-  return EtwTraceMessageVa(a1, a2, a3, a4, (__int64)va);
+  return EtwTraceMessageVa(a1, (__int64)&a5);
 }

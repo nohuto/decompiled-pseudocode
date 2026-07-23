@@ -1,9 +1,9 @@
 /*
- * XREFs of IidValidateDeviceId @ 0x14077F07C
+ * XREFs of IidValidateDeviceId @ 0x140781B7C
  * Callers:
- *     PipIommuValidateDeviceId @ 0x140AA43A4 (PipIommuValidateDeviceId.c)
+ *     PipIommuValidateDeviceId @ 0x140B21F68 (PipIommuValidateDeviceId.c)
  * Callees:
- *     IdpValidateAcpiName @ 0x140895B9C (IdpValidateAcpiName.c)
+ *     IdpValidateAcpiName @ 0x14089BF9C (IdpValidateAcpiName.c)
  */
 
 __int64 __fastcall IidValidateDeviceId(__int64 a1, __int64 a2)

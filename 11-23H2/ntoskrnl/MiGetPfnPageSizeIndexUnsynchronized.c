@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0
+ * XREFs of MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330
  * Callers:
- *     MiProbeLeafPteAccess @ 0x140236C50 (MiProbeLeafPteAccess.c)
- *     MiSetProbePagesAhead @ 0x140236FD0 (MiSetProbePagesAhead.c)
- *     MiFillSystemPtes @ 0x14027E8C0 (MiFillSystemPtes.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F14DC (MiLegitimatePageForDriversToMap.c)
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
- *     MiActivePageClaimCandidate @ 0x1403BBBF8 (MiActivePageClaimCandidate.c)
- *     MiGetPagesRemainingInResidentPage @ 0x14064F244 (MiGetPagesRemainingInResidentPage.c)
- *     MiZeroPageMakeHot @ 0x140655C0C (MiZeroPageMakeHot.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
+ *     MiProbeLeafPteAccess @ 0x140236D20 (MiProbeLeafPteAccess.c)
+ *     MiSetProbePagesAhead @ 0x1402370A0 (MiSetProbePagesAhead.c)
+ *     MiFillSystemPtes @ 0x14027EB50 (MiFillSystemPtes.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402F176C (MiLegitimatePageForDriversToMap.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
+ *     MiActivePageClaimCandidate @ 0x1403BBDD8 (MiActivePageClaimCandidate.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x14064F794 (MiGetPagesRemainingInResidentPage.c)
+ *     MiZeroPageMakeHot @ 0x14065615C (MiZeroPageMakeHot.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiGetBaseResidentPage @ 0x1402E9180 (MiGetBaseResidentPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiGetBaseResidentPage @ 0x1402E9410 (MiGetBaseResidentPage.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPfnPageSizeIndexUnsynchronized(__int64 a1, int *a2, int *a3)
@@ -50,10 +50,13 @@ __int64 __fastcall MiGetPfnPageSizeIndexUnsynchronized(__int64 a1, int *a2, int 
         _InterlockedAnd64((volatile signed __int64 *)(BaseResidentPage + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

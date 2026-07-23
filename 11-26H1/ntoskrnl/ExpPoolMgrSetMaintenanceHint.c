@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPoolMgrSetMaintenanceHint @ 0x140AC38B0
+ * XREFs of ExpPoolMgrSetMaintenanceHint @ 0x140AC5520
  * Callers:
- *     ExpPoolMgrRebalanceWorker @ 0x140AC3610 (ExpPoolMgrRebalanceWorker.c)
- *     ExpPoolMgrCompactPools @ 0x140AC36CC (ExpPoolMgrCompactPools.c)
+ *     ExpPoolMgrRebalanceWorker @ 0x140AC5280 (ExpPoolMgrRebalanceWorker.c)
+ *     ExpPoolMgrCompactPools @ 0x140AC533C (ExpPoolMgrCompactPools.c)
  * Callees:
- *     ExpPoolMgrAcquirePoolListLockExclusive @ 0x1404D0CB0 (ExpPoolMgrAcquirePoolListLockExclusive.c)
- *     ExpPoolMgrReleasePoolListLockExclusive @ 0x1404D15DC (ExpPoolMgrReleasePoolListLockExclusive.c)
+ *     ExpPoolMgrAcquirePoolListLockExclusive @ 0x1404CA6E0 (ExpPoolMgrAcquirePoolListLockExclusive.c)
+ *     ExpPoolMgrReleasePoolListLockExclusive @ 0x1404CB00C (ExpPoolMgrReleasePoolListLockExclusive.c)
  */
 
 void __fastcall ExpPoolMgrSetMaintenanceHint(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

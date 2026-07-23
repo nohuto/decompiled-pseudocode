@@ -1,27 +1,27 @@
 /*
- * XREFs of MiOutPageSingleKernelStack @ 0x140368960
+ * XREFs of MiOutPageSingleKernelStack @ 0x14036A700
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiGetWorkingSetSwapSupport @ 0x1403683CC (MiGetWorkingSetSwapSupport.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiOutSwapKernelStackPage @ 0x140405238 (MiOutSwapKernelStackPage.c)
- *     MiCreateKernelStackNode @ 0x1405140DC (MiCreateKernelStackNode.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiGetWorkingSetSwapSupport @ 0x14036A16C (MiGetWorkingSetSwapSupport.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiOutSwapKernelStackPage @ 0x1403FE32C (MiOutSwapKernelStackPage.c)
+ *     MiCreateKernelStackNode @ 0x14050DB4C (MiCreateKernelStackNode.c)
  */
 
 void __fastcall MiOutPageSingleKernelStack(__int64 a1, _QWORD *a2, __int64 a3)
@@ -75,10 +75,10 @@ void __fastcall MiOutPageSingleKernelStack(__int64 a1, _QWORD *a2, __int64 a3)
   v12 = *(_QWORD *)(v11 + 544);
   v13 = *(unsigned __int16 *)(v12 + 1198);
   v14 = v12 + 1024;
-  v15 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v13);
+  v15 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v13);
   if ( (ULONG *)v15 != &MiSystemPartition )
   {
-    if ( !MiCreateKernelStackNode(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v13), a2) )
+    if ( !MiCreateKernelStackNode(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v13), a2) )
       return;
     v8 = 0xFFFFF68000000000uLL;
     v9 = 0x7FFFFFFFF8LL;

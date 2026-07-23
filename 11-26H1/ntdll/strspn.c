@@ -1,9 +1,9 @@
 /*
- * XREFs of strspn @ 0x18012CD80
+ * XREFs of strspn @ 0x18012CAF0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 size_t __cdecl strspn(const char *Str, const char *Control)

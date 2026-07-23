@@ -1,36 +1,36 @@
 /*
- * XREFs of NtManageHotPatch @ 0x140A993D0
+ * XREFs of NtManageHotPatch @ 0x140A9D550
  * Callers:
- *     DifNtManageHotPatchWrapper @ 0x14067B1B0 (DifNtManageHotPatchWrapper.c)
+ *     DifNtManageHotPatchWrapper @ 0x14067ED90 (DifNtManageHotPatchWrapper.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     MiDuplicateUnicodeString @ 0x140867860 (MiDuplicateUnicodeString.c)
- *     MiApplyImageHotPatchRequest @ 0x14086E8A8 (MiApplyImageHotPatchRequest.c)
- *     MiCreatePatchSectionRequest @ 0x14086F788 (MiCreatePatchSectionRequest.c)
- *     MiLoadHotPatch @ 0x140870D5C (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x1408712F4 (MiLoadHotPatchForUserSid.c)
- *     MiLogHotPatchManagement @ 0x140871768 (MiLogHotPatchManagement.c)
- *     MiQueryLoadedPatches @ 0x140874040 (MiQueryLoadedPatches.c)
- *     MiQueryProcessActivePatches @ 0x140874330 (MiQueryProcessActivePatches.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     MiQuerySingleLoadedPatch @ 0x140A997BC (MiQuerySingleLoadedPatch.c)
- *     MiFindHotPatchRecord @ 0x140ABFFE4 (MiFindHotPatchRecord.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     MiDuplicateUnicodeString @ 0x14086DC40 (MiDuplicateUnicodeString.c)
+ *     MiApplyImageHotPatchRequest @ 0x140874C78 (MiApplyImageHotPatchRequest.c)
+ *     MiCreatePatchSectionRequest @ 0x140875B58 (MiCreatePatchSectionRequest.c)
+ *     MiLoadHotPatch @ 0x1408770BC (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140877654 (MiLoadHotPatchForUserSid.c)
+ *     MiLogHotPatchManagement @ 0x140877AC8 (MiLogHotPatchManagement.c)
+ *     MiQueryLoadedPatches @ 0x14087A3A0 (MiQueryLoadedPatches.c)
+ *     MiQueryProcessActivePatches @ 0x14087A690 (MiQueryProcessActivePatches.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     MiQuerySingleLoadedPatch @ 0x140A9D93C (MiQuerySingleLoadedPatch.c)
+ *     MiFindHotPatchRecord @ 0x140AC2084 (MiFindHotPatchRecord.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtManageHotPatch(int a1, void *a2, unsigned int a3, unsigned int *a4)
@@ -85,9 +85,9 @@ __int64 __fastcall NtManageHotPatch(int a1, void *a2, unsigned int a3, unsigned 
   Size = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   SingleLoadedPatch = -1073741823;
-  if ( (stru_140E36558.QuantumTarget & 0x100000000LL) == 0 )
+  if ( (stru_140E366D8.QuantumTarget & 0x100000000LL) == 0 )
     goto LABEL_2;
-  if ( !LOBYTE(stru_140E36558.SListFaultAddress) )
+  if ( !LOBYTE(stru_140E366D8.SListFaultAddress) )
   {
     SingleLoadedPatch = -1073741661;
     goto LABEL_3;
@@ -241,7 +241,7 @@ LABEL_124:
         if ( v36 != 1 || Sid || LODWORD(v38.Buffer) )
           goto LABEL_69;
         PatchSectionRequest = MiFindHotPatchRecord(
-                                (unsigned int)&xmmword_140E36540,
+                                (unsigned int)&xmmword_140E366C0,
                                 0,
                                 *(_DWORD *)&v38.Length,
                                 *(_DWORD *)(&v38.MaximumLength + 1),
@@ -263,9 +263,9 @@ LABEL_124:
   {
     case 7:
       SingleLoadedPatch = MiApplyImageHotPatchRequest((__int64)&v36);
-      if ( stru_140E36558.FirstArgument
-        && *(_DWORD *)stru_140E36558.FirstArgument
-        && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL) )
+      if ( stru_140E366D8.FirstArgument
+        && *(_DWORD *)stru_140E366D8.FirstArgument
+        && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL) )
       {
         MiLogHotPatchManagement(v23, 7, (__int64)&v36, 0LL, SingleLoadedPatch);
       }
@@ -316,9 +316,9 @@ LABEL_98:
         v21 = MiLoadHotPatch(&DestinationString, 1, &v40, v41);
       }
       SingleLoadedPatch = v21;
-      if ( stru_140E36558.FirstArgument
-        && *(_DWORD *)stru_140E36558.FirstArgument
-        && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL) )
+      if ( stru_140E366D8.FirstArgument
+        && *(_DWORD *)stru_140E366D8.FirstArgument
+        && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL) )
       {
         MiLogHotPatchManagement(v22, a1, (__int64)&v36, &DestinationString.Length, SingleLoadedPatch);
       }

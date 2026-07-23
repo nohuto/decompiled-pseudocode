@@ -1,16 +1,16 @@
 /*
- * XREFs of PiSwProcessParentRemoveIrp @ 0x140A105F8
+ * XREFs of PiSwProcessParentRemoveIrp @ 0x1409BEA08
  * Callers:
- *     IopRemoveDevice @ 0x140A10084 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x1409BE494 (IopRemoveDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     McTemplateK0zzzzdd_EtwWriteTransfer @ 0x1405A8B94 (McTemplateK0zzzzdd_EtwWriteTransfer.c)
- *     PiSwLock @ 0x1408B9494 (PiSwLock.c)
- *     PiSwDestroyDeviceObject @ 0x1409FAFD4 (PiSwDestroyDeviceObject.c)
- *     PiSwProcessRemove @ 0x1409FB008 (PiSwProcessRemove.c)
- *     PiSwFindSwDevice @ 0x140A11150 (PiSwFindSwDevice.c)
- *     PiSwCloseDescendants @ 0x140A86B50 (PiSwCloseDescendants.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     McTemplateK0zzzzdd_EtwWriteTransfer @ 0x1405A5B84 (McTemplateK0zzzzdd_EtwWriteTransfer.c)
+ *     PiSwLock @ 0x1408B6E3C (PiSwLock.c)
+ *     PiSwFindSwDevice @ 0x1409BF560 (PiSwFindSwDevice.c)
+ *     PiSwDestroyDeviceObject @ 0x1409F3944 (PiSwDestroyDeviceObject.c)
+ *     PiSwProcessRemove @ 0x1409F3978 (PiSwProcessRemove.c)
+ *     PiSwCloseDescendants @ 0x140A81628 (PiSwCloseDescendants.c)
  */
 
 void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
@@ -56,7 +56,7 @@ void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
       v1 = DeviceNode + 40;
       if ( !DeviceNode )
         v1 = v11;
-      if ( (byte_140EEFD24 & 0x40) != 0 )
+      if ( (byte_140EEFF64 & 0x40) != 0 )
       {
         if ( v9 )
           v15 = *(_DWORD *)(v9 + 4);
@@ -65,11 +65,11 @@ void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
         if ( v4 )
           v16 = *(const wchar_t **)(v4 + 8);
         else
-          v16 = &word_140AEA890;
+          v16 = &word_140AEDAC0;
         if ( v1 )
           v17 = (const wchar_t *)*((_QWORD *)v1 + 1);
         else
-          v17 = &word_140AEA890;
+          v17 = &word_140AEDAC0;
         if ( v9 )
         {
           v18 = *(const wchar_t **)(v9 + 16);
@@ -77,8 +77,8 @@ void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
         }
         else
         {
-          v18 = &word_140AEA890;
-          v19 = &word_140AEA890;
+          v18 = &word_140AEDAC0;
+          v19 = &word_140AEDAC0;
         }
         McTemplateK0zzzzdd_EtwWriteTransfer(
           (__int64)v18,
@@ -92,7 +92,7 @@ void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
           *((_DWORD *)DeviceExtension + 2));
       }
       if ( (DeviceExtension[1] & 0x20) == 0 )
-        PiSwProcessRemove((__int64)v6, 0);
+        PiSwProcessRemove(v6, 0LL, v11);
       PiSwDestroyDeviceObject(v6);
     }
   }

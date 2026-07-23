@@ -1,16 +1,24 @@
 /*
- * XREFs of NtCreateEnlistment @ 0x1800A1750
+ * XREFs of NtCreateEnlistment @ 0x1800A1770
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateEnlistment()
+NTSTATUS __cdecl NtCreateEnlistment(
+        PHANDLE EnlistmentHandle,
+        ACCESS_MASK DesiredAccess,
+        HANDLE ResourceManagerHandle,
+        HANDLE TransactionHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG CreateOptions,
+        NOTIFICATION_MASK NotificationMask,
+        PVOID EnlistmentKey)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 164LL;
+  result = 164;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

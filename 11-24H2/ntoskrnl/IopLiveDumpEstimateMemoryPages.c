@@ -1,22 +1,22 @@
 /*
- * XREFs of IopLiveDumpEstimateMemoryPages @ 0x14059A9C0
+ * XREFs of IopLiveDumpEstimateMemoryPages @ 0x140597940
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1405982F0 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140595270 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlNumberOfSetBitsEx @ 0x1404181F0 (RtlNumberOfSetBitsEx.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     HvlCalculateLivedumpSize @ 0x14058A0E0 (HvlCalculateLivedumpSize.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x140599B68 (IopLiveDumpCallRemovePagesCallbacks.c)
- *     IopLiveDumpCapture @ 0x140599EC4 (IopLiveDumpCapture.c)
- *     IopLiveDumpTraceBufferEstimation @ 0x14059D2DC (IopLiveDumpTraceBufferEstimation.c)
- *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14059DFFC (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
- *     IopLiveDumpUncorralProcessors @ 0x14059E420 (IopLiveDumpUncorralProcessors.c)
- *     IopLiveDumpTrace @ 0x1405A3070 (IopLiveDumpTrace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlNumberOfSetBitsEx @ 0x140407FA0 (RtlNumberOfSetBitsEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     HvlCalculateLivedumpSize @ 0x1405873D0 (HvlCalculateLivedumpSize.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x140596AE8 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     IopLiveDumpCapture @ 0x140596E48 (IopLiveDumpCapture.c)
+ *     IopLiveDumpTraceBufferEstimation @ 0x14059A25C (IopLiveDumpTraceBufferEstimation.c)
+ *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14059AF7C (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
+ *     IopLiveDumpUncorralProcessors @ 0x14059B3A0 (IopLiveDumpUncorralProcessors.c)
+ *     IopLiveDumpTrace @ 0x14059FFB0 (IopLiveDumpTrace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
@@ -122,7 +122,7 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
           v30 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06E80,
-            (unsigned __int8 *)byte_140046118,
+            (unsigned __int8 *)word_14004615A,
             (const GUID *)(a1 + 968),
             (const GUID *)(a1 + 952),
             5u,
@@ -174,7 +174,7 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     v38 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E06E80,
-      (unsigned __int8 *)byte_140046010,
+      (unsigned __int8 *)word_140046052,
       (const GUID *)(a1 + 968),
       (const GUID *)(a1 + 952),
       9u,

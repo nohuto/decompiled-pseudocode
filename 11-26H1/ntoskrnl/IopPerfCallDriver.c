@@ -1,16 +1,16 @@
 /*
- * XREFs of IopPerfCallDriver @ 0x1404E25FC
+ * XREFs of IopPerfCallDriver @ 0x1404DBCDC
  * Callers:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IofCallDriverSpecifyReturn @ 0x1404DC7D0 (IofCallDriverSpecifyReturn.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IofCallDriverSpecifyReturn @ 0x1404D5EB0 (IofCallDriverSpecifyReturn.c)
  * Callees:
- *     IopfCallDriver @ 0x1402655E0 (IopfCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     IopAllocateIrpExtension @ 0x14046CD80 (IopAllocateIrpExtension.c)
- *     IopIrpHasValidCombinationOfExtensionTypes @ 0x1404BE33C (IopIrpHasValidCombinationOfExtensionTypes.c)
- *     IopPerfLogCallReturnEvent @ 0x1404E26E4 (IopPerfLogCallReturnEvent.c)
- *     IopPerfLogCallEvent @ 0x1404E2750 (IopPerfLogCallEvent.c)
+ *     IopfCallDriver @ 0x140264B50 (IopfCallDriver.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     IopAllocateIrpExtension @ 0x140466500 (IopAllocateIrpExtension.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x1404B7B8C (IopIrpHasValidCombinationOfExtensionTypes.c)
+ *     IopPerfLogCallReturnEvent @ 0x1404DBDC4 (IopPerfLogCallReturnEvent.c)
+ *     IopPerfLogCallEvent @ 0x1404DBE30 (IopPerfLogCallEvent.c)
  */
 
 __int64 __fastcall IopPerfCallDriver(PVOID Object, ULONG_PTR a2)

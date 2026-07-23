@@ -1,10 +1,10 @@
 /*
- * XREFs of KiConfigureAllSchedulingInformation @ 0x140A4EA60
+ * XREFs of KiConfigureAllSchedulingInformation @ 0x140A4FA60
  * Callers:
- *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
+ *     KeStartAllProcessors @ 0x140A4E568 (KeStartAllProcessors.c)
  * Callees:
- *     KiConfigureNodeSchedulingInformation @ 0x1403B6800 (KiConfigureNodeSchedulingInformation.c)
- *     KiConfigureSchedulingInformation @ 0x14099FD80 (KiConfigureSchedulingInformation.c)
+ *     KiConfigureNodeSchedulingInformation @ 0x1403B6970 (KiConfigureNodeSchedulingInformation.c)
+ *     KiConfigureSchedulingInformation @ 0x1409A0CB0 (KiConfigureSchedulingInformation.c)
  */
 
 void KiConfigureAllSchedulingInformation()

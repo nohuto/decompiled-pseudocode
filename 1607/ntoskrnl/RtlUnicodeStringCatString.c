@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCatString @ 0x1401B5854
+ * XREFs of RtlUnicodeStringCatString @ 0x1401B5738
  * Callers:
- *     CmpLogTransactionAbortedWithChildName @ 0x1400B4B50 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1400B2988 (CmpLogTransactionAbortedWithChildName.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker @ 0x1401B5900 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x1401B57E4 (RtlWideCharArrayCopyStringWorker.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCatString(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszSrc)

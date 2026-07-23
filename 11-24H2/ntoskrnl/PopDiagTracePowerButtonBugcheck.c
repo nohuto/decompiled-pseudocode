@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerButtonBugcheck @ 0x140756C44
+ * XREFs of PopDiagTracePowerButtonBugcheck @ 0x1407550C4
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405D83A0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x1405D58C0 (PopPowerButtonWorkCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x140749718 (PopRecordLongPowerButtonPressDetected.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140747A48 (PopRecordLongPowerButtonPressDetected.c)
  */
 
 void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
@@ -66,37 +66,37 @@ void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
   if ( a1 == 7000 )
   {
     PopRecordLongPowerButtonPressDetected(1, 1);
-    if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
     {
       v6 = 7000;
       v20 = &v6;
-      v1 = (unsigned __int8 *)&dword_14004B42C;
-      v7 = dword_140F07728;
+      v1 = (unsigned __int8 *)&byte_14004ADC7;
+      v7 = dword_140F07B48;
       v22 = &v7;
-      v8 = dword_140F07724;
+      v8 = dword_140F07B44;
       v24 = &v8;
-      v4 = byte_140F07788;
+      v4 = byte_140F07BA8;
       v26 = &v4;
-      v16 = qword_140F07730;
+      v16 = qword_140F07B50;
       v28 = &v16;
-      v9 = dword_140F07738;
+      v9 = dword_140F07B58;
       v30 = &v9;
-      v10 = dword_140F0773C;
+      v10 = dword_140F07B5C;
       v32 = (unsigned __int64 *)&v10;
-      v17 = qword_140F07740;
+      v17 = qword_140F07B60;
       v34 = &v17;
-      v11 = dword_140F0778C;
+      v11 = dword_140F07BAC;
       v36 = &v11;
-      v5[0] = word_140F07798;
+      v5[0] = word_140F07BB8;
       v38 = v5;
-      v12 = qword_140F07790;
+      v12 = qword_140F07BB0;
       v40 = &v12;
       v42 = (int *)&v12 + 1;
-      v13 = HIDWORD(qword_140F077A4);
+      v13 = HIDWORD(qword_140F07BC4);
       v44 = &v13;
-      v14 = dword_140F0779C;
+      v14 = dword_140F07BBC;
       v46 = &v14;
-      v15 = qword_140F077A4;
+      v15 = qword_140F07BC4;
       v48 = &v15;
       v3 = 17;
       v21 = 4LL;
@@ -115,42 +115,42 @@ LABEL_9:
       v45 = 4LL;
       v47 = 4LL;
       v49 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, v1, 0LL, 0LL, v3, &v19);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, v1, 0LL, 0LL, v3, &v19);
     }
   }
   else if ( a1 == 15000
-         && (unsigned int)dword_140E076F0 > 5
-         && tlgKeywordOn((__int64)&dword_140E076F0, 0x800000000000LL) )
+         && (unsigned int)dword_140E07680 > 5
+         && tlgKeywordOn((__int64)&dword_140E07680, 0x800000000000LL) )
   {
     v15 = v2;
     v20 = &v15;
-    v1 = (unsigned __int8 *)byte_14004B589;
-    v14 = dword_140F07728;
+    v1 = (unsigned __int8 *)&dword_14004AF24;
+    v14 = dword_140F07B48;
     v22 = &v14;
-    v13 = dword_140F07724;
+    v13 = dword_140F07B44;
     v24 = &v13;
-    v5[0] = byte_140F07788;
+    v5[0] = byte_140F07BA8;
     v26 = v5;
-    v17 = qword_140F07730;
+    v17 = qword_140F07B50;
     v28 = &v17;
     v30 = (int *)&v12 + 1;
-    v12 = __PAIR64__(dword_140F07738, dword_140F0773C);
+    v12 = __PAIR64__(dword_140F07B58, dword_140F07B5C);
     v32 = &v12;
-    v16 = qword_140F07740;
+    v16 = qword_140F07B60;
     v34 = &v16;
-    v11 = dword_140F0778C;
+    v11 = dword_140F07BAC;
     v36 = &v11;
-    v4 = word_140F07798;
+    v4 = word_140F07BB8;
     v38 = &v4;
-    v10 = qword_140F07790;
+    v10 = qword_140F07BB0;
     v40 = (unsigned __int64 *)&v10;
-    v9 = HIDWORD(qword_140F07790);
+    v9 = HIDWORD(qword_140F07BB0);
     v42 = &v9;
-    v8 = HIDWORD(qword_140F077A4);
+    v8 = HIDWORD(qword_140F07BC4);
     v44 = &v8;
-    v7 = dword_140F0779C;
+    v7 = dword_140F07BBC;
     v46 = &v7;
-    v6 = qword_140F077A4;
+    v6 = qword_140F07BC4;
     v48 = &v6;
     v50 = &v18;
     v3 = 18;

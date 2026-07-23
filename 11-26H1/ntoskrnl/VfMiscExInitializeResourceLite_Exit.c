@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscExInitializeResourceLite_Exit @ 0x140C3CA40
+ * XREFs of VfMiscExInitializeResourceLite_Exit @ 0x140C42A50
  * Callers:
  *     <none>
  * Callees:
- *     VfTrackResource @ 0x140C407D0 (VfTrackResource.c)
+ *     VfTrackResource @ 0x140C467E0 (VfTrackResource.c)
  */
 
 __int64 __fastcall VfMiscExInitializeResourceLite_Exit(__int64 a1)

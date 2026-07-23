@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeInsertByKeyDeviceQueue @ 0x140C2E4A0
+ * XREFs of VerifierKeInsertByKeyDeviceQueue @ 0x140C344B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierKeInsertByKeyDeviceQueue(__int64 a1, __int64 a2)

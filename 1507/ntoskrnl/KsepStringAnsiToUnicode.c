@@ -9,7 +9,7 @@
 
 NTSTATUS __fastcall KsepStringAnsiToUnicode(wchar_t *a1, unsigned __int16 a2, char *a3, unsigned __int16 a4)
 {
-  STRING v5; // [rsp+20h] [rbp-28h] BYREF
+  ANSI_STRING v5; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING v6; // [rsp+30h] [rbp-18h] BYREF
 
   v6.Buffer = a1;

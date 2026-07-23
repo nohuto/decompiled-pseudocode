@@ -1,17 +1,17 @@
 /*
- * XREFs of PiPnpRtlGatherInterfaceDeleteInfo @ 0x14062EFB8
+ * XREFs of PiPnpRtlGatherInterfaceDeleteInfo @ 0x14062F06C
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpStringFromGuid @ 0x1404E9270 (_PnpStringFromGuid.c)
- *     PnpGetObjectProperty @ 0x1404FBC64 (PnpGetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
- *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x14062EC24 (PiPnpRtlFreeInterfaceDeleteInfo.c)
+ *     _PnpStringFromGuid @ 0x1404CB360 (_PnpStringFromGuid.c)
+ *     PnpGetObjectProperty @ 0x1404DEBF4 (PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
+ *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x14062ECD8 (PiPnpRtlFreeInterfaceDeleteInfo.c)
  */
 
 __int64 __fastcall PiPnpRtlGatherInterfaceDeleteInfo(__int64 a1, unsigned int ***a2)

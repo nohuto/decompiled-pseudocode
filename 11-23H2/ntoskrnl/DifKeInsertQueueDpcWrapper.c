@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeInsertQueueDpcWrapper @ 0x1405E3C60
+ * XREFs of DifKeInsertQueueDpcWrapper @ 0x1405E41D0
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 char __fastcall DifKeInsertQueueDpcWrapper(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

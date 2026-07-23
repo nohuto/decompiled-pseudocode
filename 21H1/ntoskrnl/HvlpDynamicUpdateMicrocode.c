@@ -42,7 +42,7 @@ __int64 __fastcall HvlpDynamicUpdateMicrocode(void *a1, ULONG a2)
   v14 = a2;
   while ( 1 )
   {
-    v7 = HvcallFastExtended(v12, (__int64)&v13, 24LL, 0LL, 0);
+    v7 = HvcallFastExtended(v12, (__int64)&v13, 0x18u, 0, 0);
     if ( !HvlpHvStatusIsInsufficientMemory(v7) )
       break;
     v11 = HvlpHandleInsufficientMemory(v9, v8, v10);

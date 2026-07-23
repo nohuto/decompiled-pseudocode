@@ -1,12 +1,12 @@
 /*
- * XREFs of XmStosOp @ 0x1404684F0
+ * XREFs of XmStosOp @ 0x140460EA0
  * Callers:
  *     <none>
  * Callees:
- *     XmGetStringAddressRange @ 0x140468728 (XmGetStringAddressRange.c)
- *     XmSetSourceValue @ 0x140469348 (XmSetSourceValue.c)
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
- *     XmGetStringAddress @ 0x1405778DC (XmGetStringAddress.c)
+ *     XmGetStringAddressRange @ 0x1404610D8 (XmGetStringAddressRange.c)
+ *     XmSetSourceValue @ 0x140461CF8 (XmSetSourceValue.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
+ *     XmGetStringAddress @ 0x140574D6C (XmGetStringAddress.c)
  */
 
 unsigned __int64 __fastcall XmStosOp(__int64 a1)

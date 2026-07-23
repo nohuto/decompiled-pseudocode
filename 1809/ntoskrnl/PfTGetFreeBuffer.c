@@ -1,8 +1,8 @@
 /*
- * XREFs of PfTGetFreeBuffer @ 0x14066A85C
+ * XREFs of PfTGetFreeBuffer @ 0x14066BA1C
  * Callers:
- *     PfTReplaceCurrentBuffer @ 0x14066A7BC (PfTReplaceCurrentBuffer.c)
- *     PfTAllocateBuffers @ 0x140752CFC (PfTAllocateBuffers.c)
+ *     PfTReplaceCurrentBuffer @ 0x14066B97C (PfTReplaceCurrentBuffer.c)
+ *     PfTAllocateBuffers @ 0x140753EEC (PfTAllocateBuffers.c)
  * Callees:
  *     <none>
  */

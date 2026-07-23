@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmReapplyIdlePolicy @ 0x140A97940
+ * XREFs of PpmReapplyIdlePolicy @ 0x140A94190
  * Callers:
- *     PpmInfoApplySettingUpdate @ 0x1409BDA78 (PpmInfoApplySettingUpdate.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140A4706C (PpmCompareAndApplyPolicySettings.c)
+ *     PpmInfoApplySettingUpdate @ 0x1409A40C8 (PpmInfoApplySettingUpdate.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x140A3CFDC (PpmCompareAndApplyPolicySettings.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x1403529A4 (PopExecuteOnTargetProcessors.c)
+ *     PopExecuteOnTargetProcessors @ 0x140370234 (PopExecuteOnTargetProcessors.c)
  */
 
 __int64 PpmReapplyIdlePolicy()

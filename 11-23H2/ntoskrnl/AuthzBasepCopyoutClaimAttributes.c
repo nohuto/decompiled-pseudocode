@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepCopyoutClaimAttributes @ 0x140A5A04C
+ * XREFs of AuthzBasepCopyoutClaimAttributes @ 0x140A5A2FC
  * Callers:
- *     AuthzBasepQueryClaimAttributesToken @ 0x1407CBE74 (AuthzBasepQueryClaimAttributesToken.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x1407CC144 (AuthzBasepQueryClaimAttributesToken.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     RtlStringCbCopyNW @ 0x140396D60 (RtlStringCbCopyNW.c)
- *     memset @ 0x140435A00 (memset.c)
- *     AuthzBasepCopyoutClaimAttributeValues @ 0x140A59E18 (AuthzBasepCopyoutClaimAttributeValues.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     RtlStringCbCopyNW @ 0x140396F40 (RtlStringCbCopyNW.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     AuthzBasepCopyoutClaimAttributeValues @ 0x140A5A0C8 (AuthzBasepCopyoutClaimAttributeValues.c)
  */
 
 int __fastcall AuthzBasepCopyoutClaimAttributes(unsigned int *a1, _DWORD *a2, size_t a3)

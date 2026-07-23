@@ -1,20 +1,20 @@
 /*
- * XREFs of PipApplyFunctionToServiceInstances @ 0x1407C0F30
+ * XREFs of PipApplyFunctionToServiceInstances @ 0x1407C1450
  * Callers:
- *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5E42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
- *     PnpUnicodeStringToWstrFree @ 0x140635794 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x14063755C (PnpUnicodeStringToWstr.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     PnpRegSzToString @ 0x14074002C (PnpRegSzToString.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     PipOpenServiceEnumKeys @ 0x140742BEC (PipOpenServiceEnumKeys.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     PipAddDevicesToBootDriverWorker @ 0x140A6C2D0 (PipAddDevicesToBootDriverWorker.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwEnumerateValueKey @ 0x1403FA7E0 (ZwEnumerateValueKey.c)
+ *     PnpUnicodeStringToWstrFree @ 0x14062A5A4 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14062C36C (PnpUnicodeStringToWstr.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     PnpRegSzToString @ 0x1407401EC (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x140742DAC (PipOpenServiceEnumKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     PipAddDevicesToBootDriverWorker @ 0x140A6D2D0 (PipAddDevicesToBootDriverWorker.c)
  */
 
 int __fastcall PipApplyFunctionToServiceInstances(

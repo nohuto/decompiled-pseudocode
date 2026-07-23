@@ -1,9 +1,9 @@
 /*
- * XREFs of I_MinCryptCheckEKU @ 0x140A6F4F8
+ * XREFs of I_MinCryptCheckEKU @ 0x140A6F7A8
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6F858 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6FB08 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     memcmp @ 0x1403DA350 (memcmp.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
  */
 
 char __fastcall I_MinCryptCheckEKU(const void **a1, unsigned int a2, __int64 a3)

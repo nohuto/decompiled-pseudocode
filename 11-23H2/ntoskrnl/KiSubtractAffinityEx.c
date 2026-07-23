@@ -1,24 +1,24 @@
 /*
- * XREFs of KiSubtractAffinityEx @ 0x14033D83C
+ * XREFs of KiSubtractAffinityEx @ 0x14033DACC
  * Callers:
- *     KiIpiSetTargetAffinity @ 0x1402544F4 (KiIpiSetTargetAffinity.c)
- *     PpmParkSteerInterrupts @ 0x140256A20 (PpmParkSteerInterrupts.c)
- *     PpmCheckContinueExecution @ 0x1402BFA64 (PpmCheckContinueExecution.c)
- *     PpmParkReportParkedCores @ 0x140350DC0 (PpmParkReportParkedCores.c)
- *     PpmParkReportUnparkedCores @ 0x140356C60 (PpmParkReportUnparkedCores.c)
- *     PpmIdleSelectStates @ 0x1403B7470 (PpmIdleSelectStates.c)
- *     KeSubtractAffinityEx @ 0x14045FF50 (KeSubtractAffinityEx.c)
- *     HalpRemoveProfileSourceFromList @ 0x140507E7C (HalpRemoveProfileSourceFromList.c)
- *     KeSubtractAffinityEx2 @ 0x14056F4A0 (KeSubtractAffinityEx2.c)
- *     KiStartProfileTarget @ 0x140574430 (KiStartProfileTarget.c)
- *     KiStopProfileTarget @ 0x140574780 (KiStopProfileTarget.c)
- *     KeCpuPartitionMoveCpus @ 0x140574DC4 (KeCpuPartitionMoveCpus.c)
- *     RtlUpdateSwapReference @ 0x14080E0D8 (RtlUpdateSwapReference.c)
- *     PpmCheckInitProcessors @ 0x14082E2C4 (PpmCheckInitProcessors.c)
- *     PpmPostProcessMediaBuffering @ 0x14099D2F4 (PpmPostProcessMediaBuffering.c)
+ *     KiIpiSetTargetAffinity @ 0x1402545B4 (KiIpiSetTargetAffinity.c)
+ *     PpmParkSteerInterrupts @ 0x140256AE0 (PpmParkSteerInterrupts.c)
+ *     PpmCheckContinueExecution @ 0x1402BFCF4 (PpmCheckContinueExecution.c)
+ *     PpmParkReportParkedCores @ 0x140350F60 (PpmParkReportParkedCores.c)
+ *     PpmParkReportUnparkedCores @ 0x140356E00 (PpmParkReportUnparkedCores.c)
+ *     PpmIdleSelectStates @ 0x1403B7650 (PpmIdleSelectStates.c)
+ *     KeSubtractAffinityEx @ 0x140460350 (KeSubtractAffinityEx.c)
+ *     HalpRemoveProfileSourceFromList @ 0x1405083CC (HalpRemoveProfileSourceFromList.c)
+ *     KeSubtractAffinityEx2 @ 0x14056F9E0 (KeSubtractAffinityEx2.c)
+ *     KiStartProfileTarget @ 0x140574970 (KiStartProfileTarget.c)
+ *     KiStopProfileTarget @ 0x140574CC0 (KiStopProfileTarget.c)
+ *     KeCpuPartitionMoveCpus @ 0x140575304 (KeCpuPartitionMoveCpus.c)
+ *     RtlUpdateSwapReference @ 0x14080E3A8 (RtlUpdateSwapReference.c)
+ *     PpmCheckInitProcessors @ 0x14082E5C4 (PpmCheckInitProcessors.c)
+ *     PpmPostProcessMediaBuffering @ 0x14099D4F4 (PpmPostProcessMediaBuffering.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiSubtractAffinityEx(unsigned __int16 *a1, char *a2, _BYTE *a3, unsigned __int16 a4)

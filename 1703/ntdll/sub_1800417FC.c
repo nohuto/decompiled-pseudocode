@@ -21,36 +21,36 @@ int *__fastcall sub_1800417FC(__int64 a1)
   __int64 v1; // rsi
   int v3; // edi
   int v4; // r14d
-  int v5; // eax
+  NTSTATUS v5; // eax
   __int64 v6; // r13
   unsigned int v7; // r12d
   unsigned int *v8; // r15
   unsigned int *v9; // r8
   unsigned int v10; // eax
   int v11; // edx
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v13; // r12d
   __int64 v14; // rdx
   __int64 v15; // rcx
   bool v16; // zf
-  char *v17; // rcx
+  CHAR *v17; // rcx
   unsigned __int64 v18; // rax
   int *result; // rax
-  STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
-  int v21; // [rsp+80h] [rbp+40h] BYREF
-  __int64 v22; // [rsp+88h] [rbp+48h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
+  DWORD v21; // [rsp+80h] [rbp+40h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp+48h] BYREF
   __int64 v23; // [rsp+90h] [rbp+50h] BYREF
 
   v1 = *(_QWORD *)(a1 + 48);
   v3 = sub_180078A1C(v1);
   if ( v3 >= 0 )
-    v3 = sub_18003999C((_QWORD *)a1);
+    v3 = sub_18003999C(a1);
   if ( v3 < 0 )
     goto LABEL_35;
   v4 = 0;
   if ( !*(_QWORD *)(a1 + 96) )
     goto LABEL_39;
-  v5 = sub_180032C0C(*(_QWORD *)(v1 + 48), 1, 1u, &v21, &v23);
+  v5 = sub_180032C0C(*(_QWORD *)(v1 + 48), 1, 1u, &v21, (char **)&v23);
   v6 = v23;
   v7 = 0;
   if ( v5 < 0 )
@@ -74,7 +74,7 @@ int *__fastcall sub_1800417FC(__int64 a1)
   while ( *(v9 - 1) );
   if ( !v4 )
     goto LABEL_32;
-  Heap = RtlAllocateHeap(qword_18015B328, (dword_18015B268 + 1572864) | 8u, 8LL * v7);
+  Heap = RtlAllocateHeap(HeapHandle, (dword_18015B268 + 1572864) | 8, 8LL * v7);
   *(_QWORD *)(a1 + 80) = Heap;
   if ( !Heap )
   {
@@ -83,7 +83,7 @@ int *__fastcall sub_1800417FC(__int64 a1)
   }
   *(_QWORD *)(a1 + 120) = v6;
   *(_DWORD *)(a1 + 88) = v7;
-  v22 = 0LL;
+  BaseAddress = 0LL;
   v13 = 0;
   *(_DWORD *)(a1 + 92) = v4 + 1;
   if ( !*v8 )
@@ -95,7 +95,7 @@ int *__fastcall sub_1800417FC(__int64 a1)
       goto LABEL_26;
     v15 = *v8;
     v16 = v14 + v15 == 0;
-    v17 = (char *)(v14 + v15);
+    v17 = (CHAR *)(v14 + v15);
     *(_DWORD *)&SourceString.Length = 0;
     SourceString.Buffer = v17;
     if ( !v16 )
@@ -116,7 +116,7 @@ int *__fastcall sub_1800417FC(__int64 a1)
 LABEL_24:
     if ( v3 < 0 )
       break;
-    v3 = sub_180041A60(&SourceString, *(_QWORD *)(a1 + 80) + 8LL * v13, (__int64)&v22);
+    v3 = sub_180041A60(&SourceString, *(_QWORD *)(a1 + 80) + 8LL * v13, (__int64)&BaseAddress);
     if ( v3 < 0 )
       break;
 LABEL_26:
@@ -125,14 +125,14 @@ LABEL_26:
     if ( !*v8 )
       break;
   }
-  if ( v22 )
-    RtlFreeHeap(qword_18015B328, 0, v22);
+  if ( BaseAddress )
+    RtlFreeHeap(HeapHandle, 0, BaseAddress);
 LABEL_29:
   if ( v3 >= 0 )
   {
-    RtlAcquireSRWLockExclusive(&qword_18015C040);
+    RtlAcquireSRWLockExclusive(&stru_18015C040);
     v4 = --*(_DWORD *)(a1 + 92);
-    RtlReleaseSRWLockExclusive(&qword_18015C040);
+    RtlReleaseSRWLockExclusive(&stru_18015C040);
   }
 LABEL_31:
   if ( !v4 )

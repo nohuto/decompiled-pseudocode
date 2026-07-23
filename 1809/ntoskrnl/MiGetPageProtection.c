@@ -2,21 +2,21 @@
  * XREFs of MiGetPageProtection @ 0x14003FFE0
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
- *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
- *     MiCommitExistingVad @ 0x140071470 (MiCommitExistingVad.c)
+ *     MiProtectPrivateMemory @ 0x140070DB0 (MiProtectPrivateMemory.c)
+ *     MiCommitExistingVad @ 0x140071460 (MiCommitExistingVad.c)
  * Callees:
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiRotatedToFrameBuffer @ 0x1400947E4 (MiRotatedToFrameBuffer.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14011B880 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiGetImageProtoProtection @ 0x14011F900 (MiGetImageProtoProtection.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiGetValidAweProtection @ 0x1402B0D90 (MiGetValidAweProtection.c)
- *     MiCaptureProtectionFromLockedProto @ 0x1402BF3EC (MiCaptureProtectionFromLockedProto.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiRotatedToFrameBuffer @ 0x140094724 (MiRotatedToFrameBuffer.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14011B8F0 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiGetImageProtoProtection @ 0x14011F970 (MiGetImageProtoProtection.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128D60 (MI_PROTO_FORMAT_COMBINED.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiGetValidAweProtection @ 0x1402B0F80 (MiGetValidAweProtection.c)
+ *     MiCaptureProtectionFromLockedProto @ 0x1402BF5DC (MiCaptureProtectionFromLockedProto.c)
  */
 
 ULONG_PTR __fastcall MiGetPageProtection(
@@ -92,8 +92,8 @@ ULONG_PTR __fastcall MiGetPageProtection(
     if ( !MiIsPrototypePteVadLookup(v3) )
     {
       v19 = v3;
-      if ( qword_14043A0C0 && (v3 & 0x10) == 0 )
-        v19 = v3 & ~qword_14043A0C0;
+      if ( qword_14043B180 && (v3 & 0x10) == 0 )
+        v19 = v3 & ~qword_14043B180;
       if ( (unsigned __int8)MI_PROTO_FORMAT_COMBINED(v3, v18, v19 >> 16) )
         return (unsigned int)MmMakeProtectNotWriteCopy[(unsigned int)MiCaptureProtectionFromLockedProto(v20)];
       Process = KeGetCurrentThread()->ApcState.Process;
@@ -253,8 +253,8 @@ LABEL_5:
   }
   else if ( ((*(_QWORD *)(v8 - 0x58000000000LL + 40) >> 54) & 7) == 1 )
   {
-    v35 = (_QWORD *)qword_14043A188;
-    if ( qword_14043A188 )
+    v35 = (_QWORD *)qword_14043B248;
+    if ( qword_14043B248 )
     {
       v36 = v8 / 48;
       do

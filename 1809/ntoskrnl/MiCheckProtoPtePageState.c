@@ -3,10 +3,10 @@
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
- *     MiIsSubsectionClean @ 0x1402A2694 (MiIsSubsectionClean.c)
- *     MiPurgeSubsection @ 0x1402A2C28 (MiPurgeSubsection.c)
- *     MiPurgeFileOnlyPfn @ 0x1402B69A8 (MiPurgeFileOnlyPfn.c)
+ *     MmPurgeSection @ 0x1400E7D80 (MmPurgeSection.c)
+ *     MiIsSubsectionClean @ 0x1402A2884 (MiIsSubsectionClean.c)
+ *     MiPurgeSubsection @ 0x1402A2E18 (MiPurgeSubsection.c)
+ *     MiPurgeFileOnlyPfn @ 0x1402B6B98 (MiPurgeFileOnlyPfn.c)
  * Callees:
  *     MiChargePartitionResidentAvailable @ 0x140022F3C (MiChargePartitionResidentAvailable.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
@@ -15,10 +15,10 @@
  *     MiInvalidPteConforms @ 0x140039720 (MiInvalidPteConforms.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWriteValidPteVolatile @ 0x140085FA0 (MiWriteValidPteVolatile.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiWriteValidPteVolatile @ 0x140085F90 (MiWriteValidPteVolatile.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckProtoPtePageState(ULONG_PTR a1, unsigned __int8 *a2)
@@ -108,8 +108,8 @@ LABEL_30:
           goto LABEL_30;
       }
       while ( !(unsigned int)MiInvalidPteConforms(v9) );
-      if ( qword_14043A0C0 && (v9 & 0x10) == 0 )
-        v9 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v9 & 0x10) == 0 )
+        v9 &= ~qword_14043B180;
 LABEL_7:
       v10 = v8 & (v9 >> 12);
       if ( (v7 & *(_QWORD *)(v6 + 48 * v10)) == 0 )
@@ -186,8 +186,8 @@ LABEL_32:
     v17 = 1;
   }
   v18 = (v16 >> 40) & 0x3FF;
-  v19 = *(ULONG_PTR **)(qword_14043A748 + 8 * v18);
-  if ( v17 && !(unsigned int)MiChargeCommit(*(_QWORD *)(qword_14043A748 + 8 * v18), 1LL, 4LL) )
+  v19 = *(ULONG_PTR **)(qword_14043B808 + 8 * v18);
+  if ( v17 && !(unsigned int)MiChargeCommit(*(_QWORD *)(qword_14043B808 + 8 * v18), 1LL, 4LL) )
     goto LABEL_22;
   if ( v19 == &MiSystemPartition )
   {

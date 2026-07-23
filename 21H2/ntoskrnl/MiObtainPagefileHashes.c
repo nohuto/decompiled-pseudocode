@@ -1,10 +1,10 @@
 /*
- * XREFs of MiObtainPagefileHashes @ 0x14055D5C0
+ * XREFs of MiObtainPagefileHashes @ 0x14055D800
  * Callers:
- *     MiValidatePagefilePageHash @ 0x14055D71C (MiValidatePagefilePageHash.c)
+ *     MiValidatePagefilePageHash @ 0x14055D95C (MiValidatePagefilePageHash.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiFillPerSessionProtos @ 0x1408D7FE0
+ * XREFs of MiFillPerSessionProtos @ 0x1408D8140
  * Callers:
- *     MiAllocatePerSessionProtos @ 0x1406BCA38 (MiAllocatePerSessionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x14061BC08 (MiAllocatePerSessionProtos.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     MiGetPteFromCopyList @ 0x140240980 (MiGetPteFromCopyList.c)
- *     MiCreatePteCopyList @ 0x140240B38 (MiCreatePteCopyList.c)
- *     MiGetControlAreaPartition @ 0x14025B3A4 (MiGetControlAreaPartition.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMarkPfnVerified @ 0x1402B8A04 (MiMarkPfnVerified.c)
- *     MiReleasePteCopyList @ 0x1402CAA24 (MiReleasePteCopyList.c)
- *     MiReturnPfnReferenceCount @ 0x1402CF02C (MiReturnPfnReferenceCount.c)
- *     MiGetNextPageColor @ 0x1402E5C08 (MiGetNextPageColor.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KeCopyPrivilegedPage @ 0x140512DD0 (KeCopyPrivilegedPage.c)
- *     MiInitializeProtoPfn @ 0x140554F90 (MiInitializeProtoPfn.c)
- *     MiWaitForFreePage @ 0x14055C1FC (MiWaitForFreePage.c)
- *     MiRelocateImagePfn @ 0x1405FC260 (MiRelocateImagePfn.c)
- *     MiAllocateDriverPage @ 0x1406D1A78 (MiAllocateDriverPage.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiMarkPfnVerified @ 0x140236C14 (MiMarkPfnVerified.c)
+ *     MiReleasePteCopyList @ 0x140249314 (MiReleasePteCopyList.c)
+ *     MiReturnPfnReferenceCount @ 0x14024D52C (MiReturnPfnReferenceCount.c)
+ *     MiGetControlAreaPartition @ 0x14027C914 (MiGetControlAreaPartition.c)
+ *     MiGetNextPageColor @ 0x140296F58 (MiGetNextPageColor.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     MiGetPteFromCopyList @ 0x1402E51D0 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x1402E5388 (MiCreatePteCopyList.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KeCopyPrivilegedPage @ 0x140513010 (KeCopyPrivilegedPage.c)
+ *     MiInitializeProtoPfn @ 0x1405551D0 (MiInitializeProtoPfn.c)
+ *     MiWaitForFreePage @ 0x14055C43C (MiWaitForFreePage.c)
+ *     MiAllocateDriverPage @ 0x1406A8D58 (MiAllocateDriverPage.c)
+ *     MiRelocateImagePfn @ 0x1406EB9C0 (MiRelocateImagePfn.c)
  */
 
 __int64 __fastcall MiFillPerSessionProtos(
@@ -46,28 +46,26 @@ __int64 __fastcall MiFillPerSessionProtos(
   __int64 v21; // rbp
   __int128 *v22; // r12
   NTSTATUS v23; // eax
-  __int64 v24; // rdx
-  __int64 v25; // r8
   unsigned __int64 PteFromCopyList; // r12
-  unsigned __int64 v27; // rdi
-  int v28; // eax
-  int v29; // [rsp+28h] [rbp-70h]
-  __int128 v30; // [rsp+40h] [rbp-58h] BYREF
-  __int128 v31; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v32; // [rsp+60h] [rbp-38h]
+  unsigned __int64 v25; // rdi
+  int v26; // eax
+  int v27; // [rsp+28h] [rbp-70h]
+  __int128 v28; // [rsp+40h] [rbp-58h] BYREF
+  __int128 v29; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v30; // [rsp+60h] [rbp-38h]
   __int64 i; // [rsp+A8h] [rbp+10h]
 
   v9 = a4;
-  v31 = 0LL;
-  v32 = 0LL;
+  v29 = 0LL;
   v30 = 0LL;
+  v28 = 0LL;
   if ( !a8 )
   {
     v13 = (unsigned int)a4 * ((a7 != 0) + 2) + 1;
-    MiCreatePteCopyList(v13, (unsigned int)v13, (__int64)&v31, a4);
-    if ( !DWORD1(v31) )
+    MiCreatePteCopyList(v13, (unsigned int)v13, (__int64)&v29, a4);
+    if ( !DWORD1(v29) )
       return 3221225626LL;
-    MiInitializePageColorBase(0LL, 0, (__int64)&v30);
+    MiInitializePageColorBase(0LL, 0, (__int64)&v28);
   }
   ControlAreaPartition = (ULONG_PTR *)MiGetControlAreaPartition(a1);
   if ( v9 )
@@ -81,7 +79,7 @@ __int64 __fastcall MiFillPerSessionProtos(
       }
       else
       {
-        NextPageColor = MiGetNextPageColor((__int64)&v30);
+        NextPageColor = MiGetNextPageColor((__int64)&v28);
         for ( j = NextPageColor; ; j = NextPageColor )
         {
           DriverPage = MiGetPage((__int64)ControlAreaPartition, j, 0LL);
@@ -111,40 +109,40 @@ LABEL_29:
       if ( !v9 )
         goto LABEL_34;
     }
-    MiCopyPage(DriverPage, *a3, &v31, 72);
+    MiCopyPage(DriverPage, *a3, &v29, 72);
     if ( !a7 )
     {
 LABEL_28:
-      MiReturnPfnReferenceCount(v21, v24, v25);
+      MiReturnPfnReferenceCount(v21);
       v22 = a9;
       goto LABEL_29;
     }
-    PteFromCopyList = (unsigned __int64)MiGetPteFromCopyList((unsigned int *)&v31, DriverPage, -1LL);
-    MiRelocateImagePfn(a1, (__int64)(PteFromCopyList << 25) >> 16, a6, DriverPage, a7, v29, 2);
-    v27 = ZeroPte;
+    PteFromCopyList = (unsigned __int64)MiGetPteFromCopyList((unsigned int *)&v29, DriverPage, -1LL);
+    MiRelocateImagePfn(a1, (__int64)(PteFromCopyList << 25) >> 16, a6, DriverPage, a7, v27, 2);
+    v25 = ZeroPte;
     if ( MiPteInShadowRange(PteFromCopyList) )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v28 = 1;
-        if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
-          v27 = ZeroPte | 0x8000000000000000uLL;
+        v26 = 1;
+        if ( !HIBYTE(word_140C4E048) && (ZeroPte & 1) != 0 )
+          v25 = ZeroPte | 0x8000000000000000uLL;
         goto LABEL_26;
       }
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
         && (ZeroPte & 1) != 0 )
       {
-        v27 = ZeroPte | 0x8000000000000000uLL;
+        v25 = ZeroPte | 0x8000000000000000uLL;
       }
     }
-    v28 = 0;
+    v26 = 0;
 LABEL_26:
-    *(_QWORD *)PteFromCopyList = v27;
-    if ( v28 )
-      MiWritePteShadow(PteFromCopyList, v27, v25);
+    *(_QWORD *)PteFromCopyList = v25;
+    if ( v26 )
+      MiWritePteShadow(PteFromCopyList, v25);
     goto LABEL_28;
   }
 LABEL_34:
-  MiReleasePteCopyList((__int64)&v31);
+  MiReleasePteCopyList((__int64)&v29);
   return 0LL;
 }

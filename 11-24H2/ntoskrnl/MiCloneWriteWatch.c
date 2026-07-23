@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCloneWriteWatch @ 0x14068342C
+ * XREFs of MiCloneWriteWatch @ 0x140682328
  * Callers:
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
  * Callees:
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void *__fastcall MiCloneWriteWatch(__int64 a1)

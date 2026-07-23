@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSaveStateForHibernate @ 0x14041FAF0
+ * XREFs of KeSaveStateForHibernate @ 0x14041FE80
  * Callers:
- *     HalpSaveProcessorState @ 0x14041AA70 (HalpSaveProcessorState.c)
- *     HalpSetupRealModeResume @ 0x14041AAF0 (HalpSetupRealModeResume.c)
- *     PopSaveHiberContextWrapper @ 0x140428C50 (PopSaveHiberContextWrapper.c)
- *     HalpDpOfflineProcessorForReplace @ 0x140A97398 (HalpDpOfflineProcessorForReplace.c)
+ *     HalpSaveProcessorState @ 0x14041AE00 (HalpSaveProcessorState.c)
+ *     HalpSetupRealModeResume @ 0x14041AE80 (HalpSetupRealModeResume.c)
+ *     PopSaveHiberContextWrapper @ 0x140428FE0 (PopSaveHiberContextWrapper.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x140A97208 (HalpDpOfflineProcessorForReplace.c)
  * Callees:
- *     KiSaveProcessorControlState @ 0x14041EDA0 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140428FD0 (RtlCaptureContext.c)
+ *     KiSaveProcessorControlState @ 0x14041F130 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140429360 (RtlCaptureContext.c)
  */
 
 __int64 __fastcall KeSaveStateForHibernate(__int64 a1)

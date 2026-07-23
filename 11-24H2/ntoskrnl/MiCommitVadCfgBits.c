@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCommitVadCfgBits @ 0x1408F9A84
+ * XREFs of MiCommitVadCfgBits @ 0x14091C360
  * Callers:
- *     MiCommitVadMetadataBits @ 0x1408FA9B0 (MiCommitVadMetadataBits.c)
+ *     MiCommitVadMetadataBits @ 0x14091D290 (MiCommitVadMetadataBits.c)
  * Callees:
- *     MiMarkPrivateImageCfgBits @ 0x1408F9698 (MiMarkPrivateImageCfgBits.c)
- *     MiMarkSharedImageCfgBits @ 0x1408F9C78 (MiMarkSharedImageCfgBits.c)
- *     MiPopulateCfgBitMap @ 0x1408F9F54 (MiPopulateCfgBitMap.c)
+ *     MiMarkPrivateImageCfgBits @ 0x14091BF74 (MiMarkPrivateImageCfgBits.c)
+ *     MiMarkSharedImageCfgBits @ 0x14091C554 (MiMarkSharedImageCfgBits.c)
+ *     MiPopulateCfgBitMap @ 0x14091C830 (MiPopulateCfgBitMap.c)
  */
 
 __int64 __fastcall MiCommitVadCfgBits(

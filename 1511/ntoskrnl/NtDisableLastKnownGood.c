@@ -10,44 +10,34 @@
  *     SeSinglePrivilegeCheck @ 0x140471360 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 NtDisableLastKnownGood()
+NTSTATUS NtDisableLastKnownGood(void)
 {
-  int CachedContextBaseKey; // ebx
+  NTSTATUS CachedContextBaseKey; // ebx
   UNICODE_STRING ValueName; // [rsp+30h] [rbp-10h] BYREF
   int Data; // [rsp+60h] [rbp+20h] BYREF
   HANDLE KeyHandle; // [rsp+68h] [rbp+28h] BYREF
   void *v5; // [rsp+70h] [rbp+30h] BYREF
 
   KeyHandle = 0LL;
-  if ( KeGetCurrentThread()->PreviousMode == 1 )
+  if ( KeGetCurrentThread()->PreviousMode != 1 )
+    return -1073741790;
+  if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
+    return -1073741727;
+  CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(_QWORD **)&PiPnpRtlCtx, 4, &v5);
+  if ( CachedContextBaseKey >= 0 )
   {
-    if ( SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
+    ValueName.Buffer = (wchar_t *)L"Control\\Pnp";
+    *(_DWORD *)&ValueName.Length = 1572886;
+    CachedContextBaseKey = IopCreateRegistryKeyEx(&KeyHandle, v5, &ValueName, 0xF003Fu, 0, 0LL);
+    if ( CachedContextBaseKey >= 0 )
     {
-      CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(_QWORD **)&PiPnpRtlCtx, 4, &v5);
-      if ( CachedContextBaseKey >= 0 )
-      {
-        ValueName.Buffer = (wchar_t *)L"Control\\Pnp";
-        *(_DWORD *)&ValueName.Length = 1572886;
-        CachedContextBaseKey = IopCreateRegistryKeyEx(&KeyHandle, v5, &ValueName, 0xF003Fu, 0, 0LL);
-        if ( CachedContextBaseKey >= 0 )
-        {
-          ValueName.Buffer = L"DisableLKG";
-          Data = 1;
-          *(_DWORD *)&ValueName.Length = 1441812;
-          CachedContextBaseKey = ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &Data, 4u);
-        }
-        if ( KeyHandle )
-          ZwClose(KeyHandle);
-      }
+      ValueName.Buffer = L"DisableLKG";
+      Data = 1;
+      *(_DWORD *)&ValueName.Length = 1441812;
+      CachedContextBaseKey = ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &Data, 4u);
     }
-    else
-    {
-      return (unsigned int)-1073741727;
-    }
+    if ( KeyHandle )
+      ZwClose(KeyHandle);
   }
-  else
-  {
-    return (unsigned int)-1073741790;
-  }
-  return (unsigned int)CachedContextBaseKey;
+  return CachedContextBaseKey;
 }

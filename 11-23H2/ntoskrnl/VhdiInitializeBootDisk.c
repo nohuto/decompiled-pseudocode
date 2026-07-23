@@ -3,15 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14080DB70 (RtlCreateUnicodeStringFromAsciiz.c)
- *     IoGetConfigurationInformation @ 0x140875820 (IoGetConfigurationInformation.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14080DE40 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     IoGetConfigurationInformation @ 0x140875A60 (IoGetConfigurationInformation.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     VhdiGetPartitionNumber @ 0x140B9AB10 (VhdiGetPartitionNumber.c)
@@ -64,7 +64,7 @@ __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, __int64 a2, UNICODE_STRING
   v5 = *(_DWORD **)(a2 + 24);
   if ( !v5 )
     return 3221225485LL;
-  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(const char **)(a1 + 184)) )
+  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(PCSTR *)(a1 + 184)) )
     return 3221225473LL;
   ConfigurationInformation = IoGetConfigurationInformation();
   v8 = 0LL;

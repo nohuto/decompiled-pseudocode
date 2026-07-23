@@ -1,19 +1,24 @@
 /*
- * XREFs of LdrFindResourceEx_U @ 0x180085730
+ * XREFs of LdrFindResourceEx_U @ 0x180085720
  * Callers:
  *     <none>
  * Callees:
- *     LdrpSearchResourceSection_U @ 0x1800303A8 (LdrpSearchResourceSection_U.c)
- *     LdrpTraceLoadMUIDll @ 0x1800DC874 (LdrpTraceLoadMUIDll.c)
+ *     LdrpSearchResourceSection_U @ 0x180030398 (LdrpSearchResourceSection_U.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800DC934 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrFindResourceEx_U(unsigned int a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int **a5)
+NTSTATUS __cdecl LdrFindResourceEx_U(
+        ULONG Flags,
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DATA_ENTRY *ResourceDataEntry)
 {
-  unsigned int v9; // ebx
+  NTSTATUS v9; // ebx
 
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(L"02", MEMORY[0x7FFE0384]);
-  v9 = LdrpSearchResourceSection_U(a2, a3, a4, a1, a5);
+  v9 = LdrpSearchResourceSection_U(DllHandle, (__int64)ResourceInfo, Level, Flags, (__int64)ResourceDataEntry);
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(L".0", MEMORY[0x7FFE0384]);
   return v9;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDbgLockPage @ 0x1406FE238
+ * XREFs of MiDbgLockPage @ 0x140702F08
  * Callers:
- *     MiDbgMapPhysicalAddress @ 0x1406FE368 (MiDbgMapPhysicalAddress.c)
+ *     MiDbgMapPhysicalAddress @ 0x140703038 (MiDbgMapPhysicalAddress.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiDbgPatchIdentity @ 0x1406FE974 (MiDbgPatchIdentity.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiDbgPatchIdentity @ 0x140703644 (MiDbgPatchIdentity.c)
  */
 
 __int64 __fastcall MiDbgLockPage(int *a1)
@@ -28,12 +28,12 @@ __int64 __fastcall MiDbgLockPage(int *a1)
     {
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v3 + 24), 0x3FuLL) )
       {
-        if ( (v2 & 0x41) != 0 || ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) == 0 )
+        if ( (v2 & 0x41) != 0 || ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) == 0 )
         {
-          stru_140E2EB88.SuspendEvent.Header.SignalState |= 4u;
+          stru_140E2ED08.SuspendEvent.Header.SignalState |= 4u;
           return 0LL;
         }
-        ++LODWORD(stru_140E2EB88.ThreadListEntry.Flink);
+        ++LODWORD(stru_140E2ED08.ThreadListEntry.Flink);
       }
       else
       {
@@ -58,7 +58,7 @@ __int64 __fastcall MiDbgLockPage(int *a1)
     {
       if ( (unsigned int)(v4 - 1) <= 1 )
         _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      stru_140E2EB88.SuspendEvent.Header.SignalState |= 8u;
+      stru_140E2ED08.SuspendEvent.Header.SignalState |= 8u;
       return 0LL;
     }
     *a1 |= 0x40u;

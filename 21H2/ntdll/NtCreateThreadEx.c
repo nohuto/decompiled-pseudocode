@@ -1,16 +1,27 @@
 /*
- * XREFs of NtCreateThreadEx @ 0x18009EE70
+ * XREFs of NtCreateThreadEx @ 0x18009EE30
  * Callers:
  *     RtlpCreateUserThreadEx @ 0x1800487F0 (RtlpCreateUserThreadEx.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateThreadEx()
+NTSTATUS __cdecl NtCreateThreadEx(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PUSER_THREAD_START_ROUTINE StartRoutine,
+        PVOID Argument,
+        ULONG CreateFlags,
+        SIZE_T ZeroBits,
+        SIZE_T StackSize,
+        SIZE_T MaximumStackSize,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 194LL;
+  result = 194;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

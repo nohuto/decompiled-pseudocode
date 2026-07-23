@@ -109,7 +109,7 @@ LABEL_51:
       if ( v16->AclRevision == 2 )
       {
         LOBYTE(DesiredAccess) = 1;
-        if ( !(unsigned __int8)SepSidInToken((__int64)v9, 0LL, (__int64)&v16[1], *(__int64 *)&DesiredAccess, 0)
+        if ( !(unsigned __int8)SepSidInToken((__int64)v9, 0LL, (__int64)&v16[1], *(__int64 *)&DesiredAccess, 0, 0)
           && (!Size || *(_WORD *)v12 != *(_WORD *)&v16[1].AclRevision || memcmp(v12, &v16[1], Size)) )
         {
           goto LABEL_50;
@@ -177,7 +177,7 @@ LABEL_51:
           goto LABEL_50;
         }
         LOBYTE(DesiredAccess) = 1;
-        v26 = SepSidInToken((__int64)Token, 0LL, (__int64)&v16[1], *(__int64 *)&DesiredAccess, 0);
+        v26 = SepSidInToken((__int64)Token, 0LL, (__int64)&v16[1], *(__int64 *)&DesiredAccess, 0, 0);
         v12 = (unsigned __int8 *)SeWorldSid;
         if ( !v26 && (!Size || *(_WORD *)SeWorldSid != *(_WORD *)&v18->AclRevision || memcmp(SeWorldSid, &v16[1], Size)) )
           goto LABEL_50;

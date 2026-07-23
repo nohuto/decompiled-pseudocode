@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpRegisterDmaController @ 0x140517564
+ * XREFs of HalpRegisterDmaController @ 0x140517AB4
  * Callers:
- *     HalpExtRegisterResourceDescriptor @ 0x14050DA60 (HalpExtRegisterResourceDescriptor.c)
+ *     HalpExtRegisterResourceDescriptor @ 0x14050DFB0 (HalpExtRegisterResourceDescriptor.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     HalpExtBuildResourceIdString @ 0x140378E18 (HalpExtBuildResourceIdString.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037DB08 (HalpMmAllocateMemoryInternal.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     HalpExtBuildResourceIdString @ 0x140378FB8 (HalpExtBuildResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037DCA8 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpRegisterDmaController(__int64 a1, UNICODE_STRING *a2)

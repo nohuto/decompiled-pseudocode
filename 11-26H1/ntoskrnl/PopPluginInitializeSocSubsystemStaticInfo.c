@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPluginInitializeSocSubsystemStaticInfo @ 0x1407CDE90
+ * XREFs of PopPluginInitializeSocSubsystemStaticInfo @ 0x1407D0F30
  * Callers:
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x140987604 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x140A4235C (PopFxInitializeSocSubsystemStaticInfo.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     wcsncmp @ 0x1405381A0 (wcsncmp.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopFxValidateReturnedUnicodeString @ 0x1407CDDB4 (PopFxValidateReturnedUnicodeString.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     wcsncmp @ 0x14053A620 (wcsncmp.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x1407D0E54 (PopFxValidateReturnedUnicodeString.c)
  */
 
 char __fastcall PopPluginInitializeSocSubsystemStaticInfo(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ char __fastcall PopPluginInitializeSocSubsystemStaticInfo(__int64 a1, __int64 a2
   v6 = *(_OWORD *)(a2 + 16);
   v7 = *(_OWORD *)(a2 + 32);
   if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(37LL, a2) )
-    PopFxBugCheck(0x605uLL, 0x25uLL, stru_140E66FF0.Padding[0], 0LL);
+    PopFxBugCheck(0x605uLL, 0x25uLL, qword_140E676E8, 0LL);
   if ( !PopFxValidateReturnedUnicodeString((unsigned __int16 *)(a2 + 16), *((__int64 *)&v6 + 1), WORD1(v6)) )
     PopFxBugCheck(0x706uLL, 0x25uLL, 0x504E616DuLL, a2 + 24);
   v3 = (const wchar_t **)(a2 + 40);

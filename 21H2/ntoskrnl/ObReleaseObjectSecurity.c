@@ -1,20 +1,20 @@
 /*
- * XREFs of ObReleaseObjectSecurity @ 0x14065F410
+ * XREFs of ObReleaseObjectSecurity @ 0x140654230
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C44 (SepSetProcessTrustLabelAceForToken.c)
- *     ObCheckObjectAccess @ 0x1405D9860 (ObCheckObjectAccess.c)
- *     MiAllowImageMap @ 0x14061D9F0 (MiAllowImageMap.c)
- *     ObpCheckObjectReference @ 0x140660F3C (ObpCheckObjectReference.c)
- *     ObpInsertOrLocateNamedObject @ 0x140662900 (ObpInsertOrLocateNamedObject.c)
- *     ObCheckCreateObjectAccess @ 0x140662E90 (ObCheckCreateObjectAccess.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14067F620 (PspAllocateAndQueryNotificationChannel.c)
- *     PopBootStatAccessCheck @ 0x1407C141C (PopBootStatAccessCheck.c)
- *     ObpCheckTraverseAccess @ 0x1408DD130 (ObpCheckTraverseAccess.c)
- *     PspCheckJobAccessState @ 0x140908BEC (PspCheckJobAccessState.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409414D8 (EtwpCheckCurrentUserProcessAccess.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C74 (SepSetProcessTrustLabelAceForToken.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1405DA0C0 (PspAllocateAndQueryNotificationChannel.c)
+ *     ObCheckObjectAccess @ 0x1405EA5E0 (ObCheckObjectAccess.c)
+ *     ObpCheckObjectReference @ 0x140655D5C (ObpCheckObjectReference.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140657720 (ObpInsertOrLocateNamedObject.c)
+ *     ObCheckCreateObjectAccess @ 0x140657CB0 (ObCheckCreateObjectAccess.c)
+ *     MiAllowImageMap @ 0x140687660 (MiAllowImageMap.c)
+ *     PopBootStatAccessCheck @ 0x1407C193C (PopBootStatAccessCheck.c)
+ *     ObpCheckTraverseAccess @ 0x1408DD290 (ObpCheckTraverseAccess.c)
+ *     PspCheckJobAccessState @ 0x140908D4C (PspCheckJobAccessState.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409416A8 (EtwpCheckCurrentUserProcessAccess.c)
  * Callees:
- *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406544C0 (ObDereferenceSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ObReleaseObjectSecurity(PSECURITY_DESCRIPTOR SecurityDescriptor, BOOLEAN MemoryAllocated)

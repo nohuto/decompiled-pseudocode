@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveEntryFromImportList @ 0x140A2B078
+ * XREFs of MiRemoveEntryFromImportList @ 0x140A2B328
  * Callers:
- *     MiActOnPatchInAllSessions @ 0x140A34610 (MiActOnPatchInAllSessions.c)
+ *     MiActOnPatchInAllSessions @ 0x140A348C0 (MiActOnPatchInAllSessions.c)
  * Callees:
- *     MiCompressImportList @ 0x1407D8DCC (MiCompressImportList.c)
+ *     MiCompressImportList @ 0x1407D909C (MiCompressImportList.c)
  */
 
 __int64 __fastcall MiRemoveEntryFromImportList(_QWORD *a1, __int64 a2)

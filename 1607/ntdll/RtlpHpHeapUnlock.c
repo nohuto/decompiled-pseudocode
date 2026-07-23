@@ -1,17 +1,15 @@
 /*
- * XREFs of RtlpHpHeapUnlock @ 0x18001C4A4
+ * XREFs of RtlpHpHeapUnlock @ 0x18001C494
  * Callers:
- *     RtlUnlockProcessHeapOnProcessTerminate @ 0x18000749C (RtlUnlockProcessHeapOnProcessTerminate.c)
- *     RtlUnlockHeap @ 0x180019E50 (RtlUnlockHeap.c)
- *     RtlpUnlockHeapManagerForCloning @ 0x1800EAC68 (RtlpUnlockHeapManagerForCloning.c)
+ *     RtlUnlockProcessHeapOnProcessTerminate @ 0x18000748C (RtlUnlockProcessHeapOnProcessTerminate.c)
+ *     RtlUnlockHeap @ 0x180019E40 (RtlUnlockHeap.c)
+ *     RtlpUnlockHeapManagerForCloning @ 0x1800EAD28 (RtlpUnlockHeapManagerForCloning.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
+void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
 {
-  __int64 result; // rax
-
   if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
   {
     if ( a2 )
@@ -23,19 +21,17 @@ __int64 __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
       *(_QWORD *)(a1 + 88) = 1LL;
       *(_QWORD *)(a1 + 48) = 1LL;
     }
-    result = 0xFFFFLL;
     if ( (*(_WORD *)(a1 + 38))-- == 1 )
     {
       *(_DWORD *)(a1 + 40) = 0;
-      RtlReleaseSRWLockExclusive(a1 + 48);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 48));
       if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive(a1 + 88);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 88));
         if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-          RtlReleaseSRWLockExclusive(a1 + 176);
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 176));
       }
-      return RtlReleaseSRWLockExclusive(a1 + 336);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 336));
     }
   }
-  return result;
 }

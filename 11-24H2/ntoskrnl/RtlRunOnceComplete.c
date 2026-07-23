@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlRunOnceComplete @ 0x140A561F0
+ * XREFs of RtlRunOnceComplete @ 0x140A4E140
  * Callers:
- *     RtlRunOnceExecuteOnce @ 0x14095F8F0 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceExecuteOnce @ 0x1409473B0 (RtlRunOnceExecuteOnce.c)
  * Callees:
- *     KeAlertThreadByThreadId @ 0x1404B8BB0 (KeAlertThreadByThreadId.c)
+ *     KeAlertThreadByThreadId @ 0x1404B3500 (KeAlertThreadByThreadId.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceComplete(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID Context)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpInitializeNotifyEntry @ 0x1409092E4
+ * XREFs of PnpInitializeNotifyEntry @ 0x1409AAEA4
  * Callers:
- *     PiRegisterKernelSoftRestartNotification @ 0x1407B2BE4 (PiRegisterKernelSoftRestartNotification.c)
- *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x1407B5C44 (PiRegisterKernelSoftRestartNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409AAA90 (IoRegisterPlugPlayNotification.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpInitializeNotifyEntry(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

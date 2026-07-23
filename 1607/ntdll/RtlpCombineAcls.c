@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCombineAcls @ 0x1800061B8
+ * XREFs of RtlpCombineAcls @ 0x1800061A8
  * Callers:
  *     RtlpSetSecurityObject @ 0x180003850 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x180044AD8 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x180044AC8 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlFirstFreeAce @ 0x180014E20 (RtlFirstFreeAce.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlCreateAcl @ 0x180040A00 (RtlCreateAcl.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlFirstFreeAce @ 0x180014E10 (RtlFirstFreeAce.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlCreateAcl @ 0x1800409F0 (RtlCreateAcl.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -17,17 +17,17 @@ __int64 __fastcall RtlpCombineAcls(
         unsigned __int8 *a3,
         unsigned __int8 *a4,
         unsigned __int8 *a5,
-        __int64 *a6,
+        ACL **a6,
         _DWORD *a7)
 {
   unsigned int v7; // ebx
-  __int64 v10; // r15
-  unsigned int v11; // esi
+  ACL *v10; // r15
+  ULONG v11; // esi
   unsigned int v13; // ecx
   unsigned __int8 *v14; // rdx
   unsigned int j; // r10d
-  unsigned int v16; // edi
-  __int64 Heap; // rax
+  ULONG v16; // edi
+  ACL *Heap; // rax
   unsigned int v18; // edi
   char *v19; // rbp
   unsigned __int16 *v20; // rsi
@@ -49,11 +49,11 @@ __int64 __fastcall RtlpCombineAcls(
   unsigned __int16 *v36; // rsi
   unsigned int kk; // r14d
   unsigned __int16 *v38; // rsi
-  void *v39; // [rsp+20h] [rbp-48h] BYREF
-  int Acl; // [rsp+70h] [rbp+8h]
+  PVOID FirstFree; // [rsp+20h] [rbp-48h] BYREF
+  NTSTATUS Acl; // [rsp+70h] [rbp+8h]
 
   v7 = 0;
-  v39 = 0LL;
+  FirstFree = 0LL;
   v10 = 0LL;
   v11 = 2;
   if ( !a1 && !a2 && !a3 && !a4 && !a5 )
@@ -161,7 +161,7 @@ LABEL_110:
   else
   {
     v16 = (v13 + 3) & 0xFFFFFFFC;
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(NtdllBaseTag + 1310720), v16);
+    Heap = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v16);
     v10 = Heap;
     if ( Heap )
     {
@@ -169,18 +169,18 @@ LABEL_110:
       v18 = Acl;
       if ( Acl >= 0 )
       {
-        if ( (unsigned __int8)RtlFirstFreeAce(v10, &v39) )
+        if ( RtlFirstFreeAce(v10, &FirstFree) )
         {
           if ( a1 && (v31 = (unsigned __int16 *)(a1 + 8), v32 = 0, *((_WORD *)a1 + 2)) )
           {
-            v19 = (char *)v39;
+            v19 = (char *)FirstFree;
             do
             {
               v33 = *(_BYTE *)v31;
               if ( *(_BYTE *)v31 >= 2u && (v33 <= 3u || v33 > 6u && (v33 <= 8u || (unsigned __int8)(v33 - 13) <= 3u)) )
               {
                 memmove(v19, v31, v31[1]);
-                ++*(_WORD *)(v10 + 4);
+                ++v10->AceCount;
                 v19 += v31[1];
               }
               ++v32;
@@ -191,7 +191,7 @@ LABEL_110:
           }
           else
           {
-            v19 = (char *)v39;
+            v19 = (char *)FirstFree;
           }
           if ( a2 )
           {
@@ -201,7 +201,7 @@ LABEL_110:
               if ( *(_BYTE *)v20 == 17 )
               {
                 memmove(v19, v20, v20[1]);
-                ++*(_WORD *)(v10 + 4);
+                ++v10->AceCount;
                 v19 += v20[1];
               }
               ++ii;
@@ -215,7 +215,7 @@ LABEL_110:
               if ( *(_BYTE *)v34 == 20 )
               {
                 memmove(v19, v34, v34[1]);
-                ++*(_WORD *)(v10 + 4);
+                ++v10->AceCount;
                 v19 += v34[1];
               }
               ++jj;
@@ -229,7 +229,7 @@ LABEL_110:
               if ( *(_BYTE *)v36 == 18 )
               {
                 memmove(v19, v36, v36[1]);
-                ++*(_WORD *)(v10 + 4);
+                ++v10->AceCount;
                 v19 += v36[1];
               }
               ++kk;
@@ -245,7 +245,7 @@ LABEL_110:
                 if ( *(_BYTE *)v38 == 19 )
                 {
                   memmove(v19, v38, v38[1]);
-                  ++*(_WORD *)(v10 + 4);
+                  ++v10->AceCount;
                   v19 += v38[1];
                 }
                 ++v7;
@@ -258,7 +258,7 @@ LABEL_110:
         }
         v18 = -1073741699;
       }
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v10);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
       v10 = 0LL;
     }
     else

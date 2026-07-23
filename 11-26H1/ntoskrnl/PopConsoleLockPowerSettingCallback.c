@@ -1,11 +1,11 @@
 /*
- * XREFs of PopConsoleLockPowerSettingCallback @ 0x1407CC810
+ * XREFs of PopConsoleLockPowerSettingCallback @ 0x1407CF8B0
  * Callers:
  *     <none>
  * Callees:
- *     PopApplyPolicy @ 0x140944018 (PopApplyPolicy.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopApplyPolicy @ 0x1409BF988 (PopApplyPolicy.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopConsoleLockPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -39,31 +39,31 @@ __int64 __fastcall PopConsoleLockPowerSettingCallback(_QWORD *a1, _DWORD *a2, in
   __int64 v33; // [rsp+100h] [rbp-18h]
 
   PopAcquirePolicyLock(a1, a2);
-  v8 = *((_OWORD *)qword_140F105C0 + 1);
-  v24 = *(_OWORD *)qword_140F105C0;
-  v9 = *((_OWORD *)qword_140F105C0 + 2);
+  v8 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 16);
+  v24 = *(_OWORD *)PpmIdlePolicyLock.WriteOperationCount;
+  v9 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 32);
   v25 = v8;
-  v10 = *((_OWORD *)qword_140F105C0 + 3);
+  v10 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 48);
   v26 = v9;
-  v11 = *((_OWORD *)qword_140F105C0 + 4);
+  v11 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 64);
   v27 = v10;
-  v12 = *((_OWORD *)qword_140F105C0 + 5);
+  v12 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 80);
   v28 = v11;
-  v13 = *((_OWORD *)qword_140F105C0 + 6);
+  v13 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 96);
   v29 = v12;
   v30 = v13;
   v14 = v32;
-  v31 = *((_OWORD *)qword_140F105C0 + 7);
-  v15 = *((_OWORD *)qword_140F105C0 + 9);
-  v32[0] = *((_OWORD *)qword_140F105C0 + 8);
-  v16 = *((_OWORD *)qword_140F105C0 + 10);
+  v31 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 112);
+  v15 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 144);
+  v32[0] = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 128);
+  v16 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 160);
   v32[1] = v15;
-  v17 = *((_OWORD *)qword_140F105C0 + 11);
+  v17 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 176);
   v32[2] = v16;
-  v18 = *((_OWORD *)qword_140F105C0 + 12);
+  v18 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 192);
   v32[3] = v17;
-  v19 = *((_OWORD *)qword_140F105C0 + 13);
-  v20 = *((_QWORD *)qword_140F105C0 + 28);
+  v19 = *(_OWORD *)(PpmIdlePolicyLock.WriteOperationCount + 208);
+  v20 = *(_QWORD *)(PpmIdlePolicyLock.WriteOperationCount + 224);
   v32[4] = v18;
   v32[5] = v19;
   v33 = v20;

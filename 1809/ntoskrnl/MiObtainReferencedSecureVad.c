@@ -1,18 +1,18 @@
 /*
- * XREFs of MiObtainReferencedSecureVad @ 0x1400861D0
+ * XREFs of MiObtainReferencedSecureVad @ 0x1400861C0
  * Callers:
- *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x1406E0B90 (MmStoreAllocateVirtualMemory.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MmUnsecureVirtualMemory @ 0x1405F4430 (MmUnsecureVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406E1E30 (MmStoreAllocateVirtualMemory.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiWaitForVadDeletion @ 0x1402CB150 (MiWaitForVadDeletion.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiWaitForVadDeletion @ 0x1402CB340 (MiWaitForVadDeletion.c)
  */
 
 __int64 __fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, int *a2)

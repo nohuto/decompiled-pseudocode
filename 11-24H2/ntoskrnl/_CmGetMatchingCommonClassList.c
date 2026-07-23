@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetMatchingCommonClassList @ 0x14081B800
+ * XREFs of _CmGetMatchingCommonClassList @ 0x14081BF40
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1408BBDB0 (_PnpDispatchInterfaceClass.c)
- *     _PnpDispatchInstallerClass @ 0x1409B6670 (_PnpDispatchInstallerClass.c)
+ *     _PnpDispatchInterfaceClass @ 0x1408B9700 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchInstallerClass @ 0x1409ADA00 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmGetMatchingCommonClassListWorker @ 0x14081B96C (_CmGetMatchingCommonClassListWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmGetMatchingCommonClassListWorker @ 0x14081C0AC (_CmGetMatchingCommonClassListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingCommonClassList(
         __int64 a1,
-        unsigned int a2,
+        int a2,
         __int64 a3,
         __int64 a4,
         __int64 a5,
@@ -45,7 +45,7 @@ __int64 __fastcall CmGetMatchingCommonClassList(
   v23 = a5;
   if ( v12 )
   {
-    v13 = guard_dispatch_icall_no_overrides(a1, 0LL, a2, 4LL);
+    v13 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v13 == -1073741822 )
     {
       v12 = 0LL;
@@ -63,7 +63,7 @@ __int64 __fastcall CmGetMatchingCommonClassList(
   if ( !v12 )
     return v15;
   v20[0] = MatchingCommonClassListWorker;
-  v16 = guard_dispatch_icall_no_overrides(a1, 0LL, a2, 4LL);
+  v16 = guard_dispatch_icall_no_overrides(a1, 0LL);
   v17 = v16;
   if ( v16 == -1073741822 )
     return v15;

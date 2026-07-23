@@ -1,23 +1,23 @@
 /*
- * XREFs of KiInitializeUserApc @ 0x14030F1D8
+ * XREFs of KiInitializeUserApc @ 0x14030F468
  * Callers:
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiDispatchException @ 0x14030CCA0 (KiDispatchException.c)
- *     KePopulateContinuationContext @ 0x14030DF18 (KePopulateContinuationContext.c)
- *     KeContextFromKframes @ 0x14030E120 (KeContextFromKframes.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetupForInstrumentationReturn @ 0x140570F90 (KiSetupForInstrumentationReturn.c)
- *     KeCopyExceptionRecord @ 0x1405788B0 (KeCopyExceptionRecord.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x140580714 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     RtlpGetNonLegacyXStateAreaLength @ 0x1405AB1F4 (RtlpGetNonLegacyXStateAreaLength.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KiDispatchException @ 0x14030CF30 (KiDispatchException.c)
+ *     KePopulateContinuationContext @ 0x14030E1A8 (KePopulateContinuationContext.c)
+ *     KeContextFromKframes @ 0x14030E3B0 (KeContextFromKframes.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiSetupForInstrumentationReturn @ 0x1405714D0 (KiSetupForInstrumentationReturn.c)
+ *     KeCopyExceptionRecord @ 0x140578DA0 (KeCopyExceptionRecord.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140580C04 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     RtlpGetNonLegacyXStateAreaLength @ 0x1405AB764 (RtlpGetNonLegacyXStateAreaLength.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 unsigned __int64 __fastcall KiInitializeUserApc(
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   unsigned int v22; // r9d
   __int64 v23; // rdx
   unsigned __int64 v24; // rcx
-  int v25; // eax
+  NTSTATUS v25; // eax
   _DWORD *v26; // rcx
   unsigned int Size; // [rsp+34h] [rbp-194h]
   _QWORD *v29; // [rsp+40h] [rbp-188h]
@@ -59,11 +59,11 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   _QWORD *v38; // [rsp+C0h] [rbp-108h]
   _QWORD *v39; // [rsp+C8h] [rbp-100h]
   SIZE_T v40; // [rsp+D0h] [rbp-F8h]
-  ULONG_PTR v41[19]; // [rsp+F0h] [rbp-D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+F0h] [rbp-D8h] BYREF
 
   v7 = a4;
   v8 = a3;
-  memset(v41, 0, sizeof(v41));
+  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   CurrentThread = KeGetCurrentThread();
   v34 = CurrentThread;
   if ( a1 )
@@ -145,7 +145,7 @@ unsigned __int64 __fastcall KiInitializeUserApc(
     {
       v25 = KiUnwindUserSspForApcContextCopyBypass(v31);
       if ( v25 < 0 )
-        RtlRaiseStatus((unsigned int)v25);
+        RtlRaiseStatus(v25);
     }
     v16 = v31 + 1296;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of Amd64FreeCounter @ 0x14056B1A4
+ * XREFs of Amd64FreeCounter @ 0x140568634
  * Callers:
- *     Amd64DisableMonitoring @ 0x14056AE90 (Amd64DisableMonitoring.c)
- *     Amd64InitializeCacheStatusEnhanced @ 0x14056B484 (Amd64InitializeCacheStatusEnhanced.c)
- *     Amd64InitializeCacheStatusOriginal @ 0x14056B6C0 (Amd64InitializeCacheStatusOriginal.c)
- *     Amd64InitializeDataFabricStatusEnhanced @ 0x14056B8BC (Amd64InitializeDataFabricStatusEnhanced.c)
- *     Amd64InitializeDataFabricStatusOriginal @ 0x14056BA4C (Amd64InitializeDataFabricStatusOriginal.c)
- *     Amd64InitializeProfilingEnhanced @ 0x140B50EC8 (Amd64InitializeProfilingEnhanced.c)
- *     Amd64InitializeProfilingOriginal @ 0x140B51488 (Amd64InitializeProfilingOriginal.c)
+ *     Amd64DisableMonitoring @ 0x140568320 (Amd64DisableMonitoring.c)
+ *     Amd64InitializeCacheStatusEnhanced @ 0x140568914 (Amd64InitializeCacheStatusEnhanced.c)
+ *     Amd64InitializeCacheStatusOriginal @ 0x140568B50 (Amd64InitializeCacheStatusOriginal.c)
+ *     Amd64InitializeDataFabricStatusEnhanced @ 0x140568D4C (Amd64InitializeDataFabricStatusEnhanced.c)
+ *     Amd64InitializeDataFabricStatusOriginal @ 0x140568EDC (Amd64InitializeDataFabricStatusOriginal.c)
+ *     Amd64InitializeProfilingEnhanced @ 0x140B52F18 (Amd64InitializeProfilingEnhanced.c)
+ *     Amd64InitializeProfilingOriginal @ 0x140B534D8 (Amd64InitializeProfilingOriginal.c)
  * Callees:
  *     <none>
  */

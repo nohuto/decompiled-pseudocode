@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCopyToUserVa @ 0x140084410
+ * XREFs of MiCopyToUserVa @ 0x140084400
  * Callers:
- *     MiCopyToCfgBitMap @ 0x1405F2A10 (MiCopyToCfgBitMap.c)
+ *     MiCopyToCfgBitMap @ 0x1405F3A10 (MiCopyToCfgBitMap.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
@@ -10,19 +10,19 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiLockPageAndSetDirty @ 0x140086028 (MiLockPageAndSetDirty.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
- *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiLockPageAndSetDirty @ 0x140086018 (MiLockPageAndSetDirty.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB40C (MiCopyOnWriteCheckConditions.c)
+ *     MiChargeFullProcessCommitment @ 0x1405E1510 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x1405F3998 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiCopyToUserVa(ULONG_PTR BugCheckParameter2, __int64 a2, const void *a3, size_t a4)
@@ -122,7 +122,7 @@ LABEL_3:
     MiCopyOnWriteCheckConditions(v5, (unsigned int)v22);
     MiLockWorkingSetShared(v5);
   }
-  v12 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+  v12 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
   v13 = (_QWORD *)v12;
   if ( v12 )
   {
@@ -133,7 +133,7 @@ LABEL_3:
     if ( (unsigned int)MiPteHasShadow(v16, v15) )
     {
       v17 = 1;
-      if ( !HIBYTE(word_14043A1AC) && (v24 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v24 & 1) != 0 )
 LABEL_38:
         v15 |= 0x8000000000000000uLL;
     }
@@ -152,7 +152,7 @@ LABEL_8:
 LABEL_10:
   memmove((void *)(v14 + (BugCheckParameter2 & 0xFFF)), a3, a4);
   if ( v13 )
-    MiReleasePtes((__int64)&qword_14043AFA0, (unsigned __int64)v13, 1u);
+    MiReleasePtes((__int64)&qword_14043C060, (unsigned __int64)v13, 1u);
   else
     MiUnmapPageInHyperSpaceWorker(v14, 0x11u, 0x80000000LL);
   MiLockPageAndSetDirty(v11, 1LL);

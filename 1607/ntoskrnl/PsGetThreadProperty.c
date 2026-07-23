@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetThreadProperty @ 0x1400EE530
+ * XREFs of PsGetThreadProperty @ 0x1400EC3B0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetJobProperty @ 0x1400A915C (PsGetJobProperty.c)
- *     PspGetProperty @ 0x1400EE2BC (PspGetProperty.c)
- *     PspValidateThread @ 0x1400EE5C8 (PspValidateThread.c)
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
+ *     PsGetJobProperty @ 0x1400A76DC (PsGetJobProperty.c)
+ *     PspGetProperty @ 0x1400EC13C (PspGetProperty.c)
+ *     PspValidateThread @ 0x1400EC448 (PspValidateThread.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
  */
 
 PVOID __stdcall PsGetThreadProperty(PETHREAD Thread, ULONG_PTR Key, ULONG Flags)

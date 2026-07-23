@@ -29,14 +29,14 @@ __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
   _WORD *v16; // rdi
   unsigned __int64 v17; // rcx
   __int16 HeapData_high; // si
-  signed __int64 v19; // rdx
-  int v20; // edi
+  signed __int64 Value; // rdx
+  NTSTATUS v20; // edi
   __int32 v21; // edi
   int v22; // ecx
   unsigned int v25; // edi
   unsigned __int64 v26; // rbx
   signed __int64 v27; // rdx
-  int v28; // edi
+  NTSTATUS v28; // edi
   __int32 v29; // r8d
   int v30; // eax
   unsigned int v32; // r8d
@@ -130,13 +130,13 @@ __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
   }
   HeapData_high = HIWORD(NtCurrentTeb()->HeapData);
   if ( !dword_18016D230
-    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_18016D230, 4u, 0LL) < 0 )
+    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_18016D230, 4u, 0LL) < 0 )
   {
     dword_18016D230 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
   }
-  v19 = RtlpRandomExInit;
+  Value = RtlpRandomExInit.Value;
   v20 = 0;
-  if ( (RtlpRandomExInit & 3) == 2 )
+  if ( ((__int64)RtlpRandomExInit.Ptr & 3) == 2 )
   {
 LABEL_16:
     if ( v20 >= 0 )
@@ -149,8 +149,8 @@ LABEL_16:
     {
       while ( 1 )
       {
-        v35 = v19 & 3;
-        if ( (v19 & 3) == 0 )
+        v35 = Value & 3;
+        if ( (Value & 3) == 0 )
           break;
         if ( v35 != 1 )
         {
@@ -164,37 +164,40 @@ LABEL_16:
         v41[3] = NtCurrentTeb()->ClientId.UniqueThread;
         do
         {
-          v41[0] = v19 & 0xFFFFFFFFFFFFFFFCuLL;
-          v37 = _InterlockedCompareExchange64(&RtlpRandomExInit, (signed __int64)v41 + 1, v19);
-          if ( v19 == v37 )
+          v41[0] = Value & 0xFFFFFFFFFFFFFFFCuLL;
+          v37 = _InterlockedCompareExchange64(
+                  (volatile signed __int64 *)&RtlpRandomExInit,
+                  (signed __int64)v41 + 1,
+                  Value);
+          if ( Value == v37 )
             break;
-          v19 = v37;
+          Value = v37;
         }
         while ( (v37 & 3) == 1 );
-        if ( (v19 & 3) == 1 )
+        if ( (Value & 3) == 1 )
         {
           do
           {
             NtWaitForAlertByThreadId(&RtlpRandomExInit, 0LL);
-            v19 = RtlpRandomExInit;
+            Value = RtlpRandomExInit.Value;
           }
           while ( (BYTE4(v42) & 4) == 0 );
         }
       }
-      v36 = v19;
-      v19 = _InterlockedCompareExchange64(&RtlpRandomExInit, 1LL, v19);
+      v36 = Value;
+      Value = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpRandomExInit, 1LL, Value);
     }
-    while ( v19 != v36 );
-    if ( (unsigned int)RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
+    while ( Value != v36 );
+    if ( RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
     {
-      v20 = RtlRunOnceComplete(&RtlpRandomExInit, 0LL, 0LL);
+      v20 = RtlRunOnceComplete(&RtlpRandomExInit, 0, 0LL);
       if ( v20 >= 0 )
         goto LABEL_17;
       LOBYTE(v45) = 1;
     }
     else
     {
-      v20 = RtlRunOnceComplete(&RtlpRandomExInit, 4LL, 0LL);
+      v20 = RtlRunOnceComplete(&RtlpRandomExInit, 4u, 0LL);
       if ( v20 >= 0 )
         goto LABEL_17;
       LOBYTE(v45) = 2;
@@ -226,13 +229,13 @@ LABEL_21:
   _InterlockedExchangeAdd(&RtlpRandomExAuxVarY, v25);
   v26 = (unsigned __int64)v25 << 32;
   if ( !dword_18016D230
-    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_18016D230, 4u, 0LL) < 0 )
+    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_18016D230, 4u, 0LL) < 0 )
   {
     dword_18016D230 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
   }
-  v27 = RtlpRandomExInit;
+  v27 = RtlpRandomExInit.Value;
   v28 = 0;
-  if ( (RtlpRandomExInit & 3) == 2 )
+  if ( ((__int64)RtlpRandomExInit.Ptr & 3) == 2 )
   {
 LABEL_24:
     if ( v28 >= 0 )
@@ -261,7 +264,10 @@ LABEL_24:
         do
         {
           v43[0] = v27 & 0xFFFFFFFFFFFFFFFCuLL;
-          v40 = _InterlockedCompareExchange64(&RtlpRandomExInit, (signed __int64)v43 + 1, v27);
+          v40 = _InterlockedCompareExchange64(
+                  (volatile signed __int64 *)&RtlpRandomExInit,
+                  (signed __int64)v43 + 1,
+                  v27);
           if ( v27 == v40 )
             break;
           v27 = v40;
@@ -272,25 +278,25 @@ LABEL_24:
           do
           {
             NtWaitForAlertByThreadId(&RtlpRandomExInit, 0LL);
-            v27 = RtlpRandomExInit;
+            v27 = RtlpRandomExInit.Value;
           }
           while ( (BYTE4(v44) & 4) == 0 );
         }
       }
       v39 = v27;
-      v27 = _InterlockedCompareExchange64(&RtlpRandomExInit, 1LL, v27);
+      v27 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpRandomExInit, 1LL, v27);
     }
     while ( v27 != v39 );
-    if ( (unsigned int)RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
+    if ( RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
     {
-      v28 = RtlRunOnceComplete(&RtlpRandomExInit, 0LL, 0LL);
+      v28 = RtlRunOnceComplete(&RtlpRandomExInit, 0, 0LL);
       if ( v28 >= 0 )
         goto LABEL_25;
       LOBYTE(v46) = 1;
     }
     else
     {
-      v28 = RtlRunOnceComplete(&RtlpRandomExInit, 4LL, 0LL);
+      v28 = RtlRunOnceComplete(&RtlpRandomExInit, 4u, 0LL);
       if ( v28 >= 0 )
         goto LABEL_25;
       LOBYTE(v46) = 2;

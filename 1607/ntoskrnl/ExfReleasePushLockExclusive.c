@@ -1,8 +1,8 @@
 /*
- * XREFs of ExfReleasePushLockExclusive @ 0x1400C8700
+ * XREFs of ExfReleasePushLockExclusive @ 0x1400C65A0
  * Callers:
- *     ExfAcquireReleasePushLockExclusive @ 0x1400AA9EC (ExfAcquireReleasePushLockExclusive.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x1400A8F6C (ExfAcquireReleasePushLockExclusive.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  * Callees:
  *     <none>
  */

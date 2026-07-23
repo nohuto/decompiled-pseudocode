@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSelfRelativeToAbsoluteSD2 @ 0x140688048
+ * XREFs of RtlSelfRelativeToAbsoluteSD2 @ 0x14068812C
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x14052A01C (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x14052A55C (RtlpSysVolCheckOwnerAndSecurity.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlpQuerySecurityDescriptor @ 0x1404D6C10 (RtlpQuerySecurityDescriptor.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlpQuerySecurityDescriptor @ 0x1404BA214 (RtlpQuerySecurityDescriptor.c)
  */
 
 NTSTATUS __stdcall RtlSelfRelativeToAbsoluteSD2(PSECURITY_DESCRIPTOR SelfRelativeSD, PULONG BufferSize)

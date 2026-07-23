@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeCompressedWriter @ 0x140948684
+ * XREFs of EtwpInitializeCompressedWriter @ 0x140948854
  * Callers:
- *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x140948E5C (EtwpSavePersistedLogger.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x1402DF700 (RtlGetCompressionWorkSpaceSize.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x140290A50 (RtlGetCompressionWorkSpaceSize.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpInitializeCompressedWriter(__int64 a1, int a2, __int64 a3)

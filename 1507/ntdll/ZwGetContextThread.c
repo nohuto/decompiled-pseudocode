@@ -8,11 +8,11 @@
  *     <none>
  */
 
-__int64 ZwGetContextThread()
+NTSTATUS __cdecl ZwGetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 227LL;
+  result = 227;
   __asm { syscall; Low latency system call }
   return result;
 }

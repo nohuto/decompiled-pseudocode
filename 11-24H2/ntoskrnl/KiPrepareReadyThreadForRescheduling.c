@@ -1,12 +1,12 @@
 /*
- * XREFs of KiPrepareReadyThreadForRescheduling @ 0x14033817C
+ * XREFs of KiPrepareReadyThreadForRescheduling @ 0x1402DE7C8
  * Callers:
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x1403B21E0 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiApplyForegroundBoostThread @ 0x1404F6D4C (KiApplyForegroundBoostThread.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1403A09F0 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiApplyForegroundBoostThread @ 0x1404F4630 (KiApplyForegroundBoostThread.c)
  * Callees:
- *     KiEnterDeferredReadyState @ 0x140337910 (KiEnterDeferredReadyState.c)
- *     KiSetPriorityBoost @ 0x140338930 (KiSetPriorityBoost.c)
+ *     KiEnterDeferredReadyState @ 0x1402DFA30 (KiEnterDeferredReadyState.c)
+ *     KiSetPriorityBoost @ 0x1402DFE70 (KiSetPriorityBoost.c)
  */
 
 __int64 __fastcall KiPrepareReadyThreadForRescheduling(__int64 a1, int a2, __int64 *a3)
@@ -37,7 +37,7 @@ LABEL_3:
     goto LABEL_5;
   }
 LABEL_4:
-  if ( (unsigned int)(MEMORY[0xFFFFF78000000320] - 300) >= *(_DWORD *)(a1 + 436) )
+  if ( (unsigned int)(MEMORY[0xFFFFF78000000320] - KiPriorityBoostReadyTimeTicks) >= *(_DWORD *)(a1 + 436) )
 LABEL_5:
     KiSetPriorityBoost(0, a1, v5, *(_QWORD *)(a1 + 72), v6);
 LABEL_6:

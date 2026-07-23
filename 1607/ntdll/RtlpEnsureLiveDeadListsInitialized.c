@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpEnsureLiveDeadListsInitialized @ 0x1800DA8F8
+ * XREFs of RtlpEnsureLiveDeadListsInitialized @ 0x1800DA9B8
  * Callers:
- *     RtlpMoveActCtxToFreeList @ 0x1800DA98C (RtlpMoveActCtxToFreeList.c)
- *     RtlpPlaceActivationContextOnLiveList @ 0x1800DAAC4 (RtlpPlaceActivationContextOnLiveList.c)
+ *     RtlpMoveActCtxToFreeList @ 0x1800DAA4C (RtlpMoveActCtxToFreeList.c)
+ *     RtlpPlaceActivationContextOnLiveList @ 0x1800DAB84 (RtlpPlaceActivationContextOnLiveList.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
  */
 
-__int64 RtlpEnsureLiveDeadListsInitialized()
+NTSTATUS RtlpEnsureLiveDeadListsInitialized()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !g_SxsLiveActivationContexts )
   {
-    RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+    RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
     if ( !g_SxsLiveActivationContexts )
     {
       qword_180153560 = (__int64)&g_SxsLiveActivationContexts;
@@ -22,7 +22,7 @@ __int64 RtlpEnsureLiveDeadListsInitialized()
       qword_180153550 = (__int64)&g_SxsFreeActivationContexts;
       g_SxsFreeActivationContexts = (__int64)&g_SxsFreeActivationContexts;
     }
-    return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+    return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
   }
   return result;
 }

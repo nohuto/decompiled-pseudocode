@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlUnicodeStringToAnsiString @ 0x1403F7370
+ * XREFs of RtlUnicodeStringToAnsiString @ 0x1403F6230
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x1400B1090 (DbgUnicodeStringToAnsiString.c)
+ *     DbgUnicodeStringToAnsiString @ 0x140084708 (DbgUnicodeStringToAnsiString.c)
  *     ExpSystemErrorHandler2 @ 0x1403E0080 (ExpSystemErrorHandler2.c)
- *     MmGetSystemRoutineAddress @ 0x1403F5EA0 (MmGetSystemRoutineAddress.c)
- *     ExpQueryModuleInformation @ 0x1403F71C0 (ExpQueryModuleInformation.c)
- *     EtwpBuildProcessEvent @ 0x14045D860 (EtwpBuildProcessEvent.c)
- *     AslStringUpcaseToMultiByteN @ 0x1404851EC (AslStringUpcaseToMultiByteN.c)
- *     ObCreateObjectTypeEx @ 0x140552054 (ObCreateObjectTypeEx.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140563F90 (ExpConvertLdrEntryToModuleInfo.c)
- *     KsepGetModuleInfoByName @ 0x140653B04 (KsepGetModuleInfoByName.c)
- *     NtQuerySystemEnvironmentValue @ 0x1406B4D28 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x1406B5644 (NtSetSystemEnvironmentValue.c)
- *     ViThunkAdjustExportAddressIfHooked @ 0x14070F61C (ViThunkAdjustExportAddressIfHooked.c)
+ *     MmGetSystemRoutineAddress @ 0x1403F4D64 (MmGetSystemRoutineAddress.c)
+ *     ExpQueryModuleInformation @ 0x1403F6080 (ExpQueryModuleInformation.c)
+ *     EtwpBuildProcessEvent @ 0x14045C730 (EtwpBuildProcessEvent.c)
+ *     AslStringUpcaseToMultiByteN @ 0x140514574 (AslStringUpcaseToMultiByteN.c)
+ *     ObCreateObjectTypeEx @ 0x140552594 (ObCreateObjectTypeEx.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x1405644D0 (ExpConvertLdrEntryToModuleInfo.c)
+ *     KsepGetModuleInfoByName @ 0x140653BE8 (KsepGetModuleInfoByName.c)
+ *     NtQuerySystemEnvironmentValue @ 0x1406B4E60 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1406B577C (NtSetSystemEnvironmentValue.c)
+ *     ViThunkAdjustExportAddressIfHooked @ 0x14070F64C (ViThunkAdjustExportAddressIfHooked.c)
  *     HdlspProcessDumpCommand @ 0x140723978 (HdlspProcessDumpCommand.c)
  *     IopReassignSystemRoot @ 0x1407B980C (IopReassignSystemRoot.c)
  * Callees:
  *     ExFreePool @ 0x140255B30 (ExFreePool.c)
- *     RtlUnicodeToMultiByteN @ 0x1403F7450 (RtlUnicodeToMultiByteN.c)
- *     ExpAllocateStringRoutine @ 0x1403F80BC (ExpAllocateStringRoutine.c)
- *     RtlxUnicodeStringToOemSize @ 0x140685814 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x1403F6310 (RtlUnicodeToMultiByteN.c)
+ *     ExpAllocateStringRoutine @ 0x1403F6F7C (ExpAllocateStringRoutine.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1406858F8 (RtlxUnicodeStringToOemSize.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToAnsiString(

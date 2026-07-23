@@ -1,9 +1,9 @@
 /*
- * XREFs of bsearch_s @ 0x14014DB9C
+ * XREFs of bsearch_s @ 0x14014E10C
  * Callers:
- *     SeQuerySecureBootPlatformManifest @ 0x140693EFC (SeQuerySecureBootPlatformManifest.c)
+ *     SeQuerySecureBootPlatformManifest @ 0x140693FE0 (SeQuerySecureBootPlatformManifest.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 void *__cdecl bsearch_s(

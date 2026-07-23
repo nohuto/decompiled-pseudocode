@@ -16,7 +16,7 @@ unsigned __int64 MiEmptyKernelStackCache()
   unsigned __int64 result; // rax
   unsigned int i; // ebx
   int j; // edi
-  union _SLIST_HEADER *v3; // rsi
+  _SLIST_HEADER *v3; // rsi
   ULONG_PTR v4; // r8
   PSLIST_ENTRY v5; // rax
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF

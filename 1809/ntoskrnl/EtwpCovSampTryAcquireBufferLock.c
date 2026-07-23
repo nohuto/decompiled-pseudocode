@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampTryAcquireBufferLock @ 0x140317828
+ * XREFs of EtwpCovSampTryAcquireBufferLock @ 0x140317A18
  * Callers:
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140316950 (EtwpCovSampCaptureFlushSampleBuffers.c)
- *     EtwpCovSampSampleBufferReserve @ 0x140317568 (EtwpCovSampSampleBufferReserve.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140316B40 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x140317758 (EtwpCovSampSampleBufferReserve.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x14011BAD4 (KxTryToAcquireSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x14011BB44 (KxTryToAcquireSpinLock.c)
  */
 
 __int64 __fastcall EtwpCovSampTryAcquireBufferLock(volatile signed __int32 *SpinLock, unsigned __int8 *a2)

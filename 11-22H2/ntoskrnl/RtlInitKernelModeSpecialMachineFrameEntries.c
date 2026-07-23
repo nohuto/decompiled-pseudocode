@@ -8,5 +8,5 @@
 
 void RtlInitKernelModeSpecialMachineFrameEntries()
 {
-  RtlpInitMachineFrameEntries((unsigned __int64 *)&RtlpNoShadowStackUnwindMachineFrameEntries, 2u);
+  RtlpInitMachineFrameEntries((DWORD64 *)&RtlpNoShadowStackUnwindMachineFrameEntries, 2u);
 }

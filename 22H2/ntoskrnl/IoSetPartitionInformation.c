@@ -17,7 +17,7 @@ NTSTATUS __stdcall IoSetPartitionInformation(
         ULONG PartitionNumber,
         ULONG PartitionType)
 {
-  UCHAR v5; // di
+  BYTE v5; // di
   NTSTATUS v7; // ebx
   _SET_PARTITION_INFORMATION_EX v9; // [rsp+20h] [rbp-E0h] BYREF
   _QWORD v10[46]; // [rsp+A0h] [rbp-60h] BYREF

@@ -1,50 +1,58 @@
 /*
- * XREFs of BcdQueryObject @ 0x1408121E4
+ * XREFs of BcdQueryObject @ 0x140812924
  * Callers:
- *     PopBcdEstablishResumeObject @ 0x1407633AC (PopBcdEstablishResumeObject.c)
- *     PopBcdGetApplicationPathFromResumeObject @ 0x140763580 (PopBcdGetApplicationPathFromResumeObject.c)
- *     PopBcdRegenerateResumeObject @ 0x140763790 (PopBcdRegenerateResumeObject.c)
- *     PopBcdSetPendingResume @ 0x1407639CC (PopBcdSetPendingResume.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140815B48 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     PopBcdEstablishResumeObject @ 0x140762D7C (PopBcdEstablishResumeObject.c)
+ *     PopBcdGetApplicationPathFromResumeObject @ 0x140762F44 (PopBcdGetApplicationPathFromResumeObject.c)
+ *     PopBcdRegenerateResumeObject @ 0x140763154 (PopBcdRegenerateResumeObject.c)
+ *     PopBcdSetPendingResume @ 0x140763390 (PopBcdSetPendingResume.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140816288 (BiUpdateObjectReferenceInEfiEntry.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x1404AB350 (BiIsOfflineHandle.c)
- *     BiGetObjectDescription @ 0x14085DA8C (BiGetObjectDescription.c)
- *     BiAcquireBcdSyncMutant @ 0x1409BE268 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1409BE32C (BiReleaseBcdSyncMutant.c)
- *     BiGetObjectIdentifier @ 0x1409BEAC8 (BiGetObjectIdentifier.c)
+ *     BiIsOfflineHandle @ 0x1404A5974 (BiIsOfflineHandle.c)
+ *     BiGetObjectDescription @ 0x1408597FC (BiGetObjectDescription.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A48B8 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A497C (BiReleaseBcdSyncMutant.c)
+ *     BiGetObjectIdentifier @ 0x1409A5118 (BiGetObjectIdentifier.c)
  */
 
-__int64 __fastcall BcdQueryObject(__int64 a1, int a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl BcdQueryObject(
+        HANDLE BcdObjectHandle,
+        ULONG BcdVersion,
+        BCD_OBJECT_DESCRIPTION Description,
+        PGUID Identifier)
 {
   __int64 v7; // rcx
   char v8; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v10; // rcx
-  int ObjectIdentifier; // ebx
+  NTSTATUS ObjectIdentifier; // ebx
 
-  if ( !a3 )
+  if ( !*(_QWORD *)&Description )
   {
-    if ( a4 )
+    if ( Identifier )
       goto LABEL_3;
-    return 3221225485LL;
+    return -1073741811;
   }
-  if ( a2 != 1 )
-    return 3221225485LL;
+  if ( BcdVersion != 1 )
+    return -1073741811;
 LABEL_3:
-  LOBYTE(v7) = BiIsOfflineHandle(a1);
+  LOBYTE(v7) = BiIsOfflineHandle((char)BcdObjectHandle);
   v8 = v7;
   result = BiAcquireBcdSyncMutant(v7);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     ObjectIdentifier = 0;
-    if ( !a3 || (ObjectIdentifier = BiGetObjectDescription(a1, a3), ObjectIdentifier >= 0) )
+    if ( !*(_QWORD *)&Description
+      || (ObjectIdentifier = ((__int64 (__fastcall *)(_QWORD, _QWORD))BiGetObjectDescription)(
+                               BcdObjectHandle,
+                               Description),
+          ObjectIdentifier >= 0) )
     {
-      if ( a4 )
-        ObjectIdentifier = BiGetObjectIdentifier(a1, a4);
+      if ( Identifier )
+        ObjectIdentifier = BiGetObjectIdentifier(BcdObjectHandle, Identifier);
     }
     LOBYTE(v10) = v8;
     BiReleaseBcdSyncMutant(v10);
-    return (unsigned int)ObjectIdentifier;
+    return ObjectIdentifier;
   }
   return result;
 }

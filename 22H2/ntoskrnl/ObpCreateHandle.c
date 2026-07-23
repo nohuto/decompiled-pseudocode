@@ -193,9 +193,9 @@ __int64 __fastcall ObpCreateHandle(
   __int64 v128; // rdx
   unsigned int v129; // edi
   _DWORD *v130; // r9
-  PACCESS_TOKEN v131; // rdi
+  char *v131; // rdi
   struct _KTHREAD *v132; // rax
-  PACCESS_TOKEN PrimaryToken; // rsi
+  char *PrimaryToken; // rsi
   struct _KTHREAD *v134; // rax
   struct _ERESOURCE *v135; // rcx
   struct _KTHREAD *v136; // rax
@@ -1143,11 +1143,11 @@ LABEL_259:
       ExFreePoolWithTag(P, 0);
     if ( !v129 && (v160 == (struct _OBJECT_TYPE *)CmKeyObjectType || v160 == (struct _OBJECT_TYPE *)IoFileObjectType) )
     {
-      v131 = v14->SubjectSecurityContext.ClientToken;
+      v131 = (char *)v14->SubjectSecurityContext.ClientToken;
       if ( v131 )
       {
         v132 = KeGetCurrentThread();
-        PrimaryToken = v14->SubjectSecurityContext.PrimaryToken;
+        PrimaryToken = (char *)v14->SubjectSecurityContext.PrimaryToken;
         --v132->KernelApcDisable;
         if ( PrimaryToken >= v131 )
         {
@@ -1168,7 +1168,14 @@ LABEL_259:
           && *((int *)v131 + 49) >= 2
           && !RtlEqualSid(**((PSID **)PrimaryToken + 19), **((PSID **)v131 + 19))
           && OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO(v66)
-          && SepSidInTokenSidHash((__int64)PrimaryToken + 808, 0LL, SeConstrainedImpersonationCapabilitySid, 0, 1, 0, 0) )
+          && SepSidInTokenSidHash(
+               (PSID_AND_ATTRIBUTES_HASH)(PrimaryToken + 808),
+               0LL,
+               SeConstrainedImpersonationCapabilitySid,
+               0,
+               1,
+               0,
+               0) )
         {
           ObHandleRevocationBlockAddObject(*((_QWORD *)v131 + 27) + 128LL, Object);
         }

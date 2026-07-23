@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpValidAttributeAce @ 0x14099EDA8
+ * XREFs of RtlpValidAttributeAce @ 0x1409835D0
  * Callers:
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
- *     SeCaptureSecurityDescriptor @ 0x14091CE60 (SeCaptureSecurityDescriptor.c)
- *     SepCheckAcl @ 0x14099EC10 (SepCheckAcl.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
+ *     SeCaptureSecurityDescriptor @ 0x1409108D0 (SeCaptureSecurityDescriptor.c)
+ *     SepCheckAcl @ 0x1409838D0 (SepCheckAcl.c)
  * Callees:
- *     RtlpValidRelativeAttribute @ 0x14099EE18 (RtlpValidRelativeAttribute.c)
+ *     RtlpValidRelativeAttribute @ 0x140983640 (RtlpValidRelativeAttribute.c)
  */
 
 bool __fastcall RtlpValidAttributeAce(__int64 a1)

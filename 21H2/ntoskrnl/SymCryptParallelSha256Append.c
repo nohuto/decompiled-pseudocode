@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptParallelSha256Append @ 0x1403EDB20
+ * XREFs of SymCryptParallelSha256Append @ 0x1403EDC90
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SymCryptParallelSha256AppendBlocks_xmm @ 0x1403EDC1C (SymCryptParallelSha256AppendBlocks_xmm.c)
- *     SymCryptParallelSha256AppendBlocks_ymm @ 0x1403EE5C8 (SymCryptParallelSha256AppendBlocks_ymm.c)
- *     SymCryptParallelSha256AppendBytes_serial @ 0x1403EF01C (SymCryptParallelSha256AppendBytes_serial.c)
- *     memset @ 0x140414200 (memset.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SymCryptParallelSha256AppendBlocks_xmm @ 0x1403EDD8C (SymCryptParallelSha256AppendBlocks_xmm.c)
+ *     SymCryptParallelSha256AppendBlocks_ymm @ 0x1403EE738 (SymCryptParallelSha256AppendBlocks_ymm.c)
+ *     SymCryptParallelSha256AppendBytes_serial @ 0x1403EF18C (SymCryptParallelSha256AppendBytes_serial.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall SymCryptParallelSha256Append(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

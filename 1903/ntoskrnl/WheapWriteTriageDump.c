@@ -25,7 +25,7 @@ __int64 __fastcall WheapWriteTriageDump(__int64 a1, int a2)
   wchar_t *PoolWithTag; // rax
   WCHAR *v6; // rdi
   int v7; // r15d
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   __int64 v9; // rax
   PLARGE_INTEGER AllocationSize; // [rsp+20h] [rbp-69h]
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-29h] BYREF

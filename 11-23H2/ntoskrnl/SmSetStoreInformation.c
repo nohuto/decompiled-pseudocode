@@ -1,21 +1,21 @@
 /*
- * XREFs of SmSetStoreInformation @ 0x1407E7D74
+ * XREFs of SmSetStoreInformation @ 0x1407E8044
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344A80 (SmpGetProcessPartition.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     SmProcessCreateRequest @ 0x1407B767C (SmProcessCreateRequest.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x1407E7E24 (SmProcessStoreMemoryPriorityRequest.c)
- *     SmProcessConfigRequest @ 0x14085BB0C (SmProcessConfigRequest.c)
- *     SmProcessDeleteRequest @ 0x1409D6D2C (SmProcessDeleteRequest.c)
- *     SmProcessResizeRequest @ 0x1409D7260 (SmProcessResizeRequest.c)
- *     SmProcessSystemStoreTrimRequest @ 0x1409D768C (SmProcessSystemStoreTrimRequest.c)
- *     SmcProcessCreateRequest @ 0x1409D7E9C (SmcProcessCreateRequest.c)
- *     SmcProcessDeleteRequest @ 0x1409D811C (SmcProcessDeleteRequest.c)
- *     SmcProcessResizeRequest @ 0x1409D81A4 (SmcProcessResizeRequest.c)
- *     SmcProcessStoreCreateRequest @ 0x1409D849C (SmcProcessStoreCreateRequest.c)
- *     SmcProcessStoreDeleteRequest @ 0x1409D8608 (SmcProcessStoreDeleteRequest.c)
+ *     SmpGetProcessPartition @ 0x140344D10 (SmpGetProcessPartition.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     SmProcessCreateRequest @ 0x1407B795C (SmProcessCreateRequest.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x1407E80F4 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmProcessConfigRequest @ 0x14085BD4C (SmProcessConfigRequest.c)
+ *     SmProcessDeleteRequest @ 0x1409D6F2C (SmProcessDeleteRequest.c)
+ *     SmProcessResizeRequest @ 0x1409D7460 (SmProcessResizeRequest.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x1409D788C (SmProcessSystemStoreTrimRequest.c)
+ *     SmcProcessCreateRequest @ 0x1409D809C (SmcProcessCreateRequest.c)
+ *     SmcProcessDeleteRequest @ 0x1409D831C (SmcProcessDeleteRequest.c)
+ *     SmcProcessResizeRequest @ 0x1409D83A4 (SmcProcessResizeRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x1409D869C (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x1409D8808 (SmcProcessStoreDeleteRequest.c)
  */
 
 __int64 __fastcall SmSetStoreInformation(__int64 a1, __int64 a2, int a3, KPROCESSOR_MODE a4)

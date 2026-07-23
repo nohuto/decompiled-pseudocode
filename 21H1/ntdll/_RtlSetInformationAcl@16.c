@@ -6,16 +6,20 @@
  *     <none>
  */
 
-int __stdcall RtlSetInformationAcl(_BYTE *a1, _DWORD *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlSetInformationAcl(
+        PACL Acl,
+        PVOID AclInformation,
+        ULONG AclInformationLength,
+        ACL_INFORMATION_CLASS AclInformationClass)
 {
-  if ( (unsigned __int8)(*a1 - 2) > 2u )
+  if ( (unsigned __int8)(Acl->AclRevision - 2) > 2u )
     return -1073741811;
-  if ( a4 != 1 )
+  if ( AclInformationClass != AclRevisionInformation )
     return -1073741821;
-  if ( a3 < 4 )
+  if ( AclInformationLength < 4 )
     return -1073741789;
-  if ( *a2 < (unsigned int)(unsigned __int8)*a1 )
+  if ( *(_DWORD *)AclInformation < (unsigned int)Acl->AclRevision )
     return -1073741811;
-  *a1 = *(_BYTE *)a2;
+  Acl->AclRevision = *(_BYTE *)AclInformation;
   return 0;
 }

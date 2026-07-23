@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSubtractAccountingValues @ 0x1407787A4
+ * XREFs of PspSubtractAccountingValues @ 0x140778898
  * Callers:
- *     PspRemoveProcessFromJobChain @ 0x1408A9078 (PspRemoveProcessFromJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x1408FF2D8 (PspRemoveProcessFromJobChain.c)
  * Callees:
  *     <none>
  */

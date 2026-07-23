@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpInitializeLfhRandomDataArray @ 0x1800ED424
+ * XREFs of RtlpInitializeLfhRandomDataArray @ 0x1800E83F4
  * Callers:
- *     RtlpHpLfhContextInitialize @ 0x1800A5888 (RtlpHpLfhContextInitialize.c)
- *     RtlpCreateLowFragHeap @ 0x1800A93BC (RtlpCreateLowFragHeap.c)
+ *     RtlpCreateLowFragHeap @ 0x18000C530 (RtlpCreateLowFragHeap.c)
+ *     RtlpHpLfhContextInitialize @ 0x180107E48 (RtlpHpLfhContextInitialize.c)
  * Callees:
  *     <none>
  */
@@ -20,12 +20,12 @@ __int64 RtlpInitializeLfhRandomDataArray()
   v1 = 32LL;
   do
   {
-    v2 = qword_1801CDF00;
+    v2 = qword_1801CCF00;
     do
     {
       v3 = ((((v2 ^ (v2 >> 12)) << 25) ^ v2 ^ (v2 >> 12)) >> 27) ^ ((v2 ^ (v2 >> 12)) << 25) ^ v2 ^ (v2 >> 12);
       v4 = v2;
-      v2 = _InterlockedCompareExchange64(&qword_1801CDF00, v3, v2);
+      v2 = _InterlockedCompareExchange64(&qword_1801CCF00, v3, v2);
     }
     while ( v4 != v2 );
     result = 0x2545F4914F6CDD1DLL;

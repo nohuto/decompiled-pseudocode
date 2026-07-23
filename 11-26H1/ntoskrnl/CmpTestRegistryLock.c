@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpTestRegistryLock @ 0x140261EB0
+ * XREFs of CmpTestRegistryLock @ 0x140261420
  * Callers:
- *     CmpDoReOpenTransKey @ 0x140863A58 (CmpDoReOpenTransKey.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
+ *     CmpDoReOpenTransKey @ 0x140869E38 (CmpDoReOpenTransKey.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 bool CmpTestRegistryLock()
@@ -37,7 +37,7 @@ bool CmpTestRegistryLock()
   __int64 *p_Callers; // [rsp+128h] [rbp+20h]
   __int64 v22; // [rsp+130h] [rbp+28h]
 
-  if ( BYTE4(NlsMbOemCodePageTag) )
+  if ( BYTE5(NlsMbOemCodePageTag) )
     return 1;
   CurrentThread = KeGetCurrentThread();
   UserAffinity = CurrentThread[1].UserAffinity;
@@ -54,26 +54,38 @@ bool CmpTestRegistryLock()
     v14 = 0LL;
     v15 = 0LL;
     RtlWalkFrameChain(Callers_8, 0xAu, 0);
-    if ( Callers_8[0] >= (PVOID)PsNtosImageBase && Callers_8[0] <= (PVOID)PsNtosImageEnd )
-      *(_QWORD *)&v11 = (char *)Callers_8[0] - PsNtosImageBase;
-    if ( Callers_8[1] >= (PVOID)PsNtosImageBase && Callers_8[1] <= (PVOID)PsNtosImageEnd )
-      *((_QWORD *)&v11 + 1) = (char *)Callers_8[1] - PsNtosImageBase;
-    if ( (unsigned __int64)v7 >= PsNtosImageBase && (unsigned __int64)v7 <= PsNtosImageEnd )
-      *(_QWORD *)&v12 = v7 - PsNtosImageBase;
-    if ( *((_QWORD *)&v7 + 1) >= PsNtosImageBase && *((_QWORD *)&v7 + 1) <= (unsigned __int64)PsNtosImageEnd )
-      *((_QWORD *)&v12 + 1) = *((_QWORD *)&v7 + 1) - PsNtosImageBase;
-    if ( (unsigned __int64)v8 >= PsNtosImageBase && (unsigned __int64)v8 <= PsNtosImageEnd )
-      *(_QWORD *)&v13 = v8 - PsNtosImageBase;
-    if ( *((_QWORD *)&v8 + 1) >= PsNtosImageBase && *((_QWORD *)&v8 + 1) <= (unsigned __int64)PsNtosImageEnd )
-      *((_QWORD *)&v13 + 1) = *((_QWORD *)&v8 + 1) - PsNtosImageBase;
-    if ( (unsigned __int64)v9 >= PsNtosImageBase && (unsigned __int64)v9 <= PsNtosImageEnd )
-      *(_QWORD *)&v14 = v9 - PsNtosImageBase;
-    if ( *((_QWORD *)&v9 + 1) >= PsNtosImageBase && *((_QWORD *)&v9 + 1) <= (unsigned __int64)PsNtosImageEnd )
-      *((_QWORD *)&v14 + 1) = *((_QWORD *)&v9 + 1) - PsNtosImageBase;
-    if ( (unsigned __int64)v10 >= PsNtosImageBase && (unsigned __int64)v10 <= PsNtosImageEnd )
-      *(_QWORD *)&v15 = v10 - PsNtosImageBase;
-    if ( *((_QWORD *)&v10 + 1) >= PsNtosImageBase && *((_QWORD *)&v10 + 1) <= (unsigned __int64)PsNtosImageEnd )
-      *((_QWORD *)&v15 + 1) = *((_QWORD *)&v10 + 1) - PsNtosImageBase;
+    if ( Callers_8[0] >= PsNtosImageBase && Callers_8[0] <= (PVOID)PsNtosImageEnd )
+      *(_QWORD *)&v11 = (char *)Callers_8[0] - (char *)PsNtosImageBase;
+    if ( Callers_8[1] >= PsNtosImageBase && Callers_8[1] <= (PVOID)PsNtosImageEnd )
+      *((_QWORD *)&v11 + 1) = (char *)Callers_8[1] - (char *)PsNtosImageBase;
+    if ( (unsigned __int64)v7 >= (unsigned __int64)PsNtosImageBase && (unsigned __int64)v7 <= PsNtosImageEnd )
+      *(_QWORD *)&v12 = v7 - (_QWORD)PsNtosImageBase;
+    if ( *((_QWORD *)&v7 + 1) >= (unsigned __int64)PsNtosImageBase
+      && *((_QWORD *)&v7 + 1) <= (unsigned __int64)PsNtosImageEnd )
+    {
+      *((_QWORD *)&v12 + 1) = *((_QWORD *)&v7 + 1) - (_QWORD)PsNtosImageBase;
+    }
+    if ( (unsigned __int64)v8 >= (unsigned __int64)PsNtosImageBase && (unsigned __int64)v8 <= PsNtosImageEnd )
+      *(_QWORD *)&v13 = v8 - (_QWORD)PsNtosImageBase;
+    if ( *((_QWORD *)&v8 + 1) >= (unsigned __int64)PsNtosImageBase
+      && *((_QWORD *)&v8 + 1) <= (unsigned __int64)PsNtosImageEnd )
+    {
+      *((_QWORD *)&v13 + 1) = *((_QWORD *)&v8 + 1) - (_QWORD)PsNtosImageBase;
+    }
+    if ( (unsigned __int64)v9 >= (unsigned __int64)PsNtosImageBase && (unsigned __int64)v9 <= PsNtosImageEnd )
+      *(_QWORD *)&v14 = v9 - (_QWORD)PsNtosImageBase;
+    if ( *((_QWORD *)&v9 + 1) >= (unsigned __int64)PsNtosImageBase
+      && *((_QWORD *)&v9 + 1) <= (unsigned __int64)PsNtosImageEnd )
+    {
+      *((_QWORD *)&v14 + 1) = *((_QWORD *)&v9 + 1) - (_QWORD)PsNtosImageBase;
+    }
+    if ( (unsigned __int64)v10 >= (unsigned __int64)PsNtosImageBase && (unsigned __int64)v10 <= PsNtosImageEnd )
+      *(_QWORD *)&v15 = v10 - (_QWORD)PsNtosImageBase;
+    if ( *((_QWORD *)&v10 + 1) >= (unsigned __int64)PsNtosImageBase
+      && *((_QWORD *)&v10 + 1) <= (unsigned __int64)PsNtosImageEnd )
+    {
+      *((_QWORD *)&v15 + 1) = *((_QWORD *)&v10 + 1) - (_QWORD)PsNtosImageBase;
+    }
     if ( (unsigned int)dword_140E09EE8 > 5 )
     {
       if ( (unsigned __int8)tlgKeywordOn(&dword_140E09EE8, 0x400000000000LL) )
@@ -86,7 +98,7 @@ bool CmpTestRegistryLock()
         p_Callers = &Callers;
         Callers = 0x1000000LL;
         v22 = 8LL;
-        tlgWriteAgg((int)&dword_140E09EE8, (int)&word_140055EA6, v3, 5, &v16);
+        tlgWriteAgg((int)&dword_140E09EE8, (int)&byte_140056E99, v3, 5, &v16);
       }
     }
     KeBugCheckEx(0x51u, 0x35uLL, (ULONG_PTR)CurrentThread, 0LL, 0LL);

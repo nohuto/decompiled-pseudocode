@@ -1,12 +1,12 @@
 /*
- * XREFs of VslpIumPhase4Initialize @ 0x14014C270
+ * XREFs of VslpIumPhase4Initialize @ 0x14014C7E0
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
  *     IumApiInit_0 @ 0x140001308 (IumApiInit_0.c)
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     VslpIumInitializeTelemetry @ 0x1407BC73C (VslpIumInitializeTelemetry.c)
  */
 

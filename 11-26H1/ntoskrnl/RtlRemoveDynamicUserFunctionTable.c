@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlRemoveDynamicUserFunctionTable @ 0x1404A0730
+ * XREFs of RtlRemoveDynamicUserFunctionTable @ 0x14049A280
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlRemoveDynamicUserFunctionTable(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall RtlRemoveDynamicUserFunctionTable(__int64 a1)
   unsigned int i; // ecx
   unsigned int v13; // r13d
   __int64 v14; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v16; // rcx
+  $241382875694CED3D471BC5892DE3337 *v16; // rcx
   unsigned int *v18; // r9
   unsigned int v19; // r12d
   _KPROCESS *Process; // [rsp+58h] [rbp+10h]
@@ -83,7 +83,7 @@ LABEL_15:
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v16 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v16->ApcState.ApcListHead[0].Flink != v16 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v16->ApcState.ApcListHead[0].Flink != v16 )
       KiCheckForKernelApcDelivery((__int64)v16, v14);
   }
   return v13;

@@ -1,13 +1,13 @@
 /*
- * XREFs of ZwFlushBuffersFile @ 0x1403FAD00
+ * XREFs of ZwFlushBuffersFile @ 0x1403FAEE0
  * Callers:
- *     CmpDoFileFlush @ 0x140361D88 (CmpDoFileFlush.c)
- *     RtlBootStatusDisableFlushing @ 0x1403A7A00 (RtlBootStatusDisableFlushing.c)
- *     RtlpGetSetBootStatusData @ 0x14078A340 (RtlpGetSetBootStatusData.c)
- *     PopCreateHiberFile @ 0x1407919C0 (PopCreateHiberFile.c)
- *     CmReplaceKey @ 0x14086D9C8 (CmReplaceKey.c)
- *     CmpWriteOffsetArrayToFile @ 0x14087162C (CmpWriteOffsetArrayToFile.c)
- *     PopFlushVolumeWorker @ 0x140997FA0 (PopFlushVolumeWorker.c)
+ *     CmpDoFileFlush @ 0x1402F7D80 (CmpDoFileFlush.c)
+ *     RtlBootStatusDisableFlushing @ 0x1403A7B50 (RtlBootStatusDisableFlushing.c)
+ *     RtlpGetSetBootStatusData @ 0x14078A500 (RtlpGetSetBootStatusData.c)
+ *     PopCreateHiberFile @ 0x140792F70 (PopCreateHiberFile.c)
+ *     CmReplaceKey @ 0x14086DB28 (CmReplaceKey.c)
+ *     CmpWriteOffsetArrayToFile @ 0x14087178C (CmpWriteOffsetArrayToFile.c)
+ *     PopFlushVolumeWorker @ 0x140998FA0 (PopFlushVolumeWorker.c)
  * Callees:
  *     <none>
  */
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwFlushBuffersFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStat
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

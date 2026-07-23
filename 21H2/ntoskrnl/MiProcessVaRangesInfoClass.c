@@ -1,15 +1,15 @@
 /*
- * XREFs of MiProcessVaRangesInfoClass @ 0x14070FBB4
+ * XREFs of MiProcessVaRangesInfoClass @ 0x1406BE204
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x14070F280 (NtSetInformationVirtualMemory.c)
- *     MmSetPriorityVaRanges @ 0x1408C855C (MmSetPriorityVaRanges.c)
+ *     NtSetInformationVirtualMemory @ 0x1406BD8D0 (NtSetInformationVirtualMemory.c)
+ *     MmSetPriorityVaRanges @ 0x1408C86BC (MmSetPriorityVaRanges.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiVadSupportsPrivateCommit @ 0x14021B240 (MiVadSupportsPrivateCommit.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MiWalkVaRange @ 0x14023C0F0 (MiWalkVaRange.c)
- *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
- *     MiIsVadLarge @ 0x140318264 (MiIsVadLarge.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiVadSupportsPrivateCommit @ 0x1402BFB40 (MiVadSupportsPrivateCommit.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     MiWalkVaRange @ 0x1402E0940 (MiWalkVaRange.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1403221E0 (MiMoveDirtyBitsToPfns.c)
+ *     MiIsVadLarge @ 0x140322FB4 (MiIsVadLarge.c)
  */
 
 __int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2, int a3, unsigned int a4)
@@ -19,7 +19,7 @@ __int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2,
   __int64 v8; // r13
   unsigned __int64 v9; // r12
   unsigned __int64 v10; // r14
-  volatile signed __int32 *v11; // rax
+  __int64 v11; // rax
   __int64 v12; // rdi
   unsigned __int64 v13; // rcx
   __int64 v14; // rcx
@@ -43,11 +43,11 @@ __int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2,
       {
         v10 = v9;
         v11 = MiObtainReferencedVadEx(v9, 0, (int *)&v18);
-        v12 = (__int64)v11;
+        v12 = v11;
         if ( !v11 )
           return v18;
         v20 = 0;
-        v13 = *((unsigned int *)v11 + 7) | ((unsigned __int64)*((unsigned __int8 *)v11 + 33) << 32);
+        v13 = *(unsigned int *)(v11 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v11 + 33) << 32);
         if ( ((v9 + v8 - 1) | 0xFFF) >> 12 > v13 )
         {
           v20 = 1;
@@ -55,7 +55,7 @@ __int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2,
           v8 = v9 - v17 + v8 - 1;
           v9 = v17 + 1;
         }
-        if ( !MiVadSupportsPrivateCommit((__int64)v11) || (unsigned int)MiIsVadLarge(v14) )
+        if ( !MiVadSupportsPrivateCommit(v11) || (unsigned int)MiIsVadLarge(v14) )
         {
           v4 = 1073741849;
         }

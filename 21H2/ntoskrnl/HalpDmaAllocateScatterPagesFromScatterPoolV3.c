@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolV3 @ 0x1404B7430
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolV3 @ 0x1404B7670
  * Callers:
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404B8BCC (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404B8E0C (HalpDmaAllocateScatterPagesFromScatterPool.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

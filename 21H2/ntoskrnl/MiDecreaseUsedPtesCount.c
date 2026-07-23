@@ -1,36 +1,36 @@
 /*
- * XREFs of MiDecreaseUsedPtesCount @ 0x1402C12F4
+ * XREFs of MiDecreaseUsedPtesCount @ 0x14023F794
  * Callers:
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
  *     MiReducePteUseCount @ 0x1403F45E0 (MiReducePteUseCount.c)
- *     MiUpdateAwePageTable @ 0x14054E034 (MiUpdateAwePageTable.c)
- *     MiDeleteLargeUserPde @ 0x14054F95C (MiDeleteLargeUserPde.c)
+ *     MiUpdateAwePageTable @ 0x14054E274 (MiUpdateAwePageTable.c)
+ *     MiDeleteLargeUserPde @ 0x14054FB9C (MiDeleteLargeUserPde.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiDecreaseUsedPtesCount(ULONG_PTR BugCheckParameter2, __int64 BugCheckParameter4, __int64 a3)
+__int64 __fastcall MiDecreaseUsedPtesCount(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
 {
-  unsigned __int64 v4; // r9
-  int v5; // edi
+  ULONG_PTR v3; // r9
+  int v4; // edi
   __int64 result; // rax
-  int v7; // [rsp+48h] [rbp+10h] BYREF
+  int v6; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = HIWORD(*(_DWORD *)(BugCheckParameter2 + 16)) & 0x3FF;
-  v5 = BugCheckParameter4;
-  if ( v4 < (unsigned int)BugCheckParameter4 )
-    KeBugCheckEx(0x1Au, 0x41790uLL, BugCheckParameter2, v4, (unsigned int)BugCheckParameter4);
-  v7 = 0;
+  v3 = HIWORD(*(_DWORD *)(BugCheckParameter2 + 16)) & 0x3FF;
+  v4 = BugCheckParameter4;
+  if ( v3 < (unsigned int)BugCheckParameter4 )
+    KeBugCheckEx(0x1Au, 0x41790uLL, BugCheckParameter2, v3, (unsigned int)BugCheckParameter4);
+  v6 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v7, BugCheckParameter4, a3, v4);
+      KeYieldProcessorEx(&v6);
     while ( *(__int64 *)(BugCheckParameter2 + 24) < 0 );
   }
-  result = ((unsigned int)(*(_QWORD *)(BugCheckParameter2 + 16) >> 16) & 0x3FF) - v5;
+  result = ((unsigned int)(*(_QWORD *)(BugCheckParameter2 + 16) >> 16) & 0x3FF) - v4;
   *(_QWORD *)(BugCheckParameter2 + 16) ^= ((unsigned int)*(_QWORD *)(BugCheckParameter2 + 16) ^ ((((*(_QWORD *)(BugCheckParameter2 + 16) >> 16) & 0x3FF)
-                                                                                                - v5) << 16)) & 0x3FF0000;
+                                                                                                - v4) << 16)) & 0x3FF0000;
   _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return result;
 }

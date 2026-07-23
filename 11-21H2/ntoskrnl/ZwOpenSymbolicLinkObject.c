@@ -1,18 +1,18 @@
 /*
  * XREFs of ZwOpenSymbolicLinkObject @ 0x14041DDE0
  * Callers:
- *     DifZwOpenSymbolicLinkObjectWrapper @ 0x140622870 (DifZwOpenSymbolicLinkObjectWrapper.c)
- *     IopQueryRegistryKeySystemPath @ 0x14067AFB0 (IopQueryRegistryKeySystemPath.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14069CEC8 (SepCleanupLUIDDeviceMapDirectory.c)
- *     SiTranslateSymbolicLink @ 0x1406BB4A0 (SiTranslateSymbolicLink.c)
- *     IopProcessSetInterfaceState @ 0x140769170 (IopProcessSetInterfaceState.c)
- *     BiTranslateSymbolicLink @ 0x140803050 (BiTranslateSymbolicLink.c)
+ *     sub_140622870 @ 0x140622870 (sub_140622870.c)
+ *     sub_14067AFB0 @ 0x14067AFB0 (sub_14067AFB0.c)
+ *     sub_14069CEC8 @ 0x14069CEC8 (sub_14069CEC8.c)
+ *     sub_1406BB4A0 @ 0x1406BB4A0 (sub_1406BB4A0.c)
+ *     sub_140769170 @ 0x140769170 (sub_140769170.c)
+ *     sub_140803050 @ 0x140803050 (sub_140803050.c)
  *     IoDeleteSymbolicLink @ 0x140811120 (IoDeleteSymbolicLink.c)
  *     IoIsValidNameGraftingBuffer @ 0x1409375D0 (IoIsValidNameGraftingBuffer.c)
- *     PiDrvDbUnregisterNode @ 0x14095E00C (PiDrvDbUnregisterNode.c)
- *     ExpTranslateSymbolicLink @ 0x1409FEF6C (ExpTranslateSymbolicLink.c)
- *     SiOpenArcNameObject @ 0x140A228D0 (SiOpenArcNameObject.c)
- *     IopStoreSystemPartitionInformation @ 0x140B0E88C (IopStoreSystemPartitionInformation.c)
+ *     sub_14095E00C @ 0x14095E00C (sub_14095E00C.c)
+ *     sub_1409FEF6C @ 0x1409FEF6C (sub_1409FEF6C.c)
+ *     sub_140A228D0 @ 0x140A228D0 (sub_140A228D0.c)
+ *     sub_140B0E88C @ 0x140B0E88C (sub_140B0E88C.c)
  * Callees:
  *     <none>
  */
@@ -25,5 +25,5 @@ NTSTATUS __stdcall ZwOpenSymbolicLinkObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(LinkHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(LinkHandle, *(_QWORD *)&DesiredAccess);
 }

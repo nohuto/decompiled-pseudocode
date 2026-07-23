@@ -15,25 +15,25 @@
  *     AlpcpQueryTokenModifiedIdMessage @ 0x1405EF11C (AlpcpQueryTokenModifiedIdMessage.c)
  */
 
-__int64 __fastcall NtAlpcQueryInformationMessage(
-        HANDLE Handle,
-        __int64 a2,
-        int a3,
-        volatile void *a4,
-        SIZE_T Length,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // bl
-  _DWORD *v11; // rsi
+  PULONG v11; // rsi
   __int64 v12; // rcx
   int v13; // r14d
-  int v14; // ebx
+  NTSTATUS v14; // ebx
   PVOID v15; // r15
   ULONG_PTR v16; // r14
-  int v17; // edi
-  int v18; // edi
-  int TokenModifiedIdMessage; // eax
+  __int32 v17; // edi
+  __int32 v18; // edi
+  NTSTATUS TokenModifiedIdMessage; // eax
   int v21; // [rsp+30h] [rbp-38h] BYREF
   int v22; // [rsp+34h] [rbp-34h] BYREF
   PVOID Object; // [rsp+38h] [rbp-30h] BYREF
@@ -42,22 +42,22 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  AlpcpCaptureIdMessage(a2, &v21, &v22);
+  AlpcpCaptureIdMessage((__int64)PortMessage, &v21, &v22);
   if ( PreviousMode )
   {
-    ProbeForWrite(a4, (unsigned int)Length, 4u);
-    v11 = (_DWORD *)a6;
-    if ( a6 )
+    ProbeForWrite(MessageInformation, Length, 4u);
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
       v12 = 0x7FFFFFFF0000LL;
-      if ( a6 < 0x7FFFFFFF0000LL )
-        v12 = a6;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v12 = (__int64)ReturnLength;
       *(_DWORD *)v12 = *(_DWORD *)v12;
     }
   }
   else
   {
-    v11 = (_DWORD *)a6;
+    v11 = ReturnLength;
   }
   v13 = v21;
   if ( !v21 )
@@ -65,7 +65,7 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
     v14 = -1073741811;
     goto LABEL_19;
   }
-  v14 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v14 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v14 >= 0 )
   {
     v15 = Object;
@@ -82,12 +82,17 @@ LABEL_18:
       v14 = -1073740029;
       goto LABEL_17;
     }
-    if ( a3 )
+    if ( MessageInformationClass )
     {
-      v17 = a3 - 1;
+      v17 = MessageInformationClass - 1;
       if ( !v17 )
       {
-        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage((_DWORD)v15, v24[0], (_DWORD)a4, Length, (__int64)v11);
+        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage(
+                                   (_DWORD)v15,
+                                   v24[0],
+                                   (_DWORD)MessageInformation,
+                                   Length,
+                                   (__int64)v11);
         goto LABEL_16;
       }
       v18 = v17 - 1;
@@ -98,7 +103,7 @@ LABEL_18:
           TokenModifiedIdMessage = AlpcpQueryHandleInformationMessage(
                                      (_DWORD)v15,
                                      v24[0],
-                                     (_DWORD)a4,
+                                     (_DWORD)MessageInformation,
                                      Length,
                                      (__int64)v11);
 LABEL_16:
@@ -108,7 +113,7 @@ LABEL_17:
           goto LABEL_18;
         }
       }
-      else if ( !a4 && !(_DWORD)Length && !v11 )
+      else if ( !MessageInformation && !Length && !v11 )
       {
         v14 = (*(_DWORD *)(v24[0] + 40) & 7) != 4 ? 0x103 : 0;
         goto LABEL_17;
@@ -116,10 +121,10 @@ LABEL_17:
       v14 = -1073741811;
       goto LABEL_17;
     }
-    TokenModifiedIdMessage = AlpcpQuerySidMessage((int)v15, v24[0], (void *)a4, Length, v11);
+    TokenModifiedIdMessage = AlpcpQuerySidMessage((int)v15, v24[0], MessageInformation, Length, v11);
     goto LABEL_16;
   }
 LABEL_19:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v14;
+  return v14;
 }

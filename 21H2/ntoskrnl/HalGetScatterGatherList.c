@@ -1,11 +1,11 @@
 /*
- * XREFs of HalGetScatterGatherList @ 0x1402B6240
+ * XREFs of HalGetScatterGatherList @ 0x140234420
  * Callers:
  *     <none>
  * Callees:
- *     HalBuildScatterGatherListV2 @ 0x14028E2A0 (HalBuildScatterGatherListV2.c)
- *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
- *     HalpBuildScatterGatherList @ 0x14039F434 (HalpBuildScatterGatherList.c)
+ *     HalBuildScatterGatherListV2 @ 0x14020B440 (HalBuildScatterGatherListV2.c)
+ *     HalpDmaGetAdapterVersion @ 0x140234490 (HalpDmaGetAdapterVersion.c)
+ *     HalpBuildScatterGatherList @ 0x14039F584 (HalpBuildScatterGatherList.c)
  */
 
 NTSTATUS __stdcall HalGetScatterGatherList(

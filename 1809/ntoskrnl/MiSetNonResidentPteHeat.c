@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetNonResidentPteHeat @ 0x140081E50
+ * XREFs of MiSetNonResidentPteHeat @ 0x140081E40
  * Callers:
  *     MiDecrementAndInsertStandbyPages @ 0x14003D440 (MiDecrementAndInsertStandbyPages.c)
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140080940 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
- *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14011AAEC (MiRewriteTrimPteAsDemandZero.c)
- *     MmSetPfnListInfo @ 0x14013FC90 (MmSetPfnListInfo.c)
- *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140080930 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiRestoreTransitionPte @ 0x140081000 (MiRestoreTransitionPte.c)
+ *     MiReservePageFileSpaceForPage @ 0x1400817F0 (MiReservePageFileSpaceForPage.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     MiDeleteTransitionPte @ 0x140095370 (MiDeleteTransitionPte.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x14011AB5C (MiRewriteTrimPteAsDemandZero.c)
+ *     MmSetPfnListInfo @ 0x14013FD90 (MmSetPfnListInfo.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEE04 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     <none>
  */

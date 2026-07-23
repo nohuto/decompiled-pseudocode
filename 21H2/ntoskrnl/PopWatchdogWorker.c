@@ -1,20 +1,20 @@
 /*
- * XREFs of PopWatchdogWorker @ 0x140578E70
+ * XREFs of PopWatchdogWorker @ 0x1405790B0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopUpdateWatchdogNoWorkersEvent @ 0x140280840 (PopUpdateWatchdogNoWorkersEvent.c)
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x14026EA80 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     MmGetSessionById @ 0x1402AAD40 (MmGetSessionById.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopResolveWatchdogParam @ 0x140578D6C (PopResolveWatchdogParam.c)
- *     MmQuitNextSession @ 0x1406C3770 (MmQuitNextSession.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopResolveWatchdogParam @ 0x140578FAC (PopResolveWatchdogParam.c)
+ *     MmQuitNextSession @ 0x140622350 (MmQuitNextSession.c)
  */
 
 __int64 __fastcall PopWatchdogWorker(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall PopWatchdogWorker(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   int v8; // eax
   bool v9; // zf
-  _KPROCESS *SessionById; // r14
+  __int64 SessionById; // r14
   ULONG_PTR v11; // r13
   ULONG_PTR BugCheckParameter4; // rax
   unsigned __int64 v13; // r13
@@ -79,9 +79,9 @@ __int64 __fastcall PopWatchdogWorker(__int64 a1)
     if ( BugCheckCode[1] == -1 )
       SessionById = 0LL;
     else
-      SessionById = (_KPROCESS *)MmGetSessionById(BugCheckCode[1], v4);
+      SessionById = MmGetSessionById(BugCheckCode[1], v4);
     if ( SessionById )
-      v2 = (int)MmAttachSession(SessionById, (__int64)v27) >= 0;
+      v2 = (int)MmAttachSession(SessionById) >= 0;
     v11 = PopResolveWatchdogParam(v23, v25);
     BugCheckParameter2 = PopResolveWatchdogParam(*((__int64 *)&v23 + 1), SBYTE1(v25));
     BugCheckParameter3 = PopResolveWatchdogParam(v24, SBYTE2(v25));
@@ -120,7 +120,7 @@ __int64 __fastcall PopWatchdogWorker(__int64 a1)
     __writecr8(v13);
     if ( v2 )
     {
-      MmDetachSession((__int64)SessionById, (__int64)v27);
+      MmDetachSession(SessionById, (__int64)v27);
       return MmQuitNextSession(SessionById);
     }
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipGetRegistryHideMachine @ 0x140A42134
+ * XREFs of WmipGetRegistryHideMachine @ 0x140A37A14
  * Callers:
- *     WmipGetSMBiosTableData @ 0x140A42038 (WmipGetSMBiosTableData.c)
+ *     WmipGetSMBiosTableData @ 0x140A37918 (WmipGetSMBiosTableData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool WmipGetRegistryHideMachine()
@@ -40,7 +40,7 @@ bool WmipGetRegistryHideMachine()
     RtlInitUnicodeString(&DestinationString, L"HideMachine");
     if ( ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength) == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, ResultLength, 0x70696D57u);
       if ( Pool2 )
       {
         if ( ZwQueryValueKey(

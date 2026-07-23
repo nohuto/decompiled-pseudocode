@@ -1,34 +1,32 @@
 /*
- * XREFs of CmpUnlockContextList @ 0x140A23680
+ * XREFs of CmpUnlockContextList @ 0x140A36190
  * Callers:
- *     CmUnRegisterCallback @ 0x1408505D0 (CmUnRegisterCallback.c)
- *     CmpCallbackFillObjectContext @ 0x1408CA800 (CmpCallbackFillObjectContext.c)
+ *     CmUnRegisterCallback @ 0x1408568E0 (CmUnRegisterCallback.c)
+ *     CmpCallbackFillObjectContext @ 0x1408D0DB0 (CmpCallbackFillObjectContext.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
 __int64 CmpUnlockContextList()
 {
-  char *v0; // rdx
-  void *SListFaultAddress; // rtt
-  __int64 v2; // rdx
-  __int64 v3; // r8
+  signed __int64 v0; // rdx
+  __int64 v1; // rtt
 
-  _m_prefetchw(&CmpCallbackListLock.SListFaultAddress);
-  v0 = (char *)CmpCallbackListLock.SListFaultAddress - 16;
-  if ( ((unsigned __int64)CmpCallbackListLock.SListFaultAddress & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  _m_prefetchw(&CmpContextListLock);
+  v0 = *(_QWORD *)&CmpContextListLock.Header.Lock - 16LL;
+  if ( (*(_QWORD *)&CmpContextListLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v0 = 0LL;
-  if ( ((__int64)CmpCallbackListLock.SListFaultAddress & 2) != 0
-    || (SListFaultAddress = CmpCallbackListLock.SListFaultAddress,
-        SListFaultAddress != (void *)_InterlockedCompareExchange64(
-                                       (volatile signed __int64 *)&CmpCallbackListLock.SListFaultAddress,
-                                       (signed __int64)v0,
-                                       (signed __int64)CmpCallbackListLock.SListFaultAddress)) )
+  if ( (CmpContextListLock.Header.Type & 2) != 0
+    || (v1 = *(_QWORD *)&CmpContextListLock.Header.Lock,
+        v1 != _InterlockedCompareExchange64(
+                (volatile signed __int64 *)&CmpContextListLock,
+                v0,
+                *(signed __int64 *)&CmpContextListLock.Header.Lock)) )
   {
-    ExfReleasePushLock(&CmpCallbackListLock.SListFaultAddress);
+    ExfReleasePushLock(&CmpContextListLock);
   }
-  KeAbPostRelease((unsigned __int64)&CmpCallbackListLock.SListFaultAddress);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v2, v3);
+  KeAbPostRelease((unsigned __int64)&CmpContextListLock);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

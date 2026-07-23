@@ -1,11 +1,11 @@
 /*
- * XREFs of XmOutOp @ 0x1403B8A90
+ * XREFs of XmOutOp @ 0x1403B8C70
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x1403B94C0 (XmSetSourceValue.c)
- *     x86BiosWriteIoSpace @ 0x1403C2970 (x86BiosWriteIoSpace.c)
- *     longjmp @ 0x1403D7EE0 (longjmp.c)
+ *     XmSetSourceValue @ 0x1403B96A0 (XmSetSourceValue.c)
+ *     x86BiosWriteIoSpace @ 0x1403C2B50 (x86BiosWriteIoSpace.c)
+ *     longjmp @ 0x1403D80C0 (longjmp.c)
  */
 
 __int64 __fastcall XmOutOp(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140444780
+ * XREFs of KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x14043D290
  * Callers:
- *     KiFlushReadyLists @ 0x140334D4C (KiFlushReadyLists.c)
+ *     KiFlushReadyLists @ 0x140336D7C (KiFlushReadyLists.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall KiUpdateSoftParkElectionStatisticsOnRemoval(__int64 a1, __int64 a2, char a3)

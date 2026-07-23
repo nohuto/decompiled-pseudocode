@@ -10,15 +10,15 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-char __fastcall RtlExpandHashTable(__int64 a1)
+BOOLEAN __cdecl RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  int v2; // edx
+  unsigned int TableSize; // edx
   unsigned int v3; // ecx
   unsigned int v4; // esi
   __int64 v5; // rbp
   __int64 v6; // rcx
-  _QWORD *v7; // rdi
-  __int64 v8; // rdx
+  void **v7; // rdi
+  __int64 Pivot; // rdx
   _QWORD *ChainHead; // rax
   _QWORD *v10; // r9
   __int64 v11; // r10
@@ -29,53 +29,52 @@ char __fastcall RtlExpandHashTable(__int64 a1)
   __int64 v16; // rax
   _QWORD *v17; // rcx
   _QWORD *v18; // rax
-  int v19; // edx
-  __int64 v21; // r14
-  __int64 Heap; // rax
+  unsigned int DivisorMask; // edx
+  void *Directory; // r14
+  _QWORD *Heap; // rax
   _QWORD *v23; // rdi
   __int64 SecondLevelDir; // rax
-  __int64 v25; // r9
 
-  v2 = *(_DWORD *)(a1 + 8);
-  if ( v2 == 8388480 || *(_DWORD *)(a1 + 28) )
+  TableSize = HashTable->TableSize;
+  if ( TableSize == 8388480 || HashTable->NumEnumerators )
     return 0;
-  _BitScanReverse(&v3, v2 + 128);
-  v4 = (v2 + 128) ^ (1 << v3);
+  _BitScanReverse(&v3, TableSize + 128);
+  v4 = (TableSize + 128) ^ (1 << v3);
   v5 = v3 - 7;
   v6 = v5;
-  if ( v2 == 128 )
+  if ( TableSize == 128 )
   {
-    v21 = *(_QWORD *)(a1 + 32);
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x80uLL);
-    v23 = (_QWORD *)Heap;
+    Directory = HashTable->Directory;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x80uLL);
+    v23 = Heap;
     if ( !Heap )
       return 0;
-    memset_thunk_772440563353939046((void *)(Heap + 8), 0, 0x78uLL);
+    memset_thunk_772440563353939046(Heap + 1, 0, 0x78uLL);
     v6 = (unsigned int)v5;
-    *v23 = v21;
-    *(_QWORD *)(a1 + 32) = v23;
+    *v23 = Directory;
+    HashTable->Directory = v23;
   }
-  v7 = *(_QWORD **)(a1 + 32);
+  v7 = (void **)HashTable->Directory;
   if ( !v7[v5] )
   {
     SecondLevelDir = RtlpAllocateSecondLevelDir(v6);
     if ( SecondLevelDir )
     {
-      v7[v5] = SecondLevelDir;
+      v7[v5] = (void *)SecondLevelDir;
       goto LABEL_5;
     }
-    if ( *(_DWORD *)(a1 + 8) == 128 )
+    if ( HashTable->TableSize == 128 )
     {
-      *(_QWORD *)(a1 + 32) = *v7;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v7, v25);
+      HashTable->Directory = *v7;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     }
     return 0;
   }
 LABEL_5:
-  v8 = *(unsigned int *)(a1 + 12);
-  ++*(_DWORD *)(a1 + 8);
-  ChainHead = (_QWORD *)RtlpGetChainHead(a1, v8);
-  ++*(_DWORD *)(a1 + 12);
+  Pivot = HashTable->Pivot;
+  ++HashTable->TableSize;
+  ChainHead = (_QWORD *)RtlpGetChainHead(HashTable, Pivot);
+  ++HashTable->Pivot;
   v10 = ChainHead;
   v12 = (_QWORD *)(v11 + 16LL * v4);
   v12[1] = v12;
@@ -86,8 +85,9 @@ LABEL_5:
     v14 = ChainHead;
     do
     {
-      v15 = *((_DWORD *)v13 + 4) >> *(_DWORD *)(a1 + 4);
-      if ( (((2 * *(_DWORD *)(a1 + 16)) | 1) & ((69069 * v15 + 1) & 0xFFFF0000 | ((unsigned int)(1103515245 * v15 + 12345) >> 16))) == *(_DWORD *)(a1 + 8) - 1 )
+      v15 = *((_DWORD *)v13 + 4) >> HashTable->Shift;
+      if ( (((2 * HashTable->DivisorMask) | 1) & ((69069 * v15 + 1) & 0xFFFF0000 | ((unsigned int)(1103515245 * v15
+                                                                                                 + 12345) >> 16))) == HashTable->TableSize - 1 )
       {
         v16 = *v13;
         if ( *(_QWORD **)(*v13 + 8LL) != v13
@@ -109,15 +109,15 @@ LABEL_5:
     }
     while ( (_QWORD *)*v14 != v10 );
     if ( (_QWORD *)*v12 != v12 )
-      ++*(_DWORD *)(a1 + 24);
+      ++HashTable->NonEmptyBuckets;
     if ( (_QWORD *)*v10 == v10 )
-      --*(_DWORD *)(a1 + 24);
+      --HashTable->NonEmptyBuckets;
   }
-  v19 = *(_DWORD *)(a1 + 16);
-  if ( *(_DWORD *)(a1 + 12) == v19 + 1 )
+  DivisorMask = HashTable->DivisorMask;
+  if ( HashTable->Pivot == DivisorMask + 1 )
   {
-    *(_DWORD *)(a1 + 12) = 0;
-    *(_DWORD *)(a1 + 16) = (2 * v19) | 1;
+    HashTable->Pivot = 0;
+    HashTable->DivisorMask = (2 * DivisorMask) | 1;
   }
   return 1;
 }

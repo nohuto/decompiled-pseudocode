@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwLoadDriver @ 0x1801610F0
+ * XREFs of ZwLoadDriver @ 0x180160FF0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwLoadDriver()
+NTSTATUS __cdecl ZwLoadDriver(PUNICODE_STRING DriverServiceName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 270LL;
+  result = 270;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

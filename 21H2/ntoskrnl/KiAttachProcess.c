@@ -1,17 +1,17 @@
 /*
- * XREFs of KiAttachProcess @ 0x140207340
+ * XREFs of KiAttachProcess @ 0x1402ABC40
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     KeStackAttachProcess @ 0x14025C110 (KeStackAttachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     KeAttachProcess @ 0x1402C2F00 (KeAttachProcess.c)
+ *     KeAttachProcess @ 0x140241420 (KeAttachProcess.c)
+ *     KeStackAttachProcess @ 0x14027D680 (KeStackAttachProcess.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x1402079D0 (KiSetAddressPolicy.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiInSwapSingleProcess @ 0x14029BAA0 (KiInSwapSingleProcess.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiInSwapSingleProcess @ 0x140213470 (KiInSwapSingleProcess.c)
+ *     KiSetAddressPolicy @ 0x1402AC2D0 (KiSetAddressPolicy.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1404FAD60 (HvlSwitchVirtualAddressSpace.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1404FACE0 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __int8 a3, char a4, __int64 a5)
@@ -99,7 +99,7 @@ unsigned __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __i
   if ( (a4 & 1) == 0 && (_InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 840), 8u) & 7) != 0 )
   {
     KiReleaseThreadLockSafe(a1);
-    KiInSwapSingleProcess(a1, a2, (unsigned __int8)v9);
+    KiInSwapSingleProcess((_KTHREAD *)a1, a2, v9);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )

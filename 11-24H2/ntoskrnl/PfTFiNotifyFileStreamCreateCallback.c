@@ -1,13 +1,13 @@
 /*
- * XREFs of PfTFiNotifyFileStreamCreateCallback @ 0x140456870
+ * XREFs of PfTFiNotifyFileStreamCreateCallback @ 0x14044B840
  * Callers:
- *     PfpPartitionIterate @ 0x140274CF0 (PfpPartitionIterate.c)
- *     PfFileInfoNotify @ 0x140275220 (PfFileInfoNotify.c)
+ *     PfpPartitionIterate @ 0x14022A280 (PfpPartitionIterate.c)
+ *     PfFileInfoNotify @ 0x14022A7B0 (PfFileInfoNotify.c)
  * Callees:
- *     PfFbLogEntryComplete @ 0x140245330 (PfFbLogEntryComplete.c)
- *     PfFbLogEntryReserve @ 0x140456B24 (PfFbLogEntryReserve.c)
- *     _wcsupr @ 0x1404FE6D0 (_wcsupr.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     PfFbLogEntryComplete @ 0x14020DB10 (PfFbLogEntryComplete.c)
+ *     PfFbLogEntryReserve @ 0x14044BAF4 (PfFbLogEntryReserve.c)
+ *     _wcsupr @ 0x1404FBF90 (_wcsupr.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall PfTFiNotifyFileStreamCreateCallback(__int64 a1, __int64 a2)

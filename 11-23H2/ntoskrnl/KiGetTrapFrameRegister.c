@@ -1,5 +1,5 @@
 /*
- * XREFs of KiGetTrapFrameRegister @ 0x14057D7B0
+ * XREFs of KiGetTrapFrameRegister @ 0x14057DCA0
  * Callers:
  *     <none>
  * Callees:

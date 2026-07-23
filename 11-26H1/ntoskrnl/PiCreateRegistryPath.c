@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCreateRegistryPath @ 0x1407A0D98
+ * XREFs of PiCreateRegistryPath @ 0x1407A38D8
  * Callers:
- *     PiCreateServiceKeyUnderPath @ 0x1407A102C (PiCreateServiceKeyUnderPath.c)
+ *     PiCreateServiceKeyUnderPath @ 0x1407A3B6C (PiCreateServiceKeyUnderPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     PnpConcatenateUnicodeStrings @ 0x14090FC6C (PnpConcatenateUnicodeStrings.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     PnpConcatenateUnicodeStrings @ 0x1409B1D9C (PnpConcatenateUnicodeStrings.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
  */
 
 __int64 __fastcall PiCreateRegistryPath(UNICODE_STRING *String2, __int64 a2, void *a3, HANDLE *a4)
@@ -30,7 +30,7 @@ __int64 __fastcall PiCreateRegistryPath(UNICODE_STRING *String2, __int64 a2, voi
   if ( String2
     && a4
     && String2->Length >= 4u
-    && RtlPrefixUnicodeString((PCUNICODE_STRING)&PspSiloMonitorLock.SavedApcStateFill[32], String2, 1u) )
+    && RtlPrefixUnicodeString((PCUNICODE_STRING)&PspSiloMonitorLock.648, String2, 1u) )
   {
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
@@ -55,10 +55,10 @@ LABEL_7:
         Buffer = DestinationString.Buffer;
         Length = DestinationString.Length;
         v11 = DestinationString.Length >> 1;
-        v12 = &DestinationString.Buffer[((unsigned __int64)*(unsigned __int16 *)&PspSiloMonitorLock.SavedApcStateFill[32] >> 1)
+        v12 = &DestinationString.Buffer[((unsigned __int64)*(unsigned __int16 *)&PspSiloMonitorLock.SchedulerApc.Type >> 1)
                                       + 1];
         if ( (unsigned __int16)((__int64)(2
-                                        * (((unsigned __int64)*(unsigned __int16 *)&PspSiloMonitorLock.SavedApcStateFill[32] >> 1)
+                                        * (((unsigned __int64)*(unsigned __int16 *)&PspSiloMonitorLock.SchedulerApc.Type >> 1)
                                          + 1)) >> 1) < (unsigned __int16)(DestinationString.Length >> 1) )
         {
           do

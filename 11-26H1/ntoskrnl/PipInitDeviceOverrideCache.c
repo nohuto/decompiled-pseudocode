@@ -1,17 +1,17 @@
 /*
- * XREFs of PipInitDeviceOverrideCache @ 0x140CC2194
+ * XREFs of PipInitDeviceOverrideCache @ 0x140CC8264
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     RtlHashUnicodeString @ 0x1409893C0 (RtlHashUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x140A70410 (RtlCreateUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     RtlHashUnicodeString @ 0x140A43AE0 (RtlHashUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x140A478B0 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PipInitDeviceOverrideCache()
@@ -61,9 +61,9 @@ LABEL_2:
       }
       for ( i = 0; i < 3; ++i )
       {
-        if ( HIDWORD(KeyInformation_8[2]) < 3 * *((_DWORD *)qword_14002E1C0 + i) )
+        if ( HIDWORD(KeyInformation_8[2]) < 3 * *((_DWORD *)qword_14002DC60 + i) )
         {
-          PnpDeviceOverrideHashListSize = *((_DWORD *)qword_14002E1C0 + i);
+          PnpDeviceOverrideHashListSize = *((_DWORD *)qword_14002DC60 + i);
           break;
         }
       }

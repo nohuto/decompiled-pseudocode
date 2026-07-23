@@ -9,50 +9,59 @@
  *     RtlQueryAtomsInAtomTable @ 0x14090EB28 (RtlQueryAtomsInAtomTable.c)
  */
 
-__int64 __fastcall NtQueryInformationAtom(unsigned __int16 a1, int a2, _WORD *a3, unsigned int a4, int *a5)
+NTSTATUS __cdecl NtQueryInformationAtom(
+        RTL_ATOM Atom,
+        ATOM_INFORMATION_CLASS AtomInformationClass,
+        PVOID AtomInformation,
+        ULONG AtomInformationLength,
+        PULONG ReturnLength)
 {
   __int64 v9; // rcx
-  int v10; // ebx
+  ULONG v10; // ebx
   int AtomsInAtomTable; // edx
-  unsigned int v12; // eax
-  int v14; // [rsp+34h] [rbp-34h] BYREF
-  unsigned int v15; // [rsp+38h] [rbp-30h] BYREF
+  ULONG v12; // eax
+  ULONG AtomUsage; // [rsp+34h] [rbp-34h] BYREF
+  ULONG AtomNameLength; // [rsp+38h] [rbp-30h] BYREF
   int v16; // [rsp+3Ch] [rbp-2Ch]
-  int v17; // [rsp+40h] [rbp-28h] BYREF
-  int v18[2]; // [rsp+48h] [rbp-20h] BYREF
+  ULONG AtomFlags; // [rsp+40h] [rbp-28h] BYREF
+  PVOID AtomTableHandle; // [rsp+48h] [rbp-20h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-18h]
 
-  v17 = 0;
-  *(_QWORD *)v18 = 0LL;
-  v15 = 0;
-  v14 = 0;
-  PsInvokeWin32Callout(2, (__int64)v18, 0, 0LL);
-  if ( !*(_QWORD *)v18 )
-    return 3221225506LL;
+  AtomFlags = 0;
+  AtomTableHandle = 0LL;
+  AtomNameLength = 0;
+  AtomUsage = 0;
+  PsInvokeWin32Callout(2, (__int64)&AtomTableHandle, 0, 0LL);
+  if ( !AtomTableHandle )
+    return -1073741790;
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->PreviousMode )
   {
-    ProbeForWrite(a3, a4, 4u);
-    if ( a5 )
+    ProbeForWrite(AtomInformation, AtomInformationLength, 4u);
+    if ( ReturnLength )
     {
       v9 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v9 = (__int64)a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v9 = (__int64)ReturnLength;
       *(_DWORD *)v9 = *(_DWORD *)v9;
     }
   }
   v10 = 0;
-  if ( a2 )
+  if ( AtomInformationClass )
   {
-    if ( a2 == 1 )
+    if ( AtomInformationClass == AtomTableInformation )
     {
       v10 = 4;
-      if ( a4 < 4 )
-        return 3221225476LL;
-      AtomsInAtomTable = RtlQueryAtomsInAtomTable(*(_QWORD *)v18, (a4 - 4) >> 1, a3, a3 + 2);
+      if ( AtomInformationLength < 4 )
+        return -1073741820;
+      AtomsInAtomTable = RtlQueryAtomsInAtomTable(
+                           AtomTableHandle,
+                           (AtomInformationLength - 4) >> 1,
+                           AtomInformation,
+                           (char *)AtomInformation + 4);
       v16 = AtomsInAtomTable;
       if ( AtomsInAtomTable >= 0 )
-        v10 = 2 * *(_DWORD *)a3 + 4;
+        v10 = 2 * *(_DWORD *)AtomInformation + 4;
     }
     else
     {
@@ -63,22 +72,28 @@ __int64 __fastcall NtQueryInformationAtom(unsigned __int16 a1, int a2, _WORD *a3
   else
   {
     v10 = 6;
-    if ( a4 < 6 )
-      return 3221225476LL;
-    v14 = 0;
-    v15 = a4 - 6;
-    AtomsInAtomTable = RtlQueryAtomInAtomTable(*(__int64 *)v18, a1, &v14, &v17, a3 + 3, &v15);
+    if ( AtomInformationLength < 6 )
+      return -1073741820;
+    AtomUsage = 0;
+    AtomNameLength = AtomInformationLength - 6;
+    AtomsInAtomTable = RtlQueryAtomInAtomTable(
+                         AtomTableHandle,
+                         Atom,
+                         &AtomUsage,
+                         &AtomFlags,
+                         (PWSTR)AtomInformation + 3,
+                         &AtomNameLength);
     v16 = AtomsInAtomTable;
     if ( AtomsInAtomTable >= 0 )
     {
-      *a3 = v14;
-      a3[1] = v17;
-      v12 = v15;
-      a3[2] = v15;
+      *(_WORD *)AtomInformation = AtomUsage;
+      *((_WORD *)AtomInformation + 1) = AtomFlags;
+      v12 = AtomNameLength;
+      *((_WORD *)AtomInformation + 2) = AtomNameLength;
       v10 = v12 + 8;
     }
   }
-  if ( a5 )
-    *a5 = v10;
-  return (unsigned int)AtomsInAtomTable;
+  if ( ReturnLength )
+    *ReturnLength = v10;
+  return AtomsInAtomTable;
 }

@@ -25,7 +25,7 @@
  *     MiPerformImageHotPatch @ 0x1408C8574 (MiPerformImageHotPatch.c)
  */
 
-__int64 __fastcall MiHotPatchImage(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, char a6, int a7)
+__int64 __fastcall MiHotPatchImage(__int64 a1, __int64 a2, _RTL_BALANCED_NODE *a3, int a4, int a5, char a6, int a7)
 {
   int v7; // edi
   struct _KTHREAD *CurrentThread; // r12
@@ -113,7 +113,7 @@ LABEL_26:
           goto LABEL_27;
         }
       }
-      HotPatchEntry = MiGetHotPatchEntry((__int64)ProcessHotPatchContext, a3, v16, (int *)&v36);
+      HotPatchEntry = MiGetHotPatchEntry((PRTL_RB_TREE)ProcessHotPatchContext, a3, v16, (int *)&v36);
       v19 = HotPatchEntry;
       if ( !HotPatchEntry )
         break;
@@ -123,7 +123,7 @@ LABEL_26:
               HotPatchEntry,
               v18,
               v37,
-              a3,
+              (__int64)a3,
               (__int64)&DestinationString,
               v38,
               a5,
@@ -177,11 +177,11 @@ LABEL_26:
 LABEL_27:
     if ( HIDWORD(v28) )
     {
-      MiLockVadShared((__int64)CurrentThread, a3);
-      v26 = MiVadDeleted(a3);
-      MiUnlockVadShared((__int64)CurrentThread, a3);
+      MiLockVadShared((__int64)CurrentThread, (__int64)a3);
+      v26 = MiVadDeleted((__int64)a3);
+      MiUnlockVadShared((__int64)CurrentThread, (__int64)a3);
       if ( v26 )
-        MiDeleteImageHotPatchState(a3);
+        MiDeleteImageHotPatchState((__int64)a3);
     }
     if ( v14 )
       MiLogHotPatchOperationStatus(v38, a5, (unsigned int)&DestinationString, v11, 0);

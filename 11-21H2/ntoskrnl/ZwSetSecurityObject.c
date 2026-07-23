@@ -1,17 +1,17 @@
 /*
  * XREFs of ZwSetSecurityObject @ 0x14041EDA0
  * Callers:
- *     BiZwSetSecurityObject @ 0x1403A7848 (BiZwSetSecurityObject.c)
- *     CmpApplyAdminSdOnHiveFiles @ 0x1404172B8 (CmpApplyAdminSdOnHiveFiles.c)
- *     DifZwSetSecurityObjectWrapper @ 0x140627A50 (DifZwSetSecurityObjectWrapper.c)
- *     CmpDoReDoSetEntireSecurityDescriptor @ 0x1406580FC (CmpDoReDoSetEntireSecurityDescriptor.c)
- *     PiDevCfgCopyDeviceKeys @ 0x140679ADC (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
- *     CmpDoReDoSetSecurityDescriptor @ 0x140925DFC (CmpDoReDoSetSecurityDescriptor.c)
- *     SmKmStoreFileCreateForIoType @ 0x1409D69A8 (SmKmStoreFileCreateForIoType.c)
- *     _RegRtlCopyTreeInternal @ 0x140A2D248 (_RegRtlCopyTreeInternal.c)
- *     IopApplySystemPartitionProt @ 0x140B4F514 (IopApplySystemPartitionProt.c)
+ *     sub_1403A7848 @ 0x1403A7848 (sub_1403A7848.c)
+ *     sub_1404172B8 @ 0x1404172B8 (sub_1404172B8.c)
+ *     sub_140627A50 @ 0x140627A50 (sub_140627A50.c)
+ *     sub_1406580FC @ 0x1406580FC (sub_1406580FC.c)
+ *     sub_140679ADC @ 0x140679ADC (sub_140679ADC.c)
+ *     sub_140679BEC @ 0x140679BEC (sub_140679BEC.c)
+ *     sub_14084AA8C @ 0x14084AA8C (sub_14084AA8C.c)
+ *     sub_140925DFC @ 0x140925DFC (sub_140925DFC.c)
+ *     sub_1409D69A8 @ 0x1409D69A8 (sub_1409D69A8.c)
+ *     sub_140A2D248 @ 0x140A2D248 (sub_140A2D248.c)
+ *     sub_140B4F514 @ 0x140B4F514 (sub_140B4F514.c)
  * Callees:
  *     <none>
  */
@@ -24,5 +24,5 @@ NTSTATUS __stdcall ZwSetSecurityObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, *(_QWORD *)&SecurityInformation);
+  return sub_140433F80(Handle, *(_QWORD *)&SecurityInformation);
 }

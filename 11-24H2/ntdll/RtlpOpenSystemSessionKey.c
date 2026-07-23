@@ -1,20 +1,19 @@
 /*
- * XREFs of RtlpOpenSystemSessionKey @ 0x180112310
+ * XREFs of RtlpOpenSystemSessionKey @ 0x18010D780
  * Callers:
- *     RtlSetImageMitigationPolicy @ 0x180136E80 (RtlSetImageMitigationPolicy.c)
+ *     RtlSetImageMitigationPolicy @ 0x1801350B0 (RtlSetImageMitigationPolicy.c)
  * Callees:
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
  */
 
-__int64 __fastcall RtlpOpenSystemSessionKey(unsigned int a1, __int64 a2)
+NTSTATUS __fastcall RtlpOpenSystemSessionKey(ACCESS_MASK DesiredAccess, PHANDLE KeyHandle)
 {
-  _QWORD v3[4]; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v4; // [rsp+40h] [rbp-18h]
+  _OBJECT_ATTRIBUTES v3; // [rsp+20h] [rbp-38h] BYREF
 
-  v3[0] = 48LL;
-  v3[3] = 576LL;
-  v3[1] = 0LL;
-  v3[2] = &unk_180174040;
-  v4 = 0LL;
-  return NtOpenKey(a2, a1, v3);
+  *(_QWORD *)&v3.Length = 48LL;
+  *(_QWORD *)&v3.Attributes = 576LL;
+  v3.RootDirectory = 0LL;
+  v3.ObjectName = (PUNICODE_STRING)&unk_180173040;
+  *(_OWORD *)&v3.SecurityDescriptor = 0LL;
+  return NtOpenKey(KeyHandle, DesiredAccess, &v3);
 }

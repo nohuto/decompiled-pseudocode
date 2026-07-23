@@ -1,9 +1,9 @@
 /*
  * XREFs of ZwOpenKeyEx @ 0x14041DC40
  * Callers:
- *     DifZwOpenKeyExWrapper @ 0x140621CE0 (DifZwOpenKeyExWrapper.c)
- *     _RegRtlOpenKeyTransacted @ 0x14078003C (_RegRtlOpenKeyTransacted.c)
- *     MfgInitSystem @ 0x140B30BB0 (MfgInitSystem.c)
+ *     sub_140621CE0 @ 0x140621CE0 (sub_140621CE0.c)
+ *     sub_14078003C @ 0x14078003C (sub_14078003C.c)
+ *     sub_140B30BB0 @ 0x140B30BB0 (sub_140B30BB0.c)
  * Callees:
  *     <none>
  */
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwOpenKeyEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(KeyHandle, *(_QWORD *)&DesiredAccess);
 }

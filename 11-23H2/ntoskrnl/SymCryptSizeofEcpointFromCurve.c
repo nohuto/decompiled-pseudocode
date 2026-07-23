@@ -1,18 +1,18 @@
 /*
- * XREFs of SymCryptSizeofEcpointFromCurve @ 0x1403FF994
+ * XREFs of SymCryptSizeofEcpointFromCurve @ 0x1403FFB74
  * Callers:
- *     SymCryptEckeyCreate @ 0x1403F88C8 (SymCryptEckeyCreate.c)
- *     SymCryptEckeyPerformPublicKeyValidation @ 0x1403F897C (SymCryptEckeyPerformPublicKeyValidation.c)
- *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
- *     SymCryptSizeofEckeyFromCurve @ 0x1403F8F1C (SymCryptSizeofEckeyFromCurve.c)
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403FE3A0 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x1403FE8B0 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptOfflinePrecomputation @ 0x1403FEED0 (SymCryptOfflinePrecomputation.c)
- *     SymCryptTwistedEdwardsFillScratchSpaces @ 0x14040012C (SymCryptTwistedEdwardsFillScratchSpaces.c)
- *     SymCryptMontgomeryFillScratchSpaces @ 0x140400B6C (SymCryptMontgomeryFillScratchSpaces.c)
- *     SymCryptShortWeierstrassAdd @ 0x140401250 (SymCryptShortWeierstrassAdd.c)
- *     SymCryptShortWeierstrassFillScratchSpaces @ 0x1404024DC (SymCryptShortWeierstrassFillScratchSpaces.c)
+ *     SymCryptEckeyCreate @ 0x1403F8AA8 (SymCryptEckeyCreate.c)
+ *     SymCryptEckeyPerformPublicKeyValidation @ 0x1403F8B5C (SymCryptEckeyPerformPublicKeyValidation.c)
+ *     SymCryptEckeySetValue @ 0x1403F8C78 (SymCryptEckeySetValue.c)
+ *     SymCryptSizeofEckeyFromCurve @ 0x1403F90FC (SymCryptSizeofEckeyFromCurve.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403FE580 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x1403FEA90 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptOfflinePrecomputation @ 0x1403FF0B0 (SymCryptOfflinePrecomputation.c)
+ *     SymCryptTwistedEdwardsFillScratchSpaces @ 0x14040030C (SymCryptTwistedEdwardsFillScratchSpaces.c)
+ *     SymCryptMontgomeryFillScratchSpaces @ 0x140400D4C (SymCryptMontgomeryFillScratchSpaces.c)
+ *     SymCryptShortWeierstrassAdd @ 0x140401430 (SymCryptShortWeierstrassAdd.c)
+ *     SymCryptShortWeierstrassFillScratchSpaces @ 0x1404026BC (SymCryptShortWeierstrassFillScratchSpaces.c)
  * Callees:
  *     <none>
  */

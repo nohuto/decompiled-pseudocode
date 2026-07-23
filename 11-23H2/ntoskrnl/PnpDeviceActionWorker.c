@@ -1,41 +1,41 @@
 /*
- * XREFs of PnpDeviceActionWorker @ 0x140359430
+ * XREFs of PnpDeviceActionWorker @ 0x1403595D0
  * Callers:
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     IoReportTargetDeviceChangeAsynchronous @ 0x14031D730 (IoReportTargetDeviceChangeAsynchronous.c)
- *     PnpLogActionQueueEvent @ 0x140359A9C (PnpLogActionQueueEvent.c)
- *     PnpDeleteDeviceActionRequest @ 0x140359BE0 (PnpDeleteDeviceActionRequest.c)
- *     PopDirectedDripsClearDisengageReason @ 0x14035E638 (PopDirectedDripsClearDisengageReason.c)
- *     PnpCompleteSystemStartProcess @ 0x1403A0E28 (PnpCompleteSystemStartProcess.c)
- *     PpProcessClearProblem @ 0x1403B1170 (PpProcessClearProblem.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PiProcessDeviceResetAction @ 0x1405600D8 (PiProcessDeviceResetAction.c)
- *     PnpProcessRebalance @ 0x140564EF4 (PnpProcessRebalance.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
- *     PiProcessReenumeration @ 0x1407CCFF4 (PiProcessReenumeration.c)
- *     PiProcessRequeryDeviceState @ 0x1408542F4 (PiProcessRequeryDeviceState.c)
- *     PiProcessStartSystemDevices @ 0x1408641C0 (PiProcessStartSystemDevices.c)
- *     PiRestartDevice @ 0x140864AC0 (PiRestartDevice.c)
- *     PiQueryPowerRelations @ 0x14086EB74 (PiQueryPowerRelations.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14086EEDC (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     PiConfigureDevice @ 0x1409592B4 (PiConfigureDevice.c)
- *     PiProcessClearDeviceProblem @ 0x140959370 (PiProcessClearDeviceProblem.c)
- *     PiProcessResourceRequirementsChanged @ 0x1409594D4 (PiProcessResourceRequirementsChanged.c)
- *     PiProcessSetDeviceProblem @ 0x140959638 (PiProcessSetDeviceProblem.c)
- *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x14096AE8C (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x14031D9C0 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     PnpLogActionQueueEvent @ 0x140359C3C (PnpLogActionQueueEvent.c)
+ *     PnpDeleteDeviceActionRequest @ 0x140359D80 (PnpDeleteDeviceActionRequest.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14035E7D8 (PopDirectedDripsClearDisengageReason.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403A1008 (PnpCompleteSystemStartProcess.c)
+ *     PpProcessClearProblem @ 0x1403B1350 (PpProcessClearProblem.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PiProcessDeviceResetAction @ 0x140560798 (PiProcessDeviceResetAction.c)
+ *     PnpProcessRebalance @ 0x1405655B4 (PnpProcessRebalance.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
+ *     PiProcessReenumeration @ 0x1407CD2C4 (PiProcessReenumeration.c)
+ *     PiProcessRequeryDeviceState @ 0x1408545F4 (PiProcessRequeryDeviceState.c)
+ *     PiProcessStartSystemDevices @ 0x140864400 (PiProcessStartSystemDevices.c)
+ *     PiRestartDevice @ 0x140864D00 (PiRestartDevice.c)
+ *     PiQueryPowerRelations @ 0x14086EDB4 (PiQueryPowerRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14086F11C (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PiConfigureDevice @ 0x1409594B4 (PiConfigureDevice.c)
+ *     PiProcessClearDeviceProblem @ 0x140959570 (PiProcessClearDeviceProblem.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1409596D4 (PiProcessResourceRequirementsChanged.c)
+ *     PiProcessSetDeviceProblem @ 0x140959838 (PiProcessSetDeviceProblem.c)
+ *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x14096B08C (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
  */
 
 __int64 PnpDeviceActionWorker()
@@ -173,10 +173,10 @@ LABEL_170:
     v4 = 0LL;
 LABEL_6:
     KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)CurrentIrql <= 0xFu
         && (unsigned __int8)v5 <= 0xFu
         && (unsigned __int8)CurrentIrql >= 2u )
@@ -212,10 +212,10 @@ LABEL_6:
       v11 = *(_DWORD *)(v4 + 24);
       v12 = KeAcquireSpinLockRaiseToDpc(&qword_140C3F308);
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F308);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v51 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v51 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v51 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v51 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v51 >= 2u )
         {
           v52 = KeGetCurrentPrcb();
           v53 = v52->SchedulerAssist;
@@ -227,15 +227,15 @@ LABEL_6:
         }
       }
       __writecr8(v12);
-      v13 = KeAcquireSpinLockRaiseToDpc(&qword_140C38ED0);
-      dword_140C38EDC = v11;
-      if ( byte_140C38F50 )
-        qword_140C38F68 = MEMORY[0xFFFFF78000000008];
-      KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38ED0);
-      if ( KiIrqlFlags )
+      v13 = KeAcquireSpinLockRaiseToDpc(&qword_140C38FF0);
+      dword_140C38FFC = v11;
+      if ( byte_140C39070 )
+        qword_140C39088 = MEMORY[0xFFFFF78000000008];
+      KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38FF0);
+      if ( (_DWORD)KiIrqlFlags )
       {
         v55 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v55 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v55 >= 2u )
         {
           v56 = KeGetCurrentPrcb();
           v57 = v56->SchedulerAssist;
@@ -468,10 +468,10 @@ LABEL_42:
       v25 = *(unsigned int *)(v4 + 24);
       v26 = KeAcquireSpinLockRaiseToDpc(&qword_140C3F308);
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F308);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v66 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v66 <= 0xFu && (unsigned __int8)v26 <= 0xFu && v66 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v66 <= 0xFu && (unsigned __int8)v26 <= 0xFu && v66 >= 2u )
         {
           v67 = KeGetCurrentPrcb();
           v68 = v67->SchedulerAssist;
@@ -483,20 +483,20 @@ LABEL_42:
         }
       }
       __writecr8(v26);
-      v27 = KeAcquireSpinLockRaiseToDpc(&qword_140C38ED0);
-      if ( byte_140C38F50 )
+      v27 = KeAcquireSpinLockRaiseToDpc(&qword_140C38FF0);
+      if ( byte_140C39070 )
       {
         *(&PopDirectedDripsDiagSessionContext + v25 + 26) = (char *)*(&PopDirectedDripsDiagSessionContext + v25 + 26)
                                                           + MEMORY[0xFFFFF78000000008]
-                                                          - qword_140C38F68;
-        qword_140C38F68 = 0LL;
+                                                          - qword_140C39088;
+        qword_140C39088 = 0LL;
       }
-      dword_140C38EDC = 28;
-      KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38ED0);
-      if ( KiIrqlFlags )
+      dword_140C38FFC = 28;
+      KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38FF0);
+      if ( (_DWORD)KiIrqlFlags )
       {
         v70 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v70 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v70 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v70 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v70 >= 2u )
         {
           v71 = KeGetCurrentPrcb();
           v72 = v71->SchedulerAssist;
@@ -524,10 +524,10 @@ LABEL_42:
         if ( v33 )
           PopDirectedDripsClearDisengageReason(4LL);
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F308);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v74 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v74 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v74 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v74 <= 0xFu && (unsigned __int8)v34 <= 0xFu && v74 >= 2u )
           {
             v75 = KeGetCurrentPrcb();
             v76 = v75->SchedulerAssist;
@@ -539,18 +539,18 @@ LABEL_42:
           }
         }
         __writecr8(v34);
-        v35 = KeAcquireSpinLockRaiseToDpc(&qword_140C38ED0);
-        if ( !--dword_140C38ED8 && byte_140C38F50 )
+        v35 = KeAcquireSpinLockRaiseToDpc(&qword_140C38FF0);
+        if ( !--dword_140C38FF8 && byte_140C39070 )
         {
-          qword_140C38F58 += MEMORY[0xFFFFF78000000008] - qword_140C38F60;
-          qword_140C38F60 = 0LL;
+          qword_140C39078 += MEMORY[0xFFFFF78000000008] - qword_140C39080;
+          qword_140C39080 = 0LL;
         }
         --*((_DWORD *)&PopDirectedDripsDiagSessionContext + v31 + 16);
-        KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38ED0);
-        if ( KiIrqlFlags )
+        KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38FF0);
+        if ( (_DWORD)KiIrqlFlags )
         {
           v78 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v78 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v78 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v78 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v78 >= 2u )
           {
             v79 = KeGetCurrentPrcb();
             v80 = v79->SchedulerAssist;
@@ -602,10 +602,10 @@ LABEL_42:
   PnpEnumerationInProgress = 0;
   KeSetEvent(&PnpEnumerationLock, 0, 0);
   KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v82 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v82 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v82 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v82 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v82 >= 2u )
     {
       v83 = KeGetCurrentPrcb();
       v84 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

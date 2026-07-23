@@ -1,21 +1,21 @@
 /*
- * XREFs of MiTrimSection @ 0x14008F514
+ * XREFs of MiTrimSection @ 0x14008EC74
  * Callers:
- *     MiTrimSharedPage @ 0x14008E6E4 (MiTrimSharedPage.c)
- *     MmTrimSection @ 0x14008F450 (MmTrimSection.c)
+ *     MiTrimSharedPage @ 0x14008DE44 (MiTrimSharedPage.c)
+ *     MmTrimSection @ 0x14008EBB0 (MmTrimSection.c)
  * Callees:
- *     MiTrimSharedPageFromViews @ 0x140018E50 (MiTrimSharedPageFromViews.c)
- *     MiReferenceSubsection @ 0x140021B6C (MiReferenceSubsection.c)
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     MiViewMayContainPage @ 0x14008F754 (MiViewMayContainPage.c)
- *     MiUnlockControlAreaFileObjectShared @ 0x14008FA18 (MiUnlockControlAreaFileObjectShared.c)
- *     MiLockControlAreaFileObjectShared @ 0x14008FA60 (MiLockControlAreaFileObjectShared.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MiAcquireSpinLockExclusive @ 0x1401DE428 (MiAcquireSpinLockExclusive.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiTrimSharedPageFromViews @ 0x1400189D0 (MiTrimSharedPageFromViews.c)
+ *     MiReferenceSubsection @ 0x1400216EC (MiReferenceSubsection.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     MiViewMayContainPage @ 0x14008EEB4 (MiViewMayContainPage.c)
+ *     MiUnlockControlAreaFileObjectShared @ 0x14008F178 (MiUnlockControlAreaFileObjectShared.c)
+ *     MiLockControlAreaFileObjectShared @ 0x14008F1C0 (MiLockControlAreaFileObjectShared.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     MiAcquireSpinLockExclusive @ 0x1401DE254 (MiAcquireSpinLockExclusive.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 __int64 __fastcall MiTrimSection(__int64 a1, int a2, int a3)

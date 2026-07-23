@@ -1,15 +1,15 @@
 /*
- * XREFs of VfFreeMapRegisters @ 0x140707338
+ * XREFs of VfFreeMapRegisters @ 0x140707368
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     ViRemoveChannelWcb @ 0x140222D24 (ViRemoveChannelWcb.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140705E70 (SUBTRACT_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x140705F68 (VF_ASSERT_IRQL.c)
- *     ViFreeMapRegisterFile @ 0x140709458 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140709708 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     ViRemoveChannelWcb @ 0x140222B50 (ViRemoveChannelWcb.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140705EA0 (SUBTRACT_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x140705F98 (VF_ASSERT_IRQL.c)
+ *     ViFreeMapRegisterFile @ 0x140709488 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x140709738 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 void __fastcall VfFreeMapRegisters(__int64 a1, __int64 a2, unsigned int a3)

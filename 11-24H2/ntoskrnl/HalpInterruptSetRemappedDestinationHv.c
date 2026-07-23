@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x1403B9368
+ * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x140373848
  * Callers:
- *     HalpInterruptSetDestination @ 0x1403B9230 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x140373710 (HalpInterruptSetDestination.c)
  * Callees:
- *     HalpHvRetargetDeviceMsiInterrupt @ 0x1403B94C4 (HalpHvRetargetDeviceMsiInterrupt.c)
- *     HalpInterruptFindControllerAndLineState @ 0x1403B9540 (HalpInterruptFindControllerAndLineState.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x1403B9C8C (HalpInterruptFindLinesForGsiRange.c)
- *     HalpInterruptSetLineStateInternal @ 0x1403B9D44 (HalpInterruptSetLineStateInternal.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     HalpHvRetargetIoApicDeviceInterrupt @ 0x1403BA8F8 (HalpHvRetargetIoApicDeviceInterrupt.c)
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x14037265C (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptSetLineStateInternal @ 0x140372714 (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x1403735D0 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpHvRetargetDeviceMsiInterrupt @ 0x1403739A4 (HalpHvRetargetDeviceMsiInterrupt.c)
+ *     HalpHvRetargetIoApicDeviceInterrupt @ 0x140374248 (HalpHvRetargetIoApicDeviceInterrupt.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *a2, __int64 a3)
@@ -23,18 +23,16 @@ __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *
   int v11; // eax
   unsigned int v12; // ebx
   _DWORD *LinesForGsiRange; // rax
-  char v14; // bl
-  unsigned int v15; // eax
-  __int64 v16; // rdx
-  __int64 v17; // [rsp+30h] [rbp-10h] BYREF
-  _DWORD v18[2]; // [rsp+38h] [rbp-8h] BYREF
-  char v19; // [rsp+68h] [rbp+28h] BYREF
-  __int64 v20; // [rsp+78h] [rbp+38h] BYREF
+  unsigned __int8 v14; // bl
+  __int64 v15; // [rsp+30h] [rbp-10h] BYREF
+  _DWORD v16[2]; // [rsp+38h] [rbp-8h] BYREF
+  char v17; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v18; // [rsp+78h] [rbp+38h] BYREF
 
-  v20 = 0LL;
-  v17 = 0LL;
+  v18 = 0LL;
+  v15 = 0LL;
   v4 = *a2;
-  v19 = 0;
+  v17 = 0;
   if ( v4 )
   {
     if ( v4 == 3 )
@@ -49,38 +47,36 @@ __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *
   }
   if ( !a1 )
     return (unsigned int)-1073741811;
-  ControllerAndLineState = HalpInterruptFindControllerAndLineState(*a1, &v20, &v17, a2);
+  ControllerAndLineState = HalpInterruptFindControllerAndLineState(*a1, &v18, &v15);
   if ( ControllerAndLineState < 0 )
   {
     HalpInterruptSetProblemEx(
-      v20,
+      v18,
       18,
       ControllerAndLineState,
       (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c",
       741);
     return (unsigned int)-1073741811;
   }
-  v10 = v20;
-  v11 = HalpHvRetargetIoApicDeviceInterrupt(*(unsigned int *)(v20 + 256), v17, a3, &v19);
+  v10 = v18;
+  v11 = HalpHvRetargetIoApicDeviceInterrupt(*(unsigned int *)(v18 + 256), v15, a3, &v17);
   v7 = v11;
   if ( v11 < 0 )
   {
     HalpInterruptSetProblemEx(v10, 37, v11, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 755);
     return v7;
   }
-  if ( v19 )
+  if ( v17 )
   {
     v12 = *a1;
-    LinesForGsiRange = (_DWORD *)HalpInterruptFindLinesForGsiRange(v12, v12 + 1);
+    LinesForGsiRange = HalpInterruptFindLinesForGsiRange(v12, v12 + 1);
     if ( LinesForGsiRange )
     {
-      v18[0] = LinesForGsiRange[4];
-      v18[1] = v12 + LinesForGsiRange[5] - LinesForGsiRange[7];
+      v16[0] = LinesForGsiRange[4];
+      v16[1] = v12 + LinesForGsiRange[5] - LinesForGsiRange[7];
       v14 = HalpAcquireHighLevelLock(&HalpInterruptLock);
-      v15 = HalpInterruptSetLineStateInternal(v10, v18);
-      LOBYTE(v16) = v14;
-      v7 = v15;
-      HalpReleaseHighLevelLock(&HalpInterruptLock, v16);
+      v7 = HalpInterruptSetLineStateInternal(v10, (__int64)v16, v15);
+      HalpReleaseHighLevelLock((volatile signed __int64 *)&HalpInterruptLock, v14);
       return v7;
     }
     HalpInterruptSetProblemEx(

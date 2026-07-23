@@ -8,9 +8,12 @@
  *     LdrpIgnoreReadFaultsFilter @ 0x4B32F3EE (LdrpIgnoreReadFaultsFilter.c)
  */
 
-int __stdcall LdrpProtectedCopyMemory(int a1, void *Src, void *a3, size_t Size, _DWORD *a5)
+int __stdcall LdrpProtectedCopyMemory(int a1, void *Src, void *a3, size_t Size)
 {
-  memcpy(a3, Src, Size);
-  *a5 = Size;
+  size_t v5; // [esp-4h] [ebp-30h]
+
+  LODWORD(v5) = Size;
+  memcpy(a3, Src, v5);
+  *(_DWORD *)HIDWORD(Size) = Size;
   return 0;
 }

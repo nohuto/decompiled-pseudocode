@@ -9,13 +9,13 @@
  *     RtlpWaitOnAddress @ 0x180064BA4 (RtlpWaitOnAddress.c)
  *     RtlpCreateDeferredCriticalSectionEvent @ 0x180065030 (RtlpCreateDeferredCriticalSectionEvent.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtWaitForSingleObject @ 0x18009D6C0 (NtWaitForSingleObject.c)
- *     ZwTerminateProcess @ 0x18009DBC0 (ZwTerminateProcess.c)
- *     NtTraceEvent @ 0x18009E1F0 (NtTraceEvent.c)
- *     LdrpLogEtwEvent @ 0x1800CF280 (LdrpLogEtwEvent.c)
- *     RtlpGetCriticalSectionContentionCount @ 0x1800E90F8 (RtlpGetCriticalSectionContentionCount.c)
- *     RtlpPossibleDeadlock @ 0x1800E9268 (RtlpPossibleDeadlock.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     NtWaitForSingleObject @ 0x18009D680 (NtWaitForSingleObject.c)
+ *     ZwTerminateProcess @ 0x18009DB80 (ZwTerminateProcess.c)
+ *     NtTraceEvent @ 0x18009E1B0 (NtTraceEvent.c)
+ *     LdrpLogEtwEvent @ 0x1800CF240 (LdrpLogEtwEvent.c)
+ *     RtlpGetCriticalSectionContentionCount @ 0x1800E90B8 (RtlpGetCriticalSectionContentionCount.c)
+ *     RtlpPossibleDeadlock @ 0x1800E9228 (RtlpPossibleDeadlock.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
 int __fastcall RtlpWaitOnCriticalSection(__int64 a1, __int64 a2, __int64 a3)
@@ -47,7 +47,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, __int64 a2, __int64 a3)
   char v29; // [rsp+40h] [rbp-98h]
   int v30; // [rsp+48h] [rbp-90h] BYREF
   struct _TEB *v31; // [rsp+50h] [rbp-88h]
-  _BYTE v32[6]; // [rsp+58h] [rbp-80h] BYREF
+  _BYTE Fields[6]; // [rsp+58h] [rbp-80h] BYREF
   __int16 v33; // [rsp+5Eh] [rbp-7Ah]
   int v34; // [rsp+78h] [rbp-60h]
   int v35; // [rsp+7Ch] [rbp-5Ch]
@@ -59,7 +59,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, __int64 a2, __int64 a3)
   v29 = 0;
   v31 = v3;
   v5 = 0;
-  if ( (_UNKNOWN **)a1 == &LdrpLoaderLock )
+  if ( (_RTL_CRITICAL_SECTION *)a1 == &LdrpLoaderLock )
   {
     v29 = 1;
     v3->WaitingOnLoaderLock = 1;
@@ -84,7 +84,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, __int64 a2, __int64 a3)
     {
       if ( *(_BYTE *)(v17 + 40) )
 LABEL_34:
-        ZwTerminateProcess(-1LL, 3221225547LL);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
     }
   }
   v6 = (LARGE_INTEGER *)&RtlpTimeout;
@@ -108,7 +108,7 @@ LABEL_34:
   v9 = *(void **)(a1 + 24);
   while ( 1 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v10 = (__int64)NtCurrentPeb()->SharedData + 552;
     else
       v10 = 2147353474LL;
@@ -125,7 +125,7 @@ LABEL_34:
         v20 = (__int64)NtCurrentPeb()->SharedData + 552;
       else
         v20 = 2147353474LL;
-      NtTraceEvent(*(unsigned __int8 *)v20, 132098LL, 24LL, v32);
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v20, 0x20402u, 0x18u, Fields);
     }
     if ( v9 == (void *)-1LL )
     {
@@ -146,13 +146,13 @@ LABEL_19:
 LABEL_44:
     v21 = NtCurrentTeb();
     v22 = (__int64)(((unsigned __int128)(v6->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v6->QuadPart) >> 23;
-    DbgPrintEx(101, 1, "RTL: Enter CriticalSection Timeout (%I64u secs) %d\n", v22 + (v22 >> 63), v5);
+    DbgPrintEx(0x65u, 1u, "RTL: Enter CriticalSection Timeout (%I64u secs) %d\n", v22 + (v22 >> 63), v5);
     if ( *(_QWORD *)a1 == -1LL )
       v23 = 0;
     else
       v23 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
     DbgPrintEx(
-      101,
+      0x65u,
       0,
       "RTL: Pid.Tid %p.%p, owner tid %p Critical Section %p - ContentionCount == %u\n",
       v21->ClientId.UniqueProcess,
@@ -163,13 +163,13 @@ LABEL_44:
     ++v5;
     CriticalSectionContentionCount = RtlpGetCriticalSectionContentionCount(a1);
     v25 = CriticalSectionContentionCount;
-    if ( v5 > 2 && (_UNKNOWN **)a1 != &LdrpLoaderLock && CriticalSectionContentionCount == v8 )
+    if ( v5 > 2 && (_RTL_CRITICAL_SECTION *)a1 != &LdrpLoaderLock && CriticalSectionContentionCount == v8 )
       RtlpPossibleDeadlock();
     v8 = v25;
-    DbgPrintEx(101, 0, "RTL: Re-Waiting\n");
+    DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
   }
   if ( (int)v11 < 0 )
-    RtlRaiseStatus((unsigned int)v11);
+    RtlRaiseStatus((NTSTATUS)v11);
   if ( v29 )
   {
     v31->WaitingOnLoaderLock = 0;

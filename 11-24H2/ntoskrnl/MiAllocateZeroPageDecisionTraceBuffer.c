@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateZeroPageDecisionTraceBuffer @ 0x14068F5A4
+ * XREFs of MiAllocateZeroPageDecisionTraceBuffer @ 0x140690674
  * Callers:
- *     MiAbsorbPossibleEngineChanges @ 0x14068F0A4 (MiAbsorbPossibleEngineChanges.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x140690174 (MiAbsorbPossibleEngineChanges.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
  */
 
 _DWORD *__fastcall MiAllocateZeroPageDecisionTraceBuffer(__int64 a1, unsigned int a2)

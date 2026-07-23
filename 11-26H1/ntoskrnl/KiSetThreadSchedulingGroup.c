@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSetThreadSchedulingGroup @ 0x140203774
+ * XREFs of KiSetThreadSchedulingGroup @ 0x140203854
  * Callers:
  *     KeStartThread @ 0x140201AAC (KeStartThread.c)
- *     KeTerminateThread @ 0x140203388 (KeTerminateThread.c)
- *     KeSetProcessSchedulingGroup @ 0x14051FF00 (KeSetProcessSchedulingGroup.c)
+ *     KeTerminateThread @ 0x140203468 (KeTerminateThread.c)
+ *     KeSetProcessSchedulingGroup @ 0x1405225A4 (KeSetProcessSchedulingGroup.c)
  * Callees:
- *     ?KiRemoveThreadFromSchedulingGroup@@YAXPEAU_KTHREAD@@EPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140203FD4 (-KiRemoveThreadFromSchedulingGroup@@YAXPEAU_KTHREAD@@EPEAU_SINGLE_LIST_ENTRY@@@Z.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x140226F90 (KiUpdateTotalCyclesCurrentThread.c)
- *     ?KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140238460 (-KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiReadyDeferredReadyList @ 0x14032F930 (KiReadyDeferredReadyList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceThreadSchedulingGroup @ 0x1406C507C (EtwTraceThreadSchedulingGroup.c)
+ *     ?KiRemoveThreadFromSchedulingGroup@@YAXPEAU_KTHREAD@@EPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402040B4 (-KiRemoveThreadFromSchedulingGroup@@YAXPEAU_KTHREAD@@EPEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x140228920 (KiUpdateTotalCyclesCurrentThread.c)
+ *     ?KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140239DC0 (-KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiReadyDeferredReadyList @ 0x140331960 (KiReadyDeferredReadyList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceThreadSchedulingGroup @ 0x1406C8CBC (EtwTraceThreadSchedulingGroup.c)
  */
 
 __int64 __fastcall KiSetThreadSchedulingGroup(struct _KTHREAD *a1, struct _KSCHEDULING_GROUP *a2)
@@ -71,7 +71,7 @@ __int64 __fastcall KiSetThreadSchedulingGroup(struct _KTHREAD *a1, struct _KSCHE
   }
   a1->ThreadLock = 0LL;
   result = KiReadyDeferredReadyList(CurrentPrcb, &v11);
-  if ( (WORD2(xmmword_140FBFC10) & 0x4000) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x4000) != 0 )
     return EtwTraceThreadSchedulingGroup(a1, SchedulingGroup, a2);
   return result;
 }

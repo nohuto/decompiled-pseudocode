@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllocateRelationList @ 0x140A0D7B8
+ * XREFs of IopAllocateRelationList @ 0x1409BBBBC
  * Callers:
- *     PnpBuildRemovalRelationList @ 0x140A0E2D8 (PnpBuildRemovalRelationList.c)
- *     PnpInvalidateRelationsInList @ 0x140A0E800 (PnpInvalidateRelationsInList.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140A0E9B4 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpBuildRemovalRelationList @ 0x1409BC6DC (PnpBuildRemovalRelationList.c)
+ *     PnpInvalidateRelationsInList @ 0x1409BCC04 (PnpInvalidateRelationsInList.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x1409BCDB8 (PnpQueuePendingSurpriseRemoval.c)
  * Callees:
- *     IopFreeRelationList @ 0x140A0CB00 (IopFreeRelationList.c)
- *     PiAllocateDeviceObjectList @ 0x140A0D820 (PiAllocateDeviceObjectList.c)
- *     PnpAllocateCriticalMemory @ 0x140A0D890 (PnpAllocateCriticalMemory.c)
+ *     IopFreeRelationList @ 0x1409BAF04 (IopFreeRelationList.c)
+ *     PiAllocateDeviceObjectList @ 0x1409BBC24 (PiAllocateDeviceObjectList.c)
+ *     PnpAllocateCriticalMemory @ 0x1409BBC94 (PnpAllocateCriticalMemory.c)
  */
 
 __int64 __fastcall IopAllocateRelationList(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall IopAllocateRelationList(__int64 a1)
     }
     else
     {
-      IopFreeRelationList((_QWORD *)CriticalMemory);
+      IopFreeRelationList((void **)CriticalMemory);
       return 0LL;
     }
   }

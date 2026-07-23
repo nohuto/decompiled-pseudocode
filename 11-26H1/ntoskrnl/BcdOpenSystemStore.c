@@ -1,24 +1,24 @@
 /*
- * XREFs of BcdOpenSystemStore @ 0x14077B68C
+ * XREFs of BcdOpenSystemStore @ 0x14077E2CC
  * Callers:
- *     SepSecureBootCorrectBcd @ 0x140B5C260 (SepSecureBootCorrectBcd.c)
+ *     SepSecureBootCorrectBcd @ 0x140B85B08 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     BiReleaseBcdSyncMutant @ 0x1409D3F58 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x1409D415C (BiAcquireBcdSyncMutant.c)
- *     BiOpenSystemStore @ 0x1409D43D4 (BiOpenSystemStore.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A4F38 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A513C (BiAcquireBcdSyncMutant.c)
+ *     BiOpenSystemStore @ 0x1409A53B4 (BiOpenSystemStore.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdOpenSystemStore(__int64 a1)
+NTSTATUS __cdecl BcdOpenSystemStore(PHANDLE BcdStoreHandle)
 {
   int v2; // eax
-  unsigned int v3; // r8d
-  unsigned int v5; // ebx
+  NTSTATUS v3; // r8d
+  NTSTATUS v5; // ebx
 
   v2 = BiAcquireBcdSyncMutant(0LL);
   if ( v2 >= 0 )
   {
-    v5 = BiOpenSystemStore(a1, 0LL);
+    v5 = BiOpenSystemStore(BcdStoreHandle, 0LL);
     BiReleaseBcdSyncMutant(0LL);
     return v5;
   }

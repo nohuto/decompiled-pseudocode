@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtDeleteDevice @ 0x1404E29F0
+ * XREFs of IvtDeleteDevice @ 0x1404E2C30
  * Callers:
  *     <none>
  * Callees:
- *     ExtEnvFreeMemory @ 0x1404D53BC (ExtEnvFreeMemory.c)
+ *     ExtEnvFreeMemory @ 0x1404D55FC (ExtEnvFreeMemory.c)
  */
 
 __int64 __fastcall IvtDeleteDevice(__int64 a1, unsigned __int64 a2)

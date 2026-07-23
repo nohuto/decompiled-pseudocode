@@ -1,36 +1,36 @@
 /*
- * XREFs of ExCallSessionCallBack @ 0x140683678
+ * XREFs of ExCallSessionCallBack @ 0x1405E44F8
  * Callers:
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
  * Callees:
- *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
- *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
- *     MmSessionGetWin32Callouts @ 0x14025A910 (MmSessionGetWin32Callouts.c)
- *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x14025AA10 (ExDereferenceCallBackBlock.c)
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmSessionGetWin32Callouts @ 0x14027BE80 (MmSessionGetWin32Callouts.c)
+ *     ExReferenceCallBackBlock @ 0x14027BEC0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14027BF80 (ExDereferenceCallBackBlock.c)
+ *     MmGetSessionId @ 0x1402863C0 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x1402872E0 (MmGetNextSession.c)
+ *     MmGetSessionById @ 0x1402AAD40 (MmGetSessionById.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a3, int *a4)
 {
   int *v4; // r15
   int v7; // edi
-  _KPROCESS *SessionById; // rax
+  ULONG_PTR SessionById; // rax
   struct _DMA_ADAPTER *v9; // rsi
   int v10; // ebx
-  union _RTL_RUN_ONCE *Win32Callouts; // r14
+  _RTL_RUN_ONCE *Win32Callouts; // r14
   struct _EX_RUNDOWN_REF *v12; // rax
   struct _EX_RUNDOWN_REF *v13; // rbp
-  _KPROCESS *NextSession; // rbx
+  struct _DMA_ADAPTER *NextSession; // rbx
   __int64 v16; // r15
   int SessionId; // r12d
   int v18; // esi
-  union _RTL_RUN_ONCE *v19; // r14
+  _RTL_RUN_ONCE *v19; // r14
   struct _EX_RUNDOWN_REF *v20; // rax
   struct _EX_RUNDOWN_REF *v21; // rbp
   _OWORD v23[3]; // [rsp+30h] [rbp-88h] BYREF
@@ -40,11 +40,11 @@ __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a
   memset(v23, 0, sizeof(v23));
   if ( a1 )
   {
-    SessionById = (_KPROCESS *)MmGetSessionById(*a1, a2);
+    SessionById = MmGetSessionById(*a1, a2);
     v9 = (struct _DMA_ADAPTER *)SessionById;
     if ( !SessionById )
       return (unsigned int)-1073741811;
-    v10 = MmAttachSession(SessionById, (__int64)v23);
+    v10 = MmAttachSession(SessionById);
     if ( v10 < 0 )
     {
       v10 = -1073741811;
@@ -69,14 +69,14 @@ __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a
   }
   else
   {
-    NextSession = (_KPROCESS *)MmGetNextSession(0LL);
+    NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(0LL);
     if ( NextSession )
     {
       v16 = a3;
       do
       {
         SessionId = MmGetSessionId((__int64)NextSession);
-        v18 = MmAttachSession(NextSession, (__int64)v23);
+        v18 = MmAttachSession((ULONG_PTR)NextSession);
         if ( v18 >= 0 )
         {
           v19 = MmSessionGetWin32Callouts();
@@ -92,7 +92,7 @@ __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a
         if ( SessionId )
           v18 = v7;
         v7 = v18;
-        NextSession = (_KPROCESS *)MmGetNextSession((struct _DMA_ADAPTER *)NextSession);
+        NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(NextSession);
       }
       while ( NextSession );
       v4 = a4;

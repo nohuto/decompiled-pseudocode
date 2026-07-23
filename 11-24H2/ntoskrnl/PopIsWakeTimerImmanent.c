@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIsWakeTimerImmanent @ 0x140755058
+ * XREFs of PopIsWakeTimerImmanent @ 0x140753378
  * Callers:
- *     PopDeferDoze @ 0x140754EC8 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x1407531E8 (PopDeferDoze.c)
  * Callees:
- *     ExGetNextWakeTime @ 0x140B6DF68 (ExGetNextWakeTime.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExGetNextWakeTime @ 0x140B6FA08 (ExGetNextWakeTime.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PopIsWakeTimerImmanent(int a1, int a2, int a3, unsigned __int64 *a4, _QWORD *a5)
@@ -36,9 +36,9 @@ bool __fastcall PopIsWakeTimerImmanent(int a1, int a2, int a3, unsigned __int64 
   v9 = 0;
   v10 = -1LL;
   P = 0LL;
-  if ( qword_140F0B1D0 && PopDozeDeferralMaxSeconds )
+  if ( qword_140F0BA50 && PopDozeDeferralMaxSeconds )
   {
-    v11 = qword_140F0B1D0 + 10000000 * PopDozeDeferralMaxSeconds;
+    v11 = qword_140F0BA50 + 10000000 * PopDozeDeferralMaxSeconds;
     if ( a2 )
     {
       LOBYTE(a3) = a2 == 2 && PopSimulate >= 0;

@@ -3,38 +3,38 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     SecureDump_Init @ 0x1403B0CE8 (SecureDump_Init.c)
- *     IopInitializeOfflineCrashDump @ 0x1403B0D3C (IopInitializeOfflineCrashDump.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
- *     IoConfigureCrashDump @ 0x14054F964 (IoConfigureCrashDump.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7A60 (RtlQueryRegistryValuesEx.c)
- *     IoInitializeCrashDump @ 0x14083459C (IoInitializeCrashDump.c)
- *     IopDumpTraceForceDumpDisabled @ 0x140943D9C (IopDumpTraceForceDumpDisabled.c)
+ *     SecureDump_Init @ 0x1403B0EC8 (SecureDump_Init.c)
+ *     IopInitializeOfflineCrashDump @ 0x1403B0F1C (IopInitializeOfflineCrashDump.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
+ *     IoConfigureCrashDump @ 0x140550024 (IoConfigureCrashDump.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7A90 (RtlQueryRegistryValuesEx.c)
+ *     IoInitializeCrashDump @ 0x14083489C (IoInitializeCrashDump.c)
+ *     IopDumpTraceForceDumpDisabled @ 0x140943F9C (IopDumpTraceForceDumpDisabled.c)
  *     MmInitializeMemoryLimits @ 0x140B4148C (MmInitializeMemoryLimits.c)
  */
 
-__int64 __fastcall IopInitCrashDumpDuringSysInit(__int64 a1, char a2)
+__int64 __fastcall IopInitCrashDumpDuringSysInit(_QWORD *Context, char a2)
 {
   unsigned int v4; // ecx
   unsigned __int64 v5; // rax
   unsigned int v6; // ebx
   char v8; // [rsp+38h] [rbp-D0h] BYREF
   _QWORD v9[3]; // [rsp+40h] [rbp-C8h] BYREF
-  _QWORD v10[14]; // [rsp+58h] [rbp-B0h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[2]; // [rsp+58h] [rbp-B0h] BYREF
   _BYTE v11[30]; // [rsp+C8h] [rbp-40h] BYREF
   __int16 v12; // [rsp+E6h] [rbp-22h]
   char v13; // [rsp+E8h] [rbp-20h]
   char v14; // [rsp+EDh] [rbp-1Bh]
 
   v8 = 0;
-  if ( !ForceDumpDisabled && (int)SecureDump_Init(a1, a2) < 0 && !SecureDmpCertProvisionFailedDuringBoot )
+  if ( !ForceDumpDisabled && (int)SecureDump_Init((__int64)Context, a2) < 0 && !SecureDmpCertProvisionFailedDuringBoot )
   {
     ForceDumpDisabled = 1;
     IopDumpTraceForceDumpDisabled();
   }
-  if ( a1 && !SpecialMemoryRanges )
+  if ( Context && !SpecialMemoryRanges )
   {
     v4 = 0;
     v5 = 0LL;
@@ -51,19 +51,19 @@ __int64 __fastcall IopInitCrashDumpDuringSysInit(__int64 a1, char a2)
     v11[6] = 1;
     v13 = 1;
     v14 = 1;
-    SpecialMemoryRanges = (__int64)MmInitializeMemoryLimits(a1, (__int64)v11);
+    SpecialMemoryRanges = (__int64)MmInitializeMemoryLimits((__int64)Context, (__int64)v11);
   }
   if ( !a2 )
   {
-    if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 0x100000) != 0 )
+    if ( (*(_DWORD *)(Context[30] + 132LL) & 0x100000) != 0 )
       IoConfigureCrashDump(0LL, 1);
-    memset(v10, 0, sizeof(v10));
-    LODWORD(v10[4]) = 0;
-    v10[0] = IopInitCrashDumpRegCallback;
-    LODWORD(v10[1]) = 4;
-    v10[2] = L"ExistingPageFiles";
-    v10[3] = &v8;
-    RtlQueryRegistryValuesEx(2LL, L"Session Manager\\Memory Management", v10, a1);
+    memset(QueryTable, 0, sizeof(QueryTable));
+    QueryTable[0].DefaultType = 0;
+    QueryTable[0].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))IopInitCrashDumpRegCallback;
+    QueryTable[0].Flags = 4;
+    QueryTable[0].Name = L"ExistingPageFiles";
+    QueryTable[0].EntryContext = &v8;
+    RtlQueryRegistryValuesEx(2u, L"Session Manager\\Memory Management", QueryTable, Context, 0LL);
   }
   if ( v8 )
   {
@@ -75,6 +75,6 @@ __int64 __fastcall IopInitCrashDumpDuringSysInit(__int64 a1, char a2)
     v6 = IoInitializeCrashDump(0LL, (__int128 *)&v9[1]) == 0 ? 0xC0000001 : 0;
   }
   if ( !a2 )
-    IopInitializeOfflineCrashDump(*(_QWORD *)(a1 + 240));
+    IopInitializeOfflineCrashDump(Context[30]);
   return v6;
 }

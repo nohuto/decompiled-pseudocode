@@ -14,7 +14,7 @@ void *__fastcall EtwpAcquireGuidEntryExclusive(__int64 a1)
 {
   void *result; // rax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 40));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   result = NtCurrentTeb()->ClientId.UniqueThread;
   *(_DWORD *)(a1 + 48) = (_DWORD)result;
   return result;

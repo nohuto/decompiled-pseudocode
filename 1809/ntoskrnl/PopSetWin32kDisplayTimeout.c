@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSetWin32kDisplayTimeout @ 0x140879138
+ * XREFs of PopSetWin32kDisplayTimeout @ 0x14087A398
  * Callers:
- *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DD8D0 (PopReleaseAdaptiveLock.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopSendSessionInfo @ 0x140879304 (PopSendSessionInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14058BA3C (PopSetPowerSettingValueAcDc.c)
+ *     PopSendSessionInfo @ 0x14087A564 (PopSendSessionInfo.c)
  */
 
 __int64 __fastcall PopSetWin32kDisplayTimeout(__int64 a1, __int64 a2, __int64 a3)

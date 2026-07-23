@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpSetSoftRestartInformation @ 0x140777D18
+ * XREFs of EtwpSetSoftRestartInformation @ 0x14077ABB8
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     EtwpCancelMemoryPreservation @ 0x14082E13C (EtwpCancelMemoryPreservation.c)
- *     EtwpPreserveLogger @ 0x14082E4AC (EtwpPreserveLogger.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     EtwpCheckLoggerControlAccess @ 0x140A6FAA4 (EtwpCheckLoggerControlAccess.c)
- *     EtwpCaptureString @ 0x140A70314 (EtwpCaptureString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     EtwpCancelMemoryPreservation @ 0x14083437C (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x1408346EC (EtwpPreserveLogger.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpCheckLoggerControlAccess @ 0x14097A438 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpCaptureString @ 0x14097A9F8 (EtwpCaptureString.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpSetSoftRestartInformation(__int64 a1, unsigned int a2, char a3)

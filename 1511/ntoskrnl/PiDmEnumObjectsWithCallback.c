@@ -22,8 +22,8 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
         __int64 a3)
 {
   int v3; // edi
-  struct _RTL_AVL_TABLE *ObjectManagerForObjectType; // rax
-  struct _RTL_AVL_TABLE *v7; // rsi
+  _RTL_AVL_TABLE *ObjectManagerForObjectType; // rax
+  _RTL_AVL_TABLE *v7; // rsi
   int v8; // r9d
   const wchar_t *v9; // rax
   unsigned int **v10; // rax
@@ -43,7 +43,7 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(
   DeleteCount = 0;
   P = &v18;
   v14[0] = 0;
-  ObjectManagerForObjectType = (struct _RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
+  ObjectManagerForObjectType = (_RTL_AVL_TABLE *)PiDmGetObjectManagerForObjectType(a1);
   v20 = 0;
   v7 = ObjectManagerForObjectType;
   v21 = v8;

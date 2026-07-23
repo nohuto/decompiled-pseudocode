@@ -13,5 +13,5 @@ NTSTATUS __stdcall TmInitializeTransactionManager(
         PGUID TmId,
         ULONG CreateOptions)
 {
-  return __imp_TmInitializeTransactionManager(TransactionManager, LogFileName, TmId, CreateOptions);
+  return TmInitializeTransactionManager_0(TransactionManager, LogFileName, TmId, CreateOptions);
 }

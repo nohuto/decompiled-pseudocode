@@ -172,7 +172,7 @@ char __fastcall KeInitSystem(int a1)
               KiEpfCompletionQueue = v38;
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                 v31 = 4;
@@ -181,10 +181,10 @@ char __fastcall KeInitSystem(int a1)
                 SchedulerAssist[5] |= v31;
               }
               KiEpfDrainCompletionQueue();
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v32 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && CurrentIrql <= 0xFu && v32 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && CurrentIrql <= 0xFu && v32 >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   v34 = CurrentPrcb->SchedulerAssist;
@@ -205,14 +205,11 @@ char __fastcall KeInitSystem(int a1)
     }
     KiInitDynamicTraceSupport();
     ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-    v7 = (unsigned int)KeMaximumIncrement;
+    v7 = KeMaximumIncrement;
     v8 = ActiveProcessorCount;
     KiDpcWatchdogConfigurationLock = 0LL;
-    v9 = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement - 1)
-       % ActiveProcessorCount;
-    KiClockKeepAliveCycle = (ActiveProcessorCount
-                           + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement
-                           - 1)
+    v9 = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1) % ActiveProcessorCount;
+    KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1)
                           / ActiveProcessorCount;
     if ( !KiForceBugcheckForDpcWatchdog && HviIsAnyHypervisorPresent() )
     {
@@ -282,7 +279,7 @@ LABEL_27:
         if ( KiInitMachineDependent() )
         {
           v15 = *(unsigned int *)(KiProcessorBlock[0] + 68);
-          v16 = v15 * (unsigned __int64)(unsigned int)KeMaximumIncrement / 0xA;
+          v16 = v15 * (unsigned __int64)KeMaximumIncrement / 0xA;
           KiShortExecutionCycles = v16 / 0xF0;
           KiCyclesPerClockQuantum = v16 / 3;
           KiDirectQuantumTarget = v16 / 3;

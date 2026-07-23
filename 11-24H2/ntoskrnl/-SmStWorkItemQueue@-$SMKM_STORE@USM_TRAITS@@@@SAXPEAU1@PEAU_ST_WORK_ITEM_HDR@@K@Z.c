@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x140247F78
+ * XREFs of ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x1402E21C4
  * Callers:
- *     SmWorkItemQueue @ 0x14028F9CC (SmWorkItemQueue.c)
- *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14039A724 (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?SmPerformStoreMaintenance@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_MAINTENANCE_TYPE@@@Z @ 0x14048B624 (-SmPerformStoreMaintenance@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@.c)
- *     ?SmStoreRequestEx@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140497558 (-SmStoreRequestEx@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@PEAU_SM.c)
+ *     SmWorkItemQueue @ 0x14029F5CC (SmWorkItemQueue.c)
+ *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402F7A24 (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?SmPerformStoreMaintenance@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_MAINTENANCE_TYPE@@@Z @ 0x1404863F8 (-SmPerformStoreMaintenance@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@.c)
+ *     ?SmStoreRequestEx@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140491EE8 (-SmStoreRequestEx@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@PEAU_SM.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x140247290 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x1402E1B30 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue(__int64 a1, unsigned __int64 a2, char a3)
@@ -20,7 +20,7 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue(__int64 a1, unsigned __
   int v4; // r15d
   __int64 v7; // rax
   __int64 v8; // rdi
-  __int64 v9; // r13
+  volatile signed __int64 *v9; // r13
   unsigned __int64 *v10; // r14
   KIRQL v11; // al
   unsigned __int64 *v12; // rdx
@@ -30,14 +30,13 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue(__int64 a1, unsigned __
   __int64 v16; // rax
   KPRIORITY v17; // edi
   KPRIORITY PriorityThread; // ebx
-  __int64 v19; // r8
-  KPRIORITY v20; // ecx
-  unsigned __int64 v21; // rbp
-  unsigned __int64 v22; // rbx
-  __int64 v23; // rdx
-  unsigned __int64 v24; // r8
-  unsigned __int64 *v25; // rdx
-  unsigned __int64 v26; // r8
+  KPRIORITY v19; // ecx
+  unsigned __int64 v20; // rbp
+  unsigned __int64 v21; // rbx
+  __int64 v22; // rdx
+  unsigned __int64 v23; // r8
+  unsigned __int64 *v24; // rdx
+  unsigned __int64 v25; // r8
 
   v4 = *(_DWORD *)a2 & 7;
   if ( v4 != 2 || (*(_BYTE *)(a1 + 6837) & 4) == 0 )
@@ -57,24 +56,24 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue(__int64 a1, unsigned __
         v8 = 6920LL;
         v7 = 6872LL;
 LABEL_8:
-        v9 = a1 + 6864;
+        v9 = (volatile signed __int64 *)(a1 + 6864);
         v10 = (unsigned __int64 *)(v7 + a1);
         v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 6864));
         v12 = (unsigned __int64 *)v10[1];
         v13 = v11;
         if ( (a3 & 2) != 0 )
         {
-          v24 = *v12;
+          v23 = *v12;
           *(_QWORD *)a2 = *v10 | *(_DWORD *)a2 & 7;
-          v25 = (unsigned __int64 *)v10[1];
-          v26 = v24 >> 3;
+          v24 = (unsigned __int64 *)v10[1];
+          v25 = v23 >> 3;
           *v10 = a2;
-          if ( v25 == v10 )
+          if ( v24 == v10 )
           {
             v10[1] = a2;
-            v25 = (unsigned __int64 *)a2;
+            v24 = (unsigned __int64 *)a2;
           }
-          *v25 = *(_DWORD *)v25 & 7 | (8 * v26 + 8);
+          *v24 = *(_DWORD *)v24 & 7 | (8 * v25 + 8);
         }
         else
         {
@@ -91,11 +90,11 @@ LABEL_8:
         v17 = *(_DWORD *)(a1 + 7584);
         if ( (_BYTE)v16 != 4 )
         {
-          v20 = *((_DWORD *)`SMKM_STORE<SM_TRAITS>::SmStGetPriorityByMemoryCondition'::`2'::PriorityByMemoryCondition
+          v19 = *((_DWORD *)`SMKM_STORE<SM_TRAITS>::SmStGetPriorityByMemoryCondition'::`2'::PriorityByMemoryCondition
                 + v16);
-          if ( v20 < v17 )
-            v20 = *(_DWORD *)(a1 + 7584);
-          v17 = v20;
+          if ( v19 < v17 )
+            v19 = *(_DWORD *)(a1 + 7584);
+          v17 = v19;
         }
         if ( (a3 & 1) != 0 )
         {
@@ -109,7 +108,7 @@ LABEL_14:
             PriorityThread = v17;
 LABEL_15:
             if ( PriorityThread > KeQueryPriorityThread(*(PKTHREAD *)(a1 + 7008)) )
-              KeSetActualBasePriorityThread(*(_QWORD *)(a1 + 7008), PriorityThread, v19);
+              KeSetActualBasePriorityThread(*(_QWORD *)(a1 + 7008));
             if ( v14 == 1 )
               KeSetEvent((PRKEVENT)(a1 + 6936), 0, 0);
             _InterlockedDecrement((volatile signed __int32 *)(a1 + 7600));
@@ -135,19 +134,19 @@ LABEL_20:
   }
   if ( !(unsigned int)SMKM_STORE<SM_TRAITS>::SmStDirectRead(a1, (__int128 *)a2) )
   {
-    v21 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 7400));
+    v20 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 7400));
     *(_QWORD *)a2 = *(_DWORD *)a2 & 7 | ((**(_QWORD **)(a1 + 7392) & 0xFFFFFFFFFFFFFFF8uLL) + 8);
     **(_QWORD **)(a1 + 7392) = a2 | **(_DWORD **)(a1 + 7392) & 7;
     *(_QWORD *)(a1 + 7392) = a2;
-    v22 = *(_QWORD *)a2;
-    KxReleaseSpinLock(a1 + 7400);
-    if ( (v22 & 0xFFFFFFFFFFFFFFF8uLL) == 8 )
+    v21 = *(_QWORD *)a2;
+    KxReleaseSpinLock((volatile signed __int64 *)(a1 + 7400));
+    if ( (v21 & 0xFFFFFFFFFFFFFFF8uLL) == 8 )
       KeSetEvent((PRKEVENT)(a1 + 7360), 0, 0);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v23) = v21;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v23);
+      LOBYTE(v22) = v20;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v22);
     }
-    __writecr8(v21);
+    __writecr8(v20);
   }
 }

@@ -22,9 +22,9 @@ PVOID __fastcall IopLiveDumpAllocateFromVMMemoryPartition(__int64 a1, __int64 a2
   int v3; // eax
   PVOID v4; // r12
   __int64 PartitionNodePagesForMdl; // r15
-  void **v7; // rdi
-  int v8; // r13d
-  void *v9; // rcx
+  HANDLE *v7; // rdi
+  NTSTATUS v8; // r13d
+  HANDLE v9; // rcx
   unsigned int v10; // esi
   int v11; // eax
   int v12; // eax
@@ -33,38 +33,34 @@ PVOID __fastcall IopLiveDumpAllocateFromVMMemoryPartition(__int64 a1, __int64 a2
   int v16[2]; // [rsp+50h] [rbp-79h]
   __int64 *v17; // [rsp+58h] [rbp-71h]
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-69h] BYREF
-  __int128 v19; // [rsp+70h] [rbp-59h]
-  __int128 v20; // [rsp+80h] [rbp-49h]
-  __int128 v21; // [rsp+90h] [rbp-39h]
-  struct _EVENT_DATA_DESCRIPTOR v22[2]; // [rsp+A0h] [rbp-29h] BYREF
-  bool *v23; // [rsp+C0h] [rbp-9h]
-  int v24; // [rsp+C8h] [rbp-1h]
-  int v25; // [rsp+CCh] [rbp+3h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-59h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v20[2]; // [rsp+A0h] [rbp-29h] BYREF
+  bool *v21; // [rsp+C0h] [rbp-9h]
+  int v22; // [rsp+C8h] [rbp-1h]
+  int v23; // [rsp+CCh] [rbp+3h]
   PVOID *p_Object; // [rsp+D0h] [rbp+7h]
-  int v27; // [rsp+D8h] [rbp+Fh]
-  int v28; // [rsp+DCh] [rbp+13h]
+  int v25; // [rsp+D8h] [rbp+Fh]
+  int v26; // [rsp+DCh] [rbp+13h]
 
   v3 = *(_DWORD *)(a1 + 80);
   v4 = 0LL;
   v17 = a3;
   PartitionNodePagesForMdl = 0LL;
   *(_QWORD *)v16 = a2;
-  v19 = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   if ( (v3 & 0xC) != 0 )
     return 0LL;
-  v7 = (void **)(a1 + 992);
+  v7 = (HANDLE *)(a1 + 992);
   if ( *(_QWORD *)(a1 + 992) )
     goto LABEL_5;
   RtlInitUnicodeString(&DestinationString, L"\\KernelObjects\\MemoryPartitionHyperV");
-  *((_QWORD *)&v19 + 1) = 0LL;
-  *(_QWORD *)&v20 = &DestinationString;
-  LODWORD(v19) = 48;
-  DWORD2(v20) = 512;
-  v21 = 0LL;
-  v8 = ZwOpenPartition((__int64)v7, 2LL);
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 512;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v8 = ZwOpenPartition(v7, 2u, &ObjectAttributes);
   if ( v8 < 0 )
     goto LABEL_14;
   v9 = *v7;
@@ -109,21 +105,21 @@ LABEL_5:
         if ( tlgKeywordOn((__int64)&dword_140C04498, 0x200000000000LL) )
         {
           v11 = *(_DWORD *)(a1 + 80);
-          v25 = 0;
-          v28 = 0;
-          v24 = 1;
+          v23 = 0;
+          v26 = 0;
+          v22 = 1;
           v14 = (v11 & 8) != 0;
-          v23 = &v14;
+          v21 = &v14;
           p_Object = &Object;
           LODWORD(Object) = -1073741801;
-          v27 = 4;
+          v25 = 4;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140C04498,
             (unsigned __int8 *)byte_140023603,
             (const GUID *)(a1 + 864),
             (const GUID *)(a1 + 848),
             4u,
-            v22);
+            v20);
         }
       }
     }
@@ -136,21 +132,21 @@ LABEL_14:
     if ( (unsigned int)dword_140C04498 > 5 && tlgKeywordOn((__int64)&dword_140C04498, 0x200000000000LL) )
     {
       v12 = *(_DWORD *)(a1 + 80);
-      v25 = 0;
-      v28 = 0;
-      v24 = 1;
+      v23 = 0;
+      v26 = 0;
+      v22 = 1;
       v14 = (v12 & 4) != 0;
-      v23 = &v14;
+      v21 = &v14;
       p_Object = &Object;
       LODWORD(Object) = v8;
-      v27 = 4;
+      v25 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C04498,
         (unsigned __int8 *)byte_1400235B5,
         (const GUID *)(a1 + 864),
         (const GUID *)(a1 + 848),
         4u,
-        v22);
+        v20);
     }
   }
   if ( PartitionNodePagesForMdl )

@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationTransaction()
+NTSTATUS __cdecl NtSetInformationTransaction(
+        HANDLE TransactionHandle,
+        TRANSACTION_INFORMATION_CLASS TransactionInformationClass,
+        PVOID TransactionInformation,
+        ULONG TransactionInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 384LL;
+  result = 384;
   __asm { syscall; Low latency system call }
   return result;
 }

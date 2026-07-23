@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpMuiRegGetFallbackLanguageInfoByIndex @ 0x180112C78
+ * XREFs of RtlpMuiRegGetFallbackLanguageInfoByIndex @ 0x180112C48
  * Callers:
- *     RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x1801130F4 (RtlpMuiRegGetFallbackLanguagesAsMultiSZ.c)
+ *     RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x1801130C4 (RtlpMuiRegGetFallbackLanguagesAsMultiSZ.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpCloudbookHardwareIDProvider @ 0x140838070
+ * XREFs of ExpCloudbookHardwareIDProvider @ 0x14083E2B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExpOsProductCacheProviderHelper @ 0x140838DA8 (ExpOsProductCacheProviderHelper.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExpOsProductCacheProviderHelper @ 0x14083EFE8 (ExpOsProductCacheProviderHelper.c)
  */
 
-__int64 __fastcall ExpCloudbookHardwareIDProvider(
+NTSTATUS __fastcall ExpCloudbookHardwareIDProvider(
         __int64 a1,
         _DWORD *a2,
         void *a3,
@@ -17,35 +17,35 @@ __int64 __fastcall ExpCloudbookHardwareIDProvider(
         _DWORD *a5,
         _BYTE *a6)
 {
-  __int64 result; // rax
-  _OWORD Src[2]; // [rsp+40h] [rbp-48h] BYREF
+  NTSTATUS result; // eax
+  _OWORD SystemInformation[2]; // [rsp+40h] [rbp-48h] BYREF
   int v11; // [rsp+60h] [rbp-28h]
 
   v11 = 0;
-  memset(Src, 0, sizeof(Src));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   result = ExpOsProductCacheProviderHelper(a1, L"\"$", a2, a3, a4, a5, a6);
-  if ( (int)(result + 0x80000000) >= 0 && (_DWORD)result != -1073741789 )
+  if ( (int)(result + 0x80000000) >= 0 && result != -1073741789 )
   {
     *a5 = 32;
-    result = ZwQuerySystemInformation(190LL, (__int64)Src);
-    if ( (int)result >= 0 )
+    result = ZwQuerySystemInformation(SystemCodeIntegrityUnlockInformation, SystemInformation, 0x24u, 0LL);
+    if ( result >= 0 )
     {
-      if ( (Src[0] & 4) != 0 )
+      if ( (SystemInformation[0] & 4) != 0 )
       {
         if ( a4 < 0x20 )
         {
-          result = 3221225507LL;
+          result = -1073741789;
         }
         else
         {
           *a2 = 3;
-          memmove(a3, (char *)Src + 4, (unsigned int)*a5);
-          result = 0LL;
+          memmove(a3, (char *)SystemInformation + 4, (unsigned int)*a5);
+          result = 0;
         }
       }
       else
       {
-        result = 3221225524LL;
+        result = -1073741772;
       }
     }
     *a6 = 1;

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpWriteBufferCompressed @ 0x1409EE46C
+ * XREFs of EtwpWriteBufferCompressed @ 0x1409EE6FC
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1409EDA44 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x1409EDCD4 (EtwpSavePersistedLogger.c)
  * Callees:
- *     RtlCompressBuffer @ 0x140363AD0 (RtlCompressBuffer.c)
- *     ZwWriteFile @ 0x14041AE60 (ZwWriteFile.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlCompressBuffer @ 0x140363C70 (RtlCompressBuffer.c)
+ *     ZwWriteFile @ 0x14041B1F0 (ZwWriteFile.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, _OWORD *a2)

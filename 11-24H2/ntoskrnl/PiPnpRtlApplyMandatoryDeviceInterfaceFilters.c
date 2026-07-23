@@ -1,15 +1,15 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1408D1730
+ * XREFs of PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1408CF120
  * Callers:
- *     IopDeviceInterfaceFilterCallback @ 0x1408D1170 (IopDeviceInterfaceFilterCallback.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x1408D19E0 (PiPnpRtlApplyMandatoryFilters.c)
+ *     IopDeviceInterfaceFilterCallback @ 0x1408CEB60 (IopDeviceInterfaceFilterCallback.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1408CF3D0 (PiPnpRtlApplyMandatoryFilters.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpGetObjectPropertyWorker @ 0x1408CD660 (_PnpGetObjectPropertyWorker.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408D1BF0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1408CB050 (_PnpGetObjectPropertyWorker.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408CF5E0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlApplyMandatoryDeviceInterfaceFilters(
@@ -19,7 +19,7 @@ __int64 __fastcall PiPnpRtlApplyMandatoryDeviceInterfaceFilters(
         __int64 a4,
         __int64 a5)
 {
-  ULONG v5; // r12d
+  ULONG_PTR v5; // r12
   unsigned int v6; // eax
   void *Pool2; // rdi
   void *i; // rbx
@@ -45,18 +45,18 @@ __int64 __fastcall PiPnpRtlApplyMandatoryDeviceInterfaceFilters(
   int v30; // [rsp+C4h] [rbp+1Bh]
 
   v19 = 0;
-  v5 = 0;
+  LODWORD(v5) = 0;
   v6 = 200;
   Pool2 = 0LL;
   v18 = 200;
   for ( i = a3; ; i = a3 )
   {
-    if ( v6 > v5 )
+    if ( v6 > (unsigned int)v5 )
     {
       v5 = v6;
       if ( Pool2 )
         ExFreePoolWithTag(Pool2, 0x47706E50u);
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, v5, 0x47706E50u);
       if ( !Pool2 )
         break;
     }
@@ -81,7 +81,7 @@ __int64 __fastcall PiPnpRtlApplyMandatoryDeviceInterfaceFilters(
       if ( v11 == PiPnpRtlObjectActionCallback )
         v12 = PiPnpRtlObjectActionCallback(*(PVOID *)&PiPnpRtlCtx, a2, 3LL, 8, 1, (__int64)v20);
       else
-        v12 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, a2, 3LL, 8LL);
+        v12 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, a2);
       if ( v12 == -1073741822 )
       {
         v11 = 0LL;
@@ -94,14 +94,14 @@ __int64 __fastcall PiPnpRtlApplyMandatoryDeviceInterfaceFilters(
           goto LABEL_29;
       }
     }
-    ObjectPropertyWorker = PnpGetObjectPropertyWorker(v10, a2, 3u, v21, v22, (__int64)v23, v24, v25, v26, v28, v29);
+    ObjectPropertyWorker = PnpGetObjectPropertyWorker(v10, a2, 3, v21, v22, (__int64)v23, v24, v25, v26, v28, v29);
     v13 = ObjectPropertyWorker;
     if ( v11 )
     {
       LODWORD(v20[0]) = ObjectPropertyWorker;
       v17 = v11 == PiPnpRtlObjectActionCallback
           ? PiPnpRtlObjectActionCallback(v10, a2, 3LL, 8, 2, (__int64)v20)
-          : guard_dispatch_icall_no_overrides(v10, a2, 3LL, 8LL);
+          : guard_dispatch_icall_no_overrides(v10, a2);
       if ( v17 != -1073741822 )
       {
         if ( v17 == -1073741536 )

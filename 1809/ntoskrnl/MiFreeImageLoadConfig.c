@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeImageLoadConfig @ 0x1406FD29C
+ * XREFs of MiFreeImageLoadConfig @ 0x1406FE53C
  * Callers:
- *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
- *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
- *     MiFreeRelocations @ 0x1406FD200 (MiFreeRelocations.c)
+ *     MiRelocateImage @ 0x140651084 (MiRelocateImage.c)
+ *     MiParseImageLoadConfig @ 0x140651A9C (MiParseImageLoadConfig.c)
+ *     MiFreeRelocations @ 0x1406FE4A0 (MiFreeRelocations.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiFreeRetpolineRelocationInformation @ 0x140853C3C (MiFreeRetpolineRelocationInformation.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x140854E9C (MiFreeRetpolineRelocationInformation.c)
  */
 
 void __fastcall MiFreeImageLoadConfig(__int64 a1)

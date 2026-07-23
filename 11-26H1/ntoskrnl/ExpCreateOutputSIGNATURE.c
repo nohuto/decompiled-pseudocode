@@ -1,53 +1,52 @@
 /*
- * XREFs of ExpCreateOutputSIGNATURE @ 0x14083B414
+ * XREFs of ExpCreateOutputSIGNATURE @ 0x140841654
  * Callers:
- *     ExpTranslateEfiPath @ 0x140A9512C (ExpTranslateEfiPath.c)
- *     ExpTranslateNtPath @ 0x140B56AF4 (ExpTranslateNtPath.c)
+ *     ExpTranslateEfiPath @ 0x140A2D97C (ExpTranslateEfiPath.c)
+ *     ExpTranslateNtPath @ 0x140B597F4 (ExpTranslateNtPath.c)
  * Callees:
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     wcscat_s @ 0x14053CA60 (wcscat_s.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     RtlStringFromGUIDEx @ 0x140A3EB50 (RtlStringFromGUIDEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     wcscat_s @ 0x14053EEE0 (wcscat_s.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     RtlStringFromGUIDEx @ 0x1409FA570 (RtlStringFromGUIDEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ExpCreateOutputSIGNATURE(
+NTSTATUS __fastcall ExpCreateOutputSIGNATURE(
         __int64 a1,
         unsigned int *a2,
-        unsigned int *a3,
+        GUID *a3,
         unsigned int *a4,
         _QWORD *a5,
         _QWORD *a6,
-        wchar_t *a7,
+        wchar_t *Src,
         char a8)
 {
   unsigned int v8; // edi
   __int64 v10; // rsi
-  unsigned int v11; // ebx
+  int v11; // ebx
   __int64 v12; // rbp
   unsigned int v13; // r12d
   __int64 v14; // r15
-  __int64 v15; // r8
-  __int64 v16; // r14
-  __int64 result; // rax
-  __int64 v18; // rax
-  __int64 v19; // r14
-  __int128 v20; // [rsp+30h] [rbp-48h] BYREF
-  unsigned int *v21; // [rsp+88h] [rbp+10h]
+  __int64 v15; // r14
+  NTSTATUS result; // eax
+  __int64 v17; // rax
+  __int64 v18; // r14
+  UNICODE_STRING GuidString; // [rsp+30h] [rbp-48h] BYREF
+  unsigned int *v20; // [rsp+88h] [rbp+10h]
 
-  v21 = a2;
+  v20 = a2;
   v8 = 93;
-  v20 = 0LL;
+  GuidString = 0LL;
   if ( a8 != 1 )
     v8 = 63;
   v10 = -1LL;
   v11 = 0;
-  if ( a7 )
+  if ( Src )
   {
     v12 = -1LL;
     do
       ++v12;
-    while ( a7[v12] );
+    while ( Src[v12] );
     v8 += v12;
   }
   else
@@ -62,36 +61,35 @@ __int64 __fastcall ExpCreateOutputSIGNATURE(
     *(_DWORD *)(a1 + 4) = v13;
     *(_DWORD *)(a1 + 8) = 2;
     wcscpy_s((wchar_t *)(a1 + 12), v8, L"signature(");
-    v16 = -1LL;
+    v15 = -1LL;
     do
-      ++v16;
-    while ( *(_WORD *)(v14 + 2 * v16) );
+      ++v15;
+    while ( *(_WORD *)(v14 + 2 * v15) );
     if ( a8 == 1 )
     {
-      LOBYTE(v15) = 1;
-      result = RtlStringFromGUIDEx(a3, &v20, v15);
-      if ( (int)result < 0 )
+      result = RtlStringFromGUIDEx(a3, &GuidString, 1u);
+      if ( result < 0 )
         return result;
-      wcscat_s((wchar_t *)(v14 + 2LL * (unsigned int)v16), v8 - (unsigned int)v16, *((const wchar_t **)&v20 + 1));
-      ExFreePoolWithTag(*((PVOID *)&v20 + 1), 0);
-      LODWORD(v18) = (unsigned __int16)v20 >> 1;
+      wcscat_s((wchar_t *)(v14 + 2LL * (unsigned int)v15), v8 - (unsigned int)v15, GuidString.Buffer);
+      ExFreePoolWithTag(GuidString.Buffer, 0);
+      LODWORD(v17) = GuidString.Length >> 1;
     }
     else
     {
-      swprintf_s((wchar_t *)(v14 + 2LL * (unsigned int)v16), v8 - (unsigned int)v16, L"%08x", *a3);
-      v18 = -1LL;
+      swprintf_s((wchar_t *)(v14 + 2LL * (unsigned int)v15), v8 - (unsigned int)v15, L"%08x", a3->Data1);
+      v17 = -1LL;
       do
-        ++v18;
-      while ( *(_WORD *)(v14 + 2LL * (unsigned int)v16 + 2 * v18) );
+        ++v17;
+      while ( *(_WORD *)(v14 + 2LL * (unsigned int)v15 + 2 * v17) );
     }
-    v19 = (unsigned int)(v18 + v16);
-    swprintf_s((wchar_t *)(v14 + 2 * v19), v8 - (unsigned int)v19, L"-%08x-%016I64x-%016I64x)", *a4, *a5, *a6);
+    v18 = (unsigned int)(v17 + v15);
+    swprintf_s((wchar_t *)(v14 + 2 * v18), v8 - (unsigned int)v18, L"-%08x-%016I64x-%016I64x)", *a4, *a5, *a6);
     do
       ++v10;
-    while ( *(_WORD *)(v14 + 2 * v19 + 2 * v10) );
+    while ( *(_WORD *)(v14 + 2 * v18 + 2 * v10) );
     if ( (_DWORD)v12 )
-      wcscpy_s((wchar_t *)(v14 + 2LL * (unsigned int)(v19 + v10)), v8 - ((_DWORD)v19 + (_DWORD)v10), a7);
-    a2 = v21;
+      wcscpy_s((wchar_t *)(v14 + 2LL * (unsigned int)(v18 + v10)), v8 - ((_DWORD)v18 + (_DWORD)v10), Src);
+    a2 = v20;
   }
   else
   {

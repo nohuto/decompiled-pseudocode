@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDpStartProcessor @ 0x140BEE634
+ * XREFs of HalpDpStartProcessor @ 0x140BF4634
  * Callers:
- *     HalpDpReplaceControl @ 0x140BEE360 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x140BF4360 (HalpDpReplaceControl.c)
  * Callees:
- *     HalGetProcessorIdByNtNumber @ 0x140425B40 (HalGetProcessorIdByNtNumber.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpInterruptStartProcessor @ 0x140BEA190 (HalpInterruptStartProcessor.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140432C50 (HalGetProcessorIdByNtNumber.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpInterruptStartProcessor @ 0x140BF0190 (HalpInterruptStartProcessor.c)
  */
 
 __int64 __fastcall HalpDpStartProcessor(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, unsigned int a4)
@@ -40,7 +40,11 @@ __int64 __fastcall HalpDpStartProcessor(ULONG_PTR BugCheckParameter2, __int64 a2
   if ( i == a4 )
     KeBugCheckEx(0x5Cu, 0x2001uLL, v5, LODWORD(BugCheckParameter3[0]), 1uLL);
 LABEL_8:
-  result = HalpInterruptStartProcessor(v5, v4, 3, &HalpDeviceBlockUnblockPushLock.QueueListEntry.Flink[94 * v13]);
+  result = HalpInterruptStartProcessor(
+             v5,
+             v4,
+             3,
+             (char *)HalpDeviceBlockUnblockPushLock.WaitBlock[3].Thread + 1504 * v13);
   if ( (_DWORD)result != 4 )
     KeBugCheckEx(0x5Cu, 0x2001uLL, v13, MaximumRegisteredProcessorCount, 2uLL);
   return result;

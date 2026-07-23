@@ -1,18 +1,17 @@
 /*
- * XREFs of EtwpApplyPayloadFilterInternal @ 0x14032B140
+ * XREFs of EtwpApplyPayloadFilterInternal @ 0x1403E84E0
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     EtwpApplyEventIdPayloadFilter @ 0x14032AF10 (EtwpApplyEventIdPayloadFilter.c)
+ *     EtwpApplyEventIdPayloadFilter @ 0x1403E82B0 (EtwpApplyEventIdPayloadFilter.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14027FEF0 (RtlpGetStackLimits.c)
- *     EtwpApplyPredicate @ 0x14032BA20 (EtwpApplyPredicate.c)
- *     EtwpGetFieldValue @ 0x14032BAE0 (EtwpGetFieldValue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1406B3C80 (_alloca_probe.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExSystemExceptionFilter @ 0x1407B6F80 (ExSystemExceptionFilter.c)
- *     RtlLengthRequiredSid @ 0x140867110 (RtlLengthRequiredSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpGetStackLimits @ 0x140235480 (RtlpGetStackLimits.c)
+ *     EtwpApplyPredicate @ 0x1403E8DC0 (EtwpApplyPredicate.c)
+ *     EtwpGetFieldValue @ 0x1403E8E80 (EtwpGetFieldValue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1406B4C20 (_alloca_probe.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x1407B73D0 (ExSystemExceptionFilter.c)
+ *     RtlLengthRequiredSid @ 0x14086B5A0 (RtlLengthRequiredSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwpApplyPayloadFilterInternal(
@@ -33,8 +32,8 @@ __int64 __fastcall EtwpApplyPayloadFilterInternal(
   bool v15; // zf
   __int64 v16; // rdi
   __int64 v17; // rsi
-  bool StackLimits; // al
-  char *v19; // rdx
+  char StackLimits; // al
+  __int64 v19; // rdx
   __int64 v20; // rcx
   unsigned __int64 v21; // rcx
   void *v22; // rsp
@@ -59,14 +58,14 @@ __int64 __fastcall EtwpApplyPayloadFilterInternal(
   char *v41; // r10
   unsigned int v42; // eax
   __int64 v43; // rsi
-  char *v44; // rcx
+  __int64 v44; // rcx
   int v45; // r9d
   unsigned int v46; // esi
   char *v47; // rax
   unsigned int v48; // edx
   char *v49; // rcx
   __int64 v50; // rbx
-  char *v51; // r8
+  __int64 v51; // r8
   unsigned __int16 *v52; // r15
   char v53; // r11
   unsigned int v54; // r10d
@@ -99,7 +98,7 @@ __int64 __fastcall EtwpApplyPayloadFilterInternal(
   unsigned int v82; // [rsp+38h] [rbp+8h]
   unsigned int v83; // [rsp+3Ch] [rbp+Ch]
   char *v84; // [rsp+40h] [rbp+10h]
-  char *v85; // [rsp+48h] [rbp+18h] BYREF
+  __int64 v85; // [rsp+48h] [rbp+18h] BYREF
   char v86; // [rsp+50h] [rbp+20h]
   ULONG SubAuthorityCount[2]; // [rsp+58h] [rbp+28h] BYREF
   __int64 v88; // [rsp+60h] [rbp+30h]
@@ -109,7 +108,7 @@ __int64 __fastcall EtwpApplyPayloadFilterInternal(
   unsigned __int16 v92; // [rsp+80h] [rbp+50h]
   unsigned int v93; // [rsp+84h] [rbp+54h]
   int v94; // [rsp+88h] [rbp+58h]
-  unsigned __int64 v95[3]; // [rsp+90h] [rbp+60h] BYREF
+  _QWORD v95[3]; // [rsp+90h] [rbp+60h] BYREF
 
   v9 = a2;
   *(_QWORD *)SubAuthorityCount = 0LL;
@@ -156,11 +155,11 @@ LABEL_65:
     v17 = 4 * v93;
     v95[0] = 0LL;
     v85 = 0LL;
-    StackLimits = RtlpGetStackLimits(&v85, v95);
+    StackLimits = RtlpGetStackLimits((__int64)&v85, (__int64)v95);
     v19 = v85;
     if ( !StackLimits )
       v19 = 0LL;
-    if ( (char *)v95 - v19 < (unsigned __int64)(unsigned int)(v17 + v16 + 4096) )
+    if ( (unsigned __int64)v95 - v19 < (unsigned int)(v17 + v16 + 4096) )
     {
       return 3221225626LL;
     }
@@ -272,14 +271,14 @@ LABEL_65:
             v24 = v84;
             v36 = v88;
           }
-          v44 = (char *)*(unsigned __int8 *)(v40 + 1);
+          v44 = *(unsigned __int8 *)(v40 + 1);
           v85 = v44;
           if ( (*(_BYTE *)v40 & 0x20) != 0 )
           {
             if ( (unsigned int)v44 >= v83 )
               return 3221225520LL;
-            v73 = 4LL * (_QWORD)v44;
-            v74 = *(_BYTE *)(4LL * (_QWORD)v44 + v36);
+            v73 = 4 * v44;
+            v74 = *(_BYTE *)(4 * v44 + v36);
             if ( (unsigned __int8)((v74 & 0xF) - 1) > 1u )
               return 3221225520LL;
             if ( (v74 & 0x30) != 0 )
@@ -296,7 +295,7 @@ LABEL_65:
                                      SubAuthorityCount) )
               return 3221225520LL;
             LODWORD(v44) = SubAuthorityCount[0];
-            v85 = *(char **)SubAuthorityCount;
+            v85 = *(_QWORD *)SubAuthorityCount;
             if ( SubAuthorityCount[0] != *(_QWORD *)SubAuthorityCount )
               return 3221225520LL;
           }
@@ -320,7 +319,7 @@ LABEL_65:
                 {
                   v72 = ++v71;
                   v94 = v71;
-                  v95[2] = (unsigned __int64)++v69;
+                  v95[2] = ++v69;
                 }
                 if ( v71 == v70 )
                 {
@@ -335,7 +334,7 @@ LABEL_65:
                 {
                   if ( v38 + 2LL * v70 != *(_DWORD *)(v39 + 8) )
                     return 3221225485LL;
-                  LODWORD(v44) = (_DWORD)v85;
+                  LODWORD(v44) = v85;
                 }
                 LODWORD(v43) = 2 * v71;
                 break;
@@ -352,7 +351,7 @@ LABEL_65:
                   LODWORD(v43) = v43 + 1;
                   v67 = v43;
                   v94 = v43;
-                  v95[1] = (unsigned __int64)++v65;
+                  v95[1] = ++v65;
                 }
                 if ( (_DWORD)v43 == v66 )
                 {
@@ -373,13 +372,13 @@ LABEL_65:
                 if ( (_DWORD)v43 == -1 )
                   return 3221225485LL;
                 v45 = 0;
-                LODWORD(v44) = (_DWORD)v85;
+                LODWORD(v44) = v85;
                 break;
               default:
                 return 3221225520LL;
             }
           }
-          v46 = (_DWORD)v44 * v43;
+          v46 = v44 * v43;
           if ( *(_DWORD *)(v39 + 8) - v38 < v46 )
             return 3221225990LL;
           v37 = v81;
@@ -435,7 +434,7 @@ LABEL_47:
       if ( v82 )
         return 3221225990LL;
       v50 = v91;
-      v51 = (char *)(v36 + 4LL * *(unsigned __int16 *)(v91 + 4));
+      v51 = v36 + 4LL * *(unsigned __int16 *)(v91 + 4);
       v85 = v51;
       v52 = (unsigned __int16 *)(a6 + *(unsigned __int16 *)(a6 + 40) + 4LL * *(unsigned __int16 *)(v91 + 8));
       v78 = 0;
@@ -460,7 +459,7 @@ LABEL_47:
           v60 = *v55;
           if ( !(unsigned __int8)EtwpApplyPredicate(
                                    a6,
-                                   v51[4 * v60] & 0xF,
+                                   *(_BYTE *)(v51 + 4 * v60) & 0xF,
                                    v55,
                                    *(_QWORD *)&v29[16 * ((unsigned __int64)*(unsigned int *)&v24[4 * v60] >> 24)]
                                  + (((unsigned __int64)*(unsigned int *)&v24[4 * v60] >> 12) & 0xFFF),

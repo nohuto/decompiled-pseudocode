@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMGetDeviceIdList @ 0x140A19E98
+ * XREFs of PiCMGetDeviceIdList @ 0x140A15D5C
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14032FA04 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x140481B24 (McTemplateK0d_EtwWriteTransfer.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     PiAuDoesClientHaveAccess @ 0x1408BC6A8 (PiAuDoesClientHaveAccess.c)
- *     PiCMReturnBufferResultData @ 0x1408C5620 (PiCMReturnBufferResultData.c)
- *     _CmGetDeviceRelationsList @ 0x1409B3D90 (_CmGetDeviceRelationsList.c)
- *     PiCMCaptureDeviceListInputData @ 0x140A1A15C (PiCMCaptureDeviceListInputData.c)
- *     PiCMConvertDeviceListFilters @ 0x140A1A3B8 (PiCMConvertDeviceListFilters.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x140A1A490 (_CmGetMatchingFilteredDeviceList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x1402B827C (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14047CDE4 (McTemplateK0d_EtwWriteTransfer.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     PiAuDoesClientHaveAccess @ 0x1408B9FF8 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnBufferResultData @ 0x1408C3020 (PiCMReturnBufferResultData.c)
+ *     _CmGetDeviceRelationsList @ 0x1409AB120 (_CmGetDeviceRelationsList.c)
+ *     PiCMCaptureDeviceListInputData @ 0x140A16020 (PiCMCaptureDeviceListInputData.c)
+ *     PiCMConvertDeviceListFilters @ 0x140A162FC (PiCMConvertDeviceListFilters.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140A163D4 (_CmGetMatchingFilteredDeviceList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetDeviceIdList(
@@ -60,7 +60,7 @@ __int64 __fastcall PiCMGetDeviceIdList(
   if ( v9 < 0 )
     goto LABEL_23;
   v11 = DWORD1(v26);
-  if ( (byte_140EEFD23 & 4) != 0 )
+  if ( (byte_140EEFF63 & 4) != 0 )
   {
     if ( WORD2(v26) )
     {
@@ -122,7 +122,7 @@ __int64 __fastcall PiCMGetDeviceIdList(
     v12 = a4 - 20;
   if ( v12 )
   {
-    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v12, 0x34706E50u);
     if ( !Pool2 )
     {
       DeviceRelationsList = -1073741670;
@@ -149,8 +149,7 @@ __int64 __fastcall PiCMGetDeviceIdList(
       DeviceRelationsList = CmGetDeviceRelationsList(
                               *(__int64 *)&PiPnpRtlCtx,
                               *((const WCHAR **)&v26 + 1),
-                              v25 & 0xFFFFFEFF,
-                              (__int64)Pool2);
+                              v25 & 0xFFFFFEFF);
       v19 = DeviceRelationsList < 0;
     }
     else
@@ -201,7 +200,7 @@ LABEL_21:
 LABEL_23:
   if ( *((_QWORD *)&v26 + 1) )
     PiControlFreeUserModeCallersBuffer(KeGetCurrentThread()->PreviousMode, *((void **)&v26 + 1));
-  if ( (byte_140EEFD23 & 4) != 0 )
+  if ( (byte_140EEFF63 & 4) != 0 )
     McTemplateK0d_EtwWriteTransfer(v8, (const EVENT_DESCRIPTOR *)KMPnPEvt_CfgMgr_DeviceList_Stop, v10, v9);
   return (unsigned int)v9;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspAddProcessToWorkingSetChangeList @ 0x140889720
+ * XREFs of PspAddProcessToWorkingSetChangeList @ 0x14088A980
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     PspSetJobLimitsProcessCallback @ 0x14088A330 (PspSetJobLimitsProcessCallback.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
+ *     PspSetJobLimitsProcessCallback @ 0x14088B590 (PspSetJobLimitsProcessCallback.c)
  * Callees:
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MmEnforceWorkingSetLimit @ 0x14008FB50 (MmEnforceWorkingSetLimit.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     MmEnforceWorkingSetLimit @ 0x14008FA70 (MmEnforceWorkingSetLimit.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall PspAddProcessToWorkingSetChangeList(_KPROCESS *Object)
@@ -31,13 +31,13 @@ char __fastcall PspAddProcessToWorkingSetChangeList(_KPROCESS *Object)
           *(_QWORD *)(PoolWithTag + 16) = Object;
           *(_QWORD *)(PoolWithTag + 32) = *(_QWORD *)(v3 + 800);
           *(_QWORD *)(PoolWithTag + 24) = *(_QWORD *)(v3 + 792);
-          v4 = (__int64 *)qword_140405828;
-          if ( *(__int64 **)qword_140405828 != &PspWorkingSetChangeHead )
+          v4 = (__int64 *)qword_140406828;
+          if ( *(__int64 **)qword_140406828 != &PspWorkingSetChangeHead )
             __fastfail(3u);
           *(_QWORD *)PoolWithTag = &PspWorkingSetChangeHead;
           *(_QWORD *)(PoolWithTag + 8) = v4;
           *v4 = PoolWithTag;
-          qword_140405828 = PoolWithTag;
+          qword_140406828 = PoolWithTag;
         }
         else
         {

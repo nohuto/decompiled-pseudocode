@@ -54,7 +54,7 @@ __int64 __fastcall PspCreateThread(
   __int64 v31; // [rsp+A0h] [rbp-60h]
   __int64 v32; // [rsp+A8h] [rbp-58h]
   __int64 v33; // [rsp+B0h] [rbp-50h]
-  __int64 v34; // [rsp+B8h] [rbp-48h] BYREF
+  __int64 v34[3]; // [rsp+B8h] [rbp-48h] BYREF
   struct _ACCESS_STATE AccessState; // [rsp+D0h] [rbp-30h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -124,7 +124,7 @@ LABEL_29:
     goto LABEL_29;
   }
   ObfReferenceObjectWithTag(v15, 0x72437350u);
-  v34 = v29;
+  v34[0] = v29;
   v23 = v18;
   v19 = v27;
   v16 = PspAllocateThread(
@@ -133,7 +133,7 @@ LABEL_29:
           PreviousMode,
           v27,
           a8,
-          (_QWORD **)&v34,
+          v34,
           v23,
           a12,
           (int *)&v24,

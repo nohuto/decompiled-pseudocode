@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrQueryModuleInfoLocalLoaderUnlock @ 0x1800868D0
+ * XREFs of LdrQueryModuleInfoLocalLoaderUnlock @ 0x18007DC70
  * Callers:
- *     LdrQueryProcessModuleInformationEx2 @ 0x18008EE40 (LdrQueryProcessModuleInformationEx2.c)
- *     LdrQueryProcessModuleInformationEx @ 0x1800CBEC0 (LdrQueryProcessModuleInformationEx.c)
+ *     LdrQueryProcessModuleInformationEx2 @ 0x1800BF120 (LdrQueryProcessModuleInformationEx2.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x1800C9630 (LdrQueryProcessModuleInformationEx.c)
  * Callees:
  *     <none>
  */

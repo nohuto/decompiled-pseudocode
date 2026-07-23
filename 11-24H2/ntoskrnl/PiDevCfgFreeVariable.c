@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgFreeVariable @ 0x1409648DC
+ * XREFs of PiDevCfgFreeVariable @ 0x14094C6B4
  * Callers:
- *     PiDevCfgFreeResolveContext @ 0x14096485C (PiDevCfgFreeResolveContext.c)
- *     PiDevCfgResolveVariable @ 0x140A6A668 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgFreeResolveContext @ 0x14094C634 (PiDevCfgFreeResolveContext.c)
+ *     PiDevCfgResolveVariable @ 0x140A63A18 (PiDevCfgResolveVariable.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDevCfgFreeVariable(UNICODE_STRING *P)

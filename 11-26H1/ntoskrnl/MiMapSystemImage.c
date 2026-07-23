@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMapSystemImage @ 0x140B20834
+ * XREFs of MiMapSystemImage @ 0x140B22C34
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiAddMappedPtes @ 0x14033FE10 (MiAddMappedPtes.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiChargeSystemImageCommitment @ 0x140B30FC0 (MiChargeSystemImageCommitment.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiAddMappedPtes @ 0x140341E90 (MiAddMappedPtes.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiChargeSystemImageCommitment @ 0x140B331C0 (MiChargeSystemImageCommitment.c)
  */
 
 __int64 __fastcall MiMapSystemImage(__int64 a1, unsigned __int64 a2)
@@ -43,8 +43,8 @@ __int64 __fastcall MiMapSystemImage(__int64 a1, unsigned __int64 a2)
   }
   else
   {
-    _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.UserTime, v5);
-    _InterlockedAdd((volatile signed __int32 *)&stru_140E36558.WaitBlockFill11[16], v5);
+    _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.UserTime, v5);
+    _InterlockedAdd((volatile signed __int32 *)&stru_140E366D8.WaitBlockFill11[16], v5);
     return 0LL;
   }
 }

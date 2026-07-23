@@ -19,8 +19,10 @@ char *__fastcall RtlpCommitQueryDebugInfo(_DWORD *a1, unsigned int a2)
   int v3; // eax
   unsigned int v4; // ecx
   unsigned int v5; // edi
-  char *v7; // [esp+8h] [ebp-8h] BYREF
-  unsigned int v8; // [esp+Ch] [ebp-4h] BYREF
+  ULONG_PTR v7; // [esp-10h] [ebp-20h]
+  ULONG v8; // [esp+0h] [ebp-10h]
+  PVOID BaseAddress; // [esp+8h] [ebp-8h] BYREF
+  unsigned int v10; // [esp+Ch] [ebp-4h] BYREF
 
   if ( a2 <= 0xFFFFFFFC )
   {
@@ -35,11 +37,13 @@ LABEL_6:
     }
     if ( v5 < a1[11] )
     {
-      v7 = (char *)a1 + v4;
-      v8 = v5 - v4;
-      if ( NtAllocateVirtualMemory(-1, (int)&v7, 0, (int)&v8, 4096, 4) >= 0 )
+      BaseAddress = (char *)a1 + v4;
+      v10 = v5 - v4;
+      HIDWORD(v7) = &v10;
+      LODWORD(v7) = 0;
+      if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v7, (PSIZE_T)0x1000, 4u, v8) >= 0 )
       {
-        a1[10] += v8;
+        a1[10] += v10;
         v3 = a1[9];
         goto LABEL_6;
       }

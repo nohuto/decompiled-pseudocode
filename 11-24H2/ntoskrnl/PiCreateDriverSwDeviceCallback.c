@@ -1,33 +1,33 @@
 /*
- * XREFs of PiCreateDriverSwDeviceCallback @ 0x140AA3320
+ * XREFs of PiCreateDriverSwDeviceCallback @ 0x140A9E6B0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14032FA04 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiSwStartCreate @ 0x140730F9C (PiSwStartCreate.c)
- *     PnpCompareMultiSz @ 0x140732F4C (PnpCompareMultiSz.c)
- *     RtlCreateUnicodeString @ 0x140833010 (RtlCreateUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _PnpGetGenericStoreProperty @ 0x1408C7EF0 (_PnpGetGenericStoreProperty.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     RtlHashUnicodeString @ 0x1409862A0 (RtlHashUnicodeString.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1409920EC (_PnpGetGenericStorePropertyKeys.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     PnpGenerateDeviceIdsHash @ 0x140A4D2CC (PnpGenerateDeviceIdsHash.c)
- *     PipMakeGloballyUniqueId @ 0x140A582C0 (PipMakeGloballyUniqueId.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x1402B827C (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiSwStartCreate @ 0x14072EFAC (PiSwStartCreate.c)
+ *     PnpCompareMultiSz @ 0x140730F5C (PnpCompareMultiSz.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpGetGenericStoreProperty @ 0x1408C5920 (_PnpGetGenericStoreProperty.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     RtlHashUnicodeString @ 0x14096EAB0 (RtlHashUnicodeString.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x14097D12C (_PnpGetGenericStorePropertyKeys.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     RtlCreateUnicodeString @ 0x1409D2A00 (RtlCreateUnicodeString.c)
+ *     PnpGenerateDeviceIdsHash @ 0x140A43E5C (PnpGenerateDeviceIdsHash.c)
+ *     PipMakeGloballyUniqueId @ 0x140A4FA70 (PipMakeGloballyUniqueId.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCreateDriverSwDeviceCallback(__int64 a1, __int64 a2, const WCHAR *a3, _DWORD *a4)
@@ -271,7 +271,7 @@ LABEL_17:
                   if ( !Pool2 )
                   {
                     v58 = 2048;
-                    Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
+                    Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, 0x800uLL, 0x20207050u);
                     if ( !Pool2 )
                     {
 LABEL_67:
@@ -383,7 +383,7 @@ LABEL_67:
             ++v28;
           while ( v50[v28] );
           WORD1(P[0]) = 2 * (v28 + v29 + 2);
-          P[1] = (PVOID)ExAllocatePool2(0x100uLL);
+          P[1] = (PVOID)ExAllocatePool2(0x100uLL, (unsigned __int16)(2 * (v29 + v28) + 4), 0x67727453u);
           if ( !P[1] )
           {
             RegistryValues = -1073741670;
@@ -414,7 +414,7 @@ LABEL_113:
               v35 = v49;
             }
             v31 = v35;
-            v11 = (_DWORD *)ExAllocatePool2(0x100uLL);
+            v11 = (_DWORD *)ExAllocatePool2(0x100uLL, 20LL * v35, 0x20207050u);
             if ( !v11 )
               goto LABEL_67;
           }
@@ -423,7 +423,7 @@ LABEL_113:
           {
             if ( v49 )
             {
-              v37 = (char *)ExAllocatePool2(0x100uLL);
+              v37 = (char *)ExAllocatePool2(0x100uLL, 48LL * v49, 0x20207050u);
               v63 = v37;
               if ( !v37 )
               {
@@ -466,7 +466,7 @@ LABEL_113:
                     v42 = v49;
                   }
                   *((_DWORD *)v39 + 1) = v42;
-                  v44 = ExAllocatePool2(0x100uLL);
+                  v44 = ExAllocatePool2(0x100uLL, v49, 0x20207050u);
                   *((_QWORD *)v39 + 1) = v44;
                   if ( !v44 )
                   {
@@ -572,7 +572,7 @@ LABEL_71:
   v24 = Handle;
   if ( Handle )
     ZwClose(Handle);
-  if ( RegistryValues < 0 && (byte_140EEFD24 & 4) != 0 )
+  if ( RegistryValues < 0 && (byte_140EEFF64 & 4) != 0 )
     McTemplateK0zzd_EtwWriteTransfer(
       (__int64)v24,
       (__int64)KMPnPEvt_CreateDriverSwDevice_Failure,

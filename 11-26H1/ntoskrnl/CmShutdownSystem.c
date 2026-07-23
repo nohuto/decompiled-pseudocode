@@ -1,14 +1,14 @@
 /*
- * XREFs of CmShutdownSystem @ 0x140854284
+ * XREFs of CmShutdownSystem @ 0x14085A594
  * Callers:
- *     ExRebootSystemForRecovery @ 0x1406CB54C (ExRebootSystemForRecovery.c)
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     ExRebootSystemForRecovery @ 0x1406CF57C (ExRebootSystemForRecovery.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmShutdownSystem0 @ 0x1406E2248 (CmShutdownSystem0.c)
- *     CmShutdownSystem1 @ 0x1406E2270 (CmShutdownSystem1.c)
- *     CmShutdownSystem2 @ 0x1406E24C0 (CmShutdownSystem2.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmShutdownSystem0 @ 0x1406E64C8 (CmShutdownSystem0.c)
+ *     CmShutdownSystem1 @ 0x1406E64F0 (CmShutdownSystem1.c)
+ *     CmShutdownSystem2 @ 0x1406E6740 (CmShutdownSystem2.c)
  */
 
 _KAFFINITY_EX *CmShutdownSystem()

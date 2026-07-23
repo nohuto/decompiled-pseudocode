@@ -1,23 +1,23 @@
 /*
- * XREFs of KiSrcuFlushCompleted @ 0x14052EB44
+ * XREFs of KiSrcuFlushCompleted @ 0x140531064
  * Callers:
- *     KiCheckWaitNext @ 0x1402200D0 (KiCheckWaitNext.c)
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiSrcuCheckQuiescent @ 0x140462770 (KiSrcuCheckQuiescent.c)
- *     KeSrcuReadUnlock @ 0x1405F51C0 (KeSrcuReadUnlock.c)
- *     KiSrcuFlushCompletedDpcRoutine @ 0x1405F53E0 (KiSrcuFlushCompletedDpcRoutine.c)
- *     KiSrcuStartGracePeriod @ 0x1405F5D68 (KiSrcuStartGracePeriod.c)
+ *     KiCheckWaitNext @ 0x140221A60 (KiCheckWaitNext.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiSrcuCheckQuiescent @ 0x14045B730 (KiSrcuCheckQuiescent.c)
+ *     KeSrcuReadUnlock @ 0x1405F7B80 (KeSrcuReadUnlock.c)
+ *     KiSrcuFlushCompletedDpcRoutine @ 0x1405F7DA0 (KiSrcuFlushCompletedDpcRoutine.c)
+ *     KiSrcuStartGracePeriod @ 0x1405F8724 (KiSrcuStartGracePeriod.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxTryToAcquireSpinLock @ 0x140330C68 (KxTryToAcquireSpinLock.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     KiSrcuCompareGraceSequence @ 0x1404D9AC0 (KiSrcuCompareGraceSequence.c)
- *     KiSrcuRebalance @ 0x1405F5B18 (KiSrcuRebalance.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxTryToAcquireSpinLock @ 0x140332C98 (KxTryToAcquireSpinLock.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     KiSrcuCompareGraceSequence @ 0x1404D31A0 (KiSrcuCompareGraceSequence.c)
+ *     KiSrcuRebalance @ 0x1405F84D8 (KiSrcuRebalance.c)
  */
 
 _QWORD **__fastcall KiSrcuFlushCompleted(__int64 a1, unsigned int a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MmMdlPageContentsState @ 0x14047E2F0
+ * XREFs of MmMdlPageContentsState @ 0x140477C60
  * Callers:
- *     MdlInvariantPostProcessing1 @ 0x140642B44 (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x140642D54 (MdlInvariantPreProcessing1.c)
+ *     MdlInvariantPostProcessing1 @ 0x140646724 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x140646934 (MdlInvariantPreProcessing1.c)
  * Callees:
  *     <none>
  */

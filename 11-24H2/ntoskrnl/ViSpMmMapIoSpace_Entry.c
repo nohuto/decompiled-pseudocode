@@ -1,10 +1,10 @@
 /*
- * XREFs of ViSpMmMapIoSpace_Entry @ 0x140BA4A90
+ * XREFs of ViSpMmMapIoSpace_Entry @ 0x140BA6A90
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     MmIsMdlPageLocked @ 0x140BA46F8 (MmIsMdlPageLocked.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     MmIsMdlPageLocked @ 0x140BA66F8 (MmIsMdlPageLocked.c)
  */
 
 __int64 __fastcall ViSpMmMapIoSpace_Entry(__int64 a1)

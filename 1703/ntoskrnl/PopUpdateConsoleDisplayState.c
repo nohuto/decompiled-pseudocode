@@ -15,18 +15,18 @@
 __int64 __fastcall PopUpdateConsoleDisplayState(int a1)
 {
   __int64 result; // rax
-  int v2; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   if ( PopConsoleDisplayState != a1 )
   {
     PopConsoleDisplayState = a1;
     PopDiagTraceConsoleDisplayState();
     PopCheckResiliencyScenarios();
-    v2 = PopConsoleDisplayState;
-    PopSetPowerSettingValueAcDc(&GUID_CONSOLE_DISPLAY_STATE, 4u, &v2);
-    v2 = PopConsoleDisplayState != 0;
-    PopSetPowerSettingValueAcDc(&GUID_MONITOR_POWER_ON, 4u, &v2);
-    ZwUpdateWnfStateData((__int64)&WNF_UBPM_CONSOLE_MONITOR, (__int64)&v2, 4LL);
+    Buffer = PopConsoleDisplayState;
+    PopSetPowerSettingValueAcDc(&GUID_CONSOLE_DISPLAY_STATE, 4u, &Buffer);
+    Buffer = PopConsoleDisplayState != 0;
+    PopSetPowerSettingValueAcDc(&GUID_MONITOR_POWER_ON, 4u, &Buffer);
+    ZwUpdateWnfStateData(&WNF_UBPM_CONSOLE_MONITOR, &Buffer, 4u, 0LL, 0LL, 0, 0);
     return PopSpoilBatteryEstimate(0LL);
   }
   return result;

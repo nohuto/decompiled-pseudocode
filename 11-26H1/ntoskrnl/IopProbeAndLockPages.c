@@ -1,10 +1,10 @@
 /*
- * XREFs of IopProbeAndLockPages @ 0x14039F98C
+ * XREFs of IopProbeAndLockPages @ 0x1403A16EC
  * Callers:
- *     IopSetEaOrQuotaInformationFile @ 0x140795248 (IopSetEaOrQuotaInformationFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x140797D78 (IopSetEaOrQuotaInformationFile.c)
  * Callees:
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     MmUpdateMdlTracker @ 0x1404E047C (MmUpdateMdlTracker.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     MmUpdateMdlTracker @ 0x1404D9B5C (MmUpdateMdlTracker.c)
  */
 
 __int64 __fastcall IopProbeAndLockPages(__int64 a1, char a2, char a3, __int64 a4, unsigned int a5)

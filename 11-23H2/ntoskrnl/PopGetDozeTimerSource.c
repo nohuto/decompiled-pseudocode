@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetDozeTimerSource @ 0x1403AAD50
+ * XREFs of PopGetDozeTimerSource @ 0x1403AAF30
  * Callers:
- *     PopWnfAudioCallback @ 0x1408553A0 (PopWnfAudioCallback.c)
+ *     PopWnfAudioCallback @ 0x1408556A0 (PopWnfAudioCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopGetDozeTimerSource()
@@ -20,13 +20,16 @@ __int64 PopGetDozeTimerSource()
 
   v0 = 0;
   v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-  if ( byte_140C3CD44 )
-    v0 = dword_140C3CD48;
+  if ( byte_140C3CCE4 )
+    v0 = dword_140C3CCE8;
   KxReleaseSpinLock((volatile signed __int64 *)&PopIdleAoAcDozeS4Lock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

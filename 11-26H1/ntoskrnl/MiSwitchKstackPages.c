@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSwitchKstackPages @ 0x140530AD0
+ * XREFs of MiSwitchKstackPages @ 0x140532FD0
  * Callers:
- *     MiWritePteHighLevelIsr @ 0x1406F2D80 (MiWritePteHighLevelIsr.c)
- *     MiTradeIsolatedThreadStackPage @ 0x1406F3688 (MiTradeIsolatedThreadStackPage.c)
+ *     MiWritePteHighLevelIsr @ 0x1406F79F0 (MiWritePteHighLevelIsr.c)
+ *     MiTradeIsolatedThreadStackPage @ 0x1406F82F8 (MiTradeIsolatedThreadStackPage.c)
  * Callees:
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
  */
 
 signed __int64 __fastcall MiSwitchKstackPages(__m128i *a1, const __m128i *a2)

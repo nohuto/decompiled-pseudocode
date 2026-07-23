@@ -1,12 +1,12 @@
 /*
- * XREFs of PopReadResumeContext @ 0x140B6109C
+ * XREFs of PopReadResumeContext @ 0x140B6413C
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopReadPagesFromHiberFile @ 0x140775074 (PopReadPagesFromHiberFile.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopReadPagesFromHiberFile @ 0x140778074 (PopReadPagesFromHiberFile.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadResumeContext(_DWORD *a1, _QWORD *a2)

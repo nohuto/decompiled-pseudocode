@@ -1,14 +1,14 @@
 /*
- * XREFs of PsGetCurrentProcessSessionId @ 0x14025F5C0
+ * XREFs of PsGetCurrentProcessSessionId @ 0x14027E740
  * Callers:
- *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
- *     PopCreatePowerRequestObject @ 0x14062BBB0 (PopCreatePowerRequestObject.c)
- *     NtSetInformationObject @ 0x140691630 (NtSetInformationObject.c)
- *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
- *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     PfpProcessScenarioPhase @ 0x14078CF98 (PfpProcessScenarioPhase.c)
- *     IoGetContainerInformation @ 0x1408949C0 (IoGetContainerInformation.c)
+ *     NtSetInformationObject @ 0x1405F14A0 (NtSetInformationObject.c)
+ *     PopCreatePowerRequestObject @ 0x140670788 (PopCreatePowerRequestObject.c)
+ *     EtwpWriteUserEvent @ 0x140690950 (EtwpWriteUserEvent.c)
+ *     PnpNotifyDriverCallback @ 0x1406FD0AC (PnpNotifyDriverCallback.c)
+ *     ObpLookupObjectName @ 0x14070B300 (ObpLookupObjectName.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     PfpProcessScenarioPhase @ 0x14078D158 (PfpProcessScenarioPhase.c)
+ *     IoGetContainerInformation @ 0x140894B20 (IoGetContainerInformation.c)
  * Callees:
  *     <none>
  */

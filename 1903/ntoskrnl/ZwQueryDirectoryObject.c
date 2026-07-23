@@ -12,7 +12,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryDirectoryObject(
         HANDLE DirectoryHandle,
         PVOID Buffer,
@@ -24,5 +23,5 @@ NTSTATUS __stdcall ZwQueryDirectoryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DirectoryHandle, Buffer, *(_QWORD *)&BufferLength);
+  return KiServiceInternal(DirectoryHandle);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceSiloTimedEvent @ 0x14046759A
+ * XREFs of EtwTraceSiloTimedEvent @ 0x14046799A
  * Callers:
- *     PfHardFaultLog @ 0x1402A30A8 (PfHardFaultLog.c)
+ *     PfHardFaultLog @ 0x1402A3338 (PfHardFaultLog.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceSiloTimedEvent(

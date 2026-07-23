@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeGapFrames @ 0x1409D2020
+ * XREFs of MiInitializeGapFrames @ 0x1409D3020
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
- *     MiFillPfnGaps @ 0x1409D1FD0 (MiFillPfnGaps.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
+ *     MiFillPfnGaps @ 0x1409D2FD0 (MiFillPfnGaps.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
@@ -11,8 +11,8 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2)
@@ -34,17 +34,17 @@ __int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2)
   {
     if ( a1 != -1 )
       return 0LL;
-    v3 = qword_14043ADC8;
+    v3 = qword_14043BE88;
   }
   else
   {
-    v3 = qword_14043ADE0;
+    v3 = qword_14043BEA0;
   }
   if ( (unsigned int)MiChargeResident(&MiSystemPartition, 3uLL, 0LL) )
   {
     if ( (unsigned int)MiChargeCommit((__int64)&MiSystemPartition, 3uLL, 1u) )
     {
-      v4 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)3);
+      v4 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)3);
       if ( v4 )
       {
         v5 = 0;
@@ -57,7 +57,7 @@ LABEL_15:
           ++v6;
           if ( v5 >= 4 )
           {
-            MiReleasePtes((__int64)&qword_14043AFA0, v4, 3u);
+            MiReleasePtes((__int64)&qword_14043C060, v4, 3u);
             return 1LL;
           }
         }
@@ -91,7 +91,7 @@ LABEL_10:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v10 = 1;
-          if ( HIBYTE(word_14043A1AC) )
+          if ( HIBYTE(word_14043B26C) )
             goto LABEL_10;
         }
         else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspIncrementJobChainProcessCounts @ 0x14071F948
+ * XREFs of PspIncrementJobChainProcessCounts @ 0x1406F5884
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406F519C (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
  * Callees:
- *     PspSendJobNotification @ 0x1402C3DCC (PspSendJobNotification.c)
+ *     PspSendJobNotification @ 0x14024234C (PspSendJobNotification.c)
  */
 
 void __fastcall PspIncrementJobChainProcessCounts(__int64 a1, __int64 a2, __int64 a3, __int16 a4)

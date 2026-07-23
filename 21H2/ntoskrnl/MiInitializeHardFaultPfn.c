@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeHardFaultPfn @ 0x14023E5A0
+ * XREFs of MiInitializeHardFaultPfn @ 0x1402E2DF0
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x14023DDD0 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x1402E2620 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     MiGetContainingPageTable @ 0x14023E450 (MiGetContainingPageTable.c)
- *     MiSetPfnTbFlushStamp @ 0x140240160 (MiSetPfnTbFlushStamp.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
+ *     MiGetContainingPageTable @ 0x1402E2CA0 (MiGetContainingPageTable.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E49B0 (MiSetPfnTbFlushStamp.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
  */
 
 __int64 __fastcall MiInitializeHardFaultPfn(__int64 a1, __int64 a2, unsigned __int64 a3, int a4, unsigned int a5)

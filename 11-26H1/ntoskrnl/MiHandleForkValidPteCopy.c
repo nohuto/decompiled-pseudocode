@@ -1,14 +1,14 @@
 /*
- * XREFs of MiHandleForkValidPteCopy @ 0x14030DAD8
+ * XREFs of MiHandleForkValidPteCopy @ 0x1402EFB58
  * Callers:
- *     MiBuildForkPte @ 0x14030AB74 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402ECBF4 (MiBuildForkPte.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiLockAndInsertPageInFreeList @ 0x140293098 (MiLockAndInsertPageInFreeList.c)
- *     MiFinalizePageAttribute @ 0x1402D85E0 (MiFinalizePageAttribute.c)
- *     MiDuplicateCloneLeaf @ 0x14030D374 (MiDuplicateCloneLeaf.c)
- *     MiReplenishCloneLeafPage @ 0x14030E9E0 (MiReplenishCloneLeafPage.c)
- *     MiComputePreferredNode @ 0x14030EAE0 (MiComputePreferredNode.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1402925F8 (MiLockAndInsertPageInFreeList.c)
+ *     MiFinalizePageAttribute @ 0x1402BA3A0 (MiFinalizePageAttribute.c)
+ *     MiDuplicateCloneLeaf @ 0x1402EF3F4 (MiDuplicateCloneLeaf.c)
+ *     MiReplenishCloneLeafPage @ 0x1402F0A60 (MiReplenishCloneLeafPage.c)
+ *     MiComputePreferredNode @ 0x1402F0B60 (MiComputePreferredNode.c)
  */
 
 __int64 __fastcall MiHandleForkValidPteCopy(_QWORD *a1, unsigned __int64 a2)

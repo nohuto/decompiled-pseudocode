@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIntSteerInit @ 0x140A4D1CC
+ * XREFs of KiIntSteerInit @ 0x140A4E1CC
  * Callers:
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     HviIsAnyHypervisorPresent @ 0x1403A5A10 (HviIsAnyHypervisorPresent.c)
- *     HviIsXboxNanovisorPresent @ 0x1403CE794 (HviIsXboxNanovisorPresent.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5B60 (HviIsAnyHypervisorPresent.c)
+ *     HviIsXboxNanovisorPresent @ 0x1403CE904 (HviIsXboxNanovisorPresent.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 KiIntSteerInit()
@@ -20,13 +20,13 @@ __int64 KiIntSteerInit()
   v0 = 0;
   KiIntSteerMask = 1310721;
   KiIntTrackRootCount = 0;
-  qword_140C2B118 = (__int64)&KiIntTrackRootList;
+  qword_140C2B148 = (__int64)&KiIntTrackRootList;
   KiIntTrackRootList = (__int64)&KiIntTrackRootList;
   KiIntTrackSpinlock = 0LL;
-  memset(&unk_140C2B144, 0, 0xA4uLL);
+  memset(&unk_140C2B224, 0, 0xA4uLL);
   KeAddProcessorAffinityEx(&KiIntSteerMask, 0);
   KiIntSteerAffinitizedInterrupts[0] = 1310721;
-  memset(&unk_140C2B204, 0, 0xA4uLL);
+  memset(&unk_140C2B164, 0, 0xA4uLL);
   v2 = 0;
   ((void (__fastcall *)(__int64, __int64, int *, int *))off_140C00A68[0])(39LL, 4LL, &KiInterruptControllerInfo, &v2);
   if ( !KiInterruptSteeringDisabled

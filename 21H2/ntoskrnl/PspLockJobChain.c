@@ -1,14 +1,14 @@
 /*
- * XREFs of PspLockJobChain @ 0x140616240
+ * XREFs of PspLockJobChain @ 0x14067FEA0
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
- *     PspGetMemoryPartitionImplicit @ 0x140613FA4 (PspGetMemoryPartitionImplicit.c)
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     PspLockJobsAndProcessExclusive @ 0x14072076C (PspLockJobsAndProcessExclusive.c)
+ *     PspGetMemoryPartitionImplicit @ 0x14067DC04 (PspGetMemoryPartitionImplicit.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406F519C (PspImplicitAssignProcessToJob.c)
+ *     PspLockJobsAndProcessExclusive @ 0x1406F6C1C (PspLockJobsAndProcessExclusive.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PspLockJobAssignment @ 0x140616024 (PspLockJobAssignment.c)
- *     PspUnlockJobAssignment @ 0x140616050 (PspUnlockJobAssignment.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PspLockJobAssignment @ 0x14067FC84 (PspLockJobAssignment.c)
+ *     PspUnlockJobAssignment @ 0x14067FCB0 (PspUnlockJobAssignment.c)
  */
 
 BOOLEAN __fastcall PspLockJobChain(__int64 a1, __int64 a2, char a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceFileName @ 0x140183D90
+ * XREFs of EtwpTraceFileName @ 0x140183ED0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
- *     EtwTraceSiloKernelEvent @ 0x1400891E0 (EtwTraceSiloKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42EC (KeIsExecutingInArbitraryThreadContext.c)
+ *     PsGetThreadServerSilo @ 0x14007E5D0 (PsGetThreadServerSilo.c)
+ *     EtwTraceSiloKernelEvent @ 0x1400891D0 (EtwTraceSiloKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1401B442C (KeIsExecutingInArbitraryThreadContext.c)
  */
 
 void __fastcall EtwpTraceFileName(

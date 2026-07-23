@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleGetConcurrencyStats @ 0x140AFCE20
+ * XREFs of PpmIdleGetConcurrencyStats @ 0x140AFE990
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmParkGetParkNode @ 0x14042D7D4 (PpmParkGetParkNode.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmParkGetParkNode @ 0x140421EA4 (PpmParkGetParkNode.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmIdleGetConcurrencyStats(int a1, __int64 a2, __int64 *a3, _DWORD *a4)
@@ -37,7 +37,7 @@ __int64 __fastcall PpmIdleGetConcurrencyStats(int a1, __int64 a2, __int64 *a3, _
   *a4 = 0;
   v7 = a3;
   v8 = a2;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, (unsigned int)a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, (unsigned int)a3);
   ParkNode = PpmParkGetParkNode(v8);
   v10 = ParkNode;
   if ( ParkNode && (v11 = *(_QWORD *)(ParkNode + 1072)) != 0 )
@@ -107,7 +107,7 @@ LABEL_19:
   {
     v5 = -1073741637;
   }
-  PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   if ( v5 < 0 )
   {
     v19 = (void *)*v7;

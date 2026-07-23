@@ -1,19 +1,18 @@
 /*
- * XREFs of ExpWnfGenerateStateName @ 0x14060DDB0
+ * XREFs of ExpWnfGenerateStateName @ 0x14069D860
  * Callers:
- *     NtCreateWnfStateName @ 0x14060D6D0 (NtCreateWnfStateName.c)
+ *     NtCreateWnfStateName @ 0x14069D180 (NtCreateWnfStateName.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     ExpWnfAllocateNextPersistentNameSequence @ 0x140733204 (ExpWnfAllocateNextPersistentNameSequence.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExpWnfAllocateNextPersistentNameSequence @ 0x1407333C4 (ExpWnfAllocateNextPersistentNameSequence.c)
  */
 
-__int64 __fastcall ExpWnfGenerateStateName(__int64 *a1, __int64 a2, int a3, char a4)
+__int64 __fastcall ExpWnfGenerateStateName(__int64 *a1, int a2, int a3, char a4)
 {
   char v5; // si
-  int v7; // edi
   __int64 CurrentServerSilo; // rbx
   volatile signed __int64 *CurrentServerSiloGlobals; // rax
   __int64 v10; // r8
@@ -27,10 +26,9 @@ __int64 __fastcall ExpWnfGenerateStateName(__int64 *a1, __int64 a2, int a3, char
 
   v17[0] = 0LL;
   v5 = a3;
-  v7 = a2;
   if ( (unsigned int)(a3 - 4) > 1 )
   {
-    CurrentServerSilo = PsGetCurrentServerSilo((__int64)a1, a2);
+    CurrentServerSilo = PsGetCurrentServerSilo();
     CurrentServerSiloGlobals = (volatile signed __int64 *)PsGetCurrentServerSiloGlobals(v16, v15);
   }
   else
@@ -38,7 +36,7 @@ __int64 __fastcall ExpWnfGenerateStateName(__int64 *a1, __int64 a2, int a3, char
     CurrentServerSilo = HalSystemVectorDispatchEntry();
     CurrentServerSiloGlobals = (volatile signed __int64 *)PsGetServerSiloGlobals(CurrentServerSilo);
   }
-  if ( (unsigned int)(v7 - 2) > 1 )
+  if ( (unsigned int)(a2 - 2) > 1 )
   {
     result = ExpWnfAllocateNextPersistentNameSequence(CurrentServerSilo, v17, v10, CurrentServerSiloGlobals + 114);
     if ( (int)result < 0 )
@@ -58,6 +56,6 @@ __int64 __fastcall ExpWnfGenerateStateName(__int64 *a1, __int64 a2, int a3, char
   }
   if ( (v13 & 0xFFE0000000000000uLL) != 0 )
     return 3221225473LL;
-  *a1 = (16 * ((v13 << 7) | v7 & 3)) | (a4 != 0 ? 0x400 : 0) | ((v5 & 0xF) << 6) & 0x7FEu | 1;
+  *a1 = (16 * ((v13 << 7) | a2 & 3)) | (a4 != 0 ? 0x400 : 0) | ((v5 & 0xF) << 6) & 0x7FEu | 1;
   return 0LL;
 }

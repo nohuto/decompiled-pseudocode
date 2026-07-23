@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmUpdateProcessorIdleVeto @ 0x1405684A0
+ * XREFs of PpmUpdateProcessorIdleVeto @ 0x1405686E0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmUpdateIdleVeto @ 0x140567FD0 (PpmUpdateIdleVeto.c)
- *     PpmEventProcessorVetoRequest @ 0x14057A2CC (PpmEventProcessorVetoRequest.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmUpdateIdleVeto @ 0x140568210 (PpmUpdateIdleVeto.c)
+ *     PpmEventProcessorVetoRequest @ 0x14057A50C (PpmEventProcessorVetoRequest.c)
  */
 
 __int64 __fastcall PpmUpdateProcessorIdleVeto(__int64 a1)

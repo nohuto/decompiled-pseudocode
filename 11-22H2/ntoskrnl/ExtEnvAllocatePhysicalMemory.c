@@ -120,10 +120,13 @@ LABEL_13:
   *v25 = v23;
   qword_140C60308 = (__int64)v23;
   KxReleaseSpinLock((volatile signed __int64 *)&ExtEnvAllocationLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v24 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v24 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v24 + 1));

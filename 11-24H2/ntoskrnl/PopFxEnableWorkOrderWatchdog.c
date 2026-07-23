@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxEnableWorkOrderWatchdog @ 0x1404516A0
+ * XREFs of PopFxEnableWorkOrderWatchdog @ 0x1402BCE1C
  * Callers:
- *     PopFxHandleDirectedPowerTransition @ 0x1404515CC (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x1404B3CDC (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2)
@@ -29,13 +29,13 @@ __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2)
       *(_QWORD *)(v2 + 152) = 0LL;
       *(_QWORD *)(v2 + 160) = v3;
       v5 = KeAcquireSpinLockRaiseToDpc(&PopWorkOrderLock);
-      v6 = (__int64 *)qword_140F0D988;
-      if ( *(__int64 **)qword_140F0D988 != &PopWorkOrderList )
+      v6 = (__int64 *)qword_140F0DB08;
+      if ( *(__int64 **)qword_140F0DB08 != &PopWorkOrderList )
         __fastfail(3u);
       *(_QWORD *)v2 = &PopWorkOrderList;
       *(_QWORD *)(v2 + 8) = v6;
       *v6 = v2;
-      qword_140F0D988 = v2;
+      qword_140F0DB08 = v2;
       if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         _InterlockedAnd64((volatile signed __int64 *)&PopWorkOrderLock, 0LL);
       else

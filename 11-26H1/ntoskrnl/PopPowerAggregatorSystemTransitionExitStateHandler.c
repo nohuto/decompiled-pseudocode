@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x1407D6FF0
+ * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x1407DA120
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopCheckForWork @ 0x1404385D4 (PopCheckForWork.c)
- *     PopGetPolicyWorker @ 0x14043864C (PopGetPolicyWorker.c)
- *     PopSuspendResumePdc @ 0x140A37334 (PopSuspendResumePdc.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140A38D30 (PopPowerAggregatorSetCurrentState.c)
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopCheckForWork @ 0x1404274F4 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14042756C (PopGetPolicyWorker.c)
+ *     PopSuspendResumePdc @ 0x1409F2EF4 (PopSuspendResumePdc.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x1409F48F0 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KEVENT *a1)
@@ -25,7 +25,7 @@ __int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KE
   memset(v6, 0, sizeof(v6));
   LODWORD(v6[0]) = 3;
   PopPowerAggregatorSetCurrentState(a1, v6);
-  PopReleaseRwLock(&PopPowerAggregatorLock);
+  PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
   PopSleepstudyStartNextSession(1LL, 20LL);
   if ( PopIdleScanInterval )
   {

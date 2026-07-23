@@ -1,11 +1,11 @@
 /*
- * XREFs of CarDeleteTelemetryData @ 0x1405D3AE4
+ * XREFs of CarDeleteTelemetryData @ 0x1405D4054
  * Callers:
- *     CarCreateTelemetryData @ 0x1405D3A3C (CarCreateTelemetryData.c)
- *     CarDeregisterRuleClassConfiguration @ 0x1405D3B80 (CarDeregisterRuleClassConfiguration.c)
- *     CarDeregisterRuleOverride @ 0x1405D3C20 (CarDeregisterRuleOverride.c)
- *     CarReportRuleViolationForTriage @ 0x1405D43C0 (CarReportRuleViolationForTriage.c)
- *     CarLiveDump @ 0x1405D5A90 (CarLiveDump.c)
+ *     CarCreateTelemetryData @ 0x1405D3FAC (CarCreateTelemetryData.c)
+ *     CarDeregisterRuleClassConfiguration @ 0x1405D40F0 (CarDeregisterRuleClassConfiguration.c)
+ *     CarDeregisterRuleOverride @ 0x1405D4190 (CarDeregisterRuleOverride.c)
+ *     CarReportRuleViolationForTriage @ 0x1405D4930 (CarReportRuleViolationForTriage.c)
+ *     CarLiveDump @ 0x1405D6000 (CarLiveDump.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of wcsstr @ 0x1405002B0
+ * XREFs of wcsstr @ 0x1404FDB70
  * Callers:
- *     SmUniqueIdParseProductName @ 0x14060CCB0 (SmUniqueIdParseProductName.c)
- *     BcpGetProgressMessages @ 0x140699EC0 (BcpGetProgressMessages.c)
- *     IopCheckIfNotNativeDriver @ 0x140711C94 (IopCheckIfNotNativeDriver.c)
- *     PiGetDeviceRegistryProperty @ 0x14071EC28 (PiGetDeviceRegistryProperty.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140815B48 (BiUpdateObjectReferenceInEfiEntry.c)
- *     SiGetBiosSystemPartition @ 0x140816DA0 (SiGetBiosSystemPartition.c)
- *     PiGetDeviceRegProperty @ 0x1408BD05C (PiGetDeviceRegProperty.c)
- *     PfSnIsHostingApplication @ 0x140961C24 (PfSnIsHostingApplication.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1409BFAAC (BiGetObjectReferenceFromEfiEntry.c)
- *     BiIsWinPEBoot @ 0x1409C1B7C (BiIsWinPEBoot.c)
- *     SubstringMatch @ 0x140A2B87C (SubstringMatch.c)
- *     SiIsWinPEBoot @ 0x140A2D950 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceName @ 0x140A2D9CC (SiGetBootDeviceName.c)
- *     EtwpGenerateFileName @ 0x140A7F9B8 (EtwpGenerateFileName.c)
- *     PopGetBitlockerKeyLocation @ 0x140B5B7BC (PopGetBitlockerKeyLocation.c)
+ *     SmUniqueIdParseProductName @ 0x14060B270 (SmUniqueIdParseProductName.c)
+ *     BcpGetProgressMessages @ 0x14069AF40 (BcpGetProgressMessages.c)
+ *     IopCheckIfNotNativeDriver @ 0x14070F824 (IopCheckIfNotNativeDriver.c)
+ *     PiGetDeviceRegistryProperty @ 0x14071C7B8 (PiGetDeviceRegistryProperty.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140816288 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     SiGetBiosSystemPartition @ 0x1408174E0 (SiGetBiosSystemPartition.c)
+ *     PiGetDeviceRegProperty @ 0x1408BA9AC (PiGetDeviceRegProperty.c)
+ *     PfSnIsHostingApplication @ 0x1409496E4 (PfSnIsHostingApplication.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1409A60FC (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiIsWinPEBoot @ 0x1409A81CC (BiIsWinPEBoot.c)
+ *     EtwpGenerateFileName @ 0x1409D6D84 (EtwpGenerateFileName.c)
+ *     SubstringMatch @ 0x140A1EB1C (SubstringMatch.c)
+ *     SiIsWinPEBoot @ 0x140A22390 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceName @ 0x140A2240C (SiGetBootDeviceName.c)
+ *     PopGetBitlockerKeyLocation @ 0x140B5D82C (PopGetBitlockerKeyLocation.c)
  * Callees:
  *     <none>
  */

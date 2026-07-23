@@ -1,16 +1,16 @@
 /*
- * XREFs of PopLoadResumeContext @ 0x140AB8C88
+ * XREFs of PopLoadResumeContext @ 0x140AB314C
  * Callers:
- *     PopAllocateHiberContext @ 0x140AC688C (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140AC4284 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PopOpenKey @ 0x1404AA718 (PopOpenKey.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x1404A4918 (PopOpenKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopLoadResumeContext(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall PopLoadResumeContext(__int64 a1)
   v3 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength);
   if ( v3 == -1073741789 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, ResultLength, 0x78744352u);
     if ( !Pool2 )
       goto LABEL_4;
     v3 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Pool2, ResultLength, &ResultLength);
@@ -44,7 +44,7 @@ __int64 __fastcall PopLoadResumeContext(__int64 a1)
   if ( v3 < 0 )
     goto LABEL_11;
   v4 = (Pool2[2] + 4095) & 0xFFFFF000;
-  v5 = (char *)ExAllocatePool2(0x40uLL);
+  v5 = (char *)ExAllocatePool2(0x40uLL, v4, 0x78744352u);
   v6 = v5;
   if ( v5 )
   {

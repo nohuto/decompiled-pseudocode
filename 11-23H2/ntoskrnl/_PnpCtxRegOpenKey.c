@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpCtxRegOpenKey @ 0x1408127C0
+ * XREFs of _PnpCtxRegOpenKey @ 0x140812A90
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140374E40 (PipUpdateDeviceProducts.c)
- *     DrvDbGetConfigurationSubKeyCallback @ 0x140673EC0 (DrvDbGetConfigurationSubKeyCallback.c)
- *     PiPnpRtlInit @ 0x140811214 (PiPnpRtlInit.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1408764E8 (DrvDbGetDriverPackageMappedProperty.c)
+ *     PipUpdateDeviceProducts @ 0x140374FE0 (PipUpdateDeviceProducts.c)
+ *     DrvDbGetConfigurationSubKeyCallback @ 0x140674410 (DrvDbGetConfigurationSubKeyCallback.c)
+ *     PiPnpRtlInit @ 0x1408114E4 (PiPnpRtlInit.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140876728 (DrvDbGetDriverPackageMappedProperty.c)
  *     PipMigratePnpState @ 0x140B3FB4C (PipMigratePnpState.c)
  *     PpDevCfgInit @ 0x140B3FC30 (PpDevCfgInit.c)
  *     PipProcessPendingServices @ 0x140B3FEC4 (PipProcessPendingServices.c)
@@ -16,7 +16,7 @@
  *     PipCommitPendingService @ 0x140B94D90 (PipCommitPendingService.c)
  *     PipProcessPendingObjects @ 0x140B95120 (PipProcessPendingObjects.c)
  * Callees:
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PnpCtxRegOpenKey(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5, __int64 a6)

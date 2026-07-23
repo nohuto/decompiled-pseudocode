@@ -7,21 +7,21 @@
  *     _RtlpGetCachedPath@16 @ 0x4B2B34F6 (_RtlpGetCachedPath@16.c)
  */
 
-int __stdcall RtlGetExePath(wchar_t *Str, _DWORD *a2)
+NTSTATUS __cdecl RtlGetExePath(PCWSTR DosPathName, PWSTR *SearchPathA)
 {
   char v2; // al
   int CachedPath; // eax
 
-  v2 = RtlpNeedCurrentDirectoryForExePath(Str);
+  v2 = RtlpNeedCurrentDirectoryForExePath((wchar_t *)DosPathName);
   CachedPath = RtlpGetCachedPath(v2 == 0, 0);
   if ( CachedPath )
   {
-    *a2 = CachedPath + 80;
+    *SearchPathA = (PWSTR)(CachedPath + 80);
     return 0;
   }
   else
   {
-    *a2 = 0;
+    *SearchPathA = 0;
     return -1073741801;
   }
 }

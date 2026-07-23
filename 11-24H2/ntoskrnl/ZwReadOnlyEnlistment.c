@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwReadOnlyEnlistment @ 0x1406A92D0
+ * XREFs of ZwReadOnlyEnlistment @ 0x1406AA270
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwReadOnlyEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER 
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock);
+  return KiServiceInternal(EnlistmentHandle);
 }

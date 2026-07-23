@@ -1,30 +1,30 @@
 /*
- * XREFs of AlpcpReceiveMessage @ 0x1405E7C70
+ * XREFs of AlpcpReceiveMessage @ 0x1406D73D0
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x1405E79F0 (NtAlpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x1406D7150 (NtAlpcSendWaitReceivePort.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1405E3A5C (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpReadMessageData @ 0x1405E7800 (AlpcpReadMessageData.c)
- *     AlpcpExposeAttributes @ 0x1405E8380 (AlpcpExposeAttributes.c)
- *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     AlpcpDestroyBlob @ 0x140685CEC (AlpcpDestroyBlob.c)
- *     AlpcpExposeCapturedContextAttribute @ 0x140692930 (AlpcpExposeCapturedContextAttribute.c)
- *     AlpcpReceiveDirectMessagePort @ 0x140693B70 (AlpcpReceiveDirectMessagePort.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406A8008 (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C2BD4 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     AlpcpDestroyBlob @ 0x1405E4E4C (AlpcpDestroyBlob.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x1405F1EC0 (AlpcpExposeCapturedContextAttribute.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x1405F30D0 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x140605F88 (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1406D31BC (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpReadMessageData @ 0x1406D6F60 (AlpcpReadMessageData.c)
+ *     AlpcpExposeAttributes @ 0x1406D7AE0 (AlpcpExposeAttributes.c)
+ *     AlpcpReceiveMessagePort @ 0x1406D8320 (AlpcpReceiveMessagePort.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C2D34 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
-__int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, _DWORD *a4, __int64 *a5)
+__int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, int *a4, __int64 *a5)
 {
   unsigned __int64 *v6; // r9
   struct _KTHREAD *CurrentThread; // r8
-  unsigned int v9; // r10d
+  int v9; // r10d
   int v10; // edx
   __int64 v11; // rax
   unsigned int v12; // edx
@@ -63,7 +63,7 @@ __int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, unsigned
   int v46; // [rsp+38h] [rbp-A0h]
   int v47; // [rsp+3Ch] [rbp-9Ch]
   int v48; // [rsp+40h] [rbp-98h]
-  unsigned int v49; // [rsp+50h] [rbp-88h]
+  int v49; // [rsp+50h] [rbp-88h]
   ULONG_PTR BugCheckParameter2; // [rsp+58h] [rbp-80h] BYREF
   __int64 v51; // [rsp+60h] [rbp-78h]
   unsigned __int64 v52; // [rsp+68h] [rbp-70h]
@@ -71,7 +71,7 @@ __int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, unsigned
   struct _KTHREAD *v54; // [rsp+78h] [rbp-60h]
   __int64 v55; // [rsp+80h] [rbp-58h]
   _OWORD v56[2]; // [rsp+88h] [rbp-50h] BYREF
-  int v57; // [rsp+E0h] [rbp+8h]
+  __int64 v57; // [rsp+E0h] [rbp+8h]
   unsigned __int64 v58; // [rsp+E0h] [rbp+8h]
 
   v57 = a1;
@@ -208,7 +208,7 @@ LABEL_36:
         *(_QWORD *)v26 = *(_QWORD *)v26;
         v16 = v46;
       }
-      LODWORD(a1) = v57;
+      a1 = v57;
       v10 = v44;
       goto LABEL_66;
     }
@@ -239,7 +239,7 @@ LABEL_65:
     LOBYTE(v10) = 1;
 LABEL_66:
   if ( v14 )
-    v30 = AlpcpReceiveDirectMessagePort(a1, v48, v47, (unsigned int)&BugCheckParameter2, v16);
+    v30 = AlpcpReceiveDirectMessagePort((__int64 *)a1, v48, v47, &BugCheckParameter2, v16);
   else
     v30 = AlpcpReceiveMessagePort(a1, v10, (_DWORD)a5, (unsigned int)&BugCheckParameter2, v16);
   v45 = v30;
@@ -254,12 +254,12 @@ LABEL_66:
     if ( a3 && (v58 = v34, v34 > v52) )
     {
       memset(v56, 0, sizeof(v56));
-      v31 = AlpcpReturnMessageOnInsufficientBuffer(v51, BugCheckParameter2, v56);
+      v31 = AlpcpReturnMessageOnInsufficientBuffer(v51, (_QWORD *)BugCheckParameter2, v56);
       v45 = v31;
       if ( v31 == -1073741789 )
       {
         *a3 = v58;
-        AlpcpExposeCapturedContextAttribute(v49, v56, (unsigned int)v16, a4);
+        AlpcpExposeCapturedContextAttribute(v49, v56, v16, (__int64)a4);
       }
     }
     else
@@ -327,7 +327,7 @@ LABEL_66:
         {
           if ( BugCheckParameter4 )
             KeBugCheckEx(0x18u, 0LL, BugCheckParameter2, 0x28uLL, BugCheckParameter4);
-          AlpcpDestroyBlob(BugCheckParameter2, 1LL);
+          AlpcpDestroyBlob(BugCheckParameter2, 1);
           v32 = 0LL;
         }
         v31 = v45;

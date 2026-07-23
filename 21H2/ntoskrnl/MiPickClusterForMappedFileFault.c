@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPickClusterForMappedFileFault @ 0x140319C70
+ * XREFs of MiPickClusterForMappedFileFault @ 0x1403249C0
  * Callers:
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiObtainFaultCharges @ 0x14021BA90 (MiObtainFaultCharges.c)
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
+ *     MiObtainFaultCharges @ 0x1402C0390 (MiObtainFaultCharges.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiPickClusterForMappedFileFault(
@@ -60,9 +60,9 @@ __int64 __fastcall MiPickClusterForMappedFileFault(
     goto LABEL_5;
   if ( *(__int64 *)(a1 + 7168) < 160 )
     goto LABEL_5;
-  if ( dword_140C4ECC0 )
+  if ( dword_140C4ED00 )
   {
-    --dword_140C4ECC0;
+    --dword_140C4ED00;
 LABEL_5:
     v16 = v12;
     v17 = v12;
@@ -94,9 +94,9 @@ LABEL_5:
   if ( !a3 && (v21 & 0x20000000) != 0 )
   {
     v22 = MiStartingOffset(v8, v12, a5);
-    v27 = v22 & (dword_140C4ED50 - 1);
-    if ( v17 > v12 + 8 * (((unsigned int)(dword_140C4ED50 - v27) >> 12) - 1LL) )
-      v17 = v12 + 8 * (((unsigned int)(dword_140C4ED50 - v27) >> 12) - 1LL);
+    v27 = v22 & (dword_140C4ED90 - 1);
+    if ( v17 > v12 + 8 * (((unsigned int)(dword_140C4ED90 - v27) >> 12) - 1LL) )
+      v17 = v12 + 8 * (((unsigned int)(dword_140C4ED90 - v27) >> 12) - 1LL);
   }
   else
   {
@@ -130,7 +130,7 @@ LABEL_5:
     v26 = v25;
     if ( (*(_DWORD *)(v31 + 56) & 0x20000000) != 0 )
     {
-      v28 = (v22 >> 12) & ((unsigned int)(dword_140C4ED50 - 1) >> 12);
+      v28 = (v22 >> 12) & ((unsigned int)(dword_140C4ED90 - 1) >> 12);
       if ( v25 < v12 - 8 * v28 )
         v26 = v12 - 8LL * (unsigned int)v28;
     }

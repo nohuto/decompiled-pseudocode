@@ -6,27 +6,27 @@
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     SepReferenceTokenByHandle @ 0x1402F8F70 (SepReferenceTokenByHandle.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140300534 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepCaptureUnicodeStringArray @ 0x1406A0BF0 (SepCaptureUnicodeStringArray.c)
+ *     sub_1402F8F70 @ 0x1402F8F70 (sub_1402F8F70.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_140300534 @ 0x140300534 (sub_140300534.c)
+ *     sub_1406A0BF0 @ 0x1406A0BF0 (sub_1406A0BF0.c)
  *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQuerySecurityAttributesToken(
-        void *a1,
-        __int64 a2,
-        unsigned int a3,
-        volatile void *a4,
-        SIZE_T Length,
-        volatile void *Address)
+NTSTATUS __cdecl NtQuerySecurityAttributesToken(
+        HANDLE TokenHandle,
+        PUNICODE_STRING Attributes,
+        ULONG NumberOfAttributes,
+        PVOID Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   char v9; // r15
-  unsigned __int8 PreviousMode; // bl
-  unsigned int v11; // r14d
-  volatile void *v12; // r13
-  int SecurityAttributesToken; // esi
+  unsigned __int8 v10; // bl
+  ULONG v11; // r14d
+  PULONG v12; // r13
+  NTSTATUS v13; // esi
   int v14; // r9d
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v16; // rdi
@@ -39,67 +39,59 @@ __int64 __fastcall NtQuerySecurityAttributesToken(
   P = 0LL;
   v9 = 0;
   Object = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v10 = *((_BYTE *)KeGetCurrentThread() + 562);
   v11 = Length;
-  if ( (_DWORD)Length )
+  if ( Length )
   {
-    if ( a4 )
+    if ( Buffer )
       goto LABEL_3;
 LABEL_20:
-    SecurityAttributesToken = -1073741811;
+    v13 = -1073741811;
     v19 = -1073741811;
 LABEL_19:
     v16 = (PERESOURCE *)Object;
     goto LABEL_8;
   }
-  if ( a4 )
+  if ( Buffer )
     goto LABEL_20;
 LABEL_3:
-  if ( PreviousMode )
+  if ( v10 )
   {
-    ProbeForWrite(a4, (unsigned int)Length, 4u);
-    v12 = Address;
-    ProbeForWrite(Address, 4uLL, 4u);
+    ProbeForWrite(Buffer, Length, 4u);
+    v12 = ReturnLength;
+    ProbeForWrite(ReturnLength, 4uLL, 4u);
   }
   else
   {
-    v12 = Address;
+    v12 = ReturnLength;
   }
-  SecurityAttributesToken = SepCaptureUnicodeStringArray(a2, a3, PreviousMode, &P);
-  v19 = SecurityAttributesToken;
-  if ( SecurityAttributesToken < 0 )
+  v13 = sub_1406A0BF0(Attributes, NumberOfAttributes, v10, &P);
+  v19 = v13;
+  if ( v13 < 0 )
     goto LABEL_19;
-  SecurityAttributesToken = SepReferenceTokenByHandle(a1, 8u, PreviousMode, v14, &Object, &Length, &v22);
-  v19 = SecurityAttributesToken;
-  if ( SecurityAttributesToken < 0 )
+  v13 = sub_1402F8F70(TokenHandle, 8u, v10, v14, &Object, &Length, &v22);
+  v19 = v13;
+  if ( v13 < 0 )
     goto LABEL_19;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   v16 = (PERESOURCE *)Object;
   ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
   v9 = 1;
   LOBYTE(Length) = 1;
-  SecurityAttributesToken = SepInternalQuerySecurityAttributesTokenEx(
-                              (__int64)v16,
-                              v17,
-                              (__int64)P,
-                              a3,
-                              0,
-                              (__int64)a4,
-                              v11,
-                              (__int64)v12);
-  v19 = SecurityAttributesToken;
+  v13 = sub_140300534((__int64)v16, v17, (__int64)P, NumberOfAttributes, 0, (__int64)Buffer, v11, (__int64)v12);
+  v19 = v13;
 LABEL_8:
-  if ( PreviousMode == 1 && P )
+  if ( v10 == 1 && P )
     ExFreePoolWithTag(P, 0);
   if ( v9 )
   {
     ExReleaseResourceLite(v16[6]);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    SecurityAttributesToken = v19;
+    sub_1402F9540((__int64)KeGetCurrentThread());
+    v13 = v19;
     v16 = (PERESOURCE *)Object;
   }
   if ( v16 )
     ObfDereferenceObjectWithTag(v16, 0x74726853u);
-  return (unsigned int)SecurityAttributesToken;
+  return v13;
 }

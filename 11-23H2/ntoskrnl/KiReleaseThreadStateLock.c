@@ -1,9 +1,9 @@
 /*
- * XREFs of KiReleaseThreadStateLock @ 0x140577688
+ * XREFs of KiReleaseThreadStateLock @ 0x140577B78
  * Callers:
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
  */
 
 __int64 __fastcall KiReleaseThreadStateLock(__int64 a1, __int64 a2, __int64 *a3, volatile signed __int64 *a4)

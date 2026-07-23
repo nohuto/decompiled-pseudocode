@@ -1,7 +1,7 @@
 /*
- * XREFs of StEtaInitialize @ 0x1404BAFA4
+ * XREFs of StEtaInitialize @ 0x1404B5E44
  * Callers:
- *     SmcProcessCreateRequest @ 0x140798E7C (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x140798F8C (SmcProcessCreateRequest.c)
  * Callees:
  *     <none>
  */

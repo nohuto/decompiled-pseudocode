@@ -3,9 +3,9 @@
  * Callers:
  *     PspInitPhase2 @ 0x1407B5F0C (PspInitPhase2.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlFindExportedRoutineByName @ 0x1403F5F04 (RtlFindExportedRoutineByName.c)
- *     PsQuerySystemDllInfo @ 0x14045A7D4 (PsQuerySystemDllInfo.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlFindExportedRoutineByName @ 0x1403F4DC8 (RtlFindExportedRoutineByName.c)
+ *     PsQuerySystemDllInfo @ 0x1404596A4 (PsQuerySystemDllInfo.c)
  */
 
 __int64 PspInitializeSystemDlls()
@@ -29,7 +29,7 @@ __int64 PspInitializeSystemDlls()
       v4 = *(v1 - 1);
       for ( i = 0; i < *(_DWORD *)v1; ++i )
       {
-        result = (__int64)RtlFindExportedRoutineByName(*(char **)(v3 + 32), *(char **)(v4 + 16LL * i));
+        result = (__int64)RtlFindExportedRoutineByName(*(PVOID *)(v3 + 32), *(PCSTR *)(v4 + 16LL * i));
         if ( !result )
           KeBugCheckEx(0x6Bu, 0xFFFFFFFFC000007AuLL, 6uLL, 0LL, 0LL);
         v6 = *(_QWORD *)(v3 + 24) - *(_QWORD *)(v3 + 32) + result;

@@ -21,20 +21,7 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-bool __stdcall RtlValidSid(_BYTE *a1)
+BOOLEAN __cdecl RtlValidSid(PSID Sid)
 {
-  unsigned __int8 v1; // al
-  bool result; // al
-
-  result = 0;
-  if ( a1 )
-  {
-    if ( (*a1 & 0xF) == 1 )
-    {
-      v1 = a1[1];
-      if ( v1 <= 0xFu )
-        return 1;
-    }
-  }
-  return result;
+  return Sid && (*(_BYTE *)Sid & 0xF) == 1 && *((_BYTE *)Sid + 1) <= 0xFu;
 }

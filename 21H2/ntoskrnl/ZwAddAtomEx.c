@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAddAtomEx @ 0x1403FB0C0
+ * XREFs of ZwAddAtomEx @ 0x1403FB2A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAddAtomEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAddAtomEx(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom, ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(AtomName);
 }

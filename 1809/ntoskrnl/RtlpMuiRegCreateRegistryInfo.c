@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegCreateRegistryInfo @ 0x14073F0CC
+ * XREFs of RtlpMuiRegCreateRegistryInfo @ 0x1407402BC
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182860 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1401829A0 (RtlpMuiRegCreateKernelRegistryInfo.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *RtlpMuiRegCreateRegistryInfo()

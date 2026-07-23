@@ -6,8 +6,11 @@
  *     KeTestAlertThread @ 0x140261EE0 (KeTestAlertThread.c)
  */
 
-__int64 __fastcall NtTestAlert(__int64 a1, __int64 a2)
+NTSTATUS NtTestAlert(void)
 {
-  LOBYTE(a1) = KeGetCurrentThread()->PreviousMode;
-  return KeTestAlertThread(a1, a2) != 0 ? 0x101 : 0;
+  __int64 v0; // rdx
+  __int64 v1; // rcx
+
+  LOBYTE(v1) = KeGetCurrentThread()->PreviousMode;
+  return KeTestAlertThread(v1, v0) != 0 ? 0x101 : 0;
 }

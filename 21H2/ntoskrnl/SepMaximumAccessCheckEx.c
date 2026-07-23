@@ -1,18 +1,18 @@
 /*
- * XREFs of SepMaximumAccessCheckEx @ 0x140373BC4
+ * XREFs of SepMaximumAccessCheckEx @ 0x140373714
  * Callers:
- *     SepAccessCheckEx @ 0x1403737C0 (SepAccessCheckEx.c)
+ *     SepAccessCheckEx @ 0x140373310 (SepAccessCheckEx.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SepMatchPackage @ 0x14024E548 (SepMatchPackage.c)
- *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
- *     AuthzBasepAddAccessTypeList @ 0x1402A253C (AuthzBasepAddAccessTypeList.c)
- *     AuthzBasepSetAccessReasons @ 0x1402A2630 (AuthzBasepSetAccessReasons.c)
- *     SepIsPackageSid @ 0x1402B0B70 (SepIsPackageSid.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepIsCapabilitySid @ 0x1402B635C (SepIsCapabilitySid.c)
- *     SepMatchCapability @ 0x1402B8FEC (SepMatchCapability.c)
- *     AuthzBasepObjectInTypeList @ 0x1405C16B0 (AuthzBasepObjectInTypeList.c)
+ *     AuthzBasepAddAccessTypeList @ 0x14021F97C (AuthzBasepAddAccessTypeList.c)
+ *     AuthzBasepSetAccessReasons @ 0x14021FA70 (AuthzBasepSetAccessReasons.c)
+ *     SepIsPackageSid @ 0x14022EED0 (SepIsPackageSid.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepIsCapabilitySid @ 0x14023453C (SepIsCapabilitySid.c)
+ *     SepMatchCapability @ 0x1402371FC (SepMatchCapability.c)
+ *     SepSidInToken @ 0x14026CA24 (SepSidInToken.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     SepMatchPackage @ 0x1402F2D98 (SepMatchPackage.c)
+ *     AuthzBasepObjectInTypeList @ 0x1405C18E0 (AuthzBasepObjectInTypeList.c)
  */
 
 __int64 __fastcall SepMaximumAccessCheckEx(
@@ -48,7 +48,7 @@ __int64 __fastcall SepMaximumAccessCheckEx(
   __int64 v30; // rsi
   int v31; // edx
   int v32; // r8d
-  void *v33; // rsi
+  __int64 v33; // rsi
   _DWORD *v34; // rbx
   int v35; // edx
   __int64 v36; // r8
@@ -251,7 +251,7 @@ LABEL_90:
             goto LABEL_12;
           if ( !a6 && !v19 )
           {
-            v33 = v24 + 8;
+            v33 = (__int64)(v24 + 8);
             if ( SepIsPackageSid((__int64)(v24 + 8)) )
             {
 LABEL_23:
@@ -259,7 +259,7 @@ LABEL_23:
               SepMatchPackage(
                 a1,
                 -1,
-                (__int64)v33,
+                v33,
                 *((_DWORD *)v24 + 1),
                 (_BYTE *)(v25 + 21),
                 (_DWORD *)(v25 + 4),
@@ -287,7 +287,7 @@ LABEL_25:
       {
         if ( !v18 && !v19 )
         {
-          v33 = v24 + 8;
+          v33 = (__int64)(v24 + 8);
           if ( SepIsPackageSid((__int64)(v24 + 8)) )
             goto LABEL_23;
           if ( SepIsCapabilitySid((__int64)(v24 + 8)) )

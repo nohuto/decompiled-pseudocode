@@ -1,21 +1,21 @@
 /*
- * XREFs of PsReferencePartitionSafe @ 0x140090CE8
+ * XREFs of PsReferencePartitionSafe @ 0x140090C28
  * Callers:
  *     MiPartitionObjectToPartition @ 0x140011CE4 (MiPartitionObjectToPartition.c)
- *     MiQueueLargeFreeZeroRebuild @ 0x14009D1D0 (MiQueueLargeFreeZeroRebuild.c)
- *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
- *     CcInitializeCacheMapEx @ 0x1400AC050 (CcInitializeCacheMapEx.c)
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
- *     MiScanPagefiles @ 0x1400F04C4 (MiScanPagefiles.c)
- *     MiCheckZeroFreeRebalance @ 0x14010C540 (MiCheckZeroFreeRebalance.c)
- *     PsGetNextPartition @ 0x14011FFE8 (PsGetNextPartition.c)
- *     MiObtainFreePages @ 0x1402B3294 (MiObtainFreePages.c)
- *     MiReferencePagePartition @ 0x1402B4654 (MiReferencePagePartition.c)
- *     MiWakeLargePageRebuild @ 0x1402CE9A0 (MiWakeLargePageRebuild.c)
- *     MiCreateImageOrDataSection @ 0x1405DE390 (MiCreateImageOrDataSection.c)
- *     PsReferencePartitionByHandle @ 0x1406083B4 (PsReferencePartitionByHandle.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     MiContractWsSwapPageFile @ 0x14066B784 (MiContractWsSwapPageFile.c)
+ *     MiQueueLargeFreeZeroRebuild @ 0x14009D110 (MiQueueLargeFreeZeroRebuild.c)
+ *     MmQueryMemoryListInformation @ 0x1400A8910 (MmQueryMemoryListInformation.c)
+ *     CcInitializeCacheMapEx @ 0x1400ABF90 (CcInitializeCacheMapEx.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
+ *     MiScanPagefiles @ 0x1400F0544 (MiScanPagefiles.c)
+ *     MiCheckZeroFreeRebalance @ 0x14010C5C0 (MiCheckZeroFreeRebalance.c)
+ *     PsGetNextPartition @ 0x140120058 (PsGetNextPartition.c)
+ *     MiObtainFreePages @ 0x1402B3484 (MiObtainFreePages.c)
+ *     MiReferencePagePartition @ 0x1402B4844 (MiReferencePagePartition.c)
+ *     MiWakeLargePageRebuild @ 0x1402CEB90 (MiWakeLargePageRebuild.c)
+ *     MiCreateImageOrDataSection @ 0x1405DF390 (MiCreateImageOrDataSection.c)
+ *     PsReferencePartitionByHandle @ 0x1406093B4 (PsReferencePartitionByHandle.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     MiContractWsSwapPageFile @ 0x14066C944 (MiContractWsSwapPageFile.c)
  * Callees:
  *     <none>
  */

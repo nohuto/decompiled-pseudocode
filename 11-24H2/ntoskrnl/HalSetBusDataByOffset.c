@@ -1,14 +1,14 @@
 /*
- * XREFs of HalSetBusDataByOffset @ 0x14048F220
+ * XREFs of HalSetBusDataByOffset @ 0x140489430
  * Callers:
- *     HalSetBusData @ 0x14053D690 (HalSetBusData.c)
- *     HalpPiix4Detect @ 0x140B6AA1C (HalpPiix4Detect.c)
- *     KdpSysWriteBusData @ 0x140B785A8 (KdpSysWriteBusData.c)
+ *     HalSetBusData @ 0x14053AF90 (HalSetBusData.c)
+ *     HalpPiix4Detect @ 0x140B6C308 (HalpPiix4Detect.c)
+ *     KdpSysWriteBusData @ 0x140B7A5A8 (KdpSysWriteBusData.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140425E04 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140425EE8 (HalpAcquireCmosSpinLock.c)
- *     HalpSetPCIData @ 0x14048F334 (HalpSetPCIData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseCmosSpinLock @ 0x140419CB4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140419D98 (HalpAcquireCmosSpinLock.c)
+ *     HalpSetPCIData @ 0x140489544 (HalpSetPCIData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 ULONG __stdcall HalSetBusDataByOffset(
@@ -20,40 +20,28 @@ ULONG __stdcall HalSetBusDataByOffset(
         ULONG Length)
 {
   char v8; // si
-  ULONG v9; // ebp
-  ULONG v10; // r15d
-  ULONG v11; // ebx
-  ULONG *v13; // r9
-  ULONG v14; // esi
-  ULONG v15; // ebx
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r9
+  ULONG v9; // ebx
+  ULONG v11; // esi
+  ULONG v12; // ebx
+  __int64 v13; // rdx
   size_t Size; // [rsp+28h] [rbp-50h]
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h]
-  ULONG v21; // [rsp+80h] [rbp+8h] BYREF
 
   v8 = BusNumber;
   if ( BusDataType )
   {
     if ( BusDataType == PCIConfiguration )
     {
-      v21 = 0;
-      v9 = Length;
-      v10 = Offset;
-      v11 = BusNumber >> 8;
-      if ( !qword_140E00CE0
-        || (v13 = &v21,
-            LOBYTE(v13) = BusNumber,
-            (unsigned int)guard_dispatch_icall_no_overrides(0LL, retaddr, (unsigned __int16)v11, v13) == -1073741810) )
+      v9 = BusNumber >> 8;
+      if ( !qword_140E00CE0 || (unsigned int)guard_dispatch_icall_no_overrides(0LL, retaddr) == -1073741810 )
       {
-        LODWORD(Size) = v9;
+        LODWORD(Size) = Length;
         LOBYTE(BusNumber) = v8;
-        return HalpSetPCIData((unsigned __int16)v11, BusNumber, SlotNumber, (int)Buffer, v10, Size);
+        return HalpSetPCIData((unsigned __int16)v9, BusNumber, SlotNumber, (int)Buffer, Offset, Size);
       }
       else
       {
-        return v21;
+        return 0;
       }
     }
     else
@@ -63,22 +51,22 @@ ULONG __stdcall HalSetBusDataByOffset(
   }
   else
   {
-    v14 = HalpCmosBusParameterTable;
-    v15 = SlotNumber;
+    v11 = HalpCmosBusParameterTable;
+    v12 = SlotNumber;
     if ( SlotNumber + Length - 1 <= HalpCmosBusParameterTable )
-      v14 = SlotNumber + Length - 1;
+      v11 = SlotNumber + Length - 1;
     HalpAcquireCmosSpinLock();
-    if ( SlotNumber <= v14 )
+    if ( SlotNumber <= v11 )
     {
       do
       {
-        LOBYTE(v16) = *(_BYTE *)Buffer;
-        guard_dispatch_icall_no_overrides(v15++, v16, v17, v18);
+        LOBYTE(v13) = *(_BYTE *)Buffer;
+        guard_dispatch_icall_no_overrides(v12++, v13);
         Buffer = (char *)Buffer + 1;
       }
-      while ( v15 <= v14 );
+      while ( v12 <= v11 );
     }
     HalpReleaseCmosSpinLock();
-    return v15 - SlotNumber;
+    return v12 - SlotNumber;
   }
 }

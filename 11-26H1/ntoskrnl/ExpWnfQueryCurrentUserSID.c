@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfQueryCurrentUserSID @ 0x14094E028
+ * XREFs of ExpWnfQueryCurrentUserSID @ 0x1409C9978
  * Callers:
- *     ExpWnfGetCurrentScopeInstance @ 0x14094CCC4 (ExpWnfGetCurrentScopeInstance.c)
+ *     ExpWnfGetCurrentScopeInstance @ 0x1409C8634 (ExpWnfGetCurrentScopeInstance.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     SeQueryUserSidToken @ 0x14094E160 (SeQueryUserSidToken.c)
- *     PsReferenceEffectiveToken @ 0x14094F580 (PsReferenceEffectiveToken.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     SeQueryUserSidToken @ 0x1409C9AA0 (SeQueryUserSidToken.c)
+ *     PsReferenceEffectiveToken @ 0x1409CAEC0 (PsReferenceEffectiveToken.c)
  */
 
 __int64 __fastcall ExpWnfQueryCurrentUserSID(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4, _DWORD *a5)
@@ -23,7 +23,6 @@ __int64 __fastcall ExpWnfQueryCurrentUserSID(__int64 a1, __int64 a2, __int64 a3,
 
   v5 = 0;
   v14 = 0;
-  v16 = 0;
   v15[0] = 0;
   if ( !a2 )
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpAllocGuidEntry @ 0x1405C0C8C
+ * XREFs of EtwpAllocGuidEntry @ 0x1405C1C8C
  * Callers:
- *     EtwpAddGuidEntry @ 0x1405C0A0C (EtwpAddGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x1405C1A0C (EtwpAddGuidEntry.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpFreeSecurityDescriptor @ 0x1405C5658 (EtwpFreeSecurityDescriptor.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x1405C6050 (EtwpGetSecurityDescriptorByGuid.c)
- *     ObLogSecurityDescriptor @ 0x1405C9E70 (ObLogSecurityDescriptor.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpFreeSecurityDescriptor @ 0x1405C6658 (EtwpFreeSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1405C7050 (EtwpGetSecurityDescriptorByGuid.c)
+ *     ObLogSecurityDescriptor @ 0x1405CAE70 (ObLogSecurityDescriptor.c)
  */
 
 char *__fastcall EtwpAllocGuidEntry(__int64 a1, _OWORD *a2)

@@ -54,11 +54,11 @@ __int64 __fastcall KiSwapThread(__int64 a1, __int64 a2)
   __int64 v26; // rcx
   __int64 *v27; // rsi
   __int64 v28; // rax
-  __int64 v29; // rax
+  _RTL_RB_TREE *v29; // rax
   __int64 v30; // rcx
   __int64 *v31; // rsi
   __int64 v32; // rax
-  __int64 v33; // r8
+  _RTL_RB_TREE *v33; // r8
   __int64 v34; // rcx
   __int64 v35; // rdi
   __int64 v36; // rdx
@@ -196,12 +196,12 @@ __int64 __fastcall KiSwapThread(__int64 a1, __int64 a2)
             {
               v31 = (__int64 *)(v30 + 392);
               v32 = *(_QWORD *)(v30 + 392);
-              v33 = v32 + 376;
+              v33 = (_RTL_RB_TREE *)(v32 + 376);
               if ( !v32 )
-                v33 = a2 + 22768;
+                v33 = (_RTL_RB_TREE *)(a2 + 22768);
               *(_QWORD *)(v30 + 56) += MEMORY[0xFFFFF78000000008] - *(_QWORD *)(v30 + 64);
               *(_BYTE *)(v30 + 112) &= ~1u;
-              RtlRbRemoveNode(v33, v30 + 88);
+              RtlRbRemoveNode(v33, (PRTL_BALANCED_NODE)(v30 + 88));
               v30 = *v31;
             }
             while ( *v31 && (*(_BYTE *)(v30 + 112) & 1) != 0 && !*(_QWORD *)(v30 + 376) && !*(_WORD *)(v30 + 114) );
@@ -273,11 +273,11 @@ LABEL_52:
               v27 = (__int64 *)(v26 + 392);
               v28 = *(_QWORD *)(v26 + 392);
               if ( v28 )
-                v29 = v28 + 376;
+                v29 = (_RTL_RB_TREE *)(v28 + 376);
               else
-                v29 = a2 + 22768;
+                v29 = (_RTL_RB_TREE *)(a2 + 22768);
               *(_BYTE *)(v26 + 112) &= ~1u;
-              RtlRbRemoveNode(v29, v26 + 88);
+              RtlRbRemoveNode(v29, (PRTL_BALANCED_NODE)(v26 + 88));
               v26 = *v27;
             }
             while ( *v27 && (*(_BYTE *)(v26 + 112) & 1) != 0 && !*(_QWORD *)(v26 + 376) && !*(_WORD *)(v26 + 114) );

@@ -1,22 +1,22 @@
 /*
- * XREFs of PpmCheckComputeHeteroResponse @ 0x14041E6A0
+ * XREFs of PpmCheckComputeHeteroResponse @ 0x140415EE0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041DF08 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmHeteroUtilityToNormalizedUtility @ 0x14041EBA0 (PpmHeteroUtilityToNormalizedUtility.c)
- *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x14041EBBC (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
- *     PpmEventTraceHeteroResponse @ 0x14041EC50 (PpmEventTraceHeteroResponse.c)
- *     PpmHeteroHgsContainmentCheckThresholds @ 0x14041EEC4 (PpmHeteroHgsContainmentCheckThresholds.c)
- *     PpmParkCalculateUnparkCount @ 0x140420130 (PpmParkCalculateUnparkCount.c)
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x1404205F0 (PpmHeteroIsMultiClassParkingEnabled.c)
- *     qsort @ 0x140536F00 (qsort.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041574C (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x1404163E0 (PpmHeteroUtilityToNormalizedUtility.c)
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x1404163FC (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ *     PpmEventTraceHeteroResponse @ 0x140416490 (PpmEventTraceHeteroResponse.c)
+ *     PpmHeteroHgsContainmentCheckThresholds @ 0x140416704 (PpmHeteroHgsContainmentCheckThresholds.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417970 (PpmParkCalculateUnparkCount.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x140417E30 (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     qsort @ 0x140539380 (qsort.c)
  */
 
 char PpmCheckComputeHeteroResponse()
 {
-  _XSAVE_FORMAT *v1; // r11
+  unsigned int *v1; // r11
   unsigned int v2; // ecx
   char v3; // si
   __int64 v4; // rdi
@@ -60,35 +60,35 @@ char PpmCheckComputeHeteroResponse()
   unsigned __int8 v42; // al
   unsigned int v43; // edx
   int v44; // eax
-  _XSAVE_FORMAT *StateSaveArea; // [rsp+30h] [rbp-78h]
+  __int64 v45; // [rsp+30h] [rbp-78h]
   _DWORD *Base; // [rsp+38h] [rbp-70h]
-  __int64 *v47; // [rsp+40h] [rbp-68h]
-  _KSCHEDULING_GROUP *volatile SchedulingGroup; // [rsp+48h] [rbp-60h]
+  char *v47; // [rsp+40h] [rbp-68h]
+  __int64 v48; // [rsp+48h] [rbp-60h]
   __int64 v49; // [rsp+50h] [rbp-58h]
   unsigned int v50; // [rsp+B0h] [rbp+8h]
   unsigned int v51; // [rsp+B8h] [rbp+10h]
 
-  StateSaveArea = PopModernStandbyStateNotify.StateSaveArea;
-  v47 = &PpmCurrentProfile[89 * dword_140F106CC + 5];
-  SchedulingGroup = PopModernStandbyStateNotify.SchedulingGroup;
-  Base = *(_DWORD **)&PopModernStandbyStateNotify.WaitRegister.Flags;
+  v45 = PpmHeteroPerfCheckUtilities;
+  v47 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40;
+  v48 = qword_140F0C248;
+  Base = (_DWORD *)qword_140F0C250;
   if ( PpmHeteroPolicy != 4 )
     return PpmParkCalculateUnparkCount();
   if ( !(unsigned __int8)PpmHeteroIsMultiClassParkingEnabled() )
   {
     v2 = 0;
     v50 = 0;
-    if ( !PopModernStandbyStateNotify.SystemCallNumber )
+    if ( !PpmParkNumNodes )
       return PpmParkCalculateUnparkCount();
     while ( 1 )
     {
       v3 = 0;
-      v4 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * v2;
+      v4 = PpmParkNodes + 1264LL * v2;
       if ( !PpmHeteroHgsParkingEnabled || PpmHeteroPolicy || *(_WORD *)(*(_QWORD *)(v4 + 1256) + 624LL) )
         break;
 LABEL_24:
       v50 = ++v2;
-      if ( v2 >= PopModernStandbyStateNotify.SystemCallNumber )
+      if ( v2 >= PpmParkNumNodes )
         return PpmParkCalculateUnparkCount();
     }
     v5 = *(_QWORD *)(v4 + 1256);
@@ -111,18 +111,17 @@ LABEL_7:
       {
         _BitScanForward64(&v13, v7);
         v7 &= ~(1LL << v13);
-        Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                         + 64 * (unsigned __int16)v10
+        Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v10].Flink
                          + (unsigned int)(unsigned __int8)v13));
         v15 = *(unsigned int *)(Prcb + 35304);
-        if ( LODWORD(PopSleepstudySessionLock.SchedulingGroup) != 5 )
+        if ( PpmCheckCurrentPipelineId != 5 )
           v15 = (unsigned int)(v15 - *(_DWORD *)(Prcb + 35312));
         v16 = PpmHeteroUtilityToNormalizedUtility(Prcb + 35264, v15);
-        *((_DWORD *)&StateSaveArea->ControlWord + v17) = v16;
+        *(_DWORD *)(v45 + 4 * v17) = v16;
         v19 = PpmHeteroUtilityToNormalizedUtility(v18, *(unsigned int *)(v18 + 52));
         Base[v20] = v19;
         v8 += v19;
-        v49 += *((unsigned int *)&v1->ControlWord + v20);
+        v49 += v1[v20];
         ++v9;
         goto LABEL_7;
       }
@@ -147,7 +146,7 @@ LABEL_7:
         v28 = v27;
         v25 = (unsigned int)(v25 - 1);
         --v27;
-        *((_QWORD *)&SchedulingGroup->Policy + v25) = v24;
+        *(_QWORD *)(v48 + 8 * v25) = v24;
         v29 = *v26-- * v28;
         v23 += v29;
       }
@@ -181,9 +180,9 @@ LABEL_7:
           v40 = (unsigned int)v35;
         if ( !(unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(
                               v23,
-                              *((_DWORD *)&StateSaveArea->ControlWord + (unsigned int)v35),
-                              *((_QWORD *)&SchedulingGroup->Policy + (unsigned int)v35),
-                              *((unsigned __int8 *)v47 + v40 + 456),
+                              *(_DWORD *)(v45 + 4LL * (unsigned int)v35),
+                              *(_QWORD *)(v48 + 8LL * (unsigned int)v35),
+                              (unsigned __int8)v47[v40 + 456],
                               0) )
           break;
         if ( !(unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(v23, v8, 0, v41, 0) )
@@ -217,9 +216,9 @@ LABEL_37:
           v37 = (unsigned int)v35;
         if ( (unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(
                              v23,
-                             *((_DWORD *)&StateSaveArea->ControlWord + v35),
-                             *((_QWORD *)&SchedulingGroup->Policy + v35),
-                             *((unsigned __int8 *)v47 + v37 + 264),
+                             *(_DWORD *)(v45 + 4 * v35),
+                             *(_QWORD *)(v48 + 8 * v35),
+                             (unsigned __int8)v47[v37 + 264],
                              0)
           && (unsigned int)PpmHeteroUtilityGreaterThanOrEqualThreshold(v23, v8, 0, v38, 0) )
         {
@@ -242,19 +241,19 @@ LABEL_37:
       *(_BYTE *)(v4 + 1154) = 1;
       v3 = 4;
     }
-    if ( LODWORD(PopSleepstudySessionLock.SchedulingGroup) == 5 )
+    if ( PpmCheckCurrentPipelineId == 5 )
     {
       v3 |= 0x10u;
     }
     else if ( v39 == 2 )
     {
-      if ( v43 < *((unsigned __int8 *)v47 + 263) )
+      if ( v43 < (unsigned __int8)v47[263] )
         goto LABEL_21;
       v3 |= 0x20u;
     }
     else
     {
-      if ( v39 != 1 || v43 < *((unsigned __int8 *)v47 + 262) )
+      if ( v39 != 1 || v43 < (unsigned __int8)v47[262] )
         goto LABEL_21;
       v3 |= 0x40u;
     }
@@ -268,9 +267,9 @@ LABEL_21:
       *(_WORD *)(*(_QWORD *)(v4 + 1256) + 632LL) = *(_WORD *)(*(_QWORD *)(v4 + 1256) + 630LL);
       *(_WORD *)(v4 + 1224) = *(_WORD *)(*(_QWORD *)(v4 + 1256) + 630LL);
     }
-    PpmEventTraceHeteroResponse(v4, (_DWORD)StateSaveArea, (_DWORD)SchedulingGroup, v23, v35, v3 | 1);
+    PpmEventTraceHeteroResponse(v4, v45, v48, v23, v35, v3 | 1);
     v2 = v50;
-    v1 = StateSaveArea;
+    v1 = (unsigned int *)v45;
     goto LABEL_24;
   }
   return PpmCheckComputeMultiClassHeteroResponse();

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpReadWriteWheaPhysicalMemory @ 0x140521840
+ * XREFs of HalpReadWriteWheaPhysicalMemory @ 0x140521D90
  * Callers:
- *     HalpReadWheaPhysicalMemory @ 0x140521820 (HalpReadWheaPhysicalMemory.c)
- *     HalpWriteWheaPhysicalMemory @ 0x140521AB0 (HalpWriteWheaPhysicalMemory.c)
+ *     HalpReadWheaPhysicalMemory @ 0x140521D70 (HalpReadWheaPhysicalMemory.c)
+ *     HalpWriteWheaPhysicalMemory @ 0x140522000 (HalpWriteWheaPhysicalMemory.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     HalpRemapVirtualAddress64 @ 0x14033F790 (HalpRemapVirtualAddress64.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     HalpRemapVirtualAddress64 @ 0x14033FA20 (HalpRemapVirtualAddress64.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall HalpReadWriteWheaPhysicalMemory(char a1, __int64 a2, unsigned int a3, char *a4)
@@ -66,7 +66,7 @@ __int64 __fastcall HalpReadWriteWheaPhysicalMemory(char a1, __int64 a2, unsigned
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -102,10 +102,10 @@ __int64 __fastcall HalpReadWriteWheaPhysicalMemory(char a1, __int64 a2, unsigned
   KxReleaseSpinLock((volatile signed __int64 *)v10);
   if ( v25 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v20 = CurrentPrcb->SchedulerAssist;
@@ -113,7 +113,7 @@ __int64 __fastcall HalpReadWriteWheaPhysicalMemory(char a1, __int64 a2, unsigned
         v22 = (v21 & v20[5]) == 0;
         v20[5] &= v21;
         if ( v22 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

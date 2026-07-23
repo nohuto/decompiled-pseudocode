@@ -1,20 +1,20 @@
 /*
- * XREFs of MiResolvePrivateZeroFault @ 0x1402D5420
+ * XREFs of MiResolvePrivateZeroFault @ 0x1402B71E0
  * Callers:
- *     MiResolveDemandZeroFault @ 0x1402D4B40 (MiResolveDemandZeroFault.c)
- *     MiZeroFault @ 0x140422AB0 (MiZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x1402B6900 (MiResolveDemandZeroFault.c)
+ *     MiZeroFault @ 0x14041A2F0 (MiZeroFault.c)
  * Callees:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
- *     MiCompletePrivateZeroFault @ 0x1402D6770 (MiCompletePrivateZeroFault.c)
- *     MiAdvanceFaultList @ 0x14036F4A0 (MiAdvanceFaultList.c)
- *     MiComputeZeroClusterMaximum @ 0x1403D9D60 (MiComputeZeroClusterMaximum.c)
- *     MiGetAvailablePagesBelowPriority @ 0x140406B20 (MiGetAvailablePagesBelowPriority.c)
- *     MiCheckDemandZeroClusterEligibility @ 0x14044F6A0 (MiCheckDemandZeroClusterEligibility.c)
- *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F9184 (MiMarkVirtualizationFaultPageInfoFailed.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
+ *     MiCompletePrivateZeroFault @ 0x1402B8530 (MiCompletePrivateZeroFault.c)
+ *     MiAdvanceFaultList @ 0x140371250 (MiAdvanceFaultList.c)
+ *     MiComputeZeroClusterMaximum @ 0x1403DCF50 (MiComputeZeroClusterMaximum.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1403FFC10 (MiGetAvailablePagesBelowPriority.c)
+ *     MiCheckDemandZeroClusterEligibility @ 0x1404477D0 (MiCheckDemandZeroClusterEligibility.c)
+ *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F2794 (MiMarkVirtualizationFaultPageInfoFailed.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiResolvePrivateZeroFault(int *a1)
@@ -160,7 +160,7 @@ __int64 __fastcall MiResolvePrivateZeroFault(int *a1)
     v9 = *(unsigned __int16 *)(*(_QWORD *)(v8 + 544) + 1198LL);
   else
     v9 = *(unsigned __int16 *)(v6 + 174);
-  v78 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v9);
+  v78 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v9);
   if ( (v1 & 0x100) != 0 )
   {
     v10 = (struct _KTHREAD *)Process[1].ActiveGroupPadding[0];
@@ -286,20 +286,20 @@ LABEL_34:
           }
         }
         v35 = 56320LL * IdealGlobalNode;
-        if ( (*(_DWORD *)(qword_140E37CD0 + v35 + 14096) & 1) != 0 )
+        if ( (*(_DWORD *)(qword_140E37E50 + v35 + 14096) & 1) != 0 )
         {
-          v75 = v35 + qword_140E37CD0 + 14149;
+          v75 = v35 + qword_140E37E50 + 14149;
           for ( i = 0; ; ++i )
           {
-            v69 = byte_140E2D718;
-            if ( i >= (unsigned __int8)byte_140E2D718 )
+            v69 = byte_140E2D898;
+            if ( i >= (unsigned __int8)byte_140E2D898 )
               break;
             if ( *(_BYTE *)(i + v75) == 1 )
               goto LABEL_44;
           }
           for ( i = 0; i < v69; ++i )
           {
-            v69 = byte_140E2D718;
+            v69 = byte_140E2D898;
             if ( *(_BYTE *)(i + v75) == 2 )
               goto LABEL_44;
           }
@@ -473,7 +473,7 @@ LABEL_26:
   if ( v48 <= v52 )
     v52 = v48;
   v80 = v52;
-  v53 = *(_QWORD **)(stru_140E2EB88.ThreadLock + 8 * v51);
+  v53 = *(_QWORD **)(stru_140E2ED08.ThreadLock + 8 * v51);
   if ( v53[2300] <= 0x4E20uLL || (v53[2300] & 0xFFFFFFFFFFFFFFFEuLL) <= 0x4E20 )
   {
     v54 = 5000LL;
@@ -489,7 +489,7 @@ LABEL_26:
   {
     LODWORD(v96) = (unsigned __int16)KeNumberNodes;
     v56 = v53[2];
-    LODWORD(v97) = dword_140E2D78C;
+    LODWORD(v97) = dword_140E2D90C;
     v72 = v56 + 13856;
     for ( j = 0; j < (unsigned int)v96; ++j )
     {

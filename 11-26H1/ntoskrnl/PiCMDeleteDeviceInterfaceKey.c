@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCMDeleteDeviceInterfaceKey @ 0x140773764
+ * XREFs of PiCMDeleteDeviceInterfaceKey @ 0x140776764
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140474950 (PiControlFreeUserModeCallersBuffer.c)
- *     PiAuDoesClientHaveAccess @ 0x14098DE50 (PiAuDoesClientHaveAccess.c)
- *     PiCMCaptureObjectInputData @ 0x1409994A8 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x14099A4D4 (PiCMReturnBasicResultData.c)
- *     _CmDeleteDeviceInterfaceRegKey @ 0x140B5EC1C (_CmDeleteDeviceInterfaceRegKey.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14046E0D0 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiAuDoesClientHaveAccess @ 0x14094E8B0 (PiAuDoesClientHaveAccess.c)
+ *     PiCMCaptureObjectInputData @ 0x140959F08 (PiCMCaptureObjectInputData.c)
+ *     PiCMReturnBasicResultData @ 0x14095AF34 (PiCMReturnBasicResultData.c)
+ *     _CmDeleteDeviceInterfaceRegKey @ 0x140B61D9C (_CmDeleteDeviceInterfaceRegKey.c)
  */
 
 __int64 __fastcall PiCMDeleteDeviceInterfaceKey(void *a1, __int64 a2, __int64 a3, unsigned int a4, int a5, _DWORD *a6)

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetAcesBufferSize @ 0x1800F6970
+ * XREFs of RtlGetAcesBufferSize @ 0x1800F0ED0
  * Callers:
  *     <none>
  * Callees:

@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPageToNode @ 0x1406177F0 (MiPageToNode.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiPageToNode @ 0x140617D40 (MiPageToNode.c)
  *     MiCreateBootSlabEntries @ 0x140B46868 (MiCreateBootSlabEntries.c)
  */
 
@@ -49,7 +49,7 @@ __int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __in
       MiConvertEntireLargePageToSmall(48 * v4 - 0x220000000000LL, 1, 0, 6, 0LL, 0LL, 0LL);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -75,10 +75,10 @@ __int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __in
         --v8;
       }
       while ( v8 );
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v15 = CurrentPrcb->SchedulerAssist;

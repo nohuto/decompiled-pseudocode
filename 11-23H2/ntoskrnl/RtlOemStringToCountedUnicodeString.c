@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlOemStringToCountedUnicodeString @ 0x1407DAC60
+ * XREFs of RtlOemStringToCountedUnicodeString @ 0x1407DAF30
  * Callers:
- *     DifRtlOemStringToCountedUnicodeStringWrapper @ 0x1405EB630 (DifRtlOemStringToCountedUnicodeStringWrapper.c)
+ *     DifRtlOemStringToCountedUnicodeStringWrapper @ 0x1405EBBA0 (DifRtlOemStringToCountedUnicodeStringWrapper.c)
  * Callees:
- *     AllocateOrValidateUnicodeStringBuffer @ 0x140316CFC (AllocateOrValidateUnicodeStringBuffer.c)
- *     RtlxOemStringToUnicodeSize @ 0x140773CD0 (RtlxOemStringToUnicodeSize.c)
- *     RtlOemToUnicodeN @ 0x140774330 (RtlOemToUnicodeN.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x140316F8C (AllocateOrValidateUnicodeStringBuffer.c)
+ *     RtlxOemStringToUnicodeSize @ 0x140773EC0 (RtlxOemStringToUnicodeSize.c)
+ *     RtlOemToUnicodeN @ 0x140774520 (RtlOemToUnicodeN.c)
  *     ExFreePool @ 0x140AAECC0 (ExFreePool.c)
  */
 

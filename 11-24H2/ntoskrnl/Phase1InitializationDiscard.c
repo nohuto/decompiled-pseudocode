@@ -1,100 +1,100 @@
 /*
- * XREFs of Phase1InitializationDiscard @ 0x140C0C048
+ * XREFs of Phase1InitializationDiscard @ 0x140C0E048
  * Callers:
- *     Phase1Initialization @ 0x1406FC8E0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x1406FA520 (Phase1Initialization.c)
  * Callees:
- *     KeSetAffinityProcess @ 0x140202B7C (KeSetAffinityProcess.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlpTimeToTimeFields @ 0x140426110 (RtlpTimeToTimeFields.c)
- *     RtlpTimeFieldsToTime @ 0x1404266C8 (RtlpTimeFieldsToTime.c)
- *     RtlStringCbCopyA @ 0x140459248 (RtlStringCbCopyA.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14045FB10 (ExInitializeNPagedLookasideListInternal.c)
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     FsRtlSendModernAppTermination @ 0x1404947E0 (FsRtlSendModernAppTermination.c)
- *     KeSetSystemTime @ 0x1404B3F6C (KeSetSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x1404CA740 (PoNotifySystemTimeSet.c)
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _strupr @ 0x1404FD210 (_strupr.c)
- *     strtoul @ 0x1404FD6E8 (strtoul.c)
- *     _strtoui64 @ 0x1404FD980 (_strtoui64.c)
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     atol @ 0x1404FDC00 (atol.c)
- *     DisplayBootBitmap @ 0x140539C2C (DisplayBootBitmap.c)
- *     MakeGdtReadOnly @ 0x140539E48 (MakeGdtReadOnly.c)
- *     RtlStringCbPrintfA @ 0x14053A038 (RtlStringCbPrintfA.c)
- *     RtlStringCbPrintfExA @ 0x14053A084 (RtlStringCbPrintfExA.c)
- *     HvlDebuggerSupportInitialize @ 0x140582420 (HvlDebuggerSupportInitialize.c)
- *     InbvDisplayString @ 0x14058F380 (InbvDisplayString.c)
- *     KiCommitGroupSubNodeAssignments @ 0x1405BB2C4 (KiCommitGroupSubNodeAssignments.c)
- *     UcInitialize @ 0x140694538 (UcInitialize.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x1406A9010 (ZwQueryLicenseValue.c)
- *     ZwSetSystemTime @ 0x1406A9BD0 (ZwSetSystemTime.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     strncmp @ 0x1406BFB20 (strncmp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopInitializeBootLogging @ 0x140712428 (IopInitializeBootLogging.c)
- *     AlpcpInitSystem @ 0x1407422BC (AlpcpInitSystem.c)
- *     RtlInitFunctionalityCache @ 0x14077CF38 (RtlInitFunctionalityCache.c)
- *     EtwTimeProfileReset @ 0x1407A95AC (EtwTimeProfileReset.c)
- *     ExInitializeLeapSecondData @ 0x1407B5C30 (ExInitializeLeapSecondData.c)
- *     ExInitializeUtcTimeZoneBias @ 0x1407B5E1C (ExInitializeUtcTimeZoneBias.c)
- *     ExIsMultiSessionSku @ 0x1407B7B38 (ExIsMultiSessionSku.c)
- *     ExInitLicenseCallback @ 0x1407B8114 (ExInitLicenseCallback.c)
- *     ExpGetOriginalImageVersionRegistryValue @ 0x1407C5908 (ExpGetOriginalImageVersionRegistryValue.c)
- *     ExAcquireTimeRefreshLockExclusive @ 0x1409B1FC0 (ExAcquireTimeRefreshLockExclusive.c)
- *     ExReleaseTimeRefreshLockExclusive @ 0x1409B2024 (ExReleaseTimeRefreshLockExclusive.c)
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
- *     ExpWriteTimeZoneBias @ 0x1409DCE5C (ExpWriteTimeZoneBias.c)
- *     RtlFindMessage @ 0x140A02480 (RtlFindMessage.c)
- *     ExInitializePagedLookasideList @ 0x140A94D10 (ExInitializePagedLookasideList.c)
- *     HalInitSystem @ 0x140B4B6C0 (HalInitSystem.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     KdInitSystem @ 0x140B75E30 (KdInitSystem.c)
- *     BgDisplayBackgroundUpdate @ 0x140BB05EC (BgDisplayBackgroundUpdate.c)
- *     BgDisplayProgressIndicator @ 0x140BB0628 (BgDisplayProgressIndicator.c)
- *     BgGetDisplayContext @ 0x140BB06F4 (BgGetDisplayContext.c)
- *     MmInitSystem @ 0x140BDE2E8 (MmInitSystem.c)
- *     BootApplicationPersistentDataProcess @ 0x140BDE52C (BootApplicationPersistentDataProcess.c)
- *     PsInitSystem @ 0x140BDE7F8 (PsInitSystem.c)
- *     VmInitSystem @ 0x140BDE898 (VmInitSystem.c)
- *     CreateMiniNtBootKey @ 0x140C0A220 (CreateMiniNtBootKey.c)
- *     CreateSystemRootLink @ 0x140C0A3F8 (CreateSystemRootLink.c)
- *     ExpComputeCyclesPerYield @ 0x140C0A900 (ExpComputeCyclesPerYield.c)
- *     GetBootSystemTime @ 0x140C0AA8C (GetBootSystemTime.c)
- *     MfgInitSystem @ 0x140C0BCB0 (MfgInitSystem.c)
- *     HalAllProcessorsStarted @ 0x140C0D6B0 (HalAllProcessorsStarted.c)
- *     HalReportResourceUsage @ 0x140C0D6E0 (HalReportResourceUsage.c)
- *     CcInitializeCacheManager @ 0x140C15A88 (CcInitializeCacheManager.c)
- *     DbgkInitialize @ 0x140C16074 (DbgkInitialize.c)
- *     FsRtlInitSystem @ 0x140C18D7C (FsRtlInitSystem.c)
- *     InbvDriverInitialize @ 0x140C1A1F0 (InbvDriverInitialize.c)
- *     IoCreateObjectTypes @ 0x140C1A624 (IoCreateObjectTypes.c)
- *     PpInitSystem @ 0x140C22754 (PpInitSystem.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
- *     KiPerformGroupConfiguration @ 0x140C28DE0 (KiPerformGroupConfiguration.c)
- *     PfInitializeSuperfetch @ 0x140C2C91C (PfInitializeSuperfetch.c)
- *     PsInitializeBootCpuPartitions @ 0x140C3489C (PsInitializeBootCpuPartitions.c)
- *     SeCodeIntegrityInitializePolicy @ 0x140C39B04 (SeCodeIntegrityInitializePolicy.c)
- *     SeInitSystem @ 0x140C39C80 (SeInitSystem.c)
- *     VerifierInitSystem @ 0x140C3B1B8 (VerifierInitSystem.c)
- *     ExInitializeTimeRefresh @ 0x140C4058C (ExInitializeTimeRefresh.c)
- *     ExInitSystem @ 0x140C40704 (ExInitSystem.c)
- *     ExpWatchProductTypeInitialization @ 0x140C416CC (ExpWatchProductTypeInitialization.c)
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
- *     BcdInitializeBcdSyncMutant @ 0x140C5C860 (BcdInitializeBcdSyncMutant.c)
- *     KeInitializeClock @ 0x140C60350 (KeInitializeClock.c)
- *     EmInitSystem @ 0x140C607D0 (EmInitSystem.c)
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
- *     SmInitSystem @ 0x140C6694C (SmInitSystem.c)
+ *     KeSetSystemTime @ 0x140270898 (KeSetSystemTime.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeSetAffinityProcess @ 0x14032B26C (KeSetAffinityProcess.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlpTimeToTimeFields @ 0x140419FC0 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeFieldsToTime @ 0x14041A578 (RtlpTimeFieldsToTime.c)
+ *     RtlStringCbCopyA @ 0x14044E2F8 (RtlStringCbCopyA.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404549D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     FsRtlSendModernAppTermination @ 0x14048F270 (FsRtlSendModernAppTermination.c)
+ *     PoNotifySystemTimeSet @ 0x1404C3C60 (PoNotifySystemTimeSet.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _strupr @ 0x1404FAAD0 (_strupr.c)
+ *     strtoul @ 0x1404FAFA8 (strtoul.c)
+ *     _strtoui64 @ 0x1404FB240 (_strtoui64.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     atol @ 0x1404FB4C0 (atol.c)
+ *     DisplayBootBitmap @ 0x14053746C (DisplayBootBitmap.c)
+ *     MakeGdtReadOnly @ 0x140537688 (MakeGdtReadOnly.c)
+ *     RtlStringCbPrintfA @ 0x140537878 (RtlStringCbPrintfA.c)
+ *     RtlStringCbPrintfExA @ 0x1405378C4 (RtlStringCbPrintfExA.c)
+ *     HvlDebuggerSupportInitialize @ 0x14057F7A0 (HvlDebuggerSupportInitialize.c)
+ *     InbvDisplayString @ 0x14058C3A0 (InbvDisplayString.c)
+ *     KiCommitGroupSubNodeAssignments @ 0x1405B88F4 (KiCommitGroupSubNodeAssignments.c)
+ *     UcInitialize @ 0x140695608 (UcInitialize.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1406A9FB0 (ZwQueryLicenseValue.c)
+ *     ZwSetSystemTime @ 0x1406AAB70 (ZwSetSystemTime.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopInitializeBootLogging @ 0x14070FFB8 (IopInitializeBootLogging.c)
+ *     AlpcpInitSystem @ 0x14073FD1C (AlpcpInitSystem.c)
+ *     RtlInitFunctionalityCache @ 0x14077CE68 (RtlInitFunctionalityCache.c)
+ *     EtwTimeProfileReset @ 0x1407A96EC (EtwTimeProfileReset.c)
+ *     ExInitializeLeapSecondData @ 0x1407B6080 (ExInitializeLeapSecondData.c)
+ *     ExInitializeUtcTimeZoneBias @ 0x1407B626C (ExInitializeUtcTimeZoneBias.c)
+ *     ExIsMultiSessionSku @ 0x1407B7F88 (ExIsMultiSessionSku.c)
+ *     ExInitLicenseCallback @ 0x1407B8564 (ExInitLicenseCallback.c)
+ *     ExpGetOriginalImageVersionRegistryValue @ 0x1407C5D68 (ExpGetOriginalImageVersionRegistryValue.c)
+ *     ExAcquireTimeRefreshLockExclusive @ 0x1409A9310 (ExAcquireTimeRefreshLockExclusive.c)
+ *     ExReleaseTimeRefreshLockExclusive @ 0x1409A9374 (ExReleaseTimeRefreshLockExclusive.c)
+ *     RtlFindMessage @ 0x1409B98E0 (RtlFindMessage.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
+ *     ExpWriteTimeZoneBias @ 0x140A7A0B8 (ExpWriteTimeZoneBias.c)
+ *     ExInitializePagedLookasideList @ 0x140A914C0 (ExInitializePagedLookasideList.c)
+ *     HalInitSystem @ 0x140B4D700 (HalInitSystem.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     KdInitSystem @ 0x140B77E30 (KdInitSystem.c)
+ *     BgDisplayBackgroundUpdate @ 0x140BB25EC (BgDisplayBackgroundUpdate.c)
+ *     BgDisplayProgressIndicator @ 0x140BB2628 (BgDisplayProgressIndicator.c)
+ *     BgGetDisplayContext @ 0x140BB26F4 (BgGetDisplayContext.c)
+ *     MmInitSystem @ 0x140BE02E8 (MmInitSystem.c)
+ *     BootApplicationPersistentDataProcess @ 0x140BE052C (BootApplicationPersistentDataProcess.c)
+ *     PsInitSystem @ 0x140BE07F8 (PsInitSystem.c)
+ *     VmInitSystem @ 0x140BE0898 (VmInitSystem.c)
+ *     CreateMiniNtBootKey @ 0x140C0C220 (CreateMiniNtBootKey.c)
+ *     CreateSystemRootLink @ 0x140C0C3F8 (CreateSystemRootLink.c)
+ *     ExpComputeCyclesPerYield @ 0x140C0C900 (ExpComputeCyclesPerYield.c)
+ *     GetBootSystemTime @ 0x140C0CA8C (GetBootSystemTime.c)
+ *     MfgInitSystem @ 0x140C0DCB0 (MfgInitSystem.c)
+ *     HalAllProcessorsStarted @ 0x140C0F6B0 (HalAllProcessorsStarted.c)
+ *     HalReportResourceUsage @ 0x140C0F6E0 (HalReportResourceUsage.c)
+ *     CcInitializeCacheManager @ 0x140C17A88 (CcInitializeCacheManager.c)
+ *     DbgkInitialize @ 0x140C18074 (DbgkInitialize.c)
+ *     FsRtlInitSystem @ 0x140C1AD7C (FsRtlInitSystem.c)
+ *     InbvDriverInitialize @ 0x140C1C230 (InbvDriverInitialize.c)
+ *     IoCreateObjectTypes @ 0x140C1C664 (IoCreateObjectTypes.c)
+ *     PpInitSystem @ 0x140C24784 (PpInitSystem.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
+ *     KiPerformGroupConfiguration @ 0x140C2AE80 (KiPerformGroupConfiguration.c)
+ *     PfInitializeSuperfetch @ 0x140C2EA3C (PfInitializeSuperfetch.c)
+ *     PsInitializeBootCpuPartitions @ 0x140C369DC (PsInitializeBootCpuPartitions.c)
+ *     SeCodeIntegrityInitializePolicy @ 0x140C3BC58 (SeCodeIntegrityInitializePolicy.c)
+ *     SeInitSystem @ 0x140C3BDD8 (SeInitSystem.c)
+ *     VerifierInitSystem @ 0x140C3D310 (VerifierInitSystem.c)
+ *     ExInitializeTimeRefresh @ 0x140C426DC (ExInitializeTimeRefresh.c)
+ *     ExInitSystem @ 0x140C42854 (ExInitSystem.c)
+ *     ExpWatchProductTypeInitialization @ 0x140C4381C (ExpWatchProductTypeInitialization.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
+ *     BcdInitializeBcdSyncMutant @ 0x140C5E9F0 (BcdInitializeBcdSyncMutant.c)
+ *     KeInitializeClock @ 0x140C624A0 (KeInitializeClock.c)
+ *     EmInitSystem @ 0x140C62920 (EmInitSystem.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
+ *     SmInitSystem @ 0x140C68AC8 (SmInitSystem.c)
  */
 
 char __fastcall Phase1InitializationDiscard(ULONG_PTR BugCheckParameter3)
@@ -120,39 +120,39 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR BugCheckParameter3)
   unsigned int v20; // eax
   unsigned int v21; // r15d
   __int64 v22; // r14
-  ULONG_PTR v23; // rax
+  __int64 v23; // rax
   char v24; // al
   __int64 v25; // rax
   __int64 v26; // rbx
   ULONG_PTR v27; // rcx
   __int64 v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  int Message; // eax
-  NTSTRSAFE_PSTR v32; // rbx
-  int v33; // r15d
-  NTSTATUS v34; // eax
-  size_t v35; // r14
-  char *v36; // rbx
-  NTSTATUS v37; // eax
-  NTSTATUS v38; // eax
-  __int64 v39; // rdx
-  __int64 v40; // r8
-  __int64 v41; // r9
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // r9
+  __int64 v32; // rdx
+  NTSTATUS Message; // eax
+  NTSTRSAFE_PSTR v34; // rbx
+  int v35; // r15d
+  NTSTATUS v36; // eax
+  size_t v37; // r14
+  char *v38; // rbx
+  NTSTATUS v39; // eax
+  NTSTATUS v40; // eax
+  __int64 v41; // rdx
   NTSTATUS v42; // eax
   ULONG_PTR v43; // r10
   _OWORD *v44; // rax
   char *v45; // rcx
   __int64 v46; // rdx
   __int128 v47; // xmm1
-  __int64 v48; // r8
-  __int64 v49; // r9
   int Flink_high; // eax
-  char *v51; // rax
-  char *v52; // rax
-  __int16 v53; // bx
-  LARGE_INTEGER v54; // rax
+  char *v49; // rax
+  char *v50; // rax
+  __int16 v51; // bx
+  LARGE_INTEGER v52; // rax
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
+  char *v54; // rax
+  char *v55; // rax
   char *v56; // rax
   char *v57; // rax
   char *v58; // rax
@@ -161,108 +161,93 @@ char __fastcall Phase1InitializationDiscard(ULONG_PTR BugCheckParameter3)
   char *v61; // rax
   char *v62; // rax
   char *v63; // rax
-  char *v64; // rax
-  char *v65; // rax
-  __int64 v66; // rcx
-  const char *v67; // rbx
-  unsigned int v68; // r9d
-  int v69; // eax
-  __int64 v70; // rdx
-  __int64 v71; // rbx
-  _QWORD *v72; // rcx
-  NTSTATUS v73; // eax
-  __int64 v74; // rdx
-  __int64 v75; // r8
-  __int64 v76; // r9
-  __int64 v77; // r8
-  __int64 v78; // r9
+  const CHAR *v64; // rbx
+  ULONG v65; // r9d
+  NTSTATUS v66; // eax
+  __int64 v67; // rdx
+  __int64 v68; // rbx
+  _QWORD *v69; // rcx
+  NTSTATUS v70; // eax
+  __int64 v71; // rdx
+  __int64 v72; // r8
+  __int64 v73; // r9
   int inited; // eax
-  int v80; // eax
+  int v75; // eax
   int SystemRootLink; // eax
-  __int64 v82; // r8
-  int v83; // eax
+  __int64 v77; // r8
+  int v78; // eax
   __int128 *DisplayContext; // rax
-  ULONG_PTR v85; // rbx
-  int v86; // eax
-  int v87; // eax
-  int v88; // eax
-  int v89; // eax
-  __int64 v90; // rdx
-  __int64 v91; // rcx
-  __int64 v92; // r8
-  int v93; // ebx
-  __int64 v94; // rdx
-  __int64 v95; // rcx
-  __int64 v96; // r8
-  __int64 v102; // r9
-  char *v103; // rax
-  const char *v104; // rbx
-  int v105; // eax
-  int v106; // ecx
-  unsigned int v107; // r9d
-  __int64 v108; // rdx
-  __int64 v109; // r8
-  __int64 v110; // r9
-  __int64 v111; // rdx
-  __int64 v112; // r8
-  __int64 v113; // r9
-  __int16 v114; // ax
-  bool v115; // zf
-  int v116; // eax
-  ULONG dwFlags[2]; // [rsp+20h] [rbp-E0h]
+  ULONG_PTR v80; // rbx
+  int v81; // eax
+  int v82; // eax
+  int v83; // eax
+  int v84; // eax
+  int v85; // ebx
+  __int64 v91; // r9
+  char *v92; // rax
+  const char *v93; // rbx
+  int v94; // eax
+  int v95; // ecx
+  ULONG v96; // r9d
+  __int64 v97; // rdx
+  __int64 v98; // rdx
+  __int16 v99; // ax
+  bool v100; // zf
+  int v101; // eax
+  PMESSAGE_RESOURCE_ENTRY *MessageEntry; // [rsp+20h] [rbp-E0h]
   int pszFormat; // [rsp+28h] [rbp-D8h]
-  char v120; // [rsp+40h] [rbp-C0h] BYREF
-  char v121; // [rsp+41h] [rbp-BFh]
-  LARGE_INTEGER v122; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned __int16 *v123; // [rsp+50h] [rbp-B0h] BYREF
-  int v124; // [rsp+58h] [rbp-A8h]
-  const char *v125; // [rsp+60h] [rbp-A0h] BYREF
-  int v126; // [rsp+68h] [rbp-98h]
-  int v127; // [rsp+6Ch] [rbp-94h] BYREF
+  char v105; // [rsp+40h] [rbp-C0h] BYREF
+  char v106; // [rsp+41h] [rbp-BFh]
+  LARGE_INTEGER v107; // [rsp+48h] [rbp-B8h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v108; // [rsp+50h] [rbp-B0h] BYREF
+  int v109; // [rsp+58h] [rbp-A8h]
+  PMESSAGE_RESOURCE_ENTRY v110; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG ResultDataSize; // [rsp+68h] [rbp-98h] BYREF
+  ULONG Type; // [rsp+6Ch] [rbp-94h] BYREF
   char *EndPtr; // [rsp+70h] [rbp-90h] BYREF
-  LARGE_INTEGER v129; // [rsp+78h] [rbp-88h] BYREF
-  int v130; // [rsp+80h] [rbp-80h] BYREF
+  LARGE_INTEGER CurrentSystemTime; // [rsp+78h] [rbp-88h] BYREF
+  int Buffer; // [rsp+80h] [rbp-80h] BYREF
   size_t pcbRemaining; // [rsp+88h] [rbp-78h] BYREF
   NTSTRSAFE_PSTR ppszDestEnd; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v133; // [rsp+98h] [rbp-68h] BYREF
-  __int128 v134; // [rsp+A0h] [rbp-60h] BYREF
-  STRING v135; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v118; // [rsp+98h] [rbp-68h] BYREF
+  __int128 v119; // [rsp+A0h] [rbp-60h] BYREF
+  STRING v120; // [rsp+B0h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp-40h] BYREF
-  _DWORD v137[2]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 (__fastcall *v138)(__int64, int, int); // [rsp+D8h] [rbp-28h]
-  __int64 (__fastcall *v139)(__int64); // [rsp+E0h] [rbp-20h]
-  __int64 (__fastcall *v140)(__int64); // [rsp+E8h] [rbp-18h]
-  __int64 (__fastcall *v141)(int, int, int, __int64, __int64); // [rsp+F0h] [rbp-10h]
-  __int64 (__fastcall *v142)(int, __int64, __int64); // [rsp+F8h] [rbp-8h]
-  char (__fastcall *v143)(unsigned int *); // [rsp+100h] [rbp+0h]
-  __int64 (__fastcall *v144)(_QWORD *, int, __int64, int); // [rsp+108h] [rbp+8h]
-  __int64 (__fastcall *v145)(ULONG_PTR); // [rsp+110h] [rbp+10h]
-  __int64 (__fastcall *v146)(int, int *); // [rsp+118h] [rbp+18h]
-  __int128 v147; // [rsp+120h] [rbp+20h]
-  __int128 v148; // [rsp+130h] [rbp+30h]
-  __int64 v149; // [rsp+140h] [rbp+40h]
+  _DWORD v122[2]; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 (__fastcall *v123)(__int64, int, int); // [rsp+D8h] [rbp-28h]
+  __int64 (__fastcall *v124)(__int64); // [rsp+E0h] [rbp-20h]
+  __int64 (__fastcall *v125)(__int64); // [rsp+E8h] [rbp-18h]
+  __int64 (__fastcall *v126)(int, int, int, __int64, __int64); // [rsp+F0h] [rbp-10h]
+  __int64 (__fastcall *v127)(int, __int64, __int64); // [rsp+F8h] [rbp-8h]
+  char (__fastcall *v128)(unsigned int *); // [rsp+100h] [rbp+0h]
+  __int64 (__fastcall *v129)(_QWORD *, int, __int64, int); // [rsp+108h] [rbp+8h]
+  __int64 (__fastcall *v130)(ULONG_PTR); // [rsp+110h] [rbp+10h]
+  __int64 (__fastcall *v131)(int, int *); // [rsp+118h] [rbp+18h]
+  __int128 v132; // [rsp+120h] [rbp+20h]
+  __int128 v133; // [rsp+130h] [rbp+30h]
+  __int64 v134; // [rsp+140h] [rbp+40h]
   char pszDest[24]; // [rsp+150h] [rbp+50h] BYREF
 
-  v122.QuadPart = 0LL;
-  v129.QuadPart = 0LL;
-  v133 = 0LL;
-  v125 = 0LL;
-  v123 = 0LL;
-  v135 = 0LL;
-  LOBYTE(v124) = 0;
-  v134 = 0LL;
-  v130 = 0;
-  v126 = 0;
-  v127 = 0;
+  v107.QuadPart = 0LL;
+  CurrentSystemTime.QuadPart = 0LL;
+  v118 = 0LL;
+  v110 = 0LL;
+  v108 = 0LL;
+  v120 = 0LL;
+  LOBYTE(v109) = 0;
+  v119 = 0LL;
+  Buffer = 0;
+  ResultDataSize = 0;
+  Type = 0;
   DestinationString = 0LL;
-  v137[1] = 0;
-  memset_0(v137, 0, 0x74uLL);
+  v122[1] = 0;
+  memset_0(v122, 0, 0x74uLL);
   Blink = PsGetCurrentServerSiloGlobals()[76].Blink;
   Pool2 = (char *)ExAllocatePool2(0x40uLL, 0x200uLL, 0x74696E49uLL);
   if ( !Pool2 )
     KeBugCheck(0x31u);
   CurrentThread = KeGetCurrentThread();
-  v121 = 0;
+  v106 = 0;
   LODWORD(InitializationPhase) = 1;
   KeSetPriorityThread(CurrentThread, 31);
   v5 = *(char **)(BugCheckParameter3 + 216);
@@ -334,16 +319,16 @@ LABEL_20:
         {
           v22 = 2 * v19;
           v16 = v18 + 1;
-          if ( !qword_140FCBC08[v22] )
+          if ( !qword_140FCCC88[v22] )
           {
             v23 = ExAllocatePool2(0x40uLL, 0x100uLL, 0x800uLL);
             if ( !v23 )
               KeBugCheck(0x31u);
             KeRootProcNumaNodeLps[v22] = 2048LL;
-            qword_140FCBC08[v22] = v23;
+            qword_140FCCC88[v22] = v23;
           }
           if ( v21 < 0x20 )
-            *(_QWORD *)(qword_140FCBC08[v22] + 8LL * v21) = strtoui64(v16, &EndPtr, 16);
+            *(_QWORD *)(qword_140FCCC88[v22] + 8LL * v21) = strtoui64(v16, &EndPtr, 16);
         }
         v24 = *v16;
         if ( *v16 != 44 )
@@ -364,7 +349,7 @@ LABEL_20:
     v7 = 0LL;
   }
   v25 = KiSubNodeConfigBlock;
-  word_140E66770 = 0;
+  word_140E668B0 = 0;
   *(_BYTE *)(KiSubNodeConfigBlock + 5) &= 0xFCu;
   *(_BYTE *)(v25 + 4) = 0;
   KiPerformGroupConfiguration(BugCheckParameter3);
@@ -377,17 +362,28 @@ LABEL_20:
   KeInitializeClock((unsigned int)InitializationPhase);
   if ( v7 && strstr(v7, "NOGUIBOOT") )
     goto LABEL_223;
-  byte_140E65D3C = 0;
-  if ( byte_140E65DA8 )
+  byte_140E65E78 = 0;
+  if ( byte_140E65EE0 )
   {
-    if ( byte_140E65DB1 && (int)BgDisplayProgressIndicator(1) >= 0 )
-      byte_140E65DA9 = 1;
-    if ( byte_140E65DA8 && byte_140E65DB1 && (int)BgDisplayBackgroundUpdate(1) >= 0 )
-      byte_140E65D68 = 1;
+    if ( byte_140E65EE8 )
+    {
+      LOBYTE(v29) = 1;
+      if ( (int)BgDisplayProgressIndicator(v29, v28, v30, v31) >= 0 )
+        byte_140E65EE1 = 1;
+    }
+    if ( byte_140E65EE0 )
+    {
+      if ( byte_140E65EE8 )
+      {
+        LOBYTE(v29) = 1;
+        if ( (int)BgDisplayBackgroundUpdate(v29, v28, v30, v31) >= 0 )
+          byte_140E65EA0 = 1;
+      }
+    }
   }
-  qword_140E65D48 = (__int64)DisplayFilter;
+  qword_140E65E80 = (__int64)DisplayFilter;
   InbvDriverInitialize(1LL, BugCheckParameter3, 7LL);
-  DisplayBootBitmap(0LL, v28, v29, v30);
+  DisplayBootBitmap(0LL, v32);
   if ( v7 )
   {
 LABEL_223:
@@ -400,45 +396,45 @@ LABEL_223:
         InitWinPEModeType |= 1u;
     }
   }
-  Message = RtlFindMessage(0x140000000LL, 0xBu, 0, 0x4000007Eu, (unsigned __int16 **)&v125);
-  v32 = Pool2;
+  Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x4000007Eu, &v110);
+  v34 = Pool2;
   ppszDestEnd = Pool2;
-  v33 = Message;
+  v35 = Message;
   pcbRemaining = 256LL;
   if ( CmCSDVersionString.Length )
   {
-    v34 = RtlStringCbPrintfExA(Pool2, 0xFFuLL, &ppszDestEnd, &pcbRemaining, 0, ": %wZ");
-    if ( v34 < 0 )
-      KeBugCheckEx(0x32u, v34, 7uLL, 0LL, 0LL);
-    v32 = ppszDestEnd;
-    v35 = pcbRemaining;
+    v36 = RtlStringCbPrintfExA(Pool2, 0xFFuLL, &ppszDestEnd, &pcbRemaining, 0, ": %wZ");
+    if ( v36 < 0 )
+      KeBugCheckEx(0x32u, v36, 7uLL, 0LL, 0LL);
+    v34 = ppszDestEnd;
+    v37 = pcbRemaining;
   }
   else
   {
-    v35 = 255LL;
+    v37 = 255LL;
     pcbRemaining = 255LL;
   }
-  *v32 = 0;
-  v36 = v32 + 1;
-  ppszDestEnd = v36;
-  v37 = RtlStringCbPrintfA(pszDest, 0x18uLL, "%u.%u", 10, 0);
-  if ( v37 < 0 )
-    KeBugCheckEx(0x32u, v37, 7uLL, 1uLL, 0LL);
-  if ( v33 < 0 )
+  *v34 = 0;
+  v38 = v34 + 1;
+  ppszDestEnd = v38;
+  v39 = RtlStringCbPrintfA(pszDest, 0x18uLL, "%u.%u", 10, 0);
+  if ( v39 < 0 )
+    KeBugCheckEx(0x32u, v39, 7uLL, 1uLL, 0LL);
+  if ( v35 < 0 )
   {
-    v42 = RtlStringCbCopyA(v36, v35, "MICROSOFT (R) WINDOWS (TM)\n");
+    v42 = RtlStringCbCopyA(v38, v37, "MICROSOFT (R) WINDOWS (TM)\n");
     if ( v42 < 0 )
       KeBugCheckEx(0x32u, v42, 7uLL, 3uLL, v43);
   }
   else
   {
     pszFormat = (int)Pool2;
-    dwFlags[0] = (unsigned __int16)NtBuildNumber;
-    v38 = RtlStringCbPrintfA(v36, v35, v125 + 4, pszDest, *(_QWORD *)dwFlags);
-    if ( v38 < 0 )
-      KeBugCheckEx(0x32u, v38, 7uLL, 2uLL, 0LL);
+    LODWORD(MessageEntry) = (unsigned __int16)NtBuildNumber;
+    v40 = RtlStringCbPrintfA(v38, v37, (NTSTRSAFE_PCSTR)v110->Text, pszDest, MessageEntry);
+    if ( v40 < 0 )
+      KeBugCheckEx(0x32u, v40, 7uLL, 2uLL, 0LL);
   }
-  InbvDisplayString((__int64)v36, v39, v40, v41);
+  InbvDisplayString((__int64)v38, v41);
   v44 = Pool2 + 256;
   v45 = Pool2;
   v46 = 2LL;
@@ -468,140 +464,144 @@ LABEL_219:
     {
       HIDWORD(Blink[27].Flink) = ExpAltTimeZoneBias;
       Flink_high = ExpAltTimeZoneBias;
-      v121 = 1;
+      v106 = 1;
     }
     Blink[27].Blink = (struct _LIST_ENTRY *)(600000000LL * Flink_high);
     *(_DWORD *)(MmWriteableSharedUserData + 604) = 0;
     ExpWriteTimeZoneBias(&Blink[27].Blink);
   }
-  GetBootSystemTime(*(__int64 **)(BugCheckParameter3 + 240), (ULONGLONG *)&v122.QuadPart, v48, v49);
+  GetBootSystemTime(*(__int64 **)(BugCheckParameter3 + 240), (ULONGLONG *)&v107.QuadPart);
   if ( v7 )
   {
-    v51 = strstr(v7, "YEAR");
-    if ( v51 )
+    v49 = strstr(v7, "YEAR");
+    if ( v49 )
     {
-      v52 = strstr(v51, "=");
-      if ( v52 )
+      v50 = strstr(v49, "=");
+      if ( v50 )
       {
-        v53 = atol(v52 + 1);
-        RtlpTimeToTimeFields((__int64 *)&v122, &v134);
-        LOWORD(v134) = v53;
-        RtlpTimeFieldsToTime((__int64)&v134, (__int64 *)&v122);
+        v51 = atol(v50 + 1);
+        RtlpTimeToTimeFields((__int64 *)&v107, &v119);
+        LOWORD(v119) = v51;
+        RtlpTimeFieldsToTime((__int64)&v119, (__int64 *)&v107);
       }
     }
   }
   if ( ExpRealTimeIsUniversal )
-    v54 = v122;
+    v52 = v107;
   else
-    v54.QuadPart = v122.QuadPart - (unsigned __int64)PsGetCurrentServerSiloGlobals()[76].Blink[27].Blink;
-  v129 = v54;
-  KeSetSystemTime((__int64)&v122, (__int64)&v133, 4);
+    v52.QuadPart = v107.QuadPart - (unsigned __int64)PsGetCurrentServerSiloGlobals()[76].Blink[27].Blink;
+  CurrentSystemTime = v52;
+  KeSetSystemTime((__int64)&v107, (__int64)&v118, 4);
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   PoNotifySystemTimeSet(
-    (__int64 *)&v122,
-    &v133,
+    (__int64 *)&v107,
+    &v118,
     0,
-    (int)&v129,
+    (int)&CurrentSystemTime,
     HIDWORD(CurrentServerSiloGlobals[76].Blink[27].Flink),
     pszFormat,
     ExpSystemIsInCmosMode);
   RtlInitUnicodeString(&DestinationString, L"Kernel-RegisteredProcessors");
-  if ( (int)ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v127) < 0 || v126 != 4 || v127 != 4 )
+  if ( ZwQueryLicenseValue(&DestinationString, &Type, &KeRegisteredProcessors, 4u, &ResultDataSize) < 0
+    || ResultDataSize != 4
+    || Type != 4 )
+  {
     KeRegisteredProcessors = 1;
+  }
   if ( v7 )
   {
-    v56 = strstr(v7, " BOOTPROC=");
+    v54 = strstr(v7, " BOOTPROC=");
+    if ( v54 )
+    {
+      v55 = strstr(v54, "=");
+      if ( v55 )
+        KeBootprocSpecified = atol(v55 + 1);
+    }
+    v56 = strstr(v7, " NUMPROC=");
     if ( v56 )
     {
       v57 = strstr(v56, "=");
       if ( v57 )
-        KeBootprocSpecified = atol(v57 + 1);
+        KeNumprocSpecified = atol(v57 + 1);
     }
-    v58 = strstr(v7, " NUMPROC=");
+    v58 = strstr(v7, " HYPERVISORNUMPROC=");
     if ( v58 )
     {
       v59 = strstr(v58, "=");
       if ( v59 )
-        KeNumprocSpecified = atol(v59 + 1);
-    }
-    v60 = strstr(v7, " HYPERVISORNUMPROC=");
-    if ( v60 )
-    {
-      v61 = strstr(v60, "=");
-      if ( v61 )
-        KeHypervisorNumprocSpecified = atol(v61 + 1);
+        KeHypervisorNumprocSpecified = atol(v59 + 1);
     }
     if ( !KeRootProcNumaNodeLpsSpecified )
     {
-      v62 = strstr(v7, " HYPERVISORROOTPROCPERNODE=");
+      v60 = strstr(v7, " HYPERVISORROOTPROCPERNODE=");
+      if ( v60 )
+      {
+        v61 = strstr(v60, "=");
+        if ( v61 )
+          KeRootProcPerNodeSpecified = atol(v61 + 1);
+      }
+      v62 = strstr(v7, " HYPERVISORROOTPROCPERCORE=");
       if ( v62 )
       {
         v63 = strstr(v62, "=");
         if ( v63 )
-          KeRootProcPerNodeSpecified = atol(v63 + 1);
-      }
-      v64 = strstr(v7, " HYPERVISORROOTPROCPERCORE=");
-      if ( v64 )
-      {
-        v65 = strstr(v64, "=");
-        if ( v65 )
-          KeRootProcPerCoreSpecified = atol(v65 + 1);
+          KeRootProcPerCoreSpecified = atol(v63 + 1);
       }
     }
     if ( strstr(v7, " MAXPROC") )
       KeMaxprocSpecified = 1;
   }
-  qword_1410077C8 = KeQueryPerformanceCounter(0LL).QuadPart;
-  KeStartAllProcessors(v66);
-  qword_1410077D0 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_1410087C8 = KeQueryPerformanceCounter(0LL).QuadPart;
+  KeStartAllProcessors();
+  qword_1410087D0 = KeQueryPerformanceCounter(0LL).QuadPart;
   EtwTimeProfileReset();
   KeSetAffinityProcess(KeGetCurrentThread()->ApcState.Process, 0, &KeActiveProcessors);
   MakeGdtReadOnly();
-  v67 = (int)RtlFindMessage(0x140000000LL, 0xBu, 0, 0x40000089u, &v123) < 0
+  v64 = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000089u, &v108) < 0
       ? "MultiProcessor Kernel\r\n"
-      : (const char *)(v123 + 2);
+      : (const CHAR *)v108->Text;
   if ( !(unsigned __int8)HalAllProcessorsStarted() )
 LABEL_220:
     KeBugCheck(0x61u);
-  RtlInitAnsiString(&v135, v67);
-  if ( v135.Length >= 2u )
-    v135.Length -= 2;
-  v68 = 1073741981;
+  RtlInitAnsiString(&v120, v64);
+  if ( v120.Length >= 2u )
+    v120.Length -= 2;
+  v65 = 1073741981;
   if ( (unsigned int)KeNumberProcessors_0 <= 1 )
-    v68 = 1073741960;
-  v69 = RtlFindMessage(0x140000000LL, 0xBu, 0, v68, (unsigned __int16 **)&v125);
-  v70 = 0LL;
-  v71 = *(unsigned int *)MmPhysicalMemoryBlock;
-  if ( (_DWORD)v71 )
+    v65 = 1073741960;
+  v66 = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v65, &v110);
+  v67 = 0LL;
+  v68 = *(unsigned int *)MmPhysicalMemoryBlock;
+  if ( (_DWORD)v68 )
   {
-    v72 = (char *)MmPhysicalMemoryBlock + 24;
+    v69 = (char *)MmPhysicalMemoryBlock + 24;
     do
     {
-      v70 += *v72;
-      v72 += 2;
-      --v71;
+      v67 += *v69;
+      v69 += 2;
+      --v68;
     }
-    while ( v71 );
+    while ( v68 );
   }
-  if ( v69 < 0 )
-    v73 = RtlStringCbPrintfA(
+  if ( v66 < 0 )
+    v70 = RtlStringCbPrintfA(
             Pool2,
             0x100uLL,
             "%u System Processor [%u MB Memory] %Z\n",
             (unsigned int)KeNumberProcessors_0,
-            (unsigned __int64)(v70 + 255) >> 8,
-            &v135);
+            (unsigned __int64)(v67 + 255) >> 8,
+            &v120);
   else
-    v73 = RtlStringCbPrintfA(
+    v70 = RtlStringCbPrintfA(
             Pool2,
             0x100uLL,
-            v125 + 4,
+            (NTSTRSAFE_PCSTR)v110->Text,
             (unsigned int)KeNumberProcessors_0,
-            (unsigned __int64)(v70 + 255) >> 8,
-            &v135);
-  if ( v73 < 0 )
-    KeBugCheckEx(0x32u, v73, 7uLL, 4uLL, 0LL);
-  InbvDisplayString((__int64)Pool2, v74, v75, v76);
+            (unsigned __int64)(v67 + 255) >> 8,
+            &v120);
+  if ( v70 < 0 )
+    KeBugCheckEx(0x32u, v70, 7uLL, 4uLL, 0LL);
+  InbvDisplayString((__int64)Pool2, v71);
   ExFreePoolWithTag(Pool2, 0);
   if ( !(unsigned __int8)ObInitSystem(1LL) )
     KeBugCheck(0x62u);
@@ -612,7 +612,7 @@ LABEL_220:
     KeBugCheckEx(0x32u, 0xFFFFFFFFC0000001uLL, 0LL, 4uLL, 0LL);
   if ( !(unsigned __int8)KeInitSystem(1LL) )
     KeBugCheckEx(0x32u, 0xFFFFFFFFC0000001uLL, 0LL, 2uLL, 0LL);
-  if ( !KdInitSystem(InitializationPhase, 0LL, v77, v78) )
+  if ( !KdInitSystem(InitializationPhase, 0LL, v72, v73) )
     KeBugCheckEx(0x32u, 0xFFFFFFFFC0000001uLL, 0LL, 3uLL, 0LL);
   inited = TmInitSystem(
              &TmResourceManagerObjectType,
@@ -621,9 +621,9 @@ LABEL_220:
              &TmTransactionObjectType);
   if ( (int)(inited + 0x80000000) >= 0 && inited != -1073741637 )
     KeBugCheckEx(0x32u, 0LL, 0LL, 0LL, 0LL);
-  v80 = DbgkInitialize();
-  if ( v80 < 0 )
-    KeBugCheckEx(0x32u, v80, 0LL, 0LL, 0LL);
+  v75 = DbgkInitialize();
+  if ( v75 < 0 )
+    KeBugCheckEx(0x32u, v75, 0LL, 0LL, 0LL);
   UcInitialize(0);
   BcdInitializeBcdSyncMutant();
   VerifierInitSystem(0LL);
@@ -638,83 +638,83 @@ LABEL_220:
   SystemRootLink = CreateSystemRootLink((_QWORD *)BugCheckParameter3);
   if ( SystemRootLink < 0 )
     KeBugCheckEx(0x64u, SystemRootLink, 0LL, 0LL, 0LL);
-  qword_1410077E8 = KeQueryPerformanceCounter(0LL).QuadPart;
-  MmInitSystem(1LL, BugCheckParameter3, v82);
-  qword_1410077F0 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_1410087E8 = KeQueryPerformanceCounter(0LL).QuadPart;
+  MmInitSystem(1LL, BugCheckParameter3, v77);
+  qword_1410087F0 = KeQueryPerformanceCounter(0LL).QuadPart;
   if ( !(unsigned __int8)CcInitializeCacheManager(1LL) )
     KeBugCheck(0x66u);
   if ( !(unsigned __int8)CmInitSystem1(BugCheckParameter3) )
     KeBugCheck(0x67u);
   PsInitializeBootCpuPartitions();
-  v83 = ExInitializeLeapSecondData();
-  if ( v83 < 0 )
-    KeBugCheckEx(0x32u, v83, 0xCuLL, 0LL, 0LL);
-  v120 = 0;
-  if ( (int)ExIsMultiSessionSku(&v120) >= 0 && v120 )
+  v78 = ExInitializeLeapSecondData();
+  if ( v78 < 0 )
+    KeBugCheckEx(0x32u, v78, 0xCuLL, 0LL, 0LL);
+  v105 = 0;
+  if ( (int)ExIsMultiSessionSku(&v105) >= 0 && v105 )
     *(_DWORD *)(MmWriteableSharedUserData + 752) |= 0x100u;
   if ( RtlpMultiUsersInSessionSupported )
     *(_DWORD *)(MmWriteableSharedUserData + 752) |= 0x200u;
   if ( CmStateSeparationEnabled )
     *(_DWORD *)(MmWriteableSharedUserData + 752) |= 0x400u;
-  qword_1410077B8 = KeQueryPerformanceCounter(0LL).QuadPart;
-  memset_0(v137, 0, 0x78uLL);
-  v138 = MmMapLockedRestartPages;
-  v139 = MmUnmapLockedRestartPages;
-  v140 = KeRemoveEnclavePage;
-  v141 = KdPullRemoteFileEx;
-  v142 = CmSaveKeyToBuffer;
-  v143 = KeIsBugCheckActive;
-  v144 = CmOpenKeyForBugCheckRecovery;
-  v145 = MiPageToNode;
-  v146 = MmGetNextNode;
-  v137[0] = 120;
+  qword_1410087B8 = KeQueryPerformanceCounter(0LL).QuadPart;
+  memset_0(v122, 0, 0x78uLL);
+  v123 = MmMapLockedRestartPages;
+  v124 = MmUnmapLockedRestartPages;
+  v125 = KeRemoveEnclavePage;
+  v126 = KdPullRemoteFileEx;
+  v127 = CmSaveKeyToBuffer;
+  v128 = KeIsBugCheckActive;
+  v129 = CmOpenKeyForBugCheckRecovery;
+  v130 = MiPageToNode;
+  v131 = MmGetNextNode;
+  v122[0] = 120;
   if ( VslVsmEnabled )
   {
     VslpIumKsrInitContext = (__int64)VslpKsrEnterIumSecureMode;
-    qword_141007738 = (__int64)VslpRegisterKsrCallback;
+    qword_141008738 = (__int64)VslpRegisterKsrCallback;
   }
   DisplayContext = BgGetDisplayContext();
-  v85 = (int)KsrInitSystem(BugCheckParameter3, v137, DisplayContext);
-  qword_1410077C0 = KeQueryPerformanceCounter(0LL).QuadPart;
-  if ( (int)(v85 + 0x80000000) >= 0 && (_DWORD)v85 != -1073741637 )
-    KeBugCheckEx(0x32u, v85, 0LL, 1uLL, 0LL);
-  ExKsrInterface = v147;
-  qword_140EFEAA0 = v149;
-  xmmword_140EFEA90 = v148;
-  v86 = EmInitSystem(0LL, BugCheckParameter3);
-  if ( v86 < 0 )
-    KeBugCheckEx(0x32u, v86, 8uLL, 0LL, 0LL);
-  v87 = MfgInitSystem(BugCheckParameter3);
-  if ( v87 < 0 )
-    KeBugCheckEx(0x32u, v87, 9uLL, 0LL, 0LL);
+  v80 = (int)KsrInitSystem(BugCheckParameter3, v122, DisplayContext);
+  qword_1410087C0 = KeQueryPerformanceCounter(0LL).QuadPart;
+  if ( (int)(v80 + 0x80000000) >= 0 && (_DWORD)v80 != -1073741637 )
+    KeBugCheckEx(0x32u, v80, 0LL, 1uLL, 0LL);
+  ExKsrInterface = v132;
+  qword_140EFEDC0 = v134;
+  xmmword_140EFEDB0 = v133;
+  v81 = EmInitSystem(0LL, BugCheckParameter3);
+  if ( v81 < 0 )
+    KeBugCheckEx(0x32u, v81, 8uLL, 0LL, 0LL);
+  v82 = MfgInitSystem(BugCheckParameter3);
+  if ( v82 < 0 )
+    KeBugCheckEx(0x32u, v82, 9uLL, 0LL, 0LL);
   PfInitializeSuperfetch();
-  v88 = SmInitSystem(0LL);
-  if ( v88 < 0 )
-    KeBugCheckEx(0x32u, v88, 0xBuLL, 0LL, 0LL);
-  v89 = VmInitSystem(1);
-  if ( v89 < 0 )
-    KeBugCheckEx(0x32u, v89, 0xAuLL, 0LL, 0LL);
+  v83 = SmInitSystem(0LL);
+  if ( v83 < 0 )
+    KeBugCheckEx(0x32u, v83, 0xBuLL, 0LL, 0LL);
+  v84 = VmInitSystem(1);
+  if ( v84 < 0 )
+    KeBugCheckEx(0x32u, v84, 0xAuLL, 0LL, 0LL);
   if ( (*(_BYTE *)(*(_QWORD *)(BugCheckParameter3 + 240) + 2656LL) & 2) == 0 || strstr(v7, "FORCETIMESYNC") )
-    ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL);
+    ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
   if ( (HvlpFlags & 0x2000000) != 0 )
-    ZwUpdateWnfStateData((__int64)&WNF_HVL_CPU_MGMT_PARTITION, 0LL);
-  FsRtlSendModernAppTermination(&v130, 1u, 1);
-  ExInitializeTimeRefresh(v91, v90, v92);
+    ZwUpdateWnfStateData(&WNF_HVL_CPU_MGMT_PARTITION, 0LL, 0, 0LL, 0LL, 0, 0);
+  FsRtlSendModernAppTermination(&Buffer, 1u, 1);
+  ExInitializeTimeRefresh();
   ExAcquireTimeRefreshLockExclusive();
-  ExInitializeUtcTimeZoneBias(&v129);
-  v93 = HIDWORD(Blink[27].Flink);
+  ExInitializeUtcTimeZoneBias(&CurrentSystemTime);
+  v85 = HIDWORD(Blink[27].Flink);
   ExpRefreshTimeZoneInformation(0);
   ExReleaseTimeRefreshLockExclusive();
-  if ( v121 )
+  if ( v106 )
   {
-    v122.QuadPart = (LONGLONG)PsGetCurrentServerSiloGlobals()[76].Blink[27].Blink + v129.QuadPart;
-    KeSetSystemTime((__int64)&v122, (__int64)&v133, 4);
+    v107.QuadPart = (LONGLONG)PsGetCurrentServerSiloGlobals()[76].Blink[27].Blink + CurrentSystemTime.QuadPart;
+    KeSetSystemTime((__int64)&v107, (__int64)&v118, 4);
   }
-  else if ( v93 != HIDWORD(Blink[27].Flink) )
+  else if ( v85 != HIDWORD(Blink[27].Flink) )
   {
     ZwSetSystemTime(0LL, 0LL);
   }
-  if ( !(unsigned __int8)FsRtlInitSystem(v95, v94, v96) )
+  if ( !(unsigned __int8)FsRtlInitSystem() )
     KeBugCheck(0x68u);
   ExInitializeNPagedLookasideListInternal(
     (__int64)&RtlLznt1DecompressChunkLookaside,
@@ -732,72 +732,72 @@ LABEL_220:
   ExInitializePagedLookasideList(&RtlpRangeListEntryLookasideList, 0LL, 0LL, 0, 0x38uLL, 0x656C5252u, 0x10u);
   HvlDebuggerSupportInitialize(BugCheckParameter3);
   HalReportResourceUsage(0LL);
-  KdInitialize(1LL, BugCheckParameter3, &KdpContext, v102);
+  KdInitialize(1LL, BugCheckParameter3, &KdpContext, v91);
   if ( !(unsigned __int8)PpInitSystem() )
     KeBugCheck(0x90u);
   if ( v7 )
   {
-    v103 = strstr(v7, "SAFEBOOT:");
-    if ( v103 )
+    v92 = strstr(v7, "SAFEBOOT:");
+    if ( v92 )
     {
-      v104 = v103 + 9;
-      if ( !strncmp(v103 + 9, "MINIMAL", 7uLL) )
+      v93 = v92 + 9;
+      if ( !strncmp(v92 + 9, "MINIMAL", 7uLL) )
       {
-        LODWORD(InitSafeBootMode) = 1;
+        InitSafeBootMode = 1;
       }
       else
       {
-        if ( strncmp(v104, "NETWORK", 7uLL) )
+        if ( strncmp(v93, "NETWORK", 7uLL) )
         {
-          if ( !strncmp(v104, "DSREPAIR", 8uLL) )
+          if ( !strncmp(v93, "DSREPAIR", 8uLL) )
           {
-            v104 += 8;
-            LODWORD(InitSafeBootMode) = 3;
+            v93 += 8;
+            InitSafeBootMode = 3;
           }
           else
           {
-            LODWORD(InitSafeBootMode) = 0;
+            InitSafeBootMode = 0;
           }
           goto LABEL_192;
         }
-        LODWORD(InitSafeBootMode) = 2;
+        InitSafeBootMode = 2;
       }
-      v104 += 7;
+      v93 += 7;
 LABEL_192:
-      if ( *v104 )
+      if ( *v93 )
       {
-        v105 = strncmp(v104, "(ALTERNATESHELL)", 0x10uLL);
-        v106 = (unsigned __int8)v124;
-        if ( !v105 )
-          v106 = 1;
-        v124 = v106;
+        v94 = strncmp(v93, "(ALTERNATESHELL)", 0x10uLL);
+        v95 = (unsigned __int8)v109;
+        if ( !v94 )
+          v95 = 1;
+        v109 = v95;
       }
-      if ( (_DWORD)InitSafeBootMode )
+      if ( InitSafeBootMode )
       {
-        v123 = 0LL;
-        v107 = 0;
-        switch ( (_DWORD)InitSafeBootMode )
+        v108 = 0LL;
+        v96 = 0;
+        switch ( InitSafeBootMode )
         {
           case 1:
-            v107 = 168;
+            v96 = 168;
             break;
           case 2:
-            v107 = 169;
+            v96 = 169;
             break;
           case 3:
-            v107 = 170;
+            v96 = 170;
             break;
         }
-        if ( (int)RtlFindMessage(0x140000000LL, 0xBu, 0, v107, &v123) >= 0 )
-          InbvDisplayString((__int64)(v123 + 2), v108, v109, v110);
+        if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, v96, &v108) >= 0 )
+          InbvDisplayString((__int64)v108->Text, v97);
       }
     }
   }
   if ( (*(_DWORD *)(*(_QWORD *)(BugCheckParameter3 + 240) + 132LL) & 0x800) != 0 )
   {
-    if ( (int)RtlFindMessage(0x140000000LL, 0xBu, 0, 0xB7u, (unsigned __int16 **)&v125) >= 0 )
-      InbvDisplayString((__int64)(v125 + 4), v111, v112, v113);
-    IopInitializeBootLogging(BugCheckParameter3);
+    if ( RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0xB7u, &v110) >= 0 )
+      InbvDisplayString((__int64)v110->Text, v98);
+    IopInitializeBootLogging(BugCheckParameter3, (__int64)(Pool2 + 256));
   }
   ExpWatchProductTypeInitialization();
   *(_DWORD *)(MmWriteableSharedUserData + 736) = -1;
@@ -805,21 +805,21 @@ LABEL_192:
   ExpMicrocodeInitialization(2LL);
   if ( ExpFreeListCount > (unsigned int)KeMaximumProcessors )
     ExpFreeListCount = KeMaximumProcessors;
-  LODWORD(v123) = 0;
+  LODWORD(v108) = 0;
   ExpOriginalImageVersion = 0;
-  if ( (int)ExpGetOriginalImageVersionRegistryValue(&v123) >= 0 )
-    ExpOriginalImageVersion = (int)v123;
-  v114 = ExpComputeCyclesPerYield();
-  v115 = InitIsWinPEMode == 0;
-  *(_WORD *)(MmWriteableSharedUserData + 726) = v114;
-  if ( !v115 )
+  if ( (int)ExpGetOriginalImageVersionRegistryValue(&v108) >= 0 )
+    ExpOriginalImageVersion = (int)v108;
+  v99 = ExpComputeCyclesPerYield();
+  v100 = InitIsWinPEMode == 0;
+  *(_WORD *)(MmWriteableSharedUserData + 726) = v99;
+  if ( !v100 )
     CreateMiniNtBootKey();
   SymCryptEntropyAccumulatorGlobalInitFromRegistry();
-  v116 = SeCodeIntegrityInitializePolicy(BugCheckParameter3);
-  if ( v116 < 0 )
-    KeBugCheckEx(0x32u, v116, 0x69436553uLL, 0LL, 0LL);
+  v101 = SeCodeIntegrityInitializePolicy(BugCheckParameter3);
+  if ( v101 < 0 )
+    KeBugCheckEx(0x32u, v101, 0x69436553uLL, 0LL, 0LL);
   KdpTimeSlipPending = 0;
-  qword_140EFA6F8 = (__int64)&ExBootDeviceList;
+  qword_140EFAA68 = (__int64)&ExBootDeviceList;
   ExBootDeviceList = (__int64)&ExBootDeviceList;
   ExNumMissingBootDevices = 0;
   ExBootDevicesRemovedEvent.Header.WaitListHead.Blink = &ExBootDevicesRemovedEvent.Header.WaitListHead;
@@ -837,6 +837,6 @@ LABEL_192:
   if ( !(unsigned __int8)PoInitSystem(1LL, BugCheckParameter3) )
     goto LABEL_219;
   RtlInitFunctionalityCache();
-  KeWaitForSingleObject(&stru_140E2FEA8, Executive, 0, 0, 0LL);
-  return v124;
+  KeWaitForSingleObject(&stru_140E2FFE8, Executive, 0, 0, 0LL);
+  return v109;
 }

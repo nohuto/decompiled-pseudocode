@@ -1,9 +1,9 @@
 /*
- * XREFs of NtReplyWaitReceivePort @ 0x1404B2F8C
+ * XREFs of NtReplyWaitReceivePort @ 0x14049D36C
  * Callers:
  *     <none>
  * Callees:
- *     NtReplyWaitReceivePortEx @ 0x1404B2FA0 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x14049D380 (NtReplyWaitReceivePortEx.c)
  */
 
 NTSTATUS __stdcall NtReplyWaitReceivePort(

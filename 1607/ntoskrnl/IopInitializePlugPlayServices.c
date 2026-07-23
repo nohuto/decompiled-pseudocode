@@ -3,47 +3,47 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     PnpDiagnosticTrace @ 0x1400B0D90 (PnpDiagnosticTrace.c)
- *     TlgRegisterAggregateProviderEx @ 0x1401495F4 (TlgRegisterAggregateProviderEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     PnpDiagnosticTrace @ 0x1400AEE00 (PnpDiagnosticTrace.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140149B64 (TlgRegisterAggregateProviderEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PipSetDevNodeFlags @ 0x1403F33A0 (PipSetDevNodeFlags.c)
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     _CmAddDeviceToContainer @ 0x140485F54 (_CmAddDeviceToContainer.c)
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x140486C30 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     _CmSetDeviceRegProp @ 0x140489A34 (_CmSetDeviceRegProp.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     PsDereferencePrimaryToken @ 0x1404E15F4 (PsDereferencePrimaryToken.c)
- *     _CmCreateDevice @ 0x1404E6E44 (_CmCreateDevice.c)
- *     PipAllocateDeviceNode @ 0x1404E9548 (PipAllocateDeviceNode.c)
- *     PnpMapDeviceObjectToDeviceInstance @ 0x1404EDDBC (PnpMapDeviceObjectToDeviceInstance.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     IopCreateRegistryKeyEx @ 0x1405391F8 (IopCreateRegistryKeyEx.c)
- *     PipSetDevNodeUserFlags @ 0x140545890 (PipSetDevNodeUserFlags.c)
- *     EtwUnregister @ 0x1405488B0 (EtwUnregister.c)
- *     IopOpenRegistryKeyEx @ 0x14055064C (IopOpenRegistryKeyEx.c)
- *     IoCreateDriver @ 0x140551384 (IoCreateDriver.c)
- *     PiPnpRtlInit @ 0x1405518D0 (PiPnpRtlInit.c)
- *     IopPortInitialize @ 0x1405547EC (IopPortInitialize.c)
- *     IopDmaInitialize @ 0x14055487C (IopDmaInitialize.c)
- *     IopIrqInitialize @ 0x1405548EC (IopIrqInitialize.c)
- *     IopBusNumberInitialize @ 0x14055494C (IopBusNumberInitialize.c)
- *     IopMemInitialize @ 0x14055B080 (IopMemInitialize.c)
- *     PnpAllocateDeviceInstancePath @ 0x14057B480 (PnpAllocateDeviceInstancePath.c)
- *     CmRegisterSystemHiveLimitCallback @ 0x140580E6C (CmRegisterSystemHiveLimitCallback.c)
- *     PnpCopyDeviceInstancePath @ 0x140581730 (PnpCopyDeviceInstancePath.c)
- *     PnpLogEvent @ 0x14062DA98 (PnpLogEvent.c)
- *     PiDcHandleSystemFirmwareUpdate @ 0x1406308A4 (PiDcHandleSystemFirmwareUpdate.c)
+ *     PipSetDevNodeFlags @ 0x1403F2264 (PipSetDevNodeFlags.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     PsDereferencePrimaryToken @ 0x1404C4BF8 (PsDereferencePrimaryToken.c)
+ *     PipAllocateDeviceNode @ 0x1404CB638 (PipAllocateDeviceNode.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmCreateDevice @ 0x14050D534 (_CmCreateDevice.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x14050D7D8 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     _CmAddDeviceToContainer @ 0x14050FC58 (_CmAddDeviceToContainer.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14050FD98 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     _CmSetDeviceRegProp @ 0x1405121B4 (_CmSetDeviceRegProp.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     IopCreateRegistryKeyEx @ 0x140539738 (IopCreateRegistryKeyEx.c)
+ *     PipSetDevNodeUserFlags @ 0x140545DD0 (PipSetDevNodeUserFlags.c)
+ *     EtwUnregister @ 0x140548DF0 (EtwUnregister.c)
+ *     IopOpenRegistryKeyEx @ 0x140550B8C (IopOpenRegistryKeyEx.c)
+ *     IoCreateDriver @ 0x1405518C4 (IoCreateDriver.c)
+ *     PiPnpRtlInit @ 0x140551E10 (PiPnpRtlInit.c)
+ *     IopPortInitialize @ 0x140554D2C (IopPortInitialize.c)
+ *     IopDmaInitialize @ 0x140554DBC (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x140554E2C (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x140554E8C (IopBusNumberInitialize.c)
+ *     IopMemInitialize @ 0x14055B5C0 (IopMemInitialize.c)
+ *     PnpAllocateDeviceInstancePath @ 0x14057B92C (PnpAllocateDeviceInstancePath.c)
+ *     CmRegisterSystemHiveLimitCallback @ 0x140581318 (CmRegisterSystemHiveLimitCallback.c)
+ *     PnpCopyDeviceInstancePath @ 0x140581BDC (PnpCopyDeviceInstancePath.c)
+ *     PnpLogEvent @ 0x14062DB4C (PnpLogEvent.c)
+ *     PiDcHandleSystemFirmwareUpdate @ 0x140630958 (PiDcHandleSystemFirmwareUpdate.c)
  *     PipInitDeviceOverrideCache @ 0x1407990C4 (PipInitDeviceOverrideCache.c)
  *     PipHardwareConfigInit @ 0x14079930C (PipHardwareConfigInit.c)
  *     PipCheckSystemFirmwareUpdated @ 0x14079A898 (PipCheckSystemFirmwareUpdated.c)
@@ -164,7 +164,7 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, ETWENABLECALLBACK *a2)
             v53 = 8LL;
             v55 = 8LL;
             v57 = 8LL;
-            TlgWrite(&stru_1402F3740, &unk_14027BAE9, 0LL, 0LL, 5u, &pData);
+            TlgWrite(&stru_1402F3740, &unk_14027BBE9, 0LL, 0LL, 5u, &pData);
           }
           EtwUnregister(stru_1402F3740.RegHandle);
           stru_1402F3740.RegHandle = 0LL;
@@ -190,7 +190,7 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, ETWENABLECALLBACK *a2)
   {
     PnPInitialized = 0;
     PnpSystemHiveLimits = 80;
-    dword_140328E9C = 90;
+    dword_140328EDC = 90;
     CmRegisterSystemHiveLimitCallback(a1, (__int64)a2, (__int64)&PnpSystemHiveLimits);
     PnpSystemHiveTooLarge = 0;
     ObjectAttributes.ObjectName = &CmRegistryMachineHardwareDescriptionSystemName;
@@ -221,18 +221,18 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, ETWENABLECALLBACK *a2)
       }
       ZwClose(KeyHandle);
     }
-    qword_14031F908 = 0LL;
-    qword_14031F8C8 = (__int64)&PnpDeviceCompletionQueue;
+    qword_14031F928 = 0LL;
+    qword_14031F8E8 = (__int64)&PnpDeviceCompletionQueue;
     PnpDeviceCompletionQueue = (__int64)&PnpDeviceCompletionQueue;
-    qword_14031F8F8 = (__int64)&qword_14031F8F0;
-    qword_14031F8F0 = (__int64)&qword_14031F8F0;
-    qword_14031F8E0 = (__int64)&qword_14031F8D8;
-    qword_14031F8D8 = (__int64)&qword_14031F8D8;
-    dword_14031F8D0 = 0;
-    byte_14031F8E8 = 5;
-    byte_14031F8EA = 8;
-    dword_14031F8EC = 0;
-    dword_14031F900 = 0x7FFFFFFF;
+    qword_14031F918 = (__int64)&qword_14031F910;
+    qword_14031F910 = (__int64)&qword_14031F910;
+    qword_14031F900 = (__int64)&qword_14031F8F8;
+    qword_14031F8F8 = (__int64)&qword_14031F8F8;
+    dword_14031F8F0 = 0;
+    byte_14031F908 = 5;
+    byte_14031F90A = 8;
+    dword_14031F90C = 0;
+    dword_14031F920 = 0x7FFFFFFF;
     PiInitFirmwareResources(a1);
     if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 116LL) & 0x400) == 0 )
       PpInitializeBootDDB(a1, 0LL);
@@ -263,7 +263,7 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, ETWENABLECALLBACK *a2)
       IopAllocateBootResourcesRoutine = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))&IopReportBootResources;
       IopInitReservedResourceList = 0LL;
       PnpDefaultInterfaceType = 1;
-      ArbInitializeOsInaccessibleRange((unsigned int)dword_1403269E4);
+      ArbInitializeOsInaccessibleRange((unsigned int)dword_140326A24);
       CachedContextBaseKey = IopPortInitialize(v6, v5);
       if ( CachedContextBaseKey < 0 )
         return CachedContextBaseKey;
@@ -402,9 +402,9 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, ETWENABLECALLBACK *a2)
         4u,
         0);
       ZwClose(v16);
-      qword_14031F948 = (__int64)&IopPendingEjects;
+      qword_14031F968 = (__int64)&IopPendingEjects;
       IopPendingEjects = (__int64)&IopPendingEjects;
-      qword_14031F958 = (__int64)&IopPendingSurpriseRemovals;
+      qword_14031F978 = (__int64)&IopPendingSurpriseRemovals;
       IopPendingSurpriseRemovals = &IopPendingSurpriseRemovals;
       ExInitializeResourceLite(&IopDeviceTreeLock);
       ExInitializeResourceLite(&IopSurpriseRemoveListLock);
@@ -426,7 +426,7 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, ETWENABLECALLBACK *a2)
       PnpEnumerationInProgress = 0;
       PnpEnumerationLock.Header.WaitListHead.Blink = &PnpEnumerationLock.Header.WaitListHead;
       PnpEnumerationLock.Header.WaitListHead.Flink = &PnpEnumerationLock.Header.WaitListHead;
-      qword_14031E528 = (__int64)&PnpEnumerationRequestList;
+      qword_14031E548 = (__int64)&PnpEnumerationRequestList;
       PnpEnumerationRequestList = &PnpEnumerationRequestList;
       LOWORD(PnpEnumerationLock.Header.Lock) = 0;
       PnpEnumerationLock.Header.Size = 6;

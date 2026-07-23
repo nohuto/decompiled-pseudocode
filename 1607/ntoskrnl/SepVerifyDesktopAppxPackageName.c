@@ -1,19 +1,19 @@
 /*
- * XREFs of SepVerifyDesktopAppxPackageName @ 0x140219E60
+ * XREFs of SepVerifyDesktopAppxPackageName @ 0x140219C8C
  * Callers:
- *     SepVerifyDesktopAppxImage @ 0x140219CAC (SepVerifyDesktopAppxImage.c)
+ *     SepVerifyDesktopAppxImage @ 0x140219AD8 (SepVerifyDesktopAppxImage.c)
  * Callees:
- *     SeSecurityAttributePresent @ 0x14000E300 (SeSecurityAttributePresent.c)
- *     RtlFindAceByType @ 0x140012AA0 (RtlFindAceByType.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x14007C264 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x140088740 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140146050 (AuthzBasepAllocateSecurityAttributesList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     SeSecurityAttributePresent @ 0x14000DE80 (SeSecurityAttributePresent.c)
+ *     RtlFindAceByType @ 0x140012620 (RtlFindAceByType.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14007C2E4 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x14010C930 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1401465C0 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeQuerySecurityAttributesToken @ 0x14040EF20 (SeQuerySecurityAttributesToken.c)
+ *     SeQuerySecurityAttributesToken @ 0x14040DDE0 (SeQuerySecurityAttributesToken.c)
  */
 
 __int64 __fastcall SepVerifyDesktopAppxPackageName(__int64 a1, __int64 a2, _BYTE *a3)
@@ -27,7 +27,7 @@ __int64 __fastcall SepVerifyDesktopAppxPackageName(__int64 a1, __int64 a2, _BYTE
   _QWORD *SecurityAttributesList; // rax
   _DWORD *v12; // r14
   __int16 v13; // ax
-  __int64 v14; // rcx
+  ACL *v14; // rcx
   __int64 v15; // rax
   unsigned __int8 *AceByType; // rax
   unsigned __int8 *v17; // r15
@@ -104,17 +104,17 @@ LABEL_13:
     }
     if ( v13 >= 0 )
     {
-      v14 = *(_QWORD *)(a2 + 32);
+      v14 = *(ACL **)(a2 + 32);
     }
     else
     {
       v15 = *(unsigned int *)(a2 + 16);
       if ( !(_DWORD)v15 )
         goto LABEL_13;
-      v14 = v15 + a2;
+      v14 = (ACL *)(v15 + a2);
     }
 LABEL_18:
-    AceByType = RtlFindAceByType(v14, 9, (unsigned int *)&NumberOfBytes + 1);
+    AceByType = (unsigned __int8 *)RtlFindAceByType(v14, 9u, (PULONG)&NumberOfBytes + 1);
     v17 = AceByType;
     if ( AceByType )
     {

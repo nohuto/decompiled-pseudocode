@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpOplockGetAckTimeoutOverride @ 0x14070B880
+ * XREFs of FsRtlpOplockGetAckTimeoutOverride @ 0x140709414
  * Callers:
- *     FsRtlInitializeOplockPerf @ 0x140C192F4 (FsRtlInitializeOplockPerf.c)
+ *     FsRtlInitializeOplockPerf @ 0x140C1B2E8 (FsRtlInitializeOplockPerf.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 FsRtlpOplockGetAckTimeoutOverride()

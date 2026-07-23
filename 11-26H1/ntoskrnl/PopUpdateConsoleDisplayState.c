@@ -1,20 +1,20 @@
 /*
- * XREFs of PopUpdateConsoleDisplayState @ 0x140A3CD5C
+ * XREFs of PopUpdateConsoleDisplayState @ 0x1409F877C
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopUpdateLastUserInputTime @ 0x140A3BF2C (PopUpdateLastUserInputTime.c)
- *     PopRecordDisplayState @ 0x140A3C308 (PopRecordDisplayState.c)
- *     PopDiagTraceConsoleDisplayState @ 0x140A3C354 (PopDiagTraceConsoleDisplayState.c)
- *     PopSpoilBatteryEstimate @ 0x140A3C3E0 (PopSpoilBatteryEstimate.c)
- *     PopCheckResiliencyScenarios @ 0x140A3D444 (PopCheckResiliencyScenarios.c)
- *     PopSetPowerSettingValue @ 0x140A3E538 (PopSetPowerSettingValue.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopUpdateLastUserInputTime @ 0x1409F794C (PopUpdateLastUserInputTime.c)
+ *     PopRecordDisplayState @ 0x1409F7D28 (PopRecordDisplayState.c)
+ *     PopDiagTraceConsoleDisplayState @ 0x1409F7D74 (PopDiagTraceConsoleDisplayState.c)
+ *     PopSpoilBatteryEstimate @ 0x1409F7E00 (PopSpoilBatteryEstimate.c)
+ *     PopCheckResiliencyScenarios @ 0x1409F8E64 (PopCheckResiliencyScenarios.c)
+ *     PopSetPowerSettingValue @ 0x1409F9F58 (PopSetPowerSettingValue.c)
  */
 
 __int64 __fastcall PopUpdateConsoleDisplayState(__int64 a1, __int64 a2)
@@ -27,29 +27,29 @@ __int64 __fastcall PopUpdateConsoleDisplayState(__int64 a1, __int64 a2)
   __int64 v7; // r8
   struct _KLOCK_ENTRIES *v8; // r9
   __int64 result; // rax
-  int v10; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = a1;
   if ( PopConsoleDisplayState != (_DWORD)a1 )
   {
     PopConsoleDisplayState = a1;
-    if ( qword_140E675D8 )
+    if ( qword_140E67838 )
       guard_dispatch_icall_no_overrides(a1, a2);
     PopDiagTraceConsoleDisplayState(v2);
     PopCheckResiliencyScenarios();
-    v10 = PopConsoleDisplayState;
-    PopSetPowerSettingValue(&GUID_CONSOLE_DISPLAY_STATE, 0xFFFFFFFFLL, 0LL, 4LL, &v10);
-    PopSetPowerSettingValue(&GUID_CONSOLE_DISPLAY_STATE, 0xFFFFFFFFLL, 1LL, 4LL, &v10);
+    Buffer = PopConsoleDisplayState;
+    PopSetPowerSettingValue(&GUID_CONSOLE_DISPLAY_STATE, 0xFFFFFFFFLL, 0LL, 4LL, &Buffer);
+    PopSetPowerSettingValue(&GUID_CONSOLE_DISPLAY_STATE, 0xFFFFFFFFLL, 1LL, 4LL, &Buffer);
     PopRecordDisplayState(v2, v3, v4, v5);
-    v10 = PopConsoleDisplayState != 0;
-    PopSetPowerSettingValue(&GUID_MONITOR_POWER_ON, 0xFFFFFFFFLL, 0LL, 4LL, &v10);
-    PopSetPowerSettingValue(&GUID_MONITOR_POWER_ON, 0xFFFFFFFFLL, 1LL, 4LL, &v10);
-    ZwUpdateWnfStateData((__int64)&WNF_UBPM_CONSOLE_MONITOR, (__int64)&v10);
+    Buffer = PopConsoleDisplayState != 0;
+    PopSetPowerSettingValue(&GUID_MONITOR_POWER_ON, 0xFFFFFFFFLL, 0LL, 4LL, &Buffer);
+    PopSetPowerSettingValue(&GUID_MONITOR_POWER_ON, 0xFFFFFFFFLL, 1LL, 4LL, &Buffer);
+    ZwUpdateWnfStateData(&WNF_UBPM_CONSOLE_MONITOR, &Buffer, 4u, 0LL, 0LL, 0, 0);
     PopSpoilBatteryEstimate(0, PopConsoleDisplayState == 0);
-    PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock.SuspendEvent, v6, v7, v8);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemIdleLock, v6, v7, v8);
     PopUpdateLastUserInputTime();
-    dword_140E0B754 = v2;
-    return PopReleaseRwLock((struct _KTHREAD *)&PopWeakChargerLock.SuspendEvent);
+    dword_140E0B764 = v2;
+    return PopReleaseRwLock((struct _KTHREAD *)&PopSystemIdleLock);
   }
   return result;
 }

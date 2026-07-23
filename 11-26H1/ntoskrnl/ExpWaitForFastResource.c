@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWaitForFastResource @ 0x140275FE0
+ * XREFs of ExpWaitForFastResource @ 0x140275550
  * Callers:
- *     ExpAcquireFastResourceExclusiveSlow @ 0x1402759D0 (ExpAcquireFastResourceExclusiveSlow.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140276E40 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x140274F40 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x1402763B0 (ExpAcquireFastResourceSharedSlow.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     PerfLogExecutiveResourceWait @ 0x140495E24 (PerfLogExecutiveResourceWait.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     PerfLogExecutiveResourceWait @ 0x14048F974 (PerfLogExecutiveResourceWait.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall ExpWaitForFastResource(__int64 a1, __int64 a2, unsigned int a3)

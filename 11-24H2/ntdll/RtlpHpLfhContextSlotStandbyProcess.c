@@ -1,86 +1,82 @@
 /*
- * XREFs of RtlpHpLfhContextSlotStandbyProcess @ 0x18004B3D8
+ * XREFs of RtlpHpLfhContextSlotStandbyProcess @ 0x180060FB8
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhContextCleanup @ 0x18008EF4C (RtlpHpLfhContextCleanup.c)
- *     RtlpHpLfhContextSlotAllocate @ 0x1800A4C3C (RtlpHpLfhContextSlotAllocate.c)
+ *     RtlpHpLfhContextCleanup @ 0x180026920 (RtlpHpLfhContextCleanup.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhContextSlotAllocate @ 0x1800D65B0 (RtlpHpLfhContextSlotAllocate.c)
  * Callees:
- *     RtlpHpLfhHeatMapQuery @ 0x18004B220 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhOwnerFreeListProcess @ 0x18004E2B0 (RtlpHpLfhOwnerFreeListProcess.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x18004E6E0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpLfhContextMetadataFree @ 0x1800A4C98 (RtlpHpLfhContextMetadataFree.c)
- *     RtlpHpLfhContextLockExtension @ 0x1800A4E8C (RtlpHpLfhContextLockExtension.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x180060E00 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhOwnerFreeListProcess @ 0x180063E90 (RtlpHpLfhOwnerFreeListProcess.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x1800642C0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhContextMetadataFree @ 0x1800D660C (RtlpHpLfhContextMetadataFree.c)
+ *     RtlpHpLfhContextLockExtension @ 0x1800D6800 (RtlpHpLfhContextLockExtension.c)
  */
 
-_QWORD *__fastcall RtlpHpLfhContextSlotStandbyProcess(__int64 a1, char a2)
+void __fastcall RtlpHpLfhContextSlotStandbyProcess(__int64 a1, char a2)
 {
   _QWORD *v2; // rbx
-  _QWORD *result; // rax
-  _QWORD *v6; // rsi
-  unsigned __int8 *v7; // rbp
-  __int64 v8; // r9
-  int v9; // eax
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rax
-  _QWORD v12[7]; // [rsp+20h] [rbp-38h] BYREF
+  _QWORD *v5; // rsi
+  unsigned __int8 *v6; // rbp
+  __int64 v7; // r9
+  int v8; // eax
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rax
+  _QWORD v11[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v2 = 0LL;
-  v12[1] = v12;
-  result = v12;
-  v12[0] = v12;
+  v11[1] = v11;
+  v11[0] = v11;
   if ( *(_QWORD *)(a1 + 160) )
   {
     do
     {
       RtlpHpLfhContextLockExtension(a1);
-      v6 = *(_QWORD **)(a1 + 160);
-      if ( v6 )
-        *(_QWORD *)(a1 + 160) = *v6;
-      result = (_QWORD *)RtlReleaseSRWLockExclusive(a1 + 128);
-      if ( !v6 )
+      v5 = *(_QWORD **)(a1 + 160);
+      if ( v5 )
+        *(_QWORD *)(a1 + 160) = *v5;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 128));
+      if ( !v5 )
         break;
-      v7 = (unsigned __int8 *)(a1 + ((unsigned __int64)*((unsigned __int16 *)v6 - 7) << 6));
-      ((void (__fastcall *)(__int64, _QWORD *, _QWORD *, _QWORD))RtlpHpLfhOwnerFreeListProcess)(a1, v6 - 2, v12, 0LL);
+      v6 = (unsigned __int8 *)(a1 + ((unsigned __int64)*((unsigned __int16 *)v5 - 7) << 6));
+      ((void (__fastcall *)(__int64, _QWORD *, _QWORD *, _QWORD))RtlpHpLfhOwnerFreeListProcess)(a1, v5 - 2, v11, 0LL);
       if ( (a2 & 1) != 0 )
       {
-        v8 = 8LL;
+        v7 = 8LL;
       }
       else
       {
-        v9 = RtlpHpLfhHeatMapQuery(a1, (volatile signed __int32 *)(a1 + 192), v7);
-        v8 = 4LL;
-        if ( v9 >= 1 )
-          v8 = 8LL;
+        v8 = RtlpHpLfhHeatMapQuery(a1, (volatile signed __int32 *)(a1 + 192), v6);
+        v7 = 4LL;
+        if ( v8 >= 1 )
+          v7 = 8LL;
       }
-      RtlpHpLfhBucketAddSubsegment(a1, v7, v12, v8);
-      result = v6 + 3;
-      if ( (_QWORD *)*result == result )
+      RtlpHpLfhBucketAddSubsegment(a1, v6, v11, v7);
+      if ( (_QWORD *)v5[3] == v5 + 3 )
       {
-        result = (_QWORD *)RtlpHpLfhContextMetadataFree(a1, v6 - 2, 2LL);
+        RtlpHpLfhContextMetadataFree(a1, v5 - 2, 2LL);
       }
       else
       {
-        *v6 = v2;
-        v2 = v6;
+        *v5 = v2;
+        v2 = v5;
       }
     }
     while ( *(_QWORD *)(a1 + 160) );
     if ( v2 )
     {
       RtlpHpLfhContextLockExtension(a1);
-      v10 = *(_QWORD **)(a1 + 160);
+      v9 = *(_QWORD **)(a1 + 160);
       do
       {
-        v11 = v2;
+        v10 = v2;
         v2 = (_QWORD *)*v2;
-        *v11 = v10;
-        v10 = v11;
-        *(_QWORD *)(a1 + 160) = v11;
+        *v10 = v9;
+        v9 = v10;
+        *(_QWORD *)(a1 + 160) = v10;
       }
       while ( v2 );
-      return (_QWORD *)RtlReleaseSRWLockExclusive(a1 + 128);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 128));
     }
   }
-  return result;
 }

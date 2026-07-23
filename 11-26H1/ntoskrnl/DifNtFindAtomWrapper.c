@@ -1,19 +1,18 @@
 /*
- * XREFs of DifNtFindAtomWrapper @ 0x140677B60
+ * XREFs of DifNtFindAtomWrapper @ 0x14067B740
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtFindAtom @ 0x1408417F0 (NtFindAtom.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtFindAtom @ 0x140847A30 (NtFindAtom.c)
  */
 
-__int64 __fastcall DifNtFindAtomWrapper(void *Src, size_t Size, void *a3)
+__int64 __fastcall DifNtFindAtomWrapper(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
-  unsigned int v5; // r12d
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
   __int128 *v8; // rsi
@@ -31,7 +30,6 @@ __int64 __fastcall DifNtFindAtomWrapper(void *Src, size_t Size, void *a3)
 
   v19 = 0LL;
   v17 = 0LL;
-  v5 = Size;
   v18 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(735);
   v8 = APIThunkContextById;
@@ -47,9 +45,9 @@ __int64 __fastcall DifNtFindAtomWrapper(void *Src, size_t Size, void *a3)
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    *((_QWORD *)&v18 + 1) = Src;
-    LODWORD(v18) = v5;
-    *((_QWORD *)&v17 + 1) = a3;
+    *((_QWORD *)&v18 + 1) = AtomName;
+    LODWORD(v18) = Length;
+    *((_QWORD *)&v17 + 1) = Atom;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -62,7 +60,7 @@ __int64 __fastcall DifNtFindAtomWrapper(void *Src, size_t Size, void *a3)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = NtFindAtom(Src, v5, a3);
+  LODWORD(v19) = NtFindAtom(AtomName, Length, Atom);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

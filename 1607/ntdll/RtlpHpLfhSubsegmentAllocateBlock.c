@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentAllocateBlock @ 0x180041C48
+ * XREFs of RtlpHpLfhSubsegmentAllocateBlock @ 0x180041C38
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1800419C4 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1800419B4 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSetUnusedBytes @ 0x18003F77C (RtlpHpLfhSubsegmentSetUnusedBytes.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x18003F7D0 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     RtlpLfhBlockBitmapAllocate @ 0x180041D94 (RtlpLfhBlockBitmapAllocate.c)
+ *     RtlpHpLfhSubsegmentSetUnusedBytes @ 0x18003F76C (RtlpHpLfhSubsegmentSetUnusedBytes.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x18003F7C0 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpLfhBlockBitmapAllocate @ 0x180041D84 (RtlpLfhBlockBitmapAllocate.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentAllocateBlock(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmQueryDripsResidency @ 0x140200D04
+ * XREFs of PpmQueryDripsResidency @ 0x140200B30
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 PpmQueryDripsResidency()
 {
-  return PpmQueryPlatformStateResidency((unsigned int)dword_140328940);
+  return PpmQueryPlatformStateResidency((unsigned int)dword_140328980);
 }

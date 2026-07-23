@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwFlushBuffersFile()
+NTSTATUS __cdecl ZwFlushBuffersFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 75LL;
+  result = 75;
   __asm { syscall; Low latency system call }
   return result;
 }

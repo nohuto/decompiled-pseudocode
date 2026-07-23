@@ -9,7 +9,7 @@
  *     sub_1800D03F8 @ 0x1800D03F8 (sub_1800D03F8.c)
  */
 
-char __fastcall sub_180059C34(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4, int a5, int a6)
+char __fastcall sub_180059C34(void *a1, void *a2, __int64 a3, const wchar_t *a4, int a5, int a6)
 {
   __int64 v9; // rdx
   _DWORD *v10; // rcx
@@ -37,7 +37,7 @@ char __fastcall sub_180059C34(__int64 a1, __int64 a2, __int64 a3, const wchar_t 
   }
   else
   {
-    v17 = sub_180018940(a1, a2, 0, 1);
+    v17 = sub_180018940(a1, (__int64)a2, 0, 1);
     if ( v17 )
     {
       v16 = sub_180018940(a2, v9, 0, 0);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ExGetCurrentProcessorCpuUsage @ 0x1404DCAB0
+ * XREFs of ExGetCurrentProcessorCpuUsage @ 0x1404D6190
  * Callers:
  *     <none>
  * Callees:

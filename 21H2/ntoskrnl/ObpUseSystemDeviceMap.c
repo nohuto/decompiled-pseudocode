@@ -1,15 +1,15 @@
 /*
  * XREFs of ObpUseSystemDeviceMap @ 0x1405CF1CC
  * Callers:
- *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x14070B300 (ObpLookupObjectName.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
- *     RtlGetNtSystemRoot @ 0x1406BC270 (RtlGetNtSystemRoot.c)
+ *     RtlGetNtSystemRoot @ 0x14061B3E0 (RtlGetNtSystemRoot.c)
+ *     RtlUpcaseUnicodeChar @ 0x1406F14F0 (RtlUpcaseUnicodeChar.c)
  */
 
 bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
 {
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   WCHAR *v3; // rcx
   WCHAR *v4; // rdi
   WCHAR v5; // bx
@@ -20,7 +20,7 @@ bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
   {
     NtSystemRoot = RtlGetNtSystemRoot();
     v3 = *(WCHAR **)(a1 + 8);
-    v4 = (WCHAR *)NtSystemRoot;
+    v4 = NtSystemRoot;
     if ( v3[5] == 58 && v3[6] == 92 )
     {
       v5 = RtlUpcaseUnicodeChar(v3[4]);

@@ -1,11 +1,11 @@
 /*
- * XREFs of PoFxNotifySurprisePowerOn @ 0x1401586D0
+ * XREFs of PoFxNotifySurprisePowerOn @ 0x1401587D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PopPepSurprisePowerOn @ 0x140158724 (PopPepSurprisePowerOn.c)
- *     PopFxLockDevice @ 0x14015B058 (PopFxLockDevice.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PopPepSurprisePowerOn @ 0x140158824 (PopPepSurprisePowerOn.c)
+ *     PopFxLockDevice @ 0x14015B158 (PopFxLockDevice.c)
  */
 
 int __fastcall PoFxNotifySurprisePowerOn(__int64 a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupGetDeviceCreationConfigEntry @ 0x14059FF2C
+ * XREFs of IommupGetDeviceCreationConfigEntry @ 0x1405A271C
  * Callers:
- *     HalpIommuCreateDevice @ 0x14051AC18 (HalpIommuCreateDevice.c)
- *     IommupDeviceGetFaultSettings @ 0x140531D98 (IommupDeviceGetFaultSettings.c)
- *     IommupDeviceGetAtsSettings @ 0x140587E48 (IommupDeviceGetAtsSettings.c)
- *     IommupDeviceGetPasidSettings @ 0x140587F84 (IommupDeviceGetPasidSettings.c)
+ *     HalpIommuCreateDevice @ 0x140514688 (HalpIommuCreateDevice.c)
+ *     IommupDeviceGetFaultSettings @ 0x140534238 (IommupDeviceGetFaultSettings.c)
+ *     IommupDeviceGetAtsSettings @ 0x14058A420 (IommupDeviceGetAtsSettings.c)
+ *     IommupDeviceGetPasidSettings @ 0x14058A55C (IommupDeviceGetPasidSettings.c)
  * Callees:
  *     <none>
  */

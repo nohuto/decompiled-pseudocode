@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateSection @ 0x14096BE90
+ * XREFs of NtCreateSection @ 0x1409548F0
  * Callers:
- *     DifNtCreateSectionWrapper @ 0x140635450 (DifNtCreateSectionWrapper.c)
+ *     DifNtCreateSectionWrapper @ 0x140633A10 (DifNtCreateSectionWrapper.c)
  * Callees:
- *     MiCreateSectionCommon @ 0x14096B594 (MiCreateSectionCommon.c)
+ *     MiCreateSectionCommon @ 0x140954024 (MiCreateSectionCommon.c)
  */
 
 NTSTATUS __stdcall NtCreateSection(

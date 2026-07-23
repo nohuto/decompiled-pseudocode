@@ -1,19 +1,19 @@
 /*
- * XREFs of PiGetDefaultMessageString @ 0x1407537DC
+ * XREFs of PiGetDefaultMessageString @ 0x1407549CC
  * Callers:
- *     PiNormalizeDeviceText @ 0x1406FDD40 (PiNormalizeDeviceText.c)
+ *     PiNormalizeDeviceText @ 0x1406FEFE0 (PiNormalizeDeviceText.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
- *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
- *     IopGetDriverNameFromKeyNode @ 0x140680340 (IopGetDriverNameFromKeyNode.c)
- *     IopReferenceDriverObjectByName @ 0x140709474 (IopReferenceDriverObjectByName.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlCreateUnicodeString @ 0x14065BBD0 (RtlCreateUnicodeString.c)
+ *     RtlFindMessage @ 0x14067CF90 (RtlFindMessage.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140681500 (IopGetDriverNameFromKeyNode.c)
+ *     IopReferenceDriverObjectByName @ 0x14070A714 (IopReferenceDriverObjectByName.c)
  */
 
 __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, ULONG MessageId, _QWORD *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, ULONG MessageId, 
   _WORD *v13; // r14
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-20h] BYREF
-  STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
+  _STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
   PMESSAGE_RESOURCE_ENTRY MessageResourceEntry; // [rsp+A8h] [rbp+48h] BYREF
 
   RtlInitUnicodeString(&DestinationString, 0LL);

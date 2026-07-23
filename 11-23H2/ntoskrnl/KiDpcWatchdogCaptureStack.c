@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDpcWatchdogCaptureStack @ 0x14056B214
+ * XREFs of KiDpcWatchdogCaptureStack @ 0x14056B8D4
  * Callers:
- *     KeAccumulateTicks @ 0x1402C7B10 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1402C7DA0 (KeAccumulateTicks.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140227760 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x140227870 (RtlWalkFrameChain.c)
  */
 
 void __fastcall KiDpcWatchdogCaptureStack(__int64 a1)

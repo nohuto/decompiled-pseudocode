@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceInterruptConnection @ 0x140A98FBC
+ * XREFs of PnpTraceInterruptConnection @ 0x140A9D13C
  * Callers:
- *     IoDisconnectInterrupt @ 0x140A986C0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x140A98890 (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140A9C840 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x140A9CA10 (IopConnectInterrupt.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpTraceInterruptConnection(char a1)
@@ -22,10 +22,10 @@ NTSTATUS __fastcall PnpTraceInterruptConnection(char a1)
   __int64 *v10; // [rsp+90h] [rbp+37h]
   __int64 v11; // [rsp+98h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140E06EA8 > 5 && (qword_140E06EB8 & 0x400000000000LL) != 0 )
+  if ( (unsigned int)dword_140E06E48 > 5 && (qword_140E06E58 & 0x400000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E06EC0 & 0x400000000000LL) == qword_140E06EC0 )
+    if ( (qword_140E06E60 & 0x400000000000LL) == qword_140E06E60 )
     {
       v2 = a1;
       v3 = 1LL;
@@ -36,7 +36,7 @@ NTSTATUS __fastcall PnpTraceInterruptConnection(char a1)
       v10 = &v4;
       v4 = 0x1000000LL;
       v11 = 8LL;
-      return tlgWriteAgg((__int64)&dword_140E06EA8, (unsigned __int8 *)&byte_14004821B, 0x400000000000LL, 5u, &v5);
+      return tlgWriteAgg((__int64)&dword_140E06E48, (unsigned __int8 *)&dword_140048574, 0x400000000000LL, 5u, &v5);
     }
   }
   return result;

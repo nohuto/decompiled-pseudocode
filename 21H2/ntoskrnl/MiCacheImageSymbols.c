@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCacheImageSymbols @ 0x14075DBC0
+ * XREFs of MiCacheImageSymbols @ 0x14075DD80
  * Callers:
- *     MiDriverLoadSucceeded @ 0x14075C644 (MiDriverLoadSucceeded.c)
+ *     MiDriverLoadSucceeded @ 0x14075C804 (MiDriverLoadSucceeded.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x140286140 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall MiCacheImageSymbols(int a1)
+PVOID __fastcall MiCacheImageSymbols(void *a1)
 {
-  char v2; // [rsp+48h] [rbp+10h] BYREF
+  ULONG Size; // [rsp+48h] [rbp+10h] BYREF
 
-  return RtlImageDirectoryEntryToData(a1, 1, 6, (int)&v2);
+  return RtlImageDirectoryEntryToData(a1, 1u, 6u, &Size);
 }

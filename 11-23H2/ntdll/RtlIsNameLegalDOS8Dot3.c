@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsNameLegalDOS8Dot3 @ 0x18010A7B0
+ * XREFs of RtlIsNameLegalDOS8Dot3 @ 0x18010A780
  * Callers:
  *     <none>
  * Callees:
@@ -15,7 +15,7 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
   bool v6; // r15
   __int64 v7; // r14
   __int64 v9; // rdx
-  PWCH *v10; // rcx
+  _UNICODE_STRING *v10; // rcx
   unsigned int Length; // ecx
   unsigned int v12; // edx
   char *v13; // rbx
@@ -35,9 +35,9 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
   {
     _InterlockedOr(v18, 0);
     v7 = qword_1801847F8;
-    v6 = word_1801847AC != 0;
+    v6 = CodePageTable.DBCSCodePage != 0;
   }
-  if ( *(_WORD *)v10 > 0x18u )
+  if ( v10->Length > 0x18u )
     return 0;
   if ( !v9 )
   {
@@ -45,7 +45,7 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
     v20 = &v21;
     OemName = (POEM_STRING)&v19;
   }
-  if ( (int)RtlUpcaseUnicodeStringToCountedOemString((__int64)OemName, v10, 0) < 0 )
+  if ( RtlUpcaseUnicodeStringToCountedOemString(OemName, v10, 0) < 0 )
     return 0;
   Length = OemName->Length;
   if ( (_WORD)Length != 1 )

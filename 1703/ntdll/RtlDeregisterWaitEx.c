@@ -14,50 +14,50 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlDeregisterWaitEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlDeregisterWaitEx(HANDLE WaitHandle, HANDLE CompletionEvent)
 {
-  int v4; // edi
+  NTSTATUS v4; // edi
   int v5; // ecx
-  __int64 v7; // [rsp+28h] [rbp-30h] BYREF
+  HANDLE TokenHandle; // [rsp+28h] [rbp-30h] BYREF
   struct _TEB *v8; // [rsp+30h] [rbp-28h]
   int v9; // [rsp+70h] [rbp+18h]
   int v10; // [rsp+78h] [rbp+20h]
 
-  v7 = 0LL;
+  TokenHandle = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 0LL;
-  if ( !a1 )
-    return 3221225711LL;
-  v4 = sub_180012CB0(&v7, 0LL);
+    return 0;
+  if ( !WaitHandle )
+    return -1073741585;
+  v4 = sub_180012CB0(&TokenHandle);
   if ( v4 >= 0 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 16);
-    *(_DWORD *)(a1 + 8) |= 8u;
-    TpSetWaitEx(*(_QWORD *)(a1 + 48), 0LL, 0LL, 0LL);
-    RtlReleaseSRWLockExclusive(a1 + 16);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)WaitHandle + 2);
+    *((_DWORD *)WaitHandle + 2) |= 8u;
+    TpSetWaitEx(*((PTP_WAIT *)WaitHandle + 6), 0LL, 0LL, 0LL);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)WaitHandle + 2);
     v5 = 1;
-    _InterlockedOr((volatile signed __int32 *)(a1 + 24), 1u);
-    if ( (*(_BYTE *)(a1 + 8) & 4) == 0
-      || (v8 = NtCurrentTeb(), *(_DWORD *)(a1 + 88) != LODWORD(v8->ClientId.UniqueThread)) )
+    _InterlockedOr((volatile signed __int32 *)WaitHandle + 6, 1u);
+    if ( (*((_BYTE *)WaitHandle + 8) & 4) == 0
+      || (v8 = NtCurrentTeb(), *((_DWORD *)WaitHandle + 22) != LODWORD(v8->ClientId.UniqueThread)) )
     {
       v5 = 0;
     }
     v10 = v5;
-    if ( a2 == -1 )
+    if ( CompletionEvent == (HANDLE)-1LL )
     {
       if ( !v5 )
-        TpWaitForWait(*(_QWORD *)(a1 + 48), 0LL);
+        TpWaitForWait(*((PTP_WAIT *)WaitHandle + 6), 0);
     }
-    else if ( a2 )
+    else if ( CompletionEvent )
     {
-      *(_QWORD *)(a1 + 80) = a2;
+      *((_QWORD *)WaitHandle + 10) = CompletionEvent;
     }
-    v9 = sub_180012840(*(_QWORD *)(a1 + 48));
-    TpReleaseWait(*(_QWORD *)(a1 + 48));
-    _m_prefetchw((const void *)(a1 + 24));
-    if ( (_InterlockedAnd((volatile signed __int32 *)(a1 + 24), 0xFFFFFFFE) & 2) != 0 )
+    v9 = sub_180012840(*((_QWORD *)WaitHandle + 6));
+    TpReleaseWait(*((PTP_WAIT *)WaitHandle + 6));
+    _m_prefetchw((char *)WaitHandle + 24);
+    if ( (_InterlockedAnd((volatile signed __int32 *)WaitHandle + 6, 0xFFFFFFFE) & 2) != 0 )
     {
-      sub_180010228((_QWORD *)a1);
+      sub_180010228((__int64)WaitHandle);
       v9 = 0;
     }
     if ( v9 )
@@ -65,6 +65,6 @@ __int64 __fastcall RtlDeregisterWaitEx(__int64 a1, __int64 a2)
     else
       v4 = 0;
   }
-  sub_180012FFC(v7);
-  return (unsigned int)v4;
+  sub_180012FFC(TokenHandle);
+  return v4;
 }

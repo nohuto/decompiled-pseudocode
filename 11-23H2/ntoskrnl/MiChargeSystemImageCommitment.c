@@ -2,11 +2,11 @@
  * XREFs of MiChargeSystemImageCommitment @ 0x140695FD0
  * Callers:
  *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49B64 (MiMapSystemImageWithLargePage.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A49E14 (MiMapSystemImageWithLargePage.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiReleaseNonPagedResources @ 0x14066106C (MiReleaseNonPagedResources.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiReleaseNonPagedResources @ 0x1406615BC (MiReleaseNonPagedResources.c)
  */
 
 __int64 __fastcall MiChargeSystemImageCommitment(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpCtxRegQueryValueIndirect @ 0x140501594
+ * XREFs of _PnpCtxRegQueryValueIndirect @ 0x1404E4524
  * Callers:
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1404D843C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1404DC4F4 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _PnpGetGenericStoreProperty @ 0x1404FAA14 (_PnpGetGenericStoreProperty.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x140504104 (_CmGetInstallerClassRegPropWorker.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1404BBA40 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1404BFAF8 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _PnpGetGenericStoreProperty @ 0x1404DD9A0 (_PnpGetGenericStoreProperty.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x1404E7094 (_CmGetInstallerClassRegPropWorker.c)
  * Callees:
  *     <none>
  */

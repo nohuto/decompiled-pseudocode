@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCopyRetpolineStubsUnwindInfo @ 0x14058FA00
+ * XREFs of RtlCopyRetpolineStubsUnwindInfo @ 0x14058FC30
  * Callers:
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140A5054C (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140A5154C (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x14058F958 (RtlCalculateUnwindInfoSizeForRetpoline.c)
- *     RtlpGetRetpolineStubsFunctionTable @ 0x14058FBE0 (RtlpGetRetpolineStubsFunctionTable.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x14058FB88 (RtlCalculateUnwindInfoSizeForRetpoline.c)
+ *     RtlpGetRetpolineStubsFunctionTable @ 0x14058FE10 (RtlpGetRetpolineStubsFunctionTable.c)
  */
 
 __int64 __fastcall RtlCopyRetpolineStubsUnwindInfo(__int64 a1, int a2, unsigned int *a3, int a4)

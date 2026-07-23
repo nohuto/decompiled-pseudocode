@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgBuildDriverConfigurationId @ 0x14087BA90
+ * XREFs of PiDevCfgBuildDriverConfigurationId @ 0x14087BCD0
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x140879374 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1408795B4 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     RtlTimeToTimeFields @ 0x14033B6B0 (RtlTimeToTimeFields.c)
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringPrintfEx @ 0x1403CE0C8 (RtlUnicodeStringPrintfEx.c)
- *     RtlUnicodeStringExHandleOtherFlags @ 0x14055F898 (RtlUnicodeStringExHandleOtherFlags.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PnpIsNullGuid @ 0x140786834 (PnpIsNullGuid.c)
- *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
+ *     RtlTimeToTimeFields @ 0x14033B940 (RtlTimeToTimeFields.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403CE2A8 (RtlUnicodeStringPrintfEx.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x14055FF58 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PnpIsNullGuid @ 0x140786A24 (PnpIsNullGuid.c)
+ *     ExpAllocateStringRoutine @ 0x1407C7260 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall PiDevCfgBuildDriverConfigurationId(__int64 a1, UNICODE_STRING *a2)
@@ -33,7 +33,7 @@ __int64 __fastcall PiDevCfgBuildDriverConfigurationId(__int64 a1, UNICODE_STRING
   __int64 dwFlags; // [rsp+30h] [rbp-50h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-30h] BYREF
   UNICODE_STRING RemainingString; // [rsp+60h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+70h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+70h] [rbp-10h] BYREF
   wchar_t *v25; // [rsp+C0h] [rbp+40h] BYREF
   size_t v26; // [rsp+D0h] [rbp+50h] BYREF
   size_t pcchNewDestLength; // [rsp+D8h] [rbp+58h] BYREF

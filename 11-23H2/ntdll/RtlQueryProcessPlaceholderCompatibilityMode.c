@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryProcessPlaceholderCompatibilityMode @ 0x18010D590
+ * XREFs of RtlQueryProcessPlaceholderCompatibilityMode @ 0x18010D560
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char RtlQueryProcessPlaceholderCompatibilityMode()
+CHAR RtlQueryProcessPlaceholderCompatibilityMode(void)
 {
   struct _PEB *v0; // rax
 

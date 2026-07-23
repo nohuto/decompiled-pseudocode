@@ -259,7 +259,7 @@ LABEL_23:
     }
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -297,10 +297,10 @@ LABEL_23:
       || _bittest64((const signed __int64 *)(v12 + 40), 0x28u) )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v33 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v35 = CurrentPrcb->SchedulerAssist;
@@ -318,10 +318,10 @@ LABEL_23:
     if ( (v27 & 8) != 0 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v28 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
         {
           v29 = KeGetCurrentPrcb();
           v30 = v29->SchedulerAssist;
@@ -425,10 +425,10 @@ LABEL_82:
       v37 = 1;
     }
     _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v45 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && CurrentIrql <= 0xFu && v45 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu && CurrentIrql <= 0xFu && v45 >= 2u )
       {
         v46 = KeGetCurrentPrcb();
         v47 = v46->SchedulerAssist;
@@ -470,7 +470,7 @@ LABEL_103:
     v52 = KeGetCurrentIrql();
     v104 = v52;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v52 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v52 <= 0xFu )
     {
       v53 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)v52 == 2 )
@@ -491,10 +491,10 @@ LABEL_103:
       v1 = a1;
       MiRemoveFaultNode(a1);
       _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v55 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v55 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v55 >= 2u )
         {
           v56 = KeGetCurrentPrcb();
           v57 = v56->SchedulerAssist;
@@ -647,10 +647,10 @@ LABEL_180:
     *(_QWORD *)(a1 + 200) = v102;
     *(_DWORD *)(a1 + 64) = v6;
     _InterlockedAnd64((volatile signed __int64 *)(v82 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v83 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v83 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v83 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v83 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v83 >= 2u )
       {
         v84 = KeGetCurrentPrcb();
         v85 = v84->SchedulerAssist;
@@ -717,10 +717,10 @@ LABEL_205:
   v92 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v91 + 23160));
   *(_DWORD *)(v1 + 136) |= 4u;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v3 + 200) + 23160LL));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v93 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v93 <= 0xFu && (unsigned __int8)v92 <= 0xFu && v93 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v93 <= 0xFu && (unsigned __int8)v92 <= 0xFu && v93 >= 2u )
     {
       v94 = KeGetCurrentPrcb();
       v95 = v94->SchedulerAssist;

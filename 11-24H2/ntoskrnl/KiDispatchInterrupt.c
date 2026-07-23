@@ -1,23 +1,23 @@
 /*
- * XREFs of KiDispatchInterrupt @ 0x1402936B0
+ * XREFs of KiDispatchInterrupt @ 0x1402A32B0
  * Callers:
- *     KiDpcInterrupt @ 0x1406B1AE0 (KiDpcInterrupt.c)
- *     KiDpcInterruptBypass @ 0x1406B2200 (KiDpcInterruptBypass.c)
+ *     KiDpcInterrupt @ 0x1406B2A80 (KiDpcInterrupt.c)
+ *     KiDpcInterruptBypass @ 0x1406B31A0 (KiDpcInterruptBypass.c)
  * Callees:
- *     KiRcuCheckQuiescent @ 0x140206480 (KiRcuCheckQuiescent.c)
- *     KiAbProcessPostContextSwitch @ 0x14020FA80 (KiAbProcessPostContextSwitch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     KiUpdatePriorityMatrixForRunningTransition @ 0x140294FC0 (KiUpdatePriorityMatrixForRunningTransition.c)
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     KiAbProcessPreContextSwitch @ 0x140295A00 (KiAbProcessPreContextSwitch.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14030F980 (KiDeferGroupSchedulingPreemption.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
- *     KeIsUserVaAccessAllowed @ 0x14042FDA0 (KeIsUserVaAccessAllowed.c)
- *     KiSwapStacksAndRetireDpcList @ 0x1406B2A20 (KiSwapStacksAndRetireDpcList.c)
- *     KiSwapContext @ 0x1406B2A60 (KiSwapContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     KiUpdatePriorityMatrixForRunningTransition @ 0x1402A4BC0 (KiUpdatePriorityMatrixForRunningTransition.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     KiAbProcessPreContextSwitch @ 0x1402A5600 (KiAbProcessPreContextSwitch.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402D7384 (KiDeferGroupSchedulingPreemption.c)
+ *     KiRcuCheckQuiescent @ 0x14032DA60 (KiRcuCheckQuiescent.c)
+ *     KiAbProcessPostContextSwitch @ 0x140338DE0 (KiAbProcessPostContextSwitch.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KeIsUserVaAccessAllowed @ 0x140421850 (KeIsUserVaAccessAllowed.c)
+ *     KiSwapStacksAndRetireDpcList @ 0x1406B39C0 (KiSwapStacksAndRetireDpcList.c)
+ *     KiSwapContext @ 0x1406B3A00 (KiSwapContext.c)
  */
 
 __int64 __fastcall KiDispatchInterrupt(unsigned __int8 a1, __int64 a2)
@@ -42,8 +42,8 @@ __int64 __fastcall KiDispatchInterrupt(unsigned __int8 a1, __int64 a2)
     v3 = *(_QWORD *)(a2 + 360);
     if ( v2 == 51 )
     {
-      if ( v3 > qword_140FC6488 && v3 <= qword_140FC6478 )
-        *(_QWORD *)(a2 + 360) = qword_140FC6488;
+      if ( v3 > qword_140FC7508 && v3 <= qword_140FC74F8 )
+        *(_QWORD *)(a2 + 360) = qword_140FC7508;
     }
     else if ( v2 == 16
            && v3 > (unsigned __int64)&ExpInterlockedPopEntrySListResume
@@ -86,7 +86,7 @@ __int64 __fastcall KiDispatchInterrupt(unsigned __int8 a1, __int64 a2)
       || (result = KiDeferGroupSchedulingPreemption(CurrentThread, CurrentPrcb), !(_BYTE)result) )
     {
       KiCaptureTotalCyclesCurrentThread(CurrentPrcb, CurrentThread);
-      KiRcuCheckQuiescent((__int64)CurrentPrcb);
+      KiRcuCheckQuiescent(CurrentPrcb);
       KiAbProcessPreContextSwitch(CurrentThread, 0LL);
       v9 = 0;
       while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentPrcb->PrcbLock, 0LL) )
@@ -118,7 +118,7 @@ __int64 __fastcall KiDispatchInterrupt(unsigned __int8 a1, __int64 a2)
       KiSwapContext(CurrentThread, NextThread, v12);
       if ( !IsUserVaAccessAllowed && KeSmapEnabled )
         __asm { clac }
-      return KiAbProcessPostContextSwitch((__int64)CurrentThread);
+      return KiAbProcessPostContextSwitch(CurrentThread);
     }
   }
   return result;

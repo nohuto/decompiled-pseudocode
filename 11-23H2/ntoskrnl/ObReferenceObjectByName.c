@@ -1,26 +1,26 @@
 /*
- * XREFs of ObReferenceObjectByName @ 0x1406C2C50
+ * XREFs of ObReferenceObjectByName @ 0x1406C2C80
  * Callers:
- *     IopGetDriverPathInformation @ 0x140555624 (IopGetDriverPathInformation.c)
+ *     IopGetDriverPathInformation @ 0x140555CE4 (IopGetDriverPathInformation.c)
  *     CmLoadDifferencingKey @ 0x14069108C (CmLoadDifferencingKey.c)
- *     IopGetLegacyVetoListDrivers @ 0x1406C23F4 (IopGetLegacyVetoListDrivers.c)
- *     AlpcpCreateClientPort @ 0x140717744 (AlpcpCreateClientPort.c)
- *     ObShutdownSystem @ 0x14097AE00 (ObShutdownSystem.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1406C2424 (IopGetLegacyVetoListDrivers.c)
+ *     AlpcpCreateClientPort @ 0x140717944 (AlpcpCreateClientPort.c)
+ *     ObShutdownSystem @ 0x14097B000 (ObShutdownSystem.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E200 (PsGetCurrentSilo.c)
- *     SeClearLearningModeObjectInformation @ 0x140232210 (SeClearLearningModeObjectInformation.c)
- *     SepDeleteAccessState @ 0x140232270 (SepDeleteAccessState.c)
- *     PsDereferenceSiloContext @ 0x14036A270 (PsDereferenceSiloContext.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeSetLearningModeObjectInformation @ 0x1405B83CC (SeSetLearningModeObjectInformation.c)
- *     SeCreateAccessState @ 0x1406C2E60 (SeCreateAccessState.c)
- *     ObpFreeObjectNameBuffer @ 0x1406C2F00 (ObpFreeObjectNameBuffer.c)
- *     ObpCheckObjectReference @ 0x1406C2F6C (ObpCheckObjectReference.c)
- *     ObpUnlockDirectory @ 0x1406C3248 (ObpUnlockDirectory.c)
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
- *     ObpCaptureObjectName @ 0x1406EF1A0 (ObpCaptureObjectName.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
+ *     PsGetCurrentSilo @ 0x14022E310 (PsGetCurrentSilo.c)
+ *     SeClearLearningModeObjectInformation @ 0x1402322E0 (SeClearLearningModeObjectInformation.c)
+ *     SepDeleteAccessState @ 0x140232340 (SepDeleteAccessState.c)
+ *     PsDereferenceSiloContext @ 0x14036A410 (PsDereferenceSiloContext.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeSetLearningModeObjectInformation @ 0x1405B893C (SeSetLearningModeObjectInformation.c)
+ *     SeCreateAccessState @ 0x1406C2E90 (SeCreateAccessState.c)
+ *     ObpFreeObjectNameBuffer @ 0x1406C2F30 (ObpFreeObjectNameBuffer.c)
+ *     ObpCheckObjectReference @ 0x1406C2F9C (ObpCheckObjectReference.c)
+ *     ObpUnlockDirectory @ 0x1406C3278 (ObpUnlockDirectory.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
+ *     ObpCaptureObjectName @ 0x1406EF1D0 (ObpCaptureObjectName.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall ObReferenceObjectByName(

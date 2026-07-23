@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpApplyFileNameRedirection @ 0x180015A34
+ * XREFs of LdrpApplyFileNameRedirection @ 0x180015A24
  * Callers:
- *     LdrpPreprocessDllName @ 0x180015890 (LdrpPreprocessDllName.c)
+ *     LdrpPreprocessDllName @ 0x180015880 (LdrpPreprocessDllName.c)
  * Callees:
- *     LdrpFreeUnicodeString @ 0x18000E8FC (LdrpFreeUnicodeString.c)
- *     LdrpGetFullPath @ 0x18000EF04 (LdrpGetFullPath.c)
- *     ApiSetResolveToHost @ 0x180015BFC (ApiSetResolveToHost.c)
- *     LdrpLogDllState @ 0x180015E20 (LdrpLogDllState.c)
- *     LdrpBuildSystem32FileName @ 0x180018C08 (LdrpBuildSystem32FileName.c)
- *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x18001B5F0 (RtlDosApplyFileIsolationRedirection_Ustr.c)
- *     LdrpLogEtwEvent @ 0x1800D1538 (LdrpLogEtwEvent.c)
+ *     LdrpFreeUnicodeString @ 0x18000E8EC (LdrpFreeUnicodeString.c)
+ *     LdrpGetFullPath @ 0x18000EEF4 (LdrpGetFullPath.c)
+ *     ApiSetResolveToHost @ 0x180015BEC (ApiSetResolveToHost.c)
+ *     LdrpLogDllState @ 0x180015E10 (LdrpLogDllState.c)
+ *     LdrpBuildSystem32FileName @ 0x180018BF8 (LdrpBuildSystem32FileName.c)
+ *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x18001B5E0 (RtlDosApplyFileIsolationRedirection_Ustr.c)
+ *     LdrpLogEtwEvent @ 0x1800D15F8 (LdrpLogEtwEvent.c)
  */
 
 __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
 {
   _BYTE *v5; // r12
-  __int64 v6; // rdi
+  _UNICODE_STRING *v6; // rdi
   struct _PEB *v7; // r13
   int v9; // ebx
   char v10; // si
@@ -25,16 +25,16 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   int v14; // ebx
   char v15; // r15
   __int64 v16; // r8
-  __int64 v17; // rdx
-  int v18; // edi
+  _UNICODE_STRING *v17; // rdx
+  NTSTATUS v18; // edi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
   _WORD v21[8]; // [rsp+50h] [rbp-48h] BYREF
-  _BYTE v22[16]; // [rsp+60h] [rbp-38h] BYREF
+  _UNICODE_STRING DynamicString; // [rsp+60h] [rbp-38h] BYREF
   __int64 v23; // [rsp+B0h] [rbp+18h] BYREF
 
   v23 = a3;
   v5 = a5;
-  v6 = a2;
+  v6 = (_UNICODE_STRING *)a2;
   v7 = NtCurrentPeb();
   v9 = 0;
   v10 = 1;
@@ -44,7 +44,7 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
   ApiSetMap = v7->ApiSetMap;
   if ( MEMORY[0x7FFE0384] && (NtCurrentPeb()->TracingFlags & 4) != 0 && (MEMORY[0x7FFE0385] & 0x20) != 0 )
     LdrpLogEtwEvent(5328, 0, 0, 0, a2, 0LL);
-  v12 = ApiSetResolveToHost((_DWORD)ApiSetMap, v6, v9, (unsigned int)&v23, (__int64)v21);
+  v12 = ApiSetResolveToHost((_DWORD)ApiSetMap, (_DWORD)v6, v9, (unsigned int)&v23, (__int64)v21);
   v13 = v21[0];
   v14 = v12;
   v15 = v23;
@@ -72,16 +72,25 @@ __int64 __fastcall LdrpApplyFileNameRedirection(__int64 a1, __int64 a2, __int64 
     ProcessParameters = v7->ProcessParameters;
     if ( !ProcessParameters || (v10 = 1, (ProcessParameters->Flags & 0x1000) == 0) )
       v10 = 0;
-    LODWORD(v6) = a4;
+    v6 = (_UNICODE_STRING *)a4;
 LABEL_8:
     if ( v14 >= 0 && v10 && !LdrpIsSecureProcess )
     {
-      v18 = RtlDosApplyFileIsolationRedirection_Ustr(1, v6, (unsigned int)L"\b\n", 0, (__int64)v22, 0LL, 0LL, 0LL, 0LL);
+      v18 = RtlDosApplyFileIsolationRedirection_Ustr(
+              1u,
+              v6,
+              (PUNICODE_STRING)&LdrpDefaultExtension,
+              0LL,
+              &DynamicString,
+              0LL,
+              0LL,
+              0LL,
+              0LL);
       if ( v18 >= 0 )
       {
         *v5 = 1;
-        LdrpGetFullPath((__int64)v22, a4);
-        LdrpFreeUnicodeString((__int64)v22);
+        LdrpGetFullPath((__int64)&DynamicString, a4);
+        LdrpFreeUnicodeString((__int64)&DynamicString);
       }
       if ( v18 != -1072365560 )
         return (unsigned int)v18;

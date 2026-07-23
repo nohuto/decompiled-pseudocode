@@ -1,11 +1,11 @@
 /*
- * XREFs of ExHeapLookasideRebalance @ 0x140433A10
+ * XREFs of ExHeapLookasideRebalance @ 0x140428AE0
  * Callers:
- *     ExpScanSystemLookasideList @ 0x14043387C (ExpScanSystemLookasideList.c)
- *     ?ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z @ 0x140B45800 (-ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z.c)
+ *     ExpScanSystemLookasideList @ 0x14042894C (ExpScanSystemLookasideList.c)
+ *     ?ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z @ 0x140B47830 (-ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z.c)
  * Callees:
- *     RtlpDynamicLookasideRebalance @ 0x140433ACC (RtlpDynamicLookasideRebalance.c)
- *     ExpPoolMgrScheduleLookasideRebalance @ 0x140433CBC (ExpPoolMgrScheduleLookasideRebalance.c)
+ *     RtlpDynamicLookasideRebalance @ 0x140428B9C (RtlpDynamicLookasideRebalance.c)
+ *     ExpPoolMgrScheduleLookasideRebalance @ 0x140428D8C (ExpPoolMgrScheduleLookasideRebalance.c)
  */
 
 __int64 ExHeapLookasideRebalance()
@@ -14,10 +14,10 @@ __int64 ExHeapLookasideRebalance()
   __int64 v1; // rsi
   void **v2; // rdi
 
-  for ( i = 0; i < HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink); ++i )
+  for ( i = 0; i < HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink); ++i )
   {
     v1 = 2LL;
-    v2 = &stru_140E6BCE8.KernelStack + 1048 * i;
+    v2 = &stru_140E6BFE8.KernelStack + 1048 * i;
     do
     {
       RtlpDynamicLookasideRebalance(v2);
@@ -26,5 +26,5 @@ __int64 ExHeapLookasideRebalance()
     }
     while ( v1 );
   }
-  return ExpPoolMgrScheduleLookasideRebalance(&dword_140E6BC60);
+  return ExpPoolMgrScheduleLookasideRebalance(&dword_140E6BF60);
 }

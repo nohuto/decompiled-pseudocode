@@ -17,7 +17,14 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwDuplicateObject(int a1, int a2, int a3, int a4, int a5, int a6, int a7)
+NTSTATUS __cdecl ZwDuplicateObject(
+        HANDLE SourceProcessHandle,
+        HANDLE SourceHandle,
+        HANDLE TargetProcessHandle,
+        PHANDLE TargetHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Options)
 {
   return Wow64SystemServiceCall();
 }

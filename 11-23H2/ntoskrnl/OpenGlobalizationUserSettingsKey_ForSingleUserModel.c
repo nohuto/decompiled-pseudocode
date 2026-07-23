@@ -1,14 +1,14 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14060FCE0
+ * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x140610230
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1403719FC (OpenGlobalizationUserSettingsKey.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FA40 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x140371B9C (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FF90 (OpenGlobalizationUserSettingsKey_ForMua.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -29,7 +29,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1,
   HANDLE v15; // [rsp+E8h] [rbp+7Fh] BYREF
 
   ResultLength = a1;
-  if ( dword_140D1C19C )
+  if ( dword_140D1C188 )
   {
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, &word_140D19010);
@@ -62,7 +62,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1,
       if ( v9.Length <= 0xAAu )
       {
         RtlCopyUnicodeString(&DestinationString, &v9);
-        dword_140D1C19C = 1;
+        dword_140D1C188 = 1;
       }
       v3 = 0;
       *a2 = KeyHandle;
@@ -99,7 +99,7 @@ LABEL_15:
           if ( SourceString.Length <= 0xAAu )
           {
             RtlCopyUnicodeString(&DestinationString, &SourceString);
-            dword_140D1C19C = 1;
+            dword_140D1C188 = 1;
           }
           v6 = v15;
           goto LABEL_15;

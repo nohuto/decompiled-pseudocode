@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlStringCbCopyExW @ 0x1400A49F4
+ * XREFs of RtlStringCbCopyExW @ 0x14010AC6C
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1404CE780 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     PiCMGetRelatedDeviceInstance @ 0x14052C468 (PiCMGetRelatedDeviceInstance.c)
- *     PiDqConvertQueryFlagsToString @ 0x140631414 (PiDqConvertQueryFlagsToString.c)
- *     RtlFormatMessageEx @ 0x140686F50 (RtlFormatMessageEx.c)
- *     _PnpMultiSzAppend @ 0x1406DFEE0 (_PnpMultiSzAppend.c)
- *     ConvertDevpropertyToString @ 0x1406E3E70 (ConvertDevpropertyToString.c)
- *     ExpressionConvertToString @ 0x1406E452C (ExpressionConvertToString.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14050B84C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x14052C9A8 (PiCMGetRelatedDeviceInstance.c)
+ *     PiDqConvertQueryFlagsToString @ 0x1406314C8 (PiDqConvertQueryFlagsToString.c)
+ *     RtlFormatMessageEx @ 0x140687034 (RtlFormatMessageEx.c)
+ *     _PnpMultiSzAppend @ 0x1406E0018 (_PnpMultiSzAppend.c)
+ *     ConvertDevpropertyToString @ 0x1406E3FA8 (ConvertDevpropertyToString.c)
+ *     ExpressionConvertToString @ 0x1406E4664 (ExpressionConvertToString.c)
  * Callees:
- *     RtlStringCopyWorkerW_0 @ 0x1400A4B1C (RtlStringCopyWorkerW_0.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x1401CE7AC (StringExHandleOtherFlagsW.c)
+ *     RtlStringCopyWorkerW_2 @ 0x14010AD94 (RtlStringCopyWorkerW_2.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14023918C (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyExW(
@@ -71,7 +71,7 @@ NTSTATUS __stdcall RtlStringCbCopyExW(
     else if ( v8 )
     {
       pcchNewDestLength = 0LL;
-      v11 = RtlStringCopyWorkerW_0(pszDest, v8, &pcchNewDestLength, pszSrc, (size_t)pcchRemaining);
+      v11 = RtlStringCopyWorkerW_2(pszDest, v8, &pcchNewDestLength, pszSrc, (size_t)pcchRemaining);
       v8 -= pcchNewDestLength;
       v17[0] = v8;
       v12 = &pszDest[pcchNewDestLength];

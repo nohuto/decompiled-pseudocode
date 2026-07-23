@@ -1,13 +1,13 @@
 /*
  * XREFs of PoFxCompleteIdleCondition @ 0x14024E680
  * Callers:
- *     HalpTimerPowerComponentIdleCallback @ 0x1403DED10 (HalpTimerPowerComponentIdleCallback.c)
- *     HalpInterruptPowerComponentIdleCallback @ 0x14051DFE0 (HalpInterruptPowerComponentIdleCallback.c)
- *     DifPoFxCompleteIdleConditionWrapper @ 0x1406191B0 (DifPoFxCompleteIdleConditionWrapper.c)
+ *     sub_1403DED10 @ 0x1403DED10 (sub_1403DED10.c)
+ *     sub_14051DFE0 @ 0x14051DFE0 (sub_14051DFE0.c)
+ *     sub_1406191B0 @ 0x1406191B0 (sub_1406191B0.c)
  * Callees:
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
- *     PopFxIdleWorkerTail @ 0x140355534 (PopFxIdleWorkerTail.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     sub_140355058 @ 0x140355058 (sub_140355058.c)
+ *     sub_140355534 @ 0x140355534 (sub_140355534.c)
+ *     sub_1405CAE6C @ 0x1405CAE6C (sub_1405CAE6C.c)
  */
 
 __int64 __fastcall PoFxCompleteIdleCondition(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -22,12 +22,12 @@ __int64 __fastcall PoFxCompleteIdleCondition(ULONG_PTR BugCheckParameter2, ULONG
   if ( (_DWORD)result )
   {
     if ( (int)result < 0 )
-      PopFxBugCheck(0x613uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 2uLL);
+      sub_1405CAE6C(0x613uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 2uLL);
   }
   else
   {
-    PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), (unsigned int)BugCheckParameter3, 13LL);
-    return PopFxIdleWorkerTail(BugCheckParameter2);
+    sub_140355058(*(_QWORD *)(BugCheckParameter2 + 48), (unsigned int)BugCheckParameter3, 13LL);
+    return sub_140355534(BugCheckParameter2);
   }
   return result;
 }

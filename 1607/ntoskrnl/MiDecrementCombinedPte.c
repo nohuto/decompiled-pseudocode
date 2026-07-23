@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDecrementCombinedPte @ 0x1401F972C
+ * XREFs of MiDecrementCombinedPte @ 0x1401F9558
  * Callers:
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiDeleteValidSystemPage @ 0x14004B6A0 (MiDeleteValidSystemPage.c)
- *     MiDeletePteRun @ 0x140065140 (MiDeletePteRun.c)
- *     MiDeletePteList @ 0x1400DFAC0 (MiDeletePteList.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiDereferenceCombineBlock @ 0x1401F9B34 (MiDereferenceCombineBlock.c)
- *     MiDereferenceCombineCrc @ 0x140663D98 (MiDereferenceCombineCrc.c)
- *     MiProcessCrcList @ 0x140663DC8 (MiProcessCrcList.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteValidSystemPage @ 0x14004B220 (MiDeleteValidSystemPage.c)
+ *     MiDeletePteRun @ 0x140064CC0 (MiDeletePteRun.c)
+ *     MiDeletePteList @ 0x1400DD960 (MiDeletePteList.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiDereferenceCombineBlock @ 0x1401F9960 (MiDereferenceCombineBlock.c)
+ *     MiDereferenceCombineCrc @ 0x140663E7C (MiDereferenceCombineCrc.c)
+ *     MiProcessCrcList @ 0x140663EAC (MiProcessCrcList.c)
  * Callees:
- *     MiDeleteMergedPte @ 0x1400B8E10 (MiDeleteMergedPte.c)
- *     MiFreeCombineBlock @ 0x1401F9C24 (MiFreeCombineBlock.c)
- *     MiLogCombinedPteDelete @ 0x1401F9F00 (MiLogCombinedPteDelete.c)
+ *     MiDeleteMergedPte @ 0x1400B6CA0 (MiDeleteMergedPte.c)
+ *     MiFreeCombineBlock @ 0x1401F9A50 (MiFreeCombineBlock.c)
+ *     MiLogCombinedPteDelete @ 0x1401F9D2C (MiLogCombinedPteDelete.c)
  */
 
 __int64 __fastcall MiDecrementCombinedPte(unsigned __int64 a1)

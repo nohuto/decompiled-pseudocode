@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindClearRuns @ 0x140413540
+ * XREFs of RtlFindClearRuns @ 0x140407B70
  * Callers:
- *     RtlFindLongestRunClear @ 0x140618A10 (RtlFindLongestRunClear.c)
+ *     RtlFindLongestRunClear @ 0x14061BA60 (RtlFindLongestRunClear.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ ULONG __stdcall RtlFindClearRuns(
   ULONG v20; // r8d
   signed int v21; // r12d
   __int64 v22; // r15
-  RTL_BITMAP_RUN *i; // r14
+  _RTL_BITMAP_RUN *i; // r14
   unsigned __int8 *v24; // r11
   __int64 v25; // r15
   int v26; // r13d
@@ -40,13 +40,13 @@ ULONG __stdcall RtlFindClearRuns(
   ULONG v29; // r14d
   signed int v30; // r14d
   __int64 v31; // r11
-  RTL_BITMAP_RUN *k; // r8
+  _RTL_BITMAP_RUN *k; // r8
   signed int v33; // edx
   __int64 v34; // r8
-  RTL_BITMAP_RUN *m; // r9
+  _RTL_BITMAP_RUN *m; // r9
   __int64 v37; // rcx
   __int64 v38; // rcx
-  RTL_BITMAP_RUN *v39; // rdx
+  _RTL_BITMAP_RUN *v39; // rdx
   unsigned int v40; // [rsp+0h] [rbp-58h]
   unsigned int v41; // [rsp+4h] [rbp-54h]
   ULONG v42; // [rsp+60h] [rbp+8h]
@@ -71,7 +71,7 @@ ULONG __stdcall RtlFindClearRuns(
     v16 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( v14 == v11 - 1 && v9 )
-      v16 |= byte_140017F38[SizeOfBitMap & 7];
+      v16 |= byte_140018470[SizeOfBitMap & 7];
     if ( v16 )
     {
       v17 = *((unsigned __int8 *)RtlpBitsClearLow + v16);
@@ -110,7 +110,7 @@ LABEL_6:
       v12 = *((unsigned __int8 *)RtlpBitsClearHigh + v16);
       v13 = v15 - v12 + 8;
       v7 = LocateLongestRuns;
-      v19 = *((_BYTE *)qword_140017F40 - v12) | byte_140032340[v17] | v16;
+      v19 = *((_BYTE *)&qword_140018478 - v12) | byte_1400327C0[v17] | v16;
       while ( 1 )
       {
         v20 = v10;
@@ -121,7 +121,7 @@ LABEL_6:
           break;
         v25 = *v24;
         v26 = 0;
-        for ( j = byte_140032340[v25]; ((unsigned __int8)j & v19) != 0; ++v26 )
+        for ( j = byte_1400327C0[v25]; ((unsigned __int8)j & v19) != 0; ++v26 )
           j *= 2;
         v28 = SizeOfRunArray;
         v29 = v10 + 1;

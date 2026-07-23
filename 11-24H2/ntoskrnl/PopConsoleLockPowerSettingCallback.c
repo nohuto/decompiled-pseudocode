@@ -1,11 +1,11 @@
 /*
- * XREFs of PopConsoleLockPowerSettingCallback @ 0x14074CE60
+ * XREFs of PopConsoleLockPowerSettingCallback @ 0x14074B190
  * Callers:
  *     <none>
  * Callees:
- *     PopApplyPolicy @ 0x1409B85D0 (PopApplyPolicy.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopApplyPolicy @ 0x14099EC20 (PopApplyPolicy.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopConsoleLockPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3)

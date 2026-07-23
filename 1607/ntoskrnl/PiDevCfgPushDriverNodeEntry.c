@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDevCfgPushDriverNodeEntry @ 0x1401CF284
+ * XREFs of PiDevCfgPushDriverNodeEntry @ 0x1401CF018
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14063C998 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14063CA4C (PiDevCfgQueryIncludedDriverConfigurations.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

@@ -93,7 +93,7 @@ __int64 __fastcall EtwpEventWriteFull(
   unsigned __int64 v37; // r11
   _KPROCESS *Process; // rcx
   __int64 v39; // rcx
-  struct _SLIST_ENTRY *v41; // r8
+  _SLIST_ENTRY *v41; // r8
   __int64 v43; // rbx
   signed __int64 v44; // rax
   signed __int64 v45; // rtt
@@ -1296,7 +1296,7 @@ LABEL_130:
 LABEL_32:
   if ( v158 )
     KiLeaveCriticalRegionUnsafe((__int64)v196, v31, v29, v27);
-  v41 = (struct _SLIST_ENTRY *)Src;
+  v41 = (_SLIST_ENTRY *)Src;
   if ( Src )
   {
     v106 = KeGetCurrentPrcb();

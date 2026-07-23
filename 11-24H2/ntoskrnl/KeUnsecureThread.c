@@ -1,9 +1,9 @@
 /*
- * XREFs of KeUnsecureThread @ 0x1405B7CB0
+ * XREFs of KeUnsecureThread @ 0x1405B5290
  * Callers:
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     VslTerminateSecureThread @ 0x140710658 (VslTerminateSecureThread.c)
+ *     VslTerminateSecureThread @ 0x14070E1E8 (VslTerminateSecureThread.c)
  */
 
 __int64 __fastcall KeUnsecureThread(__int64 a1)

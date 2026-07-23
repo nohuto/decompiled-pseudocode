@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140478E50
+ * XREFs of FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x1404727B0
  * Callers:
  *     <none>
  * Callees:

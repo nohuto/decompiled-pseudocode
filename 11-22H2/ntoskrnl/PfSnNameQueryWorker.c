@@ -42,10 +42,13 @@ void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
     a1[67].Count = *Count;
     *Count = 0LL;
     ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -64,10 +67,10 @@ void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
   }
   a1[71].Count = 0LL;
   ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v12 >= 2u )
     {
       v13 = KeGetCurrentPrcb();
       v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

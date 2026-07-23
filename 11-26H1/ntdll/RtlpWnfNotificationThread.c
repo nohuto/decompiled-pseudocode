@@ -1,53 +1,41 @@
 /*
- * XREFs of RtlpWnfNotificationThread @ 0x18004F7D0
+ * XREFs of RtlpWnfNotificationThread @ 0x180039D50
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     TpSetWaitEx @ 0x18004F8E0 (TpSetWaitEx.c)
- *     RtlpWnfProcessCurrentDescriptor @ 0x18004FC80 (RtlpWnfProcessCurrentDescriptor.c)
- *     RtlpWnfCalculateAndSetNextTimer @ 0x180050768 (RtlpWnfCalculateAndSetNextTimer.c)
- *     NtGetCompleteWnfStateSubscription @ 0x180160E70 (NtGetCompleteWnfStateSubscription.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     TpSetWaitEx @ 0x180039E60 (TpSetWaitEx.c)
+ *     RtlpWnfProcessCurrentDescriptor @ 0x18003A200 (RtlpWnfProcessCurrentDescriptor.c)
+ *     RtlpWnfCalculateAndSetNextTimer @ 0x18003ACE8 (RtlpWnfCalculateAndSetNextTimer.c)
+ *     NtGetCompleteWnfStateSubscription @ 0x180160D70 (NtGetCompleteWnfStateSubscription.c)
  */
 
-void __fastcall RtlpWnfNotificationThread(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall RtlpWnfNotificationThread(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WAIT a3)
 {
-  __int64 Heap_0; // rbx
-  int CompleteWnfStateSubscription; // edi
-  int v7; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v8[4]; // [rsp+38h] [rbp-20h] BYREF
-  int v9; // [rsp+68h] [rbp+10h] BYREF
+  NTSTATUS CompleteWnfStateSubscription; // edi
+  _WNF_DELIVERY_DESCRIPTOR *NewDeliveryDescriptor; // rbx
+  LARGE_INTEGER Timeout; // [rsp+38h] [rbp-20h] BYREF
 
-  v8[0] = -50000000LL;
-  Heap_0 = 0LL;
-  v7 = 0;
-  v9 = 0;
-  if ( qword_1801C7200 )
+  Timeout.QuadPart = -50000000LL;
+  if ( qword_1801C6200 )
   {
     TpSetWaitEx(a3, a2, 0LL, 0LL);
     while ( 1 )
     {
-      if ( !Heap_0 )
-      {
-        Heap_0 = RtlAllocateHeap_0();
-        if ( !Heap_0 )
-          break;
-      }
-      CompleteWnfStateSubscription = NtGetCompleteWnfStateSubscription(0LL, 0LL, 0LL, 0LL, Heap_0, 4144);
+      NewDeliveryDescriptor = (_WNF_DELIVERY_DESCRIPTOR *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, 0x1030uLL);
+      if ( !NewDeliveryDescriptor )
+        break;
+      CompleteWnfStateSubscription = NtGetCompleteWnfStateSubscription(0LL, 0LL, 0, 0, NewDeliveryDescriptor, 0x1030u);
       if ( CompleteWnfStateSubscription < 0 )
       {
-        RtlFreeHeap_0();
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, NewDeliveryDescriptor);
         if ( CompleteWnfStateSubscription == -2147483622 )
           return;
         break;
       }
-      RtlpWnfProcessCurrentDescriptor(Heap_0, 0LL, &v7, &v9);
-      if ( v9 )
-        RtlpWnfCalculateAndSetNextTimer();
-      if ( !v7 )
-        Heap_0 = 0LL;
+      RtlpWnfProcessCurrentDescriptor(&NewDeliveryDescriptor->SubscriptionId);
     }
-    TpSetWaitEx(a3, a2, v8, 0LL);
+    TpSetWaitEx(a3, a2, &Timeout, 0LL);
   }
 }

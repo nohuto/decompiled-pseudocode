@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwQueryDirectoryObject @ 0x14015C2A0
+ * XREFs of ZwQueryDirectoryObject @ 0x14015C810
  * Callers:
- *     IopGetLegacyVetoListDrivers @ 0x140405564 (IopGetLegacyVetoListDrivers.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x140549C74 (SepCleanupLUIDDeviceMapDirectory.c)
- *     ExpFindArcName @ 0x1406B0860 (ExpFindArcName.c)
- *     SiGetEfiSystemDevice @ 0x1406D646C (SiGetEfiSystemDevice.c)
+ *     IopGetLegacyVetoListDrivers @ 0x140404424 (IopGetLegacyVetoListDrivers.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x14054A1B4 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     ExpFindArcName @ 0x1406B0998 (ExpFindArcName.c)
+ *     SiGetEfiSystemDevice @ 0x1406D65A4 (SiGetEfiSystemDevice.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryDirectoryObject(
         HANDLE DirectoryHandle,
         PVOID Buffer,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwQueryDirectoryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DirectoryHandle, Buffer, *(_QWORD *)&BufferLength);
+  return KiServiceInternal(DirectoryHandle);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfFreeCommonBuffer @ 0x140707280
+ * XREFs of VfFreeCommonBuffer @ 0x1407072B0
  * Callers:
  *     <none>
  * Callees:
- *     DECREMENT_COMMON_BUFFERS @ 0x140705C28 (DECREMENT_COMMON_BUFFERS.c)
- *     VF_ASSERT_IRQL @ 0x140705F68 (VF_ASSERT_IRQL.c)
- *     ViGetAdapterInformationInternal @ 0x140709708 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
- *     ViHalFreeDomainCommonBuffer @ 0x140709A1C (ViHalFreeDomainCommonBuffer.c)
- *     ViSpecialFreeCommonBuffer @ 0x14070A524 (ViSpecialFreeCommonBuffer.c)
+ *     DECREMENT_COMMON_BUFFERS @ 0x140705C58 (DECREMENT_COMMON_BUFFERS.c)
+ *     VF_ASSERT_IRQL @ 0x140705F98 (VF_ASSERT_IRQL.c)
+ *     ViGetAdapterInformationInternal @ 0x140709738 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
+ *     ViHalFreeDomainCommonBuffer @ 0x140709A4C (ViHalFreeDomainCommonBuffer.c)
+ *     ViSpecialFreeCommonBuffer @ 0x14070A554 (ViSpecialFreeCommonBuffer.c)
  */
 
 void __fastcall VfFreeCommonBuffer(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, char a5)

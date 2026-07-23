@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlpOplockAckTimeoutWorker @ 0x1405B75A0
+ * XREFs of FsRtlpOplockAckTimeoutWorker @ 0x1405B9E10
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpOplockCleanup @ 0x1403FCDAC (FsRtlpOplockCleanup.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpOplockCleanup @ 0x1403F959C (FsRtlpOplockCleanup.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall FsRtlpOplockAckTimeoutWorker(PVOID Entry)
@@ -63,7 +63,7 @@ void __fastcall FsRtlpOplockAckTimeoutWorker(PVOID Entry)
     v16 = 8LL;
     v9 = 0x1000000LL;
     v18 = 8LL;
-    tlgWriteAgg((__int64)&dword_140E06B30, (unsigned __int8 *)&word_1400452A6, v5, 6u, &v10);
+    tlgWriteAgg((__int64)&dword_140E06B30, (unsigned __int8 *)&byte_140045850, v5, 6u, &v10);
   }
   ExFreeToNPagedLookasideList(&g_OplockAckTimeoutLookaside, Entry);
 }

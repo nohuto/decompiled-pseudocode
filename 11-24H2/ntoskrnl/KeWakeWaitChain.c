@@ -1,18 +1,18 @@
 /*
- * XREFs of KeWakeWaitChain @ 0x1403D7B10
+ * XREFs of KeWakeWaitChain @ 0x1402F15F0
  * Callers:
- *     ExpConvertFastResourceExclusiveToShared @ 0x1403D75C8 (ExpConvertFastResourceExclusiveToShared.c)
- *     ExpConvertExclusiveToSharedLite @ 0x1403D79F8 (ExpConvertExclusiveToSharedLite.c)
- *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14092AA50 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1402F10A8 (ExpConvertFastResourceExclusiveToShared.c)
+ *     ExpConvertExclusiveToSharedLite @ 0x1402F14D8 (ExpConvertExclusiveToSharedLite.c)
+ *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14092CB90 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiRemoveBoostThread @ 0x1403230A4 (KiRemoveBoostThread.c)
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiRemoveBoostThread @ 0x1402CBC34 (KiRemoveBoostThread.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeWakeWaitChain(_QWORD *a1, signed int a2, char a3)
@@ -59,7 +59,7 @@ __int64 __fastcall KeWakeWaitChain(_QWORD *a1, signed int a2, char a3)
       {
         v14 = v13[6];
         if ( v14 )
-          KiAbConvertWaiterToOwnerEntry(*(_QWORD *)(v14 - 88LL * (*(_BYTE *)(v14 + 8) & 0x3F) - 16), v14, 1);
+          KiAbConvertWaiterToOwnerEntry(*(_QWORD *)(v14 - 88LL * (*(_BYTE *)(v14 + 8) & 0x3F) - 16), v14, 1LL, 1LL);
       }
       KiAcquireKobjectLockSafe((volatile signed __int32 *)v13 + 6);
       v15 = v13 + 3;

@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiSessionDeviceListWorker @ 0x1406770C8
+ * XREFs of TtmiSessionDeviceListWorker @ 0x1406771AC
  * Callers:
- *     TtmpSessionWorker @ 0x14067904C (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x140679130 (TtmpSessionWorker.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmpApplyDeviceAutoAssignment @ 0x14067729C (TtmpApplyDeviceAutoAssignment.c)
- *     TtmpPublishDeviceEvent @ 0x140677444 (TtmpPublishDeviceEvent.c)
- *     TtmpPushTerminalState @ 0x140677528 (TtmpPushTerminalState.c)
- *     TtmpStartCallout @ 0x14067764C (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1406776BC (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmpApplyDeviceAutoAssignment @ 0x140677380 (TtmpApplyDeviceAutoAssignment.c)
+ *     TtmpPublishDeviceEvent @ 0x140677528 (TtmpPublishDeviceEvent.c)
+ *     TtmpPushTerminalState @ 0x14067760C (TtmpPushTerminalState.c)
+ *     TtmpStartCallout @ 0x140677730 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1406777A0 (TtmpStopCallout.c)
  */
 
 void __fastcall TtmiSessionDeviceListWorker(__int64 a1)

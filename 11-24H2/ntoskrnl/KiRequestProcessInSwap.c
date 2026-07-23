@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRequestProcessInSwap @ 0x140338230
+ * XREFs of KiRequestProcessInSwap @ 0x1402DFA90
  * Callers:
- *     KiReadyOutSwappedThreads @ 0x140336F68 (KiReadyOutSwappedThreads.c)
- *     KiInswapAndReadyThread @ 0x140338374 (KiInswapAndReadyThread.c)
+ *     KiInswapAndReadyThread @ 0x1402DE624 (KiInswapAndReadyThread.c)
+ *     KiReadyOutSwappedThreads @ 0x1402DF08C (KiReadyOutSwappedThreads.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MmNotifyProcessInSwapTrigger @ 0x140467A70 (MmNotifyProcessInSwapTrigger.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MmNotifyProcessInSwapTrigger @ 0x1402D6BB8 (MmNotifyProcessInSwapTrigger.c)
  */
 
 char __fastcall KiRequestProcessInSwap(__int64 a1, __int64 a2)

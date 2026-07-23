@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpEnvTlsAlloc @ 0x1800B9008
+ * XREFs of RtlpHpEnvTlsAlloc @ 0x1800B0DA8
  * Callers:
- *     RtlpHpLfhContextEnable @ 0x18011CDD8 (RtlpHpLfhContextEnable.c)
+ *     RtlpHpLfhContextEnable @ 0x18011B010 (RtlpHpLfhContextEnable.c)
  * Callees:
- *     RtlTlsFree @ 0x18008EFF0 (RtlTlsFree.c)
- *     RtlpFlsFree @ 0x18008F164 (RtlpFlsFree.c)
- *     RtlpFlsAlloc @ 0x1800B90E8 (RtlpFlsAlloc.c)
- *     RtlTlsAlloc @ 0x1800B9670 (RtlTlsAlloc.c)
+ *     RtlTlsFree @ 0x1800269C0 (RtlTlsFree.c)
+ *     RtlpFlsFree @ 0x180026B34 (RtlpFlsFree.c)
+ *     RtlpFlsAlloc @ 0x1800B0E88 (RtlpFlsAlloc.c)
+ *     RtlTlsAlloc @ 0x1800B1410 (RtlTlsAlloc.c)
  */
 
 __int64 __fastcall RtlpHpEnvTlsAlloc(__int64 a1, __int64 a2)
 {
   int v2; // edi
-  unsigned int v3; // esi
+  ULONG v3; // esi
   int v4; // eax
   int v5; // ebx
   unsigned int v6; // ebx
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpEnvTlsAlloc(__int64 a1, __int64 a2)
   v8 = -1;
   if ( a2 )
   {
-    v4 = RtlpFlsAlloc((unsigned int)&RtlpHpEnvFlsContext, a2, (unsigned int)RtlpHpLfhTlsCleanup, a2, (__int64)&v10);
+    v4 = RtlpFlsAlloc(&RtlpHpEnvFlsContext, (__int64)&v10);
     v2 = v10;
     if ( v4 >= 0 && v10 <= 0xFFFF )
     {
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpHpEnvTlsAlloc(__int64 a1, __int64 a2)
   v6 = 0;
 LABEL_6:
   if ( v2 )
-    RtlpFlsFree((volatile signed __int64 *)&RtlpHpEnvFlsContext, v2);
+    RtlpFlsFree(&RtlpHpEnvFlsContext, v2);
   if ( v3 != -1 )
     RtlTlsFree(v3);
   return v6;

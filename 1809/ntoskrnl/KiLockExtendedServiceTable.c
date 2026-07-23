@@ -1,17 +1,17 @@
 /*
- * XREFs of KiLockExtendedServiceTable @ 0x14019F868
+ * XREFs of KiLockExtendedServiceTable @ 0x14019F9A8
  * Callers:
- *     KiLockServiceTable @ 0x1401738E4 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x1401739E4 (KiLockServiceTable.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     RtlLookupFunctionTable @ 0x1401375E0 (RtlLookupFunctionTable.c)
- *     RtlpConvertFunctionEntry @ 0x140184F60 (RtlpConvertFunctionEntry.c)
- *     RtlCaptureImageExceptionValues @ 0x140192FD0 (RtlCaptureImageExceptionValues.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     RtlLookupFunctionTable @ 0x1401376E0 (RtlLookupFunctionTable.c)
+ *     RtlpConvertFunctionEntry @ 0x1401850A0 (RtlpConvertFunctionEntry.c)
+ *     RtlCaptureImageExceptionValues @ 0x140193110 (RtlCaptureImageExceptionValues.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULONG_PTR a2, unsigned int a3, int a4)
@@ -167,11 +167,11 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   {
     CurrentProcess = PsGetCurrentProcess();
     SessionId = MmGetSessionIdEx((__int64)CurrentProcess);
-    if ( dword_140401EB8 == SessionId
-      || (*(_QWORD *)&v9 = (unsigned int)_InterlockedCompareExchange(&dword_140401EB8, SessionId, -1), (_DWORD)v9 == -1) )
+    if ( dword_140402EB8 == SessionId
+      || (*(_QWORD *)&v9 = (unsigned int)_InterlockedCompareExchange(&dword_140402EB8, SessionId, -1), (_DWORD)v9 == -1) )
     {
       v10 = 4 * v4;
-      v11 = ((unsigned __int64)&qword_140405680 ^ qword_140405688) & 0x3F;
+      v11 = ((unsigned __int64)&qword_140406680 ^ qword_140406688) & 0x3F;
       v12 = v6 + (unsigned int)(4 * v4);
       v13 = (_QWORD *)v6;
       v14 = (const char *)v6;
@@ -185,7 +185,7 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
         while ( (unsigned __int64)v14 < v12 );
       }
       v15 = v10 >> 7;
-      v16 = (unsigned __int64)&qword_140405680 ^ qword_140405688;
+      v16 = (unsigned __int64)&qword_140406680 ^ qword_140406688;
       if ( v10 >> 7 )
       {
         do
@@ -201,7 +201,7 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
             --v17;
           }
           while ( v17 );
-          v21 = __ROL8__((unsigned __int64)&qword_140405680 ^ qword_140405688 ^ ((unsigned __int64)v13 - v6), 17) ^ (unsigned __int64)&qword_140405680 ^ qword_140405688 ^ ((unsigned __int64)v13 - v6);
+          v21 = __ROL8__((unsigned __int64)&qword_140406680 ^ qword_140406688 ^ ((unsigned __int64)v13 - v6), 17) ^ (unsigned __int64)&qword_140406680 ^ qword_140406688 ^ ((unsigned __int64)v13 - v6);
           v142 = (v21 * (unsigned __int128)0x7010008004002001uLL) >> 64;
           v22 = v11 ^ v142 ^ v21;
           LOBYTE(v11) = 1;
@@ -231,10 +231,10 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
         v13 = (_QWORD *)((char *)v13 + 1);
         v16 = __ROL8__(v26 ^ v16, v11);
       }
-      v27 = v16 ^ qword_140405680;
+      v27 = v16 ^ qword_140406680;
       BugCheckParameter3 = v4;
       v28 = (_QWORD *)a2;
-      v29 = (v16 ^ qword_140405680) & 0x3F;
+      v29 = (v16 ^ qword_140406680) & 0x3F;
       *(_QWORD *)&v9 = a2;
       if ( a2 < a2 + v4 )
       {
@@ -245,7 +245,7 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
         }
         while ( (unsigned __int64)v9 < a2 + v4 );
       }
-      v30 = v16 ^ qword_140405680;
+      v30 = v16 ^ qword_140406680;
       v31 = (unsigned int)v4 >> 7;
       if ( (unsigned int)v4 >> 7 )
       {
@@ -296,19 +296,19 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
       v40 = v6 ^ v30 ^ BugCheckParameter3;
       if ( (v5 & 2) != 0 )
       {
-        qword_140405688 = v6 ^ v30 ^ BugCheckParameter3;
+        qword_140406688 = v6 ^ v30 ^ BugCheckParameter3;
       }
       else
       {
         if ( !RtlLookupFunctionTable(v6, &v133, &v132) )
           KeBugCheckEx(0x43u, v6, a2, BugCheckParameter3, 0LL);
         v148 = 0;
-        qword_140405780[0] = v133;
+        qword_140406780[0] = v133;
         v41 = 0LL;
         v130 = 0LL;
         do
         {
-          v42 = (void *)qword_140405780[v41];
+          v42 = (void *)qword_140406780[v41];
           v127 = (__int64)v42;
           if ( !v42 )
             break;
@@ -336,7 +336,7 @@ LABEL_67:
               v49 = 7;
               v50 = VfExcludeSections[0];
               v136 = *(_OWORD *)VfExcludeSections;
-              v137 = *(_OWORD *)off_140401D70;
+              v137 = *(_OWORD *)off_140402D70;
               while ( 1 )
               {
                 v51 = v50[v45 - VfExcludeSections[0]];
@@ -498,13 +498,13 @@ LABEL_60:
                     {
                       if ( RtlLookupFunctionTable(v94, &v127, (_DWORD *)&v132 + 1) )
                       {
-                        v96 = qword_140405780;
+                        v96 = qword_140406780;
                         v97 = 0LL;
                         while ( *v96 != v127 )
                         {
                           if ( !*v96 )
                           {
-                            qword_140405780[v97] = v127;
+                            qword_140406780[v97] = v127;
                             break;
                           }
                           v97 = (unsigned int)(v97 + 1);
@@ -530,24 +530,24 @@ LABEL_60:
         }
         while ( (unsigned int)(v87 + 1) < 0x10 );
 LABEL_107:
-        *(_QWORD *)&v9 = memset(qword_140405780, 0, 0x80uLL);
-        if ( v40 == qword_140405680 || !v40 )
+        *(_QWORD *)&v9 = memset(qword_140406780, 0, 0x80uLL);
+        if ( v40 == qword_140406680 || !v40 )
         {
           *(_QWORD *)&v9 = 0x95EA5DE843D5D824uLL;
           v40 ^= 0x95EA5DE843D5D824uLL;
         }
         _InterlockedOr(v125, 0);
-        qword_140405680 = v40;
+        qword_140406680 = v40;
       }
     }
   }
   else
   {
-    v98 = (unsigned __int64)&qword_140405690;
-    v99 = (unsigned __int64)&qword_140405690 & 0x3F;
-    v129 = (unsigned __int64)&qword_140405690 & 0x3F;
+    v98 = (unsigned __int64)&qword_140406690;
+    v99 = (unsigned __int64)&qword_140406690 & 0x3F;
+    v129 = (unsigned __int64)&qword_140406690 & 0x3F;
     RtlImageNtHeader((PVOID)0x140000000LL);
-    RtlCaptureImageExceptionValues(0x140000000uLL, &v138, (int)&v126);
+    RtlCaptureImageExceptionValues(0x140000000uLL, (__int64)&v138, (__int64)&v126);
     v100 = v138;
     v101 = 0x140000000uLL;
     LODWORD(v126) = (unsigned int)v126 / 0xC;
@@ -627,16 +627,16 @@ LABEL_107:
       v101 = v139;
       v98 = (unsigned __int64)v111;
     }
-    qword_140405690 = v98;
-    if ( qword_140405680 )
+    qword_140406690 = v98;
+    if ( qword_140406680 )
       KeBugCheckEx(0x31u, 0xFFFFFFFFC0000001uLL, 0LL, 0LL, 0LL);
     v123 = __rdtsc();
     v9 = (__ROR8__(v123, 3) ^ v123) * (unsigned __int128)0x7010008004002001uLL;
-    qword_140405680 = v9 ^ *((_QWORD *)&v9 + 1);
+    qword_140406680 = v9 ^ *((_QWORD *)&v9 + 1);
     if ( (unsigned __int64)v9 == *((_QWORD *)&v9 + 1) )
     {
       *(_QWORD *)&v9 = 0x95EA5DE843D5D824uLL;
-      qword_140405680 = 0x95EA5DE843D5D824uLL;
+      qword_140406680 = 0x95EA5DE843D5D824uLL;
     }
   }
   return v9;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiActivePageTradeable @ 0x1402EB6B0
+ * XREFs of MiActivePageTradeable @ 0x1402EB940
  * Callers:
- *     MiTradeActivePage @ 0x1402EAE24 (MiTradeActivePage.c)
+ *     MiTradeActivePage @ 0x1402EB0B4 (MiTradeActivePage.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
  */
 
 _BOOL8 __fastcall MiActivePageTradeable(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3, char a4)

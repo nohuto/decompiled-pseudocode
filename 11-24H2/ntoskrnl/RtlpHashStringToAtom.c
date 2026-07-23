@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHashStringToAtom @ 0x14099CFC0
+ * XREFs of RtlpHashStringToAtom @ 0x140986FF0
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x140431DA0 (RtlAddAtomToAtomTableEx.c)
- *     RtlpFreeAllAtom @ 0x14046DE04 (RtlpFreeAllAtom.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1404242E0 (RtlAddAtomToAtomTableEx.c)
+ *     RtlpFreeAllAtom @ 0x1404686F4 (RtlpFreeAllAtom.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     ExGetHandlePointer @ 0x1404275E0 (ExGetHandlePointer.c)
- *     RtlpLookupOrCreateLowBox @ 0x140432190 (RtlpLookupOrCreateLowBox.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     ExpLookupHandleTableEntry @ 0x14084BF30 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14084DA70 (ExpBlockOnLockedHandleEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     ExGetHandlePointer @ 0x14041B770 (ExGetHandlePointer.c)
+ *     RtlpLookupOrCreateLowBox @ 0x1404246D0 (RtlpLookupOrCreateLowBox.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     ExpLookupHandleTableEntry @ 0x1408481F0 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140849D30 (ExpBlockOnLockedHandleEntry.c)
  */
 
 __int64 __fastcall RtlpHashStringToAtom(

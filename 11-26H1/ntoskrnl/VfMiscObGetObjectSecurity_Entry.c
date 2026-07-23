@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscObGetObjectSecurity_Entry @ 0x140C3D480
+ * XREFs of VfMiscObGetObjectSecurity_Entry @ 0x140C43490
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404FD268 (VfMiscCheckKernelAddress.c)
+ *     VfMiscCheckKernelAddress @ 0x1404F67A8 (VfMiscCheckKernelAddress.c)
  */
 
 __int64 __fastcall VfMiscObGetObjectSecurity_Entry(__int64 a1)

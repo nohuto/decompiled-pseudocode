@@ -1,7 +1,7 @@
 /*
- * XREFs of TppWorkCallbackEpilog @ 0x180020610
+ * XREFs of TppWorkCallbackEpilog @ 0x180020600
  * Callers:
- *     TppCallbackEpilog @ 0x18001FBD0 (TppCallbackEpilog.c)
+ *     TppCallbackEpilog @ 0x18001FBC0 (TppCallbackEpilog.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ __int64 __fastcall TppWorkCallbackEpilog(__int64 a1)
   if ( (_DWORD)result == 1 )
   {
     v2 = **(__int64 (***)(void))(a1 + 8);
-    if ( v2 == TppWorkpFree )
-      return TppWorkpFree();
+    if ( (char *)v2 == (char *)TppWorkpFree )
+      return TppWorkpFree((PVOID)a1);
     else
       return v2();
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopGetCurrentPdcPhase @ 0x14060D670
+ * XREFs of PopGetCurrentPdcPhase @ 0x140610778
  * Callers:
- *     PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x140773E40 (PopAdaptiveGetSystemInitiatedRebootTargetState.c)
- *     PopRecordPhysicalPowerButton @ 0x1407C9068 (PopRecordPhysicalPowerButton.c)
- *     NtSetThreadExecutionState @ 0x1407D2150 (NtSetThreadExecutionState.c)
+ *     PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x140776E40 (PopAdaptiveGetSystemInitiatedRebootTargetState.c)
+ *     PopRecordPhysicalPowerButton @ 0x1407CC108 (PopRecordPhysicalPowerButton.c)
+ *     NtSetThreadExecutionState @ 0x1407D51F0 (NtSetThreadExecutionState.c)
  * Callees:
  *     <none>
  */

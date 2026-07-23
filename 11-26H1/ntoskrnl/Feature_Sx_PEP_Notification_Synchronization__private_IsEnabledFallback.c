@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledFallback @ 0x14060122C
+ * XREFs of Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledFallback @ 0x140603CDC
  * Callers:
- *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x14060124C (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x140603CFC (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledFallback(__int64 a1, unsigned int a2)

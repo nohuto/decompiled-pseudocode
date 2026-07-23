@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlRestoreContext @ 0x1800A4540
+ * XREFs of RtlRestoreContext @ 0x1800A4560
  * Callers:
  *     RtlGuardRestoreContext @ 0x180003240 (RtlGuardRestoreContext.c)
  *     RtlUnwindEx @ 0x180005BF0 (RtlUnwindEx.c)
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
  * Callees:
- *     ZwContinue @ 0x1800A0B40 (ZwContinue.c)
+ *     ZwContinue @ 0x1800A0B60 (ZwContinue.c)
  */
 
 void __cdecl RtlRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
@@ -59,8 +59,8 @@ void __cdecl RtlRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD 
       ContextRecord->Xmm15 = *(M128A *)(v2 + 240);
     }
   }
-  if ( (*((_QWORD *)&xmmword_180178390 + 1) & 0x1000000000000000LL) == 0
-    && (*((_QWORD *)&xmmword_180178390 + 1) & 0x1000LL) == 0
+  if ( (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] & 0x1000000000000000LL) == 0
+    && (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] & 0x1000) == 0
     && (ContextRecord->ContextFlags & 0xFFFFFFBF) == 0x10000F )
   {
     if ( (ContextRecord->ContextFlags & 0x100040) == 0x100040 )
@@ -79,6 +79,6 @@ void __cdecl RtlRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD 
     _FFFFFFFFFFFFFF68[160] = ContextRecord->Rip;
     __asm { iretq }
   }
-  if ( (unsigned int)ZwContinue() == -1073740278 )
+  if ( ZwContinue(ContextRecord, 0) == -1073740278 )
     __fastfail(0x30u);
 }

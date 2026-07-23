@@ -1,10 +1,10 @@
 /*
- * XREFs of CarGetDriverInfoFromDriverName @ 0x140615E40
+ * XREFs of CarGetDriverInfoFromDriverName @ 0x140614400
  * Callers:
- *     CarInitializeTelemetryData @ 0x140616BA0 (CarInitializeTelemetryData.c)
+ *     CarInitializeTelemetryData @ 0x140615160 (CarInitializeTelemetryData.c)
  * Callees:
- *     wcsncmp @ 0x1404FFFD0 (wcsncmp.c)
- *     CarEtwCopyDriverName @ 0x1406198AC (CarEtwCopyDriverName.c)
+ *     wcsncmp @ 0x1404FD890 (wcsncmp.c)
+ *     CarEtwCopyDriverName @ 0x140617E6C (CarEtwCopyDriverName.c)
  */
 
 void __fastcall CarGetDriverInfoFromDriverName(wchar_t *Str2, __int64 a2)

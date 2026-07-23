@@ -13,13 +13,13 @@
 
 void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
 {
-  _QWORD *v1; // rdi
+  _RTL_BALANCED_NODE *v1; // rdi
   __int64 v3; // rbp
   struct _KTHREAD *CurrentThread; // rax
   __int64 v5; // rcx
   _QWORD *v6; // rax
 
-  v1 = (_QWORD *)a1[3];
+  v1 = (_RTL_BALANCED_NODE *)a1[3];
   if ( v1 )
   {
     v3 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
@@ -32,9 +32,9 @@ void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
     *v6 = v5;
     *(_QWORD *)(v5 + 8) = v6;
     a1[3] = 0LL;
-    if ( (_QWORD *)v1[4] == v1 + 4 )
+    if ( v1[1].Children[1] == (_RTL_BALANCED_NODE *)&v1[1].Right )
     {
-      RtlRbRemoveNode((unsigned __int64 *)(v3 + 4080), (unsigned __int64)v1);
+      RtlRbRemoveNode((PRTL_RB_TREE)(v3 + 4080), v1);
       ExFreePoolWithTag(v1, 0);
     }
     ExReleasePushLockEx((__int64 *)(v3 + 4096), 0LL);

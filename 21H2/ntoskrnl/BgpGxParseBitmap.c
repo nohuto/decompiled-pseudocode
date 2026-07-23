@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpGxParseBitmap @ 0x1409F1880
+ * XREFs of BgpGxParseBitmap @ 0x1409F2880
  * Callers:
- *     BgpGxProcessQrCodeBitmap @ 0x1403CE610 (BgpGxProcessQrCodeBitmap.c)
- *     AnFwDisplayFade @ 0x1409F1C00 (AnFwDisplayFade.c)
- *     BgpGxDrawBitmapImage @ 0x1409F7704 (BgpGxDrawBitmapImage.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x1403CE780 (BgpGxProcessQrCodeBitmap.c)
+ *     AnFwDisplayFade @ 0x1409F2C00 (AnFwDisplayFade.c)
+ *     BgpGxDrawBitmapImage @ 0x1409F8704 (BgpGxDrawBitmapImage.c)
  * Callees:
- *     BgpGxCopyBitmapToRectangle @ 0x1409F192C (BgpGxCopyBitmapToRectangle.c)
- *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
- *     BgpGxRectangleCreate @ 0x1409F32C0 (BgpGxRectangleCreate.c)
+ *     BgpGxCopyBitmapToRectangle @ 0x1409F292C (BgpGxCopyBitmapToRectangle.c)
+ *     BgpGxRectangleDestroy @ 0x1409F3290 (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x1409F42C0 (BgpGxRectangleCreate.c)
  */
 
 __int64 __fastcall BgpGxParseBitmap(__int64 a1, _QWORD *a2)

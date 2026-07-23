@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwTraceThreadAffinity @ 0x14050D0F8
+ * XREFs of EtwTraceThreadAffinity @ 0x140506B68
  * Callers:
  *     KeStartThread @ 0x140201AAC (KeStartThread.c)
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
- *     KiSetUserAffinityThread @ 0x14022A784 (KiSetUserAffinityThread.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140237654 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x1404631C0 (KiUpdateThreadCpuSets.c)
- *     KeEtwRundown @ 0x1405E48E8 (KeEtwRundown.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
+ *     KiSetUserAffinityThread @ 0x14022C114 (KiSetUserAffinityThread.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140238FB4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
+ *     KiUpdateThreadCpuSets @ 0x14045C180 (KiUpdateThreadCpuSets.c)
+ *     KeEtwRundown @ 0x1405E7258 (KeEtwRundown.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     EtwpExtractCompactedAffinity @ 0x1406C5550 (EtwpExtractCompactedAffinity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     EtwpExtractCompactedAffinity @ 0x1406C9190 (EtwpExtractCompactedAffinity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceThreadAffinity(
@@ -50,18 +50,18 @@ __int64 __fastcall EtwTraceThreadAffinity(
   v17 = 0;
   WORD2(v18) = a2;
   v20 = 0LL;
-  if ( v8 >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+  if ( v8 >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
   {
     p_WaitRegister = a5;
-    v8 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+    v8 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
   }
   else
   {
-    p_WaitRegister = &stru_140FC01F0.WaitRegister;
+    p_WaitRegister = &stru_140FC11F0.WaitRegister;
   }
   for ( i = 0; i < v8; ++i )
   {
-    if ( *(_QWORD *)&a5[8 * i + 8].Flags != *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * i + 4) )
+    if ( *(_QWORD *)&a5[8 * i + 8].Flags != *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * i + 4) )
     {
 LABEL_8:
       v11 = BYTE6(v18);

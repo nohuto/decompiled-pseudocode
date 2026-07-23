@@ -53,10 +53,13 @@ _QWORD *PopFxResumeDeviceAccounting()
       }
       KxReleaseSpinLock((volatile signed __int64 *)(i + 600));
       v1 = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v4 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v1 = (unsigned int)(v4 + 1);
@@ -81,10 +84,10 @@ _QWORD *PopFxResumeDeviceAccounting()
         }
         KxReleaseSpinLock((volatile signed __int64 *)v11);
         v1 = (unsigned int)KiIrqlFlags;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v13 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v13 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v13 >= 2u )
           {
             v14 = KeGetCurrentPrcb();
             v1 = (unsigned int)(v12 + 1);

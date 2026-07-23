@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInvokeDeferredDpcWatchdogViolation @ 0x1405FA410
+ * XREFs of KiInvokeDeferredDpcWatchdogViolation @ 0x1405FCE30
  * Callers:
- *     KxDeferredDpcWatchdogViolation @ 0x140728520 (KxDeferredDpcWatchdogViolation.c)
+ *     KxDeferredDpcWatchdogViolation @ 0x14072D0F0 (KxDeferredDpcWatchdogViolation.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __noreturn KiInvokeDeferredDpcWatchdogViolation()
@@ -11,7 +11,7 @@ void __noreturn KiInvokeDeferredDpcWatchdogViolation()
   KeBugCheckEx(
     0x133u,
     0LL,
-    HIDWORD(KsepShimDbLock.MutantListHead.Flink),
-    LODWORD(KsepShimDbLock.MutantListHead.Flink),
+    KsepShimDbLock.PriorityFloorSummary,
+    *(unsigned int *)&KsepShimDbLock.PriorityFloorCounts[28],
     (ULONG_PTR)&KeDpcWatchdogProfileGlobalTriageBlock);
 }

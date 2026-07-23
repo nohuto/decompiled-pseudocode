@@ -3,10 +3,10 @@
  * Callers:
  *     HalpSetupAcpiPhase0 @ 0x140B65578 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037DB08 (HalpMmAllocateMemoryInternal.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037DCA8 (HalpMmAllocateMemoryInternal.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HalpInitializeConfigurationFromMadt @ 0x140B65CA4 (HalpInitializeConfigurationFromMadt.c)
  *     HalpChannelInitializeStaticConfiguration @ 0x140B65F50 (HalpChannelInitializeStaticConfiguration.c)
  *     HalpAllocateNumaConfigData @ 0x140B65FA0 (HalpAllocateNumaConfigData.c)

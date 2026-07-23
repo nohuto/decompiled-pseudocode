@@ -22,7 +22,7 @@
 
 __int64 __fastcall sub_18005D87C(unsigned int a1, unsigned __int64 a2, __int64 a3, __int128 *a4)
 {
-  int SystemInformation; // eax
+  NTSTATUS v7; // eax
   char v8; // dl
   __int128 v9; // xmm0
   __int64 v10; // rax
@@ -33,7 +33,7 @@ __int64 __fastcall sub_18005D87C(unsigned int a1, unsigned __int64 a2, __int64 a
   __int64 v15; // rsi
   __int64 v16; // rcx
   __int64 v17; // r14
-  __int64 v18; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   int v20; // [rsp+20h] [rbp-A9h]
   void *(__fastcall *v21)(__int64, unsigned int, __int64, char); // [rsp+40h] [rbp-89h] BYREF
   __int64 (__fastcall *v22)(_QWORD, _QWORD, _QWORD, _QWORD); // [rsp+48h] [rbp-81h]
@@ -44,16 +44,16 @@ __int64 __fastcall sub_18005D87C(unsigned int a1, unsigned __int64 a2, __int64 a
   __int128 v27; // [rsp+70h] [rbp-59h] BYREF
   __int128 v28; // [rsp+80h] [rbp-49h] BYREF
   __int128 v29; // [rsp+90h] [rbp-39h] BYREF
-  char v30[56]; // [rsp+A0h] [rbp-29h] BYREF
+  char SystemInformation[56]; // [rsp+A0h] [rbp-29h] BYREF
   char v31; // [rsp+D8h] [rbp+Fh]
 
   v26 = a3;
   if ( a2 > 0x7FFFFFFFFFFFFFFFLL || (int)sub_18005E008(a4, 1LL) < 0 )
     return 0LL;
-  SystemInformation = ZwQuerySystemInformation(0LL, v30, 64LL);
+  v7 = ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
   v8 = v31;
   v9 = *a4;
-  if ( SystemInformation < 0 )
+  if ( v7 < 0 )
     v8 = 1;
   v31 = v8;
   v27 = v9;
@@ -104,21 +104,21 @@ LABEL_26:
   }
   v15 = v11;
   v11 = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v16 = (__int64)NtCurrentPeb()->HotpatchInformation + 558;
+  if ( RtlGetCurrentServiceSessionId() )
+    v16 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[4];
   else
     v16 = 2147353480LL;
   if ( *(_BYTE *)v16 )
     sub_1800FC3FC(v15, *(_QWORD *)(v15 + 384) - v15, a1);
   v17 = 2147353472LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v18 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  if ( RtlGetCurrentServiceSessionId() )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v18 = 2147353472LL;
-  if ( *(_BYTE *)v18 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v17 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    if ( RtlGetCurrentServiceSessionId() )
+      v17 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     sub_1800FE1FC(v15, a1, *(_QWORD *)(v15 + 384) - v15, *(_DWORD *)(v15 + 376) - v15, *(unsigned __int8 *)v17);
     goto LABEL_26;
   }

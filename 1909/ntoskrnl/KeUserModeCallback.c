@@ -31,7 +31,7 @@ __int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, _
   unsigned __int64 v17; // r15
   unsigned __int8 BpbRetpolineState; // di
   unsigned int v19; // esi
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   unsigned __int64 v22; // rax
   int BugCheckParameter4; // [rsp+20h] [rbp-78h]
   int v24; // [rsp+28h] [rbp-70h]

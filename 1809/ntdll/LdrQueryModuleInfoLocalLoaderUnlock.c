@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrQueryModuleInfoLocalLoaderUnlock @ 0x180089370
+ * XREFs of LdrQueryModuleInfoLocalLoaderUnlock @ 0x180089380
  * Callers:
  *     <none>
  * Callees:

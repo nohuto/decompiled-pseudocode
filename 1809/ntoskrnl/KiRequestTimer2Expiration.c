@@ -1,8 +1,8 @@
 /*
  * XREFs of KiRequestTimer2Expiration @ 0x140003A70
  * Callers:
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KiAdjustTimer2DueTimes @ 0x14016FE34 (KiAdjustTimer2DueTimes.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x14016FF34 (KiAdjustTimer2DueTimes.c)
  * Callees:
  *     KiSendSoftwareInterrupt @ 0x140003AE4 (KiSendSoftwareInterrupt.c)
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x1403C799C
+ * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x1403C7B7C
  * Callers:
- *     PopPowerAggregatorStartNextSession @ 0x140877C84 (PopPowerAggregatorStartNextSession.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140877CD4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x14099357C (PopPowerAggregatorDisengageModernStandby.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x140993734 (PopPowerAggregatorEngageModernStandby.c)
- *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140993FE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorStartNextSession @ 0x140877EC4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140877F14 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099377C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140993934 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x1409941E0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
  * Callees:
  *     <none>
  */

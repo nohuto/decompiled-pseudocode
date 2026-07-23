@@ -1,27 +1,27 @@
 /*
- * XREFs of MiReplenishPageSlist @ 0x14028A710
+ * XREFs of MiReplenishPageSlist @ 0x140289C70
  * Callers:
- *     MiGetPerfectColorHeadPage @ 0x140289A30 (MiGetPerfectColorHeadPage.c)
+ *     MiGetPerfectColorHeadPage @ 0x140288F90 (MiGetPerfectColorHeadPage.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiUpdateZeroFreeBitmap @ 0x1402897F0 (MiUpdateZeroFreeBitmap.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiLocatePageCollisionByPfn @ 0x14028B258 (MiLocatePageCollisionByPfn.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiNodeFreeZeroPages @ 0x14028EFD0 (MiNodeFreeZeroPages.c)
- *     MiZeroPageWorkMapping @ 0x14029FD70 (MiZeroPageWorkMapping.c)
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
- *     MiIncreaseAvailablePages @ 0x1403E59D0 (MiIncreaseAvailablePages.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiStopHugePageAccessor @ 0x14048E1B4 (MiStopHugePageAccessor.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     InterlockedPushListSList @ 0x140730D40 (InterlockedPushListSList.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiUpdateZeroFreeBitmap @ 0x140288D50 (MiUpdateZeroFreeBitmap.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiLocatePageCollisionByPfn @ 0x14028A7B8 (MiLocatePageCollisionByPfn.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiNodeFreeZeroPages @ 0x14028E530 (MiNodeFreeZeroPages.c)
+ *     MiZeroPageWorkMapping @ 0x14029F2C0 (MiZeroPageWorkMapping.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
+ *     MiIncreaseAvailablePages @ 0x1403E8BC0 (MiIncreaseAvailablePages.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiStopHugePageAccessor @ 0x140487CF4 (MiStopHugePageAccessor.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     InterlockedPushListSList @ 0x140735910 (InterlockedPushListSList.c)
  */
 
 unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3, __int64 a4)
@@ -45,7 +45,7 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
   ULONG_PTR v21; // rbp
   ULONG_PTR *v22; // rbx
   __int64 v23; // r15
-  struct _SLIST_ENTRY *v24; // r13
+  _SLIST_ENTRY *v24; // r13
   ULONG_PTR v25; // rsi
   ULONG_PTR BugCheckParameter4; // r12
   _WORD *v27; // rbx
@@ -77,7 +77,7 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
   ULONG_PTR *v53; // r12
   __int64 v54; // r14
   unsigned int v55; // ebx
-  union _SLIST_HEADER *v56; // rcx
+  _SLIST_HEADER *v56; // rcx
   PSLIST_ENTRY v57; // rax
   unsigned int v58; // edx
   __int64 v59; // rbx
@@ -129,7 +129,7 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
     {
       v14 = (int)result - v13;
       v76 = v14;
-      if ( (stru_140E36558.WaitRegister.Flags & 1) != 0 )
+      if ( (stru_140E366D8.WaitRegister.Flags & 1) != 0 )
       {
         v68 = (unsigned int)((*v11 >> 3) - v11[1]);
         v77 = 1;
@@ -164,7 +164,7 @@ unsigned __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned in
           return result;
         v83 = 3280LL;
       }
-      if ( (unsigned __int8)byte_140E2D718 > 1u )
+      if ( (unsigned __int8)byte_140E2D898 > 1u )
         v18 = v78;
       else
         v18 = 0;
@@ -206,19 +206,19 @@ LABEL_18:
             v23 = v80;
             goto LABEL_18;
           }
-          v24 = (struct _SLIST_ENTRY *)v25;
+          v24 = (_SLIST_ENTRY *)v25;
           if ( !(_DWORD)v5
             && (MiFlags & 0x80u) != 0LL
-            && (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
+            && (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
           {
             MiArePageContentsZero((__int64)(v25 + 0x220000000000LL) / 48);
           }
           v28 = (__int64)(v25 + 0x220000000000LL) / 48;
-          if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+          if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
           {
             v34 = ((__int64)(v25 + 0x220000000000LL) / 48) & 0x1F;
             LOBYTE(v35) = 1;
-            v36 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v28 >> 5);
+            v36 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v28 >> 5);
             if ( (unsigned __int64)(v34 + 1) > 0x20 )
             {
               if ( (v28 & 0x1F) == 0 )
@@ -247,11 +247,11 @@ LABEL_69:
             }
             goto LABEL_27;
           }
-          if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+          if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
           {
             v29 = ((__int64)(v25 + 0x220000000000LL) / 48) & 0x1F;
             LOBYTE(v30) = 1;
-            v31 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v28 >> 5);
+            v31 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v28 >> 5);
             if ( (unsigned __int64)(v29 + 1) > 0x20 )
             {
               if ( (v28 & 0x1F) != 0 )
@@ -298,9 +298,9 @@ LABEL_27:
           *(_DWORD *)(v25 + 32) = *(_DWORD *)(v25 + 32) & 0xFFF8FFFF | 0x50000;
           if ( (v33 & 0x80000) != 0 )
           {
-            if ( v25 < 0xFFFFDE0000000000uLL || v25 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL )
+            if ( v25 < 0xFFFFDE0000000000uLL || v25 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL )
             {
-              v67 = (__int64)(v25 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3;
+              v67 = (__int64)(v25 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3;
               v37 = MiStopHugePageAccessor(v25);
               v39 = MiHugePfnPartition(v25);
               v40 = MiPageToNode((unsigned __int64)(v67 & 0x3FFFFF) << 18);
@@ -314,7 +314,7 @@ LABEL_27:
               if ( !MiLocatePageCollisionByPfn(v37, (__int64)(v25 + 0x220000000000LL) / 48) )
                 KeBugCheckEx(0x1Au, 0x1502uLL, v25, v37, (__int64)(v25 + 0x220000000000LL) / 48);
               *(_QWORD *)(v25 + 16) = MiMakeDemandZeroPte(4LL);
-              v39 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_QWORD *)&v38 & (*(_QWORD *)(v25 + 40) >> 43)));
+              v39 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_QWORD *)&v38 & (*(_QWORD *)(v25 + 40) >> 43)));
               v40 = MiPageToNode((__int64)(v25 + 0x220000000000LL) / 48);
               PfnPageSizeIndex = MiGetPfnPageSizeIndex(v25);
             }
@@ -339,8 +339,8 @@ LABEL_27:
           *(_QWORD *)(v25 + 24) &= 0xFFFFFF0000000000uLL;
           _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           v43 = *(_QWORD *)(v25 + 16);
-          if ( qword_140E2D740 && (v43 & 0x10) == 0 )
-            HIDWORD(v43) &= HIDWORD(qword_140E2D748);
+          if ( qword_140E2D8C0 && (v43 & 0x10) == 0 )
+            HIDWORD(v43) &= HIDWORD(qword_140E2D8C8);
           if ( HIDWORD(v43) == -3 )
           {
             if ( v77 )
@@ -359,12 +359,12 @@ LABEL_27:
           v44 = ((__int64)(int)v5 << 12) ^ ((__int64)v24[1].Next ^ ((__int64)(int)v5 << 12)) & 0xFFFFFFFFFFFF0FFFuLL;
           if ( v44 )
           {
-            if ( qword_140E2D740 )
+            if ( qword_140E2D8C0 )
             {
               if ( ((__int64)v24[1].Next & 0x10) != 0 )
                 LODWORD(v44) = v44 & 0xFFFFFFEF;
               else
-                LODWORD(v44) = qword_140E2D748 & v44;
+                LODWORD(v44) = qword_140E2D8C8 & v44;
             }
           }
           else
@@ -372,10 +372,10 @@ LABEL_27:
             LODWORD(v44) = 0;
           }
           v45 = (unsigned int)v44 | 0xFFFFFFFE00000000uLL;
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
-            v46 = (unsigned int)v44 | (unsigned __int64)qword_140E2D740 | 0xFFFFFFFE00000000uLL;
-            if ( (qword_140E2D740 & v45) != 0 )
+            v46 = (unsigned int)v44 | (unsigned __int64)qword_140E2D8C0 | 0xFFFFFFFE00000000uLL;
+            if ( (qword_140E2D8C0 & v45) != 0 )
               v46 = (unsigned int)v44 | 0xFFFFFFFE00000010uLL;
             v45 = v46;
           }
@@ -428,7 +428,7 @@ LABEL_72:
                 v54 = a1;
               }
               v55 = MiColorGetCache(v6);
-              v56 = (union _SLIST_HEADER *)(*v88 + 16LL * v55);
+              v56 = (_SLIST_HEADER *)(*v88 + 16LL * v55);
               if ( v24 )
                 v57 = InterlockedPushListSList(v56, ListEntry, v24, v48);
               else
@@ -439,7 +439,7 @@ LABEL_72:
               }
               else
               {
-                v58 = v55 % dword_140E2D78C;
+                v58 = v55 % dword_140E2D90C;
                 v59 = v84;
                 v60 = v58 & 0x1F;
                 LOBYTE(v61) = 1;
@@ -489,7 +489,7 @@ LABEL_104:
               else
                 _InterlockedAdd64((volatile signed __int64 *)&v75[(unsigned __int64)v83 / 2], v63);
               _InterlockedAdd64((volatile signed __int64 *)(v54 + 8 * v59 + 3080), v63);
-              if ( (unsigned __int8)byte_140E2D718 > 1u )
+              if ( (unsigned __int8)byte_140E2D898 > 1u )
               {
                 result = (unsigned __int8)v78;
                 _InterlockedAdd64(

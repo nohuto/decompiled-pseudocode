@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExfReleasePushLock @ 0x1409E4B30
+ * XREFs of VerifierExfReleasePushLock @ 0x1409E5B30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViExCheckAPCsDisabled @ 0x1409E4DC4 (ViExCheckAPCsDisabled.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViExCheckAPCsDisabled @ 0x1409E5DC4 (ViExCheckAPCsDisabled.c)
  */
 
 __int64 __fastcall VerifierExfReleasePushLock(ULONG_PTR a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgInitDeviceCallback @ 0x14063934C
+ * XREFs of PiDevCfgInitDeviceCallback @ 0x140639400
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PiDevCfgFreeDeviceContext @ 0x1404E9134 (PiDevCfgFreeDeviceContext.c)
- *     _PnpOpenObjectRegKey @ 0x1404FC340 (_PnpOpenObjectRegKey.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140632B70 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgInitDeviceContext @ 0x1406394B4 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgSetDeviceRegProp @ 0x140640F80 (PiDevCfgSetDeviceRegProp.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _PnpOpenObjectRegKey @ 0x1404DF2D0 (_PnpOpenObjectRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14050E7C8 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140632C24 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgInitDeviceContext @ 0x140639568 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x140641064 (PiDevCfgSetDeviceRegProp.c)
  */
 
 __int64 __fastcall PiDevCfgInitDeviceCallback(__int64 a1, __int64 a2, _BYTE *a3)

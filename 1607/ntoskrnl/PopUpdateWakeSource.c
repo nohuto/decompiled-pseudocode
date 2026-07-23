@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdateWakeSource @ 0x140205918
+ * XREFs of PopUpdateWakeSource @ 0x140205744
  * Callers:
- *     PopRequestCompletion @ 0x14012B590 (PopRequestCompletion.c)
- *     PoSetSystemWakeDevice @ 0x1401FF4A8 (PoSetSystemWakeDevice.c)
+ *     PopRequestCompletion @ 0x14012BB00 (PopRequestCompletion.c)
+ *     PoSetSystemWakeDevice @ 0x1401FF2D4 (PoSetSystemWakeDevice.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -37,14 +37,14 @@ __int64 __fastcall PopUpdateWakeSource(PVOID Object)
       v4[3] = PopCurrentWakeInfo;
       v4[2] = Object;
       _InterlockedAdd((volatile signed __int32 *)(v5 + 16), 1u);
-      v6 = (_QWORD *)qword_140304248;
-      if ( *(PVOID **)qword_140304248 != &PopWakeSourceWorkList )
+      v6 = (_QWORD *)qword_140304268;
+      if ( *(PVOID **)qword_140304268 != &PopWakeSourceWorkList )
         __fastfail(3u);
       v7 = PopWakeSourceWorkInProgress == 0;
       *v4 = &PopWakeSourceWorkList;
       v4[1] = v6;
       *v6 = v4;
-      qword_140304248 = (__int64)v4;
+      qword_140304268 = (__int64)v4;
       v4 = 0LL;
       if ( v7 )
       {

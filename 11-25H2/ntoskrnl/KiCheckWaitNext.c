@@ -29,8 +29,8 @@ __int64 __fastcall KiCheckWaitNext(
   struct _KPRCB *CurrentPrcb; // rdi
   signed __int64 GraceSequenceQuiescent; // rdx
   __int64 v14; // rax
-  __int64 InterruptTimePrecise; // rcx
-  __int64 v16; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rcx
+  LONGLONG v16; // rcx
   _DWORD *v17; // rax
   unsigned __int64 *v18; // rcx
   char v19; // r8
@@ -53,7 +53,7 @@ __int64 __fastcall KiCheckWaitNext(
   _LIST_ENTRY *v36; // rax
   unsigned __int32 v37; // ett
   signed __int32 v38[18]; // [rsp+0h] [rbp-48h] BYREF
-  unsigned __int64 v39; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = 0;
   v7 = SchedulerAssist;
@@ -260,15 +260,15 @@ LABEL_9:
     {
       if ( v7 )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v39);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         v14 = MEMORY[0xFFFFF780000003B0];
       }
       else
       {
         v14 = MEMORY[0xFFFFF780000003B0];
-        InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
+        InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
       }
-      v16 = InterruptTimePrecise - v14;
+      v16 = InterruptTimePrecise.QuadPart - v14;
       v17 = a5;
       *a4 = v16 - *(_QWORD *)v8 - v9->PrcbPad11[1];
       *v17 = 2;

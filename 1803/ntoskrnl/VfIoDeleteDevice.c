@@ -19,12 +19,12 @@
  *     VfIrpLogDeleteDeviceLogs @ 0x14082E290 (VfIrpLogDeleteDeviceLogs.c)
  */
 
-__int64 __fastcall VfIoDeleteDevice(__int64 BugCheckParameter2, const void *a2)
+__int64 __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *BugCheckParameter2, const void *a2)
 {
-  ULONG_PTR v3; // rbx
-  __int64 v4; // rax
-  __int64 v5; // rdx
-  ULONG_PTR v6; // rax
+  struct _LIST_ENTRY *v3; // rbx
+  struct _LIST_ENTRY *Blink; // rax
+  struct _LIST_ENTRY *Flink; // rdx
+  struct _LIST_ENTRY *v6; // rax
   __int64 result; // rax
   __int64 v8; // rcx
   void *LowerDeviceObjectWithTag; // rsi
@@ -34,18 +34,18 @@ __int64 __fastcall VfIoDeleteDevice(__int64 BugCheckParameter2, const void *a2)
   v3 = BugCheckParameter2;
   if ( ViVerifyDma )
   {
-    v4 = *(_QWORD *)(BugCheckParameter2 + 312);
-    if ( !v4 )
+    Blink = BugCheckParameter2[19].Blink;
+    if ( !Blink )
       goto LABEL_21;
     do
     {
-      v5 = *(_QWORD *)(v4 + 48);
-      if ( !v5 )
+      Flink = Blink[3].Flink;
+      if ( !Flink )
         break;
-      v4 = *(_QWORD *)(v5 + 312);
-      BugCheckParameter2 = v5;
+      Blink = Flink[19].Blink;
+      BugCheckParameter2 = Flink;
     }
-    while ( v4 );
+    while ( Blink );
     if ( BugCheckParameter2 == v3 )
     {
 LABEL_21:
@@ -54,7 +54,7 @@ LABEL_21:
         v6 = VF_FIND_DEVICE_INFORMATION_AND_REMOVE(v3);
         if ( !v6 )
           break;
-        ViReleaseDmaAdapter(v6);
+        ViReleaseDmaAdapter((__int64)v6);
       }
     }
     else
@@ -65,7 +65,7 @@ LABEL_21:
   result = (unsigned int)VfIoDisabled;
   if ( !VfIoDisabled )
   {
-    ViDevObjRemove(v3);
+    ViDevObjRemove((ULONG_PTR)v3);
     if ( (unsigned int)IovUtilIsDeviceObjectMarked(v3, 0LL) )
     {
       ViErrorDisplayDescription(576LL);
@@ -73,7 +73,7 @@ LABEL_21:
         VfUtilDbgPrint(pszDest);
       ViErrorFinishReport(576LL, a2, 0LL, 0LL);
     }
-    IovUtilMarkDeviceObject(v3, 0LL);
+    IovUtilMarkDeviceObject((__int64)v3, 0LL);
     LowerDeviceObjectWithTag = (void *)IovUtilGetLowerDeviceObjectWithTag(v8);
     if ( LowerDeviceObjectWithTag )
     {

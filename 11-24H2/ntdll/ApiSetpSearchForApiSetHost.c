@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetpSearchForApiSetHost @ 0x1800E0680
+ * XREFs of ApiSetpSearchForApiSetHost @ 0x1800DB780
  * Callers:
- *     ApiSetResolveToHost @ 0x18005B040 (ApiSetResolveToHost.c)
+ *     ApiSetResolveToHost @ 0x180070C20 (ApiSetResolveToHost.c)
  * Callees:
  *     <none>
  */
@@ -49,13 +49,13 @@ LABEL_2:
         {
           if ( (unsigned int)v15 > 0x7A )
           {
-            if ( qword_1801CD038 && (unsigned __int16)v15 >= 0xC0u )
-              LOWORD(v15) = *(_WORD *)(qword_1801CD038
+            if ( qword_1801CC038 && (unsigned __int16)v15 >= 0xC0u )
+              LOWORD(v15) = *(_WORD *)(qword_1801CC038
                                      + 2
                                      * ((v15 & 0xF)
-                                      + *(unsigned __int16 *)(qword_1801CD038
+                                      + *(unsigned __int16 *)(qword_1801CC038
                                                             + 2LL
-                                                            * (*(unsigned __int16 *)(qword_1801CD038 + 2 * (v15 >> 8))
+                                                            * (*(unsigned __int16 *)(qword_1801CC038 + 2 * (v15 >> 8))
                                                              + (unsigned int)((unsigned __int8)v15 >> 4)))))
                           + v15;
           }
@@ -68,15 +68,15 @@ LABEL_2:
         {
           if ( (unsigned int)v16 > 0x7A )
           {
-            if ( qword_1801CD038 )
+            if ( qword_1801CC038 )
             {
               if ( (unsigned __int16)v16 >= 0xC0u )
-                LOWORD(v16) = *(_WORD *)(qword_1801CD038
+                LOWORD(v16) = *(_WORD *)(qword_1801CC038
                                        + 2
                                        * ((v16 & 0xF)
-                                        + *(unsigned __int16 *)(qword_1801CD038
+                                        + *(unsigned __int16 *)(qword_1801CC038
                                                               + 2LL
-                                                              * (*(unsigned __int16 *)(qword_1801CD038 + 2 * (v16 >> 8))
+                                                              * (*(unsigned __int16 *)(qword_1801CC038 + 2 * (v16 >> 8))
                                                                + (unsigned int)((unsigned __int8)v16 >> 4)))))
                             + v16;
             }

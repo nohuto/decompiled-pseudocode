@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x1402D5388
+ * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x140356608
  * Callers:
- *     MiLockPageTableInternal @ 0x1402D4E40 (MiLockPageTableInternal.c)
- *     KxTryToAcquireQueuedSpinLock @ 0x1402DA128 (KxTryToAcquireQueuedSpinLock.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x14023BA08 (KxTryToAcquireQueuedSpinLock.c)
+ *     MiLockPageTableInternal @ 0x1403560C0 (MiLockPageTableInternal.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x14040D6FC (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x14040594C (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall KiTryToAcquireQueuedSpinLockInstrumented(signed __int64 a1, _DWORD *a2)

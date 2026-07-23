@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057D9BC
+ * XREFs of KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057DEAC
  * Callers:
- *     KiSoftParkElectionUnparkProcessor @ 0x1404110CC (KiSoftParkElectionUnparkProcessor.c)
- *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057DB2C (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
- *     KiParkCurrentProcessor @ 0x14057DE9C (KiParkCurrentProcessor.c)
- *     KiUnparkCurrentProcessor @ 0x14057E654 (KiUnparkCurrentProcessor.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x1404112D8 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057E01C (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
+ *     KiParkCurrentProcessor @ 0x14057E38C (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x14057EB44 (KiUnparkCurrentProcessor.c)
  * Callees:
  *     <none>
  */

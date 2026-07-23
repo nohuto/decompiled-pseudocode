@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceFilters @ 0x140B354B0
+ * XREFs of PiDevCfgConfigureDeviceFilters @ 0x140B376C0
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x140988AF0 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140A4321C (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     _PnpCtxRegCopyTree @ 0x140895F28 (_PnpCtxRegCopyTree.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     _PnpCtxRegCopyTree @ 0x14089C328 (_PnpCtxRegCopyTree.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceFilters(int a1, void *a2)

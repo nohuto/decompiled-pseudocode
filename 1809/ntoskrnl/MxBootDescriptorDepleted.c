@@ -1,7 +1,7 @@
 /*
- * XREFs of MxBootDescriptorDepleted @ 0x1409BBDCC
+ * XREFs of MxBootDescriptorDepleted @ 0x1409BCDCC
  * Callers:
- *     MxGetNextPage @ 0x1409BBB2C (MxGetNextPage.c)
+ *     MxGetNextPage @ 0x1409BCB2C (MxGetNextPage.c)
  * Callees:
  *     <none>
  */

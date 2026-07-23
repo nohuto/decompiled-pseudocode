@@ -1,16 +1,16 @@
 /*
- * XREFs of CcDereferenceSharedCacheMapFileObject @ 0x1400CFCF4
+ * XREFs of CcDereferenceSharedCacheMapFileObject @ 0x1400CDB94
  * Callers:
- *     CcPerfLogWorkItemEnqueue @ 0x14006B848 (CcPerfLogWorkItemEnqueue.c)
- *     CcPurgeAndClearCacheSection @ 0x14006C840 (CcPurgeAndClearCacheSection.c)
- *     CcIsFatalWriteError @ 0x14008E97C (CcIsFatalWriteError.c)
- *     CcPerfLogFlushCache @ 0x1400AAAE4 (CcPerfLogFlushCache.c)
- *     CcPerfLogFlushSection @ 0x1400AC4F0 (CcPerfLogFlushSection.c)
- *     CcDeleteSharedCacheMap @ 0x1400CCD34 (CcDeleteSharedCacheMap.c)
- *     CcGetDirtyPages @ 0x1400CF5A0 (CcGetDirtyPages.c)
- *     CcWriteBehindInternal @ 0x1400E7F30 (CcWriteBehindInternal.c)
- *     CcUnpinRepinnedBcb @ 0x1401B1E6C (CcUnpinRepinnedBcb.c)
- *     CcUnmapVacb @ 0x14042B660 (CcUnmapVacb.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14006B3C8 (CcPerfLogWorkItemEnqueue.c)
+ *     CcPurgeAndClearCacheSection @ 0x14006C3C0 (CcPurgeAndClearCacheSection.c)
+ *     CcIsFatalWriteError @ 0x14008E0DC (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushCache @ 0x1400A9064 (CcPerfLogFlushCache.c)
+ *     CcPerfLogFlushSection @ 0x1400AAA58 (CcPerfLogFlushSection.c)
+ *     CcDeleteSharedCacheMap @ 0x1400CABD4 (CcDeleteSharedCacheMap.c)
+ *     CcGetDirtyPages @ 0x1400CD440 (CcGetDirtyPages.c)
+ *     CcWriteBehindInternal @ 0x1400E5DD0 (CcWriteBehindInternal.c)
+ *     CcUnpinRepinnedBcb @ 0x1401B1D50 (CcUnpinRepinnedBcb.c)
+ *     CcUnmapVacb @ 0x14042A530 (CcUnmapVacb.c)
  * Callees:
  *     <none>
  */

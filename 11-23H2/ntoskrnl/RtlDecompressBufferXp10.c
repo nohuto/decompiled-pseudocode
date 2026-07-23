@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressBufferXp10 @ 0x1409C32D0
+ * XREFs of RtlDecompressBufferXp10 @ 0x1409C34D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlDecompressBuffer2Xp10 @ 0x1409C30A0 (RtlDecompressBuffer2Xp10.c)
+ *     RtlDecompressBuffer2Xp10 @ 0x1409C32A0 (RtlDecompressBuffer2Xp10.c)
  */
 
 __int64 __fastcall RtlDecompressBufferXp10(

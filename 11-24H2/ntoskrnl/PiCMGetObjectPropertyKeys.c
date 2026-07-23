@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCMGetObjectPropertyKeys @ 0x140A65294
+ * XREFs of PiCMGetObjectPropertyKeys @ 0x140A5DA64
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     PiCMCaptureObjectInputData @ 0x1408BEB90 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnBufferResultData @ 0x1408C5620 (PiCMReturnBufferResultData.c)
- *     _PnpGetObjectPropertyKeys @ 0x1409917C0 (_PnpGetObjectPropertyKeys.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiCMCaptureObjectInputData @ 0x1408BC4E0 (PiCMCaptureObjectInputData.c)
+ *     PiCMReturnBufferResultData @ 0x1408C3020 (PiCMReturnBufferResultData.c)
+ *     _PnpGetObjectPropertyKeys @ 0x14097C800 (_PnpGetObjectPropertyKeys.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetObjectPropertyKeys(
@@ -22,7 +22,7 @@ __int64 __fastcall PiCMGetObjectPropertyKeys(
   _DWORD *v6; // r13
   void *Pool2; // rdi
   int v10; // ebx
-  unsigned int v11; // ebx
+  int v11; // ebx
   unsigned int v12; // ecx
   unsigned __int64 v13; // rsi
   unsigned __int64 v14; // rdx
@@ -104,7 +104,7 @@ LABEL_11:
   if ( v12 )
   {
     v13 = v12;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v12, 0x34706E50u);
     if ( !Pool2 )
     {
       v16 = -1073741670;

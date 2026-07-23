@@ -22,26 +22,26 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendUnicodeToString(unsigned __int16 *a1, const void *a2)
+NTSTATUS __cdecl RtlAppendUnicodeToString(PUNICODE_STRING Destination, PCWSTR Source)
 {
-  unsigned __int16 v4; // bp
-  void *v5; // r14
-  _WORD v7[20]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int16 Length; // bp
+  unsigned __int16 *v5; // r14
+  _UNICODE_STRING v7; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( !a2 )
-    return 0LL;
-  if ( (int)RtlInitUnicodeStringEx(v7, a2) >= 0 )
+  if ( !Source )
+    return 0;
+  if ( RtlInitUnicodeStringEx(&v7, Source) >= 0 )
   {
-    v4 = v7[0];
-    if ( *a1 + v7[0] <= a1[1] )
+    Length = v7.Length;
+    if ( Destination->Length + v7.Length <= Destination->MaximumLength )
     {
-      v5 = (void *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)*a1 >> 1));
-      memmove(v5, a2, v7[0]);
-      *a1 += v4;
-      if ( *a1 + 1 < a1[1] )
-        *((_WORD *)v5 + ((unsigned __int64)v4 >> 1)) = 0;
-      return 0LL;
+      v5 = &Destination->Buffer[(unsigned __int64)Destination->Length >> 1];
+      memmove(v5, Source, v7.Length);
+      Destination->Length += Length;
+      if ( Destination->Length + 1 < Destination->MaximumLength )
+        v5[(unsigned __int64)Length >> 1] = 0;
+      return 0;
     }
   }
-  return 3221225507LL;
+  return -1073741789;
 }

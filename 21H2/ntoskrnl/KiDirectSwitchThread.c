@@ -1,29 +1,29 @@
 /*
- * XREFs of KiDirectSwitchThread @ 0x14024C840
+ * XREFs of KiDirectSwitchThread @ 0x1402F1090
  * Callers:
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  * Callees:
- *     KiReadyDeferredReadyList @ 0x140230D60 (KiReadyDeferredReadyList.c)
- *     KiComputePriorityFloor @ 0x140230DC0 (KiComputePriorityFloor.c)
- *     KiUpdateThreadPriority @ 0x140230E50 (KiUpdateThreadPriority.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiIsThreadRankNonZero @ 0x14024D450 (KiIsThreadRankNonZero.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x14024D500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiAbProcessThreadPriorityModification @ 0x1402888B0 (KiAbProcessThreadPriorityModification.c)
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
- *     HalRequestSoftwareInterrupt @ 0x140293E90 (HalRequestSoftwareInterrupt.c)
- *     KiScheduleNextForegroundBoost @ 0x1402B7D5C (KiScheduleNextForegroundBoost.c)
- *     KiGetComparisonRanks @ 0x1402C4E9C (KiGetComparisonRanks.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402E9CCC (KiSetBasePriorityAndClearDecrement.c)
- *     KiSetVpThreadSpinLockCount @ 0x14034B590 (KiSetVpThreadSpinLockCount.c)
+ *     KiAbProcessThreadPriorityModification @ 0x140205A50 (KiAbProcessThreadPriorityModification.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
+ *     HalRequestSoftwareInterrupt @ 0x140211E00 (HalRequestSoftwareInterrupt.c)
+ *     KiScheduleNextForegroundBoost @ 0x140235F3C (KiScheduleNextForegroundBoost.c)
+ *     KiGetComparisonRanks @ 0x14024341C (KiGetComparisonRanks.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14029B01C (KiSetBasePriorityAndClearDecrement.c)
+ *     KiReadyDeferredReadyList @ 0x1402D55B0 (KiReadyDeferredReadyList.c)
+ *     KiComputePriorityFloor @ 0x1402D5610 (KiComputePriorityFloor.c)
+ *     KiUpdateThreadPriority @ 0x1402D56A0 (KiUpdateThreadPriority.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiIsThreadRankNonZero @ 0x1402F1CA0 (KiIsThreadRankNonZero.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1402F1D50 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiSetVpThreadSpinLockCount @ 0x1403562E0 (KiSetVpThreadSpinLockCount.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KiBeginCounterAccumulation @ 0x14051BDB0 (KiBeginCounterAccumulation.c)
- *     KiEndCounterAccumulation @ 0x14051BF50 (KiEndCounterAccumulation.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x14051FC48 (KiReadGuestSchedulerAssistPriority.c)
- *     KiSetSchedulerAssistPriority @ 0x140520954 (KiSetSchedulerAssistPriority.c)
- *     EtwTraceReadyThread @ 0x1405A7F70 (EtwTraceReadyThread.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KiBeginCounterAccumulation @ 0x14051BFF0 (KiBeginCounterAccumulation.c)
+ *     KiEndCounterAccumulation @ 0x14051C190 (KiEndCounterAccumulation.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x14051FE88 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiSetSchedulerAssistPriority @ 0x140520B94 (KiSetSchedulerAssistPriority.c)
+ *     EtwTraceReadyThread @ 0x1405A81A0 (EtwTraceReadyThread.c)
  */
 
 bool __fastcall KiDirectSwitchThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -58,8 +58,8 @@ bool __fastcall KiDirectSwitchThread(__int64 a1, __int64 a2, __int64 a3, __int64
   __int64 v32; // rax
   __int64 v33; // rdx
   __int64 v34; // r9
-  __int64 p_AbPropagateBoostsList; // r8
-  __int64 v36; // rcx
+  __int64 p_DpcData; // r8
+  char v36; // cl
   __int64 v37; // rcx
   __int64 v38; // rax
   char v39; // al
@@ -73,11 +73,11 @@ bool __fastcall KiDirectSwitchThread(__int64 a1, __int64 a2, __int64 a3, __int64
   char v47; // bp
   char v48; // cl
   unsigned int v49; // eax
-  struct _KPRCB *v50; // rcx
+  struct _KDPC *v50; // rcx
   int v51; // r11d
   int v52; // ebp
   char v53; // cl
-  struct _KPRCB *v54; // rcx
+  struct _KDPC *v54; // rcx
   char v55; // si
   struct _KPRCB *v56; // rbp
   _DWORD *v57; // rcx
@@ -374,9 +374,9 @@ LABEL_152:
   v32 = __rdtsc();
   v33 = (unsigned __int64)HIDWORD(v32) << 32;
   v34 = v32;
-  p_AbPropagateBoostsList = v32 - *(_QWORD *)(a1 + 32448);
-  *(_QWORD *)(a1 + 32568) += p_AbPropagateBoostsList;
-  v36 = *(unsigned __int8 *)(v8 + 2);
+  p_DpcData = v32 - *(_QWORD *)(a1 + 32448);
+  *(_QWORD *)(a1 + 32568) += p_DpcData;
+  v36 = *(_BYTE *)(v8 + 2);
   if ( (v36 & 0x20) != 0 )
   {
     v37 = *(_QWORD *)(a1 + 33128);
@@ -397,8 +397,8 @@ LABEL_152:
     if ( v18 < 0x4B )
       v16 = v18 / 0x19;
     v33 = a1 + 8 * (*(unsigned __int8 *)(a1 + 33208) + 4072LL + 2LL * v16);
-    *(_QWORD *)v33 += p_AbPropagateBoostsList;
-    v36 = *(unsigned __int8 *)(v8 + 2);
+    *(_QWORD *)v33 += p_DpcData;
+    v36 = *(_BYTE *)(v8 + 2);
   }
   if ( (v36 & 0x40) != 0 )
   {
@@ -418,9 +418,8 @@ LABEL_152:
   *(_BYTE *)(a1 + 32) = 0;
   if ( *(_BYTE *)(a1 + 6) )
   {
-    LOBYTE(v36) = 2;
     *(_BYTE *)(a1 + 6) = 0;
-    HalRequestSoftwareInterrupt(v36);
+    HalRequestSoftwareInterrupt(2);
   }
   _enable();
   CurrentPrcb = KeGetCurrentPrcb();
@@ -453,7 +452,7 @@ LABEL_223:
       }
     }
     do
-      KeYieldProcessorEx(&v120, v33, p_AbPropagateBoostsList, v34);
+      KeYieldProcessorEx(&v120, v33, p_DpcData, v34);
     while ( *(v4 - 19) );
     v92 = CurrentPrcb->SchedulerAssist;
     if ( v92 )
@@ -514,8 +513,8 @@ LABEL_223:
       v108 = (char)KiComputePriorityFloor((__int64)(v4 - 27), v107);
       if ( v108 != *((char *)v4 - 21) )
       {
-        KiSetBasePriorityAndClearDecrement(v4 - 27, 0LL, 0LL);
-        KiUpdateThreadPriority(0LL, (__int64)(v4 - 27), (_SINGLE_LIST_ENTRY *)v108, 0);
+        KiSetBasePriorityAndClearDecrement((__int64)(v4 - 27), 0LL, 0);
+        KiUpdateThreadPriority(0LL, (__int64)(v4 - 27), (PVOID *)v108, 0);
       }
       if ( (*(_DWORD *)(v4 - 12) & 0x400000) != 0 )
         _InterlockedAnd((volatile signed __int32 *)v4[94], 0xFFEFFFFF);
@@ -554,7 +553,7 @@ LABEL_261:
           }
         }
         do
-          KeYieldProcessorEx(&v122, v33, p_AbPropagateBoostsList, v34);
+          KeYieldProcessorEx(&v122, v33, p_DpcData, v34);
         while ( *(_QWORD *)(a1 + 48) );
         v90 = v56->SchedulerAssist;
         if ( v90 )
@@ -605,7 +604,7 @@ LABEL_261:
             v66 = v4 - 27;
             if ( v44 != v58 )
             {
-              KiAbProcessThreadPriorityModification(v4 - 27, (unsigned __int8)v58, 1LL);
+              KiAbProcessThreadPriorityModification((__int64)(v4 - 27), v58, 1);
               v43 = (*(_DWORD *)(v4 - 12) & 0x400000) == 0;
               *((_BYTE *)v4 - 21) = v58;
               if ( !v43 )
@@ -709,15 +708,15 @@ LABEL_125:
       {
         if ( KiForegrounBoostVelocityFlag
           && *(_BYTE *)(v4[41] + 1850) == 2
-          && (p_AbPropagateBoostsList = *((unsigned __int8 *)v4 + 348),
-              v33 = (unsigned __int8)p_AbPropagateBoostsList,
-              LOBYTE(v33) = p_AbPropagateBoostsList & 0xF,
-              (p_AbPropagateBoostsList & 0xF) != 0 && (*(_DWORD *)(v4 - 12) & 8) == 0) )
+          && (p_DpcData = *((unsigned __int8 *)v4 + 348),
+              v33 = (unsigned __int8)p_DpcData,
+              LOBYTE(v33) = p_DpcData & 0xF,
+              (p_DpcData & 0xF) != 0 && (*(_DWORD *)(v4 - 12) & 8) == 0) )
         {
-          LOBYTE(p_AbPropagateBoostsList) = (unsigned __int8)p_AbPropagateBoostsList >> 4;
+          LOBYTE(p_DpcData) = (unsigned __int8)p_DpcData >> 4;
           v109 = v33 + *((_BYTE *)v4 + 347);
           *((_BYTE *)v4 + 348) = v33;
-          v110 = v47 - p_AbPropagateBoostsList - 1;
+          v110 = v47 - p_DpcData - 1;
           v47 = v109;
           if ( v110 >= v109 )
             v47 = v110;
@@ -740,15 +739,15 @@ LABEL_125:
         v121 = 0;
         if ( v49 )
         {
-          _BitScanReverse((unsigned int *)&p_AbPropagateBoostsList, v49);
-          if ( v47 < (int)p_AbPropagateBoostsList )
-            v47 = p_AbPropagateBoostsList;
-          v121 = p_AbPropagateBoostsList;
+          _BitScanReverse((unsigned int *)&p_DpcData, v49);
+          if ( v47 < (int)p_DpcData )
+            v47 = p_DpcData;
+          v121 = p_DpcData;
         }
       }
       if ( !(_BYTE)v34 )
       {
-        v50 = KeGetCurrentPrcb();
+        v50 = (struct _KDPC *)KeGetCurrentPrcb();
         if ( v47 > *((char *)v4 - 21) )
         {
           if ( *((_BYTE *)v4 + 577) )
@@ -756,11 +755,11 @@ LABEL_125:
             v33 = (__int64)(v4 + 74);
             if ( v4[74] == 1 )
             {
-              p_AbPropagateBoostsList = (__int64)&v50->AbPropagateBoostsList;
-              if ( v50 != (struct _KPRCB *)-34680LL )
+              p_DpcData = (__int64)&v50[541].DpcData;
+              if ( v50 != (struct _KDPC *)-34680LL )
               {
-                *(_QWORD *)v33 = *(_QWORD *)p_AbPropagateBoostsList;
-                *(_QWORD *)p_AbPropagateBoostsList = v33;
+                *(_QWORD *)v33 = *(_QWORD *)p_DpcData;
+                *(_QWORD *)p_DpcData = v33;
                 _InterlockedIncrement16((volatile signed __int16 *)v4 + 326);
                 KiAbQueueAutoBoostDpc(v50);
               }
@@ -771,8 +770,8 @@ LABEL_125:
         *((_BYTE *)v4 - 21) = v47;
         if ( !v43 )
         {
-          LOBYTE(p_AbPropagateBoostsList) = 1;
-          KiSetSchedulerAssistPriority(v4[94], (unsigned int)v47, p_AbPropagateBoostsList);
+          LOBYTE(p_DpcData) = 1;
+          KiSetSchedulerAssistPriority(v4[94], (unsigned int)v47, p_DpcData);
         }
       }
     }
@@ -780,7 +779,7 @@ LABEL_125:
       v45 |= 2u;
     if ( ((unsigned __int8)~v45 & ((*(_DWORD *)(v4 - 12) & 8) == 0)) != 0 )
     {
-      p_AbPropagateBoostsList = (unsigned int)*((char *)v4 - 21);
+      p_DpcData = (unsigned int)*((char *)v4 - 21);
       if ( *((char *)v4 - 21) > 0 )
       {
         v34 = *((unsigned __int8 *)v4 + 348);
@@ -795,25 +794,25 @@ LABEL_77:
             v52 += (char)PsPrioritySeparation;
           if ( v52 >= 16 )
             v52 = 15;
-          if ( v52 > (int)p_AbPropagateBoostsList )
+          if ( v52 > (int)p_DpcData )
           {
             v53 = 0;
             if ( v52 > v51 + v127 )
               v53 = v52 - v51 - v127;
             *((_BYTE *)v4 + 348) = v34 ^ (v53 ^ v34) & 0xF;
-            v54 = KeGetCurrentPrcb();
-            if ( (char)v52 > (char)p_AbPropagateBoostsList )
+            v54 = (struct _KDPC *)KeGetCurrentPrcb();
+            if ( (char)v52 > (char)p_DpcData )
             {
               if ( *((_BYTE *)v4 + 577) )
               {
-                p_AbPropagateBoostsList = (__int64)(v4 + 74);
+                p_DpcData = (__int64)(v4 + 74);
                 if ( v4[74] == 1 )
                 {
-                  v33 = (__int64)&v54->AbPropagateBoostsList;
-                  if ( v54 != (struct _KPRCB *)-34680LL )
+                  v33 = (__int64)&v54[541].DpcData;
+                  if ( v54 != (struct _KDPC *)-34680LL )
                   {
-                    *(_QWORD *)p_AbPropagateBoostsList = *(_QWORD *)v33;
-                    *(_QWORD *)v33 = p_AbPropagateBoostsList;
+                    *(_QWORD *)p_DpcData = *(_QWORD *)v33;
+                    *(_QWORD *)v33 = p_DpcData;
                     _InterlockedIncrement16((volatile signed __int16 *)v4 + 326);
                     KiAbQueueAutoBoostDpc(v54);
                   }
@@ -824,8 +823,8 @@ LABEL_77:
             *((_BYTE *)v4 - 21) = v52;
             if ( !v43 )
             {
-              LOBYTE(p_AbPropagateBoostsList) = 1;
-              KiSetSchedulerAssistPriority(v4[94], (unsigned int)(char)v52, p_AbPropagateBoostsList);
+              LOBYTE(p_DpcData) = 1;
+              KiSetSchedulerAssistPriority(v4[94], (unsigned int)(char)v52, p_DpcData);
             }
           }
 LABEL_96:
@@ -846,7 +845,7 @@ LABEL_96:
     {
       v33 = *((unsigned int *)v4 - 24);
       if ( (v45 & 6) == 6 && (v33 & 8) == 0 && *((char *)v4 - 21) > 0 )
-        KiScheduleNextForegroundBoost(v4 - 27);
+        KiScheduleNextForegroundBoost((__int64)(v4 - 27));
     }
     goto LABEL_96;
   }

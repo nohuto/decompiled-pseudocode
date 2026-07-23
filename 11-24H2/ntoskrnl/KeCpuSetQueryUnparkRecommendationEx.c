@@ -1,11 +1,11 @@
 /*
- * XREFs of KeCpuSetQueryUnparkRecommendationEx @ 0x1405BF94C
+ * XREFs of KeCpuSetQueryUnparkRecommendationEx @ 0x1405BCF7C
  * Callers:
- *     PpmParkCalculateCoreParkingMaskEx @ 0x1405E1B9C (PpmParkCalculateCoreParkingMaskEx.c)
+ *     PpmParkCalculateCoreParkingMaskEx @ 0x1405DF1A8 (PpmParkCalculateCoreParkingMaskEx.c)
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     RtlBeginReadTickLock @ 0x14029D200 (RtlBeginReadTickLock.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     RtlBeginReadTickLock @ 0x1402ABCF0 (RtlBeginReadTickLock.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KeCpuSetQueryUnparkRecommendationEx(unsigned __int16 *a1, unsigned __int16 *a2)

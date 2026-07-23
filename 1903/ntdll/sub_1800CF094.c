@@ -10,11 +10,11 @@
 __int64 __fastcall sub_1800CF094(unsigned __int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v6; // rsi
-  int v7; // eax
+  NTSTATUS v7; // eax
   __int64 v8; // r15
   unsigned int v9; // edi
-  unsigned int v10; // ebx
-  unsigned int v12; // [rsp+80h] [rbp+18h] BYREF
+  DWORD v10; // ebx
+  DWORD v12; // [rsp+80h] [rbp+18h] BYREF
   __int64 v13; // [rsp+88h] [rbp+20h] BYREF
 
   *a3 = 0LL;

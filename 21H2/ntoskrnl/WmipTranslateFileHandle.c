@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipTranslateFileHandle @ 0x140933408
+ * XREFs of WmipTranslateFileHandle @ 0x1409335D4
  * Callers:
- *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406061A0 (WmipIoControl.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     WmipGetGuidObjectInstanceInfo @ 0x14078D2A4 (WmipGetGuidObjectInstanceInfo.c)
- *     WmipGetFilePDO @ 0x14078D404 (WmipGetFilePDO.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     WmipGetGuidObjectInstanceInfo @ 0x14078D464 (WmipGetGuidObjectInstanceInfo.c)
+ *     WmipGetFilePDO @ 0x14078D5C4 (WmipGetFilePDO.c)
  */
 
 __int64 __fastcall WmipTranslateFileHandle(__int64 a1, unsigned int *a2)

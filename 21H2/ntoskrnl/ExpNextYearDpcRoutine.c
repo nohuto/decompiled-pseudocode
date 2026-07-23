@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpNextYearDpcRoutine @ 0x1405B24D0
+ * XREFs of ExpNextYearDpcRoutine @ 0x1405B2700
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     PsIsHostSilo @ 0x14035F7D0 (PsIsHostSilo.c)
  */
 
 void __fastcall ExpNextYearDpcRoutine(__int64 a1, void *a2)

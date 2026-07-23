@@ -1,12 +1,12 @@
 /*
- * XREFs of XmGeneralBitOffset @ 0x1404E5390
+ * XREFs of XmGeneralBitOffset @ 0x1404E55D0
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
- *     XmEvaluateAddressSpecifier @ 0x140397014 (XmEvaluateAddressSpecifier.c)
- *     XmGetOffsetAddress @ 0x1403C920C (XmGetOffsetAddress.c)
+ *     XmSetSourceValue @ 0x140397058 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403970E8 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140397164 (XmEvaluateAddressSpecifier.c)
+ *     XmGetOffsetAddress @ 0x1403C93AC (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmGeneralBitOffset(__int64 a1)

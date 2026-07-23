@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipLegacyEtwWorker @ 0x140574E44
+ * XREFs of WmipLegacyEtwWorker @ 0x140575384
  * Callers:
- *     WmipAddDataSource @ 0x140537074 (WmipAddDataSource.c)
+ *     WmipAddDataSource @ 0x1405375B4 (WmipAddDataSource.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     WmipReferenceEntry @ 0x1404749A0 (WmipReferenceEntry.c)
- *     WmipUnreferenceEntry @ 0x140505084 (WmipUnreferenceEntry.c)
- *     EtwUnregister @ 0x1405488B0 (EtwUnregister.c)
- *     WmipProcessLegacyEtwRegister @ 0x140574F70 (WmipProcessLegacyEtwRegister.c)
- *     WmipProcessLegacyEtwCallback @ 0x140575050 (WmipProcessLegacyEtwCallback.c)
+ *     WmipReferenceEntry @ 0x140473870 (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x1404E8014 (WmipUnreferenceEntry.c)
+ *     EtwUnregister @ 0x140548DF0 (EtwUnregister.c)
+ *     WmipProcessLegacyEtwRegister @ 0x1405754B0 (WmipProcessLegacyEtwRegister.c)
+ *     WmipProcessLegacyEtwCallback @ 0x140575590 (WmipProcessLegacyEtwCallback.c)
  */
 
 __int64 __fastcall WmipLegacyEtwWorker(ULONG_PTR a1)

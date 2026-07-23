@@ -14,14 +14,14 @@
 __int64 __fastcall RtlpMuiRegAddNeutralLanguage(__int64 a1, __int64 a2, const WCHAR *a3)
 {
   int v5; // esi
-  __int64 v6; // rax
-  __int64 v7; // r14
-  int ParentLocaleName; // eax
+  wchar_t *v6; // rax
+  wchar_t *v7; // r14
+  NTSTATUS v8; // eax
   int v9; // r9d
   int LanguageSpec; // ebx
   int v11; // esi
   __int16 v12; // cx
-  int v14; // [rsp+38h] [rbp-8h]
+  _UNICODE_STRING ParentLocaleName; // [rsp+30h] [rbp-10h] BYREF
   unsigned __int8 v15; // [rsp+70h] [rbp+30h] BYREF
   __int16 v16; // [rsp+88h] [rbp+48h] BYREF
 
@@ -33,7 +33,7 @@ __int64 __fastcall RtlpMuiRegAddNeutralLanguage(__int64 a1, __int64 a2, const WC
     LanguageSpec = -1073741811;
     goto LABEL_15;
   }
-  v6 = MuiRegAllocArray(a1, 85LL);
+  v6 = (wchar_t *)MuiRegAllocArray(a1, 85LL);
   v7 = v6;
   if ( !v6 )
   {
@@ -43,16 +43,17 @@ LABEL_15:
     *(_WORD *)(a2 + 8) &= 0x3FFFu;
     return (unsigned int)LanguageSpec;
   }
-  v14 = v6;
-  ParentLocaleName = RtlGetParentLocaleName(a3);
-  LanguageSpec = ParentLocaleName;
-  if ( ParentLocaleName < 0 )
+  ParentLocaleName.Buffer = v6;
+  *(_DWORD *)&ParentLocaleName.Length = 11141120;
+  v8 = RtlGetParentLocaleName(a3, &ParentLocaleName, 6u, 0);
+  LanguageSpec = v8;
+  if ( v8 < 0 )
   {
-    v11 = ParentLocaleName;
+    v11 = v8;
   }
   else
   {
-    LanguageSpec = RtlpMuiRegGetLanguageSpec(v5, v14, (unsigned int)&v15, v9, (__int64)&v16);
+    LanguageSpec = RtlpMuiRegGetLanguageSpec(v5, ParentLocaleName.Buffer, (unsigned int)&v15, v9, (__int64)&v16);
     v11 = LanguageSpec;
     if ( LanguageSpec < 0 )
     {
@@ -60,7 +61,7 @@ LABEL_15:
       v16 = 0;
     }
   }
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v7);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   if ( v11 < 0 )
     goto LABEL_15;
   if ( !v15 )

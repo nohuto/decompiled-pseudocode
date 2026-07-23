@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpProcessIFEOKeyFilter @ 0x1406B1AC4
+ * XREFs of RtlpProcessIFEOKeyFilter @ 0x1406B2D64
  * Callers:
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1406B1924 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1406B2BC4 (RtlpOpenImageFileOptionsKeyEx.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x1401B8930 (ZwEnumerateKey.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlCompareUnicodeString @ 0x1405C0F20 (RtlCompareUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1405C8460 (RtlPrefixUnicodeString.c)
  */
 
 NTSTATUS __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, __int64 a2, UNICODE_STRING *a3)

@@ -17,7 +17,7 @@ __int64 __fastcall EtwpTraceProcessRundown(struct _KPROCESS *a1, unsigned int a2
   PVOID v10; // [rsp+70h] [rbp-90h]
   PVOID P; // [rsp+78h] [rbp-88h] BYREF
   __int64 v12; // [rsp+80h] [rbp-80h] BYREF
-  STRING AnsiString; // [rsp+88h] [rbp-78h] BYREF
+  _STRING AnsiString; // [rsp+88h] [rbp-78h] BYREF
   __int64 v14[52]; // [rsp+C0h] [rbp-40h] BYREF
   __int64 v15[18]; // [rsp+260h] [rbp+160h] BYREF
 

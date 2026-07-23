@@ -1,9 +1,9 @@
 /*
- * XREFs of SepGetSidValuesDump @ 0x1405B8B48
+ * XREFs of SepGetSidValuesDump @ 0x1405B90B8
  * Callers:
- *     SepLogTokenSidManagement @ 0x1409C9C10 (SepLogTokenSidManagement.c)
+ *     SepLogTokenSidManagement @ 0x1409C9E10 (SepLogTokenSidManagement.c)
  * Callees:
- *     RtlCopySid @ 0x140714F70 (RtlCopySid.c)
+ *     RtlCopySid @ 0x140715180 (RtlCopySid.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

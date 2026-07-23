@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReferenceActiveControlArea @ 0x14030BC64
+ * XREFs of MiReferenceActiveControlArea @ 0x1402EDCE4
  * Callers:
- *     MiReferenceControlArea @ 0x14046FD70 (MiReferenceControlArea.c)
- *     MiReferenceExistingControlArea @ 0x1404A4A50 (MiReferenceExistingControlArea.c)
+ *     MiReferenceControlArea @ 0x1404694F0 (MiReferenceControlArea.c)
+ *     MiReferenceExistingControlArea @ 0x14049E0E0 (MiReferenceExistingControlArea.c)
  * Callees:
- *     MiRemoveUnusedSegment @ 0x14030BCD0 (MiRemoveUnusedSegment.c)
+ *     MiRemoveUnusedSegment @ 0x1402EDD50 (MiRemoveUnusedSegment.c)
  */
 
 __int64 __fastcall MiReferenceActiveControlArea(_DWORD *a1, __int64 a2)

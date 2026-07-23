@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpPurgeThreadHistory @ 0x1403A9FE0
+ * XREFs of ExpPurgeThreadHistory @ 0x1403B3BF0
  * Callers:
- *     ExpShutdownWorkerFactory @ 0x1403A9ED0 (ExpShutdownWorkerFactory.c)
+ *     ExpShutdownWorkerFactory @ 0x1403B3AE0 (ExpShutdownWorkerFactory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall ExpPurgeThreadHistory(__int64 a1)

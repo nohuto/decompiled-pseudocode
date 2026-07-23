@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptIntWipe @ 0x1403F95BC
+ * XREFs of SymCryptIntWipe @ 0x1403F979C
  * Callers:
- *     SymCryptRsaCoreEnc @ 0x1403FA114 (SymCryptRsaCoreEnc.c)
- *     HashpVerifyPkcs1Signature @ 0x140A7730C (HashpVerifyPkcs1Signature.c)
+ *     SymCryptRsaCoreEnc @ 0x1403FA2F4 (SymCryptRsaCoreEnc.c)
+ *     HashpVerifyPkcs1Signature @ 0x140A775BC (HashpVerifyPkcs1Signature.c)
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
  */
 
 __int64 __fastcall SymCryptIntWipe(__int64 a1)

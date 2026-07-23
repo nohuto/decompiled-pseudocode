@@ -78,10 +78,10 @@ _QWORD *__fastcall MiLocateSubsectionNode(__int64 a1, unsigned __int64 a2, int a
           _InterlockedAnd((volatile signed __int32 *)(a1 + 72), 0xBFFFFFFF);
           _InterlockedDecrement((volatile signed __int32 *)(a1 + 72));
         }
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -128,10 +128,10 @@ LABEL_29:
     if ( v6 != 17 )
     {
       ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v6 <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v6 <= 0xFu && v24 >= 2u )
         {
           v25 = KeGetCurrentPrcb();
           v26 = v25->SchedulerAssist;
@@ -151,10 +151,10 @@ LABEL_29:
   if ( v6 != 17 )
   {
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v6 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && v6 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v30 = v29->SchedulerAssist;

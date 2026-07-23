@@ -1,27 +1,27 @@
 /*
- * XREFs of CcPurgeCacheSection @ 0x14039B300
+ * XREFs of CcPurgeCacheSection @ 0x14039D060
  * Callers:
- *     CcZeroEndOfLastPage @ 0x1402C6408 (CcZeroEndOfLastPage.c)
- *     CcUnmapAndPurge @ 0x14039A0C8 (CcUnmapAndPurge.c)
- *     CcUninitializeCacheMap @ 0x14039C460 (CcUninitializeCacheMap.c)
- *     CcSetFileSizesEx @ 0x14039E300 (CcSetFileSizesEx.c)
- *     CcCoherencyFlushAndPurgeCache @ 0x140464DC0 (CcCoherencyFlushAndPurgeCache.c)
- *     CcPurgeAndClearCacheSection @ 0x1404B3978 (CcPurgeAndClearCacheSection.c)
+ *     CcZeroEndOfLastPage @ 0x1403110A8 (CcZeroEndOfLastPage.c)
+ *     CcUnmapAndPurge @ 0x14039BE28 (CcUnmapAndPurge.c)
+ *     CcUninitializeCacheMap @ 0x14039E1C0 (CcUninitializeCacheMap.c)
+ *     CcSetFileSizesEx @ 0x1403A0060 (CcSetFileSizesEx.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x14045DD80 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404ACF44 (CcPurgeAndClearCacheSection.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcUnmapVacbArray @ 0x14039AEF0 (CcUnmapVacbArray.c)
- *     CcUninitializeCacheMap @ 0x14039C460 (CcUninitializeCacheMap.c)
- *     MmPurgeSection @ 0x14039CC74 (MmPurgeSection.c)
- *     CcGetPartitionForSectionObject @ 0x14039D1F0 (CcGetPartitionForSectionObject.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     MmTrimSection @ 0x140464EF0 (MmTrimSection.c)
- *     MmCanFileBeTruncated @ 0x1404ABD90 (MmCanFileBeTruncated.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcUnmapVacbArray @ 0x14039CC50 (CcUnmapVacbArray.c)
+ *     CcUninitializeCacheMap @ 0x14039E1C0 (CcUninitializeCacheMap.c)
+ *     MmPurgeSection @ 0x14039E9D4 (MmPurgeSection.c)
+ *     CcGetPartitionForSectionObject @ 0x14039EF50 (CcGetPartitionForSectionObject.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     MmTrimSection @ 0x14045DEB0 (MmTrimSection.c)
+ *     MmCanFileBeTruncated @ 0x1404A5420 (MmCanFileBeTruncated.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -83,7 +83,7 @@ BOOLEAN __stdcall CcPurgeCacheSection(
     KiRaiseIrqlProcessIrqlFlags(v8, FileOffset);
   }
   v27.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v12 = _InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)&v27);
     if ( v12 )

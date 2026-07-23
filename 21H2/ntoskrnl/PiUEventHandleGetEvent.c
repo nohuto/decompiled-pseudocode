@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUEventHandleGetEvent @ 0x1406E1D18
+ * XREFs of PiUEventHandleGetEvent @ 0x1406B8FF8
  * Callers:
- *     PiUEventHandleIoctl @ 0x1406E1C5C (PiUEventHandleIoctl.c)
+ *     PiUEventHandleIoctl @ 0x1406B8F3C (PiUEventHandleIoctl.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     PiUEventCopyEventData @ 0x1406E1E98 (PiUEventCopyEventData.c)
- *     PiUEventDequeuePendingEventWorker @ 0x1406E6284 (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventNotifyClientPendingEvent @ 0x1406E6E60 (PiUEventNotifyClientPendingEvent.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     PiUEventCopyEventData @ 0x1406B9178 (PiUEventCopyEventData.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x1406FD664 (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x1406FE240 (PiUEventNotifyClientPendingEvent.c)
  */
 
 __int64 __fastcall PiUEventHandleGetEvent(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, __int64 a5)

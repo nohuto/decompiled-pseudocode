@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryHighestNodeNumber @ 0x14033CC40
+ * XREFs of KeQueryHighestNodeNumber @ 0x14033CED0
  * Callers:
- *     ExpQueryNumaProcessorMap @ 0x1407B3E10 (ExpQueryNumaProcessorMap.c)
- *     IoGetDeviceNumaNode @ 0x140863F90 (IoGetDeviceNumaNode.c)
- *     EtwpProcessorRundown @ 0x1409EF760 (EtwpProcessorRundown.c)
+ *     ExpQueryNumaProcessorMap @ 0x1407B4000 (ExpQueryNumaProcessorMap.c)
+ *     IoGetDeviceNumaNode @ 0x1408641D0 (IoGetDeviceNumaNode.c)
+ *     EtwpProcessorRundown @ 0x1409EF9F0 (EtwpProcessorRundown.c)
  * Callees:
  *     <none>
  */

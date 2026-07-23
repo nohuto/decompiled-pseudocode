@@ -1,11 +1,11 @@
 /*
- * XREFs of KdLogDbgPrint @ 0x1406F2230
+ * XREFs of KdLogDbgPrint @ 0x1406F2CFC
  * Callers:
- *     KdpPrint @ 0x1406F20D8 (KdpPrint.c)
+ *     KdpPrint @ 0x1406F2E34 (KdpPrint.c)
  *     KdpPrompt @ 0x1406F5E00 (KdpPrompt.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     KdpCopyMemoryChunks @ 0x1406F2F08 (KdpCopyMemoryChunks.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KdpCopyMemoryChunks @ 0x1406F2BA0 (KdpCopyMemoryChunks.c)
  */
 
 struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
@@ -17,7 +17,7 @@ struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
   signed __int64 v6; // rax
   unsigned __int64 v7; // r8
   unsigned __int64 v8; // rsi
-  __int64 v9; // rcx
+  char *v9; // rcx
   unsigned int v10; // ebx
   char *v11; // rcx
   unsigned int v12; // edi
@@ -26,7 +26,7 @@ struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
   unsigned int v15; // [rsp+58h] [rbp+10h] BYREF
 
   result = KeGetCurrentPrcb();
-  if ( (struct _KPRCB *)qword_140329B18 != result )
+  if ( (struct _KPRCB *)qword_140329B58 != result )
   {
     _InterlockedIncrement((_DWORD *)&KdpPrintSpinLock + 1);
     while ( (_DWORD)KdpPrintSpinLock )
@@ -56,11 +56,11 @@ struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
     while ( v6 != v8 );
     if ( v7 < v8 )
       _InterlockedIncrement(&KdPrintRolloverCount);
-    v9 = *((_QWORD *)a1 + 1);
+    v9 = (char *)*((_QWORD *)a1 + 1);
     if ( v4 + v8 > (unsigned __int64)KdPrintCircularBuffer + (unsigned int)KdPrintBufferSize )
     {
       v12 = KdPrintBufferSize + (_DWORD)KdPrintCircularBuffer - v8;
-      KdpCopyMemoryChunks(v9, v8, v12, 0, 4, (__int64)&v15);
+      KdpCopyMemoryChunks(v9, v8, v12, 0, 4, &v15);
       v13 = v15 == v12;
       if ( v15 < v12 )
       {
@@ -70,7 +70,7 @@ struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
       if ( v13 )
       {
         v14 = v4 - v12;
-        KdpCopyMemoryChunks(*((_DWORD *)a1 + 2) + v12, (_DWORD)KdPrintCircularBuffer, v14, 0, 4, (__int64)&v15);
+        KdpCopyMemoryChunks((char *)(*((_QWORD *)a1 + 1) + v12), (__int64)KdPrintCircularBuffer, v14, 0, 4, &v15);
         if ( v15 >= v14 )
           goto LABEL_17;
         v10 = v14 - v15;
@@ -84,7 +84,7 @@ struct _KPRCB *__fastcall KdLogDbgPrint(unsigned __int16 *a1)
     }
     else
     {
-      KdpCopyMemoryChunks(v9, v8, v4, 0, 4, (__int64)&v15);
+      KdpCopyMemoryChunks(v9, v8, v4, 0, 4, &v15);
       if ( v15 >= v4 )
       {
 LABEL_17:

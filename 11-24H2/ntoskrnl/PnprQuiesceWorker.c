@@ -1,18 +1,18 @@
 /*
- * XREFs of PnprQuiesceWorker @ 0x140B550A0
+ * XREFs of PnprQuiesceWorker @ 0x140B570F0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PnprCompleteWake @ 0x1405A76EC (PnprCompleteWake.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PnprLockPagesForReplace @ 0x14072FE20 (PnprLockPagesForReplace.c)
- *     PnprQuiesceDevices @ 0x140B545A4 (PnprQuiesceDevices.c)
- *     PnprWakeDevices @ 0x140B551D4 (PnprWakeDevices.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PnprCompleteWake @ 0x1405A46DC (PnprCompleteWake.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PnprLockPagesForReplace @ 0x14072DE30 (PnprLockPagesForReplace.c)
+ *     PnprQuiesceDevices @ 0x140B565F4 (PnprQuiesceDevices.c)
+ *     PnprWakeDevices @ 0x140B57224 (PnprWakeDevices.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnprQuiesceWorker(PVOID P)

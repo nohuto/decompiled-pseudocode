@@ -2,15 +2,15 @@
  * XREFs of MiComputeAgeDistribution @ 0x1402225E8
  * Callers:
  *     MiComputeSystemTrimCriteria @ 0x1402201BC (MiComputeSystemTrimCriteria.c)
- *     MiOrderTrimList @ 0x14046BCEE (MiOrderTrimList.c)
+ *     MiOrderTrimList @ 0x14046C0EE (MiOrderTrimList.c)
  * Callees:
  *     MiUpdateClaimDistribution @ 0x140222750 (MiUpdateClaimDistribution.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int16 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
@@ -56,10 +56,13 @@ __int16 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
     v4[301] = v7;
     KxReleaseQueuedSpinLock(&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

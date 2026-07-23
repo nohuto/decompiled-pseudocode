@@ -3,9 +3,9 @@
  * Callers:
  *     KdPullRemoteFile @ 0x140AB0CCC (KdPullRemoteFile.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     KdpCreateRemoteFile @ 0x140AB0E04 (KdpCreateRemoteFile.c)

@@ -12,7 +12,7 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
 {
   unsigned __int8 v7; // si
   unsigned __int8 CurrentIrql; // cl
-  char v11; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v7 = _bittestandreset((signed __int32 *)(a1 + 116), 2u);
   if ( !v7 )
@@ -31,7 +31,7 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
     else
     {
       if ( a3 )
-        *a4 = RtlGetInterruptTimePrecise(&v11) - MEMORY[0xFFFFF780000003B0];
+        *a4 = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) - MEMORY[0xFFFFF780000003B0];
       else
         *a4 = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0];
       *a4 -= *(_QWORD *)a2 + *(_QWORD *)(a1 + 248);

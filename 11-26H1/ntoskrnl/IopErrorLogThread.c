@@ -1,33 +1,33 @@
 /*
- * XREFs of IopErrorLogThread @ 0x140ADBA70
+ * XREFs of IopErrorLogThread @ 0x140AD8FC0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     IopErrorLogGetEntry @ 0x1404E08AC (IopErrorLogGetEntry.c)
- *     IopErrorLogRequeueEntry @ 0x140506740 (IopErrorLogRequeueEntry.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     EtwWriteErrorLogEntry @ 0x140ADBE80 (EtwWriteErrorLogEntry.c)
- *     IopErrorLogConnectSession @ 0x140ADC230 (IopErrorLogConnectSession.c)
- *     IopErrorLogQueueRequest @ 0x140ADC288 (IopErrorLogQueueRequest.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     IopErrorLogGetEntry @ 0x1404D9F8C (IopErrorLogGetEntry.c)
+ *     IopErrorLogRequeueEntry @ 0x1404FFFF0 (IopErrorLogRequeueEntry.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     EtwWriteErrorLogEntry @ 0x140AD93D0 (EtwWriteErrorLogEntry.c)
+ *     IopErrorLogConnectSession @ 0x140AD9780 (IopErrorLogConnectSession.c)
+ *     IopErrorLogQueueRequest @ 0x140AD97D8 (IopErrorLogQueueRequest.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void **IopErrorLogThread()
+_KAFFINITY_EX *IopErrorLogThread()
 {
-  void **result; // rax
-  void **v1; // rsi
-  char *v2; // r12
+  _KAFFINITY_EX *result; // rax
+  unsigned __int64 *v1; // rsi
+  __int64 v2; // r12
   unsigned __int16 Length; // di
   wchar_t *Buffer; // rbx
   __int16 v5; // ax
   const WCHAR *v6; // rdx
   UNICODE_STRING *v7; // r14
-  char *v8; // rcx
+  __int64 v8; // rcx
   char v9; // r15
   wchar_t *v10; // rcx
   signed __int64 v11; // rbx
@@ -48,9 +48,9 @@ void **IopErrorLogThread()
   __int16 DestinationString_4; // [rsp+4Ch] [rbp-BCh]
   UNICODE_STRING DestinationString_8; // [rsp+50h] [rbp-B8h] BYREF
   __int64 v28; // [rsp+60h] [rbp-A8h]
-  void **v29; // [rsp+68h] [rbp-A0h]
+  char *v29; // [rsp+68h] [rbp-A0h]
   UNICODE_STRING v30; // [rsp+70h] [rbp-98h] BYREF
-  void **v31; // [rsp+80h] [rbp-88h]
+  _KAFFINITY_EX *v31; // [rsp+80h] [rbp-88h]
   wchar_t Str1[256]; // [rsp+88h] [rbp-80h] BYREF
   UNICODE_STRING v33; // [rsp+288h] [rbp+180h] BYREF
   _BYTE P[272]; // [rsp+398h] [rbp+290h] BYREF
@@ -60,23 +60,23 @@ void **IopErrorLogThread()
   DestinationString_4 = 0;
   v30 = 0LL;
   v29 = 0LL;
-  result = (void **)IopErrorLogConnectSession();
+  result = (_KAFFINITY_EX *)IopErrorLogConnectSession();
   if ( (_BYTE)result )
   {
     while ( 1 )
     {
       DestinationString = 0;
-      result = (void **)IopErrorLogGetEntry();
+      result = IopErrorLogGetEntry();
       v31 = result;
       if ( !result )
         return result;
-      v1 = result - 1;
-      v2 = (char *)result[3];
-      LODWORD(v28) = *((unsigned __int16 *)result - 3) - 48;
+      v1 = &result[-1].StaticBitmap[31];
+      v2 = result->StaticBitmap[2];
+      LODWORD(v28) = WORD1(result[-1].StaticBitmap[31]) - 48;
       if ( !v2 )
         break;
       RtlInitUnicodeString(&DestinationString_8, 0LL);
-      if ( *((_QWORD *)v2 + 8) )
+      if ( *(_QWORD *)(v2 + 64) )
         DestinationString_8 = *(UNICODE_STRING *)(v2 + 56);
       Length = DestinationString_8.Length;
       if ( DestinationString_8.Length )
@@ -84,7 +84,7 @@ void **IopErrorLogThread()
       DestinationString = 0;
       if ( (int)ObQueryNameStringMode(v2, (__int64)&v33, 0x110u, &DestinationString, 0) < 0 || !DestinationString )
       {
-        v6 = &word_140B814F0;
+        v6 = &word_140B8A320;
         goto LABEL_14;
       }
       DestinationString_8 = v33;
@@ -116,13 +116,13 @@ LABEL_11:
 LABEL_17:
       DestinationString = 0;
       v7 = (UNICODE_STRING *)P;
-      v8 = (char *)v1[3];
+      v8 = v1[3];
       v9 = 0;
       if ( v8
         && ((v22 = ObQueryNameStringMode(v8, (__int64)P, 0x110u, &DestinationString, 0), v22 != -1073741820)
          || (Pool2 = ExAllocatePool2(0x100uLL), (v7 = (UNICODE_STRING *)Pool2) != 0LL)
          && (v9 = 1,
-             v22 = ObQueryNameStringMode((char *)v1[3], Pool2, DestinationString, &DestinationString, 0),
+             v22 = ObQueryNameStringMode(v1[3], Pool2, DestinationString, &DestinationString, 0),
              v22 != -1073741820))
         && v22 >= 0
         && DestinationString )
@@ -131,7 +131,7 @@ LABEL_17:
       }
       else
       {
-        RtlInitUnicodeString(&v30, &word_140B814F0);
+        RtlInitUnicodeString(&v30, &word_140B8A320);
       }
       Str1[0] = 0;
       v35[0] = 0;
@@ -186,7 +186,7 @@ LABEL_17:
         v24 = *((_WORD *)v1 + 46);
         *((_WORD *)v1 + 25) -= v24;
         DestinationString_4 = v24;
-        v29 = v1 + 16;
+        v29 = (char *)(v1 + 16);
       }
       if ( (int)EtwWriteErrorLogEntry(
                   (_DWORD)v10,
@@ -199,16 +199,14 @@ LABEL_17:
                   (__int64)v29) < 0 )
       {
         IopErrorLogRequeueEntry(v31);
-        return (void **)IopErrorLogQueueRequest();
+        return (_KAFFINITY_EX *)IopErrorLogQueueRequest();
       }
-      _InterlockedAdd(
-        (volatile signed __int32 *)&IopSessionNotificationLock.QuantumTarget,
-        -*((unsigned __int16 *)v1 + 1));
-      v21 = v1[3];
+      _InterlockedAdd(&IopErrorLogAllocation, -*((unsigned __int16 *)v1 + 1));
+      v21 = (void *)v1[3];
       if ( v21 )
         ObfDereferenceObject(v21);
       if ( v2 )
-        ObfDereferenceObject(v1[4]);
+        ObfDereferenceObject((PVOID)v1[4]);
       ExFreePoolWithTag(v1, 0);
     }
     v6 = L"Application Popup";

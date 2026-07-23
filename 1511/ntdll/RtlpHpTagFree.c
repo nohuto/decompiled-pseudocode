@@ -11,68 +11,71 @@
  *     RtlpHpMetadataFree @ 0x18005A5C4 (RtlpHpMetadataFree.c)
  */
 
-__int64 __fastcall RtlpHpTagFree(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpTagFree(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
-  __int16 v5; // si
-  __int64 v6; // rbp
-  _QWORD *v7; // rbx
-  __int64 result; // rax
-  __int64 v9; // rtt
-  _QWORD *v10; // rdx
-  __int64 v11; // [rsp+50h] [rbp+8h]
+  __int64 v5; // rbp
+  _QWORD *v6; // rbx
+  signed __int64 v7; // rax
+  signed __int64 v8; // rtt
+  _QWORD *v9; // rdx
+  __int64 v10; // [rsp+50h] [rbp+8h]
 
-  v5 = (__int16)a2;
-  v6 = (unsigned __int16)a2;
-  v7 = *(_QWORD **)(qword_180143898 + 8LL * (unsigned __int16)a2 - 8);
-  result = v7[4];
-  while ( result != a3 )
+  v5 = a2;
+  v6 = *(_QWORD **)(qword_180143898 + 8LL * a2 - 8);
+  v7 = v6[4];
+  while ( v7 != a3 )
   {
-    v9 = result;
-    result = _InterlockedCompareExchange64(v7 + 4, result - a3, result);
-    if ( v9 == result )
-      return result;
+    v8 = v7;
+    v7 = _InterlockedCompareExchange64(v6 + 4, v7 - a3, v7);
+    if ( v8 == v7 )
+      return;
   }
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpHpTagContext, a2, a3, a4);
-  if ( _InterlockedExchangeAdd64(v7 + 4, -a3) != a3 )
-    return RtlReleaseSRWLockExclusive(&RtlpHpTagContext);
-  *(_QWORD *)(qword_180143898 + 8 * v6 - 8) = 0LL;
-  v11 = v7[1] & (-1LL << (dword_18014388C & 0x1F));
-  v10 = (_QWORD *)(qword_180143890
-                 + 8LL
-                 * ((37
-                   * (BYTE6(v11)
-                    + 37
-                    * (BYTE5(v11)
+  RtlAcquireSRWLockExclusive(&RtlpHpTagContext);
+  if ( _InterlockedExchangeAdd64(v6 + 4, -a3) == a3 )
+  {
+    *(_QWORD *)(qword_180143898 + 8 * v5 - 8) = 0LL;
+    v10 = v6[1] & (-1LL << (dword_18014388C & 0x1F));
+    v9 = (_QWORD *)(qword_180143890
+                  + 8LL
+                  * ((37
+                    * (BYTE6(v10)
                      + 37
-                     * (BYTE4(v11)
+                     * (BYTE5(v10)
                       + 37
-                      * (BYTE3(v11) + 37 * (BYTE2(v11) + 37 * (BYTE1(v11) + 37 * ((unsigned __int8)v11 + 11623883)))))))
-                   + HIBYTE(v11)) & (((unsigned int)dword_18014388C >> 5) - 1)));
-  if ( (*v7 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
-    v10 = (_QWORD *)(qword_180143890
-                   + 8LL
-                   * ((37
-                     * (BYTE6(v11)
-                      + 37
-                      * (BYTE5(v11)
+                      * (BYTE4(v10)
                        + 37
-                       * (BYTE4(v11)
+                       * (BYTE3(v10) + 37 * (BYTE2(v10) + 37 * (BYTE1(v10) + 37 * ((unsigned __int8)v10 + 11623883)))))))
+                    + HIBYTE(v10)) & (((unsigned int)dword_18014388C >> 5) - 1)));
+    if ( (*v6 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+      v9 = (_QWORD *)(qword_180143890
+                    + 8LL
+                    * ((37
+                      * (BYTE6(v10)
+                       + 37
+                       * (BYTE5(v10)
                         + 37
-                        * (BYTE3(v11) + 37 * (BYTE2(v11) + 37 * (BYTE1(v11) + 37 * ((unsigned __int8)v11 + 11623883)))))))
-                     + HIBYTE(v11)) & (((unsigned int)dword_18014388C >> 5) - 1)));
-  while ( (*v10 & 1) == 0 )
-  {
-    if ( (_QWORD *)*v10 == v7 )
+                        * (BYTE4(v10)
+                         + 37
+                         * (BYTE3(v10) + 37 * (BYTE2(v10) + 37 * (BYTE1(v10) + 37 * ((unsigned __int8)v10 + 11623883)))))))
+                      + HIBYTE(v10)) & (((unsigned int)dword_18014388C >> 5) - 1)));
+    while ( (*v9 & 1) == 0 )
     {
-      *v10 = *v7;
-      --dword_180143888;
-      *v7 |= 0x8000000000000002uLL;
-      break;
+      if ( (_QWORD *)*v9 == v6 )
+      {
+        *v9 = *v6;
+        --dword_180143888;
+        *v6 |= 0x8000000000000002uLL;
+        break;
+      }
+      v9 = (_QWORD *)*v9;
     }
-    v10 = (_QWORD *)*v10;
+    --word_1801438A2;
+    word_1801438A0 = a2 - 1;
+    RtlReleaseSRWLockExclusive(&RtlpHpTagContext);
+    RtlpHpMetadataFree(v6);
   }
-  --word_1801438A2;
-  word_1801438A0 = v5 - 1;
-  RtlReleaseSRWLockExclusive(&RtlpHpTagContext);
-  return RtlpHpMetadataFree(v7);
+  else
+  {
+    RtlReleaseSRWLockExclusive(&RtlpHpTagContext);
+  }
 }

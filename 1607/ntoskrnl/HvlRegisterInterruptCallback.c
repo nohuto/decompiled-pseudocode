@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlRegisterInterruptCallback @ 0x1401BABFC
+ * XREFs of HvlRegisterInterruptCallback @ 0x1401BAAE0
  * Callers:
  *     <none>
  * Callees:

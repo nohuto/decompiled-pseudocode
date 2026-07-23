@@ -1,45 +1,45 @@
 /*
- * XREFs of RtlFindAceByType @ 0x140012AA0
+ * XREFs of RtlFindAceByType @ 0x140012620
  * Callers:
- *     SeComputeAutoInheritByObjectTypeEx @ 0x140013010 (SeComputeAutoInheritByObjectTypeEx.c)
- *     SepMandatorySubProcessToken @ 0x14007C05C (SepMandatorySubProcessToken.c)
- *     RtlIsUntrustedObject @ 0x1400FC880 (RtlIsUntrustedObject.c)
- *     SepGetScopedPolicySid @ 0x140219BF8 (SepGetScopedPolicySid.c)
- *     SepVerifyDesktopAppxPackageName @ 0x140219E60 (SepVerifyDesktopAppxPackageName.c)
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140238C70 (AdtpBuildContextFromSecurityDescriptor.c)
- *     RtlpGenerateInheritAcl @ 0x1404145E0 (RtlpGenerateInheritAcl.c)
- *     RtlpNewSecurityObject @ 0x14041BF40 (RtlpNewSecurityObject.c)
- *     RtlpCopyAces @ 0x14041E7A0 (RtlpCopyAces.c)
- *     RtlpSetSecurityObject @ 0x1404A56A0 (RtlpSetSecurityObject.c)
- *     SeQueryMandatoryLabel @ 0x1404D9024 (SeQueryMandatoryLabel.c)
- *     SepSDContainsAttributeACE @ 0x140695764 (SepSDContainsAttributeACE.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x140012B90 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SepMandatorySubProcessToken @ 0x14007C0DC (SepMandatorySubProcessToken.c)
+ *     RtlIsUntrustedObject @ 0x1400FA600 (RtlIsUntrustedObject.c)
+ *     SepGetScopedPolicySid @ 0x140219A24 (SepGetScopedPolicySid.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x140219C8C (SepVerifyDesktopAppxPackageName.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x140238A9C (AdtpBuildContextFromSecurityDescriptor.c)
+ *     RtlpGenerateInheritAcl @ 0x1404134A0 (RtlpGenerateInheritAcl.c)
+ *     RtlpNewSecurityObject @ 0x14041AE00 (RtlpNewSecurityObject.c)
+ *     RtlpCopyAces @ 0x14041D660 (RtlpCopyAces.c)
+ *     SeQueryMandatoryLabel @ 0x1404BC628 (SeQueryMandatoryLabel.c)
+ *     RtlpSetSecurityObject @ 0x14051DAA0 (RtlpSetSecurityObject.c)
+ *     SepSDContainsAttributeACE @ 0x140695848 (SepSDContainsAttributeACE.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 *__fastcall RtlFindAceByType(__int64 a1, int a2, unsigned int *a3)
+PVOID __cdecl RtlFindAceByType(PACL Acl, UCHAR AceType, PULONG Index)
 {
-  unsigned __int8 *v4; // r10
+  PACL v4; // r10
   unsigned int v5; // r11d
 
-  if ( !a1 )
+  if ( !Acl )
     return 0LL;
-  v4 = (unsigned __int8 *)(a1 + 8);
+  v4 = Acl + 1;
   v5 = 0;
-  if ( !*(_WORD *)(a1 + 4) )
+  if ( !Acl->AceCount )
     return 0LL;
-  while ( !a3 )
+  while ( !Index )
   {
-    if ( *v4 == a2 )
+    if ( v4->AclRevision == AceType )
       return v4;
 LABEL_9:
     ++v5;
-    v4 += *((unsigned __int16 *)v4 + 1);
-    if ( v5 >= *(unsigned __int16 *)(a1 + 4) )
+    v4 = (PACL)((char *)v4 + v4->AclSize);
+    if ( v5 >= Acl->AceCount )
       return 0LL;
   }
-  if ( v5 < *a3 || *v4 != a2 )
+  if ( v5 < *Index || v4->AclRevision != AceType )
     goto LABEL_9;
-  *a3 = v5;
+  *Index = v5;
   return v4;
 }

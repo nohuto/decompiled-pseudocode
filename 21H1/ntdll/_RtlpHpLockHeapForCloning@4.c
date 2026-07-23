@@ -8,7 +8,7 @@
  *     _RtlpHpHeapLock@8 @ 0x4B378F59 (_RtlpHpHeapLock@8.c)
  */
 
-int __thiscall RtlpHpLockHeapForCloning(volatile signed __int32 *this)
+int __thiscall RtlpHpLockHeapForCloning(_RTL_SRWLOCK *this)
 {
   char v3; // [esp+7h] [ebp-1h] BYREF
 
@@ -16,5 +16,5 @@ int __thiscall RtlpHpLockHeapForCloning(volatile signed __int32 *this)
   RtlAcquireSRWLockExclusive(this + 86);
   RtlAcquireSRWLockExclusive(this + 118);
   RtlAcquireSRWLockExclusive(this + 45);
-  return RtlpHpLfhContextLockUnlock((int)(this + 176), 0);
+  return RtlpHpLfhContextLockUnlock((int)&this[176], 0);
 }

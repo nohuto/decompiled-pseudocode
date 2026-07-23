@@ -1,20 +1,20 @@
 /*
- * XREFs of ExGetWakeTimerList @ 0x14031C630
+ * XREFs of ExGetWakeTimerList @ 0x14031C820
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeQueryTimerDueTime @ 0x1402905C8 (KeQueryTimerDueTime.c)
- *     PoStoreDiagnosticContext @ 0x1402D3270 (PoStoreDiagnosticContext.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryTimerDueTime @ 0x1402907B8 (KeQueryTimerDueTime.c)
+ *     PoStoreDiagnosticContext @ 0x1402D3460 (PoStoreDiagnosticContext.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2)
@@ -24,8 +24,8 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2)
   void *v4; // rdi
   _DWORD *v5; // r15
   _QWORD *v6; // r12
-  __int64 v7; // rax
-  __int64 v8; // rsi
+  _RTL_BALANCED_NODE *v7; // rax
+  _RTL_BALANCED_NODE *v8; // rsi
   __int64 *v9; // rsi
   __int64 v10; // rcx
   SIZE_T v11; // rdx
@@ -62,7 +62,7 @@ __int64 __fastcall ExGetWakeTimerList(_QWORD *a1, _DWORD *a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
     ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v7, (ULONG_PTR)&ExpWakeTimerLock);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v9 = (__int64 *)ExpWakeTimerList;
   if ( (__int64 *)ExpWakeTimerList != &ExpWakeTimerList )
   {

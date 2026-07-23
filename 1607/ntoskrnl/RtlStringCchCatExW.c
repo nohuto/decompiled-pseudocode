@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCchCatExW @ 0x14013BD00
+ * XREFs of RtlStringCchCatExW @ 0x14013C270
  * Callers:
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1404FB104 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     PipHardwareConfigOpenKey @ 0x14054FB84 (PipHardwareConfigOpenKey.c)
- *     PiCMGenerateDeviceInstance @ 0x1406477EC (PiCMGenerateDeviceInstance.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1404DE090 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     PipHardwareConfigOpenKey @ 0x1405500C4 (PipHardwareConfigOpenKey.c)
+ *     PiCMGenerateDeviceInstance @ 0x1406478D0 (PiCMGenerateDeviceInstance.c)
  * Callees:
- *     RtlStringCopyWorkerW_2 @ 0x1400C35B0 (RtlStringCopyWorkerW_2.c)
- *     RtlStringLengthWorkerW @ 0x14013BDA4 (RtlStringLengthWorkerW.c)
- *     RtlStringExHandleOtherFlagsW @ 0x1401CCBD8 (RtlStringExHandleOtherFlagsW.c)
+ *     RtlStringCopyWorkerW_0 @ 0x1400C1440 (RtlStringCopyWorkerW_0.c)
+ *     RtlStringLengthWorkerW @ 0x14013C314 (RtlStringLengthWorkerW.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1401CCABC (RtlStringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCatExW(
@@ -51,7 +51,7 @@ NTSTATUS __stdcall RtlStringCchCatExW(
     }
     else
     {
-      v6 = RtlStringCopyWorkerW_2(&pszDest[v11], cchDest - v11, &pcchLength, v7, (size_t)v13);
+      v6 = RtlStringCopyWorkerW_0(&pszDest[v11], cchDest - v11, &pcchLength, v7, (size_t)v13);
       if ( v6 >= 0 )
         return v6;
     }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockFreeLargePageLists @ 0x1402D7FF0
+ * XREFs of MiLockFreeLargePageLists @ 0x1402D8280
  * Callers:
- *     MiUnlinkNodeLargePages @ 0x1402D76D0 (MiUnlinkNodeLargePages.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
+ *     MiUnlinkNodeLargePages @ 0x1402D7960 (MiUnlinkNodeLargePages.c)
+ *     MiGetLargePage @ 0x1402D7D10 (MiGetLargePage.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
@@ -72,7 +72,7 @@ __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
           v7 = (int *)(*(_QWORD *)(a1 + 160) + 23104LL);
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 2 )
@@ -127,10 +127,10 @@ __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
       v29 = *(_QWORD *)(v10 + 23008);
       *(_QWORD *)(v10 + 23008) = &v29;
       ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v16 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v16 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v18 = CurrentPrcb->SchedulerAssist;
@@ -147,10 +147,10 @@ __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
     else
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v21 >= 2u )
         {
           v22 = KeGetCurrentPrcb();
           v23 = v22->SchedulerAssist;
@@ -171,10 +171,10 @@ __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
     v2 = 0;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));

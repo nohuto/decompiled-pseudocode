@@ -1,15 +1,15 @@
 /*
- * XREFs of UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140289B74
+ * XREFs of UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140289E04
  * Callers:
  *     MmAssignProcessToJob @ 0x1406A0694 (MmAssignProcessToJob.c)
  *     MiAllocateFromSubAllocatedRegion @ 0x1406AB290 (MiAllocateFromSubAllocatedRegion.c)
- *     MiInsertVadCharges @ 0x1406FA8B0 (MiInsertVadCharges.c)
- *     MiFreeToSubAllocatedRegion @ 0x14076EC84 (MiFreeToSubAllocatedRegion.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1407CCB64 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiInsertVadCharges @ 0x1406FAAC0 (MiInsertVadCharges.c)
+ *     MiFreeToSubAllocatedRegion @ 0x14076EE74 (MiFreeToSubAllocatedRegion.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1407CCE34 (MiAllocateNewSubAllocatedRegion.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 int __fastcall UNLOCK_PAGE_TABLE_COMMITMENT(__int64 a1, __int64 a2)

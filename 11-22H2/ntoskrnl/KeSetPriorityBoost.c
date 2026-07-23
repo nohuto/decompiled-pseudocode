@@ -36,7 +36,7 @@ char __fastcall KeSetPriorityBoost(__int64 a1, int a2)
     v5 = 0;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v10) = 4;
@@ -68,10 +68,10 @@ char __fastcall KeSetPriorityBoost(__int64 a1, int a2)
     else
     {
 LABEL_31:
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v11 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
         {
           v12 = KeGetCurrentPrcb();
           v13 = v12->SchedulerAssist;

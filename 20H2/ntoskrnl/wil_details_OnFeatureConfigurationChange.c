@@ -9,34 +9,33 @@
  *     wil_details_EvaluateFeatureDependencies @ 0x1405CB638 (wil_details_EvaluateFeatureDependencies.c)
  */
 
-__int64 (__fastcall **wil_details_OnFeatureConfigurationChange())()
+void __fastcall wil_details_OnFeatureConfigurationChange(PVOID a1)
 {
   __int64 (__fastcall **i)(); // rcx
-  unsigned int v1; // ecx
-  unsigned int v2; // eax
-  __int64 (__fastcall **v3)(); // rax
-  volatile signed __int32 **v4; // rbx
-  __int64 v6; // [rsp+20h] [rbp-18h] BYREF
-  int v7; // [rsp+28h] [rbp-10h]
-  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  RTL_FEATURE_ID v2; // ecx
+  NTSTATUS v3; // eax
+  __int64 (__fastcall **v4)(); // rax
+  volatile signed __int32 **v5; // rbx
+  _RTL_FEATURE_CONFIGURATION FeatureConfiguration; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  ULONGLONG ChangeStamp; // [rsp+50h] [rbp+18h] BYREF
 
-  for ( i = (__int64 (__fastcall **)())&wil_details_featureDescriptors_a; ; i = (__int64 (__fastcall **)())(v4 + 4) )
+  for ( i = (__int64 (__fastcall **)())&wil_details_featureDescriptors_a; ; i = (__int64 (__fastcall **)())(v5 + 4) )
   {
-    v3 = wil_details_FeatureDescriptors_SkipPadding(i);
-    v4 = (volatile signed __int32 **)v3;
-    if ( !v3 )
+    v4 = wil_details_FeatureDescriptors_SkipPadding(i);
+    v5 = (volatile signed __int32 **)v4;
+    if ( !v4 )
       break;
-    if ( !*((_BYTE *)v3 + 21) && !*((_BYTE *)v3 + 22) && !*((_BYTE *)v3 + 20) )
+    if ( !*((_BYTE *)v4 + 21) && !*((_BYTE *)v4 + 22) && !*((_BYTE *)v4 + 20) )
     {
-      v1 = *((_DWORD *)v3 + 4);
-      v6 = 0LL;
-      v7 = 0;
-      v2 = RtlQueryFeatureConfiguration(v1, 1u, &v9, (__int64)&v6);
-      v8 = 0LL;
-      wil_details_BuildFeatureStateCacheFromQueryResults(v2, (__int64)&v6, &v8);
-      _InterlockedXor(*v4, ((unsigned __int16)v8 ^ (unsigned __int16)**v4) & 0x3E0);
+      v2 = *((_DWORD *)v4 + 4);
+      *(_QWORD *)&FeatureConfiguration.FeatureId = 0LL;
+      FeatureConfiguration.VariantPayload = 0;
+      v3 = RtlQueryFeatureConfiguration(v2, RtlFeatureConfigurationRuntime, &ChangeStamp, &FeatureConfiguration);
+      v7 = 0LL;
+      wil_details_BuildFeatureStateCacheFromQueryResults(v3, (__int64)&FeatureConfiguration, &v7);
+      _InterlockedXor(*v5, ((unsigned __int16)v7 ^ (unsigned __int16)**v5) & 0x3E0);
     }
   }
-  return wil_details_EvaluateFeatureDependencies();
+  wil_details_EvaluateFeatureDependencies();
 }

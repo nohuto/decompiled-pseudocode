@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpValidateContextXStateDisabledFeatures @ 0x1402A3C24
+ * XREFs of RtlpValidateContextXStateDisabledFeatures @ 0x1402A3EB4
  * Callers:
- *     PspGetSetContextInternal @ 0x140724A00 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x140724C00 (PspGetSetContextInternal.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of SPCallServerHandleUpdatePolicies @ 0x1406CDD84
+ * XREFs of SPCallServerHandleUpdatePolicies @ 0x1406CF024
  * Callers:
- *     sub_140685840 @ 0x140685840 (sub_140685840.c)
+ *     sub_140686A00 @ 0x140686A00 (sub_140686A00.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleUpdatePolicies(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -269,7 +269,7 @@ LABEL_28:
 LABEL_31:
   if ( (int)v10 < 0 )
     return (unsigned int)v10;
-  if ( !v25 || !qword_14096D220 )
+  if ( !v25 || !qword_14096E220 )
   {
     v32 = -1073425151;
     if ( a4 )
@@ -336,7 +336,7 @@ LABEL_68:
     LODWORD(v10) = -1073741811;
     return (unsigned int)v10;
   }
-  if ( v25 != qword_14096D220 )
+  if ( v25 != qword_14096E220 )
   {
     v32 = -1073425151;
     if ( a4 )
@@ -432,7 +432,7 @@ LABEL_127:
 LABEL_50:
   if ( (int)v10 < 0 )
     return (unsigned int)v10;
-  v31 = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64))qword_14096D438)(v29, v30, v10, v26);
+  v31 = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64))qword_14096E438)(v29, v30, v10, v26);
   if ( v31 == 263 )
   {
     v32 = 1074058754;

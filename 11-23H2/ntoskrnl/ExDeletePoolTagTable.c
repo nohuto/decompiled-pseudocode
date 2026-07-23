@@ -1,11 +1,11 @@
 /*
- * XREFs of ExDeletePoolTagTable @ 0x140606D40
+ * XREFs of ExDeletePoolTagTable @ 0x140607290
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MmFreeIndependentPages @ 0x14087FBB0 (MmFreeIndependentPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MmFreeIndependentPages @ 0x14087FDF0 (MmFreeIndependentPages.c)
  */
 
 __int64 __fastcall ExDeletePoolTagTable(unsigned int a1)
@@ -25,7 +25,7 @@ __int64 __fastcall ExDeletePoolTagTable(unsigned int a1)
   v2 = 80 * (PoolTrackTableSize + 1);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v5 = 4;
@@ -34,10 +34,10 @@ __int64 __fastcall ExDeletePoolTagTable(unsigned int a1)
     SchedulerAssist[5] |= v5;
   }
   *(&ExPoolTagTables + a1) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = CurrentPrcb->SchedulerAssist;

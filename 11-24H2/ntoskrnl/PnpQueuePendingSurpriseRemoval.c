@@ -1,26 +1,26 @@
 /*
- * XREFs of PnpQueuePendingSurpriseRemoval @ 0x140A0E9B4
+ * XREFs of PnpQueuePendingSurpriseRemoval @ 0x1409BCDB8
  * Callers:
- *     PiEventRemovalPostSurpriseRemove @ 0x140A0E374 (PiEventRemovalPostSurpriseRemove.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x1409BC778 (PiEventRemovalPostSurpriseRemove.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     IopMergeRelationLists @ 0x1407337FC (IopMergeRelationLists.c)
- *     IopFreeRelationList @ 0x140A0CB00 (IopFreeRelationList.c)
- *     IopAllocateRelationList @ 0x140A0D7B8 (IopAllocateRelationList.c)
- *     IopCheckIfMergeRequired @ 0x140A0EBBC (IopCheckIfMergeRequired.c)
- *     IopIsDescendantNode @ 0x140A0F064 (IopIsDescendantNode.c)
- *     PnpAcquireDependencyRelationsLock @ 0x140A0F188 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x140A0F814 (PnpReleaseDependencyRelationsLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     IopMergeRelationLists @ 0x140731730 (IopMergeRelationLists.c)
+ *     IopFreeRelationList @ 0x1409BAF04 (IopFreeRelationList.c)
+ *     IopAllocateRelationList @ 0x1409BBBBC (IopAllocateRelationList.c)
+ *     IopCheckIfMergeRequired @ 0x1409BCFC0 (IopCheckIfMergeRequired.c)
+ *     IopIsDescendantNode @ 0x1409BD468 (IopIsDescendantNode.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409BD598 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409BDC24 (PnpReleaseDependencyRelationsLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int a3, int a4)
+void __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, void ***a2, int a3, int a4)
 {
-  unsigned int **v4; // rbp
+  void **v4; // rbp
   struct _KTHREAD *CurrentThread; // rax
   __int64 Pool2; // rbx
   unsigned int **v10; // rdi
@@ -49,7 +49,7 @@ void __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int
   CurrentThread = KeGetCurrentThread();
   Pool2 = 0LL;
   *a2 = 0LL;
-  v10 = v4;
+  v10 = (unsigned int **)v4;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&IopSurpriseRemoveListLock, 1u);
   LOBYTE(v11) = 1;
@@ -67,21 +67,21 @@ void __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int
     }
     if ( (unsigned __int8)IopCheckIfMergeRequired(v17[8], v10) )
     {
-      if ( v10 == v4 )
+      if ( v10 == (unsigned int **)v4 )
       {
         Pool2 = (__int64)v17;
         RelationList = (unsigned int **)IopAllocateRelationList(3LL);
         v10 = RelationList;
         if ( !RelationList )
         {
-          v10 = v4;
+          v10 = (unsigned int **)v4;
           PnpReleaseDependencyRelationsLock(v20, v19, v21);
           goto LABEL_4;
         }
         IopMergeRelationLists(RelationList, (__int64)v4, 0);
       }
       IopMergeRelationLists(v10, (__int64)v17[8], 1);
-      IopFreeRelationList(v17[8]);
+      IopFreeRelationList((void **)v17[8]);
       if ( (PVOID *)Pool2 == v17 )
       {
         *(_QWORD *)(Pool2 + 64) = 0LL;
@@ -101,31 +101,31 @@ void __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int
     }
   }
   PnpReleaseDependencyRelationsLock(v13, v12, v14);
-  if ( v4 != v10 )
+  if ( v4 != (void **)v10 )
   {
     IopFreeRelationList(v4);
     goto LABEL_13;
   }
 LABEL_4:
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x70uLL, 0x54706E50u);
   if ( !Pool2 )
   {
     Interval.QuadPart = -10000LL;
     do
     {
       KeDelayExecutionThread(0, 0, &Interval);
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 0x70uLL, 0x54706E50u);
     }
     while ( !Pool2 );
   }
-  v16 = (__int64 *)qword_140F8B738;
-  if ( *(PVOID **)qword_140F8B738 != &IopPendingSurpriseRemovals )
+  v16 = (__int64 *)qword_140F8B838;
+  if ( *(PVOID **)qword_140F8B838 != &IopPendingSurpriseRemovals )
 LABEL_6:
     __fastfail(3u);
   *(_QWORD *)Pool2 = &IopPendingSurpriseRemovals;
   *(_QWORD *)(Pool2 + 8) = v16;
   *v16 = Pool2;
-  qword_140F8B738 = Pool2;
+  qword_140F8B838 = Pool2;
 LABEL_13:
   v22 = 0LL;
   while ( 1 )

@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpLightWeightCreateSetValueData @ 0x1409FF52C
+ * XREFs of CmpLightWeightCreateSetValueData @ 0x1409F8474
  * Callers:
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1409FEC68 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1409FF118 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1409F7BB0 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1409F8060 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     CmpCopyCell @ 0x140881F30 (CmpCopyCell.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     CmpCopyCell @ 0x140885DE0 (CmpCopyCell.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
  */
 
 __int64 __fastcall CmpLightWeightCreateSetValueData(__int64 a1, _QWORD *a2)
@@ -32,7 +32,7 @@ __int64 __fastcall CmpLightWeightCreateSetValueData(__int64 a1, _QWORD *a2)
   v14 = -1;
   v15 = 0;
   v4 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
-  Pool = (_DWORD *)CmpAllocatePool(0x100uLL);
+  Pool = (_DWORD *)CmpAllocatePool(0x100uLL, 0xCuLL, 0x77554D43u);
   v6 = Pool;
   if ( !Pool )
     return (unsigned int)-1073741670;

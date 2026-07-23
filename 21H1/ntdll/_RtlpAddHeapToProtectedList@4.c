@@ -15,10 +15,12 @@ __int16 __fastcall RtlpAddHeapToProtectedList(int a1)
   __int16 v2; // ax
   _DWORD *Heap; // edi
   __int16 result; // ax
-  void *v5; // ebx
-  int v6; // [esp+Ch] [ebp-4h]
+  PVOID v5; // ebx
+  SIZE_T v6; // [esp-4h] [ebp-14h]
+  size_t v7; // [esp-4h] [ebp-14h]
+  int v8; // [esp+Ch] [ebp-4h]
 
-  v6 = a1;
+  v8 = a1;
   v1 = RtlpNumberOfProtectedHeaps;
   *(_WORD *)((*(_DWORD *)(a1 + 8) == -571548178 ? 0 : 0x68) + a1 + 20) = -1;
   v2 = RtlpMaxNumberOfProtectedHeaps;
@@ -32,18 +34,20 @@ LABEL_3:
     return result;
   }
   RtlpMaxNumberOfProtectedHeaps *= 2;
-  Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 4 * (unsigned __int16)(2 * v2));
+  LODWORD(v6) = 4 * (unsigned __int16)(2 * v2);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
   if ( Heap )
   {
     v1 = RtlpNumberOfProtectedHeaps;
     v5 = RtlpProtectedHeapsList;
-    memcpy(Heap, RtlpProtectedHeapsList, 4 * (unsigned __int16)RtlpNumberOfProtectedHeaps);
+    LODWORD(v7) = 4 * (unsigned __int16)RtlpNumberOfProtectedHeaps;
+    memcpy(Heap, RtlpProtectedHeapsList, v7);
     if ( v5 != &RtlpProtectedHeapsListBuffer )
     {
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
       v1 = RtlpNumberOfProtectedHeaps;
     }
-    a1 = v6;
+    a1 = v8;
     RtlpProtectedHeapsList = Heap;
     goto LABEL_3;
   }

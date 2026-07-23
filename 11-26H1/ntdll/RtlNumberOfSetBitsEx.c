@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlNumberOfSetBitsEx @ 0x180107230
+ * XREFs of RtlNumberOfSetBitsEx @ 0x180106C30
  * Callers:
- *     RtlNumberOfClearBitsEx @ 0x1801414D0 (RtlNumberOfClearBitsEx.c)
+ *     RtlNumberOfClearBitsEx @ 0x1801413D0 (RtlNumberOfClearBitsEx.c)
  * Callees:
  *     <none>
  */
@@ -50,7 +50,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(unsigned __int64 *a1)
     v14 = *(_BYTE *)v2;
     v2 = (unsigned __int64 *)((char *)v2 + 1);
     if ( i == v6 - 1 && v3 )
-      v14 &= byte_18018B198[v3];
+      v14 &= byte_18018A108[v3];
     ++i;
     v4 += RtlpBitsClearTotal[(unsigned __int8)~v14];
   }
@@ -75,7 +75,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(unsigned __int64 *a1)
       v17 = *(_BYTE *)v2;
       v2 = (unsigned __int64 *)((char *)v2 + 1);
       if ( i == v15 && v16 )
-        v17 &= byte_18018B198[v16];
+        v17 &= byte_18018A108[v16];
       ++i;
       v4 += RtlpBitsClearTotal[(unsigned __int8)~v17];
       --v7;

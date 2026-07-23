@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegMgrUnlock @ 0x1404C879C
+ * XREFs of RtlpHpSegMgrUnlock @ 0x1404C24DC
  * Callers:
- *     RtlpHpSegMgrVaCtxAlloc @ 0x14034FB44 (RtlpHpSegMgrVaCtxAlloc.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x14034FC34 (RtlpHpSegMgrVaCtxInsert.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x1404AC7C4 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxAlloc @ 0x140351BC4 (RtlpHpSegMgrVaCtxAlloc.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x140351CB4 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x1404A5E54 (RtlpHpSegMgrVaCtxFree.c)
  * Callees:
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
  */
 
 void __fastcall RtlpHpSegMgrUnlock(__int64 a1, unsigned __int8 a2)

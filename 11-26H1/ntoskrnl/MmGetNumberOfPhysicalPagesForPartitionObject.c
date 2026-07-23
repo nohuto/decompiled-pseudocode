@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1404F3E00
+ * XREFs of MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1404ED3E0
  * Callers:
- *     CcPartitionTelemetryCallback @ 0x140B1C870 (CcPartitionTelemetryCallback.c)
+ *     CcPartitionTelemetryCallback @ 0x140B1EA80 (CcPartitionTelemetryCallback.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MmGetNumberOfPhysicalPagesForPartitionObject(unsigned __int16 **a1)
 {
-  return *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * **a1) + 22288LL);
+  return *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * **a1) + 22288LL);
 }

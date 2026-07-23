@@ -1,8 +1,8 @@
 /*
- * XREFs of SleepstudyHelperGetBlockerGuid @ 0x140A60140
+ * XREFs of SleepstudyHelperGetBlockerGuid @ 0x140A58690
  * Callers:
- *     SleepstudyHelper_GenerateGuid @ 0x1404AE960 (SleepstudyHelper_GenerateGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x140767A70 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelper_GenerateGuid @ 0x1404A9270 (SleepstudyHelper_GenerateGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x140767C90 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
  * Callees:
  *     <none>
  */

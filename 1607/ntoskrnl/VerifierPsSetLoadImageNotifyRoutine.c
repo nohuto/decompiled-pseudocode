@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPsSetLoadImageNotifyRoutine @ 0x14070CCC4
+ * XREFs of VerifierPsSetLoadImageNotifyRoutine @ 0x14070CCF4
  * Callers:
  *     <none>
  * Callees:

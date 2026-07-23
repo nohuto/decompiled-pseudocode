@@ -1,16 +1,16 @@
 /*
- * XREFs of PoLatencySensitivityHint @ 0x14036D860
+ * XREFs of PoLatencySensitivityHint @ 0x14036DA00
  * Callers:
- *     PopPowerRequestCallbackPerfBoostRequired @ 0x1407E9780 (PopPowerRequestCallbackPerfBoostRequired.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerRequestCallbackPerfBoostRequired @ 0x1407E9A50 (PopPowerRequestCallbackPerfBoostRequired.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     PpmInterlockedUpdateTimeNoFence @ 0x14031313C (PpmInterlockedUpdateTimeNoFence.c)
- *     PpmCheckCustomRun @ 0x14032B63C (PpmCheckCustomRun.c)
- *     PpmTryAcquireLock @ 0x14036D9F8 (PpmTryAcquireLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x1403133CC (PpmInterlockedUpdateTimeNoFence.c)
+ *     PpmCheckCustomRun @ 0x14032B8CC (PpmCheckCustomRun.c)
+ *     PpmTryAcquireLock @ 0x14036DB98 (PpmTryAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PoLatencySensitivityHint(int a1)
@@ -30,7 +30,7 @@ void __fastcall PoLatencySensitivityHint(int a1)
   if ( a1 != 4 || !PpmPerfMultimediaQosSupported )
   {
     v2 = 0;
-    for ( i = (char *)&PpmCurrentProfile[55 * dword_140C3D86C + 14] + 5; !*i; ++i )
+    for ( i = (char *)&PpmCurrentProfile[55 * dword_140C3D96C + 14] + 5; !*i; ++i )
     {
       if ( (unsigned int)++v2 >= 2 )
         return;

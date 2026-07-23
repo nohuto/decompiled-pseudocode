@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpProcessDependencyRelations @ 0x1404C4960
+ * XREFs of PnpProcessDependencyRelations @ 0x140486338
  * Callers:
- *     PnpProcessRelation @ 0x1404C47D8 (PnpProcessRelation.c)
+ *     PnpProcessRelation @ 0x1404861B0 (PnpProcessRelation.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x1400097B8 (PipIsDevNodeDNStarted.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1403F4194 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x1403F41C4 (PnpReleaseDependencyRelationsLock.c)
- *     PnpProcessRelation @ 0x1404C47D8 (PnpProcessRelation.c)
- *     PiGetDependentList @ 0x1404C4D38 (PiGetDependentList.c)
- *     PiEnumerateDependentListEntry @ 0x14062AD1C (PiEnumerateDependentListEntry.c)
+ *     PipIsDevNodeDNStarted @ 0x14000932C (PipIsDevNodeDNStarted.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1403F3058 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1403F3088 (PnpReleaseDependencyRelationsLock.c)
+ *     PnpProcessRelation @ 0x1404861B0 (PnpProcessRelation.c)
+ *     PiGetDependentList @ 0x14048893C (PiGetDependentList.c)
+ *     PiEnumerateDependentListEntry @ 0x14062ADD0 (PiEnumerateDependentListEntry.c)
  */
 
 __int64 __fastcall PnpProcessDependencyRelations(
         __int64 a1,
-        unsigned int a2,
+        int a2,
         unsigned int a3,
         _DWORD *a4,
         PUNICODE_STRING a5,
@@ -23,7 +23,7 @@ __int64 __fastcall PnpProcessDependencyRelations(
   int v10; // edi
   _QWORD **DependentList; // rsi
   _QWORD *v12; // rbx
-  ULONG_PTR BugCheckParameter3; // rbp
+  _BYTE *BugCheckParameter3; // rbp
   UNICODE_STRING *DestinationString; // r14
   __int64 v16; // rcx
   int v17; // eax
@@ -37,7 +37,7 @@ __int64 __fastcall PnpProcessDependencyRelations(
   v12 = *DependentList;
   if ( *DependentList != DependentList )
   {
-    BugCheckParameter3 = a6;
+    BugCheckParameter3 = (_BYTE *)a6;
     DestinationString = a5;
     while ( 1 )
     {

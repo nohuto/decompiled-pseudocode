@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeEnclaveModules @ 0x140773CE8
+ * XREFs of MiFreeEnclaveModules @ 0x140776CE8
  * Callers:
- *     MiCanDeleteEnclave @ 0x1406FFDA4 (MiCanDeleteEnclave.c)
+ *     MiCanDeleteEnclave @ 0x140704A74 (MiCanDeleteEnclave.c)
  * Callees:
- *     MiDereferenceEnclaveModule @ 0x140876560 (MiDereferenceEnclaveModule.c)
- *     DbgkUnMapViewOfSection @ 0x1409C4448 (DbgkUnMapViewOfSection.c)
+ *     MiDereferenceEnclaveModule @ 0x14087C944 (MiDereferenceEnclaveModule.c)
+ *     DbgkUnMapViewOfSection @ 0x140995428 (DbgkUnMapViewOfSection.c)
  */
 
 void __fastcall MiFreeEnclaveModules(_QWORD **a1, __int64 a2)

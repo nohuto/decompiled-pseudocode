@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFreeMemoryNotification @ 0x140702884
+ * XREFs of VfFreeMemoryNotification @ 0x1407028B4
  * Callers:
- *     MmFreeContiguousMemory @ 0x14009ABB8 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x14009A3B8 (MmFreeContiguousMemory.c)
  *     VfDriverUnloadImage @ 0x1406FE170 (VfDriverUnloadImage.c)
- *     VfFreePoolNotification @ 0x140710968 (VfFreePoolNotification.c)
+ *     VfFreePoolNotification @ 0x140710998 (VfFreePoolNotification.c)
  * Callees:
  *     VfDeadlockDeleteMemoryRange @ 0x140713D4C (VfDeadlockDeleteMemoryRange.c)
  */

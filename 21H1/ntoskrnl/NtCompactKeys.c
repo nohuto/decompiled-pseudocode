@@ -20,12 +20,12 @@
  *     CmpLogUnsupportedOperation @ 0x140871B98 (CmpLogUnsupportedOperation.c)
  */
 
-__int64 __fastcall NtCompactKeys(unsigned int a1, char *a2)
+NTSTATUS __cdecl NtCompactKeys(ULONG Count, HANDLE KeyArray[])
 {
   struct _PRIVILEGE_SET *TransientPoolWithQuotaTag; // rsi
-  unsigned int v5; // r12d
+  ULONG v5; // r12d
   BOOLEAN v6; // r13
-  int v7; // edi
+  NTSTATUS v7; // edi
   __int64 v8; // rcx
   char v9; // al
   SIZE_T v10; // r13
@@ -35,7 +35,7 @@ __int64 __fastcall NtCompactKeys(unsigned int a1, char *a2)
   __int64 v14; // rdx
   __int64 v15; // r8
   __int64 v16; // r9
-  unsigned int v17; // r15d
+  ULONG v17; // r15d
   __int64 *v18; // r13
   __int64 v19; // rax
   __int64 v20; // rcx
@@ -66,17 +66,17 @@ LABEL_4:
     v9 = 0;
     goto LABEL_39;
   }
-  if ( !a1 )
+  if ( !Count )
   {
     v7 = 0;
     goto LABEL_4;
   }
-  if ( a1 >= 0x1FFFFFFF )
+  if ( Count >= 0x1FFFFFFF )
   {
     v7 = -1073741811;
     goto LABEL_4;
   }
-  v10 = 8 * a1;
+  v10 = 8 * Count;
   TransientPoolWithQuotaTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuotaTag(v8, v10, 0x61624D43u);
   if ( !TransientPoolWithQuotaTag )
   {
@@ -86,12 +86,12 @@ LABEL_4:
   }
   if ( PreviousMode == 1 && (_DWORD)v10 )
   {
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)KeyArray & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (unsigned __int64)&a2[v10] > 0x7FFFFFFF0000LL || &a2[v10] < a2 )
+    if ( (unsigned __int64)&KeyArray[v10 / 8] > 0x7FFFFFFF0000LL || &KeyArray[v10 / 8] < KeyArray )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  memmove(TransientPoolWithQuotaTag, a2, (unsigned int)v10);
+  memmove(TransientPoolWithQuotaTag, KeyArray, (unsigned int)v10);
   v12 = (void **)TransientPoolWithQuotaTag;
   do
   {
@@ -111,7 +111,7 @@ LABEL_4:
     ++v5;
     ++v12;
   }
-  while ( v5 < a1 );
+  while ( v5 < Count );
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v6 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
@@ -151,7 +151,7 @@ LABEL_4:
       }
       ++v17;
       ++v18;
-      if ( v17 >= a1 )
+      if ( v17 >= Count )
       {
         v6 = v32;
         v7 = 0;
@@ -191,5 +191,5 @@ LABEL_39:
     }
     CmSiFreeMemory(TransientPoolWithQuotaTag);
   }
-  return (unsigned int)v7;
+  return v7;
 }

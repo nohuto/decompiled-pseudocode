@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPreAllocateKInterrupts @ 0x140CB30FC
+ * XREFs of HalpPreAllocateKInterrupts @ 0x140CB913C
  * Callers:
- *     HalpInterruptInitSystem @ 0x140BEB450 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140BF1450 (HalpInterruptInitSystem.c)
  * Callees:
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 HalpPreAllocateKInterrupts()

@@ -1,27 +1,30 @@
 /*
- * XREFs of RtlSetGroupSecurityDescriptor @ 0x1800CE650
+ * XREFs of RtlSetGroupSecurityDescriptor @ 0x1800C6210
  * Callers:
- *     RtlCreateAndSetSD @ 0x1800CE250 (RtlCreateAndSetSD.c)
+ *     RtlCreateAndSetSD @ 0x1800C5E10 (RtlCreateAndSetSD.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetGroupSecurityDescriptor(__int64 a1, __int64 a2, char a3)
+NTSTATUS __cdecl RtlSetGroupSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID Group,
+        BOOLEAN GroupDefaulted)
 {
   __int16 v3; // ax
   __int16 v4; // ax
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
-  v3 = *(_WORD *)(a1 + 2);
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  v3 = *((_WORD *)SecurityDescriptor + 1);
   if ( v3 < 0 )
-    return 3221225593LL;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  if ( a2 )
-    *(_QWORD *)(a1 + 16) = a2;
+    return -1073741703;
+  *((_QWORD *)SecurityDescriptor + 2) = 0LL;
+  if ( Group )
+    *((_QWORD *)SecurityDescriptor + 2) = Group;
   v4 = v3 & 0xFFFD;
-  *(_WORD *)(a1 + 2) = v4;
-  if ( a3 )
-    *(_WORD *)(a1 + 2) = v4 | 2;
-  return 0LL;
+  *((_WORD *)SecurityDescriptor + 1) = v4;
+  if ( GroupDefaulted )
+    *((_WORD *)SecurityDescriptor + 1) = v4 | 2;
+  return 0;
 }

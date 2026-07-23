@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxComponentIdleState @ 0x1403ADE64
+ * XREFs of PopDiagTraceFxComponentIdleState @ 0x1403B7B74
  * Callers:
- *     PopFxProcessWork @ 0x1403AEEC0 (PopFxProcessWork.c)
- *     PoFxCompleteIdleState @ 0x140479950 (PoFxCompleteIdleState.c)
+ *     PopFxProcessWork @ 0x1403B8BD0 (PopFxProcessWork.c)
+ *     PoFxCompleteIdleState @ 0x1404732B0 (PoFxCompleteIdleState.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140255F60 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402578F0 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxComponentIdleState(__int64 a1, int a2, unsigned int a3)
@@ -53,20 +53,14 @@ char __fastcall PopDiagTraceFxComponentIdleState(__int64 a1, int a2, unsigned in
       *(_QWORD *)(v8 + 8 * v7 + 16) = v4;
     }
   }
-  if ( byte_140E67628 && *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+  if ( PopDiagHandleRegistered && PopDiagHandle )
   {
-    if ( (v9 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 32LL),
-          v10 = 4LL,
-          *(_DWORD *)(v9 + 96))
+    if ( (v9 = *(_QWORD *)(PopDiagHandle + 32), v10 = 4LL, *(_DWORD *)(v9 + 96))
       && ((LOBYTE(CurrentThread) = *(_BYTE *)(v9 + 100), (unsigned __int8)CurrentThread >= 4u) || !(_BYTE)CurrentThread)
       && (LODWORD(CurrentThread) = *(_DWORD *)(v9 + 112), ((unsigned __int16)CurrentThread & 0x100) != 0)
       && (LOBYTE(CurrentThread) = 0, (*(_QWORD *)(v9 + 120) & 0x100LL) == *(_QWORD *)(v9 + 120))
-      || *(_WORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 102LL)
-      && (LOBYTE(CurrentThread) = EtwpLevelKeywordEnabled(
-                                    *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 40LL)
-                                  + 96LL,
-                                    4u,
-                                    256LL),
+      || *(_WORD *)(PopDiagHandle + 102)
+      && (LOBYTE(CurrentThread) = EtwpLevelKeywordEnabled(*(_QWORD *)(PopDiagHandle + 40) + 96LL, 4u, 256LL),
           (_BYTE)CurrentThread) )
     {
       UserData.Ptr = (ULONGLONG)&v12;
@@ -76,7 +70,7 @@ char __fastcall PopDiagTraceFxComponentIdleState(__int64 a1, int a2, unsigned in
       v16 = (int *)&v20;
       v17 = v10;
       LOBYTE(CurrentThread) = EtwWriteEx(
-                                *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+                                PopDiagHandle,
                                 &POP_ETW_EVENT_COMPONENT_IDLE_STATE,
                                 0LL,
                                 1u,

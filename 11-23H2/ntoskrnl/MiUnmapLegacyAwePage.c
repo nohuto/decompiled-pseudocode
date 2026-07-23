@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnmapLegacyAwePage @ 0x14064BED8
+ * XREFs of MiUnmapLegacyAwePage @ 0x14064C428
  * Callers:
- *     MiFreePhysicalPages @ 0x14064A540 (MiFreePhysicalPages.c)
+ *     MiFreePhysicalPages @ 0x14064AA90 (MiFreePhysicalPages.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiDecrementAweMapCount @ 0x140649648 (MiDecrementAweMapCount.c)
- *     MiUpdateAwePageTable @ 0x14064C05C (MiUpdateAwePageTable.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiDecrementAweMapCount @ 0x140649B98 (MiDecrementAweMapCount.c)
+ *     MiUpdateAwePageTable @ 0x14064C5AC (MiUpdateAwePageTable.c)
  */
 
 __int64 __fastcall MiUnmapLegacyAwePage(__int64 a1, unsigned __int64 a2, __int64 a3)

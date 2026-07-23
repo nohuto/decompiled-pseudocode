@@ -14,5 +14,5 @@ NTSTATUS __stdcall ZwCreatePagingFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileName, InitialSize, MaxiumSize);
+  return KiServiceInternal(FileName);
 }

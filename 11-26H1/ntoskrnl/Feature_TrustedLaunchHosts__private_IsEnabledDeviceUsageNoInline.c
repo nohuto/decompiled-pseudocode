@@ -1,14 +1,14 @@
 /*
- * XREFs of Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x140615670
+ * XREFs of Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x140618694
  * Callers:
- *     SepVerifyDesktopAppxImage @ 0x140460C84 (SepVerifyDesktopAppxImage.c)
- *     MiInitializeCreateSectionPacket @ 0x1409BA6F4 (MiInitializeCreateSectionPacket.c)
- *     MiValidateExistingImage @ 0x140A56F88 (MiValidateExistingImage.c)
- *     MiReleaseImageSection @ 0x140A579A4 (MiReleaseImageSection.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
- *     MmCreateSpecialImageSection @ 0x140B7F20C (MmCreateSpecialImageSection.c)
+ *     SepVerifyDesktopAppxImage @ 0x14051E754 (SepVerifyDesktopAppxImage.c)
+ *     MiInitializeCreateSectionPacket @ 0x14098B6D4 (MiInitializeCreateSectionPacket.c)
+ *     MiValidateExistingImage @ 0x140A64508 (MiValidateExistingImage.c)
+ *     MiReleaseImageSection @ 0x140A64F24 (MiReleaseImageSection.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
+ *     MmCreateSpecialImageSection @ 0x140B880EC (MmCreateSpecialImageSection.c)
  * Callees:
- *     Feature_TrustedLaunchHosts__private_IsEnabledFallback @ 0x1406156AC (Feature_TrustedLaunchHosts__private_IsEnabledFallback.c)
+ *     Feature_TrustedLaunchHosts__private_IsEnabledFallback @ 0x1406186D0 (Feature_TrustedLaunchHosts__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline()

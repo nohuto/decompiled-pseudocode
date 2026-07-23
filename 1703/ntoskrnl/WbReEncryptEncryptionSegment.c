@@ -18,8 +18,8 @@ __int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 
   int InitializedEncryptionSegment; // esi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rdi
-  _BYTE *v6; // rax
-  _BYTE *v7; // rsi
+  PRTL_BALANCED_NODE v6; // rax
+  PRTL_BALANCED_NODE v7; // rsi
   __int64 v9; // [rsp+48h] [rbp+20h] BYREF
 
   v9 = 0LL;
@@ -35,12 +35,12 @@ __int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
       v5 = (unsigned __int64 *)(v9 + 8);
-      v6 = (_BYTE *)KeAbPreAcquire(v9 + 8, 0LL, 0LL);
+      v6 = KeAbPreAcquire(v9 + 8, 0LL, 0);
       v7 = v6;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
         ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);
       if ( v7 )
-        v7[26] |= 1u;
+        BYTE2(v7[1].Left) |= 1u;
       InitializedEncryptionSegment = sub_140547BEC(v9);
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)v5);

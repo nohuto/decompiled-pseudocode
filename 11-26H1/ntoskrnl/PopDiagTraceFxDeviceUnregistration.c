@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceFxDeviceUnregistration @ 0x140B068E8
+ * XREFs of PopDiagTraceFxDeviceUnregistration @ 0x140B08A18
  * Callers:
- *     PopFxUnregisterDevice @ 0x140B06628 (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x140B08758 (PopFxUnregisterDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDeviceUnregistration(__int64 a1, __int64 a2)
@@ -30,19 +30,11 @@ char __fastcall PopDiagTraceFxDeviceUnregistration(__int64 a1, __int64 a2)
 
   v8 = a1;
   PopFxAddLogEntry(a1, 0, 2, 0LL);
-  if ( byte_140E67628 != v3
-    && EtwEventEnabled(
-         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-         &POP_ETW_EVENT_DEVICE_UNREGISTRATION) )
+  if ( PopDiagHandleRegistered != v3 && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEVICE_UNREGISTRATION) )
   {
     UserData.Ptr = (ULONGLONG)&v8;
     *(_QWORD *)&UserData.Size = 8LL;
-    EtwWrite(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_EVENT_DEVICE_UNREGISTRATION,
-      0LL,
-      1u,
-      &UserData);
+    EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DEVICE_UNREGISTRATION, 0LL, 1u, &UserData);
   }
   _m_prefetchw((const void *)(a2 + 32));
   v4 = *(_DWORD *)(a2 + 32);
@@ -66,9 +58,9 @@ char __fastcall PopDiagTraceFxDeviceUnregistration(__int64 a1, __int64 a2)
     }
     if ( v6 )
     {
-      if ( (unsigned int)dword_140E07598 > 5 )
+      if ( (unsigned int)dword_140E07560 > 5 )
       {
-        LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+        LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
         if ( (_BYTE)v4 )
         {
           v13 = 2LL;
@@ -80,8 +72,8 @@ char __fastcall PopDiagTraceFxDeviceUnregistration(__int64 a1, __int64 a2)
           v9 = 0x1000000LL;
           v17 = 8LL;
           LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
-                         (__int64)&dword_140E07598,
-                         (unsigned __int8 *)byte_14004B355,
+                         (__int64)&dword_140E07560,
+                         (unsigned __int8 *)byte_14004B963,
                          0LL,
                          0LL,
                          5u,

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmParkSnapNodeStatistics @ 0x14027B69C
+ * XREFs of PpmParkSnapNodeStatistics @ 0x140230C2C
  * Callers:
- *     PpmCheckSnapAllUtility @ 0x140417640 (PpmCheckSnapAllUtility.c)
+ *     PpmCheckSnapAllUtility @ 0x1404073F0 (PpmCheckSnapAllUtility.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     PpmIdleSnapConcurrency @ 0x14027B2A8 (PpmIdleSnapConcurrency.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     PpmIdleSnapConcurrency @ 0x140230838 (PpmIdleSnapConcurrency.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void PpmParkSnapNodeStatistics()
@@ -21,12 +21,12 @@ void PpmParkSnapNodeStatistics()
   __int64 v4; // rdx
   __int64 v5; // rcx
   __int64 v6; // r8
-  char v7; // r14
-  unsigned __int64 v8; // rcx
-  __int64 v9; // rax
-  void *v10; // rcx
-  size_t v11; // r8
-  struct _KPRCB *CurrentPrcb; // rcx
+  __int64 v7; // r9
+  char v8; // r14
+  unsigned __int64 v9; // rcx
+  __int64 v10; // rax
+  void *v11; // rcx
+  size_t v12; // r8
   signed __int32 *SchedulerAssist; // r8
   signed __int32 v14; // eax
   signed __int32 v15; // ett
@@ -35,30 +35,29 @@ void PpmParkSnapNodeStatistics()
 
   for ( i = 0; i < (unsigned int)PpmParkNumNodes; ++i )
   {
-    v1 = PpmParkNodes + 1288LL * i;
+    v1 = PpmParkNodes + 1296LL * i;
     if ( *(_WORD *)(v1 + 10) )
     {
       v2 = *(_QWORD *)(v1 + 1104);
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
-      v7 = KeDisableInterrupts(v5, v4, v6);
+      v8 = KeDisableInterrupts(v5, v4, v6, v7);
       KxAcquireSpinLock((PKSPIN_LOCK)v2);
-      v8 = *(_QWORD *)(v2 + 16);
-      if ( PerformanceCounter.QuadPart > v8 )
+      v9 = *(_QWORD *)(v2 + 16);
+      if ( PerformanceCounter.QuadPart > v9 )
       {
-        v9 = *(unsigned int *)(v2 + 12);
+        v10 = *(unsigned int *)(v2 + 12);
         *(LARGE_INTEGER *)(v2 + 16) = PerformanceCounter;
-        *(_QWORD *)(v2 + 24) += PerformanceCounter.QuadPart - v8;
-        *(_QWORD *)(v2 + 8 * v9 + 328) += PerformanceCounter.QuadPart - v8;
+        *(_QWORD *)(v2 + 24) += PerformanceCounter.QuadPart - v9;
+        *(_QWORD *)(v2 + 8 * v10 + 328) += PerformanceCounter.QuadPart - v9;
       }
-      v10 = *(void **)(v1 + 1112);
-      v11 = 8LL * *(unsigned int *)(v1 + 1160);
+      v11 = *(void **)(v1 + 1112);
+      v12 = 8LL * *(unsigned int *)(v1 + 1160);
       *(_QWORD *)(v1 + 1136) = *(_QWORD *)(v2 + 24);
-      memmove(v10, (const void *)(v2 + 328), v11);
+      memmove(v11, (const void *)(v2 + 328), v12);
       KxReleaseSpinLock((volatile signed __int64 *)v2);
-      if ( v7 )
+      if ( v8 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
+        SchedulerAssist = (signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
         if ( SchedulerAssist )
         {
           _m_prefetchw(SchedulerAssist);
@@ -70,7 +69,7 @@ void PpmParkSnapNodeStatistics()
           }
           while ( v15 != v14 );
           if ( (v14 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick();
         }
         _enable();
       }
@@ -78,7 +77,7 @@ void PpmParkSnapNodeStatistics()
       {
         for ( j = 0; j < *(_BYTE *)(v1 + 12); ++j )
         {
-          v17 = *(_QWORD *)(v1 + 1280) + 640LL * j;
+          v17 = *(_QWORD *)(v1 + 1288) + 640LL * j;
           PpmIdleSnapConcurrency(*(PKSPIN_LOCK *)(v17 + 568), v17 + 576);
         }
       }

@@ -10,7 +10,7 @@
 
 __int64 __fastcall sub_1800D9420(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rax
+  _WORD *v4; // rax
   _QWORD *v5; // rbx
   _QWORD *v7; // rax
 
@@ -18,10 +18,10 @@ __int64 __fastcall sub_1800D9420(__int64 a1, __int64 a2)
     || (int)sub_1800D9270((unsigned __int16 *)a2, a2) >= 0 )
   {
     v4 = sub_1800D93DC(*(_WORD *)a2 + 2);
-    v5 = (_QWORD *)v4;
+    v5 = v4;
     if ( !v4 )
       return 3221225495LL;
-    sub_1800402E4((_WORD *)(v4 + 16), a2);
+    sub_1800402E4(v4 + 8, a2);
     v7 = *(_QWORD **)(a1 + 8);
     if ( *v7 != a1 )
       __fastfail(3u);

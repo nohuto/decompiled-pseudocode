@@ -1,20 +1,20 @@
 /*
- * XREFs of MmPurgeSection @ 0x14039CC74
+ * XREFs of MmPurgeSection @ 0x14039E9D4
  * Callers:
- *     CcPurgeCacheSection @ 0x14039B300 (CcPurgeCacheSection.c)
+ *     CcPurgeCacheSection @ 0x14039D060 (CcPurgeCacheSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiIncrementSubsectionViewCount @ 0x14030BE90 (MiIncrementSubsectionViewCount.c)
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiDecrementSubsections @ 0x14036E360 (MiDecrementSubsections.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiInsertUnusedSubsectionInternal @ 0x14036E724 (MiInsertUnusedSubsectionInternal.c)
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
- *     MiComputeDataFlushRange @ 0x1404866EC (MiComputeDataFlushRange.c)
- *     MiCanFileBeTruncatedInternal @ 0x1404ABAD4 (MiCanFileBeTruncatedInternal.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIncrementSubsectionViewCount @ 0x1402EDF10 (MiIncrementSubsectionViewCount.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiDecrementSubsections @ 0x140370100 (MiDecrementSubsections.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsectionInternal @ 0x1403704C4 (MiInsertUnusedSubsectionInternal.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
+ *     MiComputeDataFlushRange @ 0x140480064 (MiComputeDataFlushRange.c)
+ *     MiCanFileBeTruncatedInternal @ 0x1404A5164 (MiCanFileBeTruncatedInternal.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 char __fastcall MmPurgeSection(SECTION_OBJECT_POINTERS *a1, ULONG_PTR *a2, __int64 a3, char a4, _BYTE *a5)
@@ -130,7 +130,7 @@ LABEL_34:
   *(_DWORD *)(v10 + 56) &= ~4u;
   v22 = v20 + v19;
   if ( v22 )
-    v23 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v10 + 60) & 0x3FF));
+    v23 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v10 + 60) & 0x3FF));
   else
     v23 = 0LL;
   LOBYTE(v21) = v14;

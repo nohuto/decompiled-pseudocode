@@ -7,11 +7,11 @@
  *     RtlpExtendHeap @ 0x18001CBEC (RtlpExtendHeap.c)
  *     RtlpCreateSplitBlock @ 0x180020328 (RtlpCreateSplitBlock.c)
  *     RtlpInitializeHeapSegment @ 0x1800617A8 (RtlpInitializeHeapSegment.c)
- *     RtlpCoalesceHeap @ 0x18008C1C4 (RtlpCoalesceHeap.c)
+ *     RtlpCoalesceHeap @ 0x18008C1D4 (RtlpCoalesceHeap.c)
  * Callees:
  *     RtlpHeapFindListLookupEntry @ 0x18001C780 (RtlpHeapFindListLookupEntry.c)
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  *     RtlpHeapHandleError @ 0x180103D1C (RtlpHeapHandleError.c)
  */
 

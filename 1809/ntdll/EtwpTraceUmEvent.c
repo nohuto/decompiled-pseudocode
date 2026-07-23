@@ -6,7 +6,7 @@
  * Callees:
  *     EtwpRelogEvent @ 0x18004DAEC (EtwpRelogEvent.c)
  *     EtwpReserveTraceBuffer @ 0x18004E604 (EtwpReserveTraceBuffer.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     EtwpDemuxUmTraceHandle @ 0x18010F274 (EtwpDemuxUmTraceHandle.c)
@@ -136,14 +136,9 @@ LABEL_5:
       v44 = v17;
       v18 = &v40;
       if ( v16 )
-        LODWORD(v18) = 0;
+        v18 = 0LL;
       v6 = v32;
-      v19 = (char *)EtwpReserveTraceBuffer(
-                      (_DWORD)v32,
-                      v29,
-                      v17->CurrentIdealProcessor.Reserved,
-                      (_DWORD)v18,
-                      (__int64)&v39);
+      v19 = (char *)EtwpReserveTraceBuffer(v32, v29, v17->CurrentIdealProcessor.Reserved, v18, &v39);
       v20 = v19;
       v43 = v19;
       if ( v19 )

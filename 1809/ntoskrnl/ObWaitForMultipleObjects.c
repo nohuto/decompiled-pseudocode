@@ -1,8 +1,8 @@
 /*
- * XREFs of ObWaitForMultipleObjects @ 0x14058A3E0
+ * XREFs of ObWaitForMultipleObjects @ 0x14058B3E0
  * Callers:
- *     NtWaitForMultipleObjects32 @ 0x14058A1A0 (NtWaitForMultipleObjects32.c)
- *     NtWaitForMultipleObjects @ 0x14058A2B0 (NtWaitForMultipleObjects.c)
+ *     NtWaitForMultipleObjects32 @ 0x14058B1A0 (NtWaitForMultipleObjects32.c)
+ *     NtWaitForMultipleObjects @ 0x14058B2B0 (NtWaitForMultipleObjects.c)
  * Callees:
  *     ObpIncrPointerCountEx @ 0x140003BB0 (ObpIncrPointerCountEx.c)
  *     ExSlowReplenishHandleTableEntry @ 0x140003BE0 (ExSlowReplenishHandleTableEntry.c)
@@ -12,21 +12,21 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ExLockHandleTableEntry @ 0x140053220 (ExLockHandleTableEntry.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetKernelStackSwapEnable @ 0x140101CE0 (KeSetKernelStackSwapEnable.c)
- *     ExFastReplenishHandleTableEntry @ 0x140134B7C (ExFastReplenishHandleTableEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
- *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
- *     ExHandleLogBadReference @ 0x140319E14 (ExHandleLogBadReference.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
- *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140697864 (ExpBlockOnLockedHandleEntry.c)
+ *     ObpIsKernelHandle @ 0x140088EC8 (ObpIsKernelHandle.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetKernelStackSwapEnable @ 0x140101D60 (KeSetKernelStackSwapEnable.c)
+ *     ExFastReplenishHandleTableEntry @ 0x140134C4C (ExFastReplenishHandleTableEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     _alloca_probe @ 0x1401C5F20 (_alloca_probe.c)
+ *     ObpPushStackInfo @ 0x1402D3258 (ObpPushStackInfo.c)
+ *     ExHandleLogBadReference @ 0x14031A004 (ExHandleLogBadReference.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
+ *     ExpLookupHandleTableEntry @ 0x1405E9990 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140698A24 (ExpBlockOnLockedHandleEntry.c)
  */
 
 __int64 __fastcall ObWaitForMultipleObjects(

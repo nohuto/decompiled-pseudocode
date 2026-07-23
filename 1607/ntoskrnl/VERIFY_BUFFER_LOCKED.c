@@ -1,16 +1,16 @@
 /*
- * XREFs of VERIFY_BUFFER_LOCKED @ 0x140705EFC
+ * XREFs of VERIFY_BUFFER_LOCKED @ 0x140705F2C
  * Callers:
- *     VfBuildScatterGatherList @ 0x140706890 (VfBuildScatterGatherList.c)
- *     VfBuildScatterGatherListEx @ 0x140706B6C (VfBuildScatterGatherListEx.c)
- *     VfGetScatterGatherList @ 0x1407075F8 (VfGetScatterGatherList.c)
- *     VfGetScatterGatherListEx @ 0x140707934 (VfGetScatterGatherListEx.c)
- *     VfMapTransfer @ 0x140707CC0 (VfMapTransfer.c)
- *     VfMapTransferEx @ 0x140707E68 (VfMapTransferEx.c)
+ *     VfBuildScatterGatherList @ 0x1407068C0 (VfBuildScatterGatherList.c)
+ *     VfBuildScatterGatherListEx @ 0x140706B9C (VfBuildScatterGatherListEx.c)
+ *     VfGetScatterGatherList @ 0x140707628 (VfGetScatterGatherList.c)
+ *     VfGetScatterGatherListEx @ 0x140707964 (VfGetScatterGatherListEx.c)
+ *     VfMapTransfer @ 0x140707CF0 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x140707E98 (VfMapTransferEx.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     MmAreMdlPagesLocked @ 0x140701990 (MmAreMdlPagesLocked.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     MmAreMdlPagesLocked @ 0x1407019C0 (MmAreMdlPagesLocked.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 void __fastcall VERIFY_BUFFER_LOCKED(__int64 a1)

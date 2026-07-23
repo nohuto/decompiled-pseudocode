@@ -1,23 +1,23 @@
 /*
- * XREFs of SepInternalQuerySecurityAttributesTokenEx @ 0x1400A6AC8
+ * XREFs of SepInternalQuerySecurityAttributesTokenEx @ 0x1400A6A08
  * Callers:
- *     SeQuerySecurityAttributesTokenAccessInformation @ 0x140169B40 (SeQuerySecurityAttributesTokenAccessInformation.c)
- *     SeQuerySecurityAttributesToken @ 0x140625740 (SeQuerySecurityAttributesToken.c)
- *     NtQuerySecurityAttributesToken @ 0x140626040 (NtQuerySecurityAttributesToken.c)
- *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
+ *     SeQuerySecurityAttributesTokenAccessInformation @ 0x140169C40 (SeQuerySecurityAttributesTokenAccessInformation.c)
+ *     SeQuerySecurityAttributesToken @ 0x140626760 (SeQuerySecurityAttributesToken.c)
+ *     NtQuerySecurityAttributesToken @ 0x140627060 (NtQuerySecurityAttributesToken.c)
+ *     NtQueryInformationToken @ 0x14062B780 (NtQueryInformationToken.c)
  * Callees:
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x1400A6B70 (AuthzBasepQuerySecurityAttributesToken.c)
- *     SepDetermineGlobalTableCheckNeededForQuery @ 0x1400A72C4 (SepDetermineGlobalTableCheckNeededForQuery.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1400CC610 (AuthzBasepDuplicateSecurityAttributes.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9BD0 (SepGetSingletonEntryFromIndexNumber.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140181880 (AuthzBasepAllocateSecurityAttributesList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     SepGetProcUniqueLuidAndIndexFromToken @ 0x14030054C (SepGetProcUniqueLuidAndIndexFromToken.c)
- *     SepInternalFillNoAttribs @ 0x1403005F4 (SepInternalFillNoAttribs.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1400A6AB0 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     SepDetermineGlobalTableCheckNeededForQuery @ 0x1400A7204 (SepDetermineGlobalTableCheckNeededForQuery.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1400CC690 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9C50 (SepGetSingletonEntryFromIndexNumber.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1401819C0 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     SepGetProcUniqueLuidAndIndexFromToken @ 0x14030073C (SepGetProcUniqueLuidAndIndexFromToken.c)
+ *     SepInternalFillNoAttribs @ 0x1403007E4 (SepInternalFillNoAttribs.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepInternalQuerySecurityAttributesTokenEx(

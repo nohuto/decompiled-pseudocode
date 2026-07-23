@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDoubleLockMdlPage @ 0x1402F147C
+ * XREFs of MiDoubleLockMdlPage @ 0x1402F170C
  * Callers:
- *     MiMapLockedPagesInUserSpace @ 0x140748574 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140748764 (MiMapLockedPagesInUserSpace.c)
  * Callees:
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDoubleLockMdlPage(__int64 a1)
@@ -21,10 +21,13 @@ __int64 __fastcall MiDoubleLockMdlPage(__int64 a1)
   v2 = (unsigned __int8)MiLockPageInline(a1);
   locked = MiAddLockedPageCharge(a1, 0);
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

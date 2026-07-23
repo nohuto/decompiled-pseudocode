@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSvmServicePageFault @ 0x14022F604
+ * XREFs of ExpSvmServicePageFault @ 0x14022F430
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned int a3)

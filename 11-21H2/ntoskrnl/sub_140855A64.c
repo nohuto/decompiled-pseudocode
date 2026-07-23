@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140855A64 @ 0x140855A64
  * Callers:
- *     ExpSetKernelDataProtection @ 0x1406A71F0 (ExpSetKernelDataProtection.c)
+ *     ntoskrnl_20 @ 0x1406A71F0 (ntoskrnl_20.c)
  * Callees:
  *     sub_140855AB0 @ 0x140855AB0 (sub_140855AB0.c)
  */

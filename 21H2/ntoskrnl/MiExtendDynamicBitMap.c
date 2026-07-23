@@ -1,14 +1,14 @@
 /*
- * XREFs of MiExtendDynamicBitMap @ 0x1403C984C
+ * XREFs of MiExtendDynamicBitMap @ 0x1403C99EC
  * Callers:
- *     MiObtainDynamicVa @ 0x1402B3808 (MiObtainDynamicVa.c)
- *     MiMarkSystemVaAllocated @ 0x14053DC70 (MiMarkSystemVaAllocated.c)
+ *     MiObtainDynamicVa @ 0x1402319B8 (MiObtainDynamicVa.c)
+ *     MiMarkSystemVaAllocated @ 0x14053DEB0 (MiMarkSystemVaAllocated.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSplitBitmapPages @ 0x1402B40F0 (MiSplitBitmapPages.c)
- *     MiReclaimSystemVa @ 0x1402B4188 (MiReclaimSystemVa.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSplitBitmapPages @ 0x1402322A0 (MiSplitBitmapPages.c)
+ *     MiReclaimSystemVa @ 0x140232338 (MiReclaimSystemVa.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -158,7 +158,7 @@ LABEL_34:
       }
     }
     __writecr8(v27);
-    if ( a1 == &qword_140C4E1B8 )
+    if ( a1 == &qword_140C4E1F8 )
       MiReclaimSystemVa(1);
   }
   return 0LL;

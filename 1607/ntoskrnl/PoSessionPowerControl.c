@@ -1,17 +1,17 @@
 /*
- * XREFs of PoSessionPowerControl @ 0x140674D68
+ * XREFs of PoSessionPowerControl @ 0x140674E4C
  * Callers:
- *     TtmpSessionPowerControl @ 0x140678FC0 (TtmpSessionPowerControl.c)
+ *     TtmpSessionPowerControl @ 0x1406790A4 (TtmpSessionPowerControl.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
- *     PopBlockSessionSwitch @ 0x14066FD9C (PopBlockSessionSwitch.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x14066FE80 (PopBlockSessionSwitch.c)
  */
 
-__int64 __fastcall PoSessionPowerControl(unsigned __int8 a1, int a2, int a3)
+ULONG __fastcall PoSessionPowerControl(unsigned __int8 a1, int a2, int a3)
 {
   _QWORD v6[6]; // [rsp+20h] [rbp-30h] BYREF
-  int v7; // [rsp+70h] [rbp+20h] BYREF
+  ULONG v7; // [rsp+70h] [rbp+20h] BYREF
   int v8; // [rsp+80h] [rbp+30h] BYREF
   int v9; // [rsp+88h] [rbp+38h] BYREF
   int v10; // [rsp+8Ch] [rbp+3Ch]

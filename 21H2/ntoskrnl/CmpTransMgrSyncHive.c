@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpTransMgrSyncHive @ 0x14076901C
+ * XREFs of CmpTransMgrSyncHive @ 0x1407691DC
  * Callers:
- *     CmpTransMgrPrepare @ 0x140768D04 (CmpTransMgrPrepare.c)
+ *     CmpTransMgrPrepare @ 0x140768EC4 (CmpTransMgrPrepare.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     HvpMarkDirty @ 0x140708560 (HvpMarkDirty.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     HvpMarkDirty @ 0x14071F940 (HvpMarkDirty.c)
  */
 
-__int64 __fastcall CmpTransMgrSyncHive(ULONG_PTR a1)
+__int64 __fastcall CmpTransMgrSyncHive(ULONG_PTR BugCheckParameter2)
 {
   volatile signed __int64 *v2; // rdi
   char v3; // bl
@@ -21,26 +21,26 @@ __int64 __fastcall CmpTransMgrSyncHive(ULONG_PTR a1)
   char v7; // cl
 
   CmpLockRegistry();
-  v2 = (volatile signed __int64 *)(a1 + 72);
-  ExAcquirePushLockExclusiveEx(a1 + 72, 0LL);
-  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 64) + 144LL) & 1) != 0 )
+  v2 = (volatile signed __int64 *)(BugCheckParameter2 + 72);
+  ExAcquirePushLockExclusiveEx(BugCheckParameter2 + 72, 0LL);
+  if ( (*(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 144LL) & 1) != 0 )
     goto LABEL_2;
-  ExAcquirePushLockExclusiveEx(a1 + 80, 0LL);
-  v6 = HvpMarkDirty(a1, 0, 0x20u, 0);
-  v7 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 80), 0xFFFFFFFFFFFFFFFFuLL);
+  ExAcquirePushLockExclusiveEx(BugCheckParameter2 + 80, 0LL);
+  v6 = HvpMarkDirty(BugCheckParameter2, 0, 32, 0);
+  v7 = _InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter2 + 80), 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
-    ExfTryToWakePushLock(a1 + 80);
-  KeAbPostRelease(a1 + 80);
+    ExfTryToWakePushLock(BugCheckParameter2 + 80);
+  KeAbPostRelease(BugCheckParameter2 + 80);
   if ( v6 )
   {
-    *(_DWORD *)(*(_QWORD *)(a1 + 64) + 144LL) |= 1u;
+    *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 144LL) |= 1u;
 LABEL_2:
     v3 = _InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v3 & 2) != 0 && (v3 & 4) == 0 )
-      ExfTryToWakePushLock(a1 + 72);
-    KeAbPostRelease(a1 + 72);
+      ExfTryToWakePushLock(BugCheckParameter2 + 72);
+    KeAbPostRelease(BugCheckParameter2 + 72);
     CmpUnlockRegistry();
-    v4 = CmpFlushHive(a1, 0);
+    v4 = CmpFlushHive(BugCheckParameter2, 0);
     if ( v4 < 0 )
       return (unsigned int)-1073741670;
     return (unsigned int)v4;

@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrSetDllDirectory @ 0x180026100
+ * XREFs of LdrSetDllDirectory @ 0x180052B00
  * Callers:
- *     LdrpInitializePolicy @ 0x1800F8570 (LdrpInitializePolicy.c)
+ *     LdrpInitializePolicy @ 0x1800F30E0 (LdrpInitializePolicy.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlpAbFreeKernelEntry @ 0x180019D70 (RtlpAbFreeKernelEntry.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlCreateUnicodeString @ 0x180028050 (RtlCreateUnicodeString.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     wcschr @ 0x1801276A0 (wcschr.c)
- *     ZwAlertThreadByThreadIdEx @ 0x180162AC0 (ZwAlertThreadByThreadIdEx.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlpAbFreeKernelEntry @ 0x180046770 (RtlpAbFreeKernelEntry.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlCreateUnicodeString @ 0x180054A50 (RtlCreateUnicodeString.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     wcschr @ 0x1801258D0 (wcschr.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x180160E80 (ZwAlertThreadByThreadIdEx.c)
  */
 
-__int64 __fastcall LdrSetDllDirectory(__int64 a1)
+NTSTATUS __cdecl LdrSetDllDirectory(PUNICODE_STRING DllDirectory)
 {
-  const wchar_t *v2; // rcx
+  wchar_t *Buffer; // rcx
   char *SchedulerSharedDataSlot; // rdx
   unsigned int i; // r8d
   char *v6; // rcx
@@ -26,8 +26,8 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
   char *v12; // rdx
   unsigned int k; // r8d
   char *v14; // rcx
-  __int64 v15; // rbx
-  __int64 v16; // rdi
+  _QWORD *v15; // rbx
+  _QWORD *v16; // rdi
   signed __int64 v17; // rax
   char *v18; // rdx
   unsigned int m; // ecx
@@ -37,7 +37,7 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
   signed __int64 v23; // rcx
   signed __int64 v24; // rdx
   signed __int64 v25; // rtt
-  __int64 *v26; // rsi
+  _RTL_SRWLOCK *v26; // rsi
   _QWORD *v27; // r9
   __int64 v28; // r8
   __int64 v29; // rax
@@ -46,7 +46,7 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
   signed __int64 v32; // rcx
   signed __int64 v33; // rdx
   signed __int64 v34; // rtt
-  __int64 *v35; // r14
+  _RTL_SRWLOCK *v35; // r14
   _QWORD *v36; // r9
   __int64 v37; // r8
   __int64 v38; // rax
@@ -59,22 +59,22 @@ __int64 __fastcall LdrSetDllDirectory(__int64 a1)
   signed __int64 v45; // rax
   _QWORD *v46; // rax
   _QWORD *v47; // rax
-  __int128 v48; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v49; // [rsp+30h] [rbp-28h]
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  UNICODE_STRING v49; // [rsp+30h] [rbp-28h]
 
-  v48 = 0LL;
+  DestinationString = 0LL;
   if ( (LdrpPolicyBits & 4) == 0 )
-    return 3221225485LL;
-  v2 = *(const wchar_t **)(a1 + 8);
-  if ( v2 )
+    return -1073741811;
+  Buffer = DllDirectory->Buffer;
+  if ( Buffer )
   {
-    if ( !wcschr(v2, 0x3Bu) )
+    if ( !wcschr(Buffer, 0x3Bu) )
     {
-      if ( !(unsigned __int8)RtlCreateUnicodeString(&v48, *(_QWORD *)(a1 + 8)) )
-        return 3221225495LL;
+      if ( !RtlCreateUnicodeString(&DestinationString, DllDirectory->Buffer) )
+        return -1073741801;
       goto LABEL_6;
     }
-    return 3221225485LL;
+    return -1073741811;
   }
 LABEL_6:
   SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -95,8 +95,8 @@ LABEL_6:
   if ( v7 )
     RtlpAcquireSRWLockExclusiveContended(&LdrpDllDirectoryLock);
   v49 = LdrpDllDirectory;
-  LdrpDllDirectory = v48;
-  v8 = _InterlockedCompareExchange64(&LdrpDllDirectoryLock, 0LL, 1LL);
+  LdrpDllDirectory = DestinationString;
+  v8 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpDllDirectoryLock, 0LL, 1LL);
   if ( v8 != 1 )
   {
     do
@@ -107,7 +107,7 @@ LABEL_6:
         v22 = -1LL;
       v24 = v8 + v22;
       v25 = v8;
-      v8 = _InterlockedCompareExchange64(&LdrpDllDirectoryLock, v24, v8);
+      v8 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpDllDirectoryLock, v24, v8);
     }
     while ( v25 != v8 );
     if ( v23 == 2 )
@@ -117,7 +117,7 @@ LABEL_6:
       {
         while ( (v24 & 1) != 0 )
         {
-          v44 = _InterlockedCompareExchange64(&LdrpDllDirectoryLock, v24 - 4, v24);
+          v44 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpDllDirectoryLock, v24 - 4, v24);
           v21 = v24 == v44;
           v24 = v44;
           if ( v21 )
@@ -145,7 +145,7 @@ LABEL_6:
             break;
         }
         v26 = 0LL;
-        v30 = _InterlockedCompareExchange64(&LdrpDllDirectoryLock, 0LL, v24);
+        v30 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpDllDirectoryLock, 0LL, v24);
         v21 = v24 == v30;
         v24 = v30;
         if ( v21 )
@@ -153,7 +153,7 @@ LABEL_6:
       }
       *(_QWORD *)((v24 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v29;
       *(_QWORD *)(v28 + 16) = 0LL;
-      _InterlockedAnd64(&LdrpDllDirectoryLock, 0xFFFFFFFFFFFFFFFBuLL);
+      _InterlockedAnd64((volatile signed __int64 *)&LdrpDllDirectoryLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_79:
@@ -204,11 +204,11 @@ LABEL_15:
   v7 = _interlockedbittestandset64((volatile signed __int32 *)&RtlpCachedPathLock, 0LL);
   if ( v7 )
     RtlpAcquireSRWLockExclusiveContended(&RtlpCachedPathLock);
-  v15 = RtlpDllSearchPath;
+  v15 = (_QWORD *)RtlpDllSearchPath;
   RtlpDllSearchPath = 0LL;
   if ( v15 )
   {
-    v21 = (*(_QWORD *)(v15 + 80))-- == 1LL;
+    v21 = v15[10]-- == 1LL;
     if ( !v21 )
       v15 = 0LL;
   }
@@ -216,11 +216,11 @@ LABEL_15:
   {
     v15 = 0LL;
   }
-  v16 = RtlpDllSearchPathWithOptions;
+  v16 = (_QWORD *)RtlpDllSearchPathWithOptions;
   RtlpDllSearchPathWithOptions = 0LL;
   if ( v16 )
   {
-    v21 = (*(_QWORD *)(v16 + 80))-- == 1LL;
+    v21 = v16[10]-- == 1LL;
     if ( !v21 )
       v16 = 0LL;
   }
@@ -228,7 +228,7 @@ LABEL_15:
   {
     v16 = 0LL;
   }
-  v17 = _InterlockedCompareExchange64(&RtlpCachedPathLock, 0LL, 1LL);
+  v17 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpCachedPathLock, 0LL, 1LL);
   if ( v17 != 1 )
   {
     do
@@ -239,7 +239,7 @@ LABEL_15:
         v31 = -1LL;
       v33 = v17 + v31;
       v34 = v17;
-      v17 = _InterlockedCompareExchange64(&RtlpCachedPathLock, v33, v17);
+      v17 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpCachedPathLock, v33, v17);
     }
     while ( v34 != v17 );
     if ( v32 == 2 )
@@ -249,7 +249,7 @@ LABEL_15:
       {
         while ( (v33 & 1) != 0 )
         {
-          v45 = _InterlockedCompareExchange64(&RtlpCachedPathLock, v33 - 4, v33);
+          v45 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpCachedPathLock, v33 - 4, v33);
           v21 = v33 == v45;
           v33 = v45;
           if ( v21 )
@@ -277,7 +277,7 @@ LABEL_15:
             break;
         }
         v35 = 0LL;
-        v39 = _InterlockedCompareExchange64(&RtlpCachedPathLock, 0LL, v33);
+        v39 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpCachedPathLock, 0LL, v33);
         v21 = v33 == v39;
         v33 = v39;
         if ( v21 )
@@ -285,7 +285,7 @@ LABEL_15:
       }
       *(_QWORD *)((v33 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v38;
       *(_QWORD *)(v37 + 16) = 0LL;
-      _InterlockedAnd64(&RtlpCachedPathLock, 0xFFFFFFFFFFFFFFFBuLL);
+      _InterlockedAnd64((volatile signed __int64 *)&RtlpCachedPathLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_84:
@@ -319,11 +319,11 @@ LABEL_43:
       }
     }
   }
-  if ( *((_QWORD *)&v49 + 1) )
-    RtlpSysVolFree(*((__int64 *)&v49 + 1));
+  if ( v49.Buffer )
+    RtlpSysVolFree(v49.Buffer);
   if ( v15 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v15);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
   if ( v16 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v16);
-  return 1LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v16);
+  return 1;
 }

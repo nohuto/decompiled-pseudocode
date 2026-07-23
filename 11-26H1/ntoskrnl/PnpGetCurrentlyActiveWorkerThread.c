@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpGetCurrentlyActiveWorkerThread @ 0x1405DA010
+ * XREFs of PnpGetCurrentlyActiveWorkerThread @ 0x1405DC810
  * Callers:
- *     PnpBugcheckPowerTimeout @ 0x1405D9FA4 (PnpBugcheckPowerTimeout.c)
+ *     PnpBugcheckPowerTimeout @ 0x1405DC7A4 (PnpBugcheckPowerTimeout.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlLookupElementGenericTableFullAvl @ 0x14041CC60 (RtlLookupElementGenericTableFullAvl.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x1404144B0 (RtlLookupElementGenericTableFullAvl.c)
  */
 
 __int64 __fastcall PnpGetCurrentlyActiveWorkerThread(_QWORD *a1)

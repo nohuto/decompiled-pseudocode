@@ -1,11 +1,11 @@
 /*
- * XREFs of VfThunkAddDriverThunks @ 0x1409D8830
+ * XREFs of VfThunkAddDriverThunks @ 0x1409D9830
  * Callers:
- *     MmAddVerifierThunks @ 0x1408C65B0 (MmAddVerifierThunks.c)
+ *     MmAddVerifierThunks @ 0x1408C6710 (MmAddVerifierThunks.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
- *     ViThunkCreateThunkTable @ 0x1409D8F84 (ViThunkCreateThunkTable.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     VfDriverLock @ 0x1409C35B8 (VfDriverLock.c)
+ *     ViThunkCreateThunkTable @ 0x1409D9F84 (ViThunkCreateThunkTable.c)
  */
 
 __int64 __fastcall VfThunkAddDriverThunks(void *a1)
@@ -20,14 +20,14 @@ __int64 __fastcall VfThunkAddDriverThunks(void *a1)
   VfDriverLock();
   VfThunksExtended = 1;
   _InterlockedOr(v4, 0);
-  v3 = (_QWORD *)qword_140C1D0C8;
+  v3 = (_QWORD *)qword_140C1D518;
   ++ViActiveVerifierThunks;
-  if ( *(__int64 **)qword_140C1D0C8 != &ViVerifierDriverAddedThunkListHead )
+  if ( *(__int64 **)qword_140C1D518 != &ViVerifierDriverAddedThunkListHead )
     __fastfail(3u);
   *ThunkTable = &ViVerifierDriverAddedThunkListHead;
   ThunkTable[1] = v3;
   *v3 = ThunkTable;
-  qword_140C1D0C8 = (__int64)ThunkTable;
+  qword_140C1D518 = (__int64)ThunkTable;
   ViDriversLoadLockOwner = 0LL;
   KeReleaseMutex(&ViDriversLoadLock, 0);
   return 0LL;

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPlUnregisterDevice @ 0x1405A1E30
+ * XREFs of PopPlUnregisterDevice @ 0x1405A2320
  * Callers:
- *     PopFxUnregisterDevice @ 0x140985DC4 (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x140985FC4 (PopFxUnregisterDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlCalculateDevicePowerDraw @ 0x1405A11A4 (PopPlCalculateDevicePowerDraw.c)
- *     PopPlPublishSystemPowerChange @ 0x1405A15E8 (PopPlPublishSystemPowerChange.c)
- *     PopPlUnregisterComponent @ 0x1405A1D84 (PopPlUnregisterComponent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x1405A1694 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x1405A1AD8 (PopPlPublishSystemPowerChange.c)
+ *     PopPlUnregisterComponent @ 0x1405A2274 (PopPlUnregisterComponent.c)
  */
 
 void __fastcall PopPlUnregisterDevice(__int64 a1)
@@ -106,7 +106,7 @@ void __fastcall PopPlUnregisterDevice(__int64 a1)
       v45 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C03950,
-        (unsigned __int8 *)byte_140032609,
+        (unsigned __int8 *)byte_140032531,
         0LL,
         0LL,
         9u,
@@ -119,10 +119,13 @@ void __fastcall PopPlUnregisterDevice(__int64 a1)
     *(_QWORD *)(a1 + 1184) = 0LL;
     v13 = *(unsigned __int8 *)(v3 + 24);
     KxReleaseSpinLock((volatile signed __int64 *)(v3 + 16));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v13 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -19,19 +19,19 @@ void *__cdecl bsearch(
         _CoreCrtNonSecureSearchSortCompareFunction CompareFunction)
 {
   char *v5; // ebx
-  size_t v6; // edi
+  unsigned int v6; // edi
   char *v7; // esi
-  size_t v8; // eax
+  unsigned int v8; // eax
   char v9; // cl
   int v10; // eax
   int v12; // [esp+Ch] [ebp-Ch]
-  size_t v13; // [esp+10h] [ebp-8h]
+  unsigned int v13; // [esp+10h] [ebp-8h]
   char *v14; // [esp+14h] [ebp-4h]
 
   v5 = (char *)Base;
   v6 = NumOfElements;
-  v7 = (char *)Base + SizeOfElements * (NumOfElements - 1);
-  if ( (Base || !NumOfElements) && SizeOfElements && CompareFunction )
+  v7 = (char *)Base + HIDWORD(NumOfElements) * (NumOfElements - 1);
+  if ( (Base || !(_DWORD)NumOfElements) && HIDWORD(NumOfElements) && (_DWORD)SizeOfElements )
   {
     while ( 1 )
     {
@@ -43,25 +43,25 @@ void *__cdecl bsearch(
       {
         if ( !v6 )
           return 0;
-        return CompareFunction(Key, v5) == 0 ? v5 : 0;
+        return ((int (__cdecl *)(const void *, char *))SizeOfElements)(Key, v5) == 0 ? v5 : 0;
       }
       v9 = v6;
       v6 = v8 - 1;
       v12 = v9 & 1;
       if ( (v9 & 1) == 0 )
         --v8;
-      v14 = &v5[SizeOfElements * v8];
-      v10 = CompareFunction(Key, v14);
+      v14 = &v5[HIDWORD(NumOfElements) * v8];
+      v10 = ((int (__cdecl *)(const void *, char *))SizeOfElements)(Key, v14);
       if ( !v10 )
         return v14;
       if ( v10 >= 0 )
         break;
-      v7 = &v14[-SizeOfElements];
+      v7 = &v14[-HIDWORD(NumOfElements)];
       if ( v12 )
 LABEL_14:
         v6 = v13;
     }
-    v5 = &v14[SizeOfElements];
+    v5 = &v14[HIDWORD(NumOfElements)];
     goto LABEL_14;
   }
   _invalid_parameter();

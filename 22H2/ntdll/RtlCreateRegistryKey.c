@@ -7,17 +7,17 @@
  *     NtClose @ 0x18009D6C0 (NtClose.c)
  */
 
-__int64 __fastcall RtlCreateRegistryKey(int a1, _WORD *a2)
+NTSTATUS __cdecl RtlCreateRegistryKey(ULONG RelativeTo, PWSTR Path)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   HANDLE Handle; // [rsp+40h] [rbp+18h] BYREF
 
-  result = RtlpGetRegistryHandle(a1, a2, 1, &Handle);
-  if ( (int)result >= 0 )
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 1, &Handle);
+  if ( result >= 0 )
   {
-    if ( (a1 & 0x40000000) == 0 )
+    if ( (RelativeTo & 0x40000000) == 0 )
       NtClose(Handle);
-    return 0LL;
+    return 0;
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmGetObjectCount @ 0x14062F8D8
+ * XREFs of PiDmGetObjectCount @ 0x14062F98C
  * Callers:
- *     PiDqQueryAppendActionEntry @ 0x14048C88C (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryAppendActionEntry @ 0x14048CEA0 (PiDqQueryAppendActionEntry.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlNumberGenericTableElementsAvl @ 0x140087424 (RtlNumberGenericTableElementsAvl.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1404FF308 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x14050157C (PiDmObjectManagerAcquireSharedLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x14010B6FC (RtlNumberGenericTableElementsAvl.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1404E2298 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1404E450C (PiDmObjectManagerAcquireSharedLock.c)
  */
 
 __int64 __fastcall PiDmGetObjectCount(int a1)

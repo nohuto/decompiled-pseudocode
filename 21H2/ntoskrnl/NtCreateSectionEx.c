@@ -1,24 +1,33 @@
 /*
- * XREFs of NtCreateSectionEx @ 0x1408C79F0
+ * XREFs of NtCreateSectionEx @ 0x1408C7B50
  * Callers:
  *     <none>
  * Callees:
- *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
+ *     MiCreateSectionCommon @ 0x14071E810 (MiCreateSectionCommon.c)
  */
 
-__int64 __fastcall NtCreateSectionEx(
-        unsigned __int64 a1,
-        ACCESS_MASK a2,
-        int a3,
-        __int64 *a4,
-        int a5,
-        int a6,
-        __int64 a7,
-        volatile void *Address,
-        ULONGLONG a9)
+NTSTATUS __cdecl NtCreateSectionEx(
+        PHANDLE SectionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PLARGE_INTEGER MaximumSize,
+        ULONG SectionPageProtection,
+        ULONG AllocationAttributes,
+        HANDLE FileHandle,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   ULONGLONG ullMultiplicand; // [rsp+40h] [rbp-18h]
 
-  LODWORD(ullMultiplicand) = a9;
-  return MiCreateSectionCommon(a1, a2, a3, a4, a5, a6, a7, Address, ullMultiplicand);
+  LODWORD(ullMultiplicand) = ExtendedParameterCount;
+  return MiCreateSectionCommon(
+           (unsigned __int64)SectionHandle,
+           DesiredAccess,
+           (int)ObjectAttributes,
+           (__int64 *)MaximumSize,
+           SectionPageProtection,
+           AllocationAttributes,
+           (__int64)FileHandle,
+           ExtendedParameters,
+           ullMultiplicand);
 }

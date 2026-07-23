@@ -1,15 +1,15 @@
 /*
- * XREFs of MiExtendDynamicBitMap @ 0x1403AAA60
+ * XREFs of MiExtendDynamicBitMap @ 0x1403AAC40
  * Callers:
  *     MiObtainDynamicVa @ 0x140211044 (MiObtainDynamicVa.c)
- *     MiMarkSystemVaAllocated @ 0x1406372B0 (MiMarkSystemVaAllocated.c)
+ *     MiMarkSystemVaAllocated @ 0x140637800 (MiMarkSystemVaAllocated.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x14020B1E8 (MiSplitBitmapPages.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlClearBitsEx @ 0x14028BB20 (RtlClearBitsEx.c)
- *     MiReclaimSystemVa @ 0x1403677BC (MiReclaimSystemVa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x14028BDB0 (RtlClearBitsEx.c)
+ *     MiReclaimSystemVa @ 0x14036795C (MiReclaimSystemVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __int64 a3, int a4, int a5)
@@ -52,10 +52,10 @@ __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __in
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_18;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_18;
     if ( CurrentIrql > 0xFu )
       goto LABEL_18;
@@ -112,8 +112,8 @@ __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __in
         return 1LL;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( !KiIrqlFlags
-        || (v23 = KeGetCurrentIrql(), (KiIrqlFlags & 1) == 0)
+      if ( !(_DWORD)KiIrqlFlags
+        || (v23 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) == 0)
         || v23 > 0xFu
         || LockHandle.OldIrql > 0xFu
         || v23 < 2u
@@ -138,10 +138,10 @@ LABEL_34:
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v27 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v30 = v29->SchedulerAssist;

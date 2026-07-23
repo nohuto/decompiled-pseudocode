@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmPostProcessMediaBuffering @ 0x140946160
+ * XREFs of PpmPostProcessMediaBuffering @ 0x1409C1AD0
  * Callers:
- *     PpmApplyProfile @ 0x140945C68 (PpmApplyProfile.c)
+ *     PpmApplyProfile @ 0x1409C15D8 (PpmApplyProfile.c)
  * Callees:
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     PoCopyDeepIdleMask @ 0x1403EDFE0 (PoCopyDeepIdleMask.c)
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     PpmCheckApplyResetNotification @ 0x1404BBD38 (PpmCheckApplyResetNotification.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     PoCopyDeepIdleMask @ 0x140452B10 (PoCopyDeepIdleMask.c)
+ *     PpmCheckApplyResetNotification @ 0x1404B5518 (PpmCheckApplyResetNotification.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 int PpmPostProcessMediaBuffering()
@@ -28,7 +28,7 @@ int PpmPostProcessMediaBuffering()
     PoCopyDeepIdleMask(&v1.Count);
     v2 = 2097153LL;
     memset_0(v3, 0, 0x100uLL);
-    result = RtlSubtractAffinityEx((struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister, &v1, (__int64)&v2);
+    result = RtlSubtractAffinityEx((struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister, &v1, (__int64)&v2);
     if ( result )
       return PopExecuteOnTargetProcessors((__int64)&v2, (__int64)PpmResetInterruptRate, 0LL, 0LL);
   }

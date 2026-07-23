@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAgeWorkingSetVpabCallback @ 0x140314D30
+ * XREFs of MiAgeWorkingSetVpabCallback @ 0x140316D60
  * Callers:
  *     <none>
  * Callees:
- *     MiAgePteWorker @ 0x1402FF060 (MiAgePteWorker.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiAgePteWorker @ 0x1402E10E0 (MiAgePteWorker.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiAgeWorkingSetVpabCallback(

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVadBitToUserVa @ 0x1406FB708
+ * XREFs of MiVadBitToUserVa @ 0x1406FB918
  * Callers:
- *     MiClearVadCellBits @ 0x14028AAD0 (MiClearVadCellBits.c)
+ *     MiClearVadCellBits @ 0x14028AD60 (MiClearVadCellBits.c)
  * Callees:
  *     <none>
  */

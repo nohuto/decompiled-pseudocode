@@ -1,37 +1,37 @@
 /*
- * XREFs of BapdpMarshallBootDataToRegistry @ 0x1406CA6B8
+ * XREFs of BapdpMarshallBootDataToRegistry @ 0x1406CE6E8
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     RtlIntegerToUnicodeString @ 0x14096B330 (RtlIntegerToUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x140A3EB50 (RtlStringFromGUIDEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     RtlIntegerToUnicodeString @ 0x14097BC70 (RtlIntegerToUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x1409FA570 (RtlStringFromGUIDEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void BapdpMarshallBootDataToRegistry()
 {
-  __int64 *v0; // rbx
-  __int64 *v1; // rax
+  struct _KTHREAD *Flink; // rbx
+  struct _KTHREAD *v1; // rax
   unsigned int v2; // edi
-  __int64 v3; // rdx
+  struct _LIST_ENTRY *Blink; // rdx
   unsigned int v4; // ecx
   __int64 v5; // rcx
   unsigned int v6; // r14d
   _QWORD *Pool2; // rsi
-  __int64 v8; // rdx
+  struct _LIST_ENTRY *v8; // rdx
   __int64 v9; // rax
   __int64 v10; // rax
   unsigned int v11; // ebx
-  UNICODE_STRING **v12; // r15
-  UNICODE_STRING *v13; // rax
-  UNICODE_STRING v14; // xmm0
+  GUID **v12; // r15
+  GUID *v13; // rax
+  GUID v14; // xmm0
   ULONG v15; // r13d
   __int64 v16; // r12
   char *v17; // r14
@@ -43,32 +43,32 @@ void BapdpMarshallBootDataToRegistry()
   HANDLE KeyHandle; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE DestinationString; // [rsp+60h] [rbp-A8h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+68h] [rbp-A0h] BYREF
-  _QWORD v26[2]; // [rsp+78h] [rbp-90h] BYREF
+  UNICODE_STRING GuidString; // [rsp+78h] [rbp-90h] BYREF
   UNICODE_STRING String; // [rsp+88h] [rbp-80h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-70h] BYREF
   char v29; // [rsp+C8h] [rbp-40h] BYREF
 
-  v0 = (__int64 *)qword_140E622C0;
+  Flink = (struct _KTHREAD *)stru_140E62450.Header.WaitListHead.Flink;
   Handle = (HANDLE)0x43F585FA729AF26ELL;
-  v1 = (__int64 *)qword_140E622C0;
+  v1 = (struct _KTHREAD *)stru_140E62450.Header.WaitListHead.Flink;
   v2 = 0;
   v22 = 0x55C1EB7445F20CB8LL;
   KeyHandle = 0LL;
   DestinationString = 0LL;
-  if ( qword_140E622C0 )
+  if ( stru_140E62450.Header.WaitListHead.Flink )
   {
     do
     {
-      if ( v1 == &qword_140E622C0 )
+      if ( v1 == (struct _KTHREAD *)&stru_140E62450.Header.WaitListHead )
         break;
-      v3 = v1[2];
-      v1 = (__int64 *)*v1;
-      v4 = *(_DWORD *)(v3 + 32);
+      Blink = v1->Header.WaitListHead.Blink;
+      v1 = *(struct _KTHREAD **)&v1->Header.Lock;
+      v4 = (unsigned int)Blink[2].Flink;
       if ( v4 && v4 <= 2 )
       {
-        v5 = *(_QWORD *)(v3 + 16) - (_QWORD)Handle;
+        v5 = (char *)Blink[1].Flink - (char *)Handle;
         if ( !v5 )
-          v5 = *(_QWORD *)(v3 + 24) - v22;
+          v5 = (__int64)Blink[1].Blink - v22;
         if ( !v5 )
           ++v2;
       }
@@ -80,15 +80,15 @@ void BapdpMarshallBootDataToRegistry()
       Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
       if ( Pool2 )
       {
-        while ( v0 != &qword_140E622C0 )
+        while ( Flink != (struct _KTHREAD *)&stru_140E62450.Header.WaitListHead )
         {
-          v8 = v0[2];
-          v0 = (__int64 *)*v0;
-          if ( (unsigned int)(*(_DWORD *)(v8 + 32) - 1) <= 1 )
+          v8 = Flink->Header.WaitListHead.Blink;
+          Flink = *(struct _KTHREAD **)&Flink->Header.Lock;
+          if ( (unsigned int)(LODWORD(v8[2].Flink) - 1) <= 1 )
           {
-            v9 = *(_QWORD *)(v8 + 16) - (_QWORD)Handle;
+            v9 = (char *)v8[1].Flink - (char *)Handle;
             if ( !v9 )
-              v9 = *(_QWORD *)(v8 + 24) - v22;
+              v9 = (__int64)v8[1].Blink - v22;
             if ( !v9 )
             {
               v10 = v6++;
@@ -127,7 +127,7 @@ LABEL_40:
         if ( ZwCreateKey(&DestinationString, 0x6001Fu, &ObjectAttributes, 0, 0LL, 1u, 0LL) >= 0 )
         {
           v11 = 0;
-          v12 = (UNICODE_STRING **)Pool2;
+          v12 = (GUID **)Pool2;
           do
           {
             v13 = *v12;
@@ -135,14 +135,14 @@ LABEL_40:
             if ( v13 )
             {
               v14 = *v13;
-              v26[0] = 5111808LL;
-              DestinationString_8 = v14;
-              v26[1] = &v29;
+              *(_QWORD *)&GuidString.Length = 5111808LL;
+              DestinationString_8 = (UNICODE_STRING)v14;
+              GuidString.Buffer = (wchar_t *)&v29;
               memset(&ObjectAttributes, 0, 44);
-              if ( (int)RtlStringFromGUIDEx(&DestinationString_8, v26, 0LL) >= 0 )
+              if ( RtlStringFromGUIDEx((PGUID)&DestinationString_8, &GuidString, 0) >= 0 )
               {
                 ObjectAttributes.RootDirectory = DestinationString;
-                ObjectAttributes.ObjectName = (PUNICODE_STRING)v26;
+                ObjectAttributes.ObjectName = &GuidString;
                 ObjectAttributes.Length = 48;
                 ObjectAttributes.Attributes = 576;
                 *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

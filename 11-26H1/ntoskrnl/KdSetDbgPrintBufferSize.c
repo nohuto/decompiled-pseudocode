@@ -1,15 +1,15 @@
 /*
- * XREFs of KdSetDbgPrintBufferSize @ 0x1405E4038
+ * XREFs of KdSetDbgPrintBufferSize @ 0x1405E69A8
  * Callers:
- *     NtSystemDebugControl @ 0x1408459A0 (NtSystemDebugControl.c)
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     NtSystemDebugControl @ 0x14084A9E0 (NtSystemDebugControl.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KdSetDbgPrintBufferSize(unsigned int a1)
@@ -46,21 +46,21 @@ LABEL_9:
         {
           v5 = 0LL;
           v6 = KdPrintCircularBuffer;
-          qword_140E66378 = (__int64)KeGetCurrentPrcb();
+          qword_140E66558 = (__int64)KeGetCurrentPrcb();
           if ( v1 > (unsigned __int64)(unsigned int)KdPrintBufferSize )
           {
             if ( KdPrintWritePointer - (_UNKNOWN *)KdPrintCircularBuffer >= (unsigned __int64)(unsigned int)KdPrintBufferSize )
-              HIDWORD(KdDebuggerNotPresent) = 0;
+              KdPrintRolloverCount = 0;
             v7 = (KdPrintWritePointer - (_UNKNOWN *)KdPrintCircularBuffer) & -(__int64)(KdPrintWritePointer
                                                                                       - (_UNKNOWN *)KdPrintCircularBuffer < (unsigned __int64)(unsigned int)KdPrintBufferSize);
-            if ( HIDWORD(KdDebuggerNotPresent) )
+            if ( KdPrintRolloverCount )
             {
               v5 = (unsigned int)KdPrintBufferSize - v7;
               memmove(Pool2, (char *)KdPrintCircularBuffer + v7, v5);
             }
             memmove(&Pool2[v5], v6, v7);
             v5 += v7;
-            if ( HIDWORD(KdDebuggerNotPresent) )
+            if ( KdPrintRolloverCount )
             {
               v8 = 0LL;
               if ( *Pool2 )
@@ -86,8 +86,8 @@ LABEL_9:
           KdPrintCircularBuffer = Pool2;
           KdPrintBufferSize = v1;
           KdPrintWritePointer = &Pool2[v5];
-          HIDWORD(KdDebuggerNotPresent) = 0;
-          qword_140E66378 = 0LL;
+          KdPrintRolloverCount = 0;
+          qword_140E66558 = 0LL;
           _InterlockedExchange((volatile __int32 *)&KdpPrintSpinLock, 0);
           if ( KiIrqlFlags )
             KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

@@ -1,16 +1,16 @@
 /*
  * XREFs of VfTargetDriversAdd @ 0x14020A190
  * Callers:
- *     VfDriverLoadImage @ 0x140ABCE04 (VfDriverLoadImage.c)
- *     VfSuspectDriversLoadCallback @ 0x140ADA734 (VfSuspectDriversLoadCallback.c)
+ *     VfDriverLoadImage @ 0x140ABCDF4 (VfDriverLoadImage.c)
+ *     VfSuspectDriversLoadCallback @ 0x140ADA724 (VfSuspectDriversLoadCallback.c)
  * Callees:
  *     VfAvlReserveNode @ 0x14020A26C (VfAvlReserveNode.c)
  *     VfAvlCleanupLockContext @ 0x14020A34C (VfAvlCleanupLockContext.c)
  *     VfAvlInsertReservedTreeNode @ 0x14020A3A4 (VfAvlInsertReservedTreeNode.c)
- *     DifAddPerDriverDataForPlugins @ 0x1405D495C (DifAddPerDriverDataForPlugins.c)
+ *     DifAddPerDriverDataForPlugins @ 0x1405D4ECC (DifAddPerDriverDataForPlugins.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfThunkAddTargetNotify @ 0x140ABCF7C (VfThunkAddTargetNotify.c)
- *     ViTargetDriversAllocateVerifiedData @ 0x140ACBA64 (ViTargetDriversAllocateVerifiedData.c)
+ *     VfThunkAddTargetNotify @ 0x140ABCF6C (VfThunkAddTargetNotify.c)
+ *     ViTargetDriversAllocateVerifiedData @ 0x140ACBA54 (ViTargetDriversAllocateVerifiedData.c)
  */
 
 __int64 __fastcall VfTargetDriversAdd(__int64 a1, unsigned int a2, char a3, __int64 a4)
@@ -69,7 +69,7 @@ LABEL_17:
   VfAvlInsertReservedTreeNode(&ViTargetDriversAvl, v15, v10);
   if ( v4 )
   {
-    ++dword_140C37328;
+    ++dword_140C370A8;
     *(_BYTE *)(v4 + 48) = a3;
   }
   VfAvlCleanupLockContext(v15);

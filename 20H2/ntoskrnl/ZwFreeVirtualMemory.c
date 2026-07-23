@@ -27,5 +27,5 @@ NTSTATUS __stdcall ZwFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress,
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return KiServiceInternal(ProcessHandle);
 }

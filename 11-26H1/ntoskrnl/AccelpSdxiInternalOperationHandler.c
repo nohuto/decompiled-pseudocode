@@ -1,10 +1,10 @@
 /*
- * XREFs of AccelpSdxiInternalOperationHandler @ 0x1406E0A10
+ * XREFs of AccelpSdxiInternalOperationHandler @ 0x1406E4C90
  * Callers:
- *     AccelpInternalOperationHandler @ 0x140531E58 (AccelpInternalOperationHandler.c)
+ *     AccelpInternalOperationHandler @ 0x1405342F8 (AccelpInternalOperationHandler.c)
  * Callees:
- *     AccelpWaitForCompletionBusySpin @ 0x140524954 (AccelpWaitForCompletionBusySpin.c)
- *     AccelpGetCopyBuffer @ 0x1406DF5C0 (AccelpGetCopyBuffer.c)
+ *     AccelpWaitForCompletionBusySpin @ 0x140526FC4 (AccelpWaitForCompletionBusySpin.c)
+ *     AccelpGetCopyBuffer @ 0x1406E3840 (AccelpGetCopyBuffer.c)
  */
 
 __int64 __fastcall AccelpSdxiInternalOperationHandler(int *a1, __int64 a2)

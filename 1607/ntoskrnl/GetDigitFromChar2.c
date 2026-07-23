@@ -1,7 +1,7 @@
 /*
- * XREFs of GetDigitFromChar2 @ 0x1406CCDF4
+ * XREFs of GetDigitFromChar2 @ 0x1406CCF2C
  * Callers:
- *     DecodeAttributeName @ 0x1406CC6E0 (DecodeAttributeName.c)
+ *     DecodeAttributeName @ 0x1406CC818 (DecodeAttributeName.c)
  * Callees:
  *     <none>
  */

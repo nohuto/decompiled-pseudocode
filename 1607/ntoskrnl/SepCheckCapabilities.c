@@ -1,15 +1,15 @@
 /*
  * XREFs of SepCheckCapabilities @ 0x1403E1D20
  * Callers:
- *     NtCreateLowBoxToken @ 0x14047BBD8 (NtCreateLowBoxToken.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x1405037E4 (SepIsImpersonationAllowedDueToCapability.c)
+ *     NtCreateLowBoxToken @ 0x14047AAA8 (NtCreateLowBoxToken.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x1404E6774 (SepIsImpersonationAllowedDueToCapability.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     RtlSubAuthorityCountSid @ 0x14002D248 (RtlSubAuthorityCountSid.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     RtlSubAuthorityCountSid @ 0x14002CDC8 (RtlSubAuthorityCountSid.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
  */
 
 __int64 __fastcall SepCheckCapabilities(void *a1, unsigned int a2, PSID *a3, __int64 a4, char *a5)

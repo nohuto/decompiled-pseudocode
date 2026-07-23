@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLockUnlockBufferList @ 0x1402667AC
+ * XREFs of EtwpLockUnlockBufferList @ 0x14025474C
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x140643C10 (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x140638A20 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x14093D358 (EtwpBufferingModeFlush.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x1402C3044 (ExfAcquireReleasePushLockExclusive.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140241564 (ExfAcquireReleasePushLockExclusive.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

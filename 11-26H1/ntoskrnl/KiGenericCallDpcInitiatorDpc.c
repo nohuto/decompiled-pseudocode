@@ -1,12 +1,12 @@
 /*
- * XREFs of KiGenericCallDpcInitiatorDpc @ 0x1403C21E0
+ * XREFs of KiGenericCallDpcInitiatorDpc @ 0x1403CC0E0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiInitiateGenericCallDpc @ 0x1403C24E8 (KiInitiateGenericCallDpc.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiInitiateGenericCallDpc @ 0x1403CC3E8 (KiInitiateGenericCallDpc.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiGenericCallDpcInitiatorDpc(__int64 a1, __int64 a2)

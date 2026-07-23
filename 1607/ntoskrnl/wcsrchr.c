@@ -1,19 +1,19 @@
 /*
- * XREFs of wcsrchr @ 0x14014F0D4
+ * XREFs of wcsrchr @ 0x14014F694
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x140484B38 (SdbGetDatabaseMatchEx.c)
- *     AslPathSplit @ 0x140486A70 (AslPathSplit.c)
- *     PiIsDriverBlocked @ 0x14049D1BC (PiIsDriverBlocked.c)
- *     PiUpdateDriverDBCache @ 0x14049D278 (PiUpdateDriverDBCache.c)
- *     PiLookupInDDBCache @ 0x14049D88C (PiLookupInDDBCache.c)
- *     EtwpGenerateFileName @ 0x1404F08C8 (EtwpGenerateFileName.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x14053CF94 (PopBcdSetDefaultResumeObjectElements.c)
- *     PiDqDeleteUserObject @ 0x140631594 (PiDqDeleteUserObject.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14063C998 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     BiTranslateSymbolicLinkFile @ 0x1406D3224 (BiTranslateSymbolicLinkFile.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x1406D85A0 (_CmDeleteDeviceRegKeyWorker.c)
- *     _RegRtlDeletePathInternal @ 0x1406E06D0 (_RegRtlDeletePathInternal.c)
- *     DrvDbDeleteObjectSubKey @ 0x1406E0C4C (DrvDbDeleteObjectSubKey.c)
+ *     EtwpGenerateFileName @ 0x1404D29BC (EtwpGenerateFileName.c)
+ *     AslPathSplit @ 0x140513880 (AslPathSplit.c)
+ *     SdbGetDatabaseMatchEx @ 0x140513EC0 (SdbGetDatabaseMatchEx.c)
+ *     PiIsDriverBlocked @ 0x140515678 (PiIsDriverBlocked.c)
+ *     PiUpdateDriverDBCache @ 0x140515734 (PiUpdateDriverDBCache.c)
+ *     PiLookupInDDBCache @ 0x140515C98 (PiLookupInDDBCache.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x14053D4D4 (PopBcdSetDefaultResumeObjectElements.c)
+ *     PiDqDeleteUserObject @ 0x140631648 (PiDqDeleteUserObject.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14063CA4C (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     BiTranslateSymbolicLinkFile @ 0x1406D335C (BiTranslateSymbolicLinkFile.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x1406D86D8 (_CmDeleteDeviceRegKeyWorker.c)
+ *     _RegRtlDeletePathInternal @ 0x1406E0808 (_RegRtlDeletePathInternal.c)
+ *     DrvDbDeleteObjectSubKey @ 0x1406E0D84 (DrvDbDeleteObjectSubKey.c)
  * Callees:
  *     <none>
  */

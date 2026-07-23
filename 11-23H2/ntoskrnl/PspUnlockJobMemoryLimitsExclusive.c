@@ -2,12 +2,12 @@
  * XREFs of PspUnlockJobMemoryLimitsExclusive @ 0x1406A6B5C
  * Callers:
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x1406FABC0 (PspChangeJobMemoryUsageByProcess.c)
- *     PspJobClose @ 0x1407DD250 (PspJobClose.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x1406FADD0 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspJobClose @ 0x1407DD520 (PspJobClose.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char __fastcall PspUnlockJobMemoryLimitsExclusive(__int64 a1, __int64 a2, __int64 a3)

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiUnlinkNodeLargePage @ 0x140064290
+ * XREFs of MiUnlinkNodeLargePage @ 0x140064280
  * Callers:
  *     MiGetFreeZeroLargePage @ 0x14002BCF4 (MiGetFreeZeroLargePage.c)
- *     MiDemoteLocalLargePage @ 0x140064060 (MiDemoteLocalLargePage.c)
- *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
- *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
- *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
- *     MiScrubNodeLargePageList @ 0x1402CCB90 (MiScrubNodeLargePageList.c)
+ *     MiDemoteLocalLargePage @ 0x140064050 (MiDemoteLocalLargePage.c)
+ *     MiZeroPageThread @ 0x140179300 (MiZeroPageThread.c)
+ *     MiGetPagesToZero @ 0x1401853A0 (MiGetPagesToZero.c)
+ *     MiGetHugePageToZero @ 0x1401855A4 (MiGetHugePageToZero.c)
+ *     MiScrubNodeLargePageList @ 0x1402CCD80 (MiScrubNodeLargePageList.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     MiUnlinkNodeLargePageHelper @ 0x140064700 (MiUnlinkNodeLargePageHelper.c)
- *     MiBeginPageAccessor @ 0x140064A20 (MiBeginPageAccessor.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1400646F0 (MiUnlinkNodeLargePageHelper.c)
+ *     MiBeginPageAccessor @ 0x140064A10 (MiBeginPageAccessor.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall MiUnlinkNodeLargePage(
@@ -94,7 +94,7 @@ __int64 __fastcall MiUnlinkNodeLargePage(
   a2 = (unsigned int)a2;
   v48 = 0;
   v52 = a2;
-  v62 = dword_14043A100[(unsigned int)a2];
+  v62 = dword_14043B1C0[(unsigned int)a2];
   v8 = *(_QWORD *)(a1 + 16) + 1984LL * a3;
   if ( !*(_QWORD *)(v8 + 1808) && (_DWORD)InitializationPhase )
     return 0LL;

@@ -1,16 +1,16 @@
 /*
- * XREFs of VfBeforeCallDriver @ 0x140ACD5DC
+ * XREFs of VfBeforeCallDriver @ 0x140ACD5CC
  * Callers:
- *     IovCallDriver @ 0x140AC11D0 (IovCallDriver.c)
- *     IovpCallDriverNoIrpTracking @ 0x140AC196C (IovpCallDriverNoIrpTracking.c)
- *     IovpCallDriverWithStackBuffer @ 0x140AC19B4 (IovpCallDriverWithStackBuffer.c)
+ *     IovCallDriver @ 0x140AC11C0 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x140AC195C (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140AC19A4 (IovpCallDriverWithStackBuffer.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x14022EBD0 (KeAreInterruptsEnabled.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfBugCheckNoStackUsage @ 0x1405CF880 (VfBugCheckNoStackUsage.c)
- *     IovpCallDriver1 @ 0x140ACC1A0 (IovpCallDriver1.c)
- *     VfGetPristineDispatchRoutine @ 0x140ACD22C (VfGetPristineDispatchRoutine.c)
- *     ViIrpCheckKernelAddressForIrp @ 0x140ACDE00 (ViIrpCheckKernelAddressForIrp.c)
+ *     KeAreInterruptsEnabled @ 0x14022ECE0 (KeAreInterruptsEnabled.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfBugCheckNoStackUsage @ 0x1405CFDF0 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriver1 @ 0x140ACC190 (IovpCallDriver1.c)
+ *     VfGetPristineDispatchRoutine @ 0x140ACD21C (VfGetPristineDispatchRoutine.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x140ACDDF0 (ViIrpCheckKernelAddressForIrp.c)
  */
 
 __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)

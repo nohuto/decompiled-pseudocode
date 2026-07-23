@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpInitializeLfhBitmapData @ 0x18012349C
+ * XREFs of RtlpInitializeLfhBitmapData @ 0x18012346C
  * Callers:
- *     RtlpSubSegmentDebugInitialize @ 0x18011AE78 (RtlpSubSegmentDebugInitialize.c)
+ *     RtlpSubSegmentDebugInitialize @ 0x18011AE48 (RtlpSubSegmentDebugInitialize.c)
  * Callees:
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */

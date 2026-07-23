@@ -1,7 +1,7 @@
 /*
  * XREFs of PsBlockNonCetBinaries @ 0x1405CF59C
  * Callers:
- *     MiAllowImageMap @ 0x14061D9F0 (MiAllowImageMap.c)
+ *     MiAllowImageMap @ 0x140687660 (MiAllowImageMap.c)
  * Callees:
  *     EtwTimLogBlockNonCetBinaries @ 0x1405D00D4 (EtwTimLogBlockNonCetBinaries.c)
  */

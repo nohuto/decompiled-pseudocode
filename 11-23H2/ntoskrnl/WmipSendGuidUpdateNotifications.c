@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipSendGuidUpdateNotifications @ 0x14086ACAC
+ * XREFs of WmipSendGuidUpdateNotifications @ 0x14086AEEC
  * Callers:
- *     WmipUpdateDataSource @ 0x1407FFAC8 (WmipUpdateDataSource.c)
- *     WmipGenerateRegistrationNotification @ 0x14086AA48 (WmipGenerateRegistrationNotification.c)
+ *     WmipUpdateDataSource @ 0x1407FFD98 (WmipUpdateDataSource.c)
+ *     WmipGenerateRegistrationNotification @ 0x14086AC88 (WmipGenerateRegistrationNotification.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     WmipProcessEvent @ 0x14086AE10 (WmipProcessEvent.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WmipProcessEvent @ 0x14086B050 (WmipProcessEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

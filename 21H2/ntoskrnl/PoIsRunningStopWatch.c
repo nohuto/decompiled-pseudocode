@@ -1,7 +1,7 @@
 /*
- * XREFs of PoIsRunningStopWatch @ 0x14026434C
+ * XREFs of PoIsRunningStopWatch @ 0x140272520
  * Callers:
- *     PopPausePowerRequestStats @ 0x14062BE30 (PopPausePowerRequestStats.c)
+ *     PopPausePowerRequestStats @ 0x140670A58 (PopPausePowerRequestStats.c)
  * Callees:
  *     <none>
  */

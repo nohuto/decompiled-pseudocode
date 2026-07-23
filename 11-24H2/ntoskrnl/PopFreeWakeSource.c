@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFreeWakeSource @ 0x140AA03DC
+ * XREFs of PopFreeWakeSource @ 0x140A9B76C
  * Callers:
- *     PopUnlinkWakeSources @ 0x140AA0388 (PopUnlinkWakeSources.c)
- *     PopProcessDeviceWakeSource @ 0x140B5C0F4 (PopProcessDeviceWakeSource.c)
- *     PopProcessWakeSourceWork @ 0x140B6CA78 (PopProcessWakeSourceWork.c)
+ *     PopUnlinkWakeSources @ 0x140A9B718 (PopUnlinkWakeSources.c)
+ *     PopProcessDeviceWakeSource @ 0x140B5E164 (PopProcessDeviceWakeSource.c)
+ *     PopProcessWakeSourceWork @ 0x140B6E318 (PopProcessWakeSourceWork.c)
  * Callees:
- *     ExDeleteWakeTimerInfo @ 0x1406572B4 (ExDeleteWakeTimerInfo.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExDeleteWakeTimerInfo @ 0x1406559B4 (ExDeleteWakeTimerInfo.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFreeWakeSource(_DWORD *P)

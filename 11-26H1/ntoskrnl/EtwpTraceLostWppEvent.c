@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceLostWppEvent @ 0x1404E6FD0
+ * XREFs of EtwpTraceLostWppEvent @ 0x1404E038C
  * Callers:
- *     EtwpTraceMessageVa @ 0x1402176B0 (EtwpTraceMessageVa.c)
+ *     EtwpTraceMessageVa @ 0x1402179E0 (EtwpTraceMessageVa.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpTraceLostWppEvent(ULONGLONG a1, __int16 a2, unsigned __int16 *a3, int a4)
@@ -35,5 +35,13 @@ NTSTATUS __fastcall EtwpTraceLostWppEvent(ULONGLONG a1, __int16 a2, unsigned __i
   v7 = 2LL;
   v9 = 4LL;
   v14 = 2LL;
-  return EtwWriteEx(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_WPP_EVENT, 0LL, 1u, 0LL, 0LL, 5u, &v5);
+  return EtwWriteEx(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_LOST_WPP_EVENT,
+           0LL,
+           1u,
+           0LL,
+           0LL,
+           5u,
+           &v5);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of FinalizeBootLogo @ 0x1404FF1BC
+ * XREFs of FinalizeBootLogo @ 0x1404FF13C
  * Callers:
- *     StartFirstUserProcess @ 0x140A4BB74 (StartFirstUserProcess.c)
+ *     StartFirstUserProcess @ 0x140A4CB74 (StartFirstUserProcess.c)
  * Callees:
- *     InbvAcquireLock @ 0x1404FEEFC (InbvAcquireLock.c)
- *     InbvGetDisplayState @ 0x1404FEF8C (InbvGetDisplayState.c)
- *     InbvReleaseLock @ 0x1404FF02C (InbvReleaseLock.c)
+ *     InbvAcquireLock @ 0x1404FEE7C (InbvAcquireLock.c)
+ *     InbvGetDisplayState @ 0x1404FEF0C (InbvGetDisplayState.c)
+ *     InbvReleaseLock @ 0x1404FEFAC (InbvReleaseLock.c)
  */
 
 __int64 (*FinalizeBootLogo())(void)

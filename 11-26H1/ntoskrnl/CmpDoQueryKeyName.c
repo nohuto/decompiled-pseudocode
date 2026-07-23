@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpDoQueryKeyName @ 0x140261160
+ * XREFs of CmpDoQueryKeyName @ 0x1402606D0
  * Callers:
- *     CmpQueryKeyName @ 0x140A78540 (CmpQueryKeyName.c)
+ *     CmpQueryKeyName @ 0x140A80FE0 (CmpQueryKeyName.c)
  * Callees:
- *     CmpGetThreadInfo @ 0x140262B00 (CmpGetThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     CmpConstructName @ 0x1408C53A0 (CmpConstructName.c)
- *     CmPostCallbackNotification @ 0x1408C93B0 (CmPostCallbackNotification.c)
- *     CmpCallCallBacks @ 0x1408C9D10 (CmpCallCallBacks.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     CmVirtualKCBToRealPath @ 0x140AF49A0 (CmVirtualKCBToRealPath.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140C583F0 (CmpLockKcbShared.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140C587C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
+ *     CmpGetThreadInfo @ 0x140262070 (CmpGetThreadInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     CmpConstructName @ 0x1408CB970 (CmpConstructName.c)
+ *     CmPostCallbackNotification @ 0x1408CF960 (CmPostCallbackNotification.c)
+ *     CmpCallCallBacks @ 0x1408D02C0 (CmpCallCallBacks.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     CmVirtualKCBToRealPath @ 0x140AF7040 (CmVirtualKCBToRealPath.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140C5E3F0 (CmpLockKcbShared.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140C5E7C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
  */
 
 __int64 __fastcall CmpDoQueryKeyName(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5, char a6)
@@ -94,7 +94,7 @@ __int64 __fastcall CmpDoQueryKeyName(__int64 a1, __int64 a2, __int64 a3, unsigne
   v34[0] = v34;
   v15 = KeGetCurrentThread();
   --v15->KernelApcDisable;
-  if ( !WheapPfaLock.ExpectedRunTime || *(_DWORD *)(CmpGetThreadInfo() + 16) )
+  if ( !HIDWORD(WheapPfaLock.StateSaveArea) || *(_DWORD *)(CmpGetThreadInfo() + 16) )
     goto LABEL_7;
   *(_QWORD *)&v39 = a1;
   *((_QWORD *)&v39 + 1) = a3;

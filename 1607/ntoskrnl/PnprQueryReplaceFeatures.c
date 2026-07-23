@@ -1,9 +1,9 @@
 /*
- * XREFs of PnprQueryReplaceFeatures @ 0x1401D0524
+ * XREFs of PnprQueryReplaceFeatures @ 0x1401D0350
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1406430D4 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1406431B8 (PnpReplacePartitionUnit.c)
  * Callees:
- *     PnpQueryInterface @ 0x1404CDDFC (PnpQueryInterface.c)
+ *     PnpQueryInterface @ 0x14050E494 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PnprQueryReplaceFeatures(__int64 a1, PDEVICE_OBJECT *a2)

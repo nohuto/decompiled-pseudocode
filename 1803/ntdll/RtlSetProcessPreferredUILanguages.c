@@ -20,17 +20,17 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, __int16 *a2, _DWORD
   __int64 result; // rax
   int v7; // ebx
   __int64 v8; // rdx
-  unsigned __int64 v9; // rdi
+  PVOID v9; // rdi
   __int64 v10; // rax
-  unsigned __int64 v11; // rsi
+  void *v11; // rsi
   __int64 v12; // rdx
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v15[4]; // [rsp+48h] [rbp-20h] BYREF
+  PVOID v13; // rcx
+  PVOID BaseAddress; // [rsp+40h] [rbp-28h] BYREF
+  _QWORD v15[4]; // [rsp+48h] [rbp-20h] BYREF
   unsigned int v16; // [rsp+88h] [rbp+20h] BYREF
 
   v15[0] = 0LL;
-  v14 = 0LL;
+  BaseAddress = 0LL;
   v5 = a1;
   if ( NtCurrentTeb()->IsImpersonating )
     return 3221225741LL;
@@ -57,38 +57,38 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, __int16 *a2, _DWORD
       return (unsigned int)-1073741811;
     if ( v16 < 2 || *a2 || a2[1] )
     {
-      v7 = sub_180035E90(qword_18015D000, (const WCHAR *)a2, v16, v5 | 2u, 26, 5u, (__int64 *)&v14);
+      v7 = sub_180035E90((__int64)qword_18015D000, (const WCHAR *)a2, v16, v5 | 2u, 26, 5u, (__int64 *)&BaseAddress);
       if ( v7 < 0 )
       {
-        v13 = v14;
+        v13 = BaseAddress;
 LABEL_29:
         sub_180032CEC(v13);
         return (unsigned int)v7;
       }
-      v9 = v14;
-      if ( !v14 || !*(_WORD *)(v14 + 4) )
+      v9 = BaseAddress;
+      if ( !BaseAddress || !*((_WORD *)BaseAddress + 2) )
       {
-        sub_180032CEC(v14);
+        sub_180032CEC(BaseAddress);
         return (unsigned int)-1073741823;
       }
       if ( a3 )
-        *a3 = *(unsigned __int16 *)(v14 + 4);
+        *a3 = *((unsigned __int16 *)BaseAddress + 2);
     }
     else
     {
 LABEL_27:
-      v9 = v14;
+      v9 = BaseAddress;
     }
     sub_180031FD4();
-    RtlEnterCriticalSection((__int64)&unk_18015ABE0);
+    RtlEnterCriticalSection(&stru_18015ABE0);
     v10 = v15[0];
-    v11 = *(_QWORD *)(v15[0] + 72);
-    *(_QWORD *)(v15[0] + 72) = v9;
+    v11 = *(void **)(v15[0] + 72LL);
+    *(_QWORD *)(v15[0] + 72LL) = v9;
     ++*(_DWORD *)(v10 + 16);
     v12 = *(_QWORD *)(v10 + 96);
     if ( v12 )
       *(_DWORD *)(v12 + 40) |= 0x80u;
-    RtlLeaveCriticalSection((__int64)&unk_18015ABE0);
+    RtlLeaveCriticalSection(&stru_18015ABE0);
     if ( !v11 )
       return (unsigned int)v7;
     v13 = v11;

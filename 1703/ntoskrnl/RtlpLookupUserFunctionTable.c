@@ -35,7 +35,7 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
   unsigned int v21; // eax
   _QWORD v22[11]; // [rsp+40h] [rbp-58h] BYREF
   __int64 v23; // [rsp+B0h] [rbp+18h] BYREF
-  PVOID BaseAddress; // [rsp+B8h] [rbp+20h] BYREF
+  PVOID BaseOfImage; // [rsp+B8h] [rbp+20h] BYREF
 
   result = RtlpLookupUserFunctionTableInverted();
   if ( result )
@@ -103,10 +103,10 @@ LABEL_13:
     KeAbPostRelease((ULONG_PTR)&Process[2].Affinity.Bitmap[19]);
     KiLeaveGuardedRegionUnsafe(CurrentThread);
   }
-  if ( (int)MmGetImageBase(a1, &BaseAddress, v22) >= 0 )
+  if ( (int)MmGetImageBase(a1, &BaseOfImage, v22) >= 0 )
   {
-    v17 = BaseAddress;
-    v20 = RtlpImageDirectoryEntryToDataEx(BaseAddress, (__int64)&v23);
+    v17 = BaseOfImage;
+    v20 = RtlpImageDirectoryEntryToDataEx(BaseOfImage, (__int64)&v23);
     v19 = v23;
     if ( v20 < 0 )
       v19 = 0LL;

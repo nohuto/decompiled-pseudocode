@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckSystemTrimEndCriteria @ 0x1401E9324
+ * XREFs of MiCheckSystemTrimEndCriteria @ 0x1401E9150
  * Callers:
- *     MiProcessWorkingSets @ 0x1400CD640 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1400CB4E0 (MiProcessWorkingSets.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiLogContinueTrim @ 0x1401E99E0 (MiLogContinueTrim.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiLogContinueTrim @ 0x1401E980C (MiLogContinueTrim.c)
  */
 
 __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, struct _KLOCK_QUEUE_HANDLE *a3)
@@ -90,7 +90,7 @@ LABEL_7:
   v16 = *(_QWORD *)(a2 + 64);
   if ( v15 >= v16 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, a3);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, a3);
     return 1LL;
   }
   v17 = v16 - v15;
@@ -115,6 +115,6 @@ LABEL_7:
   else
     *(_BYTE *)a2 |= 0x80u;
   MiLogContinueTrim(a1, a2);
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, a3);
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, a3);
   return 0LL;
 }

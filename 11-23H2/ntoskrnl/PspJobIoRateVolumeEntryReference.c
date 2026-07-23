@@ -1,13 +1,13 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryReference @ 0x1405A4570
+ * XREFs of PspJobIoRateVolumeEntryReference @ 0x1405A4AE0
  * Callers:
  *     PsIoRateControlReference @ 0x14020C8C8 (PsIoRateControlReference.c)
  * Callees:
  *     PspIoRateEntryIoControlReference @ 0x14020C964 (PspIoRateEntryIoControlReference.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x1405A43A0 (MiLockTrackerCompare.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x1405A4910 (MiLockTrackerCompare.c)
  */
 
 signed __int64 __fastcall PspJobIoRateVolumeEntryReference(__int64 a1, unsigned __int64 a2)
@@ -61,10 +61,13 @@ signed __int64 __fastcall PspJobIoRateVolumeEntryReference(__int64 a1, unsigned 
     PspIoRateEntryIoControlReference((struct _EX_RUNDOWN_REF *)Count);
   }
   ExReleaseSpinLockSharedFromDpcLevel(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

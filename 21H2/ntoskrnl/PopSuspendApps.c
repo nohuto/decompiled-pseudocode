@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSuspendApps @ 0x140776410
+ * XREFs of PopSuspendApps @ 0x1407765D0
  * Callers:
- *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140775BC8 (PopIssueActionRequest.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
- *     PopDispatchStateCallout @ 0x14067E9C8 (PopDispatchStateCallout.c)
- *     PopCheckpointSystemSleep @ 0x140993484 (PopCheckpointSystemSleep.c)
+ *     PopDiagTraceEventNoPayload @ 0x14024B6D4 (PopDiagTraceEventNoPayload.c)
+ *     PopDispatchStateCallout @ 0x140672878 (PopDispatchStateCallout.c)
+ *     PopCheckpointSystemSleep @ 0x140994484 (PopCheckpointSystemSleep.c)
  */
 
 __int64 __fastcall PopSuspendApps(_DWORD *a1)

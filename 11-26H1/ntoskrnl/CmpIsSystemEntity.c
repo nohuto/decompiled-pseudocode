@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpIsSystemEntity @ 0x1408F4110
+ * XREFs of CmpIsSystemEntity @ 0x1408FA6D0
  * Callers:
- *     KCBNeedsVirtualImage @ 0x14044F7D8 (KCBNeedsVirtualImage.c)
- *     KCBNeedsVirtualImage_0 @ 0x1404CD70C (KCBNeedsVirtualImage_0.c)
- *     CmDoVirtualTest @ 0x1404D4AF4 (CmDoVirtualTest.c)
- *     CmQueryKey @ 0x1408C5660 (CmQueryKey.c)
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
- *     CmpVEExecuteOpenLogic @ 0x1408D9360 (CmpVEExecuteOpenLogic.c)
- *     CmpCreateChild @ 0x1408DF4A0 (CmpCreateChild.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140930F10 (CmpCheckOpenAccessOnKeyBody.c)
- *     NtDeleteValueKey @ 0x14097CD00 (NtDeleteValueKey.c)
- *     NtSetValueKey @ 0x14097DE30 (NtSetValueKey.c)
- *     NtDeleteKey @ 0x140AB2390 (NtDeleteKey.c)
+ *     KCBNeedsVirtualImage @ 0x140447908 (KCBNeedsVirtualImage.c)
+ *     KCBNeedsVirtualImage_0 @ 0x1404C713C (KCBNeedsVirtualImage_0.c)
+ *     CmDoVirtualTest @ 0x1404CE364 (CmDoVirtualTest.c)
+ *     CmQueryKey @ 0x1408CBC30 (CmQueryKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
+ *     CmpVEExecuteOpenLogic @ 0x1408DF920 (CmpVEExecuteOpenLogic.c)
+ *     CmpCreateChild @ 0x1408E5A60 (CmpCreateChild.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14090CA40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     NtDeleteValueKey @ 0x14093ED10 (NtDeleteValueKey.c)
+ *     NtSetValueKey @ 0x14093FE40 (NtSetValueKey.c)
+ *     NtDeleteKey @ 0x140AB0060 (NtDeleteKey.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     SeCaptureSubjectContextEx @ 0x140920670 (SeCaptureSubjectContextEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x1408FBAB0 (SeCaptureSubjectContextEx.c)
  */
 
 bool __fastcall CmpIsSystemEntity(char a1, struct _SECURITY_SUBJECT_CONTEXT *a2, int *a3)
@@ -28,8 +28,8 @@ bool __fastcall CmpIsSystemEntity(char a1, struct _SECURITY_SUBJECT_CONTEXT *a2,
   bool v7; // di
   int v8; // eax
   int v9; // eax
-  _KTRAP_FRAME *PrimaryToken; // r8
-  _KTRAP_FRAME *ClientToken; // rbx
+  struct _LIST_ENTRY *PrimaryToken; // r8
+  struct _LIST_ENTRY *ClientToken; // rbx
   _KPROCESS *Process; // rcx
   signed __int64 ActiveProcessors; // rax
   signed __int64 v14; // rtt
@@ -73,20 +73,20 @@ bool __fastcall CmpIsSystemEntity(char a1, struct _SECURITY_SUBJECT_CONTEXT *a2,
   }
   if ( v3 )
   {
-    PrimaryToken = (_KTRAP_FRAME *)Object.PrimaryToken;
-    ClientToken = (_KTRAP_FRAME *)Object.ClientToken;
+    PrimaryToken = (struct _LIST_ENTRY *)Object.PrimaryToken;
+    ClientToken = (struct _LIST_ENTRY *)Object.ClientToken;
     if ( SeTokenLeakTracking )
     {
       if ( Object.PrimaryToken )
       {
         _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)Object.PrimaryToken + 143) + 284LL));
-        if ( PrimaryToken == RtlpBootStatHandleLock.TrapFrame )
+        if ( PrimaryToken == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
           __debugbreak();
       }
       if ( ClientToken )
       {
-        _InterlockedDecrement((volatile signed __int32 *)(ClientToken[2].Rbp + 284));
-        if ( ClientToken == RtlpBootStatHandleLock.TrapFrame )
+        _InterlockedDecrement((volatile signed __int32 *)&ClientToken[71].Blink[17].Blink + 1);
+        if ( ClientToken == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
           __debugbreak();
       }
     }
@@ -108,7 +108,7 @@ bool __fastcall CmpIsSystemEntity(char a1, struct _SECURITY_SUBJECT_CONTEXT *a2,
     }
     while ( v14 != ActiveProcessors );
     if ( ObpTraceFlags )
-      ObpPushStackInfo((__int64)&PrimaryToken[-1].352, -1, 0x75536553u);
+      ObpPushStackInfo((__int64)&PrimaryToken[-3], -1, 0x75536553u);
 LABEL_21:
     if ( ClientToken )
       ObfDereferenceObjectWithTag(ClientToken, 0x75536553u);

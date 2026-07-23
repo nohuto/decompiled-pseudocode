@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryRegistryValueWithFallback @ 0x1409F3020
+ * XREFs of RtlQueryRegistryValueWithFallback @ 0x1409E7380
  * Callers:
- *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x14063A0B0 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
+ *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x140638670 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
  * Callees:
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlQueryRegistryValueWithFallback(
@@ -30,7 +30,7 @@ NTSTATUS __stdcall RtlQueryRegistryValueWithFallback(
   if ( ValueLength >= 0xFFFFFFF0 )
     return -1073741675;
   Length = ValueLength + 16;
-  Pool2 = (ULONG *)ExAllocatePool2(0x100uLL);
+  Pool2 = (ULONG *)ExAllocatePool2(0x100uLL, ValueLength + 16, 0x6D6C7472u);
   if ( !Pool2 )
     return -1073741801;
   v13 = -1073741772;

@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmOpenCommonClassRegKey @ 0x1408C82AC
+ * XREFs of _CmOpenCommonClassRegKey @ 0x1408C5CDC
  * Callers:
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1408BC098 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmGetDeviceSoftwareKeyPath @ 0x1409095F0 (_CmGetDeviceSoftwareKeyPath.c)
- *     PiCMOpenClassKey @ 0x140963498 (PiCMOpenClassKey.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x140994210 (_CmGetInstallerClassRegPropWorker.c)
- *     _CmGetInstallerClassCompoundFilters @ 0x1409B6D74 (_CmGetInstallerClassCompoundFilters.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1409B7148 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmOpenInstallerClassRegKey @ 0x1409B7564 (_CmOpenInstallerClassRegKey.c)
- *     _CmCreateInterfaceClassWorker @ 0x1409D3F8C (_CmCreateInterfaceClassWorker.c)
- *     PpForEachDeviceInstanceDriver @ 0x140A0CE90 (PpForEachDeviceInstanceDriver.c)
- *     _CmOpenInterfaceClassRegKey @ 0x140A26518 (_CmOpenInterfaceClassRegKey.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1408B99E8 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x1408E0D10 (_CmGetDeviceSoftwareKeyPath.c)
+ *     PiCMOpenClassKey @ 0x14094AF58 (PiCMOpenClassKey.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x14097F250 (_CmGetInstallerClassRegPropWorker.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x1409AE104 (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1409AE4D8 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1409AE8F4 (_CmOpenInstallerClassRegKey.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1409BB294 (PpForEachDeviceInstanceDriver.c)
+ *     _CmCreateInterfaceClassWorker @ 0x1409C3DBC (_CmCreateInterfaceClassWorker.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x140A1AF98 (_CmOpenInterfaceClassRegKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiPnpRtlCmActionCallback @ 0x1408C7450 (PiPnpRtlCmActionCallback.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x1408C8D6C (_CmOpenCommonClassRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiPnpRtlCmActionCallback @ 0x1408C4E80 (PiPnpRtlCmActionCallback.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x1408C679C (_CmOpenCommonClassRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenCommonClassRegKey(
@@ -65,7 +65,7 @@ __int64 __fastcall CmOpenCommonClassRegKey(
     if ( v13 == PiPnpRtlCmActionCallback )
       v14 = PiPnpRtlCmActionCallback(a1, a2, v12, 11, 1, (__int64)v19);
     else
-      v14 = guard_dispatch_icall_no_overrides(a1, a2, v12, 11LL);
+      v14 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v14 == -1073741822 )
     {
       v13 = 0LL;
@@ -87,7 +87,7 @@ LABEL_16:
   if ( v13 )
   {
     v19[0] = v15;
-    v18 = guard_dispatch_icall_no_overrides(a1, a2, v12, 11LL);
+    v18 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v18 != -1073741822 )
     {
       if ( v18 != -1073741536 )

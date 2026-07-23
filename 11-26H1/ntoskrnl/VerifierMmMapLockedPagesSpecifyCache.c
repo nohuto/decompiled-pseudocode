@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierMmMapLockedPagesSpecifyCache @ 0x140C3F950
+ * XREFs of VerifierMmMapLockedPagesSpecifyCache @ 0x140C45960
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
- *     VfFaultsInjectResourceFailure @ 0x140C347B4 (VfFaultsInjectResourceFailure.c)
- *     VfFaultsIsSystemSufficientlyBooted @ 0x140C34908 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
+ *     VfFaultsInjectResourceFailure @ 0x140C3A7C4 (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x140C3A918 (VfFaultsIsSystemSufficientlyBooted.c)
  */
 
 __int64 __fastcall VerifierMmMapLockedPagesSpecifyCache(

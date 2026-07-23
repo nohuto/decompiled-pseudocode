@@ -59,7 +59,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
   unsigned __int64 v41; // [rsp+50h] [rbp-B0h] BYREF
   unsigned __int64 v42[6]; // [rsp+58h] [rbp-A8h] BYREF
   unsigned __int64 v43; // [rsp+88h] [rbp-78h]
-  _DWORD *v44; // [rsp+90h] [rbp-70h]
+  PVOID BaseAddress; // [rsp+90h] [rbp-70h]
   _QWORD v45[22]; // [rsp+A0h] [rbp-60h] BYREF
   int v46; // [rsp+150h] [rbp+50h] BYREF
   _QWORD *Metadata; // [rsp+158h] [rbp+58h]
@@ -78,7 +78,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
     v8 = 1;
     v36 = 1;
     v9 = (_QWORD *)a1;
-    v44 = (_DWORD *)a1;
+    BaseAddress = (PVOID)a1;
   }
   else
   {
@@ -86,7 +86,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
     v8 = 0;
     v36 = 0;
     v9 = 0LL;
-    v44 = 0LL;
+    BaseAddress = 0LL;
     if ( !v4 )
       return 3221225474LL;
   }
@@ -159,7 +159,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
               return result;
             if ( v8 )
             {
-              v25 = v44;
+              v25 = BaseAddress;
             }
             else
             {
@@ -202,7 +202,7 @@ LABEL_41:
           if ( v8 )
           {
             v45[2] = v42[0];
-            Metadata = RtlpHpLargeAllocGetMetadata((__int64)v44, v42[0]);
+            Metadata = RtlpHpLargeAllocGetMetadata((__int64)BaseAddress, v42[0]);
             v45[3] = ((Metadata[4] >> 12) + 1LL) << 12;
             v45[4] = Metadata[4] & 0xFFFFFFFFFFFFF000uLL;
           }
@@ -225,7 +225,7 @@ LABEL_41:
           v45[1] = 56LL;
           if ( v8 )
           {
-            v28 = v44;
+            v28 = BaseAddress;
             v45[2] = v42[0];
             v29 = Metadata[4] & 0xFFFFFFFFFFFFF000uLL;
           }

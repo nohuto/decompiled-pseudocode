@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeSessionPool @ 0x140715684
+ * XREFs of MiInitializeSessionPool @ 0x140716924
  * Callers:
- *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x1407162A8 (MiSessionCreate.c)
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
- *     ExInitializePoolDescriptor @ 0x140715A4C (ExInitializePoolDescriptor.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiInitializeDynamicBitmap @ 0x1407169C0 (MiInitializeDynamicBitmap.c)
+ *     ExInitializePoolDescriptor @ 0x140716CEC (ExInitializePoolDescriptor.c)
  */
 
 __int64 MiInitializeSessionPool()
@@ -16,7 +16,7 @@ __int64 MiInitializeSessionPool()
   *(_QWORD *)(v0 + 184) = 0LL;
   ExInitializePoolDescriptor(v0 + 3456, 33LL);
   *(_QWORD *)(v0 + 208) = MiGetPteAddress(*(_QWORD *)(v0 + 56));
-  if ( !(unsigned int)MiInitializeDynamicBitmap(v0 + 192, qword_140438F68, 0x2000000LL, 0LL) )
+  if ( !(unsigned int)MiInitializeDynamicBitmap(v0 + 192, qword_14043A028, 0x2000000LL, 0LL) )
     return 3221225626LL;
   *(_QWORD *)(v0 + 192) = 0LL;
   *(_QWORD *)(v0 + 216) = 0x2000000LL;

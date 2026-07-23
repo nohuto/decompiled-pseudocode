@@ -1,7 +1,7 @@
 /*
- * XREFs of MiClearPartitionPageBitMap @ 0x1402D0AC8
+ * XREFs of MiClearPartitionPageBitMap @ 0x1402D0CB8
  * Callers:
- *     MiInsertPartitionPages @ 0x1402D1BA4 (MiInsertPartitionPages.c)
+ *     MiInsertPartitionPages @ 0x1402D1D94 (MiInsertPartitionPages.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,14 +10,14 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
- *     MiFreePartitionTree @ 0x1402D1994 (MiFreePartitionTree.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0308 (MiActOnPartitionNodePages.c)
+ *     MiFreePartitionTree @ 0x1402D1B84 (MiFreePartitionTree.c)
  */
 
 __int64 __fastcall MiClearPartitionPageBitMap(__int64 a1, _QWORD **a2)
@@ -138,7 +138,7 @@ LABEL_30:
   }
   v20->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v20->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v14->LockEntries[v19], SessionId);
+    KiAbEntryRemoveFromTree(&v14->LockEntries[v19].TreeNode, SessionId);
   v27 = 0;
   v27 = v20->BoostBitmap.AllFields & 0x1FFFF;
   v20->BoostBitmap.AllFields &= 0xFFFE0000;

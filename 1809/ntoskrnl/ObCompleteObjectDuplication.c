@@ -1,22 +1,22 @@
 /*
- * XREFs of ObCompleteObjectDuplication @ 0x140612FA0
+ * XREFs of ObCompleteObjectDuplication @ 0x140613FA0
  * Callers:
- *     AlpcpQueryHandleInformationMessage @ 0x140612E9C (AlpcpQueryHandleInformationMessage.c)
- *     AlpcpExposeHandleAttribute @ 0x140633868 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpQueryHandleInformationMessage @ 0x140613E9C (AlpcpQueryHandleInformationMessage.c)
+ *     AlpcpExposeHandleAttribute @ 0x140634888 (AlpcpExposeHandleAttribute.c)
  * Callees:
  *     ObpFilterOperation @ 0x14001679C (ObpFilterOperation.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     ObpDecrementHandleCount @ 0x1405A9584 (ObpDecrementHandleCount.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
- *     ExCreateHandleEx @ 0x1405D1380 (ExCreateHandleEx.c)
- *     ObpIncrementHandleCountEx @ 0x1405E35F0 (ObpIncrementHandleCountEx.c)
- *     SeAuditingWithTokenForSubcategory @ 0x14060A3C0 (SeAuditingWithTokenForSubcategory.c)
- *     ObpPreInterceptHandleDuplicate @ 0x1406AE62C (ObpPreInterceptHandleDuplicate.c)
- *     ObpPostInterceptHandleDuplicate @ 0x140862654 (ObpPostInterceptHandleDuplicate.c)
- *     SeAuditHandleDuplication @ 0x14089CD6C (SeAuditHandleDuplication.c)
- *     EtwTraceDuplicateHandle @ 0x1408B7240 (EtwTraceDuplicateHandle.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     ObpDecrementHandleCount @ 0x1405AA584 (ObpDecrementHandleCount.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
+ *     ExCreateHandleEx @ 0x1405D2380 (ExCreateHandleEx.c)
+ *     ObpIncrementHandleCountEx @ 0x1405E45F0 (ObpIncrementHandleCountEx.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14060B3C0 (SeAuditingWithTokenForSubcategory.c)
+ *     ObpPreInterceptHandleDuplicate @ 0x1406AF8CC (ObpPreInterceptHandleDuplicate.c)
+ *     ObpPostInterceptHandleDuplicate @ 0x1408638B4 (ObpPostInterceptHandleDuplicate.c)
+ *     SeAuditHandleDuplication @ 0x14089DFCC (SeAuditHandleDuplication.c)
+ *     EtwTraceDuplicateHandle @ 0x1408B8500 (EtwTraceDuplicateHandle.c)
  */
 
 __int64 __fastcall ObCompleteObjectDuplication(__int64 *a1, ULONG_PTR a2, unsigned __int8 a3, __int64 *a4, int *a5)
@@ -90,7 +90,7 @@ LABEL_4:
           *a4 = Handle;
           *v21 = v22;
         }
-        if ( (xmmword_140541350 & 0x40) != 0 && v13 >= 0 )
+        if ( (xmmword_140542350 & 0x40) != 0 && v13 >= 0 )
           EtwTraceDuplicateHandle(a1[1], Handle, a1[2], *(_DWORD *)(*a1 + 736), *(_DWORD *)(a2 + 736), v27);
         return (unsigned int)v13;
       }

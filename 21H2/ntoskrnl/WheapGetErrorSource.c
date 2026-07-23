@@ -1,19 +1,19 @@
 /*
- * XREFs of WheapGetErrorSource @ 0x1405BBACC
+ * XREFs of WheapGetErrorSource @ 0x1405BBCFC
  * Callers:
- *     HalpMcaReportError @ 0x1404BAA90 (HalpMcaReportError.c)
- *     HalHandleNMI @ 0x1404BD740 (HalHandleNMI.c)
- *     WheapReportBootError @ 0x1405BAEC4 (WheapReportBootError.c)
- *     WheaGetErrorSource @ 0x1405BB100 (WheaGetErrorSource.c)
- *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
- *     WheapAttemptArchitecturalErrorRecovery @ 0x1405BB7D8 (WheapAttemptArchitecturalErrorRecovery.c)
- *     WheaAddHwErrorReportSectionDeviceDriver @ 0x1405BBCB0 (WheaAddHwErrorReportSectionDeviceDriver.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBF80 (WheaHwErrorReportSubmitDeviceDriver.c)
- *     WheapFreeDriverPacketBuffer @ 0x1405BC36C (WheapFreeDriverPacketBuffer.c)
- *     WheapGetPreallocatedPacketBuffer @ 0x1405BC3D0 (WheapGetPreallocatedPacketBuffer.c)
- *     WheapInitErrorReportDeviceDriver @ 0x1405BC480 (WheapInitErrorReportDeviceDriver.c)
- *     WheapWmiExecuteErrorSourceMethod @ 0x1405BD998 (WheapWmiExecuteErrorSourceMethod.c)
- *     WheaRemoveErrorSource @ 0x14095CF40 (WheaRemoveErrorSource.c)
+ *     HalpMcaReportError @ 0x1404BACD0 (HalpMcaReportError.c)
+ *     HalHandleNMI @ 0x1404BD980 (HalHandleNMI.c)
+ *     WheapReportBootError @ 0x1405BB0F4 (WheapReportBootError.c)
+ *     WheaGetErrorSource @ 0x1405BB330 (WheaGetErrorSource.c)
+ *     WheaReportHwError @ 0x1405BB360 (WheaReportHwError.c)
+ *     WheapAttemptArchitecturalErrorRecovery @ 0x1405BBA08 (WheapAttemptArchitecturalErrorRecovery.c)
+ *     WheaAddHwErrorReportSectionDeviceDriver @ 0x1405BBEE0 (WheaAddHwErrorReportSectionDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BC1B0 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     WheapFreeDriverPacketBuffer @ 0x1405BC59C (WheapFreeDriverPacketBuffer.c)
+ *     WheapGetPreallocatedPacketBuffer @ 0x1405BC600 (WheapGetPreallocatedPacketBuffer.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x1405BC6B0 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapWmiExecuteErrorSourceMethod @ 0x1405BDBC8 (WheapWmiExecuteErrorSourceMethod.c)
+ *     WheaRemoveErrorSource @ 0x14095D100 (WheaRemoveErrorSource.c)
  * Callees:
  *     <none>
  */

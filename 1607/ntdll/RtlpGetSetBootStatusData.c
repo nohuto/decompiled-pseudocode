@@ -1,90 +1,88 @@
 /*
- * XREFs of RtlpGetSetBootStatusData @ 0x180087ED0
+ * XREFs of RtlpGetSetBootStatusData @ 0x180087EC0
  * Callers:
- *     RtlGetSetBootStatusData @ 0x180087D70 (RtlGetSetBootStatusData.c)
+ *     RtlGetSetBootStatusData @ 0x180087D60 (RtlGetSetBootStatusData.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtReadFile @ 0x1800A64E0 (NtReadFile.c)
  *     NtWriteFile @ 0x1800A6520 (NtWriteFile.c)
  */
 
-__int64 __fastcall RtlpGetSetBootStatusData(__int64 a1, char a2, int a3, __int64 a4, unsigned int a5, _DWORD *a6)
+NTSTATUS __fastcall RtlpGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, void *a4, unsigned int a5, _DWORD *a6)
 {
   unsigned __int64 v9; // rdi
-  __int64 result; // rax
-  __int64 v11; // rdx
-  __int64 v12; // [rsp+50h] [rbp-89h] BYREF
-  unsigned int v13; // [rsp+58h] [rbp-81h] BYREF
-  _BYTE v14[8]; // [rsp+60h] [rbp-79h] BYREF
-  int v15; // [rsp+68h] [rbp-71h]
-  int v16; // [rsp+70h] [rbp-69h]
-  _DWORD v17[31]; // [rsp+74h] [rbp-65h]
+  NTSTATUS result; // eax
+  __int64 Length; // rdx
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-89h] BYREF
+  unsigned int Buffer; // [rsp+58h] [rbp-81h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-79h] BYREF
+  int v15; // [rsp+70h] [rbp-69h]
+  ULONG v16[31]; // [rsp+74h] [rbp-65h]
 
-  v16 = 0;
-  v12 = 0LL;
+  v15 = 0;
+  ByteOffset.QuadPart = 0LL;
   v9 = a3;
-  v17[0] = 4;
-  v17[1] = 4;
-  v17[14] = 32;
-  v17[28] = 32;
-  v17[2] = 4;
-  v17[4] = 1;
-  v17[6] = 1;
-  v17[8] = 1;
-  v17[10] = 1;
-  v17[12] = 1;
-  v17[16] = 1;
-  v17[18] = 1;
-  v17[20] = 4;
-  v17[22] = 4;
-  v17[24] = 4;
-  v17[30] = 1;
-  v17[3] = 8;
-  v17[5] = 9;
-  v17[7] = 10;
-  v17[9] = 11;
-  v17[11] = 12;
-  v17[13] = 16;
-  v17[15] = 48;
-  v17[17] = 49;
-  v17[19] = 52;
-  v17[21] = 56;
-  v17[23] = 60;
-  v17[25] = 64;
-  v17[26] = 20;
-  v17[27] = 88;
-  v17[29] = 50;
-  result = NtReadFile(a1, 0LL, 0LL, 0LL, v14, &v13, 4, &v12, 0LL);
-  if ( (int)result >= 0 )
+  v16[0] = 4;
+  v16[1] = 4;
+  v16[14] = 32;
+  v16[28] = 32;
+  v16[2] = 4;
+  v16[4] = 1;
+  v16[6] = 1;
+  v16[8] = 1;
+  v16[10] = 1;
+  v16[12] = 1;
+  v16[16] = 1;
+  v16[18] = 1;
+  v16[20] = 4;
+  v16[22] = 4;
+  v16[24] = 4;
+  v16[30] = 1;
+  v16[3] = 8;
+  v16[5] = 9;
+  v16[7] = 10;
+  v16[9] = 11;
+  v16[11] = 12;
+  v16[13] = 16;
+  v16[15] = 48;
+  v16[17] = 49;
+  v16[19] = 52;
+  v16[21] = 56;
+  v16[23] = 60;
+  v16[25] = 64;
+  v16[26] = 20;
+  v16[27] = 88;
+  v16[29] = 50;
+  result = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 4u, &ByteOffset, 0LL);
+  if ( result >= 0 )
   {
     if ( (v9 & 0x80000000) != 0LL || v9 >= 0x10 )
     {
-      return 3221225485LL;
+      return -1073741811;
     }
     else
     {
-      v11 = (unsigned int)v17[2 * v9];
-      v12 = (unsigned int)v17[2 * v9 - 1];
-      if ( v12 + v11 > (unsigned __int64)v13 )
+      Length = v16[2 * v9];
+      ByteOffset.QuadPart = v16[2 * v9 - 1];
+      if ( ByteOffset.QuadPart + Length > (unsigned __int64)Buffer )
       {
-        return 3221225561LL;
+        return -1073741735;
       }
-      else if ( a5 < (unsigned int)v11 )
+      else if ( a5 < (unsigned int)Length )
       {
-        return 3221225507LL;
+        return -1073741789;
       }
       else
       {
         if ( a2 )
-          LODWORD(result) = NtReadFile(a1, 0LL, 0LL, 0LL, v14, a4, v11, &v12, 0LL);
+          result = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a4, Length, &ByteOffset, 0LL);
         else
-          LODWORD(result) = NtWriteFile(a1, 0LL, 0LL, 0LL, v14, a4, v11, &v12, 0LL);
-        if ( (int)result >= 0 )
+          result = NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a4, Length, &ByteOffset, 0LL);
+        if ( result >= 0 )
         {
           if ( a6 )
-            *a6 = v15;
+            *a6 = IoStatusBlock.Information;
         }
-        return (unsigned int)result;
       }
     }
   }

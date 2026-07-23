@@ -9,23 +9,23 @@
  *     _RtlpHpSegMgrVaCtxInsert@8 @ 0x4B37C7EB (_RtlpHpSegMgrVaCtxInsert@8.c)
  */
 
-int __fastcall RtlpHpSegMgrAllocate(int a1, size_t a2, int a3)
+int __fastcall RtlpHpSegMgrAllocate(int a1, int a2, int a3)
 {
   int v5; // esi
   int v6; // edi
-  size_t v8; // [esp-10h] [ebp-2Ch]
+  int v8; // [esp-10h] [ebp-2Ch]
   int v9; // [esp-Ch] [ebp-28h]
   unsigned int v10; // [esp+10h] [ebp-Ch] BYREF
   unsigned int v11; // [esp+14h] [ebp-8h] BYREF
   int v12; // [esp+18h] [ebp-4h] BYREF
 
   v12 = 0;
-  if ( (int)RtlpHpSegMgrReserve(&v12, &v11, &v10) >= 0 )
+  if ( RtlpHpSegMgrReserve(a1, a3, &v12, &v11, &v10) >= 0 )
   {
     v9 = a2;
     v8 = a2;
     v5 = v12;
-    if ( RtlpHpSegMgrCommit(0, v8, v9, 1073745920, a3) >= 0 )
+    if ( RtlpHpSegMgrCommit(a1, v12, 0, v8, v9, 1073745920, a3) >= 0 )
     {
       if ( v11 < v10 )
         RtlpHpSegMgrVaCtxInsert(a1, v5);

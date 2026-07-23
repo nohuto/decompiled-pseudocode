@@ -1,62 +1,59 @@
 /*
- * XREFs of CmpCommitLightWeightTransaction @ 0x140A064F0
+ * XREFs of CmpCommitLightWeightTransaction @ 0x140A02A20
  * Callers:
- *     CmpTransMgrCommit @ 0x140A04398 (CmpTransMgrCommit.c)
- *     NtCommitRegistryTransaction @ 0x140A045D0 (NtCommitRegistryTransaction.c)
+ *     CmpTransMgrCommit @ 0x140A008C8 (CmpTransMgrCommit.c)
+ *     NtCommitRegistryTransaction @ 0x140A00B00 (NtCommitRegistryTransaction.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     CmpDrainDelayDerefContext @ 0x14041AEB0 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x140424470 (CmpInitializeDelayDerefContext.c)
- *     CmpCleanupLightWeightUoWData @ 0x1407DE314 (CmpCleanupLightWeightUoWData.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     CmpAbortLightWeightTransaction @ 0x140A06250 (CmpAbortLightWeightTransaction.c)
- *     CmpCleanupLightWeightTransaction @ 0x140A063A0 (CmpCleanupLightWeightTransaction.c)
- *     CmpCommitPreparedLightWeightTransaction @ 0x140A066A0 (CmpCommitPreparedLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x140A0683C (CmpPrepareLightWeightTransaction.c)
- *     CmListGetNextElement @ 0x140BB9940 (CmListGetNextElement.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     CmpDrainDelayDerefContext @ 0x14040AEB0 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140418320 (CmpInitializeDelayDerefContext.c)
+ *     CmpCleanupLightWeightUoWData @ 0x1407DE864 (CmpCleanupLightWeightUoWData.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     CmpAbortLightWeightTransaction @ 0x140A02780 (CmpAbortLightWeightTransaction.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140A028D0 (CmpCleanupLightWeightTransaction.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x140A02BD0 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x140A02D6C (CmpPrepareLightWeightTransaction.c)
+ *     CmListGetNextElement @ 0x140BBB940 (CmListGetNextElement.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpCommitLightWeightTransaction(__int64 a1)
 {
   char v2; // r14
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  signed __int32 v6; // eax
-  _QWORD *v7; // rsi
-  int v8; // edi
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
+  signed __int32 v3; // eax
+  _QWORD *v4; // rsi
+  int v5; // edi
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 NextElement; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  signed __int32 v16[8]; // [rsp+0h] [rbp-30h] BYREF
-  __int128 v17; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v18; // [rsp+68h] [rbp+38h] BYREF
-  __int64 v19; // [rsp+70h] [rbp+40h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  signed __int32 v13[8]; // [rsp+0h] [rbp-30h] BYREF
+  __int128 v14; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v15; // [rsp+68h] [rbp+38h] BYREF
+  __int64 v16; // [rsp+70h] [rbp+40h] BYREF
 
   v2 = 0;
-  v17 = 0LL;
-  CmpInitializeDelayDerefContext(&v17);
-  v6 = _InterlockedCompareExchange((volatile signed __int32 *)a1, 1, 0);
-  if ( v6 )
+  v14 = 0LL;
+  CmpInitializeDelayDerefContext(&v14);
+  v3 = _InterlockedCompareExchange((volatile signed __int32 *)a1, 1, 0);
+  if ( v3 )
   {
-    v8 = -1072103421;
-    if ( v6 == 3 )
+    v5 = -1072103421;
+    if ( v3 == 3 )
       return (unsigned int)-1072103403;
   }
   else
   {
-    v7 = *(_QWORD **)(a1 + 16);
-    if ( v7 )
+    v4 = *(_QWORD **)(a1 + 16);
+    if ( v4 )
     {
       v2 = 1;
-      CmpLockRegistryExclusive(v4, v3, v5);
+      CmpLockRegistryExclusive();
     }
-    v8 = CmpPrepareLightWeightTransaction(v7, &v17);
-    if ( v8 < 0 )
+    v5 = CmpPrepareLightWeightTransaction(v4, &v14);
+    if ( v5 < 0 )
     {
       if ( _InterlockedCompareExchange((volatile signed __int32 *)a1, 3, 1) == 1 )
       {
@@ -66,59 +63,59 @@ __int64 __fastcall CmpCommitLightWeightTransaction(__int64 a1)
       else
       {
         _InterlockedCompareExchange((volatile signed __int32 *)a1, 3, 4);
-        _InterlockedOr(v16, 0);
+        _InterlockedOr(v13, 0);
         if ( *(_QWORD *)(a1 + 8) )
           ExfUnblockPushLock(a1 + 8, 0LL);
       }
     }
     else if ( _InterlockedCompareExchange((volatile signed __int32 *)a1, 2, 1) == 4 )
     {
-      if ( v7 )
+      if ( v4 )
       {
-        v18 = 0LL;
+        v15 = 0LL;
         while ( 1 )
         {
-          NextElement = CmListGetNextElement(v7 + 2, &v18, 0LL);
+          NextElement = CmListGetNextElement(v4 + 2, &v15, 0LL);
           if ( !NextElement )
             break;
-          CmpCleanupLightWeightUoWData(NextElement, v14, (__int64)&v17);
+          CmpCleanupLightWeightUoWData(NextElement, v11, (__int64)&v14);
         }
       }
       _InterlockedCompareExchange((volatile signed __int32 *)a1, 3, 4);
-      _InterlockedOr(v16, 0);
+      _InterlockedOr(v13, 0);
       if ( *(_QWORD *)(a1 + 8) )
         ExfUnblockPushLock(a1 + 8, 0LL);
-      v8 = -1072103421;
+      v5 = -1072103421;
     }
     else
     {
-      CmpCommitPreparedLightWeightTransaction(v7, &v17);
+      CmpCommitPreparedLightWeightTransaction(v4, &v14);
       if ( v2 )
       {
-        if ( v7 )
+        if ( v4 )
         {
-          v19 = 0LL;
+          v16 = 0LL;
           while ( 1 )
           {
-            v9 = CmListGetNextElement(v7 + 2, &v19, 0LL);
-            if ( !v9 )
+            v6 = CmListGetNextElement(v4 + 2, &v16, 0LL);
+            if ( !v6 )
               break;
-            CmpCleanupLightWeightUoWData(v9, v10, (__int64)&v17);
+            CmpCleanupLightWeightUoWData(v6, v7, (__int64)&v14);
           }
         }
-        CmpDrainDelayDerefContext((_QWORD **)&v17);
-        CmpUnlockRegistry(v11);
+        CmpDrainDelayDerefContext((_QWORD **)&v14);
+        CmpUnlockRegistry(v8);
         v2 = 0;
         if ( !*(_BYTE *)(a1 + 24) )
-          CmpCleanupLightWeightTransaction(v7, 4);
+          CmpCleanupLightWeightTransaction(v4, 4);
       }
-      v8 = 0;
+      v5 = 0;
     }
     if ( v2 )
     {
-      CmpDrainDelayDerefContext((_QWORD **)&v17);
-      CmpUnlockRegistry(v15);
+      CmpDrainDelayDerefContext((_QWORD **)&v14);
+      CmpUnlockRegistry(v12);
     }
   }
-  return (unsigned int)v8;
+  return (unsigned int)v5;
 }

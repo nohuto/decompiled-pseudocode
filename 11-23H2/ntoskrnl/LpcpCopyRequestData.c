@@ -1,16 +1,16 @@
 /*
- * XREFs of LpcpCopyRequestData @ 0x14097822C
+ * XREFs of LpcpCopyRequestData @ 0x14097842C
  * Callers:
- *     NtReadRequestData @ 0x1409786E0 (NtReadRequestData.c)
- *     NtWriteRequestData @ 0x140978860 (NtWriteRequestData.c)
+ *     NtReadRequestData @ 0x1409788E0 (NtReadRequestData.c)
+ *     NtWriteRequestData @ 0x140978A60 (NtWriteRequestData.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     MiCopyVirtualMemory @ 0x1406F7910 (MiCopyVirtualMemory.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x14071B134 (AlpcpProbeAndCaptureMessageHeader.c)
- *     AlpcpUnlockMessage @ 0x14071BEB8 (AlpcpUnlockMessage.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     AlpcpLookupMessage @ 0x1407388B0 (AlpcpLookupMessage.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     MiCopyVirtualMemory @ 0x1406F7B20 (MiCopyVirtualMemory.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x14071B334 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpUnlockMessage @ 0x14071C0B8 (AlpcpUnlockMessage.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     AlpcpLookupMessage @ 0x140738AA0 (AlpcpLookupMessage.c)
  */
 
 NTSTATUS __fastcall LpcpCopyRequestData(

@@ -1,35 +1,33 @@
 /*
- * XREFs of CcUpdateTimeOnLogHandles @ 0x1405B14E4
+ * XREFs of CcUpdateTimeOnLogHandles @ 0x1405B3CF4
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcLazyWriteScan @ 0x1404FB788 (CcLazyWriteScan.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x1404F4BD4 (CcLazyWriteScan.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
  */
 
 __int64 __fastcall CcUpdateTimeOnLogHandles(__int64 a1)
 {
-  struct _LIST_ENTRY *v2; // rbx
-  struct _LIST_ENTRY *i; // rdi
+  __int64 v2; // rbx
+  unsigned __int64 i; // rdi
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v2 = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
+  v2 = MEMORY[0xFFFFF78000000320];
   KeRcuReadLock(a1);
-  for ( i = EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-        i != (struct _LIST_ENTRY *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList;
-        i = i->Flink )
+  for ( i = EmpParseLock.KernelWaitTime; (unsigned __int64 *)i != &EmpParseLock.KernelWaitTime; i = *(_QWORD *)i )
   {
-    if ( ((__int64)i[10].Blink & 1) != 0 )
+    if ( (*(_DWORD *)(i + 168) & 1) != 0 )
     {
       KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 768), &LockHandle);
-      if ( ((__int64)i[10].Blink & 1) != 0 )
+      if ( (*(_DWORD *)(i + 168) & 1) != 0 )
       {
-        i[10].Flink = v2;
-        LODWORD(i[10].Blink) &= ~1u;
+        *(_QWORD *)(i + 160) = v2;
+        *(_DWORD *)(i + 168) &= ~1u;
       }
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     }

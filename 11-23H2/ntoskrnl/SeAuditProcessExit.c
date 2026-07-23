@@ -1,15 +1,15 @@
 /*
- * XREFs of SeAuditProcessExit @ 0x1409CAF14
+ * XREFs of SeAuditProcessExit @ 0x1409CB114
  * Callers:
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     SepAdtLogAuditRecord @ 0x14039B780 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742774 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x14039B960 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x140742964 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of Amd64QueryInformation @ 0x14051DFC0
+ * XREFs of Amd64QueryInformation @ 0x14051E510
  * Callers:
  *     <none>
  * Callees:

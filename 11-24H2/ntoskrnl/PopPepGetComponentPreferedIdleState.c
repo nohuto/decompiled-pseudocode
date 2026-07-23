@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepGetComponentPreferedIdleState @ 0x140316D90
+ * XREFs of PopPepGetComponentPreferedIdleState @ 0x1402BF940
  * Callers:
- *     PopPepComponentSetLatency @ 0x1403169B8 (PopPepComponentSetLatency.c)
- *     PopPepUpdateIdleState @ 0x140316D20 (PopPepUpdateIdleState.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140316EF0 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepCompleteComponentActiveActivity @ 0x140319AB0 (PopPepCompleteComponentActiveActivity.c)
- *     PopPepTriggerComponentActivatingActivity @ 0x140319C50 (PopPepTriggerComponentActivatingActivity.c)
+ *     PopPepComponentSetLatency @ 0x1402BF568 (PopPepComponentSetLatency.c)
+ *     PopPepUpdateIdleState @ 0x1402BF8D0 (PopPepUpdateIdleState.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1402BFAA0 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x1402C2640 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepTriggerComponentActivatingActivity @ 0x1402C27E0 (PopPepTriggerComponentActivatingActivity.c)
  * Callees:
- *     PopPepArmIdleTimer @ 0x1403785FC (PopPepArmIdleTimer.c)
+ *     PopPepArmIdleTimer @ 0x1402E6CD8 (PopPepArmIdleTimer.c)
  */
 
 __int64 __fastcall PopPepGetComponentPreferedIdleState(_DWORD *a1)

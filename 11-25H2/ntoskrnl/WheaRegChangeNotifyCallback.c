@@ -23,28 +23,26 @@ LONG WheaRegChangeNotifyCallback()
   __int64 v2; // rdi
   int *v3; // rax
   const wchar_t *v4; // rdx
-  char v6; // [rsp+60h] [rbp-21h]
   _DWORD Src[8]; // [rsp+68h] [rbp-19h] BYREF
   char Dest[16]; // [rsp+88h] [rbp+7h] BYREF
-  __int128 v9; // [rsp+98h] [rbp+17h]
-  int v10; // [rsp+A8h] [rbp+27h]
-  int v11; // [rsp+ACh] [rbp+2Bh]
+  __int128 v8; // [rsp+98h] [rbp+17h]
+  int v9; // [rsp+A8h] [rbp+27h]
+  int v10; // [rsp+ACh] [rbp+2Bh]
 
   memset_0(Src, 0, 0x48uLL);
-  v6 = 1;
-  if ( (int)NtNotifyChangeMultipleKeys(
-              WheapDispatchPtr.NextDevice,
-              0,
-              0,
-              0,
-              (__int64)&WheapDispatchPtr.Vpb,
-              1LL,
-              (__int64)&WheapDispatchPtr.Queue.ListEntry.Blink,
-              4,
-              0,
-              0LL,
-              0,
-              v6) < 0 )
+  if ( NtNotifyChangeMultipleKeys(
+         WheapDispatchPtr.NextDevice,
+         0,
+         0LL,
+         0LL,
+         (PIO_APC_ROUTINE)&WheapDispatchPtr.Vpb,
+         (PVOID)1,
+         (PIO_STATUS_BLOCK)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink,
+         4u,
+         0,
+         0LL,
+         0,
+         1u) < 0 )
     _InterlockedExchange((volatile __int32 *)&WheapDispatchPtr.DriverObject, 1);
   KeWaitForSingleObject(&WheapDispatchPtr.AttachedDevice, Executive, 0, 0, 0LL);
   WheapScanRegistryForPolicyChanges();
@@ -62,7 +60,7 @@ LONG WheaRegChangeNotifyCallback()
       Src[3] = 0;
       v2 = 4LL * (unsigned int)i;
       *(_OWORD *)Dest = 0LL;
-      v9 = 0LL;
+      v8 = 0LL;
       Src[0] = 1733060695;
       v3 = *(int **)((char *)&off_140E09458 + v2 * 8);
       v4 = (&WheaRegPolicyTable)[v2];
@@ -72,8 +70,8 @@ LONG WheaRegChangeNotifyCallback()
       Src[4] = 1280201291;
       Src[6] = 2;
       Src[7] = 40;
-      v10 = i;
-      v11 = *v3;
+      v9 = i;
+      v10 = *v3;
       wcstombs(Dest, v4, 0x1FuLL);
       WheaLogInternalEvent(Src);
     }

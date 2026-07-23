@@ -19,7 +19,7 @@ __int64 __fastcall AslpFileGetClrVersionAttribute(__int64 a1, __int64 a2)
   wchar_t *v5; // rbp
   __int64 v6; // rax
   wchar_t *v8; // [rsp+30h] [rbp-138h] BYREF
-  char v9[256]; // [rsp+40h] [rbp-128h] BYREF
+  CHAR v9[256]; // [rsp+40h] [rbp-128h] BYREF
 
   memset(v9, 0, sizeof(v9));
   v8 = 0LL;

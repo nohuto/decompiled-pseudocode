@@ -1,19 +1,19 @@
 /*
  * XREFs of IoInitSystem @ 0x140B5D6A0
  * Callers:
- *     Phase1Initialization @ 0x140820F30 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x140821230 (Phase1Initialization.c)
  * Callees:
- *     PnpSerializeBoot @ 0x1403B2B90 (PnpSerializeBoot.c)
- *     Feature_FsctlProcessMitigation__private_IsEnabledNoReporting @ 0x14040FD50 (Feature_FsctlProcessMitigation__private_IsEnabledNoReporting.c)
- *     IopRegistryInitializeCallbacks @ 0x14083463C (IopRegistryInitializeCallbacks.c)
- *     IopInitializeMdlCache @ 0x140834934 (IopInitializeMdlCache.c)
- *     VfNotifyVerifierOfEvent @ 0x140AC2150 (VfNotifyVerifierOfEvent.c)
+ *     PnpSerializeBoot @ 0x1403B2D70 (PnpSerializeBoot.c)
+ *     Feature_FsctlProcessMitigation__private_IsEnabledNoReporting @ 0x14040FF30 (Feature_FsctlProcessMitigation__private_IsEnabledNoReporting.c)
+ *     IopRegistryInitializeCallbacks @ 0x14083493C (IopRegistryInitializeCallbacks.c)
+ *     IopInitializeMdlCache @ 0x140834C34 (IopInitializeMdlCache.c)
+ *     VfNotifyVerifierOfEvent @ 0x140AC2140 (VfNotifyVerifierOfEvent.c)
  *     HdlspKernelAddLogEntry @ 0x140AEAA40 (HdlspKernelAddLogEntry.c)
  *     IopInitializeSystemDrivers @ 0x140B3CA80 (IopInitializeSystemDrivers.c)
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  */
 
-char __fastcall IoInitSystem(__int64 a1)
+char __fastcall IoInitSystem(_QWORD *a1)
 {
   FeatureDeveloperVolume = 1;
   IoFsctlProcessMitigationEnabled = (unsigned int)Feature_FsctlProcessMitigation__private_IsEnabledNoReporting() != 0;

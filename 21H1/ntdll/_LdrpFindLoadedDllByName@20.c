@@ -15,9 +15,9 @@
  *     _LdrpLogEtwEvent@24 @ 0x4B330117 (_LdrpLogEtwEvent@24.c)
  */
 
-int __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int16 *a2, char a3, int *a4, _DWORD *a5)
+int __fastcall LdrpFindLoadedDllByName(_UNICODE_STRING *a1, unsigned __int16 *a2, char a3, int *a4, _DWORD *a5)
 {
-  unsigned __int16 *v5; // eax
+  _UNICODE_STRING *v5; // eax
   unsigned int v7; // ecx
   unsigned __int16 v8; // si
   unsigned __int16 *v9; // edx
@@ -26,7 +26,7 @@ int __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int16 *a
   __int16 v12; // ax
   int v13; // esi
   int v14; // edi
-  unsigned __int16 *v15; // ebx
+  wchar_t *Buffer; // ebx
   unsigned int v16; // esi
   unsigned __int16 v17; // ax
   int v18; // eax
@@ -42,7 +42,7 @@ int __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int16 *a
   _DWORD *v28; // eax
   int v29; // esi
   unsigned __int16 *v30; // edi
-  void *CurrentServiceSessionId; // eax
+  ULONG CurrentServiceSessionId; // eax
   int v32; // eax
   __int16 v34; // cx
   __int16 v35; // cx
@@ -57,11 +57,11 @@ int __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int16 *a
   unsigned __int16 *v44; // [esp+24h] [ebp-18h]
   int *v45; // [esp+28h] [ebp-14h]
   char *v46; // [esp+2Ch] [ebp-10h]
-  unsigned __int16 *v47; // [esp+30h] [ebp-Ch]
+  PUNICODE_STRING String1; // [esp+30h] [ebp-Ch]
   unsigned int v48; // [esp+34h] [ebp-8h]
 
   v5 = a1;
-  v47 = a1;
+  String1 = a1;
   v44 = a2;
   if ( !a1 )
   {
@@ -86,20 +86,20 @@ LABEL_8:
     v12 = a2[1] - v11;
     v39[0] = v8 - v11;
     v39[1] = v12;
-    v5 = v39;
-    v47 = v39;
+    v5 = (_UNICODE_STRING *)v39;
+    String1 = (PUNICODE_STRING)v39;
   }
   v13 = 0;
   v48 = 0;
   if ( !v5 )
     goto LABEL_59;
-  v14 = *v5 >> 1;
-  v15 = (unsigned __int16 *)*((_DWORD *)v5 + 1);
+  v14 = v5->Length >> 1;
+  Buffer = v5->Buffer;
   if ( v14 )
   {
     while ( 1 )
     {
-      v16 = *v15++;
+      v16 = *Buffer++;
       --v14;
       if ( v16 < 0x61 )
         goto LABEL_36;
@@ -155,7 +155,7 @@ LABEL_48:
       goto LABEL_47;
     if ( v44 )
       break;
-    if ( (*(_DWORD *)(v21 + 52) & 0x10000000) == 0 && (unsigned __int8)RtlEqualUnicodeString(v47, v21 + 44, 1) )
+    if ( (*(_DWORD *)(v21 + 52) & 0x10000000) == 0 && RtlEqualUnicodeString(String1, (PUNICODE_STRING)(v21 + 44), 1u) )
       goto LABEL_26;
 LABEL_47:
     v19 = *v45;
@@ -281,7 +281,7 @@ LABEL_29:
     {
       v38 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
       if ( (*v38 & 0x20) != 0 )
-        LdrpLogEtwEvent(0, v29 >= 0 ? 0 : 3, v47, 0);
+        LdrpLogEtwEvent(0, v29 >= 0 ? 0 : 3, String1, 0);
     }
   }
   return v29;

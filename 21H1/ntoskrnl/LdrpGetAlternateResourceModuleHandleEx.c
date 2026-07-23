@@ -17,13 +17,13 @@ __int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2
   __int64 v9; // rdx
   int j; // edi
   bool v11; // sf
-  __int64 v12; // rax
-  __int16 v13; // cx
-  __int64 v15; // [rsp+38h] [rbp-20h] BYREF
+  PIMAGE_NT_HEADERS v12; // rax
+  unsigned __int16 Magic; // cx
+  __int64 SizeOfImage; // [rsp+38h] [rbp-20h] BYREF
   _QWORD v16[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v16[0] = 0LL;
-  v15 = 0LL;
+  SizeOfImage = 0LL;
   LdrpInitMuiCrits(a1, a2, a3, a4);
   KeWaitForSingleObject(&MuiMutex, Executive, 0, 0, 0LL);
   *(_QWORD *)a4 = 0LL;
@@ -41,7 +41,7 @@ __int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2
           if ( j < 0 )
             break;
           if ( *((_QWORD *)AlternateResourceModules + 8 * (__int64)j + 1) == a1
-            && (unsigned __int8)LdrpGetMappingFromCacheEntry((unsigned int)j, a3, v16, &v15) )
+            && (unsigned __int8)LdrpGetMappingFromCacheEntry((unsigned int)j, a3, v16, &SizeOfImage) )
           {
             v7 = j;
             v11 = j < 0;
@@ -53,7 +53,7 @@ __int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2
         break;
       }
       v16[0] = *(_QWORD *)((char *)AlternateResourceModules + v9 + 32);
-      v15 = *(_QWORD *)((char *)AlternateResourceModules + v9 + 48);
+      SizeOfImage = *(_QWORD *)((char *)AlternateResourceModules + v9 + 48);
       v7 = i;
     }
   }
@@ -63,19 +63,19 @@ __int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2
   }
   else
   {
-    if ( !v15 )
+    if ( !SizeOfImage )
     {
-      v12 = RtlImageNtHeader(v16[0] & 0xFFFFFFFFFFFFFFFCuLL);
+      v12 = RtlImageNtHeader((PVOID)(v16[0] & 0xFFFFFFFFFFFFFFFCuLL));
       if ( v12 )
       {
-        v13 = *(_WORD *)(v12 + 24);
-        if ( v13 == 267 || v13 == 523 )
-          v15 = *(unsigned int *)(v12 + 80);
+        Magic = v12->OptionalHeader.Magic;
+        if ( Magic == 267 || Magic == 523 )
+          SizeOfImage = v12->OptionalHeader.SizeOfImage;
         else
-          v15 = 0LL;
+          SizeOfImage = 0LL;
       }
     }
-    *(_QWORD *)a4 = v15;
+    *(_QWORD *)a4 = SizeOfImage;
   }
   KeReleaseMutant(&MuiMutex, 1, 0, 0);
   return v16[0];

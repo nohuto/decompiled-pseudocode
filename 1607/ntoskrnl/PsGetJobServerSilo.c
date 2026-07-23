@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetJobServerSilo @ 0x140076ECC
+ * XREFs of PsGetJobServerSilo @ 0x140076F4C
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     NtQueryInformationJobObject @ 0x140466FD0 (NtQueryInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140465EA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x140076688 (PsGetEffectiveServerSilo.c)
- *     PspGetJobSilo @ 0x140076728 (PspGetJobSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x140076708 (PsGetEffectiveServerSilo.c)
+ *     PspGetJobSilo @ 0x1400767A8 (PspGetJobSilo.c)
  */
 
 __int64 __fastcall PsGetJobServerSilo(__int64 a1, __int64 *a2)

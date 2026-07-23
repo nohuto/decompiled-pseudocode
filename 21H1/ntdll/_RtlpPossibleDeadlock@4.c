@@ -17,34 +17,34 @@
 void __thiscall RtlpPossibleDeadlock(void *this)
 {
   int v2; // esi
-  int v3; // edx
-  int InformationProcess; // eax
-  int v5; // esi
+  PULONG v3; // edx
+  int v4; // eax
+  unsigned int v5; // esi
   signed __int32 v6; // ecx
   int v7; // eax
-  _BYTE v8[16]; // [esp+14h] [ebp-384h] BYREF
+  char v8[16]; // [esp+14h] [ebp-384h] BYREF
   int v9; // [esp+24h] [ebp-374h]
-  int v10; // [esp+44h] [ebp-354h] BYREF
+  ULONG *ProcessInformation; // [esp+44h] [ebp-354h] BYREF
   int v11; // [esp+48h] [ebp-350h] BYREF
   int v12; // [esp+4Ch] [ebp-34Ch]
-  int (__stdcall *v13)(int); // [esp+54h] [ebp-344h]
+  LONG (__cdecl *v13)(PEXCEPTION_POINTERS); // [esp+54h] [ebp-344h]
   EXCEPTION_RECORD ExceptionRecord; // [esp+58h] [ebp-340h] BYREF
-  CONTEXT ContextRecord; // [esp+A8h] [ebp-2F0h] BYREF
+  _CONTEXT ContextRecord; // [esp+A8h] [ebp-2F0h] BYREF
   CPPEH_RECORD ms_exc; // [esp+380h] [ebp-18h]
 
   v2 = RtlpUnhandledExceptionFilter;
   v3 = `RtlpGetCookieValue'::`2'::CookieValue;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    InformationProcess = ZwQueryInformationProcess(-1, 36, (int)&v10, 4, 0);
-    if ( InformationProcess < 0 )
-      RtlRaiseStatus(InformationProcess);
-    v3 = v10;
-    `RtlpGetCookieValue'::`2'::CookieValue = v10;
+    v4 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+    if ( v4 < 0 )
+      RtlRaiseStatus(v4);
+    v3 = ProcessInformation;
+    `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  v5 = __ROR4__(v2, 32 - (v3 & 0x1F));
-  v13 = (int (__stdcall *)(int))(v5 ^ v3);
-  if ( v5 == v3 )
+  v5 = __ROR4__(v2, 32 - ((unsigned __int8)v3 & 0x1F));
+  v13 = (LONG (__cdecl *)(PEXCEPTION_POINTERS))(v5 ^ (unsigned int)v3);
+  if ( (PULONG)v5 == v3 )
     v13 = RtlUnhandledExceptionFilter;
   ExceptionRecord.ExceptionCode = -1073741420;
   ExceptionRecord.ExceptionFlags = 0;
@@ -65,7 +65,7 @@ void __thiscall RtlpPossibleDeadlock(void *this)
       v12 = 0;
       if ( !LdrpIsSecureProcess )
       {
-        if ( ZwQueryInformationProcess(-1, 37, (int)v8, 48, 0) >= 0 && v9 == 1 )
+        if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessImageInformation, v8, 0x30u, 0) >= 0 && v9 == 1 )
         {
           v7 = 1;
           v11 = -300000000;
@@ -75,7 +75,7 @@ void __thiscall RtlpPossibleDeadlock(void *this)
         {
           v7 = 0;
         }
-        RtlReportExceptionHelper(&ExceptionRecord, &ContextRecord, 0xFu, v7 != 0 ? (unsigned int)&v11 : 0);
+        RtlReportExceptionHelper(&ExceptionRecord, &ContextRecord, 15, v7 != 0 ? (LARGE_INTEGER *)&v11 : 0);
       }
     }
   }

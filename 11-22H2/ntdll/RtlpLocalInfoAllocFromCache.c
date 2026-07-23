@@ -45,7 +45,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   unsigned int v25; // r12d
   unsigned __int16 *v26; // r12
   __int64 *v27; // r13
-  union _SLIST_HEADER *v28; // rbp
+  _SLIST_HEADER *v28; // rbp
   _QWORD *p_Next; // r15
   __int64 v30; // rbx
   __int128 *v31; // rcx
@@ -55,7 +55,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   int v35; // ebp
   signed __int64 v36; // rbx
   _QWORD *v37; // r15
-  union _SLIST_HEADER *v38; // r12
+  _SLIST_HEADER *v38; // r12
   PSLIST_ENTRY v39; // rsi
   __int128 *v40; // rcx
   signed __int32 v41; // eax
@@ -92,11 +92,9 @@ LABEL_2:
         && (int)RtlpAffinitizeSegmentInfoForBucket(v5, *(unsigned __int8 *)(v5 + 4 * v6 + 678)) >= 0 )
       {
         *(_BYTE *)(v5 + 4 * v6 + 679) |= 1u;
-        v7 = (unsigned int)RtlGetCurrentServiceSessionId()
-           ? (char *)NtCurrentPeb()->SharedData + 550
-           : (char *)2147353472;
+        v7 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 550 : (char *)2147353472;
         if ( *v7 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-          RtlpLogHeapAffinityManagerEnable();
+          RtlpLogHeapAffinityManagerEnable(*(_QWORD *)(v5 + 24), *(unsigned __int8 *)(v5 + 4 * v6 + 678));
       }
     }
     v8 = 0;
@@ -198,7 +196,7 @@ LABEL_35:
           goto LABEL_60;
         }
         v27 = (__int64 *)(v57 + 24);
-        v28 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v57 + 24) + 8LL * *v26 + 1192) + 144LL);
+        v28 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v57 + 24) + 8LL * *v26 + 1192) + 144LL);
         while ( 1 )
         {
           v32 = RtlpInterlockedPopEntrySList(v28);
@@ -252,7 +250,7 @@ LABEL_60:
     v35 = 0;
     v36 = 0LL;
     v37 = 0LL;
-    v38 = (union _SLIST_HEADER *)(*(_QWORD *)(v34 + 8LL * *v26 + 1192) + 144LL);
+    v38 = (_SLIST_HEADER *)(*(_QWORD *)(v34 + 8LL * *v26 + 1192) + 144LL);
     v39 = RtlpInterlockedPopEntrySList(v38);
     if ( !v39 )
       goto LABEL_74;
@@ -308,12 +306,12 @@ LABEL_75:
       v42 = *(__int128 ***)v19;
       if ( *(_QWORD *)v19 == a1 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v50 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
           v50 = 2147353472LL;
         if ( *(_BYTE *)v50 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-          RtlpLogHeapSubSegmentActivate();
+          RtlpLogHeapSubSegmentActivate(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 24LL) + 24LL), *(_QWORD *)(v19 + 8));
         v19 = _InterlockedExchange64((volatile __int64 *)(a1 + 8), v19);
         if ( !v19 )
           continue;

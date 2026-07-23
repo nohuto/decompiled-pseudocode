@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogQueryAccessedState @ 0x1406C2F38
+ * XREFs of VmpLogQueryAccessedState @ 0x1406C6B18
  * Callers:
- *     VmpQueryAccessedState @ 0x140464934 (VmpQueryAccessedState.c)
+ *     VmpQueryAccessedState @ 0x14045D8F4 (VmpQueryAccessedState.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall VmpLogQueryAccessedState(
@@ -50,7 +50,7 @@ void __fastcall VmpLogQueryAccessedState(
   __int64 *v37; // [rsp+100h] [rbp+0h]
   __int64 v38; // [rsp+108h] [rbp+8h]
 
-  if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u && tlgKeywordOn(stru_140F066E8.QuantumTarget, 512LL) )
+  if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 512LL) )
   {
     Flink = (int)KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
     p_Flink = &Flink;
@@ -76,6 +76,6 @@ void __fastcall VmpLogQueryAccessedState(
     v34 = 4LL;
     v36 = 8LL;
     v38 = 8LL;
-    tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&byte_140053647, v8, 0, v12, v13, 0xAu, &v22);
+    tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&dword_140053DBC, v8, 0, v12, v13, 0xAu, &v22);
   }
 }

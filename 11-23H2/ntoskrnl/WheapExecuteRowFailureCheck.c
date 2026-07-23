@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapExecuteRowFailureCheck @ 0x140A089C0
+ * XREFs of WheapExecuteRowFailureCheck @ 0x140A08C70
  * Callers:
- *     WheaExecuteRowFailureCheck @ 0x140A0891C (WheaExecuteRowFailureCheck.c)
- *     WheapPfaMemoryCheck @ 0x140A08CB8 (WheapPfaMemoryCheck.c)
+ *     WheaExecuteRowFailureCheck @ 0x140A08BCC (WheaExecuteRowFailureCheck.c)
+ *     WheapPfaMemoryCheck @ 0x140A08F68 (WheapPfaMemoryCheck.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MmGetPageBadStatus @ 0x14062B490 (MmGetPageBadStatus.c)
- *     WheaAttemptPhysicalPageOffline @ 0x140A07D80 (WheaAttemptPhysicalPageOffline.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MmGetPageBadStatus @ 0x14062B9E0 (MmGetPageBadStatus.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A08030 (WheaAttemptPhysicalPageOffline.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,7 +1,7 @@
 /*
- * XREFs of SeValidateImageData @ 0x140526A80
+ * XREFs of SeValidateImageData @ 0x140509AE0
  * Callers:
- *     MiValidateInPage @ 0x1400267B0 (MiValidateInPage.c)
+ *     MiValidateInPage @ 0x140026330 (MiValidateInPage.c)
  * Callees:
  *     <none>
  */

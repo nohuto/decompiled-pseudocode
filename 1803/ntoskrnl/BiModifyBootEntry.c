@@ -11,7 +11,7 @@
 
 __int64 __fastcall BiModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   NTSTATUS v3; // eax
   unsigned int v5; // [rsp+38h] [rbp+10h] BYREF
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of RawBeginOperation @ 0x140321DBC
+ * XREFs of RawBeginOperation @ 0x14032204C
  * Callers:
- *     RawReadWriteDeviceControl @ 0x140791954 (RawReadWriteDeviceControl.c)
- *     RawQueryFsVolumeInfo @ 0x140792008 (RawQueryFsVolumeInfo.c)
- *     RawUserFsCtrl @ 0x140882194 (RawUserFsCtrl.c)
- *     RawQueryFsDeviceInfo @ 0x1409B83A4 (RawQueryFsDeviceInfo.c)
- *     RawQueryFsSizeInfo @ 0x1409B8428 (RawQueryFsSizeInfo.c)
- *     RawQueryInformation @ 0x1409B86D4 (RawQueryInformation.c)
- *     RawSetInformation @ 0x1409B8778 (RawSetInformation.c)
+ *     RawReadWriteDeviceControl @ 0x140791B44 (RawReadWriteDeviceControl.c)
+ *     RawQueryFsVolumeInfo @ 0x1407921F8 (RawQueryFsVolumeInfo.c)
+ *     RawUserFsCtrl @ 0x1408823D4 (RawUserFsCtrl.c)
+ *     RawQueryFsDeviceInfo @ 0x1409B85A4 (RawQueryFsDeviceInfo.c)
+ *     RawQueryFsSizeInfo @ 0x1409B8628 (RawQueryFsSizeInfo.c)
+ *     RawQueryInformation @ 0x1409B88D4 (RawQueryInformation.c)
+ *     RawSetInformation @ 0x1409B8978 (RawSetInformation.c)
  * Callees:
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140321E00 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140322090 (ExAcquireRundownProtectionCacheAwareEx.c)
  */
 
 BOOLEAN __fastcall RawBeginOperation(__int64 a1, __int64 a2)

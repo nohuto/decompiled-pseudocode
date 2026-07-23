@@ -6,20 +6,20 @@
  *     RtlCheckTokenCapability @ 0x180046140 (RtlCheckTokenCapability.c)
  *     RtlCheckSandboxedToken @ 0x180071FC0 (RtlCheckSandboxedToken.c)
  *     RtlCreateAndSetSD @ 0x180072450 (RtlCreateAndSetSD.c)
- *     RtlpSysVolCreateSecurityDescriptor @ 0x18008CFA8 (RtlpSysVolCreateSecurityDescriptor.c)
- *     RtlpSysVolTakeOwnership @ 0x18008F800 (RtlpSysVolTakeOwnership.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x18008CFB8 (RtlpSysVolCreateSecurityDescriptor.c)
+ *     RtlpSysVolTakeOwnership @ 0x18008F810 (RtlpSysVolTakeOwnership.c)
  * Callees:
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall RtlCreateSecurityDescriptor(_BYTE *a1, int a2)
+NTSTATUS __cdecl RtlCreateSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, ULONG Revision)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( a2 != 1 )
-    return 3221225560LL;
-  memset(a1, 0, 0x28uLL);
-  result = 0LL;
-  *a1 = 1;
+  if ( Revision != 1 )
+    return -1073741736;
+  memset(SecurityDescriptor, 0, 0x28uLL);
+  result = 0;
+  *(_BYTE *)SecurityDescriptor = 1;
   return result;
 }

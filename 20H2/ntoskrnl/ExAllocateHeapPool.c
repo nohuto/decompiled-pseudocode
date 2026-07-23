@@ -119,7 +119,7 @@ __int64 __fastcall ExAllocateHeapPool(
   unsigned int v84; // r8d
   unsigned __int64 OldIrql; // r14
   int v86; // eax
-  struct _SLIST_ENTRY *v87; // rdx
+  _SLIST_ENTRY *v87; // rdx
   ULONG v88; // eax
   volatile signed __int32 v89; // r11d
   int updated; // eax
@@ -157,7 +157,7 @@ __int64 __fastcall ExAllocateHeapPool(
   int v122; // [rsp+60h] [rbp-81h] BYREF
   int v123; // [rsp+64h] [rbp-7Dh] BYREF
   __int64 v124; // [rsp+68h] [rbp-79h] BYREF
-  struct _SLIST_ENTRY **v125; // [rsp+70h] [rbp-71h] BYREF
+  _SLIST_ENTRY **v125; // [rsp+70h] [rbp-71h] BYREF
   __int64 v126; // [rsp+78h] [rbp-69h] BYREF
   PSLIST_ENTRY ListEnd; // [rsp+80h] [rbp-61h] BYREF
   struct _KLOCK_QUEUE_HANDLE v128; // [rsp+88h] [rbp-59h] BYREF
@@ -299,7 +299,7 @@ LABEL_201:
             {
               Internal = (__int64)v125;
               v87 = *v125;
-              v125 = (struct _SLIST_ENTRY **)*v125;
+              v125 = (_SLIST_ENTRY **)*v125;
               v88 = v86 - 1;
               if ( v88 )
                 InterlockedPushListSList((PSLIST_HEADER)v53, v87, ListEnd, v88);
@@ -560,7 +560,7 @@ LABEL_67:
                     return v5;
 LABEL_247:
                   if ( (v12 & 0x10) != 0 )
-                    RtlRaiseStatus(3221225626LL);
+                    RtlRaiseStatus(-1073741670);
                   return v5;
                 }
                 if ( !v45 )

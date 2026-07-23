@@ -1,20 +1,15 @@
 /*
- * XREFs of Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledFallback @ 0x1405973EC
+ * XREFs of Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledFallback @ 0x14059436C
  * Callers:
- *     Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledDeviceUsageNoInline @ 0x1405973B4 (Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledDeviceUsageNoInline @ 0x140594334 (Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1404D17E0 (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404CA820 (wil_details_IsEnabledFallback.c)
  */
 
-__int64 __fastcall Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledFallback(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledFallback(__int64 a1, unsigned int a2)
 {
   return wil_details_IsEnabledFallback(
            a1,
            a2,
-           (volatile signed __int32 **)&Feature_SteelixInlineNvmeCryptoEngine__private_descriptor,
-           a4);
+           (volatile signed __int32 **)&Feature_SteelixInlineNvmeCryptoEngine__private_descriptor);
 }

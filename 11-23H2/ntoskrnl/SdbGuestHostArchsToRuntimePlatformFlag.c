@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbGuestHostArchsToRuntimePlatformFlag @ 0x140A522D8
+ * XREFs of SdbGuestHostArchsToRuntimePlatformFlag @ 0x140A52588
  * Callers:
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A52384 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A52634 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslEnvGetProcessWowInfo @ 0x140A570CC (AslEnvGetProcessWowInfo.c)
+ *     AslEnvGetProcessWowInfo @ 0x140A5737C (AslEnvGetProcessWowInfo.c)
  */
 
 __int64 __fastcall SdbGuestHostArchsToRuntimePlatformFlag(__int16 a1, __int16 *a2)
@@ -27,10 +27,10 @@ __int64 __fastcall SdbGuestHostArchsToRuntimePlatformFlag(__int16 a1, __int16 *a
     }
     v4 = v7;
   }
-  for ( i = &word_140049826; a1 != *(i - 1) || v4 != *i; i += 8 )
+  for ( i = &word_1400498F6; a1 != *(i - 1) || v4 != *i; i += 8 )
   {
     if ( (unsigned __int64)++v3 >= 8 )
       return 0LL;
   }
-  return LODWORD(qword_140049828[2 * v3]);
+  return LODWORD(qword_1400498F8[2 * v3]);
 }

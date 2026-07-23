@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpUpdateEnableInfoAndCallback @ 0x180031F78 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
- *     EtwpDemuxUmTraceHandle @ 0x180125590 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180125560 (EtwpDemuxUmTraceHandle.c)
  */
 
 bool __fastcall EtwpIsPrivateLoggerOn(__int64 a1)

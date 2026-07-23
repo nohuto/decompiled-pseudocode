@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeColorBase @ 0x1402A5898
+ * XREFs of MiInitializeColorBase @ 0x1402A4DE8
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1406F259C (MiDemoteValidLargePageOneLevel.c)
- *     MmCreateShadowMapping @ 0x140875970 (MmCreateShadowMapping.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1406F720C (MiDemoteValidLargePageOneLevel.c)
+ *     MmCreateShadowMapping @ 0x14087BD54 (MmCreateShadowMapping.c)
  * Callees:
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
  */
 
 __int64 __fastcall MiInitializeColorBase(unsigned __int64 a1, unsigned int a2, __int64 a3)
@@ -13,7 +13,7 @@ __int64 __fastcall MiInitializeColorBase(unsigned __int64 a1, unsigned int a2, _
   struct _LIST_ENTRY **p_Blink; // rcx
 
   if ( a1 >= 0x7FFFFFFF0000LL
-    && (a1 < qword_140E2DE40 || a1 > qword_140E2DE50)
+    && (a1 < qword_140E2DFC0 || a1 > qword_140E2DFD0)
     && (a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL) )
   {
     p_Blink = 0LL;

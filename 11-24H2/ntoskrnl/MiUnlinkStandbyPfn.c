@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlinkStandbyPfn @ 0x1402363D0
+ * XREFs of MiUnlinkStandbyPfn @ 0x140210560
  * Callers:
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiGetPfnPriority @ 0x1402141E0 (MiGetPfnPriority.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiCanPfnOriginalPteBeLost @ 0x14039E1D0 (MiCanPfnOriginalPteBeLost.c)
- *     MiDiscardTransitionPteEx @ 0x1403A1C98 (MiDiscardTransitionPteEx.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiDiscardTransitionPteEx @ 0x1402188CC (MiDiscardTransitionPteEx.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x1402EE318 (MiCanPfnOriginalPteBeLost.c)
+ *     MiGetPfnPriority @ 0x140335630 (MiGetPfnPriority.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyPfn(ULONG_PTR *BugCheckParameter2, char a2)
@@ -25,12 +25,12 @@ __int64 __fastcall MiUnlinkStandbyPfn(ULONG_PTR *BugCheckParameter2, char a2)
   int v14; // [rsp+40h] [rbp+8h]
 
   v2 = *BugCheckParameter2;
-  if ( qword_140E2DB80 )
+  if ( qword_140E2DCC0 )
   {
     if ( (v2 & 0x10) != 0 )
       v2 &= ~0x10uLL;
     else
-      v2 &= ~qword_140E2DB80;
+      v2 &= ~qword_140E2DCC0;
   }
   v5 = (v2 >> 12) & 0xFFFFFFFFFFLL;
   v6 = 48 * v5 - 0x220000000000LL;
@@ -38,7 +38,7 @@ __int64 __fastcall MiUnlinkStandbyPfn(ULONG_PTR *BugCheckParameter2, char a2)
     return 3LL;
   if ( (*(_BYTE *)(v6 + 34) & 0x20) != 0 )
     return 2LL;
-  if ( (MiUnlinkPageFromListEx(48 * v5 - 0x220000000000LL, 0) & 3) != 0 )
+  if ( (MiUnlinkPageFromListEx(48 * v5 - 0x220000000000LL) & 3) != 0 )
   {
     MiDiscardTransitionPteEx(48 * v5 - 0x220000000000LL, 0LL);
     return 1LL;
@@ -88,7 +88,7 @@ __int64 __fastcall MiUnlinkStandbyPfn(ULONG_PTR *BugCheckParameter2, char a2)
       && (ValidPte & 0x20) == 0
       && (unsigned __int64)BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
     {
-      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, ValidPte, 128);
+      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, ValidPte, 128LL);
     }
     *BugCheckParameter2 = ValidPte;
     return 0LL;

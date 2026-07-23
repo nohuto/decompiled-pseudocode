@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetVadPageSize @ 0x1404272B0
+ * XREFs of MiGetVadPageSize @ 0x14041B130
  * Callers:
- *     MmSetGraphicsPtes @ 0x1407EB910 (MmSetGraphicsPtes.c)
- *     MiFreeVirtualMemory @ 0x1408DBC38 (MiFreeVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1408DCA30 (MmProtectVirtualMemory.c)
- *     MiCheckSecuredVad @ 0x1408DD998 (MiCheckSecuredVad.c)
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MmSetGraphicsPtes @ 0x1407EBEE0 (MmSetGraphicsPtes.c)
+ *     MiFreeVirtualMemory @ 0x1408D9E68 (MiFreeVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1408DAC60 (MmProtectVirtualMemory.c)
+ *     MiCheckSecuredVad @ 0x1408DBE18 (MiCheckSecuredVad.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWakeLargePageRebuild @ 0x1402CE9A0
+ * XREFs of MiWakeLargePageRebuild @ 0x1402CEB90
  * Callers:
- *     MiUnlinkNodeLargePageHelper @ 0x140064700 (MiUnlinkNodeLargePageHelper.c)
- *     MiSignalLargePageRebuild @ 0x1400EF7B4 (MiSignalLargePageRebuild.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1400646F0 (MiUnlinkNodeLargePageHelper.c)
+ *     MiSignalLargePageRebuild @ 0x1400EF834 (MiSignalLargePageRebuild.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
+ *     PsReferencePartitionSafe @ 0x140090C28 (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
  */
 
 __int64 __fastcall MiWakeLargePageRebuild(__int64 a1, unsigned int a2, char a3)

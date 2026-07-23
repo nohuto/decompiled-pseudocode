@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x14087B894
+ * XREFs of CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x14087B9F4
  * Callers:
- *     CmpSortedValueEnumStackAdvanceInternal @ 0x14087B564 (CmpSortedValueEnumStackAdvanceInternal.c)
- *     CmpSortedValueEnumStackCleanup @ 0x14087B66C (CmpSortedValueEnumStackCleanup.c)
- *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x14087B8FC (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpSortedValueEnumStackAdvanceInternal @ 0x14087B6C4 (CmpSortedValueEnumStackAdvanceInternal.c)
+ *     CmpSortedValueEnumStackCleanup @ 0x14087B7CC (CmpSortedValueEnumStackCleanup.c)
+ *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x14087BA5C (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
  * Callees:
  *     <none>
  */

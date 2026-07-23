@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUnlockDriverMappings @ 0x1400F5FA8
+ * XREFs of MiUnlockDriverMappings @ 0x1400F6028
  * Callers:
- *     MiReserveDriverPtes @ 0x1406838AC (MiReserveDriverPtes.c)
- *     MiReleaseDriverPtes @ 0x14070E03C (MiReleaseDriverPtes.c)
+ *     MiReserveDriverPtes @ 0x140684A6C (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x14070F2DC (MiReleaseDriverPtes.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,8 +10,8 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockDriverMappings(__int64 a1)
@@ -30,11 +30,11 @@ __int64 __fastcall MiUnlockDriverMappings(__int64 a1)
   int v14; // [rsp+68h] [rbp+10h] BYREF
   int v15; // [rsp+70h] [rbp+18h]
 
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140438F00, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140438F00);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140439FC0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140439FC0);
   v14 = 0;
   CurrentThread = KeGetCurrentThread();
-  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_140438F00) == 1 )
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_140439FC0) == 1 )
     SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
   else
     SessionId = 0xFFFFFFFFLL;
@@ -53,7 +53,7 @@ __int64 __fastcall MiUnlockDriverMappings(__int64 a1)
     v5 &= ~v8;
     if ( (v10->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v10->LockState.0 & 1) == 0
-      && (*(_QWORD *)&v10->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140438F00 & 0x7FFFFFFFFFFFFFFCLL)
+      && (*(_QWORD *)&v10->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140439FC0 & 0x7FFFFFFFFFFFFFFCLL)
       && v10->LockState.SessionId == (_DWORD)SessionId )
     {
       v10->AcquiredByte &= ~1u;
@@ -63,7 +63,7 @@ __int64 __fastcall MiUnlockDriverMappings(__int64 a1)
         {
           v10->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v10->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v9], SessionId);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v9].TreeNode, SessionId);
           v14 = 0;
           v14 = v10->BoostBitmap.AllFields & 0x1FFFF;
           v10->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -81,10 +81,10 @@ __int64 __fastcall MiUnlockDriverMappings(__int64 a1)
     }
   }
   if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, (ULONG_PTR)&qword_140438F00, (unsigned int)SessionId, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, (ULONG_PTR)&qword_140439FC0, (unsigned int)SessionId, 0LL);
 LABEL_17:
   --CurrentThread->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, (__int64)&qword_140438F00, (__int64)&v14);
+  KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, (__int64)&qword_140439FC0, (__int64)&v14);
   v6 = CurrentThread->SpecialApcDisable++ == -1;
   if ( v6 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v12);

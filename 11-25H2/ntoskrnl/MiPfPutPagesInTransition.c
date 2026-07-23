@@ -52,7 +52,7 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4, 
   __int64 v12; // rbx
   __int64 v13; // r10
   char v14; // r9
-  struct _SLIST_ENTRY *v15; // r15
+  _SLIST_ENTRY *v15; // r15
   unsigned int v16; // ebx
   __int64 v17; // r12
   int v18; // esi
@@ -107,7 +107,7 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4, 
   int v68; // ecx
   int v69; // eax
   __int64 v70; // rax
-  struct _SLIST_ENTRY *v71; // rcx
+  _SLIST_ENTRY *v71; // rcx
   PSLIST_ENTRY *v72; // rdx
   char v73; // al
   unsigned __int32 v74; // eax
@@ -147,7 +147,7 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4, 
   int v108; // [rsp+88h] [rbp-80h]
   int v109; // [rsp+8Ch] [rbp-7Ch]
   __int64 v110; // [rsp+90h] [rbp-78h]
-  struct _SLIST_ENTRY *v111; // [rsp+98h] [rbp-70h]
+  _SLIST_ENTRY *v111; // [rsp+98h] [rbp-70h]
   int v112; // [rsp+A0h] [rbp-68h]
   int v113; // [rsp+A4h] [rbp-64h]
   int v114; // [rsp+A8h] [rbp-60h]
@@ -195,10 +195,10 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4, 
   v12 = *(_QWORD *)(v6 + 8);
   v99 = v13;
   v114 = IoPriorityThread;
-  v111 = (struct _SLIST_ENTRY *)v13;
+  v111 = (_SLIST_ENTRY *)v13;
   LODWORD(v12) = *(_DWORD *)(v12 + 56);
   LOBYTE(v99) = v14 & 7 | 0x18;
-  v15 = (struct _SLIST_ENTRY *)(unsigned int)v13;
+  v15 = (_SLIST_ENTRY *)(unsigned int)v13;
   v16 = ((unsigned int)v12 >> 20) & 0x7F;
   v122 = v16;
   MiInitializePageColorBase((__int64)&Process[2].ReadyListHead.Blink, v13 + 3, v16, (__int64)&v126);
@@ -268,7 +268,7 @@ LABEL_6:
     {
       v27 = MiGetInPageSupportBlock(0LL, a5);
       v22 = 0LL;
-      v111 = (struct _SLIST_ENTRY *)v27;
+      v111 = (_SLIST_ENTRY *)v27;
       if ( v27 )
       {
         v28 = v115;
@@ -608,7 +608,7 @@ LABEL_121:
         *(_QWORD *)(v79 + 248) = v49;
         v94 = MiGetInPageSupportBlock(0LL, v93);
         v22 = 0LL;
-        v111 = (struct _SLIST_ENTRY *)v94;
+        v111 = (_SLIST_ENTRY *)v94;
         if ( v94 )
         {
           v95 = v115;

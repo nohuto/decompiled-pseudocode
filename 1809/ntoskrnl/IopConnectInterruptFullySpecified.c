@@ -1,13 +1,13 @@
 /*
- * XREFs of IopConnectInterruptFullySpecified @ 0x14075CF14
+ * XREFs of IopConnectInterruptFullySpecified @ 0x14075E104
  * Callers:
- *     IoConnectInterruptEx @ 0x1407104D0 (IoConnectInterruptEx.c)
- *     IoConnectInterrupt @ 0x14075CEA0 (IoConnectInterrupt.c)
+ *     IoConnectInterruptEx @ 0x140711770 (IoConnectInterruptEx.c)
+ *     IoConnectInterrupt @ 0x14075E090 (IoConnectInterrupt.c)
  * Callees:
- *     KeVerifyGroupAffinity @ 0x14016B72C (KeVerifyGroupAffinity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
+ *     KeVerifyGroupAffinity @ 0x14016B82C (KeVerifyGroupAffinity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopConnectInterrupt @ 0x1407119EC (IopConnectInterrupt.c)
  */
 
 __int64 __fastcall IopConnectInterruptFullySpecified(
@@ -64,7 +64,7 @@ LABEL_5:
   result = HalGetVectorInput(a5, &v29, &v22, &v23, v30);
   if ( (int)result >= 0 )
   {
-    v18 = ((__int64 (__fastcall *)(_QWORD, _QWORD))off_1403FE4C0[0])(0LL, v22);
+    v18 = ((__int64 (__fastcall *)(_QWORD, _QWORD))off_1403FF4C0[0])(0LL, v22);
     v19 = v23;
     if ( v18 || (unsigned int)(v23 - 3) > 1 )
     {

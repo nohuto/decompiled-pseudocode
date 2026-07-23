@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInitSystemPhase1 @ 0x140BE9A78
+ * XREFs of HalpInitSystemPhase1 @ 0x140BEFA78
  * Callers:
- *     HalInitSystem @ 0x140BE9970 (HalInitSystem.c)
+ *     HalInitSystem @ 0x140BEF970 (HalInitSystem.c)
  * Callees:
- *     HalpInitSystemHelper @ 0x140BE99CC (HalpInitSystemHelper.c)
+ *     HalpInitSystemHelper @ 0x140BEF9CC (HalpInitSystemHelper.c)
  */
 
 bool HalpInitSystemPhase1()

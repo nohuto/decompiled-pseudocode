@@ -1,15 +1,15 @@
 /*
- * XREFs of EmonEnableMonitoring @ 0x14051D240
+ * XREFs of EmonEnableMonitoring @ 0x14051D790
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     HalpGetProfileDescriptor @ 0x14037B540 (HalpGetProfileDescriptor.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     EmonAllocateCounter @ 0x14051CBD0 (EmonAllocateCounter.c)
- *     EmonConfigureCounter @ 0x14051CF68 (EmonConfigureCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     HalpGetProfileDescriptor @ 0x14037B6E0 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EmonAllocateCounter @ 0x14051D120 (EmonAllocateCounter.c)
+ *     EmonConfigureCounter @ 0x14051D4B8 (EmonConfigureCounter.c)
  */
 
 __int64 __fastcall EmonEnableMonitoring(int a1, int a2, _DWORD *a3, unsigned int *a4, int *a5)
@@ -69,10 +69,13 @@ __int64 __fastcall EmonEnableMonitoring(int a1, int a2, _DWORD *a3, unsigned int
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -80,7 +83,7 @@ __int64 __fastcall EmonEnableMonitoring(int a1, int a2, _DWORD *a3, unsigned int
       v22 = (v21 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v21;
       if ( v22 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v9);

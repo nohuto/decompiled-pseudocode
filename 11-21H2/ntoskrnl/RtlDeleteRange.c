@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlDeleteRange @ 0x1408395F0
  * Callers:
- *     ArbBacktrackAllocation @ 0x140839430 (ArbBacktrackAllocation.c)
- *     IopPortBacktrackAllocation @ 0x140948370 (IopPortBacktrackAllocation.c)
+ *     sub_140839430 @ 0x140839430 (sub_140839430.c)
+ *     sub_140948370 @ 0x140948370 (sub_140948370.c)
  * Callees:
- *     RtlpDeleteFromMergedRange @ 0x1408394BC (RtlpDeleteFromMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x1408398AC (RtlpFreeRangeListEntry.c)
+ *     sub_1408394BC @ 0x1408394BC (sub_1408394BC.c)
+ *     sub_1408398AC @ 0x1408398AC (sub_1408398AC.c)
  */
 
 __int64 __fastcall RtlDeleteRange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -41,7 +41,7 @@ __int64 __fastcall RtlDeleteRange(__int64 a1, unsigned __int64 a2, unsigned __in
         {
           if ( *v15 == a2 && v15[1] == a3 && v15[3] == a4 )
           {
-            v8 = RtlpDeleteFromMergedRange(v15, (_QWORD *)v9);
+            v8 = sub_1408394BC((__int64)v15, (_QWORD *)v9);
             if ( (v8 & 0x80000000) != 0 )
               return v8;
             goto LABEL_21;
@@ -58,7 +58,7 @@ __int64 __fastcall RtlDeleteRange(__int64 a1, unsigned __int64 a2, unsigned __in
         __fastfail(3u);
       *v13 = v12;
       *(_QWORD *)(v12 + 8) = v13;
-      RtlpFreeRangeListEntry((PVOID)v9);
+      sub_1408398AC(v9);
       v8 = 0;
 LABEL_21:
       --*(_DWORD *)(a1 + 20);

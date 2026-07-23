@@ -3,13 +3,13 @@
  * Callers:
  *     BapdpProcessFwUpdateResults @ 0x1407A9410 (BapdpProcessFwUpdateResults.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x1404EE054 (RtlStringFromGUID.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x1404D011C (RtlStringFromGUID.c)
  */
 
 void __fastcall BapdpRegisterFwUpdateResults(_QWORD *a1, unsigned int a2)

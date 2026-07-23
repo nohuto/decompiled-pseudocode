@@ -1,28 +1,27 @@
 /*
- * XREFs of EtwpSetMark @ 0x1409373DC
+ * XREFs of EtwpSetMark @ 0x1409375AC
  * Callers:
- *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
- *     EtwpLogRefSetAutoMark @ 0x14093DE54 (EtwpLogRefSetAutoMark.c)
+ *     NtTraceEvent @ 0x14027E790 (NtTraceEvent.c)
+ *     EtwpLogRefSetAutoMark @ 0x14093E024 (EtwpLogRefSetAutoMark.c)
  * Callees:
- *     EtwpLogSystemEventUnsafe @ 0x1403AEB1C (EtwpLogSystemEventUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MmEmptyAllWorkingSets @ 0x14053C804 (MmEmptyAllWorkingSets.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     MmIdentifyPhysicalMemory @ 0x1408C70B8 (MmIdentifyPhysicalMemory.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403AEC8C (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MmEmptyAllWorkingSets @ 0x14053CA44 (MmEmptyAllWorkingSets.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     MmIdentifyPhysicalMemory @ 0x1408C7218 (MmIdentifyPhysicalMemory.c)
  */
 
-__int64 __fastcall EtwpSetMark(__int64 a1, int *a2, unsigned int a3, char a4, KPROCESSOR_MODE PreviousMode)
+__int64 __fastcall EtwpSetMark(__int64 a1, _DWORD *a2, unsigned int a3, char a4, KPROCESSOR_MODE PreviousMode)
 {
   unsigned int v8; // ebx
   char v9; // r12
-  int v11; // [rsp+40h] [rbp-48h]
-  _DWORD *v12; // [rsp+48h] [rbp-40h] BYREF
-  unsigned int v13; // [rsp+50h] [rbp-38h]
-  int v14; // [rsp+54h] [rbp-34h]
-  __int64 *v15; // [rsp+58h] [rbp-30h]
-  int v16; // [rsp+60h] [rbp-28h]
-  int v17; // [rsp+64h] [rbp-24h]
+  _DWORD *v11; // [rsp+48h] [rbp-40h] BYREF
+  unsigned int v12; // [rsp+50h] [rbp-38h]
+  int v13; // [rsp+54h] [rbp-34h]
+  __int64 *v14; // [rsp+58h] [rbp-30h]
+  int v15; // [rsp+60h] [rbp-28h]
+  int v16; // [rsp+64h] [rbp-24h]
 
   v8 = 0;
   if ( a3 > 4 )
@@ -33,10 +32,9 @@ __int64 __fastcall EtwpSetMark(__int64 a1, int *a2, unsigned int a3, char a4, KP
       {
         if ( ((unsigned __int8)a2 & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)a2 + a3 > 0x7FFFFFFF0000LL || (int *)((char *)a2 + a3) < a2 )
+        if ( (unsigned __int64)a2 + a3 > 0x7FFFFFFF0000LL || (_DWORD *)((char *)a2 + a3) < a2 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      v11 = *a2;
       v9 = 0;
       if ( (*a2 & 1) != 0 && a4 )
       {
@@ -50,22 +48,21 @@ __int64 __fastcall EtwpSetMark(__int64 a1, int *a2, unsigned int a3, char a4, KP
           v8 = -1073741727;
         }
       }
-      v12 = a2 + 1;
-      v13 = a3 - 4;
-      v14 = 0;
-      v15 = &EtwpNull;
-      v16 = 2;
-      v17 = 0;
+      v11 = a2 + 1;
+      v12 = a3 - 4;
+      v13 = 0;
+      v14 = &EtwpNull;
+      v15 = 2;
+      v16 = 0;
       EtwpLogSystemEventUnsafe(
         *(_QWORD *)(a1 + 1080),
-        (__int64)&v12,
+        (__int64)&v11,
         KeGetCurrentThread(),
         *(_DWORD *)a1,
         2u,
         3874,
         0x3100u,
-        PreviousMode,
-        v11);
+        PreviousMode);
       if ( v9 )
         MmIdentifyPhysicalMemory(*(_QWORD *)(a1 + 1080), *(_DWORD *)a1, 629LL, (_DWORD *)1);
     }

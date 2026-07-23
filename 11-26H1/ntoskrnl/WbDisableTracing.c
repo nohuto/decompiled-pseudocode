@@ -1,9 +1,9 @@
 /*
- * XREFs of WbDisableTracing @ 0x1409ED978
+ * XREFs of WbDisableTracing @ 0x1409EA148
  * Callers:
- *     sub_1409EBEA0 @ 0x1409EBEA0 (sub_1409EBEA0.c)
+ *     sub_1409E8670 @ 0x1409E8670 (sub_1409E8670.c)
  * Callees:
- *     PsWow64GetProcessMachine @ 0x1409EBB90 (PsWow64GetProcessMachine.c)
+ *     PsWow64GetProcessMachine @ 0x1409E8360 (PsWow64GetProcessMachine.c)
  */
 
 __int64 __fastcall WbDisableTracing(__int64 a1)

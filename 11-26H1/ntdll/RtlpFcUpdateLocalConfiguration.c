@@ -1,85 +1,86 @@
 /*
- * XREFs of RtlpFcUpdateLocalConfiguration @ 0x1800137F4
+ * XREFs of RtlpFcUpdateLocalConfiguration @ 0x18005EF24
  * Callers:
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x180014134 (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcWnfCallback @ 0x180014340 (RtlpFcWnfCallback.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005F864 (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcWnfCallback @ 0x18005FA70 (RtlpFcWnfCallback.c)
  * Callees:
- *     RtlTryAcquireSRWLockExclusive @ 0x180013650 (RtlTryAcquireSRWLockExclusive.c)
- *     RtlpFcMapSingleBuffer @ 0x180013A3C (RtlpFcMapSingleBuffer.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x180013B08 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlBackoff @ 0x180013BB0 (RtlBackoff.c)
- *     RtlpFcBufferManagerUpdateBuffers @ 0x180013C40 (RtlpFcBufferManagerUpdateBuffers.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtUnmapViewOfSection @ 0x18015F480 (NtUnmapViewOfSection.c)
- *     NtQuerySystemInformationEx @ 0x180161D10 (NtQuerySystemInformationEx.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     RtlpFcSectionTypeToBufferType @ 0x18016F764 (RtlpFcSectionTypeToBufferType.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlTryAcquireSRWLockExclusive @ 0x18005ED80 (RtlTryAcquireSRWLockExclusive.c)
+ *     RtlpFcMapSingleBuffer @ 0x18005F16C (RtlpFcMapSingleBuffer.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005F238 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlBackoff @ 0x18005F2E0 (RtlBackoff.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x18005F370 (RtlpFcBufferManagerUpdateBuffers.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtUnmapViewOfSection @ 0x18015F380 (NtUnmapViewOfSection.c)
+ *     NtQuerySystemInformationEx @ 0x180161C10 (NtQuerySystemInformationEx.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     RtlpFcSectionTypeToBufferType @ 0x18016E764 (RtlpFcSectionTypeToBufferType.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpFcUpdateLocalConfiguration(__int64 a1, unsigned __int64 a2, char a3)
+__int64 __fastcall RtlpFcUpdateLocalConfiguration(PRTL_SRWLOCK SRWLock, unsigned __int64 a2, char a3)
 {
   __int64 v6; // r14
-  __int64 v7; // rdx
-  __int64 *v8; // rsi
+  PRTL_SRWLOCK v7; // rsi
+  __int64 v8; // rdx
   unsigned __int64 v9; // rcx
-  int SystemInformation; // ebx
+  NTSTATUS v10; // ebx
   __int64 v11; // rdi
   int v12; // eax
-  char *v13; // rdi
+  PVOID *v13; // rdi
   __int64 v14; // rsi
   HANDLE *v15; // rdi
-  __int64 v17; // rtt
+  unsigned __int64 Value; // rtt
   unsigned int v18; // r8d
   unsigned int v19; // eax
   __int64 v20; // r10
   int v21; // r8d
   _QWORD *v22; // r9
-  _DWORD v23[4]; // [rsp+30h] [rbp-D0h] BYREF
-  _OWORD v24[2]; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD v25[2]; // [rsp+60h] [rbp-A0h] BYREF
+  int v23[4]; // [rsp+30h] [rbp-D0h] BYREF
+  _OWORD InputBuffer[2]; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD SystemInformation[2]; // [rsp+60h] [rbp-A0h] BYREF
   char v26; // [rsp+70h] [rbp-90h] BYREF
   _BYTE v27[8]; // [rsp+D0h] [rbp-30h] BYREF
   char v28; // [rsp+D8h] [rbp-28h] BYREF
 
-  memset(v24, 0, sizeof(v24));
-  memset_thunk_772440563353939046(v25, 0, 0x68uLL);
+  memset(InputBuffer, 0, sizeof(InputBuffer));
+  memset_thunk_772440563353939046(SystemInformation, 0, 0x68uLL);
   memset_thunk_772440563353939046(v27, 0, 0x60uLL);
   v6 = 4LL;
-  if ( byte_1801CB8C8 )
+  if ( byte_1801CA908 )
   {
-    SystemInformation = -1073741058;
+    v10 = -1073741058;
     goto LABEL_17;
   }
   if ( a3 )
   {
-    RtlAcquireSRWLockExclusive(a1);
+    RtlAcquireSRWLockExclusive(SRWLock);
   }
-  else if ( !RtlTryAcquireSRWLockExclusive((volatile signed __int32 *)a1) )
+  else if ( !RtlTryAcquireSRWLockExclusive(SRWLock) )
   {
-    SystemInformation = -1073741608;
+    v10 = -1073741608;
     goto LABEL_17;
   }
-  v8 = (__int64 *)(a1 + 8);
-  if ( *(_QWORD *)(a1 + 8 + 8 * (*(_QWORD *)(a1 + 8) & 1LL) + 216) >= a2 )
+  v7 = SRWLock + 1;
+  if ( SRWLock[(SRWLock[1].Value & 1) + 28].Value >= a2 )
   {
-    SystemInformation = 0;
+    v10 = 0;
   }
   else
   {
     v23[0] = 0;
     while ( 1 )
     {
-      _m_prefetchw(v8);
-      v9 = *v8 & 1 | ((*v8 & 0xFFFFFFFFFFFFFFFEuLL) + 2);
+      _m_prefetchw(v7);
+      v8 = v7->Value & 1;
+      v9 = v8 | ((v7->Value & 0xFFFFFFFFFFFFFFFEuLL) + 2);
       if ( v9 < 2 )
         __fastfail(0xEu);
-      v17 = *v8;
-      if ( v17 == _InterlockedCompareExchange64(v8, v9, *v8) )
+      Value = v7->Value;
+      if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)v7, v9, v7->Value) )
         break;
-      RtlBackoff(v23);
+      RtlBackoff(v23, v8);
     }
     v18 = 0;
     do
@@ -89,35 +90,41 @@ __int64 __fastcall RtlpFcUpdateLocalConfiguration(__int64 a1, unsigned __int64 a
       *v22 = *(_QWORD *)(v20 + 24LL * v19 + 24);
     }
     while ( v18 < 4 );
-    RtlpFcBufferManagerDereferenceBuffers(a1 + 8, v20 + 24);
-    SystemInformation = NtQuerySystemInformationEx(211LL, v24, 32LL, v25, 104, 0LL, v23[0]);
-    if ( SystemInformation >= 0 )
+    RtlpFcBufferManagerDereferenceBuffers(&SRWLock[1], v20 + 24);
+    v10 = NtQuerySystemInformationEx(
+            SystemFeatureConfigurationSectionInformation,
+            InputBuffer,
+            0x20u,
+            SystemInformation,
+            0x68u,
+            0LL);
+    if ( v10 >= 0 )
     {
       v11 = 0LL;
       while ( 1 )
       {
         v12 = RtlpFcSectionTypeToBufferType((unsigned int)v11);
-        SystemInformation = RtlpFcMapSingleBuffer(&v25[3 * v11 + 1], &v27[24 * v12]);
-        if ( SystemInformation < 0 )
+        v10 = RtlpFcMapSingleBuffer(&SystemInformation[3 * v11 + 1], &v27[24 * v12]);
+        if ( v10 < 0 )
           break;
         v11 = (unsigned int)(v11 + 1);
         if ( (unsigned int)v11 >= 4 )
         {
-          RtlpFcBufferManagerUpdateBuffers(a1 + 8, v25[0], v27);
+          RtlpFcBufferManagerUpdateBuffers(&SRWLock[1], SystemInformation[0], v27);
           break;
         }
       }
     }
   }
-  RtlReleaseSRWLockExclusive(a1, v7);
+  RtlReleaseSRWLockExclusive(SRWLock);
 LABEL_17:
-  v13 = &v28;
+  v13 = (PVOID *)&v28;
   v14 = 4LL;
   do
   {
-    if ( *(_QWORD *)v13 )
-      NtUnmapViewOfSection(-1LL, *(_QWORD *)v13);
-    v13 += 24;
+    if ( *v13 )
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v13);
+    v13 += 3;
     --v14;
   }
   while ( v14 );
@@ -130,5 +137,5 @@ LABEL_17:
     --v6;
   }
   while ( v6 );
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v10;
 }

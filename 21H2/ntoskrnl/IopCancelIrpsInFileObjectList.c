@@ -1,18 +1,18 @@
 /*
- * XREFs of IopCancelIrpsInFileObjectList @ 0x1402BAF1C
+ * XREFs of IopCancelIrpsInFileObjectList @ 0x14023912C
  * Callers:
- *     IopRevokeFileObjectForProcess @ 0x1405079A4 (IopRevokeFileObjectForProcess.c)
- *     NtCancelIoFile @ 0x14069D970 (NtCancelIoFile.c)
- *     NtCancelIoFileEx @ 0x14069DB20 (NtCancelIoFileEx.c)
- *     IopCleanupProcessResources @ 0x14069DC34 (IopCleanupProcessResources.c)
+ *     IopRevokeFileObjectForProcess @ 0x140507924 (IopRevokeFileObjectForProcess.c)
+ *     NtCancelIoFile @ 0x1405FCA40 (NtCancelIoFile.c)
+ *     NtCancelIoFileEx @ 0x1405FCBF0 (NtCancelIoFileEx.c)
+ *     IopCleanupProcessResources @ 0x1405FCD04 (IopCleanupProcessResources.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     IopCheckListForCancelableIrp @ 0x1402BB0B8 (IopCheckListForCancelableIrp.c)
- *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
- *     IopInterlockedAdd @ 0x1402C493C (IopInterlockedAdd.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     IopCheckListForCancelableIrp @ 0x1402392C8 (IopCheckListForCancelableIrp.c)
+ *     IoCancelIrp @ 0x1402394D0 (IoCancelIrp.c)
+ *     IopInterlockedAdd @ 0x140242EBC (IopInterlockedAdd.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

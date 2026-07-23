@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCheckSecuredVad @ 0x1408DD998
+ * XREFs of MiCheckSecuredVad @ 0x1408DBE18
  * Callers:
- *     MiResetVirtualMemory @ 0x140441CD0 (MiResetVirtualMemory.c)
- *     MiFindPlaceholderVadToReplace @ 0x140497E8C (MiFindPlaceholderVadToReplace.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x140893DD8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiFreeVirtualMemory @ 0x1408DBC38 (MiFreeVirtualMemory.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408DC33C (MiCoalescePlaceholderAllocations.c)
- *     MmProtectVirtualMemory @ 0x1408DCA30 (MmProtectVirtualMemory.c)
- *     MiCommitFileBackedSection @ 0x1408DDC1C (MiCommitFileBackedSection.c)
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x140A61744 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiFindPlaceholderVadToReplace @ 0x1403C6CE0 (MiFindPlaceholderVadToReplace.c)
+ *     MiResetVirtualMemory @ 0x1404388A4 (MiResetVirtualMemory.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     MiFreeVirtualMemory @ 0x1408D9E68 (MiFreeVirtualMemory.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408DA56C (MiCoalescePlaceholderAllocations.c)
+ *     MmProtectVirtualMemory @ 0x1408DAC60 (MmProtectVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1408DBBC8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiCommitFileBackedSection @ 0x1409147D8 (MiCommitFileBackedSection.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140A59F24 (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     MiGetVadPageSize @ 0x1404272B0 (MiGetVadPageSize.c)
- *     MiComparePteProtections @ 0x1404479F4 (MiComparePteProtections.c)
+ *     MiGetVadPageSize @ 0x14041B130 (MiGetVadPageSize.c)
+ *     MiComparePteProtections @ 0x140440114 (MiComparePteProtections.c)
  */
 
 __int64 __fastcall MiCheckSecuredVad(
@@ -75,7 +75,7 @@ __int64 __fastcall MiCheckSecuredVad(
           if ( a4 < 0x55 )
           {
             v17 = (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12;
-            if ( (v17 == 2147352576 || v17 == qword_140E2DA78 && qword_140E2DA78)
+            if ( (v17 == 2147352576 || v17 == qword_140E2DBB8 && qword_140E2DBB8)
               && (KeGetCurrentThread()->ApcState.Process[3].ActiveGroupsMask.Masks[1] & 0x100000000LL) == 0 )
             {
               return 3221225541LL;

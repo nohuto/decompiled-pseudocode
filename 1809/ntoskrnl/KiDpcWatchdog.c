@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDpcWatchdog @ 0x1400FAF40
+ * XREFs of KiDpcWatchdog @ 0x1400FAFC0
  * Callers:
  *     <none>
  * Callees:
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
  */
 
 void __fastcall KiDpcWatchdog(struct _KDPC *Dpc, PVOID DeferredContext, PVOID SystemArgument1, PVOID SystemArgument2)

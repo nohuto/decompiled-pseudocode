@@ -1,13 +1,13 @@
 /*
- * XREFs of MiIsNextVaTrimCandidate @ 0x140016BC0
+ * XREFs of MiIsNextVaTrimCandidate @ 0x140016740
  * Callers:
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiTryLocateWsle @ 0x140046B90 (MiTryLocateWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiTryLocateWsle @ 0x140046710 (MiTryLocateWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiIsNextVaTrimCandidate(__int64 a1, _DWORD *a2)

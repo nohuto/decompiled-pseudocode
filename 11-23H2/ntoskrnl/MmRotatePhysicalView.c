@@ -1,17 +1,17 @@
 /*
- * XREFs of MmRotatePhysicalView @ 0x140A31BD0
+ * XREFs of MmRotatePhysicalView @ 0x140A31E80
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632A38 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiGetVadCacheAttribute @ 0x140660BA4 (MiGetVadCacheAttribute.c)
- *     MiLogVirtualRotateEvent @ 0x140A313B4 (MiLogVirtualRotateEvent.c)
- *     MiReplaceRotateWithDemandZero @ 0x140A31408 (MiReplaceRotateWithDemandZero.c)
- *     MiRotateToFrameBuffer @ 0x140A316A0 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A319A4 (MiRotateToFrameBufferNoCopy.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632F88 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiGetVadCacheAttribute @ 0x1406610F4 (MiGetVadCacheAttribute.c)
+ *     MiLogVirtualRotateEvent @ 0x140A31664 (MiLogVirtualRotateEvent.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140A316B8 (MiReplaceRotateWithDemandZero.c)
+ *     MiRotateToFrameBuffer @ 0x140A31950 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A31C54 (MiRotateToFrameBufferNoCopy.c)
  */
 
 NTSTATUS __stdcall MmRotatePhysicalView(

@@ -6,7 +6,7 @@
  *     VerifierExReleaseResourceForThreadLiteNoReboot @ 0x140718184 (VerifierExReleaseResourceForThreadLiteNoReboot.c)
  *     VerifierExReleaseResourceLiteNoReboot @ 0x1407181B0 (VerifierExReleaseResourceLiteNoReboot.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 struct _KTHREAD *__fastcall ViResourceReleaseSanityChecks(__int64 a1)

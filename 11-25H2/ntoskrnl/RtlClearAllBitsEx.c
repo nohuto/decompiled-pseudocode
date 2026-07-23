@@ -8,7 +8,10 @@
  *     memset_0 @ 0x1406B4D40 (memset_0.c)
  */
 
-void *__fastcall RtlClearAllBitsEx(__int64 a1)
+void __cdecl RtlClearAllBitsEx(PRTL_BITMAP_EX BitMapHeader)
 {
-  return memset_0(*(void **)(a1 + 8), 0, 4 * ((*(_QWORD *)a1 >> 5) + ((*(_QWORD *)a1 & 0x1F) != 0)));
+  memset_0(
+    BitMapHeader->Buffer,
+    0,
+    4 * ((BitMapHeader->SizeOfBitMap >> 5) + ((BitMapHeader->SizeOfBitMap & 0x1F) != 0)));
 }

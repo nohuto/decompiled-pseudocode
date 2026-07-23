@@ -47,7 +47,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, __int64 a3, __int64
       VirtualMemory = ZwQueryVirtualMemory(
                         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                         *v6,
-                        (MEMORY_INFORMATION_CLASS)3,
+                        MemoryRegionInformation,
                         v12,
                         0x30uLL,
                         0LL);
@@ -65,7 +65,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, __int64 a3, __int64
             || ZwQueryVirtualMemory(
                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                  *v6,
-                 (MEMORY_INFORMATION_CLASS)2,
+                 MemoryMappedFilenameInformation,
                  PoolWithTag,
                  0x200uLL,
                  0LL) >= 0 )

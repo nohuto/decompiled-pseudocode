@@ -1,5 +1,5 @@
 /*
- * XREFs of CmHiveCacheDriverSetup @ 0x140857650
+ * XREFs of CmHiveCacheDriverSetup @ 0x14085D9E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 __int64 __fastcall CmHiveCacheDriverSetup(struct _LIST_ENTRY *a1)
 {
-  WheapPfaLock.ApcState.ApcListHead[1].Flink = a1;
+  WheapPfaLock.WaitListEntry.Blink = a1;
   return 0LL;
 }

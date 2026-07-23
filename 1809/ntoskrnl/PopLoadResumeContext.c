@@ -1,16 +1,16 @@
 /*
- * XREFs of PopLoadResumeContext @ 0x1406DF0D4
+ * XREFs of PopLoadResumeContext @ 0x1406E0374
  * Callers:
- *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x1406E07D4 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PopOpenKey @ 0x140178B54 (PopOpenKey.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x140178C54 (PopOpenKey.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopLoadResumeContext(__int64 a1)

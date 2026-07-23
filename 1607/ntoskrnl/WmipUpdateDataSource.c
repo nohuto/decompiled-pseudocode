@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipUpdateDataSource @ 0x14069F36C
+ * XREFs of WmipUpdateDataSource @ 0x14069F4A4
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x140536F84 (WmipProcessWmiRegInfo.c)
+ *     WmipProcessWmiRegInfo @ 0x1405374C4 (WmipProcessWmiRegInfo.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     WmipReferenceEntry @ 0x1404749A0 (WmipReferenceEntry.c)
- *     WmipUnreferenceEntry @ 0x140505084 (WmipUnreferenceEntry.c)
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140532300 (WmipUnlinkInstanceSetFromGuidEntry.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140532344 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipCachePtrs @ 0x140537828 (WmipCachePtrs.c)
- *     WmipEnableCollectionForNewGuid @ 0x1405378E8 (WmipEnableCollectionForNewGuid.c)
- *     WmipSendGuidUpdateNotifications @ 0x140537A1C (WmipSendGuidUpdateNotifications.c)
- *     WmipFindISInDSByGuid @ 0x14069EFE8 (WmipFindISInDSByGuid.c)
- *     WmipGenerateBinaryMofNotification @ 0x14069F03C (WmipGenerateBinaryMofNotification.c)
- *     WmipUpdateModifyGuid @ 0x14069F6C0 (WmipUpdateModifyGuid.c)
+ *     WmipReferenceEntry @ 0x140473870 (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x1404E8014 (WmipUnreferenceEntry.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140532840 (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140532884 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipCachePtrs @ 0x140537D68 (WmipCachePtrs.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140537E28 (WmipEnableCollectionForNewGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140537F5C (WmipSendGuidUpdateNotifications.c)
+ *     WmipFindISInDSByGuid @ 0x14069F120 (WmipFindISInDSByGuid.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14069F174 (WmipGenerateBinaryMofNotification.c)
+ *     WmipUpdateModifyGuid @ 0x14069F7F8 (WmipUpdateModifyGuid.c)
  */
 
 __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)

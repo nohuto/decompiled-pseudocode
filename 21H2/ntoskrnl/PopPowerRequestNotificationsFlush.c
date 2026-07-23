@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestNotificationsFlush @ 0x1408E1AE8
+ * XREFs of PopPowerRequestNotificationsFlush @ 0x1408E1C48
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x14067A644 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x14066DD84 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     PopNotifyUserPowerRequestAction @ 0x1408E1A68 (PopNotifyUserPowerRequestAction.c)
- *     PopUmpoSendPowerRequestCreate @ 0x1408F2698 (PopUmpoSendPowerRequestCreate.c)
+ *     PopNotifyUserPowerRequestAction @ 0x1408E1BC8 (PopNotifyUserPowerRequestAction.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x1408F27F8 (PopUmpoSendPowerRequestCreate.c)
  */
 
 char __fastcall PopPowerRequestNotificationsFlush(__int64 *a1)

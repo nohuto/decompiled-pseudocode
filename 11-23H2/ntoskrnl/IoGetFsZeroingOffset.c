@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetFsZeroingOffset @ 0x1403AC680
+ * XREFs of IoGetFsZeroingOffset @ 0x1403AC860
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x140290278 (IopIrpHasExtensionType.c)
+ *     IopIrpHasExtensionType @ 0x140290508 (IopIrpHasExtensionType.c)
  */
 
 __int64 __fastcall IoGetFsZeroingOffset(__int64 a1)

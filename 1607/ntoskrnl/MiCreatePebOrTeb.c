@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCreatePebOrTeb @ 0x14050B230
+ * XREFs of MiCreatePebOrTeb @ 0x1404EE1C0
  * Callers:
- *     MmCreatePeb @ 0x14046C0B8 (MmCreatePeb.c)
- *     MmCreateTeb @ 0x14050B47C (MmCreateTeb.c)
- *     MiInitializeWowPeb @ 0x14051BDC4 (MiInitializeWowPeb.c)
+ *     MmCreatePeb @ 0x14046AF88 (MmCreatePeb.c)
+ *     MmCreateTeb @ 0x1404EE40C (MmCreateTeb.c)
+ *     MiInitializeWowPeb @ 0x1404FF1B4 (MiInitializeWowPeb.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlFindClearBitsAndSetEx @ 0x14001766C (RtlFindClearBitsAndSetEx.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140029D40 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiCommitExistingVad @ 0x14002AC20 (MiCommitExistingVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     MiReferenceVad @ 0x14002C37C (MiReferenceVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiDeleteTebRange @ 0x1404CD4BC (MiDeleteTebRange.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlFindClearBitsAndSetEx @ 0x1400171EC (RtlFindClearBitsAndSetEx.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400298C0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiCommitExistingVad @ 0x14002A7A0 (MiCommitExistingVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     MiReferenceVad @ 0x14002BEFC (MiReferenceVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiDeleteTebRange @ 0x1404B2EE8 (MiDeleteTebRange.c)
  */
 
 __int64 __fastcall MiCreatePebOrTeb(int a1, __int64 a2, unsigned __int64 *a3)
@@ -44,7 +44,7 @@ __int64 __fastcall MiCreatePebOrTeb(int a1, __int64 a2, unsigned __int64 *a3)
   v3 = 6200;
   *a3 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v5 = qword_140327F90;
+  v5 = qword_140327FD0;
   v19 = 0LL;
   Process = (__int64)CurrentThread->ApcState.Process;
   if ( a1 == 4 )

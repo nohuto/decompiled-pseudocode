@@ -1,21 +1,21 @@
 /*
- * XREFs of MmReleaseCommitForMemResetPages @ 0x140619848
+ * XREFs of MmReleaseCommitForMemResetPages @ 0x140619D98
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
  *     MiPrepareAttachThread @ 0x1402178B0 (MiPrepareAttachThread.c)
  *     MiAttachThreadDone @ 0x140217924 (MiAttachThreadDone.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     KeForceAttachProcess @ 0x140353538 (KeForceAttachProcess.c)
- *     KeForceDetachProcess @ 0x14035559C (KeForceDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRetryOutswapProcess @ 0x14056F5C0 (KeRetryOutswapProcess.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     KeForceAttachProcess @ 0x1403536D8 (KeForceAttachProcess.c)
+ *     KeForceDetachProcess @ 0x14035573C (KeForceDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRetryOutswapProcess @ 0x14056FB00 (KeRetryOutswapProcess.c)
  */
 
 __int64 __fastcall MmReleaseCommitForMemResetPages(_KPROCESS *BugCheckParameter1, int a2)
@@ -53,10 +53,13 @@ __int64 __fastcall MmReleaseCommitForMemResetPages(_KPROCESS *BugCheckParameter1
     v7 = MiPrepareAttachThread((__int64)BugCheckParameter1, v3);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

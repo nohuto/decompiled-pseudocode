@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetProcessActiveThreadCount @ 0x1404C7B80
+ * XREFs of PsGetProcessActiveThreadCount @ 0x1404C0FE0
  * Callers:
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
  *     <none>
  */

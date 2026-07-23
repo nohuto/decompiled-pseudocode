@@ -1,19 +1,19 @@
 /*
- * XREFs of PiPnpRtlEnsureObjectCached @ 0x1407A71F8
+ * XREFs of PiPnpRtlEnsureObjectCached @ 0x1407A9DA8
  * Callers:
- *     PiCMCreateDevice @ 0x140B5A67C (PiCMCreateDevice.c)
+ *     PiCMCreateDevice @ 0x140B5D998 (PiCMCreateDevice.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PiDmGetObject @ 0x1409A2D70 (PiDmGetObject.c)
- *     PiPnpRtlObjectEventCreate @ 0x1409A4110 (PiPnpRtlObjectEventCreate.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     CmpUnlockSiloKeyLockTracker @ 0x1409A604C (CmpUnlockSiloKeyLockTracker.c)
- *     KsepCacheLock @ 0x1409A73D0 (KsepCacheLock.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlDisableRemoveOperationDispatch @ 0x1409A7EC4 (PiPnpRtlDisableRemoveOperationDispatch.c)
- *     PiDmAddCacheReferenceForObject @ 0x1409D8F40 (PiDmAddCacheReferenceForObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PiDmGetObject @ 0x1409637D0 (PiDmGetObject.c)
+ *     PiPnpRtlObjectEventCreate @ 0x140964B70 (PiPnpRtlObjectEventCreate.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140966AAC (CmpUnlockSiloKeyLockTracker.c)
+ *     KsepCacheLock @ 0x140967E30 (KsepCacheLock.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlDisableRemoveOperationDispatch @ 0x140968918 (PiPnpRtlDisableRemoveOperationDispatch.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1409A9E30 (PiDmAddCacheReferenceForObject.c)
  */
 
 __int64 __fastcall PiPnpRtlEnsureObjectCached(__int64 a1, __int64 a2)

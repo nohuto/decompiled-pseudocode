@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpRecoverEnlistment @ 0x1408010F8
+ * XREFs of CmpRecoverEnlistment @ 0x1408013C8
  * Callers:
  *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenEnlistment @ 0x14041D200 (ZwOpenEnlistment.c)
- *     ZwRecoverEnlistment @ 0x14041DC20 (ZwRecoverEnlistment.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenEnlistment @ 0x14041D590 (ZwOpenEnlistment.c)
+ *     ZwRecoverEnlistment @ 0x14041DFB0 (ZwRecoverEnlistment.c)
  *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
  *     CmpTransSearchAddTransFromRm @ 0x140698CB4 (CmpTransSearchAddTransFromRm.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  */
 
-__int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
+NTSTATUS __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v6; // edi
   void *v7; // r8
-  UNICODE_STRING v8; // [rsp+30h] [rbp-50h] BYREF
+  UNICODE_STRING GuidString; // [rsp+30h] [rbp-50h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE EnlistmentHandle; // [rsp+B0h] [rbp+30h] BYREF
@@ -24,11 +24,11 @@ __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
 
   EnlistmentKey = 0LL;
   EnlistmentHandle = 0LL;
-  v8 = 0LL;
+  GuidString = 0LL;
   UnicodeString = 0LL;
   memset(&ObjectAttributes, 0, 44);
-  result = RtlStringFromGUIDEx(&a3->Data1, (__int64)&v8, 1);
-  if ( (int)result >= 0 )
+  result = RtlStringFromGUIDEx(a3, &GuidString, 1u);
+  if ( result >= 0 )
   {
     v6 = CmpTransSearchAddTransFromRm(a1, 0LL, (__int64)&a3[1], 1, (__int64)&EnlistmentKey);
     if ( v6 >= 0 )
@@ -47,8 +47,8 @@ __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
       }
     }
     RtlFreeUnicodeString(&UnicodeString);
-    RtlFreeUnicodeString(&v8);
-    return (unsigned int)v6;
+    RtlFreeUnicodeString(&GuidString);
+    return v6;
   }
   return result;
 }

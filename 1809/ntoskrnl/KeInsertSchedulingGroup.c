@@ -1,19 +1,19 @@
 /*
- * XREFs of KeInsertSchedulingGroup @ 0x1401159F0
+ * XREFs of KeInsertSchedulingGroup @ 0x140115A60
  * Callers:
- *     PspEstablishJobHierarchy @ 0x140604FE0 (PspEstablishJobHierarchy.c)
- *     PspAddSchedulingGroupToJobChain @ 0x140698AB4 (PspAddSchedulingGroupToJobChain.c)
- *     MiSessionObjectCreate @ 0x1407152BC (MiSessionObjectCreate.c)
- *     PspEstablishDfssHierarchy @ 0x140889B10 (PspEstablishDfssHierarchy.c)
+ *     PspEstablishJobHierarchy @ 0x140605FE0 (PspEstablishJobHierarchy.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x140699C74 (PspAddSchedulingGroupToJobChain.c)
+ *     MiSessionObjectCreate @ 0x14071655C (MiSessionObjectCreate.c)
+ *     PspEstablishDfssHierarchy @ 0x14088AD70 (PspEstablishDfssHierarchy.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiAssignSchedulingGroupWeights @ 0x140115EAC (KiAssignSchedulingGroupWeights.c)
- *     KiUpdateCpuTargetByRate @ 0x140116248 (KiUpdateCpuTargetByRate.c)
- *     KiEnableGroupScheduling @ 0x1401912D8 (KiEnableGroupScheduling.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiAssignSchedulingGroupWeights @ 0x140115F1C (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateCpuTargetByRate @ 0x1401162B8 (KiUpdateCpuTargetByRate.c)
+ *     KiEnableGroupScheduling @ 0x140191418 (KiEnableGroupScheduling.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall KeInsertSchedulingGroup(__int64 a1, __int64 a2, __int64 a3)
@@ -131,13 +131,13 @@ __int64 __fastcall KeInsertSchedulingGroup(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    v17 = (_QWORD *)qword_140421D38;
-    if ( *(__int64 **)qword_140421D38 != &KiSchedulingGroupList )
+    v17 = (_QWORD *)qword_140422E08;
+    if ( *(__int64 **)qword_140422E08 != &KiSchedulingGroupList )
       goto LABEL_70;
     *v8 = &KiSchedulingGroupList;
     *(_QWORD *)(a1 + 64) = v17;
     *v17 = v8;
-    qword_140421D38 = a1 + 56;
+    qword_140422E08 = a1 + 56;
   }
   v18 = KeNumberProcessors_0;
   v19 = 0;

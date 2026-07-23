@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInterruptSetDestination @ 0x140425E10
+ * XREFs of HalpInterruptSetDestination @ 0x140432F20
  * Callers:
- *     ExtEnvSetVpptTarget @ 0x1404D20BC (ExtEnvSetVpptTarget.c)
+ *     ExtEnvSetVpptTarget @ 0x1404358D0 (ExtEnvSetVpptTarget.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptSetRemappedDestinationHv @ 0x140425F5C (HalpInterruptSetRemappedDestinationHv.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x140426C08 (HalpInterruptFindLinesForGsiRange.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpInterruptModel @ 0x140427BB0 (HalpInterruptModel.c)
- *     HalpInterruptSetRemappedDestination @ 0x140427BFC (HalpInterruptSetRemappedDestination.c)
- *     HalpInterruptSetDestinationInternal @ 0x140428F00 (HalpInterruptSetDestinationInternal.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x14043306C (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140433D18 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptModel @ 0x140434CC0 (HalpInterruptModel.c)
+ *     HalpInterruptSetRemappedDestination @ 0x140434D0C (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptSetDestinationInternal @ 0x140435518 (HalpInterruptSetDestinationInternal.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetDestination(unsigned int *a1, __int64 a2, unsigned int *a3)
@@ -34,7 +34,7 @@ __int64 __fastcall HalpInterruptSetDestination(unsigned int *a1, __int64 a2, uns
   v3 = a3;
   v5 = *a1;
   v15[1] = 0;
-  if ( qword_140FBB068 && (_DWORD)v5 == 3 || !(_DWORD)v5 && qword_140FBB068 )
+  if ( qword_140FBB408 && (_DWORD)v5 == 3 || !(_DWORD)v5 && qword_140FBB408 )
   {
     return (unsigned int)HalpInterruptSetRemappedDestinationHv(v3, a1, a2);
   }
@@ -57,9 +57,9 @@ __int64 __fastcall HalpInterruptSetDestination(unsigned int *a1, __int64 a2, uns
           v18 = -1;
           v17 = a1 + 10;
           v19 = 1;
-          v14 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+          v14 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
           v8 = HalpInterruptSetDestinationInternal(&v20, v15, &v18);
-          HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v14);
+          HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, v14);
           return v8;
         }
         HalpInterruptSetProblemEx(0, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 559);

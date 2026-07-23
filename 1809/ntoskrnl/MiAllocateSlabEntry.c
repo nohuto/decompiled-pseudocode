@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAllocateSlabEntry @ 0x1402C1C9C
+ * XREFs of MiAllocateSlabEntry @ 0x1402C1E8C
  * Callers:
- *     MiReplenishSlabAllocator @ 0x1402C2CB4 (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x1402C2EA4 (MiReplenishSlabAllocator.c)
  * Callees:
  *     MiSetPfnTbFlushStamp @ 0x1400296A4 (MiSetPfnTbFlushStamp.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     RtlInterlockedSetClearRunEx @ 0x140100CE0 (RtlInterlockedSetClearRunEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiReInitializeFreeSlabPfn @ 0x1402C2C00 (MiReInitializeFreeSlabPfn.c)
- *     MiSlabAllocatorRecentFailure @ 0x1402C2CFC (MiSlabAllocatorRecentFailure.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402C2D3C (MiUpdateSlabPagePlaceholderState.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiAbortCombineScan @ 0x140082658 (MiAbortCombineScan.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     RtlInterlockedSetClearRunEx @ 0x140100D60 (RtlInterlockedSetClearRunEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiReInitializeFreeSlabPfn @ 0x1402C2DF0 (MiReInitializeFreeSlabPfn.c)
+ *     MiSlabAllocatorRecentFailure @ 0x1402C2EEC (MiSlabAllocatorRecentFailure.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402C2F2C (MiUpdateSlabPagePlaceholderState.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiAllocateSlabEntry(__int64 a1, __int64 a2, int a3)
@@ -68,7 +68,7 @@ _QWORD *__fastcall MiAllocateSlabEntry(__int64 a1, __int64 a2, int a3)
         {
           v12 = *v9 >> 9;
           v7[4] = *v9 + 511LL;
-          RtlInterlockedSetClearRunEx((__int64)&unk_14043E210, v12, 1uLL);
+          RtlInterlockedSetClearRunEx((__int64)&unk_14043F2D0, v12, 1uLL);
           v14 = 48LL * *v9 - 0x58000000000LL;
           v15 = 48LL * v7[4] - 0x58000000000LL;
           CurrentIrql = KeGetCurrentIrql();

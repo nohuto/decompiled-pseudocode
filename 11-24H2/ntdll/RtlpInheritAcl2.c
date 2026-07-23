@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpInheritAcl2 @ 0x1800CB980
+ * XREFs of RtlpInheritAcl2 @ 0x1800C3540
  * Callers:
- *     RtlpNewSecurityObject @ 0x1800C9280 (RtlpNewSecurityObject.c)
- *     RtlpInheritAcl @ 0x1800CB760 (RtlpInheritAcl.c)
+ *     RtlpNewSecurityObject @ 0x1800C0E40 (RtlpNewSecurityObject.c)
+ *     RtlpInheritAcl @ 0x1800C3320 (RtlpInheritAcl.c)
  * Callees:
- *     RtlpGenerateInheritedAce @ 0x1800CC000 (RtlpGenerateInheritedAce.c)
- *     RtlpCopyAces @ 0x1800CCC80 (RtlpCopyAces.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpGenerateInheritedAce @ 0x1800C3BC0 (RtlpGenerateInheritedAce.c)
+ *     RtlpCopyAces @ 0x1800C4840 (RtlpCopyAces.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpInheritAcl2(

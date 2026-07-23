@@ -1,12 +1,12 @@
 /*
- * XREFs of KiLogSingleDpcSoftTimeoutEvent @ 0x14056B2C0
+ * XREFs of KiLogSingleDpcSoftTimeoutEvent @ 0x14056B980
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlPcToFileName @ 0x1403AA390 (RtlPcToFileName.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwTraceSingleDpcSoftTimeout @ 0x1405FD558 (EtwTraceSingleDpcSoftTimeout.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlPcToFileName @ 0x1403AA570 (RtlPcToFileName.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwTraceSingleDpcSoftTimeout @ 0x1405FDAC8 (EtwTraceSingleDpcSoftTimeout.c)
  */
 
 __int64 __fastcall KiLogSingleDpcSoftTimeoutEvent(__int64 a1, __int64 a2, int a3, int a4)

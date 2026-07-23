@@ -1,14 +1,14 @@
 /*
- * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x1403881CC
+ * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x140389F7C
  * Callers:
- *     CcPostWorkQueueAsyncRead @ 0x140387C88 (CcPostWorkQueueAsyncRead.c)
- *     CcAsyncReadWorker @ 0x140388380 (CcAsyncReadWorker.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140389A38 (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncReadWorker @ 0x14038A130 (CcAsyncReadWorker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140386DD4 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140388B84 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
  */
 
 char __fastcall CcShouldSpinAsyncReadWorkerThread(__int64 a1, _QWORD *a2, _QWORD *a3, struct _KLOCK_ENTRIES *a4)
@@ -35,7 +35,7 @@ char __fastcall CcShouldSpinAsyncReadWorkerThread(__int64 a1, _QWORD *a2, _QWORD
   v10 = (_QWORD **)(a2[29] + 16LL * (unsigned int)a4);
   if ( !CcEnablePerVolumeLazyWriter )
     v8 = (unsigned __int64 *)(a1 + 1224);
-  for ( i = 0; i < LODWORD(EmpParseLock.InGlobalForegroundList); ++i )
+  for ( i = 0; i < LODWORD(EmpParseLock.OtherOperationCount); ++i )
   {
     if ( *(_DWORD *)(a2[35] + 404LL * (unsigned int)a4 + 4LL * i) <= 0x3Eu )
       return 0;

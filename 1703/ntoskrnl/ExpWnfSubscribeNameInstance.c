@@ -33,17 +33,17 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
 {
   struct _SINGLE_LIST_ENTRY *Next; // r12
   int v12; // edi
-  __int64 v15; // r14
+  PRTL_BALANCED_NODE v15; // r14
   int updated; // r14d
   unsigned int v17; // edx
   struct _EX_RUNDOWN_REF *PoolWithTag; // rax
   struct _EX_RUNDOWN_REF *v20; // rsi
   signed __int64 v21; // r12
   unsigned __int64 *v22; // r14
-  _BYTE *v23; // rax
-  _BYTE *v24; // r15
+  PRTL_BALANCED_NODE v23; // rax
+  PRTL_BALANCED_NODE v24; // r15
   volatile signed __int64 *v25; // r15
-  _BYTE *v26; // rax
+  PRTL_BALANCED_NODE v26; // rax
   signed __int8 v27; // cf
   struct _EX_RUNDOWN_REF *v28; // rcx
   struct _SINGLE_LIST_ENTRY *v29; // rax
@@ -56,7 +56,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   int v36; // [rsp+54h] [rbp-1Ch] BYREF
   struct _EX_RUNDOWN_REF *v37; // [rsp+58h] [rbp-18h] BYREF
   struct _SINGLE_LIST_ENTRY *v38; // [rsp+60h] [rbp-10h]
-  _BYTE *v39; // [rsp+68h] [rbp-8h]
+  _RTL_BALANCED_NODE *v39; // [rsp+68h] [rbp-8h]
 
   Next = a2[2].SwapListEntry.Next;
   v12 = 0;
@@ -66,11 +66,11 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   v36 = 0;
   if ( a7 == 1 )
   {
-    v15 = KeAbPreAcquire((ULONG_PTR)&Next[10], 0LL, 0LL);
+    v15 = KeAbPreAcquire((ULONG_PTR)&Next[10], 0LL, 0);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Next[10], 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)&Next[10], v15, (ULONG_PTR)&Next[10]);
     if ( v15 )
-      *(_BYTE *)(v15 + 26) |= 1u;
+      BYTE2(v15[1].Left) |= 1u;
     updated = ExpWnfUpdateSubscription(
                 a1,
                 (_DWORD)Next,
@@ -117,14 +117,14 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
       *a9 = v20;
   }
   v22 = (unsigned __int64 *)&v38[10];
-  v23 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&v38[10], 0LL, 0LL);
+  v23 = KeAbPreAcquire((ULONG_PTR)&v38[10], 0LL, 0);
   v24 = v23;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v22, 0LL) )
     ExfAcquirePushLockExclusiveEx(v22, v23, (ULONG_PTR)v22);
   if ( v24 )
-    v24[26] |= 1u;
+    BYTE2(v24[1].Left) |= 1u;
   v25 = (volatile signed __int64 *)(a1 + 112);
-  v26 = (_BYTE *)KeAbPreAcquire(a1 + 112, 0LL, 0LL);
+  v26 = KeAbPreAcquire(a1 + 112, 0LL, 0);
   v27 = _interlockedbittestandset64((volatile signed __int32 *)(a1 + 112), 0LL);
   v39 = v26;
   if ( v27 )
@@ -133,7 +133,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
     v26 = v39;
   }
   if ( v26 )
-    v26[26] |= 1u;
+    BYTE2(v26[1].Left) |= 1u;
   if ( *(_QWORD *)(a1 + 48) )
   {
     if ( a7 != 1

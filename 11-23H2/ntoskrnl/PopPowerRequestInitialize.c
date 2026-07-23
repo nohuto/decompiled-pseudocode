@@ -3,13 +3,13 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlInitializeGenericTableAvl @ 0x14031E970 (RtlInitializeGenericTableAvl.c)
- *     memset @ 0x140435A00 (memset.c)
- *     TtmIsEnabled @ 0x1407A6090 (TtmIsEnabled.c)
- *     ObCreateObjectType @ 0x14081F1D0 (ObCreateObjectType.c)
- *     PopInitializeWorkItem @ 0x14082215C (PopInitializeWorkItem.c)
- *     PopInitializeTimer @ 0x140848888 (PopInitializeTimer.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlInitializeGenericTableAvl @ 0x14031EC00 (RtlInitializeGenericTableAvl.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     TtmIsEnabled @ 0x1407A6280 (TtmIsEnabled.c)
+ *     ObCreateObjectType @ 0x14081F4D0 (ObCreateObjectType.c)
+ *     PopInitializeWorkItem @ 0x14082245C (PopInitializeWorkItem.c)
+ *     PopInitializeTimer @ 0x140848B88 (PopInitializeTimer.c)
  *     PopPowerRequestStatsInitialize @ 0x140B64EBC (PopPowerRequestStatsInitialize.c)
  */
 
@@ -38,15 +38,15 @@ __int64 PopPowerRequestInitialize()
   result = ObCreateObjectType(&DestinationString, (__int64)v6, 0LL, (__int64)&PopPowerRequestObjectType);
   if ( (int)result >= 0 )
   {
-    qword_140C3F4D8 = 0LL;
+    qword_140C3F328 = 0LL;
     PopPowerRequestLock = 0LL;
     PopPowerRequestSpinLock = 0LL;
     PopInitializeWorkItem(
       (__int64)&PopPowerRequestUpdateWorkItem,
       (__int64)PopPowerRequestCallbackWorker,
       (__int64)&PopPowerRequestUpdateQueue);
-    qword_140C3F348 = v1;
-    qword_140C3F328 = (__int64)&PopPowerRequestObjectList;
+    qword_140C3F388 = v1;
+    qword_140C3F348 = (__int64)&PopPowerRequestObjectList;
     PopPowerRequestObjectList = &PopPowerRequestObjectList;
     PopPowerRequestUpdateQueue = v1;
     RtlInitializeGenericTableAvl(

@@ -1,19 +1,19 @@
 /*
- * XREFs of BapdpProcessWmdResults @ 0x140C3F658
+ * XREFs of BapdpProcessWmdResults @ 0x140C417A8
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140BDE52C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140BE052C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140C3F83C (BapdpQueryData.c)
- *     BapdpRegisterWmdResult @ 0x140C40154 (BapdpRegisterWmdResult.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140C4198C (BapdpQueryData.c)
+ *     BapdpRegisterWmdResult @ 0x140C422A4 (BapdpRegisterWmdResult.c)
  */
 
 void BapdpProcessWmdResults()
 {
   unsigned __int64 v0; // rcx
-  ULONG_PTR Pool2; // rdi
+  __int64 Pool2; // rdi
   unsigned __int64 v2; // r14
   unsigned int v3; // ebx
   unsigned int v4; // r15d

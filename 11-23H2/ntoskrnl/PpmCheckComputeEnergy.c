@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckComputeEnergy @ 0x1402565E0
+ * XREFs of PpmCheckComputeEnergy @ 0x1402566A0
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     PpmPerfGetCurrentFrequency @ 0x1402B2AA0 (PpmPerfGetCurrentFrequency.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     PpmPerfGetCurrentFrequency @ 0x1402B2D30 (PpmPerfGetCurrentFrequency.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char PpmCheckComputeEnergy()

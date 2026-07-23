@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMakeTransitionHeatBatch @ 0x14050A470
+ * XREFs of MiMakeTransitionHeatBatch @ 0x140503EE0
  * Callers:
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
- *     MiCachedPagesMakeHot @ 0x1406F5980 (MiCachedPagesMakeHot.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
+ *     MiCachedPagesMakeHot @ 0x1406FA5F0 (MiCachedPagesMakeHot.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiInitializePageHeatList @ 0x14046BE50 (MiInitializePageHeatList.c)
- *     MiTryLockLeafPage @ 0x14047F28C (MiTryLockLeafPage.c)
- *     MiAddPageToHeatRanges @ 0x140491458 (MiAddPageToHeatRanges.c)
- *     MiGetTransitionPageHeatList @ 0x140704D74 (MiGetTransitionPageHeatList.c)
- *     MiGetPrototypePteBoundaries @ 0x14070FFA4 (MiGetPrototypePteBoundaries.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiInitializePageHeatList @ 0x1404655D0 (MiInitializePageHeatList.c)
+ *     MiTryLockLeafPage @ 0x140478BFC (MiTryLockLeafPage.c)
+ *     MiAddPageToHeatRanges @ 0x14048AFA8 (MiAddPageToHeatRanges.c)
+ *     MiGetTransitionPageHeatList @ 0x140709A44 (MiGetTransitionPageHeatList.c)
+ *     MiGetPrototypePteBoundaries @ 0x140714CA0 (MiGetPrototypePteBoundaries.c)
  */
 
 unsigned int *__fastcall MiMakeTransitionHeatBatch(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -72,7 +72,7 @@ unsigned int *__fastcall MiMakeTransitionHeatBatch(__int64 a1, __int64 a2, unsig
   if ( (unsigned __int64)(a1 + 16) >= 0xFFFFF6FB7DBED000uLL && v3 <= 0xFFFFF6FB7DBED7F8uLL )
     PteShadow = MiReadPteShadow(v3, PteShadow);
   *(_QWORD *)v3 = PteShadow & ((PteShadow & 0x400) != 0 ? -5LL : -65537LL);
-  if ( (stru_140E36558.WaitRegister.Flags & 1) == 0 )
+  if ( (stru_140E366D8.WaitRegister.Flags & 1) == 0 )
     return 0LL;
   v9 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
   v10 = 0LL;
@@ -244,7 +244,7 @@ LABEL_73:
       }
     }
     if ( (*(_BYTE *)(a1 + 34) & 7) != 6 )
-      _InterlockedIncrement(&dword_140E34904);
+      _InterlockedIncrement(&dword_140E34A84);
     v44 = *(_QWORD *)v3;
     if ( v3 >= 0xFFFFF6FB7DBED000uLL
       && v3 <= 0xFFFFF6FB7DBED7F8uLL

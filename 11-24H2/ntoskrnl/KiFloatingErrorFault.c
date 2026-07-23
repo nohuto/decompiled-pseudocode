@@ -1,14 +1,14 @@
 /*
- * XREFs of KiFloatingErrorFault @ 0x1406BA340
+ * XREFs of KiFloatingErrorFault @ 0x1406BB240
  * Callers:
- *     KiFloatingErrorFaultShadow @ 0x140BBB8C0 (KiFloatingErrorFaultShadow.c)
+ *     KiFloatingErrorFaultShadow @ 0x140BBD8C0 (KiFloatingErrorFaultShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x14041B1F0 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x1404FBC90 (KiSaveDebugRegisterState.c)
- *     KiFloatingErrorFault @ 0x1406BA340 (KiFloatingErrorFault.c)
- *     KiBugCheckDispatch @ 0x1406BEC80 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x1406BED00 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406BF740 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14040ED30 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x1404F9550 (KiSaveDebugRegisterState.c)
+ *     KiFloatingErrorFault @ 0x1406BB240 (KiFloatingErrorFault.c)
+ *     KiBugCheckDispatch @ 0x1406BFB80 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x1406BFC00 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1406C0640 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiFloatingErrorFault()
@@ -67,7 +67,7 @@ void __fastcall __noreturn KiFloatingErrorFault()
       v7 = KeGetPcr()->Prcb.PrcbPad12a[1];
     }
     if ( (v7 & 2) != 0 )
-      JUMPOUT(0x1406BA5A9LL);
+      JUMPOUT(0x1406BB4A9LL);
     if ( v7 < 0 )
     {
       _mm_lfence();

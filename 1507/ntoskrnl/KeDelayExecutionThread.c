@@ -157,7 +157,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
   unsigned int v65; // [rsp+20h] [rbp-58h]
   int v66; // [rsp+24h] [rbp-54h]
   LONGLONG QuadPart; // [rsp+28h] [rbp-50h]
-  _BYTE v68[72]; // [rsp+30h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp-48h] BYREF
   char v70; // [rsp+98h] [rbp+20h]
 
   CurrentThread = KeGetCurrentThread();
@@ -178,7 +178,7 @@ NTSTATUS __stdcall KeDelayExecutionThread(KPROCESSOR_MODE WaitMode, BOOLEAN Aler
     else
     {
       v65 = 2;
-      QuadPart = RtlGetInterruptTimePrecise(v68, Alertable, Interval)
+      QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
                - MEMORY[0xFFFFF780000003B0]
                - (Interval->QuadPart
                 + CurrentThread->RelativeTimerBias);

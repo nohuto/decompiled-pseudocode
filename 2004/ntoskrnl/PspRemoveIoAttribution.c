@@ -9,9 +9,9 @@
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14068A3B8 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
-__int64 __fastcall PspRemoveIoAttribution(struct _EX_RUNDOWN_REF **Object)
+__int64 __fastcall PspRemoveIoAttribution(PRTL_BALANCED_NODE *Object)
 {
-  struct _EX_RUNDOWN_REF **v1; // rdi
+  PRTL_BALANCED_NODE *v1; // rdi
   __int64 v4[2]; // [rsp+30h] [rbp-28h] BYREF
   __int64 v5; // [rsp+40h] [rbp-18h]
 

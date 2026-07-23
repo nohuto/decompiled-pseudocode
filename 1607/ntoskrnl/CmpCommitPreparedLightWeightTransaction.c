@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCommitPreparedLightWeightTransaction @ 0x14053AAFC
+ * XREFs of CmpCommitPreparedLightWeightTransaction @ 0x14053B03C
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x14053A870 (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x14053ADB0 (CmpCommitLightWeightTransaction.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  */
 
 void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
@@ -34,7 +34,7 @@ void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
   {
     v1 = 0;
     if ( stru_1402F34E0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1402F34E0, 1uLL) )
-      TlgWrite(&stru_1402F34E0, &unk_14027AE8F, 0LL, 0LL, 2u, &pData);
+      TlgWrite(&stru_1402F34E0, &unk_14027AF8F, 0LL, 0LL, 2u, &pData);
     v10 = MEMORY[0xFFFFF78000000014];
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -59,7 +59,7 @@ void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
         v12 = &v8;
         v8 = v1;
         v13 = 4;
-        TlgWrite(&stru_1402F34E0, &unk_14027AE4C, 0LL, 0LL, 3u, &v11);
+        TlgWrite(&stru_1402F34E0, &unk_14027AF4C, 0LL, 0LL, 3u, &v11);
       }
     }
   }

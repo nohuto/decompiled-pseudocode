@@ -123,10 +123,12 @@
  *     RtlRaiseStatus @ 0x180102820 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlLeaveCriticalSection(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  signed __int32 v5; // esi
-  __int64 DeferredCriticalSectionEvent; // r9
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  signed __int32 LockCount; // esi
+  void *LockSemaphore; // r9
   unsigned int v8; // ecx
   int v9; // r8d
   unsigned __int64 v10; // rax
@@ -135,19 +137,22 @@ __int64 __fastcall RtlLeaveCriticalSection(__int64 a1, __int64 a2, __int64 a3)
   signed __int32 v13[10]; // [rsp+0h] [rbp-28h] BYREF
   unsigned int v14; // [rsp+30h] [rbp+8h]
 
-  if ( (*(_DWORD *)(a1 + 12))-- != 1 )
-    return 0LL;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  v5 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), -1, -2);
-  if ( v5 == -2 )
-    return 0LL;
-  if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
-    RtlpNotOwnerCriticalSection(a1, a2, a3);
-  DeferredCriticalSectionEvent = *(_QWORD *)(a1 + 24);
-  if ( !DeferredCriticalSectionEvent )
-    DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(a1, a2, a3);
+  if ( CriticalSection->RecursionCount-- != 1 )
+    return 0;
+  CriticalSection->OwningThread = 0LL;
+  LockCount = _InterlockedCompareExchange(&CriticalSection->LockCount, -1, -2);
+  if ( LockCount == -2 )
+    return 0;
+  if ( (CriticalSection->LockCount & 1) != 0 )
+    RtlpNotOwnerCriticalSection(CriticalSection);
+  LockSemaphore = CriticalSection->LockSemaphore;
+  if ( !LockSemaphore )
+    LockSemaphore = (void *)RtlpCreateDeferredCriticalSectionEvent(CriticalSection, v1, v2);
   v8 = 0;
-  while ( v5 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), (v5 & 2 | 1) + v5, v5) )
+  while ( LockCount != _InterlockedCompareExchange(
+                         &CriticalSection->LockCount,
+                         (LockCount & 2 | 1) + LockCount,
+                         LockCount) )
   {
     v9 = v8;
     if ( v8 )
@@ -175,22 +180,22 @@ __int64 __fastcall RtlLeaveCriticalSection(__int64 a1, __int64 a2, __int64 a3)
       while ( v14 < v11 );
     }
 LABEL_18:
-    _m_prefetchw((const void *)(a1 + 8));
-    v5 = *(_DWORD *)(a1 + 8);
+    _m_prefetchw(&CriticalSection->LockCount);
+    LockCount = CriticalSection->LockCount;
   }
-  if ( (v5 & 2) != 0 )
+  if ( (LockCount & 2) != 0 )
   {
-    if ( DeferredCriticalSectionEvent == -1 )
+    if ( LockSemaphore == (void *)-1LL )
     {
       _InterlockedOr(v13, 0);
-      RtlpWakeByAddress(a1 + 8, 0LL);
+      RtlpWakeByAddress(&CriticalSection->LockCount, 0LL);
     }
     else
     {
-      v12 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+      v12 = ZwSetEvent(LockSemaphore, 0LL);
       if ( v12 < 0 )
-        RtlRaiseStatus((unsigned int)v12);
+        RtlRaiseStatus(v12);
     }
   }
-  return 0LL;
+  return 0;
 }

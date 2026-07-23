@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpSetProcessDebugObject @ 0x14061927C
+ * XREFs of DbgkpSetProcessDebugObject @ 0x140619330
  * Callers:
- *     NtDebugActiveProcess @ 0x1406197C4 (NtDebugActiveProcess.c)
+ *     NtDebugActiveProcess @ 0x140619878 (NtDebugActiveProcess.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     PsGetNextProcessThread @ 0x140510350 (PsGetNextProcessThread.c)
- *     DbgkpMarkProcessPeb @ 0x140618440 (DbgkpMarkProcessPeb.c)
- *     DbgkpPostFakeThreadMessages @ 0x14061874C (DbgkpPostFakeThreadMessages.c)
- *     DbgkpWakeTarget @ 0x14061959C (DbgkpWakeTarget.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     PsGetNextProcessThread @ 0x1404F32E0 (PsGetNextProcessThread.c)
+ *     DbgkpMarkProcessPeb @ 0x1406184F4 (DbgkpMarkProcessPeb.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140618800 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x140619650 (DbgkpWakeTarget.c)
  */
 
 __int64 DbgkpSetProcessDebugObject(ULONG_PTR BugCheckParameter1, PRKEVENT Event, int a3, ...)

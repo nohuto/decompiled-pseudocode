@@ -1,18 +1,18 @@
 /*
- * XREFs of KdpSysReadBusData @ 0x140B78540
+ * XREFs of KdpSysReadBusData @ 0x140B7A540
  * Callers:
- *     KdSystemDebugControl @ 0x14073A4B0 (KdSystemDebugControl.c)
- *     KdpGetBusData @ 0x140B77230 (KdpGetBusData.c)
+ *     KdSystemDebugControl @ 0x1407383E0 (KdSystemDebugControl.c)
+ *     KdpGetBusData @ 0x140B79230 (KdpGetBusData.c)
  * Callees:
- *     HalGetBusDataByOffset @ 0x140488FB0 (HalGetBusDataByOffset.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalGetBusDataByOffset @ 0x1403A7A90 (HalGetBusDataByOffset.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KdpSysReadBusData(
         BUS_DATA_TYPE a1,
         ULONG a2,
         ULONG a3,
-        __int64 Offset,
+        ULONG Offset,
         PVOID Buffer,
         ULONG Length,
         _DWORD *a7)
@@ -20,7 +20,7 @@ __int64 __fastcall KdpSysReadBusData(
   int BusDataByOffset; // eax
 
   if ( a1 == PCIConfiguration )
-    BusDataByOffset = guard_dispatch_icall_no_overrides(a2, a3, Buffer, Offset);
+    BusDataByOffset = guard_dispatch_icall_no_overrides(a2, a3);
   else
     BusDataByOffset = HalGetBusDataByOffset(a1, a2, a3, Buffer, Offset, Length);
   *a7 = BusDataByOffset;

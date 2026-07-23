@@ -1,30 +1,30 @@
 /*
- * XREFs of MiZeroLargePage @ 0x1402A1A04
+ * XREFs of MiZeroLargePage @ 0x1402A0F54
  * Callers:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiZeroAndConvertPage @ 0x1402A14B0 (MiZeroAndConvertPage.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x14031070C (MiAllocateLargeProcessPagesFromCache.c)
- *     MiZeroAndReleasePages @ 0x1403C3C14 (MiZeroAndReleasePages.c)
- *     MiGetLargePage @ 0x14051E3C4 (MiGetLargePage.c)
- *     MiPartitionTransferAllocateLargePages @ 0x14087CA30 (MiPartitionTransferAllocateLargePages.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiZeroAndConvertPage @ 0x1402A0A00 (MiZeroAndConvertPage.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x1402F278C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiZeroAndReleasePages @ 0x1403CDB20 (MiZeroAndReleasePages.c)
+ *     MiGetLargePage @ 0x1405209D4 (MiGetLargePage.c)
+ *     MiPartitionTransferAllocateLargePages @ 0x140882E30 (MiPartitionTransferAllocateLargePages.c)
  * Callees:
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiZeroWithUltraSpace @ 0x1402A0EE0 (MiZeroWithUltraSpace.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     AccelFillMemory @ 0x1402A19C4 (AccelFillMemory.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiReferenceAccelerator @ 0x140507D64 (MiReferenceAccelerator.c)
- *     MiDereferenceAccelerator @ 0x14070F68C (MiDereferenceAccelerator.c)
- *     MiInitializeAcceleratorDescriptor @ 0x14070F72C (MiInitializeAcceleratorDescriptor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiZeroWithUltraSpace @ 0x1402A0430 (MiZeroWithUltraSpace.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     AccelFillMemory @ 0x1402A0F14 (AccelFillMemory.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiReferenceAccelerator @ 0x140501738 (MiReferenceAccelerator.c)
+ *     MiDereferenceAccelerator @ 0x140714388 (MiDereferenceAccelerator.c)
+ *     MiInitializeAcceleratorDescriptor @ 0x140714428 (MiInitializeAcceleratorDescriptor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiZeroLargePage(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, int a5)
@@ -69,7 +69,7 @@ void __fastcall MiZeroLargePage(__int64 a1, __int64 a2, unsigned int a3, unsigne
   memset_0(v37, 0, 0x80uLL);
   v8 = (a2 + 0x220000000000LL) / 48;
   v9 = MiPageSizes[v5];
-  if ( v8 <= qword_140E2D7A0 && (*(_QWORD *)(48 * v8 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
+  if ( v8 <= qword_140E2D920 && (*(_QWORD *)(48 * v8 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
   {
     ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4LL, a2);
   }
@@ -163,7 +163,7 @@ void __fastcall MiZeroLargePage(__int64 a1, __int64 a2, unsigned int a3, unsigne
   {
     if ( (int)AccelFillMemory(v19, UltraMapping, v24, 0, 3LL) >= 0 )
       goto LABEL_23;
-    _InterlockedIncrement(&dword_140EF4A84);
+    _InterlockedIncrement(&dword_140EF4DEC);
   }
   KeZeroPages(UltraMapping, v24);
 LABEL_23:

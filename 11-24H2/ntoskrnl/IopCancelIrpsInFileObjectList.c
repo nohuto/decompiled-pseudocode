@@ -1,28 +1,29 @@
 /*
- * XREFs of IopCancelIrpsInFileObjectList @ 0x140418C10
+ * XREFs of IopCancelIrpsInFileObjectList @ 0x1404089C0
  * Callers:
- *     IopCheckHandleForRevocation @ 0x1405972F0 (IopCheckHandleForRevocation.c)
- *     IopCleanupProcessResources @ 0x1409E26D0 (IopCleanupProcessResources.c)
- *     NtCancelIoFile @ 0x1409E2AE0 (NtCancelIoFile.c)
- *     IopCancelIoFile @ 0x140A3573C (IopCancelIoFile.c)
+ *     IopCheckHandleForRevocation @ 0x140594270 (IopCheckHandleForRevocation.c)
+ *     IopCleanupProcessResources @ 0x1409DC480 (IopCleanupProcessResources.c)
+ *     NtCancelIoFile @ 0x1409DCE40 (NtCancelIoFile.c)
+ *     IopCancelIoFile @ 0x140A2974C (IopCancelIoFile.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiAcquireSpinLockInstrumented @ 0x140254BA0 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x140254C70 (KxWaitForSpinLockAndAcquire.c)
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     IopCheckListForCancelableIrp @ 0x140418ECC (IopCheckListForCancelableIrp.c)
- *     IoCancelIrp @ 0x140418FA0 (IoCancelIrp.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1402851B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140285280 (KxWaitForSpinLockAndAcquire.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     IopCheckListForCancelableIrp @ 0x140408C7C (IopCheckListForCancelableIrp.c)
+ *     IoCancelIrp @ 0x140408D50 (IoCancelIrp.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall IopCancelIrpsInFileObjectList(__int64 a1, int a2, int a3, int a4, char a5, char a6)
+__int64 __fastcall IopCancelIrpsInFileObjectList(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, char a6)
 {
   __int64 result; // rax
   _QWORD *v7; // rbp
+  int v8; // r13d
   __int64 Flink; // r15
   unsigned int v11; // r14d
   volatile signed __int32 *v12; // rbx
@@ -40,11 +41,16 @@ __int64 __fastcall IopCancelIrpsInFileObjectList(__int64 a1, int a2, int a3, int
   LARGE_INTEGER Interval; // [rsp+40h] [rbp-48h] BYREF
   __int64 retaddr; // [rsp+88h] [rbp+0h]
   int v26; // [rsp+90h] [rbp+8h]
+  int v27; // [rsp+98h] [rbp+10h]
+  int v28; // [rsp+A0h] [rbp+18h]
 
+  v28 = a3;
+  v27 = a2;
   result = 0LL;
   v26 = 1;
   v7 = (_QWORD *)(a1 + 192);
   v22 = 0LL;
+  v8 = a4;
   Irp = 0LL;
   Flink = 0LL;
   v11 = 0;
@@ -59,7 +65,7 @@ __int64 __fastcall IopCancelIrpsInFileObjectList(__int64 a1, int a2, int a3, int
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset64(v12, 0LL) )
-        KxWaitForSpinLockAndAcquire(v12);
+        KxWaitForSpinLockAndAcquire(v12, a2, a3, a4);
     }
     else
     {
@@ -72,7 +78,7 @@ __int64 __fastcall IopCancelIrpsInFileObjectList(__int64 a1, int a2, int a3, int
       v14 = Flink;
       if ( (_QWORD *)*v7 == v7 )
         break;
-      v15 = IopCheckListForCancelableIrp((_DWORD)v7, a2, a3, a4, Flink, (__int64)&v22);
+      v15 = IopCheckListForCancelableIrp((_DWORD)v7, v27, v28, v8, Flink, (__int64)&v22);
       v16 = v22;
       Flink = 0LL;
       Irp = v22;

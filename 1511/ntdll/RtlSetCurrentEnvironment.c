@@ -10,28 +10,28 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlSetCurrentEnvironment(unsigned __int64 a1, __int64 *a2)
+NTSTATUS __cdecl RtlSetCurrentEnvironment(PVOID Environment, PVOID *PreviousEnvironment)
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rsi
-  __int64 v5; // rbx
-  __int64 Environment; // rbp
+  SIZE_T v5; // rbx
+  void *v6; // rbp
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  v5 = RtlSizeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0LL, a1);
-  RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  v5 = RtlSizeHeap(NtCurrentPeb()->ProcessHeap, 0, Environment);
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
   memset(RtlpEnvironLookupTable, 0, 0x468uLL);
   ++ProcessParameters->EnvironmentVersion;
-  Environment = (__int64)ProcessParameters->Environment;
-  ProcessParameters->Environment = (void *)a1;
+  v6 = ProcessParameters->Environment;
+  ProcessParameters->Environment = Environment;
   ProcessParameters->EnvironmentSize = v5;
-  RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
-  if ( a2 )
+  RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
+  if ( PreviousEnvironment )
   {
-    *a2 = Environment;
+    *PreviousEnvironment = v6;
   }
-  else if ( Environment )
+  else if ( v6 )
   {
-    NtdllpFreeStringRoutine(Environment);
+    NtdllpFreeStringRoutine(v6);
   }
-  return 0LL;
+  return 0;
 }

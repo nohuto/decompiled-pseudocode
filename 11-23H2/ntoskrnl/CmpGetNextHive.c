@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpGetNextHive @ 0x140769F50
+ * XREFs of CmpGetNextHive @ 0x14076A140
  * Callers:
- *     CmpDoFlushAll @ 0x1402F694C (CmpDoFlushAll.c)
- *     CmLoadAppKey @ 0x140769640 (CmLoadAppKey.c)
- *     CmpBlockHiveWrites @ 0x140A137A4 (CmpBlockHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x140A13974 (CmpUnblockHiveWrites.c)
+ *     CmpDoFlushAll @ 0x1402F6BDC (CmpDoFlushAll.c)
+ *     CmLoadAppKey @ 0x140769830 (CmLoadAppKey.c)
+ *     CmpBlockHiveWrites @ 0x140A13A54 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x140A13C24 (CmpUnblockHiveWrites.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     CmpDeleteHive @ 0x14074E6D4 (CmpDeleteHive.c)
- *     CmpReferenceHive @ 0x14076A58C (CmpReferenceHive.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     CmpDeleteHive @ 0x14074E8C4 (CmpDeleteHive.c)
+ *     CmpReferenceHive @ 0x14076A77C (CmpReferenceHive.c)
  */
 
 __int64 *__fastcall CmpGetNextHive(volatile signed __int32 *P)

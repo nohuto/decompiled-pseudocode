@@ -1,20 +1,20 @@
 /*
- * XREFs of AslStringAnsiToUnicode @ 0x140887EBC
+ * XREFs of AslStringAnsiToUnicode @ 0x14088E2B8
  * Callers:
- *     AslpFileGet16BitDescription @ 0x14088C260 (AslpFileGet16BitDescription.c)
- *     AslpFileGet16BitModuleName @ 0x14088C348 (AslpFileGet16BitModuleName.c)
- *     AslpFileGetClrVersionAttribute @ 0x14088C914 (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetExportName @ 0x14088CEC4 (AslpFileGetExportName.c)
+ *     AslpFileGet16BitDescription @ 0x14089265C (AslpFileGet16BitDescription.c)
+ *     AslpFileGet16BitModuleName @ 0x140892744 (AslpFileGet16BitModuleName.c)
+ *     AslpFileGetClrVersionAttribute @ 0x140892D10 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetExportName @ 0x1408932C0 (AslpFileGetExportName.c)
  * Callees:
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     RtlMultiByteToUnicodeSize @ 0x14096B6A0 (RtlMultiByteToUnicodeSize.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     RtlMultiByteToUnicodeSize @ 0x14097BFE0 (RtlMultiByteToUnicodeSize.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
-__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
+__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const CHAR *a2)
 {
   __int64 v3; // rcx
   ULONG v4; // esi

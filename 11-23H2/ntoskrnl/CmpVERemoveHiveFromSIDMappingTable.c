@@ -1,13 +1,13 @@
 /*
  * XREFs of CmpVERemoveHiveFromSIDMappingTable @ 0x1406891D8
  * Callers:
- *     CmShutdownSystem2 @ 0x140615E1C (CmShutdownSystem2.c)
+ *     CmShutdownSystem2 @ 0x14061636C (CmShutdownSystem2.c)
  *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     CmpDestroyHive @ 0x140A1CCA0 (CmpDestroyHive.c)
+ *     CmpDestroyHive @ 0x140A1CF50 (CmpDestroyHive.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

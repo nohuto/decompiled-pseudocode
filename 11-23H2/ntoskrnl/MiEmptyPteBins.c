@@ -2,14 +2,14 @@
  * XREFs of MiEmptyPteBins @ 0x14021E150
  * Callers:
  *     MiAdjustPteBins @ 0x14021DCE8 (MiAdjustPteBins.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiCheckProcessorPteCache @ 0x14027D850 (MiCheckProcessorPteCache.c)
- *     MiInsertCachedPte @ 0x1402CBB10 (MiInsertCachedPte.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiCheckProcessorPteCache @ 0x14027DAE0 (MiCheckProcessorPteCache.c)
+ *     MiInsertCachedPte @ 0x1402CBDA0 (MiInsertCachedPte.c)
  * Callees:
  *     MiTbFlushTimeStampMayNeedFlush @ 0x14021E394 (MiTbFlushTimeStampMayNeedFlush.c)
- *     MiReleaseSmallPteMappings @ 0x1402CBF20 (MiReleaseSmallPteMappings.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargePdeMappings @ 0x14065F7D4 (MiReleaseLargePdeMappings.c)
+ *     MiReleaseSmallPteMappings @ 0x1402CC1B0 (MiReleaseSmallPteMappings.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargePdeMappings @ 0x14065FD24 (MiReleaseLargePdeMappings.c)
  */
 
 __int64 __fastcall MiEmptyPteBins(__int64 a1)
@@ -84,7 +84,7 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1)
             {
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( CurrentIrql == 2 )
@@ -96,10 +96,10 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1)
               }
               if ( CurrentIrql == 2 && v12 == &qword_140C69940 && i )
               {
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v31 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v31 - 2) <= 0xDu )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v31 - 2) <= 0xDu )
                   {
                     CurrentPrcb = KeGetCurrentPrcb();
                     v33 = CurrentPrcb->SchedulerAssist;
@@ -123,10 +123,10 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1)
                 if ( i == 2 )
                 {
                   v18 = MiReleaseLargePdeMappings(v17, &v37, MayNeedFlush);
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v22 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
                     {
                       v23 = KeGetCurrentPrcb();
                       v24 = v23->SchedulerAssist;
@@ -153,10 +153,10 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1)
                 --j;
                 v19 = CurrentIrql;
               }
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v27 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
                 {
                   v28 = KeGetCurrentPrcb();
                   v29 = v28->SchedulerAssist;

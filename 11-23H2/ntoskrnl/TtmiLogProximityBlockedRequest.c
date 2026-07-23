@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogProximityBlockedRequest @ 0x1409A8A8C
+ * XREFs of TtmiLogProximityBlockedRequest @ 0x1409A8C8C
  * Callers:
- *     TtmiSetPendingOnOffRequest @ 0x1409AB498 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiSetPendingOnOffRequest @ 0x1409AB698 (TtmiSetPendingOnOffRequest.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogProximityBlockedRequest(char a1, int a2, int a3)
@@ -62,7 +62,7 @@ char __fastcall TtmiLogProximityBlockedRequest(char a1, int a2, int a3)
       v22 = 2;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140D53918,
-                     (unsigned __int8 *)word_1400336BA,
+                     (unsigned __int8 *)&dword_140033BC7 + 2,
                      0LL,
                      0LL,
                      7u,

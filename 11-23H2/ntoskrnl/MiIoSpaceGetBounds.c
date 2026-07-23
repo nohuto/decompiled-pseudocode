@@ -1,13 +1,13 @@
 /*
- * XREFs of MiIoSpaceGetBounds @ 0x140336CF0
+ * XREFs of MiIoSpaceGetBounds @ 0x140336F80
  * Callers:
- *     MiFillSystemPtes @ 0x14027E8C0 (MiFillSystemPtes.c)
- *     MiDereferenceIoPages @ 0x1403360F4 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     MiMapMdlCommon @ 0x1403A7570 (MiMapMdlCommon.c)
- *     MiLookupIoPageNode @ 0x1403B0938 (MiLookupIoPageNode.c)
+ *     MiFillSystemPtes @ 0x14027EB50 (MiFillSystemPtes.c)
+ *     MiDereferenceIoPages @ 0x140336384 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     MiMapMdlCommon @ 0x1403A7750 (MiMapMdlCommon.c)
+ *     MiLookupIoPageNode @ 0x1403B0B18 (MiLookupIoPageNode.c)
  * Callees:
- *     MiIsPageInHugePfn @ 0x140336DAC (MiIsPageInHugePfn.c)
+ *     MiIsPageInHugePfn @ 0x14033703C (MiIsPageInHugePfn.c)
  */
 
 __int64 __fastcall MiIoSpaceGetBounds(__int64 a1, __int64 a2)

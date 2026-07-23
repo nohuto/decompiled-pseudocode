@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpDosPathNameToRelativeNtPathName_U @ 0x1800DBE30
+ * XREFs of RtlpDosPathNameToRelativeNtPathName_U @ 0x1800D6F10
  * Callers:
- *     RtlDosLongPathNameToNtPathName_U_WithStatus @ 0x1800DBE00 (RtlDosLongPathNameToNtPathName_U_WithStatus.c)
- *     LdrpCnvrtShortToLongFileName @ 0x180116698 (LdrpCnvrtShortToLongFileName.c)
- *     RtlDosLongPathNameToRelativeNtPathName_U_WithStatus @ 0x18015F240 (RtlDosLongPathNameToRelativeNtPathName_U_WithStatus.c)
+ *     RtlDosLongPathNameToNtPathName_U_WithStatus @ 0x1800D6EE0 (RtlDosLongPathNameToNtPathName_U_WithStatus.c)
+ *     LdrpCnvrtShortToLongFileName @ 0x1801118CC (LdrpCnvrtShortToLongFileName.c)
+ *     RtlDosLongPathNameToRelativeNtPathName_U_WithStatus @ 0x18015D600 (RtlDosLongPathNameToRelativeNtPathName_U_WithStatus.c)
  * Callees:
- *     RtlpDosPathNameToRelativeNtPathName @ 0x180059C40 (RtlpDosPathNameToRelativeNtPathName.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x18006F820 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
  */
 
 __int64 __fastcall RtlpDosPathNameToRelativeNtPathName_U(

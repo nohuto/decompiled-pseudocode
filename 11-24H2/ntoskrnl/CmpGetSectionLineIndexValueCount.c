@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetSectionLineIndexValueCount @ 0x140C182CC
+ * XREFs of CmpGetSectionLineIndexValueCount @ 0x140C1A2CC
  * Callers:
- *     EmpParseCallbacks @ 0x140C1640C (EmpParseCallbacks.c)
- *     EmpParseRules @ 0x140C172EC (EmpParseRules.c)
- *     EmpParseTargetRules @ 0x140C17B08 (EmpParseTargetRules.c)
+ *     EmpParseCallbacks @ 0x140C1840C (EmpParseCallbacks.c)
+ *     EmpParseRules @ 0x140C192EC (EmpParseRules.c)
+ *     EmpParseTargetRules @ 0x140C19B08 (EmpParseTargetRules.c)
  * Callees:
- *     CmpSearchLineInSectionByIndex @ 0x140C18B44 (CmpSearchLineInSectionByIndex.c)
- *     CmpSearchSectionByName @ 0x140C18B70 (CmpSearchSectionByName.c)
+ *     CmpSearchLineInSectionByIndex @ 0x140C1AB44 (CmpSearchLineInSectionByIndex.c)
+ *     CmpSearchSectionByName @ 0x140C1AB70 (CmpSearchSectionByName.c)
  */
 
 __int64 __fastcall CmpGetSectionLineIndexValueCount(__int64 a1, __int64 a2, unsigned int a3)

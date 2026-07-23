@@ -11,7 +11,7 @@
 
 __int64 __fastcall DbgLoadImageSymbolsUnicode(PCUNICODE_STRING SourceString, __int64 a2)
 {
-  STRING P; // [rsp+20h] [rbp-18h] BYREF
+  _STRING P; // [rsp+20h] [rbp-18h] BYREF
 
   P = 0LL;
   if ( !(unsigned int)DbgUnicodeStringToAnsiString(&P, SourceString) )

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetLargePteAddress @ 0x14043AB90
+ * XREFs of MiGetLargePteAddress @ 0x14042D440
  * Callers:
- *     MiMapWithLargePages @ 0x1402A2694 (MiMapWithLargePages.c)
- *     MiInsertLargeUserMapping @ 0x14043A9B4 (MiInsertLargeUserMapping.c)
- *     MxMapLargeVa @ 0x1406E7444 (MxMapLargeVa.c)
- *     MiProtectLargeKernelHalRange @ 0x1408644C0 (MiProtectLargeKernelHalRange.c)
- *     MxMapVa @ 0x140CF7FB0 (MxMapVa.c)
+ *     MiMapWithLargePages @ 0x1402A1BE4 (MiMapWithLargePages.c)
+ *     MiInsertLargeUserMapping @ 0x14042D264 (MiInsertLargeUserMapping.c)
+ *     MxMapLargeVa @ 0x1406EC0F4 (MxMapLargeVa.c)
+ *     MiProtectLargeKernelHalRange @ 0x14086A8A0 (MiProtectLargeKernelHalRange.c)
+ *     MxMapVa @ 0x140CFE330 (MxMapVa.c)
  * Callees:
  *     <none>
  */

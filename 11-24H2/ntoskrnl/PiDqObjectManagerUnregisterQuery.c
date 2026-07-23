@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqObjectManagerUnregisterQuery @ 0x1409F999C
+ * XREFs of PiDqObjectManagerUnregisterQuery @ 0x1409F230C
  * Callers:
- *     PiDqDispatch @ 0x1409F9680 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x1409F1FF0 (PiDqDispatch.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PiDqQueryRelease @ 0x1408D3FB0 (PiDqQueryRelease.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PiDqQueryRelease @ 0x1408D19A0 (PiDqQueryRelease.c)
  */
 
 void __fastcall PiDqObjectManagerUnregisterQuery(__int64 a1, __int64 *a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPepUpdateConstraints @ 0x1403A056C
+ * XREFs of PopPepUpdateConstraints @ 0x1403A06BC
  * Callers:
- *     PopPluginDevicePower @ 0x1402618F8 (PopPluginDevicePower.c)
- *     PopPepDeviceDState @ 0x1403A0220 (PopPepDeviceDState.c)
- *     PopPepDeviceWaitWake @ 0x140574570 (PopPepDeviceWaitWake.c)
+ *     PopPluginDevicePower @ 0x140282DC8 (PopPluginDevicePower.c)
+ *     PopPepDeviceDState @ 0x1403A0370 (PopPepDeviceDState.c)
+ *     PopPepDeviceWaitWake @ 0x1405747B0 (PopPepDeviceWaitWake.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     PopPepCountReadyActivities @ 0x140261BDC (PopPepCountReadyActivities.c)
- *     PopPepReleaseActivityLink @ 0x140261C28 (PopPepReleaseActivityLink.c)
- *     PopPepRequestWork @ 0x140261C9C (PopPepRequestWork.c)
- *     PopPepPromoteActivities @ 0x140261E28 (PopPepPromoteActivities.c)
- *     PopPepUpdateIdleState @ 0x140262538 (PopPepUpdateIdleState.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     PopPepCancelActivityRange @ 0x140382250 (PopPepCancelActivityRange.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     PopPepCountReadyActivities @ 0x1402830AC (PopPepCountReadyActivities.c)
+ *     PopPepReleaseActivityLink @ 0x1402830F8 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x14028316C (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x1402832F8 (PopPepPromoteActivities.c)
+ *     PopPepUpdateIdleState @ 0x140283A08 (PopPepUpdateIdleState.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     PopPepCancelActivityRange @ 0x140382978 (PopPepCancelActivityRange.c)
  */
 
 int __fastcall PopPepUpdateConstraints(__int64 a1, int a2, char a3)

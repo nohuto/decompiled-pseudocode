@@ -1,11 +1,11 @@
 /*
- * XREFs of PspHardDereferenceSiloWorker @ 0x14020F654
+ * XREFs of PspHardDereferenceSiloWorker @ 0x14020F480
  * Callers:
- *     PsReleaseSiloHardReference @ 0x14020F62C (PsReleaseSiloHardReference.c)
- *     PspEvaluateAndNotifyEmptyJob @ 0x140469F64 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PsReleaseSiloHardReference @ 0x14020F458 (PsReleaseSiloHardReference.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140468E34 (PspEvaluateAndNotifyEmptyJob.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 void __fastcall PspHardDereferenceSiloWorker(__int64 a1)

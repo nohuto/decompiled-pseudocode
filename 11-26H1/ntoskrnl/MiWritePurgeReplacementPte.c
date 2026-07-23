@@ -1,7 +1,7 @@
 /*
- * XREFs of MiWritePurgeReplacementPte @ 0x14047E8BC
+ * XREFs of MiWritePurgeReplacementPte @ 0x14047822C
  * Callers:
- *     MiUnlinkProtoPages @ 0x140297A00 (MiUnlinkProtoPages.c)
+ *     MiUnlinkProtoPages @ 0x140296F60 (MiUnlinkProtoPages.c)
  * Callees:
  *     <none>
  */

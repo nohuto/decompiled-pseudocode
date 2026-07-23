@@ -3,8 +3,8 @@
  * Callers:
  *     KiPerformGroupConfiguration @ 0x140B69430 (KiPerformGroupConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall KiPerformExplicitGroupAssignment(_DWORD *a1, int a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpLfhIncrementDataSlot @ 0x1403F8994
+ * XREFs of RtlpLfhIncrementDataSlot @ 0x1403F89C4
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x14033CE40 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140347B90 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
  */
 
 __int64 RtlpLfhIncrementDataSlot()

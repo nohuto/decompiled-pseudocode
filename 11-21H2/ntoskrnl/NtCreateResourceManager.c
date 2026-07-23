@@ -16,7 +16,7 @@ NTSTATUS __stdcall NtCreateResourceManager(
         ULONG CreateOptions,
         PUNICODE_STRING Description)
 {
-  return __imp_NtCreateResourceManager(
+  return NtCreateResourceManager_0(
            ResourceManagerHandle,
            DesiredAccess,
            TmHandle,

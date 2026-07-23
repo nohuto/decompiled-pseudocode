@@ -1,8 +1,8 @@
 /*
  * XREFs of KeRemoveByKeyDeviceQueue @ 0x140570810
  * Callers:
- *     IopStartNextPacketByKey @ 0x14055838C (IopStartNextPacketByKey.c)
- *     DifKeRemoveByKeyDeviceQueueWrapper @ 0x140614EC0 (DifKeRemoveByKeyDeviceQueueWrapper.c)
+ *     sub_14055838C @ 0x14055838C (sub_14055838C.c)
+ *     sub_140614EC0 @ 0x140614EC0 (sub_140614EC0.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140257B30 (KeAcquireInStackQueuedSpinLockForDpc.c)
  *     KeReleaseInStackQueuedSpinLockForDpc @ 0x140257B80 (KeReleaseInStackQueuedSpinLockForDpc.c)

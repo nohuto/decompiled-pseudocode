@@ -1,9 +1,9 @@
 /*
- * XREFs of PopInitDripsWakeAccounting @ 0x140A6E89C
+ * XREFs of PopInitDripsWakeAccounting @ 0x140A6F89C
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14026A1CC (PpmConvertTime.c)
  */
 
 __int64 PopInitDripsWakeAccounting()

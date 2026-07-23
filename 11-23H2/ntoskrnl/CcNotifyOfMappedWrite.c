@@ -1,20 +1,20 @@
 /*
- * XREFs of CcNotifyOfMappedWrite @ 0x140298244
+ * XREFs of CcNotifyOfMappedWrite @ 0x1402984D4
  * Callers:
- *     MiGatherMappedPages @ 0x140297D24 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x140297FB4 (MiGatherMappedPages.c)
  * Callees:
  *     CcCanIWriteStreamEx @ 0x14020FC80 (CcCanIWriteStreamEx.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x14023CBB0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x1402999F8 (CcScheduleLazyWriteScan.c)
- *     CcPostWorkQueue @ 0x14029AFB4 (CcPostWorkQueue.c)
- *     CcGetNodeForLazyWrite @ 0x14029AFE0 (CcGetNodeForLazyWrite.c)
- *     CcAllocateWorkQueueEntry @ 0x14029B670 (CcAllocateWorkQueueEntry.c)
- *     CcDecrementOpenCount @ 0x14029CB20 (CcDecrementOpenCount.c)
- *     CcAcquireByteRangeForWrite @ 0x14029D030 (CcAcquireByteRangeForWrite.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14023CC80 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x140299C88 (CcScheduleLazyWriteScan.c)
+ *     CcPostWorkQueue @ 0x14029B244 (CcPostWorkQueue.c)
+ *     CcGetNodeForLazyWrite @ 0x14029B270 (CcGetNodeForLazyWrite.c)
+ *     CcAllocateWorkQueueEntry @ 0x14029B900 (CcAllocateWorkQueueEntry.c)
+ *     CcDecrementOpenCount @ 0x14029CDB0 (CcDecrementOpenCount.c)
+ *     CcAcquireByteRangeForWrite @ 0x14029D2C0 (CcAcquireByteRangeForWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcNotifyOfMappedWrite(__int64 a1, signed __int64 a2, unsigned int a3)
@@ -104,10 +104,13 @@ __int64 __fastcall CcNotifyOfMappedWrite(__int64 a1, signed __int64 a2, unsigned
     v14 = 1;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -143,10 +146,10 @@ __int64 __fastcall CcNotifyOfMappedWrite(__int64 a1, signed __int64 a2, unsigned
   v13 = v62.OldIrql;
   v14 = 2;
   v73 = v62.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v32 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && v62.OldIrql <= 0xFu && v32 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && v62.OldIrql <= 0xFu && v32 >= 2u )
     {
       v33 = KeGetCurrentPrcb();
       v34 = v33->SchedulerAssist;
@@ -164,10 +167,10 @@ __int64 __fastcall CcNotifyOfMappedWrite(__int64 a1, signed __int64 a2, unsigned
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v15 = LockHandle.OldIrql;
   v74 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v36 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && LockHandle.OldIrql <= 0xFu && v36 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && LockHandle.OldIrql <= 0xFu && v36 >= 2u )
     {
       v37 = KeGetCurrentPrcb();
       v38 = v37->SchedulerAssist;
@@ -218,10 +221,10 @@ LABEL_30:
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v62);
     v21 = v62.OldIrql;
     v75 = v62.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v40 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && v62.OldIrql <= 0xFu && v40 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && v62.OldIrql <= 0xFu && v40 >= 2u )
       {
         v41 = KeGetCurrentPrcb();
         v42 = v41->SchedulerAssist;
@@ -280,10 +283,10 @@ LABEL_17:
     ++*(_DWORD *)(v5 + 524);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v62);
     v27 = v62.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v48 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v62.OldIrql <= 0xFu && v48 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v62.OldIrql <= 0xFu && v48 >= 2u )
       {
         v49 = KeGetCurrentPrcb();
         v50 = v49->SchedulerAssist;
@@ -323,10 +326,10 @@ LABEL_17:
     *v6 &= ~0x400000u;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v62);
     v18 = v62.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_22;
     v52 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_22;
     if ( v52 > 0xFu )
       goto LABEL_22;
@@ -348,10 +351,10 @@ LABEL_17:
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v62);
     v18 = v62.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_22;
     v57 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_22;
     if ( v57 > 0xFu )
       goto LABEL_22;

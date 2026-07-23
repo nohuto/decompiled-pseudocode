@@ -16,26 +16,26 @@
  *     _NtOpenThreadToken@16 @ 0x4B2F2BC0 (_NtOpenThreadToken@16.c)
  */
 
-int __fastcall RtlpTpRevertCapture(HANDLE *a1, int a2)
+NTSTATUS __fastcall RtlpTpRevertCapture(PHANDLE TokenHandle, int a2)
 {
   struct _TEB *v2; // eax
-  int result; // eax
-  int v5; // edi
-  int v6; // [esp+Ch] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v5; // edi
+  int ThreadInformation; // [esp+Ch] [ebp-4h] BYREF
 
   v2 = NtCurrentTeb();
-  *a1 = 0;
+  *TokenHandle = 0;
   if ( !v2->IsImpersonating )
     return 0;
-  result = NtOpenThreadToken(-2, 2 * (a2 != 0) + 4, 1, a1);
+  result = NtOpenThreadToken((HANDLE)0xFFFFFFFE, 2 * (a2 != 0) + 4, 1u, TokenHandle);
   if ( result >= 0 )
   {
-    v6 = 0;
-    v5 = ZwSetInformationThread(-2, 5, &v6, 4);
+    ThreadInformation = 0;
+    v5 = ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, &ThreadInformation, 4u);
     if ( v5 < 0 )
     {
-      NtClose(*a1);
-      *a1 = 0;
+      NtClose(*TokenHandle);
+      *TokenHandle = 0;
       return v5;
     }
     return 0;

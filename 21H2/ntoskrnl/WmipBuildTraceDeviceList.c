@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipBuildTraceDeviceList @ 0x1403C5E70
+ * XREFs of WmipBuildTraceDeviceList @ 0x1403C6010
  * Callers:
- *     WmiTraceRundownNotify @ 0x1407C1544 (WmiTraceRundownNotify.c)
- *     WmiSetNetworkNotify @ 0x140933548 (WmiSetNetworkNotify.c)
+ *     WmiTraceRundownNotify @ 0x1407C1A64 (WmiTraceRundownNotify.c)
+ *     WmiSetNetworkNotify @ 0x140933714 (WmiSetNetworkNotify.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     WmipFreeTraceDeviceList @ 0x1407C15E0 (WmipFreeTraceDeviceList.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     WmipFreeTraceDeviceList @ 0x1407C1B00 (WmipFreeTraceDeviceList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipBuildTraceDeviceList(int a1, _QWORD *a2, unsigned int *a3)

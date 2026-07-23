@@ -1,14 +1,14 @@
 /*
- * XREFs of IntPartGetProcessorEfficiencyClass @ 0x140383A44
+ * XREFs of IntPartGetProcessorEfficiencyClass @ 0x140383C24
  * Callers:
  *     IntpAllocateProcessorContext @ 0x140B4E8E4 (IntpAllocateProcessorContext.c)
  *     IntPartGetClassAffinityGroup @ 0x140B4E9A0 (IntPartGetClassAffinityGroup.c)
  * Callees:
  *     KiGetProcessorEfficiencyClass @ 0x14020E8D4 (KiGetProcessorEfficiencyClass.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
  */
 
-bool __fastcall IntPartGetProcessorEfficiencyClass(struct _PROCESSOR_NUMBER *a1)
+bool __fastcall IntPartGetProcessorEfficiencyClass(_PROCESSOR_NUMBER *a1)
 {
   ULONG ProcessorIndexFromNumber; // eax
 

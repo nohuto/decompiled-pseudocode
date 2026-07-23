@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDereferencePageChains @ 0x1403C36A4
+ * XREFs of MiDereferencePageChains @ 0x1403CD5A4
  * Callers:
- *     MiRevertThreadAffinity @ 0x1403C354C (MiRevertThreadAffinity.c)
- *     MiProcessPageGroupInfo @ 0x1403C3B34 (MiProcessPageGroupInfo.c)
- *     MiInitializeFastLargePagesMdlPfns @ 0x1406EE130 (MiInitializeFastLargePagesMdlPfns.c)
- *     MiGroupZeroHugeRange @ 0x140705024 (MiGroupZeroHugeRange.c)
- *     MiChangePageAttributeAndZeroBatch @ 0x14070D2EC (MiChangePageAttributeAndZeroBatch.c)
- *     MiCreateDynamicPfns @ 0x140865E98 (MiCreateDynamicPfns.c)
+ *     MiRevertThreadAffinity @ 0x1403CD44C (MiRevertThreadAffinity.c)
+ *     MiProcessPageGroupInfo @ 0x1403CDA40 (MiProcessPageGroupInfo.c)
+ *     MiInitializeFastLargePagesMdlPfns @ 0x1406F2DD0 (MiInitializeFastLargePagesMdlPfns.c)
+ *     MiGroupZeroHugeRange @ 0x140709CF4 (MiGroupZeroHugeRange.c)
+ *     MiChangePageAttributeAndZeroBatch @ 0x140711F9C (MiChangePageAttributeAndZeroBatch.c)
+ *     MiCreateDynamicPfns @ 0x14086C278 (MiCreateDynamicPfns.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDereferencePageChains(volatile signed __int32 *a1)

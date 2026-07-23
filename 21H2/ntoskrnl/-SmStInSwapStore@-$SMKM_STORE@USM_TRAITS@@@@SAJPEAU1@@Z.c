@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SmStInSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14035C28C
+ * XREFs of ?SmStInSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1402A11BC
  * Callers:
- *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x14035C1E8 (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
+ *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x1402A1118 (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     SmPerformStoreSwapOperation @ 0x14035B868 (SmPerformStoreSwapOperation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SmPerformStoreSwapOperation @ 0x1402A0608 (SmPerformStoreSwapOperation.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStInSwapStore(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStInSwapStore(__int64 a1)
   void **v1; // rdi
   unsigned int v3; // ebx
   struct _KTHREAD *CurrentThread; // rcx
-  signed __int64 *v6; // rsi
+  volatile signed __int64 *v6; // rsi
 
   v1 = *(void ***)(a1 + 6568);
   if ( (unsigned __int64)v1 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
@@ -30,12 +30,12 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStInSwapStore(__int64 a1)
       _InterlockedExchange64((volatile __int64 *)(a1 + 6568), 0LL);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      v6 = (signed __int64 *)(a1 + 6024);
+      v6 = (volatile signed __int64 *)(a1 + 6024);
       ExAcquirePushLockSharedEx((ULONG_PTR)v6, 0LL);
       if ( _InterlockedCompareExchange64(v6, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared(v6);
       KeAbPostRelease((ULONG_PTR)v6);
-      KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+      KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
       ExFreePoolWithTag(v1, 0);
     }
     else

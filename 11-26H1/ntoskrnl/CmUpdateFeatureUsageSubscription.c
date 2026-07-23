@@ -1,16 +1,16 @@
 /*
- * XREFs of CmUpdateFeatureUsageSubscription @ 0x140854F40
+ * XREFs of CmUpdateFeatureUsageSubscription @ 0x14085B25C
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     CmpAllocatePoolWithQuota @ 0x140487084 (CmpAllocatePoolWithQuota.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140ABEC64 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     CmpAllocatePoolWithQuota @ 0x140480A54 (CmpAllocatePoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140AC0D04 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  */
 
 __int64 __fastcall CmUpdateFeatureUsageSubscription(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)

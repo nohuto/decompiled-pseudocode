@@ -29,7 +29,7 @@ __int64 __fastcall CmpInitializeDriverStores(__int64 a1)
   unsigned __int64 v9; // rdx
   UNICODE_STRING Destination; // [rsp+20h] [rbp-60h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
-  STRING SourceString; // [rsp+40h] [rbp-40h] BYREF
+  _STRING SourceString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE DirectoryHandle; // [rsp+B8h] [rbp+38h] BYREF
   HANDLE SymbolicLinkHandle; // [rsp+C0h] [rbp+40h] BYREF

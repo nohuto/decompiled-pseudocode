@@ -1,10 +1,10 @@
 /*
- * XREFs of VfFillAllocatedMemory @ 0x140B8BD04
+ * XREFs of VfFillAllocatedMemory @ 0x140B8DD04
  * Callers:
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall VfFillAllocatedMemory(void *a1, size_t a2)

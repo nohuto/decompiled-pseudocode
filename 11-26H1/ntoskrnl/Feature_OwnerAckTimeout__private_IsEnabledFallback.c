@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_OwnerAckTimeout__private_IsEnabledFallback @ 0x140526B24
+ * XREFs of Feature_OwnerAckTimeout__private_IsEnabledFallback @ 0x140529194
  * Callers:
- *     Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline @ 0x140526AE8 (Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline @ 0x140529158 (Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_OwnerAckTimeout__private_IsEnabledFallback(__int64 a1, unsigned int a2)

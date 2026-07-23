@@ -6,7 +6,10 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwImpersonateThread(int a1, int a2, int a3)
+NTSTATUS __cdecl ZwImpersonateThread(
+        HANDLE ServerThreadHandle,
+        HANDLE ClientThreadHandle,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos)
 {
   return Wow64SystemServiceCall();
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of VfInitPickCurrentRandomTarget @ 0x140AC2CC4
+ * XREFs of VfInitPickCurrentRandomTarget @ 0x140AC2CB4
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140ADA734 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x140ADA724 (VfSuspectDriversLoadCallback.c)
  * Callees:
  *     <none>
  */

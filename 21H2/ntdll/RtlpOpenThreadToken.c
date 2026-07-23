@@ -3,16 +3,15 @@
  * Callers:
  *     RtlAcquirePrivilege @ 0x1800781B0 (RtlAcquirePrivilege.c)
  * Callees:
- *     NtOpenThreadTokenEx @ 0x18009DC20 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x18009DBE0 (NtOpenThreadTokenEx.c)
  */
 
-__int64 __fastcall RtlpOpenThreadToken(unsigned int a1, __int64 a2, __int64 a3)
+int __fastcall RtlpOpenThreadToken(ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  int result; // eax
 
-  LOBYTE(a3) = 1;
-  result = NtOpenThreadTokenEx(-2LL, a1, a3);
-  if ( (int)result < 0 )
-    return NtOpenThreadTokenEx(-2LL, a1, 0LL);
+  result = NtOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, DesiredAccess, 1u, 0x200u, TokenHandle);
+  if ( result < 0 )
+    return NtOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, DesiredAccess, 0, 0x200u, TokenHandle);
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopStatsCreatePowerRequest @ 0x14062B98C
+ * XREFs of PopStatsCreatePowerRequest @ 0x140670564
  * Callers:
- *     PopCreatePowerRequestObject @ 0x14062BBB0 (PopCreatePowerRequestObject.c)
+ *     PopCreatePowerRequestObject @ 0x140670788 (PopCreatePowerRequestObject.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopLogPowerRequestAction @ 0x14062B588 (PopLogPowerRequestAction.c)
- *     PopAvlFindOrMakeStatsForPowerRequest @ 0x14062B9E4 (PopAvlFindOrMakeStatsForPowerRequest.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopLogPowerRequestAction @ 0x14066FB30 (PopLogPowerRequestAction.c)
+ *     PopAvlFindOrMakeStatsForPowerRequest @ 0x1406705BC (PopAvlFindOrMakeStatsForPowerRequest.c)
  */
 
 void __fastcall PopStatsCreatePowerRequest(__int64 a1)

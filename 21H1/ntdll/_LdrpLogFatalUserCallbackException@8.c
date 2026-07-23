@@ -14,72 +14,77 @@
  *     _RtlUnhandledExceptionFilter2@8 @ 0x4B3686E0 (_RtlUnhandledExceptionFilter2@8.c)
  */
 
-int __stdcall LdrpLogFatalUserCallbackException(int a1, int a2)
+LONG __stdcall LdrpLogFatalUserCallbackException(_EXCEPTION_RECORD *a1, PCONTEXT ContextRecord)
 {
-  int v2; // edx
+  PULONG v2; // edx
   int v3; // esi
-  int InformationProcess; // eax
-  int (__thiscall *v5)(_DWORD, _DWORD *); // esi
-  int result; // eax
+  int v4; // eax
+  int (__thiscall *v5)(_DWORD, _EXCEPTION_POINTERS *); // esi
+  LONG result; // eax
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // edx
   unsigned __int16 Length; // ax
   int v9; // ecx
   wchar_t *Buffer; // eax
-  int v11; // eax
+  unsigned int v11; // eax
   __int16 v12; // [esp+Ch] [ebp-94h] BYREF
-  int v13; // [esp+10h] [ebp-90h] BYREF
-  int v14; // [esp+14h] [ebp-8Ch]
-  int v15; // [esp+1Ch] [ebp-84h] BYREF
-  _DWORD v16[2]; // [esp+20h] [ebp-80h] BYREF
-  _DWORD v17[20]; // [esp+28h] [ebp-78h] BYREF
-  _DWORD v18[9]; // [esp+78h] [ebp-28h] BYREF
+  ULONGLONG RegHandle; // [esp+10h] [ebp-90h] BYREF
+  ULONG *ProcessInformation; // [esp+1Ch] [ebp-84h] BYREF
+  _EXCEPTION_POINTERS ExceptionPointers; // [esp+20h] [ebp-80h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [esp+28h] [ebp-78h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+78h] [ebp-28h] BYREF
+  wchar_t *v18; // [esp+88h] [ebp-18h]
+  int v19; // [esp+8Ch] [ebp-14h]
+  int v20; // [esp+90h] [ebp-10h]
+  int v21; // [esp+94h] [ebp-Ch]
 
   v2 = `RtlpGetCookieValue'::`2'::CookieValue;
-  v16[1] = a2;
+  ExceptionPointers.ContextRecord = ContextRecord;
   v3 = RtlpUnhandledExceptionFilter;
-  v16[0] = a1;
+  ExceptionPointers.ExceptionRecord = a1;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    InformationProcess = ZwQueryInformationProcess(-1, 36, (int)&v15, 4, 0);
-    if ( InformationProcess < 0 )
+    v4 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+    if ( v4 < 0 )
       goto LABEL_3;
-    v2 = v15;
-    `RtlpGetCookieValue'::`2'::CookieValue = v15;
+    v2 = ProcessInformation;
+    `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  v5 = (int (__thiscall *)(_DWORD, _DWORD *))(v2 ^ __ROR4__(v3, 32 - (v2 & 0x1F)));
+  v5 = (int (__thiscall *)(_DWORD, _EXCEPTION_POINTERS *))((unsigned int)v2 ^ __ROR4__(
+                                                                                v3,
+                                                                                32 - ((unsigned __int8)v2 & 0x1F)));
   if ( v5 )
-    result = v5(v5, v16);
+    result = v5(v5, &ExceptionPointers);
   else
-    result = RtlUnhandledExceptionFilter2(v16, &dword_4B2850A4);
+    result = RtlUnhandledExceptionFilter2(&ExceptionPointers, (ULONG)&dword_4B2850A4);
   if ( result != -1 )
   {
-    if ( !EtwEventRegister(UserLoaderGuid, 0, 0, (int)&v13) )
+    if ( !EtwEventRegister(&UserLoaderGuid, 0, 0, &RegHandle) )
     {
       ProcessParameters = NtCurrentPeb()->ProcessParameters;
       Length = ProcessParameters->ImagePathName.Length;
-      v18[3] = 0;
+      UserData.Reserved = 0;
       v12 = Length >> 1;
-      v18[1] = 0;
-      v18[0] = &v12;
-      v18[2] = 2;
+      HIDWORD(UserData.Ptr) = 0;
+      LODWORD(UserData.Ptr) = &v12;
+      UserData.Size = 2;
       v9 = ProcessParameters->ImagePathName.Length;
       Buffer = ProcessParameters->ImagePathName.Buffer;
-      v18[5] = 0;
-      v18[7] = 0;
-      v18[4] = Buffer;
-      v18[6] = v9;
-      EtwEventWrite(v13, v14, FatalUserCallbackException, 2, (int)v18);
-      EtwNotificationUnregister(v13, v14, 0);
+      v19 = 0;
+      v21 = 0;
+      v18 = Buffer;
+      v20 = v9;
+      EtwEventWrite(RegHandle, &FatalUserCallbackException, 2u, &UserData);
+      EtwNotificationUnregister(RegHandle, 0);
     }
-    v17[3] = *(_DWORD *)(a2 + 184);
-    v11 = *(_DWORD *)(a1 + 4) | 1;
-    v17[0] = -1073740771;
-    v17[1] = v11;
-    v17[2] = a1;
-    v17[4] = 0;
-    InformationProcess = ZwRaiseException((int)v17, a2, 0);
+    ExceptionRecord.ExceptionAddress = (void *)ContextRecord->Eip;
+    v11 = a1->ExceptionFlags | 1;
+    ExceptionRecord.ExceptionCode = -1073740771;
+    ExceptionRecord.ExceptionFlags = v11;
+    ExceptionRecord.ExceptionRecord = a1;
+    ExceptionRecord.NumberParameters = 0;
+    v4 = ZwRaiseException(&ExceptionRecord, ContextRecord, 0);
 LABEL_3:
-    RtlRaiseStatus(InformationProcess);
+    RtlRaiseStatus(v4);
   }
   return result;
 }

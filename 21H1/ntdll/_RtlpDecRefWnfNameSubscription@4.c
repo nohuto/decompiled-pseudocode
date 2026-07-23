@@ -12,17 +12,17 @@
  *     _RtlpWnfETWEventNameSubRundown@12 @ 0x4B33C40D (_RtlpWnfETWEventNameSubRundown@12.c)
  */
 
-signed __int32 __thiscall RtlpDecRefWnfNameSubscription(int this)
+void __thiscall RtlpDecRefWnfNameSubscription(char *BaseAddress)
 {
   int v2; // eax
-  int v3; // edx
-  _DWORD *v4; // ecx
+  char **v3; // edx
+  PVOID *v4; // ecx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(dword_4B3A664C + 4));
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(this + 40));
-  if ( _InterlockedDecrement((volatile signed __int32 *)(this + 80)) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(dword_4B3A664C + 4));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 10);
+  if ( _InterlockedDecrement((volatile signed __int32 *)BaseAddress + 20) )
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(this + 40));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 10);
   }
   else
   {
@@ -31,17 +31,17 @@ signed __int32 __thiscall RtlpDecRefWnfNameSubscription(int this)
     else
       v2 = 2147353486;
     if ( *(_BYTE *)v2 )
-      RtlpWnfETWEventNameSubRundown(*(_DWORD *)(this + 16), *(_DWORD *)(this + 20));
-    NtUnsubscribeWnfStateChange(this + 16);
-    v3 = *(_DWORD *)(this + 28);
-    if ( *(_DWORD *)(v3 + 4) != this + 28 || (v4 = *(_DWORD **)(this + 32), *v4 != this + 28) )
+      RtlpWnfETWEventNameSubRundown(*((_DWORD *)BaseAddress + 4), *((_DWORD *)BaseAddress + 5));
+    NtUnsubscribeWnfStateChange((PCWNF_STATE_NAME)BaseAddress + 2);
+    v3 = (char **)*((_DWORD *)BaseAddress + 7);
+    if ( v3[1] != BaseAddress + 28 || (v4 = (PVOID *)*((_DWORD *)BaseAddress + 8), *v4 != BaseAddress + 28) )
       __fastfail(3u);
     *v4 = v3;
-    *(_DWORD *)(v3 + 4) = v4;
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(this + 40));
-    if ( *(_DWORD *)(this + 88) )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(this + 88));
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, this);
+    v3[1] = (char *)v4;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 10);
+    if ( *((_DWORD *)BaseAddress + 22) )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)BaseAddress + 22));
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
-  return RtlReleaseSRWLockExclusive((volatile signed __int32 *)(dword_4B3A664C + 4));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(dword_4B3A664C + 4));
 }

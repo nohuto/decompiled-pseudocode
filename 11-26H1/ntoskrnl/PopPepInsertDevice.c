@@ -1,30 +1,33 @@
 /*
- * XREFs of PopPepInsertDevice @ 0x1404FDFBC
+ * XREFs of PopPepInsertDevice @ 0x1404F74FC
  * Callers:
- *     PopPepRegisterDevice @ 0x140B3B7A8 (PopPepRegisterDevice.c)
+ *     PopPepRegisterDevice @ 0x140B3DA28 (PopPepRegisterDevice.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
-void __fastcall PopPepInsertDevice(__int64 a1, unsigned __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+void __fastcall PopPepInsertDevice(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   AutoBoost *v6; // rax
   signed __int8 v7; // cf
   AutoBoost *v8; // rdi
-  unsigned __int64 *v9; // rax
+  struct _LIST_ENTRY *Flink; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F0AFD0, 0LL, 0LL, a4);
-  v7 = _interlockedbittestandset64(&qword_140F0AFD0.Header.Lock, 0LL);
+  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock.PriorityFloorSummary, 0LL, 0LL, a4);
+  v7 = _interlockedbittestandset64((volatile signed __int32 *)&PopDirectedDripsDiagLock.PriorityFloorSummary, 0LL);
   v8 = v6;
   if ( v7 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F0AFD0, v6, (__int64)&qword_140F0AFD0);
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+      v6,
+      (__int64)&PopDirectedDripsDiagLock.PriorityFloorSummary);
   if ( v8 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -32,17 +35,19 @@ void __fastcall PopPepInsertDevice(__int64 a1, unsigned __int64 a2, __int64 a3, 
     else
       *((_BYTE *)v8 + 10) = 1;
   }
-  if ( PopPepLastCheckedDevice == (_UNKNOWN *)&PopDirectedDripsUmLock.Padding[3] )
+  if ( PopPepLastCheckedDevice == (_UNKNOWN *)&PopDirectedDripsDiagLock.ForegroundLossTime )
     PopPepLastCheckedDevice = (_UNKNOWN *)a2;
-  v9 = (unsigned __int64 *)PopDirectedDripsUmLock.Padding[4];
-  if ( *(struct _KTHREAD **)PopDirectedDripsUmLock.Padding[4] != (struct _KTHREAD *)&PopDirectedDripsUmLock.Padding[3] )
+  Flink = PopDirectedDripsDiagLock.GlobalForegroundListEntry.Flink;
+  if ( PopDirectedDripsDiagLock.GlobalForegroundListEntry.Flink->Flink != (struct _LIST_ENTRY *)&PopDirectedDripsDiagLock.ForegroundLossTime )
     __fastfail(3u);
-  *(_QWORD *)a2 = &PopDirectedDripsUmLock.Padding[3];
-  *(_QWORD *)(a2 + 8) = v9;
-  *v9 = a2;
-  PopDirectedDripsUmLock.Padding[4] = a2;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140F0AFD0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140F0AFD0.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&qword_140F0AFD0);
+  *(_QWORD *)a2 = &PopDirectedDripsDiagLock.ForegroundLossTime;
+  *(_QWORD *)(a2 + 8) = Flink;
+  Flink->Flink = (struct _LIST_ENTRY *)a2;
+  PopDirectedDripsDiagLock.GlobalForegroundListEntry.Flink = (struct _LIST_ENTRY *)a2;
+  if ( (_InterlockedExchangeAdd64(
+          (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+          0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+  KeAbPostRelease((unsigned __int64)&PopDirectedDripsDiagLock.PriorityFloorSummary);
   KeLeaveCriticalRegion();
 }

@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwCreateTimer2 @ 0x14015B380
+ * XREFs of ZwCreateTimer2 @ 0x14015B8F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateTimer2(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwCreateTimer2(
+        PHANDLE TimerHandle,
+        PVOID Reserved1,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Attributes,
+        ACCESS_MASK DesiredAccess)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(TimerHandle);
 }

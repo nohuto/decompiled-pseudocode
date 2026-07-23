@@ -1,7 +1,7 @@
 /*
  * XREFs of StringVPrintfWorkerW @ 0x14064CB7C
  * Callers:
- *     StringCchPrintfExW @ 0x14064C9B4 (StringCchPrintfExW.c)
+ *     sub_14064C9B4 @ 0x14064C9B4 (sub_14064C9B4.c)
  * Callees:
  *     _vsnwprintf @ 0x1403E0440 (_vsnwprintf.c)
  */

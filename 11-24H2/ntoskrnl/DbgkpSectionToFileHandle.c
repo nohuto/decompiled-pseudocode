@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpSectionToFileHandle @ 0x140A83008
+ * XREFs of DbgkpSectionToFileHandle @ 0x140A7DB28
  * Callers:
- *     DbgkMapViewOfSection @ 0x140897F08 (DbgkMapViewOfSection.c)
- *     DbgkCreateThread @ 0x1408FED24 (DbgkCreateThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x140939BE0 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkMapViewOfSection @ 0x1408A05A8 (DbgkMapViewOfSection.c)
+ *     DbgkpPostFakeThreadMessages @ 0x1408F50E4 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkCreateThread @ 0x140921604 (DbgkCreateThread.c)
  * Callees:
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     MmGetFileNameForSection @ 0x140A830BC (MmGetFileNameForSection.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     MmGetFileNameForSection @ 0x140A7DBDC (MmGetFileNameForSection.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 HANDLE __fastcall DbgkpSectionToFileHandle(__int64 a1)

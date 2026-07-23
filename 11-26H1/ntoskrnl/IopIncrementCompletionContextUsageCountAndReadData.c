@@ -1,16 +1,16 @@
 /*
- * XREFs of IopIncrementCompletionContextUsageCountAndReadData @ 0x14046A690
+ * XREFs of IopIncrementCompletionContextUsageCountAndReadData @ 0x140463E10
  * Callers:
- *     IopCompleteRequest @ 0x14045B5C0 (IopCompleteRequest.c)
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
- *     NtLockFile @ 0x140B6ECE0 (NtLockFile.c)
+ *     IopCompleteRequest @ 0x140454DF0 (IopCompleteRequest.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x140B720D0 (NtLockFile.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopIncrementCompletionContextUsageCountAndReadData(
@@ -38,7 +38,7 @@ __int64 __fastcall IopIncrementCompletionContextUsageCountAndReadData(
     LOBYTE(a2) = 2;
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     if ( _interlockedbittestandset64(v5, 0LL) )
       KxWaitForSpinLockAndAcquire(v5);
@@ -53,7 +53,7 @@ __int64 __fastcall IopIncrementCompletionContextUsageCountAndReadData(
     BugCheckParameter4 = v11[2];
     v11[2] = BugCheckParameter4 + 1;
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     _InterlockedAnd64((volatile signed __int64 *)v5, 0LL);
   else
     KiReleaseSpinLockInstrumented((volatile signed __int64 *)v5, retaddr);

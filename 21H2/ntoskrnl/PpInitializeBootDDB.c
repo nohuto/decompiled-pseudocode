@@ -1,11 +1,11 @@
 /*
- * XREFs of PpInitializeBootDDB @ 0x140A53088
+ * XREFs of PpInitializeBootDDB @ 0x140A54088
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     PpBootDDBHelper @ 0x1407A3F20 (PpBootDDBHelper.c)
- *     PiInitializeDDBCache @ 0x140A53128 (PiInitializeDDBCache.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     PpBootDDBHelper @ 0x1407A4120 (PpBootDDBHelper.c)
+ *     PiInitializeDDBCache @ 0x140A54128 (PiInitializeDDBCache.c)
  */
 
 __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)

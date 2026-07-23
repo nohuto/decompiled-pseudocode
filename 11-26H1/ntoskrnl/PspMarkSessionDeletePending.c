@@ -1,12 +1,12 @@
 /*
- * XREFs of PspMarkSessionDeletePending @ 0x14077A3B8
+ * XREFs of PspMarkSessionDeletePending @ 0x14077D2E8
  * Callers:
- *     PspDereferenceSessionFinal @ 0x140B4AB84 (PspDereferenceSessionFinal.c)
+ *     PspDereferenceSessionFinal @ 0x140B4C914 (PspDereferenceSessionFinal.c)
  * Callees:
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     KeInitializeGate @ 0x1404D6C58 (KeInitializeGate.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     KeInitializeGate @ 0x1404D0428 (KeInitializeGate.c)
  */
 
 __int64 __fastcall PspMarkSessionDeletePending(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiControlGetDeviceStack @ 0x140A58ACC
+ * XREFs of PiControlGetDeviceStack @ 0x140A5027C
  * Callers:
- *     PiControlGetPropertyData @ 0x1408BD4B0 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x1408BAE00 (PiControlGetPropertyData.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x1402D6794 (IoGetAttachedDeviceReferenceWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x140464EEC (IoGetLowerDeviceObjectWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140357A14 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x14045B61C (IoGetLowerDeviceObjectWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a3, unsigned int *a4)
@@ -72,7 +72,7 @@ __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a
     v12 = AttachedDeviceReferenceWithTag;
     if ( !AttachedDeviceReferenceWithTag )
       break;
-    Pool2 = (PVOID **)ExAllocatePool2(0x100uLL);
+    Pool2 = (PVOID **)ExAllocatePool2(0x100uLL, 0x18uLL, 0x47706E50u);
     if ( !Pool2 )
     {
       ObfDereferenceObjectWithTag(v12, 0x43706E50u);
@@ -125,7 +125,7 @@ LABEL_52:
       v34 = 272;
       if ( !v8 )
       {
-        v8 = ExAllocatePool2(0x100uLL);
+        v8 = ExAllocatePool2(0x100uLL, 0x110uLL, 0x47706E50u);
         if ( !v8 )
         {
           v7 = -1073741670;

@@ -11,77 +11,77 @@
  *     ZwProtectVirtualMemory @ 0x1800A5D00 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall sub_18003999C(_QWORD *a1)
+NTSTATUS __fastcall sub_18003999C(__int64 a1)
 {
   __int64 v1; // rsi
-  __int64 *v2; // rdi
-  int v4; // eax
+  ULONG_PTR *v2; // rdi
+  NTSTATUS v4; // eax
   __int64 v5; // rcx
-  unsigned __int64 v6; // rdx
+  void *v6; // rdx
   __int64 v7; // rax
-  __int64 v8; // rcx
+  PIMAGE_NT_HEADERS v8; // rcx
   _QWORD *v9; // rax
-  unsigned int v10; // edx
-  __int64 result; // rax
+  NTSTATUS v10; // edx
+  NTSTATUS result; // eax
   char *v12; // rcx
   char *v13; // r8
-  unsigned int v14; // r9d
+  unsigned int VirtualAddress; // r9d
   unsigned int *v15; // rdx
-  unsigned int v16; // r10d
+  unsigned int NumberOfSections; // r10d
   unsigned int v17; // r8d
   unsigned int v18; // ecx
-  __int64 v19; // rax
-  __int64 v20; // [rsp+60h] [rbp+8h] BYREF
+  ULONG_PTR v19; // rax
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp+8h] BYREF
   __int64 v21; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v22; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v23; // [rsp+78h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp+20h] BYREF
 
-  v1 = a1[6];
-  v2 = a1 + 13;
-  v4 = sub_180032C0C(*(_QWORD *)(v1 + 48), 1, 0xCu, (_DWORD *)a1 + 26, &v21);
+  v1 = *(_QWORD *)(a1 + 48);
+  v2 = (ULONG_PTR *)(a1 + 104);
+  v4 = sub_180032C0C(*(_QWORD *)(v1 + 48), 1, 0xCu, (DWORD *)(a1 + 104), (char **)&v21);
   v5 = v21;
   if ( v4 < 0 )
     v5 = 0LL;
-  a1[12] = v5;
-  v6 = *(_QWORD *)(v1 + 48);
+  *(_QWORD *)(a1 + 96) = v5;
+  v6 = *(void **)(v1 + 48);
   v21 = v5;
-  RtlImageNtHeaderEx(3, v6, 0LL, &v20);
-  v7 = sub_18003A72C(*(_QWORD *)(v1 + 48));
+  RtlImageNtHeaderEx(3u, v6, 0LL, &OutHeaders);
+  v7 = sub_18003A72C(*(PVOID *)(v1 + 48));
   if ( !v7 || *(_DWORD *)v7 < 0x94u )
     goto LABEL_9;
-  v8 = v20;
-  if ( (*(_WORD *)(v20 + 94) & 0x4000) != 0 && (*(_DWORD *)(v7 + 144) & 0x100) != 0 )
+  v8 = OutHeaders;
+  if ( (OutHeaders->OptionalHeader.DllCharacteristics & 0x4000) != 0 && (*(_DWORD *)(v7 + 144) & 0x100) != 0 )
   {
     v9 = *(_QWORD **)(v7 + 112);
-    a1[18] = v9;
+    *(_QWORD *)(a1 + 144) = v9;
     if ( v9 )
     {
-      a1[17] = *v9;
+      *(_QWORD *)(a1 + 136) = *v9;
 LABEL_9:
-      v8 = v20;
+      v8 = OutHeaders;
     }
   }
-  if ( !a1[12] )
+  if ( !*(_QWORD *)(a1 + 96) )
   {
-    v14 = *(_DWORD *)(v8 + 144);
-    v15 = (unsigned int *)(*(unsigned __int16 *)(v8 + 20) + v8 + 24);
-    if ( v14 )
+    VirtualAddress = v8->OptionalHeader.DataDirectory[1].VirtualAddress;
+    v15 = (unsigned int *)((char *)&v8->OptionalHeader.Magic + v8->FileHeader.SizeOfOptionalHeader);
+    if ( VirtualAddress )
     {
-      v16 = *(unsigned __int16 *)(v8 + 6);
+      NumberOfSections = v8->FileHeader.NumberOfSections;
       v17 = 0;
-      if ( *(_WORD *)(v8 + 6) )
+      if ( v8->FileHeader.NumberOfSections )
       {
         while ( 1 )
         {
           v18 = v15[3];
-          if ( v14 >= v18 && v14 < v15[4] + v18 )
+          if ( VirtualAddress >= v18 && VirtualAddress < v15[4] + v18 )
             break;
           ++v17;
           v15 += 10;
-          if ( v17 >= v16 )
+          if ( v17 >= NumberOfSections )
             goto LABEL_11;
         }
-        a1[12] = *(_QWORD *)(v1 + 48) + v15[3];
+        *(_QWORD *)(a1 + 96) = *(_QWORD *)(v1 + 48) + v15[3];
         v19 = v15[2];
         *v2 = v19;
         if ( !v19 )
@@ -91,15 +91,15 @@ LABEL_9:
   }
 LABEL_11:
   v10 = 0;
-  if ( a1[12] && *v2 )
+  if ( *(_QWORD *)(a1 + 96) && *v2 )
   {
-    v23 = a1[12];
-    v22 = *v2;
-    result = ZwProtectVirtualMemory(-1LL, &v23, &v22, 4LL, a1 + 16);
+    BaseAddress = *(PVOID *)(a1 + 96);
+    RegionSize = *v2;
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, (PULONG)(a1 + 128));
     v10 = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
-    v12 = (char *)a1[12];
+    v12 = *(char **)(a1 + 96);
     v13 = &v12[*v2];
     do
     {

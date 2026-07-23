@@ -16,73 +16,63 @@
  *     sub_1800D62F0 @ 0x1800D62F0 (sub_1800D62F0.c)
  */
 
-__int64 __fastcall sub_180021AE0(unsigned __int16 *a1, unsigned __int16 *a2, char a3, __int64 a4, _DWORD *a5)
+__int64 __fastcall sub_180021AE0(PUNICODE_STRING String1, PUNICODE_STRING a2, char a3, __int64 a4, _DWORD *a5)
 {
-  unsigned __int16 *v7; // r15
+  PUNICODE_STRING v7; // r15
   int v8; // ebx
   int v9; // eax
   int v10; // r9d
-  unsigned __int16 *i; // r10
+  PWCH i; // r10
   unsigned __int16 v12; // r11
   int v13; // ecx
-  char v14; // bp
+  BOOLEAN v14; // bp
   _QWORD **v15; // rdi
   _QWORD *v16; // r14
   _QWORD *v17; // rsi
   __int64 v18; // rax
   unsigned int v19; // ebx
-  __int64 v20; // rdx
+  unsigned __int8 v20; // di
   __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  unsigned __int8 v24; // di
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 v28; // rcx
-  __int64 v30; // rdx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  __int64 v33; // rcx
-  unsigned __int64 v34; // r10
-  __int64 v35; // r11
-  _WORD *v36; // rax
-  __int16 v37; // cx
-  __int16 v38; // ax
-  char *v39; // rcx
-  __int64 v40; // rcx
-  _WORD v41[4]; // [rsp+30h] [rbp-48h] BYREF
-  _WORD *v42; // [rsp+38h] [rbp-40h]
+  __int64 v23; // rcx
+  PWCH Buffer; // r10
+  __int64 Length; // r11
+  PWCH v26; // rax
+  __int16 v27; // cx
+  __int16 v28; // ax
+  USHORT *v29; // rcx
+  __int64 v30; // rcx
+  _WORD v31[4]; // [rsp+30h] [rbp-48h] BYREF
+  PWCH v32; // [rsp+38h] [rbp-40h]
 
-  v7 = a1;
-  if ( !a1 )
+  v7 = String1;
+  if ( !String1 )
   {
-    v34 = *((_QWORD *)a2 + 1);
-    v35 = *a2;
-    v36 = (_WORD *)(v35 + v34 - 2);
-    if ( (unsigned __int64)v36 > v34 )
+    Buffer = a2->Buffer;
+    Length = a2->Length;
+    v26 = (PWCH)((char *)Buffer + Length - 2);
+    if ( v26 > Buffer )
     {
-      while ( *v36 != 92 && *v36 != 47 )
+      while ( *v26 != 92 && *v26 != 47 )
       {
-        if ( (unsigned __int64)--v36 <= v34 )
+        if ( --v26 <= Buffer )
           goto LABEL_46;
       }
-      ++v36;
+      ++v26;
     }
 LABEL_46:
-    v42 = v36;
-    v7 = v41;
-    v37 = (_WORD)v36 - v34;
-    v38 = a2[1] - ((_WORD)v36 - v34);
-    v41[0] = v35 - v37;
-    v41[1] = v38;
+    v32 = v26;
+    v7 = (PUNICODE_STRING)v31;
+    v27 = (_WORD)v26 - (_WORD)Buffer;
+    v28 = a2->MaximumLength - ((_WORD)v26 - (_WORD)Buffer);
+    v31[0] = Length - v27;
+    v31[1] = v28;
   }
   v8 = 0;
   v9 = 0;
   if ( v7 )
   {
-    v10 = *v7 >> 1;
-    for ( i = (unsigned __int16 *)*((_QWORD *)v7 + 1); v10; v9 = v13 + 65599 * v9 )
+    v10 = v7->Length >> 1;
+    for ( i = v7->Buffer; v10; v9 = v13 + 65599 * v9 )
     {
       v12 = *i++;
       --v10;
@@ -108,7 +98,7 @@ LABEL_46:
     }
     v8 = v9;
   }
-  RtlAcquireSRWLockExclusive(&qword_18015C040);
+  RtlAcquireSRWLockExclusive(&stru_18015C040);
   v14 = 0;
   v15 = (_QWORD **)((char *)&unk_18015AFA0 + 16 * (v8 & 0x1F));
   v16 = *v15;
@@ -121,7 +111,7 @@ LABEL_46:
       goto LABEL_30;
     if ( !a2 )
       break;
-    v14 = RtlEqualUnicodeString(a2, (unsigned __int16 *)v17 + 36, 1);
+    v14 = RtlEqualUnicodeString(a2, (PUNICODE_STRING)(v17 + 9), 1u);
     if ( v14 )
       goto LABEL_16;
 LABEL_30:
@@ -129,7 +119,7 @@ LABEL_30:
     if ( v16 == v15 )
       goto LABEL_18;
   }
-  if ( (v17[13] & 0x10000000) != 0 || !RtlEqualUnicodeString(v7, (unsigned __int16 *)v17 + 44, 1) )
+  if ( (v17[13] & 0x10000000) != 0 || !RtlEqualUnicodeString(v7, (PUNICODE_STRING)(v17 + 11), 1u) )
   {
     v14 = 0;
     goto LABEL_30;
@@ -151,41 +141,41 @@ LABEL_18:
   {
     v19 = -1073741515;
   }
-  RtlReleaseSRWLockExclusive(&qword_18015C040);
-  v24 = 3;
+  RtlReleaseSRWLockExclusive(&stru_18015C040);
+  v20 = 3;
   if ( a2 )
   {
     if ( v14 )
-      v24 = 0;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v21, v20, v22, v23) )
-      v33 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+      v20 = 0;
+    if ( RtlGetCurrentServiceSessionId() )
+      v23 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
-      v33 = 2147353476LL;
-    if ( *(_BYTE *)v33 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+      v23 = 2147353476LL;
+    if ( *(_BYTE *)v23 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v39 = (unsigned int)RtlGetCurrentServiceSessionId(v33, v30, v31, v32)
-          ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-          : (char *)2147353477;
-      if ( (*v39 & 0x20) != 0 )
-        sub_1800D62F0(5280, 0, 0, v24, (__int64)a2, 0LL);
+      v29 = RtlGetCurrentServiceSessionId()
+          ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+          : (USHORT *)2147353477;
+      if ( (*(_BYTE *)v29 & 0x20) != 0 )
+        sub_1800D62F0(5280, 0, 0, v20, (__int64)a2, 0LL);
     }
   }
   else
   {
     if ( v14 )
-      v24 = 0;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v21, v20, v22, v23) )
-      v28 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+      v20 = 0;
+    if ( RtlGetCurrentServiceSessionId() )
+      v21 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
-      v28 = 2147353476LL;
-    if ( *(_BYTE *)v28 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+      v21 = 2147353476LL;
+    if ( *(_BYTE *)v21 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v28, v25, v26, v27) )
-        v40 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+      if ( RtlGetCurrentServiceSessionId() )
+        v30 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
       else
-        v40 = 2147353477LL;
-      if ( (*(_BYTE *)v40 & 0x20) != 0 )
-        sub_1800D62F0(5280, 0, 0, v24, (__int64)v7, 0LL);
+        v30 = 2147353477LL;
+      if ( (*(_BYTE *)v30 & 0x20) != 0 )
+        sub_1800D62F0(5280, 0, 0, v20, (__int64)v7, 0LL);
     }
   }
   return v19;

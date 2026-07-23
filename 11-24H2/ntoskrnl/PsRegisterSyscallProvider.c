@@ -1,20 +1,20 @@
 /*
- * XREFs of PsRegisterSyscallProvider @ 0x140770EE0
+ * XREFs of PsRegisterSyscallProvider @ 0x140771100
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PspAcquireSyscallProviderRegistrationLockExclusive @ 0x1405E4934 (PspAcquireSyscallProviderRegistrationLockExclusive.c)
- *     PspDereferenceSyscallProvider @ 0x1405E4998 (PspDereferenceSyscallProvider.c)
- *     PspReleaseSyscallProviderRegistrationLockExclusive @ 0x1405E4AE8 (PspReleaseSyscallProviderRegistrationLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     VslRevokeSyscallProviderServiceTables @ 0x140710294 (VslRevokeSyscallProviderServiceTables.c)
- *     PspLookupSyscallProviderByIdNoLock @ 0x14077143C (PspLookupSyscallProviderByIdNoLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     PspAcquireSyscallProviderRegistrationLockExclusive @ 0x1405E1E5C (PspAcquireSyscallProviderRegistrationLockExclusive.c)
+ *     PspDereferenceSyscallProvider @ 0x1405E1EC0 (PspDereferenceSyscallProvider.c)
+ *     PspReleaseSyscallProviderRegistrationLockExclusive @ 0x1405E2010 (PspReleaseSyscallProviderRegistrationLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     VslRevokeSyscallProviderServiceTables @ 0x14070DE24 (VslRevokeSyscallProviderServiceTables.c)
+ *     PspLookupSyscallProviderByIdNoLock @ 0x14077165C (PspLookupSyscallProviderByIdNoLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsRegisterSyscallProvider(__int64 *Object, __int64 a2, _QWORD *a3)
@@ -38,7 +38,7 @@ __int64 __fastcall PsRegisterSyscallProvider(__int64 *Object, __int64 a2, _QWORD
     return 3221225629LL;
   if ( *(_BYTE *)a2 != 1 )
     return 3221225561LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x60uLL, 0x63537350u);
   v9 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
@@ -58,7 +58,7 @@ __int64 __fastcall PsRegisterSyscallProvider(__int64 *Object, __int64 a2, _QWORD
   *((_DWORD *)v9 + 22) = 0;
   memset_0(v17, 0, 0x68uLL);
   v18 = Object[3];
-  v12 = VslpEnterIumSecureMode(2u, 90LL, 0, (__int64)v17);
+  v12 = VslpEnterIumSecureMode(2u, 0x5Au, 0, (__int64)v17);
   if ( v12 < 0 )
   {
     v3 = v12;
@@ -73,14 +73,14 @@ LABEL_20:
   PspAcquireSyscallProviderRegistrationLockExclusive();
   if ( (unsigned int)PspLookupSyscallProviderByIdNoLock(v9 + 2, &v16) == -1073741275 )
   {
-    v14 = off_140FD72D8;
-    if ( *off_140FD72D8 != (_UNKNOWN *)&PspSyscallProviders )
+    v14 = off_140FD82D8;
+    if ( *off_140FD82D8 != (_UNKNOWN *)&PspSyscallProviders )
       __fastfail(3u);
     *v9 = &PspSyscallProviders;
     v15 = 0;
     v9[1] = v14;
     *v14 = v9;
-    off_140FD72D8 = (_UNKNOWN **)v9;
+    off_140FD82D8 = (_UNKNOWN **)v9;
   }
   else
   {

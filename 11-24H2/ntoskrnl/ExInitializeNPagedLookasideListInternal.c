@@ -1,28 +1,28 @@
 /*
- * XREFs of ExInitializeNPagedLookasideListInternal @ 0x14045FB10
+ * XREFs of ExInitializeNPagedLookasideListInternal @ 0x1404549D0
  * Callers:
- *     ExInitializeNPagedLookasideList @ 0x14045FAD0 (ExInitializeNPagedLookasideList.c)
- *     VfObjectContextInit @ 0x140B84844 (VfObjectContextInit.c)
- *     VfDeadlockInitialize @ 0x140B97DEC (VfDeadlockInitialize.c)
- *     ViDmaInit @ 0x140B9C028 (ViDmaInit.c)
- *     VfWdInit @ 0x140B9C8F8 (VfWdInit.c)
- *     ViIovInitialization @ 0x140BA4ED4 (ViIovInitialization.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
- *     CcInitializeCacheManager @ 0x140C15A88 (CcInitializeCacheManager.c)
- *     FsRtlInitializeLargeMcbs @ 0x140C18FC4 (FsRtlInitializeLargeMcbs.c)
- *     FsRtlInitializeFileLocks @ 0x140C1915C (FsRtlInitializeFileLocks.c)
- *     FsRtlInitializeOplockPerf @ 0x140C192F4 (FsRtlInitializeOplockPerf.c)
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
- *     PopInitializeIrpWorkers @ 0x140C30844 (PopInitializeIrpWorkers.c)
- *     VfInitBootDriversLoaded @ 0x140C3B240 (VfInitBootDriversLoaded.c)
- *     WmipInitializeRegistration @ 0x140C3C860 (WmipInitializeRegistration.c)
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     ExInitializeNPagedLookasideList @ 0x140454990 (ExInitializeNPagedLookasideList.c)
+ *     VfObjectContextInit @ 0x140B86844 (VfObjectContextInit.c)
+ *     VfDeadlockInitialize @ 0x140B99DEC (VfDeadlockInitialize.c)
+ *     ViDmaInit @ 0x140B9E028 (ViDmaInit.c)
+ *     VfWdInit @ 0x140B9E8F8 (VfWdInit.c)
+ *     ViIovInitialization @ 0x140BA6ED4 (ViIovInitialization.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
+ *     CcInitializeCacheManager @ 0x140C17A88 (CcInitializeCacheManager.c)
+ *     FsRtlInitializeLargeMcbs @ 0x140C1AFB8 (FsRtlInitializeLargeMcbs.c)
+ *     FsRtlInitializeFileLocks @ 0x140C1B150 (FsRtlInitializeFileLocks.c)
+ *     FsRtlInitializeOplockPerf @ 0x140C1B2E8 (FsRtlInitializeOplockPerf.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
+ *     PopInitializeIrpWorkers @ 0x140C32964 (PopInitializeIrpWorkers.c)
+ *     VfInitBootDriversLoaded @ 0x140C3D398 (VfInitBootDriversLoaded.c)
+ *     WmipInitializeRegistration @ 0x140C3E9B8 (WmipInitializeRegistration.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
  */
 
 void __fastcall ExInitializeNPagedLookasideListInternal(
@@ -71,13 +71,13 @@ void __fastcall ExInitializeNPagedLookasideListInternal(
   }
   *(_WORD *)(a1 + 18) = -1;
 LABEL_7:
-  v15 = (_QWORD *)qword_140EFA698;
+  v15 = (_QWORD *)qword_140EFA9C8;
   v16 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_140EFA698 != &ExNPagedLookasideListHead )
+  if ( *(__int64 **)qword_140EFA9C8 != &ExNPagedLookasideListHead )
     __fastfail(3u);
   *v16 = &ExNPagedLookasideListHead;
   v16[1] = v15;
   *v15 = v16;
-  qword_140EFA698 = (__int64)v16;
+  qword_140EFA9C8 = (__int64)v16;
   KeReleaseSpinLock(&ExNPagedLookasideLock, v14);
 }

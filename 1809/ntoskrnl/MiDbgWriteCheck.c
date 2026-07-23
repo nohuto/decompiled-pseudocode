@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDbgWriteCheck @ 0x1402BB384
+ * XREFs of MiDbgWriteCheck @ 0x1402BB574
  * Callers:
- *     MiDbgCopyMemory @ 0x1402BA750 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1402BA940 (MiDbgCopyMemory.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeFlushSingleCurrentTb @ 0x140156ED8 (KeFlushSingleCurrentTb.c)
- *     MiRealVaToFlushType @ 0x14016A848 (MiRealVaToFlushType.c)
- *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
- *     MiDbgMarkPfnModified @ 0x1402BAB30 (MiDbgMarkPfnModified.c)
+ *     MiIsAddressValid @ 0x140068590 (MiIsAddressValid.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPagePrivilege @ 0x1400B29B0 (MiGetPagePrivilege.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeFlushSingleCurrentTb @ 0x140156FD8 (KeFlushSingleCurrentTb.c)
+ *     MiRealVaToFlushType @ 0x14016A948 (MiRealVaToFlushType.c)
+ *     KeSetPagePrivilege @ 0x14028DE10 (KeSetPagePrivilege.c)
+ *     MiDbgMarkPfnModified @ 0x1402BAD20 (MiDbgMarkPfnModified.c)
  */
 
 unsigned __int64 __fastcall MiDbgWriteCheck(unsigned __int64 a1, __int64 *a2)
@@ -97,13 +97,13 @@ LABEL_31:
     *a2 = v5;
     v11 = v5 | 0x862;
     v19 = v11;
-    _InterlockedIncrement(&dword_14043A954);
+    _InterlockedIncrement(&dword_14043BA14);
     if ( MiPteInShadowRange((unsigned __int64)v4) )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
         v13 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v14 = (v11 & 1) == 0;
           goto LABEL_26;
@@ -120,7 +120,7 @@ LABEL_26:
     *v4 = v12;
     if ( v13 )
       MiWritePteShadow((__int64)v4, v12);
-    _InterlockedDecrement(&dword_14043A954);
+    _InterlockedDecrement(&dword_14043BA14);
     goto LABEL_31;
   }
   return 0LL;

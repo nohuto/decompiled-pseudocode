@@ -6,8 +6,8 @@
  *     NtdllpFreeStringRoutine @ 0x1800207A0 (NtdllpFreeStringRoutine.c)
  */
 
-__int64 __fastcall RtlDestroyEnvironment(__int64 a1)
+NTSTATUS __cdecl RtlDestroyEnvironment(PVOID Environment)
 {
-  NtdllpFreeStringRoutine(a1);
-  return 0LL;
+  NtdllpFreeStringRoutine(Environment);
+  return 0;
 }

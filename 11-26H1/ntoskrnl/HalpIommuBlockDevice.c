@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpIommuBlockDevice @ 0x1404FF510
+ * XREFs of HalpIommuBlockDevice @ 0x1404F8D00
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     HalpIommuQueryAcpiDeviceMapping @ 0x1404F3A80 (HalpIommuQueryAcpiDeviceMapping.c)
- *     HalpIommuDeleteDevice @ 0x140587958 (HalpIommuDeleteDevice.c)
- *     HalpIommuDecreaseAliasTrack @ 0x14058D4E0 (HalpIommuDecreaseAliasTrack.c)
- *     HalpIommuLeaveDmaDomain @ 0x14058DE4C (HalpIommuLeaveDmaDomain.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1404ED060 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     HalpIommuDeleteDevice @ 0x140589F30 (HalpIommuDeleteDevice.c)
+ *     HalpIommuDecreaseAliasTrack @ 0x14058FC60 (HalpIommuDecreaseAliasTrack.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1405905CC (HalpIommuLeaveDmaDomain.c)
  */
 
 __int64 __fastcall HalpIommuBlockDevice(__int64 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

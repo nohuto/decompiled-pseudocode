@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpCmciHandler @ 0x1405434A8
+ * XREFs of HalpCmciHandler @ 0x140540DF8
  * Callers:
- *     HalpInterruptDeferredErrorService @ 0x14055A190 (HalpInterruptDeferredErrorService.c)
+ *     HalpInterruptDeferredErrorService @ 0x140557DC0 (HalpInterruptDeferredErrorService.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeIpiGenericCall @ 0x1404677F0 (KeIpiGenericCall.c)
- *     HalpGetCpuVendor @ 0x14047D5E4 (HalpGetCpuVendor.c)
- *     HalpCmciSetProcessorConfigAMD @ 0x14047D7E0 (HalpCmciSetProcessorConfigAMD.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeIpiGenericCall @ 0x14045F290 (KeIpiGenericCall.c)
+ *     HalpGetCpuVendor @ 0x140478774 (HalpGetCpuVendor.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x140478970 (HalpCmciSetProcessorConfigAMD.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char HalpCmciHandler()
@@ -25,14 +25,13 @@ char HalpCmciHandler()
   unsigned __int8 CurrentIrql; // bp
   __int64 v7; // r14
   int v8; // edx
-  __int64 v9; // r9
-  unsigned __int8 v10; // si
+  unsigned __int8 v9; // si
   __int128 Src; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v13; // [rsp+30h] [rbp-38h]
+  __int128 v12; // [rsp+30h] [rbp-38h]
 
   LOBYTE(Pcr) = HalpMcaWheaReady;
   Src = 0LL;
-  v13 = 0LL;
+  v12 = 0LL;
   if ( HalpMcaWheaReady )
   {
     Pcr = KeGetPcr();
@@ -61,8 +60,8 @@ char HalpCmciHandler()
           {
             *(_QWORD *)&Src = 0x1674C6857LL;
             *((_QWORD *)&Src + 1) = 0x100000020LL;
-            *(_QWORD *)&v13 = 0x80000003204C4148uLL;
-            *((_QWORD *)&v13 + 1) = 2LL;
+            *(_QWORD *)&v12 = 0x80000003204C4148uLL;
+            *((_QWORD *)&v12 + 1) = 2LL;
             WheaLogInternalEvent(&Src);
             KeIpiGenericCall(HalpDisableCmciOnProcessor, 0LL);
             LOBYTE(Pcr) = KeInsertQueueDpc((PRKDPC)(i + 48), 0LL, 0LL);
@@ -81,17 +80,17 @@ char HalpCmciHandler()
           v7 = *(_QWORD *)(i + 24);
           if ( HalpGetCpuVendor() == 1 )
           {
-            v10 = KeGetCurrentIrql();
+            v9 = KeGetCurrentIrql();
             __writecr8(0xFuLL);
             if ( KiIrqlFlags )
             {
               LOBYTE(v8) = 15;
-              KiRaiseIrqlProcessIrqlFlags(v10, v8);
+              KiRaiseIrqlProcessIrqlFlags(v9, v8);
             }
-            HalpCmciSetProcessorConfigAMD(v7, 1, v2, v9);
+            HalpCmciSetProcessorConfigAMD(v7, 1, v2);
             if ( KiIrqlFlags )
-              KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v10);
-            __writecr8(v10);
+              KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v9);
+            __writecr8(v9);
           }
           KeInsertQueueDpc((PRKDPC)(i + 48), 0LL, 0LL);
         }

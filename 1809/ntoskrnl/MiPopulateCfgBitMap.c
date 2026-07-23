@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPopulateCfgBitMap @ 0x1405F6560
+ * XREFs of MiPopulateCfgBitMap @ 0x1405F7560
  * Callers:
- *     MiCfgMarkValidEntries @ 0x1405F631C (MiCfgMarkValidEntries.c)
- *     MiMarkPrivateOpenCfgBits @ 0x1405F6524 (MiMarkPrivateOpenCfgBits.c)
- *     MiMarkPrivateImageCfgBits @ 0x1406513B4 (MiMarkPrivateImageCfgBits.c)
+ *     MiCfgMarkValidEntries @ 0x1405F731C (MiCfgMarkValidEntries.c)
+ *     MiMarkPrivateOpenCfgBits @ 0x1405F7524 (MiMarkPrivateOpenCfgBits.c)
+ *     MiMarkPrivateImageCfgBits @ 0x140652574 (MiMarkPrivateImageCfgBits.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiCopyToCfgBitMap @ 0x1405F2A10 (MiCopyToCfgBitMap.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiCopyToCfgBitMap @ 0x1405F3A10 (MiCopyToCfgBitMap.c)
  */
 
 __int64 __fastcall MiPopulateCfgBitMap(_QWORD *a1, ULONG_PTR a2, __int64 a3, int a4, unsigned __int64 a5, __int64 a6)

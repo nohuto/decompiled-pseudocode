@@ -16,31 +16,30 @@
  *     LdrpInitMuiCritsRtlInitOnce @ 0x18009E3DC (LdrpInitMuiCritsRtlInitOnce.c)
  */
 
-__int64 __fastcall LdrRemoveLoadAsDataTable(wchar_t *String2, wchar_t **a2, _QWORD *a3, int a4)
+NTSTATUS __cdecl LdrRemoveLoadAsDataTable(PVOID InitModule, PVOID *BaseModule, PSIZE_T Size, ULONG Flags)
 {
-  wchar_t *v8; // rdi
-  unsigned int v9; // ebx
-  __int64 v10; // rdx
-  __int64 v11; // r9
-  int v12; // esi
-  __int64 v13; // r8
+  PVOID v8; // rdi
+  NTSTATUS v9; // ebx
+  unsigned int v10; // r9d
+  unsigned int v11; // esi
+  _QWORD *v12; // r8
+  __int64 v13; // rax
   __int64 v14; // rax
-  __int64 v15; // rax
-  __int64 v16; // r15
-  const wchar_t *v17; // rcx
-  __int64 v18; // rax
-  bool v19; // zf
-  int v20; // eax
-  int v21; // edi
-  __int64 v22; // r14
-  __int64 v23; // rcx
-  __int64 v24; // rax
-  __int64 Heap; // rax
-  __int64 v26; // [rsp+20h] [rbp-38h]
-  wchar_t *v27; // [rsp+28h] [rbp-30h]
+  __int64 v15; // r15
+  const wchar_t *v16; // rcx
+  __int64 v17; // rax
+  bool v18; // zf
+  int v19; // eax
+  unsigned int v20; // edi
+  __int64 v21; // r14
+  _ACTIVATION_CONTEXT *v22; // rcx
+  __int64 v23; // rax
+  _QWORD *Heap; // rax
+  unsigned int v25; // [rsp+24h] [rbp-34h]
+  PVOID v26; // [rsp+28h] [rbp-30h]
 
-  if ( !String2 )
-    return 3221225485LL;
+  if ( !InitModule )
+    return -1073741811;
   v8 = 0LL;
   v9 = -1073741511;
   if ( (unsigned int)Feature_Servicing_CritsecInit__private_IsEnabled() )
@@ -48,110 +47,109 @@ __int64 __fastcall LdrRemoveLoadAsDataTable(wchar_t *String2, wchar_t **a2, _QWO
   else
     LdrpInitMuiCrits();
   RtlEnterCriticalSection(&LoadAsDataCrits);
-  v11 = (unsigned int)LoadAsDataTableCount;
+  v10 = LoadAsDataTableCount;
   if ( LoadAsDataTableCount )
   {
-    if ( (a4 & 0xE00) != 0 )
+    if ( (Flags & 0xE00) != 0 )
     {
-      if ( !a2 )
+      if ( !BaseModule )
       {
         v9 = -1073741811;
         goto LABEL_54;
       }
-      *a2 = 0LL;
-      v12 = v11;
-      v13 = LoadAsDataTable;
-      while ( v12 )
+      *BaseModule = 0LL;
+      v11 = v10;
+      v12 = LoadAsDataTable;
+      while ( v11 )
       {
-        if ( (a4 & 0x800) != 0 )
+        if ( (Flags & 0x800) != 0 )
         {
-          v14 = 48LL * (unsigned int)(v12 - 1);
-          if ( *(wchar_t **)(v14 + v13 + 24) == String2 )
+          v13 = 6LL * (v11 - 1);
+          if ( (PVOID)v12[v13 + 3] == InitModule )
           {
-            v8 = *(wchar_t **)(v14 + v13);
+            v8 = (PVOID)v12[v13];
             break;
           }
         }
-        else if ( (a4 & 0x400) != 0
-               && (v15 = (unsigned int)(v12 - 1), v16 = 6 * v15, (v17 = *(const wchar_t **)(v13 + 48 * v15 + 8)) != 0LL) )
+        else if ( (Flags & 0x400) != 0
+               && (v14 = v11 - 1, v15 = 6 * v14, (v16 = (const wchar_t *)v12[6 * v14 + 1]) != 0LL) )
         {
-          if ( !wcsicmp(v17, String2) )
+          if ( !wcsicmp(v16, (const wchar_t *)InitModule) )
           {
-            v13 = LoadAsDataTable;
-            v8 = *(wchar_t **)(LoadAsDataTable + 8 * v16);
-            v11 = (unsigned int)LoadAsDataTableCount;
+            v12 = LoadAsDataTable;
+            v8 = (PVOID)*((_QWORD *)LoadAsDataTable + v15);
+            v10 = LoadAsDataTableCount;
             break;
           }
-          v11 = (unsigned int)LoadAsDataTableCount;
-          v13 = LoadAsDataTable;
+          v10 = LoadAsDataTableCount;
+          v12 = LoadAsDataTable;
         }
-        else if ( (a4 & 0x200) != 0 )
+        else if ( (Flags & 0x200) != 0 )
         {
-          v18 = 48LL * (unsigned int)(v12 - 1);
-          if ( *(wchar_t **)(v18 + v13) == String2 )
+          v17 = 6LL * (v11 - 1);
+          if ( (PVOID)v12[v17] == InitModule )
           {
-            v8 = *(wchar_t **)(v18 + v13);
+            v8 = (PVOID)v12[v17];
             break;
           }
         }
-        --v12;
+        --v11;
       }
       if ( v8 )
-        *a2 = v8;
-      if ( (a4 & 0x200000) != 0 )
+        *BaseModule = v8;
+      if ( (Flags & 0x200000) != 0 )
       {
-        if ( v8 && a3 )
+        if ( v8 && Size )
         {
-          *a3 = *(_QWORD *)(v13 + 48LL * (unsigned int)(v12 - 1) + 16);
-          if ( (a4 & 0x40000) != 0 )
-            ++*(_DWORD *)(v13 + 48LL * (unsigned int)(v12 - 1) + 32);
+          *Size = v12[6 * v11 - 4];
+          if ( (Flags & 0x40000) != 0 )
+            ++LODWORD(v12[6 * v11 - 2]);
           v9 = 0;
         }
         goto LABEL_54;
       }
-      v19 = v8 == 0LL;
+      v18 = v8 == 0LL;
       if ( !v8 )
       {
 LABEL_37:
-        if ( v19 )
-          v8 = String2;
-        v27 = v8;
-        v21 = v11;
-        HIDWORD(v26) = v11;
-        while ( v21 )
+        if ( v18 )
+          v8 = InitModule;
+        v26 = v8;
+        v20 = v10;
+        v25 = v10;
+        while ( v20 )
         {
-          v22 = (unsigned int)(v21 - 1);
-          if ( *(wchar_t **)(v13 + 48 * v22) == v27 )
+          v21 = v20 - 1;
+          if ( (PVOID)v12[6 * v21] == v26 )
           {
-            if ( *(_QWORD *)(v13 + 48 * v22 + 8) )
+            if ( v12[6 * v21 + 1] )
             {
-              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, *(_QWORD *)(v13 + 48 * v22 + 8));
-              v13 = LoadAsDataTable;
-              *(_QWORD *)(LoadAsDataTable + 48 * v22 + 8) = 0LL;
-              v21 = HIDWORD(v26);
-              v11 = (unsigned int)LoadAsDataTableCount;
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v12[6 * v21 + 1]);
+              v12 = LoadAsDataTable;
+              *((_QWORD *)LoadAsDataTable + 6 * v21 + 1) = 0LL;
+              v20 = v25;
+              v10 = LoadAsDataTableCount;
             }
-            v23 = *(_QWORD *)(v13 + 48 * v22 + 40);
-            if ( (unsigned __int64)(v23 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+            v22 = (_ACTIVATION_CONTEXT *)v12[6 * v21 + 5];
+            if ( (unsigned __int64)&v22[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
             {
-              RtlReleaseActivationContext(v23, v10, v13, v11, v26);
-              v13 = LoadAsDataTable;
-              *(_QWORD *)(LoadAsDataTable + 48 * v22 + 40) = 0LL;
-              LODWORD(v11) = LoadAsDataTableCount;
+              RtlReleaseActivationContext(v22);
+              v12 = LoadAsDataTable;
+              *((_QWORD *)LoadAsDataTable + 6 * v21 + 5) = 0LL;
+              v10 = LoadAsDataTableCount;
             }
-            if ( v21 != (_DWORD)v11 )
+            if ( v20 != v10 )
             {
-              *(_OWORD *)(v13 + 48 * v22) = *(_OWORD *)(v13 + 48LL * (unsigned int)(v11 - 1));
-              *(_OWORD *)(v13 + 48 * v22 + 16) = *(_OWORD *)(v13 + 48LL * (unsigned int)(v11 - 1) + 16);
-              *(_OWORD *)(v13 + 48 * v22 + 32) = *(_OWORD *)(v13 + 48LL * (unsigned int)(v11 - 1) + 32);
+              *(_OWORD *)&v12[6 * v21] = *(_OWORD *)&v12[6 * v10 - 6];
+              *(_OWORD *)&v12[6 * v21 + 2] = *(_OWORD *)&v12[6 * v10 - 4];
+              *(_OWORD *)&v12[6 * v21 + 4] = *(_OWORD *)&v12[6 * v10 - 2];
             }
-            v11 = (unsigned int)(v11 - 1);
-            LoadAsDataTableCount = v11;
-            v24 = (unsigned int)(LoadAsDataTableBlockCount - 32);
-            if ( (unsigned int)v11 < (unsigned int)v24 )
+            LoadAsDataTableCount = --v10;
+            v23 = (unsigned int)(LoadAsDataTableBlockCount - 32);
+            if ( v10 < (unsigned int)v23 )
             {
-              Heap = RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, LoadAsDataTable, 48 * v24);
-              v13 = Heap;
+              Heap = RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, LoadAsDataTable, 48 * v23);
+              v12 = Heap;
               if ( !Heap )
               {
                 v9 = -1073741801;
@@ -159,20 +157,18 @@ LABEL_37:
               }
               LoadAsDataTable = Heap;
               LoadAsDataTableBlockCount -= 32;
-              v11 = (unsigned int)LoadAsDataTableCount;
+              v10 = LoadAsDataTableCount;
             }
             v9 = 0;
-            LODWORD(v26) = 0;
           }
-          v21 = v22;
-          HIDWORD(v26) = v22;
+          v20 = v21;
+          v25 = v21;
         }
         goto LABEL_54;
       }
-      v10 = 6LL * (unsigned int)(v12 - 1);
-      v20 = *(_DWORD *)(v13 + 48LL * (unsigned int)(v12 - 1) + 32) - 1;
-      *(_DWORD *)(v13 + 48LL * (unsigned int)(v12 - 1) + 32) = v20;
-      if ( v20 > 0 )
+      v19 = LODWORD(v12[6 * v11 - 2]) - 1;
+      LODWORD(v12[6 * v11 - 2]) = v19;
+      if ( v19 > 0 )
       {
         v9 = -1073740024;
         goto LABEL_54;
@@ -180,9 +176,9 @@ LABEL_37:
     }
     else
     {
-      v13 = LoadAsDataTable;
+      v12 = LoadAsDataTable;
     }
-    v19 = v8 == 0LL;
+    v18 = v8 == 0LL;
     goto LABEL_37;
   }
 LABEL_54:

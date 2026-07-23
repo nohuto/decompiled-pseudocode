@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoOpenDeviceRegistryKey @ 0x14070C81C
+ * XREFs of VerifierIoOpenDeviceRegistryKey @ 0x14070C84C
  * Callers:
  *     <none>
  * Callees:

@@ -1,29 +1,29 @@
 /*
- * XREFs of PfTFullEventListAdd @ 0x1400F0468
+ * XREFs of PfTFullEventListAdd @ 0x1400EE2E8
  * Callers:
- *     PfpEventHandleFullBuffer @ 0x1400F0420 (PfpEventHandleFullBuffer.c)
- *     PfpFlushEventBuffers @ 0x1403E7CC0 (PfpFlushEventBuffers.c)
+ *     PfpEventHandleFullBuffer @ 0x1400EE2A0 (PfpEventHandleFullBuffer.c)
+ *     PfpFlushEventBuffers @ 0x1403E92F0 (PfpFlushEventBuffers.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x140006744 (PfFbBufferListInsertInFree.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     PfFbBufferListInsertInFree @ 0x1400068B4 (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall PfTFullEventListAdd(PSLIST_ENTRY ListEntry)
 {
   PSLIST_ENTRY result; // rax
 
-  RtlpInterlockedPushEntrySList(&stru_1403281E0, ListEntry);
+  RtlpInterlockedPushEntrySList(&stru_140328220, ListEntry);
   while ( 1 )
   {
-    result = (PSLIST_ENTRY)LOWORD(stru_1403281E0.Alignment);
-    if ( LOWORD(stru_1403281E0.Alignment) <= (unsigned int)dword_1403281F0 )
+    result = (PSLIST_ENTRY)LOWORD(stru_140328220.Alignment);
+    if ( LOWORD(stru_140328220.Alignment) <= (unsigned int)dword_140328230 )
       break;
-    result = RtlpInterlockedPopEntrySList(&stru_1403281E0);
+    result = RtlpInterlockedPopEntrySList(&stru_140328220);
     if ( !result )
       break;
     PfFbBufferListInsertInFree(
-      (_SLIST_ENTRY *)&stru_140328160,
+      (_SLIST_ENTRY *)&stru_1403281A0,
       result,
       LODWORD(result[2].Next) - (_DWORD)result,
       *((_DWORD *)&result[2].Next + 3),

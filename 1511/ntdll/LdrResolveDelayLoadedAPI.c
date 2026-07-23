@@ -12,19 +12,29 @@
  *     LdrpIsValidSearchOptions @ 0x1800D1CB0 (LdrpIsValidSearchOptions.c)
  */
 
-__int64 __fastcall LdrResolveDelayLoadedAPI(__int64 a1, _BYTE *a2, int a3, int a4, __int64 *a5, unsigned int a6)
+PVOID __cdecl LdrResolveDelayLoadedAPI(
+        PVOID ParentModuleBase,
+        PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor,
+        PDELAYLOAD_FAILURE_DLL_CALLBACK FailureDllHook,
+        PDELAYLOAD_FAILURE_SYSTEM_ROUTINE FailureSystemHook,
+        PIMAGE_THUNK_DATA ThunkAddress,
+        ULONG Flags)
 {
-  __int64 v10; // rbx
-  unsigned __int64 v11; // rcx
-  __int64 v12; // rdi
+  int v6; // r15d
+  int v7; // r12d
+  void *ForwarderString; // rbx
+  ULONGLONG v11; // rcx
+  PVOID v12; // rdi
   __int64 v13; // rax
   char v14; // al
-  __int64 v16; // [rsp+40h] [rbp-28h] BYREF
+  PVOID BaseAddress[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  v10 = 0LL;
-  if ( (unsigned __int8)LdrpIsValidSearchOptions(a6) && (*a2 & 1) != 0 )
+  v6 = (int)FailureSystemHook;
+  v7 = (int)FailureDllHook;
+  ForwarderString = 0LL;
+  if ( (unsigned __int8)LdrpIsValidSearchOptions(Flags) && (DelayloadDescriptor->Attributes.AllAttributes & 1) != 0 )
   {
-    if ( (int)LdrpFindLoadedDllByHandle(a1, &v16, 0LL) < 0 )
+    if ( (int)LdrpFindLoadedDllByHandle(ParentModuleBase, BaseAddress, 0LL) < 0 )
     {
       v14 = LdrpDebugFlags;
       if ( (LdrpDebugFlags & 3) != 0 )
@@ -42,19 +52,25 @@ __int64 __fastcall LdrResolveDelayLoadedAPI(__int64 a1, _BYTE *a2, int a3, int a
     }
     else
     {
-      v10 = *a5;
-      v11 = *a5 - a1;
-      v12 = v16;
-      if ( v11 < *(unsigned int *)(v16 + 64) )
+      ForwarderString = (void *)ThunkAddress->u1.ForwarderString;
+      v11 = ThunkAddress->u1.ForwarderString - (_QWORD)ParentModuleBase;
+      v12 = BaseAddress[0];
+      if ( v11 < *((unsigned int *)BaseAddress[0] + 16) )
       {
-        if ( (*(_DWORD *)(v16 + 104) & 0x8000) != 0 )
-          v13 = LdrpHandleProtectedDelayload(v16, (_DWORD)a2, a3, a4, (__int64)a5, a6);
+        if ( (*((_DWORD *)BaseAddress[0] + 26) & 0x8000) != 0 )
+          v13 = LdrpHandleProtectedDelayload(
+                  BaseAddress[0],
+                  (_DWORD)DelayloadDescriptor,
+                  v7,
+                  v6,
+                  (__int64)ThunkAddress,
+                  Flags);
         else
-          v13 = LdrpHandleUnprotectedDelayLoad(v16, (_DWORD)a2, a3, a4, (__int64)a5, a6);
-        v10 = v13;
+          v13 = LdrpHandleUnprotectedDelayLoad((int)BaseAddress[0], (int)DelayloadDescriptor, (int)ThunkAddress, Flags);
+        ForwarderString = (void *)v13;
       }
       LdrpDereferenceModule(v12);
     }
   }
-  return v10;
+  return ForwarderString;
 }

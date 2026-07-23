@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpCheckMatchingDevice @ 0x140A4F560
+ * XREFs of SdbpCheckMatchingDevice @ 0x140A4F810
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140757368 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1407579A4 (SdbFindFirstTag.c)
+ *     SdbGetStringTagPtr @ 0x140757558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140757B94 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingDevice(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)

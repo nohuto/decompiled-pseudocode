@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpCollectPmcCounters @ 0x14045B610
+ * XREFs of HalpCollectPmcCounters @ 0x14045BA10
  * Callers:
  *     <none>
  * Callees:

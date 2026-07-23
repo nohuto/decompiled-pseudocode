@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpFindSubKeyByName @ 0x140AC351C
+ * XREFs of CmpFindSubKeyByName @ 0x140AC518C
  * Callers:
- *     CmpGetSystemControlValues @ 0x140CEC3D8 (CmpGetSystemControlValues.c)
- *     CmpFindGroupOrderList @ 0x140CEF108 (CmpFindGroupOrderList.c)
- *     CmpFindStateSepKeysRedirectionMapNode @ 0x140CEF3B4 (CmpFindStateSepKeysRedirectionMapNode.c)
- *     CmpGetStateSepKeysRedirectionPathValue @ 0x140CEF8A0 (CmpGetStateSepKeysRedirectionPathValue.c)
- *     CmpIsLoadType @ 0x140CEFA5C (CmpIsLoadType.c)
- *     CmpLoadManufacturingModeNode @ 0x140CEFDF4 (CmpLoadManufacturingModeNode.c)
- *     CmpLoadManufacturingProfileNode @ 0x140CEFF30 (CmpLoadManufacturingProfileNode.c)
- *     CmpLoadManufacturingProfileServicesNode @ 0x140CF0020 (CmpLoadManufacturingProfileServicesNode.c)
- *     CmpLoadServicesNode @ 0x140CF00E4 (CmpLoadServicesNode.c)
- *     CmpSortDriverList @ 0x140CF024C (CmpSortDriverList.c)
+ *     CmpGetSystemControlValues @ 0x140CF26DC (CmpGetSystemControlValues.c)
+ *     CmpFindGroupOrderList @ 0x140CF5484 (CmpFindGroupOrderList.c)
+ *     CmpFindStateSepKeysRedirectionMapNode @ 0x140CF5730 (CmpFindStateSepKeysRedirectionMapNode.c)
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140CF5C1C (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     CmpIsLoadType @ 0x140CF5DD8 (CmpIsLoadType.c)
+ *     CmpLoadManufacturingModeNode @ 0x140CF6170 (CmpLoadManufacturingModeNode.c)
+ *     CmpLoadManufacturingProfileNode @ 0x140CF62AC (CmpLoadManufacturingProfileNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140CF639C (CmpLoadManufacturingProfileServicesNode.c)
+ *     CmpLoadServicesNode @ 0x140CF6460 (CmpLoadServicesNode.c)
+ *     CmpSortDriverList @ 0x140CF65C4 (CmpSortDriverList.c)
  * Callees:
- *     CmpFindSubKeyByNameWithStatus @ 0x1408D7490 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1408DDA50 (CmpFindSubKeyByNameWithStatus.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByName(ULONG_PTR a1, __int64 a2, unsigned __int16 *a3)

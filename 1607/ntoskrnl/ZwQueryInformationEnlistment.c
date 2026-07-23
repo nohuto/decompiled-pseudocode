@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryInformationEnlistment @ 0x14015C340
+ * XREFs of ZwQueryInformationEnlistment @ 0x14015C8B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationEnlistment(
         HANDLE EnlistmentHandle,
         ENLISTMENT_INFORMATION_CLASS EnlistmentInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryInformationEnlistment(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, *(_QWORD *)&EnlistmentInformationClass, EnlistmentInformation);
+  return KiServiceInternal(EnlistmentHandle);
 }

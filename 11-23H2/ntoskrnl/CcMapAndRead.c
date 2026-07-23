@@ -1,12 +1,12 @@
 /*
- * XREFs of CcMapAndRead @ 0x140265190
+ * XREFs of CcMapAndRead @ 0x140265420
  * Callers:
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
- *     CcPrepareMdlWrite @ 0x140369190 (CcPrepareMdlWrite.c)
- *     CcMapData @ 0x1406F6010 (CcMapData.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
+ *     CcPrepareMdlWrite @ 0x140369330 (CcPrepareMdlWrite.c)
+ *     CcMapData @ 0x1406F6220 (CcMapData.c)
  * Callees:
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
  */
 
 __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
@@ -17,7 +17,7 @@ __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
   int v8; // r11d
   int v9; // eax
   unsigned __int64 v10; // r14
-  int v11; // r10d
+  NTSTATUS v11; // r10d
   unsigned __int64 v12; // rbx
   unsigned int v13; // edi
   unsigned int v14; // r8d
@@ -94,7 +94,7 @@ LABEL_13:
     v17 = v21 == 0;
     BYTE4(CurrentThread[1].Queue) = v13 & 1;
     if ( !v17 && v11 < 0 )
-      RtlRaiseStatus((unsigned int)v11);
+      RtlRaiseStatus(v11);
   }
   return v5;
 }

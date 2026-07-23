@@ -1,19 +1,19 @@
 /*
- * XREFs of ExInitializeDeviceAts @ 0x14060C270
+ * XREFs of ExInitializeDeviceAts @ 0x14060C7C0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpPrepareNewAtsDevice @ 0x14060C758 (ExpPrepareNewAtsDevice.c)
- *     IoQueryInterface @ 0x140828780 (IoQueryInterface.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExpPrepareNewAtsDevice @ 0x14060CCA8 (ExpPrepareNewAtsDevice.c)
+ *     IoQueryInterface @ 0x140828A80 (IoQueryInterface.c)
  */
 
 __int64 __fastcall ExInitializeDeviceAts(ULONG_PTR BugCheckParameter1, int a2)

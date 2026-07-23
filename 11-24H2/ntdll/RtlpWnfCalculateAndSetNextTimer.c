@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpWnfCalculateAndSetNextTimer @ 0x180113AC4
+ * XREFs of RtlpWnfCalculateAndSetNextTimer @ 0x18010EDC4
  * Callers:
- *     RtlpWnfNotificationThread @ 0x18001FCF0 (RtlpWnfNotificationThread.c)
- *     RtlpWnfRetryTimerCallback @ 0x180113BB0 (RtlpWnfRetryTimerCallback.c)
+ *     RtlpWnfNotificationThread @ 0x18004C6F0 (RtlpWnfNotificationThread.c)
+ *     RtlpWnfRetryTimerCallback @ 0x18010EEB0 (RtlpWnfRetryTimerCallback.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlpGetFirstWnfNameSubscription @ 0x180113B70 (RtlpGetFirstWnfNameSubscription.c)
- *     RtlpGetNextWnfNameSubscription @ 0x180113D10 (RtlpGetNextWnfNameSubscription.c)
- *     RtlpWnfSetRetryTimer @ 0x180132720 (RtlpWnfSetRetryTimer.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlpGetFirstWnfNameSubscription @ 0x18010EE70 (RtlpGetFirstWnfNameSubscription.c)
+ *     RtlpGetNextWnfNameSubscription @ 0x18010F010 (RtlpGetNextWnfNameSubscription.c)
+ *     RtlpWnfSetRetryTimer @ 0x180130950 (RtlpWnfSetRetryTimer.c)
  */
 
-__int64 RtlpWnfCalculateAndSetNextTimer()
+void RtlpWnfCalculateAndSetNextTimer()
 {
   unsigned __int64 v0; // rdi
   int v1; // esi
@@ -20,13 +20,13 @@ __int64 RtlpWnfCalculateAndSetNextTimer()
 
   v0 = 0LL;
   v1 = 0;
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_1801CE200 + 8));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_1801CD200 + 8));
   FirstWnfNameSubscription = RtlpGetFirstWnfNameSubscription();
   if ( FirstWnfNameSubscription )
   {
     do
     {
-      RtlAcquireSRWLockShared((volatile signed __int64 *)(FirstWnfNameSubscription + 64));
+      RtlAcquireSRWLockShared((PRTL_SRWLOCK)(FirstWnfNameSubscription + 64));
       if ( *(_DWORD *)(FirstWnfNameSubscription + 124) == 2 )
       {
         v3 = (unsigned __int64 *)(FirstWnfNameSubscription + 136);
@@ -36,12 +36,12 @@ __int64 RtlpWnfCalculateAndSetNextTimer()
           v1 = 1;
         }
       }
-      RtlReleaseSRWLockShared((volatile signed __int64 *)(FirstWnfNameSubscription + 64));
+      RtlReleaseSRWLockShared((PRTL_SRWLOCK)(FirstWnfNameSubscription + 64));
       FirstWnfNameSubscription = RtlpGetNextWnfNameSubscription(FirstWnfNameSubscription);
     }
     while ( FirstWnfNameSubscription );
     if ( v1 )
       RtlpWnfSetRetryTimer(v0);
   }
-  return RtlReleaseSRWLockShared((volatile signed __int64 *)(qword_1801CE200 + 8));
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_1801CD200 + 8));
 }

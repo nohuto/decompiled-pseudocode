@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x140922D68
+ * XREFs of DrvDbGetDriverDatabaseMappedProperty @ 0x140924EA0
  * Callers:
- *     DrvDbGetDriverDatabaseCompositeMappedPropertyKeys @ 0x140821B2C (DrvDbGetDriverDatabaseCompositeMappedPropertyKeys.c)
- *     DrvDbDispatchDriverDatabase @ 0x1408BDAB0 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbLoadDatabaseNode @ 0x140925AF8 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbGetDriverDatabaseCompositeMappedPropertyKeys @ 0x14082226C (DrvDbGetDriverDatabaseCompositeMappedPropertyKeys.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1408BB400 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbLoadDatabaseNode @ 0x140927C38 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     DrvDbGetRegValueMappedProperty @ 0x140923A70 (DrvDbGetRegValueMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbFindDatabaseNode @ 0x140926C58 (DrvDbFindDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140A88D94 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x140925BB0 (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbFindDatabaseNode @ 0x140928D98 (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140A85194 (DrvDbOpenDriverDatabaseRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseMappedProperty(
@@ -102,7 +102,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedProperty(
   }
   for ( i = 0; i < 8; ++i )
   {
-    v17 = off_140E0A3C0[i];
+    v17 = off_140E0A430[i];
     if ( *(_DWORD *)(v17 + 16) == v15 )
     {
       v14 = *(_QWORD *)v17 - *(_QWORD *)a4;
@@ -244,7 +244,7 @@ LABEL_45:
   for ( j = 0; j < 0xC; ++j )
   {
     LODWORD(v14) = 5 * j;
-    v20 = &off_14000C2F0 + 5 * j;
+    v20 = &off_14000C600 + 5 * j;
     v21 = (__int64 *)*v20;
     if ( LODWORD((**v20)[2]) == v15 )
     {
@@ -253,7 +253,7 @@ LABEL_45:
         v14 = v21[1] - *(_QWORD *)(a4 + 8);
       if ( !v14 )
       {
-        v18 = &off_14000C2F0 + 5 * j;
+        v18 = &off_14000C600 + 5 * j;
         break;
       }
     }
@@ -266,7 +266,7 @@ LABEL_45:
   v18 = 0LL;
   for ( k = 0; k < 4; ++k )
   {
-    v46 = &off_14000C4D0 + 5 * k;
+    v46 = &off_14000C7E0 + 5 * k;
     v47 = (__int64 *)*v46;
     if ( LODWORD((**v46)[2]) == v15 )
     {
@@ -275,7 +275,7 @@ LABEL_45:
         v48 = v47[1] - *(_QWORD *)(a4 + 8);
       if ( !v48 )
       {
-        v18 = &off_14000C4D0 + 5 * k;
+        v18 = &off_14000C7E0 + 5 * k;
         break;
       }
     }

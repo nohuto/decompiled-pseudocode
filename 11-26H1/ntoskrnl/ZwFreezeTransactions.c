@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwFreezeTransactions @ 0x1407252F0
+ * XREFs of ZwFreezeTransactions @ 0x140729EC0
  * Callers:
- *     DifZwFreezeTransactionsWrapper @ 0x1406A6E40 (DifZwFreezeTransactionsWrapper.c)
+ *     DifZwFreezeTransactionsWrapper @ 0x1406AAA20 (DifZwFreezeTransactionsWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFreezeTransactions(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFreezeTransactions(PLARGE_INTEGER FreezeTimeout, PLARGE_INTEGER ThawTimeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FreezeTimeout);
 }

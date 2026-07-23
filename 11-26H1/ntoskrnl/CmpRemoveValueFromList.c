@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpRemoveValueFromList @ 0x1408BCABC
+ * XREFs of CmpRemoveValueFromList @ 0x1408C308C
  * Callers:
- *     CmDeleteValueKey @ 0x1408BB780 (CmDeleteValueKey.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1408BEED0 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
- *     CmSetValueKey @ 0x1408CEE30 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408C1D50 (CmDeleteValueKey.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1408C54A0 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmSetValueKey @ 0x1408D53E0 (CmSetValueKey.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvFreeCell @ 0x1408D1528 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvReallocateCell @ 0x1408DCC94 (HvReallocateCell.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvFreeCell @ 0x1408D7AE8 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvReallocateCell @ 0x1408E3254 (HvReallocateCell.c)
  */
 
 __int64 __fastcall CmpRemoveValueFromList(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int *a3)

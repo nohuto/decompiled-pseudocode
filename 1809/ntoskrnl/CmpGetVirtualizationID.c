@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpGetVirtualizationID @ 0x1407F3544
+ * XREFs of CmpGetVirtualizationID @ 0x1407F4744
  * Callers:
- *     CmRealKCBToVirtualPath @ 0x1407F1FA8 (CmRealKCBToVirtualPath.c)
- *     CmpGetVirtualStoreRoot @ 0x1407F3488 (CmpGetVirtualStoreRoot.c)
+ *     CmRealKCBToVirtualPath @ 0x1407F31A8 (CmRealKCBToVirtualPath.c)
+ *     CmpGetVirtualStoreRoot @ 0x1407F4688 (CmpGetVirtualStoreRoot.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
- *     CmpEffectiveTokenForSubject @ 0x1406B20D4 (CmpEffectiveTokenForSubject.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     SeQueryUserSidToken @ 0x1406112AC (SeQueryUserSidToken.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065B870 (RtlConvertSidToUnicodeString.c)
+ *     CmpEffectiveTokenForSubject @ 0x1406B3374 (CmpEffectiveTokenForSubject.c)
  */
 
 __int64 __fastcall CmpGetVirtualizationID(PUNICODE_STRING Destination, __int64 *a2)

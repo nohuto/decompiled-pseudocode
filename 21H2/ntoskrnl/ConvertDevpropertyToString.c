@@ -1,11 +1,11 @@
 /*
- * XREFs of ConvertDevpropertyToString @ 0x14097F144
+ * XREFs of ConvertDevpropertyToString @ 0x14097F324
  * Callers:
- *     ExpressionConvertToString @ 0x14097F810 (ExpressionConvertToString.c)
+ *     ExpressionConvertToString @ 0x14097F9F0 (ExpressionConvertToString.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x14024F6C0 (RtlStringCbPrintfExW.c)
- *     RtlStringCbCopyExW @ 0x1402C2960 (RtlStringCbCopyExW.c)
- *     ConvertDevpropcompkeyToString @ 0x14097F008 (ConvertDevpropcompkeyToString.c)
+ *     RtlStringCbCopyExW @ 0x140240E00 (RtlStringCbCopyExW.c)
+ *     RtlStringCbPrintfExW @ 0x1402F3F10 (RtlStringCbPrintfExW.c)
+ *     ConvertDevpropcompkeyToString @ 0x14097F1E8 (ConvertDevpropcompkeyToString.c)
  */
 
 __int64 __fastcall ConvertDevpropertyToString(__int64 a1, unsigned int a2, wchar_t *a3, unsigned int *a4)

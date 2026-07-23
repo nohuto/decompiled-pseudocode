@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCopySinglePage @ 0x1400EA628
+ * XREFs of MiCopySinglePage @ 0x1400EA6A8
  * Callers:
- *     MmCopyMemory @ 0x1400EA870 (MmCopyMemory.c)
+ *     MmCopyMemory @ 0x1400EA8F0 (MmCopyMemory.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiIsPageSecured @ 0x1400EA7E0 (MiIsPageSecured.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiIsPageSecured @ 0x1400EA860 (MiIsPageSecured.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall MiCopySinglePage(void *a1, unsigned __int64 a2, __int64 a3, size_t a4, unsigned __int64 a5, char a6)
@@ -122,7 +122,7 @@ LABEL_17:
       if ( (unsigned int)MiPteHasShadow(v21, v20) )
       {
         v22 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_17;
         v26 = (v20 & 1) == 0;
       }
@@ -139,7 +139,7 @@ LABEL_17:
     if ( (unsigned int)MiPteHasShadow(v16, v15) )
     {
       v17 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_12;
       v25 = (v15 & 1) == 0;
     }

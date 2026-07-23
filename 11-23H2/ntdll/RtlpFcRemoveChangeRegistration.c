@@ -6,16 +6,16 @@
  *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpFcRemoveChangeRegistration(__int64 a1, _QWORD *a2)
+void __fastcall RtlpFcRemoveChangeRegistration(__int64 a1, _QWORD *a2)
 {
   __int64 v3; // rdx
   _QWORD *v4; // rax
 
-  RtlAcquireSRWLockExclusive(&qword_180185EF0);
+  RtlAcquireSRWLockExclusive(&stru_180185EF0);
   v3 = *a2;
   if ( *(_QWORD **)(*a2 + 8LL) != a2 || (v4 = (_QWORD *)a2[1], (_QWORD *)*v4 != a2) )
     __fastfail(3u);
   *v4 = v3;
   *(_QWORD *)(v3 + 8) = v4;
-  return RtlReleaseSRWLockExclusive(&qword_180185EF0);
+  RtlReleaseSRWLockExclusive(&stru_180185EF0);
 }

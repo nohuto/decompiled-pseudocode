@@ -1,12 +1,12 @@
 /*
- * XREFs of SeImpersonateClientEx @ 0x1406E0EE0
+ * XREFs of SeImpersonateClientEx @ 0x1406B81C0
  * Callers:
- *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
- *     EtwpCreateLogFile @ 0x1406DFAAC (EtwpCreateLogFile.c)
- *     NtImpersonateThread @ 0x1406E0D70 (NtImpersonateThread.c)
- *     SeImpersonateClient @ 0x140922650 (SeImpersonateClient.c)
+ *     EtwpCreateLogFile @ 0x1406B6D8C (EtwpCreateLogFile.c)
+ *     NtImpersonateThread @ 0x1406B8050 (NtImpersonateThread.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1406D9170 (NtAlpcImpersonateClientOfPort.c)
+ *     SeImpersonateClient @ 0x1409227B0 (SeImpersonateClient.c)
  * Callees:
- *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
+ *     PsImpersonateClient @ 0x14064FCC0 (PsImpersonateClient.c)
  */
 
 NTSTATUS __stdcall SeImpersonateClientEx(PSECURITY_CLIENT_CONTEXT ClientContext, PETHREAD ServerThread)

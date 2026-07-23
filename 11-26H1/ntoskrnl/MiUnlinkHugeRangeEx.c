@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUnlinkHugeRangeEx @ 0x14048E398
+ * XREFs of MiUnlinkHugeRangeEx @ 0x140487ED8
  * Callers:
- *     MiHugeRangeFreeToZero @ 0x14048DD70 (MiHugeRangeFreeToZero.c)
- *     MiHugePurgeZeroList @ 0x1405190A8 (MiHugePurgeZeroList.c)
- *     MiGetHugeBadRangeFromNode @ 0x1406EB6AC (MiGetHugeBadRangeFromNode.c)
- *     MiGetPerfectColorHeadHugeRange @ 0x1406EBC70 (MiGetPerfectColorHeadHugeRange.c)
- *     MiMakeEntireHugePfnGood @ 0x1406EC6B8 (MiMakeEntireHugePfnGood.c)
- *     MiMarkHugePfnBad @ 0x1406EC7AC (MiMarkHugePfnBad.c)
- *     MiMarkHugePfnGood @ 0x1406ECDE4 (MiMarkHugePfnGood.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x1406ED07C (MiMoveBadHugeRangeCrossPartition.c)
- *     MiMoveHibernateHugeRangesFreeToZeroCallback @ 0x1406ED210 (MiMoveHibernateHugeRangesFreeToZeroCallback.c)
+ *     MiHugeRangeFreeToZero @ 0x1404878B0 (MiHugeRangeFreeToZero.c)
+ *     MiHugePurgeZeroList @ 0x140512B18 (MiHugePurgeZeroList.c)
+ *     MiGetHugeBadRangeFromNode @ 0x1406F034C (MiGetHugeBadRangeFromNode.c)
+ *     MiGetPerfectColorHeadHugeRange @ 0x1406F0910 (MiGetPerfectColorHeadHugeRange.c)
+ *     MiMakeEntireHugePfnGood @ 0x1406F1358 (MiMakeEntireHugePfnGood.c)
+ *     MiMarkHugePfnBad @ 0x1406F144C (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x1406F1A84 (MiMarkHugePfnGood.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x1406F1D1C (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiMoveHibernateHugeRangesFreeToZeroCallback @ 0x1406F1EB0 (MiMoveHibernateHugeRangesFreeToZeroCallback.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiPageToChannel @ 0x140295870 (MiPageToChannel.c)
- *     MiPageListCollision @ 0x14048DA4C (MiPageListCollision.c)
- *     MiGetColorHeadHugeRangeBase @ 0x14048E87C (MiGetColorHeadHugeRangeBase.c)
- *     MiSimpleUnlinkHugeRange @ 0x14048E8E0 (MiSimpleUnlinkHugeRange.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiPageToChannel @ 0x140294DD0 (MiPageToChannel.c)
+ *     MiPageListCollision @ 0x14048758C (MiPageListCollision.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404883BC (MiGetColorHeadHugeRangeBase.c)
+ *     MiSimpleUnlinkHugeRange @ 0x140488420 (MiSimpleUnlinkHugeRange.c)
  */
 
 __int64 __fastcall MiUnlinkHugeRangeEx(__int64 a1, __int64 a2, char a3)
@@ -43,25 +43,25 @@ __int64 __fastcall MiUnlinkHugeRangeEx(__int64 a1, __int64 a2, char a3)
   unsigned int v26; // [rsp+68h] [rbp+10h]
   char v27; // [rsp+70h] [rbp+18h]
 
-  v26 = dword_140E2D780[0];
+  v26 = dword_140E2D900[0];
   v4 = a2 & 0x3FFFFF;
   v25 = MiPageToChannel(v4 << 18);
   v7 = (unsigned int)MiPageToNode(v4 << 18);
   v27 = 0;
-  v8 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v4);
+  v8 = (unsigned __int64 *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v4);
   v9 = *v8;
   v10 = *v8 & 7;
   if ( v10 == 2 )
   {
     if ( (v9 & 0x800000000000000LL) != 0 )
-      MiPageListCollision(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v4);
+      MiPageListCollision(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v4);
     v11 = 1;
   }
   else if ( v10 == 1 )
   {
     if ( (v9 & 0x800000000000000LL) != 0 )
     {
-      MiPageListCollision(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v4);
+      MiPageListCollision(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v4);
       v27 = 1;
     }
     v11 = 0;
@@ -80,11 +80,11 @@ __int64 __fastcall MiUnlinkHugeRangeEx(__int64 a1, __int64 a2, char a3)
   *v8 = v13 & 0xFFFFFF800001FFF8uLL | 0x20003;
   if ( (a3 & 1) == 0 )
   {
-    if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+    if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
     {
       v14 = v4 & 0x1F;
       LOBYTE(v15) = 1;
-      v16 = (volatile signed __int32 *)stru_140E2EB88.WaitBlock[2].WaitListEntry.Blink + (v4 >> 5);
+      v16 = (volatile signed __int32 *)stru_140E2ED08.WaitBlock[2].WaitListEntry.Blink + (v4 >> 5);
       if ( (unsigned __int64)(v14 + 1) > 0x20 )
       {
         if ( (v4 & 0x1F) == 0 )
@@ -113,11 +113,11 @@ LABEL_25:
         _InterlockedOr(v16, 1 << v14);
       }
     }
-    else if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+    else if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
     {
       v19 = v4 & 0x1F;
       LOBYTE(v20) = 1;
-      v21 = (volatile signed __int32 *)stru_140E2EB88.WaitBlock[2].WaitListEntry.Blink + (v4 >> 5);
+      v21 = (volatile signed __int32 *)stru_140E2ED08.WaitBlock[2].WaitListEntry.Blink + (v4 >> 5);
       if ( (unsigned __int64)(v19 + 1) > 0x20 )
       {
         if ( (v4 & 0x1F) == 0 )

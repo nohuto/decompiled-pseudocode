@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMirrorAddPagesToBrownList @ 0x1401527BC
+ * XREFs of MiMirrorAddPagesToBrownList @ 0x1401528BC
  * Callers:
- *     MiMirrorGatherBrownPages @ 0x140152560 (MiMirrorGatherBrownPages.c)
- *     MiMirrorNodeLargePages @ 0x140152BA8 (MiMirrorNodeLargePages.c)
+ *     MiMirrorGatherBrownPages @ 0x140152660 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorNodeLargePages @ 0x140152CA8 (MiMirrorNodeLargePages.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x14008AF10 (RtlSetBitsEx.c)
  */
 
 void __fastcall MiMirrorAddPagesToBrownList(unsigned __int64 a1, unsigned __int64 a2)
@@ -18,7 +18,7 @@ void __fastcall MiMirrorAddPagesToBrownList(unsigned __int64 a1, unsigned __int6
 
   v4 = a1 >> 5;
   v5 = a2;
-  v6 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * v4);
+  v6 = (volatile signed __int32 *)(qword_14043B888 + 4 * v4);
   v7 = a1 & 0x1F;
   if ( v7 + a2 <= 0x20 )
   {
@@ -54,5 +54,5 @@ LABEL_4:
     _InterlockedAnd(v6, v8);
   }
 LABEL_5:
-  RtlSetBitsEx((__int64)&qword_14043A7B0, a1, a2);
+  RtlSetBitsEx((__int64)&qword_14043B870, a1, a2);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PspStorageInsertObject @ 0x140715E30
+ * XREFs of PspStorageInsertObject @ 0x1406C4480
  * Callers:
  *     PsInsertSiloContext @ 0x1405D25C0 (PsInsertSiloContext.c)
- *     PsInsertPermanentSiloContextEx @ 0x140715D5C (PsInsertPermanentSiloContextEx.c)
+ *     PsInsertPermanentSiloContextEx @ 0x1406C43AC (PsInsertPermanentSiloContextEx.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     PspGetStorageArray @ 0x140715F44 (PspGetStorageArray.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     PspGetStorageArray @ 0x1406C4594 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PspStorageInsertObject(__int64 a1, __int64 a2, char a3, signed __int64 a4)

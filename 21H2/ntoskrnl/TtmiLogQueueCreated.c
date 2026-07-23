@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogQueueCreated @ 0x1409032DC
+ * XREFs of TtmiLogQueueCreated @ 0x14090343C
  * Callers:
- *     TtmiCreateEventQueue @ 0x140905438 (TtmiCreateEventQueue.c)
+ *     TtmiCreateEventQueue @ 0x140905598 (TtmiCreateEventQueue.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogQueueCreated(__int64 a1)
@@ -35,7 +35,7 @@ void __fastcall TtmiLogQueueCreated(__int64 a1)
       v4 = a1;
       v9 = &v4;
       v10 = 8;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)byte_14002B83D, 0LL, 0LL, 4u, &v5);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)byte_14002ACA3, 0LL, 0LL, 4u, &v5);
     }
   }
 }

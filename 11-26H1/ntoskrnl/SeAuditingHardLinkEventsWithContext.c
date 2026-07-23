@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAuditingHardLinkEventsWithContext @ 0x140AF7650
+ * XREFs of SeAuditingHardLinkEventsWithContext @ 0x140AF9CF0
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
  */
 
 BOOLEAN __stdcall SeAuditingHardLinkEventsWithContext(

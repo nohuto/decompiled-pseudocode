@@ -8,20 +8,20 @@
  *     RtlSidDominatesForTrust @ 0x18002E5E0 (RtlSidDominatesForTrust.c)
  */
 
-char __fastcall sub_180002C80(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+BOOLEAN __fastcall sub_180002C80(void *a1, void *a2, __int64 a3, NTSTATUS *a4)
 {
-  char result; // al
-  char v6; // [rsp+40h] [rbp+18h] BYREF
+  BOOLEAN result; // al
+  BOOLEAN DominatesTrust; // [rsp+40h] [rbp+18h] BYREF
 
-  v6 = 0;
+  DominatesTrust = 0;
   if ( !a1 )
   {
     result = 0;
     goto LABEL_5;
   }
-  *a4 = RtlSidDominatesForTrust(a1, a2, &v6);
-  result = v6;
-  if ( !v6 )
+  *a4 = RtlSidDominatesForTrust(a1, a2, &DominatesTrust);
+  result = DominatesTrust;
+  if ( !DominatesTrust )
 LABEL_5:
     *a4 = -1073741790;
   return result;

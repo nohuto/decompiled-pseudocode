@@ -7,22 +7,24 @@
  *     LdrpDereferenceModule @ 0x1800302E4 (LdrpDereferenceModule.c)
  */
 
-__int64 __fastcall LdrDisableThreadCalloutsForDll(__int64 a1)
+NTSTATUS __cdecl LdrDisableThreadCalloutsForDll(PVOID DllImageBase)
 {
-  int LoadedDllByHandle; // ebx
-  char v3; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v4; // [rsp+40h] [rbp+18h] BYREF
+  NTSTATUS LoadedDllByHandle; // ebx
+  PVOID v2; // rcx
+  char v4; // [rsp+38h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
   LoadedDllByHandle = 0;
   if ( !byte_18016A508 )
   {
-    LoadedDllByHandle = LdrpFindLoadedDllByHandle(a1, &v4, &v3);
+    LoadedDllByHandle = LdrpFindLoadedDllByHandle(DllImageBase, &BaseAddress, &v4);
     if ( LoadedDllByHandle >= 0 )
     {
-      if ( !*(_WORD *)(v4 + 110) )
-        *(_BYTE *)(v4 + 106) |= 4u;
-      LdrpDereferenceModule();
+      v2 = BaseAddress;
+      if ( !*((_WORD *)BaseAddress + 55) )
+        *((_BYTE *)BaseAddress + 106) |= 4u;
+      LdrpDereferenceModule(v2);
     }
   }
-  return (unsigned int)LoadedDllByHandle;
+  return LoadedDllByHandle;
 }

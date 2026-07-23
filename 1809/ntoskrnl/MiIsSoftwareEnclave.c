@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsSoftwareEnclave @ 0x1401211FC
+ * XREFs of MiIsSoftwareEnclave @ 0x1401212CC
  * Callers:
- *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1405EF910 (MmQueryVirtualMemory.c)
  * Callees:
  *     <none>
  */

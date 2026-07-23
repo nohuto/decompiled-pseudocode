@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaInitializeCvmSupport @ 0x140C10AE4
+ * XREFs of HalpDmaInitializeCvmSupport @ 0x140C12AE4
  * Callers:
- *     HalpDmaInit @ 0x140C10654 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140C12654 (HalpDmaInit.c)
  * Callees:
- *     HviGetSharedGpaBoundary @ 0x140663CC4 (HviGetSharedGpaBoundary.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x140663D48 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpDmaCvmQueryRegistryKeys @ 0x140C104F0 (HalpDmaCvmQueryRegistryKeys.c)
+ *     HviGetSharedGpaBoundary @ 0x1406625B4 (HviGetSharedGpaBoundary.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x140662638 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpDmaCvmQueryRegistryKeys @ 0x140C124F0 (HalpDmaCvmQueryRegistryKeys.c)
  */
 
 __int64 HalpDmaInitializeCvmSupport()
@@ -23,13 +23,13 @@ __int64 HalpDmaInitializeCvmSupport()
       if ( (unsigned int)(_RBX & 0xF) - 2 <= 1 )
       {
         HalpDmaCvmConfiguration = 1;
-        qword_140FC0AE8 = HviGetSharedGpaBoundary(_RCX, _RDX);
+        qword_140FC0D48 = HviGetSharedGpaBoundary(_RCX, _RDX);
       }
     }
   }
-  if ( !HalpDmaCvmConfiguration && byte_140FC0AE1 )
+  if ( !HalpDmaCvmConfiguration && byte_140FC0D41 )
   {
-    qword_140FC0AE8 = 0LL;
+    qword_140FC0D48 = 0LL;
     HalpDmaCvmConfiguration = 1;
   }
   return 0LL;

@@ -19,14 +19,20 @@
  *     AlpcpProbeAndCaptureMessageHeader @ 0x14047E410 (AlpcpProbeAndCaptureMessageHeader.c)
  */
 
-__int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int64 a3, int a4, ACCESS_MASK a5, __int128 *a6)
+NTSTATUS __cdecl NtAlpcOpenSenderProcess(
+        PHANDLE ProcessHandle,
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ULONG Flags,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r14
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   PVOID v12; // rdi
   _QWORD *v13; // rcx
-  __int128 *v14; // rdx
+  OBJECT_ATTRIBUTES *v14; // rdx
   ULONG_PTR v15; // rbx
   __int64 v16; // rsi
   _QWORD *v17; // rsi
@@ -36,48 +42,42 @@ __int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int64 a3, int
   PVOID v22; // rcx
   PVOID Object; // [rsp+30h] [rbp-98h] BYREF
   ULONG_PTR v24[2]; // [rsp+38h] [rbp-90h] BYREF
-  __int64 v25; // [rsp+48h] [rbp-80h] BYREF
-  __m128i Source2; // [rsp+50h] [rbp-78h] BYREF
+  void *v25; // [rsp+48h] [rbp-80h] BYREF
+  __int128 Source2; // [rsp+50h] [rbp-78h] BYREF
   __int128 v27; // [rsp+60h] [rbp-68h]
-  __int64 v28; // [rsp+70h] [rbp-58h]
-  __int128 v29; // [rsp+78h] [rbp-50h] BYREF
-  __int128 v30; // [rsp+88h] [rbp-40h]
-  __int128 v31; // [rsp+98h] [rbp-30h]
-  PVOID v32; // [rsp+A8h] [rbp-20h]
+  unsigned __int64 ClientViewSize; // [rsp+70h] [rbp-58h]
+  OBJECT_ATTRIBUTES v29; // [rsp+78h] [rbp-50h] BYREF
+  PVOID v30; // [rsp+A8h] [rbp-20h]
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v11 = ObReferenceObjectByHandle(a2, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   v12 = Object;
-  v32 = Object;
+  v30 = Object;
   if ( v11 < 0 )
     goto LABEL_15;
   if ( PreviousMode )
   {
-    v13 = a1;
-    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+    v13 = ProcessHandle;
+    if ( (unsigned __int64)ProcessHandle >= MmUserProbeAddress )
       v13 = (_QWORD *)MmUserProbeAddress;
     *v13 = *v13;
-    AlpcpProbeAndCaptureMessageHeader((__m128i *)a3, (__int64)&Source2, a4);
-    v14 = a6;
-    if ( (unsigned __int64)a6 >= MmUserProbeAddress )
-      v14 = (__int128 *)MmUserProbeAddress;
+    AlpcpProbeAndCaptureMessageHeader((__m128i *)PortMessage, (__int64)&Source2, Flags);
+    v14 = ObjectAttributes;
+    if ( (unsigned __int64)ObjectAttributes >= MmUserProbeAddress )
+      v14 = (OBJECT_ATTRIBUTES *)MmUserProbeAddress;
     v29 = *v14;
-    v30 = v14[1];
-    v31 = v14[2];
     v12 = Object;
   }
   else
   {
-    Source2 = *(__m128i *)a3;
-    v27 = *(_OWORD *)(a3 + 16);
-    v28 = *(_QWORD *)(a3 + 32);
-    v29 = *a6;
-    v30 = a6[1];
-    v31 = a6[2];
+    Source2 = *(_OWORD *)&PortMessage->u1.s1.DataLength;
+    v27 = *(__int128 *)((char *)&PortMessage->8 + 8);
+    ClientViewSize = PortMessage->ClientViewSize;
+    v29 = *ObjectAttributes;
   }
-  v11 = AlpcpLookupMessage((__int64)v12, DWORD2(v27), v28, v24);
+  v11 = AlpcpLookupMessage((__int64)v12, DWORD2(v27), ClientViewSize, v24);
   if ( v11 < 0 )
   {
     ObfDereferenceObject(v12);
@@ -94,7 +94,7 @@ __int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int64 a3, int
   v16 = *(_QWORD *)(v24[0] + 32);
   if ( v16 )
   {
-    if ( RtlCompareMemory((const void *)(v16 + 1576), &Source2.m128i_u64[1], 0x10uLL) != 16 )
+    if ( RtlCompareMemory((const void *)(v16 + 1576), (char *)&Source2 + 8, 0x10uLL) != 16 )
     {
       AlpcpUnlockMessage(v15);
       ObfDereferenceObject(v12);
@@ -121,7 +121,7 @@ __int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int64 a3, int
   if ( (*(_DWORD *)(v19 + 416) & 0x40) == 0 )
   {
     v17 = *(_QWORD **)(v19 + 24);
-    if ( v17[93] == Source2.m128i_i64[1] )
+    if ( v17[93] == *((_QWORD *)&Source2 + 1) )
     {
       ObfReferenceObjectWithTag(v17, 0x63706C41u);
       if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
@@ -131,11 +131,11 @@ __int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int64 a3, int
       v12 = Object;
 LABEL_13:
       AlpcpUnlockMessage(v15);
-      v11 = PsOpenProcess(&v25, a5, (__int64)&v29, (__int128 *)&Source2.m128i_u64[1], 0, PreviousMode);
+      v11 = PsOpenProcess(&v25, DesiredAccess, (__int64)&v29, (__int128 *)((char *)&Source2 + 8), 0, PreviousMode);
       ObfDereferenceObjectWithTag(v17, 0x63706C41u);
       ObfDereferenceObject(v12);
       if ( v11 >= 0 )
-        *a1 = v25;
+        *ProcessHandle = v25;
       goto LABEL_15;
     }
     if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
@@ -156,5 +156,5 @@ LABEL_32:
   v11 = -1073741769;
 LABEL_15:
   KeLeaveCriticalRegion();
-  return (unsigned int)v11;
+  return v11;
 }

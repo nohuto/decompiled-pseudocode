@@ -58,7 +58,7 @@ __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)
   ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)PoolWithTag + 8);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v9 = KeAbPreAcquire((ULONG_PTR)&ExpHostListLock, 0LL, 0LL);
+  v9 = KeAbPreAcquire((ULONG_PTR)&ExpHostListLock, 0LL, 0);
   v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExpHostListLock, 0LL);
   v11 = v9;
   if ( v10 )

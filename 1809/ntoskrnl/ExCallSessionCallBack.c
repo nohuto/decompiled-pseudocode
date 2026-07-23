@@ -1,19 +1,19 @@
 /*
- * XREFs of ExCallSessionCallBack @ 0x14069E824
+ * XREFs of ExCallSessionCallBack @ 0x14069FAE4
  * Callers:
- *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x1405F5E90 (PsInvokeWin32Callout.c)
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     MmSessionGetWin32Callouts @ 0x140088A60 (MmSessionGetWin32Callouts.c)
- *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
- *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MmGetSessionById @ 0x14007E4D0 (MmGetSessionById.c)
+ *     MmSessionGetWin32Callouts @ 0x140088A50 (MmSessionGetWin32Callouts.c)
+ *     ExDereferenceCallBackBlock @ 0x140088A90 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140088AE0 (ExReferenceCallBackBlock.c)
+ *     MmGetSessionId @ 0x1400897A0 (MmGetSessionId.c)
+ *     MmDetachSession @ 0x14011A630 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A6C0 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a3, int *a4)
@@ -23,14 +23,14 @@ __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a
   _KPROCESS *SessionById; // rax
   _KPROCESS *v9; // rsi
   int v10; // ebx
-  union _RTL_RUN_ONCE *Win32Callouts; // r14
+  _RTL_RUN_ONCE *Win32Callouts; // r14
   struct _EX_RUNDOWN_REF *v12; // rax
   struct _EX_RUNDOWN_REF *v13; // rbp
   _KPROCESS *NextSession; // rbx
   __int64 v16; // r15
   int SessionId; // r12d
   int v18; // esi
-  union _RTL_RUN_ONCE *v19; // r14
+  _RTL_RUN_ONCE *v19; // r14
   struct _EX_RUNDOWN_REF *v20; // rax
   struct _EX_RUNDOWN_REF *v21; // rbp
   _BYTE v23[48]; // [rsp+30h] [rbp-88h] BYREF

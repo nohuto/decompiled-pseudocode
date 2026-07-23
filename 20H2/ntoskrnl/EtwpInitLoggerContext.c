@@ -30,12 +30,9 @@ __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2)
   __int64 v11; // rdx
   int v12; // eax
   int v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
   ULONG MaximumProcessorCount; // eax
-  char *v19; // rdi
-  void *v20; // rax
+  char *v16; // rdi
+  void *v17; // rax
 
   v2 = *(unsigned __int16 *)a1;
   v5 = 0;
@@ -63,9 +60,9 @@ __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2)
   if ( v6 )
   {
     *(_QWORD *)(v9 + 1280) = v10;
-    v19 = &v10[v6];
-    *(_QWORD *)(v9 + 1288) = v19;
-    v10 = &v19[v6];
+    v16 = &v10[v6];
+    *(_QWORD *)(v9 + 1288) = v16;
+    v10 = &v16[v6];
   }
   memmove(v10, a1[1], *(unsigned __int16 *)a1);
   RtlInitUnicodeString((PUNICODE_STRING)(v9 + 152), (PCWSTR)v10);
@@ -81,14 +78,14 @@ __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2)
     _InterlockedOr((volatile signed __int32 *)(v9 + 832), 4u);
   if ( (a2 & 0x8000) != 0 )
   {
-    v20 = (void *)(v9 + 288);
+    v17 = (void *)(v9 + 288);
 LABEL_29:
-    *(_QWORD *)(v9 + 280) = v20;
+    *(_QWORD *)(v9 + 280) = v17;
     goto LABEL_12;
   }
   if ( (a2 & 0x4000) != 0 )
   {
-    v20 = &EtwpGlobalSequence;
+    v17 = &EtwpGlobalSequence;
     goto LABEL_29;
   }
 LABEL_12:
@@ -116,7 +113,7 @@ LABEL_12:
     v13 = *(_DWORD *)(v9 + 240);
 LABEL_17:
     *(_DWORD *)(v9 + 252) = v13 + 22;
-    KeQuerySystemTimePrecise((__int64 *)(v9 + 808), v14, v15, v16);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)(v9 + 808));
     KeInitializeMutex((PRKMUTEX)(v9 + 648), 0);
     *(_QWORD *)(v9 + 704) = 0LL;
     *(_QWORD *)(v9 + 352) = v9 + 344;

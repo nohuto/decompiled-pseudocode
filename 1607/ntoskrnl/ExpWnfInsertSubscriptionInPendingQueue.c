@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfInsertSubscriptionInPendingQueue @ 0x14046323C
+ * XREFs of ExpWnfInsertSubscriptionInPendingQueue @ 0x14046210C
  * Callers:
- *     ExpWnfNotifyNameSubscribers @ 0x1404630B4 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfNotifySubscription @ 0x1404D5E70 (ExpWnfNotifySubscription.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140461F84 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfNotifySubscription @ 0x1404B9474 (ExpWnfNotifySubscription.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSyncKeyValues @ 0x1407FE4DC
+ * XREFs of CmpSyncKeyValues @ 0x1407FF6DC
  * Callers:
- *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
- *     CmpMergeKeyValues @ 0x1407FDAE0 (CmpMergeKeyValues.c)
+ *     CmpCopySyncTree2 @ 0x1407FDE04 (CmpCopySyncTree2.c)
+ *     CmpMergeKeyValues @ 0x1407FECE0 (CmpMergeKeyValues.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpAddValueToListEx @ 0x1405AD8B0 (CmpAddValueToListEx.c)
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     CmpFreeSecurityDescriptor @ 0x1405AF34C (CmpFreeSecurityDescriptor.c)
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpCopyCell @ 0x140695718 (CmpCopyCell.c)
- *     CmpUnlockTwoSecurityCaches @ 0x1406FFD04 (CmpUnlockTwoSecurityCaches.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1406FFD34 (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
- *     CmpFreeKeyValues @ 0x1407FD704 (CmpFreeKeyValues.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B3724 (CmpFindSecurityCellCacheIndexNew.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x140581AB8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpAddValueToListEx @ 0x1405AE8B0 (CmpAddValueToListEx.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     CmpFreeSecurityDescriptor @ 0x1405B034C (CmpFreeSecurityDescriptor.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
+ *     CmpCopyCell @ 0x1406968D8 (CmpCopyCell.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x140700FA4 (CmpUnlockTwoSecurityCaches.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x140700FD4 (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmpCopyValue @ 0x1407FE584 (CmpCopyValue.c)
+ *     CmpFreeKeyValues @ 0x1407FE904 (CmpFreeKeyValues.c)
  */
 
 char __fastcall CmpSyncKeyValues(

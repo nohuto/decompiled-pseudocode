@@ -1,9 +1,9 @@
 /*
- * XREFs of KeCopyXfdMaskToPeb @ 0x1404A88B0
+ * XREFs of KeCopyXfdMaskToPeb @ 0x1404A2E20
  * Callers:
- *     PspEnableProcessOptionalXStateFeatures @ 0x1407748A0 (PspEnableProcessOptionalXStateFeatures.c)
- *     PspSetupUserProcessAddressSpace @ 0x140907EE0 (PspSetupUserProcessAddressSpace.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x140774AC0 (PspEnableProcessOptionalXStateFeatures.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1408DF5FC (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

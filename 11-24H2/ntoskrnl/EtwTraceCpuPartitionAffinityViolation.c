@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceCpuPartitionAffinityViolation @ 0x14064D50C
+ * XREFs of EtwTraceCpuPartitionAffinityViolation @ 0x14064BB1C
  * Callers:
- *     KiCpuPartitionCheckAffinitization @ 0x1405C0050 (KiCpuPartitionCheckAffinitization.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405BD680 (KiCpuPartitionCheckAffinitization.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTraceCpuPartitionAffinityViolation(int a1, __int64 a2, unsigned __int16 *a3)
@@ -29,8 +29,8 @@ void __fastcall EtwTraceCpuPartitionAffinityViolation(int a1, __int64 a2, unsign
   if ( EtwCpuPartitionProvRegHandle
     && EtwEventEnabled(EtwCpuPartitionProvRegHandle, &CPU_STARVATION_EVENT_SINGLE_DPC_SOFT_TIMEOUT) )
   {
-    UserData = ExAllocatePool2(0x40uLL);
-    Pool2 = ExAllocatePool2(0x40uLL);
+    UserData = ExAllocatePool2(0x40uLL, 32LL * *a3 + 48, 0x74777445u);
+    Pool2 = ExAllocatePool2(0x40uLL, 2LL * *a3, 0x74777445u);
     v7 = (char *)Pool2;
     if ( UserData )
     {

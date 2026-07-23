@@ -1,7 +1,7 @@
 /*
  * XREFs of TriagepVerifyDump @ 0x140B9C0D4
  * Callers:
- *     TriageGetLoaderEntry @ 0x140679848 (TriageGetLoaderEntry.c)
+ *     TriageGetLoaderEntry @ 0x140679D98 (TriageGetLoaderEntry.c)
  *     MmTriageActiveInLastCrash @ 0x140B99874 (MmTriageActiveInLastCrash.c)
  *     TriageGetBugcheckData @ 0x140B9BFE0 (TriageGetBugcheckData.c)
  *     TriageGetDriverCount @ 0x140B9C05C (TriageGetDriverCount.c)

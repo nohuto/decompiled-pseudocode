@@ -19,45 +19,45 @@
 
 __int64 RtlpHeapGenerateRandomValue32()
 {
-  signed __int64 v0; // rax
+  signed __int64 Value; // rax
   __int32 v1; // r8d
   int v2; // eax
   unsigned int v5; // r8d
   signed __int64 v7; // rcx
   signed __int64 v8; // rcx
-  int v9; // eax
+  NTSTATUS v9; // eax
   char v10; // [rsp+40h] [rbp+8h] BYREF
   int v11; // [rsp+48h] [rbp+10h]
 
   if ( !dword_180185188
-    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_180185188, 4u, 0LL) < 0 )
+    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_180185188, 4u, 0LL) < 0 )
   {
     dword_180185188 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
   }
-  v0 = RtlpRandomExInit;
-  if ( (RtlpRandomExInit & 3) != 2 )
+  Value = RtlpRandomExInit.Value;
+  if ( ((__int64)RtlpRandomExInit.Ptr & 3) != 2 )
   {
     while ( 1 )
     {
       while ( 1 )
       {
-        v7 = v0 & 3;
-        if ( (v0 & 3) != 0 )
+        v7 = Value & 3;
+        if ( (Value & 3) != 0 )
           break;
-        v8 = v0;
-        v0 = _InterlockedCompareExchange64(&RtlpRandomExInit, 1LL, v0);
-        if ( v0 == v8 )
+        v8 = Value;
+        Value = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpRandomExInit, 1LL, Value);
+        if ( Value == v8 )
         {
-          if ( (unsigned int)RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
+          if ( RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
           {
-            v9 = RtlRunOnceComplete(&RtlpRandomExInit, 0LL);
+            v9 = RtlRunOnceComplete(&RtlpRandomExInit, 0, 0LL);
             if ( v9 >= 0 )
               goto LABEL_3;
             v10 = 1;
           }
           else
           {
-            v9 = RtlRunOnceComplete(&RtlpRandomExInit, 4LL);
+            v9 = RtlRunOnceComplete(&RtlpRandomExInit, 4u, 0LL);
             if ( v9 >= 0 )
               goto LABEL_3;
             v10 = 2;
@@ -67,7 +67,7 @@ __int64 RtlpHeapGenerateRandomValue32()
       }
       if ( v7 != 1 )
         break;
-      v0 = RtlpRunOnceWaitForInit(v0, &RtlpRandomExInit);
+      Value = RtlpRunOnceWaitForInit(Value, &RtlpRandomExInit);
     }
     if ( v7 != 3 )
       goto LABEL_3;

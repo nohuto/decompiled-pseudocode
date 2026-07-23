@@ -1,5 +1,5 @@
 /*
- * XREFs of ApiSetQueryApiSetPresenceEx @ 0x1800F1500
+ * XREFs of ApiSetQueryApiSetPresenceEx @ 0x1800EC180
  * Callers:
  *     <none>
  * Callees:

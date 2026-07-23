@@ -1,14 +1,14 @@
 /*
- * XREFs of SeQuerySessionIdToken @ 0x1409FBF70
+ * XREFs of SeQuerySessionIdToken @ 0x1409F4CB0
  * Callers:
- *     PnpGetCallerSessionId @ 0x140723328 (PnpGetCallerSessionId.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     PnpGetCallerSessionId @ 0x140720EB8 (PnpGetCallerSessionId.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
  */
 
 NTSTATUS __stdcall SeQuerySessionIdToken(PACCESS_TOKEN Token, PULONG SessionId)

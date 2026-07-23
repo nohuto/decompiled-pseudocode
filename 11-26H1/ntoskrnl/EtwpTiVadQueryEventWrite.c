@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTiVadQueryEventWrite @ 0x140258ACC
+ * XREFs of EtwpTiVadQueryEventWrite @ 0x14025A2AC
  * Callers:
- *     EtwTiLogInsertQueueUserApc @ 0x1402579A8 (EtwTiLogInsertQueueUserApc.c)
- *     EtwTiLogSetContextThread @ 0x140A7EE10 (EtwTiLogSetContextThread.c)
+ *     EtwTiLogInsertQueueUserApc @ 0x140259188 (EtwTiLogInsertQueueUserApc.c)
+ *     EtwTiLogSetContextThread @ 0x140A84C80 (EtwTiLogSetContextThread.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpTiAsyncVadQueryEventWrite @ 0x140258B94 (EtwpTiAsyncVadQueryEventWrite.c)
- *     EtwpTiFillZeroVad @ 0x140492140 (EtwpTiFillZeroVad.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x14025A374 (EtwpTiAsyncVadQueryEventWrite.c)
+ *     EtwpTiFillZeroVad @ 0x14048BC90 (EtwpTiFillZeroVad.c)
  */
 
 NTSTATUS __fastcall EtwpTiVadQueryEventWrite(
@@ -50,13 +50,5 @@ NTSTATUS __fastcall EtwpTiVadQueryEventWrite(
     }
     while ( v13 );
   }
-  return EtwWriteEx(
-           *(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount,
-           EventDescriptor,
-           0LL,
-           0,
-           ActivityId,
-           ActivityId,
-           UserDataCount,
-           v8);
+  return EtwWriteEx(EtwThreatIntProvRegHandle, EventDescriptor, 0LL, 0, ActivityId, ActivityId, UserDataCount, v8);
 }

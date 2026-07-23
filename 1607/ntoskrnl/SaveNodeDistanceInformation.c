@@ -3,13 +3,13 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

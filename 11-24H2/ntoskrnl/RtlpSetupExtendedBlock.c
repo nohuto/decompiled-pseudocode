@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpSetupExtendedBlock @ 0x1405ED758
+ * XREFs of RtlpSetupExtendedBlock @ 0x1405EAD40
  * Callers:
- *     RtlpAllocateNTHeapInternal @ 0x14047A23C (RtlpAllocateNTHeapInternal.c)
+ *     RtlpAllocateNTHeapInternal @ 0x14036876C (RtlpAllocateNTHeapInternal.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F2C1C (RtlpAnalyzeHeapFailure.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405F025C (RtlpAnalyzeHeapFailure.c)
  */
 
 __int64 __fastcall RtlpSetupExtendedBlock(

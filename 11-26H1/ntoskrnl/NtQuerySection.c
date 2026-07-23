@@ -1,57 +1,60 @@
 /*
- * XREFs of NtQuerySection @ 0x1408E55F0
+ * XREFs of NtQuerySection @ 0x1408EBBB0
  * Callers:
- *     DifNtQuerySectionWrapper @ 0x1406851A0 (DifNtQuerySectionWrapper.c)
+ *     DifNtQuerySectionWrapper @ 0x140688D80 (DifNtQuerySectionWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MmGetSectionInformation @ 0x1408E5780 (MmGetSectionInformation.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MmGetSectionInformation @ 0x1408EBD40 (MmGetSectionInformation.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtQuerySection(
-        ULONG_PTR BugCheckParameter1,
-        unsigned int a2,
-        volatile void *a3,
-        SIZE_T a4,
-        unsigned __int64 *a5)
+NTSTATUS __cdecl NtQuerySection(
+        HANDLE SectionHandle,
+        SECTION_INFORMATION_CLASS SectionInformationClass,
+        PVOID SectionInformation,
+        SIZE_T SectionInformationLength,
+        PSIZE_T ReturnLength)
 {
   char PreviousMode; // r15
-  unsigned __int64 *v10; // rdi
+  PSIZE_T v10; // rdi
   __int64 ULong64FromUser; // rax
-  unsigned __int64 v12; // rbx
-  int SectionInformation; // esi
+  SIZE_T v12; // rbx
+  NTSTATUS v13; // esi
   PVOID Object; // [rsp+48h] [rbp-20h] BYREF
 
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, a4, 4u);
-    v10 = a5;
-    if ( a5 )
+    ProbeForWrite(SectionInformation, SectionInformationLength, 4u);
+    v10 = ReturnLength;
+    if ( ReturnLength )
     {
-      ULong64FromUser = RtlReadULong64FromUser(a5);
-      RtlWriteULong64ToUser(a5, ULong64FromUser);
+      ULong64FromUser = RtlReadULong64FromUser(ReturnLength);
+      RtlWriteULong64ToUser(ReturnLength, ULong64FromUser);
     }
   }
   else
   {
-    v10 = a5;
+    v10 = ReturnLength;
   }
-  if ( a2 )
+  if ( SectionInformationClass )
   {
-    if ( a2 == 1 )
+    if ( SectionInformationClass == SectionImageInformation )
     {
       v12 = 64LL;
     }
     else
     {
-      if ( a2 != 2 && a2 != 3 )
-        return 3221225475LL;
+      if ( SectionInformationClass != SectionRelocationInformation
+        && SectionInformationClass != SectionOriginalBaseInformation )
+      {
+        return -1073741821;
+      }
       v12 = 8LL;
     }
   }
@@ -59,14 +62,14 @@ __int64 __fastcall NtQuerySection(
   {
     v12 = 24LL;
   }
-  if ( a4 < v12 )
-    return 3221225476LL;
-  SectionInformation = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x6D566D4Du, (__int64)&Object, 0LL, 0LL);
-  if ( SectionInformation >= 0 )
+  if ( SectionInformationLength < v12 )
+    return -1073741820;
+  v13 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)SectionHandle, 0x6D566D4Du, (__int64)&Object, 0LL, 0LL);
+  if ( v13 >= 0 )
   {
-    SectionInformation = MmGetSectionInformation(Object, a2, a3);
+    v13 = MmGetSectionInformation(Object, (unsigned int)SectionInformationClass, SectionInformation);
     ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
-    if ( SectionInformation >= 0 )
+    if ( v13 >= 0 )
     {
       if ( v10 )
       {
@@ -77,5 +80,5 @@ __int64 __fastcall NtQuerySection(
       }
     }
   }
-  return (unsigned int)SectionInformation;
+  return v13;
 }

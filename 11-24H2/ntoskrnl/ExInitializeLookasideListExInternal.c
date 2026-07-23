@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializeLookasideListExInternal @ 0x14045FC80
+ * XREFs of ExInitializeLookasideListExInternal @ 0x140454B40
  * Callers:
- *     ExInitializeLookasideListEx @ 0x14045FC30 (ExInitializeLookasideListEx.c)
- *     VmInitSystem @ 0x140BDE898 (VmInitSystem.c)
- *     CcInitializeCacheManager @ 0x140C15A88 (CcInitializeCacheManager.c)
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     ExInitializeLookasideListEx @ 0x140454AF0 (ExInitializeLookasideListEx.c)
+ *     VmInitSystem @ 0x140BE0898 (VmInitSystem.c)
+ *     CcInitializeCacheManager @ 0x140C17A88 (CcInitializeCacheManager.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
  */
 
 __int64 __fastcall ExInitializeLookasideListExInternal(

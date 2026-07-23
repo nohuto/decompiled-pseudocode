@@ -15,13 +15,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PpCheckInDriverDatabase(
-        __int64 a1,
-        __int64 a2,
-        unsigned __int64 a3,
-        unsigned int a4,
-        int a5,
-        _OWORD *a6)
+__int64 __fastcall PpCheckInDriverDatabase(__int64 a1, __int64 a2, void *a3, unsigned int a4, int a5, _OWORD *a6)
 {
   int v8; // ebx
   __int64 v9; // r8

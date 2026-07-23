@@ -1,12 +1,12 @@
 /*
- * XREFs of MiEliminateStaleExtents @ 0x1402B5BF0
+ * XREFs of MiEliminateStaleExtents @ 0x1402B5DE0
  * Callers:
- *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140853410 (MiAllocateFileExtents.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
  */
 
 void __fastcall MiEliminateStaleExtents(unsigned __int64 a1, __int64 a2, unsigned __int64 a3)

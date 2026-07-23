@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpGenerateDeviceVerboseDescription @ 0x14084408C
+ * XREFs of SshpGenerateDeviceVerboseDescription @ 0x14084438C
  * Callers:
- *     SleepstudyHelperCreateBlockerFromDevice @ 0x140843DB0 (SleepstudyHelperCreateBlockerFromDevice.c)
- *     SleepstudyHelperCreateBlockerFromComponent @ 0x1409A1FC0 (SleepstudyHelperCreateBlockerFromComponent.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x1408440B0 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x1409A21C0 (SleepstudyHelperCreateBlockerFromComponent.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

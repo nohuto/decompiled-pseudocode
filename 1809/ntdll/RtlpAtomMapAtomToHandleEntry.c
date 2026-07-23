@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpAtomMapAtomToHandleEntry @ 0x180073684
+ * XREFs of RtlpAtomMapAtomToHandleEntry @ 0x180073694
  * Callers:
  *     RtlDeleteAtomFromAtomTable @ 0x180072E60 (RtlDeleteAtomFromAtomTable.c)
  *     RtlQueryAtomInAtomTable @ 0x180072F60 (RtlQueryAtomInAtomTable.c)
- *     RtlLookupAtomInAtomTable @ 0x1800733B0 (RtlLookupAtomInAtomTable.c)
- *     RtlpHashStringToAtom @ 0x1800734F0 (RtlpHashStringToAtom.c)
+ *     RtlLookupAtomInAtomTable @ 0x1800733C0 (RtlLookupAtomInAtomTable.c)
+ *     RtlpHashStringToAtom @ 0x180073500 (RtlpHashStringToAtom.c)
  *     RtlPinAtomInAtomTable @ 0x1800EB850 (RtlPinAtomInAtomTable.c)
  * Callees:
- *     RtlIsValidIndexHandle @ 0x1800736C0 (RtlIsValidIndexHandle.c)
+ *     RtlIsValidIndexHandle @ 0x1800736D0 (RtlIsValidIndexHandle.c)
  */
 
-__int64 __fastcall RtlpAtomMapAtomToHandleEntry(__int64 a1, __int64 a2)
+_RTL_HANDLE_TABLE_ENTRY *__fastcall RtlpAtomMapAtomToHandleEntry(__int64 a1, ULONG a2)
 {
-  __int64 v3; // [rsp+30h] [rbp+8h] BYREF
+  PRTL_HANDLE_TABLE_ENTRY Handle; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (unsigned __int8)RtlIsValidIndexHandle(a1 + 16, a2, &v3) )
-    return *(_QWORD *)(v3 + 8);
+  if ( RtlIsValidIndexHandle((PRTL_HANDLE_TABLE)(a1 + 16), a2, &Handle) )
+    return Handle[1].NextFree;
   else
     return 0LL;
 }

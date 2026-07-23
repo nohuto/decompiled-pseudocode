@@ -47,7 +47,7 @@ __int64 __fastcall WbCreateHeapExecutedBlock(__int64 a1, __int64 a2, _QWORD *a3)
   _QWORD *v27; // rcx
   _QWORD *v28; // r10
   _QWORD *v29; // rdx
-  __int64 *v30; // r9
+  PVOID *v30; // r9
   __int64 v31; // rax
   __int64 v32; // rcx
   __int64 v33; // r8
@@ -274,7 +274,7 @@ LABEL_48:
             *(_QWORD *)(v38 + 64) = *(_QWORD *)a2;
             v29 = v27 + 5;
             v27[5] = v26;
-            v30 = v27 + 3;
+            v30 = (PVOID *)(v27 + 3);
             v27[3] = v45 + *(unsigned int *)(a2 + 288);
             v31 = *(unsigned int *)(a2 + 312);
             if ( (_DWORD)v31 )
@@ -284,7 +284,7 @@ LABEL_48:
             v32 = v38;
             *(_DWORD *)(v38 + 72) = *(_DWORD *)(a2 + 320);
             *(_QWORD *)(v32 + 48) = *(_QWORD *)(a2 + 272);
-            v33 = *(_QWORD *)(a2 + 272) - *v30;
+            v33 = *(_QWORD *)(a2 + 272) - (_QWORD)*v30;
             *(_QWORD *)(v32 + 56) = v33;
             Process = KeGetCurrentThread()->ApcState.Process;
             if ( !Process[1].ReadyTime )
@@ -298,10 +298,15 @@ LABEL_48:
 LABEL_51:
               *(_QWORD *)*v29 = v33;
             *(_QWORD *)(*v29 + 8LL) = v50;
-            v4 = ZwFlushInstructionCache(-1LL, *v30);
+            v4 = ZwFlushInstructionCache((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v30, *(unsigned int *)(a2 + 284));
             if ( v4 >= 0 )
             {
-              if ( !*(_QWORD *)(a2 + 296) || (v4 = ZwFlushInstructionCache(-1LL, *(_QWORD *)(v38 + 32)), v4 >= 0) )
+              if ( !*(_QWORD *)(a2 + 296)
+                || (v4 = ZwFlushInstructionCache(
+                           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                           *(PVOID *)(v38 + 32),
+                           *(unsigned int *)(a2 + 308)),
+                    v4 >= 0) )
               {
                 if ( v51 )
                 {

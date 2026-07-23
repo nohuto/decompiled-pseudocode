@@ -12,19 +12,19 @@
  *     BiReleaseBcdSyncMutant @ 0x140807C5C (BiReleaseBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdFlushStore(__int64 a1)
+NTSTATUS __cdecl BcdFlushStore(HANDLE BcdStoreHandle)
 {
   char IsOfflineHandle; // di
   NTSTATUS v3; // eax
-  unsigned int v4; // r8d
+  NTSTATUS v4; // r8d
   void *v6; // rax
-  unsigned int v7; // ebx
+  NTSTATUS v7; // ebx
 
-  IsOfflineHandle = BiIsOfflineHandle(a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( v3 >= 0 )
   {
-    v6 = (void *)BiSanitizeHandle(a1);
+    v6 = (void *)BiSanitizeHandle((__int64)BcdStoreHandle);
     v7 = ZwFlushKey(v6);
     BiReleaseBcdSyncMutant(IsOfflineHandle);
     return v7;

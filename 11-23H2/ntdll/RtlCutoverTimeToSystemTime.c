@@ -7,13 +7,17 @@
  *     RtlpTimeToTimeFields @ 0x1800596C0 (RtlpTimeToTimeFields.c)
  */
 
-bool __fastcall RtlCutoverTimeToSystemTime(_WORD *a1, _QWORD *a2, _QWORD *a3, char a4)
+BOOLEAN __cdecl RtlCutoverTimeToSystemTime(
+        PTIME_FIELDS CutoverTime,
+        PLARGE_INTEGER SystemTime,
+        PLARGE_INTEGER CurrentSystemTime,
+        BOOLEAN ThisYear)
 {
-  _WORD *v6; // r14
-  __int16 v8; // r12
-  __int16 v9; // r15
+  PTIME_FIELDS v6; // r14
+  __int16 Day; // r12
+  __int16 Weekday; // r15
   bool v10; // r13
-  __int16 v11; // ax
+  __int16 Month; // ax
   __int16 v12; // si
   __int16 v13; // di
   __int16 v14; // r15
@@ -22,10 +26,10 @@ bool __fastcall RtlCutoverTimeToSystemTime(_WORD *a1, _QWORD *a2, _QWORD *a3, ch
   __int64 v18; // [rsp+28h] [rbp-38h] BYREF
   _WORD v19[2]; // [rsp+30h] [rbp-30h] BYREF
   __int16 v20; // [rsp+34h] [rbp-2Ch]
-  __int16 v21; // [rsp+36h] [rbp-2Ah]
-  __int16 v22; // [rsp+38h] [rbp-28h]
-  __int16 v23; // [rsp+3Ah] [rbp-26h]
-  __int16 v24; // [rsp+3Ch] [rbp-24h]
+  __int16 Hour; // [rsp+36h] [rbp-2Ah]
+  __int16 Minute; // [rsp+38h] [rbp-28h]
+  __int16 Second; // [rsp+3Ah] [rbp-26h]
+  __int16 Milliseconds; // [rsp+3Ch] [rbp-24h]
   __int16 v25; // [rsp+3Eh] [rbp-22h]
   __int16 v26; // [rsp+40h] [rbp-20h] BYREF
   __int16 v27; // [rsp+42h] [rbp-1Eh]
@@ -34,52 +38,52 @@ bool __fastcall RtlCutoverTimeToSystemTime(_WORD *a1, _QWORD *a2, _QWORD *a3, ch
   __int16 v30; // [rsp+54h] [rbp-Ch]
   __int16 v31; // [rsp+5Eh] [rbp-2h]
 
-  v6 = a1;
-  RtlpTimeToTimeFields(a3, &v26, 0LL);
-  if ( !*v6 )
+  v6 = CutoverTime;
+  RtlpTimeToTimeFields(CurrentSystemTime, &v26, 0LL);
+  if ( !v6->Year )
   {
-    v8 = v6[2];
-    if ( v8 <= 5 && v8 )
+    Day = v6->Day;
+    if ( Day <= 5 && Day )
     {
-      v9 = v6[7];
+      Weekday = v6->Weekday;
       v10 = 0;
-      v11 = v6[1];
+      Month = v6->Month;
       v12 = v26;
-      v17 = v9;
-      if ( !a4 )
+      v17 = Weekday;
+      if ( !ThisYear )
       {
-        if ( v11 >= v27 )
-          v10 = v11 <= v27;
+        if ( Month >= v27 )
+          v10 = Month <= v27;
         else
           v12 = v26 + 1;
       }
-      v19[1] = v6[1];
+      v19[1] = v6->Month;
       v25 = 0;
       while ( 1 )
       {
-        v21 = v6[3];
-        v22 = v6[4];
+        Hour = v6->Hour;
+        Minute = v6->Minute;
         v13 = 1;
-        v23 = v6[5];
-        v24 = v6[6];
+        Second = v6->Second;
+        Milliseconds = v6->Milliseconds;
         v19[0] = v12;
         v20 = 1;
         if ( !(unsigned __int8)RtlpTimeFieldsToTime(v19, &v18, 0LL) )
           break;
         RtlpTimeToTimeFields(&v18, v29, 0LL);
-        if ( v31 <= v9 )
+        if ( v31 <= Weekday )
         {
-          if ( v31 < v9 )
-            v13 = v9 - v31 + 1;
+          if ( v31 < Weekday )
+            v13 = Weekday - v31 + 1;
         }
         else
         {
-          v13 = v9 - v31 + 8;
+          v13 = Weekday - v31 + 8;
         }
         v14 = v13;
-        if ( v8 > 1 )
+        if ( Day > 1 )
         {
-          for ( i = 1; i < v8; ++i )
+          for ( i = 1; i < Day; ++i )
           {
             v13 += 7;
             v20 = v13;
@@ -88,22 +92,23 @@ bool __fastcall RtlCutoverTimeToSystemTime(_WORD *a1, _QWORD *a2, _QWORD *a3, ch
             RtlpTimeToTimeFields(&v18, v29, 0LL);
             v14 = v30;
           }
-          v6 = a1;
+          v6 = CutoverTime;
         }
         v20 = v14;
         if ( !(unsigned __int8)RtlpTimeFieldsToTime(v19, &v18, 0LL) )
           break;
-        if ( !v10 || v14 >= v28 && (v14 != v28 || v18 >= *a3) )
+        if ( !v10 || v14 >= v28 && (v14 != v28 || v18 >= CurrentSystemTime->QuadPart) )
         {
-          *a2 = v18;
+          SystemTime->QuadPart = v18;
           return 1;
         }
-        v9 = v17;
+        Weekday = v17;
         v10 = 0;
         ++v12;
       }
     }
     return 0;
   }
-  return (unsigned __int8)RtlpTimeFieldsToTime(v6, a2, 0LL) && (a4 || *a2 >= *a3);
+  return (unsigned __int8)RtlpTimeFieldsToTime(v6, SystemTime, 0LL)
+      && (ThisYear || SystemTime->QuadPart >= CurrentSystemTime->QuadPart);
 }

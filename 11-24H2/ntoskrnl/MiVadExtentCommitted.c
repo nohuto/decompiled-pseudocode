@@ -1,8 +1,8 @@
 /*
- * XREFs of MiVadExtentCommitted @ 0x140446A40
+ * XREFs of MiVadExtentCommitted @ 0x14043EDF0
  * Callers:
- *     MiCheckUserVirtualAddress @ 0x1402FF820 (MiCheckUserVirtualAddress.c)
- *     MiGetPageProtection @ 0x1403019B0 (MiGetPageProtection.c)
+ *     MiCheckUserVirtualAddress @ 0x140309FA0 (MiCheckUserVirtualAddress.c)
+ *     MiGetPageProtection @ 0x14030C130 (MiGetPageProtection.c)
  * Callees:
  *     <none>
  */

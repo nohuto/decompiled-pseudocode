@@ -14,22 +14,24 @@ HRESULT __stdcall StringCopyWorkerW_1(
         size_t cchToCopy)
 {
   _WORD *v5; // ecx
+  int v6; // edx
   int v7; // eax
-  size_t v8; // esi
+  int v8; // esi
   __int16 v9; // di
   HRESULT result; // eax
 
+  v6 = HIDWORD(cchDest);
   v7 = 256;
   v8 = cchDest - (_DWORD)v5;
   do
   {
-    if ( !pcchNewDestLength )
+    if ( !v6 )
       break;
     v9 = *(_WORD *)((char *)v5 + v8);
     if ( !v9 )
       break;
     *v5++ = v9;
-    pcchNewDestLength = (size_t *)((char *)pcchNewDestLength - 1);
+    --v6;
     --v7;
   }
   while ( v7 );

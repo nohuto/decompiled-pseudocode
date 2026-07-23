@@ -1,31 +1,28 @@
 /*
- * XREFs of RtlEqualDomainName @ 0x180055590
+ * XREFs of RtlEqualDomainName @ 0x180055580
  * Callers:
- *     RtlEqualComputerName @ 0x180090E40 (RtlEqualComputerName.c)
+ *     RtlEqualComputerName @ 0x180090E30 (RtlEqualComputerName.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x18001A1D0 (RtlEqualUnicodeString.c)
- *     RtlFreeAnsiString @ 0x1800427E0 (RtlFreeAnsiString.c)
- *     RtlCanonicalizeDomainName @ 0x180055610 (RtlCanonicalizeDomainName.c)
+ *     RtlEqualUnicodeString @ 0x18001A1C0 (RtlEqualUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x1800427D0 (RtlFreeAnsiString.c)
+ *     RtlCanonicalizeDomainName @ 0x180055600 (RtlCanonicalizeDomainName.c)
  */
 
-char __fastcall RtlEqualDomainName(__int64 a1, __int64 a2, __int64 a3)
+BOOLEAN __cdecl RtlEqualDomainName(PUNICODE_STRING String1, PUNICODE_STRING String2)
 {
-  char v4; // bl
-  __int64 v5; // r8
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-28h] BYREF
-  UNICODE_STRING v8; // [rsp+30h] [rbp-18h] BYREF
+  BOOLEAN v2; // bl
+  _UNICODE_STRING String2a; // [rsp+20h] [rbp-28h] BYREF
+  _UNICODE_STRING String1a; // [rsp+30h] [rbp-18h] BYREF
 
-  LOBYTE(a3) = 1;
-  v4 = 0;
-  if ( (int)RtlCanonicalizeDomainName(&v8, a1, a3) >= 0 )
+  v2 = 0;
+  if ( (int)RtlCanonicalizeDomainName(&String1a) >= 0 )
   {
-    LOBYTE(v5) = 1;
-    if ( (int)RtlCanonicalizeDomainName(&UnicodeString, a2, v5) >= 0 )
+    if ( (int)RtlCanonicalizeDomainName(&String2a) >= 0 )
     {
-      v4 = RtlEqualUnicodeString(&v8.Length, &UnicodeString.Length, 0);
-      RtlFreeAnsiString(&UnicodeString);
+      v2 = RtlEqualUnicodeString(&String1a, &String2a, 0);
+      RtlFreeAnsiString(&String2a);
     }
-    RtlFreeAnsiString(&v8);
+    RtlFreeAnsiString(&String1a);
   }
-  return v4;
+  return v2;
 }

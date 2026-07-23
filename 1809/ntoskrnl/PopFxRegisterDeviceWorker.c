@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxRegisterDeviceWorker @ 0x1407249B8
+ * XREFs of PopFxRegisterDeviceWorker @ 0x140725C58
  * Callers:
- *     PopFxRegisterDevice @ 0x140725190 (PopFxRegisterDevice.c)
- *     PoFxRegisterCoreDevice @ 0x1407258B0 (PoFxRegisterCoreDevice.c)
+ *     PopFxRegisterDevice @ 0x140726430 (PopFxRegisterDevice.c)
+ *     PoFxRegisterCoreDevice @ 0x140726B50 (PoFxRegisterCoreDevice.c)
  * Callees:
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     PopFxActivateComponent @ 0x1400FE110 (PopFxActivateComponent.c)
- *     PopFxAddRefDevice @ 0x1400FE2C8 (PopFxAddRefDevice.c)
- *     PopFxRegisterDeviceWithPep @ 0x140179874 (PopFxRegisterDeviceWithPep.c)
- *     PopFxCreateDeviceCommon @ 0x140179958 (PopFxCreateDeviceCommon.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x140179BB4 (PopFxFindAcpiDeviceByUniqueId.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
- *     PopFxReleaseAcpiRefDevice @ 0x1402D92D4 (PopFxReleaseAcpiRefDevice.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopFxVerifyDependencies @ 0x14086AA24 (PopFxVerifyDependencies.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     PopFxActivateComponent @ 0x1400FE190 (PopFxActivateComponent.c)
+ *     PopFxAddRefDevice @ 0x1400FE348 (PopFxAddRefDevice.c)
+ *     PopFxRegisterDeviceWithPep @ 0x140179974 (PopFxRegisterDeviceWithPep.c)
+ *     PopFxCreateDeviceCommon @ 0x140179A58 (PopFxCreateDeviceCommon.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x140179CB4 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopFxBugCheck @ 0x1402D76B0 (PopFxBugCheck.c)
+ *     PopFxReleaseAcpiRefDevice @ 0x1402D94C4 (PopFxReleaseAcpiRefDevice.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopFxVerifyDependencies @ 0x14086BC84 (PopFxVerifyDependencies.c)
  */
 
 __int64 __fastcall PopFxRegisterDeviceWorker(

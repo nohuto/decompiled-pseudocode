@@ -1,48 +1,48 @@
 /*
- * XREFs of MiDeleteSystemPagableVm @ 0x14004ACA0
+ * XREFs of MiDeleteSystemPagableVm @ 0x14004A820
  * Callers:
- *     MiFreePagedPoolPages @ 0x14004BBA0 (MiFreePagedPoolPages.c)
- *     MiDeleteBootRange @ 0x140138D04 (MiDeleteBootRange.c)
- *     MmFreeSpecialPool @ 0x1401EC0A4 (MmFreeSpecialPool.c)
- *     MiDeleteSessionPoolRange @ 0x1401ECB48 (MiDeleteSessionPoolRange.c)
- *     MiFreeInitializationCode @ 0x14047D5E8 (MiFreeInitializationCode.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
- *     MiUseLargeDriverPage @ 0x1404ED9A4 (MiUseLargeDriverPage.c)
- *     MmReturnChargesToLockPagedPool @ 0x14065A1EC (MmReturnChargesToLockPagedPool.c)
+ *     MiFreePagedPoolPages @ 0x14004B720 (MiFreePagedPoolPages.c)
+ *     MiDeleteBootRange @ 0x140139274 (MiDeleteBootRange.c)
+ *     MmFreeSpecialPool @ 0x1401EBED0 (MmFreeSpecialPool.c)
+ *     MiDeleteSessionPoolRange @ 0x1401EC974 (MiDeleteSessionPoolRange.c)
+ *     MiFreeInitializationCode @ 0x14047C33C (MiFreeInitializationCode.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
+ *     MiUseLargeDriverPage @ 0x1404CFA5C (MiUseLargeDriverPage.c)
+ *     MmReturnChargesToLockPagedPool @ 0x14065A2D0 (MmReturnChargesToLockPagedPool.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140016E5C (MI_WSLE_LOG_ACCESS.c)
- *     MiReleasePageFileSpace @ 0x140022238 (MiReleasePageFileSpace.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiLockWorkingSetExclusive @ 0x14002EA00 (MiLockWorkingSetExclusive.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiRemoveWsle @ 0x140046F10 (MiRemoveWsle.c)
- *     MiDeleteValidSystemPage @ 0x14004B6A0 (MiDeleteValidSystemPage.c)
- *     MiInitializeTbFlushStamps @ 0x14004BACC (MiInitializeTbFlushStamps.c)
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiDeleteTransitionPte @ 0x1400B90F8 (MiDeleteTransitionPte.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiRemoveLockedPageFromWorkingSet @ 0x1400BAB0C (MiRemoveLockedPageFromWorkingSet.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x1400BDB30 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiVolunteerForTrimFirst @ 0x1400E5F90 (MiVolunteerForTrimFirst.c)
- *     MiImageProtoChargedCommit @ 0x14012D97C (MiImageProtoChargedCommit.c)
- *     MiIsPfnSystemCharged @ 0x14012E0DC (MiIsPfnSystemCharged.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiDriverPageIsDangling @ 0x1401E5EEC (MiDriverPageIsDangling.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
- *     MiDecrementCombinedPte @ 0x1401F972C (MiDecrementCombinedPte.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402261BC (EtwTraceShouldYieldProcessor.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1400169DC (MI_WSLE_LOG_ACCESS.c)
+ *     MiReleasePageFileSpace @ 0x140021DB8 (MiReleasePageFileSpace.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14002E580 (MiLockWorkingSetExclusive.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiRemoveWsle @ 0x140046A90 (MiRemoveWsle.c)
+ *     MiDeleteValidSystemPage @ 0x14004B220 (MiDeleteValidSystemPage.c)
+ *     MiInitializeTbFlushStamps @ 0x14004B64C (MiInitializeTbFlushStamps.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiDeleteTransitionPte @ 0x1400B6F88 (MiDeleteTransitionPte.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiRemoveLockedPageFromWorkingSet @ 0x1400B899C (MiRemoveLockedPageFromWorkingSet.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1400BB9C0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiVolunteerForTrimFirst @ 0x1400E3E30 (MiVolunteerForTrimFirst.c)
+ *     MiImageProtoChargedCommit @ 0x14012DEEC (MiImageProtoChargedCommit.c)
+ *     MiIsPfnSystemCharged @ 0x14012E64C (MiIsPfnSystemCharged.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiDriverPageIsDangling @ 0x1401E5D18 (MiDriverPageIsDangling.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
+ *     MiDecrementCombinedPte @ 0x1401F9558 (MiDecrementCombinedPte.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140225FE8 (EtwTraceShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiDeleteSystemPagableVm(__int64 a1, __int64 a2, ULONG_PTR a3, __int64 a4, char a5, _QWORD *a6)
@@ -163,7 +163,7 @@ __int64 __fastcall MiDeleteSystemPagableVm(__int64 a1, __int64 a2, ULONG_PTR a3,
     v9 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
     v85 = v9;
     if ( (a5 & 2) != 0 )
-      v82 = dword_140327188 != 0;
+      v82 = dword_1403271C8 != 0;
     v11 = 2;
   }
   v98 = 20LL;
@@ -347,9 +347,9 @@ __int64 __fastcall MiDeleteSystemPagableVm(__int64 a1, __int64 a2, ULONG_PTR a3,
             }
             if ( (*(_BYTE *)(v6 + 184) & 7) == 2 )
             {
-              --qword_140327D08;
+              --qword_140327D48;
               if ( v57 == 1 )
-                --qword_140327D10;
+                --qword_140327D50;
             }
             if ( Wsle < v30[1] )
             {

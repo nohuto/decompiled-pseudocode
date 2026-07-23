@@ -1,13 +1,13 @@
 /*
- * XREFs of IoSynchronousInvalidateDeviceRelations @ 0x14062A2A8
+ * XREFs of IoSynchronousInvalidateDeviceRelations @ 0x14062A35C
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IoSynchronousInvalidateDeviceRelations(_QWORD *Object, int a2)

@@ -12,7 +12,7 @@
  *     MiClearHintSlabEntry @ 0x14045CA9C (MiClearHintSlabEntry.c)
  */
 
-__int64 __fastcall MiRemoveSlabEntry(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall MiRemoveSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rbp
   __int64 v7; // rax
@@ -21,7 +21,7 @@ __int64 __fastcall MiRemoveSlabEntry(__int64 a1, unsigned __int64 a2, __int64 a3
   _QWORD *v10; // rcx
 
   v6 = LODWORD(MiPageSizes[(*(_DWORD *)(a2 + 136) >> 4) & 3]);
-  RtlRbRemoveNode(a2, (unsigned __int64 *)a3);
+  RtlRbRemoveNode((PRTL_RB_TREE)a2, (PRTL_BALANCED_NODE)a3);
   if ( *(_DWORD *)(a2 + 128) == 8 )
   {
     v9 = *(_QWORD *)(a3 + 24);

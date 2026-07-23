@@ -15,19 +15,20 @@
  *     PopAcquireUmpoPushLock @ 0x140524940 (PopAcquireUmpoPushLock.c)
  */
 
-__int64 __fastcall PopUmpoProcessMessage(__int64 a1, __int64 a2)
+__int64 __fastcall PopUmpoProcessMessage(PPORT_MESSAGE ConnectionRequest, PALPC_CONTEXT_ATTR MessageContext)
 {
-  __int64 v3; // rcx
+  __int64 Type; // rcx
   unsigned int v4; // eax
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   HANDLE v7; // rbx
   __int64 v8; // r8
   __int64 v9; // r9
-  _QWORD v10[9]; // [rsp+80h] [rbp-68h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-98h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+80h] [rbp-68h] BYREF
 
-  v3 = *(unsigned __int16 *)(a1 + 4);
-  v4 = v3 & 0xFFFF00FF;
-  if ( (v3 & 0xFFFF00FF) == 1 )
+  Type = (unsigned __int16)ConnectionRequest->u2.s2.Type;
+  v4 = Type & 0xFFFF00FF;
+  if ( (Type & 0xFFFF00FF) == 1 )
     goto LABEL_15;
   if ( v4 <= 1 )
     return 0;
@@ -37,9 +38,9 @@ __int64 __fastcall PopUmpoProcessMessage(__int64 a1, __int64 a2)
     {
       if ( v4 <= 6 )
       {
-        LOBYTE(v3) = 1;
+        LOBYTE(Type) = 1;
         PopUmpoAlpcClientConnected = 0;
-        PopAcquireUmpoPushLock(v3);
+        PopAcquireUmpoPushLock(Type);
         v7 = PopAlpcClientPort;
         PopAlpcClientPort = 0LL;
         ExReleasePushLockEx((ULONG_PTR)&PopUmpoPushLock, 0LL, v8, v9);
@@ -49,12 +50,35 @@ __int64 __fastcall PopUmpoProcessMessage(__int64 a1, __int64 a2)
       }
       if ( v4 == 10 )
       {
-        memset(v10, 0, sizeof(v10));
-        v10[2] = 512LL;
-        v5 = ZwAlpcAcceptConnectPort((__int64)&PopAlpcClientPort, PopAlpcServerPort, 0LL);
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.ObjectName = 0LL;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.Attributes = 512;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        memset(&PortAttributes, 0, sizeof(PortAttributes));
+        PortAttributes.MaxMessageLength = 512LL;
+        v5 = ZwAlpcAcceptConnectPort(
+               &PopAlpcClientPort,
+               PopAlpcServerPort,
+               0,
+               &ObjectAttributes,
+               &PortAttributes,
+               0LL,
+               ConnectionRequest,
+               0LL,
+               PopUmpoAlpcClientConnected == 0);
         if ( v5 < 0 )
         {
-          ZwAlpcAcceptConnectPort((__int64)&PopAlpcClientPort, PopAlpcServerPort, 0LL);
+          ZwAlpcAcceptConnectPort(
+            &PopAlpcClientPort,
+            PopAlpcServerPort,
+            0,
+            &ObjectAttributes,
+            &PortAttributes,
+            0LL,
+            ConnectionRequest,
+            0LL,
+            0);
           return (unsigned int)v5;
         }
         PopUmpoAlpcClientConnected = 1;
@@ -62,13 +86,13 @@ __int64 __fastcall PopUmpoProcessMessage(__int64 a1, __int64 a2)
     }
     return 0;
   }
-  if ( (v3 & 0x2000) != 0 )
+  if ( (Type & 0x2000) != 0 )
   {
 LABEL_15:
-    ZwAlpcCancelMessage(PopAlpcServerPort, 0LL, a2);
+    ZwAlpcCancelMessage(PopAlpcServerPort, 0, MessageContext);
     return 0;
   }
-  v5 = PopUmpoProcessPowerMessage(a1 + 40);
+  v5 = PopUmpoProcessPowerMessage(&ConnectionRequest[1], MessageContext);
   if ( v5 >= 0 )
     return 0;
   return (unsigned int)v5;

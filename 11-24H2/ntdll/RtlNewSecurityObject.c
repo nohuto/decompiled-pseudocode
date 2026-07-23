@@ -1,12 +1,27 @@
 /*
- * XREFs of RtlNewSecurityObject @ 0x18010DF90
+ * XREFs of RtlNewSecurityObject @ 0x180108E70
  * Callers:
  *     <none>
  * Callees:
- *     RtlpNewSecurityObject @ 0x1800C9280 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x1800C0E40 (RtlpNewSecurityObject.c)
  */
 
-__int64 __fastcall RtlNewSecurityObject(__int64 a1, _OWORD *a2, _QWORD *a3, unsigned __int8 a4, void *a5, _DWORD *a6)
+NTSTATUS __cdecl RtlNewSecurityObject(
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CreatorDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        BOOLEAN IsDirectoryObject,
+        HANDLE Token,
+        PGENERIC_MAPPING GenericMapping)
 {
-  return RtlpNewSecurityObject(a1, a2, a3, 0LL, 0, a4, 0, a5, a6);
+  return RtlpNewSecurityObject(
+           (__int64)ParentDescriptor,
+           CreatorDescriptor,
+           NewDescriptor,
+           0LL,
+           0,
+           IsDirectoryObject,
+           0,
+           Token,
+           GenericMapping);
 }

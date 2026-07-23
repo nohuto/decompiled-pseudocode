@@ -94,7 +94,7 @@ char __fastcall KeInitSystem(int a1)
     v18 = KeInitializeTimerTable(v17);
     if ( v18 < 0 )
       KeBugCheckEx(0x31u, v18, 1uLL, 0LL, 0LL);
-    if ( KiHrIncrement < (unsigned int)KeMinimumIncrement || KiHrIncrement > (unsigned int)KeMaximumIncrement )
+    if ( KiHrIncrement < (unsigned int)KeMinimumIncrement || KiHrIncrement > KeMaximumIncrement )
       KiHrIncrement = KeMinimumIncrement;
     return 1;
   }
@@ -183,7 +183,7 @@ char __fastcall KeInitSystem(int a1)
   _InterlockedOr(dword_140D2527C, 0x400000u);
   KiInitDynamicTraceSupport();
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement - 1)
+  KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1)
                         / ActiveProcessorCount;
   if ( HviIsAnyHypervisorPresent() )
   {
@@ -325,7 +325,7 @@ LABEL_40:
       if ( KiInitMachineDependent() )
       {
         v11 = *(unsigned int *)(KiProcessorBlock[0] + 68);
-        v12 = v11 * (unsigned __int64)(unsigned int)KeMaximumIncrement / 0xA;
+        v12 = v11 * (unsigned __int64)KeMaximumIncrement / 0xA;
         KiShortExecutionCycles = v12 / 0xF0;
         KiCyclesPerClockQuantum = v12 / 3;
         KiDirectQuantumTarget = v12 / 3;

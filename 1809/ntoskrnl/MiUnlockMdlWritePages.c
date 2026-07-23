@@ -2,12 +2,12 @@
  * XREFs of MiUnlockMdlWritePages @ 0x14001E4F0
  * Callers:
  *     MiUnlockFlushMdl @ 0x14001E3D8 (MiUnlockFlushMdl.c)
- *     MiFlushComplete @ 0x1402B4950 (MiFlushComplete.c)
+ *     MiFlushComplete @ 0x1402B4B40 (MiFlushComplete.c)
  * Callees:
  *     MiWriteCompletePfn @ 0x14001E770 (MiWriteCompletePfn.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiSyncCommitSignals @ 0x140187FEC (MiSyncCommitSignals.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiSyncCommitSignals @ 0x14018812C (MiSyncCommitSignals.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUnlockMdlWritePages(_QWORD *a1, unsigned __int64 a2)
@@ -49,7 +49,7 @@ void __fastcall MiUnlockMdlWritePages(_QWORD *a1, unsigned __int64 a2)
           KeYieldProcessorEx(&v22);
         while ( *(__int64 *)(v4 + 24) < 0 );
       }
-      v6 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL));
+      v6 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL));
       v7 = *(_QWORD *)(v6 + 6464);
       if ( v7 )
       {
@@ -125,7 +125,7 @@ LABEL_16:
             v12 = (int)CachedResidentAvailable - 192 + 1LL;
           }
         }
-        _InterlockedExchangeAdd64(&qword_14043E600, v12);
+        _InterlockedExchangeAdd64(&qword_14043F6C0, v12);
       }
       else
       {

@@ -1,10 +1,10 @@
 /*
- * XREFs of SmHwAcceleratorCleanup @ 0x14079BBEC
+ * XREFs of SmHwAcceleratorCleanup @ 0x14079BCFC
  * Callers:
- *     SmHwAcceleratorMgrHotRemoveAccelerator @ 0x14060F5EC (SmHwAcceleratorMgrHotRemoveAccelerator.c)
- *     SmHwAcceleratorMgrReleaseAccelerators @ 0x14079C808 (SmHwAcceleratorMgrReleaseAccelerators.c)
+ *     SmHwAcceleratorMgrHotRemoveAccelerator @ 0x14060DBAC (SmHwAcceleratorMgrHotRemoveAccelerator.c)
+ *     SmHwAcceleratorMgrReleaseAccelerators @ 0x14079C918 (SmHwAcceleratorMgrReleaseAccelerators.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
  */
 
 void __fastcall SmHwAcceleratorCleanup(struct _EX_RUNDOWN_REF *a1)

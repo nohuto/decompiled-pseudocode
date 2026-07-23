@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlAddAccessFilterAce @ 0x140892700
+ * XREFs of RtlAddAccessFilterAce @ 0x140893960
  * Callers:
  *     <none>
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1400ABB60 (RtlIsValidProcessTrustLabelSid.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)
- *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
- *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x1400ABAA0 (RtlIsValidProcessTrustLabelSid.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlFirstFreeAce @ 0x140631A10 (RtlFirstFreeAce.c)
+ *     RtlValidSid @ 0x140632590 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x140632720 (RtlValidAcl.c)
+ *     RtlCopySid @ 0x14064A350 (RtlCopySid.c)
  */
 
 __int64 __fastcall RtlAddAccessFilterAce(
@@ -40,7 +40,7 @@ __int64 __fastcall RtlAddAccessFilterAce(
     return 3221225592LL;
   if ( (a3 & 0x40) != 0 )
   {
-    if ( !RtlIsValidProcessTrustLabelSid(a4) )
+    if ( !RtlIsValidProcessTrustLabelSid((PSID)a4) )
       return 3221225485LL;
   }
   else

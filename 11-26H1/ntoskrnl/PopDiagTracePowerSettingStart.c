@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePowerSettingStart @ 0x140A4051C
+ * XREFs of PopDiagTracePowerSettingStart @ 0x1409FBF3C
  * Callers:
- *     PopCallPowerSettingCallback @ 0x140A4031C (PopCallPowerSettingCallback.c)
+ *     PopCallPowerSettingCallback @ 0x1409FBD3C (PopCallPowerSettingCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTracePowerSettingStart(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -26,11 +26,9 @@ char __fastcall PopDiagTracePowerSettingStart(__int64 a1, __int64 a2, int a3, __
   v4 = &retaddr;
   v18 = a3;
   v17 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v4) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_POWER_SETTING_CALLBACK_START);
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_SETTING_CALLBACK_START);
     if ( (_BYTE)v4 )
     {
       UserData.Ptr = (ULONGLONG)&v17;
@@ -42,12 +40,7 @@ char __fastcall PopDiagTracePowerSettingStart(__int64 a1, __int64 a2, int a3, __
       v12 = 4LL;
       v13 = a4;
       v15 = 0;
-      LOBYTE(v4) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_POWER_SETTING_CALLBACK_START,
-                     0LL,
-                     4u,
-                     &UserData);
+      LOBYTE(v4) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_SETTING_CALLBACK_START, 0LL, 4u, &UserData);
     }
   }
   return (char)v4;

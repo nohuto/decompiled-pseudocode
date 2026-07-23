@@ -11,21 +11,21 @@
  *     MiMapAndApplyPatchInSession @ 0x140A3A024 (MiMapAndApplyPatchInSession.c)
  */
 
-__int64 __fastcall MiApplySingleSessionPatch(__int64 a1, __int64 *a2)
+__int64 __fastcall MiApplySingleSessionPatch(unsigned __int64 a1, __int64 *a2)
 {
   unsigned int v4; // r8d
   __int64 v5; // rbx
   __int64 v6; // rcx
   int v7; // ebx
   _QWORD v9[8]; // [rsp+38h] [rbp-59h] BYREF
-  __int64 v10[14]; // [rsp+78h] [rbp-19h] BYREF
+  _RTL_BITMAP_EX v10[7]; // [rsp+78h] [rbp-19h] BYREF
 
   memset(v10, 0, 0x68uLL);
   v4 = *(_DWORD *)(a1 + 64);
   v5 = *a2;
-  v10[0] = a1;
-  LODWORD(v10[3]) = (v4 >> 12) + ((v4 & 0xFFF) != 0);
-  v10[2] = *(_QWORD *)(v5 + 16);
+  v10[0].SizeOfBitMap = a1;
+  LODWORD(v10[1].Buffer) = (v4 >> 12) + ((v4 & 0xFFF) != 0);
+  v10[1].SizeOfBitMap = *(_QWORD *)(v5 + 16);
   memset(v9, 0, sizeof(v9));
   v6 = *(_QWORD *)(a1 + 112);
   v9[1] = v10;

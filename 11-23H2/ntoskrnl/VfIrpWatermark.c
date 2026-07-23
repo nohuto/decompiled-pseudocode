@@ -1,11 +1,11 @@
 /*
- * XREFs of VfIrpWatermark @ 0x140ACDC58
+ * XREFs of VfIrpWatermark @ 0x140ACDC48
  * Callers:
- *     PopAllocateIrp @ 0x14028F434 (PopAllocateIrp.c)
- *     IovUtilWatermarkIrp @ 0x140302C64 (IovUtilWatermarkIrp.c)
+ *     PopAllocateIrp @ 0x14028F6C4 (PopAllocateIrp.c)
+ *     IovUtilWatermarkIrp @ 0x140302EF4 (IovUtilWatermarkIrp.c)
  * Callees:
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1798 (VfIrpDatabaseEntryFindAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE191C (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1788 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140AE190C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 __int64 __fastcall VfIrpWatermark(__int64 a1, char a2)

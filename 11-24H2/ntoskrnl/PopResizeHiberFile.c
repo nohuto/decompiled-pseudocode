@@ -1,15 +1,15 @@
 /*
- * XREFs of PopResizeHiberFile @ 0x140A78054
+ * XREFs of PopResizeHiberFile @ 0x140A72354
  * Callers:
- *     PopAdjustHiberFile @ 0x140751AA8 (PopAdjustHiberFile.c)
- *     PopEnlargeHiberFile @ 0x140752424 (PopEnlargeHiberFile.c)
+ *     PopAdjustHiberFile @ 0x14074FDC8 (PopAdjustHiberFile.c)
+ *     PopEnlargeHiberFile @ 0x140750744 (PopEnlargeHiberFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14070CF48 (FsRtlIssueFileNotificationFsctl.c)
- *     PopSetHiberFileMcb @ 0x140A78220 (PopSetHiberFileMcb.c)
- *     PopValidateHiberFileSize @ 0x140A782BC (PopValidateHiberFileSize.c)
- *     PopSanityCheckHiberFile @ 0x140A78484 (PopSanityCheckHiberFile.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14070AAE8 (FsRtlIssueFileNotificationFsctl.c)
+ *     PopSetHiberFileMcb @ 0x140A72520 (PopSetHiberFileMcb.c)
+ *     PopValidateHiberFileSize @ 0x140A725BC (PopValidateHiberFileSize.c)
+ *     PopSanityCheckHiberFile @ 0x140A72784 (PopSanityCheckHiberFile.c)
  */
 
 __int64 __fastcall PopResizeHiberFile(__int64 a1, _QWORD *a2, __int64 a3)
@@ -32,7 +32,7 @@ __int64 __fastcall PopResizeHiberFile(__int64 a1, _QWORD *a2, __int64 a3)
   IoStatusBlock = 0LL;
   if ( !FileObject )
     goto LABEL_15;
-  if ( qword_140F0AD50 == a1 )
+  if ( qword_140F0BB90 == a1 )
   {
 LABEL_17:
     Status = 0;
@@ -76,7 +76,7 @@ LABEL_15:
         Status = PopSetHiberFileMcb(P);
         if ( Status >= 0 )
         {
-          qword_140F0AD50 = v14;
+          qword_140F0BB90 = v14;
           FsRtlIssueFileNotificationFsctl(FileObject, v6, (__int128 *)&FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE);
           goto LABEL_17;
         }
@@ -84,6 +84,6 @@ LABEL_15:
     }
   }
 LABEL_14:
-  *a2 = qword_140F0AD50;
+  *a2 = qword_140F0BB90;
   return (unsigned int)Status;
 }

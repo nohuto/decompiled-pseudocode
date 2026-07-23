@@ -1,24 +1,24 @@
 /*
- * XREFs of KeSetCpuSetsProcess @ 0x14018C654
+ * XREFs of KeSetCpuSetsProcess @ 0x14018C794
  * Callers:
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiValidateCpuSetMasks @ 0x140117A94 (KiValidateCpuSetMasks.c)
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x14018C9E8 (KiUpdateThreadCpuSetAffinitiesProcess.c)
- *     KiWriteCpuSetMasks @ 0x14018CB68 (KiWriteCpuSetMasks.c)
- *     KiGetProcessCpuSetMaskPointer @ 0x14018CBB0 (KiGetProcessCpuSetMaskPointer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDCA4 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiValidateCpuSetMasks @ 0x140117B04 (KiValidateCpuSetMasks.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x14018CB28 (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     KiWriteCpuSetMasks @ 0x14018CCA8 (KiWriteCpuSetMasks.c)
+ *     KiGetProcessCpuSetMaskPointer @ 0x14018CCF0 (KiGetProcessCpuSetMaskPointer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C40D0 (KiSwapContext.c)
  */
 
 __int64 __fastcall KeSetCpuSetsProcess(__int64 a1, unsigned int a2, char *a3)

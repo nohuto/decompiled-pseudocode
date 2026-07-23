@@ -14,13 +14,13 @@ __int64 __fastcall PsAllocateAffinityToken(__int64 *a1)
   __int64 v5; // rcx
   unsigned int v6; // eax
 
-  Pool2 = ExAllocatePool2(64LL, 8LL * (unsigned __int16)KiMaximumGroups + 40, 1952543568LL);
+  Pool2 = ExAllocatePool2(64LL, 8LL * (unsigned __int16)word_140D05018 + 40, 1952543568LL);
   v3 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
   v5 = Pool2 + 32;
   *(_QWORD *)(Pool2 + 24) = Pool2 + 32;
-  v6 = (unsigned __int16)KiMaximumGroups;
+  v6 = (unsigned __int16)word_140D05018;
   *(_DWORD *)(v5 + 4) = 0;
   *(_WORD *)v5 = 1;
   *(_WORD *)(v5 + 2) = v6;

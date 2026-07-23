@@ -1,15 +1,15 @@
 /*
- * XREFs of CcIsFatalWriteError @ 0x14008E97C
+ * XREFs of CcIsFatalWriteError @ 0x14008E0DC
  * Callers:
- *     CcNotifyOfMappedWriteComplete @ 0x14008FAB8 (CcNotifyOfMappedWriteComplete.c)
- *     CcWriteBehindInternal @ 0x1400E7F30 (CcWriteBehindInternal.c)
- *     CcFlushCachePriv @ 0x1400E8E10 (CcFlushCachePriv.c)
- *     CcUnpinRepinnedBcb @ 0x1401B1E6C (CcUnpinRepinnedBcb.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x14008F218 (CcNotifyOfMappedWriteComplete.c)
+ *     CcWriteBehindInternal @ 0x1400E5DD0 (CcWriteBehindInternal.c)
+ *     CcFlushCachePriv @ 0x1400E6CB0 (CcFlushCachePriv.c)
+ *     CcUnpinRepinnedBcb @ 0x1401B1D50 (CcUnpinRepinnedBcb.c)
  * Callees:
- *     MmIsWriteErrorFatal @ 0x14008F0EC (MmIsWriteErrorFatal.c)
- *     CcDereferenceSharedCacheMapFileObject @ 0x1400CFCF4 (CcDereferenceSharedCacheMapFileObject.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1400CFD4C (CcReferenceSharedCacheMapFileObject.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MmIsWriteErrorFatal @ 0x14008E84C (MmIsWriteErrorFatal.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1400CDB94 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1400CDBEC (CcReferenceSharedCacheMapFileObject.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 bool __fastcall CcIsFatalWriteError(__int64 a1, __int64 a2, __int64 a3)

@@ -28,7 +28,7 @@ char EtwpTraceSystemInitialization()
   ULONGLONG v6; // rax
   __int64 v7; // rax
   __int64 v8; // rax
-  __int64 SystemTimePrecise; // rax
+  LARGE_INTEGER SystemTimePrecise; // rax
   __int64 v10; // rcx
   ULONGLONG v11; // rax
   int v13; // [rsp+48h] [rbp-C0h] BYREF
@@ -36,23 +36,23 @@ char EtwpTraceSystemInitialization()
   unsigned int v15; // [rsp+50h] [rbp-B8h] BYREF
   int v16; // [rsp+54h] [rbp-B4h] BYREF
   int v17; // [rsp+58h] [rbp-B0h] BYREF
-  ULONG dwMajorVersion; // [rsp+5Ch] [rbp-ACh] BYREF
-  ULONG dwMinorVersion; // [rsp+60h] [rbp-A8h] BYREF
-  ULONG dwBuildNumber; // [rsp+64h] [rbp-A4h] BYREF
+  DWORD dwMajorVersion; // [rsp+5Ch] [rbp-ACh] BYREF
+  DWORD dwMinorVersion; // [rsp+60h] [rbp-A8h] BYREF
+  DWORD dwBuildNumber; // [rsp+64h] [rbp-A4h] BYREF
   int v21; // [rsp+68h] [rbp-A0h] BYREF
   int v22; // [rsp+6Ch] [rbp-9Ch] BYREF
   int v23; // [rsp+70h] [rbp-98h] BYREF
   int v24; // [rsp+74h] [rbp-94h] BYREF
   LARGE_INTEGER v25; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v26; // [rsp+80h] [rbp-88h] BYREF
+  LARGE_INTEGER v26; // [rsp+80h] [rbp-88h] BYREF
   __int128 v27; // [rsp+88h] [rbp-80h] BYREF
   __int128 v28; // [rsp+98h] [rbp-70h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+A8h] [rbp-60h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+A8h] [rbp-60h] BYREF
   __int16 v30; // [rsp+1BCh] [rbp+B4h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+1C8h] [rbp+C0h] BYREF
-  ULONG *v32; // [rsp+1D8h] [rbp+D0h]
+  LARGE_INTEGER *v32; // [rsp+1D8h] [rbp+D0h]
   __int64 v33; // [rsp+1E0h] [rbp+D8h]
-  ULONG *v34; // [rsp+1E8h] [rbp+E0h]
+  DWORD *v34; // [rsp+1E8h] [rbp+E0h]
   __int64 v35; // [rsp+1F0h] [rbp+E8h]
   int *v36; // [rsp+1F8h] [rbp+F0h]
   __int64 v37; // [rsp+200h] [rbp+F8h]
@@ -63,11 +63,11 @@ char EtwpTraceSystemInitialization()
   LARGE_INTEGER *v42; // [rsp+228h] [rbp+120h]
   __int64 v43; // [rsp+230h] [rbp+128h]
   struct _EVENT_DATA_DESCRIPTOR v44; // [rsp+238h] [rbp+130h] BYREF
-  ULONG *p_dwMajorVersion; // [rsp+258h] [rbp+150h]
+  DWORD *p_dwMajorVersion; // [rsp+258h] [rbp+150h]
   __int64 v46; // [rsp+260h] [rbp+158h]
-  ULONG *p_dwMinorVersion; // [rsp+268h] [rbp+160h]
+  DWORD *p_dwMinorVersion; // [rsp+268h] [rbp+160h]
   __int64 v48; // [rsp+270h] [rbp+168h]
-  ULONG *p_dwBuildNumber; // [rsp+278h] [rbp+170h]
+  DWORD *p_dwBuildNumber; // [rsp+278h] [rbp+170h]
   __int64 v50; // [rsp+280h] [rbp+178h]
   int *v51; // [rsp+288h] [rbp+180h]
   __int64 v52; // [rsp+290h] [rbp+188h]
@@ -170,7 +170,7 @@ char EtwpTraceSystemInitialization()
       *(_QWORD *)&UserData.Size = 4LL;
       UserData.Ptr = (ULONGLONG)&VersionInformation.dwMajorVersion;
       v33 = 4LL;
-      v32 = &VersionInformation.dwMinorVersion;
+      v32 = (LARGE_INTEGER *)&VersionInformation.dwMinorVersion;
       v35 = 4LL;
       v34 = &VersionInformation.dwBuildNumber;
       v37 = 4LL;
@@ -202,8 +202,8 @@ char EtwpTraceSystemInitialization()
           UserData.Ptr = v6;
           v7 = *(_QWORD *)(v5 + 240) + 3520LL;
           v33 = 64LL;
-          v32 = (ULONG *)v7;
-          v34 = (ULONG *)(*(_QWORD *)(v5 + 240) + 3864LL);
+          v32 = (LARGE_INTEGER *)v7;
+          v34 = (DWORD *)(*(_QWORD *)(v5 + 240) + 3864LL);
           v35 = 8LL;
           LOBYTE(v0) = EtwWriteEx(EtwKernelProvRegHandle, &VsmPerformanceData, 0LL, 0, 0LL, 0LL, 3u, &UserData);
         }
@@ -218,9 +218,9 @@ char EtwpTraceSystemInitialization()
         v11 = *(_QWORD *)(v10 + 240) + 2944LL;
         *(_QWORD *)&UserData.Size = 8LL;
         UserData.Ptr = v11;
-        v32 = (ULONG *)&v26;
+        v32 = &v26;
         v33 = 8LL;
-        v34 = (ULONG *)(*(_QWORD *)(v10 + 240) + 2936LL);
+        v34 = (DWORD *)(*(_QWORD *)(v10 + 240) + 2936LL);
         v36 = &v24;
         v35 = 4LL;
         v37 = 4LL;

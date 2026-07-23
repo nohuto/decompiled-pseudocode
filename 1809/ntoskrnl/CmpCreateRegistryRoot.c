@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCreateRegistryRoot @ 0x1409C3FAC
+ * XREFs of CmpCreateRegistryRoot @ 0x1409C4FAC
  * Callers:
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
- *     ObCreateObject @ 0x1405BD820 (ObCreateObject.c)
- *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
- *     CmpTryToLockKcbExclusive @ 0x1405D8B30 (CmpTryToLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
- *     EnlistKeyBodyWithKCB @ 0x140733004 (EnlistKeyBodyWithKCB.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140733580 (CmpHiveRootSecurityDescriptor.c)
- *     CmpCreateRootNode @ 0x1409C4170 (CmpCreateRootNode.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpHashUnicodeComponent @ 0x1405B02C4 (CmpHashUnicodeComponent.c)
+ *     ObCreateObject @ 0x1405BE820 (ObCreateObject.c)
+ *     CmpCreateKeyControlBlock @ 0x1405D6EB0 (CmpCreateKeyControlBlock.c)
+ *     CmpTryToLockKcbExclusive @ 0x1405D9B30 (CmpTryToLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     ObInsertObject @ 0x14061C280 (ObInsertObject.c)
+ *     EnlistKeyBodyWithKCB @ 0x1407341F4 (EnlistKeyBodyWithKCB.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140734770 (CmpHiveRootSecurityDescriptor.c)
+ *     CmpCreateRootNode @ 0x1409C5170 (CmpCreateRootNode.c)
  */
 
 char __fastcall CmpCreateRegistryRoot(__int64 a1, __int64 a2)

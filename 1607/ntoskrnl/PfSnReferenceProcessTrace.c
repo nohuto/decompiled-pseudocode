@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnReferenceProcessTrace @ 0x1400F0910
+ * XREFs of PfSnReferenceProcessTrace @ 0x1400EE760
  * Callers:
- *     MiMakeSystemCacheRangeValid @ 0x140031890 (MiMakeSystemCacheRangeValid.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     PfSnLogPageFault @ 0x1400FDE20 (PfSnLogPageFault.c)
- *     PfSnAsyncContextInitialize @ 0x1403E5134 (PfSnAsyncContextInitialize.c)
- *     PfSnEndProcessTrace @ 0x1403E8EC4 (PfSnEndProcessTrace.c)
- *     PfSnLogHelper @ 0x140514B80 (PfSnLogHelper.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140031410 (MiMakeSystemCacheRangeValid.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     PfSnLogPageFault @ 0x1400FBBA0 (PfSnLogPageFault.c)
+ *     PfSnAsyncContextInitialize @ 0x1403E6760 (PfSnAsyncContextInitialize.c)
+ *     PfSnEndProcessTrace @ 0x1403EA4F4 (PfSnEndProcessTrace.c)
+ *     PfSnLogHelper @ 0x1404F7F70 (PfSnLogHelper.c)
  * Callees:
- *     ExAcquireRundownProtectionEx @ 0x140006BD0 (ExAcquireRundownProtectionEx.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireRundownProtectionEx @ 0x140006D40 (ExAcquireRundownProtectionEx.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall PfSnReferenceProcessTrace(__int64 a1)
@@ -94,11 +94,11 @@ LABEL_23:
   else
   {
     v9 = 1;
-    v10 = KeAcquireSpinLockRaiseToDpc(&qword_1403286D0);
+    v10 = KeAcquireSpinLockRaiseToDpc(&qword_140328710);
     v3 = (struct _EX_RUNDOWN_REF *)(*(_QWORD *)(a1 + 1192) & 0xFFFFFFFFFFFFFFF0uLL);
     if ( v3 )
       v9 = ExAcquireRundownProtection(v3 + 45);
-    KeReleaseSpinLock(&qword_1403286D0, v10);
+    KeReleaseSpinLock(&qword_140328710, v10);
     if ( !v9 )
       return 0LL;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of IpmiLibAddSelRecord @ 0x14071D6D8
+ * XREFs of IpmiLibAddSelRecord @ 0x140722368
  * Callers:
- *     IpmiLibAddSelBugcheckRecord @ 0x14071D434 (IpmiLibAddSelBugcheckRecord.c)
- *     IpmiLibAddSelCheckpointRecord @ 0x14071D570 (IpmiLibAddSelCheckpointRecord.c)
- *     IpmiLibAddSelErrorRecord @ 0x14071D64C (IpmiLibAddSelErrorRecord.c)
- *     IpmiLibpAddSelRawData @ 0x14071D770 (IpmiLibpAddSelRawData.c)
+ *     IpmiLibAddSelBugcheckRecord @ 0x1407220C4 (IpmiLibAddSelBugcheckRecord.c)
+ *     IpmiLibAddSelCheckpointRecord @ 0x140722200 (IpmiLibAddSelCheckpointRecord.c)
+ *     IpmiLibAddSelErrorRecord @ 0x1407222DC (IpmiLibAddSelErrorRecord.c)
+ *     IpmiLibpAddSelRawData @ 0x140722400 (IpmiLibpAddSelRawData.c)
  * Callees:
- *     IpmiLibRequestReceive @ 0x14071D83C (IpmiLibRequestReceive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     IpmiLibRequestReceive @ 0x1407224CC (IpmiLibRequestReceive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IpmiLibAddSelRecord(__int64 a1, __int128 *a2, __int64 a3)

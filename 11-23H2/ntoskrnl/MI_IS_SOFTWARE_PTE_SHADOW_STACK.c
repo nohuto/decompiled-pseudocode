@@ -1,11 +1,11 @@
 /*
- * XREFs of MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x140355670
+ * XREFs of MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x140355810
  * Callers:
- *     MiCombineCandidate @ 0x140281FB0 (MiCombineCandidate.c)
- *     MiIssueHardFault @ 0x1402A10B0 (MiIssueHardFault.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
- *     MiDuplicateCloneLeaf @ 0x140664088 (MiDuplicateCloneLeaf.c)
- *     MiHandleForkTransitionPte @ 0x140664948 (MiHandleForkTransitionPte.c)
+ *     MiCombineCandidate @ 0x140282240 (MiCombineCandidate.c)
+ *     MiIssueHardFault @ 0x1402A1340 (MiIssueHardFault.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
+ *     MiDuplicateCloneLeaf @ 0x1406645D8 (MiDuplicateCloneLeaf.c)
+ *     MiHandleForkTransitionPte @ 0x140664E98 (MiHandleForkTransitionPte.c)
  * Callees:
  *     <none>
  */

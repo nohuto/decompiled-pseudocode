@@ -71,7 +71,7 @@ void __fastcall PopPowerRequestDelete(unsigned int *a1)
       memset_0(Src, 0, 0x48uLL);
       Src[2] = a1[9];
       Src[0] = 17;
-      PopUmpoSendPowerMessage(Src, 0x48uLL, 0, 0LL);
+      PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
     }
   }
   if ( !*((_BYTE *)a1 + 152) )

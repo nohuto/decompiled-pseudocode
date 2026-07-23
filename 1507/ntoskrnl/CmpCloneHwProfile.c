@@ -205,7 +205,7 @@ LABEL_13:
               Data = 1;
               RtlInitUnicodeString(&ValueName, L"Cloned");
               ZwSetValueKey(v23, &ValueName, 0, 4u, &Data, 4u);
-              if ( ExUuidCreate(&Uuid) >= 0 && (int)RtlStringFromGUIDEx(&Uuid.Data1, (__int64)&UnicodeString, 1) >= 0 )
+              if ( ExUuidCreate(&Uuid) >= 0 && RtlStringFromGUIDEx(&Uuid, &UnicodeString, 1u) >= 0 )
               {
                 RtlInitUnicodeString(&ValueName, L"HwProfileGuid");
                 ZwSetValueKey(v23, &ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.MaximumLength);

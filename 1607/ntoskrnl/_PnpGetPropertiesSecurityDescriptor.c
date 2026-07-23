@@ -1,25 +1,25 @@
 /*
- * XREFs of _PnpGetPropertiesSecurityDescriptor @ 0x1406DFC6C
+ * XREFs of _PnpGetPropertiesSecurityDescriptor @ 0x1406DFDA4
  * Callers:
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x14041FFE0 (RtlLengthSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlValidSid @ 0x1404217D0 (RtlValidSid.c)
- *     RtlpAddKnownAce @ 0x140421800 (RtlpAddKnownAce.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14048D16C (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14048D1C4 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x1404BCD44 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x1404D6AD4 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x14041EEA0 (RtlLengthSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlValidSid @ 0x140420690 (RtlValidSid.c)
+ *     RtlpAddKnownAce @ 0x1404206C0 (RtlpAddKnownAce.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x14048DBFC (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14048DC54 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x1404A8A74 (RtlValidSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1404BA0D8 (RtlAbsoluteToSelfRelativeSD.c)
  */
 
 void *PnpGetPropertiesSecurityDescriptor()
@@ -32,7 +32,7 @@ void *PnpGetPropertiesSecurityDescriptor()
   ULONG v5; // r14d
   PVOID v6; // rax
   void *v7; // rbx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-50h] BYREF
   _BYTE SecurityDescriptor[2]; // [rsp+38h] [rbp-48h] BYREF
   __int16 v11; // [rsp+3Ah] [rbp-46h]
   unsigned __int8 Sid[16]; // [rsp+60h] [rbp-20h] BYREF

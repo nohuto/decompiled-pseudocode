@@ -1,26 +1,26 @@
 /*
- * XREFs of PiCMGenerateDeviceInstance @ 0x1406477EC
+ * XREFs of PiCMGenerateDeviceInstance @ 0x1406478D0
  * Callers:
- *     PiCMCreateDevice @ 0x1406461E4 (PiCMCreateDevice.c)
+ *     PiCMCreateDevice @ 0x1406462C8 (PiCMCreateDevice.c)
  * Callees:
- *     KeEnterCriticalRegion @ 0x14000AE80 (KeEnterCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     RtlStringCchLengthW @ 0x1400C4760 (RtlStringCchLengthW.c)
- *     RtlStringCchCatExW @ 0x14013BD00 (RtlStringCchCatExW.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     KeEnterCriticalRegion @ 0x14000AA00 (KeEnterCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchLengthW @ 0x1400C2600 (RtlStringCchLengthW.c)
+ *     RtlStringCchCatExW @ 0x14013C270 (RtlStringCchCatExW.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _CmCreateDevice @ 0x1404E6E44 (_CmCreateDevice.c)
- *     _CmGetDeviceStatus @ 0x1404F78AC (_CmGetDeviceStatus.c)
- *     _CmValidateDeviceName @ 0x1404FD9C0 (_CmValidateDeviceName.c)
- *     RtlUpcaseUnicodeString @ 0x140514D50 (RtlUpcaseUnicodeString.c)
- *     _CmDeleteDevice @ 0x1406D7CC0 (_CmDeleteDevice.c)
+ *     _CmGetDeviceStatus @ 0x1404DA838 (_CmGetDeviceStatus.c)
+ *     _CmValidateDeviceName @ 0x1404E0950 (_CmValidateDeviceName.c)
+ *     RtlUpcaseUnicodeString @ 0x1404F8140 (RtlUpcaseUnicodeString.c)
+ *     _CmCreateDevice @ 0x14050D534 (_CmCreateDevice.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
+ *     _CmDeleteDevice @ 0x1406D7DF8 (_CmDeleteDevice.c)
  */
 
 __int64 __fastcall PiCMGenerateDeviceInstance(NTSTRSAFE_PCWSTR pszSrc, char a2, wchar_t *a3, int a4)
@@ -124,7 +124,7 @@ __int64 __fastcall PiCMGenerateDeviceInstance(NTSTRSAFE_PCWSTR pszSrc, char a2, 
                       else if ( a2 )
                       {
                         v29 = 1;
-                        inited = PnpCtxRegSetValue(v18, v8, (__int64)L"Phantom", 4LL, (__int64)&v29, 4u);
+                        inited = PnpCtxRegSetValue(v18, v8, L"Phantom", 4u, &v29, 4u);
                       }
                       goto LABEL_36;
                     }

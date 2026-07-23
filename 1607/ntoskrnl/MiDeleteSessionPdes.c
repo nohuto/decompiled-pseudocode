@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteSessionPdes @ 0x140125CE8
+ * XREFs of MiDeleteSessionPdes @ 0x140126258
  * Callers:
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiFreeUnmappedPageTables @ 0x1400E39D0 (MiFreeUnmappedPageTables.c)
- *     MiDeleteValidSystemPte @ 0x140100BF0 (MiDeleteValidSystemPte.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiFreeUnmappedPageTables @ 0x1400E1870 (MiFreeUnmappedPageTables.c)
+ *     MiDeleteValidSystemPte @ 0x1400FE970 (MiDeleteValidSystemPte.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiDeleteSessionPdes(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

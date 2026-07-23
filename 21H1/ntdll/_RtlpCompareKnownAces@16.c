@@ -10,44 +10,46 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-char __fastcall RtlpCompareKnownAces(unsigned __int8 *a1, unsigned __int8 *a2, void *Buf2, void *a4)
+char __fastcall RtlpCompareKnownAces(unsigned __int8 *a1, unsigned __int8 *a2, PSID Sid2, void *a4)
 {
   int v6; // ecx
   int v8; // eax
-  char v9; // al
-  void *Buf1; // [esp+Ch] [ebp-40h]
-  int v11; // [esp+10h] [ebp-3Ch] BYREF
-  __int16 v12; // [esp+14h] [ebp-38h]
-  _DWORD v13[12]; // [esp+18h] [ebp-34h] BYREF
+  BOOLEAN v9; // al
+  size_t v10; // [esp-4h] [ebp-50h]
+  PSID Sid1; // [esp+Ch] [ebp-40h]
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [esp+10h] [ebp-3Ch] BYREF
+  _BYTE Sid[8]; // [esp+18h] [ebp-34h] BYREF
+  int v14; // [esp+20h] [ebp-2Ch]
 
   v6 = *a2;
   if ( RtlBaseAceType[v6] != RtlBaseAceType[*a1] || RtlIsSystemAceType[v6] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
     return 0;
-  Buf1 = a2 + 8;
-  if ( !(unsigned __int8)RtlEqualSid(a2 + 8, a1 + 8) )
+  Sid1 = a2 + 8;
+  if ( !RtlEqualSid(a2 + 8, a1 + 8) )
   {
-    if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !Buf2 && !a4 )
+    if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !Sid2 && !a4 )
       return 0;
-    v12 = 768;
-    v11 = 0;
-    memset(v13, 0, sizeof(v13));
-    if ( RtlInitializeSid((int)v13, (int)&v11, 1u) < 0 )
+    *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+    LODWORD(v10) = 48;
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    memset(Sid, 0, v10);
+    if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) < 0 )
       return 0;
-    v13[2] = 0;
-    if ( !RtlEqualPrefixSid(a1 + 8, v13) )
+    v14 = 0;
+    if ( !RtlEqualPrefixSid(a1 + 8, Sid) )
       return 0;
     v8 = *((_DWORD *)a1 + 4);
     if ( v8 )
     {
       if ( v8 != 1 || !a4 )
         return 0;
-      v9 = RtlEqualSid(Buf1, a4);
+      v9 = RtlEqualSid(Sid1, a4);
     }
     else
     {
-      if ( !Buf2 )
+      if ( !Sid2 )
         return 0;
-      v9 = RtlEqualSid(Buf1, Buf2);
+      v9 = RtlEqualSid(Sid1, Sid2);
     }
     if ( !v9 )
       return 0;

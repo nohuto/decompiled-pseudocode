@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpGetNumberOfSGElementsDmaThin @ 0x14031C560
+ * XREFs of HalpGetNumberOfSGElementsDmaThin @ 0x14031C7F0
  * Callers:
- *     HalpBuildScatterGatherListDmaThin @ 0x14031C2A4 (HalpBuildScatterGatherListDmaThin.c)
- *     HalBuildScatterGatherListDmaThin @ 0x14031C430 (HalBuildScatterGatherListDmaThin.c)
+ *     HalpBuildScatterGatherListDmaThin @ 0x14031C534 (HalpBuildScatterGatherListDmaThin.c)
+ *     HalBuildScatterGatherListDmaThin @ 0x14031C6C0 (HalBuildScatterGatherListDmaThin.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDetermineHotPatchExtent @ 0x14091ADEC
+ * XREFs of RtlDetermineHotPatchExtent @ 0x14091AF4C
  * Callers:
- *     MiLockHotPatchPages @ 0x1408CB184 (MiLockHotPatchPages.c)
- *     MiPrepareToHotPatchImagePatchCallback @ 0x1408CDB00 (MiPrepareToHotPatchImagePatchCallback.c)
- *     RtlValidateHotPatchBase @ 0x14091B1E4 (RtlValidateHotPatchBase.c)
+ *     MiLockHotPatchPages @ 0x1408CB2E4 (MiLockHotPatchPages.c)
+ *     MiPrepareToHotPatchImagePatchCallback @ 0x1408CDC60 (MiPrepareToHotPatchImagePatchCallback.c)
+ *     RtlValidateHotPatchBase @ 0x14091B344 (RtlValidateHotPatchBase.c)
  * Callees:
- *     RtlpDetermineHotPatchExtent @ 0x14091B31C (RtlpDetermineHotPatchExtent.c)
+ *     RtlpDetermineHotPatchExtent @ 0x14091B47C (RtlpDetermineHotPatchExtent.c)
  */
 
 char __fastcall RtlDetermineHotPatchExtent(__int64 a1)

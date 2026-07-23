@@ -1,22 +1,22 @@
 /*
- * XREFs of SepTokenDeleteMethod @ 0x140AD88D0
+ * XREFs of SepTokenDeleteMethod @ 0x140AD6F50
  * Callers:
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1402CD920 (ExDeleteResourceLite.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x14035C750 (AuthzBasepFreeSecurityAttributesList.c)
- *     SepDereferenceLuidToIndexEntry @ 0x1404561B8 (SepDereferenceLuidToIndexEntry.c)
- *     SepFreeTokenCapabilities @ 0x14046FF38 (SepFreeTokenCapabilities.c)
- *     Feature_2045735225__private_IsEnabledDeviceUsageNoInline @ 0x1406082E8 (Feature_2045735225__private_IsEnabledDeviceUsageNoInline.c)
- *     SepModifyTokenPolicyCounter @ 0x14078FB40 (SepModifyTokenPolicyCounter.c)
- *     SepLogTokenSidManagement @ 0x14078FD60 (SepLogTokenSidManagement.c)
- *     SepRemoveTokenLogonSession @ 0x140793A58 (SepRemoveTokenLogonSession.c)
- *     SepDereferenceCachedHandlesEntryInternal @ 0x140A08D24 (SepDereferenceCachedHandlesEntryInternal.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x140A45514 (SepDereferenceLowBoxNumberEntry.c)
- *     SepDeleteClaimAttributes @ 0x140A77774 (SepDeleteClaimAttributes.c)
- *     SepDeReferenceLogonSession @ 0x140AD8BA4 (SepDeReferenceLogonSession.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExDeleteResourceLite @ 0x1402E55A0 (ExDeleteResourceLite.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1403B95E0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SepDereferenceLuidToIndexEntry @ 0x14044AEF8 (SepDereferenceLuidToIndexEntry.c)
+ *     SepFreeTokenCapabilities @ 0x14046A360 (SepFreeTokenCapabilities.c)
+ *     Feature_2045735225__private_IsEnabledDeviceUsageNoInline @ 0x1406059EC (Feature_2045735225__private_IsEnabledDeviceUsageNoInline.c)
+ *     SepModifyTokenPolicyCounter @ 0x14078FB10 (SepModifyTokenPolicyCounter.c)
+ *     SepLogTokenSidManagement @ 0x14078FD30 (SepLogTokenSidManagement.c)
+ *     SepRemoveTokenLogonSession @ 0x140793AF8 (SepRemoveTokenLogonSession.c)
+ *     SepDereferenceCachedHandlesEntryInternal @ 0x140A05254 (SepDereferenceCachedHandlesEntryInternal.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x140A3B0C0 (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDeleteClaimAttributes @ 0x140A71894 (SepDeleteClaimAttributes.c)
+ *     SepDeReferenceLogonSession @ 0x140AD7224 (SepDeReferenceLogonSession.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepTokenDeleteMethod(__int64 a1)

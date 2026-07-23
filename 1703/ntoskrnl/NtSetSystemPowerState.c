@@ -152,53 +152,47 @@ NTSTATUS __stdcall NtSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER
   __int64 v53; // rdx
   __int64 v54; // rcx
   __int64 v55; // r8
-  __int64 v56; // rdx
-  __int64 v57; // rcx
-  __int64 v58; // r8
-  __int64 v59; // rdx
-  __int64 v60; // rcx
-  __int64 v61; // r8
-  __int64 v62; // r9
-  int v63; // r15d
-  char v64; // al
-  __int64 v66; // rdx
-  HANDLE v67; // rbx
-  __int64 v68; // r11
-  __int64 *v69; // rax
-  int v70; // ebx
-  __int64 v71; // rax
-  SYSTEM_POWER_STATE v72; // eax
-  char v73; // [rsp+41h] [rbp-BFh] BYREF
-  char v74; // [rsp+42h] [rbp-BEh]
+  __int64 v56; // r9
+  int v57; // r15d
+  char v58; // al
+  __int64 v60; // rdx
+  HANDLE v61; // rbx
+  __int64 v62; // r11
+  __int64 *v63; // rax
+  int v64; // ebx
+  __int64 v65; // rax
+  SYSTEM_POWER_STATE v66; // eax
+  char v67; // [rsp+41h] [rbp-BFh] BYREF
+  char v68; // [rsp+42h] [rbp-BEh]
   char Buffer[5]; // [rsp+43h] [rbp-BDh] BYREF
-  unsigned int v76; // [rsp+48h] [rbp-B8h] BYREF
-  int v77; // [rsp+4Ch] [rbp-B4h]
-  void *v78; // [rsp+50h] [rbp-B0h] BYREF
-  int v79; // [rsp+58h] [rbp-A8h]
-  _QWORD v80[2]; // [rsp+60h] [rbp-A0h] BYREF
-  int v81; // [rsp+74h] [rbp-8Ch]
-  int v82; // [rsp+78h] [rbp-88h]
-  int v83; // [rsp+7Ch] [rbp-84h]
-  __int64 v84; // [rsp+88h] [rbp-78h] BYREF
-  int v85; // [rsp+90h] [rbp-70h]
-  __int64 v86; // [rsp+98h] [rbp-68h] BYREF
+  unsigned int v70; // [rsp+48h] [rbp-B8h] BYREF
+  int v71; // [rsp+4Ch] [rbp-B4h]
+  void *v72; // [rsp+50h] [rbp-B0h] BYREF
+  int v73; // [rsp+58h] [rbp-A8h]
+  _QWORD v74[2]; // [rsp+60h] [rbp-A0h] BYREF
+  int v75; // [rsp+74h] [rbp-8Ch]
+  int v76; // [rsp+78h] [rbp-88h]
+  int v77; // [rsp+7Ch] [rbp-84h]
+  __int64 v78; // [rsp+88h] [rbp-78h] BYREF
+  int v79; // [rsp+90h] [rbp-70h]
+  __int64 v80; // [rsp+98h] [rbp-68h] BYREF
   HANDLE FileHandle; // [rsp+A0h] [rbp-60h] BYREF
-  _QWORD v88[3]; // [rsp+A8h] [rbp-58h] BYREF
+  _QWORD v82[3]; // [rsp+A8h] [rbp-58h] BYREF
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp-40h] BYREF
-  char v90[24]; // [rsp+D0h] [rbp-30h] BYREF
+  char v84[24]; // [rsp+D0h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+E8h] [rbp-18h] BYREF
   char Object[28]; // [rsp+100h] [rbp+0h] BYREF
-  NTSTATUS v93; // [rsp+11Ch] [rbp+1Ch]
-  char v94[96]; // [rsp+120h] [rbp+20h] BYREF
-  char v98; // [rsp+1A8h] [rbp+A8h]
+  NTSTATUS v87; // [rsp+11Ch] [rbp+1Ch]
+  char v88[96]; // [rsp+120h] [rbp+20h] BYREF
+  char v92; // [rsp+1A8h] [rbp+A8h]
 
   v3 = 0;
-  v79 = 1;
-  v74 = 0;
-  v86 = 0LL;
-  v80[0] = 0LL;
+  v73 = 1;
+  v68 = 0;
+  v80 = 0LL;
+  v74[0] = 0LL;
   v6 = Flags;
-  v78 = 0LL;
+  v72 = 0LL;
   v7 = 0LL;
   v8 = 0;
   PopTransitionCheckpoint(8LL, 1LL);
@@ -222,22 +216,22 @@ NTSTATUS __stdcall NtSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER
   {
     if ( (unsigned int)(SystemAction - 4) > 2 )
       return -1073741637;
-    v66 = 2147483697LL;
+    v60 = 2147483697LL;
     if ( SystemAction != PowerActionShutdownReset )
-      v66 = 3221226219LL;
-    PsTerminateServerSilo(CurrentServerSilo, v66);
+      v60 = 3221226219LL;
+    PsTerminateServerSilo(CurrentServerSilo, v60);
     return v3;
   }
   if ( SystemAction == PowerActionShutdown )
     PopReadShutdownPolicy();
-  memset(v88, 0, sizeof(v88));
-  v85 = 0;
+  memset(v82, 0, sizeof(v82));
+  v79 = 0;
   v11 = dword_14034B194;
-  v84 = (unsigned int)SystemAction;
+  v78 = (unsigned int)SystemAction;
   if ( dword_14034B194 >= 15 )
     v11 = 5;
-  HIDWORD(v84) = v6;
-  v88[0] = v11 | 0x8000000000LL;
+  HIDWORD(v78) = v6;
+  v82[0] = v11 | 0x8000000000LL;
   PopAcquireTransitionLock();
   MmLockPagableSectionByHandle(ExPageLockHandle);
   PopRunMaximumIrpWorkers();
@@ -256,7 +250,7 @@ LABEL_118:
   }
   PopCheckPowerSourceAfterRtcWakeCancel();
   PopAcquirePolicyLock();
-  v98 = 1;
+  v92 = 1;
   PopFilterCapabilities(&PopCapabilities, &unk_14034B240);
   if ( !byte_14034B181 )
   {
@@ -273,17 +267,17 @@ LABEL_118:
 LABEL_14:
   PopSetPowerActionState(3);
   qword_14034B1B8 = (__int64)qword_14034B110;
-  PopExecutePowerAction((unsigned int)v88, 0, (unsigned int)&v84, MinSystemState, 1);
+  PopExecutePowerAction((unsigned int)v82, 0, (unsigned int)&v78, MinSystemState, 1);
   PopIgnoreBatteryStatusChange();
   PopCheckResiliencyScenarios();
-  PopEnforceResiliencyScenarios(&v86);
+  PopEnforceResiliencyScenarios(&v80);
   PopExecuteOnTargetProcessors((__int64)KeActiveProcessors, (__int64)PpmStopIllegalProcessorThrottleLogging, 0LL, 0LL);
   if ( SystemAction == PowerActionShutdownOff )
     LODWORD(qword_14034B184) = 6;
   if ( (unsigned int)(SystemAction - 4) <= 2 && PopHiberInfo && FileObject && (unsigned int)MmZeroPageFileAtShutdown() )
     PopZeroHiberFile(PopHiberInfo);
-  v73 = 0;
-  v76 = 0;
+  v67 = 0;
+  v70 = 0;
   if ( (unsigned int)(SystemAction - 2) <= 1 )
     PoPowerDownActionInProgress = 1;
   v14 = 1;
@@ -298,7 +292,7 @@ LABEL_20:
       {
         PopAcquirePolicyLock();
         v15 = 0x80000000;
-        v98 = 1;
+        v92 = 1;
       }
       if ( !(_DWORD)qword_14034B184 )
       {
@@ -317,7 +311,7 @@ LABEL_187:
           v50 = 0;
           goto LABEL_79;
         }
-        PopActionRetrieveInitialState((_DWORD *)&qword_14034B184 + 1, &v76, &dword_14034B1A0, &v73);
+        PopActionRetrieveInitialState((_DWORD *)&qword_14034B184 + 1, &v70, &dword_14034B1A0, &v67);
         if ( (unsigned int)(qword_14034B184 - 4) <= 2 )
         {
           byte_14034B182 = 1;
@@ -328,7 +322,7 @@ LABEL_187:
       if ( HiberContext < 0 )
         goto LABEL_187;
       PopReleasePolicyLock();
-      v98 = 0;
+      v92 = 0;
       v17 = 1;
       v18 = 0;
       ExAcquireFastMutex(&PopSettingLock);
@@ -347,25 +341,25 @@ LABEL_187:
       v8 = 0;
       if ( (dword_14034B18C & 0x40000000) == 0 )
         v8 = v18;
-      v82 = v8;
+      v76 = v8;
       if ( (dword_14034B18C & 0x40000000) == 0 )
         v22 = v17;
-      v83 = v8;
-      v81 = v22;
+      v77 = v8;
+      v75 = v22;
       PopInitializePowerPolicySimulate();
       dword_14034B1A4 = dword_14034B1A0;
       PopAdvanceSystemPowerState(
         &dword_14034B1A4,
         ((unsigned int)dword_14034B18C >> 27) & 2,
         HIDWORD(qword_14034B184),
-        v76);
+        v70);
       v23 = Flags & 8;
       if ( (Flags & 8) != 0 )
       {
         v24 = dword_14034B1A0;
         byte_14034B2E0 = 1;
         dword_14034B1A8 = 5;
-        v77 = 6;
+        v71 = 6;
       }
       else
       {
@@ -374,13 +368,13 @@ LABEL_187:
           v24 = (unsigned int)dword_14034B1A0;
           dword_14034B1A8 = 5;
           v26 = 6;
-          v77 = dword_14034B1A0;
+          v71 = dword_14034B1A0;
           v25 = 1;
           goto LABEL_45;
         }
         v24 = dword_14034B1A0;
         dword_14034B1A8 = dword_14034B1A0;
-        v77 = dword_14034B1A0;
+        v71 = dword_14034B1A0;
       }
       v25 = 0;
       v26 = PopPowerStateHandlerLookup[v24];
@@ -391,7 +385,7 @@ LABEL_45:
       {
 LABEL_139:
         LOBYTE(v24) = v25;
-        if ( !(unsigned __int8)PopFindNextSystemPowerState(v76, v24, &v73) )
+        if ( !(unsigned __int8)PopFindNextSystemPowerState(v70, v24, &v67) )
           goto LABEL_187;
         HiberContext = 0;
         goto LABEL_141;
@@ -416,15 +410,15 @@ LABEL_49:
       {
         v6 = Flags;
         v14 = 1;
-        v98 = 1;
+        v92 = 1;
         goto LABEL_20;
       }
       PopReleasePolicyLock();
       PopCheckpointSystemSleep(10);
-      LOBYTE(v28) = v73;
+      LOBYTE(v28) = v67;
       byte_14034B19C = 3;
       PopDiagTraceKernelQueriesAllowed(v28);
-      if ( !v73 )
+      if ( !v67 )
         break;
       v32 = PopSetDevicesSystemState(v13, v29, v30, v31);
       HiberContext = v32;
@@ -432,7 +426,7 @@ LABEL_49:
       if ( (int)v13 < 0 || v32 == -1073741536 )
         break;
       LOBYTE(v33) = v25;
-      if ( !(unsigned __int8)PopFindNextSystemPowerState(v76, v33, &v73) )
+      if ( !(unsigned __int8)PopFindNextSystemPowerState(v70, v33, &v67) )
         goto LABEL_187;
       v6 = Flags;
       HiberContext = 0;
@@ -449,24 +443,24 @@ LABEL_141:
     PopTransitionCheckpoint(9LL, 0LL);
     if ( !byte_14034B182 )
     {
-      PopDiagTracePreSleepNotification(v77, dword_14034B1A8, dword_14034B194, dword_14034B198, v34);
+      PopDiagTracePreSleepNotification(v71, dword_14034B1A8, dword_14034B194, dword_14034B198, v34);
       PopCheckpointSystemSleep(16);
       PopUmpoSendFlushSleepStudyLoggerNotification();
     }
     PopEsEnterSleepShutdown();
     PopForceCompleteCsSleepStudySession(dword_14034B194);
     PopThermalSxEntry();
-    if ( !v74 )
+    if ( !v68 )
     {
       if ( byte_14034B182 && RtlLockBootStatusData(&FileHandle) >= 0 )
       {
-        v67 = FileHandle;
+        v61 = FileHandle;
         Buffer[0] = 1;
         RtlGetSetBootStatusData(FileHandle, 0, RtlBsdItemBootShutdown, Buffer, 1u, 0LL);
-        RtlGetSetBootStatusData(v67, 0, RtlBsdItemShutdownBootId, (PVOID)0xFFFFF780000002C4LL, 4u, 0LL);
-        RtlUnlockBootStatusData(v67);
+        RtlGetSetBootStatusData(v61, 0, RtlBsdItemShutdownBootId, (PVOID)0xFFFFF780000002C4LL, 4u, 0LL);
+        RtlUnlockBootStatusData(v61);
       }
-      v74 = 1;
+      v68 = 1;
     }
     PopFlushVolumes((unsigned int)dword_14034B1A0);
     if ( dword_14034B1A8 < dword_14034B1A0 )
@@ -489,7 +483,7 @@ LABEL_141:
       return -1073741077;
     }
     KeMtrrComparisonFailed = 0;
-    HiberContext = PopInitSystemSleeperThread(v26, v90);
+    HiberContext = PopInitSystemSleeperThread(v26, v84);
     if ( HiberContext < 0 )
     {
 LABEL_142:
@@ -521,7 +515,7 @@ LABEL_142:
   }
   else
   {
-    v7 = v36 + 10000000 * v68;
+    v7 = v36 + 10000000 * v62;
     v35 = -1LL;
   }
   v40 = &qword_14034B1E8;
@@ -537,48 +531,48 @@ LABEL_142:
       v40 += 3;
     }
     while ( (__int64)v40 < (__int64)&unk_14034B218 );
-    v69 = qword_14034B1F8;
+    v63 = qword_14034B1F8;
     do
     {
-      *v69 = v35;
-      v69 += 3;
+      *v63 = v35;
+      v63 += 3;
     }
-    while ( (__int64)v69 < (__int64)&qword_14034B228 );
+    while ( (__int64)v63 < (__int64)&qword_14034B228 );
   }
-  v70 = qword_14034B238;
+  v64 = qword_14034B238;
   if ( qword_14034B238 && qword_14034B238 < (unsigned __int64)(v36 + 20000000) )
-    v70 = v36 + 20000000;
-  if ( !v81 )
+    v64 = v36 + 20000000;
+  if ( !v75 )
     goto LABEL_167;
-  if ( v81 != 2 || (LOBYTE(v41) = 1, PopSimulate < 0) )
+  if ( v75 != 2 || (LOBYTE(v41) = 1, PopSimulate < 0) )
     LOBYTE(v41) = 0;
-  if ( (unsigned __int8)ExGetNextWakeTime(v70 + 1, v7, v41, (unsigned int)v80, (__int64)&v78) )
+  if ( (unsigned __int8)ExGetNextWakeTime(v64 + 1, v7, v41, (unsigned int)v74, (__int64)&v72) )
   {
-    v43 = v80[0];
-    qword_14034B1E8 = v80[0];
-    qword_14034B1F8[0] = (__int64)v78;
+    v43 = v74[0];
+    qword_14034B1E8 = v74[0];
+    qword_14034B1F8[0] = (__int64)v72;
   }
   else
   {
 LABEL_167:
     v43 = qword_14034B1E8;
   }
-  if ( !v82 )
+  if ( !v76 )
   {
     v42 = qword_14034B200;
     goto LABEL_70;
   }
-  if ( v82 != 2 || (LOBYTE(v41) = 1, PopSimulate < 0) )
+  if ( v76 != 2 || (LOBYTE(v41) = 1, PopSimulate < 0) )
     LOBYTE(v41) = 0;
-  if ( !(unsigned __int8)ExGetNextWakeTime(v70 + 1, v7, v41, (unsigned int)v80, (__int64)&v78) )
+  if ( !(unsigned __int8)ExGetNextWakeTime(v64 + 1, v7, v41, (unsigned int)v74, (__int64)&v72) )
   {
 LABEL_68:
     v42 = qword_14034B200;
     goto LABEL_69;
   }
-  v42 = v80[0];
-  qword_14034B200 = v80[0];
-  qword_14034B210 = (__int64)v78;
+  v42 = v74[0];
+  qword_14034B200 = v74[0];
+  qword_14034B210 = (__int64)v72;
 LABEL_69:
   v43 = qword_14034B1E8;
 LABEL_70:
@@ -595,7 +589,7 @@ LABEL_70:
   PopSetDevicesSystemState(v46, v45, v47, v48);
   PopNewWakeInfo();
   v7 = MEMORY[0xFFFFF78000000008];
-  v79 = dword_14034BB2C;
+  v73 = dword_14034BB2C;
   KeSetEvent(&Event, 0, 1u);
   KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
   v49 = dword_14034B1A0;
@@ -603,7 +597,7 @@ LABEL_70:
   v51 = Flags;
   if ( PoResumeFromHibernate )
     v50 = dword_14034B1A8;
-  HiberContext = v93;
+  HiberContext = v87;
   if ( (Flags & 8) != 0 )
     v49 = 6;
   qword_14034B370 = 0LL;
@@ -618,7 +612,7 @@ LABEL_70:
     qword_14034B210);
   if ( KeMtrrComparisonFailed )
     PopDiagTraceMtrrError();
-  v8 = v83;
+  v8 = v77;
   if ( HiberContext < 0 && dword_14034B1A0 == 5 )
   {
     StringCchPrintfW(PopHibernationErrorSubstitutionString, 0x80uLL, L"0x%x", (unsigned int)HiberContext);
@@ -639,13 +633,13 @@ LABEL_79:
     ExUpdateSystemTimeFromCmos(v13);
     LOBYTE(v52) = 1;
     if ( ((unsigned __int8 (__fastcall *)(__int64))off_14033B658[0])(v52) )
-      ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0LL);
+      ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
     qword_14034B588 = KeQueryPerformanceCounter(0LL).QuadPart;
     PfPowerActionNotify(2LL, 0LL, 0LL);
     qword_14034B1C8 = MEMORY[0xFFFFF78000000008];
-    PopDiagComputeEarlyHiberStats(v54, v53, v55);
+    PopDiagComputeEarlyHiberStats();
     if ( v50 == 4 )
-      PopDiagTraceFirmwareS3Stats(v57, v56, v58);
+      PopDiagTraceFirmwareS3Stats();
   }
   byte_14034B19D = 1;
   PoPowerDownActionInProgress = 0;
@@ -653,25 +647,25 @@ LABEL_79:
   if ( qword_14034B1B8 )
   {
     PfPowerActionNotify(3LL, 0LL, 0LL);
-    PopSetDevicesSystemState(v60, v59, v61, v62);
+    PopSetDevicesSystemState(v54, v53, v55, v56);
     PfPowerActionNotify(3LL, 1LL, 0LL);
   }
-  if ( v78 )
+  if ( v72 )
   {
-    ExDeleteWakeTimerInfo(v78);
-    v78 = 0LL;
+    ExDeleteWakeTimerInfo(v72);
+    v72 = 0LL;
   }
   ((void (__fastcall *)(_QWORD, _QWORD))off_14033B2D0)(0LL, 0LL);
   PopNotifyTelemetryOsState(qword_14034B184, dword_14034B1A0, dword_14034B1A8, v51, 0);
   PopQueueBatteryStatusTimeout();
   PopExecuteOnTargetProcessors((__int64)KeActiveProcessors, (__int64)PpmStartIllegalProcessorThrottleLogging, 0LL, 0LL);
-  if ( v98 )
+  if ( v92 )
     PopReleasePolicyLock();
   PoClearBroadcast();
   qword_14034B1B8 = 0LL;
   PopEsExitSleep();
-  PopCurrentPowerStatePrecise(v94);
-  v63 = dword_14034BB2C;
+  PopCurrentPowerStatePrecise(v88);
+  v57 = dword_14034BB2C;
   PopSpoilEstimatesOnPowerStateTransitionWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopSpoilEstimatesOnPowerStateTransitionWorker;
   PopSpoilEstimatesOnPowerStateTransitionWorkItem.Parameter = 0LL;
   PopSpoilEstimatesOnPowerStateTransitionWorkItem.List.Flink = 0LL;
@@ -681,18 +675,18 @@ LABEL_79:
   if ( HiberContext >= 0 && (PopInitSIdle(1LL), PopAction = 0, (unsigned __int64)dword_14034B1E0 < 3) )
   {
     qword_14034B238 = qword_14034B1F0[3 * dword_14034B1E0];
-    v71 = qword_14034B1F8[3 * dword_14034B1E0];
+    v65 = qword_14034B1F8[3 * dword_14034B1E0];
     PopFullWake = 0;
     PopPendingUserPresenceDuringSystemSleep = 0;
     PopPendingUserPresenceMonitorOnReason = 0;
-    if ( v71 == -1 )
+    if ( v65 == -1 )
     {
       LODWORD(qword_14034B184) = 2;
-      v72 = PowerSystemHibernate;
+      v66 = PowerSystemHibernate;
     }
     else
     {
-      if ( v71 == -2 )
+      if ( v65 == -2 )
       {
         if ( !qword_14034B1D8 )
           qword_14034B1D8 = qword_14034B1C8;
@@ -700,25 +694,25 @@ LABEL_79:
       }
       if ( dword_14034BB2C != 1 )
       {
-        if ( !v8 && v79 == v63 )
+        if ( !v8 && v73 == v57 )
           PopCheckPowerSourceAfterRtcWakeSet();
         goto LABEL_94;
       }
       if ( v8 )
         goto LABEL_94;
       LODWORD(qword_14034B184) = SystemAction;
-      v72 = MinSystemState;
+      v66 = MinSystemState;
     }
-    HIDWORD(qword_14034B184) = v72;
+    HIDWORD(qword_14034B184) = v66;
     PopAction = 2;
-    v64 = 0;
+    v58 = 0;
   }
   else
   {
 LABEL_94:
-    v64 = 1;
+    v58 = 1;
   }
-  if ( byte_14034B230 && v64 )
+  if ( byte_14034B230 && v58 )
   {
     ExWakeTimersResume();
     byte_14034B230 = 0;

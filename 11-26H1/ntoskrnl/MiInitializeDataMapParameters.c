@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeDataMapParameters @ 0x1409C4D18
+ * XREFs of MiInitializeDataMapParameters @ 0x140995CF8
  * Callers:
- *     MiMapViewOfDataSection @ 0x1409C47B0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfDataSection @ 0x140995790 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiAweControlArea @ 0x14048FC84 (MiAweControlArea.c)
+ *     MiAweControlArea @ 0x140489730 (MiAweControlArea.c)
  */
 
 __int64 __fastcall MiInitializeDataMapParameters(__int64 *a1)

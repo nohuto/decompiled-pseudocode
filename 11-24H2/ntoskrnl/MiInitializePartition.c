@@ -1,31 +1,31 @@
 /*
- * XREFs of MiInitializePartition @ 0x1407EC758
+ * XREFs of MiInitializePartition @ 0x1407ECD28
  * Callers:
- *     MmCreatePartition @ 0x1407FC90C (MmCreatePartition.c)
- *     MiCreatePfnDatabase @ 0x140C4EE90 (MiCreatePfnDatabase.c)
+ *     MmCreatePartition @ 0x1407FD07C (MmCreatePartition.c)
+ *     MiCreatePfnDatabase @ 0x140C51020 (MiCreatePfnDatabase.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlRandomEx @ 0x14041A510 (RtlRandomEx.c)
- *     MiInitializePfnListHead @ 0x140442024 (MiInitializePfnListHead.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     MiInitializeNuma @ 0x140668DC0 (MiInitializeNuma.c)
- *     MiProtectPageListLocks @ 0x1406733B0 (MiProtectPageListLocks.c)
- *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x14068004C (MiPopulateFreeKernelShadowStackCacheEntries.c)
- *     MiInitializeCombining @ 0x140685604 (MiInitializeCombining.c)
- *     MiInitializeCommitment @ 0x140686338 (MiInitializeCommitment.c)
- *     MiInitializeSections @ 0x1407EB7A8 (MiInitializeSections.c)
- *     MiInitializePartitionFreeZeroLists @ 0x1407ECDEC (MiInitializePartitionFreeZeroLists.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlRandomEx @ 0x14040A510 (RtlRandomEx.c)
+ *     MiInitializePfnListHead @ 0x140438BF4 (MiInitializePfnListHead.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     MiInitializeNuma @ 0x140669F98 (MiInitializeNuma.c)
+ *     MiProtectPageListLocks @ 0x140674580 (MiProtectPageListLocks.c)
+ *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x14068124C (MiPopulateFreeKernelShadowStackCacheEntries.c)
+ *     MiInitializeCombining @ 0x140686734 (MiInitializeCombining.c)
+ *     MiInitializeCommitment @ 0x140687468 (MiInitializeCommitment.c)
+ *     MiInitializeSections @ 0x1407EBD78 (MiInitializeSections.c)
+ *     MiInitializePartitionFreeZeroLists @ 0x1407ED3BC (MiInitializePartitionFreeZeroLists.c)
  */
 
-$81B80DCEA5A02D890AB7B2872B48AC01 *__fastcall MiInitializePartition(ULONG *DeferredContext, __int16 a2)
+$727077A9B6E167EAE1398C74674DC5A5 *__fastcall MiInitializePartition(ULONG *DeferredContext, __int16 a2)
 {
   unsigned int v3; // eax
   __int64 v4; // rbp
@@ -63,12 +63,10 @@ $81B80DCEA5A02D890AB7B2872B48AC01 *__fastcall MiInitializePartition(ULONG *Defer
   __int64 v36; // rsi
   struct _KEVENT *v37; // rdi
   struct _KTHREAD *CurrentThread; // rdi
-  _QWORD *v39; // rax
+  char *v39; // rax
   signed __int8 v40; // cf
-  _QWORD *v41; // rsi
-  $81B80DCEA5A02D890AB7B2872B48AC01 *result; // rax
-  __int64 v43; // rdx
-  __int64 v44; // rcx
+  char *v41; // rsi
+  $727077A9B6E167EAE1398C74674DC5A5 *result; // rax
 
   *(_WORD *)DeferredContext = a2;
   DeferredContext[2] = 305535296;
@@ -76,10 +74,10 @@ $81B80DCEA5A02D890AB7B2872B48AC01 *__fastcall MiInitializePartition(ULONG *Defer
   v4 = 16LL;
   if ( DeferredContext == &MiSystemPartition )
   {
-    qword_140E2FEC0 = 0LL;
-    qword_140E2FF20 = 0LL;
-    qword_140E2FEE8 = (__int64)&qword_140E2FEE0;
-    qword_140E2FEE0 = &qword_140E2FEE0;
+    qword_140E30000 = 0LL;
+    qword_140E30060 = 0LL;
+    qword_140E30028 = (__int64)&qword_140E30020;
+    qword_140E30020 = &qword_140E30020;
   }
   else
   {
@@ -142,7 +140,7 @@ $81B80DCEA5A02D890AB7B2872B48AC01 *__fastcall MiInitializePartition(ULONG *Defer
     while ( v19 < v18 );
   }
   v22 = (unsigned int)(*((_QWORD *)DeferredContext + 2314) / 0x64uLL)
-      / (dword_140E2DBCC
+      / (dword_140E2DD0C
        * (unsigned int)(unsigned __int16)v18);
   if ( v22 >= 4 )
   {
@@ -155,7 +153,7 @@ $81B80DCEA5A02D890AB7B2872B48AC01 *__fastcall MiInitializePartition(ULONG *Defer
   }
   DeferredContext[4244] = v22;
   if ( DeferredContext == &MiSystemPartition )
-    MiInitializePfnListHead((__int64)&qword_140E2D550, 5);
+    MiInitializePfnListHead((__int64)&qword_140E2D690, 5);
   KeInitializeEvent((PRKEVENT)(DeferredContext + 4238), NotificationEvent, 0);
   MiInitializePfnListHead((__int64)(DeferredContext + 4848), 3);
   MiInitializePfnListHead((__int64)(DeferredContext + 4880), 4);
@@ -198,7 +196,7 @@ $81B80DCEA5A02D890AB7B2872B48AC01 *__fastcall MiInitializePartition(ULONG *Defer
     --v5;
   }
   while ( v5 );
-  MiPopulateFreeKernelShadowStackCacheEntries((union _SLIST_HEADER *)DeferredContext);
+  MiPopulateFreeKernelShadowStackCacheEntries((_SLIST_HEADER *)DeferredContext);
   v32 = DeferredContext + 624;
   *((_QWORD *)DeferredContext + 24) = 0LL;
   v33 = 9LL;
@@ -231,12 +229,12 @@ $81B80DCEA5A02D890AB7B2872B48AC01 *__fastcall MiInitializePartition(ULONG *Defer
   *((_QWORD *)DeferredContext + 119) = DeferredContext + 238;
   if ( DeferredContext == &MiSystemPartition )
   {
-    *((_QWORD *)DeferredContext + 2078) = qword_140FC4240;
-    v34 = qword_140FC4240 << 8;
-    *((_QWORD *)DeferredContext + 2078) = qword_140FC4240 << 8;
-    *((_QWORD *)DeferredContext + 2079) = qword_140FC4248;
-    v35 = qword_140FC4248 << 8;
-    *((_QWORD *)DeferredContext + 2079) = qword_140FC4248 << 8;
+    *((_QWORD *)DeferredContext + 2078) = qword_140FC5240;
+    v34 = qword_140FC5240 << 8;
+    *((_QWORD *)DeferredContext + 2078) = qword_140FC5240 << 8;
+    *((_QWORD *)DeferredContext + 2079) = qword_140FC5248;
+    v35 = qword_140FC5248 << 8;
+    *((_QWORD *)DeferredContext + 2079) = qword_140FC5248 << 8;
     if ( v35 < v34 && v35 )
       *((_QWORD *)DeferredContext + 2079) = v34;
   }
@@ -284,22 +282,22 @@ $81B80DCEA5A02D890AB7B2872B48AC01 *__fastcall MiInitializePartition(ULONG *Defer
   *((_QWORD *)DeferredContext + 219) = 1LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v39 = KeAbPreAcquire((__int64)&qword_140E2FF48, 0LL);
-  v40 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2FF48, 0LL);
+  v39 = (char *)KeAbPreAcquire((__int64)&qword_140E30088, 0LL);
+  v40 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E30088, 0LL);
   v41 = v39;
   if ( v40 )
-    ExfAcquirePushLockExclusiveEx(&qword_140E2FF48, (__int64)v39, (__int64)&qword_140E2FF48);
+    ExfAcquirePushLockExclusiveEx(&qword_140E30088, v39, (__int64)&qword_140E30088);
   if ( v41 )
-    *((_BYTE *)v41 + 10) = 1;
+    v41[10] = 1;
   _InterlockedOr((volatile signed __int32 *)DeferredContext + 1, 2u);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2FF48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2FF48);
-  result = ($81B80DCEA5A02D890AB7B2872B48AC01 *)KeAbPostRelease((ULONG_PTR)&qword_140E2FF48);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E30088, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E30088);
+  result = ($727077A9B6E167EAE1398C74674DC5A5 *)KeAbPostRelease((ULONG_PTR)&qword_140E30088);
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     result = &CurrentThread->152;
-    if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)result->ApcState.ApcListHead[0].Flink != result )
-      return ($81B80DCEA5A02D890AB7B2872B48AC01 *)KiCheckForKernelApcDelivery(v44, v43);
+    if ( ($727077A9B6E167EAE1398C74674DC5A5 *)result->ApcState.ApcListHead[0].Flink != result )
+      return ($727077A9B6E167EAE1398C74674DC5A5 *)KiCheckForKernelApcDelivery();
   }
   return result;
 }

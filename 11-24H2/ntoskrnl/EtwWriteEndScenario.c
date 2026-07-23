@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwWriteEndScenario @ 0x140A476E0
+ * XREFs of EtwWriteEndScenario @ 0x140A3D500
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1405A5EEC (PnpCompleteSystemStartProcess.c)
- *     PopDiagTracePowerTransitionEnd @ 0x140AB95B4 (PopDiagTracePowerTransitionEnd.c)
- *     PopGracefulShutdown @ 0x140B5BA88 (PopGracefulShutdown.c)
+ *     PnpCompleteSystemStartProcess @ 0x1405A2DCC (PnpCompleteSystemStartProcess.c)
+ *     PopDiagTracePowerTransitionEnd @ 0x140AB4674 (PopDiagTracePowerTransitionEnd.c)
+ *     PopGracefulShutdown @ 0x140B5DAF8 (PopGracefulShutdown.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     EtwGetProviderIdFromHandle @ 0x1404AE5E0 (EtwGetProviderIdFromHandle.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WdipSemDisableScenario @ 0x140A47AF0 (WdipSemDisableScenario.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     EtwGetProviderIdFromHandle @ 0x1404A8EF0 (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WdipSemDisableScenario @ 0x140A3D910 (WdipSemDisableScenario.c)
  */
 
 NTSTATUS __fastcall EtwWriteEndScenario(

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMarkHiberNotCachedPte @ 0x1409B0300
+ * XREFs of MiMarkHiberNotCachedPte @ 0x1409B1230
  * Callers:
  *     <none>
  * Callees:
- *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     MiReadPteShadow @ 0x140310780 (MiReadPteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiMarkHiberNotCachedPte(__int64 a1, unsigned __int64 a2, int a3)

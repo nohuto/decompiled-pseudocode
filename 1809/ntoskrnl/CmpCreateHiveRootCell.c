@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpCreateHiveRootCell @ 0x14075BB98
+ * XREFs of CmpCreateHiveRootCell @ 0x14075CD88
  * Callers:
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1405A73BC (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     CmpCopyName @ 0x1405ACDB0 (CmpCopyName.c)
- *     SeAssignSecurity @ 0x1405AD0F0 (SeAssignSecurity.c)
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
- *     CmpRecordParseFailure @ 0x140698260 (CmpRecordParseFailure.c)
- *     CmpNameSize @ 0x1406A5494 (CmpNameSize.c)
- *     SeDeassignSecurity @ 0x1406ADB90 (SeDeassignSecurity.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407F5218 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x140581AB8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1405A83BC (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmpCopyName @ 0x1405ADDB0 (CmpCopyName.c)
+ *     SeAssignSecurity @ 0x1405AE0F0 (SeAssignSecurity.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     HvAllocateCell @ 0x1405FCE54 (HvAllocateCell.c)
+ *     CmpRecordParseFailure @ 0x140699420 (CmpRecordParseFailure.c)
+ *     CmpNameSize @ 0x1406A6734 (CmpNameSize.c)
+ *     SeDeassignSecurity @ 0x1406AEE30 (SeDeassignSecurity.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CC1D4 (HvMarkBaseBlockDirty.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407F6418 (CmpGenerateAppHiveSecurityDescriptor.c)
  */
 
 __int64 __fastcall CmpCreateHiveRootCell(

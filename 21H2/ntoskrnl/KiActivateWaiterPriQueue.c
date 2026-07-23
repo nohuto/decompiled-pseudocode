@@ -1,12 +1,12 @@
 /*
- * XREFs of KiActivateWaiterPriQueue @ 0x14029F6C4
+ * XREFs of KiActivateWaiterPriQueue @ 0x14021CC24
  * Callers:
- *     KiPriQueueThreadPriorityChanged @ 0x14029F3A0 (KiPriQueueThreadPriorityChanged.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x14029F4FC (KiActivateWaiterQueueWithNoLocks.c)
- *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x14021C900 (KiPriQueueThreadPriorityChanged.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14021CA5C (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiCommitThreadWait @ 0x140350D00 (KiCommitThreadWait.c)
  * Callees:
- *     KiAttemptFastRemovePriQueue @ 0x14029F740 (KiAttemptFastRemovePriQueue.c)
- *     KiWakePriQueueWaiter @ 0x14029F81C (KiWakePriQueueWaiter.c)
+ *     KiAttemptFastRemovePriQueue @ 0x14021CCA0 (KiAttemptFastRemovePriQueue.c)
+ *     KiWakePriQueueWaiter @ 0x14021CD7C (KiWakePriQueueWaiter.c)
  */
 
 _QWORD *__fastcall KiActivateWaiterPriQueue(ULONG_PTR a1)

@@ -40,7 +40,7 @@ __int64 __fastcall AuthzBasepMemberOf(__int64 a1, __int64 a2, char a3, char a4, 
       v13 = 68LL;
     memmove(v20, Src, v13);
     LOBYTE(v14) = a3;
-    v15 = SepSidInToken(a2, 0LL, (__int64)v20, v14, a4);
+    v15 = SepSidInToken(a2, 0LL, (__int64)v20, v14, a4, 0, 0);
     if ( a5 )
     {
       v7 &= v15;

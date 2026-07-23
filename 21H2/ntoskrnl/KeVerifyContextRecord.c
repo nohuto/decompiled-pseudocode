@@ -1,12 +1,12 @@
 /*
- * XREFs of KeVerifyContextRecord @ 0x14027748C
+ * XREFs of KeVerifyContextRecord @ 0x14026542C
  * Callers:
- *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
- *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
+ *     KiRaiseException @ 0x1405220D0 (KiRaiseException.c)
+ *     PspSetContextThreadInternal @ 0x14063CA8C (PspSetContextThreadInternal.c)
  * Callees:
- *     KiVerifyContextRecord @ 0x140277170 (KiVerifyContextRecord.c)
- *     RtlGuardIsValidStackPointer @ 0x140648730 (RtlGuardIsValidStackPointer.c)
- *     RtlGuardIsValidWow64StackPointer @ 0x140697098 (RtlGuardIsValidWow64StackPointer.c)
+ *     KiVerifyContextRecord @ 0x140265110 (KiVerifyContextRecord.c)
+ *     RtlGuardIsValidWow64StackPointer @ 0x1405F65E8 (RtlGuardIsValidWow64StackPointer.c)
+ *     RtlGuardIsValidStackPointer @ 0x14063D520 (RtlGuardIsValidStackPointer.c)
  */
 
 __int64 __fastcall KeVerifyContextRecord(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

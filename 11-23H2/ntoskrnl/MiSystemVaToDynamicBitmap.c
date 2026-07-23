@@ -3,8 +3,8 @@
  * Callers:
  *     MiObtainSystemVa @ 0x140210F9C (MiObtainSystemVa.c)
  *     MiMakeSystemRangeAvailable @ 0x140212A98 (MiMakeSystemRangeAvailable.c)
- *     MiIsSystemVaAllocated @ 0x140636EFC (MiIsSystemVaAllocated.c)
- *     MiMarkSystemVaAllocated @ 0x1406372B0 (MiMarkSystemVaAllocated.c)
+ *     MiIsSystemVaAllocated @ 0x14063744C (MiIsSystemVaAllocated.c)
+ *     MiMarkSystemVaAllocated @ 0x140637800 (MiMarkSystemVaAllocated.c)
  *     MiBuildPagedPool @ 0x140B43794 (MiBuildPagedPool.c)
  *     MiInitializeSystemPtes @ 0x140B4420C (MiInitializeSystemPtes.c)
  *     MiInitializeDriverImages @ 0x140B460A0 (MiInitializeDriverImages.c)

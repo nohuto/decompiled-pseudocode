@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetNtGlobalFlags @ 0x1800E5400
+ * XREFs of RtlGetNtGlobalFlags @ 0x1800E54C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlGetNtGlobalFlags()
+ULONG RtlGetNtGlobalFlags(void)
 {
   return NtCurrentPeb()->NtGlobalFlag;
 }

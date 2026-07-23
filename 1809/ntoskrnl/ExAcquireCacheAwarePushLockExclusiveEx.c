@@ -1,5 +1,5 @@
 /*
- * XREFs of ExAcquireCacheAwarePushLockExclusiveEx @ 0x14031ACB0
+ * XREFs of ExAcquireCacheAwarePushLockExclusiveEx @ 0x14031AEA0
  * Callers:
  *     <none>
  * Callees:
@@ -9,7 +9,7 @@
 
 volatile signed __int32 *__fastcall ExAcquireCacheAwarePushLockExclusiveEx(volatile signed __int32 **a1, char a2)
 {
-  __int64 v3; // rbx
+  PRTL_BALANCED_NODE v3; // rbx
   volatile signed __int32 *result; // rax
 
   if ( (a2 & 2) != 0 )
@@ -18,6 +18,6 @@ volatile signed __int32 *__fastcall ExAcquireCacheAwarePushLockExclusiveEx(volat
     v3 = KeAbPreAcquire((ULONG_PTR)a1, 0LL, 0);
   result = ExfAcquireCacheAwarePushLockExclusiveEx(a1);
   if ( v3 )
-    *(_BYTE *)(v3 + 26) |= 1u;
+    BYTE2(v3[1].Left) |= 1u;
   return result;
 }

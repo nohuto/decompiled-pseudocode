@@ -1,15 +1,15 @@
 /*
- * XREFs of MiZeroAndFlushAweLazyPtes @ 0x1406832CC
+ * XREFs of MiZeroAndFlushAweLazyPtes @ 0x1406844BC
  * Callers:
- *     MiWriteAwePtes @ 0x1404BA130 (MiWriteAwePtes.c)
+ *     MiWriteAwePtes @ 0x1404B4FD0 (MiWriteAwePtes.c)
  * Callees:
- *     MiCompareTbFlushTimeStamp @ 0x14023E0A8 (MiCompareTbFlushTimeStamp.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiSetPteTimeStamp @ 0x14044F8E8 (MiSetPteTimeStamp.c)
- *     MiWriteAweClusterPte @ 0x1404D6FE4 (MiWriteAweClusterPte.c)
- *     MiGetAweFlushList @ 0x1406824E4 (MiGetAweFlushList.c)
- *     MiInsertAweFlushList @ 0x14068279C (MiInsertAweFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiSetPteTimeStamp @ 0x140444FC4 (MiSetPteTimeStamp.c)
+ *     MiCompareTbFlushTimeStamp @ 0x14044D95C (MiCompareTbFlushTimeStamp.c)
+ *     MiWriteAweClusterPte @ 0x1404D0434 (MiWriteAweClusterPte.c)
+ *     MiGetAweFlushList @ 0x1406836D4 (MiGetAweFlushList.c)
+ *     MiInsertAweFlushList @ 0x14068398C (MiInsertAweFlushList.c)
  */
 
 void __fastcall MiZeroAndFlushAweLazyPtes(__int64 a1, __int64 a2)
@@ -39,12 +39,12 @@ void __fastcall MiZeroAndFlushAweLazyPtes(__int64 a1, __int64 a2)
       v10 = *v3;
       if ( (*v3 & 0x801) == 0 && v10 )
       {
-        if ( qword_140E2DB80 )
+        if ( qword_140E2DCC0 )
         {
           if ( (v10 & 0x10) != 0 )
             v10 &= ~0x10uLL;
           else
-            v10 &= ~qword_140E2DB80;
+            v10 &= ~qword_140E2DCC0;
         }
         v11 = HIDWORD(v10);
         if ( (_DWORD)v11 )
@@ -54,7 +54,7 @@ void __fastcall MiZeroAndFlushAweLazyPtes(__int64 a1, __int64 a2)
           {
             v12 = v7;
           }
-          else if ( MiCompareTbFlushTimeStamp((unsigned int)v11) )
+          else if ( MiCompareTbFlushTimeStamp(v11) )
           {
             v7 = 1;
             v12 = 1;
@@ -63,7 +63,7 @@ void __fastcall MiZeroAndFlushAweLazyPtes(__int64 a1, __int64 a2)
           {
             v7 = 0;
           }
-          MiWriteAweClusterPte(*(_QWORD *)(a1 + 40), v3, v9, 6, *(_QWORD *)(a1 + 160));
+          MiWriteAweClusterPte(*(_QWORD *)(a1 + 40), v3, v9, 6LL, *(_QWORD *)(a1 + 160));
           if ( v12 )
           {
             if ( !AweFlushList )

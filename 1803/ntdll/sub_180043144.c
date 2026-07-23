@@ -21,65 +21,61 @@
  *     sub_1800CBAB0 @ 0x1800CBAB0 (sub_1800CBAB0.c)
  */
 
-__int64 __fastcall sub_180043144(__int64 a1, __int64 a2)
+__int64 __fastcall sub_180043144(__int64 a1, _UNICODE_STRING *a2)
 {
   __int64 v2; // rbx
   int v5; // r15d
-  __int64 v6; // r12
-  int v7; // eax
+  unsigned __int64 v6; // r12
+  ULONG v7; // eax
   __int64 v8; // r14
   __int64 v9; // rcx
   __int64 v10; // rsi
-  int v11; // eax
+  NTSTATUS v11; // eax
   int v12; // ebx
-  _QWORD *v13; // r15
-  int v14; // ecx
-  int Section; // eax
+  HANDLE *v13; // r15
+  ULONG v14; // ecx
+  NTSTATUS Section; // eax
   int v16; // eax
   int v18; // r8d
   int v19; // r9d
-  char *v20; // rcx
+  USHORT *v20; // rcx
   int v21; // r8d
   int v22; // r9d
-  _QWORD v23[2]; // [rsp+40h] [rbp-29h] BYREF
-  _BYTE v24[16]; // [rsp+50h] [rbp-19h] BYREF
-  int v25; // [rsp+60h] [rbp-9h] BYREF
-  __int64 v26; // [rsp+68h] [rbp-1h]
-  __int64 v27; // [rsp+70h] [rbp+7h]
-  int v28; // [rsp+78h] [rbp+Fh]
-  __int128 v29; // [rsp+80h] [rbp+17h]
-  char v30; // [rsp+D0h] [rbp+67h] BYREF
-  __int64 v31; // [rsp+D8h] [rbp+6Fh]
-  __int64 v32; // [rsp+E0h] [rbp+77h] BYREF
+  unsigned __int64 Parameters[2]; // [rsp+40h] [rbp-29h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-19h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-9h] BYREF
+  ULONG Response; // [rsp+D0h] [rbp+67h] BYREF
+  _UNICODE_STRING *v27; // [rsp+D8h] [rbp+6Fh]
+  HANDLE FileHandle; // [rsp+E0h] [rbp+77h] BYREF
 
-  v31 = a2;
+  v27 = a2;
   v2 = *(_QWORD *)(a1 + 56);
   v5 = 0;
   if ( !(unsigned __int8)sub_18004334C(a1, 0LL) )
   {
-    v32 = -1LL;
+    FileHandle = (HANDLE)-1LL;
     v6 = v2 + 72;
     sub_18003BC9C(*(_QWORD *)(v2 + 48), v2 + 72, 0x14A5u);
     v7 = 64;
-    v25 = 48;
-    v26 = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
     if ( !byte_18015C318 )
       v7 = 2112;
-    v27 = a2;
-    v28 = v7;
-    v29 = 0LL;
+    ObjectAttributes.ObjectName = a2;
+    ObjectAttributes.Attributes = v7;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v8 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
       v9 = 2147353476LL;
     v10 = 2147353477LL;
     if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v20 = (unsigned int)RtlGetCurrentServiceSessionId()
-          ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-          : (char *)2147353477;
-      if ( (*v20 & 0x20) != 0 )
+      v20 = RtlGetCurrentServiceSessionId()
+          ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+          : (USHORT *)2147353477;
+      if ( (*(_BYTE *)v20 & 0x20) != 0 )
       {
         LOBYTE(v19) = -1;
         LOBYTE(v18) = -1;
@@ -88,7 +84,7 @@ __int64 __fastcall sub_180043144(__int64 a1, __int64 a2)
     }
     while ( 1 )
     {
-      v11 = ZwOpenFile(&v32, 1048609LL, &v25, v24, 5, 96);
+      v11 = ZwOpenFile(&FileHandle, 0x100021u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
       v12 = v11;
       if ( v11 >= 0 )
         break;
@@ -103,13 +99,13 @@ __int64 __fastcall sub_180043144(__int64 a1, __int64 a2)
     }
     if ( v12 < 0 )
       return (unsigned int)v12;
-    if ( !byte_18015C2F8 || (v12 = sub_180082248(a1, v32), v12 >= 0) || !byte_18015C2B0 )
+    if ( !byte_18015C2F8 || (v12 = sub_180082248(a1, FileHandle), v12 >= 0) || !byte_18015C2B0 )
     {
-      v13 = (_QWORD *)(a1 + 24);
+      v13 = (HANDLE *)(a1 + 24);
       v14 = 0x1000000;
       if ( dword_18015C290 )
         v14 = 17825792;
-      Section = ZwCreateSection(a1 + 24, 15LL, 0LL, 0LL, 16, v14, v32);
+      Section = ZwCreateSection((PHANDLE)(a1 + 24), 0xFu, 0LL, 0LL, 0x10u, v14, FileHandle);
       v12 = Section;
       if ( Section < 0 )
       {
@@ -119,21 +115,21 @@ __int64 __fastcall sub_180043144(__int64 a1, __int64 a2)
         }
         else if ( Section != -1073741801 && Section != -1073741670 && Section != -1073741523 )
         {
-          v23[0] = v6;
-          v23[1] = Section;
-          if ( (int)ZwRaiseHardError(3221225595LL, 2LL, 1LL, v23, 1, &v30) >= 0 && dword_18015CFB8 != 3 )
+          Parameters[0] = v6;
+          Parameters[1] = Section;
+          if ( ZwRaiseHardError(-1073741701, 2u, 1u, Parameters, 1u, &Response) >= 0 && dword_18015CFB8 != 3 )
             ++dword_18015BEE8;
         }
         sub_180043B30((unsigned int)v12, 5253LL, 0LL, v6);
       }
       else
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+        if ( RtlGetCurrentServiceSessionId() )
+          v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
         if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-            v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+          if ( RtlGetCurrentServiceSessionId() )
+            v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
           if ( (*(_BYTE *)v10 & 0x20) != 0 )
           {
             LOBYTE(v22) = -1;
@@ -145,11 +141,11 @@ __int64 __fastcall sub_180043144(__int64 a1, __int64 a2)
         {
           if ( qword_18015D410 )
           {
-            v12 = ((__int64 (__fastcall *)(__int64, __int64))(__ROR8__(
-                                                                qword_18015BFA8,
-                                                                64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
-                    v32,
-                    v31);
+            v12 = ((__int64 (__fastcall *)(HANDLE, _UNICODE_STRING *))(__ROR8__(
+                                                                         qword_18015BFA8,
+                                                                         64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+                    FileHandle,
+                    v27);
             if ( v12 == -1073741275 )
               v12 = 0;
           }
@@ -166,7 +162,7 @@ __int64 __fastcall sub_180043144(__int64 a1, __int64 a2)
           {
             if ( v16 >= 0 )
             {
-              *(_QWORD *)(a1 + 176) = v32;
+              *(_QWORD *)(a1 + 176) = FileHandle;
               return (unsigned int)v12;
             }
           }
@@ -175,8 +171,8 @@ __int64 __fastcall sub_180043144(__int64 a1, __int64 a2)
         *v13 = 0LL;
       }
     }
-    if ( v32 != -1 )
-      ZwClose(v32);
+    if ( FileHandle != (HANDLE)-1LL )
+      ZwClose(FileHandle);
     return (unsigned int)v12;
   }
   return 3221226029LL;

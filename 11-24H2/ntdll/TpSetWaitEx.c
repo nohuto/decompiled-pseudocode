@@ -1,81 +1,81 @@
 /*
- * XREFs of TpSetWaitEx @ 0x1800200E0
+ * XREFs of TpSetWaitEx @ 0x18004CAE0
  * Callers:
- *     EtwpNotificationThread @ 0x18001DFF0 (EtwpNotificationThread.c)
- *     RtlpWnfNotificationThread @ 0x18001FCF0 (RtlpWnfNotificationThread.c)
- *     RtlRegisterWait @ 0x18006DF00 (RtlRegisterWait.c)
- *     RtlDeregisterWaitEx @ 0x18006E2B0 (RtlDeregisterWaitEx.c)
- *     EtwpRegisterTpNotificationOnce @ 0x180095B08 (EtwpRegisterTpNotificationOnce.c)
- *     RtlpTpWaitCheckReset @ 0x1800EB900 (RtlpTpWaitCheckReset.c)
- *     TpSetWait @ 0x1800F2DD0 (TpSetWait.c)
- *     RtlpWnfRegisterTpNotification @ 0x1800F749C (RtlpWnfRegisterTpNotification.c)
+ *     EtwpNotificationThread @ 0x18004A9F0 (EtwpNotificationThread.c)
+ *     RtlpWnfNotificationThread @ 0x18004C6F0 (RtlpWnfNotificationThread.c)
+ *     RtlRegisterWait @ 0x18008A7E0 (RtlRegisterWait.c)
+ *     RtlDeregisterWaitEx @ 0x18008AB90 (RtlDeregisterWaitEx.c)
+ *     EtwpRegisterTpNotificationOnce @ 0x1800E54C4 (EtwpRegisterTpNotificationOnce.c)
+ *     RtlpTpWaitCheckReset @ 0x1800E6C10 (RtlpTpWaitCheckReset.c)
+ *     TpSetWait @ 0x1800ED6C0 (TpSetWait.c)
+ *     RtlpWnfRegisterTpNotification @ 0x1800F1BEC (RtlpWnfRegisterTpNotification.c)
  * Callees:
- *     TppBarrierAdjust @ 0x180011D50 (TppBarrierAdjust.c)
- *     TppFreeWait @ 0x1800204A0 (TppFreeWait.c)
- *     TppTimerpFree @ 0x1800204F0 (TppTimerpFree.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppRaiseHandleStatus @ 0x18006A9B8 (TppRaiseHandleStatus.c)
- *     TppSetTimer @ 0x18006B410 (TppSetTimer.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
- *     TppCancelTimer @ 0x18006C3B0 (TppCancelTimer.c)
- *     ZwAssociateWaitCompletionPacket @ 0x180162EC0 (ZwAssociateWaitCompletionPacket.c)
- *     ZwCancelWaitCompletionPacket @ 0x180162F60 (ZwCancelWaitCompletionPacket.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     TppBarrierAdjust @ 0x18003E750 (TppBarrierAdjust.c)
+ *     TppFreeWait @ 0x18004CEA0 (TppFreeWait.c)
+ *     TppTimerpFree @ 0x18004CEF0 (TppTimerpFree.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppRaiseHandleStatus @ 0x1800870A8 (TppRaiseHandleStatus.c)
+ *     TppSetTimer @ 0x180087CF0 (TppSetTimer.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
+ *     TppCancelTimer @ 0x180088C90 (TppCancelTimer.c)
+ *     ZwAssociateWaitCompletionPacket @ 0x180161280 (ZwAssociateWaitCompletionPacket.c)
+ *     ZwCancelWaitCompletionPacket @ 0x180161320 (ZwCancelWaitCompletionPacket.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-_BOOL8 __fastcall TpSetWaitEx(_PEB_LDR_DATA *Ldr, _LIST_ENTRY *a2, _LIST_ENTRY **a3, __int64 a4)
+NTSTATUS __cdecl TpSetWaitEx(PTP_WAIT Wait, HANDLE Handle, PLARGE_INTEGER Timeout, PVOID Reserved)
 {
-  int ShutdownThreadId; // eax
-  _PEB_LDR_DATA *v6; // rbx
+  volatile int Flags; // eax
+  PTP_WAIT ApcContext; // rbx
   int v7; // ebp
   char *SchedulerSharedDataSlot; // r8
-  _LIST_ENTRY *Blink; // rdi
-  volatile signed __int32 *p_EntryInProgress; // r14
+  _TP_POOL *Pool; // rdi
+  volatile signed __int32 *p_Lock; // r14
   unsigned int i; // edx
   volatile signed __int32 **v12; // rcx
   char v13; // r12
-  _BYTE *p_Blink; // r15
+  $5EF85B52A0D327422FDCD2EC062617DA *p_WaitFlags; // r15
   signed int v15; // edi
-  char v16; // al
-  BOOL v17; // esi
-  _LIST_ENTRY *v18; // r15
-  _LIST_ENTRY *Flink; // rcx
-  int v20; // eax
-  void (__fastcall *v22)(_PEB_LDR_DATA *); // rax
-  _LIST_ENTRY **v23; // rcx
-  char v24; // al
-  int v25; // eax
+  unsigned __int8 v16; // al
+  _BOOL8 v17; // rsi
+  _TP_POOL *v18; // r15
+  void *WaitPkt; // rcx
+  NTSTATUS v20; // eax
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  _LARGE_INTEGER *v23; // rcx
+  unsigned __int8 v24; // al
+  NTSTATUS v25; // eax
   __int64 v26; // rcx
-  __int64 v27; // rax
+  __int64 QuadPart; // rax
   unsigned __int64 v28; // rax
   unsigned __int64 v29; // rax
   int v30; // r8d
-  char v31; // al
-  char v32; // [rsp+80h] [rbp+8h] BYREF
-  _LIST_ENTRY **v33; // [rsp+90h] [rbp+18h]
+  unsigned __int8 AllFlags; // al
+  BOOLEAN AlreadySignaled; // [rsp+80h] [rbp+8h] BYREF
+  PLARGE_INTEGER v33; // [rsp+90h] [rbp+18h]
 
-  v33 = a3;
-  ShutdownThreadId = (int)Ldr[1].ShutdownThreadId;
-  v6 = Ldr;
-  if ( (ShutdownThreadId & 0x10000) != 0
-    || (ShutdownThreadId & 0x20000) != 0
-    || Ldr->SsHandle != TppWaitpCleanupGroupMemberVFuncs
-    || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  v33 = Timeout;
+  Flags = Wait->Timer.Work.CleanupGroupMember.Flags;
+  ApcContext = Wait;
+  if ( (Flags & 0x10000) != 0
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)())Wait->Timer.Work.CleanupGroupMember.VFuncs != TppWaitpCleanupGroupMemberVFuncs
+    || (Wait = (PTP_WAIT)NtCurrentPeb()->Ldr, LOBYTE(Wait->Timer.Work.CleanupGroupMember.CallbackBarrier.WaitList.First)) )
   {
-    if ( !a2 )
+    if ( !Handle )
     {
-      Ldr = NtCurrentPeb()->Ldr;
-      if ( Ldr->ShutdownInProgress )
-        return 0LL;
+      Wait = (PTP_WAIT)NtCurrentPeb()->Ldr;
+      if ( LOBYTE(Wait->Timer.Work.CleanupGroupMember.CallbackBarrier.WaitList.First) )
+        return 0;
     }
   }
-  else if ( !a4 )
+  else if ( !Reserved )
   {
     v7 = 0;
     SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
-    Blink = v6[1].InInitializationOrderModuleList.Blink;
-    p_EntryInProgress = (volatile signed __int32 *)&v6[2].EntryInProgress;
+    Pool = ApcContext->Timer.Work.CleanupGroupMember.Pool;
+    p_Lock = (volatile signed __int32 *)&ApcContext->Timer.Lock;
     if ( SchedulerSharedDataSlot )
     {
       for ( i = 0; i < 8; ++i )
@@ -84,116 +84,117 @@ _BOOL8 __fastcall TpSetWaitEx(_PEB_LDR_DATA *Ldr, _LIST_ENTRY *a2, _LIST_ENTRY *
         if ( !*v12 )
         {
           if ( v12 )
-            *v12 = p_EntryInProgress;
+            *v12 = p_Lock;
           break;
         }
       }
     }
-    if ( _interlockedbittestandset64(p_EntryInProgress, 0LL) )
-      RtlpAcquireSRWLockExclusiveContended(&v6[2].EntryInProgress);
-    if ( v6[4].SsHandle )
+    if ( _interlockedbittestandset64(p_Lock, 0LL) )
+      RtlpAcquireSRWLockExclusiveContended(&ApcContext->Timer.Lock);
+    if ( ApcContext->Handle )
     {
-      v25 = ZwCancelWaitCompletionPacket(v6[4].InLoadOrderModuleList.Flink, 0LL);
+      v25 = ZwCancelWaitCompletionPacket(ApcContext->WaitPkt, 0);
       if ( !v25 )
       {
         v13 = 1;
-        v6[4].SsHandle = 0LL;
-        p_Blink = &v6[5].InLoadOrderModuleList.Blink;
-        v15 = -((unsigned __int8)TppCancelTimer(v6, &Blink[7], 1LL) != 0) - 1;
-        if ( ((__int64)v6[5].InLoadOrderModuleList.Blink & 4) != 0 )
+        ApcContext->Handle = 0LL;
+        p_WaitFlags = &ApcContext->WaitFlags;
+        v15 = -((unsigned __int8)TppCancelTimer(ApcContext, &Pool->TimerQueue, 1LL) != 0) - 1;
+        if ( (ApcContext->WaitFlags.AllFlags & 4) != 0 )
         {
-          TppBarrierAdjust((volatile signed __int64 *)&v6->InInitializationOrderModuleList.Blink, -1, 0);
-          *p_Blink &= ~4u;
+          TppBarrierAdjust((_RTL_SRWLOCK *)&ApcContext->Timer.Work.CleanupGroupMember.CallbackBarrier, -1, 0);
+          p_WaitFlags->AllFlags &= ~4u;
         }
 LABEL_17:
-        *p_Blink &= ~1u;
-        v16 = *p_Blink & 0xFD;
-        *p_Blink = v16;
+        p_WaitFlags->AllFlags &= ~1u;
+        v16 = p_WaitFlags->AllFlags & 0xFD;
+        p_WaitFlags->AllFlags = v16;
         v17 = v15 != 0;
-        if ( !a2 || HIBYTE(v6[4].Length) )
+        if ( !Handle || ApcContext->Timer.BlockInsert )
           goto LABEL_29;
         if ( !v13 )
         {
           v23 = v33;
           v24 = v16 | 1;
-          v6[4].InLoadOrderModuleList.Blink = a2;
-          *p_Blink = v24;
+          ApcContext->NextWaitHandle = Handle;
+          p_WaitFlags->AllFlags = v24;
           if ( v23 )
           {
-            *p_Blink = v24 | 2;
-            v6[4].InMemoryOrderModuleList.Flink = *v23;
+            p_WaitFlags->AllFlags = v24 | 2;
+            ApcContext->NextWaitTimeout = *v23;
           }
 LABEL_25:
           if ( v15 > 0 )
           {
-            _InterlockedAdd((volatile signed __int32 *)v6, v15);
-            RtlReleaseSRWLockExclusive(&v6[2].EntryInProgress);
+            _InterlockedAdd(&ApcContext->Timer.Work.CleanupGroupMember.Refcount.Refcount, v15);
+            RtlReleaseSRWLockExclusive(&ApcContext->Timer.Lock);
             return v17;
           }
 LABEL_29:
-          RtlReleaseSRWLockExclusive(&v6[2].EntryInProgress);
-          if ( v15 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)v6, v15) == -v15 )
+          RtlReleaseSRWLockExclusive(&ApcContext->Timer.Lock);
+          if ( v15 < 0
+            && _InterlockedExchangeAdd(&ApcContext->Timer.Work.CleanupGroupMember.Refcount.Refcount, v15) == -v15 )
           {
-            v22 = *(void (__fastcall **)(_PEB_LDR_DATA *))v6->SsHandle;
-            if ( (char *)v22 == (char *)TppFreeWait )
+            Free = ApcContext->Timer.Work.CleanupGroupMember.VFuncs->Free;
+            if ( (char *)Free == (char *)TppFreeWait )
             {
-              TppFreeWait(v6);
+              TppFreeWait(ApcContext);
             }
-            else if ( (char *)v22 == (char *)TppTimerpFree )
+            else if ( (char *)Free == (char *)TppTimerpFree )
             {
-              TppTimerpFree(v6);
+              TppTimerpFree(ApcContext);
             }
             else
             {
-              v22(v6);
+              Free(&ApcContext->Timer.Work.CleanupGroupMember);
             }
           }
           return v17;
         }
-        if ( v6[4].SsHandle )
+        if ( ApcContext->Handle )
           goto LABEL_29;
-        v18 = v6[1].InInitializationOrderModuleList.Blink;
-        Flink = v6[4].InLoadOrderModuleList.Flink;
-        v32 = 0;
-        v6[4].SsHandle = a2;
+        v18 = ApcContext->Timer.Work.CleanupGroupMember.Pool;
+        WaitPkt = ApcContext->WaitPkt;
+        AlreadySignaled = 0;
+        ApcContext->Handle = Handle;
         v20 = ZwAssociateWaitCompletionPacket(
-                Flink,
-                v18[4].Flink,
-                a2,
-                &v6[4].InMemoryOrderModuleList.Blink,
-                v6,
+                WaitPkt,
+                v18->CompletionPort,
+                Handle,
+                &ApcContext->Direct,
+                ApcContext,
                 0,
                 0LL,
-                &v32);
+                &AlreadySignaled);
         if ( v20 < 0 )
         {
-          v6[4].SsHandle = 0LL;
-          TppRaiseHandleStatus((unsigned int)v20, a2, v6);
+          ApcContext->Handle = 0LL;
+          TppRaiseHandleStatus((unsigned int)v20, Handle, ApcContext);
         }
         else
         {
-          if ( v33 && !v32 )
+          if ( v33 && !AlreadySignaled )
           {
-            v27 = (__int64)*v33;
-            if ( (__int64)*v33 < 0 )
+            QuadPart = v33->QuadPart;
+            if ( v33->QuadPart < 0 )
             {
-              v29 = -v27;
+              v29 = -QuadPart;
             }
             else
             {
-              if ( v27 <= MEMORY[0x7FFE0014] )
+              if ( QuadPart <= MEMORY[0x7FFE0014] )
               {
                 LODWORD(v28) = 0;
                 goto LABEL_52;
               }
-              v29 = v27 - MEMORY[0x7FFE0014];
+              v29 = QuadPart - MEMORY[0x7FFE0014];
             }
             v28 = v29 >> 16;
             v30 = 300;
             if ( v28 > 0x12C )
             {
 LABEL_53:
-              TppSetTimer((_DWORD)v6, (_DWORD)v18 + 112, (_DWORD)v33, 0, v30);
+              TppSetTimer(ApcContext, &v18->TimerQueue, v33, 0LL, v30);
               v7 = 2;
               goto LABEL_24;
             }
@@ -209,23 +210,23 @@ LABEL_24:
       }
       if ( v25 != 259 && v25 != -1073741536 )
         TppRaiseInvalidParameter(v26);
-      p_Blink = &v6[5].InLoadOrderModuleList.Blink;
+      p_WaitFlags = &ApcContext->WaitFlags;
       v13 = 0;
-      v31 = (char)v6[5].InLoadOrderModuleList.Blink;
-      if ( (v31 & 4) == 0 )
+      AllFlags = ApcContext->WaitFlags.AllFlags;
+      if ( (AllFlags & 4) == 0 )
       {
-        *p_Blink = v31 | 4;
-        TppBarrierAdjust((volatile signed __int64 *)&v6->InInitializationOrderModuleList.Blink, 1, 0);
+        p_WaitFlags->AllFlags = AllFlags | 4;
+        TppBarrierAdjust((_RTL_SRWLOCK *)&ApcContext->Timer.Work.CleanupGroupMember.CallbackBarrier, 1, 0);
       }
     }
     else
     {
       v13 = 1;
-      p_Blink = &v6[5].InLoadOrderModuleList.Blink;
+      p_WaitFlags = &ApcContext->WaitFlags;
     }
     v15 = 0;
     goto LABEL_17;
   }
-  TppRaiseInvalidParameter(Ldr);
-  return 0LL;
+  TppRaiseInvalidParameter(Wait);
+  return 0;
 }

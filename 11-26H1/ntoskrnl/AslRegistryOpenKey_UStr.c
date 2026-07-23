@@ -1,9 +1,9 @@
 /*
- * XREFs of AslRegistryOpenKey_UStr @ 0x14088868C
+ * XREFs of AslRegistryOpenKey_UStr @ 0x14088EA88
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140886554 (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x14088C954 (SdbResolveDatabaseEx.c)
  * Callees:
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall AslRegistryOpenKey_UStr(HANDLE *a1, UNICODE_STRING *a2)

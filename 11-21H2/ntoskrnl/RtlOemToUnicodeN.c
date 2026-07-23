@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlOemToUnicodeN @ 0x1407F9C40
  * Callers:
- *     FsRtlNotifyUpdateBuffer @ 0x1406AC4B0 (FsRtlNotifyUpdateBuffer.c)
+ *     sub_1406AC4B0 @ 0x1406AC4B0 (sub_1406AC4B0.c)
  *     RtlOemStringToUnicodeString @ 0x1407F9B70 (RtlOemStringToUnicodeString.c)
  *     RtlOemStringToCountedUnicodeString @ 0x1409B56D0 (RtlOemStringToCountedUnicodeString.c)
  * Callees:
  *     RtlCustomCPToUnicodeN @ 0x14075A700 (RtlCustomCPToUnicodeN.c)
- *     RtlpGetCodePageData @ 0x14075A7E4 (RtlpGetCodePageData.c)
+ *     sub_14075A7E4 @ 0x14075A7E4 (sub_14075A7E4.c)
  */
 
 NTSTATUS __stdcall RtlOemToUnicodeN(
@@ -16,11 +16,11 @@ NTSTATUS __stdcall RtlOemToUnicodeN(
         PCCH OemString,
         ULONG BytesInOemString)
 {
-  struct _CPTABLEINFO *CodePageData; // rax
+  _CPTABLEINFO *v9; // rax
 
-  CodePageData = RtlpGetCodePageData();
+  v9 = sub_14075A7E4();
   return RtlCustomCPToUnicodeN(
-           CodePageData,
+           v9,
            UnicodeString,
            MaxBytesInUnicodeString,
            BytesInUnicodeString,

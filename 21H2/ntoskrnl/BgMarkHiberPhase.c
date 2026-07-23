@@ -1,11 +1,11 @@
 /*
- * XREFs of BgMarkHiberPhase @ 0x1409F664C
+ * XREFs of BgMarkHiberPhase @ 0x1409F764C
  * Callers:
- *     BgkResumePrepare @ 0x1409961D8 (BgkResumePrepare.c)
+ *     BgkResumePrepare @ 0x1409971D8 (BgkResumePrepare.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
- *     BgpFwMarkHiberPhase @ 0x1409F70F4 (BgpFwMarkHiberPhase.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
+ *     BgpFwMarkHiberPhase @ 0x1409F80F4 (BgpFwMarkHiberPhase.c)
  */
 
 __int64 BgMarkHiberPhase()

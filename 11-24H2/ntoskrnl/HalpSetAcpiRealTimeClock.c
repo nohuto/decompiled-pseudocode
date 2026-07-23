@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpSetAcpiRealTimeClock @ 0x1406FC25C
+ * XREFs of HalpSetAcpiRealTimeClock @ 0x1406F9E9C
  * Callers:
- *     HalSetRealTimeClock @ 0x140425310 (HalSetRealTimeClock.c)
+ *     HalSetRealTimeClock @ 0x1404191C0 (HalSetRealTimeClock.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x1402678C0 (IoBuildDeviceIoControlRequest.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpGetDynamicDevicePointer @ 0x140A81570 (HalpGetDynamicDevicePointer.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14025EEA0 (IoBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpGetDynamicDevicePointer @ 0x140A7BFD0 (HalpGetDynamicDevicePointer.c)
  */
 
 __int64 __fastcall HalpSetAcpiRealTimeClock(PVOID InputBuffer)

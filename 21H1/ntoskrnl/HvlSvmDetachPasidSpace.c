@@ -16,7 +16,7 @@ __int64 __fastcall HvlSvmDetachPasidSpace(unsigned int a1)
   _QWORD v6[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v6[0] = a1;
-  v2 = HvcallFastExtended(65699LL, (__int64)v6, 8LL, 0LL, 0);
+  v2 = HvcallFastExtended(65699LL, (__int64)v6, 8u, 0, 0);
   v3 = HvlpHvToNtStatus(v2);
   if ( (HvlpFlags & 2) != 0 )
   {

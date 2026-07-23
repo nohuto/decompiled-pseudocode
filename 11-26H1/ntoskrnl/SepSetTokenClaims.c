@@ -1,43 +1,43 @@
 /*
- * XREFs of SepSetTokenClaims @ 0x140AEFE60
+ * XREFs of SepSetTokenClaims @ 0x140AF2A24
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     SepCompareClaimAttributes @ 0x140A28D7C (SepCompareClaimAttributes.c)
- *     SepCreateClaimAttributes @ 0x140AEFEE8 (SepCreateClaimAttributes.c)
- *     SepDeleteClaimAttributes @ 0x140B215F0 (SepDeleteClaimAttributes.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SepCompareClaimAttributes @ 0x140A3BE1C (SepCompareClaimAttributes.c)
+ *     SepCreateClaimAttributes @ 0x140AF2AAC (SepCreateClaimAttributes.c)
+ *     SepDeleteClaimAttributes @ 0x140B239F0 (SepDeleteClaimAttributes.c)
  */
 
-__int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, __int64 a5)
+__int64 __fastcall SepSetTokenClaims(__int64 a1)
 {
-  char v6; // r15
+  char v2; // r15
   __int64 result; // rax
-  struct _KLOCK_ENTRIES *v8; // r9
-  unsigned int v9; // r12d
-  PVOID v10; // rsi
+  struct _KLOCK_ENTRIES *v4; // r9
+  unsigned int v5; // r12d
+  PVOID v6; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v12; // r14
-  AutoBoost *v13; // rax
-  void *v14; // rdx
-  AutoBoost *v15; // rbp
-  __int64 v16; // rax
-  __int64 v17; // rbp
-  PVOID P; // [rsp+30h] [rbp-28h] BYREF
+  unsigned __int64 *v8; // r14
+  AutoBoost *v9; // rax
+  void *v10; // rdx
+  AutoBoost *v11; // rbp
+  __int64 v12; // rax
+  __int64 v13; // rbp
+  PVOID P[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  P = 0LL;
-  v6 = 0;
-  result = SepCreateClaimAttributes((unsigned int)&P, a2, a3, a4, a5);
-  v9 = result;
+  P[0] = 0LL;
+  v2 = 0;
+  result = SepCreateClaimAttributes(P);
+  v5 = result;
   if ( (int)result >= 0 )
   {
-    v10 = P;
-    if ( !P )
+    v6 = P[0];
+    if ( !P[0] )
     {
       *(_QWORD *)(a1 + 1096) = 0LL;
       return result;
@@ -46,44 +46,44 @@ __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, __int64
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v12 = (unsigned __int64 *)(*(_QWORD *)(a1 + 216) + 112LL);
-      v13 = (AutoBoost *)KeAbPreAcquire((__int64)v12, 0LL, 0LL, v8);
-      v15 = v13;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v12, v13, (__int64)v12);
-      if ( v15 )
+      v8 = (unsigned __int64 *)(*(_QWORD *)(a1 + 216) + 112LL);
+      v9 = (AutoBoost *)KeAbPreAcquire((__int64)v8, 0LL, 0LL, v4);
+      v11 = v9;
+      if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
+        ExfAcquirePushLockExclusiveEx(v8, v9, (__int64)v8);
+      if ( v11 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
-          AutoBoost::KiAbpPostAcquire(v15, v14);
+          AutoBoost::KiAbpPostAcquire(v11, v10);
         else
-          *((_BYTE *)v15 + 10) = 1;
+          *((_BYTE *)v11 + 10) = 1;
       }
-      v16 = *(_QWORD *)(a1 + 216);
-      if ( !*(_QWORD *)(v16 + 120) )
+      v12 = *(_QWORD *)(a1 + 216);
+      if ( !*(_QWORD *)(v12 + 120) )
       {
-        *(_QWORD *)(v16 + 120) = v10;
-        v6 = 1;
+        *(_QWORD *)(v12 + 120) = v6;
+        v2 = 1;
       }
-      v17 = *(_QWORD *)(a1 + 216);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v17 + 112), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(v17 + 112));
-      KeAbPostRelease(v17 + 112);
+      v13 = *(_QWORD *)(a1 + 216);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v13 + 112), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)(v13 + 112));
+      KeAbPostRelease(v13 + 112);
       KeLeaveCriticalRegion();
-      if ( v6 )
+      if ( v2 )
         goto LABEL_19;
     }
-    if ( SepCompareClaimAttributes((__int64)v10, *(_QWORD *)(*(_QWORD *)(a1 + 216) + 120LL)) )
+    if ( SepCompareClaimAttributes((__int64)v6, *(_QWORD *)(*(_QWORD *)(a1 + 216) + 120LL)) )
     {
 LABEL_19:
       *(_QWORD *)(a1 + 1096) = *(_QWORD *)(*(_QWORD *)(a1 + 216) + 120LL);
-      if ( !v6 )
-        SepDeleteClaimAttributes(v10);
+      if ( !v2 )
+        SepDeleteClaimAttributes(v6);
     }
     else
     {
       *(_DWORD *)(a1 + 200) |= 0x8000u;
-      *(_QWORD *)(a1 + 1096) = v10;
+      *(_QWORD *)(a1 + 1096) = v6;
     }
   }
-  return v9;
+  return v5;
 }

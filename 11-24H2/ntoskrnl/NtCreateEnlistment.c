@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateEnlistment @ 0x1404FBF30
+ * XREFs of NtCreateEnlistment @ 0x1404F97F0
  * Callers:
  *     <none>
  * Callees:

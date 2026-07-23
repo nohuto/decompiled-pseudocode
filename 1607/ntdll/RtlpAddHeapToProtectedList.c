@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpAddHeapToProtectedList @ 0x18002C8C8
+ * XREFs of RtlpAddHeapToProtectedList @ 0x18002C8B8
  * Callers:
- *     RtlpMoveHeapBetweenLists @ 0x18002D954 (RtlpMoveHeapBetweenLists.c)
+ *     RtlpMoveHeapBetweenLists @ 0x18002D944 (RtlpMoveHeapBetweenLists.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpAddHeapToProtectedList(__int64 a1)
   _QWORD *v4; // r14
   __int64 result; // rax
   struct _PEB *v6; // rcx
-  unsigned __int64 v7; // r8
+  SIZE_T v7; // r8
   _QWORD *Heap; // rax
 
   v1 = (_WORD *)(a1 + 36);
@@ -35,7 +35,7 @@ LABEL_5:
   v6 = NtCurrentPeb();
   v7 = 8LL * (unsigned __int16)(2 * RtlpMaxNumberOfProtectedHeaps);
   RtlpMaxNumberOfProtectedHeaps *= 2;
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)v6->ProcessHeap, 0, v7);
+  Heap = RtlAllocateHeap(v6->ProcessHeap, 0, v7);
   v4 = Heap;
   if ( Heap )
   {
@@ -43,7 +43,7 @@ LABEL_5:
     memmove(Heap, RtlpProtectedHeapsList, 8LL * (unsigned __int16)RtlpNumberOfProtectedHeaps);
     if ( RtlpProtectedHeapsList != &RtlpProtectedHeapsListBuffer )
     {
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, RtlpProtectedHeapsList);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, RtlpProtectedHeapsList);
       v3 = RtlpNumberOfProtectedHeaps;
     }
     RtlpProtectedHeapsList = v4;

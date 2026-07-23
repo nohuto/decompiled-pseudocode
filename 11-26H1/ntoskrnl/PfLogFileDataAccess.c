@@ -1,11 +1,11 @@
 /*
- * XREFs of PfLogFileDataAccess @ 0x1403817A0
+ * XREFs of PfLogFileDataAccess @ 0x140383550
  * Callers:
- *     MiLogRelocationRva @ 0x1409CC718 (MiLogRelocationRva.c)
+ *     MiLogRelocationRva @ 0x14099D6F8 (MiLogRelocationRva.c)
  * Callees:
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     PfLogEvent @ 0x1403829A0 (PfLogEvent.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     PfLogEvent @ 0x140384750 (PfLogEvent.c)
  */
 
 __int64 __fastcall PfLogFileDataAccess(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -63,13 +63,13 @@ __int64 __fastcall PfLogFileDataAccess(__int64 a1, __int64 a2, __int64 a3, __int
       *(_QWORD *)&v22 = v16 & 0x7FFFFFFFFFFFFFFFLL | ((__int64)a5 << 63);
       *(_QWORD *)&v21[2] = v15 >> 12;
       *((_QWORD *)&v22 + 1) = (v5[63] ^ v19) & 0x1FFFFFFFFFFFFFFFLL;
-      v23 = __PAIR64__(v19, stru_140F12D20.Padding[2]);
+      v23 = __PAIR64__(v19, xmmword_140F13528);
       *(_QWORD *)v21 = a1;
       LODWORD(Size) = 40;
       v12 = PfLogEvent(
               v17,
               10,
-              HIDWORD(stru_140E66B30.WriteOperationCount)
+              HIDWORD(stru_140E66D40.WriteOperationCount)
             + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                             + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
               (int)v21,

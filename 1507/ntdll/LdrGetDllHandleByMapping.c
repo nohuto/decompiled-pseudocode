@@ -10,34 +10,34 @@
  *     LdrpFatalExceptionFilter @ 0x1800C0E8C (LdrpFatalExceptionFilter.c)
  */
 
-__int64 __fastcall LdrGetDllHandleByMapping(unsigned __int64 a1, _QWORD *a2)
+NTSTATUS __cdecl LdrGetDllHandleByMapping(PVOID BaseAddress, PVOID *DllHandle)
 {
-  int LoadedDllByMapping; // ebx
-  __int64 v5; // rdi
-  __int64 v7; // [rsp+28h] [rbp-10h] BYREF
-  int v8; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
+  NTSTATUS LoadedDllByMapping; // ebx
+  char *v5; // rdi
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+28h] [rbp-10h] BYREF
+  int v8; // [rsp+50h] [rbp+18h]
+  PVOID BaseAddressa; // [rsp+58h] [rbp+20h]
 
-  LoadedDllByMapping = RtlImageNtHeaderEx(1, a1, 0LL, &v7);
+  LoadedDllByMapping = RtlImageNtHeaderEx(1u, BaseAddress, 0LL, &OutHeaders);
   if ( LoadedDllByMapping >= 0 )
   {
-    LoadedDllByMapping = LdrpFindLoadedDllByMapping(a1, v7, &v9, &v8);
+    LoadedDllByMapping = LdrpFindLoadedDllByMapping(BaseAddress, OutHeaders);
     if ( LoadedDllByMapping >= 0 )
     {
       if ( v8 >= 7 )
       {
-        v5 = v9;
-        LoadedDllByMapping = LdrpIncrementModuleLoadCount(v9);
+        v5 = (char *)BaseAddressa;
+        LoadedDllByMapping = LdrpIncrementModuleLoadCount((__int64)BaseAddressa);
         if ( LoadedDllByMapping >= 0 )
-          *a2 = *(_QWORD *)(v5 + 48);
+          *DllHandle = (PVOID)*((_QWORD *)BaseAddressa + 6);
       }
       else
       {
         LoadedDllByMapping = -1073741515;
-        v5 = v9;
+        v5 = (char *)BaseAddressa;
       }
       LdrpDereferenceModule(v5);
     }
   }
-  return (unsigned int)LoadedDllByMapping;
+  return LoadedDllByMapping;
 }

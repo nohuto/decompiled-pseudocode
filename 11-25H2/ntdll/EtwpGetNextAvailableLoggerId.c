@@ -9,34 +9,33 @@
 
 __int64 __fastcall EtwpGetNextAvailableLoggerId(__int64 a1, unsigned int *a2)
 {
-  __int64 Heap; // rax
-  __int64 v5; // r9
-  __int64 v6; // r8
-  _QWORD *v7; // rcx
-  __int64 v8; // rax
-  unsigned int v9; // r8d
+  PVOID Heap; // rax
+  void *v5; // r8
+  _QWORD *v6; // rcx
+  __int64 v7; // rax
+  unsigned int v8; // r8d
   unsigned int i; // edx
 
   if ( !EtwpLoggerArray )
   {
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x400uLL);
-    v6 = Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x400uLL);
+    v5 = Heap;
     if ( !Heap )
       return 1450LL;
-    v7 = (_QWORD *)Heap;
-    v8 = 64LL;
+    v6 = Heap;
+    v7 = 64LL;
     do
     {
-      *v7 = 1LL;
-      v7 += 2;
-      --v8;
+      *v6 = 1LL;
+      v6 += 2;
+      --v7;
     }
-    while ( v8 );
-    if ( _InterlockedCompareExchange64(&EtwpLoggerArray, v6, 0LL) )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6, v5);
+    while ( v7 );
+    if ( _InterlockedCompareExchange64(&EtwpLoggerArray, (signed __int64)v5, 0LL) )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   }
-  v9 = (*(_DWORD *)(a1 + 64) & 0x20000) != 0 ? 64 : 8;
-  for ( i = (*(_DWORD *)(a1 + 64) & 0x20000) != 0 ? 8 : 0; i < v9; ++i )
+  v8 = (*(_DWORD *)(a1 + 64) & 0x20000) != 0 ? 64 : 8;
+  for ( i = (*(_DWORD *)(a1 + 64) & 0x20000) != 0 ? 8 : 0; i < v8; ++i )
   {
     _InterlockedIncrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * i + 8));
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(EtwpLoggerArray + 16LL * i), 3LL, 1LL) == 1 )

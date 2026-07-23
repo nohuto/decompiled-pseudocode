@@ -1,8 +1,8 @@
 /*
- * XREFs of ObpIsKernelHandle @ 0x14040E6A0
+ * XREFs of ObpIsKernelHandle @ 0x1404068A0
  * Callers:
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
  * Callees:
  *     <none>
  */

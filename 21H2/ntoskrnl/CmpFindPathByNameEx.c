@@ -1,30 +1,30 @@
 /*
  * XREFs of CmpFindPathByNameEx @ 0x1405CC874
  * Callers:
- *     CmpVEExecuteOpenLogic @ 0x140654F90 (CmpVEExecuteOpenLogic.c)
- *     CmpFindPathByName @ 0x14066FE28 (CmpFindPathByName.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C28 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x140649DB0 (CmpVEExecuteOpenLogic.c)
+ *     CmpFindPathByName @ 0x140666308 (CmpFindPathByName.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870D88 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1407AC8F8 (CmpFindSubKeyByNameWithStatus.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407ACAF8 (CmpFindSubKeyByNameWithStatus.c)
  */
 
-char __fastcall CmpFindPathByNameEx(__int64 a1, __m128i *a2, UNICODE_STRING *a3, int a4, unsigned int *a5, __int64 *a6)
+char __fastcall CmpFindPathByNameEx(__int64 a1, __m128i *a2, UNICODE_STRING *a3, int a4, unsigned int *a5, _QWORD *a6)
 {
   unsigned int *v6; // r13
   unsigned __int16 v7; // r14
-  __int64 *v11; // rcx
+  _QWORD *v11; // rcx
   __m128i v12; // xmm0
   unsigned __int16 v13; // bx
   __int16 v15; // si
-  __int64 v16; // r15
+  __int64 (__fastcall **v16)(PVOID, _QWORD, int *); // r15
   unsigned int v17; // ecx
   wchar_t *v18; // rdi
   __int64 v19; // rax
   __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 *v22; // rax
+  __int64 (__fastcall **v21)(PVOID, _QWORD, int *); // rcx
+  _QWORD *v22; // rax
   unsigned __int64 v23; // rax
   UNICODE_STRING v24; // [rsp+20h] [rbp-20h]
   _QWORD v25[2]; // [rsp+30h] [rbp-10h] BYREF
@@ -55,7 +55,7 @@ char __fastcall CmpFindPathByNameEx(__int64 a1, __m128i *a2, UNICODE_STRING *a3,
     v15 = v12.m128i_i16[1];
     if ( a1 )
     {
-      v16 = *(_QWORD *)(a1 + 32);
+      v16 = *(__int64 (__fastcall ***)(PVOID, _QWORD, int *))(a1 + 32);
       *v11 = v16;
       v17 = *(_DWORD *)(a1 + 40);
       v18 = (wchar_t *)v12.m128i_i64[1];
@@ -63,9 +63,9 @@ char __fastcall CmpFindPathByNameEx(__int64 a1, __m128i *a2, UNICODE_STRING *a3,
     }
     else
     {
-      v16 = CmpMasterHive;
+      v16 = (__int64 (__fastcall **)(PVOID, _QWORD, int *))CmpMasterHive;
       v18 = (wchar_t *)v12.m128i_i64[1];
-      v17 = *(_DWORD *)(*(_QWORD *)(CmpMasterHive + 64) + 36LL);
+      v17 = *(_DWORD *)(*((_QWORD *)CmpMasterHive + 8) + 36LL);
       do
       {
         if ( *v18 != 92 )
@@ -115,7 +115,7 @@ LABEL_20:
         *a3 = v24;
       if ( !v13 )
         break;
-      v19 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(v16 + 8))(v16, v17, &v26);
+      v19 = v16[1](v16, v17, &v26);
       v20 = v19;
       if ( !v19 )
         return 0;
@@ -132,18 +132,18 @@ LABEL_20:
       if ( (*(_BYTE *)(v19 + 2) & 2) != 0 )
       {
         v21 = v16;
-        v16 = *(_QWORD *)(v19 + 36);
+        v16 = *(__int64 (__fastcall ***)(PVOID, _QWORD, int *))(v19 + 36);
         LODWORD(a5) = *(_DWORD *)(v19 + 28);
-        (*(void (__fastcall **)(__int64, int *, __int64))(v21 + 16))(v21, &v26, 2LL);
-        if ( v16 != CmpMasterHive && v28 && (v28 & *(_DWORD *)(v16 + 4152)) == 0 )
+        ((__int64 (__fastcall **)(PVOID, int *, int *))v21)[2](v21, &v26, (int *)2);
+        if ( v16 != CmpMasterHive && v28 && (v28 & (_DWORD)v16[519]) == 0 )
           return 0;
-        v20 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(v16 + 8))(v16, (unsigned int)a5, &v26);
+        v20 = v16[1](v16, (unsigned int)a5, &v26);
         if ( !v20 )
           return 0;
       }
       LODWORD(a5) = 0;
       CmpFindSubKeyByNameWithStatus(v16, v20, v25, &a5);
-      (*(void (__fastcall **)(__int64, int *))(v16 + 16))(v16, &v26);
+      ((void (__fastcall *)(__int64 (__fastcall **)(PVOID, _QWORD, int *), int *))v16[2])(v16, &v26);
       v17 = (unsigned int)a5;
       if ( (_DWORD)a5 == -1 )
         return 0;

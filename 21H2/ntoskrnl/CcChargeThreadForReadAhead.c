@@ -1,9 +1,9 @@
 /*
- * XREFs of CcChargeThreadForReadAhead @ 0x1402F98E8
+ * XREFs of CcChargeThreadForReadAhead @ 0x140304638
  * Callers:
- *     CcScheduleReadAheadEx @ 0x1402F8E00 (CcScheduleReadAheadEx.c)
+ *     CcScheduleReadAheadEx @ 0x140303B50 (CcScheduleReadAheadEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall CcChargeThreadForReadAhead(__int64 a1, __int64 a2, __int64 a3, int a4, struct _KTHREAD *a5)

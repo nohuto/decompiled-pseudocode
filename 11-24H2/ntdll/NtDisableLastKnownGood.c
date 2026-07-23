@@ -1,16 +1,16 @@
 /*
- * XREFs of NtDisableLastKnownGood @ 0x1801638E0
+ * XREFs of NtDisableLastKnownGood @ 0x180161CA0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtDisableLastKnownGood()
+NTSTATUS NtDisableLastKnownGood(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 227LL;
+  result = 227;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

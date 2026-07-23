@@ -3,8 +3,8 @@
  * Callers:
  *     MiCapturePfnVm @ 0x140215CDC (MiCapturePfnVm.c)
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
- *     MiCombinePte @ 0x140653290 (MiCombinePte.c)
- *     MiCombineWorkingSet @ 0x140653418 (MiCombineWorkingSet.c)
+ *     MiCombinePte @ 0x1406537E0 (MiCombinePte.c)
+ *     MiCombineWorkingSet @ 0x140653968 (MiCombineWorkingSet.c)
  * Callees:
  *     MiIsStoreProcess @ 0x140216D94 (MiIsStoreProcess.c)
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetDefaultHardErrorPort @ 0x180165000
+ * XREFs of NtSetDefaultHardErrorPort @ 0x1801633C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetDefaultHardErrorPort()
+NTSTATUS __cdecl NtSetDefaultHardErrorPort(HANDLE DefaultHardErrorPort)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 412LL;
+  result = 412;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

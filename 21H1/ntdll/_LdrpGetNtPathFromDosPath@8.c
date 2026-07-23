@@ -10,36 +10,35 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall LdrpGetNtPathFromDosPath(int *a1, int a2)
+NTSTATUS __fastcall LdrpGetNtPathFromDosPath(_UNICODE_STRING *a1, int a2)
 {
-  int result; // eax
-  int v4; // eax
-  _DWORD v5[6]; // [esp+Ch] [ebp-54h] BYREF
-  _DWORD v6[2]; // [esp+24h] [ebp-3Ch] BYREF
-  _DWORD *v7; // [esp+2Ch] [ebp-34h] BYREF
-  _BYTE v8[44]; // [esp+30h] [ebp-30h] BYREF
+  NTSTATUS result; // eax
+  ULONG v4; // eax
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+Ch] [ebp-54h] BYREF
+  _UNICODE_STRING Destination; // [esp+24h] [ebp-3Ch] BYREF
+  int v7; // [esp+2Ch] [ebp-34h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [esp+30h] [ebp-30h] BYREF
 
-  result = RtlpDosPathNameToRelativeNtPathName(1, a1, (unsigned __int16 *)a2, (unsigned __int16 *)v6, &v7, 0, 0);
+  result = RtlpDosPathNameToRelativeNtPathName(1, a1, (unsigned __int16 *)a2, &Destination, (int)&v7, 0, 0);
   if ( result >= 0 )
   {
-    if ( v7 == v6 )
+    if ( (_UNICODE_STRING *)v7 == &Destination )
     {
       if ( a2 + 8 != *(_DWORD *)(a2 + 4) )
-        RtlDeleteBoundaryDescriptor(*(_DWORD *)(a2 + 4));
+        RtlDeleteBoundaryDescriptor(*(POBJECT_BOUNDARY_DESCRIPTOR *)(a2 + 4));
       *(_WORD *)(a2 + 8) = 0;
-      *(_DWORD *)a2 = v6[0];
-      *(_DWORD *)(a2 + 4) = v6[1];
+      *(_UNICODE_STRING *)a2 = Destination;
     }
-    v5[0] = 24;
-    v5[1] = 0;
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.RootDirectory = 0;
     v4 = 64;
     if ( !LdrpUseImpersonatedDeviceMap )
       v4 = 2112;
-    v5[3] = v4;
-    v5[2] = a2;
-    v5[4] = 0;
-    v5[5] = 0;
-    return ZwQueryAttributesFile(v5, v8);
+    ObjectAttributes.Attributes = v4;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)a2;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    return ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
   }
   return result;
 }

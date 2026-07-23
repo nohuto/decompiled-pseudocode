@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmRemoveDeviceFromContainerWorker @ 0x14081A760
+ * XREFs of _CmRemoveDeviceFromContainerWorker @ 0x14081AEA0
  * Callers:
- *     _CmRemoveDeviceFromContainer @ 0x14081A620 (_CmRemoveDeviceFromContainer.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14081AD60 (_CmRemoveDeviceFromContainer.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _CmDeleteDeviceContainer @ 0x1408195D4 (_CmDeleteDeviceContainer.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B95AC (_PnpObjectRaisePropertyChangeEvent.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegDeleteValue @ 0x14098FA7C (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140993F58 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _CmDeleteDeviceContainer @ 0x140819D14 (_CmDeleteDeviceContainer.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B6F54 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x14097AAB4 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14097EF98 (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
  */
 
 __int64 __fastcall CmRemoveDeviceFromContainerWorker(__int64 a1, __int64 a2, int a3, __int64 a4, _BYTE *a5)

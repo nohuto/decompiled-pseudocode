@@ -1,20 +1,20 @@
 /*
- * XREFs of PiCMGetDeviceIdList @ 0x1404DD06C
+ * XREFs of PiCMGetDeviceIdList @ 0x1404C0670
  * Callers:
- *     PiCMHandleIoctl @ 0x1404FC77C (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1404DF70C (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1400C38B0 (PiControlFreeUserModeCallersBuffer.c)
- *     Template_q @ 0x1401D0D4C (Template_q.c)
- *     Template_zzt @ 0x1401D0E5C (Template_zzt.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1400C1740 (PiControlFreeUserModeCallersBuffer.c)
+ *     Template_q @ 0x1401D0B78 (Template_q.c)
+ *     Template_zzt @ 0x1401D0C88 (Template_zzt.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1404DD2A0 (_CmGetMatchingFilteredDeviceList.c)
- *     PiCMConvertDeviceListFilters @ 0x1404DD39C (PiCMConvertDeviceListFilters.c)
- *     PiCMCaptureDeviceListInputData @ 0x1404DD43C (PiCMCaptureDeviceListInputData.c)
- *     PiCMReturnBufferResultData @ 0x1404FCC2C (PiCMReturnBufferResultData.c)
- *     _CmGetDeviceRelationsList @ 0x1406DB880 (_CmGetDeviceRelationsList.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x1404C08A4 (_CmGetMatchingFilteredDeviceList.c)
+ *     PiCMConvertDeviceListFilters @ 0x1404C09A0 (PiCMConvertDeviceListFilters.c)
+ *     PiCMCaptureDeviceListInputData @ 0x1404C0A40 (PiCMCaptureDeviceListInputData.c)
+ *     PiCMReturnBufferResultData @ 0x1404DFBBC (PiCMReturnBufferResultData.c)
+ *     _CmGetDeviceRelationsList @ 0x1406DB9B8 (_CmGetDeviceRelationsList.c)
  */
 
 __int64 __fastcall PiCMGetDeviceIdList(

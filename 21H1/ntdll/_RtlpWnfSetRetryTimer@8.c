@@ -6,15 +6,15 @@
  *     _TpSetTimerEx@16 @ 0x4B2B4620 (_TpSetTimerEx@16.c)
  */
 
-int __stdcall RtlpWnfSetRetryTimer(unsigned __int64 a1)
+NTSTATUS __stdcall RtlpWnfSetRetryTimer(unsigned __int64 a1)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   unsigned __int64 v2; // kr08_8
   int v3; // edx
   unsigned int v4; // ecx
   int v5; // eax
-  int v6; // edx
-  _DWORD v7[2]; // [esp+8h] [ebp-1Ch] BYREF
+  unsigned int v6; // edx
+  LARGE_INTEGER DueTime; // [esp+8h] [ebp-1Ch] BYREF
   unsigned int v8; // [esp+10h] [ebp-14h]
   unsigned int v9; // [esp+14h] [ebp-10h]
   unsigned int v10; // [esp+18h] [ebp-Ch]
@@ -55,9 +55,9 @@ int __stdcall RtlpWnfSetRetryTimer(unsigned __int64 a1)
     *(_DWORD *)(dword_4B3A664C + 56) = v3;
     v6 = -v3;
     *(_DWORD *)(v5 + 60) = v4;
-    v7[0] = v6;
-    v7[1] = (unsigned __int64)-__SPAIR64__(v4, v6) >> 32;
-    return TpSetTimerEx(*(_DWORD *)(v5 + 48), v7, 0, 50);
+    DueTime.LowPart = v6;
+    DueTime.HighPart = (unsigned __int64)-__SPAIR64__(v4, v6) >> 32;
+    return TpSetTimerEx(*(PTP_TIMER *)(v5 + 48), &DueTime, 0, 0x32u);
   }
   return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiControlGetDeviceStack @ 0x14083B8B4
+ * XREFs of PiControlGetDeviceStack @ 0x14083CB14
  * Callers:
- *     PiControlGetPropertyData @ 0x1405874A0 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x1405884A0 (PiControlGetPropertyData.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     IoGetAttachedDeviceReferenceWithTag @ 0x14000EAE8 (IoGetAttachedDeviceReferenceWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x1401366AC (IoGetLowerDeviceObjectWithTag.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x1401367AC (IoGetLowerDeviceObjectWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObQueryNameStringMode @ 0x140662110 (ObQueryNameStringMode.c)
  */
 
 __int64 __fastcall PiControlGetDeviceStack(__int64 a1, unsigned int a2, _WORD *a3, unsigned int *a4)

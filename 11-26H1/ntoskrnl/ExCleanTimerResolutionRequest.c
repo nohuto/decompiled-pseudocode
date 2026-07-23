@@ -1,14 +1,14 @@
 /*
- * XREFs of ExCleanTimerResolutionRequest @ 0x1404E2B78
+ * XREFs of ExCleanTimerResolutionRequest @ 0x1404DC1EC
  * Callers:
- *     PspExitProcess @ 0x140A43620 (PspExitProcess.c)
+ *     PspExitProcess @ 0x1409FE380 (PspExitProcess.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ZwSetTimerResolution @ 0x140726C50 (ZwSetTimerResolution.c)
- *     ExAcquireTimeRefreshLockExclusive @ 0x140A66A6C (ExAcquireTimeRefreshLockExclusive.c)
- *     ExReleaseTimeRefreshLockExclusive @ 0x140A66AE4 (ExReleaseTimeRefreshLockExclusive.c)
- *     PoDiagFreeUsermodeStack @ 0x140B37E8C (PoDiagFreeUsermodeStack.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ZwSetTimerResolution @ 0x14072B820 (ZwSetTimerResolution.c)
+ *     ExAcquireTimeRefreshLockExclusive @ 0x140A73A3C (ExAcquireTimeRefreshLockExclusive.c)
+ *     ExReleaseTimeRefreshLockExclusive @ 0x140A73AB4 (ExReleaseTimeRefreshLockExclusive.c)
+ *     PoDiagFreeUsermodeStack @ 0x140B3A09C (PoDiagFreeUsermodeStack.c)
  */
 
 __int64 ExCleanTimerResolutionRequest()
@@ -19,14 +19,14 @@ __int64 ExCleanTimerResolutionRequest()
   _KAFFINITY_EX *Affinity; // r8
   void *AutoBoostState2; // rdi
   __int64 result; // rax
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActualTime; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0;
+  ActualTime = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( (Process[1].DirectoryTableBase & 0x100000000000LL) != 0 )
-    ZwSetTimerResolution((unsigned int)KeMaximumIncrement, 0LL, &v6);
+    ZwSetTimerResolution(KeMaximumIncrement, 0, &ActualTime);
   ExAcquireTimeRefreshLockExclusive();
-  v1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExpSysDbgLock.WaitBlock[3].Thread);
+  v1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExpSysDbgLock.Timer.TimerListEntry.Blink);
   DeepFreezeStartTime = Process[3].DeepFreezeStartTime;
   if ( *(_KPROCESS **)(DeepFreezeStartTime + 8) != (_KPROCESS *)&Process[3].DeepFreezeStartTime
     || (Affinity = Process[3].Affinity, *(_KPROCESS **)&Affinity->Count != (_KPROCESS *)&Process[3].DeepFreezeStartTime) )
@@ -35,7 +35,7 @@ __int64 ExCleanTimerResolutionRequest()
   }
   *(_QWORD *)&Affinity->Count = DeepFreezeStartTime;
   *(_QWORD *)(DeepFreezeStartTime + 8) = Affinity;
-  KeReleaseSpinLock((PKSPIN_LOCK)&ExpSysDbgLock.WaitBlock[3].Thread, v1);
+  KeReleaseSpinLock((PKSPIN_LOCK)&ExpSysDbgLock.Timer.TimerListEntry.Blink, v1);
   AutoBoostState2 = Process[3].AutoBoostState2;
   Process[3].AutoBoostState2 = 0LL;
   result = ExReleaseTimeRefreshLockExclusive();

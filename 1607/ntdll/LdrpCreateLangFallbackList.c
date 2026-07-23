@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpCreateLangFallbackList @ 0x180014408
+ * XREFs of LdrpCreateLangFallbackList @ 0x1800143F8
  * Callers:
- *     RtlpFilterandReplaceConsoleLanguages @ 0x180013698 (RtlpFilterandReplaceConsoleLanguages.c)
- *     RtlSetThreadPreferredUILanguages @ 0x180013860 (RtlSetThreadPreferredUILanguages.c)
- *     RtlGetThreadPreferredUILanguages @ 0x180013DA0 (RtlGetThreadPreferredUILanguages.c)
- *     LdrpMergeLangFallbackLists @ 0x180041058 (LdrpMergeLangFallbackLists.c)
- *     RtlGetUserPreferredUILanguages @ 0x180079C00 (RtlGetUserPreferredUILanguages.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007B0E0 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlpFilterandReplaceConsoleLanguages @ 0x180013688 (RtlpFilterandReplaceConsoleLanguages.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180013850 (RtlSetThreadPreferredUILanguages.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180013D90 (RtlGetThreadPreferredUILanguages.c)
+ *     LdrpMergeLangFallbackLists @ 0x180041048 (LdrpMergeLangFallbackLists.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180079BF0 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18007B0D0 (RtlGetSystemPreferredUILanguages.c)
  * Callees:
- *     _SafeAllocBlob @ 0x1800144BC (_SafeAllocBlob.c)
+ *     _SafeAllocBlob @ 0x1800144AC (_SafeAllocBlob.c)
  */
 
 __int64 __fastcall LdrpCreateLangFallbackList(__int64 *a1, __int64 a2, int a3, char a4)

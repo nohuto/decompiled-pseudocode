@@ -1,5 +1,5 @@
 /*
- * XREFs of PoFxRegisterPluginEx @ 0x1402022AC
+ * XREFs of PoFxRegisterPluginEx @ 0x1402020D8
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSessionDisplayStateChange @ 0x1404EAF3C
+ * XREFs of PopDiagTraceSessionDisplayStateChange @ 0x1404E4520
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSessionDisplayStateChange(char a1, int a2, int a3, int a4)
@@ -29,9 +29,9 @@ char __fastcall PopDiagTraceSessionDisplayStateChange(char a1, int a2, int a3, i
   v5 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_SESSION_DISPLAY_OFF;
   if ( !a1 )
     v5 = &POP_ETW_EVENT_SESSION_DISPLAY_ON;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v4) = EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v5);
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, v5);
     if ( (_BYTE)v4 )
     {
       UserData.Ptr = (ULONGLONG)&v12;
@@ -40,15 +40,7 @@ char __fastcall PopDiagTraceSessionDisplayStateChange(char a1, int a2, int a3, i
       v9 = 4LL;
       v10 = &v14;
       v11 = 4LL;
-      LOBYTE(v4) = EtwWriteEx(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     v5,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     3u,
-                     &UserData);
+      LOBYTE(v4) = EtwWriteEx(PopDiagHandle, v5, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
   return (char)v4;

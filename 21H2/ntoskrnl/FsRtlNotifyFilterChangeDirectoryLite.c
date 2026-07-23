@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlNotifyFilterChangeDirectoryLite @ 0x140690FF0
+ * XREFs of FsRtlNotifyFilterChangeDirectoryLite @ 0x1405F0E60
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     FsRtlNotifySetCancelRoutine @ 0x1402AA638 (FsRtlNotifySetCancelRoutine.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     FsRtlNotifyCompleteIrp @ 0x140690DE4 (FsRtlNotifyCompleteIrp.c)
- *     FsRtlIsNotifyOnList @ 0x140691314 (FsRtlIsNotifyOnList.c)
- *     FsRtlNotifyInitializeSync @ 0x140691400 (FsRtlNotifyInitializeSync.c)
- *     FsRtlNotifyUninitializeSync @ 0x1406C0020 (FsRtlNotifyUninitializeSync.c)
- *     FsRtlCheckNotifyForDeleteLite @ 0x14088D494 (FsRtlCheckNotifyForDeleteLite.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x140228778 (FsRtlNotifySetCancelRoutine.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402AB110 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402AB2A0 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     FsRtlNotifyCompleteIrp @ 0x1405F0C54 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlIsNotifyOnList @ 0x1405F1184 (FsRtlIsNotifyOnList.c)
+ *     FsRtlNotifyInitializeSync @ 0x1405F1270 (FsRtlNotifyInitializeSync.c)
+ *     FsRtlNotifyUninitializeSync @ 0x14061EF30 (FsRtlNotifyUninitializeSync.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     FsRtlCheckNotifyForDeleteLite @ 0x14088D5F4 (FsRtlCheckNotifyForDeleteLite.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall FsRtlNotifyFilterChangeDirectoryLite(

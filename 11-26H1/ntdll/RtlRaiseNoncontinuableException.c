@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlRaiseNoncontinuableException @ 0x180127570
+ * XREFs of RtlRaiseNoncontinuableException @ 0x1801272E0
  * Callers:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
  * Callees:
- *     RtlpCaptureContext @ 0x180126CC0 (RtlpCaptureContext.c)
+ *     RtlpCaptureContext @ 0x180126A30 (RtlpCaptureContext.c)
  */
 
-__int64 __fastcall RtlRaiseNoncontinuableException(__int64 a1, __int64 a2)
+void __cdecl __noreturn RtlRaiseNoncontinuableException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord)
 {
-  char v2; // r8
-  __int64 v4; // [rsp+28h] [rbp-10h]
-  __int64 v5; // [rsp+30h] [rbp-8h]
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
-  char v7; // [rsp+40h] [rbp+8h] BYREF
+  BOOLEAN v2; // r8
+  EXCEPTION_RECORD *v3; // [rsp+28h] [rbp-10h]
+  struct _CONTEXT *v4; // [rsp+30h] [rbp-8h]
+  DWORD64 retaddr; // [rsp+38h] [rbp+0h]
+  char v6; // [rsp+40h] [rbp+8h] BYREF
 
-  RtlpCaptureContext(a2);
-  *(_QWORD *)(v5 + 152) = &v7;
-  *(_QWORD *)(v5 + 248) = retaddr;
-  if ( *(_QWORD *)(v4 + 16) == -1LL )
-    *(_QWORD *)(v4 + 16) = *(_QWORD *)(v5 + 248);
+  RtlpCaptureContext((__int64)ContextRecord);
+  v4->Rsp = (DWORD64)&v6;
+  v4->Rip = retaddr;
+  if ( v3->ExceptionAddress == (void *)-1LL )
+    v3->ExceptionAddress = (void *)v4->Rip;
   if ( !v2 || NtCurrentPeb()->BeingDebugged )
-    return ZwRaiseException(v4);
+    ZwRaiseException(v3, v4, v2);
   else
-    return RtlDispatchException(v4, v5);
+    RtlDispatchException(v3, v4);
 }

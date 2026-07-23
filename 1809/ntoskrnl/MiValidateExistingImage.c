@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateExistingImage @ 0x14064F184
+ * XREFs of MiValidateExistingImage @ 0x140650344
  * Callers:
- *     MiShareExistingControlArea @ 0x1405DEC94 (MiShareExistingControlArea.c)
+ *     MiShareExistingControlArea @ 0x1405DFC94 (MiShareExistingControlArea.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MiValidateSectionSigningPolicy @ 0x14064F440 (MiValidateSectionSigningPolicy.c)
- *     MiRelocateImageAgain @ 0x14064F5A0 (MiRelocateImageAgain.c)
- *     SeGetImageRequiredSigningLevel @ 0x1406BEA40 (SeGetImageRequiredSigningLevel.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MiValidateSectionSigningPolicy @ 0x140650600 (MiValidateSectionSigningPolicy.c)
+ *     MiRelocateImageAgain @ 0x140650760 (MiRelocateImageAgain.c)
+ *     SeGetImageRequiredSigningLevel @ 0x1406BFCE0 (SeGetImageRequiredSigningLevel.c)
  */
 
 __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
@@ -17,32 +17,31 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
   char v5; // r13
   __int64 result; // rax
   __int64 v7; // rdx
-  int v8; // r9d
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  int v11; // ecx
-  __int64 v12; // r14
-  int v13; // esi
-  __int64 v14; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  int v10; // ecx
+  __int64 v11; // r14
+  int v12; // esi
+  __int64 v13; // rcx
   unsigned int UserTime; // ebp
-  unsigned int v16; // ebp
+  unsigned int v15; // ebp
+  int v16; // eax
   int v17; // eax
-  int v18; // eax
-  unsigned __int8 v19; // r8
-  int v20; // eax
-  char v21; // [rsp+A0h] [rbp+8h] BYREF
-  BOOL v22; // [rsp+A8h] [rbp+10h]
-  __int64 v23; // [rsp+B0h] [rbp+18h]
+  unsigned __int8 v18; // r8
+  int v19; // eax
+  __int64 v20; // [rsp+A0h] [rbp+8h] BYREF
+  BOOL v21; // [rsp+A8h] [rbp+10h]
+  PVOID Object; // [rsp+B0h] [rbp+18h]
 
   v1 = (__int64 *)*((_QWORD *)a1 + 8);
   v2 = 0;
-  v23 = *((_QWORD *)a1 + 7);
+  Object = (PVOID)*((_QWORD *)a1 + 7);
   v4 = 0;
-  v22 = 0;
+  v21 = 0;
   v5 = 0;
   if ( (v1[7] & 0x800) != 0 && (*a1 & 0x20000) != 0 )
   {
-    dword_140438DF0 = 81;
+    dword_140439EB0 = 81;
     return 3221226547LL;
   }
   if ( (*a1 & 0x40) != 0 )
@@ -52,44 +51,42 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
   result = MiRelocateImageAgain(v1, v7);
   if ( (int)result >= 0 )
   {
-    v9 = *a1;
-    v10 = 6LL;
-    if ( (v9 & 0x100) != 0 )
+    v8 = *a1;
+    v9 = 6LL;
+    if ( (v8 & 0x100) != 0 )
     {
-      v11 = 4;
+      v10 = 4;
     }
-    else if ( (v9 & 0x20) != 0 )
+    else if ( (v8 & 0x20) != 0 )
     {
-      v11 = 1;
+      v10 = 1;
     }
-    else if ( (v9 & 0x10) != 0 )
+    else if ( (v8 & 0x10) != 0 )
     {
-      v11 = (*a1 & 0x1000) != 0 ? 8 : 2;
+      v10 = (*a1 & 0x1000) != 0 ? 8 : 2;
     }
     else
     {
-      v11 = 0;
+      v10 = 0;
     }
-    v12 = *v1;
-    v13 = v11 | 0x10;
-    if ( (v9 & 0x800) == 0 )
-      v13 = v11;
-    v14 = (unsigned int)v9;
-    if ( (v9 & 0x400) != 0 && (v9 & 0x10) == 0 )
+    v11 = *v1;
+    v12 = v10 | 0x10;
+    if ( (v8 & 0x800) == 0 )
+      v12 = v10;
+    v13 = (unsigned int)v8;
+    if ( (v8 & 0x400) != 0 && (v8 & 0x10) == 0 )
     {
       UserTime = KeGetCurrentThread()->ApcState.Process[2].UserTime;
-      LOBYTE(v10) = *((_BYTE *)a1 + 24);
-      LOBYTE(v8) = *(_BYTE *)(v12 + 15) >> 4;
-      result = SeGetImageRequiredSigningLevel(v23, v13, v10, v8, (__int64)&v21);
+      result = SeGetImageRequiredSigningLevel(Object, (__int64)&v20);
       if ( (int)result < 0 )
         return result;
-      v14 = *a1;
-      if ( (v14 & 0x800) == 0 )
+      v13 = *a1;
+      if ( (v13 & 0x800) == 0 )
       {
         if ( *((_BYTE *)a1 + 24) )
         {
-          v9 = 1LL;
-          v22 = (UserTime & 0x800000) != 0;
+          v8 = 1LL;
+          v21 = (UserTime & 0x800000) != 0;
         }
         if ( (UserTime & 0x1000000) != 0 )
         {
@@ -102,71 +99,71 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
             v4 = 6;
         }
       }
-      *((_BYTE *)a1 + 24) = v21;
+      *((_BYTE *)a1 + 24) = v20;
     }
-    if ( (v14 & 0x20000) != 0 )
+    if ( (v13 & 0x20000) != 0 )
     {
-      v13 |= 0x40000000u;
+      v12 |= 0x40000000u;
       if ( !*((_BYTE *)a1 + 24) )
         *((_BYTE *)a1 + 24) = 4;
     }
-    v16 = v13 | 0x20000000;
-    if ( (v14 & 0x100000) == 0 )
-      v16 = v13;
-    if ( (v14 & 0x400) != 0 )
+    v15 = v12 | 0x20000000;
+    if ( (v13 & 0x100000) == 0 )
+      v15 = v12;
+    if ( (v13 & 0x400) != 0 )
     {
-      if ( (v14 & 0x10) != 0 )
+      if ( (v13 & 0x10) != 0 )
         goto LABEL_44;
-      LOBYTE(v14) = *(_BYTE *)(v12 + 15);
-      LOBYTE(v9) = *((_BYTE *)a1 + 24);
-      if ( qword_14040DE00 )
+      LOBYTE(v13) = *(_BYTE *)(v11 + 15);
+      LOBYTE(v8) = *((_BYTE *)a1 + 24);
+      if ( qword_14040EE60 )
       {
-        LOBYTE(v10) = (unsigned __int8)v14 >> 4;
-        v17 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD))qword_14040DE00)(
-                v16,
+        LOBYTE(v9) = (unsigned __int8)v13 >> 4;
+        v16 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD))qword_14040EE60)(
+                v15,
+                v8,
                 v9,
-                v10,
-                ((unsigned __int8)v14 >> 1) & 7);
-        LOBYTE(v9) = *((_BYTE *)a1 + 24);
-        LOBYTE(v14) = *(_BYTE *)(v12 + 15);
-        if ( v17 )
+                ((unsigned __int8)v13 >> 1) & 7);
+        LOBYTE(v8) = *((_BYTE *)a1 + 24);
+        LOBYTE(v13) = *(_BYTE *)(v11 + 15);
+        if ( v16 )
           goto LABEL_44;
       }
-      if ( !qword_14040DDA0
-        || (LOBYTE(v14) = (unsigned __int8)v14 >> 4, v18 = qword_14040DDA0(v14, v9), v19 = *(_BYTE *)(v12 + 15), !v18)
-        || (v16 & 0x40000000) != 0 && (*((_DWORD *)v1 + 23) & 0x180000) != 0x100000
-        || (v19 & 0xF0) == 0 && *(char *)(*(_QWORD *)(v12 + 56) + 46LL) < 0 )
+      if ( !qword_14040EE00
+        || (LOBYTE(v13) = (unsigned __int8)v13 >> 4, v17 = qword_14040EE00(v13, v8), v18 = *(_BYTE *)(v11 + 15), !v17)
+        || (v15 & 0x40000000) != 0 && (*((_DWORD *)v1 + 23) & 0x180000) != 0x100000
+        || (v18 & 0xF0) == 0 && *(char *)(*(_QWORD *)(v11 + 56) + 46LL) < 0 )
       {
 LABEL_44:
-        v19 = *(_BYTE *)(v12 + 15);
+        v18 = *(_BYTE *)(v11 + 15);
         v5 = 1;
       }
       else
       {
         v5 = 0;
       }
-      if ( qword_14040DDA0 )
+      if ( qword_14040EE00 )
       {
-        LOBYTE(v9) = v4;
-        LOBYTE(v14) = v19 >> 4;
-        v20 = qword_14040DDA0(v14, v9);
+        LOBYTE(v8) = v4;
+        LOBYTE(v13) = v18 >> 4;
+        v19 = qword_14040EE00(v13, v8);
       }
       else
       {
-        v20 = 0;
+        v19 = 0;
       }
-      v2 = v20 == 0;
+      v2 = v19 == 0;
     }
     return MiValidateSectionSigningPolicy(
              1,
-             v23,
+             (_DWORD)Object,
              (_DWORD)v1,
              a1[42],
              *((_QWORD *)a1 + 20),
-             v16,
+             v15,
              v5,
              v2,
-             v22,
+             v21,
              *((_BYTE *)a1 + 24),
              v4);
   }

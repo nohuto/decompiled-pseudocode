@@ -14,7 +14,7 @@
  *     TtmiLogSessionDisplayRequiredReference @ 0x140776D7C (TtmiLogSessionDisplayRequiredReference.c)
  */
 
-__int64 __fastcall TtmNotifySessionDisplayRequiredChange(unsigned int a1, char a2)
+__int64 __fastcall TtmNotifySessionDisplayRequiredChange(int a1, char a2)
 {
   unsigned int v3; // ebp
   char v4; // si
@@ -27,9 +27,11 @@ __int64 __fastcall TtmNotifySessionDisplayRequiredChange(unsigned int a1, char a
   int v11; // eax
   __int64 *i; // rax
   int v13; // eax
-  bool v16; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int ExplicitScope; // [rsp+70h] [rbp+8h] BYREF
+  bool Buffer; // [rsp+78h] [rbp+10h] BYREF
   __int64 v17; // [rsp+80h] [rbp+18h] BYREF
 
+  ExplicitScope = a1;
   v3 = 0;
   v4 = 0;
   v5 = TtmpAcquireSessionById(&v17, a1);
@@ -84,8 +86,8 @@ LABEL_16:
   v7 = 0;
   if ( v4 )
   {
-    v16 = *(_DWORD *)(v6 + 20) != 0;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_DISPLAY_REQUEST_ACTIVE, (__int64)&v16, 1LL);
+    Buffer = *(_DWORD *)(v6 + 20) != 0;
+    ZwUpdateWnfStateData(&WNF_PO_DISPLAY_REQUEST_ACTIVE, &Buffer, 1u, 0LL, &ExplicitScope, 0, 0);
   }
 LABEL_19:
   if ( v6 )
@@ -95,7 +97,7 @@ LABEL_19:
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   if ( a2 )
-    return TtmiLogSessionDisplayRequiredReference(a1, v3, v7);
+    return TtmiLogSessionDisplayRequiredReference(ExplicitScope, v3, v7);
   else
-    return TtmiLogSessionDisplayRequiredDereference(a1, v3, v7);
+    return TtmiLogSessionDisplayRequiredDereference(ExplicitScope, v3, v7);
 }

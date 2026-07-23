@@ -1,8 +1,8 @@
 /*
- * XREFs of DbgSetDebugPrintCallback @ 0x1402113B8
+ * XREFs of DbgSetDebugPrintCallback @ 0x1402111E4
  * Callers:
- *     EtwpEnableKernelTrace @ 0x140495E58 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1404960E4 (EtwpDisableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1404968E8 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x140496B74 (EtwpDisableKernelTrace.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMirrorBrownPhase @ 0x140C0D430
+ * XREFs of MiMirrorBrownPhase @ 0x140C13640
  * Callers:
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
  * Callees:
- *     PsGetNextPartition @ 0x1402580F8 (PsGetNextPartition.c)
- *     MiMirrorBrownPhasePartition @ 0x14044B2EC (MiMirrorBrownPhasePartition.c)
- *     PsQuitNextPartition @ 0x140616964 (PsQuitNextPartition.c)
+ *     PsGetNextPartition @ 0x1402598D8 (PsGetNextPartition.c)
+ *     MiMirrorBrownPhasePartition @ 0x14044341C (MiMirrorBrownPhasePartition.c)
+ *     PsQuitNextPartition @ 0x140619954 (PsQuitNextPartition.c)
  */
 
 __int64 __fastcall MiMirrorBrownPhase(__int64 a1)

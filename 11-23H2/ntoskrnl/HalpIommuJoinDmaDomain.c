@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuJoinDmaDomain @ 0x140518344
+ * XREFs of HalpIommuJoinDmaDomain @ 0x140518894
  * Callers:
- *     HalpIommuUnblockDevice @ 0x1405187A0 (HalpIommuUnblockDevice.c)
- *     IommuDomainAttachDevice @ 0x140525680 (IommuDomainAttachDevice.c)
- *     IommuDomainAttachDeviceEx @ 0x140525910 (IommuDomainAttachDeviceEx.c)
+ *     HalpIommuUnblockDevice @ 0x140518CF0 (HalpIommuUnblockDevice.c)
+ *     IommuDomainAttachDevice @ 0x140525BD0 (IommuDomainAttachDevice.c)
+ *     IommuDomainAttachDeviceEx @ 0x140525E60 (IommuDomainAttachDeviceEx.c)
  * Callees:
- *     HalpIommuGetHardwareDomain @ 0x1403A964C (HalpIommuGetHardwareDomain.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpIommuAttachDeviceDomain @ 0x1405152FC (HalpIommuAttachDeviceDomain.c)
- *     HalpIommuDereferenceHardwareDomain @ 0x140517AEC (HalpIommuDereferenceHardwareDomain.c)
- *     HalpIommuIsInPermanentPassthrough @ 0x140518320 (HalpIommuIsInPermanentPassthrough.c)
+ *     HalpIommuGetHardwareDomain @ 0x1403A982C (HalpIommuGetHardwareDomain.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpIommuAttachDeviceDomain @ 0x14051584C (HalpIommuAttachDeviceDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x14051803C (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuIsInPermanentPassthrough @ 0x140518870 (HalpIommuIsInPermanentPassthrough.c)
  */
 
 __int64 __fastcall HalpIommuJoinDmaDomain(__int64 a1, __int64 a2, _BYTE *a3)

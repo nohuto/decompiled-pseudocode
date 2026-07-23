@@ -12,9 +12,9 @@
  *     SbUpdateSwitchContextBasedOnDll @ 0x18003DE04 (SbUpdateSwitchContextBasedOnDll.c)
  *     CompatCachepLookupCdb @ 0x1800745B4 (CompatCachepLookupCdb.c)
  *     AVrfDllLoadNotification @ 0x180084CFC (AVrfDllLoadNotification.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
  */
 
 __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
@@ -24,29 +24,28 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
   _BOOL8 v3; // rsi
   unsigned int NtGlobalFlag; // ebp
   __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r14
+  __int64 v6; // r14
   int Notification; // r12d
-  int v9; // ebp
-  __int64 v10; // rbx
-  _WORD *v11; // rsi
-  __int64 v12; // rcx
-  __int64 v14; // rcx
-  __int64 v15; // r15
+  int v8; // ebp
+  __int64 v9; // rbx
+  _WORD *v10; // rsi
+  __int64 v11; // rcx
+  __int64 v13; // rcx
+  __int64 v14; // r15
   char *Heap; // rbp
-  char v17; // al
-  __int64 v18; // r13
+  char v16; // al
+  __int64 v17; // r13
+  __int64 v18; // r8
   __int64 v19; // r8
-  __int64 v20; // r8
-  int v22; // [rsp+78h] [rbp+10h]
-  _BOOL8 v23; // [rsp+80h] [rbp+18h]
+  int v21; // [rsp+78h] [rbp+10h]
+  _BOOL8 v22; // [rsp+80h] [rbp+18h]
 
   v1 = a1;
   v2 = 0LL;
   v3 = g_pShimmedModuleList != 0LL;
-  v23 = v3;
+  v22 = v3;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
   {
     v5 = MEMORY[0x7FFE0330];
@@ -54,69 +53,69 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
                                                                g_pfnSE_DllLoaded,
                                                                64 - (MEMORY[0x7FFE0330] & 0x3Fu)));
   }
-  v7 = *(_QWORD *)(v1 + 8);
+  v6 = *(_QWORD *)(v1 + 8);
   Notification = 0;
-  if ( v7 != v1 )
+  if ( v6 != v1 )
   {
-    v9 = NtGlobalFlag & 0x100;
-    v22 = v9;
+    v8 = NtGlobalFlag & 0x100;
+    v21 = v8;
     do
     {
-      v10 = v7 - 160;
-      if ( v9 )
+      v9 = v6 - 160;
+      if ( v8 )
       {
-        Notification = AVrfDllLoadNotification(v7 - 160);
+        Notification = AVrfDllLoadNotification(v6 - 160);
         if ( Notification < 0 )
           break;
       }
-      SbUpdateSwitchContextBasedOnDll(v7 - 160, v5, 0LL);
+      SbUpdateSwitchContextBasedOnDll(v6 - 160, v5, 0LL);
       if ( v2 && !g_ShimsLoading )
       {
-        v2(v7 - 160);
-        *(_BYTE *)(v10 + 105) |= 8u;
+        v2(v6 - 160);
+        *(_BYTE *)(v9 + 105) |= 8u;
       }
       if ( !v3 )
       {
-        v11 = *(_WORD **)(v10 + 80);
-        if ( (unsigned int)CompatCachepLookupCdb(v11) )
+        v10 = *(_WORD **)(v9 + 80);
+        if ( (unsigned int)CompatCachepLookupCdb(v10) )
         {
-          v14 = -1LL;
+          v13 = -1LL;
           do
-            ++v14;
-          while ( v11[v14] );
+            ++v13;
+          while ( v10[v13] );
           if ( g_pShimmedModuleList )
-            v15 = v14 + g_pShimmedModuleListLength + 1;
+            v14 = v13 + g_pShimmedModuleListLength + 1;
           else
-            v15 = v14 + 2;
-          Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 2 * v15);
+            v14 = v13 + 2;
+          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
           if ( Heap )
           {
             if ( g_pShimmedModuleList )
             {
-              v18 = 2 * g_pShimmedModuleListLength;
+              v17 = 2 * g_pShimmedModuleListLength;
               memmove(Heap, g_pShimmedModuleList, 2 * g_pShimmedModuleListLength);
-              v19 = -1LL;
+              v18 = -1LL;
               do
-                ++v19;
-              while ( v11[v19] );
-              memmove(&Heap[v18 + 2], v11, 2 * v19);
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)g_pShimmedModuleList);
+                ++v18;
+              while ( v10[v18] );
+              memmove(&Heap[v17 + 2], v10, 2 * v18);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
               v1 = a1;
             }
             else
             {
-              v20 = -1LL;
+              v19 = -1LL;
               do
-                ++v20;
-              while ( v11[v20] );
-              memmove(Heap, v11, 2 * v20);
+                ++v19;
+              while ( v10[v19] );
+              memmove(Heap, v10, 2 * v19);
             }
             g_pShimmedModuleList = Heap;
-            g_pShimmedModuleListLength = v15;
+            g_pShimmedModuleListLength = v14;
           }
           else
           {
-            v17 = LdrpDebugFlags;
+            v16 = LdrpDebugFlags;
             if ( (LdrpDebugFlags & 3) != 0 )
             {
               LdrpLogDbgPrint(
@@ -125,23 +124,23 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
                 (unsigned int)"LdrpCheckModule",
                 0,
                 (__int64)"Failed to allocated memory for shimmed module list\n");
-              v17 = LdrpDebugFlags;
+              v16 = LdrpDebugFlags;
             }
-            if ( (v17 & 0x10) != 0 )
+            if ( (v16 & 0x10) != 0 )
               __debugbreak();
           }
-          v9 = v22;
+          v8 = v21;
         }
-        v3 = v23;
+        v3 = v22;
       }
-      LdrpSendDllNotifications(v7 - 160, 1LL);
-      v12 = *(_QWORD *)(v10 + 48);
-      *(_DWORD *)(v10 + 104) |= 8u;
-      LdrpLogDllState(v12, v10 + 72, 0x14ADu);
-      v7 = *(_QWORD *)(v7 + 8);
+      LdrpSendDllNotifications(v6 - 160, 1LL);
+      v11 = *(_QWORD *)(v9 + 48);
+      *(_DWORD *)(v9 + 104) |= 8u;
+      LdrpLogDllState(v11, v9 + 72, 0x14ADu);
+      v6 = *(_QWORD *)(v6 + 8);
     }
-    while ( v7 != v1 );
+    while ( v6 != v1 );
   }
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock, v5, v6);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   return (unsigned int)Notification;
 }

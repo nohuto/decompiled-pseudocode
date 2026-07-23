@@ -18,119 +18,139 @@
  *     LdrVerifyMappedImageMatchesChecksum @ 0x1801014F0 (LdrVerifyMappedImageMatchesChecksum.c)
  */
 
-__int64 __fastcall LdrVerifyImageMatchesChecksumEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl LdrVerifyImageMatchesChecksumEx(HANDLE ImageFileHandle, PLDR_VERIFY_IMAGE_INFO VerifyInfo)
 {
-  _BYTE *v4; // r15
-  _DWORD *v5; // rsi
-  int v6; // eax
-  __int64 result; // rax
-  int InformationFile; // edi
+  ULONG *p_Flags; // r15
+  LDR_SECTION_INFO *p_SectionInfo; // rsi
+  ULONG AllocationAttributes; // eax
+  NTSTATUS result; // eax
+  int v8; // edi
   int v9; // r13d
-  int v10; // eax
+  NTSTATUS v10; // eax
   __int64 v11; // r15
-  __int64 v12; // r8
-  __int64 v13; // rax
+  ULONG v12; // r8d
+  char *v13; // rax
   char v14; // [rsp+50h] [rbp-B8h]
-  unsigned __int64 v15; // [rsp+58h] [rbp-B0h] BYREF
-  HANDLE Handle; // [rsp+60h] [rbp-A8h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-B0h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-A8h] BYREF
   __int64 v17; // [rsp+68h] [rbp-A0h] BYREF
   int v18; // [rsp+70h] [rbp-98h] BYREF
-  _DWORD *v19; // [rsp+78h] [rbp-90h]
-  unsigned __int64 v20; // [rsp+80h] [rbp-88h] BYREF
-  __int64 v21; // [rsp+88h] [rbp-80h] BYREF
-  _QWORD v22[3]; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v23; // [rsp+A8h] [rbp-60h]
-  char *v24; // [rsp+B0h] [rbp-58h]
-  _BYTE v25[8]; // [rsp+B8h] [rbp-50h] BYREF
-  unsigned int v26; // [rsp+C0h] [rbp-48h]
+  LDR_SECTION_INFO *v19; // [rsp+78h] [rbp-90h]
+  ULONG_PTR ViewSize; // [rsp+80h] [rbp-88h] BYREF
+  PIMAGE_SECTION_HEADER LastRvaSection; // [rsp+88h] [rbp-80h] BYREF
+  _IO_STATUS_BLOCK OutHeaders; // [rsp+90h] [rbp-78h] BYREF
+  PLDR_VERIFY_IMAGE_INFO v23; // [rsp+A0h] [rbp-68h]
+  __int64 v24; // [rsp+A8h] [rbp-60h]
+  POBJECT_ATTRIBUTES *p_ObjA; // [rsp+B0h] [rbp-58h]
+  _BYTE FileInformation[8]; // [rsp+B8h] [rbp-50h] BYREF
+  ULONG FileLength; // [rsp+C0h] [rbp-48h]
 
-  v22[2] = a2;
-  if ( *(_DWORD *)a2 != 64 )
-    return 3221225712LL;
-  v4 = (_BYTE *)(a2 + 4);
-  v21 = a2 + 4;
-  if ( (*(_DWORD *)(a2 + 4) & 0xFFFFFFF8) != 0 )
-    return 3221225712LL;
-  v5 = (_DWORD *)(a2 + 24);
-  if ( (*v4 & 2) == 0 )
-    v5 = &unk_180138538;
-  v19 = v5;
-  v6 = v5[7];
-  LODWORD(v17) = v6 & 0x1000000;
-  v18 = v6 & 0x1000000;
-  v14 = (v6 & 0x1000000) != 0;
-  v22[0] = a1 & 1;
-  v24 = (char *)(v5 + 4);
-  result = NtCreateSection(&Handle, (unsigned int)v5[2], *((_QWORD *)v5 + 2), 0LL, v5[6], v6, a1);
-  if ( (int)result >= 0 )
+  v23 = VerifyInfo;
+  if ( VerifyInfo->Size != 64 )
+    return -1073741584;
+  p_Flags = &VerifyInfo->Flags;
+  LastRvaSection = (PIMAGE_SECTION_HEADER)&VerifyInfo->Flags;
+  if ( (VerifyInfo->Flags & 0xFFFFFFF8) != 0 )
+    return -1073741584;
+  p_SectionInfo = &VerifyInfo->SectionInfo;
+  if ( (*(_BYTE *)p_Flags & 2) == 0 )
+    p_SectionInfo = (LDR_SECTION_INFO *)&unk_180138538;
+  v19 = p_SectionInfo;
+  AllocationAttributes = p_SectionInfo->AllocationAttributes;
+  LODWORD(v17) = AllocationAttributes & 0x1000000;
+  v18 = AllocationAttributes & 0x1000000;
+  v14 = (AllocationAttributes & 0x1000000) != 0;
+  OutHeaders.Pointer = (void *)((unsigned __int8)ImageFileHandle & 1);
+  p_ObjA = &p_SectionInfo->ObjA;
+  result = NtCreateSection(
+             &SectionHandle,
+             p_SectionInfo->DesiredAccess,
+             p_SectionInfo->ObjA,
+             0LL,
+             p_SectionInfo->SectionPageProtection,
+             AllocationAttributes,
+             ImageFileHandle);
+  if ( result >= 0 )
   {
-    v15 = 0LL;
-    v20 = 0LL;
-    InformationFile = ZwMapViewOfSection(Handle, -1LL, &v15, 0LL, 0LL, 0LL, &v20, 1, 0, 16);
-    if ( InformationFile < 0 )
+    BaseAddress = 0LL;
+    ViewSize = 0LL;
+    v8 = ZwMapViewOfSection(
+           SectionHandle,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &BaseAddress,
+           0LL,
+           0LL,
+           0LL,
+           &ViewSize,
+           ViewShare,
+           0,
+           0x10u);
+    if ( v8 < 0 )
       goto LABEL_30;
-    if ( LOBYTE(v22[0]) )
+    if ( LOBYTE(OutHeaders.Status) )
     {
       v9 = v17;
     }
     else
     {
-      InformationFile = NtQueryInformationFile(a1, v22, v25, 24LL, 5);
-      if ( InformationFile < 0 )
+      v8 = NtQueryInformationFile(ImageFileHandle, &OutHeaders, FileInformation, 0x18u, FileStandardInformation);
+      if ( v8 < 0 )
         goto LABEL_29;
-      if ( !(unsigned __int8)LdrVerifyMappedImageMatchesChecksum(v15, v20, v26) )
-        InformationFile = -1073741279;
+      if ( !LdrVerifyMappedImageMatchesChecksum(BaseAddress, ViewSize, FileLength) )
+        v8 = -1073741279;
       v9 = v17;
-      if ( InformationFile < 0 )
+      if ( v8 < 0 )
         goto LABEL_29;
     }
-    if ( (*v4 & 5) != 0 )
+    if ( (*(_BYTE *)p_Flags & 5) != 0 )
     {
-      InformationFile = RtlImageNtHeaderEx(0, v15, v20, v22);
-      if ( InformationFile >= 0 )
+      v8 = RtlImageNtHeaderEx(0, BaseAddress, ViewSize, (PIMAGE_NT_HEADERS *)&OutHeaders);
+      if ( v8 >= 0 )
       {
-        if ( (*v4 & 4) != 0 )
-          *(_WORD *)(a2 + 56) = *(_WORD *)(v22[0] + 22LL);
-        if ( (*v4 & 1) != 0 && *(_QWORD *)(a2 + 8) )
+        if ( (*(_BYTE *)p_Flags & 4) != 0 )
+          VerifyInfo->ImageCharacteristics = *((_WORD *)OutHeaders.Pointer + 11);
+        if ( (*(_BYTE *)p_Flags & 1) != 0 && VerifyInfo->CallbackInfo.ImportCallbackRoutine )
         {
-          v10 = RtlpImageDirectoryEntryToDataEx(v15, v14, 1u, &v18, &v17);
+          v10 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, v14, 1u, (unsigned int *)&v18, &v17);
           v11 = v17;
           if ( v10 < 0 )
             v11 = 0LL;
           v17 = v11;
-          v23 = v11;
+          v24 = v11;
           if ( v11 )
           {
-            v21 = 0LL;
+            LastRvaSection = 0LL;
             while ( *(_DWORD *)(v11 + 12) )
             {
-              v12 = *(unsigned int *)(v11 + 12);
+              v12 = *(_DWORD *)(v11 + 12);
               if ( v9 )
-                v13 = v15 + (unsigned int)v12;
+                v13 = (char *)BaseAddress + v12;
               else
-                v13 = RtlImageRvaToVa(v22[0], v15, v12, &v21);
-              (*(void (__fastcall **)(_QWORD, __int64))(a2 + 8))(*(_QWORD *)(a2 + 16), v13);
+                v13 = (char *)RtlImageRvaToVa((PIMAGE_NT_HEADERS)OutHeaders.Pointer, BaseAddress, v12, &LastRvaSection);
+              ((void (__fastcall *)(PVOID, char *))VerifyInfo->CallbackInfo.ImportCallbackRoutine)(
+                VerifyInfo->CallbackInfo.ImportCallbackParameter,
+                v13);
               v11 += 20LL;
-              v23 = v11;
+              v24 = v11;
             }
           }
         }
       }
     }
 LABEL_29:
-    NtUnmapViewOfSection(-1LL);
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
 LABEL_30:
-    if ( InformationFile < 0 || v5 == (_DWORD *)&unk_180138538 )
+    if ( v8 < 0 || p_SectionInfo == (LDR_SECTION_INFO *)&unk_180138538 )
     {
-      if ( *(_QWORD *)v24 && (*(_BYTE *)(*(_QWORD *)v24 + 24LL) & 0x10) != 0 )
-        NtMakeTemporaryObject(Handle);
-      NtClose(Handle);
+      if ( *p_ObjA && ((*p_ObjA)->Attributes & 0x10) != 0 )
+        NtMakeTemporaryObject(SectionHandle);
+      NtClose(SectionHandle);
     }
     else
     {
-      *(_QWORD *)v5 = Handle;
+      p_SectionInfo->SectionHandle = SectionHandle;
     }
-    return (unsigned int)InformationFile;
+    return v8;
   }
   return result;
 }

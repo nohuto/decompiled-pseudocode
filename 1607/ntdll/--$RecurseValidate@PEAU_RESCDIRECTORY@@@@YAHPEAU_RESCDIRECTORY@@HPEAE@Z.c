@@ -1,19 +1,19 @@
 /*
  * XREFs of ??$RecurseValidate@PEAU_RESCDIRECTORY@@@@YAHPEAU_RESCDIRECTORY@@HPEAE@Z @ 0x1800FFA6C
  * Callers:
- *     ??$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z @ 0x1800FFD14 (--$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z.c)
+ *     ??$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z @ 0x1800FFC4C (--$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     ResCCompareCacheIDs @ 0x18008A100 (ResCCompareCacheIDs.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     ResCCompareCacheIDs @ 0x18008A0F0 (ResCCompareCacheIDs.c)
  *     ??$InitStack@H@@YAHPEAPEAXI@Z @ 0x1800FF9D4 (--$InitStack@H@@YAHPEAPEAXI@Z.c)
- *     ??$StackPush@I@@YAHIPEAX@Z @ 0x1800FFC4C (--$StackPush@I@@YAHIPEAX@Z.c)
+ *     ??$StackPush@I@@YAHIPEAX@Z @ 0x180105B54 (--$StackPush@I@@YAHIPEAX@Z.c)
  */
 
 __int64 __fastcall RecurseValidate<_RESCDIRECTORY *>(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v6; // r12d
   int inited; // eax
-  unsigned __int64 v8; // rbx
+  _QWORD *v8; // rbx
   __int64 v9; // rcx
   __int64 v10; // rax
   __int64 v11; // rcx
@@ -23,21 +23,21 @@ __int64 __fastcall RecurseValidate<_RESCDIRECTORY *>(__int64 a1, unsigned int a2
   __int64 v15; // rdi
   __int64 v16; // rsi
   __int64 v17; // rax
-  unsigned __int64 v18; // r8
+  void *v18; // r8
   __int64 v20; // [rsp+0h] [rbp-58h] BYREF
-  unsigned __int64 v21; // [rsp+78h] [rbp+20h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp+20h] BYREF
 
-  v21 = 0LL;
+  BaseAddress = 0LL;
   v6 = 0;
-  inited = InitStack<int>(&v21);
-  v8 = v21;
-  if ( inited && (unsigned int)StackPush<unsigned int>(a2, v21) )
+  inited = InitStack<int>(&BaseAddress);
+  v8 = BaseAddress;
+  if ( inited && (unsigned int)StackPush<unsigned int>(a2, BaseAddress) )
   {
     while ( v8 )
     {
       if ( &v20 == (__int64 *)-104LL )
         break;
-      v9 = *(_QWORD *)(v8 + 8);
+      v9 = v8[1];
       if ( !v9 || !*(_DWORD *)v8 )
         break;
       v10 = (unsigned int)(*(_DWORD *)v8 - 1);
@@ -86,10 +86,10 @@ __int64 __fastcall RecurseValidate<_RESCDIRECTORY *>(__int64 a1, unsigned int a2
 LABEL_24:
   if ( v8 )
   {
-    v18 = *(_QWORD *)(v8 + 8);
+    v18 = (void *)v8[1];
     if ( v18 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v18);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v21);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return v6;
 }

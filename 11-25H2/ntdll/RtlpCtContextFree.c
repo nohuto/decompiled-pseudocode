@@ -10,21 +10,21 @@
  *     NtClose @ 0x180163400 (NtClose.c)
  */
 
-__int64 __fastcall RtlpCtContextFree(__int64 *a1, __int64 a2, __int64 a3)
+LOGICAL __fastcall RtlpCtContextFree(__int64 a1)
 {
-  __int64 v4; // rcx
-  void *v5; // rcx
+  __int64 v2; // rcx
+  void *v3; // rcx
 
-  v4 = a1[1];
-  if ( v4 )
-    RtlUnsubscribeWnfNotificationWaitForCompletion(v4);
-  v5 = (void *)a1[2];
-  if ( v5 )
+  v2 = *(_QWORD *)(a1 + 8);
+  if ( v2 )
+    RtlUnsubscribeWnfNotificationWaitForCompletion(v2);
+  v3 = *(void **)(a1 + 16);
+  if ( v3 )
   {
-    NtClose(v5);
-    a1[2] = 0LL;
+    NtClose(v3);
+    *(_QWORD *)(a1 + 16) = 0LL;
   }
-  if ( *a1 )
-    TpReleaseWork(*a1, a2, a3);
-  return RtlpSysVolFree((__int64)a1);
+  if ( *(_QWORD *)a1 )
+    TpReleaseWork(*(PTP_WORK *)a1);
+  return RtlpSysVolFree((void *)a1);
 }

@@ -15,7 +15,7 @@ PSLIST_ENTRY __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
   int v6; // r13d
   unsigned int v7; // ebp
   int i; // ebx
-  union _SLIST_HEADER *v9; // rcx
+  _SLIST_HEADER *v9; // rcx
   PSLIST_ENTRY v10; // rdi
   PSLIST_ENTRY result; // rax
 
@@ -30,7 +30,7 @@ PSLIST_ENTRY __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
 LABEL_5:
   for ( i = *v4; ; i = v4[1] )
   {
-    v9 = (union _SLIST_HEADER *)(16LL * v7 + *(_QWORD *)(a1 + 8LL * i + 4136));
+    v9 = (_SLIST_HEADER *)(16LL * v7 + *(_QWORD *)(a1 + 8LL * i + 4136));
     if ( LOWORD(v9->Alignment) )
     {
       v10 = RtlpInterlockedPopEntrySList(v9);

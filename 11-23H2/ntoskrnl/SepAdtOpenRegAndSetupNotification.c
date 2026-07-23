@@ -1,15 +1,15 @@
 /*
- * XREFs of SepAdtOpenRegAndSetupNotification @ 0x140841CF4
+ * XREFs of SepAdtOpenRegAndSetupNotification @ 0x140841FF4
  * Callers:
  *     SepAdtInitializeAuditingOptions @ 0x140B60D40 (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     NtNotifyChangeKey @ 0x1407677F0 (NtNotifyChangeKey.c)
- *     SepRegOpenKey @ 0x1407F5308 (SepRegOpenKey.c)
+ *     NtNotifyChangeKey @ 0x1407679E0 (NtNotifyChangeKey.c)
+ *     SepRegOpenKey @ 0x1407F55D8 (SepRegOpenKey.c)
  */
 
-NTSTATUS SepAdtOpenRegAndSetupNotification()
+int SepAdtOpenRegAndSetupNotification()
 {
-  NTSTATUS result; // eax
+  int result; // eax
 
   result = SepRegOpenKey(
              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa",
@@ -17,20 +17,20 @@ NTSTATUS SepAdtOpenRegAndSetupNotification()
              &SepAdtRegNotifyHandle);
   if ( result >= 0 )
   {
-    qword_140D16C88 = (__int64)SepAdtRegNotificationCallback;
-    qword_140D16C90 = 0LL;
-    SepAdtLsaRegWatchWorkItem = 0LL;
+    qword_140D16C98 = (__int64)SepAdtRegNotificationCallback;
+    qword_140D16CA0 = 0LL;
+    SepAdtLsaRegWatchWorkItem[0] = 0LL;
     return NtNotifyChangeKey(
              SepAdtRegNotifyHandle,
              0LL,
-             (void (__stdcall *)(POPLOCK))&SepAdtLsaRegWatchWorkItem,
-             1LL,
-             SepAdtIoStatusBlock,
+             (PIO_APC_ROUTINE)SepAdtLsaRegWatchWorkItem,
+             (PVOID)1,
+             &SepAdtIoStatusBlock,
              5u,
              0,
              0LL,
              0,
-             1);
+             1u);
   }
   return result;
 }

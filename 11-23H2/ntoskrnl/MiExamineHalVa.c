@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 MiExamineHalVa()

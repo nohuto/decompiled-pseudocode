@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeFoundLargeNodePage @ 0x1404F869C
+ * XREFs of MiInitializeFoundLargeNodePage @ 0x1404F5F7C
  * Callers:
- *     MiFindContiguousPagesEx @ 0x140304960 (MiFindContiguousPagesEx.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFindContiguousPagesEx @ 0x14030E840 (MiFindContiguousPagesEx.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiConvertActiveLargePageToSmall @ 0x14041F5E8 (MiConvertActiveLargePageToSmall.c)
- *     MiSetPfnOwnedAndActive @ 0x14045B630 (MiSetPfnOwnedAndActive.c)
+ *     MiConvertActiveLargePageToSmall @ 0x1402EDFDC (MiConvertActiveLargePageToSmall.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiSetPfnOwnedAndActive @ 0x140450A30 (MiSetPfnOwnedAndActive.c)
  */
 
-__int64 __fastcall MiInitializeFoundLargeNodePage(__int64 a1, int a2, char a3)
+__int64 __fastcall MiInitializeFoundLargeNodePage(__int64 a1, int a2, int a3)
 {
   unsigned __int64 v5; // rbx
   int PfnPageSizeIndex; // ebp
@@ -17,7 +17,7 @@ __int64 __fastcall MiInitializeFoundLargeNodePage(__int64 a1, int a2, char a3)
   unsigned int v8; // r14d
   __int64 v9; // rbp
   __int16 v10; // di
-  char v11; // si
+  unsigned int v11; // esi
   int v12; // [rsp+20h] [rbp-28h]
 
   v5 = a1;

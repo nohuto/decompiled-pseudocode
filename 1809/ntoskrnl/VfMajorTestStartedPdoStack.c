@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMajorTestStartedPdoStack @ 0x140935BB0
+ * XREFs of VfMajorTestStartedPdoStack @ 0x140936BB0
  * Callers:
- *     PpvUtilTestStartedPdoStack @ 0x14015A490 (PpvUtilTestStartedPdoStack.c)
+ *     PpvUtilTestStartedPdoStack @ 0x14015A590 (PpvUtilTestStartedPdoStack.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IovUtilIsVerifiedDeviceStack @ 0x140935658 (IovUtilIsVerifiedDeviceStack.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IovUtilIsVerifiedDeviceStack @ 0x140936658 (IovUtilIsVerifiedDeviceStack.c)
  */
 
 __int64 (__fastcall *__fastcall VfMajorTestStartedPdoStack(__int64 a1))(_QWORD)
@@ -18,13 +18,13 @@ __int64 (__fastcall *__fastcall VfMajorTestStartedPdoStack(__int64 a1))(_QWORD)
   {
     for ( i = 0; i <= 0x1B; ++i )
     {
-      v4 = (void (__fastcall *)(__int64))*((_QWORD *)&unk_140987C10 + 12 * i);
+      v4 = (void (__fastcall *)(__int64))*((_QWORD *)&unk_140988C10 + 12 * i);
       if ( v4 )
         v4(a1);
     }
-    result = qword_140988690;
-    if ( qword_140988690 )
-      return (__int64 (__fastcall *)(_QWORD))qword_140988690(a1);
+    result = qword_140989690;
+    if ( qword_140989690 )
+      return (__int64 (__fastcall *)(_QWORD))qword_140989690(a1);
   }
   return result;
 }

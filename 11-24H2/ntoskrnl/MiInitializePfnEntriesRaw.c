@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializePfnEntriesRaw @ 0x14043D140
+ * XREFs of MiInitializePfnEntriesRaw @ 0x1404313E0
  * Callers:
- *     MiCreateInitialLargeLeafPfns @ 0x14043CFC8 (MiCreateInitialLargeLeafPfns.c)
+ *     MiCreateInitialLargeLeafPfns @ 0x140431268 (MiCreateInitialLargeLeafPfns.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInsertQueueInternal @ 0x1400FACEC
+ * XREFs of KiInsertQueueInternal @ 0x1400FAD6C
  * Callers:
- *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDCE0 (KiWakeOtherQueueWaiters.c)
  * Callees:
- *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14030FD8C (EtwTraceEnqueueWork.c)
+ *     KiWakeQueueWaiter @ 0x1400AC950 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDCE0 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KeIsThreadRunning @ 0x14028DF98 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x14030FF7C (EtwTraceEnqueueWork.c)
  */
 
 char __fastcall KiInsertQueueInternal(__int64 a1, __int64 *a2)

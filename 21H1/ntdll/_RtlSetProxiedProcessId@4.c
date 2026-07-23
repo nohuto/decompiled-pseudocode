@@ -6,15 +6,15 @@
  *     <none>
  */
 
-unsigned int __stdcall RtlSetProxiedProcessId(unsigned int a1)
+ULONG __cdecl RtlSetProxiedProcessId(ULONG ProxiedProcessId)
 {
   struct _TEB *v1; // edx
-  unsigned int result; // eax
+  ULONG result; // eax
 
   v1 = NtCurrentTeb();
   if ( !v1 )
     return 0;
   result = v1->ProxiedProcessId;
-  v1->ProxiedProcessId = a1;
+  v1->ProxiedProcessId = ProxiedProcessId;
   return result;
 }

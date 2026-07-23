@@ -1,7 +1,7 @@
 /*
- * XREFs of IpmiHwpParseSpmiTable @ 0x14071D070
+ * XREFs of IpmiHwpParseSpmiTable @ 0x140721D00
  * Callers:
- *     IpmiHwpReadSpmiConfiguration @ 0x14071D128 (IpmiHwpReadSpmiConfiguration.c)
+ *     IpmiHwpReadSpmiConfiguration @ 0x140721DB8 (IpmiHwpReadSpmiConfiguration.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFreeKeyBody @ 0x14066B5DC
+ * XREFs of CmpFreeKeyBody @ 0x1406603FC
  * Callers:
- *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
+ *     CmpFreeKeyByCell @ 0x1406600A0 (CmpFreeKeyByCell.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
  */
 
 char __fastcall CmpFreeKeyBody(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

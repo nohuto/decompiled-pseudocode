@@ -1,25 +1,25 @@
 /*
- * XREFs of MiPrepareToHotPatchImage @ 0x1407F5540
+ * XREFs of MiPrepareToHotPatchImage @ 0x1407F5C30
  * Callers:
- *     MiPrepareToHotPatchVad @ 0x1407F5B90 (MiPrepareToHotPatchVad.c)
+ *     MiPrepareToHotPatchVad @ 0x1407F6280 (MiPrepareToHotPatchVad.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     RtlSetAllBits @ 0x1402E5D90 (RtlSetAllBits.c)
- *     RtlFindNextForwardRunClear @ 0x1403E15B0 (RtlFindNextForwardRunClear.c)
- *     RtlClearAllBits @ 0x140448960 (RtlClearAllBits.c)
- *     RtlAreBitsSet @ 0x140449470 (RtlAreBitsSet.c)
- *     MiCommitHotPatchTable @ 0x14067CF28 (MiCommitHotPatchTable.c)
- *     MiPrepareImagePagesForHotPatch @ 0x14067D29C (MiPrepareImagePagesForHotPatch.c)
- *     RtlHotPatchSynchronizationRequired @ 0x1406A34A8 (RtlHotPatchSynchronizationRequired.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x1407F5158 (MiMapHotPatchImageInSystemSpace.c)
- *     MiProcessHotPatchUndoTable @ 0x1407F5C40 (MiProcessHotPatchUndoTable.c)
- *     RtlCountRequiredHotPatchAddressTableEntries @ 0x14082ED98 (RtlCountRequiredHotPatchAddressTableEntries.c)
- *     RtlEnumerateHotPatchPatches @ 0x14082EF88 (RtlEnumerateHotPatchPatches.c)
- *     RtlFindHotPatchBaseMachine @ 0x14082F05C (RtlFindHotPatchBaseMachine.c)
- *     RtlpCheckFunctionPatchApplied @ 0x140B64034 (RtlpCheckFunctionPatchApplied.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x140347620 (RtlSetAllBits.c)
+ *     RtlFindNextForwardRunClear @ 0x1403C3BB0 (RtlFindNextForwardRunClear.c)
+ *     RtlClearAllBits @ 0x140441080 (RtlClearAllBits.c)
+ *     RtlAreBitsSet @ 0x140441BC0 (RtlAreBitsSet.c)
+ *     MiCommitHotPatchTable @ 0x14067E0B4 (MiCommitHotPatchTable.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x14067E494 (MiPrepareImagePagesForHotPatch.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x1406A44F8 (RtlHotPatchSynchronizationRequired.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x1407F584C (MiMapHotPatchImageInSystemSpace.c)
+ *     MiProcessHotPatchUndoTable @ 0x1407F6330 (MiProcessHotPatchUndoTable.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x14082F5C8 (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlEnumerateHotPatchPatches @ 0x14082F7B8 (RtlEnumerateHotPatchPatches.c)
+ *     RtlFindHotPatchBaseMachine @ 0x14082F88C (RtlFindHotPatchBaseMachine.c)
+ *     RtlpCheckFunctionPatchApplied @ 0x140B6613C (RtlpCheckFunctionPatchApplied.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, _BYTE *a3)
@@ -28,11 +28,11 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, _BYTE *a3)
   _DWORD *v4; // rsi
   unsigned __int8 v6; // r12
   __int64 Pool; // rax
-  RTL_BITMAP *v8; // rcx
+  _RTL_BITMAP *v8; // rcx
   int v9; // esi
   unsigned int *v10; // r15
   __int64 v11; // rax
-  RTL_BITMAP *v12; // rcx
+  _RTL_BITMAP *v12; // rcx
   __int64 v13; // r8
   int v14; // r9d
   int *v15; // r13
@@ -40,7 +40,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, _BYTE *a3)
   unsigned int v17; // r13d
   unsigned int *v18; // r8
   __int64 v19; // rax
-  RTL_BITMAP *v20; // rcx
+  _RTL_BITMAP *v20; // rcx
   __int64 v21; // rcx
   ULONG v22; // r15d
   __int64 j; // rsi
@@ -101,7 +101,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, _BYTE *a3)
     *(_DWORD *)Pool = *(_DWORD *)(a1 + 32) >> 12;
     *(_QWORD *)(Pool + 8) = Pool + 16;
   }
-  v8 = *(RTL_BITMAP **)(a1 + 48);
+  v8 = *(_RTL_BITMAP **)(a1 + 48);
   if ( !v8 )
     return (unsigned int)-1073741670;
   RtlSetAllBits(v8);
@@ -117,7 +117,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, _BYTE *a3)
       *(_DWORD *)v11 = *v10;
       *(_QWORD *)(v11 + 8) = v11 + 16;
     }
-    v12 = *(RTL_BITMAP **)(a1 + 40);
+    v12 = *(_RTL_BITMAP **)(a1 + 40);
     if ( v12 )
     {
       RtlClearAllBits(v12);
@@ -218,7 +218,7 @@ LABEL_31:
       *(_DWORD *)v19 = v17;
       *(_QWORD *)(v19 + 8) = v19 + 16;
     }
-    v20 = *(RTL_BITMAP **)(a1 + 40);
+    v20 = *(_RTL_BITMAP **)(a1 + 40);
     if ( !v20 )
       return (unsigned int)-1073741670;
     RtlClearAllBits(v20);

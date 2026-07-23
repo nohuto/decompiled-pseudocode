@@ -1,11 +1,11 @@
 /*
- * XREFs of PsRequestDebugSecureProcess @ 0x14090CAB8
+ * XREFs of PsRequestDebugSecureProcess @ 0x14090CC18
  * Callers:
- *     NtDebugActiveProcess @ 0x140885D80 (NtDebugActiveProcess.c)
+ *     NtDebugActiveProcess @ 0x140885EE0 (NtDebugActiveProcess.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall PsRequestDebugSecureProcess(__int64 a1, unsigned __int8 a2)

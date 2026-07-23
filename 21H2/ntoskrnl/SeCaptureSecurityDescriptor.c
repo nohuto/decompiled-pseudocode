@@ -1,24 +1,24 @@
 /*
- * XREFs of SeCaptureSecurityDescriptor @ 0x14065BB60
+ * XREFs of SeCaptureSecurityDescriptor @ 0x140650980
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     AlpcpConnectPort @ 0x1405DF5BC (AlpcpConnectPort.c)
- *     NtCreateWnfStateName @ 0x14060D6D0 (NtCreateWnfStateName.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
- *     ObpCaptureObjectCreateInformation @ 0x140656440 (ObpCaptureObjectCreateInformation.c)
- *     NtSetSecurityObject @ 0x140697440 (NtSetSecurityObject.c)
- *     NtOpenObjectAuditAlarm @ 0x1406A8C60 (NtOpenObjectAuditAlarm.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1406BC308 (SeTokenDefaultDaclChangedAuditAlarm.c)
- *     PipGetRegistrySecurityWithFallback @ 0x14073E6C8 (PipGetRegistrySecurityWithFallback.c)
- *     IopQuerySecureDeviceClassState @ 0x14073FB9C (IopQuerySecureDeviceClassState.c)
- *     CmpCopySaclToVirtualKey @ 0x1408717C4 (CmpCopySaclToVirtualKey.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     NtSetSecurityObject @ 0x1405F8450 (NtSetSecurityObject.c)
+ *     NtOpenObjectAuditAlarm @ 0x140606BE0 (NtOpenObjectAuditAlarm.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x14061B478 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     ObpCaptureObjectCreateInformation @ 0x14064B260 (ObpCaptureObjectCreateInformation.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406922C0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     NtCreateWnfStateName @ 0x14069D180 (NtCreateWnfStateName.c)
+ *     AlpcpConnectPort @ 0x1406CED1C (AlpcpConnectPort.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14073E888 (PipGetRegistrySecurityWithFallback.c)
+ *     IopQuerySecureDeviceClassState @ 0x14073FD5C (IopQuerySecureDeviceClassState.c)
+ *     CmpCopySaclToVirtualKey @ 0x140871924 (CmpCopySaclToVirtualKey.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlValidAcl @ 0x1406513E0 (RtlValidAcl.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureSecurityDescriptor(__int64 a1, char a2, POOL_TYPE a3, char a4, _QWORD *a5)
@@ -50,7 +50,7 @@ __int64 __fastcall SeCaptureSecurityDescriptor(__int64 a1, char a2, POOL_TYPE a3
   SIZE_T v30; // rbx
   char *PoolWithTag; // rax
   char *v32; // rdi
-  _BYTE *v33; // rbx
+  ACL *v33; // rbx
   char v34; // r12
   int v35; // ecx
   int v36; // ebx
@@ -382,7 +382,7 @@ LABEL_17:
   memset(PoolWithTag, 0, (unsigned int)v30);
   *(_OWORD *)v32 = v49;
   *((_DWORD *)v32 + 4) = v50;
-  v33 = v32 + 20;
+  v33 = (ACL *)(v32 + 20);
   *((_WORD *)v32 + 1) |= 0x8000u;
   if ( !v57 || !v13 )
   {
@@ -392,11 +392,11 @@ LABEL_17:
   }
   memmove(v32 + 20, v13, v16);
   v34 = a2;
-  if ( !a2 || v16 >= 8 && v16 == *((unsigned __int16 *)v32 + 11) && (unsigned __int8)RtlValidAcl(v32 + 20) )
+  if ( !a2 || v16 >= 8 && v16 == *((unsigned __int16 *)v32 + 11) && RtlValidAcl((PACL)(v32 + 20)) )
   {
     *((_DWORD *)v32 + 3) = 20;
     *((_WORD *)v32 + 11) = v53;
-    v33 += v53;
+    v33 = (ACL *)((char *)v33 + v53);
 LABEL_80:
     if ( !v21 || !v14 )
     {
@@ -405,11 +405,14 @@ LABEL_87:
       if ( v47 )
       {
         memmove(v33, v47, HIDWORD(Size));
-        v33[1] = v43;
-        if ( v34 && ((unsigned __int64)v33 <= 0x7FFFFFFF0000LL || (unsigned __int8)v43 > 0xFu || (*v33 & 0xF) != 1) )
+        v33->Sbz1 = v43;
+        if ( v34
+          && ((unsigned __int64)v33 <= 0x7FFFFFFF0000LL || (unsigned __int8)v43 > 0xFu || (v33->AclRevision & 0xF) != 1) )
+        {
           goto LABEL_131;
+        }
         v35 = (_DWORD)v33 - (_DWORD)v32;
-        v33 += v55;
+        v33 = (ACL *)((char *)v33 + v55);
       }
       else
       {
@@ -422,8 +425,9 @@ LABEL_87:
         goto LABEL_99;
       }
       memmove(v33, v48, (unsigned int)Size);
-      v33[1] = v44;
-      if ( !v34 || (unsigned __int64)v33 > 0x7FFFFFFF0000LL && (unsigned __int8)v44 <= 0xFu && (*v33 & 0xF) == 1 )
+      v33->Sbz1 = v44;
+      if ( !v34
+        || (unsigned __int64)v33 > 0x7FFFFFFF0000LL && (unsigned __int8)v44 <= 0xFu && (v33->AclRevision & 0xF) == 1 )
       {
         v36 = (_DWORD)v33 - (_DWORD)v32;
 LABEL_99:
@@ -436,11 +440,11 @@ LABEL_131:
       return 3221225592LL;
     }
     memmove(v33, v14, v17);
-    if ( !v34 || v17 >= 8 && v17 == *((unsigned __int16 *)v33 + 1) && (unsigned __int8)RtlValidAcl(v33) )
+    if ( !v34 || v17 >= 8 && v17 == v33->AclSize && RtlValidAcl(v33) )
     {
       *((_DWORD *)v32 + 4) = (_DWORD)v33 - (_DWORD)v32;
-      *((_WORD *)v33 + 1) = v54;
-      v33 += v54;
+      v33->AclSize = v54;
+      v33 = (ACL *)((char *)v33 + v54);
       goto LABEL_87;
     }
   }

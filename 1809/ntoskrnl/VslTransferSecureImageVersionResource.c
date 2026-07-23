@@ -1,12 +1,12 @@
 /*
- * XREFs of VslTransferSecureImageVersionResource @ 0x14027CEB0
+ * XREFs of VslTransferSecureImageVersionResource @ 0x14027D0A0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     VslpLockPagesForTransfer @ 0x14027C704 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C8E0 (VslpUnlockPagesForTransfer.c)
  */
 
 __int64 __fastcall VslTransferSecureImageVersionResource(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

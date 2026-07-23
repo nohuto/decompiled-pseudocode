@@ -1,11 +1,11 @@
 /*
- * XREFs of SmGlobalsStart @ 0x140C7F428
+ * XREFs of SmGlobalsStart @ 0x140C85428
  * Callers:
- *     SmInitSystem @ 0x140C7F2E8 (SmInitSystem.c)
+ *     SmInitSystem @ 0x140C852E8 (SmInitSystem.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024D7A0 (KeRegisterBugCheckReasonCallback.c)
- *     ExDestroyPool @ 0x1406CBBF0 (ExDestroyPool.c)
- *     ExCreatePoolInternal @ 0x14077DC44 (ExCreatePoolInternal.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14024F100 (KeRegisterBugCheckReasonCallback.c)
+ *     ExDestroyPool @ 0x1406CFC20 (ExDestroyPool.c)
+ *     ExCreatePoolInternal @ 0x140780744 (ExCreatePoolInternal.c)
  */
 
 __int64 __fastcall SmGlobalsStart(__int64 a1, __int64 a2, __int64 a3)
@@ -26,7 +26,7 @@ __int64 __fastcall SmGlobalsStart(__int64 a1, __int64 a2, __int64 a3)
   else
   {
     KeRegisterBugCheckReasonCallback(
-      (PKBUGCHECK_REASON_CALLBACK_RECORD)&stru_140E27B08.KernelStack,
+      (PKBUGCHECK_REASON_CALLBACK_RECORD)&stru_140E27C48.KernelStack,
       (PKBUGCHECK_REASON_CALLBACK_ROUTINE)SmBugcheckCallback,
       KbCallbackSecondaryDumpData,
       (PUCHAR)"nt!store memory compression");

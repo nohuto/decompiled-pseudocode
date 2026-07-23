@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceExistingCloneProto @ 0x1404636A8
+ * XREFs of MiReferenceExistingCloneProto @ 0x14029447C
  * Callers:
- *     MiBuildForkPte @ 0x1402C53E8 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402687D0 (MiBuildForkPte.c)
  * Callees:
- *     MiReferenceCloneProto @ 0x1402F99D8 (MiReferenceCloneProto.c)
+ *     MiReferenceCloneProto @ 0x140294790 (MiReferenceCloneProto.c)
  */
 
 __int64 __fastcall MiReferenceExistingCloneProto(
-        __int64 a1,
+        int a1,
         unsigned __int64 a2,
         char a3,
-        _QWORD *a4,
+        __int64 a4,
         unsigned __int64 *a5)
 {
   _KPROCESS *Process; // r10

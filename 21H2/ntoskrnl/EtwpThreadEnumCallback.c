@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpThreadEnumCallback @ 0x140797C50
+ * XREFs of EtwpThreadEnumCallback @ 0x140797E50
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140797940 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpTraceThreadRundown @ 0x1403AE820 (EtwpTraceThreadRundown.c)
- *     EtwpTraceThreadRundownWithStack @ 0x1405AB88C (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpTraceThreadRundown @ 0x1403AE970 (EtwpTraceThreadRundown.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x1405ABABC (EtwpTraceThreadRundownWithStack.c)
  */
 
 __int64 __fastcall EtwpThreadEnumCallback(__int64 a1, __int64 a2, __int64 a3)

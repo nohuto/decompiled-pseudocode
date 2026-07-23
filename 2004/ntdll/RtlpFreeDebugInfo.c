@@ -8,15 +8,15 @@
  *     RtlpInterlockedPushEntrySList @ 0x1800A09E0 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall RtlpFreeDebugInfo(unsigned __int64 a1)
+LOGICAL __fastcall RtlpFreeDebugInfo(char *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   if ( LOWORD(RtlCriticalSectionDebugSList.Alignment) >= 0xAu
-    && ((unsigned __int64)&RtlpStaticDebugInfo > a1 || a1 >= (unsigned __int64)&RtlpForceCSDebugInfoCreation) )
+    && (&RtlpStaticDebugInfo > (_UNKNOWN *)a1 || a1 >= &RtlpForceCSDebugInfoCreation) )
   {
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
   }
   else
   {
-    return RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, a1);
+    return RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, a1, a3, a4);
   }
 }

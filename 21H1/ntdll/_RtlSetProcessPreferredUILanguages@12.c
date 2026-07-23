@@ -18,18 +18,18 @@ int __stdcall RtlSetProcessPreferredUILanguages(int a1, unsigned __int16 *a2, _D
 {
   char v4; // si
   int v5; // edi
-  _BYTE *v6; // ecx
-  _BYTE *v7; // esi
+  PVOID v6; // ecx
+  PVOID v7; // esi
   int v8; // eax
   int v9; // eax
-  _BYTE *v10; // ebx
+  void *v10; // ebx
   int v11; // eax
-  _BYTE *v12; // [esp+Ch] [ebp-Ch] BYREF
+  PVOID BaseAddress; // [esp+Ch] [ebp-Ch] BYREF
   unsigned int v13; // [esp+10h] [ebp-8h] BYREF
   int v14; // [esp+14h] [ebp-4h] BYREF
 
   v14 = 0;
-  v12 = 0;
+  BaseAddress = 0;
   if ( NtCurrentTeb()->IsImpersonating )
     return -1073741555;
   v4 = a1;
@@ -55,18 +55,18 @@ int __stdcall RtlSetProcessPreferredUILanguages(int a1, unsigned __int16 *a2, _D
       return -1073741811;
     if ( v13 < 2 || *a2 || a2[1] )
     {
-      v5 = RtlpMuiRegAddMultiSzToLangFallbackList((_DWORD *)g_RegInfo, a2, v13, v4 | 2, 26, 5u, (int *)&v12);
+      v5 = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, a2, v13, v4 | 2, 26, 5u, (int *)&BaseAddress);
       if ( v5 < 0 )
       {
-        v6 = v12;
+        v6 = BaseAddress;
 LABEL_28:
         RtlpMuiRegFreeLanguageList(v6);
         return v5;
       }
-      v7 = v12;
-      if ( !v12 || (v8 = *((unsigned __int16 *)v12 + 2), !(_WORD)v8) )
+      v7 = BaseAddress;
+      if ( !BaseAddress || (v8 = *((unsigned __int16 *)BaseAddress + 2), !(_WORD)v8) )
       {
-        RtlpMuiRegFreeLanguageList(v12);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         return -1073741823;
       }
       if ( a3 )
@@ -75,18 +75,18 @@ LABEL_28:
     else
     {
 LABEL_23:
-      v7 = v12;
+      v7 = BaseAddress;
     }
     RtlpInitMuiCriticalSection();
-    RtlEnterCriticalSection((int)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     v9 = v14;
-    v10 = *(_BYTE **)(v14 + 44);
+    v10 = *(void **)(v14 + 44);
     *(_DWORD *)(v14 + 44) = v7;
     ++*(_DWORD *)(v9 + 16);
     v11 = *(_DWORD *)(v9 + 56);
     if ( v11 )
       *(_DWORD *)(v11 + 32) |= 0x80u;
-    RtlLeaveCriticalSection((int)&RegistryInfoCritSect);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
     if ( !v10 )
       return v5;
     v6 = v10;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiConvertFaultStatus @ 0x1403A2F50
+ * XREFs of MiConvertFaultStatus @ 0x1403A4CB0
  * Callers:
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
  * Callees:
- *     EtwTracePageFault @ 0x140215FC0 (EtwTracePageFault.c)
- *     MiPageAvailable @ 0x1402AA7BC (MiPageAvailable.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
- *     MiCheckAvailablePagesForFaultDelay @ 0x14041A070 (MiCheckAvailablePagesForFaultDelay.c)
- *     FsRtlIsTotalDeviceFailure @ 0x14046DC60 (FsRtlIsTotalDeviceFailure.c)
- *     MiDelayFaultingThread @ 0x1405053C4 (MiDelayFaultingThread.c)
+ *     EtwTracePageFault @ 0x1402162F0 (EtwTracePageFault.c)
+ *     MiPageAvailable @ 0x1402A9BBC (MiPageAvailable.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
+ *     MiCheckAvailablePagesForFaultDelay @ 0x1404118C0 (MiCheckAvailablePagesForFaultDelay.c)
+ *     FsRtlIsTotalDeviceFailure @ 0x1404673E0 (FsRtlIsTotalDeviceFailure.c)
+ *     MiDelayFaultingThread @ 0x1404FED04 (MiDelayFaultingThread.c)
  */
 
 __int64 __fastcall MiConvertFaultStatus(__int64 a1, unsigned int a2, int a3)
@@ -44,7 +44,7 @@ __int64 __fastcall MiConvertFaultStatus(__int64 a1, unsigned int a2, int a3)
         }
       }
       v10 = 0;
-      v11 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 56) + 174LL));
+      v11 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 56) + 174LL));
       v12 = MiCheckAvailablePagesForFaultDelay(v11, (_DWORD)CurrentThread, a3, (*(_DWORD *)(a1 + 80) & 0x10) == 0, 0LL);
       if ( v12 )
       {

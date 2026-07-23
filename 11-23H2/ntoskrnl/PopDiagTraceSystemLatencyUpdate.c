@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSystemLatencyUpdate @ 0x14032C4AC
+ * XREFs of PopDiagTraceSystemLatencyUpdate @ 0x14032C73C
  * Callers:
- *     PoFxSendSystemLatencyUpdate @ 0x14032C330 (PoFxSendSystemLatencyUpdate.c)
- *     PopDiagTraceControlCallback @ 0x1408629E0 (PopDiagTraceControlCallback.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14032C5C0 (PoFxSendSystemLatencyUpdate.c)
+ *     PopDiagTraceControlCallback @ 0x140862C20 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSystemLatencyUpdate(char a1, int a2)

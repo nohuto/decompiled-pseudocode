@@ -1,19 +1,18 @@
 /*
- * XREFs of RtlInitializeSid @ 0x1800CDAB0
+ * XREFs of RtlInitializeSid @ 0x1800CB220
  * Callers:
- *     WerpAllocateAndInitializeSid @ 0x1800CE0D8 (WerpAllocateAndInitializeSid.c)
- *     RtlpConvertAclToAutoInherit @ 0x180124AB8 (RtlpConvertAclToAutoInherit.c)
+ *     WerpAllocateAndInitializeSid @ 0x1800CB848 (WerpAllocateAndInitializeSid.c)
+ *     RtlpConvertAclToAutoInherit @ 0x180124828 (RtlpConvertAclToAutoInherit.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlInitializeSid(__int64 a1, __int64 a2, unsigned __int8 a3)
+NTSTATUS __cdecl RtlInitializeSid(PSID Sid, PSID_IDENTIFIER_AUTHORITY IdentifierAuthority, UCHAR SubAuthorityCount)
 {
-  if ( a3 > 0xFu )
-    return 3221225485LL;
-  *(_BYTE *)(a1 + 1) = a3;
-  *(_BYTE *)a1 = 1;
-  *(_DWORD *)(a1 + 2) = *(_DWORD *)a2;
-  *(_WORD *)(a1 + 6) = *(_WORD *)(a2 + 4);
-  return 0LL;
+  if ( SubAuthorityCount > 0xFu )
+    return -1073741811;
+  *((_BYTE *)Sid + 1) = SubAuthorityCount;
+  *(_BYTE *)Sid = 1;
+  *(_SID_IDENTIFIER_AUTHORITY *)((char *)Sid + 2) = *IdentifierAuthority;
+  return 0;
 }

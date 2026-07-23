@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlGetVpSintMessagePage @ 0x1405B9490
+ * XREFs of HvlGetVpSintMessagePage @ 0x1405BBD00
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetLpcbByLpIndex @ 0x1403E6258 (HvlpGetLpcbByLpIndex.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x1403E62C0 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1402F3138 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1402F31A0 (HvlGetLpIndexFromProcessorIndex.c)
  */
 
 struct _LIST_ENTRY *__fastcall HvlGetVpSintMessagePage(unsigned int a1)

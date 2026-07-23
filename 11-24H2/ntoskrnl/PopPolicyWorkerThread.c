@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPolicyWorkerThread @ 0x140486360
+ * XREFs of PopPolicyWorkerThread @ 0x140481950
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PopPolicyWorkerThread(int a1)
@@ -17,10 +17,8 @@ void __fastcall PopPolicyWorkerThread(int a1)
   __int64 v6; // rbx
   int v7; // eax
   __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  KIRQL v11; // r8
-  unsigned int v12; // ecx
+  KIRQL v9; // r8
+  unsigned int v10; // ecx
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PopWorkerSpinLock);
   v3 = PopWorkerStatus | a1;
@@ -29,17 +27,17 @@ void __fastcall PopPolicyWorkerThread(int a1)
   v5 = v3;
   while ( 1 )
   {
-    v11 = v2;
-    v12 = PopWorkerPending & v5;
-    if ( !v12 )
+    v9 = v2;
+    v10 = PopWorkerPending & v5;
+    if ( !v10 )
       break;
-    _BitScanForward((unsigned int *)&v6, v12);
+    _BitScanForward((unsigned int *)&v6, v10);
     v7 = ~(1 << v6);
     PopWorkerPending &= v7;
     PopWorkerStatus = v3 & v7;
-    KeReleaseSpinLock(&PopWorkerSpinLock, v11);
+    KeReleaseSpinLock(&PopWorkerSpinLock, v9);
     if ( PopWorkerTypes[v6] )
-      v4 |= guard_dispatch_icall_no_overrides(PopWorkerTypes, v8, v9, v10);
+      v4 |= guard_dispatch_icall_no_overrides(PopWorkerTypes, v8);
     v2 = KeAcquireSpinLockRaiseToDpc(&PopWorkerSpinLock);
     PopWorkerStatus |= 1 << v6;
     v5 = PopWorkerStatus;

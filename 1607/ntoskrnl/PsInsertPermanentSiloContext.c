@@ -1,10 +1,10 @@
 /*
- * XREFs of PsInsertPermanentSiloContext @ 0x14055FA14
+ * XREFs of PsInsertPermanentSiloContext @ 0x14055FF54
  * Callers:
- *     CmpCreateServerSiloCallback @ 0x14055F990 (CmpCreateServerSiloCallback.c)
- *     ObCreateSiloRootDirectory @ 0x1406E6004 (ObCreateSiloRootDirectory.c)
+ *     CmpCreateServerSiloCallback @ 0x14055FED0 (CmpCreateServerSiloCallback.c)
+ *     ObCreateSiloRootDirectory @ 0x1406E613C (ObCreateSiloRootDirectory.c)
  * Callees:
- *     PspIsSiloContext @ 0x14055FBC8 (PspIsSiloContext.c)
+ *     PspIsSiloContext @ 0x140560108 (PspIsSiloContext.c)
  */
 
 __int64 __fastcall PsInsertPermanentSiloContext(__int64 a1, unsigned int a2, __int64 a3)

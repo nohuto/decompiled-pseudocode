@@ -1,11 +1,11 @@
 /*
- * XREFs of MmMapLockedRestartPages @ 0x1408C4AC0
+ * XREFs of MmMapLockedRestartPages @ 0x1408C4C20
  * Callers:
  *     <none>
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiMapMdlCommon @ 0x1403C8C44 (MiMapMdlCommon.c)
- *     MiReserveDriverPtes @ 0x14075FEA4 (MiReserveDriverPtes.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiMapMdlCommon @ 0x1403C8DE4 (MiMapMdlCommon.c)
+ *     MiReserveDriverPtes @ 0x140760064 (MiReserveDriverPtes.c)
  */
 
 __int64 __fastcall MmMapLockedRestartPages(_DWORD *a1, unsigned int a2, int a3, __int64 a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiZeroInParallel @ 0x1404155D0
+ * XREFs of MiZeroInParallel @ 0x140271430
  * Callers:
- *     MiProcessPageGroupInfo @ 0x1403A2E30 (MiProcessPageGroupInfo.c)
- *     MiChangePageAttributeAndZeroBatch @ 0x140414984 (MiChangePageAttributeAndZeroBatch.c)
- *     MiGroupZeroHugeRange @ 0x140685AB4 (MiGroupZeroHugeRange.c)
+ *     MiChangePageAttributeAndZeroBatch @ 0x1402708E0 (MiChangePageAttributeAndZeroBatch.c)
+ *     MiProcessPageGroupInfo @ 0x1402709E8 (MiProcessPageGroupInfo.c)
+ *     MiGroupZeroHugeRange @ 0x140686BE4 (MiGroupZeroHugeRange.c)
  * Callees:
- *     MiWaitForZeroWorkers @ 0x14041561C (MiWaitForZeroWorkers.c)
- *     MiInitializeZeroGroup @ 0x140415664 (MiInitializeZeroGroup.c)
- *     MiLaunchZeroParent @ 0x140415C50 (MiLaunchZeroParent.c)
- *     MiLaunchZeroWorkers @ 0x140416850 (MiLaunchZeroWorkers.c)
+ *     MiWaitForZeroWorkers @ 0x14027147C (MiWaitForZeroWorkers.c)
+ *     MiInitializeZeroGroup @ 0x1402714C4 (MiInitializeZeroGroup.c)
+ *     MiLaunchZeroParent @ 0x140271AB0 (MiLaunchZeroParent.c)
+ *     MiLaunchZeroWorkers @ 0x140271D90 (MiLaunchZeroWorkers.c)
  */
 
 __int64 __fastcall MiZeroInParallel(__int64 a1)

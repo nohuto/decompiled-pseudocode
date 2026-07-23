@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCleanupLightWeightUoWData @ 0x1406948EC
+ * XREFs of CmpCleanupLightWeightUoWData @ 0x140695AAC
  * Callers:
- *     CmpCleanupLightWeightPrepare @ 0x140693838 (CmpCleanupLightWeightPrepare.c)
+ *     CmpCleanupLightWeightPrepare @ 0x1406949F8 (CmpCleanupLightWeightPrepare.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
- *     CmpDereferenceSecurityNode @ 0x1401B33F0 (CmpDereferenceSecurityNode.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpCleanupDiscardReplaceContext @ 0x1405AA51C (CmpCleanupDiscardReplaceContext.c)
- *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     CmpFreeValue @ 0x1405ADB5C (CmpFreeValue.c)
- *     CmpLightWeightCleanupSetValueKeyUoW @ 0x1406955D0 (CmpLightWeightCleanupSetValueKeyUoW.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpDereferenceSecurityNode @ 0x1401B3530 (CmpDereferenceSecurityNode.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x1405AB51C (CmpCleanupDiscardReplaceContext.c)
+ *     CmpFreeKeyByCell @ 0x1405AE6F8 (CmpFreeKeyByCell.c)
+ *     CmpFreeValue @ 0x1405AEB5C (CmpFreeValue.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x140696790 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408047A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
  */
 
 void __fastcall CmpCleanupLightWeightUoWData(__int64 a1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpFreeHeapSlow @ 0x18002B6C4
+ * XREFs of RtlpHpFreeHeapSlow @ 0x1800580C4
  * Callers:
- *     RtlpHpTagFreeHeap @ 0x1800274C0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpFreeHeap @ 0x18002B020 (RtlpHpFreeHeap.c)
+ *     RtlpHpTagFreeHeap @ 0x180053EC0 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpFreeHeap @ 0x180057A20 (RtlpHpFreeHeap.c)
  * Callees:
- *     RtlpCallInterceptRoutine @ 0x1800280E0 (RtlpCallInterceptRoutine.c)
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18002CA00 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpExtrasGet @ 0x18002CA80 (RtlpHpExtrasGet.c)
- *     RtlpHpSizeHeap @ 0x18002D260 (RtlpHpSizeHeap.c)
- *     RtlpHpLfhContextFree @ 0x18004F530 (RtlpHpLfhContextFree.c)
- *     RtlpHpSegFreeInternal @ 0x18004F7C0 (RtlpHpSegFreeInternal.c)
- *     RtlpHpLargeFree @ 0x1800938E4 (RtlpHpLargeFree.c)
- *     RtlpLogHeapFreeEvent @ 0x180095BD4 (RtlpLogHeapFreeEvent.c)
- *     RtlpHpStackLoggingEnabled @ 0x1800DB020 (RtlpHpStackLoggingEnabled.c)
- *     RtlpHpStackTraceRemoveStack @ 0x1800E28F0 (RtlpHpStackTraceRemoveStack.c)
- *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011CBF4 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
+ *     RtlpCallInterceptRoutine @ 0x180054AE0 (RtlpCallInterceptRoutine.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180059400 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpExtrasGet @ 0x180059480 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x180059C60 (RtlpHpSizeHeap.c)
+ *     RtlpHpLfhContextFree @ 0x180065110 (RtlpHpLfhContextFree.c)
+ *     RtlpHpSegFreeInternal @ 0x1800653A0 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpLargeFree @ 0x18009E878 (RtlpHpLargeFree.c)
+ *     RtlpLogHeapFreeEvent @ 0x1800A19C4 (RtlpLogHeapFreeEvent.c)
+ *     RtlpHpStackLoggingEnabled @ 0x1800D5580 (RtlpHpStackLoggingEnabled.c)
+ *     RtlpHpStackTraceRemoveStack @ 0x1800DDEC0 (RtlpHpStackTraceRemoveStack.c)
+ *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011AE24 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
  */
 
 _BOOL8 __fastcall RtlpHpFreeHeapSlow(unsigned int *a1, unsigned __int64 a2, __int64 a3)
@@ -26,22 +26,21 @@ _BOOL8 __fastcall RtlpHpFreeHeapSlow(unsigned int *a1, unsigned __int64 a2, __in
   int v8; // ebp
   __int64 v9; // rdx
   BOOL v10; // esi
-  __int64 v12; // r8
-  __int64 v13; // r9
-  unsigned int *v14; // r10
-  __int64 v15; // rax
-  int v16; // eax
-  unsigned __int64 v17; // rdx
-  char v18; // cl
-  unsigned __int64 v19; // r8
-  unsigned __int64 v20; // r8
-  unsigned __int64 v21; // r9
-  int v22; // eax
-  unsigned int v23; // [rsp+50h] [rbp+18h] BYREF
+  unsigned int *v12; // r10
+  __int64 v13; // rax
+  int v14; // eax
+  unsigned __int64 v15; // rdx
+  char v16; // cl
+  unsigned __int64 v17; // r8
+  unsigned __int64 v18; // r8
+  unsigned __int64 v19; // r9
+  int v20; // eax
+  __int64 v21; // [rsp+20h] [rbp-18h]
+  unsigned int v22; // [rsp+50h] [rbp+18h] BYREF
 
   v3 = 0;
   v4 = a3;
-  v23 = 0;
+  v22 = 0;
   if ( (a3 & 0x20) != 0 )
   {
     if ( a1[6] )
@@ -50,14 +49,15 @@ _BOOL8 __fastcall RtlpHpFreeHeapSlow(unsigned int *a1, unsigned __int64 a2, __in
       if ( (unsigned __int64)(v7 - 1) <= 0xFFFFFFFFFFFFFFFDuLL && (*(_BYTE *)(v7 + 2) & 0xF) != 0 )
       {
         __writegsqword(0x1858u, 0LL);
-        v8 = RtlpCallInterceptRoutine(*(_BYTE *)(v7 + 2) & 0xF, (__int64)a1, a2, 3u, v7 + 16);
+        v21 = v7 + 16;
+        v8 = RtlpCallInterceptRoutine(*(_BYTE *)(v7 + 2) & 0xF, a1, a2, 3);
         __writegsqword(0x1858u, (unsigned __int64)(a1 + 5));
         v9 = a1[5];
         if ( (v9 & 0x10) != 0 && a1[56] != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
           RtlpHpEnvAcquireGlobalLockSharedContended(a1 + 5, v9);
         if ( v8 < 0 )
           return 0;
-        v3 = v23;
+        v3 = v22;
       }
     }
   }
@@ -70,43 +70,43 @@ _BOOL8 __fastcall RtlpHpFreeHeapSlow(unsigned int *a1, unsigned __int64 a2, __in
     RtlpHpStackTraceRemoveStack(a1, a2);
   if ( (_WORD)a2 )
   {
-    v14 = a1 + 80;
+    v12 = a1 + 80;
 LABEL_19:
-    v17 = *(_QWORD *)v14 & a2;
-    if ( (unsigned int *)(RtlpHpHeapGlobals ^ *(_QWORD *)(v17 + 0x10) ^ v17) == v14 )
+    v15 = *(_QWORD *)v12 & a2;
+    if ( (unsigned int *)(RtlpHpHeapGlobals ^ *(_QWORD *)(v15 + 0x10) ^ v15) == v12 )
     {
-      v18 = *((_BYTE *)v14 + 8);
-      v19 = v17 + 32 * ((unsigned __int64)(unsigned int)(a2 - v17) >> v18);
-      v20 = -32LL * *(unsigned __int8 *)(v19 + 26) + v19;
-      v21 = v17 + ((__int64)(v20 - v17) >> 5 << v18);
-      if ( *(_BYTE *)(v20 + 24) + (v21 == a2) == 11 )
+      v16 = *((_BYTE *)v12 + 8);
+      v17 = v15 + 32 * ((unsigned __int64)(unsigned int)(a2 - v15) >> v16);
+      v18 = -32LL * *(unsigned __int8 *)(v17 + 26) + v17;
+      v19 = v15 + ((__int64)(v18 - v15) >> 5 << v16);
+      if ( *(_BYTE *)(v18 + 24) + (v19 == a2) == 11 )
       {
-        v22 = RtlpHpLfhContextFree(*((_QWORD *)v14 + 3), v21, a2);
+        v20 = RtlpHpLfhContextFree(*((_QWORD *)v12 + 3), v19, a2);
         v3 = 2;
       }
       else
       {
-        v22 = RtlpHpSegFreeInternal(v14, a2, v20, &v23);
-        v3 = v23;
+        v20 = RtlpHpSegFreeInternal(v12, a2, v18, &v22, v21);
+        v3 = v22;
       }
-      v10 = v22;
+      v10 = v20;
     }
     else
     {
-      RtlpLogHeapFailure(9, *((_QWORD *)v14 + 7), a2, 0LL, 0LL, 0LL);
+      RtlpLogHeapFailure(9, *((_QWORD *)v12 + 7), a2, 0LL, 0LL, 0LL);
       v10 = 0;
     }
     goto LABEL_21;
   }
-  v15 = RtlCSparseBitmapBitmaskRead(&unk_1801CE930, 2 * ((a2 - qword_1801CE928) >> 20), v12, v13);
-  if ( v15 )
+  v13 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_1801CD918) >> 20));
+  if ( v13 )
   {
-    v16 = v15 - 1;
-    if ( v16 != 2 )
+    v14 = v13 - 1;
+    if ( v14 != 2 )
     {
-      v14 = a1 + 80;
-      if ( v16 == 1 )
-        v14 = a1 + 128;
+      v12 = a1 + 80;
+      if ( v14 == 1 )
+        v12 = a1 + 128;
       goto LABEL_19;
     }
   }

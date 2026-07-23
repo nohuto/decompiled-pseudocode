@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpNotifyTargetDeviceChange @ 0x1409EEAA0
+ * XREFs of PnpNotifyTargetDeviceChange @ 0x1409EC4E0
  * Callers:
- *     PiSendTargetDeviceRemoveCanceledNotification @ 0x14073A114 (PiSendTargetDeviceRemoveCanceledNotification.c)
- *     PnpProcessCustomDeviceEvent @ 0x1409EEA44 (PnpProcessCustomDeviceEvent.c)
- *     PiSendTargetDeviceRemoveCompleteNotification @ 0x140A0E400 (PiSendTargetDeviceRemoveCompleteNotification.c)
- *     PipSendTargetDeviceQueryRemoveNotification @ 0x140AA7560 (PipSendTargetDeviceQueryRemoveNotification.c)
+ *     PiSendTargetDeviceRemoveCanceledNotification @ 0x140738044 (PiSendTargetDeviceRemoveCanceledNotification.c)
+ *     PiSendTargetDeviceRemoveCompleteNotification @ 0x1409BC804 (PiSendTargetDeviceRemoveCompleteNotification.c)
+ *     PnpProcessCustomDeviceEvent @ 0x1409EC484 (PnpProcessCustomDeviceEvent.c)
+ *     PipSendTargetDeviceQueryRemoveNotification @ 0x140AA2660 (PipSendTargetDeviceQueryRemoveNotification.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     PsGetServerSiloServiceSessionId @ 0x1404566C0 (PsGetServerSiloServiceSessionId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     PnpDereferenceNotify @ 0x1409EED14 (PnpDereferenceNotify.c)
- *     PnpNotifyDriverCallback @ 0x1409EEDB0 (PnpNotifyDriverCallback.c)
- *     IopGetSessionIdFromPDO @ 0x140A11704 (IopGetSessionIdFromPDO.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14044B690 (PsGetServerSiloServiceSessionId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     IopGetSessionIdFromPDO @ 0x1409BFB14 (IopGetSessionIdFromPDO.c)
+ *     PnpDereferenceNotify @ 0x1409EC754 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x1409EC7F0 (PnpNotifyDriverCallback.c)
  */
 
 __int64 __fastcall PnpNotifyTargetDeviceChange(GUID *Source1, PVOID Object, __int64 a3, _QWORD *a4)
@@ -95,7 +95,7 @@ __int64 __fastcall PnpNotifyTargetDeviceChange(GUID *Source1, PVOID Object, __in
     }
     else
     {
-      SessionIdFromPDO = IopGetSessionIdFromPDO(Objecta);
+      SessionIdFromPDO = IopGetSessionIdFromPDO((struct _DEVICE_OBJECT *)Objecta);
       v27 = SessionIdFromPDO;
     }
     ++*((_WORD *)v11 + 28);
@@ -138,7 +138,7 @@ __int64 __fastcall PnpNotifyTargetDeviceChange(GUID *Source1, PVOID Object, __in
           v23 = v11;
           v24 = PsGetCurrentServerSilo();
           if ( *((_DWORD *)v11 + 5) != (unsigned int)PsGetServerSiloServiceSessionId(v24) )
-            v22 = IopGetSessionIdFromPDO(Objecta);
+            v22 = IopGetSessionIdFromPDO((struct _DEVICE_OBJECT *)Objecta);
           ++*((_WORD *)v11 + 28);
           KeReleaseGuardedMutex(&PnpTargetDeviceNotifyLock);
           v25 = KeGetCurrentThread();

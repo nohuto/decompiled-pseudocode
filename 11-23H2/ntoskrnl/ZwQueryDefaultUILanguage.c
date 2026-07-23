@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwQueryDefaultUILanguage @ 0x14041B5E0
+ * XREFs of ZwQueryDefaultUILanguage @ 0x14041B970
  * Callers:
- *     DifZwQueryDefaultUILanguageWrapper @ 0x1405F3A10 (DifZwQueryDefaultUILanguageWrapper.c)
+ *     DifZwQueryDefaultUILanguageWrapper @ 0x1405F3F80 (DifZwQueryDefaultUILanguageWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryDefaultUILanguage(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryDefaultUILanguage(LANGID *DefaultUILanguageId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DefaultUILanguageId);
 }

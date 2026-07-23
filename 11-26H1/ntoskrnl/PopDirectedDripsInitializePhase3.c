@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDirectedDripsInitializePhase3 @ 0x140CD0B50
+ * XREFs of PopDirectedDripsInitializePhase3 @ 0x140CD6CF8
  * Callers:
- *     PopInitializeDirectedDrips @ 0x140CD0CA8 (PopInitializeDirectedDrips.c)
+ *     PopInitializeDirectedDrips @ 0x140CD6E50 (PopInitializeDirectedDrips.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PopDirectedDripsQueryEnabledMitigations @ 0x1407CC23C (PopDirectedDripsQueryEnabledMitigations.c)
- *     PopDiagTraceDirectedDripsInitialization @ 0x1407D3440 (PopDiagTraceDirectedDripsInitialization.c)
- *     PopBSDiagSetTriageData @ 0x1407DC970 (PopBSDiagSetTriageData.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1408F9EF0 (ObReferenceObjectByHandleWithTag.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
- *     PopBSDiagSetTriageThread @ 0x140ABB370 (PopBSDiagSetTriageThread.c)
- *     PopDirectedDripsDiagInitialize @ 0x140CD6C5C (PopDirectedDripsDiagInitialize.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x1407CF2DC (PopDirectedDripsQueryEnabledMitigations.c)
+ *     PopDiagTraceDirectedDripsInitialization @ 0x1407D6478 (PopDiagTraceDirectedDripsInitialization.c)
+ *     PopBSDiagSetTriageData @ 0x1407E0B90 (PopBSDiagSetTriageData.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140929E80 (ObReferenceObjectByHandleWithTag.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
+ *     PopBSDiagSetTriageThread @ 0x140ABC830 (PopBSDiagSetTriageThread.c)
+ *     PopDirectedDripsDiagInitialize @ 0x140CDCFB0 (PopDirectedDripsDiagInitialize.c)
  */
 
 __int64 PopDirectedDripsInitializePhase3()
@@ -26,8 +26,8 @@ __int64 PopDirectedDripsInitializePhase3()
   *(&ObjectAttributes.Attributes + 1) = 0;
   ThreadHandle = 0LL;
   PopDirectedDripsDiagInitialize(3LL);
-  PopDirectedDripsQueryEnabledMitigations((__int64)dword_140F12AC0);
-  if ( (dword_140F12AF0 & 3) != 0 )
+  PopDirectedDripsQueryEnabledMitigations((__int64)&PopDirectedDripsState);
+  if ( (dword_140F12E30 & 3) != 0 )
   {
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
@@ -41,7 +41,7 @@ __int64 PopDirectedDripsInitializePhase3()
            0LL,
            0LL,
            (PKSTART_ROUTINE)PopDirectedDripsWorkerRoutine,
-           dword_140F12AC0);
+           &PopDirectedDripsState);
     if ( v0 >= 0 )
     {
       v0 = ObReferenceObjectByHandleWithTag(
@@ -50,16 +50,16 @@ __int64 PopDirectedDripsInitializePhase3()
              (POBJECT_TYPE)PsThreadType,
              0,
              0x67446F50u,
-             &unk_140F12AD0,
+             &qword_140F12E10,
              0LL);
       ZwClose(ThreadHandle);
       if ( v0 >= 0 )
       {
         if ( (unsigned int)PopDirectedDripsDfxEnforcementPolicy >= 3 )
           PopDirectedDripsDfxEnforcementPolicy = 1;
-        PopBSDiagSetTriageData(4, (struct _LIST_ENTRY *)dword_140F12AC0, 592LL, v1);
-        PopBSDiagSetTriageThread(2, (__int64)unk_140F12AD0, v2, v3);
-        dword_140F12AC0[0] |= 1u;
+        PopBSDiagSetTriageData(4, (__int64)&PopDirectedDripsState, 592LL, v1);
+        PopBSDiagSetTriageThread(2, (__int64)qword_140F12E10, v2, v3);
+        PopDirectedDripsState |= 1u;
         v0 = 0;
       }
     }

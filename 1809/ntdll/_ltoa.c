@@ -1,9 +1,9 @@
 /*
- * XREFs of _ltoa @ 0x180090890
+ * XREFs of _ltoa @ 0x1800908A0
  * Callers:
  *     <none>
  * Callees:
- *     xtoa @ 0x18009097C (xtoa.c)
+ *     xtoa @ 0x18009098C (xtoa.c)
  */
 
 char *__cdecl ltoa(int Value, char *Buffer, int Radix)

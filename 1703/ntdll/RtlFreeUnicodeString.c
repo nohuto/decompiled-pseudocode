@@ -39,9 +39,12 @@
 
 void __stdcall RtlFreeUnicodeString(PUNICODE_STRING UnicodeString)
 {
-  if ( UnicodeString->Buffer )
+  _OBJECT_BOUNDARY_DESCRIPTOR *Buffer; // rcx
+
+  Buffer = (_OBJECT_BOUNDARY_DESCRIPTOR *)UnicodeString->Buffer;
+  if ( Buffer )
   {
-    RtlDeleteBoundaryDescriptor();
+    RtlDeleteBoundaryDescriptor(Buffer);
     *(_QWORD *)&UnicodeString->Length = 0LL;
     UnicodeString->Buffer = 0LL;
   }

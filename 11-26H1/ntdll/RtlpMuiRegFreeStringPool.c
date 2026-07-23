@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpMuiRegFreeStringPool @ 0x18000D934
+ * XREFs of RtlpMuiRegFreeStringPool @ 0x180059064
  * Callers:
- *     RtlpInitializeUserList @ 0x18000AFE0 (RtlpInitializeUserList.c)
- *     RtlpLoadLanguageConfigList @ 0x18000CA10 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x18000D840 (RtlpUpdateTEBLanguage.c)
- *     RtlpFreeTebLanguageList @ 0x18006F928 (RtlpFreeTebLanguageList.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x1800DDD80 (RtlpMuiRegFreeRegistryInfo.c)
- *     RtlpMuiRegResizeStringPool @ 0x18014DA6C (RtlpMuiRegResizeStringPool.c)
+ *     RtlpInitializeUserList @ 0x180056710 (RtlpInitializeUserList.c)
+ *     RtlpLoadLanguageConfigList @ 0x180058140 (RtlpLoadLanguageConfigList.c)
+ *     RtlpUpdateTEBLanguage @ 0x180058F70 (RtlpUpdateTEBLanguage.c)
+ *     RtlpFreeTebLanguageList @ 0x18008FD78 (RtlpFreeTebLanguageList.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1800DACF0 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegResizeStringPool @ 0x18014D91C (RtlpMuiRegResizeStringPool.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpMuiRegFreeStringPool(__int64 a1)
+LOGICAL __fastcall RtlpMuiRegFreeStringPool(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  if ( a1 )
-    return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  if ( BaseAddress )
+    return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return result;
 }

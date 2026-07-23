@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLocateLowestConflictingVad @ 0x140445494
+ * XREFs of MiLocateLowestConflictingVad @ 0x14043D644
  * Callers:
- *     MiExpandVadBitMap @ 0x1408E1EE4 (MiExpandVadBitMap.c)
- *     MiUpdateVadBits @ 0x140A764A0 (MiUpdateVadBits.c)
+ *     MiExpandVadBitMap @ 0x140918A94 (MiExpandVadBitMap.c)
+ *     MiUpdateVadBits @ 0x140A705BC (MiUpdateVadBits.c)
  * Callees:
- *     MiGetPreviousVad @ 0x140261500 (MiGetPreviousVad.c)
- *     MiCheckForConflictingVad @ 0x1404454EC (MiCheckForConflictingVad.c)
+ *     MiGetPreviousVad @ 0x140291B10 (MiGetPreviousVad.c)
+ *     MiCheckForConflictingVad @ 0x14043D69C (MiCheckForConflictingVad.c)
  */
 
 unsigned __int64 __fastcall MiLocateLowestConflictingVad(__int64 a1, unsigned __int64 a2)

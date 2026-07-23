@@ -1,17 +1,17 @@
 /*
- * XREFs of CmSetCallbackObjectContext @ 0x1407EADD0
+ * XREFs of CmSetCallbackObjectContext @ 0x1407EBFD0
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140808C80 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPostOpenOrCreate @ 0x14080AE44 (VrpPostOpenOrCreate.c)
- *     VrpPreLoadKey @ 0x14080B764 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140809E80 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpPostOpenOrCreate @ 0x14080C044 (VrpPostOpenOrCreate.c)
+ *     VrpPreLoadKey @ 0x14080C964 (VrpPreLoadKey.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cookie, PVOID NewContext, PVOID *OldContext)

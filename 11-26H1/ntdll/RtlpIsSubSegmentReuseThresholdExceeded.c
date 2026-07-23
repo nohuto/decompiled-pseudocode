@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpIsSubSegmentReuseThresholdExceeded @ 0x180017FF0
+ * XREFs of RtlpIsSubSegmentReuseThresholdExceeded @ 0x1800030D0
  * Callers:
- *     RtlpFreeNTHeapInternal @ 0x1800185E0 (RtlpFreeNTHeapInternal.c)
+ *     RtlpFreeNTHeapInternal @ 0x1800036C0 (RtlpFreeNTHeapInternal.c)
  * Callees:
- *     RtlpLogHeapReuseThresholdActivate @ 0x18001C770 (RtlpLogHeapReuseThresholdActivate.c)
+ *     RtlpLogHeapReuseThresholdActivate @ 0x180007840 (RtlpLogHeapReuseThresholdActivate.c)
  */
 
 _BOOL8 __fastcall RtlpIsSubSegmentReuseThresholdExceeded(__int64 a1, __int64 a2)

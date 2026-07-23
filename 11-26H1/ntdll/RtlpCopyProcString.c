@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCopyProcString @ 0x18009F924
+ * XREFs of RtlpCopyProcString @ 0x18009EA54
  * Callers:
- *     RtlCreateProcessParametersInternal @ 0x18009F3E0 (RtlCreateProcessParametersInternal.c)
+ *     RtlCreateProcessParametersInternal @ 0x18009E510 (RtlCreateProcessParametersInternal.c)
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 char *__fastcall RtlpCopyProcString(void **a1, __int64 a2, unsigned __int16 *a3, unsigned int a4)

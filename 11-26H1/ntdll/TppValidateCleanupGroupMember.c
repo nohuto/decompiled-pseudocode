@@ -1,8 +1,8 @@
 /*
- * XREFs of TppValidateCleanupGroupMember @ 0x1800C9A20
+ * XREFs of TppValidateCleanupGroupMember @ 0x1800C71A0
  * Callers:
- *     TppJobpValidateJob @ 0x1800C98CC (TppJobpValidateJob.c)
- *     TppAlpcpValidateAlpc @ 0x1800C99AC (TppAlpcpValidateAlpc.c)
+ *     TppJobpValidateJob @ 0x1800C704C (TppJobpValidateJob.c)
+ *     TppAlpcpValidateAlpc @ 0x1800C712C (TppAlpcpValidateAlpc.c)
  * Callees:
  *     <none>
  */

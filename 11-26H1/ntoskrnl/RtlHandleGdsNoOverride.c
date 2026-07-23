@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlHandleGdsNoOverride @ 0x140BFEFB0
+ * XREFs of RtlHandleGdsNoOverride @ 0x140C051C0
  * Callers:
  *     <none>
  * Callees:

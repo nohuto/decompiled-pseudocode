@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipFindISinGEbyName @ 0x140A0B3A0
+ * XREFs of WmipFindISinGEbyName @ 0x140A0A608
  * Callers:
- *     WmipMangleInstanceName @ 0x140A0C2B0 (WmipMangleInstanceName.c)
+ *     WmipMangleInstanceName @ 0x140A0B280 (WmipMangleInstanceName.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     _wtoi @ 0x1405368D0 (_wtoi.c)
- *     wcsncmp @ 0x1405381A0 (wcsncmp.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     WmipIsNumber @ 0x140AF7E54 (WmipIsNumber.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     _wtoi @ 0x140538D50 (_wtoi.c)
+ *     wcsncmp @ 0x14053A620 (wcsncmp.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     WmipIsNumber @ 0x140AFA4F4 (WmipIsNumber.c)
  */
 
 ULONG_PTR __fastcall WmipFindISinGEbyName(__int64 a1, const wchar_t *a2, unsigned int *a3)
@@ -34,7 +34,7 @@ ULONG_PTR __fastcall WmipFindISinGEbyName(__int64 a1, const wchar_t *a2, unsigne
   do
     ++v3;
   while ( a2[v3] );
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v7 = a1 + 56;
   for ( i = *(_QWORD *)(a1 + 56); ; i = *(_QWORD *)i )
   {
@@ -93,6 +93,6 @@ LABEL_15:
 LABEL_20:
   WmipReferenceEntry(i);
 LABEL_21:
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   return i;
 }

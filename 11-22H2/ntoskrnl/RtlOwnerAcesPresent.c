@@ -6,7 +6,7 @@
  *     RtlpOwnerAcesPresent @ 0x140337480 (RtlpOwnerAcesPresent.c)
  */
 
-__int64 __fastcall RtlOwnerAcesPresent(__int64 a1)
+BOOLEAN __cdecl RtlOwnerAcesPresent(PACL pAcl)
 {
-  return RtlpOwnerAcesPresent(0LL, a1);
+  return RtlpOwnerAcesPresent(0LL, pAcl);
 }

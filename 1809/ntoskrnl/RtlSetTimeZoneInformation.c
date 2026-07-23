@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetTimeZoneInformation @ 0x1408958F0
+ * XREFs of RtlSetTimeZoneInformation @ 0x140896B50
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetTimeZoneInformationWorker @ 0x14089590C (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x140896B6C (RtlpSetTimeZoneInformationWorker.c)
  */
 
 NTSTATUS __stdcall RtlSetTimeZoneInformation(PRTL_TIME_ZONE_INFORMATION TimeZoneInformation)

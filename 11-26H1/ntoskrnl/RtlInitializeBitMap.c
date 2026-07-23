@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitializeBitMap @ 0x140491530
+ * XREFs of RtlInitializeBitMap @ 0x14048B080
  * Callers:
- *     HsaInitializeInterruptRemapping @ 0x140BF0A38 (HsaInitializeInterruptRemapping.c)
+ *     HsaInitializeInterruptRemapping @ 0x140BF6A38 (HsaInitializeInterruptRemapping.c)
  * Callees:
  *     <none>
  */

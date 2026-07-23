@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwQueryPerformanceCounter @ 0x140384F70 (BgpFwQueryPerformanceCounter.c)
- *     BgpTxtDisplayCharacter @ 0x140384F88 (BgpTxtDisplayCharacter.c)
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
+ *     BgpFwQueryPerformanceCounter @ 0x140385150 (BgpFwQueryPerformanceCounter.c)
+ *     BgpTxtDisplayCharacter @ 0x140385168 (BgpTxtDisplayCharacter.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
  *     LogFwStat @ 0x140AED85C (LogFwStat.c)
  */
 
@@ -26,14 +26,14 @@ void __fastcall AnFwpProgressIndicatorTimer(
 
   v10[0].QuadPart = 0LL;
   BgpFwAcquireLock();
-  if ( byte_140CF7AF0 )
+  if ( byte_140CF7AE9 )
   {
     PerformanceCounter = BgpFwQueryPerformanceCounter(v10);
     v5 = word_140C0B4EC;
     v6 = PerformanceCounter;
     v7 = word_140C0B4E8;
     if ( word_140C0B4EC != word_140C0B4E8
-      && (qword_140CF7AF8 + 10 * (v10[0].QuadPart / 33) / 100 - PerformanceCounter.QuadPart) / (v10[0].QuadPart / 33) >= 2 )
+      && (qword_140CF7AF0 + 10 * (v10[0].QuadPart / 33) / 100 - PerformanceCounter.QuadPart) / (v10[0].QuadPart / 33) >= 2 )
     {
       v5 = ++word_140C0B4EC;
     }
@@ -58,7 +58,7 @@ LABEL_9:
     v9 = v5 + 1;
 LABEL_10:
     word_140C0B4EC = v9;
-    qword_140CF7AF8 = v6.QuadPart;
+    qword_140CF7AF0 = v6.QuadPart;
   }
   BgpFwReleaseLock();
 }

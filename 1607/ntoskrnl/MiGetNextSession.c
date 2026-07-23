@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetNextSession @ 0x140086628
+ * XREFs of MiGetNextSession @ 0x140087F18
  * Callers:
- *     MmGetNextSession @ 0x140086620 (MmGetNextSession.c)
- *     MiEmptyAccessLogs @ 0x140086B20 (MiEmptyAccessLogs.c)
- *     PsQueryCpuQuotaInformation @ 0x14014C8AC (PsQueryCpuQuotaInformation.c)
+ *     MmGetNextSession @ 0x140087F10 (MmGetNextSession.c)
+ *     MiEmptyAccessLogs @ 0x140088410 (MiEmptyAccessLogs.c)
+ *     PsQueryCpuQuotaInformation @ 0x14014CE1C (PsQueryCpuQuotaInformation.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsGetEffectiveServerSilo @ 0x140076688 (PsGetEffectiveServerSilo.c)
- *     PspGetJobSilo @ 0x140076728 (PspGetJobSilo.c)
- *     MiSelectSessionAttachProcess @ 0x140076748 (MiSelectSessionAttachProcess.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetEffectiveServerSilo @ 0x140076708 (PsGetEffectiveServerSilo.c)
+ *     PspGetJobSilo @ 0x1400767A8 (PspGetJobSilo.c)
+ *     MiSelectSessionAttachProcess @ 0x1400767C8 (MiSelectSessionAttachProcess.c)
  */
 
 _QWORD *__fastcall MiGetNextSession(_QWORD *Object)
@@ -35,12 +35,12 @@ _QWORD *__fastcall MiGetNextSession(_QWORD *Object)
     v6 = Object[128];
   else
     v6 = 0LL;
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
   if ( v6 )
     v7 = *(__int64 **)(v6 + 144);
   else
-    v7 = (__int64 *)qword_140327810;
-  while ( v7 != &qword_140327810 )
+    v7 = (__int64 *)qword_140327850;
+  while ( v7 != &qword_140327850 )
   {
     v8 = MiSelectSessionAttachProcess((__int64)(v7 - 18));
     v4 = v8;

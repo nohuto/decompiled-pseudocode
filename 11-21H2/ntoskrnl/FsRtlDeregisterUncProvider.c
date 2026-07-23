@@ -12,8 +12,8 @@ void __stdcall FsRtlDeregisterUncProvider(HANDLE Handle)
 {
   if ( (char *)Handle - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL && ZwClose(Handle) >= 0 )
   {
-    KeWaitForSingleObject(&FsRtlpUncSemaphore, Executive, 0, 0, 0LL);
-    --FsRtlpRedirs;
-    KeReleaseSemaphore(&FsRtlpUncSemaphore, 0, 1, 0);
+    KeWaitForSingleObject(&stru_140C48B40, Executive, 0, 0, 0LL);
+    --dword_140D3B1D4;
+    KeReleaseSemaphore(&stru_140C48B40, 0, 1, 0);
   }
 }

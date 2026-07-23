@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipGenerateBinaryMofNotification @ 0x1407A5A68
+ * XREFs of WmipGenerateBinaryMofNotification @ 0x1407A5BA8
  * Callers:
- *     WmipDSCleanup @ 0x1409CF8B0 (WmipDSCleanup.c)
- *     WmipAddDataSource @ 0x1409CFD60 (WmipAddDataSource.c)
- *     WmipUpdateDataSource @ 0x1409D1534 (WmipUpdateDataSource.c)
+ *     WmipUpdateDataSource @ 0x1409AF500 (WmipUpdateDataSource.c)
+ *     WmipAddDataSource @ 0x1409B01A8 (WmipAddDataSource.c)
+ *     WmipDSCleanup @ 0x140A49A00 (WmipDSCleanup.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140356698 (RtlStringCbPrintfExW.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WmipProcessEvent @ 0x1409CB800 (WmipProcessEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfExW @ 0x140423038 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WmipProcessEvent @ 0x1409B1F20 (WmipProcessEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WmipGenerateBinaryMofNotification(__int64 a1, _OWORD *a2)
@@ -54,7 +54,7 @@ void __fastcall WmipGenerateBinaryMofNotification(__int64 a1, _OWORD *a2)
         v8 = 2 * v9 + 14;
         v7 = v4;
       }
-      Pool2 = (char *)ExAllocatePool2(0x100uLL);
+      Pool2 = (char *)ExAllocatePool2(0x100uLL, v8 + 74, 0x70696D57u);
       v11 = Pool2;
       if ( Pool2 )
       {

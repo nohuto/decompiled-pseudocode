@@ -1,13 +1,13 @@
 /*
- * XREFs of MiQueueControlAreaDelete @ 0x14028DAA0
+ * XREFs of MiQueueControlAreaDelete @ 0x14028D000
  * Callers:
- *     MiProbeUnlockPage @ 0x14028B900 (MiProbeUnlockPage.c)
- *     MiDereferenceControlAreaProbe @ 0x1404881AC (MiDereferenceControlAreaProbe.c)
+ *     MiProbeUnlockPage @ 0x14028AE60 (MiProbeUnlockPage.c)
+ *     MiDereferenceControlAreaProbe @ 0x140481CEC (MiDereferenceControlAreaProbe.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 LONG __fastcall MiQueueControlAreaDelete(__int64 a1)
@@ -18,7 +18,7 @@ LONG __fastcall MiQueueControlAreaDelete(__int64 a1)
   _QWORD *v5; // rbx
   volatile LONG *v6; // rcx
 
-  v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
+  v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
   v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 2112));
   v4 = *(_QWORD **)(v2 + 2520);
   v5 = (_QWORD *)(a1 + 8);

@@ -1,14 +1,14 @@
 /*
- * XREFs of EmpUpdateRuleState @ 0x140281BC4
+ * XREFs of EmpUpdateRuleState @ 0x14026FE04
  * Callers:
- *     EmpUpdateRuleState @ 0x140281BC4 (EmpUpdateRuleState.c)
- *     EmpRuleUpdateWorkerThread @ 0x1403C64B0 (EmpRuleUpdateWorkerThread.c)
- *     EmClientQueryRuleState @ 0x14098F620 (EmClientQueryRuleState.c)
+ *     EmpUpdateRuleState @ 0x14026FE04 (EmpUpdateRuleState.c)
+ *     EmpRuleUpdateWorkerThread @ 0x1403C6650 (EmpRuleUpdateWorkerThread.c)
+ *     EmClientQueryRuleState @ 0x1409910E0 (EmClientQueryRuleState.c)
  * Callees:
- *     EmpSearchTargetRuleList @ 0x140281B9C (EmpSearchTargetRuleList.c)
- *     EmpUpdateRuleState @ 0x140281BC4 (EmpUpdateRuleState.c)
- *     EmpEvaluateUpdateRuleEvalState @ 0x1403C52F4 (EmpEvaluateUpdateRuleEvalState.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     EmpSearchTargetRuleList @ 0x14026FDDC (EmpSearchTargetRuleList.c)
+ *     EmpUpdateRuleState @ 0x14026FE04 (EmpUpdateRuleState.c)
+ *     EmpEvaluateUpdateRuleEvalState @ 0x1403C5724 (EmpEvaluateUpdateRuleEvalState.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 _QWORD *__fastcall EmpUpdateRuleState(__int64 a1, __int64 a2)

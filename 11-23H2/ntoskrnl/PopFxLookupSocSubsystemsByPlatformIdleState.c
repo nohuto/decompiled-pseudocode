@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140878938
+ * XREFs of PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140878B78
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x140984C30 (PopFxInitializeSocSubsystemStaticInfo.c)
- *     PopFxLogSocSubsystemBlockingTimes @ 0x140985038 (PopFxLogSocSubsystemBlockingTimes.c)
- *     PopFxLogSocSubsystemMetadata @ 0x1409851EC (PopFxLogSocSubsystemMetadata.c)
- *     PopFxResetSocSubsystemAccounting @ 0x140985D5C (PopFxResetSocSubsystemAccounting.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x140984E30 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopFxLogSocSubsystemBlockingTimes @ 0x140985238 (PopFxLogSocSubsystemBlockingTimes.c)
+ *     PopFxLogSocSubsystemMetadata @ 0x1409853EC (PopFxLogSocSubsystemMetadata.c)
+ *     PopFxResetSocSubsystemAccounting @ 0x140985F5C (PopFxResetSocSubsystemAccounting.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptMaskAcpi @ 0x140A95388
+ * XREFs of HalpInterruptMaskAcpi @ 0x140A951F8
  * Callers:
- *     HalpDispatchSystemStateTransition @ 0x14050D644 (HalpDispatchSystemStateTransition.c)
+ *     HalpDispatchSystemStateTransition @ 0x14050DB94 (HalpDispatchSystemStateTransition.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x14031FEE0 (HalpInterruptLookupController.c)
- *     HalpInterruptPicLine @ 0x1403797A4 (HalpInterruptPicLine.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037CA30 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x14037CAA8 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140320170 (HalpInterruptLookupController.c)
+ *     HalpInterruptPicLine @ 0x140379944 (HalpInterruptPicLine.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037CBD0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x14037CC48 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptMaskAcpi(char a1)

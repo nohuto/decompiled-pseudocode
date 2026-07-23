@@ -1,7 +1,7 @@
 /*
- * XREFs of AslpDetermineDosPathNameType @ 0x14080B024
+ * XREFs of AslpDetermineDosPathNameType @ 0x14080B764
  * Callers:
- *     AslPathToNetworkPathNt @ 0x140809E14 (AslPathToNetworkPathNt.c)
+ *     AslPathToNetworkPathNt @ 0x14080A554 (AslPathToNetworkPathNt.c)
  * Callees:
  *     <none>
  */

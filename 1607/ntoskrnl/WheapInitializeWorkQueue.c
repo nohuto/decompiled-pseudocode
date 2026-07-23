@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapInitializeWorkQueue @ 0x14014C110
+ * XREFs of WheapInitializeWorkQueue @ 0x14014C680
  * Callers:
  *     WheaInitialize @ 0x1407A0948 (WheaInitialize.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 (__fastcall *WheapInitializeWorkQueue())()

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxLogSocSubsystemBlockingTimes @ 0x1408E4B10
+ * XREFs of PopFxLogSocSubsystemBlockingTimes @ 0x1408E4C70
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x140573074 (PopDiagTraceSleepStudyBlocker.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x1408E50BC (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     PopPluginQuerySocSubsystemBlockingTime @ 0x1408E5D3C (PopPluginQuerySocSubsystemBlockingTime.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x1405732B4 (PopDiagTraceSleepStudyBlocker.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x1408E521C (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopPluginQuerySocSubsystemBlockingTime @ 0x1408E5E9C (PopPluginQuerySocSubsystemBlockingTime.c)
  */
 
 __int64 __fastcall PopFxLogSocSubsystemBlockingTimes(__int64 a1, unsigned int a2)

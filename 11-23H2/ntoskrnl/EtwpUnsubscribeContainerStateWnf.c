@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUnsubscribeContainerStateWnf @ 0x1405FC890
+ * XREFs of EtwpUnsubscribeContainerStateWnf @ 0x1405FCE00
  * Callers:
  *     <none>
  * Callees:
- *     ExUnsubscribeWnfStateChange @ 0x1407E1090 (ExUnsubscribeWnfStateChange.c)
+ *     ExUnsubscribeWnfStateChange @ 0x1407E1360 (ExUnsubscribeWnfStateChange.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

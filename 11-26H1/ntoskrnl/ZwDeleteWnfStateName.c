@@ -1,20 +1,20 @@
 /*
- * XREFs of ZwDeleteWnfStateName @ 0x140725010
+ * XREFs of ZwDeleteWnfStateName @ 0x140729BE0
  * Callers:
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
- *     DifZwDeleteWnfStateNameWrapper @ 0x1406A4640 (DifZwDeleteWnfStateNameWrapper.c)
- *     PopFreeRegistration @ 0x1407CF698 (PopFreeRegistration.c)
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
- *     PiUEventFreeClientRegistrationContext @ 0x1409D80BC (PiUEventFreeClientRegistrationContext.c)
- *     PspAllocateAndQueryProcessNotificationChannel @ 0x140B3DD70 (PspAllocateAndQueryProcessNotificationChannel.c)
- *     PspCheckEnableNotificationChannel @ 0x140B650F8 (PspCheckEnableNotificationChannel.c)
+ *     PspJobDelete @ 0x1406187E0 (PspJobDelete.c)
+ *     DifZwDeleteWnfStateNameWrapper @ 0x1406A8220 (DifZwDeleteWnfStateNameWrapper.c)
+ *     PopFreeRegistration @ 0x1407D2738 (PopFreeRegistration.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1409A8FAC (PiUEventFreeClientRegistrationContext.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x140B3FE50 (PspAllocateAndQueryProcessNotificationChannel.c)
+ *     PspCheckEnableNotificationChannel @ 0x140B68198 (PspCheckEnableNotificationChannel.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDeleteWnfStateName(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

@@ -3,14 +3,14 @@
  * Callers:
  *     _swinput_s @ 0x1800A4FD0 (_swinput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     iswctype @ 0x18009A240 (iswctype.c)
  *     ReadString_1 @ 0x1800A4BA8 (ReadString_1.c)
  *     ReadStringDelimited_1 @ 0x1800A4DE4 (ReadStringDelimited_1.c)
  *     _hextodec @ 0x1800A4F84 (_hextodec.c)
  *     _whiteout @ 0x1800A503C (_whiteout.c)
- *     _fgetwc_nolock @ 0x1800A5A84 (_fgetwc_nolock.c)
- *     _ungetwc_nolock @ 0x1800A5ADC (_ungetwc_nolock.c)
+ *     _fgetwc_nolock @ 0x1800A5A78 (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x1800A5AD0 (_ungetwc_nolock.c)
  */
 
 __int64 __fastcall winput_s(FILE *Stream, wint_t *a2, _DWORD *a3)

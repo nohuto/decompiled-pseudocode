@@ -6,7 +6,7 @@
  *     RtlNumberOfSetBits @ 0x180078560 (RtlNumberOfSetBits.c)
  */
 
-__int64 __fastcall RtlNumberOfClearBits(unsigned int *a1)
+ULONG __cdecl RtlNumberOfClearBits(PRTL_BITMAP BitMapHeader)
 {
-  return *a1 - (unsigned int)RtlNumberOfSetBits(a1);
+  return BitMapHeader->SizeOfBitMap - RtlNumberOfSetBits(BitMapHeader);
 }

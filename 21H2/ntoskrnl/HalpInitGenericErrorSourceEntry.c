@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInitGenericErrorSourceEntry @ 0x1409A76E0
+ * XREFs of HalpInitGenericErrorSourceEntry @ 0x1409A8610
  * Callers:
- *     HalpInitializeGenericErrorSource @ 0x1409A7D34 (HalpInitializeGenericErrorSource.c)
+ *     HalpInitializeGenericErrorSource @ 0x1409A8C64 (HalpInitializeGenericErrorSource.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     RtlStringCchCopyA @ 0x1402C8734 (RtlStringCchCopyA.c)
- *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     RtlStringCchCopyA @ 0x140246F94 (RtlStringCchCopyA.c)
+ *     WheaLogInternalEvent @ 0x1403BAEC0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpInitGenericErrorSourceEntry(__int64 a1, _QWORD *a2)

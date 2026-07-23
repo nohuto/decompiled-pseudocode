@@ -4,10 +4,10 @@
  *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
  * Callees:
  *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     VrpCountPathComponents @ 0x14068D434 (VrpCountPathComponents.c)
  *     VrpBuildKeyPath @ 0x14068DE10 (VrpBuildKeyPath.c)
  *     VrpFreeCallbackContext @ 0x14068E690 (VrpFreeCallbackContext.c)
@@ -16,8 +16,8 @@
  *     VrpFreeKeyContext @ 0x14068EC34 (VrpFreeKeyContext.c)
  *     VrpAllocateKeyContext @ 0x14068EECC (VrpAllocateKeyContext.c)
  *     CmSetCallbackObjectContext @ 0x14068F0A0 (CmSetCallbackObjectContext.c)
- *     CmAllocateExtraParameter @ 0x1407E62E0 (CmAllocateExtraParameter.c)
- *     CmpFreeExtraParameter @ 0x1407E6D20 (CmpFreeExtraParameter.c)
+ *     CmAllocateExtraParameter @ 0x1407E65B0 (CmAllocateExtraParameter.c)
+ *     CmpFreeExtraParameter @ 0x1407E6FF0 (CmpFreeExtraParameter.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -144,7 +144,7 @@ LABEL_38:
               v29 = *(_DWORD *)(v28 + 8);
               if ( v29 == 260 || v29 == 872 )
               {
-                if ( (unsigned int)dword_140C04460 > 5 )
+                if ( (unsigned int)dword_140C04420 > 5 )
                 {
                   v31 = &EmptyUnicodeString;
                   if ( *(_QWORD *)(*(_QWORD *)v11 + 8LL) )
@@ -159,8 +159,8 @@ LABEL_38:
                   LODWORD(OldContext) = v12;
                   v44 = 4LL;
                   tlgWriteTransfer_EtwWriteTransfer(
-                    (__int64)&dword_140C04460,
-                    (unsigned __int8 *)byte_14003A410,
+                    (__int64)&dword_140C04420,
+                    (unsigned __int8 *)word_14003A452,
                     &ActivityId,
                     0LL,
                     5u,
@@ -228,7 +228,7 @@ LABEL_28:
 LABEL_13:
   v12 = -1073741670;
 LABEL_29:
-  if ( (unsigned int)dword_140C04460 > 2 )
+  if ( (unsigned int)dword_140C04420 > 2 )
   {
     v25 = &EmptyUnicodeString;
     if ( *(_QWORD *)(*(_QWORD *)v11 + 8LL) )
@@ -243,8 +243,8 @@ LABEL_29:
     LODWORD(OldContext) = v12;
     v44 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04460,
-      (unsigned __int8 *)&word_14003A656,
+      (__int64)&dword_140C04420,
+      (unsigned __int8 *)word_14003A7BA,
       &ActivityId,
       0LL,
       5u,

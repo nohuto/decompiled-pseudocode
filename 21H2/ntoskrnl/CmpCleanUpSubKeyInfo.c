@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCleanUpSubKeyInfo @ 0x14066A0AC
+ * XREFs of CmpCleanUpSubKeyInfo @ 0x14065EECC
  * Callers:
- *     CmpCreateTombstone @ 0x1404ED55C (CmpCreateTombstone.c)
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmpRebuildKcbCacheFromNode @ 0x140669FA4 (CmpRebuildKcbCacheFromNode.c)
- *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
- *     CmpInvalidateSubtreeWorker @ 0x140771FC0 (CmpInvalidateSubtreeWorker.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ECD4 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpCreateTombstone @ 0x1404ED79C (CmpCreateTombstone.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x14065EDC4 (CmpRebuildKcbCacheFromNode.c)
+ *     CmDeleteKey @ 0x140660814 (CmDeleteKey.c)
+ *     CmpInvalidateSubtreeWorker @ 0x140772180 (CmpInvalidateSubtreeWorker.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087EE34 (CmpLightWeightCommitDeleteKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int16 __fastcall CmpCleanUpSubKeyInfo(__int64 a1, char a2)

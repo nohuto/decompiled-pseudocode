@@ -1,17 +1,17 @@
 /*
- * XREFs of CcZeroDataInCache @ 0x1402E86F8
+ * XREFs of CcZeroDataInCache @ 0x140299A48
  * Callers:
- *     CcZeroData @ 0x1402E82C0 (CcZeroData.c)
+ *     CcZeroData @ 0x140299610 (CcZeroData.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
- *     MmSetAddressRangeModifiedEx @ 0x14030F640 (MmSetAddressRangeModifiedEx.c)
- *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MiProbeAndLockPages @ 0x1402AF160 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x140304060 (CcSetDirtyPinnedData.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14031A390 (MmSetAddressRangeModifiedEx.c)
+ *     CcPinFileData @ 0x14032A380 (CcPinFileData.c)
  */
 
 char __fastcall CcZeroDataInCache(int a1, __int64 *a2, unsigned int a3, unsigned __int8 a4)
@@ -50,10 +50,10 @@ char __fastcall CcZeroDataInCache(int a1, __int64 *a2, unsigned int a3, unsigned
     v11 = v14 - v15 + v7;
     MemoryDescriptorList = IoAllocateMdl(VirtualAddress[0], (int)v14 - (int)v15, 0, 0, 0LL);
     if ( !MemoryDescriptorList )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     v8 = BYTE5(KeGetCurrentThread()[1].Queue) + 2;
     BYTE5(KeGetCurrentThread()[1].Queue) = 1;
-    MiProbeAndLockPages((__int64)MemoryDescriptorList, 0, 0);
+    MiProbeAndLockPages(MemoryDescriptorList, 0LL, 0LL);
     BYTE5(KeGetCurrentThread()[1].Queue) = v8 - 2;
     v15 = v14;
     MmSetAddressRangeModifiedEx(VirtualAddress[0], v10);

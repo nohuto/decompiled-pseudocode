@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDozeDeferralDecision @ 0x1408E9F00
+ * XREFs of PopDiagTraceDozeDeferralDecision @ 0x1408EA060
  * Callers:
- *     PopDeferDoze @ 0x1408F0448 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x1408F05A8 (PopDeferDoze.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDozeDeferralDecision(
@@ -74,7 +74,7 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v26 = &v18;
       v27 = 4LL;
       v28 = &v19;
-      v22 = qword_140C23500;
+      v22 = qword_140C23B20;
       v30 = &v22;
       v32 = &v23;
       v24 = a5;
@@ -96,13 +96,13 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v42 = &v13;
       v14 = PopPlatformRole;
       v44 = &v14;
-      v21 = (unsigned __int8)byte_140C24074;
+      v21 = (unsigned __int8)byte_140C23434;
       v46 = &v21;
-      v15 = byte_140C24073;
+      v15 = byte_140C23433;
       v48 = &v15;
-      v16 = byte_140C24098;
+      v16 = byte_140C23458;
       v50 = &v16;
-      v17 = qword_140C240A0;
+      v17 = qword_140C23460;
       v52 = &v17;
       v41 = 1LL;
       v43 = 1LL;
@@ -113,7 +113,7 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v53 = 1LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02228,
-        (unsigned __int8 *)byte_1400270C5,
+        (unsigned __int8 *)byte_1400277C5,
         0LL,
         0LL,
         0x11u,

@@ -539,7 +539,8 @@ LABEL_56:
   if ( v133 && *(_BYTE *)(a6 & 0xFFFFFFFFFFFFFFFEuLL) == 4
     || v117 + 0x80000000000LL <= 0x7FFFFFFFFFLL
     || PsNtosImageBase
-    && (v117 >= PsNtosImageBase && v117 < PsNtosImageEnd || v117 >= PsHalImageBase && v117 < PsHalImageEnd) )
+    && (v117 >= (unsigned __int64)PsNtosImageBase && v117 < PsNtosImageEnd
+     || v117 >= (unsigned __int64)PsHalImageBase && v117 < PsHalImageEnd) )
   {
     v118 = 8;
   }

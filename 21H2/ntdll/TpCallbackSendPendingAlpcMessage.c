@@ -1,13 +1,13 @@
 /*
- * XREFs of TpCallbackSendPendingAlpcMessage @ 0x1801122A0
+ * XREFs of TpCallbackSendPendingAlpcMessage @ 0x180112260
  * Callers:
  *     <none>
  * Callees:
  *     TppCallbackSendAndDestroyAlpcMessage @ 0x18004F030 (TppCallbackSendAndDestroyAlpcMessage.c)
- *     TppRaiseInvalidParameter @ 0x1801124DC (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x18011249C (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpCallbackSendPendingAlpcMessage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall TpCallbackSendPendingAlpcMessage(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
 
@@ -18,7 +18,7 @@ __int64 __fastcall TpCallbackSendPendingAlpcMessage(__int64 a1, __int64 a2, __in
   }
   else
   {
-    TppRaiseInvalidParameter(a1, a2, a3, a4);
+    TppRaiseInvalidParameter(a1, a2, a3);
     return 3221225485LL;
   }
   return result;

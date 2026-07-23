@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpProcessInitializationComplete @ 0x18010D0D0
+ * XREFs of LdrpProcessInitializationComplete @ 0x180108090
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned int *LdrpProcessInitializationComplete()
+int LdrpProcessInitializationComplete()
 {
-  return LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 0x1484u);
+  return LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 5252);
 }

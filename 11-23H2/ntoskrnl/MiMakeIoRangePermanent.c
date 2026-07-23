@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMakeIoRangePermanent @ 0x14062E45C
+ * XREFs of MiMakeIoRangePermanent @ 0x14062E9AC
  * Callers:
- *     MiMakeIoRangePermanentDpc @ 0x14062E6A0 (MiMakeIoRangePermanentDpc.c)
+ *     MiMakeIoRangePermanentDpc @ 0x14062EBF0 (MiMakeIoRangePermanentDpc.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     MiUnlockIoPfnTree @ 0x140336454 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x140336C50 (MiLockIoPfnTree.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     MiUnlockIoPfnTree @ 0x1403366E4 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x140336EE0 (MiLockIoPfnTree.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
  */
 
 __int64 __fastcall MiMakeIoRangePermanent(unsigned __int64 a1)

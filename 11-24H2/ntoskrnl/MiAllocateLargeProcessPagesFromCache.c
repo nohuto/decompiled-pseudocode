@@ -1,22 +1,22 @@
 /*
- * XREFs of MiAllocateLargeProcessPagesFromCache @ 0x14069197C
+ * XREFs of MiAllocateLargeProcessPagesFromCache @ 0x140692A4C
  * Callers:
- *     MiCreateLargePfnList @ 0x14036E934 (MiCreateLargePfnList.c)
+ *     MiCreateLargePfnList @ 0x14026A8C0 (MiCreateLargePfnList.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402F6568 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiZeroLargePage @ 0x140308BDC (MiZeroLargePage.c)
- *     MiCreateLargePfnList @ 0x14036E934 (MiCreateLargePfnList.c)
- *     MiComputePreferredNode @ 0x14036EFC8 (MiComputePreferredNode.c)
- *     MiFreeLargeZeroPages @ 0x1403A67F0 (MiFreeLargeZeroPages.c)
- *     MiPopLargePfnList @ 0x1404912BC (MiPopLargePfnList.c)
- *     MiGetVadCacheAttribute @ 0x1404A5498 (MiGetVadCacheAttribute.c)
- *     MiCreateProcessLargePageCacheAnchor @ 0x140692234 (MiCreateProcessLargePageCacheAnchor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiCreateLargePfnList @ 0x14026A8C0 (MiCreateLargePfnList.c)
+ *     MiComputePreferredNode @ 0x14026AF48 (MiComputePreferredNode.c)
+ *     MiFreeLargeZeroPages @ 0x14026DAE0 (MiFreeLargeZeroPages.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiZeroLargePage @ 0x140312ABC (MiZeroLargePage.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14033E678 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiPopLargePfnList @ 0x14048BDB4 (MiPopLargePfnList.c)
+ *     MiGetVadCacheAttribute @ 0x1404A0228 (MiGetVadCacheAttribute.c)
+ *     MiCreateProcessLargePageCacheAnchor @ 0x140693304 (MiCreateProcessLargePageCacheAnchor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
@@ -32,7 +32,7 @@ __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
   __int64 v9; // r8
   __int64 v10; // rdx
   __int64 v11; // r8
-  signed int VadCacheAttribute; // r12d
+  int VadCacheAttribute; // r12d
   BOOL v13; // r9d
   BOOL v14; // r15d
   unsigned int v15; // ecx
@@ -73,7 +73,7 @@ __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
   _QWORD *v51; // rax
   unsigned __int64 v52; // rdx
   __int64 v53; // rcx
-  __int64 v54; // r14
+  unsigned __int64 v54; // r14
   unsigned __int64 v55; // rbx
   _QWORD *v56; // rdi
   _QWORD *v57; // rcx
@@ -92,7 +92,7 @@ __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
   __int64 *v70; // rcx
   KIRQL v71; // [rsp+50h] [rbp-B0h]
   __int64 v73; // [rsp+58h] [rbp-A8h]
-  RTL_BITMAP BitMapHeader; // [rsp+68h] [rbp-98h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+68h] [rbp-98h] BYREF
   __int64 v75; // [rsp+78h] [rbp-88h]
   __int64 v76; // [rsp+80h] [rbp-80h]
   __int64 v77; // [rsp+88h] [rbp-78h]
@@ -139,7 +139,7 @@ LABEL_9:
   v18 = (__int64)&Process[2].ActiveProcessors[2].StaticBitmap[29];
   v76 = v18;
   ProcessLargePageCacheAnchor = *(_QWORD *)(v18 + 280);
-  v20 = *((_QWORD *)qword_140E2FF88 + Blink_high);
+  v20 = *((_QWORD *)qword_140E300C8 + Blink_high);
   v75 = v20;
   if ( ProcessLargePageCacheAnchor )
     goto LABEL_12;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddNonSecuredPagesToDump @ 0x1406F5C68
+ * XREFs of MiAddNonSecuredPagesToDump @ 0x1406FA8D8
  * Callers:
- *     MmGetDumpRange @ 0x1406F6934 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1406FB5A4 (MmGetDumpRange.c)
  * Callees:
- *     MiIsPageSecured @ 0x1405328B8 (MiIsPageSecured.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiIsPageSecured @ 0x140534D58 (MiIsPageSecured.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiAddNonSecuredPagesToDump(__int64 a1, __int64 a2, __int64 a3)

@@ -15,10 +15,12 @@
  *     RtlpValidateContextFlags @ 0x14032F610 (RtlpValidateContextFlags.c)
  */
 
-__int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2, __int64 a3)
+NTSTATUS __cdecl RtlGetExtendedContextLength2(
+        ULONG ContextFlags,
+        PULONG ContextLength,
+        ULONG64 EnabledExtendedFeatures)
 {
-  unsigned int v5; // ebx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v7; // edi
   int v8; // eax
   int v9; // [rsp+20h] [rbp-18h] BYREF
@@ -28,21 +30,20 @@ __int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2, __int64 
   v10[0] = 0;
   v9 = 0;
   v11 = 0;
-  v5 = a1;
-  result = RtlpValidateContextFlags(a1, v10);
-  if ( (int)result >= 0 )
+  result = RtlpValidateContextFlags(ContextFlags, v10);
+  if ( result >= 0 )
   {
-    RtlpGetLegacyContextLength(v5, &v11, &v9);
+    RtlpGetLegacyContextLength(ContextFlags, &v11, &v9);
     v7 = v9;
     v8 = v11 + 24;
     if ( (v10[0] & 2) != 0 )
     {
       if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-        a3 &= MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL;
-      v8 = (~(v7 - 1) & (v8 + v7 - 1)) - v7 - 448 + RtlpGetEntireXStateAreaLength(a3);
+        EnabledExtendedFeatures &= MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL;
+      v8 = (~(v7 - 1) & (v8 + v7 - 1)) - v7 - 448 + RtlpGetEntireXStateAreaLength(EnabledExtendedFeatures);
     }
-    *a2 = v7 + v8 - 1;
-    return 0LL;
+    *ContextLength = v7 + v8 - 1;
+    return 0;
   }
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeUltraMapping @ 0x1403C65A8
+ * XREFs of MiFreeUltraMapping @ 0x1403C6788
  * Callers:
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
- *     MiReleaseLargeZeroingVa @ 0x1406552B8 (MiReleaseLargeZeroingVa.c)
+ *     MiZeroPage @ 0x1402D0C80 (MiZeroPage.c)
+ *     MiReleaseLargeZeroingVa @ 0x140655808 (MiReleaseLargeZeroingVa.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeUltraMapping(unsigned __int64 a1)
@@ -57,10 +57,10 @@ LABEL_2:
     MiWritePteShadow((__int64)v1, v4, v5);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v11);
   OldIrql = v11.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v11.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

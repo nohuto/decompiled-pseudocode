@@ -10,18 +10,18 @@ int __thiscall RtlpGenerateIFEOKeyFilterId(_WORD *this)
 {
   _WORD *v1; // esi
   int v2; // edi
-  int v4; // [esp+10h] [ebp-8h] BYREF
+  ULONG Seed; // [esp+10h] [ebp-8h] BYREF
   _WORD *v5; // [esp+14h] [ebp-4h]
 
   v5 = this;
   while ( MEMORY[0x7FFE0018] != MEMORY[0x7FFE001C] )
     _mm_pause();
   v1 = v5;
-  v4 = MEMORY[0x7FFE0014];
+  Seed = MEMORY[0x7FFE0014];
   v2 = 8;
   do
   {
-    *v1++ = RtlRandomEx(&v4);
+    *v1++ = RtlRandomEx(&Seed);
     --v2;
   }
   while ( v2 );

@@ -1,19 +1,19 @@
 /*
- * XREFs of SymCryptEcDhSecretAgreement @ 0x140574A80
+ * XREFs of SymCryptEcDhSecretAgreement @ 0x140573CE4
  * Callers:
- *     SymCryptEcDhSecretAgreementSelftest @ 0x140562DAC (SymCryptEcDhSecretAgreementSelftest.c)
+ *     SymCryptEcDhSecretAgreementSelftest @ 0x1405652BC (SymCryptEcDhSecretAgreementSelftest.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptEcurveIsSame @ 0x14055B378 (SymCryptEcurveIsSame.c)
- *     SymCryptEcurveSizeofFieldElement @ 0x14055B438 (SymCryptEcurveSizeofFieldElement.c)
- *     SymCryptEcpointCreate @ 0x14056434C (SymCryptEcpointCreate.c)
- *     SymCryptEcpointGetValue @ 0x14056440C (SymCryptEcpointGetValue.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x140564C8C (SymCryptSizeofEcpointFromCurve.c)
- *     SymCryptEcpointIsZero @ 0x140567FFC (SymCryptEcpointIsZero.c)
- *     SymCryptEcpointScalarMul @ 0x1405680F0 (SymCryptEcpointScalarMul.c)
- *     SymCryptCallbackAlloc @ 0x140722890 (SymCryptCallbackAlloc.c)
- *     SymCryptCallbackFree @ 0x1407228C8 (SymCryptCallbackFree.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptEcurveIsSame @ 0x14055D85C (SymCryptEcurveIsSame.c)
+ *     SymCryptEcurveSizeofFieldElement @ 0x14055D91C (SymCryptEcurveSizeofFieldElement.c)
+ *     SymCryptEcpointCreate @ 0x14056673C (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointGetValue @ 0x1405667FC (SymCryptEcpointGetValue.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x14056707C (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointIsZero @ 0x1405671B0 (SymCryptEcpointIsZero.c)
+ *     SymCryptEcpointScalarMul @ 0x1405672A4 (SymCryptEcpointScalarMul.c)
+ *     SymCryptCallbackAlloc @ 0x140727460 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x140727498 (SymCryptCallbackFree.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall SymCryptEcDhSecretAgreement(__int64 a1, __int64 a2, int a3, int a4, void *a5, __int64 a6)

@@ -6,35 +6,38 @@
  *     memset$thunk$772440563353939046 @ 0x180130010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlSidHashInitialize(__int64 *a1, unsigned int a2, _QWORD *a3)
+NTSTATUS __cdecl RtlSidHashInitialize(
+        PSID_AND_ATTRIBUTES SidAttr,
+        ULONG SidCount,
+        PSID_AND_ATTRIBUTES_HASH SidAttrHash)
 {
-  unsigned int v3; // ebx
-  unsigned int v7; // r9d
-  __int64 v8; // rcx
+  ULONG v3; // ebx
+  ULONG v7; // r9d
+  unsigned __int8 *Sid; // rcx
   unsigned int v9; // edx
   __int64 v10; // r8
 
   v3 = 0;
-  if ( !a3 )
-    return 3221225485LL;
-  memset_thunk_772440563353939046(a3, 0, 0x110uLL);
-  if ( a1 && a2 )
+  if ( !SidAttrHash )
+    return -1073741811;
+  memset_thunk_772440563353939046(SidAttrHash, 0, 0x110uLL);
+  if ( SidAttr && SidCount )
   {
     v7 = 64;
-    a3[1] = a1;
-    *(_DWORD *)a3 = a2;
-    if ( a2 <= 0x40 )
-      v7 = a2;
+    SidAttrHash->SidAttr = SidAttr;
+    SidAttrHash->SidCount = SidCount;
+    if ( SidCount <= 0x40 )
+      v7 = SidCount;
     do
     {
-      v8 = *a1;
-      a1 += 2;
-      v9 = *(unsigned __int8 *)(v8 + 4LL * *(unsigned __int8 *)(v8 + 1) + 4);
+      Sid = (unsigned __int8 *)SidAttr->Sid;
+      ++SidAttr;
+      v9 = Sid[4 * Sid[1] + 4];
       v10 = 1LL << v3++;
-      a3[(v9 & 0xF) + 2] |= v10;
-      a3[((unsigned __int64)v9 >> 4) + 18] |= v10;
+      SidAttrHash->Hash[v9 & 0xF] |= v10;
+      SidAttrHash->Hash[((unsigned __int64)v9 >> 4) + 16] |= v10;
     }
     while ( v3 < v7 );
   }
-  return 0LL;
+  return 0;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmCheckRegistry @ 0x140480374
+ * XREFs of CmCheckRegistry @ 0x14047F0C8
  * Callers:
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmpReorganizeHive @ 0x14047FA2C (CmpReorganizeHive.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmpReorganizeHive @ 0x14047E780 (CmpReorganizeHive.c)
  * Callees:
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x1403F8C28 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCheckRegistry2 @ 0x14043EF70 (CmpCheckRegistry2.c)
- *     HvCheckHive @ 0x140513594 (HvCheckHive.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1403F7AE8 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckRegistry2 @ 0x14043DE40 (CmpCheckRegistry2.c)
+ *     HvCheckHive @ 0x1404F6984 (HvCheckHive.c)
  */
 
 __int64 __fastcall CmCheckRegistry(ULONG_PTR a1, int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR a1, int a2)
   int v2; // edi
   __int64 v4; // rdx
   void *v5; // r14
-  struct _RTL_BITMAP *v6; // r15
+  _RTL_BITMAP *v6; // r15
   __int64 v8; // r12
   int v9; // edi
   PVOID PoolWithTag; // rax
@@ -56,7 +56,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR a1, int a2)
       return 3000LL;
     }
     v17 = v9;
-    v6 = (struct _RTL_BITMAP *)&v17;
+    v6 = (_RTL_BITMAP *)&v17;
     v2 = v21;
     v18 = PoolWithTag;
   }

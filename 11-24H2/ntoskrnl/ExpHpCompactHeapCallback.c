@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpHpCompactHeapCallback @ 0x1402B3980
+ * XREFs of ExpHpCompactHeapCallback @ 0x14035CAD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpFreeHeap @ 0x1402B2660 (RtlpHpFreeHeap.c)
- *     ExGetHeapFromVA @ 0x1402B3750 (ExGetHeapFromVA.c)
- *     RtlpHpHeapCompact @ 0x1402B39E4 (RtlpHpHeapCompact.c)
- *     RtlpDynamicLookasideFlush @ 0x1402B4E68 (RtlpDynamicLookasideFlush.c)
+ *     RtlpHpFreeHeap @ 0x14035B220 (RtlpHpFreeHeap.c)
+ *     ExGetHeapFromVA @ 0x14035C310 (ExGetHeapFromVA.c)
+ *     RtlpHpHeapCompact @ 0x14035CB34 (RtlpHpHeapCompact.c)
+ *     RtlpDynamicLookasideFlush @ 0x1404644CC (RtlpDynamicLookasideFlush.c)
  */
 
 __int64 __fastcall ExpHpCompactHeapCallback(__int64 a1)

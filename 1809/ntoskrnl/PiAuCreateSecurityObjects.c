@@ -1,13 +1,13 @@
 /*
- * XREFs of PiAuCreateSecurityObjects @ 0x1409C67E0
+ * XREFs of PiAuCreateSecurityObjects @ 0x1409C77E0
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     PiAuFreeUserSids @ 0x1409C683C (PiAuFreeUserSids.c)
- *     PiAuCreateLocalSystemSecurityObject @ 0x1409C68D4 (PiAuCreateLocalSystemSecurityObject.c)
- *     PiAuCreateUserSids @ 0x1409C6A68 (PiAuCreateUserSids.c)
- *     PiAuCreateStandardSecurityObject @ 0x1409C6C8C (PiAuCreateStandardSecurityObject.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PiAuFreeUserSids @ 0x1409C783C (PiAuFreeUserSids.c)
+ *     PiAuCreateLocalSystemSecurityObject @ 0x1409C78D4 (PiAuCreateLocalSystemSecurityObject.c)
+ *     PiAuCreateUserSids @ 0x1409C7A68 (PiAuCreateUserSids.c)
+ *     PiAuCreateStandardSecurityObject @ 0x1409C7C8C (PiAuCreateStandardSecurityObject.c)
  */
 
 __int64 PiAuCreateSecurityObjects()

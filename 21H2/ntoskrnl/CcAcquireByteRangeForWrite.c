@@ -1,26 +1,26 @@
 /*
- * XREFs of CcAcquireByteRangeForWrite @ 0x14030FF40
+ * XREFs of CcAcquireByteRangeForWrite @ 0x14031AC90
  * Callers:
- *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
- *     CcNotifyOfMappedWrite @ 0x14022D68C (CcNotifyOfMappedWrite.c)
+ *     CcFlushCachePriv @ 0x1402D13F0 (CcFlushCachePriv.c)
+ *     CcNotifyOfMappedWrite @ 0x1402D1EDC (CcNotifyOfMappedWrite.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcFindBitmapRangeToClean @ 0x1402B9E1C (CcFindBitmapRangeToClean.c)
- *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x1402F2878 (CcInsertIntoCleanSharedCacheMapList.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     CcFindBcb @ 0x14030F12C (CcFindBcb.c)
- *     CcDeductDirtyPages @ 0x140312DEC (CcDeductDirtyPages.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcFindBitmapRangeToClean @ 0x14023802C (CcFindBitmapRangeToClean.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402406E0 (FsRtlIsNtstatusExpected.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x1402FD5C8 (CcInsertIntoCleanSharedCacheMapList.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     CcFindBcb @ 0x140319E7C (CcFindBcb.c)
+ *     CcDeductDirtyPages @ 0x14031DB3C (CcDeductDirtyPages.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall CcAcquireByteRangeForWrite(
@@ -133,7 +133,7 @@ bool __fastcall CcAcquireByteRangeForWrite(
     PsBoostThreadIoEx(KeGetCurrentThread(), 0LL, 0LL, 0LL);
     v10 = a1;
   }
-  Partition = CcGetPartition(v10);
+  Partition = CcGetPartition(v10, (_BYTE)a2, a3);
   *a5 = 0LL;
   *a6 = 0;
   if ( a4 )

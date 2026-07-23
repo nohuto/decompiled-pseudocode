@@ -11,16 +11,15 @@
  *     NtOpenKey @ 0x180163460 (NtOpenKey.c)
  */
 
-__int64 __fastcall LdrpOpenKey(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
+NTSTATUS __fastcall LdrpOpenKey(_UNICODE_STRING *a1, void *a2, ACCESS_MASK a3, HANDLE *a4)
 {
-  _QWORD v5[4]; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v6; // [rsp+40h] [rbp-18h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-38h] BYREF
 
-  v5[1] = a2;
-  v5[2] = a1;
+  ObjectAttributes.RootDirectory = a2;
+  ObjectAttributes.ObjectName = a1;
   *a4 = 0LL;
-  v5[0] = 48LL;
-  v5[3] = 64LL;
-  v6 = 0LL;
-  return NtOpenKey(a4, a3, v5);
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  return NtOpenKey(a4, a3, &ObjectAttributes);
 }

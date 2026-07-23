@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpStopLegacyUsbInterrupts @ 0x140B4B210
+ * XREFs of HalpStopLegacyUsbInterrupts @ 0x140B4D250
  * Callers:
  *     <none>
  * Callees:
- *     HalpStopLegacyUsbInterruptsInternal @ 0x140B505F0 (HalpStopLegacyUsbInterruptsInternal.c)
+ *     HalpStopLegacyUsbInterruptsInternal @ 0x140B52640 (HalpStopLegacyUsbInterruptsInternal.c)
  */
 
 __int64 __fastcall HalpStopLegacyUsbInterrupts(int a1)

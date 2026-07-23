@@ -1,15 +1,15 @@
 /*
- * XREFs of PopChangeCapability @ 0x140943114
+ * XREFs of PopChangeCapability @ 0x1409BEA8C
  * Callers:
- *     PopThermalZoneAdd @ 0x1407D1E00 (PopThermalZoneAdd.c)
- *     PopThermalZoneRemove @ 0x1407D1F60 (PopThermalZoneRemove.c)
- *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x1407D7814 (PopPolicyDeviceHandleWakeAlarmNotification.c)
- *     PopBatteryAdd @ 0x1407D7CF0 (PopBatteryAdd.c)
- *     PopBatteryRemove @ 0x1407D7E20 (PopBatteryRemove.c)
- *     PdcPoReportButton @ 0x1407DB6C0 (PdcPoReportButton.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     PopThermalZoneAdd @ 0x1407D4EA0 (PopThermalZoneAdd.c)
+ *     PopThermalZoneRemove @ 0x1407D5000 (PopThermalZoneRemove.c)
+ *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x1407DAE34 (PopPolicyDeviceHandleWakeAlarmNotification.c)
+ *     PopBatteryAdd @ 0x1407DB310 (PopBatteryAdd.c)
+ *     PopBatteryRemove @ 0x1407DB440 (PopBatteryRemove.c)
+ *     PdcPoReportButton @ 0x1407DF6D0 (PdcPoReportButton.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PopResetCurrentPolicies @ 0x140943130 (PopResetCurrentPolicies.c)
+ *     PopResetCurrentPolicies @ 0x1409BEAA8 (PopResetCurrentPolicies.c)
  */
 
 __int64 __fastcall PopChangeCapability(_BYTE *a1, char a2)

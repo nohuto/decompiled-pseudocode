@@ -1,30 +1,30 @@
 /*
- * XREFs of KeForceDetachProcess @ 0x1402C6C30
+ * XREFs of KeForceDetachProcess @ 0x1403118D0
  * Callers:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
- *     MiWalkAllHardLimitWorkingSets @ 0x1402A996C (MiWalkAllHardLimitWorkingSets.c)
- *     MiSharePagesCleanup @ 0x1402C65C0 (MiSharePagesCleanup.c)
- *     MiDeleteActiveTrimView @ 0x14046C034 (MiDeleteActiveTrimView.c)
- *     MmQueryCommitReleaseState @ 0x1404C804C (MmQueryCommitReleaseState.c)
- *     MiEmptyThisWorkingSet @ 0x1405009C4 (MiEmptyThisWorkingSet.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x1406E4858 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiReleaseCommitForResetPages @ 0x1406E4EA0 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x1406E502C (MiReleaseOutSwappedProcessCommit.c)
- *     MmReleaseCommitForMemResetPages @ 0x1406E54FC (MmReleaseCommitForMemResetPages.c)
- *     PopHandleNextState @ 0x140C02C90 (PopHandleNextState.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
+ *     MiWalkAllHardLimitWorkingSets @ 0x1402A8D7C (MiWalkAllHardLimitWorkingSets.c)
+ *     MiSharePagesCleanup @ 0x140311260 (MiSharePagesCleanup.c)
+ *     MiDeleteActiveTrimView @ 0x1404657B4 (MiDeleteActiveTrimView.c)
+ *     MmQueryCommitReleaseState @ 0x1404C1D8C (MmQueryCommitReleaseState.c)
+ *     MiEmptyThisWorkingSet @ 0x1404FA1B4 (MiEmptyThisWorkingSet.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1406E9508 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReleaseCommitForResetPages @ 0x1406E9B50 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1406E9CDC (MiReleaseOutSwappedProcessCommit.c)
+ *     MmReleaseCommitForMemResetPages @ 0x1406EA1AC (MmReleaseCommitForMemResetPages.c)
+ *     PopHandleNextState @ 0x140C08EA0 (PopHandleNextState.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiDetachProcess @ 0x140246EA0 (KiDetachProcess.c)
- *     KiSetAddressPolicy @ 0x140247450 (KiSetAddressPolicy.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1402C79B0 (HvlSwitchVirtualAddressSpace.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiDetachProcess @ 0x140248800 (KiDetachProcess.c)
+ *     KiSetAddressPolicy @ 0x140248DB0 (KiSetAddressPolicy.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x140312650 (HvlSwitchVirtualAddressSpace.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
  */
 
 __int64 __fastcall KeForceDetachProcess(__int64 a1, char a2)
@@ -38,7 +38,7 @@ __int64 __fastcall KeForceDetachProcess(__int64 a1, char a2)
   int v8; // r14d
   unsigned __int8 CurrentIrql; // si
   unsigned int v10; // edi
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v11; // rdi
+  $241382875694CED3D471BC5892DE3337 *v11; // rdi
   struct _KTHREAD *Flink; // rdx
   struct _KTHREAD *v13; // r8
   _LIST_ENTRY *v14; // rdx
@@ -124,7 +124,7 @@ __int64 __fastcall KeForceDetachProcess(__int64 a1, char a2)
       }
       if ( !CurrentThread->ApcStateIndex
         || (CurrentThread->ApcState.InProgressFlags & 1) != 0
-        || (v11 = &CurrentThread->152, ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v11->ApcState.ApcListHead[0].Flink != v11)
+        || (v11 = &CurrentThread->152, ($241382875694CED3D471BC5892DE3337 *)v11->ApcState.ApcListHead[0].Flink != v11)
         || (unsigned __int8 *)CurrentThread->ApcState.ApcListHead[1].Flink != &CurrentThread->ApcStateFill[16] )
       {
         KeBugCheck(6u);
@@ -211,7 +211,7 @@ __int64 __fastcall KeForceDetachProcess(__int64 a1, char a2)
         result = CurrentIrql;
         __writecr8(CurrentIrql);
       }
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v11->ApcState.ApcListHead[0].Flink != v11 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v11->ApcState.ApcListHead[0].Flink != v11 )
       {
         CurrentThread->ApcState.KernelApcPending = 1;
         v30 = 0LL;

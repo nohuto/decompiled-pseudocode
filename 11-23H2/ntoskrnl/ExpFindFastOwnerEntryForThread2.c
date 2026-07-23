@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpFindFastOwnerEntryForThread2 @ 0x1404159F8
+ * XREFs of ExpFindFastOwnerEntryForThread2 @ 0x140415D8C
  * Callers:
- *     ExIsFastResourceHeld2 @ 0x140413A7C (ExIsFastResourceHeld2.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140414B10 (ExpAcquireFastResourceSharedSlow.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140415608 (ExpFastResourceLegacyConvertExclusiveToShared2.c)
- *     ExpFastResourceLegacyRelease2 @ 0x140415898 (ExpFastResourceLegacyRelease2.c)
+ *     ExIsFastResourceHeld2 @ 0x140413E10 (ExIsFastResourceHeld2.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x140414EA4 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x14041599C (ExpFastResourceLegacyConvertExclusiveToShared2.c)
+ *     ExpFastResourceLegacyRelease2 @ 0x140415C2C (ExpFastResourceLegacyRelease2.c)
  * Callees:
  *     <none>
  */

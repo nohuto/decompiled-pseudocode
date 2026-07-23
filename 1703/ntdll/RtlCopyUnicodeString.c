@@ -13,30 +13,30 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-void __fastcall RtlCopyUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2)
+void __cdecl RtlCopyUnicodeString(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
-  unsigned int v3; // eax
-  __int64 v4; // rsi
-  const void *v5; // rdx
-  void *v6; // rcx
+  unsigned int Length; // eax
+  PWCH Buffer; // rsi
+  PWCH v5; // rdx
+  PWCH v6; // rcx
   unsigned __int64 v7; // rdi
 
-  if ( a2 )
+  if ( SourceString )
   {
-    v3 = *a2;
-    v4 = *((_QWORD *)a1 + 1);
-    if ( (unsigned __int16)v3 > a1[1] )
-      v3 = a1[1];
-    v5 = (const void *)*((_QWORD *)a2 + 1);
-    v6 = (void *)*((_QWORD *)a1 + 1);
-    *a1 = v3;
-    v7 = v3;
-    memmove(v6, v5, v3);
-    if ( (unsigned __int64)*a1 + 2 <= a1[1] )
-      *(_WORD *)(v4 + 2 * (v7 >> 1)) = 0;
+    Length = SourceString->Length;
+    Buffer = DestinationString->Buffer;
+    if ( (unsigned __int16)Length > DestinationString->MaximumLength )
+      Length = DestinationString->MaximumLength;
+    v5 = SourceString->Buffer;
+    v6 = DestinationString->Buffer;
+    DestinationString->Length = Length;
+    v7 = Length;
+    memmove(v6, v5, Length);
+    if ( (unsigned __int64)DestinationString->Length + 2 <= DestinationString->MaximumLength )
+      Buffer[v7 >> 1] = 0;
   }
   else
   {
-    *a1 = 0;
+    DestinationString->Length = 0;
   }
 }

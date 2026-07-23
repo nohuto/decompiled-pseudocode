@@ -1,53 +1,53 @@
 /*
- * XREFs of RtlGetIntegerAtom @ 0x1800D7850
+ * XREFs of RtlGetIntegerAtom @ 0x1800D4810
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringToInteger @ 0x1800068F0 (RtlUnicodeStringToInteger.c)
+ *     RtlUnicodeStringToInteger @ 0x180052020 (RtlUnicodeStringToInteger.c)
  */
 
-char __fastcall RtlGetIntegerAtom(unsigned __int64 a1, _WORD *a2)
+BOOLEAN __cdecl RtlGetIntegerAtom(PWSTR AtomName, PUSHORT IntegerAtom)
 {
-  _WORD *v4; // rcx
-  _WORD *i; // rax
-  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
-  int v7; // [rsp+40h] [rbp+8h] BYREF
+  wchar_t *v4; // rcx
+  wchar_t *i; // rax
+  _UNICODE_STRING String; // [rsp+20h] [rbp-18h] BYREF
+  ULONG Value; // [rsp+40h] [rbp+8h] BYREF
 
-  v6 = 0LL;
-  if ( (a1 & 0xFFFFFFFFFFFF0000uLL) != 0 )
+  String = 0LL;
+  if ( ((unsigned __int64)AtomName & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    if ( *(_WORD *)a1 == 35 )
+    if ( *AtomName == 35 )
     {
-      v4 = (_WORD *)(a1 + 2);
+      v4 = AtomName + 1;
       for ( i = v4; *i; ++i )
       {
         if ( (unsigned __int16)(*i - 48) > 9u )
           return 0;
       }
-      *((_QWORD *)&v6 + 1) = v4;
-      LOWORD(v6) = (_WORD)i - (_WORD)v4;
-      WORD1(v6) = (_WORD)i - (_WORD)v4;
-      v7 = 0;
-      if ( (int)RtlUnicodeStringToInteger((unsigned __int16 *)&v6, 0xAu, &v7) >= 0 )
+      String.Buffer = v4;
+      String.Length = (_WORD)i - (_WORD)v4;
+      String.MaximumLength = (_WORD)i - (_WORD)v4;
+      Value = 0;
+      if ( RtlUnicodeStringToInteger(&String, 0xAu, &Value) >= 0 )
       {
-        if ( a2 )
+        if ( IntegerAtom )
         {
-          if ( (unsigned int)(v7 - 1) > 0xBFFF )
-            *a2 = -16384;
+          if ( Value - 1 > 0xBFFF )
+            *IntegerAtom = -16384;
           else
-            *a2 = v7;
+            *IntegerAtom = Value;
         }
         return 1;
       }
     }
     return 0;
   }
-  if ( (unsigned __int16)a1 >= 0xC000u )
+  if ( (unsigned __int16)AtomName >= 0xC000u )
     return 0;
-  if ( !(_WORD)a1 )
-    LOWORD(a1) = -16384;
-  if ( !a2 )
+  if ( !(_WORD)AtomName )
+    LOWORD(AtomName) = -16384;
+  if ( !IntegerAtom )
     return 1;
-  *a2 = a1;
+  *IntegerAtom = (unsigned __int16)AtomName;
   return 1;
 }

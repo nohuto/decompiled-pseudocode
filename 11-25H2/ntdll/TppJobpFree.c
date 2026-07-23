@@ -7,12 +7,10 @@
  *     TppCleanupGroupMemberDestroy @ 0x180043EC0 (TppCleanupGroupMemberDestroy.c)
  */
 
-__int64 __fastcall TppJobpFree(_QWORD *a1)
+LOGICAL __fastcall TppJobpFree(_QWORD *a1)
 {
-  __int64 v2; // r9
-
   TpAdjustBindingCount(a1[18], 0xFFFFFFFF);
   *(a1 - 2) = 0LL;
   TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 3407872, (__int64)(a1 - 9), v2);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3407872, a1 - 9);
 }

@@ -1,30 +1,30 @@
 /*
- * XREFs of MiActOnPartitionNodePages @ 0x140658080
+ * XREFs of MiActOnPartitionNodePages @ 0x1406585D0
  * Callers:
- *     MiClearPartitionPageBitMap @ 0x140658FC0 (MiClearPartitionPageBitMap.c)
- *     MiFreePartitionNodePages @ 0x140659C70 (MiFreePartitionNodePages.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiReturnPartitionPagesToParent @ 0x14065B458 (MiReturnPartitionPagesToParent.c)
- *     MiHotAddPartitionMemory @ 0x140A44CA0 (MiHotAddPartitionMemory.c)
- *     MiMakePartitionMemoryBlock @ 0x140A45090 (MiMakePartitionMemoryBlock.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140A45288 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiClearPartitionPageBitMap @ 0x140659510 (MiClearPartitionPageBitMap.c)
+ *     MiFreePartitionNodePages @ 0x14065A1C0 (MiFreePartitionNodePages.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiReturnPartitionPagesToParent @ 0x14065B9A8 (MiReturnPartitionPagesToParent.c)
+ *     MiHotAddPartitionMemory @ 0x140A44F50 (MiHotAddPartitionMemory.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A45340 (MiMakePartitionMemoryBlock.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140A45538 (MiUpdatePartitionLargePfnBitMap.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     RtlClearBitsEx @ 0x14028BB20 (RtlClearBitsEx.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
- *     MiSetHugeRangePartitionId @ 0x140622808 (MiSetHugeRangePartitionId.c)
- *     MiMoveBadPageCrossPartition @ 0x14064D904 (MiMoveBadPageCrossPartition.c)
- *     MiFreePartitionPageRun @ 0x140659CFC (MiFreePartitionPageRun.c)
- *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x14065B5A0 (MiSplitPfnBitMapsForPartitionHierarchy.c)
- *     MiTransferPartitionPageRun @ 0x14065B604 (MiTransferPartitionPageRun.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14065BD04 (MiUpdatePartitionChildPageCounts.c)
- *     MiAddPhysicalMemoryChunks @ 0x140A2BE8C (MiAddPhysicalMemoryChunks.c)
- *     MiHotAddHugeRange @ 0x140A2DE48 (MiHotAddHugeRange.c)
- *     MiHotRemovePartitionPageRun @ 0x140A4501C (MiHotRemovePartitionPageRun.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     RtlClearBitsEx @ 0x14028BDB0 (RtlClearBitsEx.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
+ *     MiSetHugeRangePartitionId @ 0x140622D58 (MiSetHugeRangePartitionId.c)
+ *     MiMoveBadPageCrossPartition @ 0x14064DE54 (MiMoveBadPageCrossPartition.c)
+ *     MiFreePartitionPageRun @ 0x14065A24C (MiFreePartitionPageRun.c)
+ *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x14065BAF0 (MiSplitPfnBitMapsForPartitionHierarchy.c)
+ *     MiTransferPartitionPageRun @ 0x14065BB54 (MiTransferPartitionPageRun.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14065C254 (MiUpdatePartitionChildPageCounts.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2C13C (MiAddPhysicalMemoryChunks.c)
+ *     MiHotAddHugeRange @ 0x140A2E0F8 (MiHotAddHugeRange.c)
+ *     MiHotRemovePartitionPageRun @ 0x140A452CC (MiHotRemovePartitionPageRun.c)
  */
 
 void __fastcall MiActOnPartitionNodePages(__int64 a1, unsigned int a2, int a3, __int16 **a4)
@@ -316,7 +316,7 @@ LABEL_166:
       v80 = v40 + 48 * v11;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -344,10 +344,10 @@ LABEL_166:
         v44 += 48LL;
       }
       while ( v40 != v80 );
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v46 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && CurrentIrql <= 0xFu && v46 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && CurrentIrql <= 0xFu && v46 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v48 = CurrentPrcb->SchedulerAssist;

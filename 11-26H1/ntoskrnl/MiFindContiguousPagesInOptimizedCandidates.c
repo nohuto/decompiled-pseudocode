@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFindContiguousPagesInOptimizedCandidates @ 0x14028EB58
+ * XREFs of MiFindContiguousPagesInOptimizedCandidates @ 0x14028E0B8
  * Callers:
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
  * Callees:
- *     MiPfnsWorthTrying @ 0x140290D20 (MiPfnsWorthTrying.c)
- *     MiClaimPhysicalRun @ 0x140291700 (MiClaimPhysicalRun.c)
- *     MiAdjustCachedStacks @ 0x1402A8504 (MiAdjustCachedStacks.c)
- *     MiFindBestLargePageStealCandidates @ 0x14042DA48 (MiFindBestLargePageStealCandidates.c)
- *     qsort @ 0x140536F00 (qsort.c)
+ *     MiPfnsWorthTrying @ 0x140290280 (MiPfnsWorthTrying.c)
+ *     MiClaimPhysicalRun @ 0x140290C60 (MiClaimPhysicalRun.c)
+ *     MiAdjustCachedStacks @ 0x1402A7914 (MiAdjustCachedStacks.c)
+ *     MiFindBestLargePageStealCandidates @ 0x14041A958 (MiFindBestLargePageStealCandidates.c)
+ *     qsort @ 0x140539380 (qsort.c)
  */
 
 __int64 __fastcall MiFindContiguousPagesInOptimizedCandidates(__int64 **a1, _QWORD *a2)
@@ -53,7 +53,7 @@ __int64 __fastcall MiFindContiguousPagesInOptimizedCandidates(__int64 **a1, _QWO
   if ( v6 )
   {
     if ( !*((_BYTE *)a1 + 96)
-      && byte_140E2D718 == 1
+      && byte_140E2D898 == 1
       && v4 == *(__int64 **)(v7 + 32)
       && (*(_QWORD *)(v6 + 16) != -1LL || *(_DWORD *)(v6 + 8) < *(_DWORD *)(v6 + 4)) )
     {
@@ -68,26 +68,26 @@ __int64 __fastcall MiFindContiguousPagesInOptimizedCandidates(__int64 **a1, _QWO
       if ( v9 == 16 )
       {
         v10 = 2;
-        v11 = (volatile signed __int32 *)&unk_140EF8EA8;
-        v12 = (volatile signed __int32 *)&unk_140EF8EC0;
-        v13 = (volatile signed __int32 *)&unk_140EF8E9C;
-        v14 = (volatile signed __int32 *)&unk_140EF8EB4;
+        v11 = (volatile signed __int32 *)&unk_140EF9208;
+        v12 = (volatile signed __int32 *)&unk_140EF9220;
+        v13 = (volatile signed __int32 *)&unk_140EF91FC;
+        v14 = (volatile signed __int32 *)&unk_140EF9214;
       }
       else if ( v9 == 512 )
       {
         v10 = 1;
-        v11 = (volatile signed __int32 *)&unk_140EF8EA4;
-        v13 = (volatile signed __int32 *)&unk_140EF8E98;
-        v14 = (volatile signed __int32 *)&unk_140EF8EB0;
-        v12 = (volatile signed __int32 *)&unk_140EF8EBC;
+        v11 = (volatile signed __int32 *)&unk_140EF9204;
+        v13 = (volatile signed __int32 *)&unk_140EF91F8;
+        v14 = (volatile signed __int32 *)&unk_140EF9210;
+        v12 = (volatile signed __int32 *)&unk_140EF921C;
       }
       else
       {
         v10 = 0;
-        v11 = (volatile signed __int32 *)&unk_140EF8EA0;
-        v13 = (volatile signed __int32 *)&unk_140EF8E94;
-        v14 = (volatile signed __int32 *)&unk_140EF8EAC;
-        v12 = (volatile signed __int32 *)&unk_140EF8EB8;
+        v11 = (volatile signed __int32 *)&unk_140EF9200;
+        v13 = (volatile signed __int32 *)&unk_140EF91F4;
+        v14 = (volatile signed __int32 *)&unk_140EF920C;
+        v12 = (volatile signed __int32 *)&unk_140EF9218;
       }
       v25 = v12;
       v15 = v10;
@@ -139,7 +139,7 @@ __int64 __fastcall MiFindContiguousPagesInOptimizedCandidates(__int64 **a1, _QWO
           {
             if ( (v29 & 1) != 0 )
             {
-              _InterlockedIncrement(dword_140EF8E78);
+              _InterlockedIncrement(dword_140EF91D8);
               MiAdjustCachedStacks(v23, 1LL);
             }
             if ( !MiClaimPhysicalRun(

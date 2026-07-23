@@ -1,14 +1,14 @@
 /*
- * XREFs of PsQueryProcessAttributesByToken @ 0x140625960
+ * XREFs of PsQueryProcessAttributesByToken @ 0x140626980
  * Callers:
- *     SeQuerySigningPolicyWorker @ 0x14060A60C (SeQuerySigningPolicyWorker.c)
- *     PsQueryProcessAttributes @ 0x1406258FC (PsQueryProcessAttributes.c)
- *     EtwpQueryTokenPackageInfo @ 0x14066CD4C (EtwpQueryTokenPackageInfo.c)
- *     PopEtGetProcessSidAndPackageIdentity @ 0x14069F4CC (PopEtGetProcessSidAndPackageIdentity.c)
- *     EtwpGetPsmKeyExtendedHeaderItem @ 0x1408B4E10 (EtwpGetPsmKeyExtendedHeaderItem.c)
- *     EtwpApplyPackageIdFilter @ 0x1408C1CBC (EtwpApplyPackageIdFilter.c)
+ *     SeQuerySigningPolicyWorker @ 0x14060B60C (SeQuerySigningPolicyWorker.c)
+ *     PsQueryProcessAttributes @ 0x14062691C (PsQueryProcessAttributes.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14066DF0C (EtwpQueryTokenPackageInfo.c)
+ *     PopEtGetProcessSidAndPackageIdentity @ 0x1406A078C (PopEtGetProcessSidAndPackageIdentity.c)
+ *     EtwpGetPsmKeyExtendedHeaderItem @ 0x1408B60D0 (EtwpGetPsmKeyExtendedHeaderItem.c)
+ *     EtwpApplyPackageIdFilter @ 0x1408C2F7C (EtwpApplyPackageIdFilter.c)
  * Callees:
- *     SeSecurityAttributePresent @ 0x1400A7050 (SeSecurityAttributePresent.c)
+ *     SeSecurityAttributePresent @ 0x1400A6F90 (SeSecurityAttributePresent.c)
  */
 
 void __fastcall PsQueryProcessAttributesByToken(__int64 a1, _BYTE *a2, _BYTE *a3)

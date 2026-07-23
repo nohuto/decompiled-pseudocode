@@ -1,10 +1,10 @@
 /*
- * XREFs of ObRetagReferences @ 0x140966310
+ * XREFs of ObRetagReferences @ 0x140A68380
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     SepUpdateSiloInClientSecurity @ 0x140B65550 (SepUpdateSiloInClientSecurity.c)
+ *     SepUpdateSiloInClientSecurity @ 0x140B685F0 (SepUpdateSiloInClientSecurity.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall ObRetagReferences(__int64 a1, __int64 a2, unsigned int a3)

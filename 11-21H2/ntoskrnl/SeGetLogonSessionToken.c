@@ -4,16 +4,16 @@
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
+ *     sub_140729C30 @ 0x140729C30 (sub_140729C30.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
+ *     sub_1407CDED0 @ 0x1407CDED0 (sub_1407CDED0.c)
  */
 
 NTSTATUS __fastcall SeGetLogonSessionToken(void *a1, KPROCESSOR_MODE a2, __int64 *a3)
 {
   NTSTATUS result; // eax
   PVOID v6; // rdi
-  int inserted; // ebx
+  int v7; // ebx
   PVOID v8; // [rsp+40h] [rbp-40h] BYREF
   __int64 v9; // [rsp+48h] [rbp-38h] BYREF
   _DWORD v10[2]; // [rsp+50h] [rbp-30h] BYREF
@@ -40,28 +40,20 @@ NTSTATUS __fastcall SeGetLogonSessionToken(void *a1, KPROCESSOR_MODE a2, __int64
       v12 = 0LL;
       v15 = 0LL;
       v13 = a2 == 0 ? 0x200 : 0;
-      inserted = SepDuplicateToken(
-                   *(__int128 **)(*((_QWORD *)Object + 27) + 48LL),
-                   (__int64)v10,
-                   0,
-                   1,
-                   0,
-                   0,
-                   0,
-                   (__int64 *)&v8);
-      if ( inserted >= 0 )
+      v7 = sub_1407CDED0(*(__int128 **)(*((_QWORD *)Object + 27) + 48LL), (__int64)v10, 0, 1, 0, 0, 0, (__int64 *)&v8);
+      if ( v7 >= 0 )
       {
-        inserted = ObInsertObjectEx((char *)v8, 0LL, 0xF01FFu, 0, 0, 0LL, &v9);
-        if ( inserted >= 0 )
+        v7 = sub_140729C30((char *)v8, 0LL, 983551, 0, 0, 0LL, &v9);
+        if ( v7 >= 0 )
           *a3 = v9;
       }
     }
     else
     {
-      inserted = -1073741700;
+      v7 = -1073741700;
     }
     ObfDereferenceObject(v6);
-    return inserted;
+    return v7;
   }
   return result;
 }

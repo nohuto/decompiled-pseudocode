@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRemoveRateControl @ 0x14088A07C
+ * XREFs of PspRemoveRateControl @ 0x14088B2DC
  * Callers:
- *     PspJobDelete @ 0x14008FE10 (PspJobDelete.c)
- *     PspSetJobRateControl @ 0x14088A4F0 (PspSetJobRateControl.c)
+ *     PspJobDelete @ 0x14008FD50 (PspJobDelete.c)
+ *     PspSetJobRateControl @ 0x14088B750 (PspSetJobRateControl.c)
  * Callees:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FD9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspFreeRateControl @ 0x1406989B4 (PspFreeRateControl.c)
- *     PspModifyAncestorBits @ 0x140889DDC (PspModifyAncestorBits.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FE9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspFreeRateControl @ 0x140699B74 (PspFreeRateControl.c)
+ *     PspModifyAncestorBits @ 0x14088B03C (PspModifyAncestorBits.c)
  */
 
 void __fastcall PspRemoveRateControl(__int64 a1)

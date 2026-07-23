@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMiscInitDiscard @ 0x140A6D378
+ * XREFs of HalpMiscInitDiscard @ 0x140A6E378
  * Callers:
- *     HalpMiscInitSystem @ 0x1409A1520 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x1409A2450 (HalpMiscInitSystem.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14039E660 (KeRegisterBugCheckReasonCallback.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039E7B0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 HalpMiscInitDiscard()

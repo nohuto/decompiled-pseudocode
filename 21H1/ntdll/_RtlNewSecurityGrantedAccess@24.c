@@ -9,49 +9,55 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlNewSecurityGrantedAccess(int a1, _DWORD *a2, _DWORD *a3, int a4, _DWORD *a5, _DWORD *a6)
+int __stdcall RtlNewSecurityGrantedAccess(
+        ACCESS_MASK AccessMask,
+        _DWORD *a2,
+        _DWORD *a3,
+        HANDLE TokenHandle,
+        PGENERIC_MAPPING GenericMapping,
+        _DWORD *a6)
 {
   _DWORD *v6; // esi
   unsigned int v7; // ebx
   int v8; // edi
-  int v9; // eax
+  ACCESS_MASK v9; // eax
   bool v10; // sf
-  char v11; // al
-  _BYTE v13[4]; // [esp+Ch] [ebp-60h] BYREF
+  BOOLEAN v11; // al
+  ULONG ReturnLength; // [esp+Ch] [ebp-60h] BYREF
   _DWORD *v14; // [esp+10h] [ebp-5Ch]
   _DWORD *v15; // [esp+14h] [ebp-58h]
-  char v16; // [esp+1Bh] [ebp-51h] BYREF
-  _BYTE v17[56]; // [esp+1Ch] [ebp-50h] BYREF
-  _DWORD v18[5]; // [esp+54h] [ebp-18h] BYREF
+  BOOLEAN Result; // [esp+1Bh] [ebp-51h] BYREF
+  _BYTE TokenInformation[56]; // [esp+1Ch] [ebp-50h] BYREF
+  _PRIVILEGE_SET RequiredPrivileges; // [esp+54h] [ebp-18h] BYREF
 
   v6 = a2;
   v7 = 0;
-  v8 = a4;
+  v8 = (int)TokenHandle;
   v14 = a3;
   v15 = a6;
-  v16 = 0;
-  if ( !a4 )
+  Result = 0;
+  if ( !TokenHandle )
     v8 = -5;
-  ZwQueryInformationToken(v8, 10, (int)v17, 56, (int)v13);
-  RtlMapGenericMask(&a1, a5);
-  v9 = a1;
-  *v15 = a1;
+  ZwQueryInformationToken((HANDLE)v8, 0xAu, TokenInformation, 0x38u, &ReturnLength);
+  RtlMapGenericMask(&AccessMask, GenericMapping);
+  v9 = AccessMask;
+  *v15 = AccessMask;
   if ( (v9 & 0x1000000) != 0 )
   {
-    v18[0] = 1;
-    v18[1] = 1;
-    v18[2] = 8;
-    v18[3] = 0;
-    v18[4] = 0;
-    v10 = ZwPrivilegeCheck(v8, (int)v18, (int)&v16) < 0;
-    v11 = v16;
-    if ( (v10 || !v16) && !v16 )
+    RequiredPrivileges.PrivilegeCount = 1;
+    RequiredPrivileges.Control = 1;
+    RequiredPrivileges.Privilege[0].Luid.LowPart = 8;
+    RequiredPrivileges.Privilege[0].Luid.HighPart = 0;
+    RequiredPrivileges.Privilege[0].Attributes = 0;
+    v10 = ZwPrivilegeCheck((HANDLE)v8, &RequiredPrivileges, &Result) < 0;
+    v11 = Result;
+    if ( (v10 || !Result) && !Result )
       return -1073741727;
     *v15 &= ~0x1000000u;
   }
   else
   {
-    v11 = v16;
+    v11 = Result;
   }
   if ( *v14 >= 0x14u )
   {

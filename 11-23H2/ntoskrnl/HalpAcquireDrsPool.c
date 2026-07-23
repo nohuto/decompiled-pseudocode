@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpAcquireDrsPool @ 0x14051958C
+ * XREFs of HalpAcquireDrsPool @ 0x140519ADC
  * Callers:
- *     HalpMemoryErrorDeferredRecovery @ 0x140519914 (HalpMemoryErrorDeferredRecovery.c)
- *     HalpPmemErrorDeferredRecovery @ 0x140519B1C (HalpPmemErrorDeferredRecovery.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x140519E64 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x14051A06C (HalpPmemErrorDeferredRecovery.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

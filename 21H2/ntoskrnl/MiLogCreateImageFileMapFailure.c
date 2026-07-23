@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogCreateImageFileMapFailure @ 0x1408C76F4
+ * XREFs of MiLogCreateImageFileMapFailure @ 0x1408C7854
  * Callers:
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogCreateImageFileMapFailure(__int64 a1, __int64 a2, int a3)
@@ -37,9 +37,9 @@ void __fastcall MiLogCreateImageFileMapFailure(__int64 a1, __int64 a2, int a3)
   int v27; // [rsp+C8h] [rbp-20h]
   int v28; // [rsp+CCh] [rbp-1Ch]
 
-  if ( *(_QWORD *)&qword_140C4EEE0 && **(_DWORD **)&qword_140C4EEE0 > 5u )
+  if ( *(_QWORD *)&qword_140C4EF20 && **(_DWORD **)&qword_140C4EF20 > 5u )
   {
-    if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000000LL) )
+    if ( tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 0x400000000000LL) )
     {
       tlgCreate1Sz_char((__int64)v14, "SectionAlignmentIssue");
       v17 = 0;
@@ -60,7 +60,7 @@ void __fastcall MiLogCreateImageFileMapFailure(__int64 a1, __int64 a2, int a3)
       v16 = 2;
       v10 = a3;
       v12 = 0x1000000LL;
-      tlgWriteEx_EtwWriteEx(v7, (unsigned __int8 *)&byte_140025C48, v6, 1u, v8, v9, 8u, &v13);
+      tlgWriteEx_EtwWriteEx(v7, (unsigned __int8 *)&byte_140025D08, v6, 1u, v8, v9, 8u, &v13);
     }
   }
 }

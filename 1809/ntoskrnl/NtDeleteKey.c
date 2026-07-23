@@ -1,5 +1,5 @@
 /*
- * XREFs of NtDeleteKey @ 0x1405A9940
+ * XREFs of NtDeleteKey @ 0x1405AA940
  * Callers:
  *     <none>
  * Callees:
@@ -8,28 +8,28 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     CmDoVirtualTest @ 0x1401294CC (CmDoVirtualTest.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
- *     CmObReferenceObjectByHandle @ 0x1405CD4CC (CmObReferenceObjectByHandle.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140693E50 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x1407F1948 (CmKeyBodyNeedsVirtualImage.c)
- *     CmKeyBodyRemapToVirtual @ 0x1407F19FC (CmKeyBodyRemapToVirtual.c)
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1408A0620 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     CmDoVirtualTest @ 0x14012959C (CmDoVirtualTest.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B30F8 (CmpIsRegistryLockAcquired.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmDeleteKey @ 0x1405AADD8 (CmDeleteKey.c)
+ *     CmObReferenceObjectByHandle @ 0x1405CE4CC (CmObReferenceObjectByHandle.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     CmpCallCallBacksEx @ 0x1405E6AE0 (CmpCallCallBacksEx.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     CmPostCallbackNotificationEx @ 0x140640AC0 (CmPostCallbackNotificationEx.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x140695010 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x1407F2B48 (CmKeyBodyNeedsVirtualImage.c)
+ *     CmKeyBodyRemapToVirtual @ 0x1407F2BFC (CmKeyBodyRemapToVirtual.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1408A1880 (SeDeleteObjectAuditAlarmWithTransaction.c)
  */
 
 NTSTATUS __stdcall NtDeleteKey(HANDLE KeyHandle)
@@ -149,7 +149,7 @@ LABEL_48:
       v27 = v14[1];
     ExAcquirePushLockSharedEx((ULONG_PTR)&ExpKeyManipLock, 0LL);
     if ( ExpControlKey && v14[1] == *((_QWORD *)ExpControlKey + 1)
-      || qword_140409A48 && v14[1] == *((_QWORD *)qword_140409A48 + 1) )
+      || qword_14040AAB8 && v14[1] == *((_QWORD *)qword_14040AAB8 + 1) )
     {
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpKeyManipLock, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)&ExpKeyManipLock);

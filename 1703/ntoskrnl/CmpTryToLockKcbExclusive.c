@@ -16,7 +16,7 @@ char __fastcall CmpTryToLockKcbExclusive(__int64 a1)
   v2 = 1;
   if ( (*(_DWORD *)(a1 + 4) & 0x100000) != 0 )
     *(_DWORD *)(a1 + 60) = CmpLockTableAdd(a1, 1);
-  v3 = (_KLOCK_ENTRY *)KeAbPreAcquire(a1 + 40, 0LL, 1LL);
+  v3 = (_KLOCK_ENTRY *)KeAbPreAcquire(a1 + 40, 0LL, 1);
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 40), 0LL) )
   {
     if ( v3 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnmapFrameBuffer @ 0x140633A00
+ * XREFs of MiUnmapFrameBuffer @ 0x140633F50
  * Callers:
- *     MiDeleteVa @ 0x14027A5C0 (MiDeleteVa.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632A38 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiDeleteVa @ 0x14027A850 (MiDeleteVa.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632F88 (MiReplaceRotateWithDemandZeroNoCopy.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnmapFrameBuffer(__int64 *BugCheckParameter2, int a2, unsigned int a3, _QWORD *a4)

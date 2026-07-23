@@ -1,16 +1,16 @@
 /*
- * XREFs of ExMapHandleToPointer @ 0x1408FA200
+ * XREFs of ExMapHandleToPointer @ 0x14092A190
  * Callers:
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
- *     ObCaptureObjectStateForDuplication @ 0x140971174 (ObCaptureObjectStateForDuplication.c)
- *     ObQueryObjectAuditingByHandle @ 0x1409728D0 (ObQueryObjectAuditingByHandle.c)
- *     PspThreadDelete @ 0x140AA21E0 (PspThreadDelete.c)
- *     RtlpInsertStringAtom @ 0x140AAEF58 (RtlpInsertStringAtom.c)
- *     RtlpFreeHandleForAtom @ 0x140ABFF80 (RtlpFreeHandleForAtom.c)
+ *     PspJobDelete @ 0x1406187E0 (PspJobDelete.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
+ *     ObQueryObjectAuditingByHandle @ 0x1409BA6D0 (ObQueryObjectAuditingByHandle.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1409BB2E4 (ObCaptureObjectStateForDuplication.c)
+ *     PspThreadDelete @ 0x140AA3CB0 (PspThreadDelete.c)
+ *     RtlpInsertStringAtom @ 0x140AACBA8 (RtlpInsertStringAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x140AC2020 (RtlpFreeHandleForAtom.c)
  * Callees:
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
  */
 
 signed __int64 *__fastcall ExMapHandleToPointer(__int64 a1, __int64 a2)

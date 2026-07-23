@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpEndMirroringCallback @ 0x14059A8D0
+ * XREFs of IopLiveDumpEndMirroringCallback @ 0x140597850
  * Callers:
  *     <none>
  * Callees:
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpCollectPages @ 0x14059A264 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpEnterCorralledState @ 0x14059A980 (IopLiveDumpEnterCorralledState.c)
- *     IopLiveDumpValidateProtectedProcessExclusions @ 0x14059E770 (IopLiveDumpValidateProtectedProcessExclusions.c)
- *     IopLiveDumpTraceNoArgs @ 0x1405A33C0 (IopLiveDumpTraceNoArgs.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpCollectPages @ 0x1405971E8 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEnterCorralledState @ 0x140597900 (IopLiveDumpEnterCorralledState.c)
+ *     IopLiveDumpValidateProtectedProcessExclusions @ 0x14059B6F0 (IopLiveDumpValidateProtectedProcessExclusions.c)
+ *     IopLiveDumpTraceNoArgs @ 0x1405A0300 (IopLiveDumpTraceNoArgs.c)
  */
 
 __int64 __fastcall IopLiveDumpEndMirroringCallback(int a1)

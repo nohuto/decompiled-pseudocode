@@ -1,10 +1,10 @@
 /*
- * XREFs of KeVerifyContextIpForUserCet @ 0x1403E69D0
+ * XREFs of KeVerifyContextIpForUserCet @ 0x1403D4570
  * Callers:
- *     PspGetSetContextInternal @ 0x1409A4CA0 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1409882C0 (PspGetSetContextInternal.c)
  * Callees:
- *     KiVerifyContextIpForUserCet @ 0x1403E8138 (KiVerifyContextIpForUserCet.c)
- *     KiLogUserCetSetContextIpValidationFailure @ 0x1405C6D6C (KiLogUserCetSetContextIpValidationFailure.c)
+ *     KiVerifyContextIpForUserCet @ 0x1403D5CD8 (KiVerifyContextIpForUserCet.c)
+ *     KiLogUserCetSetContextIpValidationFailure @ 0x1405C449C (KiLogUserCetSetContextIpValidationFailure.c)
  */
 
 __int64 __fastcall KeVerifyContextIpForUserCet(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4)

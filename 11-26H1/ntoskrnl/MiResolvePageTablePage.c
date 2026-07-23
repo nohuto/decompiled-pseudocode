@@ -1,21 +1,21 @@
 /*
- * XREFs of MiResolvePageTablePage @ 0x1402ECA70
+ * XREFs of MiResolvePageTablePage @ 0x1402CEAB0
  * Callers:
- *     MiPerformFaultClusterMaintenance @ 0x1402EB0D0 (MiPerformFaultClusterMaintenance.c)
- *     MiLockAndConfirmFaultClusterDescriptor @ 0x14039F79C (MiLockAndConfirmFaultClusterDescriptor.c)
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
+ *     MiPerformFaultClusterMaintenance @ 0x1402CD110 (MiPerformFaultClusterMaintenance.c)
+ *     MiLockAndConfirmFaultClusterDescriptor @ 0x1403A14FC (MiLockAndConfirmFaultClusterDescriptor.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
  * Callees:
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockFaultPageTable @ 0x1402EB810 (MiUnlockFaultPageTable.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
- *     MiLargePageFault @ 0x1403A7860 (MiLargePageFault.c)
- *     MiIsPdeOrAboveAccessible @ 0x1404892CC (MiIsPdeOrAboveAccessible.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockFaultPageTable @ 0x1402CD850 (MiUnlockFaultPageTable.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
+ *     MiLargePageFault @ 0x1403A95C0 (MiLargePageFault.c)
+ *     MiIsPdeOrAboveAccessible @ 0x140482E0C (MiIsPdeOrAboveAccessible.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiResolvePageTablePage(__int64 a1, int a2)
@@ -67,7 +67,7 @@ __int64 __fastcall MiResolvePageTablePage(__int64 a1, int a2)
   if ( (*(_BYTE *)(a1 + 69) & 1) == 0 )
   {
     *(_QWORD *)(a1 + 72) = 0xFFFFF6FB7DBEDF68uLL;
-    MiLockPageTableInternal(v3, 0xFFFFF6FB7DBEDF68uLL, 0);
+    MiLockPageTableInternal(v3, 0xFFFFF6FB7DBEDF68uLL, 0LL);
   }
   v10 = 3;
   v11 = 0xFFFFF6FB7DBED7F8uLL;

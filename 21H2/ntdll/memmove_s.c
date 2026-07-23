@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     _invalid_parameter @ 0x18008C868 (_invalid_parameter.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 errno_t __cdecl memmove_s(

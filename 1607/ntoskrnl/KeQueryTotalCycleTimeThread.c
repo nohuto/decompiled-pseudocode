@@ -1,16 +1,16 @@
 /*
- * XREFs of KeQueryTotalCycleTimeThread @ 0x140095D3C
+ * XREFs of KeQueryTotalCycleTimeThread @ 0x14009553C
  * Callers:
- *     NtQueryInformationThread @ 0x140519650 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1404FCA40 (NtQueryInformationThread.c)
  * Callees:
- *     KeUpdateTotalCyclesCurrentThread @ 0x140095D9C (KeUpdateTotalCyclesCurrentThread.c)
- *     KeFlushProcessWriteBuffers @ 0x1400C892C (KeFlushProcessWriteBuffers.c)
- *     KiIpiSendPacket @ 0x1400C8A18 (KiIpiSendPacket.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC (KiAcquireThreadLockRaiseToDpc.c)
- *     KiAcquireThreadStateLock @ 0x1400D3590 (KiAcquireThreadStateLock.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x14009559C (KeUpdateTotalCyclesCurrentThread.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400C67CC (KeFlushProcessWriteBuffers.c)
+ *     KiIpiSendPacket @ 0x1400C68B8 (KiIpiSendPacket.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAcquireThreadStateLock @ 0x1400D1430 (KiAcquireThreadStateLock.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 ULONG64 __stdcall KeQueryTotalCycleTimeThread(PKTHREAD Thread, PULONG64 CycleTimeStamp)

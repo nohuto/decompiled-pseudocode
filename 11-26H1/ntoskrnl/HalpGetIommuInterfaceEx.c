@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpGetIommuInterfaceEx @ 0x140786820
+ * XREFs of HalpGetIommuInterfaceEx @ 0x140789350
  * Callers:
  *     <none>
  * Callees:
- *     Feature_IommuInterfacePointerReset__private_IsEnabledDeviceUsageNoInline @ 0x1405877DC (Feature_IommuInterfacePointerReset__private_IsEnabledDeviceUsageNoInline.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     Feature_IommuInterfacePointerReset__private_IsEnabledDeviceUsageNoInline @ 0x140589D58 (Feature_IommuInterfacePointerReset__private_IsEnabledDeviceUsageNoInline.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpGetIommuInterfaceEx(int a1, __int64 a2, __int64 *a3)

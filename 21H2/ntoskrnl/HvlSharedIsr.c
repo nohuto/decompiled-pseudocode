@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlSharedIsr @ 0x1404F1F00
+ * XREFs of HvlSharedIsr @ 0x1404F1E80
  * Callers:
- *     HvlEnlightenProcessor @ 0x1403A7998 (HvlEnlightenProcessor.c)
- *     KiHvInterruptSubDispatch @ 0x140404CA0 (KiHvInterruptSubDispatch.c)
+ *     HvlEnlightenProcessor @ 0x1403A7AE8 (HvlEnlightenProcessor.c)
+ *     KiHvInterruptSubDispatch @ 0x140404E80 (KiHvInterruptSubDispatch.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     HvlpGetLpcbByLpIndex @ 0x140390CF8 (HvlpGetLpcbByLpIndex.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x1404F2190 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlpHandleIommuFaultMessage @ 0x1404F95F4 (HvlpHandleIommuFaultMessage.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     HvlpGetLpcbByLpIndex @ 0x140390E48 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1404F2110 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpHandleIommuFaultMessage @ 0x1404F9574 (HvlpHandleIommuFaultMessage.c)
  */
 
 char __fastcall HvlSharedIsr(__int64 a1)
@@ -35,7 +35,7 @@ char __fastcall HvlSharedIsr(__int64 a1)
       }
       else
       {
-        v5 = qword_140CF68C8 + 104LL * *v4;
+        v5 = qword_140CF6908 + 104LL * *v4;
         *(_DWORD *)(v5 + 4) = 2;
         KiInsertQueueDpc(v5 + 8, 0LL, 0LL, 0LL, 0);
       }

@@ -42,6 +42,6 @@ __int64 KiInitializeDpcRuntimeHistoryHashTables()
     8);
   v2[1] = -1LL;
   v2[0] = 0LL;
-  KeSetTimer2((__int64)&KiDpcRuntimeHistoryHashTableCleanupTimer, -900000000LL, 900000000LL, (__int64)v2);
+  KeSetTimer2((__int64)&KiDpcRuntimeHistoryHashTableCleanupTimer, (LARGE_INTEGER)-900000000LL, 900000000LL, (__int64)v2);
   return 0LL;
 }

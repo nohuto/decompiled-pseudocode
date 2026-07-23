@@ -1,24 +1,24 @@
 /*
- * XREFs of ViErrorFinishReport @ 0x140AD3754
+ * XREFs of ViErrorFinishReport @ 0x140AD3744
  * Callers:
- *     ViErrorReport1 @ 0x1405CFE24 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1405CFEA8 (ViErrorReport10.c)
- *     ViErrorReport4 @ 0x1405CFF3C (ViErrorReport4.c)
- *     ViErrorReport6 @ 0x1405CFFE0 (ViErrorReport6.c)
- *     ViGenericVerifyIrpStackDownward @ 0x140AC30F0 (ViGenericVerifyIrpStackDownward.c)
- *     ViGenericVerifyNewIrp @ 0x140AC33C0 (ViGenericVerifyNewIrp.c)
- *     VfIoDeleteDevice @ 0x140AD2244 (VfIoDeleteDevice.c)
- *     VfIoDetachDevice @ 0x140AD23C8 (VfIoDetachDevice.c)
- *     VfErrorReport7 @ 0x140AD3594 (VfErrorReport7.c)
- *     VfErrorReport8 @ 0x140AD362C (VfErrorReport8.c)
- *     VerifierNtCreateFile @ 0x140AE3BD0 (VerifierNtCreateFile.c)
- *     VerifierNtReadFile @ 0x140AE3D80 (VerifierNtReadFile.c)
- *     VerifierNtWriteFile @ 0x140AE3ED0 (VerifierNtWriteFile.c)
+ *     ViErrorReport1 @ 0x1405D0394 (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x1405D0418 (ViErrorReport10.c)
+ *     ViErrorReport4 @ 0x1405D04AC (ViErrorReport4.c)
+ *     ViErrorReport6 @ 0x1405D0550 (ViErrorReport6.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x140AC30E0 (ViGenericVerifyIrpStackDownward.c)
+ *     ViGenericVerifyNewIrp @ 0x140AC33B0 (ViGenericVerifyNewIrp.c)
+ *     VfIoDeleteDevice @ 0x140AD2234 (VfIoDeleteDevice.c)
+ *     VfIoDetachDevice @ 0x140AD23B8 (VfIoDetachDevice.c)
+ *     VfErrorReport7 @ 0x140AD3584 (VfErrorReport7.c)
+ *     VfErrorReport8 @ 0x140AD361C (VfErrorReport8.c)
+ *     VerifierNtCreateFile @ 0x140AE3BC0 (VerifierNtCreateFile.c)
+ *     VerifierNtReadFile @ 0x140AE3D70 (VerifierNtReadFile.c)
+ *     VerifierNtWriteFile @ 0x140AE3EC0 (VerifierNtWriteFile.c)
  * Callees:
- *     DbgPrompt @ 0x1405A7770 (DbgPrompt.c)
- *     VfUtilDbgPrint @ 0x1405CE2D4 (VfUtilDbgPrint.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     VfErrorStoreTriageInformation @ 0x140AD36B4 (VfErrorStoreTriageInformation.c)
+ *     DbgPrompt @ 0x1405A7CE0 (DbgPrompt.c)
+ *     VfUtilDbgPrint @ 0x1405CE844 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x140AD36A4 (VfErrorStoreTriageInformation.c)
  */
 
 __int64 __fastcall ViErrorFinishReport(int a1, ULONG_PTR a2, ULONG_PTR a3, ULONG_PTR a4)

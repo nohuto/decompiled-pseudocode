@@ -1,11 +1,11 @@
 /*
- * XREFs of CmWorkerEngineQueueWorkItem @ 0x1406BA104
+ * XREFs of CmWorkerEngineQueueWorkItem @ 0x140619274
  * Callers:
- *     CmpDoQueueLateUnloadWorker @ 0x1406725FC (CmpDoQueueLateUnloadWorker.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x14066782C (CmpDoQueueLateUnloadWorker.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  */
 
 void __fastcall CmWorkerEngineQueueWorkItem(_QWORD *a1)
@@ -15,13 +15,13 @@ void __fastcall CmWorkerEngineQueueWorkItem(_QWORD *a1)
 
   v2 = 0;
   ExAcquireFastMutex(&CmpWorkerEngineLock);
-  v3 = (_QWORD *)qword_140C480A8;
-  if ( *(PVOID **)qword_140C480A8 != &CmpWorkerEngineListHead )
+  v3 = (_QWORD *)qword_140C48118;
+  if ( *(PVOID **)qword_140C48118 != &CmpWorkerEngineListHead )
     __fastfail(3u);
   *a1 = &CmpWorkerEngineListHead;
   a1[1] = v3;
   *v3 = a1;
-  qword_140C480A8 = (__int64)a1;
+  qword_140C48118 = (__int64)a1;
   if ( !CmpWorkerEngineWorkItemActive )
   {
     CmpWorkerEngineWorkItemActive = 1;

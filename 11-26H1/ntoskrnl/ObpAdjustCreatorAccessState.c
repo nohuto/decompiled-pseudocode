@@ -1,32 +1,28 @@
 /*
- * XREFs of ObpAdjustCreatorAccessState @ 0x140931B40
+ * XREFs of ObpAdjustCreatorAccessState @ 0x14090D710
  * Callers:
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     SeComputeCreatorDeniedRights @ 0x1403BDDA0 (SeComputeCreatorDeniedRights.c)
- *     SepPrivilegeCheck @ 0x14042F0A0 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SeAppendPrivileges @ 0x140903960 (SeAppendPrivileges.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x140905024 (ObpReferenceSecurityDescriptorSlow.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140932AB0 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepFilterPrivilegeAudits @ 0x1409F7460 (SepFilterPrivilegeAudits.c)
+ *     SeComputeCreatorDeniedRights @ 0x1403C7CA0 (SeComputeCreatorDeniedRights.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     SepPrivilegeCheck @ 0x14041BFB0 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14090E660 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SeAppendPrivileges @ 0x1409338F0 (SeAppendPrivileges.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140934FB4 (ObpReferenceSecurityDescriptorSlow.c)
+ *     SepFilterPrivilegeAudits @ 0x140A5FFB0 (SepFilterPrivilegeAudits.c)
  */
 
-__int64 __fastcall ObpAdjustCreatorAccessState(
-        PACCESS_STATE AccessState,
-        char a2,
-        _DWORD *a3,
-        struct _KLOCK_ENTRIES *a4)
+__int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, char a2, _DWORD *a3, __int64 a4)
 {
   int RemainingDesiredAccess; // eax
   __int64 v8; // rdi
-  signed __int64 AllFields; // rsi
+  signed __int64 v9; // rsi
   char v10; // dl
   signed __int64 v11; // rax
   unsigned __int64 v12; // rsi
-  unsigned int v13; // edx
+  __int64 v13; // rdx
   ACCESS_MASK PreviouslyGrantedAccess; // ebx
   signed __int64 v15; // rax
   signed __int64 v16; // rtt
@@ -84,7 +80,7 @@ LABEL_31:
       if ( !p_SubjectSecurityContext->ClientToken )
         PrimaryToken = (_QWORD **)p_SubjectSecurityContext->PrimaryToken;
       v22 = (void *)*PrimaryToken[19];
-      if ( !RtlEqualSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags, v22) )
+      if ( !RtlEqualSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4), v22) )
       {
         if ( (v23 = SeExports, !RtlEqualSid(SeExports->SeNetworkServiceSid, v22))
           && !RtlEqualSid(v23->SeLocalServiceSid, v22)
@@ -107,31 +103,31 @@ LABEL_31:
   AccessState->PreviouslyGrantedAccess |= 0x1000000u;
   SeAppendPrivileges(AccessState, &Privileges);
 LABEL_14:
-  v8 = (__int64)&a4[-1].Entries[0].40;
+  v8 = a4 - 48;
   AccessState->PreviouslyGrantedAccess |= AccessState->RemainingDesiredAccess;
   AccessState->RemainingDesiredAccess = 0;
   AccessState->PreviouslyGrantedAccess &= a3[23] | 0x1000000;
-  _m_prefetchw(&a4[-1].Entries[0].BoostBitmap);
-  AllFields = a4[-1].Entries[0].BoostBitmap.AllFields;
-  v10 = AllFields;
-  if ( (AllFields & 0xF) != 0 )
+  _m_prefetchw((const void *)(a4 - 48 + 40));
+  v9 = *(_QWORD *)(a4 - 48 + 40);
+  v10 = v9;
+  if ( (v9 & 0xF) != 0 )
   {
     do
     {
-      v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 40), AllFields - 1, AllFields);
-      if ( AllFields == v11 )
+      v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 40), v9 - 1, v9);
+      if ( v9 == v11 )
         break;
-      AllFields = v11;
+      v9 = v11;
       v10 = v11;
     }
     while ( (v11 & 0xF) != 0 );
   }
-  v12 = AllFields & 0xFFFFFFFFFFFFFFF0uLL;
+  v12 = v9 & 0xFFFFFFFFFFFFFFF0uLL;
   v13 = v10 & 0xF;
-  if ( v13 <= 1 )
+  if ( (unsigned int)v13 <= 1 )
   {
     if ( v12 )
-      v12 = ObpReferenceSecurityDescriptorSlow(v8, v13, v12, a4);
+      v12 = ObpReferenceSecurityDescriptorSlow(v8, v13, v12);
   }
   PreviouslyGrantedAccess = AccessState->PreviouslyGrantedAccess;
   AccessState->PreviouslyGrantedAccess = PreviouslyGrantedAccess & ~(unsigned int)SeComputeCreatorDeniedRights(

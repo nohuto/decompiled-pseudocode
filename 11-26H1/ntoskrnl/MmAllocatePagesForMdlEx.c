@@ -1,20 +1,20 @@
 /*
- * XREFs of MmAllocatePagesForMdlEx @ 0x140348200
+ * XREFs of MmAllocatePagesForMdlEx @ 0x14034A280
  * Callers:
- *     HalpAllocateCommonBufferDmaThin @ 0x140348C34 (HalpAllocateCommonBufferDmaThin.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x1404D18A4 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x1404F1E84 (HalpAllocateCommonBufferDmarThin.c)
- *     PopGenerateMdl @ 0x1404FA004 (PopGenerateMdl.c)
- *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x14051390C (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140589FC0 (HalpAllocateDomainCommonBufferInternal.c)
- *     DifMmAllocatePagesForMdlExWrapper @ 0x1406660E0 (DifMmAllocatePagesForMdlExWrapper.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x14079CB90 (IoReserveKsrPersistentMemoryEx.c)
- *     EtwpAllocatePhysicalPages @ 0x140825018 (EtwpAllocatePhysicalPages.c)
- *     ResFwGetContext @ 0x140C50D8C (ResFwGetContext.c)
- *     PpmHeteroInitializeIntelWpsSupport @ 0x140CD6EF4 (PpmHeteroInitializeIntelWpsSupport.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x14034ACB4 (HalpAllocateCommonBufferDmaThin.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     HalpAllocateCommonBufferVectorInternal @ 0x1404CB450 (HalpAllocateCommonBufferVectorInternal.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1404EB464 (HalpAllocateCommonBufferDmarThin.c)
+ *     PopGenerateMdl @ 0x1404F3614 (PopGenerateMdl.c)
+ *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x14050D37C (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14058C6F0 (HalpAllocateDomainCommonBufferInternal.c)
+ *     DifMmAllocatePagesForMdlExWrapper @ 0x140669CC0 (DifMmAllocatePagesForMdlExWrapper.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x14079F6D0 (IoReserveKsrPersistentMemoryEx.c)
+ *     EtwpAllocatePhysicalPages @ 0x14082B258 (EtwpAllocatePhysicalPages.c)
+ *     ResFwGetContext @ 0x140C56D8C (ResFwGetContext.c)
+ *     PpmHeteroInitializeIntelWpsSupport @ 0x140CDD248 (PpmHeteroInitializeIntelWpsSupport.c)
  * Callees:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140348260 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x14034A2E0 (MmAllocatePartitionNodePagesForMdlEx.c)
  */
 
 PMDL __stdcall MmAllocatePagesForMdlEx(

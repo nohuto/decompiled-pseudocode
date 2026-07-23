@@ -17,7 +17,7 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __thiscall TppPoolpFree(int this)
+LOGICAL __thiscall TppPoolpFree(int this)
 {
   int v2; // edx
   _DWORD *v3; // ecx
@@ -30,9 +30,9 @@ int __thiscall TppPoolpFree(int this)
   TppDestroyTimerSubQueue(this + 72);
   TppDestroyTimerSubQueue(this + 144);
   NtClose(*(HANDLE *)(this + 40));
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_DWORD *)(this + 16));
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_DWORD *)(this + 28));
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(_DWORD *)(this + 32));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(PVOID *)(this + 16));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(PVOID *)(this + 28));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, *(PVOID *)(this + 32));
   RtlAcquireSRWLockExclusive(&TppPoolpListLock);
   v2 = *(_DWORD *)(this + 232);
   v3 = *(_DWORD **)(this + 236);
@@ -41,5 +41,5 @@ int __thiscall TppPoolpFree(int this)
   *v3 = v2;
   *(_DWORD *)(v2 + 4) = v3;
   RtlReleaseSRWLockExclusive(&TppPoolpListLock);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, this);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, (PVOID)this);
 }

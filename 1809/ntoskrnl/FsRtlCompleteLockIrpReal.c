@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlCompleteLockIrpReal @ 0x14013FA90
+ * XREFs of FsRtlCompleteLockIrpReal @ 0x14013FB90
  * Callers:
- *     FsRtlPrivateLock @ 0x14008C8F0 (FsRtlPrivateLock.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14012EFA0 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x14008C8E0 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14012F070 (FsRtlPrivateCheckWaitingLocks.c)
  * Callees:
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS *__fastcall FsRtlCompleteLockIrpReal(

@@ -1,17 +1,17 @@
 /*
- * XREFs of SeCaptureUnicodeStringStructures @ 0x140889350
+ * XREFs of SeCaptureUnicodeStringStructures @ 0x14088D200
  * Callers:
- *     SepCaptureUnicodeStringArray @ 0x1408890B0 (SepCaptureUnicodeStringArray.c)
+ *     SepCaptureUnicodeStringArray @ 0x14088CF60 (SepCaptureUnicodeStringArray.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureUnicodeStringStructures(__int64 a1, unsigned int a2, char a3, __int64 *a4)
 {
   unsigned int v7; // ebx
-  __int64 v8; // r15
+  ULONG_PTR v8; // r15
   int v9; // r14d
   __int64 Pool2; // rcx
 
@@ -42,7 +42,7 @@ __int64 __fastcall SeCaptureUnicodeStringStructures(__int64 a1, unsigned int a2,
   }
   if ( v9 >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v8, 0x73556553u);
     if ( Pool2 )
     {
       if ( v8 && (a1 & 3) != 0 )

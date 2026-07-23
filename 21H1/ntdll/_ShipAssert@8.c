@@ -12,7 +12,7 @@ unsigned int __stdcall ShipAssert(int a1, int a2)
 {
   struct _TEB *v2; // ecx
   unsigned int result; // eax
-  __int32 ShipAssertBuffer; // eax
+  int ShipAssertBuffer; // eax
   int v5; // ecx
   unsigned int LastErrorValue; // [esp+10h] [ebp-30h]
   struct _TEB *v7; // [esp+14h] [ebp-2Ch]

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeletePfnBitMaps @ 0x14087A1C4
+ * XREFs of MiDeletePfnBitMaps @ 0x1408805C0
  * Callers:
- *     MiDeletePartitionResources @ 0x140868E28 (MiDeletePartitionResources.c)
- *     MiCreatePfnBitMaps @ 0x140879CE0 (MiCreatePfnBitMaps.c)
+ *     MiDeletePartitionResources @ 0x14086F208 (MiDeletePartitionResources.c)
+ *     MiCreatePfnBitMaps @ 0x1408800DC (MiCreatePfnBitMaps.c)
  * Callees:
- *     MiDeleteSparseRange @ 0x14087A3B4 (MiDeleteSparseRange.c)
+ *     MiDeleteSparseRange @ 0x1408807B0 (MiDeleteSparseRange.c)
  */
 
 __int64 __fastcall MiDeletePfnBitMaps(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall MiDeletePfnBitMaps(__int64 a1)
   __int64 v12; // rcx
 
   v1 = MiPageSizes;
-  v2 = qword_140E2D7A0 + 1;
+  v2 = qword_140E2D920 + 1;
   v3 = 0;
   v5 = 3LL;
   do
@@ -32,7 +32,7 @@ __int64 __fastcall MiDeletePfnBitMaps(__int64 a1)
       if ( (ULONG *)a1 != &MiSystemPartition )
         goto LABEL_7;
       v6 = 0x40000LL;
-      v7 = &qword_140E2D7C0;
+      v7 = &qword_140E2D940;
     }
     else
     {

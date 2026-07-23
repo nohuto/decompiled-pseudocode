@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 ZwCallbackReturn()
+NTSTATUS __cdecl ZwCallbackReturn(PVOID OutputBuffer, ULONG OutputLength, NTSTATUS Status)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 5LL;
+  result = 5;
   __asm { syscall; Low latency system call }
   return result;
 }

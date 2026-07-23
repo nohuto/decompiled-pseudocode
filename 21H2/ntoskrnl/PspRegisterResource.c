@@ -1,7 +1,7 @@
 /*
- * XREFs of PspRegisterResource @ 0x1403C93E0
+ * XREFs of PspRegisterResource @ 0x1403C9580
  * Callers:
- *     PsInitializeQuotaSystem @ 0x140A6C13C (PsInitializeQuotaSystem.c)
+ *     PsInitializeQuotaSystem @ 0x140A6D13C (PsInitializeQuotaSystem.c)
  * Callees:
  *     <none>
  */

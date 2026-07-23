@@ -6,10 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall RtlAbsoluteToSelfRelativeSD(__int64 a1)
+NTSTATUS __cdecl RtlAbsoluteToSelfRelativeSD(
+        PSECURITY_DESCRIPTOR AbsoluteSecurityDescriptor,
+        PSECURITY_DESCRIPTOR SelfRelativeSecurityDescriptor,
+        PULONG BufferLength)
 {
-  if ( *(__int16 *)(a1 + 2) >= 0 )
-    return RtlMakeSelfRelativeSD();
+  if ( *((__int16 *)AbsoluteSecurityDescriptor + 1) >= 0 )
+    return RtlMakeSelfRelativeSD(AbsoluteSecurityDescriptor, SelfRelativeSecurityDescriptor, BufferLength);
   else
-    return 3221225703LL;
+    return -1073741593;
 }

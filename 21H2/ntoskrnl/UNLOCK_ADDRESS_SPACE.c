@@ -1,35 +1,35 @@
 /*
- * XREFs of UNLOCK_ADDRESS_SPACE @ 0x140314860
+ * XREFs of UNLOCK_ADDRESS_SPACE @ 0x14031F5B0
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
- *     MiBeginProcessClean @ 0x1402D5048 (MiBeginProcessClean.c)
+ *     MiDeleteFinalPageTables @ 0x14027404C (MiDeleteFinalPageTables.c)
+ *     MiBeginProcessClean @ 0x1402A0890 (MiBeginProcessClean.c)
  *     MiDeleteEmptyPageTables @ 0x1403F4F90 (MiDeleteEmptyPageTables.c)
- *     MiReleaseCommitForResetPages @ 0x14052C554 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x14052C708 (MiReleaseOutSwappedProcessCommit.c)
- *     MiCopyOnWriteCheckConditions @ 0x14055BEF8 (MiCopyOnWriteCheckConditions.c)
- *     MiFindNextEnclaveBoundary @ 0x1405F7640 (MiFindNextEnclaveBoundary.c)
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiUnlockVadRange @ 0x140620130 (MiUnlockVadRange.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x14064C180 (MiAllocateFromSubAllocatedRegion.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
- *     MiPrepareVadDelete @ 0x1406EE878 (MiPrepareVadDelete.c)
- *     MiInitializeVadBitMap @ 0x140711794 (MiInitializeVadBitMap.c)
- *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
- *     MiResizeAweBitMap @ 0x1408D64E4 (MiResizeAweBitMap.c)
- *     NtFreeUserPhysicalPages @ 0x1408D6800 (NtFreeUserPhysicalPages.c)
+ *     MiReleaseCommitForResetPages @ 0x14052C794 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C948 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiCopyOnWriteCheckConditions @ 0x14055C138 (MiCopyOnWriteCheckConditions.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x140640FA0 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiUnlockVadRange @ 0x140689DA0 (MiUnlockVadRange.c)
+ *     MiInitializeVadBitMap @ 0x1406BFDE4 (MiInitializeVadBitMap.c)
+ *     MiFindNextEnclaveBoundary @ 0x1406E6DA0 (MiFindNextEnclaveBoundary.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x14070262C (MmCleanProcessAddressSpace.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MmFreeVirtualMemory @ 0x1407049E0 (MmFreeVirtualMemory.c)
+ *     MiPrepareVadDelete @ 0x140705C58 (MiPrepareVadDelete.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B860 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C3128 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1FB8 (MiAllocateEnclaveVad.c)
+ *     MiResizeAweBitMap @ 0x1408D6644 (MiResizeAweBitMap.c)
+ *     NtFreeUserPhysicalPages @ 0x1408D6960 (NtFreeUserPhysicalPages.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall UNLOCK_ADDRESS_SPACE(__int64 a1, __int64 a2)
@@ -44,7 +44,6 @@ char __fastcall UNLOCK_ADDRESS_SPACE(__int64 a1, __int64 a2)
   __int64 v10; // rdi
   __int64 v11; // rdx
   $C459BD0D405E8E46662177FB3D0A143F *v12; // rax
-  __int64 v13; // rcx
 
   *(_BYTE *)(a1 + 1304) &= ~1u;
   v2 = a2 + 1224;
@@ -77,7 +76,7 @@ char __fastcall UNLOCK_ADDRESS_SPACE(__int64 a1, __int64 a2)
         {
           *(_BYTE *)(v10 + 32) |= 2u;
           if ( *(__int64 *)(v10 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v10);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
           *(_DWORD *)(v10 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v10 + 25) &= ~1u;
           *(_QWORD *)(v10 + 32) = 0LL;
@@ -102,14 +101,14 @@ LABEL_17:
   {
     v12 = &CurrentThread->152;
     if ( ($C459BD0D405E8E46662177FB3D0A143F *)v12->ApcState.ApcListHead[0].Flink != v12 )
-      LOBYTE(v12) = KiCheckForKernelApcDelivery(v13);
+      LOBYTE(v12) = KiCheckForKernelApcDelivery();
   }
   v8 = (*(_WORD *)(a1 + 486))++ == 0xFFFF;
   if ( v8 )
   {
     v12 = ($C459BD0D405E8E46662177FB3D0A143F *)(a1 + 152);
     if ( ($C459BD0D405E8E46662177FB3D0A143F *)v12->ApcState.ApcListHead[0].Flink != v12 )
-      LOBYTE(v12) = KiCheckForKernelApcDelivery(v13);
+      LOBYTE(v12) = KiCheckForKernelApcDelivery();
   }
   return (char)v12;
 }

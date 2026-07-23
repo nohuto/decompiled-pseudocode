@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeChannelRangesTemporary @ 0x140A74154
+ * XREFs of MiInitializeChannelRangesTemporary @ 0x140A75154
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 MiInitializeChannelRangesTemporary()
@@ -62,7 +62,7 @@ __int64 MiInitializeChannelRangesTemporary()
   memset(v44, 0, sizeof(v44));
   if ( dword_140CFB188 )
   {
-    if ( byte_140C4EEDD != 1 )
+    if ( byte_140C4EF1D != 1 )
     {
       if ( dword_140CFB19C )
       {
@@ -97,7 +97,7 @@ __int64 MiInitializeChannelRangesTemporary()
             v7 = v4;
             v4 += 16;
             result = (v7 - (_BYTE *)v1 - 14) >> 4;
-            dword_140C4DE94 = result;
+            dword_140C4DED4 = result;
           }
           while ( *(_QWORD *)(v4 - 14) != -1LL );
           if ( !v3 )
@@ -233,7 +233,7 @@ LABEL_49:
               }
             }
             result = (__int64)v41;
-            qword_140C4DED0 = v41;
+            qword_140C4DF10 = v41;
           }
         }
       }

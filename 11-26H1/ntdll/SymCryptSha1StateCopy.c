@@ -1,5 +1,5 @@
 /*
- * XREFs of SymCryptSha1StateCopy @ 0x180158760
+ * XREFs of SymCryptSha1StateCopy @ 0x180158630
  * Callers:
  *     <none>
  * Callees:

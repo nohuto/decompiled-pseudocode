@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlEthernetStringToAddressA @ 0x180144E20
+ * XREFs of RtlEthernetStringToAddressA @ 0x1801431D0
  * Callers:
  *     <none>
  * Callees:
- *     __isascii @ 0x180121870 (__isascii.c)
- *     isdigit @ 0x1801219B0 (isdigit.c)
- *     islower @ 0x180121A10 (islower.c)
- *     isxdigit @ 0x180121B00 (isxdigit.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     __isascii @ 0x18011FAA0 (__isascii.c)
+ *     isdigit @ 0x18011FBE0 (isdigit.c)
+ *     islower @ 0x18011FC40 (islower.c)
+ *     isxdigit @ 0x18011FD30 (isxdigit.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 LONG __stdcall RtlEthernetStringToAddressA(PCSTR S, PCSTR *Terminator, DL_EUI48 *Addr)

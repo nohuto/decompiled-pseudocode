@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpDeleteSessionDemuxObject @ 0x14082CA20
+ * XREFs of EtwpDeleteSessionDemuxObject @ 0x140832C60
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
 {
-  _QWORD *v1; // rdi
+  _RTL_BALANCED_NODE *v1; // rdi
   struct _LIST_ENTRY *Flink; // r14
   struct _KTHREAD *CurrentThread; // rax
   struct _KLOCK_ENTRIES *v5; // r9
@@ -29,7 +29,7 @@ void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
   signed __int64 v12; // rdx
   struct _LIST_ENTRY *v13; // rtt
 
-  v1 = (_QWORD *)a1[3];
+  v1 = (_RTL_BALANCED_NODE *)a1[3];
   if ( v1 )
   {
     Flink = PsGetCurrentServerSiloGlobals()[52].Flink;
@@ -52,9 +52,9 @@ void __fastcall EtwpDeleteSessionDemuxObject(_QWORD *a1)
     *v10 = v9;
     *(_QWORD *)(v9 + 8) = v10;
     a1[3] = 0LL;
-    if ( (_QWORD *)v1[4] == v1 + 4 )
+    if ( v1[1].Children[1] == (_RTL_BALANCED_NODE *)&v1[1].Right )
     {
-      RtlRbRemoveNode((__int64)&Flink[272], (__int64)v1);
+      RtlRbRemoveNode((PRTL_RB_TREE)&Flink[272], v1);
       ExFreePoolWithTag(v1, 0);
     }
     _m_prefetchw(&Flink[273]);

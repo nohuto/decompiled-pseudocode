@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCompressBufferXpressLzMax @ 0x140419D80
+ * XREFs of RtlCompressBufferXpressLzMax @ 0x140409D80
  * Callers:
- *     RtlCompressBufferXpressLz @ 0x1404194E0 (RtlCompressBufferXpressLz.c)
- *     RtlCompressBufferProgress @ 0x1405F1040 (RtlCompressBufferProgress.c)
+ *     RtlCompressBufferXpressLz @ 0x1404094E0 (RtlCompressBufferXpressLz.c)
+ *     RtlCompressBufferProgress @ 0x1405EE680 (RtlCompressBufferProgress.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x140419D30 (RtlpMakeXpressCallback.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlpMakeXpressCallback @ 0x140409D30 (RtlpMakeXpressCallback.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressLzMax(
@@ -29,7 +29,7 @@ __int64 __fastcall RtlCompressBufferXpressLzMax(
   unsigned int v19; // edx
   _BYTE *v20; // r14
   char *v21; // rbx
-  __int64 v22; // r9
+  int v22; // r9d
   __int16 v23; // r10
   unsigned __int8 *v24; // rsi
   unsigned __int64 v25; // r11
@@ -46,9 +46,9 @@ __int64 __fastcall RtlCompressBufferXpressLzMax(
   _QWORD *v36; // rdx
   int v37; // eax
   int v38; // eax
-  unsigned int v39; // eax
-  unsigned int *v40; // rcx
-  unsigned int *v41; // r10
+  int v39; // eax
+  int *v40; // rcx
+  int *v41; // r10
   __int64 v42; // r12
   unsigned __int64 v43; // rdi
   __int16 v44; // ax
@@ -62,11 +62,11 @@ __int64 __fastcall RtlCompressBufferXpressLzMax(
   __int64 v52; // r15
   unsigned __int64 v53; // rax
   char v54; // dl
-  unsigned int v55; // eax
-  unsigned int *v56; // rdx
+  int v55; // eax
+  int *v56; // rdx
   char v57; // al
   unsigned int v58; // r14d
-  unsigned int *v59; // [rsp+20h] [rbp-98h]
+  int *v59; // [rsp+20h] [rbp-98h]
   char *v60; // [rsp+28h] [rbp-90h]
   unsigned __int64 v61; // [rsp+30h] [rbp-88h]
   unsigned __int64 v62; // [rsp+38h] [rbp-80h]
@@ -111,13 +111,13 @@ __int64 __fastcall RtlCompressBufferXpressLzMax(
   v20 = (_BYTE *)(a3 + 5);
   v21 = (char *)(v13 + 1);
   v68[1] = a8;
-  v22 = 2LL;
+  v22 = 2;
   *(_BYTE *)(a3 + 4) = *v13;
   v23 = 0;
   v69 = v19;
   v24 = v13;
   v72 = 2;
-  v59 = (unsigned int *)a3;
+  v59 = (int *)a3;
   while ( 2 )
   {
     v25 = v17;
@@ -154,8 +154,8 @@ LABEL_17:
         goto LABEL_22;
       if ( (unsigned __int64)v21 >= v25 )
         break;
-      XpressCallback = RtlpMakeXpressCallback((__int64)v68, v25, (__int64)v21, v22);
-      LODWORD(v22) = v72;
+      XpressCallback = RtlpMakeXpressCallback((__int64)v68, v25, (__int64)v21);
+      v22 = v72;
       v25 = v63;
       v18 = v62;
       v61 = XpressCallback;
@@ -306,12 +306,12 @@ LABEL_64:
                 v14 = (__int64)&v46[-v32];
                 if ( v32 > (unsigned __int64)v45 )
                 {
-                  LODWORD(v22) = v72;
+                  v22 = v72;
                   v21 = v45;
                   goto LABEL_67;
                 }
               }
-              LODWORD(v22) = v72;
+              v22 = v72;
               LOWORD(v32) = v32 - v50;
               v44 = v71;
               v21 = v45;
@@ -349,18 +349,18 @@ LABEL_67:
                   v60 = 0LL;
 LABEL_87:
                   v55 = 2 * v22 + 1;
-                  if ( (int)v22 <= 0 )
+                  if ( v22 <= 0 )
                   {
                     v56 = v59;
-                    v22 = 1LL;
-                    v59 = (unsigned int *)v20;
+                    v22 = 1;
+                    v59 = (int *)v20;
                     v20 += 4;
                     v72 = 1;
                     *v56 = v55;
                   }
                   else
                   {
-                    v22 = v55;
+                    v22 = 2 * v22 + 1;
                     v72 = v55;
                   }
                   v18 = v62;
@@ -417,11 +417,11 @@ LABEL_87:
       ++v20;
       ++v21;
       ++v30;
-      v40 = (unsigned int *)v20;
-      if ( (int)v22 <= 0 )
+      v40 = (int *)v20;
+      if ( v22 <= 0 )
       {
         v20 += 4;
-        v22 = 1LL;
+        v22 = 1;
         v41 = v40;
         v72 = 1;
         *v59 = v39;
@@ -434,7 +434,7 @@ LABEL_87:
       else
       {
         v16 = a6;
-        v22 = v39;
+        v22 *= 2;
         v72 = v39;
         v26 = (char *)v61;
       }
@@ -454,7 +454,7 @@ LABEL_94:
 LABEL_100:
     if ( (unsigned __int64)v20 >= v66 )
       return 3221225507LL;
-    for ( ; (int)v22 > 0; LODWORD(v22) = 2 * v22 + 1 )
+    for ( ; v22 > 0; v22 = 2 * v22 + 1 )
       ;
     v58 = (_DWORD)v20 - v73;
     *v41 = 2 * v22 + 1;
@@ -469,16 +469,16 @@ LABEL_100:
     {
       v57 = *v21++;
       *v20++ = v57;
-      if ( (int)v22 <= 0 )
+      if ( v22 <= 0 )
       {
         *v41 = 2 * v22;
-        LODWORD(v22) = 1;
-        v41 = (unsigned int *)v20;
+        v22 = 1;
+        v41 = (int *)v20;
         v20 += 4;
       }
       else
       {
-        LODWORD(v22) = 2 * v22;
+        v22 *= 2;
       }
       if ( (unsigned __int64)v21 >= v65 )
         goto LABEL_100;

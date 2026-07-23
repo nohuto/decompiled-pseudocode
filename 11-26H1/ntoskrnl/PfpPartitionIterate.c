@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpPartitionIterate @ 0x140382630
+ * XREFs of PfpPartitionIterate @ 0x1403843E0
  * Callers:
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
- *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x1406002C4 (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x140C071B0 (PfPowerActionNotify.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
+ *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x140602D74 (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140C0D3C0 (PfPowerActionNotify.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x1402F0540 (ExAcquireRundownProtectionCacheAware.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     PfpPartitionGetNext @ 0x140382870 (PfpPartitionGetNext.c)
- *     PfpPartitionReferenceParentSafe @ 0x140382960 (PfpPartitionReferenceParentSafe.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x1402D25C0 (ExAcquireRundownProtectionCacheAware.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     PfpPartitionGetNext @ 0x140384620 (PfpPartitionGetNext.c)
+ *     PfpPartitionReferenceParentSafe @ 0x140384710 (PfpPartitionReferenceParentSafe.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PfpPartitionIterate(__int64 a1, __int64 a2, __int64 a3)
@@ -37,7 +37,7 @@ __int64 __fastcall PfpPartitionIterate(__int64 a1, __int64 a2, __int64 a3)
 
   v3 = 0;
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
-  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)&stru_140E66FF0.InitialStack;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)&stru_140E67200.InitialStack;
   v5 = a2;
   LockHandle.LockQueue.Next = 0LL;
   CurrentIrql = KeGetCurrentIrql();
@@ -49,19 +49,19 @@ __int64 __fastcall PfpPartitionIterate(__int64 a1, __int64 a2, __int64 a3)
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v7 = _InterlockedExchange64((volatile __int64 *)&stru_140E66FF0.InitialStack, (__int64)&LockHandle);
+    v7 = _InterlockedExchange64((volatile __int64 *)&stru_140E67200.InitialStack, (__int64)&LockHandle);
     if ( v7 )
       KxWaitForLockOwnerShip((volatile signed __int64)&LockHandle, v7, a3);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)&stru_140E66FF0.InitialStack);
+    KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)&stru_140E67200.InitialStack);
   }
-  for ( i = (struct _KTHREAD *)stru_140E66FF0.StackLimit; ; i = *(struct _KTHREAD **)&i->Header.Lock )
+  for ( i = (struct _KTHREAD *)stru_140E67200.StackLimit; ; i = *(struct _KTHREAD **)&i->Header.Lock )
   {
-    if ( i == (struct _KTHREAD *)&stru_140E66FF0.StackLimit )
+    if ( i == (struct _KTHREAD *)&stru_140E67200.StackLimit )
     {
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       return 0LL;

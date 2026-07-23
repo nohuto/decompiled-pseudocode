@@ -13,7 +13,7 @@ NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAM
 {
   SIZE_T v2; // rdi
   __int64 v5; // rdx
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rbx
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rbx
   __int64 v7; // r8
   NTSTATUS v8; // edi
   int v10; // [rsp+30h] [rbp-18h]
@@ -22,7 +22,7 @@ NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAM
   v2 = 208LL;
   for ( i = 208; ; v2 = i )
   {
-    PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, v2, 0x6E446F49u);
+    PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, v2, 0x6E446F49u);
     if ( !PoolWithTag )
       break;
     LOBYTE(v10) = 0;

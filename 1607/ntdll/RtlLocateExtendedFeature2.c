@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLocateExtendedFeature2 @ 0x1800EB4E0
+ * XREFs of RtlLocateExtendedFeature2 @ 0x1800EB5A0
  * Callers:
- *     RtlLocateExtendedFeature @ 0x1800EB4C0 (RtlLocateExtendedFeature.c)
+ *     RtlLocateExtendedFeature @ 0x1800EB580 (RtlLocateExtendedFeature.c)
  * Callees:
- *     RtlpLocateXStateChunk @ 0x1800889EC (RtlpLocateXStateChunk.c)
+ *     RtlpLocateXStateChunk @ 0x1800889DC (RtlpLocateXStateChunk.c)
  */
 
 char *__fastcall RtlLocateExtendedFeature2(_DWORD *a1, int a2, __int64 a3, _DWORD *a4)

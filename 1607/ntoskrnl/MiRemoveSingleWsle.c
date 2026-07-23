@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveSingleWsle @ 0x14010133C
+ * XREFs of MiRemoveSingleWsle @ 0x1400FF0BC
  * Callers:
- *     MiTrimSingleWsle @ 0x1401011F4 (MiTrimSingleWsle.c)
- *     MiReplaceWorkingSetEntrySmall @ 0x1401E9EEC (MiReplaceWorkingSetEntrySmall.c)
+ *     MiTrimSingleWsle @ 0x1400FEF74 (MiTrimSingleWsle.c)
+ *     MiReplaceWorkingSetEntrySmall @ 0x1401E9D18 (MiReplaceWorkingSetEntrySmall.c)
  * Callees:
- *     MI_WSLE_LOG_ACCESS @ 0x140016E5C (MI_WSLE_LOG_ACCESS.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1400169DC (MI_WSLE_LOG_ACCESS.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiRemoveSingleWsle(ULONG_PTR a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall MiRemoveSingleWsle(ULONG_PTR a1, __int64 a2)
 
   SharedWorkingSetList = MiGetSharedWorkingSetList(a1);
   v6 = 0;
-  if ( dword_140327188 )
+  if ( dword_1403271C8 )
   {
     v7 = (_DWORD *)(SharedWorkingSetList[10] + a2 * *((unsigned int *)SharedWorkingSetList + 8));
     v8 = *(_QWORD *)v7;

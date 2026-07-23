@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptPrecomputation @ 0x1403FEF40
+ * XREFs of SymCryptPrecomputation @ 0x1403FF120
  * Callers:
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403FE3A0 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x1403FE8B0 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptOfflinePrecomputation @ 0x1403FEED0 (SymCryptOfflinePrecomputation.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403FE580 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x1403FEA90 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptOfflinePrecomputation @ 0x1403FF0B0 (SymCryptOfflinePrecomputation.c)
  * Callees:
- *     SymCryptEcpointAddDiffNonZero @ 0x140402C70 (SymCryptEcpointAddDiffNonZero.c)
- *     SymCryptEcpointDouble @ 0x140402CB4 (SymCryptEcpointDouble.c)
+ *     SymCryptEcpointAddDiffNonZero @ 0x140402E50 (SymCryptEcpointAddDiffNonZero.c)
+ *     SymCryptEcpointDouble @ 0x140402E94 (SymCryptEcpointDouble.c)
  */
 
 __int64 __fastcall SymCryptPrecomputation(int a1, unsigned int a2, _QWORD *a3, int a4, __int64 a5, __int64 a6)

@@ -8,5 +8,5 @@
 
 bool KeIsAttachedProcess()
 {
-  return KeGetCurrentThread()->ApcStateIndex == 1;
+  return *((_BYTE *)KeGetCurrentThread() + 586) == 1;
 }

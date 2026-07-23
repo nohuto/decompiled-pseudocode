@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSendParkedCoreUpdateToAllChildPartitions @ 0x1404BD200
+ * XREFs of MiSendParkedCoreUpdateToAllChildPartitions @ 0x1404B69E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiIterateOverPartitions @ 0x1404A90F4 (MiIterateOverPartitions.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIterateOverPartitions @ 0x1404A2784 (MiIterateOverPartitions.c)
  */
 
 void __fastcall MiSendParkedCoreUpdateToAllChildPartitions(
@@ -31,9 +31,9 @@ void __fastcall MiSendParkedCoreUpdateToAllChildPartitions(
   while ( 1 )
   {
     --CurrentThread->SpecialApcDisable;
-    v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E2EB88, 0LL, 0LL, a4);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2EB88, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E2EB88.Header.Lock, 0, v5, &stru_140E2EB88);
+    v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E2ED08, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2ED08, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E2ED08.Header.Lock, 0, v5, &stru_140E2ED08);
     if ( v5 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -42,24 +42,24 @@ void __fastcall MiSendParkedCoreUpdateToAllChildPartitions(
         *((_BYTE *)v5 + 10) = 1;
     }
     MiIterateOverPartitions((__int64)MiMoveBackgroundZeroThreads, 0LL);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2EB88, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&stru_140E2EB88.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E2EB88);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2ED08, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&stru_140E2ED08.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E2ED08);
     v8 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v8 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v8 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v7, v6);
-    v9 = ExAcquireSpinLockExclusive(&dword_140E2D800);
-    if ( stru_140E2D910.Parameter == (void *)1 )
+    v9 = ExAcquireSpinLockExclusive(&dword_140E2D980);
+    if ( stru_140E2DA90.Parameter == (void *)1 )
       break;
-    stru_140E2D910.Parameter = (void *)1;
+    stru_140E2DA90.Parameter = (void *)1;
     if ( v9 == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2D800);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2D980);
     else
-      ExReleaseSpinLockExclusive(&dword_140E2D800, v9);
+      ExReleaseSpinLockExclusive(&dword_140E2D980, v9);
   }
-  stru_140E2D910.Parameter = 0LL;
+  stru_140E2DA90.Parameter = 0LL;
   if ( v9 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2D800);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2D980);
   else
-    ExReleaseSpinLockExclusive(&dword_140E2D800, v9);
+    ExReleaseSpinLockExclusive(&dword_140E2D980, v9);
 }

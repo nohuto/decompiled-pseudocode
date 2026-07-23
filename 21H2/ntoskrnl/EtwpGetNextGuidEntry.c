@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpGetNextGuidEntry @ 0x1406E100C
+ * XREFs of EtwpGetNextGuidEntry @ 0x1406B82EC
  * Callers:
- *     EtwpDisableTraceProviders @ 0x1406E0F28 (EtwpDisableTraceProviders.c)
- *     EtwpEnumerateTraceGuids @ 0x14072AA88 (EtwpEnumerateTraceGuids.c)
- *     EtwpTracingProvEnableCallback @ 0x1407D5700 (EtwpTracingProvEnableCallback.c)
- *     EtwpGetTraceGroupList @ 0x1409349C8 (EtwpGetTraceGroupList.c)
- *     EtwpGetTraceGuidList @ 0x140934A68 (EtwpGetTraceGuidList.c)
- *     EtwpSetProviderBinaryTracking @ 0x140940E40 (EtwpSetProviderBinaryTracking.c)
- *     EtwpEventTracingCounterSetCallback @ 0x140982BC0 (EtwpEventTracingCounterSetCallback.c)
+ *     EtwpDisableTraceProviders @ 0x1406B8208 (EtwpDisableTraceProviders.c)
+ *     EtwpEnumerateTraceGuids @ 0x14072AF38 (EtwpEnumerateTraceGuids.c)
+ *     EtwpTracingProvEnableCallback @ 0x1407D5870 (EtwpTracingProvEnableCallback.c)
+ *     EtwpGetTraceGroupList @ 0x140934B98 (EtwpGetTraceGroupList.c)
+ *     EtwpGetTraceGuidList @ 0x140934C38 (EtwpGetTraceGuidList.c)
+ *     EtwpSetProviderBinaryTracking @ 0x140941010 (EtwpSetProviderBinaryTracking.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140982DA0 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     EtwpReferenceGuidEntry @ 0x1405EBAA4 (EtwpReferenceGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     EtwpReferenceGuidEntry @ 0x1406DB204 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406ECBA8 (EtwpUnreferenceGuidEntry.c)
  */
 
-signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, __int64 *a2, int a3)
+signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, signed __int64 *a2, int a3)
 {
   __int64 v3; // rbp
-  __int64 *v4; // rdi
+  signed __int64 *v4; // rdi
   char v5; // r12
   signed __int64 *v6; // r15
   __int64 v7; // rbx
@@ -28,7 +28,7 @@ signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, __int64 *a2, int a3)
   signed __int64 *v9; // rbx
   __int64 i; // r13
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v12; // rax
+  signed __int64 *v12; // rax
   signed __int64 *j; // r14
 
   v3 = a1 + 464;
@@ -54,7 +54,7 @@ signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, __int64 *a2, int a3)
     for ( j = (signed __int64 *)*v12; j != v8; j = (signed __int64 *)*j )
     {
       v6 = j;
-      if ( EtwpReferenceGuidEntry((ULONG_PTR)j) )
+      if ( (unsigned __int8)EtwpReferenceGuidEntry((ULONG_PTR)j) )
       {
         v5 = 1;
         break;

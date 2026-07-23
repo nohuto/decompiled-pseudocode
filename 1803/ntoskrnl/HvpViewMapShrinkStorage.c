@@ -41,7 +41,7 @@ struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(SIZE_T a1, int a2)
       HvpViewMapMakeViewRangeInvalid(a1, (_QWORD *)ViewForFileOffset, v9, v8);
       if ( *(_QWORD *)(ViewForFileOffset + 40) == *(_QWORD *)(ViewForFileOffset + 48) )
       {
-        RtlRbRemoveNode(a1 + 40, ViewForFileOffset);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 40), (PRTL_BALANCED_NODE)ViewForFileOffset);
         Luid = (unsigned __int64 *)Privileges.Privilege[0].Luid;
         if ( **(struct _PRIVILEGE_SET ***)&Privileges.Privilege[0].Luid != &Privileges )
           __fastfail(3u);

@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpGetCycleCount @ 0x140059D3C
+ * XREFs of EtwpGetCycleCount @ 0x1400598BC
  * Callers:
- *     WmiGetClock @ 0x14022588C (WmiGetClock.c)
+ *     WmiGetClock @ 0x1402256B8 (WmiGetClock.c)
  * Callees:
  *     <none>
  */

@@ -3,56 +3,48 @@
  * Callers:
  *     RtlpHpLfhContextInitialize @ 0x1800086EC (RtlpHpLfhContextInitialize.c)
  *     RtlpCreateLowFragHeap @ 0x1800447E8 (RtlpCreateLowFragHeap.c)
- *     RtlInitializeHeapManager @ 0x1800F2694 (RtlInitializeHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x1800F2654 (RtlInitializeHeapManager.c)
  * Callees:
  *     RtlGetNtSystemRoot @ 0x180016BB0 (RtlGetNtSystemRoot.c)
  *     RtlGetSuiteMask @ 0x18003CC10 (RtlGetSuiteMask.c)
  *     RtlRunOnceExecuteOnce @ 0x180043830 (RtlRunOnceExecuteOnce.c)
  *     RtlpQueryPhysicalMemoryPolicy @ 0x18004478C (RtlpQueryPhysicalMemoryPolicy.c)
  *     RtlpQueryDiskSpeedPolicy @ 0x180088BB4 (RtlpQueryDiskSpeedPolicy.c)
- *     RtlpQueryDiskSpacePolicy @ 0x180118270 (RtlpQueryDiskSpacePolicy.c)
- *     RtlpQueryDiskWriteConstraintPolicy @ 0x180118478 (RtlpQueryDiskWriteConstraintPolicy.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x180118210 (RtlpQueryDiskSpacePolicy.c)
+ *     RtlpQueryDiskWriteConstraintPolicy @ 0x180118418 (RtlpQueryDiskWriteConstraintPolicy.c)
  */
 
 __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4)
 {
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  int v10; // ebx
-  int v11; // ebx
-  __int64 NtSystemRoot; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  const wchar_t *v15; // rax
+  int v8; // ebx
+  int v9; // ebx
+  PWSTR NtSystemRoot; // rax
+  PWSTR v11; // rax
 
   if ( !a3 || a2 )
     return 3221225485LL;
-  RtlRunOnceExecuteOnce(
-    &RtlpTestHookInit,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpTestHookInitialize,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&RtlpTestHookInit, RtlpTestHookInitialize, 0LL, 0LL);
   if ( !a1 )
   {
     if ( a4 == 4 )
       return RtlpQueryPhysicalMemoryPolicy(a3);
     return 3221225485LL;
   }
-  v10 = a1 - 1;
-  if ( v10 )
+  v8 = a1 - 1;
+  if ( v8 )
   {
-    v11 = v10 - 1;
-    if ( !v11 )
+    v9 = v8 - 1;
+    if ( !v9 )
     {
       if ( a4 == 4 )
         return RtlpQueryDiskSpeedPolicy(a3);
       return 3221225485LL;
     }
-    if ( v11 != 1 )
+    if ( v9 != 1 )
       return 3221225475LL;
     if ( a4 == 4 )
     {
-      NtSystemRoot = RtlGetNtSystemRoot(v8, v7);
+      NtSystemRoot = RtlGetNtSystemRoot();
       return RtlpQueryDiskWriteConstraintPolicy(NtSystemRoot, a3);
     }
     return 3221225485LL;
@@ -60,8 +52,8 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4
   if ( a4 != 4 )
     return 3221225485LL;
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
-    v15 = L"C:\\data\\programs\\windowsapps";
+    v11 = L"C:\\data\\programs\\windowsapps";
   else
-    v15 = (const wchar_t *)RtlGetNtSystemRoot(v14, v13);
-  return RtlpQueryDiskSpacePolicy(v15, a3);
+    v11 = RtlGetNtSystemRoot();
+  return RtlpQueryDiskSpacePolicy(v11, a3);
 }

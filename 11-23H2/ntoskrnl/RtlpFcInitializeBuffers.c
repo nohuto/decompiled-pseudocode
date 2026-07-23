@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcInitializeBuffers @ 0x14036F05C
+ * XREFs of RtlpFcInitializeBuffers @ 0x14036F1FC
  * Callers:
- *     RtlpFcBufferManagerUpdateBuffers @ 0x14080DC94 (RtlpFcBufferManagerUpdateBuffers.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x14080DF64 (RtlpFcBufferManagerUpdateBuffers.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall RtlpFcInitializeBuffers(void *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTraceUmMessage @ 0x18005ABB4
+ * XREFs of EtwpTraceUmMessage @ 0x18005ABA4
  * Callers:
- *     EtwTraceMessageVa @ 0x18005A380 (EtwTraceMessageVa.c)
+ *     EtwTraceMessageVa @ 0x18005A370 (EtwTraceMessageVa.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x18005BD10 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x18005BD00 (EtwpReserveTraceBuffer.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
@@ -82,7 +82,7 @@ __int64 __fastcall EtwpTraceUmMessage(__int16 a1, char a2, signed __int32 *a3, _
             v10,
             v31->CurrentIdealProcessor.Reserved,
             (unsigned __int64)&v25 & -(__int64)((a2 & 0x18) != 0),
-            (__int64)&v27);
+            &v27);
     v30 = v14;
     v15 = 0;
     v16 = *(volatile signed __int32 **)(v7 + 400);

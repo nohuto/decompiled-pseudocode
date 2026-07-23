@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlProcessFileLock @ 0x14070C6EC
+ * XREFs of VerifierFsRtlProcessFileLock @ 0x14070C71C
  * Callers:
  *     <none>
  * Callees:

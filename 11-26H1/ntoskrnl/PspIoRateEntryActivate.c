@@ -1,30 +1,30 @@
 /*
- * XREFs of PspIoRateEntryActivate @ 0x140AFB4A4
+ * XREFs of PspIoRateEntryActivate @ 0x140ABECE0
  * Callers:
- *     PspSetJobIoRateControl @ 0x1407F9484 (PspSetJobIoRateControl.c)
- *     PspSetJobIoRateControlForVolume @ 0x140B5A3A0 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControl @ 0x1407FEF84 (PspSetJobIoRateControl.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140B5D6BC (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14021D5D4 (IoDiskIoAttributionDereference.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     IoStopDiskIoAttributionForContext @ 0x1404636E0 (IoStopDiskIoAttributionForContext.c)
- *     IoStartDiskIoAttributionForContext @ 0x140494EF4 (IoStartDiskIoAttributionForContext.c)
- *     IoStartIoRateControl @ 0x14049B508 (IoStartIoRateControl.c)
- *     IoStopIoRateControl @ 0x14049B610 (IoStopIoRateControl.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     IoDiskIoAttributionAllocate @ 0x140AFB68C (IoDiskIoAttributionAllocate.c)
- *     PspIoRateEntryDeactivate @ 0x140B3A694 (PspIoRateEntryDeactivate.c)
+ *     IoDiskIoAttributionDereference @ 0x14021EF64 (IoDiskIoAttributionDereference.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     IoStopDiskIoAttributionForContext @ 0x14045C6A0 (IoStopDiskIoAttributionForContext.c)
+ *     IoStartDiskIoAttributionForContext @ 0x14048EA44 (IoStartDiskIoAttributionForContext.c)
+ *     IoStartIoRateControl @ 0x140495058 (IoStartIoRateControl.c)
+ *     IoStopIoRateControl @ 0x140495160 (IoStopIoRateControl.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     IoDiskIoAttributionAllocate @ 0x140ABF1E4 (IoDiskIoAttributionAllocate.c)
+ *     PspIoRateEntryDeactivate @ 0x140B3CA34 (PspIoRateEntryDeactivate.c)
  */
 
 __int64 __fastcall PspIoRateEntryActivate(__int64 a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   int v4; // eax
-  struct _EX_RUNDOWN_REF *v5; // rbx
+  _RTL_BALANCED_NODE *v5; // rbx
   const WCHAR *v10; // rdx
   __int64 v11; // r8
   int started; // edi
   __int64 v13; // rcx
-  unsigned __int64 v15; // rax
+  _RTL_BALANCED_NODE *v15; // rax
   __int64 v16; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-21h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-11h] BYREF
@@ -54,8 +54,8 @@ __int64 __fastcall PspIoRateEntryActivate(__int64 a1, __int64 a2, __int64 a3, _B
     started = ZwCreateFile(&FileHandle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x20u, 0LL, 0);
     if ( started < 0 )
       goto LABEL_11;
-    v15 = IoDiskIoAttributionAllocate(a2, *(_QWORD *)(a2 + 1584));
-    v5 = (struct _EX_RUNDOWN_REF *)v15;
+    v15 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate(a2, *(_QWORD *)(a2 + 1584));
+    v5 = v15;
     if ( !v15 )
     {
       started = -1073741670;

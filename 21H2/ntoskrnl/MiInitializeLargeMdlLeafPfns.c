@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeLargeMdlLeafPfns @ 0x140533FE8
+ * XREFs of MiInitializeLargeMdlLeafPfns @ 0x140534228
  * Callers:
- *     MiDoGangAssignment @ 0x140560170 (MiDoGangAssignment.c)
+ *     MiDoGangAssignment @ 0x1405603B0 (MiDoGangAssignment.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiInitializeMdlLeafPfns @ 0x1402E36BC (MiInitializeMdlLeafPfns.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MiGetLeafPfnBuddy @ 0x140380A4C (MiGetLeafPfnBuddy.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiInitializeMdlLeafPfns @ 0x140294A0C (MiInitializeMdlLeafPfns.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MiGetLeafPfnBuddy @ 0x14038059C (MiGetLeafPfnBuddy.c)
  *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)
  */
 

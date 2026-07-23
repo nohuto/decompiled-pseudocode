@@ -1,21 +1,21 @@
 /*
- * XREFs of KiFastReadyThread @ 0x1400A2C58
+ * XREFs of KiFastReadyThread @ 0x1400A2B98
  * Callers:
- *     KeReadyThread @ 0x1400A2820 (KeReadyThread.c)
- *     KeSwapProcessOrStack @ 0x14017FDA0 (KeSwapProcessOrStack.c)
+ *     KeReadyThread @ 0x1400A2760 (KeReadyThread.c)
+ *     KeSwapProcessOrStack @ 0x14017FEE0 (KeSwapProcessOrStack.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
- *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
- *     EtwTraceReadyThread @ 0x140310354 (EtwTraceReadyThread.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadState @ 0x1401B4CCC (KiSetThreadState.c)
+ *     KiSwapContext @ 0x1401C40D0 (KiSwapContext.c)
+ *     EtwTraceReadyThread @ 0x140310544 (EtwTraceReadyThread.c)
  */
 
 char __fastcall KiFastReadyThread(__int64 a1, __int64 a2, __int64 a3)

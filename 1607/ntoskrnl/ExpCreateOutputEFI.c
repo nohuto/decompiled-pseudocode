@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCreateOutputEFI @ 0x1406B0400
+ * XREFs of ExpCreateOutputEFI @ 0x1406B0538
  * Callers:
- *     ExpConvertSignatureName @ 0x1406B0104 (ExpConvertSignatureName.c)
- *     ExpTranslateNtPath @ 0x1406B2DDC (ExpTranslateNtPath.c)
+ *     ExpConvertSignatureName @ 0x1406B023C (ExpConvertSignatureName.c)
+ *     ExpTranslateNtPath @ 0x1406B2F14 (ExpTranslateNtPath.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ExpFindDiskSignature @ 0x1406B0B24 (ExpFindDiskSignature.c)
- *     ExpGetDriveGeometry @ 0x1406B0D04 (ExpGetDriveGeometry.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ExpFindDiskSignature @ 0x1406B0C5C (ExpFindDiskSignature.c)
+ *     ExpGetDriveGeometry @ 0x1406B0E3C (ExpGetDriveGeometry.c)
  */
 
 __int64 __fastcall ExpCreateOutputEFI(

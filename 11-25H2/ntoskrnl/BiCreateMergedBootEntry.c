@@ -19,7 +19,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, vo
   _WORD *v6; // rbx
   _DWORD *v8; // rdi
   _WORD *v9; // r15
-  char *v10; // r14
+  _FILE_PATH *v10; // r14
   int DeviceFromEfiPath; // ebx
   char *v12; // r12
   __int64 v13; // rcx
@@ -28,7 +28,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, vo
   int v16; // ecx
   unsigned int v18; // eax
   unsigned int v19; // ecx
-  char *Pool2; // rax
+  _FILE_PATH *Pool2; // rax
   int v21; // eax
   unsigned int v22; // edx
   int v23; // r8d
@@ -43,7 +43,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, vo
   char v32; // [rsp+20h] [rbp-30h]
   unsigned int v33; // [rsp+24h] [rbp-2Ch] BYREF
   size_t Size; // [rsp+28h] [rbp-28h]
-  size_t v35; // [rsp+30h] [rbp-20h] BYREF
+  size_t v35; // [rsp+30h] [rbp-20h]
   _WORD *v36; // [rsp+38h] [rbp-18h] BYREF
   PVOID P; // [rsp+40h] [rbp-10h]
   char v39; // [rsp+A0h] [rbp+50h]
@@ -114,7 +114,7 @@ LABEL_6:
     if ( v19 >= v18 )
     {
       P = (PVOID)v19;
-      Pool2 = (char *)ExAllocatePool2(0x102uLL);
+      Pool2 = (_FILE_PATH *)ExAllocatePool2(0x102uLL);
       v10 = Pool2;
       if ( !Pool2 )
       {
@@ -122,12 +122,12 @@ LABEL_21:
         DeviceFromEfiPath = -1073741670;
         goto LABEL_12;
       }
-      *(_DWORD *)Pool2 = 1;
-      *((_DWORD *)Pool2 + 1) = (_DWORD)P;
-      *((_DWORD *)Pool2 + 2) = 3;
-      memmove(Pool2 + 12, v12, v15);
-      memmove(&v10[v15 + 12], v9, (unsigned int)Size);
-      v21 = BiTranslateFilePath(v10, 4LL, &v35);
+      Pool2->Version = 1;
+      Pool2->Length = (unsigned int)P;
+      Pool2->Type = 3;
+      memmove(Pool2->FilePath, v12, v15);
+      memmove(&v10->FilePath[v15], v9, (unsigned int)Size);
+      v21 = BiTranslateFilePath(v10, 4u);
       v8 = (_DWORD *)v35;
       DeviceFromEfiPath = v21;
       if ( v21 < 0 )

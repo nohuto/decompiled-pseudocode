@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertLargePageChain @ 0x1402D68E0
+ * XREFs of MiInsertLargePageChain @ 0x1402D6B70
  * Callers:
- *     MiInsertDemotedPages @ 0x1402EA178 (MiInsertDemotedPages.c)
+ *     MiInsertDemotedPages @ 0x1402EA408 (MiInsertDemotedPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiWakeLargePageWaiters @ 0x140650004 (MiWakeLargePageWaiters.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiIsFreeZeroPfnCold @ 0x1402E8860 (MiIsFreeZeroPfnCold.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiWakeLargePageWaiters @ 0x140650554 (MiWakeLargePageWaiters.c)
  */
 
 void __fastcall MiInsertLargePageChain(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, int a6)

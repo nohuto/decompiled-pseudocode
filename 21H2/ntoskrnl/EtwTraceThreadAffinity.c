@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceThreadAffinity @ 0x1405A8340
+ * XREFs of EtwTraceThreadAffinity @ 0x1405A8570
  * Callers:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     KiSetAffinityThread @ 0x14029D724 (KiSetAffinityThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceThreadAffinity(__int64 a1, __int64 *a2)

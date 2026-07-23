@@ -1,9 +1,9 @@
 /*
- * XREFs of VfJoinDmaDomain @ 0x140222BAC
+ * XREFs of VfJoinDmaDomain @ 0x1402229D8
  * Callers:
  *     <none>
  * Callees:
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfJoinDmaDomain(__int64 a1, __int64 a2)

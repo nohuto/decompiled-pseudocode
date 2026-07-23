@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpInitializeLock @ 0x1402B5710
+ * XREFs of RtlpHpInitializeLock @ 0x1403D970C
  * Callers:
- *     RtlpHpLfhSubsegmentInitialize @ 0x1402B5728 (RtlpHpLfhSubsegmentInitialize.c)
- *     RtlpHpLfhOwnerInitialize @ 0x1404C2244 (RtlpHpLfhOwnerInitialize.c)
- *     RtlpHpHeapCreate @ 0x140604D0C (RtlpHpHeapCreate.c)
- *     RtlpHpFixedHeapCreate @ 0x1406055D0 (RtlpHpFixedHeapCreate.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x1406058F0 (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlpHpSegContextInitialize @ 0x140605F4C (RtlpHpSegContextInitialize.c)
- *     RtlpHpLfhBucketInitialize @ 0x14060648C (RtlpHpLfhBucketInitialize.c)
- *     RtlpHpVsSlotCreate @ 0x1406074FC (RtlpHpVsSlotCreate.c)
+ *     RtlpHpLfhOwnerInitialize @ 0x1403D7EC4 (RtlpHpLfhOwnerInitialize.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1403D8348 (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpHeapCreate @ 0x14060234C (RtlpHpHeapCreate.c)
+ *     RtlpHpFixedHeapCreate @ 0x140602C10 (RtlpHpFixedHeapCreate.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x140602F30 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpSegContextInitialize @ 0x14060358C (RtlpHpSegContextInitialize.c)
+ *     RtlpHpLfhBucketInitialize @ 0x140603ACC (RtlpHpLfhBucketInitialize.c)
+ *     RtlpHpVsSlotCreate @ 0x140604AFC (RtlpHpVsSlotCreate.c)
  * Callees:
  *     <none>
  */

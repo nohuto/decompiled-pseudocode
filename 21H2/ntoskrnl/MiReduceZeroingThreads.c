@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReduceZeroingThreads @ 0x1402BB870
+ * XREFs of MiReduceZeroingThreads @ 0x140239A80
  * Callers:
- *     MiScheduleZeroPageThreads @ 0x140272E84 (MiScheduleZeroPageThreads.c)
- *     MiReassessZeroThreads @ 0x1402BB5C4 (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x1402397D4 (MiReassessZeroThreads.c)
+ *     MiScheduleZeroPageThreads @ 0x140260E24 (MiScheduleZeroPageThreads.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x14027B530 (KeFindFirstSetRightGroupAffinity.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402694D0 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiReduceZeroingThreads(__int64 a1, __int64 a2, int a3)
@@ -53,7 +53,7 @@ __int64 __fastcall MiReduceZeroingThreads(__int64 a1, __int64 a2, int a3)
 
   v3 = *(_DWORD *)(a1 + 156);
   v4 = 0;
-  v5 = dword_140C4DEE4;
+  v5 = dword_140C4DF24;
   v40 = a3;
   v41 = a2;
   v43 = 0LL;
@@ -68,7 +68,7 @@ __int64 __fastcall MiReduceZeroingThreads(__int64 a1, __int64 a2, int a3)
       v10 = *(_OWORD *)(v9 + 280);
       *(_DWORD *)(v9 + 296) = 0;
       v42 = v10;
-      FirstSetRightGroupAffinity = KeFindFirstSetRightGroupAffinity((__int64)&v42);
+      FirstSetRightGroupAffinity = KeFindFirstSetRightGroupAffinity(&v42);
       v12 = 0;
       v13 = 0;
       for ( i = 0; i < v5; ++i )

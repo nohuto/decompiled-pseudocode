@@ -33,12 +33,12 @@ struct _PEB *__fastcall sub_18002F120(__int64 a1, __int64 a2, __int64 a3, __int6
   int v24; // ecx
   __int64 v25; // rax
   struct _TEB *v26; // rdx
-  __int64 HeapVirtualAffinity_high; // r8
+  __int64 HeapData_high; // r8
   unsigned int v28; // ecx
   unsigned __int16 v29; // si
-  signed __int64 v30; // rax
-  int v31; // ebx
-  int v32; // ebx
+  signed __int64 Ptr; // rax
+  NTSTATUS v31; // ebx
+  NTSTATUS v32; // ebx
   __int32 v33; // r8d
   int v34; // edx
   unsigned int v37; // r8d
@@ -48,15 +48,15 @@ struct _PEB *__fastcall sub_18002F120(__int64 a1, __int64 a2, __int64 a3, __int6
   int v41; // edx
   unsigned int v43; // r9d
   struct _PEB *result; // rax
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v46; // rcx
+  _DWORD *p_ServiceSessionId; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   __int64 v47; // rcx
   unsigned int v48; // eax
   unsigned int v49; // eax
   int v50; // eax
-  int InformationProcess; // eax
+  NTSTATUS InformationProcess; // eax
   signed __int64 v52; // rcx
-  int v53; // eax
+  NTSTATUS v53; // eax
   signed __int64 v54; // rcx
   char v55; // [rsp+40h] [rbp-58h] BYREF
   char v56[7]; // [rsp+41h] [rbp-57h] BYREF
@@ -157,28 +157,32 @@ LABEL_11:
   v25 = *(_QWORD *)v12;
   *(_DWORD *)(v12 + 168) = ++*(_DWORD *)(v25 + 32);
   v26 = NtCurrentTeb();
-  HeapVirtualAffinity_high = HIWORD(v26->HeapVirtualAffinity);
-  HIWORD(v26->HeapVirtualAffinity) = (unsigned __int8)(HeapVirtualAffinity_high + 2);
-  v28 = *((unsigned __int8 *)qword_180159900 + HeapVirtualAffinity_high);
+  HeapData_high = HIWORD(v26->HeapData);
+  HIWORD(v26->HeapData) = (unsigned __int8)(HeapData_high + 2);
+  v28 = *((unsigned __int8 *)qword_180159900 + HeapData_high);
   *(_DWORD *)(a2 + 44) = 1;
-  HIWORD(v64) = (v28 | (unsigned __int64)(*((unsigned __int8 *)qword_180159900
-                                          + (unsigned __int8)(HeapVirtualAffinity_high + 1)) << 7))
+  HIWORD(v64) = (v28 | (unsigned __int64)(*((unsigned __int8 *)qword_180159900 + (unsigned __int8)(HeapData_high + 1)) << 7))
               % (unsigned int)v16;
   LOWORD(v64) = v16;
   _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 32), v64, v6);
   if ( (dword_18015BFDC & 2) == 0 )
   {
-    v29 = HIWORD(NtCurrentTeb()->HeapVirtualAffinity);
+    v29 = HIWORD(NtCurrentTeb()->HeapData);
     if ( !dword_18015BFB8 )
     {
-      InformationProcess = ZwQueryInformationProcess(-1LL, 36LL, &dword_18015BFB8, 4LL, 0LL);
+      InformationProcess = ZwQueryInformationProcess(
+                             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                             ProcessCookie,
+                             &dword_18015BFB8,
+                             4u,
+                             0LL);
       v21 = a2;
       if ( InformationProcess < 0 )
         dword_18015BFB8 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
     }
-    v30 = qword_18015C320;
+    Ptr = (signed __int64)stru_18015C320.Ptr;
     v31 = 0;
-    if ( (qword_18015C320 & 3) == 2 )
+    if ( ((__int64)stru_18015C320.Ptr & 3) == 2 )
     {
 LABEL_17:
       if ( v31 >= 0 )
@@ -189,31 +193,31 @@ LABEL_17:
     {
       do
       {
-        while ( (v30 & 3) != 0 )
+        while ( (Ptr & 3) != 0 )
         {
-          if ( (v30 & 3) != 1 )
+          if ( (Ptr & 3) != 1 )
           {
             v21 = a2;
-            if ( (v30 & 3) == 3 )
+            if ( (Ptr & 3) == 3 )
               v31 = -1073741584;
             goto LABEL_17;
           }
-          v30 = sub_180088C98(v30, &qword_18015C320);
+          Ptr = sub_180088C98(Ptr, &stru_18015C320);
         }
-        v52 = v30;
-        v30 = _InterlockedCompareExchange64(&qword_18015C320, 1LL, v30);
+        v52 = Ptr;
+        Ptr = _InterlockedCompareExchange64((volatile signed __int64 *)&stru_18015C320, 1LL, Ptr);
       }
-      while ( v30 != v52 );
-      if ( (unsigned int)sub_180095680(&qword_18015C320, 0LL, 0LL) )
+      while ( Ptr != v52 );
+      if ( sub_180095680(&stru_18015C320, 0LL, 0LL) )
       {
-        v31 = RtlRunOnceComplete(&qword_18015C320, 0, 0LL);
+        v31 = RtlRunOnceComplete(&stru_18015C320, 0, 0LL);
         if ( v31 >= 0 )
           goto LABEL_59;
         v55 = 1;
       }
       else
       {
-        v31 = RtlRunOnceComplete(&qword_18015C320, 4u, 0LL);
+        v31 = RtlRunOnceComplete(&stru_18015C320, 4u, 0LL);
         if ( v31 >= 0 )
           goto LABEL_59;
         v55 = 2;
@@ -249,13 +253,13 @@ LABEL_61:
     v38 = (unsigned __int64)v37 << 32;
     if ( !dword_18015BFB8 )
     {
-      v53 = ZwQueryInformationProcess(-1LL, 36LL, &dword_18015BFB8, 4LL, 0LL);
+      v53 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_18015BFB8, 4u, 0LL);
       v21 = a2;
       if ( v53 < 0 )
         dword_18015BFB8 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
     }
-    v39 = qword_18015C320;
-    if ( (qword_18015C320 & 3) == 2 )
+    v39 = (signed __int64)stru_18015C320.Ptr;
+    if ( ((__int64)stru_18015C320.Ptr & 3) == 2 )
     {
 LABEL_23:
       if ( v32 >= 0 )
@@ -301,22 +305,22 @@ LABEL_80:
               v32 = -1073741584;
             goto LABEL_23;
           }
-          v39 = sub_180088C98(v39, &qword_18015C320);
+          v39 = sub_180088C98(v39, &stru_18015C320);
         }
         v54 = v39;
-        v39 = _InterlockedCompareExchange64(&qword_18015C320, 1LL, v39);
+        v39 = _InterlockedCompareExchange64((volatile signed __int64 *)&stru_18015C320, 1LL, v39);
       }
       while ( v39 != v54 );
-      if ( (unsigned int)sub_180095680(&qword_18015C320, 0LL, 0LL) )
+      if ( sub_180095680(&stru_18015C320, 0LL, 0LL) )
       {
-        v32 = RtlRunOnceComplete(&qword_18015C320, 0, 0LL);
+        v32 = RtlRunOnceComplete(&stru_18015C320, 0, 0LL);
         if ( v32 >= 0 )
           goto LABEL_78;
         v56[0] = 1;
       }
       else
       {
-        v32 = RtlRunOnceComplete(&qword_18015C320, 4u, 0LL);
+        v32 = RtlRunOnceComplete(&stru_18015C320, 4u, 0LL);
         if ( v32 >= 0 )
           goto LABEL_78;
         v56[0] = 2;
@@ -329,17 +333,17 @@ LABEL_78:
   }
 LABEL_28:
   result = NtCurrentPeb();
-  HotpatchInformation = result->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
+  p_ServiceSessionId = &result->SharedData->ServiceSessionId;
+  if ( p_ServiceSessionId && *p_ServiceSessionId )
   {
     result = NtCurrentPeb();
-    v46 = (__int64)result->HotpatchInformation + 550;
+    UserModeGlobalLogger = (__int64)result->SharedData->UserModeGlobalLogger;
   }
   else
   {
-    v46 = 2147353472LL;
+    UserModeGlobalLogger = 2147353472LL;
   }
-  if ( *(_BYTE *)v46 )
+  if ( *(_BYTE *)UserModeGlobalLogger )
   {
     result = NtCurrentPeb();
     if ( (result->TracingFlags & 1) != 0 )

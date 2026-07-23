@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpUnlockTwoKcbs @ 0x14097E9E0
+ * XREFs of CmpUnlockTwoKcbs @ 0x1409409F0
  * Callers:
- *     CmSaveMergedKeys @ 0x14084D378 (CmSaveMergedKeys.c)
- *     CmQueryKey @ 0x1408C5660 (CmQueryKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x14097A180 (NtNotifyChangeMultipleKeys.c)
- *     CmQueryMultipleValueKey @ 0x14097EB2C (CmQueryMultipleValueKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140AFF7BC (CmEnumerateValueKeyFromMergedView.c)
+ *     CmSaveMergedKeys @ 0x140853684 (CmSaveMergedKeys.c)
+ *     CmQueryKey @ 0x1408CBC30 (CmQueryKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x14093C190 (NtNotifyChangeMultipleKeys.c)
+ *     CmQueryMultipleValueKey @ 0x140940B3C (CmQueryMultipleValueKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x140B0144C (CmEnumerateValueKeyFromMergedView.c)
  * Callees:
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
  */
 
 void __fastcall CmpUnlockTwoKcbs(_WORD *BugCheckParameter2, _WORD *a2)

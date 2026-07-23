@@ -1,5 +1,5 @@
 /*
- * XREFs of MmMdlPagesAreZero @ 0x140135310
+ * XREFs of MmMdlPagesAreZero @ 0x1401353E0
  * Callers:
  *     <none>
  * Callees:
@@ -21,7 +21,7 @@ __int64 __fastcall MmMdlPagesAreZero(__int64 a1)
   result = 1LL;
   if ( v3 )
   {
-    while ( *v1 == qword_14043ADE0 )
+    while ( *v1 == qword_14043BEA0 )
     {
       ++v2;
       ++v1;

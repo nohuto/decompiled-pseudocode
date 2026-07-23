@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSetDisableBoostThread @ 0x140451ED4
+ * XREFs of KiSetDisableBoostThread @ 0x140446F84
  * Callers:
- *     KeSetDisableBoostProcess @ 0x140451D2C (KeSetDisableBoostProcess.c)
- *     KeSetDisableBoostThread @ 0x140451E34 (KeSetDisableBoostThread.c)
+ *     KeSetDisableBoostProcess @ 0x140446DDC (KeSetDisableBoostProcess.c)
+ *     KeSetDisableBoostThread @ 0x140446EE4 (KeSetDisableBoostThread.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x14024FA80 (KiComputeThreadPriority.c)
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSetForegroundBoost @ 0x14045257C (KiSetForegroundBoost.c)
- *     KiClearForegroundBoost @ 0x140452610 (KiClearForegroundBoost.c)
+ *     KiComputeThreadPriority @ 0x140280090 (KiComputeThreadPriority.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiSetForegroundBoost @ 0x14044762C (KiSetForegroundBoost.c)
+ *     KiClearForegroundBoost @ 0x1404476C0 (KiClearForegroundBoost.c)
  */
 
 __int64 __fastcall KiSetDisableBoostThread(__int64 a1, int a2, __int64 a3)

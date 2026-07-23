@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpRemoveFreeCellHint @ 0x1408DC9A0
+ * XREFs of HvpRemoveFreeCellHint @ 0x1408E2F60
  * Callers:
- *     HvFreeCell @ 0x1408D1528 (HvFreeCell.c)
- *     HvAllocateCell @ 0x1408DB7FC (HvAllocateCell.c)
- *     HvpDoAllocateCell @ 0x1408DBB30 (HvpDoAllocateCell.c)
- *     HvpDelistFreeCell @ 0x1408DD808 (HvpDelistFreeCell.c)
+ *     HvFreeCell @ 0x1408D7AE8 (HvFreeCell.c)
+ *     HvAllocateCell @ 0x1408E1DBC (HvAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x1408E20F0 (HvpDoAllocateCell.c)
+ *     HvpDelistFreeCell @ 0x1408E3DC8 (HvpDelistFreeCell.c)
  * Callees:
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     RtlFindSetBits @ 0x1403F7770 (RtlFindSetBits.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     RtlFindSetBits @ 0x1403F1120 (RtlFindSetBits.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 void __fastcall HvpRemoveFreeCellHint(__int64 a1, __int64 a2, unsigned int a3, int a4, int a5)
@@ -35,7 +35,7 @@ void __fastcall HvpRemoveFreeCellHint(__int64 a1, __int64 a2, unsigned int a3, i
   __int64 v20; // rsi
   __int64 v21; // rdi
   int v22; // ebx
-  RTL_BITMAP *v23; // rcx
+  _RTL_BITMAP *v23; // rcx
   ULONG SetBits; // eax
   int v25; // ecx
   unsigned int v26; // ecx
@@ -95,7 +95,7 @@ void __fastcall HvpRemoveFreeCellHint(__int64 a1, __int64 a2, unsigned int a3, i
   v20 = v27 + 632 * v5 + 24 * v6;
   v21 = 632 * v5 + v27;
   v22 = 1 << v6;
-  v23 = (RTL_BITMAP *)(v20 + 320);
+  v23 = (_RTL_BITMAP *)(v20 + 320);
   if ( v7 )
   {
     *(_DWORD *)(v21 + 904) |= v22;

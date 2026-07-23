@@ -1,11 +1,11 @@
 /*
- * XREFs of KiDispatchCallout @ 0x14066D420
+ * XREFs of KiDispatchCallout @ 0x14066D970
  * Callers:
  *     <none>
  * Callees:
- *     KeExitRetpoline @ 0x14034C0DC (KeExitRetpoline.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeExitRetpoline @ 0x14034C27C (KeExitRetpoline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiDispatchCallout(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -35,7 +35,7 @@ __int64 __fastcall KiDispatchCallout(__int64 a1, __int64 a2, __int64 a3, __int64
   *(_QWORD *)(a1 + 56) = v6 ^ (unsigned __int64)&retaddr;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v9 = 4;
@@ -69,10 +69,10 @@ __int64 __fastcall KiDispatchCallout(__int64 a1, __int64 a2, __int64 a3, __int64
   *(_DWORD *)v11 = -1390710795;
   *(_DWORD *)v11 ^= 0xBC2A27DB;
   ((void (__fastcall *)(char *, __int64, _QWORD, _QWORD))v11)(v11, v16, 0LL, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v19 = CurrentPrcb->SchedulerAssist;

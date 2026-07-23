@@ -126,7 +126,7 @@ LABEL_21:
       || (v21 = 0,
           SystemInformation = v15,
           IsVerifierEnabled = ZwQuerySystemInformation(
-                                MaxSystemInfoClass|SystemProcessInformation,
+                                SystemCodeIntegrityInformation,
                                 &SystemInformation,
                                 v15,
                                 &ReturnLength),

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTraceDatabaseUnlock @ 0x14058EBE0
+ * XREFs of RtlTraceDatabaseUnlock @ 0x14058EE10
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseReleaseLock @ 0x14058EF18 (RtlpTraceDatabaseReleaseLock.c)
+ *     RtlpTraceDatabaseReleaseLock @ 0x14058F148 (RtlpTraceDatabaseReleaseLock.c)
  */
 
 __int64 __fastcall RtlTraceDatabaseUnlock(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDiagnosticTraceDeviceOperation @ 0x140362A74
+ * XREFs of PnpDiagnosticTraceDeviceOperation @ 0x140362C14
  * Callers:
- *     PnpTraceStartDevice @ 0x140362A20 (PnpTraceStartDevice.c)
+ *     PnpTraceStartDevice @ 0x140362BC0 (PnpTraceStartDevice.c)
  *     PipCallDriverAddDeviceQueryRoutine @ 0x14068C35C (PipCallDriverAddDeviceQueryRoutine.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14096E050 (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14096E250 (PnpQueueQueryAndRemoveEvent.c)
  * Callees:
- *     PnpDiagnosticTrace @ 0x140362B58 (PnpDiagnosticTrace.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     PnpDiagnosticTrace @ 0x140362CF8 (PnpDiagnosticTrace.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PnpDiagnosticTraceDeviceOperation(

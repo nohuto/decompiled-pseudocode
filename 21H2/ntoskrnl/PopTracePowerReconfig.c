@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTracePowerReconfig @ 0x1405736B4
+ * XREFs of PopTracePowerReconfig @ 0x1405738F4
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FDDC (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PopTracePowerReconfig()
@@ -49,20 +49,20 @@ void PopTracePowerReconfig()
     {
       v5 = v0;
       v12 = v10;
-      v2 = dword_140C23634;
+      v2 = dword_140C23C54;
       v13 = 8LL;
       v14 = &v2;
-      v3 = xmmword_140C23684;
+      v3 = xmmword_140C23CA4;
       v16 = &v3;
       v18 = &v4;
       v20 = &v5;
-      v6 = (unsigned __int8)byte_140C237BC;
+      v6 = (unsigned __int8)byte_140C23DDC;
       v22 = &v6;
-      v7 = (unsigned __int8)byte_140C237A8;
+      v7 = (unsigned __int8)byte_140C23DC8;
       v24 = &v7;
-      v8 = (unsigned __int8)byte_140C237C4;
+      v8 = (unsigned __int8)byte_140C23DE4;
       v26 = &v8;
-      v9 = dword_140C237C0;
+      v9 = dword_140C23DE0;
       v28 = &v9;
       v15 = 4LL;
       v17 = 4LL;
@@ -75,7 +75,7 @@ void PopTracePowerReconfig()
       v29 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02228,
-        (unsigned __int8 *)byte_140028769,
+        (unsigned __int8 *)&word_1400281DE,
         0LL,
         0LL,
         0xBu,

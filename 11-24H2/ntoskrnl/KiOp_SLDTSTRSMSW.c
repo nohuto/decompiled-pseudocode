@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOp_SLDTSTRSMSW @ 0x140475450
+ * XREFs of KiOp_SLDTSTRSMSW @ 0x1404713C0
  * Callers:
  *     <none>
  * Callees:
- *     KiOpRetrieveRegMemAddress @ 0x140475704 (KiOpRetrieveRegMemAddress.c)
+ *     KiOpRetrieveRegMemAddress @ 0x140471674 (KiOpRetrieveRegMemAddress.c)
  */
 
 __int64 __fastcall KiOp_SLDTSTRSMSW(__int64 a1)

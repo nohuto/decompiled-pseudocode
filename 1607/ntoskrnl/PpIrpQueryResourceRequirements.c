@@ -1,23 +1,23 @@
 /*
- * XREFs of PpIrpQueryResourceRequirements @ 0x1404C9260
+ * XREFs of PpIrpQueryResourceRequirements @ 0x14050E9BC
  * Callers:
- *     IopQueryDeviceResources @ 0x1404C89E8 (IopQueryDeviceResources.c)
- *     PiQueryResourceRequirements @ 0x1404C90AC (PiQueryResourceRequirements.c)
+ *     PiQueryResourceRequirements @ 0x14050E808 (PiQueryResourceRequirements.c)
+ *     IopQueryDeviceResources @ 0x14050EDDC (IopQueryDeviceResources.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     IopSynchronousCall @ 0x140505B9C (IopSynchronousCall.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopSynchronousCall @ 0x1404E8B2C (IopSynchronousCall.c)
  */
 
-__int64 __fastcall PpIrpQueryResourceRequirements(int a1, _QWORD *a2)
+__int64 __fastcall PpIrpQueryResourceRequirements(struct _DEVICE_OBJECT *a1, _QWORD *a2)
 {
-  int v4; // r9d
+  __int64 v4; // r9
   __int64 result; // rax
-  _WORD v6[36]; // [rsp+30h] [rbp-58h] BYREF
+  _WORD v6[44]; // [rsp+30h] [rbp-58h] BYREF
 
   *a2 = 0LL;
-  memset(v6, 0, sizeof(v6));
+  memset(v6, 0, 0x48uLL);
   v6[0] = 2843;
-  result = IopSynchronousCall(a1, (unsigned int)v6, -1073741637, v4, (__int64)a2);
+  result = IopSynchronousCall(a1, (__int64)v6, -1073741637, v4, a2);
   if ( (int)result >= 0 )
   {
     if ( !*a2 )

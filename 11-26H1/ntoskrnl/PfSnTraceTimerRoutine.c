@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnTraceTimerRoutine @ 0x1404BA030
+ * XREFs of PfSnTraceTimerRoutine @ 0x1404B38C0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PfSnTraceGetLogEntry @ 0x1402662D0 (PfSnTraceGetLogEntry.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PfSnTraceGetLogEntry @ 0x140265840 (PfSnTraceGetLogEntry.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
  */
 
 void __fastcall PfSnTraceTimerRoutine(
@@ -46,7 +46,7 @@ void __fastcall PfSnTraceTimerRoutine(
     *v9 &= 0xFuLL;
     v8[1] = 0LL;
     *v8 = *v8 & 0xFFFFFFFFFFFFFFF0uLL | 4;
-    if ( *((_DWORD *)DeferredContext + 82) < *(int *)&stru_140E66B30.KeReferenceCount )
+    if ( *((_DWORD *)DeferredContext + 82) < *(int *)&stru_140E66D40.KeReferenceCount )
     {
       KxAcquireSpinLock((PKSPIN_LOCK)DeferredContext + 34);
       if ( !*((_DWORD *)DeferredContext + 100) && ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)DeferredContext + 45) )

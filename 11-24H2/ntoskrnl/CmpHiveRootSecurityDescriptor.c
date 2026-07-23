@@ -1,140 +1,142 @@
 /*
- * XREFs of CmpHiveRootSecurityDescriptor @ 0x1407DD214
+ * XREFs of CmpHiveRootSecurityDescriptor @ 0x1407DD764
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
- *     CmpSetVersionData @ 0x1407D7920 (CmpSetVersionData.c)
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
- *     CmpCreateRegistryRoot @ 0x140C46D74 (CmpCreateRegistryRoot.c)
- *     CmpInitializePreloadedHives @ 0x140C479C4 (CmpInitializePreloadedHives.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
+ *     CmpSetVersionData @ 0x1407D7E74 (CmpSetVersionData.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
+ *     CmpCreateRegistryRoot @ 0x140C48EC4 (CmpCreateRegistryRoot.c)
+ *     CmpInitializePreloadedHives @ 0x140C49B14 (CmpInitializePreloadedHives.c)
  * Callees:
- *     RtlGetAce @ 0x14040BC40 (RtlGetAce.c)
- *     RtlSubAuthoritySid @ 0x14044FDD0 (RtlSubAuthoritySid.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x14046B090 (RtlDeriveCapabilitySidsFromName.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlLengthRequiredSid @ 0x140867110 (RtlLengthRequiredSid.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlInitializeSid @ 0x1409E3B60 (RtlInitializeSid.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlGetAce @ 0x140404120 (RtlGetAce.c)
+ *     RtlSubAuthoritySid @ 0x140445040 (RtlSubAuthoritySid.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x140463B10 (RtlDeriveCapabilitySidsFromName.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlLengthRequiredSid @ 0x14086B5A0 (RtlLengthRequiredSid.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlInitializeSid @ 0x1409DE5C0 (RtlInitializeSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 ACL *CmpHiveRootSecurityDescriptor()
 {
+  ULONG v0; // ebx
   unsigned __int8 *Pool2; // r13
-  unsigned __int8 *v1; // r15
-  unsigned __int8 *v2; // r12
-  unsigned __int8 *v3; // rsi
-  __int64 v4; // rax
-  unsigned __int8 *v5; // r14
-  ULONG v6; // edi
-  ACL *v7; // rax
-  ACL *v8; // rbx
+  unsigned __int8 *v2; // r15
+  unsigned __int8 *v3; // r12
+  ULONG v4; // ebx
+  unsigned __int8 *v5; // rsi
+  __int64 v6; // rax
+  unsigned __int8 *v7; // r14
+  ULONG v8; // edi
+  ACL *v9; // rax
+  ACL *v10; // rbx
   NTSTATUS Acl; // eax
-  int v10; // eax
-  __int64 v11; // rax
-  ACL *v12; // rdi
-  struct _SID_IDENTIFIER_AUTHORITY v14; // [rsp+38h] [rbp-69h] BYREF
+  int v12; // eax
+  __int64 v13; // rax
+  ACL *v14; // rdi
+  _SID_IDENTIFIER_AUTHORITY v16; // [rsp+38h] [rbp-69h] BYREF
   PVOID Ace; // [rsp+40h] [rbp-61h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+48h] [rbp-59h] BYREF
-  size_t v17; // [rsp+50h] [rbp-51h] BYREF
-  UNICODE_STRING String2; // [rsp+58h] [rbp-49h] BYREF
-  ULONG_PTR Src[6]; // [rsp+68h] [rbp-39h] BYREF
-  _OWORD Sid[3]; // [rsp+98h] [rbp-9h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+48h] [rbp-59h] BYREF
+  size_t v19; // [rsp+50h] [rbp-51h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-49h] BYREF
+  _BYTE CapabilitySid[48]; // [rsp+68h] [rbp-39h] BYREF
+  _BYTE CapabilityGroupSid[48]; // [rsp+98h] [rbp-9h] BYREF
 
-  *(_QWORD *)&String2.Length = 1703960LL;
+  *(_QWORD *)&UnicodeString.Length = 1703960LL;
   *(_DWORD *)IdentifierAuthority.Value = 0;
-  String2.Buffer = L"registryRead";
+  UnicodeString.Buffer = L"registryRead";
   *(_WORD *)&IdentifierAuthority.Value[4] = 256;
-  *(_DWORD *)v14.Value = 0;
-  *(_WORD *)&v14.Value[4] = 1280;
-  LODWORD(v17) = 0;
-  WORD2(v17) = 3840;
+  *(_DWORD *)v16.Value = 0;
+  *(_WORD *)&v16.Value[4] = 1280;
+  LODWORD(v19) = 0;
+  WORD2(v19) = 3840;
   Ace = 0LL;
-  RtlLengthRequiredSid(1u);
-  Pool2 = (unsigned __int8 *)ExAllocatePool2(0x100uLL);
-  v1 = (unsigned __int8 *)ExAllocatePool2(0x100uLL);
-  v2 = (unsigned __int8 *)ExAllocatePool2(0x100uLL);
-  RtlLengthRequiredSid(2u);
-  v3 = (unsigned __int8 *)ExAllocatePool2(0x100uLL);
-  v4 = ExAllocatePool2(0x100uLL);
-  v5 = (unsigned __int8 *)v4;
-  if ( !Pool2 || !v1 || !v2 || !v3 || !v4 )
+  v0 = RtlLengthRequiredSid(1u);
+  Pool2 = (unsigned __int8 *)ExAllocatePool2(0x100uLL, v0, 0x20204D43u);
+  v2 = (unsigned __int8 *)ExAllocatePool2(0x100uLL, v0, 0x20204D43u);
+  v3 = (unsigned __int8 *)ExAllocatePool2(0x100uLL, v0, 0x20204D43u);
+  v4 = RtlLengthRequiredSid(2u);
+  v5 = (unsigned __int8 *)ExAllocatePool2(0x100uLL, v4, 0x20204D43u);
+  v6 = ExAllocatePool2(0x100uLL, v4, 0x20204D43u);
+  v7 = (unsigned __int8 *)v6;
+  if ( !Pool2 || !v2 || !v3 || !v5 || !v6 )
     KeBugCheckEx(0x51u, 0xBuLL, 1uLL, 0LL, 0LL);
   if ( RtlInitializeSid(Pool2, &IdentifierAuthority, 1u) < 0
-    || RtlInitializeSid(v1, &v14, 1u) < 0
-    || RtlInitializeSid(v2, &v14, 1u) < 0
-    || RtlInitializeSid(v3, &v14, 2u) < 0
-    || RtlInitializeSid(v5, (PSID_IDENTIFIER_AUTHORITY)&v17, 2u) < 0 )
+    || RtlInitializeSid(v2, &v16, 1u) < 0
+    || RtlInitializeSid(v3, &v16, 1u) < 0
+    || RtlInitializeSid(v5, &v16, 2u) < 0
+    || RtlInitializeSid(v7, (PSID_IDENTIFIER_AUTHORITY)&v19, 2u) < 0 )
   {
     KeBugCheckEx(0x51u, 0xBuLL, 2uLL, 0LL, 0LL);
   }
   *RtlSubAuthoritySid(Pool2, 0) = 0;
-  *RtlSubAuthoritySid(v1, 0) = 12;
-  *RtlSubAuthoritySid(v2, 0) = 18;
-  *RtlSubAuthoritySid(v3, 0) = 32;
-  *RtlSubAuthoritySid(v3, 1u) = 544;
-  *RtlSubAuthoritySid(v5, 0) = 2;
-  *RtlSubAuthoritySid(v5, 1u) = 1;
-  if ( RtlDeriveCapabilitySidsFromName(&String2, Sid, Src) < 0 )
+  *RtlSubAuthoritySid(v2, 0) = 12;
+  *RtlSubAuthoritySid(v3, 0) = 18;
+  *RtlSubAuthoritySid(v5, 0) = 32;
+  *RtlSubAuthoritySid(v5, 1u) = 544;
+  *RtlSubAuthoritySid(v7, 0) = 2;
+  *RtlSubAuthoritySid(v7, 1u) = 1;
+  if ( RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid) < 0 )
     KeBugCheckEx(0x51u, 0xBuLL, 3uLL, 0LL, 0LL);
-  v6 = 4 * (BYTE1(Src[0]) + Pool2[1] + v1[1] + v2[1] + v3[1] + v5[1]) + 104;
-  v17 = v6;
-  v7 = (ACL *)ExAllocatePool2(0x100uLL);
-  v8 = v7;
-  if ( !v7 )
+  v8 = 4 * (CapabilitySid[1] + Pool2[1] + v2[1] + v3[1] + v5[1] + v7[1]) + 104;
+  v19 = v8;
+  v9 = (ACL *)ExAllocatePool2(0x100uLL, v8, 0x20204D43u);
+  v10 = v9;
+  if ( !v9 )
     KeBugCheckEx(0x51u, 0xBuLL, 4uLL, 0LL, 0LL);
-  Acl = RtlCreateAcl(v7, v6, 2u);
+  Acl = RtlCreateAcl(v9, v8, 2u);
   if ( Acl < 0 )
     KeBugCheckEx(0x51u, 0xBuLL, 5uLL, Acl, 0LL);
-  v10 = RtlpAddKnownAce((int)v8, 2, 0, 983103, v2, 0);
-  if ( v10 < 0
-    || (v10 = RtlpAddKnownAce((int)v8, 2, 0, 983103, v3, 0), v10 < 0)
-    || (v10 = RtlpAddKnownAce((int)v8, 2, 0, 131097, Pool2, 0), v10 < 0)
-    || (v10 = RtlpAddKnownAce((int)v8, 2, 0, 131097, v1, 0), v10 < 0)
-    || (v10 = RtlpAddKnownAce((int)v8, 2, 0, 131097, v5, 0), v10 < 0)
-    || (v10 = RtlpAddKnownAce((int)v8, 2, 0, 131097, Src, 0), v10 < 0) )
+  v12 = RtlpAddKnownAce((int)v10, 2, 0, 983103, v3, 0);
+  if ( v12 < 0
+    || (v12 = RtlpAddKnownAce((int)v10, 2, 0, 983103, v5, 0), v12 < 0)
+    || (v12 = RtlpAddKnownAce((int)v10, 2, 0, 131097, Pool2, 0), v12 < 0)
+    || (v12 = RtlpAddKnownAce((int)v10, 2, 0, 131097, v2, 0), v12 < 0)
+    || (v12 = RtlpAddKnownAce((int)v10, 2, 0, 131097, v7, 0), v12 < 0)
+    || (v12 = RtlpAddKnownAce((int)v10, 2, 0, 131097, CapabilitySid, 0), v12 < 0) )
   {
-    KeBugCheckEx(0x51u, 0xBuLL, 6uLL, v10, 0LL);
+    KeBugCheckEx(0x51u, 0xBuLL, 6uLL, v12, 0LL);
   }
-  RtlGetAce(v8, 0, &Ace);
+  RtlGetAce(v10, 0, &Ace);
   *((_BYTE *)Ace + 1) |= 2u;
-  RtlGetAce(v8, 1u, &Ace);
+  RtlGetAce(v10, 1u, &Ace);
   *((_BYTE *)Ace + 1) |= 2u;
-  RtlGetAce(v8, 2u, &Ace);
+  RtlGetAce(v10, 2u, &Ace);
   *((_BYTE *)Ace + 1) |= 2u;
-  RtlGetAce(v8, 3u, &Ace);
+  RtlGetAce(v10, 3u, &Ace);
   *((_BYTE *)Ace + 1) |= 2u;
-  RtlGetAce(v8, 4u, &Ace);
+  RtlGetAce(v10, 4u, &Ace);
   *((_BYTE *)Ace + 1) |= 2u;
-  RtlGetAce(v8, 5u, &Ace);
+  RtlGetAce(v10, 5u, &Ace);
   *((_BYTE *)Ace + 1) |= 2u;
-  v11 = ExAllocatePool2(0x100uLL);
-  v12 = (ACL *)v11;
-  if ( !v11 )
+  v13 = ExAllocatePool2(0x100uLL, v8 + 40LL, 0x20204D43u);
+  v14 = (ACL *)v13;
+  if ( !v13 )
     KeBugCheckEx(0x51u, 0xBuLL, 7uLL, 0LL, 0LL);
-  memmove((void *)(v11 + 40), v8, v17);
-  *(_DWORD *)v14.Value = RtlCreateSecurityDescriptor(v12, 1u);
-  if ( *(int *)v14.Value < 0 )
+  memmove((void *)(v13 + 40), v10, v19);
+  *(_DWORD *)v16.Value = RtlCreateSecurityDescriptor(v14, 1u);
+  if ( *(int *)v16.Value < 0 )
   {
-    ExFreePoolWithTag(v12, 0);
-    KeBugCheckEx(0x51u, 0xBuLL, 8uLL, *(int *)v14.Value, 0LL);
+    ExFreePoolWithTag(v14, 0);
+    KeBugCheckEx(0x51u, 0xBuLL, 8uLL, *(int *)v16.Value, 0LL);
   }
-  *(_DWORD *)v14.Value = RtlSetDaclSecurityDescriptor(v12, 1u, v12 + 5, 0);
-  if ( *(int *)v14.Value < 0 )
+  *(_DWORD *)v16.Value = RtlSetDaclSecurityDescriptor(v14, 1u, v14 + 5, 0);
+  if ( *(int *)v16.Value < 0 )
   {
-    ExFreePoolWithTag(v12, 0);
-    KeBugCheckEx(0x51u, 0xBuLL, 9uLL, *(int *)v14.Value, 0LL);
+    ExFreePoolWithTag(v14, 0);
+    KeBugCheckEx(0x51u, 0xBuLL, 9uLL, *(int *)v16.Value, 0LL);
   }
   ExFreePoolWithTag(Pool2, 0);
-  ExFreePoolWithTag(v1, 0);
   ExFreePoolWithTag(v2, 0);
   ExFreePoolWithTag(v3, 0);
   ExFreePoolWithTag(v5, 0);
-  ExFreePoolWithTag(v8, 0);
-  return v12;
+  ExFreePoolWithTag(v7, 0);
+  ExFreePoolWithTag(v10, 0);
+  return v14;
 }

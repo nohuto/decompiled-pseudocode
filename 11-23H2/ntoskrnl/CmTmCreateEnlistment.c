@@ -3,7 +3,7 @@
  * Callers:
  *     CmpTransInitializeTransaction @ 0x14069846C (CmpTransInitializeTransaction.c)
  * Callees:
- *     TmCreateEnlistment @ 0x1403D8450 (TmCreateEnlistment.c)
+ *     TmCreateEnlistment @ 0x1403D8630 (TmCreateEnlistment.c)
  */
 
 NTSTATUS __fastcall CmTmCreateEnlistment(HANDLE *a1, struct _KRESOURCEMANAGER *a2, struct _KTRANSACTION *a3, void *a4)

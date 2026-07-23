@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpFcQueryAllFeatureConfigurationsFromBufferSet @ 0x18011B364 (RtlpFcQueryAllFeatureConfigurationsFromBufferSet.c)
  * Callees:
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlpFcQueryAllFeatureConfigurationsFromBuffers(__int64 a1, void *a2, unsigned __int64 *a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of SmHpBufferUpdateFullness @ 0x140388300
+ * XREFs of SmHpBufferUpdateFullness @ 0x140381C40
  * Callers:
- *     SmHpBufferAlloc @ 0x1403881C0 (SmHpBufferAlloc.c)
- *     SmHpBufferCleanup @ 0x14048CE40 (SmHpBufferCleanup.c)
+ *     SmHpBufferAlloc @ 0x140381B00 (SmHpBufferAlloc.c)
+ *     SmHpBufferCleanup @ 0x140487B60 (SmHpBufferCleanup.c)
  * Callees:
- *     SmPrepareForFatalHeapCorruption @ 0x140380700 (SmPrepareForFatalHeapCorruption.c)
- *     SmHpUnprotectListNeighbors @ 0x1403884F4 (SmHpUnprotectListNeighbors.c)
- *     SmHpBufferProtectEx @ 0x140388710 (SmHpBufferProtectEx.c)
- *     ExProtectPoolEx @ 0x140388828 (ExProtectPoolEx.c)
- *     wyhash @ 0x140389238 (wyhash.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x14037A040 (SmPrepareForFatalHeapCorruption.c)
+ *     SmHpUnprotectListNeighbors @ 0x140381E34 (SmHpUnprotectListNeighbors.c)
+ *     SmHpBufferProtectEx @ 0x140382050 (SmHpBufferProtectEx.c)
+ *     ExProtectPoolEx @ 0x140382168 (ExProtectPoolEx.c)
+ *     wyhash @ 0x140382B78 (wyhash.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall SmHpBufferUpdateFullness(__int64 a1, _QWORD *a2, __int16 a3)

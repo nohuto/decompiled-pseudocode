@@ -1,29 +1,31 @@
 /*
- * XREFs of NtLockRegistryKey @ 0x140847210
+ * XREFs of NtLockRegistryKey @ 0x140847510
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     CmLockKeyForWrite @ 0x1408472CC (CmLockKeyForWrite.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     CmLockKeyForWrite @ 0x1408475CC (CmLockKeyForWrite.c)
  *     CmpAcquireShutdownRundown @ 0x140AF5380 (CmpAcquireShutdownRundown.c)
  *     CmObReferenceObjectByHandle @ 0x140AF53D0 (CmObReferenceObjectByHandle.c)
  *     CmpReleaseShutdownRundown @ 0x140AF5470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtLockRegistryKey(int a1)
+NTSTATUS __cdecl NtLockRegistryKey(HANDLE KeyHandle)
 {
+  int v1; // ebx
   __int64 v2; // rdx
   __int64 v3; // rcx
   __int64 v4; // r8
   int v5; // r8d
   __int64 v6; // rdx
   __int64 v7; // rcx
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   __int64 v10[3]; // [rsp+30h] [rbp-18h] BYREF
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
+  v1 = (int)KeyHandle;
   *(_OWORD *)v10 = 0LL;
   CmpInitializeThreadInfo((__int64)v10);
   Object = 0LL;
@@ -33,7 +35,7 @@ __int64 __fastcall NtLockRegistryKey(int a1)
   }
   else if ( (unsigned __int8)CmpAcquireShutdownRundown(v3, v2, v4) )
   {
-    v8 = CmObReferenceObjectByHandle(a1, 131078, v5, 0, (__int64)&Object, 0LL);
+    v8 = CmObReferenceObjectByHandle(v1, 131078, v5, 0, (__int64)&Object, 0LL);
     if ( v8 >= 0 )
     {
       v8 = CmLockKeyForWrite(Object);
@@ -49,5 +51,5 @@ __int64 __fastcall NtLockRegistryKey(int a1)
     v8 = -1073741431;
   }
   CmCleanupThreadInfo(v10);
-  return (unsigned int)v8;
+  return v8;
 }

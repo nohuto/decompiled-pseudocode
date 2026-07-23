@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpAllocatePmcCounterSet @ 0x1404BE870
+ * XREFs of HalpAllocatePmcCounterSet @ 0x1404BEAB0
  * Callers:
  *     <none>
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpAllocatePmcCounterSet(unsigned int a1, unsigned int *a2, unsigned int a3, __int64 *a4)
@@ -42,8 +42,8 @@ __int64 __fastcall HalpAllocatePmcCounterSet(unsigned int a1, unsigned int *a2, 
   int v29; // eax
   bool v30; // zf
   __int64 v34; // [rsp+30h] [rbp-68h]
-  struct _GROUP_AFFINITY v35; // [rsp+38h] [rbp-60h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-50h] BYREF
+  _GROUP_AFFINITY v35; // [rsp+38h] [rbp-60h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-50h] BYREF
 
   v4 = a1;
   v5 = a1;

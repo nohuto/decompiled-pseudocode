@@ -1,16 +1,16 @@
 /*
- * XREFs of MiObtainDynamicVa @ 0x1400F698C
+ * XREFs of MiObtainDynamicVa @ 0x1400F6A0C
  * Callers:
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
+ *     MiObtainSystemVa @ 0x1400F69E4 (MiObtainSystemVa.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiReclaimSystemVa @ 0x1400F7278 (MiReclaimSystemVa.c)
- *     MiFindNextAlignedForwardRunClearEx @ 0x14018C3E0 (MiFindNextAlignedForwardRunClearEx.c)
- *     MiExtendDynamicBitMap @ 0x14018FA90 (MiExtendDynamicBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlSetBitsEx @ 0x14008AF10 (RtlSetBitsEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiReclaimSystemVa @ 0x1400F72F8 (MiReclaimSystemVa.c)
+ *     MiFindNextAlignedForwardRunClearEx @ 0x14018C520 (MiFindNextAlignedForwardRunClearEx.c)
+ *     MiExtendDynamicBitMap @ 0x14018FBD0 (MiExtendDynamicBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, unsigned int a3)
@@ -597,12 +597,12 @@ LABEL_114:
   {
     v6[3] = v31 + 1;
   }
-  if ( v6 == &qword_14043A3C8 )
+  if ( v6 == &qword_14043B488 )
   {
-    qword_14043A1C8 -= v9 << 21;
+    qword_14043B288 -= v9 << 21;
     MiReclaimSystemVa(0LL);
   }
-  _InterlockedExchangeAdd64(&qword_14043B8D0[v32], v9);
+  _InterlockedExchangeAdd64(&qword_14043C990[v32], v9);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v33 = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

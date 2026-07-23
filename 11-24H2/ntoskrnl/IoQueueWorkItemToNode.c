@@ -1,19 +1,19 @@
 /*
- * XREFs of IoQueueWorkItemToNode @ 0x140482FF0
+ * XREFs of IoQueueWorkItemToNode @ 0x1403A9180
  * Callers:
  *     <none>
  * Callees:
- *     IopQueueWorkItemProlog @ 0x14029F590 (IopQueueWorkItemProlog.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExQueueWorkItemExFromIo @ 0x140483044 (ExQueueWorkItemExFromIo.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExQueueWorkItemExFromIo @ 0x1403A9120 (ExQueueWorkItemExFromIo.c)
+ *     IopQueueWorkItemProlog @ 0x1403AA050 (IopQueueWorkItemProlog.c)
  */
 
 char __fastcall IoQueueWorkItemToNode(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)
 {
-  __int64 v7; // rax
+  _QWORD *v7; // rax
   char v8; // bl
 
-  v7 = IopQueueWorkItemProlog(a1, a2, a4);
+  v7 = (_QWORD *)IopQueueWorkItemProlog(a1, a2, a4);
   v8 = ExQueueWorkItemExFromIo(v7, a3, a5);
   if ( !v8 )
     ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 40), 0x746C6644u);

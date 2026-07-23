@@ -1,11 +1,11 @@
 /*
- * XREFs of WdipSemAllocatePool @ 0x140831AD4
+ * XREFs of WdipSemAllocatePool @ 0x140831DD4
  * Callers:
- *     WdipSemFastAllocate @ 0x14083178C (WdipSemFastAllocate.c)
+ *     WdipSemFastAllocate @ 0x140831A8C (WdipSemFastAllocate.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

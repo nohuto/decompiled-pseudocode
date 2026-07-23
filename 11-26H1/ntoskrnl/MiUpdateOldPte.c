@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateOldPte @ 0x1402FDD30
+ * XREFs of MiUpdateOldPte @ 0x1402DFDB0
  * Callers:
  *     <none>
  * Callees:
- *     MiUpdateOldPteWorker @ 0x14029C38C (MiUpdateOldPteWorker.c)
- *     MiAcquirePrcbAgeTrimLists @ 0x14029CE20 (MiAcquirePrcbAgeTrimLists.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiUpdateOldPteWorker @ 0x14029B8EC (MiUpdateOldPteWorker.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x14029C380 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiUpdateOldPte(__int64 a1, unsigned __int64 a2, __int64 a3)

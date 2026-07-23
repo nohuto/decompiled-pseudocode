@@ -209,7 +209,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
   updated = 0;
   if ( v5 > SystemRefTraceInformation )
   {
-    if ( v5 > (SystemPoolTagInformation|0x80) )
+    if ( v5 > SystemBootMetadataInformation )
     {
       v38 = v5 - 151;
       if ( !v38 )
@@ -297,7 +297,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
         return ExpQueryElamCertInfo(*(_QWORD *)SystemInformation, 4LL, SystemInformationLength, 1LL);
       return -1073741811;
     }
-    if ( v5 == (SystemPoolTagInformation|0x80) )
+    if ( v5 == SystemBootMetadataInformation )
     {
       if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
         return -1073741727;
@@ -309,11 +309,11 @@ NTSTATUS __stdcall NtSetSystemInformation(
       }
       return -1073741820;
     }
-    if ( v5 > (MaxSystemInfoClass|SystemProcessorPerformanceInformation) )
+    if ( v5 > SystemVirtualAddressInformation )
     {
-      if ( v5 <= 129 )
+      if ( v5 <= SystemProcessorProfileControlArea )
       {
-        if ( v5 == 129 )
+        if ( v5 == SystemProcessorProfileControlArea )
           return KeProcessorProfileControlArea((__int64)SystemInformation, SystemInformationLength, PreviousMode);
         v23 = v5 - 109;
         if ( !v23 )
@@ -437,7 +437,7 @@ LABEL_114:
       }
       return updated;
     }
-    if ( v5 == (MaxSystemInfoClass|SystemProcessorPerformanceInformation) )
+    if ( v5 == SystemVirtualAddressInformation )
       return -1073741821;
     if ( v5 > SystemImageFileExecutionOptionsInformation )
     {
@@ -480,9 +480,9 @@ LABEL_114:
         v57 = (char *)SystemInformation + 24;
         goto LABEL_204;
       }
-      if ( v5 != (MaxSystemInfoClass|SystemPathInformation) )
+      if ( v5 != SystemDynamicTimeZoneInformation )
       {
-        if ( v5 == (SystemPrefetchPathInformation|SystemProcessorPerformanceInformation) )
+        if ( v5 == SystemProcessorMicrocodeUpdateInformation )
         {
           LOBYTE(SystemInformationLength) = PreviousMode;
           return ExpSetProcessorMicrocodeUpdateInformation(SystemInformation, v3, SystemInformationLength, 1LL);
@@ -572,7 +572,7 @@ LABEL_286:
     return ObSetRefTraceInformation(SystemInformation, SystemInformationLength, SystemInformationLength, 1LL);
   if ( v5 > SystemSessionDetach )
   {
-    if ( v5 > SystemWatchDogTimerInformation )
+    if ( v5 > SystemWatchdogTimerInformation )
     {
       if ( v5 != SystemWow64SharedInformationObsolete )
       {
@@ -634,7 +634,7 @@ LABEL_286:
       }
       return -1073741822;
     }
-    if ( v5 != SystemWatchDogTimerInformation )
+    if ( v5 != SystemWatchdogTimerInformation )
     {
       v13 = v5 - 51;
       if ( v13 )
@@ -968,7 +968,7 @@ LABEL_213:
   }
   if ( v5 <= SystemPrioritySeperation )
     return -1073741821;
-  if ( v5 > SystemDockInformation )
+  if ( v5 > SystemVerifierRemoveDriverInformation )
   {
     if ( v5 == SystemTimeSlipNotification )
     {

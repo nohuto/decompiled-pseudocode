@@ -1,9 +1,9 @@
 /*
- * XREFs of MmUnmapViewOfSection @ 0x1409C3890
+ * XREFs of MmUnmapViewOfSection @ 0x140994870
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
  */
 
 __int64 __fastcall MmUnmapViewOfSection(__int64 a1, __int64 a2)

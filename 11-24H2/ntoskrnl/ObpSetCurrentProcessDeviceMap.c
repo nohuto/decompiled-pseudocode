@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpSetCurrentProcessDeviceMap @ 0x140985458
+ * XREFs of ObpSetCurrentProcessDeviceMap @ 0x14096DC68
  * Callers:
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
- *     ObpReferenceCurrentDeviceMap @ 0x140984EA0 (ObpReferenceCurrentDeviceMap.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x14096D6B0 (ObpReferenceCurrentDeviceMap.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     SeGetTokenDeviceMap @ 0x14098519C (SeGetTokenDeviceMap.c)
- *     ObDereferenceDeviceMap @ 0x1409855D4 (ObDereferenceDeviceMap.c)
- *     ObpReferenceDeviceMapFastRef @ 0x1409856A0 (ObpReferenceDeviceMapFastRef.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     SeGetTokenDeviceMap @ 0x14096D9AC (SeGetTokenDeviceMap.c)
+ *     ObDereferenceDeviceMap @ 0x14096DDE4 (ObDereferenceDeviceMap.c)
+ *     ObpReferenceDeviceMapFastRef @ 0x14096DEB0 (ObpReferenceDeviceMapFastRef.c)
  */
 
 __int64 ObpSetCurrentProcessDeviceMap()
@@ -28,8 +28,8 @@ __int64 ObpSetCurrentProcessDeviceMap()
   int v7; // edx
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *p_Blink; // rbp
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbx
+  char *v10; // rax
+  char *v11; // rbx
   __int64 v12; // rbx
   __int64 v13; // [rsp+50h] [rbp+8h] BYREF
   __int64 v14; // [rsp+58h] [rbp+10h]
@@ -65,12 +65,12 @@ LABEL_16:
       CurrentThread = KeGetCurrentThread();
       p_Blink = (unsigned __int64 *)&v6[7].Blink;
       --CurrentThread->SpecialApcDisable;
-      v10 = KeAbPreAcquire((__int64)p_Blink, 0LL);
+      v10 = (char *)KeAbPreAcquire((__int64)p_Blink, 0LL);
       v11 = v10;
       if ( _interlockedbittestandset64((volatile signed __int32 *)p_Blink, 0LL) )
-        ExfAcquirePushLockExclusiveEx(p_Blink, (__int64)v10, (__int64)p_Blink);
+        ExfAcquirePushLockExclusiveEx(p_Blink, v10, (__int64)p_Blink);
       if ( v11 )
-        *((_BYTE *)v11 + 10) = 1;
+        v11[10] = 1;
       v12 = _InterlockedExchange64((volatile __int64 *)&Process[1].FreezeCount, v0 | 0xF);
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)p_Blink, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)p_Blink);

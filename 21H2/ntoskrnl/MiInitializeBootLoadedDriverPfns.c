@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeBootLoadedDriverPfns @ 0x140A65FFC
+ * XREFs of MiInitializeBootLoadedDriverPfns @ 0x140A66FFC
  * Callers:
- *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x140A4F6F4 (MiInitializeDriverImages.c)
  * Callees:
- *     MiMarkPfnVerified @ 0x1402B8A04 (MiMarkPfnVerified.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiActOnLargeKernelHalPages @ 0x1407A19EC (MiActOnLargeKernelHalPages.c)
+ *     MiMarkPfnVerified @ 0x140236C14 (MiMarkPfnVerified.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiActOnLargeKernelHalPages @ 0x1407A1BEC (MiActOnLargeKernelHalPages.c)
  */
 
 __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
@@ -47,16 +47,14 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
     if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v8) )
       break;
     if ( (MiFlags & 0x10000) != 0 )
-      MiActOnLargeKernelHalPages(
-        v8,
-        (__int64 (__fastcall *)(unsigned __int64, __int64))MiValidateKernelHalLargePageRange);
+      MiActOnLargeKernelHalPages((char *)v8, (__int64 (__fastcall *)(char *, char *))MiValidateKernelHalLargePageRange);
 LABEL_13:
     v2 = (__int64 *)*v2;
   }
-  v9 = ((unsigned int)dword_140C4CCB0 >> 12)
+  v9 = ((unsigned int)dword_140C4CCF0 >> 12)
      + (unsigned int)(((unsigned __int64)*((unsigned int *)v2 + 16) + 4095) >> 12);
-  if ( v8 != PsHalImageBase && v8 != PsNtosImageBase )
-    v9 = (unsigned int)(dword_140C4CC4C + v9);
+  if ( (PVOID)v8 != PsHalImageBase && (PVOID)v8 != PsNtosImageBase )
+    v9 = (unsigned int)(dword_140C4CC8C + v9);
   v10 = v6 + 8 * v9;
   v7 = (unsigned int)v9;
   v14 = 0LL;
@@ -64,10 +62,10 @@ LABEL_13:
   if ( v6 >= v10 )
   {
 LABEL_10:
-    if ( v8 != PsHalImageBase && v8 != PsNtosImageBase )
+    if ( (PVOID)v8 != PsHalImageBase && (PVOID)v8 != PsNtosImageBase )
     {
-      _InterlockedExchangeAdd(&dword_140C4EFD0, v9);
-      qword_140C4EFB0 -= v7;
+      _InterlockedExchangeAdd(&dword_140C4F010, v9);
+      qword_140C4EFF0 -= v7;
     }
     goto LABEL_13;
   }
@@ -116,7 +114,7 @@ LABEL_9:
   }
   if ( (int)MiAcquireNonPagedResources(&MiSystemPartition, v14, 0LL, 0) >= 0 )
   {
-    qword_140C4EFB0 += v14;
+    qword_140C4EFF0 += v14;
     goto LABEL_9;
   }
   return 0LL;

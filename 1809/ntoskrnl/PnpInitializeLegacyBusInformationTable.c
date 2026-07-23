@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpInitializeLegacyBusInformationTable @ 0x1409DA694
+ * XREFs of PnpInitializeLegacyBusInformationTable @ 0x1409DB694
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>
  */

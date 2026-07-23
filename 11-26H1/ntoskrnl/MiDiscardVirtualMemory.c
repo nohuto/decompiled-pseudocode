@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDiscardVirtualMemory @ 0x1406EF1F8
+ * XREFs of MiDiscardVirtualMemory @ 0x1406F3E98
  * Callers:
- *     MiProcessVaRangesInfoClass @ 0x140B6B41C (MiProcessVaRangesInfoClass.c)
+ *     MiProcessVaRangesInfoClass @ 0x140B6E518 (MiProcessVaRangesInfoClass.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiDiscardVirtualMemory(unsigned __int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -44,7 +44,7 @@ __int64 __fastcall MiDiscardVirtualMemory(unsigned __int64 a1, __int64 a2, __int
   if ( (*(_DWORD *)(p_Blink + 184) & 0xF) == 1 )
     v11 = &MiSystemPartition;
   else
-    v11 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(p_Blink + 174));
+    v11 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(p_Blink + 174));
   if ( v11[4539] )
     HIDWORD(v16) |= 1u;
   v18 = MiLockWorkingSetShared(p_Blink, v7, v8);

@@ -1,16 +1,16 @@
 /*
- * XREFs of NtGetCurrentProcessorNumberEx @ 0x1800A2090
+ * XREFs of NtGetCurrentProcessorNumberEx @ 0x1800A20B0
  * Callers:
- *     RtlGetCurrentProcessorNumberEx @ 0x1800A4C90 (RtlGetCurrentProcessorNumberEx.c)
+ *     RtlGetCurrentProcessorNumberEx @ 0x1800A4CB0 (RtlGetCurrentProcessorNumberEx.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtGetCurrentProcessorNumberEx()
+ULONG __cdecl NtGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
-  __int64 result; // rax
+  ULONG result; // eax
 
-  result = 238LL;
+  result = 238;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

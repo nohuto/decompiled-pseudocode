@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlFindNextForwardRunClearEx @ 0x140456B40
+ * XREFs of RtlFindNextForwardRunClearEx @ 0x14044DE50
  * Callers:
  *     <none>
  * Callees:
@@ -11,77 +11,77 @@ unsigned __int64 __fastcall RtlFindNextForwardRunClearEx(
         unsigned __int64 a2,
         unsigned __int64 *a3)
 {
-  unsigned __int64 v3; // rbx
-  unsigned __int64 result; // rax
+  unsigned __int64 v3; // r11
+  unsigned __int64 v4; // rbx
   unsigned __int64 v6; // r14
-  unsigned __int64 v7; // r11
-  _QWORD *v8; // r8
-  _QWORD *v9; // rcx
-  __int64 v10; // r10
-  unsigned __int64 v11; // r10
+  unsigned __int64 v7; // r10
+  __int64 v8; // r9
+  unsigned __int64 v9; // rax
+  unsigned __int64 i; // rcx
+  unsigned __int64 v11; // r9
   __int64 v12; // rdi
   unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // r9
-  __int64 v15; // rax
-  unsigned __int64 v16; // r8
-  unsigned __int64 v17; // rax
+  unsigned __int64 result; // rax
+  unsigned __int64 v15; // r8
+  __int64 v16; // rcx
+  unsigned __int64 v17; // rbx
+  unsigned __int64 v18; // rax
 
   v3 = *a1;
-  result = 0LL;
+  v4 = 0LL;
   if ( *a1 <= a2 )
   {
     *a3 = a2;
+    return 0LL;
   }
   else
   {
     v6 = a1[1];
     v7 = v6 + 8 * ((v3 - 1) >> 6);
-    v8 = (_QWORD *)(v6 + 8 * (a2 >> 6));
-    v9 = v8 + 1;
-    v10 = *v8 | ((1LL << a2) - 1);
-    while ( 1 )
+    v8 = *(_QWORD *)(v6 + 8 * (a2 >> 6)) | ((1LL << a2) - 1);
+    v9 = v6 + 8 * (a2 >> 6);
+    for ( i = v9 + 8; ; i += 8LL )
     {
-      v11 = ~v10;
+      v11 = ~v8;
       if ( v11 )
         break;
-      if ( (unsigned __int64)v9 > v7 )
+      if ( i > v7 )
       {
+        result = 0LL;
         *a3 = v3;
         return result;
       }
-      v10 = v8[1];
-      ++v8;
-      ++v9;
+      v8 = *(_QWORD *)(v9 + 8);
+      v9 += 8LL;
     }
     _BitScanForward64((unsigned __int64 *)&v12, v11);
-    v13 = (unsigned int)v12 + ((__int64)((__int64)v8 - v6) >> 3 << 6);
+    v13 = (unsigned int)v12 + ((__int64)(v9 - v6) >> 3 << 6);
     if ( v13 <= v3 )
     {
-      v14 = ~(v11 | ((1LL << v12) - 1));
-      while ( !v14 )
+      v15 = ~(v11 | ((1LL << v12) - 1));
+      while ( !v15 )
       {
-        result += 64LL;
-        if ( (unsigned __int64)(v8 + 1) > v7 )
+        if ( v9 + 8 > v7 )
         {
-          v15 = 64LL;
-          goto LABEL_14;
+          v16 = 64LL;
+          goto LABEL_15;
         }
-        v14 = v8[1];
-        ++v8;
+        v15 = *(_QWORD *)(v9 + 8);
+        v9 += 8LL;
       }
-      _BitScanForward64((unsigned __int64 *)&v15, v14);
-LABEL_14:
-      v16 = v15 + ((__int64)((__int64)v8 - v6) >> 3 << 6);
+      _BitScanForward64((unsigned __int64 *)&v16, v15);
+LABEL_15:
       v17 = v3;
-      if ( v16 <= v3 )
-        v17 = v16;
-      result = v17 - v13;
+      v18 = v16 + ((__int64)(v9 - v6) >> 3 << 6);
+      if ( v18 <= v3 )
+        v17 = v18;
+      v4 = v17 - v13;
     }
     else
     {
       v13 = v3;
     }
     *a3 = v13;
+    return v4;
   }
-  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlBeginReadTickLock @ 0x140447880
+ * XREFs of RtlBeginReadTickLock @ 0x140440370
  * Callers:
- *     RtlGetMultiTimePrecise @ 0x1404476B0 (RtlGetMultiTimePrecise.c)
- *     KeQueryProcessAvailableCpus @ 0x1405E57A0 (KeQueryProcessAvailableCpus.c)
- *     KeQuerySystemAvailableCpus @ 0x1405E5860 (KeQuerySystemAvailableCpus.c)
- *     KeQueryCpuSetInformation @ 0x140B6A8B4 (KeQueryCpuSetInformation.c)
+ *     RtlGetMultiTimePrecise @ 0x1404401A0 (RtlGetMultiTimePrecise.c)
+ *     KeQueryProcessAvailableCpus @ 0x1405E8110 (KeQueryProcessAvailableCpus.c)
+ *     KeQuerySystemAvailableCpus @ 0x1405E81D0 (KeQuerySystemAvailableCpus.c)
+ *     KeQueryCpuSetInformation @ 0x140B6DAC4 (KeQueryCpuSetInformation.c)
  * Callees:
  *     <none>
  */

@@ -5,7 +5,7 @@
  *     RtlInsertElementGenericTableAvl @ 0x18006B880 (RtlInsertElementGenericTableAvl.c)
  *     RtlEnumerateGenericTableLikeADirectory @ 0x1800F6A80 (RtlEnumerateGenericTableLikeADirectory.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FindNodeOrParent(__int64 a1, __int64 a2, _QWORD *a3)

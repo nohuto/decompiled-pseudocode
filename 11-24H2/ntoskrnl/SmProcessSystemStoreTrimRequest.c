@@ -1,16 +1,16 @@
 /*
- * XREFs of SmProcessSystemStoreTrimRequest @ 0x140A5FC18
+ * XREFs of SmProcessSystemStoreTrimRequest @ 0x140A58168
  * Callers:
- *     SmSetStoreInformation @ 0x140A5F8F0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x140A57E40 (SmSetStoreInformation.c)
  * Callees:
- *     SmKmStoreGet @ 0x140245714 (SmKmStoreGet.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1404B43DC (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     SmKmStoreGet @ 0x14020DEF4 (SmKmStoreGet.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1404AEC1C (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall SmProcessSystemStoreTrimRequest(char *Address, SIZE_T Length, char a3)

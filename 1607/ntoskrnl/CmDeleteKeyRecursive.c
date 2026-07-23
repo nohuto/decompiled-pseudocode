@@ -1,18 +1,18 @@
 /*
- * XREFs of CmDeleteKeyRecursive @ 0x140606DF0
+ * XREFs of CmDeleteKeyRecursive @ 0x140606EA4
  * Callers:
- *     CmDeleteKeyRecursive @ 0x140606DF0 (CmDeleteKeyRecursive.c)
- *     CmpMoveBiosAliasTable @ 0x140607BC4 (CmpMoveBiosAliasTable.c)
+ *     CmDeleteKeyRecursive @ 0x140606EA4 (CmDeleteKeyRecursive.c)
+ *     CmpMoveBiosAliasTable @ 0x140607C78 (CmpMoveBiosAliasTable.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     ZwDeleteKey @ 0x14015B580 (ZwDeleteKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     ZwDeleteKey @ 0x14015BAF0 (ZwDeleteKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmDeleteKeyRecursive @ 0x140606DF0 (CmDeleteKeyRecursive.c)
+ *     CmDeleteKeyRecursive @ 0x140606EA4 (CmDeleteKeyRecursive.c)
  */
 
 NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, int a4, ULONG ResultLength)

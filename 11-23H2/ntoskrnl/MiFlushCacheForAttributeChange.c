@@ -3,15 +3,15 @@
  * Callers:
  *     MiChangePageAttributeContiguous @ 0x14021A6A0 (MiChangePageAttributeContiguous.c)
  *     MiChangePageAttributeBatch @ 0x14021C9B4 (MiChangePageAttributeBatch.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     MiFlushCacheRange @ 0x140660EFC (MiFlushCacheRange.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     MiFlushCacheRange @ 0x14066144C (MiFlushCacheRange.c)
  *     MiInitializeCacheFlushing @ 0x140B6A51C (MiInitializeCacheFlushing.c)
  * Callees:
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE20 (KeInvalidateRangeAllCachesNoIpi.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
  */
 
 void __fastcall MiFlushCacheForAttributeChange(__int64 a1, __int64 a2, int a3, _QWORD *a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwListenPort @ 0x140725590
+ * XREFs of ZwListenPort @ 0x14072A160
  * Callers:
- *     DifZwListenPortWrapper @ 0x1406A8970 (DifZwListenPortWrapper.c)
+ *     DifZwListenPortWrapper @ 0x1406AC550 (DifZwListenPortWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwListenPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwListenPort(HANDLE PortHandle, PPORT_MESSAGE ConnectionRequest)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

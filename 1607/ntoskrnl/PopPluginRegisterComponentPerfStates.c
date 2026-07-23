@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPluginRegisterComponentPerfStates @ 0x140204808
+ * XREFs of PopPluginRegisterComponentPerfStates @ 0x140204634
  * Callers:
- *     PopFxRegisterComponentPerfStates @ 0x14066D104 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxRegisterComponentPerfStates @ 0x14066D1E8 (PopFxRegisterComponentPerfStates.c)
  * Callees:
  *     <none>
  */

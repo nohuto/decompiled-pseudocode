@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x140371B94
+ * XREFs of ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x140371D34
  * Callers:
- *     DownLevelLangIDToLanguageName @ 0x140371A5C (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x14038D264 (DownLevelLanguageNameToLangID.c)
+ *     DownLevelLangIDToLanguageName @ 0x140371BFC (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x14038D444 (DownLevelLanguageNameToLangID.c)
  * Callees:
  *     <none>
  */

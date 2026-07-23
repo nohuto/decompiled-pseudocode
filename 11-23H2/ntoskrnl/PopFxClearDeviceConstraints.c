@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxClearDeviceConstraints @ 0x140589280
+ * XREFs of PopFxClearDeviceConstraints @ 0x140589770
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
- *     PopFxActivateDevice @ 0x140322C60 (PopFxActivateDevice.c)
- *     PoFxIdleDevice @ 0x140322F7C (PoFxIdleDevice.c)
- *     PopFxReinitializeAccountingInstance @ 0x140397C14 (PopFxReinitializeAccountingInstance.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1405841DC (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPepClearDripsDeviceVetoMask @ 0x14059EAC4 (PopPepClearDripsDeviceVetoMask.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxAddRefDevice @ 0x140312734 (PopFxAddRefDevice.c)
+ *     PopFxActivateDevice @ 0x140322EF0 (PopFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x14032320C (PoFxIdleDevice.c)
+ *     PopFxReinitializeAccountingInstance @ 0x140397DF4 (PopFxReinitializeAccountingInstance.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1405846CC (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPepClearDripsDeviceVetoMask @ 0x14059EFB4 (PopPepClearDripsDeviceVetoMask.c)
  */
 
 __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
@@ -60,10 +60,13 @@ __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
         *(_DWORD *)(a1 + 612) = 5;
         _InterlockedAnd((volatile signed __int32 *)(a1 + 824), 0xFFFFF7EF);
         KxReleaseSpinLock((volatile signed __int64 *)(a1 + 600));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v6 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -83,10 +86,10 @@ __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
           *(_DWORD *)(v13 + 12) = -1;
           _InterlockedAnd((volatile signed __int32 *)(a1 + 824), 0xFFFFFEFF);
           KxReleaseSpinLock((volatile signed __int64 *)v13);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v15 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
             {
               v16 = KeGetCurrentPrcb();
               v17 = v16->SchedulerAssist;
@@ -109,7 +112,7 @@ __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 244), 0xFFFFFFFF) == 1 )
       KeSetEvent((PRKEVENT)(a1 + 248), 0, 0);
     if ( !v3 )
-      ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL);
+      ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v3;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdateDomainAvailableAffinity @ 0x1403C7DE8
+ * XREFs of MiUpdateDomainAvailableAffinity @ 0x140413A28
  * Callers:
- *     MiAssignBackgroundZeroThreadToProcessor @ 0x140209CEC (MiAssignBackgroundZeroThreadToProcessor.c)
- *     MiUnlinkZeroThreadFromActiveDomain @ 0x1403C7D5C (MiUnlinkZeroThreadFromActiveDomain.c)
+ *     MiAssignBackgroundZeroThreadToProcessor @ 0x1403312CC (MiAssignBackgroundZeroThreadToProcessor.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x14041399C (MiUnlinkZeroThreadFromActiveDomain.c)
  * Callees:
  *     <none>
  */

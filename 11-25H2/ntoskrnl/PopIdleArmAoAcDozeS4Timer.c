@@ -24,9 +24,9 @@ void PopIdleArmAoAcDozeS4Timer()
   unsigned int v2; // edi
   _BYTE v3[80]; // [rsp+20h] [rbp-58h] BYREF
   unsigned int v4; // [rsp+80h] [rbp+8h] BYREF
-  __int64 v5; // [rsp+88h] [rbp+10h] BYREF
+  LARGE_INTEGER v5; // [rsp+88h] [rbp+10h] BYREF
 
-  v5 = 0LL;
+  v5.QuadPart = 0LL;
   v4 = 0;
   memset_0(v3, 0, 0x4CuLL);
   if ( PopPlatformAoAcCapabilityInitialized )
@@ -50,7 +50,9 @@ void PopIdleArmAoAcDozeS4Timer()
           }
           KeReleaseSpinLock(&PopIdleAoAcDozeS4Lock, v1);
           if ( v0 )
-            PopTraceSystemIdleS0LowPowerDozeTimerArmed(v2, v5);
+            ((void (__fastcall *)(_QWORD, _QWORD))PopTraceSystemIdleS0LowPowerDozeTimerArmed)(
+              v2,
+              (LARGE_INTEGER)v5.QuadPart);
         }
       }
     }

@@ -1,25 +1,25 @@
 /*
- * XREFs of KiSetAffinityThread @ 0x1403B1A08
+ * XREFs of KiSetAffinityThread @ 0x1403A0218
  * Callers:
- *     KeSetAffinityProcess @ 0x140202B7C (KeSetAffinityProcess.c)
- *     KeSetUserAffinityThread @ 0x140209564 (KeSetUserAffinityThread.c)
- *     KiSetLegacyAffinityThread @ 0x1403B178C (KiSetLegacyAffinityThread.c)
- *     KeSetUserGroupAffinityThread @ 0x1403B2A30 (KeSetUserGroupAffinityThread.c)
+ *     KeSetAffinityProcess @ 0x14032B26C (KeSetAffinityProcess.c)
+ *     KeSetUserAffinityThread @ 0x140330B44 (KeSetUserAffinityThread.c)
+ *     KiSetLegacyAffinityThread @ 0x14039FF9C (KiSetLegacyAffinityThread.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A1240 (KeSetUserGroupAffinityThread.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiComputeThreadAffinity @ 0x14029AC34 (KiComputeThreadAffinity.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x14033939C (KiUpdateNodeAffinitizedFlag.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiQueueTebUpdateApc @ 0x1403B1DEC (KiQueueTebUpdateApc.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403B1E60 (KiAcquireThreadStateLockForWrite.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x1403B21E0 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1403B25A0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KeSelectIdealProcessor @ 0x1403B289C (KeSelectIdealProcessor.c)
- *     EtwTraceThreadAffinity @ 0x1403B3E48 (EtwTraceThreadAffinity.c)
- *     EtwTraceIdealProcessor @ 0x1404B1DCC (EtwTraceIdealProcessor.c)
- *     KiCpuPartitionCheckAffinitization @ 0x1405C0050 (KiCpuPartitionCheckAffinitization.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiComputeThreadAffinity @ 0x1402A9724 (KiComputeThreadAffinity.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x14031887C (KiUpdateNodeAffinitizedFlag.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiQueueTebUpdateApc @ 0x1403A05FC (KiQueueTebUpdateApc.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403A0670 (KiAcquireThreadStateLockForWrite.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1403A09F0 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1403A0DB0 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KeSelectIdealProcessor @ 0x1403A10AC (KeSelectIdealProcessor.c)
+ *     EtwTraceThreadAffinity @ 0x1403A2658 (EtwTraceThreadAffinity.c)
+ *     EtwTraceIdealProcessor @ 0x1404AC65C (EtwTraceIdealProcessor.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405BD680 (KiCpuPartitionCheckAffinitization.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiSetAffinityThread(__int64 a1, struct _SINGLE_LIST_ENTRY *a2, struct _KAFFINITY_EX *a3, char a4)
@@ -44,7 +44,7 @@ __int64 __fastcall KiSetAffinityThread(__int64 a1, struct _SINGLE_LIST_ENTRY *a2
   unsigned __int64 v23; // rcx
   __int64 v24; // r8
   __int64 v25; // rcx
-  __int64 v26; // r15
+  unsigned __int16 v26; // ax
   int v27; // r8d
   _WORD v29[4]; // [rsp+54h] [rbp-55h] BYREF
   int v30; // [rsp+5Ch] [rbp-4Dh]
@@ -121,7 +121,7 @@ LABEL_25:
     else
       v25 = *(_QWORD *)(v24 + 8LL * i + 216);
     v39[2] = v25;
-    v26 = (unsigned __int16)KeSelectIdealProcessor(&v36, v29, v39, 3LL);
+    v26 = KeSelectIdealProcessor(&v36, v29, v39, 3LL);
     *(_DWORD *)(a1 + 196) = v26;
     LODWORD(v9) = v26;
     v10 = KiProcessorBlock[v26];
@@ -171,11 +171,11 @@ LABEL_25:
       result = EtwTraceThreadAffinity(a1, *(unsigned __int16 *)(a1 + 584), v27, 0, *(_QWORD *)(a1 + 576), 1334);
     }
   }
-  if ( _bittest((const signed __int32 *)&xmmword_140FC5B10, 0x1Bu) )
+  if ( _bittest((const signed __int32 *)&xmmword_140FC6B50, 0x1Bu) )
     result = EtwTraceIdealProcessor(a1, 1350LL);
-  if ( _bittest((const signed __int32 *)&xmmword_140FC5B10, 0x1Bu) )
+  if ( _bittest((const signed __int32 *)&xmmword_140FC6B50, 0x1Bu) )
     result = EtwTraceIdealProcessor(a1, 1351LL);
-  if ( (WORD2(xmmword_140FC5B10) & 0x200) != 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x200) != 0 )
   {
     LOBYTE(v16) = 1;
     return KiCpuPartitionCheckAffinitization(a1, a3, 0LL, v16);

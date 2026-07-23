@@ -1,16 +1,22 @@
 /*
- * XREFs of ZwSystemDebugControl @ 0x1800A3990
+ * XREFs of ZwSystemDebugControl @ 0x1800A39B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSystemDebugControl()
+NTSTATUS __cdecl ZwSystemDebugControl(
+        SYSDBG_COMMAND Command,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 438LL;
+  result = 438;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

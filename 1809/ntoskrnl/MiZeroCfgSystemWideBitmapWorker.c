@@ -1,7 +1,7 @@
 /*
- * XREFs of MiZeroCfgSystemWideBitmapWorker @ 0x140080940
+ * XREFs of MiZeroCfgSystemWideBitmapWorker @ 0x140080930
  * Callers:
- *     MiZeroCfgSystemWideBitmap @ 0x14012DB40 (MiZeroCfgSystemWideBitmap.c)
+ *     MiZeroCfgSystemWideBitmap @ 0x14012DC10 (MiZeroCfgSystemWideBitmap.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
@@ -12,23 +12,23 @@
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     KeZeroSinglePage @ 0x1401C08F0 (KeZeroSinglePage.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     MiSetNonResidentPteHeat @ 0x140081E40 (MiSetNonResidentPteHeat.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiLocatePagefileSubsection @ 0x140119DB8 (MiLocatePagefileSubsection.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     KeZeroSinglePage @ 0x1401C0A50 (KeZeroSinglePage.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiZeroCfgSystemWideBitmapWorker(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -111,7 +111,7 @@ __int64 __fastcall MiZeroCfgSystemWideBitmapWorker(__int64 a1, unsigned __int64 
   v6 = (a2 >> 3) & 0xFFF;
   v7 = *(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF;
   v71 = (a2 >> 3) & 0xFFF;
-  v54 = *(_QWORD *)(qword_14043A748 + 8 * v7);
+  v54 = *(_QWORD *)(qword_14043B808 + 8 * v7);
   LODWORD(Size) = ((unsigned __int16)(a2 >> 3) + (_WORD)v3) & 0xFFF;
   v63 = ((a2 >> 3) + v3 - 1) >> 12;
   v8 = MiLocatePagefileSubsection(a1, &v63);
@@ -238,7 +238,7 @@ LABEL_13:
         _InterlockedAnd64((volatile signed __int64 *)(v20 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( v37 )
           MiReleasePageFileInfo(
-            *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v20 + 40) >> 40) & 0x3FFLL)),
+            *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v20 + 40) >> 40) & 0x3FFLL)),
             v37,
             1);
         goto LABEL_31;
@@ -247,12 +247,12 @@ LABEL_13:
         goto LABEL_31;
       if ( (v21 & 0x800) != 0 )
       {
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
           if ( (v21 & 0x10) != 0 )
             v22 = v21 & 0xFFFFFFFFFFFFFFEFuLL;
           else
-            v22 = ~qword_14043A0C0 & v21;
+            v22 = ~qword_14043B180 & v21;
         }
         v23 = (v22 >> 12) & 0xFFFFFFFFFLL;
         v24 = 0LL;
@@ -289,11 +289,11 @@ LABEL_54:
             }
             memset(v43, 0, v42);
             MiUnmapPageInHyperSpaceWorker(v41, 0x11u, 0x80000000LL);
-            if ( dword_14043A76C == 1 )
+            if ( dword_14043B82C == 1 )
             {
               v47 = v23 & 0x1F;
               LOBYTE(v48) = 1;
-              v49 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v23 >> 5));
+              v49 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v23 >> 5));
               if ( v47 + 1 > 0x20 )
               {
                 if ( (v23 & 0x1F) != 0 )
@@ -352,8 +352,8 @@ LABEL_57:
             if ( (v26 & 2) != 0 )
             {
               v44 = *(_QWORD *)(v54 + 8LL * ((unsigned __int16)v26 >> 12) + 7136);
-              if ( qword_14043A0C0 && (v26 & 0x10) == 0 )
-                v26 &= ~qword_14043A0C0;
+              if ( qword_14043B180 && (v26 & 0x10) == 0 )
+                v26 &= ~qword_14043B180;
               MiTransferSoftwarePte(*(_QWORD *)(v20 + 16), v44, HIDWORD(v26), 2LL);
             }
             else
@@ -368,7 +368,7 @@ LABEL_57:
             {
               if ( (unsigned int)MiPteHasShadow(v30, v29) )
               {
-                if ( !HIBYTE(word_14043A1AC) && (v29 & 1) != 0 )
+                if ( !HIBYTE(word_14043B26C) && (v29 & 1) != 0 )
                   v29 |= 0x8000000000000000uLL;
                 *(_QWORD *)v14 = v29;
                 MiWritePteShadow(v14);
@@ -409,8 +409,8 @@ LABEL_29:
           if ( (v21 & 2) != 0 )
           {
             v45 = *(_QWORD *)(v54 + 8LL * ((unsigned __int16)v21 >> 12) + 7136);
-            if ( qword_14043A0C0 && (v21 & 0x10) == 0 )
-              v21 &= ~qword_14043A0C0;
+            if ( qword_14043B180 && (v21 & 0x10) == 0 )
+              v21 &= ~qword_14043B180;
             v31 = MiTransferSoftwarePte(v22, v45, HIDWORD(v21), 2LL);
           }
           else
@@ -434,7 +434,7 @@ LABEL_42:
             *(_QWORD *)v14 = v31;
             goto LABEL_31;
           }
-          if ( !HIBYTE(word_14043A1AC) && (v31 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v31 & 1) != 0 )
             v31 |= 0x8000000000000000uLL;
           *(_QWORD *)v14 = v31;
           MiWritePteShadow(v14);

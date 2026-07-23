@@ -11,25 +11,34 @@
  *     ObReferenceObjectByHandle @ 0x1405317C0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
+  int v7; // ebp
+  int v9; // r15d
   NTSTATUS v10; // eax
   __int64 v11; // rbx
-  int v12; // edi
+  NTSTATUS v12; // edi
   NTSTATUS v13; // eax
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
   PVOID v16; // [rsp+38h] [rbp-20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
+  v7 = (int)ObjectAttributes;
+  v9 = (int)KeyHandle;
   --CurrentThread->KernelApcDisable;
   if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   v10 = ObReferenceObjectByHandle(
-          Handle,
+          TransactionHandle,
           4u,
           CmRegistryTransactionType,
           KeGetCurrentThread()->PreviousMode,
@@ -40,7 +49,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
   if ( v10 == -1073741788 )
   {
     v13 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -55,11 +64,11 @@ __int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE 
     v11 = (unsigned __int64)Object | 1;
 LABEL_4:
     if ( v12 >= 0 )
-      v12 = CmOpenKey(a1, a2, a3, a4, v11);
+      v12 = CmOpenKey(v9, DesiredAccess, v7, OpenOptions, v11);
   }
   if ( v11 )
     CmpTransDereferenceTransaction(v11);
   ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v12;
+  return v12;
 }

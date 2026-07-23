@@ -14,50 +14,56 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall EtwpQueryRegString(PCWSTR SourceString, PCWSTR a2, void *a3, unsigned int a4)
+NTSTATUS __fastcall EtwpQueryRegString(PCWSTR SourceString, PCWSTR a2, void *a3, ULONG ResultLength)
 {
-  int v5; // edi
-  int Heap; // esi
-  ULONG v8; // [esp+0h] [ebp-40h]
-  ULONG *v9; // [esp+4h] [ebp-3Ch]
-  _DWORD v10[6]; // [esp+10h] [ebp-30h] BYREF
-  UNICODE_STRING v11; // [esp+28h] [ebp-18h] BYREF
-  UNICODE_STRING DestinationString; // [esp+30h] [ebp-10h] BYREF
-  HANDLE Handle; // [esp+38h] [ebp-8h] BYREF
+  NTSTATUS v5; // edi
+  _DWORD *Heap; // esi
+  SIZE_T v8; // [esp-4h] [ebp-44h]
+  size_t v9; // [esp-4h] [ebp-44h]
+  ULONG v10; // [esp+0h] [ebp-40h]
+  ULONG *v11; // [esp+4h] [ebp-3Ch]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-30h] BYREF
+  _UNICODE_STRING ValueName; // [esp+28h] [ebp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+30h] [ebp-10h] BYREF
+  HANDLE KeyHandle; // [esp+38h] [ebp-8h] BYREF
   ULONG ulAugend; // [esp+3Ch] [ebp-4h] BYREF
 
   RtlInitUnicodeString(&DestinationString, SourceString);
-  v10[0] = 24;
-  v10[2] = &DestinationString;
-  v10[1] = 0;
-  v10[3] = 64;
-  v10[4] = 0;
-  v10[5] = 0;
-  v5 = ZwOpenKey(&Handle, 131097, v10);
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  v5 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v5 < 0 )
     return v5;
-  if ( is_mul_ok(2u, a4) )
+  if ( is_mul_ok(2u, ResultLength) )
   {
-    ulAugend = 2 * a4;
-    if ( ULongAdd((ULONG)&ulAugend, v8, v9) >= 0 )
+    ulAugend = 2 * ResultLength;
+    if ( ULongAdd((ULONG)&ulAugend, v10, v11) >= 0 )
     {
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, ulAugend);
+      LODWORD(v8) = ulAugend;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v8);
       if ( Heap )
       {
-        RtlInitUnicodeString(&v11, a2);
-        v5 = ZwQueryValueKey(Handle, &v11, 2, Heap, ulAugend, &a4);
+        RtlInitUnicodeString(&ValueName, a2);
+        v5 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, ulAugend, &ResultLength);
         if ( v5 >= 0 )
-          memcpy(a3, (const void *)(Heap + 12), *(_DWORD *)(Heap + 8));
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        {
+          LODWORD(v9) = Heap[2];
+          memcpy(a3, Heap + 3, v9);
+        }
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {
         v5 = -1073741801;
       }
-      NtClose(Handle);
+      NtClose(KeyHandle);
       return v5;
     }
   }
-  NtClose(Handle);
+  NtClose(KeyHandle);
   return -1073741675;
 }

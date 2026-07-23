@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetBitsEx @ 0x180141710
+ * XREFs of RtlSetBitsEx @ 0x180141610
  * Callers:
- *     RtlFindClearBitsAndSetEx @ 0x180140C10 (RtlFindClearBitsAndSetEx.c)
+ *     RtlFindClearBitsAndSetEx @ 0x180140B10 (RtlFindClearBitsAndSetEx.c)
  * Callees:
- *     RtlSetVolatileMemory @ 0x1801646A0 (RtlSetVolatileMemory.c)
+ *     RtlSetVolatileMemory @ 0x1801645A0 (RtlSetVolatileMemory.c)
  */
 
 void __fastcall RtlSetBitsEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -20,14 +20,14 @@ void __fastcall RtlSetBitsEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a
     v6 = a3;
     if ( v4 + a3 <= 8 )
     {
-      v7 = byte_18018B198[a3] << v4;
+      v7 = byte_18018A108[a3] << v4;
 LABEL_10:
       *v5 |= v7;
       return;
     }
     if ( (_DWORD)v4 )
     {
-      *v5++ |= byte_18017CAF8[v4];
+      *v5++ |= byte_18017B818[v4];
       v6 = a3 - (unsigned int)(8 - v4);
     }
     if ( v6 > 8 )
@@ -38,7 +38,7 @@ LABEL_10:
     }
     if ( v6 )
     {
-      v7 = byte_18018B198[v6];
+      v7 = byte_18018A108[v6];
       goto LABEL_10;
     }
   }

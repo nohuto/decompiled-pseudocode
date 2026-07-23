@@ -94,7 +94,7 @@
  *     sub_18007A3BC @ 0x18007A3BC (sub_18007A3BC.c)
  *     sub_18007B540 @ 0x18007B540 (sub_18007B540.c)
  *     sub_18007BEB4 @ 0x18007BEB4 (sub_18007BEB4.c)
- *     sub_18007C370 @ 0x18007C370 (sub_18007C370.c)
+ *     InitFn @ 0x18007C370 (InitFn.c)
  *     sub_18007CD00 @ 0x18007CD00 (sub_18007CD00.c)
  *     sub_18007E820 @ 0x18007E820 (sub_18007E820.c)
  *     sub_18007EA24 @ 0x18007EA24 (sub_18007EA24.c)
@@ -200,11 +200,11 @@
  *     <none>
  */
 
-__int64 ZwClose()
+NTSTATUS __cdecl ZwClose(HANDLE Handle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 15LL;
+  result = 15;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepAllocateSecurityAttributeValue @ 0x14000F268
+ * XREFs of AuthzBasepAllocateSecurityAttributeValue @ 0x14000EDE8
  * Callers:
- *     AuthzBasepDuplicateSecurityAttributes @ 0x14000ED90 (AuthzBasepDuplicateSecurityAttributes.c)
- *     AuthzBasepAddSecurityAttributeValues @ 0x14007C458 (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x14000E910 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x14007C4D8 (AuthzBasepAddSecurityAttributeValues.c)
  * Callees:
- *     AuthzBasepMemAlloc @ 0x14000F2A0 (AuthzBasepMemAlloc.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     AuthzBasepMemAlloc @ 0x14000EE20 (AuthzBasepMemAlloc.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void *__fastcall AuthzBasepAllocateSecurityAttributeValue(unsigned int a1, __int64 a2)

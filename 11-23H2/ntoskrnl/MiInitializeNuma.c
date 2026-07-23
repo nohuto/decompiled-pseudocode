@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeNuma @ 0x140397D58
+ * XREFs of MiInitializeNuma @ 0x140397F38
  * Callers:
- *     MiInitializePartition @ 0x1408372A0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x1408375A0 (MiInitializePartition.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
- *     MiInitializeSlabAllocator @ 0x140397FAC (MiInitializeSlabAllocator.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiInitializeChannelOrdering @ 0x140837C84 (MiInitializeChannelOrdering.c)
+ *     MiInitializeSlabAllocator @ 0x14039818C (MiInitializeSlabAllocator.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiInitializeChannelOrdering @ 0x140837F84 (MiInitializeChannelOrdering.c)
  */
 
 __int64 __fastcall MiInitializeNuma(__int64 a1)
@@ -29,11 +29,11 @@ __int64 __fastcall MiInitializeNuma(__int64 a1)
   __int64 v16; // rdi
   unsigned int v17; // esi
   int *v18; // r14
-  union _SLIST_HEADER *v19; // rbp
+  _SLIST_HEADER *v19; // rbp
   int v20; // ecx
   _DWORD *v21; // rsi
   __int64 v22; // r14
-  union _SLIST_HEADER *v23; // rbp
+  _SLIST_HEADER *v23; // rbp
   __int64 v24; // rbp
   unsigned int i; // esi
   __int64 result; // rax
@@ -108,7 +108,7 @@ __int64 __fastcall MiInitializeNuma(__int64 a1)
       while ( v29 );
       v17 = 0;
       v18 = (int *)(v30 - 2080);
-      v19 = (union _SLIST_HEADER *)(v30 - 2096);
+      v19 = (_SLIST_HEADER *)(v30 - 2096);
       do
       {
         InitializeSListHead(v19);
@@ -120,7 +120,7 @@ __int64 __fastcall MiInitializeNuma(__int64 a1)
       while ( v17 < 3 );
       v21 = (_DWORD *)(v30 - 1984);
       v22 = 3LL;
-      v23 = (union _SLIST_HEADER *)(v30 - 2000);
+      v23 = (_SLIST_HEADER *)(v30 - 2000);
       do
       {
         InitializeSListHead(v23);

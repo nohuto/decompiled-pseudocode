@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDeepSleepPowerSettingCallback @ 0x1407D7200
+ * XREFs of PopDeepSleepPowerSettingCallback @ 0x1407DA300
  * Callers:
  *     <none>
  * Callees:
- *     PopCheckResiliencyScenarios @ 0x140A3D444 (PopCheckResiliencyScenarios.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopCheckResiliencyScenarios @ 0x1409F8E64 (PopCheckResiliencyScenarios.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopDeepSleepPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -25,7 +25,7 @@ __int64 __fastcall PopDeepSleepPowerSettingCallback(_QWORD *a1, _DWORD *a2, int 
   if ( !v5 && a3 == 4 && a2 )
   {
     PopAcquirePolicyLock(a1, a2);
-    PopWeakChargerLock.SchedulerApcFill3[16] = *a2 != 0;
+    PopDeepSleepIsEnabled = *a2 != 0;
     PopCheckResiliencyScenarios();
     PopReleasePolicyLock(v7, v6, v8, v9, v11);
     return 0;

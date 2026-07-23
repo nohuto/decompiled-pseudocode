@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDeviceRemoveProcessVeto @ 0x140839948
+ * XREFs of PnpTraceDeviceRemoveProcessVeto @ 0x14083ABA8
  * Callers:
- *     PnpLogVetoInformation @ 0x1408330D0 (PnpLogVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x140834330 (PnpLogVetoInformation.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PnpTraceDeviceRemoveProcessVeto()
@@ -27,9 +27,9 @@ void PnpTraceDeviceRemoveProcessVeto()
   __int64 v14; // [rsp+A0h] [rbp+37h]
   _DWORD v15[2]; // [rsp+A8h] [rbp+3Fh] BYREF
 
-  if ( stru_1403FFBC8.LevelPlus1 > 5 )
+  if ( stru_140400BC8.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL) )
     {
       v5 = 2LL;
       v4 = v7;
@@ -46,7 +46,7 @@ void PnpTraceDeviceRemoveProcessVeto()
       v11[1] = 0;
       v13 = 2LL;
       v15[1] = 0;
-      TlgWrite(&stru_1403FFBC8, &unk_14036D85C, 0LL, 0LL, 8u, &pData);
+      TlgWrite(&stru_140400BC8, &unk_14036E689, 0LL, 0LL, 8u, &pData);
     }
   }
 }

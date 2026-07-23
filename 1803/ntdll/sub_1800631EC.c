@@ -16,69 +16,69 @@
  *     sub_1800FC524 @ 0x1800FC524 (sub_1800FC524.c)
  */
 
-unsigned __int64 __fastcall sub_1800631EC(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+ULONG_PTR __fastcall sub_1800631EC(__int64 a1, void *a2, char a3)
 {
-  volatile signed __int64 *v4; // rsi
-  int v6; // edi
-  unsigned __int64 v7; // rax
-  int v8; // r10d
-  __int64 v9; // r14
-  unsigned __int64 v10; // rsi
-  unsigned __int64 v11; // rax
-  char v12; // cl
-  __int64 v13; // rax
-  unsigned __int64 v14; // rdi
-  __int64 v15; // rcx
-  __int128 v17; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v18; // [rsp+40h] [rbp-10h] BYREF
-  unsigned __int64 v19; // [rsp+88h] [rbp+38h] BYREF
-  unsigned __int64 v20; // [rsp+98h] [rbp+48h] BYREF
+  _RTL_SRWLOCK *v3; // rsi
+  int v5; // edi
+  _RTL_BALANCED_NODE *v6; // rax
+  int v7; // r10d
+  __int64 v8; // r14
+  ULONG_PTR v9; // rsi
+  unsigned __int64 v10; // rax
+  char v11; // cl
+  __int64 v12; // rax
+  ULONG_PTR v13; // rdi
+  __int64 v14; // rcx
+  __int128 v16; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v17; // [rsp+40h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp+38h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+48h] BYREF
 
-  v19 = a2;
-  v4 = (volatile signed __int64 *)(a1 + 72);
-  v6 = (unsigned __int8)a3 & 1;
-  if ( ((unsigned __int8)a3 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 72, a2, a3, a4);
-  v7 = sub_18006337C(a1);
-  v9 = v7;
-  if ( v7 )
+  BaseAddress = a2;
+  v3 = (_RTL_SRWLOCK *)(a1 + 72);
+  v5 = a3 & 1;
+  if ( (a3 & 1) == 0 )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
+  v6 = (_RTL_BALANCED_NODE *)sub_18006337C(a1);
+  v8 = (__int64)v6;
+  if ( v6 )
   {
-    RtlRbRemoveNode(a1 + 80, v7);
-    if ( !v6 )
-      RtlReleaseSRWLockExclusive(v4);
-    v11 = *(_QWORD *)(v9 + 32);
-    v12 = (unsigned __int8)v11 >> 2;
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 80), v6);
+    if ( !v5 )
+      RtlReleaseSRWLockExclusive(v3);
+    v10 = *(_QWORD *)(v8 + 32);
+    v11 = (unsigned __int8)v10 >> 2;
+    v16 = *(_OWORD *)a1;
+    v12 = (((v10 >> 12) + ((v10 >> 1) & 1)) << 12) - 1;
+    RegionSize = (1LL << v11) - (((1LL << v11) - 1) & ((1LL << v11) + v12)) + v12;
+    sub_1800624DC(&BaseAddress, &RegionSize, 0x8000, &v16);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 104), -(*(_QWORD *)(v8 + 32) >> 12));
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 96), -(__int64)(RegionSize >> 12));
     v17 = *(_OWORD *)a1;
-    v13 = (((v11 >> 12) + ((v11 >> 1) & 1)) << 12) - 1;
-    v20 = (1LL << v12) - (((1LL << v12) - 1) & ((1LL << v12) + v13)) + v13;
-    sub_1800624DC(&v19, &v20, 0x8000, &v17);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 104), -(*(_QWORD *)(v9 + 32) >> 12));
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 96), -(__int64)(v20 >> 12));
-    v18 = *(_OWORD *)a1;
-    sub_18005F840(v9, &v18);
-    v14 = v20;
-    v10 = v20;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    sub_18005F840(v8, &v17);
+    v13 = RegionSize;
+    v9 = RegionSize;
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v14 = v20;
-      v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 558;
+      v13 = RegionSize;
+      v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[4];
     }
     else
     {
-      v15 = 2147353480LL;
+      v14 = 2147353480LL;
     }
-    if ( *(_BYTE *)v15 )
-      sub_1800FC524(a1, v19, v14);
+    if ( *(_BYTE *)v14 )
+      sub_1800FC524(a1, BaseAddress, v13);
   }
   else
   {
-    if ( !v6 )
+    if ( !v5 )
     {
-      RtlReleaseSRWLockExclusive(v4);
-      v8 = v19;
+      RtlReleaseSRWLockExclusive(v3);
+      v7 = (int)BaseAddress;
     }
-    sub_18009A5F0(8, a1, v8, 0, 0LL, 0LL);
+    sub_18009A5F0(8, a1, v7, 0, 0LL, 0LL);
     return 0LL;
   }
-  return v10;
+  return v9;
 }

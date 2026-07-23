@@ -1,55 +1,55 @@
 /*
- * XREFs of RtlpValidateHeapHeaders @ 0x1800413BC
+ * XREFs of RtlpValidateHeapHeaders @ 0x180021CEC
  * Callers:
- *     RtlpValidateHeap @ 0x180040D80 (RtlpValidateHeap.c)
- *     RtlDebugFreeHeap @ 0x18004178C (RtlDebugFreeHeap.c)
- *     RtlDebugAllocateHeap @ 0x18009CC30 (RtlDebugAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800A2A3C (RtlDebugReAllocateHeap.c)
- *     RtlDebugCreateHeap @ 0x180115F3C (RtlDebugCreateHeap.c)
- *     RtlDebugCompactHeap @ 0x18011EBF8 (RtlDebugCompactHeap.c)
- *     RtlDebugCreateTagHeap @ 0x180144A24 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugAllocateHeap @ 0x18001F7A4 (RtlDebugAllocateHeap.c)
+ *     RtlpValidateHeap @ 0x1800216B0 (RtlpValidateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180022020 (RtlDebugFreeHeap.c)
+ *     RtlDebugCreateHeap @ 0x1800232B0 (RtlDebugCreateHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18005C7E8 (RtlDebugReAllocateHeap.c)
+ *     RtlDebugCompactHeap @ 0x18011CE28 (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x180142DD4 (RtlDebugCreateTagHeap.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     ZwAllocateVirtualMemory @ 0x180161F90 (ZwAllocateVirtualMemory.c)
- *     RtlCompareMemory @ 0x180165F10 (RtlCompareMemory.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     ZwAllocateVirtualMemory @ 0x180160350 (ZwAllocateVirtualMemory.c)
+ *     RtlCompareMemory @ 0x1801642D0 (RtlCompareMemory.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-char __fastcall RtlpValidateHeapHeaders(_QWORD *Src, char a2)
+char __fastcall RtlpValidateHeapHeaders(char *Src, char a2)
 {
   void **v3; // rsi
   unsigned __int16 *v4; // rdi
-  size_t v5; // r8
-  SIZE_T v6; // rdi
-  size_t v7; // rax
+  ULONG_PTR v5; // r8
+  ULONG_PTR v6; // rdi
+  ULONG_PTR v7; // rax
   unsigned int v9; // ecx
   __int64 v10; // rbx
-  SIZE_T v11; // rax
-  size_t v12; // [rsp+50h] [rbp+18h] BYREF
+  ULONG_PTR v11; // rax
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+18h] BYREF
 
   if ( !RtlpValidateHeapHdrsEnable )
     return 1;
-  v3 = (void **)(Src + 27);
-  v4 = (unsigned __int16 *)Src + 105;
-  if ( Src[27] )
+  v3 = (void **)(Src + 216);
+  v4 = (unsigned __int16 *)(Src + 210);
+  if ( *((_QWORD *)Src + 27) )
     goto LABEL_3;
-  v12 = *v4;
-  if ( (int)ZwAllocateVirtualMemory(-1LL, Src + 27, 0LL, &v12, 4096, 4) < 0 )
+  RegionSize = *v4;
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)Src + 27, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
     return 1;
   a2 = 1;
 LABEL_3:
   v5 = *v4;
-  v12 = v5;
+  RegionSize = v5;
   if ( a2 )
   {
     memmove(*v3, Src, v5);
-    v7 = v12;
-    v6 = v12;
+    v7 = RegionSize;
+    v6 = RegionSize;
   }
   else
   {
     v6 = RtlCompareMemory(Src, *v3, v5);
-    v7 = v12;
+    v7 = RegionSize;
   }
   if ( v7 == v6 )
     return 1;
@@ -60,9 +60,9 @@ LABEL_3:
   DbgPrint(
     "Heap %p - headers modified (%p is %lx instead of %lx)\n",
     Src,
-    (char *)Src + v6,
-    *(_DWORD *)((char *)Src + v6),
-    *(_DWORD *)(Src[27] + v6));
+    &Src[v6],
+    *(_DWORD *)&Src[v6],
+    *(_DWORD *)(*((_QWORD *)Src + 27) + v6));
   v9 = 0;
   while ( 1 )
   {

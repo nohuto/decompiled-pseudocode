@@ -1,11 +1,11 @@
 /*
- * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x140222BFC
+ * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x140222A28
  * Callers:
- *     VfPutDmaAdapter @ 0x14070804C (VfPutDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x14070807C (VfPutDmaAdapter.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140705E70 (SUBTRACT_MAP_REGISTERS.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140705EA0 (SUBTRACT_MAP_REGISTERS.c)
  */
 
 void __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)

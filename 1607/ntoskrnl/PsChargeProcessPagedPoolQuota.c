@@ -1,10 +1,10 @@
 /*
- * XREFs of PsChargeProcessPagedPoolQuota @ 0x1404C1658
+ * XREFs of PsChargeProcessPagedPoolQuota @ 0x1404AD388
  * Callers:
- *     AlpcpChargePagedPoolQuota @ 0x14040D6F4 (AlpcpChargePagedPoolQuota.c)
- *     ExpAllocateHandleTable @ 0x1404C1378 (ExpAllocateHandleTable.c)
- *     ExpAllocateTablePagedPoolNoZero @ 0x1404C1600 (ExpAllocateTablePagedPoolNoZero.c)
- *     MiResizeAweBitMap @ 0x14065C82C (MiResizeAweBitMap.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14040C5B4 (AlpcpChargePagedPoolQuota.c)
+ *     ExpAllocateHandleTable @ 0x1404AD0A8 (ExpAllocateHandleTable.c)
+ *     ExpAllocateTablePagedPoolNoZero @ 0x1404AD330 (ExpAllocateTablePagedPoolNoZero.c)
+ *     MiResizeAweBitMap @ 0x14065C910 (MiResizeAweBitMap.c)
  * Callees:
  *     <none>
  */

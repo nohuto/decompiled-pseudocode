@@ -2,13 +2,13 @@
  * XREFs of MiRebuildPageTableLeafAges @ 0x1402188A0
  * Callers:
  *     MiCombineWithExisting @ 0x1402179B4 (MiCombineWithExisting.c)
- *     MiTerminateWsle @ 0x140274850 (MiTerminateWsle.c)
- *     MiFreeWsleList @ 0x140280C20 (MiFreeWsleList.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
+ *     MiTerminateWsle @ 0x140274AE0 (MiTerminateWsle.c)
+ *     MiFreeWsleList @ 0x140280EB0 (MiFreeWsleList.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCountWslesInPageTable @ 0x140317D00 (MiCountWslesInPageTable.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCountWslesInPageTable @ 0x140317F90 (MiCountWslesInPageTable.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiRebuildPageTableLeafAges(__int64 a1, unsigned __int64 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpFindNameInListWithStatus @ 0x140665F7C
+ * XREFs of CmpFindNameInListWithStatus @ 0x14065AD9C
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
- *     CmpCompareNewValueDataAgainstKCBCache @ 0x140665DE8 (CmpCompareNewValueDataAgainstKCBCache.c)
- *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
- *     CmpFindNameInList @ 0x1406695F8 (CmpFindNameInList.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x14086C548 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
+ *     CmpCompareNewValueDataAgainstKCBCache @ 0x14065AC08 (CmpCompareNewValueDataAgainstKCBCache.c)
+ *     CmDeleteValueKey @ 0x14065B364 (CmDeleteValueKey.c)
+ *     CmpFindNameInList @ 0x14065E418 (CmpFindNameInList.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1406DE1D0 (CmpGetSymbolicLinkTarget.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x14086C6A8 (CmQueryMultipleValueForLayeredKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindNameInListCellWithStatus @ 0x140666030 (CmpFindNameInListCellWithStatus.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFindNameInListCellWithStatus @ 0x14065AE50 (CmpFindNameInListCellWithStatus.c)
  */
 
 __int64 __fastcall CmpFindNameInListWithStatus(

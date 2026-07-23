@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAllocateWnfSerializationGroup @ 0x1800870B0
+ * XREFs of RtlAllocateWnfSerializationGroup @ 0x1800870A0
  * Callers:
  *     <none>
  * Callees:

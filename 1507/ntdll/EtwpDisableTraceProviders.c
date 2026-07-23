@@ -58,7 +58,7 @@ LABEL_6:
       v9 = 0;
       if ( *(_DWORD *)(v8 + 80) != LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
       {
-        RtlAcquireSRWLockExclusive(v8 + 64);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v8 + 64));
         v9 = 1;
         *(_DWORD *)(v8 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
       }
@@ -87,7 +87,7 @@ LABEL_18:
       if ( v9 )
       {
         *(_DWORD *)(v8 + 80) = 0;
-        RtlReleaseSRWLockExclusive(v8 + 64);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v8 + 64));
       }
     }
     v2 = v8;

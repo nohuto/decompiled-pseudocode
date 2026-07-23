@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDeleteBindingIds @ 0x140954594
+ * XREFs of PipDeleteBindingIds @ 0x140954794
  * Callers:
- *     PipConvertResolutionsToReservations @ 0x14095435C (PipConvertResolutionsToReservations.c)
- *     PipDeleteDependencyNode @ 0x1409545D8 (PipDeleteDependencyNode.c)
+ *     PipConvertResolutionsToReservations @ 0x14095455C (PipConvertResolutionsToReservations.c)
+ *     PipDeleteDependencyNode @ 0x1409547D8 (PipDeleteDependencyNode.c)
  * Callees:
- *     PipFreeBindingId @ 0x1409546A0 (PipFreeBindingId.c)
+ *     PipFreeBindingId @ 0x1409548A0 (PipFreeBindingId.c)
  */
 
 void __fastcall PipDeleteBindingIds(__int64 a1)

@@ -5,7 +5,7 @@
  * Callees:
  *     KiEnumerateNmiSxCallback @ 0x140001BF0 (KiEnumerateNmiSxCallback.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140088AE0 (ExReferenceCallBackBlock.c)
  */
 
 __int64 __fastcall KiEnumerateCallback(int a1, struct _EX_RUNDOWN_REF **a2, __int64 a3, _QWORD *a4)

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhCacheEmpty @ 0x18004E3C0
+ * XREFs of RtlpHpLfhCacheEmpty @ 0x18004E3B0
  * Callers:
- *     RtlpHpCompact @ 0x18004E444 (RtlpHpCompact.c)
- *     RtlpHpLfhContextCleanup @ 0x1800526EC (RtlpHpLfhContextCleanup.c)
+ *     RtlpHpCompact @ 0x18004E434 (RtlpHpCompact.c)
+ *     RtlpHpLfhContextCleanup @ 0x1800526DC (RtlpHpLfhContextCleanup.c)
  * Callees:
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     RtlpInterlockedFlushSList @ 0x1800A9DB0 (RtlpInterlockedFlushSList.c)

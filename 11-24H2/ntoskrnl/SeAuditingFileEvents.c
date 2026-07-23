@@ -1,5 +1,5 @@
 /*
- * XREFs of SeAuditingFileEvents @ 0x140791DC0
+ * XREFs of SeAuditingFileEvents @ 0x140791D90
  * Callers:
  *     <none>
  * Callees:
@@ -11,10 +11,10 @@ BOOLEAN __stdcall SeAuditingFileEvents(BOOLEAN AccessGranted, PSECURITY_DESCRIPT
   BOOLEAN result; // al
 
   result = 0;
-  if ( byte_140F04644 && AccessGranted
-    || byte_140F04645 && !AccessGranted
-    || byte_140F04646 && AccessGranted
-    || byte_140F04647 && !AccessGranted )
+  if ( byte_140F048E4 && AccessGranted
+    || byte_140F048E5 && !AccessGranted
+    || byte_140F048E6 && AccessGranted
+    || byte_140F048E7 && !AccessGranted )
   {
     return 1;
   }

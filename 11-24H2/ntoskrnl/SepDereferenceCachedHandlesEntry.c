@@ -1,9 +1,9 @@
 /*
- * XREFs of SepDereferenceCachedHandlesEntry @ 0x140A08D00
+ * XREFs of SepDereferenceCachedHandlesEntry @ 0x140A05230
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x1404843CC (SepSetTokenBnoIsolation.c)
+ *     SepSetTokenBnoIsolation @ 0x14047F96C (SepSetTokenBnoIsolation.c)
  * Callees:
- *     SepDereferenceCachedHandlesEntryInternal @ 0x140A08D24 (SepDereferenceCachedHandlesEntryInternal.c)
+ *     SepDereferenceCachedHandlesEntryInternal @ 0x140A05254 (SepDereferenceCachedHandlesEntryInternal.c)
  */
 
 __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1)

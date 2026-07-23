@@ -12,9 +12,6 @@
 __int64 __fastcall MiProcessLoadConfigForDriver(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  unsigned __int64 v5; // rbx
-  unsigned int v6; // eax
-  __int64 v7; // r8
 
   if ( !_bittest16((const signed __int16 *)(a1 + 110), 9u) )
   {
@@ -23,9 +20,9 @@ __int64 __fastcall MiProcessLoadConfigForDriver(__int64 a1, __int64 a2)
       return result;
     if ( a2 )
     {
-      v5 = (unsigned __int64)(unsigned int)ExGenRandom(0) << 32;
-      v6 = ExGenRandom(0);
-      LdrInitSecurityCookie(*(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64), v7, v5 | v6);
+      ExGenRandom(0);
+      ExGenRandom(0);
+      LdrInitSecurityCookie(*(PVOID *)(a1 + 48));
     }
   }
   return 0LL;

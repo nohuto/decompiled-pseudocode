@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptAddTarget @ 0x140427EE4
+ * XREFs of HalpInterruptAddTarget @ 0x140434FF4
  * Callers:
- *     HalpInterruptDestinationToTarget @ 0x140427E00 (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptDestinationToTarget @ 0x140434F10 (HalpInterruptDestinationToTarget.c)
  * Callees:
  *     <none>
  */

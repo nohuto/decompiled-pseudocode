@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReturnFullProcessCharges @ 0x1404C9B60
+ * XREFs of MiReturnFullProcessCharges @ 0x1404C3598
  * Callers:
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiRemoveVadCharges @ 0x14095C7D4 (MiRemoveVadCharges.c)
- *     MiDecommitRegion @ 0x14095FDBC (MiDecommitRegion.c)
- *     MiCommitExistingVad @ 0x1409C7300 (MiCommitExistingVad.c)
- *     MiSectionProtectReturnCharges @ 0x140A80EE4 (MiSectionProtectReturnCharges.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
- *     MiDeleteVadBitmap @ 0x140AFAF24 (MiDeleteVadBitmap.c)
+ *     MiCommitExistingVad @ 0x1409982E0 (MiCommitExistingVad.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiRemoveVadCharges @ 0x140A02094 (MiRemoveVadCharges.c)
+ *     MiDecommitRegion @ 0x140A0567C (MiDecommitRegion.c)
+ *     MiSectionProtectReturnCharges @ 0x140A86D54 (MiSectionProtectReturnCharges.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
+ *     MiDeleteVadBitmap @ 0x140AFCE30 (MiDeleteVadBitmap.c)
  * Callees:
- *     PspChangeJobMemoryUsageByProcess @ 0x140960360 (PspChangeJobMemoryUsageByProcess.c)
- *     PsReturnProcessPageFileQuota @ 0x140A6B260 (PsReturnProcessPageFileQuota.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x140A05C20 (PspChangeJobMemoryUsageByProcess.c)
+ *     PsReturnProcessPageFileQuota @ 0x140A7C890 (PsReturnProcessPageFileQuota.c)
  */
 
 __int64 __fastcall MiReturnFullProcessCharges(__int64 a1, __int64 a2)

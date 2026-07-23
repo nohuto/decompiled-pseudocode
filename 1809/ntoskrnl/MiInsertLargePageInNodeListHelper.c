@@ -1,29 +1,29 @@
 /*
- * XREFs of MiInsertLargePageInNodeListHelper @ 0x14009BAC0
+ * XREFs of MiInsertLargePageInNodeListHelper @ 0x14009BA00
  * Callers:
  *     MiInsertLargePageInNodeList @ 0x140028C1C (MiInsertLargePageInNodeList.c)
  *     MiInsertLargePageInFreeOrZeroList @ 0x140036320 (MiInsertLargePageInFreeOrZeroList.c)
  *     MiCoalesceFreePages @ 0x1400390D0 (MiCoalesceFreePages.c)
- *     MiConstructNewLargeFreePage @ 0x1400911B0 (MiConstructNewLargeFreePage.c)
- *     MiDeleteClusterPage @ 0x1402C622C (MiDeleteClusterPage.c)
- *     MiFreeLargePageChain @ 0x1402CC82C (MiFreeLargePageChain.c)
- *     MiMoveLargeFreePage @ 0x1402CC944 (MiMoveLargeFreePage.c)
- *     MiScrubNodeLargePageList @ 0x1402CCB90 (MiScrubNodeLargePageList.c)
- *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
+ *     MiConstructNewLargeFreePage @ 0x1400910F0 (MiConstructNewLargeFreePage.c)
+ *     MiDeleteClusterPage @ 0x1402C641C (MiDeleteClusterPage.c)
+ *     MiFreeLargePageChain @ 0x1402CCA1C (MiFreeLargePageChain.c)
+ *     MiMoveLargeFreePage @ 0x1402CCB34 (MiMoveLargeFreePage.c)
+ *     MiScrubNodeLargePageList @ 0x1402CCD80 (MiScrubNodeLargePageList.c)
+ *     MxCreateFreePfns @ 0x1409BBD10 (MxCreateFreePfns.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     MiIncreaseAvailablePages @ 0x14009CEE0 (MiIncreaseAvailablePages.c)
- *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiQueueLargeFreeZeroRebuild @ 0x14009D1D0 (MiQueueLargeFreeZeroRebuild.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     MiIncreaseAvailablePages @ 0x14009CE20 (MiIncreaseAvailablePages.c)
+ *     MiPageToChannel @ 0x14009CF2C (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     MiQueueLargeFreeZeroRebuild @ 0x14009D110 (MiQueueLargeFreeZeroRebuild.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
  */
 
 __int64 __fastcall MiInsertLargePageInNodeListHelper(
@@ -79,7 +79,7 @@ __int64 __fastcall MiInsertLargePageInNodeListHelper(
   v40 = 0LL;
   v7 = 48 * BugCheckParameter2 - 0x58000000000LL;
   v36 = v7 + 48 * a2;
-  v8 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v7 + 40) >> 40) & 0x3FFLL));
+  v8 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v7 + 40) >> 40) & 0x3FFLL));
   v37 = v8;
   v9 = 0;
   v10 = MiLargePageContainingFrames;
@@ -94,7 +94,7 @@ __int64 __fastcall MiInsertLargePageInNodeListHelper(
     }
   }
   v11 = MiLargePageSizes[v9];
-  if ( (_DWORD)v4 != 1 && (MiFlags & 0x80u) != 0 && (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+  if ( (_DWORD)v4 != 1 && (MiFlags & 0x80u) != 0 && (++dword_14043B92C & MmPageValidationFrequency) == 0 )
   {
     MiArePageContentsZero(BugCheckParameter2);
     v5 = a2;
@@ -112,7 +112,7 @@ __int64 __fastcall MiInsertLargePageInNodeListHelper(
     v18 = BugCheckParameter2 >> 4;
   else
     v18 = BugCheckParameter2 / v16;
-  v19 = (unsigned int)dword_14043A100[v9];
+  v19 = (unsigned int)dword_14043B1C0[v9];
   if ( v19 == 16 )
     LODWORD(v18) = v18 & 0xF;
   else

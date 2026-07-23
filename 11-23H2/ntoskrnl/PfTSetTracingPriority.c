@@ -1,13 +1,13 @@
 /*
- * XREFs of PfTSetTracingPriority @ 0x140AA0714
+ * XREFs of PfTSetTracingPriority @ 0x140AA0584
  * Callers:
- *     PfpLogEventRequest @ 0x14097DDD8 (PfpLogEventRequest.c)
+ *     PfpLogEventRequest @ 0x14097DFD8 (PfpLogEventRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MmSetAccessLogging @ 0x14036AE90 (MmSetAccessLogging.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MmSetAccessLogging @ 0x14036B030 (MmSetAccessLogging.c)
  */
 
 void __fastcall PfTSetTracingPriority(int a1)

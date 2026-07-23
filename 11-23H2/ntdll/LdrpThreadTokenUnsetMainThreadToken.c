@@ -10,15 +10,15 @@
 
 __int64 LdrpThreadTokenUnsetMainThreadToken()
 {
-  unsigned int v0; // ebx
+  unsigned __int32 v0; // ebx
 
   v0 = NtClose(LdrpMainThreadToken);
   LdrpMainThreadToken = 0LL;
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrapi.c",
-    3567LL,
+    3567,
     (__int64)"LdrpThreadTokenUnsetMainThreadToken",
-    2LL,
+    2u,
     "Status: 0x%x\n",
     v0);
   return v0;

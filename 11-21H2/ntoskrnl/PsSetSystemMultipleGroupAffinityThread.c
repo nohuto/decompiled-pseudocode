@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetSystemMultipleGroupAffinityThread @ 0x14056B9FC (KeSetSystemMultipleGroupAffinityThread.c)
+ *     sub_14056B9FC @ 0x14056B9FC (sub_14056B9FC.c)
  */
 
 __int64 __fastcall PsSetSystemMultipleGroupAffinityThread(__int64 *a1, __int64 a2, __int64 a3)
 {
-  return KeSetSystemMultipleGroupAffinityThread(a1, a2, a3);
+  return sub_14056B9FC(a1, a2, a3);
 }

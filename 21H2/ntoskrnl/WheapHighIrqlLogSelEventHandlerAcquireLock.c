@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD510
+ * XREFs of WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD740
  * Callers:
- *     WheaHighIrqlLogSelEventHandlerRegister @ 0x1405BD360 (WheaHighIrqlLogSelEventHandlerRegister.c)
- *     WheaHighIrqlLogSelEventHandlerUnregister @ 0x1405BD3D0 (WheaHighIrqlLogSelEventHandlerUnregister.c)
- *     WheapLogIpmiSELEventHighIrql @ 0x1405BD5D8 (WheapLogIpmiSELEventHighIrql.c)
+ *     WheaHighIrqlLogSelEventHandlerRegister @ 0x1405BD590 (WheaHighIrqlLogSelEventHandlerRegister.c)
+ *     WheaHighIrqlLogSelEventHandlerUnregister @ 0x1405BD600 (WheaHighIrqlLogSelEventHandlerUnregister.c)
+ *     WheapLogIpmiSELEventHighIrql @ 0x1405BD808 (WheapLogIpmiSELEventHighIrql.c)
  * Callees:
  *     <none>
  */

@@ -14,11 +14,10 @@ __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2
   unsigned int v4; // ebx
   __int64 v5; // r14
   __int64 v9; // r8
-  __int64 Heap; // rax
+  _WORD *Heap; // rax
   signed __int64 v11; // rsi
-  __int64 v12; // r9
-  const void *v14; // rcx
-  int v15; // eax
+  const void *v13; // rcx
+  int v14; // eax
 
   v4 = 0;
   v5 = a2;
@@ -35,15 +34,15 @@ __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2
         }
         else
         {
-          Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, v9 + 34);
-          v11 = Heap;
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v9 + 34);
+          v11 = (signed __int64)Heap;
           if ( Heap )
           {
             *(_DWORD *)Heap = 0;
-            *(_WORD *)(Heap + 8) = *(_WORD *)a3;
-            *(_QWORD *)(Heap + 16) = Heap + 32;
-            *(_WORD *)(Heap + 10) = *(_WORD *)a3 + 2;
-            memmove((void *)(Heap + 32), a3[1], *(unsigned __int16 *)a3);
+            Heap[4] = *(_WORD *)a3;
+            *((_QWORD *)Heap + 2) = Heap + 16;
+            Heap[5] = *(_WORD *)a3 + 2;
+            memmove(Heap + 16, a3[1], *(unsigned __int16 *)a3);
             *(_WORD *)(*(_QWORD *)(v11 + 16) + 2 * ((unsigned __int64)*(unsigned __int16 *)(v11 + 8) >> 1)) = 0;
             *(_QWORD *)(v11 + 24) = *a4;
             if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)(a1 + 8) + 8 * v5), v11, 0LL) )
@@ -52,7 +51,7 @@ __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2
               *a4 = 0LL;
             }
             if ( v11 )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11, v12);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v11);
           }
           else
           {
@@ -67,17 +66,17 @@ __int64 __fastcall RtlpInsertAssemblyStorageMapEntry(__int64 a1, unsigned int a2
   else if ( a3 )
   {
 LABEL_20:
-    v14 = a3[1];
-    v15 = *(unsigned __int16 *)a3;
+    v13 = a3[1];
+    v14 = *(unsigned __int16 *)a3;
     goto LABEL_17;
   }
-  v14 = 0LL;
-  v15 = 0;
+  v13 = 0LL;
+  v14 = 0;
 LABEL_17:
   if ( a1 )
     v4 = *(_DWORD *)(a1 + 4);
   DbgPrintEx(
-    51,
+    0x33u,
     0,
     "SXS: %s() bad parameters\n"
     "SXS:  Map                    : %p\n"
@@ -92,8 +91,8 @@ LABEL_17:
     a2,
     v4,
     a3,
-    v15,
     v14,
+    v13,
     a4);
   return (unsigned int)-1073741811;
 }

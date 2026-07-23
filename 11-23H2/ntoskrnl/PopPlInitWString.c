@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPlInitWString @ 0x1409A08B0
+ * XREFs of PopPlInitWString @ 0x1409A0AB0
  * Callers:
- *     PopPlInitDevice @ 0x1409A0538 (PopPlInitDevice.c)
- *     PopPlInitPowerPlane @ 0x1409A07BC (PopPlInitPowerPlane.c)
+ *     PopPlInitDevice @ 0x1409A0738 (PopPlInitDevice.c)
+ *     PopPlInitPowerPlane @ 0x1409A09BC (PopPlInitPowerPlane.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
- *     RtlUnicodeStringCchCopyStringN @ 0x1405A2068 (RtlUnicodeStringCchCopyStringN.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
+ *     RtlUnicodeStringCchCopyStringN @ 0x1405A2558 (RtlUnicodeStringCchCopyStringN.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

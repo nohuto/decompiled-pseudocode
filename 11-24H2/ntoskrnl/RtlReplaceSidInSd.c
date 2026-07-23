@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlReplaceSidInSd @ 0x140780E60
+ * XREFs of RtlReplaceSidInSd @ 0x140780D90
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140454080 (RtlGetDaclSecurityDescriptor.c)
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     RtlSubAuthorityCountSid @ 0x1404600D0 (RtlSubAuthorityCountSid.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x140A15750 (RtlGetOwnerSecurityDescriptor.c)
- *     RtlGetSaclSecurityDescriptor @ 0x140A2C790 (RtlGetSaclSecurityDescriptor.c)
- *     RtlGetGroupSecurityDescriptor @ 0x140A77C80 (RtlGetGroupSecurityDescriptor.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140449130 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     RtlSubAuthorityCountSid @ 0x140454FB0 (RtlSubAuthorityCountSid.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x140A0E930 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x140A211D0 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x140A71F80 (RtlGetGroupSecurityDescriptor.c)
  */
 
 NTSTATUS __stdcall RtlReplaceSidInSd(

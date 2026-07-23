@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpPointMapEntriesToBuffer @ 0x140513AF8
+ * XREFs of HvpPointMapEntriesToBuffer @ 0x1404F6EE8
  * Callers:
- *     HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5964 (HvpFindNextDirtyBlockAndCreateTemporary.c)
- *     HvpMapHiveImageFromSystemCache @ 0x1401B72D8 (HvpMapHiveImageFromSystemCache.c)
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
- *     HvpMapHiveImage @ 0x140513C14 (HvpMapHiveImage.c)
- *     HvpEnlistBinInMap @ 0x140513FE0 (HvpEnlistBinInMap.c)
- *     HvpRemapAndEnlistHiveBins @ 0x140514194 (HvpRemapAndEnlistHiveBins.c)
- *     HvpDropPagedBins @ 0x14054DD48 (HvpDropPagedBins.c)
- *     HvpAddDummyBinToHive @ 0x1406123A0 (HvpAddDummyBinToHive.c)
- *     HvpAddLoadedBinToHive @ 0x140612530 (HvpAddLoadedBinToHive.c)
+ *     HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5848 (HvpFindNextDirtyBlockAndCreateTemporary.c)
+ *     HvpMapHiveImageFromSystemCache @ 0x1401B71BC (HvpMapHiveImageFromSystemCache.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
+ *     HvpMapHiveImage @ 0x1404F7004 (HvpMapHiveImage.c)
+ *     HvpEnlistBinInMap @ 0x1404F73D0 (HvpEnlistBinInMap.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1404F7584 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpDropPagedBins @ 0x14054E0E8 (HvpDropPagedBins.c)
+ *     HvpAddDummyBinToHive @ 0x140612454 (HvpAddDummyBinToHive.c)
+ *     HvpAddLoadedBinToHive @ 0x1406125E4 (HvpAddLoadedBinToHive.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
  */
 
 void __fastcall HvpPointMapEntriesToBuffer(

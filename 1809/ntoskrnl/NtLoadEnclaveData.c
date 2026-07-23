@@ -1,5 +1,5 @@
 /*
- * XREFs of NtLoadEnclaveData @ 0x14085AFB0
+ * XREFs of NtLoadEnclaveData @ 0x14085C210
  * Callers:
  *     <none>
  * Callees:
@@ -9,42 +9,42 @@
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MmSizeOfMdl @ 0x14011A740 (MmSizeOfMdl.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     DbgkMapViewOfSection @ 0x14067747C (DbgkMapViewOfSection.c)
- *     MiCopyPagesIntoEnclave @ 0x14085948C (MiCopyPagesIntoEnclave.c)
- *     MiDereferenceEnclaveModule @ 0x14085A1AC (MiDereferenceEnclaveModule.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MmSizeOfMdl @ 0x14011A7B0 (MmSizeOfMdl.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     DbgkMapViewOfSection @ 0x14067863C (DbgkMapViewOfSection.c)
+ *     MiCopyPagesIntoEnclave @ 0x14085A6EC (MiCopyPagesIntoEnclave.c)
+ *     MiDereferenceEnclaveModule @ 0x14085B40C (MiDereferenceEnclaveModule.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085B5DC (MiLoadSectionIntoVsmEnclave.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtLoadEnclaveData(
-        ULONG_PTR a1,
-        __int64 a2,
-        void *a3,
-        __int64 a4,
-        int a5,
-        PVOID Base,
-        SIZE_T Length,
-        __int64 *a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
   __int16 v9; // r10
   ULONG_PTR v10; // rbx
-  int v11; // r12d
+  ULONG v11; // r12d
   __int64 v12; // r14
   char PreviousMode; // r9
   __int64 v14; // rcx
   __int64 v15; // rcx
   SIZE_T v16; // rax
   struct _MDL *PoolWithTag; // rax
-  int v18; // edi
+  NTSTATUS v18; // edi
   struct _KPROCESS *Process; // rbx
   __int64 v20; // rax
   ULONG_PTR v21; // rdi
@@ -54,16 +54,16 @@ __int64 __fastcall NtLoadEnclaveData(
   __int64 v25; // rbx
   volatile signed __int32 *v26; // rbx
   KPROCESSOR_MODE AccessMode; // [rsp+50h] [rbp-118h]
-  int v29; // [rsp+54h] [rbp-114h] BYREF
+  NTSTATUS v29; // [rsp+54h] [rbp-114h] BYREF
   int v30; // [rsp+58h] [rbp-110h]
   ULONG_PTR BugCheckParameter1; // [rsp+60h] [rbp-108h]
   char *v32; // [rsp+68h] [rbp-100h]
   PVOID Object; // [rsp+70h] [rbp-F8h] BYREF
   _DWORD v34[3]; // [rsp+7Ch] [rbp-ECh] BYREF
   PMDL MemoryDescriptorList; // [rsp+88h] [rbp-E0h]
-  _DWORD *v36; // [rsp+90h] [rbp-D8h]
-  ULONG_PTR v37; // [rsp+A0h] [rbp-C8h]
-  __int64 *v38; // [rsp+A8h] [rbp-C0h]
+  PULONG v36; // [rsp+90h] [rbp-D8h]
+  HANDLE v37; // [rsp+A0h] [rbp-C8h]
+  PSIZE_T v38; // [rsp+A8h] [rbp-C0h]
   void *v39; // [rsp+B0h] [rbp-B8h]
   __int64 v40; // [rsp+B8h] [rbp-B0h]
   __int64 v41; // [rsp+C0h] [rbp-A8h] BYREF
@@ -71,17 +71,17 @@ __int64 __fastcall NtLoadEnclaveData(
   void *Src; // [rsp+E0h] [rbp-88h]
   _BYTE v44[48]; // [rsp+F8h] [rbp-70h] BYREF
 
-  v9 = a4;
-  v40 = a4;
-  Src = a3;
-  *(_QWORD *)&v34[1] = a2;
-  v10 = a1;
-  BugCheckParameter1 = a1;
-  v11 = Length;
-  LODWORD(v32) = Length;
-  v37 = a1;
-  v38 = a8;
-  v36 = a9;
+  v9 = BufferSize;
+  v40 = BufferSize;
+  Src = Buffer;
+  *(_QWORD *)&v34[1] = BaseAddress;
+  v10 = (ULONG_PTR)ProcessHandle;
+  BugCheckParameter1 = (ULONG_PTR)ProcessHandle;
+  v11 = PageInformationLength;
+  LODWORD(v32) = PageInformationLength;
+  v37 = ProcessHandle;
+  v38 = NumberOfBytesWritten;
+  v36 = EnclaveError;
   v42[0] = 0LL;
   v34[0] = 0;
   Object = 0LL;
@@ -91,41 +91,41 @@ __int64 __fastcall NtLoadEnclaveData(
   AccessMode = PreviousMode;
   if ( PreviousMode == 1 )
   {
-    if ( a9 )
+    if ( EnclaveError )
     {
-      v14 = (__int64)a9;
-      if ( (unsigned __int64)a9 >= 0x7FFFFFFF0000LL )
+      v14 = (__int64)EnclaveError;
+      if ( (unsigned __int64)EnclaveError >= 0x7FFFFFFF0000LL )
         v14 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v14 = *(_DWORD *)v14;
     }
-    if ( a8 )
+    if ( NumberOfBytesWritten )
     {
-      v15 = (__int64)a8;
-      if ( (unsigned __int64)a8 >= 0x7FFFFFFF0000LL )
+      v15 = (__int64)NumberOfBytesWritten;
+      if ( (unsigned __int64)NumberOfBytesWritten >= 0x7FFFFFFF0000LL )
         v15 = 0x7FFFFFFF0000LL;
       *(_QWORD *)v15 = *(_QWORD *)v15;
     }
   }
   v39 = 0LL;
-  if ( (_DWORD)Length )
+  if ( PageInformationLength )
   {
-    if ( (unsigned int)(Length - 16) > 0xFFEF )
+    if ( PageInformationLength - 16 > 0xFFEF )
     {
       v18 = -1073741820;
       goto LABEL_20;
     }
     if ( PreviousMode == 1 )
     {
-      if ( ((unsigned __int8)Base & 3) != 0 )
+      if ( ((unsigned __int8)PageInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)Base + (unsigned int)Length > 0x7FFFFFFF0000LL
-        || (char *)Base + (unsigned int)Length < Base )
+      if ( (unsigned __int64)PageInformation + PageInformationLength > 0x7FFFFFFF0000LL
+        || (char *)PageInformation + PageInformationLength < PageInformation )
       {
         MEMORY[0x7FFFFFFF0000] = 0;
       }
     }
-    v39 = *(void **)Base;
-    v16 = MmSizeOfMdl(Base, (unsigned int)Length);
+    v39 = *(void **)PageInformation;
+    v16 = MmSizeOfMdl(PageInformation, PageInformationLength);
     PoolWithTag = (struct _MDL *)ExAllocatePoolWithTag(NonPagedPoolNx, v16, 0x6C646D4Du);
     v12 = (__int64)PoolWithTag;
     MemoryDescriptorList = PoolWithTag;
@@ -140,11 +140,12 @@ LABEL_46:
     }
     PoolWithTag->Next = 0LL;
     PoolWithTag->Size = 8
-                      * (((((unsigned __int16)Base & 0xFFF) + (unsigned __int64)(unsigned int)Length + 4095) >> 12) + 6);
+                      * (((((unsigned __int16)PageInformation & 0xFFF) + (unsigned __int64)PageInformationLength + 4095) >> 12)
+                       + 6);
     PoolWithTag->MdlFlags = 0;
-    PoolWithTag->StartVa = (PVOID)((unsigned __int64)Base & 0xFFFFFFFFFFFFF000uLL);
-    PoolWithTag->ByteOffset = (unsigned __int16)Base & 0xFFF;
-    v11 = (int)v32;
+    PoolWithTag->StartVa = (PVOID)((unsigned __int64)PageInformation & 0xFFFFFFFFFFFFF000uLL);
+    PoolWithTag->ByteOffset = (unsigned __int16)PageInformation & 0xFFF;
+    v11 = (unsigned int)v32;
     PoolWithTag->ByteCount = (unsigned int)v32;
     MmProbeAndLockPages(PoolWithTag, AccessMode, IoReadAccess);
     PreviousMode = AccessMode;
@@ -212,7 +213,7 @@ LABEL_45:
                   *(__int64 *)&v34[1],
                   Src,
                   v25,
-                  a5,
+                  Protect,
                   v42,
                   v34);
           v29 = v18;
@@ -273,9 +274,9 @@ LABEL_48:
     DbgkMapViewOfSection((_KPROCESS *)Object, 0LL, *(void **)(v41 + 16));
     MiDereferenceEnclaveModule(v26);
   }
-  if ( a8 )
-    *a8 = v42[0];
-  if ( a9 )
-    *a9 = v34[0];
-  return (unsigned int)v18;
+  if ( NumberOfBytesWritten )
+    *NumberOfBytesWritten = v42[0];
+  if ( EnclaveError )
+    *EnclaveError = v34[0];
+  return v18;
 }

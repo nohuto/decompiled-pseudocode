@@ -1,29 +1,28 @@
 /*
- * XREFs of CmpReferenceKeyControlBlockLockNotHeld @ 0x1406BCD00
+ * XREFs of CmpReferenceKeyControlBlockLockNotHeld @ 0x1405DF144
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
- *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
+ *     CmpCreateKeyControlBlock @ 0x1406DEDB0 (CmpCreateKeyControlBlock.c)
+ *     CmpWalkOneLevel @ 0x1406E5B20 (CmpWalkOneLevel.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpReferenceKeyControlBlock @ 0x140719888 (CmpReferenceKeyControlBlock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpReferenceKeyControlBlock @ 0x1405E09D4 (CmpReferenceKeyControlBlock.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
  */
 
-double __fastcall CmpReferenceKeyControlBlockLockNotHeld(ULONG_PTR BugCheckParameter2)
+__int64 __fastcall CmpReferenceKeyControlBlockLockNotHeld(ULONG_PTR BugCheckParameter2)
 {
-  signed __int64 v1; // rax
-  signed __int64 v3; // rtt
-  double result; // xmm0_8
+  __int64 result; // rax
+  __int64 v3; // rtt
 
-  v1 = *(_QWORD *)BugCheckParameter2;
-  while ( v1 )
+  result = *(_QWORD *)BugCheckParameter2;
+  while ( result )
   {
-    if ( v1 == -1 )
+    if ( result == -1 )
       KeBugCheckEx(0x51u, 0x24uLL, BugCheckParameter2, 0LL, 0LL);
-    v3 = v1;
-    v1 = _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, v1 + 1, v1);
-    if ( v3 == v1 )
+    v3 = result;
+    result = _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, result + 1, result);
+    if ( v3 == result )
       return result;
   }
   ExAcquirePushLockSharedEx(BugCheckParameter2 + 48, 0LL);

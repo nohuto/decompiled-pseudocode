@@ -1,9 +1,9 @@
 /*
- * XREFs of MmForceSectionClosed @ 0x140122090
+ * XREFs of MmForceSectionClosed @ 0x140122160
  * Callers:
  *     <none>
  * Callees:
- *     MiForceSectionClosed @ 0x1401220CC (MiForceSectionClosed.c)
+ *     MiForceSectionClosed @ 0x14012219C (MiForceSectionClosed.c)
  */
 
 BOOLEAN __stdcall MmForceSectionClosed(PSECTION_OBJECT_POINTERS SectionObjectPointer, BOOLEAN DelayClose)

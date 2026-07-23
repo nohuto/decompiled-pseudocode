@@ -1,80 +1,76 @@
 /*
- * XREFs of DifExIsFastResourceContendedWrapper @ 0x14061F220
+ * XREFs of DifExIsFastResourceContendedWrapper @ 0x14061D7E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     ExIsFastResourceContended @ 0x1406566C0 (ExIsFastResourceContended.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     ExIsFastResourceContended @ 0x140654DC0 (ExIsFastResourceContended.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall DifExIsFastResourceContendedWrapper(ULONG_PTR BugCheckParameter2)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 *v6; // rsi
-  int v7; // eax
-  BOOLEAN v8; // di
+  __int64 *v4; // rsi
+  int v5; // eax
+  BOOLEAN v6; // di
   __int64 *i; // rbx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  BOOLEAN v13; // di
-  _QWORD **v14; // rsi
+  __int64 v8; // rdx
+  BOOLEAN v9; // di
+  _QWORD **v10; // rsi
   _QWORD *j; // rbx
-  __int128 v17; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v18; // [rsp+30h] [rbp-18h]
+  __int128 v13; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+30h] [rbp-18h]
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h]
 
-  v17 = 0LL;
-  v18 = 0LL;
+  v13 = 0LL;
+  v14 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(461);
-  v6 = APIThunkContextById;
+  v4 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v7 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v7 & 0x18) != 0 )
+    v5 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v5 & 0x18) != 0 )
     {
-      *(_QWORD *)&v17 = retaddr;
+      *(_QWORD *)&v13 = retaddr;
     }
-    else if ( (v7 & 4) != 0 )
+    else if ( (v5 & 4) != 0 )
     {
-      *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v13 = DifGetReturnAddressForWrappers();
     }
-    v8 = 0;
-    *((_QWORD *)&v17 + 1) = BugCheckParameter2;
+    v6 = 0;
+    *((_QWORD *)&v13 + 1) = BugCheckParameter2;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v8 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v6 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v6[4]; i != v6 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v4[4]; i != v4 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v17, v3, v4, v5);
+          guard_dispatch_icall_no_overrides(&v13, v3);
       }
-      if ( v8 )
+      if ( v6 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LOBYTE(v18) = ExIsFastResourceContended(BugCheckParameter2);
-  if ( v6 )
+  LOBYTE(v14) = ExIsFastResourceContended(BugCheckParameter2);
+  if ( v4 )
   {
-    if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v13 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v9 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v9 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v14 = (_QWORD **)(v6 + 6);
-      for ( j = *v14; j != v14; j = (_QWORD *)*j )
+      v10 = (_QWORD **)(v4 + 6);
+      for ( j = *v10; j != v10; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v17, v10, v11, v12);
+          guard_dispatch_icall_no_overrides(&v13, v8);
       }
-      if ( v13 )
+      if ( v9 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return v18;
+  return v14;
 }

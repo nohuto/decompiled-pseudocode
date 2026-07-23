@@ -11,13 +11,14 @@
 void __noreturn KiUserApcDispatcher()
 {
   unsigned __int64 v0; // rcx
-  unsigned int v1; // eax
-  unsigned int v2; // esi
+  NTSTATUS v1; // eax
+  NTSTATUS v2; // esi
   unsigned __int64 v3; // rcx
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
   __int64 v5; // [rsp+8h] [rbp+8h]
   __int64 v6; // [rsp+10h] [rbp+10h]
   __int64 v7; // [rsp+18h] [rbp+18h]
+  char v8; // [rsp+20h] [rbp+20h]
 
   while ( 1 )
   {
@@ -36,7 +37,7 @@ void __noreturn KiUserApcDispatcher()
         goto LABEL_7;
       }
     }
-    v1 = ZwContinue();
+    v1 = ZwContinue((PCONTEXT)&retaddr, v8 & 1);
     if ( v1 )
     {
       if ( v1 == -1073740278 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of _tlgDefineProvider_annotation__TlgMiTraceHandleProv @ 0x1404B43D0
+ * XREFs of _tlgDefineProvider_annotation__TlgMiTraceHandleProv @ 0x1404AEC10
  * Callers:
- *     NtSetThreadExecutionState @ 0x140AC6F10 (NtSetThreadExecutionState.c)
+ *     NtSetThreadExecutionState @ 0x140AC4920 (NtSetThreadExecutionState.c)
  * Callees:
  *     <none>
  */

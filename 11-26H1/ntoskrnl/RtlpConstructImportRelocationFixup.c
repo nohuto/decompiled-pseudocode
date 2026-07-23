@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpConstructImportRelocationFixup @ 0x140481224
+ * XREFs of RtlpConstructImportRelocationFixup @ 0x14047AB94
  * Callers:
- *     RtlApplyImportRelocationToPage @ 0x14048113C (RtlApplyImportRelocationToPage.c)
- *     RtlApplyImportRelocationToImage @ 0x140720794 (RtlApplyImportRelocationToImage.c)
+ *     RtlApplyImportRelocationToPage @ 0x14047AAAC (RtlApplyImportRelocationToPage.c)
+ *     RtlApplyImportRelocationToImage @ 0x1407253B4 (RtlApplyImportRelocationToImage.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlpConstructImportRelocationFixup(

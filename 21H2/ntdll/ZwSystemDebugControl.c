@@ -1,17 +1,23 @@
 /*
- * XREFs of ZwSystemDebugControl @ 0x1800A0E10
+ * XREFs of ZwSystemDebugControl @ 0x1800A0DD0
  * Callers:
  *     LdrpMapDllNtFileName @ 0x1800610D4 (LdrpMapDllNtFileName.c)
- *     AvrfMiniLoadDll @ 0x1800DB6D0 (AvrfMiniLoadDll.c)
+ *     AvrfMiniLoadDll @ 0x1800DB690 (AvrfMiniLoadDll.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSystemDebugControl()
+NTSTATUS __cdecl ZwSystemDebugControl(
+        SYSDBG_COMMAND Command,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 447LL;
+  result = 447;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

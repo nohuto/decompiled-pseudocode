@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpBuildAdminInformation @ 0x14060049C
+ * XREFs of CmpBuildAdminInformation @ 0x140600550
  * Callers:
- *     CmpCheckAdminAccess @ 0x140600994 (CmpCheckAdminAccess.c)
+ *     CmpCheckAdminAccess @ 0x140600A48 (CmpCheckAdminAccess.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     RtlSidHashInitialize @ 0x14000EC10 (RtlSidHashInitialize.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     RtlSidHashInitialize @ 0x14000E790 (RtlSidHashInitialize.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCopySidAndAttributesArray @ 0x14040EE50 (RtlCopySidAndAttributesArray.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
- *     PsReferenceImpersonationToken @ 0x140499D10 (PsReferenceImpersonationToken.c)
- *     RtlCopyLuidAndAttributesArray @ 0x140683944 (RtlCopyLuidAndAttributesArray.c)
+ *     RtlCopySidAndAttributesArray @ 0x14040DD10 (RtlCopySidAndAttributesArray.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
+ *     PsReferenceImpersonationToken @ 0x1404A5010 (PsReferenceImpersonationToken.c)
+ *     RtlCopyLuidAndAttributesArray @ 0x140683A28 (RtlCopyLuidAndAttributesArray.c)
  */
 
 __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
 {
   PACCESS_TOKEN v1; // rbx
-  enum _SECURITY_IMPERSONATION_LEVEL v3; // r15d
+  _SECURITY_IMPERSONATION_LEVEL v3; // r15d
   unsigned int **v4; // r12
   PSE_EXPORTS v5; // rdx
   unsigned int v6; // ebx
@@ -32,7 +32,7 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
   PSE_EXPORTS v12; // r15
   ULONG v13; // ebx
   __int64 v14; // rcx
-  struct _SID_AND_ATTRIBUTES *v15; // rsi
+  _SID_AND_ATTRIBUTES *v15; // rsi
   __int64 v16; // r13
   unsigned int v17; // r13d
   int v18; // eax
@@ -40,15 +40,15 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
   unsigned int v20; // edi
   char *PoolWithTag; // rax
   char *v22; // rsi
-  unsigned int *v23; // rdi
+  ULONG *v23; // rdi
   ULONG v24; // edx
   __int64 v25; // rbx
   ULONG v26; // ecx
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+40h] [rbp-29h] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+40h] [rbp-29h] BYREF
   PSID RemainingSidArea; // [rsp+48h] [rbp-21h] BYREF
   PVOID TokenInformation; // [rsp+50h] [rbp-19h] BYREF
   PSE_EXPORTS v30; // [rsp+58h] [rbp-11h]
-  struct _SID_AND_ATTRIBUTES Src[6]; // [rsp+60h] [rbp-9h] BYREF
+  _SID_AND_ATTRIBUTES Src[6]; // [rsp+60h] [rbp-9h] BYREF
   PSID EffectiveOnly; // [rsp+D8h] [rbp+6Fh] BYREF
   BOOLEAN CopyOnOpen; // [rsp+E0h] [rbp+77h] BYREF
   ULONG SidAreaSize; // [rsp+E8h] [rbp+7Fh] BYREF
@@ -135,7 +135,7 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
     if ( PoolWithTag )
     {
       memset(PoolWithTag, 0, v20);
-      v23 = (unsigned int *)(v22 + 88);
+      v23 = (ULONG *)(v22 + 88);
       *((_QWORD *)v22 + 3) = v4[3];
       *((_DWORD *)v22 + 8) = *((_DWORD *)v4 + 8);
       *((_DWORD *)v22 + 9) = *((_DWORD *)v4 + 9);
@@ -165,7 +165,7 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
           RemainingSidArea,
           &RemainingSidArea,
           &SidAreaSize);
-      RtlSidHashInitialize(*((__int64 **)v22 + 12), *v23, (_QWORD *)v22 + 11);
+      RtlSidHashInitialize(*((PSID_AND_ATTRIBUTES *)v22 + 12), *v23, (PSID_AND_ATTRIBUTES_HASH)(v22 + 88));
       *(_QWORD *)v22 = v23;
       v25 = *((_QWORD *)v22 + 12) + v17;
       *(_DWORD *)v25 = 0;

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateEnlistment @ 0x1401B9610
+ * XREFs of ZwCreateEnlistment @ 0x1401B9770
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateEnlistment(
         PHANDLE EnlistmentHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwCreateEnlistment(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, *(_QWORD *)&DesiredAccess, ResourceManagerHandle);
+  return KiServiceInternal(EnlistmentHandle);
 }

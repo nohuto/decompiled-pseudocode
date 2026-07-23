@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapCreateLiveDumpFromPreviousSession @ 0x140BFFFD0
+ * XREFs of WheapCreateLiveDumpFromPreviousSession @ 0x140C061E0
  * Callers:
- *     WheapProcessWorkQueueItem @ 0x1403DFB60 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWorkQueueItem @ 0x1403E2D50 (WheapProcessWorkQueueItem.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     WheapReportLiveDump @ 0x1408497BC (WheapReportLiveDump.c)
- *     WheapSaveRecordForLiveDump @ 0x140C00070 (WheapSaveRecordForLiveDump.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     WheapReportLiveDump @ 0x14084FACC (WheapReportLiveDump.c)
+ *     WheapSaveRecordForLiveDump @ 0x140C06280 (WheapSaveRecordForLiveDump.c)
  */
 
 __int64 __fastcall WheapCreateLiveDumpFromPreviousSession(__int64 a1)
@@ -22,9 +22,9 @@ __int64 __fastcall WheapCreateLiveDumpFromPreviousSession(__int64 a1)
   v6 = 0;
   if ( _InterlockedIncrement(&WheapLiveDumpsCreated) > 8 )
     return 3221225473LL;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpCallbackListLock.UserAffinity);
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpContextListLock.Process);
   v3 = WheapCrashDumpInitialized;
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpCallbackListLock.UserAffinity);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpContextListLock.Process);
   if ( !v3 )
     return WheapSaveRecordForLiveDump(a1);
   v7 = a1 + 40;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MmManagePartitionUpdateAttributes @ 0x14087D548
+ * XREFs of MmManagePartitionUpdateAttributes @ 0x140883948
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
  * Callees:
- *     MiPartitionUpdateFlags @ 0x1406F09B4 (MiPartitionUpdateFlags.c)
- *     MiUpdateSlabContextSlabSize @ 0x140707AA4 (MiUpdateSlabContextSlabSize.c)
- *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x14087EEE0 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
+ *     MiPartitionUpdateFlags @ 0x1406F5624 (MiPartitionUpdateFlags.c)
+ *     MiUpdateSlabContextSlabSize @ 0x14070C774 (MiUpdateSlabContextSlabSize.c)
+ *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x1408852E0 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall MmManagePartitionUpdateAttributes(ULONG **a1, __int64 *a2, KPROCESSOR_MODE a3, unsigned int a4)

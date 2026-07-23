@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpFreeGuidEntry @ 0x14083E7D4
+ * XREFs of EtwpFreeGuidEntry @ 0x14083ADD4
  * Callers:
- *     EtwpAddGuidEntry @ 0x140838B30 (EtwpAddGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x14083D760 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x1408367C0 (EtwpAddGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140839DC0 (EtwpUnreferenceGuidEntry.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpUnreferenceGuidEntry @ 0x14083D760 (EtwpUnreferenceGuidEntry.c)
- *     ObDereferenceSecurityDescriptor @ 0x140879D10 (ObDereferenceSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140839DC0 (EtwpUnreferenceGuidEntry.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14087E040 (ObDereferenceSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeGuidEntry(char *P)
@@ -19,26 +19,26 @@ void __fastcall EtwpFreeGuidEntry(char *P)
   void *v2; // rcx
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v4; // rdi
-  _QWORD *v5; // rax
-  _QWORD *v6; // rsi
+  char *v5; // rax
+  char *v6; // rsi
   char **v7; // rdx
   PVOID *v8; // rcx
-  __int64 *v9; // rdi
+  signed __int64 *v9; // rdi
   signed __int64 v10; // rax
   signed __int64 v11; // rdx
-  __int64 v12; // rtt
+  signed __int64 v12; // rtt
 
   if ( *((_QWORD *)P + 82) )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     v4 = (unsigned __int64 *)(*((_QWORD *)P + 82) + 664LL);
-    v5 = KeAbPreAcquire((__int64)v4, 0LL);
+    v5 = (char *)KeAbPreAcquire((__int64)v4, 0LL);
     v6 = v5;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v4, (__int64)v5, (__int64)v4);
+      ExfAcquirePushLockExclusiveEx(v4, v5, (__int64)v4);
     if ( v6 )
-      *((_BYTE *)v6 + 10) = 1;
+      v6[10] = 1;
     *(_QWORD *)(*((_QWORD *)P + 82) + 672LL) = KeGetCurrentThread();
     v7 = (char **)*((_QWORD *)P + 2);
     if ( v7[1] != P + 16 || (v8 = (PVOID *)*((_QWORD *)P + 3), *v8 != P + 16) )
@@ -46,7 +46,7 @@ void __fastcall EtwpFreeGuidEntry(char *P)
     *v8 = v7;
     v7[1] = (char *)v8;
     *(_QWORD *)(*((_QWORD *)P + 82) + 672LL) = 0LL;
-    v9 = (__int64 *)(*((_QWORD *)P + 82) + 664LL);
+    v9 = (signed __int64 *)(*((_QWORD *)P + 82) + 664LL);
     _m_prefetchw(v9);
     v10 = *v9;
     v11 = *v9 - 16;

@@ -1,7 +1,7 @@
 /*
- * XREFs of gen_bitlen @ 0x1406033A8
+ * XREFs of gen_bitlen @ 0x1406009E8
  * Callers:
- *     build_tree @ 0x140602CE0 (build_tree.c)
+ *     build_tree @ 0x140600320 (build_tree.c)
  * Callees:
  *     <none>
  */

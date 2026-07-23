@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStandbyPageStillCombineCandidate @ 0x1404C5A04
+ * XREFs of MiStandbyPageStillCombineCandidate @ 0x1404BF3B4
  * Callers:
- *     MiCombineWithStandbyExisting @ 0x140307CC4 (MiCombineWithStandbyExisting.c)
- *     MiCombineInitialInstance @ 0x1403093AC (MiCombineInitialInstance.c)
+ *     MiCombineWithStandbyExisting @ 0x1402E9D44 (MiCombineWithStandbyExisting.c)
+ *     MiCombineInitialInstance @ 0x1402EB42C (MiCombineInitialInstance.c)
  * Callees:
- *     MiStandbyPageContentsIntact @ 0x140704094 (MiStandbyPageContentsIntact.c)
+ *     MiStandbyPageContentsIntact @ 0x140708D64 (MiStandbyPageContentsIntact.c)
  */
 
 _BOOL8 __fastcall MiStandbyPageStillCombineCandidate(__int64 a1, _WORD *a2, __int64 a3, int a4)

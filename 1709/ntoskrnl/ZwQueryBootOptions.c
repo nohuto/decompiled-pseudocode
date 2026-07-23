@@ -9,9 +9,7 @@
 
 NTSTATUS __stdcall ZwQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(BootOptions, BootOptionsLength, v2);
+  return KiServiceInternal(BootOptions);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateMemoryEvent @ 0x1407A0800
+ * XREFs of MiCreateMemoryEvent @ 0x1407A0A00
  * Callers:
- *     MiInitializeMemoryEvents @ 0x1407A06D4 (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x1407A08D4 (MiInitializeMemoryEvents.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObCreateSymbolicLink @ 0x1406AC26C (ObCreateSymbolicLink.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwCreateEvent @ 0x1403FAE80 (ZwCreateEvent.c)
+ *     ObCreateSymbolicLink @ 0x14060A95C (ObCreateSymbolicLink.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall MiCreateMemoryEvent(

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInitializePmuArbiter @ 0x140CAE86C
+ * XREFs of HalpInitializePmuArbiter @ 0x140CB48AC
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140BEA9A0 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x140BF09A0 (HalpHwPerfCntInitSystem.c)
  * Callees:
  *     <none>
  */

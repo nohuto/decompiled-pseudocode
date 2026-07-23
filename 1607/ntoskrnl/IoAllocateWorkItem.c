@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAllocateWorkItem @ 0x14009F77C
+ * XREFs of IoAllocateWorkItem @ 0x14009E0A4
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

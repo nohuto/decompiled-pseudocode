@@ -92,7 +92,7 @@ __int64 __fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, bool
         {
           v21->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v21->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&v13->LockEntries[v20]);
+            KiAbEntryRemoveFromTree(&v13->LockEntries[v20].TreeNode);
           v24 = 0;
           v24 = v21->BoostBitmap.AllFields & 0x1FFFF;
           v21->BoostBitmap.AllFields &= 0xFFFE0000;

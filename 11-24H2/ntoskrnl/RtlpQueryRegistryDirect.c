@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryRegistryDirect @ 0x1409EA360
+ * XREFs of RtlpQueryRegistryDirect @ 0x1408353D4
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x1409E9FD0 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x140835044 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, size_t a3, unsigned int *a4)
@@ -61,7 +61,7 @@ LABEL_17:
     return 0LL;
   }
   v12 = v4;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, v4, 0x67727453u);
   *((_QWORD *)a4 + 1) = Pool2;
   if ( Pool2 )
   {

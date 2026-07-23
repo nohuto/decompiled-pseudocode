@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64RestartProfiling @ 0x140A98CC0
+ * XREFs of Amd64RestartProfiling @ 0x140A98B30
  * Callers:
  *     <none>
  * Callees:
- *     Amd64ConfigureCounter @ 0x140528F20 (Amd64ConfigureCounter.c)
+ *     Amd64ConfigureCounter @ 0x140529470 (Amd64ConfigureCounter.c)
  */
 
 __int64 (__fastcall **Amd64RestartProfiling())()

@@ -1,12 +1,12 @@
 /*
- * XREFs of UcpLogEventGenerateDump @ 0x140712D40
+ * XREFs of UcpLogEventGenerateDump @ 0x140717A38
  * Callers:
- *     UcOnUnexpectedCodePath @ 0x140712950 (UcOnUnexpectedCodePath.c)
- *     UcpApcNormalRoutine @ 0x1408800D0 (UcpApcNormalRoutine.c)
+ *     UcOnUnexpectedCodePath @ 0x140717648 (UcOnUnexpectedCodePath.c)
+ *     UcpApcNormalRoutine @ 0x1408864D0 (UcpApcNormalRoutine.c)
  * Callees:
- *     UcpLogUnexpectedCodePathEvent @ 0x140712E1C (UcpLogUnexpectedCodePathEvent.c)
- *     UcpRetrieveCurrentConfigSettings @ 0x140712F38 (UcpRetrieveCurrentConfigSettings.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
+ *     UcpLogUnexpectedCodePathEvent @ 0x140717B14 (UcpLogUnexpectedCodePathEvent.c)
+ *     UcpRetrieveCurrentConfigSettings @ 0x140717C30 (UcpRetrieveCurrentConfigSettings.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 unsigned __int8 __fastcall UcpLogEventGenerateDump(_DWORD *a1, __int64 a2)
@@ -20,18 +20,18 @@ unsigned __int8 __fastcall UcpLogEventGenerateDump(_DWORD *a1, __int64 a2)
   v3 = 0;
   v6 = 0;
   v7[0] = 0;
-  if ( a1 && WheapPfaLock.Timer.TimerType )
+  if ( a1 && WheapPfaLock.WaitBlockFill6[96] )
   {
     UcpRetrieveCurrentConfigSettings(a1, &v6, v7);
     result = v6;
     v3 = v7[0];
   }
-  if ( WheapPfaLock.Timer.TimerDifObjTracking == 1 && !result )
+  if ( WheapPfaLock.WaitBlockFill6[81] == 1 && !result )
   {
     result = UcpLogUnexpectedCodePathEvent(a1, *(unsigned int *)(a2 + 16));
     *(_DWORD *)(a2 + 16) = 0;
   }
-  if ( LOBYTE(WheapPfaLock.Timer.Processor) == 1 && v3 == 1 )
+  if ( WheapPfaLock.WaitBlockFill6[80] == 1 && v3 == 1 )
   {
     result = KeGetCurrentIrql();
     if ( !result )

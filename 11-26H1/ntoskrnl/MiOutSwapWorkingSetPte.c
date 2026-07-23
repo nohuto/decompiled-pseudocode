@@ -1,18 +1,18 @@
 /*
- * XREFs of MiOutSwapWorkingSetPte @ 0x140296850
+ * XREFs of MiOutSwapWorkingSetPte @ 0x140295DB0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiReservePageFileSpaceForPage @ 0x1403676AC (MiReservePageFileSpaceForPage.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiReservePageFileSpaceForPage @ 0x14036944C (MiReservePageFileSpaceForPage.c)
  */
 
 __int64 __fastcall MiOutSwapWorkingSetPte(__int64 a1, ULONG_PTR a2, int a3)
@@ -168,7 +168,7 @@ LABEL_10:
           goto LABEL_10;
         }
         v13 = 1LL;
-        if ( !BYTE5(stru_140E2D930.Header.WaitListHead.Blink) && (v53 & 1) != 0 )
+        if ( !BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) && (v53 & 1) != 0 )
         {
           v11 = 0x8000000000000000uLL;
           v12 = v53 | 0x8000000000000000uLL;
@@ -235,7 +235,7 @@ LABEL_19:
   }
   v24 = (v9 >> 12) & 0xFFFFFFFFFFLL;
   v21 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
-  if ( v24 <= qword_140E2D7A0 && (*(_QWORD *)(48 * v24 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
+  if ( v24 <= qword_140E2D920 && (*(_QWORD *)(48 * v24 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
   {
     v7 = 48 * v24 - 0x220000000000LL;
     if ( *(__int64 *)(v7 + 40) < 0 )
@@ -340,23 +340,23 @@ LABEL_90:
         MiReservePageFileSpaceForPage(v52, a2, 128LL, v45);
         v46 = *(_QWORD *)v54;
         v47 = *(_QWORD *)v54;
-        if ( qword_140E2D740 && (v46 & 0x10) == 0 )
-          v47 = qword_140E2D748 & v46;
+        if ( qword_140E2D8C0 && (v46 & 0x10) == 0 )
+          v47 = qword_140E2D8C8 & v46;
         v48 = HIDWORD(v47);
-        if ( v46 && qword_140E2D740 )
+        if ( v46 && qword_140E2D8C0 )
         {
           if ( (v46 & 0x10) != 0 )
             LODWORD(v46) = v46 & 0xFFFFFFEF;
           else
-            LODWORD(v46) = qword_140E2D748 & v46;
+            LODWORD(v46) = qword_140E2D8C8 & v46;
         }
         v49 = (unsigned int)v46 | ((unsigned __int64)(unsigned int)(v48 + 1) << 32);
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
-          if ( (qword_140E2D740 & v49) != 0 )
+          if ( (qword_140E2D8C0 & v49) != 0 )
             v49 |= 0x10uLL;
           else
-            v49 |= qword_140E2D740;
+            v49 |= qword_140E2D8C0;
         }
         v50 = (*(_DWORD *)(v54 + 8))-- == 1;
         *(_QWORD *)v54 = v49;

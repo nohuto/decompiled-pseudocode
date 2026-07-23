@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetCpuVendor @ 0x1403A7B64
+ * XREFs of RtlGetCpuVendor @ 0x1403A7D44
  * Callers:
- *     RtlGetProcessorSignature @ 0x1403A7AC8 (RtlGetProcessorSignature.c)
+ *     RtlGetProcessorSignature @ 0x1403A7CA8 (RtlGetProcessorSignature.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     strncmp @ 0x1403D8E90 (strncmp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D9070 (strncmp.c)
  */
 
 __int64 RtlGetCpuVendor()

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakeImageReadOnly @ 0x1400FC6F4
+ * XREFs of MiMakeImageReadOnly @ 0x1400FA474
  * Callers:
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     MiLockLeafPage @ 0x14002EA50 (MiLockLeafPage.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockLeafPage @ 0x14002E5D0 (MiLockLeafPage.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiMakeImageReadOnly(__int64 a1)

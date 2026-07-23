@@ -67,9 +67,9 @@ void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3,
   if ( (v12 & 1) != 0 )
   {
     if ( (v12 & 2) != 0 )
-      KiRemoveSchedulingGroupQueue(a2, a4, 1);
+      KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a2, a4, 1);
     else
-      KiResortScbQueue(a2, a4, 1);
+      KiResortScbQueue((_RTL_RB_TREE *)a2, a4, 1);
   }
   if ( (*(_BYTE *)(a4 + 112) & 4) != 0 && !*(_BYTE *)(a2 + 33113) )
   {
@@ -80,7 +80,7 @@ void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3,
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 15 )
@@ -90,10 +90,10 @@ void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3,
         SchedulerAssist[5] |= v21;
       }
       *(_BYTE *)(a2 + 36452) &= ~2u;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v22 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v24 = CurrentPrcb->SchedulerAssist;

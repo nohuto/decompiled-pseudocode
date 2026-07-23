@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpCaptureMessageData @ 0x1404B5DD8
+ * XREFs of AlpcpCaptureMessageData @ 0x1404A01B8
  * Callers:
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1404B3C60 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x1404B436C (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x1404B562C (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpCreateReserve @ 0x1404B5F8C (AlpcpCreateReserve.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x14049E040 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x14049E74C (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x14049FA0C (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpCreateReserve @ 0x1404A036C (AlpcpCreateReserve.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     AlpcpChargePagedPoolQuota @ 0x14040D6F4 (AlpcpChargePagedPoolQuota.c)
- *     AlpcpReleasePagedPoolQuota @ 0x1404C0EB0 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14040C5B4 (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1404ACBE0 (AlpcpReleasePagedPoolQuota.c)
  */
 
 __int64 __fastcall AlpcpCaptureMessageData(__int64 a1, size_t a2, char *a3)

@@ -22,9 +22,9 @@ __int64 __fastcall ExpWnfCompleteThreadSubscriptions(_QWORD *a1, __int64 *a2, __
   struct _EX_RUNDOWN_REF *v8; // rbp
   int v9; // r13d
   char v10; // r8
-  unsigned __int64 v11; // rbx
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // rbx
+  PRTL_BALANCED_NODE v11; // rbx
+  PRTL_BALANCED_NODE v12; // rax
+  PRTL_BALANCED_NODE v13; // rbx
   __int64 *v14; // rbx
   int v15; // eax
   __int64 *v16; // rdx
@@ -41,15 +41,15 @@ __int64 __fastcall ExpWnfCompleteThreadSubscriptions(_QWORD *a1, __int64 *a2, __
     return 3221225485LL;
   v11 = KeAbPreAcquire((ULONG_PTR)(a1 + 10), 0LL, v10);
   if ( _InterlockedCompareExchange64(a1 + 10, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(a1 + 10, v11, (unsigned __int64)(a1 + 10));
+    ExfAcquirePushLockSharedEx(a1 + 10, (__int64)v11, (ULONG_PTR)(a1 + 10));
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   v12 = KeAbPreAcquire((ULONG_PTR)(a1 + 13), 0LL, 0);
   v13 = v12;
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1 + 26, 0LL) )
-    ExfAcquirePushLockExclusiveEx(a1 + 13, v12, (__int16 *)a1 + 52);
+    ExfAcquirePushLockExclusiveEx(a1 + 13, (__int64)v12, (__int16 *)a1 + 52);
   if ( v13 )
-    *(_BYTE *)(v13 + 26) |= 1u;
+    BYTE2(v13[1].Left) |= 1u;
   v14 = (__int64 *)a1[14];
   if ( v14 != a1 + 14 )
   {

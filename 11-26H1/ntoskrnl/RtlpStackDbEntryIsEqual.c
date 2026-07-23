@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpStackDbEntryIsEqual @ 0x1404436F8
+ * XREFs of RtlpStackDbEntryIsEqual @ 0x14043C208
  * Callers:
- *     RtlStackDbStackAdd @ 0x140443078 (RtlStackDbStackAdd.c)
+ *     RtlStackDbStackAdd @ 0x14043BB88 (RtlStackDbStackAdd.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 __int64 __fastcall RtlpStackDbEntryIsEqual(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of XmLoopOp @ 0x1404A8D30
+ * XREFs of XmLoopOp @ 0x1404A23C0
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 __int64 __fastcall XmLoopOp(__int64 a1)

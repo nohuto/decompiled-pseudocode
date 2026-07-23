@@ -1,7 +1,7 @@
 /*
- * XREFs of MiImageGetRawRvaState @ 0x140A474B0
+ * XREFs of MiImageGetRawRvaState @ 0x140A507A0
  * Callers:
- *     MiImageRvaRawEnumFirst @ 0x140A47400 (MiImageRvaRawEnumFirst.c)
+ *     MiImageRvaRawEnumFirst @ 0x140A506F0 (MiImageRvaRawEnumFirst.c)
  * Callees:
  *     <none>
  */

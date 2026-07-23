@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetPageBadStatus @ 0x1402A72FC
+ * XREFs of MmGetPageBadStatus @ 0x1402A74EC
  * Callers:
- *     WheapPfaMemoryCheck @ 0x1408DCAB8 (WheapPfaMemoryCheck.c)
+ *     WheapPfaMemoryCheck @ 0x1408DDD78 (WheapPfaMemoryCheck.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmGetPageBadStatus(_QWORD *a1)

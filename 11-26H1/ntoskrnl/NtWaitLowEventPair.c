@@ -1,18 +1,18 @@
 /*
- * XREFs of NtWaitLowEventPair @ 0x14077D200
+ * XREFs of NtWaitLowEventPair @ 0x14077FD00
  * Callers:
- *     DifNtAdjustTokenClaimsAndDeviceGroupsWrapper @ 0x14066A9D0 (DifNtAdjustTokenClaimsAndDeviceGroupsWrapper.c)
- *     DifNtCreateEventPairWrapper @ 0x140670970 (DifNtCreateEventPairWrapper.c)
- *     DifNtDirectGraphicsCallWrapper @ 0x1406762F0 (DifNtDirectGraphicsCallWrapper.c)
- *     DifNtFilterTokenExWrapper @ 0x140677760 (DifNtFilterTokenExWrapper.c)
- *     DifNtOpenEventPairWrapper @ 0x14067CEA0 (DifNtOpenEventPairWrapper.c)
- *     DifNtVdmControlWrapper @ 0x140690D10 (DifNtVdmControlWrapper.c)
- *     MiKernelWriteToExecutableMemory @ 0x1406FF57C (MiKernelWriteToExecutableMemory.c)
+ *     DifNtAdjustTokenClaimsAndDeviceGroupsWrapper @ 0x14066E5B0 (DifNtAdjustTokenClaimsAndDeviceGroupsWrapper.c)
+ *     DifNtCreateEventPairWrapper @ 0x140674550 (DifNtCreateEventPairWrapper.c)
+ *     DifNtDirectGraphicsCallWrapper @ 0x140679ED0 (DifNtDirectGraphicsCallWrapper.c)
+ *     DifNtFilterTokenExWrapper @ 0x14067B340 (DifNtFilterTokenExWrapper.c)
+ *     DifNtOpenEventPairWrapper @ 0x140680A80 (DifNtOpenEventPairWrapper.c)
+ *     DifNtVdmControlWrapper @ 0x1406948F0 (DifNtVdmControlWrapper.c)
+ *     MiKernelWriteToExecutableMemory @ 0x14070424C (MiKernelWriteToExecutableMemory.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWaitLowEventPair()
+NTSTATUS __cdecl NtWaitLowEventPair(HANDLE EventPairHandle)
 {
-  return 3221225474LL;
+  return -1073741822;
 }

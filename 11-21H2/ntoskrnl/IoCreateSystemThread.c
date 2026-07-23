@@ -35,7 +35,7 @@ __int64 __fastcall IoCreateSystemThread(
   Pool2[1] = BugCheckParameter2;
   Pool2[2] = a8;
   ObfReferenceObject(Object);
-  SystemThread = PsCreateSystemThreadEx(a2, a3, a4, a5, a6, (__int64)IopThreadStart, (__int64)v13, 0LL, 0LL);
+  SystemThread = PsCreateSystemThreadEx(a2, a3, a4, a5, a6, (__int64)sub_1407FC360, (__int64)v13, 0LL, 0LL);
   if ( SystemThread < 0 )
   {
     ObfDereferenceObject(Object);

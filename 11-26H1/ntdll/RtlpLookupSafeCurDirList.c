@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpLookupSafeCurDirList @ 0x180106064
+ * XREFs of RtlpLookupSafeCurDirList @ 0x180105A64
  * Callers:
- *     LdrpSearchPath @ 0x180098BBC (LdrpSearchPath.c)
+ *     LdrpSearchPath @ 0x180097CEC (LdrpSearchPath.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlExpandEnvironmentStrings_U @ 0x18009C8A0 (RtlExpandEnvironmentStrings_U.c)
- *     RtlQueryEnvironmentVariable_U @ 0x18009CAD0 (RtlQueryEnvironmentVariable_U.c)
- *     RtlpEnsureTailingSlashAndAddToList @ 0x18011D730 (RtlpEnsureTailingSlashAndAddToList.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenKey @ 0x18015F180 (NtOpenKey.c)
- *     ZwEnumerateValueKey @ 0x18015F1A0 (ZwEnumerateValueKey.c)
- *     NtQueryValueKey @ 0x18015F220 (NtQueryValueKey.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlExpandEnvironmentStrings_U @ 0x18009B9D0 (RtlExpandEnvironmentStrings_U.c)
+ *     RtlQueryEnvironmentVariable_U @ 0x18009BC00 (RtlQueryEnvironmentVariable_U.c)
+ *     RtlpEnsureTailingSlashAndAddToList @ 0x18011D4E0 (RtlpEnsureTailingSlashAndAddToList.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenKey @ 0x18015F080 (NtOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x18015F0A0 (ZwEnumerateValueKey.c)
+ *     NtQueryValueKey @ 0x18015F120 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 RtlpLookupSafeCurDirList()
@@ -24,129 +24,128 @@ __int64 RtlpLookupSafeCurDirList()
   signed __int64 v3; // rdi
   _QWORD *v4; // r8
   __int64 v5; // rax
-  HANDLE v6; // rdi
-  HANDLE v7; // rcx
-  unsigned int v8; // edi
-  __int64 i; // rdx
-  __int64 *v10; // rdx
-  int v11; // eax
-  int v12; // edx
-  signed __int64 v13; // rcx
-  __int64 v14; // [rsp+38h] [rbp-D0h] BYREF
-  HANDLE Handle; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v16; // [rsp+48h] [rbp-C0h] BYREF
-  char *v17; // [rsp+50h] [rbp-B8h]
-  __int64 v18; // [rsp+58h] [rbp-B0h] BYREF
-  char *v19; // [rsp+60h] [rbp-A8h]
-  __int64 v20; // [rsp+68h] [rbp-A0h] BYREF
-  char *v21; // [rsp+70h] [rbp-98h]
-  __int128 v22; // [rsp+78h] [rbp-90h] BYREF
-  _BYTE v23[4]; // [rsp+88h] [rbp-80h] BYREF
-  int v24; // [rsp+8Ch] [rbp-7Ch]
-  int v25; // [rsp+90h] [rbp-78h]
-  char v26; // [rsp+94h] [rbp-74h] BYREF
-  _BYTE v27[4]; // [rsp+298h] [rbp+190h] BYREF
-  int v28; // [rsp+29Ch] [rbp+194h]
-  char v29; // [rsp+2A4h] [rbp+19Ch] BYREF
-  char v30; // [rsp+4B8h] [rbp+3B0h] BYREF
+  PVOID v6; // rcx
+  HANDLE v7; // rdi
+  HANDLE v8; // rcx
+  ULONG v9; // edi
+  ULONG i; // edx
+  _UNICODE_STRING *p_Value; // rdx
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // edx
+  signed __int64 v14; // rcx
+  ULONG ResultLength[2]; // [rsp+38h] [rbp-D0h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-C8h] BYREF
+  _UNICODE_STRING Value; // [rsp+48h] [rbp-C0h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+58h] [rbp-B0h] BYREF
+  _UNICODE_STRING Destination; // [rsp+68h] [rbp-A0h] BYREF
+  __int128 v20; // [rsp+78h] [rbp-90h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+88h] [rbp-80h] BYREF
+  int v22; // [rsp+8Ch] [rbp-7Ch]
+  int v23; // [rsp+90h] [rbp-78h]
+  char v24; // [rsp+94h] [rbp-74h] BYREF
+  _BYTE v25[4]; // [rsp+298h] [rbp+190h] BYREF
+  int v26; // [rsp+29Ch] [rbp+194h]
+  char v27; // [rsp+2A4h] [rbp+19Ch] BYREF
+  char v28; // [rsp+4B8h] [rbp+3B0h] BYREF
 
-  v22 = 0LL;
-  memset_thunk_772440563353939046(v27, 0, 0x214uLL);
-  memset_thunk_772440563353939046(v23, 0, 0x20CuLL);
-  v20 = 34078720LL;
-  v21 = 0LL;
-  v17 = 0LL;
-  v19 = 0LL;
-  result = qword_1801C67B8;
-  Handle = 0LL;
-  LODWORD(v14) = 0;
-  v16 = 34078720LL;
-  v18 = 0x2000000LL;
-  if ( qword_1801C67B8 == -1 )
+  v20 = 0LL;
+  memset_thunk_772440563353939046(v25, 0, 0x214uLL);
+  memset_thunk_772440563353939046(KeyValueInformation, 0, 0x20CuLL);
+  *(_QWORD *)&Destination.Length = 34078720LL;
+  Destination.Buffer = 0LL;
+  Value.Buffer = 0LL;
+  ValueName.Buffer = 0LL;
+  result = qword_1801C57B8;
+  KeyHandle = 0LL;
+  ResultLength[0] = 0;
+  *(_QWORD *)&Value.Length = 34078720LL;
+  *(_QWORD *)&ValueName.Length = 0x2000000LL;
+  if ( qword_1801C57B8 == -1 )
   {
-    v19 = &v26;
-    v17 = &v29;
-    v21 = &v30;
-    Heap_0 = (_QWORD *)RtlAllocateHeap_0();
+    ValueName.Buffer = (wchar_t *)&v24;
+    Value.Buffer = (wchar_t *)&v27;
+    Destination.Buffer = (wchar_t *)&v28;
+    Heap_0 = RtlAllocateHeap_0(LdrpHeap, NtdllBaseTag + 0x40000, 0x10uLL);
     v2 = Heap_0;
     if ( Heap_0 )
     {
       Heap_0[1] = Heap_0;
       *Heap_0 = Heap_0;
-      v6 = (HANDLE)qword_1801CB2F0;
-      Handle = (HANDLE)qword_1801CB2F0;
-      if ( !qword_1801CB2F0 )
+      v7 = qword_1801CA350;
+      KeyHandle = qword_1801CA350;
+      if ( !qword_1801CA350 )
       {
-        v12 = NtOpenKey(&Handle, 1LL, &unk_180172CA0);
-        if ( v12 >= 0 )
+        v13 = NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_180171D00);
+        if ( v13 >= 0 )
         {
-          v13 = (signed __int64)Handle;
+          v14 = (signed __int64)KeyHandle;
         }
         else
         {
-          v13 = -1LL;
-          Handle = (HANDLE)-1LL;
+          v14 = -1LL;
+          KeyHandle = (HANDLE)-1LL;
         }
-        v6 = (HANDLE)_InterlockedCompareExchange64(&qword_1801CB2F0, v13, 0LL);
-        if ( v6 )
+        v7 = (HANDLE)_InterlockedCompareExchange64((volatile signed __int64 *)&qword_1801CA350, v14, 0LL);
+        if ( v7 )
         {
-          if ( v12 >= 0 )
-            NtClose(Handle);
-          Handle = v6;
+          if ( v13 >= 0 )
+            NtClose(KeyHandle);
+          KeyHandle = v7;
         }
         else
         {
-          v6 = Handle;
+          v7 = KeyHandle;
         }
       }
-      if ( v6 != (HANDLE)-1LL
-        && (int)NtQueryValueKey(v6, L".0", 2LL, &v22, 16, &v14) >= 0
-        && (_DWORD)v14 == 16
-        && HIDWORD(v22) == 1
-        || (int)RtlQueryEnvironmentVariable_U(0LL, word_180172C80, (__int64)&v16) >= 0
-        && (int)RtlpEnsureTailingSlashAndAddToList(v2, &v16) >= 0 )
+      if ( v7 != (HANDLE)-1LL
+        && NtQueryValueKey(v7, (PUNICODE_STRING)&stru_180171CC0, KeyValuePartialInformation, &v20, 0x10u, ResultLength) >= 0
+        && ResultLength[0] == 16
+        && HIDWORD(v20) == 1
+        || RtlQueryEnvironmentVariable_U(0LL, (PUNICODE_STRING)&stru_180171CF0, &Value) >= 0
+        && (int)RtlpEnsureTailingSlashAndAddToList(v2, &Value) >= 0 )
       {
-        v7 = Handle;
-        if ( Handle != (HANDLE)-1LL )
+        v8 = KeyHandle;
+        if ( KeyHandle != (HANDLE)-1LL )
         {
-          v8 = 0;
-          for ( i = 0LL; ; i = v8 )
+          v9 = 0;
+          for ( i = 0; ; i = v9 )
           {
-            v11 = ZwEnumerateValueKey(v7, i, 0LL, v23, 524, &v14);
-            if ( v11 == -2147483622 )
+            v12 = ZwEnumerateValueKey(v8, i, KeyValueBasicInformation, KeyValueInformation, 0x20Cu, ResultLength);
+            if ( v12 == -2147483622 )
               break;
-            if ( v11 != -2147483643 )
+            if ( v12 != -2147483643 )
             {
-              if ( v11 < 0 )
+              if ( v12 < 0 )
                 break;
-              if ( v25 )
+              if ( v23 )
               {
-                if ( (unsigned int)(v24 - 1) <= 1 )
+                if ( (unsigned int)(v22 - 1) <= 1 )
                 {
-                  LOWORD(v18) = v25;
-                  if ( (int)NtQueryValueKey(Handle, &v18, 2LL, v27, 532, &v14) >= 0 && (unsigned int)(v24 - 1) <= 1 )
+                  ValueName.Length = v23;
+                  if ( NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, v25, 0x214u, ResultLength) >= 0
+                    && (unsigned int)(v22 - 1) <= 1 )
                   {
-                    v10 = &v16;
-                    LOWORD(v16) = 2 * ((unsigned int)(v14 - 12) >> 1) - 2;
-                    if ( v28 == 2 )
+                    p_Value = &Value;
+                    Value.Length = 2 * ((ResultLength[0] - 12) >> 1) - 2;
+                    if ( v26 == 2 )
                     {
-                      if ( (int)RtlExpandEnvironmentStrings_U(0LL, (unsigned __int16 *)&v16, (__int64)&v20, 0LL) < 0 )
+                      if ( RtlExpandEnvironmentStrings_U(0LL, &Value, &Destination, 0LL) < 0 )
                         goto LABEL_33;
-                      v10 = &v20;
+                      p_Value = &Destination;
                     }
-                    RtlpEnsureTailingSlashAndAddToList(v2, v10);
+                    RtlpEnsureTailingSlashAndAddToList(v2, p_Value);
                   }
                 }
               }
             }
 LABEL_33:
-            v7 = Handle;
-            ++v8;
+            v8 = KeyHandle;
+            ++v9;
           }
         }
       }
     }
-    v3 = _InterlockedCompareExchange64(&qword_1801C67B8, (signed __int64)v2, -1LL);
+    v3 = _InterlockedCompareExchange64(&qword_1801C57B8, (signed __int64)v2, -1LL);
     if ( v3 == -1 )
     {
       return (__int64)v2;
@@ -162,11 +161,12 @@ LABEL_33:
             break;
           if ( (_QWORD *)v4[1] != v2 || (v5 = *v4, *(_QWORD **)(*v4 + 8LL) != v4) )
             __fastfail(3u);
+          v6 = LdrpHeap;
           *v2 = v5;
           *(_QWORD *)(v5 + 8) = v2;
-          RtlFreeHeap_0();
+          RtlFreeHeap_0(v6, 0, v4);
         }
-        RtlFreeHeap_0();
+        RtlFreeHeap_0(LdrpHeap, 0, v2);
       }
       return v3;
     }

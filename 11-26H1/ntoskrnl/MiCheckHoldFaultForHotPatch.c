@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckHoldFaultForHotPatch @ 0x1404C97C0
+ * XREFs of MiCheckHoldFaultForHotPatch @ 0x1404C31E0
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockFaultWorkingSet @ 0x1404C9904 (MiUnlockFaultWorkingSet.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockFaultWorkingSet @ 0x1404C3324 (MiUnlockFaultWorkingSet.c)
  */
 
 __int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, unsigned __int64 *a2)

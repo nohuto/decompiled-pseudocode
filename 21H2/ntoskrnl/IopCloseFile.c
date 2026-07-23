@@ -1,35 +1,35 @@
 /*
- * XREFs of IopCloseFile @ 0x1406FCA20
+ * XREFs of IopCloseFile @ 0x140713E00
  * Callers:
- *     IopCreateFile @ 0x14060B4C0 (IopCreateFile.c)
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
+ *     IopCreateFile @ 0x14069AF70 (IopCreateFile.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x14071AB40 (IopDeleteFile.c)
  * Callees:
- *     IopUpdateOtherOperationCount @ 0x14022BCB0 (IopUpdateOtherOperationCount.c)
- *     PsIsThreadTerminating @ 0x1402754A0 (PsIsThreadTerminating.c)
- *     IopCloseFileObjectExtension @ 0x1402B9618 (IopCloseFileObjectExtension.c)
- *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
- *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
- *     IopAllocateIrpMustSucceed @ 0x1403518E0 (IopAllocateIrpMustSucceed.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IopResetEvent @ 0x140351DE0 (IopResetEvent.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
- *     IopDequeueIrpFromThread @ 0x140353760 (IopDequeueIrpFromThread.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
- *     IopSetLockOperationProcess @ 0x14035770C (IopSetLockOperationProcess.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IopCleanupProcessResources @ 0x14069DC34 (IopCleanupProcessResources.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     IopFreeBandwidthContract @ 0x14089B0C4 (IopFreeBandwidthContract.c)
- *     VfFastIoCheckState @ 0x1409C99B4 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x1409C9A8C (VfFastIoSnapState.c)
+ *     IopCloseFileObjectExtension @ 0x140237828 (IopCloseFileObjectExtension.c)
+ *     PsIsThreadTerminating @ 0x140263440 (PsIsThreadTerminating.c)
+ *     IopUpdateOtherOperationCount @ 0x1402D0560 (IopUpdateOtherOperationCount.c)
+ *     PsGetCurrentProcess @ 0x140346350 (PsGetCurrentProcess.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x140355FE0 (IopQueueThreadIrp.c)
+ *     IopReleaseFileObjectLock @ 0x1403584A0 (IopReleaseFileObjectLock.c)
+ *     IopAllocateIrpMustSucceed @ 0x14035C630 (IopAllocateIrpMustSucceed.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IopResetEvent @ 0x14035CB30 (IopResetEvent.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     IoGetAttachedDevice @ 0x14035E490 (IoGetAttachedDevice.c)
+ *     IopDequeueIrpFromThread @ 0x14035E4B0 (IopDequeueIrpFromThread.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopGetFileObjectExtension @ 0x140361530 (IopGetFileObjectExtension.c)
+ *     IopSetLockOperationProcess @ 0x14036245C (IopSetLockOperationProcess.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IopCleanupProcessResources @ 0x1405FCD04 (IopCleanupProcessResources.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopFreeBandwidthContract @ 0x14089B224 (IopFreeBandwidthContract.c)
+ *     VfFastIoCheckState @ 0x1409CA9B4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409CAA8C (VfFastIoSnapState.c)
  */
 
 void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __int64 a4)
@@ -43,7 +43,7 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
   struct _DEVICE_OBJECT *v12; // rbp
   PFAST_IO_DISPATCH FastIoDispatch; // rsi
   struct _KTHREAD *v14; // rax
-  __int64 v15; // rax
+  PRTL_BALANCED_NODE v15; // rax
   __int64 (__fastcall *FastIoUnlockAll)(struct _FILE_OBJECT *, _KPROCESS *, __int128 *, struct _DEVICE_OBJECT *); // rsi
   void *v17; // rdi
   _KPROCESS *CurrentProcess; // rax
@@ -55,7 +55,7 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
   int v24; // edi
   struct _DEVICE_OBJECT *v25; // r13
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v27; // rax
+  PRTL_BALANCED_NODE v27; // rax
   __int64 v28; // rdx
   __int64 v29; // r8
   _DWORD *v30; // r9
@@ -106,7 +106,7 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
             goto LABEL_45;
         }
         if ( v27 )
-          *(_BYTE *)(v27 + 26) |= 1u;
+          BYTE2(v27[1].Left) |= 1u;
         ObfReferenceObject(a2);
       }
 LABEL_45:
@@ -172,7 +172,7 @@ LABEL_45:
               goto LABEL_21;
           }
           if ( v15 )
-            *(_BYTE *)(v15 + 26) |= 1u;
+            BYTE2(v15[1].Left) |= 1u;
           ObfReferenceObject(a2);
         }
 LABEL_21:

@@ -7,17 +7,18 @@
  *     sub_1800F84A0 @ 0x1800F84A0 (sub_1800F84A0.c)
  */
 
-__int64 __fastcall RtlIsPlaceholderFileHandle(__int64 a1, _BYTE *a2)
+NTSTATUS __fastcall RtlIsPlaceholderFileHandle(void *a1, _BYTE *a2)
 {
-  __int64 result; // rax
-  unsigned int v4; // [rsp+60h] [rbp+18h]
-  unsigned int v5; // [rsp+64h] [rbp+1Ch]
+  NTSTATUS result; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int FileInformation; // [rsp+60h] [rbp+18h] BYREF
+  unsigned int v6; // [rsp+64h] [rbp+1Ch]
 
-  result = ZwQueryInformationFile();
-  if ( (int)result >= 0 )
+  result = ZwQueryInformationFile(a1, &IoStatusBlock, &FileInformation, 8u, FileAttributeTagInformation);
+  if ( result >= 0 )
   {
-    *a2 = sub_1800F84A0(v4, v5);
-    return 0LL;
+    *a2 = sub_1800F84A0(FileInformation, v6);
+    return 0;
   }
   return result;
 }

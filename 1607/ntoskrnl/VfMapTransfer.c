@@ -1,20 +1,20 @@
 /*
- * XREFs of VfMapTransfer @ 0x140707CC0
+ * XREFs of VfMapTransfer @ 0x140707CF0
  * Callers:
  *     <none>
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140705D44 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
- *     VERIFY_BUFFER_LOCKED @ 0x140705EFC (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_MAX_IRQL @ 0x140705FE0 (VF_ASSERT_MAX_IRQL.c)
- *     ViCheckAdapterBuffers @ 0x140708C18 (ViCheckAdapterBuffers.c)
- *     ViCheckMdlLength @ 0x140708CC0 (ViCheckMdlLength.c)
- *     ViGetAdapterInformationInternal @ 0x140709708 (ViGetAdapterInformationInternal.c)
- *     ViGetMapRegisterFile @ 0x140709800 (ViGetMapRegisterFile.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
- *     ViMapDoubleBuffer @ 0x140709E7C (ViMapDoubleBuffer.c)
- *     ViSwap @ 0x14070A64C (ViSwap.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140705D74 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140705F2C (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140706010 (VF_ASSERT_MAX_IRQL.c)
+ *     ViCheckAdapterBuffers @ 0x140708C48 (ViCheckAdapterBuffers.c)
+ *     ViCheckMdlLength @ 0x140708CF0 (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x140709738 (ViGetAdapterInformationInternal.c)
+ *     ViGetMapRegisterFile @ 0x140709830 (ViGetMapRegisterFile.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
+ *     ViMapDoubleBuffer @ 0x140709EAC (ViMapDoubleBuffer.c)
+ *     ViSwap @ 0x14070A67C (ViSwap.c)
  */
 
 __int64 VfMapTransfer(__int64 a1, ...)

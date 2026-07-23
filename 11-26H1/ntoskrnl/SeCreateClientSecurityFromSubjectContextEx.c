@@ -1,12 +1,12 @@
 /*
- * XREFs of SeCreateClientSecurityFromSubjectContextEx @ 0x14063B770
+ * XREFs of SeCreateClientSecurityFromSubjectContextEx @ 0x14063E8E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     RtlSidDominatesForTrust @ 0x1402ACB80 (RtlSidDominatesForTrust.c)
- *     SepCreateClientSecurityEx @ 0x14092A140 (SepCreateClientSecurityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     RtlSidDominatesForTrust @ 0x1403AF7B0 (RtlSidDominatesForTrust.c)
+ *     SepCreateClientSecurityEx @ 0x140905C50 (SepCreateClientSecurityEx.c)
  */
 
 __int64 __fastcall SeCreateClientSecurityFromSubjectContextEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -16,19 +16,22 @@ __int64 __fastcall SeCreateClientSecurityFromSubjectContextEx(__int64 a1, __int6
   char v6; // r14
   void *v9; // rcx
   int ClientSecurity; // edi
-  bool v12; // [rsp+90h] [rbp+8h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+90h] [rbp+8h] BYREF
 
   v4 = *(void **)a1;
   SourceSid = 0LL;
   v6 = 0;
-  v12 = 0;
+  DominatesTrust = 0;
   if ( !v4 )
     v4 = *(void **)(a1 + 16);
   ObfReferenceObjectWithTag(v4, 0x63436553u);
   if ( *(_QWORD *)a1 )
   {
-    RtlSidDominatesForTrust(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 1104LL), *(_QWORD *)(*(_QWORD *)a1 + 1104LL), &v12);
-    if ( !v12 )
+    RtlSidDominatesForTrust(
+      *(PSID *)(*(_QWORD *)(a1 + 16) + 1104LL),
+      *(PSID *)(*(_QWORD *)a1 + 1104LL),
+      &DominatesTrust);
+    if ( !DominatesTrust )
     {
       v6 = 1;
       SourceSid = v9;

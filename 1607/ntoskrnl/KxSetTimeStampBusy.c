@@ -1,13 +1,13 @@
 /*
- * XREFs of KxSetTimeStampBusy @ 0x14009D6A8
+ * XREFs of KxSetTimeStampBusy @ 0x14009CEA8
  * Callers:
- *     KeInvalidateAllCaches @ 0x1400B5930 (KeInvalidateAllCaches.c)
- *     KxFlushEntireTb @ 0x14013CFFC (KxFlushEntireTb.c)
- *     KiFlushAddressSpaceTb @ 0x1401D61D4 (KiFlushAddressSpaceTb.c)
- *     KiSetTbFlushTimeStampBusy @ 0x1401D6288 (KiSetTbFlushTimeStampBusy.c)
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
+ *     KeInvalidateAllCaches @ 0x1400B3758 (KeInvalidateAllCaches.c)
+ *     KxFlushEntireTb @ 0x14013D56C (KxFlushEntireTb.c)
+ *     KiFlushAddressSpaceTb @ 0x1401D6000 (KiFlushAddressSpaceTb.c)
+ *     KiSetTbFlushTimeStampBusy @ 0x1401D60B4 (KiSetTbFlushTimeStampBusy.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 char __fastcall KxSetTimeStampBusy(int *a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ViWdIrpTimerDpcRoutine @ 0x1409E1000
+ * XREFs of ViWdIrpTimerDpcRoutine @ 0x1409E2000
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     ViWdIrpTimedOut @ 0x1409E0F60 (ViWdIrpTimedOut.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     ViWdIrpTimedOut @ 0x1409E1F60 (ViWdIrpTimedOut.c)
  */
 
 void __fastcall ViWdIrpTimerDpcRoutine(

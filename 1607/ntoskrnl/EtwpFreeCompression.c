@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpFreeCompression @ 0x140085CBC
+ * XREFs of EtwpFreeCompression @ 0x1400875AC
  * Callers:
- *     EtwpFreeLoggerContext @ 0x140493844 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1404942D4 (EtwpFreeLoggerContext.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KeRemoveQueueDpcEx @ 0x140085D28 (KeRemoveQueueDpcEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EtwpRelinquishCompressionTarget @ 0x14022AE08 (EtwpRelinquishCompressionTarget.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KeRemoveQueueDpcEx @ 0x140087618 (KeRemoveQueueDpcEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EtwpRelinquishCompressionTarget @ 0x14022AC34 (EtwpRelinquishCompressionTarget.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

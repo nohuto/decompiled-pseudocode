@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetProcessDxgProcess @ 0x1407E82B0
+ * XREFs of PsSetProcessDxgProcess @ 0x1407E8580
  * Callers:
  *     <none>
  * Callees:

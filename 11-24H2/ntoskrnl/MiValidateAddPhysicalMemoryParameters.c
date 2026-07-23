@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateAddPhysicalMemoryParameters @ 0x1407EA20C
+ * XREFs of MiValidateAddPhysicalMemoryParameters @ 0x1407EA7DC
  * Callers:
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
  * Callees:
- *     MiLogAddPhysicalMemory @ 0x14066DE94 (MiLogAddPhysicalMemory.c)
+ *     MiLogAddPhysicalMemory @ 0x14066F068 (MiLogAddPhysicalMemory.c)
  */
 
 __int64 __fastcall MiValidateAddPhysicalMemoryParameters(
@@ -46,20 +46,20 @@ __int64 __fastcall MiValidateAddPhysicalMemoryParameters(
   v13 = v10 + v11;
   if ( v11 >= v10 + v11 )
     return 3221225711LL;
-  if ( v13 - 1 > (unsigned __int64)qword_140E2DBE0 )
+  if ( v13 - 1 > (unsigned __int64)qword_140E2DD20 )
   {
     if ( !v12 )
     {
-      v13 = qword_140E2DBE0 + 1;
-      v10 = qword_140E2DBE0 + 1 - v11;
-      if ( v11 < qword_140E2DBE0 + 1 )
+      v13 = qword_140E2DD20 + 1;
+      v10 = qword_140E2DD20 + 1 - v11;
+      if ( v11 < qword_140E2DD20 + 1 )
         goto LABEL_15;
       return 3221225711LL;
     }
     return 3221225712LL;
   }
 LABEL_15:
-  if ( v10 + v11 >= qword_140E35B00 && v11 < qword_140E35B00 + 2048 || v10 + v11 >= 0x3FFFFFFFFELL )
+  if ( v10 + v11 >= qword_140E35C40 && v11 < qword_140E35C40 + 2048 || v10 + v11 >= 0x3FFFFFFFFELL )
     return 3221225496LL;
   if ( (a4 & 0x1F2) != 0 && (a4 & 0x200) != 0 )
     return 3221225714LL;

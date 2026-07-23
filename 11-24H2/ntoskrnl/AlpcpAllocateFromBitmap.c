@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpAllocateFromBitmap @ 0x1409B2130
+ * XREFs of AlpcpAllocateFromBitmap @ 0x1409A97F0
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x1408912A0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14089A890 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     AlpcpFreeBitmap @ 0x140A8369C (AlpcpFreeBitmap.c)
+ *     AlpcpFreeBitmap @ 0x140A7E1BC (AlpcpFreeBitmap.c)
  */
 
 __int64 __fastcall AlpcpAllocateFromBitmap(unsigned int *a1, unsigned int *a2, int a3)

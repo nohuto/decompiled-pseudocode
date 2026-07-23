@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpFastResourceLegacyRelease @ 0x140164B28
+ * XREFs of ExpFastResourceLegacyRelease @ 0x140164C28
  * Callers:
  *     ExReleaseResourceAndLeaveCriticalRegion @ 0x14004F450 (ExReleaseResourceAndLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     ExReleaseResourceForThreadLite @ 0x1401113B0 (ExReleaseResourceForThreadLite.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A93B0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     ExReleaseResourceForThreadLite @ 0x140111420 (ExReleaseResourceForThreadLite.c)
  * Callees:
- *     ExReleaseFastResource @ 0x140164F10 (ExReleaseFastResource.c)
- *     ExpFindFastOwnerEntryForThread @ 0x140166084 (ExpFindFastOwnerEntryForThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExReleaseFastResource @ 0x140165010 (ExReleaseFastResource.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x140166184 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpFastResourceLegacyRelease(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, __int64 a4)

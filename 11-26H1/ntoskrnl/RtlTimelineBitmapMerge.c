@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlTimelineBitmapMerge @ 0x14041D2F0
+ * XREFs of RtlTimelineBitmapMerge @ 0x140414B40
  * Callers:
- *     PsAddProcessEnergyValues @ 0x14041D0E0 (PsAddProcessEnergyValues.c)
- *     PsQueryProcessEnergyValues @ 0x140952980 (PsQueryProcessEnergyValues.c)
+ *     PsAddProcessEnergyValues @ 0x140414930 (PsAddProcessEnergyValues.c)
+ *     PsQueryProcessEnergyValues @ 0x1409CE2C0 (PsQueryProcessEnergyValues.c)
  * Callees:
  *     <none>
  */

@@ -1,67 +1,80 @@
 /*
- * XREFs of RtlpUnsuppressForwardReferencingCallTarget @ 0x1800FD9B4
+ * XREFs of RtlpUnsuppressForwardReferencingCallTarget @ 0x1800FD974
  * Callers:
- *     RtlpHandleInvalidUserCallTarget @ 0x1800FD950 (RtlpHandleInvalidUserCallTarget.c)
+ *     RtlpHandleInvalidUserCallTarget @ 0x1800FD910 (RtlpHandleInvalidUserCallTarget.c)
  * Callees:
  *     RtlpImageDirectoryEntryToDataEx @ 0x180032920 (RtlpImageDirectoryEntryToDataEx.c)
  *     LdrImageDirectoryEntryToLoadConfig @ 0x180035C00 (LdrImageDirectoryEntryToLoadConfig.c)
  *     RtlpGuardGrantSuppressedCallAccess @ 0x180053F24 (RtlpGuardGrantSuppressedCallAccess.c)
  *     RtlValidateUserCallTarget @ 0x180054404 (RtlValidateUserCallTarget.c)
- *     ZwQueryVirtualMemory @ 0x18009DAA0 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x18009DA60 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpUnsuppressForwardReferencingCallTarget(__int64 a1)
+NTSTATUS __fastcall RtlpUnsuppressForwardReferencingCallTarget(__int64 a1)
 {
-  __int64 v2; // r14
-  int VirtualMemory; // ebx
+  char *v2; // r14
+  NTSTATUS VirtualMemory; // ebx
   _DWORD *Config; // rax
-  int v5; // eax
+  NTSTATUS v5; // eax
   __int64 v6; // rsi
   _DWORD *i; // rsi
   _QWORD *j; // rdi
-  __int64 result; // rax
-  unsigned __int64 v10; // [rsp+30h] [rbp-50h]
+  NTSTATUS result; // eax
+  PVOID BaseOfImage[2]; // [rsp+30h] [rbp-50h] BYREF
   char v11; // [rsp+40h] [rbp-40h]
-  __int64 v12; // [rsp+60h] [rbp-20h]
-  int v13; // [rsp+70h] [rbp-10h]
-  int v14; // [rsp+C8h] [rbp+48h] BYREF
-  int v15; // [rsp+D0h] [rbp+50h] BYREF
-  __int64 v16; // [rsp+D8h] [rbp+58h] BYREF
+  _BYTE MemoryInformation[24]; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v13; // [rsp+60h] [rbp-20h]
+  int v14; // [rsp+70h] [rbp-10h]
+  int v15; // [rsp+C8h] [rbp+48h] BYREF
+  unsigned int v16; // [rsp+D0h] [rbp+50h] BYREF
+  __int64 v17; // [rsp+D8h] [rbp+58h] BYREF
 
   v2 = 0LL;
   do
   {
-    VirtualMemory = ZwQueryVirtualMemory();
+    VirtualMemory = ZwQueryVirtualMemory(
+                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                      v2,
+                      MemoryBasicInformation,
+                      MemoryInformation,
+                      0x30uLL,
+                      0LL);
     if ( VirtualMemory < 0 )
       break;
-    if ( v13 == 0x1000000 )
+    if ( v14 == 0x1000000 )
     {
-      VirtualMemory = ZwQueryVirtualMemory();
+      VirtualMemory = ZwQueryVirtualMemory(
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        v2,
+                        MemoryImageInformation,
+                        BaseOfImage,
+                        0x18uLL,
+                        0LL);
       if ( VirtualMemory >= 0 )
       {
-        if ( v10 )
+        if ( BaseOfImage[0] )
         {
           if ( (v11 & 2) == 0 && (v11 & 1) == 0 )
           {
-            Config = LdrImageDirectoryEntryToLoadConfig(v10);
+            Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage[0]);
             if ( !Config || *Config < 0x94u || (Config[36] & 0x4000) == 0 )
             {
-              v5 = RtlpImageDirectoryEntryToDataEx(v10, 1, 1u, &v15, &v16);
-              v6 = v16;
+              v5 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseOfImage[0], 1, 1u, &v16, (char **)&v17);
+              v6 = v17;
               if ( v5 < 0 )
                 v6 = 0LL;
-              v16 = v6;
+              v17 = v6;
               if ( v6 )
               {
                 for ( i = (_DWORD *)(v6 + 12); *i; i += 5 )
                 {
-                  for ( j = (_QWORD *)(v10 + (unsigned int)i[1]); *j; ++j )
+                  for ( j = (char *)BaseOfImage[0] + (unsigned int)i[1]; *j; ++j )
                   {
-                    if ( *j == a1 && (unsigned int)RtlValidateUserCallTarget(a1, &v14) != 1 && (v14 & 0x10) != 0 )
+                    if ( *j == a1 && (unsigned int)RtlValidateUserCallTarget(a1, &v15) != 1 && (v15 & 0x10) != 0 )
                     {
                       result = RtlpGuardGrantSuppressedCallAccess(a1, 4u);
                       VirtualMemory = result;
-                      if ( (int)result >= 0 )
+                      if ( result >= 0 )
                         return result;
                       break;
                     }
@@ -73,8 +86,8 @@ __int64 __fastcall RtlpUnsuppressForwardReferencingCallTarget(__int64 a1)
         }
       }
     }
-    v2 += v12;
+    v2 += v13;
   }
   while ( VirtualMemory >= 0 );
-  return (unsigned int)VirtualMemory;
+  return VirtualMemory;
 }

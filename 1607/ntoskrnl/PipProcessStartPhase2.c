@@ -1,15 +1,15 @@
 /*
- * XREFs of PipProcessStartPhase2 @ 0x1404E7068
+ * XREFs of PipProcessStartPhase2 @ 0x14050CFC4
  * Callers:
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     IoRequestDeviceEject @ 0x1401CCE94 (IoRequestDeviceEject.c)
- *     Template_qz @ 0x1401D0DAC (Template_qz.c)
- *     PnpRequestDeviceRemoval @ 0x1404C3E90 (PnpRequestDeviceRemoval.c)
- *     IopDoDeferredSetInterfaceState @ 0x1404E7110 (IopDoDeferredSetInterfaceState.c)
- *     PpProfileCancelHardwareProfileTransition @ 0x1406422CC (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileCommitTransitioningDock @ 0x1406423EC (PpProfileCommitTransitioningDock.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     IoRequestDeviceEject @ 0x1401CCCE0 (IoRequestDeviceEject.c)
+ *     Template_qz @ 0x1401D0BD8 (Template_qz.c)
+ *     PnpRequestDeviceRemoval @ 0x140484BC8 (PnpRequestDeviceRemoval.c)
+ *     IopDoDeferredSetInterfaceState @ 0x14050D724 (IopDoDeferredSetInterfaceState.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x1406423B0 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCommitTransitioningDock @ 0x1406424D0 (PpProfileCommitTransitioningDock.c)
  *     IopAllocateLegacyBootResources @ 0x1407AB328 (IopAllocateLegacyBootResources.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x14080D558
+ * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x14080E758
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14080D708 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
- *     VrpUnloadDifferencingHive @ 0x14080DCBC (VrpUnloadDifferencingHive.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14080E908 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpUnloadDifferencingHive @ 0x14080EEBC (VrpUnloadDifferencingHive.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING String1)
@@ -29,11 +29,11 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
     v6 = RtlUpcaseUnicodeChar(*Buffer++);
     v4 = 37 * (v6 + 37 * v4);
   }
-  v7 = -1LL << (dword_1404378E4 & 0x1F);
+  v7 = -1LL << (dword_1404389A4 & 0x1F);
   v8 = v4 & v7;
-  if ( (unsigned int)dword_1404378E4 >> 5 )
+  if ( (unsigned int)dword_1404389A4 >> 5 )
   {
-    v9 = qword_1404378E8
+    v9 = qword_1404389A8
        + 8
        * ((((v4 & (unsigned __int64)v7) >> 56)
          + 37
@@ -46,7 +46,7 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
             * ((((unsigned int)v4 & (unsigned int)v7) >> 24)
              + 37
              * ((unsigned __int8)(((unsigned int)v4 & (unsigned int)v7) >> 16)
-              + 37 * ((unsigned __int8)((unsigned __int16)(v4 & v7) >> 8) + 37 * ((unsigned __int8)v8 + 11623883)))))))) & (((unsigned int)dword_1404378E4 >> 5) - 1));
+              + 37 * ((unsigned __int8)((unsigned __int16)(v4 & v7) >> 8) + 37 * ((unsigned __int8)v8 + 11623883)))))))) & (((unsigned int)dword_1404389A4 >> 5) - 1));
     do
     {
       v9 = *(_QWORD *)v9;

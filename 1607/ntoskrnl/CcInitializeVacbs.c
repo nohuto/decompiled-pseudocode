@@ -3,10 +3,10 @@
  * Callers:
  *     CcInitializeCacheManager @ 0x14079FAB0 (CcInitializeCacheManager.c)
  * Callees:
- *     CcAllocateInitializeVacbArray @ 0x140136480 (CcAllocateInitializeVacbArray.c)
- *     CcBuildUpHighPriorityMappings @ 0x140147BC0 (CcBuildUpHighPriorityMappings.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     CcAllocateInitializeVacbArray @ 0x1401369F0 (CcAllocateInitializeVacbArray.c)
+ *     CcBuildUpHighPriorityMappings @ 0x140148130 (CcBuildUpHighPriorityMappings.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -24,9 +24,9 @@ _QWORD *CcInitializeVacbs()
     KeBugCheckEx(0x34u, 0x90418uLL, 0xFFFFFFFFC000009AuLL, 0LL, 0LL);
   memset(PoolWithTag, 0, 0x2800uLL);
   CcMinimumFreeHighPriorityVacbs = 64;
-  qword_140322F08 = (__int64)&CcVacbFreeList;
+  qword_140322F28 = (__int64)&CcVacbFreeList;
   CcVacbFreeList = (__int64)&CcVacbFreeList;
-  qword_140322F18 = (__int64)&CcVacbFreeHighPriorityList;
+  qword_140322F38 = (__int64)&CcVacbFreeHighPriorityList;
   CcVacbFreeHighPriorityList = (__int64)&CcVacbFreeHighPriorityList;
   InitializeVacbArray = CcAllocateInitializeVacbArray();
   v2 = InitializeVacbArray;

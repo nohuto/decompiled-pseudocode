@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepGetShimCallbacksForDriver @ 0x140A25750
+ * XREFs of KsepGetShimCallbacksForDriver @ 0x140A387F0
  * Callers:
- *     KseShimDriverIoCallbacks @ 0x140A26360 (KseShimDriverIoCallbacks.c)
+ *     KseShimDriverIoCallbacks @ 0x140A39400 (KseShimDriverIoCallbacks.c)
  * Callees:
- *     KsepLogInfo @ 0x1404CCB84 (KsepLogInfo.c)
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     RtlAssert @ 0x140619AB0 (RtlAssert.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KsepIsModuleShimmed @ 0x140A25854 (KsepIsModuleShimmed.c)
+ *     KsepLogInfo @ 0x1404C6324 (KsepLogInfo.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x14061CB00 (RtlAssert.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KsepIsModuleShimmed @ 0x140A388F4 (KsepIsModuleShimmed.c)
  */
 
 __int64 __fastcall KsepGetShimCallbacksForDriver(__int64 a1, _QWORD *a2)
@@ -40,13 +40,11 @@ __int64 __fastcall KsepGetShimCallbacksForDriver(__int64 a1, _QWORD *a2)
   v24 = 0LL;
   if ( !a2 )
   {
-    v6 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v6 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v6 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v6) = 459517;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v6) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v6) = 459517;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       RtlAssert("IoCallbacks != NULL", "minkernel\\ntos\\kshim\\kseloader.c", 0x2FDu, 0LL);
   }
   memset_0(a2, 0, 0x100uLL);
@@ -68,12 +66,12 @@ __int64 __fastcall KsepGetShimCallbacksForDriver(__int64 a1, _QWORD *a2)
         if ( !v11 )
         {
           v12 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v12 + 4] = -1073740768;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v12) = 459570;
-          if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v12) = -1073740768;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v12) = 459570;
+          if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
           {
             RtlAssert("CurrentShim != NULL", "minkernel\\ntos\\kshim\\kseloader.c", 0x332u, 0LL);
             v10 = v25;
@@ -126,10 +124,10 @@ LABEL_46:
           if ( *a2 )
           {
             v22 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                      (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                      (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                       1u)
                  + 1) & 0x3F;
-            *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * (unsigned int)v22) = 459598;
+            *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * (unsigned int)v22) = 459598;
             goto LABEL_40;
           }
           *a2 = *(_QWORD *)(v19 + v20 + 16);
@@ -138,10 +136,10 @@ LABEL_46:
           if ( a2[1] )
           {
             v22 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                      (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                      (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                       1u)
                  + 1) & 0x3F;
-            *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * (unsigned int)v22) = 459613;
+            *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * (unsigned int)v22) = 459613;
             goto LABEL_40;
           }
           a2[1] = *(_QWORD *)(v19 + v20 + 16);
@@ -150,10 +148,10 @@ LABEL_46:
           if ( a2[2] )
           {
             v22 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                      (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                      (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                       1u)
                  + 1) & 0x3F;
-            *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * (unsigned int)v22) = 459628;
+            *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * (unsigned int)v22) = 459628;
             goto LABEL_40;
           }
           a2[2] = *(_QWORD *)(v19 + v20 + 16);
@@ -162,10 +160,10 @@ LABEL_46:
           if ( a2[3] )
           {
             v22 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                      (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                      (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                       1u)
                  + 1) & 0x3F;
-            *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * (unsigned int)v22) = 459643;
+            *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * (unsigned int)v22) = 459643;
             goto LABEL_40;
           }
           a2[3] = *(_QWORD *)(v19 + v20 + 16);
@@ -175,12 +173,12 @@ LABEL_46:
           if ( (unsigned int)v21 > 0x1B )
           {
             v23 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                      (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                      (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                       1u)
                  + 1) & 0x3F;
-            *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v23 + 4] = -1073741811;
-            *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v23) = 459674;
-            if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+            *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v23) = -1073741811;
+            *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v23) = 459674;
+            if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
               KsepDebugPrint(9LL, (int)"KSE: Invalid callback code encountered: %u\n", *(unsigned int *)(v19 + v20 + 8));
             KsepLogError(9LL, (__int64)"KSE: Invalid callback code encountered: %u\n", *(_DWORD *)(v19 + v20 + 8));
             break;
@@ -188,13 +186,13 @@ LABEL_46:
           if ( a2[v21 + 4] )
           {
             v22 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                      (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                      (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                       1u)
                  + 1) & 0x3F;
-            *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * (unsigned int)v22) = 459661;
+            *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * (unsigned int)v22) = 459661;
 LABEL_40:
-            *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v22 + 4] = -1073741823;
-            if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+            *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v22) = -1073741823;
+            if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
               KsepDebugPrint(9LL, (int)"KSE: Two shims are hooking same callback! \n");
             KsepLogError(9LL, (__int64)"KSE: Two shims are hooking same callback! \n");
             break;
@@ -214,12 +212,12 @@ LABEL_40:
     }
   }
 LABEL_49:
-  *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-  + (((unsigned __int8)_InterlockedExchangeAdd(
-                         (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                         1u)
-    + 1) & 0x3F)) = 459694LL;
-  if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+  *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                    * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                           &KsepHistoryMessagesIndex,
+                                                                           1u)
+                                                      + 1) & 0x3F)] = 459694LL;
+  if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
     KsepDebugPrint(9LL, (int)"KSE: GetShimCallbacks succeeded\n");
   KsepLogInfo(9LL, (__int64)"KSE: GetShimCallbacks succeeded\n");
   return v2;

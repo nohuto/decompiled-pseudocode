@@ -1,8 +1,8 @@
 /*
  * XREFs of ZwOpenResourceManager @ 0x14041DD80
  * Callers:
- *     DifZwOpenResourceManagerWrapper @ 0x1406225D0 (DifZwOpenResourceManagerWrapper.c)
- *     CmpInitCmRM @ 0x140742E3C (CmpInitCmRM.c)
+ *     sub_1406225D0 @ 0x1406225D0 (sub_1406225D0.c)
+ *     sub_140742E3C @ 0x140742E3C (sub_140742E3C.c)
  * Callees:
  *     <none>
  */
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwOpenResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(ResourceManagerHandle, *(_QWORD *)&DesiredAccess);
 }

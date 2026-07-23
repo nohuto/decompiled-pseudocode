@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMajorTestStartedPdoStack @ 0x1409D7BF4
+ * XREFs of VfMajorTestStartedPdoStack @ 0x1409D8BF4
  * Callers:
- *     PpvUtilTestStartedPdoStack @ 0x140370080 (PpvUtilTestStartedPdoStack.c)
+ *     PpvUtilTestStartedPdoStack @ 0x140370230 (PpvUtilTestStartedPdoStack.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IovUtilIsVerifiedDeviceStack @ 0x1409D6B08 (IovUtilIsVerifiedDeviceStack.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IovUtilIsVerifiedDeviceStack @ 0x1409D7B08 (IovUtilIsVerifiedDeviceStack.c)
  */
 
 __int64 (__fastcall *__fastcall VfMajorTestStartedPdoStack(__int64 a1))(_QWORD)

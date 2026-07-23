@@ -1,9 +1,9 @@
 /*
- * XREFs of PfHardFaultRecord @ 0x1400A1524
+ * XREFs of PfHardFaultRecord @ 0x14009FE4C
  * Callers:
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
  */
 
 __int64 __fastcall PfHardFaultRecord(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6)
@@ -24,8 +24,8 @@ __int64 __fastcall PfHardFaultRecord(__int64 a1, __int64 a2, int a3, __int64 a4,
     *(_QWORD *)a1 = 0LL;
     *(_QWORD *)(a1 + 8) = 0LL;
   }
-  result = (unsigned int)dword_14033B814;
-  if ( (dword_14033B814 & 1) != 0 )
+  result = (unsigned int)dword_14033B854;
+  if ( (dword_14033B854 & 1) != 0 )
   {
     result = MEMORY[0xFFFFF78000000320];
     *(_QWORD *)(a1 + 48) = MEMORY[0xFFFFF78000000320];

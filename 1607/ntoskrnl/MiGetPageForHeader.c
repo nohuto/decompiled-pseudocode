@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetPageForHeader @ 0x1400FDB48
+ * XREFs of MiGetPageForHeader @ 0x1400FB8C8
  * Callers:
- *     MiInitializeImageProtos @ 0x1400FD83C (MiInitializeImageProtos.c)
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiInitializeImageProtos @ 0x1400FB5BC (MiInitializeImageProtos.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiGetEffectivePagePriorityThread @ 0x140026DB4 (MiGetEffectivePagePriorityThread.c)
- *     MiObtainFaultCharges @ 0x14002B530 (MiObtainFaultCharges.c)
- *     MiReturnFaultCharges @ 0x1400B2F88 (MiReturnFaultCharges.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiGetSystemPage @ 0x1400FDC54 (MiGetSystemPage.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140026934 (MiGetEffectivePagePriorityThread.c)
+ *     MiObtainFaultCharges @ 0x14002B0B0 (MiObtainFaultCharges.c)
+ *     MiReturnFaultCharges @ 0x1400B0E08 (MiReturnFaultCharges.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiGetSystemPage @ 0x1400FB9D4 (MiGetSystemPage.c)
  */
 
 __int64 __fastcall MiGetPageForHeader(int *a1, int a2)

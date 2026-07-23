@@ -168,7 +168,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
   UNICODE_STRING v132; // [rsp+1E8h] [rbp+E0h] BYREF
   UNICODE_STRING v133; // [rsp+1F8h] [rbp+F0h] BYREF
   UNICODE_STRING v134; // [rsp+208h] [rbp+100h] BYREF
-  int v135[60]; // [rsp+218h] [rbp+110h] BYREF
+  GUID v135[15]; // [rsp+218h] [rbp+110h] BYREF
   _WORD v136[16]; // [rsp+308h] [rbp+200h] BYREF
   wchar_t SourceString; // [rsp+328h] [rbp+220h] BYREF
   wchar_t pszDest[8]; // [rsp+330h] [rbp+228h] BYREF
@@ -460,7 +460,7 @@ LABEL_68:
               while ( v52 );
               v136[0] = 0;
               p_DestinationString = &DestinationString;
-              ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 7u, v135);
+              ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 7u, (int *)v135);
               v49 = 1;
               if ( ComputerId < 0 )
                 goto LABEL_154;
@@ -472,7 +472,7 @@ LABEL_68:
             *(_QWORD *)&v123 = &v130;
             *((_QWORD *)&v123 + 1) = &DestinationString;
             v136[v49] = 1;
-            v54 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 6u, &v135[4 * v49]);
+            v54 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 6u, (int *)&v135[v49]);
             v55 = v49 + 1;
             ComputerId = v54;
             if ( v54 < 0 )
@@ -483,7 +483,7 @@ LABEL_68:
             *(_QWORD *)&v122 = &v129;
             *((_QWORD *)&v122 + 1) = &v130;
             *(_QWORD *)&v123 = &DestinationString;
-            ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 5u, &v135[4 * (unsigned int)v55]);
+            ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 5u, (int *)&v135[(unsigned int)v55]);
             v49 = v55 + 1;
             if ( ComputerId < 0 )
               goto LABEL_154;
@@ -522,7 +522,7 @@ LABEL_68:
                     }
                     while ( v60 );
                     v136[v49] = 3;
-                    ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 6u, &v135[4 * v49++]);
+                    ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 6u, (int *)&v135[v49++]);
                     if ( ComputerId < 0 )
                       goto LABEL_154;
                   }
@@ -540,7 +540,7 @@ LABEL_68:
                 }
                 while ( v62 );
                 v136[v49] = 4;
-                v65 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, &v135[4 * v49++]);
+                v65 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, (int *)&v135[v49++]);
                 ComputerId = v65;
                 if ( v65 < 0 )
                   goto LABEL_154;
@@ -549,7 +549,7 @@ LABEL_68:
               *((_QWORD *)&v121 + 1) = &v126;
               *(_QWORD *)&v122 = &v127;
               v136[v49] = 5;
-              ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 3u, &v135[4 * v49++]);
+              ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 3u, (int *)&v135[v49++]);
               if ( ComputerId < 0 )
                 goto LABEL_154;
               Buffer = UnicodeString.Buffer;
@@ -575,7 +575,7 @@ LABEL_68:
                     }
                     while ( v66 );
                     v136[v49] = 6;
-                    v69 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, &v135[4 * v49++]);
+                    v69 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, (int *)&v135[v49++]);
                     ComputerId = v69;
                     if ( v69 < 0 )
                       goto LABEL_154;
@@ -584,7 +584,7 @@ LABEL_68:
                 *(_QWORD *)&v121 = &UnicodeString;
                 *((_QWORD *)&v121 + 1) = &v128;
                 v136[v49] = 7;
-                ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, &v135[4 * v49++]);
+                ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, (int *)&v135[v49++]);
                 if ( ComputerId < 0 )
                   goto LABEL_154;
                 Buffer = UnicodeString.Buffer;
@@ -602,7 +602,7 @@ LABEL_68:
                       *(_QWORD *)&v122 = &v131;
                       *((_QWORD *)&v122 + 1) = &v132;
                       v136[v49] = 8;
-                      v70 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, &v135[4 * v49++]);
+                      v70 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, (int *)&v135[v49++]);
                       ComputerId = v70;
                       if ( v70 < 0 )
                         goto LABEL_154;
@@ -611,7 +611,7 @@ LABEL_68:
                   *(_QWORD *)&v121 = &UnicodeString;
                   *((_QWORD *)&v121 + 1) = &v127;
                   v136[v49] = 9;
-                  ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, &v135[4 * v49++]);
+                  ComputerId = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, (int *)&v135[v49++]);
                   if ( ComputerId < 0 )
                     goto LABEL_154;
                   Buffer = UnicodeString.Buffer;
@@ -637,7 +637,7 @@ LABEL_68:
                         }
                         while ( v71 );
                         v136[v49] = 10;
-                        v74 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, &v135[4 * v49++]);
+                        v74 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 4u, (int *)&v135[v49++]);
                         ComputerId = v74;
                         if ( v74 < 0 )
                           goto LABEL_154;
@@ -646,7 +646,7 @@ LABEL_68:
                     *(_QWORD *)&v121 = &UnicodeString;
                     *((_QWORD *)&v121 + 1) = &v126;
                     v136[v49] = 11;
-                    v75 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, &v135[4 * v49++]);
+                    v75 = PipCreateComputerId(v48, v50, (unsigned __int16 **)&v121, 2u, (int *)&v135[v49++]);
                     ComputerId = v75;
                     if ( v75 < 0 )
                       goto LABEL_154;
@@ -663,7 +663,7 @@ LABEL_68:
                       *(_QWORD *)&v121 = &UnicodeString;
                       *((_QWORD *)&v121 + 1) = &v117;
                       v136[v49] = 12;
-                      ComputerId = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 2u, &v135[4 * v49++]);
+                      ComputerId = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 2u, (int *)&v135[v49++]);
                       if ( ComputerId < 0 )
                         goto LABEL_154;
                       Buffer = UnicodeString.Buffer;
@@ -685,14 +685,19 @@ LABEL_68:
                           }
                           while ( v76 );
                           v136[v49] = 13;
-                          ComputerId = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 3u, &v135[4 * v49++]);
+                          ComputerId = PipCreateComputerId(
+                                         v48,
+                                         0LL,
+                                         (unsigned __int16 **)&v121,
+                                         3u,
+                                         (int *)&v135[v49++]);
                           if ( ComputerId < 0 )
                             goto LABEL_154;
                         }
                       }
                       *(_QWORD *)&v121 = &UnicodeString;
                       v136[v49] = 14;
-                      v79 = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 1u, &v135[4 * v49++]);
+                      v79 = PipCreateComputerId(v48, 0LL, (unsigned __int16 **)&v121, 1u, (int *)&v135[v49++]);
                       ComputerId = v79;
                       if ( v79 < 0 )
                         goto LABEL_154;
@@ -724,7 +729,7 @@ LABEL_154:
             ComputerId = RtlUnicodeStringCopyStringEx(&ValueName_8, L"ComputerMetadata\\", &ValueName_8, 0);
             if ( ComputerId < 0 )
               break;
-            ComputerId = RtlStringFromGUIDEx((unsigned int *)&v135[4 * v82], (__int64)&ValueName_8, 0);
+            ComputerId = RtlStringFromGUIDEx(&v135[v82], &ValueName_8, 0);
             if ( ComputerId < 0 )
               goto LABEL_215;
             ComputerId = RtlUpcaseUnicodeString(&ValueName_8, &ValueName_8, 0);
@@ -794,7 +799,7 @@ LABEL_164:
               ComputerId = RtlUnicodeStringCopyStringEx(&ValueName_8, L"COMPUTER\\", &ValueName_8, 0);
               if ( ComputerId < 0 )
                 goto LABEL_215;
-              ComputerId = RtlStringFromGUIDEx((unsigned int *)&v135[4 * v87], (__int64)&ValueName_8, 0);
+              ComputerId = RtlStringFromGUIDEx(&v135[v87], &ValueName_8, 0);
               if ( ComputerId < 0 )
                 goto LABEL_215;
               ComputerId = RtlUpcaseUnicodeString(&ValueName_8, &ValueName_8, 0);

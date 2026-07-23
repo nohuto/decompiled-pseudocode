@@ -1,17 +1,17 @@
 /*
- * XREFs of MiProcessWsInSwapRanges @ 0x14035D09C
+ * XREFs of MiProcessWsInSwapRanges @ 0x1402A1FCC
  * Callers:
- *     MiProcessWsInSwapSupport @ 0x14035CFC8 (MiProcessWsInSwapSupport.c)
+ *     MiProcessWsInSwapSupport @ 0x1402A1EF8 (MiProcessWsInSwapSupport.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiReleaseOutSwapReservations @ 0x14035D154 (MiReleaseOutSwapReservations.c)
- *     MmPrefetchVirtualMemory @ 0x1407108F8 (MmPrefetchVirtualMemory.c)
+ *     MiReleaseOutSwapReservations @ 0x1402A2084 (MiReleaseOutSwapReservations.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmPrefetchVirtualMemory @ 0x1406BEF48 (MmPrefetchVirtualMemory.c)
  */
 
-char __fastcall MiProcessWsInSwapRanges(_QWORD *a1, __int64 a2, char a3)
+__int64 __fastcall MiProcessWsInSwapRanges(_QWORD *a1, __int64 a2, char a3)
 {
   int v6; // edi
-  char result; // al
+  __int64 result; // rax
   struct _KTHREAD *CurrentThread; // r8
 
   v6 = a3 & 2;
@@ -20,9 +20,9 @@ char __fastcall MiProcessWsInSwapRanges(_QWORD *a1, __int64 a2, char a3)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
   }
-  result = MmPrefetchVirtualMemory(-(__int64)(*a1 < 0xFFFF800000000000uLL));
+  result = MmPrefetchVirtualMemory((HANDLE)-(__int64)(*a1 < 0xFFFF800000000000uLL));
   if ( v6 )
-    result = KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+    result = KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
   if ( (a3 & 1) == 0 )
     return MiReleaseOutSwapReservations(a1, a2);
   return result;

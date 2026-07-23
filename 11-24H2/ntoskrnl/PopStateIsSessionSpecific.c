@@ -1,12 +1,12 @@
 /*
- * XREFs of PopStateIsSessionSpecific @ 0x1409BCC68
+ * XREFs of PopStateIsSessionSpecific @ 0x1409A32B8
  * Callers:
- *     PopGetSettingNotificationName @ 0x1409BAE7C (PopGetSettingNotificationName.c)
- *     PopSetNewPolicyValue @ 0x1409BC67C (PopSetNewPolicyValue.c)
- *     PopGetListHead @ 0x1409BC7F4 (PopGetListHead.c)
- *     PopSetPowerSettingValue @ 0x1409BC864 (PopSetPowerSettingValue.c)
- *     PopFindPowerSettingConfiguration @ 0x1409BCCB0 (PopFindPowerSettingConfiguration.c)
- *     PoRegisterPowerSettingCallback @ 0x140A6B150 (PoRegisterPowerSettingCallback.c)
+ *     PopGetSettingNotificationName @ 0x1409A14CC (PopGetSettingNotificationName.c)
+ *     PopSetNewPolicyValue @ 0x1409A2CCC (PopSetNewPolicyValue.c)
+ *     PopGetListHead @ 0x1409A2E44 (PopGetListHead.c)
+ *     PopSetPowerSettingValue @ 0x1409A2EB4 (PopSetPowerSettingValue.c)
+ *     PopFindPowerSettingConfiguration @ 0x1409A3300 (PopFindPowerSettingConfiguration.c)
+ *     PoRegisterPowerSettingCallback @ 0x140A646B0 (PoRegisterPowerSettingCallback.c)
  * Callees:
  *     <none>
  */

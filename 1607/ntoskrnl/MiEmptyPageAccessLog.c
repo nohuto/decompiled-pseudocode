@@ -1,39 +1,39 @@
 /*
- * XREFs of MiEmptyPageAccessLog @ 0x140027640
+ * XREFs of MiEmptyPageAccessLog @ 0x1400271C0
  * Callers:
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     MiEmptyAccessLogs @ 0x140086B20 (MiEmptyAccessLogs.c)
- *     MiAllocateAccessLog @ 0x140086DF0 (MiAllocateAccessLog.c)
- *     MmOutSwapProcess @ 0x14009126C (MmOutSwapProcess.c)
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiTrimOrAgeWorkingSet @ 0x1400CDCA0 (MiTrimOrAgeWorkingSet.c)
- *     MiCleanWorkingSet @ 0x14010159C (MiCleanWorkingSet.c)
- *     MiDeleteSessionAddressSpace @ 0x140122D08 (MiDeleteSessionAddressSpace.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140129C50 (MiCaptureAndResetWorkingSetAccessBits.c)
- *     MmDeleteProcessAddressSpace @ 0x140460678 (MmDeleteProcessAddressSpace.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     MiEmptyAccessLogs @ 0x140088410 (MiEmptyAccessLogs.c)
+ *     MiAllocateAccessLog @ 0x1400886E0 (MiAllocateAccessLog.c)
+ *     MmOutSwapProcess @ 0x1400909CC (MmOutSwapProcess.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1400CBB40 (MiTrimOrAgeWorkingSet.c)
+ *     MiCleanWorkingSet @ 0x1400FF31C (MiCleanWorkingSet.c)
+ *     MiDeleteSessionAddressSpace @ 0x140123278 (MiDeleteSessionAddressSpace.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x14012A1C0 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MmDeleteProcessAddressSpace @ 0x14045F548 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     MmFreeAccessPfnBuffer @ 0x140006704 (MmFreeAccessPfnBuffer.c)
- *     MiGetSubsectionDriverProtos @ 0x140026CD4 (MiGetSubsectionDriverProtos.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     ExfAcquireRundownProtection @ 0x14008C5E0 (ExfAcquireRundownProtection.c)
- *     ExfReleaseRundownProtection @ 0x140090D30 (ExfReleaseRundownProtection.c)
- *     ObReferenceObjectExWithTag @ 0x140096540 (ObReferenceObjectExWithTag.c)
- *     ObpDeferObjectDeletion @ 0x1400A7FB4 (ObpDeferObjectDeletion.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     MiGetSharedProtos @ 0x1401F5088 (MiGetSharedProtos.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
+ *     MmFreeAccessPfnBuffer @ 0x140006874 (MmFreeAccessPfnBuffer.c)
+ *     MiGetSubsectionDriverProtos @ 0x140026854 (MiGetSubsectionDriverProtos.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     ExfAcquireRundownProtection @ 0x14008BD40 (ExfAcquireRundownProtection.c)
+ *     ExfReleaseRundownProtection @ 0x140090490 (ExfReleaseRundownProtection.c)
+ *     ObReferenceObjectExWithTag @ 0x140095D40 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x1400A652C (ObpDeferObjectDeletion.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     MiGetSharedProtos @ 0x1401F4EB4 (MiGetSharedProtos.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiEmptyPageAccessLog(struct _SLIST_ENTRY *P)
+void __fastcall MiEmptyPageAccessLog(_SLIST_ENTRY *P)
 {
   unsigned __int16 v1; // r8
-  struct _SLIST_ENTRY *v2; // r13
+  _SLIST_ENTRY *v2; // r13
   struct _KPROCESS *v3; // rax
   unsigned int v4; // edi
   unsigned __int64 v5; // rax
@@ -77,11 +77,11 @@ void __fastcall MiEmptyPageAccessLog(struct _SLIST_ENTRY *P)
   signed __int64 BugCheckParameter4; // rax
   __int64 SharedProtos; // rax
   KIRQL v45; // si
-  struct _SLIST_ENTRY *v46; // rbx
-  struct _SLIST_ENTRY *j; // rcx
+  _SLIST_ENTRY *v46; // rbx
+  _SLIST_ENTRY *j; // rcx
   unsigned __int64 v48; // [rsp+30h] [rbp-58h]
-  struct _SLIST_ENTRY *Pa; // [rsp+38h] [rbp-50h]
-  struct _SLIST_ENTRY *v50; // [rsp+90h] [rbp+8h]
+  _SLIST_ENTRY *Pa; // [rsp+38h] [rbp-50h]
+  _SLIST_ENTRY *v50; // [rsp+90h] [rbp+8h]
   unsigned int v51; // [rsp+98h] [rbp+10h]
   struct _KPROCESS *v52; // [rsp+A0h] [rbp+18h]
   int v53; // [rsp+A8h] [rbp+20h]
@@ -286,21 +286,21 @@ LABEL_13:
         ObpPushStackInfo((_DWORD)v18);
 LABEL_17:
       *((_QWORD *)&v2[1].Next + 1) = MEMORY[0xFFFFF78000000320];
-      *((_DWORD *)&v2->Next + 3) = dword_14033B810;
-      _m_prefetchw(&stru_14033B7C8);
-      v21 = stru_14033B7C8.Count & 0xFFFFFFFFFFFFFFFEuLL;
+      *((_DWORD *)&v2->Next + 3) = dword_14033B850;
+      _m_prefetchw(&stru_14033B808);
+      v21 = stru_14033B808.Count & 0xFFFFFFFFFFFFFFFEuLL;
       if ( v21 != _InterlockedCompareExchange64(
-                    (volatile signed __int64 *)&stru_14033B7C8,
-                    (stru_14033B7C8.Count & 0xFFFFFFFFFFFFFFFEuLL) + 2,
-                    stru_14033B7C8.Count & 0xFFFFFFFFFFFFFFFEuLL)
-        && !ExfAcquireRundownProtection(&stru_14033B7C8) )
+                    (volatile signed __int64 *)&stru_14033B808,
+                    (stru_14033B808.Count & 0xFFFFFFFFFFFFFFFEuLL) + 2,
+                    stru_14033B808.Count & 0xFFFFFFFFFFFFFFFEuLL)
+        && !ExfAcquireRundownProtection(&stru_14033B808) )
       {
         goto LABEL_64;
       }
       Alignment_low = LOWORD(ListHead.Alignment);
-      if ( LOWORD(ListHead.Alignment) >= (unsigned int)dword_14033B7E8 )
+      if ( LOWORD(ListHead.Alignment) >= (unsigned int)dword_14033B828 )
       {
-        _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140328310, 0x64u);
+        _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140328350, 0x64u);
         v23 = 0;
       }
       else
@@ -310,13 +310,13 @@ LABEL_17:
           KeSetEvent(&Event, 0, 0);
         v23 = 1;
       }
-      _m_prefetchw(&stru_14033B7C8);
-      v24 = stru_14033B7C8.Count & 0xFFFFFFFFFFFFFFFEuLL;
+      _m_prefetchw(&stru_14033B808);
+      v24 = stru_14033B808.Count & 0xFFFFFFFFFFFFFFFEuLL;
       if ( v24 != _InterlockedCompareExchange64(
-                    (volatile signed __int64 *)&stru_14033B7C8,
-                    (stru_14033B7C8.Count & 0xFFFFFFFFFFFFFFFEuLL) - 2,
-                    stru_14033B7C8.Count & 0xFFFFFFFFFFFFFFFEuLL) )
-        ExfReleaseRundownProtection(&stru_14033B7C8);
+                    (volatile signed __int64 *)&stru_14033B808,
+                    (stru_14033B808.Count & 0xFFFFFFFFFFFFFFFEuLL) - 2,
+                    stru_14033B808.Count & 0xFFFFFFFFFFFFFFFEuLL) )
+        ExfReleaseRundownProtection(&stru_14033B808);
       if ( !v23 )
 LABEL_64:
         MmFreeAccessPfnBuffer((__int64)v2, 1);

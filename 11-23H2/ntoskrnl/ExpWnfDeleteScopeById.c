@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfDeleteScopeById @ 0x1407CC85C
+ * XREFs of ExpWnfDeleteScopeById @ 0x1407CCB2C
  * Callers:
  *     MiDereferenceSessionFinal @ 0x140681B80 (MiDereferenceSessionFinal.c)
- *     ExWnfExitProcess @ 0x1407CC5C8 (ExWnfExitProcess.c)
+ *     ExWnfExitProcess @ 0x1407CC898 (ExWnfExitProcess.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExpWnfFindScopeInstance @ 0x1407147C8 (ExpWnfFindScopeInstance.c)
- *     ExpWnfFreeScopeInstance @ 0x1407CC964 (ExpWnfFreeScopeInstance.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExpWnfFindScopeInstance @ 0x1407149D8 (ExpWnfFindScopeInstance.c)
+ *     ExpWnfFreeScopeInstance @ 0x1407CCC34 (ExpWnfFreeScopeInstance.c)
  */
 
 int __fastcall ExpWnfDeleteScopeById(__int64 a1, const void *a2, unsigned int a3)

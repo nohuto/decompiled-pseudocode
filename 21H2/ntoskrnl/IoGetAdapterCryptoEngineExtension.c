@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetAdapterCryptoEngineExtension @ 0x140507B70
+ * XREFs of IoGetAdapterCryptoEngineExtension @ 0x140507AF0
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x1402EDEC0 (IopIrpHasExtensionType.c)
+ *     IopIrpHasExtensionType @ 0x14020D890 (IopIrpHasExtensionType.c)
  */
 
 __int64 __fastcall IoGetAdapterCryptoEngineExtension(__int64 a1)

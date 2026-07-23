@@ -3,9 +3,9 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     PsQuerySystemDllInfo @ 0x14045A7D4 (PsQuerySystemDllInfo.c)
- *     PspReferenceSystemDll @ 0x14046C06C (PspReferenceSystemDll.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     PsQuerySystemDllInfo @ 0x1404596A4 (PsQuerySystemDllInfo.c)
+ *     PspReferenceSystemDll @ 0x14046AF3C (PspReferenceSystemDll.c)
  */
 
 unsigned __int64 MmInitSystemDll()
@@ -18,7 +18,7 @@ unsigned __int64 MmInitSystemDll()
   if ( result )
   {
     result = PspReferenceSystemDll(result - 16);
-    qword_140326960 = *(_QWORD *)(v1 + 24);
+    qword_1403269A0 = *(_QWORD *)(v1 + 24);
     if ( result )
       return ObFastDereferenceObject((signed __int64 *)(v1 - 16), result);
   }

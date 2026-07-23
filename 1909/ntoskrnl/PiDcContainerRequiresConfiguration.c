@@ -50,7 +50,7 @@ __int64 __fastcall PiDcContainerRequiresConfiguration(wchar_t *Str2)
                          4u,
                          0);
       if ( ObjectProperty >= 0 )
-        ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0LL);
+        ZwUpdateWnfStateData(&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
     }
   }
   return (unsigned int)ObjectProperty;

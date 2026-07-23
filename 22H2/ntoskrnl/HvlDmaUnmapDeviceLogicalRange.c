@@ -44,7 +44,7 @@ __int64 __fastcall HvlDmaUnmapDeviceLogicalRange(int *a1, __int64 a2, unsigned _
         v9 = *(_DWORD *)a3;
       v10 ^= (v9 ^ v10) & 0xFFF;
       HIDWORD(v13) = v10;
-      v11 = HvcallFastExtended(v13, (__int64)v14, 32LL, 0LL, 0);
+      v11 = HvcallFastExtended(v13, (__int64)v14, 0x20u, 0, 0);
       v12 = HIDWORD(v11) & 0xFFF;
       v8 += v12;
       a2 += (unsigned __int16)(WORD2(v11) & 0xFFF) << 12;

@@ -1,22 +1,22 @@
 /*
- * XREFs of KiBeginThreadAccountingPeriod @ 0x140100970
+ * XREFs of KiBeginThreadAccountingPeriod @ 0x1401009F0
  * Callers:
- *     KiChainedDispatch @ 0x1401BD200 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x1401BDB70 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x1401BDF50 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x1401BE330 (KiInterruptDispatchNoLockNoEtw.c)
- *     KiInterruptDispatchNoEOI @ 0x1401BE710 (KiInterruptDispatchNoEOI.c)
- *     KiSpuriousDispatchNoEOI @ 0x1401BEAF0 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x1401BF730 (KxIsrLinkage.c)
- *     KiHvInterruptDispatch @ 0x1401C2010 (KiHvInterruptDispatch.c)
- *     KiVmbusInterruptDispatch @ 0x1401C2400 (KiVmbusInterruptDispatch.c)
- *     KiSwInterrupt @ 0x1401C2AA0 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x1401C3800 (KiIpiInterrupt.c)
- *     SwapContext @ 0x1401C42C0 (SwapContext.c)
+ *     KiChainedDispatch @ 0x1401BD360 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x1401BDCD0 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x1401BE0B0 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x1401BE490 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x1401BE870 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1401BEC50 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x1401BF890 (KxIsrLinkage.c)
+ *     KiHvInterruptDispatch @ 0x1401C2170 (KiHvInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x1401C2560 (KiVmbusInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x1401C2C00 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x1401C3960 (KiIpiInterrupt.c)
+ *     SwapContext @ 0x1401C4420 (SwapContext.c)
  * Callees:
- *     KiInsertDeferredPreemptionApc @ 0x1400F27E8 (KiInsertDeferredPreemptionApc.c)
- *     KiBeginCounterAccumulation @ 0x140295E0C (KiBeginCounterAccumulation.c)
- *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1400F2868 (KiInsertDeferredPreemptionApc.c)
+ *     KiBeginCounterAccumulation @ 0x140295FFC (KiBeginCounterAccumulation.c)
+ *     KiSetVpThreadSystemWork @ 0x140299950 (KiSetVpThreadSystemWork.c)
  */
 
 void __fastcall KiBeginThreadAccountingPeriod(__int64 a1, struct _KTHREAD *a2, __int64 a3)

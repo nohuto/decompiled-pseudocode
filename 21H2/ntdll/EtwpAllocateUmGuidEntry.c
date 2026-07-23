@@ -6,7 +6,7 @@
  * Callees:
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  *     EtwpInsertGuidEntry @ 0x180048114 (EtwpInsertGuidEntry.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 char *__fastcall EtwpAllocateUmGuidEntry(_OWORD *a1)
@@ -14,14 +14,14 @@ char *__fastcall EtwpAllocateUmGuidEntry(_OWORD *a1)
   char *Heap; // rax
   char *v3; // rbx
 
-  Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 176LL);
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xB0uLL);
   v3 = Heap;
   if ( Heap )
   {
     memset(Heap, 0, 0xB0uLL);
     *(_OWORD *)(v3 + 24) = *a1;
     *((_DWORD *)v3 + 13) = 1;
-    EtwpInsertGuidEntry(v3);
+    EtwpInsertGuidEntry((PRTL_BALANCED_NODE)v3);
   }
   return v3;
 }

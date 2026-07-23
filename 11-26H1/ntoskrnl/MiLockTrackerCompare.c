@@ -1,5 +1,5 @@
 /*
- * XREFs of MiLockTrackerCompare @ 0x1404C6580
+ * XREFs of MiLockTrackerCompare @ 0x1404BFF30
  * Callers:
  *     <none>
  * Callees:

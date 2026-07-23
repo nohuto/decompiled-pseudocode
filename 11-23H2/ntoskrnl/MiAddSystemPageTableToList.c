@@ -3,8 +3,8 @@
  * Callers:
  *     MiDeleteSystemPageTable @ 0x14021DDF0 (MiDeleteSystemPageTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
  */
 
 char __fastcall MiAddSystemPageTableToList(_QWORD *a1, __int64 a2, __int64 a3)

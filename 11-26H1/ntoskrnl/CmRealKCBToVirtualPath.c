@@ -1,21 +1,21 @@
 /*
- * XREFs of CmRealKCBToVirtualPath @ 0x1408B1418
+ * XREFs of CmRealKCBToVirtualPath @ 0x1408B7A24
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x140859F40 (CmpReplicateKeyToVirtual.c)
- *     CmpReportAuditVirtualizationEvent @ 0x14085B480 (CmpReportAuditVirtualizationEvent.c)
- *     CmpReparseToVirtualPath @ 0x1408AF5E0 (CmpReparseToVirtualPath.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x1408B1E74 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1408F3730 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpVEExecuteCreateLogic @ 0x140A9F648 (CmpVEExecuteCreateLogic.c)
+ *     CmpReplicateKeyToVirtual @ 0x140860234 (CmpReplicateKeyToVirtual.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140861774 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1408B8450 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1408F9CF0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpVEExecuteCreateLogic @ 0x140A9F978 (CmpVEExecuteCreateLogic.c)
+ *     CmpReparseToVirtualPath @ 0x140B07FA4 (CmpReparseToVirtualPath.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     CmpGetVirtualizationID @ 0x1408B1274 (CmpGetVirtualizationID.c)
- *     CmpConstructName @ 0x1408C53A0 (CmpConstructName.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     CmpGetVirtualizationID @ 0x1408B7880 (CmpGetVirtualizationID.c)
+ *     CmpConstructName @ 0x1408CB970 (CmpConstructName.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 __int64 __fastcall CmRealKCBToVirtualPath(__int64 a1, UNICODE_STRING *a2, int *a3, UNICODE_STRING *a4)

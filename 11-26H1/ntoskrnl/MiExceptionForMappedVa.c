@@ -1,10 +1,10 @@
 /*
- * XREFs of MiExceptionForMappedVa @ 0x1406F6EFC
+ * XREFs of MiExceptionForMappedVa @ 0x1406FBB6C
  * Callers:
- *     MiWaitForInPageComplete @ 0x14038E1F0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x14038FFA0 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
  */
 
 __int64 __fastcall MiExceptionForMappedVa(struct _LIST_ENTRY *a1, __int64 a2, __int64 a3)
@@ -16,8 +16,8 @@ __int64 __fastcall MiExceptionForMappedVa(struct _LIST_ENTRY *a1, __int64 a2, __
 
   v4 = 0;
   v5 = MiLockVadTree(4u, a2, a3);
-  Flink = stru_140E34C08.Header.WaitListHead.Flink;
-  if ( stru_140E34C08.Header.WaitListHead.Flink )
+  Flink = stru_140E34D88.Header.WaitListHead.Flink;
+  if ( stru_140E34D88.Header.WaitListHead.Flink )
   {
     do
     {

@@ -69,17 +69,17 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v33; // rcx
   __int64 v34; // r8
   __int64 v35; // r9
-  unsigned __int64 v36; // rbp
-  unsigned __int64 SetBits; // rax
-  unsigned __int64 v38; // r14
+  ULONG64 v36; // rbp
+  ULONG64 SetBits; // rax
+  ULONG64 v38; // r14
   __int64 v39; // rbp
   unsigned __int64 v40; // rcx
   int v41; // eax
   unsigned __int8 v42; // bl
-  unsigned __int64 v43; // rbx
+  unsigned __int64 SizeOfBitMap; // rbx
   _QWORD *v46; // [rsp+30h] [rbp-158h]
   _QWORD *v47; // [rsp+30h] [rbp-158h]
-  unsigned __int64 *v48; // [rsp+38h] [rbp-150h]
+  _RTL_BITMAP_EX *BitMapHeader; // [rsp+38h] [rbp-150h]
   __int64 v50[24]; // [rsp+50h] [rbp-138h] BYREF
   _BYTE v51[48]; // [rsp+110h] [rbp-78h] BYREF
 
@@ -100,8 +100,8 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, __int64 a2, _QWORD *a3)
     {
       if ( *(_DWORD *)(v4 + 4) )
         break;
-      v48 = *(unsigned __int64 **)(NextProcess + 1032);
-      if ( v48 || *(_DWORD *)(NextProcess + 1708) )
+      BitMapHeader = *(_RTL_BITMAP_EX **)(NextProcess + 1032);
+      if ( BitMapHeader || *(_DWORD *)(NextProcess + 1708) )
       {
         KiStackAttachProcess(v9, 0, (__int64)v51);
         --CurrentThread->KernelApcDisable;
@@ -215,7 +215,7 @@ LABEL_44:
           else
           {
             UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, NextProcess);
-            if ( v48 )
+            if ( BitMapHeader )
             {
               v36 = 0LL;
               do
@@ -224,12 +224,12 @@ LABEL_44:
                 if ( *(_DWORD *)(a2 + 4) )
                   goto LABEL_47;
                 --CurrentThread->SpecialApcDisable;
-                ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)(v48 + 2), 0LL);
-                SetBits = RtlFindSetBitsEx(v48, 1uLL, v36);
+                ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)&BitMapHeader[1], 0LL);
+                SetBits = RtlFindSetBitsEx(BitMapHeader, 1uLL, v36);
                 v38 = SetBits;
                 if ( SetBits < v36 || SetBits == -1LL )
                 {
-                  ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)(v48 + 2), 0LL);
+                  ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)&BitMapHeader[1], 0LL);
                   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
                   goto LABEL_47;
                 }
@@ -245,12 +245,12 @@ LABEL_44:
                   MiMakePageBad(v39, 0);
                   MiUnlockPage(v39, v42);
                 }
-                v43 = *v48;
+                SizeOfBitMap = BitMapHeader->SizeOfBitMap;
                 v36 = v38 + 1;
-                ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)(v48 + 2), 0LL);
+                ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)&BitMapHeader[1], 0LL);
                 KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
               }
-              while ( v38 + 1 < v43 );
+              while ( v38 + 1 < SizeOfBitMap );
             }
           }
         }

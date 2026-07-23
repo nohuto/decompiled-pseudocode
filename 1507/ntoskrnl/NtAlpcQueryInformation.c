@@ -15,10 +15,15 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcQueryInformation(HANDLE Handle, int a2, unsigned __int64 a3, unsigned int a4, ULONG64 a5)
+NTSTATUS __cdecl NtAlpcQueryInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v10; // ebx
+  int v10; // ebx
   KPROCESSOR_MODE PreviousMode; // r12
   unsigned __int64 v12; // rcx
   ULONG64 v13; // rdx
@@ -26,9 +31,9 @@ __int64 __fastcall NtAlpcQueryInformation(HANDLE Handle, int a2, unsigned __int6
   PVOID v15; // rdi
   unsigned int *v16; // r14
   _DWORD *v17; // rcx
-  int v18; // esi
-  int v19; // esi
-  int v20; // esi
+  __int32 v18; // esi
+  __int32 v19; // esi
+  __int32 v20; // esi
   NTSTATUS ServerSessionInfo; // eax
   struct _KTHREAD *v22; // rcx
   __int16 v23; // ax
@@ -37,7 +42,7 @@ __int64 __fastcall NtAlpcQueryInformation(HANDLE Handle, int a2, unsigned __int6
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( !a3 )
+  if ( !PortInformation )
   {
     v10 = -1073741811;
     goto LABEL_39;
@@ -46,21 +51,21 @@ __int64 __fastcall NtAlpcQueryInformation(HANDLE Handle, int a2, unsigned __int6
   if ( !PreviousMode )
   {
     v15 = 0LL;
-    v16 = (unsigned int *)a5;
+    v16 = ReturnLength;
     goto LABEL_23;
   }
-  if ( ((a2 - 3) & 0xFFFFFFF7) != 0 )
+  if ( ((PortInformationClass - 3) & 0xFFFFFFF7) != 0 )
   {
-    if ( !a4 )
+    if ( !Length )
     {
       v15 = 0LL;
       goto LABEL_17;
     }
-    v12 = a3;
-    if ( (a3 & 3) != 0 )
+    v12 = (unsigned __int64)PortInformation;
+    if ( ((unsigned __int8)PortInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v13 = a4 + a3 - 1;
-    if ( a3 > v13 || v13 >= MmUserProbeAddress )
+    v13 = (ULONG64)PortInformation + Length - 1;
+    if ( (unsigned __int64)PortInformation > v13 || v13 >= MmUserProbeAddress )
     {
       v15 = 0LL;
       if ( !KeGetCurrentThread()->ApcState.Process->SecurePid )
@@ -77,25 +82,25 @@ __int64 __fastcall NtAlpcQueryInformation(HANDLE Handle, int a2, unsigned __int6
   }
   v15 = 0LL;
 LABEL_17:
-  v16 = (unsigned int *)a5;
-  if ( a5 )
+  v16 = ReturnLength;
+  if ( ReturnLength )
   {
-    v17 = (_DWORD *)a5;
-    if ( a5 >= MmUserProbeAddress )
+    v17 = ReturnLength;
+    if ( (unsigned __int64)ReturnLength >= MmUserProbeAddress )
       v17 = (_DWORD *)MmUserProbeAddress;
     *v17 = *v17;
   }
 LABEL_23:
-  if ( Handle )
+  if ( PortHandle )
   {
-    v10 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &v26, 0LL);
+    v10 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &v26, 0LL);
     v15 = v26;
     if ( v10 < 0 )
       goto LABEL_39;
   }
-  if ( a2 )
+  if ( PortInformationClass )
   {
-    v18 = a2 - 3;
+    v18 = PortInformationClass - 3;
     if ( v18 )
     {
       v19 = v18 - 1;
@@ -109,27 +114,32 @@ LABEL_23:
             v10 = -1073741811;
             goto LABEL_37;
           }
-          ServerSessionInfo = AlpcpPortQueryServerSessionInfo(v15, a3, a4, v16);
+          ServerSessionInfo = AlpcpPortQueryServerSessionInfo(v15, PortInformation, Length, v16);
         }
         else
         {
-          ServerSessionInfo = AlpcpWaitForPortReferences((_DWORD)v15, a3, a4, (_DWORD)v16, PreviousMode);
+          ServerSessionInfo = AlpcpWaitForPortReferences(
+                                (_DWORD)v15,
+                                (_DWORD)PortInformation,
+                                Length,
+                                (_DWORD)v16,
+                                PreviousMode);
         }
       }
       else
       {
-        ServerSessionInfo = AlpcpPortQueryServerInfo((__int64)v15, a3, a4, v16, PreviousMode);
+        ServerSessionInfo = AlpcpPortQueryServerInfo((__int64)v15, (__int64)PortInformation, Length, v16, PreviousMode);
       }
     }
     else
     {
       LOBYTE(Object) = PreviousMode;
-      ServerSessionInfo = AlpcpPortQueryConnectedSidInfo(v15, a3, a3, v16, Object);
+      ServerSessionInfo = AlpcpPortQueryConnectedSidInfo(v15, PortInformation, PortInformation, v16, Object);
     }
   }
   else
   {
-    ServerSessionInfo = AlpcpPortQueryBasicInfo(v15, a3, a4, v16);
+    ServerSessionInfo = AlpcpPortQueryBasicInfo(v15, PortInformation, Length, v16);
   }
   v10 = ServerSessionInfo;
 LABEL_37:
@@ -145,5 +155,5 @@ LABEL_39:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v10;
+  return v10;
 }

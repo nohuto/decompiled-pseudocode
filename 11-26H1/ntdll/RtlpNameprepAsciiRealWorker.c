@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpNameprepAsciiRealWorker @ 0x1800AE5B0
+ * XREFs of RtlpNameprepAsciiRealWorker @ 0x1800AD6E0
  * Callers:
- *     RtlCanonicalizeDomainName @ 0x1800AC4D0 (RtlCanonicalizeDomainName.c)
- *     RtlIdnToAscii @ 0x1800AEBB0 (RtlIdnToAscii.c)
- *     RtlpNameprepAsciiWorker @ 0x1800AECB0 (RtlpNameprepAsciiWorker.c)
+ *     RtlCanonicalizeDomainName @ 0x1800AB600 (RtlCanonicalizeDomainName.c)
+ *     RtlIdnToAscii @ 0x1800ADCE0 (RtlIdnToAscii.c)
+ *     RtlpNameprepAsciiWorker @ 0x1800ADDE0 (RtlpNameprepAsciiWorker.c)
  * Callees:
- *     RtlpGetNormalization @ 0x1800AE430 (RtlpGetNormalization.c)
- *     RtlNormalizeString @ 0x1800AEDC0 (RtlNormalizeString.c)
- *     RtlpNormalizeStringWorker @ 0x1800AEE50 (RtlpNormalizeStringWorker.c)
- *     FindEmailAt @ 0x1800AF20C (FindEmailAt.c)
- *     punycode_encode @ 0x1800AFD14 (punycode_encode.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpGetNormalization @ 0x1800AD560 (RtlpGetNormalization.c)
+ *     RtlNormalizeString @ 0x1800ADEF0 (RtlNormalizeString.c)
+ *     RtlpNormalizeStringWorker @ 0x1800ADF80 (RtlpNormalizeStringWorker.c)
+ *     FindEmailAt @ 0x1800AE33C (FindEmailAt.c)
+ *     punycode_encode @ 0x1800AEE44 (punycode_encode.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlpNameprepAsciiRealWorker(
+int __fastcall RtlpNameprepAsciiRealWorker(
         int a1,
         unsigned __int16 *a2,
         int a3,
         void *a4,
         int *a5,
         char a6,
-        wchar_t *String1,
+        wchar_t *DestinationString,
         __int64 a8,
         _WORD *Src)
 {
@@ -40,20 +40,20 @@ __int64 __fastcall RtlpNameprepAsciiRealWorker(
   int v23; // ecx
   __int64 v24; // rcx
   int v25; // edi
-  int v26; // ebx
-  int v27; // r9d
-  int v28; // eax
-  __int64 result; // rax
+  LONG v26; // ebx
+  WCHAR *v27; // r9
+  LONG v28; // eax
+  int result; // eax
   bool v30; // zf
   wchar_t v31; // ax
-  int v32; // edi
+  LONG v32; // edi
   int EmailAt; // eax
   bool v34; // zf
   unsigned __int16 v35; // ax
   int v36; // eax
   int v37; // ecx
   __int64 v38; // rax
-  int v39; // [rsp+30h] [rbp-58h] BYREF
+  LONG DestinationStringLength; // [rsp+30h] [rbp-58h] BYREF
   int v40; // [rsp+34h] [rbp-54h]
   __int64 v41; // [rsp+38h] [rbp-50h] BYREF
   __int64 v42; // [rsp+40h] [rbp-48h]
@@ -64,16 +64,16 @@ __int64 __fastcall RtlpNameprepAsciiRealWorker(
   v44 = a4;
   v9 = a3;
   if ( !a2 )
-    return 3221225485LL;
+    return -1073741811;
   if ( a3 < -1 )
-    return 3221225485LL;
+    return -1073741811;
   if ( !a5 )
-    return 3221225485LL;
+    return -1073741811;
   v11 = *a5;
   if ( *a5 < 0 || v11 > 0 && !a4 )
-    return 3221225485LL;
+    return -1073741811;
   if ( (a1 & 0xFFFFFFF8) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   v45 = 0;
   v12 = a1 & 4;
   v40 = a1 & 1;
@@ -93,7 +93,7 @@ __int64 __fastcall RtlpNameprepAsciiRealWorker(
   }
   while ( v16 );
   if ( !v16 )
-    return 3221225485LL;
+    return -1073741811;
   v9 = 0x7FFFFFFF - v16 + 1;
   v13 = v12 != 0;
 LABEL_14:
@@ -183,7 +183,7 @@ LABEL_47:
 LABEL_33:
     v25 = 0;
     v26 = 0;
-    v27 = (int)String1;
+    v27 = DestinationString;
     v28 = 511;
     if ( !v12 )
     {
@@ -193,14 +193,14 @@ LABEL_34:
 LABEL_38:
         if ( v26 > 0 )
         {
-          v31 = String1[v26 - 1];
+          v31 = DestinationString[v26 - 1];
           if ( v31 == 46 )
           {
             v35 = a2[v42 - 1];
             if ( v35 != 46 && v35 != 12290 && v35 != 0xFF0E && v35 != 0xFF61 )
             {
               *a5 = 0;
-              return 3221227286LL;
+              return -1073740010;
             }
           }
           else if ( !v31 )
@@ -208,10 +208,10 @@ LABEL_38:
             goto LABEL_77;
           }
         }
-        v39 = 515;
-        result = punycode_encode(String1, v12 != 0, v43);
-        v32 = v39;
-        if ( v39 )
+        DestinationStringLength = 515;
+        result = punycode_encode(DestinationString, v12 != 0, v43);
+        v32 = DestinationStringLength;
+        if ( DestinationStringLength )
         {
           if ( !a6 )
           {
@@ -220,22 +220,22 @@ LABEL_38:
               if ( v26 > 511 )
                 goto LABEL_77;
               v38 = v26++;
-              String1[v38] = 0;
+              DestinationString[v38] = 0;
             }
             if ( v44 && v11 )
             {
               if ( v26 > v11 )
                 goto LABEL_111;
-              memmove(v44, String1, 2LL * v26);
+              memmove(v44, DestinationString, 2LL * v26);
             }
             *a5 = v26;
-            return 0LL;
+            return 0;
           }
           if ( !v45 )
             goto LABEL_44;
-          if ( v39 < 515 )
+          if ( DestinationStringLength < 515 )
           {
-            Src[v39] = 0;
+            Src[DestinationStringLength] = 0;
             ++v32;
 LABEL_44:
             if ( v44 && v11 )
@@ -245,32 +245,32 @@ LABEL_44:
               memmove(v44, Src, 2LL * v32);
             }
             *a5 = v32;
-            return 0LL;
+            return 0;
           }
 LABEL_77:
           *a5 = 0;
-          return 3221227286LL;
+          return -1073740010;
         }
 LABEL_84:
         *a5 = 0;
         return result;
       }
-      v39 = v28;
-      result = RtlNormalizeString(((v40 ^ 1u) << 8) + 13, (int)a2 + 2 * v25, v9 - v25, v27, (__int64)&v39);
-      v30 = (_DWORD)result == 0;
-      if ( (int)result >= 0 )
+      DestinationStringLength = v28;
+      result = RtlNormalizeString(((v40 ^ 1) << 8) + 13, &a2[v25], v9 - v25, v27, &DestinationStringLength);
+      v30 = result == 0;
+      if ( result >= 0 )
       {
-        if ( v39 )
+        if ( DestinationStringLength )
         {
-          v26 += v39;
+          v26 += DestinationStringLength;
           goto LABEL_38;
         }
-        v30 = (_DWORD)result == 0;
+        v30 = result == 0;
       }
-      if ( !v30 && (_DWORD)result != -1073741789 && (_DWORD)result != -1073740009 && v39 <= 0 )
+      if ( !v30 && result != -1073741789 && result != -1073740009 && DestinationStringLength <= 0 )
         goto LABEL_84;
 LABEL_83:
-      result = 3221227286LL;
+      result = -1073740010;
       goto LABEL_84;
     }
     v36 = FindEmailAt(a2, (unsigned int)v9, v21);
@@ -279,34 +279,39 @@ LABEL_83:
       goto LABEL_77;
     v41 = 0LL;
     v26 = 511;
-    v39 = 511;
+    DestinationStringLength = 511;
     if ( v36 < -1 )
     {
-      result = 3221225485LL;
+      result = -1073741811;
     }
     else
     {
       result = RtlpGetNormalization(1u, &v41);
       v37 = result;
-      if ( (int)result >= 0 )
+      if ( result >= 0 )
       {
-        result = RtlpNormalizeStringWorker(v41, (_DWORD)a2, v25, (_DWORD)String1, (__int64)&v39);
+        result = RtlpNormalizeStringWorker(
+                   v41,
+                   (_DWORD)a2,
+                   v25,
+                   (_DWORD)DestinationString,
+                   (__int64)&DestinationStringLength);
         v37 = result;
-        if ( (int)result >= 0 )
+        if ( result >= 0 )
         {
-          v26 = v39;
-          if ( v39 )
+          v26 = DestinationStringLength;
+          if ( DestinationStringLength )
           {
-            v27 = (_DWORD)String1 + 2 * v39;
-            v28 = 511 - v39;
+            v27 = &DestinationString[DestinationStringLength];
+            v28 = 511 - DestinationStringLength;
             goto LABEL_34;
           }
         }
         else
         {
-          v26 = v39;
+          v26 = DestinationStringLength;
         }
-        if ( !(_DWORD)result )
+        if ( !result )
           goto LABEL_83;
       }
       if ( v37 == -1073741789 || v37 == -1073740009 )
@@ -314,7 +319,7 @@ LABEL_83:
     }
     if ( v26 > 0 )
     {
-      result = 3221227286LL;
+      result = -1073740010;
       *a5 = 0;
       return result;
     }
@@ -326,7 +331,7 @@ LABEL_83:
   {
 LABEL_63:
     *a5 = v9;
-    return 0LL;
+    return 0;
   }
   if ( v9 <= v11 )
   {
@@ -335,5 +340,5 @@ LABEL_63:
   }
 LABEL_111:
   *a5 = 0;
-  return 3221225507LL;
+  return -1073741789;
 }

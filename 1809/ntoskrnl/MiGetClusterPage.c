@@ -1,18 +1,18 @@
 /*
- * XREFs of MiGetClusterPage @ 0x1402C67BC
+ * XREFs of MiGetClusterPage @ 0x1402C69AC
  * Callers:
  *     MiResolvePrivateZeroFault @ 0x140047430 (MiResolvePrivateZeroFault.c)
- *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
+ *     MiCreateSharedZeroPages @ 0x140109240 (MiCreateSharedZeroPages.c)
  * Callees:
  *     MiGet64KPage @ 0x14002B8B0 (MiGet64KPage.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiIsPteEvaluated @ 0x14010F9D4 (MiIsPteEvaluated.c)
- *     MiComputeZeroClusterMaximum @ 0x14010FA84 (MiComputeZeroClusterMaximum.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400946E4 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiIsPteEvaluated @ 0x14010FA54 (MiIsPteEvaluated.c)
+ *     MiComputeZeroClusterMaximum @ 0x14010FB04 (MiComputeZeroClusterMaximum.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetClusterPage(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, int a5, _BYTE *a6)
@@ -79,7 +79,7 @@ __int64 __fastcall MiGetClusterPage(__int64 a1, unsigned __int64 a2, __int64 a3,
   MiInitializePageColorBase((__int64)v9, (*(_DWORD *)(a1 + 48) >> 8) & 0x3F, (__int64)&v45);
   v51 = 0LL;
   v52 = 0LL;
-  v11 = v47 >> byte_14043A049;
+  v11 = v47 >> byte_14043B109;
   v26 = (*(_DWORD *)(a1 + 48) & 0x4000) == 0;
   v37 = v47;
   v38 = v11;
@@ -109,7 +109,7 @@ __int64 __fastcall MiGetClusterPage(__int64 a1, unsigned __int64 a2, __int64 a3,
     v12 = v9[87];
     v13 = ((v39[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   }
-  v19 = *(_QWORD *)(qword_14043A748 + 8 * v12);
+  v19 = *(_QWORD *)(qword_14043B808 + 8 * v12);
   v20 = 0LL;
   *(_BYTE *)(1984LL * v11 + *(_QWORD *)(v19 + 16) + 851) = 1;
   do

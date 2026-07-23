@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCoverageSamplerUnloadImage @ 0x1409F398C
+ * XREFs of EtwpCoverageSamplerUnloadImage @ 0x1409F3C1C
  * Callers:
  *     PerfLogImageUnload @ 0x140697438 (PerfLogImageUnload.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408A846C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampProcessRemoveModule @ 0x1408A9C6C (EtwpCovSampProcessRemoveModule.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408A86BC (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x1408A9EBC (EtwpCovSampProcessRemoveModule.c)
  */
 
 void __fastcall EtwpCoverageSamplerUnloadImage(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -29,7 +29,7 @@ void __fastcall EtwpCoverageSamplerUnloadImage(__int64 a1, unsigned __int64 a2, 
   }
   else
   {
-    v6 = qword_140C31CB8 + 1264;
+    v6 = qword_140C31C58 + 1264;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -44,7 +44,7 @@ void __fastcall EtwpCoverageSamplerUnloadImage(__int64 a1, unsigned __int64 a2, 
 LABEL_8:
   if ( v8 )
   {
-    ExReleaseRundownProtection_0(&stru_140C31CC0);
+    ExReleaseRundownProtection_0(&stru_140C31C60);
     KeLeaveCriticalRegion();
   }
 }

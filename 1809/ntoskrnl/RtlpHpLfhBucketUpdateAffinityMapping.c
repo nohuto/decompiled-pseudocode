@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C460
+ * XREFs of RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C530
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BADE0 (RtlpHpLfhSlotAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -9,15 +9,15 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1400FE8C0 (KeGetCurrentProcessorNumberEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpHpLfhBucketAllocateSlot @ 0x1402FD288 (RtlpHpLfhBucketAllocateSlot.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1400FE940 (KeGetCurrentProcessorNumberEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpHpLfhBucketAllocateSlot @ 0x1402FD478 (RtlpHpLfhBucketAllocateSlot.c)
  */
 
 __int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
@@ -196,7 +196,7 @@ LABEL_11:
             {
               *(_BYTE *)(v26 + 32) |= 2u;
               if ( *(__int64 *)(v26 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v26, v23);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26, v23);
               v52 = 0;
               v52 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
               *(_DWORD *)(v26 + 88) &= 0xFFFE0000;
@@ -282,7 +282,7 @@ LABEL_59:
     }
     v42->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v42->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v37->LockEntries[v41], v38);
+      KiAbEntryRemoveFromTree(&v37->LockEntries[v41].TreeNode, v38);
     v51 = 0;
     v51 = v42->BoostBitmap.AllFields & 0x1FFFF;
     v42->BoostBitmap.AllFields &= 0xFFFE0000;

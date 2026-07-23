@@ -1,29 +1,29 @@
 /*
- * XREFs of HvpRemapAndEnlistHiveBins @ 0x1408DBDF0
+ * XREFs of HvpRemapAndEnlistHiveBins @ 0x1408E23B0
  * Callers:
- *     HvLoadHive @ 0x140AC26A0 (HvLoadHive.c)
+ *     HvLoadHive @ 0x140AC4740 (HvLoadHive.c)
  * Callees:
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmpProtectPoolEx @ 0x1404C9778 (CmpProtectPoolEx.c)
- *     MmSetPageProtection @ 0x1405096F0 (MmSetPageProtection.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvIsRangeDirty @ 0x14077B624 (HvIsRangeDirty.c)
- *     HvpFreeBin @ 0x1408B78AC (HvpFreeBin.c)
- *     HvpMapEntryIsPoolBacked @ 0x1408B9254 (HvpMapEntryIsPoolBacked.c)
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvpEnlistFreeCells @ 0x1408DC600 (HvpEnlistFreeCells.c)
- *     HvpEnlistFreeCell @ 0x1408DC7D0 (HvpEnlistFreeCell.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1408DD1F4 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpPointMapEntriesToBuffer @ 0x1408DD510 (HvpPointMapEntriesToBuffer.c)
- *     HvpValidateLoadedBin @ 0x140A7D8C0 (HvpValidateLoadedBin.c)
- *     HvpAllocateNonPagedBin @ 0x140A8808C (HvpAllocateNonPagedBin.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140C58710 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmpProtectPoolEx @ 0x1404C3198 (CmpProtectPoolEx.c)
+ *     MmSetPageProtection @ 0x1405031A0 (MmSetPageProtection.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvIsRangeDirty @ 0x14077E264 (HvIsRangeDirty.c)
+ *     HvpFreeBin @ 0x1408BDE7C (HvpFreeBin.c)
+ *     HvpMapEntryIsPoolBacked @ 0x1408BF824 (HvpMapEntryIsPoolBacked.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvpEnlistFreeCells @ 0x1408E2BC0 (HvpEnlistFreeCells.c)
+ *     HvpEnlistFreeCell @ 0x1408E2D90 (HvpEnlistFreeCell.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1408E37B4 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1408E3AD0 (HvpPointMapEntriesToBuffer.c)
+ *     HvpValidateLoadedBin @ 0x140A83730 (HvpValidateLoadedBin.c)
+ *     HvpAllocateNonPagedBin @ 0x140A8F1BC (HvpAllocateNonPagedBin.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140C5E710 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 __int64 __fastcall HvpRemapAndEnlistHiveBins(ULONG_PTR BugCheckParameter2, int a2, __int64 a3)
@@ -127,7 +127,7 @@ __int64 __fastcall HvpRemapAndEnlistHiveBins(ULONG_PTR BugCheckParameter2, int a
     {
       v24 = -1073741492;
       SetFailureLocation(j, 1, 34, -1073741492, v11);
-      if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(j, 0, 34, -1073741492, 32);
         return v24;
@@ -184,7 +184,7 @@ LABEL_12:
         v22 = -1073741492;
         v23 = -1073741492;
         SetFailureLocation(v17, 1, 26, -1073741492, 8);
-        if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+        if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
         {
           v24 = -1073741492;
           v25 = 0;
@@ -249,7 +249,7 @@ LABEL_44:
     {
       v24 = -1073741492;
       SetFailureLocation(j, 1, 34, -1073741492, 96);
-      if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+      if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
       {
         SetFailureLocation(j, 0, 34, -1073741492, 112);
         return v24;

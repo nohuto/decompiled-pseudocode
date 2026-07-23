@@ -34,14 +34,14 @@ void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
   KeAbPostRelease(a1 + 24);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   v3 = a1 + 40;
-  v4 = KeAbPreAcquire(v3, 0LL, 0LL);
+  v4 = KeAbPreAcquire(v3, 0LL, 0);
   v5 = v4;
   if ( v4 )
     KeAbPreWait(v4);
   KeWaitForSingleObject(&v7[1], Executive, 0, 0, 0LL);
   if ( v5 )
   {
-    KeAbPreAcquire(v3, v5, 0LL);
+    KeAbPreAcquire(v3, v5, 0);
     KeAbPostReleaseEx(v3, v5);
   }
   CurrentThread = KeGetCurrentThread();

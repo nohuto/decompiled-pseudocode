@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmCleanupCurrentSession @ 0x140A39EB8
+ * XREFs of TtmCleanupCurrentSession @ 0x1409F5AB8
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1407E6D70 (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x1407E6ED0 (TtmpDereferenceSessionMaybeLast.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     TtmiLogCleanupCurrentSessionStart @ 0x140A39FAC (TtmiLogCleanupCurrentSessionStart.c)
- *     TtmiLogCleanupCurrentSessionStop @ 0x140A3A040 (TtmiLogCleanupCurrentSessionStop.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
- *     TtmpAcquireSessionLock @ 0x140A3ACCC (TtmpAcquireSessionLock.c)
- *     PoUnregisterPowerSettingCallback @ 0x140B19570 (PoUnregisterPowerSettingCallback.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1407EC8C8 (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1407ECA28 (TtmpDereferenceSessionMaybeLast.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     TtmiLogCleanupCurrentSessionStart @ 0x1409F5BAC (TtmiLogCleanupCurrentSessionStart.c)
+ *     TtmiLogCleanupCurrentSessionStop @ 0x1409F5C40 (TtmiLogCleanupCurrentSessionStop.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
+ *     TtmpAcquireSessionLock @ 0x1409F68CC (TtmpAcquireSessionLock.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140B1B9C0 (PoUnregisterPowerSettingCallback.c)
  */
 
 __int64 TtmCleanupCurrentSession()
@@ -42,7 +42,7 @@ __int64 TtmCleanupCurrentSession()
     InitialStack[3] = 0LL;
     TtmpDereferenceSessionMaybeLast((volatile signed __int32 *)InitialStack);
     PspSiloMonitorLock.InitialStack = 0LL;
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
     v6 = InitialStack[31];
     if ( v6 )
@@ -61,7 +61,7 @@ __int64 TtmCleanupCurrentSession()
   }
   else
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
   return TtmiLogCleanupCurrentSessionStop();

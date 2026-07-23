@@ -9,7 +9,7 @@
  *     RtlpHpVsSubsegmentCommitPages @ 0x18006D96C (RtlpHpVsSubsegmentCommitPages.c)
  */
 
-__int64 __fastcall RtlpHpVsChunkDecommit(__int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5)
+__int64 __fastcall RtlpHpVsChunkDecommit(PRTL_SRWLOCK SRWLock, __int64 a2, __int64 a3, char a4, __int64 a5)
 {
   unsigned int v9; // r12d
   unsigned __int64 v10; // rbp
@@ -32,12 +32,12 @@ __int64 __fastcall RtlpHpVsChunkDecommit(__int64 a1, __int64 a2, __int64 a3, cha
                + (((v16[0] - ((v16[0] >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
       if ( *(__int16 *)(a2 + 34) >= 0 )
       {
-        if ( (*(_BYTE *)(a1 + 176) & 2) != 0 )
+        if ( (*(_BYTE *)&SRWLock[22].0 & 2) != 0 )
           goto LABEL_8;
-        v11 = *(_QWORD *)(a1 + 48) >> 7;
+        v11 = SRWLock[6].Value >> 7;
         if ( v11 <= 8 )
           v11 = 8LL;
-        if ( *(_QWORD *)(a1 + 56) + (unsigned __int64)(unsigned int)v10 > v11 )
+        if ( SRWLock[7].Value + (unsigned int)v10 > v11 )
         {
 LABEL_8:
           v9 = 1;
@@ -47,16 +47,16 @@ LABEL_8:
           v12 = a4 & 1;
           if ( !v12 )
           {
-            RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(a5 + 8));
+            RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a5 + 8));
             *(_QWORD *)(a5 + 8) = 0LL;
           }
-          RtlpHpVsSubsegmentCommitPages(a1, a2, v16[0], v10, 0);
+          RtlpHpVsSubsegmentCommitPages((__int64)SRWLock, (_RTL_SRWLOCK *)a2, v16[0], v10, 0);
           if ( !v12 )
           {
             *(_OWORD *)a5 = 0LL;
             *(_QWORD *)(a5 + 16) = 0LL;
-            *(_QWORD *)(a5 + 8) = a1;
-            RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1);
+            *(_QWORD *)(a5 + 8) = SRWLock;
+            RtlAcquireSRWLockExclusive(SRWLock);
           }
           *(_DWORD *)(a3 + 8) &= ~0x200u;
         }

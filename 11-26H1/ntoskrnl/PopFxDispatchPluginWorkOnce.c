@@ -1,20 +1,20 @@
 /*
- * XREFs of PopFxDispatchPluginWorkOnce @ 0x1403AE3C4
+ * XREFs of PopFxDispatchPluginWorkOnce @ 0x1403B80D4
  * Callers:
- *     PopFxProcessWorkPool @ 0x140396268 (PopFxProcessWorkPool.c)
+ *     PopFxProcessWorkPool @ 0x140397FE8 (PopFxProcessWorkPool.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403AE1FC (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
- *     KiEncodeTolerableDelayValue @ 0x1403AE234 (KiEncodeTolerableDelayValue.c)
- *     PopFxDisableWorkOrderWatchdog @ 0x1403AE6F0 (PopFxDisableWorkOrderWatchdog.c)
- *     PopPepWork @ 0x1403AE7D0 (PopPepWork.c)
- *     PopFxProcessWork @ 0x1403AEEC0 (PopFxProcessWork.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline @ 0x1403B7F0C (Feature_MinifloatTolerableDelayEncoding__private_IsEnabledNoReportingNoInline.c)
+ *     KiEncodeTolerableDelayValue @ 0x1403B7F44 (KiEncodeTolerableDelayValue.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x1403B8400 (PopFxDisableWorkOrderWatchdog.c)
+ *     PopPepWork @ 0x1403B84E0 (PopPepWork.c)
+ *     PopFxProcessWork @ 0x1403B8BD0 (PopFxProcessWork.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PopFxDispatchPluginWorkOnce(ULONG_PTR BugCheckParameter3, unsigned int a2)
@@ -105,17 +105,19 @@ __int64 __fastcall PopFxDispatchPluginWorkOnce(ULONG_PTR BugCheckParameter3, uns
     KiSetTimerEx((__int64)&v17, v4, 0, v5, (__int64)v22);
     v29 = MEMORY[0xFFFFF78000000008];
     v28 = 0LL;
-    v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12420.PriorityFloorCounts[24]);
-    if ( stru_140F12420.QueueListEntry.Flink->Flink != (struct _LIST_ENTRY *)&stru_140F12420.512 )
+    v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1);
+    if ( **(struct _KTHREAD ***)&PopFxBlockingDeviceListLock.SuspendEvent.Header.Lock != (struct _KTHREAD *)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80] )
       __fastfail(3u);
-    BugCheckParameter2[0] = (ULONG_PTR)&stru_140F12420.512;
-    BugCheckParameter2[1] = (ULONG_PTR)stru_140F12420.QueueListEntry.Flink;
-    stru_140F12420.QueueListEntry.Flink->Flink = (struct _LIST_ENTRY *)BugCheckParameter2;
-    stru_140F12420.QueueListEntry.Flink = (struct _LIST_ENTRY *)BugCheckParameter2;
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      _InterlockedAnd64((volatile signed __int64 *)&stru_140F12420.PriorityFloorCounts[24], 0LL);
+    BugCheckParameter2[0] = (ULONG_PTR)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80];
+    BugCheckParameter2[1] = *(_QWORD *)&PopFxBlockingDeviceListLock.SuspendEvent.Header.Lock;
+    **(_QWORD **)&PopFxBlockingDeviceListLock.SuspendEvent.Header.Lock = BugCheckParameter2;
+    *(_QWORD *)&PopFxBlockingDeviceListLock.SuspendEvent.Header.Lock = BugCheckParameter2;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      _InterlockedAnd64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1, 0LL);
     else
-      KiReleaseSpinLockInstrumented((volatile signed __int64 *)&stru_140F12420.PriorityFloorCounts[24], retaddr);
+      KiReleaseSpinLockInstrumented(
+        (volatile signed __int64 *)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1,
+        retaddr);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v10);
     __writecr8(v10);
@@ -144,12 +146,14 @@ LABEL_20:
     if ( (unsigned int)(v35[0] - 7) > 1 )
       PopFxBugCheck(0x612uLL, BugCheckParameter3, 0LL, 0LL);
 LABEL_24:
-    v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12420.PriorityFloorCounts[24]);
+    v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1);
     v28 = v35;
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      _InterlockedAnd64((volatile signed __int64 *)&stru_140F12420.PriorityFloorCounts[24], 0LL);
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      _InterlockedAnd64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1, 0LL);
     else
-      KiReleaseSpinLockInstrumented((volatile signed __int64 *)&stru_140F12420.PriorityFloorCounts[24], retaddr);
+      KiReleaseSpinLockInstrumented(
+        (volatile signed __int64 *)&PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1,
+        retaddr);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v14);
     __writecr8(v14);

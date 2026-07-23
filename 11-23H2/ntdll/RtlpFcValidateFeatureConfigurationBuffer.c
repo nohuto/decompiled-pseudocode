@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlpFcValidateFeatureConfigurationBuffer @ 0x1801304E4
  * Callers:
- *     RtlOverwriteFeatureConfigurationBuffer @ 0x18010FD30 (RtlOverwriteFeatureConfigurationBuffer.c)
+ *     RtlOverwriteFeatureConfigurationBuffer @ 0x18010FD00 (RtlOverwriteFeatureConfigurationBuffer.c)
  * Callees:
- *     RtlFcpCompareFeatureToFeature @ 0x1801226D4 (RtlFcpCompareFeatureToFeature.c)
+ *     RtlFcpCompareFeatureToFeature @ 0x1801226A4 (RtlFcpCompareFeatureToFeature.c)
  */
 
 __int64 __fastcall RtlpFcValidateFeatureConfigurationBuffer(unsigned int *a1, unsigned __int64 a2)

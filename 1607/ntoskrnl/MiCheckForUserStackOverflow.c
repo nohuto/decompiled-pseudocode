@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckForUserStackOverflow @ 0x1404CAE24
+ * XREFs of MiCheckForUserStackOverflow @ 0x1404B0850
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
  * Callees:
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
- *     ZwAllocateVirtualMemory @ 0x140159F80 (ZwAllocateVirtualMemory.c)
- *     ZwProtectVirtualMemory @ 0x14015A680 (ZwProtectVirtualMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
+ *     ZwAllocateVirtualMemory @ 0x14015A4F0 (ZwAllocateVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x14015ABF0 (ZwProtectVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCheckForUserStackOverflow(unsigned __int64 a1)

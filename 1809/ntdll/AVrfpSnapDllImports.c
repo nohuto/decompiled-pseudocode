@@ -6,14 +6,14 @@
  *     LdrpPrepareImportAddressTableForSnap @ 0x18002769C (LdrpPrepareImportAddressTableForSnap.c)
  *     RtlGuardGrantSuppressedCallAccess @ 0x18002B1F4 (RtlGuardGrantSuppressedCallAccess.c)
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     ZwProtectVirtualMemory @ 0x1800A0CE0 (ZwProtectVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x1800A0D00 (ZwProtectVirtualMemory.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall AVrfpSnapDllImports(__int64 a1)
+int __fastcall AVrfpSnapDllImports(__int64 a1)
 {
-  __int64 result; // rax
-  unsigned __int64 *v3; // rbx
+  int result; // eax
+  void **v3; // rbx
   __int64 v4; // rax
   __int64 v5; // r12
   __int64 *v6; // rdi
@@ -24,28 +24,29 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
   _QWORD *v11; // r14
   __int64 v12; // r13
   _QWORD *v13; // rsi
-  unsigned __int64 v14; // rax
+  void *v14; // rax
   __int64 *v15; // [rsp+30h] [rbp-118h]
   _QWORD *v16; // [rsp+38h] [rbp-110h]
   _QWORD v17[33]; // [rsp+40h] [rbp-108h] BYREF
   int v19; // [rsp+158h] [rbp+10h] BYREF
-  __int64 v20; // [rsp+168h] [rbp+20h]
+  ULONG OldProtect; // [rsp+160h] [rbp+18h] BYREF
+  __int64 v21; // [rsp+168h] [rbp+20h]
 
   if ( !AVrfpEnabled )
-    return 3221225506LL;
+    return -1073741790;
   memset(v17, 0, 0xC0uLL);
   v17[7] = a1;
   result = LdrpPrepareImportAddressTableForSnap((__int64)v17);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v3 = (unsigned __int64 *)v17[13];
+    v3 = (void **)v17[13];
     if ( v17[13] )
     {
       v4 = v17[14] >> 3;
       if ( (unsigned int)(v17[14] >> 3) )
       {
         v5 = (unsigned int)v4;
-        v20 = (unsigned int)v4;
+        v21 = (unsigned int)v4;
         do
         {
           if ( *v3 )
@@ -73,10 +74,10 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
                       v13 = (_QWORD *)v10[3];
                       do
                       {
-                        if ( *v3 == v13[1] )
+                        if ( *v3 == (void *)v13[1] )
                         {
                           RtlGuardGrantSuppressedCallAccess(*v3, 1u, &v19);
-                          v14 = v13[2];
+                          v14 = (void *)v13[2];
                           if ( !v14 )
                           {
                             DbgPrint("AVRF: internal error: New thunk for %s is null. \n", (const char *)*v13);
@@ -103,19 +104,19 @@ __int64 __fastcall AVrfpSnapDllImports(__int64 a1)
                 }
               }
               while ( v6 != &AVrfpVerifierProvidersList );
-              v5 = v20;
+              v5 = v21;
             }
           }
           ++v3;
-          v20 = --v5;
+          v21 = --v5;
         }
         while ( v5 );
       }
-      return ZwProtectVirtualMemory();
+      return ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)&v17[13], &v17[14], v17[17], &OldProtect);
     }
     else
     {
-      return 0LL;
+      return 0;
     }
   }
   return result;

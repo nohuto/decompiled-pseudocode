@@ -3,7 +3,7 @@
  * Callers:
  *     ViInitSystemPhase0 @ 0x140B69A68 (ViInitSystemPhase0.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
  *     ViFindTriageDriverTargets @ 0x140B971A0 (ViFindTriageDriverTargets.c)
  *     ViFindTriageRule @ 0x140B97220 (ViFindTriageRule.c)
  *     ViMakeVerifierSettings @ 0x140B972C4 (ViMakeVerifierSettings.c)
@@ -98,8 +98,8 @@ __int64 __fastcall VfTriageSystem(__int64 a1)
     *(_DWORD *)&v12[24],
     *(_DWORD *)&v12[32]);
   ViTriageCrashData = *(_OWORD *)v12;
-  qword_140C372C0 = *(_QWORD *)&v12[32];
-  xmmword_140C372B0 = *(_OWORD *)&v12[16];
+  qword_140C370E0 = *(_QWORD *)&v12[32];
+  xmmword_140C370D0 = *(_OWORD *)&v12[16];
   if ( v8 )
   {
     if ( (unsigned int)MmTriageActiveInLastCrash(a1) == 1 )

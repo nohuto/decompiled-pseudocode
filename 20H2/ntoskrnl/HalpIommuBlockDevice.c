@@ -33,7 +33,7 @@ __int64 __fastcall HalpIommuBlockDevice(__int64 a1)
   unsigned int v12; // r8d
   bool v13; // zf
   __int64 v14; // rcx
-  unsigned __int64 v15; // rdi
+  __int64 v15; // rdi
   int v16; // eax
   unsigned int v17; // ecx
   __int64 v18; // rdx
@@ -91,7 +91,7 @@ LABEL_10:
       v13 = !_BitScanReverse((unsigned int *)&v14, v12);
       if ( v13 )
         break;
-      v15 = (unsigned __int64)&CurrentThread->LockEntries[v14];
+      v15 = (__int64)&CurrentThread->LockEntries[v14];
       v12 &= ~(1 << v14);
       if ( (*(_BYTE *)(v15 + 26) & 1) != 0
         && (*(_DWORD *)(v15 + 32) & 1) == 0
@@ -105,14 +105,14 @@ LABEL_10:
           {
             *(_BYTE *)(v15 + 32) |= 2u;
             if ( *(__int64 *)(v15 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v15);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v15);
             v16 = *(_DWORD *)(v15 + 88) & 0x1FFFF;
             v17 = *(_DWORD *)(v15 + 88) & 0xFFFE0000;
             *(_BYTE *)(v15 + 25) &= ~1u;
             v22 = v16;
             *(_DWORD *)(v15 + 88) = v17;
             *(_QWORD *)(v15 + 32) = 0LL;
-            v18 = (__int64)(v15 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+            v18 = (signed __int64)(v15 - (unsigned __int64)CurrentThread->LockEntries) / 96;
             if ( v11 == 1 )
               CurrentThread->AbEntrySummary |= 1 << v18;
             else

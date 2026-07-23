@@ -13,11 +13,13 @@
  *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcRevokeSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
   int v5; // esi
-  NTSTATUS v6; // edi
+  int v6; // edi
   struct _DMA_ADAPTER *v7; // rbp
   ULONG_PTR v8; // rax
   ULONG_PTR v9; // rsi
@@ -26,16 +28,16 @@ __int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, __int64 a2, __int64 a3,
   PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v5 = a3;
+  v5 = (int)ContextHandle;
   --CurrentThread->KernelApcDisable;
-  if ( (_DWORD)a2 )
+  if ( Flags )
   {
     v6 = -1073741811;
   }
   else
   {
     Object = 0LL;
-    v6 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v6 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v6 >= 0 )
     {
       v7 = (struct _DMA_ADAPTER *)Object;
@@ -75,6 +77,6 @@ __int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, __int64 a2, __int64 a3,
       HalPutDmaAdapter(v7);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3, a4);
-  return (unsigned int)v6;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, (__int64)ContextHandle, v3);
+  return v6;
 }

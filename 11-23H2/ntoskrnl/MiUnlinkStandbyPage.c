@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnlinkStandbyPage @ 0x14046D3FA
+ * XREFs of MiUnlinkStandbyPage @ 0x14046D7FA
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x140651854 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140651DA4 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
- *     MiUnlinkProtectedStandbyPfn @ 0x140285690 (MiUnlinkProtectedStandbyPfn.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiDecreaseAvailablePages @ 0x1402E8620 (MiDecreaseAvailablePages.c)
- *     MiUnlinkNumaStandbyPage @ 0x1403316AC (MiUnlinkNumaStandbyPage.c)
- *     MiRestoreTransitionPte @ 0x1403351BC (MiRestoreTransitionPte.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MiUnlinkProtectedStandbyPfn @ 0x140285920 (MiUnlinkProtectedStandbyPfn.c)
+ *     MiReleasePageListLock @ 0x1402DDD60 (MiReleasePageListLock.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     MiDecreaseAvailablePages @ 0x1402E88B0 (MiDecreaseAvailablePages.c)
+ *     MiUnlinkNumaStandbyPage @ 0x14033193C (MiUnlinkNumaStandbyPage.c)
+ *     MiRestoreTransitionPte @ 0x14033544C (MiRestoreTransitionPte.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyPage(__int64 a1, __int64 a2, ULONG_PTR a3, unsigned __int64 a4, __int16 a5)

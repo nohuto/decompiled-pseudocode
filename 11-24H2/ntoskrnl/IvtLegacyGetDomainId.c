@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtLegacyGetDomainId @ 0x140570894
+ * XREFs of IvtLegacyGetDomainId @ 0x14056DD24
  * Callers:
- *     IvtLegacyAllocateTranslationStructures @ 0x14056FAA8 (IvtLegacyAllocateTranslationStructures.c)
- *     IvtLegacyAttachDeviceDomainInternal @ 0x14056FB5C (IvtLegacyAttachDeviceDomainInternal.c)
- *     IvtLegacyUpdateScalableModeContextEntry @ 0x140570E38 (IvtLegacyUpdateScalableModeContextEntry.c)
+ *     IvtLegacyAllocateTranslationStructures @ 0x14056CF38 (IvtLegacyAllocateTranslationStructures.c)
+ *     IvtLegacyAttachDeviceDomainInternal @ 0x14056CFEC (IvtLegacyAttachDeviceDomainInternal.c)
+ *     IvtLegacyUpdateScalableModeContextEntry @ 0x14056E2C8 (IvtLegacyUpdateScalableModeContextEntry.c)
  * Callees:
- *     IvtGetScalableModePasidTables @ 0x14056E9DC (IvtGetScalableModePasidTables.c)
+ *     IvtGetScalableModePasidTables @ 0x14056BE6C (IvtGetScalableModePasidTables.c)
  */
 
 __int64 __fastcall IvtLegacyGetDomainId(__int64 a1, unsigned int a2)

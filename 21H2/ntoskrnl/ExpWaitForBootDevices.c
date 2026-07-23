@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWaitForBootDevices @ 0x1405B33A0
+ * XREFs of ExpWaitForBootDevices @ 0x1405B35D0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeFreezeExecution @ 0x14051D6F0 (KeFreezeExecution.c)
- *     KeThawExecution @ 0x14051DBE0 (KeThawExecution.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeFreezeExecution @ 0x14051D930 (KeFreezeExecution.c)
+ *     KeThawExecution @ 0x14051DE20 (KeThawExecution.c)
  */
 
 void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)

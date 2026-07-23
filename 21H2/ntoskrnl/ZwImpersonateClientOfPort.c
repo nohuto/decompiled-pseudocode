@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwImpersonateClientOfPort @ 0x1403FA780
+ * XREFs of ZwImpersonateClientOfPort @ 0x1403FA960
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwImpersonateClientOfPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

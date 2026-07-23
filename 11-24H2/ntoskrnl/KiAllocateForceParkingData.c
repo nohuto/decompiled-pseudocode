@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAllocateForceParkingData @ 0x1405C8218
+ * XREFs of KiAllocateForceParkingData @ 0x1405C5948
  * Callers:
- *     KiCompleteBootProcessorContextInitialization @ 0x1405B65C0 (KiCompleteBootProcessorContextInitialization.c)
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x1405B3888 (KiCompleteBootProcessorContextInitialization.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     KiInitializeTimer2 @ 0x1403BF498 (KiInitializeTimer2.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     KiInitializeTimer2 @ 0x1403AE058 (KiInitializeTimer2.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall KiAllocateForceParkingData(__int64 a1)

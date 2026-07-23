@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceCsEnterReason @ 0x140B3931C
+ * XREFs of PopDiagTraceCsEnterReason @ 0x140B3B52C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsEnterReason(int a1)
@@ -55,18 +55,16 @@ char __fastcall PopDiagTraceCsEnterReason(int a1)
   int *v40; // [rsp+160h] [rbp+60h]
   __int64 v41; // [rsp+168h] [rbp+68h]
 
-  v12 = qword_140F0F5D0;
+  v12 = PopWnfCsEnterScenarioId;
   v4 = (unsigned __int8)PopConsoleExternalDisplayConnected;
   v3 = (unsigned __int8)PopLidOpened;
   v5 = PopCsConsumption;
-  result = dword_140E27028;
-  v6 = dword_140E27028;
+  result = dword_140E27168;
+  v6 = dword_140E27168;
   v2 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_CS_ENTER_REASON);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_CS_ENTER_REASON);
     if ( result )
     {
       result = SSHSupportIsPlatformAoAc();
@@ -81,28 +79,23 @@ char __fastcall PopDiagTraceCsEnterReason(int a1)
         v19 = &v12;
         v21 = &v5;
         v23 = &v6;
-        v25 = &qword_140F0F5D0;
+        v25 = &PopWnfCsEnterScenarioId;
         v27 = 0xFFFFF780000002C4uLL;
         v20 = 1LL;
         v22 = 4LL;
         v24 = 4LL;
         v26 = 8LL;
         v28 = 4LL;
-        result = EtwWrite(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_CS_ENTER_REASON,
-                   0LL,
-                   8u,
-                   &UserData);
+        result = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_CS_ENTER_REASON, 0LL, 8u, &UserData);
       }
     }
   }
-  if ( (unsigned int)dword_140E07598 > 5 )
+  if ( (unsigned int)dword_140E07560 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
     if ( result )
     {
-      v13 = qword_140F0F5D0;
+      v13 = PopWnfCsEnterScenarioId;
       v31 = 8LL;
       v30 = &v13;
       v7 = v2;
@@ -121,8 +114,8 @@ char __fastcall PopDiagTraceCsEnterReason(int a1)
       v39 = 4LL;
       v41 = 4LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07598,
-               (unsigned __int8 *)byte_14004BA11,
+               (__int64)&dword_140E07560,
+               (unsigned __int8 *)&word_14004BE16,
                0LL,
                0LL,
                8u,

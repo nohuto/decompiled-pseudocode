@@ -1,54 +1,58 @@
 /*
- * XREFs of RtlpLookupCurDirSetting @ 0x18009B4AC
+ * XREFs of RtlpLookupCurDirSetting @ 0x18009A5DC
  * Callers:
- *     RtlpComputeSearchPath @ 0x18009AC60 (RtlpComputeSearchPath.c)
- *     RtlpComputeDllPath @ 0x18009BCE0 (RtlpComputeDllPath.c)
+ *     RtlpComputeSearchPath @ 0x180099D90 (RtlpComputeSearchPath.c)
+ *     RtlpComputeDllPath @ 0x18009AE10 (RtlpComputeDllPath.c)
  * Callees:
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenKey @ 0x18015F180 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x18015F220 (NtQueryValueKey.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenKey @ 0x18015F080 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x18015F120 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpLookupCurDirSetting(__int64 a1, unsigned __int32 a2, volatile signed __int32 *a3)
+__int64 __fastcall RtlpLookupCurDirSetting(PUNICODE_STRING ValueName, unsigned __int32 a2, volatile signed __int32 *a3)
 {
   HANDLE v6; // rbx
   unsigned __int32 v7; // ecx
   __int64 result; // rax
-  HANDLE Handle; // [rsp+30h] [rbp-30h] BYREF
-  int v10; // [rsp+38h] [rbp-28h] BYREF
-  __int128 v11; // [rsp+40h] [rbp-20h] BYREF
+  HANDLE KeyHandle; // [rsp+30h] [rbp-30h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-28h] BYREF
+  __int128 KeyValueInformation; // [rsp+40h] [rbp-20h] BYREF
 
-  v11 = 0LL;
-  Handle = 0LL;
-  v10 = 0;
+  KeyValueInformation = 0LL;
+  KeyHandle = 0LL;
+  ResultLength = 0;
   if ( !LdrpIsSecureProcess )
   {
-    v6 = (HANDLE)qword_1801CB330;
-    Handle = (HANDLE)qword_1801CB330;
-    if ( !qword_1801CB330 )
+    v6 = ::KeyHandle;
+    KeyHandle = ::KeyHandle;
+    if ( !::KeyHandle )
     {
-      if ( (int)NtOpenKey(&Handle, 1LL, &unk_180171BC8) < 0 )
+      if ( NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_180170B58) < 0 )
       {
 LABEL_7:
         v7 = a2;
         goto LABEL_8;
       }
-      v6 = (HANDLE)_InterlockedCompareExchange64(&qword_1801CB330, (signed __int64)Handle, 0LL);
+      v6 = (HANDLE)_InterlockedCompareExchange64(
+                     (volatile signed __int64 *)&::KeyHandle,
+                     (signed __int64)KeyHandle,
+                     0LL);
       if ( v6 )
       {
-        NtClose(Handle);
-        Handle = v6;
+        NtClose(KeyHandle);
+        KeyHandle = v6;
       }
       else
       {
-        v6 = Handle;
+        v6 = KeyHandle;
       }
     }
-    if ( (int)NtQueryValueKey(v6, a1, 2LL, &v11, 16, &v10) >= 0 && v10 == 16 )
+    if ( NtQueryValueKey(v6, ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x10u, &ResultLength) >= 0
+      && ResultLength == 16 )
     {
-      v7 = HIDWORD(v11);
-      if ( HIDWORD(v11) < 2 )
+      v7 = HIDWORD(KeyValueInformation);
+      if ( HIDWORD(KeyValueInformation) < 2 )
         goto LABEL_8;
     }
     goto LABEL_7;

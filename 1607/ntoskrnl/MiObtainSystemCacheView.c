@@ -1,33 +1,33 @@
 /*
- * XREFs of MiObtainSystemCacheView @ 0x140019B70
+ * XREFs of MiObtainSystemCacheView @ 0x1400196F0
  * Callers:
- *     MmMapViewInSystemCache @ 0x140018A20 (MmMapViewInSystemCache.c)
- *     MmReserveViewInSystemCache @ 0x1405754C8 (MmReserveViewInSystemCache.c)
+ *     MmMapViewInSystemCache @ 0x1400185A0 (MmMapViewInSystemCache.c)
+ *     MmReserveViewInSystemCache @ 0x140575A08 (MmReserveViewInSystemCache.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     RemoveListHeadPte @ 0x14001BEFC (RemoveListHeadPte.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiExpandSystemCache @ 0x1400A2B00 (MiExpandSystemCache.c)
- *     MiCompareTbFlushTimeStamp @ 0x1400A52AC (MiCompareTbFlushTimeStamp.c)
- *     MiWaitForSystemCacheViewFlush @ 0x1400AEF6C (MiWaitForSystemCacheViewFlush.c)
- *     KeFlushMultipleRangeTb @ 0x1400B5D3C (KeFlushMultipleRangeTb.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x14012F798 (KeFlushMultipleRangeCurrentTb.c)
- *     CcUnmapInactiveViews @ 0x14014199C (CcUnmapInactiveViews.c)
- *     MiLockSystemCacheInit @ 0x14014BE14 (MiLockSystemCacheInit.c)
- *     MiUnlockSystemCacheInit @ 0x14014C360 (MiUnlockSystemCacheInit.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeFlushCurrentTbOnly @ 0x1401D60C4 (KeFlushCurrentTbOnly.c)
- *     MiIncrementSystemCacheViewCount @ 0x1401E6DBC (MiIncrementSystemCacheViewCount.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteLink @ 0x1401F2680 (MiGetPteLink.c)
- *     MiUpdateLinkedListInPte @ 0x1401F2A14 (MiUpdateLinkedListInPte.c)
- *     MiInitializeSystemCache @ 0x140553FFC (MiInitializeSystemCache.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     RemoveListHeadPte @ 0x14001BA7C (RemoveListHeadPte.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiExpandSystemCache @ 0x1400A1428 (MiExpandSystemCache.c)
+ *     MiCompareTbFlushTimeStamp @ 0x1400A3824 (MiCompareTbFlushTimeStamp.c)
+ *     MiWaitForSystemCacheViewFlush @ 0x1400AD4D4 (MiWaitForSystemCacheViewFlush.c)
+ *     KeFlushMultipleRangeTb @ 0x1400B3B64 (KeFlushMultipleRangeTb.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x14012FD08 (KeFlushMultipleRangeCurrentTb.c)
+ *     CcUnmapInactiveViews @ 0x140141F0C (CcUnmapInactiveViews.c)
+ *     MiLockSystemCacheInit @ 0x14014C384 (MiLockSystemCacheInit.c)
+ *     MiUnlockSystemCacheInit @ 0x14014C8D0 (MiUnlockSystemCacheInit.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeFlushCurrentTbOnly @ 0x1401D5EF0 (KeFlushCurrentTbOnly.c)
+ *     MiIncrementSystemCacheViewCount @ 0x1401E6BE8 (MiIncrementSystemCacheViewCount.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteLink @ 0x1401F24AC (MiGetPteLink.c)
+ *     MiUpdateLinkedListInPte @ 0x1401F281C (MiUpdateLinkedListInPte.c)
+ *     MiInitializeSystemCache @ 0x14055453C (MiInitializeSystemCache.c)
  */
 
 _QWORD *__fastcall MiObtainSystemCacheView(__int64 a1, __int64 a2)
@@ -109,7 +109,7 @@ _QWORD *__fastcall MiObtainSystemCacheView(__int64 a1, __int64 a2)
   CurrentIrql = KeGetCurrentIrql();
   v57 = CurrentIrql;
   __writecr8(2uLL);
-  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140326D58, &LockHandle);
+  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140326D98, &LockHandle);
   if ( !*(_BYTE *)(a1 + 7200) )
   {
     KxReleaseQueuedSpinLock(&LockHandle);
@@ -131,15 +131,15 @@ LABEL_50:
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     v57 = CurrentIrql;
-    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140326D58, &LockHandle);
+    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140326D98, &LockHandle);
     if ( CurrentThread )
       *(_BYTE *)(a1 + 7200) = 1;
   }
-  v8 = ((unsigned __int64)&qword_140326D40 >> 9) & 0x7FFFFFFFF8LL;
-  if ( MiGetPteLink(qword_140326D40) != (__int64)(v8 - qword_140326D50 - 0x98000000000LL) >> 3 )
+  v8 = ((unsigned __int64)&qword_140326D80 >> 9) & 0x7FFFFFFFF8LL;
+  if ( MiGetPteLink(qword_140326D80) != (__int64)(v8 - qword_140326D90 - 0x98000000000LL) >> 3 )
   {
 LABEL_51:
-    v25 = RemoveListHeadPte(&qword_140326D40);
+    v25 = RemoveListHeadPte(&qword_140326D80);
     v61 = v25;
     v60 = 0LL;
     MiIncrementSystemCacheViewCount(v25 << 25 >> 16);
@@ -172,9 +172,9 @@ LABEL_51:
           if ( v5 == 12 )
             break;
           v35 = MiGetPteLink(*(_QWORD *)v33);
-          if ( v35 == (__int64)(v8 - qword_140326D50 - 0x98000000000LL) >> 3 )
+          if ( v35 == (__int64)(v8 - qword_140326D90 - 0x98000000000LL) >> 3 )
             break;
-          v33 = qword_140326D50 + 8 * v35;
+          v33 = qword_140326D90 + 8 * v35;
           v26 = (_QWORD *)(v33 + 24);
         }
         while ( MiGetPteLink(*(_QWORD *)(v33 + 24)) == 2 );
@@ -208,7 +208,7 @@ LABEL_88:
       return (_QWORD *)v25;
     }
     v38 = v63;
-    v39 = qword_140326A18;
+    v39 = qword_140326A58;
     if ( (v63 & 2) != 0 )
     {
       v40 = v62;
@@ -275,7 +275,7 @@ LABEL_77:
   }
   while ( MiExpandSystemCache() )
   {
-    if ( MiGetPteLink(qword_140326D40) != (__int64)(v8 - qword_140326D50 - 0x98000000000LL) >> 3 )
+    if ( MiGetPteLink(qword_140326D80) != (__int64)(v8 - qword_140326D90 - 0x98000000000LL) >> 3 )
       goto LABEL_51;
   }
   KxReleaseQueuedSpinLock(&LockHandle);
@@ -290,8 +290,8 @@ LABEL_77:
     v24 = KeGetCurrentIrql();
     __writecr8(2uLL);
     LOBYTE(v57) = v24;
-    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140326D58, &LockHandle);
-    if ( MiGetPteLink(qword_140326D40) == (__int64)(v8 - qword_140326D50 - 0x98000000000LL) >> 3 )
+    KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140326D98, &LockHandle);
+    if ( MiGetPteLink(qword_140326D80) == (__int64)(v8 - qword_140326D90 - 0x98000000000LL) >> 3 )
     {
       KxReleaseQueuedSpinLock(&LockHandle);
       __writecr8(v24);
@@ -311,7 +311,7 @@ LABEL_77:
       if ( HIDWORD(v64) )
       {
         v14 = v63;
-        v15 = qword_140326A18;
+        v15 = qword_140326A58;
         if ( (v63 & 2) != 0 )
         {
           v16 = v62;

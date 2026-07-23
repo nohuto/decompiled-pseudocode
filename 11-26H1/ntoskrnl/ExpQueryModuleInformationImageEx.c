@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpQueryModuleInformationImageEx @ 0x140AB8C40
+ * XREFs of ExpQueryModuleInformationImageEx @ 0x14097E450
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140AB8D68 (ExpConvertLdrEntryToModuleInfo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x14097E258 (ExpConvertLdrEntryToModuleInfo.c)
  */
 
-__int64 __fastcall ExpQueryModuleInformationImageEx(int a1, __int64 a2)
+__int64 __fastcall ExpQueryModuleInformationImageEx(__int64 a1, __int64 a2)
 {
   _WORD *v4; // rdi
   unsigned int v5; // eax

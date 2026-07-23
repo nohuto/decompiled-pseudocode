@@ -1,12 +1,12 @@
 /*
- * XREFs of MmChargeResources @ 0x140003D14
+ * XREFs of MmChargeResources @ 0x140003E88
  * Callers:
- *     SmAcquireReleaseCharges @ 0x140003C90 (SmAcquireReleaseCharges.c)
- *     HvpViewMapAcquireChargesForPinnedPages @ 0x14060FEC0 (HvpViewMapAcquireChargesForPinnedPages.c)
+ *     SmAcquireReleaseCharges @ 0x140003E04 (SmAcquireReleaseCharges.c)
+ *     HvpViewMapAcquireChargesForPinnedPages @ 0x14060FF74 (HvpViewMapAcquireChargesForPinnedPages.c)
  * Callees:
- *     MmReleaseResourceCharge @ 0x140003CD8 (MmReleaseResourceCharge.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MmReleaseResourceCharge @ 0x140003E4C (MmReleaseResourceCharge.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  */
 
 __int64 __fastcall MmChargeResources(__int64 a1, char a2, unsigned int a3, char a4)

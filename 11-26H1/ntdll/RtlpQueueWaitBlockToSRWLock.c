@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpQueueWaitBlockToSRWLock @ 0x18002AA00
+ * XREFs of RtlpQueueWaitBlockToSRWLock @ 0x180015B00
  * Callers:
- *     RtlWakeConditionVariable @ 0x18002A8A0 (RtlWakeConditionVariable.c)
- *     RtlpWakeConditionVariable @ 0x18002B160 (RtlpWakeConditionVariable.c)
+ *     RtlWakeConditionVariable @ 0x1800159A0 (RtlWakeConditionVariable.c)
+ *     RtlpWakeConditionVariable @ 0x180016260 (RtlpWakeConditionVariable.c)
  * Callees:
- *     RtlBackoff @ 0x180013BB0 (RtlBackoff.c)
- *     RtlpAbFreeKernelEntry @ 0x18002A590 (RtlpAbFreeKernelEntry.c)
- *     RtlpOptimizeSRWLockList @ 0x18002A5E0 (RtlpOptimizeSRWLockList.c)
- *     RtlAbPostRelease @ 0x180079680 (RtlAbPostRelease.c)
+ *     RtlpAbFreeKernelEntry @ 0x180015690 (RtlpAbFreeKernelEntry.c)
+ *     RtlpOptimizeSRWLockList @ 0x1800156E0 (RtlpOptimizeSRWLockList.c)
+ *     RtlBackoff @ 0x18005F2E0 (RtlBackoff.c)
+ *     RtlAbPostRelease @ 0x180067EA0 (RtlAbPostRelease.c)
  */
 
 __int64 __fastcall RtlpQueueWaitBlockToSRWLock(__int64 a1, volatile signed __int64 *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall RtlpQueueWaitBlockToSRWLock(__int64 a1, volatile signed __int
   signed __int64 v11; // rdx
   _QWORD *SchedulerSharedDataSlot; // r11
   unsigned int i; // r9d
-  unsigned int v15; // [rsp+60h] [rbp+8h] BYREF
+  int v15; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = 0;
   v5 = 0LL;
@@ -88,7 +88,7 @@ LABEL_12:
       RtlAbPostRelease(a2, v5);
       v5 = 0LL;
     }
-    RtlBackoff(&v15);
+    RtlBackoff(&v15, v11);
     _m_prefetchw((const void *)a2);
     v6 = *a2;
   }

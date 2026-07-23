@@ -1,26 +1,26 @@
 /*
- * XREFs of NtUnlockFile @ 0x1404C9C58
+ * XREFs of NtUnlockFile @ 0x1404AF9D8
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IoGetAttachedDevice @ 0x14002DEC0 (IoGetAttachedDevice.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x14002E5C0 (IopResetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopVerifierExAllocatePool @ 0x14007B610 (IopVerifierExAllocatePool.c)
- *     IopAcquireFastLock @ 0x14007BAB4 (IopAcquireFastLock.c)
- *     IopVerifierExAllocatePoolWithQuota_2 @ 0x140132EB8 (IopVerifierExAllocatePoolWithQuota_2.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IoGetAttachedDevice @ 0x14002DA40 (IoGetAttachedDevice.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopResetEvent @ 0x14002E140 (IopResetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopVerifierExAllocatePool @ 0x14007B690 (IopVerifierExAllocatePool.c)
+ *     IopAcquireFastLock @ 0x14007BB34 (IopAcquireFastLock.c)
+ *     IopVerifierExAllocatePoolWithQuota_2 @ 0x140133428 (IopVerifierExAllocatePoolWithQuota_2.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     IopSynchronousApiServiceTail @ 0x1404C9698 (IopSynchronousApiServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x1406213D4 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
- *     VfFastIoCheckState @ 0x1407058C8 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140705978 (VfFastIoSnapState.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     IopSynchronousApiServiceTail @ 0x1404AF418 (IopSynchronousApiServiceTail.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140621488 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
+ *     VfFastIoCheckState @ 0x1407058F8 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1407059A8 (VfFastIoSnapState.c)
  */
 
 NTSTATUS __stdcall NtUnlockFile(

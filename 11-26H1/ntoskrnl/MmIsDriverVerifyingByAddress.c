@@ -1,10 +1,10 @@
 /*
- * XREFs of MmIsDriverVerifyingByAddress @ 0x140C43F40
+ * XREFs of MmIsDriverVerifyingByAddress @ 0x140C49F50
  * Callers:
  *     <none>
  * Callees:
- *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404ABD44 (MiLockLoadedDataTableEntryIfNecessary.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
+ *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404A53D4 (MiLockLoadedDataTableEntryIfNecessary.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
  */
 
 LOGICAL __stdcall MmIsDriverVerifyingByAddress(PVOID AddressWithinSection)

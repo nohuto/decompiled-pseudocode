@@ -1,26 +1,26 @@
 /*
- * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x140447F40
+ * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x140446E10
  * Callers:
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     AlpcpDispatchMessage @ 0x1404B55A8 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x14049F988 (AlpcpDispatchMessage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1400CF090 (KeReleaseSemaphoreEx.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeReleaseSemaphoreEx @ 0x1400CCF30 (KeReleaseSemaphoreEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x14044B960 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpCaptureMessageDataSafe @ 0x14044C5B0 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x140654ED8 (AlpcpEnterStateChangeEventMessageLog.c)
- *     AlpcpLogSendMessage @ 0x140656908 (AlpcpLogSendMessage.c)
- *     AlpcpLogWaitForReply @ 0x140656AB4 (AlpcpLogWaitForReply.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x14044A830 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x14044B480 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140654FBC (AlpcpEnterStateChangeEventMessageLog.c)
+ *     AlpcpLogSendMessage @ 0x1406569EC (AlpcpLogSendMessage.c)
+ *     AlpcpLogWaitForReply @ 0x140656B98 (AlpcpLogWaitForReply.c)
  */
 
 __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 *a1)
@@ -51,7 +51,7 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 *a1)
   signed __int64 BugCheckParameter4; // rcx
   __int64 v27; // rbx
   int (__fastcall *v28)(__int64); // rax
-  union _SLIST_HEADER *v29; // r8
+  _SLIST_HEADER *v29; // r8
   void *v30; // rcx
   struct _KTHREAD *v31; // [rsp+30h] [rbp-58h]
   int v32; // [rsp+90h] [rbp+8h]

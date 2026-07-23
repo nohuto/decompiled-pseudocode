@@ -1,23 +1,23 @@
 /*
- * XREFs of MiSectionProtectGetCharges @ 0x1409C6FE0
+ * XREFs of MiSectionProtectGetCharges @ 0x140997FC0
  * Callers:
- *     MiSetProtectionOnSection @ 0x140304DE0 (MiSetProtectionOnSection.c)
+ *     MiSetProtectionOnSection @ 0x1402E6E60 (MiSetProtectionOnSection.c)
  * Callees:
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027F6FC (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiCountSharedPages @ 0x1402D0E10 (MiCountSharedPages.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiComputePageCommitment @ 0x140311CE0 (MiComputePageCommitment.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiReadVadFlags2 @ 0x14047A070 (MiReadVadFlags2.c)
- *     MiCommitPageTablesForVad @ 0x1409C6018 (MiCommitPageTablesForVad.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027EC6C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiCountSharedPages @ 0x1402B2BD0 (MiCountSharedPages.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiComputePageCommitment @ 0x140313D10 (MiComputePageCommitment.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiReadVadFlags2 @ 0x1404739E0 (MiReadVadFlags2.c)
+ *     MiCommitPageTablesForVad @ 0x140996FF8 (MiCommitPageTablesForVad.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiSectionProtectGetCharges(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

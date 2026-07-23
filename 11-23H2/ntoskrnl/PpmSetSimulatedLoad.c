@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmSetSimulatedLoad @ 0x140986BA4
+ * XREFs of PpmSetSimulatedLoad @ 0x140986DA4
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

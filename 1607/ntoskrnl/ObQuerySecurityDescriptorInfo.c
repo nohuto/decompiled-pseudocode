@@ -1,12 +1,12 @@
 /*
- * XREFs of ObQuerySecurityDescriptorInfo @ 0x14040423C
+ * XREFs of ObQuerySecurityDescriptorInfo @ 0x1404030FC
  * Callers:
- *     SeDefaultObjectMethod @ 0x14041FBE0 (SeDefaultObjectMethod.c)
- *     WmipSecurityMethod @ 0x1404E1DBC (WmipSecurityMethod.c)
+ *     SeDefaultObjectMethod @ 0x14041EAA0 (SeDefaultObjectMethod.c)
+ *     WmipSecurityMethod @ 0x1404C53C0 (WmipSecurityMethod.c)
  * Callees:
- *     SeQuerySecurityDescriptorInfo @ 0x140404A00 (SeQuerySecurityDescriptorInfo.c)
- *     ObpReferenceSecurityDescriptor @ 0x140406EB0 (ObpReferenceSecurityDescriptor.c)
- *     ObDereferenceSecurityDescriptor @ 0x1404200D0 (ObDereferenceSecurityDescriptor.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1404038C0 (SeQuerySecurityDescriptorInfo.c)
+ *     ObpReferenceSecurityDescriptor @ 0x140405D70 (ObpReferenceSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14041EF90 (ObDereferenceSecurityDescriptor.c)
  */
 
 __int64 __fastcall ObQuerySecurityDescriptorInfo(__int64 a1, DWORD *a2, void *a3, ULONG *a4)

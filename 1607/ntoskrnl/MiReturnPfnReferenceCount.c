@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReturnPfnReferenceCount @ 0x1400FDD40
+ * XREFs of MiReturnPfnReferenceCount @ 0x1400FBAC0
  * Callers:
- *     MiIdealClusterPage @ 0x1401F6748 (MiIdealClusterPage.c)
- *     MiMakeImagePageOk @ 0x1401F6F38 (MiMakeImagePageOk.c)
- *     MiReleaseProcessReferenceToSessionDataPage @ 0x1404E16A0 (MiReleaseProcessReferenceToSessionDataPage.c)
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
- *     MiFillPerSessionProtos @ 0x140661E34 (MiFillPerSessionProtos.c)
+ *     MiIdealClusterPage @ 0x1401F6574 (MiIdealClusterPage.c)
+ *     MiMakeImagePageOk @ 0x1401F6D64 (MiMakeImagePageOk.c)
+ *     MiReleaseProcessReferenceToSessionDataPage @ 0x1404C4CA4 (MiReleaseProcessReferenceToSessionDataPage.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
+ *     MiFillPerSessionProtos @ 0x140661F18 (MiFillPerSessionProtos.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
  */
 
 __int64 __fastcall MiReturnPfnReferenceCount(__int64 a1)

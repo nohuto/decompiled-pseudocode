@@ -1,14 +1,14 @@
 /*
- * XREFs of MiProbeLeafFrame @ 0x140094C6C
+ * XREFs of MiProbeLeafFrame @ 0x140094BAC
  * Callers:
- *     MmProbeAndLockSelectedPages @ 0x1400949E0 (MmProbeAndLockSelectedPages.c)
- *     MmStoreProbeAndLockPages @ 0x140153D74 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140094920 (MmProbeAndLockSelectedPages.c)
+ *     MmStoreProbeAndLockPages @ 0x140153E74 (MmStoreProbeAndLockPages.c)
  * Callees:
  *     MiSetProbePagesAhead @ 0x140029710 (MiSetProbePagesAhead.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiLockPageLeafPageTable @ 0x140041DD0 (MiLockPageLeafPageTable.c)
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
- *     MiFaultInProbeAddress @ 0x1400936FC (MiFaultInProbeAddress.c)
+ *     MiFaultInProbeAddress @ 0x14009363C (MiFaultInProbeAddress.c)
  */
 
 __int64 __fastcall MiProbeLeafFrame(unsigned __int64 *a1)
@@ -38,7 +38,7 @@ __int64 __fastcall MiProbeLeafFrame(unsigned __int64 *a1)
       result = MiFaultInProbeAddress((__int64)a1);
       if ( (int)result < 0 )
       {
-        ++dword_14043A81C;
+        ++dword_14043B8DC;
         return result;
       }
     }

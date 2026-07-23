@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpQueryCoverageSamplerInformation @ 0x1408C91B8
+ * XREFs of EtwpQueryCoverageSamplerInformation @ 0x1408CA478
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x1408B9360 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1408BA620 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExCheckFullProcessInformationAccess @ 0x1406542F4 (ExCheckFullProcessInformationAccess.c)
- *     EtwpCoverageSamplerQuery @ 0x1408C7E64 (EtwpCoverageSamplerQuery.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1406554B4 (ExCheckFullProcessInformationAccess.c)
+ *     EtwpCoverageSamplerQuery @ 0x1408C9124 (EtwpCoverageSamplerQuery.c)
  */
 
 __int64 __fastcall EtwpQueryCoverageSamplerInformation(_OWORD *a1, unsigned int a2, char a3, unsigned int *a4)
@@ -37,7 +37,7 @@ LABEL_4:
     v9 = ExCheckFullProcessInformationAccess(a3);
     if ( v9 >= 0 )
     {
-      v9 = ObReferenceObjectByHandle(Handle[1], 1u, qword_140409DD0, a3, &Object, 0LL);
+      v9 = ObReferenceObjectByHandle(Handle[1], 1u, qword_14040AE30, a3, &Object, 0LL);
       v8 = Object;
       if ( v9 >= 0 )
       {

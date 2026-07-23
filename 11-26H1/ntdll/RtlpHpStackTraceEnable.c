@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlpHpStackTraceEnable @ 0x180122CF0
+ * XREFs of RtlpHpStackTraceEnable @ 0x180122A60
  * Callers:
- *     RtlpHpStackTraceConfig @ 0x180121038 (RtlpHpStackTraceConfig.c)
- *     RtlpHpSetLowFragHeapGlobalFlags @ 0x180145334 (RtlpHpSetLowFragHeapGlobalFlags.c)
+ *     RtlpHpStackTraceConfig @ 0x180120DE8 (RtlpHpStackTraceConfig.c)
+ *     RtlpHpSetLowFragHeapGlobalFlags @ 0x1801451E4 (RtlpHpSetLowFragHeapGlobalFlags.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpEnumProcessHeaps @ 0x180091420 (RtlpEnumProcessHeaps.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpEnumProcessHeaps @ 0x180076180 (RtlpEnumProcessHeaps.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceEnable(__int64 a1, __int64 a2)
+__int64 RtlpHpStackTraceEnable()
 {
-  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext, a2);
-  if ( (dword_1801C7858 & 1) == 0 )
+  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
+  if ( (dword_1801C68A8 & 1) == 0 )
   {
-    memset_thunk_772440563353939046(&qword_1801C7860, 0, 0x48uLL);
-    dword_1801C7858 = 3;
-    qword_1801C7860 = 0LL;
-    qword_1801C7890 = (__int64)RtlpHpStackDbAllocRoutine;
-    qword_1801C7898 = (__int64)RtlpHpStackDbFreeRoutine;
-    qword_1801C7868 = 0LL;
-    qword_1801C7870 = 0LL;
-    qword_1801C7878 = 0LL;
-    qword_1801C7888 = 0LL;
-    qword_1801C7880 = 0LL;
-    qword_1801C78A0 = 0LL;
+    memset_thunk_772440563353939046(&qword_1801C68B0, 0, 0x48uLL);
+    dword_1801C68A8 = 3;
+    qword_1801C68B0 = 0LL;
+    qword_1801C68E0 = (__int64)RtlpHpStackDbAllocRoutine;
+    qword_1801C68E8 = (__int64)RtlpHpStackDbFreeRoutine;
+    qword_1801C68B8 = 0LL;
+    qword_1801C68C0 = 0LL;
+    qword_1801C68C8 = 0LL;
+    qword_1801C68D8 = 0LL;
+    stru_1801C68D0.0 = 0LL;
+    qword_1801C68F0 = 0LL;
     if ( NtCurrentPeb()->ProcessHeap )
       RtlpEnumProcessHeaps((__int64 (__fastcall *)(__int64, _QWORD, __int64))RtlpHpStackTraceHeapEnable, 1LL, 0);
   }

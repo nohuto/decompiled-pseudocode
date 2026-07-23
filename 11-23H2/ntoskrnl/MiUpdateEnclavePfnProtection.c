@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateEnclavePfnProtection @ 0x140648AD8
+ * XREFs of MiUpdateEnclavePfnProtection @ 0x140649028
  * Callers:
- *     MiProtectEnclavePages @ 0x140648248 (MiProtectEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x140648798 (MiProtectEnclavePages.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateEnclavePfnProtection(__int64 a1, int a2)
@@ -19,10 +19,10 @@ __int64 __fastcall MiUpdateEnclavePfnProtection(__int64 a1, int a2)
   result = 0x7FFFFFFFFFFFFFFFLL;
   *(_QWORD *)(a1 + 16) ^= (*(_DWORD *)(a1 + 16) ^ (32 * a2)) & 0x3E0;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

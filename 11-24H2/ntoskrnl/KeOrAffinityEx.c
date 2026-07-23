@@ -1,10 +1,10 @@
 /*
- * XREFs of KeOrAffinityEx @ 0x1405B81B0
+ * XREFs of KeOrAffinityEx @ 0x1405B5790
  * Callers:
  *     <none>
  * Callees:
- *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14029B69C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     ?KiOrAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x1404CD21C (-KiOrAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402AA18C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     ?KiOrAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x1404C65EC (-KiOrAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
  */
 
 __int64 __fastcall KeOrAffinityEx(struct _KAFFINITY_EX *a1, struct _KAFFINITY_EX *a2, struct _KAFFINITY_EX *a3)

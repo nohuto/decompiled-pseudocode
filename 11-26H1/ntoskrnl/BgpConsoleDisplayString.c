@@ -1,34 +1,34 @@
 /*
- * XREFs of BgpConsoleDisplayString @ 0x140C501C0
+ * XREFs of BgpConsoleDisplayString @ 0x140C561C0
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     BgpConsoleDisplayCharacterEx @ 0x140C4FF18 (BgpConsoleDisplayCharacterEx.c)
- *     AnFwFadeCompletion @ 0x140C52980 (AnFwFadeCompletion.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     BgpConsoleDisplayCharacterEx @ 0x140C55F18 (BgpConsoleDisplayCharacterEx.c)
+ *     AnFwFadeCompletion @ 0x140C58980 (AnFwFadeCompletion.c)
  */
 
 __int64 __fastcall BgpConsoleDisplayString(unsigned __int16 *a1)
 {
-  struct _LIST_ENTRY *Flink; // rdx
+  _DWORD *NormalContext; // rdx
   int v3; // ebx
   unsigned __int16 v5; // cx
   int v6; // eax
 
   BgpFwAcquireLock();
-  Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
-  if ( WheapPfaLock.SavedApcState.ApcListHead[1].Flink )
+  NormalContext = WheapPfaLock.SchedulerApc.NormalContext;
+  if ( WheapPfaLock.SchedulerApc.NormalContext )
   {
     if ( a1 )
     {
       if ( *a1 )
       {
-        if ( ((__int64)WheapPfaLock.SavedApcState.ApcListHead[1].Flink->Blink & 0x10000) != 0 )
+        if ( (*((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 2) & 0x10000) != 0 )
         {
           AnFwFadeCompletion();
-          Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
-          LODWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink->Blink) &= ~0x10000u;
+          NormalContext = WheapPfaLock.SchedulerApc.NormalContext;
+          *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 2) &= ~0x10000u;
         }
         v5 = *a1;
         v3 = 0;
@@ -38,16 +38,16 @@ __int64 __fastcall BgpConsoleDisplayString(unsigned __int16 *a1)
           {
             v6 = BgpConsoleDisplayCharacterEx(
                    v5,
-                   HIDWORD(Flink[4].Flink),
-                   (unsigned int)Flink[4].Blink,
-                   HIDWORD(Flink->Blink),
-                   (int)Flink[1].Flink);
+                   NormalContext[17],
+                   NormalContext[18],
+                   NormalContext[3],
+                   NormalContext[4]);
             if ( v6 < 0 && v3 >= 0 )
               v3 = v6;
             v5 = *++a1;
             if ( !*a1 )
               break;
-            Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
+            NormalContext = WheapPfaLock.SchedulerApc.NormalContext;
           }
         }
       }

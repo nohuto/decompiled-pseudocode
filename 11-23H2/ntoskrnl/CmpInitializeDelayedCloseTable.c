@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeDelayedCloseTable @ 0x1408635A8
+ * XREFs of CmpInitializeDelayedCloseTable @ 0x1408637E8
  * Callers:
  *     CmInitSystem1 @ 0x140B3626C (CmInitSystem1.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KeInitializeGuardedMutex @ 0x14031D870 (KeInitializeGuardedMutex.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KeInitializeGuardedMutex @ 0x14031DB00 (KeInitializeGuardedMutex.c)
  */
 
 __int64 *CmpInitializeDelayedCloseTable()
@@ -35,7 +35,7 @@ __int64 *CmpInitializeDelayedCloseTable()
   CmpDelayCloseWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpDelayCloseWorker;
   KeInitializeGuardedMutex((PKGUARDED_MUTEX)&CmpDelayedCloseTableLock);
   result = &CmpDelayedLRUListHead;
-  qword_140C13D68 = (__int64)&CmpDelayedLRUListHead;
+  qword_140C13CE8 = (__int64)&CmpDelayedLRUListHead;
   CmpDelayedLRUListHead = (__int64)&CmpDelayedLRUListHead;
   _mm_lfence();
   if ( !qword_140C64BA0 )

@@ -110,7 +110,7 @@ LABEL_42:
     }
     return v33;
   }
-  if ( (unsigned int)KeyInformationClass <= MaxKeyInfoClass )
+  if ( (unsigned int)KeyInformationClass <= KeyTrustInformation )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode == 1 )

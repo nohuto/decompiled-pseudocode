@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSearchForNewThreadOnProcessor @ 0x14005BD20
+ * XREFs of KiSearchForNewThreadOnProcessor @ 0x14005B8A0
  * Callers:
- *     KiSearchForNewThread @ 0x14005B980 (KiSearchForNewThread.c)
+ *     KiSearchForNewThread @ 0x14005B500 (KiSearchForNewThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
- *     KiMayStealStandbyThread @ 0x14005C190 (KiMayStealStandbyThread.c)
- *     KiGroupSchedulingMoveThread @ 0x1400992DC (KiGroupSchedulingMoveThread.c)
- *     KiSelectNextThread @ 0x1400CA5B0 (KiSelectNextThread.c)
- *     KiFindReadyThread @ 0x1400CEF5C (KiFindReadyThread.c)
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
- *     KiCheckForMaxOverQuotaScb @ 0x1400D02E8 (KiCheckForMaxOverQuotaScb.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     KiConvertDynamicHeteroPolicy @ 0x1401D7E4C (KiConvertDynamicHeteroPolicy.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
+ *     KiMayStealStandbyThread @ 0x14005BD10 (KiMayStealStandbyThread.c)
+ *     KiGroupSchedulingMoveThread @ 0x140098ADC (KiGroupSchedulingMoveThread.c)
+ *     KiSelectNextThread @ 0x1400C8450 (KiSelectNextThread.c)
+ *     KiFindReadyThread @ 0x1400CCDFC (KiFindReadyThread.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x1400CE188 (KiCheckForMaxOverQuotaScb.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x1401D7C78 (KiConvertDynamicHeteroPolicy.c)
  */
 
 __int64 __fastcall KiSearchForNewThreadOnProcessor(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3)

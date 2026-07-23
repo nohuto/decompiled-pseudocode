@@ -40,7 +40,7 @@ __int64 __fastcall KeSetProcess(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -75,7 +75,7 @@ LABEL_7:
         v13 = (_QWORD *)(v12 + 8);
         v14 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
         {
           v19 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v14 == 2 )

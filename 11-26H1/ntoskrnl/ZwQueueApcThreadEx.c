@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwQueueApcThreadEx @ 0x140726250
+ * XREFs of ZwQueueApcThreadEx @ 0x14072AE20
  * Callers:
- *     DifZwQueueApcThreadExWrapper @ 0x1406B5520 (DifZwQueueApcThreadExWrapper.c)
+ *     DifZwQueueApcThreadExWrapper @ 0x1406B9100 (DifZwQueueApcThreadExWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueueApcThreadEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueueApcThreadEx(
+        HANDLE ThreadHandle,
+        HANDLE ReserveHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

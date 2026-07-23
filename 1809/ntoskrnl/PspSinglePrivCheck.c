@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSinglePrivCheck @ 0x1406D14D4
+ * XREFs of PspSinglePrivCheck @ 0x1406D2774
  * Callers:
- *     PspSetQuotaLimits @ 0x1406D10F8 (PspSetQuotaLimits.c)
+ *     PspSetQuotaLimits @ 0x1406D2398 (PspSetQuotaLimits.c)
  * Callees:
- *     SePrivilegeCheck @ 0x14062A1D0 (SePrivilegeCheck.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
+ *     SePrivilegeCheck @ 0x14062B1F0 (SePrivilegeCheck.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
  */
 
 __int64 __fastcall PspSinglePrivCheck(__int64 a1, __int64 a2, KPROCESSOR_MODE a3, __int64 a4)

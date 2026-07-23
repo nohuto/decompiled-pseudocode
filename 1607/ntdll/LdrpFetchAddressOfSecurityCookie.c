@@ -1,53 +1,51 @@
 /*
- * XREFs of LdrpFetchAddressOfSecurityCookie @ 0x18002FF00
+ * XREFs of LdrpFetchAddressOfSecurityCookie @ 0x18002FEF0
  * Callers:
- *     LdrInitSecurityCookie @ 0x18002FDD0 (LdrInitSecurityCookie.c)
+ *     LdrInitSecurityCookie @ 0x18002FDC0 (LdrInitSecurityCookie.c)
  * Callees:
- *     RtlSectionTableFromVirtualAddress @ 0x180031680 (RtlSectionTableFromVirtualAddress.c)
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
- *     RtlImageNtHeaderEx @ 0x1800348B0 (RtlImageNtHeaderEx.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x180031670 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeaderEx @ 0x1800348A0 (RtlImageNtHeaderEx.c)
  */
 
 unsigned __int64 __fastcall LdrpFetchAddressOfSecurityCookie(
-        unsigned __int64 a1,
+        PVOID BaseOfImage,
         unsigned int a2,
         _DWORD *a3,
-        __int64 *a4)
+        _QWORD *a4)
 {
   __int64 v5; // rbp
-  __int64 v8; // rdx
-  __int64 v9; // rax
-  unsigned __int64 v10; // rdi
-  __int64 v11; // rax
-  __int64 v12; // r11
-  __int64 v14[5]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned int v15; // [rsp+60h] [rbp+18h] BYREF
+  _QWORD *v8; // rax
+  unsigned __int64 v9; // rdi
+  PIMAGE_SECTION_HEADER v10; // rax
+  __int64 v11; // r11
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+20h] [rbp-28h] BYREF
+  ULONG Size; // [rsp+60h] [rbp+18h] BYREF
 
   v5 = a2;
-  RtlImageNtHeaderEx(1LL, a1, 0LL, v14);
-  LOBYTE(v8) = 1;
-  v9 = RtlImageDirectoryEntryToData(a1, v8, 10LL, &v15);
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &OutHeaders);
+  v8 = RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0xAu, &Size);
   *a3 = 0;
-  if ( v9
-    && v15
-    && v15 == *(_DWORD *)v9
-    && *(_DWORD *)v9 >= 0x70u
-    && (v10 = *(_QWORD *)(v9 + 88), v10 > a1)
-    && v10 < v5 + a1 - 8 )
+  if ( v8
+    && Size
+    && Size == *(_DWORD *)v8
+    && *(_DWORD *)v8 >= 0x70u
+    && (v9 = v8[11], v9 > (unsigned __int64)BaseOfImage)
+    && v9 < (unsigned __int64)BaseOfImage + v5 - 8 )
   {
-    v11 = RtlSectionTableFromVirtualAddress(v14[0], v15, (unsigned int)(v10 - a1));
-    if ( v11 && *(int *)(v11 + 36) >= 0 )
+    v10 = RtlSectionTableFromVirtualAddress(OutHeaders, (PVOID)Size, (int)v9 - (int)BaseOfImage);
+    if ( v10 && (v10->Characteristics & 0x80000000) == 0 )
       *a3 = 1;
     if ( a4 )
-      *a4 = v12;
-    return v10;
+      *a4 = v11;
+    return v9;
   }
   else
   {
     if ( a4 )
     {
-      if ( v9 && v15 && v15 == *(_DWORD *)v9 && *(_DWORD *)v9 >= 4u )
-        *a4 = v9;
+      if ( v8 && Size && Size == *(_DWORD *)v8 && *(_DWORD *)v8 >= 4u )
+        *a4 = v8;
       else
         *a4 = 0LL;
     }

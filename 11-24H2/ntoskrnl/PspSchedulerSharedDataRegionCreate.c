@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSchedulerSharedDataRegionCreate @ 0x140946D5C
+ * XREFs of PspSchedulerSharedDataRegionCreate @ 0x1408EB67C
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByPointerWithTag @ 0x140418730 (ObReferenceObjectByPointerWithTag.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     MmMapViewOfSection @ 0x1409071A0 (MmMapViewOfSection.c)
- *     MmCreateSectionEx @ 0x140940C6C (MmCreateSectionEx.c)
- *     MiMapViewInSystemSpace @ 0x140946C58 (MiMapViewInSystemSpace.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x1404084E0 (ObReferenceObjectByPointerWithTag.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     MmMapViewOfSection @ 0x1408DE270 (MmMapViewOfSection.c)
+ *     MiMapViewInSystemSpace @ 0x1408EB578 (MiMapViewInSystemSpace.c)
+ *     MmCreateSectionEx @ 0x14098AECC (MmCreateSectionEx.c)
  */
 
 __int64 __fastcall PspSchedulerSharedDataRegionCreate(_KPROCESS *Object, __int64 *a2)
@@ -72,18 +72,7 @@ __int64 __fastcall PspSchedulerSharedDataRegionCreate(_KPROCESS *Object, __int64
       v8 = v6 + 21;
       v6[20] = Object;
       *(_OWORD *)Objecta = 0LL;
-      Section = MmCreateSectionEx(
-                  (unsigned __int64 **)v6 + 21,
-                  0,
-                  0x2000LL,
-                  4,
-                  0x4000000,
-                  0LL,
-                  0LL,
-                  0,
-                  v17,
-                  0LL,
-                  ullMultiplicand);
+      Section = MmCreateSectionEx((int)v6 + 168, 0, 0x2000, 4, 0x4000000, 0LL, 0LL, 0, v17, 0LL, ullMultiplicand);
       if ( Section >= 0 )
       {
         v9 = *v8;

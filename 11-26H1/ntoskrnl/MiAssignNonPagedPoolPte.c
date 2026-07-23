@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAssignNonPagedPoolPte @ 0x140365C30
+ * XREFs of MiAssignNonPagedPoolPte @ 0x1403679D0
  * Callers:
- *     MiFillPoolCommitPageTable @ 0x1403652A0 (MiFillPoolCommitPageTable.c)
+ *     MiFillPoolCommitPageTable @ 0x140367040 (MiFillPoolCommitPageTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
  */
 
 __int64 __fastcall MiAssignNonPagedPoolPte(__int64 a1, unsigned __int64 a2)

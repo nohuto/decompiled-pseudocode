@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckArmPeriod @ 0x1404AC5B4
+ * XREFs of PpmCheckArmPeriod @ 0x1404A6A14
  * Callers:
- *     PpmCheckReInit @ 0x140A72240 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140A6B620 (PpmCheckReInit.c)
  * Callees:
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     PpmCheckResetProcessors @ 0x1405D6BC0 (PpmCheckResetProcessors.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     PpmCheckResetProcessors @ 0x1405D41E0 (PpmCheckResetProcessors.c)
  */
 
 char PpmCheckArmPeriod()
@@ -15,8 +15,8 @@ char PpmCheckArmPeriod()
 
   v0 = PpmCheckMinimumPeriod;
   result = PpmCheckArmed;
-  if ( 10000 * (unsigned __int64)HIDWORD(PpmCurrentProfile[0][61 * dword_140F0BA4C + 9]) > PpmCheckMinimumPeriod )
-    v0 = 10000LL * HIDWORD(PpmCurrentProfile[0][61 * dword_140F0BA4C + 9]);
+  if ( 10000 * (unsigned __int64)HIDWORD(PpmCurrentProfile[0][61 * dword_140F0B38C + 9]) > PpmCheckMinimumPeriod )
+    v0 = 10000LL * HIDWORD(PpmCurrentProfile[0][61 * dword_140F0B38C + 9]);
   if ( !PpmCheckArmed )
     goto LABEL_8;
   if ( v0 != PpmCheckPeriod )
@@ -36,7 +36,7 @@ LABEL_8:
     {
       v2[0] = 0LL;
       v2[1] = -1LL;
-      return KeSetTimer2((__int64)&PpmCheckTimer, -v0, v0, (__int64)v2);
+      return KeSetTimer2((__int64)&PpmCheckTimer, (LARGE_INTEGER)-v0, v0, (__int64)v2);
     }
   }
   return result;

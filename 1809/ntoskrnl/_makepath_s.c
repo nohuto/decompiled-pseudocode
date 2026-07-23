@@ -1,9 +1,9 @@
 /*
- * XREFs of _makepath_s @ 0x14019AA10
+ * XREFs of _makepath_s @ 0x14019AB50
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl makepath_s(

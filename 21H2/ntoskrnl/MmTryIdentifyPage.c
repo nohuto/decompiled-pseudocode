@@ -1,11 +1,11 @@
 /*
- * XREFs of MmTryIdentifyPage @ 0x140534868
+ * XREFs of MmTryIdentifyPage @ 0x140534AA8
  * Callers:
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409ACFE0 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409ADF10 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
  * Callees:
- *     MiIsPageSecured @ 0x1402B4D68 (MiIsPageSecured.c)
- *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
- *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     MiIsPageSecured @ 0x140232F18 (MiIsPageSecured.c)
+ *     MiIsPageOnBadList @ 0x14030E2BC (MiIsPageOnBadList.c)
+ *     MiIdentifyPfn @ 0x140353FA0 (MiIdentifyPfn.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

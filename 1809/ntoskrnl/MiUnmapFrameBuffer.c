@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnmapFrameBuffer @ 0x140122D64
+ * XREFs of MiUnmapFrameBuffer @ 0x140122E34
  * Callers:
- *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiReplaceRotateWithDemandZero @ 0x1401229F0 (MiReplaceRotateWithDemandZero.c)
+ *     MiDeleteVa @ 0x1400696F0 (MiDeleteVa.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140122AC0 (MiReplaceRotateWithDemandZero.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnmapFrameBuffer(unsigned __int64 a1, __int64 a2, unsigned int a3, unsigned __int64 *a4)
@@ -54,7 +54,7 @@ __int64 __fastcall MiUnmapFrameBuffer(unsigned __int64 a1, __int64 a2, unsigned 
     if ( (unsigned int)MiPteHasShadow() )
     {
       v13 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_4;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

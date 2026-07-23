@@ -1,55 +1,54 @@
 /*
- * XREFs of RtlpLowFragHeapAllocateFromZone @ 0x1800DCB60
+ * XREFs of RtlpLowFragHeapAllocateFromZone @ 0x1800D9AD0
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x18001CED0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x180007FA0 (RtlpLowFragHeapAllocFromContext.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
  */
 
-unsigned __int64 __fastcall RtlpLowFragHeapAllocateFromZone(__int64 a1, unsigned int a2)
+unsigned __int64 __fastcall RtlpLowFragHeapAllocateFromZone(PRTL_SRWLOCK SRWLock, unsigned int a2)
 {
   __int64 v3; // rdi
-  __int64 v4; // rbx
+  unsigned __int64 Value; // rbx
   unsigned __int32 v5; // eax
   unsigned __int64 v6; // rbp
-  __int64 Heap_0; // rax
-  __int64 v9; // rdx
-  _QWORD *v10; // r14
-  _QWORD *v11; // rcx
+  _RTL_SRWLOCK *Heap_0; // rax
+  _RTL_SRWLOCK *v9; // r14
+  PRTL_SRWLOCK *v10; // rcx
 
   v3 = 6LL * a2;
   while ( 1 )
   {
-    v4 = *(_QWORD *)(a1 + 8 * v3 + 3280);
-    if ( v4 )
+    Value = SRWLock[v3 + 410].Value;
+    if ( Value )
     {
-      v5 = _InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 16), 1u);
+      v5 = _InterlockedExchangeAdd((volatile signed __int32 *)(Value + 16), 1u);
       if ( v5 < 0xF )
-        return v4 + ((unsigned __int64)v5 << 6) + 32;
+        return Value + ((unsigned __int64)v5 << 6) + 32;
     }
-    Heap_0 = RtlAllocateHeap_0();
-    v10 = (_QWORD *)Heap_0;
+    Heap_0 = (_RTL_SRWLOCK *)RtlAllocateHeap_0(SRWLock[3].Ptr, 0x800000u, 0x3F0uLL);
+    v9 = Heap_0;
     if ( !Heap_0 )
       return 0LL;
-    *(_DWORD *)(Heap_0 + 16) = 1;
-    v6 = (Heap_0 + 39) & 0xFFFFFFFFFFFFFFF0uLL;
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1, v9);
-    if ( v4 == *(_QWORD *)(a1 + 8 * v3 + 3280) )
+    *(_DWORD *)&Heap_0[2].0 = 1;
+    v6 = ((unsigned __int64)&Heap_0[4].Ptr + 7) & 0xFFFFFFFFFFFFFFF0uLL;
+    RtlAcquireSRWLockExclusive(SRWLock);
+    if ( Value == SRWLock[v3 + 410].Value )
       break;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-    RtlFreeHeap_0();
+    RtlReleaseSRWLockExclusive(SRWLock);
+    RtlFreeHeap_0(SRWLock[3].Ptr, 0x800000u, v9);
   }
-  v11 = *(_QWORD **)(a1 + 16);
-  if ( *v11 != a1 + 8 )
+  v10 = (PRTL_SRWLOCK *)SRWLock[2].Value;
+  if ( *v10 != &SRWLock[1] )
     __fastfail(3u);
-  v10[1] = v11;
-  *v10 = a1 + 8;
-  *v11 = v10;
-  *(_QWORD *)(a1 + 16) = v10;
-  *(_QWORD *)(a1 + 8 * v3 + 3280) = v10;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+  v9[1].Value = (unsigned __int64)v10;
+  v9->Value = (unsigned __int64)&SRWLock[1];
+  *v10 = v9;
+  SRWLock[2].Value = (unsigned __int64)v9;
+  SRWLock[v3 + 410].Value = (unsigned __int64)v9;
+  RtlReleaseSRWLockExclusive(SRWLock);
   return v6;
 }

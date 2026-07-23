@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerDetermineValidTimerPairReadLatency @ 0x1405479D0
+ * XREFs of HalpTimerDetermineValidTimerPairReadLatency @ 0x140545290
  * Callers:
- *     HalpTimerMeasureFrequencies @ 0x140547C90 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x14054C1E0 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpTimerMeasureFrequencies @ 0x140545550 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x140549AA0 (HalpTimerMeasureProcessorsWorker.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpTimerDetermineValidTimerPairReadLatency(__int64 a1, __int64 a2)
@@ -18,17 +18,13 @@ __int64 __fastcall HalpTimerDetermineValidTimerPairReadLatency(__int64 a1, __int
   unsigned __int64 v8; // rdx
   __int64 InternalData; // rax
   __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned __int64 v13; // rax
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  unsigned __int64 v18; // rax
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // rax
+  unsigned __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  unsigned __int64 v14; // rax
+  unsigned __int64 v15; // rax
+  unsigned __int64 v16; // rcx
+  unsigned __int64 v17; // rax
 
   v4 = -1;
   v5 = 25LL;
@@ -46,30 +42,30 @@ __int64 __fastcall HalpTimerDetermineValidTimerPairReadLatency(__int64 a1, __int
     else
     {
       InternalData = HalpTimerGetInternalData(a1);
-      guard_dispatch_icall_no_overrides(InternalData, v10, v11, v12);
+      guard_dispatch_icall_no_overrides(InternalData, v10);
     }
-    v13 = __readcr2();
-    __writecr2(v13);
+    v11 = __readcr2();
+    __writecr2(v11);
     if ( a2 == HalpPerformanceCounter && HalpTimerFrequenciesMeasured )
     {
       KeQueryPerformanceCounter(0LL);
     }
     else
     {
-      v14 = HalpTimerGetInternalData(a2);
-      guard_dispatch_icall_no_overrides(v14, v15, v16, v17);
+      v12 = HalpTimerGetInternalData(a2);
+      guard_dispatch_icall_no_overrides(v12, v13);
     }
-    v18 = __readcr2();
-    __writecr2(v18);
-    v19 = __rdtsc();
-    v20 = __readcr2();
-    __writecr2(v20);
-    v21 = (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v7;
-    if ( v21 >= v4 )
-      LODWORD(v21) = v4;
-    v4 = v21;
+    v14 = __readcr2();
+    __writecr2(v14);
+    v15 = __rdtsc();
+    v16 = __readcr2();
+    __writecr2(v16);
+    v17 = (((unsigned __int64)HIDWORD(v15) << 32) | (unsigned int)v15) - v7;
+    if ( v17 >= v4 )
+      LODWORD(v17) = v4;
+    v4 = v17;
     --v5;
   }
   while ( v5 );
-  return (unsigned int)(4 * v21);
+  return (unsigned int)(4 * v17);
 }

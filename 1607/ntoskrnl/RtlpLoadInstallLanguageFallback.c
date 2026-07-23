@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpLoadInstallLanguageFallback @ 0x14055FD24
+ * XREFs of RtlpLoadInstallLanguageFallback @ 0x140560264
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x140560888 (_RtlpMuiRegLoadInstalled.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x1406E7C88 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x140560DC8 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x1406E7DC0 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x14013FF84 (_MuiRegAllocArray.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1401404F4 (_MuiRegAllocArray.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     LdrpQueryValueKey @ 0x140560C34 (LdrpQueryValueKey.c)
- *     RtlCultureNameToLCID @ 0x1405617C8 (RtlCultureNameToLCID.c)
+ *     LdrpQueryValueKey @ 0x140561174 (LdrpQueryValueKey.c)
+ *     RtlCultureNameToLCID @ 0x140561D08 (RtlCultureNameToLCID.c)
  */
 
 __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD *a3)
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
   HANDLE KeyHandle; // [rsp+30h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-48h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-38h] BYREF
-  int v13; // [rsp+B0h] [rbp+30h] BYREF
+  DWORD Lcid; // [rsp+B0h] [rbp+30h] BYREF
   __int64 v14; // [rsp+C8h] [rbp+48h] BYREF
 
   KeyHandle = 0LL;
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
     {
       memset(v6, 0, 0x158uLL);
       *a2 = 0;
-      v13 = 0;
+      Lcid = 0;
       *a3 = 0;
       RtlInitUnicodeString(
         &DestinationString,
@@ -55,7 +55,7 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
         v7 = LdrpQueryValueKey(KeyHandle, &DestinationString, (__int64)&v14);
         if ( v7 >= 0 )
         {
-          if ( v13 != 1 )
+          if ( Lcid != 1 )
             goto LABEL_18;
           for ( i = v5; *i; ++i )
           {
@@ -69,15 +69,15 @@ __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD 
 LABEL_20:
             ++i;
           RtlInitUnicodeString(&DestinationString, v5);
-          if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v13) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *a2 = v13;
+            *a2 = Lcid;
             if ( *i )
             {
               RtlInitUnicodeString(&DestinationString, i);
-              if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v13) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v13;
+                *a3 = Lcid;
               }
               else
               {

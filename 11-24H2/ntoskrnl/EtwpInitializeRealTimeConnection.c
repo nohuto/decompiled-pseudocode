@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpInitializeRealTimeConnection @ 0x140C3E9F8
+ * XREFs of EtwpInitializeRealTimeConnection @ 0x140C40B48
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
  */
 
 __int64 EtwpInitializeRealTimeConnection()

@@ -1,38 +1,35 @@
 /*
- * XREFs of KiWaitSatisfyAny @ 0x14029A47C
+ * XREFs of KiWaitSatisfyAny @ 0x14022A9EC
  * Callers:
- *     KiWaitForAllObjects @ 0x14029A090 (KiWaitForAllObjects.c)
+ *     KiWaitForAllObjects @ 0x14022A600 (KiWaitForAllObjects.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiWaitSatisfyOther @ 0x14029A518 (KiWaitSatisfyOther.c)
- *     KiWaitSatisfyMutant @ 0x14029A584 (KiWaitSatisfyMutant.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiWaitSatisfyOther @ 0x14022AA88 (KiWaitSatisfyOther.c)
+ *     KiWaitSatisfyMutant @ 0x14022AAF4 (KiWaitSatisfyMutant.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiWaitSatisfyAny(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
   __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  __int64 v7; // rcx
   struct _KPRCB *CurrentPrcb; // rbx
   _DWORD *SchedulerAssist; // rcx
-  int v14; // eax
-  _DWORD *v15; // rcx
-  int v16; // eax
-  int v18; // [rsp+48h] [rbp+20h] BYREF
+  int v11; // eax
+  _DWORD *v12; // rcx
+  int v13; // eax
+  int v15; // [rsp+48h] [rbp+20h] BYREF
 
-  LOBYTE(v6) = KiWaitSatisfyOther(BugCheckParameter2);
+  LOBYTE(v6) = KiWaitSatisfyOther();
   if ( !(_BYTE)v6 )
   {
-    LOBYTE(v6) = *(_BYTE *)v8 & 0x7F;
-    if ( (_BYTE)v6 == 2 && (*(_DWORD *)(v8 + 4))-- == 1 )
+    LOBYTE(v6) = *(_BYTE *)v7 & 0x7F;
+    if ( (_BYTE)v6 == 2 && (*(_DWORD *)(v7 + 4))-- == 1 )
     {
       CurrentPrcb = KeGetCurrentPrcb();
-      v18 = 0;
+      v15 = 0;
       while ( 1 )
       {
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -40,34 +37,34 @@ char __fastcall KiWaitSatisfyAny(ULONG_PTR BugCheckParameter2, __int64 a2, __int
         {
           if ( CurrentPrcb->NestingLevel <= 1u )
           {
-            v14 = SchedulerAssist[6];
-            SchedulerAssist[6] = v14 + 1;
-            if ( v14 == -1 )
+            v11 = SchedulerAssist[6];
+            SchedulerAssist[6] = v11 + 1;
+            if ( v11 == -1 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
         if ( !_interlockedbittestandset64((volatile signed __int32 *)(a2 + 64), 0LL) )
           break;
-        v15 = CurrentPrcb->SchedulerAssist;
-        if ( v15 )
+        v12 = CurrentPrcb->SchedulerAssist;
+        if ( v12 )
         {
           if ( CurrentPrcb->NestingLevel <= 1u )
           {
-            v16 = v15[6] - 1;
-            v15[6] = v16;
-            if ( !v16 )
+            v13 = v12[6] - 1;
+            v12[6] = v13;
+            if ( !v13 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
         do
-          KeYieldProcessorEx(&v18, v7, v9, v10);
+          KeYieldProcessorEx(&v15);
         while ( *(_QWORD *)(a2 + 64) );
       }
-      KiWaitSatisfyMutant(BugCheckParameter2, a2, a3, v10);
+      KiWaitSatisfyMutant(BugCheckParameter2, a2, a3);
       LOBYTE(v6) = KiReleaseThreadLockSafe(a2);
       if ( (*(_BYTE *)(BugCheckParameter2 + 48) & 2) != 0 )
       {
-        v6 = KeAbPreAcquire(BugCheckParameter2);
+        v6 = KeAbPreAcquire(BugCheckParameter2, 0LL);
         if ( v6 )
           *(_BYTE *)(v6 + 26) |= 1u;
       }

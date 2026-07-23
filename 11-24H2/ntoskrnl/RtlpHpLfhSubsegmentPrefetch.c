@@ -1,11 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentPrefetch @ 0x140421D08
+ * XREFs of RtlpHpLfhSubsegmentPrefetch @ 0x1404A2CC0
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1402B6D78 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpAllocateHeap @ 0x1402B7A40 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapSlow @ 0x1402B819C (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x14035EE00 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14035FCA0 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
+ *     RtlpHpAllocateHeap @ 0x1403E93B0 (RtlpHpAllocateHeap.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +21,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentPrefetch(__int64 a1, unsigned __int64 a2, 
     result = *(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(a2 + 44) << 6) + a1 + 72);
     *(_WORD *)(a2 + 48) = ((result
                           * (unsigned __int64)(v5
-                                             - (WORD1(qword_140E28208) ^ *(unsigned __int16 *)(a2 + 42) ^ ((unsigned int)(a2 >> 12) >> 16)))) >> 32)
+                                             - (WORD1(qword_140E28348) ^ *(unsigned __int16 *)(a2 + 42) ^ ((unsigned int)(a2 >> 12) >> 16)))) >> 32)
                         - 1;
   }
   return result;

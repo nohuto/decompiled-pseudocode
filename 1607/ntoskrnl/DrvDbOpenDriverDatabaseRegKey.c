@@ -1,21 +1,21 @@
 /*
- * XREFs of DrvDbOpenDriverDatabaseRegKey @ 0x14057EB50
+ * XREFs of DrvDbOpenDriverDatabaseRegKey @ 0x14057EFFC
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1405028D0 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x1405762D0 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x1406E11A0 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1406E24D4 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1404E5860 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140576810 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x1406E12D8 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1406E260C (DrvDbSetDriverDatabaseMappedProperty.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     DrvDbFindDatabaseNode @ 0x1404D429C (DrvDbFindDatabaseNode.c)
- *     DrvDbLoadDatabaseNode @ 0x1404FA464 (DrvDbLoadDatabaseNode.c)
- *     DrvDbUnloadDatabaseNode @ 0x1404FA690 (DrvDbUnloadDatabaseNode.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     DrvDbCreateDatabaseNode @ 0x140578BB0 (DrvDbCreateDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x1406E35CC (DrvDbDestroyDatabaseNode.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     DrvDbFindDatabaseNode @ 0x1404B7D3C (DrvDbFindDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x1404DD3F0 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbUnloadDatabaseNode @ 0x1404DD61C (DrvDbUnloadDatabaseNode.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     DrvDbCreateDatabaseNode @ 0x1405790F0 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x1406E3704 (DrvDbDestroyDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbOpenDriverDatabaseRegKey(

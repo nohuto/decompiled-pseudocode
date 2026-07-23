@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFindConfigurationEntry @ 0x140A91FF0
+ * XREFs of KeFindConfigurationEntry @ 0x140A92FF0
  * Callers:
  *     <none>
  * Callees:
- *     KeFindConfigurationNextEntry @ 0x140A643A0 (KeFindConfigurationNextEntry.c)
+ *     KeFindConfigurationNextEntry @ 0x140A653A0 (KeFindConfigurationNextEntry.c)
  */
 
 __int64 __fastcall KeFindConfigurationEntry(__int64 a1, int a2, int a3, int *a4)

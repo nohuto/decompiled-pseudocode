@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetUuidSeed()
+NTSTATUS __cdecl NtSetUuidSeed(PCHAR Seed)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 405LL;
+  result = 405;
   __asm { syscall; Low latency system call }
   return result;
 }

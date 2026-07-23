@@ -30,53 +30,54 @@
  *     sub_1800DA4EC @ 0x1800DA4EC (sub_1800DA4EC.c)
  */
 
-__int64 __fastcall LdrGetProcedureAddressForCaller(
-        unsigned __int64 a1,
-        const void **a2,
-        unsigned int a3,
-        __int64 *a4,
-        char a5,
-        __int64 a6)
+NTSTATUS __cdecl LdrGetProcedureAddressForCaller(
+        PVOID DllHandle,
+        PANSI_STRING ProcedureName,
+        ULONG ProcedureNumber,
+        PVOID *ProcedureAddress,
+        ULONG Flags,
+        PVOID *Callback)
 {
   int v8; // r15d
-  size_t v9; // r14
+  size_t Length; // r14
   unsigned int v10; // edi
   unsigned __int64 Heap; // rsi
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   int v13; // edi
-  unsigned __int64 v14; // r14
-  unsigned int v15; // r15d
-  __int64 v16; // rdi
+  char *v14; // r14
+  ULONG v15; // r15d
+  PVOID *v16; // rdi
   __int64 v17; // rdi
-  __int64 v19; // [rsp+20h] [rbp-E0h]
+  PVOID *v19; // [rsp+20h] [rbp-E0h]
   char v20; // [rsp+30h] [rbp-D0h]
   char v21[7]; // [rsp+31h] [rbp-CFh] BYREF
   __int64 v22; // [rsp+38h] [rbp-C8h] BYREF
   int v23; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v24; // [rsp+44h] [rbp-BCh]
-  unsigned __int64 v25; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG v24; // [rsp+44h] [rbp-BCh]
+  PVOID BaseAddress; // [rsp+48h] [rbp-B8h] BYREF
   int v26; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v27; // [rsp+58h] [rbp-A8h]
+  PVOID *v27; // [rsp+58h] [rbp-A8h]
   __int64 v28; // [rsp+60h] [rbp-A0h] BYREF
   int v29; // [rsp+68h] [rbp-98h] BYREF
-  __int64 *v30; // [rsp+70h] [rbp-90h]
+  PVOID *v30; // [rsp+70h] [rbp-90h]
   char v31; // [rsp+80h] [rbp-80h] BYREF
 
-  v30 = a4;
-  v24 = a3;
-  v27 = a6;
+  v30 = ProcedureAddress;
+  v24 = ProcedureNumber;
+  v27 = Callback;
   v22 = 0LL;
   v20 = 0;
-  if ( (a5 & 1) == 0 || (v8 = 6, (HANDLE)qword_180155590 != NtCurrentTeb()->ClientId.UniqueThread) )
+  if ( (Flags & 1) == 0 || (v8 = 6, CriticalSection.OwningThread != NtCurrentTeb()->ClientId.UniqueThread) )
     v8 = 9;
-  if ( !a2 )
+  if ( !ProcedureName )
   {
     Heap = 0LL;
     goto LABEL_6;
   }
-  v9 = *(unsigned __int16 *)a2;
-  v10 = v9 + 1;
-  if ( *((unsigned __int16 *)a2 + 1) < (unsigned int)(v9 + 1) || (Heap = (unsigned __int64)a2[1], *(_BYTE *)(v9 + Heap)) )
+  Length = ProcedureName->Length;
+  v10 = Length + 1;
+  if ( ProcedureName->MaximumLength < (unsigned int)(Length + 1)
+    || (Heap = (unsigned __int64)ProcedureName->Buffer, *(_BYTE *)(Length + Heap)) )
   {
     if ( v10 <= 0x80 )
     {
@@ -84,48 +85,48 @@ __int64 __fastcall LdrGetProcedureAddressForCaller(
     }
     else
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015B268 + 1572864, v10);
+      Heap = (unsigned __int64)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, dword_18015B268 + 1572864, v10);
       if ( !Heap )
-        return 3221225626LL;
+        return -1073741670;
       v20 = 1;
     }
-    memmove((void *)Heap, a2[1], v9);
-    *(_BYTE *)((unsigned int)v9 + Heap) = 0;
+    memmove((void *)Heap, ProcedureName->Buffer, Length);
+    *(_BYTE *)((unsigned int)Length + Heap) = 0;
   }
 LABEL_6:
   while ( 1 )
   {
-    v12 = sub_180030264(a1, (__int64 *)&v25, &v23);
+    v12 = sub_180030264((ULONG_PTR)DllHandle, (__int64 *)&BaseAddress, &v23);
     if ( v12 < 0 || (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
       break;
     v13 = v23;
     if ( v23 >= v8 )
       goto LABEL_9;
-    sub_18003015C(v25);
+    sub_18003015C((char *)BaseAddress);
     sub_18001AE14(0);
     sub_18001A338();
   }
   v13 = v23;
 LABEL_9:
-  v14 = v25;
+  v14 = (char *)BaseAddress;
   v15 = v24;
-  if ( v25 )
+  if ( BaseAddress )
   {
-    v12 = sub_18003076C(v25, Heap, v24, 1, (__int64)&v22);
+    v12 = sub_18003076C((_DWORD)BaseAddress, Heap, v24, 1, (__int64)&v22);
     if ( v12 >= 0 )
     {
-      if ( v13 == 7 && (a5 & 1) == 0 )
+      if ( v13 == 7 && (Flags & 1) == 0 )
       {
         if ( (NtCurrentTeb()->SameTebFlags & 0x1000) == 0
-          || (HANDLE)qword_180155590 == NtCurrentTeb()->ClientId.UniqueThread )
+          || CriticalSection.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
         {
-          v14 = v25;
+          v14 = (char *)BaseAddress;
         }
         else
         {
-          v14 = v25;
+          v14 = (char *)BaseAddress;
           v21[0] = 0;
-          v12 = sub_18006FC38(*(_QWORD *)(v25 + 152), 0LL, v21);
+          v12 = sub_18006FC38(*((_QWORD *)BaseAddress + 19), 0LL, v21);
         }
       }
       if ( v12 < 0 )
@@ -140,13 +141,16 @@ LABEL_17:
       }
       v16 = v27;
       if ( byte_18016B280 )
-        sub_1800DA4EC(v27, *(_QWORD *)(v14 + 48), v22, 0, (__int64)&v22);
+        sub_1800DA4EC((_DWORD)v27, *((_QWORD *)v14 + 6), v22, 0, (__int64)&v22);
       if ( byte_18015BF54 )
       {
         v28 = 0LL;
         v19 = v16;
         v17 = v22;
-        ((void (__fastcall *)(__int64 *, unsigned __int64, __int64, _QWORD, __int64))(MEMORY[0x7FFE0330] ^ __ROR8__(qword_18016B1E0, 64 - (MEMORY[0x7FFE0330] & 0x3Fu))))(
+        ((void (__fastcall *)(__int64 *, char *, __int64, _QWORD, PVOID *))(MEMORY[0x7FFE0330] ^ __ROR8__(
+                                                                                                   qword_18016B1E0,
+                                                                                                   64
+                                                                                                 - (MEMORY[0x7FFE0330] & 0x3Fu))))(
           &v28,
           v14,
           v22,
@@ -178,7 +182,7 @@ LABEL_20:
   }
   if ( v20 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)Heap);
     v17 = v22;
   }
   if ( !dword_18015B264
@@ -191,6 +195,6 @@ LABEL_20:
     if ( v12 < 0 )
       __fastfail(0x2Eu);
   }
-  *v30 = v17;
-  return (unsigned int)v12;
+  *v30 = (PVOID)v17;
+  return v12;
 }

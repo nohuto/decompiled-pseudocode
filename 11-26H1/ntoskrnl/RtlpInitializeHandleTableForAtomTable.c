@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInitializeHandleTableForAtomTable @ 0x140972A18
+ * XREFs of RtlpInitializeHandleTableForAtomTable @ 0x1409BDC0C
  * Callers:
- *     RtlCreateAtomTableEx @ 0x1404D3CC0 (RtlCreateAtomTableEx.c)
+ *     RtlCreateAtomTableEx @ 0x1404CD530 (RtlCreateAtomTableEx.c)
  * Callees:
- *     ExpAllocateHandleTable @ 0x140971C08 (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTable @ 0x1409BCEF8 (ExpAllocateHandleTable.c)
  */
 
 bool __fastcall RtlpInitializeHandleTableForAtomTable(__int64 a1)

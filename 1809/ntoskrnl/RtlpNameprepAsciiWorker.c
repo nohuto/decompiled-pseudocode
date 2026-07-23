@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpNameprepAsciiWorker @ 0x140896D30
+ * XREFs of RtlpNameprepAsciiWorker @ 0x140897F90
  * Callers:
- *     RtlIdnToAscii @ 0x140896C40 (RtlIdnToAscii.c)
- *     RtlIdnToNameprepUnicode @ 0x140896C70 (RtlIdnToNameprepUnicode.c)
+ *     RtlIdnToAscii @ 0x140897EA0 (RtlIdnToAscii.c)
+ *     RtlIdnToNameprepUnicode @ 0x140897ED0 (RtlIdnToNameprepUnicode.c)
  * Callees:
- *     IdnaMemAlloc @ 0x1402F4444 (IdnaMemAlloc.c)
- *     RtlpNameprepAsciiRealWorker @ 0x1402F4758 (RtlpNameprepAsciiRealWorker.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IdnaMemAlloc @ 0x1402F4634 (IdnaMemAlloc.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x1402F4948 (RtlpNameprepAsciiRealWorker.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpNameprepAsciiWorker(int a1, const WCHAR *a2, unsigned int a3, void *a4, LONG *a5, char a6)

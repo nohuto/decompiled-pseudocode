@@ -13,7 +13,7 @@ __int64 __fastcall sub_18010E320(__int64 a1, const void *a2, unsigned int a3)
   __int64 *v3; // rsi
   SIZE_T v4; // rbp
   __int64 *i; // rdi
-  __int64 Heap; // rax
+  _QWORD *Heap; // rax
   _QWORD *v9; // rbx
   __int64 v11; // rax
 
@@ -26,12 +26,12 @@ __int64 __fastcall sub_18010E320(__int64 a1, const void *a2, unsigned int a3)
   }
   if ( (int)v4 + 24 < (unsigned int)v4 )
     return 534LL;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v4 + 24));
-  v9 = (_QWORD *)Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v4 + 24));
+  v9 = Heap;
   if ( !Heap )
     return 14LL;
-  *(_DWORD *)(Heap + 20) = v4;
-  memmove((void *)(Heap + 24), a2, v4);
+  *((_DWORD *)Heap + 5) = v4;
+  memmove(Heap + 3, a2, v4);
   v11 = *v3;
   if ( *(__int64 **)(*v3 + 8) != v3 )
     __fastfail(3u);

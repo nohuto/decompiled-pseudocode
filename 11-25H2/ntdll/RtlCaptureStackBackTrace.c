@@ -23,7 +23,7 @@ USHORT __stdcall RtlCaptureStackBackTrace(
 {
   ULONG v4; // esi
   ULONG v7; // edi
-  unsigned int i; // eax
+  ULONG i; // eax
   unsigned int v9; // r8d
   ULONG v10; // edx
   __int64 v11; // rcx

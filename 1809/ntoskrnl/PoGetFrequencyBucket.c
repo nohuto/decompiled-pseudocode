@@ -1,9 +1,9 @@
 /*
- * XREFs of PoGetFrequencyBucket @ 0x1402D3760
+ * XREFs of PoGetFrequencyBucket @ 0x1402D3950
  * Callers:
- *     KiEndDebugAccumulation @ 0x140297630 (KiEndDebugAccumulation.c)
+ *     KiEndDebugAccumulation @ 0x140297820 (KiEndDebugAccumulation.c)
  * Callees:
- *     PpmPerfGetCurrentFrequency @ 0x1400C8360 (PpmPerfGetCurrentFrequency.c)
+ *     PpmPerfGetCurrentFrequency @ 0x1400C82A0 (PpmPerfGetCurrentFrequency.c)
  */
 
 __int64 __fastcall PoGetFrequencyBucket(__int64 a1)

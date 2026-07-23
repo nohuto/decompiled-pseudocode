@@ -19,7 +19,7 @@ __int64 __fastcall VfThunkApplyDriverAddedThunks(ULONG_PTR a1)
   void *Pool2; // rdi
   __int64 result; // rax
   _QWORD *v6; // rsi
-  unsigned int v7; // r14d
+  ULONG v7; // r14d
   __int64 *AllSpecialTables; // rbx
   __int64 v9; // rax
   __int64 v10; // r15
@@ -27,21 +27,21 @@ __int64 __fastcall VfThunkApplyDriverAddedThunks(ULONG_PTR a1)
   __int64 DriverImportEntry; // rdx
   int v13; // r11d
   __int64 v14; // rcx
-  unsigned int v16; // [rsp+68h] [rbp+10h] BYREF
+  ULONG Size; // [rsp+68h] [rbp+10h] BYREF
 
-  v16 = 0;
+  Size = 0;
   v2 = 0LL;
   v3 = 0;
   Pool2 = (void *)ExAllocatePool2(0x40uLL, 24LL * (unsigned int)VfNumberOfClassDriverThunks, 0x6D4D7644uLL);
   if ( !Pool2 )
     return 3221225495LL;
   memset_0(Pool2, 0, 24LL * (unsigned int)VfNumberOfClassDriverThunks);
-  result = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 0xCu, &v16);
+  result = (__int64)RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xCu, &Size);
   v6 = (_QWORD *)result;
   if ( result )
   {
-    v7 = v16 >> 3;
-    AllSpecialTables = (__int64 *)ViThunkFindAllSpecialTables(result, v16 >> 3);
+    v7 = Size >> 3;
+    AllSpecialTables = (__int64 *)ViThunkFindAllSpecialTables(result, Size >> 3);
     if ( !v7 )
       goto LABEL_15;
     while ( 1 )

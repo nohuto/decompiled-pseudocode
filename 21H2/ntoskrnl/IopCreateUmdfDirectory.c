@@ -1,19 +1,19 @@
 /*
- * XREFs of IopCreateUmdfDirectory @ 0x140A5D080
+ * XREFs of IopCreateUmdfDirectory @ 0x140A5E080
  * Callers:
- *     IopCreateRootDirectories @ 0x140A5B394 (IopCreateRootDirectories.c)
+ *     IopCreateRootDirectories @ 0x140A5C394 (IopCreateRootDirectories.c)
  * Callees:
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
- *     NtCreateDirectoryObject @ 0x1406A1B40 (NtCreateDirectoryObject.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     NtCreateDirectoryObject @ 0x140601A70 (NtCreateDirectoryObject.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x14066A2B0 (RtlAddAccessAllowedAce.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x1406CB9E0 (RtlLengthRequiredSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 IopCreateUmdfDirectory()
@@ -22,28 +22,21 @@ __int64 IopCreateUmdfDirectory()
   ULONG v1; // eax
   _DWORD *Pool; // rax
   _DWORD *v3; // rdi
-  int Acl; // ebx
+  NTSTATUS Acl; // ebx
   ULONG v5; // ebx
   ACL *v6; // rax
   ACL *v7; // rsi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-29h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-19h] BYREF
   __int64 v11; // [rsp+50h] [rbp+7h]
-  int v12; // [rsp+58h] [rbp+Fh]
-  int v13; // [rsp+5Ch] [rbp+13h]
-  __int64 v14; // [rsp+60h] [rbp+17h]
-  UNICODE_STRING *p_DestinationString; // [rsp+68h] [rbp+1Fh]
-  int v16; // [rsp+70h] [rbp+27h]
-  int v17; // [rsp+74h] [rbp+2Bh]
-  _OWORD *v18; // [rsp+78h] [rbp+2Fh]
-  __int64 v19; // [rsp+80h] [rbp+37h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+67h] BYREF
-  HANDLE Handle; // [rsp+B8h] [rbp+6Fh] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp+Fh] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+67h] BYREF
+  HANDLE DirectoryHandle; // [rsp+B8h] [rbp+6Fh] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
-  Handle = 0LL;
-  v13 = 0;
-  v17 = 0;
+  DirectoryHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   v11 = 0LL;
   *(_DWORD *)IdentifierAuthority.Value = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
@@ -84,15 +77,15 @@ __int64 IopCreateUmdfDirectory()
                 if ( Acl >= 0 )
                 {
                   RtlInitUnicodeString(&DestinationString, L"\\UMDFCommunicationPorts");
-                  v14 = 0LL;
-                  v19 = 0LL;
-                  p_DestinationString = &DestinationString;
-                  v12 = 48;
-                  v18 = SecurityDescriptor;
-                  v16 = 528;
-                  Acl = NtCreateDirectoryObject((__int64)&Handle);
+                  ObjectAttributes.RootDirectory = 0LL;
+                  ObjectAttributes.SecurityQualityOfService = 0LL;
+                  ObjectAttributes.ObjectName = &DestinationString;
+                  ObjectAttributes.Length = 48;
+                  ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+                  ObjectAttributes.Attributes = 528;
+                  Acl = NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes);
                   if ( Acl >= 0 )
-                    ObCloseHandle(Handle, 0);
+                    ObCloseHandle(DirectoryHandle, 0);
                 }
               }
             }

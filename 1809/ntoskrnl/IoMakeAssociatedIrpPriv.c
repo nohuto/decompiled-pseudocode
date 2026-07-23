@@ -1,19 +1,19 @@
 /*
- * XREFs of IoMakeAssociatedIrpPriv @ 0x1401078F4
+ * XREFs of IoMakeAssociatedIrpPriv @ 0x140107974
  * Callers:
- *     IoMakeAssociatedIrpEx @ 0x1401078E0 (IoMakeAssociatedIrpEx.c)
- *     IoMakeAssociatedIrp @ 0x140168B70 (IoMakeAssociatedIrp.c)
+ *     IoMakeAssociatedIrpEx @ 0x140107960 (IoMakeAssociatedIrpEx.c)
+ *     IoMakeAssociatedIrp @ 0x140168C70 (IoMakeAssociatedIrp.c)
  * Callees:
- *     IopSetDiskIoAttributionExtension @ 0x1400DF570 (IopSetDiskIoAttributionExtension.c)
- *     IoSetActivityIdIrp @ 0x1400DF960 (IoSetActivityIdIrp.c)
- *     IopIrpHasExtensionType @ 0x140107C4C (IopIrpHasExtensionType.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1400DF5F0 (IopSetDiskIoAttributionExtension.c)
+ *     IoSetActivityIdIrp @ 0x1400DF9E0 (IoSetActivityIdIrp.c)
+ *     IopIrpHasExtensionType @ 0x140107CCC (IopIrpHasExtensionType.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
+_SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
 {
   bool v5; // al
   unsigned int v6; // r10d
@@ -28,7 +28,7 @@ struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, 
   _SLIST_ENTRY **v15; // rdx
   __int16 Number; // ax
   bool v17; // al
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
   char v19; // [rsp+80h] [rbp+18h]
   char v20; // [rsp+88h] [rbp+20h]
 
@@ -93,7 +93,7 @@ struct _SLIST_ENTRY *__fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, 
     ++L->TotalFrees;
     ExFreePoolWithTag(v14, 0);
 LABEL_30:
-    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x20707249u);
+    result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x20707249u);
     v14 = result;
     if ( !result )
       return result;

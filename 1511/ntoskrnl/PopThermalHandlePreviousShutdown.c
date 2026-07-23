@@ -16,7 +16,7 @@ NTSTATUS PopThermalHandlePreviousShutdown()
 {
   NTSTATUS result; // eax
   HANDLE KeyHandle; // [rsp+40h] [rbp-40h] BYREF
-  ULONG ResultLength; // [rsp+48h] [rbp-38h] BYREF
+  ULONG MatchingChangeStamp; // [rsp+48h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-30h] BYREF
   __int128 KeyValueInformation; // [rsp+60h] [rbp-20h] BYREF
   int v5; // [rsp+70h] [rbp-10h]
@@ -33,12 +33,12 @@ NTSTATUS PopThermalHandlePreviousShutdown()
                KeyValuePartialInformation,
                &KeyValueInformation,
                0x14u,
-               &ResultLength);
+               &MatchingChangeStamp);
     if ( result >= 0 && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
     {
       result = ZwDeleteValueKey(KeyHandle, &DestinationString);
       if ( result >= 0 )
-        result = ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0LL);
+        result = ZwUpdateWnfStateData(&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
     }
     if ( KeyHandle )
       return ZwClose(KeyHandle);

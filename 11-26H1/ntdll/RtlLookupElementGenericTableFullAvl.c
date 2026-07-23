@@ -1,51 +1,55 @@
 /*
- * XREFs of RtlLookupElementGenericTableFullAvl @ 0x1800BFC50
+ * XREFs of RtlLookupElementGenericTableFullAvl @ 0x1800BD3E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFullAvl(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  __int64 i; // rbx
-  int v9; // eax
-  __int64 result; // rax
+  _RTL_BALANCED_LINKS *i; // rbx
+  _RTL_GENERIC_COMPARE_RESULTS v9; // eax
+  PVOID result; // rax
 
-  if ( *(_DWORD *)(a1 + 44) )
+  if ( Table->NumberGenericTableElements )
   {
-    for ( i = *(_QWORD *)(a1 + 16); ; i = *(_QWORD *)(i + 16) )
+    for ( i = Table->BalancedRoot.RightChild; ; i = i->RightChild )
     {
       while ( 1 )
       {
-        v9 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 72))(a1, a2, i + 32);
+        v9 = Table->CompareRoutine(Table, Buffer, &i[1]);
         if ( v9 )
           break;
-        if ( !*(_QWORD *)(i + 8) )
+        if ( !i->LeftChild )
         {
-          *a3 = i;
+          *NodeOrParent = i;
           result = 0LL;
-          *a4 = 2;
+          *SearchResult = TableInsertAsLeft;
           return result;
         }
-        i = *(_QWORD *)(i + 8);
+        i = i->LeftChild;
       }
-      if ( v9 != 1 )
+      if ( v9 != GenericGreaterThan )
       {
-        *a3 = i;
-        *a4 = 1;
-        return *a3 + 32LL;
+        *NodeOrParent = i;
+        *SearchResult = TableFoundNode;
+        return (char *)*NodeOrParent + 32;
       }
-      if ( !*(_QWORD *)(i + 16) )
+      if ( !i->RightChild )
         break;
     }
-    *a3 = i;
+    *NodeOrParent = i;
     result = 0LL;
-    *a4 = 3;
+    *SearchResult = TableInsertAsRight;
   }
   else
   {
-    *a4 = 0;
+    *SearchResult = TableEmptyTree;
     return 0LL;
   }
   return result;

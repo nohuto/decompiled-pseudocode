@@ -1,53 +1,55 @@
 /*
- * XREFs of ExGetExpirationDate @ 0x1407AA820
+ * XREFs of ExGetExpirationDate @ 0x1407AAA20
  * Callers:
- *     ExInitLicenseData @ 0x1407AAD08 (ExInitLicenseData.c)
- *     ExInitializeTimeRefresh @ 0x140A5B1EC (ExInitializeTimeRefresh.c)
+ *     ExInitLicenseData @ 0x1407AAF08 (ExInitLicenseData.c)
+ *     ExInitializeTimeRefresh @ 0x140A5C1EC (ExInitializeTimeRefresh.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlTimeFieldsToTime @ 0x1402B5900 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x1403FCE20 (ZwQueryLicenseValue.c)
+ *     RtlTimeFieldsToTime @ 0x140233AE0 (RtlTimeFieldsToTime.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1403FD000 (ZwQueryLicenseValue.c)
  */
 
 __int64 __fastcall ExGetExpirationDate(PLARGE_INTEGER Time)
 {
-  int LicenseValue; // ebx
+  NTSTATUS v2; // ebx
   __int64 v3; // rcx
-  int v5; // [rsp+38h] [rbp-1h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp+7h] BYREF
+  ULONG ResultDataSize; // [rsp+34h] [rbp-5h] BYREF
+  ULONG Type; // [rsp+38h] [rbp-1h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp+7h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp+17h] BYREF
-  __int128 v8; // [rsp+60h] [rbp+27h]
-  __int128 v9; // [rsp+70h] [rbp+37h]
+  __int128 Data; // [rsp+60h] [rbp+27h] BYREF
+  __int128 v10; // [rsp+70h] [rbp+37h]
 
   *(_DWORD *)&TimeFields.Milliseconds = 0;
-  v5 = 0;
+  Type = 0;
+  ResultDataSize = 0;
   DestinationString = 0LL;
-  v8 = 0LL;
-  v9 = 0LL;
+  Data = 0LL;
+  v10 = 0LL;
   if ( Time )
   {
     RtlInitUnicodeString(&DestinationString, L"Kernel-ExpirationDate");
-    LicenseValue = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v5);
-    if ( LicenseValue < 0 )
+    v2 = ZwQueryLicenseValue(&DestinationString, &Type, &Data, 0x10u, &ResultDataSize);
+    if ( v2 < 0 )
       goto LABEL_13;
-    v3 = v9 - v8;
-    if ( (_QWORD)v9 == (_QWORD)v8 )
-      v3 = *((_QWORD *)&v9 + 1) - *((_QWORD *)&v8 + 1);
+    v3 = v10 - Data;
+    if ( (_QWORD)v10 == (_QWORD)Data )
+      v3 = *((_QWORD *)&v10 + 1) - *((_QWORD *)&Data + 1);
     if ( v3 )
     {
-      TimeFields.Year = v8;
-      *(_DWORD *)&TimeFields.Month = *(_DWORD *)((char *)&v8 + 2);
-      TimeFields.Hour = WORD3(v8);
-      *(_DWORD *)&TimeFields.Minute = DWORD2(v8);
+      TimeFields.Year = Data;
+      *(_DWORD *)&TimeFields.Month = *(_DWORD *)((char *)&Data + 2);
+      TimeFields.Hour = WORD3(Data);
+      *(_DWORD *)&TimeFields.Minute = DWORD2(Data);
       if ( !RtlTimeFieldsToTime(&TimeFields, Time) )
-        LicenseValue = -1073741823;
+        v2 = -1073741823;
     }
     else
     {
       Time->QuadPart = 0LL;
     }
-    if ( LicenseValue < 0 )
+    if ( v2 < 0 )
 LABEL_13:
       Time->QuadPart = 0LL;
   }
@@ -55,5 +57,5 @@ LABEL_13:
   {
     return (unsigned int)-1073741811;
   }
-  return (unsigned int)LicenseValue;
+  return (unsigned int)v2;
 }

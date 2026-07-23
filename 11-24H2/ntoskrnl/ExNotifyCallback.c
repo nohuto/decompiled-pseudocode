@@ -1,24 +1,24 @@
 /*
- * XREFs of ExNotifyCallback @ 0x14024D520
+ * XREFs of ExNotifyCallback @ 0x14027DB30
  * Callers:
- *     PnprLockPagesForReplace @ 0x14072FE20 (PnprLockPagesForReplace.c)
- *     PnprUnlockPagesForReplace @ 0x14073072C (PnprUnlockPagesForReplace.c)
- *     PopBroadcastLegacyLidSwitchChangeCallback @ 0x140754050 (PopBroadcastLegacyLidSwitchChangeCallback.c)
- *     PopDispatchAcDcCallback @ 0x14075A2F0 (PopDispatchAcDcCallback.c)
- *     PopDispatchCallback @ 0x14075A340 (PopDispatchCallback.c)
- *     SLSendPolicyChangeNotifications @ 0x1407BA1DC (SLSendPolicyChangeNotifications.c)
- *     AlpcpCompleteDispatchMessage @ 0x1408912A0 (AlpcpCompleteDispatchMessage.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     NtNotifyChangeSession @ 0x140A67010 (NtNotifyChangeSession.c)
- *     PopNotifyCallbacksPreSleep @ 0x140ABA610 (PopNotifyCallbacksPreSleep.c)
- *     PopUnlockAfterSleepWorker @ 0x140B67B90 (PopUnlockAfterSleepWorker.c)
- *     KiFilterFiberContext @ 0x140BDF530 (KiFilterFiberContext.c)
+ *     PnprLockPagesForReplace @ 0x14072DE30 (PnprLockPagesForReplace.c)
+ *     PnprUnlockPagesForReplace @ 0x14072E73C (PnprUnlockPagesForReplace.c)
+ *     PopBroadcastLegacyLidSwitchChangeCallback @ 0x140752370 (PopBroadcastLegacyLidSwitchChangeCallback.c)
+ *     PopDispatchAcDcCallback @ 0x1407589E0 (PopDispatchAcDcCallback.c)
+ *     PopDispatchCallback @ 0x140758A30 (PopDispatchCallback.c)
+ *     SLSendPolicyChangeNotifications @ 0x1407BA62C (SLSendPolicyChangeNotifications.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14089A890 (AlpcpCompleteDispatchMessage.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     NtNotifyChangeSession @ 0x140A5FDF0 (NtNotifyChangeSession.c)
+ *     PopNotifyCallbacksPreSleep @ 0x140AB5630 (PopNotifyCallbacksPreSleep.c)
+ *     PopUnlockAfterSleepWorker @ 0x140B69CD0 (PopUnlockAfterSleepWorker.c)
+ *     KiFilterFiberContext @ 0x140BE1530 (KiFilterFiberContext.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PopUmpoMessageCallback @ 0x14044B8D0 (PopUmpoMessageCallback.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopUmpoMessageCallback @ 0x140442A10 (PopUmpoMessageCallback.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __stdcall ExNotifyCallback(PVOID CallbackObject, PVOID Argument1, PVOID Argument2)

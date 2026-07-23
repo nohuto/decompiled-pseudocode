@@ -20,10 +20,10 @@
  *     CmSaveMergedKeys @ 0x14087958C (CmSaveMergedKeys.c)
  */
 
-__int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
+NTSTATUS __cdecl NtSaveMergedKeys(HANDLE HighPrecedenceKeyHandle, HANDLE LowPrecedenceKeyHandle, HANDLE FileHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   KPROCESSOR_MODE PreviousMode; // di
   void *v9; // rdx
   __int64 v10; // r8
@@ -31,15 +31,15 @@ __int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
   __int64 v12; // r8
   PADAPTER_OBJECT DmaAdapter; // [rsp+30h] [rbp-29h] BYREF
   PADAPTER_OBJECT v15; // [rsp+38h] [rbp-21h] BYREF
-  struct _DMA_ADAPTER Handle; // [rsp+40h] [rbp-19h] BYREF
-  HANDLE v17; // [rsp+50h] [rbp-9h] BYREF
+  struct _DMA_ADAPTER FileHandlea; // [rsp+40h] [rbp-19h] BYREF
+  HANDLE HighPrecedenceKeyHandlea; // [rsp+50h] [rbp-9h] BYREF
   _OWORD v18[3]; // [rsp+58h] [rbp-1h] BYREF
 
-  Handle.DmaOperations = 0LL;
-  v17 = 0LL;
+  FileHandlea.DmaOperations = 0LL;
+  HighPrecedenceKeyHandlea = 0LL;
   v15 = 0LL;
   DmaAdapter = 0LL;
-  *(_QWORD *)&Handle.Version = 0LL;
+  *(_QWORD *)&FileHandlea.Version = 0LL;
   memset(v18, 0, sizeof(v18));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -53,28 +53,36 @@ __int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
       {
         if ( PreviousMode )
         {
-          v7 = CmConvertHandleToKernelHandle(a1, v9, PreviousMode, 0, &v17);
+          v7 = CmConvertHandleToKernelHandle(HighPrecedenceKeyHandle, v9, PreviousMode, 0, &HighPrecedenceKeyHandlea);
           if ( v7 >= 0 )
           {
-            v7 = CmConvertHandleToKernelHandle(a2, v11, PreviousMode, 0, (PHANDLE)&Handle.DmaOperations);
+            v7 = CmConvertHandleToKernelHandle(
+                   LowPrecedenceKeyHandle,
+                   v11,
+                   PreviousMode,
+                   0,
+                   (PHANDLE)&FileHandlea.DmaOperations);
             if ( v7 >= 0 )
             {
-              v7 = IoConvertFileHandleToKernelHandle(a3, PreviousMode, 2u, 0, &Handle);
+              v7 = IoConvertFileHandleToKernelHandle(FileHandle, PreviousMode, 2u, 0, &FileHandlea);
               if ( v7 >= 0 )
-                v7 = ZwSaveMergedKeys((__int64)v17, (__int64)Handle.DmaOperations);
+                v7 = ZwSaveMergedKeys(
+                       HighPrecedenceKeyHandlea,
+                       FileHandlea.DmaOperations,
+                       *(HANDLE *)&FileHandlea.Version);
             }
           }
         }
         else
         {
-          v7 = CmObReferenceObjectByHandle(a1, 0, v10, 0, &v15, 0LL);
+          v7 = CmObReferenceObjectByHandle(HighPrecedenceKeyHandle, 0, v10, 0, &v15, 0LL);
           if ( v7 >= 0 )
           {
-            v7 = CmObReferenceObjectByHandle(a2, 0, v12, 0, &DmaAdapter, 0LL);
+            v7 = CmObReferenceObjectByHandle(LowPrecedenceKeyHandle, 0, v12, 0, &DmaAdapter, 0LL);
             if ( v7 >= 0 )
             {
               CmpAttachToRegistryProcess((__int64)v18);
-              v7 = CmSaveMergedKeys(v15, DmaAdapter, a3, 0LL);
+              v7 = CmSaveMergedKeys(v15, DmaAdapter, FileHandle, 0LL);
               KiUnstackDetachProcess((__int64)v18, 0LL);
             }
           }
@@ -91,17 +99,17 @@ __int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
       HalPutDmaAdapter(DmaAdapter);
     if ( v15 )
       HalPutDmaAdapter(v15);
-    if ( *(_QWORD *)&Handle.Version )
-      ZwClose(*(HANDLE *)&Handle.Version);
+    if ( *(_QWORD *)&FileHandlea.Version )
+      ZwClose(*(HANDLE *)&FileHandlea.Version);
   }
   else
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     v7 = -1073741431;
   }
-  if ( Handle.DmaOperations )
-    ZwClose(Handle.DmaOperations);
-  if ( v17 )
-    ZwClose(v17);
-  return (unsigned int)v7;
+  if ( FileHandlea.DmaOperations )
+    ZwClose(FileHandlea.DmaOperations);
+  if ( HighPrecedenceKeyHandlea )
+    ZwClose(HighPrecedenceKeyHandlea);
+  return v7;
 }

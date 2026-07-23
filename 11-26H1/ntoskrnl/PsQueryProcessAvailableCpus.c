@@ -1,12 +1,12 @@
 /*
- * XREFs of PsQueryProcessAvailableCpus @ 0x140532BB0
+ * XREFs of PsQueryProcessAvailableCpus @ 0x140535050
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140408D88 (MiStoreWriteModifiedPages.c)
- *     MiEnforcePartitionAffinity @ 0x140507B78 (MiEnforcePartitionAffinity.c)
- *     ?SmCompressManagerUpdateTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z @ 0x14063CAB0 (-SmCompressManagerUpdateTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z.c)
- *     MiRefreshBackgroundZeroingAffinity @ 0x14070EA3C (MiRefreshBackgroundZeroingAffinity.c)
+ *     MiStoreWriteModifiedPages @ 0x140401E78 (MiStoreWriteModifiedPages.c)
+ *     MiEnforcePartitionAffinity @ 0x140501548 (MiEnforcePartitionAffinity.c)
+ *     ?SmCompressManagerUpdateTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z @ 0x140640690 (-SmCompressManagerUpdateTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z.c)
+ *     MiRefreshBackgroundZeroingAffinity @ 0x14071373C (MiRefreshBackgroundZeroingAffinity.c)
  * Callees:
- *     KeQueryProcessAvailableCpus @ 0x1405E57A0 (KeQueryProcessAvailableCpus.c)
+ *     KeQueryProcessAvailableCpus @ 0x1405E8110 (KeQueryProcessAvailableCpus.c)
  */
 
 __int64 __fastcall PsQueryProcessAvailableCpus(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

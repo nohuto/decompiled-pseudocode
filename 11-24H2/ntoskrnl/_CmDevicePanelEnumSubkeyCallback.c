@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmDevicePanelEnumSubkeyCallback @ 0x14081D090
+ * XREFs of _CmDevicePanelEnumSubkeyCallback @ 0x14081D7D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     wcstoul @ 0x1405007D0 (wcstoul.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     wcstoul @ 0x1404FE090 (wcstoul.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDevicePanelEnumSubkeyCallback(__int64 a1, int a2, const WCHAR *a3, int *a4)
@@ -51,7 +51,7 @@ __int64 __fastcall CmDevicePanelEnumSubkeyCallback(__int64 a1, int a2, const WCH
     if ( RtlGUIDFromString(&DestinationString, &Guid) < 0 )
       goto LABEL_28;
 LABEL_11:
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x72uLL, 0x52504E50u);
     v13 = Pool2;
     if ( !Pool2 )
       goto LABEL_28;
@@ -82,8 +82,7 @@ LABEL_27:
         if ( RtlInitUnicodeStringEx(&DestinationString, v13) >= 0 )
         {
           v18 = DestinationString.MaximumLength >> 1;
-          if ( !*((_QWORD *)a4 + 15)
-            || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, v13, 6LL, *((_QWORD *)a4 + 16)) )
+          if ( !*((_QWORD *)a4 + 15) || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, v13) )
           {
             a4[37] += v18;
             v19 = a4[36];
@@ -98,7 +97,7 @@ LABEL_27:
       }
       else if ( (int)PnpCtxRegOpenKey(a1, a2, (_DWORD)a3, 8, 131097, (__int64)&Handle) >= 0 )
       {
-        v16 = ExAllocatePool2(0x100uLL);
+        v16 = ExAllocatePool2(0x100uLL, 0xA0uLL, 0x52504E50u);
         v17 = v16;
         if ( v16 )
         {

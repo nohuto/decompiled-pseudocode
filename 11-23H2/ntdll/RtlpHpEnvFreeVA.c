@@ -11,18 +11,18 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlpHpEnvFreeVA(__int64 a1, __int64 a2, __int16 a3, int a4, __int64 a5)
+NTSTATUS __fastcall RtlpHpEnvFreeVA(PVOID *BaseAddress, PSIZE_T RegionSize, __int16 a3, int a4, __int64 a5)
 {
-  unsigned int v5; // r8d
+  ULONG v5; // r8d
 
   v5 = a3 & 0xC000;
   if ( a4 == 5 )
-    return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, unsigned int))(a5 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a5 + 16)))(
+    return ((__int64 (__fastcall *)(__int64, __int64, PVOID *, PSIZE_T, ULONG))(a5 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a5 + 16)))(
              a5 ^ RtlpHpHeapGlobals ^ *(_QWORD *)a5,
              -1LL,
-             a1,
-             a2,
+             BaseAddress,
+             RegionSize,
              v5);
   else
-    return ZwFreeVirtualMemory(-1LL, a1, a2, v5);
+    return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, RegionSize, v5);
 }

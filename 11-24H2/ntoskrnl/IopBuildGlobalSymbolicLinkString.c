@@ -1,16 +1,16 @@
 /*
- * XREFs of IopBuildGlobalSymbolicLinkString @ 0x1408B5640
+ * XREFs of IopBuildGlobalSymbolicLinkString @ 0x1408B2F30
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1408B42D4 (IopProcessSetInterfaceState.c)
+ *     IopProcessSetInterfaceState @ 0x1408B1BC4 (IopProcessSetInterfaceState.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     IopAllocateUnicodeString @ 0x140A0D4B0 (IopAllocateUnicodeString.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140A2BFEC (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     IopAllocateUnicodeString @ 0x1409BB8B4 (IopAllocateUnicodeString.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140A1FEAC (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopBuildGlobalSymbolicLinkString(unsigned __int16 *a1, UNICODE_STRING *a2)
@@ -54,7 +54,7 @@ LABEL_35:
     {
       goto LABEL_29;
     }
-    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v8 + 2, 0x75737050u);
     v10 = Pool2;
     if ( !Pool2 )
       goto LABEL_22;
@@ -70,7 +70,7 @@ LABEL_29:
       v5 = v7;
       goto LABEL_12;
     }
-    v16 = (_WORD *)ExAllocatePool2(0x100uLL);
+    v16 = (_WORD *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
     if ( !v16 )
       goto LABEL_22;
     *v16 = 0;
@@ -78,14 +78,14 @@ LABEL_29:
   }
 LABEL_12:
   v17 = 512;
-  v4 = (void *)ExAllocatePool2(0x100uLL);
+  v4 = (void *)ExAllocatePool2(0x100uLL, 0x400uLL, 0x20207050u);
   if ( !v4 )
     goto LABEL_22;
   DeviceInterfaceSymbolicLinkName = CmGetDeviceInterfaceSymbolicLinkName(v11, v5, v4, 512LL, &v17);
   if ( DeviceInterfaceSymbolicLinkName != -1073741789 )
     goto LABEL_14;
   ExFreePoolWithTag(v4, 0);
-  v4 = (void *)ExAllocatePool2(0x100uLL);
+  v4 = (void *)ExAllocatePool2(0x100uLL, 2LL * v17, 0x20207050u);
   if ( !v4 )
   {
 LABEL_22:

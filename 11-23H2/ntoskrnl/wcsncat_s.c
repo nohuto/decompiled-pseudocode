@@ -1,14 +1,14 @@
 /*
- * XREFs of wcsncat_s @ 0x1403DFE20
+ * XREFs of wcsncat_s @ 0x1403E0000
  * Callers:
- *     NtLockProductActivationKeys @ 0x140838380 (NtLockProductActivationKeys.c)
- *     ExpTranslateEfiPath @ 0x14083E520 (ExpTranslateEfiPath.c)
- *     PnprGetPluginDriverImagePath @ 0x140965E38 (PnprGetPluginDriverImagePath.c)
- *     SddlpUuidFromString @ 0x1409D2A68 (SddlpUuidFromString.c)
- *     ExpConvertArcName @ 0x1409FBA98 (ExpConvertArcName.c)
- *     ExpFindArcName @ 0x1409FC330 (ExpFindArcName.c)
+ *     NtLockProductActivationKeys @ 0x140838680 (NtLockProductActivationKeys.c)
+ *     ExpTranslateEfiPath @ 0x14083E820 (ExpTranslateEfiPath.c)
+ *     PnprGetPluginDriverImagePath @ 0x140966038 (PnprGetPluginDriverImagePath.c)
+ *     SddlpUuidFromString @ 0x1409D2C68 (SddlpUuidFromString.c)
+ *     ExpConvertArcName @ 0x1409FBD28 (ExpConvertArcName.c)
+ *     ExpFindArcName @ 0x1409FC5C0 (ExpFindArcName.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsncat_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)

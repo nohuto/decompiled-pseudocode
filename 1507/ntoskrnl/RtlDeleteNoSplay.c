@@ -11,12 +11,12 @@
 
 void __stdcall RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
 {
-  struct _RTL_SPLAY_LINKS *LeftChild; // rcx
+  _RTL_SPLAY_LINKS *LeftChild; // rcx
   _RTL_SPLAY_LINKS *Parent; // rcx
   _RTL_SPLAY_LINKS *v6; // rax
   _RTL_SPLAY_LINKS **p_RightChild; // rdx
   _RTL_SPLAY_LINKS **p_LeftChild; // rax
-  struct _RTL_SPLAY_LINKS *v9; // rax
+  _RTL_SPLAY_LINKS *v9; // rax
 
   if ( Links->LeftChild && Links->RightChild )
   {

@@ -59,7 +59,7 @@ __int64 __fastcall MiInitializeInPageSupport(ULONG_PTR BugCheckParameter2, char 
   *(_DWORD *)(BugCheckParameter2 + 192) = v8 & 0xFFFF81FF | (((unsigned int)result | (8 * (v4 & 7))) << 9);
   if ( (a2 & 2) != 0 )
   {
-    result = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+    result = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
     *(_QWORD *)(BugCheckParameter2 + 216) = result;
     if ( result )
       *(_BYTE *)(result + 26) |= 1u;

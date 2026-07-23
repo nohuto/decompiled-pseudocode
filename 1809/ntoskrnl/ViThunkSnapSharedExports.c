@@ -1,17 +1,17 @@
 /*
- * XREFs of ViThunkSnapSharedExports @ 0x1409211A8
+ * XREFs of ViThunkSnapSharedExports @ 0x1409221A8
  * Callers:
- *     ViThunkCreateSharedExportInformation @ 0x140920FFC (ViThunkCreateSharedExportInformation.c)
+ *     ViThunkCreateSharedExportInformation @ 0x140921FFC (ViThunkCreateSharedExportInformation.c)
  * Callees:
  *     RtlFindNextForwardRunClear @ 0x140028C00 (RtlFindNextForwardRunClear.c)
- *     ViThunkSnapSharedExportByName @ 0x1409210B8 (ViThunkSnapSharedExportByName.c)
+ *     ViThunkSnapSharedExportByName @ 0x1409220B8 (ViThunkSnapSharedExportByName.c)
  */
 
 __int64 __fastcall ViThunkSnapSharedExports(
         char *a1,
         __int64 a2,
         __int64 a3,
-        struct _RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         unsigned int a5,
         __int64 a6)
 {

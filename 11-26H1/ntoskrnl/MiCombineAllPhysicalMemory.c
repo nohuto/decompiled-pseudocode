@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCombineAllPhysicalMemory @ 0x14087A848
+ * XREFs of MiCombineAllPhysicalMemory @ 0x140880C48
  * Callers:
- *     MiCombineIdenticalPages @ 0x140B49E94 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x140B4BC24 (MiCombineIdenticalPages.c)
  * Callees:
  *     MiGetClosestNodeWithProcessors @ 0x140200B4C (MiGetClosestNodeWithProcessors.c)
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402F0BC0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiComputeCombineHash @ 0x1402F39F0 (MiComputeCombineHash.c)
- *     MiCombineCandidate @ 0x1402F3F80 (MiCombineCandidate.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     PsAllocateAffinityToken @ 0x1404F5070 (PsAllocateAffinityToken.c)
- *     PsFreeAffinityToken @ 0x1404FAE80 (PsFreeAffinityToken.c)
- *     KeRevertToUserMultipleGroupAffinityThread @ 0x140507754 (KeRevertToUserMultipleGroupAffinityThread.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14050E130 (KeQueryNodeActiveAffinity2.c)
- *     KeSetSystemMultipleGroupAffinityThread @ 0x14050FB94 (KeSetSystemMultipleGroupAffinityThread.c)
- *     MiProcessCrcList @ 0x140A5ACD0 (MiProcessCrcList.c)
- *     MiAllocateCrcList @ 0x140B55EB8 (MiAllocateCrcList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402D2C40 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiComputeCombineHash @ 0x1402D5A70 (MiComputeCombineHash.c)
+ *     MiCombineCandidate @ 0x1402D6000 (MiCombineCandidate.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     PsAllocateAffinityToken @ 0x1404EE650 (PsAllocateAffinityToken.c)
+ *     PsFreeAffinityToken @ 0x1404F4490 (PsFreeAffinityToken.c)
+ *     KeRevertToUserMultipleGroupAffinityThread @ 0x140501124 (KeRevertToUserMultipleGroupAffinityThread.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140507BA0 (KeQueryNodeActiveAffinity2.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x140509604 (KeSetSystemMultipleGroupAffinityThread.c)
+ *     MiProcessCrcList @ 0x140A67C40 (MiProcessCrcList.c)
+ *     MiAllocateCrcList @ 0x140B58BB8 (MiAllocateCrcList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCombineAllPhysicalMemory(__int64 *a1)

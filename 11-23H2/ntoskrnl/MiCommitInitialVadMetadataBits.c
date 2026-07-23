@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCommitInitialVadMetadataBits @ 0x1407A3E5C
+ * XREFs of MiCommitInitialVadMetadataBits @ 0x1407A404C
  * Callers:
- *     MiMapProcessExecutable @ 0x1407A3090 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x1407A3280 (MiMapProcessExecutable.c)
  * Callees:
  *     MiGetNextVad @ 0x1402150EC (MiGetNextVad.c)
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReferenceVad @ 0x140275454 (MiReferenceVad.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     MiGetFirstVad @ 0x14032A44C (MiGetFirstVad.c)
- *     MiCommitVadMetadataBits @ 0x1406AE790 (MiCommitVadMetadataBits.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReferenceVad @ 0x1402756E4 (MiReferenceVad.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     MiGetFirstVad @ 0x14032A6DC (MiGetFirstVad.c)
+ *     MiCommitVadMetadataBits @ 0x1406AE7C0 (MiCommitVadMetadataBits.c)
  */
 
 __int64 MiCommitInitialVadMetadataBits()

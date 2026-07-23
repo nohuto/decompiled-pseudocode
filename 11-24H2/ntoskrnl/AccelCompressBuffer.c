@@ -1,13 +1,13 @@
 /*
- * XREFs of AccelCompressBuffer @ 0x1406656FC
+ * XREFs of AccelCompressBuffer @ 0x140663FEC
  * Callers:
- *     SmHwAcceleratorIssueRequest @ 0x14060F4B0 (SmHwAcceleratorIssueRequest.c)
+ *     SmHwAcceleratorIssueRequest @ 0x14060DA70 (SmHwAcceleratorIssueRequest.c)
  * Callees:
- *     AccelpSubmitWork @ 0x14040AB90 (AccelpSubmitWork.c)
- *     AccelBuildDescriptorMemoryCompress @ 0x1406653E8 (AccelBuildDescriptorMemoryCompress.c)
- *     AccelQueryCompletionInformation @ 0x140665B48 (AccelQueryCompletionInformation.c)
- *     AccelpBuildHuffmanEncoding @ 0x140665DA0 (AccelpBuildHuffmanEncoding.c)
- *     AccelpComputeHistogram @ 0x140666040 (AccelpComputeHistogram.c)
+ *     AccelpSubmitWork @ 0x140403070 (AccelpSubmitWork.c)
+ *     AccelBuildDescriptorMemoryCompress @ 0x140663CD8 (AccelBuildDescriptorMemoryCompress.c)
+ *     AccelQueryCompletionInformation @ 0x140664438 (AccelQueryCompletionInformation.c)
+ *     AccelpBuildHuffmanEncoding @ 0x140664690 (AccelpBuildHuffmanEncoding.c)
+ *     AccelpComputeHistogram @ 0x140664930 (AccelpComputeHistogram.c)
  */
 
 __int64 __fastcall AccelCompressBuffer(__int64 a1)

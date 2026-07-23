@@ -1,20 +1,20 @@
 /*
- * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1406130D8
+ * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14061318C
  * Callers:
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     PsGetJobSilo @ 0x14020F794 (PsGetJobSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     PsGetJobSilo @ 0x14020F5C0 (PsGetJobSilo.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     VrpLockJobContextExclusive @ 0x140612F24 (VrpLockJobContextExclusive.c)
- *     VrpUnlockJobContextExclusive @ 0x140613060 (VrpUnlockJobContextExclusive.c)
- *     VrpAddNamespaceNodeToList @ 0x140614330 (VrpAddNamespaceNodeToList.c)
- *     VrpCreateNamespaceNode @ 0x140614648 (VrpCreateNamespaceNode.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x1406148CC (VrpCreateNamespaceNodePlaceholderKey.c)
- *     VrpDestroyNamespaceNode @ 0x140614978 (VrpDestroyNamespaceNode.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     VrpLockJobContextExclusive @ 0x140612FD8 (VrpLockJobContextExclusive.c)
+ *     VrpUnlockJobContextExclusive @ 0x140613114 (VrpUnlockJobContextExclusive.c)
+ *     VrpAddNamespaceNodeToList @ 0x1406143E4 (VrpAddNamespaceNodeToList.c)
+ *     VrpCreateNamespaceNode @ 0x1406146FC (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x140614980 (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     VrpDestroyNamespaceNode @ 0x140614A2C (VrpDestroyNamespaceNode.c)
  */
 
 __int64 __fastcall VrpHandleIoctlCreateMultipleNamespaceNodes(

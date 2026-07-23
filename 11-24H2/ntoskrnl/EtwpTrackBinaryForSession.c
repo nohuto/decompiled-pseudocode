@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpTrackBinaryForSession @ 0x140838890
+ * XREFs of EtwpTrackBinaryForSession @ 0x1409F8C88
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x140838564 (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x140A3B8FC (EtwpProviderArrivalCallback.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, _QWORD *a3)
 {
   unsigned __int64 *v3; // rbx
-  _QWORD *v7; // rax
-  _QWORD *v8; // rdi
+  char *v7; // rax
+  char *v8; // rdi
   unsigned __int16 v9; // dx
   _DWORD *i; // rbx
   SIZE_T v12; // rax
@@ -35,12 +35,12 @@ __int64 __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, _QWORD
   __int64 v24; // rcx
 
   v3 = (unsigned __int64 *)(a1 + 688);
-  v7 = KeAbPreAcquire(a1 + 688, 0LL);
+  v7 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v3, (__int64)v7, (__int64)v3);
+    ExfAcquirePushLockExclusiveEx(v3, v7, (__int64)v3);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v9 = *(_WORD *)a2;
   if ( *(_DWORD *)(a1 + 324) + (unsigned int)*(unsigned __int16 *)a2 <= *(_DWORD *)(a1 + 4) )
   {
@@ -64,7 +64,7 @@ __int64 __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, _QWORD
           }
           if ( v13 < 0x10 )
           {
-            Pool2 = ExAllocatePool2(0x100uLL);
+            Pool2 = ExAllocatePool2(0x100uLL, i[4] + 16 * (v13 + 3), 0x62777445u);
             v18 = Pool2;
             if ( Pool2 )
             {
@@ -94,7 +94,7 @@ __int64 __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, _QWORD
         }
       }
     }
-    v22 = ExAllocatePool2(0x100uLL);
+    v22 = ExAllocatePool2(0x100uLL, v9 + 50LL, 0x62777445u);
     v18 = v22;
     if ( v22 )
     {

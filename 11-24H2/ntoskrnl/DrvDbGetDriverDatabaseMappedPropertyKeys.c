@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140821C3C
+ * XREFs of DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14082237C
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1408BDAB0 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1408BB400 (DrvDbDispatchDriverDatabase.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     DrvDbGetDriverDatabaseCompositeMappedPropertyKeys @ 0x140821B2C (DrvDbGetDriverDatabaseCompositeMappedPropertyKeys.c)
- *     DrvDbGetRegValueMappedPropertyKeys @ 0x1408225CC (DrvDbGetRegValueMappedPropertyKeys.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbFindDatabaseNode @ 0x140926C58 (DrvDbFindDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140A88D94 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     DrvDbGetDriverDatabaseCompositeMappedPropertyKeys @ 0x14082226C (DrvDbGetDriverDatabaseCompositeMappedPropertyKeys.c)
+ *     DrvDbGetRegValueMappedPropertyKeys @ 0x140822D0C (DrvDbGetRegValueMappedPropertyKeys.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbFindDatabaseNode @ 0x140928D98 (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140A85194 (DrvDbOpenDriverDatabaseRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
@@ -91,7 +91,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
         DriverDatabaseCompositeMappedPropertyKeys = DrvDbGetRegValueMappedPropertyKeys(
                                                       v14,
                                                       v20[0],
-                                                      (unsigned int)&off_14000C4D0,
+                                                      (unsigned int)&off_14000C7E0,
                                                       4,
                                                       v8,
                                                       v10,
@@ -127,7 +127,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
       DriverDatabaseCompositeMappedPropertyKeys = DrvDbGetRegValueMappedPropertyKeys(
                                                     v13,
                                                     v15,
-                                                    (unsigned int)&off_14000C2F0,
+                                                    (unsigned int)&off_14000C600,
                                                     12,
                                                     v8,
                                                     v10,

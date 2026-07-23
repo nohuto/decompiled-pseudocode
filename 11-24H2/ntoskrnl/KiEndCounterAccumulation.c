@@ -1,15 +1,15 @@
 /*
- * XREFs of KiEndCounterAccumulation @ 0x14034C52C
+ * XREFs of KiEndCounterAccumulation @ 0x14036AA0C
  * Callers:
- *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x14034AEC0 (KeUpdateTotalCyclesCurrentThread.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x14034B700 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiEndThreadAccountingPeriodEx @ 0x14034C1B0 (KiEndThreadAccountingPeriodEx.c)
- *     KiEndIdleCycleAccumulation @ 0x14034C5A0 (KiEndIdleCycleAccumulation.c)
- *     KiEndThreadCycleAccumulation @ 0x14034D120 (KiEndThreadCycleAccumulation.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x14034F060 (KiUpdateTotalCyclesCurrentThread.c)
- *     KeQueryTotalCycleTimeThread @ 0x1403EBDD0 (KeQueryTotalCycleTimeThread.c)
+ *     KiRetireDpcList @ 0x1402824C0 (KiRetireDpcList.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x1403693A0 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x140369BE0 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x14036A690 (KiEndThreadAccountingPeriodEx.c)
+ *     KiEndIdleCycleAccumulation @ 0x14036AA80 (KiEndIdleCycleAccumulation.c)
+ *     KiEndThreadCycleAccumulation @ 0x14036B600 (KiEndThreadCycleAccumulation.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036D540 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1403E03C0 (KeQueryTotalCycleTimeThread.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTraceSoftCoreParkingSelection @ 0x1404208F0
+ * XREFs of PpmEventTraceSoftCoreParkingSelection @ 0x140418130
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x14025C720 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x14025D070 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 BOOLEAN __fastcall PpmEventTraceSoftCoreParkingSelection(
@@ -76,9 +76,7 @@ BOOLEAN __fastcall PpmEventTraceSoftCoreParkingSelection(
     result = (unsigned __int8)memset_0(v35, 0, 0x100uLL);
     if ( PpmEtwRegistered )
     {
-      result = EtwEventEnabled(
-                 (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                 &PPM_ETW_SOFT_PARKING_SELECTION);
+      result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_SOFT_PARKING_SELECTION);
       if ( result )
       {
         v16 = *(_QWORD *)(a1 + 1256);
@@ -191,15 +189,7 @@ BOOLEAN __fastcall PpmEventTraceSoftCoreParkingSelection(
         v26 = v20 + 5;
         UserData[v26].Ptr = 624 * v15 + v16 + 6;
         *(_QWORD *)&UserData[v26].Size = 2LL;
-        return EtwWriteEx(
-                 (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                 &PPM_ETW_SOFT_PARKING_SELECTION,
-                 0LL,
-                 0,
-                 0LL,
-                 0LL,
-                 v20 + 6,
-                 UserData);
+        return EtwWriteEx(PpmEtwHandle, &PPM_ETW_SOFT_PARKING_SELECTION, 0LL, 0, 0LL, 0LL, v20 + 6, UserData);
       }
     }
   }

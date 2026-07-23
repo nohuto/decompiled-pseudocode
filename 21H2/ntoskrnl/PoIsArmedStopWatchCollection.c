@@ -1,8 +1,8 @@
 /*
- * XREFs of PoIsArmedStopWatchCollection @ 0x1402D332C
+ * XREFs of PoIsArmedStopWatchCollection @ 0x140272658
  * Callers:
- *     PdcPoPowerRequestBlockingCallback @ 0x14062BD40 (PdcPoPowerRequestBlockingCallback.c)
- *     PopStatsNotifyPowerRequestCsState @ 0x1408F6690 (PopStatsNotifyPowerRequestCsState.c)
+ *     PdcPoPowerRequestBlockingCallback @ 0x140670910 (PdcPoPowerRequestBlockingCallback.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x1408F67F0 (PopStatsNotifyPowerRequestCsState.c)
  * Callees:
  *     <none>
  */

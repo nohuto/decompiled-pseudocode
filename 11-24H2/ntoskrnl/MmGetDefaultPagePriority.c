@@ -1,17 +1,17 @@
 /*
- * XREFs of MmGetDefaultPagePriority @ 0x14047E830
+ * XREFs of MmGetDefaultPagePriority @ 0x140479730
  * Callers:
- *     PspApplyIFEOPerfOptions @ 0x140776888 (PspApplyIFEOPerfOptions.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
- *     PfSnAsyncPrefetchWorker @ 0x140951F40 (PfSnAsyncPrefetchWorker.c)
- *     PfSnCheckActionsNeeded @ 0x140961228 (PfSnCheckActionsNeeded.c)
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
- *     PfpLogEventRequest @ 0x140AA86F4 (PfpLogEventRequest.c)
- *     PfTAccessTracingCleanup @ 0x140B5B46C (PfTAccessTracingCleanup.c)
- *     PfTAccessTracingStart @ 0x140B5B5B0 (PfTAccessTracingStart.c)
- *     ExpDebuggerWorker @ 0x140B79F70 (ExpDebuggerWorker.c)
+ *     PspApplyIFEOPerfOptions @ 0x140776AA8 (PspApplyIFEOPerfOptions.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1409358F0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnCheckActionsNeeded @ 0x140948CE8 (PfSnCheckActionsNeeded.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
+ *     PfpLogEventRequest @ 0x140AA3778 (PfpLogEventRequest.c)
+ *     PfTAccessTracingCleanup @ 0x140B5D4DC (PfTAccessTracingCleanup.c)
+ *     PfTAccessTracingStart @ 0x140B5D620 (PfTAccessTracingStart.c)
+ *     ExpDebuggerWorker @ 0x140B7BF70 (ExpDebuggerWorker.c)
  * Callees:
  *     <none>
  */

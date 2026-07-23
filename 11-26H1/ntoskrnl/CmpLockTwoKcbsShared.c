@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLockTwoKcbsShared @ 0x14097EA80
+ * XREFs of CmpLockTwoKcbsShared @ 0x140940A90
  * Callers:
- *     CmSaveMergedKeys @ 0x14084D378 (CmSaveMergedKeys.c)
- *     CmQueryKey @ 0x1408C5660 (CmQueryKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x14097A180 (NtNotifyChangeMultipleKeys.c)
- *     CmQueryMultipleValueKey @ 0x14097EB2C (CmQueryMultipleValueKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140AFF7BC (CmEnumerateValueKeyFromMergedView.c)
+ *     CmSaveMergedKeys @ 0x140853684 (CmSaveMergedKeys.c)
+ *     CmQueryKey @ 0x1408CBC30 (CmQueryKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x14093C190 (NtNotifyChangeMultipleKeys.c)
+ *     CmQueryMultipleValueKey @ 0x140940B3C (CmQueryMultipleValueKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x140B0144C (CmEnumerateValueKeyFromMergedView.c)
  * Callees:
- *     CmpLockKcbShared @ 0x140C583F0 (CmpLockKcbShared.c)
+ *     CmpLockKcbShared @ 0x140C5E3F0 (CmpLockKcbShared.c)
  */
 
 void __fastcall CmpLockTwoKcbsShared(unsigned __int64 a1, unsigned __int64 a2)

@@ -16,27 +16,26 @@
  *     RtlReportException @ 0x1800D6920 (RtlReportException.c)
  */
 
-char __fastcall sub_18003B5F8(int a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall sub_18003B5F8(int a1, __int64 a2)
 {
-  __int64 v6; // rbx
-  char result; // al
-  __int64 *v8; // rbx
-  __int64 v9; // rdi
+  __int64 v4; // rbx
+  __int64 *v5; // rbx
+  __int64 v6; // rdi
 
-  RtlAcquireSRWLockShared(&qword_18015D118, (char *)a2, a3, a4);
-  v6 = sub_18003B6D8(a2);
-  result = RtlReleaseSRWLockShared(&qword_18015D118);
-  if ( v6 )
+  RtlAcquireSRWLockShared(&stru_18015D118);
+  v4 = sub_18003B6D8(a2);
+  RtlReleaseSRWLockShared(&stru_18015D118);
+  if ( v4 )
   {
-    v8 = *(__int64 **)(v6 + 40);
-    if ( v8 )
+    v5 = *(__int64 **)(v4 + 40);
+    if ( v5 )
     {
       while ( 1 )
       {
-        v9 = *v8;
-        if ( !*v8 )
+        v6 = *v5;
+        if ( !*v5 )
           break;
-        ++v8;
+        ++v5;
         if ( (dword_180156A70 & 5) != 0 )
           sub_1800CA554(
             (unsigned int)"minkernel\\ntdll\\ldrtls.c",
@@ -44,12 +43,11 @@ char __fastcall sub_18003B5F8(int a1, __int64 a2, __int64 a3, __int64 a4)
             (unsigned int)"LdrpCallTlsInitializers",
             2,
             "Calling TLS callback %p for DLL \"%wZ\" at %p\n",
-            v9,
+            v6,
             a2 + 72,
             *(_QWORD *)(a2 + 48));
-        result = sub_18003B518(v9, *(_QWORD *)(a2 + 48), a1);
+        sub_18003B518(v6, *(_QWORD *)(a2 + 48), a1);
       }
     }
   }
-  return result;
 }

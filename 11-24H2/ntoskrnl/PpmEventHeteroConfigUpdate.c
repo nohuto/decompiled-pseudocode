@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHeteroConfigUpdate @ 0x140A2A48C
+ * XREFs of PpmEventHeteroConfigUpdate @ 0x140A59448
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A2A138 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140AC57E0 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char PpmEventHeteroConfigUpdate()
@@ -50,7 +50,7 @@ char PpmEventHeteroConfigUpdate()
         {
           _BitScanForward64(&v3, v1);
           v1 &= ~(1LL << v3);
-          Prcb = (unsigned __int8 *)KeGetPrcb(*((_DWORD *)qword_140F21E78
+          Prcb = (unsigned __int8 *)KeGetPrcb(*((_DWORD *)qword_140F22998
                                               + 64 * (unsigned __int16)v2
                                               + (unsigned __int8)v3));
           v7 = Prcb[35336];

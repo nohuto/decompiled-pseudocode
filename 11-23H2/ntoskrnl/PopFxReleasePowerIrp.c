@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxReleasePowerIrp @ 0x14028DD44
+ * XREFs of PopFxReleasePowerIrp @ 0x14028DFD4
  * Callers:
- *     PopFreeIrp @ 0x14028E298 (PopFreeIrp.c)
+ *     PopFreeIrp @ 0x14028E528 (PopFreeIrp.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopRequestPowerIrp @ 0x14028F230 (PopRequestPowerIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopRequestPowerIrp @ 0x14028F4C0 (PopRequestPowerIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG __fastcall PopFxReleasePowerIrp(__int64 a1)
@@ -69,10 +69,13 @@ LONG __fastcall PopFxReleasePowerIrp(__int64 a1)
     KeSetEvent((PRKEVENT)(a1 + 568), 0, 0);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(a1 + 48) + 88LL));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v12 = -1LL << ((unsigned __int8)v2 + 1);

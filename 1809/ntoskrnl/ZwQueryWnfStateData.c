@@ -1,15 +1,21 @@
 /*
- * XREFs of ZwQueryWnfStateData @ 0x1401BAD10
+ * XREFs of ZwQueryWnfStateData @ 0x1401BAE70
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1402F56A0 (RtlRaiseCustomSystemEventTrigger.c)
- *     PopBatteryWorker @ 0x140719D80 (PopBatteryWorker.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1402F5890 (RtlRaiseCustomSystemEventTrigger.c)
+ *     PopBatteryWorker @ 0x14071B020 (PopBatteryWorker.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryWnfStateData(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwQueryWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        PWNF_CHANGE_STAMP ChangeStamp,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(StateName);
 }

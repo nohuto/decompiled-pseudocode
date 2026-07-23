@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmClearSimulatedLoad @ 0x1408E60E4
+ * XREFs of PpmClearSimulatedLoad @ 0x1408E6244
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmClearSimulatedLoad(PPROCESSOR_NUMBER ProcNumber)

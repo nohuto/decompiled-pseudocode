@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpGetDeviceInterfacePropertyData @ 0x14082862C
+ * XREFs of PnpGetDeviceInterfacePropertyData @ 0x14082982C
  * Callers:
- *     ExpHwidGetDevicePropertyDataFixed @ 0x140586700 (ExpHwidGetDevicePropertyDataFixed.c)
- *     ExpHwidGetDevicePropertyData @ 0x140586784 (ExpHwidGetDevicePropertyData.c)
- *     IoGetDeviceInterfacePropertyData @ 0x1408245C0 (IoGetDeviceInterfacePropertyData.c)
+ *     ExpHwidGetDevicePropertyDataFixed @ 0x140587700 (ExpHwidGetDevicePropertyDataFixed.c)
+ *     ExpHwidGetDevicePropertyData @ 0x140587784 (ExpHwidGetDevicePropertyData.c)
+ *     IoGetDeviceInterfacePropertyData @ 0x1408257C0 (IoGetDeviceInterfacePropertyData.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PnpUnicodeStringToWstrFree @ 0x1405980AC (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x140599CA8 (PnpUnicodeStringToWstr.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1405990AC (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14059ACA8 (PnpUnicodeStringToWstr.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
+ *     RtlLCIDToCultureName @ 0x140897850 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpGetDeviceInterfacePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         int a5,
         __int64 a6,
@@ -29,26 +29,25 @@ __int64 __fastcall PnpGetDeviceInterfacePropertyData(
   int ObjectProperty; // ebx
   struct _KTHREAD *CurrentThread; // rax
   __int16 *v14; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v15; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE *v16; // [rsp+70h] [rbp-90h]
-  _BYTE v17[176]; // [rsp+80h] [rbp-80h] BYREF
+  UNICODE_STRING String; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE v16[176]; // [rsp+80h] [rbp-80h] BYREF
 
-  memset(v17, 0, 0xAAuLL);
-  v15 = 0LL;
-  v16 = 0LL;
+  memset(v16, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
+  String.Buffer = 0LL;
   v14 = 0LL;
   if ( !a1 || !*(_QWORD *)(a1 + 8) || !*(_WORD *)a1 )
     return (unsigned int)-1073741811;
   if ( a3 )
   {
-    LODWORD(v15) = 11141120;
-    v16 = v17;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v15) )
+    *(_DWORD *)&String.Length = 11141120;
+    String.Buffer = (wchar_t *)v16;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v16 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -60,7 +59,7 @@ __int64 __fastcall PnpGetDeviceInterfacePropertyData(
                        (__int64)v14,
                        3u,
                        0LL,
-                       (__int64)v16,
+                       (__int64)String.Buffer,
                        a2,
                        a8,
                        a6,

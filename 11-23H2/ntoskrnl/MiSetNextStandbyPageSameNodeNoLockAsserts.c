@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1402DD180
+ * XREFs of MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1402DD410
  * Callers:
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiEnqueuePageList @ 0x1402DAA10 (MiEnqueuePageList.c)
- *     MiSharedInsertPfnChainInList @ 0x1402DDB70 (MiSharedInsertPfnChainInList.c)
- *     MiUpdatePfnOnSlabStandbyList @ 0x140331668 (MiUpdatePfnOnSlabStandbyList.c)
- *     MiUnlinkNumaStandbyPage @ 0x1403316AC (MiUnlinkNumaStandbyPage.c)
- *     MiExclusiveInsertPfnChainInList @ 0x14033C178 (MiExclusiveInsertPfnChainInList.c)
- *     MiReplaceNumaStandbyPage @ 0x1403C47D8 (MiReplaceNumaStandbyPage.c)
- *     MiInsertNumaStandbyPage @ 0x1406507B0 (MiInsertNumaStandbyPage.c)
- *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140656708 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiEnqueuePageList @ 0x1402DACA0 (MiEnqueuePageList.c)
+ *     MiSharedInsertPfnChainInList @ 0x1402DDE00 (MiSharedInsertPfnChainInList.c)
+ *     MiUpdatePfnOnSlabStandbyList @ 0x1403318F8 (MiUpdatePfnOnSlabStandbyList.c)
+ *     MiUnlinkNumaStandbyPage @ 0x14033193C (MiUnlinkNumaStandbyPage.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x14033C408 (MiExclusiveInsertPfnChainInList.c)
+ *     MiReplaceNumaStandbyPage @ 0x1403C49B8 (MiReplaceNumaStandbyPage.c)
+ *     MiInsertNumaStandbyPage @ 0x140650D00 (MiInsertNumaStandbyPage.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140656C58 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
  * Callees:
  *     <none>
  */

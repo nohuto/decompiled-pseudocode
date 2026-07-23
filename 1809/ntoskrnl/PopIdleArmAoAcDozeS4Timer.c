@@ -1,18 +1,18 @@
 /*
- * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x1402E4C2C
+ * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x1402E4E1C
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x14058B0C0 (PopUmpoProcessPowerMessage.c)
- *     PopIdleCsStateChanged @ 0x140877704 (PopIdleCsStateChanged.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x1408777CC (PopUpdateSmartUserPresencePredictions.c)
+ *     PopUmpoProcessPowerMessage @ 0x14058C0C0 (PopUmpoProcessPowerMessage.c)
+ *     PopIdleCsStateChanged @ 0x140878964 (PopIdleCsStateChanged.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140878A2C (PopUpdateSmartUserPresencePredictions.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIdleChooseDozeS4Time @ 0x1402E4D48 (PopIdleChooseDozeS4Time.c)
- *     PopIsDozeSupported @ 0x1405B0814 (PopIsDozeSupported.c)
- *     PopFilterCapabilities @ 0x1405B0968 (PopFilterCapabilities.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x1408755D0 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIdleChooseDozeS4Time @ 0x1402E4F38 (PopIdleChooseDozeS4Time.c)
+ *     PopIsDozeSupported @ 0x1405B1814 (PopIsDozeSupported.c)
+ *     PopFilterCapabilities @ 0x1405B1968 (PopFilterCapabilities.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140876830 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
  */
 
 __int64 PopIdleArmAoAcDozeS4Timer()
@@ -38,12 +38,12 @@ __int64 PopIdleArmAoAcDozeS4Timer()
       v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
       v3 = v7;
       v4 = v8;
-      if ( !byte_140417684 )
+      if ( !byte_140418704 )
       {
         KeSetTimer2((__int64)&PopIdleAoAcDozeS4Timer, v8, 0LL, 0LL);
-        byte_140417684 = 1;
+        byte_140418704 = 1;
         v1 = 1;
-        dword_140417688 = v3;
+        dword_140418708 = v3;
       }
       KxReleaseSpinLock(&PopIdleAoAcDozeS4Lock);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )

@@ -1,21 +1,21 @@
 /*
- * XREFs of PpmPerfApplyProcessorState @ 0x14034F00C
+ * XREFs of PpmPerfApplyProcessorState @ 0x14034F1AC
  * Callers:
- *     PpmPerfAction @ 0x1402BF9C0 (PpmPerfAction.c)
- *     PpmPerfApplyProcessorStates @ 0x14034EE10 (PpmPerfApplyProcessorStates.c)
+ *     PpmPerfAction @ 0x1402BFC50 (PpmPerfAction.c)
+ *     PpmPerfApplyProcessorStates @ 0x14034EFB0 (PpmPerfApplyProcessorStates.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PpmUpdatePerformanceFeedback @ 0x1402C6D40 (PpmUpdatePerformanceFeedback.c)
- *     PpmGetIdleGenerationCounter @ 0x14034B444 (PpmGetIdleGenerationCounter.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14034F15C (PpmContinueActiveTimeAccumulation.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14034F190 (PpmPerfArbitratorApplyProcessorState.c)
- *     PpmScaleIdleStateValues @ 0x14034F31C (PpmScaleIdleStateValues.c)
- *     PpmEventLegacyProcessorPerfStateChange @ 0x14034F33C (PpmEventLegacyProcessorPerfStateChange.c)
- *     PpmEventTraceExpectedUtility @ 0x14034F470 (PpmEventTraceExpectedUtility.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1402C6FD0 (PpmUpdatePerformanceFeedback.c)
+ *     PpmGetIdleGenerationCounter @ 0x14034B5E4 (PpmGetIdleGenerationCounter.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14034F2FC (PpmContinueActiveTimeAccumulation.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x14034F330 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmScaleIdleStateValues @ 0x14034F4BC (PpmScaleIdleStateValues.c)
+ *     PpmEventLegacyProcessorPerfStateChange @ 0x14034F4DC (PpmEventLegacyProcessorPerfStateChange.c)
+ *     PpmEventTraceExpectedUtility @ 0x14034F610 (PpmEventTraceExpectedUtility.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PpmPerfApplyProcessorState(struct _KPRCB *a1, char a2)

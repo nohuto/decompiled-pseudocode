@@ -8,16 +8,18 @@
  *     _RtlReportException@12 @ 0x4B33A4D0 (_RtlReportException@12.c)
  */
 
-int __fastcall RtlpReportInvalidExceptionChain(int a1, int a2)
+NTSTATUS __fastcall RtlpReportInvalidExceptionChain(_EXCEPTION_RECORD *a1, _CONTEXT *a2)
 {
-  _DWORD v5[21]; // [esp+8h] [ebp-58h] BYREF
+  size_t v5; // [esp-4h] [ebp-64h]
+  EXCEPTION_RECORD ExceptionRecord; // [esp+8h] [ebp-58h] BYREF
 
-  memset(v5, 0, 0x50u);
-  v5[3] = *(_DWORD *)(a1 + 12);
-  v5[0] = -1073740791;
-  v5[1] = 8;
-  v5[2] = a1;
-  v5[4] = 1;
-  v5[5] = 21;
-  return RtlReportException((int)v5, a2, 15);
+  LODWORD(v5) = 80;
+  memset(&ExceptionRecord, 0, v5);
+  ExceptionRecord.ExceptionAddress = a1->ExceptionAddress;
+  ExceptionRecord.ExceptionCode = -1073740791;
+  ExceptionRecord.ExceptionFlags = 8;
+  ExceptionRecord.ExceptionRecord = a1;
+  ExceptionRecord.NumberParameters = 1;
+  ExceptionRecord.ExceptionInformation[0] = 21;
+  return RtlReportException(&ExceptionRecord, a2, 0xFu);
 }

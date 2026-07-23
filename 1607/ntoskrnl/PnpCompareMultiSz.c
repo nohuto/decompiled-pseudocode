@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCompareMultiSz @ 0x14062D5E4
+ * XREFs of PnpCompareMultiSz @ 0x14062D698
  * Callers:
- *     PiSwDoesCreateChangesRequireReEnum @ 0x1406455D8 (PiSwDoesCreateChangesRequireReEnum.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14064D464 (PiCreateDriverSwDeviceCallback.c)
+ *     PiSwDoesCreateChangesRequireReEnum @ 0x1406456BC (PiSwDoesCreateChangesRequireReEnum.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x14064D548 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140489820 (RtlCompareUnicodeStrings.c)
- *     PnpGetMultiSzLength @ 0x1404A2DC0 (PnpGetMultiSzLength.c)
+ *     RtlCompareUnicodeStrings @ 0x140511FA0 (RtlCompareUnicodeStrings.c)
+ *     PnpGetMultiSzLength @ 0x14051B1C0 (PnpGetMultiSzLength.c)
  */
 
 bool __fastcall PnpCompareMultiSz(PCWCH String1, PCWCH String2)

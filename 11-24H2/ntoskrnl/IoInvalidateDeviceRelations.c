@@ -1,19 +1,19 @@
 /*
- * XREFs of IoInvalidateDeviceRelations @ 0x1404931D0
+ * XREFs of IoInvalidateDeviceRelations @ 0x14048DB00
  * Callers:
- *     PiProfileUpdateDeviceTreeCallback @ 0x14072D300 (PiProfileUpdateDeviceTreeCallback.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiSwProcessRemove @ 0x1409FB008 (PiSwProcessRemove.c)
- *     PiSwProcessParentStartIrp @ 0x140A11698 (PiSwProcessParentStartIrp.c)
- *     IopPnPDispatch @ 0x140A5D2E0 (IopPnPDispatch.c)
- *     PiSwCloseDevice @ 0x140A93D94 (PiSwCloseDevice.c)
- *     PiSwGetChildPdo @ 0x140AC3B1C (PiSwGetChildPdo.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x14072B310 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiSwProcessParentStartIrp @ 0x1409BFAA8 (PiSwProcessParentStartIrp.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x1409F3978 (PiSwProcessRemove.c)
+ *     IopPnPDispatch @ 0x140A55010 (IopPnPDispatch.c)
+ *     PiSwCloseDevice @ 0x140A90544 (PiSwCloseDevice.c)
+ *     PiSwGetChildPdo @ 0x140AC1360 (PiSwGetChildPdo.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     IopQueueInvalidateBusRelationsRequest @ 0x1404932FC (IopQueueInvalidateBusRelationsRequest.c)
- *     Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage @ 0x1404934C4 (Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     IopQueueInvalidateBusRelationsRequest @ 0x14048DC2C (IopQueueInvalidateBusRelationsRequest.c)
+ *     Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage @ 0x14048DDF4 (Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_RELATION_TYPE Type)

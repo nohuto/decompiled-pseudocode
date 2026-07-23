@@ -13,31 +13,31 @@
 
 void __stdcall RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue)
 {
-  __int64 v4; // rdi
+  ULONG64 v4; // rdi
   char v5; // r10
   int v10; // eax
-  unsigned int v11; // esi
+  ULONG v11; // esi
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rcx
   void *v14; // rsp
   void *v15; // rsp
-  unsigned int ContextRecord; // [rsp+30h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextLength; // [rsp+30h] [rbp+0h] BYREF
 
   v4 = 0LL;
-  v5 = ((unsigned __int64)qword_1801993A8 >> 60) & 3;
+  v5 = (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3;
   if ( v5 == 1 )
     v4 = 2048LL;
   v10 = 0;
   if ( v5 == 1 )
     v10 = 64;
   v11 = v10 + 1048587;
-  RtlGetExtendedContextLength2((unsigned int)(v10 + 1048587), &ContextRecord, (unsigned int)v4);
-  v12 = ContextRecord + 15LL;
-  if ( v12 <= ContextRecord )
+  RtlGetExtendedContextLength2(v10 + 1048587, (PULONG)&ContextLength, (unsigned int)v4);
+  v12 = (unsigned int)ContextLength + 15LL;
+  if ( v12 <= (unsigned int)ContextLength )
     v12 = 0xFFFFFFFFFFFFFF0LL;
   v13 = v12 & 0xFFFFFFFFFFFFFFF0uLL;
   v14 = alloca(v13);
   v15 = alloca(v13);
-  RtlInitializeExtendedContext2(&ContextRecord, v11, &ContextRecord, v4);
-  RtlUnwindEx(TargetFrame, TargetIp, ExceptionRecord, ReturnValue, (PCONTEXT)&ContextRecord, 0LL);
+  RtlInitializeExtendedContext2((PCONTEXT)&ContextLength, v11, &ContextLength, v4);
+  RtlUnwindEx(TargetFrame, TargetIp, ExceptionRecord, ReturnValue, (PCONTEXT)&ContextLength, 0LL);
 }

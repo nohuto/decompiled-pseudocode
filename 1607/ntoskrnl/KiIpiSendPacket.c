@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIpiSendPacket @ 0x1400C8A18
+ * XREFs of KiIpiSendPacket @ 0x1400C68B8
  * Callers:
- *     KeQueryTotalCycleTimeThread @ 0x140095D3C (KeQueryTotalCycleTimeThread.c)
- *     KeFlushProcessWriteBuffers @ 0x1400C892C (KeFlushProcessWriteBuffers.c)
- *     KeUpdateThreadTag @ 0x14010D1D8 (KeUpdateThreadTag.c)
- *     KeIpiGenericCall @ 0x14012FA64 (KeIpiGenericCall.c)
- *     KeSynchronizeAddressPolicy @ 0x1401D232C (KeSynchronizeAddressPolicy.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14009553C (KeQueryTotalCycleTimeThread.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400C67CC (KeFlushProcessWriteBuffers.c)
+ *     KeUpdateThreadTag @ 0x14010D73C (KeUpdateThreadTag.c)
+ *     KeIpiGenericCall @ 0x14012FFD4 (KeIpiGenericCall.c)
+ *     KeSynchronizeAddressPolicy @ 0x1401D2158 (KeSynchronizeAddressPolicy.c)
  *     KiInitializeDynamicProcessorDpc @ 0x1403DD5DC (KiInitializeDynamicProcessorDpc.c)
  * Callees:
- *     KiIpiSendRequest @ 0x1400E0AE0 (KiIpiSendRequest.c)
+ *     KiIpiSendRequest @ 0x1400DE980 (KiIpiSendRequest.c)
  */
 
 __int64 __fastcall KiIpiSendPacket(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopSetLockOperationProcess @ 0x140457F80
+ * XREFs of IopSetLockOperationProcess @ 0x14044F7F0
  * Callers:
- *     IopCloseFile @ 0x140A1EFA0 (IopCloseFile.c)
- *     NtLockFile @ 0x140B6ECE0 (NtLockFile.c)
+ *     IopCloseFile @ 0x140A285C0 (IopCloseFile.c)
+ *     NtLockFile @ 0x140B720D0 (NtLockFile.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetLockOperationProcess(__int64 a1, __int64 a2, char a3)
@@ -43,7 +43,7 @@ __int64 __fastcall IopSetLockOperationProcess(__int64 a1, __int64 a2, char a3)
     v8 = *(__int64 **)(a1 + 208);
     if ( v8 )
     {
-      if ( v8 == qword_140019060 )
+      if ( v8 == qword_1400137E0 )
         return (unsigned int)-1073741670;
     }
     else
@@ -56,7 +56,7 @@ __int64 __fastcall IopSetLockOperationProcess(__int64 a1, __int64 a2, char a3)
         v18 = 0;
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 208), (signed __int64)Pool2, 0LL) )
       {
-        if ( Pool2 && Pool2 != qword_140019060 )
+        if ( Pool2 && Pool2 != qword_1400137E0 )
           ExFreePoolWithTag(Pool2, 0);
         v8 = *(__int64 **)(a1 + 208);
       }
@@ -103,7 +103,7 @@ LABEL_11:
     LOBYTE(a2) = 2;
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     if ( _interlockedbittestandset64(v12, 0LL) )
       KxWaitForSpinLockAndAcquire((volatile signed __int32 *)(a1 + 184));
@@ -139,7 +139,7 @@ LABEL_11:
 LABEL_31:
   v18 = 0;
 LABEL_32:
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     _InterlockedAnd64((volatile signed __int64 *)v12, 0LL);
   else
     KiReleaseSpinLockInstrumented((volatile signed __int64 *)v12, retaddr);

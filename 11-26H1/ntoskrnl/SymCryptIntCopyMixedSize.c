@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptIntCopyMixedSize @ 0x14055C1D8
+ * XREFs of SymCryptIntCopyMixedSize @ 0x14055E6C0
  * Callers:
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x1405598D8 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptRsakeyCalculatePrivateFields @ 0x140559E18 (SymCryptRsakeyCalculatePrivateFields.c)
- *     SymCryptCrtSolve @ 0x140562634 (SymCryptCrtSolve.c)
- *     SymCryptIntExtendedGcd @ 0x140562838 (SymCryptIntExtendedGcd.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14055BD68 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x14055C2A8 (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptCrtSolve @ 0x140564B44 (SymCryptCrtSolve.c)
+ *     SymCryptIntExtendedGcd @ 0x140564D48 (SymCryptIntExtendedGcd.c)
  * Callees:
- *     SymCryptFdefIntCopyMixedSize @ 0x140570A9C (SymCryptFdefIntCopyMixedSize.c)
+ *     SymCryptFdefIntCopyMixedSize @ 0x14056FC7C (SymCryptFdefIntCopyMixedSize.c)
  */
 
 __int64 SymCryptIntCopyMixedSize()

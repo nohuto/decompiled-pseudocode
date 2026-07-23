@@ -240,7 +240,7 @@ LABEL_101:
       a4 = &v10[2 * v11 + 4];
       if ( (unsigned int)++v42 > 0x20 )
 LABEL_40:
-        RtlRaiseStatus(3221225727LL);
+        RtlRaiseStatus(-1073741569);
       continue;
     }
     break;

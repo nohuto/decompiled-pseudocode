@@ -39,7 +39,7 @@ __int64 __fastcall ObpVerifyAccessToBoundaryEntry(int *a1, __int64 a2)
   if ( *a1 == 2 )
   {
     v6 = 0;
-    if ( (unsigned __int8)RtlIsPackageSid(a1 + 2) )
+    if ( RtlIsPackageSid(a1 + 2) )
     {
       v11 = *(PSID **)(a2 + 32);
       if ( !v11 || RtlEqualSid(v3, *v11) )
@@ -83,7 +83,7 @@ LABEL_9:
                    (__int64)p_GenericMapping,
                    PreviousMode,
                    &v16,
-                   (int *)(a2 + 48));
+                   (NTSTATUS *)(a2 + 48));
     return v6;
   }
   if ( v2 == 3 )

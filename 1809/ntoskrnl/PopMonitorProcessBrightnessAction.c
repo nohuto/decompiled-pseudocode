@@ -1,12 +1,12 @@
 /*
- * XREFs of PopMonitorProcessBrightnessAction @ 0x140877864
+ * XREFs of PopMonitorProcessBrightnessAction @ 0x140878AC4
  * Callers:
- *     PopMonitorProcessLoop @ 0x140760518 (PopMonitorProcessLoop.c)
+ *     PopMonitorProcessLoop @ 0x140761708 (PopMonitorProcessLoop.c)
  * Callees:
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopSetPowerSettingValue @ 0x14058B338 (PopSetPowerSettingValue.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14058BA3C (PopSetPowerSettingValueAcDc.c)
+ *     PopSetPowerSettingValue @ 0x14058C338 (PopSetPowerSettingValue.c)
  */
 
 _UNKNOWN **__fastcall PopMonitorProcessBrightnessAction(int a1, int a2)
@@ -23,7 +23,7 @@ _UNKNOWN **__fastcall PopMonitorProcessBrightnessAction(int a1, int a2)
     return (_UNKNOWN **)PopSetPowerSettingValue(
                           &GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS,
                           0xFFFFFFFF,
-                          dword_1404180CC,
+                          dword_14041918C,
                           4u,
                           &v7);
   v4 = a1 - 2;

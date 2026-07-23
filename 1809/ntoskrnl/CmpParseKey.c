@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpParseKey @ 0x140641350
+ * XREFs of CmpParseKey @ 0x140642370
  * Callers:
  *     <none>
  * Callees:
@@ -8,18 +8,18 @@
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
- *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
- *     CmpDoesParseEnterRegistryA @ 0x140641880 (CmpDoesParseEnterRegistryA.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
- *     CmpGetRegistryNamespaceRootForSilo @ 0x14068E550 (CmpGetRegistryNamespaceRootForSilo.c)
- *     CmpRollbackTransactionArray @ 0x1407F8ADC (CmpRollbackTransactionArray.c)
+ *     KeEnterCriticalRegion @ 0x1400B9B40 (KeEnterCriticalRegion.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B30F8 (CmpIsRegistryLockAcquired.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpCleanupParseContext @ 0x1405B6FC4 (CmpCleanupParseContext.c)
+ *     CmpCallCallBacksEx @ 0x1405E6AE0 (CmpCallCallBacksEx.c)
+ *     CmPostCallbackNotificationEx @ 0x140640AC0 (CmPostCallbackNotificationEx.c)
+ *     CmpDoesParseEnterRegistryA @ 0x1406428A0 (CmpDoesParseEnterRegistryA.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x14068F710 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     CmpRollbackTransactionArray @ 0x1407F9CDC (CmpRollbackTransactionArray.c)
  */
 
 __int64 __fastcall CmpParseKey(
@@ -58,7 +58,7 @@ __int64 __fastcall CmpParseKey(
   _SLIST_ENTRY v35; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v36; // [rsp+70h] [rbp-90h] BYREF
   __int64 v37[2]; // [rsp+80h] [rbp-80h] BYREF
-  struct _SLIST_ENTRY v38; // [rsp+90h] [rbp-70h] BYREF
+  _SLIST_ENTRY v38; // [rsp+90h] [rbp-70h] BYREF
   __int64 v39; // [rsp+A0h] [rbp-60h]
   _QWORD v40[18]; // [rsp+B0h] [rbp-50h] BYREF
   PVOID v41[8]; // [rsp+140h] [rbp+40h] BYREF
@@ -165,7 +165,7 @@ LABEL_39:
         v17 = v26;
         if ( v26 != 259 )
           break;
-        KeWaitForSingleObject((char *)&stru_1403FEE80 + 152 * *(unsigned int *)(v15 + 136), Executive, 0, 0, 0LL);
+        KeWaitForSingleObject((char *)&stru_1403FFE80 + 152 * *(unsigned int *)(v15 + 136), Executive, 0, 0, 0LL);
         *(_DWORD *)v15 &= ~0x100u;
       }
       if ( v26 != -1073741267 )

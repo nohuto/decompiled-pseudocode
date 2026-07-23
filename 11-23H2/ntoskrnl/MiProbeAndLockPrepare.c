@@ -1,21 +1,21 @@
 /*
- * XREFs of MiProbeAndLockPrepare @ 0x140234DB0
+ * XREFs of MiProbeAndLockPrepare @ 0x140234E80
  * Callers:
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x1403D53C0 (MmProbeAndLockSelectedPages.c)
- *     MmStoreProbeAndLockPages @ 0x14065D29C (MmStoreProbeAndLockPages.c)
- *     MmLockPhysicalPagesByVa @ 0x140A2D6F4 (MmLockPhysicalPagesByVa.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403D55A0 (MmProbeAndLockSelectedPages.c)
+ *     MmStoreProbeAndLockPages @ 0x14065D7EC (MmStoreProbeAndLockPages.c)
+ *     MmLockPhysicalPagesByVa @ 0x140A2D9A4 (MmLockPhysicalPagesByVa.c)
  * Callees:
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiGetSystemCacheReverseMap @ 0x140262410 (MiGetSystemCacheReverseMap.c)
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiVadPureReserve @ 0x140277B70 (MiVadPureReserve.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiChargeFullProcessCommitment @ 0x1406F7800 (MiChargeFullProcessCommitment.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402626A0 (MiGetSystemCacheReverseMap.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiVadPureReserve @ 0x140277E00 (MiVadPureReserve.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiChargeFullProcessCommitment @ 0x1406F7A10 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiProbeAndLockPrepare(
@@ -248,7 +248,7 @@ LABEL_18:
 LABEL_21:
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql != 2 )
@@ -291,7 +291,7 @@ LABEL_20:
     goto LABEL_20;
   v33 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v33 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu )
   {
     v41 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v33 != 2 )

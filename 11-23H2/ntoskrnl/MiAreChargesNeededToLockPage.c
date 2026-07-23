@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAreChargesNeededToLockPage @ 0x1402CDF90
+ * XREFs of MiAreChargesNeededToLockPage @ 0x1402CE220
  * Callers:
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiFinishMdlForMappedFileFault @ 0x1402E1B40 (MiFinishMdlForMappedFileFault.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiReferenceDriverPage @ 0x140325B9C (MiReferenceDriverPage.c)
- *     MiMakeFaultPfnActive @ 0x140334EE0 (MiMakeFaultPfnActive.c)
+ *     MiCanBatchHardFaultPages @ 0x1402CDEF0 (MiCanBatchHardFaultPages.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
+ *     MiFinishHardFault @ 0x1402D9590 (MiFinishHardFault.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiCheckProtoPtePageState @ 0x1402DC0C0 (MiCheckProtoPtePageState.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1402E1DD0 (MiFinishMdlForMappedFileFault.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiReferenceDriverPage @ 0x140325E2C (MiReferenceDriverPage.c)
+ *     MiMakeFaultPfnActive @ 0x140335170 (MiMakeFaultPfnActive.c)
  * Callees:
  *     <none>
  */

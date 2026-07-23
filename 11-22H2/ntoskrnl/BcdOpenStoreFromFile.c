@@ -6,10 +6,10 @@
  *     BcdOpenStore @ 0x14080561C (BcdOpenStore.c)
  */
 
-__int64 __fastcall BcdOpenStoreFromFile(unsigned __int16 *a1, __int64 *a2)
+NTSTATUS __cdecl BcdOpenStoreFromFile(UNICODE_STRING *BcdFilePath, PHANDLE BcdStoreHandle)
 {
-  if ( a1 )
-    return BcdOpenStore(a1, 0, a2);
+  if ( BcdFilePath )
+    return BcdOpenStore(BcdFilePath, BCD_OPEN_NONE, BcdStoreHandle);
   else
-    return 3221225711LL;
+    return -1073741585;
 }

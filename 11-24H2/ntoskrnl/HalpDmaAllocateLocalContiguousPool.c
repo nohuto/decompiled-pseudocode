@@ -1,30 +1,30 @@
 /*
- * XREFs of HalpDmaAllocateLocalContiguousPool @ 0x1406FF764
+ * XREFs of HalpDmaAllocateLocalContiguousPool @ 0x1406FD3A4
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x1406FCCC0 (HalpDmaAllocateChildAdapterV3.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140700A80 (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1406FA900 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x1406FE6C0 (HalpDmaAllocateChildAdapterV2.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     RtlSetAllBits @ 0x1402E5D90 (RtlSetAllBits.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x1403913EC (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
- *     MmFreePagesFromMdl @ 0x1403A37F0 (MmFreePagesFromMdl.c)
- *     MmFreeContiguousMemory @ 0x1403A93D0 (MmFreeContiguousMemory.c)
- *     HalpDmaAllocateContiguousMemory @ 0x1404D7240 (HalpDmaAllocateContiguousMemory.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x14054F1B4 (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaReturnPageToSource @ 0x14054F8CC (HalpDmaReturnPageToSource.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     RtlSetAllBits @ 0x140347620 (RtlSetAllBits.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14038AD1C (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     MmFreeContiguousMemory @ 0x140398060 (MmFreeContiguousMemory.c)
+ *     MmFreePagesFromMdl @ 0x14048E2C0 (MmFreePagesFromMdl.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x1404D0690 (HalpDmaAllocateContiguousMemory.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x14054CAF4 (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaReturnPageToSource @ 0x14054D20C (HalpDmaReturnPageToSource.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDmaAllocateLocalContiguousPool(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // r14d
   unsigned int v3; // esi
-  RTL_BITMAP *v5; // rax
-  RTL_BITMAP *v6; // rbx
+  _RTL_BITMAP *v5; // rax
+  _RTL_BITMAP *v6; // rbx
   char v8; // r15
   ULONG v9; // eax
   __int64 v10; // rcx
@@ -62,7 +62,7 @@ __int64 __fastcall HalpDmaAllocateLocalContiguousPool(__int64 a1, unsigned int a
   v2 = a2;
   MemoryDescriptorList = 0LL;
   v3 = (a2 + 31) & 0xFFFFFFE0;
-  v5 = (RTL_BITMAP *)HalpMmAllocCtxAlloc(a1, ((unsigned __int64)v3 >> 3) + 16);
+  v5 = (_RTL_BITMAP *)HalpMmAllocCtxAlloc(a1, ((unsigned __int64)v3 >> 3) + 16);
   v6 = v5;
   if ( !v5 )
     return 3221225626LL;

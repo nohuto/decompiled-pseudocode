@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RtlpOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140461960
+ * XREFs of ?RtlpOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14045A920
  * Callers:
- *     KeOrAffinityEx @ 0x1405EC940 (KeOrAffinityEx.c)
+ *     KeOrAffinityEx @ 0x1405EF2B0 (KeOrAffinityEx.c)
  * Callees:
  *     <none>
  */

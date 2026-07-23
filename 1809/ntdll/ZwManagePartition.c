@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwManagePartition @ 0x1800A2430
+ * XREFs of ZwManagePartition @ 0x1800A2450
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwManagePartition()
+NTSTATUS __cdecl ZwManagePartition(
+        HANDLE TargetHandle,
+        HANDLE SourceHandle,
+        PARTITION_INFORMATION_CLASS PartitionInformationClass,
+        PVOID PartitionInformation,
+        ULONG PartitionInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 267LL;
+  result = 267;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtCreatePagingFile()
+NTSTATUS __cdecl NtCreatePagingFile(
+        PUNICODE_STRING PageFileName,
+        PLARGE_INTEGER MinimumSize,
+        PLARGE_INTEGER MaximumSize,
+        ULONG Priority)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 169LL;
+  result = 169;
   __asm { syscall; Low latency system call }
   return result;
 }

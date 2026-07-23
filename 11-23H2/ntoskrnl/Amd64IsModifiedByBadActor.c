@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64IsModifiedByBadActor @ 0x14045EEA0
+ * XREFs of Amd64IsModifiedByBadActor @ 0x14045F2A0
  * Callers:
  *     <none>
  * Callees:
- *     Amd64IsModifiedByBadActorInternal @ 0x14045EED2 (Amd64IsModifiedByBadActorInternal.c)
+ *     Amd64IsModifiedByBadActorInternal @ 0x14045F2D2 (Amd64IsModifiedByBadActorInternal.c)
  */
 
 __int64 __fastcall Amd64IsModifiedByBadActor(unsigned int a1, __int64 a2)

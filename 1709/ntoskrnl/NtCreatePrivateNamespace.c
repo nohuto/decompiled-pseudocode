@@ -19,20 +19,24 @@
  *     ObpVerifyCreatorAccessCheck @ 0x14054903C (ObpVerifyCreatorAccessCheck.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, ACCESS_MASK a2, __int64 a3, __m128i *a4)
+NTSTATUS __cdecl NtCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
   char PreviousMode; // si
   __int64 v8; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char *v10; // rdi
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   unsigned __int64 v12; // rbx
   int v13; // eax
   _QWORD *v14; // r14
   unsigned __int64 v15; // rbx
   size_t v16; // r8
   __int64 v17; // rcx
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   _DWORD *CurrentServerSiloGlobals; // rsi
   struct _KTHREAD *CurrentThread; // rcx
   _QWORD *v21; // rax
@@ -49,12 +53,12 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, ACCESS_MASK a2, __int64
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a1;
+    if ( (unsigned __int64)NamespaceHandle < 0x7FFFFFFF0000LL )
+      v8 = (__int64)NamespaceHandle;
     *(_QWORD *)v8 = *(_QWORD *)v8;
   }
-  result = ObpCaptureBoundaryDescriptor(a4, (char **)&P);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor((__m128i *)BoundaryDescriptor, (char **)&P);
+  if ( result >= 0 )
   {
     v10 = (char *)P;
     v11 = ObpVerifyCreatorAccessCheck((char *)P + 48);
@@ -70,7 +74,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, ACCESS_MASK a2, __int64
         v13 = ObCreateObjectEx(
                 PreviousMode,
                 ObpDirectoryObjectType,
-                a3,
+                (__int64)ObjectAttributes,
                 PreviousMode,
                 v26,
                 *((_DWORD *)v10 + 6) + 392,
@@ -108,7 +112,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, ACCESS_MASK a2, __int64
             if ( inserted >= 0 )
             {
               ObfReferenceObject(v14);
-              inserted = ObInsertObjectEx(v14, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v29);
+              inserted = ObInsertObjectEx(v14, 0LL, DesiredAccess, 0, 0, 0LL, (unsigned __int64 *)&v29);
               CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
@@ -144,18 +148,18 @@ LABEL_16:
               ExReleasePushLockEx((ULONG_PTR)(CurrentServerSiloGlobals + 180), 0LL);
               KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
               if ( inserted >= 0 )
-                *a1 = v29;
-              return (unsigned int)inserted;
+                *NamespaceHandle = (HANDLE)v29;
+              return inserted;
             }
           }
           ObfDereferenceObject(v14);
-          return (unsigned int)inserted;
+          return inserted;
         }
         v11 = v13;
       }
     }
     ExFreePoolWithTag(v10, 0x534E624Fu);
-    return (unsigned int)v11;
+    return v11;
   }
   return result;
 }

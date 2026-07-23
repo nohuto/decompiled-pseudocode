@@ -1,25 +1,25 @@
 /*
- * XREFs of PopDeepSleepClearDisengageReason @ 0x1402815D0
+ * XREFs of PopDeepSleepClearDisengageReason @ 0x14026F810
  * Callers:
- *     PopDecrementPowerSettingPendingUpdates @ 0x1402814B0 (PopDecrementPowerSettingPendingUpdates.c)
- *     PopSetPowerActionState @ 0x140382B6C (PopSetPowerActionState.c)
- *     PopDequeueQuerySetIrp @ 0x14039814C (PopDequeueQuerySetIrp.c)
- *     PpmUpdatePlatformIdleVeto @ 0x140568230 (PpmUpdatePlatformIdleVeto.c)
- *     PopFxPlatformStateAvailable @ 0x14056BA8C (PopFxPlatformStateAvailable.c)
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
- *     PopCheckResiliencyScenarios @ 0x140679DA0 (PopCheckResiliencyScenarios.c)
- *     PopEnforceResiliencyScenarios @ 0x140779BFC (PopEnforceResiliencyScenarios.c)
- *     PopDirectedDripsWorkerRoutine @ 0x1407B9990 (PopDirectedDripsWorkerRoutine.c)
- *     PopDirectedDripsHandleResiliencyNotification @ 0x1408E3194 (PopDirectedDripsHandleResiliencyNotification.c)
- *     PopIdleAoAcDozeToS4 @ 0x1408F5540 (PopIdleAoAcDozeToS4.c)
+ *     PopDecrementPowerSettingPendingUpdates @ 0x14026F6F0 (PopDecrementPowerSettingPendingUpdates.c)
+ *     PopSetPowerActionState @ 0x140382D1C (PopSetPowerActionState.c)
+ *     PopDequeueQuerySetIrp @ 0x14039829C (PopDequeueQuerySetIrp.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x140568470 (PpmUpdatePlatformIdleVeto.c)
+ *     PopFxPlatformStateAvailable @ 0x14056BCCC (PopFxPlatformStateAvailable.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
+ *     PopCheckResiliencyScenarios @ 0x14066D4E0 (PopCheckResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x140779DBC (PopEnforceResiliencyScenarios.c)
+ *     PopDirectedDripsWorkerRoutine @ 0x1407BA120 (PopDirectedDripsWorkerRoutine.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x1408E32F4 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopIdleAoAcDozeToS4 @ 0x1408F56A0 (PopIdleAoAcDozeToS4.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x140281660 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
- *     PopDiagTraceClearDeepSleepConstraint @ 0x1402816F4 (PopDiagTraceClearDeepSleepConstraint.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x14026F8A0 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
+ *     PopDiagTraceClearDeepSleepConstraint @ 0x14026F934 (PopDiagTraceClearDeepSleepConstraint.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeSetForceIdle @ 0x140522FA8 (KeSetForceIdle.c)
+ *     KeSetForceIdle @ 0x1405231E8 (KeSetForceIdle.c)
  */
 
 __int64 __fastcall PopDeepSleepClearDisengageReason(unsigned int a1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of PsChargeProcessWakeCounter @ 0x1406BF030
+ * XREFs of PsChargeProcessWakeCounter @ 0x1406BCA00
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
- *     EtwpQueueNotification @ 0x1406E424C (EtwpQueueNotification.c)
- *     PspCreateActivityReference @ 0x140731498 (PspCreateActivityReference.c)
- *     PopSetSpecialRequest @ 0x1408E1BAC (PopSetSpecialRequest.c)
+ *     EtwpQueueNotification @ 0x1406BB52C (EtwpQueueNotification.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406D4D10 (AlpcpCompleteDispatchMessage.c)
+ *     PspCreateActivityReference @ 0x140731658 (PspCreateActivityReference.c)
+ *     PopSetSpecialRequest @ 0x1408E1D0C (PopSetSpecialRequest.c)
  * Callees:
- *     PsGetProcessInheritedFromUniqueProcessId @ 0x140205170 (PsGetProcessInheritedFromUniqueProcessId.c)
- *     PspChargeProcessWakeCounter @ 0x1405E6B10 (PspChargeProcessWakeCounter.c)
+ *     PsGetProcessInheritedFromUniqueProcessId @ 0x1402A9AB0 (PsGetProcessInheritedFromUniqueProcessId.c)
+ *     PspChargeProcessWakeCounter @ 0x1406D6270 (PspChargeProcessWakeCounter.c)
  */
 
-unsigned __int64 __fastcall PsChargeProcessWakeCounter(__int64 Object, int a2, unsigned int a3, __int64 a4)
+__int64 __fastcall PsChargeProcessWakeCounter(__int64 a1)
 {
-  unsigned __int64 result; // rax
+  __int64 result; // rax
 
-  result = PsGetProcessInheritedFromUniqueProcessId(Object);
+  result = PsGetProcessInheritedFromUniqueProcessId(a1);
   if ( result )
-    return PspChargeProcessWakeCounter(Object, a2, a3, a4, 1, 1, 0LL);
+    return PspChargeProcessWakeCounter(a1, 1, 1, 0LL);
   return result;
 }

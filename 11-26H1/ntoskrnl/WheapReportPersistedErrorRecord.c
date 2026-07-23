@@ -1,25 +1,25 @@
 /*
- * XREFs of WheapReportPersistedErrorRecord @ 0x1406D4A54
+ * XREFs of WheapReportPersistedErrorRecord @ 0x1406D8AD4
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1406D4708 (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1406D8788 (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     WheapWorkQueueAddItem @ 0x1403DE370 (WheapWorkQueueAddItem.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     WheapWorkQueueAddItem @ 0x1403E1560 (WheapWorkQueueAddItem.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 char __fastcall WheapReportPersistedErrorRecord(_DWORD *Src)
 {
   _QWORD *WheaInfo; // rsi
   int v3; // ebp
-  struct _LIST_ENTRY *Pool2; // rax
-  struct _LIST_ENTRY *v5; // rbx
+  _LIST_ENTRY *Pool2; // rax
+  _LIST_ENTRY *v5; // rbx
 
   WheaInfo = KeGetPcr()->Prcb.WheaInfo;
   if ( !WheaInfo )
     return 0;
   v3 = Src[5] + 40;
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_LIST_ENTRY *)ExAllocatePool2(0x40uLL);
   v5 = Pool2;
   if ( !Pool2 )
     return 0;

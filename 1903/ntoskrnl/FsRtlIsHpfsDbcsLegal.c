@@ -17,13 +17,13 @@ BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
   char v6; // dl
   char *Buffer; // rax
   char *v8; // rbx
-  STRING v9; // xmm1
+  _STRING v9; // xmm1
   unsigned int v11; // edx
   unsigned __int8 v12; // r8
   int v13; // r9d
   __int64 v14; // rcx
-  STRING FirstName; // [rsp+20h] [rbp-30h] BYREF
-  STRING RemainingName; // [rsp+30h] [rbp-20h] BYREF
+  _STRING FirstName; // [rsp+20h] [rbp-30h] BYREF
+  _STRING RemainingName; // [rsp+30h] [rbp-20h] BYREF
   ANSI_STRING Path; // [rsp+40h] [rbp-10h] BYREF
 
   Length = DbcsName->Length;

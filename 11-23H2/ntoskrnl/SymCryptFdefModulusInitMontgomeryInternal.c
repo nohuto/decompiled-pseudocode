@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptFdefModulusInitMontgomeryInternal @ 0x140405370
+ * XREFs of SymCryptFdefModulusInitMontgomeryInternal @ 0x140405550
  * Callers:
- *     SymCryptFdefModulusInitMontgomery @ 0x140405320 (SymCryptFdefModulusInitMontgomery.c)
- *     SymCryptFdefModulusInitMontgomery256 @ 0x140405350 (SymCryptFdefModulusInitMontgomery256.c)
- *     SymCryptFdef369ModulusInitMontgomery @ 0x140409A00 (SymCryptFdef369ModulusInitMontgomery.c)
+ *     SymCryptFdefModulusInitMontgomery @ 0x140405500 (SymCryptFdefModulusInitMontgomery.c)
+ *     SymCryptFdefModulusInitMontgomery256 @ 0x140405530 (SymCryptFdefModulusInitMontgomery256.c)
+ *     SymCryptFdef369ModulusInitMontgomery @ 0x140409BE0 (SymCryptFdef369ModulusInitMontgomery.c)
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
- *     SymCryptFdefRawDivMod @ 0x1404038A8 (SymCryptFdefRawDivMod.c)
- *     SymCryptFdefSizeofDivisorFromDigits @ 0x140405B60 (SymCryptFdefSizeofDivisorFromDigits.c)
- *     SymCryptInverseMod2e64 @ 0x140405B98 (SymCryptInverseMod2e64.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
+ *     SymCryptFdefRawDivMod @ 0x140403A88 (SymCryptFdefRawDivMod.c)
+ *     SymCryptFdefSizeofDivisorFromDigits @ 0x140405D40 (SymCryptFdefSizeofDivisorFromDigits.c)
+ *     SymCryptInverseMod2e64 @ 0x140405D78 (SymCryptInverseMod2e64.c)
  */
 
 __int64 __fastcall SymCryptFdefModulusInitMontgomeryInternal(__int64 a1, int a2, _DWORD *a3)

@@ -2,7 +2,7 @@
  * XREFs of RtlTimelineBitmapUpdate @ 0x14020E900
  * Callers:
  *     KiAccumulateCycleStats @ 0x14020E7C0 (KiAccumulateCycleStats.c)
- *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
+ *     KiRetireDpcList @ 0x140245AC0 (KiRetireDpcList.c)
  *     PoEnergyContextUpdateComponentPower @ 0x1406A7514 (PoEnergyContextUpdateComponentPower.c)
  * Callees:
  *     <none>

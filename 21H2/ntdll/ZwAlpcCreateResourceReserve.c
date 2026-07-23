@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwAlpcCreateResourceReserve @ 0x18009E5D0
+ * XREFs of ZwAlpcCreateResourceReserve @ 0x18009E590
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAlpcCreateResourceReserve()
+NTSTATUS __cdecl ZwAlpcCreateResourceReserve(
+        HANDLE PortHandle,
+        ULONG Flags,
+        SIZE_T MessageSize,
+        PALPC_HANDLE ResourceId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 125LL;
+  result = 125;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

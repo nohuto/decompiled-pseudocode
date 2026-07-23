@@ -87,7 +87,7 @@ __int64 DbgkpSetProcessDebugObject(ULONG_PTR BugCheckParameter1, PRKEVENT Event,
       v27 = 0;
       ObfDereferenceObjectWithTag(v7, 0x4F676244u);
       v4 = DbgkpPostFakeThreadMessages(
-             (struct _KPROCESS *)BugCheckParameter1,
+             BugCheckParameter1,
              Event,
              NextProcessThread,
              (struct _EX_RUNDOWN_REF **)&Object,

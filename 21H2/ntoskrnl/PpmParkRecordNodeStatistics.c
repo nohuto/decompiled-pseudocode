@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkRecordNodeStatistics @ 0x1402896A0
+ * XREFs of PpmParkRecordNodeStatistics @ 0x140206840
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x1402892F0 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140206490 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     PpmParkComputeSnapStatistics @ 0x140289810 (PpmParkComputeSnapStatistics.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PpmEventParkNodeClassRecordedStats @ 0x140579CCC (PpmEventParkNodeClassRecordedStats.c)
+ *     PpmParkComputeSnapStatistics @ 0x1402069B0 (PpmParkComputeSnapStatistics.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PpmEventParkNodeClassRecordedStats @ 0x140579F0C (PpmEventParkNodeClassRecordedStats.c)
  */
 
 __int64 PpmParkRecordNodeStatistics()
@@ -44,7 +44,7 @@ __int64 PpmParkRecordNodeStatistics()
   __int64 v29; // [rsp+D0h] [rbp+1Fh]
 
   v0 = PpmCheckMakeupCount;
-  v1 = 342LL * dword_140C23E8C;
+  v1 = 342LL * dword_140C2332C;
   result = 0LL;
   v3 = 0;
   v15 = 0;

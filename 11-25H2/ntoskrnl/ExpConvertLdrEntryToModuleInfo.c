@@ -16,7 +16,7 @@ __int64 __fastcall ExpConvertLdrEntryToModuleInfo(int a1, __int64 a2, __int16 a3
   __int16 v11; // r9
   char v12; // dl
   __int64 result; // rax
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
   v7 = 0LL;

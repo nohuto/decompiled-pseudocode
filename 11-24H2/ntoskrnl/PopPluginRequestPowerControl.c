@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPluginRequestPowerControl @ 0x1404A9708
+ * XREFs of PopPluginRequestPowerControl @ 0x1404A513C
  * Callers:
- *     PoFxPowerControl @ 0x1404A9650 (PoFxPowerControl.c)
+ *     PoFxPowerControl @ 0x1403A58C0 (PoFxPowerControl.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPluginRequestPowerControl(
@@ -31,7 +31,7 @@ __int64 __fastcall PopPluginRequestPowerControl(
   v10[5] = a6;
   v10[2] = a3;
   v10[3] = a4;
-  if ( (unsigned __int8)guard_dispatch_icall_no_overrides(14LL, v10, a3, a4) == 1 )
+  if ( (unsigned __int8)guard_dispatch_icall_no_overrides(14LL, v10) == 1 )
   {
     if ( a7 )
       *a7 = v11;

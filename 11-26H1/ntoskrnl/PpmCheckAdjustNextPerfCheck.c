@@ -1,22 +1,20 @@
 /*
- * XREFs of PpmCheckAdjustNextPerfCheck @ 0x1404BE920
+ * XREFs of PpmCheckAdjustNextPerfCheck @ 0x1404B8170
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_KTRAP_FRAME *PpmCheckAdjustNextPerfCheck()
+__int64 PpmCheckAdjustNextPerfCheck()
 {
-  _KTRAP_FRAME *result; // rax
+  __int64 result; // rax
 
-  if ( LODWORD(PopSleepstudySessionLock.SchedulingGroup) == 5 )
+  if ( PpmCheckCurrentPipelineId == 5 )
   {
-    result = PopSleepstudySessionLock.TrapFrame;
-    if ( PopSleepstudySessionLock.TrapFrame )
-      return (_KTRAP_FRAME *)_InterlockedExchange64(
-                               (volatile __int64 *)&PopSleepstudySessionLock.TrapFrame,
-                               MEMORY[0xFFFFF78000000008]);
+    result = PpmCheckLastEffectiveExecutionTime;
+    if ( PpmCheckLastEffectiveExecutionTime )
+      return _InterlockedExchange64(&PpmCheckLastEffectiveExecutionTime, MEMORY[0xFFFFF78000000008]);
   }
   return result;
 }

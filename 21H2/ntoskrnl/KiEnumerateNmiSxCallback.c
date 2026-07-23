@@ -1,8 +1,8 @@
 /*
- * XREFs of KiEnumerateNmiSxCallback @ 0x140380E44
+ * XREFs of KiEnumerateNmiSxCallback @ 0x140380994
  * Callers:
- *     KiEnumerateCallback @ 0x140380DE0 (KiEnumerateCallback.c)
- *     KeIsNmiCallbackRegistered @ 0x140514240 (KeIsNmiCallbackRegistered.c)
+ *     KiEnumerateCallback @ 0x140380930 (KiEnumerateCallback.c)
+ *     KeIsNmiCallbackRegistered @ 0x140514480 (KeIsNmiCallbackRegistered.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */

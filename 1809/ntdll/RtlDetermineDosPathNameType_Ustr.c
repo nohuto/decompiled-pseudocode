@@ -10,8 +10,8 @@
  *     LdrpPreprocessDllName @ 0x180025FA8 (LdrpPreprocessDllName.c)
  *     RtlDosSearchPath_Ustr @ 0x180029E60 (RtlDosSearchPath_Ustr.c)
  *     RtlpDetermineDosPathNameType4 @ 0x180071CF4 (RtlpDetermineDosPathNameType4.c)
- *     RtlpInitCurrentDir @ 0x18007BBB4 (RtlpInitCurrentDir.c)
- *     RtlpComputeBackupIndex @ 0x180083070 (RtlpComputeBackupIndex.c)
+ *     RtlpInitCurrentDir @ 0x18007BBC4 (RtlpInitCurrentDir.c)
+ *     RtlpComputeBackupIndex @ 0x180083080 (RtlpComputeBackupIndex.c)
  * Callees:
  *     <none>
  */

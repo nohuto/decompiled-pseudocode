@@ -1,12 +1,12 @@
 /*
- * XREFs of MiKernelStackVaToStackNode @ 0x14024468C
+ * XREFs of MiKernelStackVaToStackNode @ 0x14020CE1C
  * Callers:
- *     MiResolvePageFileFault @ 0x1402F783C (MiResolvePageFileFault.c)
- *     MiInPageSingleKernelStack @ 0x14046A150 (MiInPageSingleKernelStack.c)
+ *     MiResolvePageFileFault @ 0x14033FD3C (MiResolvePageFileFault.c)
+ *     MiInPageSingleKernelStack @ 0x14047BE44 (MiInPageSingleKernelStack.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiReleaseSpinLockShared @ 0x140244830 (MiReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
+ *     MiReleaseSpinLockShared @ 0x14020CFC0 (MiReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1, int a2)
@@ -18,13 +18,13 @@ _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1, int a2)
   if ( a2 )
   {
     v3 = 17;
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E35ED8);
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E36018);
   }
   else
   {
-    v3 = ExAcquireSpinLockShared(&dword_140E35ED8);
+    v3 = ExAcquireSpinLockShared(&dword_140E36018);
   }
-  v5 = (_QWORD *)qword_140E35ED0;
+  v5 = (_QWORD *)qword_140E36010;
   while ( v5 )
   {
     if ( a1 > v5[3] )
@@ -39,6 +39,6 @@ _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1, int a2)
     }
   }
   LOBYTE(v4) = v3;
-  MiReleaseSpinLockShared(&dword_140E35ED8, v4);
+  MiReleaseSpinLockShared(&dword_140E36018, v4);
   return v5;
 }

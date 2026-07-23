@@ -1,10 +1,10 @@
 /*
- * XREFs of atan2 @ 0x180129860
+ * XREFs of atan2 @ 0x1801295D0
  * Callers:
  *     <none>
  * Callees:
- *     _controlfp @ 0x180130270 (_controlfp.c)
- *     _handle_error @ 0x1801303D0 (_handle_error.c)
+ *     _controlfp @ 0x18012FFE0 (_controlfp.c)
+ *     _handle_error @ 0x180130140 (_handle_error.c)
  */
 
 double __cdecl atan2(double Y, double X)
@@ -62,12 +62,12 @@ double __cdecl atan2(double Y, double X)
   {
     if ( X >= 0.0 )
       return Y;
-    v9 = qword_1801C5AA8;
+    v9 = qword_1801C4AA8;
     goto LABEL_50;
   }
   if ( !v2 )
   {
-    v9 = qword_1801C5AB0;
+    v9 = qword_1801C4AB0;
     goto LABEL_50;
   }
   if ( (unsigned int)v4 < 0x3FD && ((unsigned __int16)(*(_QWORD *)&Y >> 52) & 0x7FFu) < 0x3FD )
@@ -104,22 +104,22 @@ double __cdecl atan2(double Y, double X)
   }
   if ( v7 > 56 )
   {
-    v9 = qword_1801C5AB0;
+    v9 = qword_1801C4AB0;
     goto LABEL_50;
   }
   if ( v7 >= -28 || X < 0.0 )
   {
     if ( v7 < -56 && X < 0.0 )
     {
-      v9 = qword_1801C5AA8;
+      v9 = qword_1801C4AA8;
       goto LABEL_50;
     }
     if ( v5 == 0x7FF0000000000000LL && v2 == 0x7FF0000000000000LL )
     {
       if ( X >= 0.0 )
-        v9 = qword_1801C5AB8;
+        v9 = qword_1801C4AB8;
       else
-        v9 = qword_1801C5AC0;
+        v9 = qword_1801C4AC0;
 LABEL_50:
       if ( v3 < 0.0 )
         v9 ^= _xmm;
@@ -165,8 +165,8 @@ LABEL_50:
     {
       v23 = v22 * 256.0;
       v24 = (unsigned int)((int)(v23 + 0.5) - 16);
-      v25 = qword_1801850F0[v24];
-      v26 = qword_180184960[v24];
+      v25 = qword_180183FF0[v24];
+      v26 = qword_180183860[v24];
       v27 = 1023 - ((*(_QWORD *)&v6 >> 52) & 0x7FF);
       v28 = (__int64)(v27 / 2) << 52;
       v29 = (__int64)(v27 - v27 / 2) << 52;
@@ -188,13 +188,13 @@ LABEL_50:
     }
     if ( v20 )
     {
-      v26 = *(double *)&qword_1801C5AD8 - v26;
-      v22 = *(double *)&qword_1801C5AE0 - v22;
+      v26 = *(double *)&qword_1801C4AD8 - v26;
+      v22 = *(double *)&qword_1801C4AE0 - v22;
     }
     if ( X < 0.0 )
     {
-      v26 = *(double *)&qword_1801C5AC8 - v26;
-      v22 = *(double *)&qword_1801C5AD0 - v22;
+      v26 = *(double *)&qword_1801C4AC8 - v26;
+      v22 = *(double *)&qword_1801C4AD0 - v22;
     }
     v32 = v26 + v22;
     if ( v3 < 0.0 )

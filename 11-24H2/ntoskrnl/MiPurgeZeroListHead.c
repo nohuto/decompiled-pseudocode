@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPurgeZeroListHead @ 0x1404C6774
+ * XREFs of MiPurgeZeroListHead @ 0x1404BFBD4
  * Callers:
- *     MiPurgeZeroListHeads @ 0x1404C6720 (MiPurgeZeroListHeads.c)
+ *     MiPurgeZeroListHeads @ 0x1404BFB80 (MiPurgeZeroListHeads.c)
  * Callees:
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiSafeLockPageAtDpc @ 0x1403072A0 (MiSafeLockPageAtDpc.c)
- *     MiUpdatePageMoveInProgressInternal @ 0x14043A010 (MiUpdatePageMoveInProgressInternal.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiSafeLockPageAtDpc @ 0x140311180 (MiSafeLockPageAtDpc.c)
+ *     MiUpdatePageMoveInProgressInternal @ 0x14042CA30 (MiUpdatePageMoveInProgressInternal.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiPurgeZeroListHead(__int64 a1, __int64 a2)
@@ -56,9 +56,9 @@ __int64 __fastcall MiPurgeZeroListHead(__int64 a1, __int64 a2)
         if ( (*(_BYTE *)(v10 + 34) & 7) == 0
           && (unsigned int)MiGetPfnPageSizeIndex(48 * v3 - 0x220000000000LL) == v4
           && (a2 = *(_QWORD *)(a1 + 14984),
-              *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL)) == a2) )
+              *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL)) == a2) )
         {
-          MiUnlinkFreeOrZeroedPage(v3, 0LL, 0LL);
+          MiUnlinkFreeOrZeroedPage(v3, 0LL, 0);
           MiInsertPageInFreeOrZeroedList(v3, 2LL);
           _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           if ( (++v2 & 0x3F) == 0 && KeShouldYieldProcessor() )

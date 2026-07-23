@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemovePhysicalMemoryBatchComplete @ 0x14061BF84
+ * XREFs of MiRemovePhysicalMemoryBatchComplete @ 0x14061C4D4
  * Callers:
- *     MiRemoveMdlPages @ 0x140A2E53C (MiRemoveMdlPages.c)
+ *     MiRemoveMdlPages @ 0x140A2E7EC (MiRemoveMdlPages.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x14036DB40 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551060 (IoUpdateDumpPhysicalRanges.c)
+ *     KeInvalidateAllCaches @ 0x14036DCE0 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140551720 (IoUpdateDumpPhysicalRanges.c)
  */
 
 _QWORD *MiRemovePhysicalMemoryBatchComplete()

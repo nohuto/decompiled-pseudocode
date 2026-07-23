@@ -116,7 +116,7 @@ signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, _B
     {
       *(_BYTE *)(v4 + 32) |= 2u;
       if ( *(__int64 *)(v4 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v4, (__int64)a2, a3);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v4, (__int64)a2);
       *(_BYTE *)(v4 + 25) |= 1u;
       *(_BYTE *)(v4 + 32) &= ~2u;
     }
@@ -169,7 +169,7 @@ signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, _B
       KeWaitForSingleObject(&Object, WrPushLock, 0, 0, 0LL);
 LABEL_17:
     if ( v4 )
-      v4 = KeAbPreAcquire(a3);
+      v4 = KeAbPreAcquire(a3, (PRTL_BALANCED_NODE)v4);
   }
   result = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v6 + 1, v6);
   if ( v6 != result )

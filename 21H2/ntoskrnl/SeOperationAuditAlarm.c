@@ -1,22 +1,22 @@
 /*
- * XREFs of SeOperationAuditAlarm @ 0x14091E7BC
+ * XREFs of SeOperationAuditAlarm @ 0x14091E91C
  * Callers:
- *     ObpAuditObjectAccess @ 0x1408DCAC4 (ObpAuditObjectAccess.c)
+ *     ObpAuditObjectAccess @ 0x1408DCC24 (ObpAuditObjectAccess.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x140596D28 (SepCheckAndCopySelfRelativeSD.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepQueryNameString @ 0x14071869C (SepQueryNameString.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140920980 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SepSecurityDescriptorStrictLength @ 0x140924DDC (SepSecurityDescriptorStrictLength.c)
- *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x14023C620 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x140353610 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2884 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x140596F58 (SepCheckAndCopySelfRelativeSD.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14067B228 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepQueryNameString @ 0x1406C6CEC (SepQueryNameString.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140920AE0 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepSecurityDescriptorStrictLength @ 0x140924F3C (SepSecurityDescriptorStrictLength.c)
+ *     SepAuditFailed @ 0x140925A60 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeOperationAuditAlarm(

@@ -1,16 +1,16 @@
 /*
- * XREFs of ArbInitializeArbiterInstance @ 0x1407889FC
+ * XREFs of ArbInitializeArbiterInstance @ 0x14078B52C
  * Callers:
- *     IopMemInitialize @ 0x1407A6918 (IopMemInitialize.c)
- *     IopPortInitialize @ 0x1407A6DB4 (IopPortInitialize.c)
- *     IopDmaInitialize @ 0x1407A6EE8 (IopDmaInitialize.c)
- *     IopIrqInitialize @ 0x1407A7008 (IopIrqInitialize.c)
- *     IopBusNumberInitialize @ 0x1407A70E8 (IopBusNumberInitialize.c)
+ *     IopMemInitialize @ 0x1407A94C8 (IopMemInitialize.c)
+ *     IopPortInitialize @ 0x1407A9964 (IopPortInitialize.c)
+ *     IopDmaInitialize @ 0x1407A9A98 (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x1407A9BB8 (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x1407A9C98 (IopBusNumberInitialize.c)
  * Callees:
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     ArbBuildAssignmentOrdering @ 0x14078816C (ArbBuildAssignmentOrdering.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     ArbBuildAssignmentOrdering @ 0x14078AC9C (ArbBuildAssignmentOrdering.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, __int64 a4)

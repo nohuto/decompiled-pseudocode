@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcApplyUpdateAndAddFeature @ 0x140B199DC
+ * XREFs of RtlpFcApplyUpdateAndAddFeature @ 0x140B1BE2C
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x140B19608 (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x140B1BA58 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     RtlpFcUpdateFeature @ 0x140775270 (RtlpFcUpdateFeature.c)
+ *     RtlpFcUpdateFeature @ 0x140778270 (RtlpFcUpdateFeature.c)
  */
 
 char __fastcall RtlpFcApplyUpdateAndAddFeature(__int64 a1, __int128 *a2)

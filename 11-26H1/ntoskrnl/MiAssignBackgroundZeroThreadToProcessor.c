@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAssignBackgroundZeroThreadToProcessor @ 0x1403E8F54
+ * XREFs of MiAssignBackgroundZeroThreadToProcessor @ 0x1402F5E34
  * Callers:
- *     MiSelectBestZeroingProcessor @ 0x1403E8AC4 (MiSelectBestZeroingProcessor.c)
- *     MiAddZeroingThread @ 0x14051F7F0 (MiAddZeroingThread.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402F59A4 (MiSelectBestZeroingProcessor.c)
+ *     MiAddZeroingThread @ 0x140521E94 (MiAddZeroingThread.c)
  * Callees:
- *     KeSetUserGroupAffinityThread @ 0x1403E87F4 (KeSetUserGroupAffinityThread.c)
- *     MiUpdateZeroingAvailableAffinity @ 0x1403E9620 (MiUpdateZeroingAvailableAffinity.c)
+ *     KeSetUserGroupAffinityThread @ 0x1402F56D4 (KeSetUserGroupAffinityThread.c)
+ *     MiUpdateZeroingAvailableAffinity @ 0x1402F6500 (MiUpdateZeroingAvailableAffinity.c)
  */
 
 void __fastcall MiAssignBackgroundZeroThreadToProcessor(__int64 a1, __int64 a2, __int64 a3)

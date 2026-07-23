@@ -1,9 +1,9 @@
 /*
- * XREFs of IopQueryName @ 0x14096A4F0
+ * XREFs of IopQueryName @ 0x140952F80
  * Callers:
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
  * Callees:
- *     IopQueryNameInternal @ 0x140968330 (IopQueryNameInternal.c)
+ *     IopQueryNameInternal @ 0x140950DC0 (IopQueryNameInternal.c)
  */
 
 __int64 __fastcall IopQueryName(

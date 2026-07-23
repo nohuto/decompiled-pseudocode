@@ -60,7 +60,7 @@ __int64 __fastcall CmpInitCmRM(__int64 a1, char a2)
   __int64 v16; // rdx
   UUID *v17; // rax
   __int64 v18; // rax
-  unsigned int *v19; // rcx
+  GUID *v19; // rcx
   __int64 v20; // rcx
   int IsEnabledDeviceUsageNoInline; // eax
   int v22; // ecx
@@ -95,8 +95,8 @@ __int64 __fastcall CmpInitCmRM(__int64 a1, char a2)
   UNICODE_STRING Destination; // [rsp+88h] [rbp-80h] BYREF
   FILE_OBJECT *pplfoLog; // [rsp+98h] [rbp-70h] BYREF
   PVOID ClientCookie; // [rsp+A0h] [rbp-68h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+A8h] [rbp-60h] BYREF
-  UNICODE_STRING String2; // [rsp+B8h] [rbp-50h] BYREF
+  UNICODE_STRING GuidString; // [rsp+A8h] [rbp-60h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+B8h] [rbp-50h] BYREF
   __int64 v57; // [rsp+C8h] [rbp-40h]
   UNICODE_STRING LogFileName; // [rsp+D0h] [rbp-38h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+E0h] [rbp-28h] BYREF
@@ -108,17 +108,17 @@ __int64 __fastcall CmpInitCmRM(__int64 a1, char a2)
   __int128 v65; // [rsp+180h] [rbp+78h]
 
   v57 = a1;
-  *(_QWORD *)&UnicodeString.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   v2 = a1;
-  UnicodeString.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   v65 = 0LL;
   v3 = 0;
   ResourceManagerGuid = 0LL;
   fLogOptionFlag = 512;
   Uuid = 0LL;
-  *(_QWORD *)&String2.Length = 0LL;
+  *(_QWORD *)&UnicodeString.Length = 0LL;
   *(_OWORD *)Source = 0LL;
-  String2.Buffer = 0LL;
+  UnicodeString.Buffer = 0LL;
   memset(&ObjectAttributes, 0, 44);
   *(_QWORD *)&Destination.Length = 0LL;
   Destination.Buffer = 0LL;
@@ -225,9 +225,9 @@ LABEL_64:
     HvUnlockHiveFlusherShared(v5);
     CmpUnlockRegistry(v32);
 LABEL_26:
-    v19 = (unsigned int *)(*(_QWORD *)(v5 + 64) + 148LL);
+    v19 = (GUID *)(*(_QWORD *)(v5 + 64) + 148LL);
     *(_QWORD *)&Uuid.Data1 = *(_QWORD *)(v5 + 1544);
-    IsFileInSystemConfig = RtlStringFromGUIDEx(v19, (__int64)&UnicodeString, 1);
+    IsFileInSystemConfig = RtlStringFromGUIDEx(v19, &GuidString, 1u);
     if ( IsFileInSystemConfig < 0 )
     {
       *(_DWORD *)(v5 + 4160) = 3;
@@ -246,16 +246,16 @@ LABEL_31:
       v23 = a2;
       goto LABEL_32;
     }
-    IsFileInSystemConfig = CmpQueryNameString(*(void **)(v2 + 1544), &String2);
+    IsFileInSystemConfig = CmpQueryNameString(*(void **)(v2 + 1544), &UnicodeString);
     if ( IsFileInSystemConfig < 0 )
     {
       *(_DWORD *)(v5 + 4160) = 4;
       goto LABEL_109;
     }
-    Source[0] = &String2;
+    Source[0] = &UnicodeString;
     if ( !(unsigned int)Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline() )
       goto LABEL_31;
-    IsFileInSystemConfig = CmpIsFileInSystemConfig(&String2, (BOOLEAN *)&v47);
+    IsFileInSystemConfig = CmpIsFileInSystemConfig(&UnicodeString, (BOOLEAN *)&v47);
     if ( IsFileInSystemConfig < 0 )
     {
       *(_DWORD *)(v5 + 4160) = 16;
@@ -269,7 +269,7 @@ LABEL_31:
 LABEL_32:
     v24 = Source[0];
     LODWORD(v50) = v48;
-    Destination.MaximumLength = UnicodeString.Length + CmpClfsLogPrefix.Length + TmLogExt.Length + Source[0]->Length;
+    Destination.MaximumLength = GuidString.Length + CmpClfsLogPrefix.Length + TmLogExt.Length + Source[0]->Length;
     Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
     if ( !Destination.Buffer )
     {
@@ -279,7 +279,7 @@ LABEL_32:
     }
     RtlAppendUnicodeStringToString(&Destination, &CmpClfsLogPrefix);
     RtlAppendUnicodeStringToString(&Destination, v24);
-    RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
+    RtlAppendUnicodeStringToString(&Destination, &GuidString);
     RtlAppendUnicodeStringToString(&Destination, &TmLogExt);
     IsFileInSystemConfig = CmpQueryFileSecurityDescriptor(*(HANDLE *)&Uuid.Data1, (struct _PRIVILEGE_SET **)&P);
     if ( IsFileInSystemConfig < 0 )
@@ -307,7 +307,7 @@ LABEL_32:
       {
         CmpDeleteCorruptedLogfile(
           Source[0],
-          &UnicodeString,
+          &GuidString,
           &TmLogExt,
           (const UNICODE_STRING *)&TmContainerExt,
           1u,
@@ -317,9 +317,9 @@ LABEL_32:
         a2 = v23;
       }
     }
-    RtlFreeAnsiString(&UnicodeString);
+    RtlFreeAnsiString(&GuidString);
     if ( v2 )
-      RtlFreeAnsiString(&String2);
+      RtlFreeAnsiString(&UnicodeString);
     ExFreePoolWithTag(P, 0);
     if ( IsFileInSystemConfig >= 0 )
       break;
@@ -368,10 +368,10 @@ LABEL_109:
     }
     if ( pplfoLog )
       ClfsCloseLogFileObject(pplfoLog);
+    if ( GuidString.Buffer )
+      RtlFreeAnsiString(&GuidString);
     if ( UnicodeString.Buffer )
       RtlFreeAnsiString(&UnicodeString);
-    if ( String2.Buffer )
-      RtlFreeAnsiString(&String2);
     if ( Destination.Buffer )
       RtlFreeAnsiString(&Destination);
     v43 = (void *)Pool2[6];

@@ -1,28 +1,28 @@
 /*
- * XREFs of ViFreeMapRegisterFile @ 0x140C26C90
+ * XREFs of ViFreeMapRegisterFile @ 0x140C2CCA0
  * Callers:
- *     VfAllocateAdapterChannel @ 0x140C230F0 (VfAllocateAdapterChannel.c)
- *     VfBuildScatterGatherList @ 0x140C23A10 (VfBuildScatterGatherList.c)
- *     VfCancelAdapterChannel @ 0x140C23F80 (VfCancelAdapterChannel.c)
- *     VfFreeAdapterChannel @ 0x140C24430 (VfFreeAdapterChannel.c)
- *     VfFreeAdapterObject @ 0x140C244E0 (VfFreeAdapterObject.c)
- *     VfFreeMapRegisters @ 0x140C24780 (VfFreeMapRegisters.c)
- *     VfGetScatterGatherList @ 0x140C24B80 (VfGetScatterGatherList.c)
- *     VfPutScatterGatherList @ 0x140C25980 (VfPutScatterGatherList.c)
- *     ViAdapterCallback @ 0x140C25C00 (ViAdapterCallback.c)
+ *     VfAllocateAdapterChannel @ 0x140C29100 (VfAllocateAdapterChannel.c)
+ *     VfBuildScatterGatherList @ 0x140C29A20 (VfBuildScatterGatherList.c)
+ *     VfCancelAdapterChannel @ 0x140C29F90 (VfCancelAdapterChannel.c)
+ *     VfFreeAdapterChannel @ 0x140C2A440 (VfFreeAdapterChannel.c)
+ *     VfFreeAdapterObject @ 0x140C2A4F0 (VfFreeAdapterObject.c)
+ *     VfFreeMapRegisters @ 0x140C2A790 (VfFreeMapRegisters.c)
+ *     VfGetScatterGatherList @ 0x140C2AB90 (VfGetScatterGatherList.c)
+ *     VfPutScatterGatherList @ 0x140C2B990 (VfPutScatterGatherList.c)
+ *     ViAdapterCallback @ 0x140C2BC10 (ViAdapterCallback.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     VfUtilFreePoolCheckIRQL @ 0x1403B7740 (VfUtilFreePoolCheckIRQL.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViCheckPadding @ 0x140C26560 (ViCheckPadding.c)
- *     ViFreeToContiguousMemory @ 0x140C26ED0 (ViFreeToContiguousMemory.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x1403C1640 (VfUtilFreePoolCheckIRQL.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViCheckPadding @ 0x140C2C570 (ViCheckPadding.c)
+ *     ViFreeToContiguousMemory @ 0x140C2CEE0 (ViFreeToContiguousMemory.c)
  */
 
-__int64 __fastcall ViFreeMapRegisterFile(__int64 a1, struct _SLIST_ENTRY *a2)
+__int64 __fastcall ViFreeMapRegisterFile(__int64 a1, _SLIST_ENTRY *a2)
 {
   KSPIN_LOCK *v4; // rdi
   KIRQL v5; // al
@@ -35,14 +35,14 @@ __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, struct _SLIST_ENTRY *a2)
   unsigned int v12; // r9d
   ULONG_PTR v13; // r8
   __int64 v14; // rdx
-  struct _SLIST_ENTRY *v15; // rcx
+  _SLIST_ENTRY *v15; // rcx
 
   if ( !a2 || LODWORD(a2->Next) != -1393569779 )
     return 0LL;
   v4 = (KSPIN_LOCK *)(a1 + 152);
   v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 152));
   v6 = *((_QWORD *)&a2->Next + 1);
-  if ( *(struct _SLIST_ENTRY **)(v6 + 8) != (struct _SLIST_ENTRY *)(&a2->Next + 1)
+  if ( *(_SLIST_ENTRY **)(v6 + 8) != (_SLIST_ENTRY *)(&a2->Next + 1)
     || (Next = a2[1].Next, Next->Next != (_SLIST_ENTRY *)(&a2->Next + 1)) )
   {
     __fastfail(3u);
@@ -81,7 +81,7 @@ __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, struct _SLIST_ENTRY *a2)
     ++v9;
   }
   IoFreeMdl(*((PMDL *)&a2[3].Next + 1));
-  v15 = (struct _SLIST_ENTRY *)*((_QWORD *)&a2[4].Next + 1);
+  v15 = (_SLIST_ENTRY *)*((_QWORD *)&a2[4].Next + 1);
   if ( v15 )
     VfUtilFreePoolCheckIRQL(v15);
   memset_0(a2, 0, 0x78uLL);

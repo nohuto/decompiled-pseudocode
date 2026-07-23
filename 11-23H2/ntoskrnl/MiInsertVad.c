@@ -1,31 +1,31 @@
 /*
- * XREFs of MiInsertVad @ 0x140287C90
+ * XREFs of MiInsertVad @ 0x140287F20
  * Callers:
- *     MiRemoveVad @ 0x14028A470 (MiRemoveVad.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F155C (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiPerformVadSplitting @ 0x14030B5F4 (MiPerformVadSplitting.c)
- *     MiInsertViewOfPhysicalSection @ 0x140630C30 (MiInsertViewOfPhysicalSection.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiInsertProcessVads @ 0x1406B3068 (MiInsertProcessVads.c)
- *     MiReserveUserMemory @ 0x14071F3E0 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x140720280 (MiMapViewOfDataSection.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1407CCB64 (MiAllocateNewSubAllocatedRegion.c)
- *     MiAllocateEnclaveVad @ 0x140A3CC88 (MiAllocateEnclaveVad.c)
- *     MiInsertChildVads @ 0x140A4908C (MiInsertChildVads.c)
+ *     MiRemoveVad @ 0x14028A700 (MiRemoveVad.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F17EC (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiPerformVadSplitting @ 0x14030B884 (MiPerformVadSplitting.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140631180 (MiInsertViewOfPhysicalSection.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiInsertProcessVads @ 0x1406B3098 (MiInsertProcessVads.c)
+ *     MiReserveUserMemory @ 0x14071F5E0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140720480 (MiMapViewOfDataSection.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1407CCE34 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateEnclaveVad @ 0x140A3CF38 (MiAllocateEnclaveVad.c)
+ *     MiInsertChildVads @ 0x140A4933C (MiInsertChildVads.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiIsVadLargePrivate @ 0x140288070 (MiIsVadLargePrivate.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     MiLocateLockedVadEvent @ 0x14030B424 (MiLocateLockedVadEvent.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAweViewInserter @ 0x140A412BC (MiAweViewInserter.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiIsVadLargePrivate @ 0x140288300 (MiIsVadLargePrivate.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiLocateLockedVadEvent @ 0x14030B6B4 (MiLocateLockedVadEvent.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAweViewInserter @ 0x140A4156C (MiAweViewInserter.c)
  */
 
 int __fastcall MiInsertVad(__int64 a1, __int64 a2, char a3)
@@ -141,10 +141,10 @@ int __fastcall MiInsertVad(__int64 a1, __int64 a2, char a3)
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28]
                                                          + 284));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

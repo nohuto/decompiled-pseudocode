@@ -1,12 +1,12 @@
 /*
- * XREFs of ExTryAcquireCacheAwarePushLockExclusiveEx @ 0x1405B3EA0
+ * XREFs of ExTryAcquireCacheAwarePushLockExclusiveEx @ 0x1405B40D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExTryAcquireCacheAwarePushLockExclusiveEx(
@@ -15,7 +15,7 @@ char __fastcall ExTryAcquireCacheAwarePushLockExclusiveEx(
 {
   ULONG_PTR v3; // rbp
   volatile signed __int32 **v4; // rsi
-  ULONG_PTR v5; // rdi
+  PRTL_BALANCED_NODE v5; // rdi
   volatile signed __int32 *v7; // rcx
 
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
@@ -30,7 +30,7 @@ char __fastcall ExTryAcquireCacheAwarePushLockExclusiveEx(
   {
 LABEL_9:
     if ( v5 )
-      *(_BYTE *)(v5 + 26) |= 1u;
+      BYTE2(v5[1].Left) |= 1u;
     return 1;
   }
   else
@@ -47,7 +47,7 @@ LABEL_9:
         ExfTryToWakePushLock(v7);
     }
     if ( v5 )
-      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v5);
+      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, (ULONG_PTR)v5);
     return 0;
   }
 }

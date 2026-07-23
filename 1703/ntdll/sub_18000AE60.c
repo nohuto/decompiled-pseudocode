@@ -20,12 +20,8 @@ __int64 __fastcall sub_18000AE60(__int64 a1)
   __int64 v8; // rdi
   unsigned int v9; // ebx
   __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  __int64 v16; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v17; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
 
   if ( (*(_BYTE *)(a1 + 20) & 1) != 0 )
     return 0LL;
@@ -45,14 +41,14 @@ __int64 __fastcall sub_18000AE60(__int64 a1)
   }
   v7 = *(_QWORD *)(a1 + 48);
   v8 = *(_QWORD *)(a1 + 40);
-  v16 = 0LL;
-  v17 = v7;
-  v9 = sub_18001E5E0(v4, &v17, &v16, 0x8000LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v11, v10, v12, v13) )
-    v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 558;
+  v12 = 0LL;
+  v13 = v7;
+  v9 = sub_18001E5E0(v4, &v13, &v12, 0x8000LL);
+  if ( RtlGetCurrentServiceSessionId() )
+    v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[4];
   else
-    v14 = 2147353480LL;
-  if ( *(_BYTE *)v14 )
-    sub_1800FDEE8(v8, v17, v16);
+    v10 = 2147353480LL;
+  if ( *(_BYTE *)v10 )
+    sub_1800FDEE8(v8, v13, v12);
   return v9;
 }

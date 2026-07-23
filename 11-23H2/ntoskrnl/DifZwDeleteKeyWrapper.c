@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwDeleteKeyWrapper @ 0x1405EF660
+ * XREFs of DifZwDeleteKeyWrapper @ 0x1405EFBD0
  * Callers:
  *     <none>
  * Callees:
- *     ZwDeleteKey @ 0x14041C8A0 (ZwDeleteKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwDeleteKey @ 0x14041CC30 (ZwDeleteKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwDeleteKeyWrapper(HANDLE KeyHandle)

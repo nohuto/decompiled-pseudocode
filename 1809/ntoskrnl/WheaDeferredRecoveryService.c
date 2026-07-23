@@ -1,5 +1,5 @@
 /*
- * XREFs of WheaDeferredRecoveryService @ 0x140320CC0
+ * XREFs of WheaDeferredRecoveryService @ 0x140320EB0
  * Callers:
  *     <none>
  * Callees:
@@ -12,6 +12,6 @@ __int64 WheaDeferredRecoveryService()
 
   result = (unsigned int)_InterlockedExchange(&WheaPendingDrsInterrupt, 0);
   if ( (_DWORD)result == 1 )
-    return KiInsertQueueDpc((ULONG_PTR)&WheapDispatchPtr.DeviceQueue.32, 0LL, 0LL, 0LL, 0);
+    return KiInsertQueueDpc((ULONG_PTR)&WheapDispatchPtr.Dpc.DeferredRoutine, 0LL, 0LL, 0LL, 0);
   return result;
 }

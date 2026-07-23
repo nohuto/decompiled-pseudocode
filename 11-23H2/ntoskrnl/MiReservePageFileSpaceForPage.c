@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReservePageFileSpaceForPage @ 0x140284E70
+ * XREFs of MiReservePageFileSpaceForPage @ 0x140285100
  * Callers:
  *     MiOutSwapWorkingSetPte @ 0x140215660 (MiOutSwapWorkingSetPte.c)
- *     MiReservePageFileSpace @ 0x1402849A0 (MiReservePageFileSpace.c)
+ *     MiReservePageFileSpace @ 0x140284C30 (MiReservePageFileSpace.c)
  * Callees:
  *     MiLockLeafPage @ 0x140218410 (MiLockLeafPage.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MI_IS_RESET_PTE @ 0x140285330 (MI_IS_RESET_PTE.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiInvalidPteConforms @ 0x1402DC440 (MiInvalidPteConforms.c)
- *     MiGetUsedPtesHandle @ 0x1402E5A70 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x1402F18D4 (MiIncreaseUsedPtesCount.c)
- *     MiPageStandbyLookasideStatus @ 0x140331450 (MiPageStandbyLookasideStatus.c)
- *     MiLockTransitionLeafPageEx @ 0x140347CA8 (MiLockTransitionLeafPageEx.c)
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_RESET_PTE @ 0x1402855C0 (MI_IS_RESET_PTE.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiInvalidPteConforms @ 0x1402DC6D0 (MiInvalidPteConforms.c)
+ *     MiGetUsedPtesHandle @ 0x1402E5D00 (MiGetUsedPtesHandle.c)
+ *     MiIncreaseUsedPtesCount @ 0x1402F1B64 (MiIncreaseUsedPtesCount.c)
+ *     MiPageStandbyLookasideStatus @ 0x1403316E0 (MiPageStandbyLookasideStatus.c)
+ *     MiLockTransitionLeafPageEx @ 0x140347F38 (MiLockTransitionLeafPageEx.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
  */
 
 __int64 __fastcall MiReservePageFileSpaceForPage(__int64 a1, unsigned __int64 *a2, char a3, unsigned __int64 *a4)

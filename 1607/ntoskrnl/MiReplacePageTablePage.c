@@ -1,23 +1,23 @@
 /*
- * XREFs of MiReplacePageTablePage @ 0x1400A55B8
+ * XREFs of MiReplacePageTablePage @ 0x1400A3B30
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MmStealTopLevelPage @ 0x1401E36D8 (MmStealTopLevelPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MmStealTopLevelPage @ 0x1401E3504 (MmStealTopLevelPage.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetLeafVa @ 0x1401F263C (MiGetLeafVa.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetLeafVa @ 0x1401F2468 (MiGetLeafVa.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 __int64 __fastcall MiReplacePageTablePage(__int64 a1)
@@ -132,10 +132,10 @@ __int64 __fastcall MiReplacePageTablePage(__int64 a1)
     v57 = 0;
     LeafVa = MiGetLeafVa(v3);
     if ( LeafVa > 0x7FFFFFFEFFFFLL
-      && (LeafVa < qword_140327F90 || LeafVa > qword_140326CF8)
+      && (LeafVa < qword_140327FD0 || LeafVa > qword_140326D38)
       && (LeafVa < 0xFFFFF68000000000uLL || LeafVa > 0xFFFFF6FFFFFFFFFFuLL) )
     {
-      if ( LeafVa < qword_140326910 || (v12 = 2, LeafVa >= qword_140326910 + 0x8000000000LL) )
+      if ( LeafVa < qword_140326950 || (v12 = 2, LeafVa >= qword_140326950 + 0x8000000000LL) )
         v12 = 0;
     }
   }
@@ -209,7 +209,7 @@ LABEL_23:
       }
     }
     ++v53;
-    if ( MI_GET_PAGE_FRAME_FROM_PTE(&v55) == qword_140327688 )
+    if ( MI_GET_PAGE_FRAME_FROM_PTE(&v55) == qword_1403276C8 )
       v56 += v24;
     if ( v58 != v59 )
     {

@@ -23,9 +23,9 @@ __int64 __fastcall ExpSvmDereferenceDevice(_DWORD *P)
 {
   struct _KTHREAD *CurrentThread; // rbp
   unsigned int v2; // r14d
-  unsigned __int64 v4; // rax
+  PRTL_BALANCED_NODE v4; // rax
   signed __int8 v5; // cf
-  unsigned __int64 v6; // rdi
+  PRTL_BALANCED_NODE v6; // rdi
   unsigned int SessionId; // esi
   bool v8; // zf
   void (__fastcall *v9)(__int64, int *); // rax
@@ -51,9 +51,9 @@ __int64 __fastcall ExpSvmDereferenceDevice(_DWORD *P)
   v5 = _interlockedbittestandset64((volatile signed __int32 *)&ExpSvmDeviceListLock, 0LL);
   v6 = v4;
   if ( v5 )
-    ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, v4, (__int16 *)&ExpSvmDeviceListLock);
+    ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, (__int64)v4, (__int16 *)&ExpSvmDeviceListLock);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   SessionId = -1;
   v8 = P[6]-- == 1;
   if ( v8 )
@@ -110,7 +110,7 @@ LABEL_21:
   }
   v18->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v18->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v13->LockEntries[v17]);
+    KiAbEntryRemoveFromTree(&v13->LockEntries[v17].TreeNode);
   v23[0] = 0;
   v23[0] = v18->BoostBitmap.AllFields & 0x1FFFF;
   v18->BoostBitmap.AllFields &= 0xFFFE0000;

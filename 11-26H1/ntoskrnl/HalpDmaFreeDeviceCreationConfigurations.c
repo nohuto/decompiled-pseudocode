@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaFreeDeviceCreationConfigurations @ 0x140578CE8
+ * XREFs of HalpDmaFreeDeviceCreationConfigurations @ 0x14057B218
  * Callers:
- *     HalpDmaAllocateDeviceCreationConfigurations @ 0x140578938 (HalpDmaAllocateDeviceCreationConfigurations.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x14078041C (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateDeviceCreationConfigurations @ 0x14057AE68 (HalpDmaAllocateDeviceCreationConfigurations.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140782F1C (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
  */
 
 void __fastcall HalpDmaFreeDeviceCreationConfigurations(_QWORD *a1)

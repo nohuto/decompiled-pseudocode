@@ -1,11 +1,11 @@
 /*
- * XREFs of VslUpdateFreezeTimeBias @ 0x140B23D94
+ * XREFs of VslUpdateFreezeTimeBias @ 0x140B26194
  * Callers:
- *     PsThawMultiProcess @ 0x14051967C (PsThawMultiProcess.c)
+ *     PsThawMultiProcess @ 0x1405130EC (PsThawMultiProcess.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslUpdateFreezeTimeBias(__int64 a1, __int64 a2)

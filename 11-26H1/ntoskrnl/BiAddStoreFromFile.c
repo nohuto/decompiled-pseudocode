@@ -1,18 +1,18 @@
 /*
- * XREFs of BiAddStoreFromFile @ 0x1409D35AC
+ * XREFs of BiAddStoreFromFile @ 0x1409A458C
  * Callers:
- *     BiLoadSystemStore @ 0x1409CFE10 (BiLoadSystemStore.c)
+ *     BiLoadSystemStore @ 0x1409A0DF0 (BiLoadSystemStore.c)
  * Callees:
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     BiDoesHiveKeyExist @ 0x140892D5C (BiDoesHiveKeyExist.c)
- *     BiUnloadHiveByName @ 0x1409D0360 (BiUnloadHiveByName.c)
- *     BiLoadHive @ 0x1409D0564 (BiLoadHive.c)
- *     BiSetRegistryValue @ 0x1409D47E0 (BiSetRegistryValue.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     BiCreateKey @ 0x1409D5868 (BiCreateKey.c)
- *     BiOpenKey @ 0x1409D5F14 (BiOpenKey.c)
- *     BiCloseKey @ 0x1409D6368 (BiCloseKey.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     BiDoesHiveKeyExist @ 0x14089915C (BiDoesHiveKeyExist.c)
+ *     BiUnloadHiveByName @ 0x1409A1340 (BiUnloadHiveByName.c)
+ *     BiLoadHive @ 0x1409A1544 (BiLoadHive.c)
+ *     BiSetRegistryValue @ 0x1409A57C0 (BiSetRegistryValue.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     BiCreateKey @ 0x1409A6848 (BiCreateKey.c)
+ *     BiOpenKey @ 0x1409A6EF4 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1409A7258 (BiCloseKey.c)
  */
 
 __int64 __fastcall BiAddStoreFromFile(__int64 a1, char a2, __int64 a3, HANDLE *a4)

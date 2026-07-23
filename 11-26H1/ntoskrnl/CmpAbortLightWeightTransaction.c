@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpAbortLightWeightTransaction @ 0x1408AE518
+ * XREFs of CmpAbortLightWeightTransaction @ 0x1408B4958
  * Callers:
- *     CmpRollbackLightWeightTransaction @ 0x1408AE484 (CmpRollbackLightWeightTransaction.c)
- *     CmpCommitLightWeightTransaction @ 0x1408AE64C (CmpCommitLightWeightTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1408B48C4 (CmpRollbackLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x1408B4A8C (CmpCommitLightWeightTransaction.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmpCleanupLightWeightTransaction @ 0x1408AECE8 (CmpCleanupLightWeightTransaction.c)
- *     CmpTransMgrRollback @ 0x1408AEDA8 (CmpTransMgrRollback.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpCleanupLightWeightTransaction @ 0x1408B5128 (CmpCleanupLightWeightTransaction.c)
+ *     CmpTransMgrRollback @ 0x1408B51E8 (CmpTransMgrRollback.c)
  */
 
 int __fastcall CmpAbortLightWeightTransaction(__int64 a1)
@@ -28,7 +28,7 @@ int __fastcall CmpAbortLightWeightTransaction(__int64 a1)
     if ( v4 == qword_140E09F00 )
       LODWORD(v4) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)&dword_140E09EE8,
-                      (unsigned __int8 *)qword_140056730,
+                      (unsigned __int8 *)byte_140057723,
                       0LL,
                       0LL,
                       2u,
@@ -51,7 +51,7 @@ int __fastcall CmpAbortLightWeightTransaction(__int64 a1)
       v9 = 4LL;
       LODWORD(v4) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)&dword_140E09EE8,
-                      (unsigned __int8 *)word_1400566FA,
+                      (unsigned __int8 *)byte_1400576ED,
                       0LL,
                       0LL,
                       3u,

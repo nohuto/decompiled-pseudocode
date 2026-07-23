@@ -1,36 +1,36 @@
 /*
- * XREFs of PopRundownPowerSettings @ 0x140AC1020
+ * XREFs of PopRundownPowerSettings @ 0x140AC30C0
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140AC0910 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140AC29B0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     PopDiagTracePowerSetting @ 0x140AC10A0 (PopDiagTracePowerSetting.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     PopDiagTracePowerSetting @ 0x140AC3140 (PopDiagTracePowerSetting.c)
  */
 
 void PopRundownPowerSettings()
 {
   __int64 v0; // rcx
-  struct _KTHREAD *v1; // rbx
-  __int64 v2; // rdi
-  __int64 v3; // r8
+  PVOID *v1; // rbx
+  __int64 Next_high; // rdi
+  unsigned int *v3; // r8
 
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
-  v1 = *(struct _KTHREAD **)&stru_140F10828.ThreadTimerDelay;
-  if ( *(struct _KTHREAD **)&stru_140F10828.ThreadTimerDelay != (struct _KTHREAD *)&stru_140F10828.ThreadTimerDelay )
+  ExAcquireFastMutex(&PopSettingLock);
+  v1 = (PVOID *)PopPowerSettings;
+  if ( PopPowerSettings != &PopPowerSettings )
   {
-    v2 = dword_140F106CC;
+    Next_high = SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
     do
     {
-      v3 = *(&v1->ThreadLock + v2);
+      v3 = (unsigned int *)v1[Next_high + 8];
       if ( v3 )
       {
         LOBYTE(v0) = 1;
-        PopDiagTracePowerSetting(v0, &v1->QuantumTarget, *(unsigned int *)(v3 + 4), v3 + 12);
+        PopDiagTracePowerSetting(v0, v1 + 4, v3[1], v3 + 3);
       }
-      v1 = *(struct _KTHREAD **)&v1->Header.Lock;
+      v1 = (PVOID *)*v1;
     }
-    while ( v1 != (struct _KTHREAD *)&stru_140F10828.ThreadTimerDelay );
+    while ( v1 != &PopPowerSettings );
   }
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  KeReleaseGuardedMutex(&PopSettingLock);
 }

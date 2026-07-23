@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateAccessLog @ 0x1402E6400
+ * XREFs of MiAllocateAccessLog @ 0x1402E6690
  * Callers:
- *     MiLogPageAccess @ 0x14027CBB0 (MiLogPageAccess.c)
+ *     MiLogPageAccess @ 0x14027CE40 (MiLogPageAccess.c)
  * Callees:
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiEmptyPageAccessLog @ 0x1402E1F40 (MiEmptyPageAccessLog.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     MiInitializePageAccessLogging @ 0x1402E6508 (MiInitializePageAccessLogging.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiEmptyPageAccessLog @ 0x1402E21D0 (MiEmptyPageAccessLog.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
+ *     MiInitializePageAccessLogging @ 0x1402E6798 (MiInitializePageAccessLogging.c)
  */
 
 unsigned __int64 **__fastcall MiAllocateAccessLog(__int64 a1)

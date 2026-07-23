@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipNotificationIrpCancel @ 0x1403DCA30
+ * XREFs of WmipNotificationIrpCancel @ 0x1403CB730
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1402D6B90 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     WmipClearIrpObjectList @ 0x1403DC678 (WmipClearIrpObjectList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x140357E10 (KxAcquireQueuedSpinLock.c)
+ *     WmipClearIrpObjectList @ 0x1403CBB0C (WmipClearIrpObjectList.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
  */
 
 void __fastcall WmipNotificationIrpCancel(__int64 a1, IRP *a2)
@@ -19,7 +19,7 @@ void __fastcall WmipNotificationIrpCancel(__int64 a1, IRP *a2)
   v4[0] = 0LL;
   v4[1] = (volatile signed __int64 *)&WmipCancelSpinLock;
   KxAcquireQueuedSpinLock((__int64)v4, (volatile __int64 *)&WmipCancelSpinLock);
-  WmipClearIrpObjectList((__int64)a2);
+  WmipClearIrpObjectList(a2);
   KxReleaseQueuedSpinLock(v4, v3);
   KeReleaseQueuedSpinLock(7uLL, a2->CancelIrql);
   a2->IoStatus.Information = 0LL;

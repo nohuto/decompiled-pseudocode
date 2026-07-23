@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpFindNextDirtyRun @ 0x140296CF0
+ * XREFs of HvpFindNextDirtyRun @ 0x140296F80
  * Callers:
- *     HvpFindNextDirtyBlock @ 0x14070919C (HvpFindNextDirtyBlock.c)
+ *     HvpFindNextDirtyBlock @ 0x1407093AC (HvpFindNextDirtyBlock.c)
  * Callees:
  *     <none>
  */

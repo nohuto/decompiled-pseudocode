@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpFindValueByName @ 0x14086A794
+ * XREFs of CmpFindValueByName @ 0x14086EAC4
  * Callers:
- *     CmpMarkCurrentProfileDirty @ 0x1407CBBCC (CmpMarkCurrentProfileDirty.c)
- *     CmpMarkCurrentValueDirty @ 0x1407CBD3C (CmpMarkCurrentValueDirty.c)
- *     CmpFindControlSet @ 0x1407E16C4 (CmpFindControlSet.c)
- *     CmpPreserveSystemHiveData @ 0x1407E21A8 (CmpPreserveSystemHiveData.c)
- *     CmQueryMultipleValueKey @ 0x14086C850 (CmQueryMultipleValueKey.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140C48474 (CmSelectQualifiedInstallLanguage.c)
- *     CmpGetSystemControlValues @ 0x140C48AB8 (CmpGetSystemControlValues.c)
- *     CmpAddDriverToList @ 0x140C4AC68 (CmpAddDriverToList.c)
- *     CmpFindTagIndex @ 0x140C4BB38 (CmpFindTagIndex.c)
- *     CmpGetStateSepKeysRedirectionPathValue @ 0x140C4BF4C (CmpGetStateSepKeysRedirectionPathValue.c)
- *     CmpIsLoadType @ 0x140C4C108 (CmpIsLoadType.c)
- *     CmpSortDriverList @ 0x140C4C8E0 (CmpSortDriverList.c)
+ *     CmpMarkCurrentProfileDirty @ 0x1407CC0BC (CmpMarkCurrentProfileDirty.c)
+ *     CmpMarkCurrentValueDirty @ 0x1407CC22C (CmpMarkCurrentValueDirty.c)
+ *     CmpFindControlSet @ 0x1407E1C14 (CmpFindControlSet.c)
+ *     CmpPreserveSystemHiveData @ 0x1407E26F8 (CmpPreserveSystemHiveData.c)
+ *     CmQueryMultipleValueKey @ 0x140870B80 (CmQueryMultipleValueKey.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140C4A598 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpGetSystemControlValues @ 0x140C4ABDC (CmpGetSystemControlValues.c)
+ *     CmpAddDriverToList @ 0x140C4CE04 (CmpAddDriverToList.c)
+ *     CmpFindTagIndex @ 0x140C4DCD4 (CmpFindTagIndex.c)
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140C4E0E8 (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     CmpIsLoadType @ 0x140C4E2A4 (CmpIsLoadType.c)
+ *     CmpSortDriverList @ 0x140C4EA7C (CmpSortDriverList.c)
  * Callees:
- *     CmpFindNameInListWithStatus @ 0x14086C510 (CmpFindNameInListWithStatus.c)
+ *     CmpFindNameInListWithStatus @ 0x140870840 (CmpFindNameInListWithStatus.c)
  */
 
 __int64 __fastcall CmpFindValueByName(ULONG_PTR a1)

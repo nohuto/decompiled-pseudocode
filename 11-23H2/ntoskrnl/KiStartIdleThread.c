@@ -1,14 +1,14 @@
 /*
- * XREFs of KiStartIdleThread @ 0x140382914
+ * XREFs of KiStartIdleThread @ 0x140382AB4
  * Callers:
- *     KiInitializeAndStartInitialThread @ 0x1403B394C (KiInitializeAndStartInitialThread.c)
+ *     KiInitializeAndStartInitialThread @ 0x1403B3B2C (KiInitializeAndStartInitialThread.c)
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
  * Callees:
- *     KiInitializeContextThread @ 0x1402BE74C (KiInitializeContextThread.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x140348BA0 (KeInterlockedSetProcessorAffinityEx.c)
- *     KiInitializePriorityState @ 0x1403829D0 (KiInitializePriorityState.c)
- *     KiStartPrcbThread @ 0x140382A20 (KiStartPrcbThread.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiInitializeContextThread @ 0x1402BE9DC (KiInitializeContextThread.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140348E30 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KiInitializePriorityState @ 0x140382B70 (KiInitializePriorityState.c)
+ *     KiStartPrcbThread @ 0x140382BC0 (KiStartPrcbThread.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiStartIdleThread(__int64 a1, __int64 a2, __int64 a3)

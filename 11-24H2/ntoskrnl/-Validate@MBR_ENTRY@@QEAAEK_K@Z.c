@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x14069E644
+ * XREFs of ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x14069F6DC
  * Callers:
- *     ?IsVbr@SC_DISK@@QEAAEXZ @ 0x14069DBA0 (-IsVbr@SC_DISK@@QEAAEXZ.c)
- *     ?ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14069E36C (-ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?IsVbr@SC_DISK@@QEAAEXZ @ 0x14069EC34 (-IsVbr@SC_DISK@@QEAAEXZ.c)
+ *     ?ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14069F3FC (-ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
  *     <none>
  */

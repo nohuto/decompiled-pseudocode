@@ -1,12 +1,12 @@
 /*
- * XREFs of MmReadProcessPageTables @ 0x140645810
+ * XREFs of MmReadProcessPageTables @ 0x140645D60
  * Callers:
- *     KiMonitorCacheErrata @ 0x140579340 (KiMonitorCacheErrata.c)
+ *     KiMonitorCacheErrata @ 0x140579830 (KiMonitorCacheErrata.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     KeFlushSingleCurrentTb @ 0x14038CC20 (KeFlushSingleCurrentTb.c)
- *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14046B410 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     KeFlushSingleCurrentTb @ 0x14038CE00 (KeFlushSingleCurrentTb.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14046B810 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 __int64 __fastcall MmReadProcessPageTables(__int64 a1)

@@ -1,29 +1,29 @@
 /*
  * XREFs of MiConvertEntireLargePageToSmall @ 0x1403F5C28
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x140210120 (MiResolvePrivateZeroFault.c)
- *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
- *     MiDemoteLocalLargePage @ 0x140232110 (MiDemoteLocalLargePage.c)
- *     MiLargeFreePageToMdl @ 0x14029167C (MiLargeFreePageToMdl.c)
- *     MiInsertLargePageChain @ 0x1402FE784 (MiInsertLargePageChain.c)
- *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
- *     MiFindLargeNodePage @ 0x140394ED0 (MiFindLargeNodePage.c)
+ *     MiLargeFreePageToMdl @ 0x14020F5EC (MiLargeFreePageToMdl.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B4A20 (MiResolvePrivateZeroFault.c)
+ *     MiGetPageChain @ 0x1402B7610 (MiGetPageChain.c)
+ *     MiDemoteLocalLargePage @ 0x1402D6960 (MiDemoteLocalLargePage.c)
+ *     MiInsertLargePageChain @ 0x1403094D4 (MiInsertLargePageChain.c)
+ *     MiInsertLargePageInNodeList @ 0x1403097A0 (MiInsertLargePageInNodeList.c)
+ *     MiFindLargeNodePage @ 0x140395020 (MiFindLargeNodePage.c)
  *     MiUpdateLargePageSectionPfns @ 0x1403F41AC (MiUpdateLargePageSectionPfns.c)
- *     MiPrefetchPreallocatePages @ 0x140539620 (MiPrefetchPreallocatePages.c)
- *     MiProcessVaContiguityInformation @ 0x1405522C0 (MiProcessVaContiguityInformation.c)
- *     MiGetClusterPage @ 0x140555970 (MiGetClusterPage.c)
- *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
- *     MiInitializeNonPagedPool @ 0x140A4E39C (MiInitializeNonPagedPool.c)
- *     MiCreateKernelHalSlabRange @ 0x140A4F6A0 (MiCreateKernelHalSlabRange.c)
+ *     MiPrefetchPreallocatePages @ 0x140539860 (MiPrefetchPreallocatePages.c)
+ *     MiProcessVaContiguityInformation @ 0x140552500 (MiProcessVaContiguityInformation.c)
+ *     MiGetClusterPage @ 0x140555BB0 (MiGetClusterPage.c)
+ *     MiIdealClusterPage @ 0x140556054 (MiIdealClusterPage.c)
+ *     MiInitializeNonPagedPool @ 0x140A4F39C (MiInitializeNonPagedPool.c)
+ *     MiCreateKernelHalSlabRange @ 0x140A506A0 (MiCreateKernelHalSlabRange.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiSetPfnBlink @ 0x140322E80 (MiSetPfnBlink.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140334C80 (MiSetOriginalPtePfnFromFreeList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiConvertLargePfnToSmall @ 0x1403F5FC8 (MiConvertLargePfnToSmall.c)
- *     MiArePageContentsZero @ 0x14054EBC8 (MiArePageContentsZero.c)
+ *     MiArePageContentsZero @ 0x14054EE08 (MiArePageContentsZero.c)
  */
 
 __int64 __fastcall MiConvertEntireLargePageToSmall(
@@ -112,7 +112,7 @@ __int64 __fastcall MiConvertEntireLargePageToSmall(
           *(_QWORD *)(v11 + 16) = ZeroPte;
           if ( (v12 & 1) != 0 )
           {
-            if ( (MiFlags & 0x80u) != 0 && (++dword_140C4E7CC & MmPageValidationFrequency) == 0 )
+            if ( (MiFlags & 0x80u) != 0 && (++dword_140C4E80C & MmPageValidationFrequency) == 0 )
             {
               MiArePageContentsZero(v14);
 LABEL_28:

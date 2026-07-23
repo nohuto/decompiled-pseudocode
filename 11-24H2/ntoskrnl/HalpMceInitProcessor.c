@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMceInitProcessor @ 0x140B687E8
+ * XREFs of HalpMceInitProcessor @ 0x140B6D428
  * Callers:
- *     HalpInitializeMce @ 0x140B4BBE4 (HalpInitializeMce.c)
- *     HalpMceInit @ 0x140B68694 (HalpMceInit.c)
+ *     HalpInitializeMce @ 0x140B4DC24 (HalpInitializeMce.c)
+ *     HalpMceInit @ 0x140B6D2D4 (HalpMceInit.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpMcaSetProcessorConfig @ 0x140B68F1C (HalpMcaSetProcessorConfig.c)
- *     HalpMceInitializeErrorPacket @ 0x140B6D8FC (HalpMceInitializeErrorPacket.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpMcaSetProcessorConfig @ 0x140B6D5A8 (HalpMcaSetProcessorConfig.c)
+ *     HalpMceInitializeErrorPacket @ 0x140B6F19C (HalpMceInitializeErrorPacket.c)
  */
 
 __int64 __fastcall HalpMceInitProcessor(__int64 a1, __int64 a2)

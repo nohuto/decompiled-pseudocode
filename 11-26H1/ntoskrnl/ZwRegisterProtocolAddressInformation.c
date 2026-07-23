@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwRegisterProtocolAddressInformation @ 0x140726370
+ * XREFs of ZwRegisterProtocolAddressInformation @ 0x14072AF40
  * Callers:
- *     DifZwRegisterProtocolAddressInformationWrapper @ 0x1406B6590 (DifZwRegisterProtocolAddressInformationWrapper.c)
+ *     DifZwRegisterProtocolAddressInformationWrapper @ 0x1406BA170 (DifZwRegisterProtocolAddressInformationWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRegisterProtocolAddressInformation(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRegisterProtocolAddressInformation(
+        HANDLE ResourceManager,
+        PCRM_PROTOCOL_ID ProtocolId,
+        ULONG ProtocolInformationSize,
+        PVOID ProtocolInformation,
+        ULONG CreateOptions)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ResourceManager);
 }

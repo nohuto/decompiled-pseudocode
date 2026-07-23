@@ -1,7 +1,7 @@
 /*
  * XREFs of KeFreezeExecution @ 0x14020D540
  * Callers:
- *     ExpWaitForBootDevices @ 0x140609720 (ExpWaitForBootDevices.c)
+ *     ExpWaitForBootDevices @ 0x140609C70 (ExpWaitForBootDevices.c)
  *     KdEnterDebugger @ 0x140AB0144 (KdEnterDebugger.c)
  * Callees:
  *     KiSendFreeze @ 0x14020D150 (KiSendFreeze.c)
@@ -9,15 +9,15 @@
  *     KxTryToAcquireSpinLock @ 0x14020D8E4 (KxTryToAcquireSpinLock.c)
  *     RtlWriteTryAcquireTickLock @ 0x14020D914 (RtlWriteTryAcquireTickLock.c)
  *     KiStartDebugAccumulation @ 0x14020E460 (KiStartDebugAccumulation.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 bool KeFreezeExecution()
@@ -62,7 +62,7 @@ bool KeFreezeExecution()
   v3 = (v0 & 0x200) != 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v18 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -144,7 +144,7 @@ LABEL_20:
       {
         v13 = KeQueryPerformanceCounter(&PerformanceFrequency);
         v14 = MmWriteableSharedUserData;
-        v15 = (unsigned int)KeMaximumIncrement;
+        v15 = KeMaximumIncrement;
         v16 = MEMORY[0xFFFFF78000000008]
             + 10000000 * (v13.QuadPart - MEMORY[0xFFFFF78000000350]) / (unsigned __int64)PerformanceFrequency.LowPart;
         *(_DWORD *)(MmWriteableSharedUserData + 16) = HIDWORD(v16);

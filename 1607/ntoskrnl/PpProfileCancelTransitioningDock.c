@@ -1,15 +1,15 @@
 /*
- * XREFs of PpProfileCancelTransitioningDock @ 0x14064234C
+ * XREFs of PpProfileCancelTransitioningDock @ 0x140642430
  * Callers:
- *     PipProcessEnumeratedChildDevice @ 0x1403F32E8 (PipProcessEnumeratedChildDevice.c)
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PipProcessEnumeratedChildDevice @ 0x1403F21AC (PipProcessEnumeratedChildDevice.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeReleaseSemaphore @ 0x1400529B0 (KeReleaseSemaphore.c)
- *     PnpRequestHwProfileChangeNotification @ 0x14062BDA4 (PnpRequestHwProfileChangeNotification.c)
- *     PiProfileUpdateDeviceTree @ 0x140641F90 (PiProfileUpdateDeviceTree.c)
- *     PnpProfileUpdateHardwareProfile @ 0x1406420C0 (PnpProfileUpdateHardwareProfile.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeReleaseSemaphore @ 0x140052530 (KeReleaseSemaphore.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x14062BE58 (PnpRequestHwProfileChangeNotification.c)
+ *     PiProfileUpdateDeviceTree @ 0x140642074 (PiProfileUpdateDeviceTree.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x1406421A4 (PnpProfileUpdateHardwareProfile.c)
  */
 
 void __fastcall PpProfileCancelTransitioningDock(__int64 a1, int a2)

@@ -22,20 +22,19 @@ char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
   unsigned int v5; // edx
   unsigned int v6; // ecx
   _WORD *v7; // rax
-  _WORD *NtSystemRoot; // rax
-  void *v9; // rsi
-  int v10; // eax
-  __int64 v11; // rcx
-  __int64 v12; // rax
+  const WCHAR *NtSystemRoot; // rax
+  wchar_t *Buffer; // rsi
+  int Dll; // eax
+  PVOID *v11; // rcx
+  PIMAGE_NT_HEADERS v12; // rax
   __int64 v13; // r8
   __int64 v14; // rdx
   __int64 (__fastcall *v15)(__int64, _QWORD, __int64); // rcx
   __int64 v16; // rsi
   _QWORD v18[2]; // [rsp+38h] [rbp-D0h] BYREF
-  int v19; // [rsp+48h] [rbp-C0h] BYREF
-  void *v20; // [rsp+50h] [rbp-B8h]
-  __int64 v21; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v22[16]; // [rsp+60h] [rbp-A8h] BYREF
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-C0h] BYREF
+  PVOID *v20; // [rsp+58h] [rbp-B0h] BYREF
+  const WCHAR *v21[16]; // [rsp+60h] [rbp-A8h] BYREF
 
   v18[1] = a1;
   v2 = 0;
@@ -60,30 +59,30 @@ char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
 LABEL_10:
   if ( v3 != 1 )
   {
-    v20 = &unk_18017B0F0;
-    v19 = 34078720;
-    NtSystemRoot = (_WORD *)RtlGetNtSystemRoot();
-    RtlAppendUnicodeToString((unsigned __int16 *)&v19, NtSystemRoot);
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v19, (const void **)SlashSystem32SlashString);
-    v9 = v20;
-    LdrpInitializeDllPath(0LL, (__int64)v20, v22);
-    v10 = LdrpLoadDll((unsigned __int16 *)(a1 + 16), (int)v22, 1u, &v21);
-    if ( v10 < 0 )
+    Destination.Buffer = (wchar_t *)&unk_18017B0F0;
+    *(_DWORD *)&Destination.Length = 34078720;
+    NtSystemRoot = RtlGetNtSystemRoot();
+    RtlAppendUnicodeToString(&Destination, NtSystemRoot);
+    RtlAppendUnicodeStringToString(&Destination, &SlashSystem32SlashString);
+    Buffer = Destination.Buffer;
+    LdrpInitializeDllPath(0LL, Destination.Buffer, v21);
+    Dll = LdrpLoadDll((unsigned __int16 *)(a1 + 16), (int)v21, 1, (PVOID *)&v20);
+    if ( Dll < 0 )
     {
       DbgPrint(
         "AVRF: %ws: failed to load provider `%ws' (status %08X) from %ws\n",
         *(_QWORD *)(qword_18017A150 + 96),
         *(_QWORD *)(a1 + 24),
-        (unsigned int)v10,
-        v9);
+        (unsigned int)Dll,
+        Buffer);
       return 0;
     }
-    v11 = v21;
-    *(_QWORD *)(a1 + 32) = v21;
-    v12 = RtlImageNtHeader(*(_QWORD *)(v11 + 48));
+    v11 = v20;
+    *(_QWORD *)(a1 + 32) = v20;
+    v12 = RtlImageNtHeader(v11[6]);
     if ( v12 )
     {
-      if ( (*(_WORD *)(v12 + 22) & 0x2000) != 0 )
+      if ( (v12->FileHeader.Characteristics & 0x2000) != 0 )
       {
         *(_DWORD *)(*(_QWORD *)(a1 + 32) + 104LL) |= 0x400u;
         v14 = *(_QWORD *)(a1 + 32);

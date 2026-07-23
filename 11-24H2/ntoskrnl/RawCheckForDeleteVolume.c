@@ -1,13 +1,13 @@
 /*
- * XREFs of RawCheckForDeleteVolume @ 0x1404BC1EC
+ * XREFs of RawCheckForDeleteVolume @ 0x1404B6EAC
  * Callers:
- *     RawScanDeletedList @ 0x1409A4080 (RawScanDeletedList.c)
+ *     RawScanDeletedList @ 0x1408ACE04 (RawScanDeletedList.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     RawCleanupVcb @ 0x1409A46D4 (RawCleanupVcb.c)
- *     RawDeleteVcb @ 0x140A70C4C (RawDeleteVcb.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     RawCleanupVcb @ 0x1408AE3C4 (RawCleanupVcb.c)
+ *     RawDeleteVcb @ 0x140A6A0DC (RawDeleteVcb.c)
  */
 
 char __fastcall RawCheckForDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)

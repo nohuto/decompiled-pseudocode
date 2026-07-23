@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateImportList @ 0x1404EB848
+ * XREFs of MiAllocateImportList @ 0x1404CD8D0
  * Callers:
- *     MiResolveImageReferences @ 0x14046C67C (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x14046B54C (MiResolveImageReferences.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

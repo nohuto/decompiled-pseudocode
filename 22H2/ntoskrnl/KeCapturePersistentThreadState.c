@@ -36,52 +36,51 @@ __int64 __fastcall KeCapturePersistentThreadState(
   unsigned __int64 v14; // rdx
   ULONG ActiveProcessorCount; // eax
   __int64 v16; // rdx
-  __int64 v17; // rdx
-  unsigned int v18; // esi
-  _OWORD *v19; // rcx
-  int v20; // eax
-  _OWORD *v21; // rax
-  __int128 v22; // xmm1
-  __int128 v23; // xmm0
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  size_t v26; // r8
-  int v27; // esi
-  __int64 v28; // rcx
-  size_t v29; // r8
-  int v30; // esi
+  unsigned int v17; // esi
+  _OWORD *v18; // rcx
+  int v19; // eax
+  _OWORD *v20; // rax
+  __int128 v21; // xmm1
+  __int128 v22; // xmm0
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  size_t v25; // r8
+  int v26; // esi
+  __int64 v27; // rcx
+  size_t v28; // r8
+  int v29; // esi
   const void *StackLimit; // rcx
   void *StackBase; // rax
-  const void *v33; // r14
-  unsigned int v34; // eax
-  int v35; // edi
-  size_t v36; // r8
-  struct _KTHREAD *v37; // rax
-  unsigned int v38; // edi
-  int v39; // r14d
-  unsigned int v40; // r15d
-  int v41; // eax
-  __int64 v42; // r14
-  unsigned int v43; // edi
+  const void *v32; // r14
+  unsigned int v33; // eax
+  int v34; // edi
+  size_t v35; // r8
+  struct _KTHREAD *v36; // rax
+  unsigned int v37; // edi
+  int v38; // r14d
+  unsigned int v39; // r15d
+  int v40; // eax
+  __int64 v41; // r14
+  unsigned int v42; // edi
   unsigned int MaxValidSectionSizeDown; // eax
-  const void *v45; // rsi
+  const void *v44; // rsi
   unsigned int MaxValidSectionSize; // eax
-  __int64 v47; // rcx
+  __int64 v46; // rcx
   __int64 result; // rax
-  int v49; // [rsp+20h] [rbp-20h] BYREF
-  int v50; // [rsp+24h] [rbp-1Ch] BYREF
-  __int64 v51; // [rsp+28h] [rbp-18h] BYREF
-  int v52; // [rsp+30h] [rbp-10h]
+  int v48; // [rsp+20h] [rbp-20h] BYREF
+  int v49; // [rsp+24h] [rbp-1Ch] BYREF
+  __int64 v50; // [rsp+28h] [rbp-18h] BYREF
+  int v51; // [rsp+30h] [rbp-10h]
 
   v8 = Size;
-  v51 = 0LL;
-  v52 = 0;
+  v50 = 0LL;
+  v51 = 0;
   CurrentThread = a2;
   if ( !Size )
     return 0LL;
   if ( !a2 )
     CurrentThread = KeGetCurrentThread();
-  if ( ForceDumpDisabled || (int)SecureDump_GetSecureDumpSettings((__int64)&v51) < 0 || (_BYTE)v51 )
+  if ( ForceDumpDisabled || (int)SecureDump_GetSecureDumpSettings((__int64)&v50) < 0 || (_BYTE)v50 )
     return 0LL;
   memset((void *)(v8 + 8), 0, 0x3FFF8uLL);
   v13 = (void *)v8;
@@ -123,134 +122,134 @@ __int64 __fastcall KeCapturePersistentThreadState(
   *(_DWORD *)(v8 + 3992) = 4;
   *(_DWORD *)(v8 + 4152) = 130;
   *(_DWORD *)(v8 + 4176) = 24;
-  RtlGetNtProductType((_DWORD *)(v8 + 4160), v16);
-  v17 = 9LL;
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)(v8 + 4160));
+  v16 = 9LL;
   *(_DWORD *)(v8 + 4164) = MEMORY[0xFFFFF780000002D0];
-  v18 = 8320;
-  v19 = (_OWORD *)a1;
+  v17 = 8320;
+  v18 = (_OWORD *)a1;
   *(_DWORD *)(v8 + 4180) = MEMORY[0xFFFFF780000002C4];
   *(_DWORD *)(v8 + 8260) = 0;
-  v20 = CmNtCSDVersion;
+  v19 = CmNtCSDVersion;
   *(_DWORD *)(v8 + 8256) = 0;
-  *(_DWORD *)(v8 + 0x2000) = v20;
-  v21 = (_OWORD *)(v8 + 840);
+  *(_DWORD *)(v8 + 0x2000) = v19;
+  v20 = (_OWORD *)(v8 + 840);
   *(_DWORD *)(v8 + 8196) = 0x40000;
   *(_DWORD *)(v8 + 8208) = 3840;
   *(_DWORD *)(v8 + 4152) |= 1u;
   *(_DWORD *)(v8 + 8204) = 840;
   do
   {
-    *v21 = *v19;
-    v21[1] = v19[1];
-    v21[2] = v19[2];
-    v21[3] = v19[3];
-    v21[4] = v19[4];
-    v21[5] = v19[5];
-    v21[6] = v19[6];
-    v21 += 8;
-    v22 = v19[7];
-    v19 += 8;
-    *(v21 - 1) = v22;
-    --v17;
+    *v20 = *v18;
+    v20[1] = v18[1];
+    v20[2] = v18[2];
+    v20[3] = v18[3];
+    v20[4] = v18[4];
+    v20[5] = v18[5];
+    v20[6] = v18[6];
+    v20 += 8;
+    v21 = v18[7];
+    v18 += 8;
+    *(v20 - 1) = v21;
+    --v16;
   }
-  while ( v17 );
-  v23 = *v19;
+  while ( v16 );
+  v22 = *v18;
   LODWORD(Size) = 896;
-  *v21 = v23;
-  v21[1] = v19[1];
-  v21[2] = v19[2];
-  v21[3] = v19[3];
-  v21[4] = v19[4];
+  *v20 = v22;
+  v20[1] = v18[1];
+  v20[2] = v18[2];
+  v20[3] = v18[3];
+  v20[4] = v18[4];
   if ( IopValidateSectionSize(0x2080u, (unsigned int *)&Size) )
   {
     *(_DWORD *)(v8 + 4152) |= 0x400u;
     *(_QWORD *)(v8 + 128) = &KdDebuggerDataBlock;
     *(_DWORD *)(v8 + 8304) = 8320;
     *(_DWORD *)(v8 + 8308) = 896;
-    KdCopyDataBlock(v8 + 8320, v24);
-    v18 = 9216;
+    KdCopyDataBlock(v8 + 8320, v23);
+    v17 = 9216;
   }
   LODWORD(Size) = 44800;
-  if ( IopValidateSectionSize(v18, (unsigned int *)&Size) )
+  if ( IopValidateSectionSize(v17, (unsigned int *)&Size) )
   {
     *(_DWORD *)(v8 + 4152) |= 4u;
-    *(_DWORD *)(v8 + 8220) = v18;
-    memmove((void *)(v8 + v18), KeGetCurrentPrcb(), (unsigned int)Size);
-    v18 += Size;
+    *(_DWORD *)(v8 + 8220) = v17;
+    memmove((void *)(v8 + v17), KeGetCurrentPrcb(), (unsigned int)Size);
+    v17 += Size;
   }
   LODWORD(Size) = 2624;
-  if ( IopValidateSectionSize((v18 + 7) & 0xFFFFFFF8, (unsigned int *)&Size) )
+  if ( IopValidateSectionSize((v17 + 7) & 0xFFFFFFF8, (unsigned int *)&Size) )
   {
     *(_DWORD *)(v8 + 4152) |= 8u;
-    v26 = (unsigned int)Size;
-    v27 = v25;
-    *(_DWORD *)(v8 + 8224) = v25;
-    memmove((void *)(v8 + v25), CurrentThread->ApcState.Process, v26);
-    v18 = Size + v27;
+    v25 = (unsigned int)Size;
+    v26 = v24;
+    *(_DWORD *)(v8 + 8224) = v24;
+    memmove((void *)(v8 + v24), CurrentThread->ApcState.Process, v25);
+    v17 = Size + v26;
   }
   LODWORD(Size) = 2200;
-  if ( IopValidateSectionSize((v18 + 7) & 0xFFFFFFF8, (unsigned int *)&Size) )
+  if ( IopValidateSectionSize((v17 + 7) & 0xFFFFFFF8, (unsigned int *)&Size) )
   {
     *(_DWORD *)(v8 + 4152) |= 0x10u;
-    v29 = (unsigned int)Size;
-    v30 = v28;
-    *(_DWORD *)(v8 + 8228) = v28;
-    memmove((void *)(v8 + v28), CurrentThread, v29);
-    v18 = Size + v30;
+    v28 = (unsigned int)Size;
+    v29 = v27;
+    *(_DWORD *)(v8 + 8228) = v27;
+    memmove((void *)(v8 + v27), CurrentThread, v28);
+    v17 = Size + v29;
   }
   if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x20000) != 0 )
   {
     StackLimit = CurrentThread->StackLimit;
     StackBase = CurrentThread->StackBase;
-    v33 = *(const void **)(a1 + 152);
-    if ( (StackLimit > v33 || v33 >= StackBase) && (v33 = StackLimit, StackBase <= StackLimit) )
-      v34 = 0;
+    v32 = *(const void **)(a1 + 152);
+    if ( (StackLimit > v32 || v32 >= StackBase) && (v32 = StackLimit, StackBase <= StackLimit) )
+      v33 = 0;
     else
-      v34 = (_DWORD)StackBase - (_DWORD)v33;
-    if ( v34 >= 0x7FFF )
-      v34 = 0x7FFF;
-    LODWORD(Size) = IopGetMaxValidSectionSize((__int64)v33, v34);
+      v33 = (_DWORD)StackBase - (_DWORD)v32;
+    if ( v33 >= 0x7FFF )
+      v33 = 0x7FFF;
+    LODWORD(Size) = IopGetMaxValidSectionSize((__int64)v32, v33);
     if ( (_DWORD)Size )
     {
-      if ( !IopValidateSectionSize(v18, (unsigned int *)&Size) )
+      if ( !IopValidateSectionSize(v17, (unsigned int *)&Size) )
         *(_DWORD *)(v8 + 8260) |= 0x100u;
       *(_DWORD *)(v8 + 4152) |= 0x20u;
-      v35 = Size;
-      v36 = (unsigned int)Size;
-      *(_DWORD *)(v8 + 8232) = v18;
-      *(_DWORD *)(v8 + 8236) = v35;
-      *(_QWORD *)(v8 + 8264) = v33;
-      memmove((void *)(v8 + v18), v33, v36);
-      v18 += v35;
+      v34 = Size;
+      v35 = (unsigned int)Size;
+      *(_DWORD *)(v8 + 8232) = v17;
+      *(_DWORD *)(v8 + 8236) = v34;
+      *(_QWORD *)(v8 + 8264) = v32;
+      memmove((void *)(v8 + v17), v32, v35);
+      v17 += v34;
     }
   }
   if ( KeGetCurrentIrql() < 2u )
   {
-    v37 = KeGetCurrentThread();
+    v36 = KeGetCurrentThread();
+    v48 = 0;
+    v37 = (v17 + 7) & 0xFFFFFFF8;
     v49 = 0;
-    v38 = (v18 + 7) & 0xFFFFFFF8;
-    v50 = 0;
-    --v37->KernelApcDisable;
+    --v36->KernelApcDisable;
     ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
-    if ( (int)IoGetLoadedDriverInfo(0, &v49, &v50) >= 0 )
+    if ( (int)IoGetLoadedDriverInfo(0, &v48, &v49) >= 0 )
     {
-      v39 = v49;
-      LODWORD(Size) = 144 * v49;
-      if ( 144 * v49 && IopValidateSectionSize(v38, (unsigned int *)&Size) )
+      v38 = v48;
+      LODWORD(Size) = 144 * v48;
+      if ( 144 * v48 && IopValidateSectionSize(v37, (unsigned int *)&Size) )
       {
-        v40 = v38 + Size;
-        LODWORD(Size) = (v50 + 7 + 6 * v39) & 0xFFFFFFF8;
-        if ( (_DWORD)Size && IopValidateSectionSize(v40, (unsigned int *)&Size) )
+        v39 = v37 + Size;
+        LODWORD(Size) = (v49 + 7 + 6 * v38) & 0xFFFFFFF8;
+        if ( (_DWORD)Size && IopValidateSectionSize(v39, (unsigned int *)&Size) )
         {
-          if ( (int)IopWriteDriverList(v8, 0, v38, v40) >= 0 )
+          if ( (int)IopWriteDriverList(v8, 0, v37, v39) >= 0 )
           {
             *(_DWORD *)(v8 + 4152) |= 0x40u;
-            v41 = Size;
-            *(_DWORD *)(v8 + 8240) = v38;
-            *(_DWORD *)(v8 + 8244) = v39;
-            *(_DWORD *)(v8 + 8248) = v40;
-            v18 = v40 + v41;
-            *(_DWORD *)(v8 + 8252) = v41;
+            v40 = Size;
+            *(_DWORD *)(v8 + 8240) = v37;
+            *(_DWORD *)(v8 + 8244) = v38;
+            *(_DWORD *)(v8 + 8248) = v39;
+            v17 = v39 + v40;
+            *(_DWORD *)(v8 + 8252) = v40;
           }
         }
         else
@@ -267,26 +266,26 @@ __int64 __fastcall KeCapturePersistentThreadState(
     KeLeaveCriticalRegion();
   }
   LODWORD(Size) = 4112;
-  v42 = (v18 + 7) & 0xFFFFFFF8;
-  IopValidateSectionSize((v18 + 7) & 0xFFFFFFF8, (unsigned int *)&Size);
+  v41 = (v17 + 7) & 0xFFFFFFF8;
+  IopValidateSectionSize((v17 + 7) & 0xFFFFFFF8, (unsigned int *)&Size);
   if ( (unsigned int)Size > 0x10 )
   {
-    v43 = Size - 16;
+    v42 = Size - 16;
     MaxValidSectionSizeDown = IopGetMaxValidSectionSizeDown(*(_QWORD *)(a1 + 248), (unsigned int)(Size - 16) >> 1);
     if ( MaxValidSectionSizeDown )
     {
-      v45 = (const void *)(*(_QWORD *)(a1 + 248) - MaxValidSectionSizeDown + 1LL);
-      MaxValidSectionSize = IopGetMaxValidSectionSize((__int64)v45, v43);
+      v44 = (const void *)(*(_QWORD *)(a1 + 248) - MaxValidSectionSizeDown + 1LL);
+      MaxValidSectionSize = IopGetMaxValidSectionSize((__int64)v44, v42);
       if ( MaxValidSectionSize )
       {
         *(_DWORD *)(v8 + 4152) |= 0x800u;
-        *(_DWORD *)(v8 + 8312) = v42;
-        v47 = ((_DWORD)v42 + 23) & 0xFFFFFFF8;
+        *(_DWORD *)(v8 + 8312) = v41;
+        v46 = ((_DWORD)v41 + 23) & 0xFFFFFFF8;
         *(_DWORD *)(v8 + 8316) = 1;
-        *(_DWORD *)(v42 + v8 + 8) = v47;
-        *(_QWORD *)(v42 + v8) = v45;
-        *(_DWORD *)(v42 + v8 + 12) = MaxValidSectionSize;
-        memmove((void *)(v8 + v47), v45, MaxValidSectionSize);
+        *(_DWORD *)(v41 + v8 + 8) = v46;
+        *(_QWORD *)(v41 + v8) = v44;
+        *(_DWORD *)(v41 + v8 + 12) = MaxValidSectionSize;
+        memmove((void *)(v8 + v46), v44, MaxValidSectionSize);
       }
     }
   }

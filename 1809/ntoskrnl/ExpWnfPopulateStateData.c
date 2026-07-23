@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfPopulateStateData @ 0x1406CF07C
+ * XREFs of ExpWnfPopulateStateData @ 0x1406D031C
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x14060E058 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfCreateNameInstance @ 0x14060F058 (ExpWnfCreateNameInstance.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpWnfComposeValueName @ 0x1405AAC5C (ExpWnfComposeValueName.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpWnfComposeValueName @ 0x1405ABC5C (ExpWnfComposeValueName.c)
  */
 
 __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)

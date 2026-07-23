@@ -1,11 +1,11 @@
 /*
- * XREFs of MmSectionToSectionObjectPointers @ 0x1408EFD74
+ * XREFs of MmSectionToSectionObjectPointers @ 0x140861574
  * Callers:
- *     IopIsFileOpenOrSection @ 0x1408EFAF0 (IopIsFileOpenOrSection.c)
+ *     IopIsFileOpenOrSection @ 0x1408612F0 (IopIsFileOpenOrSection.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiDereferenceControlAreaFile @ 0x14042C500 (MiDereferenceControlAreaFile.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x14041F2B0 (MiDereferenceControlAreaFile.c)
  */
 
 __int64 __fastcall MmSectionToSectionObjectPointers(__int64 a1)

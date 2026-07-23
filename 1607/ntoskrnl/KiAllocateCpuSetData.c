@@ -3,7 +3,7 @@
  * Callers:
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     KiCreateCpuSetForProcessor @ 0x1403D47F0 (KiCreateCpuSetForProcessor.c)
  */

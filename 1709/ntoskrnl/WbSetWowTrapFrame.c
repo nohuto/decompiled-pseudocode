@@ -14,7 +14,7 @@ __int64 __fastcall WbSetWowTrapFrame(_DWORD *a1, _DWORD *a2)
   __int16 ProcessMachine; // si
   int v5; // ebp
   struct _KTHREAD *CurrentThread; // rax
-  int *v7; // r15
+  ULONG *v7; // r15
   int ContextThread; // ebx
 
   ProcessMachine = PsWow64GetProcessMachine((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -50,7 +50,7 @@ __int64 __fastcall WbSetWowTrapFrame(_DWORD *a1, _DWORD *a2)
       a1[26] = *a2;
       a1[29] = a2[4];
     }
-    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), (unsigned int *)v7, v5, 0);
+    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), v7, v5, 0);
   }
   KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   return (unsigned int)ContextThread;

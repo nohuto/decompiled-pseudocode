@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpGetCodePageData @ 0x140773DF4
+ * XREFs of RtlpGetCodePageData @ 0x140773FE4
  * Callers:
- *     RtlMultiByteToUnicodeN @ 0x140773D90 (RtlMultiByteToUnicodeN.c)
- *     RtlOemToUnicodeN @ 0x140774330 (RtlOemToUnicodeN.c)
- *     RtlUnicodeToOemN @ 0x1407D0D00 (RtlUnicodeToOemN.c)
+ *     RtlMultiByteToUnicodeN @ 0x140773F80 (RtlMultiByteToUnicodeN.c)
+ *     RtlOemToUnicodeN @ 0x140774520 (RtlOemToUnicodeN.c)
+ *     RtlUnicodeToOemN @ 0x1407D0FD0 (RtlUnicodeToOemN.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA530 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406DA560 (RtlpIsUtf8Process.c)
  */
 
 __int128 *__fastcall RtlpGetCodePageData(unsigned int a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateKernelGroupsWork @ 0x1407D4E50
+ * XREFs of EtwpUpdateKernelGroupsWork @ 0x1407D5120
  * Callers:
  *     <none>
  * Callees:
- *     EtwpUpdateGlobalGroupMasks @ 0x1407D4E7C (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1407D514C (EtwpUpdateGlobalGroupMasks.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

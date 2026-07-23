@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckDeviceFlags @ 0x1409978C4
+ * XREFs of IopCheckDeviceFlags @ 0x1409988C4
  * Callers:
- *     IoBuildPoDeviceNotifyList @ 0x1409972B0 (IoBuildPoDeviceNotifyList.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409982B0 (IoBuildPoDeviceNotifyList.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x1402CCF4C (IoGetLowerDeviceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x14024B44C (IoGetLowerDeviceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 char __fastcall IopCheckDeviceFlags(__int64 a1, int a2)

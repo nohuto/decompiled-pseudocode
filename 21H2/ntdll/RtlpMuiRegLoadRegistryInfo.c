@@ -7,8 +7,8 @@
  *     RtlpLoadLanguageConfigList @ 0x18003F48C (RtlpLoadLanguageConfigList.c)
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
  *     RtlpMuiRegFreeRegistryInfo @ 0x1800702D0 (RtlpMuiRegFreeRegistryInfo.c)
- *     RtlpMuiRegLoadLicInformation @ 0x1801054F8 (RtlpMuiRegLoadLicInformation.c)
- *     _RtlpMuiRegLoadInstalled @ 0x180106BDC (_RtlpMuiRegLoadInstalled.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1801054B8 (RtlpMuiRegLoadLicInformation.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x180106B9C (_RtlpMuiRegLoadInstalled.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadRegistryInfo(__int64 a1, __int16 a2)

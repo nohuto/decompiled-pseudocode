@@ -1,12 +1,12 @@
 /*
- * XREFs of MiExceptionForMappedVa @ 0x1402A587C
+ * XREFs of MiExceptionForMappedVa @ 0x1402A5A6C
  * Callers:
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
  */
 
 __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
   unsigned int v11; // ebx
 
   v1 = 0;
-  v3 = &unk_140438F40;
+  v3 = &unk_14043A000;
   Process = KeGetCurrentThread()->ApcState.Process;
   for ( i = (__int64)MiGetAnyMultiplexedVm(1); ; i = MiGetSessionVm() )
   {
@@ -49,7 +49,7 @@ __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
       }
     }
     MiUnlockWorkingSetShared(v6, v7);
-    if ( v3 != (_QWORD *)&unk_140438F40 )
+    if ( v3 != (_QWORD *)&unk_14043A000 )
       break;
     v10 = Process[1].ActiveProcessors.Bitmap[2];
     if ( !v10 || (Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )

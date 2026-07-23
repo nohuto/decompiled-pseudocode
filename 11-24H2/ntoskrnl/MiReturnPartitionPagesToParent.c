@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReturnPartitionPagesToParent @ 0x14068B28C
+ * XREFs of MiReturnPartitionPagesToParent @ 0x14068C3BC
  * Callers:
- *     MiFreePartitionPhysicalPages @ 0x1407FC0FC (MiFreePartitionPhysicalPages.c)
+ *     MiFreePartitionPhysicalPages @ 0x1407FC86C (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     MiDrainZeroLookasides @ 0x14022A040 (MiDrainZeroLookasides.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiLockDynamicMemoryExclusive @ 0x14066DDE4 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14066E948 (MiUnlockDynamicMemoryExclusive.c)
- *     MiReleasePartitionHugeIoSpace @ 0x1406717FC (MiReleasePartitionHugeIoSpace.c)
- *     MiActOnPartitionNodePages @ 0x140688F24 (MiActOnPartitionNodePages.c)
- *     MiDeletePartitionPageNode @ 0x140689FF4 (MiDeletePartitionPageNode.c)
- *     MiMergePageNodes @ 0x14068ADD0 (MiMergePageNodes.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiMakePartitionMemoryBlock @ 0x1407FC61C (MiMakePartitionMemoryBlock.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiDrainZeroLookasides @ 0x1402FD2B0 (MiDrainZeroLookasides.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MiLockDynamicMemoryExclusive @ 0x14066EFB8 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14066FB1C (MiUnlockDynamicMemoryExclusive.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x1406729CC (MiReleasePartitionHugeIoSpace.c)
+ *     MiActOnPartitionNodePages @ 0x14068A054 (MiActOnPartitionNodePages.c)
+ *     MiDeletePartitionPageNode @ 0x14068B124 (MiDeletePartitionPageNode.c)
+ *     MiMergePageNodes @ 0x14068BF00 (MiMergePageNodes.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiMakePartitionMemoryBlock @ 0x1407FCD8C (MiMakePartitionMemoryBlock.c)
  */
 
 __int64 __fastcall MiReturnPartitionPagesToParent(ULONG_PTR BugCheckParameter2)
@@ -26,8 +26,8 @@ __int64 __fastcall MiReturnPartitionPagesToParent(ULONG_PTR BugCheckParameter2)
   struct _KTHREAD *CurrentThread; // rsi
   __int64 v3; // r13
   unsigned __int64 *v4; // rdi
-  _QWORD *v5; // rax
-  _QWORD *v6; // rbx
+  char *v5; // rax
+  char *v6; // rbx
   PVOID *v7; // rax
   PVOID *i; // r14
   PVOID **v9; // rax
@@ -47,12 +47,12 @@ __int64 __fastcall MiReturnPartitionPagesToParent(ULONG_PTR BugCheckParameter2)
   v17[1] = (unsigned __int16 *)BugCheckParameter2;
   MiLockDynamicMemoryExclusive(BugCheckParameter2, (__int64)CurrentThread);
   v4 = (unsigned __int64 *)(**(_QWORD **)(*(_QWORD *)(BugCheckParameter2 + 184) + 72LL) + 192LL);
-  v5 = KeAbPreAcquire((__int64)v4, 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)v4, 0LL);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v4, (__int64)v5, (__int64)v4);
+    ExfAcquirePushLockExclusiveEx(v4, v5, (__int64)v4);
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   v7 = *(PVOID **)(BugCheckParameter2 + 24);
   i = 0LL;
   while ( v7 )

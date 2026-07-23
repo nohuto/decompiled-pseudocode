@@ -1,7 +1,7 @@
 /*
- * XREFs of IoQueryLowPriorityIoInformation @ 0x140A800D4
+ * XREFs of IoQueryLowPriorityIoInformation @ 0x140A7AB34
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

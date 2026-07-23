@@ -1,15 +1,15 @@
 /*
- * XREFs of IopVerifierExAllocatePool_5 @ 0x14050AD38
+ * XREFs of IopVerifierExAllocatePool_5 @ 0x14050AF78
  * Callers:
- *     IopEnumerateEnvironmentVariablesTrEE @ 0x14089A1A0 (IopEnumerateEnvironmentVariablesTrEE.c)
- *     IopGetEnvironmentVariableSysEnv @ 0x14089A610 (IopGetEnvironmentVariableSysEnv.c)
- *     IopGetEnvironmentVariableTrEE @ 0x14089A770 (IopGetEnvironmentVariableTrEE.c)
- *     IopSetEnvironmentVariableSysEnv @ 0x14089ADC0 (IopSetEnvironmentVariableSysEnv.c)
- *     IopSetEnvironmentVariableTrEE @ 0x14089AED0 (IopSetEnvironmentVariableTrEE.c)
- *     IopApplySystemPartitionProt @ 0x140A8FEC0 (IopApplySystemPartitionProt.c)
+ *     IopEnumerateEnvironmentVariablesTrEE @ 0x14089A300 (IopEnumerateEnvironmentVariablesTrEE.c)
+ *     IopGetEnvironmentVariableSysEnv @ 0x14089A770 (IopGetEnvironmentVariableSysEnv.c)
+ *     IopGetEnvironmentVariableTrEE @ 0x14089A8D0 (IopGetEnvironmentVariableTrEE.c)
+ *     IopSetEnvironmentVariableSysEnv @ 0x14089AF20 (IopSetEnvironmentVariableSysEnv.c)
+ *     IopSetEnvironmentVariableTrEE @ 0x14089B030 (IopSetEnvironmentVariableTrEE.c)
+ *     IopApplySystemPartitionProt @ 0x140A90EC0 (IopApplySystemPartitionProt.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePool_5(__int64 a1, SIZE_T a2)

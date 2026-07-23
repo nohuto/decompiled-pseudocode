@@ -7,11 +7,11 @@
  *     SeSinglePrivilegeCheck @ 0x140858330 (SeSinglePrivilegeCheck.c)
  */
 
-__int64 NtSerializeBoot()
+NTSTATUS NtSerializeBoot(void)
 {
   if ( KeGetCurrentThread()->PreviousMode != 1 )
-    return 3221225506LL;
+    return -1073741790;
   if ( SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
     return PnpSerializeBoot();
-  return 3221225569LL;
+  return -1073741727;
 }

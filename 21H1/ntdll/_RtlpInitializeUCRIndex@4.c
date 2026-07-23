@@ -11,7 +11,7 @@ _DWORD *__thiscall RtlpInitializeUCRIndex(_DWORD *this)
 {
   _DWORD *v2; // ebx
   _DWORD *result; // eax
-  _DWORD *v4; // ecx
+  int v4; // ecx
   int v5; // esi
   _DWORD *v6; // edx
   unsigned int v7; // eax
@@ -19,8 +19,8 @@ _DWORD *__thiscall RtlpInitializeUCRIndex(_DWORD *this)
   _DWORD *v9; // [esp+Ch] [ebp-4h]
 
   v2 = this + 35;
-  result = RtlpAllocateListLookup((int)this, (int)(this + 35), this[23] >> 9, (int)this);
-  v4 = result;
+  result = RtlpAllocateListLookup(this, (int)(this + 35), this[23] >> 9, (int)this);
+  v4 = (int)result;
   v9 = result;
   if ( result )
   {
@@ -28,9 +28,9 @@ _DWORD *__thiscall RtlpInitializeUCRIndex(_DWORD *this)
     v5 = v2[1];
     while ( v2 != (_DWORD *)v5 )
     {
-      v6 = v4;
+      v6 = (_DWORD *)v4;
       v7 = *(_DWORD *)(v5 + 20) >> 12;
-      if ( v7 >= v4[1] )
+      if ( v7 >= *(_DWORD *)(v4 + 4) )
       {
         while ( 1 )
         {
@@ -46,7 +46,7 @@ _DWORD *__thiscall RtlpInitializeUCRIndex(_DWORD *this)
 LABEL_8:
       result = (_DWORD *)RtlpHeapAddListEntry((int)this, v6, 0, v5, v7, *(_DWORD *)(v5 + 20));
       v5 = *(_DWORD *)(v5 + 4);
-      v4 = v9;
+      v4 = (int)v9;
     }
   }
   return result;

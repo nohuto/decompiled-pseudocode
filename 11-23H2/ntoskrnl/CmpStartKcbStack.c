@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpStartKcbStack @ 0x1406D7D20
+ * XREFs of CmpStartKcbStack @ 0x1406D7D50
  * Callers:
- *     CmpQueryKeySecurity @ 0x1406D5BA0 (CmpQueryKeySecurity.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B6C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpConstructNameWithStatus @ 0x1406D7BB0 (CmpConstructNameWithStatus.c)
- *     CmpConstructNameFromKeyNodes @ 0x1406DD5C0 (CmpConstructNameFromKeyNodes.c)
- *     CmpDoBuildVirtualStack @ 0x140A190BC (CmpDoBuildVirtualStack.c)
- *     CmpSubtreeEnumeratorStart @ 0x140A20730 (CmpSubtreeEnumeratorStart.c)
- *     CmpPartialPromoteSubkeys @ 0x140A263A0 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteKey @ 0x140A265AC (CmpPromoteKey.c)
+ *     CmpQueryKeySecurity @ 0x1406D5BD0 (CmpQueryKeySecurity.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B9C (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpConstructNameWithStatus @ 0x1406D7BE0 (CmpConstructNameWithStatus.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1406DD5F0 (CmpConstructNameFromKeyNodes.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1936C (CmpDoBuildVirtualStack.c)
+ *     CmpSubtreeEnumeratorStart @ 0x140A209E0 (CmpSubtreeEnumeratorStart.c)
+ *     CmpPartialPromoteSubkeys @ 0x140A26650 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteKey @ 0x140A2685C (CmpPromoteKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
  */
 
 __int64 __fastcall CmpStartKcbStack(__int64 a1, __int16 a2)

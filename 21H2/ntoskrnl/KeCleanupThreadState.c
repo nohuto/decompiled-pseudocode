@@ -1,10 +1,10 @@
 /*
- * XREFs of KeCleanupThreadState @ 0x1402546C8
+ * XREFs of KeCleanupThreadState @ 0x140275C38
  * Callers:
- *     PspThreadDelete @ 0x140619920 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x140683580 (PspThreadDelete.c)
  * Callees:
- *     KiAbCleanupThreadState @ 0x140254728 (KiAbCleanupThreadState.c)
- *     KeFlushQueuedDpcs @ 0x1402EC6E0 (KeFlushQueuedDpcs.c)
+ *     KiAbCleanupThreadState @ 0x140275C98 (KiAbCleanupThreadState.c)
+ *     KeFlushQueuedDpcs @ 0x14029DA30 (KeFlushQueuedDpcs.c)
  */
 
 void __fastcall KeCleanupThreadState(ULONG_PTR a1)

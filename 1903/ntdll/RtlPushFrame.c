@@ -6,14 +6,11 @@
  *     <none>
  */
 
-struct _TEB_ACTIVE_FRAME *__fastcall RtlPushFrame(__int64 a1)
+void __cdecl RtlPushFrame(PTEB_ACTIVE_FRAME Frame)
 {
   struct _TEB *v1; // rdx
-  struct _TEB_ACTIVE_FRAME *result; // rax
 
   v1 = NtCurrentTeb();
-  result = v1->ActiveFrame;
-  *(_QWORD *)(a1 + 8) = result;
-  v1->ActiveFrame = (struct _TEB_ACTIVE_FRAME *)a1;
-  return result;
+  Frame->Previous = v1->ActiveFrame;
+  v1->ActiveFrame = Frame;
 }

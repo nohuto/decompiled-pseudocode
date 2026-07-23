@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlCheckBootStatusIntegrity @ 0x1409153E0
+ * XREFs of RtlCheckBootStatusIntegrity @ 0x140915540
  * Callers:
- *     PopBootStatCheckIntegrity @ 0x1408F22F4 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatCheckIntegrity @ 0x1408F2454 (PopBootStatCheckIntegrity.c)
  * Callees:
- *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
- *     RtlBootStatusItemInfo @ 0x14078A51C (RtlBootStatusItemInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwReadFile @ 0x1403FA640 (ZwReadFile.c)
+ *     RtlBootStatusItemInfo @ 0x14078A6DC (RtlBootStatusItemInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
+NTSTATUS __cdecl RtlCheckBootStatusIntegrity(HANDLE FileHandle, PBOOLEAN Verified)
 {
   char v4; // r14
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   PVOID Buffer; // rsi
   __int64 v7; // rcx
   _BYTE *v8; // rax
@@ -36,7 +36,7 @@ __int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
     {
       if ( (unsigned int)NumberOfBytes < v14 + v10 || (unsigned int)NumberOfBytes > 0x800 )
       {
-        *a2 = 0;
+        *Verified = 0;
       }
       else
       {
@@ -59,21 +59,21 @@ __int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
                 }
                 while ( v7 );
               }
-              *a2 = v4 == 0;
+              *Verified = v4 == 0;
             }
             else
             {
-              *a2 = 0;
+              *Verified = 0;
             }
           }
           ExFreePoolWithTag(Buffer, 0);
         }
         else
         {
-          return (unsigned int)-1073741801;
+          return -1073741801;
         }
       }
     }
   }
-  return (unsigned int)v5;
+  return v5;
 }

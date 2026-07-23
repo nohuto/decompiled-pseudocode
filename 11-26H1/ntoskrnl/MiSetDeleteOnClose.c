@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetDeleteOnClose @ 0x14050687C
+ * XREFs of MiSetDeleteOnClose @ 0x14050012C
  * Callers:
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiRelocateFinish @ 0x1409CB614 (MiRelocateFinish.c)
- *     MiRelocateMapImage @ 0x1409CBD3C (MiRelocateMapImage.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiRelocateFinish @ 0x14099C5F4 (MiRelocateFinish.c)
+ *     MiRelocateMapImage @ 0x14099CD1C (MiRelocateMapImage.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveUnusedSegment @ 0x14030BCD0 (MiRemoveUnusedSegment.c)
- *     MiInsertUnusedSegment @ 0x1404807E0 (MiInsertUnusedSegment.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x1402EDD50 (MiRemoveUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x14047A120 (MiInsertUnusedSegment.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 void __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
@@ -45,7 +45,7 @@ void __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
     ExReleaseSpinLockExclusive(v2, v6);
   if ( inserted )
     MiReturnCrossPartitionSectionCharges(
-      *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF)),
+      *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF)),
       1,
       inserted);
 }

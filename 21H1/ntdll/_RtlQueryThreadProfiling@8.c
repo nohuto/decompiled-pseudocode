@@ -6,7 +6,7 @@
  *     _NtQueryInformationThread@20 @ 0x4B2F2BD0 (_NtQueryInformationThread@20.c)
  */
 
-NTSTATUS __stdcall RtlQueryThreadProfiling(HANDLE ThreadHandle, PVOID ThreadInformation)
+NTSTATUS __cdecl RtlQueryThreadProfiling(HANDLE ThreadHandle, PBOOLEAN Enabled)
 {
-  return NtQueryInformationThread(ThreadHandle, (THREADINFOCLASS)32, ThreadInformation, 1u, 0);
+  return NtQueryInformationThread(ThreadHandle, ThreadCounterProfiling, Enabled, 1u, 0);
 }

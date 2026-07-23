@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInitGenericErrorSourceEntryV2 @ 0x140A96184
+ * XREFs of HalpInitGenericErrorSourceEntryV2 @ 0x140A95FF4
  * Callers:
  *     HalpInitializeGenericErrorSource @ 0x140A8AE9C (HalpInitializeGenericErrorSource.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     RtlStringCchCopyA @ 0x1403C342C (RtlStringCchCopyA.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     RtlStringCchCopyA @ 0x1403C360C (RtlStringCchCopyA.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

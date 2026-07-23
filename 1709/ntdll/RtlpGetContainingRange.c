@@ -73,7 +73,7 @@ LABEL_14:
   *a4 = v15;
   *a5 = 1;
 LABEL_21:
-  result = RtlpGetHeapProtection(*(_QWORD *)(a1 + 40), 0);
+  result = RtlpGetHeapProtection(*(_DWORD **)(a1 + 40), 0);
   *a6 = result;
   return result;
 }

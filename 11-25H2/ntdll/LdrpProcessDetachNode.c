@@ -46,12 +46,13 @@ void __fastcall LdrpProcessDetachNode(_QWORD **a1)
     if ( v7 && (v3[13] & 0x80000) != 0 )
     {
       LdrpLogInternal(
-        (__int64)"minkernel\\ldr\\ldrsnap.c",
+        "minkernel\\ldr\\ldrsnap.c",
         2769,
         (__int64)"LdrpProcessDetachNode",
         2,
         "Uninitializing DLL \"%wZ\" (Init routine: %p)\n",
-        (_BYTE)i - 88);
+        v3 + 9,
+        v3[7]);
       v8[0] = 72LL;
       v8[1] = 1LL;
       v9 = 0LL;

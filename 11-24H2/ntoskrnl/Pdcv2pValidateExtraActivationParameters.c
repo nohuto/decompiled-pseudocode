@@ -1,7 +1,7 @@
 /*
- * XREFs of Pdcv2pValidateExtraActivationParameters @ 0x1404A1940
+ * XREFs of Pdcv2pValidateExtraActivationParameters @ 0x14049C8CC
  * Callers:
- *     Pdcv2ActivationClientActivate @ 0x1409EDF3C (Pdcv2ActivationClientActivate.c)
+ *     Pdcv2ActivationClientActivate @ 0x1409EB97C (Pdcv2ActivationClientActivate.c)
  * Callees:
  *     <none>
  */

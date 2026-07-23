@@ -1,9 +1,9 @@
 /*
- * XREFs of wcsncmp @ 0x180127960
+ * XREFs of wcsncmp @ 0x180125B90
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x180061FF0 (LdrpSearchResourceSection_U.c)
- *     LdrpResCompareResourceNames @ 0x18007B770 (LdrpResCompareResourceNames.c)
- *     LdrpCompareResourceNamesWithValidation @ 0x1800DAEF0 (LdrpCompareResourceNamesWithValidation.c)
+ *     LdrpSearchResourceSection_U @ 0x180077BD0 (LdrpSearchResourceSection_U.c)
+ *     LdrpResCompareResourceNames @ 0x180097BB0 (LdrpResCompareResourceNames.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x1800D5450 (LdrpCompareResourceNamesWithValidation.c)
  * Callees:
  *     <none>
  */

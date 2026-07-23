@@ -1,25 +1,25 @@
 /*
- * XREFs of DbgkCreateThread @ 0x1408FED24
+ * XREFs of DbgkCreateThread @ 0x140921604
  * Callers:
- *     PspNotifyThreadCreation @ 0x1408FEC38 (PspNotifyThreadCreation.c)
+ *     PspNotifyThreadCreation @ 0x140921518 (PspNotifyThreadCreation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsQuerySystemDllInfo @ 0x1408FB0A8 (PsQuerySystemDllInfo.c)
- *     PsReferenceProcessFilePointer @ 0x1408FF760 (PsReferenceProcessFilePointer.c)
- *     MmGetFileObjectForSection @ 0x1408FF7D0 (MmGetFileObjectForSection.c)
- *     PspReferenceSystemDll @ 0x1408FF9C8 (PspReferenceSystemDll.c)
- *     PsCallImageNotifyRoutines @ 0x1408FFB60 (PsCallImageNotifyRoutines.c)
- *     PsWow64GetProcessNtdllType @ 0x140908828 (PsWow64GetProcessNtdllType.c)
- *     DbgkSendSystemDllMessages @ 0x140939F18 (DbgkSendSystemDllMessages.c)
- *     DbgkpSendApiMessage @ 0x14093A238 (DbgkpSendApiMessage.c)
- *     PsIsImageNotifyEnabled @ 0x140A328DC (PsIsImageNotifyEnabled.c)
- *     DbgkpPostModuleMessages @ 0x140A4A9B8 (DbgkpPostModuleMessages.c)
- *     DbgkpSectionToFileHandle @ 0x140A83008 (DbgkpSectionToFileHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsWow64GetProcessNtdllType @ 0x1408DFF44 (PsWow64GetProcessNtdllType.c)
+ *     DbgkSendSystemDllMessages @ 0x1408F541C (DbgkSendSystemDllMessages.c)
+ *     PsQuerySystemDllInfo @ 0x14091D988 (PsQuerySystemDllInfo.c)
+ *     PsReferenceProcessFilePointer @ 0x140922040 (PsReferenceProcessFilePointer.c)
+ *     MmGetFileObjectForSection @ 0x1409220B0 (MmGetFileObjectForSection.c)
+ *     PspReferenceSystemDll @ 0x1409222A8 (PspReferenceSystemDll.c)
+ *     PsCallImageNotifyRoutines @ 0x140922440 (PsCallImageNotifyRoutines.c)
+ *     PsIsImageNotifyEnabled @ 0x140A268F4 (PsIsImageNotifyEnabled.c)
+ *     DbgkpPostModuleMessages @ 0x140A41618 (DbgkpPostModuleMessages.c)
+ *     DbgkpSendApiMessage @ 0x140A5A2C0 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x140A7DB28 (DbgkpSectionToFileHandle.c)
  */
 
 LONG_PTR __fastcall DbgkCreateThread(__int64 a1)
@@ -29,12 +29,12 @@ LONG_PTR __fastcall DbgkCreateThread(__int64 a1)
   char v4; // r12
   __int16 v5; // ax
   char v6; // al
-  unsigned __int64 v7; // rax
+  PIMAGE_NT_HEADERS v7; // rax
   int i; // esi
   LONG_PTR v9; // r15
-  unsigned __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   ULONG_PTR v11; // r13
-  unsigned __int64 v12; // rax
+  PIMAGE_NT_HEADERS v12; // rax
   char v13; // [rsp+20h] [rbp-1A8h]
   PVOID Object; // [rsp+28h] [rbp-1A0h] BYREF
   int v15; // [rsp+30h] [rbp-198h]
@@ -51,9 +51,9 @@ LONG_PTR __fastcall DbgkCreateThread(__int64 a1)
   int v26; // [rsp+B8h] [rbp-110h]
   HANDLE Handle; // [rsp+C8h] [rbp-100h]
   __int64 v28; // [rsp+D0h] [rbp-F8h]
-  int v29; // [rsp+D8h] [rbp-F0h]
-  int v30; // [rsp+DCh] [rbp-ECh]
-  __int64 v31; // [rsp+E8h] [rbp-E0h]
+  unsigned int PointerToSymbolTable; // [rsp+D8h] [rbp-F0h]
+  unsigned int NumberOfSymbols; // [rsp+DCh] [rbp-ECh]
+  unsigned __int64 v31; // [rsp+E8h] [rbp-E0h]
 
   v17 = a1;
   memset_0(&v24, 0, 0x110uLL);
@@ -82,9 +82,9 @@ LONG_PTR __fastcall DbgkCreateThread(__int64 a1)
       BYTE8(v18) = 3;
       *(_QWORD *)&v19 = *(_QWORD *)(v2 + 688);
       *(_QWORD *)&v20 = 0LL;
-      v7 = RtlImageNtHeader(v19);
+      v7 = RtlImageNtHeader((PVOID)v19);
       if ( v7 )
-        *(_QWORD *)&v20 = *(unsigned int *)(v7 + 80);
+        *(_QWORD *)&v20 = v7->OptionalHeader.SizeOfImage;
       DWORD2(v19) = 0;
       DWORD2(v20) = 0;
       PsReferenceProcessFilePointer(v2, &Object);
@@ -106,9 +106,9 @@ LONG_PTR __fastcall DbgkCreateThread(__int64 a1)
             DWORD2(v18) = 3;
             *(_QWORD *)&v19 = *(_QWORD *)(v9 + 24);
             *(_QWORD *)&v20 = 0LL;
-            v10 = RtlImageNtHeader(*(_QWORD *)(v9 + 24));
+            v10 = RtlImageNtHeader(*(PVOID *)(v9 + 24));
             if ( v10 )
-              *(_QWORD *)&v20 = *(unsigned int *)(v10 + 80);
+              *(_QWORD *)&v20 = v10->OptionalHeader.SizeOfImage;
             DWORD2(v19) = 0;
             DWORD2(v20) = 0;
             v11 = PspReferenceSystemDll(*(_QWORD *)(v9 - 8));
@@ -142,17 +142,17 @@ LONG_PTR __fastcall DbgkCreateThread(__int64 a1)
       Handle = (HANDLE)DbgkpSectionToFileHandle(*(_QWORD *)(v2 + 680));
       v28 = *(_QWORD *)(v2 + 688);
       v31 = 0LL;
-      v29 = 0;
-      v30 = 0;
-      v12 = RtlImageNtHeader(*(_QWORD *)(v2 + 688));
+      PointerToSymbolTable = 0;
+      NumberOfSymbols = 0;
+      v12 = RtlImageNtHeader(*(PVOID *)(v2 + 688));
       if ( v12 )
       {
         if ( v13 )
-          v31 = (unsigned int)(*(_DWORD *)(v12 + 40) + *(_DWORD *)(v12 + 52));
+          v31 = v12->OptionalHeader.AddressOfEntryPoint + HIDWORD(v12->OptionalHeader.ImageBase);
         else
-          v31 = *(_QWORD *)(v12 + 48) + *(unsigned int *)(v12 + 40);
-        v29 = *(_DWORD *)(v12 + 12);
-        v30 = *(_DWORD *)(v12 + 16);
+          v31 = v12->OptionalHeader.ImageBase + v12->OptionalHeader.AddressOfEntryPoint;
+        PointerToSymbolTable = v12->FileHeader.PointerToSymbolTable;
+        NumberOfSymbols = v12->FileHeader.NumberOfSymbols;
       }
       v24 = 6291512;
       v25 = 8;
@@ -160,7 +160,7 @@ LONG_PTR __fastcall DbgkCreateThread(__int64 a1)
       DbgkpSendApiMessage((PVOID)v2);
       if ( Handle )
         ObCloseHandle(Handle, 0);
-      DbgkSendSystemDllMessages(0LL);
+      DbgkSendSystemDllMessages(0LL, 0LL, &v24);
     }
     result = *(unsigned int *)(a1 + 1444);
     if ( (result & 0x10) != 0 )

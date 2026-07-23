@@ -1,25 +1,25 @@
 /*
- * XREFs of PspEstablishJobHierarchy @ 0x14071FA0C
+ * XREFs of PspEstablishJobHierarchy @ 0x1406F5948
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1406F519C (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
- *     IoSetDiskIoAttributionOnProcess @ 0x1402535E0 (IoSetDiskIoAttributionOnProcess.c)
- *     KeInsertSchedulingGroup @ 0x140285278 (KeInsertSchedulingGroup.c)
- *     KeRemoveSchedulingGroup @ 0x140287B64 (KeRemoveSchedulingGroup.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspBindProcessSessionToJob @ 0x140613568 (PspBindProcessSessionToJob.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspAddSchedulingGroupToJobChain @ 0x14067F06C (PspAddSchedulingGroupToJobChain.c)
- *     PspSetEffectiveJobLimits @ 0x1406B0614 (PspSetEffectiveJobLimits.c)
- *     PspUnlinkJobProcess @ 0x1406B40E8 (PspUnlinkJobProcess.c)
- *     MmLinkJobProcess @ 0x14071FCB8 (MmLinkJobProcess.c)
- *     PspEstablishDfssHierarchy @ 0x140908D28 (PspEstablishDfssHierarchy.c)
- *     PspSetEffectiveRateControlJob @ 0x1409093F8 (PspSetEffectiveRateControlJob.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInsertSchedulingGroup @ 0x140202418 (KeInsertSchedulingGroup.c)
+ *     KeRemoveSchedulingGroup @ 0x140204D04 (KeRemoveSchedulingGroup.c)
+ *     IoSetDiskIoAttributionOnProcess @ 0x140274B54 (IoSetDiskIoAttributionOnProcess.c)
+ *     PsGetProcessSessionId @ 0x140285D20 (PsGetProcessSessionId.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x1405D9B0C (PspAddSchedulingGroupToJobChain.c)
+ *     PspSetEffectiveJobLimits @ 0x14060F644 (PspSetEffectiveJobLimits.c)
+ *     PspUnlinkJobProcess @ 0x1406132B8 (PspUnlinkJobProcess.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140681C50 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     MmLinkJobProcess @ 0x1406F5BF4 (MmLinkJobProcess.c)
+ *     PspBindProcessSessionToJob @ 0x1406F5DFC (PspBindProcessSessionToJob.c)
+ *     PspEstablishDfssHierarchy @ 0x140908E88 (PspEstablishDfssHierarchy.c)
+ *     PspSetEffectiveRateControlJob @ 0x140909558 (PspSetEffectiveRateControlJob.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspEstablishJobHierarchy(char *Object, __int64 a2, __int64 a3, unsigned int a4)
@@ -84,7 +84,7 @@ LABEL_13:
         }
         if ( a4 - 4 <= 1 )
         {
-          v8 = PspBindProcessSessionToJob((__int64)Object, a2);
+          v8 = PspBindProcessSessionToJob(Object, a2);
           if ( v8 < 0 )
             goto LABEL_39;
         }
@@ -211,7 +211,7 @@ LABEL_67:
     v8 = 0;
     goto LABEL_6;
   }
-  v8 = PspBindProcessSessionToJob((__int64)Object, a2);
+  v8 = PspBindProcessSessionToJob(Object, a2);
   if ( v8 >= 0 )
   {
     ObfReferenceObjectWithTag(Object, 0x73507350u);

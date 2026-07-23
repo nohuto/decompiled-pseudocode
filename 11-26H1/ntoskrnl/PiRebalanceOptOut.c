@@ -1,11 +1,11 @@
 /*
- * XREFs of PiRebalanceOptOut @ 0x1405DD1A8
+ * XREFs of PiRebalanceOptOut @ 0x1405DFB18
  * Callers:
- *     PnpQueryStopDeviceNode @ 0x1407B3F0C (PnpQueryStopDeviceNode.c)
+ *     PnpQueryStopDeviceNode @ 0x1407B6F6C (PnpQueryStopDeviceNode.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
  */
 
 bool __fastcall PiRebalanceOptOut(__int64 a1)

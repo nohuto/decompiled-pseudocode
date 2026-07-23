@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegVsAllocate @ 0x180072250
+ * XREFs of RtlpHpSegVsAllocate @ 0x180072240
  * Callers:
- *     RtlpHpVsSubsegmentCreate @ 0x180072104 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x1800720F4 (RtlpHpVsSubsegmentCreate.c)
  * Callees:
  *     <none>
  */
 
-void *__fastcall RtlpHpSegVsAllocate(__int64 a1, unsigned int a2, char a3)
+void *__fastcall RtlpHpSegVsAllocate(void *a1, unsigned int a2, char a3)
 {
   unsigned int v3; // r8d
 

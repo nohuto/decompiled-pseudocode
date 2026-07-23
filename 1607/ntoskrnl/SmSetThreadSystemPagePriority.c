@@ -1,10 +1,10 @@
 /*
- * XREFs of SmSetThreadSystemPagePriority @ 0x14011CFD4
+ * XREFs of SmSetThreadSystemPagePriority @ 0x14011D544
  * Callers:
- *     ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_IO_PARAMS@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x14011CDD0 (-StDmpSinglePageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1.c)
+ *     ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_IO_PARAMS@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x14011D340 (-StDmpSinglePageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1.c)
  * Callees:
- *     PsSetSystemPagePriorityThread @ 0x1400FD0E0 (PsSetSystemPagePriorityThread.c)
- *     PsRevertToUserPagePriorityThread @ 0x1400FDEC0 (PsRevertToUserPagePriorityThread.c)
+ *     PsSetSystemPagePriorityThread @ 0x1400FAE60 (PsSetSystemPagePriorityThread.c)
+ *     PsRevertToUserPagePriorityThread @ 0x1400FBC40 (PsRevertToUserPagePriorityThread.c)
  */
 
 __int64 __fastcall SmSetThreadSystemPagePriority(struct _KTHREAD **a1, int a2, int a3)

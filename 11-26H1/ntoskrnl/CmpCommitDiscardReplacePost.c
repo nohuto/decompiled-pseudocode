@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCommitDiscardReplacePost @ 0x140A2F58C
+ * XREFs of CmpCommitDiscardReplacePost @ 0x140A41418
  * Callers:
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A2EE88 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A40D14 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmpDiscardKcb @ 0x1408B9D6C (CmpDiscardKcb.c)
- *     CmpMarkKeyUnbacked @ 0x1408BA08C (CmpMarkKeyUnbacked.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1408BC670 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpRebuildKcbCache @ 0x1408BCBD8 (CmpRebuildKcbCache.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1408C3970 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1408C4DC0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpDecommisssionKcb @ 0x1408C6330 (CmpDecommisssionKcb.c)
- *     CmpRemoveFromDelayedClose @ 0x1408C64F4 (CmpRemoveFromDelayedClose.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140A2F9B0 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpDiscardKcb @ 0x1408C033C (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x1408C065C (CmpMarkKeyUnbacked.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1408C2C40 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpRebuildKcbCache @ 0x1408C31A8 (CmpRebuildKcbCache.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1408C9F40 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1408CB390 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpDecommisssionKcb @ 0x1408CC900 (CmpDecommisssionKcb.c)
+ *     CmpRemoveFromDelayedClose @ 0x1408CCAC4 (CmpRemoveFromDelayedClose.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x140A41830 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
  */
 
 __int64 __fastcall CmpCommitDiscardReplacePost(ULONG_PTR BugCheckParameter4, __int64 a2, __int64 a3)
@@ -34,14 +34,12 @@ __int64 __fastcall CmpCommitDiscardReplacePost(ULONG_PTR BugCheckParameter4, __i
   __int64 v17; // rax
   _QWORD *v18; // rsi
   __int64 v19; // rax
-  unsigned int v20; // r12d
-  __int64 v21; // r13
-  __int64 v22; // r15
-  __int64 v23; // rax
-  __int64 *v24; // rsi
-  _QWORD *v25; // rsi
-  __int64 v26; // r8
-  struct _KLOCK_ENTRIES *v27; // r9
+  unsigned int v20; // r13d
+  __int64 v21; // r12
+  __int64 i; // rsi
+  _QWORD *v23; // rsi
+  __int64 v24; // r8
+  struct _KLOCK_ENTRIES *v25; // r9
   struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-78h] BYREF
 
   v3 = a3 + 16;
@@ -105,32 +103,27 @@ __int64 __fastcall CmpCommitDiscardReplacePost(ULONG_PTR BugCheckParameter4, __i
   CmpAttachToRegistryProcess(&ApcState);
   while ( v9 < v20 )
   {
-    v22 = v21 + 24LL * v9;
-LABEL_12:
-    v23 = *(_QWORD *)(v22 + 16);
-    v24 = (__int64 *)(v22 + 16);
-    while ( v23 )
+LABEL_11:
+    for ( i = *(_QWORD *)(v21 + 24LL * v9 + 16); i; i = v23[3] )
     {
-      v25 = (_QWORD *)(*v24 - 16);
-      if ( !*v25 )
+      v23 = (_QWORD *)(i - 16);
+      if ( !*v23 )
       {
-        CmpRemoveFromDelayedClose((__int64)v25);
-        CmpCleanUpKcbCacheWithLock((ULONG_PTR)v25, a2, v26, v27);
-        CmpDecommisssionKcb((ULONG_PTR)v25);
-        goto LABEL_12;
+        CmpRemoveFromDelayedClose((__int64)v23);
+        CmpCleanUpKcbCacheWithLock((ULONG_PTR)v23, a2, v24, v25);
+        CmpDecommisssionKcb((ULONG_PTR)v23);
+        goto LABEL_11;
       }
-      if ( v25[9] == BugCheckParameter4 )
+      if ( v23[9] == BugCheckParameter4 )
       {
-        ++v25[38];
-        v25[9] = v8;
+        ++v23[38];
+        v23[9] = v8;
         if ( *(_QWORD *)BugCheckParameter4 )
         {
           CmpReferenceKeyControlBlockUnsafe((volatile signed __int64 *)v8);
           CmpDereferenceKeyControlBlockUnsafe(BugCheckParameter4);
         }
       }
-      v24 = v25 + 3;
-      v23 = *v24;
     }
     ++v9;
   }

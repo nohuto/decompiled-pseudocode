@@ -16,7 +16,7 @@ __int64 PopCheckPowerSourceAfterRtcWakeSet()
   v1[1] = -1LL;
   return KeSetTimer2(
            (__int64)&PopCheckPowerSourceAfterRtcWakeTimer,
-           -10000000LL * (unsigned int)PopCheckPowerSourceAfterRtcWakeTime,
+           (LARGE_INTEGER)(-10000000LL * (unsigned int)PopCheckPowerSourceAfterRtcWakeTime),
            0LL,
            (__int64)v1);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSetThreadExecutionState @ 0x1407D4AB4
+ * XREFs of PopDiagTraceSetThreadExecutionState @ 0x1407D7C6C
  * Callers:
- *     NtSetThreadExecutionState @ 0x1407D2150 (NtSetThreadExecutionState.c)
+ *     NtSetThreadExecutionState @ 0x1407D51F0 (NtSetThreadExecutionState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSetThreadExecutionState(__int64 a1, int a2, int a3, int a4)
@@ -35,9 +35,9 @@ char __fastcall PopDiagTraceSetThreadExecutionState(__int64 a1, int a2, int a3, 
   v4 = &retaddr;
   v27 = a3;
   v26 = a2;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v4) = EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_STES);
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_STES);
     if ( (_BYTE)v4 )
     {
       v7 = &v21;
@@ -59,7 +59,7 @@ char __fastcall PopDiagTraceSetThreadExecutionState(__int64 a1, int a2, int a3, 
         v22 = v10;
         v23 = 0;
       }
-      v11 = *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16];
+      v11 = PopDiagHandle;
       *v7 = (__int64)&v15;
       v7[1] = 4LL;
       v7[2] = (__int64)&v16;

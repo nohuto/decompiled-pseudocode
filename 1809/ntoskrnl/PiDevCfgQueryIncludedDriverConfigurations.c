@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x1406F6C70
+ * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x1406F7F10
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x1406F3FE4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1406F5284 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PnpDuplicateUnicodeString @ 0x14015D9B8 (PnpDuplicateUnicodeString.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     wcschr @ 0x1401976D0 (wcschr.c)
- *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
- *     PiDevCfgGetDriverConfigurationKeyScope @ 0x1402890C8 (PiDevCfgGetDriverConfigurationKeyScope.c)
- *     PiDevCfgPushDriverNodeEntry @ 0x14028954C (PiDevCfgPushDriverNodeEntry.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x1406F3FE4 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgAppendMultiSz @ 0x14082B2C8 (PiDevCfgAppendMultiSz.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14082E008 (PiDevCfgQueryIncludedDriverNode.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PnpDuplicateUnicodeString @ 0x14015DAB8 (PnpDuplicateUnicodeString.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     wcschr @ 0x140197810 (wcschr.c)
+ *     wcsrchr @ 0x140197A00 (wcsrchr.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x1402892B8 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     PiDevCfgPushDriverNodeEntry @ 0x14028973C (PiDevCfgPushDriverNodeEntry.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1406F5284 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgAppendMultiSz @ 0x14082C4C8 (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x14082F238 (PiDevCfgQueryIncludedDriverNode.c)
  */
 
 __int64 __fastcall PiDevCfgQueryIncludedDriverConfigurations(__int64 a1)
@@ -104,13 +104,13 @@ LABEL_58:
         *v12 = 0;
         v14 = *v9;
         v9 = v12 + 1;
-        v15 = v14 < asc_140766B20[0];
+        v15 = v14 < asc_140767D10[0];
         v33 = v12 + 1;
-        if ( v14 != asc_140766B20[0] )
+        if ( v14 != asc_140767D10[0] )
           goto LABEL_15;
         v16 = v11[1];
-        v15 = v16 < asc_140766B20[1];
-        if ( v16 == asc_140766B20[1] )
+        v15 = v16 < asc_140767D10[1];
+        if ( v16 == asc_140767D10[1] )
           v17 = 0;
         else
 LABEL_15:
@@ -121,9 +121,9 @@ LABEL_15:
         {
           *v18 = 0;
           v9 = v18 + 1;
-          v19 = v18[1] - asc_140766B20[0];
+          v19 = v18[1] - asc_140767D10[0];
           if ( !v19 )
-            v19 = v18[2] - asc_140766B20[1];
+            v19 = v18[2] - asc_140767D10[1];
           if ( v19 )
           {
             v39 = 0;

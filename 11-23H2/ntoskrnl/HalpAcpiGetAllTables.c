@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAcpiGetAllTables @ 0x14037D718
+ * XREFs of HalpAcpiGetAllTables @ 0x14037D8B8
  * Callers:
- *     HalAcpiGetAllTablesDispatch @ 0x14037D700 (HalAcpiGetAllTablesDispatch.c)
- *     HalpAcpiPopulateTableCacheWork @ 0x1403B6B60 (HalpAcpiPopulateTableCacheWork.c)
+ *     HalAcpiGetAllTablesDispatch @ 0x14037D8A0 (HalAcpiGetAllTablesDispatch.c)
+ *     HalpAcpiPopulateTableCacheWork @ 0x1403B6D40 (HalpAcpiPopulateTableCacheWork.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     HalpAcpiGetAllTablesWork @ 0x14037DC28 (HalpAcpiGetAllTablesWork.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14037DDC8 (HalpAcpiGetAllTablesWork.c)
  */
 
 __int64 HalpAcpiGetAllTables()

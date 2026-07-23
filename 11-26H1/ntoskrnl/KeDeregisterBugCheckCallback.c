@@ -1,12 +1,12 @@
 /*
- * XREFs of KeDeregisterBugCheckCallback @ 0x1405E6FC0
+ * XREFs of KeDeregisterBugCheckCallback @ 0x1405E9930
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 BOOLEAN __stdcall KeDeregisterBugCheckCallback(PKBUGCHECK_CALLBACK_RECORD CallbackRecord)
@@ -21,7 +21,7 @@ BOOLEAN __stdcall KeDeregisterBugCheckCallback(PKBUGCHECK_CALLBACK_RECORD Callba
     __writecr8(0xFuLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
-  KxAcquireSpinLock(&KeBugCheckCallbackLock);
+  KxAcquireSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Blink);
   v3 = 0;
   if ( CallbackRecord->State == 1 )
   {
@@ -36,7 +36,7 @@ BOOLEAN __stdcall KeDeregisterBugCheckCallback(PKBUGCHECK_CALLBACK_RECORD Callba
     v3 = 1;
     Flink->Blink = Blink;
   }
-  KxReleaseSpinLock(&KeBugCheckCallbackLock);
+  KxReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Blink);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsDeleteVsmEnclave @ 0x14090DD54
+ * XREFs of PsDeleteVsmEnclave @ 0x14090DEB4
  * Callers:
- *     MiDeleteEnclavePages @ 0x1409B0B60 (MiDeleteEnclavePages.c)
+ *     MiDeleteEnclavePages @ 0x1409B1A90 (MiDeleteEnclavePages.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     PsDereferenceVsmEnclave @ 0x14090DEA0 (PsDereferenceVsmEnclave.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     PsDereferenceVsmEnclave @ 0x14090E000 (PsDereferenceVsmEnclave.c)
  */
 
 __int64 __fastcall PsDeleteVsmEnclave(__int64 a1, _QWORD *a2)

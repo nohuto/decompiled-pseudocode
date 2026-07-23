@@ -248,7 +248,7 @@ LABEL_73:
     v47 = ++v12;
     if ( v12 > 0x20 )
 LABEL_103:
-      RtlRaiseStatus(0xC00000FF);
+      RtlRaiseStatus(-1073741569);
   }
   if ( v13 )
   {

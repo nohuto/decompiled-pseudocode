@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMDeleteDeviceKey @ 0x140646FBC
+ * XREFs of PiCMDeleteDeviceKey @ 0x1406470A0
  * Callers:
- *     PiCMHandleIoctl @ 0x1404FC77C (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1404DF70C (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     RtlUnicodeStringToInteger @ 0x1404B8E10 (RtlUnicodeStringToInteger.c)
- *     PiCMConvertDeviceKeyType @ 0x1404D65DC (PiCMConvertDeviceKeyType.c)
- *     PiAuDoesClientHaveAccess @ 0x1404F6100 (PiAuDoesClientHaveAccess.c)
- *     PiCMReturnBasicResultData @ 0x1404F7090 (PiCMReturnBasicResultData.c)
- *     PiCMCaptureObjectInputData @ 0x1404F8E1C (PiCMCaptureObjectInputData.c)
- *     PiCMReleaseObjectInputData @ 0x1404F921C (PiCMReleaseObjectInputData.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKey @ 0x1406D70F0 (_PnpCtxRegEnumKey.c)
- *     _CmDeleteDeviceRegKey @ 0x1406D8474 (_CmDeleteDeviceRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     RtlUnicodeStringToInteger @ 0x1404A31F0 (RtlUnicodeStringToInteger.c)
+ *     PiCMConvertDeviceKeyType @ 0x1404B9BE0 (PiCMConvertDeviceKeyType.c)
+ *     PiAuDoesClientHaveAccess @ 0x1404D908C (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnBasicResultData @ 0x1404DA01C (PiCMReturnBasicResultData.c)
+ *     PiCMCaptureObjectInputData @ 0x1404DBDA8 (PiCMCaptureObjectInputData.c)
+ *     PiCMReleaseObjectInputData @ 0x1404DC1A8 (PiCMReleaseObjectInputData.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKey @ 0x1406D7228 (_PnpCtxRegEnumKey.c)
+ *     _CmDeleteDeviceRegKey @ 0x1406D85AC (_CmDeleteDeviceRegKey.c)
  */
 
 __int64 __fastcall PiCMDeleteDeviceKey(

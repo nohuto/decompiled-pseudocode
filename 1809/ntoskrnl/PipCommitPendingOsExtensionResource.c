@@ -1,16 +1,16 @@
 /*
- * XREFs of PipCommitPendingOsExtensionResource @ 0x1409F5A70
+ * XREFs of PipCommitPendingOsExtensionResource @ 0x1409F6A70
  * Callers:
  *     <none>
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegCreateKey @ 0x1406E6464 (_PnpCtxRegCreateKey.c)
- *     PiDevCfgCopyDeviceKeys @ 0x1406F2BE8 (PiDevCfgCopyDeviceKeys.c)
- *     _PnpCtxRegDeleteTree @ 0x14073C104 (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegCloseKey @ 0x14073C33C (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14073C354 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x14073C390 (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegDeleteKey @ 0x1408F5E7C (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1405C8C40 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegCreateKey @ 0x1406E7704 (_PnpCtxRegCreateKey.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x1406F3E88 (PiDevCfgCopyDeviceKeys.c)
+ *     _PnpCtxRegDeleteTree @ 0x14073D2F4 (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegCloseKey @ 0x14073D52C (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14073D544 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x14073D580 (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegDeleteKey @ 0x1408F713C (_PnpCtxRegDeleteKey.c)
  */
 
 __int64 __fastcall PipCommitPendingOsExtensionResource(const WCHAR *a1, char *a2, void *a3)

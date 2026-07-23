@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpGlobalLockKeyForWrite @ 0x14068E5A4
+ * XREFs of CmpGlobalLockKeyForWrite @ 0x14068F764
  * Callers:
- *     CmLockKeyForWrite @ 0x14068E360 (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x14068F520 (CmLockKeyForWrite.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpCreateGlobalKeyLockEntry @ 0x14068E6C0 (CmpCreateGlobalKeyLockEntry.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x14068F880 (CmpCreateGlobalKeyLockEntry.c)
  */
 
 __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)
@@ -21,11 +21,11 @@ __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
-  GlobalKeyLockEntry = qword_140437D88;
+  GlobalKeyLockEntry = qword_140438E48;
   v6 = 0;
   while ( 1 )
   {
-    if ( (__int64 *)GlobalKeyLockEntry == &qword_140437D88 )
+    if ( (__int64 *)GlobalKeyLockEntry == &qword_140438E48 )
       goto LABEL_5;
     if ( *(_QWORD *)(GlobalKeyLockEntry + 24) == a1 )
       break;
@@ -51,13 +51,13 @@ LABEL_5:
     v7 = KeGetCurrentThread();
     --v7->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpKeyLockTracker, 0LL);
-    v8 = (__int64 *)qword_140437D90;
-    if ( *(__int64 **)qword_140437D90 != &qword_140437D88 )
+    v8 = (__int64 *)qword_140438E50;
+    if ( *(__int64 **)qword_140438E50 != &qword_140438E48 )
       __fastfail(3u);
-    *(_QWORD *)GlobalKeyLockEntry = &qword_140437D88;
+    *(_QWORD *)GlobalKeyLockEntry = &qword_140438E48;
     *(_QWORD *)(GlobalKeyLockEntry + 8) = v8;
     *v8 = GlobalKeyLockEntry;
-    qword_140437D90 = GlobalKeyLockEntry;
+    qword_140438E50 = GlobalKeyLockEntry;
     goto LABEL_8;
   }
   return (unsigned int)-1073741670;

@@ -14,82 +14,72 @@
  *     RtlUnhandledExceptionFilter2 @ 0x18010D530 (RtlUnhandledExceptionFilter2.c)
  */
 
-__int64 __fastcall LdrpLogFatalUserCallbackException(__int64 a1, __int64 a2)
+LONG __fastcall LdrpLogFatalUserCallbackException(_EXCEPTION_RECORD *a1, struct _CONTEXT *a2)
 {
   unsigned int v2; // eax
   __int64 v4; // rbx
-  NTSTATUS v6; // eax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 (__fastcall *v9)(_QWORD *); // rbx
-  __int64 result; // rax
+  int v6; // eax
+  __int64 (__fastcall *v7)(_EXCEPTION_POINTERS *); // rbx
+  LONG result; // eax
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rdx
   unsigned __int16 Length; // ax
-  int v13; // ecx
+  int v11; // ecx
   wchar_t *Buffer; // rax
-  __int64 v15; // rax
-  int v16; // eax
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int16 v19; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int64 ProcessInformation; // [rsp+38h] [rbp-C8h] BYREF
-  _QWORD v21[2]; // [rsp+40h] [rbp-C0h] BYREF
-  int v22; // [rsp+50h] [rbp-B0h]
-  int v23; // [rsp+54h] [rbp-ACh]
-  __int64 v24; // [rsp+58h] [rbp-A8h]
-  __int64 v25; // [rsp+60h] [rbp-A0h]
-  int v26; // [rsp+68h] [rbp-98h]
-  __int16 *v27; // [rsp+F0h] [rbp-10h] BYREF
-  int v28; // [rsp+F8h] [rbp-8h]
-  int v29; // [rsp+FCh] [rbp-4h]
-  wchar_t *v30; // [rsp+100h] [rbp+0h]
-  int v31; // [rsp+108h] [rbp+8h]
-  int v32; // [rsp+10Ch] [rbp+Ch]
+  void *Rip; // rax
+  NTSTATUS v14; // eax
+  __int16 v15; // [rsp+30h] [rbp-D0h] BYREF
+  ULONGLONG ProcessInformation; // [rsp+38h] [rbp-C8h] BYREF
+  _EXCEPTION_POINTERS ExceptionPointers; // [rsp+40h] [rbp-C0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+50h] [rbp-B0h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+F0h] [rbp-10h] BYREF
+  wchar_t *v20; // [rsp+100h] [rbp+0h]
+  int v21; // [rsp+108h] [rbp+8h]
+  int v22; // [rsp+10Ch] [rbp+Ch]
 
   v2 = `RtlpGetCookieValue'::`2'::CookieValue;
   v4 = RtlpUnhandledExceptionFilter;
-  v21[0] = a1;
-  v21[1] = a2;
+  ExceptionPointers.ExceptionRecord = a1;
+  ExceptionPointers.ContextRecord = a2;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v6 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+    v6 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
     if ( v6 < 0 )
-      RtlRaiseStatus(v6, v7, v8);
+      RtlRaiseStatus(v6);
     v2 = ProcessInformation;
     `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  v9 = (__int64 (__fastcall *)(_QWORD *))(v2 ^ __ROR8__(v4, 64 - (v2 & 0x3F)));
-  if ( v9 )
-    result = v9(v21);
+  v7 = (__int64 (__fastcall *)(_EXCEPTION_POINTERS *))(v2 ^ __ROR8__(v4, 64 - (v2 & 0x3F)));
+  if ( v7 )
+    result = v7(&ExceptionPointers);
   else
-    result = RtlUnhandledExceptionFilter2(v21, &unk_180130AA2);
-  if ( (_DWORD)result != -1 )
+    result = RtlUnhandledExceptionFilter2(&ExceptionPointers, (ULONG)&Flags);
+  if ( result != -1 )
   {
-    if ( !(unsigned int)EtwEventRegister((int)&UserLoaderGuid, 0LL, 0LL, (__int64)&ProcessInformation) )
+    if ( !EtwEventRegister(&UserLoaderGuid, 0LL, 0LL, &ProcessInformation) )
     {
       ProcessParameters = NtCurrentPeb()->ProcessParameters;
       Length = ProcessParameters->ImagePathName.Length;
-      v29 = 0;
-      v19 = Length >> 1;
-      v27 = &v19;
-      v28 = 2;
-      v13 = ProcessParameters->ImagePathName.Length;
+      UserData.Reserved = 0;
+      v15 = Length >> 1;
+      UserData.Ptr = (unsigned __int64)&v15;
+      UserData.Size = 2;
+      v11 = ProcessParameters->ImagePathName.Length;
       Buffer = ProcessParameters->ImagePathName.Buffer;
-      v32 = 0;
-      v31 = v13;
-      v30 = Buffer;
-      EtwEventWrite(ProcessInformation, (int)&FatalUserCallbackException, 2, (__int64)&v27);
+      v22 = 0;
+      v21 = v11;
+      v20 = Buffer;
+      EtwEventWrite(ProcessInformation, &FatalUserCallbackException, 2u, &UserData);
       EtwNotificationUnregister(ProcessInformation, 0LL);
     }
-    v15 = *(_QWORD *)(a2 + 248);
-    v26 = 0;
-    v25 = v15;
-    LODWORD(v15) = *(_DWORD *)(a1 + 4) | 1;
-    v22 = -1073740771;
-    v23 = v15;
-    v24 = a1;
-    v16 = ZwRaiseException();
-    RtlRaiseStatus(v16, v17, v18);
+    Rip = (void *)a2->Rip;
+    ExceptionRecord.NumberParameters = 0;
+    ExceptionRecord.ExceptionAddress = Rip;
+    LODWORD(Rip) = a1->ExceptionFlags | 1;
+    ExceptionRecord.ExceptionCode = -1073740771;
+    ExceptionRecord.ExceptionFlags = (unsigned int)Rip;
+    ExceptionRecord.ExceptionRecord = a1;
+    v14 = ZwRaiseException(&ExceptionRecord, a2, 0);
+    RtlRaiseStatus(v14);
   }
   return result;
 }

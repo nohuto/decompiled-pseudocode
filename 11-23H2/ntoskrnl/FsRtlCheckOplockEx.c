@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlCheckOplockEx @ 0x1402FD900
+ * XREFs of FsRtlCheckOplockEx @ 0x1402FDB90
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x140766310 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x140766500 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402FDBE0 (FsRtlCheckOplockEx2.c)
  */
 
 NTSTATUS __stdcall FsRtlCheckOplockEx(

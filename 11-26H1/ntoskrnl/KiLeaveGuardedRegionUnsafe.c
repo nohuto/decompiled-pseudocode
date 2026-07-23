@@ -1,9 +1,9 @@
 /*
- * XREFs of KiLeaveGuardedRegionUnsafe @ 0x14027DB50
+ * XREFs of KiLeaveGuardedRegionUnsafe @ 0x14027D0C0
  * Callers:
- *     MiAddViewsForSection @ 0x1402E31A0 (MiAddViewsForSection.c)
+ *     MiAddViewsForSection @ 0x1402C51E0 (MiAddViewsForSection.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
  */
 
 __int64 __fastcall KiLeaveGuardedRegionUnsafe(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

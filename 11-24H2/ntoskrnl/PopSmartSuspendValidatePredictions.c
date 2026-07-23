@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSmartSuspendValidatePredictions @ 0x14075C560
+ * XREFs of PopSmartSuspendValidatePredictions @ 0x14075B4FC
  * Callers:
- *     PopIdleGlobalUserPresenceCallback @ 0x140AC9210 (PopIdleGlobalUserPresenceCallback.c)
+ *     PopIdleGlobalUserPresenceCallback @ 0x140ABA420 (PopIdleGlobalUserPresenceCallback.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     PopSmartSuspendValidateSinglePrediction @ 0x140A8FC14 (PopSmartSuspendValidateSinglePrediction.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     PopSmartSuspendValidateSinglePrediction @ 0x140A8C254 (PopSmartSuspendValidateSinglePrediction.c)
  */
 
 char PopSmartSuspendValidatePredictions()

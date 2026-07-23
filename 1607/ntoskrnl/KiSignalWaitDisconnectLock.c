@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSignalWaitDisconnectLock @ 0x1401D8D0C
+ * XREFs of KiSignalWaitDisconnectLock @ 0x1401D8B38
  * Callers:
- *     KiDisconnectInterruptCommon @ 0x1401242B8 (KiDisconnectInterruptCommon.c)
+ *     KiDisconnectInterruptCommon @ 0x140124828 (KiDisconnectInterruptCommon.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  */
 
 LONG __fastcall KiSignalWaitDisconnectLock(struct _KEVENT *a1, char a2)

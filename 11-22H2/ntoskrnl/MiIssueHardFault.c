@@ -137,7 +137,9 @@ __int64 __fastcall MiIssueHardFault(ULONG_PTR *a1, __int64 a2)
     --*(_WORD *)(v2 + 486);
   else
     --*(_WORD *)(v2 + 484);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v15 = v56;
     if ( v56 <= 0xFu && CurrentIrql >= 2u )

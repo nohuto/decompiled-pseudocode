@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtAlpcOpenSenderThread()
+NTSTATUS __cdecl NtAlpcOpenSenderThread(
+        PHANDLE ThreadHandle,
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ULONG Flags,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 132LL;
+  result = 132;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

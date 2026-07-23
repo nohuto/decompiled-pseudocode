@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapLockedPagesInUserSpaceHelper @ 0x1402F155C
+ * XREFs of MiMapLockedPagesInUserSpaceHelper @ 0x1402F17EC
  * Callers:
- *     MiMapLockedPagesInUserSpace @ 0x140748574 (MiMapLockedPagesInUserSpace.c)
- *     MiRotateToFrameBuffer @ 0x140A316A0 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A319A4 (MiRotateToFrameBufferNoCopy.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140748764 (MiMapLockedPagesInUserSpace.c)
+ *     MiRotateToFrameBuffer @ 0x140A31950 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A31C54 (MiRotateToFrameBufferNoCopy.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x140277430 (MiMakeSystemAddressValid.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiInsertVad @ 0x140287C90 (MiInsertVad.c)
- *     MiWorkingSetIsContended @ 0x1402E69F0 (MiWorkingSetIsContended.c)
- *     MiPageTableLockIsContended @ 0x1402E6A30 (MiPageTableLockIsContended.c)
- *     MiInsertPhysicalPteMapping @ 0x1402F1714 (MiInsertPhysicalPteMapping.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402776C0 (MiMakeSystemAddressValid.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiInsertVad @ 0x140287F20 (MiInsertVad.c)
+ *     MiWorkingSetIsContended @ 0x1402E6C80 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x1402E6CC0 (MiPageTableLockIsContended.c)
+ *     MiInsertPhysicalPteMapping @ 0x1402F19A4 (MiInsertPhysicalPteMapping.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiMapLockedPagesInUserSpaceHelper(

@@ -1,22 +1,22 @@
 /*
- * XREFs of DbgkpSetProcessDebugObject @ 0x140938148
+ * XREFs of DbgkpSetProcessDebugObject @ 0x140938348
  * Callers:
- *     NtDebugActiveProcess @ 0x1409386C0 (NtDebugActiveProcess.c)
+ *     NtDebugActiveProcess @ 0x1409388C0 (NtDebugActiveProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PsGetNextProcessThread @ 0x140742AB0 (PsGetNextProcessThread.c)
- *     DbgkpMarkProcessPeb @ 0x14093740C (DbgkpMarkProcessPeb.c)
- *     DbgkpPostFakeThreadMessages @ 0x140937784 (DbgkpPostFakeThreadMessages.c)
- *     DbgkpWakeTarget @ 0x140938438 (DbgkpWakeTarget.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PsGetNextProcessThread @ 0x140742CA0 (PsGetNextProcessThread.c)
+ *     DbgkpMarkProcessPeb @ 0x14093760C (DbgkpMarkProcessPeb.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140937984 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x140938638 (DbgkpWakeTarget.c)
  */
 
-__int64 DbgkpSetProcessDebugObject(__int64 BugCheckParameter1, PRKEVENT Event, int a3, ...)
+__int64 DbgkpSetProcessDebugObject(ULONG_PTR BugCheckParameter1, PRKEVENT Event, int a3, ...)
 {
   struct _KTHREAD *CurrentThread; // r13
   int v4; // edi
@@ -74,12 +74,7 @@ __int64 DbgkpSetProcessDebugObject(__int64 BugCheckParameter1, PRKEVENT Event, i
       ExReleaseFastMutex(&DbgkpProcessDebugPortMutex);
       v27 = 0;
       ObfDereferenceObjectWithTag(v7, 0x4F676244u);
-      v4 = DbgkpPostFakeThreadMessages(
-             (_KPROCESS *)BugCheckParameter1,
-             Event,
-             (__int64)NextProcessThread,
-             &v21,
-             (PVOID *)Objecta);
+      v4 = DbgkpPostFakeThreadMessages(BugCheckParameter1, Event, (__int64)NextProcessThread, &v21, (PVOID *)Objecta);
       if ( v4 < 0 )
       {
         v7 = 0LL;

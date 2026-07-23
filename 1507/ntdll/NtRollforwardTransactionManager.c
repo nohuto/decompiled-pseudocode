@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtRollforwardTransactionManager()
+NTSTATUS __cdecl NtRollforwardTransactionManager(HANDLE TransactionManagerHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 358LL;
+  result = 358;
   __asm { syscall; Low latency system call }
   return result;
 }

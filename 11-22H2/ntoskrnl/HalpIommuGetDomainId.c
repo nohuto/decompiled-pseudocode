@@ -13,7 +13,7 @@
 __int64 __fastcall HalpIommuGetDomainId(__int64 a1, ULONG *a2)
 {
   volatile signed __int64 *v3; // rdi
-  RTL_BITMAP *v4; // rbx
+  _RTL_BITMAP *v4; // rbx
   unsigned __int64 v5; // rsi
   ULONG ClearBitsAndSet; // eax
   unsigned int v7; // ebx
@@ -26,7 +26,7 @@ __int64 __fastcall HalpIommuGetDomainId(__int64 a1, ULONG *a2)
   if ( HalpHvIommu )
     return 3221225659LL;
   v3 = (volatile signed __int64 *)(a1 + 464);
-  v4 = (RTL_BITMAP *)(a1 + 472);
+  v4 = (_RTL_BITMAP *)(a1 + 472);
   v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 464));
   ClearBitsAndSet = RtlFindClearBitsAndSet(v4, 1u, 0);
   v7 = 0;
@@ -34,10 +34,13 @@ __int64 __fastcall HalpIommuGetDomainId(__int64 a1, ULONG *a2)
     v7 = -1073741670;
   *a2 = ClearBitsAndSet;
   KxReleaseSpinLock(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

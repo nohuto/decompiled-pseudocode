@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPluginNotifyIdleState @ 0x140462DCE
+ * XREFs of PopPluginNotifyIdleState @ 0x1404631CE
  * Callers:
- *     PopPepNotifyIdleState @ 0x14035C4C0 (PopPepNotifyIdleState.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x14035C560 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepNotifyIdleState @ 0x14035C660 (PopPepNotifyIdleState.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x14035C700 (PopPepStartComponentIdleStateChangeActivity.c)
  * Callees:
- *     PopFxAddLogEntry @ 0x140312AF4 (PopFxAddLogEntry.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     PopFxAddLogEntry @ 0x140312D84 (PopFxAddLogEntry.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PopPluginNotifyIdleState(__int64 *a1, int a2, int a3, char a4)

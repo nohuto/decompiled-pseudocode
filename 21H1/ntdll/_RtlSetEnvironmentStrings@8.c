@@ -14,43 +14,51 @@
  *     _RtlSetEnvironmentStrings@8 @ 0x4B32DDE0 (_RtlSetEnvironmentStrings@8.c)
  */
 
-int __stdcall RtlSetEnvironmentStrings(void *Src, size_t Size)
+NTSTATUS __cdecl RtlSetEnvironmentStrings(PCWCHAR NewEnvironment, SIZE_T NewEnvironmentSize)
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // ebx
   void *EnvBlock; // eax
-  void *v5; // [esp+10h] [ebp-24h]
-  unsigned int v6; // [esp+14h] [ebp-20h]
-  void *Environment; // [esp+18h] [ebp-1Ch]
-  void *v8; // [esp+18h] [ebp-1Ch]
+  size_t v5; // [esp-10h] [ebp-44h]
+  size_t v6; // [esp-4h] [ebp-38h]
+  void *v7; // [esp+10h] [ebp-24h]
+  unsigned int v8; // [esp+14h] [ebp-20h]
+  PVOID BaseAddress; // [esp+18h] [ebp-1Ch]
+  PVOID BaseAddressa; // [esp+18h] [ebp-1Ch]
+  size_t ms_exc_8; // [esp+24h] [ebp-10h]
+  size_t ms_exc_8a; // [esp+24h] [ebp-10h]
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  RtlEnterCriticalSection((int)NtCurrentPeb()->FastPebLock);
-  Environment = ProcessParameters->Environment;
-  v6 = RtlSizeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Environment);
-  if ( v6 >= Size )
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
+  BaseAddress = ProcessParameters->Environment;
+  v8 = RtlSizeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+  if ( v8 >= (unsigned int)NewEnvironmentSize )
   {
-    memcpy(Environment, Src, Size);
-    ProcessParameters->Environment = Environment;
-    ProcessParameters->EnvironmentSize = Size;
+    LODWORD(v6) = NewEnvironmentSize;
+    memcpy(BaseAddress, NewEnvironment, v6);
+    ProcessParameters->Environment = BaseAddress;
+    ProcessParameters->EnvironmentSize = NewEnvironmentSize;
     ++ProcessParameters->EnvironmentVersion;
-    memset(&RtlpEnvironLookupTable, 0, 0x234u);
+    LODWORD(v5) = 564;
+    memset(&RtlpEnvironLookupTable, 0, v5);
   }
-  RtlLeaveCriticalSection((int)NtCurrentPeb()->FastPebLock);
-  if ( v6 < Size )
+  RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
+  if ( v8 < (unsigned int)NewEnvironmentSize )
   {
-    EnvBlock = (void *)RtlpAllocateEnvBlock(Size);
-    v5 = EnvBlock;
+    EnvBlock = (void *)RtlpAllocateEnvBlock(NewEnvironmentSize);
+    v7 = EnvBlock;
     if ( !EnvBlock )
       return -1073741670;
-    memcpy(EnvBlock, Src, Size);
-    RtlEnterCriticalSection((int)NtCurrentPeb()->FastPebLock);
-    v8 = ProcessParameters->Environment;
-    memset(&RtlpEnvironLookupTable, 0, 0x234u);
-    ProcessParameters->Environment = v5;
-    ProcessParameters->EnvironmentSize = Size;
+    LODWORD(ms_exc_8) = NewEnvironmentSize;
+    memcpy(EnvBlock, NewEnvironment, ms_exc_8);
+    RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
+    BaseAddressa = ProcessParameters->Environment;
+    LODWORD(ms_exc_8a) = 564;
+    memset(&RtlpEnvironLookupTable, 0, ms_exc_8a);
+    ProcessParameters->Environment = v7;
+    ProcessParameters->EnvironmentSize = NewEnvironmentSize;
     ++ProcessParameters->EnvironmentVersion;
-    RtlLeaveCriticalSection((int)NtCurrentPeb()->FastPebLock);
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v8);
+    RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddressa);
   }
   return 0;
 }

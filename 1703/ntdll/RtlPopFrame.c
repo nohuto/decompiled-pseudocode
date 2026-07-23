@@ -6,11 +6,7 @@
  *     <none>
  */
 
-struct _TEB_ACTIVE_FRAME *__fastcall RtlPopFrame(__int64 a1)
+void __cdecl RtlPopFrame(PTEB_ACTIVE_FRAME Frame)
 {
-  struct _TEB_ACTIVE_FRAME *result; // rax
-
-  result = *(struct _TEB_ACTIVE_FRAME **)(a1 + 8);
-  NtCurrentTeb()->ActiveFrame = result;
-  return result;
+  NtCurrentTeb()->ActiveFrame = Frame->Previous;
 }

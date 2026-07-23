@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpUpdateRepurposedByPrefetch @ 0x14042BB08
+ * XREFs of PfpUpdateRepurposedByPrefetch @ 0x14042A9D8
  * Callers:
- *     PfpVolumePrefetchMetadata @ 0x1403ED2F4 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchDirectoryStream @ 0x1403ED670 (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchFilesTrickle @ 0x14042B7B4 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchPrivatePages @ 0x1405333EC (PfpPrefetchPrivatePages.c)
+ *     PfpVolumePrefetchMetadata @ 0x1403EE924 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchDirectoryStream @ 0x1403EECA0 (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchFilesTrickle @ 0x14042A684 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchPrivatePages @ 0x14053392C (PfpPrefetchPrivatePages.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x14001FEE0 (MmQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PfpGetPageListCount @ 0x14042BC08 (PfpGetPageListCount.c)
+ *     MmQueryMemoryListInformation @ 0x14001FA60 (MmQueryMemoryListInformation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PfpGetPageListCount @ 0x14042AAD8 (PfpGetPageListCount.c)
  */
 
 _OWORD *__fastcall PfpUpdateRepurposedByPrefetch(_OWORD *a1, unsigned __int64 a2, __int64 a3)
@@ -39,7 +39,7 @@ _OWORD *__fastcall PfpUpdateRepurposedByPrefetch(_OWORD *a1, unsigned __int64 a2
   if ( v8 > a2 )
     v8 = a2;
   if ( v8 )
-    _InterlockedExchangeAdd64(&qword_1403286B0, v8);
+    _InterlockedExchangeAdd64(&qword_1403286F0, v8);
   result = v21;
   v10 = v21[1];
   *a1 = v21[0];

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetDesiredZeroTime @ 0x140351908
+ * XREFs of MiGetDesiredZeroTime @ 0x140351AA8
  * Callers:
- *     MiReassessZeroThreads @ 0x1403515FC (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x14035179C (MiReassessZeroThreads.c)
  * Callees:
  *     <none>
  */

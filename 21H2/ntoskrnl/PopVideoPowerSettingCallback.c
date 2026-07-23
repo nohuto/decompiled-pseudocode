@@ -1,12 +1,12 @@
 /*
- * XREFs of PopVideoPowerSettingCallback @ 0x1403A8230
+ * XREFs of PopVideoPowerSettingCallback @ 0x1403A8FC0
  * Callers:
  *     <none>
  * Callees:
- *     PopAdaptivePowerSettingCallback @ 0x140790F60 (PopAdaptivePowerSettingCallback.c)
- *     PopApplyPolicy @ 0x1407929CC (PopApplyPolicy.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140792510 (PopAdaptivePowerSettingCallback.c)
+ *     PopApplyPolicy @ 0x140793F7C (PopApplyPolicy.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopVideoPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3, __int64 a4)

@@ -1,23 +1,23 @@
 /*
- * XREFs of KiAdjustUserIsolationDomainThread @ 0x1405C26B0
+ * XREFs of KiAdjustUserIsolationDomainThread @ 0x1405BFC80
  * Callers:
- *     PspSynchronizeThreadIsolationDomains @ 0x1402053A8 (PspSynchronizeThreadIsolationDomains.c)
- *     KeEnableCoreIsolationMitigationPolicyThread @ 0x1405C2120 (KeEnableCoreIsolationMitigationPolicyThread.c)
+ *     PspSynchronizeThreadIsolationDomains @ 0x14032C988 (PspSynchronizeThreadIsolationDomains.c)
+ *     KeEnableCoreIsolationMitigationPolicyThread @ 0x1405BF6F0 (KeEnableCoreIsolationMitigationPolicyThread.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiReleaseThreadStateLock @ 0x1403B27B0 (KiReleaseThreadStateLock.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KiIpiSendPacket @ 0x1404656E8 (KiIpiSendPacket.c)
- *     KiIpiStallOnPacketTargets @ 0x1404679AC (KiIpiStallOnPacketTargets.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiReleaseThreadStateLock @ 0x1403A0FC0 (KiReleaseThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiIpiSendPacket @ 0x14045D668 (KiIpiSendPacket.c)
+ *     KiIpiStallOnPacketTargets @ 0x14045F44C (KiIpiStallOnPacketTargets.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiAdjustUserIsolationDomainThread(__int64 a1, __int64 a2, char a3)
@@ -93,7 +93,7 @@ LABEL_17:
           if ( (int)v12 >= 0 )
           {
             v8 = KiProcessorBlock[v12];
-            KiAcquirePrcbLocksForIsolationUnit(v8, 0, (unsigned __int64 *)&v24);
+            KiAcquirePrcbLocksForIsolationUnit(v8, 0LL, (unsigned __int64 *)&v24);
             if ( a1 == *(_QWORD *)(v8 + 8) )
               goto LABEL_49;
             if ( *(_BYTE *)(a1 + 388) == 2 && *(_DWORD *)(a1 + 536) == (_DWORD)v12 )
@@ -118,7 +118,7 @@ LABEL_17:
           if ( (int)v13 >= 0 )
           {
             v8 = KiProcessorBlock[v13];
-            KiAcquirePrcbLocksForIsolationUnit(v8, 0, (unsigned __int64 *)&v24);
+            KiAcquirePrcbLocksForIsolationUnit(v8, 0LL, (unsigned __int64 *)&v24);
             if ( a1 == *(_QWORD *)(v8 + 16) )
               goto LABEL_49;
             if ( *(_BYTE *)(a1 + 388) == 3 && *(_DWORD *)(a1 + 536) == (_DWORD)v13 )
@@ -131,7 +131,7 @@ LABEL_17:
       if ( (int)v14 < 0 )
         break;
       v8 = KiProcessorBlock[v14];
-      KiAcquirePrcbLocksForIsolationUnit(v8, 0, (unsigned __int64 *)&v24);
+      KiAcquirePrcbLocksForIsolationUnit(v8, 0LL, (unsigned __int64 *)&v24);
       if ( *(_BYTE *)(a1 + 388) == 1 && *(_DWORD *)(a1 + 536) == (_DWORD)v14 )
         goto LABEL_49;
 LABEL_47:

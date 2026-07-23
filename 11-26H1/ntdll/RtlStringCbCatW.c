@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCbCatW @ 0x18005A864
+ * XREFs of RtlStringCbCatW @ 0x180044DE4
  * Callers:
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x180059934 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     LdrpAppxGetRemediationRegistryKey @ 0x180137DB0 (LdrpAppxGetRemediationRegistryKey.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x180043EB4 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     LdrpAppxGetRemediationRegistryKey @ 0x180137B20 (LdrpAppxGetRemediationRegistryKey.c)
  * Callees:
  *     <none>
  */

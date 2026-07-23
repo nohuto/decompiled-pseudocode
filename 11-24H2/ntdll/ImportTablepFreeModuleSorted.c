@@ -1,38 +1,38 @@
 /*
- * XREFs of ImportTablepFreeModuleSorted @ 0x180134CC8
+ * XREFs of ImportTablepFreeModuleSorted @ 0x180132EF8
  * Callers:
- *     RtlComputeImportTableHash @ 0x180134EA0 (RtlComputeImportTableHash.c)
+ *     RtlComputeImportTableHash @ 0x1801330D0 (RtlComputeImportTableHash.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall ImportTablepFreeModuleSorted(_QWORD **a1)
+LOGICAL __fastcall ImportTablepFreeModuleSorted(_QWORD **BaseAddress)
 {
   _QWORD *v1; // rdi
-  unsigned __int64 v2; // rbx
+  _QWORD *v2; // rbx
   _QWORD *v3; // r8
   _QWORD *i; // rsi
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    v1 = *a1;
-    v2 = (unsigned __int64)a1;
+    v1 = *BaseAddress;
+    v2 = BaseAddress;
     while ( 1 )
     {
-      v3 = *(_QWORD **)(v2 + 16);
+      v3 = (_QWORD *)v2[2];
       if ( v3 )
       {
         for ( i = (_QWORD *)*v3; ; i = (_QWORD *)*i )
         {
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v3);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
           v3 = i;
           if ( !i )
             break;
         }
       }
-      result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v2);
-      v2 = (unsigned __int64)v1;
+      result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
+      v2 = v1;
       if ( !v1 )
         break;
       v1 = (_QWORD *)*v1;

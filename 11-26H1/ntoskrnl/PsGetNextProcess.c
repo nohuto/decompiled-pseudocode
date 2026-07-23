@@ -1,41 +1,41 @@
 /*
- * XREFs of PsGetNextProcess @ 0x14096EE20
+ * XREFs of PsGetNextProcess @ 0x1409BC470
  * Callers:
- *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x14021BA80 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
- *     MiEmptyAccessLogs @ 0x140501AF0 (MiEmptyAccessLogs.c)
- *     IopLiveDumpAllocAndInitProcessFilters @ 0x1405CC8F8 (IopLiveDumpAllocAndInitProcessFilters.c)
- *     KeEtwRundown @ 0x1405E48E8 (KeEtwRundown.c)
- *     KiAvailableCpusPartitionWorkItemCallback @ 0x1405E5A40 (KiAvailableCpusPartitionWorkItemCallback.c)
- *     KiTraceSchedulingGroupRundown @ 0x1405F92A0 (KiTraceSchedulingGroupRundown.c)
- *     PsUpdateActiveProcessAffinity @ 0x1407F0DD8 (PsUpdateActiveProcessAffinity.c)
- *     PsShutdownSystem @ 0x1407FA284 (PsShutdownSystem.c)
- *     PsWaitForAllProcesses @ 0x1407FA724 (PsWaitForAllProcesses.c)
- *     MiHotPatchAllProcesses @ 0x140870190 (MiHotPatchAllProcesses.c)
- *     MiLogHotPatchRundown @ 0x14087272C (MiLogHotPatchRundown.c)
- *     MiReferenceNonPagedMemoryProcessList @ 0x14087DB14 (MiReferenceNonPagedMemoryProcessList.c)
- *     EtwQueryPerformanceTraceInformation @ 0x14093E008 (EtwQueryPerformanceTraceInformation.c)
- *     EtwpLogMemInfoWs @ 0x14096E598 (EtwpLogMemInfoWs.c)
- *     PsEnumProcesses @ 0x14096E8BC (PsEnumProcesses.c)
- *     EtwpProcessThreadImageRundown @ 0x14096E924 (EtwpProcessThreadImageRundown.c)
- *     IopQueryProcessIdsUsingFile @ 0x1409705AC (IopQueryProcessIdsUsingFile.c)
- *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140972A58 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
- *     EtwpCoverageSamplerStop @ 0x140A84B18 (EtwpCoverageSamplerStop.c)
- *     NtGetNextProcess @ 0x140AEF810 (NtGetNextProcess.c)
- *     DbgkpCloseObject @ 0x140AFF4E0 (DbgkpCloseObject.c)
- *     VmpTracingEnabledCallback @ 0x140B1FF10 (VmpTracingEnabledCallback.c)
- *     PspProcessRundownWorker @ 0x140B3CF70 (PspProcessRundownWorker.c)
- *     PfpRpControlRequestReset @ 0x140B4463C (PfpRpControlRequestReset.c)
- *     ExpDebuggerWorker @ 0x140C16D60 (ExpDebuggerWorker.c)
- *     PopEtInit @ 0x140CD5AFC (PopEtInit.c)
+ *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x14021D410 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
+ *     MiEmptyAccessLogs @ 0x1404FB2E0 (MiEmptyAccessLogs.c)
+ *     IopLiveDumpAllocAndInitProcessFilters @ 0x1405CF108 (IopLiveDumpAllocAndInitProcessFilters.c)
+ *     KeEtwRundown @ 0x1405E7258 (KeEtwRundown.c)
+ *     KiAvailableCpusPartitionWorkItemCallback @ 0x1405E83B0 (KiAvailableCpusPartitionWorkItemCallback.c)
+ *     KiTraceSchedulingGroupRundown @ 0x1405FBCC0 (KiTraceSchedulingGroupRundown.c)
+ *     PsUpdateActiveProcessAffinity @ 0x1407F6938 (PsUpdateActiveProcessAffinity.c)
+ *     PsShutdownSystem @ 0x1407FFCB4 (PsShutdownSystem.c)
+ *     PsWaitForAllProcesses @ 0x140800154 (PsWaitForAllProcesses.c)
+ *     MiHotPatchAllProcesses @ 0x1408764F0 (MiHotPatchAllProcesses.c)
+ *     MiLogHotPatchRundown @ 0x140878A8C (MiLogHotPatchRundown.c)
+ *     MiReferenceNonPagedMemoryProcessList @ 0x140883F14 (MiReferenceNonPagedMemoryProcessList.c)
+ *     NtGetNextProcess @ 0x1409BA3B0 (NtGetNextProcess.c)
+ *     DbgkpCloseObject @ 0x1409BA900 (DbgkpCloseObject.c)
+ *     IopQueryProcessIdsUsingFile @ 0x1409BBA80 (IopQueryProcessIdsUsingFile.c)
+ *     EtwpLogMemInfoWs @ 0x1409BBBE8 (EtwpLogMemInfoWs.c)
+ *     PsEnumProcesses @ 0x1409BBF0C (PsEnumProcesses.c)
+ *     EtwpProcessThreadImageRundown @ 0x1409BBF74 (EtwpProcessThreadImageRundown.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x1409BDC4C (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     PspProcessRundownWorker @ 0x1409BDE40 (PspProcessRundownWorker.c)
+ *     PfpRpControlRequestReset @ 0x1409BDEE4 (PfpRpControlRequestReset.c)
+ *     EtwpCoverageSamplerStop @ 0x1409BDF40 (EtwpCoverageSamplerStop.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140A31120 (EtwQueryPerformanceTraceInformation.c)
+ *     VmpTracingEnabledCallback @ 0x140B22330 (VmpTracingEnabledCallback.c)
+ *     ExpDebuggerWorker @ 0x140C1CD60 (ExpDebuggerWorker.c)
+ *     PopEtInit @ 0x140CDBE50 (PopEtInit.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 LIST_ENTRY *__fastcall PsGetNextProcess(_QWORD *Object, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -46,7 +46,7 @@ LIST_ENTRY *__fastcall PsGetNextProcess(_QWORD *Object, __int64 a2, __int64 a3, 
   int v8; // r15d
   void *v9; // rdx
   LegacyAutoBoost *v10; // rbp
-  struct _KTHREAD *Thread; // rbp
+  struct _KTHREAD *Flink; // rbp
   __int64 v12; // rdx
   __int64 v13; // rcx
   bool v14; // zf
@@ -71,24 +71,24 @@ LIST_ENTRY *__fastcall PsGetNextProcess(_QWORD *Object, __int64 a2, __int64 a3, 
       *((_BYTE *)v10 + 10) = 1;
   }
   if ( Object )
-    Thread = (struct _KTHREAD *)Object[59];
+    Flink = (struct _KTHREAD *)Object[59];
   else
-    Thread = PsAltSystemCallRegistrationLock.WaitBlock[0].Thread;
-  while ( Thread != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[24] )
+    Flink = (struct _KTHREAD *)PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Flink;
+  while ( Flink != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[96] )
   {
-    p_WaitListHead = &Thread[-1].SuspendEvent.Header.WaitListHead;
-    if ( ObReferenceObjectSafeWithTag((__int64)&Thread[-1].SuspendEvent.Header.WaitListHead, 0x6E457350u) )
+    p_WaitListHead = &Flink[-1].SuspendEvent.Header.WaitListHead;
+    if ( ObReferenceObjectSafeWithTag((__int64)&Flink[-1].SuspendEvent.Header.WaitListHead, 0x6E457350u) )
     {
       v8 = 1;
       break;
     }
-    Thread = *(struct _KTHREAD **)&Thread->Header.Lock;
+    Flink = *(struct _KTHREAD **)&Flink->Header.Lock;
   }
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspActiveProcessLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PspActiveProcessLock);
   KeAbPostRelease((unsigned __int64)&PspActiveProcessLock);
   v14 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v14 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v14 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v13, v12);
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x6E457350u);

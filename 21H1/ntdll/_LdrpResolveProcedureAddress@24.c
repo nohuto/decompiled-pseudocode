@@ -17,33 +17,33 @@
  *     _LdrpCheckRedirection@12 @ 0x4B3342C5 (_LdrpCheckRedirection@12.c)
  */
 
-int __fastcall LdrpResolveProcedureAddress(int a1, int a2, int a3, ULONG a4, char a5, unsigned int *a6)
+int __fastcall LdrpResolveProcedureAddress(int a1, char **a2, int a3, int a4, char a5, char **a6)
 {
   const char *v6; // esi
-  int *v7; // edi
+  char **v7; // edi
   int v8; // ecx
   char ShouldModuleImportBeRedirected; // cl
   ULONG v10; // eax
-  unsigned int v11; // eax
+  char *v11; // eax
   int ProcedureAddress; // eax
   int v13; // esi
   unsigned int v14; // eax
-  unsigned int v16; // ecx
+  char *v16; // ecx
   char v17; // [esp+Fh] [ebp-79h]
   unsigned int v19; // [esp+14h] [ebp-74h]
-  int *v21; // [esp+1Ch] [ebp-6Ch] BYREF
+  PVOID BaseAddress; // [esp+1Ch] [ebp-6Ch] BYREF
   int v22; // [esp+20h] [ebp-68h] BYREF
   ULONG Value; // [esp+24h] [ebp-64h] BYREF
-  STRING v24; // [esp+28h] [ebp-60h] BYREF
+  ANSI_STRING v24; // [esp+28h] [ebp-60h] BYREF
   int v25[21]; // [esp+30h] [ebp-58h] BYREF
 
   v19 = 0;
   v6 = (const char *)a3;
-  v7 = (int *)a2;
+  v7 = a2;
   Value = a4;
   v22 = a3;
-  v8 = *(_DWORD *)(a2 + 40);
-  v21 = (int *)a2;
+  v8 = (int)a2[10];
+  BaseAddress = a2;
   LdrpInitializeDllPath(v8, 1, v25);
   ShouldModuleImportBeRedirected = LdrpShouldModuleImportBeRedirected(a1);
   v10 = a4;
@@ -52,8 +52,8 @@ int __fastcall LdrpResolveProcedureAddress(int a1, int a2, int a3, ULONG a4, cha
   {
     if ( ShouldModuleImportBeRedirected && v6 )
     {
-      v11 = LdrpCheckRedirection(v6);
-      if ( v11 != -4530927 )
+      v11 = (char *)LdrpCheckRedirection(v6);
+      if ( v11 != (char *)-4530927 )
       {
         *a6 = v11;
         return 0;
@@ -70,15 +70,15 @@ int __fastcall LdrpResolveProcedureAddress(int a1, int a2, int a3, ULONG a4, cha
       v13 = -1073741701;
       goto LABEL_20;
     }
-    v13 = LdrpParseForwarderDescription((char *)*a6, (int)&v24, (char **)&v22, &Value);
+    v13 = LdrpParseForwarderDescription(*a6, (int)&v24, (char **)&v22, &Value);
     if ( v13 < 0 )
       goto LABEL_20;
-    v25[3] = v7[38];
-    v13 = LdrpLoadForwardedDll(&v24, (int)v25, a2, (int)v7, 2, (int *)&v21);
+    v25[3] = (int)v7[38];
+    v13 = LdrpLoadForwardedDll(&v24, (int)v25, (int)a2, (int)v7, 2, &BaseAddress);
     if ( v13 < 0 )
       goto LABEL_20;
-    v7 = v21;
-    LdrpDereferenceModule((int)v21);
+    v7 = (char **)BaseAddress;
+    LdrpDereferenceModule((char *)BaseAddress);
     v10 = Value;
     v6 = (const char *)v22;
     ShouldModuleImportBeRedirected = v17;
@@ -93,7 +93,7 @@ int __fastcall LdrpResolveProcedureAddress(int a1, int a2, int a3, ULONG a4, cha
     RtlGuardCheckImageBase(v16);
   }
 LABEL_20:
-  LdrpReleaseDllPath(v25);
+  LdrpReleaseDllPath((int)v25);
   if ( v13 < 0 )
     *a6 = 0;
   return v13;

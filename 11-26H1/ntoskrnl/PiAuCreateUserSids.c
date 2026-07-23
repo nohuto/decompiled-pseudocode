@@ -1,11 +1,11 @@
 /*
- * XREFs of PiAuCreateUserSids @ 0x140CC5EB4
+ * XREFs of PiAuCreateUserSids @ 0x140CCBF94
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiAuAllocateAndInitializeSid @ 0x1407A81C4 (PiAuAllocateAndInitializeSid.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiAuAllocateAndInitializeSid @ 0x1407AAD74 (PiAuAllocateAndInitializeSid.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
  */
 
 __int64 __fastcall PiAuCreateUserSids(PVOID *a1)
@@ -19,9 +19,9 @@ __int64 __fastcall PiAuCreateUserSids(PVOID *a1)
   PSID *v8; // rsi
   BOOLEAN valid; // al
   unsigned int v10; // ecx
-  struct _SID_IDENTIFIER_AUTHORITY v12; // [rsp+60h] [rbp+40h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v13; // [rsp+68h] [rbp+48h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v14; // [rsp+70h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v12; // [rsp+60h] [rbp+40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v13; // [rsp+68h] [rbp+48h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v14; // [rsp+70h] [rbp+50h] BYREF
 
   *(_WORD *)&v12.Value[4] = 1280;
   *(_DWORD *)v12.Value = 0;

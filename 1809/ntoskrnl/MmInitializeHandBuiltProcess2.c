@@ -1,15 +1,15 @@
 /*
- * XREFs of MmInitializeHandBuiltProcess2 @ 0x140760620
+ * XREFs of MmInitializeHandBuiltProcess2 @ 0x140761810
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     MiGetWsAndMakePageTablesNx @ 0x140191BA0 (MiGetWsAndMakePageTablesNx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiInsertProcessVads @ 0x140679B64 (MiInsertProcessVads.c)
- *     MiAllocateProcessVads @ 0x14067A21C (MiAllocateProcessVads.c)
- *     MiInitializeLockedPagesTracking @ 0x14084C0A8 (MiInitializeLockedPagesTracking.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x140191CE0 (MiGetWsAndMakePageTablesNx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiInsertProcessVads @ 0x14067AD24 (MiInsertProcessVads.c)
+ *     MiAllocateProcessVads @ 0x14067B3DC (MiAllocateProcessVads.c)
+ *     MiInitializeLockedPagesTracking @ 0x14084D308 (MiInitializeLockedPagesTracking.c)
  */
 
 __int64 __fastcall MmInitializeHandBuiltProcess2(__int64 BugCheckParameter1)

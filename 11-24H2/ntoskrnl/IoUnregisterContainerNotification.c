@@ -1,24 +1,24 @@
 /*
- * XREFs of IoUnregisterContainerNotification @ 0x1407155F0
+ * XREFs of IoUnregisterContainerNotification @ 0x140713180
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExUnregisterCallback @ 0x1404ADD30 (ExUnregisterCallback.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExUnregisterCallback @ 0x1404A8640 (ExUnregisterCallback.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rbx
+  char *v5; // rbx
   PVOID *v6; // rax
   PVOID *v7; // rbx
   PVOID *v8; // rcx
@@ -28,13 +28,13 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire((__int64)&IopSessionNotificationLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&IopSessionNotificationLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&IopSessionNotificationLock, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&IopSessionNotificationLock, (__int64)v3, (__int64)&IopSessionNotificationLock);
+    ExfAcquirePushLockExclusiveEx(&IopSessionNotificationLock, v3, (__int64)&IopSessionNotificationLock);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   v6 = (PVOID *)IopSessionNotificationQueueHead;
   if ( IopSessionNotificationQueueHead != &IopSessionNotificationQueueHead )
   {

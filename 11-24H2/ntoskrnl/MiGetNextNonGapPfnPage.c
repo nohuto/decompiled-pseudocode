@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetNextNonGapPfnPage @ 0x14066D5C4
+ * XREFs of MiGetNextNonGapPfnPage @ 0x14066E798
  * Callers:
- *     MiFreedUnusedPfnPagesDpc @ 0x14066D068 (MiFreedUnusedPfnPagesDpc.c)
- *     MiGetFileOnlyRanges @ 0x14066D370 (MiGetFileOnlyRanges.c)
+ *     MiFreedUnusedPfnPagesDpc @ 0x14066E238 (MiFreedUnusedPfnPagesDpc.c)
+ *     MiGetFileOnlyRanges @ 0x14066E544 (MiGetFileOnlyRanges.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x14022ABF0 (MiSystemVaTypeToVm.c)
- *     MiGetNextPageTable @ 0x140235DA0 (MiGetNextPageTable.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
+ *     MiGetNextPageTable @ 0x14020FF30 (MiGetNextPageTable.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiSystemVaTypeToVm @ 0x1402FDE60 (MiSystemVaTypeToVm.c)
  */
 
 __int64 __fastcall MiGetNextNonGapPfnPage(unsigned __int64 *a1, unsigned __int64 *a2, char a3, int a4)
@@ -43,7 +43,7 @@ LABEL_6:
     v6 -= 8LL;
     goto LABEL_7;
   }
-  v7 = 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL;
+  v7 = 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL;
   v6 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   if ( ((v7 >> 9) & 0xFF8) == 0 )
     goto LABEL_6;
@@ -75,8 +75,8 @@ LABEL_28:
     if ( !v19 )
     {
       while ( (*(_QWORD *)NextPageTable & 1) == 0
-           || qword_140E37340[0] != (PVOID)qword_140E37358
-           && (PVOID)((*(_QWORD *)NextPageTable >> 12) & 0xFFFFFFFFFFLL) == qword_140E37340[0] )
+           || qword_140E37480[0] != (PVOID)qword_140E37498
+           && (PVOID)((*(_QWORD *)NextPageTable >> 12) & 0xFFFFFFFFFFLL) == qword_140E37480[0] )
       {
         NextPageTable += 8LL;
         if ( NextPageTable > v6 || (NextPageTable & 0xFFF) == 0 )
@@ -93,8 +93,8 @@ LABEL_28:
         if ( NextPageTable > v6
           || (NextPageTable & 0xFFF) == 0
           || (*(_QWORD *)NextPageTable & 1) == 0
-          || qword_140E37340[0] != (PVOID)qword_140E37358
-          && (PVOID)((*(_QWORD *)NextPageTable >> 12) & 0xFFFFFFFFFFLL) == qword_140E37340[0] )
+          || qword_140E37480[0] != (PVOID)qword_140E37498
+          && (PVOID)((*(_QWORD *)NextPageTable >> 12) & 0xFFFFFFFFFFLL) == qword_140E37480[0] )
         {
           break;
         }

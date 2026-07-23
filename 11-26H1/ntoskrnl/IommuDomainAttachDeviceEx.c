@@ -1,31 +1,32 @@
 /*
- * XREFs of IommuDomainAttachDeviceEx @ 0x14059ED10
+ * XREFs of IommuDomainAttachDeviceEx @ 0x1405A14F0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpIommuDeviceGetDomainTypes @ 0x140587CE0 (HalpIommuDeviceGetDomainTypes.c)
- *     IommupDeviceGetPasidDevice @ 0x140587E80 (IommupDeviceGetPasidDevice.c)
- *     IommupDomainAttachPasidDevice @ 0x140588004 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x140588288 (IommupDomainDetachPasidDevice.c)
- *     HalpIommuJoinDmaDomain @ 0x14058DCF4 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x14058DE4C (HalpIommuLeaveDmaDomain.c)
- *     IommupFindAndPopCachedDevice @ 0x14059FE34 (IommupFindAndPopCachedDevice.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     Feature_DmaAdapterStage1DirectAttach__private_IsEnabledDeviceUsageNoInline @ 0x140589CFC (Feature_DmaAdapterStage1DirectAttach__private_IsEnabledDeviceUsageNoInline.c)
+ *     HalpIommuDeviceGetDomainTypes @ 0x14058A2B8 (HalpIommuDeviceGetDomainTypes.c)
+ *     IommupDeviceGetPasidDevice @ 0x14058A458 (IommupDeviceGetPasidDevice.c)
+ *     IommupDomainAttachPasidDevice @ 0x14058A5DC (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14058A958 (IommupDomainDetachPasidDevice.c)
+ *     HalpIommuJoinDmaDomain @ 0x140590474 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1405905CC (HalpIommuLeaveDmaDomain.c)
+ *     IommupFindAndPopCachedDevice @ 0x1405A2624 (IommupFindAndPopCachedDevice.c)
  */
 
 __int64 __fastcall IommuDomainAttachDeviceEx(ULONG_PTR a1, __int64 a2)
 {
   unsigned __int64 v3; // rbx
   __int64 v4; // r14
-  __int64 v6; // rdx
   int DomainTypes; // r8d
-  int v8; // edi
-  __int64 v9; // rax
-  __int64 v10; // rcx
+  int v7; // edi
+  __int64 v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rdx
   unsigned __int8 CurrentIrql; // si
   _QWORD *QuantumTarget; // rax
   char v14; // [rsp+50h] [rbp+8h] BYREF
@@ -40,33 +41,35 @@ __int64 __fastcall IommuDomainAttachDeviceEx(ULONG_PTR a1, __int64 a2)
   DomainTypes = HalpIommuDeviceGetDomainTypes(a2, a2);
   if ( !_bittest(&DomainTypes, *(_DWORD *)(a1 + 8)) )
     return (unsigned int)-1073741790;
-  v9 = *(_QWORD *)(a2 + 24);
-  if ( v9 )
+  v8 = *(_QWORD *)(a2 + 24);
+  if ( v8 )
   {
-    if ( v9 == a1 )
+    if ( v8 == a1 )
       return 0;
     IommupFindAndPopCachedDevice(a2, &v15);
     v3 = v15;
   }
   if ( !*(_BYTE *)(a2 + 266) )
   {
-    v8 = HalpIommuJoinDmaDomain(a2, a1, &v14);
-    if ( v8 < 0 )
-      goto LABEL_21;
-    goto LABEL_15;
+    v7 = HalpIommuJoinDmaDomain(a2, a1, &v14);
+    if ( v7 < 0 )
+      goto LABEL_22;
+    goto LABEL_16;
   }
-  if ( *(_QWORD *)(a2 + 24) || !IommupDeviceGetPasidDevice(a2, v6, 0, (struct _KLOCK_ENTRIES *)&v16) )
+  if ( !(unsigned int)Feature_DmaAdapterStage1DirectAttach__private_IsEnabledDeviceUsageNoInline()
+    && *(_QWORD *)(a2 + 24)
+    || !IommupDeviceGetPasidDevice(a2, v10, 0, (struct _KLOCK_ENTRIES *)&v16) )
   {
-    v8 = -1073741823;
-    goto LABEL_21;
+    v7 = -1073741823;
+    goto LABEL_22;
   }
   v4 = v16;
-  v8 = IommupDomainAttachPasidDevice(a1, v16);
-  if ( v8 >= 0 )
+  v7 = IommupDomainAttachPasidDevice(a1, v16);
+  if ( v7 >= 0 )
   {
     *(_QWORD *)(a2 + 24) = a1;
-LABEL_15:
-    if ( v3 || (v3 = HalpMmAllocCtxAlloc(v10, 56LL)) != 0 )
+LABEL_16:
+    if ( v3 || (v3 = HalpMmAllocCtxAlloc(v9, 56LL)) != 0 )
     {
       *(_OWORD *)v3 = 0LL;
       *(_OWORD *)(v3 + 16) = 0LL;
@@ -81,14 +84,14 @@ LABEL_15:
     }
     else
     {
-      v8 = -1073741670;
+      v7 = -1073741670;
       if ( *(_BYTE *)(a2 + 266) )
         IommupDomainDetachPasidDevice(v4);
       else
         HalpIommuLeaveDmaDomain(a2, a1);
     }
   }
-LABEL_21:
+LABEL_22:
   if ( v3 )
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -109,5 +112,5 @@ LABEL_21:
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
   }
-  return (unsigned int)v8;
+  return (unsigned int)v7;
 }

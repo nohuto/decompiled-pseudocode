@@ -21,120 +21,127 @@
  *     _WerpWaitForCrashReporting@16 @ 0x4B33B348 (_WerpWaitForCrashReporting@16.c)
  */
 
-int __stdcall RtlReportExceptionEx(_DWORD *a1, const void *a2, int a3, int a4, HANDLE ThreadHandle)
+NTSTATUS __cdecl RtlReportExceptionEx(
+        PEXCEPTION_RECORD ExceptionRecord,
+        PCONTEXT ContextRecord,
+        ULONG Flags,
+        PLARGE_INTEGER Timeout)
 {
-  int v5; // eax
-  struct _TEB *v6; // ecx
-  int v8; // esi
-  _DWORD *v9; // ecx
-  int v10; // ecx
-  _DWORD *v11; // eax
+  int v4; // eax
+  struct _TEB *v5; // ecx
+  int v7; // esi
+  _DWORD *v8; // ecx
+  int v9; // ecx
+  _DWORD *v10; // eax
+  size_t v11; // [esp-4h] [ebp-80h]
   int v12; // [esp+1Ch] [ebp-60h]
   HANDLE v13; // [esp+24h] [ebp-58h] BYREF
   void *v14; // [esp+28h] [ebp-54h]
-  _DWORD *v15; // [esp+2Ch] [ebp-50h] BYREF
+  PVOID BaseAddress; // [esp+2Ch] [ebp-50h] BYREF
   HANDLE Handle; // [esp+30h] [ebp-4Ch] BYREF
-  int v17; // [esp+34h] [ebp-48h]
-  _DWORD *v18; // [esp+38h] [ebp-44h]
-  HANDLE v19; // [esp+3Ch] [ebp-40h] BYREF
+  HANDLE SourceHandle; // [esp+34h] [ebp-48h]
+  PEXCEPTION_RECORD v18; // [esp+38h] [ebp-44h]
+  HANDLE TargetHandle; // [esp+3Ch] [ebp-40h] BYREF
   HANDLE v20; // [esp+40h] [ebp-3Ch] BYREF
-  HANDLE v21; // [esp+44h] [ebp-38h] BYREF
+  HANDLE EventHandle; // [esp+44h] [ebp-38h] BYREF
   int v22; // [esp+48h] [ebp-34h]
   _DWORD v23[6]; // [esp+4Ch] [ebp-30h] BYREF
   CPPEH_RECORD ms_exc; // [esp+64h] [ebp-18h]
+  HANDLE ThreadHandle; // [esp+94h] [ebp+18h]
 
-  v18 = a1;
-  v17 = a4;
+  v18 = ExceptionRecord;
+  SourceHandle = Timeout;
   v22 = -1073741823;
-  v19 = 0;
+  TargetHandle = 0;
   v20 = 0;
-  v21 = 0;
+  EventHandle = 0;
   Handle = 0;
   v13 = 0;
-  v15 = 0;
-  v14 = (void *)WerpProcessId(a4);
-  v5 = WerpThreadId(ThreadHandle);
-  v12 = v5;
-  v6 = NtCurrentTeb();
-  if ( v14 == v6->ClientId.UniqueProcess && (void *)v5 == v6->ClientId.UniqueThread )
-    return RtlReportException((int)v18, (int)a2, a3);
+  BaseAddress = 0;
+  v14 = (void *)WerpProcessId(Timeout);
+  v4 = WerpThreadId(ThreadHandle);
+  v12 = v4;
+  v5 = NtCurrentTeb();
+  if ( v14 == v5->ClientId.UniqueProcess && (void *)v4 == v5->ClientId.UniqueThread )
+    return RtlReportException(v18, ContextRecord, Flags);
   if ( v14 == NtCurrentTeb()->ClientId.UniqueProcess )
-    WerpBreakIntoDebuggerIfPresent(a3);
+    WerpBreakIntoDebuggerIfPresent(v18, ContextRecord, Flags);
   ms_exc.registration.TryLevel = 0;
-  if ( (a3 & 4) != 0 || (v8 = WerpSetProcessFaultInformation(v6), v22 = v8, v8 >= 0) )
+  if ( (Flags & 4) != 0 || (v7 = WerpSetProcessFaultInformation(SourceHandle, (int)v5), v22 = v7, v7 >= 0) )
   {
-    v8 = WerpCreateCompletionEvent(&v21);
-    v22 = v8;
-    if ( v8 >= 0 )
+    v7 = WerpCreateCompletionEvent(&EventHandle);
+    v22 = v7;
+    if ( v7 >= 0 )
     {
-      v8 = WerpCreateCrashDataSection(&v13, &v15);
-      v22 = v8;
-      if ( v8 >= 0 )
+      v7 = WerpCreateCrashDataSection(&v13, &BaseAddress);
+      v22 = v7;
+      if ( v7 >= 0 )
       {
-        v8 = ZwDuplicateObject(-1, v17, -1, (int)&v19, 0x1FFFFF, 2, 0);
-        v22 = v8;
-        if ( v8 >= 0 )
+        v7 = ZwDuplicateObject((HANDLE)0xFFFFFFFF, SourceHandle, (HANDLE)0xFFFFFFFF, &TargetHandle, 0x1FFFFFu, 2u, 0);
+        v22 = v7;
+        if ( v7 >= 0 )
         {
-          v8 = ZwDuplicateObject(-1, (int)ThreadHandle, -1, (int)&v20, 0x1FFFFF, 2, 0);
-          v22 = v8;
-          if ( v8 >= 0 )
+          v7 = ZwDuplicateObject((HANDLE)0xFFFFFFFF, ThreadHandle, (HANDLE)0xFFFFFFFF, &v20, 0x1FFFFFu, 2u, 0);
+          v22 = v7;
+          if ( v7 >= 0 )
           {
-            v9 = v15;
-            *v15 = 248;
-            v9[42] = 1;
-            v9[43] = 0;
-            v9[1] = v14;
-            v9[2] = v12;
-            v9[46] = v19;
-            v9[47] = 0;
-            v9[48] = v20;
-            v9[49] = 0;
-            v9[52] = v21;
-            v9[53] = 0;
-            v9[56] = 0;
-            v9[57] = 0;
-            v9[58] = -1073741823;
-            v9[59] = a3;
+            v8 = BaseAddress;
+            *(_DWORD *)BaseAddress = 248;
+            v8[42] = 1;
+            v8[43] = 0;
+            v8[1] = v14;
+            v8[2] = v12;
+            v8[46] = TargetHandle;
+            v8[47] = 0;
+            v8[48] = v20;
+            v8[49] = 0;
+            v8[52] = EventHandle;
+            v8[53] = 0;
+            v8[56] = 0;
+            v8[57] = 0;
+            v8[58] = -1073741823;
+            v8[59] = Flags;
             if ( MEMORY[0x7FFE0004] < 0x1000000u )
             {
               while ( MEMORY[0x7FFE0324] != MEMORY[0x7FFE0328] )
                 _mm_pause();
-              v10 = ((MEMORY[0x7FFE0004] * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24)
-                  + MEMORY[0x7FFE0004] * (MEMORY[0x7FFE0324] << 8);
+              v9 = ((MEMORY[0x7FFE0004] * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24)
+                 + MEMORY[0x7FFE0004] * (MEMORY[0x7FFE0324] << 8);
             }
             else
             {
-              v10 = (MEMORY[0x7FFE0004] * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24;
+              v9 = (MEMORY[0x7FFE0004] * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24;
             }
-            v11 = v15;
-            v15[60] = v10;
-            v11[62] = 1;
-            qmemcpy(v11 + 64, v18, 0x50u);
-            if ( a2 == (const void *)2 || !a2 )
+            v10 = BaseAddress;
+            *((_DWORD *)BaseAddress + 60) = v9;
+            v10[62] = 1;
+            qmemcpy(v10 + 64, v18, 0x50u);
+            if ( ContextRecord == (PCONTEXT)2 || !ContextRecord )
             {
-              v11[63] = 2;
-              memset(v11 + 84, 0, 0x2CCu);
+              v10[63] = 2;
+              LODWORD(v11) = 716;
+              memset(v10 + 84, 0, v11);
             }
             else
             {
-              v11[63] = 1;
-              qmemcpy(v11 + 84, a2, 0x2CCu);
+              v10[63] = 1;
+              qmemcpy(v10 + 84, ContextRecord, 0x2CCu);
             }
-            v23[0] = v21;
+            v23[0] = EventHandle;
             v23[1] = v13;
-            v23[2] = v19;
+            v23[2] = TargetHandle;
             v23[3] = v20;
-            v8 = ReportExceptionInternal((unsigned int)v14, (int)v13, (int)v23, 4u, a3, &Handle);
-            v22 = v8;
-            if ( v8 >= 0 )
+            v7 = ReportExceptionInternal((int)v14, (int)v13, (int)v23, 4u, Flags, &Handle);
+            v22 = v7;
+            if ( v7 >= 0 )
             {
-              v8 = WerpWaitForCrashReporting(Handle, 0);
-              v22 = v8;
-              if ( v8 >= 0 )
+              v7 = WerpWaitForCrashReporting((int)Handle, 0);
+              v22 = v7;
+              if ( v7 >= 0 )
               {
-                if ( (a3 & 4) != 0 || (v8 = ZwTerminateProcess(v17, *v18), v22 = v8, v8 >= 0) )
+                if ( (Flags & 4) != 0 || (v7 = ZwTerminateProcess(SourceHandle, v18->ExceptionCode), v22 = v7, v7 >= 0) )
                 {
-                  v8 = 0;
+                  v7 = 0;
                   v22 = 0;
                 }
               }
@@ -147,18 +154,18 @@ int __stdcall RtlReportExceptionEx(_DWORD *a1, const void *a2, int a3, int a4, H
   ms_exc.registration.TryLevel = -2;
   if ( Handle )
     NtClose(Handle);
-  if ( v15 )
-    NtUnmapViewOfSection(-1, (int)v15);
+  if ( BaseAddress )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
   if ( v13 )
     NtClose(v13);
-  if ( v21 )
+  if ( EventHandle )
   {
-    NtClose(v21);
-    v21 = 0;
+    NtClose(EventHandle);
+    EventHandle = 0;
   }
   if ( v20 )
     NtClose(v20);
-  if ( v19 )
-    NtClose(v19);
-  return v8;
+  if ( TargetHandle )
+    NtClose(TargetHandle);
+  return v7;
 }

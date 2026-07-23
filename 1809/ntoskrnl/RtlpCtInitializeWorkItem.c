@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCtInitializeWorkItem @ 0x1408998B4
+ * XREFs of RtlpCtInitializeWorkItem @ 0x14089AB14
  * Callers:
- *     RtlpCtContextInit @ 0x140899788 (RtlpCtContextInit.c)
+ *     RtlpCtContextInit @ 0x14089A9E8 (RtlpCtContextInit.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpCtInitializeWorkItem(_QWORD *a1, __int64 a2)

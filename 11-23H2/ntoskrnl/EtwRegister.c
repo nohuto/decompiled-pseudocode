@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwRegister @ 0x14078D880
+ * XREFs of EtwRegister @ 0x14078DA70
  * Callers:
- *     KiIntSteerConnect @ 0x140320F2C (KiIntSteerConnect.c)
- *     McGenEventRegister_EtwRegister @ 0x140374E18 (McGenEventRegister_EtwRegister.c)
- *     BapdRegisterEtwProvider @ 0x1403840EC (BapdRegisterEtwProvider.c)
- *     IoInitializeLiveDump @ 0x1403AEC60 (IoInitializeLiveDump.c)
- *     HvlpEtwRegister @ 0x1405485A4 (HvlpEtwRegister.c)
- *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
- *     DifEtwRegisterWrapper @ 0x1405D6C60 (DifEtwRegisterWrapper.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PopDiagSleepStudyInitialize @ 0x1408228B4 (PopDiagSleepStudyInitialize.c)
- *     SSHSupportEtwRegister @ 0x1408228FC (SSHSupportEtwRegister.c)
- *     WdipSemEnableSemProvider @ 0x140830224 (WdipSemEnableSemProvider.c)
- *     HalpMiscInitializeTelemetry @ 0x140854A98 (HalpMiscInitializeTelemetry.c)
- *     DbgkpStartSystemErrorHandler @ 0x14093A75C (DbgkpStartSystemErrorHandler.c)
- *     DbgkCaptureLiveDump @ 0x14093A868 (DbgkCaptureLiveDump.c)
- *     FsRtlpDedupChangeRegisterVolume @ 0x14093E910 (FsRtlpDedupChangeRegisterVolume.c)
- *     FsRtlpHeatRegisterVolume @ 0x14093FB18 (FsRtlpHeatRegisterVolume.c)
+ *     KiIntSteerConnect @ 0x1403211BC (KiIntSteerConnect.c)
+ *     McGenEventRegister_EtwRegister @ 0x140374FB8 (McGenEventRegister_EtwRegister.c)
+ *     BapdRegisterEtwProvider @ 0x1403842CC (BapdRegisterEtwProvider.c)
+ *     IoInitializeLiveDump @ 0x1403AEE40 (IoInitializeLiveDump.c)
+ *     HvlpEtwRegister @ 0x140548C64 (HvlpEtwRegister.c)
+ *     PsDispatchIumService @ 0x1405A53D4 (PsDispatchIumService.c)
+ *     DifEtwRegisterWrapper @ 0x1405D71D0 (DifEtwRegisterWrapper.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PopDiagSleepStudyInitialize @ 0x140822BB4 (PopDiagSleepStudyInitialize.c)
+ *     SSHSupportEtwRegister @ 0x140822BFC (SSHSupportEtwRegister.c)
+ *     WdipSemEnableSemProvider @ 0x140830524 (WdipSemEnableSemProvider.c)
+ *     HalpMiscInitializeTelemetry @ 0x140854D98 (HalpMiscInitializeTelemetry.c)
+ *     DbgkpStartSystemErrorHandler @ 0x14093A95C (DbgkpStartSystemErrorHandler.c)
+ *     DbgkCaptureLiveDump @ 0x14093AA68 (DbgkCaptureLiveDump.c)
+ *     FsRtlpDedupChangeRegisterVolume @ 0x14093EB10 (FsRtlpDedupChangeRegisterVolume.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14093FD18 (FsRtlpHeatRegisterVolume.c)
  *     PfSnBeginBootPhase @ 0x140A87910 (PfSnBeginBootPhase.c)
  *     PnpDiagInitialize @ 0x140B3F90C (PnpDiagInitialize.c)
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
@@ -29,8 +29,8 @@
  *     WheapInitializeEventing @ 0x140B66418 (WheapInitializeEventing.c)
  *     PerfDiagInitialize @ 0x140B6F6BC (PerfDiagInitialize.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpRegisterKMProvider @ 0x14078D8C4 (EtwpRegisterKMProvider.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpRegisterKMProvider @ 0x14078DAB4 (EtwpRegisterKMProvider.c)
  */
 
 NTSTATUS __stdcall EtwRegister(

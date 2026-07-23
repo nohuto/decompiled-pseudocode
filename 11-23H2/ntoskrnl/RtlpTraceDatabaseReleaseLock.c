@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpTraceDatabaseReleaseLock @ 0x1405B18B8
+ * XREFs of RtlpTraceDatabaseReleaseLock @ 0x1405B1E28
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x1405B1220 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x1405B1440 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x1405B1500 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseUnlock @ 0x1405B1590 (RtlTraceDatabaseUnlock.c)
- *     RtlTraceDatabaseValidate @ 0x1405B15B0 (RtlTraceDatabaseValidate.c)
+ *     RtlTraceDatabaseAdd @ 0x1405B1790 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x1405B19B0 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x1405B1A70 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseUnlock @ 0x1405B1B00 (RtlTraceDatabaseUnlock.c)
+ *     RtlTraceDatabaseValidate @ 0x1405B1B20 (RtlTraceDatabaseValidate.c)
  * Callees:
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall RtlpTraceDatabaseReleaseLock(__int64 a1)
@@ -26,10 +26,13 @@ char __fastcall RtlpTraceDatabaseReleaseLock(__int64 a1)
   {
     v1 = *(unsigned __int8 *)(a1 + 40);
     KxReleaseSpinLock((volatile signed __int64 *)(a1 + 56));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v1 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

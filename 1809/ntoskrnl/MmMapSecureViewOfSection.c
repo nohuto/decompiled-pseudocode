@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMapSecureViewOfSection @ 0x140618574
+ * XREFs of MmMapSecureViewOfSection @ 0x140619574
  * Callers:
- *     AlpcpCreateView @ 0x140617D0C (AlpcpCreateView.c)
+ *     AlpcpCreateView @ 0x140618D0C (AlpcpCreateView.c)
  * Callees:
- *     MiMapViewOfSection @ 0x1405EFB10 (MiMapViewOfSection.c)
- *     MiMapParametersInitialize @ 0x1405F0080 (MiMapParametersInitialize.c)
+ *     MiMapViewOfSection @ 0x1405F0B10 (MiMapViewOfSection.c)
+ *     MiMapParametersInitialize @ 0x1405F1080 (MiMapParametersInitialize.c)
  */
 
 __int64 __fastcall MmMapSecureViewOfSection(
@@ -32,9 +32,9 @@ __int64 __fastcall MmMapSecureViewOfSection(
     || (v18 = a12, v17 = 2, result = MiMapViewOfSection(a1, (__int64)v15, (void **)a3, 0LL, a6, 2, 1), (int)result < 0) )
   {
     if ( *a3 )
-      ++dword_14043A884;
+      ++dword_14043B944;
     else
-      ++dword_14043A880;
+      ++dword_14043B940;
   }
   else
   {

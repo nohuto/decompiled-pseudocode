@@ -7,11 +7,16 @@
  *     <none>
  */
 
-__int64 NtQuerySection()
+NTSTATUS __cdecl NtQuerySection(
+        HANDLE SectionHandle,
+        SECTION_INFORMATION_CLASS SectionInformationClass,
+        PVOID SectionInformation,
+        SIZE_T SectionInformationLength,
+        PSIZE_T ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 81LL;
+  result = 81;
   __asm { syscall; Low latency system call }
   return result;
 }

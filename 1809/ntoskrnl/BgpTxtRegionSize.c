@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpTxtRegionSize @ 0x14016EC74
+ * XREFs of BgpTxtRegionSize @ 0x14016ED74
  * Callers:
- *     ResFwConfigureDisplayStringResources @ 0x14094E650 (ResFwConfigureDisplayStringResources.c)
- *     AnFwConfigureProgressResources @ 0x14094E6DC (AnFwConfigureProgressResources.c)
+ *     ResFwConfigureDisplayStringResources @ 0x14094F650 (ResFwConfigureDisplayStringResources.c)
+ *     AnFwConfigureProgressResources @ 0x14094F6DC (AnFwConfigureProgressResources.c)
  * Callees:
- *     BgpGxReservePoolRectangleSize @ 0x14094E7BC (BgpGxReservePoolRectangleSize.c)
+ *     BgpGxReservePoolRectangleSize @ 0x14094F7BC (BgpGxReservePoolRectangleSize.c)
  */
 
 __int64 __fastcall BgpTxtRegionSize(__int64 a1)

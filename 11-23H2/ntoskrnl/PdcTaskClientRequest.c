@@ -2,13 +2,13 @@
  * XREFs of PdcTaskClientRequest @ 0x140682428
  * Callers:
  *     PopSwitchUpdateUserShutdownScenarioState @ 0x1406822E8 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopPowerAggregatorSessionSwitchWorker @ 0x140993F20 (PopPowerAggregatorSessionSwitchWorker.c)
+ *     PopPowerAggregatorSessionSwitchWorker @ 0x140994120 (PopPowerAggregatorSessionSwitchWorker.c)
  * Callees:
  *     PdcPortSendMessageSynchronously @ 0x140200C24 (PdcPortSendMessageSynchronously.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PdcAcquireRwLockExclusive @ 0x14068254C (PdcAcquireRwLockExclusive.c)
  */
 

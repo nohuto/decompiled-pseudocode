@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpMuiRegLoadRegistryInfo @ 0x1800DDC20
+ * XREFs of RtlpMuiRegLoadRegistryInfo @ 0x1800DAB90
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetProcUserMachineLangList @ 0x180008EA0 (RtlpSetProcUserMachineLangList.c)
- *     RtlpLoadLanguageConfigList @ 0x18000CA10 (RtlpLoadLanguageConfigList.c)
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x1800DDD80 (RtlpMuiRegFreeRegistryInfo.c)
- *     RtlpMuiRegLoadLicInformation @ 0x1800DDFB0 (RtlpMuiRegLoadLicInformation.c)
- *     _RtlpMuiRegLoadInstalled @ 0x1801224D0 (_RtlpMuiRegLoadInstalled.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpSetProcUserMachineLangList @ 0x1800545D0 (RtlpSetProcUserMachineLangList.c)
+ *     RtlpLoadLanguageConfigList @ 0x180058140 (RtlpLoadLanguageConfigList.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1800DACF0 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1800DAF20 (RtlpMuiRegLoadLicInformation.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x180122270 (_RtlpMuiRegLoadInstalled.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadRegistryInfo(__int64 a1, __int16 a2)
 {
   __int64 result; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  void *v5; // rcx
+  void *v6; // rcx
+  void *v7; // [rsp+30h] [rbp+8h] BYREF
 
   v7 = 0LL;
   result = 0LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAccumulateNonDripsIdleCpuTime @ 0x140495C20
+ * XREFs of PopAccumulateNonDripsIdleCpuTime @ 0x1404904E0
  * Callers:
- *     PopUpdateNonAttributedCpuTimeReference @ 0x1403CA934 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x1403A5504 (PopUpdateNonAttributedCpuTimeReference.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmParkGetParkNode @ 0x140495DBC (PpmParkGetParkNode.c)
- *     PpmIdleSnapConcurrencyIdleTime @ 0x140495E5C (PpmIdleSnapConcurrencyIdleTime.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmParkGetParkNode @ 0x14049067C (PpmParkGetParkNode.c)
+ *     PpmIdleSnapConcurrencyIdleTime @ 0x14049071C (PpmIdleSnapConcurrencyIdleTime.c)
  */
 
 unsigned __int64 __fastcall PopAccumulateNonDripsIdleCpuTime(char a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)
@@ -20,9 +20,9 @@ unsigned __int64 __fastcall PopAccumulateNonDripsIdleCpuTime(char a1, _QWORD *a2
   __int64 v14; // rdx
   unsigned __int64 v15; // rcx
 
-  v4 = (unsigned int)dword_140E27DC0;
+  v4 = (unsigned int)dword_140E27F00;
   result = PpmPlatformStates;
-  if ( PpmPlatformStates && dword_140E27DC0 != -1 )
+  if ( PpmPlatformStates && dword_140E27F00 != -1 )
   {
     v10 = *(_QWORD *)(PpmPlatformStates + 48);
     v11 = KeAcquireSpinLockRaiseToDpc(&PpmParkStateLock);

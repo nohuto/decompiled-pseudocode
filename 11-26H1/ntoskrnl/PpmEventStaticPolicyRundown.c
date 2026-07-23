@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventStaticPolicyRundown @ 0x140B3CD9C
+ * XREFs of PpmEventStaticPolicyRundown @ 0x140B3F01C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PpmEventStaticPolicyRundown()
@@ -35,7 +35,7 @@ void PpmEventStaticPolicyRundown()
   __int64 v22; // [rsp+D8h] [rbp-28h]
   int *v23; // [rsp+E0h] [rbp-20h]
   __int64 v24; // [rsp+E8h] [rbp-18h]
-  unsigned __int64 *p_ThreadLock; // [rsp+F0h] [rbp-10h]
+  __int16 *v25; // [rsp+F0h] [rbp-10h]
   __int64 v26; // [rsp+F8h] [rbp-8h]
   int *v27; // [rsp+100h] [rbp+0h]
   __int64 v28; // [rsp+108h] [rbp+8h]
@@ -44,10 +44,7 @@ void PpmEventStaticPolicyRundown()
   int *v31; // [rsp+120h] [rbp+20h]
   __int64 v32; // [rsp+128h] [rbp+28h]
 
-  if ( PpmEtwRegistered
-    && EtwEventEnabled(
-         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-         &PPM_ETW_STATIC_POLICY_RUNDOWN) )
+  if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_STATIC_POLICY_RUNDOWN) )
   {
     v0 = PpmPerfQosTransitionHysteresisOverride;
     UserData.Ptr = (ULONGLONG)&PpmPerfBoostAtGuaranteed;
@@ -66,8 +63,8 @@ void PpmEventStaticPolicyRundown()
     v19 = &PpmPerfQosManageIdleProcessors;
     v21 = &v2;
     v23 = &PpmHeteroFavoredCoreRotationTimeoutMs;
-    p_ThreadLock = &PopModernStandbyStateNotify.ThreadLock;
-    v3 = BYTE2(PopModernStandbyStateNotify.ThreadLock);
+    v25 = &PpmParkGranularity;
+    v3 = (unsigned __int8)PpmParkUnparkCores;
     v27 = &v3;
     v29 = &PpmHeteroMultiCoreClassesEnabled;
     v31 = &PpmHeteroMultiClassParkingEnabled;
@@ -85,11 +82,6 @@ void PpmEventStaticPolicyRundown()
     v28 = 4LL;
     v30 = 4LL;
     v32 = 4LL;
-    EtwWrite(
-      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-      &PPM_ETW_STATIC_POLICY_RUNDOWN,
-      0LL,
-      0xFu,
-      &UserData);
+    EtwWrite(PpmEtwHandle, &PPM_ETW_STATIC_POLICY_RUNDOWN, 0LL, 0xFu, &UserData);
   }
 }

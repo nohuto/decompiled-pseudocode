@@ -116,7 +116,7 @@ __int64 __fastcall SepDuplicateToken(
   void *v62; // rax
   unsigned int v63; // ecx
   void *v64; // rcx
-  __int64 *v65; // rcx
+  _SID_AND_ATTRIBUTES *v65; // rcx
   void *v66; // rcx
   int v67; // ecx
   _QWORD *v68; // rax
@@ -471,11 +471,17 @@ LABEL_57:
                   }
                   if ( a3 )
                     SepMakeTokenEffectiveOnly(v24);
-                  RtlSidHashInitialize(*(__int64 **)(v24 + 152), *(_DWORD *)(v24 + 124), (_QWORD *)(v24 + 232));
-                  RtlSidHashInitialize(*(__int64 **)(v24 + 160), *(_DWORD *)(v24 + 128), (_QWORD *)(v24 + 504));
-                  v65 = *(__int64 **)(v24 + 792);
+                  RtlSidHashInitialize(
+                    *(PSID_AND_ATTRIBUTES *)(v24 + 152),
+                    *(_DWORD *)(v24 + 124),
+                    (PSID_AND_ATTRIBUTES_HASH)(v24 + 232));
+                  RtlSidHashInitialize(
+                    *(PSID_AND_ATTRIBUTES *)(v24 + 160),
+                    *(_DWORD *)(v24 + 128),
+                    (PSID_AND_ATTRIBUTES_HASH)(v24 + 504));
+                  v65 = *(_SID_AND_ATTRIBUTES **)(v24 + 792);
                   if ( v65 )
-                    RtlSidHashInitialize(v65, *(_DWORD *)(v24 + 800), (_QWORD *)(v24 + 808));
+                    RtlSidHashInitialize(v65, *(_DWORD *)(v24 + 800), (PSID_AND_ATTRIBUTES_HASH)(v24 + 808));
                   if ( HIDWORD(NlsMbOemCodePageTag)
                     && SepTokenLeakMethodWatch == 13
                     && KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)SepTokenLeakProcessCid )

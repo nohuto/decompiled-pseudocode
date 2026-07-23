@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveUnusedSegments @ 0x1404A3280
+ * XREFs of MiRemoveUnusedSegments @ 0x14049CD9C
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1404A3320 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x14049CE30 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     MiDeleteZeroValueSegments @ 0x1404A33F4 (MiDeleteZeroValueSegments.c)
- *     MiDeleteCachedEntries @ 0x1404A3510 (MiDeleteCachedEntries.c)
- *     MiWakeCommitRequest @ 0x1404A3584 (MiWakeCommitRequest.c)
- *     MiReduceSystemCache @ 0x140531298 (MiReduceSystemCache.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     MiDeleteZeroValueSegments @ 0x14049CF04 (MiDeleteZeroValueSegments.c)
+ *     MiDeleteCachedEntries @ 0x14049D020 (MiDeleteCachedEntries.c)
+ *     MiWakeCommitRequest @ 0x14049D094 (MiWakeCommitRequest.c)
+ *     MiReduceSystemCache @ 0x140533798 (MiReduceSystemCache.c)
  */
 
 unsigned __int64 __fastcall MiRemoveUnusedSegments(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeInitializeEvent @ 0x140939A00
+ * XREFs of VerifierKeInitializeEvent @ 0x14093AA00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfUtilSynchronizationObjectSanityChecks @ 0x140926400 (VfUtilSynchronizationObjectSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x140927400 (VfUtilSynchronizationObjectSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKeInitializeEvent(void *a1, unsigned int a2, char a3)

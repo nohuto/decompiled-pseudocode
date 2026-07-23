@@ -1,13 +1,13 @@
 /*
- * XREFs of SeSecurityModelQueryInformation @ 0x14077A94C
+ * XREFs of SeSecurityModelQueryInformation @ 0x14077D87C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x14063B720 (SepIsDeviceOwnerProtectionDowngradeAllowed.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x14063E83C (SepIsDeviceOwnerProtectionDowngradeAllowed.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall SeSecurityModelQueryInformation(void *a1, size_t Size, _DWORD *a3, char a4)

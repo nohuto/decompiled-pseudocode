@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqQueryIsObjectInResultSet @ 0x1408D3F10
+ * XREFs of PiDqQueryIsObjectInResultSet @ 0x1408D1900
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x1408D327C (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1408D0C6C (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
  */
 
 bool __fastcall PiDqQueryIsObjectInResultSet(__int64 a1, __int64 a2)

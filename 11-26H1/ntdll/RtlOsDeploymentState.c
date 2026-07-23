@@ -1,51 +1,56 @@
 /*
- * XREFs of RtlOsDeploymentState @ 0x180148EE0
+ * XREFs of RtlOsDeploymentState @ 0x180148D90
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenKey @ 0x18015F180 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x18015F220 (NtQueryValueKey.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenKey @ 0x18015F080 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x18015F120 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 RtlOsDeploymentState()
+OS_DEPLOYEMENT_STATE_VALUES __cdecl RtlOsDeploymentState(DWORD Flags)
 {
-  unsigned int v0; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp-88h] BYREF
-  int v3; // [rsp+38h] [rbp-80h] BYREF
-  _DWORD v4[2]; // [rsp+40h] [rbp-78h] BYREF
-  __int64 v5; // [rsp+48h] [rbp-70h]
-  __int128 v6; // [rsp+50h] [rbp-68h]
-  __int128 v7; // [rsp+60h] [rbp-58h]
-  UNICODE_STRING v8; // [rsp+70h] [rbp-48h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-38h] BYREF
-  _BYTE v10[4]; // [rsp+90h] [rbp-28h] BYREF
-  int v11; // [rsp+94h] [rbp-24h]
-  int v12; // [rsp+98h] [rbp-20h]
-  int v13; // [rsp+9Ch] [rbp-1Ch]
+  OS_DEPLOYEMENT_STATE_VALUES v1; // ebx
+  HANDLE KeyHandle; // [rsp+30h] [rbp-88h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-80h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-78h] BYREF
+  _UNICODE_STRING v6; // [rsp+70h] [rbp-48h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+80h] [rbp-38h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp-28h] BYREF
+  int v9; // [rsp+94h] [rbp-24h]
+  int v10; // [rsp+98h] [rbp-20h]
+  int v11; // [rsp+9Ch] [rbp-1Ch]
 
-  Handle = 0LL;
-  v0 = 1;
-  v3 = 0;
-  v4[1] = 0;
+  KeyHandle = 0LL;
+  v1 = OS_DEPLOYMENT_STANDARD;
+  ResultLength = 0;
+  memset(&ObjectAttributes.Length + 1, 0, 44);
   v6 = 0LL;
-  v8 = 0LL;
   DestinationString = 0LL;
-  RtlInitUnicodeString(&v8, L"\\Registry\\Machine\\System\\Setup");
-  v4[0] = 48;
-  v5 = 0LL;
-  DWORD2(v6) = 576;
-  *(_QWORD *)&v6 = &v8;
-  v7 = 0LL;
-  if ( (int)NtOpenKey(&Handle, 131097LL, v4) >= 0 )
+  RtlInitUnicodeString(&v6, L"\\Registry\\Machine\\System\\Setup");
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.ObjectName = &v6;
+  if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"Compact");
-    if ( (int)NtQueryValueKey(Handle, &DestinationString, 2LL, v10, 20, &v3) >= 0 && v11 == 4 && v12 == 4 && v13 )
-      v0 = 2;
+    if ( NtQueryValueKey(
+           KeyHandle,
+           &DestinationString,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x14u,
+           &ResultLength) >= 0
+      && v9 == 4
+      && v10 == 4
+      && v11 )
+    {
+      v1 = OS_DEPLOYMENT_COMPACT;
+    }
   }
-  if ( Handle )
-    NtClose(Handle);
-  return v0;
+  if ( KeyHandle )
+    NtClose(KeyHandle);
+  return v1;
 }

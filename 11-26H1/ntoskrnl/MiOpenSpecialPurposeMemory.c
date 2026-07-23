@@ -1,17 +1,17 @@
 /*
- * XREFs of MiOpenSpecialPurposeMemory @ 0x14087E770
+ * XREFs of MiOpenSpecialPurposeMemory @ 0x140884B70
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiSpecialPurposeMemoryTypeDereference @ 0x14087EDA8 (MiSpecialPurposeMemoryTypeDereference.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiSpecialPurposeMemoryTypeDereference @ 0x1408851A8 (MiSpecialPurposeMemoryTypeDereference.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall MiOpenSpecialPurposeMemory(__int64 a1, __int64 a2, KPROCESSOR_MODE a3)
@@ -65,7 +65,7 @@ __int64 __fastcall MiOpenSpecialPurposeMemory(__int64 a1, __int64 a2, KPROCESSOR
       KeAbPostRelease(a1 + 21448);
       v15 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v15
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v14, v13);
       }

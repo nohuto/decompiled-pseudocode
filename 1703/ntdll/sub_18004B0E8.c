@@ -18,12 +18,12 @@ __int64 __fastcall sub_18004B0E8(
         unsigned __int8 *a4,
         unsigned __int8 *a5,
         unsigned __int8 *a6,
-        unsigned __int64 *a7,
+        ACL **a7,
         _DWORD *a8)
 {
   unsigned __int8 *v8; // r12
-  unsigned __int64 v11; // rbp
-  unsigned int v12; // ebx
+  ACL *v11; // rbp
+  ULONG v12; // ebx
   unsigned int v14; // r9d
   unsigned __int8 *v15; // r10
   unsigned int j; // r11d
@@ -33,8 +33,8 @@ __int64 __fastcall sub_18004B0E8(
   signed int v20; // esi
   unsigned int v21; // eax
   int v22; // edi
-  unsigned int v23; // edi
-  __int64 Heap; // rax
+  ULONG v23; // edi
+  ACL *Heap; // rax
   char *v25; // rbx
   unsigned __int16 *v26; // rdi
   unsigned int v27; // r14d
@@ -80,11 +80,11 @@ __int64 __fastcall sub_18004B0E8(
   int v67; // eax
   unsigned int v68; // edx
   unsigned int v69; // ecx
-  void *v70; // [rsp+20h] [rbp-48h] BYREF
-  int Acl; // [rsp+70h] [rbp+8h]
+  PVOID FirstFree; // [rsp+20h] [rbp-48h] BYREF
+  NTSTATUS Acl; // [rsp+70h] [rbp+8h]
 
   v8 = a5;
-  v70 = 0LL;
+  FirstFree = 0LL;
   v11 = 0LL;
   v12 = 2;
   if ( __PAIR128__((unsigned __int64)a1, (unsigned __int64)a2) == 0 && !a3 && !a4 && !a5 && !a6 )
@@ -251,7 +251,7 @@ __int64 __fastcall sub_18004B0E8(
   if ( v21 >= v14 )
   {
     v23 = v22 & 0xFFFFFFFC;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015B268 + 1310720, v23);
+    Heap = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, dword_18015B268 + 1310720, v23);
     v11 = Heap;
     if ( !Heap )
     {
@@ -262,18 +262,18 @@ __int64 __fastcall sub_18004B0E8(
     v20 = Acl;
     if ( Acl >= 0 )
     {
-      if ( RtlFirstFreeAce(v11, &v70) )
+      if ( RtlFirstFreeAce(v11, &FirstFree) )
       {
         if ( a1 && (v35 = (unsigned __int16 *)(a1 + 8), v36 = 0, *((_WORD *)a1 + 2)) )
         {
-          v25 = (char *)v70;
+          v25 = (char *)FirstFree;
           do
           {
             v37 = *(_BYTE *)v35;
             if ( *(_BYTE *)v35 >= 2u && (v37 <= 3u || v37 > 6u && (v37 <= 8u || (unsigned __int8)(v37 - 13) <= 3u)) )
             {
               memmove(v25, v35, v35[1]);
-              ++*(_WORD *)(v11 + 4);
+              ++v11->AceCount;
               v25 += v35[1];
             }
             ++v36;
@@ -284,7 +284,7 @@ __int64 __fastcall sub_18004B0E8(
         }
         else
         {
-          v25 = (char *)v70;
+          v25 = (char *)FirstFree;
         }
         if ( a2 )
         {
@@ -297,7 +297,7 @@ __int64 __fastcall sub_18004B0E8(
               if ( *(_BYTE *)v26 == 17 )
               {
                 memmove(v25, v26, v26[1]);
-                ++*(_WORD *)(v11 + 4);
+                ++v11->AceCount;
                 v25 += v26[1];
               }
               ++v27;
@@ -318,7 +318,7 @@ __int64 __fastcall sub_18004B0E8(
               if ( *(_BYTE *)v50 == 20 )
               {
                 memmove(v25, v50, v50[1]);
-                ++*(_WORD *)(v11 + 4);
+                ++v11->AceCount;
                 v25 += v50[1];
               }
               ++v51;
@@ -336,7 +336,7 @@ __int64 __fastcall sub_18004B0E8(
             if ( *(_BYTE *)v52 == 21 )
             {
               memmove(v25, v52, v52[1]);
-              ++*(_WORD *)(v11 + 4);
+              ++v11->AceCount;
               v25 += v52[1];
             }
             ++jj;
@@ -350,7 +350,7 @@ __int64 __fastcall sub_18004B0E8(
             if ( *(_BYTE *)v54 == 18 )
             {
               memmove(v25, v54, v54[1]);
-              ++*(_WORD *)(v11 + 4);
+              ++v11->AceCount;
               v25 += v54[1];
             }
             ++kk;
@@ -364,7 +364,7 @@ __int64 __fastcall sub_18004B0E8(
             if ( *(_BYTE *)v56 == 19 )
             {
               memmove(v25, v56, v56[1]);
-              ++*(_WORD *)(v11 + 4);
+              ++v11->AceCount;
               v25 += v56[1];
             }
             ++mm;
@@ -377,7 +377,7 @@ __int64 __fastcall sub_18004B0E8(
 LABEL_141:
     if ( v11 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
       v11 = 0LL;
     }
     goto LABEL_42;

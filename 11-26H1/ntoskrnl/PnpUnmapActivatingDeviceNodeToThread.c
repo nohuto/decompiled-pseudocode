@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpUnmapActivatingDeviceNodeToThread @ 0x1403B8804
+ * XREFs of PnpUnmapActivatingDeviceNodeToThread @ 0x1403C2704
  * Callers:
- *     PnpPoFxActivateDevice @ 0x14090E180 (PnpPoFxActivateDevice.c)
+ *     PnpPoFxActivateDevice @ 0x1409B02B0 (PnpPoFxActivateDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
  */
 
 void __fastcall PnpUnmapActivatingDeviceNodeToThread(__int64 a1)

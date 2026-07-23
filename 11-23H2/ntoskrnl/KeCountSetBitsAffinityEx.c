@@ -1,21 +1,21 @@
 /*
- * XREFs of KeCountSetBitsAffinityEx @ 0x1402C01C0
+ * XREFs of KeCountSetBitsAffinityEx @ 0x1402C0450
  * Callers:
  *     KiIntSteerLogStatus @ 0x14022183C (KiIntSteerLogStatus.c)
- *     PpmParkSteerInterrupts @ 0x140256A20 (PpmParkSteerInterrupts.c)
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140256E80 (PpmCheckSnapAllDeliveredPerformance.c)
- *     KiComputeThreadAffinity @ 0x1402BF834 (KiComputeThreadAffinity.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C003C (KeFlushProcessWriteBuffers.c)
- *     PpmPerfApplyProcessorStates @ 0x14034EE10 (PpmPerfApplyProcessorStates.c)
- *     PpmParkReportParkedCores @ 0x140350DC0 (PpmParkReportParkedCores.c)
- *     KeSynchronizeSecurityDomain @ 0x140356984 (KeSynchronizeSecurityDomain.c)
- *     PpmParkUnblockIdle @ 0x140356C10 (PpmParkUnblockIdle.c)
- *     PpmParkReportUnparkedCores @ 0x140356C60 (PpmParkReportUnparkedCores.c)
- *     KeSynchronizeAddressPolicy @ 0x1403608FC (KeSynchronizeAddressPolicy.c)
- *     KiForwardTick @ 0x1403CB6E0 (KiForwardTick.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x14057CFC4 (KiForceIdleUpdateSchedulerParkState.c)
- *     PPmHeteroHgsUpdateOrderValue @ 0x14059E4DC (PPmHeteroHgsUpdateOrderValue.c)
- *     PpmIdleInitializeConcurrency @ 0x14082BE04 (PpmIdleInitializeConcurrency.c)
+ *     PpmParkSteerInterrupts @ 0x140256AE0 (PpmParkSteerInterrupts.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140256F40 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     KiComputeThreadAffinity @ 0x1402BFAC4 (KiComputeThreadAffinity.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402C02CC (KeFlushProcessWriteBuffers.c)
+ *     PpmPerfApplyProcessorStates @ 0x14034EFB0 (PpmPerfApplyProcessorStates.c)
+ *     PpmParkReportParkedCores @ 0x140350F60 (PpmParkReportParkedCores.c)
+ *     KeSynchronizeSecurityDomain @ 0x140356B24 (KeSynchronizeSecurityDomain.c)
+ *     PpmParkUnblockIdle @ 0x140356DB0 (PpmParkUnblockIdle.c)
+ *     PpmParkReportUnparkedCores @ 0x140356E00 (PpmParkReportUnparkedCores.c)
+ *     KeSynchronizeAddressPolicy @ 0x140360A9C (KeSynchronizeAddressPolicy.c)
+ *     KiForwardTick @ 0x1403CB8C0 (KiForwardTick.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x14057D4B4 (KiForceIdleUpdateSchedulerParkState.c)
+ *     PPmHeteroHgsUpdateOrderValue @ 0x14059E9CC (PPmHeteroHgsUpdateOrderValue.c)
+ *     PpmIdleInitializeConcurrency @ 0x14082C104 (PpmIdleInitializeConcurrency.c)
  *     KiInitializeTopologyStructures @ 0x140A8D0F8 (KiInitializeTopologyStructures.c)
  * Callees:
  *     <none>

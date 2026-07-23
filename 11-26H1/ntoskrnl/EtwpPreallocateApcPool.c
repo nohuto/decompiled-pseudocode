@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpPreallocateApcPool @ 0x140AFAC58
+ * XREFs of EtwpPreallocateApcPool @ 0x140AB3AF8
  * Callers:
- *     EtwpUpdateContextRegisterTraceEvents @ 0x1408272DC (EtwpUpdateContextRegisterTraceEvents.c)
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
- *     EtwpInitializeClassicStackTracing @ 0x140AFABC8 (EtwpInitializeClassicStackTracing.c)
+ *     EtwpUpdateContextRegisterTraceEvents @ 0x14082D51C (EtwpUpdateContextRegisterTraceEvents.c)
+ *     EtwpInitializeClassicStackTracing @ 0x140AB3A68 (EtwpInitializeClassicStackTracing.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 unsigned __int64 __fastcall EtwpPreallocateApcPool(__int64 a1)
 {
   unsigned __int64 result; // rax
-  struct _SLIST_ENTRY *v3; // rdi
+  _SLIST_ENTRY *v3; // rdi
 
   result = *(unsigned int *)(a1 + 164);
   if ( (int)result < *(_DWORD *)(a1 + 168) )
@@ -23,7 +23,7 @@ unsigned __int64 __fastcall EtwpPreallocateApcPool(__int64 a1)
       if ( (unsigned int)result > *(_DWORD *)(a1 + 168) )
         break;
       result = ExAllocatePool2(0x48uLL);
-      v3 = (struct _SLIST_ENTRY *)result;
+      v3 = (_SLIST_ENTRY *)result;
       if ( !result )
         break;
       *(_QWORD *)(result + 128) = a1;

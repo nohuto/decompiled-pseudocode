@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvAcquireDisplayOwnership @ 0x14054E4D0
+ * XREFs of InbvAcquireDisplayOwnership @ 0x14054EB90
  * Callers:
- *     KiDisplayBlueScreen @ 0x14056A134 (KiDisplayBlueScreen.c)
- *     PopShutdownHandler @ 0x140AA8EE0 (PopShutdownHandler.c)
+ *     KiDisplayBlueScreen @ 0x14056A7F4 (KiDisplayBlueScreen.c)
+ *     PopShutdownHandler @ 0x140AA8D50 (PopShutdownHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (*InbvAcquireDisplayOwnership())(void)

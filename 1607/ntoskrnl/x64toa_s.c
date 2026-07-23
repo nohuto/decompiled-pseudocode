@@ -1,10 +1,10 @@
 /*
- * XREFs of x64toa_s @ 0x140151A6C
+ * XREFs of x64toa_s @ 0x14015202C
  * Callers:
- *     _i64toa_s @ 0x1401519D4 (_i64toa_s.c)
- *     _ui64toa_s @ 0x140151A44 (_ui64toa_s.c)
+ *     _i64toa_s @ 0x140151F94 (_i64toa_s.c)
+ *     _ui64toa_s @ 0x140152004 (_ui64toa_s.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 __int64 __fastcall x64toa_s(unsigned __int64 a1, char *a2, unsigned __int64 a3, unsigned int a4, int a5)

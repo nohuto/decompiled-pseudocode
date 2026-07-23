@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpUseSystemDeviceMap @ 0x14066551C
+ * XREFs of ObpUseSystemDeviceMap @ 0x140665600
  * Callers:
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 bool __fastcall ObpUseSystemDeviceMap(__int64 a1)

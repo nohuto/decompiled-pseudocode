@@ -1,23 +1,23 @@
 /*
- * XREFs of PspCreateThread @ 0x140770DA4
+ * XREFs of PspCreateThread @ 0x140770F94
  * Callers:
- *     NtCreateThreadEx @ 0x14076F400 (NtCreateThreadEx.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
- *     NtCreateThread @ 0x1409ADCE0 (NtCreateThread.c)
+ *     NtCreateThreadEx @ 0x14076F5F0 (NtCreateThreadEx.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
+ *     NtCreateThread @ 0x1409ADEE0 (NtCreateThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PspIsProcessReadyForRemoteThread @ 0x14030E9C0 (PspIsProcessReadyForRemoteThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     PspAllocateThread @ 0x1407409D0 (PspAllocateThread.c)
- *     PspMapThreadCreationFlags @ 0x14077110C (PspMapThreadCreationFlags.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PspIsProcessReadyForRemoteThread @ 0x14030EC50 (PspIsProcessReadyForRemoteThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     PspAllocateThread @ 0x140740BC0 (PspAllocateThread.c)
+ *     PspMapThreadCreationFlags @ 0x1407712FC (PspMapThreadCreationFlags.c)
  */
 
 __int64 __fastcall PspCreateThread(

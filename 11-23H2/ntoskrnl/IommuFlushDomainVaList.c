@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuFlushDomainVaList @ 0x140935720
+ * XREFs of IommuFlushDomainVaList @ 0x140935920
  * Callers:
  *     <none>
  * Callees:
- *     IommupHvFlushDeviceDomainVaList @ 0x140524AFC (IommupHvFlushDeviceDomainVaList.c)
+ *     IommupHvFlushDeviceDomainVaList @ 0x14052504C (IommupHvFlushDeviceDomainVaList.c)
  */
 
 __int64 __fastcall IommuFlushDomainVaList(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

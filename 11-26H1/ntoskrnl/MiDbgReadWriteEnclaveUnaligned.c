@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDbgReadWriteEnclaveUnaligned @ 0x140B4737C
+ * XREFs of MiDbgReadWriteEnclaveUnaligned @ 0x140B493AC
  * Callers:
- *     MiDbgReadWriteEnclave @ 0x140B47294 (MiDbgReadWriteEnclave.c)
+ *     MiDbgReadWriteEnclave @ 0x140B492C4 (MiDbgReadWriteEnclave.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     KeDebugWriteEnclaveMemory @ 0x1407BA0BC (KeDebugWriteEnclaveMemory.c)
- *     KeDebugReadEnclaveMemory @ 0x140B47438 (KeDebugReadEnclaveMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     KeDebugWriteEnclaveMemory @ 0x1407BD11C (KeDebugWriteEnclaveMemory.c)
+ *     KeDebugReadEnclaveMemory @ 0x140B49468 (KeDebugReadEnclaveMemory.c)
  */
 
 __int64 __fastcall MiDbgReadWriteEnclaveUnaligned(__int64 a1, void *a2, unsigned int a3, int a4)

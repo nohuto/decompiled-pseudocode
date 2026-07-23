@@ -3,8 +3,8 @@
  * Callers:
  *     RtlpGuardIsSuppressedAddress @ 0x1800EFB24 (RtlpGuardIsSuppressedAddress.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     bsearch_s @ 0x18009CC8C (bsearch_s.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     bsearch_s @ 0x18009CC7C (bsearch_s.c)
  */
 
 char __fastcall RtlpGuardIsSuppressedImageRva(__int64 a1, int a2)

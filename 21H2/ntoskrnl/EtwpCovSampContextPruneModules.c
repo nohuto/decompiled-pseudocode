@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCovSampContextPruneModules @ 0x1409442D4
+ * XREFs of EtwpCovSampContextPruneModules @ 0x1409444A4
  * Callers:
- *     EtwpCovSampContextGetModule @ 0x140943420 (EtwpCovSampContextGetModule.c)
- *     EtwpCoverageSamplerQuery @ 0x140946424 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCovSampContextGetModule @ 0x1409435F0 (EtwpCovSampContextGetModule.c)
+ *     EtwpCoverageSamplerQuery @ 0x1409465F4 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetCurrentThreadId @ 0x1402AA4D0 (PsGetCurrentThreadId.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpCovSampModuleCleanup @ 0x140945278 (EtwpCovSampModuleCleanup.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadId @ 0x140228610 (PsGetCurrentThreadId.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpCovSampModuleCleanup @ 0x140945448 (EtwpCovSampModuleCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
@@ -30,33 +30,39 @@ unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
   _QWORD *v11; // rdx
   _OWORD *v12; // r8
   _QWORD *v13; // rax
-  __int128 *v14; // rax
-  _QWORD *v15; // rdx
-  __int64 v16; // r13
-  struct _KTHREAD *v17; // rax
-  __int128 *v18; // r11
-  __int128 *v19; // rax
-  char *v20; // r10
-  bool v21; // zf
-  int v22; // r9d
-  char *j; // rdx
-  _QWORD *v24; // r15
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int128 *v17; // rax
+  _QWORD *v18; // rdx
+  __int64 v19; // r13
+  struct _KTHREAD *v20; // rax
+  __int128 *v21; // r11
+  __int128 *v22; // rax
+  char *v23; // r10
+  bool v24; // zf
   int v25; // r9d
+  char *j; // rdx
+  _QWORD *v27; // r15
+  int v28; // r9d
   _QWORD *k; // rdx
-  _QWORD *v27; // rax
-  __int64 v28; // rdx
-  _QWORD *v29; // rcx
-  _OWORD **v30; // rcx
-  __int64 v31; // rcx
-  _QWORD *v32; // rbx
-  __int64 v33; // [rsp+28h] [rbp-89h]
-  __int128 v34; // [rsp+30h] [rbp-81h] BYREF
-  __int128 v35; // [rsp+40h] [rbp-71h] BYREF
-  _OWORD v36[8]; // [rsp+58h] [rbp-59h] BYREF
+  _QWORD *v30; // rax
+  __int64 v31; // rdx
+  _QWORD *v32; // rcx
+  _OWORD **v33; // rcx
+  __int64 v34; // rdx
+  __int64 v35; // r8
+  __int64 v36; // r9
+  __int64 v37; // rcx
+  _QWORD *v38; // rbx
+  __int64 v39; // [rsp+28h] [rbp-89h]
+  __int128 v40; // [rsp+30h] [rbp-81h] BYREF
+  __int128 v41; // [rsp+40h] [rbp-71h] BYREF
+  _OWORD v42[8]; // [rsp+58h] [rbp-59h] BYREF
 
   result = *(_DWORD *)(a1 + 16) >> 1;
-  v35 = 0LL;
-  v34 = 0LL;
+  v41 = 0LL;
+  v40 = 0LL;
   if ( *(_DWORD *)(a1 + 732) > (unsigned int)result || *(_DWORD *)(a1 + 1124) > (int)result )
   {
     result = (unsigned int)_InterlockedCompareExchange(
@@ -66,7 +72,7 @@ unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
     if ( !(_DWORD)result )
     {
       v3 = 8LL;
-      v4 = v36;
+      v4 = v42;
       v5 = 8LL;
       do
       {
@@ -92,7 +98,7 @@ unsigned __int64 __fastcall EtwpCovSampContextPruneModules(__int64 a1)
           if ( (unsigned int)v10 >= 8 )
             v10 = 7LL;
           v11 = i + 2;
-          v12 = &v36[v10];
+          v12 = &v42[v10];
           v13 = (_QWORD *)*((_QWORD *)v12 + 1);
           if ( (_OWORD *)*v13 != v12 )
 LABEL_54:
@@ -106,113 +112,113 @@ LABEL_54:
       if ( _InterlockedCompareExchange64(v7, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(a1 + 664));
       KeAbPostRelease(a1 + 664);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      v14 = &v35;
-      *((_QWORD *)&v35 + 1) = &v35;
-      *(_QWORD *)&v35 = &v35;
-      v15 = v36;
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
+      v17 = &v41;
+      *((_QWORD *)&v41 + 1) = &v41;
+      *(_QWORD *)&v41 = &v41;
+      v18 = v42;
       do
       {
-        if ( (_QWORD *)*v15 != v15 )
+        if ( (_QWORD *)*v18 != v18 )
         {
-          *(_QWORD *)v14 = *v15;
-          *(_QWORD *)(*v15 + 8LL) = *((_QWORD *)&v35 + 1);
-          *((_QWORD *)&v35 + 1) = v15[1];
-          **((_QWORD **)&v35 + 1) = &v35;
-          v14 = (__int128 *)*((_QWORD *)&v35 + 1);
+          *(_QWORD *)v17 = *v18;
+          *(_QWORD *)(*v18 + 8LL) = *((_QWORD *)&v41 + 1);
+          *((_QWORD *)&v41 + 1) = v18[1];
+          **((_QWORD **)&v41 + 1) = &v41;
+          v17 = (__int128 *)*((_QWORD *)&v41 + 1);
         }
-        v15 += 2;
+        v18 += 2;
         --v3;
       }
       while ( v3 );
-      v16 = 0LL;
-      *((_QWORD *)&v34 + 1) = &v34;
-      *(_QWORD *)&v34 = &v34;
-      v17 = KeGetCurrentThread();
-      --v17->KernelApcDisable;
+      v19 = 0LL;
+      *((_QWORD *)&v40 + 1) = &v40;
+      *(_QWORD *)&v40 = &v40;
+      v20 = KeGetCurrentThread();
+      --v20->KernelApcDisable;
       ExAcquirePushLockExclusiveEx(a1 + 664, 0LL);
-      v18 = (__int128 *)v35;
+      v21 = (__int128 *)v41;
       *(_QWORD *)(a1 + 672) = KeGetCurrentThread();
-      while ( v18 != &v35 )
+      while ( v21 != &v41 )
       {
-        v19 = v18;
-        v20 = (char *)v18 - 88;
-        v21 = *((_QWORD *)v18 - 3) == 1LL;
-        v18 = *(__int128 **)v18;
-        *((_QWORD *)v19 + 1) = v19;
-        *(_QWORD *)v19 = v19;
-        if ( v21 && !*((_DWORD *)v20 + 33) && ++v16 > (unsigned __int64)*(unsigned int *)(a1 + 16) )
+        v22 = v21;
+        v23 = (char *)v21 - 88;
+        v24 = *((_QWORD *)v21 - 3) == 1LL;
+        v21 = *(__int128 **)v21;
+        *((_QWORD *)v22 + 1) = v22;
+        *(_QWORD *)v22 = v22;
+        if ( v24 && !*((_DWORD *)v23 + 33) && ++v19 > (unsigned __int64)*(unsigned int *)(a1 + 16) )
         {
-          if ( (*((_DWORD *)v20 + 30) & 0x40000) == 0 )
+          if ( (*((_DWORD *)v23 + 30) & 0x40000) == 0 )
           {
-            v22 = *(_DWORD *)(a1 + 684) >> 5;
-            v33 = *((_QWORD *)v20 + 1) & (-1LL << (*(_DWORD *)(a1 + 684) & 0x1F));
+            v25 = *(_DWORD *)(a1 + 684) >> 5;
+            v39 = *((_QWORD *)v23 + 1) & (-1LL << (*(_DWORD *)(a1 + 684) & 0x1F));
             for ( j = (char *)(*(_QWORD *)(a1 + 688)
                              + 8LL
                              * ((37
-                               * (BYTE6(v33)
+                               * (BYTE6(v39)
                                 + 37
-                                * (BYTE5(v33)
+                                * (BYTE5(v39)
                                  + 37
-                                 * (BYTE4(v33)
+                                 * (BYTE4(v39)
                                   + 37
-                                  * (BYTE3(v33)
-                                   + 37 * (BYTE2(v33) + 37 * (BYTE1(v33) + 37 * ((unsigned __int8)v33 + 11623883)))))))
-                               + HIBYTE(v33)) & (unsigned int)(v22 - 1))); (*(_QWORD *)j & 1) == 0; j = *(char **)j )
+                                  * (BYTE3(v39)
+                                   + 37 * (BYTE2(v39) + 37 * (BYTE1(v39) + 37 * ((unsigned __int8)v39 + 11623883)))))))
+                               + HIBYTE(v39)) & (unsigned int)(v25 - 1))); (*(_QWORD *)j & 1) == 0; j = *(char **)j )
             {
-              if ( *(char **)j == v20 )
+              if ( *(char **)j == v23 )
               {
-                *(_QWORD *)j = *(_QWORD *)v20;
+                *(_QWORD *)j = *(_QWORD *)v23;
                 --*(_DWORD *)(a1 + 680);
                 break;
               }
             }
-            *(_QWORD *)v20 = 0LL;
+            *(_QWORD *)v23 = 0LL;
           }
-          v24 = v20 + 16;
-          if ( *((_QWORD *)v20 + 2) )
+          v27 = v23 + 16;
+          if ( *((_QWORD *)v23 + 2) )
           {
-            v25 = *(_DWORD *)(a1 + 700) >> 5;
-            v33 = *((_QWORD *)v20 + 3) & (-1LL << (*(_DWORD *)(a1 + 700) & 0x1F));
+            v28 = *(_DWORD *)(a1 + 700) >> 5;
+            v39 = *((_QWORD *)v23 + 3) & (-1LL << (*(_DWORD *)(a1 + 700) & 0x1F));
             for ( k = (_QWORD *)(*(_QWORD *)(a1 + 704)
                                + 8LL
                                * ((37
-                                 * (BYTE6(v33)
+                                 * (BYTE6(v39)
                                   + 37
-                                  * (BYTE5(v33)
+                                  * (BYTE5(v39)
                                    + 37
-                                   * (BYTE4(v33)
+                                   * (BYTE4(v39)
                                     + 37
-                                    * (BYTE3(v33)
-                                     + 37 * (BYTE2(v33) + 37 * (BYTE1(v33) + 37 * ((unsigned __int8)v33 + 11623883)))))))
-                                 + HIBYTE(v33)) & (unsigned int)(v25 - 1))); (*k & 1) == 0; k = (_QWORD *)*k )
+                                    * (BYTE3(v39)
+                                     + 37 * (BYTE2(v39) + 37 * (BYTE1(v39) + 37 * ((unsigned __int8)v39 + 11623883)))))))
+                                 + HIBYTE(v39)) & (unsigned int)(v28 - 1))); (*k & 1) == 0; k = (_QWORD *)*k )
             {
-              if ( (_QWORD *)*k == v24 )
+              if ( (_QWORD *)*k == v27 )
               {
-                *k = *v24;
+                *k = *v27;
                 --*(_DWORD *)(a1 + 696);
                 break;
               }
             }
-            *v24 = 0LL;
+            *v27 = 0LL;
           }
-          v27 = v20 + 72;
-          v28 = *((_QWORD *)v20 + 9);
-          if ( *(char **)(v28 + 8) != v20 + 72 )
+          v30 = v23 + 72;
+          v31 = *((_QWORD *)v23 + 9);
+          if ( *(char **)(v31 + 8) != v23 + 72 )
             goto LABEL_54;
-          v29 = (_QWORD *)*((_QWORD *)v20 + 10);
-          if ( (_QWORD *)*v29 != v27 )
+          v32 = (_QWORD *)*((_QWORD *)v23 + 10);
+          if ( (_QWORD *)*v32 != v30 )
             goto LABEL_54;
-          *v29 = v28;
-          *(_QWORD *)(v28 + 8) = v29;
-          v30 = (_OWORD **)*((_QWORD *)&v34 + 1);
+          *v32 = v31;
+          *(_QWORD *)(v31 + 8) = v32;
+          v33 = (_OWORD **)*((_QWORD *)&v40 + 1);
           --*(_DWORD *)(a1 + 728);
-          if ( *v30 != &v34 )
+          if ( *v33 != &v40 )
             goto LABEL_54;
-          *((_QWORD *)v20 + 10) = v30;
-          *v27 = &v34;
-          *v30 = v27;
-          *((_QWORD *)&v34 + 1) = v20 + 72;
+          *((_QWORD *)v23 + 10) = v33;
+          *v30 = &v40;
+          *v33 = v30;
+          *((_QWORD *)&v40 + 1) = v23 + 72;
         }
       }
       *(_DWORD *)(a1 + 732) = 0;
@@ -221,25 +227,25 @@ LABEL_54:
       if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(a1 + 664);
       KeAbPostRelease(a1 + 664);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v34, v35, v36);
       while ( 1 )
       {
-        result = v34;
-        if ( (__int128 *)v34 == &v34 )
+        result = v40;
+        if ( (__int128 *)v40 == &v40 )
           break;
-        if ( *(__int128 **)(v34 + 8) != &v34 )
+        if ( *(__int128 **)(v40 + 8) != &v40 )
           goto LABEL_54;
-        v31 = *(_QWORD *)v34;
-        if ( *(_QWORD *)(*(_QWORD *)v34 + 8LL) != (_QWORD)v34 )
+        v37 = *(_QWORD *)v40;
+        if ( *(_QWORD *)(*(_QWORD *)v40 + 8LL) != (_QWORD)v40 )
           goto LABEL_54;
-        *(_QWORD *)&v34 = *(_QWORD *)v34;
-        v32 = (_QWORD *)(result - 72);
-        *(_QWORD *)(v31 + 8) = &v34;
+        *(_QWORD *)&v40 = *(_QWORD *)v40;
+        v38 = (_QWORD *)(result - 72);
+        *(_QWORD *)(v37 + 8) = &v40;
         *(_QWORD *)(result - 72 + 64) = 0LL;
         *(_QWORD *)(result + 8) = result;
         *(_QWORD *)result = result;
         EtwpCovSampModuleCleanup(result - 72);
-        ExFreePoolWithTag(v32, 0x56777445u);
+        ExFreePoolWithTag(v38, 0x56777445u);
       }
       _InterlockedExchange((volatile __int32 *)(a1 + 1128), 0);
     }

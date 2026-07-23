@@ -1,25 +1,25 @@
 /*
- * XREFs of CmReplaceKey @ 0x1407EF13C
+ * XREFs of CmReplaceKey @ 0x1407F033C
  * Callers:
- *     NtReplaceKey @ 0x1407EA070 (NtReplaceKey.c)
+ *     NtReplaceKey @ 0x1407EB270 (NtReplaceKey.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwFlushBuffersFile @ 0x1401B8AF0 (ZwFlushBuffersFile.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpCmdHiveOpen @ 0x1405B494C (CmpCmdHiveOpen.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140736450 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140736880 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
- *     CmpCmdRenameHive @ 0x1407FAFA0 (CmpCmdRenameHive.c)
- *     CmpPreserveSystemHiveData @ 0x1407FDCC4 (CmpPreserveSystemHiveData.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwFlushBuffersFile @ 0x1401B8C50 (ZwFlushBuffersFile.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     CmpCmdHiveOpen @ 0x1405B594C (CmpCmdHiveOpen.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140737640 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140737A70 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpDestroyHive @ 0x1407F7978 (CmpDestroyHive.c)
+ *     CmpCmdRenameHive @ 0x1407FC1A0 (CmpCmdRenameHive.c)
+ *     CmpPreserveSystemHiveData @ 0x1407FEEC4 (CmpPreserveSystemHiveData.c)
  */
 
 __int64 __fastcall CmReplaceKey(__int64 a1, __int64 a2, const UNICODE_STRING *a3, ULONG_PTR a4)
@@ -59,7 +59,7 @@ LABEL_22:
     goto LABEL_3;
   if ( (*(_DWORD *)(a1 + 4152) & 0x20) != 0 )
     goto LABEL_5;
-  if ( a1 == qword_1403FEFF0 )
+  if ( a1 == qword_1403FFFF0 )
   {
     v8 = CmpPreserveSystemHiveData(a1, BugCheckParameter2[0]);
     if ( v8 < 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepDeleteTokenUserAndGroups @ 0x140922FD8
+ * XREFs of SepDeleteTokenUserAndGroups @ 0x140923138
  * Callers:
- *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
+ *     SepTokenDeleteMethod @ 0x1406FF0D0 (SepTokenDeleteMethod.c)
  * Callees:
- *     SepDereferenceSidValuesBlock @ 0x140923060 (SepDereferenceSidValuesBlock.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SepDereferenceSidValuesBlock @ 0x1409231C0 (SepDereferenceSidValuesBlock.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepDeleteTokenUserAndGroups(__int64 a1)

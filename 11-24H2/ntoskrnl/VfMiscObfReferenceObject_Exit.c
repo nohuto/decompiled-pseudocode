@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscObfReferenceObject_Exit @ 0x140B9E620
+ * XREFs of VfMiscObfReferenceObject_Exit @ 0x140BA0620
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VfMiscObfReferenceObject_Exit(__int64 *a1)

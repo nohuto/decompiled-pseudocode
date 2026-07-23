@@ -1,5 +1,5 @@
 /*
- * XREFs of PopReleaseUmpoPushLock @ 0x140589AD0
+ * XREFs of PopReleaseUmpoPushLock @ 0x14058AAD0
  * Callers:
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
  * Callees:

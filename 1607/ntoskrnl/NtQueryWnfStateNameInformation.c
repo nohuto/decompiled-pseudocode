@@ -1,33 +1,33 @@
 /*
- * XREFs of NtQueryWnfStateNameInformation @ 0x1404DCB58
+ * XREFs of NtQueryWnfStateNameInformation @ 0x1404C015C
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExpWnfLookupPermanentName @ 0x1403F620C (ExpWnfLookupPermanentName.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ExpWnfReleaseCapturedScopeInstanceId @ 0x1404624D4 (ExpWnfReleaseCapturedScopeInstanceId.c)
- *     ExpCaptureWnfStateName @ 0x140462514 (ExpCaptureWnfStateName.c)
- *     ExpWnfLookupNameInstance @ 0x1404628C8 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x1404629B8 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x140462DF0 (ExpWnfCaptureScopeInstanceId.c)
- *     ExpWnfCheckCallerAccess @ 0x140462F14 (ExpWnfCheckCallerAccess.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1404E3BCC (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpWnfLookupPermanentName @ 0x1403F50D0 (ExpWnfLookupPermanentName.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x1404613A4 (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpCaptureWnfStateName @ 0x1404613E4 (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x140461798 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x140461888 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x140461CC0 (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfCheckCallerAccess @ 0x140461DE4 (ExpWnfCheckCallerAccess.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1404C6884 (ExpWnfCheckCrossScopeAccess.c)
  */
 
-__int64 __fastcall NtQueryWnfStateNameInformation(
-        unsigned __int64 a1,
-        unsigned int a2,
-        unsigned int *a3,
-        int *a4,
-        unsigned int Length)
+NTSTATUS __cdecl NtQueryWnfStateNameInformation(
+        PCWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        const void *ExplicitScope,
+        PVOID InfoBuffer,
+        ULONG InfoBufferSize)
 {
-  int *v5; // rsi
+  _DWORD *v5; // rsi
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r15
-  int v10; // edi
+  NTSTATUS v10; // edi
   __int64 v11; // r8
   unsigned __int64 v12; // rbx
   int v13; // esi
@@ -48,7 +48,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   PSID Sid[4]; // [rsp+70h] [rbp-58h] BYREF
   PVOID v30[2]; // [rsp+90h] [rbp-38h] BYREF
 
-  v5 = a4;
+  v5 = InfoBuffer;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -58,16 +58,16 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   v20 = 0;
   v30[0] = 0LL;
   v30[1] = 0LL;
-  v10 = ExpCaptureWnfStateName(a1, &v24, PreviousMode);
+  v10 = ExpCaptureWnfStateName((unsigned __int64)StateName, &v24, PreviousMode);
   if ( v10 >= 0 )
   {
     v12 = v24;
     v23 = (v24 >> 4) & 3;
     v20 = (v24 >> 6) & 0xF;
-    v10 = ExpWnfCaptureScopeInstanceId(v20, a3, v11, Sid, v30);
+    v10 = ExpWnfCaptureScopeInstanceId(v20, (unsigned int *)ExplicitScope, v11, Sid, v30);
     if ( v10 >= 0 )
     {
-      if ( a2 > 2 )
+      if ( (unsigned int)NameInfoClass > WnfInfoIsQuiescent )
       {
         v10 = -1073741821;
       }
@@ -75,28 +75,28 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
       {
         v27 = 4;
         v28 = 4;
-        if ( Length >= 4 )
+        if ( InfoBufferSize >= 4 )
         {
           if ( PreviousMode )
-            ProbeForWrite(v5, Length, 4u);
+            ProbeForWrite(v5, InfoBufferSize, 4u);
           v13 = 1;
-          if ( a2 )
+          if ( NameInfoClass )
           {
             v21 = 0;
           }
           else
           {
             v21 = 1;
-            if ( a3 )
+            if ( ExplicitScope )
             {
               v10 = -1073741811;
               goto LABEL_52;
             }
           }
-          if ( PreviousMode && a2 )
+          if ( PreviousMode && NameInfoClass )
           {
             v14 = 0;
-            if ( a3 )
+            if ( ExplicitScope )
             {
               v10 = ExpWnfCheckCrossScopeAccess(v12);
               if ( v10 < 0 )
@@ -108,7 +108,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
             v14 = 1;
           }
           v15 = 0;
-          if ( !v14 && a2 - 1 <= 1 )
+          if ( !v14 && (unsigned int)(NameInfoClass - 1) <= 1 )
             v15 = 2;
           v16 = 0LL;
           if ( PreviousMode )
@@ -152,9 +152,9 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
                 if ( v14 || (v10 = ExpWnfCheckCallerAccess(*((PSECURITY_DESCRIPTOR *)P + 2), v15), v10 >= 0) )
                 {
 LABEL_29:
-                  if ( a2 )
+                  if ( NameInfoClass )
                   {
-                    if ( a2 == 1 )
+                    if ( NameInfoClass == WnfInfoSubscribersPresent )
                     {
                       if ( v22 && *(_DWORD *)(v22 + 160) )
                         goto LABEL_37;
@@ -166,16 +166,16 @@ LABEL_29:
                     v13 = 0;
                   }
 LABEL_37:
-                  *a4 = v13;
+                  *(_DWORD *)InfoBuffer = v13;
                   v10 = 0;
-                  v5 = a4;
+                  v5 = InfoBuffer;
                   goto LABEL_38;
                 }
               }
             }
           }
 LABEL_52:
-          v5 = a4;
+          v5 = InfoBuffer;
           goto LABEL_38;
         }
         v10 = -1073741811;
@@ -183,7 +183,7 @@ LABEL_52:
     }
   }
 LABEL_38:
-  if ( v10 == -1073741772 && !a2 )
+  if ( v10 == -1073741772 && NameInfoClass == WnfInfoStateNameExist )
   {
     *v5 = 0;
     v10 = 0;
@@ -196,5 +196,5 @@ LABEL_38:
     ExFreePoolWithTag(P, 0x20666E57u);
   ExpWnfReleaseCapturedScopeInstanceId(v20, v30, PreviousMode);
   KeLeaveCriticalRegion();
-  return (unsigned int)v10;
+  return v10;
 }

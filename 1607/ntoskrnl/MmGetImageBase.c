@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetImageBase @ 0x1404D1238
+ * XREFs of MmGetImageBase @ 0x1404B4CD8
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x1400AD988 (RtlpLookupUserFunctionTable.c)
- *     EtwpProviderArrivalCallback @ 0x1404D0D5C (EtwpProviderArrivalCallback.c)
+ *     RtlpLookupUserFunctionTable @ 0x1400ABEF0 (RtlpLookupUserFunctionTable.c)
+ *     EtwpProviderArrivalCallback @ 0x1404B47FC (EtwpProviderArrivalCallback.c)
  * Callees:
- *     MiCheckForConflictingVad @ 0x140014330 (MiCheckForConflictingVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002BE60 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BED0 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiCheckForConflictingVad @ 0x140013EB0 (MiCheckForConflictingVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002B9E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BA50 (LOCK_ADDRESS_SPACE_SHARED.c)
  */
 
 __int64 __fastcall MmGetImageBase(unsigned __int64 a1, _QWORD *a2, _QWORD *a3)

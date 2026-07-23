@@ -1,19 +1,19 @@
 /*
- * XREFs of PopScanIdleList @ 0x140009938
+ * XREFs of PopScanIdleList @ 0x1400094AC
  * Callers:
- *     PopPolicySystemIdle @ 0x1403F5874 (PopPolicySystemIdle.c)
+ *     PopPolicySystemIdle @ 0x1403F4738 (PopPolicySystemIdle.c)
  * Callees:
- *     PopGetPowerSettingValue @ 0x1400089A8 (PopGetPowerSettingValue.c)
- *     PopDiagTraceEventNoPayload @ 0x1400B06CC (PopDiagTraceEventNoPayload.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoRequestPowerIrp @ 0x14012AB70 (PoRequestPowerIrp.c)
- *     PopCoalescingCheck @ 0x1402054F4 (PopCoalescingCheck.c)
- *     PopDiagTraceDeviceIdleCheck @ 0x1402080D4 (PopDiagTraceDeviceIdleCheck.c)
- *     PopDiagTraceDiskIdleCheck @ 0x140208288 (PopDiagTraceDiskIdleCheck.c)
- *     PopDiagTraceIoCoalescingDiskIdle @ 0x140208FF0 (PopDiagTraceIoCoalescingDiskIdle.c)
- *     PopSetPowerSettingValueAcDc @ 0x1403F5BE4 (PopSetPowerSettingValueAcDc.c)
- *     PopSetPowerSettingValue @ 0x1403F80D0 (PopSetPowerSettingValue.c)
+ *     PopGetPowerSettingValue @ 0x14000851C (PopGetPowerSettingValue.c)
+ *     PopDiagTraceEventNoPayload @ 0x1400AE73C (PopDiagTraceEventNoPayload.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoRequestPowerIrp @ 0x14012B0E0 (PoRequestPowerIrp.c)
+ *     PopCoalescingCheck @ 0x140205320 (PopCoalescingCheck.c)
+ *     PopDiagTraceDeviceIdleCheck @ 0x140207F00 (PopDiagTraceDeviceIdleCheck.c)
+ *     PopDiagTraceDiskIdleCheck @ 0x1402080B4 (PopDiagTraceDiskIdleCheck.c)
+ *     PopDiagTraceIoCoalescingDiskIdle @ 0x140208E1C (PopDiagTraceIoCoalescingDiskIdle.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1403F4AA8 (PopSetPowerSettingValueAcDc.c)
+ *     PopSetPowerSettingValue @ 0x1403F6F90 (PopSetPowerSettingValue.c)
  */
 
 __int64 PopScanIdleList()
@@ -50,19 +50,19 @@ __int64 PopScanIdleList()
   int v30; // [rsp+A0h] [rbp+18h]
   unsigned int v31; // [rsp+A8h] [rbp+20h]
 
-  v0 = dword_140303E28;
-  v26 = dword_140303E28;
+  v0 = dword_140303D68;
+  v26 = dword_140303D68;
   v29 = 0;
   v1 = 0;
   v2 = 0;
-  v25 = dword_140303E24;
+  v25 = dword_140303D64;
   v3 = 0;
   v31 = *((_DWORD *)PopPolicy + 53);
   v24 = PopCurrentCoalescingSpindownTimeout;
   v4 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
   v5 = v4;
   v28 = v4;
-  if ( byte_140328A4C )
+  if ( byte_140328A8C )
   {
     KeReleaseSpinLock(&PopDopeGlobalLock, v4);
   }
@@ -137,7 +137,7 @@ __int64 PopScanIdleList()
           {
             *((_DWORD *)v14 + 3) = 0;
             v22 = *((_DWORD *)v14 + 13);
-            ++dword_140328A48;
+            ++dword_140328A88;
             *((_DWORD *)v14 + 14) = v22;
           }
         }
@@ -164,9 +164,9 @@ __int64 PopScanIdleList()
     v8 = PopBackgroundTaskIgnoreCount;
     if ( PopBackgroundTaskIgnoreCount )
       v8 = --PopBackgroundTaskIgnoreCount;
-    v9 = dword_140303388 % (unsigned int)PopIdleScanInterval;
-    v10 = dword_140303388 / (unsigned int)PopIdleScanInterval;
-    if ( !dword_14030338C
+    v9 = dword_1403032C8 % (unsigned int)PopIdleScanInterval;
+    v10 = dword_1403032C8 / (unsigned int)PopIdleScanInterval;
+    if ( !dword_1403032CC
       || (v9 = (PopIdleScanInterval + 179) % (unsigned int)PopIdleScanInterval,
           v11 = (PopIdleScanInterval + 179) / (unsigned int)PopIdleScanInterval,
           v10 == v11) )
@@ -179,7 +179,7 @@ __int64 PopScanIdleList()
     }
     if ( !v2 || v1 )
     {
-      if ( !v7 && !dword_140303E0C )
+      if ( !v7 && !dword_140303D4C )
       {
         PopGetPowerSettingValue((__int64)&GUID_IDLE_BACKGROUND_TASK, v9, 3u, &v29, v23, v27);
         ++v29;
@@ -188,7 +188,7 @@ __int64 PopScanIdleList()
         v8 = PopBackgroundTaskIgnoreCount;
         PopIdleBackgroundIgnoreCount = (PopIdleScanInterval + 59) / (unsigned int)PopIdleScanInterval;
       }
-      if ( !v8 && PopBackgroundTaskAllowed && PopSIdle >= 50 && !dword_140303E0C )
+      if ( !v8 && PopBackgroundTaskAllowed && PopSIdle >= 50 && !dword_140303D4C )
       {
         PopGetPowerSettingValue((__int64)&GUID_BACKGROUND_TASK_NOTIFICATION, v9, 0, &v29, v23, v27);
         ++v29;

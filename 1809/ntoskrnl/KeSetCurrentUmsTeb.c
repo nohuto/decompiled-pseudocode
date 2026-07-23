@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetCurrentUmsTeb @ 0x14029FA30
+ * XREFs of KeSetCurrentUmsTeb @ 0x14029FC20
  * Callers:
- *     KeUnInitializeUmsThread @ 0x140845534 (KeUnInitializeUmsThread.c)
- *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDD0 (PspDisassociateUmsThreadFromPrimary.c)
+ *     KeUnInitializeUmsThread @ 0x140846794 (KeUnInitializeUmsThread.c)
+ *     KiSwapToUmsThread @ 0x1408469D0 (KiSwapToUmsThread.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x140890030 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
  *     <none>
  */

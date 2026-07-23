@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapAttemptArchitecturalErrorRecovery @ 0x1406D4C84
+ * XREFs of WheapAttemptArchitecturalErrorRecovery @ 0x1406D8D64
  * Callers:
- *     WheapAttemptErrorRecovery @ 0x1406D4D24 (WheapAttemptErrorRecovery.c)
+ *     WheapAttemptErrorRecovery @ 0x1406D8E04 (WheapAttemptErrorRecovery.c)
  * Callees:
- *     WheapGetErrorSource @ 0x1403DE1E0 (WheapGetErrorSource.c)
- *     WheapGetErrorSourceFunction @ 0x1404C9C54 (WheapGetErrorSourceFunction.c)
- *     WheaGetErrPacketFromErrRecord @ 0x14058ECC4 (WheaGetErrPacketFromErrRecord.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     WheapGetErrorSource @ 0x1403E13D0 (WheapGetErrorSource.c)
+ *     WheapGetErrorSourceFunction @ 0x1404C3684 (WheapGetErrorSourceFunction.c)
+ *     WheaGetErrPacketFromErrRecord @ 0x140591444 (WheaGetErrPacketFromErrRecord.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall WheapAttemptArchitecturalErrorRecovery(__int64 a1)

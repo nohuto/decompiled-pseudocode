@@ -1,11 +1,11 @@
 /*
- * XREFs of PspValidateJobLimitsDuringAssignment @ 0x14046A490
+ * XREFs of PspValidateJobLimitsDuringAssignment @ 0x140469360
  * Callers:
- *     PspAddProcessToJobChain @ 0x14046A2B8 (PspAddProcessToJobChain.c)
+ *     PspAddProcessToJobChain @ 0x140469188 (PspAddProcessToJobChain.c)
  * Callees:
- *     RtlInterlockedSetClearBits @ 0x140076CC8 (RtlInterlockedSetClearBits.c)
- *     PspSendJobNotification @ 0x1400AC040 (PspSendJobNotification.c)
- *     PspCheckJobAccessState @ 0x140680418 (PspCheckJobAccessState.c)
+ *     RtlInterlockedSetClearBits @ 0x140076D48 (RtlInterlockedSetClearBits.c)
+ *     PspSendJobNotification @ 0x1400AA5A8 (PspSendJobNotification.c)
+ *     PspCheckJobAccessState @ 0x1406804FC (PspCheckJobAccessState.c)
  */
 
 __int64 __fastcall PspValidateJobLimitsDuringAssignment(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIdleSchedule @ 0x1400D1C50
+ * XREFs of KiIdleSchedule @ 0x1400D1CD0
  * Callers:
- *     KiIdleLoop @ 0x1401C0520 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x1401C0680 (KiIdleLoop.c)
  * Callees:
  *     KiSearchForNewThread @ 0x140056AE0 (KiSearchForNewThread.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiStartThreadCycleAccumulation @ 0x1400D1E70 (KiStartThreadCycleAccumulation.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x140298C30 (KiSendHeteroRescheduleIntRequest.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiStartThreadCycleAccumulation @ 0x1400D1EF0 (KiStartThreadCycleAccumulation.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x140298E20 (KiSendHeteroRescheduleIntRequest.c)
  */
 
 __int64 __fastcall KiIdleSchedule(__int64 a1, __int64 a2, __int64 a3)

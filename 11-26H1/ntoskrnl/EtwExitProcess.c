@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwExitProcess @ 0x140940A60
+ * XREFs of EtwExitProcess @ 0x140A33B70
  * Callers:
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     EtwpCovSampProcessCleanup @ 0x140940DC0 (EtwpCovSampProcessCleanup.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     EtwpCovSampProcessCleanup @ 0x140A33ED0 (EtwpCovSampProcessCleanup.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwExitProcess(__int64 a1, __int64 a2)

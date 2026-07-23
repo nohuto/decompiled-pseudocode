@@ -1,16 +1,16 @@
 /*
- * XREFs of MxCopyPage @ 0x140C52474
+ * XREFs of MxCopyPage @ 0x140C54604
  * Callers:
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiCopyPtes @ 0x14039437C (MiCopyPtes.c)
- *     MxGetPhase0Mapping @ 0x140BDE9E0 (MxGetPhase0Mapping.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     MiCopyPtes @ 0x14038D998 (MiCopyPtes.c)
+ *     MxGetPhase0Mapping @ 0x140BE09E0 (MxGetPhase0Mapping.c)
  */
 
-__int64 __fastcall MxCopyPage(__int64 a1, __int64 a2)
+void __fastcall MxCopyPage(__int64 a1, __int64 a2)
 {
   unsigned __int64 Phase0Mapping; // rsi
   ULONG_PTR *v5; // rdi
@@ -22,9 +22,9 @@ __int64 __fastcall MxCopyPage(__int64 a1, __int64 a2)
   ValidPte = MiMakeValidPte((unsigned __int64)v5, a1, -1610612732);
   v7 = ValidPte;
   if ( _bittest64(&MiFlags, 0x24u) && (ValidPte & 0x20) == 0 && (unsigned __int64)v5 >= 0xFFFFF6C000000000uLL )
-    MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v5, ValidPte, 128);
+    MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v5, ValidPte, 128LL);
   *v5 = v7;
   MiCopyPtes((_QWORD *)Phase0Mapping, a2, 512LL);
   *v5 = CLFS_LSN_NULL_EXT;
-  return MiFlushSingleTbEntry(Phase0Mapping, 2, 1);
+  MiFlushSingleTbEntry(Phase0Mapping, 2, 1);
 }

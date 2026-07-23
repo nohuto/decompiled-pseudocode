@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpIsChainDereferenced @ 0x14036DB30
+ * XREFs of PnpIsChainDereferenced @ 0x14036DCE0
  * Callers:
- *     PipEventRemovalCheckOpenHandles @ 0x1407327F4 (PipEventRemovalCheckOpenHandles.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PipEventRemovalCheckOpenHandles @ 0x1407329B4 (PipEventRemovalCheckOpenHandles.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736AD4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     PnpUpdateExtensionFlags @ 0x14036DC68 (PnpUpdateExtensionFlags.c)
- *     PnpIsAnyDeviceInUse @ 0x14036DC98 (PnpIsAnyDeviceInUse.c)
- *     PnpChainDereferenceComplete @ 0x140736488 (PnpChainDereferenceComplete.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     PnpUpdateExtensionFlags @ 0x14036DE18 (PnpUpdateExtensionFlags.c)
+ *     PnpIsAnyDeviceInUse @ 0x14036DE48 (PnpIsAnyDeviceInUse.c)
+ *     PnpChainDereferenceComplete @ 0x140736648 (PnpChainDereferenceComplete.c)
  */
 
 __int64 __fastcall PnpIsChainDereferenced(_QWORD *a1, int a2, int a3, unsigned int a4, _QWORD *a5)

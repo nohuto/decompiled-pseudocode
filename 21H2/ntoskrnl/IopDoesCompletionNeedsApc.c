@@ -1,9 +1,9 @@
 /*
- * XREFs of IopDoesCompletionNeedsApc @ 0x1403F0FAC
+ * XREFs of IopDoesCompletionNeedsApc @ 0x1403F0EDC
  * Callers:
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
  * Callees:
- *     IoGetRequestorProcess @ 0x1403591C0 (IoGetRequestorProcess.c)
+ *     IoGetRequestorProcess @ 0x140363F10 (IoGetRequestorProcess.c)
  */
 
 bool __fastcall IopDoesCompletionNeedsApc(__int64 a1)

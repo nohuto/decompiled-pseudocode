@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAccessCheckByTypeResultListAndAuditAlarm @ 0x1407925A0
+ * XREFs of NtAccessCheckByTypeResultListAndAuditAlarm @ 0x140792570
  * Callers:
  *     <none>
  * Callees:
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  */
 
 NTSTATUS __stdcall NtAccessCheckByTypeResultListAndAuditAlarm(
@@ -25,13 +25,13 @@ NTSTATUS __stdcall NtAccessCheckByTypeResultListAndAuditAlarm(
         PBOOLEAN GenerateOnClose)
 {
   return SepAccessCheckAndAuditAlarm(
-           (_DWORD)SubsystemName,
-           (_DWORD)HandleId,
+           (int)SubsystemName,
+           (int)HandleId,
            0,
-           (_DWORD)ObjectTypeName,
+           (int)ObjectTypeName,
            (__int64)ObjectName,
            (__int64)SecurityDescriptor,
-           (__int64)PrincipalSelfSid,
+           PrincipalSelfSid,
            DesiredAccess,
            AuditType,
            Flags,

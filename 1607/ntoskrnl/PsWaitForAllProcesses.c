@@ -1,14 +1,14 @@
 /*
- * XREFs of PsWaitForAllProcesses @ 0x14067FB1C
+ * XREFs of PsWaitForAllProcesses @ 0x14067FC00
  * Callers:
  *     PopGracefulShutdown @ 0x1403DEE20 (PopGracefulShutdown.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     SmIsCompressionProcess @ 0x14009CF3C (SmIsCompressionProcess.c)
- *     PsGetNextProcess @ 0x140508FFC (PsGetNextProcess.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     SmIsCompressionProcess @ 0x14009C73C (SmIsCompressionProcess.c)
+ *     PsGetNextProcess @ 0x1404EBF8C (PsGetNextProcess.c)
  */
 
 char PsWaitForAllProcesses()

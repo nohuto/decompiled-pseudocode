@@ -1,18 +1,18 @@
 /*
- * XREFs of MmQueryCommitReleaseState @ 0x1400B0E40
+ * XREFs of MmQueryCommitReleaseState @ 0x1400AEEB0
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MiAttachThreadDone @ 0x14010B0AC (MiAttachThreadDone.c)
- *     MiPrepareAttachThread @ 0x14010B120 (MiPrepareAttachThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     MiAttachThreadDone @ 0x140108E2C (MiAttachThreadDone.c)
+ *     MiPrepareAttachThread @ 0x140108EA0 (MiPrepareAttachThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 _QWORD *__fastcall MmQueryCommitReleaseState(
@@ -47,7 +47,7 @@ _QWORD *__fastcall MmQueryCommitReleaseState(
   v11 = *((_QWORD *)SharedVm + 1);
   if ( (HIBYTE(v17) & 0xC0) == 0x80 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     v12 = MiPrepareAttachThread(BugCheckParameter1, v5);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     if ( v12 )

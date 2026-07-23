@@ -1,10 +1,10 @@
 /*
- * XREFs of CcIncrementVacbActiveCount @ 0x1402A04BC
+ * XREFs of CcIncrementVacbActiveCount @ 0x1402A074C
  * Callers:
- *     CcGetVirtualAddressIfMapped @ 0x14029E940 (CcGetVirtualAddressIfMapped.c)
- *     CcGetVacbMiss @ 0x14029F110 (CcGetVacbMiss.c)
+ *     CcGetVirtualAddressIfMapped @ 0x14029EBD0 (CcGetVirtualAddressIfMapped.c)
+ *     CcGetVacbMiss @ 0x14029F3A0 (CcGetVacbMiss.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcIncrementVacbActiveCount(__int64 a1)

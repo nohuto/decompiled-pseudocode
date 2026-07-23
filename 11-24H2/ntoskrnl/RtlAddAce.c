@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlAddAce @ 0x14091CC90
+ * XREFs of RtlAddAce @ 0x140910700
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x140363E20 (SepSetProcessTrustLabelAceForToken.c)
- *     SepAppendAceToTokenDefaultDacl @ 0x140364418 (SepAppendAceToTokenDefaultDacl.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14040B494 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     LocalGetAclForString @ 0x140865750 (LocalGetAclForString.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14099C6D0 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1403EAEE8 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403EB390 (SepSetProcessTrustLabelAceForToken.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x140403974 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     LocalGetAclForString @ 0x140869D60 (LocalGetAclForString.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x1409CEE40 (PiDevCfgGetKeySecurityDescriptor.c)
  * Callees:
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
  */
 
 NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex, PVOID AceList, ULONG AceListLength)
@@ -31,7 +31,7 @@ NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex
   UCHAR v25; // cl
   __int16 v26; // [rsp+20h] [rbp-38h]
 
-  if ( !RtlValidAcl((__int64)Acl) )
+  if ( !RtlValidAcl(Acl) )
     return -1073741811;
   AceCount = Acl->AceCount;
   v10 = Acl + 1;

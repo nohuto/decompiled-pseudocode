@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCountSharedPages @ 0x1402D0E10
+ * XREFs of MiCountSharedPages @ 0x1402B2BD0
  * Callers:
- *     MiPerformVadSplitting @ 0x140315B44 (MiPerformVadSplitting.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1406FC830 (MiPrepareImagePagesForHotPatch.c)
- *     MiSectionProtectGetCharges @ 0x1409C6FE0 (MiSectionProtectGetCharges.c)
+ *     MiPerformVadSplitting @ 0x140317B74 (MiPerformVadSplitting.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140701500 (MiPrepareImagePagesForHotPatch.c)
+ *     MiSectionProtectGetCharges @ 0x140997FC0 (MiSectionProtectGetCharges.c)
  * Callees:
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiPteNeedsCommitCharge @ 0x1404886AC (MiPteNeedsCommitCharge.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiPteNeedsCommitCharge @ 0x1404821EC (MiPteNeedsCommitCharge.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiCountSharedPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -82,7 +82,7 @@ LABEL_3:
     v7 = (__int64)(a2 << 25) >> 16;
     v36 = 4145;
     LeafVa = MiGetLeafVa(v7);
-    if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_140E2DE40 && LeafVa <= qword_140E2DE50 )
+    if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_140E2DFC0 && LeafVa <= qword_140E2DFD0 )
       AnyMultiplexedVm = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
     else
       AnyMultiplexedVm = (struct _LIST_ENTRY **)MiGetAnyMultiplexedVm(2LL, v9);
@@ -228,7 +228,7 @@ LABEL_27:
           MiUnlockPageTableInternal(v34, v47);
           v24 = (_DWORD)v34[23] & 0xF;
           if ( (v24 == 5 || v24 <= 4u)
-            && (((_DWORD)v34[23] & 0xF) != 1 ? (v25 = (__int64 *)(v34 + 24)) : (v25 = &qword_140E37800),
+            && (((_DWORD)v34[23] & 0xF) != 1 ? (v25 = (__int64 *)(v34 + 24)) : (v25 = &qword_140E37980),
                 (v26 = *v25, (MmInternal = (unsigned int *)KeGetCurrentPrcb()->MmInternal) == 0LL)
               ? (v28 = 0LL)
               : (v28 = MmInternal[81]),

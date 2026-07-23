@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiLogDeviceArrivedTerminalEvent @ 0x140901BB4
+ * XREFs of TtmiLogDeviceArrivedTerminalEvent @ 0x140901D14
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x1408FCF70 (TtmpPublishDeviceEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x1408FD0D0 (TtmpPublishDeviceEvent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceArrivedTerminalEvent(int a1, int a2, int a3, int a4, const size_t *a5)
@@ -68,7 +68,7 @@ char __fastcall TtmiLogDeviceArrivedTerminalEvent(int a1, int a2, int a3, int a4
       tlgCreate1Sz_wchar_t((__int64)v33, a5);
       LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140D2D8C8,
-                     (unsigned __int8 *)byte_14002B209,
+                     (unsigned __int8 *)&unk_14002B5B0,
                      0LL,
                      0LL,
                      8u,

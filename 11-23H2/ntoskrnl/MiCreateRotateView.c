@@ -1,24 +1,24 @@
 /*
- * XREFs of MiCreateRotateView @ 0x140A31210
+ * XREFs of MiCreateRotateView @ 0x140A314C0
  * Callers:
- *     MiReserveUserMemory @ 0x14071F3E0 (MiReserveUserMemory.c)
- *     MiInitializePartialVad @ 0x14076D6EC (MiInitializePartialVad.c)
+ *     MiReserveUserMemory @ 0x14071F5E0 (MiReserveUserMemory.c)
+ *     MiInitializePartialVad @ 0x14076D8DC (MiInitializePartialVad.c)
  * Callees:
- *     PsChargeProcessNonPagedPoolQuota @ 0x140289B40 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetInPageSupportBlock @ 0x1402E12E4 (MiGetInPageSupportBlock.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140289DD0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiGetInPageSupportBlock @ 0x1402E1574 (MiGetInPageSupportBlock.c)
+ *     MiInsertVadEvent @ 0x1402E34FC (MiInsertVadEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateRotateView(__int64 a1)
 {
-  struct _SLIST_ENTRY *Pool; // rbx
+  _SLIST_ENTRY *Pool; // rbx
   PSLIST_ENTRY v4; // rdi
   PSLIST_ENTRY v5; // rcx
   __int64 v6; // r9
 
-  Pool = (struct _SLIST_ENTRY *)MiAllocatePool(64, 0x48uLL, 0x77776D4Du);
+  Pool = (_SLIST_ENTRY *)MiAllocatePool(64, 0x48uLL, 0x77776D4Du);
   if ( !Pool )
     return 0LL;
   v4 = MiGetInPageSupportBlock(0, 0LL);

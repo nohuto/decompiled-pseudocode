@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpStdLogCapturedStackTrace @ 0x1405A9B64
+ * XREFs of RtlpStdLogCapturedStackTrace @ 0x1405AA0D4
  * Callers:
- *     RtlStdLogStackTrace @ 0x1405A94F4 (RtlStdLogStackTrace.c)
+ *     RtlStdLogStackTrace @ 0x1405A9A64 (RtlStdLogStackTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpStdGetSpaceForTrace @ 0x1405A9AA4 (RtlpStdGetSpaceForTrace.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlpStdGetSpaceForTrace @ 0x1405AA014 (RtlpStdGetSpaceForTrace.c)
  */
 
 PSLIST_ENTRY __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, unsigned int a3)
@@ -61,10 +61,13 @@ LABEL_8:
 LABEL_11:
   v15 = *(unsigned __int8 *)(v9 + 744);
   KxReleaseSpinLock((volatile signed __int64 *)(v9 + 736));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v15 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

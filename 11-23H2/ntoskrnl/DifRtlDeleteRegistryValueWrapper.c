@@ -1,12 +1,12 @@
 /*
- * XREFs of DifRtlDeleteRegistryValueWrapper @ 0x1405EB2A0
+ * XREFs of DifRtlDeleteRegistryValueWrapper @ 0x1405EB810
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     RtlDeleteRegistryValue @ 0x140873D00 (RtlDeleteRegistryValue.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     RtlDeleteRegistryValue @ 0x140873F40 (RtlDeleteRegistryValue.c)
  */
 
 NTSTATUS __fastcall DifRtlDeleteRegistryValueWrapper(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName)

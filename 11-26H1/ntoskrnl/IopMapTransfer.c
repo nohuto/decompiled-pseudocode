@@ -1,20 +1,20 @@
 /*
- * XREFs of IopMapTransfer @ 0x14035C290
+ * XREFs of IopMapTransfer @ 0x14035E030
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     HalpDmaNextContiguousPiece @ 0x14035BB44 (HalpDmaNextContiguousPiece.c)
- *     HalpDmaNextContiguousPieceV2 @ 0x14035BB90 (HalpDmaNextContiguousPieceV2.c)
- *     HalpDmaSyncMapBuffers @ 0x14035BE40 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaGetAdapterVersion @ 0x14035C9B8 (HalpDmaGetAdapterVersion.c)
- *     HalpMapTransferV3 @ 0x14043FD60 (HalpMapTransferV3.c)
- *     HalpDmaNextContiguousPieceV3 @ 0x14043FE38 (HalpDmaNextContiguousPieceV3.c)
- *     HalpDmaFlushBuffer @ 0x14044011C (HalpDmaFlushBuffer.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x140440B80 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaZeroMapBuffers @ 0x140589598 (HalpDmaZeroMapBuffers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     HalpDmaNextContiguousPiece @ 0x14035D8E4 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaNextContiguousPieceV2 @ 0x14035D930 (HalpDmaNextContiguousPieceV2.c)
+ *     HalpDmaSyncMapBuffers @ 0x14035DBE0 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaGetAdapterVersion @ 0x14035E758 (HalpDmaGetAdapterVersion.c)
+ *     HalpMapTransferV3 @ 0x140438870 (HalpMapTransferV3.c)
+ *     HalpDmaNextContiguousPieceV3 @ 0x140438948 (HalpDmaNextContiguousPieceV3.c)
+ *     HalpDmaFlushBuffer @ 0x140438C2C (HalpDmaFlushBuffer.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140439690 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaZeroMapBuffers @ 0x14058BC68 (HalpDmaZeroMapBuffers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IopMapTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5, char a6)

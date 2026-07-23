@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpSortLoadConfigFptrs @ 0x1800EA680
+ * XREFs of LdrpSortLoadConfigFptrs @ 0x1800E5EF0
  * Callers:
  *     <none>
  * Callees:

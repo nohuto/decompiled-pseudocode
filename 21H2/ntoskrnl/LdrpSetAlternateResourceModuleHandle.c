@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x14037F45C
+ * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x14037EFAC
  * Callers:
- *     LdrpGetRcConfig @ 0x1402A92B4 (LdrpGetRcConfig.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrResGetRCConfig @ 0x14078BC7C (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1402273F4 (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x140227614 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x14078BE3C (LdrResGetRCConfig.c)
  * Callees:
- *     LdrpInitMuiCrits @ 0x1402A98E4 (LdrpInitMuiCrits.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     KeReleaseMutant @ 0x1403424B0 (KeReleaseMutant.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     LdrpInitMuiCrits @ 0x140227A24 (LdrpInitMuiCrits.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     KeReleaseMutant @ 0x14034D200 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall LdrpSetAlternateResourceModuleHandle(
@@ -36,8 +36,8 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   unsigned __int64 v16; // rdx
   unsigned __int64 v17; // rcx
   __int16 v18; // dx
-  __int64 v19; // rax
-  int v20; // r9d
+  PIMAGE_NT_HEADERS v19; // rax
+  unsigned int CheckSum; // r9d
   int v21; // r8d
   unsigned __int64 v22; // rcx
   char *v23; // rdx
@@ -141,10 +141,10 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
       }
     }
   }
-  v19 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+  v19 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
   if ( v19 )
   {
-    v20 = *(_DWORD *)(v19 + 88);
+    CheckSum = v19->OptionalHeader.CheckSum;
     v21 = AlternateResourceModuleCount;
     v22 = (unsigned __int64)(unsigned int)AlternateResourceModuleCount << 6;
     v23 = (char *)AlternateResourceModules;
@@ -169,7 +169,7 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
       *(_QWORD *)&v23[v22 + 48] = 0LL;
     }
     *(_WORD *)&v23[v22] = a5;
-    *(_DWORD *)&v23[v22 + 24] = v20;
+    *(_DWORD *)&v23[v22 + 24] = CheckSum;
     *(_DWORD *)&v23[v22 + 56] = a7;
     AlternateResourceModuleCount = v21 + 1;
   }

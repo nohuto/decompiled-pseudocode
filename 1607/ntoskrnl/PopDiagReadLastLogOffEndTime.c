@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagReadLastLogOffEndTime @ 0x1406709B0
+ * XREFs of PopDiagReadLastLogOffEndTime @ 0x140670A94
  * Callers:
- *     PopDiagTracePerfTrackData @ 0x140530E98 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTracePerfTrackData @ 0x1405313D8 (PopDiagTracePerfTrackData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

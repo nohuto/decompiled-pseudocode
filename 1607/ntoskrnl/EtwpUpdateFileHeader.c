@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpUpdateFileHeader @ 0x1404947D4
+ * XREFs of EtwpUpdateFileHeader @ 0x140495264
  * Callers:
- *     EtwpCreateLogFile @ 0x140494518 (EtwpCreateLogFile.c)
+ *     EtwpCreateLogFile @ 0x140494FA8 (EtwpCreateLogFile.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14008560C (EtwpQueryUsedProcessorCount.c)
- *     EtwpResetBufferHeader @ 0x1400857F4 (EtwpResetBufferHeader.c)
- *     EtwpInitializeBufferHeader @ 0x140085844 (EtwpInitializeBufferHeader.c)
- *     EtwpQueryMaximumFileSize @ 0x140085898 (EtwpQueryMaximumFileSize.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwReadFile @ 0x140159D40 (ZwReadFile.c)
- *     ZwWriteFile @ 0x140159D80 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14015A160 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14015A5A0 (ZwQueryVolumeInformationFile.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140086EF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpResetBufferHeader @ 0x1400870E4 (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x140087134 (EtwpInitializeBufferHeader.c)
+ *     EtwpQueryMaximumFileSize @ 0x140087188 (EtwpQueryMaximumFileSize.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x14015A2B0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x14015A2F0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x14015A6D0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x14015AB10 (ZwQueryVolumeInformationFile.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpAddLogHeader @ 0x140493E48 (EtwpAddLogHeader.c)
- *     EtwpIsWow64Logger @ 0x140494288 (EtwpIsWow64Logger.c)
+ *     EtwpAddLogHeader @ 0x1404948D8 (EtwpAddLogHeader.c)
+ *     EtwpIsWow64Logger @ 0x140494D18 (EtwpIsWow64Logger.c)
  */
 
 NTSTATUS __fastcall EtwpUpdateFileHeader(__int64 a1, char a2)

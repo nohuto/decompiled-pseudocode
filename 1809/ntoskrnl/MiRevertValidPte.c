@@ -1,22 +1,22 @@
 /*
- * XREFs of MiRevertValidPte @ 0x1400B2360
+ * XREFs of MiRevertValidPte @ 0x1400B22A0
  * Callers:
- *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
- *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
+ *     MiProtectPrivateMemory @ 0x140070DB0 (MiProtectPrivateMemory.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140085AF0 (MiSetReadOnlyOnSectionView.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiRotatedToFrameBuffer @ 0x1400947E4 (MiRotatedToFrameBuffer.c)
- *     MiIsAddressGlobal @ 0x1400B22E0 (MiIsAddressGlobal.c)
- *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1401256DC (MiCaptureWriteWatchDirtyBit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiRotatedToFrameBuffer @ 0x140094724 (MiRotatedToFrameBuffer.c)
+ *     MiIsAddressGlobal @ 0x1400B2220 (MiIsAddressGlobal.c)
+ *     MiGetPagePrivilege @ 0x1400B29B0 (MiGetPagePrivilege.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiUserPdeOrAbove @ 0x1400F96CC (MiUserPdeOrAbove.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1401257AC (MiCaptureWriteWatchDirtyBit.c)
  */
 
 unsigned __int8 __fastcall MiRevertValidPte(
@@ -147,7 +147,7 @@ LABEL_81:
   if ( (v6 & 0x40000000) != 0 )
     v16 &= ~4uLL;
   if ( (v6 & 0x20000000) != 0 )
-    v16 ^= ((unsigned __int16)v16 ^ (unsigned __int16)((unsigned __int8)word_14043A1AC << 8)) & 0x100;
+    v16 ^= ((unsigned __int16)v16 ^ (unsigned __int16)((unsigned __int8)word_14043B26C << 8)) & 0x100;
   if ( (v6 & 0x8000000) != 0 )
     v16 &= ~0x100uLL;
   if ( (v6 & 0x4000000) != 0 )
@@ -204,7 +204,7 @@ LABEL_30:
     *(_QWORD *)a2 = v21;
     goto LABEL_31;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v21 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v21 & 1) != 0 )
     v21 |= v17;
   *(_QWORD *)a2 = v21;
   MiWritePteShadow(a2);
@@ -232,7 +232,7 @@ LABEL_31:
       }
       v24 = MiCaptureDirtyBitToPfn(v14);
       if ( v24 )
-        v23 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v14 + 40) >> 40) & 0x3FFLL));
+        v23 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v14 + 40) >> 40) & 0x3FFLL));
       _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( v24 )
         MiReleasePageFileInfo(v23, v24, 1);

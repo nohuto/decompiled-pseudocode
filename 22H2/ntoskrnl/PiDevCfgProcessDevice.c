@@ -168,7 +168,7 @@ LABEL_8:
         }
         else
         {
-          v15 = PiDevCfgConfigureDevice(a1, (unsigned int)v52, v47, (unsigned int)&v56, (__int64)&v46);
+          v15 = PiDevCfgConfigureDevice(a1, v52, v47, &v56, &v46);
           v11 = 0LL;
           v12 = v15;
           v10 = 1LL;
@@ -208,7 +208,7 @@ LABEL_15:
         if ( v7 )
         {
 LABEL_90:
-          v32 = PiDevCfgConfigureDevice(a1, (unsigned int)v52, 0, (unsigned int)&v56, (__int64)&v46);
+          v32 = PiDevCfgConfigureDevice(a1, v52, 0LL, &v56, &v46);
           v12 = v32;
           if ( v32 >= 0 )
           {

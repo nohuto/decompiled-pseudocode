@@ -17,7 +17,7 @@
 __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigned int *a4)
 {
   int v4; // esi
-  struct _SLIST_ENTRY *PoolPages; // rdi
+  _SLIST_ENTRY *PoolPages; // rdi
   unsigned __int64 v6; // r12
   _DWORD *v7; // r13
   _DWORD *v8; // rax
@@ -34,7 +34,7 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
   unsigned int v20; // [rsp+24h] [rbp-84h]
   int v21; // [rsp+28h] [rbp-80h]
   int v22; // [rsp+2Ch] [rbp-7Ch]
-  struct _SLIST_ENTRY *i; // [rsp+30h] [rbp-78h]
+  _SLIST_ENTRY *i; // [rsp+30h] [rbp-78h]
   _DWORD *v24; // [rsp+38h] [rbp-70h]
   unsigned __int64 v25; // [rsp+40h] [rbp-68h]
   void *retaddr; // [rsp+A8h] [rbp+0h]
@@ -116,7 +116,7 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
       else
         ExpLargePoolTableLock = 0;
       __writecr8(CurrentIrql);
-      for ( i = PoolPages; i < (struct _SLIST_ENTRY *)((char *)PoolPages + v14); i = (struct _SLIST_ENTRY *)((char *)i + 24) )
+      for ( i = PoolPages; i < (_SLIST_ENTRY *)((char *)PoolPages + v14); i = (_SLIST_ENTRY *)((char *)i + 24) )
       {
         Next = i->Next;
         if ( ((__int64)i->Next & 1) == 0 )
@@ -160,7 +160,7 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
     v16 = 24 * v12;
     if ( PoolPages )
       MiFreePoolPages(PoolPages, v6, 1819242320);
-    PoolPages = (struct _SLIST_ENTRY *)MiAllocatePoolPages(0x200u, v16);
+    PoolPages = (_SLIST_ENTRY *)MiAllocatePoolPages(0x200u, v16);
     if ( !PoolPages )
       return 3221225626LL;
     v6 = v16;

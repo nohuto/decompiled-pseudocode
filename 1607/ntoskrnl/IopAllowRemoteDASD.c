@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllowRemoteDASD @ 0x1401CA36C
+ * XREFs of IopAllowRemoteDASD @ 0x1401CA20C
  * Callers:
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x1404E6780 (IopOpenRegistryKey.c)
+ *     IopOpenRegistryKey @ 0x1404C90F0 (IopOpenRegistryKey.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
  */
 
 bool IopAllowRemoteDASD()

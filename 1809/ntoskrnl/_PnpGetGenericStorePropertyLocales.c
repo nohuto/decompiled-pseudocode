@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpGetGenericStorePropertyLocales @ 0x1408FC7B0
+ * XREFs of _PnpGetGenericStorePropertyLocales @ 0x1408FDA70
  * Callers:
- *     PiDqPnPGetObjectPropertyLocales @ 0x14082B0CC (PiDqPnPGetObjectPropertyLocales.c)
- *     _PnpGetObjectPropertyLocalesWorker @ 0x1408FA5C0 (_PnpGetObjectPropertyLocalesWorker.c)
+ *     PiDqPnPGetObjectPropertyLocales @ 0x14082C2CC (PiDqPnPGetObjectPropertyLocales.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x1408FB880 (_PnpGetObjectPropertyLocalesWorker.c)
  * Callees:
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
- *     _PnpCtxRegEnumValue @ 0x1406F55E4 (_PnpCtxRegEnumValue.c)
+ *     RtlStringCchCopyExW @ 0x14013DE50 (RtlStringCchCopyExW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _PnpOpenPropertiesKey @ 0x14059BA2C (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F6884 (_PnpCtxRegEnumValue.c)
  */
 
 __int64 __fastcall PnpGetGenericStorePropertyLocales(

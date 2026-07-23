@@ -18,48 +18,48 @@
  *     _guard_dispatch_icall_nop @ 0x1800A0B90 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpSetTimerEx(__int64 a1, __int64 a2, int a3, int a4)
+NTSTATUS __cdecl TpSetTimerEx(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
   __int64 v8; // r15
   bool v9; // di
   __int64 v10; // r8
-  unsigned int v11; // esi
+  NTSTATUS v11; // esi
 
-  if ( (unsigned int)TppTimerpValidateTimer(a1, 0LL, a2 != 0) )
+  if ( (unsigned int)TppTimerpValidateTimer(Timer, 0LL, DueTime != 0LL) )
   {
-    v8 = *(_QWORD *)(a1 + 144);
-    v9 = a2 != 0;
-    RtlAcquireSRWLockExclusive(a1 + 240);
-    LOBYTE(v10) = a2 != 0;
-    v11 = (unsigned __int8)TppCancelTimer(a1, v8 + 112, v10);
-    if ( a2 && *(_BYTE *)(a1 + 355) )
+    v8 = *((_QWORD *)Timer + 18);
+    v9 = DueTime != 0LL;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+    LOBYTE(v10) = DueTime != 0LL;
+    v11 = (unsigned __int8)TppCancelTimer(Timer, v8 + 112, v10);
+    if ( DueTime && *((_BYTE *)Timer + 355) )
     {
-      RtlReleaseSRWLockExclusive(a1 + 240);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
       v9 = 0;
     }
     if ( !(_BYTE)v11 )
     {
       if ( !v9 )
         return v11;
-      if ( (unsigned int)TpIsTimerSet(a1) )
+      if ( TpIsTimerSet(Timer) )
       {
 LABEL_9:
-        RtlReleaseSRWLockExclusive(a1 + 240);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
         return v11;
       }
-      _InterlockedIncrement((volatile signed __int32 *)a1);
+      _InterlockedIncrement((volatile signed __int32 *)Timer);
     }
     if ( !v9 )
     {
       if ( (_BYTE)v11 )
       {
-        if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
-          (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, 0xFFFFFFFF) == 1 )
+          (**((void (__fastcall ***)(PTP_TIMER))Timer + 1))(Timer);
       }
       return v11;
     }
-    TppSetTimer(a1, v8 + 112, a2, a3, a4);
+    TppSetTimer(Timer, v8 + 112, DueTime, Period, WindowLength);
     goto LABEL_9;
   }
-  return 0LL;
+  return 0;
 }

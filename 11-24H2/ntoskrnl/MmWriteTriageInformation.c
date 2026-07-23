@@ -1,10 +1,10 @@
 /*
- * XREFs of MmWriteTriageInformation @ 0x14067804C
+ * XREFs of MmWriteTriageInformation @ 0x14067922C
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x1405912CC (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x14058E2EC (IoFillTriageDumpBuffer.c)
  * Callees:
- *     RtlGetNtProductType @ 0x14042F1D0 (RtlGetNtProductType.c)
- *     ExVerifySuite @ 0x1404F7070 (ExVerifySuite.c)
+ *     RtlGetNtProductType @ 0x1404213A0 (RtlGetNtProductType.c)
+ *     ExVerifySuite @ 0x1404F4950 (ExVerifySuite.c)
  */
 
 __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)
@@ -17,24 +17,29 @@ __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)
   __int128 v7; // [rsp+40h] [rbp-30h]
   __int128 v8; // [rsp+50h] [rbp-20h]
   __int128 v9; // [rsp+60h] [rbp-10h]
-  int v10; // [rsp+80h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+80h] [rbp+10h] BYREF
 
-  v10 = 0;
+  NtProductType = 0;
   v2 = VerifierTriageActionTaken;
   *(_QWORD *)&v5 = 0x5000000001LL;
   DWORD2(v5) = MmSpecialPoolTag;
-  RtlGetNtProductType(&v10);
-  if ( v10 != 1 || ExVerifySuite(EmbeddedNT) || ExVerifySuite(EmbeddedRestricted) || ExVerifySuite(SecurityAppliance) )
+  RtlGetNtProductType(&NtProductType);
+  if ( NtProductType != NtProductWinNt
+    || ExVerifySuite(EmbeddedNT)
+    || ExVerifySuite(EmbeddedRestricted)
+    || ExVerifySuite(SecurityAppliance) )
+  {
     v2 |= 0x80000000;
+  }
   LODWORD(v6) = MmVerifierData;
   v3 = (unsigned __int8)MiFlags;
-  *((_QWORD *)&v6 + 1) = qword_140E37558;
-  *(_QWORD *)&v7 = qword_140E2CA48;
-  *((_QWORD *)&v7 + 1) = qword_140E37560;
-  *(_QWORD *)&v8 = qword_140E37550;
-  *((_QWORD *)&v8 + 1) = qword_140E3D740;
-  *(_QWORD *)&v9 = qword_140E3CDC0;
-  result = qword_140E3CDC8;
+  *((_QWORD *)&v6 + 1) = qword_140E37698;
+  *(_QWORD *)&v7 = qword_140E2CB88;
+  *((_QWORD *)&v7 + 1) = qword_140E376A0;
+  *(_QWORD *)&v8 = qword_140E37690;
+  *((_QWORD *)&v8 + 1) = qword_140E3D880;
+  *(_QWORD *)&v9 = qword_140E3CF00;
+  result = qword_140E3CF08;
   HIDWORD(v5) = v2;
   *a1 = v5;
   DWORD1(v6) = (v3 >> 1) & 1;

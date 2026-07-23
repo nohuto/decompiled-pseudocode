@@ -1,9 +1,9 @@
 /*
- * XREFs of wil_details_ShouldRegisterFeatureStagingChangeNotification @ 0x1408551F8
+ * XREFs of wil_details_ShouldRegisterFeatureStagingChangeNotification @ 0x14085B590
  * Callers:
- *     CmInitSystem0 @ 0x140CEBD08 (CmInitSystem0.c)
+ *     CmFcInitSystem1 @ 0x140CF3E50 (CmFcInitSystem1.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404FE2F8 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1404F78A8 (wil_details_FeatureDescriptors_SkipPadding.c)
  */
 
 __int64 *wil_details_ShouldRegisterFeatureStagingChangeNotification()

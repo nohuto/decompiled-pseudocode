@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeVadEvents @ 0x1402AFE38
+ * XREFs of MiFreeVadEvents @ 0x1402B0028
  * Callers:
- *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
+ *     MiAllocateChildVads @ 0x14085EC58 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x14085F728 (MiDeletePartialCloneVads.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeVadEvents(__int64 a1)

@@ -2,14 +2,14 @@
  * XREFs of FsRtlNotifyCompleteIrp @ 0x14068AA8C
  * Callers:
  *     FsRtlNotifyCompleteIrpList @ 0x14068A9F0 (FsRtlNotifyCompleteIrpList.c)
- *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C4B00 (FsRtlNotifyFilterChangeDirectoryLite.c)
- *     FsRtlNotifyFilterChangeDirectory @ 0x140851C60 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C4DD0 (FsRtlNotifyFilterChangeDirectoryLite.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x140851F60 (FsRtlNotifyFilterChangeDirectory.c)
  * Callees:
  *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     FsRtlNotifySetCancelRoutine @ 0x140302CF8 (FsRtlNotifySetCancelRoutine.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x140302F88 (FsRtlNotifySetCancelRoutine.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

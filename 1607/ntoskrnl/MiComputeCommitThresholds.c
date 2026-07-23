@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeCommitThresholds @ 0x140142AD4
+ * XREFs of MiComputeCommitThresholds @ 0x140143044
  * Callers:
- *     MiIncreaseCommitLimits @ 0x1401429F8 (MiIncreaseCommitLimits.c)
- *     MiReduceCommitLimits @ 0x1401ED148 (MiReduceCommitLimits.c)
- *     MiInsertPartitionPages @ 0x1401F1B74 (MiInsertPartitionPages.c)
+ *     MiIncreaseCommitLimits @ 0x140142F68 (MiIncreaseCommitLimits.c)
+ *     MiReduceCommitLimits @ 0x1401ECF74 (MiReduceCommitLimits.c)
+ *     MiInsertPartitionPages @ 0x1401F19A0 (MiInsertPartitionPages.c)
  * Callees:
  *     <none>
  */

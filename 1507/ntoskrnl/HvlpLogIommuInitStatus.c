@@ -23,12 +23,12 @@ __int64 HvlpLogIommuInitStatus()
   char *v7; // rdi
   PHYSICAL_ADDRESS PhysicalAddress; // r14
   PSLIST_ENTRY v9; // rax
-  struct _SLIST_ENTRY *v10; // r15
+  _SLIST_ENTRY *v10; // r15
   __int64 HypercallCachedPages; // rax
-  union _SLIST_HEADER *p_HypercallPageList; // rcx
+  _SLIST_HEADER *p_HypercallPageList; // rcx
   struct _KPRCB *v13; // rcx
   __int64 v14; // rax
-  union _SLIST_HEADER *v15; // rcx
+  _SLIST_HEADER *v15; // rcx
   struct _KPRCB *v16; // rcx
   char v18; // [rsp+20h] [rbp-1A8h]
   char v19; // [rsp+24h] [rbp-1A4h]
@@ -37,9 +37,9 @@ __int64 HvlpLogIommuInitStatus()
   int v22; // [rsp+38h] [rbp-190h] BYREF
   int v23; // [rsp+3Ch] [rbp-18Ch] BYREF
   struct _KPRCB *v24; // [rsp+48h] [rbp-180h]
-  struct _SLIST_ENTRY *v25; // [rsp+50h] [rbp-178h]
+  _SLIST_ENTRY *v25; // [rsp+50h] [rbp-178h]
   struct _KPRCB *v26; // [rsp+68h] [rbp-160h]
-  struct _SLIST_ENTRY *v27; // [rsp+70h] [rbp-158h]
+  _SLIST_ENTRY *v27; // [rsp+70h] [rbp-158h]
   _OWORD v28[3]; // [rsp+80h] [rbp-148h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+B0h] [rbp-118h] BYREF
   int *v30; // [rsp+C0h] [rbp-108h]

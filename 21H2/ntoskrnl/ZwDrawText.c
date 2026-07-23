@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwDrawText @ 0x1403FBF40
+ * XREFs of ZwDrawText @ 0x1403FC120
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDrawText(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwDrawText(PUNICODE_STRING Text)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Text);
 }

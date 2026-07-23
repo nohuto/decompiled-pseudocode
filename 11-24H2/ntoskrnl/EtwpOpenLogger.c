@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpOpenLogger @ 0x140347F50
+ * XREFs of EtwpOpenLogger @ 0x140326950
  * Callers:
- *     NtTraceEvent @ 0x140325D10 (NtTraceEvent.c)
- *     EtwSendTraceBuffer @ 0x14064F090 (EtwSendTraceBuffer.c)
- *     EtwTraceRaw @ 0x14064F1FC (EtwTraceRaw.c)
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     NtTraceEvent @ 0x1402CE8A0 (NtTraceEvent.c)
+ *     EtwSendTraceBuffer @ 0x14064D790 (EtwSendTraceBuffer.c)
+ *     EtwTraceRaw @ 0x14064D8FC (EtwTraceRaw.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
  */
 
 __int64 __fastcall EtwpOpenLogger(unsigned int a1, __int64 a2, char a3, _BYTE *a4)

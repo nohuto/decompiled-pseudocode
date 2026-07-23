@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInitializeMutant @ 0x140395540
+ * XREFs of KeInitializeMutant @ 0x140395690
  * Callers:
  *     <none>
  * Callees:
- *     KiInitializeMutant @ 0x1402ED1DC (KiInitializeMutant.c)
+ *     KiInitializeMutant @ 0x14029E52C (KiInitializeMutant.c)
  */
 
 void __stdcall KeInitializeMutant(PRKMUTANT Mutant, BOOLEAN InitialOwner)
 {
-  KiInitializeMutant((ULONG_PTR)Mutant, InitialOwner, 0LL, 0LL);
+  KiInitializeMutant((ULONG_PTR)Mutant, InitialOwner, 0, 0);
 }

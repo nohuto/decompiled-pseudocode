@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockSiloKeyLockTrackerExclusive @ 0x140847774
+ * XREFs of CmpLockSiloKeyLockTrackerExclusive @ 0x140847A74
  * Callers:
- *     CmpStartSiloKeyLockTracker @ 0x14080C6A8 (CmpStartSiloKeyLockTracker.c)
- *     CmLockKeyForWrite @ 0x1408472CC (CmLockKeyForWrite.c)
- *     CmpStopSiloKeyLockTracker @ 0x140A1BE98 (CmpStopSiloKeyLockTracker.c)
+ *     CmpStartSiloKeyLockTracker @ 0x14080C978 (CmpStartSiloKeyLockTracker.c)
+ *     CmLockKeyForWrite @ 0x1408475CC (CmLockKeyForWrite.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140A1C148 (CmpStopSiloKeyLockTracker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall CmpLockSiloKeyLockTrackerExclusive(unsigned __int64 *a1)

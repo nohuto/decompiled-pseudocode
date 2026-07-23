@@ -1,9 +1,9 @@
 /*
- * XREFs of ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14022D93C
+ * XREFs of ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14022D768
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSharedWaitForExclusive @ 0x1401326C8 (ExAcquireSharedWaitForExclusive.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x140132C38 (ExAcquireSharedWaitForExclusive.c)
  */
 
 PVOID __stdcall ExEnterCriticalRegionAndAcquireSharedWaitForExclusive(PERESOURCE Resource)

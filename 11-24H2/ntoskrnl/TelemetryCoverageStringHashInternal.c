@@ -1,14 +1,14 @@
 /*
- * XREFs of TelemetryCoverageStringHashInternal @ 0x1404CA964
+ * XREFs of TelemetryCoverageStringHashInternal @ 0x1404C3E84
  * Callers:
- *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x14064F630 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
- *     EtwpCoverageReset @ 0x1407AAE1C (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1407AB024 (EtwpCoverageResetCP.c)
- *     EtwpCoverageEnsureContext @ 0x140903F90 (EtwpCoverageEnsureContext.c)
- *     DbgkForwardException @ 0x140938C20 (DbgkForwardException.c)
- *     PsSetProcessFaultInformation @ 0x14093B330 (PsSetProcessFaultInformation.c)
- *     EtwpCoverageProvEnableCallback @ 0x140A85960 (EtwpCoverageProvEnableCallback.c)
- *     PopTransitionTelemetryOsState @ 0x140A86334 (PopTransitionTelemetryOsState.c)
+ *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x14064DD30 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
+ *     EtwpCoverageReset @ 0x1407AB2EC (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1407AB4F4 (EtwpCoverageResetCP.c)
+ *     DbgkForwardException @ 0x1408F32F0 (DbgkForwardException.c)
+ *     PsSetProcessFaultInformation @ 0x140A55880 (PsSetProcessFaultInformation.c)
+ *     EtwpCoverageProvEnableCallback @ 0x140A804A0 (EtwpCoverageProvEnableCallback.c)
+ *     PopTransitionTelemetryOsState @ 0x140A80E74 (PopTransitionTelemetryOsState.c)
+ *     EtwpCoverageEnsureContext @ 0x140ADAD8C (EtwpCoverageEnsureContext.c)
  * Callees:
  *     <none>
  */

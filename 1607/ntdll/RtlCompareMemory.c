@@ -2,19 +2,19 @@
  * XREFs of RtlCompareMemory @ 0x1800AA6B0
  * Callers:
  *     EtwpAddProviderToSession @ 0x180002188 (EtwpAddProviderToSession.c)
- *     RtlIsCapabilitySid @ 0x18000DD20 (RtlIsCapabilitySid.c)
- *     RtlGetAppContainerSidType @ 0x18000DD70 (RtlGetAppContainerSidType.c)
- *     RtlpFindGuidInSection @ 0x18001A0C4 (RtlpFindGuidInSection.c)
- *     RtlpHpSizeHeap @ 0x180046370 (RtlpHpSizeHeap.c)
- *     RtlpValidateHeapHeaders @ 0x18005D300 (RtlpValidateHeapHeaders.c)
- *     RtlpCheckBusyBlockTail @ 0x18005D4CC (RtlpCheckBusyBlockTail.c)
- *     EtwpAddWinRtProviderToSession @ 0x180079954 (EtwpAddWinRtProviderToSession.c)
- *     RtlIsPackageSid @ 0x180086800 (RtlIsPackageSid.c)
- *     RtlpHeapTrkTrackStack @ 0x18008EDAC (RtlpHeapTrkTrackStack.c)
- *     CompareNamesCaseSensitive @ 0x1800DF0E8 (CompareNamesCaseSensitive.c)
+ *     RtlIsCapabilitySid @ 0x18000DD10 (RtlIsCapabilitySid.c)
+ *     RtlGetAppContainerSidType @ 0x18000DD60 (RtlGetAppContainerSidType.c)
+ *     RtlpFindGuidInSection @ 0x18001A0B4 (RtlpFindGuidInSection.c)
+ *     RtlpHpSizeHeap @ 0x180046360 (RtlpHpSizeHeap.c)
+ *     RtlpValidateHeapHeaders @ 0x18005D2F0 (RtlpValidateHeapHeaders.c)
+ *     RtlpCheckBusyBlockTail @ 0x18005D4BC (RtlpCheckBusyBlockTail.c)
+ *     EtwpAddWinRtProviderToSession @ 0x180079944 (EtwpAddWinRtProviderToSession.c)
+ *     RtlIsPackageSid @ 0x1800867F0 (RtlIsPackageSid.c)
+ *     RtlpHeapTrkTrackStack @ 0x18008ED9C (RtlpHeapTrkTrackStack.c)
+ *     CompareNamesCaseSensitive @ 0x1800DF1A8 (CompareNamesCaseSensitive.c)
  *     RtlpStdLogCapturedStackTrace @ 0x1800F2E18 (RtlpStdLogCapturedStackTrace.c)
  *     RtlpRegisterStackTrace @ 0x1800F9B54 (RtlpRegisterStackTrace.c)
- *     _ResFindFirstFileExW @ 0x180104314 (_ResFindFirstFileExW.c)
+ *     _ResFindFirstFileExW @ 0x180104254 (_ResFindFirstFileExW.c)
  * Callees:
  *     <none>
  */

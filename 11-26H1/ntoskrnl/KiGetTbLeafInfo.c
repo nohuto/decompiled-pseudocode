@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetTbLeafInfo @ 0x140CCB1EC
+ * XREFs of KiGetTbLeafInfo @ 0x140CD12CC
  * Callers:
- *     KeGetTbSize @ 0x140CCB080 (KeGetTbSize.c)
+ *     KeGetTbSize @ 0x140CD1160 (KeGetTbSize.c)
  * Callees:
  *     <none>
  */

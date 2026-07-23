@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepArmIdleTimer @ 0x14021A6DC
+ * XREFs of PopPepArmIdleTimer @ 0x14021C06C
  * Callers:
- *     PopPepIdleTimeoutDpcRoutine @ 0x140202E70 (PopPepIdleTimeoutDpcRoutine.c)
- *     PopPepGetComponentPreferedIdleState @ 0x1403B1B10 (PopPepGetComponentPreferedIdleState.c)
- *     PopPepIdleTimeoutRoutine @ 0x140483A70 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepIdleTimeoutDpcRoutine @ 0x140202F50 (PopPepIdleTimeoutDpcRoutine.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1403BB820 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepIdleTimeoutRoutine @ 0x14047D3E0 (PopPepIdleTimeoutRoutine.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall PopPepArmIdleTimer(char a1)
@@ -16,19 +16,19 @@ void __fastcall PopPepArmIdleTimer(char a1)
 
   if ( PopPepIdleStateTimeout )
   {
-    v2 = ExAcquireSpinLockExclusive(&unk_140F0AFD8);
+    v2 = ExAcquireSpinLockExclusive(&PopDirectedDripsDiagLock.AbCompletedIoQoSBoostCount);
     if ( a1 )
-      byte_140F0AFDC = 0;
-    if ( !byte_140F0AFDC && dword_140F0AFE0 > 0 )
+      PopDirectedDripsDiagLock.SchedulerApcFill3[49] = 0;
+    if ( !PopDirectedDripsDiagLock.SchedulerApcFill3[49] && *(int *)&PopDirectedDripsDiagLock.SchedulerApcFill5[52] > 0 )
     {
-      byte_140F0AFDC = 1;
+      PopDirectedDripsDiagLock.SchedulerApcFill3[49] = 1;
       KeSetCoalescableTimer(
-        &qword_140F0B000,
+        (PKTIMER)&PopDirectedDripsDiagLock.SchedulerApcFill5[80],
         (LARGE_INTEGER)(-10000LL * PopPepIdleStateTimeout),
         0,
         PopPepIdleStateTimeout,
-        &dword_140F0B040);
+        (PKDPC)&PopDirectedDripsDiagLock.792);
     }
-    ExReleaseSpinLockExclusive(&unk_140F0AFD8, v2);
+    ExReleaseSpinLockExclusive(&PopDirectedDripsDiagLock.AbCompletedIoQoSBoostCount, v2);
   }
 }

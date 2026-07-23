@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleRecheckSecondaryProcessors @ 0x1406025BC
+ * XREFs of PpmIdleRecheckSecondaryProcessors @ 0x14060506C
  * Callers:
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
  */
 
 char __fastcall PpmIdleRecheckSecondaryProcessors(__int64 a1)

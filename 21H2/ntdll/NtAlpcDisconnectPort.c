@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAlpcDisconnectPort @ 0x18009E6B0
+ * XREFs of NtAlpcDisconnectPort @ 0x18009E670
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtAlpcDisconnectPort()
+NTSTATUS __cdecl NtAlpcDisconnectPort(HANDLE PortHandle, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 132LL;
+  result = 132;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

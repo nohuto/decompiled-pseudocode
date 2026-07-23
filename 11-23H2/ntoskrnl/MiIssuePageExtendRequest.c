@@ -1,18 +1,18 @@
 /*
- * XREFs of MiIssuePageExtendRequest @ 0x14063AD1C
+ * XREFs of MiIssuePageExtendRequest @ 0x14063B26C
  * Callers:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MmResourcesAvailable @ 0x1402AEED0 (MmResourcesAvailable.c)
- *     MiPageFileNoFreeSpace @ 0x14063B114 (MiPageFileNoFreeSpace.c)
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x140A43194 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MmResourcesAvailable @ 0x1402AF160 (MmResourcesAvailable.c)
+ *     MiPageFileNoFreeSpace @ 0x14063B664 (MiPageFileNoFreeSpace.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x140A43444 (MiExtendWorkingSetSwapPagefile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiQueuePageFileExtension @ 0x14063B2DC (MiQueuePageFileExtension.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiQueuePageFileExtension @ 0x14063B82C (MiQueuePageFileExtension.c)
  */
 
 __int64 __fastcall MiIssuePageExtendRequest(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4)
@@ -159,10 +159,13 @@ __int64 __fastcall MiIssuePageExtendRequest(__int64 a1, unsigned __int64 a2, cha
         *((_QWORD *)v12 + 5) = 0LL;
       }
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v24 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v24 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

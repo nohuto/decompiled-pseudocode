@@ -64,7 +64,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   __int64 v37; // rcx
   __int64 v38; // rdx
   KSPIN_LOCK *v39; // r8
-  struct _LIST_ENTRY *v40; // rcx
+  _LIST_ENTRY *v40; // rcx
   __int64 v41; // rdx
   unsigned __int64 v42; // rsi
   unsigned __int8 v43; // al
@@ -268,7 +268,7 @@ LABEL_24:
               if ( !v23 || (LOBYTE(v62[10]) = 1, !v51) )
                 LOBYTE(v62[10]) = 0;
               v39 = (KSPIN_LOCK *)(Partition + 832);
-              v40 = (struct _LIST_ENTRY *)(Partition + 784);
+              v40 = (_LIST_ENTRY *)(Partition + 784);
               if ( v52 )
                 ExInterlockedInsertHeadList(v40, (PLIST_ENTRY)&v62[3], v39);
               else

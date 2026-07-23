@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpConstructScatterGatherListDmarThin @ 0x140490FD4
+ * XREFs of HalpConstructScatterGatherListDmarThin @ 0x14048AB24
  * Callers:
- *     HalGetScatterGatherListDmarThin @ 0x140490C00 (HalGetScatterGatherListDmarThin.c)
- *     HalpBuildScatterGatherListDmarThin @ 0x140490DC8 (HalpBuildScatterGatherListDmarThin.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x140490FD4 (HalpConstructScatterGatherListDmarThin.c)
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14057905C (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalGetScatterGatherListDmarThin @ 0x14048A750 (HalGetScatterGatherListDmarThin.c)
+ *     HalpBuildScatterGatherListDmarThin @ 0x14048A918 (HalpBuildScatterGatherListDmarThin.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x14048AB24 (HalpConstructScatterGatherListDmarThin.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14057B58C (HalpDmaReturnEmergencyLogicalAddressResources.c)
  * Callees:
- *     HalpConstructScatterGatherListDmarThin @ 0x140490FD4 (HalpConstructScatterGatherListDmarThin.c)
- *     HalpPutScatterGatherListDmarThin @ 0x1404A2254 (HalpPutScatterGatherListDmarThin.c)
- *     HalpDmaUseEmergencyLogicalAddressResources @ 0x1405282D4 (HalpDmaUseEmergencyLogicalAddressResources.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x14048AB24 (HalpConstructScatterGatherListDmarThin.c)
+ *     HalpPutScatterGatherListDmarThin @ 0x14049BD84 (HalpPutScatterGatherListDmarThin.c)
+ *     HalpDmaUseEmergencyLogicalAddressResources @ 0x14052A944 (HalpDmaUseEmergencyLogicalAddressResources.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpConstructScatterGatherListDmarThin(__int64 a1)

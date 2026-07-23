@@ -1,20 +1,20 @@
 /*
- * XREFs of IoWMIRegistrationControl @ 0x14086BEB0
+ * XREFs of IoWMIRegistrationControl @ 0x14086C0F0
  * Callers:
- *     DifIoWMIRegistrationControlWrapper @ 0x1405E1B60 (DifIoWMIRegistrationControlWrapper.c)
- *     PpmEnableWmiInterface @ 0x140850BE0 (PpmEnableWmiInterface.c)
- *     ViDdiDriverEntry @ 0x140AC3E70 (ViDdiDriverEntry.c)
+ *     DifIoWMIRegistrationControlWrapper @ 0x1405E20D0 (DifIoWMIRegistrationControlWrapper.c)
+ *     PpmEnableWmiInterface @ 0x140850EE0 (PpmEnableWmiInterface.c)
+ *     ViDdiDriverEntry @ 0x140AC3E60 (ViDdiDriverEntry.c)
  *     WmipDriverEntry @ 0x140B38E50 (WmipDriverEntry.c)
  *     WheaInitialize @ 0x140B490E8 (WheaInitialize.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x14022AAB4 (WmipUnreferenceRegEntry.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     WmipFindRegEntryByDevice @ 0x1403C25C4 (WmipFindRegEntryByDevice.c)
- *     WmipUpdateRegistration @ 0x140863244 (WmipUpdateRegistration.c)
- *     WmipSetTraceNotify @ 0x14086BD80 (WmipSetTraceNotify.c)
- *     WmipRegisterDevice @ 0x14086BF88 (WmipRegisterDevice.c)
- *     WmipDeregisterDevice @ 0x140882568 (WmipDeregisterDevice.c)
+ *     WmipUnreferenceRegEntry @ 0x14022ABC4 (WmipUnreferenceRegEntry.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     WmipFindRegEntryByDevice @ 0x1403C27A4 (WmipFindRegEntryByDevice.c)
+ *     WmipUpdateRegistration @ 0x140863484 (WmipUpdateRegistration.c)
+ *     WmipSetTraceNotify @ 0x14086BFC0 (WmipSetTraceNotify.c)
+ *     WmipRegisterDevice @ 0x14086C1C8 (WmipRegisterDevice.c)
+ *     WmipDeregisterDevice @ 0x1408827A8 (WmipDeregisterDevice.c)
  */
 
 NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action)

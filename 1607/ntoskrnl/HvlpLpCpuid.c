@@ -4,8 +4,8 @@
  *     HvlpDiscoverTopologyAmd @ 0x1407CDD80 (HvlpDiscoverTopologyAmd.c)
  *     HvlpDiscoverTopologyIntel @ 0x1407CE00C (HvlpDiscoverTopologyIntel.c)
  * Callees:
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 char __fastcall HvlpLpCpuid(int a1, unsigned int a2, int a3, _DWORD *a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ViFilterDispatchPnp @ 0x1409E5300
+ * XREFs of ViFilterDispatchPnp @ 0x1409E6300
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     IoAcquireRemoveLockEx @ 0x1402607C0 (IoAcquireRemoveLockEx.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IoDetachDevice @ 0x140360D00 (IoDetachDevice.c)
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x14039AE40 (IoReleaseRemoveLockAndWaitEx.c)
+ *     IoAcquireRemoveLockEx @ 0x140281C90 (IoAcquireRemoveLockEx.c)
+ *     IoDetachDevice @ 0x1402A5D60 (IoDetachDevice.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x14039AF90 (IoReleaseRemoveLockAndWaitEx.c)
  */
 
 NTSTATUS __fastcall ViFilterDispatchPnp(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -32,7 +32,7 @@ NTSTATUS __fastcall ViFilterDispatchPnp(PDEVICE_OBJECT DeviceObject, PIRP Irp)
   v16 = DeviceExtension;
   while ( (DeviceExtension[25] & 1) == 0 )
     _mm_pause();
-  v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)v16 + 1, Irp, &byte_1409C4470, 1u, 0x20u);
+  v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)v16 + 1, Irp, &byte_1409C5470, 1u, 0x20u);
   v6 = v5;
   if ( v5 < 0 )
   {

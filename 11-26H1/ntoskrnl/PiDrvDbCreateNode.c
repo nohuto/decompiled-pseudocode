@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbCreateNode @ 0x1407B502C
+ * XREFs of PiDrvDbCreateNode @ 0x1407B808C
  * Callers:
- *     PiDrvDbRegisterNode @ 0x1407B6B90 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x1407B9BF0 (PiDrvDbRegisterNode.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimerEx @ 0x1404A5F90 (KeInitializeTimerEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateEvent @ 0x140723CF0 (ZwCreateEvent.c)
- *     PiDrvDbDestroyNode @ 0x1407B5328 (PiDrvDbDestroyNode.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     RtlCreateUnicodeString @ 0x140A70410 (RtlCreateUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimerEx @ 0x14049F620 (KeInitializeTimerEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1407288C0 (ZwCreateEvent.c)
+ *     PiDrvDbDestroyNode @ 0x1407B8388 (PiDrvDbDestroyNode.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     RtlCreateUnicodeString @ 0x140A478B0 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, const WCHAR *a3, const WCHAR *a4, _QWORD *a5)
@@ -129,13 +129,13 @@ LABEL_5:
   *((_DWORD *)v11 + 124) = 259;
   if ( (v18 & 0x40) == 0 )
   {
-    v19 = (_QWORD *)qword_140F825D8;
-    if ( *(__int64 **)qword_140F825D8 != &PiDrvDbNodeList )
+    v19 = (_QWORD *)qword_140F82908;
+    if ( *(__int64 **)qword_140F82908 != &PiDrvDbNodeList )
       __fastfail(3u);
     *v11 = &PiDrvDbNodeList;
     v11[1] = v19;
     *v19 = v11;
-    qword_140F825D8 = (__int64)v11;
+    qword_140F82908 = (__int64)v11;
   }
   *a5 = v11;
   return (unsigned int)appended;

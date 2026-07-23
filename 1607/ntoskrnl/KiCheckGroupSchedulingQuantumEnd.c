@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCheckGroupSchedulingQuantumEnd @ 0x1400DD240
+ * XREFs of KiCheckGroupSchedulingQuantumEnd @ 0x1400DB0E0
  * Callers:
- *     KeClockInterruptNotify @ 0x1400D9870 (KeClockInterruptNotify.c)
+ *     KeClockInterruptNotify @ 0x1400D7710 (KeClockInterruptNotify.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of MmGetFileNameForAddress @ 0x140656B10
+ * XREFs of MmGetFileNameForAddress @ 0x140656BF4
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x1404D0D5C (EtwpProviderArrivalCallback.c)
- *     DbgkpPostModuleMessages @ 0x140618B20 (DbgkpPostModuleMessages.c)
+ *     EtwpProviderArrivalCallback @ 0x1404B47FC (EtwpProviderArrivalCallback.c)
+ *     DbgkpPostModuleMessages @ 0x140618BD4 (DbgkpPostModuleMessages.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObQueryNameStringMode @ 0x140434B90 (ObQueryNameStringMode.c)
+ *     ObQueryNameStringMode @ 0x140433A60 (ObQueryNameStringMode.c)
  */
 
 __int64 __fastcall MmGetFileNameForAddress(__int64 a1, __int64 a2)

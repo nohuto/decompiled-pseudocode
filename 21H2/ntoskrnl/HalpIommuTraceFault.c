@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuTraceFault @ 0x1404C9D3C
+ * XREFs of HalpIommuTraceFault @ 0x1404C9F7C
  * Callers:
- *     HalpIommuReportIommuFault @ 0x1404C9CF0 (HalpIommuReportIommuFault.c)
+ *     HalpIommuReportIommuFault @ 0x1404C9F30 (HalpIommuReportIommuFault.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char HalpIommuTraceFault(__int64 a1, void *a2, int a3, ...)

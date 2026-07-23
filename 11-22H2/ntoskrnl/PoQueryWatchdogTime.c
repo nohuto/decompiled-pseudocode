@@ -67,7 +67,7 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
   *((_QWORD *)&v38 + 1) = &PopIrpLock;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -100,10 +100,10 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
         v2 = v17;
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v15 + 288));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v20 = CurrentPrcb->SchedulerAssist;
@@ -128,10 +128,10 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
         v2 = v25;
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v23 + 288));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v26 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v24 <= 0xFu && v26 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v24 <= 0xFu && v26 >= 2u )
       {
         v27 = KeGetCurrentPrcb();
         v28 = v27->SchedulerAssist;
@@ -167,10 +167,10 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
   }
 LABEL_12:
   v10 = (unsigned __int8)v39;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v30 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v39 <= 0xFu && v30 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v39 <= 0xFu && v30 >= 2u )
     {
       v31 = KeGetCurrentPrcb();
       v32 = v31->SchedulerAssist;

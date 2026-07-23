@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEnforcePartitionAffinity @ 0x140507B78
+ * XREFs of MiEnforcePartitionAffinity @ 0x140501548
  * Callers:
- *     MiInitializeAffinityWalker @ 0x1407116EC (MiInitializeAffinityWalker.c)
+ *     MiInitializeAffinityWalker @ 0x1407163EC (MiInitializeAffinityWalker.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     PsQueryProcessAvailableCpus @ 0x140532BB0 (PsQueryProcessAvailableCpus.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     PsQueryProcessAvailableCpus @ 0x140535050 (PsQueryProcessAvailableCpus.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiEnforcePartitionAffinity(__int64 a1, unsigned int *a2)
@@ -19,9 +19,9 @@ __int64 __fastcall MiEnforcePartitionAffinity(__int64 a1, unsigned int *a2)
   volatile LONG *v7; // rcx
   KIRQL v8; // r14
   __int64 v9; // r8
-  int i; // r9d
-  __int64 v11; // rdx
-  unsigned int v12; // r8d
+  int i; // edx
+  __int64 v11; // r8
+  unsigned int v12; // r9d
   unsigned int j; // r10d
   unsigned __int64 v14; // rax
   unsigned int v15; // eax
@@ -47,32 +47,33 @@ __int64 __fastcall MiEnforcePartitionAffinity(__int64 a1, unsigned int *a2)
   PsQueryProcessAvailableCpus(v6, a1 + 17392, 0LL, a1 + 17384);
   for ( i = 0; i < 3; ++i )
   {
-    v11 = *((_QWORD *)a2 + 2);
-    if ( v11 )
+    while ( 1 )
     {
+      v11 = *((_QWORD *)a2 + 2);
+      if ( !v11 )
+        goto LABEL_13;
       if ( i )
-      {
-        v12 = 0;
-        for ( j = 0; j < a2[3]; v12 += __popcnt(v14) )
-        {
-          ++j;
-          *(_QWORD *)v11 &= *(_QWORD *)(a1 + 8LL * *(unsigned __int16 *)(v11 + 8) + 17400);
-          v14 = *(_QWORD *)v11;
-          v11 += 16LL;
-        }
-        v15 = *a2;
-        if ( *a2 > v12 )
-        {
-          *a2 = v12;
-          v15 = v12;
-        }
-        v5 += v15;
-      }
-      else
-      {
-        v5 += *a2;
-      }
+        break;
+      v5 += *a2;
+      i = 1;
+      a2 += 8;
     }
+    v12 = 0;
+    for ( j = 0; j < a2[3]; v12 += __popcnt(v14) )
+    {
+      ++j;
+      *(_QWORD *)v11 &= *(_QWORD *)(a1 + 8LL * *(unsigned __int16 *)(v11 + 8) + 17400);
+      v14 = *(_QWORD *)v11;
+      v11 += 16LL;
+    }
+    v15 = *a2;
+    if ( *a2 > v12 )
+    {
+      *a2 = v12;
+      v15 = v12;
+    }
+    v5 += v15;
+LABEL_13:
     a2 += 8;
   }
   if ( v8 == 17 )

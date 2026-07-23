@@ -1,13 +1,13 @@
 /*
- * XREFs of ExAcquireSharedStarveExclusive @ 0x140348D20
+ * XREFs of ExAcquireSharedStarveExclusive @ 0x140348FB0
  * Callers:
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
- *     DifExAcquireSharedStarveExclusiveWrapper @ 0x1405D72F0 (DifExAcquireSharedStarveExclusiveWrapper.c)
- *     CcPinMappedData @ 0x1406F5E50 (CcPinMappedData.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
+ *     DifExAcquireSharedStarveExclusiveWrapper @ 0x1405D7860 (DifExAcquireSharedStarveExclusiveWrapper.c)
+ *     CcPinMappedData @ 0x1406F6060 (CcPinMappedData.c)
  * Callees:
- *     ExpAcquireSharedStarveExclusive @ 0x1402633E0 (ExpAcquireSharedStarveExclusive.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14060A524 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x140263670 (ExpAcquireSharedStarveExclusive.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14060AA74 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  */
 
 BOOLEAN __stdcall ExAcquireSharedStarveExclusive(PERESOURCE Resource, BOOLEAN Wait)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkRemoveImportEntry @ 0x140C35CAC
+ * XREFs of ViThunkRemoveImportEntry @ 0x140C3BCBC
  * Callers:
- *     VfThunkCheckDriverUnloading @ 0x140C46E0C (VfThunkCheckDriverUnloading.c)
+ *     VfThunkCheckDriverUnloading @ 0x140C4CE1C (VfThunkCheckDriverUnloading.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ViThunkRemoveImportEntry(_QWORD **a1, __int64 a2)

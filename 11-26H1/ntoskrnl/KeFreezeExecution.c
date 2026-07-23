@@ -1,26 +1,26 @@
 /*
- * XREFs of KeFreezeExecution @ 0x140508FA0
+ * XREFs of KeFreezeExecution @ 0x140502A50
  * Callers:
- *     ExpWaitForBootDevices @ 0x1406CD7C0 (ExpWaitForBootDevices.c)
- *     KdEnterDebugger @ 0x140C17858 (KdEnterDebugger.c)
+ *     ExpWaitForBootDevices @ 0x1406D17F0 (ExpWaitForBootDevices.c)
+ *     KdEnterDebugger @ 0x140C1D858 (KdEnterDebugger.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x140330C68 (KxTryToAcquireSpinLock.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     RtlWriteTryAcquireTickLock @ 0x140497E4C (RtlWriteTryAcquireTickLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSetDebuggerOwner @ 0x140530774 (KiSetDebuggerOwner.c)
- *     VslRequestSecureKernelDebuggerBreakIn @ 0x1405C3DEC (VslRequestSecureKernelDebuggerBreakIn.c)
- *     KiSendFreeze @ 0x1405F6118 (KiSendFreeze.c)
- *     KiStartDebugAccumulation @ 0x1405F6204 (KiStartDebugAccumulation.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140332C98 (KxTryToAcquireSpinLock.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     RtlWriteTryAcquireTickLock @ 0x14049199C (RtlWriteTryAcquireTickLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSetDebuggerOwner @ 0x140532C74 (KiSetDebuggerOwner.c)
+ *     VslRequestSecureKernelDebuggerBreakIn @ 0x1405C665C (VslRequestSecureKernelDebuggerBreakIn.c)
+ *     KiSendFreeze @ 0x1405F8AD8 (KiSendFreeze.c)
+ *     KiStartDebugAccumulation @ 0x1405F8BC4 (KiStartDebugAccumulation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 bool KeFreezeExecution()
@@ -93,21 +93,21 @@ LABEL_6:
     LOBYTE(v9) = 1;
     guard_dispatch_icall_no_overrides(v9, 0LL);
     KiClockLatencyMeasurementEnabled = 0;
-    if ( ((unsigned int)KeNumberProcessors_0 > 1 || CurrentPrcb->Number) && !LOBYTE(stru_140F10828.WriteOperationCount) )
+    if ( ((unsigned int)KeNumberProcessors_0 > 1 || CurrentPrcb->Number) && !PoAllProcIntrDisabled )
     {
       KiFreezeOwner = (__int64)CurrentPrcb;
       CurrentPrcb->IpiFrozen = 4;
       KiSetDebuggerOwner(CurrentPrcb);
-      if ( !KiFreezeTimeout || HIDWORD(stru_140E66FF0.SystemAffinityTokenListHead.Next) )
+      if ( !KiFreezeTimeout || LODWORD(stru_140E67200.Padding[3]) )
         v10 = 20000;
       else
         v10 = 20000 * KiFreezeTimeout;
       CurrentPrcb->ClockKeepAlive = 1;
       *(_QWORD *)&v22.Count = 2097153LL;
       memset_0(&v22.8, 0, sizeof(v22.8));
-      RtlpCopyAffinityEx(&v22, v22.Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+      RtlpCopyAffinityEx(&v22, v22.Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
       KeRemoveProcessorAffinityEx(&v22.Count, CurrentPrcb->Number);
-      if ( !KsepShimDbLock.SchedulerApcFill3[52] && ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) == 3 )
+      if ( !KsepShimDbLock.WaitBlockFill6[100] && ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) == 3 )
         v7 = 0;
       LOBYTE(v11) = v7;
       KiSendFreeze(&v22, v11);
@@ -125,7 +125,7 @@ LABEL_35:
             _InterlockedCompareExchange64(&KiFreezeSkippedProcessor, v12, 0LL);
             if ( VslVsmEnabled
               && (_BYTE)KdDebuggerEnabled
-              && ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) == 0 )
+              && ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) == 0 )
             {
               VslRequestSecureKernelDebuggerBreakIn();
             }
@@ -137,13 +137,13 @@ LABEL_35:
       }
     }
     KiOldIrql = CurrentIrql;
-    if ( !LOBYTE(stru_140F10828.WriteOperationCount) )
+    if ( !PoAllProcIntrDisabled )
     {
       v13 = MmWriteableSharedUserData;
       if ( RtlWriteTryAcquireTickLock((signed __int64 *)(MmWriteableSharedUserData + 832)) )
       {
         v14 = KeQueryPerformanceCounter(&PerformanceFrequency);
-        v15 = (unsigned int)KeMaximumIncrement;
+        v15 = KeMaximumIncrement;
         v16 = MEMORY[0xFFFFF78000000008]
             + 10000000 * (v14.QuadPart - MEMORY[0xFFFFF78000000350]) / (unsigned __int64)PerformanceFrequency.LowPart;
         *(_DWORD *)(MmWriteableSharedUserData + 16) = HIDWORD(v16);

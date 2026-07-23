@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnGetAppVersion @ 0x14047F9D4
+ * XREFs of PfSnGetAppVersion @ 0x14047A764
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140960934 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x1409483F4 (PfSnBeginAppLaunch.c)
  * Callees:
- *     LdrResSearchResource @ 0x140908A90 (LdrResSearchResource.c)
+ *     LdrResSearchResource @ 0x1408E01B0 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall PfSnGetAppVersion(__int64 a1, __int64 a2)

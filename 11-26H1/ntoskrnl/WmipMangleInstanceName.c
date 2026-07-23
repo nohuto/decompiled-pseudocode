@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipMangleInstanceName @ 0x140A0C2B0
+ * XREFs of WmipMangleInstanceName @ 0x140A0B280
  * Callers:
- *     WmipBuildInstanceSet @ 0x140A0BFA8 (WmipBuildInstanceSet.c)
+ *     WmipBuildInstanceSet @ 0x140A0AF78 (WmipBuildInstanceSet.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     WmipFindISinGEbyName @ 0x140A0B3A0 (WmipFindISinGEbyName.c)
- *     WmipFindGEByGuid @ 0x140A0E624 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     WmipFindISinGEbyName @ 0x140A0A608 (WmipFindISinGEbyName.c)
+ *     WmipFindGEByGuid @ 0x140A0D800 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
  */
 
 __int64 __fastcall WmipMangleInstanceName(__int64 a1, const wchar_t *a2, size_t a3, wchar_t *a4)

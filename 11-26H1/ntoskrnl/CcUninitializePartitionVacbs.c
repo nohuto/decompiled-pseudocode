@@ -1,13 +1,13 @@
 /*
- * XREFs of CcUninitializePartitionVacbs @ 0x1405B2FF8
+ * XREFs of CcUninitializePartitionVacbs @ 0x1405B5808
  * Callers:
- *     CcDeletePartition @ 0x1405B2214 (CcDeletePartition.c)
+ *     CcDeletePartition @ 0x1405B4A24 (CcDeletePartition.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     CcSetVacbInFreeList @ 0x1402E28F0 (CcSetVacbInFreeList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MmFreeSystemCacheReserveView @ 0x14086AA70 (MmFreeSystemCacheReserveView.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     CcSetVacbInFreeList @ 0x1402C49B0 (CcSetVacbInFreeList.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MmFreeSystemCacheReserveView @ 0x140870E50 (MmFreeSystemCacheReserveView.c)
  */
 
 _QWORD *__fastcall CcUninitializePartitionVacbs(__int64 a1)
@@ -15,7 +15,7 @@ _QWORD *__fastcall CcUninitializePartitionVacbs(__int64 a1)
   _QWORD **v2; // rsi
   _QWORD *result; // rax
   __int64 v4; // r8
-  struct _SINGLE_LIST_ENTRY *v5; // r14
+  _QWORD *v5; // r14
   _QWORD *v6; // rcx
   KIRQL v7; // bl
   int v8; // eax
@@ -27,13 +27,13 @@ _QWORD *__fastcall CcUninitializePartitionVacbs(__int64 a1)
     if ( *v2 == v2 )
       break;
     v4 = *result;
-    v5 = (struct _SINGLE_LIST_ENTRY *)(result - 2);
+    v5 = result - 2;
     if ( *(_QWORD **)(*result + 8LL) != result || (v6 = (_QWORD *)result[1], (_QWORD *)*v6 != result) )
       __fastfail(3u);
     *v6 = v4;
     *(_QWORD *)(v4 + 8) = v6;
-    MmFreeSystemCacheReserveView(v5->Next);
-    v5->Next = 0LL;
+    MmFreeSystemCacheReserveView(*v5);
+    *v5 = 0LL;
     v7 = KeAcquireQueuedSpinLock(4uLL);
     CcSetVacbInFreeList(a1, v5, 0LL);
     KeReleaseQueuedSpinLock(4uLL, v7);

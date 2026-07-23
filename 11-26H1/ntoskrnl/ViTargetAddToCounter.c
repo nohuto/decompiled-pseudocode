@@ -1,20 +1,20 @@
 /*
- * XREFs of ViTargetAddToCounter @ 0x140C29598
+ * XREFs of ViTargetAddToCounter @ 0x140C2F5A8
  * Callers:
- *     VfMiscMmUnmapLockedPages_Entry @ 0x140C3D1D0 (VfMiscMmUnmapLockedPages_Entry.c)
- *     VerifierMmAllocateNodePagesForMdlEx @ 0x140C3F200 (VerifierMmAllocateNodePagesForMdlEx.c)
- *     VerifierMmAllocatePagesForMdl @ 0x140C3F330 (VerifierMmAllocatePagesForMdl.c)
- *     VerifierMmAllocatePagesForMdlEx @ 0x140C3F410 (VerifierMmAllocatePagesForMdlEx.c)
- *     VerifierMmFreePagesFromMdl @ 0x140C3F6D0 (VerifierMmFreePagesFromMdl.c)
- *     VerifierMmMapIoSpace @ 0x140C3F7A0 (VerifierMmMapIoSpace.c)
- *     VerifierMmMapLockedPages @ 0x140C3F8C0 (VerifierMmMapLockedPages.c)
- *     VerifierMmUnlockPages @ 0x140C3FB40 (VerifierMmUnlockPages.c)
- *     VerifierMmUnmapIoSpace @ 0x140C3FCD0 (VerifierMmUnmapIoSpace.c)
+ *     VfMiscMmUnmapLockedPages_Entry @ 0x140C431E0 (VfMiscMmUnmapLockedPages_Entry.c)
+ *     VerifierMmAllocateNodePagesForMdlEx @ 0x140C45210 (VerifierMmAllocateNodePagesForMdlEx.c)
+ *     VerifierMmAllocatePagesForMdl @ 0x140C45340 (VerifierMmAllocatePagesForMdl.c)
+ *     VerifierMmAllocatePagesForMdlEx @ 0x140C45420 (VerifierMmAllocatePagesForMdlEx.c)
+ *     VerifierMmFreePagesFromMdl @ 0x140C456E0 (VerifierMmFreePagesFromMdl.c)
+ *     VerifierMmMapIoSpace @ 0x140C457B0 (VerifierMmMapIoSpace.c)
+ *     VerifierMmMapLockedPages @ 0x140C458D0 (VerifierMmMapLockedPages.c)
+ *     VerifierMmUnlockPages @ 0x140C45B50 (VerifierMmUnlockPages.c)
+ *     VerifierMmUnmapIoSpace @ 0x140C45CE0 (VerifierMmUnmapIoSpace.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     ViTargetUpdateTreeAllowed @ 0x140C29944 (ViTargetUpdateTreeAllowed.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140C2F954 (ViTargetUpdateTreeAllowed.c)
  */
 
 __int64 __fastcall ViTargetAddToCounter(__int64 a1, __int64 a2, unsigned int a3, unsigned __int64 a4)

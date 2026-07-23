@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetWorkingSetInfo @ 0x14040F210
+ * XREFs of MiGetWorkingSetInfo @ 0x14040E930
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     MiGetWorkingSetInfoEx @ 0x14040F3EC (MiGetWorkingSetInfoEx.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MiQueryUpdateBytesWritten @ 0x1409202CC (MiQueryUpdateBytesWritten.c)
- *     MiQueryDetach @ 0x140920308 (MiQueryDetach.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     MiGetWorkingSetInfoEx @ 0x14040EB0C (MiGetWorkingSetInfoEx.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MiQueryUpdateBytesWritten @ 0x140923A10 (MiQueryUpdateBytesWritten.c)
+ *     MiQueryDetach @ 0x140923A4C (MiQueryDetach.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiGetWorkingSetInfo(__int64 a1, int a2)

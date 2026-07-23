@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCoverageSamplerPageFault @ 0x140652298
+ * XREFs of EtwpCoverageSamplerPageFault @ 0x140650998
  * Callers:
- *     EtwTracePageFault @ 0x140216580 (EtwTracePageFault.c)
+ *     EtwTracePageFault @ 0x140260AD0 (EtwTracePageFault.c)
  * Callees:
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     EtwpCovSampCaptureSample @ 0x140651D44 (EtwpCovSampCaptureSample.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     EtwpCovSampCaptureSample @ 0x140650444 (EtwpCovSampCaptureSample.c)
  */
 
 void __fastcall EtwpCoverageSamplerPageFault(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -30,7 +30,7 @@ void __fastcall EtwpCoverageSamplerPageFault(unsigned __int64 a1, unsigned __int
 
   if ( a3 )
   {
-    v4 = qword_140EFEC88;
+    v4 = qword_140EFEFA8;
     if ( a1 - 1 <= 0xFFFF7FFFFFFFFFFEuLL && a2 < 0xFFFF800000000000uLL )
     {
       CurrentThread = KeGetCurrentThread();

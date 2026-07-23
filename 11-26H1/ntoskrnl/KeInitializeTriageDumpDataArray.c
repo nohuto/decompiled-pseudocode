@@ -1,11 +1,11 @@
 /*
- * XREFs of KeInitializeTriageDumpDataArray @ 0x1404F12A0
+ * XREFs of KeInitializeTriageDumpDataArray @ 0x1404EA880
  * Callers:
- *     PopBSDiagBugcheckCallback @ 0x14060D990 (PopBSDiagBugcheckCallback.c)
- *     PopWatchdogDumpControlRoutine @ 0x1406137A0 (PopWatchdogDumpControlRoutine.c)
- *     IopInitializeTriageDumpData @ 0x140793B40 (IopInitializeTriageDumpData.c)
- *     PspCriticalProcessDeathInfoCollect @ 0x1407FAC80 (PspCriticalProcessDeathInfoCollect.c)
- *     PopWatchdogInit @ 0x140CD5E24 (PopWatchdogInit.c)
+ *     PopBSDiagBugcheckCallback @ 0x140610A90 (PopBSDiagBugcheckCallback.c)
+ *     PopWatchdogDumpControlRoutine @ 0x140616660 (PopWatchdogDumpControlRoutine.c)
+ *     IopInitializeTriageDumpData @ 0x140796670 (IopInitializeTriageDumpData.c)
+ *     PspCriticalProcessDeathInfoCollect @ 0x1408006B0 (PspCriticalProcessDeathInfoCollect.c)
+ *     PopWatchdogInit @ 0x140CDC178 (PopWatchdogInit.c)
  * Callees:
  *     <none>
  */

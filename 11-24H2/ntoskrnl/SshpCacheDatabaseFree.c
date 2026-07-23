@@ -1,13 +1,13 @@
 /*
- * XREFs of SshpCacheDatabaseFree @ 0x140A61420
+ * XREFs of SshpCacheDatabaseFree @ 0x140A59C00
  * Callers:
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvlEx @ 0x1403F0930 (RtlDeleteElementGenericTableAvlEx.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvlEx @ 0x1403E4650 (RtlDeleteElementGenericTableAvlEx.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
  */
 
-void __fastcall SshpCacheDatabaseFree(struct _RTL_AVL_TABLE *Table, PVOID Buffer)
+void __fastcall SshpCacheDatabaseFree(_RTL_AVL_TABLE *a1, PVOID a2)
 {
-  CmpFreeTransientPoolWithTag(Buffer, *((_DWORD *)Table->TableContext + 6));
+  CmpFreeTransientPoolWithTag(a2, *((_DWORD *)a1->TableContext + 6));
 }

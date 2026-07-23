@@ -1,44 +1,44 @@
 /*
- * XREFs of TppPoolpDereferenceGlobalPool @ 0x18006D7D0
+ * XREFs of TppPoolpDereferenceGlobalPool @ 0x18008A0B0
  * Callers:
- *     TppCleanupGroupMemberInitialize @ 0x18001A830 (TppCleanupGroupMemberInitialize.c)
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
- *     RtlQueueWorkItem @ 0x18006D9E0 (RtlQueueWorkItem.c)
- *     TpDereferenceGlobalPool @ 0x18006F5F8 (TpDereferenceGlobalPool.c)
- *     RtlpTpWorkUnposted @ 0x18006F660 (RtlpTpWorkUnposted.c)
- *     TpReleasePool @ 0x1800DEB80 (TpReleasePool.c)
- *     TpSetDefaultPoolMaxThreads @ 0x1800EDE60 (TpSetDefaultPoolMaxThreads.c)
- *     TpSetDefaultPoolStackInformation @ 0x1800EDFB0 (TpSetDefaultPoolStackInformation.c)
- *     TpUnreserveTaskPost @ 0x1800EE35C (TpUnreserveTaskPost.c)
+ *     TppCleanupGroupMemberInitialize @ 0x180047230 (TppCleanupGroupMemberInitialize.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
+ *     RtlQueueWorkItem @ 0x18008A2C0 (RtlQueueWorkItem.c)
+ *     TpDereferenceGlobalPool @ 0x18008BED8 (TpDereferenceGlobalPool.c)
+ *     RtlpTpWorkUnposted @ 0x18008BF40 (RtlpTpWorkUnposted.c)
+ *     TpReleasePool @ 0x1800D9CF0 (TpReleasePool.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x1800E9040 (TpSetDefaultPoolMaxThreads.c)
+ *     TpSetDefaultPoolStackInformation @ 0x1800E9190 (TpSetDefaultPoolStackInformation.c)
+ *     TpUnreserveTaskPost @ 0x1800E953C (TpUnreserveTaskPost.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall TppPoolpDereferenceGlobalPool(const void **a1, volatile signed __int32 *a2)
+void __fastcall TppPoolpDereferenceGlobalPool(const void **a1, _RTL_SRWLOCK *a2)
 {
   volatile signed __int32 *v4; // r9
-  unsigned __int64 v5; // r8
+  signed __int32 v5; // r8d
   bool v6; // zf
-  __int64 result; // rax
+  signed __int32 v7; // eax
   volatile signed __int32 *v8; // rdx
   signed __int32 v9; // ecx
   signed __int32 v10; // eax
-  const void *v11; // rsi
+  _TP_POOL *v11; // rsi
 
   v4 = (volatile signed __int32 *)*a1;
   _m_prefetchw(*a1);
-  v5 = *(unsigned int *)v4;
-  while ( (int)v5 > 1 )
+  v5 = *v4;
+  while ( v5 > 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(v4, v5 - 1, v5);
-    v6 = (_DWORD)v5 == (_DWORD)result;
-    v5 = (unsigned int)result;
+    v7 = _InterlockedCompareExchange(v4, v5 - 1, v5);
+    v6 = v5 == v7;
+    v5 = v7;
     if ( v6 )
-      return result;
+      return;
   }
-  RtlAcquireSRWLockExclusive(a2, (volatile signed __int32 **)a2, v5);
+  RtlAcquireSRWLockExclusive(a2);
   v8 = (volatile signed __int32 *)*a1;
   _m_prefetchw(*a1);
   v9 = *v8;
@@ -53,11 +53,10 @@ __int64 __fastcall TppPoolpDereferenceGlobalPool(const void **a1, volatile signe
       goto LABEL_10;
     }
   }
-  v11 = *a1;
+  v11 = (_TP_POOL *)*a1;
   *a1 = 0LL;
 LABEL_10:
-  result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+  RtlReleaseSRWLockExclusive(a2);
   if ( v11 )
-    return TpReleasePool(v11);
-  return result;
+    TpReleasePool(v11);
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of TpCallbackUnloadDllOnCompletion @ 0x1800E9AE0
+ * XREFs of TpCallbackUnloadDllOnCompletion @ 0x1800E8CF0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall TpCallbackUnloadDllOnCompletion(__int64 a1, __int64 a2)
+void __cdecl TpCallbackUnloadDllOnCompletion(PTP_CALLBACK_INSTANCE Instance, PVOID DllHandle)
 {
-  if ( !a1 || (unsigned __int64)(a2 - 1) > 0xFFFFFFFFFFFFFFFDuLL || *(_QWORD *)(a1 + 200) )
+  if ( !Instance || (char *)DllHandle - 1 > (char *)0xFFFFFFFFFFFFFFFDLL || Instance->DllHandle )
   {
     TppRaiseInvalidParameter();
   }
   else
   {
-    *(_DWORD *)(a1 + 144) |= 0x80u;
-    *(_QWORD *)(a1 + 200) = a2;
+    Instance->CallbackEpilogFlags |= 0x80u;
+    Instance->DllHandle = DllHandle;
   }
 }

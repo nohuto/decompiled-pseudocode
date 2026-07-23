@@ -1,7 +1,7 @@
 /*
- * XREFs of KeRestoreLegacyFloatingPointControlWord @ 0x1403FE600
+ * XREFs of KeRestoreLegacyFloatingPointControlWord @ 0x1403FE7E0
  * Callers:
- *     KiParkUmsThread @ 0x140525F20 (KiParkUmsThread.c)
+ *     KiParkUmsThread @ 0x140526160 (KiParkUmsThread.c)
  * Callees:
  *     <none>
  */

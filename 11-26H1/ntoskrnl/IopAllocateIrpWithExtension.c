@@ -1,15 +1,15 @@
 /*
- * XREFs of IopAllocateIrpWithExtension @ 0x14045DC8C
+ * XREFs of IopAllocateIrpWithExtension @ 0x14045782C
  * Callers:
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     IoAllocateIrpEx @ 0x14026C530 (IoAllocateIrpEx.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IopMountVolume @ 0x140B1E87C (IopMountVolume.c)
- *     IopInitializeReserveIrps @ 0x140CBD6C0 (IopInitializeReserveIrps.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     IoAllocateIrpEx @ 0x14026BAA0 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IopMountVolume @ 0x140B208FC (IopMountVolume.c)
+ *     IopInitializeReserveIrps @ 0x140CC3790 (IopInitializeReserveIrps.c)
  * Callees:
- *     IopAllocateIrpPrivate @ 0x14026C684 (IopAllocateIrpPrivate.c)
- *     IopIsActivityTracingEnabled @ 0x14045BD70 (IopIsActivityTracingEnabled.c)
- *     IopInitActivityIdIrp @ 0x140481F80 (IopInitActivityIdIrp.c)
+ *     IopAllocateIrpPrivate @ 0x14026BBF4 (IopAllocateIrpPrivate.c)
+ *     IopIsActivityTracingEnabled @ 0x1404555A0 (IopIsActivityTracingEnabled.c)
+ *     IopInitActivityIdIrp @ 0x14047B8F0 (IopInitActivityIdIrp.c)
  */
 
 __int64 __fastcall IopAllocateIrpWithExtension(__int64 a1, char a2, char a3)

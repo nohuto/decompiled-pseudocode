@@ -1,37 +1,37 @@
 /*
- * XREFs of PpmParkApplyPolicy @ 0x1402592F0
+ * XREFs of PpmParkApplyPolicy @ 0x14025AAD0
  * Callers:
- *     PpmParkSetLpiCap @ 0x1404BBB5C (PpmParkSetLpiCap.c)
- *     PpmParkRegisterParking @ 0x14060FE58 (PpmParkRegisterParking.c)
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
- *     PpmParkApplyForcedMask @ 0x1407DD1D8 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x1407DD3EC (PpmParkClearForcedMask.c)
- *     PopPowerRequestCallbackPerfBoostRequired @ 0x140A9CFA0 (PopPowerRequestCallbackPerfBoostRequired.c)
- *     PpmReapplyPerfPolicy @ 0x140A9D088 (PpmReapplyPerfPolicy.c)
+ *     PpmParkSetLpiCap @ 0x1404B533C (PpmParkSetLpiCap.c)
+ *     PpmParkRegisterParking @ 0x1406130BC (PpmParkRegisterParking.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
+ *     PpmParkApplyForcedMask @ 0x1407E1804 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x1407E1A18 (PpmParkClearForcedMask.c)
+ *     PpmReapplyPerfPolicy @ 0x140AD8B10 (PpmReapplyPerfPolicy.c)
+ *     PopPowerRequestCallbackPerfBoostRequired @ 0x140AD8CF0 (PopPowerRequestCallbackPerfBoostRequired.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     PpmHeteroHgsCheckContainmentDecision @ 0x1402589C8 (PpmHeteroHgsCheckContainmentDecision.c)
- *     PpmParkEvalualteSmtUnparkPolicy @ 0x140259220 (PpmParkEvalualteSmtUnparkPolicy.c)
- *     Feature_PpmHighPerfSoftParkLatency__private_IsEnabledDeviceUsageNoInline @ 0x1402592B4 (Feature_PpmHighPerfSoftParkLatency__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmConfigureRestrictionPolicy @ 0x140259AD4 (PpmConfigureRestrictionPolicy.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     KeUpdateSoftParkRankList @ 0x14025B508 (KeUpdateSoftParkRankList.c)
- *     PpmEventSoftParkRankListChanged @ 0x14025B7C0 (PpmEventSoftParkRankListChanged.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmConvertTime @ 0x1403E63D0 (PpmConvertTime.c)
- *     PpmEventSoftParkLatencyUpdate @ 0x1404ED270 (PpmEventSoftParkLatencyUpdate.c)
- *     PpmEventParkNodeParkHintChanged @ 0x140514EC8 (PpmEventParkNodeParkHintChanged.c)
- *     PpmEventParkNodeCapChange @ 0x14060E5D0 (PpmEventParkNodeCapChange.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     PpmHeteroHgsCheckContainmentDecision @ 0x14025A1A8 (PpmHeteroHgsCheckContainmentDecision.c)
+ *     PpmParkEvalualteSmtUnparkPolicy @ 0x14025AA00 (PpmParkEvalualteSmtUnparkPolicy.c)
+ *     Feature_PpmHighPerfSoftParkLatency__private_IsEnabledDeviceUsageNoInline @ 0x14025AA94 (Feature_PpmHighPerfSoftParkLatency__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmConfigureRestrictionPolicy @ 0x14025B2B4 (PpmConfigureRestrictionPolicy.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     KeUpdateSoftParkRankList @ 0x14025CCE8 (KeUpdateSoftParkRankList.c)
+ *     PpmEventSoftParkRankListChanged @ 0x14025CFA0 (PpmEventSoftParkRankListChanged.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmConvertTime @ 0x1402F32B0 (PpmConvertTime.c)
+ *     PpmEventSoftParkLatencyUpdate @ 0x1404E6850 (PpmEventSoftParkLatencyUpdate.c)
+ *     PpmEventParkNodeParkHintChanged @ 0x14050E938 (PpmEventParkNodeParkHintChanged.c)
+ *     PpmEventParkNodeCapChange @ 0x1406116D0 (PpmEventParkNodeCapChange.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *PpmParkApplyPolicy()
 {
   void *result; // rax
-  __int64 *v1; // r12
+  char *v1; // r12
   unsigned __int16 v2; // r13
-  unsigned int SystemCallNumber; // ebx
+  unsigned int v3; // ebx
   int v4; // edi
   int v5; // r15d
   unsigned int v6; // esi
@@ -48,7 +48,7 @@ void *PpmParkApplyPolicy()
   unsigned __int16 v17; // dx
   __int16 v18; // r15
   unsigned __int16 v19; // di
-  __int64 *v20; // rdx
+  char *v20; // rdx
   __int64 v21; // rax
   unsigned __int16 *v22; // r12
   int v23; // ecx
@@ -58,7 +58,7 @@ void *PpmParkApplyPolicy()
   int v27; // ecx
   int v28; // r14d
   int v29; // ecx
-  unsigned __int16 ThreadLock; // di
+  unsigned __int16 v30; // di
   _WORD *v31; // r15
   unsigned __int16 *v32; // rdx
   unsigned __int64 v33; // r8
@@ -74,8 +74,8 @@ void *PpmParkApplyPolicy()
   __int64 v43; // r15
   __int64 v44; // rdx
   unsigned __int16 v45; // cx
-  unsigned __int16 v46; // ax
-  struct _LIST_ENTRY *Flink; // rbx
+  __int16 v46; // ax
+  void *v47; // rbx
   __int64 v48; // r8
   _QWORD *v49; // r9
   unsigned __int16 i; // dx
@@ -108,7 +108,7 @@ void *PpmParkApplyPolicy()
   int v77; // [rsp+38h] [rbp-D0h]
   int v78; // [rsp+3Ch] [rbp-CCh]
   int v79; // [rsp+40h] [rbp-C8h]
-  __int64 *v80; // [rsp+48h] [rbp-C0h]
+  char *v80; // [rsp+48h] [rbp-C0h]
   __int64 v81; // [rsp+50h] [rbp-B8h]
   __int64 v82; // [rsp+58h] [rbp-B0h]
   __int64 v83; // [rsp+68h] [rbp-A0h] BYREF
@@ -118,11 +118,11 @@ void *PpmParkApplyPolicy()
 
   memset_0(v84, 0, 0x100uLL);
   result = memset_0(v86, 0, 0x100uLL);
-  if ( *($353D57E818BB6F967B4B818D974CF463 *)((char *)&PopModernStandbyStateNotify.116 + 4) )
+  if ( PpmParkNodes )
   {
-    v1 = &PpmCurrentProfile[89 * dword_140F106CC + 5];
+    v1 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40;
     v80 = v1;
-    PpmParkEvalualteSmtUnparkPolicy(*((_BYTE *)v1 + 670));
+    PpmParkEvalualteSmtUnparkPolicy(v1[670]);
     v72 = 0;
     v2 = 64;
     if ( !*(_QWORD *)(KeGetPrcb(0LL) + 35264) )
@@ -131,21 +131,20 @@ void *PpmParkApplyPolicy()
         v2 = PpmParkInitialClass1UnParkCount;
       v72 = 1;
     }
-    SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
+    v3 = PpmParkNumNodes;
     v4 = PpmParkLpiCap;
     v5 = PpmParkThermalCap;
     v83 = 2097153LL;
-    v6 = PpmParkLpiCap / PopModernStandbyStateNotify.SystemCallNumber
-       - PpmParkLpiCap / PopModernStandbyStateNotify.SystemCallNumber % LOWORD(PopModernStandbyStateNotify.ThreadLock);
-    v7 = PpmParkThermalCap / PopModernStandbyStateNotify.SystemCallNumber
-       - PpmParkThermalCap / PopModernStandbyStateNotify.SystemCallNumber
-       % LOWORD(PopModernStandbyStateNotify.ThreadLock);
+    v6 = PpmParkLpiCap / (unsigned int)PpmParkNumNodes
+       - PpmParkLpiCap / (unsigned int)PpmParkNumNodes % (unsigned __int16)PpmParkGranularity;
+    v7 = PpmParkThermalCap / (unsigned int)PpmParkNumNodes
+       - PpmParkThermalCap / (unsigned int)PpmParkNumNodes % (unsigned __int16)PpmParkGranularity;
     memset_0(v84, 0, 0x100uLL);
     v85 = 2097153LL;
     memset_0(v86, 0, 0x100uLL);
     v74 = 0;
     v8 = 0;
-    if ( SystemCallNumber )
+    if ( v3 )
     {
       v9 = (unsigned __int16)v6;
       v10 = (unsigned __int16)v7;
@@ -156,17 +155,17 @@ void *PpmParkApplyPolicy()
       do
       {
         v13 = v9;
-        v14 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * v8;
+        v14 = PpmParkNodes + 1264LL * v8;
         v82 = v14;
         v15 = *(unsigned __int16 *)(v14 + 8);
-        if ( v9 > v15 - LOWORD(PopModernStandbyStateNotify.ThreadLock) )
-          v13 = v15 - LOWORD(PopModernStandbyStateNotify.ThreadLock);
+        if ( v9 > v15 - (unsigned __int16)PpmParkGranularity )
+          v13 = v15 - PpmParkGranularity;
         *(_WORD *)(v14 + 1136) = v13;
         v16 = v4 - v13;
         v17 = v10;
         v76 = v16;
-        if ( v10 > v15 - LOWORD(PopModernStandbyStateNotify.ThreadLock) )
-          v17 = v15 - LOWORD(PopModernStandbyStateNotify.ThreadLock);
+        if ( v10 > v15 - (unsigned __int16)PpmParkGranularity )
+          v17 = v15 - PpmParkGranularity;
         *(_WORD *)(v14 + 1140) = v17;
         v77 = v5 - v17;
         v18 = 0;
@@ -186,27 +185,27 @@ void *PpmParkApplyPolicy()
           v22 = (unsigned __int16 *)(*(_QWORD *)(v14 + 1256) + 624LL * v11);
           if ( v11 >= 3 )
             v21 = 2LL;
-          v23 = *((unsigned __int8 *)v20 + v21 + 239);
+          v23 = (unsigned __int8)v20[v21 + 239];
           v24 = v11;
           if ( v11 >= 3 )
             v24 = 2LL;
-          v25 = *((_BYTE *)v20 + v24 + 236);
+          v25 = v20[v24 + 236];
           if ( v72 )
             v25 &= -(v11 == 0);
           v26 = *v22;
           if ( (_WORD)v26 )
           {
             v27 = (unsigned __int16)((v26 * v23 + 50) / 0x64u);
-            v28 = v27 + (v26 - v27) % LOWORD(PopModernStandbyStateNotify.ThreadLock);
+            v28 = v27 + (v26 - v27) % (unsigned __int16)PpmParkGranularity;
             v29 = (unsigned __int16)((v26 * (unsigned int)v25 + 50) / 0x64);
-            ThreadLock = v29 + (v26 - v29) % LOWORD(PopModernStandbyStateNotify.ThreadLock);
+            v30 = v29 + (v26 - v29) % (unsigned __int16)PpmParkGranularity;
             if ( v11 && (unsigned __int16)v28 >= v2 )
               LOWORD(v28) = v2;
-            if ( ThreadLock && LOWORD(PopModernStandbyStateNotify.ThreadLock) > ThreadLock )
-              ThreadLock = PopModernStandbyStateNotify.ThreadLock;
+            if ( v30 && (unsigned __int16)PpmParkGranularity > v30 )
+              v30 = PpmParkGranularity;
             v31 = v22 + 144;
-            if ( (unsigned __int16)v28 < ThreadLock )
-              LOWORD(v28) = ThreadLock;
+            if ( (unsigned __int16)v28 < v30 )
+              LOWORD(v28) = v30;
             RtlOrAffinityEx(&v85, v22 + 144, &v85);
             memset_0(v22 + 148, 0, 8LL * (unsigned __int16)*v31);
             v32 = v22 + 12;
@@ -224,8 +223,7 @@ LABEL_23:
               {
                 _BitScanForward64(&v36, v33);
                 v81 = v33 & ~(1LL << v36);
-                v75 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                      + 64 * v34
+                v75 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v34].Flink
                       + (unsigned __int8)v36);
                 if ( *(_BYTE *)(KeGetPrcb(v75) + 35420) )
                   KeAddProcessorAffinityEx(v22 + 144, v75);
@@ -239,11 +237,11 @@ LABEL_23:
             }
             RtlOrAffinityEx(&v83, v22 + 144, &v83);
             v14 = v82;
-            v18 = ThreadLock + v73;
+            v18 = v30 + v73;
             v20 = v80;
-            v73 += ThreadLock;
+            v73 += v30;
             v22[2] = v28;
-            v22[1] = ThreadLock;
+            v22[1] = v30;
           }
           ++v11;
         }
@@ -283,9 +281,9 @@ LABEL_34:
         {
           v44 = *(_QWORD *)(v14 + 1256);
           v45 = *(_WORD *)(v44 + 4);
-          *(_WORD *)(v44 + 2) = PopModernStandbyStateNotify.ThreadLock;
-          v46 = PopModernStandbyStateNotify.ThreadLock;
-          if ( LOWORD(PopModernStandbyStateNotify.ThreadLock) <= v45 )
+          *(_WORD *)(v44 + 2) = PpmParkGranularity;
+          v46 = PpmParkGranularity;
+          if ( (unsigned __int16)PpmParkGranularity <= v45 )
             v46 = v45;
           *(_WORD *)(v44 + 4) = v46;
         }
@@ -329,7 +327,7 @@ LABEL_34:
           *(_WORD *)(v62 + v63 + 4) = v65;
         }
         PpmConfigureRestrictionPolicy(v14);
-        SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
+        v3 = PpmParkNumNodes;
         v8 = v74 + 1;
         v4 = v76;
         v5 = v77;
@@ -337,7 +335,7 @@ LABEL_34:
         v9 = v79;
         ++v74;
       }
-      while ( v74 < PopModernStandbyStateNotify.SystemCallNumber );
+      while ( v74 < (unsigned int)PpmParkNumNodes );
       v1 = v80;
     }
     else
@@ -351,69 +349,65 @@ LABEL_39:
         goto LABEL_40;
       v54 = 0;
     }
-    while ( !SystemCallNumber );
+    while ( !v3 );
     while ( v4 )
     {
       v66 = 1264LL * v54;
-      v67 = *(_WORD *)(v66 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 8);
+      v67 = *(_WORD *)(v66 + PpmParkNodes + 8);
       if ( v67 )
       {
-        v68 = LOWORD(PopModernStandbyStateNotify.ThreadLock)
-            + *(_WORD *)(v66 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1136);
+        v68 = PpmParkGranularity + *(_WORD *)(v66 + PpmParkNodes + 1136);
         if ( v68 < v67 )
         {
-          *(_WORD *)(v66 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1136) = v68;
-          v4 -= LOWORD(PopModernStandbyStateNotify.ThreadLock);
+          *(_WORD *)(v66 + PpmParkNodes + 1136) = v68;
+          v4 -= (unsigned __int16)PpmParkGranularity;
         }
       }
-      if ( ++v54 >= SystemCallNumber )
+      if ( ++v54 >= v3 )
         goto LABEL_39;
     }
 LABEL_40:
     while ( v5 )
     {
       v55 = 0;
-      if ( SystemCallNumber )
+      if ( v3 )
       {
         while ( v5 )
         {
           v69 = 1264LL * v55;
-          v70 = *(_WORD *)(v69 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 8);
+          v70 = *(_WORD *)(v69 + PpmParkNodes + 8);
           if ( v70 )
           {
-            v71 = *(_WORD *)(v69 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1140)
-                + LOWORD(PopModernStandbyStateNotify.ThreadLock);
+            v71 = *(_WORD *)(v69 + PpmParkNodes + 1140) + PpmParkGranularity;
             if ( v71 < v70 )
             {
-              *(_WORD *)(v69 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1140) = v71;
-              v5 -= LOWORD(PopModernStandbyStateNotify.ThreadLock);
+              *(_WORD *)(v69 + PpmParkNodes + 1140) = v71;
+              v5 -= (unsigned __int16)PpmParkGranularity;
             }
           }
-          if ( ++v55 >= SystemCallNumber )
+          if ( ++v55 >= v3 )
             goto LABEL_40;
         }
         break;
       }
     }
-    if ( SystemCallNumber )
+    if ( v3 )
     {
       do
       {
-        v39 = *(__int64 *)((char *)&PopModernStandbyStateNotify.116 + 4);
+        v39 = PpmParkNodes;
         v40 = 1264LL * (unsigned __int16)v11;
-        v41 = v40 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4);
-        v42 = *(unsigned __int16 *)(v40 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1136);
-        v43 = v40 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4);
-        if ( *(unsigned __int16 *)(v40 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1138) != *(unsigned __int16 *)(v40 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 8) - (_DWORD)v42
-          || *(unsigned __int16 *)(v43 + 1142) != *(unsigned __int16 *)(v40
-                                                                      + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116
-                                                                                  + 4)
-                                                                      + 8)
+        v41 = v40 + PpmParkNodes;
+        v42 = *(unsigned __int16 *)(v40 + PpmParkNodes + 1136);
+        v43 = v40 + PpmParkNodes;
+        if ( *(unsigned __int16 *)(v40 + PpmParkNodes + 1138) != *(unsigned __int16 *)(v40 + PpmParkNodes + 8)
+                                                               - (_DWORD)v42
+          || *(unsigned __int16 *)(v43 + 1142) != *(unsigned __int16 *)(v40 + PpmParkNodes + 8)
                                                 - *(unsigned __int16 *)(v41 + 1140) )
         {
           PpmEventParkNodeCapChange(
             (unsigned __int16)v11,
-            v40 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 16LL,
+            v40 + PpmParkNodes + 16,
             v42,
             *(unsigned __int16 *)(v41 + 1140));
           v56 = *(_WORD *)(v40 + v39 + 8);
@@ -423,15 +417,13 @@ LABEL_40:
         }
         LOWORD(v11) = v11 + 1;
       }
-      while ( (unsigned __int16)v11 < PopModernStandbyStateNotify.SystemCallNumber );
+      while ( (unsigned __int16)v11 < (unsigned int)PpmParkNumNodes );
     }
     v37 = *((_DWORD *)v1 + 61);
     if ( (unsigned int)Feature_PpmHighPerfSoftParkLatency__private_IsEnabledDeviceUsageNoInline() )
     {
       LOBYTE(v38) = 0;
-      if ( LOBYTE(stru_140F11D08.RealtimePriorityFloor)
-        && PpmHighPerfSoftParkLatencyUs
-        && (!v37 || PpmHighPerfSoftParkLatencyUs < v37) )
+      if ( PpmPerfMaxOverrideEnabled && PpmHighPerfSoftParkLatencyUs && (!v37 || PpmHighPerfSoftParkLatencyUs < v37) )
       {
         LOBYTE(v38) = 1;
         v37 = PpmHighPerfSoftParkLatencyUs;
@@ -447,16 +439,13 @@ LABEL_40:
     {
       PpmParkSoftParkingEnabled = 0;
       KeSoftParkedQueueThreshold = 0;
-      if ( PopModernStandbyStateNotify.ApcState.ApcListHead[0].Blink )
+      if ( PpmParkNewSoftParkRankList )
       {
-        Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[0].Flink;
-        if ( PopModernStandbyStateNotify.ApcState.ApcListHead[0].Flink )
+        v47 = PpmParkOldSoftParkRankList;
+        if ( PpmParkOldSoftParkRankList )
         {
-          memset_0(
-            PopModernStandbyStateNotify.ApcState.ApcListHead[0].Blink,
-            255,
-            4LL * (unsigned int)KeMaximumProcessors);
-          memset_0(Flink, 255, 4LL * (unsigned int)KeMaximumProcessors);
+          memset_0(PpmParkNewSoftParkRankList, 255, 4LL * (unsigned int)KeMaximumProcessors);
+          memset_0(v47, 255, 4LL * (unsigned int)KeMaximumProcessors);
           KeUpdateSoftParkRankList();
           PpmEventSoftParkRankListChanged();
         }

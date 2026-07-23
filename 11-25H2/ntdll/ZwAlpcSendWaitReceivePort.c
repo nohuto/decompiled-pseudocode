@@ -10,11 +10,19 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcSendWaitReceivePort()
+NTSTATUS __cdecl ZwAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 142LL;
+  result = 142;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

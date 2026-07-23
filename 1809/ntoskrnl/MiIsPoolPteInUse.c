@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsPoolPteInUse @ 0x14009A0D8
+ * XREFs of MiIsPoolPteInUse @ 0x14009A018
  * Callers:
- *     MiAssignNonPagedPoolPtes @ 0x1400992E0 (MiAssignNonPagedPoolPtes.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
+ *     MiAssignNonPagedPoolPtes @ 0x140099220 (MiAssignNonPagedPoolPtes.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
  * Callees:
  *     <none>
  */

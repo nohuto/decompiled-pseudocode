@@ -1,22 +1,22 @@
 /*
- * XREFs of PipHardwareConfigInit @ 0x140C20B04
+ * XREFs of PipHardwareConfigInit @ 0x140C22B44
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     KeQueryBootTimeValues @ 0x14049462C (KeQueryBootTimeValues.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     PipHardwareConfigClearStartOverrides @ 0x14071A024 (PipHardwareConfigClearStartOverrides.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x14071A1CC (PipHardwareConfigTriggerRespecialize.c)
- *     _PnpCtxRegQueryKeyPathName @ 0x140817958 (_PnpCtxRegQueryKeyPathName.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlStringFromGUID @ 0x1409BC5B0 (RtlStringFromGUID.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     IopCreateRegistryKeyEx @ 0x140A71C1C (IopCreateRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PipHardwareConfigExists @ 0x140C209C4 (PipHardwareConfigExists.c)
+ *     KeQueryBootTimeValues @ 0x14048F0BC (KeQueryBootTimeValues.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x140717BB4 (PipHardwareConfigClearStartOverrides.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x140717D5C (PipHardwareConfigTriggerRespecialize.c)
+ *     _PnpCtxRegQueryKeyPathName @ 0x140818098 (_PnpCtxRegQueryKeyPathName.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlStringFromGUID @ 0x1409A2C00 (RtlStringFromGUID.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopCreateRegistryKeyEx @ 0x140A6AFFC (IopCreateRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PipHardwareConfigExists @ 0x140C22A04 (PipHardwareConfigExists.c)
  */
 
 __int64 __fastcall PipHardwareConfigInit(GUID *Guid)
@@ -160,7 +160,7 @@ LABEL_25:
                   CachedContextBaseKey = ZwSetValueKey(v24, &CmSymbolicLinkValueName, 0, 6u, v28, 2 * (_DWORD)v21 - 2);
                   if ( CachedContextBaseKey >= 0 )
                   {
-                    if ( (_DWORD)InitSafeBootMode
+                    if ( InitSafeBootMode
                       || IopGetRegistryValue(v8, L"Reset", 0, &v18) >= 0
                       && (v18[1] != 4 || v18[3] != 4
                         ? (v14 = 0)

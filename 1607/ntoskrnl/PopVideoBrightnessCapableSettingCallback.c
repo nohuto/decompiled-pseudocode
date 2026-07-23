@@ -1,5 +1,5 @@
 /*
- * XREFs of PopVideoBrightnessCapableSettingCallback @ 0x14020207C
+ * XREFs of PopVideoBrightnessCapableSettingCallback @ 0x140201EA8
  * Callers:
  *     <none>
  * Callees:
@@ -11,9 +11,6 @@ __int64 __fastcall PopVideoBrightnessCapableSettingCallback(_QWORD *a1, _DWORD *
 {
   __int64 v4; // r9
   unsigned int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
 
   v4 = *(_QWORD *)&GUID_VIDEO_BRIGHTNESS_CAPABLE.Data1 - *a1;
   if ( *(_QWORD *)&GUID_VIDEO_BRIGHTNESS_CAPABLE.Data1 == *a1 )
@@ -23,8 +20,8 @@ __int64 __fastcall PopVideoBrightnessCapableSettingCallback(_QWORD *a1, _DWORD *
   {
     PopAcquirePolicyLock(a1, a2, a3, 0LL);
     if ( *a2 )
-      byte_140303F6A = 1;
-    PopReleasePolicyLock(v7, v6, v8);
+      byte_140303EAA = 1;
+    PopReleasePolicyLock();
   }
   else
   {

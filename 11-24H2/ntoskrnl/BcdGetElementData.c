@@ -1,23 +1,23 @@
 /*
- * XREFs of BcdGetElementData @ 0x1409BF8B0
+ * XREFs of BcdGetElementData @ 0x1409A5F00
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x14065CE90 (WheaPersistBadPageToBcd.c)
- *     PopAdaptiveGetSystemInitiatedRebootTargetBootEntry @ 0x14075F274 (PopAdaptiveGetSystemInitiatedRebootTargetBootEntry.c)
- *     PopBcdEstablishResumeObject @ 0x1407633AC (PopBcdEstablishResumeObject.c)
- *     PopBcdGetApplicationPathFromResumeObject @ 0x140763580 (PopBcdGetApplicationPathFromResumeObject.c)
- *     SepSecureBootUpdateBcdDataForRule @ 0x140794164 (SepSecureBootUpdateBcdDataForRule.c)
- *     BiGetDefaultBootEntryIdentifier @ 0x140812304 (BiGetDefaultBootEntryIdentifier.c)
- *     BiResolveLocateDevice @ 0x14081243C (BiResolveLocateDevice.c)
- *     BiUpdateBcdObject @ 0x1408157BC (BiUpdateBcdObject.c)
- *     BiBuildIdentifierList @ 0x1409BEF7C (BiBuildIdentifierList.c)
- *     BiGetElement @ 0x1409BFBB8 (BiGetElement.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140A71D1C (PopBcdSetDefaultResumeObjectElements.c)
- *     PopBcdReadElement @ 0x140A72168 (PopBcdReadElement.c)
+ *     WheaPersistBadPageToBcd @ 0x14065B5B0 (WheaPersistBadPageToBcd.c)
+ *     PopAdaptiveGetSystemInitiatedRebootTargetBootEntry @ 0x14075E214 (PopAdaptiveGetSystemInitiatedRebootTargetBootEntry.c)
+ *     PopBcdEstablishResumeObject @ 0x140762D7C (PopBcdEstablishResumeObject.c)
+ *     PopBcdGetApplicationPathFromResumeObject @ 0x140762F44 (PopBcdGetApplicationPathFromResumeObject.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x140794274 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BiGetDefaultBootEntryIdentifier @ 0x140812A44 (BiGetDefaultBootEntryIdentifier.c)
+ *     BiResolveLocateDevice @ 0x140812B7C (BiResolveLocateDevice.c)
+ *     BiUpdateBcdObject @ 0x140815EFC (BiUpdateBcdObject.c)
+ *     BiBuildIdentifierList @ 0x1409A55CC (BiBuildIdentifierList.c)
+ *     BiGetElement @ 0x1409A6208 (BiGetElement.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140A6B0FC (PopBcdSetDefaultResumeObjectElements.c)
+ *     PopBcdReadElement @ 0x140A6B548 (PopBcdReadElement.c)
  * Callees:
- *     BcdGetElementDataWithFlags @ 0x1409BE80C (BcdGetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1409A4E5C (BcdGetElementDataWithFlags.c)
  */
 
-__int64 __fastcall BcdGetElementData(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
+NTSTATUS __cdecl BcdGetElementData(HANDLE BcdObjectHandle, ULONG BcdElement, PVOID Buffer, PULONG BufferSize)
 {
-  return BcdGetElementDataWithFlags(a1, a2, a3, a3, a4);
+  return BcdGetElementDataWithFlags(BcdObjectHandle, BcdElement, (BCD_FLAGS)Buffer, Buffer, BufferSize);
 }

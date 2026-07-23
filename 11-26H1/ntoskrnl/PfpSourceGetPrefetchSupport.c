@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpSourceGetPrefetchSupport @ 0x140A4E874
+ * XREFs of PfpSourceGetPrefetchSupport @ 0x140A57B64
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x140A4EC04 (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x140A57EF4 (PfpPrefetchPrivatePages.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     NtOpenProcess @ 0x1408EFC10 (NtOpenProcess.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     NtOpenProcess @ 0x1408F61D0 (NtOpenProcess.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
@@ -50,8 +50,8 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
   {
     v8 = ObpReferenceObjectByHandleWithTag(
            (ULONG_PTR)ProcessHandle,
-           0x1FFFFFLL,
-           PsProcessType,
+           0x1FFFFF,
+           (__int64)PsProcessType,
            0,
            0x73576650u,
            &Object,

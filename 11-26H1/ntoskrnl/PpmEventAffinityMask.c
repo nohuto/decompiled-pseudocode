@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventAffinityMask @ 0x14060DE10
+ * XREFs of PpmEventAffinityMask @ 0x140610F10
  * Callers:
- *     PpmIdleUpdateSystemLatencyLimit @ 0x14028FBF0 (PpmIdleUpdateSystemLatencyLimit.c)
- *     PoExecuteIdleCheck @ 0x1404F04E4 (PoExecuteIdleCheck.c)
+ *     PpmIdleUpdateSystemLatencyLimit @ 0x14028F150 (PpmIdleUpdateSystemLatencyLimit.c)
+ *     PoExecuteIdleCheck @ 0x1404E9AC4 (PoExecuteIdleCheck.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventAffinityMask(PCEVENT_DESCRIPTOR EventDescriptor, _WORD *a2)
@@ -24,18 +24,10 @@ void __fastcall PpmEventAffinityMask(PCEVENT_DESCRIPTOR EventDescriptor, _WORD *
   UserDataCount = 0;
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, EventDescriptor) )
+    if ( EtwEventEnabled(PpmEtwHandle, EventDescriptor) )
     {
       PpmEventAddAffinityMaskAsSubset(0LL, a2, (__int64)v5, (__int64)v9, (__int64)&UserData, &v7, &v6, &UserDataCount);
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        EventDescriptor,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        UserDataCount,
-        &UserData);
+      EtwWriteEx(PpmEtwHandle, EventDescriptor, 0LL, 0, 0LL, 0LL, UserDataCount, &UserData);
     }
   }
 }

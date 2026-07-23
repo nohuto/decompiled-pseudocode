@@ -36,5 +36,5 @@ __int64 __fastcall HvlpFastFlushPasidAddressList(int a1, int a2, unsigned int a3
   }
   LODWORD(v8) = 65697;
   HIDWORD(v8) = a3 & 0xFFF;
-  return HvcallFastExtended(v8, (__int64)v9, 8 * a3 + 16, 0LL, 0);
+  return HvcallFastExtended(v8, (__int64)v9, 8 * a3 + 16, 0, 0);
 }

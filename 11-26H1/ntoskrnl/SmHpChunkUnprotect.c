@@ -1,16 +1,16 @@
 /*
- * XREFs of SmHpChunkUnprotect @ 0x14024D5B0
+ * XREFs of SmHpChunkUnprotect @ 0x14024EF10
  * Callers:
- *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14063DFC8 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
+ *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x140641BA8 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
  * Callees:
- *     rapidhash_internal @ 0x14024B730 (rapidhash_internal.c)
- *     ExProtectPoolEx @ 0x14024CE7C (ExProtectPoolEx.c)
- *     KeRegisterBugCheckReasonCallback @ 0x14024D7A0 (KeRegisterBugCheckReasonCallback.c)
- *     MmStoreGetPhysicalAddress @ 0x14052FCB8 (MmStoreGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     rapidhash_internal @ 0x14024D090 (rapidhash_internal.c)
+ *     ExProtectPoolEx @ 0x14024E7DC (ExProtectPoolEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14024F100 (KeRegisterBugCheckReasonCallback.c)
+ *     MmStoreGetPhysicalAddress @ 0x1405321B8 (MmStoreGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmHpChunkUnprotect(__int64 a1, __int64 a2, char a3, unsigned int a4)
@@ -58,7 +58,7 @@ __int64 __fastcall SmHpChunkUnprotect(__int64 a1, __int64 a2, char a3, unsigned 
         {
           v15 = (unsigned __int8 *)*v10;
           BugCheckParameter4 = MmStoreGetPhysicalAddress(*v10) / 4096;
-          Pool3 = ExAllocatePool3(64LL, 4192LL, 1348627827LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+          Pool3 = ExAllocatePool3(64LL, 4192LL, 1348627827LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
           v18 = (struct _KBUGCHECK_REASON_CALLBACK_RECORD *)Pool3;
           if ( Pool3 )
           {

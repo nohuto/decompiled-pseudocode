@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAcquireDpcCorralLock @ 0x1403C2470
+ * XREFs of KiAcquireDpcCorralLock @ 0x1403CC370
  * Callers:
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     KiGenericCallDpcInitiatorWorker @ 0x1403C23F0 (KiGenericCallDpcInitiatorWorker.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     KiGenericCallDpcInitiatorWorker @ 0x1403CC2F0 (KiGenericCallDpcInitiatorWorker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall KiAcquireDpcCorralLock(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

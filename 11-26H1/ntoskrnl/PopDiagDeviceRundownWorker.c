@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagDeviceRundownWorker @ 0x140ADDE90
+ * XREFs of PopDiagDeviceRundownWorker @ 0x140ADAC00
  * Callers:
  *     <none>
  * Callees:
- *     IoDiagTraceDevicesRundown @ 0x140ADDEB0 (IoDiagTraceDevicesRundown.c)
+ *     IoDiagTraceDevicesRundown @ 0x140ADAC20 (IoDiagTraceDevicesRundown.c)
  */
 
 __int64 PopDiagDeviceRundownWorker()
 {
-  _InterlockedExchange((volatile __int32 *)&PopSleepstudySessionLock.ForegroundLossTime, 0);
+  _InterlockedExchange(&PopDiagDeviceRundownRequests, 0);
   return IoDiagTraceDevicesRundown();
 }

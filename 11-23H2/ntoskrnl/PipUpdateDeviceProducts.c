@@ -1,23 +1,23 @@
 /*
- * XREFs of PipUpdateDeviceProducts @ 0x140374E40
+ * XREFs of PipUpdateDeviceProducts @ 0x140374FE0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryBootTimeValues @ 0x140350FEC (KeQueryBootTimeValues.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     RtlGetPersistedStateLocation @ 0x1406C53D0 (RtlGetPersistedStateLocation.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEB0 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegCreateTree @ 0x140797964 (_PnpCtxRegCreateTree.c)
- *     _PnpCtxRegCreateKey @ 0x140797EC0 (_PnpCtxRegCreateKey.c)
- *     _PnpCtxRegOpenKey @ 0x1408127C0 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x1408127FC (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegCloseKey @ 0x140876914 (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegQueryValue @ 0x1408776DC (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegEnumValue @ 0x1408779A4 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877B0C (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxRegDeleteValue @ 0x140A60B48 (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegSetValue @ 0x140A60B84 (_PnpCtxRegSetValue.c)
+ *     KeQueryBootTimeValues @ 0x14035118C (KeQueryBootTimeValues.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     RtlGetPersistedStateLocation @ 0x1406C5400 (RtlGetPersistedStateLocation.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEE0 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegCreateTree @ 0x140797B54 (_PnpCtxRegCreateTree.c)
+ *     _PnpCtxRegCreateKey @ 0x1407980B0 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegOpenKey @ 0x140812A90 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x140812ACC (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegCloseKey @ 0x140876B54 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14087791C (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegEnumValue @ 0x140877BE4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140877D4C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x140A60DF8 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegSetValue @ 0x140A60E34 (_PnpCtxRegSetValue.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -27,9 +27,9 @@ void __fastcall PipUpdateDeviceProducts(void *a1)
   unsigned int v1; // esi
   PVOID v2; // rbx
   void *v3; // rdi
-  void *v4; // r15
-  void *v5; // r12
-  int v6; // ebx
+  PWCHAR v4; // r15
+  void *Pool2; // r12
+  ULONG BufferLengthIn; // ebx
   int v7; // ecx
   __int64 v8; // rcx
   unsigned int v9; // r14d
@@ -43,7 +43,7 @@ void __fastcall PipUpdateDeviceProducts(void *a1)
   int v17; // ebx
   __int64 v18; // rcx
   __int64 v19; // rcx
-  __int64 v20; // [rsp+48h] [rbp-59h] BYREF
+  __int64 BufferLengthOut; // [rsp+48h] [rbp-59h] BYREF
   int v21; // [rsp+50h] [rbp-51h] BYREF
   void *v22; // [rsp+58h] [rbp-49h]
   PVOID P; // [rsp+60h] [rbp-41h]
@@ -57,7 +57,7 @@ void __fastcall PipUpdateDeviceProducts(void *a1)
   unsigned int v31; // [rsp+94h] [rbp-Dh] BYREF
   int v32; // [rsp+98h] [rbp-9h] BYREF
   __int64 v33; // [rsp+A0h] [rbp-1h] BYREF
-  void *Pool2; // [rsp+A8h] [rbp+7h] BYREF
+  PWCHAR TargetPath; // [rsp+A8h] [rbp+7h] BYREF
   __int64 v35; // [rsp+B0h] [rbp+Fh] BYREF
   wchar_t Str1[8]; // [rsp+B8h] [rbp+17h] BYREF
 
@@ -70,11 +70,11 @@ void __fastcall PipUpdateDeviceProducts(void *a1)
   v29 = 0LL;
   v4 = 0LL;
   v24 = 0LL;
+  TargetPath = 0LL;
   Pool2 = 0LL;
-  v5 = 0LL;
   v27 = 0LL;
   v33 = 0LL;
-  LODWORD(v20) = 0;
+  LODWORD(BufferLengthOut) = 0;
   v25 = 0;
   v26 = 0;
   v30 = 0;
@@ -82,23 +82,43 @@ void __fastcall PipUpdateDeviceProducts(void *a1)
   v32 = 0;
   v21 = 0;
   v22 = 0LL;
-  if ( (int)PnpCtxGetCachedContextBaseKey(*(_QWORD *)&PiPnpRtlCtx, 15LL, &Pool2) < 0
-    || (unsigned int)PnpCtxRegOpenKey(0, (_DWORD)Pool2, (unsigned int)L"Current\\ProductIds", 0, 131097, (__int64)&v33) == -1073741772
-    || (unsigned int)RtlGetPersistedStateLocation(L"DynamicInstalledProducts", 0LL, 0, (__int64)&v20) != -2147483643 )
+  if ( (int)PnpCtxGetCachedContextBaseKey(*(_QWORD *)&PiPnpRtlCtx, 15LL, &TargetPath) < 0
+    || (unsigned int)PnpCtxRegOpenKey(
+                       0,
+                       (_DWORD)TargetPath,
+                       (unsigned int)L"Current\\ProductIds",
+                       0,
+                       131097,
+                       (__int64)&v33) == -1073741772
+    || RtlGetPersistedStateLocation(
+         L"DynamicInstalledProducts",
+         0LL,
+         L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Update\\TargetingInfo\\DynamicInstalled",
+         LocationTypeRegistry,
+         0LL,
+         0,
+         (PULONG)&BufferLengthOut) != -2147483643 )
   {
     v14 = 0LL;
     goto LABEL_36;
   }
-  v6 = v20;
-  Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)v20, 1852403792LL);
-  v4 = Pool2;
-  if ( !Pool2 )
+  BufferLengthIn = BufferLengthOut;
+  TargetPath = (PWCHAR)ExAllocatePool2(256LL, (unsigned int)BufferLengthOut, 1852403792LL);
+  v4 = TargetPath;
+  if ( !TargetPath )
     goto LABEL_72;
-  if ( (int)RtlGetPersistedStateLocation(L"DynamicInstalledProducts", Pool2, v6, (__int64)&v20) < 0 )
+  if ( RtlGetPersistedStateLocation(
+         L"DynamicInstalledProducts",
+         0LL,
+         L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Update\\TargetingInfo\\DynamicInstalled",
+         LocationTypeRegistry,
+         TargetPath,
+         BufferLengthIn,
+         (PULONG)&BufferLengthOut) < 0 )
     goto LABEL_72;
   if ( (unsigned int)PnpCtxRegCreateTree(0, 0, (_DWORD)v4, 0, 131103, 0LL, (__int64)&v29, 0LL) )
     goto LABEL_72;
-  KeQueryBootTimeValues(&v20, &v28, &v35);
+  KeQueryBootTimeValues(&BufferLengthOut, &v28, &v35);
   v28.QuadPart -= v35;
   if ( (unsigned int)PnpCtxRegQueryInfoKey(v7, v29, (unsigned int)&v30, (unsigned int)&v25, 0LL, 0LL, 0LL) )
     goto LABEL_72;
@@ -106,8 +126,8 @@ void __fastcall PipUpdateDeviceProducts(void *a1)
   if ( !v30 )
     goto LABEL_22;
   v10 = v25 + 1;
-  v5 = (void *)ExAllocatePool2(256LL, 2LL * (unsigned int)(v25 + 1), 1852403792LL);
-  if ( !v5 )
+  Pool2 = (void *)ExAllocatePool2(256LL, 2LL * (unsigned int)(v25 + 1), 1852403792LL);
+  if ( !Pool2 )
   {
 LABEL_72:
     v14 = 0LL;
@@ -123,29 +143,29 @@ LABEL_72:
       PnpCtxRegCloseKey();
       v24 = 0LL;
     }
-    if ( (int)PnpCtxRegEnumKey(v8, v29, v1, v5, &v25) >= 0
-      && (int)PnpCtxRegOpenKey(0, v29, (_DWORD)v5, 0, 131103, (__int64)&v24) >= 0 )
+    if ( (int)PnpCtxRegEnumKey(v8, v29, v1, Pool2, &v25) >= 0
+      && (int)PnpCtxRegOpenKey(0, v29, (_DWORD)Pool2, 0, 131103, (__int64)&v24) >= 0 )
     {
-      LODWORD(v20) = 14;
-      if ( (int)PnpCtxRegQueryValue(v8, v24, L"Source", &v21, Str1, &v20) >= 0
+      LODWORD(BufferLengthOut) = 14;
+      if ( (int)PnpCtxRegQueryValue(v8, v24, L"Source", &v21, Str1, &BufferLengthOut) >= 0
         && v21 == 1
-        && (_DWORD)v20 == 14
+        && (_DWORD)BufferLengthOut == 14
         && !wcsicmp(Str1, L"SMBIOS") )
       {
-        LODWORD(v20) = 0;
-        if ( (unsigned int)PnpCtxRegQueryValue(v8, v33, v5, 0LL, 0LL, &v20) == -1073741772 )
+        LODWORD(BufferLengthOut) = 0;
+        if ( (unsigned int)PnpCtxRegQueryValue(v8, v33, Pool2, 0LL, 0LL, &BufferLengthOut) == -1073741772 )
         {
           if ( v3 )
           {
             ExFreePoolWithTag(v3, 0);
             v3 = 0LL;
           }
-          LODWORD(v20) = 0;
-          v16 = PnpCtxRegQueryValue(v8, v24, L"Version", &v21, v3, &v20);
+          LODWORD(BufferLengthOut) = 0;
+          v16 = PnpCtxRegQueryValue(v8, v24, L"Version", &v21, v3, &BufferLengthOut);
           if ( v16 == -1073741789 )
           {
-            v17 = v20;
-            v3 = (void *)ExAllocatePool2(256LL, (unsigned int)v20, 1852403792LL);
+            v17 = BufferLengthOut;
+            v3 = (void *)ExAllocatePool2(256LL, (unsigned int)BufferLengthOut, 1852403792LL);
             if ( !v3 )
             {
 LABEL_66:
@@ -155,12 +175,12 @@ LABEL_66:
               PnpCtxRegDeleteValue(v18, v24, L"Version");
               goto LABEL_20;
             }
-            v16 = PnpCtxRegQueryValue(v8, v24, L"Version", &v21, v3, &v20);
+            v16 = PnpCtxRegQueryValue(v8, v24, L"Version", &v21, v3, &BufferLengthOut);
           }
           if ( v16 == -1073741772 )
             goto LABEL_20;
-          v17 = v20;
-          if ( (v16 < 0 || v21 != 1 || (unsigned int)v20 < 2) && v3 )
+          v17 = BufferLengthOut;
+          if ( (v16 < 0 || v21 != 1 || (unsigned int)BufferLengthOut < 2) && v3 )
           {
             ExFreePoolWithTag(v3, 0);
             v3 = 0LL;
@@ -173,7 +193,7 @@ LABEL_20:
     ++v1;
   }
   while ( v1 < v9 );
-  v4 = Pool2;
+  v4 = TargetPath;
 LABEL_22:
   if ( (unsigned int)PnpCtxRegQueryInfoKey(v8, v33, 0, 0, (__int64)&v31, (__int64)&v26, 0LL) || (v11 = v31) == 0 )
   {
@@ -201,8 +221,8 @@ LABEL_22:
           {
             if ( v32 == 1 )
               PnpCtxRegSetValue(v13, v27, L"CreationTime", 3LL, &v28, 8);
-            LODWORD(v20) = 0;
-            if ( (unsigned int)PnpCtxRegQueryValue(v13, v27, L"Version", 0LL, 0LL, &v20) == -1073741772
+            LODWORD(BufferLengthOut) = 0;
+            if ( (unsigned int)PnpCtxRegQueryValue(v13, v27, L"Version", 0LL, 0LL, &BufferLengthOut) == -1073741772
               && (int)PnpCtxRegSetValue(v13, v27, L"Version", 1LL, L"0.0.0.0", 16) >= 0 )
             {
               PnpCtxRegSetValue(v13, v27, L"ActivationTime", 3LL, &v28, 8);
@@ -212,7 +232,7 @@ LABEL_22:
           ++v15;
         }
         while ( v15 < v11 );
-        v4 = Pool2;
+        v4 = TargetPath;
       }
     }
   }
@@ -229,8 +249,8 @@ LABEL_36:
     PnpCtxRegCloseKey();
   if ( v14 )
     ExFreePoolWithTag(v14, 0);
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0);
+  if ( Pool2 )
+    ExFreePoolWithTag(Pool2, 0);
   if ( v3 )
     ExFreePoolWithTag(v3, 0);
   if ( v4 )

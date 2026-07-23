@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxIsDevicePotentialDripsConstraint @ 0x14049B6CC
+ * XREFs of PopFxIsDevicePotentialDripsConstraint @ 0x1404961FC
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     IoGetDevicePropertyData @ 0x140A11F10 (IoGetDevicePropertyData.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     IoGetDevicePropertyData @ 0x1409C0320 (IoGetDevicePropertyData.c)
  */
 
 bool __fastcall PopFxIsDevicePotentialDripsConstraint(PVOID Object)

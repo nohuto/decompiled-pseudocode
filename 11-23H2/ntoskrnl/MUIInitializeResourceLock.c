@@ -1,12 +1,12 @@
 /*
- * XREFs of MUIInitializeResourceLock @ 0x14085F5BC
+ * XREFs of MUIInitializeResourceLock @ 0x14085F7FC
  * Callers:
- *     NtGetMUIRegistryInfo @ 0x1407CA590 (NtGetMUIRegistryInfo.c)
- *     NtFlushInstallUILanguage @ 0x14085F4E0 (NtFlushInstallUILanguage.c)
- *     NtMapCMFModule @ 0x140A03210 (NtMapCMFModule.c)
+ *     NtGetMUIRegistryInfo @ 0x1407CA860 (NtGetMUIRegistryInfo.c)
+ *     NtFlushInstallUILanguage @ 0x14085F720 (NtFlushInstallUILanguage.c)
+ *     NtMapCMFModule @ 0x140A034A0 (NtMapCMFModule.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

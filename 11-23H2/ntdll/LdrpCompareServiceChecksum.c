@@ -7,24 +7,22 @@
  *     LdrpGetRcConfig @ 0x180008148 (LdrpGetRcConfig.c)
  */
 
-bool __fastcall LdrpCompareServiceChecksum(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+bool __fastcall LdrpCompareServiceChecksum(void *a1, void *a2)
 {
-  __int64 v5; // rdx
   __int64 RcConfig; // rbx
-  __int64 v7; // rax
-  __int64 v8; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rcx
 
-  LOBYTE(a4) = 1;
-  RcConfig = LdrpGetRcConfig(a1, a2, 0LL, a4);
+  RcConfig = LdrpGetRcConfig(a1);
   if ( !RcConfig )
     return 0;
-  v7 = LdrpGetRcConfig(a2, v5, 0LL, 0LL);
-  if ( !v7 )
+  v4 = LdrpGetRcConfig(a2);
+  if ( !v4 )
     return 0;
-  if ( *(_DWORD *)RcConfig != -20054323 || *(_DWORD *)v7 != -20054323 )
+  if ( *(_DWORD *)RcConfig != -20054323 || *(_DWORD *)v4 != -20054323 )
     return 1;
-  v8 = *(_QWORD *)(RcConfig + 28) - *(_QWORD *)(v7 + 28);
-  if ( !v8 )
-    v8 = *(_QWORD *)(RcConfig + 36) - *(_QWORD *)(v7 + 36);
-  return !v8;
+  v5 = *(_QWORD *)(RcConfig + 28) - *(_QWORD *)(v4 + 28);
+  if ( !v5 )
+    v5 = *(_QWORD *)(RcConfig + 36) - *(_QWORD *)(v4 + 36);
+  return !v5;
 }

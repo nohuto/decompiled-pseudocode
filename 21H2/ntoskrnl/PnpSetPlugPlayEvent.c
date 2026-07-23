@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpSetPlugPlayEvent @ 0x14074AFE8
+ * XREFs of PnpSetPlugPlayEvent @ 0x14074B1A8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x14074AB70 (PipProcessStartPhase3.c)
- *     PiInitializeDevice @ 0x1408B3C6C (PiInitializeDevice.c)
+ *     PiProcessNewDeviceNode @ 0x140744650 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x14074AD30 (PipProcessStartPhase3.c)
+ *     PiInitializeDevice @ 0x1408B3DCC (PiInitializeDevice.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PnpCreateDeviceEventEntry @ 0x1406E5E9C (PnpCreateDeviceEventEntry.c)
- *     PnpInsertEventInQueue @ 0x1406E756C (PnpInsertEventInQueue.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x1406FD284 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x1406FE94C (PnpInsertEventInQueue.c)
  */
 
 void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)

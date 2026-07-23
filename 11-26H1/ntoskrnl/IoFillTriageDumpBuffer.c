@@ -1,26 +1,26 @@
 /*
- * XREFs of IoFillTriageDumpBuffer @ 0x1405C6994
+ * XREFs of IoFillTriageDumpBuffer @ 0x1405C9264
  * Callers:
- *     IopCollectTriageDumpData @ 0x1405C8974 (IopCollectTriageDumpData.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CA224 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     DbgkpTriageDumpFillHeaders @ 0x14078C810 (DbgkpTriageDumpFillHeaders.c)
+ *     IopCollectTriageDumpData @ 0x1405CB244 (IopCollectTriageDumpData.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405CCAF4 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     DbgkpTriageDumpFillHeaders @ 0x14078F340 (DbgkpTriageDumpFillHeaders.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IopWriteDriverList @ 0x1404EC000 (IopWriteDriverList.c)
- *     IoGetLoadedDriverInfo @ 0x1404EC150 (IoGetLoadedDriverInfo.c)
- *     IopIsAddressRangeValid @ 0x1404EC1EC (IopIsAddressRangeValid.c)
- *     DumpCtlCheckErrorLocation @ 0x1405C610C (DumpCtlCheckErrorLocation.c)
- *     DumpCtlCheckExitStatus @ 0x1405C6130 (DumpCtlCheckExitStatus.c)
- *     IopAddRunTimeTriageDataBlocks @ 0x1405C884C (IopAddRunTimeTriageDataBlocks.c)
- *     IopFillTriageDumpDataBlocks @ 0x1405C9618 (IopFillTriageDumpDataBlocks.c)
- *     IopGetMaxValidMemorySize @ 0x1405C97BC (IopGetMaxValidMemorySize.c)
- *     KdCopyDataBlock @ 0x1405E35A4 (KdCopyDataBlock.c)
- *     MmWriteTriageInformation @ 0x1406F6D20 (MmWriteTriageInformation.c)
- *     MmWriteUnloadedDriverInformation @ 0x1406F6E1C (MmWriteUnloadedDriverInformation.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IopWriteDriverList @ 0x1404E55E0 (IopWriteDriverList.c)
+ *     IoGetLoadedDriverInfo @ 0x1404E5730 (IoGetLoadedDriverInfo.c)
+ *     IopIsAddressRangeValid @ 0x1404E57CC (IopIsAddressRangeValid.c)
+ *     DumpCtlCheckErrorLocation @ 0x1405C897C (DumpCtlCheckErrorLocation.c)
+ *     DumpCtlCheckExitStatus @ 0x1405C89A0 (DumpCtlCheckExitStatus.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x1405CB11C (IopAddRunTimeTriageDataBlocks.c)
+ *     IopFillTriageDumpDataBlocks @ 0x1405CBEE8 (IopFillTriageDumpDataBlocks.c)
+ *     IopGetMaxValidMemorySize @ 0x1405CC08C (IopGetMaxValidMemorySize.c)
+ *     KdCopyDataBlock @ 0x1405E5F14 (KdCopyDataBlock.c)
+ *     MmWriteTriageInformation @ 0x1406FB990 (MmWriteTriageInformation.c)
+ *     MmWriteUnloadedDriverInformation @ 0x1406FBA8C (MmWriteUnloadedDriverInformation.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IoFillTriageDumpBuffer(

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtDeleteKey @ 0x1800A1C90
+ * XREFs of NtDeleteKey @ 0x1800A1CB0
  * Callers:
- *     RtlpOpenImageFileOptionsKeyEx @ 0x180079268 (RtlpOpenImageFileOptionsKeyEx.c)
- *     RXactpCommit @ 0x180082D84 (RXactpCommit.c)
- *     RtlInitializeRXact @ 0x18008DDA0 (RtlInitializeRXact.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x180079278 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RXactpCommit @ 0x180082D94 (RXactpCommit.c)
+ *     RtlInitializeRXact @ 0x18008DDB0 (RtlInitializeRXact.c)
  *     RtlpDeleteEmptyImageFileOptionsKey @ 0x1800E48E8 (RtlpDeleteEmptyImageFileOptionsKey.c)
  *     RtlpCleanupRegistryKeys @ 0x1800EF6F0 (RtlpCleanupRegistryKeys.c)
  *     RtlpSetInstallLanguage @ 0x1800F05E0 (RtlpSetInstallLanguage.c)
@@ -12,11 +12,11 @@
  *     <none>
  */
 
-__int64 NtDeleteKey()
+NTSTATUS __cdecl NtDeleteKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 206LL;
+  result = 206;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -14,9 +14,15 @@
  *     PsFreezeProcess @ 0x140AC7BE0 (PsFreezeProcess.c)
  */
 
-__int64 __fastcall NtChangeProcessState(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3, __int64 a4, int a5, int a6)
+NTSTATUS __cdecl NtChangeProcessState(
+        HANDLE ProcessStateChangeHandle,
+        HANDLE ProcessHandle,
+        PROCESS_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
-  int v8; // edi
+  NTSTATUS v8; // edi
   int v9; // eax
   PVOID v10; // rcx
   struct _KTHREAD *CurrentThread; // r15
@@ -34,16 +40,16 @@ __int64 __fastcall NtChangeProcessState(ULONG_PTR a1, ULONG_PTR a2, unsigned int
 
   Object = 0LL;
   v23 = 0LL;
-  if ( a3 >= 2 )
-    return (unsigned int)-1073741821;
-  if ( a5 )
-    return (unsigned int)-1073741820;
-  if ( a4 || a6 )
-    return (unsigned int)-1073741811;
-  v8 = ObpReferenceObjectByHandleWithTag(a1, 0x63507350u, (__int64)&v23, 0LL, 0LL);
+  if ( (unsigned int)StateChangeType >= ProcessStateChangeMax )
+    return -1073741821;
+  if ( (_DWORD)ExtendedInformationLength )
+    return -1073741820;
+  if ( ExtendedInformation || (_DWORD)Reserved )
+    return -1073741811;
+  v8 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ProcessStateChangeHandle, 0x63507350u, (__int64)&v23, 0LL, 0LL);
   if ( v8 >= 0 )
   {
-    v9 = ObpReferenceObjectByHandleWithTag(a2, 0x63507350u, (__int64)&Object, 0LL, 0LL);
+    v9 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ProcessHandle, 0x63507350u, (__int64)&Object, 0LL, 0LL);
     v10 = Object;
     v8 = v9;
     if ( v9 < 0 )
@@ -66,9 +72,9 @@ LABEL_30:
       ExfAcquirePushLockExclusiveEx(v12, v14, (__int64)v12);
     if ( v15 )
       *((_BYTE *)v15 + 10) = 1;
-    if ( a3 )
+    if ( StateChangeType )
     {
-      if ( a3 == 1 )
+      if ( StateChangeType == ProcessStateChangeResume )
       {
         v16 = v23;
         if ( !*((_DWORD *)v23 + 4) )
@@ -107,5 +113,5 @@ LABEL_27:
 LABEL_32:
   if ( v23 )
     ObfDereferenceObjectWithTag(v23, 0x63507350u);
-  return (unsigned int)v8;
+  return v8;
 }

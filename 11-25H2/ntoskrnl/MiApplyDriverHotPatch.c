@@ -64,7 +64,7 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
   _DWORD *v31; // [rsp+78h] [rbp-88h]
   _DWORD *v32; // [rsp+80h] [rbp-80h]
   PVOID P; // [rsp+88h] [rbp-78h]
-  __int64 ExportedRoutineByName; // [rsp+90h] [rbp-70h] BYREF
+  PVOID ExportedRoutineByName; // [rsp+90h] [rbp-70h] BYREF
   int v35; // [rsp+98h] [rbp-68h]
   __int64 v36; // [rsp+A0h] [rbp-60h]
   __int64 *v37; // [rsp+A8h] [rbp-58h]
@@ -85,7 +85,7 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
   if ( (*(_DWORD *)(BaseLoaderPortion + 184) & 0x80u) != 0 )
     return 3221225496LL;
   v28 = MiGetBaseLoaderPortion(a1);
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48), 0LL);
+  HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)(a1 + 48));
   v31 = (_DWORD *)HotPatchInformation;
   v8 = (_DWORD *)HotPatchInformation;
   if ( !HotPatchInformation )
@@ -251,7 +251,7 @@ LABEL_28:
     if ( SectionStrongImageReference >= 0 )
     {
       if ( (*(_DWORD *)(BaseLoaderPortion + 184) & 2) != 0 )
-        ExportedRoutineByName = RtlFindExportedRoutineByName(*(_QWORD *)(a1 + 48), "__PatchMainCallout__");
+        ExportedRoutineByName = RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "__PatchMainCallout__");
       if ( ExportedRoutineByName )
       {
         v35 = 0;

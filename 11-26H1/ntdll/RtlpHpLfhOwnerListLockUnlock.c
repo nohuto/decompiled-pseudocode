@@ -1,32 +1,30 @@
 /*
- * XREFs of RtlpHpLfhOwnerListLockUnlock @ 0x1800973D0
+ * XREFs of RtlpHpLfhOwnerListLockUnlock @ 0x180071AE4
  * Callers:
- *     RtlpHpLfhOwnerLockUnlock @ 0x1800972C4 (RtlpHpLfhOwnerLockUnlock.c)
+ *     RtlpHpLfhOwnerLockUnlock @ 0x180071C28 (RtlpHpLfhOwnerLockUnlock.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpHpLfhOwnerListLockUnlock(__int64 a1, __int64 **a2, int a3)
+void __fastcall RtlpHpLfhOwnerListLockUnlock(__int64 a1, _RTL_SRWLOCK **a2, int a3)
 {
-  __int64 *i; // rbx
-  signed __int64 result; // rax
+  _RTL_SRWLOCK *i; // rbx
 
-  for ( i = *a2; i != (__int64 *)a2; i = (__int64 *)*i )
+  for ( i = *a2; i != (_RTL_SRWLOCK *)a2; i = (_RTL_SRWLOCK *)i->Value )
   {
-    if ( *((_BYTE *)i + 39) != 1 )
+    if ( HIBYTE(i[4].Ptr) != 1 )
     {
       if ( a3 >= 1 )
       {
         if ( a3 >= 2 )
-          i[7] = 1LL;
-        result = (signed __int64)RtlReleaseSRWLockExclusive(i + 7);
+          i[7].Value = 1LL;
+        RtlReleaseSRWLockExclusive(i + 7);
       }
       else
       {
-        result = RtlAcquireSRWLockExclusive(i + 7, (__int64)a2);
+        RtlAcquireSRWLockExclusive(i + 7);
       }
     }
   }
-  return result;
 }

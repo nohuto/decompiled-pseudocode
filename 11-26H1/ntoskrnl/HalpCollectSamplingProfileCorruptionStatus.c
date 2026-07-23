@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCollectSamplingProfileCorruptionStatus @ 0x14058011C
+ * XREFs of HalpCollectSamplingProfileCorruptionStatus @ 0x14058263C
  * Callers:
- *     HalpCollectProfileCorruptionStatus @ 0x1404F4408 (HalpCollectProfileCorruptionStatus.c)
+ *     HalpCollectProfileCorruptionStatus @ 0x1404ED9E8 (HalpCollectProfileCorruptionStatus.c)
  * Callees:
- *     HalpCollectSamplingProfileCorruptionStatusInternal @ 0x1405801D0 (HalpCollectSamplingProfileCorruptionStatusInternal.c)
+ *     HalpCollectSamplingProfileCorruptionStatusInternal @ 0x1405826F0 (HalpCollectSamplingProfileCorruptionStatusInternal.c)
  */
 
 __int64 __fastcall HalpCollectSamplingProfileCorruptionStatus(__int64 a1, unsigned int a2, unsigned int *a3)

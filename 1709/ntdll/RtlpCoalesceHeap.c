@@ -93,7 +93,7 @@ LABEL_26:
       *v14 = v15;
       *(_QWORD *)(v15 + 8) = v14;
       if ( (*(_BYTE *)(v5 + 10) & 8) != 0 )
-        RtlpCommitBlock(a1, v5);
+        RtlpCommitBlock((PVOID)a1, v5);
       v11 = *(unsigned __int16 *)(v5 + 8);
       v12 = v5;
 LABEL_30:

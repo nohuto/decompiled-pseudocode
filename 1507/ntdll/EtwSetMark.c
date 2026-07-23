@@ -7,14 +7,14 @@
  *     NtTraceEvent @ 0x180093EE0 (NtTraceEvent.c)
  */
 
-ULONG EtwSetMark()
+ULONG __cdecl EtwSetMark(TRACEHANDLE TraceHandle, PETW_SET_MARK_INFORMATION MarkInfo, ULONG Size)
 {
-  NTSTATUS v0; // ecx
+  NTSTATUS v3; // ecx
   ULONG result; // eax
 
-  v0 = NtTraceEvent();
+  v3 = NtTraceEvent((HANDLE)TraceHandle, 0x600u, Size, MarkInfo);
   result = 0;
-  if ( v0 )
-    return RtlNtStatusToDosError(v0);
+  if ( v3 )
+    return RtlNtStatusToDosError(v3);
   return result;
 }

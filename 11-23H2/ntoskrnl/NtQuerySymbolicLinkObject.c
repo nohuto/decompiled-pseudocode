@@ -1,27 +1,27 @@
 /*
- * XREFs of NtQuerySymbolicLinkObject @ 0x1407AA5C0
+ * XREFs of NtQuerySymbolicLinkObject @ 0x1407AA7B0
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x140841EF0 (AdtpInitializeDriveLetters.c)
+ *     AdtpInitializeDriveLetters @ 0x1408421F0 (AdtpInitializeDriveLetters.c)
  *     IopStoreSystemPartitionInformation @ 0x140B3BE74 (IopStoreSystemPartitionInformation.c)
  *     IopReassignSystemRoot @ 0x140B6FE8C (IopReassignSystemRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ExRaiseAccessViolation @ 0x140873DE0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseAccessViolation @ 0x140874020 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2, _DWORD *a3)
+NTSTATUS __cdecl NtQuerySymbolicLinkObject(HANDLE LinkHandle, PUNICODE_STRING LinkTarget, PULONG ReturnedLength)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   __int64 v7; // rcx
-  __int64 v8; // rcx
-  __int128 v9; // xmm0
+  __int64 p_MaximumLength; // rcx
+  UNICODE_STRING v9; // xmm0
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // rdx
   unsigned __int64 v12; // rdx
@@ -36,29 +36,29 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
   ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-30h]
   void *v23[2]; // [rsp+40h] [rbp-28h]
   UNICODE_STRING Src; // [rsp+50h] [rbp-18h] BYREF
-  NTSTATUS v25; // [rsp+88h] [rbp+20h]
+  int v25; // [rsp+88h] [rbp+20h]
 
   *(_OWORD *)v23 = 0LL;
   Src = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a2 & 1) != 0 )
+    if ( ((unsigned __int8)LinkTarget & 1) != 0 )
       ExRaiseDatatypeMisalignment();
-    v7 = a2;
-    if ( a2 >= 0x7FFFFFFF0000LL )
+    v7 = (__int64)LinkTarget;
+    if ( (unsigned __int64)LinkTarget >= 0x7FFFFFFF0000LL )
       v7 = 0x7FFFFFFF0000LL;
     *(_WORD *)v7 = *(_WORD *)v7;
-    v8 = a2 + 2;
-    if ( a2 + 2 >= 0x7FFFFFFF0000LL )
-      v8 = 0x7FFFFFFF0000LL;
-    *(_WORD *)v8 = *(_WORD *)v8;
-    v9 = *(_OWORD *)a2;
-    *(_OWORD *)v23 = v9;
-    if ( WORD1(v9) )
+    p_MaximumLength = (__int64)&LinkTarget->MaximumLength;
+    if ( (unsigned __int64)&LinkTarget->MaximumLength >= 0x7FFFFFFF0000LL )
+      p_MaximumLength = 0x7FFFFFFF0000LL;
+    *(_WORD *)p_MaximumLength = *(_WORD *)p_MaximumLength;
+    v9 = *LinkTarget;
+    *(UNICODE_STRING *)v23 = v9;
+    if ( v9.MaximumLength )
     {
       v10 = (unsigned __int64)v23[1];
-      v11 = (unsigned __int64)v23[1] + WORD1(v9) - 1;
+      v11 = (unsigned __int64)v23[1] + v9.MaximumLength - 1;
       if ( v23[1] > (void *)v11 || v11 >= 0x7FFFFFFF0000LL )
         ExRaiseAccessViolation();
       v12 = (v11 & 0xFFFFFFFFFFFFF000uLL) + 4096;
@@ -69,20 +69,20 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
       }
       while ( v10 != v12 );
     }
-    if ( a3 )
+    if ( ReturnedLength )
     {
-      v13 = (__int64)a3;
-      if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+      v13 = (__int64)ReturnedLength;
+      if ( (unsigned __int64)ReturnedLength >= 0x7FFFFFFF0000LL )
         v13 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v13 = *(_DWORD *)v13;
     }
   }
   else
   {
-    *(_OWORD *)v23 = *(_OWORD *)a2;
+    *(UNICODE_STRING *)v23 = *LinkTarget;
   }
   Object = 0LL;
-  v25 = ObReferenceObjectByHandle(Handle, 1u, ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
+  v25 = ObReferenceObjectByHandle(LinkHandle, 1u, ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
   if ( v25 >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -91,20 +91,20 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
     BugCheckParameter2 = (ULONG_PTR)Object - 32;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)Object - 32, 0LL);
     if ( (*((_DWORD *)v15 + 7) & 0x10) != 0 )
-      RtlInitUnicodeString(&Src, &word_140887DD0);
+      RtlInitUnicodeString(&Src, &word_140888010);
     else
       Src = *(UNICODE_STRING *)(v15 + 8);
     v16 = *(_DWORD *)&Src.Length;
-    if ( a3 )
+    if ( ReturnedLength )
     {
       if ( Src.MaximumLength <= WORD1(v23[0]) )
       {
         MaximumLength = Src.MaximumLength;
 LABEL_25:
         memmove(v23[1], Src.Buffer, MaximumLength);
-        *(_WORD *)a2 = v16;
-        if ( a3 )
-          *a3 = HIWORD(v16);
+        LinkTarget->Length = v16;
+        if ( ReturnedLength )
+          *ReturnedLength = HIWORD(v16);
 LABEL_27:
         ExReleasePushLockEx((__int64 *)BugCheckParameter2, 0LL);
         v18 = KeGetCurrentThread();
@@ -116,7 +116,7 @@ LABEL_27:
           KiCheckForKernelApcDelivery();
         }
         ObfDereferenceObject(Object);
-        return (unsigned int)v25;
+        return v25;
       }
     }
     else if ( Src.Length <= WORD1(v23[0]) )
@@ -125,9 +125,9 @@ LABEL_27:
       goto LABEL_25;
     }
     v25 = -1073741789;
-    if ( a3 )
-      *a3 = Src.MaximumLength;
+    if ( ReturnedLength )
+      *ReturnedLength = Src.MaximumLength;
     goto LABEL_27;
   }
-  return (unsigned int)v25;
+  return v25;
 }

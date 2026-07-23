@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaInitializeProcessor @ 0x140B61B24
+ * XREFs of WheaInitializeProcessor @ 0x140B63BF4
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
  * Callees:
- *     WheapCallErrorSourceInitialize @ 0x14065D6D4 (WheapCallErrorSourceInitialize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     WheapCallErrorSourceInitialize @ 0x14065BDF4 (WheapCallErrorSourceInitialize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WheaInitializeProcessor(__int64 a1, unsigned int a2)
@@ -17,7 +17,7 @@ __int64 __fastcall WheaInitializeProcessor(__int64 a1, unsigned int a2)
   result = 0LL;
   if ( a2 )
   {
-    for ( i = qword_140EEED18; (__int64 *)i != &qword_140EEED18; i = *(_QWORD *)i )
+    for ( i = qword_140EEEF20; (__int64 *)i != &qword_140EEEF20; i = *(_QWORD *)i )
     {
       if ( *(_DWORD *)(i + 108) == 1 )
       {
@@ -33,12 +33,12 @@ __int64 __fastcall WheaInitializeProcessor(__int64 a1, unsigned int a2)
   }
   else
   {
-    Pool2 = ExAllocatePool2(0x42uLL);
+    Pool2 = ExAllocatePool2(0x42uLL, 0x18uLL, 0x61656857u);
     v6 = Pool2;
     if ( Pool2 )
     {
       *(_QWORD *)(Pool2 + 8) = &WheapErrorSourceTable;
-      *(_DWORD *)Pool2 = dword_140EEED0C;
+      *(_DWORD *)Pool2 = dword_140EEEF14;
       *(_QWORD *)(Pool2 + 16) = &WheapWorkQueue;
       result = 0LL;
       *(_QWORD *)(a1 + 35744) = v6;

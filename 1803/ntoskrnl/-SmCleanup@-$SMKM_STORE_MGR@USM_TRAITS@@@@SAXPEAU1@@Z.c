@@ -27,7 +27,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCleanup(__int64 a1)
       v2);
   SmFpCleanup(a1 + 1424);
   SmFpCleanup(a1 + 1536);
-  SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((union _SLIST_HEADER *)(a1 + 1248), 1);
+  SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((_SLIST_HEADER *)(a1 + 1248), 1);
   v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1264));
   *(_DWORD *)(a1 + 1352) = 0;
   v4 = v3;
@@ -36,5 +36,5 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCleanup(__int64 a1)
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1264));
   __writecr8(v4);
   ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a1 + 1384));
-  SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((union _SLIST_HEADER *)(a1 + 1408), 1);
+  SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList((_SLIST_HEADER *)(a1 + 1408), 1);
 }

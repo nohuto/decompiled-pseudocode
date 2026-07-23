@@ -9,7 +9,7 @@
  *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F194 (PoPushPowerStateTransitionRecordWithCallback.c)
  */
 
-__int64 __fastcall PopPushPowerStateTransitionRecord(void *a1, void *a2, __int64 a3)
+__int64 __fastcall PopPushPowerStateTransitionRecord(void *a1, void *a2, LARGE_INTEGER a3)
 {
   return PoPushPowerStateTransitionRecordWithCallback(a1, a2, a3, 0LL);
 }

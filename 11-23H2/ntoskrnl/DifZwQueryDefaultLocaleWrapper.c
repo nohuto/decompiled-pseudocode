@@ -1,15 +1,15 @@
 /*
- * XREFs of DifZwQueryDefaultLocaleWrapper @ 0x1405F38F0
+ * XREFs of DifZwQueryDefaultLocaleWrapper @ 0x1405F3E60
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryDefaultLocale @ 0x14041B000 (ZwQueryDefaultLocale.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwQueryDefaultLocale @ 0x14041B390 (ZwQueryDefaultLocale.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwQueryDefaultLocaleWrapper(char a1, __int64 a2)
+NTSTATUS __fastcall DifZwQueryDefaultLocaleWrapper(BOOLEAN a1, DWORD *a2)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -20,7 +20,7 @@ __int64 __fastcall DifZwQueryDefaultLocaleWrapper(char a1, __int64 a2)
   int v10; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v14; // rdi
   _QWORD *v15; // rbx
   __int128 v16; // [rsp+20h] [rbp-20h] BYREF
@@ -66,8 +66,7 @@ LABEL_10:
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v16);
   }
 LABEL_17:
-  LOBYTE(v6) = a1;
-  result = ZwQueryDefaultLocale(v6, a2);
+  result = ZwQueryDefaultLocale(a1, a2);
   HIDWORD(v17) = result;
   if ( v9 )
   {

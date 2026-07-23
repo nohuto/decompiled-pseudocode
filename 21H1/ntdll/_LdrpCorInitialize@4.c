@@ -19,62 +19,80 @@
  */
 
 // bad sp value at call has been detected, the output may be wrong!
-int __fastcall LdrpCorInitialize(_DWORD *a1)
+int __fastcall LdrpCorInitialize(int a1)
 {
   bool v1; // bl
   int ProcedureAddress; // edi
-  int v4; // [esp+10h] [ebp-188h] BYREF
-  _DWORD *v5; // [esp+14h] [ebp-184h]
-  unsigned int v6; // [esp+18h] [ebp-180h] BYREF
-  int v7; // [esp+1Ch] [ebp-17Ch] BYREF
-  char v8; // [esp+23h] [ebp-175h]
-  int v9; // [esp+24h] [ebp-174h] BYREF
-  _DWORD *v10; // [esp+28h] [ebp-170h]
-  _DWORD v11[85]; // [esp+2Ch] [ebp-16Ch] BYREF
+  int *v3; // ebx
+  PVOID v4; // ecx
+  SIZE_T v6; // [esp-4h] [ebp-19Ch]
+  SIZE_T v7; // [esp-4h] [ebp-19Ch]
+  ULONG_PTR *v8; // [esp+4h] [ebp-194h]
+  ULONG_PTR *v9; // [esp+4h] [ebp-194h]
+  SIZE_T ValueLength; // [esp+10h] [ebp-188h] BYREF
+  int v11; // [esp+18h] [ebp-180h] BYREF
+  PVOID BaseAddress; // [esp+1Ch] [ebp-17Ch] BYREF
+  char v13; // [esp+23h] [ebp-175h]
+  int v14; // [esp+24h] [ebp-174h] BYREF
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [esp+28h] [ebp-170h]
+  _WORD v16[128]; // [esp+2Ch] [ebp-16Ch] BYREF
+  PWSTR Path[19]; // [esp+12Ch] [ebp-6Ch] BYREF
+  char v18; // [esp+178h] [ebp-20h]
   CPPEH_RECORD ms_exc; // [esp+180h] [ebp-18h]
 
-  v5 = a1;
-  v6 = (unsigned int)a1;
+  HIDWORD(ValueLength) = a1;
+  v11 = a1;
   v1 = 1;
-  v8 = 1;
+  v13 = 1;
   RtlEnterCriticalSection(&FastPebLock);
   ms_exc.registration.TryLevel = 0;
-  if ( RtlQueryEnvironmentVariable(0, (wchar_t *)L"COMPLUS_InstallRoot", 0x13u, 0, 0, (int)&v4) == -1073741789 )
+  LODWORD(v6) = &ValueLength;
+  if ( RtlQueryEnvironmentVariable(0, L"COMPLUS_InstallRoot", 0x13uLL, 0, v6, v8) == -1073741789 )
   {
-    v1 = RtlQueryEnvironmentVariable(0, (wchar_t *)L"COMPLUS_Version", 0xFu, 0, 0, (int)&v4) != -1073741789;
-    v8 = v1;
+    LODWORD(v7) = &ValueLength;
+    v1 = RtlQueryEnvironmentVariable(0, L"COMPLUS_Version", 0xFuLL, 0, v7, v9) != -1073741789;
+    v13 = v1;
   }
   ms_exc.registration.TryLevel = -2;
   RtlLeaveCriticalSection(&FastPebLock);
-  v10 = v11;
-  v9 = 0x1000000;
-  LOWORD(v11[0]) = 0;
+  BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v16;
+  v14 = 0x1000000;
+  v16[0] = 0;
   if ( v1 )
-    ProcedureAddress = LdrpBuildSystem32FileName(&v9, &LdrpMscoreeDllName);
+  {
+    ProcedureAddress = LdrpBuildSystem32FileName(&v14, &LdrpMscoreeDllName);
+    v3 = &v14;
+  }
   else
+  {
+    v3 = &LdrpMscoreeDllName;
     ProcedureAddress = 0;
+  }
   if ( ProcedureAddress >= 0 )
   {
-    memset(&v11[64], 0, 0x50u);
-    ProcedureAddress = LdrpLoadDll(1, &v7);
-    if ( LOBYTE(v11[83]) )
-      RtlReleasePath(v11[64]);
+    ms_exc.registration.Next = (struct _EH3_EXCEPTION_REGISTRATION *)80;
+    memset(Path, 0, *(size_t *)&ms_exc.registration.Next);
+    ProcedureAddress = LdrpLoadDll((PUNICODE_STRING)v3, 1, &BaseAddress);
+    if ( v18 )
+      RtlReleasePath(Path[0]);
     if ( ProcedureAddress >= 0 )
     {
-      ProcedureAddress = LdrpGetProcedureAddress(0, &v6);
+      ProcedureAddress = LdrpGetProcedureAddress(*((PVOID *)BaseAddress + 6), 0, (int)&v11);
       if ( ProcedureAddress < 0 )
       {
-        LdrpDecrementModuleLoadCountEx(v7, 0);
+        LdrpDecrementModuleLoadCountEx(BaseAddress, 0);
+        v4 = BaseAddress;
       }
       else
       {
-        LdrpCorExeMainRoutine = __ROR4__(v6 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
-        *v5 = v7;
+        LdrpCorExeMainRoutine = __ROR4__(v11 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x1F);
+        v4 = BaseAddress;
+        *(_DWORD *)HIDWORD(ValueLength) = BaseAddress;
       }
-      LdrpDereferenceModule();
+      LdrpDereferenceModule(v4);
     }
   }
-  if ( v11 != v10 )
-    RtlDeleteBoundaryDescriptor(v10);
+  if ( v16 != (_WORD *)BoundaryDescriptor )
+    RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
   return ProcedureAddress;
 }

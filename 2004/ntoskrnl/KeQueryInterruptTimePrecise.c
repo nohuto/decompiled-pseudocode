@@ -12,7 +12,7 @@
  *     RtlGetInterruptTimePrecise @ 0x14021F2E0 (RtlGetInterruptTimePrecise.c)
  */
 
-__int64 __fastcall KeQueryInterruptTimePrecise(LARGE_INTEGER *a1)
+LARGE_INTEGER __fastcall KeQueryInterruptTimePrecise(LARGE_INTEGER *a1)
 {
   return RtlGetInterruptTimePrecise(a1);
 }

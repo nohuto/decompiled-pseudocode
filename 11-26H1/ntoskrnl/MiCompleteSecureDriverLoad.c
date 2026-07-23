@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCompleteSecureDriverLoad @ 0x140AC7384
+ * XREFs of MiCompleteSecureDriverLoad @ 0x140AC8F74
  * Callers:
- *     MiMarkKernelImageCfgBits @ 0x140AC705C (MiMarkKernelImageCfgBits.c)
- *     MiFinalizeDriverCfgState @ 0x140AC7330 (MiFinalizeDriverCfgState.c)
+ *     MiMarkKernelImageCfgBits @ 0x140AC8C4C (MiMarkKernelImageCfgBits.c)
+ *     MiFinalizeDriverCfgState @ 0x140AC8F20 (MiFinalizeDriverCfgState.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiUnlockDriverPages @ 0x140AC7404 (MiUnlockDriverPages.c)
- *     VslCompleteSecureDriverLoad @ 0x140AC74B8 (VslCompleteSecureDriverLoad.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiUnlockDriverPages @ 0x140AC8FF4 (MiUnlockDriverPages.c)
+ *     VslCompleteSecureDriverLoad @ 0x140AC90A8 (VslCompleteSecureDriverLoad.c)
  */
 
 __int64 __fastcall MiCompleteSecureDriverLoad(__int64 a1)

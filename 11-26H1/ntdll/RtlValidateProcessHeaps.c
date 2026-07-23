@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlValidateProcessHeaps @ 0x1801446C0
+ * XREFs of RtlValidateProcessHeaps @ 0x180144570
  * Callers:
  *     <none>
  * Callees:
- *     RtlpEnumProcessHeaps @ 0x180091420 (RtlpEnumProcessHeaps.c)
+ *     RtlpEnumProcessHeaps @ 0x180076180 (RtlpEnumProcessHeaps.c)
  */
 
-bool RtlValidateProcessHeaps()
+BOOLEAN RtlValidateProcessHeaps(void)
 {
   return (int)RtlpEnumProcessHeaps(
                 (__int64 (__fastcall *)(__int64, _QWORD, __int64))RtlValidateProcessHeapsCallback,

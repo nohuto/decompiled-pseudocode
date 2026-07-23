@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCollectProfileOwnershipStatus @ 0x14057FE48
+ * XREFs of HalpCollectProfileOwnershipStatus @ 0x140582368
  * Callers:
- *     HalpQueryProfileInformation @ 0x140B19488 (HalpQueryProfileInformation.c)
+ *     HalpQueryProfileInformation @ 0x140B1B8D8 (HalpQueryProfileInformation.c)
  * Callees:
- *     HalpCollectProfileOwnershipStatusInternal @ 0x14057FF88 (HalpCollectProfileOwnershipStatusInternal.c)
+ *     HalpCollectProfileOwnershipStatusInternal @ 0x1405824A8 (HalpCollectProfileOwnershipStatusInternal.c)
  */
 
 __int64 __fastcall HalpCollectProfileOwnershipStatus(unsigned int *a1, unsigned int a2, unsigned int *a3)

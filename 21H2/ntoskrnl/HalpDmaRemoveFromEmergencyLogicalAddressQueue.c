@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B8160
+ * XREFs of HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B83A0
  * Callers:
- *     HalCancelAdapterChannel @ 0x1404C5EC0 (HalCancelAdapterChannel.c)
- *     HalpAllocateDmaResourcesInternal @ 0x1404CA5DC (HalpAllocateDmaResourcesInternal.c)
- *     HalCancelAdapterChannelThin @ 0x1404CACE0 (HalCancelAdapterChannelThin.c)
+ *     HalCancelAdapterChannel @ 0x1404C6100 (HalCancelAdapterChannel.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA81C (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannelThin @ 0x1404CAF20 (HalCancelAdapterChannelThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

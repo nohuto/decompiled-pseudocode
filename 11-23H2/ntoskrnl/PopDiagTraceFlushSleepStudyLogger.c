@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagTraceFlushSleepStudyLogger @ 0x140AA7E2C
+ * XREFs of PopDiagTraceFlushSleepStudyLogger @ 0x140AA7C9C
  * Callers:
- *     PopUmpoSendFlushSleepStudyLoggerNotification @ 0x14059974C (PopUmpoSendFlushSleepStudyLoggerNotification.c)
+ *     PopUmpoSendFlushSleepStudyLoggerNotification @ 0x140599C3C (PopUmpoSendFlushSleepStudyLoggerNotification.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x140367640 (PopDiagTraceEventNoPayload.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403677E0 (PopDiagTraceEventNoPayload.c)
  */
 
 void PopDiagTraceFlushSleepStudyLogger()

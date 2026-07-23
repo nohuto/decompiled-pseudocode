@@ -52,16 +52,16 @@ __int64 __fastcall PiAuGetServiceStateSecurityObject(_QWORD *a1)
     if ( Acl >= 0 )
     {
       v10 = SeTrustedInstallerSid;
-      Acl = RtlpAddKnownAce((__int64)v8, 2u, 2, 0x10000000, (unsigned __int8 *)SeTrustedInstallerSid, 0);
+      Acl = RtlpAddKnownAce(v8, 2u, 2, 0x10000000, (unsigned __int8 *)SeTrustedInstallerSid, 0);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v8, 2u, 2, -2147287034, (unsigned __int8 *)SeLocalSystemSid, 0);
+        Acl = RtlpAddKnownAce(v8, 2u, 2, -2147287034, (unsigned __int8 *)SeLocalSystemSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v8, 2u, 2, 0x80000000, (unsigned __int8 *)SeAliasAdminsSid, 0);
+          Acl = RtlpAddKnownAce(v8, 2u, 2, 0x80000000, (unsigned __int8 *)SeAliasAdminsSid, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v8, 2u, 2, 0x80000000, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
+            Acl = RtlpAddKnownAce(v8, 2u, 2, 0x80000000, (unsigned __int8 *)SeExports->SeUserModeDriversSid, 0);
             if ( Acl >= 0 )
             {
               Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);

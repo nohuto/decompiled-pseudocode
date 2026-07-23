@@ -2,21 +2,21 @@
  * XREFs of PoSetPowerRequestInternal @ 0x140002E88
  * Callers:
  *     PoSetPowerRequest @ 0x140001FD0 (PoSetPowerRequest.c)
- *     PpmBeginHighPerfRequest @ 0x1401785C0 (PpmBeginHighPerfRequest.c)
- *     PopPowerRequestActionInfo @ 0x140588A30 (PopPowerRequestActionInfo.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     PpmBeginHighPerfRequest @ 0x1401786C0 (PpmBeginHighPerfRequest.c)
+ *     PopPowerRequestActionInfo @ 0x140589A30 (PopPowerRequestActionInfo.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
  *     PopDiagTracePowerRequestChange @ 0x140003064 (PopDiagTracePowerRequestChange.c)
  *     PopQueuePowerRequestCallback @ 0x1400031A4 (PopQueuePowerRequestCallback.c)
  *     PopPowerRequestCallbackWorker @ 0x140003790 (PopPowerRequestCallbackWorker.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopProcessDisplayRequiredChange @ 0x1405886FC (PopProcessDisplayRequiredChange.c)
- *     PopReleasePowerRequestPushLock @ 0x140589A6C (PopReleasePowerRequestPushLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopProcessDisplayRequiredChange @ 0x1405896FC (PopProcessDisplayRequiredChange.c)
+ *     PopReleasePowerRequestPushLock @ 0x14058AA6C (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14058AD50 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 __fastcall PoSetPowerRequestInternal(__int64 a1, unsigned int a2)

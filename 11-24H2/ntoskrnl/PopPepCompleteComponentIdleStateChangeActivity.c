@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x140316EF0
+ * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x1402BFAA0
  * Callers:
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     PopFxUpdateAccountingActiveTime @ 0x140311C70 (PopFxUpdateAccountingActiveTime.c)
- *     PopPepUpdateIdleStateRefCount @ 0x140315390 (PopPepUpdateIdleStateRefCount.c)
- *     PopPepGetComponentPreferedIdleState @ 0x140316D90 (PopPepGetComponentPreferedIdleState.c)
- *     PopPepTriggerActivity @ 0x140319270 (PopPepTriggerActivity.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     PopFxUpdateComponentPerfStateNominalChange @ 0x1405D2040 (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1402BF940 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepTriggerActivity @ 0x1402C1E00 (PopPepTriggerActivity.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A6EB0 (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x1403A7928 (PopFxUpdateAccountingActiveTime.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x1405CF760 (PopFxUpdateComponentPerfStateNominalChange.c)
  */
 
 void __fastcall PopPepCompleteComponentIdleStateChangeActivity(__int64 a1, __int64 a2)
@@ -60,10 +60,10 @@ void __fastcall PopPepCompleteComponentIdleStateChangeActivity(__int64 a1, __int
 LABEL_13:
     v6 = *(unsigned int *)(a2 + 176);
     PopPepUpdateIdleStateRefCount(
-      *(_DWORD *)(*(_QWORD *)(a2 + 200) + 24LL * *(unsigned int *)(a2 + 180) + 16),
-      *(_DWORD *)(*(_QWORD *)(a2 + 200) + 24 * v6 + 16),
-      0,
-      (volatile signed __int32 *)(a2 + 192));
+      *(unsigned int *)(*(_QWORD *)(a2 + 200) + 24LL * *(unsigned int *)(a2 + 180) + 16),
+      *(unsigned int *)(*(_QWORD *)(a2 + 200) + 24 * v6 + 16),
+      0LL,
+      a2 + 192);
     v7 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 872LL) + 8LL * *(unsigned int *)(a2 + 8)) + 200LL;
     v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v7);
     if ( *(_DWORD *)(v7 + 16) == 2 )

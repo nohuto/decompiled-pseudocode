@@ -9,7 +9,10 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwAlpcCreateSecurityContextWrapper(__int64 a1, unsigned int a2, __int64 a3)
+NTSTATUS __fastcall DifZwAlpcCreateSecurityContextWrapper(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PALPC_SECURITY_ATTR SecurityAttribute)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -20,7 +23,7 @@ __int64 __fastcall DifZwAlpcCreateSecurityContextWrapper(__int64 a1, unsigned in
   int v12; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v16; // rdi
   _QWORD *v17; // rbx
   __int128 v18; // [rsp+20h] [rbp-30h] BYREF
@@ -60,16 +63,16 @@ LABEL_8:
   }
   *(_QWORD *)&v18 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v19 + 1) = a1;
-  LODWORD(v19) = a2;
-  *((_QWORD *)&v18 + 1) = a3;
+  *((_QWORD *)&v19 + 1) = PortHandle;
+  LODWORD(v19) = Flags;
+  *((_QWORD *)&v18 + 1) = SecurityAttribute;
   for ( i = (__int64 *)v11[4]; i != v11 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v18);
   }
 LABEL_17:
-  result = ZwAlpcCreateSecurityContext(a1, a2);
+  result = ZwAlpcCreateSecurityContext(PortHandle, Flags, SecurityAttribute);
   LODWORD(v20) = result;
   if ( v11 )
   {
@@ -84,7 +87,7 @@ LABEL_17:
         v17 = (_QWORD *)*v17;
       }
       while ( v17 != v16 );
-      return (unsigned int)v20;
+      return v20;
     }
   }
   return result;

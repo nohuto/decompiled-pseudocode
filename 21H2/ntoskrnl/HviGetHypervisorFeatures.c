@@ -1,20 +1,20 @@
 /*
- * XREFs of HviGetHypervisorFeatures @ 0x1403AE200
+ * XREFs of HviGetHypervisorFeatures @ 0x1403AE350
  * Callers:
- *     KiDetectHardwareSpecControlFeatures @ 0x1403ADD1C (KiDetectHardwareSpecControlFeatures.c)
- *     HvlpTryConfigureInterface @ 0x1403AE640 (HvlpTryConfigureInterface.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403ADE6C (KiDetectHardwareSpecControlFeatures.c)
+ *     HvlpTryConfigureInterface @ 0x1403AE790 (HvlpTryConfigureInterface.c)
  *     KiIsHyperVCr3RspErrataPresent @ 0x1403F3760 (KiIsHyperVCr3RspErrataPresent.c)
- *     HvlSvmGetSystemCapabilities @ 0x1404F7060 (HvlSvmGetSystemCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x1404FA3C4 (HvlpDetermineEnlightenments.c)
- *     PopIsRunningInVm @ 0x140568D00 (PopIsRunningInVm.c)
- *     HvipApertureDetectParameters @ 0x140594784 (HvipApertureDetectParameters.c)
- *     HviGetIptFeatures @ 0x1405BF0D8 (HviGetIptFeatures.c)
- *     HvlQueryDetailInfo @ 0x14088E328 (HvlQueryDetailInfo.c)
- *     HalpLbrInitialize @ 0x14099B704 (HalpLbrInitialize.c)
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
- *     EtwpTraceSystemInitialization @ 0x140A428C8 (EtwpTraceSystemInitialization.c)
+ *     HvlSvmGetSystemCapabilities @ 0x1404F6FE0 (HvlSvmGetSystemCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x1404FA344 (HvlpDetermineEnlightenments.c)
+ *     PopIsRunningInVm @ 0x140568F40 (PopIsRunningInVm.c)
+ *     HvipApertureDetectParameters @ 0x1405949B4 (HvipApertureDetectParameters.c)
+ *     HviGetIptFeatures @ 0x1405BF308 (HviGetIptFeatures.c)
+ *     HvlQueryDetailInfo @ 0x14088E488 (HvlQueryDetailInfo.c)
+ *     HalpLbrInitialize @ 0x14099C704 (HalpLbrInitialize.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
+ *     EtwpTraceSystemInitialization @ 0x140A438C8 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE240 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE390 (HviIsHypervisorMicrosoftCompatible.c)
  */
 
 __int64 __fastcall HviGetHypervisorFeatures(_DWORD *a1)

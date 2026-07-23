@@ -1,14 +1,14 @@
 /*
- * XREFs of _handle_errorf @ 0x1401511A0
+ * XREFs of _handle_errorf @ 0x140151758
  * Callers:
- *     sqrtf @ 0x14014E4F4 (sqrtf.c)
+ *     sqrtf @ 0x14014EAB4 (sqrtf.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _call_matherr @ 0x140150F54 (_call_matherr.c)
- *     _exception_enabled @ 0x140150FBC (_exception_enabled.c)
- *     _raise_excf @ 0x140151814 (_raise_excf.c)
- *     _set_errno_from_matherr @ 0x140151840 (_set_errno_from_matherr.c)
- *     _ctrlfp @ 0x140151884 (_ctrlfp.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _call_matherr @ 0x14015150C (_call_matherr.c)
+ *     _exception_enabled @ 0x140151574 (_exception_enabled.c)
+ *     _raise_excf @ 0x140151DCC (_raise_excf.c)
+ *     _set_errno_from_matherr @ 0x140151DF8 (_set_errno_from_matherr.c)
+ *     _ctrlfp @ 0x140151E3C (_ctrlfp.c)
  */
 
 float __fastcall handle_errorf(

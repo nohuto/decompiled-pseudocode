@@ -1,16 +1,16 @@
 /*
- * XREFs of SmpKeyedStoreCreate @ 0x1403E3548
+ * XREFs of SmpKeyedStoreCreate @ 0x1403E4B74
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     SmAlloc @ 0x14000215C (SmAlloc.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x140002E5C (SmKmStoreDeleteWhenEmpty.c)
- *     SmKmStoreDereference @ 0x140002F88 (SmKmStoreDereference.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14000321C (SmKmStoreRefFromStoreIndex.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     SmpKeyedStoreEntryGet @ 0x1400C92BC (SmpKeyedStoreEntryGet.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SmpDirtyStoreCreate @ 0x1403E3610 (SmpDirtyStoreCreate.c)
+ *     SmAlloc @ 0x1400022D0 (SmAlloc.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140002FD0 (SmKmStoreDeleteWhenEmpty.c)
+ *     SmKmStoreDereference @ 0x1400030FC (SmKmStoreDereference.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140003390 (SmKmStoreRefFromStoreIndex.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     SmpKeyedStoreEntryGet @ 0x1400C715C (SmpKeyedStoreEntryGet.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SmpDirtyStoreCreate @ 0x1403E4C3C (SmpDirtyStoreCreate.c)
  */
 
 __int64 __fastcall SmpKeyedStoreCreate(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

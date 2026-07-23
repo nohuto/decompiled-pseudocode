@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAcquirePrcbLock @ 0x14042F370
+ * XREFs of KiAcquirePrcbLock @ 0x14041C280
  * Callers:
- *     KiIdleLoop @ 0x140728DB0 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x14072D980 (KiIdleLoop.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
  */
 
 __int64 __fastcall KiAcquirePrcbLock(__int64 a1)

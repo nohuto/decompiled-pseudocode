@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpRemoveMessageFromPendingQueue @ 0x1409C0E68
+ * XREFs of AlpcpRemoveMessageFromPendingQueue @ 0x140991E48
  * Callers:
- *     AlpcpDispatchReplyToWaitingThread @ 0x1409BEFC0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x140A49448 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x140A7A138 (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     AlpcpCancelMessage @ 0x140ACCE1C (AlpcpCancelMessage.c)
- *     AlpcpDispatchReplyToPort @ 0x140B6F318 (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x14098FFA0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140A52738 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x140A82078 (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpCancelMessage @ 0x140ACF05C (AlpcpCancelMessage.c)
+ *     AlpcpDispatchReplyToPort @ 0x140B73328 (AlpcpDispatchReplyToPort.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall AlpcpRemoveMessageFromPendingQueue(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_CompatPreallocatedVelocity55922067__private_IsEnabledFallback @ 0x140713D04
+ * XREFs of Feature_CompatPreallocatedVelocity55922067__private_IsEnabledFallback @ 0x1407189F4
  * Callers:
- *     Feature_CompatPreallocatedVelocity55922067__private_IsEnabledDeviceUsageNoInline @ 0x140713CC8 (Feature_CompatPreallocatedVelocity55922067__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_CompatPreallocatedVelocity55922067__private_IsEnabledDeviceUsageNoInline @ 0x1407189B8 (Feature_CompatPreallocatedVelocity55922067__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_CompatPreallocatedVelocity55922067__private_IsEnabledFallback(__int64 a1, unsigned int a2)

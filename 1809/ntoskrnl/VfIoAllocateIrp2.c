@@ -1,10 +1,10 @@
 /*
- * XREFs of VfIoAllocateIrp2 @ 0x1409301F8
+ * XREFs of VfIoAllocateIrp2 @ 0x1409311F8
  * Callers:
- *     IovAllocateIrp @ 0x140923810 (IovAllocateIrp.c)
+ *     IovAllocateIrp @ 0x140924810 (IovAllocateIrp.c)
  * Callees:
- *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
- *     VfPacketCreateAndLock @ 0x14093F3F8 (VfPacketCreateAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x14093F3A4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfPacketCreateAndLock @ 0x1409403F8 (VfPacketCreateAndLock.c)
  */
 
 __int64 __fastcall VfIoAllocateIrp2(__int64 a1, _OWORD *a2)

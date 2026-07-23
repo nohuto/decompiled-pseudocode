@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpReleaseDisownedFastResourceShared @ 0x1403CAA50
+ * XREFs of ExpReleaseDisownedFastResourceShared @ 0x1403CAC30
  * Callers:
- *     ExReleaseDisownedFastResource @ 0x1403CA950 (ExReleaseDisownedFastResource.c)
- *     ExReleaseDisownedFastResourceShared @ 0x140609EA0 (ExReleaseDisownedFastResourceShared.c)
+ *     ExReleaseDisownedFastResource @ 0x1403CAB30 (ExReleaseDisownedFastResource.c)
+ *     ExReleaseDisownedFastResourceShared @ 0x14060A3F0 (ExReleaseDisownedFastResourceShared.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     ExpPrepareToWakeResourceShared @ 0x1402603E0 (ExpPrepareToWakeResourceShared.c)
- *     ExpCommitWakeResourceShared @ 0x140260C30 (ExpCommitWakeResourceShared.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAbCrossThreadRelease @ 0x1403CAD08 (KeAbCrossThreadRelease.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x1403CADAC (ExpRotateFastOwnerEntrySublistHead.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     ExpPrepareToWakeResourceShared @ 0x140260670 (ExpPrepareToWakeResourceShared.c)
+ *     ExpCommitWakeResourceShared @ 0x140260EC0 (ExpCommitWakeResourceShared.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbCrossThreadRelease @ 0x1403CAEE8 (KeAbCrossThreadRelease.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x1403CAF8C (ExpRotateFastOwnerEntrySublistHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall ExpReleaseDisownedFastResourceShared(__int64 a1, __int64 *a2)
@@ -60,7 +60,7 @@ __int64 __fastcall ExpReleaseDisownedFastResourceShared(__int64 a1, __int64 *a2)
   v32[2] = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -94,10 +94,10 @@ LABEL_6:
       *a2 = 0LL;
       a2[1] = 0LL;
       KxReleaseQueuedSpinLock(v32);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v25 = CurrentPrcb->SchedulerAssist;
@@ -153,10 +153,10 @@ LABEL_42:
   if ( v35 )
     v3 = 1;
   ExpCommitWakeResourceShared(v20, &v36, v21, 0, v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
     {
       v29 = KeGetCurrentPrcb();
       v30 = v29->SchedulerAssist;

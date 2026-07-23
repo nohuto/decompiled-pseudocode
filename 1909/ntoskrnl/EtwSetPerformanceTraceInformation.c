@@ -340,7 +340,7 @@ LABEL_119:
                       switch ( v62 )
                       {
                         case 6:
-                          updated = EtwpUpdateStackTracing((struct _RTL_BITMAP *)v19, (__int64)v47, v46);
+                          updated = EtwpUpdateStackTracing((_RTL_BITMAP *)v19, (__int64)v47, v46);
                           break;
                         case 15:
                           updated = EtwpUpdatePmcCounters(v19, v47, v46);

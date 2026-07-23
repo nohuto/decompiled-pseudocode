@@ -1,15 +1,15 @@
 /*
- * XREFs of sprintf_s @ 0x140152AEC
+ * XREFs of sprintf_s @ 0x1401530AC
  * Callers:
- *     RtlIpv4AddressToStringA @ 0x140133C18 (RtlIpv4AddressToStringA.c)
- *     RtlEthernetAddressToStringA @ 0x140213E98 (RtlEthernetAddressToStringA.c)
- *     RtlIpv4AddressToStringExA @ 0x140213EFC (RtlIpv4AddressToStringExA.c)
- *     RtlIpv6AddressToStringA @ 0x140213FB0 (RtlIpv6AddressToStringA.c)
- *     RtlIpv6AddressToStringExA @ 0x140214224 (RtlIpv6AddressToStringExA.c)
- *     CmpAddProcessorConfigurationEntry @ 0x14055C8D4 (CmpAddProcessorConfigurationEntry.c)
- *     CmpSetVersionData @ 0x14055D9A8 (CmpSetVersionData.c)
- *     CmpFindControlSet @ 0x14055FE7C (CmpFindControlSet.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x140611640 (CmpAddRemoveContainerToCLFSLog.c)
+ *     RtlIpv4AddressToStringA @ 0x140134188 (RtlIpv4AddressToStringA.c)
+ *     RtlEthernetAddressToStringA @ 0x140213CC4 (RtlEthernetAddressToStringA.c)
+ *     RtlIpv4AddressToStringExA @ 0x140213D28 (RtlIpv4AddressToStringExA.c)
+ *     RtlIpv6AddressToStringA @ 0x140213DDC (RtlIpv6AddressToStringA.c)
+ *     RtlIpv6AddressToStringExA @ 0x140214050 (RtlIpv6AddressToStringExA.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x14055CE14 (CmpAddProcessorConfigurationEntry.c)
+ *     CmpSetVersionData @ 0x14055DEE8 (CmpSetVersionData.c)
+ *     CmpFindControlSet @ 0x1405603BC (CmpFindControlSet.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x1406116F4 (CmpAddRemoveContainerToCLFSLog.c)
  *     HdlspDispatch @ 0x140722DE0 (HdlspDispatch.c)
  *     HdlspGetLine @ 0x140723450 (HdlspGetLine.c)
  *     HdlspProcessDumpCommand @ 0x140723978 (HdlspProcessDumpCommand.c)
@@ -18,7 +18,7 @@
  *     CmpGetAcpiBiosVersion @ 0x1407AD738 (CmpGetAcpiBiosVersion.c)
  *     CmpAddAliasEntry @ 0x1407CD4E0 (CmpAddAliasEntry.c)
  * Callees:
- *     vsprintf_s @ 0x140152B0C (vsprintf_s.c)
+ *     vsprintf_s @ 0x1401530CC (vsprintf_s.c)
  */
 
 int sprintf_s(char *DstBuf, size_t SizeInBytes, const char *Format, ...)

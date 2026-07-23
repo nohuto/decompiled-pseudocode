@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpVolumeContextCreate @ 0x1407D8810
+ * XREFs of CmpVolumeContextCreate @ 0x1407D8D60
  * Callers:
- *     CmpVolumeManagerGetContextForFile @ 0x140966DB8 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x14094F848 (CmpVolumeManagerGetContextForFile.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmSiAllocateMemory @ 0x140485138 (CmSiAllocateMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpVolumeContextStart @ 0x1407D89C0 (CmpVolumeContextStart.c)
- *     CmpVolumeContextCleanup @ 0x140A9BCE4 (CmpVolumeContextCleanup.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmSiAllocateMemory @ 0x14048071C (CmSiAllocateMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpVolumeContextStart @ 0x1407D8F10 (CmpVolumeContextStart.c)
+ *     CmpVolumeContextCleanup @ 0x140A97254 (CmpVolumeContextCleanup.c)
  */
 
 __int64 __fastcall CmpVolumeContextCreate(__int64 a1, __int64 a2, struct _PRIVILEGE_SET **a3)
@@ -18,7 +18,7 @@ __int64 __fastcall CmpVolumeContextCreate(__int64 a1, __int64 a2, struct _PRIVIL
   __int64 v8; // rdx
   int v9; // esi
 
-  Memory = (struct _PRIVILEGE_SET *)CmSiAllocateMemory();
+  Memory = (struct _PRIVILEGE_SET *)CmSiAllocateMemory(0x48uLL, 0x39384D43u);
   v6 = 0;
   v7 = Memory;
   if ( Memory )

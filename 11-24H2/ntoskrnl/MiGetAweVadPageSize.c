@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetAweVadPageSize @ 0x140988078
+ * XREFs of MiGetAweVadPageSize @ 0x14097085C
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiVadPageTableChargeLevel @ 0x14041EF70 (MiVadPageTableChargeLevel.c)
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiVadPageTableChargeLevel @ 0x140414CB0 (MiVadPageTableChargeLevel.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     MiPageChainCount @ 0x1404642D0 (MiPageChainCount.c)
- *     MiGetAweViewPageSize @ 0x1404BA0FC (MiGetAweViewPageSize.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     MiPageChainCount @ 0x14045AA00 (MiPageChainCount.c)
+ *     MiGetAweViewPageSize @ 0x1404B4F9C (MiGetAweViewPageSize.c)
  */
 
 __int64 __fastcall MiGetAweVadPageSize(__int64 a1)

@@ -1,28 +1,28 @@
 /*
- * XREFs of MiAllocateContiguousMemory @ 0x14034A28C
+ * XREFs of MiAllocateContiguousMemory @ 0x14034C30C
  * Callers:
- *     MmAllocateContiguousMemoryEx @ 0x140348FD0 (MmAllocateContiguousMemoryEx.c)
- *     MmAllocateContiguousNodeMemory @ 0x14034A0F0 (MmAllocateContiguousNodeMemory.c)
- *     MmAllocateContiguousMemory @ 0x1404FE200 (MmAllocateContiguousMemory.c)
+ *     MmAllocateContiguousMemoryEx @ 0x14034B050 (MmAllocateContiguousMemoryEx.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14034C170 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousMemory @ 0x1404F7740 (MmAllocateContiguousMemory.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     VfPtIsAptEnabledOnKernel @ 0x14034A8F0 (VfPtIsAptEnabledOnKernel.c)
- *     EtwTraceContAllocationEvent @ 0x14034A910 (EtwTraceContAllocationEvent.c)
- *     ExAllocateContiguousHeapPool @ 0x14034AA60 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x14034AD9C (ExInsertPoolTag.c)
- *     MiMapContiguousMemory @ 0x140363E10 (MiMapContiguousMemory.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiFreeContiguousPages @ 0x1403C3858 (MiFreeContiguousPages.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14050818C (MiLogPerfMemoryRangeEvent.c)
- *     VfPtMiscPoolNotification @ 0x14050C738 (VfPtMiscPoolNotification.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     VfPtIsAptEnabledOnKernel @ 0x14034C970 (VfPtIsAptEnabledOnKernel.c)
+ *     EtwTraceContAllocationEvent @ 0x14034C990 (EtwTraceContAllocationEvent.c)
+ *     ExAllocateContiguousHeapPool @ 0x14034CAE0 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x14034CE1C (ExInsertPoolTag.c)
+ *     MiMapContiguousMemory @ 0x140365BB0 (MiMapContiguousMemory.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiFreeContiguousPages @ 0x1403CD758 (MiFreeContiguousPages.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x140501C70 (MiLogPerfMemoryRangeEvent.c)
+ *     VfPtMiscPoolNotification @ 0x1405061A8 (VfPtMiscPoolNotification.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall MiAllocateContiguousMemory(
@@ -139,7 +139,7 @@ LABEL_24:
     goto LABEL_32;
   }
 LABEL_9:
-  v22 = (_DWORD *)(qword_140E2D690 + 4LL * v21 * (unsigned __int16)KeNumberNodes);
+  v22 = (_DWORD *)(qword_140E2D810 + 4LL * v21 * (unsigned __int16)KeNumberNodes);
   v23 = &v22[(unsigned __int16)KeNumberNodes];
   if ( v20 != 0x80000000 )
     v23 = v22 + 1;
@@ -171,7 +171,7 @@ LABEL_22:
   if ( (a9 & 1) != 0 )
     goto LABEL_23;
   v29 = 135266304;
-  v30 = (int *)(qword_140E2D690 + 4LL * v21 * (unsigned __int16)KeNumberNodes);
+  v30 = (int *)(qword_140E2D810 + 4LL * v21 * (unsigned __int16)KeNumberNodes);
   while ( 1 )
   {
     v31 = 0LL;
@@ -180,7 +180,7 @@ LABEL_22:
       v60 = 0LL;
       v61 = 0;
       v31 = &v59;
-      v62 = qword_140E2D7A0 & ~(v16 - 1);
+      v62 = qword_140E2D920 & ~(v16 - 1);
       v59 = 8;
     }
     ContiguousPages = MiFindContiguousPagesEx(

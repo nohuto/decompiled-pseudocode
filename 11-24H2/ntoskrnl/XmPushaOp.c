@@ -1,10 +1,10 @@
 /*
- * XREFs of XmPushaOp @ 0x1405764D0
+ * XREFs of XmPushaOp @ 0x140573960
  * Callers:
  *     <none>
  * Callees:
- *     XmPushStack @ 0x140468C28 (XmPushStack.c)
- *     XmSetSourceValue @ 0x140469348 (XmSetSourceValue.c)
+ *     XmPushStack @ 0x1404615D8 (XmPushStack.c)
+ *     XmSetSourceValue @ 0x140461CF8 (XmSetSourceValue.c)
  */
 
 __int64 __fastcall XmPushaOp(__int64 a1)

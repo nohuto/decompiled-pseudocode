@@ -3,17 +3,17 @@
  * Callers:
  *     MiMakeCombineCandidateClean @ 0x14021743C (MiMakeCombineCandidateClean.c)
  *     MiCopyToUserVa @ 0x14021CBDC (MiCopyToUserVa.c)
- *     MiIssueHardFault @ 0x1402A10B0 (MiIssueHardFault.c)
- *     NtLockVirtualMemory @ 0x1402A3120 (NtLockVirtualMemory.c)
- *     MiValidFault @ 0x1403334E0 (MiValidFault.c)
- *     MmSetPageProtection @ 0x1403C2C70 (MmSetPageProtection.c)
- *     MiInitializeBootShadowStackPage @ 0x140644964 (MiInitializeBootShadowStackPage.c)
+ *     MiIssueHardFault @ 0x1402A1340 (MiIssueHardFault.c)
+ *     NtLockVirtualMemory @ 0x1402A33B0 (NtLockVirtualMemory.c)
+ *     MiValidFault @ 0x140333770 (MiValidFault.c)
+ *     MmSetPageProtection @ 0x1403C2E50 (MmSetPageProtection.c)
+ *     MiInitializeBootShadowStackPage @ 0x140644EB4 (MiInitializeBootShadowStackPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiCaptureDirtyBitToPfn @ 0x140283100 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140283390 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockPageAndSetDirty(__int64 a1, int a2)
@@ -52,10 +52,10 @@ __int64 __fastcall MiLockPageAndSetDirty(__int64 a1, int a2)
     result = MiReleasePageFileInfo(v2, result, 1LL);
   if ( v4 != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

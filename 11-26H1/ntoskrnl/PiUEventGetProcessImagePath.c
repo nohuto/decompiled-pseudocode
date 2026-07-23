@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUEventGetProcessImagePath @ 0x140B0C8D0
+ * XREFs of PiUEventGetProcessImagePath @ 0x140B0E020
  * Callers:
- *     PiUEventMovePendingEventToSynchronousQueue @ 0x140772AE8 (PiUEventMovePendingEventToSynchronousQueue.c)
- *     PiUEventNotifyClient @ 0x14099A7E8 (PiUEventNotifyClient.c)
- *     PiUEventDequeuePendingEventWorker @ 0x1409D675C (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventHandleGetEvent @ 0x1409D6A10 (PiUEventHandleGetEvent.c)
+ *     PiUEventMovePendingEventToSynchronousQueue @ 0x140775AE8 (PiUEventMovePendingEventToSynchronousQueue.c)
+ *     PiUEventNotifyClient @ 0x14095B248 (PiUEventNotifyClient.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x1409A764C (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventHandleGetEvent @ 0x1409A7900 (PiUEventHandleGetEvent.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlStringCbCopyNW @ 0x140486674 (RtlStringCbCopyNW.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlStringCbCopyNW @ 0x14047FFEC (RtlStringCbCopyNW.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventGetProcessImagePath(void *a1, _QWORD *a2)

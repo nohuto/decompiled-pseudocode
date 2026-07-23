@@ -7,7 +7,7 @@
  *     RtlpHpFreeHeap @ 0x180024920 (RtlpHpFreeHeap.c)
  *     RtlpFreeHeapInternal @ 0x180025710 (RtlpFreeHeapInternal.c)
  *     RtlpHpSegReAlloc @ 0x1800271D0 (RtlpHpSegReAlloc.c)
- *     RtlSetUserFlagsHeap @ 0x1800F2E70 (RtlSetUserFlagsHeap.c)
+ *     RtlSetUserFlagsHeap @ 0x1800F2E30 (RtlSetUserFlagsHeap.c)
  * Callees:
  *     RtlpHpSizeHeapInternal @ 0x180002210 (RtlpHpSizeHeapInternal.c)
  */

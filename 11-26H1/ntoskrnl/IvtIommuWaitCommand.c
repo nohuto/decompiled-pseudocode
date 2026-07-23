@@ -1,21 +1,21 @@
 /*
- * XREFs of IvtIommuWaitCommand @ 0x140427808
+ * XREFs of IvtIommuWaitCommand @ 0x140434918
  * Callers:
- *     IvtFlushTbInternal @ 0x14042706C (IvtFlushTbInternal.c)
- *     IvtInvalidateRemappingTableEntries @ 0x140427790 (IvtInvalidateRemappingTableEntries.c)
- *     IvtDrainSvmPageRequests @ 0x1405A6130 (IvtDrainSvmPageRequests.c)
- *     IvtFlushDeviceTbOnly @ 0x1405A6470 (IvtFlushDeviceTbOnly.c)
- *     IvtInvalidateAllContextEntries @ 0x1405A7218 (IvtInvalidateAllContextEntries.c)
- *     IvtInvalidateContextEntry @ 0x1405A7278 (IvtInvalidateContextEntry.c)
- *     IvtInvalidateScalableModePasidCache @ 0x1405A7368 (IvtInvalidateScalableModePasidCache.c)
+ *     IvtFlushTbInternal @ 0x14043417C (IvtFlushTbInternal.c)
+ *     IvtInvalidateRemappingTableEntries @ 0x1404348A0 (IvtInvalidateRemappingTableEntries.c)
+ *     IvtDrainSvmPageRequests @ 0x1405A8940 (IvtDrainSvmPageRequests.c)
+ *     IvtFlushDeviceTbOnly @ 0x1405A8C80 (IvtFlushDeviceTbOnly.c)
+ *     IvtInvalidateAllContextEntries @ 0x1405A9A28 (IvtInvalidateAllContextEntries.c)
+ *     IvtInvalidateContextEntry @ 0x1405A9A88 (IvtInvalidateContextEntry.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x1405A9B78 (IvtInvalidateScalableModePasidCache.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxAcquireQueuedSpinLock @ 0x1402B47E0 (KxAcquireQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     IvtIommuSendCommand @ 0x14042795C (IvtIommuSendCommand.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402FF4B0 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     IvtIommuSendCommand @ 0x140434A6C (IvtIommuSendCommand.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IvtIommuWaitCommand(__int64 a1, int a2, __int64 a3)
@@ -66,7 +66,7 @@ __int64 __fastcall IvtIommuWaitCommand(__int64 a1, int a2, __int64 a3)
     result = *(unsigned int *)(v5 + 176);
     if ( !(_DWORD)result )
       break;
-    if ( (++v10 & dword_140FBB03C) != 0 || !qword_140FBB040 )
+    if ( (++v10 & dword_140FBB3DC) != 0 || !qword_140FBB3E0 )
       _mm_pause();
     else
       guard_dispatch_icall_no_overrides(v10, v9);

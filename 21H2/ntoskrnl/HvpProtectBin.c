@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpProtectBin @ 0x140724980
+ * XREFs of HvpProtectBin @ 0x1406FC97C
  * Callers:
- *     HvpRemapAndEnlistHiveBins @ 0x14070999C (HvpRemapAndEnlistHiveBins.c)
- *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
- *     HvpMapHiveImage @ 0x140873E94 (HvpMapHiveImage.c)
+ *     HvpAddBin @ 0x1406FAA84 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x140720D7C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpMapHiveImage @ 0x140873FF4 (HvpMapHiveImage.c)
  * Callees:
- *     ExProtectPool @ 0x140362BC8 (ExProtectPool.c)
+ *     ExProtectPool @ 0x1402F7EF8 (ExProtectPool.c)
  */
 
 __int64 __fastcall HvpProtectBin(__int64 a1, unsigned int a2, __int64 a3, char a4)

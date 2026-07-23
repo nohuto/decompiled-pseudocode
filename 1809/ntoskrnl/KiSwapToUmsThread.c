@@ -1,29 +1,29 @@
 /*
- * XREFs of KiSwapToUmsThread @ 0x140845770
+ * XREFs of KiSwapToUmsThread @ 0x1408469D0
  * Callers:
- *     KiUmsTrapEntry @ 0x1401D0B80 (KiUmsTrapEntry.c)
- *     KiUmsCallEntry @ 0x1401D0D80 (KiUmsCallEntry.c)
- *     KiUmsExceptionEntry @ 0x1401D0F40 (KiUmsExceptionEntry.c)
+ *     KiUmsTrapEntry @ 0x1401D0C80 (KiUmsTrapEntry.c)
+ *     KiUmsCallEntry @ 0x1401D0E80 (KiUmsCallEntry.c)
+ *     KiUmsExceptionEntry @ 0x1401D1040 (KiUmsExceptionEntry.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
- *     PsGetThreadId @ 0x1401228D0 (PsGetThreadId.c)
- *     RtlXSave @ 0x14012E77C (RtlXSave.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwTerminateProcess @ 0x1401B8710 (ZwTerminateProcess.c)
- *     ZwTerminateThread @ 0x1401B8BF0 (ZwTerminateThread.c)
- *     KeResetLegacyFloatingPointState @ 0x1401BC2B0 (KeResetLegacyFloatingPointState.c)
- *     KeSaveLegacyFloatingPointControlWord @ 0x1401BC2C0 (KeSaveLegacyFloatingPointControlWord.c)
- *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiBlockAndActivateUmsThread @ 0x14029D490 (KiBlockAndActivateUmsThread.c)
- *     KeSetCurrentUmsTeb @ 0x14029FA30 (KeSetCurrentUmsTeb.c)
- *     KeBuildPrimaryThreadContext @ 0x140845E84 (KeBuildPrimaryThreadContext.c)
- *     KeFixUserSwitchContext @ 0x140846A08 (KeFixUserSwitchContext.c)
- *     PspFindThreadForTeb @ 0x14088AC78 (PspFindThreadForTeb.c)
+ *     KiDispatchException @ 0x1400A2E90 (KiDispatchException.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     ObReferenceObjectSafe @ 0x14010C190 (ObReferenceObjectSafe.c)
+ *     PsGetThreadId @ 0x1401229A0 (PsGetThreadId.c)
+ *     RtlXSave @ 0x14012E84C (RtlXSave.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwTerminateProcess @ 0x1401B8870 (ZwTerminateProcess.c)
+ *     ZwTerminateThread @ 0x1401B8D50 (ZwTerminateThread.c)
+ *     KeResetLegacyFloatingPointState @ 0x1401BC410 (KeResetLegacyFloatingPointState.c)
+ *     KeSaveLegacyFloatingPointControlWord @ 0x1401BC420 (KeSaveLegacyFloatingPointControlWord.c)
+ *     _alloca_probe @ 0x1401C5F20 (_alloca_probe.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiBlockAndActivateUmsThread @ 0x14029D680 (KiBlockAndActivateUmsThread.c)
+ *     KeSetCurrentUmsTeb @ 0x14029FC20 (KeSetCurrentUmsTeb.c)
+ *     KeBuildPrimaryThreadContext @ 0x1408470E4 (KeBuildPrimaryThreadContext.c)
+ *     KeFixUserSwitchContext @ 0x140847C68 (KeFixUserSwitchContext.c)
+ *     PspFindThreadForTeb @ 0x14088BED8 (PspFindThreadForTeb.c)
  */
 
 NTSTATUS __fastcall KiSwapToUmsThread(_QWORD *a1)
@@ -31,7 +31,7 @@ NTSTATUS __fastcall KiSwapToUmsThread(_QWORD *a1)
   struct _KTHREAD *CurrentThread; // rbx
   unsigned __int64 v3; // rdi
   __int64 ThreadForTeb; // rax
-  struct _LIST_ENTRY *v5; // r8
+  _LIST_ENTRY *v5; // r8
   struct _KTHREAD *v6; // rsi
   signed __int64 v7; // rax
   __int64 v8; // rdi
@@ -56,7 +56,7 @@ NTSTATUS __fastcall KiSwapToUmsThread(_QWORD *a1)
   __int64 v28; // r8
   __int64 v29; // rdx
   unsigned __int64 v30; // [rsp+30h] [rbp+0h]
-  struct _EXCEPTION_RECORD ExitStatus; // [rsp+40h] [rbp+10h] BYREF
+  EXCEPTION_RECORD ExitStatus; // [rsp+40h] [rbp+10h] BYREF
   _DWORD v32[4]; // [rsp+E0h] [rbp+B0h] BYREF
   _DWORD v33[4]; // [rsp+F0h] [rbp+C0h] BYREF
   _DWORD *v34; // [rsp+100h] [rbp+D0h] BYREF

@@ -27,10 +27,10 @@ __int64 __fastcall SmHwAcceleratorParitionCtxCreate(_QWORD *a1, __int64 a2, int 
   unsigned __int64 v14; // r12
   char *v15; // rax
   char *v16; // rbx
-  struct _SLIST_ENTRY *v17; // r12
+  _SLIST_ENTRY *v17; // r12
   _SLIST_ENTRY *v18; // r14
   _SLIST_ENTRY *v19; // r15
-  struct _SLIST_ENTRY *v20; // rsi
+  _SLIST_ENTRY *v20; // rsi
   __int64 v21; // rax
   unsigned __int64 v23; // [rsp+20h] [rbp-58h]
   unsigned __int64 v24; // [rsp+28h] [rbp-50h]
@@ -73,9 +73,9 @@ __int64 __fastcall SmHwAcceleratorParitionCtxCreate(_QWORD *a1, __int64 a2, int 
   if ( v15 )
   {
     memset_0(v15, 0, 0x50uLL);
-    v17 = (struct _SLIST_ENTRY *)&v16[v14];
+    v17 = (_SLIST_ENTRY *)&v16[v14];
     *((_DWORD *)v16 + 14) = Count;
-    v18 = (struct _SLIST_ENTRY *)((char *)v17 + v23);
+    v18 = (_SLIST_ENTRY *)((char *)v17 + v23);
     *((_QWORD *)v16 + 4) = a2;
     v19 = (_SLIST_ENTRY *)(v16 + 80);
     *((_DWORD *)v16 + 15) = v4;
@@ -83,8 +83,8 @@ __int64 __fastcall SmHwAcceleratorParitionCtxCreate(_QWORD *a1, __int64 a2, int 
     v21 = v29;
     *((_QWORD *)v16 + 6) = 0LL;
     *((_QWORD *)v16 + 5) = v21;
-    v25 = (struct _SLIST_ENTRY *)((char *)v17 + v24);
-    if ( (struct _SLIST_ENTRY *)((char *)v17 + v23) < v25 )
+    v25 = (_SLIST_ENTRY *)((char *)v17 + v24);
+    if ( (_SLIST_ENTRY *)((char *)v17 + v23) < v25 )
     {
       do
       {

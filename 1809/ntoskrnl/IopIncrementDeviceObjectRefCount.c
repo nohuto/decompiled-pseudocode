@@ -1,21 +1,21 @@
 /*
- * XREFs of IopIncrementDeviceObjectRefCount @ 0x1400B8840
+ * XREFs of IopIncrementDeviceObjectRefCount @ 0x1400B8780
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1400DA90C (IopCompleteUnloadOrDelete.c)
- *     PnpMarkDeviceForRemove @ 0x14016982C (PnpMarkDeviceForRemove.c)
- *     IopShutdownBaseFileSystems @ 0x140577E88 (IopShutdownBaseFileSystems.c)
- *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
- *     IoCreateStreamFileObjectEx2 @ 0x1405A35A0 (IoCreateStreamFileObjectEx2.c)
- *     IopDeleteFile @ 0x14063B3C0 (IopDeleteFile.c)
- *     IoRegisterFileSystem @ 0x14070D120 (IoRegisterFileSystem.c)
+ *     IopCompleteUnloadOrDelete @ 0x1400DA98C (IopCompleteUnloadOrDelete.c)
+ *     PnpMarkDeviceForRemove @ 0x14016992C (PnpMarkDeviceForRemove.c)
+ *     IopShutdownBaseFileSystems @ 0x140578E88 (IopShutdownBaseFileSystems.c)
+ *     IopMountVolume @ 0x1405A3E64 (IopMountVolume.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1405A45A0 (IoCreateStreamFileObjectEx2.c)
+ *     IopDeleteFile @ 0x14063C3E0 (IopDeleteFile.c)
+ *     IoRegisterFileSystem @ 0x14070E3C0 (IoRegisterFileSystem.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall IopIncrementDeviceObjectRefCount(ULONG_PTR BugCheckParameter2, char a2, __int64 a3)

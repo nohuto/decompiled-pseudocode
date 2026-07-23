@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCheckApplyResetNotification @ 0x140576C00
+ * XREFs of PpmCheckApplyResetNotification @ 0x140576E40
  * Callers:
- *     PpmPostProcessMediaBuffering @ 0x1408F5E28 (PpmPostProcessMediaBuffering.c)
+ *     PpmPostProcessMediaBuffering @ 0x1408F5F88 (PpmPostProcessMediaBuffering.c)
  * Callees:
- *     PpmCheckCustomRun @ 0x14037D0D8 (PpmCheckCustomRun.c)
+ *     PpmCheckCustomRun @ 0x14037CC28 (PpmCheckCustomRun.c)
  */
 
 char PpmCheckApplyResetNotification()

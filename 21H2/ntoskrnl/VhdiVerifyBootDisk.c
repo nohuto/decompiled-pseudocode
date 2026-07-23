@@ -1,15 +1,15 @@
 /*
- * XREFs of VhdiVerifyBootDisk @ 0x14098033C
+ * XREFs of VhdiVerifyBootDisk @ 0x14098051C
  * Callers:
- *     IopCreateArcName @ 0x140780318 (IopCreateArcName.c)
+ *     IopCreateArcName @ 0x1407804D8 (IopCreateArcName.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1402D09B0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 bool __fastcall VhdiVerifyBootDisk(PDEVICE_OBJECT DeviceObject)

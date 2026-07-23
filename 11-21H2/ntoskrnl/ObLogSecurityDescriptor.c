@@ -1,19 +1,19 @@
 /*
  * XREFs of ObLogSecurityDescriptor @ 0x140724E60
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x14066FED4 (ExpWnfCreateNameInstance.c)
- *     ObAssignObjectSecurityDescriptor @ 0x1406BBA30 (ObAssignObjectSecurityDescriptor.c)
- *     IopSetDeviceSecurityDescriptor @ 0x1406DB04C (IopSetDeviceSecurityDescriptor.c)
- *     EtwpInitializeLoggerSecurityDescriptor @ 0x1406EF8B8 (EtwpInitializeLoggerSecurityDescriptor.c)
- *     IopGetSetSecurityObject @ 0x14071E8F0 (IopGetSetSecurityObject.c)
+ *     sub_14066FED4 @ 0x14066FED4 (sub_14066FED4.c)
+ *     sub_1406BBA30 @ 0x1406BBA30 (sub_1406BBA30.c)
+ *     sub_1406DB04C @ 0x1406DB04C (sub_1406DB04C.c)
+ *     sub_1406EF8B8 @ 0x1406EF8B8 (sub_1406EF8B8.c)
+ *     sub_14071E8F0 @ 0x14071E8F0 (sub_14071E8F0.c)
  *     ObSetSecurityDescriptorInfo @ 0x1407255D0 (ObSetSecurityDescriptorInfo.c)
- *     EtwpAllocGuidEntry @ 0x140792BF0 (EtwpAllocGuidEntry.c)
- *     ObpInitObjectTypeSD @ 0x140825158 (ObpInitObjectTypeSD.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409EB878 (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     sub_140792BF0 @ 0x140792BF0 (sub_140792BF0.c)
+ *     sub_140825158 @ 0x140825158 (sub_140825158.c)
+ *     sub_1409EB878 @ 0x1409EB878 (sub_1409EB878.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
+ *     sub_1402AC800 @ 0x1402AC800 (sub_1402AC800.c)
  *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
  *     memcmp @ 0x1403E1D90 (memcmp.c)
  *     memmove @ 0x140435B40 (memmove.c)
@@ -45,8 +45,8 @@ __int64 __fastcall ObLogSecurityDescriptor(char *Buf1, _QWORD *a2, unsigned int 
   }
   CurrentThread = KeGetCurrentThread();
   Pool2 = 0LL;
-  v11 = (signed __int64 *)((char *)&ObsSecurityDescriptorCache + 16 * (unsigned __int8)v6);
-  --CurrentThread->KernelApcDisable;
+  v11 = (signed __int64 *)((char *)&unk_140D33BC0 + 16 * (unsigned __int8)v6);
+  --*((_WORD *)CurrentThread + 242);
 LABEL_4:
   v12 = v11 + 1;
   ExAcquirePushLockSharedEx((ULONG_PTR)v11, 0LL);
@@ -60,8 +60,8 @@ LABEL_9:
     {
       if ( _InterlockedCompareExchange64(v11, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared(v11);
-      KeAbPostRelease((ULONG_PTR)v11);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      sub_1402AFC00((ULONG_PTR)v11);
+      sub_1402AC800((__int64)CurrentThread);
       if ( (int)v4 + 40 < (unsigned int)v4 )
         return 3221225626LL;
       Pool2 = (_QWORD *)ExAllocatePool2(264LL, (unsigned int)(v4 + 40), 1666409039LL);
@@ -71,7 +71,7 @@ LABEL_9:
       Pool2[2] = v6;
       *((_DWORD *)Pool2 + 6) = v4;
       memmove(Pool2 + 4, Buf1, v4);
-      --CurrentThread->KernelApcDisable;
+      --*((_WORD *)CurrentThread + 242);
       goto LABEL_4;
     }
     *Pool2 = v13;
@@ -80,8 +80,8 @@ LABEL_9:
     {
       if ( _InterlockedCompareExchange64(v11, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared(v11);
-      KeAbPostRelease((ULONG_PTR)v11);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      sub_1402AFC00((ULONG_PTR)v11);
+      sub_1402AC800((__int64)CurrentThread);
       *a2 = Pool2 + 4;
       return 0LL;
     }
@@ -102,8 +102,8 @@ LABEL_8:
     __fastfail(0xEu);
   if ( _InterlockedCompareExchange64(v11, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v11);
-  KeAbPostRelease((ULONG_PTR)v11);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  sub_1402AFC00((ULONG_PTR)v11);
+  sub_1402AC800((__int64)CurrentThread);
   *a2 = v13 + 32;
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x6353624Fu);

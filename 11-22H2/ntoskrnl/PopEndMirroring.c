@@ -28,7 +28,7 @@ __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
   _DWORD *SchedulerAssist; // r9
   int v8; // eax
   int v9; // edi
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-19h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-19h] BYREF
   unsigned __int16 *v11[2]; // [rsp+48h] [rbp-9h] BYREF
   __int16 v12; // [rsp+58h] [rbp+7h]
   int v13; // [rsp+5Ah] [rbp+9h]
@@ -90,7 +90,7 @@ LABEL_4:
   KeSetSystemGroupAffinityThread(&Affinity, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v8 = 4;

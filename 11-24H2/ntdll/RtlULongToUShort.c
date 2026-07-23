@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlULongToUShort @ 0x18010CD40
+ * XREFs of RtlULongToUShort @ 0x180107B90
  * Callers:
- *     RtlpGetDefaultLanguageBaseOrParent @ 0x18013FD58 (RtlpGetDefaultLanguageBaseOrParent.c)
+ *     RtlpGetDefaultLanguageBaseOrParent @ 0x18013DF48 (RtlpGetDefaultLanguageBaseOrParent.c)
  * Callees:
  *     <none>
  */

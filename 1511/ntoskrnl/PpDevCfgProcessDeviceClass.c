@@ -37,12 +37,12 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   int v16; // [rsp+48h] [rbp-B8h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE KeyHandle; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-A0h] BYREF
+  UNICODE_STRING GuidString; // [rsp+60h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
   int v21; // [rsp+A0h] [rbp-60h] BYREF
   const wchar_t *v22; // [rsp+A8h] [rbp-58h]
   _QWORD v23[10]; // [rsp+B0h] [rbp-50h] BYREF
-  unsigned int v24[4]; // [rsp+100h] [rbp+0h] BYREF
+  GUID Guid; // [rsp+100h] [rbp+0h] BYREF
 
   LODWORD(v23[0]) = 0;
   memset(&v23[1], 0, 0x40uLL);
@@ -50,8 +50,8 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   v2 = 0;
   Handle = 0LL;
   KeyHandle = 0LL;
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   v14 = 0;
   v15 = 0;
   if ( !PiDevCfgMode )
@@ -71,7 +71,7 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
     memset(&ObjectAttributes, 0, 0x28uLL);
     v5 = *(_QWORD *)(a1 + 48);
     *(_QWORD *)&ObjectAttributes.Length = &DEVPKEY_Device_ClassGuid;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)v24;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&Guid;
     LODWORD(ObjectAttributes.RootDirectory) = 13;
     ObjectAttributes.Attributes = 16;
     inited = PiDevCfgQueryObjectProperties(v6, v5, 1u, (void *)v23[2], (__int64)&ObjectAttributes, 1u);
@@ -79,12 +79,12 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
     {
       if ( SLODWORD(ObjectAttributes.SecurityDescriptor) >= 0 )
       {
-        inited = RtlStringFromGUIDEx(v24, (__int64)&UnicodeString, 1);
+        inited = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
         if ( inited < 0 )
           goto LABEL_24;
         v7 = PnpOpenObjectRegKey(
                *(__int64 *)&PiPnpRtlCtx,
-               (__int64)UnicodeString.Buffer,
+               (__int64)GuidString.Buffer,
                2u,
                131097,
                0,
@@ -152,7 +152,7 @@ LABEL_17:
     }
   }
 LABEL_24:
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&GuidString);
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )

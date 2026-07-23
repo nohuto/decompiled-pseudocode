@@ -1,16 +1,16 @@
 /*
- * XREFs of WbDecryptEncryptionSegment @ 0x1407D1FC4
+ * XREFs of WbDecryptEncryptionSegment @ 0x1407D2294
  * Callers:
- *     WbDispatchOperation @ 0x140763418 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x140763608 (WbDispatchOperation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     WbGetInitializedEncryptionSegment @ 0x1407D2280 (WbGetInitializedEncryptionSegment.c)
- *     sub_1407D2580 @ 0x1407D2580 (sub_1407D2580.c)
- *     WbDecryptWarbirdEncryptionSegment @ 0x1407D2840 (WbDecryptWarbirdEncryptionSegment.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     WbGetInitializedEncryptionSegment @ 0x1407D2550 (WbGetInitializedEncryptionSegment.c)
+ *     sub_1407D2850 @ 0x1407D2850 (sub_1407D2850.c)
+ *     WbDecryptWarbirdEncryptionSegment @ 0x1407D2B10 (WbDecryptWarbirdEncryptionSegment.c)
  */
 
 __int64 __fastcall WbDecryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3)
@@ -57,6 +57,6 @@ __int64 __fastcall WbDecryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3
         KiCheckForKernelApcDelivery();
     }
   }
-  sub_1407D2580(v13);
+  sub_1407D2850(v13);
   return (unsigned int)InitializedEncryptionSegment;
 }

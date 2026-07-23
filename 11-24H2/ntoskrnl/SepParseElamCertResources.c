@@ -1,12 +1,12 @@
 /*
- * XREFs of SepParseElamCertResources @ 0x140A9463C
+ * XREFs of SepParseElamCertResources @ 0x140A90DEC
  * Callers:
- *     SeRegisterElamCertResources @ 0x14078E2C8 (SeRegisterElamCertResources.c)
+ *     SeRegisterElamCertResources @ 0x14078E1F8 (SeRegisterElamCertResources.c)
  * Callees:
- *     __report_rangecheckfailure @ 0x1404F51BC (__report_rangecheckfailure.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     __report_rangecheckfailure @ 0x1404F2ABC (__report_rangecheckfailure.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall SepParseElamCertResources(unsigned __int16 *a1, __int64 a2)
@@ -282,10 +282,10 @@ LABEL_50:
       {
         v46 = 0LL;
       }
-      if ( !qword_140F048D0 )
+      if ( !qword_140F04B70 )
         return (unsigned int)-1073741637;
       LOBYTE(v46) = 7;
-      v2 = guard_dispatch_icall_no_overrides(v46, v49, v14, *v12);
+      v2 = guard_dispatch_icall_no_overrides(v46, v49);
       if ( v2 < 0 )
         return (unsigned int)v2;
       v3 = v47;

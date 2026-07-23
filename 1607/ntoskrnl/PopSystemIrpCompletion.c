@@ -3,17 +3,17 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseSemaphore @ 0x1400529B0 (KeReleaseSemaphore.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoFindDeviceThatFailedIrp @ 0x1400B4774 (IoFindDeviceThatFailedIrp.c)
- *     PopFxIncrementDeviceSleepCount @ 0x14012328C (PopFxIncrementDeviceSleepCount.c)
- *     PopFreeIrp @ 0x14012B6E4 (PopFreeIrp.c)
- *     PopDequeueQuerySetIrp @ 0x14012B7CC (PopDequeueQuerySetIrp.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseSemaphore @ 0x140052530 (KeReleaseSemaphore.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoFindDeviceThatFailedIrp @ 0x1400B25F4 (IoFindDeviceThatFailedIrp.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x1401237FC (PopFxIncrementDeviceSleepCount.c)
+ *     PopFreeIrp @ 0x14012BC54 (PopFreeIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x14012BD3C (PopDequeueQuerySetIrp.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     PopPrepChildWake @ 0x1403D15BC (PopPrepChildWake.c)
  *     PopReadyParentSleep @ 0x1403D1614 (PopReadyParentSleep.c)
  *     PopReadyChildWake @ 0x1403D1688 (PopReadyChildWake.c)
@@ -75,22 +75,22 @@ __int64 __fastcall PopSystemIrpCompletion(__int64 a1, __int64 a2, __int64 a3)
   PopDequeueQuerySetIrp(a2);
   PopFreeIrp(a2);
   v8 = 0LL;
-  v9 = (KSPIN_LOCK *)qword_1403033F0;
+  v9 = (KSPIN_LOCK *)qword_140303330;
   v10 = 0;
-  v11 = qword_1403033F0;
+  v11 = qword_140303330;
   v12 = (__int64 *)*(v6 - 17);
   if ( *(v6 - 16) != IopRootDeviceNode )
     v8 = *(v6 - 16);
   v32 = 0;
-  v13 = (char *)qword_1403033F0 + 48;
-  v14 = *(_BYTE *)qword_1403033F0 - 2;
+  v13 = (char *)qword_140303330 + 48;
+  v14 = *(_BYTE *)qword_140303330 - 2;
   v33 = v8;
   v36 = v12;
-  if ( v14 <= 1u && *((int *)qword_1403033F0 + 1) > 1 )
+  if ( v14 <= 1u && *((int *)qword_140303330 + 1) > 1 )
   {
     PopFxIncrementDeviceSleepCount(*(v6 - 14));
     ObfDereferenceObject((PVOID)*(v6 - 14));
-    v9 = (KSPIN_LOCK *)qword_1403033F0;
+    v9 = (KSPIN_LOCK *)qword_140303330;
   }
   v15 = 9LL * *((unsigned __int8 *)v6 + 56);
   KeAcquireInStackQueuedSpinLock(v9 + 1, &LockHandle);

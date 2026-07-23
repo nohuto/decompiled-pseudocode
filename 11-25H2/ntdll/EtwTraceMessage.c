@@ -9,22 +9,22 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-ULONG __fastcall EtwTraceMessage(__int64 a1, int a2, _DWORD *a3, __int16 a4, __int64 a5)
+ULONG __fastcall EtwTraceMessage(HANDLE TraceHandle, int a2, _DWORD *a3, __int16 a4, __int64 a5)
 {
   int v7; // ecx
   __int64 *v8; // rax
   NTSTATUS v9; // eax
-  int v10; // [rsp+38h] [rbp-40h] BYREF
+  int Fields; // [rsp+38h] [rbp-40h] BYREF
   __int16 v11; // [rsp+3Ch] [rbp-3Ch]
   _BYTE v12[18]; // [rsp+3Eh] [rbp-3Ah] BYREF
   int v13; // [rsp+50h] [rbp-28h]
   int v14; // [rsp+54h] [rbp-24h]
   __int64 *v15; // [rsp+58h] [rbp-20h]
 
-  v10 = 0;
+  Fields = 0;
   memset(v12, 0, sizeof(v12));
-  if ( (a1 & 0x1000000) != 0 )
-    return EtwpTraceUmMessage(a1, a2, (_DWORD)a3, a4, (__int64)&a5);
+  if ( (BYTE3(TraceHandle) & 1) != 0 )
+    return EtwpTraceUmMessage((_DWORD)TraceHandle, a2, (_DWORD)a3, a4, (__int64)&a5);
   v7 = 0;
   v8 = &a5;
   if ( a5 )
@@ -48,7 +48,7 @@ ULONG __fastcall EtwTraceMessage(__int64 a1, int a2, _DWORD *a3, __int16 a4, __i
   }
   v15 = &a5;
   v14 = 16 * v7 + 8;
-  v9 = NtTraceEvent(a1, 512LL, 40LL, &v10);
+  v9 = NtTraceEvent(TraceHandle, 0x200u, 0x28u, &Fields);
   if ( v9 )
     return RtlNtStatusToDosError(v9);
   else

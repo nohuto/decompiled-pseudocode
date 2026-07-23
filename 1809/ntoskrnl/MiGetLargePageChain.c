@@ -1,10 +1,10 @@
 /*
  * XREFs of MiGetLargePageChain @ 0x140028A18
  * Callers:
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
  * Callees:
  *     MiGetLargePageDemoteAsNeeded @ 0x140028AD4 (MiGetLargePageDemoteAsNeeded.c)
- *     MiFreeLargePageChain @ 0x1402CC82C (MiFreeLargePageChain.c)
+ *     MiFreeLargePageChain @ 0x1402CCA1C (MiFreeLargePageChain.c)
  */
 
 _QWORD *__fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2)
@@ -15,11 +15,11 @@ _QWORD *__fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2)
   unsigned __int64 v6; // rbp
   _QWORD *LargePageDemoteAsNeeded; // rax
 
-  if ( *(_QWORD *)(1984LL * a1 + qword_14043C950 + 1808) || !(_DWORD)InitializationPhase )
+  if ( *(_QWORD *)(1984LL * a1 + qword_14043DA10 + 1808) || !(_DWORD)InitializationPhase )
   {
     v3 = 0LL;
     v4 = a2 >> 9;
-    v5 = qword_14043E508 > 0x110000;
+    v5 = qword_14043F5C8 > 0x110000;
     v6 = 0LL;
     if ( !(a2 >> 9) )
       return v3;

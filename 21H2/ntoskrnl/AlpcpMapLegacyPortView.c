@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpMapLegacyPortView @ 0x1406D2148
+ * XREFs of AlpcpMapLegacyPortView @ 0x1406A9428
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x1405E033C (AlpcpFormatConnectionRequest.c)
- *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x1406CFA9C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x1406D079C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
- *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
- *     MmGetSectionInformation @ 0x140620F30 (MmGetSectionInformation.c)
- *     AlpcpCreateSectionView @ 0x1406D2558 (AlpcpCreateSectionView.c)
- *     AlpcpCreateSection @ 0x1406D43DC (AlpcpCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     AlpcpDereferenceView @ 0x1408C1BA4 (AlpcpDereferenceView.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmGetSectionInformation @ 0x14068ABA0 (MmGetSectionInformation.c)
+ *     AlpcpCreateSectionView @ 0x1406A9838 (AlpcpCreateSectionView.c)
+ *     AlpcpCreateSection @ 0x1406AB6BC (AlpcpCreateSection.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1406D0224 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1406D6FE0 (AlpcpUnlockBlob.c)
+ *     AlpcpDeleteBlob @ 0x1406D97FC (AlpcpDeleteBlob.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     AlpcpDereferenceView @ 0x1408C1D04 (AlpcpDereferenceView.c)
  */
 
 __int64 __fastcall AlpcpMapLegacyPortView(PVOID Object, __int64 a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall AlpcpMapLegacyPortView(PVOID Object, __int64 a2, __int64 a3)
   __int64 v9; // rax
   unsigned __int64 v10; // r15
   __int64 v11; // r12
-  ULONG_PTR v12; // rsi
+  __int64 v12; // rsi
   __int64 v13; // rbx
   __int64 v14; // rax
   __int64 v15; // [rsp+30h] [rbp-20h] BYREF
@@ -31,11 +31,11 @@ __int64 __fastcall AlpcpMapLegacyPortView(PVOID Object, __int64 a2, __int64 a3)
   __int64 v17; // [rsp+48h] [rbp-8h]
   PVOID v18; // [rsp+98h] [rbp+48h] BYREF
   __int64 v19; // [rsp+A0h] [rbp+50h]
-  ULONG_PTR BugCheckParameter2; // [rsp+A8h] [rbp+58h] BYREF
+  __int64 v20; // [rsp+A8h] [rbp+58h] BYREF
 
   v19 = a3;
   v3 = *(void **)(a2 + 8);
-  BugCheckParameter2 = 0LL;
+  v20 = 0LL;
   v17 = 0LL;
   v15 = 0LL;
   v16 = 0LL;
@@ -68,11 +68,11 @@ __int64 __fastcall AlpcpMapLegacyPortView(PVOID Object, __int64 a2, __int64 a3)
         {
           if ( v11 + v10 <= v17 )
           {
-            SectionInformation = AlpcpCreateSection(Object, v17, (__int64)&BugCheckParameter2);
+            SectionInformation = AlpcpCreateSection(Object, v17, (__int64)&v20);
             if ( SectionInformation >= 0 )
             {
-              v12 = BugCheckParameter2;
-              SectionInformation = AlpcpCreateSectionView(BugCheckParameter2, Object, (__int64)&v15);
+              v12 = v20;
+              SectionInformation = AlpcpCreateSectionView(v20, Object, (__int64)&v15);
               if ( SectionInformation >= 0 )
               {
                 v13 = v15;
@@ -86,7 +86,7 @@ __int64 __fastcall AlpcpMapLegacyPortView(PVOID Object, __int64 a2, __int64 a3)
                 ++*(_DWORD *)(v13 + 76);
                 AlpcpUnlockBlob(*(_QWORD *)(v13 + 16));
               }
-              else if ( AlpcpDeleteBlob(v12) )
+              else if ( (unsigned __int8)AlpcpDeleteBlob(v12) )
               {
                 AlpcpDereferenceView(v12);
               }

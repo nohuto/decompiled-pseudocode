@@ -1,5 +1,5 @@
 /*
- * XREFs of KiEntropyDpcRoutine @ 0x1400AA3C8
+ * XREFs of KiEntropyDpcRoutine @ 0x1400A8948
  * Callers:
  *     <none>
  * Callees:

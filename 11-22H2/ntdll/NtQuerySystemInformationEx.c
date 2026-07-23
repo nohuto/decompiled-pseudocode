@@ -15,11 +15,17 @@
  *     <none>
  */
 
-__int64 NtQuerySystemInformationEx()
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 364LL;
+  result = 364;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInsertPageChainHead @ 0x14033A060
+ * XREFs of MiInsertPageChainHead @ 0x14033C0E0
  * Callers:
- *     MiAllocateEnclavePages @ 0x1403378DC (MiAllocateEnclavePages.c)
- *     MiGetPageTablePages @ 0x140339E00 (MiGetPageTablePages.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiGetLargePageChain @ 0x1403C7E10 (MiGetLargePageChain.c)
- *     MiMapMdlWithLargePages @ 0x140502900 (MiMapMdlWithLargePages.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
- *     MiReturnPhysicalPoolPages @ 0x14051DF40 (MiReturnPhysicalPoolPages.c)
- *     MiAddExpansionNonPagedPool @ 0x140520A60 (MiAddExpansionNonPagedPool.c)
- *     MiInitializeDynamicBitmap @ 0x1406F50F4 (MiInitializeDynamicBitmap.c)
- *     MiReapFileOnlyPfns @ 0x1406FABB0 (MiReapFileOnlyPfns.c)
- *     MiCaptureSparsePages @ 0x140879C14 (MiCaptureSparsePages.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
+ *     MiAllocateEnclavePages @ 0x14033995C (MiAllocateEnclavePages.c)
+ *     MiGetPageTablePages @ 0x14033BE80 (MiGetPageTablePages.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiGetLargePageChain @ 0x1403D1D00 (MiGetLargePageChain.c)
+ *     MiMapMdlWithLargePages @ 0x1404FC1D0 (MiMapMdlWithLargePages.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
+ *     MiReturnPhysicalPoolPages @ 0x140520550 (MiReturnPhysicalPoolPages.c)
+ *     MiAddExpansionNonPagedPool @ 0x140523104 (MiAddExpansionNonPagedPool.c)
+ *     MiInitializeDynamicBitmap @ 0x1406F9D64 (MiInitializeDynamicBitmap.c)
+ *     MiReapFileOnlyPfns @ 0x1406FF880 (MiReapFileOnlyPfns.c)
+ *     MiCaptureSparsePages @ 0x140880010 (MiCaptureSparsePages.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
  * Callees:
  *     <none>
  */

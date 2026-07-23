@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCopyVmWriteBytes @ 0x140A22BB0
+ * XREFs of MiCopyVmWriteBytes @ 0x140A2C1D0
  * Callers:
- *     MiCopyVirtualMemory @ 0x140A22370 (MiCopyVirtualMemory.c)
+ *     MiCopyVirtualMemory @ 0x140A2B990 (MiCopyVirtualMemory.c)
  * Callees:
- *     MiGetExceptionInfo @ 0x1406EF49C (MiGetExceptionInfo.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     VslDebugReadWriteSecureProcess @ 0x140A22CB8 (VslDebugReadWriteSecureProcess.c)
- *     MiDbgReadWriteEnclave @ 0x140B47294 (MiDbgReadWriteEnclave.c)
+ *     MiGetExceptionInfo @ 0x1406F413C (MiGetExceptionInfo.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     VslDebugReadWriteSecureProcess @ 0x140A2C2D8 (VslDebugReadWriteSecureProcess.c)
+ *     MiDbgReadWriteEnclave @ 0x140B492C4 (MiDbgReadWriteEnclave.c)
  */
 
 __int64 __fastcall MiCopyVmWriteBytes(__int64 a1)

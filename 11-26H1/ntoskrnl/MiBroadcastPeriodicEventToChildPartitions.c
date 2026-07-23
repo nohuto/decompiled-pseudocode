@@ -1,12 +1,12 @@
 /*
- * XREFs of MiBroadcastPeriodicEventToChildPartitions @ 0x1402A6E2C
+ * XREFs of MiBroadcastPeriodicEventToChildPartitions @ 0x1402A6248
  * Callers:
- *     KeBalanceSetManager @ 0x1405F79E0 (KeBalanceSetManager.c)
+ *     KeBalanceSetManager @ 0x1405FA400 (KeBalanceSetManager.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void MiBroadcastPeriodicEventToChildPartitions()
@@ -26,14 +26,14 @@ void MiBroadcastPeriodicEventToChildPartitions()
   __int64 v12; // rcx
 
   v0 = 0;
-  v1 = ExAcquireSpinLockExclusive(&dword_140E2EB80);
+  v1 = ExAcquireSpinLockExclusive(&dword_140E2ED00);
   while ( 2 )
   {
-    v2 = *(_DWORD *)stru_140E2EB88.QuantumTarget - 1;
-    v3 = (*(_DWORD *)(stru_140E2EB88.QuantumTarget + 8) & 4) != 0LL ? 0x20 : 0;
-    v4 = v0 < *(_DWORD *)stru_140E2EB88.QuantumTarget ? v0 : 0;
-    v5 = *(_QWORD *)(stru_140E2EB88.QuantumTarget + 8)
-       - ((*(_QWORD *)(stru_140E2EB88.QuantumTarget + 8) & 4LL) != 0 ? 4 : 0);
+    v2 = *(_DWORD *)stru_140E2ED08.QuantumTarget - 1;
+    v3 = (*(_DWORD *)(stru_140E2ED08.QuantumTarget + 8) & 4) != 0LL ? 0x20 : 0;
+    v4 = v0 < *(_DWORD *)stru_140E2ED08.QuantumTarget ? v0 : 0;
+    v5 = *(_QWORD *)(stru_140E2ED08.QuantumTarget + 8)
+       - ((*(_QWORD *)(stru_140E2ED08.QuantumTarget + 8) & 4LL) != 0 ? 4 : 0);
     while ( 1 )
     {
       v6 = v3 + v2;
@@ -59,8 +59,8 @@ LABEL_11:
       if ( !v4 )
         goto LABEL_16;
       v11 = v0 + 1;
-      if ( v0 + 1 > *(_DWORD *)stru_140E2EB88.QuantumTarget )
-        v11 = *(_DWORD *)stru_140E2EB88.QuantumTarget;
+      if ( v0 + 1 > *(_DWORD *)stru_140E2ED08.QuantumTarget )
+        v11 = *(_DWORD *)stru_140E2ED08.QuantumTarget;
       v2 = v11 - 1;
       v4 = 0;
     }
@@ -69,7 +69,7 @@ LABEL_16:
     if ( v7 >= v0 && v7 != -1 )
     {
       v0 = v7 + 1;
-      v12 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * v7);
+      v12 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * v7);
       if ( *(_BYTE *)(v12 + 21388) )
         KeSetEvent((PRKEVENT)(v12 + 112), 0, 0);
       continue;
@@ -77,7 +77,7 @@ LABEL_16:
     break;
   }
   if ( v1 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EB80);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2ED00);
   else
-    ExReleaseSpinLockExclusive(&dword_140E2EB80, v1);
+    ExReleaseSpinLockExclusive(&dword_140E2ED00, v1);
 }

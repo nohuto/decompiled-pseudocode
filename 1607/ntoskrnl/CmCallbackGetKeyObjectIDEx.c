@@ -1,15 +1,15 @@
 /*
- * XREFs of CmCallbackGetKeyObjectIDEx @ 0x140403F54
+ * XREFs of CmCallbackGetKeyObjectIDEx @ 0x140402E14
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpUnlockKcbStack @ 0x140404820 (CmpUnlockKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140404FE8 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpLockKcbStackShared @ 0x140432F60 (CmpLockKcbStackShared.c)
- *     CmpConstructNameWithStatus @ 0x140437710 (CmpConstructNameWithStatus.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpUnlockKcbStack @ 0x1404036E0 (CmpUnlockKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140403EA8 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockKcbStackShared @ 0x140431E30 (CmpLockKcbStackShared.c)
+ *     CmpConstructNameWithStatus @ 0x1404365E0 (CmpConstructNameWithStatus.c)
  */
 
 __int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, int a5)

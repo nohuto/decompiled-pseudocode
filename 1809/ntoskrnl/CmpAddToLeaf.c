@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpAddToLeaf @ 0x1405AEEC0
+ * XREFs of CmpAddToLeaf @ 0x1405AFEC0
  * Callers:
- *     CmpAddSubKeyToList @ 0x1405AECF4 (CmpAddSubKeyToList.c)
+ *     CmpAddSubKeyToList @ 0x1405AFCF4 (CmpAddSubKeyToList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     HvReallocateCell @ 0x1405AD9CC (HvReallocateCell.c)
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
- *     CmpGenerateFastLeafHintForUnicodeString @ 0x1405AF420 (CmpGenerateFastLeafHintForUnicodeString.c)
- *     CmpCompareInIndex @ 0x1405D51D0 (CmpCompareInIndex.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1405D5370 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     HvReallocateCell @ 0x1405AE9CC (HvReallocateCell.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     CmpHashUnicodeComponent @ 0x1405B02C4 (CmpHashUnicodeComponent.c)
+ *     CmpGenerateFastLeafHintForUnicodeString @ 0x1405B0420 (CmpGenerateFastLeafHintForUnicodeString.c)
+ *     CmpCompareInIndex @ 0x1405D61D0 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1405D6370 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpAddToLeaf(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3, __int64 a4)

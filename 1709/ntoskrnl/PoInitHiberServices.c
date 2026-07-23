@@ -25,8 +25,8 @@ void __fastcall PoInitHiberServices(char a1)
 {
   _DWORD *v1; // rdi
   bool v2; // bp
-  __int64 v3; // rcx
-  __int64 v4; // rbx
+  UNICODE_STRING *v3; // rcx
+  HANDLE v4; // rbx
   _DWORD *PoolWithTag; // rax
   ULONG v6; // eax
   unsigned int v7; // esi
@@ -34,30 +34,26 @@ void __fastcall PoInitHiberServices(char a1)
   __int64 v9; // rcx
   __int64 v10; // rcx
   ULONG ReturnLength; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+58h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+58h] [rbp+10h] BYREF
 
   LOBYTE(ReturnLength) = a1;
   v1 = 0LL;
   v2 = PopHiberEnabledReg == 0;
-  EmClientQueryRuleState(&GUID_EM_REMOVE_BAD_S3_PAGE_RULE, &v12);
-  if ( (int)BcdOpenStore(v3, 2LL, &v12) >= 0 )
+  EmClientQueryRuleState(&GUID_EM_REMOVE_BAD_S3_PAGE_RULE, &BcdStoreHandle);
+  if ( BcdOpenStore(v3, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle) >= 0 )
   {
-    v4 = v12;
-    PopBcdEstablishResumeObject(v12, 0LL);
+    v4 = BcdStoreHandle;
+    PopBcdEstablishResumeObject(BcdStoreHandle);
     PopBcdClearPendingResume(v4);
     BcdCloseStore(v4);
   }
-  if ( ZwQuerySystemInformation(SystemPrefetchPathInformation|SystemHandleInformation, 0LL, 0, &ReturnLength) == -1073741789 )
+  if ( ZwQuerySystemInformation(SystemVhdBootInformation, 0LL, 0, &ReturnLength) == -1073741789 )
   {
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, ReturnLength, 0x72626968u);
     v1 = PoolWithTag;
     if ( PoolWithTag )
     {
-      if ( ZwQuerySystemInformation(
-             SystemPrefetchPathInformation|SystemHandleInformation,
-             PoolWithTag,
-             ReturnLength,
-             &ReturnLength) >= 0 )
+      if ( ZwQuerySystemInformation(SystemVhdBootInformation, PoolWithTag, ReturnLength, &ReturnLength) >= 0 )
       {
         v6 = ReturnLength - 2;
         ReturnLength -= 2;
@@ -66,7 +62,7 @@ void __fastcall PoInitHiberServices(char a1)
           if ( v1[1] <= v6 )
           {
             v2 = 1;
-            PoDisableSleepStates(2LL, 8LL, &v12);
+            PoDisableSleepStates(2LL, 8LL, &BcdStoreHandle);
           }
         }
       }
@@ -79,7 +75,10 @@ void __fastcall PoInitHiberServices(char a1)
     if ( *(_DWORD *)((char *)&PopHiberForceDisabledReg + v8) )
     {
       v2 = 1;
-      if ( (int)PoDisableSleepStates(*(unsigned int *)((char *)PopHiberForceDisabledReasonMap + v8), 8LL, &v12) < 0 )
+      if ( (int)PoDisableSleepStates(
+                  *(unsigned int *)((char *)PopHiberForceDisabledReasonMap + v8),
+                  8LL,
+                  &BcdStoreHandle) < 0 )
       {
         LOBYTE(v10) = 1;
         PoShutdownBugCheck(v10, 160LL, 272LL, 0LL, 0LL, 0LL);

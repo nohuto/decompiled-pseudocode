@@ -1,44 +1,44 @@
 /*
- * XREFs of MiFindContiguousPagesEx @ 0x1403BB018
+ * XREFs of MiFindContiguousPagesEx @ 0x1403BB1F8
  * Callers:
- *     MiWaitForInPageComplete @ 0x1402A17A0 (MiWaitForInPageComplete.c)
- *     MiAllocateSkipPagesForMdl @ 0x1403ACE20 (MiAllocateSkipPagesForMdl.c)
- *     MiAllocateMostlyContiguousPagesForMdl @ 0x1403AD5DC (MiAllocateMostlyContiguousPagesForMdl.c)
- *     MiAllocateContiguousMemory @ 0x1403B9CD4 (MiAllocateContiguousMemory.c)
- *     MiRebuildLargePage @ 0x14046E7E8 (MiRebuildLargePage.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B5B0 (MmMarkPhysicalMemoryAsBad.c)
- *     MiIdealClusterPage @ 0x14066A490 (MiIdealClusterPage.c)
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
- *     MmRemovePhysicalMemory @ 0x140A2D210 (MmRemovePhysicalMemory.c)
- *     MiCreatePagefileMemoryExtents @ 0x140A46EF8 (MiCreatePagefileMemoryExtents.c)
- *     MiFindLargePageMemory @ 0x140A49768 (MiFindLargePageMemory.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49B64 (MiMapSystemImageWithLargePage.c)
+ *     MiWaitForInPageComplete @ 0x1402A1A30 (MiWaitForInPageComplete.c)
+ *     MiAllocateSkipPagesForMdl @ 0x1403AD000 (MiAllocateSkipPagesForMdl.c)
+ *     MiAllocateMostlyContiguousPagesForMdl @ 0x1403AD7BC (MiAllocateMostlyContiguousPagesForMdl.c)
+ *     MiAllocateContiguousMemory @ 0x1403B9EB4 (MiAllocateContiguousMemory.c)
+ *     MiRebuildLargePage @ 0x14046EBE8 (MiRebuildLargePage.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14062BB00 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiIdealClusterPage @ 0x14066A9E0 (MiIdealClusterPage.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
+ *     MmRemovePhysicalMemory @ 0x140A2D4C0 (MmRemovePhysicalMemory.c)
+ *     MiCreatePagefileMemoryExtents @ 0x140A471A8 (MiCreatePagefileMemoryExtents.c)
+ *     MiFindLargePageMemory @ 0x140A49A18 (MiFindLargePageMemory.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A49E14 (MiMapSystemImageWithLargePage.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
  *     MiIsPageOnBadList @ 0x1402186C0 (MiIsPageOnBadList.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiSetPfnOwnedAndActive @ 0x1402E2D3C (MiSetPfnOwnedAndActive.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiReferencePageRuns @ 0x1403576E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRunsEx @ 0x140357BE4 (MiDereferencePageRunsEx.c)
- *     MiClaimPhysicalRun @ 0x1403BA77C (MiClaimPhysicalRun.c)
- *     MiCollapseRunTopDown @ 0x1403BB5D0 (MiCollapseRunTopDown.c)
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
- *     MiConvertContiguousPages @ 0x1403BDAD0 (MiConvertContiguousPages.c)
- *     MiFreeContiguousPages @ 0x1403C39DC (MiFreeContiguousPages.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFindLargeNodePage @ 0x14061D668 (MiFindLargeNodePage.c)
- *     MiTrimNoStealPagesFromWorkingSets @ 0x140635460 (MiTrimNoStealPagesFromWorkingSets.c)
- *     MiEmptyKernelStackCache @ 0x140644790 (MiEmptyKernelStackCache.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiSetPfnOwnedAndActive @ 0x1402E2FCC (MiSetPfnOwnedAndActive.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E9534 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x1402EC680 (MiCreateUltraThreadContext.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiReferencePageRuns @ 0x140357880 (MiReferencePageRuns.c)
+ *     MiDereferencePageRunsEx @ 0x140357D84 (MiDereferencePageRunsEx.c)
+ *     MiClaimPhysicalRun @ 0x1403BA95C (MiClaimPhysicalRun.c)
+ *     MiCollapseRunTopDown @ 0x1403BB7B0 (MiCollapseRunTopDown.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
+ *     MiConvertContiguousPages @ 0x1403BDCB0 (MiConvertContiguousPages.c)
+ *     MiFreeContiguousPages @ 0x1403C3BBC (MiFreeContiguousPages.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiFindLargeNodePage @ 0x14061DBB8 (MiFindLargeNodePage.c)
+ *     MiTrimNoStealPagesFromWorkingSets @ 0x1406359B0 (MiTrimNoStealPagesFromWorkingSets.c)
+ *     MiEmptyKernelStackCache @ 0x140644CE0 (MiEmptyKernelStackCache.c)
  */
 
 __int64 __fastcall MiFindContiguousPagesEx(
@@ -426,10 +426,13 @@ LABEL_58:
                     if ( (v16 & 0x10000000) != 0 )
                     {
                       _InterlockedAnd64((volatile signed __int64 *)(v35 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                      if ( KiIrqlFlags )
+                      if ( (_DWORD)KiIrqlFlags )
                       {
                         v66 = KeGetCurrentIrql();
-                        if ( (KiIrqlFlags & 1) != 0 && v66 <= 0xFu && (unsigned __int8)v60 <= 0xFu && v66 >= 2u )
+                        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                          && v66 <= 0xFu
+                          && (unsigned __int8)v60 <= 0xFu
+                          && v66 >= 2u )
                         {
                           CurrentPrcb = KeGetCurrentPrcb();
                           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -453,10 +456,13 @@ LABEL_58:
                     v81 = 1;
                   }
                   _InterlockedAnd64((volatile signed __int64 *)(v35 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v61 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && v61 <= 0xFu && (unsigned __int8)v60 <= 0xFu && v61 >= 2u )
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                      && v61 <= 0xFu
+                      && (unsigned __int8)v60 <= 0xFu
+                      && v61 >= 2u )
                     {
                       v62 = KeGetCurrentPrcb();
                       v63 = v62->SchedulerAssist;

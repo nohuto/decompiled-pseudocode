@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1403B3BB8
+ * XREFs of KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1403A23C8
  * Callers:
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
  * Callees:
- *     ?KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x1402028A0 (-KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET.c)
- *     ?KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints@@YAEPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@@Z @ 0x1403B44EC (-KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints@@YAEPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOI.c)
+ *     ?KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x14032AF90 (-KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET.c)
+ *     ?KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints@@YAEPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@@Z @ 0x1403A28B4 (-KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints@@YAEPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOI.c)
  */
 
 char __fastcall KiAdjustProcessIdealProcessorSetsForThreadCreation(unsigned __int64 a1)

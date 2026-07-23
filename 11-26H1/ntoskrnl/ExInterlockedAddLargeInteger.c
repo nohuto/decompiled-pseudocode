@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInterlockedAddLargeInteger @ 0x1403DFAB0
+ * XREFs of ExInterlockedAddLargeInteger @ 0x1403E2CA0
  * Callers:
  *     <none>
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x1403DE500 (ExpAcquireSpinLockDisabled.c)
- *     ExpReleaseSpinLockDisabled @ 0x1403DFB08 (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1403E16F0 (ExpAcquireSpinLockDisabled.c)
+ *     ExpReleaseSpinLockDisabled @ 0x1403E2CF8 (ExpReleaseSpinLockDisabled.c)
  */
 
 LARGE_INTEGER __stdcall ExInterlockedAddLargeInteger(PLARGE_INTEGER Addend, LARGE_INTEGER Increment, PKSPIN_LOCK Lock)

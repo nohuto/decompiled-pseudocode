@@ -1,15 +1,15 @@
 /*
- * XREFs of PipCreateNewDependencyEdge @ 0x1405A45BC
+ * XREFs of PipCreateNewDependencyEdge @ 0x1405A14FC
  * Callers:
- *     PipAddDependencyEdgeBetweenNodes @ 0x1405A4520 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x1405A1460 (PipAddDependencyEdgeBetweenNodes.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PipNotifyDependenciesChanged @ 0x1406FA368 (PipNotifyDependenciesChanged.c)
- *     PipReferenceDependencyNode @ 0x1406FC114 (PipReferenceDependencyNode.c)
- *     PipAddRequestToEdge @ 0x14071E418 (PipAddRequestToEdge.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PipNotifyDependenciesChanged @ 0x1406F7FA8 (PipNotifyDependenciesChanged.c)
+ *     PipReferenceDependencyNode @ 0x1406F9D54 (PipReferenceDependencyNode.c)
+ *     PipAddRequestToEdge @ 0x14071BFA8 (PipAddRequestToEdge.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall PipCreateNewDependencyEdge(__int64 a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ _QWORD *__fastcall PipCreateNewDependencyEdge(__int64 a1, __int64 a2, __int64 a3
   _QWORD *v11; // rdx
   _QWORD *v12; // rax
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x53706E50u);
   v7 = (_QWORD *)Pool2;
   if ( Pool2 )
   {

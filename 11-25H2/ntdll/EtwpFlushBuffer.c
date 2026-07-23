@@ -11,25 +11,25 @@
 
 __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
 {
-  int v3; // r9d
+  NTSTATUS v3; // r9d
   int v4; // r10d
   int v6; // eax
   int v8; // esi
   unsigned int v9; // edx
   __int64 v10; // r14
-  __int64 v11; // rbp
+  __int64 Length; // rbp
   unsigned __int64 v13; // r9
   int v14; // edx
   int v15; // edx
   __int64 v16; // rax
-  __int128 v17; // [rsp+58h] [rbp-30h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-30h] BYREF
   int v18; // [rsp+98h] [rbp+10h] BYREF
   int v19; // [rsp+A8h] [rbp+20h] BYREF
 
   v3 = 0;
   v4 = 0;
   v19 = 0;
-  v17 = 0LL;
+  IoStatusBlock = 0LL;
   v18 = 0;
   v6 = *(_DWORD *)(a2 + 4);
   if ( !v6 )
@@ -45,10 +45,10 @@ __int64 __fastcall EtwpFlushBuffer(__int64 a1, __int64 a2, __int16 a3)
   {
     v9 = *(_DWORD *)(a1 + 308);
     v10 = *(unsigned int *)(a1 + 304);
-    v11 = *(unsigned int *)(a1 + 192);
+    Length = *(unsigned int *)(a1 + 192);
     if ( (_DWORD)v10 )
     {
-      v13 = (v9 & 0x4000000) != 0 ? *(_QWORD *)(a1 + 344) : v11 * (((v9 >> 2) & 2) + *(_DWORD *)(a1 + 320));
+      v13 = (v9 & 0x4000000) != 0 ? *(_QWORD *)(a1 + 344) : Length * (((v9 >> 2) & 2) + *(_DWORD *)(a1 + 320));
       if ( v13 >= v10 * ((-(__int64)((v9 & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
       {
         v14 = (v9 & 0xB) - 1;
@@ -71,7 +71,7 @@ LABEL_25:
         {
           v16 = *(_QWORD *)(a1 + 336);
           *(_QWORD *)(a1 + 344) = v16;
-          *(_DWORD *)(a1 + 320) = v16 / v11;
+          *(_DWORD *)(a1 + 320) = v16 / Length;
         }
       }
     }
@@ -94,15 +94,24 @@ LABEL_11:
     }
     else
     {
-      if ( *(_DWORD *)(a2 + 48) < (unsigned int)v11 )
+      if ( *(_DWORD *)(a2 + 48) < (unsigned int)Length )
         memset_thunk_772440563353939046(
           (void *)(a2 + *(unsigned int *)(a2 + 48)),
           255,
-          (unsigned int)(v11 - *(_DWORD *)(a2 + 48)));
-      v3 = NtWriteFile(*(_QWORD *)(a1 + 128), 0LL, 0LL, 0LL, &v17, a2, v11, a1 + 344, 0LL);
+          (unsigned int)(Length - *(_DWORD *)(a2 + 48)));
+      v3 = NtWriteFile(
+             *(HANDLE *)(a1 + 128),
+             0LL,
+             0LL,
+             0LL,
+             &IoStatusBlock,
+             (PVOID)a2,
+             Length,
+             (PLARGE_INTEGER)(a1 + 344),
+             0LL);
       if ( v3 >= 0 )
       {
-        *(_QWORD *)(a1 + 344) += v11;
+        *(_QWORD *)(a1 + 344) += Length;
         goto LABEL_11;
       }
       v4 = 1;

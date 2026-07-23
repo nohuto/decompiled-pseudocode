@@ -1,21 +1,21 @@
 /*
  * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x1403F13B0 (IoCheckRedirectionTrustLevel.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1403F1280 (IoCheckRedirectionTrustLevel.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14021CEB0 (RtlWalkFrameChain.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwpTiFillProcessIdentity @ 0x14027E4B8 (EtwpTiFillProcessIdentity.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     RtlWalkFrameChain @ 0x1402C17B0 (RtlWalkFrameChain.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA9E0 (ZwQueryVirtualMemory.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpQueryProcessCommandLine @ 0x1406F20C8 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B51B0 (ExAllocatePool2.c)
  */
 
 void __fastcall EtwTimLogRedirectionTrustPolicy(
@@ -286,7 +286,7 @@ LABEL_49:
   p_Length = &v8[1].Length;
   do
   {
-    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v22, (MEMORY_INFORMATION_CLASS)2, v21, 0x218uLL, 0LL) < 0
+    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v22, MemoryMappedFilenameInformation, v21, 0x218uLL, 0LL) < 0
       || *(_WORD *)v21 <= 1u )
     {
       goto LABEL_39;
@@ -543,7 +543,7 @@ LABEL_42:
       v139 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02BF0,
-        (unsigned __int8 *)&dword_14002D66C,
+        (unsigned __int8 *)byte_14002D7FB,
         0LL,
         0LL,
         0x18u,
@@ -569,7 +569,13 @@ LABEL_42:
     v151 = v47;
     v152[0] = v51;
     v152[1] = 0;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02BF0, (unsigned __int8 *)word_14002D802, 0LL, 0LL, 8u, &v140);
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140C02BF0,
+      (unsigned __int8 *)&word_14002D79E,
+      0LL,
+      0LL,
+      8u,
+      &v140);
   }
   if ( v66 )
     ExFreePoolWithTag(P, 0);

@@ -10,48 +10,46 @@
  *     RtlpLogHeapFailure @ 0x1800A4B04 (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlpHpVsContextFree(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
+__int64 __fastcall RtlpHpVsContextFree(PRTL_SRWLOCK SRWLock, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
 {
   __int64 v5; // rsi
-  unsigned int v7; // r15d
   int v8; // r13d
-  unsigned int v10; // ebx
-  int v11; // r14d
-  __int64 v12; // rsi
+  unsigned int v9; // ebx
+  int v10; // r14d
+  __int64 v11; // rsi
 
   v5 = a3 - 16;
-  v7 = a4;
   v8 = a3;
   if ( (*(_WORD *)(a2 + 34) ^ 0xABED) == *(_WORD *)(a2 + 32) )
   {
     *a5 = 16 * (WORD1(RtlpLFHKey) ^ WORD1(v5) ^ *(unsigned __int16 *)(v5 + 2)) - 16;
-    v11 = a4 & 1;
+    v10 = a4 & 1;
     if ( (a4 & 1) == 0 )
-      RtlAcquireSRWLockExclusive(a1, (char *)a2, a3, a4);
+      RtlAcquireSRWLockExclusive(SRWLock);
     if ( ((HIDWORD(v5) ^ HIDWORD(RtlpLFHKey) ^ HIDWORD(*(_QWORD *)v5)) & 0xFF0000) != 0 )
     {
-      v12 = RtlpHpVsChunkFree(a1, a2, v5, v7);
-      if ( !v11 )
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-      if ( v12 )
-        ((void (__fastcall *)(_QWORD, __int64, _QWORD))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 72)))(
-          *(_QWORD *)(a1 + 56),
-          v12,
-          v7);
+      v11 = RtlpHpVsChunkFree(SRWLock);
+      if ( !v10 )
+        RtlReleaseSRWLockExclusive(SRWLock);
+      if ( v11 )
+        ((void (__fastcall *)(unsigned __int64, __int64, _QWORD))((unsigned __int64)SRWLock ^ RtlpHeapKey ^ SRWLock[9].Value))(
+          SRWLock[7].Value,
+          v11,
+          a4);
       return 1;
     }
     else
     {
-      v10 = 0;
-      RtlpLogHeapFailure(8, *(_QWORD *)(a1 + 56), v8, v5, 0LL, 0LL);
-      if ( !v11 )
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+      v9 = 0;
+      RtlpLogHeapFailure(8, SRWLock[7].Value, v8, v5, 0LL, 0LL);
+      if ( !v10 )
+        RtlReleaseSRWLockExclusive(SRWLock);
     }
   }
   else
   {
-    v10 = 0;
-    RtlpLogHeapFailure(17, *(_QWORD *)(a1 + 56), a2, 0, 0LL, 0LL);
+    v9 = 0;
+    RtlpLogHeapFailure(17, SRWLock[7].Value, a2, 0, 0LL, 0LL);
   }
-  return v10;
+  return v9;
 }

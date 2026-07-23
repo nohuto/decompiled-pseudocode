@@ -9,7 +9,7 @@
 __int64 __fastcall RtlLogStackTrace(int a1)
 {
   if ( RtlpStackTraceDatabase )
-    return RtlStdLogStackTrace(RtlpStackTraceDatabase, a1);
+    return RtlStdLogStackTrace((__int64)RtlpStackTraceDatabase, a1);
   else
     return 0LL;
 }

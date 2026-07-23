@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteRotateAndStopFaults @ 0x1404DED80
+ * XREFs of MiDeleteRotateAndStopFaults @ 0x1404D8460
  * Callers:
- *     MiRotateToFrameBufferNoCopy @ 0x140AEC50C (MiRotateToFrameBufferNoCopy.c)
- *     MiRotateToFrameBuffer @ 0x140AEC740 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140AEF51C (MiRotateToFrameBufferNoCopy.c)
+ *     MiRotateToFrameBuffer @ 0x140AEF750 (MiRotateToFrameBuffer.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiDeletePagablePteRange @ 0x140361860 (MiDeletePagablePteRange.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeletePagablePteRange @ 0x140363600 (MiDeletePagablePteRange.c)
  */
 
 __int64 __fastcall MiDeleteRotateAndStopFaults(unsigned __int64 a1, unsigned __int64 a2, _QWORD *a3)

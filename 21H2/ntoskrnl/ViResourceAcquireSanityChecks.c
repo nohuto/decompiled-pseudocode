@@ -1,16 +1,16 @@
 /*
- * XREFs of ViResourceAcquireSanityChecks @ 0x1409E25D0
+ * XREFs of ViResourceAcquireSanityChecks @ 0x1409E35D0
  * Callers:
- *     VerifierExAcquireResourceExclusiveLite @ 0x1409E1AE0 (VerifierExAcquireResourceExclusiveLite.c)
- *     VerifierExAcquireResourceExclusiveLiteNoReboot @ 0x1409E1B70 (VerifierExAcquireResourceExclusiveLiteNoReboot.c)
- *     VerifierExAcquireResourceSharedLite @ 0x1409E1BB0 (VerifierExAcquireResourceSharedLite.c)
- *     VerifierExAcquireResourceSharedLiteNoReboot @ 0x1409E1C40 (VerifierExAcquireResourceSharedLiteNoReboot.c)
- *     VerifierExAcquireSharedStarveExclusive @ 0x1409E1C80 (VerifierExAcquireSharedStarveExclusive.c)
- *     VerifierExAcquireSharedStarveExclusiveNoReboot @ 0x1409E1D10 (VerifierExAcquireSharedStarveExclusiveNoReboot.c)
- *     VerifierExAcquireSharedWaitForExclusive @ 0x1409E1D50 (VerifierExAcquireSharedWaitForExclusive.c)
- *     VerifierExAcquireSharedWaitForExclusiveNoReboot @ 0x1409E1DE0 (VerifierExAcquireSharedWaitForExclusiveNoReboot.c)
+ *     VerifierExAcquireResourceExclusiveLite @ 0x1409E2AE0 (VerifierExAcquireResourceExclusiveLite.c)
+ *     VerifierExAcquireResourceExclusiveLiteNoReboot @ 0x1409E2B70 (VerifierExAcquireResourceExclusiveLiteNoReboot.c)
+ *     VerifierExAcquireResourceSharedLite @ 0x1409E2BB0 (VerifierExAcquireResourceSharedLite.c)
+ *     VerifierExAcquireResourceSharedLiteNoReboot @ 0x1409E2C40 (VerifierExAcquireResourceSharedLiteNoReboot.c)
+ *     VerifierExAcquireSharedStarveExclusive @ 0x1409E2C80 (VerifierExAcquireSharedStarveExclusive.c)
+ *     VerifierExAcquireSharedStarveExclusiveNoReboot @ 0x1409E2D10 (VerifierExAcquireSharedStarveExclusiveNoReboot.c)
+ *     VerifierExAcquireSharedWaitForExclusive @ 0x1409E2D50 (VerifierExAcquireSharedWaitForExclusive.c)
+ *     VerifierExAcquireSharedWaitForExclusiveNoReboot @ 0x1409E2DE0 (VerifierExAcquireSharedWaitForExclusiveNoReboot.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 struct _KTHREAD *__fastcall ViResourceAcquireSanityChecks(__int64 a1, char a2, int a3)

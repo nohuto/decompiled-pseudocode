@@ -1,51 +1,51 @@
 /*
- * XREFs of RtlpHpPerHeapStackTraceCleanup @ 0x18014F3D4
+ * XREFs of RtlpHpPerHeapStackTraceCleanup @ 0x18014F284
  * Callers:
- *     RtlpHpStackTraceHeapDestroy @ 0x18007DD44 (RtlpHpStackTraceHeapDestroy.c)
- *     RtlpHpStackTraceHeapDisable @ 0x18014FBD0 (RtlpHpStackTraceHeapDisable.c)
+ *     RtlpHpStackTraceHeapDestroy @ 0x18006D9A8 (RtlpHpStackTraceHeapDestroy.c)
+ *     RtlpHpStackTraceHeapDisable @ 0x18014FA80 (RtlpHpStackTraceHeapDisable.c)
  * Callees:
- *     RtlRunOnceBeginInitialize @ 0x18000EC60 (RtlRunOnceBeginInitialize.c)
- *     RtlpHpMetadataFree @ 0x180087EE8 (RtlpHpMetadataFree.c)
- *     RtlStackDbStackRemove @ 0x180120DAC (RtlStackDbStackRemove.c)
+ *     RtlRunOnceBeginInitialize @ 0x18005A390 (RtlRunOnceBeginInitialize.c)
+ *     RtlpHpMetadataFree @ 0x18007F268 (RtlpHpMetadataFree.c)
+ *     RtlStackDbStackRemove @ 0x180120B5C (RtlStackDbStackRemove.c)
  */
 
-__int64 __fastcall RtlpHpPerHeapStackTraceCleanup(volatile signed __int64 *a1, int a2, int a3)
+int __fastcall RtlpHpPerHeapStackTraceCleanup(_RTL_RUN_ONCE *a1, int a2, int a3)
 {
-  __int64 result; // rax
-  __int64 v7; // rsi
-  __int64 *v8; // r14
-  __int64 *v9; // rbx
+  _QWORD *v6; // rax
+  char *v7; // rsi
+  _QWORD *v8; // r14
+  _QWORD *v9; // rbx
   _DWORD *v10; // rdi
   __int64 v11; // rcx
   __int64 v12; // rdi
-  __int64 *i; // rcx
-  _OWORD v14[3]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v15; // [rsp+78h] [rbp+20h] BYREF
+  _QWORD *i; // rcx
+  _OWORD v15[3]; // [rsp+20h] [rbp-38h] BYREF
+  char *v16; // [rsp+78h] [rbp+20h] BYREF
 
-  v15 = 0LL;
-  result = RtlRunOnceBeginInitialize(a1, 1, (unsigned __int64 *)&v15);
-  if ( (int)result >= 0 )
+  v16 = 0LL;
+  LODWORD(v6) = RtlRunOnceBeginInitialize(a1, 1u, (PVOID *)&v16);
+  if ( (int)v6 >= 0 )
   {
-    v7 = v15;
-    v8 = *(__int64 **)(v15 + 24);
+    v7 = v16;
+    v8 = (_QWORD *)*((_QWORD *)v16 + 3);
     v9 = v8;
     while ( v9 )
     {
-      result = *v9;
-      v9 = (__int64 *)result;
-      if ( (result & 1) != 0 )
+      v6 = (_QWORD *)*v9;
+      v9 = v6;
+      if ( ((unsigned __int8)v6 & 1) != 0 )
         break;
-      v10 = (_DWORD *)(v7 + 20);
+      v10 = v7 + 20;
 LABEL_16:
-      if ( !result )
+      if ( !v6 )
         goto LABEL_10;
       v12 = (__int64)v9;
-      for ( i = v8; (*i & 1) == 0; i = (__int64 *)*i )
+      for ( i = v8; (*i & 1) == 0; i = (_QWORD *)*i )
       {
-        if ( (__int64 *)*i == v9 )
+        if ( (_QWORD *)*i == v9 )
         {
           *i = *v9;
-          --*(_DWORD *)(v7 + 16);
+          --*((_DWORD *)v7 + 4);
           *v9 |= 0x8000000000000002uLL;
           v9 = i;
           goto LABEL_23;
@@ -53,41 +53,41 @@ LABEL_16:
       }
       v12 = 0LL;
 LABEL_23:
-      RtlStackDbStackRemove((__int64)&qword_1801C7860, *(_QWORD *)(v12 + 16));
-      v14[0] = RtlpHpEnvHandle;
-      RtlpHpMetadataFree(v12, v14);
+      RtlStackDbStackRemove((__int64)&qword_1801C68B0, *(_QWORD **)(v12 + 16));
+      v15[0] = RtlpHpEnvHandle;
+      RtlpHpMetadataFree(v12, v15);
     }
-    result = *(_QWORD *)(v7 + 24);
-    v10 = (_DWORD *)(v7 + 20);
-    for ( ++v8; (unsigned __int64)v8 < result + 8 * ((unsigned __int64)*(unsigned int *)(v7 + 20) >> 5); ++v8 )
+    v6 = (_QWORD *)*((_QWORD *)v7 + 3);
+    v10 = v7 + 20;
+    for ( ++v8; v8 < &v6[(unsigned __int64)*((unsigned int *)v7 + 5) >> 5]; ++v8 )
     {
-      v9 = (__int64 *)*v8;
+      v9 = (_QWORD *)*v8;
       if ( (*v8 & 1) == 0 )
       {
-        result = *v8;
+        v6 = (_QWORD *)*v8;
         goto LABEL_16;
       }
     }
 LABEL_10:
-    v11 = *(_QWORD *)(v7 + 24);
+    v11 = *((_QWORD *)v7 + 3);
     if ( v11 )
     {
-      v14[0] = RtlpHpEnvHandle;
-      result = RtlpHpMetadataFree(v11, v14);
+      v15[0] = RtlpHpEnvHandle;
+      LODWORD(v6) = RtlpHpMetadataFree(v11, v15);
     }
     if ( a2 )
     {
-      *(_DWORD *)(v7 + 16) = 0;
-      *(_QWORD *)(v7 + 24) = 0LL;
+      *((_DWORD *)v7 + 4) = 0;
+      *((_QWORD *)v7 + 3) = 0LL;
       *v10 = 0;
     }
     else
     {
-      v14[0] = RtlpHpEnvHandle;
-      result = RtlpHpMetadataFree(v7, v14);
+      v15[0] = RtlpHpEnvHandle;
+      LODWORD(v6) = RtlpHpMetadataFree((__int64)v7, v15);
       if ( a3 )
-        *a1 = 0LL;
+        a1->Value = 0LL;
     }
   }
-  return result;
+  return (int)v6;
 }

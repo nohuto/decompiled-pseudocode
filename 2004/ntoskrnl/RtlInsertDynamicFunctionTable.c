@@ -201,7 +201,7 @@ LABEL_23:
   {
     *(_BYTE *)(v20 + 32) |= 2u;
     if ( *(__int64 *)(v20 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v20);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
     v24 = *(_DWORD *)(v20 + 88);
     v38 = v24 & 0x1FFFF;
     *(_DWORD *)(v20 + 88) = v24 & 0xFFFE0000;

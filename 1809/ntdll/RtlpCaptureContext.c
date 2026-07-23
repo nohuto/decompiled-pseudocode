@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpCaptureContext @ 0x1800A4290
+ * XREFs of RtlpCaptureContext @ 0x1800A42B0
  * Callers:
  *     RtlpWalkFrameChain @ 0x1800038B0 (RtlpWalkFrameChain.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
  * Callees:
  *     <none>
  */
@@ -32,5 +32,5 @@ void __fastcall RtlpCaptureContext(__int64 a1)
   *(_OWORD *)(a1 + 640) = v9;
   *(_OWORD *)(a1 + 656) = v10;
   *(_DWORD *)(a1 + 280) = _mm_getcsr();
-  JUMPOUT(0x1800A4347LL);
+  JUMPOUT(0x1800A4367LL);
 }

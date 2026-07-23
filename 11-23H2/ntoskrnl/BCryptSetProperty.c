@@ -1,12 +1,12 @@
 /*
- * XREFs of BCryptSetProperty @ 0x1409C90AC
+ * XREFs of BCryptSetProperty @ 0x1409C92AC
  * Callers:
- *     SecureDump_SymmetricEncryptionSetup @ 0x14055E694 (SecureDump_SymmetricEncryptionSetup.c)
- *     SmCrEncStart @ 0x1409DA82C (SmCrEncStart.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x14055ED54 (SecureDump_SymmetricEncryptionSetup.c)
+ *     SmCrEncStart @ 0x1409DAA2C (SmCrEncStart.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x1402FA6D0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402FA700 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptSetProperty(

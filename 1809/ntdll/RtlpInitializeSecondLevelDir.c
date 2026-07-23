@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpInitializeSecondLevelDir @ 0x180077AD8
+ * XREFs of RtlpInitializeSecondLevelDir @ 0x180077AE8
  * Callers:
- *     RtlpCreateHashTable @ 0x180077968 (RtlpCreateHashTable.c)
+ *     RtlpCreateHashTable @ 0x180077978 (RtlpCreateHashTable.c)
  * Callees:
  *     <none>
  */

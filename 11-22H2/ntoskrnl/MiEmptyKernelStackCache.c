@@ -12,7 +12,7 @@
  *     MiDeleteCachedKernelShadowStack @ 0x1406443C4 (MiDeleteCachedKernelShadowStack.c)
  */
 
-__int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
+__int64 __fastcall MiEmptyKernelStackCache(_SLIST_HEADER *a1, int a2)
 {
   __int64 result; // rax
   unsigned int i; // edi
@@ -21,11 +21,11 @@ __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
   unsigned int j; // edi
   __int64 v9; // r14
   unsigned __int64 Alignment; // rax
-  union _SLIST_HEADER *v11; // rbx
-  union _SLIST_HEADER *v12; // rbp
-  union _SLIST_HEADER *v13; // rbx
-  union _SLIST_HEADER *v14; // rbp
-  struct _SLIST_ENTRY v15; // [rsp+20h] [rbp-38h] BYREF
+  _SLIST_HEADER *v11; // rbx
+  _SLIST_HEADER *v12; // rbp
+  _SLIST_HEADER *v13; // rbx
+  _SLIST_HEADER *v14; // rbp
+  _SLIST_ENTRY v15; // [rsp+20h] [rbp-38h] BYREF
   __int128 v16; // [rsp+30h] [rbp-28h]
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
 
@@ -33,7 +33,7 @@ __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
   if ( a2 || (byte_140C65B8F & 1) == 0 )
   {
     result = (__int64)MiSystemPartition;
-    if ( a1 == (union _SLIST_HEADER *)MiSystemPartition )
+    if ( a1 == (_SLIST_HEADER *)MiSystemPartition )
     {
       for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
       {
@@ -60,7 +60,7 @@ __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
     {
       v9 = 25408LL * j;
       Alignment = a1[1].Alignment;
-      v11 = (union _SLIST_HEADER *)(v9 + Alignment + 23200);
+      v11 = (_SLIST_HEADER *)(v9 + Alignment + 23200);
       v12 = v11 + 6;
       if ( v11 < &v11[6] )
       {
@@ -74,7 +74,7 @@ __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
       }
       if ( a2 )
       {
-        v13 = (union _SLIST_HEADER *)(v9 + Alignment + 23296);
+        v13 = (_SLIST_HEADER *)(v9 + Alignment + 23296);
         v14 = v13 + 6;
         while ( v13 < v14 )
         {

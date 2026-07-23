@@ -9,7 +9,7 @@
  *     RtlUTF8ToUnicodeN @ 0x140699310 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
+WCHAR __cdecl RtlAnsiCharToUnicodeChar(PUCHAR *SourceCharacter)
 {
   char IsUtf8Process; // al
   const CHAR *v3; // rdi
@@ -31,8 +31,8 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
 
   UnicodeStringDestination = 32;
   IsUtf8Process = RtlpIsUtf8Process(0LL);
-  v3 = *a1;
-  v4 = *(unsigned __int8 *)*a1;
+  v3 = (const CHAR *)*SourceCharacter;
+  v4 = **SourceCharacter;
   v5 = 1;
   if ( IsUtf8Process )
   {
@@ -119,6 +119,6 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
     }
     while ( v11 );
   }
-  *a1 += UTF8StringByteCount;
+  *SourceCharacter += UTF8StringByteCount;
   return UnicodeStringDestination;
 }

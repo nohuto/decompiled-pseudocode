@@ -1,16 +1,21 @@
 /*
- * XREFs of NtQueueApcThread @ 0x180162530
+ * XREFs of NtQueueApcThread @ 0x1801608F0
  * Callers:
- *     RtlQueueApcWow64Thread @ 0x1801342B0 (RtlQueueApcWow64Thread.c)
+ *     RtlQueueApcWow64Thread @ 0x1801324E0 (RtlQueueApcWow64Thread.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQueueApcThread()
+NTSTATUS __cdecl NtQueueApcThread(
+        HANDLE ThreadHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 69LL;
+  result = 69;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

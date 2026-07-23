@@ -1,16 +1,16 @@
 /*
- * XREFs of CmFcManagerRecordFeatureUsage @ 0x140419A58
+ * XREFs of CmFcManagerRecordFeatureUsage @ 0x140419DE8
  * Callers:
- *     RtlRecordFeatureUsage @ 0x140411760 (RtlRecordFeatureUsage.c)
+ *     RtlRecordFeatureUsage @ 0x1404119A0 (RtlRecordFeatureUsage.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     RtlReleaseSwapReference @ 0x14035D244 (RtlReleaseSwapReference.c)
- *     RtlAcquireSwapReference @ 0x14035D2EC (RtlAcquireSwapReference.c)
- *     CmpWorkItemQueueWork @ 0x14037459C (CmpWorkItemQueueWork.c)
- *     RtlpFcAddFeatureUsageDataToBuffer @ 0x140411D04 (RtlpFcAddFeatureUsageDataToBuffer.c)
- *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x140419BCC (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     RtlReleaseSwapReference @ 0x14035D3E4 (RtlReleaseSwapReference.c)
+ *     RtlAcquireSwapReference @ 0x14035D48C (RtlAcquireSwapReference.c)
+ *     CmpWorkItemQueueWork @ 0x14037473C (CmpWorkItemQueueWork.c)
+ *     RtlpFcAddFeatureUsageDataToBuffer @ 0x140411F44 (RtlpFcAddFeatureUsageDataToBuffer.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x140419F5C (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
  */
 
 void __fastcall CmFcManagerRecordFeatureUsage(__int64 a1, const void *a2, unsigned __int64 a3)
@@ -39,15 +39,15 @@ void __fastcall CmFcManagerRecordFeatureUsage(__int64 a1, const void *a2, unsign
     v4 = 1;
     --CurrentThread->KernelApcDisable;
   }
-  v7 = (unsigned int)RtlAcquireSwapReference(qword_140C14388);
+  v7 = (unsigned int)RtlAcquireSwapReference(qword_140C14348);
   v8 = CmFcSystemManager[v7 + 159];
   if ( v8 )
   {
     v9 = (*(_DWORD *)(v8 + 28) >> 1) + (*(_DWORD *)(v8 + 28) >> 2);
     v10 = RtlpFcAddFeatureUsageDataToBuffer(v8, a2, &v17);
-    v11 = dword_140C146C0;
+    v11 = dword_140C14680;
     v12 = v10;
-    RtlReleaseSwapReference(qword_140C14388, v7);
+    RtlReleaseSwapReference(qword_140C14348, v7);
     if ( v12 >= v9 || (v13 = v17 + v12, v9 > v13) )
     {
       if ( (v11 & 0x20) == 0 )
@@ -55,7 +55,7 @@ void __fastcall CmFcManagerRecordFeatureUsage(__int64 a1, const void *a2, unsign
     }
     else
     {
-      if ( dword_140C146F0 != 1 )
+      if ( dword_140C146B0 != 1 )
         goto LABEL_19;
       if ( CurrentIrql >= 2u )
       {
@@ -65,14 +65,14 @@ void __fastcall CmFcManagerRecordFeatureUsage(__int64 a1, const void *a2, unsign
       }
       else
       {
-        v14 = dword_140C146F0;
+        v14 = dword_140C146B0;
       }
-      _m_prefetchw(&dword_140C146F4);
-      v15 = _InterlockedOr(&dword_140C146F4, v14);
+      _m_prefetchw(&dword_140C146B4);
+      v15 = _InterlockedOr(&dword_140C146B4, v14);
       v16 = ~v15 & v14;
       if ( (v16 & 1) != 0 )
       {
-        CmpWorkItemQueueWork(&stru_140C14680);
+        CmpWorkItemQueueWork(&stru_140C14640);
       }
       else if ( (v16 & 2) != 0 && (v15 & 1) == 0 )
       {
@@ -82,7 +82,7 @@ void __fastcall CmFcManagerRecordFeatureUsage(__int64 a1, const void *a2, unsign
   }
   else
   {
-    RtlReleaseSwapReference(qword_140C14388, v7);
+    RtlReleaseSwapReference(qword_140C14348, v7);
   }
 LABEL_19:
   if ( v4 )

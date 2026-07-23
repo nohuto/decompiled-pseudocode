@@ -8,18 +8,17 @@
  *     TppRaiseInvalidParameter @ 0x18010AED8 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpSetPoolMaxThreadsSoftLimit(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+NTSTATUS __fastcall TpSetPoolMaxThreadsSoftLimit(__int64 a1, int a2)
 {
-  int v5; // [rsp+38h] [rbp+10h] BYREF
+  int WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = (int)Ldr;
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  if ( (int)Ldr < 0 )
-    return TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  Ldr = NtCurrentPeb()->Ldr;
-  if ( Ldr->ShutdownInProgress )
-    return TppRaiseInvalidParameter(a1, Ldr, a3, a4);
+  WorkerFactoryInformation = a2;
+  if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+    return TppRaiseInvalidParameter(a1);
   else
-    return NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 14LL, &v5);
+    return NtSetInformationWorkerFactory(
+             *(HANDLE *)(a1 + 56),
+             WorkerFactoryThreadSoftMaximum,
+             &WorkerFactoryInformation,
+             4u);
 }

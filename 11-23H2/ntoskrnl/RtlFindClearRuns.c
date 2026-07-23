@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindClearRuns @ 0x1403179C0
+ * XREFs of RtlFindClearRuns @ 0x140317C50
  * Callers:
- *     RtlFindLongestRunClear @ 0x1405A7FE0 (RtlFindLongestRunClear.c)
+ *     RtlFindLongestRunClear @ 0x1405A8550 (RtlFindLongestRunClear.c)
  * Callees:
  *     <none>
  */
@@ -32,11 +32,11 @@ ULONG __stdcall RtlFindClearRuns(
   unsigned __int8 v21; // r10
   signed int v22; // edx
   __int64 v23; // r8
-  RTL_BITMAP_RUN *m; // r9
+  _RTL_BITMAP_RUN *m; // r9
   __int64 v25; // rax
   signed int v27; // r12d
   __int64 v28; // r15
-  RTL_BITMAP_RUN *i; // r14
+  _RTL_BITMAP_RUN *i; // r14
   unsigned __int8 *v30; // r8
   __int64 v31; // r13
   char v32; // r8
@@ -44,9 +44,9 @@ ULONG __stdcall RtlFindClearRuns(
   ULONG v34; // r15d
   signed int v35; // r15d
   __int64 v36; // rbp
-  RTL_BITMAP_RUN *k; // r14
+  _RTL_BITMAP_RUN *k; // r14
   __int64 v38; // rcx
-  RTL_BITMAP_RUN *v39; // rdx
+  _RTL_BITMAP_RUN *v39; // rdx
   unsigned int v40; // [rsp+0h] [rbp-58h]
   unsigned int v41; // [rsp+8h] [rbp-50h]
   ULONG v42; // [rsp+60h] [rbp+8h]
@@ -75,7 +75,7 @@ ULONG __stdcall RtlFindClearRuns(
     v18 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( v14 == v13 - 1 && v6 )
-      v18 |= byte_140016E88[SizeOfBitMap & 7];
+      v18 |= byte_140016E78[SizeOfBitMap & 7];
     if ( !v18 )
     {
       LODWORD(v15) = v15 + 8;
@@ -117,7 +117,7 @@ ULONG __stdcall RtlFindClearRuns(
 LABEL_9:
     v15 = *((unsigned __int8 *)RtlpBitsClearHigh + v18);
     v16 = v17 - v15 + 8;
-    v21 = *((_BYTE *)qword_140016E90 - v15) | byte_140018F88[v19] | v18;
+    v21 = *((_BYTE *)qword_140016E80 - v15) | byte_140018F80[v19] | v18;
     v8 = v42;
     if ( v21 == 0xFF )
     {
@@ -137,7 +137,7 @@ LABEL_10:
           goto LABEL_10;
         }
         v31 = *v30;
-        v32 = byte_140018F88[v31];
+        v32 = byte_140018F80[v31];
         for ( j = 0; ((unsigned __int8)v32 & v21) != 0; ++j )
           v32 *= 2;
         v34 = v8 + 1;

@@ -1,35 +1,35 @@
 /*
- * XREFs of PopEvaluateWeakChargerState @ 0x140995D90
+ * XREFs of PopEvaluateWeakChargerState @ 0x140995F90
  * Callers:
- *     PopBatteryWorker @ 0x14086FD60 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14086FFA0 (PopBatteryWorker.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
  */
 
 void __fastcall PopEvaluateWeakChargerState(char a1)
 {
   char v2; // r8
   int v3; // r11d
-  int updated; // edi
+  NTSTATUS updated; // edi
   unsigned __int8 v5; // dl
   char v6; // bl
   char v7; // r9
-  unsigned __int8 v8; // [rsp+48h] [rbp-C0h] BYREF
-  char v9; // [rsp+49h] [rbp-BFh] BYREF
-  char v10; // [rsp+4Ah] [rbp-BEh] BYREF
-  char v11; // [rsp+4Bh] [rbp-BDh] BYREF
+  unsigned __int8 Buffer; // [rsp+48h] [rbp-C0h] BYREF
+  char Buffer_1; // [rsp+49h] [rbp-BFh] BYREF
+  char Buffer_2; // [rsp+4Ah] [rbp-BEh] BYREF
+  char Buffer_3; // [rsp+4Bh] [rbp-BDh] BYREF
   int v12; // [rsp+4Ch] [rbp-BCh] BYREF
   int v13; // [rsp+50h] [rbp-B8h] BYREF
   int v14; // [rsp+54h] [rbp-B4h] BYREF
   __int64 v15; // [rsp+58h] [rbp-B0h] BYREF
   __int64 v16; // [rsp+60h] [rbp-A8h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+68h] [rbp-A0h] BYREF
-  char *v18; // [rsp+88h] [rbp-80h]
+  char *p_Buffer_1; // [rsp+88h] [rbp-80h]
   int v19; // [rsp+90h] [rbp-78h]
   int v20; // [rsp+94h] [rbp-74h]
   int *v21; // [rsp+98h] [rbp-70h]
@@ -38,10 +38,10 @@ void __fastcall PopEvaluateWeakChargerState(char a1)
   int *v24; // [rsp+A8h] [rbp-60h]
   int v25; // [rsp+B0h] [rbp-58h]
   int v26; // [rsp+B4h] [rbp-54h]
-  char *v27; // [rsp+B8h] [rbp-50h]
+  char *p_Buffer_2; // [rsp+B8h] [rbp-50h]
   int v28; // [rsp+C0h] [rbp-48h]
   int v29; // [rsp+C4h] [rbp-44h]
-  char *v30; // [rsp+C8h] [rbp-40h]
+  char *p_Buffer_3; // [rsp+C8h] [rbp-40h]
   int v31; // [rsp+D0h] [rbp-38h]
   int v32; // [rsp+D4h] [rbp-34h]
   int *v33; // [rsp+D8h] [rbp-30h]
@@ -77,12 +77,12 @@ void __fastcall PopEvaluateWeakChargerState(char a1)
 LABEL_9:
   updated = 0;
   v5 = 0;
-  v8 = 0;
+  Buffer = 0;
   if ( v3 != 1 )
   {
     if ( v3 == 2 )
     {
-      v8 = v2;
+      Buffer = v2;
       v5 = v2;
       goto LABEL_16;
     }
@@ -91,18 +91,18 @@ LABEL_9:
   }
   if ( PopWeakChargerNotificationBatteryMiniport == 1 )
   {
-    v8 = 1;
+    Buffer = 1;
     v5 = 1;
   }
   if ( v3 == 3 )
   {
-    v8 = PopWeakChargerNotificationUsbStack & v5;
+    Buffer = PopWeakChargerNotificationUsbStack & v5;
     v5 &= PopWeakChargerNotificationUsbStack;
   }
 LABEL_16:
   if ( !a1 )
   {
-    v8 = 0;
+    Buffer = 0;
     v5 = 0;
   }
   if ( PopWeakChargerCompositeState == v5 )
@@ -112,8 +112,8 @@ LABEL_16:
   else
   {
     v6 = 1;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_RECONCILED_WEAK_CHARGER, (__int64)&v8);
-    PopWeakChargerCompositeState = v8;
+    updated = ZwUpdateWnfStateData(&WNF_PO_RECONCILED_WEAK_CHARGER, &Buffer, 1u, 0LL, 0LL, 0, 0);
+    PopWeakChargerCompositeState = Buffer;
   }
   if ( (unsigned int)dword_140C03950 > 5 && tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
   {
@@ -125,24 +125,24 @@ LABEL_16:
     v35 = 0;
     v38 = 0;
     v41 = 0;
-    v18 = &v9;
+    p_Buffer_1 = &Buffer_1;
     v13 = PopWeakChargerNotificationBatteryMiniport;
     v21 = &v13;
     v14 = PopWeakChargerNotificationUsbStack;
     v24 = &v14;
-    v10 = PopWeakChargerMeasured;
-    v27 = &v10;
-    v30 = &v11;
+    Buffer_2 = PopWeakChargerMeasured;
+    p_Buffer_2 = &Buffer_2;
+    p_Buffer_3 = &Buffer_3;
     v33 = &v12;
     v36 = &v15;
     v39 = &v16;
-    v9 = v7;
+    Buffer_1 = v7;
     v22 = 4;
     v25 = 4;
     v37 = 4;
     v19 = 1;
     v28 = 1;
-    v11 = a1;
+    Buffer_3 = a1;
     v31 = 1;
     LOBYTE(v12) = v6;
     v34 = 1;
@@ -151,7 +151,7 @@ LABEL_16:
     v40 = 8;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C03950,
-      (unsigned __int8 *)&word_1400306E6,
+      (unsigned __int8 *)byte_140030E10,
       0LL,
       0LL,
       0xAu,

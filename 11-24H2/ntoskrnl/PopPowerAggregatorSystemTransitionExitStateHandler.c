@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140759E80
+ * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x1407582D0
  * Callers:
  *     <none>
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopCheckForWork @ 0x1403F2D8C (PopCheckForWork.c)
- *     PopGetPolicyWorker @ 0x1403F2E04 (PopGetPolicyWorker.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140902BD0 (PopPowerAggregatorSetCurrentState.c)
- *     PopSuspendResumePdc @ 0x140A78D0C (PopSuspendResumePdc.c)
- *     PopSleepstudyStartNextSession @ 0x140AAC910 (PopSleepstudyStartNextSession.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PopCheckForWork @ 0x1403E6AAC (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x1403E6B24 (PopGetPolicyWorker.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140A6E4B0 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSuspendResumePdc @ 0x140A7300C (PopSuspendResumePdc.c)
+ *     PopSleepstudyStartNextSession @ 0x140AA7940 (PopSleepstudyStartNextSession.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KEVENT *a1)
@@ -22,7 +22,7 @@ __int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KE
   memset(v3, 0, sizeof(v3));
   LODWORD(v3[0]) = 3;
   PopPowerAggregatorSetCurrentState(a1, v3);
-  PopReleaseRwLock((signed __int64 *)&PopPowerAggregatorLock);
+  PopReleaseRwLock(&PopPowerAggregatorLock);
   PopSleepstudyStartNextSession(1LL, 20LL);
   if ( PopIdleScanInterval )
   {
@@ -33,6 +33,6 @@ __int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KE
   }
   PopSuspendResumePdc(2LL);
   PopSuspendResumePdc(3LL);
-  PopAcquireRwLockExclusive(&PopPowerAggregatorLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
   return 0LL;
 }

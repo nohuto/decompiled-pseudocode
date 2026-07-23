@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLockCallbackListExclusive @ 0x140551298
+ * XREFs of CmpLockCallbackListExclusive @ 0x1405517D8
  * Callers:
- *     CmpInsertCallbackInListByAltitude @ 0x1405511DC (CmpInsertCallbackInListByAltitude.c)
- *     CmUnRegisterCallback @ 0x1405FB13C (CmUnRegisterCallback.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14055171C (CmpInsertCallbackInListByAltitude.c)
+ *     CmUnRegisterCallback @ 0x1405FB1F0 (CmUnRegisterCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *CmpLockCallbackListExclusive()

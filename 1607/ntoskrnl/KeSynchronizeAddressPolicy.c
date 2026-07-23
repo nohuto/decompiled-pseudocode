@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSynchronizeAddressPolicy @ 0x1401D232C
+ * XREFs of KeSynchronizeAddressPolicy @ 0x1401D2158
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x140459688 (PspDisablePrimaryTokenExchange.c)
+ *     PspDisablePrimaryTokenExchange @ 0x140458558 (PspDisablePrimaryTokenExchange.c)
  * Callees:
- *     KeRemoveProcessorAffinityEx @ 0x140030FBC (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
- *     KiIpiSendPacket @ 0x1400C8A18 (KiIpiSendPacket.c)
- *     KeCountSetBitsAffinityEx @ 0x1400C8A70 (KeCountSetBitsAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiSynchronizeAddressPolicyTarget @ 0x1401DB0C4 (KiSynchronizeAddressPolicyTarget.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140030B3C (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
+ *     KiIpiSendPacket @ 0x1400C68B8 (KiIpiSendPacket.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400C6910 (KeCountSetBitsAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiSynchronizeAddressPolicyTarget @ 0x1401DAEF0 (KiSynchronizeAddressPolicyTarget.c)
  */
 
 void __fastcall KeSynchronizeAddressPolicy(__int64 a1)

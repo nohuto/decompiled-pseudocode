@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeFreeZeroPfnListHead @ 0x1406F0898
+ * XREFs of MiInitializeFreeZeroPfnListHead @ 0x1406F5508
  * Callers:
- *     MiInitializePartitionFreeZeroLists @ 0x1408699E8 (MiInitializePartitionFreeZeroLists.c)
+ *     MiInitializePartitionFreeZeroLists @ 0x14086FDC8 (MiInitializePartitionFreeZeroLists.c)
  * Callees:
  *     <none>
  */

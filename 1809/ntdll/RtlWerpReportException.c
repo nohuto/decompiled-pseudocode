@@ -6,14 +6,22 @@
  *     <none>
  */
 
+// local variable allocation has failed, the output may be wrong!
 // attributes: thunk
-__int64 __fastcall RtlWerpReportException(
-        unsigned int a1,
-        __int64 a2,
-        const void *a3,
-        unsigned int a4,
-        unsigned int a5,
-        _QWORD *a6)
+NTSTATUS __cdecl RtlWerpReportException(
+        ULONG ProcessId,
+        HANDLE CrashReportSharedMem,
+        ULONG Flags,
+        PHANDLE CrashVerticalProcessHandle)
 {
-  return ReportExceptionInternal(a1, a2, a3, a4, a5, a6);
+  unsigned int v5; // [rsp+28h] [rbp+28h]
+  void **v6; // [rsp+30h] [rbp+30h]
+
+  return ReportExceptionInternal(
+           ProcessId,
+           CrashReportSharedMem,
+           *(const void **)&Flags,
+           (unsigned int)CrashVerticalProcessHandle,
+           v5,
+           v6);
 }

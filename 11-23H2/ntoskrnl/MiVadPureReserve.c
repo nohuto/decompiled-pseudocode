@@ -1,22 +1,22 @@
 /*
- * XREFs of MiVadPureReserve @ 0x140277B70
+ * XREFs of MiVadPureReserve @ 0x140277E00
  * Callers:
  *     MiSetReadOnlyOnSectionView @ 0x1402152F8 (MiSetReadOnlyOnSectionView.c)
  *     MiSplitPrivatePage @ 0x14021CE44 (MiSplitPrivatePage.c)
- *     MiProbeAndLockPrepare @ 0x140234DB0 (MiProbeAndLockPrepare.c)
- *     MiQueryAddressState @ 0x140271C00 (MiQueryAddressState.c)
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140277C80 (MiSetProtectionOnSection.c)
- *     MiDecommitPages @ 0x14027F7D0 (MiDecommitPages.c)
- *     MiComputeVadCharges @ 0x140289A38 (MiComputeVadCharges.c)
- *     NtLockVirtualMemory @ 0x1402A3120 (NtLockVirtualMemory.c)
- *     MiInPagePageTable @ 0x1402E4D70 (MiInPagePageTable.c)
- *     MiDeleteEmptyPageTables @ 0x1403577A0 (MiDeleteEmptyPageTables.c)
- *     MiCommitPageTablesForVad @ 0x1406F9470 (MiCommitPageTablesForVad.c)
- *     MiReturnVadQuota @ 0x1406FB394 (MiReturnVadQuota.c)
- *     MiReturnPageTablePageCommitment @ 0x140764990 (MiReturnPageTablePageCommitment.c)
- *     MiCommitPagefileBackedSection @ 0x1407DC088 (MiCommitPagefileBackedSection.c)
- *     MiAllocateChildVads @ 0x140A4837C (MiAllocateChildVads.c)
+ *     MiProbeAndLockPrepare @ 0x140234E80 (MiProbeAndLockPrepare.c)
+ *     MiQueryAddressState @ 0x140271E90 (MiQueryAddressState.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140277F10 (MiSetProtectionOnSection.c)
+ *     MiDecommitPages @ 0x14027FA60 (MiDecommitPages.c)
+ *     MiComputeVadCharges @ 0x140289CC8 (MiComputeVadCharges.c)
+ *     NtLockVirtualMemory @ 0x1402A33B0 (NtLockVirtualMemory.c)
+ *     MiInPagePageTable @ 0x1402E5000 (MiInPagePageTable.c)
+ *     MiDeleteEmptyPageTables @ 0x140357940 (MiDeleteEmptyPageTables.c)
+ *     MiCommitPageTablesForVad @ 0x1406F9680 (MiCommitPageTablesForVad.c)
+ *     MiReturnVadQuota @ 0x1406FB5A4 (MiReturnVadQuota.c)
+ *     MiReturnPageTablePageCommitment @ 0x140764B80 (MiReturnPageTablePageCommitment.c)
+ *     MiCommitPagefileBackedSection @ 0x1407DC358 (MiCommitPagefileBackedSection.c)
+ *     MiAllocateChildVads @ 0x140A4862C (MiAllocateChildVads.c)
  * Callees:
  *     <none>
  */

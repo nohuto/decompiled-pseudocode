@@ -1,26 +1,26 @@
 /*
- * XREFs of LdrpGetProcedureAddress @ 0x180032370
+ * XREFs of LdrpGetProcedureAddress @ 0x180032360
  * Callers:
- *     LdrGetProcedureAddressForCaller @ 0x180031D60 (LdrGetProcedureAddressForCaller.c)
- *     LdrpResolveProcedureAddress @ 0x18007B5EC (LdrpResolveProcedureAddress.c)
- *     LdrpCorInitialize @ 0x1800863F0 (LdrpCorInitialize.c)
- *     AvrfMiniLoadDll @ 0x1800D7614 (AvrfMiniLoadDll.c)
+ *     LdrGetProcedureAddressForCaller @ 0x180031D50 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpResolveProcedureAddress @ 0x18007B5DC (LdrpResolveProcedureAddress.c)
+ *     LdrpCorInitialize @ 0x1800863E0 (LdrpCorInitialize.c)
+ *     AvrfMiniLoadDll @ 0x1800D76D4 (AvrfMiniLoadDll.c)
  * Callees:
- *     RtlpImageDirectoryEntryToData32 @ 0x1800316C4 (RtlpImageDirectoryEntryToData32.c)
- *     RtlImageNtHeaderEx @ 0x1800348B0 (RtlImageNtHeaderEx.c)
- *     RtlAddressInSectionTable @ 0x180080BF0 (RtlAddressInSectionTable.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     RtlpImageDirectoryEntryToData32 @ 0x1800316B4 (RtlpImageDirectoryEntryToData32.c)
+ *     RtlImageNtHeaderEx @ 0x1800348A0 (RtlImageNtHeaderEx.c)
+ *     RtlAddressInSectionTable @ 0x180080BE0 (RtlAddressInSectionTable.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
 __int64 __fastcall LdrpGetProcedureAddress(unsigned __int64 a1, const char *a2, int a3, char **a4)
 {
   bool v8; // bl
-  unsigned __int64 v9; // rsi
+  char *v9; // rsi
   char *v10; // rbp
   int v11; // eax
-  __int16 v12; // ax
-  __int64 v13; // rax
-  int v14; // r13d
+  unsigned __int16 Magic; // ax
+  __int64 VirtualAddress; // rax
+  unsigned int Size; // r13d
   char v15; // di
   int v16; // r10d
   int v17; // r9d
@@ -31,52 +31,54 @@ __int64 __fastcall LdrpGetProcedureAddress(unsigned __int64 a1, const char *a2, 
   int v22; // eax
   unsigned int v24; // edi
   char *v25; // rcx
-  char *v26; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v27; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v26; // [rsp+40h] [rbp-38h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+80h] [rbp+8h] BYREF
 
-  v27 = 0LL;
+  OutHeaders = 0LL;
   v26 = 0LL;
   v8 = 1;
-  v9 = a1;
+  v9 = (char *)a1;
   v10 = 0LL;
   if ( (a1 & 3) != 0 )
   {
     v8 = (a1 & 1) == 0;
-    v9 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v9 = (char *)(a1 & 0xFFFFFFFFFFFFFFFCuLL);
   }
-  v11 = RtlImageNtHeaderEx(1LL, v9, 0LL, &v27);
-  if ( !v27 )
+  v11 = RtlImageNtHeaderEx(1u, v9, 0LL, &OutHeaders);
+  if ( !OutHeaders )
   {
 LABEL_46:
     if ( v11 >= 0 )
     {
-      v14 = v27;
+      Size = (unsigned int)OutHeaders;
       goto LABEL_10;
     }
     goto LABEL_42;
   }
-  v12 = *(_WORD *)(v27 + 24);
-  if ( v12 == 267 )
+  Magic = OutHeaders->OptionalHeader.Magic;
+  if ( Magic == 267 )
   {
-    v11 = RtlpImageDirectoryEntryToData32(v9, v8, 0, &v27, v27, &v26);
-    v10 = v26;
+    v11 = RtlpImageDirectoryEntryToData32((__int64)v9, (void *)v8, 0, &OutHeaders, OutHeaders, &v26);
+    v10 = (char *)v26;
     goto LABEL_46;
   }
-  if ( v12 != 523 || !*(_DWORD *)(v27 + 132) || (v13 = *(unsigned int *)(v27 + 136), !(_DWORD)v13) )
+  if ( Magic != 523
+    || !OutHeaders->OptionalHeader.NumberOfRvaAndSizes
+    || (VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress, !(_DWORD)VirtualAddress) )
   {
 LABEL_42:
-    v14 = v27;
+    Size = (unsigned int)OutHeaders;
 LABEL_43:
     v10 = 0LL;
     goto LABEL_10;
   }
-  v14 = *(_DWORD *)(v27 + 140);
-  if ( v8 || (unsigned int)v13 < *(_DWORD *)(v27 + 84) )
+  Size = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+  if ( v8 || (unsigned int)VirtualAddress < OutHeaders->OptionalHeader.SizeOfHeaders )
   {
-    v10 = (char *)(v9 + v13);
+    v10 = &v9[VirtualAddress];
     goto LABEL_10;
   }
-  v10 = (char *)RtlAddressInSectionTable(v27, v9, (unsigned int)v13);
+  v10 = (char *)RtlAddressInSectionTable(OutHeaders, v9, VirtualAddress);
   if ( !v10 )
     goto LABEL_43;
 LABEL_10:
@@ -172,7 +174,7 @@ LABEL_30:
   {
     v25 = (char *)(a1 + *(unsigned int *)(a1 + *((unsigned int *)v10 + 7) + 4LL * (int)v24));
     *a4 = v25;
-    if ( v25 < v10 || v25 >= &v10[v14] )
+    if ( v25 < v10 || v25 >= &v10[Size] )
       return 0LL;
     else
       return 3221226029LL;

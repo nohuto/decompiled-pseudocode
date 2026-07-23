@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWnfDeleteNameInstance @ 0x1406AB6C8
+ * XREFs of ExpWnfDeleteNameInstance @ 0x1406AC968
  * Callers:
- *     ExpWnfDeleteProcessContext @ 0x140607AA4 (ExpWnfDeleteProcessContext.c)
- *     ExpWnfDeleteNameInstanceCallback @ 0x1406AB2A0 (ExpWnfDeleteNameInstanceCallback.c)
- *     NtDeleteWnfStateName @ 0x1406AB2E0 (NtDeleteWnfStateName.c)
+ *     ExpWnfDeleteProcessContext @ 0x140608AA4 (ExpWnfDeleteProcessContext.c)
+ *     ExpWnfDeleteNameInstanceCallback @ 0x1406AC540 (ExpWnfDeleteNameInstanceCallback.c)
+ *     NtDeleteWnfStateName @ 0x1406AC580 (NtDeleteWnfStateName.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
@@ -11,36 +11,36 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
- *     ExpWnfDeleteStateData @ 0x1406ABA08 (ExpWnfDeleteStateData.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1405CA410 (ObDereferenceSecurityDescriptor.c)
+ *     ExpWnfDeleteStateData @ 0x1406ACCA8 (ExpWnfDeleteStateData.c)
  */
 
 __int64 __fastcall ExpWnfDeleteNameInstance(__int64 a1, struct _EX_RUNDOWN_REF *a2, char a3)
 {
   unsigned __int64 *v3; // rsi
-  __int64 v7; // rax
-  __int64 v8; // rbx
+  _RTL_BALANCED_NODE *v7; // rax
+  _RTL_BALANCED_NODE *v8; // rbx
   volatile signed __int64 *v9; // rdi
-  __int64 v10; // rax
-  __int64 v11; // rbx
-  __int64 v12; // rax
-  __int64 v13; // rsi
+  _RTL_BALANCED_NODE *v10; // rax
+  _RTL_BALANCED_NODE *v11; // rbx
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // rsi
   struct _EX_RUNDOWN_REF *Count; // rsi
   unsigned __int64 v15; // rax
   unsigned __int64 *v16; // rdi
-  __int64 v17; // rax
-  __int64 v18; // rsi
+  _RTL_BALANCED_NODE *v17; // rax
+  _RTL_BALANCED_NODE *v18; // rsi
   unsigned __int64 v19; // rcx
   struct _EX_RUNDOWN_REF **v20; // rdx
   unsigned __int64 v22; // r14
   unsigned __int64 *v23; // r14
-  __int64 v24; // rax
-  __int64 v25; // r13
-  __int64 v26; // rax
-  __int64 v27; // r13
+  _RTL_BALANCED_NODE *v24; // rax
+  _RTL_BALANCED_NODE *v25; // r13
+  _RTL_BALANCED_NODE *v26; // rax
+  _RTL_BALANCED_NODE *v27; // r13
   struct _EX_RUNDOWN_REF v28; // rax
   struct _EX_RUNDOWN_REF **v29; // rcx
 
@@ -50,7 +50,7 @@ __int64 __fastcall ExpWnfDeleteNameInstance(__int64 a1, struct _EX_RUNDOWN_REF *
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
     ExfAcquirePushLockExclusiveEx(v3, v7, (ULONG_PTR)v3);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   if ( a2[6].Count )
   {
     v9 = (volatile signed __int64 *)&a2[14];
@@ -59,7 +59,7 @@ __int64 __fastcall ExpWnfDeleteNameInstance(__int64 a1, struct _EX_RUNDOWN_REF *
     if ( _interlockedbittestandset64((volatile signed __int32 *)&a2[14], 0LL) )
       ExfAcquirePushLockExclusiveEx(&a2[14].Count, v10, (ULONG_PTR)&a2[14]);
     if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
     if ( a3 )
       RtlAvlRemoveNode((unsigned __int64 *)(a1 + 56), &a2[2].Count);
     a2[6].Count = 0LL;
@@ -74,7 +74,7 @@ __int64 __fastcall ExpWnfDeleteNameInstance(__int64 a1, struct _EX_RUNDOWN_REF *
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
       ExfAcquirePushLockExclusiveEx(&a2[14].Count, v12, (ULONG_PTR)&a2[14]);
     if ( v13 )
-      *(_BYTE *)(v13 + 26) |= 1u;
+      BYTE2(v13[1].Left) |= 1u;
     while ( 1 )
     {
       Count = (struct _EX_RUNDOWN_REF *)a2[15].Count;
@@ -91,13 +91,13 @@ __int64 __fastcall ExpWnfDeleteNameInstance(__int64 a1, struct _EX_RUNDOWN_REF *
       if ( _interlockedbittestandset64((volatile signed __int32 *)v23, 0LL) )
         ExfAcquirePushLockExclusiveEx(v23, v24, (ULONG_PTR)v23);
       if ( v25 )
-        *(_BYTE *)(v25 + 26) |= 1u;
+        BYTE2(v25[1].Left) |= 1u;
       v26 = KeAbPreAcquire((ULONG_PTR)&a2[14], 0LL, 0);
       v27 = v26;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
         ExfAcquirePushLockExclusiveEx(&a2[14].Count, v26, (ULONG_PTR)&a2[14]);
       if ( v27 )
-        *(_BYTE *)(v27 + 26) |= 1u;
+        BYTE2(v27[1].Left) |= 1u;
       if ( Count[-2].Count )
       {
         v28.Count = Count->Count;
@@ -127,7 +127,7 @@ __int64 __fastcall ExpWnfDeleteNameInstance(__int64 a1, struct _EX_RUNDOWN_REF *
       if ( _interlockedbittestandset64((volatile signed __int32 *)v16, 0LL) )
         ExfAcquirePushLockExclusiveEx(v16, v17, (ULONG_PTR)v16);
       if ( v18 )
-        *(_BYTE *)(v18 + 26) |= 1u;
+        BYTE2(v18[1].Left) |= 1u;
       v19 = a2[17].Count;
       if ( *(struct _EX_RUNDOWN_REF **)(v19 + 8) != &a2[17]
         || (v20 = (struct _EX_RUNDOWN_REF **)a2[18].Count, *v20 != &a2[17]) )

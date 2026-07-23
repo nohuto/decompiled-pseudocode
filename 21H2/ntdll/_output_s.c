@@ -9,7 +9,7 @@
  *     write_char_1 @ 0x18009910C (write_char_1.c)
  *     write_multi_char_1 @ 0x18009915C (write_multi_char_1.c)
  *     write_string_1 @ 0x1800991B4 (write_string_1.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall output_s(__int64 a1, char *a2, int *a3)

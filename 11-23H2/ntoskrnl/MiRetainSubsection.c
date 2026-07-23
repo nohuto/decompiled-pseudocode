@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRetainSubsection @ 0x140364968
+ * XREFs of MiRetainSubsection @ 0x140364B08
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiGetHardFaultPages @ 0x1402DF274 (MiGetHardFaultPages.c)
- *     MiFaultGetFileExtents @ 0x140645E84 (MiFaultGetFileExtents.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiGetHardFaultPages @ 0x1402DF504 (MiGetHardFaultPages.c)
+ *     MiFaultGetFileExtents @ 0x1406463D4 (MiFaultGetFileExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiIncrementSubsectionViewCount @ 0x1402891F0 (MiIncrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x140289480 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiRetainSubsection(__int64 *BugCheckParameter2)
@@ -31,10 +31,13 @@ void __fastcall MiRetainSubsection(__int64 *BugCheckParameter2)
   if ( (v5 & 0x20) == 0 && *(_QWORD *)(v1 + 64) && (v5 & 0x400) == 0 )
     MiIncrementSubsectionViewCount(BugCheckParameter2, 4);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

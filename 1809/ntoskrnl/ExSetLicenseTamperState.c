@@ -1,16 +1,16 @@
 /*
- * XREFs of ExSetLicenseTamperState @ 0x1408CEB50
+ * XREFs of ExSetLicenseTamperState @ 0x1408CFE10
  * Callers:
  *     <none>
  * Callees:
  *     ExpLicUpdateChecksum @ 0x1400077F0 (ExpLicUpdateChecksum.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x1405A1B24 (ExpGetKernelDataProtection.c)
- *     sub_1405A23DC @ 0x1405A23DC (sub_1405A23DC.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpSetKernelDataProtection @ 0x1405A25F4 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x1405A2B24 (ExpGetKernelDataProtection.c)
+ *     sub_1405A33DC @ 0x1405A33DC (sub_1405A33DC.c)
  */
 
 void __fastcall ExSetLicenseTamperState(int a1)
@@ -35,7 +35,7 @@ void __fastcall ExSetLicenseTamperState(int a1)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F4E0, 0LL);
     if ( Data )
     {
       KernelDataProtection = ExpGetKernelDataProtection(v13);
@@ -60,7 +60,7 @@ void __fastcall ExSetLicenseTamperState(int a1)
                 v8 = 16LL * (unsigned int)v6;
                 updated = v5 < v8 ? 0xC0000095 : 0;
                 if ( v8 <= v5 )
-                  updated = ExpLicUpdateChecksum((__int64)qword_14096FD00, v6, &v10);
+                  updated = ExpLicUpdateChecksum((__int64)qword_140970D00, v6, &v10);
               }
             }
             if ( updated )
@@ -91,18 +91,18 @@ void __fastcall ExSetLicenseTamperState(int a1)
     }
     else
     {
-      v3 = dword_14096D0A4;
+      v3 = dword_14096E0B8;
     }
-    dword_14096D0A4 = a1;
+    dword_14096E0B8 = a1;
     v15 = a1;
     ExpSetKernelDataProtection((__int64)v14, 2, 0);
     v16[40] = 0;
     ExpSetKernelDataProtection((__int64)v16, 32, 0);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E4E0);
-    KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F4E0);
+    KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     if ( !v3 )
-      sub_1405A23DC();
+      sub_1405A33DC();
   }
 }

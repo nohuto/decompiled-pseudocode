@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_18000A268 @ 0x18000A268
  * Callers:
- *     sub_180008C50 @ 0x180008C50 (sub_180008C50.c)
+ *     InitFn @ 0x180008C50 (InitFn.c)
  *     RtlCreateHeap @ 0x18000CA40 (RtlCreateHeap.c)
  * Callees:
  *     sub_1800080CC @ 0x1800080CC (sub_1800080CC.c)
@@ -23,51 +23,41 @@
 
 __int64 __fastcall sub_18000A268(unsigned int a1, unsigned __int64 a2, __int64 a3)
 {
-  int SystemInformation; // eax
+  NTSTATUS v6; // eax
   char v7; // cl
   __int64 v8; // rax
   __int64 v9; // rdi
   __int64 *v10; // r14
   _QWORD *v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rcx
-  unsigned __int64 v16; // rsi
-  __int64 v17; // rsi
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rcx
-  __int64 v22; // rdx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // r14
-  __int64 v26; // rcx
-  unsigned __int8 v28; // al
-  int v29; // r15d
-  unsigned __int64 v30; // rax
-  unsigned __int64 v31; // r13
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // rdx
-  __int64 v35; // rax
-  __int64 v36; // [rsp+30h] [rbp-49h]
-  __int64 (__fastcall *v37)(); // [rsp+38h] [rbp-41h] BYREF
-  __int64 (__fastcall *v38)(); // [rsp+40h] [rbp-39h]
-  __int64 (__fastcall *v39)(_QWORD, _QWORD, _QWORD); // [rsp+48h] [rbp-31h]
-  __int64 (__fastcall *v40)(_QWORD, _QWORD, _QWORD); // [rsp+50h] [rbp-29h]
-  __int64 (__fastcall *v41)(); // [rsp+58h] [rbp-21h]
-  char v42[56]; // [rsp+60h] [rbp-19h] BYREF
-  char v43; // [rsp+98h] [rbp+1Fh]
+  unsigned __int64 v12; // rsi
+  __int64 v13; // rsi
+  __int64 v14; // rcx
+  __int64 v15; // r14
+  __int64 UserModeGlobalLogger; // rcx
+  unsigned __int8 v18; // al
+  int v19; // r15d
+  _DWORD *v20; // rax
+  unsigned __int64 v21; // r13
+  __int64 v22; // rcx
+  BOOLEAN v23; // r8
+  __int64 v24; // rdx
+  __int64 v25; // rax
+  __int64 v26; // [rsp+30h] [rbp-49h]
+  __int64 (__fastcall *v27)(void *, unsigned int, _DWORD *); // [rsp+38h] [rbp-41h] BYREF
+  __int64 (__fastcall *v28)(); // [rsp+40h] [rbp-39h]
+  __int64 (__fastcall *v29)(PVOID); // [rsp+48h] [rbp-31h]
+  __int64 (__fastcall *v30)(_QWORD, _QWORD, _QWORD); // [rsp+50h] [rbp-29h]
+  __int64 (__fastcall *v31)(PVOID); // [rsp+58h] [rbp-21h]
+  char SystemInformation[56]; // [rsp+60h] [rbp-19h] BYREF
+  char v33; // [rsp+98h] [rbp+1Fh]
 
   if ( a2 > 0x7FFFFFFFFFFFFFFFLL )
     return 0LL;
-  SystemInformation = ZwQuerySystemInformation(0LL, v42, 64LL, 0LL);
-  v7 = v43;
-  if ( SystemInformation < 0 )
+  v6 = ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
+  v7 = v33;
+  if ( v6 < 0 )
     v7 = 1;
-  v43 = v7;
+  v33 = v7;
   v8 = sub_18000A73C(a1, (unsigned int)v7);
   v9 = v8;
   if ( !v8 )
@@ -87,114 +77,113 @@ __int64 __fastcall sub_18000A268(unsigned int a1, unsigned __int64 a2, __int64 a
   *(_QWORD *)(v9 + 144) = 0LL;
   if ( (*(_DWORD *)(v9 + 20) & 0x20000000) != 0 )
     *(_DWORD *)(v9 + 32) = (unsigned __int16)sub_1800FDD7C(sub_1801005E0);
-  v41 = 0LL;
-  v37 = (__int64 (__fastcall *)())sub_180009F70;
-  v40 = sub_180020B20;
-  v38 = sub_18001E750;
-  v39 = sub_180020D20;
-  sub_18000A680(v9 + 176, v9, &v37);
-  v37 = sub_18001E760;
-  v40 = sub_180020B20;
-  v38 = sub_18001E750;
-  v39 = sub_180020D20;
-  v41 = sub_18000C8C0;
-  sub_18000A534(v9 + 288, v9, (unsigned int)v43, &v37);
-  v15 = (unsigned __int8)((a2 + 0xFFFFF) >> 20);
-  v36 = v15;
-  v16 = (unsigned __int8)((unsigned __int64)(a3 + 4095) >> 12);
-  if ( v15 )
+  v31 = 0LL;
+  v27 = sub_180009F70;
+  v30 = sub_180020B20;
+  v28 = sub_18001E750;
+  v29 = sub_180020D20;
+  sub_18000A680(v9 + 176, v9, &v27);
+  v27 = (__int64 (__fastcall *)(void *, unsigned int, _DWORD *))&sub_18001E760;
+  v30 = sub_180020B20;
+  v28 = sub_18001E750;
+  v29 = sub_180020D20;
+  v31 = sub_18000C8C0;
+  sub_18000A534(v9 + 288, v9, (unsigned int)v33, &v27);
+  v26 = (unsigned __int8)((a2 + 0xFFFFF) >> 20);
+  v12 = (unsigned __int8)((unsigned __int64)(a3 + 4095) >> 12);
+  if ( v26 )
   {
 LABEL_16:
-    if ( v16 > 0xFE )
+    if ( v12 > 0xFE )
     {
-      v28 = -2;
-      v16 -= 254LL;
+      v18 = -2;
+      v12 -= 254LL;
     }
     else
     {
-      v28 = v16;
-      v16 = 0LL;
+      v18 = v12;
+      v12 = 0LL;
     }
-    v29 = v28;
-    v30 = sub_18000A020((volatile signed __int64 *)v9, v28);
-    v31 = v30;
-    if ( !v30 )
+    v19 = v18;
+    v20 = sub_18000A020((volatile signed __int64 *)v9, v18);
+    v21 = (unsigned __int64)v20;
+    if ( !v20 )
     {
-      v17 = 0LL;
+      v13 = 0LL;
       goto LABEL_43;
     }
-    --v36;
-    *(_DWORD *)(v30 + 64) = -857879331;
-    sub_18000A1D0(v30, v29);
-    LOBYTE(v33) = 0;
-    v34 = *v10;
+    --v26;
+    v20[16] = -857879331;
+    sub_18000A1D0((__int64)v20, v19);
+    v23 = 0;
+    v24 = *v10;
     if ( !*v10 )
       goto LABEL_20;
     while ( 1 )
     {
-      if ( *(_WORD *)(v32 + 90) < *(_WORD *)(v34 + 26) )
+      if ( *(_WORD *)(v22 + 90) < *(_WORD *)(v24 + 26) )
       {
-        v35 = *(_QWORD *)v34;
+        v25 = *(_QWORD *)v24;
         if ( (*(_BYTE *)(v9 + 128) & 1) != 0 )
         {
-          if ( !v35 )
+          if ( !v25 )
             goto LABEL_35;
-          v35 ^= v34;
+          v25 ^= v24;
         }
-        if ( !v35 )
+        if ( !v25 )
         {
 LABEL_35:
-          LOBYTE(v33) = 0;
+          v23 = 0;
 LABEL_20:
-          RtlRbInsertNodeEx(v9 + 120, v34, v33, v31 + 64);
-          *(_QWORD *)(v9 + 24) += (unsigned __int8)~*(_BYTE *)(v31 + 90);
-          sub_18000A220(v9, v31);
-          if ( !v36 )
+          RtlRbInsertNodeEx((PRTL_RB_TREE)(v9 + 120), (PRTL_BALANCED_NODE)v24, v23, (PRTL_BALANCED_NODE)(v21 + 64));
+          *(_QWORD *)(v9 + 24) += (unsigned __int8)~*(_BYTE *)(v21 + 90);
+          sub_18000A220(v9, v21);
+          if ( !v26 )
             break;
           goto LABEL_16;
         }
       }
       else
       {
-        v35 = *(_QWORD *)(v34 + 8);
+        v25 = *(_QWORD *)(v24 + 8);
         if ( (*(_BYTE *)(v9 + 128) & 1) != 0 )
         {
-          if ( !v35 )
+          if ( !v25 )
           {
 LABEL_25:
-            LOBYTE(v33) = 1;
+            v23 = 1;
             goto LABEL_20;
           }
-          v35 ^= v34;
+          v25 ^= v24;
         }
-        if ( !v35 )
+        if ( !v25 )
           goto LABEL_25;
       }
-      v34 = v35;
+      v24 = v25;
     }
   }
   *(_QWORD *)(v9 + 136) = 0LL;
-  v17 = v9;
+  v13 = v9;
   v9 = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v15, v12, v13, v14) )
-    v21 = (__int64)NtCurrentPeb()->HotpatchInformation + 558;
+  if ( RtlGetCurrentServiceSessionId() )
+    v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[4];
   else
-    v21 = 2147353480LL;
-  if ( *(_BYTE *)v21 )
-    sub_1800FDDC0(v17, *(_QWORD *)(v17 + 168) - v17, a1);
-  v25 = 2147353472LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v21, v18, v19, v20) )
-    v26 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    v14 = 2147353480LL;
+  if ( *(_BYTE *)v14 )
+    sub_1800FDDC0(v13, *(_QWORD *)(v13 + 168) - v13, a1);
+  v15 = 2147353472LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v26 = 2147353472LL;
-  if ( *(_BYTE *)v26 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v26, v22, v23, v24) )
-      v25 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-    sub_1800FF98C(v17, a1, *(_QWORD *)(v17 + 168) - v17, *(_DWORD *)(v17 + 160) - v17, *(unsigned __int8 *)v25);
+    if ( RtlGetCurrentServiceSessionId() )
+      v15 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+    sub_1800FF98C(v13, a1, *(_QWORD *)(v13 + 168) - v13, *(_DWORD *)(v13 + 160) - v13, *(unsigned __int8 *)v15);
 LABEL_43:
     if ( v9 )
-      sub_1800080CC(v9);
+      sub_1800080CC((_DWORD *)v9);
   }
-  return v17;
+  return v13;
 }

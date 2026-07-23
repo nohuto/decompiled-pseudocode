@@ -19,7 +19,7 @@ __int64 __fastcall SdbGetDatabaseMatch(__int64 a1, _WORD *a2, __int64 a3, __int6
 {
   int v8; // eax
   __int16 v9; // r8
-  union _RTL_RUN_ONCE *v10; // rdi
+  _RTL_RUN_ONCE *v10; // rdi
   unsigned int v11; // eax
   __int64 i; // rbx
   int v14; // [rsp+28h] [rbp-D8h]
@@ -48,11 +48,11 @@ LABEL_20:
     AslLogCallPrintf(1LL);
     goto LABEL_21;
   }
-  v10 = *(union _RTL_RUN_ONCE **)(a1 + 16);
+  v10 = *(_RTL_RUN_ONCE **)(a1 + 16);
   if ( !v10 )
   {
 LABEL_12:
-    v10 = *(union _RTL_RUN_ONCE **)(a1 + 8);
+    v10 = *(_RTL_RUN_ONCE **)(a1 + 8);
     v11 = SdbpSearchDB(a1, v10, v9, (__int64)v17, v18, v14);
     if ( v11 <= 0x10 )
     {
@@ -62,7 +62,7 @@ LABEL_12:
     }
     goto LABEL_13;
   }
-  v11 = SdbpSearchDB(a1, *(union _RTL_RUN_ONCE **)(a1 + 16), v9, (__int64)v17, v18, v14);
+  v11 = SdbpSearchDB(a1, *(_RTL_RUN_ONCE **)(a1 + 16), v9, (__int64)v17, v18, v14);
   if ( v11 <= 0x10 )
   {
     if ( v11 )

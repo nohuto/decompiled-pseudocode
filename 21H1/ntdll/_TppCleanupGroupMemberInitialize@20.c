@@ -23,9 +23,9 @@ int __fastcall TppCleanupGroupMemberInitialize(int a1, int a2, _DWORD *a3, int a
   unsigned int v6; // eax
   _GUID *p_ActivityId; // esi
   int v8; // eax
-  int v9; // esi
+  NTSTATUS v9; // esi
   volatile signed __int32 *v10; // eax
-  int v11; // eax
+  _RTL_SRWLOCK *v11; // eax
   int *v12; // ecx
   int v13; // eax
   int **v14; // edx
@@ -33,20 +33,21 @@ int __fastcall TppCleanupGroupMemberInitialize(int a1, int a2, _DWORD *a3, int a
   _DWORD *v17; // eax
   _DWORD *v18; // ecx
   int v19; // eax
-  int v20; // [esp+10h] [ebp-34h] BYREF
-  int v21; // [esp+14h] [ebp-30h]
-  int v22; // [esp+18h] [ebp-2Ch]
-  int v23; // [esp+1Ch] [ebp-28h]
-  int v24; // [esp+20h] [ebp-24h]
-  int v25; // [esp+24h] [ebp-20h]
-  int v26; // [esp+28h] [ebp-1Ch]
+  ULONG_PTR *v20; // [esp+0h] [ebp-44h]
+  int ActivationContextInformation; // [esp+10h] [ebp-34h] BYREF
+  int v22; // [esp+14h] [ebp-30h]
+  int v23; // [esp+18h] [ebp-2Ch]
+  int v24; // [esp+1Ch] [ebp-28h]
+  int v25; // [esp+20h] [ebp-24h]
+  int v26; // [esp+24h] [ebp-20h]
+  NTSTATUS v27; // [esp+28h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+2Ch] [ebp-18h]
   int savedregs; // [esp+44h] [ebp+0h]
 
-  v25 = a1;
-  v20 = 0;
-  v21 = 0;
-  v26 = 0;
+  v26 = a1;
+  ActivationContextInformation = 0;
+  v22 = 0;
+  v27 = 0;
   *(_DWORD *)a1 = 1;
   *(_DWORD *)(a1 + 4) = a5;
   *(_DWORD *)(a1 + 32) = 0;
@@ -80,7 +81,7 @@ LABEL_3:
     return -1073741811;
 LABEL_4:
   *(_DWORD *)(a1 + 116) = v6;
-  v24 = a4 & 2;
+  v25 = a4 & 2;
   if ( (a4 & 2) != 0 && *(_DWORD *)(a1 + 92) )
     return -1073741811;
   *(_DWORD *)(a1 + 60) = NtCurrentTeb()->SubProcessTag;
@@ -95,36 +96,43 @@ LABEL_4:
   if ( v8 )
   {
     if ( v8 != -1 )
-      RtlAddRefActivationContext(*(_DWORD *)(a1 + 56));
+      RtlAddRefActivationContext(*(PACTIVATION_CONTEXT *)(a1 + 56));
   }
   else
   {
-    v9 = RtlQueryInformationActivationContext(1, 0, 0, 1, &v20, 8, 0);
-    v26 = v9;
+    v9 = RtlQueryInformationActivationContext(
+           1u,
+           0,
+           0,
+           ActivationContextBasicInformation,
+           &ActivationContextInformation,
+           8uLL,
+           v20);
+    v27 = v9;
     if ( v9 < 0 )
       return v9;
-    if ( (v21 & 1) != 0 )
+    if ( (v22 & 1) != 0 )
     {
-      RtlReleaseActivationContext((volatile signed __int32 *)v20);
-      v20 = -1;
+      RtlReleaseActivationContext((PACTIVATION_CONTEXT)ActivationContextInformation);
+      ActivationContextInformation = -1;
     }
-    *(_DWORD *)(a1 + 56) = v20;
+    *(_DWORD *)(a1 + 56) = ActivationContextInformation;
   }
   ms_exc.registration.TryLevel = 0;
-  v22 = 1;
+  v23 = 1;
   v10 = *(volatile signed __int32 **)(a1 + 92);
   if ( v10 )
   {
     _InterlockedIncrement(v10);
 LABEL_12:
     ms_exc.registration.TryLevel = 1;
-    v23 = 1;
+    v24 = 1;
     v9 = 0;
-    v26 = 0;
-    v11 = *(_DWORD *)(a1 + 92);
+    v27 = 0;
+    v11 = *(_RTL_SRWLOCK **)(a1 + 92);
     if ( v11 )
     {
-      RtlAcquireSRWLockExclusive(v11 + 44);
+      RtlAcquireSRWLockExclusive(v11 + 11);
       ms_exc.registration.TryLevel = 2;
       v12 = (int *)(a1 + 96);
       v13 = *(_DWORD *)(a1 + 92) + 48;
@@ -136,13 +144,13 @@ LABEL_12:
         *v14 = v12;
         *(_DWORD *)(v13 + 4) = v12;
         ms_exc.registration.TryLevel = 1;
-        RtlReleaseSRWLockExclusive(*(_DWORD *)(a1 + 92) + 44);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(*(_DWORD *)(a1 + 92) + 44));
 LABEL_15:
         v15 = *(volatile signed __int32 **)(a1 + 8);
         if ( v15 )
           _InterlockedIncrement(v15);
         ms_exc.registration.TryLevel = 0;
-        v23 = 0;
+        v24 = 0;
         savedregs = 1261128670;
         goto LABEL_18;
       }
@@ -167,19 +175,19 @@ LABEL_15:
     __fastfail(3u);
   }
   v9 = TppPoolpReferenceGlobalPool(a1 + 92);
-  v26 = v9;
+  v27 = v9;
   if ( v9 >= 0 )
     goto LABEL_12;
 LABEL_18:
   ms_exc.registration.TryLevel = -2;
-  v22 = 0;
+  v23 = 0;
   if ( v9 < 0 )
   {
     v19 = *(_DWORD *)(a1 + 56);
     if ( v19 )
     {
       if ( v19 != -1 )
-        RtlReleaseActivationContext(*(volatile signed __int32 **)(a1 + 56));
+        RtlReleaseActivationContext(*(PACTIVATION_CONTEXT *)(a1 + 56));
     }
   }
   return v9;

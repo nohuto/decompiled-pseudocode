@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x140A35F1C
+ * XREFs of RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x140A2B438
  * Callers:
- *     RtlpFcUpdateUsageTriggers @ 0x140A35AEC (RtlpFcUpdateUsageTriggers.c)
+ *     RtlpFcUpdateUsageTriggers @ 0x140A2B008 (RtlpFcUpdateUsageTriggers.c)
  * Callees:
- *     RtlULongLongMult @ 0x140437830 (RtlULongLongMult.c)
- *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1404A4EFC (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
+ *     RtlULongLongMult @ 0x14042A2B0 (RtlULongLongMult.c)
+ *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x14049FC8C (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
  */
 
 NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable(

@@ -49,13 +49,13 @@ __int64 __fastcall PiUEventHandleVetoEvent(__int64 a1, __int64 *a2, int a3, __in
   __int64 v28; // rdx
   _DWORD *v29; // rcx
   const UNICODE_STRING *v30; // rbx
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   unsigned __int8 v32; // bl
   signed __int32 v33; // eax
   PEPROCESS Process; // [rsp+20h] [rbp-30h] BYREF
   __int64 v35; // [rsp+28h] [rbp-28h]
   UNICODE_STRING v36; // [rsp+30h] [rbp-20h] BYREF
-  STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   PVOID P; // [rsp+80h] [rbp+30h] BYREF
 
   v5 = *(_QWORD *)(a1 + 32);
@@ -139,7 +139,7 @@ LABEL_13:
               ExFreePoolWithTag(P, 0);
               v30 = &v36;
               P = &v36;
-              ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)Process);
+              ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)Process);
               RtlInitAnsiString(&DestinationString, ProcessImageFileName);
               RtlAnsiStringToUnicodeString(&v36, &DestinationString, 1u);
             }

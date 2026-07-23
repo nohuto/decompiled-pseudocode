@@ -1,31 +1,49 @@
 /*
- * XREFs of RtlpHpApplySegmentHeapConfigurations @ 0x1800F4434
+ * XREFs of RtlpHpApplySegmentHeapConfigurations @ 0x1800F43F4
  * Callers:
- *     RtlSetLowFragHeapGlobalFlags @ 0x1800F2D78 (RtlSetLowFragHeapGlobalFlags.c)
+ *     RtlSetLowFragHeapGlobalFlags @ 0x1800F2D38 (RtlSetLowFragHeapGlobalFlags.c)
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     NtOpenKey @ 0x18009D880 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x18009D920 (NtQueryValueKey.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     NtOpenKey @ 0x18009D840 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x18009D8E0 (NtQueryValueKey.c)
  */
 
 int RtlpHpApplySegmentHeapConfigurations()
 {
   int result; // eax
-  int v1; // [rsp+78h] [rbp+3Fh]
-  int v2; // [rsp+7Ch] [rbp+43h]
+  HANDLE KeyHandle; // [rsp+30h] [rbp-9h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp+7h] BYREF
+  _BYTE KeyValueInformation[8]; // [rsp+70h] [rbp+37h] BYREF
+  int v5; // [rsp+78h] [rbp+3Fh]
+  int v6; // [rsp+7Ch] [rbp+43h]
 
-  result = NtOpenKey();
+  KeyHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_18011E5F8;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = NtOpenKey(&KeyHandle, 1u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    result = NtQueryValueKey();
-    if ( result >= 0 && v1 == 4 )
+    result = NtQueryValueKey(
+               KeyHandle,
+               (PUNICODE_STRING)&stru_18011E5D8,
+               KeyValuePartialInformation,
+               KeyValueInformation,
+               0x14u,
+               &ResultLength);
+    if ( result >= 0 && v5 == 4 )
     {
-      if ( v2 )
+      if ( v6 )
         RtlpLowFragHeapGlobalFlags |= 0x10u;
       else
         RtlpLowFragHeapGlobalFlags |= 8u;
     }
   }
+  if ( KeyHandle )
+    return NtClose(KeyHandle);
   return result;
 }

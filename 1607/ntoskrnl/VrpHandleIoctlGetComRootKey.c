@@ -1,18 +1,18 @@
 /*
- * XREFs of VrpHandleIoctlGetComRootKey @ 0x140613584
+ * XREFs of VrpHandleIoctlGetComRootKey @ 0x140613638
  * Callers:
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PsGetJobSilo @ 0x14020F794 (PsGetJobSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsGetJobSilo @ 0x14020F5C0 (PsGetJobSilo.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     VrpLockJobContextShared @ 0x140612F80 (VrpLockJobContextShared.c)
- *     VrpUnlockJobContextShared @ 0x14061309C (VrpUnlockJobContextShared.c)
- *     VrpTranslatePath @ 0x1406169B8 (VrpTranslatePath.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     VrpLockJobContextShared @ 0x140613034 (VrpLockJobContextShared.c)
+ *     VrpUnlockJobContextShared @ 0x140613150 (VrpUnlockJobContextShared.c)
+ *     VrpTranslatePath @ 0x140616A6C (VrpTranslatePath.c)
  */
 
 __int64 __fastcall VrpHandleIoctlGetComRootKey(

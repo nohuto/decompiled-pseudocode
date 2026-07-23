@@ -9,14 +9,14 @@
 
 bool sub_1800F4494()
 {
-  __int64 Heap; // rax
-  _QWORD *v1; // rbx
+  unsigned __int64 *Heap; // rax
+  unsigned __int64 *v1; // rbx
   unsigned __int64 v2; // rax
   unsigned __int64 v3; // rcx
 
-  Heap = RtlAllocateHeap(qword_180163B98, 0, 2112LL);
-  qword_180163BA0 = Heap;
-  v1 = (_QWORD *)Heap;
+  Heap = (unsigned __int64 *)RtlAllocateHeap(qword_180163B98, 0, 0x840uLL);
+  qword_180163BA0 = (__int64)Heap;
+  v1 = Heap;
   if ( !Heap )
     return 0;
   sub_1800F453C(Heap, 0LL);
@@ -33,6 +33,6 @@ bool sub_1800F4494()
   while ( v2 >= v3 );
   v1[2] = -1LL;
   *v1 = v3;
-  qword_180166988 = (void *)RtlAllocateHeap(qword_180163B98, 0, 163840LL);
+  qword_180166988 = RtlAllocateHeap(qword_180163B98, 0, 0x28000uLL);
   return qword_180166988 != 0;
 }

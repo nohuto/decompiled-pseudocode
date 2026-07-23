@@ -1,15 +1,15 @@
 /*
- * XREFs of PspQueryPooledQuotaLimits @ 0x140B6DF2C
+ * XREFs of PspQueryPooledQuotaLimits @ 0x140B713DC
  * Callers:
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PspQueryPooledQuotaLimits(ULONG_PTR BugCheckParameter1, void *a2, int a3, _DWORD *a4, char a5)
@@ -41,8 +41,8 @@ __int64 __fastcall PspQueryPooledQuotaLimits(ULONG_PTR BugCheckParameter1, void 
     return 3221225476LL;
   result = ObpReferenceObjectByHandleWithTag(
              BugCheckParameter1,
-             4096LL,
-             PsProcessType,
+             4096,
+             (__int64)PsProcessType,
              a5,
              0x79517350u,
              &Object,

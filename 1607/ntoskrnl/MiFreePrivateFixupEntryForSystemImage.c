@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreePrivateFixupEntryForSystemImage @ 0x14012CCA0
+ * XREFs of MiFreePrivateFixupEntryForSystemImage @ 0x14012D210
  * Callers:
- *     MiCountSystemImageCommitment @ 0x14012CA50 (MiCountSystemImageCommitment.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
- *     MiGetSystemAddressForImage @ 0x1404CCEDC (MiGetSystemAddressForImage.c)
+ *     MiCountSystemImageCommitment @ 0x14012CFC0 (MiCountSystemImageCommitment.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
+ *     MiGetSystemAddressForImage @ 0x1404B2908 (MiGetSystemAddressForImage.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -21,17 +21,17 @@ __int64 *__fastcall MiFreePrivateFixupEntryForSystemImage(ULONG_PTR BugCheckPara
   __int64 **v9; // rax
 
   v3 = 0LL;
-  v5 = ExAcquireSpinLockExclusive(&dword_1403267C0);
-  v6 = (__int64 *)qword_1403267C8;
+  v5 = ExAcquireSpinLockExclusive(&dword_140326800);
+  v6 = (__int64 *)qword_140326808;
   v7 = v5;
-  while ( v6 != &qword_1403267C8 )
+  while ( v6 != &qword_140326808 )
   {
     v3 = (PVOID *)v6;
     if ( BugCheckParameter2 == v6[2] )
     {
       if ( !a2 )
       {
-        ExReleaseSpinLockExclusive(&dword_1403267C0, v5);
+        ExReleaseSpinLockExclusive(&dword_140326800, v5);
         return v6;
       }
       v8 = *v6;
@@ -44,10 +44,10 @@ __int64 *__fastcall MiFreePrivateFixupEntryForSystemImage(ULONG_PTR BugCheckPara
     }
     v6 = (__int64 *)*v6;
   }
-  ExReleaseSpinLockExclusive(&dword_1403267C0, v7);
+  ExReleaseSpinLockExclusive(&dword_140326800, v7);
   if ( a2 )
   {
-    if ( v6 == &qword_1403267C8 )
+    if ( v6 == &qword_140326808 )
       KeBugCheckEx(0x1Au, 0x1011uLL, BugCheckParameter2, 0LL, 0LL);
     ExFreePoolWithTag(v3[5], 0);
     ExFreePoolWithTag(v3, 0);

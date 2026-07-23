@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpWriteProcessEvent @ 0x14045D6F0
+ * XREFs of EtwpWriteProcessEvent @ 0x14045C5C0
  * Callers:
- *     EtwTraceProcess @ 0x14045D50C (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14045C3DC (EtwTraceProcess.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     EtwpBuildProcessEvent @ 0x14045D860 (EtwpBuildProcessEvent.c)
- *     EtwpPsProvTraceProcess @ 0x14054B508 (EtwpPsProvTraceProcess.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     EtwpBuildProcessEvent @ 0x14045C730 (EtwpBuildProcessEvent.c)
+ *     EtwpPsProvTraceProcess @ 0x14054BA48 (EtwpPsProvTraceProcess.c)
  */
 
 void __fastcall EtwpWriteProcessEvent(
@@ -51,7 +51,7 @@ void __fastcall EtwpWriteProcessEvent(
     KiUnstackDetachProcess((struct _KTHREAD *)v13, 0);
     ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 736));
   }
-  if ( (dword_1402FD540 & 1) != 0 )
+  if ( (dword_1402FD520 & 1) != 0 )
     EtwpPsProvTraceProcess((PEPROCESS)BugCheckParameter1, a2);
   EtwTraceKernelEvent((int)v14, v11, 1u, a2, 5249284);
   RtlFreeAnsiString(&UnicodeString);

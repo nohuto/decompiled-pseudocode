@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetSubsectionHoldingCrossPartitionReferences @ 0x140499D04
+ * XREFs of MiGetSubsectionHoldingCrossPartitionReferences @ 0x140493854
  * Callers:
- *     MiIncrementSubsectionViewCount @ 0x14030BE90 (MiIncrementSubsectionViewCount.c)
- *     MiReferenceSubsection @ 0x14030BFE0 (MiReferenceSubsection.c)
- *     MiRemoveViewsFromSection @ 0x14036D750 (MiRemoveViewsFromSection.c)
- *     MiUnmapViewSubsections @ 0x14036D950 (MiUnmapViewSubsections.c)
- *     MiDecrementSubsections @ 0x14036E360 (MiDecrementSubsections.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiReferenceActiveSubsection @ 0x14045AE40 (MiReferenceActiveSubsection.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x14045ED08 (MiRemoveViewsFromSectionWithPfn.c)
- *     MiUpdateLastSubsectionSize @ 0x1404DEAB8 (MiUpdateLastSubsectionSize.c)
+ *     MiIncrementSubsectionViewCount @ 0x1402EDF10 (MiIncrementSubsectionViewCount.c)
+ *     MiReferenceSubsection @ 0x1402EE060 (MiReferenceSubsection.c)
+ *     MiRemoveViewsFromSection @ 0x14036F4F0 (MiRemoveViewsFromSection.c)
+ *     MiUnmapViewSubsections @ 0x14036F6F0 (MiUnmapViewSubsections.c)
+ *     MiDecrementSubsections @ 0x140370100 (MiDecrementSubsections.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiReferenceActiveSubsection @ 0x140454670 (MiReferenceActiveSubsection.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x140458404 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiUpdateLastSubsectionSize @ 0x1404D8198 (MiUpdateLastSubsectionSize.c)
  * Callees:
  *     <none>
  */

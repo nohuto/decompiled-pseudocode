@@ -1,30 +1,30 @@
 /*
- * XREFs of CmpCreateHiveRootCell @ 0x140AA6F78
+ * XREFs of CmpCreateHiveRootCell @ 0x140AA2078
  * Callers:
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407DCFBC (CmpGenerateAppHiveSecurityDescriptor.c)
- *     CmpRecordParseFailure @ 0x140845C40 (CmpRecordParseFailure.c)
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     CmLockHiveSecurityExclusive @ 0x1408803CC (CmLockHiveSecurityExclusive.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x14088067C (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpNameSize @ 0x140881BCC (CmpNameSize.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     HvAllocateCell @ 0x1408822D8 (HvAllocateCell.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     CmpCopyName @ 0x140883248 (CmpCopyName.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     SeAssignSecurity @ 0x140918AC0 (SeAssignSecurity.c)
- *     HvMarkBaseBlockDirty @ 0x140931488 (HvMarkBaseBlockDirty.c)
- *     SeDeassignSecurity @ 0x140A265C0 (SeDeassignSecurity.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x140A54E28 (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmUnlockHiveSecurity @ 0x140BB99C8 (CmUnlockHiveSecurity.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407DD50C (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     CmpRecordParseFailure @ 0x140841F00 (CmpRecordParseFailure.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     CmLockHiveSecurityExclusive @ 0x14088427C (CmLockHiveSecurityExclusive.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14088452C (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpNameSize @ 0x140885A7C (CmpNameSize.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     HvAllocateCell @ 0x140886188 (HvAllocateCell.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     CmpCopyName @ 0x1408870F8 (CmpCopyName.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     SeAssignSecurity @ 0x14090C530 (SeAssignSecurity.c)
+ *     HvMarkBaseBlockDirty @ 0x1409335C8 (HvMarkBaseBlockDirty.c)
+ *     SeDeassignSecurity @ 0x140A1B040 (SeDeassignSecurity.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x140A4CD78 (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmUnlockHiveSecurity @ 0x140BBB9C8 (CmUnlockHiveSecurity.c)
  */
 
 __int64 __fastcall CmpCreateHiveRootCell(
@@ -51,23 +51,23 @@ __int64 __fastcall CmpCreateHiveRootCell(
   PSECURITY_DESCRIPTOR NewDescriptor; // [rsp+40h] [rbp-20h] BYREF
   void *v25; // [rsp+48h] [rbp-18h] BYREF
   __int64 v26[2]; // [rsp+50h] [rbp-10h] BYREF
-  ULONG_PTR v27; // [rsp+90h] [rbp+30h] BYREF
+  ULONG_PTR BugCheckParameter4; // [rsp+90h] [rbp+30h] BYREF
 
-  LODWORD(v27) = -1;
+  LODWORD(BugCheckParameter4) = -1;
   v26[0] = 0LL;
   v25 = 0LL;
   HvpGetCellContextInitialize(v26);
   NewDescriptor = 0LL;
   HvLockHiveFlusherShared(BugCheckParameter3);
   v9 = (unsigned __int16)CmpNameSize(a3) + 76;
-  v10 = HvAllocateCell(BugCheckParameter3, v9, 0, (unsigned int *)&v27, &v25, (__int64)v26);
+  v10 = HvAllocateCell(BugCheckParameter3, v9, 0, (unsigned int *)&BugCheckParameter4, &v25, (__int64)v26);
   SecurityDescriptorNode = v10;
   if ( v10 < 0 )
   {
     CmpRecordParseFailure(a4, 196864, v10);
     v12 = v25;
 LABEL_3:
-    v13 = v27;
+    v13 = BugCheckParameter4;
     goto LABEL_18;
   }
   v14 = v25;
@@ -117,12 +117,12 @@ LABEL_9:
     }
   }
   CmLockHiveSecurityExclusive(BugCheckParameter3);
-  v13 = v27;
+  v13 = BugCheckParameter4;
   SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(
                              BugCheckParameter3,
-                             v27,
+                             (unsigned int)BugCheckParameter4,
                              (__int64)v12,
-                             (unsigned int)v27 >> 31,
+                             (unsigned int)BugCheckParameter4 >> 31,
                              NewDescriptor,
                              0,
                              v12 + 11);

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerLogProc @ 0x1401DA7D8
+ * XREFs of KiIntSteerLogProc @ 0x1401DA604
  * Callers:
- *     KiIntSteerLogStatus @ 0x1401DA8BC (KiIntSteerLogStatus.c)
+ *     KiIntSteerLogStatus @ 0x1401DA6E8 (KiIntSteerLogStatus.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KiIntSteerEtwEventEnabled @ 0x14012D778 (KiIntSteerEtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KiIntSteerEtwEventEnabled @ 0x14012DCE8 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall KiIntSteerLogProc(char a1)

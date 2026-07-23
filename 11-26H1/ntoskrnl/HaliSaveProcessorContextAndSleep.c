@@ -1,11 +1,11 @@
 /*
- * XREFs of HaliSaveProcessorContextAndSleep @ 0x140723120
+ * XREFs of HaliSaveProcessorContextAndSleep @ 0x140727CF0
  * Callers:
- *     HaliAcpiSleep @ 0x1405A2710 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x1405A4F20 (HaliAcpiSleep.c)
  * Callees:
- *     HaliCompleteAcpiAPSleep @ 0x1404B9050 (HaliCompleteAcpiAPSleep.c)
- *     HalpSaveProcessorState @ 0x140722EF0 (HalpSaveProcessorState.c)
- *     _guard_check_icall_no_overrides @ 0x140731180 (_guard_check_icall_no_overrides.c)
+ *     HaliCompleteAcpiAPSleep @ 0x1404B2880 (HaliCompleteAcpiAPSleep.c)
+ *     HalpSaveProcessorState @ 0x140727AC0 (HalpSaveProcessorState.c)
+ *     _guard_check_icall_no_overrides @ 0x140735D50 (_guard_check_icall_no_overrides.c)
  */
 
 __int64 __fastcall HaliSaveProcessorContextAndSleep(
@@ -27,12 +27,12 @@ __int64 __fastcall HaliSaveProcessorContextAndSleep(
   {
     v10 = (__int64)a5;
     *a5 = v9;
-    if ( (_BYTE)v9 || (v8 = 1, _InterlockedIncrement(&dword_140F8766C), !a2) )
+    if ( (_BYTE)v9 || (v8 = 1, _InterlockedIncrement(&dword_140F87A4C), !a2) )
     {
       v9 = 0;
       goto LABEL_12;
     }
-    while ( dword_140F8766C != a4 )
+    while ( dword_140F87A4C != a4 )
       _mm_pause();
     guard_check_icall_no_overrides(a2);
     v9 = a2(a3);

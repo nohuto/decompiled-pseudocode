@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNotifyConsoleDisplayBurst @ 0x140674DF0
+ * XREFs of PopNotifyConsoleDisplayBurst @ 0x140674ED4
  * Callers:
- *     PopIssueActionRequest @ 0x140530068 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1405305A8 (PopIssueActionRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
- *     TtmNotifySessionDisplayBurst @ 0x1406789B4 (TtmNotifySessionDisplayBurst.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
+ *     TtmNotifySessionDisplayBurst @ 0x140678A98 (TtmNotifySessionDisplayBurst.c)
  */
 
 __int64 PopNotifyConsoleDisplayBurst()

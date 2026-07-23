@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  *     MD4Update @ 0x1800FCEF0 (MD4Update.c)
  */

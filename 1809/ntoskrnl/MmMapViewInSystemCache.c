@@ -1,24 +1,24 @@
 /*
- * XREFs of MmMapViewInSystemCache @ 0x1400AD930
+ * XREFs of MmMapViewInSystemCache @ 0x1400AD870
  * Callers:
  *     CcGetVacbMiss @ 0x1400216E0 (CcGetVacbMiss.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiAddViewsForSection @ 0x140077170 (MiAddViewsForSection.c)
- *     MiCompareTbFlushTimeStamp @ 0x14009831C (MiCompareTbFlushTimeStamp.c)
- *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
- *     MiGetPteLink @ 0x1400AD7A4 (MiGetPteLink.c)
- *     MiManageSubsectionView @ 0x1400ADC80 (MiManageSubsectionView.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
- *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiRemoveSystemCacheReferences @ 0x1402AC0DC (MiRemoveSystemCacheReferences.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiAddViewsForSection @ 0x140077160 (MiAddViewsForSection.c)
+ *     MiCompareTbFlushTimeStamp @ 0x14009825C (MiCompareTbFlushTimeStamp.c)
+ *     MiObtainSystemCacheView @ 0x1400AD160 (MiObtainSystemCacheView.c)
+ *     MiGetPteLink @ 0x1400AD6E4 (MiGetPteLink.c)
+ *     MiManageSubsectionView @ 0x1400ADBC0 (MiManageSubsectionView.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADE90 (MiGetSystemCacheReverseMap.c)
+ *     MiOffsetToProtos @ 0x1400AF770 (MiOffsetToProtos.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiRemoveSystemCacheReferences @ 0x1402AC2CC (MiRemoveSystemCacheReferences.c)
  */
 
 __int64 __fastcall MmMapViewInSystemCache(__int64 a1, __int64 *a2, _QWORD *a3)
@@ -93,11 +93,11 @@ __int64 __fastcall MmMapViewInSystemCache(__int64 a1, __int64 *a2, _QWORD *a3)
   result = MiAddViewsForSection(v53, v11 + v50, 5LL);
   if ( (int)result < 0 )
   {
-    ++dword_14043B7A0;
+    ++dword_14043C860;
     return result;
   }
   v16 = *(_WORD *)(v8 + 60) & 0x3FF;
-  v17 = *(__int16 **)(qword_14043A748 + 8 * v16);
+  v17 = *(__int16 **)(qword_14043B808 + 8 * v16);
   if ( *a2 )
   {
     v19 = (((unsigned __int64)*a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -118,11 +118,11 @@ __int64 __fastcall MmMapViewInSystemCache(__int64 a1, __int64 *a2, _QWORD *a3)
   }
   else
   {
-    v18 = (unsigned __int64)MiObtainSystemCacheView(*(_QWORD *)(qword_14043A748 + 8 * v16), v14, v15);
+    v18 = (unsigned __int64)MiObtainSystemCacheView(*(_QWORD *)(qword_14043B808 + 8 * v16), v14, v15);
     v19 = v18;
     if ( !v18 )
     {
-      ++dword_14043B7A0;
+      ++dword_14043C860;
       MiRemoveSystemCacheReferences((ULONG_PTR)v12);
       return 3221225495LL;
     }
@@ -141,7 +141,7 @@ LABEL_8:
     *(_QWORD *)v19 = v20;
     goto LABEL_9;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v20 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v20 & 1) != 0 )
     v20 |= v44;
   *(_QWORD *)v19 = v20;
   MiWritePteShadow(v19);
@@ -161,7 +161,7 @@ LABEL_10:
     }
     goto LABEL_10;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v22 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v22 & 1) != 0 )
     v22 |= v45;
   *(_QWORD *)(v19 + 8) = v22;
   MiWritePteShadow(v19 + 8);
@@ -181,7 +181,7 @@ LABEL_12:
     }
     goto LABEL_12;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v24 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v24 & 1) != 0 )
     v24 |= v46;
   *(_QWORD *)(v19 + 16) = v24;
   MiWritePteShadow(v19 + 16);
@@ -190,7 +190,7 @@ LABEL_13:
   {
     if ( (unsigned int)MiPteHasShadow(v27, v26) )
     {
-      if ( !HIBYTE(word_14043A1AC) && (v26 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v26 & 1) != 0 )
         v26 |= v47;
       *(_QWORD *)(v19 + 24) = v26;
       MiWritePteShadow(v19 + 24);
@@ -232,18 +232,18 @@ LABEL_15:
       v31 = v30 + 8 * v39;
     }
     v38 = (v30 << 16) | 0x400;
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
-      if ( (qword_14043A0C0 & v38) != 0 )
+      if ( (qword_14043B180 & v38) != 0 )
         v38 = (v30 << 16) | 0x410;
       else
-        v38 |= qword_14043A0C0;
+        v38 |= qword_14043B180;
     }
     if ( v19 >= 0xFFFFF6FB7DBED000uLL && v19 <= 0xFFFFF6FB7DBED7F8uLL )
     {
       if ( (unsigned int)MiPteHasShadow(Process, v38) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v38 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v38 & 1) != 0 )
           v38 |= 0x8000000000000000uLL;
         *(_QWORD *)v19 = v38;
         MiWritePteShadow(v19);

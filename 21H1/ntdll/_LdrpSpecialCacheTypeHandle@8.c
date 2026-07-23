@@ -13,7 +13,9 @@ int __fastcall LdrpSpecialCacheTypeHandle(int a1, char a2)
 {
   int v4; // esi
   char v5; // al
-  int Heap; // ebx
+  unsigned int Heap; // ebx
+  SIZE_T v8; // [esp-4h] [ebp-10h]
+  size_t v9; // [esp-4h] [ebp-10h]
 
   if ( !a1 )
     return -1073741811;
@@ -35,11 +37,13 @@ int __fastcall LdrpSpecialCacheTypeHandle(int a1, char a2)
         v4 = -1073741799;
         if ( *(_DWORD *)(a1 + 28) == -1073741799 )
           return v4;
-        Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, *(_DWORD *)(a1 + 24));
+        LODWORD(v8) = *(_DWORD *)(a1 + 24);
+        Heap = (unsigned int)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v8);
         if ( !Heap )
           return -1073741801;
-        memcpy((void *)Heap, (const void *)(*(_DWORD *)(a1 + 16) & 0xFFFFFFFC), *(_DWORD *)(a1 + 24));
-        NtUnmapViewOfSection(-1, *(_DWORD *)(a1 + 16) & 0xFFFFFFFC);
+        LODWORD(v9) = *(_DWORD *)(a1 + 24);
+        memcpy((void *)Heap, (const void *)(*(_DWORD *)(a1 + 16) & 0xFFFFFFFC), v9);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, (PVOID)(*(_DWORD *)(a1 + 16) & 0xFFFFFFFC));
         *(_DWORD *)(a1 + 28) = -1073741799;
         *(_DWORD *)(a1 + 16) = Heap | 1;
       }

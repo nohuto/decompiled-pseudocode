@@ -1,10 +1,10 @@
 /*
- * XREFs of AslHashFree @ 0x14088B068
+ * XREFs of AslHashFree @ 0x140891464
  * Callers:
- *     SdbpReleaseSearchDBContext @ 0x1409E33B8 (SdbpReleaseSearchDBContext.c)
- *     SdbCloseDatabaseRead @ 0x1409E6930 (SdbCloseDatabaseRead.c)
+ *     SdbCloseDatabaseRead @ 0x1409D6398 (SdbCloseDatabaseRead.c)
+ *     SdbpReleaseSearchDBContext @ 0x140B406B0 (SdbpReleaseSearchDBContext.c)
  * Callees:
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
  */
 
 __int64 __fastcall AslHashFree(__int64 a1)

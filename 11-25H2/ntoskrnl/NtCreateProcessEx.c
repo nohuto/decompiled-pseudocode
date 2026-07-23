@@ -6,18 +6,27 @@
  *     PspCreateProcess @ 0x140A8F360 (PspCreateProcess.c)
  */
 
-__int64 __fastcall NtCreateProcessEx(unsigned __int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl NtCreateProcessEx(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ParentProcess,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle,
+        ULONG Reserved)
 {
-  __int64 v6; // rcx
+  __int64 v11; // rcx
 
-  if ( !a4 )
-    return 3221225485LL;
+  if ( !ParentProcess )
+    return -1073741811;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    v6 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v6 = a1;
-    *(_QWORD *)v6 = *(_QWORD *)v6;
+    v11 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)ProcessHandle < 0x7FFFFFFF0000LL )
+      v11 = (__int64)ProcessHandle;
+    *(_QWORD *)v11 = *(_QWORD *)v11;
   }
-  return PspCreateProcess(a1, a2);
+  return PspCreateProcess(ProcessHandle, DesiredAccess, ObjectAttributes);
 }

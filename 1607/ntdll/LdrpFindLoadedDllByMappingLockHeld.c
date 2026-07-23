@@ -1,24 +1,24 @@
 /*
- * XREFs of LdrpFindLoadedDllByMappingLockHeld @ 0x180031534
+ * XREFs of LdrpFindLoadedDllByMappingLockHeld @ 0x180031524
  * Callers:
- *     LdrpMapImage @ 0x18002F44C (LdrpMapImage.c)
- *     LdrpFindLoadedDllByMapping @ 0x180078560 (LdrpFindLoadedDllByMapping.c)
+ *     LdrpMapImage @ 0x18002F43C (LdrpMapImage.c)
+ *     LdrpFindLoadedDllByMapping @ 0x180078550 (LdrpFindLoadedDllByMapping.c)
  * Callees:
- *     LdrpCompareModuleMappingInfo @ 0x180031754 (LdrpCompareModuleMappingInfo.c)
- *     RtlImageNtHeaderEx @ 0x1800348B0 (RtlImageNtHeaderEx.c)
- *     memcmp @ 0x18009A6A0 (memcmp.c)
+ *     LdrpCompareModuleMappingInfo @ 0x180031744 (LdrpCompareModuleMappingInfo.c)
+ *     RtlImageNtHeaderEx @ 0x1800348A0 (RtlImageNtHeaderEx.c)
+ *     memcmp @ 0x18009A690 (memcmp.c)
  *     ZwAreMappedFilesTheSame @ 0x1800A7550 (ZwAreMappedFilesTheSame.c)
  */
 
 __int64 __fastcall LdrpFindLoadedDllByMappingLockHeld(
-        __int64 a1,
-        const void *a2,
+        PVOID File2MappedAsFile,
+        void *Buf1,
         unsigned int *a3,
         volatile signed __int32 **a4)
 {
-  _QWORD *v4; // rsi
+  _RTL_BALANCED_NODE *Root; // rsi
   unsigned int v5; // edi
-  _QWORD *v6; // rbx
+  _QWORD *Children; // rbx
   int v11; // eax
   unsigned int v12; // eax
   unsigned int v13; // eax
@@ -26,47 +26,47 @@ __int64 __fastcall LdrpFindLoadedDllByMappingLockHeld(
   _QWORD *v16; // rax
   _QWORD *v17; // rcx
   __int64 v18; // rax
-  void *Buf2; // [rsp+20h] [rbp-28h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = (_QWORD *)LdrpMappingInfoIndex;
+  Root = LdrpMappingInfoIndex.Root;
   v5 = 0;
-  v6 = 0LL;
-  while ( v4 )
+  Children = 0LL;
+  while ( Root )
   {
-    v11 = LdrpCompareModuleMappingInfo(a3, v4);
+    v11 = LdrpCompareModuleMappingInfo(a3, Root);
     if ( v11 < 0 )
     {
 LABEL_3:
-      v4 = (_QWORD *)*v4;
+      Root = Root->Children[0];
     }
     else
     {
       if ( v11 <= 0 )
       {
-        v6 = v4;
+        Children = Root->Children;
         goto LABEL_3;
       }
-      v4 = (_QWORD *)v4[1];
+      Root = Root->Children[1];
     }
   }
   while ( 1 )
   {
-    if ( !v6 )
+    if ( !Children )
       return (unsigned int)-1073741515;
-    v15 = (volatile signed __int32 *)(v6 - 28);
-    if ( (int)RtlImageNtHeaderEx(3LL, *(v6 - 22), 0LL, &Buf2) >= 0
-      && !memcmp(a2, Buf2, 0x30uLL)
-      && (int)ZwAreMappedFilesTheSame(*((_QWORD *)v15 + 6), a1) >= 0 )
+    v15 = (volatile signed __int32 *)(Children - 28);
+    if ( RtlImageNtHeaderEx(3u, (PVOID)*(Children - 22), 0LL, &OutHeaders) >= 0
+      && !memcmp(Buf1, OutHeaders, 0x30uLL)
+      && ZwAreMappedFilesTheSame(*((PVOID *)v15 + 6), File2MappedAsFile) >= 0 )
     {
       break;
     }
-    v16 = (_QWORD *)v6[1];
-    v17 = v6;
+    v16 = (_QWORD *)Children[1];
+    v17 = Children;
     if ( v16 )
     {
       do
       {
-        v6 = v16;
+        Children = v16;
         v16 = (_QWORD *)*v16;
       }
       while ( v16 );
@@ -75,22 +75,22 @@ LABEL_3:
     {
       while ( 1 )
       {
-        v6 = (_QWORD *)(v6[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !v6 || (_QWORD *)*v6 == v17 )
+        Children = (_QWORD *)(Children[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !Children || (_QWORD *)*Children == v17 )
           break;
-        v17 = v6;
+        v17 = Children;
       }
     }
-    if ( !v6 )
+    if ( !Children )
       return (unsigned int)-1073741515;
-    v12 = *((_DWORD *)v6 - 24);
+    v12 = *((_DWORD *)Children - 24);
     if ( *a3 >= v12 && *a3 <= v12 )
     {
-      v13 = *((_DWORD *)v6 - 40);
+      v13 = *((_DWORD *)Children - 40);
       if ( a3[1] >= v13 && a3[1] <= v13 )
         continue;
     }
-    v6 = 0LL;
+    Children = 0LL;
   }
   v18 = *((_QWORD *)v15 + 19);
   if ( *(_DWORD *)(v18 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v18 - 56LL) & 0x20) == 0 )

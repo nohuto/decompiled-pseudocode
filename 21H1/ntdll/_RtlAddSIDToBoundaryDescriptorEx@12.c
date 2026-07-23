@@ -11,46 +11,53 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall RtlAddSIDToBoundaryDescriptorEx(int a1, unsigned __int8 *a2, char a3)
+int __userpurge RtlAddSIDToBoundaryDescriptorEx@<eax>(unsigned __int8 *a1@<edx>, int a2@<ecx>, int a3@<edi>, char a4)
 {
-  int v5; // eax
-  _DWORD *v6; // ebx
-  unsigned int v7; // edi
+  int v6; // eax
+  _DWORD *v7; // ebx
+  unsigned int v8; // edi
   _DWORD *Heap; // eax
-  _DWORD *v9; // esi
-  int v10; // ecx
-  int v11; // edx
-  int v12; // edi
-  int v14; // [esp-8h] [ebp-18h]
+  _DWORD *v10; // esi
+  int v11; // ecx
+  int v12; // edx
+  int v13; // edi
+  size_t v15; // [esp-14h] [ebp-24h]
+  SIZE_T v16; // [esp-8h] [ebp-18h]
+  size_t v17; // [esp-8h] [ebp-18h]
+  int v18; // [esp-8h] [ebp-18h]
 
-  if ( !(unsigned __int8)RtlValidSid(a2) )
+  if ( !RtlValidSid(a1) )
     return -1073741811;
-  v5 = a2[1];
-  v6 = *(_DWORD **)a1;
-  v7 = (4 * v5 + 23) & 0xFFFFFFF8;
-  if ( v7 + *(_DWORD *)(*(_DWORD *)a1 + 8) < v7 )
+  v6 = a1[1];
+  v7 = *(_DWORD **)a2;
+  HIDWORD(v16) = a3;
+  v8 = (4 * v6 + 23) & 0xFFFFFFF8;
+  if ( v8 + *(_DWORD *)(*(_DWORD *)a2 + 8) < v8 )
     return -1073741453;
-  Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, v7 + v6[2]);
-  v9 = Heap;
+  LODWORD(v16) = v8 + v7[2];
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v16);
+  v10 = Heap;
   if ( !Heap )
     return -1073741670;
-  memcpy(Heap, v6, v6[2]);
-  v9[2] = v7 + v6[2];
-  v9[1] = v6[1] + 1;
-  v10 = v6[2];
-  *(_DWORD *)((char *)v9 + v10) = (a3 != 0) + 2;
-  *(_DWORD *)((char *)v9 + v10 + 4) = v7;
-  memcpy((char *)v9 + v10 + 8, a2, 4 * a2[1] + 8);
-  v12 = RtlEnumerateBoundaryDescriptorEntries(v9, v11, v14);
-  if ( v12 < 0 )
+  LODWORD(v17) = v7[2];
+  memcpy(Heap, v7, v17);
+  v10[2] = v8 + v7[2];
+  v10[1] = v7[1] + 1;
+  v11 = v7[2];
+  *(_DWORD *)((char *)v10 + v11) = (a4 != 0) + 2;
+  *(_DWORD *)((char *)v10 + v11 + 4) = v8;
+  LODWORD(v15) = 4 * a1[1] + 8;
+  memcpy((char *)v10 + v11 + 8, a1, v15);
+  v13 = RtlEnumerateBoundaryDescriptorEntries(v10, v12, v18);
+  if ( v13 < 0 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
-    return v12;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
+    return v13;
   }
   else
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
-    *(_DWORD *)a1 = v9;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
+    *(_DWORD *)a2 = v10;
     return 0;
   }
 }

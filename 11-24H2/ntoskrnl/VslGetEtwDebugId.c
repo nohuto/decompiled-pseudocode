@@ -1,15 +1,15 @@
 /*
- * XREFs of VslGetEtwDebugId @ 0x14058D0C4
+ * XREFs of VslGetEtwDebugId @ 0x14058A3B4
  * Callers:
- *     EtwpLocateDbgIdForRegEntry @ 0x1408375D4 (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1409F91A0 (EtwpLocateDbgIdForRegEntry.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslGetEtwDebugId(__int64 a1, __int64 a2, struct _MDL **a3, unsigned int *a4)
@@ -36,7 +36,7 @@ __int64 __fastcall VslGetEtwDebugId(__int64 a1, __int64 a2, struct _MDL **a3, un
     v16 = v11[7];
     v15 = v11[0];
     v14 = a2;
-    v9 = VslpEnterIumSecureMode(2u, 17LL, 0, (__int64)v12);
+    v9 = VslpEnterIumSecureMode(2u, 0x11u, 0, (__int64)v12);
     VslpUnlockPagesForTransfer(v11);
     *a4 = v17;
     if ( v9 >= 0 )
@@ -48,7 +48,7 @@ __int64 __fastcall VslGetEtwDebugId(__int64 a1, __int64 a2, struct _MDL **a3, un
       break;
     if ( Pool2 != *a3 )
       ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (struct _MDL *)ExAllocatePool2(0x100uLL);
+    Pool2 = (struct _MDL *)ExAllocatePool2(0x100uLL, *a4, 0x54736D56u);
     if ( !Pool2 )
     {
       v9 = -1073741670;

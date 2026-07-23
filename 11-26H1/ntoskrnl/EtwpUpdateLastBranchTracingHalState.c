@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateLastBranchTracingHalState @ 0x1404FA508
+ * XREFs of EtwpUpdateLastBranchTracingHalState @ 0x1404F3B18
  * Callers:
- *     EtwpUpdateLastBranchTracingConfiguration @ 0x140830200 (EtwpUpdateLastBranchTracingConfiguration.c)
- *     EtwpUpdateLastBranchTracingEvents @ 0x140B37780 (EtwpUpdateLastBranchTracingEvents.c)
+ *     EtwpUpdateLastBranchTracingConfiguration @ 0x140836440 (EtwpUpdateLastBranchTracingConfiguration.c)
+ *     EtwpUpdateLastBranchTracingEvents @ 0x140B39990 (EtwpUpdateLastBranchTracingEvents.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpReferenceLastBranchLookasideList @ 0x140B3F2FC (EtwpReferenceLastBranchLookasideList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpReferenceLastBranchLookasideList @ 0x140B4132C (EtwpReferenceLastBranchLookasideList.c)
  */
 
 __int64 __fastcall EtwpUpdateLastBranchTracingHalState(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall EtwpUpdateLastBranchTracingHalState(__int64 a1)
     {
       v1 = guard_dispatch_icall_no_overrides(v6, v3);
       **(_DWORD **)(a1 + 1072) = 0;
-      _InterlockedDecrement((volatile signed __int32 *)&stru_140E28440.MutantListHead.Blink);
+      _InterlockedDecrement((volatile signed __int32 *)&stru_140E285C0.PriorityFloorCounts[8]);
       _InterlockedAnd((volatile signed __int32 *)(a1 + 816), 0xFFFF7FFF);
     }
   }

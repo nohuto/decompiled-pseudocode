@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpFaultCellWithClustering @ 0x14002D340
+ * XREFs of HvpFaultCellWithClustering @ 0x14002CEC0
  * Callers:
- *     HvpGetCellPaged @ 0x14043FC60 (HvpGetCellPaged.c)
+ *     HvpGetCellPaged @ 0x14043EB30 (HvpGetCellPaged.c)
  * Callees:
  *     <none>
  */

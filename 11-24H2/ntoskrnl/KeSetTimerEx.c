@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetTimerEx @ 0x14045AAF0
+ * XREFs of KeSetTimerEx @ 0x140315140
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
  */
 
 BOOLEAN __stdcall KeSetTimerEx(PKTIMER Timer, LARGE_INTEGER DueTime, LONG Period, PKDPC Dpc)
 {
-  return KiSetTimerEx((__int64)Timer, DueTime.QuadPart, Period, 0, (__int64)Dpc);
+  return KiSetTimerEx((_DWORD)Timer, DueTime.LowPart, Period, 0, (__int64)Dpc);
 }

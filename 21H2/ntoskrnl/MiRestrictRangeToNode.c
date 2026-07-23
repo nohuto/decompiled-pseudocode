@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRestrictRangeToNode @ 0x1403B14C0
+ * XREFs of MiRestrictRangeToNode @ 0x1403B1630
  * Callers:
- *     MiDescribePageRun @ 0x1403B0F18 (MiDescribePageRun.c)
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
- *     MiAddPhysicalMemoryChunks @ 0x1408C542C (MiAddPhysicalMemoryChunks.c)
- *     MiSwitchToPfns @ 0x140A43AD8 (MiSwitchToPfns.c)
- *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
- *     MxInitializeFreeNodeDescriptors @ 0x140A44500 (MxInitializeFreeNodeDescriptors.c)
- *     MiRemoveLargeFreeLoaderDescriptors @ 0x140A44604 (MiRemoveLargeFreeLoaderDescriptors.c)
- *     MxMapPfnRange @ 0x140A448EC (MxMapPfnRange.c)
- *     MxComputeFreeNodeDescriptorRequirements @ 0x140A44D90 (MxComputeFreeNodeDescriptorRequirements.c)
+ *     MiDescribePageRun @ 0x1403B1088 (MiDescribePageRun.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1408C558C (MiAddPhysicalMemoryChunks.c)
+ *     MiSwitchToPfns @ 0x140A44AD8 (MiSwitchToPfns.c)
+ *     MxCreateFreePfns @ 0x140A44ECC (MxCreateFreePfns.c)
+ *     MxInitializeFreeNodeDescriptors @ 0x140A45500 (MxInitializeFreeNodeDescriptors.c)
+ *     MiRemoveLargeFreeLoaderDescriptors @ 0x140A45604 (MiRemoveLargeFreeLoaderDescriptors.c)
+ *     MxMapPfnRange @ 0x140A458EC (MxMapPfnRange.c)
+ *     MxComputeFreeNodeDescriptorRequirements @ 0x140A45D90 (MxComputeFreeNodeDescriptorRequirements.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MiSearchChannelTable @ 0x140547900 (MiSearchChannelTable.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MiSearchChannelTable @ 0x140547B40 (MiSearchChannelTable.c)
  */
 
 ULONG_PTR __fastcall MiRestrictRangeToNode(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
@@ -24,7 +24,7 @@ ULONG_PTR __fastcall MiRestrictRangeToNode(ULONG_PTR BugCheckParameter2, ULONG_P
   v4 = MiSearchNumaNodeTable(BugCheckParameter2)[2];
   if ( BugCheckParameter2 + a2 > v4 )
     a2 = v4 - BugCheckParameter2;
-  if ( qword_140C4DED0 )
+  if ( qword_140C4DF10 )
   {
     v6 = *(_QWORD *)(MiSearchChannelTable(BugCheckParameter2) + 16);
     v7 = v6 - BugCheckParameter2;

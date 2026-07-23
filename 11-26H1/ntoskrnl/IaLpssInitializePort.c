@@ -1,9 +1,9 @@
 /*
- * XREFs of IaLpssInitializePort @ 0x1407216A0
+ * XREFs of IaLpssInitializePort @ 0x140726270
  * Callers:
  *     <none>
  * Callees:
- *     Uart16550InitializePortCommon @ 0x140721C54 (Uart16550InitializePortCommon.c)
+ *     Uart16550InitializePortCommon @ 0x140726824 (Uart16550InitializePortCommon.c)
  */
 
 __int64 __fastcall IaLpssInitializePort(int a1, __int64 *a2)
@@ -16,8 +16,8 @@ __int64 __fastcall IaLpssInitializePort(int a1, __int64 *a2)
   if ( (_BYTE)result )
   {
     v4 = *a2;
-    WheapPfaLock.Padding[3] = *a2 + 4228;
-    WheapPfaLock.Padding[1] = v4 + 4100;
+    qword_140EF00C8 = *a2 + 4228;
+    qword_140EF00D8 = v4 + 4100;
   }
   return result;
 }

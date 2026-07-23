@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpVsContextFree @ 0x180036AF0 (RtlpHpVsContextFree.c)
  *     RtlpHpFreeHeap @ 0x18003B1F0 (RtlpHpFreeHeap.c)
- *     RtlpHpVsChunkFree @ 0x1801242A8 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkFree @ 0x180124278 (RtlpHpVsChunkFree.c)
  * Callees:
  *     RtlRbRemoveNode @ 0x180038910 (RtlRbRemoveNode.c)
  *     RtlpHpVsFreeChunkRemove @ 0x180069FBC (RtlpHpVsFreeChunkRemove.c)
@@ -54,7 +54,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v14 = RtlpHpHeapGlobals ^ *(_QWORD *)v13 ^ v13;
     if ( (v14 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(v5 + 16, v13 + 8);
+      RtlRbRemoveNode((PRTL_RB_TREE)(v5 + 16), (PRTL_BALANCED_NODE)(v13 + 8));
       v16 = (v13 - a2 + 4127) & 0xFFFFF000;
       v17 = ((v13 + 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)v13 ^ *(_DWORD *)v13) >> 16)) - a2) & 0xFFFFF000)
           - v16;

@@ -6,31 +6,34 @@
  *     <none>
  */
 
-__int64 __fastcall RtlIsPartialPlaceholderFileInfo(_DWORD *a1, int a2, bool *a3)
+NTSTATUS __cdecl RtlIsPartialPlaceholderFileInfo(
+        PVOID InfoBuffer,
+        FILE_INFORMATION_CLASS InfoClass,
+        PBOOLEAN IsPartialPlaceholder)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  switch ( a2 )
+  switch ( InfoClass )
   {
-    case 2:
-    case 3:
+    case FileFullDirectoryInformation:
+    case FileBothDirectoryInformation:
       goto LABEL_13;
-    case 35:
+    case FileAttributeTagInformation:
 LABEL_14:
-      *a3 = (*a1 & 0x440000) != 0;
-      return 0LL;
-    case 37:
-    case 38:
-    case 60:
-    case 63:
-    case 68:
-    case 70:
+      *IsPartialPlaceholder = (*(_DWORD *)InfoBuffer & 0x440000) != 0;
+      return 0;
+    case FileIdBothDirectoryInformation:
+    case FileIdFullDirectoryInformation:
+    case FileIdExtdDirectoryInformation:
+    case FileIdExtdBothDirectoryInformation:
+    case FileStatInformation:
+    case FileStatLxInformation:
 LABEL_13:
-      a1 += 14;
+      InfoBuffer = (char *)InfoBuffer + 56;
       goto LABEL_14;
   }
-  result = 3221225659LL;
-  if ( a2 >= 77 )
-    return 3221225475LL;
+  result = -1073741637;
+  if ( InfoClass >= FileMaximumInformation )
+    return -1073741821;
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpLockTableConvertSharedToExclusive @ 0x1401B529C
+ * XREFs of CmpLockTableConvertSharedToExclusive @ 0x1401B5180
  * Callers:
- *     CmpTryConvertKcbLockSharedToExclusive @ 0x140402A94 (CmpTryConvertKcbLockSharedToExclusive.c)
+ *     CmpTryConvertKcbLockSharedToExclusive @ 0x140401954 (CmpTryConvertKcbLockSharedToExclusive.c)
  * Callees:
  *     <none>
  */

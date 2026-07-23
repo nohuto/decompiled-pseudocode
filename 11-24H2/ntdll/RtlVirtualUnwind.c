@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlVirtualUnwind @ 0x180018C20
+ * XREFs of RtlVirtualUnwind @ 0x180045620
  * Callers:
- *     RtlUnwindEx @ 0x180015480 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x180019060 (RtlDispatchException.c)
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x1801208B0 (__report_gsfailure.c)
+ *     RtlUnwindEx @ 0x180041E80 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x180045A60 (RtlDispatchException.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x18011EAE0 (__report_gsfailure.c)
  * Callees:
- *     RtlpxVirtualUnwind @ 0x180016C30 (RtlpxVirtualUnwind.c)
- *     RtlpValidateContextFlags @ 0x180017E20 (RtlpValidateContextFlags.c)
+ *     RtlpxVirtualUnwind @ 0x180043630 (RtlpxVirtualUnwind.c)
+ *     RtlpValidateContextFlags @ 0x180044820 (RtlpValidateContextFlags.c)
  */
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBase, ULONG64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
@@ -18,7 +18,7 @@ PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBa
   int P3Home; // edx
   unsigned int P1Home_high; // r8d
   unsigned int P3Home_high; // r9d
-  EXCEPTION_ROUTINE *v18; // [rsp+60h] [rbp-38h] BYREF
+  EXCEPTION_DISPOSITION (__cdecl *v18)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+60h] [rbp-38h] BYREF
   _QWORD v19[3]; // [rsp+68h] [rbp-30h] BYREF
 
   v18 = 0LL;

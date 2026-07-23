@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     PsCreateMinimalProcess @ 0x140852EAC (PsCreateMinimalProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x1408531AC (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall MiInitializeHotPatches(__int64 a1, int a2)
@@ -22,7 +22,7 @@ __int64 __fastcall MiInitializeHotPatches(__int64 a1, int a2)
       return 1;
     MinimalProcess = PsCreateMinimalProcess(
                        (__int64)PsInitialSystemProcess,
-                       (__int64)&unk_140C09498,
+                       (__int64)&unk_140C09488,
                        0LL,
                        BYTE2(PsInitialSystemProcess[2].Header.WaitListHead.Flink),
                        0LL,

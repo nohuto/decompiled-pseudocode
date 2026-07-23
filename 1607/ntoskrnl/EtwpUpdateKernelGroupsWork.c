@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpUpdateKernelGroupsWork @ 0x14054C9E0
+ * XREFs of EtwpUpdateKernelGroupsWork @ 0x14054CF20
  * Callers:
  *     <none>
  * Callees:

@@ -1,29 +1,29 @@
 /*
- * XREFs of SdbQueryDataExTagID @ 0x1406C19DC
+ * XREFs of SdbQueryDataExTagID @ 0x1406C1B14
  * Callers:
- *     SdbQueryDataEx @ 0x1406C193C (SdbQueryDataEx.c)
+ *     SdbQueryDataEx @ 0x1406C1A74 (SdbQueryDataEx.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140084F38 (RtlStringCchCopyW.c)
- *     RtlStringCchCopyNW @ 0x140084FB0 (RtlStringCchCopyNW.c)
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SdbpGetMappedTagData @ 0x140484DE0 (SdbpGetMappedTagData.c)
- *     AslFree @ 0x14048538C (AslFree.c)
- *     AslAlloc @ 0x14048554C (AslAlloc.c)
- *     SdbReadDWORDTag @ 0x1404EA9AC (SdbReadDWORDTag.c)
- *     SdbGetTagDataSize @ 0x140503D74 (SdbGetTagDataSize.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     SdbReadQWORDTag @ 0x140573C10 (SdbReadQWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140573D10 (SdbGetStringTagPtr.c)
- *     SdbFindFirstNamedTag @ 0x1406C3D74 (SdbFindFirstNamedTag.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x14010B1EC (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyNW @ 0x14010B264 (RtlStringCchCopyNW.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SdbReadDWORDTag @ 0x1404CCBB0 (SdbReadDWORDTag.c)
+ *     SdbGetTagDataSize @ 0x1404E6D04 (SdbGetTagDataSize.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbpGetMappedTagData @ 0x140514168 (SdbpGetMappedTagData.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     AslAlloc @ 0x1405148D4 (AslAlloc.c)
+ *     SdbReadQWORDTag @ 0x140574150 (SdbReadQWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x140574250 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstNamedTag @ 0x1406C3EAC (SdbFindFirstNamedTag.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbQueryDataExTagID(
         __int64 a1,
         unsigned int a2,
         __int64 a3,
-        int *a4,
+        _DWORD *a4,
         void *a5,
         unsigned int *a6,
         unsigned int *a7)
@@ -34,7 +34,7 @@ __int64 __fastcall SdbQueryDataExTagID(
   __int64 v12; // rax
   size_t v13; // r15
   wchar_t *v14; // rax
-  wchar_t *v15; // r14
+  wchar_t *Str1; // r14
   wchar_t *v16; // rax
   wchar_t *v17; // rbp
   __int64 v18; // rcx
@@ -48,14 +48,13 @@ __int64 __fastcall SdbQueryDataExTagID(
   const char *v26; // r9
   int v27; // r8d
   __int64 v28; // rax
-  wchar_t *Str1; // [rsp+20h] [rbp-58h]
   wchar_t *pszDest; // [rsp+30h] [rbp-48h]
   __int64 QWORDTag; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v33; // [rsp+90h] [rbp+18h] BYREF
-  int *v34; // [rsp+98h] [rbp+20h]
+  __int64 v32; // [rsp+90h] [rbp+18h] BYREF
+  _DWORD *v33; // [rsp+98h] [rbp+20h]
 
-  v34 = a4;
-  v33 = a3;
+  v33 = a4;
+  v32 = a3;
   DWORDTag = 0;
   v8 = L"Policy";
   if ( !a5 && !a6 )
@@ -80,11 +79,10 @@ __int64 __fastcall SdbQueryDataExTagID(
       1,
       (unsigned int)"SdbQueryDataExTagID",
       4834,
-      (unsigned int)"Cannot allocate temporary buffer for parsing the name \"%ws\"",
-      L"Policy");
+      (unsigned int)"Cannot allocate temporary buffer for parsing the name \"%ws\"");
     return 8;
   }
-  v15 = v14;
+  Str1 = v14;
   while ( 1 )
   {
     v16 = wcschr(v8, 0x5Cu);
@@ -100,15 +98,15 @@ LABEL_60:
       }
       pszDest[v19] = 0;
       v8 = v17 + 1;
-      v15 = pszDest;
+      Str1 = pszDest;
     }
     else
     {
-      if ( RtlStringCchCopyW(v15, v13, v8) < 0 )
+      if ( RtlStringCchCopyW(Str1, v13, v8) < 0 )
         goto LABEL_60;
       v8 = 0LL;
     }
-    FirstNamedTag = SdbFindFirstNamedTag(a1, a2, 28687, 24577, v15);
+    FirstNamedTag = SdbFindFirstNamedTag(a1, a2, 28687, 24577, Str1);
     a2 = FirstNamedTag;
     if ( !v8 || !*v8 )
       break;
@@ -123,19 +121,13 @@ LABEL_19:
   }
   FirstTag = SdbFindFirstTag(a1, FirstNamedTag, 16408);
   if ( FirstTag )
-  {
     DWORDTag = SdbReadDWORDTag(a1, FirstTag, 0);
-  }
   else
-  {
-    LODWORD(Str1) = a2;
     AslLogCallPrintf(
       1,
       (unsigned int)"SdbQueryDataExTagID",
       4883,
-      (unsigned int)"The entry 0x%x does not have valuetype information",
-      Str1);
-  }
+      (unsigned int)"The entry 0x%x does not have valuetype information");
   TagDataSize = 0;
   StringTagPtr = 0LL;
   switch ( DWORDTag )
@@ -155,27 +147,18 @@ LABEL_19:
       v24 = 20487;
       break;
     default:
-      LODWORD(Str1) = a2;
       AslLogCallPrintf(
         1,
         (unsigned int)"SdbQueryDataExTagID",
         4920,
-        (unsigned int)"The entry 0x%x contains bad valuetype information 0x%x",
-        Str1,
-        DWORDTag);
+        (unsigned int)"The entry 0x%x contains bad valuetype information 0x%x");
       v11 = 1358;
       goto LABEL_61;
   }
   v25 = SdbFindFirstTag(a1, a2, v24);
   if ( !v25 )
   {
-    LODWORD(Str1) = a2;
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbQueryDataExTagID",
-      4932,
-      (unsigned int)"The entry 0x%x contains no value",
-      Str1);
+    AslLogCallPrintf(1, (unsigned int)"SdbQueryDataExTagID", 4932, (unsigned int)"The entry 0x%x contains no value");
     goto LABEL_19;
   }
   if ( DWORDTag == 1 )
@@ -207,8 +190,7 @@ LABEL_39:
       v26 = "The entry 0x%x contains bad binary value 0x%x";
       v27 = 4962;
 LABEL_49:
-      LODWORD(Str1) = a2;
-      AslLogCallPrintf(1, (unsigned int)"SdbQueryDataExTagID", v27, (_DWORD)v26, Str1, v25);
+      AslLogCallPrintf(1, (unsigned int)"SdbQueryDataExTagID", v27, (_DWORD)v26);
       goto LABEL_19;
     }
     goto LABEL_39;
@@ -220,9 +202,9 @@ LABEL_49:
     TagDataSize = 8;
     goto LABEL_39;
   }
-  LODWORD(v33) = SdbReadDWORDTag(a1, v25, 0);
+  LODWORD(v32) = SdbReadDWORDTag(a1, v25, 0);
   v11 = 0;
-  StringTagPtr = &v33;
+  StringTagPtr = &v32;
   TagDataSize = 4;
 LABEL_40:
   v18 = (__int64)a5;
@@ -233,8 +215,8 @@ LABEL_40:
 LABEL_54:
   if ( a6 )
     *a6 = TagDataSize;
-  if ( v34 )
-    *v34 = DWORDTag;
+  if ( v33 )
+    *v33 = DWORDTag;
   if ( a7 )
     *a7 = a2;
 LABEL_61:

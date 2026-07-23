@@ -1,12 +1,12 @@
 /*
- * XREFs of PpResetProblemDevices @ 0x1408A28F0
+ * XREFs of PpResetProblemDevices @ 0x1408A2A50
  * Callers:
- *     PpSystemHiveLimitCallback @ 0x1408A19F0 (PpSystemHiveLimitCallback.c)
+ *     PpSystemHiveLimitCallback @ 0x1408A1B50 (PpSystemHiveLimitCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     PipForDeviceNodeSubtree @ 0x1406B8550 (PipForDeviceNodeSubtree.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PipForDeviceNodeSubtree @ 0x140617970 (PipForDeviceNodeSubtree.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
  */
 
 void PpResetProblemDevices()

@@ -3,12 +3,12 @@
  * Callers:
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KeInitializeTimer2 @ 0x14007DD48 (KeInitializeTimer2.c)
- *     KiUpdateThreadPriority @ 0x140091DA8 (KiUpdateThreadPriority.c)
- *     KeAttachProcess @ 0x1400ADF38 (KeAttachProcess.c)
- *     KiSetProcessorIdle @ 0x1400AEA40 (KiSetProcessorIdle.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KeInitializeTimer2 @ 0x14007DDC8 (KeInitializeTimer2.c)
+ *     KiUpdateThreadPriority @ 0x140091508 (KiUpdateThreadPriority.c)
+ *     KeAttachProcess @ 0x1400AC4A0 (KeAttachProcess.c)
+ *     KiSetProcessorIdle @ 0x1400ACFA8 (KiSetProcessorIdle.c)
  *     RtlInitializeHistoryTable @ 0x1407B82C0 (RtlInitializeHistoryTable.c)
  */
 
@@ -30,12 +30,12 @@ __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
   KeAttachProcess(PsInitialSystemProcess);
   if ( !a3 )
   {
-    qword_14030E4D8 = 0LL;
-    qword_14030E4D0 = (__int64)&qword_14030E4C8;
-    qword_14030E4C8 = (__int64)&qword_14030E4C8;
+    qword_14030E518 = 0LL;
+    qword_14030E510 = (__int64)&qword_14030E508;
+    qword_14030E508 = (__int64)&qword_14030E508;
     KeInitializeTimer2((__int64)&KiForegroundState, (__int64)KiForegroundTimerCallback, 0LL, 8);
     KeInitializeDpc((PRKDPC)&Dpc, (PKDEFERRED_ROUTINE)KiProcessPendingForegroundBoosts, 0LL);
-    KeInitializeDpc((PRKDPC)&stru_14030E488, (PKDEFERRED_ROUTINE)KiTriggerForegroundBoostDpc, 0LL);
+    KeInitializeDpc((PRKDPC)&stru_14030E4C8, (PKDEFERRED_ROUTINE)KiTriggerForegroundBoostDpc, 0LL);
   }
   v6 = 0;
   _interlockedbittestandset64(

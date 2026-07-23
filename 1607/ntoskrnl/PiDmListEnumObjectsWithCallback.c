@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDmListEnumObjectsWithCallback @ 0x140500AB8
+ * XREFs of PiDmListEnumObjectsWithCallback @ 0x1404E3A48
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14048AD7C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1404ED31C (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
- *     PiDmGetObjectConstraintList @ 0x140505E68 (PiDmGetObjectConstraintList.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14048B010 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1404CF3D4 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
+ *     PiDmGetObjectConstraintList @ 0x1404E8DF8 (PiDmGetObjectConstraintList.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmObjectAcquireSharedLock @ 0x1404FFB50 (PiDmObjectAcquireSharedLock.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmObjectAcquireSharedLock @ 0x1404E2AE0 (PiDmObjectAcquireSharedLock.c)
  */
 
 __int64 __fastcall PiDmListEnumObjectsWithCallback(

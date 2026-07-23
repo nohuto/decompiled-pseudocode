@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceLongDpcDetectionEvent @ 0x1405FCEFC
+ * XREFs of EtwTraceLongDpcDetectionEvent @ 0x1405FD46C
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceLongDpcDetectionEvent(int a1, char a2)

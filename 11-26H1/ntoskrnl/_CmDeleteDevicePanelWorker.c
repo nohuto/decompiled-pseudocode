@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmDeleteDevicePanelWorker @ 0x14089A1DC
+ * XREFs of _CmDeleteDevicePanelWorker @ 0x1408A05DC
  * Callers:
- *     _CmDeleteDevicePanel @ 0x140899CD8 (_CmDeleteDevicePanel.c)
+ *     _CmDeleteDevicePanel @ 0x1408A00D8 (_CmDeleteDevicePanel.c)
  * Callees:
- *     _CmRaiseDeleteEvent @ 0x140774BCC (_CmRaiseDeleteEvent.c)
- *     _CmDeleteDevicePanelRegKey @ 0x140899E00 (_CmDeleteDevicePanelRegKey.c)
- *     _CmGetDevicePanelMappedPropertyKeys @ 0x14089A7E0 (_CmGetDevicePanelMappedPropertyKeys.c)
- *     _CmSetDevicePanelMappedProperty @ 0x14089B010 (_CmSetDevicePanelMappedProperty.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _CmRaiseDeleteEvent @ 0x140777BCC (_CmRaiseDeleteEvent.c)
+ *     _CmDeleteDevicePanelRegKey @ 0x1408A0200 (_CmDeleteDevicePanelRegKey.c)
+ *     _CmGetDevicePanelMappedPropertyKeys @ 0x1408A0BE0 (_CmGetDevicePanelMappedPropertyKeys.c)
+ *     _CmSetDevicePanelMappedProperty @ 0x1408A1410 (_CmSetDevicePanelMappedProperty.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDevicePanelWorker(__int64 a1, __int64 a2, __int16 a3, int a4)

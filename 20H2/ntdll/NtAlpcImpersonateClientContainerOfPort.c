@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcImpersonateClientContainerOfPort()
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 133LL;
+  result = 133;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

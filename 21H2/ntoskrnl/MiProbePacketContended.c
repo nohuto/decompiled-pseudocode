@@ -1,19 +1,21 @@
 /*
- * XREFs of MiProbePacketContended @ 0x140308408
+ * XREFs of MiProbePacketContended @ 0x140313158
  * Callers:
- *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x1402B7460 (MmProbeAndLockSelectedPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140235640 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPages @ 0x1402AF160 (MiProbeAndLockPages.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiPageTableLockIsContended @ 0x140308460 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiPageTableLockIsContended @ 0x1403131B0 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
  */
 
 LOGICAL __fastcall MiProbePacketContended(__int64 a1)
 {
+  __int64 v1; // rdx
   LOGICAL result; // eax
 
-  if ( *(_QWORD *)(a1 + 32) && (unsigned int)MiPageTableLockIsContended(*(_QWORD *)(a1 + 96)) )
+  v1 = *(_QWORD *)(a1 + 32);
+  if ( v1 && (unsigned int)MiPageTableLockIsContended(*(_QWORD *)(a1 + 96), v1) )
     return 1;
   if ( (unsigned int)MiWorkingSetIsContended(*(_QWORD *)(a1 + 96)) )
     return 1;

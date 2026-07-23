@@ -1,34 +1,37 @@
 /*
- * XREFs of LdrVerifyImageMatchesChecksum @ 0x1800D0CA0
+ * XREFs of LdrVerifyImageMatchesChecksum @ 0x1800D0D60
  * Callers:
  *     <none>
  * Callees:
- *     LdrVerifyImageMatchesChecksumEx @ 0x18008BE60 (LdrVerifyImageMatchesChecksumEx.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18008BE50 (LdrVerifyImageMatchesChecksumEx.c)
  */
 
-__int64 __fastcall LdrVerifyImageMatchesChecksum(__int64 a1, __int64 a2, __int64 a3, _WORD *a4)
+NTSTATUS __cdecl LdrVerifyImageMatchesChecksum(
+        HANDLE ImageFileHandle,
+        PLDR_IMPORT_MODULE_CALLBACK ImportCallbackRoutine,
+        PVOID ImportCallbackParameter,
+        PUSHORT ImageCharacteristics)
 {
   int v4; // eax
-  __int64 result; // rax
-  _QWORD v7[7]; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v8; // [rsp+58h] [rbp-10h]
+  NTSTATUS result; // eax
+  _LDR_VERIFY_IMAGE_INFO VerifyInfo; // [rsp+20h] [rbp-48h] BYREF
 
   v4 = 0;
-  v7[0] = 64LL;
-  if ( a2 )
+  *(_QWORD *)&VerifyInfo.Size = 64LL;
+  if ( ImportCallbackRoutine )
   {
     v4 = 1;
-    v7[1] = a2;
-    HIDWORD(v7[0]) = 1;
-    v7[2] = a3;
+    VerifyInfo.CallbackInfo.ImportCallbackRoutine = ImportCallbackRoutine;
+    VerifyInfo.Flags = 1;
+    VerifyInfo.CallbackInfo.ImportCallbackParameter = ImportCallbackParameter;
   }
-  if ( a4 )
-    HIDWORD(v7[0]) = v4 | 4;
-  result = LdrVerifyImageMatchesChecksumEx(a1, (__int64)v7);
-  if ( (int)result >= 0 )
+  if ( ImageCharacteristics )
+    VerifyInfo.Flags = v4 | 4;
+  result = LdrVerifyImageMatchesChecksumEx(ImageFileHandle, &VerifyInfo);
+  if ( result >= 0 )
   {
-    if ( a4 )
-      *a4 = v8;
+    if ( ImageCharacteristics )
+      *ImageCharacteristics = VerifyInfo.ImageCharacteristics;
   }
   return result;
 }

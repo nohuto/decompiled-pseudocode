@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwVdmControlWrapper @ 0x1406BEEA0
+ * XREFs of DifZwVdmControlWrapper @ 0x1406C2A80
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwVdmControl @ 0x140727050 (ZwVdmControl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwVdmControl @ 0x14072BC20 (ZwVdmControl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwVdmControlWrapper(unsigned int a1, __int64 a2)
+__int64 __fastcall DifZwVdmControlWrapper(VDMSERVICECLASS Service, PVOID ServiceData)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -43,8 +43,8 @@ __int64 __fastcall DifZwVdmControlWrapper(unsigned int a1, __int64 a2)
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v8 = 0;
-    LODWORD(v16) = a1;
-    *((_QWORD *)&v15 + 1) = a2;
+    LODWORD(v16) = Service;
+    *((_QWORD *)&v15 + 1) = ServiceData;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v8 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -57,7 +57,7 @@ __int64 __fastcall DifZwVdmControlWrapper(unsigned int a1, __int64 a2)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  HIDWORD(v16) = ZwVdmControl(a1, a2);
+  HIDWORD(v16) = ZwVdmControl(Service, ServiceData);
   if ( v6 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

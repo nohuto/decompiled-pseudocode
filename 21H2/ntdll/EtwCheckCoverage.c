@@ -6,10 +6,10 @@
  *     <none>
  */
 
-char __fastcall EtwCheckCoverage(__int64 a1)
+BOOLEAN __cdecl EtwCheckCoverage(PTELEMETRY_COVERAGE_POINT CoveragePoint)
 {
   unsigned int *TelemetryCoverageHeader; // rdx
-  int v4; // r8d
+  ULONG Hash; // r8d
   __int64 v5; // rax
   unsigned int v6; // ecx
   unsigned __int64 v7; // r10
@@ -19,9 +19,9 @@ char __fastcall EtwCheckCoverage(__int64 a1)
   TelemetryCoverageHeader = (unsigned int *)NtCurrentPeb()->TelemetryCoverageHeader;
   if ( !TelemetryCoverageHeader || (*((_BYTE *)TelemetryCoverageHeader + 2) & 1) != 0 )
     return 0;
-  v4 = *(_DWORD *)(a1 + 8);
+  Hash = CoveragePoint->Hash;
   v5 = TelemetryCoverageHeader[1];
-  v6 = v4 & TelemetryCoverageHeader[2];
+  v6 = Hash & TelemetryCoverageHeader[2];
   v7 = (unsigned __int64)&TelemetryCoverageHeader[v5 + 13];
   if ( v6 >= (unsigned int)v5 )
     v6 = v6 - (unsigned int)v5 < (unsigned int)v5 ? v6 - v5 : 0;
@@ -34,7 +34,7 @@ LABEL_10:
     {
       if ( !*i )
         goto LABEL_8;
-      if ( *i == v4 )
+      if ( *i == Hash )
         goto LABEL_9;
     }
     i = 0LL;
@@ -43,16 +43,16 @@ LABEL_10:
   {
     while ( *i )
     {
-      if ( *i == v4 )
+      if ( *i == Hash )
         goto LABEL_9;
       if ( (unsigned __int64)++i >= v7 )
         goto LABEL_10;
     }
   }
 LABEL_8:
-  if ( *i != v4 )
+  if ( *i != Hash )
     return 0;
 LABEL_9:
-  *(_DWORD *)(a1 + 12) = TelemetryCoverageHeader[6];
+  CoveragePoint->LastCoveredRound = TelemetryCoverageHeader[6];
   return 1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFillActivePatchesQueryBuffer @ 0x1407F2664
+ * XREFs of MiFillActivePatchesQueryBuffer @ 0x1407F2C34
  * Callers:
- *     MiQueryProcessActivePatches @ 0x140AAE3A8 (MiQueryProcessActivePatches.c)
+ *     MiQueryProcessActivePatches @ 0x140AA9284 (MiQueryProcessActivePatches.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
  */
 
 UNICODE_STRING *__fastcall MiFillActivePatchesQueryBuffer(

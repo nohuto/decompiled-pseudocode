@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCountEmptyUnits @ 0x140349CC0
+ * XREFs of RtlpHpLfhSubsegmentCountEmptyUnits @ 0x14034BD40
  * Callers:
- *     RtlpHpLfhSubsegmentFree @ 0x140349360 (RtlpHpLfhSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1403499A0 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x14034B3E0 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x14034BA20 (RtlpHpLfhSubsegmentReformatAsMulti.c)
  * Callees:
- *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x140349D70 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
+ *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14034BDF0 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCountEmptyUnits(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeUpdateGroupSchedulingConstants @ 0x1403AFB74
+ * XREFs of KeUpdateGroupSchedulingConstants @ 0x1403AFD54
  * Callers:
- *     KiEnableGroupScheduling @ 0x1403AFA84 (KiEnableGroupScheduling.c)
- *     PspReadDfssConfigurationValues @ 0x1405A3734 (PspReadDfssConfigurationValues.c)
+ *     KiEnableGroupScheduling @ 0x1403AFC64 (KiEnableGroupScheduling.c)
+ *     PspReadDfssConfigurationValues @ 0x1405A3C24 (PspReadDfssConfigurationValues.c)
  * Callees:
  *     KiAssignSchedulingGroupWeights @ 0x140205544 (KiAssignSchedulingGroupWeights.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeUpdateGroupSchedulingConstants(char a1)
@@ -28,18 +28,16 @@ __int64 __fastcall KeUpdateGroupSchedulingConstants(char a1)
   KiCycleDivisorLongTerm = v2 * (unsigned int)PsDfssLongTermSharingMS;
   KiCyclesPerGeneration = v2 * (unsigned int)PsDfssGenerationLengthMS;
   KiGroupSchedulingNumerator = PsDfssLongTermFraction1024;
-  KiGenerationTicks = 10000
-                    * (unsigned __int64)(unsigned int)PsDfssGenerationLengthMS
-                    / (unsigned int)KeMaximumIncrement;
+  KiGenerationTicks = 10000 * (unsigned __int64)(unsigned int)PsDfssGenerationLengthMS / KeMaximumIncrement;
   result = KiAssignSchedulingGroupWeights(0, 1, 0LL);
   if ( !a1 )
   {
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )

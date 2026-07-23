@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwInitialize @ 0x140552C6C
+ * XREFs of EtwInitialize @ 0x1405531AC
  * Callers:
- *     NtInitializeRegistry @ 0x140547164 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1405476A4 (NtInitializeRegistry.c)
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExIsSoftBoot @ 0x14013CF78 (ExIsSoftBoot.c)
+ *     ExIsSoftBoot @ 0x14013D4E8 (ExIsSoftBoot.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  */

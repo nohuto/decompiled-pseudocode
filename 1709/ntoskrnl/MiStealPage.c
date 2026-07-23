@@ -150,7 +150,7 @@ __int64 __fastcall MiStealPage(__int64 a1, unsigned __int8 a2, int a3, unsigned 
   __int64 v80; // r15
   unsigned __int8 v81; // al
   LONG *v82; // rax
-  unsigned __int64 v83; // rax
+  PRTL_BALANCED_NODE v83; // rax
   ULONG_PTR v84; // rcx
   __int64 *v85; // rcx
   unsigned __int64 v86; // rdx
@@ -683,11 +683,11 @@ LABEL_183:
         if ( !_interlockedbittestandreset((volatile signed __int32 *)BugCheckParameter2, 0) )
         {
           if ( v83 )
-            KeAbPostReleaseEx(BugCheckParameter2, v83);
+            KeAbPostReleaseEx(BugCheckParameter2, (unsigned __int64)v83);
           goto LABEL_183;
         }
         if ( v83 )
-          *(_BYTE *)(v83 + 26) |= 1u;
+          BYTE2(v83[1].Left) |= 1u;
         v9 |= 0x2008u;
         *(_QWORD *)(v84 + 8) = KeGetCurrentThread();
       }
@@ -1144,7 +1144,7 @@ LABEL_253:
   }
   else if ( v30 == 12
          || PsNtosImageBase
-         && (v138 >= PsNtosImageBase && v138 < PsNtosImageEnd
+         && (v138 >= (unsigned __int64)PsNtosImageBase && v138 < PsNtosImageEnd
           || v138 >= (unsigned __int64)PsHalImageBase && v138 < PsHalImageEnd) )
   {
     v9 = 64;
@@ -1208,7 +1208,7 @@ LABEL_45:
       if ( !v136
         || (unsigned int)MiGetSystemRegionType(v138) != 12
         && (!PsNtosImageBase
-         || (v38 < PsNtosImageBase || v38 >= PsNtosImageEnd)
+         || (v38 < (unsigned __int64)PsNtosImageBase || v38 >= PsNtosImageEnd)
          && (v38 < (unsigned __int64)PsHalImageBase || v38 >= PsHalImageEnd)) )
       {
         goto LABEL_46;

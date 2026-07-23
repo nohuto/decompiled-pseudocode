@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x14046024E
+ * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x14046064E
  * Callers:
- *     KxTryToAcquireQueuedSpinLock @ 0x140349138 (KxTryToAcquireQueuedSpinLock.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x1403493C8 (KxTryToAcquireQueuedSpinLock.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x140600D04 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x140601254 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall KiTryToAcquireQueuedSpinLockInstrumented(signed __int64 a1, _DWORD *a2)

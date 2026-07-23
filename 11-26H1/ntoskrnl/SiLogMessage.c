@@ -1,15 +1,15 @@
 /*
- * XREFs of SiLogMessage @ 0x140771464
+ * XREFs of SiLogMessage @ 0x140774464
  * Callers:
- *     SyspartGetFirmwarePartition @ 0x1407713C4 (SyspartGetFirmwarePartition.c)
- *     SiGetFirmwareSystemPartition @ 0x1408943B0 (SiGetFirmwareSystemPartition.c)
- *     SyspartGetSystemPartition @ 0x140894628 (SyspartGetSystemPartition.c)
- *     SiGetEfiSystemDevice @ 0x140894F48 (SiGetEfiSystemDevice.c)
- *     SyspartResolveEfiEspCallback @ 0x140895530 (SyspartResolveEfiEspCallback.c)
+ *     SyspartGetFirmwarePartition @ 0x1407743C4 (SyspartGetFirmwarePartition.c)
+ *     SiGetFirmwareSystemPartition @ 0x14089A7B0 (SiGetFirmwareSystemPartition.c)
+ *     SyspartGetSystemPartition @ 0x14089AA28 (SyspartGetSystemPartition.c)
+ *     SiGetEfiSystemDevice @ 0x14089B348 (SiGetEfiSystemDevice.c)
+ *     SyspartResolveEfiEspCallback @ 0x14089B930 (SyspartResolveEfiEspCallback.c)
  * Callees:
- *     RtlStringCchVPrintfW @ 0x140715980 (RtlStringCchVPrintfW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlStringCchVPrintfW @ 0x14071A670 (RtlStringCchVPrintfW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 SiLogMessage(int a1, const wchar_t *a2, ...)
@@ -18,7 +18,7 @@ __int64 SiLogMessage(int a1, const wchar_t *a2, ...)
   va_list va; // [rsp+270h] [rbp+18h] BYREF
 
   va_start(va, a2);
-  if ( stru_140E3E928.WaitBlockFill7[147] && a1 >= *(int *)&stru_140E3E928.Spare26 && a1 < 5 )
+  if ( stru_140E3EAA8.WaitBlockFill7[147] && a1 >= SLODWORD(stru_140E3EAA8.TracingPrivate[0]) && a1 < 5 )
   {
     RtlStringCchVPrintfW(pszDest, (size_t)a2, a2, va);
     pszDest[255] = 0;

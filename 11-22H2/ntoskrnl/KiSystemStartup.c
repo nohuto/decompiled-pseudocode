@@ -98,7 +98,7 @@ NTSTATUS __stdcall __noreturn KiSystemStartup(PDRIVER_OBJECT DriverObject, PUNIC
   if ( !*MK_FP(43, *MK_FP(43, KeLoaderBlock_0 + 136) + 36LL) )
     KdInitSystem(0LL, KeLoaderBlock_0);
   KiInitializeXSave(KeLoaderBlock_0, (unsigned int)*MK_FP(43, *MK_FP(43, KeLoaderBlock_0 + 136) + 36LL));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
     KzSetIrqlUnsafe(0xFu);
   else
     __writecr8(0xFuLL);

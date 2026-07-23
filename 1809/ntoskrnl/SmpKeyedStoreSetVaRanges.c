@@ -1,7 +1,7 @@
 /*
- * XREFs of SmpKeyedStoreSetVaRanges @ 0x1400E4B74
+ * XREFs of SmpKeyedStoreSetVaRanges @ 0x1400E4BF4
  * Callers:
- *     SmStoreSetProcessVaRanges @ 0x14066B6DC (SmStoreSetProcessVaRanges.c)
+ *     SmStoreSetProcessVaRanges @ 0x14066C89C (SmStoreSetProcessVaRanges.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,8 +11,8 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, ...)
@@ -81,7 +81,7 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, ...)
         {
           v12->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v12->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v4->LockEntries[v11], SessionId);
+            KiAbEntryRemoveFromTree(&v4->LockEntries[v11].TreeNode, SessionId);
           LODWORD(v19) = 0;
           LODWORD(v19) = v12->BoostBitmap.AllFields & 0x1FFFF;
           v12->BoostBitmap.AllFields &= 0xFFFE0000;

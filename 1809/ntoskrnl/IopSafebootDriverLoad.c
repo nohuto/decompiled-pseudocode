@@ -1,18 +1,18 @@
 /*
- * XREFs of IopSafebootDriverLoad @ 0x14081A7D0
+ * XREFs of IopSafebootDriverLoad @ 0x14081B9D0
  * Callers:
- *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
- *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
+ *     IopLoadDriver @ 0x140680BF4 (IopLoadDriver.c)
+ *     PipCallDriverAddDevice @ 0x1406E7EEC (PipCallDriverAddDevice.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x1406C68B0 (IopOpenRegistryKey.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD8DC (IopVerifierExAllocatePool_0.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x1406C7B50 (IopOpenRegistryKey.c)
  */
 
 char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)

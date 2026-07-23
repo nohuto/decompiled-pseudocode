@@ -1,5 +1,5 @@
 /*
- * XREFs of adapt @ 0x18010D154
+ * XREFs of adapt @ 0x18010D124
  * Callers:
  *     punycode_decode @ 0x18000E5D8 (punycode_decode.c)
  *     punycode_encode @ 0x18008A310 (punycode_encode.c)

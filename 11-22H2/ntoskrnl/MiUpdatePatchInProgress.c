@@ -26,7 +26,7 @@ void __fastcall MiUpdatePatchInProgress(__int64 a1, __int64 a2, char a3)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v5) = 4;
@@ -47,10 +47,10 @@ void __fastcall MiUpdatePatchInProgress(__int64 a1, __int64 a2, char a3)
   }
   if ( CurrentIrql != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v8 = CurrentPrcb->SchedulerAssist;

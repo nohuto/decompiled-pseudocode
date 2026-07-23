@@ -1,18 +1,18 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140AFF5E4
+ * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140B01274
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140977F10 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140939F20 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x14040B340 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14043D79C (PsIsThreadInSilo.c)
- *     PsGetJobSilo @ 0x14043D7E0 (PsGetJobSilo.c)
- *     ZwUnloadKey2 @ 0x140726F70 (ZwUnloadKey2.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpDestroyNamespaceNode @ 0x140977AF4 (VrpDestroyNamespaceNode.c)
- *     VrpUnlockJobContextExclusive @ 0x1409787A4 (VrpUnlockJobContextExclusive.c)
- *     VrpLockJobContextExclusive @ 0x140978CF4 (VrpLockJobContextExclusive.c)
- *     VrpCleanupNamespace @ 0x140979FC0 (VrpCleanupNamespace.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x140404430 (PsGetPermanentSiloContext.c)
+ *     PsIsThreadInSilo @ 0x14043004C (PsIsThreadInSilo.c)
+ *     PsGetJobSilo @ 0x140430090 (PsGetJobSilo.c)
+ *     ZwUnloadKey2 @ 0x14072BB40 (ZwUnloadKey2.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     VrpDestroyNamespaceNode @ 0x140939B04 (VrpDestroyNamespaceNode.c)
+ *     VrpUnlockJobContextExclusive @ 0x14093A7B4 (VrpUnlockJobContextExclusive.c)
+ *     VrpLockJobContextExclusive @ 0x14093AD04 (VrpLockJobContextExclusive.c)
+ *     VrpCleanupNamespace @ 0x14093BFD0 (VrpCleanupNamespace.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
@@ -35,8 +35,7 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rcx
   __int64 v17; // r14
-  _QWORD v19[4]; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v20; // [rsp+60h] [rbp-10h]
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+40h] [rbp-30h] BYREF
   PVOID Object; // [rsp+98h] [rbp+28h] BYREF
 
   Object = 0LL;
@@ -48,7 +47,7 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   }
   else
   {
-    JobSilo = ObpReferenceObjectByHandleWithTag(*a1, 6LL, PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
+    JobSilo = ObpReferenceObjectByHandleWithTag(*a1, 6, (__int64)PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
     if ( JobSilo >= 0 )
     {
       JobSilo = PsGetJobSilo((__int64)Object);
@@ -97,12 +96,12 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
                 v17 = *v14;
                 if ( *(int *)(*v14 + 56) < 0 )
                 {
-                  v19[0] = 48LL;
-                  v19[1] = 0LL;
-                  v19[3] = 576LL;
-                  v19[2] = v17 + 24;
-                  v20 = 0LL;
-                  ZwUnloadKey2((__int64)v19, 1LL);
+                  *(_QWORD *)&TargetKey.Length = 48LL;
+                  TargetKey.RootDirectory = 0LL;
+                  *(_QWORD *)&TargetKey.Attributes = 576LL;
+                  TargetKey.ObjectName = (PUNICODE_STRING)(v17 + 24);
+                  *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+                  ZwUnloadKey2(&TargetKey, 1u);
                   VrpDestroyNamespaceNode((size_t *)v11, v17);
                 }
                 else

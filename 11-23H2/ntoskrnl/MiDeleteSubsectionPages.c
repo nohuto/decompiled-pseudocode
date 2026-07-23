@@ -2,25 +2,25 @@
  * XREFs of MiDeleteSubsectionPages @ 0x140218EF0
  * Callers:
  *     MiDeleteSegmentPages @ 0x140219670 (MiDeleteSegmentPages.c)
- *     MiExtendSection @ 0x1407067D4 (MiExtendSection.c)
+ *     MiExtendSection @ 0x1407069E4 (MiExtendSection.c)
  * Callees:
  *     MiDeleteClusterSection @ 0x1402189B0 (MiDeleteClusterSection.c)
  *     MiReleasePageFileSpace @ 0x14021941C (MiReleasePageFileSpace.c)
  *     MiUpdateSystemProtoPtesTree @ 0x14021BF30 (MiUpdateSystemProtoPtesTree.c)
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiInvalidPteConforms @ 0x1402DC440 (MiInvalidPteConforms.c)
- *     MiDeleteTransitionPte @ 0x1402DCE80 (MiDeleteTransitionPte.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDeleteSubsectionLargePages @ 0x14064EDA8 (MiDeleteSubsectionLargePages.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660858 (MiLockSpecialPurposeMemoryCachedPage.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiInvalidPteConforms @ 0x1402DC6D0 (MiInvalidPteConforms.c)
+ *     MiDeleteTransitionPte @ 0x1402DD110 (MiDeleteTransitionPte.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeleteSubsectionLargePages @ 0x14064F2F8 (MiDeleteSubsectionLargePages.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660DA8 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -290,10 +290,13 @@ LABEL_49:
   while ( *(_DWORD *)(v3 + 104) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v26 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v26 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -315,10 +318,10 @@ LABEL_49:
     *(_QWORD *)(v3 + 8) = 0LL;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v40 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v26 <= 0xFu && v40 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v26 <= 0xFu && v40 >= 2u )
     {
       v41 = KeGetCurrentPrcb();
       v42 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v26 + 1));

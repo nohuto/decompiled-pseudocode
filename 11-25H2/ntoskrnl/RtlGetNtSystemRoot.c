@@ -10,10 +10,10 @@
  *     PsIsCurrentThreadInServerSilo @ 0x140311890 (PsIsCurrentThreadInServerSilo.c)
  */
 
-char *RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return (char *)&PsGetCurrentServerSiloGlobals()[80].Blink[1].Blink + 6;
+    return (PWSTR)&PsGetCurrentServerSiloGlobals()[80].Blink[1].Blink + 3;
   else
-    return (char *)0xFFFFF78000000030LL;
+    return (PWSTR)0xFFFFF78000000030LL;
 }

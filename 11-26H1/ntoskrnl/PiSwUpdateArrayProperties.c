@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwUpdateArrayProperties @ 0x14090BED4
+ * XREFs of PiSwUpdateArrayProperties @ 0x1409ADFF8
  * Callers:
- *     PiSwIrpInterfaceRegister @ 0x14090BA58 (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x14090C58C (PiSwIrpInterfacePropertySet.c)
- *     PiSwIrpPropertySet @ 0x140B055EC (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x1409ADB7C (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1409AE6BC (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpPropertySet @ 0x140B071FC (PiSwIrpPropertySet.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwUpdateArrayProperties(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)

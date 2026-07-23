@@ -1,10 +1,10 @@
 /*
- * XREFs of _SysCtxOpenEffectiveToken @ 0x140A8C114
+ * XREFs of _SysCtxOpenEffectiveToken @ 0x140A88604
  * Callers:
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A8BE6C (_SysCtxRegOpenCurrentUserKey.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A8835C (_SysCtxRegOpenCurrentUserKey.c)
  * Callees:
- *     ZwOpenThreadTokenEx @ 0x1406A69F0 (ZwOpenThreadTokenEx.c)
- *     ZwOpenProcessTokenEx @ 0x1406A6A10 (ZwOpenProcessTokenEx.c)
+ *     ZwOpenThreadTokenEx @ 0x1406A7990 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x1406A79B0 (ZwOpenProcessTokenEx.c)
  */
 
 NTSTATUS __fastcall SysCtxOpenEffectiveToken(__int64 a1, HANDLE *TokenHandle)

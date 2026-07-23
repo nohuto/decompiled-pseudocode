@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetSubNodeForGroup @ 0x140355760
+ * XREFs of KiGetSubNodeForGroup @ 0x140355900
  * Callers:
- *     KeBuildLogicalProcessorSystemInformation @ 0x1407C47B4 (KeBuildLogicalProcessorSystemInformation.c)
+ *     KeBuildLogicalProcessorSystemInformation @ 0x1407C4A84 (KeBuildLogicalProcessorSystemInformation.c)
  *     KiConfigureProcessorBlock @ 0x140A88BB0 (KiConfigureProcessorBlock.c)
  * Callees:
  *     <none>

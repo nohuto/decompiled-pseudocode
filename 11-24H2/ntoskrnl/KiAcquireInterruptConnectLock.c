@@ -1,19 +1,19 @@
 /*
- * XREFs of KiAcquireInterruptConnectLock @ 0x14047F840
+ * XREFs of KiAcquireInterruptConnectLock @ 0x1402B53D8
  * Callers:
- *     KeMaskInterrupt @ 0x1403B748C (KeMaskInterrupt.c)
+ *     KeMaskInterrupt @ 0x1402B3740 (KeMaskInterrupt.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, struct _GROUP_AFFINITY *a3)
+struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, _GROUP_AFFINITY *a3)
 {
   __int64 v5; // r9
   __int64 v6; // rcx
   struct _KPRCB *result; // rax
   unsigned __int8 CurrentIrql; // bl
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   v5 = KiProcessorBlock[a1];

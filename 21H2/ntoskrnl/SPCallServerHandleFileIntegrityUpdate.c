@@ -1,17 +1,17 @@
 /*
- * XREFs of SPCallServerHandleFileIntegrityUpdate @ 0x140727A04
+ * XREFs of SPCallServerHandleFileIntegrityUpdate @ 0x140727EB4
  * Callers:
- *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
+ *     sub_1406EDA0C @ 0x1406EDA0C (sub_1406EDA0C.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetCachedSigningLevel @ 0x1403FD500 (ZwSetCachedSigningLevel.c)
- *     FsRtlSetKernelEaFile @ 0x140689CB0 (FsRtlSetKernelEaFile.c)
- *     FsRtlKernelFsControlFile @ 0x14068A050 (FsRtlKernelFsControlFile.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetCachedSigningLevel @ 0x1403FD6E0 (ZwSetCachedSigningLevel.c)
+ *     FsRtlSetKernelEaFile @ 0x1405E9140 (FsRtlSetKernelEaFile.c)
+ *     FsRtlKernelFsControlFile @ 0x1405E94E0 (FsRtlKernelFsControlFile.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleFileIntegrityUpdate(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -41,38 +41,37 @@ __int64 __fastcall SPCallServerHandleFileIntegrityUpdate(__int64 a1, __int64 a2,
   struct _DMA_ADAPTER *v27; // r12
   __int64 *v28; // r15
   __int64 v29; // r13
-  __int64 v30; // rdx
-  __int64 *v31; // r14
-  char *v32; // rax
-  __int64 v33; // r8
-  _DWORD *v34; // rdx
-  unsigned int v35; // ecx
+  __int64 *v30; // r14
+  char *v31; // rax
+  __int64 v32; // r8
+  _DWORD *v33; // rdx
+  unsigned int v34; // ecx
+  unsigned int v35; // eax
   unsigned int v36; // eax
-  unsigned int v37; // eax
   _DWORD *PoolWithTag; // rax
-  __int64 v40; // r15
-  unsigned int v41; // edx
-  int v42; // eax
-  unsigned int v43; // ecx
-  unsigned int v44; // r10d
-  unsigned int *v45; // r9
+  __int64 v39; // r15
+  unsigned int v40; // edx
+  int v41; // eax
+  unsigned int v42; // ecx
+  unsigned int v43; // r10d
+  unsigned int *v44; // r9
+  unsigned int *v45; // rax
   unsigned int *v46; // rax
-  unsigned int *v47; // rax
   unsigned int k; // r9d
-  __int64 v49; // r11
-  unsigned int *v50; // r10
-  __int64 v51; // r11
-  unsigned int *v52; // r10
-  HANDLE Handle; // [rsp+48h] [rbp-28h] BYREF
+  __int64 v48; // r11
+  unsigned int *v49; // r10
+  __int64 v50; // r11
+  unsigned int *v51; // r10
+  HANDLE TargetFile; // [rsp+48h] [rbp-28h] BYREF
   PVOID Object; // [rsp+50h] [rbp-20h] BYREF
-  __int128 v55; // [rsp+58h] [rbp-18h]
-  unsigned int v56; // [rsp+B0h] [rbp+40h]
-  unsigned int v57; // [rsp+B8h] [rbp+48h]
-  __int64 v58; // [rsp+C0h] [rbp+50h] BYREF
+  __int128 v54; // [rsp+58h] [rbp-18h]
+  unsigned int v55; // [rsp+B0h] [rbp+40h]
+  unsigned int v56; // [rsp+B8h] [rbp+48h]
+  __int64 v57; // [rsp+C0h] [rbp+50h] BYREF
 
-  LODWORD(v58) = a3;
-  v57 = 0;
+  LODWORD(v57) = a3;
   v56 = 0;
+  v55 = 0;
   v5 = 0LL;
   if ( !a1 || !a4 )
     return (unsigned int)-1073741811;
@@ -119,16 +118,16 @@ LABEL_7:
       v13 = *(unsigned int **)(a1 + 8);
       for ( j = 0; j < 4; ++j )
       {
-        v49 = *v13;
-        v50 = v13 + 1;
+        v48 = *v13;
+        v49 = v13 + 1;
         if ( v13 + 1 < v13 )
           goto LABEL_101;
-        v13 = (unsigned int *)((char *)v50 + v49);
-        if ( (unsigned int *)((char *)v50 + v49) < v50 )
+        v13 = (unsigned int *)((char *)v49 + v48);
+        if ( (unsigned int *)((char *)v49 + v48) < v49 )
           goto LABEL_101;
       }
-      v44 = *v13;
-      v45 = v13 + 1;
+      v43 = *v13;
+      v44 = v13 + 1;
       if ( v13 + 1 < v13 )
       {
 LABEL_101:
@@ -136,13 +135,13 @@ LABEL_101:
       }
       else
       {
-        v46 = 0LL;
-        if ( v44 )
-          v46 = v45;
+        v45 = 0LL;
+        if ( v43 )
+          v45 = v44;
         v11 = 0;
-        if ( v44 != 4 )
+        if ( v43 != 4 )
           return (unsigned int)-1073741789;
-        v57 = *v46;
+        v56 = *v45;
       }
     }
     else
@@ -153,20 +152,20 @@ LABEL_101:
       return (unsigned int)v11;
     if ( v6 && *(_DWORD *)a1 > 5u )
     {
-      v47 = *(unsigned int **)(a1 + 8);
+      v46 = *(unsigned int **)(a1 + 8);
       for ( k = 0; k < 5; ++k )
       {
-        v51 = *v47;
-        v52 = v47 + 1;
-        if ( v47 + 1 < v47 )
+        v50 = *v46;
+        v51 = v46 + 1;
+        if ( v46 + 1 < v46 )
           goto LABEL_114;
-        v47 = (unsigned int *)((char *)v52 + v51);
-        if ( (unsigned int *)((char *)v52 + v51) < v52 )
+        v46 = (unsigned int *)((char *)v51 + v50);
+        if ( (unsigned int *)((char *)v51 + v50) < v51 )
           goto LABEL_114;
       }
-      v17 = *v47;
-      v18 = v47 + 1;
-      if ( v47 + 1 < v47 )
+      v17 = *v46;
+      v18 = v46 + 1;
+      if ( v46 + 1 < v46 )
       {
 LABEL_114:
         v11 = -1073741675;
@@ -179,7 +178,7 @@ LABEL_114:
         v11 = 0;
         if ( v17 != 4 )
           return (unsigned int)-1073741789;
-        v56 = *v19;
+        v55 = *v19;
       }
     }
     else
@@ -208,9 +207,9 @@ LABEL_114:
       v24 = v6 + 1;
     if ( v23 != 16 )
       return (unsigned int)-1073741811;
-    Handle = 0LL;
+    TargetFile = 0LL;
     v25 = 0LL;
-    v55 = 0LL;
+    v54 = 0LL;
     if ( !v5 || !v24 )
       return (unsigned int)-1073741811;
     Object = 0LL;
@@ -220,25 +219,25 @@ LABEL_114:
     if ( v26 < 0 )
     {
 LABEL_57:
-      if ( Handle )
-        ZwClose(Handle);
+      if ( TargetFile )
+        ZwClose(TargetFile);
       if ( v27 )
         HalPutDmaAdapter(v27);
       if ( v25 )
         ExFreePoolWithTag(v25, 0x20534C53u);
       if ( v11 < 0 )
         return (unsigned int)v11;
-      v33 = *(_QWORD *)(a4 + 8);
-      if ( !v33 )
+      v32 = *(_QWORD *)(a4 + 8);
+      if ( !v32 )
       {
-        v41 = *(_DWORD *)(a4 + 4);
-        v42 = -1;
-        v43 = v41 + 8;
-        if ( v41 + 8 >= v41 )
-          v42 = v41 + 8;
-        v11 = v43 < v41 ? 0xC0000095 : 0;
-        *(_DWORD *)(a4 + 4) = v42;
-        if ( v43 >= v41 )
+        v40 = *(_DWORD *)(a4 + 4);
+        v41 = -1;
+        v42 = v40 + 8;
+        if ( v40 + 8 >= v40 )
+          v41 = v40 + 8;
+        v11 = v42 < v40 ? 0xC0000095 : 0;
+        *(_DWORD *)(a4 + 4) = v41;
+        if ( v42 >= v40 )
         {
           ++*(_DWORD *)a4;
           goto LABEL_69;
@@ -247,10 +246,10 @@ LABEL_68:
         if ( v11 < 0 )
           return (unsigned int)v11;
 LABEL_69:
-        v37 = *(_DWORD *)(a4 + 4);
-        if ( !v37 )
+        v36 = *(_DWORD *)(a4 + 4);
+        if ( !v36 )
           return (unsigned int)-1073741762;
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v37, 0x20534C53u);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v36, 0x20534C53u);
         if ( !PoolWithTag )
           return (unsigned int)-1073741801;
         *(_QWORD *)(a4 + 8) = PoolWithTag;
@@ -267,39 +266,39 @@ LABEL_69:
         }
         return (unsigned int)-1073741675;
       }
-      v34 = *(_DWORD **)(a4 + 8);
-      v35 = 0;
+      v33 = *(_DWORD **)(a4 + 8);
+      v34 = 0;
       if ( *(_DWORD *)a4 )
       {
         while ( 1 )
         {
-          v36 = *v34 + 4;
-          if ( *v34 >= 0xFFFFFFFC )
+          v35 = *v33 + 4;
+          if ( *v33 >= 0xFFFFFFFC )
             break;
-          if ( (_DWORD *)((char *)v34 + v36) < v34 )
+          if ( (_DWORD *)((char *)v33 + v35) < v33 )
             return (unsigned int)-1073741675;
-          ++v35;
-          v34 = (_DWORD *)((char *)v34 + v36);
-          if ( v35 >= *(_DWORD *)a4 )
+          ++v34;
+          v33 = (_DWORD *)((char *)v33 + v35);
+          if ( v34 >= *(_DWORD *)a4 )
             goto LABEL_78;
         }
         v11 = -1073741675;
         goto LABEL_68;
       }
 LABEL_78:
-      if ( v34 + 1 < v34 )
+      if ( v33 + 1 < v33 )
         return (unsigned int)-1073741675;
       v11 = 0;
-      if ( (unsigned __int64)(v34 + 2) <= v33 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
+      if ( (unsigned __int64)(v33 + 2) <= v32 + (unsigned __int64)*(unsigned int *)(a4 + 4) )
       {
-        *v34 = 4;
-        v34[1] = 0;
+        *v33 = 4;
+        v33[1] = 0;
         ++*(_DWORD *)a4;
         goto LABEL_68;
       }
       return (unsigned int)-1073741789;
     }
-    LODWORD(v58) = 0;
+    LODWORD(v57) = 0;
     v28 = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x248uLL, 0x20534C53u);
     if ( !v28 )
     {
@@ -307,27 +306,27 @@ LABEL_78:
       v25 = 0LL;
       goto LABEL_57;
     }
-    v11 = FsRtlKernelFsControlFile((PFILE_OBJECT)v27, 590068, 0LL, 0, v28, 0x248u, (ULONG *)&v58);
+    v11 = FsRtlKernelFsControlFile((PFILE_OBJECT)v27, 590068, 0LL, 0, v28, 0x248u, (ULONG *)&v57);
     if ( v11 >= 0 )
     {
-      if ( (unsigned int)v58 < 0x40 )
+      if ( (unsigned int)v57 < 0x40 )
       {
         v11 = -1073741762;
       }
       else
       {
         v29 = *v28;
-        v11 = FsRtlKernelFsControlFile((PFILE_OBJECT)v27, 590059, 0LL, 0, v28, 0x248u, (ULONG *)&v58);
+        v11 = FsRtlKernelFsControlFile((PFILE_OBJECT)v27, 590059, 0LL, 0, v28, 0x248u, (ULONG *)&v57);
         if ( v11 >= 0 )
         {
-          if ( (unsigned int)v58 < 0x40 )
+          if ( (unsigned int)v57 < 0x40 )
           {
             v11 = -1073741762;
           }
           else
           {
-            *((_QWORD *)&v55 + 1) = v28[3];
-            *(_QWORD *)&v55 = v29;
+            *((_QWORD *)&v54 + 1) = v28[3];
+            *(_QWORD *)&v54 = v29;
           }
         }
       }
@@ -335,69 +334,66 @@ LABEL_78:
     ExFreePoolWithTag(v28, 0x20534C53u);
     if ( v11 < 0 )
       goto LABEL_118;
-    if ( v55 != *v24 )
+    if ( v54 != *v24 )
     {
       v11 = -1073741762;
       goto LABEL_118;
     }
-    if ( v57 )
+    if ( v56 )
     {
-      *(_QWORD *)&v55 = -1LL;
-      *((_QWORD *)&v55 + 1) = 0x7FFFFFFFFFFFFFFFLL;
+      *(_QWORD *)&v54 = -1LL;
+      *((_QWORD *)&v54 + 1) = 0x7FFFFFFFFFFFFFFFLL;
 LABEL_55:
-      v32 = (char *)ExAllocatePoolWithTag(PagedPool, 0x3AuLL, 0x20534C53u);
-      if ( v32 )
+      v31 = (char *)ExAllocatePoolWithTag(PagedPool, 0x3AuLL, 0x20534C53u);
+      if ( v31 )
       {
-        *(_OWORD *)v32 = 0LL;
-        *((_OWORD *)v32 + 1) = 0LL;
-        *((_OWORD *)v32 + 2) = 0LL;
-        *((_QWORD *)v32 + 6) = 0LL;
-        *((_WORD *)v32 + 28) = 0;
-        *((_WORD *)v32 + 3) = 24;
-        v32[5] = 25;
-        qmemcpy(v32 + 8, "$Kernel.Purge.AppxFICache", 25);
-        *(_OWORD *)(v32 + 34) = v55;
-        *(_QWORD *)(v32 + 50) = 0LL;
-        v25 = v32;
-        v11 = FsRtlSetKernelEaFile((PFILE_OBJECT)v27, v32, 58);
+        *(_OWORD *)v31 = 0LL;
+        *((_OWORD *)v31 + 1) = 0LL;
+        *((_OWORD *)v31 + 2) = 0LL;
+        *((_QWORD *)v31 + 6) = 0LL;
+        *((_WORD *)v31 + 28) = 0;
+        *((_WORD *)v31 + 3) = 24;
+        v31[5] = 25;
+        qmemcpy(v31 + 8, "$Kernel.Purge.AppxFICache", 25);
+        *(_OWORD *)(v31 + 34) = v54;
+        *(_QWORD *)(v31 + 50) = 0LL;
+        v25 = v31;
+        v11 = FsRtlSetKernelEaFile((PFILE_OBJECT)v27, v31, 58);
         goto LABEL_57;
       }
       goto LABEL_119;
     }
-    if ( ObOpenObjectByPointer(v27, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &Handle) >= 0 )
-    {
-      LOBYTE(v30) = v56 - 2 > 1 ? 0 : 6;
-      ZwSetCachedSigningLevel(2LL, v30);
-    }
-    LODWORD(v58) = 0;
-    v31 = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x248uLL, 0x20534C53u);
-    if ( !v31 )
+    if ( ObOpenObjectByPointer(v27, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &TargetFile) >= 0 )
+      ZwSetCachedSigningLevel(2u, v55 - 2 > 1 ? 0 : 6, &TargetFile, 1u, TargetFile);
+    LODWORD(v57) = 0;
+    v30 = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x248uLL, 0x20534C53u);
+    if ( !v30 )
     {
 LABEL_119:
       v11 = -1073741801;
       goto LABEL_118;
     }
-    v11 = FsRtlKernelFsControlFile((PFILE_OBJECT)v27, 590068, 0LL, 0, v31, 0x248u, (ULONG *)&v58);
+    v11 = FsRtlKernelFsControlFile((PFILE_OBJECT)v27, 590068, 0LL, 0, v30, 0x248u, (ULONG *)&v57);
     if ( v11 >= 0 )
     {
-      if ( (unsigned int)v58 < 0x40 )
+      if ( (unsigned int)v57 < 0x40 )
       {
 LABEL_53:
         v11 = -1073741762;
         goto LABEL_54;
       }
-      v40 = *v31;
-      v11 = FsRtlKernelFsControlFile((PFILE_OBJECT)v27, 590059, 0LL, 0, v31, 0x248u, (ULONG *)&v58);
+      v39 = *v30;
+      v11 = FsRtlKernelFsControlFile((PFILE_OBJECT)v27, 590059, 0LL, 0, v30, 0x248u, (ULONG *)&v57);
       if ( v11 >= 0 )
       {
-        if ( (unsigned int)v58 < 0x40 )
+        if ( (unsigned int)v57 < 0x40 )
           goto LABEL_53;
-        *((_QWORD *)&v55 + 1) = v31[3];
-        *(_QWORD *)&v55 = v40;
+        *((_QWORD *)&v54 + 1) = v30[3];
+        *(_QWORD *)&v54 = v39;
       }
     }
 LABEL_54:
-    ExFreePoolWithTag(v31, 0x20534C53u);
+    ExFreePoolWithTag(v30, 0x20534C53u);
     if ( v11 >= 0 )
       goto LABEL_55;
 LABEL_118:

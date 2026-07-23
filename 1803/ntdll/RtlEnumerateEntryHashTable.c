@@ -6,83 +6,88 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlEnumerateEntryHashTable(__int64 a1, __int64 a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  unsigned int v2; // r9d
+  ULONG BucketIndex; // r9d
   unsigned int i; // r11d
-  __int64 v5; // rbx
+  _QWORD *Directory; // rbx
   unsigned int v6; // ecx
   __int64 v7; // r8
-  _QWORD *v8; // r8
-  _QWORD **v9; // rcx
-  _QWORD *v10; // rcx
-  _QWORD *result; // rax
-  _QWORD *v12; // rax
-  _QWORD *v13; // r11
-  _QWORD *v14; // rax
-  _QWORD *v15; // rax
+  PLIST_ENTRY ChainHead; // r8
+  PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v9; // rcx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *Flink; // rcx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
+  _LIST_ENTRY *v12; // rax
+  _LIST_ENTRY *Blink; // r11
+  PLIST_ENTRY v14; // rax
+  _LIST_ENTRY *v15; // rax
 
-  v2 = *(_DWORD *)(a2 + 32);
-  if ( v2 >= *(_DWORD *)(a1 + 8) )
+  BucketIndex = Enumerator->BucketIndex;
+  if ( BucketIndex >= HashTable->TableSize )
     return 0LL;
-  for ( i = v2 + 128; ; ++i )
+  for ( i = BucketIndex + 128; ; ++i )
   {
-    if ( v2 == *(_DWORD *)(a2 + 32) )
+    if ( BucketIndex == Enumerator->BucketIndex )
     {
-      v8 = *(_QWORD **)(a2 + 24);
-      v9 = (_QWORD **)a2;
+      ChainHead = Enumerator->ChainHead;
+      v9 = Enumerator;
     }
     else
     {
-      v5 = *(_QWORD *)(a1 + 32);
-      if ( *(_DWORD *)(a1 + 8) <= 0x80u )
+      Directory = HashTable->Directory;
+      if ( HashTable->TableSize <= 0x80 )
       {
-        v7 = v2;
+        v7 = BucketIndex;
       }
       else
       {
         _BitScanReverse(&v6, i);
         v7 = i ^ (1 << v6);
-        v5 = *(_QWORD *)(v5 + 8LL * (v6 - 7));
+        Directory = (_QWORD *)Directory[v6 - 7];
       }
-      v8 = (_QWORD *)(v5 + 16 * v7);
-      v9 = (_QWORD **)v8;
+      ChainHead = (PLIST_ENTRY)&Directory[2 * v7];
+      v9 = (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)ChainHead;
     }
-    v10 = *v9;
-    if ( v10 != v8 )
+    Flink = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)v9->HashEntry.Linkage.Flink;
+    if ( Flink != (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       break;
 LABEL_8:
-    if ( ++v2 >= *(_DWORD *)(a1 + 8) )
+    if ( ++BucketIndex >= HashTable->TableSize )
       return 0LL;
   }
-  while ( !v10[2] )
+  while ( !Flink->Signature )
   {
-    v10 = (_QWORD *)*v10;
-    if ( v10 == v8 )
+    Flink = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)Flink->Linkage.Flink;
+    if ( Flink == (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       goto LABEL_8;
   }
-  v12 = *(_QWORD **)a2;
-  if ( *(_QWORD *)(*(_QWORD *)a2 + 8LL) != a2 || (v13 = *(_QWORD **)(a2 + 8), *v13 != a2) )
-    __fastfail(3u);
-  *v13 = v12;
-  v12[1] = v13;
-  v14 = *(_QWORD **)(a2 + 24);
-  if ( v14 != v8 )
+  v12 = Enumerator->HashEntry.Linkage.Flink;
+  if ( (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)Enumerator->HashEntry.Linkage.Flink->Blink != Enumerator
+    || (Blink = Enumerator->HashEntry.Linkage.Blink, (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)Blink->Flink != Enumerator) )
   {
-    if ( (_QWORD *)*v14 == v14 )
-      --*(_DWORD *)(a1 + 24);
-    if ( (_QWORD *)*v8 == v8 )
-      ++*(_DWORD *)(a1 + 24);
-  }
-  *(_DWORD *)(a2 + 32) = v2;
-  *(_QWORD *)(a2 + 24) = v8;
-  v15 = (_QWORD *)*v10;
-  if ( *(_QWORD **)(*v10 + 8LL) != v10 )
     __fastfail(3u);
-  *(_QWORD *)a2 = v15;
-  *(_QWORD *)(a2 + 8) = v10;
-  v15[1] = a2;
-  result = v10;
-  *v10 = a2;
+  }
+  Blink->Flink = v12;
+  v12->Blink = Blink;
+  v14 = Enumerator->ChainHead;
+  if ( v14 != ChainHead )
+  {
+    if ( v14->Flink == v14 )
+      --HashTable->NonEmptyBuckets;
+    if ( ChainHead->Flink == ChainHead )
+      ++HashTable->NonEmptyBuckets;
+  }
+  Enumerator->BucketIndex = BucketIndex;
+  Enumerator->ChainHead = ChainHead;
+  v15 = Flink->Linkage.Flink;
+  if ( (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)Flink->Linkage.Flink->Blink != Flink )
+    __fastfail(3u);
+  Enumerator->HashEntry.Linkage.Flink = v15;
+  Enumerator->HashEntry.Linkage.Blink = &Flink->Linkage;
+  v15->Blink = &Enumerator->HashEntry.Linkage;
+  result = Flink;
+  Flink->Linkage.Flink = &Enumerator->HashEntry.Linkage;
   return result;
 }

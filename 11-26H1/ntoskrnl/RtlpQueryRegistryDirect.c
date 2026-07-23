@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpQueryRegistryDirect @ 0x140A11808
+ * XREFs of RtlpQueryRegistryDirect @ 0x140A109F8
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x140A11494 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x140A10684 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline @ 0x1404F3DAC (Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlpQueryRegistryDirectStringValue @ 0x140805040 (RtlpQueryRegistryDirectStringValue.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline @ 0x1404ED38C (Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlpQueryRegistryDirectStringValue @ 0x14080AAE0 (RtlpQueryRegistryDirectStringValue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, size_t a3, unsigned int *a4)

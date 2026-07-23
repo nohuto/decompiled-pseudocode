@@ -60,7 +60,7 @@ LONG __stdcall KeReleaseMutant(PRKMUTANT Mutant, KPRIORITY Increment, BOOLEAN Ab
   char v33; // al
   bool v34; // zf
   char v35; // di
-  __int64 v36; // rcx
+  NTSTATUS v36; // ecx
   _DWORD *v37; // rcx
   _DWORD *v38; // rcx
   int v39; // eax
@@ -173,9 +173,9 @@ LONG __stdcall KeReleaseMutant(PRKMUTANT Mutant, KPRIORITY Increment, BOOLEAN Ab
       }
       __writecr8((unsigned __int8)CurrentIrql);
       if ( v35 )
-        v36 = 128LL;
+        v36 = 128;
       else
-        v36 = 3221225542LL;
+        v36 = -1073741754;
       RtlRaiseStatus(v36);
     }
     v16 = ++Mutant->Header.SignalState;

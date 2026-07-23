@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPowerButtonTimerCallback @ 0x1402E4730
+ * XREFs of PopPowerButtonTimerCallback @ 0x1402E4920
  * Callers:
  *     <none>
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     PopQueueWorkItem @ 0x140138DC8 (PopQueueWorkItem.c)
  */
 
 void __fastcall PopPowerButtonTimerCallback(__int64 a1, int a2)
 {
   KxAcquireSpinLock(&PopPowerButtonHold);
-  if ( (qword_140410138 & 1) != 0 && HIDWORD(qword_140410138) == a2 )
+  if ( (qword_1404111D8 & 1) != 0 && HIDWORD(qword_1404111D8) == a2 )
   {
-    LODWORD(qword_140410138) = qword_140410138 & 1 | ((qword_140410138 & 0xFFFFFFFE) + 2000);
-    PopQueueWorkItem((__int64)&unk_140410110, CriticalWorkQueue);
+    LODWORD(qword_1404111D8) = qword_1404111D8 & 1 | ((qword_1404111D8 & 0xFFFFFFFE) + 2000);
+    PopQueueWorkItem((__int64)&unk_1404111B0, CriticalWorkQueue);
   }
   KxReleaseSpinLock(&PopPowerButtonHold);
 }

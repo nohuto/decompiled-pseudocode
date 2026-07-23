@@ -1,11 +1,11 @@
 /*
- * XREFs of VslReportBugCheckProgress @ 0x1401C2F04
+ * XREFs of VslReportBugCheckProgress @ 0x1401C2DE8
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 NTSTATUS __fastcall VslReportBugCheckProgress(char *a1, __int64 *a2, const void *a3, unsigned int a4, unsigned int a5)

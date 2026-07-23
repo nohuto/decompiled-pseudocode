@@ -11,69 +11,62 @@
  *     PopMarshalSettingValues @ 0x1407EC7B4 (PopMarshalSettingValues.c)
  */
 
-struct _KTHREAD *__fastcall PopDispatchNotificationsToList(__int64 **a1)
+struct _KTHREAD *__fastcall PopDispatchNotificationsToList(WNF_STATE_NAME **a1)
 {
-  __int64 v2; // rdx
-  __int64 *v3; // rdi
-  __int64 *v4; // rsi
-  int v5; // eax
+  WNF_STATE_NAME *v2; // rdi
+  WNF_STATE_NAME *v3; // rsi
+  int v4; // eax
   struct _KTHREAD *result; // rax
-  int v7; // ebx
-  int v8; // r8d
-  int updated; // ebx
-  unsigned int v10; // eax
-  __int64 **v11; // rax
-  __int64 v12; // [rsp+20h] [rbp-78h]
-  int v13; // [rsp+28h] [rbp-70h]
-  int v14; // [rsp+30h] [rbp-68h]
-  int v15; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v16; // [rsp+48h] [rbp-50h] BYREF
-  _BYTE v17[40]; // [rsp+50h] [rbp-48h] BYREF
+  int v6; // ebx
+  ULONG v7; // r8d
+  NTSTATUS updated; // ebx
+  unsigned int v9; // eax
+  WNF_STATE_NAME **v10; // rax
+  ULONG v11; // [rsp+40h] [rbp-58h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-50h] BYREF
+  _BYTE Buffer[40]; // [rsp+50h] [rbp-48h] BYREF
 
-  v15 = 0;
-  v16 = 0LL;
+  v11 = 0;
+  StateName = 0LL;
   ExAcquireFastMutex(&PopSettingLock);
-  v3 = *a1;
-  while ( v3 != (__int64 *)a1 )
+  v2 = *a1;
+  while ( v2 != (WNF_STATE_NAME *)a1 )
   {
-    v4 = v3;
+    v3 = v2;
     while ( 1 )
     {
-      v5 = *((_DWORD *)v3 + 13);
-      if ( (v5 & 1) == 0 || (v5 & 2) != 0 )
+      v4 = v2[6].Data[1];
+      if ( (v4 & 1) == 0 || (v4 & 2) != 0 )
         break;
-      v16 = v3[7];
-      *((_DWORD *)v3 + 13) = *((_DWORD *)v3 + 13) & 0xFFFFFFFC | 2;
-      v7 = PopMarshalSettingValues(v3, v17, 36LL, &v15, v12, v13, v14);
+      StateName = v2[7];
+      v2[6].Data[1] = v2[6].Data[1] & 0xFFFFFFFC | 2;
+      v6 = PopMarshalSettingValues(v2, Buffer, 36LL, &v11);
       ExReleaseFastMutex(&PopSettingLock);
-      v8 = v15;
-      v14 = 0;
-      v13 = 0;
-      v12 = 0LL;
-      if ( v7 < 0 )
-        v8 = 0;
-      v15 = v8;
-      updated = ZwUpdateWnfStateData((__int64)&v16, (__int64)v17);
+      v7 = v11;
+      if ( v6 < 0 )
+        v7 = 0;
+      v11 = v7;
+      updated = ZwUpdateWnfStateData(&StateName, Buffer, v7, 0LL, 0LL, 0, 0);
       if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
         goto LABEL_19;
       ExAcquireFastMutex(&PopSettingLock);
-      v10 = *((_DWORD *)v3 + 13) & 0xFFFFFFFD;
-      *((_DWORD *)v3 + 13) = v10;
+      v9 = v2[6].Data[1] & 0xFFFFFFFD;
+      v2[6].Data[1] = v9;
       if ( updated < 0 )
       {
-        v5 = v10 | 1;
-        *((_DWORD *)v3 + 13) = v5;
+        v4 = v9 | 1;
+        v2[6].Data[1] = v4;
         break;
       }
     }
-    v3 = (__int64 *)*v3;
-    if ( (v5 & 2) == 0 && (v5 & 4) != 0 )
+    v2 = (WNF_STATE_NAME *)*v2;
+    if ( (v4 & 2) == 0 && (v4 & 4) != 0 )
     {
-      if ( (__int64 *)v3[1] != v4 || (v11 = (__int64 **)v4[1], *v11 != v4) )
+      if ( (WNF_STATE_NAME *)v2[1] != v3 || (v10 = (WNF_STATE_NAME **)v3[1], *v10 != v3) )
         __fastfail(3u);
-      *v11 = v3;
-      v3[1] = (__int64)v11;
-      PopFreeRegistration(v4, v2);
+      *v10 = v2;
+      v2[1] = (WNF_STATE_NAME)v10;
+      PopFreeRegistration(v3);
     }
   }
   ExReleaseFastMutex(&PopSettingLock);

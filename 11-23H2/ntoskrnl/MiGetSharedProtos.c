@@ -1,23 +1,23 @@
 /*
- * XREFs of MiGetSharedProtos @ 0x140369D8C
+ * XREFs of MiGetSharedProtos @ 0x140369F2C
  * Callers:
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
- *     MiQueryAddressState @ 0x140271C00 (MiQueryAddressState.c)
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiComputeImagePteIndex @ 0x1402A2644 (MiComputeImagePteIndex.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiGetImageProtoProtection @ 0x1403568BC (MiGetImageProtoProtection.c)
- *     MiFaultGetFileExtents @ 0x140645E84 (MiFaultGetFileExtents.c)
- *     MiMakePerSessionProtoPte @ 0x1406652B4 (MiMakePerSessionProtoPte.c)
- *     MiAddMappedPtes @ 0x1406AD7A0 (MiAddMappedPtes.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
- *     MiPfAllocateMdls @ 0x1407460A0 (MiPfAllocateMdls.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
+ *     MiQueryAddressState @ 0x140271E90 (MiQueryAddressState.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiComputeImagePteIndex @ 0x1402A28D4 (MiComputeImagePteIndex.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     MiGetImageProtoProtection @ 0x140356A5C (MiGetImageProtoProtection.c)
+ *     MiFaultGetFileExtents @ 0x1406463D4 (MiFaultGetFileExtents.c)
+ *     MiMakePerSessionProtoPte @ 0x140665804 (MiMakePerSessionProtoPte.c)
+ *     MiAddMappedPtes @ 0x1406AD7D0 (MiAddMappedPtes.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfAllocateMdls @ 0x140746290 (MiPfAllocateMdls.c)
  * Callees:
- *     MiGetSharedProtosAtDpcLevel @ 0x140369E1C (MiGetSharedProtosAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x140369FBC (MiGetSharedProtosAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v7) = 4;
@@ -43,10 +43,10 @@ __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)
     SchedulerAssist[5] |= v7;
   }
   SharedProtosAtDpcLevel = MiGetSharedProtosAtDpcLevel(a1, a2, a3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = CurrentPrcb->SchedulerAssist;

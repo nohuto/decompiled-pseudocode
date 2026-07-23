@@ -15,56 +15,56 @@
  *     memset @ 0x180098540 (memset.c)
  */
 
-NTSTATUS __fastcall PsspCaptureVaSpaceInformation(__int64 a1, __int64 a2, int a3)
+NTSTATUS __fastcall PsspCaptureVaSpaceInformation(__int64 a1, void *a2, int a3)
 {
   __int16 v3; // r13
   NTSTATUS result; // eax
-  __int64 v6; // rdi
+  void *v6; // rdi
   unsigned int v7; // esi
   unsigned int v8; // r14d
   unsigned __int64 v9; // rbx
   char v10; // r15
   int v11; // ecx
   unsigned __int64 v12; // rcx
-  int v13; // edi
-  __int64 v14; // r14
+  NTSTATUS v13; // edi
+  void *v14; // r14
   unsigned int v15; // r12d
   int v16; // r13d
   unsigned __int16 *v17; // rdi
   unsigned int v18; // r15d
-  int VirtualMemory; // esi
+  NTSTATUS VirtualMemory; // esi
   bool v20; // zf
   unsigned int v21; // ecx
   unsigned int v22; // ecx
   __int64 v23; // rcx
-  int v24; // eax
-  __int64 v25; // rdx
+  NTSTATUS v24; // eax
+  ULONG_PTR v25; // rdx
   int v26; // eax
   unsigned int v27; // ecx
   unsigned __int16 *v28; // rsi
   unsigned int v29; // eax
   unsigned int v30; // ecx
   __int16 v31; // ax
-  int v32; // eax
+  NTSTATUS v32; // eax
   size_t v33; // r8
   unsigned __int16 v34; // r14
   char v35; // [rsp+50h] [rbp-B0h]
-  __int64 v36; // [rsp+58h] [rbp-A8h] BYREF
-  void *v37; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v39; // [rsp+70h] [rbp-90h]
+  ULONG_PTR ReturnLength; // [rsp+58h] [rbp-A8h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE SectionHandle; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE ProcessHandle; // [rsp+70h] [rbp-90h]
   int v40; // [rsp+78h] [rbp-88h]
-  _QWORD v41[6]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v42; // [rsp+B0h] [rbp-50h] BYREF
+  _QWORD MemoryInformation[6]; // [rsp+80h] [rbp-80h] BYREF
+  ULONG_PTR ViewSize; // [rsp+B0h] [rbp-50h] BYREF
   __int64 v43; // [rsp+B8h] [rbp-48h]
-  __int64 v44; // [rsp+C0h] [rbp-40h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+C0h] [rbp-40h] BYREF
   _QWORD v45[3]; // [rsp+C8h] [rbp-38h] BYREF
   _BYTE SystemInformation[40]; // [rsp+E0h] [rbp-20h] BYREF
   unsigned __int64 v47; // [rsp+108h] [rbp+8h]
 
   v40 = a3;
   v3 = a3;
-  v39 = a2;
+  ProcessHandle = a2;
   v43 = a1;
   result = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
   if ( result < 0 )
@@ -99,29 +99,46 @@ LABEL_11:
       {
         LODWORD(v12) = v12 + v9;
 LABEL_19:
-        v44 = (unsigned int)v12;
-        result = NtCreateSection(&Handle, 983047LL, &unk_1801008B0, &v44, 4, 0x8000000, 0LL);
+        MaximumSize.QuadPart = (unsigned int)v12;
+        result = NtCreateSection(
+                   &SectionHandle,
+                   0xF0007u,
+                   (POBJECT_ATTRIBUTES)&ObjectAttributes,
+                   &MaximumSize,
+                   4u,
+                   0x8000000u,
+                   0LL);
         if ( result < 0 )
           return result;
-        v37 = 0LL;
-        v42 = 0LL;
-        v13 = ZwMapViewOfSection(Handle, -1LL, &v37, 0LL, 0LL, 0LL, &v42, 1, 0, 4);
+        BaseAddress = 0LL;
+        ViewSize = 0LL;
+        v13 = ZwMapViewOfSection(
+                SectionHandle,
+                (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                &BaseAddress,
+                0LL,
+                0LL,
+                0LL,
+                &ViewSize,
+                ViewShare,
+                0,
+                4u);
         if ( v13 < 0 )
         {
-          NtClose(Handle);
+          NtClose(SectionHandle);
           return v13;
         }
         v14 = 0LL;
-        v15 = v42;
+        v15 = ViewSize;
         v16 = 0;
-        v17 = (unsigned __int16 *)v37;
+        v17 = (unsigned __int16 *)BaseAddress;
         v18 = 0;
         if ( !v47 )
         {
-LABEL_29:
-          NtUnmapViewOfSection(-1LL);
+LABEL_30:
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v17);
           v23 = v43;
-          *(_QWORD *)(v43 + 864) = Handle;
+          *(_QWORD *)(v43 + 864) = SectionHandle;
           *(_DWORD *)(v23 + 856) = v16;
           *(_DWORD *)(v23 + 860) = v18;
           *(_QWORD *)(v23 + 872) = MEMORY[0x7FFE0014];
@@ -130,30 +147,40 @@ LABEL_29:
         while ( 1 )
         {
           if ( v18 + 72 < v18 || v18 + 72 > v15 )
-            goto LABEL_29;
-          memset(v41, 0, sizeof(v41));
-          VirtualMemory = ZwQueryVirtualMemory(v39, v14, 0LL, v41, 48LL, 0LL);
+          {
+LABEL_29:
+            v17 = (unsigned __int16 *)BaseAddress;
+            goto LABEL_30;
+          }
+          memset(MemoryInformation, 0, sizeof(MemoryInformation));
+          VirtualMemory = ZwQueryVirtualMemory(
+                            ProcessHandle,
+                            v14,
+                            MemoryBasicInformation,
+                            MemoryInformation,
+                            0x30uLL,
+                            0LL);
           if ( VirtualMemory < 0 )
           {
-            NtUnmapViewOfSection(-1LL);
-            NtClose(Handle);
+            NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+            NtClose(SectionHandle);
             return VirtualMemory;
           }
           memset(v17, 0, 0x48uLL);
           v20 = (v40 & 0x1000) == 0;
           v21 = 72;
-          *(_QWORD *)v17 = v41[0];
-          *((_QWORD *)v17 + 1) = v41[1];
-          *((_DWORD *)v17 + 4) = v41[2];
-          *((_QWORD *)v17 + 3) = v41[3];
-          *((_QWORD *)v17 + 4) = v41[4];
-          *((_DWORD *)v17 + 10) = v41[5];
+          *(_QWORD *)v17 = MemoryInformation[0];
+          *((_QWORD *)v17 + 1) = MemoryInformation[1];
+          *((_DWORD *)v17 + 4) = MemoryInformation[2];
+          *((_QWORD *)v17 + 3) = MemoryInformation[3];
+          *((_QWORD *)v17 + 4) = MemoryInformation[4];
+          *((_DWORD *)v17 + 10) = MemoryInformation[5];
           if ( !v20 )
           {
-            if ( LODWORD(v41[5]) == 0x1000000 )
+            if ( LODWORD(MemoryInformation[5]) == 0x1000000 )
             {
-              PsspCaptureImageInformation(v17 + 24, v39, v41[1]);
-LABEL_44:
+              PsspCaptureImageInformation(v17 + 24, ProcessHandle, MemoryInformation[1]);
+LABEL_45:
               if ( v18 + 76 < v18 || v18 + 76 > v15 )
                 goto LABEL_29;
               if ( !v35 )
@@ -177,15 +204,24 @@ LABEL_44:
                     v31 = v30;
                   v17[37] = v31;
                   *((_QWORD *)v17 + 10) = v17 + 44;
-                  v36 = 0LL;
-                  v32 = ZwQueryVirtualMemory(v39, v14, 2LL, v17 + 36, v30, &v36);
-                  if ( v32 < 0 && v32 != -1073741820 && v32 != -1073741789 && v32 != -2147483643 || !HIDWORD(v36) )
-                    goto LABEL_55;
+                  ReturnLength = 0LL;
+                  v32 = ZwQueryVirtualMemory(
+                          ProcessHandle,
+                          v14,
+                          MemoryMappedFilenameInformation,
+                          v17 + 36,
+                          v30,
+                          &ReturnLength);
+                  if ( v32 < 0 && v32 != -1073741820 && v32 != -1073741789 && v32 != -2147483643
+                    || !HIDWORD(ReturnLength) )
+                  {
+                    goto LABEL_56;
+                  }
                 }
               }
               v32 = -1073741675;
               v28 = 0LL;
-LABEL_55:
+LABEL_56:
               if ( v32 < 0 )
               {
                 v17[36] = 0;
@@ -211,16 +247,16 @@ LABEL_55:
               }
               goto LABEL_28;
             }
-            if ( LODWORD(v41[5]) == 0x40000 )
-              goto LABEL_44;
+            if ( LODWORD(MemoryInformation[5]) == 0x40000 )
+              goto LABEL_45;
           }
 LABEL_28:
-          v14 = v41[0] + v41[3];
+          v14 = (void *)(MemoryInformation[0] + MemoryInformation[3]);
           v22 = (v21 + 7) & 0xFFFFFFF8;
           v18 += v22;
           v17 = (unsigned __int16 *)((char *)v17 + v22);
           ++v16;
-          if ( v41[0] + v41[3] >= v47 )
+          if ( MemoryInformation[0] + MemoryInformation[3] >= v47 )
             goto LABEL_29;
         }
       }
@@ -229,29 +265,31 @@ LABEL_28:
   }
   while ( 1 )
   {
-    memset(v41, 0, sizeof(v41));
-    result = ZwQueryVirtualMemory(a2, v6, 0LL, v41, 48LL, 0LL);
+    memset(MemoryInformation, 0, sizeof(MemoryInformation));
+    result = ZwQueryVirtualMemory(a2, v6, MemoryBasicInformation, MemoryInformation, 0x30uLL, 0LL);
     if ( result < 0 )
       return result;
-    if ( LODWORD(v41[5]) == 0x1000000 || (v11 = 0, LODWORD(v41[5]) == 0x40000) )
+    if ( LODWORD(MemoryInformation[5]) == 0x1000000 || (v11 = 0, LODWORD(MemoryInformation[5]) == 0x40000) )
       v11 = 1;
     v8 += v11;
-    if ( (v3 & 0x1000) != 0 && !v10 && (LODWORD(v41[5]) == 0x1000000 || LODWORD(v41[5]) == 0x40000) )
+    if ( (v3 & 0x1000) != 0
+      && !v10
+      && (LODWORD(MemoryInformation[5]) == 0x1000000 || LODWORD(MemoryInformation[5]) == 0x40000) )
     {
-      v36 = 0LL;
+      ReturnLength = 0LL;
       v45[0] = 0LL;
       v45[1] = 0LL;
-      v24 = ZwQueryVirtualMemory(a2, v6, 2LL, v45, 16LL, &v36);
+      v24 = ZwQueryVirtualMemory(a2, v6, MemoryMappedFilenameInformation, v45, 0x10uLL, &ReturnLength);
       if ( v24 >= 0 || v24 == -2147483643 || v24 == -1073741820 || v24 == -1073741789 )
       {
-        v25 = v36;
-        if ( HIDWORD(v36) )
+        v25 = ReturnLength;
+        if ( HIDWORD(ReturnLength) )
           v25 = 0LL;
-        v36 = v25;
+        ReturnLength = v25;
       }
       else
       {
-        LODWORD(v25) = v36;
+        LODWORD(v25) = ReturnLength;
       }
       if ( (unsigned int)v25 > 0x10 && (v24 >= 0 || v24 == -2147483643 || v24 == -1073741820 || v24 == -1073741789) )
         v26 = (v25 - 5) & 0xFFFFFFF8;
@@ -269,8 +307,8 @@ LABEL_28:
       }
     }
     ++v7;
-    v6 = v41[0] + v41[3];
-    if ( v41[0] + v41[3] >= v47 )
+    v6 = (void *)(MemoryInformation[0] + MemoryInformation[3]);
+    if ( MemoryInformation[0] + MemoryInformation[3] >= v47 )
       goto LABEL_11;
   }
 }

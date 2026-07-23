@@ -1,15 +1,15 @@
 /*
- * XREFs of PspStorageInsertObject @ 0x140730AD4
+ * XREFs of PspStorageInsertObject @ 0x140731CC4
  * Callers:
- *     PsInsertPermanentSiloContextEx @ 0x140730A08 (PsInsertPermanentSiloContextEx.c)
- *     PsInsertSiloContext @ 0x140886760 (PsInsertSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140731BF8 (PsInsertPermanentSiloContextEx.c)
+ *     PsInsertSiloContext @ 0x1408879C0 (PsInsertSiloContext.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     PspGetStorageArray @ 0x140730B78 (PspGetStorageArray.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     PspGetStorageArray @ 0x140731D68 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PspStorageInsertObject(__int64 a1, __int64 a2, char a3, signed __int64 a4)

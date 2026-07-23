@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpRemoveSecurityCellList @ 0x140137F58
+ * XREFs of CmpRemoveSecurityCellList @ 0x140138058
  * Callers:
- *     CmpDereferenceSecurityNode @ 0x1401B33F0 (CmpDereferenceSecurityNode.c)
- *     CmpTransMgrFreeVolatileData @ 0x1405A9000 (CmpTransMgrFreeVolatileData.c)
- *     CmpFreeSecurityDescriptor @ 0x1405AF34C (CmpFreeSecurityDescriptor.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
- *     CmpCheckAndFixSecurityCellsRefcount @ 0x1406BCA80 (CmpCheckAndFixSecurityCellsRefcount.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140803C5C (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpDereferenceSecurityNode @ 0x1401B3530 (CmpDereferenceSecurityNode.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1405AA000 (CmpTransMgrFreeVolatileData.c)
+ *     CmpFreeSecurityDescriptor @ 0x1405B034C (CmpFreeSecurityDescriptor.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1405B8C5C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x1406BDD20 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x140804E5C (CmpLightWeightCommitSetSecDescUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpRemoveFromSecurityCache @ 0x1406CA560 (CmpRemoveFromSecurityCache.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpRemoveFromSecurityCache @ 0x1406CB800 (CmpRemoveFromSecurityCache.c)
  */
 
 __int64 __fastcall CmpRemoveSecurityCellList(__int64 a1, __int64 a2)

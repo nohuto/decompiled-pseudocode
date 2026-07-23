@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpAcpiGetFacsMapping @ 0x14053D4D0
+ * XREFs of HalpAcpiGetFacsMapping @ 0x14053ADD0
  * Callers:
- *     HalAcpiGetFacsMappingDispatch @ 0x14053CDB0 (HalAcpiGetFacsMappingDispatch.c)
- *     HaliInitPowerManagement @ 0x140702360 (HaliInitPowerManagement.c)
+ *     HalAcpiGetFacsMappingDispatch @ 0x14053A6B0 (HalAcpiGetFacsMappingDispatch.c)
+ *     HaliInitPowerManagement @ 0x1406FFFA0 (HaliInitPowerManagement.c)
  * Callees:
- *     HalpAcpiCheckAndMapTable @ 0x140264C3C (HalpAcpiCheckAndMapTable.c)
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     HalpAcpiGetTableWork @ 0x14047856C (HalpAcpiGetTableWork.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     HalpAcpiGetTableWork @ 0x14045F9FC (HalpAcpiGetTableWork.c)
+ *     HalpAcpiCheckAndMapTable @ 0x14045FE34 (HalpAcpiCheckAndMapTable.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpAcpiGetFacsMapping(__int64 a1)

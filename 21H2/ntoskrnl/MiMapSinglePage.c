@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMapSinglePage @ 0x14036B104
+ * XREFs of MiMapSinglePage @ 0x14036B2B4
  * Callers:
- *     MiFillCombinePage @ 0x14036B00C (MiFillCombinePage.c)
- *     MiInitializeForkMaps @ 0x14055B20C (MiInitializeForkMaps.c)
- *     MiUpdateForkMaps @ 0x14055B7A0 (MiUpdateForkMaps.c)
+ *     MiFillCombinePage @ 0x14036B1BC (MiFillCombinePage.c)
+ *     MiInitializeForkMaps @ 0x14055B44C (MiInitializeForkMaps.c)
+ *     MiUpdateForkMaps @ 0x14055B9E0 (MiUpdateForkMaps.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiMakeProtectionPfnCompatible @ 0x14023B9BC (MiMakeProtectionPfnCompatible.c)
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1402E020C (MiMakeProtectionPfnCompatible.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 ULONG_PTR __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -27,12 +27,10 @@ ULONG_PTR __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, __int64 a3
   int ProtectionPfnCompatible; // eax
   unsigned __int64 ValidPte; // rbx
   int v14; // r15d
-  __int64 v15; // r8
-  bool v16; // zf
-  unsigned __int64 v17; // rbx
-  int v18; // r15d
-  __int64 v19; // r8
-  bool v20; // zf
+  bool v15; // zf
+  unsigned __int64 v16; // rbx
+  int v17; // r15d
+  bool v18; // zf
 
   v4 = a4;
   v5 = a3;
@@ -42,34 +40,34 @@ ULONG_PTR __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, __int64 a3
     v9 = (_QWORD *)(((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
     if ( !MI_READ_PTE_LOCK_FREE((unsigned __int64)v9) )
       goto LABEL_4;
-    v17 = ZeroPte;
-    v18 = 0;
+    v16 = ZeroPte;
+    v17 = 0;
     if ( MiPteInShadowRange((unsigned __int64)v9) )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v18 = 1;
-        if ( !HIBYTE(word_140C4E008) )
+        v17 = 1;
+        if ( !HIBYTE(word_140C4E048) )
         {
-          v20 = (ZeroPte & 1) == 0;
+          v18 = (ZeroPte & 1) == 0;
           goto LABEL_23;
         }
       }
       else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
       {
-        v20 = (ZeroPte & 1) == 0;
+        v18 = (ZeroPte & 1) == 0;
 LABEL_23:
-        if ( !v20 )
-          v17 = ZeroPte | 0x8000000000000000uLL;
+        if ( !v18 )
+          v16 = ZeroPte | 0x8000000000000000uLL;
       }
     }
-    *v9 = v17;
-    if ( v18 )
-      MiWritePteShadow((__int64)v9, v17, v19);
+    *v9 = v16;
+    if ( v17 )
+      MiWritePteShadow((__int64)v9, v16);
     KeFlushSingleTb(v7, 0, 1u);
     goto LABEL_4;
   }
-  result = MiReservePtes((__int64)&qword_140C4EF40, 1u, a3, a4);
+  result = MiReservePtes((__int64)&qword_140C4EF80, 1u, a3, a4);
   v9 = (_QWORD *)result;
   if ( !result )
     return result;
@@ -93,22 +91,22 @@ LABEL_7:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v14 = 1;
-      if ( HIBYTE(word_140C4E008) )
+      if ( HIBYTE(word_140C4E048) )
         goto LABEL_8;
-      v16 = (ValidPte & 1) == 0;
+      v15 = (ValidPte & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         goto LABEL_8;
-      v16 = (ValidPte & 1) == 0;
+      v15 = (ValidPte & 1) == 0;
     }
-    if ( !v16 )
+    if ( !v15 )
       ValidPte |= 0x8000000000000000uLL;
   }
 LABEL_8:
   *v9 = ValidPte;
   if ( v14 )
-    MiWritePteShadow((__int64)v9, ValidPte, v15);
+    MiWritePteShadow((__int64)v9, ValidPte);
   return v7;
 }

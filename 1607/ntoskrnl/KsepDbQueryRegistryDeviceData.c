@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepDbQueryRegistryDeviceData @ 0x140534EA8
+ * XREFs of KsepDbQueryRegistryDeviceData @ 0x1405353E8
  * Callers:
- *     KseQueryDeviceData @ 0x140534C50 (KseQueryDeviceData.c)
+ *     KseQueryDeviceData @ 0x140535190 (KseQueryDeviceData.c)
  * Callees:
- *     KsepRegistryCloseKey @ 0x140485714 (KsepRegistryCloseKey.c)
- *     KsepRegistryOpenKey @ 0x140485914 (KsepRegistryOpenKey.c)
- *     KsepStringFree @ 0x140485BF8 (KsepStringFree.c)
- *     KsepStringTransform @ 0x140534F40 (KsepStringTransform.c)
- *     KsepRegistryQueryValue @ 0x1406542A0 (KsepRegistryQueryValue.c)
+ *     KsepRegistryCloseKey @ 0x140514A9C (KsepRegistryCloseKey.c)
+ *     KsepRegistryOpenKey @ 0x140514C9C (KsepRegistryOpenKey.c)
+ *     KsepStringFree @ 0x140514F80 (KsepStringFree.c)
+ *     KsepStringTransform @ 0x140535480 (KsepStringTransform.c)
+ *     KsepRegistryQueryValue @ 0x140654384 (KsepRegistryQueryValue.c)
  */
 
 __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _DWORD *a3, _DWORD *a4)

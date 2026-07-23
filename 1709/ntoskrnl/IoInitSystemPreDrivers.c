@@ -72,7 +72,7 @@
  *     IopInitializeSessionNotifications @ 0x140857A88 (IopInitializeSessionNotifications.c)
  */
 
-char __fastcall IoInitSystemPreDrivers(__int64 a1)
+char __fastcall IoInitSystemPreDrivers(_QWORD *Context)
 {
   int v2; // eax
   ULONG ActiveProcessorCount; // ebx
@@ -322,18 +322,18 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   }
   if ( (int)IopInitializeSessionNotifications() < 0 )
     return 0;
-  if ( IopInitializePlugPlayServices(a1, 0LL) < 0 )
+  if ( IopInitializePlugPlayServices((__int64)Context, 0LL) < 0 )
   {
     if ( !HeadlessGlobals || !HeadlessGlobals[1] )
       return 0;
     v8 = 7;
     goto LABEL_28;
   }
-  KseInitialize(a1, 0);
+  KseInitialize((__int64)Context, 0);
   PoInitDriverServices();
   off_140354FA0[0]();
   PnpMarkHalDeviceNode();
-  if ( !WMIInitialize(0, a1) )
+  if ( !WMIInitialize(0, (__int64)Context) )
     return 0;
   EtwInitialize(0);
   if ( EtwRegister(&IoTraceProvider, (PETWENABLECALLBACK)IopEtwEnableCallback, 0LL, &IoTraceHandle) < 0
@@ -341,7 +341,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   {
     return 0;
   }
-  SeAuditBootConfiguration(*(_QWORD *)(*(_QWORD *)(a1 + 240) + 2528LL));
+  SeAuditBootConfiguration(*(_QWORD *)(Context[30] + 2528LL));
   BootApplicationPersistentDataProcess(1);
   BapdRecordFirmwareBootStats();
   KdInitialize(2LL, 0LL, &KdpContext);
@@ -362,10 +362,10 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     KxReleaseSpinLock(&IopErrorLogLock);
     __writecr8(v9);
   }
-  WheaInitialize(a1, 0);
-  if ( (int)IopStoreArcInformation(a1) < 0 )
+  WheaInitialize((__int64)Context, 0);
+  if ( (int)IopStoreArcInformation(Context) < 0 )
     return 0;
-  if ( IopInitializePlugPlayServices(a1, (ETWENABLECALLBACK *)1) < 0 )
+  if ( IopInitializePlugPlayServices((__int64)Context, (ETWENABLECALLBACK *)1) < 0 )
   {
     if ( !HeadlessGlobals || !HeadlessGlobals[1] )
       return 0;
@@ -386,11 +386,11 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   LOWORD(IoStatusBlockRangeTableLock.Event.Header.Lock) = 1;
   IoStatusBlockRangeTableLock.Event.Header.Size = 6;
   IoStatusBlockRangeTableLock.Event.Header.SignalState = 0;
-  KitpInitAitSampleRate(a1);
+  KitpInitAitSampleRate(Context);
   if ( EtwRegister(&MS_Windows_AIT_Provider, 0LL, 0LL, &KitEtwHandle) < 0 )
     KitEtwHandle = 0LL;
-  KseInitialize(a1, 1);
-  if ( HvlPhase2Initialize(a1) < 0 )
+  KseInitialize((__int64)Context, 1);
+  if ( HvlPhase2Initialize((__int64)Context) < 0 )
     return 0;
   KeIpiGenericCall((PKIPI_BROADCAST_WORKER)KeOptimizeSpecCtrlSettings, 0LL);
   VslpIumPhase4Initialize();
@@ -416,20 +416,18 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
   else
     IopInitDumpCapsuleSupport();
   IopInitializeIoRate(v12, v11);
-  if ( !(unsigned int)IopInitializeBootDrivers(a1) )
+  if ( !(unsigned int)IopInitializeBootDrivers(Context) )
   {
     if ( !HeadlessGlobals || !HeadlessGlobals[1] )
       return 0;
     v8 = 9;
     goto LABEL_28;
   }
-  if ( !PoInitSystem(2, a1) )
+  if ( !PoInitSystem(2, (__int64)Context) )
     KeBugCheck(0xA0u);
   SmInitSystem(1LL);
   EtwInitialize(1u);
-  if ( VslVsmEnabled
-    && NtPowerInformation((POWER_INFORMATION_LEVEL)66, 0LL, 0, OutputBuffer, 1u) >= 0
-    && OutputBuffer[0] )
+  if ( VslVsmEnabled && NtPowerInformation(PlatformInformation, 0LL, 0, OutputBuffer, 1u) >= 0 && OutputBuffer[0] )
   {
     ExSubscribeWnfStateChange(
       (__int64)&VslpIumCsWnfSubscription,
@@ -457,7 +455,7 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     EtwRegister(&LiveDumpProvGuid, (PETWENABLECALLBACK)IopLiveDumpTracingControlCallback, 0LL, &IopLiveDumpEtwRegHandle);
     TraceLoggingRegisterEx(&stru_1403551C0, 0LL, 0LL);
   }
-  if ( (int)IopInitCrashDumpDuringSysInit(a1) >= 0 )
+  if ( (int)IopInitCrashDumpDuringSysInit(Context) >= 0 )
     IopRemoveDumpCapsuleSupport();
   if ( !RtlIsStateSeparationEnabled() )
     PpLastGoodDoBootProcessing();
@@ -473,14 +471,14 @@ char __fastcall IoInitSystemPreDrivers(__int64 a1)
     goto LABEL_28;
   }
   PfSnBeginBootPhase(0);
-  if ( !(unsigned __int8)IopReassignSystemRoot(a1, &v21) )
+  if ( !(unsigned __int8)IopReassignSystemRoot(Context, &v21) )
   {
     if ( !HeadlessGlobals || !HeadlessGlobals[1] )
       return 0;
     v8 = 12;
     goto LABEL_28;
   }
-  if ( !(unsigned __int8)IopProtectSystemPartition(a1) )
+  if ( !(unsigned __int8)IopProtectSystemPartition(Context) )
   {
     if ( !HeadlessGlobals || !HeadlessGlobals[1] )
       return 0;
@@ -508,6 +506,6 @@ LABEL_28:
   }
   if ( !WMIInitialize(1, 0LL) )
     return 0;
-  WheaInitialize(a1, 1u);
+  WheaInitialize((__int64)Context, 1u);
   return 1;
 }

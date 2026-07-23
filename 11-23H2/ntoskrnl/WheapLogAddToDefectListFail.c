@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapLogAddToDefectListFail @ 0x140A08630
+ * XREFs of WheapLogAddToDefectListFail @ 0x140A088E0
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x140A0819C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0844C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 LONG WheapLogAddToDefectListFail()

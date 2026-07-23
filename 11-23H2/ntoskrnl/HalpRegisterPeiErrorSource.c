@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRegisterPeiErrorSource @ 0x140518BE8
+ * XREFs of HalpRegisterPeiErrorSource @ 0x140519138
  * Callers:
  *     HalpInitializeGenericErrorSource @ 0x140A8AE9C (HalpInitializeGenericErrorSource.c)
  * Callees:
- *     HalpInterruptConnect @ 0x1405041C0 (HalpInterruptConnect.c)
+ *     HalpInterruptConnect @ 0x140504710 (HalpInterruptConnect.c)
  */
 
 int __fastcall HalpRegisterPeiErrorSource(unsigned __int64 a1)

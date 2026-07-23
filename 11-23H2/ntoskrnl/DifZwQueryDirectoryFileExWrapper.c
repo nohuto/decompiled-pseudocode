@@ -1,26 +1,26 @@
 /*
- * XREFs of DifZwQueryDirectoryFileExWrapper @ 0x1405F3B20
+ * XREFs of DifZwQueryDirectoryFileExWrapper @ 0x1405F4090
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryDirectoryFileEx @ 0x14041D6C0 (ZwQueryDirectoryFileEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwQueryDirectoryFileEx @ 0x14041DA50 (ZwQueryDirectoryFileEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwQueryDirectoryFileExWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        int a7,
-        unsigned int a8,
-        unsigned int a9,
-        __int64 a10)
+NTSTATUS __fastcall DifZwQueryDirectoryFileExWrapper(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass,
+        ULONG QueryFlags,
+        PUNICODE_STRING FileName)
 {
   __int64 v14; // rdx
   __int64 v15; // rcx
@@ -30,7 +30,7 @@ __int64 __fastcall DifZwQueryDirectoryFileExWrapper(
   int v19; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v23; // rdi
   _QWORD *v24; // rbx
   _QWORD v25[12]; // [rsp+58h] [rbp-59h] BYREF
@@ -64,22 +64,32 @@ LABEL_8:
   }
   v25[0] = 0LL;
 LABEL_10:
-  v25[5] = a5;
-  v25[4] = a6;
-  LODWORD(v25[3]) = a7;
-  v25[2] = __PAIR64__(a8, a9);
-  v25[1] = a10;
-  v25[9] = a1;
-  v25[8] = a2;
-  v25[7] = a3;
-  v25[6] = a4;
+  v25[5] = IoStatusBlock;
+  v25[4] = FileInformation;
+  LODWORD(v25[3]) = Length;
+  v25[2] = __PAIR64__(FileInformationClass, QueryFlags);
+  v25[1] = FileName;
+  v25[9] = FileHandle;
+  v25[8] = Event;
+  v25[7] = ApcRoutine;
+  v25[6] = ApcContext;
   for ( i = (__int64 *)APIThunkContextById[4]; i != APIThunkContextById + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(_QWORD *))*(i - 1))(v25);
   }
 LABEL_17:
-  result = ZwQueryDirectoryFileEx(a1, a2);
+  result = ZwQueryDirectoryFileEx(
+             FileHandle,
+             Event,
+             ApcRoutine,
+             ApcContext,
+             IoStatusBlock,
+             FileInformation,
+             Length,
+             FileInformationClass,
+             QueryFlags,
+             FileName);
   LODWORD(v25[10]) = result;
   if ( APIThunkContextById )
   {
@@ -94,7 +104,7 @@ LABEL_17:
         v24 = (_QWORD *)*v24;
       }
       while ( v24 != v23 );
-      return LODWORD(v25[10]);
+      return v25[10];
     }
   }
   return result;

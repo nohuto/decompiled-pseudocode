@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLockWorkingSetChangeExclusiveUnsafe @ 0x140581924
+ * XREFs of PspLockWorkingSetChangeExclusiveUnsafe @ 0x140581BAC
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     PspSetQuotaLimits @ 0x1406A5F94 (PspSetQuotaLimits.c)
+ *     PspSetQuotaLimits @ 0x140603BC4 (PspSetQuotaLimits.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void PspLockWorkingSetChangeExclusiveUnsafe()

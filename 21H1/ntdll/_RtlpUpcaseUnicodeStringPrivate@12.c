@@ -14,23 +14,25 @@
 int __fastcall RtlpUpcaseUnicodeStringPrivate(int a1, unsigned __int16 *a2, int a3)
 {
   int v5; // eax
-  int Heap; // eax
+  PVOID Heap; // eax
   unsigned int v8; // ecx
   unsigned int i; // edi
-  unsigned int v10; // [esp+18h] [ebp-28h]
+  SIZE_T v10; // [esp-4h] [ebp-44h]
+  unsigned int v11; // [esp+18h] [ebp-28h]
 
   v5 = *a2;
   *(_WORD *)(a1 + 2) = v5;
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v5);
+  LODWORD(v10) = v5;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
   *(_DWORD *)(a1 + 4) = Heap;
   if ( !Heap )
     return -1073741801;
   v8 = *a2 >> 1;
-  v10 = v8;
+  v11 = v8;
   for ( i = 0; i < v8; ++i )
   {
     *(_WORD *)(*(_DWORD *)(a1 + 4) + 2 * i) = NLS_UPCASE(*(_WORD *)(*((_DWORD *)a2 + 1) + 2 * i));
-    v8 = v10;
+    v8 = v11;
   }
   *(_WORD *)a1 = *a2;
   return 0;

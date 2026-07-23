@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCanFileBeTruncatedInternal @ 0x14028B9A0
+ * XREFs of MiCanFileBeTruncatedInternal @ 0x14028BC30
  * Callers:
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MmCanFileBeTruncated @ 0x14034A5B0 (MmCanFileBeTruncated.c)
+ *     MmPurgeSection @ 0x1402DCB60 (MmPurgeSection.c)
+ *     MmCanFileBeTruncated @ 0x14034A750 (MmCanFileBeTruncated.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiEndingOffset @ 0x140279F08 (MiEndingOffset.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFindLastSubsection @ 0x140293258 (MiFindLastSubsection.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MmFlushImageSection @ 0x14034E400 (MmFlushImageSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiEndingOffset @ 0x14027A198 (MiEndingOffset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFindLastSubsection @ 0x1402934E8 (MiFindLastSubsection.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmFlushImageSection @ 0x14034E5A0 (MmFlushImageSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char *__fastcall MiCanFileBeTruncatedInternal(
@@ -54,10 +54,13 @@ char *__fastcall MiCanFileBeTruncatedInternal(
       if ( !SectionObjectPointer->ImageSectionObject )
         goto LABEL_3;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -78,10 +81,10 @@ LABEL_3:
     if ( !SectionObjectPointer->DataSectionObject )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v28 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v28 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v28 >= 2u )
         {
           v29 = KeGetCurrentPrcb();
           v30 = v29->SchedulerAssist;
@@ -99,10 +102,10 @@ LABEL_3:
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 72) )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v19 >= 2u )
       {
         v20 = KeGetCurrentPrcb();
         v21 = v20->SchedulerAssist;
@@ -135,10 +138,10 @@ LABEL_3:
     {
 LABEL_21:
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)DataSectionObject + 18);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
         {
           v24 = KeGetCurrentPrcb();
           v25 = v24->SchedulerAssist;

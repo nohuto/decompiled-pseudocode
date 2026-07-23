@@ -128,7 +128,7 @@ LABEL_5:
     v22 = (__int64)&v12[-a1] % 0x20000;
     do
     {
-      v23 = (unsigned __int16)XpressHashFunction[*v21] ^ (unsigned __int16)word_180139210[v21[2]] ^ (unsigned __int64)(unsigned __int16)word_180139010[v21[1]];
+      v23 = (unsigned __int16)XpressHashFunction[*v21] ^ (unsigned __int16)word_1801392A0[v21[2]] ^ (unsigned __int64)(unsigned __int16)word_1801390A0[v21[1]];
       v24 = *(_QWORD *)&a6[8 * v23];
       *(_QWORD *)&a6[8 * v23] = v21++;
       *(_QWORD *)&a6[8 * v22 + 0x40000] = v24;

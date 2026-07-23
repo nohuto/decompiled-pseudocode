@@ -1,24 +1,24 @@
 /*
- * XREFs of DrvDbGetSecurityDescriptor @ 0x14097E8FC
+ * XREFs of DrvDbGetSecurityDescriptor @ 0x14097EADC
  * Callers:
- *     DrvDbLoadDatabaseNode @ 0x14063E754 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x140633564 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
- *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x140653D20 (RtlValidSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x140654EF0 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x14066A2E0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14066A340 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1407685F0 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void *DrvDbGetSecurityDescriptor()
@@ -43,9 +43,9 @@ void *DrvDbGetSecurityDescriptor()
   void *v17; // rbx
   _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v20; // [rsp+50h] [rbp-18h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+48h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v22; // [rsp+B8h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v23; // [rsp+C0h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+48h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v22; // [rsp+B8h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v23; // [rsp+C0h] [rbp+58h] BYREF
   void *v24; // [rsp+C8h] [rbp+60h]
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
@@ -103,9 +103,9 @@ void *DrvDbGetSecurityDescriptor()
                           if ( v12 )
                           {
                             if ( RtlCreateAcl(v12, v11, 2u) >= 0
-                              && (int)RtlpAddKnownAce((__int64)v13, 2u, 2, 983103, (unsigned __int8 *)Src, 0) >= 0
-                              && (int)RtlpAddKnownAce((__int64)v13, 2u, 2, 0x20000, (unsigned __int8 *)v4, 0) >= 0
-                              && (int)RtlpAddKnownAce((__int64)v13, 2u, 2, 131097, (unsigned __int8 *)v6, 0) >= 0
+                              && (int)RtlpAddKnownAce(v13, 2u, 2, 983103, (unsigned __int8 *)Src, 0) >= 0
+                              && (int)RtlpAddKnownAce(v13, 2u, 2, 0x20000, (unsigned __int8 *)v4, 0) >= 0
+                              && (int)RtlpAddKnownAce(v13, 2u, 2, 131097, (unsigned __int8 *)v6, 0) >= 0
                               && RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
                               && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v13, 0) >= 0
                               && RtlSetOwnerSecurityDescriptor(SecurityDescriptor, v8, 1u) >= 0

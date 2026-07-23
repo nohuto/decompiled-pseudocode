@@ -32,10 +32,10 @@ __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PT
   __int64 *v12; // rax
   __int64 v13; // r8
   __int64 *v14; // rbx
-  unsigned __int64 v15; // rbx
-  __int64 v16; // rax
+  void *v15; // rbx
+  PVOID v16; // rax
   bool v17; // zf
-  unsigned int v18; // [rsp+60h] [rbp+18h] BYREF
+  ULONG Size; // [rsp+60h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v5 = 0;
@@ -58,12 +58,12 @@ __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PT
     if ( v14 )
       *((_BYTE *)v14 + 10) = 1;
     MiAdjustSecureDriverStateForIatCapture(a1, 1, v13);
-    v15 = *(_QWORD *)(a1 + 48);
-    v18 = 0;
-    v16 = RtlImageDirectoryEntryToData(v15, 1, 0xCu, &v18);
+    v15 = *(void **)(a1 + 48);
+    Size = 0;
+    v16 = RtlImageDirectoryEntryToData(v15, 1u, 0xCu, &Size);
     if ( v16 )
     {
-      v7 = VslCaptureSecureImageIat(v15, v16, v18);
+      v7 = VslCaptureSecureImageIat(v15, v16, Size);
       if ( v7 < 0 )
         goto LABEL_18;
     }

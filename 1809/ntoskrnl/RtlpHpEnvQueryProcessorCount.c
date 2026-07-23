@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpEnvQueryProcessorCount @ 0x1401B6344
+ * XREFs of RtlpHpEnvQueryProcessorCount @ 0x1401B64AC
  * Callers:
- *     RtlpHpHeapCreate @ 0x140140AE0 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x140140BE0 (RtlpHpHeapCreate.c)
  * Callees:
  *     <none>
  */

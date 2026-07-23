@@ -1,9 +1,9 @@
 /*
- * XREFs of PfLogForegroundProcess @ 0x1400A86E4
+ * XREFs of PfLogForegroundProcess @ 0x1400A6C5C
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x1400CDCA0 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1400CBB40 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     PfLogEvent @ 0x1400F0738 (PfLogEvent.c)
+ *     PfLogEvent @ 0x1400EE5B8 (PfLogEvent.c)
  */
 
 __int64 __fastcall PfLogForegroundProcess(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall PfLogForegroundProcess(__int64 a1)
   LODWORD(v3) = *(_DWORD *)(a1 - 1280 + 1180);
   return PfLogEvent(
            7LL,
-           dword_14032855C
+           dword_14032859C
          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
                          + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10),
            &v2);

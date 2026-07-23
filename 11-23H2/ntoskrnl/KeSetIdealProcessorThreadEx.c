@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetIdealProcessorThreadEx @ 0x1403CEE58
+ * XREFs of KeSetIdealProcessorThreadEx @ 0x1403CF038
  * Callers:
- *     KeSetIdealProcessorThreadByNumber @ 0x1403CEDF4 (KeSetIdealProcessorThreadByNumber.c)
- *     MiRestoreIdealProcessorThread @ 0x140667044 (MiRestoreIdealProcessorThread.c)
- *     MiSetIdealProcessorThread @ 0x14066706C (MiSetIdealProcessorThread.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x1403CEFD4 (KeSetIdealProcessorThreadByNumber.c)
+ *     MiRestoreIdealProcessorThread @ 0x140667594 (MiRestoreIdealProcessorThread.c)
+ *     MiSetIdealProcessorThread @ 0x1406675BC (MiSetIdealProcessorThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiSetIdealProcessorThread @ 0x1403CEFCC (KiSetIdealProcessorThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x1405FCD90 (EtwTraceIdealProcessor.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiSetIdealProcessorThread @ 0x1403CF1AC (KiSetIdealProcessorThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIdealProcessor @ 0x1405FD300 (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, unsigned int a2, _DWORD *a3)
@@ -35,7 +35,7 @@ __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, unsigned int a2, _DWO
   v3 = a3;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v15) = 4;
@@ -67,10 +67,10 @@ __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, unsigned int a2, _DWO
     if ( (xmmword_140D1EAD0 & 0x8000000) != 0 )
       EtwTraceIdealProcessor(a1, 1351LL, v8, v12);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v18 = CurrentPrcb->SchedulerAssist;

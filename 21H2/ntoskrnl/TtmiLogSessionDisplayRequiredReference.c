@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionDisplayRequiredReference @ 0x140903BA0
+ * XREFs of TtmiLogSessionDisplayRequiredReference @ 0x140903D00
  * Callers:
- *     TtmNotifySessionDisplayRequiredChange @ 0x1408FEA88 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x1408FEBE8 (TtmNotifySessionDisplayRequiredChange.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionDisplayRequiredReference()
@@ -39,7 +39,7 @@ void TtmiLogSessionDisplayRequiredReference()
       v12 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D2D8C8,
-        (unsigned __int8 *)&dword_14002C0E8 + 2,
+        (unsigned __int8 *)&dword_14002BB14,
         0LL,
         0LL,
         5u,

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
  *     BgpConsoleClearScreenEx @ 0x14072A364 (BgpConsoleClearScreenEx.c)
  */
 
@@ -16,7 +16,7 @@ __int64 BgpConsoleClearScreen()
   unsigned int v3; // ebx
 
   BgpFwAcquireLock();
-  if ( qword_140329968 )
+  if ( qword_140329998 )
     v3 = BgpConsoleClearScreenEx(v1, v0, v2);
   else
     v3 = -1073741823;

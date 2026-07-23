@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCallCreateSectionFilters @ 0x140723750
+ * XREFs of MiCallCreateSectionFilters @ 0x140723950
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140723350 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x140723550 (MiCreateImageOrDataSection.c)
  * Callees:
- *     FsRtlAcquireToCreateMappedSection @ 0x14072380C (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlReleaseFile @ 0x140723910 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x140723A0C (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlReleaseFile @ 0x140723B10 (FsRtlReleaseFile.c)
  */
 
 __int64 __fastcall MiCallCreateSectionFilters(int *a1)

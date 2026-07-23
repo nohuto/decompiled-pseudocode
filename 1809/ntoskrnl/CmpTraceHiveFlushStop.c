@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveFlushStop @ 0x1405B3838
+ * XREFs of CmpTraceHiveFlushStop @ 0x1405B4838
  * Callers:
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall CmpTraceHiveFlushStop(int a1)

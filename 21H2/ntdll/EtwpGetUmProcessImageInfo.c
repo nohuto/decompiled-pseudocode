@@ -6,7 +6,7 @@
  *     EtwpTrackRegBinaryInfo @ 0x180081EFC (EtwpTrackRegBinaryInfo.c)
  * Callees:
  *     EtwpProviderArrivalCallback @ 0x180087974 (EtwpProviderArrivalCallback.c)
- *     EtwpDemuxUmTraceHandle @ 0x180110E40 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180110E00 (EtwpDemuxUmTraceHandle.c)
  */
 
 __int64 __fastcall EtwpGetUmProcessImageInfo(unsigned __int16 a1, __int64 a2)

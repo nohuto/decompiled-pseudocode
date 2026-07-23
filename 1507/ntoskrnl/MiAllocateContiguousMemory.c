@@ -15,7 +15,7 @@
  *     MiLogPerfMemoryRangeEvent @ 0x140214958 (MiLogPerfMemoryRangeEvent.c)
  */
 
-struct _SLIST_ENTRY *__fastcall MiAllocateContiguousMemory(
+_SLIST_ENTRY *__fastcall MiAllocateContiguousMemory(
         unsigned __int64 a1,
         unsigned __int64 a2,
         unsigned __int64 a3,
@@ -35,7 +35,7 @@ struct _SLIST_ENTRY *__fastcall MiAllocateContiguousMemory(
   unsigned __int16 *v18; // rdi
   unsigned __int16 *v19; // r13
   __int64 ContiguousMemoryInPool; // rax
-  struct _SLIST_ENTRY *v21; // rbx
+  _SLIST_ENTRY *v21; // rbx
   int v22; // edi
   unsigned int v23; // ecx
   int v24; // eax
@@ -183,7 +183,7 @@ LABEL_21:
     {
       if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
         MiLogPerfMemoryRangeEvent(v30, 0LL, 13LL, v41);
-      return (struct _SLIST_ENTRY *)v30;
+      return (_SLIST_ENTRY *)v30;
     }
     MiFreeContiguousPages((__int64)MiSystemPartition, v40, v41);
     return 0LL;
@@ -197,7 +197,7 @@ LABEL_20:
   while ( 1 )
   {
     ContiguousMemoryInPool = MiFindContiguousMemoryInPool(a2, v9, v7, a1, *v18);
-    v21 = (struct _SLIST_ENTRY *)ContiguousMemoryInPool;
+    v21 = (_SLIST_ENTRY *)ContiguousMemoryInPool;
     if ( ContiguousMemoryInPool )
       break;
     v7 = a4;

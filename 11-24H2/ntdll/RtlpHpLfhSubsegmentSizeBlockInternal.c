@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1800D56D0
+ * XREFs of RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1800D0A40
  * Callers:
- *     RtlpHpLfhSubsegmentWalk @ 0x1800D5500 (RtlpHpLfhSubsegmentWalk.c)
+ *     RtlpHpLfhSubsegmentWalk @ 0x1800D0870 (RtlpHpLfhSubsegmentWalk.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentSizeBlockInternal(unsigned __int64 a1, __i
   unsigned __int16 v7; // dx
   int v8; // r8d
 
-  result = (unsigned __int16)qword_1801CDEC8 ^ *(unsigned __int16 *)(a1 + 40) ^ (unsigned int)(unsigned __int16)(a1 >> 12);
+  result = (unsigned __int16)qword_1801CCEC8 ^ *(unsigned __int16 *)(a1 + 40) ^ (unsigned int)(unsigned __int16)(a1 >> 12);
   v6 = HIDWORD(*(_QWORD *)(a1 + 8 * ((unsigned __int64)a3 >> 5) + 64));
   if ( _bittest64(&v6, a3 & 0x1F) )
   {

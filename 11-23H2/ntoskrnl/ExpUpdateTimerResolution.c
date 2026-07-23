@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpUpdateTimerResolution @ 0x140364EEC
+ * XREFs of ExpUpdateTimerResolution @ 0x14036508C
  * Callers:
- *     ExSetTimerResolution @ 0x1403B4D60 (ExSetTimerResolution.c)
- *     NtSetTimerResolution @ 0x1407DCB20 (NtSetTimerResolution.c)
- *     PspSetProcessTimerResolutionPolicy @ 0x1407DFC00 (PspSetProcessTimerResolutionPolicy.c)
+ *     ExSetTimerResolution @ 0x1403B4F40 (ExSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x1407DCDF0 (NtSetTimerResolution.c)
+ *     PspSetProcessTimerResolutionPolicy @ 0x1407DFED0 (PspSetProcessTimerResolutionPolicy.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoTraceSystemTimerResolutionUpdate @ 0x1403B6360 (PoTraceSystemTimerResolutionUpdate.c)
- *     ExpUpdateTimerConfiguration @ 0x1403C2F78 (ExpUpdateTimerConfiguration.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoTraceSystemTimerResolutionUpdate @ 0x1403B6540 (PoTraceSystemTimerResolutionUpdate.c)
+ *     ExpUpdateTimerConfiguration @ 0x1403C3158 (ExpUpdateTimerConfiguration.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
   int v17; // eax
-  unsigned int v18; // [rsp+38h] [rbp+10h] BYREF
+  ULONG v18; // [rsp+38h] [rbp+10h] BYREF
 
   v18 = a2;
   if ( a3 )
@@ -47,10 +47,10 @@ __int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
     {
 LABEL_16:
       KxReleaseSpinLock((volatile signed __int64 *)&ExpKernelResolutionLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -71,7 +71,7 @@ LABEL_16:
     v18 = KeMaximumIncrement;
     if ( ExpKernelResolutionCount )
     {
-      if ( ExpKernelRequestedTimerResolution < (unsigned int)KeMaximumIncrement )
+      if ( ExpKernelRequestedTimerResolution < KeMaximumIncrement )
         a2 = ExpKernelRequestedTimerResolution;
       v18 = a2;
     }
@@ -93,10 +93,10 @@ LABEL_16:
   v8 = KePseudoHrTimeIncrement;
   ExpLastRequestedTime = a2;
   KxReleaseSpinLock((volatile signed __int64 *)&ExpKernelResolutionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v5 <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v5 <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpDereferenceAtom @ 0x140126720
+ * XREFs of RtlpDereferenceAtom @ 0x1401267F0
  * Callers:
- *     RtlDestroyLowBoxAtoms @ 0x14012664C (RtlDestroyLowBoxAtoms.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1406AD250 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlDestroyLowBoxAtoms @ 0x14012671C (RtlDestroyLowBoxAtoms.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x1406AE4F0 (RtlDeleteAtomFromAtomTable.c)
  * Callees:
- *     RtlpFreeAllAtom @ 0x1401267B0 (RtlpFreeAllAtom.c)
- *     RtlpFreeAtom @ 0x1406AD470 (RtlpFreeAtom.c)
+ *     RtlpFreeAllAtom @ 0x140126880 (RtlpFreeAllAtom.c)
+ *     RtlpFreeAtom @ 0x1406AE710 (RtlpFreeAtom.c)
  */
 
 char __fastcall RtlpDereferenceAtom(__int64 a1, __int64 *a2, __int64 a3)

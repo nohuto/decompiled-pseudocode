@@ -91,7 +91,7 @@ __int64 __fastcall MiUnlinkFreeOrZeroedPage(unsigned __int64 a1, __int64 a2, __i
   {
     LOBYTE(v11) = 1;
     v12 = a1 & 0x1F;
-    v13 = (volatile signed __int32 *)(qword_140388B70 + 4 * (a1 >> 5));
+    v13 = (volatile signed __int32 *)stru_140388B68.Buffer + (a1 >> 5);
     if ( (unsigned __int64)(v12 + 1) <= 0x20 )
     {
       v14 = 1 << v12;

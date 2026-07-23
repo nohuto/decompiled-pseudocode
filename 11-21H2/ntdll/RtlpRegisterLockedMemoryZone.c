@@ -8,27 +8,23 @@
  *     RtlLockModuleSection @ 0x18007CEF0 (RtlLockModuleSection.c)
  */
 
-__int64 __fastcall RtlpRegisterLockedMemoryZone(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+__int64 RtlpRegisterLockedMemoryZone()
 {
-  int v4; // ebx
-  int v5; // eax
+  NTSTATUS v0; // ebx
+  int v1; // eax
 
-  v4 = 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpMemoryZoneLock, a2, a3, a4);
-  v5 = RtlpLockedMemoryZoneCount;
+  v0 = 0;
+  RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
+  v1 = RtlpLockedMemoryZoneCount;
   if ( !RtlpLockedMemoryZoneCount )
   {
-    v4 = RtlLockModuleSection(RtlpMemoryZoneCriticalRoutines);
-    if ( v4 < 0 )
+    v0 = RtlLockModuleSection(RtlpMemoryZoneCriticalRoutines);
+    if ( v0 < 0 )
       goto LABEL_3;
-    v5 = RtlpLockedMemoryZoneCount;
+    v1 = RtlpLockedMemoryZoneCount;
   }
-  RtlpLockedMemoryZoneCount = v5 + 1;
+  RtlpLockedMemoryZoneCount = v1 + 1;
 LABEL_3:
   RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
-  return (unsigned int)v4;
+  return (unsigned int)v0;
 }

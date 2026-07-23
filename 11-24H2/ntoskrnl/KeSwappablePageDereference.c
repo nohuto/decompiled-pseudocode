@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSwappablePageDereference @ 0x140268ED0
+ * XREFs of KeSwappablePageDereference @ 0x140260340
  * Callers:
- *     KiOutSwapKernelStacks @ 0x140268FB8 (KiOutSwapKernelStacks.c)
- *     PspSchedulerSharedDataRegionSlotFree @ 0x1408A7904 (PspSchedulerSharedDataRegionSlotFree.c)
+ *     KiOutSwapKernelStacks @ 0x1402600D4 (KiOutSwapKernelStacks.c)
+ *     PspSchedulerSharedDataRegionSlotFree @ 0x1408FDB5C (PspSchedulerSharedDataRegionSlotFree.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void __fastcall KeSwappablePageDereference(__int64 a1)
@@ -37,7 +37,7 @@ void __fastcall KeSwappablePageDereference(__int64 a1)
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 16), 0LL, 1LL) == 1 )
       MmUnlockPages((PMDL)(a1 + 24));
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)v4);
+      ExfTryToWakePushLock(v4);
     KeAbPostRelease((ULONG_PTR)v4);
     KeLeaveCriticalRegion();
   }

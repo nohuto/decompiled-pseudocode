@@ -1,9 +1,9 @@
 /*
- * XREFs of SeGetTokenControlInformation @ 0x1408A1CFC
+ * XREFs of SeGetTokenControlInformation @ 0x1408A2F5C
  * Callers:
- *     SepCreateClientSecurityEx @ 0x140631EC0 (SepCreateClientSecurityEx.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x140849E64 (AlpcpQueryTokenModifiedIdMessage.c)
- *     SepUpdateSiloInClientSecurity @ 0x1408A18D4 (SepUpdateSiloInClientSecurity.c)
+ *     SepCreateClientSecurityEx @ 0x140632EE0 (SepCreateClientSecurityEx.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x14084B0C4 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     SepUpdateSiloInClientSecurity @ 0x1408A2B34 (SepUpdateSiloInClientSecurity.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)

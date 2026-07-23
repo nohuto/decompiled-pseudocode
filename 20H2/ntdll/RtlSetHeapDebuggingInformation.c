@@ -10,31 +10,29 @@
  *     RtlpSetHeapDebuggingInformation @ 0x1800F4C60 (RtlpSetHeapDebuggingInformation.c)
  */
 
-__int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
+__int64 __fastcall RtlSetHeapDebuggingInformation(_DWORD *HeapHandle, __int64 a2)
 {
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // rax
-  unsigned int v8; // ebx
+  __int64 v4; // rax
+  unsigned int v5; // ebx
 
-  if ( a1 )
+  if ( HeapHandle )
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (HeapHandle[29] & 0x1000000) != 0 )
     {
       return 3221225474LL;
     }
     else
     {
-      RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-      v7 = 28LL;
-      if ( *(_DWORD *)(a1 + 16) != -571548178 )
-        v7 = 208LL;
-      if ( *(_WORD *)(v7 + a1) == 0xFFFF )
-        v8 = -1073741811;
+      RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+      v4 = 7LL;
+      if ( HeapHandle[4] != -571548178 )
+        v4 = 52LL;
+      if ( LOWORD(HeapHandle[v4]) == 0xFFFF )
+        v5 = -1073741811;
       else
-        v8 = RtlpSetHeapDebuggingInformation(a1, a2);
-      RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock, v5, v6);
-      return v8;
+        v5 = RtlpSetHeapDebuggingInformation(HeapHandle);
+      RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
+      return v5;
     }
   }
   else
@@ -43,7 +41,7 @@ __int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
     xmmword_18016ADE0 = *(_OWORD *)(a2 + 32);
     *((_QWORD *)&xmmword_18016ADD0 + 1) = *(_QWORD *)(a2 + 24);
     LODWORD(xmmword_18016ADD0) = *(_DWORD *)(a2 + 16);
-    RtlpEnumProcessHeaps((__int64 (__fastcall *)(void *, __int64))RtlpSetHeapDebuggingInformation, a2, 0LL);
+    RtlpEnumProcessHeaps((__int64 (__fastcall *)(void *, __int64))RtlpSetHeapDebuggingInformation, a2, 0);
     return 0LL;
   }
 }

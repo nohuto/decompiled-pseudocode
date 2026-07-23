@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCaptureContext @ 0x1800A17A0
+ * XREFs of RtlCaptureContext @ 0x1800A1760
  * Callers:
  *     _invalid_parameter @ 0x18008C868 (_invalid_parameter.c)
  *     __report_gsfailure @ 0x18008C990 (__report_gsfailure.c)
  *     __report_securityfailure @ 0x18008CAFC (__report_securityfailure.c)
- *     LdrAppxHandleIntegrityFailure @ 0x1800CB690 (LdrAppxHandleIntegrityFailure.c)
- *     LdrpLogIntegrityContinuityTelemetry @ 0x1800CF7D0 (LdrpLogIntegrityContinuityTelemetry.c)
- *     RtlpPossibleDeadlock @ 0x1800E9268 (RtlpPossibleDeadlock.c)
- *     RtlAssert @ 0x1800ED830 (RtlAssert.c)
+ *     LdrAppxHandleIntegrityFailure @ 0x1800CB650 (LdrAppxHandleIntegrityFailure.c)
+ *     LdrpLogIntegrityContinuityTelemetry @ 0x1800CF790 (LdrpLogIntegrityContinuityTelemetry.c)
+ *     RtlpPossibleDeadlock @ 0x1800E9228 (RtlpPossibleDeadlock.c)
+ *     RtlAssert @ 0x1800ED7F0 (RtlAssert.c)
  * Callees:
  *     <none>
  */

@@ -19,9 +19,10 @@
  *     _RtlpHpHeapUnlock@12 @ 0x4B379185 (_RtlpHpHeapUnlock@12.c)
  */
 
-char __thiscall RtlUnlockHeap(void *this, int a2)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
-  int v2; // esi
+  int v1; // ecx
+  PVOID v2; // esi
   int v3; // edi
   _DWORD *SharedData; // eax
   int v6; // eax
@@ -31,10 +32,10 @@ char __thiscall RtlUnlockHeap(void *this, int a2)
   signed __int32 v11; // [esp+14h] [ebp-8h]
   int DeferredCriticalSectionEvent; // [esp+18h] [ebp-4h]
 
-  v2 = a2;
-  if ( *(_DWORD *)(a2 + 8) == -571548178 )
+  v2 = HeapHandle;
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
   {
-    RtlpHpHeapUnlock(this);
+    RtlpHpHeapUnlock(v1);
 LABEL_7:
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
@@ -48,14 +49,14 @@ LABEL_7:
     }
     return 1;
   }
-  if ( (*(_DWORD *)(a2 + 68) & 0x1000000) != 0 )
-    return dword_4B3A376C(dword_4B3A376C, a2);
-  if ( *(_DWORD *)(a2 + 96) == -285217025 )
+  if ( (*((_DWORD *)HeapHandle + 17) & 0x1000000) != 0 )
+    return dword_4B3A376C(dword_4B3A376C, HeapHandle);
+  if ( *((_DWORD *)HeapHandle + 24) == -285217025 )
   {
-    if ( (*(_BYTE *)(a2 + 64) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 64) & 1) == 0 )
     {
-      v3 = *(_DWORD *)(a2 + 200);
-      --*(_WORD *)(a2 + 232);
+      v3 = *((_DWORD *)HeapHandle + 50);
+      --*((_WORD *)HeapHandle + 116);
       if ( (*(_DWORD *)(v3 + 8))-- == 1 )
       {
         *(_DWORD *)(v3 + 12) = 0;
@@ -71,7 +72,7 @@ LABEL_7:
           v8 = (volatile signed __int32 *)(v3 + 4);
           for ( i = v11; _InterlockedCompareExchange(v8, (i & 2 | 1) + i, i) != i; i = *v8 )
             RtlBackoff(&v10);
-          v2 = a2;
+          v2 = HeapHandle;
           if ( (i & 2) != 0 )
             RtlpUnWaitCriticalSectionEx(v3, DeferredCriticalSectionEvent);
         }
@@ -83,7 +84,7 @@ LABEL_7:
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else
     DbgPrint("HEAP: ");
-  DbgPrint("Invalid heap signature for heap at %p", (const void *)a2);
+  DbgPrint("Invalid heap signature for heap at %p", HeapHandle);
   DbgPrint(", passed to %s", "RtlUnlockHeap");
   DbgPrint("\n");
   if ( NtCurrentPeb()->BeingDebugged )

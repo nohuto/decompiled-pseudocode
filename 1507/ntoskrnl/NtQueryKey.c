@@ -124,7 +124,7 @@ NTSTATUS __stdcall NtQueryKey(
       goto LABEL_61;
     }
   }
-  if ( (unsigned int)KeyInformationClass <= MaxKeyInfoClass )
+  if ( (unsigned int)KeyInformationClass <= KeyTrustInformation )
   {
     v14 = KeGetCurrentThread()->gap0[10];
     if ( v14 == 1 )

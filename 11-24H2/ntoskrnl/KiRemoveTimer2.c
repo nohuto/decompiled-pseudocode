@@ -1,14 +1,14 @@
 /*
- * XREFs of KiRemoveTimer2 @ 0x1403C1900
+ * XREFs of KiRemoveTimer2 @ 0x1403B04C0
  * Callers:
- *     KeDisableTimer2 @ 0x1403C01A8 (KeDisableTimer2.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     KiTimer2Expiration @ 0x1403C1420 (KiTimer2Expiration.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KiInsertTimer2WithCollectionLockHeld @ 0x1403C2620 (KiInsertTimer2WithCollectionLockHeld.c)
- *     KiAdjustTimer2DueTimes @ 0x1404551A0 (KiAdjustTimer2DueTimes.c)
+ *     KeDisableTimer2 @ 0x1403AED68 (KeDisableTimer2.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     KiTimer2Expiration @ 0x1403AFFE0 (KiTimer2Expiration.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KiInsertTimer2WithCollectionLockHeld @ 0x1403B11E0 (KiInsertTimer2WithCollectionLockHeld.c)
+ *     KiAdjustTimer2DueTimes @ 0x140449E60 (KiAdjustTimer2DueTimes.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall KiRemoveTimer2(__int64 a1)
@@ -19,12 +19,12 @@ __int64 __fastcall KiRemoveTimer2(__int64 a1)
   __int64 v4; // rbp
   __int64 v6; // rsi
   char v7; // al
-  unsigned __int64 *v8; // r13
+  _RTL_RB_TREE *v8; // r13
   __int64 v9; // rcx
-  unsigned __int64 *v10; // rdx
+  _RTL_BALANCED_NODE *v10; // rdx
   __int64 v11; // rax
   __int64 result; // rax
-  unsigned __int64 v13; // rax
+  _RTL_BALANCED_NODE *Min; // rax
   __int64 v14; // rcx
   __int64 v15; // rax
   __int64 *v16; // rdx
@@ -43,9 +43,9 @@ __int64 __fastcall KiRemoveTimer2(__int64 a1)
     v7 = *v2;
     if ( (*v2 & 0x10) != 0 )
       goto LABEL_7;
-    v8 = (unsigned __int64 *)(0x140000000LL + 24LL * (v7 & 7) + 15867968);
-    v9 = *(_QWORD *)(0x140000008LL + 24LL * (v7 & 7) + 15867968);
-    v10 = (unsigned __int64 *)(a1 + 24 * (v1 + 1LL));
+    v8 = (_RTL_RB_TREE *)(0x140000000LL + 24LL * (v7 & 7) + 15868384);
+    v9 = *(_QWORD *)(0x140000008LL + 24LL * (v7 & 7) + 15868384);
+    v10 = (_RTL_BALANCED_NODE *)(a1 + 24 * (v1 + 1LL));
     if ( (v9 & 1) != 0 )
     {
       if ( v9 == 1 )
@@ -55,33 +55,33 @@ __int64 __fastcall KiRemoveTimer2(__int64 a1)
     }
     else
     {
-      v11 = *(_QWORD *)(0x140000008LL + 24LL * (v7 & 7) + 15867968);
+      v11 = *(_QWORD *)(0x140000008LL + 24LL * (v7 & 7) + 15868384);
     }
-    if ( (unsigned __int64 *)v11 != v10 )
+    if ( (_RTL_BALANCED_NODE *)v11 != v10 )
     {
       RtlRbRemoveNode(v8, v10);
       goto LABEL_7;
     }
     RtlRbRemoveNode(v8, v10);
-    v13 = v8[1];
+    Min = v8->Min;
     v3 = 1;
-    if ( (v13 & 1) != 0 )
+    if ( ((unsigned __int8)Min & 1) != 0 )
     {
-      if ( v13 == 1 )
+      if ( Min == (_RTL_BALANCED_NODE *)1 )
       {
 LABEL_14:
-        v8[2] = -1LL;
+        v8[1].Root = (_RTL_BALANCED_NODE *)-1LL;
         goto LABEL_7;
       }
-      v14 = v13 ^ ((unsigned __int64)v8 | 1);
+      v14 = (unsigned __int64)Min ^ ((unsigned __int64)v8 | 1);
     }
     else
     {
-      v14 = v8[1];
+      v14 = (__int64)v8->Min;
     }
     if ( !v14 )
       goto LABEL_14;
-    v8[2] = *(_QWORD *)(v4 - v6 + v14 - 24);
+    v8[1].Root = *(_RTL_BALANCED_NODE **)(v4 - v6 + v14 - 24);
 LABEL_7:
     ++v1;
     v4 += 8LL;
@@ -92,7 +92,7 @@ LABEL_7:
   if ( v3 && KiNextTimer2DueTime == *(_QWORD *)(a1 + 72) )
   {
     v15 = -1LL;
-    v16 = (__int64 *)&unk_140F22050;
+    v16 = (__int64 *)&unk_140F221F0;
     v17 = 7LL;
     do
     {

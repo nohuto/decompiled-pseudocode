@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpReleaseProviderTraitsReference @ 0x140A00320
+ * XREFs of EtwpReleaseProviderTraitsReference @ 0x140837CFC
  * Callers:
- *     EtwpSetProviderTraitsCommon @ 0x1408361EC (EtwpSetProviderTraitsCommon.c)
- *     EtwpDeleteRegistrationObject @ 0x14083C380 (EtwpDeleteRegistrationObject.c)
- *     EtwUnregister @ 0x140A00060 (EtwUnregister.c)
+ *     EtwpDeleteRegistrationObject @ 0x1408389E0 (EtwpDeleteRegistrationObject.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1409F69B4 (EtwpSetProviderTraitsCommon.c)
+ *     EtwUnregister @ 0x140A52EC0 (EtwUnregister.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
   __int64 v1; // rbx
   char v3; // si
   struct _FAST_MUTEX *v4; // rdi
-  __int64 *v6; // rcx
+  _RTL_RB_TREE *v6; // rcx
 
   v1 = _InterlockedExchange64((volatile __int64 *)(a1 + 112), 0LL);
   if ( v1 )
@@ -31,7 +31,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
       v6 = &EtwpProviderTraitsKmTree;
       if ( !v3 )
         v6 = &EtwpProviderTraitsUmTree;
-      RtlRbRemoveNode((unsigned __int64 *)v6, (unsigned __int64 *)v1);
+      RtlRbRemoveNode(v6, (PRTL_BALANCED_NODE)v1);
     }
     else
     {

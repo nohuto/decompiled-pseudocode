@@ -1,17 +1,17 @@
 /*
- * XREFs of HvUnlockHiveFlusherExclusive @ 0x14071E188
+ * XREFs of HvUnlockHiveFlusherExclusive @ 0x1406F97EC
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x140362080 (CmpRecheckHiveVolumePolicy.c)
- *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x14036BD14 (CmpUnlockKcbStackFlusherLocksExclusive.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpTransMgrPrepare @ 0x140768D04 (CmpTransMgrPrepare.c)
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
- *     CmReplaceKey @ 0x14086D9C8 (CmReplaceKey.c)
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402F73C0 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x14036BEC4 (CmpUnlockKcbStackFlusherLocksExclusive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpTransMgrPrepare @ 0x140768EC4 (CmpTransMgrPrepare.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
+ *     CmReplaceKey @ 0x14086DB28 (CmReplaceKey.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  */
 
 char __fastcall HvUnlockHiveFlusherExclusive(__int64 a1)

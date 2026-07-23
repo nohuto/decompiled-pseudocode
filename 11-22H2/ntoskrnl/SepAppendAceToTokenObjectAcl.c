@@ -74,12 +74,12 @@ __int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)
   __int64 v46; // [rsp+78h] [rbp-31h]
   _OWORD SecurityDescriptor[2]; // [rsp+80h] [rbp-29h] BYREF
   __int64 v48; // [rsp+A0h] [rbp-9h]
-  __int64 v49; // [rsp+B0h] [rbp+7h] BYREF
+  __int64 AclInformation; // [rsp+B0h] [rbp+7h] BYREF
   int v50; // [rsp+B8h] [rbp+Fh]
 
   v46 = a1;
   v48 = 0LL;
-  v49 = 0LL;
+  AclInformation = 0LL;
   Acl = 0;
   v50 = 0;
   v40 = 0;
@@ -210,15 +210,15 @@ LABEL_6:
   {
     if ( !RtlFindAceBySid((__int64)v16, v5, 0LL) )
     {
-      Acl = RtlQueryInformationAcl(v16, &v49, 12LL);
+      Acl = RtlQueryInformationAcl(v16, &AclInformation, 0xCu, AclSizeInformation);
       if ( Acl >= 0 )
       {
-        Acl = RtlQueryInformationAcl(v16, &AclRevision, 4LL);
+        Acl = RtlQueryInformationAcl(v16, &AclRevision, 4u, AclRevisionInformation);
         if ( Acl >= 0 )
         {
           v19 = RtlLengthSid(v5);
-          v20 = HIDWORD(v49);
-          v21 = (v19 + HIDWORD(v49) + 11) & 0xFFFFFFFC;
+          v20 = HIDWORD(AclInformation);
+          v21 = (v19 + HIDWORD(AclInformation) + 11) & 0xFFFFFFFC;
           v22 = (ACL *)ExAllocatePool2(256LL, v21, 1665230163LL);
           v23 = v22;
           if ( v22 )

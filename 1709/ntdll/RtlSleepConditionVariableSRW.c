@@ -13,37 +13,41 @@
  *     NtWaitForAlertByThreadId @ 0x1800A3970 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlSleepConditionVariableSRW(signed __int64 *a1, __int64 a2, __int64 a3, int a4)
+NTSTATUS __cdecl RtlSleepConditionVariableSRW(
+        PRTL_CONDITION_VARIABLE ConditionVariable,
+        PRTL_SRWLOCK SRWLock,
+        PLARGE_INTEGER Timeout,
+        ULONG Flags)
 {
-  signed __int64 v7; // rdi
-  int v8; // esi
+  signed __int64 Ptr; // rdi
+  ULONG v8; // esi
   unsigned __int64 v9; // rbx
   signed __int64 v10; // rax
   int i; // eax
-  unsigned int v12; // ebx
+  NTSTATUS v12; // ebx
   unsigned __int64 v15; // [rsp+20h] [rbp-48h] BYREF
   unsigned __int64 *v16; // [rsp+28h] [rbp-40h]
   __int64 v17; // [rsp+30h] [rbp-38h]
   void *UniqueThread; // [rsp+38h] [rbp-30h]
   signed __int32 v19; // [rsp+44h] [rbp-24h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-20h]
+  PRTL_SRWLOCK v20; // [rsp+48h] [rbp-20h]
 
-  if ( (a4 & 0xFFFFFFFE) != 0 )
-    return 3221225712LL;
-  _m_prefetchw(a1);
-  v7 = *a1;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741584;
+  _m_prefetchw(ConditionVariable);
+  Ptr = (signed __int64)ConditionVariable->Ptr;
   v17 = 0LL;
   v19 = 2;
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-  v20 = a2;
-  v8 = a4 & 1;
-  if ( (a4 & 1) == 0 )
+  v20 = SRWLock;
+  v8 = Flags & 1;
+  if ( (Flags & 1) == 0 )
     v19 = 3;
   while ( 1 )
   {
-    v9 = (unsigned __int64)&v15 | v7 & 0xF;
-    v15 = v7 & 0xFFFFFFFFFFFFFFF0uLL;
-    if ( (v7 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
+    v9 = (unsigned __int64)&v15 | Ptr & 0xF;
+    v15 = Ptr & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( (Ptr & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
     {
       v16 = 0LL;
       v9 |= 8uLL;
@@ -52,17 +56,17 @@ __int64 __fastcall RtlSleepConditionVariableSRW(signed __int64 *a1, __int64 a2, 
     {
       v16 = &v15;
     }
-    v10 = _InterlockedCompareExchange64(a1, v9, v7);
-    if ( v7 == v10 )
+    v10 = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, v9, Ptr);
+    if ( Ptr == v10 )
       break;
-    v7 = v10;
+    Ptr = v10;
   }
-  if ( (a4 & 1) != 0 )
-    RtlReleaseSRWLockShared(a2, a2, a3);
+  if ( (Flags & 1) != 0 )
+    RtlReleaseSRWLockShared(SRWLock);
   else
-    RtlReleaseSRWLockExclusive(a2);
-  if ( (((unsigned __int8)v7 ^ (unsigned __int8)v9) & 8) != 0 )
-    RtlpOptimizeConditionVariableWaitList(a1, v9);
+    RtlReleaseSRWLockExclusive(SRWLock);
+  if ( (((unsigned __int8)Ptr ^ (unsigned __int8)v9) & 8) != 0 )
+    RtlpOptimizeConditionVariableWaitList(ConditionVariable, v9);
   for ( i = ConditionVariableSpinCount; i; --i )
   {
     if ( (v19 & 2) == 0 )
@@ -72,7 +76,7 @@ __int64 __fastcall RtlSleepConditionVariableSRW(signed __int64 *a1, __int64 a2, 
   v12 = 0;
   if ( _interlockedbittestandreset(&v19, 1u) )
   {
-    v12 = NtWaitForAlertByThreadId(a2, a3);
+    v12 = NtWaitForAlertByThreadId(SRWLock, Timeout);
     if ( v12 == 258 )
       goto LABEL_16;
   }
@@ -83,10 +87,10 @@ __int64 __fastcall RtlSleepConditionVariableSRW(signed __int64 *a1, __int64 a2, 
   if ( (v19 & 4) != 0 )
     goto LABEL_23;
 LABEL_16:
-  if ( !RtlpWakeSingle(a1, (__int64)&v15) )
+  if ( !RtlpWakeSingle((volatile signed __int64 *)ConditionVariable, (__int64)&v15) )
   {
     do
-      NtWaitForAlertByThreadId(a2, 0LL);
+      NtWaitForAlertByThreadId(SRWLock, 0LL);
     while ( (v19 & 4) == 0 );
     goto LABEL_23;
   }
@@ -94,8 +98,8 @@ LABEL_16:
 LABEL_23:
     v12 = 0;
   if ( v8 )
-    RtlAcquireSRWLockShared(a2);
+    RtlAcquireSRWLockShared(SRWLock);
   else
-    RtlAcquireSRWLockExclusive(a2);
+    RtlAcquireSRWLockExclusive(SRWLock);
   return v12;
 }

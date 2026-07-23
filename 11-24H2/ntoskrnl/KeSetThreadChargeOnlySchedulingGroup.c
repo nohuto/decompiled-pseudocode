@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x1402A0C10
+ * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x1403B4ED0
  * Callers:
- *     PspUpdateContainerImpersonation @ 0x1402A11C4 (PspUpdateContainerImpersonation.c)
- *     IopProcessWorkItem @ 0x1402A2410 (IopProcessWorkItem.c)
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     IopProcessWorkItem @ 0x1402D1B40 (IopProcessWorkItem.c)
+ *     PspUpdateContainerImpersonation @ 0x1403B4C5C (PspUpdateContainerImpersonation.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x14034F060 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036D540 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)

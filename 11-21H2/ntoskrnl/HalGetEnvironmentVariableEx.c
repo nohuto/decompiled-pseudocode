@@ -1,18 +1,18 @@
 /*
  * XREFs of HalGetEnvironmentVariableEx @ 0x1403DAAF0
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403DAA2C (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     IoSaveInitialBugCheckProgress @ 0x140552D54 (IoSaveInitialBugCheckProgress.c)
- *     IopGetEnvironmentVariableHal @ 0x140881840 (IopGetEnvironmentVariableHal.c)
- *     NtQueryDriverEntryOrder @ 0x140A00A80 (NtQueryDriverEntryOrder.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140A6AE00 (PopSetMemoryOverwriteRequestAction.c)
+ *     sub_1403DAA2C @ 0x1403DAA2C (sub_1403DAA2C.c)
+ *     sub_140552D54 @ 0x140552D54 (sub_140552D54.c)
+ *     sub_140881840 @ 0x140881840 (sub_140881840.c)
+ *     sub_140A00A80 @ 0x140A00A80 (sub_140A00A80.c)
+ *     sub_140A6AE00 @ 0x140A6AE00 (sub_140A6AE00.c)
  * Callees:
  *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
  *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     _alloca_probe @ 0x14042A4D0 (_alloca_probe.c)
- *     HalEfiGetEnvironmentVariable @ 0x140456B94 (HalEfiGetEnvironmentVariable.c)
+ *     __chkstk @ 0x14042A4D0 (__chkstk.c)
+ *     sub_140456B94 @ 0x140456B94 (sub_140456B94.c)
  */
 
 __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, int a2, __int64 a3, _DWORD *a4, __int64 a5)
@@ -28,14 +28,14 @@ __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, int a2, __int6
   void *v17; // rsp
   void *v18; // rsp
   unsigned int v19; // edx
-  unsigned int EnvironmentVariable; // edi
+  unsigned int v20; // edi
   wchar_t Dst[4]; // [rsp+30h] [rbp+0h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp+8h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp+18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp+8h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp+18h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
-  if ( !HalFirmwareTypeEfi )
+  if ( !byte_140C4BFC8 )
     return 3221225474LL;
   v10 = -1LL;
   do
@@ -61,17 +61,17 @@ __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, int a2, __int6
   }
   else
   {
-    v19 = KiProcessorIndexToNumberMappingTable[KeGetPcr()->Prcb.Number];
+    v19 = dword_140D0E5E0[HIDWORD(KeGetPcr()[1].LockArray)];
     Affinity.Reserved[1] = 0;
     Affinity.Reserved[2] = 0;
     *(_DWORD *)&Affinity.Group = (unsigned __int16)(v19 >> 6);
     Affinity.Mask = 1LL << (v19 & 0x3F);
     KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
   }
-  EnvironmentVariable = HalEfiGetEnvironmentVariable((unsigned int)Dst, a2, a5, (unsigned int)Dst, a3);
+  v20 = sub_140456B94((unsigned int)Dst, a2, a5, (unsigned int)Dst, a3);
   if ( v11 )
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
-  result = EnvironmentVariable;
+  result = v20;
   *a4 = *(_DWORD *)Dst;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcSectionTypeToBufferType @ 0x18017153C
+ * XREFs of RtlpFcSectionTypeToBufferType @ 0x18017053C
  * Callers:
- *     RtlpFcUpdateLocalConfiguration @ 0x1800D6550 (RtlpFcUpdateLocalConfiguration.c)
+ *     RtlpFcUpdateLocalConfiguration @ 0x1800D18C0 (RtlpFcUpdateLocalConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpFcSectionTypeToBufferType(int a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of KiInitializeMutant @ 0x1400DD378
+ * XREFs of KiInitializeMutant @ 0x1400DD3F8
  * Callers:
- *     KeInitializeMutex @ 0x1400DD340 (KeInitializeMutex.c)
- *     KeInitializeMutant @ 0x1400DD360 (KeInitializeMutant.c)
- *     LdrpInitMuiCrits @ 0x1400F4438 (LdrpInitMuiCrits.c)
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
- *     sub_1409C46A8 @ 0x1409C46A8 (sub_1409C46A8.c)
- *     PnpInitializeDeviceEvents @ 0x1409C7260 (PnpInitializeDeviceEvents.c)
- *     EtwpInitializeRegistration @ 0x1409D03BC (EtwpInitializeRegistration.c)
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
- *     PopDiagInitialize @ 0x1409D0B90 (PopDiagInitialize.c)
- *     ViInitSystemPhase0 @ 0x1409DAF34 (ViInitSystemPhase0.c)
- *     MiInitializeBootDefaults @ 0x1409DBEF0 (MiInitializeBootDefaults.c)
- *     ExpProfileInitialization @ 0x1409DE2E0 (ExpProfileInitialization.c)
+ *     KeInitializeMutex @ 0x1400DD3C0 (KeInitializeMutex.c)
+ *     KeInitializeMutant @ 0x1400DD3E0 (KeInitializeMutant.c)
+ *     LdrpInitMuiCrits @ 0x1400F44B8 (LdrpInitMuiCrits.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
+ *     sub_1409C56A8 @ 0x1409C56A8 (sub_1409C56A8.c)
+ *     PnpInitializeDeviceEvents @ 0x1409C8260 (PnpInitializeDeviceEvents.c)
+ *     EtwpInitializeRegistration @ 0x1409D13BC (EtwpInitializeRegistration.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
+ *     PopDiagInitialize @ 0x1409D1B90 (PopDiagInitialize.c)
+ *     ViInitSystemPhase0 @ 0x1409DBF34 (ViInitSystemPhase0.c)
+ *     MiInitializeBootDefaults @ 0x1409DCEF0 (MiInitializeBootDefaults.c)
+ *     ExpProfileInitialization @ 0x1409DF2E0 (ExpProfileInitialization.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiInitializeMutant(__int64 a1, __int64 a2, __int64 a3)

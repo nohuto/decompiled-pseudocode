@@ -1,14 +1,21 @@
 /*
- * XREFs of ZwQueueApcThreadEx2 @ 0x1403FD080
+ * XREFs of ZwQueueApcThreadEx2 @ 0x1403FD260
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueueApcThreadEx2(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueueApcThreadEx2(
+        HANDLE ThreadHandle,
+        HANDLE ReserveHandle,
+        ULONG ApcFlags,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

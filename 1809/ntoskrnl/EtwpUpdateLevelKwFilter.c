@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateLevelKwFilter @ 0x1408C2418
+ * XREFs of EtwpUpdateLevelKwFilter @ 0x1408C36D8
  * Callers:
- *     EtwpUpdateFilterData @ 0x140657014 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x1406581D4 (EtwpUpdateFilterData.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdateLevelKwFilter(__int64 a1, __int64 a2, char a3, _QWORD *a4)

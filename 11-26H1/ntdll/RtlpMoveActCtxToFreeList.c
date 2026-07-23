@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpMoveActCtxToFreeList @ 0x1800A1D9C
+ * XREFs of RtlpMoveActCtxToFreeList @ 0x1800A0ECC
  * Callers:
- *     sxsisol_SearchActCtxForDllName @ 0x180042600 (sxsisol_SearchActCtxForDllName.c)
- *     RtlReleaseActivationContext @ 0x18004DE10 (RtlReleaseActivationContext.c)
+ *     sxsisol_SearchActCtxForDllName @ 0x18002CB70 (sxsisol_SearchActCtxForDllName.c)
+ *     RtlReleaseActivationContext @ 0x180038390 (RtlReleaseActivationContext.c)
  * Callees:
- *     RtlAcquirePebLock @ 0x1800A1E90 (RtlAcquirePebLock.c)
- *     RtlReleasePebLock @ 0x1800A1EB0 (RtlReleasePebLock.c)
- *     RtlpFreeActivationContext @ 0x1800A1EC8 (RtlpFreeActivationContext.c)
- *     RtlpEnsureLiveDeadListsInitialized @ 0x18011D500 (RtlpEnsureLiveDeadListsInitialized.c)
+ *     RtlAcquirePebLock @ 0x1800A0FC0 (RtlAcquirePebLock.c)
+ *     RtlReleasePebLock @ 0x1800A0FE0 (RtlReleasePebLock.c)
+ *     RtlpFreeActivationContext @ 0x1800A0FF8 (RtlpFreeActivationContext.c)
+ *     RtlpEnsureLiveDeadListsInitialized @ 0x18011D2B0 (RtlpEnsureLiveDeadListsInitialized.c)
  */
 
-__int64 __fastcall RtlpMoveActCtxToFreeList(__int64 a1)
+NTSTATUS __fastcall RtlpMoveActCtxToFreeList(__int64 a1)
 {
   _QWORD *v2; // rbx
   __int64 v3; // rcx
@@ -49,14 +49,14 @@ __int64 __fastcall RtlpMoveActCtxToFreeList(__int64 a1)
     RtlpFreeActivationContext(a1);
     return RtlReleasePebLock();
   }
-  v8 = (_QWORD *)qword_1801C6E10;
-  if ( *(__int64 **)qword_1801C6E10 != &g_SxsFreeActivationContexts )
+  v8 = (_QWORD *)qword_1801C5E10;
+  if ( *(__int64 **)qword_1801C5E10 != &g_SxsFreeActivationContexts )
 LABEL_14:
     __fastfail(3u);
   *v2 = &g_SxsFreeActivationContexts;
   *(_QWORD *)(a1 + 16) = v8;
   *v8 = v2;
-  qword_1801C6E10 = a1 + 8;
+  qword_1801C5E10 = a1 + 8;
   g_SxsCurrentDeadActivationContexts = i + 1;
   return RtlReleasePebLock();
 }

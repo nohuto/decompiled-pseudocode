@@ -1,77 +1,74 @@
 /*
- * XREFs of ExpUpdateTimerResolution @ 0x14052E534
+ * XREFs of ExpUpdateTimerResolution @ 0x140530A54
  * Callers:
- *     ExSetTimerResolution @ 0x140418BA0 (ExSetTimerResolution.c)
- *     ExUpdateTimerResolutionPolicy @ 0x140A6677C (ExUpdateTimerResolutionPolicy.c)
- *     NtSetTimerResolution @ 0x140A667F0 (NtSetTimerResolution.c)
+ *     ExSetTimerResolution @ 0x14040D0D0 (ExSetTimerResolution.c)
+ *     ExUpdateTimerResolutionPolicy @ 0x140A7374C (ExUpdateTimerResolutionPolicy.c)
+ *     NtSetTimerResolution @ 0x140A737C0 (NtSetTimerResolution.c)
  * Callees:
- *     PoTraceSystemTimerResolutionUpdate @ 0x140255E78 (PoTraceSystemTimerResolutionUpdate.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExpUpdateTimerConfiguration @ 0x140379D60 (ExpUpdateTimerConfiguration.c)
+ *     PoTraceSystemTimerResolutionUpdate @ 0x1402577FC (PoTraceSystemTimerResolutionUpdate.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpUpdateTimerConfiguration @ 0x14037BB10 (ExpUpdateTimerConfiguration.c)
  */
 
-__int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int a2, KIRQL *a3)
+__int64 __fastcall ExpUpdateTimerResolution(char a1, unsigned int Flink, KIRQL *a3)
 {
   KIRQL v4; // al
   KIRQL v5; // r9
-  unsigned __int8 *i; // rcx
+  struct _LIST_ENTRY *i; // rcx
   int v7; // ebx
   __int64 result; // rax
   unsigned int v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v9 = a2;
+  v9 = Flink;
   if ( a3 )
   {
     v5 = *a3;
   }
   else
   {
-    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExpSysDbgLock.WaitBlock[3].Thread);
-    a2 = v9;
+    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExpSysDbgLock.Timer.TimerListEntry.Blink);
+    Flink = v9;
     v5 = v4;
   }
   if ( a1 )
   {
-    if ( a2 >= ExpLastRequestedTime || a2 >= KeMaximumIncrement )
+    if ( Flink >= ExpLastRequestedTime || Flink >= KeMaximumIncrement )
     {
 LABEL_23:
-      KeReleaseSpinLock((PKSPIN_LOCK)&ExpSysDbgLock.WaitBlock[3].Thread, v5);
+      KeReleaseSpinLock((PKSPIN_LOCK)&ExpSysDbgLock.Timer.TimerListEntry.Blink, v5);
       return (unsigned int)KePseudoHrTimeIncrement;
     }
   }
   else
   {
-    a2 = KeMaximumIncrement;
+    Flink = KeMaximumIncrement;
     v9 = KeMaximumIncrement;
-    if ( *(_DWORD *)&ExpSysDbgLock.WaitBlockFill11[152]
-      && *(_DWORD *)&ExpSysDbgLock.WaitBlockFill11[156] < (unsigned int)KeMaximumIncrement )
+    if ( LODWORD(ExpSysDbgLock.Timer.Dpc) && LODWORD(ExpSysDbgLock.Timer.TimerListEntry.Flink) < KeMaximumIncrement )
     {
-      a2 = *(_DWORD *)&ExpSysDbgLock.WaitBlockFill11[156];
-      v9 = *(_DWORD *)&ExpSysDbgLock.WaitBlockFill11[156];
+      Flink = (unsigned int)ExpSysDbgLock.Timer.TimerListEntry.Flink;
+      v9 = (unsigned int)ExpSysDbgLock.Timer.TimerListEntry.Flink;
     }
-    for ( i = (unsigned __int8 *)ExpSysDbgLock.WaitBlock[2].SparePtr;
-          i != &ExpSysDbgLock.WaitBlockFill11[136];
-          i = *(unsigned __int8 **)i )
+    for ( i = ExpSysDbgLock.WaitBlock[0].WaitListEntry.Flink; i != (struct _LIST_ENTRY *)&ExpSysDbgLock.320; i = i->Flink )
     {
-      a2 = v9;
-      if ( (*((_DWORD *)i - 235) & 0x1000) != 0 && *((_DWORD *)i + 6) < v9 && (*((_DWORD *)i + 23) & 0x4000000) == 0 )
+      Flink = v9;
+      if ( (HIDWORD(i[-59].Flink) & 0x1000) != 0 && LODWORD(i[1].Blink) < v9 && (HIDWORD(i[5].Blink) & 0x4000000) == 0 )
       {
-        a2 = *((_DWORD *)i + 6);
-        v9 = a2;
+        Flink = (unsigned int)i[1].Blink;
+        v9 = Flink;
       }
     }
   }
-  if ( a2 < KeMinimumIncrement )
+  if ( Flink < KeMinimumIncrement )
   {
-    a2 = KeMinimumIncrement;
+    Flink = KeMinimumIncrement;
     v9 = KeMinimumIncrement;
   }
-  if ( a2 == ExpLastRequestedTime )
+  if ( Flink == ExpLastRequestedTime )
     goto LABEL_23;
   v7 = KePseudoHrTimeIncrement;
-  ExpLastRequestedTime = a2;
-  KeReleaseSpinLock((PKSPIN_LOCK)&ExpSysDbgLock.WaitBlock[3].Thread, v5);
+  ExpLastRequestedTime = Flink;
+  KeReleaseSpinLock((PKSPIN_LOCK)&ExpSysDbgLock.Timer.TimerListEntry.Blink, v5);
   ExpUpdateTimerConfiguration((__int64)&v9, 0LL, 0LL);
   result = v9;
   if ( v7 != v9 )

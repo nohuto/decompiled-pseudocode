@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpWriteAppStateChangeSummary @ 0x14054A9D8
+ * XREFs of EtwpWriteAppStateChangeSummary @ 0x14054AF18
  * Callers:
- *     EtwTraceProcess @ 0x14045D50C (EtwTraceProcess.c)
- *     EtwTraceAppStateChange @ 0x1404A3048 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x14045C3DC (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x14051B448 (EtwTraceAppStateChange.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     TraceLoggingProviderEnabled @ 0x140088D10 (TraceLoggingProviderEnabled.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     _TlgWriteAgg @ 0x14009EE88 (_TlgWriteAgg.c)
- *     _TlgCreateWsz @ 0x140133CE4 (_TlgCreateWsz.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     _TlgWriteAgg @ 0x14008517C (_TlgWriteAgg.c)
+ *     TraceLoggingProviderEnabled @ 0x14010CF00 (TraceLoggingProviderEnabled.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     _TlgCreateWsz @ 0x140134254 (_TlgCreateWsz.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
  */
 
 char __fastcall EtwpWriteAppStateChangeSummary(
@@ -249,7 +249,7 @@ char __fastcall EtwpWriteAppStateChangeSummary(
       v103 = 29LL;
       LOBYTE(ProcessServerSilo) = TlgWriteAgg(
                                     (__int64)&stru_1402F3640,
-                                    (unsigned __int8 *)dword_14027EB82,
+                                    (unsigned __int8 *)dword_14027EC82,
                                     v25,
                                     v26,
                                     0x1Eu,

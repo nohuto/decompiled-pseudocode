@@ -1,10 +1,10 @@
 /*
- * XREFs of VfDevObjPostAddDevice @ 0x1409D60A4
+ * XREFs of VfDevObjPostAddDevice @ 0x1409D70A4
  * Callers:
- *     PpvUtilCallAddDevice @ 0x14036F630 (PpvUtilCallAddDevice.c)
+ *     PpvUtilCallAddDevice @ 0x14036F7E0 (PpvUtilCallAddDevice.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x14037DFD0 (MmIsDriverVerifying.c)
- *     VfFilterAttach @ 0x1409E4EF4 (VfFilterAttach.c)
+ *     MmIsDriverVerifying @ 0x14037DB20 (MmIsDriverVerifying.c)
+ *     VfFilterAttach @ 0x1409E5EF4 (VfFilterAttach.c)
  */
 
 void __fastcall VfDevObjPostAddDevice(

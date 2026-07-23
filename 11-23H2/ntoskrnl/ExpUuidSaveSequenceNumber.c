@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpUuidSaveSequenceNumber @ 0x14085F0A0
+ * XREFs of ExpUuidSaveSequenceNumber @ 0x14085F2E0
  * Callers:
  *     ExpUuidSaveSequenceNumberIf @ 0x140687ED0 (ExpUuidSaveSequenceNumberIf.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlGetPersistedStateLocation @ 0x1406C53D0 (RtlGetPersistedStateLocation.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlGetPersistedStateLocation @ 0x1406C5400 (RtlGetPersistedStateLocation.c)
  */
 
 __int64 ExpUuidSaveSequenceNumber()
 {
-  int PersistedStateLocation; // ebx
+  NTSTATUS PersistedStateLocation; // ebx
   int Data; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
@@ -30,7 +30,7 @@ __int64 ExpUuidSaveSequenceNumber()
                              L"KernelExecutive",
                              0LL,
                              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Executive",
-                             0,
+                             LocationTypeRegistry,
                              SourceString,
                              0x1FEu,
                              0LL);

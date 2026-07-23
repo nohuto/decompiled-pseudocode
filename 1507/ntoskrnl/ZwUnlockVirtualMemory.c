@@ -14,5 +14,5 @@ NTSTATUS __stdcall ZwUnlockVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, NumberOfBytesToUnlock);
+  return KiServiceInternal(ProcessHandle);
 }

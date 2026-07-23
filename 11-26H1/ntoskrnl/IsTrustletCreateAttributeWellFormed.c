@@ -1,7 +1,7 @@
 /*
- * XREFs of IsTrustletCreateAttributeWellFormed @ 0x1405302B4
+ * XREFs of IsTrustletCreateAttributeWellFormed @ 0x1405327B4
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140A00BC4 (PspBuildCreateProcessContext.c)
+ *     PspBuildCreateProcessContext @ 0x140A79424 (PspBuildCreateProcessContext.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ bool __fastcall IsTrustletCreateAttributeWellFormed(_QWORD *a1, __int64 a2)
       v6 = HIDWORD(a1[v3 + 1]);
       if ( (_BYTE)v6 || v6 >= 0x100 || (a1[v3 + 1] & 0xF0000000LL) != 0 )
         return 0;
-      v7 = &`IsTrustletCreateAttributeWellFormed'::`2'::KnownAttributeTypes;
+      v7 = `IsTrustletCreateAttributeWellFormed'::`2'::KnownAttributeTypes;
       v8 = 0;
       while ( 1 )
       {

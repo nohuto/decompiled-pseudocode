@@ -1,19 +1,19 @@
 /*
- * XREFs of MmFreeContiguousMemory @ 0x14009ABB8
+ * XREFs of MmFreeContiguousMemory @ 0x14009A3B8
  * Callers:
- *     HvlpFreeOverlayPages @ 0x140112194 (HvlpFreeOverlayPages.c)
- *     IopInitializeInMemoryDumpData @ 0x1401C75E4 (IopInitializeInMemoryDumpData.c)
- *     ViReleaseDmaAdapter @ 0x14070A24C (ViReleaseDmaAdapter.c)
+ *     HvlpFreeOverlayPages @ 0x1401126F8 (HvlpFreeOverlayPages.c)
+ *     IopInitializeInMemoryDumpData @ 0x1401C7484 (IopInitializeInMemoryDumpData.c)
+ *     ViReleaseDmaAdapter @ 0x14070A27C (ViReleaseDmaAdapter.c)
  * Callees:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     MmUnmapIoSpace @ 0x14009B4B0 (MmUnmapIoSpace.c)
- *     MiFreeContiguousPages @ 0x14011191C (MiFreeContiguousPages.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1401E35E0 (MiLogPerfMemoryRangeEvent.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     MmUnmapIoSpace @ 0x14009ACB0 (MmUnmapIoSpace.c)
+ *     MiFreeContiguousPages @ 0x140111E80 (MiFreeContiguousPages.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1401E340C (MiLogPerfMemoryRangeEvent.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VfFreeMemoryNotification @ 0x140702884 (VfFreeMemoryNotification.c)
+ *     VfFreeMemoryNotification @ 0x1407028B4 (VfFreeMemoryNotification.c)
  */
 
 void __stdcall MmFreeContiguousMemory(PVOID BaseAddress)
@@ -31,11 +31,11 @@ void __stdcall MmFreeContiguousMemory(PVOID BaseAddress)
   ULONG_PTR v12; // [rsp+50h] [rbp+0h] BYREF
 
   v1 = (ULONG_PTR *)((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL);
-  if ( (unsigned __int64)BaseAddress >= qword_140327F20
-    && (unsigned __int64)BaseAddress < qword_140327F20 + 0x100000000000LL
-    || qword_140326C30
-    && (unsigned __int64)BaseAddress >= qword_140326C30
-    && (unsigned __int64)BaseAddress < qword_140326C30 + (qword_140326C10 << 21)
+  if ( (unsigned __int64)BaseAddress >= qword_140327F60
+    && (unsigned __int64)BaseAddress < qword_140327F60 + 0x100000000000LL
+    || qword_140326C70
+    && (unsigned __int64)BaseAddress >= qword_140326C70
+    && (unsigned __int64)BaseAddress < qword_140326C70 + (qword_140326C50 << 21)
     && (*(_BYTE *)(48
                  * ((*(_QWORD *)((((unsigned __int64)BaseAddress >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                  - 0x57FFFFFFFDALL) & 0xF0) == 0xD0 )

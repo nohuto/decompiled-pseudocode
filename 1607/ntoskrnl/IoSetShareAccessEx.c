@@ -1,8 +1,8 @@
 /*
- * XREFs of IoSetShareAccessEx @ 0x1400075B0
+ * XREFs of IoSetShareAccessEx @ 0x140007720
  * Callers:
- *     RawCreate @ 0x1403EB9E4 (RawCreate.c)
- *     IoSetShareAccess @ 0x1403EC298 (IoSetShareAccess.c)
+ *     RawCreate @ 0x1403ED014 (RawCreate.c)
+ *     IoSetShareAccess @ 0x1403ED8C8 (IoSetShareAccess.c)
  * Callees:
  *     <none>
  */

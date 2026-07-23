@@ -1,12 +1,12 @@
 /*
- * XREFs of MmProbeAndLockProcessPages @ 0x14073EDF0
+ * XREFs of MmProbeAndLockProcessPages @ 0x14073EFE0
  * Callers:
- *     CcAsyncReadPrefetch @ 0x1402BDAFC (CcAsyncReadPrefetch.c)
+ *     CcAsyncReadPrefetch @ 0x1402BDD8C (CcAsyncReadPrefetch.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __stdcall MmProbeAndLockProcessPages(

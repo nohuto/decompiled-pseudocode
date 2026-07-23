@@ -12,7 +12,7 @@
 __int64 __fastcall RtlpHpEnvTlsAlloc(__int64 a1, __int64 a2)
 {
   int v2; // edi
-  unsigned int v3; // esi
+  ULONG v3; // esi
   int v4; // eax
   int v5; // ebx
   unsigned int v6; // ebx
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpEnvTlsAlloc(__int64 a1, __int64 a2)
   v8 = -1;
   if ( a2 )
   {
-    v4 = RtlpFlsAlloc((__int64)&RtlpHpEnvFlsContext, a2, (__int64)RtlpHpLfhTlsCleanup, a2, &v10);
+    v4 = RtlpFlsAlloc(&RtlpHpEnvFlsContext, a2, (__int64)RtlpHpLfhTlsCleanup, a2, &v10);
     v2 = v10;
     if ( v4 >= 0 && v10 <= 0xFFFF )
     {
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpHpEnvTlsAlloc(__int64 a1, __int64 a2)
   v6 = 0;
 LABEL_6:
   if ( v2 )
-    RtlpFlsFree((volatile signed __int64 *)&RtlpHpEnvFlsContext, v2);
+    RtlpFlsFree(&RtlpHpEnvFlsContext, v2);
   if ( v3 != -1 )
     RtlTlsFree(v3);
   return v6;

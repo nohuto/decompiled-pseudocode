@@ -13,28 +13,27 @@
  *     _RtlRegisterForWnfMetaNotification@24 @ 0x4B33BF80 (_RtlRegisterForWnfMetaNotification@24.c)
  */
 
-int __stdcall RtlWaitForWnfMetaNotification(int a1, int a2, int a3, unsigned int a4, int a5, int *a6)
+int __stdcall RtlWaitForWnfMetaNotification(unsigned int a1, unsigned int a2, int a3, unsigned int a4, int a5, int *a6)
 {
-  int WnfStateNameInformation; // esi
+  NTSTATUS v6; // esi
   int v7; // edi
   int result; // eax
-  HANDLE Handle; // [esp+Ch] [ebp-34h] BYREF
-  int v10; // [esp+10h] [ebp-30h] BYREF
+  HANDLE EventHandle; // [esp+Ch] [ebp-34h] BYREF
+  int InfoBuffer; // [esp+10h] [ebp-30h] BYREF
   int *v11; // [esp+14h] [ebp-2Ch]
-  int v12; // [esp+18h] [ebp-28h] BYREF
+  PVOID v12; // [esp+18h] [ebp-28h] BYREF
   _DWORD v13[3]; // [esp+1Ch] [ebp-24h] BYREF
-  __int64 v14; // [esp+28h] [ebp-18h] BYREF
-  int v15; // [esp+30h] [ebp-10h] BYREF
-  int v16; // [esp+34h] [ebp-Ch]
+  LARGE_INTEGER Timeout; // [esp+28h] [ebp-18h] BYREF
+  WNF_STATE_NAME StateName; // [esp+30h] [ebp-10h] BYREF
 
-  Handle = 0;
-  v15 = a1;
-  v16 = a2;
+  EventHandle = 0;
+  StateName.Data[0] = a1;
+  StateName.Data[1] = a2;
   *a6 = 0;
   v11 = a6;
   if ( a4 > 0x7FFFFFFF || (a3 & 0x11) != 0 )
   {
-    WnfStateNameInformation = -1073741811;
+    v6 = -1073741811;
     goto LABEL_25;
   }
   if ( (a3 & 0xFFFFFFF1) == 0 )
@@ -42,10 +41,10 @@ int __stdcall RtlWaitForWnfMetaNotification(int a1, int a2, int a3, unsigned int
     v7 = 0;
     if ( (a3 & 8) != 0 )
     {
-      WnfStateNameInformation = NtQueryWnfStateNameInformation((int)&v15, 2, 0, (int)&v10, 4);
-      if ( WnfStateNameInformation )
+      v6 = NtQueryWnfStateNameInformation(&StateName, WnfInfoIsQuiescent, 0, &InfoBuffer, 4u);
+      if ( v6 )
         goto LABEL_25;
-      if ( v10 )
+      if ( InfoBuffer )
         v7 = 8;
     }
     if ( (a3 & 6) == 0 )
@@ -57,43 +56,43 @@ LABEL_17:
         *v11 = v7;
         return result;
       }
-      WnfStateNameInformation = NtCreateEvent((int)&Handle, 2031619, 0, 0, 0);
-      if ( WnfStateNameInformation >= 0 )
+      v6 = NtCreateEvent(&EventHandle, 0x1F0003u, 0, NotificationEvent, 0);
+      if ( v6 >= 0 )
       {
-        v13[1] = Handle;
+        v13[1] = EventHandle;
         v13[2] = 0;
         v13[0] = 0;
-        WnfStateNameInformation = RtlRegisterForWnfMetaNotification(
-                                    &v12,
-                                    v15,
-                                    v16,
-                                    a3,
-                                    (int)RtlpWnfMetaCallbackProc,
-                                    (int)v13);
-        if ( WnfStateNameInformation >= 0 )
+        v6 = RtlRegisterForWnfMetaNotification(
+               &v12,
+               StateName.Data[0],
+               StateName.Data[1],
+               a3,
+               (int)RtlpWnfMetaCallbackProc,
+               (int)v13);
+        if ( v6 >= 0 )
         {
-          v14 = -10000LL * a4;
-          WnfStateNameInformation = ZwWaitForSingleObject((int)Handle, 0, (int)&v14);
-          if ( !WnfStateNameInformation )
+          Timeout.QuadPart = -10000LL * a4;
+          v6 = ZwWaitForSingleObject(EventHandle, 0, &Timeout);
+          if ( !v6 )
             *v11 = v13[0];
           RtlUnsubscribeWnfNotificationWaitForCompletion(v12);
         }
       }
       goto LABEL_25;
     }
-    WnfStateNameInformation = NtQueryWnfStateNameInformation((int)&v15, 1, 0, (int)&v10, 4);
-    if ( !WnfStateNameInformation )
+    v6 = NtQueryWnfStateNameInformation(&StateName, WnfInfoSubscribersPresent, 0, &InfoBuffer, 4u);
+    if ( !v6 )
     {
-      if ( (a3 & 2) != 0 && v10 )
+      if ( (a3 & 2) != 0 && InfoBuffer )
         v7 |= 2u;
-      if ( (a3 & 4) != 0 && !v10 )
+      if ( (a3 & 4) != 0 && !InfoBuffer )
         v7 |= 4u;
       goto LABEL_17;
     }
 LABEL_25:
-    if ( Handle )
-      NtClose(Handle);
-    return WnfStateNameInformation;
+    if ( EventHandle )
+      NtClose(EventHandle);
+    return v6;
   }
   return -1073741811;
 }

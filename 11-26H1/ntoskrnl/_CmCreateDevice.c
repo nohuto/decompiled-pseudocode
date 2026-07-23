@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmCreateDevice @ 0x140AF2C20
+ * XREFs of _CmCreateDevice @ 0x140AF540C
  * Callers:
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x14079EAB0 (IoReportRootDevice.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x1407A9D18 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PiCMGenerateDeviceInstance @ 0x1407B0AD8 (PiCMGenerateDeviceInstance.c)
- *     _PnpDispatchDevice @ 0x1409956A0 (_PnpDispatchDevice.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
- *     PiCMCreateDevice @ 0x140B5A67C (PiCMCreateDevice.c)
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x1407A15F0 (IoReportRootDevice.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1407AC988 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiCMGenerateDeviceInstance @ 0x1407B3B38 (PiCMGenerateDeviceInstance.c)
+ *     _PnpDispatchDevice @ 0x140956100 (_PnpDispatchDevice.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     PiCMCreateDevice @ 0x140B5D998 (PiCMCreateDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _CmCreateDeviceWorker @ 0x140AF2DA0 (_CmCreateDeviceWorker.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _CmCreateDeviceWorker @ 0x140AF558C (_CmCreateDeviceWorker.c)
  */
 
 __int64 __fastcall CmCreateDevice(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)

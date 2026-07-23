@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeProcessUserVa @ 0x1406B3118
+ * XREFs of MiComputeProcessUserVa @ 0x1406B3148
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MmGetMinWsPagePriority @ 0x1402FBDA0 (MmGetMinWsPagePriority.c)
- *     MiUpdateChargedWsles @ 0x140661EC4 (MiUpdateChargedWsles.c)
- *     MiChargeFullProcessCommitment @ 0x1406F7800 (MiChargeFullProcessCommitment.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MmGetMinWsPagePriority @ 0x1402FC030 (MmGetMinWsPagePriority.c)
+ *     MiUpdateChargedWsles @ 0x140662414 (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x1406F7A10 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

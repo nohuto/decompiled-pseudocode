@@ -1,20 +1,20 @@
 /*
- * XREFs of MiProcessDeleteOnClose @ 0x1401DEEB8
+ * XREFs of MiProcessDeleteOnClose @ 0x1401DECE4
  * Callers:
- *     MiDereferenceSegmentThread @ 0x140141554 (MiDereferenceSegmentThread.c)
+ *     MiDereferenceSegmentThread @ 0x140141AC4 (MiDereferenceSegmentThread.c)
  * Callees:
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiInsertUnusedSegment @ 0x140026FEC (MiInsertUnusedSegment.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     MiDestroySection @ 0x140111D20 (MiDestroySection.c)
- *     MiFlushControlArea @ 0x1401DEA98 (MiFlushControlArea.c)
- *     MiUnlinkUnusedControlArea @ 0x1401DF460 (MiUnlinkUnusedControlArea.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiInsertUnusedSegment @ 0x140026B6C (MiInsertUnusedSegment.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     MiDestroySection @ 0x140112284 (MiDestroySection.c)
+ *     MiFlushControlArea @ 0x1401DE8C4 (MiFlushControlArea.c)
+ *     MiUnlinkUnusedControlArea @ 0x1401DF28C (MiUnlinkUnusedControlArea.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 void __fastcall MiProcessDeleteOnClose(__int64 a1, int a2)

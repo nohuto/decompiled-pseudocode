@@ -20,15 +20,15 @@
  *     MiControlAreaUsingExtents @ 0x1400321B0 (MiControlAreaUsingExtents.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
- *     MiUseSlabAllocator @ 0x140065C90 (MiUseSlabAllocator.c)
- *     MiSanitizePfnProtection @ 0x140074050 (MiSanitizePfnProtection.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiSetInPagePrefetchPriority @ 0x140113BB4 (MiSetInPagePrefetchPriority.c)
- *     KeInvalidAccessAllowed @ 0x140117D0C (KeInvalidAccessAllowed.c)
- *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
- *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
+ *     MiObtainFaultCharges @ 0x140064D50 (MiObtainFaultCharges.c)
+ *     MiUseSlabAllocator @ 0x140065C80 (MiUseSlabAllocator.c)
+ *     MiSanitizePfnProtection @ 0x140074040 (MiSanitizePfnProtection.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiSetInPagePrefetchPriority @ 0x140113C24 (MiSetInPagePrefetchPriority.c)
+ *     KeInvalidAccessAllowed @ 0x140117D7C (KeInvalidAccessAllowed.c)
+ *     MiReturnFaultCharges @ 0x140134924 (MiReturnFaultCharges.c)
+ *     MiGetSharedProtos @ 0x140177274 (MiGetSharedProtos.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
  */
 
 __int64 MiResolveMappedFileFault(unsigned __int64 *a1, unsigned __int64 a2, ...)
@@ -167,19 +167,19 @@ __int64 MiResolveMappedFileFault(unsigned __int64 *a1, unsigned __int64 a2, ...)
   }
   if ( (v69 & 0x400) != 0 )
   {
-    if ( qword_14043A0C0 && (v69 & 0x10) == 0 )
-      v8 = ~qword_14043A0C0 & v69;
+    if ( qword_14043B180 && (v69 & 0x10) == 0 )
+      v8 = ~qword_14043B180 & v69;
     v70 = 0LL;
   }
   else
   {
-    if ( qword_14043A0C0 && (v69 & 0x10) == 0 )
-      v8 = ~qword_14043A0C0 & v69;
+    if ( qword_14043B180 && (v69 & 0x10) == 0 )
+      v8 = ~qword_14043B180 & v69;
     v6 = 0xFFFFFA8000000000uLL;
     v70 = 48 * (((unsigned __int64)v8 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
     v8 = *(_QWORD *)(v70 + 16);
-    if ( qword_14043A0C0 && (v8 & 0x10) == 0 )
-      v8 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v8 & 0x10) == 0 )
+      v8 &= ~qword_14043B180;
   }
   v10 = v8 >> 16;
   v11 = *(_QWORD *)v10;
@@ -229,7 +229,7 @@ LABEL_92:
     MiUnlockProtoPoolPage(v79, v14);
     return 3221225477LL;
   }
-  v15 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v11 + 60) & 0x3FF));
+  v15 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v11 + 60) & 0x3FF));
   v64 = v15;
   v17 = v69;
   if ( (unsigned int)MiControlAreaUsingExtents(v11) )
@@ -329,7 +329,7 @@ LABEL_104:
   v78 = MiSanitizePfnProtection(0LL, v26, (v25 >> 5) & 0x1F);
   MiInitializePageColorBase(v71, v65, &v72);
   v29 = *(_DWORD *)(v11 + 56);
-  if ( (v29 & 0x20) == 0 || (v29 & 0x40000) != 0 || !v28 || dword_14043ADA4 )
+  if ( (v29 & 0x20) == 0 || (v29 & 0x40000) != 0 || !v28 || dword_14043BE64 )
     goto LABEL_35;
   v30 = _InterlockedExchangeAdd(v72, 1u);
   v31 = (unsigned __int16)(v30 & v73);

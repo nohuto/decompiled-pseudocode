@@ -1,9 +1,9 @@
 /*
- * XREFs of CcAdjustWriteBehindThreadPool @ 0x140381928
+ * XREFs of CcAdjustWriteBehindThreadPool @ 0x140381478
  * Callers:
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140336330 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140341080 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
  * Callees:
- *     CcReEngageWorkerThreads @ 0x140380480 (CcReEngageWorkerThreads.c)
+ *     CcReEngageWorkerThreads @ 0x14037FFD0 (CcReEngageWorkerThreads.c)
  */
 
 void __fastcall CcAdjustWriteBehindThreadPool(__int64 a1, char a2)

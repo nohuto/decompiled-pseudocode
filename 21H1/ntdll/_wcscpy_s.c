@@ -8,15 +8,15 @@
 
 errno_t __cdecl wcscpy_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_t *Source)
 {
-  rsize_t v3; // edx
-  const wchar_t *v4; // ecx
+  int v3; // edx
+  wchar_t *v4; // ecx
   wchar_t v5; // ax
   errno_t v7; // [esp-4h] [ebp-Ch]
 
   if ( Destination && (v3 = SizeInWords) != 0 )
   {
-    v4 = Source;
-    if ( !Source )
+    v4 = (wchar_t *)HIDWORD(SizeInWords);
+    if ( !HIDWORD(SizeInWords) )
     {
       v7 = 22;
 LABEL_9:
@@ -27,7 +27,7 @@ LABEL_9:
     do
     {
       v5 = *v4;
-      *(const wchar_t *)((char *)v4 + (char *)Destination - (char *)Source) = *v4;
+      *(wchar_t *)((char *)v4 + (_DWORD)Destination - HIDWORD(SizeInWords)) = *v4;
       ++v4;
       if ( !v5 )
         break;

@@ -11,20 +11,19 @@
 
 int __fastcall RtlpInitializeAssemblyStorageMap(int *a1, int a2, void *a3)
 {
-  void *Heap; // edx
+  PVOID Heap; // edx
   int result; // eax
-  int v7; // [esp+10h] [ebp-4h]
+  SIZE_T v7; // [esp-4h] [ebp-18h]
+  int Size; // [esp+10h] [ebp-4h]
 
-  v7 = 0;
+  Size = 0;
   if ( !a1 || !a2 )
   {
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() bad parameters:\nSXS:    Map        : 0x%p\nSXS:    EntryCount : 0x%lx\n",
-      "RtlpInitializeAssemblyStorageMap",
-      a1,
-      a2);
+      (int)"SXS: %s() bad parameters:\nSXS:    Map        : 0x%p\nSXS:    EntryCount : 0x%lx\n",
+      (int)"RtlpInitializeAssemblyStorageMap");
     return -1073741811;
   }
   Heap = a3;
@@ -33,14 +32,15 @@ int __fastcall RtlpInitializeAssemblyStorageMap(int *a1, int a2, void *a3)
     result = RtlULongLongToUInt(4 * a2, (unsigned __int64)(unsigned int)a2 >> 30);
     if ( result < 0 )
       return result;
-    Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 0);
+    LODWORD(v7) = 0;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     if ( !Heap )
       return -1073741801;
-    v7 = 1;
+    Size = 1;
   }
   if ( a2 )
     memset(Heap, 0, 4 * a2);
-  *a1 = v7;
+  *a1 = Size;
   result = 0;
   a1[1] = a2;
   a1[2] = (int)Heap;

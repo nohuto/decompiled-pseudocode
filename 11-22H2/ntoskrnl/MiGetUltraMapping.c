@@ -69,8 +69,8 @@ __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __in
   __int64 v35; // r8
   int v36; // ebx
   int v37; // ebx
-  __int64 SetBitsAndClear; // rax
-  __int64 v39; // rsi
+  ULONG64 SetBitsAndClear; // rax
+  ULONG64 v39; // rsi
   unsigned __int64 v40; // rdi
   unsigned __int64 v41; // rsi
   unsigned __int64 v42; // rdi
@@ -84,7 +84,7 @@ __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __in
   unsigned __int64 OldIrql; // rbx
   unsigned __int64 v51; // r9
   unsigned __int64 i; // r8
-  _QWORD *v53; // rdx
+  unsigned __int64 *v53; // rdx
   __int64 v54; // rcx
   __int64 v55; // r11
   __int64 v56; // rdx
@@ -256,10 +256,13 @@ LABEL_28:
     *a1 = 0LL;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -278,26 +281,26 @@ LABEL_28:
     v37 = 0;
     while ( 1 )
     {
-      SetBitsAndClear = RtlFindSetBitsAndClearEx(&qword_140C68608, 1LL, qword_140C68600);
+      SetBitsAndClear = RtlFindSetBitsAndClearEx(&BitMapHeader, 1uLL, HintIndex);
       v39 = SetBitsAndClear;
-      if ( SetBitsAndClear != -1 )
+      if ( SetBitsAndClear != -1LL )
         break;
       KeFlushTb(0, 2u);
       v51 = 0LL;
-      for ( i = (unsigned __int64)qword_140C68608 >> 6; v51 < i; *v53 |= v54 )
+      for ( i = BitMapHeader.SizeOfBitMap >> 6; v51 < i; *v53 |= v54 )
       {
-        v53 = (_QWORD *)(qword_140C68610 + 8 * v51);
+        v53 = &BitMapHeader.Buffer[v51];
         v54 = *((_QWORD *)qword_140C68620 + v51++);
       }
       memset(qword_140C68620, 0, 4 * (((qword_140C68618 & 0x1F) != 0) + ((unsigned __int64)qword_140C68618 >> 5)));
     }
-    qword_140C68600 = SetBitsAndClear + 1;
+    HintIndex = SetBitsAndClear + 1;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v40 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v62 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v62 <= 0xFu && LockHandle.OldIrql <= 0xFu && v62 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v62 <= 0xFu && LockHandle.OldIrql <= 0xFu && v62 >= 2u )
       {
         v63 = KeGetCurrentPrcb();
         v64 = v63->SchedulerAssist;

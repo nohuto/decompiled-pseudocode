@@ -8,7 +8,7 @@
  *     RtlCompareUnicodeStrings @ 0x1408694A0 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD *FirstStruct, _QWORD *SecondStruct)
+__int64 __fastcall SshpCacheDatabaseCompare(_RTL_AVL_TABLE *a1, _QWORD *a2, _QWORD *a3)
 {
   _DWORD *TableContext; // r14
   unsigned int v4; // ebx
@@ -40,9 +40,9 @@ __int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD
   _OWORD v31[2]; // [rsp+60h] [rbp-9h] BYREF
   __int128 v32; // [rsp+80h] [rbp+17h]
 
-  TableContext = Table->TableContext;
+  TableContext = a1->TableContext;
   v4 = 0;
-  v5 = *(_DWORD *)FirstStruct;
+  v5 = *(_DWORD *)a2;
   v6 = 0LL;
   v7 = 0LL;
   memset(v29, 0, sizeof(v29));
@@ -53,7 +53,7 @@ __int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD
   {
     if ( v5 == 1 )
     {
-      v8 = FirstStruct[1];
+      v8 = a2[1];
       v6 = v29;
       *(_OWORD *)((char *)v29 + 8) = 0LL;
       v9 = *(_QWORD *)(v8 + 304);
@@ -67,13 +67,13 @@ __int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD
   }
   else
   {
-    v6 = (_QWORD *)FirstStruct[1];
+    v6 = (_QWORD *)a2[1];
   }
-  if ( *(_DWORD *)SecondStruct )
+  if ( *(_DWORD *)a3 )
   {
-    if ( *(_DWORD *)SecondStruct == 1 )
+    if ( *(_DWORD *)a3 == 1 )
     {
-      v12 = SecondStruct[1];
+      v12 = a3[1];
       v7 = v31;
       *(_OWORD *)((char *)v31 + 8) = 0LL;
       v13 = *(_QWORD *)(v12 + 304);
@@ -87,7 +87,7 @@ __int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD
   }
   else
   {
-    v7 = (_QWORD *)SecondStruct[1];
+    v7 = (_QWORD *)a3[1];
   }
   v16 = TableContext[11];
   if ( (v16 & 1) == 0 || (v17 = memcmp(v6, v7, 0x10uLL), v18 = v17 < 0, !v17) )

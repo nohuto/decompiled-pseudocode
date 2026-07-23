@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSleepstudyCaptureResiliencyStatistics @ 0x140993254
+ * XREFs of PopSleepstudyCaptureResiliencyStatistics @ 0x140993454
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140878644 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140878884 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopCalculateTotalHwDripsResidency @ 0x140591890 (PopCalculateTotalHwDripsResidency.c)
- *     PopDiagTraceCsResiliencyEnter @ 0x1405920FC (PopDiagTraceCsResiliencyEnter.c)
- *     PopDiagTraceCsResiliencyExit @ 0x140592254 (PopDiagTraceCsResiliencyExit.c)
- *     PopGetEnergyCounter @ 0x1408757CC (PopGetEnergyCounter.c)
- *     PopDiagTraceCsResiliencyStats @ 0x14098DFD0 (PopDiagTraceCsResiliencyStats.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopCalculateTotalHwDripsResidency @ 0x140591D80 (PopCalculateTotalHwDripsResidency.c)
+ *     PopDiagTraceCsResiliencyEnter @ 0x1405925EC (PopDiagTraceCsResiliencyEnter.c)
+ *     PopDiagTraceCsResiliencyExit @ 0x140592744 (PopDiagTraceCsResiliencyExit.c)
+ *     PopGetEnergyCounter @ 0x140875A0C (PopGetEnergyCounter.c)
+ *     PopDiagTraceCsResiliencyStats @ 0x14098E1D0 (PopDiagTraceCsResiliencyStats.c)
  */
 
 char __fastcall PopSleepstudyCaptureResiliencyStatistics(_QWORD *a1, __int64 a2, char a3, char a4)

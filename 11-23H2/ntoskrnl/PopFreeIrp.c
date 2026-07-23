@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFreeIrp @ 0x14028E298
+ * XREFs of PopFreeIrp @ 0x14028E528
  * Callers:
- *     PopRequestCompletion @ 0x14028E0C0 (PopRequestCompletion.c)
- *     PopHandleDevicePowerIrpCompletion @ 0x14028E1A0 (PopHandleDevicePowerIrpCompletion.c)
- *     PopSystemIrpCompletion @ 0x140AA75C0 (PopSystemIrpCompletion.c)
+ *     PopRequestCompletion @ 0x14028E350 (PopRequestCompletion.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x14028E430 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140AA7430 (PopSystemIrpCompletion.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PopFxReleasePowerIrp @ 0x14028DD44 (PopFxReleasePowerIrp.c)
- *     IoFreeIrp @ 0x1402AF210 (IoFreeIrp.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopFxReleasePowerIrp @ 0x14028DFD4 (PopFxReleasePowerIrp.c)
+ *     IoFreeIrp @ 0x1402AF4A0 (IoFreeIrp.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LONG_PTR __fastcall PopFreeIrp(PIRP Irp)
@@ -46,10 +46,10 @@ LONG_PTR __fastcall PopFreeIrp(PIRP Irp)
   *(_QWORD *)(v6 + 8) = v7;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)v15);
   OldIrql = v15[0].OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v15[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v15[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

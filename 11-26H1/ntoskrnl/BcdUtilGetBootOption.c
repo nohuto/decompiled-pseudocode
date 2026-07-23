@@ -1,12 +1,12 @@
 /*
- * XREFs of BcdUtilGetBootOption @ 0x140891514
+ * XREFs of BcdUtilGetBootOption @ 0x140897910
  * Callers:
- *     BcdUtilGetBootOption @ 0x140891514 (BcdUtilGetBootOption.c)
- *     BcdUtilGetBootOptionBoolean @ 0x140891584 (BcdUtilGetBootOptionBoolean.c)
- *     BcdUtilGetBootOptionInteger @ 0x1408915CC (BcdUtilGetBootOptionInteger.c)
- *     BcdUtilGetBootOptionString @ 0x140891614 (BcdUtilGetBootOptionString.c)
+ *     BcdUtilGetBootOption @ 0x140897910 (BcdUtilGetBootOption.c)
+ *     BcdUtilGetBootOptionBoolean @ 0x140897980 (BcdUtilGetBootOptionBoolean.c)
+ *     BcdUtilGetBootOptionInteger @ 0x1408979C8 (BcdUtilGetBootOptionInteger.c)
+ *     BcdUtilGetBootOptionString @ 0x140897A10 (BcdUtilGetBootOptionString.c)
  * Callees:
- *     BcdUtilGetBootOption @ 0x140891514 (BcdUtilGetBootOption.c)
+ *     BcdUtilGetBootOption @ 0x140897910 (BcdUtilGetBootOption.c)
  */
 
 __int64 __fastcall BcdUtilGetBootOption(__int64 a1, unsigned int a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlResetRtlTranslations @ 0x14057D87C
+ * XREFs of RtlResetRtlTranslations @ 0x14057DD28
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __stdcall RtlResetRtlTranslations(PNLSTABLEINFO NlsTable)

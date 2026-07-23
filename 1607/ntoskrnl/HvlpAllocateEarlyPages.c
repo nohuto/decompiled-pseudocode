@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlpAllocateEarlyPages @ 0x1401BFF30
+ * XREFs of HvlpAllocateEarlyPages @ 0x1401BFE14
  * Callers:
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
  * Callees:
  *     <none>
  */

@@ -1,26 +1,26 @@
 /*
- * XREFs of NtReleaseWorkerFactoryWorker @ 0x1400F8A70
+ * XREFs of NtReleaseWorkerFactoryWorker @ 0x1400F68B0
  * Callers:
  *     <none>
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeInsertQueueEx @ 0x14007E0BC (KeInsertQueueEx.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1400F8F30 (ExpWorkerFactoryCheckCreate.c)
- *     KxWaitForLockChainValid @ 0x1400F9530 (KxWaitForLockChainValid.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x1400F9B2C (ExpLeaveWorkerFactoryAwayMode.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3B5C (KiReleaseQueuedSpinLockInstrumented.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     IopAllocateMiniCompletionPacket @ 0x140471A08 (IopAllocateMiniCompletionPacket.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeInsertQueueEx @ 0x14007E13C (KeInsertQueueEx.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400F6D70 (ExpWorkerFactoryCheckCreate.c)
+ *     KxWaitForLockChainValid @ 0x1400F7370 (KxWaitForLockChainValid.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x1400F7920 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3988 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1404708D8 (IopAllocateMiniCompletionPacket.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   _QWORD *v2; // rbx
@@ -63,12 +63,12 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   volatile signed __int64 *v39; // [rsp+58h] [rbp+Fh]
   unsigned __int8 v40; // [rsp+60h] [rbp+17h]
   void *retaddr; // [rsp+A8h] [rbp+5Fh]
-  int v42; // [rsp+B8h] [rbp+6Fh]
+  NTSTATUS v42; // [rsp+B8h] [rbp+6Fh]
   int v43; // [rsp+C0h] [rbp+77h] BYREF
   int v44; // [rsp+C8h] [rbp+7Fh] BYREF
 
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,

@@ -1,12 +1,12 @@
 /*
- * XREFs of KIsSideloadingEnabled @ 0x1407C9DF8
+ * XREFs of KIsSideloadingEnabled @ 0x1407CA2E8
  * Callers:
- *     SepIsLockedDown @ 0x14078E628 (SepIsLockedDown.c)
+ *     SepIsLockedDown @ 0x14078E558 (SepIsLockedDown.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     AppModelFreeUnicodeString @ 0x1404ABDC0 (AppModelFreeUnicodeString.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1409CA218 (KGetAppModelStateSeparatedRegKeyPath.c)
- *     KGetUnlockSetting @ 0x140A59E50 (KGetUnlockSetting.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     AppModelFreeUnicodeString @ 0x1404A62AC (AppModelFreeUnicodeString.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x1409B68D0 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     KGetUnlockSetting @ 0x140A51710 (KGetUnlockSetting.c)
  */
 
 __int64 __fastcall KIsSideloadingEnabled(_BYTE *a1)
@@ -15,7 +15,7 @@ __int64 __fastcall KIsSideloadingEnabled(_BYTE *a1)
   int v3; // eax
   _QWORD v5[2]; // [rsp+20h] [rbp-30h] BYREF
   _QWORD v6[2]; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v7; // [rsp+40h] [rbp-10h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   int v8; // [rsp+60h] [rbp+10h] BYREF
 
   *a1 = 0;
@@ -24,11 +24,14 @@ __int64 __fastcall KIsSideloadingEnabled(_BYTE *a1)
   v6[1] = L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx";
   v5[1] = L"AllowAllTrustedApps";
   v8 = 0xFFFF;
-  v7 = 0LL;
-  v2 = KGetAppModelStateSeparatedRegKeyPath(L"AppxPolicies");
+  DestinationString = 0LL;
+  v2 = KGetAppModelStateSeparatedRegKeyPath(
+         L"AppxPolicies",
+         L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx",
+         &DestinationString);
   if ( v2 < 0 )
     goto LABEL_9;
-  v2 = KGetUnlockSetting(&v7, v5, &v8);
+  v2 = KGetUnlockSetting(&DestinationString, v5, &v8);
   if ( v2 < 0 )
     goto LABEL_9;
   if ( CmIsStateSeparationEnabled() )
@@ -45,6 +48,6 @@ LABEL_7:
   if ( v3 )
     *a1 = 1;
 LABEL_9:
-  AppModelFreeUnicodeString((__int64)&v7);
+  AppModelFreeUnicodeString((__int64)&DestinationString);
   return (unsigned int)v2;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogCommitRequestFailed @ 0x14087B7EC
+ * XREFs of MiLogCommitRequestFailed @ 0x140881BEC
  * Callers:
- *     MiCommitRequestFailed @ 0x140B61778 (MiCommitRequestFailed.c)
+ *     MiCommitRequestFailed @ 0x140B64818 (MiCommitRequestFailed.c)
  * Callees:
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -101,9 +101,9 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, __int64 a3, int
     ProcessPartition = MiGetProcessPartition(a2);
     v14 = *(_QWORD *)(ProcessPartition + 23448);
     v15 = *(_QWORD *)(ProcessPartition + 23104);
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 2u )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 2u )
     {
-      LOBYTE(ProcessPartition) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000001000LL);
+      LOBYTE(ProcessPartition) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000001000LL);
       if ( (_BYTE)ProcessPartition )
       {
         v32 = v17;
@@ -144,7 +144,7 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, __int64 a3, int
         v65 = 8LL;
         LOBYTE(ProcessPartition) = tlgWriteEx_EtwWriteEx(
                                      v16,
-                                     (unsigned __int8 *)&byte_1400592E1,
+                                     (unsigned __int8 *)&dword_14005A2D4,
                                      v16,
                                      1u,
                                      v21,

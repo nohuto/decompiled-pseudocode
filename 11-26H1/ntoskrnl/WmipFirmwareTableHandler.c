@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipFirmwareTableHandler @ 0x1406C3600
+ * XREFs of WmipFirmwareTableHandler @ 0x1406C7240
  * Callers:
  *     <none>
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall WmipFirmwareTableHandler(_DWORD *a1)

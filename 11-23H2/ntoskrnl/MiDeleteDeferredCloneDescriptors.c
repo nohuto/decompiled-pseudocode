@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteDeferredCloneDescriptors @ 0x140663F0C
+ * XREFs of MiDeleteDeferredCloneDescriptors @ 0x14066445C
  * Callers:
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiDeleteCloneZombies @ 0x140367684 (MiDeleteCloneZombies.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeleteCloneZombies @ 0x140367824 (MiDeleteCloneZombies.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
  */
 
 unsigned __int64 *__fastcall MiDeleteDeferredCloneDescriptors(__int64 a1)

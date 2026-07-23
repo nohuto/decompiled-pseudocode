@@ -1,21 +1,21 @@
 /*
- * XREFs of KiDeferredBugcheckRecoveryWorker @ 0x14057ADE0
+ * XREFs of KiDeferredBugcheckRecoveryWorker @ 0x14057B2D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
- *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405510E4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x14056A8CC (KiInvokeBugCheckEntryCallbacks.c)
- *     KiCaptureDumpPostRecovery @ 0x14057AC90 (KiCaptureDumpPostRecovery.c)
- *     KiRecordRecoveryFailure @ 0x14057B2D0 (KiRecordRecoveryFailure.c)
- *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x14057B43C (KiSaveBugCheckRecoveryStatusPhase2.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x14057B878 (KiUpdateBugcheckRecoveryProgress.c)
- *     ExRebootSystemForRecovery @ 0x140606674 (ExRebootSystemForRecovery.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405517A4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x14056AF8C (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiCaptureDumpPostRecovery @ 0x14057B180 (KiCaptureDumpPostRecovery.c)
+ *     KiRecordRecoveryFailure @ 0x14057B7C0 (KiRecordRecoveryFailure.c)
+ *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x14057B92C (KiSaveBugCheckRecoveryStatusPhase2.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x14057BD68 (KiUpdateBugcheckRecoveryProgress.c)
+ *     ExRebootSystemForRecovery @ 0x140606BC4 (ExRebootSystemForRecovery.c)
  */
 
 __int64 KiDeferredBugcheckRecoveryWorker()
@@ -25,14 +25,14 @@ __int64 KiDeferredBugcheckRecoveryWorker()
   __int64 v3; // [rsp+20h] [rbp-19h] BYREF
   int v4; // [rsp+28h] [rbp-11h]
   __int64 v5; // [rsp+2Ch] [rbp-Dh]
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-1h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-1h] BYREF
   __int64 v7; // [rsp+48h] [rbp+Fh] BYREF
   int v8; // [rsp+50h] [rbp+17h]
   __int64 v9; // [rsp+54h] [rbp+1Bh]
   __int64 v10; // [rsp+60h] [rbp+27h] BYREF
   int v11; // [rsp+68h] [rbp+2Fh]
   __int64 v12; // [rsp+6Ch] [rbp+33h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp+3Fh] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp+3Fh] BYREF
 
   v5 = 0LL;
   v3 = 1LL;

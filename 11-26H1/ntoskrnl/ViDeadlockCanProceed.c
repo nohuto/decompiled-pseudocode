@@ -1,13 +1,13 @@
 /*
- * XREFs of ViDeadlockCanProceed @ 0x140C45460
+ * XREFs of ViDeadlockCanProceed @ 0x140C4B470
  * Callers:
- *     VfDeadlockInitializeResource @ 0x140C36320 (VfDeadlockInitializeResource.c)
- *     VfDeadlockReleaseResource @ 0x140C4493C (VfDeadlockReleaseResource.c)
- *     VfFreeMemoryNotification @ 0x140C45348 (VfFreeMemoryNotification.c)
- *     VfDeadlockAcquireResource @ 0x140C47314 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockInitializeResource @ 0x140C3C330 (VfDeadlockInitializeResource.c)
+ *     VfDeadlockReleaseResource @ 0x140C4A94C (VfDeadlockReleaseResource.c)
+ *     VfFreeMemoryNotification @ 0x140C4B358 (VfFreeMemoryNotification.c)
+ *     VfDeadlockAcquireResource @ 0x140C4D324 (VfDeadlockAcquireResource.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
- *     ViDeadlockCheckStackLimits @ 0x140C454D4 (ViDeadlockCheckStackLimits.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
+ *     ViDeadlockCheckStackLimits @ 0x140C4B4E4 (ViDeadlockCheckStackLimits.c)
  */
 
 _BOOL8 __fastcall ViDeadlockCanProceed(LONG *a1)

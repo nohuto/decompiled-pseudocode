@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlGenerateClass5Guid @ 0x140B2AB60
+ * XREFs of RtlGenerateClass5Guid @ 0x140B2CBE0
  * Callers:
- *     PipCreateComputerId @ 0x140CC14A4 (PipCreateComputerId.c)
+ *     PipCreateComputerId @ 0x140CC7574 (PipCreateComputerId.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     BCryptCloseAlgorithmProvider @ 0x14063AD80 (BCryptCloseAlgorithmProvider.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     BCryptFinishHash @ 0x1409EAB14 (BCryptFinishHash.c)
- *     BCryptHashData @ 0x1409EB0AC (BCryptHashData.c)
- *     BCryptDestroyHash @ 0x1409EB124 (BCryptDestroyHash.c)
- *     BCryptCreateHash @ 0x1409EB178 (BCryptCreateHash.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     BCryptCloseAlgorithmProvider @ 0x14063DE48 (BCryptCloseAlgorithmProvider.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     BCryptFinishHash @ 0x1409E72E4 (BCryptFinishHash.c)
+ *     BCryptHashData @ 0x1409E787C (BCryptHashData.c)
+ *     BCryptDestroyHash @ 0x1409E78F4 (BCryptDestroyHash.c)
+ *     BCryptCreateHash @ 0x1409E7948 (BCryptCreateHash.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlGenerateClass5Guid(__int64 a1, UCHAR *a2, ULONG a3, __int64 a4)
@@ -48,21 +48,21 @@ __int64 __fastcall RtlGenerateClass5Guid(__int64 a1, UCHAR *a2, ULONG a3, __int6
   if ( !a2 && a3 )
     return 3221225713LL;
   v9 = -1073741822;
-  if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[16]) )
+  if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.ForegroundLossTime) )
   {
     v9 = guard_dispatch_icall_no_overrides((__int64)&hAlgorithm, (__int64)L"SHA1");
-    ExReleaseExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[16]);
+    ExReleaseExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.ForegroundLossTime);
   }
   if ( v9 >= 0 )
   {
     v9 = -1073741822;
     v11 = hAlgorithm;
-    if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[16]) )
+    if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.ForegroundLossTime) )
     {
       cbSecret = 0;
       pbSecret = v23;
       v9 = guard_dispatch_icall_no_overrides((__int64)v11, (__int64)L"ObjectLength");
-      ExReleaseExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[16]);
+      ExReleaseExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.ForegroundLossTime);
     }
     if ( v9 >= 0 )
     {

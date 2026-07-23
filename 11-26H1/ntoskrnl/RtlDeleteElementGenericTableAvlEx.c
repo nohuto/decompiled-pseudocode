@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDeleteElementGenericTableAvlEx @ 0x1403B8CE0
+ * XREFs of RtlDeleteElementGenericTableAvlEx @ 0x1403C2BE0
  * Callers:
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051C810 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051E9C0 (DifObjTrkQeuryInvokeDeleteRange.c)
  * Callees:
- *     RebalanceNode @ 0x1403B9040 (RebalanceNode.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RebalanceNode @ 0x1403C2F40 (RebalanceNode.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlDeleteElementGenericTableAvlEx(__int64 a1, __int64 a2)

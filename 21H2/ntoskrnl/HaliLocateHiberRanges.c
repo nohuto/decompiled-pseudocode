@@ -1,17 +1,17 @@
 /*
- * XREFs of HaliLocateHiberRanges @ 0x140996620
+ * XREFs of HaliLocateHiberRanges @ 0x140997620
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     HalpPciMarkHiberPhase @ 0x140387F3C (HalpPciMarkHiberPhase.c)
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
- *     HalpDmaMarkHiberAdapter @ 0x140388338 (HalpDmaMarkHiberAdapter.c)
- *     HalpExtEnvMarkHiberRegions @ 0x1403883E4 (HalpExtEnvMarkHiberRegions.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpTimerMarkHiberPhase @ 0x1404B6984 (HalpTimerMarkHiberPhase.c)
- *     HalpIommuMarkHiberPhase @ 0x140996560 (HalpIommuMarkHiberPhase.c)
- *     HalpMmAllocCtxMarkHiberPhase @ 0x1409A6ECC (HalpMmAllocCtxMarkHiberPhase.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     HalpPciMarkHiberPhase @ 0x14038808C (HalpPciMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
+ *     HalpDmaMarkHiberAdapter @ 0x140388488 (HalpDmaMarkHiberAdapter.c)
+ *     HalpExtEnvMarkHiberRegions @ 0x140388534 (HalpExtEnvMarkHiberRegions.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpTimerMarkHiberPhase @ 0x1404B6BC4 (HalpTimerMarkHiberPhase.c)
+ *     HalpIommuMarkHiberPhase @ 0x140997560 (HalpIommuMarkHiberPhase.c)
+ *     HalpMmAllocCtxMarkHiberPhase @ 0x1409A7DFC (HalpMmAllocCtxMarkHiberPhase.c)
  */
 
 void __fastcall HaliLocateHiberRanges(PVOID MemoryMap)
@@ -25,33 +25,33 @@ void __fastcall HaliLocateHiberRanges(PVOID MemoryMap)
 
   if ( MemoryMap )
   {
-    if ( dword_140C4BD78 )
+    if ( dword_140C4BDB8 )
       PoSetHiberRange(
         MemoryMap,
         0xC000u,
-        (PVOID)((unsigned __int64)(unsigned int)qword_140C4BD80 >> 12),
-        (unsigned __int64)(unsigned int)dword_140C4BD78 >> 12,
+        (PVOID)((unsigned __int64)(unsigned int)qword_140C4BDC0 >> 12),
+        (unsigned __int64)(unsigned int)dword_140C4BDB8 >> 12,
         0x6D6C6168u);
-    if ( dword_140C4BBB8 )
+    if ( dword_140C4BBF8 )
       PoSetHiberRange(
         MemoryMap,
         0xC000u,
-        (PVOID)((unsigned __int64)(unsigned int)qword_140C4BBC0 >> 12),
-        (unsigned __int64)(unsigned int)dword_140C4BBB8 >> 12,
+        (PVOID)((unsigned __int64)(unsigned int)qword_140C4BC00 >> 12),
+        (unsigned __int64)(unsigned int)dword_140C4BBF8 >> 12,
         0x6D6C6168u);
-    if ( dword_140C4BE58 )
+    if ( dword_140C4BE98 )
       PoSetHiberRange(
         MemoryMap,
         0xC000u,
-        (PVOID)(qword_140C4BE60 >> 12),
-        (unsigned __int64)(unsigned int)dword_140C4BE58 >> 12,
+        (PVOID)(qword_140C4BEA0 >> 12),
+        (unsigned __int64)(unsigned int)dword_140C4BE98 >> 12,
         0x6D6C6168u);
-    if ( dword_140C4BC98 )
+    if ( dword_140C4BCD8 )
       PoSetHiberRange(
         MemoryMap,
         0xC000u,
-        (PVOID)(qword_140C4BCA0 >> 12),
-        (unsigned __int64)(unsigned int)dword_140C4BC98 >> 12,
+        (PVOID)(qword_140C4BCE0 >> 12),
+        (unsigned __int64)(unsigned int)dword_140C4BCD8 >> 12,
         0x6D6C6168u);
     HalpPciMarkHiberPhase(MemoryMap);
     HalpIommuMarkHiberPhase(MemoryMap);

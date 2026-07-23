@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpRemoveArchDisallowedXStateFeatures @ 0x1403D7B2C
+ * XREFs of RtlpRemoveArchDisallowedXStateFeatures @ 0x1403D7D0C
  * Callers:
- *     RtlGetExtendedContextLength2 @ 0x14030D790 (RtlGetExtendedContextLength2.c)
- *     RtlInitializeExtendedContext2 @ 0x14030D880 (RtlInitializeExtendedContext2.c)
+ *     RtlGetExtendedContextLength2 @ 0x14030DA20 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x14030DB10 (RtlInitializeExtendedContext2.c)
  * Callees:
  *     <none>
  */

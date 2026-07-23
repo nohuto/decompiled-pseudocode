@@ -1,11 +1,11 @@
 /*
- * XREFs of PipUpdateSetupOobeCompleteWnfCallback @ 0x14079BEB0
+ * XREFs of PipUpdateSetupOobeCompleteWnfCallback @ 0x14079E9F0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PipUpdateSetupOobeCompleteWnfCallback(__int64 a1, __int64 a2, __int64 a3, int a4)

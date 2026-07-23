@@ -1,8 +1,8 @@
 /*
- * XREFs of _guard_dispatch_icall_nop @ 0x180164630
+ * XREFs of _guard_dispatch_icall_nop @ 0x180164530
  * Callers:
- *     _guard_dispatch_icall @ 0x180164510 (_guard_dispatch_icall.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x180164660 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall @ 0x180164410 (_guard_dispatch_icall.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180164560 (_guard_xfg_dispatch_icall_nop.c)
  * Callees:
  *     <none>
  */

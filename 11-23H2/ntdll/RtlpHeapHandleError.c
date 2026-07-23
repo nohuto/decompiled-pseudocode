@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHeapHandleError @ 0x180116748
+ * XREFs of RtlpHeapHandleError @ 0x180116718
  * Callers:
  *     RtlpInsertFreeBlock @ 0x1800447F0 (RtlpInsertFreeBlock.c)
  *     RtlpDeCommitFreeBlock @ 0x180044F5C (RtlpDeCommitFreeBlock.c)
@@ -9,9 +9,9 @@
  *     RtlpPopulateListIndex @ 0x1800478D4 (RtlpPopulateListIndex.c)
  *     RtlCreateHeap @ 0x180047FD0 (RtlCreateHeap.c)
  *     RtlDestroyHeap @ 0x180049550 (RtlDestroyHeap.c)
- *     RtlpHpHeapHandleError @ 0x1801169C0 (RtlpHpHeapHandleError.c)
+ *     RtlpHpHeapHandleError @ 0x180116990 (RtlpHpHeapHandleError.c)
  * Callees:
- *     RtlpReportHeapFailure @ 0x180119558 (RtlpReportHeapFailure.c)
+ *     RtlpReportHeapFailure @ 0x180119528 (RtlpReportHeapFailure.c)
  */
 
 __int64 RtlpHeapHandleError()

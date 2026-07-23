@@ -1,9 +1,9 @@
 /*
- * XREFs of VfEnforceBiosRule @ 0x140640690
+ * XREFs of VfEnforceBiosRule @ 0x140644270
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall VfEnforceBiosRule(ULONG_PTR BugCheckParameter2, ULONG BugCheckCode, ULONG_PTR BugCheckParameter1)

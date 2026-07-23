@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceProfileEnable @ 0x14082BDA4
+ * XREFs of PpmEventTraceProfileEnable @ 0x14082C0A4
  * Callers:
- *     PpmEnableProfile @ 0x14082BD28 (PpmEnableProfile.c)
- *     PpmDisableProfile @ 0x14099D184 (PpmDisableProfile.c)
+ *     PpmEnableProfile @ 0x14082C028 (PpmEnableProfile.c)
+ *     PpmDisableProfile @ 0x14099D384 (PpmDisableProfile.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceProfileEnable(char a1, char a2)

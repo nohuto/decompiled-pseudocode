@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUEventNotifyDeviceInstancePropertyChange @ 0x140A49ED0
+ * XREFs of PiUEventNotifyDeviceInstancePropertyChange @ 0x140A40BF0
  * Callers:
- *     PiUEventProcessEventWorker @ 0x14085B220 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x140856F90 (PiUEventProcessEventWorker.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PiUEventHashStringIntoBucket @ 0x14047B794 (PiUEventHashStringIntoBucket.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     PiUEventApplyAdditionalFilters @ 0x1408D25A0 (PiUEventApplyAdditionalFilters.c)
- *     PiUEventNotifyClient @ 0x1408D2838 (PiUEventNotifyClient.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PiUEventHashStringIntoBucket @ 0x140477414 (PiUEventHashStringIntoBucket.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     PiUEventApplyAdditionalFilters @ 0x1408CFF90 (PiUEventApplyAdditionalFilters.c)
+ *     PiUEventNotifyClient @ 0x1408D0228 (PiUEventNotifyClient.c)
  */
 
 __int64 __fastcall PiUEventNotifyDeviceInstancePropertyChange(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall PiUEventNotifyDeviceInstancePropertyChange(__int64 a1)
     v4 = v10;
     v10[0] = (char *)&PiUEventDevInstancePropertyClientList + 16 * (unsigned int)PiUEventHashStringIntoBucket(v3);
     v5 = 0;
-    v10[1] = &unk_140F8BBB0;
+    v10[1] = &unk_140F8BCF0;
     do
     {
       v6 = (_QWORD **)*v4;

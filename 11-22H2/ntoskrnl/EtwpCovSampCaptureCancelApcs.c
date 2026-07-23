@@ -13,73 +13,72 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall EtwpCovSampCaptureCancelApcs(__int64 a1)
+void __fastcall EtwpCovSampCaptureCancelApcs(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 *v2; // r14
-  __int64 *v3; // rdi
-  KSPIN_LOCK *v4; // r12
-  void *v5; // rsi
-  unsigned __int64 v6; // rbx
+  __int64 *v1; // r14
+  __int64 *v2; // rdi
+  KSPIN_LOCK *v3; // r12
+  void *v4; // rsi
+  unsigned __int64 v5; // rbx
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v9; // zf
-  __int64 v10; // rbx
-  __int64 v11; // rdx
+  int v9; // eax
+  bool v10; // zf
+  __int64 v11; // rbx
+  __int64 v12; // rdx
 
-  result = *(unsigned int *)(a1 + 712);
-  if ( *(_DWORD *)(a1 + 716) != (_DWORD)result )
+  if ( *(_DWORD *)(a1 + 716) != *(_DWORD *)(a1 + 712) )
   {
-    v2 = (__int64 *)(a1 + 672);
-    v3 = *(__int64 **)(a1 + 672);
-    if ( v3 != (__int64 *)(a1 + 672) )
+    v1 = (__int64 *)(a1 + 672);
+    v2 = *(__int64 **)(a1 + 672);
+    if ( v2 != (__int64 *)(a1 + 672) )
     {
-      v4 = (KSPIN_LOCK *)(a1 + 632);
+      v3 = (KSPIN_LOCK *)(a1 + 632);
       do
       {
-        v5 = 0LL;
-        v6 = KeAcquireSpinLockRaiseToDpc(v4);
-        if ( *((_BYTE *)v3 + 114) )
+        v4 = 0LL;
+        v5 = KeAcquireSpinLockRaiseToDpc(v3);
+        if ( *((_BYTE *)v2 + 114) )
         {
-          v5 = (void *)v3[5];
-          if ( v5 )
-            ObfReferenceObjectWithTag((PVOID)v3[5], 0x746C6644u);
+          v4 = (void *)v2[5];
+          if ( v4 )
+            ObfReferenceObjectWithTag((PVOID)v2[5], 0x746C6644u);
         }
-        result = KxReleaseSpinLock((volatile signed __int64 *)v4);
-        if ( KiIrqlFlags )
+        KxReleaseSpinLock((volatile signed __int64 *)v3);
+        if ( (_DWORD)KiIrqlFlags )
         {
-          result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
-            && (unsigned __int8)result <= 0xFu
-            && (unsigned __int8)v6 <= 0xFu
-            && (unsigned __int8)result >= 2u )
+          CurrentIrql = KeGetCurrentIrql();
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v5 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-            v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= result;
-            if ( v9 )
-              result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+            v10 = (v9 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v9;
+            if ( v10 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
-        __writecr8(v6);
-        if ( v5 )
+        __writecr8(v5);
+        if ( v4 )
         {
-          if ( KeRemoveQueueApc((__int64)(v3 + 4)) )
+          if ( KeRemoveQueueApc((__int64)(v2 + 4)) )
           {
-            v10 = qword_140C31CA8;
-            memset(v3 + 4, 0, 0x58uLL);
-            v11 = v3[3];
-            *((_DWORD *)v3 + 30) = 0;
-            EtwpCovSampCaptureReleaseToLookaside(v10, v11, (struct _SLIST_ENTRY *)(v3 - 3));
+            v11 = qword_140C31CA8;
+            memset(v2 + 4, 0, 0x58uLL);
+            v12 = v2[3];
+            *((_DWORD *)v2 + 30) = 0;
+            EtwpCovSampCaptureReleaseToLookaside(v11, v12, (_SLIST_ENTRY *)(v2 - 3));
           }
-          result = ObfDereferenceObjectWithTag(v5, 0x746C6644u);
+          ObfDereferenceObjectWithTag(v4, 0x746C6644u);
         }
-        v3 = (__int64 *)*v3;
+        v2 = (__int64 *)*v2;
       }
-      while ( v3 != v2 );
+      while ( v2 != v1 );
     }
   }
-  return result;
 }

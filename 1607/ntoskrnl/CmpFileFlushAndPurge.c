@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpFileFlushAndPurge @ 0x140506A2C
+ * XREFs of CmpFileFlushAndPurge @ 0x1404E99BC
  * Callers:
- *     HvWriteLogFile @ 0x1403F5A70 (HvWriteLogFile.c)
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     HvWriteHivePrimaryFile @ 0x140483AA4 (HvWriteHivePrimaryFile.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140484068 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140605D14 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvWriteLogFile @ 0x1403F4934 (HvWriteLogFile.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     HvWriteHivePrimaryFile @ 0x1404827F8 (HvWriteHivePrimaryFile.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140482DBC (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140605DC8 (HvExtendHivePrimaryFileValidDataLength.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IoFreeIrp @ 0x140055DD0 (IoFreeIrp.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoAllocateIrp @ 0x1400C611C (IoAllocateIrp.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpFileFlush @ 0x140604204 (CmpFileFlush.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IoFreeIrp @ 0x140055950 (IoFreeIrp.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoAllocateIrp @ 0x1400C3FBC (IoAllocateIrp.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpFileFlush @ 0x1406042B8 (CmpFileFlush.c)
  */
 
 char __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)

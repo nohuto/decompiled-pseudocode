@@ -140,9 +140,9 @@ __int64 __fastcall ObInsertObjectEx(
   _QWORD *v53; // [rsp+78h] [rbp-88h]
   struct _KTHREAD *v54; // [rsp+78h] [rbp-88h]
   ACCESS_MASK v55; // [rsp+80h] [rbp-80h]
-  unsigned int v56; // [rsp+84h] [rbp-7Ch] BYREF
+  int v56; // [rsp+84h] [rbp-7Ch] BYREF
   int v57; // [rsp+88h] [rbp-78h]
-  __int64 v58; // [rsp+90h] [rbp-70h] BYREF
+  ULONG Index[2]; // [rsp+90h] [rbp-70h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+98h] [rbp-68h] BYREF
   char *v60; // [rsp+A0h] [rbp-60h]
   ULONG_PTR BugCheckParameter2; // [rsp+A8h] [rbp-58h]
@@ -317,9 +317,9 @@ LABEL_11:
   if ( (a5 & 1) != 0 )
     v48 = 16;
   v25 = AccessState->SecurityDescriptor;
-  v58 = 8LL;
+  *(_QWORD *)Index = 8LL;
   SecurityDescriptor = 0LL;
-  v26 = SeComputeAutoInheritByObjectTypeEx((__int64)v13, (__int64)v25, 0LL, &v56, &v58);
+  v26 = SeComputeAutoInheritByObjectTypeEx((__int64)v13, (__int64)v25, 0LL, &v56, Index);
   if ( v26 >= 0 )
   {
     v26 = SeAssignSecurityEx2(
@@ -328,8 +328,8 @@ LABEL_11:
             (int)&SecurityDescriptor,
             0LL,
             v13 == ObpDirectoryObjectType,
-            v48 | v56,
-            &v58,
+            v48 | (unsigned int)v56,
+            Index,
             (__int64)&AccessState->SubjectSecurityContext,
             (__int64)&v13->TypeInfo.GenericMapping);
     if ( v26 >= 0 )

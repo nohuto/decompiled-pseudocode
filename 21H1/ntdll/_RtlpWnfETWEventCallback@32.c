@@ -8,10 +8,10 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlpWnfETWEventCallback(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
+NTSTATUS __fastcall RtlpWnfETWEventCallback(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
 {
   int v8; // eax
-  _BYTE v10[6]; // [esp+Ch] [ebp-44h] BYREF
+  _BYTE Fields[6]; // [esp+Ch] [ebp-44h] BYREF
   __int16 v11; // [esp+12h] [ebp-3Eh]
   int v12; // [esp+2Ch] [ebp-24h]
   int v13; // [esp+30h] [ebp-20h]
@@ -35,5 +35,5 @@ int __fastcall RtlpWnfETWEventCallback(int a1, int a2, int a3, int a4, int a5, i
     v8 = (int)NtCurrentPeb()->SharedData + 564;
   else
     v8 = 2147353486;
-  return NtTraceEvent(*(unsigned __int8 *)v8, 132098, 32, (int)v10);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v8, 0x20402u, 0x20u, Fields);
 }

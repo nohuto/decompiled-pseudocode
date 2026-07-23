@@ -1,19 +1,19 @@
 /*
- * XREFs of KseQueryDeviceData @ 0x14095C660
+ * XREFs of KseQueryDeviceData @ 0x140944120
  * Callers:
- *     ExpGetDeviceDataInformation @ 0x14095B9D4 (ExpGetDeviceDataInformation.c)
- *     KseQueryDeviceFlags @ 0x14095C5B0 (KseQueryDeviceFlags.c)
+ *     ExpGetDeviceDataInformation @ 0x140943494 (ExpGetDeviceDataInformation.c)
+ *     KseQueryDeviceFlags @ 0x140944070 (KseQueryDeviceFlags.c)
  * Callees:
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     KsepLogInfo @ 0x14048E6C8 (KsepLogInfo.c)
- *     KsepShimDbChanged @ 0x1404A5F7C (KsepShimDbChanged.c)
- *     KsepDbCacheInsertDevice @ 0x14073E384 (KsepDbCacheInsertDevice.c)
- *     KsepDbCacheQueryDeviceData @ 0x14073E41C (KsepDbCacheQueryDeviceData.c)
- *     KseResetDeviceCache @ 0x14095B32C (KseResetDeviceCache.c)
- *     KsepDbCacheQueryDevice @ 0x14095B370 (KsepDbCacheQueryDevice.c)
- *     KsepDbCacheReadDevice @ 0x14095C178 (KsepDbCacheReadDevice.c)
- *     KsepCacheDeviceFree @ 0x14095C3B0 (KsepCacheDeviceFree.c)
- *     KsepDbQueryRegistryDeviceData @ 0x14095C824 (KsepDbQueryRegistryDeviceData.c)
+ *     KsepLogInfo @ 0x140488AF8 (KsepLogInfo.c)
+ *     KsepShimDbChanged @ 0x1404A0C88 (KsepShimDbChanged.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     KsepDbCacheInsertDevice @ 0x14073C2B4 (KsepDbCacheInsertDevice.c)
+ *     KsepDbCacheQueryDeviceData @ 0x14073C34C (KsepDbCacheQueryDeviceData.c)
+ *     KseResetDeviceCache @ 0x140942DEC (KseResetDeviceCache.c)
+ *     KsepDbCacheQueryDevice @ 0x140942E30 (KsepDbCacheQueryDevice.c)
+ *     KsepDbCacheReadDevice @ 0x140943C38 (KsepDbCacheReadDevice.c)
+ *     KsepCacheDeviceFree @ 0x140943E70 (KsepCacheDeviceFree.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x1409442E4 (KsepDbQueryRegistryDeviceData.c)
  */
 
 __int64 __fastcall KseQueryDeviceData(PCWSTR SourceString, const WCHAR *a2, _DWORD *a3, unsigned int *a4, void *a5)
@@ -26,7 +26,7 @@ __int64 __fastcall KseQueryDeviceData(PCWSTR SourceString, const WCHAR *a2, _DWO
   int v15[2]; // [rsp+30h] [rbp-28h] BYREF
 
   *(_QWORD *)v15 = 0LL;
-  if ( dword_140E66AE4 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_140E66C14 != 2 || (KseEngine & 2) != 0 )
     return (unsigned int)-1073741275;
   if ( !a2 || !a3 || !a4 )
     return (unsigned int)-1073741811;

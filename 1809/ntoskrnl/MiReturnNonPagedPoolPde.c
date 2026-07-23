@@ -1,26 +1,26 @@
 /*
- * XREFs of MiReturnNonPagedPoolPde @ 0x1401616A0
+ * XREFs of MiReturnNonPagedPoolPde @ 0x1401617A0
  * Callers:
- *     MiReturnNonPagedPoolVa @ 0x140161634 (MiReturnNonPagedPoolVa.c)
+ *     MiReturnNonPagedPoolVa @ 0x140161734 (MiReturnNonPagedPoolVa.c)
  * Callees:
  *     MiNonPagedPoolToNode @ 0x1400261A4 (MiNonPagedPoolToNode.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCountSystemPool @ 0x1401B4E20 (MiCountSystemPool.c)
- *     MiJoinBitmapPages @ 0x1402B4EC0 (MiJoinBitmapPages.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCountSystemPool @ 0x1401B4F60 (MiCountSystemPool.c)
+ *     MiJoinBitmapPages @ 0x1402B50B0 (MiJoinBitmapPages.c)
  */
 
 __int64 __fastcall MiReturnNonPagedPoolPde(ULONG_PTR a1, unsigned __int64 a2, int a3)
 {
-  union _SLIST_HEADER *v5; // r14
+  _SLIST_HEADER *v5; // r14
   unsigned __int64 v6; // r15
   unsigned __int64 v7; // rdi
   unsigned __int64 v8; // rbx
@@ -57,22 +57,22 @@ __int64 __fastcall MiReturnNonPagedPoolPde(ULONG_PTR a1, unsigned __int64 a2, in
 
   v37 = a3;
   v35 = a1;
-  v5 = &qword_14043A058[25 * (unsigned int)MiNonPagedPoolToNode(a1)];
+  v5 = &qword_14043B118[25 * (unsigned int)MiNonPagedPoolToNode(a1)];
   v6 = (a1 - v5[20].Alignment) >> 12;
   v36 = v6 & 0xFFFFFFFFFFFFFE00uLL;
   v7 = v5[23].Region + 8 * (((v6 + a2 + 511) & 0xFFFFFFFFFFFFFE00uLL) >> 6);
   v8 = ((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
   v9 = 0LL;
-  LOBYTE(v37) = MiLockWorkingSetShared((__int64)&unk_14043B5D0);
-  valid = MiLockLowestValidPageTable((__int64)&unk_14043B5D0, v8, &v32, v10);
+  LOBYTE(v37) = MiLockWorkingSetShared((__int64)&unk_14043C690);
+  valid = MiLockLowestValidPageTable((__int64)&unk_14043C690, v8, &v32, v10);
   if ( valid == ((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
   {
     v12 = MI_READ_PTE_LOCK_FREE(v8);
   }
   else
   {
-    MiUnlockPageTableInternal((__int64)&unk_14043B5D0, valid);
-    MiUnlockWorkingSetShared((__int64)&unk_14043B5D0, v37);
+    MiUnlockPageTableInternal((__int64)&unk_14043C690, valid);
+    MiUnlockWorkingSetShared((__int64)&unk_14043C690, v37);
     valid = 0LL;
     v12 = 0LL;
   }
@@ -185,8 +185,8 @@ LABEL_25:
   __writecr8(v29);
   if ( valid )
   {
-    MiUnlockPageTableInternal((__int64)&unk_14043B5D0, valid);
-    result = MiUnlockWorkingSetShared((__int64)&unk_14043B5D0, v37);
+    MiUnlockPageTableInternal((__int64)&unk_14043C690, valid);
+    result = MiUnlockWorkingSetShared((__int64)&unk_14043C690, v37);
   }
   if ( v9 )
   {

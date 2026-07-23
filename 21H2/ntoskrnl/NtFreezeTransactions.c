@@ -1,5 +1,5 @@
 /*
- * XREFs of NtFreezeTransactions @ 0x1403D0800
+ * XREFs of NtFreezeTransactions @ 0x1403D0970
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 NtFreezeTransactions()
+NTSTATUS __cdecl NtFreezeTransactions(PLARGE_INTEGER FreezeTimeout, PLARGE_INTEGER ThawTimeout)
 {
-  return __imp_NtFreezeTransactions();
+  return __imp_NtFreezeTransactions(FreezeTimeout, ThawTimeout);
 }

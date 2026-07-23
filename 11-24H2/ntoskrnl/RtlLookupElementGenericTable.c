@@ -1,30 +1,29 @@
 /*
- * XREFs of RtlLookupElementGenericTable @ 0x140249620
+ * XREFs of RtlLookupElementGenericTable @ 0x1402E3860
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
-  __int64 v2; // r9
   PRTL_SPLAY_LINKS TableRoot; // rbx
-  int v6; // eax
+  int v5; // eax
 
   TableRoot = Table->TableRoot;
   if ( !Table->TableRoot )
     return 0LL;
   while ( 1 )
   {
-    v6 = guard_dispatch_icall_no_overrides(Table, Buffer, &TableRoot[1].RightChild, v2);
-    if ( !v6 )
+    v5 = guard_dispatch_icall_no_overrides(Table, Buffer);
+    if ( !v5 )
     {
       TableRoot = TableRoot->LeftChild;
       goto LABEL_5;
     }
-    if ( v6 != 1 )
+    if ( v5 != 1 )
       break;
     TableRoot = TableRoot->RightChild;
 LABEL_5:

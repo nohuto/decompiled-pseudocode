@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptSendIpiToPhysicalTarget @ 0x14057F5A4
+ * XREFs of HalpInterruptSendIpiToPhysicalTarget @ 0x140581AC4
  * Callers:
- *     HalpBlkPoReadPerfIoPort @ 0x1405A5330 (HalpBlkPoReadPerfIoPort.c)
- *     HalpBlkPoReadPerfMsr @ 0x1405A5430 (HalpBlkPoReadPerfMsr.c)
- *     HalpBlkPoRegisterIdleState @ 0x1405A5520 (HalpBlkPoRegisterIdleState.c)
- *     HalpBlkPoWritePerfIoPort @ 0x1405A55F0 (HalpBlkPoWritePerfIoPort.c)
- *     HalpBlkPoWritePerfMsr @ 0x1405A56E0 (HalpBlkPoWritePerfMsr.c)
+ *     HalpBlkPoReadPerfIoPort @ 0x1405A7B40 (HalpBlkPoReadPerfIoPort.c)
+ *     HalpBlkPoReadPerfMsr @ 0x1405A7C40 (HalpBlkPoReadPerfMsr.c)
+ *     HalpBlkPoRegisterIdleState @ 0x1405A7D30 (HalpBlkPoRegisterIdleState.c)
+ *     HalpBlkPoWritePerfIoPort @ 0x1405A7E00 (HalpBlkPoWritePerfIoPort.c)
+ *     HalpBlkPoWritePerfMsr @ 0x1405A7EF0 (HalpBlkPoWritePerfMsr.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 HalpInterruptSendIpiToPhysicalTarget()

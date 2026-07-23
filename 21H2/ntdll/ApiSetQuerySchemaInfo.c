@@ -15,7 +15,7 @@ __int64 __fastcall ApiSetQuerySchemaInfo(_DWORD *a1, unsigned __int16 *a2, bool 
   bool v10; // r14
   char v11; // r10
   unsigned __int64 v12; // r9
-  unsigned __int16 *v13; // rsi
+  const WCHAR *v13; // rsi
   _WORD *v14; // rcx
   unsigned int v15; // eax
   unsigned int v16; // edx
@@ -32,10 +32,8 @@ __int64 __fastcall ApiSetQuerySchemaInfo(_DWORD *a1, unsigned __int16 *a2, bool 
   _WORD *v27; // r8
   int v28; // r9d
   int v30; // eax
-  int v31; // [rsp+20h] [rbp-48h] BYREF
-  const wchar_t *v32; // [rsp+28h] [rbp-40h]
-  int v33; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v34; // [rsp+38h] [rbp-30h]
+  _UNICODE_STRING String2; // [rsp+20h] [rbp-48h] BYREF
+  _UNICODE_STRING String1; // [rsp+30h] [rbp-38h] BYREF
 
   v4 = *a2;
   v5 = 0;
@@ -48,14 +46,14 @@ __int64 __fastcall ApiSetQuerySchemaInfo(_DWORD *a1, unsigned __int16 *a2, bool 
     if ( v12 == 0x2D004900500041LL || v12 == 0x2D005400580045LL )
       v11 = 1;
   }
-  v13 = (unsigned __int16 *)*((_QWORD *)a2 + 1);
+  v13 = (const WCHAR *)*((_QWORD *)a2 + 1);
   if ( !v11 )
   {
-    v34 = *((_QWORD *)a2 + 1);
-    v32 = L"SchemaExt-";
-    v33 = 1310740;
-    v31 = 1310740;
-    if ( !(unsigned int)RtlCompareUnicodeString((unsigned __int16 *)&v33, (unsigned __int16 *)&v31, 1) )
+    String1.Buffer = (wchar_t *)*((_QWORD *)a2 + 1);
+    String2.Buffer = L"SchemaExt-";
+    *(_DWORD *)&String1.Length = 1310740;
+    *(_DWORD *)&String2.Length = 1310740;
+    if ( !RtlCompareUnicodeString(&String1, &String2, 1u) )
     {
       v9 = ApiSetpSearchForApiSet(a1, v13, (unsigned __int16)v4 >> 1) != 0;
       v10 = v9;
@@ -63,7 +61,7 @@ __int64 __fastcall ApiSetQuerySchemaInfo(_DWORD *a1, unsigned __int16 *a2, bool 
     }
     return (unsigned int)-1073741811;
   }
-  v14 = (unsigned __int16 *)((char *)v13 + v4);
+  v14 = (_WORD *)((char *)v13 + v4);
   v15 = *a2;
   v16 = v15;
   if ( (unsigned int)v4 > 1 )
@@ -81,9 +79,9 @@ __int64 __fastcall ApiSetQuerySchemaInfo(_DWORD *a1, unsigned __int16 *a2, bool 
   v18 = (v15 - (unsigned __int16)v16) >> 1;
   if ( !v18 )
     return (unsigned int)-1073741811;
-  if ( *(unsigned __int16 *)((char *)v13 + (unsigned __int16)v16) != 45 )
+  if ( *(const WCHAR *)((char *)v13 + (unsigned __int16)v16) != 45 )
     return (unsigned int)-1073741811;
-  v19 = (unsigned __int16 *)((char *)v13 + (unsigned __int16)v16 + 2);
+  v19 = (_WORD *)((char *)v13 + (unsigned __int16)v16 + 2);
   v20 = v18 - 1;
   if ( v18 == 1 )
     return (unsigned int)-1073741811;

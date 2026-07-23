@@ -1,10 +1,10 @@
 /*
- * XREFs of XmXlatOpcode @ 0x1405AC9C0
+ * XREFs of XmXlatOpcode @ 0x1405AF1D0
  * Callers:
  *     <none>
  * Callees:
- *     XmSetSourceValue @ 0x1404A8BDC (XmSetSourceValue.c)
- *     XmGetOffsetAddress @ 0x1405AE960 (XmGetOffsetAddress.c)
+ *     XmSetSourceValue @ 0x1404A226C (XmSetSourceValue.c)
+ *     XmGetOffsetAddress @ 0x1405B1170 (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmXlatOpcode(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbpCheckAllAttributes @ 0x140720344
+ * XREFs of SdbpCheckAllAttributes @ 0x1407215E4
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x140721450 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x1408E69E0 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x1407226F0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x1408E7CA0 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslAlloc @ 0x14067C780 (AslAlloc.c)
- *     SdbReadDWORDTag @ 0x14067CD98 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbpCheckAttribute @ 0x140720580 (SdbpCheckAttribute.c)
- *     AslFileAllocAndGetAttributes @ 0x140720654 (AslFileAllocAndGetAttributes.c)
- *     SdbReadQWORDTag @ 0x1407210E8 (SdbReadQWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AslAlloc @ 0x14067D940 (AslAlloc.c)
+ *     SdbReadDWORDTag @ 0x14067DF58 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x14067E340 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbpCheckAttribute @ 0x140721820 (SdbpCheckAttribute.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407218F4 (AslFileAllocAndGetAttributes.c)
+ *     SdbReadQWORDTag @ 0x140722388 (SdbReadQWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x1407229B0 (SdbGetStringTagPtr.c)
  */
 
 __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -67,7 +67,7 @@ LABEL_34:
   if ( !v10 )
     return (unsigned int)-1073741801;
   v11 = 0;
-  v12 = (int *)&unk_140404D64;
+  v12 = (int *)&unk_140405D74;
   while ( 1 )
   {
     v13 = *((_WORD *)v12 - 2);

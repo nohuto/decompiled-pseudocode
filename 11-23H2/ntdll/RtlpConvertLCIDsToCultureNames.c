@@ -14,27 +14,26 @@
  *     RtlUnicodeStringToLcid @ 0x1800FB7BC (RtlUnicodeStringToLcid.c)
  */
 
-__int64 __fastcall RtlpConvertLCIDsToCultureNames(WCHAR *SourceString, __int64 *a2)
+__int64 __fastcall RtlpConvertLCIDsToCultureNames(WCHAR *SourceString, _QWORD *a2)
 {
   PCWSTR v3; // rsi
   unsigned int v4; // r14d
   unsigned int v5; // edi
   unsigned int v6; // ebx
   void *ProcessHeap; // rcx
-  __int64 Heap; // r15
+  _DWORD *Heap; // r15
   _DWORD *v9; // r13
   unsigned int v10; // eax
-  unsigned int v11; // ebx
+  LCID v11; // ebx
   int v12; // ecx
-  unsigned __int64 v13; // rbx
+  unsigned __int64 Length; // rbx
   unsigned int v15; // [rsp+20h] [rbp-E0h] BYREF
   unsigned __int16 v16; // [rsp+24h] [rbp-DCh]
-  int v17; // [rsp+28h] [rbp-D8h] BYREF
-  void *Src; // [rsp+30h] [rbp-D0h]
-  __int64 v19; // [rsp+38h] [rbp-C8h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
-  int v21[4]; // [rsp+50h] [rbp-B0h] BYREF
-  char v22; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING String; // [rsp+28h] [rbp-D8h] BYREF
+  __int64 v18; // [rsp+38h] [rbp-C8h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG v20[4]; // [rsp+50h] [rbp-B0h] BYREF
+  char v21; // [rsp+60h] [rbp-A0h] BYREF
 
   v16 = 0;
   v3 = SourceString;
@@ -45,8 +44,8 @@ __int64 __fastcall RtlpConvertLCIDsToCultureNames(WCHAR *SourceString, __int64 *
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   v15 *= 2;
   v6 = v15;
-  Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, 680LL);
-  v9 = (_DWORD *)Heap;
+  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x2A8uLL);
+  v9 = Heap;
   v10 = v6;
   while ( 1 )
   {
@@ -58,37 +57,37 @@ LABEL_16:
     }
     if ( v4 >= 4 )
       goto LABEL_20;
-    v19 = 2 * (unsigned int)wcsnlen(v3, (unsigned __int64)v10 >> 1);
+    v18 = 2 * (unsigned int)wcsnlen(v3, (unsigned __int64)v10 >> 1);
     RtlInitUnicodeString(&DestinationString, v3);
-    if ( (int)RtlUnicodeStringToLcid(&DestinationString.Length, &v21[v4]) < 0 )
+    if ( (int)RtlUnicodeStringToLcid(&DestinationString, &v20[v4]) < 0 )
       goto LABEL_20;
-    v11 = v21[v4];
-    Src = &v22;
-    v17 = 11141120;
-    if ( !RtlLCIDToCultureName(v11, (__int64)&v17) )
+    v11 = v20[v4];
+    String.Buffer = (wchar_t *)&v21;
+    *(_DWORD *)&String.Length = 11141120;
+    if ( !RtlLCIDToCultureName(v11, &String) )
       goto LABEL_20;
     v12 = 0;
     if ( v4 )
       break;
 LABEL_14:
-    v16 += v17 + 2;
+    v16 += String.Length + 2;
     if ( v16 >= 0x2A7u )
     {
       v5 = -1073741595;
       goto LABEL_21;
     }
-    v13 = (unsigned __int16)v17;
-    memmove(v9, Src, (unsigned __int16)v17 + 2LL);
+    Length = String.Length;
+    memmove(v9, String.Buffer, String.Length + 2LL);
     ++v4;
-    v3 = (PCWSTR)((char *)v3 + (unsigned int)v19 + 2);
-    v9 = (_DWORD *)((char *)v9 + 2 * (v13 >> 1) + 2);
-    v6 = v15 - v19 - 2;
+    v3 = (PCWSTR)((char *)v3 + (unsigned int)v18 + 2);
+    v9 = (_DWORD *)((char *)v9 + 2 * (Length >> 1) + 2);
+    v6 = v15 - v18 - 2;
     v15 = v6;
     v10 = v6;
     if ( !v3 )
       goto LABEL_16;
   }
-  while ( v11 != v21[v12] )
+  while ( v11 != v20[v12] )
   {
     if ( ++v12 >= v4 )
       goto LABEL_14;
@@ -102,6 +101,6 @@ LABEL_17:
     *a2 = Heap;
     return v5;
   }
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v5;
 }

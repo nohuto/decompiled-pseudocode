@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpBufferingModeFlush @ 0x1406A6710
+ * XREFs of EtwpBufferingModeFlush @ 0x1406A6848
  * Callers:
- *     EtwpFlushTrace @ 0x140494D88 (EtwpFlushTrace.c)
+ *     EtwpFlushTrace @ 0x140495818 (EtwpFlushTrace.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14008560C (EtwpQueryUsedProcessorCount.c)
- *     EtwpLockUnlockBufferList @ 0x1400929C4 (EtwpLockUnlockBufferList.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     EtwpPrepareDirtyBuffer @ 0x1400ED78C (EtwpPrepareDirtyBuffer.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     EtwpBufferingModeCompressionFlush @ 0x14022A074 (EtwpBufferingModeCompressionFlush.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     EtwpPrepareHeader @ 0x1404913E8 (EtwpPrepareHeader.c)
- *     EtwpFlushBufferToLogfile @ 0x14049146C (EtwpFlushBufferToLogfile.c)
- *     EtwpFinalizeHeader @ 0x140492C74 (EtwpFinalizeHeader.c)
- *     EtwpCreateLogFile @ 0x140494518 (EtwpCreateLogFile.c)
- *     EtwpWaitForBufferReferenceCount @ 0x1404D628C (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFindAndLockBufferForFlushing @ 0x1406A6A54 (EtwpFindAndLockBufferForFlushing.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140086EF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpLockUnlockBufferList @ 0x1400921C4 (EtwpLockUnlockBufferList.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1400EB628 (EtwpPrepareDirtyBuffer.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x140229EA0 (EtwpBufferingModeCompressionFlush.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     EtwpPrepareHeader @ 0x140491E78 (EtwpPrepareHeader.c)
+ *     EtwpFlushBufferToLogfile @ 0x140491EFC (EtwpFlushBufferToLogfile.c)
+ *     EtwpFinalizeHeader @ 0x140493704 (EtwpFinalizeHeader.c)
+ *     EtwpCreateLogFile @ 0x140494FA8 (EtwpCreateLogFile.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x1404B9890 (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFindAndLockBufferForFlushing @ 0x1406A6B8C (EtwpFindAndLockBufferForFlushing.c)
  */
 
 __int64 __fastcall EtwpBufferingModeFlush(unsigned int *a1)

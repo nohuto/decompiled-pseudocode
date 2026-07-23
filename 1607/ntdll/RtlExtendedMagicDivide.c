@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlExtendedMagicDivide @ 0x180081780
+ * XREFs of RtlExtendedMagicDivide @ 0x180081770
  * Callers:
- *     RtlTimeToSecondsSince1980 @ 0x180081610 (RtlTimeToSecondsSince1980.c)
- *     TimeToDaysAndFraction @ 0x1800816E8 (TimeToDaysAndFraction.c)
- *     RtlTimeToSecondsSince1970 @ 0x180081740 (RtlTimeToSecondsSince1970.c)
+ *     RtlTimeToSecondsSince1980 @ 0x180081600 (RtlTimeToSecondsSince1980.c)
+ *     TimeToDaysAndFraction @ 0x1800816D8 (TimeToDaysAndFraction.c)
+ *     RtlTimeToSecondsSince1970 @ 0x180081730 (RtlTimeToSecondsSince1970.c)
  * Callees:
  *     <none>
  */

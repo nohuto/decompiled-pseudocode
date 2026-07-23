@@ -9,33 +9,33 @@
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  *     MiProbeLockFrame @ 0x140041950 (MiProbeLockFrame.c)
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
- *     MiResolveProtoCombine @ 0x14007BF74 (MiResolveProtoCombine.c)
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiInitializeImageProtos @ 0x140093198 (MiInitializeImageProtos.c)
- *     MiLockProtoPage @ 0x1400962A4 (MiLockProtoPage.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
- *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
- *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
- *     MiFinalizeImageHeaderPage @ 0x14012DDB0 (MiFinalizeImageHeaderPage.c)
- *     MiUnlockNestedProtoPoolPage @ 0x1401348BC (MiUnlockNestedProtoPoolPage.c)
- *     MiDeletePerSessionProtos @ 0x140136FA4 (MiDeletePerSessionProtos.c)
- *     MiUnlockPagedAddress @ 0x14013A2C8 (MiUnlockPagedAddress.c)
- *     MiReturnPfnReferenceCount @ 0x14013B7B0 (MiReturnPfnReferenceCount.c)
- *     MiMirrorPerformBrownWrites @ 0x140152394 (MiMirrorPerformBrownWrites.c)
- *     MiJumpStackTarget @ 0x14015E910 (MiJumpStackTarget.c)
- *     MmDbgMarkPfnModifiedWorker @ 0x14018F9C4 (MmDbgMarkPfnModifiedWorker.c)
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5454 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
- *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
- *     MiFinishLastForkPageTable @ 0x1402C9DF0 (MiFinishLastForkPageTable.c)
- *     MiLockDownWorkingSet @ 0x1402CA960 (MiLockDownWorkingSet.c)
+ *     MiResolveProtoCombine @ 0x14007BF64 (MiResolveProtoCombine.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
+ *     MiInitializeImageProtos @ 0x1400930D8 (MiInitializeImageProtos.c)
+ *     MiLockProtoPage @ 0x1400961E4 (MiLockProtoPage.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB490 (MiMakeDriverPagesPrivate.c)
+ *     MiPrivateFixup @ 0x140125F10 (MiPrivateFixup.c)
+ *     MiSwapStackPage @ 0x14012D250 (MiSwapStackPage.c)
+ *     MiFinalizeImageHeaderPage @ 0x14012DE80 (MiFinalizeImageHeaderPage.c)
+ *     MiUnlockNestedProtoPoolPage @ 0x14013498C (MiUnlockNestedProtoPoolPage.c)
+ *     MiDeletePerSessionProtos @ 0x1401370A4 (MiDeletePerSessionProtos.c)
+ *     MiUnlockPagedAddress @ 0x14013A3C8 (MiUnlockPagedAddress.c)
+ *     MiReturnPfnReferenceCount @ 0x14013B8B0 (MiReturnPfnReferenceCount.c)
+ *     MiMirrorPerformBrownWrites @ 0x140152494 (MiMirrorPerformBrownWrites.c)
+ *     MiJumpStackTarget @ 0x14015EA10 (MiJumpStackTarget.c)
+ *     MmDbgMarkPfnModifiedWorker @ 0x14018FB04 (MmDbgMarkPfnModifiedWorker.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5594 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
+ *     MiIdealClusterPage @ 0x1402C6E04 (MiIdealClusterPage.c)
+ *     MiFinishLastForkPageTable @ 0x1402C9FE0 (MiFinishLastForkPageTable.c)
+ *     MiLockDownWorkingSet @ 0x1402CAB50 (MiLockDownWorkingSet.c)
  * Callees:
  *     MiAreChargesNeededToLockPage @ 0x140030D40 (MiAreChargesNeededToLockPage.c)
  *     MiIsPfnCommitNotCharged @ 0x140030DB0 (MiIsPfnCommitNotCharged.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveLockedPageChargeAndDecRef(__int64 a1)
@@ -82,9 +82,9 @@ __int64 __fastcall MiRemoveLockedPageChargeAndDecRef(__int64 a1)
     v9 = 1;
   }
   v10 = (v8 >> 40) & 0x3FF;
-  v11 = *(_QWORD *)(qword_14043A748 + 8 * v10);
+  v11 = *(_QWORD *)(qword_14043B808 + 8 * v10);
   if ( v9 == 1 )
-    MiReturnCommit(*(_QWORD *)(qword_14043A748 + 8 * v10), 1LL);
+    MiReturnCommit(*(_QWORD *)(qword_14043B808 + 8 * v10), 1LL);
   if ( (ULONG_PTR *)v11 != &MiSystemPartition )
   {
     _InterlockedExchangeAdd64((volatile signed __int64 *)(v11 + 7360), 1uLL);
@@ -96,7 +96,7 @@ __int64 __fastcall MiRemoveLockedPageChargeAndDecRef(__int64 a1)
   if ( (_DWORD)CachedResidentAvailable == -1 )
   {
 LABEL_26:
-    v4 = _InterlockedExchangeAdd64(&qword_14043E600, v4);
+    v4 = _InterlockedExchangeAdd64(&qword_14043F6C0, v4);
     goto LABEL_15;
   }
   if ( (unsigned __int64)(CachedResidentAvailable + 1) > 0x100 )

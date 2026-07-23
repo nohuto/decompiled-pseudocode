@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpGetNameFromLangInfoNode @ 0x1405EDAE4
+ * XREFs of RtlpGetNameFromLangInfoNode @ 0x1405EB0CC
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x14082E674 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14082EEA4 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     RtlLCIDToCultureName @ 0x140ABA1E0 (RtlLCIDToCultureName.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     RtlLCIDToCultureName @ 0x140AB5200 (RtlLCIDToCultureName.c)
  */
 
-__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   __int64 v5; // rax
   __int64 v6; // r8
   unsigned __int16 Length; // si
-  __int64 v8; // rcx
+  LCID v8; // ecx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
@@ -25,7 +25,7 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
     {
       v8 = *(unsigned __int16 *)(a2 + 4);
       if ( (((_WORD)v8 - 4096) & 0xFBFF) != 0 )
-        return (unsigned __int8)RtlLCIDToCultureName(v8, a3) == 0 ? 0xC00000E5 : 0;
+        return RtlLCIDToCultureName(v8, a3) == 0 ? 0xC00000E5 : 0;
     }
     else
     {
@@ -35,10 +35,10 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
         &DestinationString,
         (PCWSTR)(*(_QWORD *)(v6 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v6 + 16) + 2 * v5)));
       Length = DestinationString.Length;
-      if ( DestinationString.Length <= *(_WORD *)(a3 + 2)
-        && RtlStringCbCopyW(*(NTSTRSAFE_PWSTR *)(a3 + 8), *(unsigned __int16 *)(a3 + 2), DestinationString.Buffer) >= 0 )
+      if ( DestinationString.Length <= a3->MaximumLength
+        && RtlStringCbCopyW(a3->Buffer, a3->MaximumLength, DestinationString.Buffer) >= 0 )
       {
-        *(_WORD *)a3 = Length;
+        a3->Length = Length;
         return v3;
       }
     }

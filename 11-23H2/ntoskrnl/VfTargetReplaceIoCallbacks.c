@@ -1,7 +1,7 @@
 /*
- * XREFs of VfTargetReplaceIoCallbacks @ 0x1405CF258
+ * XREFs of VfTargetReplaceIoCallbacks @ 0x1405CF7C8
  * Callers:
- *     VfSuspectApplyDifVolatileVerification @ 0x140ADA2B8 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectApplyDifVolatileVerification @ 0x140ADA2A8 (VfSuspectApplyDifVolatileVerification.c)
  * Callees:
  *     VfDifCaptureIoCallbacks @ 0x140209F20 (VfDifCaptureIoCallbacks.c)
  *     VfAvlLookupTreeNode @ 0x140209FDC (VfAvlLookupTreeNode.c)

@@ -1,8 +1,8 @@
 /*
- * XREFs of IoComputeDesiredAccessFileObject @ 0x1408FB670
+ * XREFs of IoComputeDesiredAccessFileObject @ 0x14092B600
  * Callers:
- *     ObReferenceFileObjectForWrite @ 0x1408F9590 (ObReferenceFileObjectForWrite.c)
- *     NtWriteFile @ 0x1408FB6D0 (NtWriteFile.c)
+ *     ObReferenceFileObjectForWrite @ 0x140929520 (ObReferenceFileObjectForWrite.c)
+ *     NtWriteFile @ 0x14092B660 (NtWriteFile.c)
  * Callees:
  *     <none>
  */

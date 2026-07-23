@@ -6,7 +6,7 @@
  *     <none>
  */
 
-char __stdcall RtlQueryThreadPlaceholderCompatibilityMode()
+CHAR RtlQueryThreadPlaceholderCompatibilityMode(void)
 {
   struct _TEB *v0; // eax
 

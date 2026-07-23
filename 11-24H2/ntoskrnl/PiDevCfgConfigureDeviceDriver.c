@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceDriver @ 0x14099A308
+ * XREFs of PiDevCfgConfigureDeviceDriver @ 0x1409CCA78
  * Callers:
- *     PpDevCfgProcessDeviceExtensions @ 0x14072C8FC (PpDevCfgProcessDeviceExtensions.c)
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x14072A910 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     PiDevCfgConfigureDeviceKeys @ 0x140964604 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x14099AD60 (PiDevCfgConfigureDeviceDriverConfiguration.c)
- *     PiDevCfgCopyObjectProperties @ 0x14099AE24 (PiDevCfgCopyObjectProperties.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14094C3DC (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x1409CD4D0 (PiDevCfgConfigureDeviceDriverConfiguration.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1409CD594 (PiDevCfgCopyObjectProperties.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceDriver(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
@@ -16,7 +16,7 @@ __int64 __fastcall PiDevCfgConfigureDeviceDriver(__int64 a1, __int64 a2, __int64
   __int64 result; // rax
   __int64 *v10; // r14
   __int64 i; // rbx
-  unsigned int v12; // ebp
+  int v12; // ebp
   void *v13; // r13
   int v14; // r12d
   int v15; // [rsp+20h] [rbp-88h]

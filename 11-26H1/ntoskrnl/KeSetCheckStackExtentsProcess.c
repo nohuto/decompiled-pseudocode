@@ -1,8 +1,8 @@
 /*
- * XREFs of KeSetCheckStackExtentsProcess @ 0x140B0121C
+ * XREFs of KeSetCheckStackExtentsProcess @ 0x140B02F4C
  * Callers:
- *     PspApplyMitigationOptions @ 0x140964120 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x140B4F59C (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of PopBlackBoxUpdate @ 0x140B71EFC
+ * XREFs of PopBlackBoxUpdate @ 0x140B76EF4
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     RtlTestProtectedAccess @ 0x140A7FCA4 (RtlTestProtectedAccess.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     RtlTestProtectedAccess @ 0x140A85B14 (RtlTestProtectedAccess.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopBlackBoxUpdate(__int64 a1, char a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -48,7 +48,9 @@ __int64 __fastcall PopBlackBoxUpdate(__int64 a1, char a2, __int64 a3, struct _KL
   {
     ProbeForRead(*(volatile void **)a1, *(_QWORD *)(a1 + 8), 1u);
     if ( ((_DWORD)v7[2] & 1) != 0
-      && !RtlTestProtectedAccess(BYTE2(KeGetCurrentThread()->Process[3].ActiveGroupsMask.Masks[1]), 0x61u) )
+      && !RtlTestProtectedAccess(
+            (PS_PROTECTION)SBYTE2(KeGetCurrentThread()->Process[3].ActiveGroupsMask.Masks[1]),
+            (PS_PROTECTION)97) )
     {
       v8 = -1073741790;
       goto LABEL_37;
@@ -58,13 +60,13 @@ __int64 __fastcall PopBlackBoxUpdate(__int64 a1, char a2, __int64 a3, struct _KL
   v22 = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v11 = (AutoBoost *)KeAbPreAcquire((__int64)&PopModernStandbyStateNotify.SchedulerAssist, 0LL, 0LL, a4);
+  v11 = (AutoBoost *)KeAbPreAcquire((__int64)&PopPdcDeviceListLock.152, 0LL, 0LL, a4);
   v13 = v11;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&PopModernStandbyStateNotify.SchedulerAssist, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&PopPdcDeviceListLock.152, 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&PopModernStandbyStateNotify.SchedulerAssist,
+      (unsigned __int64 *)&PopPdcDeviceListLock.152,
       v11,
-      (__int64)&PopModernStandbyStateNotify.SchedulerAssist);
+      (__int64)&PopPdcDeviceListLock.152);
   if ( v13 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -137,11 +139,9 @@ LABEL_16:
 LABEL_37:
   if ( v22 )
   {
-    if ( (_InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&PopModernStandbyStateNotify.SchedulerAssist,
-            0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&PopModernStandbyStateNotify.SchedulerAssist);
-    KeAbPostRelease((unsigned __int64)&PopModernStandbyStateNotify.SchedulerAssist);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopPdcDeviceListLock.152, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&PopPdcDeviceListLock.152);
+    KeAbPostRelease((unsigned __int64)&PopPdcDeviceListLock.152);
     KeLeaveCriticalRegion();
   }
   return v8;

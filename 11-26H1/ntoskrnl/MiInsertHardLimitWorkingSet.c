@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInsertHardLimitWorkingSet @ 0x1403BDD0C
+ * XREFs of MiInsertHardLimitWorkingSet @ 0x1403C7B7C
  * Callers:
- *     MiEnforceWorkingSetLimit @ 0x14030E1D8 (MiEnforceWorkingSetLimit.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403BC3E8 (MmAdjustWorkingSetSizeEx.c)
- *     MiAllowWorkingSetExpansion @ 0x1404D8040 (MiAllowWorkingSetExpansion.c)
+ *     MiEnforceWorkingSetLimit @ 0x1402F0258 (MiEnforceWorkingSetLimit.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x1403C6258 (MmAdjustWorkingSetSizeEx.c)
+ *     MiAllowWorkingSetExpansion @ 0x1404D1810 (MiAllowWorkingSetExpansion.c)
  * Callees:
  *     <none>
  */
@@ -33,7 +33,7 @@ _QWORD *__fastcall MiInsertHardLimitWorkingSet(__int64 a1)
     while ( v3 );
     *(_QWORD *)(v2 + 88) = v4;
     *(_DWORD *)(v2 + 96) = 0;
-    v6 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174)) + 18352LL;
+    v6 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174)) + 18352LL;
     result = *(_QWORD **)(v6 + 8);
     if ( *result != v6 )
       __fastfail(3u);

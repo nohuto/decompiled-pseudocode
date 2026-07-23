@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiHwKcsInit @ 0x14071CFE8
+ * XREFs of IpmiHwKcsInit @ 0x140721C78
  * Callers:
- *     IpmiHwInitializeContext @ 0x14071CEF4 (IpmiHwInitializeContext.c)
+ *     IpmiHwInitializeContext @ 0x140721B84 (IpmiHwInitializeContext.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
  */
 
 __int64 IpmiHwKcsInit()

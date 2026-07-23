@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpDereferenceKeyControlBlockWithLock @ 0x14073E4A8
+ * XREFs of CmpDereferenceKeyControlBlockWithLock @ 0x14073E698
  * Callers:
- *     CmpDrainDelayDerefContext @ 0x14022D4F0 (CmpDrainDelayDerefContext.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7E90 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpTransMgrFreeVolatileData @ 0x140768F14 (CmpTransMgrFreeVolatileData.c)
- *     CmpDereferenceKeyControlBlock @ 0x14076AB10 (CmpDereferenceKeyControlBlock.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpUnfreezeHive @ 0x140A16DA8 (CmpUnfreezeHive.c)
- *     CmpCleanupDiscardReplacePost @ 0x140A1F810 (CmpCleanupDiscardReplacePost.c)
- *     CmpCommitDiscardReplacePost @ 0x140A1F900 (CmpCommitDiscardReplacePost.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FABC (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A284D8 (CmpLightWeightCommitRenameKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A293A0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpDrainDelayDerefContext @ 0x14022D600 (CmpDrainDelayDerefContext.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7EC0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpTransMgrFreeVolatileData @ 0x140769104 (CmpTransMgrFreeVolatileData.c)
+ *     CmpDereferenceKeyControlBlock @ 0x14076AD00 (CmpDereferenceKeyControlBlock.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpUnfreezeHive @ 0x140A17058 (CmpUnfreezeHive.c)
+ *     CmpCleanupDiscardReplacePost @ 0x140A1FAC0 (CmpCleanupDiscardReplacePost.c)
+ *     CmpCommitDiscardReplacePost @ 0x140A1FBB0 (CmpCommitDiscardReplacePost.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FD6C (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28788 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29650 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
  *     CmpFreeKeyControlBlock @ 0x140699D40 (CmpFreeKeyControlBlock.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D8510 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpAddToDelayedClose @ 0x14073E5C8 (CmpAddToDelayedClose.c)
- *     CmpDeleteHive @ 0x14074E6D4 (CmpDeleteHive.c)
- *     CmpDoQueueLateUnloadWorker @ 0x140751D34 (CmpDoQueueLateUnloadWorker.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406D8540 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpAddToDelayedClose @ 0x14073E7B8 (CmpAddToDelayedClose.c)
+ *     CmpDeleteHive @ 0x14074E8C4 (CmpDeleteHive.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x140751F24 (CmpDoQueueLateUnloadWorker.c)
  */
 
 void __fastcall CmpDereferenceKeyControlBlockWithLock(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpReleaseSecondaryIcEntryShared @ 0x14047ECEC
+ * XREFs of HalpReleaseSecondaryIcEntryShared @ 0x1403754EC
  * Callers:
- *     HalpDisableSecondaryInterrupt @ 0x14047EC50 (HalpDisableSecondaryInterrupt.c)
- *     HalpInterruptRequestSecondaryInterrupt @ 0x140555C68 (HalpInterruptRequestSecondaryInterrupt.c)
- *     HalpUnregisterSecondaryIcInterface @ 0x140555DF0 (HalpUnregisterSecondaryIcInterface.c)
- *     HalpEnableSecondaryInterrupt @ 0x1406FB490 (HalpEnableSecondaryInterrupt.c)
- *     HalpQueryPrimaryInterruptInformation @ 0x140AA136C (HalpQueryPrimaryInterruptInformation.c)
+ *     HalpDisableSecondaryInterrupt @ 0x140375450 (HalpDisableSecondaryInterrupt.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x1405535A8 (HalpInterruptRequestSecondaryInterrupt.c)
+ *     HalpUnregisterSecondaryIcInterface @ 0x140553730 (HalpUnregisterSecondaryIcInterface.c)
+ *     HalpEnableSecondaryInterrupt @ 0x1406F90D0 (HalpEnableSecondaryInterrupt.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x140A9C6FC (HalpQueryPrimaryInterruptInformation.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     HalpInsertSecondarySignalList @ 0x140555ABC (HalpInsertSecondarySignalList.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     HalpInsertSecondarySignalList @ 0x1405533FC (HalpInsertSecondarySignalList.c)
  */
 
 LONG __fastcall HalpReleaseSecondaryIcEntryShared(__int64 a1, char a2)

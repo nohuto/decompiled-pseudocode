@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpClearScreen @ 0x140715B44
+ * XREFs of BgpClearScreen @ 0x14071A834
  * Callers:
- *     BgpDisplaySafeToPowerOffScreen @ 0x140717E40 (BgpDisplaySafeToPowerOffScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1407180B4 (BgpFwDisplayBugCheckScreen.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14071840C (BgpFwDisplayBugCheckScreenModernized.c)
- *     BgpConsoleClearScreenEx @ 0x140C4FD78 (BgpConsoleClearScreenEx.c)
- *     AnFwDisplayBackgroundUpdate @ 0x140C511F4 (AnFwDisplayBackgroundUpdate.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140C51580 (AnFwpBackgroundUpdateTimer.c)
- *     AnFwDisplayFade @ 0x140C52BA0 (AnFwDisplayFade.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x14071CB30 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14071CDA4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14071D0FC (BgpFwDisplayBugCheckScreenModernized.c)
+ *     BgpConsoleClearScreenEx @ 0x140C55D78 (BgpConsoleClearScreenEx.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x140C571F4 (AnFwDisplayBackgroundUpdate.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140C57580 (AnFwpBackgroundUpdateTimer.c)
+ *     AnFwDisplayFade @ 0x140C58BA0 (AnFwDisplayFade.c)
  * Callees:
- *     BgpGxFillRectangle @ 0x1404AD7AC (BgpGxFillRectangle.c)
- *     BgpGxDrawRectangle @ 0x1404BFC2C (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x1404C009C (BgpGetBitsPerPixel.c)
- *     BgpGxInitializeRectangle @ 0x14071629C (BgpGxInitializeRectangle.c)
+ *     BgpGxFillRectangle @ 0x1404A6E34 (BgpGxFillRectangle.c)
+ *     BgpGxDrawRectangle @ 0x1404B947C (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x1404B98EC (BgpGetBitsPerPixel.c)
+ *     BgpGxInitializeRectangle @ 0x14071AF8C (BgpGxInitializeRectangle.c)
  */
 
 __int64 __fastcall BgpClearScreen(unsigned int a1)
@@ -62,10 +62,10 @@ __int64 __fastcall BgpClearScreen(unsigned int a1)
     v15 = v5;
   }
   BitsPerPixel = BgpGetBitsPerPixel();
-  result = BgpGxInitializeRectangle(&v13, BitsPerPixel, &unk_140E625C0, 0x2000LL);
+  result = BgpGxInitializeRectangle(&v13, BitsPerPixel, &stru_140E62450.AbCompletedIoQoSBoostCount, 0x2000LL);
   if ( (int)result >= 0 )
   {
-    BgpGxFillRectangle((__int64)&unk_140E625C0, a1);
+    BgpGxFillRectangle((__int64)&stru_140E62450.AbCompletedIoQoSBoostCount, a1);
     v12 = 0;
     for ( i = 0; v12 < Flink_high; i = v12 )
     {
@@ -74,9 +74,9 @@ __int64 __fastcall BgpClearScreen(unsigned int a1)
       {
         do
         {
-          BgpGxDrawRectangle((__int64)&unk_140E625C0, (__int64)&v16);
-          if ( (byte_140E625D0 & 0x10) != 0 )
-            BgpGxFillRectangle((__int64)&unk_140E625C0, a1);
+          BgpGxDrawRectangle((__int64)&stru_140E62450.AbCompletedIoQoSBoostCount, (__int64)&v16);
+          if ( ((__int64)stru_140E62450.GlobalForegroundListEntry.Flink & 0x10) != 0 )
+            BgpGxFillRectangle((__int64)&stru_140E62450.AbCompletedIoQoSBoostCount, a1);
           v16 += v8;
         }
         while ( v16 < Blink );

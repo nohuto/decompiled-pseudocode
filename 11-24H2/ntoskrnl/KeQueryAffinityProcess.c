@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryAffinityProcess @ 0x1403B1570
+ * XREFs of KeQueryAffinityProcess @ 0x14039FD80
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     KiAcquireProcessLockShared @ 0x1403B1634 (KiAcquireProcessLockShared.c)
- *     KiReleaseProcessLockShared @ 0x1403B16C0 (KiReleaseProcessLockShared.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiAcquireProcessLockShared @ 0x14039FE44 (KiAcquireProcessLockShared.c)
+ *     KiReleaseProcessLockShared @ 0x14039FED0 (KiReleaseProcessLockShared.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
  */
 
 __int64 __fastcall KeQueryAffinityProcess(__int64 a1, struct _KAFFINITY_EX *a2, _OWORD *a3, _OWORD *a4, _WORD *a5)

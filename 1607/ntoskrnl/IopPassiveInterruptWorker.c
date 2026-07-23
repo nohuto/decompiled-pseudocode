@@ -1,17 +1,17 @@
 /*
- * XREFs of IopPassiveInterruptWorker @ 0x1401CDB94
+ * XREFs of IopPassiveInterruptWorker @ 0x1401CD9E0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
- *     IopDereferencePassiveInterruptBlock @ 0x1401CD9FC (IopDereferencePassiveInterruptBlock.c)
- *     KiInterruptDispatchCommon @ 0x1401D8668 (KiInterruptDispatchCommon.c)
- *     IopAcquireReleaseDispatcherLock @ 0x14062CFF4 (IopAcquireReleaseDispatcherLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x1401CD848 (IopDereferencePassiveInterruptBlock.c)
+ *     KiInterruptDispatchCommon @ 0x1401D8494 (KiInterruptDispatchCommon.c)
+ *     IopAcquireReleaseDispatcherLock @ 0x14062D0A8 (IopAcquireReleaseDispatcherLock.c)
  */
 
 void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)

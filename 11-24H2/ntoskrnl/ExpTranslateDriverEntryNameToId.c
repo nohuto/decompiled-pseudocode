@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTranslateDriverEntryNameToId @ 0x1407BD140
+ * XREFs of ExpTranslateDriverEntryNameToId @ 0x1407BD590
  * Callers:
- *     ExpIsDriverEntry @ 0x1407BBEC0 (ExpIsDriverEntry.c)
- *     NtEnumerateDriverEntries @ 0x1407BDBD0 (NtEnumerateDriverEntries.c)
+ *     ExpIsDriverEntry @ 0x1407BC310 (ExpIsDriverEntry.c)
+ *     NtEnumerateDriverEntries @ 0x1407BE020 (NtEnumerateDriverEntries.c)
  * Callees:
- *     towlower @ 0x1404FFC10 (towlower.c)
+ *     towlower @ 0x1404FD4D0 (towlower.c)
  */
 
 __int64 __fastcall ExpTranslateDriverEntryNameToId(wint_t *a1, int *a2)

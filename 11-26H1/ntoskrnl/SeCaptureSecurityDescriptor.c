@@ -1,28 +1,28 @@
 /*
- * XREFs of SeCaptureSecurityDescriptor @ 0x1409263C0
+ * XREFs of SeCaptureSecurityDescriptor @ 0x140901ED0
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     CmpCopySaclToVirtualKey @ 0x14085AD20 (CmpCopySaclToVirtualKey.c)
- *     AlpcpConnectPort @ 0x1408E92E0 (AlpcpConnectPort.c)
- *     NtSetSecurityObject @ 0x1408ECC30 (NtSetSecurityObject.c)
- *     ObpCaptureObjectCreateInformation @ 0x1408FDFD0 (ObpCaptureObjectCreateInformation.c)
- *     PipGetRegistrySecurityWithFallback @ 0x1409153D4 (PipGetRegistrySecurityWithFallback.c)
- *     NtCreateWnfStateName @ 0x14094F1A0 (NtCreateWnfStateName.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1409F7550 (NtOpenObjectAuditAlarm.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1409F8EF4 (SeTokenDefaultDaclChangedAuditAlarm.c)
- *     IopQuerySecureDeviceClassState @ 0x140B2F62C (IopQuerySecureDeviceClassState.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     CmpCopySaclToVirtualKey @ 0x140861014 (CmpCopySaclToVirtualKey.c)
+ *     AlpcpConnectPort @ 0x1408EF8A0 (AlpcpConnectPort.c)
+ *     NtSetSecurityObject @ 0x1408F31F0 (NtSetSecurityObject.c)
+ *     ObpCaptureObjectCreateInformation @ 0x14092DF60 (ObpCaptureObjectCreateInformation.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14096FE40 (PipGetRegistrySecurityWithFallback.c)
+ *     NtCreateWnfStateName @ 0x1409CAAE0 (NtCreateWnfStateName.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x140A60090 (NtOpenObjectAuditAlarm.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x140AE2774 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     IopQuerySecureDeviceClassState @ 0x140B3140C (IopQuerySecureDeviceClassState.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
- *     RtlValidAcl @ 0x140928000 (RtlValidAcl.c)
- *     SepCheckAcl @ 0x1409F4DF0 (SepCheckAcl.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x140903B10 (RtlValidAcl.c)
+ *     SepCheckAcl @ 0x1409E0B40 (SepCheckAcl.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureSecurityDescriptor(unsigned __int16 *Src, char a2, int a3, char a4, unsigned __int16 **a5)
@@ -44,9 +44,9 @@ __int64 __fastcall SeCaptureSecurityDescriptor(unsigned __int16 *Src, char a2, i
   unsigned int v21; // eax
   unsigned __int8 v22; // al
   int v23; // eax
-  _DWORD *PoolWithTag; // rax
+  char *PoolWithTag; // rax
   _DWORD *v25; // rdi
-  char *v26; // rbx
+  ACL *v26; // rbx
   unsigned __int16 v28; // ax
   unsigned int v29; // ecx
   int v30; // ecx
@@ -54,8 +54,8 @@ __int64 __fastcall SeCaptureSecurityDescriptor(unsigned __int16 *Src, char a2, i
   unsigned int v32; // [rsp+28h] [rbp-E0h]
   unsigned int v33; // [rsp+2Ch] [rbp-DCh]
   unsigned int v34; // [rsp+38h] [rbp-D0h]
-  unsigned __int8 v35; // [rsp+3Ch] [rbp-CCh]
-  unsigned __int8 v36; // [rsp+40h] [rbp-C8h]
+  UCHAR v35; // [rsp+3Ch] [rbp-CCh]
+  UCHAR v36; // [rsp+40h] [rbp-C8h]
   unsigned __int16 *Srca; // [rsp+48h] [rbp-C0h]
   __int16 v38; // [rsp+64h] [rbp-A4h]
   __int16 v39; // [rsp+6Ch] [rbp-9Ch]
@@ -232,13 +232,13 @@ __int64 __fastcall SeCaptureSecurityDescriptor(unsigned __int16 *Src, char a2, i
     v15 = (v23 + 3) & 0xFFFFFFFC;
     v21 = v44;
   }
-  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(a3 | 0x400), v18 + v15 + v21 + v34 + 20, 0x63536553u);
+  PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)(a3 | 0x400), v18 + v15 + v21 + v34 + 20, 0x63536553u);
   v25 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
   *(_OWORD *)PoolWithTag = v43;
-  PoolWithTag[4] = (_DWORD)v13;
-  v26 = (char *)(PoolWithTag + 5);
+  *((_DWORD *)PoolWithTag + 4) = (_DWORD)v13;
+  v26 = (ACL *)(PoolWithTag + 20);
   *((_WORD *)PoolWithTag + 1) |= 0x8000u;
   if ( v38 && Srca )
   {
@@ -246,18 +246,15 @@ __int64 __fastcall SeCaptureSecurityDescriptor(unsigned __int16 *Src, char a2, i
       RtlCopyFromUser(v26, Srca, HIDWORD(Size));
     else
       RtlCopyVolatileMemory(v26, Srca, HIDWORD(Size));
-    if ( a2
-      && (HIDWORD(Size) < 8 || HIDWORD(Size) != *((unsigned __int16 *)v26 + 1) || !(unsigned __int8)RtlValidAcl(v26)) )
-    {
+    if ( a2 && (HIDWORD(Size) < 8 || HIDWORD(Size) != v26->AclSize || !RtlValidAcl(v26)) )
       goto LABEL_66;
-    }
     v25[3] = (_DWORD)v26 - (_DWORD)v25;
-    *((_WORD *)v26 + 1) = v34;
-    v26 += v34;
+    v26->AclSize = v34;
+    v26 = (ACL *)((char *)v26 + v34);
   }
   else
   {
-    PoolWithTag[3] = 0;
+    *((_DWORD *)PoolWithTag + 3) = 0;
   }
   if ( v39 && v7 )
   {
@@ -272,8 +269,8 @@ LABEL_66:
       return 3221225591LL;
     }
     v25[4] = (_DWORD)v26 - (_DWORD)v25;
-    *((_WORD *)v26 + 1) = v18;
-    v26 += v18;
+    v26->AclSize = v18;
+    v26 = (ACL *)((char *)v26 + v18);
   }
   else
   {
@@ -294,7 +291,7 @@ LABEL_107:
       RtlCopyFromUser(v26, v13, v33);
     else
       RtlCopyVolatileMemory(v26, v13, v33);
-    v26[1] = v36;
+    v26->Sbz1 = v36;
     if ( !a2 || RtlValidSid(v26) )
     {
       v25[2] = (_DWORD)v26 - (_DWORD)v25;
@@ -307,11 +304,11 @@ LABEL_107:
     RtlCopyFromUser(v26, v12, v32);
   else
     RtlCopyVolatileMemory(v26, v12, v32);
-  v26[1] = v35;
+  v26->Sbz1 = v35;
   if ( !a2 || RtlValidSid(v26) )
   {
     v30 = (_DWORD)v26 - (_DWORD)v25;
-    v26 += v44;
+    v26 = (ACL *)((char *)v26 + v44);
     goto LABEL_107;
   }
 LABEL_119:

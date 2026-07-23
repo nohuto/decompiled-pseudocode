@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogProximityPowerPress @ 0x14067B2C8
+ * XREFs of TtmiLogProximityPowerPress @ 0x14067B3AC
  * Callers:
- *     TtmpShouldEscapeProximity @ 0x1406781AC (TtmpShouldEscapeProximity.c)
+ *     TtmpShouldEscapeProximity @ 0x140678290 (TtmpShouldEscapeProximity.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogProximityPowerPress(char a1, __int64 a2, int a3, int a4, unsigned int a5)
@@ -71,7 +71,7 @@ char __fastcall TtmiLogProximityPowerPress(char a1, __int64 a2, int a3, int a4, 
       v29 = 4;
       v32 = 4;
       v35 = 8;
-      LOBYTE(v5) = TlgWrite(&stru_1407478B0, &unk_14027DF4E, 0LL, 0LL, 8u, &pData);
+      LOBYTE(v5) = TlgWrite(&stru_1407478B0, &unk_14027E04E, 0LL, 0LL, 8u, &pData);
     }
   }
   return (char)v5;

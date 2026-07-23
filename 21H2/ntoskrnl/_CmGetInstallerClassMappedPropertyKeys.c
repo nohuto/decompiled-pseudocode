@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyKeys @ 0x14097AEA0
+ * XREFs of _CmGetInstallerClassMappedPropertyKeys @ 0x14097B080
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x14073EDE0 (_PnpDispatchInstallerClass.c)
- *     _CmDeleteInstallerClassWorker @ 0x1409752C4 (_CmDeleteInstallerClassWorker.c)
+ *     _PnpDispatchInstallerClass @ 0x14073EFA0 (_PnpDispatchInstallerClass.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1409754A4 (_CmDeleteInstallerClassWorker.c)
  * Callees:
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x14073C2C0 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14073D774 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073F1A0 (_CmGetInstallerClassMappedPropertyFromComposite.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x14073C480 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14073D934 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073F360 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F76C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyKeys(
@@ -137,7 +137,7 @@ LABEL_20:
   if ( v8 < 0 )
     return (unsigned int)v8;
   v22 = 0;
-  v23 = (__int64 *)&off_1409856E0;
+  v23 = (__int64 *)&off_1409858C0;
   while ( 1 )
   {
     v24 = *v23;
@@ -148,7 +148,7 @@ LABEL_20:
         goto LABEL_74;
       InstallerClassMappedPropertyFromRegValue = CmGetInstallerClassMappedPropertyFromRegValue(
                                                    v50,
-                                                   (__int64)a2,
+                                                   a2,
                                                    a3,
                                                    *v23,
                                                    v49,
@@ -199,7 +199,7 @@ LABEL_39:
   if ( v8 < 0 )
     return (unsigned int)v8;
   v32 = 0;
-  v33 = (__int64 *)&off_140983EB0;
+  v33 = (__int64 *)&off_1409840D0;
   while ( 2 )
   {
     v34 = *v33;

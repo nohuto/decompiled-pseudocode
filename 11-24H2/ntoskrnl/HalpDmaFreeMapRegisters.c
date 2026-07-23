@@ -1,27 +1,27 @@
 /*
- * XREFs of HalpDmaFreeMapRegisters @ 0x1403908D4
+ * XREFs of HalpDmaFreeMapRegisters @ 0x14038A214
  * Callers:
- *     IoFreeMapRegistersV2 @ 0x140390720 (IoFreeMapRegistersV2.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x1403907EC (HalpDmaProcessMapRegisterQueueV2.c)
- *     IoFreeMapRegistersV3 @ 0x140392C60 (IoFreeMapRegistersV3.c)
- *     HalpDmaFreeCrashdumpRegistersInternal @ 0x1404AEA24 (HalpDmaFreeCrashdumpRegistersInternal.c)
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x14053DAB0 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalpDmaFreeCrashDumpRegisters @ 0x14053E1F0 (HalpDmaFreeCrashDumpRegisters.c)
+ *     IoFreeMapRegistersV2 @ 0x14038A060 (IoFreeMapRegistersV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14038A12C (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeMapRegistersV3 @ 0x14038C590 (IoFreeMapRegistersV3.c)
+ *     HalpDmaFreeCrashdumpRegistersInternal @ 0x1404A9334 (HalpDmaFreeCrashdumpRegistersInternal.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x14053B3B0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalpDmaFreeCrashDumpRegisters @ 0x14053BAF0 (HalpDmaFreeCrashDumpRegisters.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     HalpDmaReturnToContiguousPool @ 0x14037CF3C (HalpDmaReturnToContiguousPool.c)
- *     HalpDmaAcquireBufferMappings @ 0x1403902DC (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaReturnToScatterPool @ 0x140390FF0 (HalpDmaReturnToScatterPool.c)
- *     MmUnmapReservedMapping @ 0x14040F6F0 (MmUnmapReservedMapping.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     HalpDmaReturnToContiguousPool @ 0x1402EA454 (HalpDmaReturnToContiguousPool.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     HalpDmaAcquireBufferMappings @ 0x140389C1C (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReturnToScatterPool @ 0x14038A920 (HalpDmaReturnToScatterPool.c)
+ *     MmUnmapReservedMapping @ 0x140433320 (MmUnmapReservedMapping.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, __int64 a2, unsigned int a3)
@@ -100,14 +100,14 @@ __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, __int64 a2, unsigned int 
         if ( (_BYTE)v24 )
         {
           MmUnmapReservedMapping(MemoryDescriptorList[1], 0x446C6148u, MemoryDescriptorList[0]);
-          if ( !byte_140E3EB38 )
+          if ( !byte_140E3EC78 )
           {
             KxReleaseQueuedSpinLock((volatile signed __int64 **)&ListEntry[1], a2);
             a2 = (__int64)ListEntry[0];
             if ( _InterlockedExchangeAdd((volatile signed __int32 *)&ListEntry[0][1].Next + 2, 0xFFFFFFFF) == 1
               && !_InterlockedCompareExchange((volatile signed __int32 *)(a2 + 28), 1, 0) )
             {
-              RtlpInterlockedPushEntrySList(&stru_140E3EB40, (PSLIST_ENTRY)a2);
+              RtlpInterlockedPushEntrySList(&stru_140E3EC80, (PSLIST_ENTRY)a2);
             }
           }
         }

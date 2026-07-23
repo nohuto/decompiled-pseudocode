@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTimerResume @ 0x1400AE190
+ * XREFs of ExpTimerResume @ 0x1400AC6F8
  * Callers:
- *     PspJobDelete @ 0x1400888BC (PspJobDelete.c)
- *     PspSetJobFreezeCountCallback @ 0x1400ADFD8 (PspSetJobFreezeCountCallback.c)
- *     ExWakeTimersResume @ 0x1401147A0 (ExWakeTimersResume.c)
+ *     PspSetJobFreezeCountCallback @ 0x1400AC540 (PspSetJobFreezeCountCallback.c)
+ *     PspJobDelete @ 0x14010CAAC (PspJobDelete.c)
+ *     ExWakeTimersResume @ 0x140114D10 (ExWakeTimersResume.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
  */
 
 char __fastcall ExpTimerResume(PKTIMER Timer, __int64 a2)

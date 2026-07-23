@@ -1,10 +1,10 @@
 /*
- * XREFs of MiImageRvaRawEnumFirst @ 0x1406A933C
+ * XREFs of MiImageRvaRawEnumFirst @ 0x1406072BC
  * Callers:
- *     RtlpCompressRvaList @ 0x1406E9E60 (RtlpCompressRvaList.c)
+ *     RtlpCompressRvaList @ 0x140701240 (RtlpCompressRvaList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MiImageGetRawRvaState @ 0x1406A93E8 (MiImageGetRawRvaState.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MiImageGetRawRvaState @ 0x140607368 (MiImageGetRawRvaState.c)
  */
 
 __int64 __fastcall MiImageRvaRawEnumFirst(__int64 a1, _DWORD *a2)

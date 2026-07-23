@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepCacheLookup @ 0x1404E395C
+ * XREFs of KsepCacheLookup @ 0x14050CEE4
  * Callers:
- *     KseAddHardwareId @ 0x1404E3884 (KseAddHardwareId.c)
- *     KsepDbCacheQueryDevice @ 0x140534DE4 (KsepDbCacheQueryDevice.c)
- *     KsepDbCacheInsertDevice @ 0x14057DABC (KsepDbCacheInsertDevice.c)
- *     KseQueryDeviceDataList @ 0x140652334 (KseQueryDeviceDataList.c)
- *     KseLookupHardwareId @ 0x1406539E0 (KseLookupHardwareId.c)
+ *     KseAddHardwareId @ 0x14050D830 (KseAddHardwareId.c)
+ *     KsepDbCacheQueryDevice @ 0x140535324 (KsepDbCacheQueryDevice.c)
+ *     KsepDbCacheInsertDevice @ 0x14057DF68 (KsepDbCacheInsertDevice.c)
+ *     KseQueryDeviceDataList @ 0x140652418 (KseQueryDeviceDataList.c)
+ *     KseLookupHardwareId @ 0x140653AC4 (KseLookupHardwareId.c)
  * Callees:
  *     <none>
  */

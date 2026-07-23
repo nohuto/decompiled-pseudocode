@@ -20,7 +20,7 @@ __int64 __fastcall CmPostCallbackNotificationEx(
         __int64 a5,
         _QWORD *a6)
 {
-  struct _SLIST_ENTRY *v10; // r8
+  _SLIST_ENTRY *v10; // r8
   _QWORD v12[2]; // [rsp+40h] [rbp-58h] BYREF
   __int64 v13; // [rsp+50h] [rbp-48h] BYREF
   unsigned int v14; // [rsp+58h] [rbp-40h]
@@ -35,7 +35,7 @@ __int64 __fastcall CmPostCallbackNotificationEx(
     return a3;
   v15 = 0;
   v12[0] = &v13;
-  v10 = (struct _SLIST_ENTRY *)v12;
+  v10 = (_SLIST_ENTRY *)v12;
   v19 = 0LL;
   v20 = 0;
   if ( !a5 )

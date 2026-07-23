@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxEndDeviceIRPhaseAccounting @ 0x14058A264
+ * XREFs of PopFxEndDeviceIRPhaseAccounting @ 0x14058A754
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x14099807C (PopPdcIdleResiliencyCallback.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099827C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxAccumulateDeviceIRPhaseAccounting @ 0x140588A00 (PopFxAccumulateDeviceIRPhaseAccounting.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxAccumulateDeviceIRPhaseAccounting @ 0x140588EF0 (PopFxAccumulateDeviceIRPhaseAccounting.c)
  */
 
 __int64 __fastcall PopFxEndDeviceIRPhaseAccounting(__int64 a1)
@@ -18,14 +18,14 @@ __int64 __fastcall PopFxEndDeviceIRPhaseAccounting(__int64 a1)
   bool v6; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  if ( qword_140C3CB10 )
+  if ( qword_140C3CA90 )
     PopFxAccumulateDeviceIRPhaseAccounting(a1);
-  byte_140C3CB18 = 0;
+  byte_140C3CA98 = 0;
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

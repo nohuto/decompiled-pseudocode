@@ -1,34 +1,34 @@
 /*
- * XREFs of MiGatherPagefilePages @ 0x14063A144
+ * XREFs of MiGatherPagefilePages @ 0x14063A694
  * Callers:
- *     MiModifiedPageWriter @ 0x1403B2760 (MiModifiedPageWriter.c)
+ *     MiModifiedPageWriter @ 0x1403B2940 (MiModifiedPageWriter.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiTransferSoftwarePte @ 0x1402857D0 (MiTransferSoftwarePte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140294B3C (MiInvalidatePageFileBitmapsCache.c)
- *     MiPageFileLargestBitmapsRun @ 0x140294C94 (MiPageFileLargestBitmapsRun.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MiWriteCompletePfn @ 0x1402F4750 (MiWriteCompletePfn.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402F48D8 (MiReleaseWriteInProgressCharges.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     IoAsynchronousPageWrite @ 0x140369A0C (IoAsynchronousPageWrite.c)
- *     MiStoreWriteModifiedPages @ 0x14046DAAA (MiStoreWriteModifiedPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiBuildReservationCluster @ 0x1406382E4 (MiBuildReservationCluster.c)
- *     MiFillNoReservationCluster @ 0x140639468 (MiFillNoReservationCluster.c)
- *     MiFindPageFileWriteCluster @ 0x1406398F0 (MiFindPageFileWriteCluster.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x14063B028 (MiMakePagefileWriterEntryAvailable.c)
- *     MiPageFileNoFreeSpace @ 0x14063B114 (MiPageFileNoFreeSpace.c)
- *     MiSetPageFileAllocationBits @ 0x14063B5B8 (MiSetPageFileAllocationBits.c)
- *     MiUpdatePagefilePeakUsage @ 0x14063BB6C (MiUpdatePagefilePeakUsage.c)
- *     MiIsStoreVirtualPagefileFull @ 0x14065BFCC (MiIsStoreVirtualPagefileFull.c)
- *     MiTransferMemoryPagefileData @ 0x140660AA8 (MiTransferMemoryPagefileData.c)
- *     MI_PAGEFILE_WRITE @ 0x140661128 (MI_PAGEFILE_WRITE.c)
- *     MiMapPageFileHash @ 0x1406662EC (MiMapPageFileHash.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiTransferSoftwarePte @ 0x140285A60 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140294DCC (MiInvalidatePageFileBitmapsCache.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140294F24 (MiPageFileLargestBitmapsRun.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MiWriteCompletePfn @ 0x1402F49E0 (MiWriteCompletePfn.c)
+ *     MiReleaseWriteInProgressCharges @ 0x1402F4B68 (MiReleaseWriteInProgressCharges.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     IoAsynchronousPageWrite @ 0x140369BAC (IoAsynchronousPageWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiStoreWriteModifiedPages @ 0x14046DEAA (MiStoreWriteModifiedPages.c)
+ *     MiBuildReservationCluster @ 0x140638834 (MiBuildReservationCluster.c)
+ *     MiFillNoReservationCluster @ 0x1406399B8 (MiFillNoReservationCluster.c)
+ *     MiFindPageFileWriteCluster @ 0x140639E40 (MiFindPageFileWriteCluster.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x14063B578 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiPageFileNoFreeSpace @ 0x14063B664 (MiPageFileNoFreeSpace.c)
+ *     MiSetPageFileAllocationBits @ 0x14063BB08 (MiSetPageFileAllocationBits.c)
+ *     MiUpdatePagefilePeakUsage @ 0x14063C0BC (MiUpdatePagefilePeakUsage.c)
+ *     MiIsStoreVirtualPagefileFull @ 0x14065C51C (MiIsStoreVirtualPagefileFull.c)
+ *     MiTransferMemoryPagefileData @ 0x140660FF8 (MiTransferMemoryPagefileData.c)
+ *     MI_PAGEFILE_WRITE @ 0x140661678 (MI_PAGEFILE_WRITE.c)
+ *     MiMapPageFileHash @ 0x14066683C (MiMapPageFileHash.c)
  */
 
 char __fastcall MiGatherPagefilePages(__int64 a1)
@@ -155,10 +155,13 @@ LABEL_147:
     v62 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v1 + 232));
     *(_BYTE *)(v1 + 206) |= 1u;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 232));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v62 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v62 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -232,10 +235,10 @@ LABEL_15:
       v82 = v9;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1036));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v79 <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v79 <= 0xFu && v10 >= 2u )
       {
         v11 = KeGetCurrentPrcb();
         v12 = v11->SchedulerAssist;
@@ -343,10 +346,10 @@ LABEL_155:
       }
       MiUpdatePagefilePeakUsage(v1);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 232));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v25 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v80 <= 0xFu && v25 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v80 <= 0xFu && v25 >= 2u )
         {
           v26 = KeGetCurrentPrcb();
           v27 = v26->SchedulerAssist;
@@ -375,10 +378,10 @@ LABEL_155:
         v32 = (unsigned __int8)MiLockPageInline(v31);
         MiWriteCompletePfn(v31, 1);
         _InterlockedAnd64((volatile signed __int64 *)(v31 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v33 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v32 <= 0xFu && v33 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v32 <= 0xFu && v33 >= 2u )
           {
             v34 = KeGetCurrentPrcb();
             v35 = v34->SchedulerAssist;
@@ -429,10 +432,10 @@ LABEL_155:
         }
         *(_QWORD *)(v39 + 16) = MiTransferSoftwarePte(*(_QWORD *)(v39 + 16), v42, v43, v41);
         _InterlockedAnd64((volatile signed __int64 *)(v39 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v44 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v44 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v40 <= 0xFu && v44 >= 2u )
           {
             v45 = KeGetCurrentPrcb();
             v46 = v45->SchedulerAssist;
@@ -553,10 +556,10 @@ LABEL_137:
     v57 = KeGetCurrentIrql();
     __writecr8(1uLL);
     MiWriteComplete(a1, v56, 0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v58 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && v57 <= 0xFu && v58 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && v57 <= 0xFu && v58 >= 2u )
       {
         v59 = KeGetCurrentPrcb();
         v60 = v59->SchedulerAssist;

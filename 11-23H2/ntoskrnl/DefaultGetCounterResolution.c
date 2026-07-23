@@ -1,5 +1,5 @@
 /*
- * XREFs of DefaultGetCounterResolution @ 0x14050CD80
+ * XREFs of DefaultGetCounterResolution @ 0x14050D2D0
  * Callers:
  *     <none>
  * Callees:

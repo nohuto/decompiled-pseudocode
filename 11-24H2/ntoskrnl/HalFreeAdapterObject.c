@@ -1,9 +1,9 @@
 /*
- * XREFs of HalFreeAdapterObject @ 0x140392B80
+ * XREFs of HalFreeAdapterObject @ 0x14038C4B0
  * Callers:
- *     HalpAllocateDmaResourcesInternal @ 0x140392950 (HalpAllocateDmaResourcesInternal.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14038C280 (HalpAllocateDmaResourcesInternal.c)
  * Callees:
- *     IoFreeAdapterChannelV3 @ 0x140392BB0 (IoFreeAdapterChannelV3.c)
+ *     IoFreeAdapterChannelV3 @ 0x14038C4E0 (IoFreeAdapterChannelV3.c)
  */
 
 __int64 __fastcall HalFreeAdapterObject(__int64 a1, int a2)

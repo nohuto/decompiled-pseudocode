@@ -1,11 +1,11 @@
 /*
- * XREFs of ViExReleaseFastMutexCommon @ 0x1409E4E30
+ * XREFs of ViExReleaseFastMutexCommon @ 0x1409E5E30
  * Callers:
- *     VerifierExReleaseFastMutex @ 0x1409E4900 (VerifierExReleaseFastMutex.c)
- *     VerifierExReleaseFastMutexNoReboot @ 0x1409E4960 (VerifierExReleaseFastMutexNoReboot.c)
+ *     VerifierExReleaseFastMutex @ 0x1409E5900 (VerifierExReleaseFastMutex.c)
+ *     VerifierExReleaseFastMutexNoReboot @ 0x1409E5960 (VerifierExReleaseFastMutexNoReboot.c)
  * Callees:
- *     VfKeIrqlTransitionReserveLogEntry @ 0x1409DBE50 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViExCheckAPCsDisabled @ 0x1409E4DC4 (ViExCheckAPCsDisabled.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x1409DCE50 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     ViExCheckAPCsDisabled @ 0x1409E5DC4 (ViExCheckAPCsDisabled.c)
  */
 
 char *__fastcall ViExReleaseFastMutexCommon(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteAweInfoPages @ 0x140878ECC
+ * XREFs of MiDeleteAweInfoPages @ 0x14087F2AC
  * Callers:
- *     MiDeleteSectionAwe @ 0x1407014B8 (MiDeleteSectionAwe.c)
- *     MmCleanProcessAddressSpace @ 0x14095B2A4 (MmCleanProcessAddressSpace.c)
+ *     MiDeleteSectionAwe @ 0x140706188 (MiDeleteSectionAwe.c)
+ *     MmCleanProcessAddressSpace @ 0x140A00B64 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiGetAweInfoPartition @ 0x1403BC1DC (MiGetAweInfoPartition.c)
- *     MiWalkAllBitmapRanges @ 0x14044B8F0 (MiWalkAllBitmapRanges.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
- *     MiLockAwePagesExclusive @ 0x140701D48 (MiLockAwePagesExclusive.c)
- *     MiUnlockAwePagesExclusive @ 0x140702BEC (MiUnlockAwePagesExclusive.c)
+ *     MiGetAweInfoPartition @ 0x1403C604C (MiGetAweInfoPartition.c)
+ *     MiWalkAllBitmapRanges @ 0x140443A20 (MiWalkAllBitmapRanges.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
+ *     MiLockAwePagesExclusive @ 0x140706A18 (MiLockAwePagesExclusive.c)
+ *     MiUnlockAwePagesExclusive @ 0x1407078BC (MiUnlockAwePagesExclusive.c)
  */
 
 __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)

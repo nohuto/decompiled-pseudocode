@@ -1,12 +1,11 @@
 /*
- * XREFs of HalpSetupRealModeResume @ 0x1406A5F20
+ * XREFs of HalpSetupRealModeResume @ 0x1406A6F40
  * Callers:
- *     HaliAcpiSleep @ 0x1404D9F00 (HaliAcpiSleep.c)
- *     HaliAcpiSleepOld @ 0x140569940 (HaliAcpiSleepOld.c)
+ *     HaliAcpiSleep @ 0x1404D3920 (HaliAcpiSleep.c)
  * Callees:
- *     HalpInterruptSetProcessorStartContext @ 0x140541E70 (HalpInterruptSetProcessorStartContext.c)
- *     KasanHibernationGetStackLow @ 0x1405A9C30 (KasanHibernationGetStackLow.c)
- *     KeSaveStateForHibernate @ 0x1406AAD70 (KeSaveStateForHibernate.c)
+ *     HalpInterruptSetProcessorStartContext @ 0x14053F770 (HalpInterruptSetProcessorStartContext.c)
+ *     KasanHibernationGetStackLow @ 0x1405A6BA0 (KasanHibernationGetStackLow.c)
+ *     KeSaveStateForHibernate @ 0x1406ABD10 (KeSaveStateForHibernate.c)
  */
 
 __int64 __fastcall HalpSetupRealModeResume(_QWORD *a1, int a2)
@@ -20,7 +19,7 @@ __int64 __fastcall HalpSetupRealModeResume(_QWORD *a1, int a2)
 
   v8 = a1;
   *(_DWORD *)HalpWakeVector = a2;
-  HalpInterruptSetProcessorStartContext(0LL, 0LL, 0);
+  HalpInterruptSetProcessorStartContext(0LL, 0LL, 0, 0xFFFFFFFF);
   KeSaveStateForHibernate(v8 + 18);
   StackLow = KasanHibernationGetStackLow(v3, v2);
   v5 = v8;

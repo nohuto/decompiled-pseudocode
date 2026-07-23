@@ -1,25 +1,25 @@
 /*
- * XREFs of PiUEventInitClientRegistrationContext @ 0x14085C5EC
+ * XREFs of PiUEventInitClientRegistrationContext @ 0x14085835C
  * Callers:
- *     PiUEventHandleRegistration @ 0x14085BCBC (PiUEventHandleRegistration.c)
+ *     PiUEventHandleRegistration @ 0x140857A2C (PiUEventHandleRegistration.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     KeInitializeGuardedMutex @ 0x14045D660 (KeInitializeGuardedMutex.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x14046B090 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x1406A7E90 (ZwCreateWnfStateName.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     KeInitializeGuardedMutex @ 0x140452720 (KeInitializeGuardedMutex.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x140463B10 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1406A8E30 (ZwCreateWnfStateName.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-_QWORD *PiUEventInitClientRegistrationContext()
+_WNF_STATE_NAME *PiUEventInitClientRegistrationContext()
 {
   ACL *v0; // rbx
-  _QWORD *Pool2; // rax
-  _QWORD *v2; // rdi
+  _WNF_STATE_NAME *Pool2; // rax
+  _WNF_STATE_NAME *v2; // rdi
   struct _FAST_MUTEX *v3; // rax
   PSID v4; // rsi
   ULONG v5; // ebx
@@ -29,51 +29,49 @@ _QWORD *PiUEventInitClientRegistrationContext()
   ULONG v9; // esi
   ACL *v10; // rax
   void *v11; // rcx
-  UNICODE_STRING String2; // [rsp+48h] [rbp-69h] BYREF
-  __int128 v14; // [rsp+58h] [rbp-59h]
-  __int128 v15; // [rsp+68h] [rbp-49h]
-  ACL *v16; // [rsp+78h] [rbp-39h]
-  _OWORD Sid[3]; // [rsp+80h] [rbp-31h] BYREF
-  __int128 v18[3]; // [rsp+B0h] [rbp-1h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-69h] BYREF
+  _OWORD SecurityDescriptor[2]; // [rsp+58h] [rbp-59h] BYREF
+  ACL *v15; // [rsp+78h] [rbp-39h]
+  _BYTE CapabilitySid[48]; // [rsp+80h] [rbp-31h] BYREF
+  char CapabilityGroupSid[48]; // [rsp+B0h] [rbp-1h] BYREF
 
-  *(_QWORD *)&String2.Length = 2752552LL;
-  v16 = 0LL;
-  String2.Buffer = L"lpacPnpNotifications";
-  v0 = 0LL;
-  v14 = 0LL;
+  *(_QWORD *)&UnicodeString.Length = 2752552LL;
   v15 = 0LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  UnicodeString.Buffer = L"lpacPnpNotifications";
+  v0 = 0LL;
+  memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
+  Pool2 = (_WNF_STATE_NAME *)ExAllocatePool2(0x100uLL, 0x90uLL, 0x59706E50u);
   v2 = Pool2;
   if ( Pool2 )
   {
     memset_0(Pool2, 0, 0x90uLL);
-    v3 = (struct _FAST_MUTEX *)ExAllocatePool2(0x40uLL);
-    v2[2] = v3;
+    v3 = (struct _FAST_MUTEX *)ExAllocatePool2(0x40uLL, 0x38uLL, 0x59706E50u);
+    v2[2] = (_WNF_STATE_NAME)v3;
     if ( v3 )
     {
       KeInitializeGuardedMutex(v3);
-      v2[15] = v2 + 14;
-      v2[14] = v2 + 14;
-      v2[13] = v2 + 12;
-      v2[12] = v2 + 12;
-      *((_DWORD *)v2 + 33) = 4;
-      *((_BYTE *)v2 + 140) = 1;
-      if ( RtlDeriveCapabilitySidsFromName(&String2, v18, Sid) >= 0 )
+      v2[15] = (_WNF_STATE_NAME)&v2[14];
+      v2[14] = (_WNF_STATE_NAME)&v2[14];
+      v2[13] = (_WNF_STATE_NAME)&v2[12];
+      v2[12] = (_WNF_STATE_NAME)&v2[12];
+      v2[16].Data[1] = 4;
+      LOBYTE(v2[17].Data[1]) = 1;
+      if ( RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid) >= 0 )
       {
         v4 = SeLocalSystemSid;
-        LOBYTE(v14) = 1;
-        if ( (SWORD1(v14) & 0x8000u) == 0 )
+        LOBYTE(SecurityDescriptor[0]) = 1;
+        if ( (SWORD1(SecurityDescriptor[0]) & 0x8000u) == 0 )
         {
-          *((_QWORD *)&v14 + 1) = 0LL;
+          *((_QWORD *)&SecurityDescriptor[0] + 1) = 0LL;
           if ( SeLocalSystemSid )
-            *((_QWORD *)&v14 + 1) = SeLocalSystemSid;
-          WORD1(v14) |= 1u;
+            *((_QWORD *)&SecurityDescriptor[0] + 1) = SeLocalSystemSid;
+          WORD1(SecurityDescriptor[0]) |= 1u;
           v5 = RtlLengthSid(SeLowMandatorySid);
           v6 = RtlLengthSid(SeAllAppPackagesSid) + v5;
           v7 = RtlLengthSid(SeWorldSid) + v6;
           v8 = RtlLengthSid(v4) + v7;
-          v9 = v8 + RtlLengthSid(Sid) + 48;
-          v10 = (ACL *)ExAllocatePool2(0x100uLL);
+          v9 = v8 + RtlLengthSid(CapabilitySid) + 48;
+          v10 = (ACL *)ExAllocatePool2(0x100uLL, v9, 0x59706E50u);
           v0 = v10;
           if ( v10 )
           {
@@ -82,13 +80,20 @@ _QWORD *PiUEventInitClientRegistrationContext()
               && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, SeWorldSid, 0) >= 0
               && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, SeAllAppPackagesSid, 0) >= 0
               && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, SeLowMandatorySid, 0) >= 0
-              && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, Sid, 0) >= 0
-              && (_BYTE)v14 == 1
-              && (SWORD1(v14) & 0x8000u) == 0 )
+              && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, CapabilitySid, 0) >= 0
+              && LOBYTE(SecurityDescriptor[0]) == 1
+              && (SWORD1(SecurityDescriptor[0]) & 0x8000u) == 0 )
             {
-              v16 = v0;
-              WORD1(v14) = WORD1(v14) & 0xFFF3 | 4;
-              if ( (int)ZwCreateWnfStateName((__int64)(v2 + 11), 3LL) >= 0 )
+              v15 = v0;
+              WORD1(SecurityDescriptor[0]) = WORD1(SecurityDescriptor[0]) & 0xFFF3 | 4;
+              if ( ZwCreateWnfStateName(
+                     v2 + 11,
+                     WnfTemporaryStateName,
+                     WnfDataScopeMachine,
+                     0,
+                     0LL,
+                     4u,
+                     SecurityDescriptor) >= 0 )
                 goto LABEL_20;
             }
           }

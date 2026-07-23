@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetDeviceSiblings @ 0x1408FDED0
+ * XREFs of _CmGetDeviceSiblings @ 0x1408FF190
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059C504 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059D504 (_CmGetDeviceMappedPropertyFromComposite.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _PnpMultiSzGetLen @ 0x14059D928 (_PnpMultiSzGetLen.c)
- *     _CmGetDeviceParent @ 0x1406E9624 (_CmGetDeviceParent.c)
- *     _CmGetDeviceChildren @ 0x1408FD558 (_CmGetDeviceChildren.c)
- *     _PnpMultiSzDeleteString @ 0x140900410 (_PnpMultiSzDeleteString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _PnpMultiSzGetLen @ 0x14059E928 (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceParent @ 0x1406EA8C4 (_CmGetDeviceParent.c)
+ *     _CmGetDeviceChildren @ 0x1408FE818 (_CmGetDeviceChildren.c)
+ *     _PnpMultiSzDeleteString @ 0x1409016D0 (_PnpMultiSzDeleteString.c)
  */
 
 __int64 __fastcall CmGetDeviceSiblings(__int64 a1, WCHAR *a2, _WORD *a3, unsigned int *a4)

@@ -32,8 +32,8 @@ void __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
   _QWORD *v1; // rdi
   void *v3; // rcx
   unsigned __int64 v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rsi
+  _RTL_BALANCED_NODE *v5; // rax
+  _RTL_BALANCED_NODE *v6; // rsi
   unsigned __int8 CurrentIrql; // bp
   _QWORD *v8; // rax
   _DWORD *v9; // rbx
@@ -67,7 +67,7 @@ void __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
     if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpAllocBucketLock, 0) )
       ExpAcquireFastMutexContended((ULONG_PTR)&CmpAllocBucketLock, v5);
     if ( v6 )
-      *(_BYTE *)(v6 + 26) |= 1u;
+      BYTE2(v6[1].Left) |= 1u;
     *(&CmpAllocBucketLock + 1) = (ULONG_PTR)KeGetCurrentThread();
     *((_DWORD *)&CmpAllocBucketLock + 12) = CurrentIrql;
     *(_QWORD *)(BugCheckParameter2 + 24) = 0LL;

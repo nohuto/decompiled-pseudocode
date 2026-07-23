@@ -31,10 +31,7 @@ __int64 __fastcall PopMonitorInvocation(__int64 a1)
     if ( (!v2 || v2 == 259) && (GUID *)PopWdiCurrentScenario != &NullGuid && !PopConsoleDisplayState )
     {
       PopDiagTraceMonitorOnWithLidClosed(v1);
-      ZwUpdateWnfStateData(
-        (__int64)&WNF_PO_MODERN_STANDBY_EXIT_INITIATED,
-        (__int64)&PopWdiCurrentScenarioInstanceId,
-        1LL);
+      ZwUpdateWnfStateData(&WNF_PO_MODERN_STANDBY_EXIT_INITIATED, &PopWdiCurrentScenarioInstanceId, 1u, 0LL, 0LL, 0, 0);
     }
   }
   return v2;

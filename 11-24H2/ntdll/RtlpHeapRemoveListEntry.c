@@ -1,17 +1,15 @@
 /*
- * XREFs of RtlpHeapRemoveListEntry @ 0x18002FA80
+ * XREFs of RtlpHeapRemoveListEntry @ 0x18000F610
  * Callers:
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x18002EF80 (RtlpCoalesceFreeBlocks.c)
- *     RtlpGrowBlockInPlace @ 0x180030A60 (RtlpGrowBlockInPlace.c)
- *     RtlpValidateHeapSegment @ 0x180041A64 (RtlpValidateHeapSegment.c)
- *     RtlpDeCommitFreeBlock @ 0x180042E70 (RtlpDeCommitFreeBlock.c)
- *     RtlpCoalesceHeap @ 0x180044000 (RtlpCoalesceHeap.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpPopulateListIndex @ 0x1800A9058 (RtlpPopulateListIndex.c)
- *     RtlZeroHeap @ 0x180143F70 (RtlZeroHeap.c)
+ *     RtlpPopulateListIndex @ 0x18000C23C (RtlpPopulateListIndex.c)
+ *     RtlpGrowBlockInPlace @ 0x18000D610 (RtlpGrowBlockInPlace.c)
+ *     RtlpCoalesceFreeBlocks @ 0x18000EB10 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpValidateHeapSegment @ 0x1800222F8 (RtlpValidateHeapSegment.c)
+ *     RtlpCoalesceHeap @ 0x180106F80 (RtlpCoalesceHeap.c)
+ *     RtlpAllocateHeap @ 0x1801159A0 (RtlpAllocateHeap.c)
+ *     RtlZeroHeap @ 0x180142320 (RtlZeroHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHeapRemoveListEntry(__int64 a1, __int64 a2, char a3, __int64 *a4, unsigned int a5, int a6)
@@ -69,7 +67,7 @@ __int64 __fastcall RtlpHeapRemoveListEntry(__int64 a1, __int64 a2, char a3, __in
           v16 = v15;
           if ( HIBYTE(v15) != ((unsigned __int8)v15 ^ (unsigned __int8)(BYTE1(v15) ^ BYTE2(v15))) )
           {
-            RtlpLogHeapFailure(3, a1, v14 - 16, 0LL, 0LL, 0LL);
+            RtlpLogHeapFailure(3, a1, v14 - 16, 0, 0LL, 0LL);
             LOWORD(v15) = v16;
           }
         }

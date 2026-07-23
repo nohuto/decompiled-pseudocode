@@ -1,14 +1,14 @@
 /*
- * XREFs of IoCreateSystemThread @ 0x140A21B50
+ * XREFs of IoCreateSystemThread @ 0x1408F8300
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoCreateSystemThread(
@@ -27,7 +27,7 @@ __int64 __fastcall IoCreateSystemThread(
 
   if ( (unsigned __int16)(*Object - 3) > 1u )
     KeBugCheckEx(0x148u, 0LL, BugCheckParameter2, (ULONG_PTR)Object, 0LL);
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x18uLL, 0x20206F49u);
   v13 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

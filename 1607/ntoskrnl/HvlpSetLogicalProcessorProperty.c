@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpSetLogicalProcessorProperty @ 0x1401BC4BC
+ * XREFs of HvlpSetLogicalProcessorProperty @ 0x1401BC3A0
  * Callers:
- *     HvlpUpdateLpcbIndex @ 0x1401BC8D8 (HvlpUpdateLpcbIndex.c)
- *     HvlConfigurePcc @ 0x1401BED5C (HvlConfigurePcc.c)
- *     HvlConfigurePerfStateCap @ 0x1401BEDA8 (HvlConfigurePerfStateCap.c)
- *     HvlConfigurePerfStates @ 0x1401BEDD8 (HvlConfigurePerfStates.c)
- *     HvlConfigureThrottleStates @ 0x1401BEE6C (HvlConfigureThrottleStates.c)
+ *     HvlpUpdateLpcbIndex @ 0x1401BC7BC (HvlpUpdateLpcbIndex.c)
+ *     HvlConfigurePcc @ 0x1401BEC40 (HvlConfigurePcc.c)
+ *     HvlConfigurePerfStateCap @ 0x1401BEC8C (HvlConfigurePerfStateCap.c)
+ *     HvlConfigurePerfStates @ 0x1401BECBC (HvlConfigurePerfStates.c)
+ *     HvlConfigureThrottleStates @ 0x1401BED50 (HvlConfigureThrottleStates.c)
  * Callees:
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpSetLogicalProcessorProperty(int a1, int a2, _OWORD *a3)

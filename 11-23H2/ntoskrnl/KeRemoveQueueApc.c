@@ -1,17 +1,17 @@
 /*
- * XREFs of KeRemoveQueueApc @ 0x140362360
+ * XREFs of KeRemoveQueueApc @ 0x140362500
  * Callers:
- *     EtwpCancelPendingStackWalkApcs @ 0x14031F258 (EtwpCancelPendingStackWalkApcs.c)
- *     ExpCancelTimer @ 0x14032EDB0 (ExpCancelTimer.c)
- *     EtwpQueueStackWalkApc @ 0x140468A86 (EtwpQueueStackWalkApc.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140601ACC (EtwpTraceThreadRundownWithStack.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140602E00 (EtwpCovSampCaptureCancelApcs.c)
- *     CmNotifyRunDown @ 0x14076E5E4 (CmNotifyRunDown.c)
- *     ExSwapinWorkerThreads @ 0x140A005C8 (ExSwapinWorkerThreads.c)
+ *     EtwpCancelPendingStackWalkApcs @ 0x14031F4E8 (EtwpCancelPendingStackWalkApcs.c)
+ *     ExpCancelTimer @ 0x14032F040 (ExpCancelTimer.c)
+ *     EtwpQueueStackWalkApc @ 0x140468E86 (EtwpQueueStackWalkApc.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x14060201C (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140603350 (EtwpCovSampCaptureCancelApcs.c)
+ *     CmNotifyRunDown @ 0x14076E7D4 (CmNotifyRunDown.c)
+ *     ExSwapinWorkerThreads @ 0x140A00858 (ExSwapinWorkerThreads.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiRemoveQueueApc @ 0x14036242C (KiRemoveQueueApc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveQueueApc @ 0x1403625CC (KiRemoveQueueApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeRemoveQueueApc(__int64 a1)
@@ -32,7 +32,7 @@ char __fastcall KeRemoveQueueApc(__int64 a1)
   v1 = *(_QWORD *)(a1 + 8);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v8) = 4;
@@ -50,10 +50,10 @@ char __fastcall KeRemoveQueueApc(__int64 a1)
   v4 = KiRemoveQueueApc(a1);
   *(_QWORD *)(v1 + 64) = 0LL;
   v5 = v4;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

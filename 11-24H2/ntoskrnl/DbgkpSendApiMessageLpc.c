@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpSendApiMessageLpc @ 0x140A3020C
+ * XREFs of DbgkpSendApiMessageLpc @ 0x140A24CFC
  * Callers:
- *     DbgkForwardException @ 0x140938C20 (DbgkForwardException.c)
+ *     DbgkForwardException @ 0x1408F32F0 (DbgkForwardException.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     DbgkpSuspendProcess @ 0x140939394 (DbgkpSuspendProcess.c)
- *     DbgkpResumeProcess @ 0x14093A32C (DbgkpResumeProcess.c)
- *     LpcSendWaitReceivePort @ 0x140A30450 (LpcSendWaitReceivePort.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     DbgkpSuspendProcess @ 0x1408F3A64 (DbgkpSuspendProcess.c)
+ *     LpcSendWaitReceivePort @ 0x140A24F40 (LpcSendWaitReceivePort.c)
+ *     DbgkpResumeProcess @ 0x140A5A3B4 (DbgkpResumeProcess.c)
  */
 
 __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   char v4; // si
-  __int64 Process; // rbp
+  _KPROCESS *Process; // rbp
   int v8; // eax
   unsigned int v9; // edi
   __int64 v10; // rcx
@@ -30,7 +30,7 @@ __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
 
   CurrentThread = KeGetCurrentThread();
   v4 = a3;
-  Process = (__int64)CurrentThread->ApcState.Process;
+  Process = CurrentThread->ApcState.Process;
   if ( a3 )
     v4 = DbgkpSuspendProcess((__int64)CurrentThread->ApcState.Process);
   *(_DWORD *)(a1 + 44) = 259;

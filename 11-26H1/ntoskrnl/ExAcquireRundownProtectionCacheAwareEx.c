@@ -1,22 +1,22 @@
 /*
- * XREFs of ExAcquireRundownProtectionCacheAwareEx @ 0x140218100
+ * XREFs of ExAcquireRundownProtectionCacheAwareEx @ 0x140218430
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwpCCSwapFlush @ 0x140217500 (EtwpCCSwapFlush.c)
- *     EtwpTraceMessageVa @ 0x1402176B0 (EtwpTraceMessageVa.c)
- *     EtwpOpenLogger @ 0x1402181E4 (EtwpOpenLogger.c)
- *     RawBeginOperation @ 0x140218994 (RawBeginOperation.c)
- *     EtwpFailLogging @ 0x140256DF0 (EtwpFailLogging.c)
- *     EtwpQueueApcPoolDpc @ 0x1405097A4 (EtwpQueueApcPoolDpc.c)
- *     EtwpCompressionDpc @ 0x1405306E0 (EtwpCompressionDpc.c)
- *     EtwInitialize @ 0x140824718 (EtwInitialize.c)
- *     PeriodicCaptureStateTimerCallback @ 0x14082D480 (PeriodicCaptureStateTimerCallback.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpRegisterUMProvider @ 0x140934B00 (EtwpRegisterUMProvider.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
- *     EtwpStopTrace @ 0x140A6F2F8 (EtwpStopTrace.c)
- *     EtwpUpdateEnableMask @ 0x140A6F8F4 (EtwpUpdateEnableMask.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwpCCSwapFlush @ 0x140217830 (EtwpCCSwapFlush.c)
+ *     EtwpTraceMessageVa @ 0x1402179E0 (EtwpTraceMessageVa.c)
+ *     EtwpOpenLogger @ 0x140218514 (EtwpOpenLogger.c)
+ *     RawBeginOperation @ 0x140218CC4 (RawBeginOperation.c)
+ *     EtwpFailLogging @ 0x140258780 (EtwpFailLogging.c)
+ *     EtwpQueueApcPoolDpc @ 0x140503254 (EtwpQueueApcPoolDpc.c)
+ *     EtwpCompressionDpc @ 0x140532BE0 (EtwpCompressionDpc.c)
+ *     EtwInitialize @ 0x14082A958 (EtwInitialize.c)
+ *     PeriodicCaptureStateTimerCallback @ 0x1408336C0 (PeriodicCaptureStateTimerCallback.c)
+ *     EtwpRegisterUMProvider @ 0x1409106B0 (EtwpRegisterUMProvider.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpUpdateEnableMask @ 0x14097A288 (EtwpUpdateEnableMask.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x140AB2D10 (EtwpStopTrace.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */

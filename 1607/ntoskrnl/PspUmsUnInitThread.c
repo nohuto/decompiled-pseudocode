@@ -1,16 +1,16 @@
 /*
- * XREFs of PspUmsUnInitThread @ 0x14067F6FC
+ * XREFs of PspUmsUnInitThread @ 0x14067F7E0
  * Callers:
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsTerminateProcess @ 0x1404EC470 (PsTerminateProcess.c)
- *     KeSetUmsThreadKernelLock @ 0x140650624 (KeSetUmsThreadKernelLock.c)
- *     KeUnInitializeUmsThread @ 0x1406506E4 (KeUnInitializeUmsThread.c)
- *     KeUpdateUmsThreadState @ 0x14065074C (KeUpdateUmsThreadState.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x140682394 (PspDisassociateUmsThreadFromPrimary.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x1406826F4 (PspRundownUmsThreadForApcDelivery.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsTerminateProcess @ 0x1404CE4F8 (PsTerminateProcess.c)
+ *     KeSetUmsThreadKernelLock @ 0x140650708 (KeSetUmsThreadKernelLock.c)
+ *     KeUnInitializeUmsThread @ 0x1406507C8 (KeUnInitializeUmsThread.c)
+ *     KeUpdateUmsThreadState @ 0x140650830 (KeUpdateUmsThreadState.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x140682478 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x1406827D8 (PspRundownUmsThreadForApcDelivery.c)
  */
 
 __int64 __fastcall PspUmsUnInitThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

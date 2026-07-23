@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapInitializeDeferredErrorSources @ 0x1405BAE38
+ * XREFs of WheapInitializeDeferredErrorSources @ 0x1405BB068
  * Callers:
- *     WheaConfigureErrorSource @ 0x1409A0440 (WheaConfigureErrorSource.c)
+ *     WheaConfigureErrorSource @ 0x1409A1370 (WheaConfigureErrorSource.c)
  * Callees:
- *     WheapCallErrorSourceInitialize @ 0x1403BAE50 (WheapCallErrorSourceInitialize.c)
- *     WheapInitializeErrorSource @ 0x1407AF744 (WheapInitializeErrorSource.c)
+ *     WheapCallErrorSourceInitialize @ 0x1403BAFC0 (WheapCallErrorSourceInitialize.c)
+ *     WheapInitializeErrorSource @ 0x1407AF8E0 (WheapInitializeErrorSource.c)
  */
 
 __int64 __fastcall WheapInitializeDeferredErrorSources(int a1)
@@ -13,7 +13,7 @@ __int64 __fastcall WheapInitializeDeferredErrorSources(int a1)
   __int64 i; // rbx
 
   v1 = 0;
-  for ( i = qword_140CDB128; v1 < dword_140CDB11C; ++v1 )
+  for ( i = qword_140CDB160; v1 < dword_140CDB154; ++v1 )
   {
     if ( *(_DWORD *)(i + 104) == a1
       && *(_BYTE *)(i + 88)

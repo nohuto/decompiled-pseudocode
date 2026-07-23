@@ -56,21 +56,21 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-void __stdcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  int v1; // eax
-  CONTEXT ContextRecord; // [esp+0h] [ebp-320h] BYREF
-  _DWORD v3[20]; // [esp+2D0h] [ebp-50h] BYREF
-  _UNKNOWN *retaddr; // [esp+324h] [ebp+4h]
+  NTSTATUS v1; // eax
+  _CONTEXT ContextRecord; // [esp+0h] [ebp-320h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [esp+2D0h] [ebp-50h] BYREF
+  void *retaddr; // [esp+324h] [ebp+4h]
 
   RtlCaptureContext(&ContextRecord);
   ContextRecord.Esp += 4;
   ContextRecord.ContextFlags = 65543;
-  v3[3] = retaddr;
-  v3[4] = 0;
-  v3[2] = 0;
-  v3[0] = a1;
-  v3[1] = 1;
-  v1 = ZwRaiseException((int)v3, (int)&ContextRecord, 1);
+  ExceptionRecord.ExceptionAddress = retaddr;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionRecord = 0;
+  ExceptionRecord.ExceptionCode = Status;
+  ExceptionRecord.ExceptionFlags = 1;
+  v1 = ZwRaiseException(&ExceptionRecord, &ContextRecord, 1u);
   RtlRaiseStatus(v1);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SepAccessCheckEx @ 0x1403737C0
+ * XREFs of SepAccessCheckEx @ 0x140373310
  * Callers:
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140372BC4 (SepCommonAccessCheckExWithAdminlessChecks.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x14027C450 (SepPrivilegeCheck.c)
- *     AuthzBasepSetTypeListAccessReasons @ 0x140373B64 (AuthzBasepSetTypeListAccessReasons.c)
- *     SepMaximumAccessCheckEx @ 0x140373BC4 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x140373CEC (SepNormalAccessCheckEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SepAssemblePrivileges @ 0x140697360 (SepAssemblePrivileges.c)
+ *     SepPrivilegeCheck @ 0x14026A3F0 (SepPrivilegeCheck.c)
+ *     AuthzBasepSetTypeListAccessReasons @ 0x1403736B4 (AuthzBasepSetTypeListAccessReasons.c)
+ *     SepMaximumAccessCheckEx @ 0x140373714 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x14037383C (SepNormalAccessCheckEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SepAssemblePrivileges @ 0x1405F68B0 (SepAssemblePrivileges.c)
  */
 
 char __fastcall SepAccessCheckEx(

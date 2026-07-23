@@ -1,5 +1,5 @@
 /*
- * XREFs of NtReleaseWorkerFactoryWorker @ 0x1800A2FD0
+ * XREFs of NtReleaseWorkerFactoryWorker @ 0x1800A2FF0
  * Callers:
  *     TpPostTask @ 0x1800159A0 (TpPostTask.c)
  *     TppPrepareDirectParams @ 0x180017430 (TppPrepareDirectParams.c)
@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 NtReleaseWorkerFactoryWorker()
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 360LL;
+  result = 360;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

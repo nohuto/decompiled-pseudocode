@@ -15,7 +15,7 @@ bool PopCheckTestsigningEnabled()
   __int64 v4; // [rsp+38h] [rbp+10h] BYREF
 
   v4 = 8LL;
-  v0 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v4, 8u, &v3);
+  v0 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v4, 8u, &v3);
   v1 = 0;
   if ( v0 >= 0 )
     return (v4 & 0x200000000LL) != 0;

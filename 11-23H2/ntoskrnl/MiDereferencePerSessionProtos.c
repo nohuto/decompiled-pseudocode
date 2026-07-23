@@ -1,25 +1,25 @@
 /*
- * XREFs of MiDereferencePerSessionProtos @ 0x1407B5BB8
+ * XREFs of MiDereferencePerSessionProtos @ 0x1407B5E98
  * Callers:
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
  *     MiInsertInSystemSpace @ 0x140213D10 (MiInsertInSystemSpace.c)
  *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiSectionDelete @ 0x140721BC0 (MiSectionDelete.c)
- *     MiFinishCreateSection @ 0x140722D30 (MiFinishCreateSection.c)
- *     MiInitializeImageExtents @ 0x140A33E8C (MiInitializeImageExtents.c)
- *     MiDeletePartialCloneVads @ 0x140A48E2C (MiDeletePartialCloneVads.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiSectionDelete @ 0x140721DC0 (MiSectionDelete.c)
+ *     MiFinishCreateSection @ 0x140722F30 (MiFinishCreateSection.c)
+ *     MiInitializeImageExtents @ 0x140A3413C (MiInitializeImageExtents.c)
+ *     MiDeletePartialCloneVads @ 0x140A490DC (MiDeletePartialCloneVads.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiDereferenceSubsectionProtos @ 0x1407B5C98 (MiDereferenceSubsectionProtos.c)
- *     MiFreeSubsectionProtos @ 0x1407B6074 (MiFreeSubsectionProtos.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiDereferenceSubsectionProtos @ 0x1407B5F78 (MiDereferenceSubsectionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x1407B6354 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiDereferencePerSessionProtos(__int64 *a1, unsigned int a2)

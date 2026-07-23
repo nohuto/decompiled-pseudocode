@@ -1,30 +1,30 @@
 /*
- * XREFs of ExAcquireSharedWaitForExclusive @ 0x1403C8950
+ * XREFs of ExAcquireSharedWaitForExclusive @ 0x1403C8B30
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x14034A0A4 (FsRtlAcquireFileForModWriteEx.c)
- *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14046B360 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
- *     DifExAcquireSharedWaitForExclusiveWrapper @ 0x1405D7410 (DifExAcquireSharedWaitForExclusiveWrapper.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14034A23C (FsRtlAcquireFileForModWriteEx.c)
+ *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14046B760 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     DifExAcquireSharedWaitForExclusiveWrapper @ 0x1405D7980 (DifExAcquireSharedWaitForExclusiveWrapper.c)
  * Callees:
- *     ExpFindCurrentThread @ 0x140260200 (ExpFindCurrentThread.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     ExpApplyPrewaitBoost @ 0x1402A7B20 (ExpApplyPrewaitBoost.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     ExpBoostIoAfterAcquire @ 0x14031AEB0 (ExpBoostIoAfterAcquire.c)
- *     ExpGetThreadResourceHint @ 0x140337AB0 (ExpGetThreadResourceHint.c)
- *     ExpWaitForResource @ 0x1403415C0 (ExpWaitForResource.c)
- *     ExpFindEmptyEntry @ 0x140341694 (ExpFindEmptyEntry.c)
- *     ExpExpandResourceOwnerTable @ 0x1403416F0 (ExpExpandResourceOwnerTable.c)
- *     RtlInsertHeadCircularList @ 0x14034F640 (RtlInsertHeadCircularList.c)
- *     ExpTryAcquireResourceShared @ 0x1403C97EC (ExpTryAcquireResourceShared.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
- *     PerfLogExecutiveResourceAcquire @ 0x1406006AC (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceWait @ 0x140600B84 (PerfLogExecutiveResourceWait.c)
+ *     ExpFindCurrentThread @ 0x140260490 (ExpFindCurrentThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     ExpApplyPrewaitBoost @ 0x1402A7DB0 (ExpApplyPrewaitBoost.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     ExpBoostIoAfterAcquire @ 0x14031B140 (ExpBoostIoAfterAcquire.c)
+ *     ExpGetThreadResourceHint @ 0x140337D40 (ExpGetThreadResourceHint.c)
+ *     ExpWaitForResource @ 0x140341850 (ExpWaitForResource.c)
+ *     ExpFindEmptyEntry @ 0x140341924 (ExpFindEmptyEntry.c)
+ *     ExpExpandResourceOwnerTable @ 0x140341980 (ExpExpandResourceOwnerTable.c)
+ *     RtlInsertHeadCircularList @ 0x14034F7E0 (RtlInsertHeadCircularList.c)
+ *     ExpTryAcquireResourceShared @ 0x1403C99CC (ExpTryAcquireResourceShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x140600BFC (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x1406010D4 (PerfLogExecutiveResourceWait.c)
  */
 
 BOOLEAN __stdcall ExAcquireSharedWaitForExclusive(PERESOURCE Resource, BOOLEAN Wait)
@@ -135,7 +135,7 @@ LABEL_3:
   CurrentIrql = (OWNER_ENTRY *)KeGetCurrentIrql();
   __writecr8(2uLL);
   v10 = LOBYTE(LockHandle.LockQueue.Next) - 1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -166,10 +166,10 @@ LABEL_16:
       Resource->OwnerEntry.TableSize = v68 | 8;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v70 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v70 <= 0xFu && LockHandle.OldIrql <= 0xFu && v70 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v70 <= 0xFu && LockHandle.OldIrql <= 0xFu && v70 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v72 = CurrentPrcb->SchedulerAssist;
@@ -197,10 +197,10 @@ LABEL_16:
         v28 = v27 >> 3;
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v29 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v30 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && LockHandle.OldIrql <= 0xFu && v30 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && LockHandle.OldIrql <= 0xFu && v30 >= 2u )
           {
             v31 = KeGetCurrentPrcb();
             v32 = v31->SchedulerAssist;
@@ -244,10 +244,10 @@ LABEL_19:
         RtlInsertHeadCircularList((__int64 *)&Resource->SharedWaiters, &v77);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v52 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v53 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v53 <= 0xFu && LockHandle.OldIrql <= 0xFu && v53 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v53 <= 0xFu && LockHandle.OldIrql <= 0xFu && v53 >= 2u )
           {
             v54 = KeGetCurrentPrcb();
             v51 = (__int64)v54->SchedulerAssist;
@@ -277,10 +277,10 @@ LABEL_19:
           *((_DWORD *)v56 + 2) = v57 | 8;
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
           v58 = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v59 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v59 <= 0xFu && LockHandle.OldIrql <= 0xFu && v59 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v59 <= 0xFu && LockHandle.OldIrql <= 0xFu && v59 >= 2u )
             {
               v60 = KeGetCurrentPrcb();
               v61 = v60->SchedulerAssist;
@@ -307,10 +307,10 @@ LABEL_19:
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v63 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v64 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v64 <= 0xFu && LockHandle.OldIrql <= 0xFu && v64 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v64 <= 0xFu && LockHandle.OldIrql <= 0xFu && v64 >= 2u )
           {
             v65 = KeGetCurrentPrcb();
             v66 = v65->SchedulerAssist;
@@ -444,10 +444,10 @@ LABEL_57:
   }
 LABEL_70:
   v42 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v43 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && LockHandle.OldIrql <= 0xFu && v43 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && LockHandle.OldIrql <= 0xFu && v43 >= 2u )
     {
       v44 = KeGetCurrentPrcb();
       v45 = v44->SchedulerAssist;

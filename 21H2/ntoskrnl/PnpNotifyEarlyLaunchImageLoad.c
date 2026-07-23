@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpNotifyEarlyLaunchImageLoad @ 0x140A5EB80
+ * XREFs of PnpNotifyEarlyLaunchImageLoad @ 0x140A5FB80
  * Callers:
- *     PipInitializeDriverDependentDLLs @ 0x140A5D5DC (PipInitializeDriverDependentDLLs.c)
- *     PnpInitializeBootStartDriver @ 0x140A5E4B4 (PnpInitializeBootStartDriver.c)
+ *     PipInitializeDriverDependentDLLs @ 0x140A5E5DC (PipInitializeDriverDependentDLLs.c)
+ *     PnpInitializeBootStartDriver @ 0x140A5F4B4 (PnpInitializeBootStartDriver.c)
  * Callees:
- *     ExNotifyWithProcessing @ 0x1402B0658 (ExNotifyWithProcessing.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ExNotifyWithProcessing @ 0x14022E9B8 (ExNotifyWithProcessing.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall PnpNotifyEarlyLaunchImageLoad(__int64 a1, __int64 a2)

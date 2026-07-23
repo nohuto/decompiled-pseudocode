@@ -6,7 +6,7 @@
  *     <none>
  */
 
-_PEB *__stdcall RtlGetCurrentPeb()
+PPEB RtlGetCurrentPeb(void)
 {
   return NtCurrentTeb()->ProcessEnvironmentBlock;
 }

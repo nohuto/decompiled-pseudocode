@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCopyCompleteReadRequest @ 0x14028C5D0
+ * XREFs of IopCopyCompleteReadRequest @ 0x14028C860
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x14028C3D0 (IopCopyCompleteReadIrp.c)
- *     IopCopyAbortCopyReadRequest @ 0x140559CB0 (IopCopyAbortCopyReadRequest.c)
+ *     IopCopyCompleteReadIrp @ 0x14028C660 (IopCopyCompleteReadIrp.c)
+ *     IopCopyAbortCopyReadRequest @ 0x14055A370 (IopCopyAbortCopyReadRequest.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     IopUpdateIrpTransferCount @ 0x14028C6A0 (IopUpdateIrpTransferCount.c)
- *     IopDropIrp @ 0x14028CDC8 (IopDropIrp.c)
- *     IopDequeueIrpFromFileObject @ 0x14028CE8C (IopDequeueIrpFromFileObject.c)
- *     IopProcessBufferedIoCompletion @ 0x1402AC2A0 (IopProcessBufferedIoCompletion.c)
- *     IopDequeueIrpFromThread @ 0x1402AF730 (IopDequeueIrpFromThread.c)
- *     Feature_Servicing_CopyMoveFileEventObjectLeak__private_IsEnabledDeviceUsage @ 0x14040FF80 (Feature_Servicing_CopyMoveFileEventObjectLeak__private_IsEnabledDeviceUsage.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     IopUpdateIrpTransferCount @ 0x14028C930 (IopUpdateIrpTransferCount.c)
+ *     IopDropIrp @ 0x14028D058 (IopDropIrp.c)
+ *     IopDequeueIrpFromFileObject @ 0x14028D11C (IopDequeueIrpFromFileObject.c)
+ *     IopProcessBufferedIoCompletion @ 0x1402AC530 (IopProcessBufferedIoCompletion.c)
+ *     IopDequeueIrpFromThread @ 0x1402AF9C0 (IopDequeueIrpFromThread.c)
+ *     Feature_Servicing_CopyMoveFileEventObjectLeak__private_IsEnabledDeviceUsage @ 0x1404100B0 (Feature_Servicing_CopyMoveFileEventObjectLeak__private_IsEnabledDeviceUsage.c)
  */
 
 __int64 __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)

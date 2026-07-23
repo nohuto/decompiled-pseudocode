@@ -20,7 +20,7 @@
 __int64 __fastcall LdrpLoadDll(__int64 a1, int a2, int a3, __int64 a4)
 {
   int v8; // [rsp+50h] [rbp-B0h] BYREF
-  int v9; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v9; // [rsp+58h] [rbp-A8h] BYREF
   int v10; // [rsp+60h] [rbp-A0h] BYREF
   _WORD *v11; // [rsp+68h] [rbp-98h]
   _WORD v12[128]; // [rsp+70h] [rbp-90h] BYREF
@@ -30,9 +30,9 @@ __int64 __fastcall LdrpLoadDll(__int64 a1, int a2, int a3, __int64 a4)
   v10 = 0x1000000;
   v11 = v12;
   v12[0] = 0;
-  v9 = LdrpPreprocessDllName(a1, &v10, 0LL, &v8);
-  if ( v9 >= 0 )
-    LdrpLoadDllInternal((unsigned int)&v10, a2, v8, 4, 0LL, 0LL, a4, (__int64)&v9, 0LL);
+  LODWORD(v9) = LdrpPreprocessDllName(a1, &v10, 0LL, &v8);
+  if ( (int)v9 >= 0 )
+    LdrpLoadDllInternal((int)&v10, a2, v8, 4, 0LL, 0LL, a4, (__int64)&v9, 0LL);
   if ( v12 != v11 )
     NtdllpFreeStringRoutine(v11);
   v10 = 0x1000000;

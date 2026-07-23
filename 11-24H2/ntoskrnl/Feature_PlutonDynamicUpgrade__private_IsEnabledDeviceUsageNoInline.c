@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_PlutonDynamicUpgrade__private_IsEnabledDeviceUsageNoInline @ 0x1405D339C
+ * XREFs of Feature_PlutonDynamicUpgrade__private_IsEnabledDeviceUsageNoInline @ 0x1405D0ABC
  * Callers:
- *     PopBuildMemoryImageHeader @ 0x140B64920 (PopBuildMemoryImageHeader.c)
+ *     PopBuildMemoryImageHeader @ 0x140B66A30 (PopBuildMemoryImageHeader.c)
  * Callees:
- *     Feature_PlutonDynamicUpgrade__private_IsEnabledFallback @ 0x1405D33D4 (Feature_PlutonDynamicUpgrade__private_IsEnabledFallback.c)
+ *     Feature_PlutonDynamicUpgrade__private_IsEnabledFallback @ 0x1405D0AF4 (Feature_PlutonDynamicUpgrade__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_PlutonDynamicUpgrade__private_IsEnabledDeviceUsageNoInline()

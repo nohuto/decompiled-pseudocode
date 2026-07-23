@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxComponentPerfWork @ 0x14056A720
+ * XREFs of PopFxComponentPerfWork @ 0x14056A960
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     PopFxCompleteComponentPerfState @ 0x14056A458 (PopFxCompleteComponentPerfState.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     PopFxCompleteComponentPerfState @ 0x14056A698 (PopFxCompleteComponentPerfState.c)
  */
 
 LONG __fastcall PopFxComponentPerfWork(volatile signed __int32 *a1)

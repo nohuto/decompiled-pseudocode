@@ -11,64 +11,57 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpIsAppContainer(HANDLE a1, bool *a2, __int64 a3)
+__int64 __fastcall RtlpIsAppContainer(HANDLE a1, bool *a2)
 {
-  int v4; // ebx
-  int v6; // [rsp+30h] [rbp-19h] BYREF
-  HANDLE v7; // [rsp+38h] [rbp-11h]
-  int v8; // [rsp+40h] [rbp-9h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp-1h] BYREF
-  __int128 v10; // [rsp+50h] [rbp+7h] BYREF
-  __int128 v11; // [rsp+60h] [rbp+17h]
-  __int64 v12; // [rsp+70h] [rbp+27h]
-  __int64 *v13; // [rsp+78h] [rbp+2Fh]
-  __int64 v14; // [rsp+80h] [rbp+37h] BYREF
-  int v15; // [rsp+88h] [rbp+3Fh]
+  NTSTATUS v3; // ebx
+  int TokenInformation; // [rsp+30h] [rbp-19h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-11h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp-9h] BYREF
+  HANDLE ExistingTokenHandle; // [rsp+48h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp+7h] BYREF
+  __int64 v10; // [rsp+80h] [rbp+37h] BYREF
+  int v11; // [rsp+88h] [rbp+3Fh]
 
-  v6 = 0;
+  TokenInformation = 0;
+  ExistingTokenHandle = 0LL;
   Handle = 0LL;
-  v7 = 0LL;
-  v12 = 0LL;
-  LODWORD(v13) = 0;
-  v14 = 0LL;
-  v15 = 0;
-  *a2 = 0;
+  ObjectAttributes.SecurityDescriptor = 0LL;
+  LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
   v10 = 0LL;
-  v11 = 0LL;
+  v11 = 0;
+  *a2 = 0;
+  memset(&ObjectAttributes, 0, 32);
   if ( a1 )
   {
 LABEL_7:
-    v8 = 0;
-    v4 = NtQueryInformationToken(a1, 29LL, &v6, 4LL, &v8);
-    if ( v4 >= 0 )
-      *a2 = v6 != 0;
+    ReturnLength = 0;
+    v3 = NtQueryInformationToken(a1, 0x1Du, &TokenInformation, 4u, &ReturnLength);
+    if ( v3 >= 0 )
+      *a2 = TokenInformation != 0;
     goto LABEL_9;
   }
-  LOBYTE(a3) = 1;
-  v4 = NtOpenThreadTokenEx(-2LL, 8LL, a3);
-  if ( v4 == -1073741700 )
+  v3 = NtOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 8u, 1u, 0, &Handle);
+  if ( v3 == -1073741700 )
   {
-    v4 = NtOpenProcessTokenEx(-1LL, 10LL, 0LL, &Handle);
-    if ( v4 < 0 )
+    v3 = NtOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0xAu, 0, &ExistingTokenHandle);
+    if ( v3 < 0 )
       goto LABEL_9;
-    *((_QWORD *)&v10 + 1) = 0LL;
-    DWORD2(v11) = 0;
-    *(_QWORD *)&v11 = 0LL;
-    v12 = 0LL;
-    v13 = &v14;
-    LODWORD(v10) = 48;
-    v14 = 0x20000000CLL;
-    LOWORD(v15) = 1;
-    v4 = NtDuplicateToken(Handle, 8LL, &v10);
-    NtClose(Handle);
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    ObjectAttributes.SecurityDescriptor = 0LL;
+    ObjectAttributes.SecurityQualityOfService = &v10;
+    ObjectAttributes.Length = 48;
+    v10 = 0x20000000CLL;
+    LOWORD(v11) = 1;
+    v3 = NtDuplicateToken(ExistingTokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &Handle);
+    NtClose(ExistingTokenHandle);
   }
-  if ( v4 >= 0 )
+  if ( v3 >= 0 )
   {
-    a1 = v7;
+    a1 = Handle;
     goto LABEL_7;
   }
 LABEL_9:
-  if ( v7 )
-    NtClose(v7);
-  return (unsigned int)v4;
+  if ( Handle )
+    NtClose(Handle);
+  return (unsigned int)v3;
 }

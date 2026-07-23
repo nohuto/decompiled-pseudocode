@@ -3,13 +3,13 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateFile @ 0x14041B800 (ZwCreateFile.c)
- *     ZwCreateSymbolicLinkObject @ 0x14041C620 (ZwCreateSymbolicLinkObject.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PiGetStateRootPath @ 0x140871470 (PiGetStateRootPath.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x14041BB90 (ZwCreateFile.c)
+ *     ZwCreateSymbolicLinkObject @ 0x14041C9B0 (ZwCreateSymbolicLinkObject.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PiGetStateRootPath @ 0x1408716B0 (PiGetStateRootPath.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     PiAuGetDriverDataDirectorySecurityObject @ 0x140B6C088 (PiAuGetDriverDataDirectorySecurityObject.c)
  */
@@ -17,29 +17,33 @@
 __int64 PiCreateDriverDataDirectoryRoot()
 {
   void *v0; // rdi
-  int StateRootPath; // ebx
+  NTSTATUS StateRootPath; // ebx
   unsigned int v2; // esi
   NTSTATUS v3; // eax
-  UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-29h] BYREF
+  UNICODE_STRING LinkTarget; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-19h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+80h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp+7h] BYREF
   void *v9; // [rsp+F0h] [rbp+67h] BYREF
   HANDLE FileHandle; // [rsp+F8h] [rbp+6Fh] BYREF
-  HANDLE Handle; // [rsp+100h] [rbp+77h] BYREF
+  HANDLE LinkHandle; // [rsp+100h] [rbp+77h] BYREF
   LARGE_INTEGER Interval; // [rsp+108h] [rbp+7Fh] BYREF
 
   Interval.QuadPart = -1000000LL;
   FileHandle = 0LL;
-  Handle = 0LL;
-  *(_QWORD *)&UnicodeString.Length = 0LL;
-  UnicodeString.Buffer = 0LL;
+  LinkHandle = 0LL;
+  *(_QWORD *)&LinkTarget.Length = 0LL;
+  LinkTarget.Buffer = 0LL;
   v0 = 0LL;
   IoStatusBlock = 0LL;
   v9 = 0LL;
   DestinationString = 0LL;
   memset(&ObjectAttributes, 0, 44);
-  StateRootPath = PiGetStateRootPath(L"DriverData", L"\\SystemRoot\\System32\\Drivers\\DriverData", 1u, &UnicodeString);
+  StateRootPath = PiGetStateRootPath(
+                    L"DriverData",
+                    L"\\SystemRoot\\System32\\Drivers\\DriverData",
+                    LocationTypeFileSystem,
+                    &LinkTarget);
   if ( StateRootPath >= 0 )
   {
     StateRootPath = PiAuGetDriverDataDirectorySecurityObject(&v9);
@@ -56,7 +60,7 @@ __int64 PiCreateDriverDataDirectoryRoot()
       v2 = 0;
       ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
-      ObjectAttributes.ObjectName = &UnicodeString;
+      ObjectAttributes.ObjectName = &LinkTarget;
       do
       {
         v3 = ZwCreateFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 0LL, 0x80u, 3u, 3u, 0x21u, 0LL, 0);
@@ -76,15 +80,15 @@ __int64 PiCreateDriverDataDirectoryRoot()
         ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
         ObjectAttributes.Length = 48;
         ObjectAttributes.Attributes = 80;
-        StateRootPath = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
+        StateRootPath = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &LinkTarget);
       }
     }
   }
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeUnicodeString(&LinkTarget);
   if ( FileHandle )
     ZwClose(FileHandle);
-  if ( Handle )
-    ZwClose(Handle);
+  if ( LinkHandle )
+    ZwClose(LinkHandle);
   if ( v0 )
     ExFreePoolWithTag(v0, 0);
   return (unsigned int)StateRootPath;

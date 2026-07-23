@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetThreadId @ 0x14009E164
+ * XREFs of PsGetThreadId @ 0x14009D964
  * Callers:
  *     PfpScenCtxServiceThreadSet @ 0x1403D6A10 (PfpScenCtxServiceThreadSet.c)
- *     PfSnBeginTrace @ 0x1403E9698 (PfSnBeginTrace.c)
- *     KiSwapToUmsThread @ 0x1406508F8 (KiSwapToUmsThread.c)
+ *     PfSnBeginTrace @ 0x1403EACC8 (PfSnBeginTrace.c)
+ *     KiSwapToUmsThread @ 0x1406509DC (KiSwapToUmsThread.c)
  * Callees:
  *     <none>
  */

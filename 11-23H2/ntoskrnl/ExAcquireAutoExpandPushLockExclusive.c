@@ -1,24 +1,24 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x14022F760
+ * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x14022F850
  * Callers:
- *     MiLockLoaderEntry @ 0x140292164 (MiLockLoaderEntry.c)
- *     FsRtlRemovePerFileObjectContext @ 0x1402FD3D0 (FsRtlRemovePerFileObjectContext.c)
- *     FsRtlInsertPerFileObjectContext @ 0x1402FD4C0 (FsRtlInsertPerFileObjectContext.c)
- *     FsRtlInsertPerFileContext @ 0x140363C90 (FsRtlInsertPerFileContext.c)
- *     FsRtlRemovePerFileContext @ 0x14053CFB0 (FsRtlRemovePerFileContext.c)
- *     FsRtlRemovePerStreamContext @ 0x14053D0B0 (FsRtlRemovePerStreamContext.c)
- *     MiFreePhysicalPages @ 0x14064A540 (MiFreePhysicalPages.c)
- *     MiLockAwePagesExclusive @ 0x14064AFF0 (MiLockAwePagesExclusive.c)
- *     MiLockAweVadsExclusive @ 0x14064B038 (MiLockAweVadsExclusive.c)
- *     FsRtlTeardownPerStreamContexts @ 0x1407913C0 (FsRtlTeardownPerStreamContexts.c)
- *     FsRtlTeardownPerFileContexts @ 0x1407BAE20 (FsRtlTeardownPerFileContexts.c)
+ *     MiLockLoaderEntry @ 0x1402923F4 (MiLockLoaderEntry.c)
+ *     FsRtlRemovePerFileObjectContext @ 0x1402FD660 (FsRtlRemovePerFileObjectContext.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x1402FD750 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlInsertPerFileContext @ 0x140363E30 (FsRtlInsertPerFileContext.c)
+ *     FsRtlRemovePerFileContext @ 0x14053D500 (FsRtlRemovePerFileContext.c)
+ *     FsRtlRemovePerStreamContext @ 0x14053D600 (FsRtlRemovePerStreamContext.c)
+ *     MiFreePhysicalPages @ 0x14064AA90 (MiFreePhysicalPages.c)
+ *     MiLockAwePagesExclusive @ 0x14064B540 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x14064B588 (MiLockAweVadsExclusive.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x1407915B0 (FsRtlTeardownPerStreamContexts.c)
+ *     FsRtlTeardownPerFileContexts @ 0x1407BB0F0 (FsRtlTeardownPerFileContexts.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     ExpAcquireFannedOutPushLockExclusive @ 0x1403CFFCC (ExpAcquireFannedOutPushLockExclusive.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExpAcquireFannedOutPushLockExclusive @ 0x1403D01AC (ExpAcquireFannedOutPushLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

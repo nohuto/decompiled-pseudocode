@@ -51,7 +51,7 @@ __int64 __fastcall RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3, _QWOR
   __int64 v34; // rcx
   __int16 v35; // ax
   char v36; // al
-  unsigned int v37; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v37; // [rsp+70h] [rbp+18h] BYREF
 
   v6 = 0;
   v8 = a3 | a1[5] & 0x11000001;
@@ -97,11 +97,11 @@ __int64 __fastcall RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3, _QWOR
     }
     else
     {
-      v32 = RtlCSparseBitmapBitmaskRead(&unk_180166A70, 2 * ((a2 - qword_180166A68) >> 20));
+      v32 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_180166A68) >> 20));
       if ( !v32 || (v14 = v32 - 1, v14 == 2) )
       {
         v20 = RtlpHpLargeFree(a1, a2, v12) != 0;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v33 = (__int64)NtCurrentPeb()->SharedData + 550;
         else
           v33 = 2147353472LL;
@@ -141,7 +141,7 @@ LABEL_21:
             if ( a2 <= v24 + ((DescriptorValidateSafe - v24) >> 5 << v23) )
             {
               RtlpHpSegPageRangeShrink(v16, DescriptorValidateSafe, 0, v12);
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              if ( RtlGetCurrentServiceSessionId() )
                 v34 = (__int64)NtCurrentPeb()->SharedData + 550;
               else
                 v34 = 2147353472LL;
@@ -158,13 +158,13 @@ LABEL_21:
               }
               else
               {
-                v20 = RtlpHpVsContextFree(*(_QWORD *)(v16 + 32), v26, a2, v12, &v37);
+                v20 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(v16 + 32), v26, a2, v12, (unsigned int *)&v37);
                 if ( v20 )
                 {
                   v30 = *(_QWORD *)(v16 + 24);
-                  if ( v37 <= (unsigned int)*(unsigned __int16 *)(v30 + 60) - 16 )
+                  if ( (unsigned int)v37 <= (unsigned int)*(unsigned __int16 *)(v30 + 60) - 16 )
                   {
-                    v31 = RtlpLfhBucketIndexMap[(unsigned __int64)(v37 + 15) >> 4];
+                    v31 = RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(v37 + 15) >> 4];
                     if ( (*(_QWORD *)(v30 + 8 * v31 + 128) & 1) != 0 )
                       RtlpLfhBucketUsageUpdate(v30, v31, 0LL);
                   }

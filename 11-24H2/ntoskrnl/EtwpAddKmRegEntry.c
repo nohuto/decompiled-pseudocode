@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAddKmRegEntry @ 0x140A57938
+ * XREFs of EtwpAddKmRegEntry @ 0x1409EA5D8
  * Callers:
- *     EtwpRegisterKMProvider @ 0x140A57524 (EtwpRegisterKMProvider.c)
+ *     EtwpRegisterKMProvider @ 0x1409EA1C4 (EtwpRegisterKMProvider.c)
  * Callees:
- *     EtwpInitializeRegEntry @ 0x14083ABDC (EtwpInitializeRegEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     EtwpInitializeRegEntry @ 0x14083857C (EtwpInitializeRegEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAddKmRegEntry(ULONG_PTR a1, int a2, __int64 a3, __int64 a4, __int64 *a5)
@@ -14,7 +14,7 @@ __int64 __fastcall EtwpAddKmRegEntry(ULONG_PTR a1, int a2, __int64 a3, __int64 a
   __int64 v11; // rdi
 
   v5 = 0;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x78uLL, 0x52777445u);
   v11 = Pool2;
   if ( Pool2 )
   {

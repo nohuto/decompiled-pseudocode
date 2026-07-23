@@ -1,5 +1,5 @@
 /*
- * XREFs of ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140372190
+ * XREFs of ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140372330
  * Callers:
  *     <none>
  * Callees:

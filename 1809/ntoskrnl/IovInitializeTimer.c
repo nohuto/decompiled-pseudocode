@@ -1,10 +1,10 @@
 /*
- * XREFs of IovInitializeTimer @ 0x1409242A0
+ * XREFs of IovInitializeTimer @ 0x1409252A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall IovInitializeTimer(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifRtlUpcaseUnicodeStringWrapper @ 0x1405EC3D0
+ * XREFs of DifRtlUpcaseUnicodeStringWrapper @ 0x1405EC940
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     RtlUpcaseUnicodeString @ 0x140773AF0 (RtlUpcaseUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     RtlUpcaseUnicodeString @ 0x140773CE0 (RtlUpcaseUnicodeString.c)
  */
 
 NTSTATUS __fastcall DifRtlUpcaseUnicodeStringWrapper(

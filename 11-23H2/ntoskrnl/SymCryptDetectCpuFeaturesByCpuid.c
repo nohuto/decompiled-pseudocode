@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptDetectCpuFeaturesByCpuid @ 0x1403F62E4
+ * XREFs of SymCryptDetectCpuFeaturesByCpuid @ 0x1403F64C4
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F3340 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F3520 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  * Callees:
- *     SymCryptCpuidExFunc @ 0x1403B6A88 (SymCryptCpuidExFunc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     SymCryptCpuidExFunc @ 0x1403B6C68 (SymCryptCpuidExFunc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptDetectCpuFeaturesByCpuid(char a1)

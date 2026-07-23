@@ -12,7 +12,7 @@
  *     sub_1800634B0 @ 0x1800634B0 (sub_1800634B0.c)
  */
 
-__int64 __fastcall sub_180063438(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall sub_180063438(_RTL_SRWLOCK *a1, unsigned __int64 a2, char a3, __int64 a4)
 {
   int v7; // esi
   unsigned __int64 v8; // rax
@@ -21,13 +21,13 @@ __int64 __fastcall sub_180063438(__int64 a1, char *a2, __int64 a3, __int64 a4)
 
   v7 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 72), a2, a3, a4);
-  v8 = sub_18006337C(a1, (unsigned __int64)a2);
+    RtlAcquireSRWLockShared(a1 + 9);
+  v8 = sub_18006337C((__int64)a1, a2);
   if ( v8 )
     v10 = sub_1800634B0(v9, v8, a4);
   else
     v10 = -1LL;
   if ( !v7 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockShared(a1 + 9);
   return v10;
 }

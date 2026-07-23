@@ -32,11 +32,11 @@ __int64 __fastcall ExInitializeUtcTimeZoneBias(PLARGE_INTEGER CurrentTime)
   LARGE_INTEGER v20; // [rsp+40h] [rbp-C0h]
   int v21; // [rsp+48h] [rbp-B8h]
   int v22; // [rsp+4Ch] [rbp-B4h]
-  struct _TIME_FIELDS TimeFields; // [rsp+50h] [rbp-B0h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+50h] [rbp-B0h] BYREF
   char v24[68]; // [rsp+60h] [rbp-A0h] BYREF
-  struct _TIME_FIELDS CutoverTimeFields; // [rsp+A4h] [rbp-5Ch] BYREF
+  _TIME_FIELDS CutoverTimeFields; // [rsp+A4h] [rbp-5Ch] BYREF
   int v26; // [rsp+B4h] [rbp-4Ch]
-  struct _TIME_FIELDS v27; // [rsp+F8h] [rbp-8h] BYREF
+  _TIME_FIELDS v27; // [rsp+F8h] [rbp-8h] BYREF
   int v28; // [rsp+108h] [rbp+8h]
 
   if ( !ExpRealTimeIsUniversal )

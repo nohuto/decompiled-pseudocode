@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpUpdateGlobalQuotaAllowed @ 0x140A88260
+ * XREFs of CmpUpdateGlobalQuotaAllowed @ 0x140A8F390
  * Callers:
- *     CmQueryRegistryQuotaInformation @ 0x140A8811C (CmQueryRegistryQuotaInformation.c)
- *     CmpClaimGlobalQuota @ 0x140A8820C (CmpClaimGlobalQuota.c)
+ *     CmQueryRegistryQuotaInformation @ 0x140A8F24C (CmQueryRegistryQuotaInformation.c)
+ *     CmpClaimGlobalQuota @ 0x140A8F33C (CmpClaimGlobalQuota.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ unsigned __int64 CmpUpdateGlobalQuotaAllowed()
   if ( !CmpQuotaExplicitlySet )
   {
     result = MmSizeOfPagedPoolInBytes;
-    if ( MmSizeOfPagedPoolInBytes != PspSiloMonitorLock.Timer.DueTime.QuadPart )
+    if ( (struct _LIST_ENTRY *)MmSizeOfPagedPoolInBytes != PspSiloMonitorLock.Timer.Header.WaitListHead.Blink )
     {
       v1 = 0xFFFFFFFFLL;
       if ( MmSizeOfPagedPoolInBytes / 3uLL <= 0xFFFFFFFF )
@@ -26,10 +26,10 @@ unsigned __int64 CmpUpdateGlobalQuotaAllowed()
           v1 = 0x1000000LL;
       }
       CmpGlobalQuota = v1;
-      *(_QWORD *)&ExpPlatformBinaryLock.Timer.Header.Lock = v1;
-      PspSiloMonitorLock.Timer.DueTime.QuadPart = MmSizeOfPagedPoolInBytes;
+      ExpPlatformBinaryLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v1;
+      PspSiloMonitorLock.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)MmSizeOfPagedPoolInBytes;
       result = 95 * (v1 / 0x64);
-      ExpPlatformBinaryLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)result;
+      *(_QWORD *)&ExpPlatformBinaryLock.Timer.Header.Lock = result;
     }
   }
   return result;

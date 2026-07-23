@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetVadPte @ 0x14071201C
+ * XREFs of MiGetVadPte @ 0x140716D14
  * Callers:
- *     MiComputeIdealLargePage @ 0x1404F85EC (MiComputeIdealLargePage.c)
+ *     MiComputeIdealLargePage @ 0x1404F1BFC (MiComputeIdealLargePage.c)
  * Callees:
  *     <none>
  */

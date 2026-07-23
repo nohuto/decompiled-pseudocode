@@ -1,25 +1,25 @@
 /*
- * XREFs of IopCreateFile @ 0x14073C690
+ * XREFs of IopCreateFile @ 0x14073C880
  * Callers:
- *     IoCreateFileEx @ 0x1406B94B0 (IoCreateFileEx.c)
- *     NtCreateFile @ 0x14073C600 (NtCreateFile.c)
- *     NtOpenFile @ 0x14074D390 (NtOpenFile.c)
- *     IoCreateFile @ 0x1407D0680 (IoCreateFile.c)
+ *     IoCreateFileEx @ 0x1406B94E0 (IoCreateFileEx.c)
+ *     NtCreateFile @ 0x14073C7F0 (NtCreateFile.c)
+ *     NtOpenFile @ 0x14074D580 (NtOpenFile.c)
+ *     IoCreateFile @ 0x1407D0950 (IoCreateFile.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E200 (PsGetCurrentSilo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObOpenObjectByNameEx @ 0x1406ECFE0 (ObOpenObjectByNameEx.c)
- *     IopCloseFile @ 0x140730000 (IopCloseFile.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14073E120 (FsRtlFreeExtraCreateParameter.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     IoCheckEaBufferValidity @ 0x1407CF300 (IoCheckEaBufferValidity.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     PsGetCurrentSilo @ 0x14022E310 (PsGetCurrentSilo.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObOpenObjectByNameEx @ 0x1406ED010 (ObOpenObjectByNameEx.c)
+ *     IopCloseFile @ 0x1407301F0 (IopCloseFile.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14073E310 (FsRtlFreeExtraCreateParameter.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     IoCheckEaBufferValidity @ 0x1407CF5D0 (IoCheckEaBufferValidity.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -67,7 +67,7 @@ __int64 __fastcall IopCreateFile(
   _GENERAL_LOOKASIDE *v39; // rcx
   unsigned __int64 v40; // rax
   void *v41; // rax
-  NTSTATUS v42; // eax
+  int v42; // eax
   int v43; // ecx
   _KPROCESS *Process; // rcx
   __int16 v45; // dx

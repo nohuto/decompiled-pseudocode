@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpInitializeLfhBitmapData @ 0x18008A440
+ * XREFs of RtlpInitializeLfhBitmapData @ 0x18008A430
  * Callers:
  *     RtlpSubSegmentDebugInitialize @ 0x1800FC04C (RtlpSubSegmentDebugInitialize.c)
  * Callees:

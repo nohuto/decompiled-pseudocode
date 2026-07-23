@@ -33,7 +33,7 @@
 __int64 __fastcall IopGetSetSecurityObject(
         _QWORD *Object,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         UNICODE_STRING *a4,
         PULONG Length,
         int a6,
@@ -44,9 +44,9 @@ __int64 __fastcall IopGetSetSecurityObject(
   _QWORD *v12; // r14
   _QWORD *v13; // rbx
   struct _KTHREAD *v14; // r14
-  unsigned __int8 v15; // di
+  char PreviousMode; // di
   int v16; // eax
-  bool v17; // r15
+  char v17; // r15
   struct _KTHREAD *v18; // rax
   __int64 v19; // r9
   unsigned int v20; // edi
@@ -64,7 +64,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   struct _KTHREAD *v33; // rdi
   PSECURITY_DESCRIPTOR SecurityDescriptor; // rbx
   ULONG *v35; // r8
-  ULONG *v36; // rcx
+  DWORD *v36; // rcx
   _DWORD *DevicePDO; // rax
   struct _KTHREAD *v38; // rdi
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+38h] [rbp-60h] BYREF
@@ -72,7 +72,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   __int128 v41; // [rsp+48h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+58h] [rbp-40h] BYREF
   __int64 v43; // [rsp+A0h] [rbp+8h] BYREF
-  ULONG *v44; // [rsp+B0h] [rbp+18h]
+  DWORD *v44; // [rsp+B0h] [rbp+18h]
 
   v44 = a3;
   v40 = 0LL;
@@ -140,7 +140,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   v41 = 0LL;
   memset(&Event, 0, sizeof(Event));
   v14 = KeGetCurrentThread();
-  v15 = v14->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
+  PreviousMode = v14->PreviousMode;
   ObfReferenceObject(v13);
   v16 = *((_DWORD *)v13 + 20);
   if ( (v16 & 2) != 0 )
@@ -148,11 +148,11 @@ __int64 __fastcall IopGetSetSecurityObject(
     v17 = (v16 & 4) != 0;
     v18 = KeGetCurrentThread();
     --v18->KernelApcDisable;
-    v19 = KeAbPreAcquire((ULONG_PTR)(v13 + 16), 0LL, 0LL);
+    v19 = KeAbPreAcquire((ULONG_PTR)(v13 + 16), 0LL, 0);
     LOBYTE(v43) = 0;
     if ( _InterlockedExchange((volatile __int32 *)v13 + 29, 1) )
     {
-      v20 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)v13, v15, v17, v19, &v43);
+      v20 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)v13, PreviousMode, v17, v19, &v43);
     }
     else
     {

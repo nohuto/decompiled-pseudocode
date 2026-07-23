@@ -1,15 +1,15 @@
 /*
- * XREFs of PsIsThreadInSilo @ 0x14025C988
+ * XREFs of PsIsThreadInSilo @ 0x14027DEF8
  * Callers:
  *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  *     VrpHandleIoctlLoadDifferencingHive @ 0x1405D29EC (VrpHandleIoctlLoadDifferencingHive.c)
  *     VrpHandleIoctlCreateNamespaceNode @ 0x1405D2C9C (VrpHandleIoctlCreateNamespaceNode.c)
  *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1405D2FAC (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14088289C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlGetVirtualRootKey @ 0x140882BB8 (VrpHandleIoctlGetVirtualRootKey.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408829FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlGetVirtualRootKey @ 0x140882D18 (VrpHandleIoctlGetVirtualRootKey.c)
  * Callees:
- *     PsIsProcessInSilo @ 0x14025CA38 (PsIsProcessInSilo.c)
- *     PspIsSiloInSilo @ 0x1406BF51C (PspIsSiloInSilo.c)
+ *     PsIsProcessInSilo @ 0x14027DFA8 (PsIsProcessInSilo.c)
+ *     PspIsSiloInSilo @ 0x14061E42C (PspIsSiloInSilo.c)
  */
 
 char __fastcall PsIsThreadInSilo(__int64 a1, __int64 a2)

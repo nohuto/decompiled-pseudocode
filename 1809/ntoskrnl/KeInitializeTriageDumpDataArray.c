@@ -1,5 +1,5 @@
 /*
- * XREFs of KeInitializeTriageDumpDataArray @ 0x140292240
+ * XREFs of KeInitializeTriageDumpDataArray @ 0x140292430
  * Callers:
  *     <none>
  * Callees:

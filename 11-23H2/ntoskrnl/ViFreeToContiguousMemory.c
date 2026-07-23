@@ -1,13 +1,13 @@
 /*
- * XREFs of ViFreeToContiguousMemory @ 0x140AC8D64
+ * XREFs of ViFreeToContiguousMemory @ 0x140AC8D54
  * Callers:
- *     ViAllocateMapRegisterFile @ 0x140AC7CB4 (ViAllocateMapRegisterFile.c)
- *     ViFreeMapRegisterFile @ 0x140AC8AC0 (ViFreeMapRegisterFile.c)
+ *     ViAllocateMapRegisterFile @ 0x140AC7CA4 (ViAllocateMapRegisterFile.c)
+ *     ViFreeMapRegisterFile @ 0x140AC8AB0 (ViFreeMapRegisterFile.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ViFreeToContiguousMemory(__int64 a1, __int64 a2, unsigned int a3)
@@ -41,10 +41,13 @@ __int64 __fastcall ViFreeToContiguousMemory(__int64 a1, __int64 a2, unsigned int
   v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 312));
   RtlClearBits((PRTL_BITMAP)(a1 + 328), v3, 1u);
   KxReleaseSpinLock(v7);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

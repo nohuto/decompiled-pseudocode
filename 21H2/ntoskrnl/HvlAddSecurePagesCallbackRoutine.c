@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x1404F88D0
+ * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x1404F8850
  * Callers:
- *     HvlAddSecureHvPagesCallbackRoutine @ 0x1404F88B0 (HvlAddSecureHvPagesCallbackRoutine.c)
- *     HvlAddSecureSkPagesCallbackRoutine @ 0x1404F8B00 (HvlAddSecureSkPagesCallbackRoutine.c)
+ *     HvlAddSecureHvPagesCallbackRoutine @ 0x1404F8830 (HvlAddSecureHvPagesCallbackRoutine.c)
+ *     HvlAddSecureSkPagesCallbackRoutine @ 0x1404F8A80 (HvlAddSecureSkPagesCallbackRoutine.c)
  * Callees:
- *     HvlpAddCrashdumpAreaPages @ 0x1404F902C (HvlpAddCrashdumpAreaPages.c)
- *     HvlpEndSecurePageListIteration @ 0x1404FB5BC (HvlpEndSecurePageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x1404FB874 (HvlpStartSecurePageListIteration.c)
- *     VslGetSecurePageList @ 0x1404FC6D0 (VslGetSecurePageList.c)
- *     IoIsPartialDumpRetry @ 0x1405026C8 (IoIsPartialDumpRetry.c)
+ *     HvlpAddCrashdumpAreaPages @ 0x1404F8FAC (HvlpAddCrashdumpAreaPages.c)
+ *     HvlpEndSecurePageListIteration @ 0x1404FB53C (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x1404FB7F4 (HvlpStartSecurePageListIteration.c)
+ *     VslGetSecurePageList @ 0x1404FC650 (VslGetSecurePageList.c)
+ *     IoIsPartialDumpRetry @ 0x140502648 (IoIsPartialDumpRetry.c)
  */
 
 __int64 __fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, __int64 a4)
@@ -44,12 +44,12 @@ __int64 __fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, 
   {
 LABEL_5:
     HvlpCrashdumpIterationState = 0LL;
-    xmmword_140C47550 = 0LL;
-    xmmword_140C47560 = 0LL;
+    xmmword_140C475F0 = 0LL;
+    xmmword_140C47600 = 0LL;
     result = HvlpStartSecurePageListIteration(1LL, v4, 0LL, 0LL, 0, &v14);
     if ( (int)result < 0 )
       return result;
-    *((_QWORD *)&xmmword_140C47560 + 1) = v14;
+    *((_QWORD *)&xmmword_140C47600 + 1) = v14;
     result = (__int64)&HvlpCrashdumpIterationState;
     BYTE3(HvlpCrashdumpIterationState) = v4;
     LOBYTE(HvlpCrashdumpIterationState) = 1;
@@ -64,14 +64,14 @@ LABEL_5:
       {
         if ( !v11 || a1 == 1 && *(_DWORD *)(a4 + 12) == 395 || a1 == 2 && *(_DWORD *)(a4 + 12) == 131073 )
         {
-          while ( (_DWORD)xmmword_140C47560 )
+          while ( (_DWORD)xmmword_140C47600 )
           {
 LABEL_22:
-            *(_QWORD *)(a4 + 24) = (**((_QWORD **)&xmmword_140C47550 + 1) >> 40) + 1LL;
+            *(_QWORD *)(a4 + 24) = (**((_QWORD **)&xmmword_140C475F0 + 1) >> 40) + 1LL;
             result = 0xFFFFFFFFFFLL;
-            *(_QWORD *)(a4 + 16) = **((_QWORD **)&xmmword_140C47550 + 1) & 0xFFFFFFFFFFLL;
-            *((_QWORD *)&xmmword_140C47550 + 1) += 8LL;
-            LODWORD(xmmword_140C47560) = xmmword_140C47560 - 1;
+            *(_QWORD *)(a4 + 16) = **((_QWORD **)&xmmword_140C475F0 + 1) & 0xFFFFFFFFFFLL;
+            *((_QWORD *)&xmmword_140C475F0 + 1) += 8LL;
+            LODWORD(xmmword_140C47600) = xmmword_140C47600 - 1;
             if ( *(_QWORD *)(a4 + 24) )
             {
               *(_DWORD *)(a4 + 8) = -2147483646;
@@ -87,9 +87,9 @@ LABEL_22:
             LOBYTE(v13) = 0;
             if ( (int)VslGetSecurePageList(0LL, 0LL, 0LL, &v13) < 0 )
               break;
-            LODWORD(xmmword_140C47560) = *(unsigned __int16 *)(*((_QWORD *)&xmmword_140C47560 + 1) + 8LL);
-            *((_QWORD *)&xmmword_140C47550 + 1) = *((_QWORD *)&xmmword_140C47560 + 1) + 16LL;
-            if ( (_DWORD)xmmword_140C47560 )
+            LODWORD(xmmword_140C47600) = *(unsigned __int16 *)(*((_QWORD *)&xmmword_140C47600 + 1) + 8LL);
+            *((_QWORD *)&xmmword_140C475F0 + 1) = *((_QWORD *)&xmmword_140C47600 + 1) + 16LL;
+            if ( (_DWORD)xmmword_140C47600 )
               goto LABEL_22;
           }
         }

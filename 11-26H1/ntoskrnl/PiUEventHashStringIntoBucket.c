@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUEventHashStringIntoBucket @ 0x1404B4FE4
+ * XREFs of PiUEventHashStringIntoBucket @ 0x1404AE434
  * Callers:
- *     PiUEventNotifyTargetDeviceChange @ 0x14099A54C (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x1409D60E8 (PiUEventNotifyDeviceInstancePropertyChange.c)
- *     PiUEventHandleRegistration @ 0x1409D71F0 (PiUEventHandleRegistration.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x140AEA684 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x14095AFAC (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventHandleRegistration @ 0x1409A80E0 (PiUEventHandleRegistration.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x1409AA6B8 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x140AED174 (PiUEventNotifyDeviceInstanceChange.c)
  * Callees:
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     RtlHashUnicodeString @ 0x1409893C0 (RtlHashUnicodeString.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     RtlHashUnicodeString @ 0x140A43AE0 (RtlHashUnicodeString.c)
  */
 
 __int64 __fastcall PiUEventHashStringIntoBucket(wchar_t *a1)

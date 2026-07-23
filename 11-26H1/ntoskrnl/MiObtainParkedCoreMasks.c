@@ -1,12 +1,12 @@
 /*
- * XREFs of MiObtainParkedCoreMasks @ 0x1403E9CF8
+ * XREFs of MiObtainParkedCoreMasks @ 0x1402F6BD8
  * Callers:
- *     MiEvaluateProcessor @ 0x1403E9E14 (MiEvaluateProcessor.c)
+ *     MiEvaluateProcessor @ 0x1402F6CF4 (MiEvaluateProcessor.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 void __fastcall MiObtainParkedCoreMasks(_OWORD *a1)
@@ -22,8 +22,8 @@ void __fastcall MiObtainParkedCoreMasks(_OWORD *a1)
   v3 = 2LL;
   if ( CurrentIrql < 2u )
   {
-    ExAcquireSpinLockShared(&dword_140E2D800);
-    v6 = &unk_140E2D808;
+    ExAcquireSpinLockShared(&dword_140E2D980);
+    v6 = &unk_140E2D988;
     do
     {
       *a1 = *v6;
@@ -41,12 +41,12 @@ void __fastcall MiObtainParkedCoreMasks(_OWORD *a1)
     }
     while ( v3 );
     *(_QWORD *)a1 = *(_QWORD *)v6;
-    ExReleaseSpinLockShared(&dword_140E2D800, CurrentIrql);
+    ExReleaseSpinLockShared(&dword_140E2D980, CurrentIrql);
   }
   else
   {
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2D800);
-    v4 = &unk_140E2D808;
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2D980);
+    v4 = &unk_140E2D988;
     do
     {
       *a1 = *v4;
@@ -64,6 +64,6 @@ void __fastcall MiObtainParkedCoreMasks(_OWORD *a1)
     }
     while ( v3 );
     *(_QWORD *)a1 = *(_QWORD *)v4;
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D800);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D980);
   }
 }

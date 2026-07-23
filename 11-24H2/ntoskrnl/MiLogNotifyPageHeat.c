@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogNotifyPageHeat @ 0x140685780
+ * XREFs of MiLogNotifyPageHeat @ 0x1406868B0
  * Callers:
- *     MiIssuePageHeatList @ 0x14043F9FC (MiIssuePageHeatList.c)
+ *     MiIssuePageHeatList @ 0x140435CBC (MiIssuePageHeatList.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogNotifyPageHeat(_DWORD *a1)
@@ -22,7 +22,7 @@ char __fastcall MiLogNotifyPageHeat(_DWORD *a1)
   unsigned __int8 CurrentIrql; // bl
   __int64 v10; // r8
   unsigned __int64 v11; // rcx
-  unsigned __int8 *v12; // rdx
+  int *v12; // rdx
   int *v13; // rax
   unsigned __int64 v14; // rcx
   int v16; // [rsp+28h] [rbp-99h]
@@ -52,11 +52,11 @@ char __fastcall MiLogNotifyPageHeat(_DWORD *a1)
   _UNKNOWN *retaddr; // [rsp+120h] [rbp+5Fh] BYREF
 
   v1 = &retaddr;
-  if ( !*(_QWORD *)&qword_140E37518 )
+  if ( !*(_QWORD *)&qword_140E37658 )
     return (char)v1;
-  if ( !**(_DWORD **)&qword_140E37518 )
+  if ( !**(_DWORD **)&qword_140E37658 )
     return (char)v1;
-  LOBYTE(v1) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 64LL);
+  LOBYTE(v1) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 64LL);
   if ( !(_BYTE)v1 )
     return (char)v1;
   v3 = (unsigned __int64 *)(a1 + 4);
@@ -89,10 +89,10 @@ char __fastcall MiLogNotifyPageHeat(_DWORD *a1)
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
   if ( (*a1 & 1) != 0 )
   {
-    if ( **(_DWORD **)&qword_140E37518 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140E37518, 64LL) )
+    if ( **(_DWORD **)&qword_140E37658 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140E37658, 64LL) )
       goto LABEL_18;
     v14 = *v3;
-    v12 = (unsigned __int8 *)&byte_1400578E1;
+    v12 = (int *)&word_140058486;
     v21 = a1[1];
     v25 = &v21;
     v27 = &v23;
@@ -106,10 +106,10 @@ char __fastcall MiLogNotifyPageHeat(_DWORD *a1)
   }
   else
   {
-    if ( **(_DWORD **)&qword_140E37518 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140E37518, 64LL) )
+    if ( **(_DWORD **)&qword_140E37658 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140E37658, 64LL) )
       goto LABEL_18;
     v11 = *v3;
-    v12 = (unsigned __int8 *)&byte_140057967;
+    v12 = &dword_14005850C;
     v19 = a1[1];
     v25 = &v19;
     v27 = &v22;
@@ -133,7 +133,7 @@ char __fastcall MiLogNotifyPageHeat(_DWORD *a1)
   v36 = 2LL;
   v37 = a1 + 4;
   v39 = 0;
-  tlgWriteEx_EtwWriteEx(v10, v12, v10, 1u, v16, v17, 9u, &v24);
+  tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)v12, v10, 1u, v16, v17, 9u, &v24);
 LABEL_18:
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

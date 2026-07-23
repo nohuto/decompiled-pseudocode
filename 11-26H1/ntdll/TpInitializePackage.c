@@ -1,12 +1,12 @@
 /*
- * XREFs of TpInitializePackage @ 0x1800CB1A4
+ * XREFs of TpInitializePackage @ 0x1800C8914
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlCreateTagHeap @ 0x1800CB280 (RtlCreateTagHeap.c)
- *     TppQueryMaximumGroupCount @ 0x1800CB518 (TppQueryMaximumGroupCount.c)
- *     NtQuerySystemInformation @ 0x18015F600 (NtQuerySystemInformation.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlCreateTagHeap @ 0x1800C89F0 (RtlCreateTagHeap.c)
+ *     TppQueryMaximumGroupCount @ 0x1800C8C88 (TppQueryMaximumGroupCount.c)
+ *     NtQuerySystemInformation @ 0x18015F500 (NtQuerySystemInformation.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 NTSTATUS TpInitializePackage()
@@ -18,7 +18,7 @@ NTSTATUS TpInitializePackage()
   ULONG ReturnLength; // [rsp+440h] [rbp+8h] BYREF
 
   memset_thunk_772440563353939046(SystemInformation, 0, 0x408uLL);
-  TppHeapTag = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap);
+  TppHeapTag = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap, 0, (PWSTR)L"Threadpool!", (PWSTR)L"Cleanup Group");
   ReturnLength = 0;
   result = NtQuerySystemInformation(SystemNumaProcessorMap, SystemInformation, 0x408u, &ReturnLength);
   if ( result >= 0 )

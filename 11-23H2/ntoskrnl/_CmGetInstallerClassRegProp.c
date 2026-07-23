@@ -5,15 +5,15 @@
  *     PipGetRegistrySecurityWithFallback @ 0x14069A82C (PipGetRegistrySecurityWithFallback.c)
  *     PipGetRegistryDwordWithFallback @ 0x14069AD64 (PipGetRegistryDwordWithFallback.c)
  *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14069B554 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetDeviceRegPropWorker @ 0x1406CD5DC (_CmGetDeviceRegPropWorker.c)
- *     PiPnpRtlCmActionCallback @ 0x140788B20 (PiPnpRtlCmActionCallback.c)
- *     PiCMGetRegistryProperty @ 0x1407C0874 (PiCMGetRegistryProperty.c)
- *     PpForEachDeviceInstanceDriver @ 0x1407CF798 (PpForEachDeviceInstanceDriver.c)
- *     _CmServiceFilterCallback @ 0x140A651A0 (_CmServiceFilterCallback.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1406CD60C (_CmGetDeviceRegPropWorker.c)
+ *     PiPnpRtlCmActionCallback @ 0x140788D10 (PiPnpRtlCmActionCallback.c)
+ *     PiCMGetRegistryProperty @ 0x1407C0B44 (PiCMGetRegistryProperty.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1407CFA68 (PpForEachDeviceInstanceDriver.c)
+ *     _CmServiceFilterCallback @ 0x140A65450 (_CmServiceFilterCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     _CmGetInstallerClassRegPropWorker @ 0x14069B808 (_CmGetInstallerClassRegPropWorker.c)
  */
 

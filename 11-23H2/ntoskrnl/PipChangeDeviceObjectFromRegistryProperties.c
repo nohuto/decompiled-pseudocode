@@ -1,17 +1,17 @@
 /*
  * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x14069AA88
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C8234 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406C8264 (PipCallDriverAddDevice.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140297640 (RtlGetDaclSecurityDescriptor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x1402978D0 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     PipGetRegistrySecurityWithFallback @ 0x14069A82C (PipGetRegistrySecurityWithFallback.c)
  *     PipGetRegistryDwordWithFallback @ 0x14069AD64 (PipGetRegistryDwordWithFallback.c)
  *     RtlGetOwnerSecurityDescriptor @ 0x14069E340 (RtlGetOwnerSecurityDescriptor.c)
  *     RtlGetGroupSecurityDescriptor @ 0x14069E380 (RtlGetGroupSecurityDescriptor.c)
- *     RtlGetSaclSecurityDescriptor @ 0x1407117A0 (RtlGetSaclSecurityDescriptor.c)
- *     ObSetSecurityObjectByPointer @ 0x1407366A0 (ObSetSecurityObjectByPointer.c)
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14076B49C (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1407119B0 (RtlGetSaclSecurityDescriptor.c)
+ *     ObSetSecurityObjectByPointer @ 0x140736890 (ObSetSecurityObjectByPointer.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14076B68C (IopCreateDefaultDeviceSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

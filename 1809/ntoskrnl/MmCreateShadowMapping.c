@@ -1,7 +1,7 @@
 /*
- * XREFs of MmCreateShadowMapping @ 0x14072A158
+ * XREFs of MmCreateShadowMapping @ 0x14072B348
  * Callers:
- *     KiShadowProcessorAllocation @ 0x140572D84 (KiShadowProcessorAllocation.c)
+ *     KiShadowProcessorAllocation @ 0x140573D84 (KiShadowProcessorAllocation.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -10,13 +10,13 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiInitializeColorBase @ 0x14017E4D8 (MiInitializeColorBase.c)
- *     MiPageTablesNeeded @ 0x14017E4F0 (MiPageTablesNeeded.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiMakeShadowPageTableRange @ 0x14072A304 (MiMakeShadowPageTableRange.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiInitializeColorBase @ 0x14017E618 (MiInitializeColorBase.c)
+ *     MiPageTablesNeeded @ 0x14017E630 (MiPageTablesNeeded.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiMakeShadowPageTableRange @ 0x14072B4F4 (MiMakeShadowPageTableRange.c)
  */
 
 __int64 __fastcall MmCreateShadowMapping(__int64 PteAddress, __int64 a2)
@@ -60,12 +60,12 @@ __int64 __fastcall MmCreateShadowMapping(__int64 PteAddress, __int64 a2)
   if ( Process != PsInitialSystemProcess )
     KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v16);
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140439FA8, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043B068, 0LL);
   MiMakeShadowPageTableRange(PteAddress, v4, (unsigned int)&v17, 3, (__int64)v15);
-  v12 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140439FA8, 0xFFFFFFFFFFFFFFFFuLL);
+  v12 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043B068, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v12 & 2) != 0 && (v12 & 4) == 0 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140439FA8);
-  KeAbPostRelease((ULONG_PTR)&qword_140439FA8);
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043B068);
+  KeAbPostRelease((ULONG_PTR)&qword_14043B068);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   if ( Process != v10 )
     KiUnstackDetachProcess((__int64)v16, 0LL);

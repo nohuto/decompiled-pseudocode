@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInsertDpcGang @ 0x14056061C
+ * XREFs of MiInsertDpcGang @ 0x14056085C
  * Callers:
- *     MiAllocateFastLargePagesForMdl @ 0x140533CE4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x140533F24 (MiAllocateFastLargePagesForMdl.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall MiInsertDpcGang(__int64 a1, __int64 *a2)
   __int64 result; // rax
 
   if ( !*(_QWORD *)(a1 + 168) )
-    *(_QWORD *)(a1 + 168) = *(_QWORD *)(qword_140C4E648 + 8 * (((unsigned __int64)a2[5] >> 39) & 0x3FF));
+    *(_QWORD *)(a1 + 168) = *(_QWORD *)(qword_140C4E688 + 8 * (((unsigned __int64)a2[5] >> 39) & 0x3FF));
   v4 = *(unsigned __int16 *)(a1 + 152);
   *(_WORD *)(a1 + 152) = v4 + 1;
   v5 = v4 % *(_DWORD *)(a1 + 188);

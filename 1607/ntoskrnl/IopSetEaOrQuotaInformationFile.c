@@ -1,29 +1,29 @@
 /*
- * XREFs of IopSetEaOrQuotaInformationFile @ 0x1406227EC
+ * XREFs of IopSetEaOrQuotaInformationFile @ 0x1406228A0
  * Callers:
- *     NtSetQuotaInformationFile @ 0x140625F20 (NtSetQuotaInformationFile.c)
+ *     NtSetQuotaInformationFile @ 0x140625FD4 (NtSetQuotaInformationFile.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x14002E5C0 (IopResetEvent.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopReferenceFileObject @ 0x14007B630 (IopReferenceFileObject.c)
- *     IopAcquireFastLock @ 0x14007BAB4 (IopAcquireFastLock.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     IopVerifierExAllocatePoolWithQuota_0 @ 0x14009AB34 (IopVerifierExAllocatePoolWithQuota_0.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     IopProbeAndLockPages_0 @ 0x1401C5358 (IopProbeAndLockPages_0.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopResetEvent @ 0x14002E140 (IopResetEvent.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopReferenceFileObject @ 0x14007B6B0 (IopReferenceFileObject.c)
+ *     IopAcquireFastLock @ 0x14007BB34 (IopAcquireFastLock.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x14009A334 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     IopProbeAndLockPages_1 @ 0x1401CAC84 (IopProbeAndLockPages_1.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x1404C9698 (IopSynchronousApiServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x1406213D4 (IopExceptionCleanup.c)
- *     IoCheckQuotaBufferValidity @ 0x140623490 (IoCheckQuotaBufferValidity.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x1404AF418 (IopSynchronousApiServiceTail.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140621488 (IopExceptionCleanup.c)
+ *     IoCheckQuotaBufferValidity @ 0x140623544 (IoCheckQuotaBufferValidity.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2, char *a3, ULONG a4)
@@ -45,7 +45,7 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2,
   IRP *Irp; // rsi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r13
   ULONG Flags; // eax
-  struct _FILE_QUOTA_INFORMATION *PoolWithQuota_0; // rdi
+  _FILE_QUOTA_INFORMATION *PoolWithQuota_0; // rdi
   int v24; // eax
   struct _IO_STATUS_BLOCK *v25; // rdx
   struct _MDL *Mdl; // rcx
@@ -165,7 +165,7 @@ LABEL_23:
           if ( (_DWORD)v4 )
           {
             v30 = 0;
-            PoolWithQuota_0 = (struct _FILE_QUOTA_INFORMATION *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, v4);
+            PoolWithQuota_0 = (_FILE_QUOTA_INFORMATION *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, v4);
             Irp->AssociatedIrp.MasterIrp = (struct _IRP *)PoolWithQuota_0;
             memmove(PoolWithQuota_0, a3, v4);
             LODWORD(v4) = a4;
@@ -193,7 +193,7 @@ LABEL_23:
             if ( !Mdl )
               RtlRaiseStatus(-1073741670);
             v27 = v42;
-            IopProbeAndLockPages_0(
+            IopProbeAndLockPages_1(
               Mdl,
               v42,
               IoReadAccess,

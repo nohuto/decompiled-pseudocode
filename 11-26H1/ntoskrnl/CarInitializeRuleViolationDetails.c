@@ -1,10 +1,10 @@
 /*
- * XREFs of CarInitializeRuleViolationDetails @ 0x140649C60
+ * XREFs of CarInitializeRuleViolationDetails @ 0x14064D840
  * Callers:
- *     CarCreateRuleViolationDetails @ 0x140649850 (CarCreateRuleViolationDetails.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarCreateRuleViolationDetails @ 0x14064D430 (CarCreateRuleViolationDetails.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall CarInitializeRuleViolationDetails(void *a1)

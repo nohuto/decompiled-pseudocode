@@ -8,5 +8,5 @@
 
 bool __fastcall PsIsComponentEnabled(int a1)
 {
-  return (a1 & *(_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].IdealProcessor[2]) == 0;
+  return (a1 & *(_DWORD *)(*((_QWORD *)KeGetCurrentThread() + 23) + 2872LL)) == 0;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAcquireProcessActivityReference @ 0x18015FC30
+ * XREFs of ZwAcquireProcessActivityReference @ 0x18015FB30
  * Callers:
  *     <none>
  * Callees:

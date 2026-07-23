@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1408BA5D0
+ * XREFs of EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1408BB890
  * Callers:
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1408BA7A0 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1408BBA60 (EtwpAddMicroarchitecturalPmcToRegistry.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAddMicroarchitecturalPmcToPmcGroup(__int64 a1, unsigned __int8 *a2)

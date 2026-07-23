@@ -1,13 +1,13 @@
 /*
- * XREFs of _ungetc_nolock @ 0x1800A0AD4
+ * XREFs of _ungetc_nolock @ 0x1800A0AD0
  * Callers:
- *     ReadString @ 0x18009FCB4 (ReadString.c)
- *     _input_l @ 0x1800A0000 (_input_l.c)
+ *     ReadString @ 0x18009FCA4 (ReadString.c)
+ *     _input_l @ 0x18009FFF0 (_input_l.c)
  *     ReadString_0 @ 0x1800A340C (ReadString_0.c)
  *     _input_s @ 0x1800A3754 (_input_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     _getbuf @ 0x1800A0B84 (_getbuf.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     _getbuf @ 0x1800A0B80 (_getbuf.c)
  */
 
 int __cdecl ungetc_nolock(int Character, FILE *Stream)

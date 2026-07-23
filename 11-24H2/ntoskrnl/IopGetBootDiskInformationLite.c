@@ -1,22 +1,22 @@
 /*
- * XREFs of IopGetBootDiskInformationLite @ 0x140C1DD34
+ * XREFs of IopGetBootDiskInformationLite @ 0x140C1FD74
  * Callers:
- *     IoGetBootDiskInformationLite @ 0x1407141A0 (IoGetBootDiskInformationLite.c)
+ *     IoGetBootDiskInformationLite @ 0x140711D30 (IoGetBootDiskInformationLite.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     IopAddBootDiskInformation @ 0x140596D70 (IopAddBootDiskInformation.c)
- *     IopCheckDiskName @ 0x140596E08 (IopCheckDiskName.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     VhdiGetDiskParameters @ 0x140C5D5D4 (VhdiGetDiskParameters.c)
- *     CimfsGetDiskParameters @ 0x140C5DC94 (CimfsGetDiskParameters.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     IopAddBootDiskInformation @ 0x140593D50 (IopAddBootDiskInformation.c)
+ *     IopCheckDiskName @ 0x140593DE8 (IopCheckDiskName.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     VhdiGetDiskParameters @ 0x140C5F72C (VhdiGetDiskParameters.c)
+ *     CimfsGetDiskParameters @ 0x140C5FDE4 (CimfsGetDiskParameters.c)
  */
 
 __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
 {
   int DiskParameters; // edi
-  const char *v3; // rdx
+  const CHAR *v3; // rdx
   int v4; // edx
   _QWORD *v5; // r9
   _QWORD *v6; // r8
@@ -59,7 +59,7 @@ __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
   v22 = 0;
   DiskParameters = 0;
   v19[0] = 0;
-  v3 = *(const char **)(KeLoaderBlock_0 + 184);
+  v3 = *(const CHAR **)(KeLoaderBlock_0 + 184);
   v25 = 0LL;
   RtlInitAnsiString(&DestinationString, v3);
   RtlInitAnsiString(&v31, *(PCSZ *)(KeLoaderBlock_0 + 192));

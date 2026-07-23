@@ -1,28 +1,28 @@
 /*
- * XREFs of MicrocodePrePatchCheckAndLogging @ 0x1406DD8D0
+ * XREFs of MicrocodePrePatchCheckAndLogging @ 0x1406E1B70
  * Callers:
- *     GetMicrocodePatchData @ 0x1406DD430 (GetMicrocodePatchData.c)
- *     MicrocodeUpdate @ 0x1406DD970 (MicrocodeUpdate.c)
+ *     GetMicrocodePatchData @ 0x1406E16D0 (GetMicrocodePatchData.c)
+ *     MicrocodeUpdate @ 0x1406E1C10 (MicrocodeUpdate.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MicrocodePrePatchCheckAndLogging(unsigned int a1, unsigned int a2)
 {
-  unsigned int RelativeTimerBias; // eax
+  unsigned int Teb; // eax
   __int64 result; // rax
   bool v4; // zf
 
-  RelativeTimerBias = CmpCallbackListLock.RelativeTimerBias;
-  HIDWORD(CmpCallbackListLock.RelativeTimerBias) = a1;
-  if ( !LODWORD(CmpCallbackListLock.RelativeTimerBias) )
+  Teb = (unsigned int)CmpContextListLock.Teb;
+  HIDWORD(CmpContextListLock.Teb) = a1;
+  if ( !LODWORD(CmpContextListLock.Teb) )
   {
-    RelativeTimerBias = a1;
-    LODWORD(CmpCallbackListLock.RelativeTimerBias) = a1;
+    Teb = a1;
+    LODWORD(CmpContextListLock.Teb) = a1;
   }
   if ( !a2 )
   {
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 6;
+    CmpContextListLock.Timer.Header.SignalState = 6;
     result = 3221225473LL;
     goto LABEL_16;
   }
@@ -31,29 +31,29 @@ __int64 __fastcall MicrocodePrePatchCheckAndLogging(unsigned int a1, unsigned in
     result = 3221225473LL;
     if ( a2 == a1 )
     {
-      HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 2;
+      CmpContextListLock.Timer.Header.SignalState = 2;
       goto LABEL_16;
     }
     if ( a2 <= a1 )
       goto LABEL_16;
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 4;
+    CmpContextListLock.Timer.Header.SignalState = 4;
 LABEL_15:
     result = 0LL;
-    LODWORD(CmpCallbackListLock.Queue) = 2;
+    *((_DWORD *)&CmpContextListLock.SwapListEntry + 2) = 2;
     goto LABEL_16;
   }
-  if ( CmpCallbackListLock.WaitBlockFill5[34] )
+  if ( CmpContextListLock.WaitBlockFill5[26] )
   {
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 10;
+    CmpContextListLock.Timer.Header.SignalState = 10;
     goto LABEL_15;
   }
-  v4 = RelativeTimerBias == a1;
+  v4 = Teb == a1;
   result = 3221225473LL;
   if ( v4 )
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 7;
+    CmpContextListLock.Timer.Header.SignalState = 7;
   else
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 1;
+    CmpContextListLock.Timer.Header.SignalState = 1;
 LABEL_16:
-  CmpCallbackListLock.Timer.Header.LockNV = a1;
+  LODWORD(CmpContextListLock.RelativeTimerBias) = a1;
   return result;
 }

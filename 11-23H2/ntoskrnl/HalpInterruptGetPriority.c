@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptGetPriority @ 0x14037C650
+ * XREFs of HalpInterruptGetPriority @ 0x14037C7F0
  * Callers:
- *     HalpInitializeDeferredErrorVector @ 0x14037BCE8 (HalpInitializeDeferredErrorVector.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x14037BD58 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpConnectThermalInterrupt @ 0x14037BEC0 (HalpConnectThermalInterrupt.c)
- *     HalpInitializeCmciVector @ 0x14037C014 (HalpInitializeCmciVector.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x14037C5A8 (HalpInterruptSetRemappedLineStateInternal.c)
- *     HalpInterruptSetLineState @ 0x14037C70C (HalpInterruptSetLineState.c)
+ *     HalpInitializeDeferredErrorVector @ 0x14037BE88 (HalpInitializeDeferredErrorVector.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x14037BEF8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpConnectThermalInterrupt @ 0x14037C060 (HalpConnectThermalInterrupt.c)
+ *     HalpInitializeCmciVector @ 0x14037C1B4 (HalpInitializeCmciVector.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x14037C748 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     HalpInterruptSetLineState @ 0x14037C8AC (HalpInterruptSetLineState.c)
  * Callees:
  *     <none>
  */

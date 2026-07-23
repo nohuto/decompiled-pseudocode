@@ -1,18 +1,24 @@
 /*
- * XREFs of RtlpHpVsChunkSplit @ 0x180013304
+ * XREFs of RtlpHpVsChunkSplit @ 0x18005EA34
  * Callers:
- *     RtlpHpVsSlotAllocate @ 0x180012E08 (RtlpHpVsSlotAllocate.c)
- *     RtlpHpVsContextGrowInPlace @ 0x1800B27C0 (RtlpHpVsContextGrowInPlace.c)
+ *     RtlpHpVsSlotAllocate @ 0x18005E538 (RtlpHpVsSlotAllocate.c)
+ *     RtlpHpVsContextGrowInPlace @ 0x180082330 (RtlpHpVsContextGrowInPlace.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpVsChunkFree @ 0x18006B040 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsSubsegmentFree @ 0x18008ECDC (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x1800EC488 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpVsFreeChunkRemove @ 0x1800ECD3C (RtlpHpVsFreeChunkRemove.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpVsChunkFree @ 0x18008B490 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsSubsegmentFree @ 0x1800E0704 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x1800EB658 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x1800EC12C (RtlpHpVsFreeChunkRemove.c)
  */
 
-__int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)
+__int64 __fastcall RtlpHpVsChunkSplit(
+        __int64 a1,
+        _RTL_SRWLOCK *a2,
+        __int64 a3,
+        __int64 a4,
+        unsigned int a5,
+        __int64 a6)
 {
   unsigned int v10; // edx
   unsigned int v11; // r8d
@@ -29,18 +35,17 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
   unsigned int v22; // eax
   __int64 v23; // r9
   unsigned __int64 v24; // rdx
-  __int64 v25; // rdx
-  __int64 v26; // rbx
-  __int64 v28; // [rsp+70h] [rbp+18h]
-  unsigned __int64 v29; // [rsp+70h] [rbp+18h]
-  __int64 v30; // [rsp+70h] [rbp+18h]
-  unsigned int v31; // [rsp+80h] [rbp+28h]
+  __int64 v25; // rbx
+  __int64 v27; // [rsp+70h] [rbp+18h]
+  unsigned __int64 v28; // [rsp+70h] [rbp+18h]
+  __int64 v29; // [rsp+70h] [rbp+18h]
+  unsigned int v30; // [rsp+80h] [rbp+28h]
 
-  v28 = a4 ^ RtlpHpHeapGlobals ^ *(_QWORD *)a4;
+  v27 = a4 ^ RtlpHpHeapGlobals ^ *(_QWORD *)a4;
   RtlpHpVsFreeChunkRemove();
   v10 = a5;
-  v11 = WORD1(v28) - a5;
-  if ( WORD1(v28) != a5 && (*(_BYTE *)(a1 + 4) & 1) != 0 )
+  v11 = WORD1(v27) - a5;
+  if ( WORD1(v27) != a5 && (*(_BYTE *)(a1 + 4) & 1) != 0 )
   {
     v12 = (((a4 + 16LL * a5 + 4095) & 0xFFFFFFFFFFFFF000uLL) - (a4 + 16LL * a5)) >> 4;
     v13 = 16 * v12;
@@ -73,62 +78,62 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
   v18 = (-1LL << v16) & (0xFFFFFFFFFFFFFFFFuLL >> (63
                                                  - (unsigned __int8)((unsigned __int64)(unsigned int)(a4 - a3 - 1 + v17) >> 12)));
   v19 = v18 & (*(_QWORD *)(a3 + 16) ^ v18);
-  v29 = v19;
+  v28 = v19;
   if ( v19 )
   {
     *(_DWORD *)(a4 + 8) |= 0x200u;
     if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive(*(_QWORD *)(a6 + 8), v18);
-      v19 = v29;
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a6 + 8));
+      v19 = v28;
       *(_QWORD *)(a6 + 8) = 0LL;
     }
     v20 = RtlpHpVsSubsegmentCommitPages(a1, a3, v19, __popcnt(v19), 1);
     v21 = 0;
     if ( v20 >= 0 )
       v21 = v14;
-    v31 = v21;
+    v30 = v21;
     v22 = v15 + v14;
     if ( v20 >= 0 )
       v22 = v15;
     v15 = v22;
     if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
     {
-      *(_QWORD *)(a6 + 8) = a2 + 8;
-      RtlAcquireSRWLockExclusive(a2 + 8);
+      *(_QWORD *)(a6 + 8) = a2 + 1;
+      RtlAcquireSRWLockExclusive(a2 + 1);
     }
     *(_DWORD *)(a4 + 8) &= ~0x200u;
-    v14 = v31;
+    v14 = v30;
   }
   *(_WORD *)(a4 + 2) = WORD1(a4) ^ WORD1(RtlpHpHeapGlobals) ^ v14;
   if ( v15 )
   {
     v23 = a4 + 16LL * v14;
-    v30 = 0LL;
+    v29 = 0LL;
     if ( v14 )
-      WORD2(v30) = v14;
+      WORD2(v29) = v14;
     else
-      WORD2(v30) = WORD2(RtlpHpHeapGlobals) ^ HIDWORD(*(_QWORD *)v23) ^ WORD2(v23);
-    WORD1(v30) = v15;
-    BYTE6(v30) = 1;
-    *(_QWORD *)v23 = v30 ^ RtlpHpHeapGlobals ^ v23;
+      WORD2(v29) = WORD2(RtlpHpHeapGlobals) ^ HIDWORD(*(_QWORD *)v23) ^ WORD2(v23);
+    WORD1(v29) = v15;
+    BYTE6(v29) = 1;
+    *(_QWORD *)v23 = v29 ^ RtlpHpHeapGlobals ^ v23;
     v24 = v23 + 16LL * v15;
     *(_DWORD *)(v23 + 8) = (unsigned __int8)(RtlpHpHeapGlobals ^ v23 ^ ((unsigned int)(v23 - a3) >> 12));
     if ( v24 < a3 + 16 * ((unsigned __int64)*(unsigned __int16 *)(a3 + 32) + 3) )
       *(_WORD *)(v24 + 4) = WORD2(v24) ^ WORD2(RtlpHpHeapGlobals) ^ v15;
-    v26 = RtlpHpVsChunkFree(a1, a2, a3, v23, 0, a6);
-    if ( v26 )
+    v25 = RtlpHpVsChunkFree(a1, (_DWORD)a2, a3, v23, 0, a6);
+    if ( v25 )
     {
       if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive(*(_QWORD *)(a6 + 8), v25);
+        RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a6 + 8));
         *(_QWORD *)(a6 + 8) = 0LL;
       }
-      RtlpHpVsSubsegmentFree(a1, v26);
+      RtlpHpVsSubsegmentFree(a1, v25);
       if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
       {
-        *(_QWORD *)(a6 + 8) = a2 + 8;
-        RtlAcquireSRWLockExclusive(a2 + 8);
+        *(_QWORD *)(a6 + 8) = a2 + 1;
+        RtlAcquireSRWLockExclusive(a2 + 1);
       }
     }
   }

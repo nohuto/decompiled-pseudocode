@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetIdealNodeProcessByGroup @ 0x140202E3C
+ * XREFs of KiSetIdealNodeProcessByGroup @ 0x14032B52C
  * Callers:
- *     KeSetAffinityProcess @ 0x140202B7C (KeSetAffinityProcess.c)
- *     KiExtendProcessAffinity @ 0x1405C90F8 (KiExtendProcessAffinity.c)
- *     KeInitializeProcess @ 0x140A4EB18 (KeInitializeProcess.c)
+ *     KeSetAffinityProcess @ 0x14032B26C (KeSetAffinityProcess.c)
+ *     KiExtendProcessAffinity @ 0x1405C6828 (KiExtendProcessAffinity.c)
+ *     KeInitializeProcess @ 0x140A45798 (KeInitializeProcess.c)
  * Callees:
- *     ?KiSelectIdealProcessorForProcess@@YAGPEAU_KSCHEDULER_SUBNODE@@PEAU_GROUP_AFFINITY@@@Z @ 0x140202ED4 (-KiSelectIdealProcessorForProcess@@YAGPEAU_KSCHEDULER_SUBNODE@@PEAU_GROUP_AFFINITY@@@Z.c)
- *     KeSelectNodeForAffinity @ 0x140202FA0 (KeSelectNodeForAffinity.c)
+ *     ?KiSelectIdealProcessorForProcess@@YAGPEAU_KSCHEDULER_SUBNODE@@PEAU_GROUP_AFFINITY@@@Z @ 0x14032B5C4 (-KiSelectIdealProcessorForProcess@@YAGPEAU_KSCHEDULER_SUBNODE@@PEAU_GROUP_AFFINITY@@@Z.c)
+ *     KeSelectNodeForAffinity @ 0x14032B690 (KeSelectNodeForAffinity.c)
  */
 
 unsigned __int16 __fastcall KiSetIdealNodeProcessByGroup(__int64 a1, _WORD *a2, unsigned __int16 a3)

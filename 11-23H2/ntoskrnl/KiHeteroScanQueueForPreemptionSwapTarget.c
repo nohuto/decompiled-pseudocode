@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057739C
+ * XREFs of KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057788C
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x1402C8490 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroAttemptPreemptionSwap @ 0x1404617A8 (KiHeteroAttemptPreemptionSwap.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402C8720 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroAttemptPreemptionSwap @ 0x140461BA8 (KiHeteroAttemptPreemptionSwap.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiFindBiasedSetMember @ 0x14045FE0C (KiFindBiasedSetMember.c)
- *     KiHeteroComputeThreadImportance @ 0x140461C32 (KiHeteroComputeThreadImportance.c)
- *     KiHeteroIsSwapBeneficialForPerformance @ 0x140577298 (KiHeteroIsSwapBeneficialForPerformance.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     KiFindBiasedSetMember @ 0x14046020C (KiFindBiasedSetMember.c)
+ *     KiHeteroComputeThreadImportance @ 0x140462032 (KiHeteroComputeThreadImportance.c)
+ *     KiHeteroIsSwapBeneficialForPerformance @ 0x140577788 (KiHeteroIsSwapBeneficialForPerformance.c)
  */
 
 __int64 __fastcall KiHeteroScanQueueForPreemptionSwapTarget(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

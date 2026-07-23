@@ -1,11 +1,11 @@
 /*
- * XREFs of MmManagePartitionQueryPageFileInformation @ 0x14087D498
+ * XREFs of MmManagePartitionQueryPageFileInformation @ 0x140883898
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
  * Callees:
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     MmGetPageFileInformation @ 0x140B13430 (MmGetPageFileInformation.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     MmGetPageFileInformation @ 0x140B14EF4 (MmGetPageFileInformation.c)
  */
 
 __int64 __fastcall MmManagePartitionQueryPageFileInformation(int a1, char a2, __int64 a3)

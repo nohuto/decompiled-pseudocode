@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwGetNextThread @ 0x140725410
+ * XREFs of ZwGetNextThread @ 0x140729FE0
  * Callers:
- *     DifZwGetNextThreadWrapper @ 0x1406A7C70 (DifZwGetNextThreadWrapper.c)
+ *     DifZwGetNextThreadWrapper @ 0x1406AB850 (DifZwGetNextThreadWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetNextThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetNextThread(
+        HANDLE ProcessHandle,
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewThreadHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

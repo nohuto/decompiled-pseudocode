@@ -22,40 +22,39 @@
 
 __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
 {
-  int inited; // ebx
+  NTSTATUS inited; // ebx
   __int64 v3; // rcx
   int v4; // ecx
   __int64 v5; // rsi
   __int64 v6; // rdx
-  __int64 v7; // r8
-  int v8; // eax
-  int v9; // r14d
-  __int64 v10; // rdx
-  int v11; // ecx
-  int v12; // eax
-  int v14; // [rsp+48h] [rbp-79h] BYREF
-  int v15; // [rsp+4Ch] [rbp-75h] BYREF
-  int v16; // [rsp+50h] [rbp-71h] BYREF
-  int v17; // [rsp+54h] [rbp-6Dh] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-69h] BYREF
+  int v7; // eax
+  int v8; // r14d
+  __int64 v9; // rdx
+  int v10; // ecx
+  int v11; // eax
+  int v13; // [rsp+48h] [rbp-79h] BYREF
+  int v14; // [rsp+4Ch] [rbp-75h] BYREF
+  int v15; // [rsp+50h] [rbp-71h] BYREF
+  int v16; // [rsp+54h] [rbp-6Dh] BYREF
+  UNICODE_STRING GuidString; // [rsp+58h] [rbp-69h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-59h] BYREF
-  _QWORD v20[3]; // [rsp+70h] [rbp-51h] BYREF
-  int v21; // [rsp+88h] [rbp-39h]
-  __int64 v22; // [rsp+8Ch] [rbp-35h]
-  int v23; // [rsp+94h] [rbp-2Dh]
-  _BYTE v24[16]; // [rsp+98h] [rbp-29h] BYREF
-  __int64 v25; // [rsp+A8h] [rbp-19h]
-  __int128 v26; // [rsp+E8h] [rbp+27h] BYREF
+  _QWORD v19[3]; // [rsp+70h] [rbp-51h] BYREF
+  int v20; // [rsp+88h] [rbp-39h]
+  __int64 v21; // [rsp+8Ch] [rbp-35h]
+  int v22; // [rsp+94h] [rbp-2Dh]
+  int v23[4]; // [rsp+98h] [rbp-29h] BYREF
+  __int64 v24; // [rsp+A8h] [rbp-19h]
+  GUID Guid; // [rsp+E8h] [rbp+27h] BYREF
 
-  memset_0(v24, 0, 0x48uLL);
+  memset_0(v23, 0, 0x48uLL);
   Handle = 0LL;
-  v26 = 0LL;
-  *(_QWORD *)&UnicodeString.Length = 0LL;
-  v17 = 1;
-  UnicodeString.Buffer = 0LL;
-  v14 = 0;
-  v16 = 0;
+  Guid = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  v16 = 1;
+  GuidString.Buffer = 0LL;
+  v13 = 0;
   v15 = 0;
+  v14 = 0;
   if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 7) )
   {
     inited = 0;
@@ -67,78 +66,77 @@ __int64 __fastcall PpDevCfgProcessDeviceReset(__int64 a1)
     inited = -1073741808;
     goto LABEL_24;
   }
-  inited = PiDevCfgInitDeviceContext(v3, 0LL, v24);
+  inited = PiDevCfgInitDeviceContext(v3, 0LL, v23);
   if ( inited >= 0 )
   {
-    v5 = v25;
+    v5 = v24;
     v6 = *(_QWORD *)(a1 + 48);
-    v20[0] = &DEVPKEY_Device_ClassGuid;
-    v20[2] = &v26;
-    v20[1] = 13LL;
-    v22 = 0LL;
-    v23 = 0;
-    v21 = 16;
-    inited = PiDevCfgQueryObjectProperties(v4, v6, 1, v25, (__int64)v20, 1);
+    v19[0] = &DEVPKEY_Device_ClassGuid;
+    v19[2] = &Guid;
+    v19[1] = 13LL;
+    v21 = 0LL;
+    v22 = 0;
+    v20 = 16;
+    inited = PiDevCfgQueryObjectProperties(v4, v6, 1, v24, (__int64)v19, 1);
     if ( inited >= 0 )
     {
-      if ( v22 < 0 )
+      if ( v21 < 0 )
         goto LABEL_11;
-      LOBYTE(v7) = 1;
-      inited = RtlStringFromGUIDEx(&v26, &UnicodeString, v7);
+      inited = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
       if ( inited >= 0 )
       {
-        if ( (int)PnpOpenObjectRegKey(PiPnpRtlCtx, UnicodeString.Buffer, 2, 131097, 0, (__int64)&Handle) >= 0 )
+        if ( (int)PnpOpenObjectRegKey(PiPnpRtlCtx, GuidString.Buffer, 2, 131097, 0, (__int64)&Handle) >= 0 )
         {
 LABEL_12:
-          v8 = PiDevCfgMigrateDevice(
+          v7 = PiDevCfgMigrateDevice(
                  a1,
-                 (unsigned int)v24,
-                 (unsigned __int64)&UnicodeString & -(__int64)(UnicodeString.Buffer != 0LL),
+                 (unsigned int)v23,
+                 (unsigned __int64)&GuidString & -(__int64)(GuidString.Buffer != 0LL),
                  0,
-                 (__int64)&v16,
+                 (__int64)&v15,
                  0LL);
-          v9 = v16;
-          if ( v8 < 0 )
-            v9 = 0;
+          v8 = v15;
+          if ( v7 < 0 )
+            v8 = 0;
           PiDevCfgResetDeviceDriverSettings(
             a1,
-            (__int64)v24,
-            (_QWORD *)((unsigned __int64)&v26 & -(__int64)(UnicodeString.Buffer != 0LL)),
+            (__int64)v23,
+            (_QWORD *)((unsigned __int64)&Guid & -(__int64)(GuidString.Buffer != 0LL)),
             (__int64)Handle,
             0LL);
           PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v5, L"Devices");
           PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v5, L"Filters");
-          if ( v9 )
+          if ( v8 )
           {
-            v10 = *(_QWORD *)(a1 + 48);
-            v15 = 4;
-            if ( (int)CmGetDeviceRegProp(PiPnpRtlCtx, v10, v5, 11, (__int64)&v17, (__int64)&v14, (__int64)&v15, 0) < 0
-              || v17 != 4
-              || (v12 = v14, v15 != 4) )
+            v9 = *(_QWORD *)(a1 + 48);
+            v14 = 4;
+            if ( (int)CmGetDeviceRegProp(PiPnpRtlCtx, v9, v5, 11, (__int64)&v16, (__int64)&v13, (__int64)&v14, 0) < 0
+              || v16 != 4
+              || (v11 = v13, v14 != 4) )
             {
-              v12 = 0;
+              v11 = 0;
             }
-            v14 = v9 | v12;
-            PiDevCfgSetDeviceRegProp(v11, (unsigned int)v24, 11, 4, (__int64)&v14, 4);
+            v13 = v8 | v11;
+            PiDevCfgSetDeviceRegProp(v10, (unsigned int)v23, 11, 4, (__int64)&v13, 4);
           }
           goto LABEL_20;
         }
-        RtlFreeAnsiString(&UnicodeString);
+        RtlFreeAnsiString(&GuidString);
 LABEL_11:
-        v26 = 0LL;
+        Guid = 0LL;
         goto LABEL_12;
       }
     }
   }
 LABEL_20:
-  if ( UnicodeString.Buffer )
+  if ( GuidString.Buffer )
   {
-    ExFreePool(UnicodeString.Buffer);
-    UnicodeString = 0LL;
+    ExFreePool(GuidString.Buffer);
+    GuidString = 0LL;
   }
   if ( Handle )
     ZwClose(Handle);
 LABEL_24:
-  PiDevCfgFreeDeviceContext(v24);
+  PiDevCfgFreeDeviceContext(v23);
   return (unsigned int)inited;
 }

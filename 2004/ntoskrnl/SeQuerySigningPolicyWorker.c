@@ -34,15 +34,15 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   int v23; // [rsp+30h] [rbp-40h]
   char v24[4]; // [rsp+40h] [rbp-30h] BYREF
   PVOID TokenInformation; // [rsp+44h] [rbp-2Ch] BYREF
-  __int64 v26; // [rsp+50h] [rbp-20h] BYREF
-  _QWORD v27[3]; // [rsp+58h] [rbp-18h] BYREF
+  _PS_PKG_CLAIM v26; // [rsp+50h] [rbp-20h] BYREF
+  unsigned __int64 v27[3]; // [rsp+58h] [rbp-18h] BYREF
 
   v24[0] = 0;
   v26 = 0LL;
   HIDWORD(TokenInformation) = 0;
   v27[0] = 0LL;
   v27[1] = 0LL;
-  LODWORD(v12) = AppModelPolicy_GetPolicy_Internal((__int64)Token, a2, (int *)&TokenInformation + 1, (int *)&v26, v27);
+  LODWORD(v12) = AppModelPolicy_GetPolicy_Internal(Token, a2, (int *)&TokenInformation + 1, &v26, v27);
   if ( (int)v12 >= 0 )
   {
     v13 = HIDWORD(TokenInformation);
@@ -61,38 +61,38 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
         v18 = &Feature_WldpDeveloperMode__private_reporting;
       }
       wil_details_FeatureReporting_ReportUsageToService((int)v18, v17, 0, 0, (__int64)v16, 1u, v23);
-      if ( v13 != 3014658 || (unsigned int)BYTE4(v26) - 4 <= 1 )
+      if ( v13 != 3014658 || (unsigned int)LOBYTE(v26.Origin) - 4 <= 1 )
       {
         if ( (a3 & 1) == 0 )
         {
-          if ( BYTE4(v26) <= 1u )
+          if ( LOBYTE(v26.Origin) <= 1u )
           {
             v14 = a5;
           }
           else
           {
-            if ( BYTE4(v26) == 2 )
+            if ( LOBYTE(v26.Origin) == 2 )
             {
               *a6 = 8;
               *a7 = a5;
               goto LABEL_8;
             }
-            if ( BYTE4(v26) == 3 )
+            if ( LOBYTE(v26.Origin) == 3 )
             {
               v14 = 6;
             }
             else
             {
-              if ( BYTE4(v26) <= 3u )
+              if ( LOBYTE(v26.Origin) <= 3u )
                 goto LABEL_9;
-              if ( BYTE4(v26) <= 5u )
+              if ( LOBYTE(v26.Origin) <= 5u )
               {
                 v21 = a5 != 0 ? 3 : 0;
                 *a6 = v21;
                 *a7 = v21;
                 goto LABEL_8;
               }
-              if ( BYTE4(v26) != 6 )
+              if ( LOBYTE(v26.Origin) != 6 )
                 goto LABEL_9;
               v14 = a5 != 2 ? 0 : 2;
             }

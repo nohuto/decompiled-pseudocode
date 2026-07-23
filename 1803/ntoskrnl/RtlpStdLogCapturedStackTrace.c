@@ -17,7 +17,7 @@ KSPIN_LOCK __fastcall RtlpStdLogCapturedStackTrace(PKSPIN_LOCK SpinLock, __int64
   __int64 v8; // rbx
   KSPIN_LOCK *v9; // r14
   KSPIN_LOCK i; // rdi
-  struct _SLIST_ENTRY *SpaceForTrace; // rax
+  _SLIST_ENTRY *SpaceForTrace; // rax
   __int16 v12; // cx
   __int64 v13; // rdx
   __int16 v14; // cx

@@ -55,7 +55,7 @@ char __fastcall EtwpTraceStackKey(
   unsigned int *v35; // rax
   __int64 v36; // rbx
   PSLIST_ENTRY v37; // rbp
-  union _SLIST_HEADER *v38; // r12
+  _SLIST_HEADER *v38; // r12
   PSLIST_ENTRY v39; // rax
   PSLIST_ENTRY v40; // r14
   unsigned int v41; // r15d
@@ -63,7 +63,7 @@ char __fastcall EtwpTraceStackKey(
   struct _KPRCB *v43; // r9
   _DWORD *v44; // r8
   int v45; // eax
-  struct _SLIST_ENTRY *v46; // rbx
+  _SLIST_ENTRY *v46; // rbx
   PSLIST_ENTRY *v47; // rax
   unsigned __int8 v48; // al
   struct _KPRCB *v49; // r9
@@ -75,7 +75,7 @@ char __fastcall EtwpTraceStackKey(
   unsigned int v56; // [rsp+40h] [rbp-78h]
   unsigned int **v57; // [rsp+48h] [rbp-70h]
   unsigned int ListHead; // [rsp+50h] [rbp-68h]
-  union _SLIST_HEADER *ListHeada; // [rsp+50h] [rbp-68h]
+  _SLIST_HEADER *ListHeada; // [rsp+50h] [rbp-68h]
   PSLIST_ENTRY ListEntry; // [rsp+60h] [rbp-58h] BYREF
   unsigned int **v61; // [rsp+68h] [rbp-50h]
 
@@ -116,7 +116,7 @@ char __fastcall EtwpTraceStackKey(
   {
     v19 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v19 == 2 )
@@ -176,10 +176,10 @@ LABEL_20:
                 *((_QWORD *)v29 + 1) = v22;
                 *v17 = (unsigned int *)v22;
                 KxReleaseSpinLock((volatile signed __int64 *)v17 + 2);
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v30 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v53 <= 0xFu && v30 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v53 <= 0xFu && v30 >= 2u )
                   {
                     CurrentPrcb = KeGetCurrentPrcb();
                     v32 = CurrentPrcb->SchedulerAssist;
@@ -219,8 +219,8 @@ LABEL_72:
   if ( v8 )
   {
     v37 = 0LL;
-    v38 = (union _SLIST_HEADER *)(v6 + 2);
-    ListHeada = (union _SLIST_HEADER *)(v6 + 2);
+    v38 = (_SLIST_HEADER *)(v6 + 2);
+    ListHeada = (_SLIST_HEADER *)(v6 + 2);
     do
     {
       v39 = RtlpInterlockedPopEntrySList(v38);
@@ -249,10 +249,10 @@ LABEL_72:
     if ( (unsigned int)v36 < v8 )
     {
       KxReleaseSpinLock((volatile signed __int64 *)v61 + 2);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v42 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v53 <= 0xFu && v42 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v53 <= 0xFu && v42 >= 2u )
         {
           v43 = KeGetCurrentPrcb();
           v44 = v43->SchedulerAssist;
@@ -290,10 +290,10 @@ LABEL_72:
   *v47 = v22;
   v17[1] = (unsigned int *)v22;
   KxReleaseSpinLock((volatile signed __int64 *)v17 + 2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v48 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v53 <= 0xFu && v48 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v53 <= 0xFu && v48 >= 2u )
     {
       v49 = KeGetCurrentPrcb();
       v50 = v49->SchedulerAssist;

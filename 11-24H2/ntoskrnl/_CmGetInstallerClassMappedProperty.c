@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetInstallerClassMappedProperty @ 0x1409B6854
+ * XREFs of _CmGetInstallerClassMappedProperty @ 0x1409ADBE4
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x1409B6670 (_PnpDispatchInstallerClass.c)
+ *     _PnpDispatchInstallerClass @ 0x1409ADA00 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1409B6A7C (_CmGetInstallerClassMappedPropertyFromComposite.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1409B6F24 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1409B7148 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1409B75AC (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1409ADE0C (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1409AE2B4 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1409AE4D8 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1409AE93C (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedProperty(
@@ -66,7 +66,7 @@ __int64 __fastcall CmGetInstallerClassMappedProperty(
     }
     for ( i = 0; i < 0xD; ++i )
     {
-      v17 = (__int64)*(&off_140B3D540 + 4 * i);
+      v17 = (__int64)*(&off_140B3F2F0 + 4 * i);
       if ( *(_DWORD *)(a5 + 16) == *(_DWORD *)(v17 + 16) )
       {
         v18 = *(_QWORD *)a5 - *(_QWORD *)v17;
@@ -109,7 +109,7 @@ __int64 __fastcall CmGetInstallerClassMappedProperty(
 LABEL_21:
       for ( j = 0; j < 4; ++j )
       {
-        v20 = (__int64)*(&off_140B3BBF0 + 2 * j);
+        v20 = (__int64)*(&off_140B3D9D0 + 2 * j);
         if ( *(_DWORD *)(a5 + 16) == *(_DWORD *)(v20 + 16) )
         {
           v21 = *(_QWORD *)a5 - *(_QWORD *)v20;

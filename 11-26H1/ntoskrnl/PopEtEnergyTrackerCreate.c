@@ -1,19 +1,19 @@
 /*
- * XREFs of PopEtEnergyTrackerCreate @ 0x1407DBF90
+ * XREFs of PopEtEnergyTrackerCreate @ 0x1407E01B0
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopEtDeferredInitDxgContext @ 0x1407DBBE0 (PopEtDeferredInitDxgContext.c)
- *     PopEtEnergyTrackerFindDxgAdapters @ 0x1407DC288 (PopEtEnergyTrackerFindDxgAdapters.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     PsEnumProcesses @ 0x14096E8BC (PsEnumProcesses.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopEtDeferredInitDxgContext @ 0x1407DFE00 (PopEtDeferredInitDxgContext.c)
+ *     PopEtEnergyTrackerFindDxgAdapters @ 0x1407E04A8 (PopEtEnergyTrackerFindDxgAdapters.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     PsEnumProcesses @ 0x1409BBF0C (PsEnumProcesses.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerCreate(unsigned int *a1, HANDLE *a2)

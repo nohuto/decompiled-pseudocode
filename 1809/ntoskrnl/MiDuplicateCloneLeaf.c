@@ -1,27 +1,27 @@
 /*
- * XREFs of MiDuplicateCloneLeaf @ 0x1402C99D8
+ * XREFs of MiDuplicateCloneLeaf @ 0x1402C9BC8
  * Callers:
- *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1402C7DE0 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA308 (MiHandleForkTransitionPte.c)
  * Callees:
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiVaToPfn @ 0x140098F50 (MiVaToPfn.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiUpdateTransitionPteFrame @ 0x140118A14 (MiUpdateTransitionPteFrame.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDuplicateCloneLeaf(
@@ -76,12 +76,12 @@ __int64 __fastcall MiDuplicateCloneLeaf(
   else
   {
     v15 = v8;
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v8 & 0x10) != 0 )
         v15 = v8 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v15 = v8 & ~qword_14043A0C0;
+        v15 = v8 & ~qword_14043B180;
     }
     v12 = (v15 >> 12) & 0xFFFFFFFFFLL;
     v13 = 48 * v12 - 0x58000000000LL;
@@ -136,7 +136,7 @@ __int64 __fastcall MiDuplicateCloneLeaf(
     if ( (unsigned int)MiPteHasShadow() )
     {
       v25 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
         v28 = (v27 & 1) == 0;
         goto LABEL_30;

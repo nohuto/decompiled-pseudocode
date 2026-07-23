@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpParseIndirectInfString @ 0x140919280
+ * XREFs of _PnpParseIndirectInfString @ 0x140973CE0
  * Callers:
- *     _PnpRegQueryValueIndirect @ 0x140917FF0 (_PnpRegQueryValueIndirect.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x140918C2C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x140994750 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409551B0 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _PnpRegQueryValueIndirect @ 0x140972A50 (_PnpRegQueryValueIndirect.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14097368C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  * Callees:
  *     <none>
  */

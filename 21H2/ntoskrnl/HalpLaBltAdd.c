@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpLaBltAdd @ 0x1404DAFF8
+ * XREFs of HalpLaBltAdd @ 0x1404DB238
  * Callers:
- *     HalpLaAllocateBlt @ 0x1404DAE04 (HalpLaAllocateBlt.c)
- *     HalpLaDeleteBlt @ 0x1404DB0C4 (HalpLaDeleteBlt.c)
- *     HalpLaReserveRange @ 0x1404DB3D4 (HalpLaReserveRange.c)
- *     HalpLapDeleteSubtree @ 0x1404DB5F0 (HalpLapDeleteSubtree.c)
+ *     HalpLaAllocateBlt @ 0x1404DB044 (HalpLaAllocateBlt.c)
+ *     HalpLaDeleteBlt @ 0x1404DB304 (HalpLaDeleteBlt.c)
+ *     HalpLaReserveRange @ 0x1404DB614 (HalpLaReserveRange.c)
+ *     HalpLapDeleteSubtree @ 0x1404DB830 (HalpLapDeleteSubtree.c)
  * Callees:
  *     <none>
  */

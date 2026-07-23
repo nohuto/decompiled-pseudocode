@@ -1,54 +1,54 @@
 /*
- * XREFs of MiSetImportTableProtection @ 0x140AAB19C
+ * XREFs of MiSetImportTableProtection @ 0x140AA63CC
  * Callers:
- *     MiResolveImageImports @ 0x1407E7750 (MiResolveImageImports.c)
+ *     MiResolveImageImports @ 0x1407E7D20 (MiResolveImageImports.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     MiSetImageProtection @ 0x140435EEC (MiSetImageProtection.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x140AAB2DC (MiLogStrongCodeDriverLoadFailure.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     MiSetImageProtection @ 0x14042896C (MiSetImageProtection.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x140AA650C (MiLogStrongCodeDriverLoadFailure.c)
  */
 
 __int64 __fastcall MiSetImportTableProtection(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v2; // r14
-  unsigned __int64 v5; // rax
+  char *v2; // r14
+  PVOID v5; // rax
   int v6; // edi
   unsigned int *v8; // rsi
   __int64 v9; // rax
-  _QWORD *v10; // rax
+  char *v10; // rax
   unsigned __int64 v11; // rdx
   int i; // edi
-  int v13; // [rsp+40h] [rbp+8h] BYREF
-  int v14; // [rsp+48h] [rbp+10h] BYREF
+  ULONG Size; // [rsp+40h] [rbp+8h] BYREF
+  ULONG v14; // [rsp+48h] [rbp+10h] BYREF
 
-  v13 = 0;
+  Size = 0;
   v14 = 0;
-  v2 = *(_QWORD *)(a1 + 48);
+  v2 = *(char **)(a1 + 48);
   *(_OWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;
-  v5 = RtlImageDirectoryEntryToData(v2, 1, 0xCu, &v13);
+  v5 = RtlImageDirectoryEntryToData(v2, 1u, 0xCu, &Size);
   *(_QWORD *)a2 = v5;
-  if ( !v5 || (v6 = v13) == 0 )
+  if ( !v5 || (v6 = Size) == 0 )
   {
     *(_QWORD *)a2 = 0LL;
     v6 = 0;
-    v8 = (unsigned int *)RtlImageDirectoryEntryToData(v2, 1, 1u, &v14);
+    v8 = (unsigned int *)RtlImageDirectoryEntryToData(v2, 1u, 1u, &v14);
     *(_QWORD *)(a2 + 8) = v8;
     while ( v8 )
     {
       v9 = *v8;
       if ( !(_DWORD)v9 )
         break;
-      v10 = (_QWORD *)(v2 + v9);
-      v11 = v2 + v8[4];
-      for ( i = 0; *v10; ++i )
-        ++v10;
+      v10 = &v2[v9];
+      v11 = (unsigned __int64)&v2[v8[4]];
+      for ( i = 0; *(_QWORD *)v10; ++i )
+        v10 += 8;
       v6 = 8 * i;
-      v13 = v6;
+      Size = v6;
       if ( !(unsigned int)MiSetImageProtection(a1, v11, v6) )
       {
         MiLogStrongCodeDriverLoadFailure("UnwritableImportDirectory");
-        dword_140E2D6F8 = 193;
+        dword_140E2D838 = 193;
         return 3221225595LL;
       }
       ++*(_DWORD *)(a2 + 16);
@@ -56,7 +56,7 @@ __int64 __fastcall MiSetImportTableProtection(__int64 a1, __int64 a2)
     }
     goto LABEL_7;
   }
-  if ( (unsigned int)MiSetImageProtection(a1, v5, v13) )
+  if ( (unsigned int)MiSetImageProtection(a1, (unsigned __int64)v5, Size) )
   {
     *(_DWORD *)(a2 + 16) = 1;
 LABEL_7:
@@ -64,6 +64,6 @@ LABEL_7:
     return 0LL;
   }
   MiLogStrongCodeDriverLoadFailure("UnwritableIAT");
-  dword_140E2D6F8 = 192;
+  dword_140E2D838 = 192;
   return 3221225595LL;
 }

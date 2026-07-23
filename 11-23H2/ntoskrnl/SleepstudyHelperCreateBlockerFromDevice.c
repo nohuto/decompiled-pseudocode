@@ -1,13 +1,13 @@
 /*
- * XREFs of SleepstudyHelperCreateBlockerFromDevice @ 0x140843DB0
+ * XREFs of SleepstudyHelperCreateBlockerFromDevice @ 0x1408440B0
  * Callers:
- *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140843D00 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
- *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1409A22B0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1409A2370 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140844000 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1409A24B0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1409A2570 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
  * Callees:
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8290 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140843E94 (SshpGenerateDeviceFriendlyName.c)
- *     SshpGenerateDeviceVerboseDescription @ 0x14084408C (SshpGenerateDeviceVerboseDescription.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8480 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140844194 (SshpGenerateDeviceFriendlyName.c)
+ *     SshpGenerateDeviceVerboseDescription @ 0x14084438C (SshpGenerateDeviceVerboseDescription.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

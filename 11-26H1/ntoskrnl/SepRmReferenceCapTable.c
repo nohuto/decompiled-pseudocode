@@ -1,20 +1,20 @@
 /*
- * XREFs of SepRmReferenceCapTable @ 0x1403BE498
+ * XREFs of SepRmReferenceCapTable @ 0x1403C8398
  * Callers:
- *     SepRmReferenceFindCap @ 0x1403BE3D8 (SepRmReferenceFindCap.c)
+ *     SepRmReferenceFindCap @ 0x1403C82D8 (SepRmReferenceFindCap.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
-void *__fastcall SepRmReferenceCapTable(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+unsigned __int64 __fastcall SepRmReferenceCapTable(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   LegacyAutoBoost *v5; // rbx
-  void *StackBase; // rbx
+  unsigned __int64 ThreadLock; // rbx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -28,9 +28,9 @@ void *__fastcall SepRmReferenceCapTable(__int64 a1, __int64 a2, __int64 a3, stru
     else
       *((_BYTE *)v5 + 10) = 1;
   }
-  StackBase = ExpPlatformBinaryLock.StackBase;
-  if ( ExpPlatformBinaryLock.StackBase
-    && _InterlockedIncrement64((volatile signed __int64 *)ExpPlatformBinaryLock.StackBase + 5) <= 1 )
+  ThreadLock = ExpPlatformBinaryLock.ThreadLock;
+  if ( ExpPlatformBinaryLock.ThreadLock
+    && _InterlockedIncrement64((volatile signed __int64 *)(ExpPlatformBinaryLock.ThreadLock + 40)) <= 1 )
   {
     __fastfail(0xEu);
   }
@@ -38,5 +38,5 @@ void *__fastcall SepRmReferenceCapTable(__int64 a1, __int64 a2, __int64 a3, stru
     ExfReleasePushLockShared((signed __int64 *)&SepRmCapTableLock.Header.Lock);
   KeAbPostRelease((unsigned __int64)&SepRmCapTableLock);
   KeLeaveCriticalRegion();
-  return StackBase;
+  return ThreadLock;
 }

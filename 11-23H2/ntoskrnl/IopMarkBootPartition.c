@@ -3,19 +3,19 @@
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IopCreateUnicodeFromAnsiBuffer @ 0x1403749F4 (IopCreateUnicodeFromAnsiBuffer.c)
- *     RtlStringCchPrintfA @ 0x140374A2C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x140810608 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IopCreateUnicodeFromAnsiBuffer @ 0x140374B94 (IopCreateUnicodeFromAnsiBuffer.c)
+ *     RtlStringCchPrintfA @ 0x140374BCC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x1408108D8 (PnpHardwareConfigCreateBootDriverFlags.c)
  *     IopStoreBootDriveLetter @ 0x140B39740 (IopStoreBootDriveLetter.c)
  *     IopStoreSystemPartitionInformation @ 0x140B3BE74 (IopStoreSystemPartitionInformation.c)
  */
@@ -95,7 +95,7 @@ __int64 __fastcall IopMarkBootPartition(__int64 a1, __int64 a2, UNICODE_STRING *
           v6 = IopStoreBootDriveLetter(*(_QWORD *)(a1 + 200));
           if ( v6 >= 0 )
           {
-            v6 = IopCreateUnicodeFromAnsiBuffer(&UnicodeString, *(const char **)(a1 + 208));
+            v6 = IopCreateUnicodeFromAnsiBuffer(&UnicodeString, *(const CHAR **)(a1 + 208));
             if ( v6 >= 0 )
             {
               IopStoreSystemPartitionInformation(v11, &UnicodeString);

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushDataSection @ 0x1404BD87C
+ * XREFs of MiFlushDataSection @ 0x1404B705C
  * Callers:
- *     MiCreateImageMapHeader @ 0x140A55DDC (MiCreateImageMapHeader.c)
+ *     MiCreateImageMapHeader @ 0x140A63364 (MiCreateImageMapHeader.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     CcFlushCachePriv @ 0x140398300 (CcFlushCachePriv.c)
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     MiLockSectionControlArea @ 0x14044FAD0 (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     CcFlushCachePriv @ 0x14039A060 (CcFlushCachePriv.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     MiLockSectionControlArea @ 0x140447C00 (MiLockSectionControlArea.c)
  */
 
 __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
@@ -38,7 +38,7 @@ __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
     v8 = *(const void **)(a1 + 40);
     if ( v6 )
     {
-      CcFlushCachePriv(v8, (__int64)&EmpParseLock.AbCompletedIoQoSBoostCount, 0, 0LL, 0, &v9, 0LL);
+      CcFlushCachePriv(v8, (__int64)&EmpParseLock.880, 0, 0LL, 0, &v9, 0LL);
       return (unsigned int)v9;
     }
     else

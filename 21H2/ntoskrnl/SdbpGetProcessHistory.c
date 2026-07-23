@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetProcessHistory @ 0x1409662BC
+ * XREFs of SdbpGetProcessHistory @ 0x14096649C
  * Callers:
- *     SdbpInitializeSearchDBContext @ 0x140753808 (SdbpInitializeSearchDBContext.c)
+ *     SdbpInitializeSearchDBContext @ 0x1407539C8 (SdbpInitializeSearchDBContext.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlGetNtSystemRoot @ 0x1406BC270 (RtlGetNtSystemRoot.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlGetNtSystemRoot @ 0x14061B3E0 (RtlGetNtSystemRoot.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
  */
 
 _WORD *__fastcall SdbpGetProcessHistory(unsigned __int16 *a1, _WORD *a2, _WORD *a3)
@@ -18,39 +18,36 @@ _WORD *__fastcall SdbpGetProcessHistory(unsigned __int16 *a1, _WORD *a2, _WORD *
   __int64 v5; // r12
   __int64 v6; // r13
   unsigned __int16 *v7; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 NtSystemRoot; // rax
-  __int64 v11; // rbx
-  unsigned __int16 *v12; // rbp
-  unsigned __int16 *v13; // r10
-  unsigned __int16 v14; // r11
-  unsigned __int16 v15; // ax
-  __int16 v16; // r9
-  int v17; // r8d
-  unsigned __int16 *v18; // rdx
-  int v19; // ebp
-  __int64 v20; // rbx
-  SIZE_T v21; // rbx
-  _WORD *v22; // r14
-  _WORD *v23; // r15
+  __int64 v8; // rcx
+  PWSTR NtSystemRoot; // rax
+  __int64 v10; // rbx
+  unsigned __int16 *v11; // rbp
+  unsigned __int16 *v12; // r10
+  unsigned __int16 v13; // r11
+  unsigned __int16 v14; // ax
+  __int16 v15; // r9
+  int v16; // r8d
+  unsigned __int16 *v17; // rdx
+  int v18; // ebp
+  __int64 v19; // rbx
+  SIZE_T v20; // rbx
+  _WORD *v21; // r14
+  _WORD *v22; // r15
   _WORD *result; // rax
-  SIZE_T v25; // rbx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // rax
-  _BYTE *v29; // rdx
-  _WORD *v30; // rax
-  _WORD *v31; // r14
-  unsigned __int16 *v32; // r11
-  const wchar_t *v33; // r10
-  unsigned __int16 *v34; // r10
-  unsigned __int16 v35; // ax
-  __int16 v36; // r9
-  int v37; // r8d
-  unsigned __int16 *v38; // rdx
-  __int64 v39; // rcx
-  _WORD *v40; // r14
+  SIZE_T v24; // rbx
+  PWSTR v25; // rax
+  PWSTR v26; // rdx
+  _WORD *v27; // rax
+  _WORD *v28; // r14
+  unsigned __int16 *v29; // r11
+  const wchar_t *v30; // r10
+  unsigned __int16 *v31; // r10
+  unsigned __int16 v32; // ax
+  __int16 v33; // r9
+  int v34; // r8d
+  unsigned __int16 *v35; // rdx
+  __int64 v36; // rcx
+  _WORD *v37; // r14
 
   v3 = -1LL;
   v4 = a1;
@@ -69,49 +66,49 @@ _WORD *__fastcall SdbpGetProcessHistory(unsigned __int16 *a1, _WORD *a2, _WORD *
     {
       do
       {
-        v12 = v7;
-        v13 = L"__PROCESS_HISTORY";
+        v11 = v7;
+        v12 = L"__PROCESS_HISTORY";
         do
         {
           if ( !*v7 )
             break;
-          NLS_UPCASE(*v13);
-          v15 = NLS_UPCASE(v14);
-          if ( v15 != v16 )
+          NLS_UPCASE(*v12);
+          v14 = NLS_UPCASE(v13);
+          if ( v14 != v15 )
             break;
           ++v7;
-          ++v13;
+          ++v12;
         }
-        while ( v13 < L"" );
-        if ( v13 == L"" && *v7 == 61 )
+        while ( v12 < L"" );
+        if ( v12 == L"" && *v7 == 61 )
         {
-          v17 = 1;
+          v16 = 1;
 LABEL_18:
-          v18 = v7;
+          v17 = v7;
           if ( *v7 )
           {
-            v9 = 0LL;
+            v8 = 0LL;
             do
             {
-              if ( (__int64)(v9 & 0xFFFFFFFFFFFFFFFEuLL) >= 65534 )
+              if ( (__int64)(v8 & 0xFFFFFFFFFFFFFFFEuLL) >= 65534 )
                 break;
               ++v7;
-              v9 += 2LL;
+              v8 += 2LL;
             }
             while ( *v7 );
           }
-          if ( v17 )
+          if ( v16 )
           {
-            v11 = v7 - (v18 + 1);
+            v10 = v7 - (v17 + 1);
             goto LABEL_34;
           }
         }
         else
         {
-          v17 = 0;
+          v16 = 0;
           while ( *v7 )
           {
-            if ( *v7 == 61 && v7 != v12 )
+            if ( *v7 == 61 && v7 != v11 )
               goto LABEL_18;
             ++v7;
           }
@@ -120,119 +117,119 @@ LABEL_18:
       }
       while ( *v7 );
     }
-    v19 = -1073741568;
-    v20 = (unsigned int)(v6 + v5 + 1);
+    v18 = -1073741568;
+    v19 = (unsigned int)(v6 + v5 + 1);
   }
   else
   {
-    NtSystemRoot = RtlGetNtSystemRoot(v9, v8);
-    v11 = -1LL;
+    NtSystemRoot = RtlGetNtSystemRoot();
+    v10 = -1LL;
     do
-      ++v11;
-    while ( *(_WORD *)(NtSystemRoot + 2 * v11) );
+      ++v10;
+    while ( NtSystemRoot[v10] );
 LABEL_34:
-    v9 = (unsigned int)(v6 + v5 + 2);
-    v19 = -1073741789;
-    v20 = v9 + v11 + 1;
+    v8 = (unsigned int)(v6 + v5 + 2);
+    v18 = -1073741789;
+    v19 = v8 + v10 + 1;
   }
-  v21 = 2 * v20;
-  v22 = AslAlloc(v9, v21);
-  v23 = v22;
-  if ( !v22 )
+  v20 = 2 * v19;
+  v21 = AslAlloc(v8, v20);
+  v22 = v21;
+  if ( !v21 )
   {
     AslLogCallPrintf(1LL);
     return 0LL;
   }
-  *v22 = 0;
-  if ( v19 != -1073741789 )
+  *v21 = 0;
+  if ( v18 != -1073741789 )
     goto LABEL_69;
-  v25 = v21 >> 1;
+  v24 = v20 >> 1;
   if ( !wcsnicmp(L"__PROCESS_HISTORY", L"systemroot", 0xAuLL) )
   {
-    v28 = RtlGetNtSystemRoot(v27, v26);
+    v25 = RtlGetNtSystemRoot();
     do
       ++v3;
-    while ( *(_WORD *)(v28 + 2 * v3) );
-    if ( v3 >= v25 )
+    while ( v25[v3] );
+    if ( v3 >= v24 )
       goto LABEL_67;
-    v29 = (_BYTE *)v28;
+    v26 = v25;
     goto LABEL_41;
   }
   if ( !v4 || !*v4 )
     goto LABEL_69;
   while ( 1 )
   {
-    v32 = v4;
-    v33 = L"__PROCESS_HISTORY";
+    v29 = v4;
+    v30 = L"__PROCESS_HISTORY";
     do
     {
       if ( !*v4 )
         break;
       NLS_UPCASE(*v4);
-      v35 = NLS_UPCASE(*v34);
-      if ( v36 != v35 )
+      v32 = NLS_UPCASE(*v31);
+      if ( v33 != v32 )
         break;
       ++v4;
-      ++v33;
+      ++v30;
     }
-    while ( v33 < L"" );
-    if ( v33 != L"" || *v4 != 61 )
+    while ( v30 < L"" );
+    if ( v30 != L"" || *v4 != 61 )
     {
-      v37 = 0;
+      v34 = 0;
       while ( *v4 )
       {
-        if ( *v4 == 61 && v4 != v32 )
+        if ( *v4 == 61 && v4 != v29 )
           goto LABEL_53;
         ++v4;
       }
       goto LABEL_58;
     }
-    v37 = 1;
+    v34 = 1;
 LABEL_53:
-    v38 = v4;
+    v35 = v4;
     if ( *v4 )
     {
-      v39 = 0LL;
+      v36 = 0LL;
       do
       {
-        if ( (__int64)(v39 & 0xFFFFFFFFFFFFFFFEuLL) >= 65534 )
+        if ( (__int64)(v36 & 0xFFFFFFFFFFFFFFFEuLL) >= 65534 )
           break;
         ++v4;
-        v39 += 2LL;
+        v36 += 2LL;
       }
       while ( *v4 );
     }
-    if ( v37 )
+    if ( v34 )
       break;
 LABEL_58:
     if ( !*++v4 )
       goto LABEL_69;
   }
-  v29 = v38 + 1;
-  v3 = ((char *)v4 - v29) >> 1;
-  if ( v3 < v25 )
+  v26 = v35 + 1;
+  v3 = v4 - v26;
+  if ( v3 < v24 )
   {
 LABEL_41:
-    memmove(v22, v29, 2 * v3);
-    v30 = &v22[v3];
-    *v30 = 0;
-    v31 = v30 - 1;
-    if ( *(v30 - 1) != 59 )
+    memmove(v21, v26, 2 * v3);
+    v27 = &v21[v3];
+    *v27 = 0;
+    v28 = v27 - 1;
+    if ( *(v27 - 1) != 59 )
     {
-      v31 = &v23[v3];
-      *v30 = 59;
+      v28 = &v22[v3];
+      *v27 = 59;
     }
-    v22 = v31 + 1;
+    v21 = v28 + 1;
     goto LABEL_69;
   }
 LABEL_67:
-  if ( v25 )
-    *v22 = 0;
+  if ( v24 )
+    *v21 = 0;
 LABEL_69:
-  memmove(v22, a2, 2LL * (unsigned int)v5);
-  v40 = &v22[(unsigned int)v5];
-  memmove(v40, a3, 2LL * (unsigned int)v6);
-  result = v23;
-  v40[(unsigned int)v6] = 0;
+  memmove(v21, a2, 2LL * (unsigned int)v5);
+  v37 = &v21[(unsigned int)v5];
+  memmove(v37, a3, 2LL * (unsigned int)v6);
+  result = v22;
+  v37[(unsigned int)v6] = 0;
   return result;
 }

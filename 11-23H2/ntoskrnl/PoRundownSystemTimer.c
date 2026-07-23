@@ -1,11 +1,11 @@
 /*
- * XREFs of PoRundownSystemTimer @ 0x14098BEA0
+ * XREFs of PoRundownSystemTimer @ 0x14098C0A0
  * Callers:
- *     ExTraceTimerResolution @ 0x1409F7BA8 (ExTraceTimerResolution.c)
+ *     ExTraceTimerResolution @ 0x1409F7E38 (ExTraceTimerResolution.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 BOOLEAN PoRundownSystemTimer()
@@ -14,7 +14,7 @@ BOOLEAN PoRundownSystemTimer()
   REGHANDLE v1; // rbx
   int v2; // [rsp+30h] [rbp-59h] BYREF
   int v3; // [rsp+38h] [rbp-51h] BYREF
-  int v4; // [rsp+40h] [rbp-49h] BYREF
+  ULONG v4; // [rsp+40h] [rbp-49h] BYREF
   int v5; // [rsp+48h] [rbp-41h] BYREF
   int v6; // [rsp+50h] [rbp-39h] BYREF
   int v7; // [rsp+58h] [rbp-31h] BYREF
@@ -22,7 +22,7 @@ BOOLEAN PoRundownSystemTimer()
   int *v9; // [rsp+70h] [rbp-19h]
   int v10; // [rsp+78h] [rbp-11h]
   int v11; // [rsp+7Ch] [rbp-Dh]
-  int *v12; // [rsp+80h] [rbp-9h]
+  ULONG *v12; // [rsp+80h] [rbp-9h]
   int v13; // [rsp+88h] [rbp-1h]
   int v14; // [rsp+8Ch] [rbp+3h]
   int *v15; // [rsp+90h] [rbp+7h]

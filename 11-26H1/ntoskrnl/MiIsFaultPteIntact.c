@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsFaultPteIntact @ 0x14031C508
+ * XREFs of MiIsFaultPteIntact @ 0x14031E538
  * Callers:
- *     MiWaitForCollidedFaultComplete @ 0x14038B588 (MiWaitForCollidedFaultComplete.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiSoftFaultClusterTradeAcquireLocks @ 0x140712350 (MiSoftFaultClusterTradeAcquireLocks.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14038D338 (MiWaitForCollidedFaultComplete.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiSoftFaultClusterTradeAcquireLocks @ 0x140717048 (MiSoftFaultClusterTradeAcquireLocks.c)
  * Callees:
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiFindActualFaultingPte @ 0x14031C6A4 (MiFindActualFaultingPte.c)
- *     MiCheckVirtualAddress @ 0x1403A55E0 (MiCheckVirtualAddress.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiFindActualFaultingPte @ 0x14031E6D4 (MiFindActualFaultingPte.c)
+ *     MiCheckVirtualAddress @ 0x1403A7340 (MiCheckVirtualAddress.c)
  */
 
 __int64 __fastcall MiIsFaultPteIntact(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4)

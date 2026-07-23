@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmpPublishDeviceEvent @ 0x140677444
+ * XREFs of TtmpPublishDeviceEvent @ 0x140677528
  * Callers:
- *     TtmiAssignDevice @ 0x140676F34 (TtmiAssignDevice.c)
- *     TtmiPublishDeviceEnumerationEvents @ 0x14067703C (TtmiPublishDeviceEnumerationEvents.c)
- *     TtmiSessionDeviceListWorker @ 0x1406770C8 (TtmiSessionDeviceListWorker.c)
+ *     TtmiAssignDevice @ 0x140677018 (TtmiAssignDevice.c)
+ *     TtmiPublishDeviceEnumerationEvents @ 0x140677120 (TtmiPublishDeviceEnumerationEvents.c)
+ *     TtmiSessionDeviceListWorker @ 0x1406771AC (TtmiSessionDeviceListWorker.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140084F38 (RtlStringCchCopyW.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     TtmiWriteEventToAllQueues @ 0x140678DF0 (TtmiWriteEventToAllQueues.c)
- *     TtmiWriteEventToSingleQueue @ 0x14067A12C (TtmiWriteEventToSingleQueue.c)
+ *     RtlStringCchCopyW @ 0x14010B1EC (RtlStringCchCopyW.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     TtmiWriteEventToAllQueues @ 0x140678ED4 (TtmiWriteEventToAllQueues.c)
+ *     TtmiWriteEventToSingleQueue @ 0x14067A210 (TtmiWriteEventToSingleQueue.c)
  */
 
 __int64 __fastcall TtmpPublishDeviceEvent(__int64 a1, __int64 a2, __int64 a3, int a4)

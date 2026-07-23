@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptRemapUpdateDeliveryMode @ 0x1404A8874
+ * XREFs of HalpInterruptRemapUpdateDeliveryMode @ 0x1404A2DE4
  * Callers:
- *     HalpInterruptRemap @ 0x140540EC4 (HalpInterruptRemap.c)
+ *     HalpInterruptRemap @ 0x14053E7C4 (HalpInterruptRemap.c)
  * Callees:
  *     <none>
  */

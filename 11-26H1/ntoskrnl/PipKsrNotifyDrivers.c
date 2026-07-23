@@ -1,16 +1,16 @@
 /*
- * XREFs of PipKsrNotifyDrivers @ 0x1407B2EFC
+ * XREFs of PipKsrNotifyDrivers @ 0x1407B5F5C
  * Callers:
- *     PipKsrCallback @ 0x1407B2D10 (PipKsrCallback.c)
+ *     PipKsrCallback @ 0x1407B5D70 (PipKsrCallback.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PnpDereferenceNotify @ 0x1409DD548 (PnpDereferenceNotify.c)
- *     PnpNotifyDriverCallback @ 0x1409DD5EC (PnpNotifyDriverCallback.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PnpDereferenceNotify @ 0x140A1A800 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x140A1A8A4 (PnpNotifyDriverCallback.c)
  */
 
 __int64 __fastcall PipKsrNotifyDrivers(_QWORD *a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfRegisterPermanentName @ 0x1406C1E54
+ * XREFs of ExpWnfRegisterPermanentName @ 0x140620B14
  * Callers:
- *     NtCreateWnfStateName @ 0x14060D6D0 (NtCreateWnfStateName.c)
+ *     NtCreateWnfStateName @ 0x14069D180 (NtCreateWnfStateName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x14062C388 (ExpWnfGetNameStoreRegistryRoot.c)
- *     ExpWnfComposeValueName @ 0x14062C4F0 (ExpWnfComposeValueName.c)
- *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlLengthSecurityDescriptor @ 0x140654EF0 (RtlLengthSecurityDescriptor.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x140663518 (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfComposeValueName @ 0x140663680 (ExpWnfComposeValueName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
   *(_QWORD *)&ValueName.Length = 2228224LL;
   ValueName.Buffer = (wchar_t *)&v15;
   ExpWnfComposeValueName(a1, &ValueName);
-  NameStoreRegistryRoot = ExpWnfGetNameStoreRegistryRoot((a1 >> 4) & 3, (volatile signed __int64 *)&KeyHandle);
+  NameStoreRegistryRoot = ExpWnfGetNameStoreRegistryRoot((a1 >> 4) & 3, &KeyHandle);
   if ( NameStoreRegistryRoot >= 0 )
   {
     v5 = RtlLengthSecurityDescriptor(*(PSECURITY_DESCRIPTOR *)(a2 + 16));

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCreateUserProcessEcp @ 0x14099DC68
+ * XREFs of PspCreateUserProcessEcp @ 0x1408ABC48
  * Callers:
- *     NtCreateUserProcess @ 0x140ACBA80 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140AC9930 (NtCreateUserProcess.c)
  * Callees:
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
- *     FsRtlFreeExtraCreateParameterList @ 0x1408A26C0 (FsRtlFreeExtraCreateParameterList.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1408A2A00 (FsRtlFreeExtraCreateParameter.c)
- *     FsRtlInsertExtraCreateParameter @ 0x14099DFE0 (FsRtlInsertExtraCreateParameter.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x1408AAD60 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x1408AB0A0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlInsertExtraCreateParameter @ 0x1408AB8F0 (FsRtlInsertExtraCreateParameter.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PspCreateUserProcessEcp(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall PspCreateUserProcessEcp(__int64 a1, __int64 a2)
   p_EcpList->Flink = p_EcpList;
   v5->Flags = 6;
   v5->Signature = 1282433861;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x58uLL, 0x70437350u);
   if ( Pool2 )
   {
     v7 = (void *)(Pool2 + 72);

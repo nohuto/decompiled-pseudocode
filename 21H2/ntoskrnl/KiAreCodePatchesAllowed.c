@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAreCodePatchesAllowed @ 0x140A73EA0
+ * XREFs of KiAreCodePatchesAllowed @ 0x140A74EA0
  * Callers:
- *     CcInitializeBcbProfiler @ 0x140A1B354 (CcInitializeBcbProfiler.c)
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
- *     VslConnectSwInterrupt @ 0x140A5F044 (VslConnectSwInterrupt.c)
+ *     CcInitializeBcbProfiler @ 0x140A1C354 (CcInitializeBcbProfiler.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
+ *     VslConnectSwInterrupt @ 0x140A60044 (VslConnectSwInterrupt.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x140277400 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1402653A0 (VslGetNestedPageProtectionFlags.c)
  */
 
 _BOOL8 KiAreCodePatchesAllowed()

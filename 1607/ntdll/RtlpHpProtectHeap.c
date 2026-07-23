@@ -1,72 +1,84 @@
 /*
  * XREFs of RtlpHpProtectHeap @ 0x1800F9E20
  * Callers:
- *     RtlProtectHeap @ 0x18002D7A0 (RtlProtectHeap.c)
+ *     RtlProtectHeap @ 0x18002D790 (RtlProtectHeap.c)
  * Callees:
  *     ZwQueryVirtualMemory @ 0x1800A6880 (ZwQueryVirtualMemory.c)
  *     ZwProtectVirtualMemory @ 0x1800A6E20 (ZwProtectVirtualMemory.c)
  *     RtlpHpLargeAllocationProtect @ 0x1800FBF38 (RtlpHpLargeAllocationProtect.c)
  */
 
-__int64 __fastcall RtlpHpProtectHeap(__int64 a1, unsigned int a2)
+__int64 __fastcall RtlpHpProtectHeap(char **BaseAddress, ULONG NewProtect)
 {
   __int64 v2; // r15
   __int64 v4; // r8
-  int v5; // eax
-  _QWORD *i; // rbx
-  int VirtualMemory; // eax
-  int v8; // eax
-  _QWORD *v9; // rbx
-  int v11; // eax
-  _QWORD *v12; // rax
+  NTSTATUS v5; // eax
+  char *i; // rbx
+  char *v7; // rax
+  NTSTATUS VirtualMemory; // eax
+  NTSTATUS v9; // eax
+  char *v10; // rbx
+  int v12; // eax
+  char *v13; // rax
   unsigned __int64 j; // rax
-  __int64 v14; // [rsp+50h] [rbp-20h]
-  int v15; // [rsp+58h] [rbp-18h]
-  unsigned __int64 v16; // [rsp+B8h] [rbp+48h]
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-40h] BYREF
+  _BYTE MemoryInformation[24]; // [rsp+38h] [rbp-38h] BYREF
+  ULONG_PTR v17; // [rsp+50h] [rbp-20h]
+  int v18; // [rsp+58h] [rbp-18h]
+  ULONG OldProtect; // [rsp+B0h] [rbp+40h] BYREF
+  PVOID BaseAddressa; // [rsp+B8h] [rbp+48h] BYREF
 
-  v2 = a2;
-  LODWORD(v4) = ZwQueryVirtualMemory();
+  v2 = NewProtect;
+  LODWORD(v4) = ZwQueryVirtualMemory(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  BaseAddress,
+                  MemoryBasicInformation,
+                  MemoryInformation,
+                  0x30uLL,
+                  0LL);
   if ( (int)v4 >= 0 )
   {
-    v5 = ZwProtectVirtualMemory();
+    RegionSize = v17;
+    BaseAddressa = BaseAddress;
+    v5 = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, v2, &OldProtect);
     v4 = (unsigned int)v5;
     if ( v5 >= 0 )
     {
-      for ( i = *(_QWORD **)(a1 + 96); ; i = (_QWORD *)*i )
+      for ( i = BaseAddress[12]; ; i = *(char **)i )
       {
-        if ( i == (_QWORD *)(a1 + 96) )
+        if ( i == (char *)(BaseAddress + 12) )
         {
-          v9 = *(_QWORD **)(a1 + 56);
-          if ( v9 )
+          v10 = BaseAddress[7];
+          if ( v10 )
           {
 LABEL_14:
             while ( 1 )
             {
-              v11 = RtlpHpLargeAllocationProtect(v9, v2, v4);
-              v4 = (unsigned int)v11;
-              if ( v11 < 0 )
+              v12 = RtlpHpLargeAllocationProtect(v10, v2, v4);
+              v4 = (unsigned int)v12;
+              if ( v12 < 0 )
                 break;
-              v12 = (_QWORD *)*v9;
-              if ( !*v9 )
+              v13 = *(char **)v10;
+              if ( !*(_QWORD *)v10 )
               {
-                v12 = (_QWORD *)v9[1];
-                if ( !v12 )
+                v13 = (char *)*((_QWORD *)v10 + 1);
+                if ( !v13 )
                 {
-                  for ( j = (unsigned __int64)v9; ; v9 = (_QWORD *)j )
+                  for ( j = (unsigned __int64)v10; ; v10 = (char *)j )
                   {
                     j = *(_QWORD *)(j + 16) & 0xFFFFFFFFFFFFFFFCuLL;
                     if ( !j )
                       break;
-                    if ( *(_QWORD *)(j + 8) && *(_QWORD **)(j + 8) != v9 )
+                    if ( *(_QWORD *)(j + 8) && *(char **)(j + 8) != v10 )
                     {
-                      v9 = *(_QWORD **)(j + 8);
+                      v10 = *(char **)(j + 8);
                       goto LABEL_14;
                     }
                   }
                   return (unsigned int)v4;
                 }
               }
-              v9 = v12;
+              v10 = v13;
             }
           }
           else
@@ -75,27 +87,36 @@ LABEL_14:
           }
           return (unsigned int)v4;
         }
-        v16 = (unsigned __int64)i;
-        if ( i < i + 0x20000 )
+        BaseAddressa = i;
+        v7 = i;
+        if ( i < i + 0x100000 )
           break;
 LABEL_9:
         ;
       }
       while ( 1 )
       {
-        VirtualMemory = ZwQueryVirtualMemory();
+        VirtualMemory = ZwQueryVirtualMemory(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          v7,
+                          MemoryBasicInformation,
+                          MemoryInformation,
+                          0x30uLL,
+                          0LL);
         v4 = (unsigned int)VirtualMemory;
         if ( VirtualMemory < 0 )
           break;
-        if ( v15 == 4096 )
+        if ( v18 == 4096 )
         {
-          v8 = ZwProtectVirtualMemory();
-          v4 = (unsigned int)v8;
-          if ( v8 < 0 )
+          RegionSize = v17;
+          v9 = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, v2, &OldProtect);
+          v4 = (unsigned int)v9;
+          if ( v9 < 0 )
             break;
         }
-        v16 += v14;
-        if ( v16 >= (unsigned __int64)(i + 0x20000) )
+        v7 = (char *)BaseAddressa + v17;
+        BaseAddressa = v7;
+        if ( v7 >= i + 0x100000 )
           goto LABEL_9;
       }
     }

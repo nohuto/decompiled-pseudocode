@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegSegmentInitialize @ 0x140315868
+ * XREFs of RtlpHpSegSegmentInitialize @ 0x140315AF8
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCF0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x1403893C8 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14024DDC0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x1403895A8 (RtlpHpSegContextReserve.c)
  * Callees:
- *     RtlpHpQueryVA @ 0x140315918 (RtlpHpQueryVA.c)
+ *     RtlpHpQueryVA @ 0x140315BA8 (RtlpHpQueryVA.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentInitialize(_BYTE *a1, __int64 a2, unsigned int a3)

@@ -38,18 +38,18 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateUserProcess(
-        HANDLE *a1,
-        _QWORD *a2,
-        unsigned int a3,
-        unsigned int a4,
-        __int64 a5,
-        __int64 a6,
-        unsigned int a7,
-        int a8,
-        __int64 a9,
-        __int64 a10,
-        _QWORD *a11)
+NTSTATUS __cdecl NtCreateUserProcess(
+        PHANDLE ProcessHandle,
+        PHANDLE ThreadHandle,
+        ACCESS_MASK ProcessDesiredAccess,
+        ACCESS_MASK ThreadDesiredAccess,
+        POBJECT_ATTRIBUTES ProcessObjectAttributes,
+        POBJECT_ATTRIBUTES ThreadObjectAttributes,
+        ULONG ProcessFlags,
+        ULONG ThreadFlags,
+        PVOID ProcessParameters,
+        PPS_CREATE_INFO CreateInfo,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
   struct _KTHREAD *CurrentThread; // r12
   _KPROCESS *Process; // r13
@@ -57,14 +57,14 @@ __int64 __fastcall NtCreateUserProcess(
   char v14; // r14
   _QWORD *v15; // rcx
   _QWORD *v16; // rcx
-  int v17; // eax
+  ULONG v17; // eax
   unsigned __int64 v18; // rdx
   __int64 v19; // rcx
-  __int64 result; // rax
-  int Info; // edi
+  NTSTATUS result; // eax
+  NTSTATUS Info; // edi
   __int64 v22; // r8
   KPROCESSOR_MODE v23; // r14
-  unsigned int v24; // esi
+  ULONG v24; // esi
   int v25; // eax
   char v26; // al
   __int64 v27; // rdx
@@ -102,29 +102,29 @@ __int64 __fastcall NtCreateUserProcess(
   char Blink; // [rsp+81h] [rbp-B37h] BYREF
   char v60[6]; // [rsp+82h] [rbp-B36h] BYREF
   _KPROCESS *v61; // [rsp+88h] [rbp-B30h]
-  unsigned int v62; // [rsp+90h] [rbp-B28h]
+  ACCESS_MASK v62; // [rsp+90h] [rbp-B28h]
   int v63[3]; // [rsp+94h] [rbp-B24h] BYREF
-  unsigned int v64; // [rsp+A0h] [rbp-B18h]
+  ACCESS_MASK v64; // [rsp+A0h] [rbp-B18h]
   PVOID v65; // [rsp+A8h] [rbp-B10h] BYREF
   int v66; // [rsp+B0h] [rbp-B08h] BYREF
   PVOID v67; // [rsp+B8h] [rbp-B00h] BYREF
   struct _KTHREAD *v68; // [rsp+C0h] [rbp-AF8h]
-  HANDLE *v69; // [rsp+C8h] [rbp-AF0h]
+  PHANDLE v69; // [rsp+C8h] [rbp-AF0h]
   _QWORD *v70; // [rsp+D0h] [rbp-AE8h]
   PVOID v71[2]; // [rsp+D8h] [rbp-AE0h] BYREF
   struct _IO_DRIVER_CREATE_CONTEXT DriverContext; // [rsp+E8h] [rbp-AD0h] BYREF
   PVOID Object; // [rsp+108h] [rbp-AB0h] BYREF
   PVOID v74; // [rsp+110h] [rbp-AA8h] BYREF
-  __int64 v75; // [rsp+118h] [rbp-AA0h]
-  __int64 v76; // [rsp+120h] [rbp-A98h]
+  POBJECT_ATTRIBUTES v75; // [rsp+118h] [rbp-AA0h]
+  PPS_CREATE_INFO v76; // [rsp+120h] [rbp-A98h]
   volatile signed __int32 *v77; // [rsp+128h] [rbp-A90h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+130h] [rbp-A88h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+160h] [rbp-A58h] BYREF
-  __int64 v80[4]; // [rsp+170h] [rbp-A48h] BYREF
+  __int64 v80; // [rsp+170h] [rbp-A48h] BYREF
   _BYTE v81[64]; // [rsp+190h] [rbp-A28h] BYREF
   _OWORD v82[25]; // [rsp+1D0h] [rbp-9E8h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT v83[12]; // [rsp+360h] [rbp-858h] BYREF
-  int v84; // [rsp+4E0h] [rbp-6D8h]
+  ULONG v84; // [rsp+4E0h] [rbp-6D8h]
   char v85; // [rsp+4E4h] [rbp-6D4h]
   HANDLE v86; // [rsp+4E8h] [rbp-6D0h]
   __int64 v87[48]; // [rsp+4F0h] [rbp-6C8h] BYREF
@@ -133,14 +133,14 @@ __int64 __fastcall NtCreateUserProcess(
   __int64 v90; // [rsp+680h] [rbp-538h] BYREF
   __int64 v91[154]; // [rsp+6A0h] [rbp-518h] BYREF
 
-  v64 = a4;
-  v62 = a3;
-  v70 = a2;
-  v69 = a1;
-  v77 = (volatile signed __int32 *)a5;
-  v75 = a6;
-  *(_QWORD *)&v63[1] = a9;
-  v76 = a10;
+  v64 = ThreadDesiredAccess;
+  v62 = ProcessDesiredAccess;
+  v70 = ThreadHandle;
+  v69 = ProcessHandle;
+  v77 = (volatile signed __int32 *)ProcessObjectAttributes;
+  v75 = ThreadObjectAttributes;
+  *(_QWORD *)&v63[1] = ProcessParameters;
+  v76 = CreateInfo;
   DriverContext.Size = 0;
   memset(&DriverContext.ExtraCreateParameter, 0, 24);
   memset(v81, 0, sizeof(v81));
@@ -152,11 +152,11 @@ __int64 __fastcall NtCreateUserProcess(
   v71[1] = Process;
   PreviousMode = CurrentThread->PreviousMode;
   v60[1] = PreviousMode;
-  v14 = a7;
-  if ( (a7 & 0xFFFF6838) != 0 || (a8 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  if ( (a7 & 0x8400) == 0x8400 )
-    return 3221225520LL;
+  v14 = ProcessFlags;
+  if ( (ProcessFlags & 0xFFFF6838) != 0 || (ThreadFlags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  if ( (ProcessFlags & 0x8400) == 0x8400 )
+    return -1073741776;
   v84 = 0;
   v85 = PreviousMode;
   if ( PreviousMode )
@@ -170,24 +170,26 @@ __int64 __fastcall NtCreateUserProcess(
       v16 = (_QWORD *)MmUserProbeAddress;
     *v16 = *v16;
   }
-  if ( a5 )
+  if ( ProcessObjectAttributes )
   {
-    if ( PreviousMode && (a5 & 3) != 0 )
+    if ( PreviousMode && ((unsigned __int8)ProcessObjectAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     if ( PreviousMode )
-      v17 = *(_DWORD *)(a5 + 24) & 0xDF2;
+      v17 = ProcessObjectAttributes->Attributes & 0xDF2;
     else
-      v17 = *(_DWORD *)(a5 + 24) & 0x10FF2;
+      v17 = ProcessObjectAttributes->Attributes & 0x10FF2;
     v84 = v17;
   }
   memset(v82, 0, 0x188uLL);
-  if ( !a11
-    || (LOBYTE(v18) = PreviousMode, result = PspBuildCreateProcessContext(a11, v18, 0, (__int64)v82), (int)result >= 0) )
+  if ( !AttributeList
+    || (LOBYTE(v18) = PreviousMode,
+        result = PspBuildCreateProcessContext(AttributeList, v18, 0, (__int64)v82),
+        result >= 0) )
   {
-    if ( (a7 & 0x40) != 0 && (DWORD1(v82[0]) & 0x20000) != 0 && !BYTE8(v82[22]) )
+    if ( (ProcessFlags & 0x40) != 0 && (DWORD1(v82[0]) & 0x20000) != 0 && !BYTE8(v82[22]) )
     {
-      v14 = a7 & 0xBF;
-      a7 &= ~0x40u;
+      v14 = ProcessFlags & 0xBF;
+      ProcessFlags &= ~0x40u;
       DWORD1(v82[0]) &= ~0x20000u;
     }
     if ( (v14 & 4) != 0 )
@@ -242,9 +244,9 @@ __int64 __fastcall NtCreateUserProcess(
     if ( (BYTE4(v82[0]) & 0x20) != 0 )
     {
       v58 = (DWORD1(v82[0]) & 0x20000) != 0 ? BYTE8(v82[22]) : 0;
-      v24 = a7;
+      v24 = ProcessFlags;
       Info = SeQuerySigningPolicy(
-               *(PACCESS_TOKEN *)&v82[9],
+               *(HANDLE *)&v82[9],
                (PCUNICODE_STRING)&v82[14],
                (ULONG_PTR)&Blink,
                (__int64)v60,
@@ -401,27 +403,27 @@ LABEL_51:
               v30[1] = DWORD2(v82[3]);
             }
             v63[1] = 0;
-            v34 = (a8 & 1) != 0;
-            if ( (a8 & 2) != 0 )
+            v34 = (ThreadFlags & 1) != 0;
+            if ( (ThreadFlags & 2) != 0 )
               v34 |= 2u;
-            if ( (a8 & 4) != 0 )
+            if ( (ThreadFlags & 4) != 0 )
               v34 |= 4u;
-            if ( (a8 & 0x10) != 0 )
+            if ( (ThreadFlags & 0x10) != 0 )
               v34 |= 0x80u;
             if ( v66 )
             {
               v63[1] = 2;
               v34 |= 0x10u;
             }
-            v80[0] = (__int64)v81;
+            v80 = (__int64)v81;
             v63[0] = v34 | 0x60;
             Info = PspAllocateThread(
                      (ULONG_PTR)v31,
-                     v75,
+                     (__int64)v75,
                      PreviousMode,
                      (__int64)v82,
                      v91,
-                     v80,
+                     (PINITIAL_TEB *)&v80,
                      0LL,
                      0LL,
                      v63,
@@ -471,7 +473,7 @@ LABEL_51:
                          (char *)v31,
                          (__int64)Process,
                          v39,
-                         a7,
+                         ProcessFlags,
                          *(HANDLE *)&v82[8],
                          v63[1],
                          v41,
@@ -545,7 +547,7 @@ LABEL_85:
           PspDeleteCreateProcessContext((__int64)v82);
           if ( DriverContext.ExtraCreateParameter )
             FsRtlFreeExtraCreateParameterList(DriverContext.ExtraCreateParameter);
-          return (unsigned int)Info;
+          return Info;
         }
         *(_QWORD *)&v82[11] = 0LL;
         v50 = 2LL;
@@ -566,8 +568,8 @@ LABEL_85:
       v58 = v51;
       v60[0] = BYTE1(Process[2].ReadyListHead.Blink);
       Blink = (char)Process[2].ReadyListHead.Blink;
-      v24 = a7;
-      if ( (a7 & 0x40) != 0 && (v51 & 7) == 0 )
+      v24 = ProcessFlags;
+      if ( (ProcessFlags & 0x40) != 0 && (v51 & 7) == 0 )
       {
         Info = -1073741790;
         goto LABEL_85;

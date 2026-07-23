@@ -7,19 +7,19 @@
  *     RtlpRemoveUserSubFromNameSub @ 0x1800049F8 (RtlpRemoveUserSubFromNameSub.c)
  */
 
-__int64 __fastcall RtlUnsubscribeWnfStateChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnsubscribeWnfStateChangeNotification(PWNF_USER_CALLBACK Callback)
 {
   int v2; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
-  if ( *(_QWORD *)(a1 + 88)
-    || *(_QWORD *)(a1 + 96)
-    || LODWORD(NtCurrentTeb()->ClientId.UniqueThread) == *(_DWORD *)(a1 + 136) )
+  if ( *((_QWORD *)Callback + 11)
+    || *((_QWORD *)Callback + 12)
+    || LODWORD(NtCurrentTeb()->ClientId.UniqueThread) == *((_DWORD *)Callback + 34) )
   {
-    return RtlpRemoveUserSubFromNameSub(*(_QWORD *)(a1 + 24), a1, &v2);
+    return RtlpRemoveUserSubFromNameSub(*((char **)Callback + 3), Callback, &v2);
   }
   else
   {
-    return RtlUnsubscribeWnfNotificationWaitForCompletion(a1);
+    return RtlUnsubscribeWnfNotificationWaitForCompletion((__int64)Callback);
   }
 }

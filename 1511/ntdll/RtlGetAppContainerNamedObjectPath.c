@@ -20,119 +20,123 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlGetAppContainerNamedObjectPath(__int64 a1, void *a2, char a3, UNICODE_STRING *a4)
+NTSTATUS __cdecl RtlGetAppContainerNamedObjectPath(
+        HANDLE TokenHandle,
+        PSID AppContainerSid,
+        BOOLEAN RelativePath,
+        PUNICODE_STRING ObjectPath)
 {
-  void *v5; // rdi
+  PSID v5; // rdi
   __int64 v6; // r15
   char v7; // r12
   char v9; // r14
-  int InformationToken; // ebx
+  int appended; // ebx
   char v12; // r12
   __int64 v13; // rdx
-  size_t v14; // rbx
+  SIZE_T v14; // rbx
   unsigned __int16 *StringRoutine; // rax
   unsigned __int16 *v16; // rdi
   void *ProcessHeap; // rcx
-  int v18; // [rsp+48h] [rbp-B8h] BYREF
-  int v19; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v20; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
-  PSID v22; // [rsp+68h] [rbp-98h] BYREF
-  PSID Sid; // [rsp+70h] [rbp-90h] BYREF
-  int v24; // [rsp+78h] [rbp-88h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v26; // [rsp+90h] [rbp-70h] BYREF
-  int v27; // [rsp+98h] [rbp-68h] BYREF
-  const WCHAR *v28; // [rsp+A0h] [rbp-60h]
-  PSID v29[12]; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v30[12]; // [rsp+110h] [rbp+10h] BYREF
+  ULONG ReturnLength; // [rsp+44h] [rbp-BCh] BYREF
+  int v19; // [rsp+48h] [rbp-B8h] BYREF
+  int v20; // [rsp+4Ch] [rbp-B4h] BYREF
+  int TokenInformation; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  _APPCONTAINER_SID_TYPE AppContainerSidType[2]; // [rsp+68h] [rbp-98h] BYREF
+  PSID AppContainerSidParent; // [rsp+70h] [rbp-90h] BYREF
+  int v25; // [rsp+78h] [rbp-88h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v27; // [rsp+90h] [rbp-70h] BYREF
+  UNICODE_STRING v28; // [rsp+98h] [rbp-68h] BYREF
+  PSID Sid[12]; // [rsp+B0h] [rbp-50h] BYREF
+  PSID Sid2[12]; // [rsp+110h] [rbp+10h] BYREF
   void *v31; // [rsp+170h] [rbp+70h] BYREF
-  wchar_t Buffer[264]; // [rsp+1C0h] [rbp+C0h] BYREF
+  WCHAR Source[264]; // [rsp+1C0h] [rbp+C0h] BYREF
   WCHAR SourceString[264]; // [rsp+3D0h] [rbp+2D0h] BYREF
 
-  v5 = a2;
-  v6 = a1;
+  v5 = AppContainerSid;
+  v6 = (__int64)TokenHandle;
   v7 = 0;
-  Sid = 0LL;
-  memset(Buffer, 0, 520);
+  AppContainerSidParent = 0LL;
+  memset(Source, 0, 520);
   v9 = 1;
   memset(SourceString, 0, 520);
-  v27 = 262146;
-  v18 = 0;
+  *(_DWORD *)&v28.Length = 262146;
   v19 = 0;
-  v22 = 0LL;
-  v28 = L"\\";
-  if ( !a4 )
-    return 3221225485LL;
-  if ( a1 && a2 )
-    return 3221225520LL;
-  *(_DWORD *)&a4->Length = 0;
-  a4->Buffer = 0LL;
+  v20 = 0;
+  *(_QWORD *)AppContainerSidType = 0LL;
+  v28.Buffer = L"\\";
+  if ( !ObjectPath )
+    return -1073741811;
+  if ( TokenHandle && AppContainerSid )
+    return -1073741776;
+  *(_DWORD *)&ObjectPath->Length = 0;
+  ObjectPath->Buffer = 0LL;
   *(_DWORD *)&DestinationString.Length = 0;
   DestinationString.Buffer = 0LL;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0LL;
-  if ( a2 )
+  if ( AppContainerSid )
   {
     v6 = -4LL;
 LABEL_6:
-    if ( a2 )
+    if ( AppContainerSid )
       goto LABEL_17;
     goto LABEL_7;
   }
   v7 = 1;
-  if ( !a1 )
+  if ( !TokenHandle )
   {
     v6 = -6LL;
     goto LABEL_6;
   }
 LABEL_7:
-  v20 = 0;
-  InformationToken = NtQueryInformationToken(v6, 29LL, &v20);
-  if ( InformationToken < 0 )
+  TokenInformation = 0;
+  appended = NtQueryInformationToken((HANDLE)v6, 0x1Du, &TokenInformation, 4u, &ReturnLength);
+  if ( appended < 0 )
     goto LABEL_10;
-  if ( !v20 )
+  if ( !TokenInformation )
     goto LABEL_9;
-  InformationToken = NtQueryInformationToken(v6, 31LL, &v31);
-  if ( InformationToken < 0 )
+  appended = NtQueryInformationToken((HANDLE)v6, 0x1Fu, &v31, 0x50u, &ReturnLength);
+  if ( appended < 0 )
     goto LABEL_10;
   v5 = v31;
   if ( !v31 )
   {
 LABEL_9:
-    InformationToken = 0;
+    appended = 0;
     goto LABEL_10;
   }
 LABEL_17:
-  InformationToken = NtQueryInformationToken(v6, 42LL, &v18);
-  if ( InformationToken < 0 )
+  appended = NtQueryInformationToken((HANDLE)v6, 0x2Au, &v19, 4u, &ReturnLength);
+  if ( appended < 0 )
     goto LABEL_10;
-  if ( v18 )
+  if ( v19 )
   {
-    InformationToken = NtQueryInformationToken(v6, 1LL, v29);
-    if ( InformationToken < 0 )
+    appended = NtQueryInformationToken((HANDLE)v6, 1u, Sid, 0x58u, &ReturnLength);
+    if ( appended < 0 )
       goto LABEL_10;
-    v22 = v29[0];
-    InformationToken = RtlConvertSidToUnicodeString(&UnicodeString, v29[0], 1u);
-    if ( InformationToken < 0 )
+    *(PSID *)AppContainerSidType = Sid[0];
+    appended = RtlConvertSidToUnicodeString(&UnicodeString, Sid[0], 1u);
+    if ( appended < 0 )
       goto LABEL_10;
   }
   if ( v7 )
   {
     v12 = 0;
-    if ( a3 )
+    if ( RelativePath )
     {
-      InformationToken = NtQueryInformationToken(-4LL, 42LL, &v19);
-      if ( InformationToken < 0 )
+      appended = NtQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFCLL, 0x2Au, &v20, 4u, &ReturnLength);
+      if ( appended < 0 )
         goto LABEL_10;
-      if ( v19 )
+      if ( v20 )
       {
-        InformationToken = NtQueryInformationToken(-4LL, 1LL, v30);
-        if ( InformationToken < 0 )
+        appended = NtQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFCLL, 1u, Sid2, 0x58u, &ReturnLength);
+        if ( appended < 0 )
           goto LABEL_10;
-        if ( !v18 || !(unsigned __int8)RtlEqualSid(v22, v30[0]) )
+        if ( !v19 || !RtlEqualSid(*(PSID *)AppContainerSidType, Sid2[0]) )
         {
-          InformationToken = -1073741637;
+          appended = -1073741637;
           goto LABEL_10;
         }
       }
@@ -146,70 +150,70 @@ LABEL_17:
   {
     v12 = 0;
   }
-  InformationToken = NtQueryInformationToken(v6, 12LL, &v24);
-  if ( InformationToken < 0 )
+  appended = NtQueryInformationToken((HANDLE)v6, 0xCu, &v25, 4u, &ReturnLength);
+  if ( appended < 0 )
     goto LABEL_10;
-  InformationToken = RtlGetAppContainerSidType(v5, &v22);
-  if ( InformationToken < 0 )
+  appended = RtlGetAppContainerSidType(v5, AppContainerSidType);
+  if ( appended < 0 )
     goto LABEL_10;
-  if ( (_DWORD)v22 == 2 )
+  if ( AppContainerSidType[0] == ParentAppContainerSidType )
   {
-    InformationToken = RtlConvertSidToUnicodeString(&DestinationString, v5, 1u);
-    if ( InformationToken < 0 )
+    appended = RtlConvertSidToUnicodeString(&DestinationString, v5, 1u);
+    if ( appended < 0 )
       goto LABEL_10;
 LABEL_25:
-    InformationToken = RtlStringCchPrintfW(Buffer);
-    if ( InformationToken >= 0 )
+    appended = RtlStringCchPrintfW(Source);
+    if ( appended >= 0 )
     {
-      InformationToken = RtlStringCbLengthW(Buffer, 260LL, &v26);
-      if ( InformationToken >= 0 )
+      appended = RtlStringCbLengthW(Source, 260LL, &v27);
+      if ( appended >= 0 )
       {
-        if ( v18 && (!a3 || v12) )
-          v13 = v26 + UnicodeString.Length + 2LL;
+        if ( v19 && (!RelativePath || v12) )
+          v13 = v27 + UnicodeString.Length + 2LL;
         else
-          v13 = v26;
+          v13 = v27;
         v14 = v13 + DestinationString.Length + 2LL;
         StringRoutine = (unsigned __int16 *)NtdllpAllocateStringRoutine(v14);
         v16 = StringRoutine;
         if ( StringRoutine )
         {
           memset(StringRoutine, 0, v14);
-          a4->Length = 0;
-          a4->MaximumLength = v14;
-          a4->Buffer = v16;
-          InformationToken = RtlAppendUnicodeToString(a4, Buffer);
-          if ( InformationToken >= 0 )
+          ObjectPath->Length = 0;
+          ObjectPath->MaximumLength = v14;
+          ObjectPath->Buffer = v16;
+          appended = RtlAppendUnicodeToString(ObjectPath, Source);
+          if ( appended >= 0 )
           {
-            if ( !v18
-              || a3 && !v12
-              || (InformationToken = RtlAppendUnicodeStringToString(a4, &UnicodeString), InformationToken >= 0)
-              && (InformationToken = RtlAppendUnicodeStringToString(a4, &v27), InformationToken >= 0) )
+            if ( !v19
+              || RelativePath && !v12
+              || (appended = RtlAppendUnicodeStringToString(ObjectPath, &UnicodeString), appended >= 0)
+              && (appended = RtlAppendUnicodeStringToString(ObjectPath, &v28), appended >= 0) )
             {
-              InformationToken = RtlAppendUnicodeStringToString(a4, &DestinationString);
+              appended = RtlAppendUnicodeStringToString(ObjectPath, &DestinationString);
             }
           }
         }
         else
         {
-          InformationToken = -1073741670;
+          appended = -1073741670;
         }
       }
     }
     goto LABEL_10;
   }
-  InformationToken = RtlGetAppContainerParent((__int64)v5, (__int64 *)&Sid);
-  if ( InformationToken >= 0 )
+  appended = RtlGetAppContainerParent(v5, &AppContainerSidParent);
+  if ( appended >= 0 )
   {
-    InformationToken = RtlConvertSidToUnicodeString(&DestinationString, Sid, 1u);
+    appended = RtlConvertSidToUnicodeString(&DestinationString, AppContainerSidParent, 1u);
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
-    if ( InformationToken < 0 )
+    if ( appended < 0 )
     {
-      RtlFreeHeap(ProcessHeap, 0LL, Sid);
+      RtlFreeHeap(ProcessHeap, 0, AppContainerSidParent);
       goto LABEL_10;
     }
-    RtlFreeHeap(ProcessHeap, 0LL, Sid);
-    InformationToken = RtlStringCchPrintfW(SourceString);
-    if ( InformationToken >= 0 )
+    RtlFreeHeap(ProcessHeap, 0, AppContainerSidParent);
+    appended = RtlStringCchPrintfW(SourceString);
+    if ( appended >= 0 )
     {
       RtlFreeAnsiString(&DestinationString);
       RtlInitUnicodeString(&DestinationString, SourceString);
@@ -219,9 +223,9 @@ LABEL_25:
   }
 LABEL_10:
   RtlFreeAnsiString(&UnicodeString);
-  if ( InformationToken < 0 )
-    RtlFreeAnsiString(a4);
+  if ( appended < 0 )
+    RtlFreeAnsiString(ObjectPath);
   if ( v9 )
     RtlFreeAnsiString(&DestinationString);
-  return (unsigned int)InformationToken;
+  return appended;
 }

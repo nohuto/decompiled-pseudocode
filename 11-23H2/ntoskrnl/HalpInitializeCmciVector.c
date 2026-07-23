@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializeCmciVector @ 0x14037C014
+ * XREFs of HalpInitializeCmciVector @ 0x14037C1B4
  * Callers:
- *     HalpInterruptInitializeLocalUnit @ 0x14037BA50 (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x14037BBF0 (HalpInterruptInitializeLocalUnit.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x14037C650 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037CA30 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x14037C7F0 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037CBD0 (HalpInterruptSetLineStateInternal.c)
  */
 
 __int64 __fastcall HalpInitializeCmciVector(__int64 a1)

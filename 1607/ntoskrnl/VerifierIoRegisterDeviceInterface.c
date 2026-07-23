@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoRegisterDeviceInterface @ 0x14070C84C
+ * XREFs of VerifierIoRegisterDeviceInterface @ 0x14070C87C
  * Callers:
  *     <none>
  * Callees:

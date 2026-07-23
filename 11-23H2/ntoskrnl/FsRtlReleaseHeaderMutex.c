@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlReleaseHeaderMutex @ 0x1402301C0
+ * XREFs of FsRtlReleaseHeaderMutex @ 0x1402302B0
  * Callers:
- *     FsRtlpWaitForIoAtEof @ 0x140304990 (FsRtlpWaitForIoAtEof.c)
- *     FsRtlReleaseEofLock @ 0x1403287E0 (FsRtlReleaseEofLock.c)
+ *     FsRtlpWaitForIoAtEof @ 0x140304C20 (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlReleaseEofLock @ 0x140328A70 (FsRtlReleaseEofLock.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExpReleaseFastMutexContended @ 0x1402BBF60 (ExpReleaseFastMutexContended.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExpReleaseFastMutexContended @ 0x1402BC1F0 (ExpReleaseFastMutexContended.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall FsRtlReleaseHeaderMutex(__int64 a1, volatile signed __int32 *a2)
@@ -28,10 +28,13 @@ __int64 __fastcall FsRtlReleaseHeaderMutex(__int64 a1, volatile signed __int32 *
   v4 = _InterlockedCompareExchange((volatile signed __int32 *)v2, 1, 0);
   if ( v4 )
     ExpReleaseFastMutexContended(v2, v4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

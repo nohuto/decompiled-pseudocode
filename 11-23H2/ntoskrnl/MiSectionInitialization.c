@@ -3,12 +3,12 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObCreateObject @ 0x1406B6350 (ObCreateObject.c)
- *     ObInsertObject @ 0x14076B590 (ObInsertObject.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     ObCreateObjectType @ 0x14081F1D0 (ObCreateObjectType.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObCreateObject @ 0x1406B6500 (ObCreateObject.c)
+ *     ObInsertObject @ 0x14076B780 (ObInsertObject.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     ObCreateObjectType @ 0x14081F4D0 (ObCreateObjectType.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

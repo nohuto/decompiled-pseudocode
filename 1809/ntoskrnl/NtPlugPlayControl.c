@@ -1,13 +1,13 @@
 /*
- * XREFs of NtPlugPlayControl @ 0x140597E10
+ * XREFs of NtPlugPlayControl @ 0x140598E10
  * Callers:
  *     <none>
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PiControlMakeUserModeCallersCopy @ 0x140597F3C (PiControlMakeUserModeCallersCopy.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x140598F3C (PiControlMakeUserModeCallersCopy.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
  */
 
 NTSTATUS __stdcall NtPlugPlayControl(PLUGPLAY_CONTROL_CLASS PlugPlayControlClass, PVOID Buffer, ULONG BufferSize)

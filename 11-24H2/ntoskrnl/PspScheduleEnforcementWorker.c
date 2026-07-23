@@ -1,9 +1,9 @@
 /*
- * XREFs of PspScheduleEnforcementWorker @ 0x140A4B140
+ * XREFs of PspScheduleEnforcementWorker @ 0x140A41DC0
  * Callers:
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PspScheduleEnforcementWorker(__int64 a1)

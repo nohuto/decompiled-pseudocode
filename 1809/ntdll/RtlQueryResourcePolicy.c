@@ -9,25 +9,21 @@
  *     RtlGetNtSystemRoot @ 0x180026CC0 (RtlGetNtSystemRoot.c)
  *     RtlpQueryPhysicalMemoryPolicy @ 0x1800626BC (RtlpQueryPhysicalMemoryPolicy.c)
  *     RtlGetSuiteMask @ 0x180062DA0 (RtlGetSuiteMask.c)
- *     RtlpQueryDiskSpeedPolicy @ 0x180088F14 (RtlpQueryDiskSpeedPolicy.c)
- *     RtlpQueryDiskSpacePolicy @ 0x1801150C4 (RtlpQueryDiskSpacePolicy.c)
- *     RtlpQueryDiskWriteConstraintPolicy @ 0x1801152D0 (RtlpQueryDiskWriteConstraintPolicy.c)
+ *     RtlpQueryDiskSpeedPolicy @ 0x180088F24 (RtlpQueryDiskSpeedPolicy.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x180115060 (RtlpQueryDiskSpacePolicy.c)
+ *     RtlpQueryDiskWriteConstraintPolicy @ 0x18011526C (RtlpQueryDiskWriteConstraintPolicy.c)
  */
 
 __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4)
 {
   int v8; // ebx
   int v9; // ebx
-  __int64 NtSystemRoot; // rax
-  const wchar_t *v11; // rax
+  PWSTR NtSystemRoot; // rax
+  PWSTR v11; // rax
 
   if ( !a3 || a2 )
     return 3221225485LL;
-  RtlRunOnceExecuteOnce(
-    &RtlpTestHookInit,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpTestHookInitialize,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&RtlpTestHookInit, RtlpTestHookInitialize, 0LL, 0LL);
   if ( !a1 )
   {
     if ( a4 == 4 )
@@ -58,6 +54,6 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
     v11 = L"C:\\data\\programs\\windowsapps";
   else
-    v11 = (const wchar_t *)RtlGetNtSystemRoot();
+    v11 = RtlGetNtSystemRoot();
   return RtlpQueryDiskSpacePolicy(v11, a3);
 }

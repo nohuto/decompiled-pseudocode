@@ -1,32 +1,32 @@
 /*
- * XREFs of MiCreateSectionCommon @ 0x1409B9D9C
+ * XREFs of MiCreateSectionCommon @ 0x14098AD7C
  * Callers:
- *     NtCreateSectionEx @ 0x140868A80 (NtCreateSectionEx.c)
- *     MiCreatePatchSectionRequest @ 0x14086F788 (MiCreatePatchSectionRequest.c)
- *     PfSnGetSectionObject @ 0x1409B9738 (PfSnGetSectionObject.c)
- *     NtCreateSection @ 0x1409B9CF0 (NtCreateSection.c)
- *     PfpFileBuildReadSupport @ 0x140A4F6FC (PfpFileBuildReadSupport.c)
+ *     NtCreateSectionEx @ 0x14086EE60 (NtCreateSectionEx.c)
+ *     MmCreateSectionForHotpatch @ 0x14087AE7C (MmCreateSectionForHotpatch.c)
+ *     PfSnGetSectionObject @ 0x14098A718 (PfSnGetSectionObject.c)
+ *     NtCreateSection @ 0x14098ACD0 (NtCreateSection.c)
+ *     PfpFileBuildReadSupport @ 0x140A589EC (PfpFileBuildReadSupport.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     CcZeroEndOfLastPage @ 0x1402C6408 (CcZeroEndOfLastPage.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     MiCreateSection @ 0x1409BA4D4 (MiCreateSection.c)
- *     MiCaptureSectionCreateExtendedParameters @ 0x1409BAA7C (MiCaptureSectionCreateExtendedParameters.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     CcZeroEndOfLastPage @ 0x1403110A8 (CcZeroEndOfLastPage.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     MiCreateSection @ 0x14098B4B4 (MiCreateSection.c)
+ *     MiCaptureSectionCreateExtendedParameters @ 0x14098BA5C (MiCaptureSectionCreateExtendedParameters.c)
  */
 
 __int64 __fastcall MiCreateSectionCommon(
         _QWORD *a1,
-        unsigned int a2,
+        int a2,
         int a3,
         _QWORD *a4,
         int a5,

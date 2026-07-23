@@ -1,11 +1,11 @@
 /*
- * XREFs of KeIsTraceCallbackAllowed @ 0x1403282EC
+ * XREFs of KeIsTraceCallbackAllowed @ 0x1402D0E7C
  * Callers:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     EtwpTraceMessageVa @ 0x140326900 (EtwpTraceMessageVa.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403274F0 (EtwpLogSystemEventUnsafe.c)
- *     EtwpInvokeEventCallback @ 0x1404AC9C0 (EtwpInvokeEventCallback.c)
- *     KiTrackSystemCallEntry @ 0x14073D460 (KiTrackSystemCallEntry.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     EtwpTraceMessageVa @ 0x1402CF490 (EtwpTraceMessageVa.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1402D0080 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpInvokeEventCallback @ 0x1404A71B4 (EtwpInvokeEventCallback.c)
+ *     KiTrackSystemCallEntry @ 0x14073B390 (KiTrackSystemCallEntry.c)
  * Callees:
  *     <none>
  */

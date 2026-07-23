@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryGroupAffinityEx @ 0x1404090B0
+ * XREFs of KeQueryGroupAffinityEx @ 0x140401590
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiActivePageClaimCandidate @ 0x14009CA50
+ * XREFs of MiActivePageClaimCandidate @ 0x14009C990
  * Callers:
- *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
+ *     MiPfnsWorthTrying @ 0x14009A6F0 (MiPfnsWorthTrying.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
  * Callees:
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiHyperPage @ 0x14009D9D4 (MiHyperPage.c)
- *     MiVaIsPageFileHash @ 0x14009DA88 (MiVaIsPageFileHash.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiHyperPage @ 0x14009D914 (MiHyperPage.c)
+ *     MiVaIsPageFileHash @ 0x14009D9C8 (MiVaIsPageFileHash.c)
  */
 
 __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, int a3)
@@ -46,7 +46,7 @@ __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, int a3)
   if ( (*(_BYTE *)(a2 + 35) & 8) != 0 )
     return v5;
   v10 = *(_QWORD *)(a2 + 40);
-  v11 = *(_QWORD *)(qword_14043A748 + 8 * ((v10 >> 40) & 0x3FF));
+  v11 = *(_QWORD *)(qword_14043B808 + 8 * ((v10 >> 40) & 0x3FF));
   if ( v11 != a1 )
     return v5;
   if ( *(_BYTE *)(a1 + 4766) )
@@ -73,8 +73,8 @@ LABEL_9:
     if ( (v10 & 0x200000000000000LL) != 0 )
     {
       if ( (*(_QWORD *)(a2 + 24) & 0x4000000000000000LL) == 0
-        && v9 != qword_140439FF8
-        && v9 != qword_14043A000
+        && v9 != qword_14043B0B8
+        && v9 != qword_14043B0C0
         && (v3 != 1 || !MiIsPfnFileOnly(a2) && !MiIsPfnFromSlabAllocation(a2)) )
       {
         if ( (*(_QWORD *)(a2 + 40) & 0xFFFFFFFFFLL) == 0xFFFFFFFFFLL )
@@ -95,7 +95,7 @@ LABEL_9:
       }
     }
     else if ( v9 != -8LL
-           && (v9 < 0xFFFF800000000000uLL || ((byte_14043B950[((v9 >> 39) & 0x1FF) - 256] - 5) & 0xF7) != 0)
+           && (v9 < 0xFFFF800000000000uLL || ((byte_14043CA10[((v9 >> 39) & 0x1FF) - 256] - 5) & 0xF7) != 0)
            && ((v10 >> 54) & 7) != 1
            && (v10 & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL
            && v9 >= 0xFFFFF68000000000uLL
@@ -149,7 +149,7 @@ LABEL_9:
         v22 = v21 & 0x3FFFFFFFFFFFFFFFLL;
         if ( (v21 & 0x3FFFFFFFFFFFFFFFuLL) <= 1 )
         {
-          if ( (v21 & 0xFFFFFFFFFLL) == 0 || v16 >= qword_140439FC0 && v16 < qword_140439FC0 + 12288 )
+          if ( (v21 & 0xFFFFFFFFFLL) == 0 || v16 >= qword_14043B080 && v16 < qword_14043B080 + 12288 )
             return v5;
           v23 = *(_WORD *)(a2 + 32);
           if ( v23 > 1u )

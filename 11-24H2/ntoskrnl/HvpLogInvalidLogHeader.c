@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpLogInvalidLogHeader @ 0x140983AF0
+ * XREFs of HvpLogInvalidLogHeader @ 0x14096C300
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140983108 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x14096B918 (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HvpHeaderCheckSum @ 0x140BB97A0 (HvpHeaderCheckSum.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HvpHeaderCheckSum @ 0x140BBB7A0 (HvpHeaderCheckSum.c)
  */
 
 void __fastcall HvpLogInvalidLogHeader(__int64 *a1, char a2, int *a3)
@@ -43,9 +43,9 @@ void __fastcall HvpLogInvalidLogHeader(__int64 *a1, char a2, int *a3)
   int *v33; // [rsp+110h] [rbp+10h]
   __int64 v34; // [rsp+118h] [rbp+18h]
 
-  if ( (unsigned int)dword_140E09EE8 > 5 )
+  if ( (unsigned int)dword_140E09F58 > 5 )
   {
-    if ( (qword_140E09EF8 & 8) == 0 || (v3 = 1, (qword_140E09F00 & 8) != qword_140E09F00) )
+    if ( (qword_140E09F68 & 8) == 0 || (v3 = 1, (qword_140E09F70 & 8) != qword_140E09F70) )
       v3 = 0;
     if ( v3 )
     {
@@ -80,8 +80,8 @@ void __fastcall HvpLogInvalidLogHeader(__int64 *a1, char a2, int *a3)
       v34 = 4LL;
       v33 = &v11;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E09EE8,
-        (unsigned __int8 *)&byte_140055C27,
+        (__int64)&dword_140E09F58,
+        (unsigned __int8 *)byte_1400568B5,
         0LL,
         0LL,
         0xCu,

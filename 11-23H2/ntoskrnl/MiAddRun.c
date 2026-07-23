@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAddRun @ 0x140A2DBC0
+ * XREFs of MiAddRun @ 0x140A2DE70
  * Callers:
- *     MiAddRuns @ 0x140A2DCF4 (MiAddRuns.c)
- *     MmAllocateMemoryRanges @ 0x140A2E2C0 (MmAllocateMemoryRanges.c)
+ *     MiAddRuns @ 0x140A2DFA4 (MiAddRuns.c)
+ *     MmAllocateMemoryRanges @ 0x140A2E570 (MmAllocateMemoryRanges.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

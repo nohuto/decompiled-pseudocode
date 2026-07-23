@@ -1,13 +1,13 @@
 /*
- * XREFs of VfSuspectDriversAllocateEntry @ 0x140C20494
+ * XREFs of VfSuspectDriversAllocateEntry @ 0x140C264A0
  * Callers:
- *     VfVolatileApplyDifVerification @ 0x1406478F4 (VfVolatileApplyDifVerification.c)
- *     VfSuspectDriversLoadCallback @ 0x140C38A50 (VfSuspectDriversLoadCallback.c)
- *     VfAddVerifierEntry @ 0x140C46698 (VfAddVerifierEntry.c)
- *     VfSuspectDriversParseRegistryString @ 0x140CDF400 (VfSuspectDriversParseRegistryString.c)
+ *     VfVolatileApplyDifVerification @ 0x14064B4D4 (VfVolatileApplyDifVerification.c)
+ *     VfSuspectDriversLoadCallback @ 0x140C3EA60 (VfSuspectDriversLoadCallback.c)
+ *     VfAddVerifierEntry @ 0x140C4C6A8 (VfAddVerifierEntry.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140CE5798 (VfSuspectDriversParseRegistryString.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 ULONG_PTR __fastcall VfSuspectDriversAllocateEntry(const void **a1)

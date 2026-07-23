@@ -153,7 +153,7 @@ int __fastcall MiCreateSection(
   PVOID v94; // [rsp+80h] [rbp-80h]
   unsigned int v95; // [rsp+88h] [rbp-78h] BYREF
   int v96; // [rsp+8Ch] [rbp-74h]
-  int v97[4]; // [rsp+90h] [rbp-70h] BYREF
+  _DWORD v97[4]; // [rsp+90h] [rbp-70h] BYREF
   __int128 v98; // [rsp+A0h] [rbp-60h]
   __int128 v99; // [rsp+B0h] [rbp-50h]
   __int128 v100; // [rsp+C0h] [rbp-40h]
@@ -163,7 +163,7 @@ int __fastcall MiCreateSection(
   PVOID v104; // [rsp+F0h] [rbp-10h] BYREF
   unsigned __int64 v105; // [rsp+F8h] [rbp-8h] BYREF
   _QWORD v106[17]; // [rsp+100h] [rbp+0h] BYREF
-  unsigned __int8 v109; // [rsp+1E0h] [rbp+E0h] BYREF
+  __int64 v109; // [rsp+1E0h] [rbp+E0h] BYREF
   __int64 v110; // [rsp+1E8h] [rbp+E8h]
 
   v110 = a4;
@@ -566,10 +566,7 @@ LABEL_85:
     a6 = v50;
     LODWORD(v91) = (v26 >> 11) & 1;
     if ( (_DWORD)v91 )
-    {
-      v50 |= 0x10u;
-      a6 = v50;
-    }
+      a6 = v50 | 0x10;
     v51 = (v26 >> 10) & 1;
     v96 = v51;
     if ( !v51 || (v26 & 0x10) != 0 || ((v26 >> 11) & 1) != 0 )
@@ -581,12 +578,7 @@ LABEL_85:
       v52 = a7;
       if ( (_BYTE)a7 )
       {
-        ImageRequiredSigningLevel = SeGetImageRequiredSigningLevel(
-                                      v12,
-                                      v50,
-                                      (unsigned __int8)a7,
-                                      *(_BYTE *)(v44 + 15) >> 4,
-                                      (__int64)&v109);
+        ImageRequiredSigningLevel = SeGetImageRequiredSigningLevel((PVOID)v12, (__int64)&v109);
         if ( ImageRequiredSigningLevel < 0 )
           goto LABEL_216;
         v52 = v109;

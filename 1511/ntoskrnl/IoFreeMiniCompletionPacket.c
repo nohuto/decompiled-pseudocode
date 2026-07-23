@@ -9,7 +9,7 @@
  *     <none>
  */
 
-void __fastcall IoFreeMiniCompletionPacket(struct _SLIST_ENTRY *P)
+void __fastcall IoFreeMiniCompletionPacket(_SLIST_ENTRY *P)
 {
   *((_QWORD *)&P[3].Next + 1) = 0LL;
   IopFreeMiniCompletionPacket(P);

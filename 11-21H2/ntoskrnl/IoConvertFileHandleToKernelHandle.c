@@ -1,13 +1,13 @@
 /*
  * XREFs of IoConvertFileHandleToKernelHandle @ 0x14065CA50
  * Callers:
- *     NtSaveKeyEx @ 0x14065A1F0 (NtSaveKeyEx.c)
- *     CmpNameFromAttributes @ 0x14067DB18 (CmpNameFromAttributes.c)
- *     IopOpenLinkOrRenameTarget @ 0x1406C78D4 (IopOpenLinkOrRenameTarget.c)
- *     NtRestoreKey @ 0x14090F750 (NtRestoreKey.c)
- *     NtSaveMergedKeys @ 0x14090F9B0 (NtSaveMergedKeys.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1409F6A1C (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x1409F6C5C (ExpQueryElamCertInfo.c)
+ *     sub_14065A1F0 @ 0x14065A1F0 (sub_14065A1F0.c)
+ *     sub_14067DB18 @ 0x14067DB18 (sub_14067DB18.c)
+ *     sub_1406C78D4 @ 0x1406C78D4 (sub_1406C78D4.c)
+ *     sub_14090F750 @ 0x14090F750 (sub_14090F750.c)
+ *     sub_14090F9B0 @ 0x14090F9B0 (sub_14090F9B0.c)
+ *     sub_1409F6A1C @ 0x1409F6A1C (sub_1409F6A1C.c)
+ *     sub_1409F6C5C @ 0x1409F6C5C (sub_1409F6C5C.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
@@ -40,7 +40,7 @@ NTSTATUS __fastcall IoConvertFileHandleToKernelHandle(
   {
     if ( a4 || (a3 & HandleInformation.GrantedAccess) == a3 )
     {
-      v9 = ObDuplicateObject((ULONG_PTR)KeGetCurrentThread()->ApcState.Process, a3, 512, 0, 0);
+      v9 = ObDuplicateObject(*((_QWORD *)KeGetCurrentThread() + 23), a3, 512, 0, 0);
       v10 = Object;
       v11 = v9;
       if ( v9 >= 0 )

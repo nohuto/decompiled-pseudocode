@@ -10,42 +10,43 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlpFcNotifyFeatureUsageTarget(int *a1, _DWORD *a2)
+int __fastcall RtlpFcNotifyFeatureUsageTarget(int *a1, WNF_STATE_NAME *a2)
 {
-  int Heap; // edi
-  int WnfStateData; // esi
-  unsigned int v5; // edx
-  int v6; // ecx
-  unsigned int v7; // esi
+  PVOID Heap; // edi
+  NTSTATUS updated; // esi
+  ULONG v5; // edx
+  ULONG v6; // ecx
+  ULONG v7; // esi
   int v8; // eax
-  unsigned int v9; // edx
-  int v11; // [esp+Ch] [ebp-14h] BYREF
-  unsigned int v12; // [esp+10h] [ebp-10h] BYREF
-  _DWORD v13[2]; // [esp+14h] [ebp-Ch] BYREF
+  ULONG v9; // edx
+  SIZE_T v11; // [esp-4h] [ebp-24h]
+  ULONG ChangeStamp; // [esp+Ch] [ebp-14h] BYREF
+  ULONG BufferSize; // [esp+10h] [ebp-10h] BYREF
+  WNF_STATE_NAME StateName; // [esp+14h] [ebp-Ch] BYREF
 
-  v13[0] = *a2;
-  v13[1] = a2[1];
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 4096);
+  StateName = *a2;
+  LODWORD(v11) = 4096;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
   if ( !Heap )
     return -1073741801;
   do
   {
-    v12 = 4096;
-    WnfStateData = NtQueryWnfStateData((int)v13, 0, 0, (int)&v11, Heap, (int)&v12);
-    if ( WnfStateData >= 0 )
+    BufferSize = 4096;
+    updated = NtQueryWnfStateData(&StateName, 0, 0, &ChangeStamp, Heap, &BufferSize);
+    if ( updated >= 0 )
     {
       v5 = 0;
-      v12 &= -((v12 & 7) == 0);
-      v6 = v12;
-      v7 = v12 >> 3;
-      if ( v12 >> 3 )
+      BufferSize &= -((BufferSize & 7) == 0);
+      v6 = BufferSize;
+      v7 = BufferSize >> 3;
+      if ( BufferSize >> 3 )
       {
         v8 = *a1;
         do
         {
-          if ( *(_DWORD *)(Heap + 8 * v5) == v8 )
+          if ( *((_DWORD *)Heap + 2 * v5) == v8 )
           {
-            if ( *(_WORD *)(Heap + 8 * v5 + 4) == *((_WORD *)a1 + 2) )
+            if ( *((_WORD *)Heap + 4 * v5 + 2) == *((_WORD *)a1 + 2) )
               goto LABEL_12;
             v8 = *a1;
           }
@@ -53,19 +54,19 @@ int __fastcall RtlpFcNotifyFeatureUsageTarget(int *a1, _DWORD *a2)
         }
         while ( v5 < v7 );
       }
-      v9 = v12 + 8;
-      if ( v12 + 8 <= 0x1000 )
+      v9 = BufferSize + 8;
+      if ( BufferSize + 8 <= 0x1000 )
       {
-        v6 = v12 + 8;
-        *(_DWORD *)(Heap + 8 * v7) = *a1;
-        *(_WORD *)(Heap + 8 * v7 + 4) = *((_WORD *)a1 + 2);
-        v12 = v9;
+        v6 = BufferSize + 8;
+        *((_DWORD *)Heap + 2 * v7) = *a1;
+        *((_WORD *)Heap + 4 * v7 + 2) = *((_WORD *)a1 + 2);
+        BufferSize = v9;
       }
 LABEL_12:
-      WnfStateData = NtUpdateWnfStateData((int)v13, Heap, v6, 0, 0, v11, 1);
+      updated = NtUpdateWnfStateData(&StateName, Heap, v6, 0, 0, ChangeStamp, 1u);
     }
   }
-  while ( WnfStateData == -1073741823 );
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  return WnfStateData;
+  while ( updated == -1073741823 );
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return updated;
 }

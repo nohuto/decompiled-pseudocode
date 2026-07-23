@@ -1,21 +1,21 @@
 /*
- * XREFs of AstLogDeviceCreated @ 0x1409A3E34
+ * XREFs of AstLogDeviceCreated @ 0x1408AC7C4
  * Callers:
- *     IoCreateDevice @ 0x1409A3530 (IoCreateDevice.c)
+ *     IoCreateDevice @ 0x1408ABEC0 (IoCreateDevice.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     AstIsRecording @ 0x1409A4060 (AstIsRecording.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     AstIsRecording @ 0x1408AC9F0 (AstIsRecording.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
-void __fastcall AstLogDeviceCreated(char *a1, int a2, int a3)
+void __fastcall AstLogDeviceCreated(__int64 a1, int a2, int a3)
 {
-  char *v6; // rcx
-  int v7; // eax
+  int v6; // ecx
+  int NameStringMode; // eax
   char v8; // di
   __int64 Pool3; // rax
   UNICODE_STRING *v10; // rbx
@@ -46,8 +46,8 @@ void __fastcall AstLogDeviceCreated(char *a1, int a2, int a3)
   HIDWORD(v17) = 0;
   if ( !(unsigned __int8)AstIsRecording() )
     return;
-  v7 = ObQueryNameStringMode(v6, 0LL, 0, &v12, 0);
-  if ( v12 <= 0x10 || v7 != -1073741820 )
+  NameStringMode = ObQueryNameStringMode(v6, 0, 0, (unsigned int)&v12, 0);
+  if ( v12 <= 0x10 || NameStringMode != -1073741820 )
     return;
   v8 = 1;
   v17 = 0LL;
@@ -61,7 +61,7 @@ LABEL_16:
     RtlInitUnicodeString(&DestinationString, v11);
     goto LABEL_8;
   }
-  if ( (int)ObQueryNameStringMode(a1, Pool3, v12, &v12, 0) < 0 )
+  if ( (int)ObQueryNameStringMode(a1, Pool3, v12, (unsigned int)&v12, 0) < 0 )
   {
     v11 = L"Query failed";
     goto LABEL_16;
@@ -93,7 +93,7 @@ LABEL_8:
       *(_QWORD *)&DestinationString.Length = a1;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E06EF0,
-        (unsigned __int8 *)word_1400463E2,
+        (unsigned __int8 *)word_1400467E2,
         0LL,
         0LL,
         8u,

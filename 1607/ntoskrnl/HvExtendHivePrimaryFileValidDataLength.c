@@ -1,17 +1,17 @@
 /*
- * XREFs of HvExtendHivePrimaryFileValidDataLength @ 0x140605D14
+ * XREFs of HvExtendHivePrimaryFileValidDataLength @ 0x140605DC8
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
  * Callees:
- *     HvpViewMapAcquireLockShared @ 0x1401B67C0 (HvpViewMapAcquireLockShared.c)
- *     HvpViewMapIsRangePinned @ 0x1401B6824 (HvpViewMapIsRangePinned.c)
- *     HvpViewMapReleaseLockShared @ 0x1401B6AF8 (HvpViewMapReleaseLockShared.c)
- *     CmpFileFlushAndPurge @ 0x140506A2C (CmpFileFlushAndPurge.c)
- *     CmpFileFlush @ 0x140604204 (CmpFileFlush.c)
- *     HvViewMapAddressForFileOffset @ 0x14060FA68 (HvViewMapAddressForFileOffset.c)
- *     HvViewMapFlush @ 0x14060FB24 (HvViewMapFlush.c)
- *     HvViewMapPinForFileOffset @ 0x14060FC6C (HvViewMapPinForFileOffset.c)
- *     HvViewMapUnpinForFileOffset @ 0x14060FE80 (HvViewMapUnpinForFileOffset.c)
+ *     HvpViewMapAcquireLockShared @ 0x1401B66A4 (HvpViewMapAcquireLockShared.c)
+ *     HvpViewMapIsRangePinned @ 0x1401B6708 (HvpViewMapIsRangePinned.c)
+ *     HvpViewMapReleaseLockShared @ 0x1401B69DC (HvpViewMapReleaseLockShared.c)
+ *     CmpFileFlushAndPurge @ 0x1404E99BC (CmpFileFlushAndPurge.c)
+ *     CmpFileFlush @ 0x1406042B8 (CmpFileFlush.c)
+ *     HvViewMapAddressForFileOffset @ 0x14060FB1C (HvViewMapAddressForFileOffset.c)
+ *     HvViewMapFlush @ 0x14060FBD8 (HvViewMapFlush.c)
+ *     HvViewMapPinForFileOffset @ 0x14060FD20 (HvViewMapPinForFileOffset.c)
+ *     HvViewMapUnpinForFileOffset @ 0x14060FF34 (HvViewMapUnpinForFileOffset.c)
  */
 
 __int64 __fastcall HvExtendHivePrimaryFileValidDataLength(__int64 a1, int a2, int a3)

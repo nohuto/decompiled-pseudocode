@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSearchLineInSectionByIndex @ 0x1409BF670
+ * XREFs of CmpSearchLineInSectionByIndex @ 0x1409C0670
  * Callers:
- *     CmpGetSectionLineIndexValueCount @ 0x1409BED7C (CmpGetSectionLineIndexValueCount.c)
- *     EmpInfParseGetSectionLineCount @ 0x1409BEFA0 (EmpInfParseGetSectionLineCount.c)
- *     CmpGetSectionLineIndex @ 0x1409BF514 (CmpGetSectionLineIndex.c)
- *     CmpGetKeyName @ 0x1409BF630 (CmpGetKeyName.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x1409BFD7C (CmpGetSectionLineIndexValueCount.c)
+ *     EmpInfParseGetSectionLineCount @ 0x1409BFFA0 (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x1409C0514 (CmpGetSectionLineIndex.c)
+ *     CmpGetKeyName @ 0x1409C0630 (CmpGetKeyName.c)
  * Callees:
  *     <none>
  */

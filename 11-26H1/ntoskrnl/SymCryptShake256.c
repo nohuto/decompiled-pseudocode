@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptShake256 @ 0x1405749AC
+ * XREFs of SymCryptShake256 @ 0x140573C10
  * Callers:
- *     SymCryptMlDsaKeyGenerateEx @ 0x14055D64C (SymCryptMlDsaKeyGenerateEx.c)
- *     SymCryptMlDsaSkDecode @ 0x140573AF4 (SymCryptMlDsaSkDecode.c)
+ *     SymCryptMlDsaKeyGenerateEx @ 0x14055FB34 (SymCryptMlDsaKeyGenerateEx.c)
+ *     SymCryptMlDsaSkDecode @ 0x140572D4C (SymCryptMlDsaSkDecode.c)
  * Callees:
- *     SymCryptKeccakAppend @ 0x1405757DC (SymCryptKeccakAppend.c)
- *     SymCryptKeccakExtract @ 0x1405759D4 (SymCryptKeccakExtract.c)
- *     SymCryptKeccakInit @ 0x140575B9C (SymCryptKeccakInit.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SymCryptKeccakAppend @ 0x140577C8C (SymCryptKeccakAppend.c)
+ *     SymCryptKeccakExtract @ 0x140577E84 (SymCryptKeccakExtract.c)
+ *     SymCryptKeccakInit @ 0x14057804C (SymCryptKeccakInit.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SymCryptShake256(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,24 +1,24 @@
 /*
- * XREFs of BiGetObjectReferenceFromEfiEntry @ 0x1409BFAAC
+ * XREFs of BiGetObjectReferenceFromEfiEntry @ 0x1409A60FC
  * Callers:
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140815B48 (BiUpdateObjectReferenceInEfiEntry.c)
- *     BiBuildIdentifierList @ 0x1409BEF7C (BiBuildIdentifierList.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140816288 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     BiBuildIdentifierList @ 0x1409A55CC (BiBuildIdentifierList.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _wcsupr @ 0x1404FE6D0 (_wcsupr.c)
- *     wcsstr @ 0x1405002B0 (wcsstr.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     BiIsWindowsEfiEntry @ 0x1409BFB4C (BiIsWindowsEfiEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _wcsupr @ 0x1404FBF90 (_wcsupr.c)
+ *     wcsstr @ 0x1404FDB70 (wcsstr.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     BiIsWindowsEfiEntry @ 0x1409A619C (BiIsWindowsEfiEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetObjectReferenceFromEfiEntry(__int64 a1, GUID *a2)
 {
   unsigned int v4; // ebx
-  size_t v6; // rbx
+  ULONG_PTR v6; // rbx
   wchar_t *Pool2; // rax
   wchar_t *v8; // rdi
   wchar_t *v9; // rax
@@ -35,7 +35,7 @@ __int64 __fastcall BiGetObjectReferenceFromEfiEntry(__int64 a1, GUID *a2)
   if ( (unsigned __int8)BiIsWindowsEfiEntry(a1, a2) )
   {
     v6 = (unsigned int)(*(_DWORD *)(a1 + 40) - 20);
-    Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x102uLL, v6, 0x4B444342u);
     v8 = Pool2;
     if ( Pool2 )
     {

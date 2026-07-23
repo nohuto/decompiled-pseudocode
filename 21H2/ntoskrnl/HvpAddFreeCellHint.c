@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpAddFreeCellHint @ 0x1407090E0
+ * XREFs of HvpAddFreeCellHint @ 0x1407204C0
  * Callers:
- *     HvpEnlistFreeCell @ 0x1407082E8 (HvpEnlistFreeCell.c)
+ *     HvpEnlistFreeCell @ 0x14071F6C8 (HvpEnlistFreeCell.c)
  * Callees:
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpAddFreeCellHint(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3)

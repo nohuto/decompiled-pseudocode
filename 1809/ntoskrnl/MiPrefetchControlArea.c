@@ -1,18 +1,18 @@
 /*
- * XREFs of MiPrefetchControlArea @ 0x1406C7244
+ * XREFs of MiPrefetchControlArea @ 0x1406C84E4
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiSetPagesModified @ 0x1402AA7EC (MiSetPagesModified.c)
- *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiSetPagesModified @ 0x1402AA9DC (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x140653FD0 (MiValidateSectionCreate.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085B5DC (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
  *     MiPfCompletePrefetchIos @ 0x14001A020 (MiPfCompletePrefetchIos.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiPfExecuteReadList @ 0x14066279C (MiPfExecuteReadList.c)
- *     MiReleaseReadListResources @ 0x1406628D0 (MiReleaseReadListResources.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
+ *     MiPfExecuteReadList @ 0x14066395C (MiPfExecuteReadList.c)
+ *     MiReleaseReadListResources @ 0x140663A90 (MiReleaseReadListResources.c)
  */
 
 __int64 __fastcall MiPrefetchControlArea(

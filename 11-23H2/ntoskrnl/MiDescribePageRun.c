@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDescribePageRun @ 0x14037548C
+ * XREFs of MiDescribePageRun @ 0x14037562C
  * Callers:
- *     MiCreateNodeLists @ 0x14081B934 (MiCreateNodeLists.c)
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiCreateNodeLists @ 0x14081BC04 (MiCreateNodeLists.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
- *     MiPageToChannel @ 0x140375870 (MiPageToChannel.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
+ *     MiPageToChannel @ 0x140375A10 (MiPageToChannel.c)
  */
 
 __int64 __fastcall MiDescribePageRun(__int64 a1, ULONG_PTR a2, __int64 a3)

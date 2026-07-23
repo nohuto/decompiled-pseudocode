@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFindNameInList @ 0x140AAF008
+ * XREFs of CmpFindNameInList @ 0x140AACC58
  * Callers:
- *     CmQueryMultipleValueKey @ 0x14097EB2C (CmQueryMultipleValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x140940B3C (CmQueryMultipleValueKey.c)
  * Callees:
- *     CmpFindNameInListWithStatus @ 0x1408D5200 (CmpFindNameInListWithStatus.c)
+ *     CmpFindNameInListWithStatus @ 0x1408DB7C0 (CmpFindNameInListWithStatus.c)
  */
 
 bool __fastcall CmpFindNameInList(

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpWow64CtxFromAmd64 @ 0x140A004D0
+ * XREFs of RtlpWow64CtxFromAmd64 @ 0x1409FD4A8
  * Callers:
- *     PspWow64SetContextThread @ 0x140913174 (PspWow64SetContextThread.c)
- *     PspWow64GetContextThread @ 0x1409A90C0 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1408EA8C4 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x140992510 (PspWow64GetContextThread.c)
  * Callees:
- *     RtlpCopyXStateChunk @ 0x1403E76D0 (RtlpCopyXStateChunk.c)
- *     RtlFxToFnFrame @ 0x140431320 (RtlFxToFnFrame.c)
+ *     RtlpCopyXStateChunk @ 0x1403D5270 (RtlpCopyXStateChunk.c)
+ *     RtlFxToFnFrame @ 0x140423860 (RtlFxToFnFrame.c)
  */
 
 __int64 __fastcall RtlpWow64CtxFromAmd64(int a1, _DWORD *a2, int *a3)

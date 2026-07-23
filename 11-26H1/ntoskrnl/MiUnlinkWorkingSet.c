@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlinkWorkingSet @ 0x1404D4B5C
+ * XREFs of MiUnlinkWorkingSet @ 0x1404CE3CC
  * Callers:
- *     MiDeletePartitionResources @ 0x140868E28 (MiDeletePartitionResources.c)
- *     MmDeleteProcessAddressSpace @ 0x140B3F940 (MmDeleteProcessAddressSpace.c)
+ *     MiDeletePartitionResources @ 0x14086F208 (MiDeletePartitionResources.c)
+ *     MmDeleteProcessAddressSpace @ 0x140B41970 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlinkAllAgingEntries @ 0x14030D9FC (MiUnlinkAllAgingEntries.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlinkAllAgingEntries @ 0x1402EFA7C (MiUnlinkAllAgingEntries.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
  */
 
 void __fastcall MiUnlinkWorkingSet(__int64 a1)
@@ -27,7 +27,7 @@ void __fastcall MiUnlinkWorkingSet(__int64 a1)
   v1 = *(unsigned __int16 *)(a1 + 174);
   v3 = *(_QWORD *)(a1 + 16);
   v9 = 0;
-  v4 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v1);
+  v4 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v1);
   v7 = 263;
   v5 = (volatile LONG *)(v4 + 21384);
   v8 = 6;

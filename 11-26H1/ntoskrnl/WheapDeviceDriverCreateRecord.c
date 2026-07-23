@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapDeviceDriverCreateRecord @ 0x1406D55C0
+ * XREFs of WheapDeviceDriverCreateRecord @ 0x1406D96A0
  * Callers:
  *     <none>
  * Callees:
- *     WheapCreateRecordFromGenericErrorData @ 0x1406D68BC (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x1406DA99C (WheapCreateRecordFromGenericErrorData.c)
  */
 
 __int64 __fastcall WheapDeviceDriverCreateRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

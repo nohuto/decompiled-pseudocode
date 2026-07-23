@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefIntToModElement @ 0x140403E64
+ * XREFs of SymCryptFdefIntToModElement @ 0x140404044
  * Callers:
- *     SymCryptIntToModElement @ 0x1403F9570 (SymCryptIntToModElement.c)
+ *     SymCryptIntToModElement @ 0x1403F9750 (SymCryptIntToModElement.c)
  * Callees:
- *     SymCryptFdefRawDivMod @ 0x1404038A8 (SymCryptFdefRawDivMod.c)
- *     _guard_dispatch_icall_nop @ 0x14041A550 (_guard_dispatch_icall_nop.c)
+ *     SymCryptFdefRawDivMod @ 0x140403A88 (SymCryptFdefRawDivMod.c)
+ *     _guard_dispatch_icall_nop @ 0x14041A8E0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SymCryptFdefIntToModElement(__int64 a1, _DWORD *a2, void *a3, _DWORD *a4, __int64 a5)

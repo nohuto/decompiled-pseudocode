@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipAllocGuidEntry @ 0x140537DD4
+ * XREFs of WmipAllocGuidEntry @ 0x140538314
  * Callers:
- *     WmipOpenBlock @ 0x1404744DC (WmipOpenBlock.c)
- *     WmipLinkDataSourceToList @ 0x140537CA4 (WmipLinkDataSourceToList.c)
+ *     WmipOpenBlock @ 0x1404733AC (WmipOpenBlock.c)
+ *     WmipLinkDataSourceToList @ 0x1405381E4 (WmipLinkDataSourceToList.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     WmipAllocEntry @ 0x140537E68 (WmipAllocEntry.c)
+ *     WmipAllocEntry @ 0x1405383A8 (WmipAllocEntry.c)
  */
 
 _QWORD *WmipAllocGuidEntry()

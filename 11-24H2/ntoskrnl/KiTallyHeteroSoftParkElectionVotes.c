@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTallyHeteroSoftParkElectionVotes @ 0x1402018D0
+ * XREFs of KiTallyHeteroSoftParkElectionVotes @ 0x140329FC0
  * Callers:
- *     KiPerformHeteroSoftParkElection @ 0x1402017A8 (KiPerformHeteroSoftParkElection.c)
+ *     KiPerformHeteroSoftParkElection @ 0x140329E98 (KiPerformHeteroSoftParkElection.c)
  * Callees:
- *     KiGenerateHeteroSets @ 0x140202060 (KiGenerateHeteroSets.c)
- *     KiReduceAffinityToRankListMinimums @ 0x1402022C0 (KiReduceAffinityToRankListMinimums.c)
- *     KiHeteroReduceToMaximallyPreferredByClass @ 0x140202324 (KiHeteroReduceToMaximallyPreferredByClass.c)
- *     KiReduceAffinityToRankListMaximums @ 0x140202640 (KiReduceAffinityToRankListMaximums.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiGenerateHeteroSets @ 0x14032A750 (KiGenerateHeteroSets.c)
+ *     KiReduceAffinityToRankListMinimums @ 0x14032A9B0 (KiReduceAffinityToRankListMinimums.c)
+ *     KiHeteroReduceToMaximallyPreferredByClass @ 0x14032AA14 (KiHeteroReduceToMaximallyPreferredByClass.c)
+ *     KiReduceAffinityToRankListMaximums @ 0x14032AD30 (KiReduceAffinityToRankListMaximums.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiTallyHeteroSoftParkElectionVotes(

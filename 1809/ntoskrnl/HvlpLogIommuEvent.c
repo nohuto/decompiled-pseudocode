@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpLogIommuEvent @ 0x1402786C4
+ * XREFs of HvlpLogIommuEvent @ 0x1402788B4
  * Callers:
- *     HvlMapDeviceInterrupt @ 0x1402747C0 (HvlMapDeviceInterrupt.c)
+ *     HvlMapDeviceInterrupt @ 0x1402749B0 (HvlMapDeviceInterrupt.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvlpWriteEventLog @ 0x140278A38 (HvlpWriteEventLog.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvlpWriteEventLog @ 0x140278C28 (HvlpWriteEventLog.c)
  */
 
 __int64 __fastcall HvlpLogIommuEvent(__int64 a1)

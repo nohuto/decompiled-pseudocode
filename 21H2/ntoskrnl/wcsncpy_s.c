@@ -1,19 +1,19 @@
 /*
- * XREFs of wcsncpy_s @ 0x1403D8420
+ * XREFs of wcsncpy_s @ 0x1403D8590
  * Callers:
- *     _wsplitpath_s @ 0x1403D7830 (_wsplitpath_s.c)
- *     EmonAddProfileSource @ 0x1404D2DC0 (EmonAddProfileSource.c)
- *     Amd64AddProfileSource @ 0x1404DD4C0 (Amd64AddProfileSource.c)
- *     LocalGetStringForControl @ 0x1406771A0 (LocalGetStringForControl.c)
- *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
- *     GetOperatorIndexByName @ 0x140927AE8 (GetOperatorIndexByName.c)
- *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x14093A870 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     ExpFindArcName @ 0x14094FF14 (ExpFindArcName.c)
- *     ExpParseSignatureName @ 0x140950DC4 (ExpParseSignatureName.c)
- *     HalpKdEnumerateDebuggingDevices @ 0x1409B6230 (HalpKdEnumerateDebuggingDevices.c)
+ *     _wsplitpath_s @ 0x1403D79A0 (_wsplitpath_s.c)
+ *     EmonAddProfileSource @ 0x1404D3000 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1404DD700 (Amd64AddProfileSource.c)
+ *     LocalGetStringForControl @ 0x14066A870 (LocalGetStringForControl.c)
+ *     LocalGetAclForString @ 0x140787A6C (LocalGetAclForString.c)
+ *     GetOperatorIndexByName @ 0x140927C48 (GetOperatorIndexByName.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938730 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x14093AA40 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     ExpFindArcName @ 0x1409500E4 (ExpFindArcName.c)
+ *     ExpParseSignatureName @ 0x140950F94 (ExpParseSignatureName.c)
+ *     HalpKdEnumerateDebuggingDevices @ 0x1409B7230 (HalpKdEnumerateDebuggingDevices.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039AB40 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsncpy_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)

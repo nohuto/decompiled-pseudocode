@@ -64,7 +64,7 @@ char __fastcall KiAbThreadUnboostCpuPriority(ULONG_PTR BugCheckParameter1, unsig
   struct _KPRCB *v37; // r9
   _DWORD *v38; // r8
   int v39; // eax
-  __int64 (__fastcall *v40)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  __int64 (__fastcall *v40)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v41; // r12
   unsigned int *v42; // rbx
   unsigned __int64 v43; // rdi
@@ -74,7 +74,7 @@ char __fastcall KiAbThreadUnboostCpuPriority(ULONG_PTR BugCheckParameter1, unsig
   __int64 (__fastcall *v47)(_QWORD, _DWORD *, __int128 *, _QWORD, int *); // rax
   __int64 (__fastcall *v48)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v50[2]; // [rsp+40h] [rbp-338h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
   int v52; // [rsp+4Ch] [rbp-32Ch]
   _QWORD *v53; // [rsp+50h] [rbp-328h] BYREF
   int v54; // [rsp+58h] [rbp-320h]
@@ -106,7 +106,9 @@ char __fastcall KiAbThreadUnboostCpuPriority(ULONG_PTR BugCheckParameter1, unsig
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v5 = (unsigned int)(unsigned __int8)v53 + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)((_BYTE)v53 + 1)) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)((_BYTE)v53 + 1)) != 0
+    && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -245,7 +247,7 @@ char __fastcall KiAbThreadUnboostCpuPriority(ULONG_PTR BugCheckParameter1, unsig
     }
     if ( !v32 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v33 = KeGetCurrentIrql();
         if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && (unsigned __int8)(v33 - 2) <= 0xDu )
@@ -262,7 +264,7 @@ char __fastcall KiAbThreadUnboostCpuPriority(ULONG_PTR BugCheckParameter1, unsig
       *(_DWORD *)(v19 + 116) &= ~0x40u;
       KiDeliverApc(0, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v36 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && (unsigned __int8)(v36 - 2) <= 0xDu )
@@ -295,12 +297,11 @@ char __fastcall KiAbThreadUnboostCpuPriority(ULONG_PTR BugCheckParameter1, unsig
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v71 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v52 = 1;
     v50[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v50[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v40 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                 + 120);
+    v40 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     _disable();
     LOBYTE(Processor) = v40(*(_QWORD *)(HalpInterruptController + 16), v50, &v71, 47LL, &ProcNumber);
     if ( (v76 & 0x200) != 0 )

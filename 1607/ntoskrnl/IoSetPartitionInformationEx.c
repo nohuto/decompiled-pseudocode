@@ -1,5 +1,5 @@
 /*
- * XREFs of IoSetPartitionInformationEx @ 0x1406200C4
+ * XREFs of IoSetPartitionInformationEx @ 0x140620178
  * Callers:
  *     <none>
  * Callees:

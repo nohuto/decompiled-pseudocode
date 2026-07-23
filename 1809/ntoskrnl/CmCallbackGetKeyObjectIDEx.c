@@ -1,21 +1,21 @@
 /*
- * XREFs of CmCallbackGetKeyObjectIDEx @ 0x1405CB1A0
+ * XREFs of CmCallbackGetKeyObjectIDEx @ 0x1405CC1A0
  * Callers:
  *     <none>
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
- *     CmpLockKcbStackShared @ 0x140644030 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1405CCDE0 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpConstructNameWithStatus @ 0x1405D83A0 (CmpConstructNameWithStatus.c)
+ *     CmpLockKcbStackShared @ 0x140645050 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406450E0 (CmpUnlockKcbStack.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, int a5)

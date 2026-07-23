@@ -1,5 +1,5 @@
 /*
- * XREFs of WinSqmStartSessionForPartner @ 0x180089360
+ * XREFs of WinSqmStartSessionForPartner @ 0x180089370
  * Callers:
  *     <none>
  * Callees:

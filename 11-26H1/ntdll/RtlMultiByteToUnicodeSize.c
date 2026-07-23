@@ -1,54 +1,57 @@
 /*
- * XREFs of RtlMultiByteToUnicodeSize @ 0x18009FBF0
+ * XREFs of RtlMultiByteToUnicodeSize @ 0x18009ED20
  * Callers:
- *     RtlOemStringToUnicodeString @ 0x18009FB00 (RtlOemStringToUnicodeString.c)
+ *     RtlOemStringToUnicodeString @ 0x18009EC30 (RtlOemStringToUnicodeString.c)
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x18003BC80 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1800261F0 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlMultiByteToUnicodeSize(int *a1, char *a2, unsigned int a3)
+NTSTATUS __cdecl RtlMultiByteToUnicodeSize(
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  int v4; // eax
-  __int64 result; // rax
+  ULONG v4; // eax
+  NTSTATUS result; // eax
   __int64 v7; // rcx
   signed __int32 v8[8]; // [rsp+0h] [rbp-38h] BYREF
 
   _InterlockedOr(v8, 0);
-  if ( word_1801C5FD0 != -535 && GlobalRtlNlsState != -535 )
+  if ( CodePageTable.CodePage != 0xFDE9 && GlobalRtlNlsState.CodePage != 0xFDE9 )
   {
     _InterlockedOr(v8, 0);
     v4 = 0;
-    if ( word_1801C5F9C )
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      while ( a3-- )
+      while ( BytesInMultiByteString-- )
       {
-        v7 = (unsigned __int8)*a2++;
-        if ( *(_WORD *)(qword_1801C6020 + 2 * v7) )
+        v7 = *(unsigned __int8 *)MultiByteString++;
+        if ( *(_WORD *)(qword_1801C5020 + 2 * v7) )
         {
-          if ( !a3 )
+          if ( !BytesInMultiByteString )
           {
-            *a1 = v4 + 2;
-            return 0LL;
+            *BytesInUnicodeString = v4 + 2;
+            return 0;
           }
-          --a3;
-          ++a2;
+          --BytesInMultiByteString;
+          ++MultiByteString;
         }
         v4 += 2;
       }
     }
     else
     {
-      v4 = 2 * a3;
+      v4 = 2 * BytesInMultiByteString;
     }
-    *a1 = v4;
-    return 0LL;
+    *BytesInUnicodeString = v4;
+    return 0;
   }
-  if ( a3 )
+  if ( BytesInMultiByteString )
   {
-    RtlUTF8ToUnicodeN(0LL, 0, a1, a2, a3);
-    return 0LL;
+    RtlUTF8ToUnicodeN(0LL, 0, BytesInUnicodeString, MultiByteString, BytesInMultiByteString);
+    return 0;
   }
-  result = 0LL;
-  *a1 = 0;
+  result = 0;
+  *BytesInUnicodeString = 0;
   return result;
 }

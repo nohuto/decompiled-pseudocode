@@ -1,5 +1,5 @@
 /*
- * XREFs of NtStartProfile @ 0x1408DA3E0
+ * XREFs of NtStartProfile @ 0x1408DB6A0
  * Callers:
  *     <none>
  * Callees:
@@ -9,13 +9,13 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     MmSizeOfMdl @ 0x14011A740 (MmSizeOfMdl.c)
- *     KeStartProfile @ 0x140295C2C (KeStartProfile.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     KeInitializeProfile @ 0x1408444A4 (KeInitializeProfile.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     MmSizeOfMdl @ 0x14011A7B0 (MmSizeOfMdl.c)
+ *     KeStartProfile @ 0x140295E1C (KeStartProfile.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     KeInitializeProfile @ 0x140845704 (KeInitializeProfile.c)
  */
 
 NTSTATUS __stdcall NtStartProfile(HANDLE ProfileHandle)

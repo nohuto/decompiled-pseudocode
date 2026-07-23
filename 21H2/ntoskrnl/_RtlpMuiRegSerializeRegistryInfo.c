@@ -1,10 +1,10 @@
 /*
- * XREFs of _RtlpMuiRegSerializeRegistryInfo @ 0x140793CC8
+ * XREFs of _RtlpMuiRegSerializeRegistryInfo @ 0x14078FA68
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403AD204 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8878 (RtlpMuiRegCreateKernelRegistryInfo.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall RtlpMuiRegSerializeRegistryInfo(__int64 a1, _OWORD *a2, unsigned int *a3)

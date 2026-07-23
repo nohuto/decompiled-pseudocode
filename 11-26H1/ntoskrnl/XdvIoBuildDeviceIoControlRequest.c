@@ -1,9 +1,9 @@
 /*
- * XREFs of XdvIoBuildDeviceIoControlRequest @ 0x140645280
+ * XREFs of XdvIoBuildDeviceIoControlRequest @ 0x140648E60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall XdvIoBuildDeviceIoControlRequest(__int64 a1, __int64 a2)

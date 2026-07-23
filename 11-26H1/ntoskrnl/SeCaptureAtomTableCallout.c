@@ -1,11 +1,11 @@
 /*
- * XREFs of SeCaptureAtomTableCallout @ 0x1404B53BC
+ * XREFs of SeCaptureAtomTableCallout @ 0x1404AEFD4
  * Callers:
- *     PsConvertToGuiThread @ 0x140A40AE0 (PsConvertToGuiThread.c)
+ *     PsConvertToGuiThread @ 0x1409FC500 (PsConvertToGuiThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsReferenceEffectiveToken @ 0x14094F580 (PsReferenceEffectiveToken.c)
- *     PsInvokeWin32Callout @ 0x140A41140 (PsInvokeWin32Callout.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceEffectiveToken @ 0x1409CAEC0 (PsReferenceEffectiveToken.c)
+ *     PsInvokeWin32Callout @ 0x1409FCB60 (PsInvokeWin32Callout.c)
  */
 
 LONG_PTR SeCaptureAtomTableCallout()
@@ -17,11 +17,10 @@ LONG_PTR SeCaptureAtomTableCallout()
   signed __int64 v5; // r8
   __int128 v6; // [rsp+30h] [rbp-28h] BYREF
   signed __int64 v7; // [rsp+40h] [rbp-18h]
-  char v8; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+60h] [rbp+8h] BYREF
   __int64 v9; // [rsp+68h] [rbp+10h] BYREF
   __int64 v10; // [rsp+70h] [rbp+18h] BYREF
 
-  v8 = 0;
   LODWORD(v7) = 0;
   v6 = 0LL;
   CurrentThread = KeGetCurrentThread();

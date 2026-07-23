@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpInitiateModernStandbyTransition @ 0x140880B00
+ * XREFs of TtmpInitiateModernStandbyTransition @ 0x140881D60
  * Callers:
- *     TtmpActivateSessionWorker @ 0x1408806C8 (TtmpActivateSessionWorker.c)
- *     TtmpDeactivateSessionWorker @ 0x1408808D0 (TtmpDeactivateSessionWorker.c)
+ *     TtmpActivateSessionWorker @ 0x140881928 (TtmpActivateSessionWorker.c)
+ *     TtmpDeactivateSessionWorker @ 0x140881B30 (TtmpDeactivateSessionWorker.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     PopPdcEngagePhases @ 0x14086F218 (PopPdcEngagePhases.c)
- *     TtmiLogInitiateModernStandbyTransitionStart @ 0x140884184 (TtmiLogInitiateModernStandbyTransitionStart.c)
- *     TtmiLogInitiateModernStandbyTransitionStop @ 0x140884278 (TtmiLogInitiateModernStandbyTransitionStop.c)
+ *     PopPdcEngagePhases @ 0x140870478 (PopPdcEngagePhases.c)
+ *     TtmiLogInitiateModernStandbyTransitionStart @ 0x1408853E4 (TtmiLogInitiateModernStandbyTransitionStart.c)
+ *     TtmiLogInitiateModernStandbyTransitionStop @ 0x1408854D8 (TtmiLogInitiateModernStandbyTransitionStop.c)
  */
 
 __int64 __fastcall TtmpInitiateModernStandbyTransition(__int64 a1, char a2, unsigned int a3)

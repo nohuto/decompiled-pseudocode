@@ -1,21 +1,21 @@
 /*
- * XREFs of ZwReadFile @ 0x1406A64D0
+ * XREFs of ZwReadFile @ 0x1406A7470
  * Callers:
- *     CmpDoFileRead @ 0x140479BDC (CmpDoFileRead.c)
- *     SecureDump_LoadCertAndProvisionKey @ 0x1405A1E04 (SecureDump_LoadCertAndProvisionKey.c)
- *     RtlInitializeBootStatDataCache @ 0x1405E9650 (RtlInitializeBootStatDataCache.c)
- *     DifZwReadFileWrapper @ 0x140646D90 (DifZwReadFileWrapper.c)
- *     PopLoadFileInMemory @ 0x1407493F4 (PopLoadFileInMemory.c)
- *     SshpSessionManagerOpenControlTrace @ 0x140767400 (SshpSessionManagerOpenControlTrace.c)
- *     RtlCheckBootStatusIntegrity @ 0x140782BE4 (RtlCheckBootStatusIntegrity.c)
- *     RtlInitializeBootStatusDataBlackBox @ 0x140782E14 (RtlInitializeBootStatusDataBlackBox.c)
- *     CMFSystemThreadRoutine @ 0x1407C27E0 (CMFSystemThreadRoutine.c)
- *     EtwpRealtimeRestoreBuffer @ 0x1409D991C (EtwpRealtimeRestoreBuffer.c)
- *     EtwpUpdateFileHeader @ 0x1409DAB48 (EtwpUpdateFileHeader.c)
- *     EtwpFinalizeHeader @ 0x1409DBD1C (EtwpFinalizeHeader.c)
- *     RtlpGetSetBootStatusData @ 0x140A3FA14 (RtlpGetSetBootStatusData.c)
- *     EtwpRealtimeRestoreState @ 0x140AAECB8 (EtwpRealtimeRestoreState.c)
- *     EmInitSystem @ 0x140C607D0 (EmInitSystem.c)
+ *     CmpDoFileRead @ 0x14047546C (CmpDoFileRead.c)
+ *     SecureDump_LoadCertAndProvisionKey @ 0x14059ED44 (SecureDump_LoadCertAndProvisionKey.c)
+ *     RtlInitializeBootStatDataCache @ 0x1405E6BA0 (RtlInitializeBootStatDataCache.c)
+ *     DifZwReadFileWrapper @ 0x140645350 (DifZwReadFileWrapper.c)
+ *     PopLoadFileInMemory @ 0x140747724 (PopLoadFileInMemory.c)
+ *     SshpSessionManagerOpenControlTrace @ 0x140766E60 (SshpSessionManagerOpenControlTrace.c)
+ *     RtlCheckBootStatusIntegrity @ 0x140782B14 (RtlCheckBootStatusIntegrity.c)
+ *     RtlInitializeBootStatusDataBlackBox @ 0x140782D44 (RtlInitializeBootStatusDataBlackBox.c)
+ *     CMFSystemThreadRoutine @ 0x1407C3A10 (CMFSystemThreadRoutine.c)
+ *     EtwpRealtimeRestoreBuffer @ 0x1409D442C (EtwpRealtimeRestoreBuffer.c)
+ *     EtwpUpdateFileHeader @ 0x1409D5658 (EtwpUpdateFileHeader.c)
+ *     EtwpFinalizeHeader @ 0x1409D652C (EtwpFinalizeHeader.c)
+ *     RtlpGetSetBootStatusData @ 0x140A352C4 (RtlpGetSetBootStatusData.c)
+ *     EtwpRealtimeRestoreState @ 0x140AA9B94 (EtwpRealtimeRestoreState.c)
+ *     EmInitSystem @ 0x140C62920 (EmInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -33,5 +33,5 @@ NTSTATUS __stdcall ZwReadFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

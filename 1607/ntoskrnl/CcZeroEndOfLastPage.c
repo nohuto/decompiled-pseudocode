@@ -1,18 +1,18 @@
 /*
- * XREFs of CcZeroEndOfLastPage @ 0x140024850
+ * XREFs of CcZeroEndOfLastPage @ 0x1400243D0
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x14007DB60 (FsRtlCreateSectionForDataScan.c)
- *     MmCreateSystemSection @ 0x1400821E0 (MmCreateSystemSection.c)
- *     NtCreateSection @ 0x14042C990 (NtCreateSection.c)
- *     MmCreateSpecialImageSection @ 0x14045DF70 (MmCreateSpecialImageSection.c)
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     FsRtlCreateSectionForDataScan @ 0x14007DBE0 (FsRtlCreateSectionForDataScan.c)
+ *     MmCreateSystemSection @ 0x140082E5C (MmCreateSystemSection.c)
+ *     NtCreateSection @ 0x14042B860 (NtCreateSection.c)
+ *     MmCreateSpecialImageSection @ 0x14045CE40 (MmCreateSpecialImageSection.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     CcPurgeCacheSection @ 0x140072920 (CcPurgeCacheSection.c)
- *     CcFlushCache @ 0x14008F434 (CcFlushCache.c)
- *     FsRtlAcquireFileExclusive @ 0x14042DE48 (FsRtlAcquireFileExclusive.c)
- *     FsRtlReleaseFile @ 0x14042DE60 (FsRtlReleaseFile.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     CcPurgeCacheSection @ 0x1400724A0 (CcPurgeCacheSection.c)
+ *     CcFlushCache @ 0x14008EB94 (CcFlushCache.c)
+ *     FsRtlAcquireFileExclusive @ 0x14042CD18 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlReleaseFile @ 0x14042CD30 (FsRtlReleaseFile.c)
  */
 
 void __fastcall CcZeroEndOfLastPage(PFILE_OBJECT FileObject)

@@ -21,7 +21,7 @@ NTSTATUS __fastcall PipSmBiosGetString(
   unsigned __int16 v11; // di
   char *v12; // rcx
   bool v14; // zf
-  STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
 
   v5 = a2;
   SourceString = 0LL;

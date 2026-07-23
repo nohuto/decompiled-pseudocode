@@ -1,23 +1,23 @@
 /*
- * XREFs of PspSetupUserProcessAddressSpace @ 0x140A9A3AC
+ * XREFs of PspSetupUserProcessAddressSpace @ 0x1409E53DC
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     PsGetProcessServerSilo @ 0x140476BF0 (PsGetProcessServerSilo.c)
- *     PspWow64SetupUserProcessAddressSpace @ 0x1404BED0C (PspWow64SetupUserProcessAddressSpace.c)
- *     KeCopyXfdMaskToPeb @ 0x1404E8568 (KeCopyXfdMaskToPeb.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
- *     MmMapApiSetView @ 0x140863ED4 (MmMapApiSetView.c)
- *     PspPrepareSystemDllInitBlock @ 0x140A9A628 (PspPrepareSystemDllInitBlock.c)
- *     PspUpdatePebForAffinityChange @ 0x140A9AA04 (PspUpdatePebForAffinityChange.c)
- *     PspCopyAndFixupParameters @ 0x140A9AAB8 (PspCopyAndFixupParameters.c)
- *     PspLocateInPEManifest @ 0x140A9ADF4 (PspLocateInPEManifest.c)
- *     PspMapSiloSharedDataView @ 0x140A9B2D8 (PspMapSiloSharedDataView.c)
- *     PspGetStandardHandleList @ 0x140A9B5EC (PspGetStandardHandleList.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     PsGetProcessServerSilo @ 0x140470370 (PsGetProcessServerSilo.c)
+ *     PspWow64SetupUserProcessAddressSpace @ 0x1404B855C (PspWow64SetupUserProcessAddressSpace.c)
+ *     KeCopyXfdMaskToPeb @ 0x1404E1928 (KeCopyXfdMaskToPeb.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
+ *     MmMapApiSetView @ 0x14086A2B4 (MmMapApiSetView.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1409E5658 (PspPrepareSystemDllInitBlock.c)
+ *     PspUpdatePebForAffinityChange @ 0x1409E5A34 (PspUpdatePebForAffinityChange.c)
+ *     PspCopyAndFixupParameters @ 0x1409E5AE8 (PspCopyAndFixupParameters.c)
+ *     PspLocateInPEManifest @ 0x1409E5E24 (PspLocateInPEManifest.c)
+ *     PspMapSiloSharedDataView @ 0x1409E6308 (PspMapSiloSharedDataView.c)
+ *     PspGetStandardHandleList @ 0x1409E661C (PspGetStandardHandleList.c)
  */
 
 __int64 __fastcall PspSetupUserProcessAddressSpace(__int64 a1, _KPROCESS *a2, __int64 a3, __int64 a4)
@@ -60,13 +60,13 @@ __int64 __fastcall PspSetupUserProcessAddressSpace(__int64 a1, _KPROCESS *a2, __
   }
   v12 = v8[2];
   v13 = v12 & 0x1000060;
-  if ( (PspSiloMonitorLock.CurrentRunTime & 1) != 0 )
+  if ( (PspSiloMonitorLock.CycleTime & 0x100000000LL) != 0 )
   {
     v12 |= 0x8000u;
     v8[2] = v12;
   }
   if ( !v8[259] )
-    v8[259] = *(_DWORD *)&PspSiloMonitorLock.SchedulerApcFill5[72];
+    v8[259] = *(_DWORD *)&PspSiloMonitorLock.SchedulerApcFill5[64];
   ProcessServerSilo = PsGetProcessServerSilo((__int64)a2);
   if ( *((_BYTE *)PsGetServerSiloGlobals(ProcessServerSilo) + 1016) )
     v8[2] = v12 | 0x20000000;

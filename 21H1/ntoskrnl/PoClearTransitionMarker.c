@@ -19,7 +19,7 @@
 __int64 (__fastcall *PoClearTransitionMarker())(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD)
 {
   unsigned int v0; // ebx
-  int v1; // eax
+  ULONG32 v1; // eax
   __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD); // rax
   int v3; // [rsp+30h] [rbp-29h]
   char v4; // [rsp+40h] [rbp-19h] BYREF
@@ -36,7 +36,7 @@ __int64 (__fastcall *PoClearTransitionMarker())(_QWORD, _QWORD, _QWORD, _QWORD, 
 
   FileHandle = 0LL;
   v4 = 0;
-  if ( (int)RtlLockBootStatusData(&FileHandle) >= 0 )
+  if ( RtlLockBootStatusData(&FileHandle) >= 0 )
   {
     RtlInitializeBootStatusDataBlackBox(FileHandle);
     RtlUnlockBootStatusData(FileHandle);
@@ -66,7 +66,7 @@ __int64 (__fastcall *PoClearTransitionMarker())(_QWORD, _QWORD, _QWORD, _QWORD, 
   BYTE11(PopBsdPowerTransition) = -64;
   dword_140C208EC = 3;
   *(_QWORD *)&xmmword_140C504D8 = MEMORY[0xFFFFF78000000014];
-  v1 = RtlComputeCrc32(0, (char *)&xmmword_140C504D8, 8u);
+  v1 = RtlComputeCrc32(0, &xmmword_140C504D8, 8u);
   BYTE14(PopBsdPowerTransition) &= ~0x10u;
   DWORD2(xmmword_140C504D8) = v1;
   RtlpSystemBootStatusRequest(32LL, &v6, v0, 0LL);

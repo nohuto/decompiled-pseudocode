@@ -2,24 +2,24 @@
  * XREFs of MiFillSystemPtes @ 0x14005C300
  * Callers:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x1400E5DA4 (MiMapContiguousMemory.c)
- *     MmMapMdl @ 0x1402AD860 (MmMapMdl.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x140856768 (MiMapHotPatchImageInSystemSpace.c)
+ *     MiMapContiguousMemory @ 0x1400E5E24 (MiMapContiguousMemory.c)
+ *     MmMapMdl @ 0x1402ADA50 (MmMapMdl.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x1408579C8 (MiMapHotPatchImageInSystemSpace.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiIoSpaceRunIsConstant @ 0x1400E5C90 (MiIoSpaceRunIsConstant.c)
- *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
- *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiZeroAndFlushPtes @ 0x14012337C (MiZeroAndFlushPtes.c)
- *     MiIoPagesInRun @ 0x1401312DC (MiIoPagesInRun.c)
- *     MiAssignInitialPageAttribute @ 0x14018D1D4 (MiAssignInitialPageAttribute.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiShowBadMapper @ 0x1402A5A44 (MiShowBadMapper.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiIoSpaceRunIsConstant @ 0x1400E5D10 (MiIoSpaceRunIsConstant.c)
+ *     MiReferenceIoPages @ 0x1400E602C (MiReferenceIoPages.c)
+ *     MiUserPdeOrAbove @ 0x1400F96CC (MiUserPdeOrAbove.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiZeroAndFlushPtes @ 0x14012344C (MiZeroAndFlushPtes.c)
+ *     MiIoPagesInRun @ 0x1401313AC (MiIoPagesInRun.c)
+ *     MiAssignInitialPageAttribute @ 0x14018D314 (MiAssignInitialPageAttribute.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiShowBadMapper @ 0x1402A5C34 (MiShowBadMapper.c)
  */
 
 __int64 __fastcall MiFillSystemPtes(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, _DWORD *a6)
@@ -123,13 +123,13 @@ LABEL_4:
   }
   if ( v14 < 0xFFFF800000000000uLL )
   {
-    v15 = HIBYTE(word_14043A1AC);
+    v15 = HIBYTE(word_14043B26C);
   }
   else
   {
-    if ( byte_14043B950[((v14 >> 39) & 0x1FF) - 256] == 1 || v14 >= 0xFFFFF68000000000uLL && v14 <= v13 )
+    if ( byte_14043CA10[((v14 >> 39) & 0x1FF) - 256] == 1 || v14 >= 0xFFFFF68000000000uLL && v14 <= v13 )
       goto LABEL_19;
-    v15 = v14 > qword_14043A530 || v14 < qword_14043BAC0 ? (unsigned __int8)word_14043A1AC : HIBYTE(word_14043A1AC);
+    v15 = v14 > qword_14043B5F0 || v14 < qword_14043CB80 ? (unsigned __int8)word_14043B26C : HIBYTE(word_14043B26C);
   }
   if ( v15 )
 LABEL_89:
@@ -140,7 +140,7 @@ LABEL_19:
     v16 = v12;
   if ( (v10 & 0x40000000) != 0 )
     v16 &= ~4uLL;
-  v17 = ((unsigned __int16)v16 ^ (unsigned __int16)((unsigned __int8)word_14043A1AC << 8)) & 0x100 ^ (unsigned __int64)v16;
+  v17 = ((unsigned __int16)v16 ^ (unsigned __int16)((unsigned __int8)word_14043B26C << 8)) & 0x100 ^ (unsigned __int64)v16;
   if ( (v10 & 0x8000000) != 0 )
     v17 &= ~0x100uLL;
   if ( (v10 & 0x4000000) != 0 )
@@ -169,7 +169,7 @@ LABEL_19:
     if ( !v22 )
       v23 = 0LL;
     v22 = v23;
-    if ( (a5 & 4) != 0 && v21 == qword_14043ADD8 )
+    if ( (a5 & 4) != 0 && v21 == qword_14043BE98 )
       goto LABEL_49;
     if ( v21 > 0xFFFFFFFFFLL || ((*(_QWORD *)(48 * v21 - 0x57FFFFFFFD8LL) >> 53) & 1) == 0 )
     {
@@ -270,7 +270,7 @@ LABEL_45:
     {
       if ( (unsigned int)MiPteHasShadow(v27, v28) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v28 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v28 & 1) != 0 )
           v28 |= 0x8000000000000000uLL;
         *(_QWORD *)v9 = v28;
         MiWritePteShadow(v9);

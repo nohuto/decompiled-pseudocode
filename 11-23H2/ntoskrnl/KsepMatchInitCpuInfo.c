@@ -3,7 +3,7 @@
  * Callers:
  *     KsepMatchInitMachineInfo @ 0x140B6137C (KsepMatchInitMachineInfo.c)
  * Callees:
- *     KsepStringAnsiToUnicode @ 0x140844690 (KsepStringAnsiToUnicode.c)
+ *     KsepStringAnsiToUnicode @ 0x140844990 (KsepStringAnsiToUnicode.c)
  */
 
 NTSTATUS KsepMatchInitCpuInfo()

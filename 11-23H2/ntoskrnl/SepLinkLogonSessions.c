@@ -1,16 +1,16 @@
 /*
- * XREFs of SepLinkLogonSessions @ 0x1403542A0
+ * XREFs of SepLinkLogonSessions @ 0x140354440
  * Callers:
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     SepDeReferenceLogonSessionDirect @ 0x140370B20 (SepDeReferenceLogonSessionDirect.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     SepReferenceLogonSession @ 0x1407C3314 (SepReferenceLogonSession.c)
- *     SepStopReferencingLogonSession @ 0x1407F08A0 (SepStopReferencingLogonSession.c)
- *     SepRemoveTokenLogonSession @ 0x1409D0334 (SepRemoveTokenLogonSession.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140370CC0 (SepDeReferenceLogonSessionDirect.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     SepReferenceLogonSession @ 0x1407C35E4 (SepReferenceLogonSession.c)
+ *     SepStopReferencingLogonSession @ 0x1407F0B70 (SepStopReferencingLogonSession.c)
+ *     SepRemoveTokenLogonSession @ 0x1409D0534 (SepRemoveTokenLogonSession.c)
  */
 
 __int64 __fastcall SepLinkLogonSessions(__int64 a1, void *a2, KPROCESSOR_MODE a3)

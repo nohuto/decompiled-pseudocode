@@ -1,9 +1,9 @@
 /*
- * XREFs of HalRequestIpiSpecifyVector @ 0x140437AC0
+ * XREFs of HalRequestIpiSpecifyVector @ 0x14042A540
  * Callers:
- *     HalpReboot @ 0x140544C40 (HalpReboot.c)
+ *     HalpReboot @ 0x140542500 (HalpReboot.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
  */
 
 __int64 __fastcall HalRequestIpiSpecifyVector(int a1, unsigned __int16 *a2, unsigned int a3)

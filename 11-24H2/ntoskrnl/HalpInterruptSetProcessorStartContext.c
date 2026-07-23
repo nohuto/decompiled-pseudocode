@@ -1,26 +1,21 @@
 /*
- * XREFs of HalpInterruptSetProcessorStartContext @ 0x140541E70
+ * XREFs of HalpInterruptSetProcessorStartContext @ 0x14053F770
  * Callers:
- *     HalpSetupRealModeResume @ 0x1406A5F20 (HalpSetupRealModeResume.c)
- *     HalpInterruptStartProcessor @ 0x140B4BED0 (HalpInterruptStartProcessor.c)
+ *     HalpSetupRealModeResume @ 0x1406A6F40 (HalpSetupRealModeResume.c)
+ *     HalpInterruptStartProcessor @ 0x140B4DF10 (HalpInterruptStartProcessor.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     KeForceEnableNx @ 0x140B57810 (KeForceEnableNx.c)
+ *     HalpInterruptDetermineProcessorStartupFlags @ 0x140556D3C (HalpInterruptDetermineProcessorStartupFlags.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
-__int64 __fastcall HalpInterruptSetProcessorStartContext(__int64 a1, const void *a2, char a3)
+__int64 __fastcall HalpInterruptSetProcessorStartContext(__int64 a1, const void *a2, char a3, unsigned int a4)
 {
-  int v4; // ecx
-
   if ( a2 )
     memmove((char *)HalpInterruptGlobalStartupBlock + 144, a2, 0x5C0uLL);
-  v4 = (unsigned __int8)KeForceEnableNx() != 0;
-  if ( HalpInterruptProcessorHidden )
-    v4 |= 4u;
-  *((_DWORD *)HalpInterruptGlobalStartupBlock + 2) = v4;
+  *((_DWORD *)HalpInterruptGlobalStartupBlock + 2) = HalpInterruptDetermineProcessorStartupFlags(a4);
   if ( a3 )
     *((_QWORD *)HalpInterruptGlobalStartupBlock + 11) = HalpBlkTiledMemoryMapPa;
   else
-    *((_QWORD *)HalpInterruptGlobalStartupBlock + 11) = (unsigned int)dword_140FC0CD4;
+    *((_QWORD *)HalpInterruptGlobalStartupBlock + 11) = (unsigned int)dword_140FC0F2C;
   return 0LL;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpHeapCreate @ 0x14037AF24
+ * XREFs of RtlpHpHeapCreate @ 0x14037AA74
  * Callers:
- *     RtlpHpMetadataHeapCreate @ 0x14037AEE0 (RtlpHpMetadataHeapCreate.c)
- *     ExCreateHeap @ 0x14039D748 (ExCreateHeap.c)
+ *     RtlpHpMetadataHeapCreate @ 0x14037AA30 (RtlpHpMetadataHeapCreate.c)
+ *     ExCreateHeap @ 0x14039D898 (ExCreateHeap.c)
  * Callees:
- *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpSegContextInitialize @ 0x14037B1D4 (RtlpHpSegContextInitialize.c)
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
- *     RtlpHpSegContextReserve @ 0x14037B380 (RtlpHpSegContextReserve.c)
- *     RtlpHpLfhContextInitialize @ 0x14037B408 (RtlpHpLfhContextInitialize.c)
- *     RtlpHpVsContextInitialize @ 0x14037B70C (RtlpHpVsContextInitialize.c)
- *     RtlpHpHeapAllocate @ 0x14037B8B0 (RtlpHpHeapAllocate.c)
- *     RtlpHpRegisterEnvironment @ 0x14037BB28 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpHeapDestroy @ 0x1403898BC (RtlpHpHeapDestroy.c)
- *     CmSiRWLockInitialize @ 0x140795710 (CmSiRWLockInitialize.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140314164 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpSegContextInitialize @ 0x14037AD24 (RtlpHpSegContextInitialize.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
+ *     RtlpHpSegContextReserve @ 0x14037AED0 (RtlpHpSegContextReserve.c)
+ *     RtlpHpLfhContextInitialize @ 0x14037AF58 (RtlpHpLfhContextInitialize.c)
+ *     RtlpHpVsContextInitialize @ 0x14037B25C (RtlpHpVsContextInitialize.c)
+ *     RtlpHpHeapAllocate @ 0x14037B400 (RtlpHpHeapAllocate.c)
+ *     RtlpHpRegisterEnvironment @ 0x14037B678 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpHeapDestroy @ 0x140389A0C (RtlpHpHeapDestroy.c)
+ *     CmSiRWLockInitialize @ 0x140795910 (CmSiRWLockInitialize.c)
  */
 
 __int64 __fastcall RtlpHpHeapCreate(unsigned int a1, __int64 a2, __int64 a3, __int128 *a4)

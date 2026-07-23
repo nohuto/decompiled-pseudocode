@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFanReadFanNoiseInfo @ 0x140859660
+ * XREFs of PopFanReadFanNoiseInfo @ 0x1408598A0
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     PopFanUpdateStatistics @ 0x140997754 (PopFanUpdateStatistics.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PopFanUpdateStatistics @ 0x140997954 (PopFanUpdateStatistics.c)
  */
 
 __int64 __fastcall PopFanReadFanNoiseInfo(int a1, __int64 a2, int a3)
@@ -78,7 +78,7 @@ __int64 __fastcall PopFanReadFanNoiseInfo(int a1, __int64 a2, int a3)
       v12 = v8;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C03950,
-        (unsigned __int8 *)byte_140031457,
+        (unsigned __int8 *)&word_140031686,
         0LL,
         0LL,
         4u,

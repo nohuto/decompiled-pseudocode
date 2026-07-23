@@ -3,11 +3,11 @@
  * Callers:
  *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     EtwActivityIdControl @ 0x140272110 (EtwActivityIdControl.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     CmAllocateExtraParameter @ 0x1405D3740 (CmAllocateExtraParameter.c)
  *     VrpFreeCallbackContext @ 0x1405D481C (VrpFreeCallbackContext.c)
  *     VrpCountPathComponents @ 0x1405D4DCC (VrpCountPathComponents.c)
@@ -18,7 +18,7 @@
  *     VrpAllocateKeyContext @ 0x1405D5A24 (VrpAllocateKeyContext.c)
  *     VrpFreeKeyContext @ 0x1405D5A80 (VrpFreeKeyContext.c)
  *     CmpFreeExtraParameter @ 0x1405D848C (CmpFreeExtraParameter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpPostOpenOrCreate(__int64 *a1, void *a2)
@@ -149,7 +149,7 @@ LABEL_31:
         v53 = 4;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02168,
-          (unsigned __int8 *)byte_14002433B,
+          (unsigned __int8 *)byte_1400244D1,
           &ActivityId,
           0LL,
           5u,
@@ -253,7 +253,7 @@ LABEL_39:
         v53 = 4;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02168,
-          (unsigned __int8 *)byte_14002423B,
+          (unsigned __int8 *)byte_140024293,
           &ActivityId,
           0LL,
           5u,

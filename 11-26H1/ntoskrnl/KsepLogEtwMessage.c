@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepLogEtwMessage @ 0x1404CCBF4
+ * XREFs of KsepLogEtwMessage @ 0x1404C6394
  * Callers:
- *     KsepLogInfo @ 0x1404CCB84 (KsepLogInfo.c)
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
+ *     KsepLogInfo @ 0x1404C6324 (KsepLogInfo.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     _vsnprintf @ 0x1405354D0 (_vsnprintf.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     _vsnprintf @ 0x140537950 (_vsnprintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall KsepLogEtwMessage(int a1, int a2, const char *a3, va_list a4)
@@ -23,7 +23,7 @@ void __fastcall KsepLogEtwMessage(int a1, int a2, const char *a3, va_list a4)
   int v14; // [rsp+180h] [rbp+80h] BYREF
 
   v14 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
     v5 = vsnprintf(Dest, 0xFFuLL, a3, a4);
     if ( v5 < 0x100 )
@@ -42,7 +42,7 @@ void __fastcall KsepLogEtwMessage(int a1, int a2, const char *a3, va_list a4)
       v10 = v6 + 1;
       if ( a2 )
         v7 = &KShimInfoMessage;
-      EtwWriteEx((REGHANDLE)stru_140E66B30.StackLimit, v7, 0LL, 0, 0LL, 0LL, 2u, &UserData);
+      EtwWriteEx((REGHANDLE)stru_140E66D40.StackLimit, v7, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
     else
     {

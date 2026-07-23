@@ -1,28 +1,28 @@
 /*
- * XREFs of PopEmUpdateDeviceConstraintCallback @ 0x1405DB750
+ * XREFs of PopEmUpdateDeviceConstraintCallback @ 0x1405D8620
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x1408ADC70 (RtlAnsiStringToUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140903ED0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall PopEmUpdateDeviceConstraintCallback(
         unsigned int ***a1,
         int a2,
-        const char **a3,
+        const CHAR **a3,
         int a4,
         _DWORD *a5,
         int a6)
 {
   unsigned int v6; // ebx
   unsigned int *v7; // rsi
-  const char *v8; // rdx
+  const CHAR *v8; // rdx
   __int64 v9; // rax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
-  STRING SourceString; // [rsp+30h] [rbp-28h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-28h] BYREF
   UNICODE_STRING String1; // [rsp+40h] [rbp-18h] BYREF
 
   v6 = 0;

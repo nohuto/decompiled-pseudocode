@@ -1,8 +1,8 @@
 /*
- * XREFs of WdipSemQueryEnabledInstanceTable @ 0x1404E4050
+ * XREFs of WdipSemQueryEnabledInstanceTable @ 0x1404C6D08
  * Callers:
- *     WdipSemMarkInstanceForDeletion @ 0x1404E3F5C (WdipSemMarkInstanceForDeletion.c)
- *     WdipSemReserveInstanceTableEntry @ 0x140541C74 (WdipSemReserveInstanceTableEntry.c)
+ *     WdipSemMarkInstanceForDeletion @ 0x1404C6C14 (WdipSemMarkInstanceForDeletion.c)
+ *     WdipSemReserveInstanceTableEntry @ 0x1405421B4 (WdipSemReserveInstanceTableEntry.c)
  * Callees:
  *     <none>
  */

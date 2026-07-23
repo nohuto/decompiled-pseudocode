@@ -1,9 +1,9 @@
 /*
- * XREFs of McGenEventUnregister_EtwUnregister @ 0x1405D360C
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1405D3B7C
  * Callers:
- *     CarLoggingExit @ 0x1405D3470 (CarLoggingExit.c)
+ *     CarLoggingExit @ 0x1405D39E0 (CarLoggingExit.c)
  * Callees:
- *     EtwUnregister @ 0x1407C0E00 (EtwUnregister.c)
+ *     EtwUnregister @ 0x1407C10D0 (EtwUnregister.c)
  */
 
 NTSTATUS McGenEventUnregister_EtwUnregister()

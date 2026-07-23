@@ -6,8 +6,8 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __stdcall RtlDestroyEnvironment(int a1)
+NTSTATUS __cdecl RtlDestroyEnvironment(PVOID Environment)
 {
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Environment);
   return 0;
 }

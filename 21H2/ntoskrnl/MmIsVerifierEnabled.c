@@ -1,9 +1,9 @@
 /*
- * XREFs of MmIsVerifierEnabled @ 0x1409C2600
+ * XREFs of MmIsVerifierEnabled @ 0x1409C3600
  * Callers:
- *     PopVerifierFlushMemoryBeforeSleep @ 0x1409991A0 (PopVerifierFlushMemoryBeforeSleep.c)
+ *     PopVerifierFlushMemoryBeforeSleep @ 0x14099A1A0 (PopVerifierFlushMemoryBeforeSleep.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
+ *     VfIsVerifierEnabled @ 0x140252060 (VfIsVerifierEnabled.c)
  */
 
 NTSTATUS __stdcall MmIsVerifierEnabled(PULONG VerifierFlags)

@@ -18,7 +18,7 @@
  */
 
 __int64 __fastcall SdbpFindFirstIndexedWildCardTag(
-        union _RTL_RUN_ONCE *Parameter,
+        _RTL_RUN_ONCE *Parameter,
         __int16 a2,
         __int16 a3,
         const WCHAR *a4,

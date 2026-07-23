@@ -1,30 +1,30 @@
 /*
- * XREFs of CmKtmNotification @ 0x1406942B0
+ * XREFs of CmKtmNotification @ 0x140695470
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     UNLOCK_HIVE_LOAD @ 0x1405B1514 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1405B1690 (LOCK_HIVE_LOAD.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpQueryNameString @ 0x140683654 (CmpQueryNameString.c)
- *     CmpTransMgrRollback @ 0x1406941F4 (CmpTransMgrRollback.c)
- *     CmpIsCmRm @ 0x140694820 (CmpIsCmRm.c)
- *     CmLogTmRmAction @ 0x1406F7DC8 (CmLogTmRmAction.c)
- *     CmpAccountForLogReservation @ 0x1406FAAC0 (CmpAccountForLogReservation.c)
- *     CmpTransMgrPrepare @ 0x1406FCDDC (CmpTransMgrPrepare.c)
- *     CmpTransMgrCommit @ 0x1406FCFB0 (CmpTransMgrCommit.c)
- *     CmpCleanupTransactionState @ 0x140701C2C (CmpCleanupTransactionState.c)
- *     CmpRecoverEnlistment @ 0x1407F8904 (CmpRecoverEnlistment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1405B2514 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1405B2690 (LOCK_HIVE_LOAD.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     CmpQueryNameString @ 0x140684814 (CmpQueryNameString.c)
+ *     CmpTransMgrRollback @ 0x1406953B4 (CmpTransMgrRollback.c)
+ *     CmpIsCmRm @ 0x1406959E0 (CmpIsCmRm.c)
+ *     CmLogTmRmAction @ 0x1406F9068 (CmLogTmRmAction.c)
+ *     CmpAccountForLogReservation @ 0x1406FBD60 (CmpAccountForLogReservation.c)
+ *     CmpTransMgrPrepare @ 0x1406FE07C (CmpTransMgrPrepare.c)
+ *     CmpTransMgrCommit @ 0x1406FE250 (CmpTransMgrCommit.c)
+ *     CmpCleanupTransactionState @ 0x140702ECC (CmpCleanupTransactionState.c)
+ *     CmpRecoverEnlistment @ 0x1407F9B04 (CmpRecoverEnlistment.c)
  */
 
 __int64 __fastcall CmKtmNotification(
@@ -133,7 +133,7 @@ LABEL_7:
   }
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  v17 = qword_1403FEFF0;
+  v17 = qword_1403FFFF0;
   if ( CmRmSystem != RMContext )
     v17 = *((_QWORD *)RMContext + 10);
   if ( CmpTraceTxrRoutine && CmpQueryNameString(*(void **)(v17 + 1536), &UnicodeString) >= 0 )

@@ -19,7 +19,7 @@ __int64 __fastcall WbFreeUserMemory(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v5; // rbx
-  __int64 v6; // rdi
+  PRTL_BALANCED_NODE v6; // rdi
   int v7; // eax
   __int64 v8; // rcx
   int v9; // edi
@@ -31,11 +31,11 @@ __int64 __fastcall WbFreeUserMemory(__int64 a1, __int64 a2)
   v12 = 0LL;
   --CurrentThread->SpecialApcDisable;
   v5 = (signed __int64 *)(a1 + 224);
-  v6 = KeAbPreAcquire(a1 + 224, 0LL, 0LL);
+  v6 = KeAbPreAcquire(a1 + 224, 0LL, 0);
   if ( _InterlockedCompareExchange64(v5, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v5, v6, (ULONG_PTR)v5);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v13 = 0LL;
   v7 = sub_14053B960(a1 + 184, a2, 8u, &v13, &v11);
   v8 = v12;

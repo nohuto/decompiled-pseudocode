@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFcpCompareFeatureIdToFeature @ 0x140A7EBE0
+ * XREFs of RtlFcpCompareFeatureIdToFeature @ 0x140A84A50
  * Callers:
- *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x140809FE8 (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
+ *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14080FA78 (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
  * Callees:
  *     <none>
  */

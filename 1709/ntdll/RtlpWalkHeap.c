@@ -12,9 +12,8 @@
  *     RtlpWalkLowFragHeapSegment @ 0x180106E1C (RtlpWalkLowFragHeapSegment.c)
  */
 
-__int64 __fastcall RtlpWalkHeap(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpWalkHeap(__int64 a1, __int64 a2, char a3)
 {
-  char v3; // r14
   _QWORD *v7; // rcx
   unsigned __int64 v8; // r8
   __int64 v9; // rdx
@@ -90,11 +89,10 @@ __int64 __fastcall RtlpWalkHeap(__int64 a1, __int64 a2, __int64 a3)
   int v79; // [rsp+48h] [rbp-8h]
   unsigned int v80; // [rsp+80h] [rbp+30h] BYREF
 
-  v3 = a3;
   if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
     return ((__int64 (*)(void))qword_180159438)();
   if ( (((*(_DWORD *)(a1 + 112) & 0x61000000) != 0) & !_bittest((const signed __int32 *)(a1 + 112), 0x1Cu)) != 0
-    && !(unsigned __int8)RtlDebugWalkHeap(a1, a2, a3, 1LL) )
+    && !(unsigned __int8)RtlDebugWalkHeap(a1) )
   {
     v80 = -1073741811;
     goto LABEL_196;
@@ -109,7 +107,7 @@ __int64 __fastcall RtlpWalkHeap(__int64 a1, __int64 a2, __int64 a3)
     v10 = *(_WORD *)(a2 + 18) & 2;
     if ( !v10 || (*(_BYTE *)(a1 + 386) != 2 ? (v11 = 0LL) : (v11 = *(_QWORD **)(a1 + 376)), v7 != v11) )
     {
-      if ( v3 && v10 )
+      if ( a3 && v10 )
       {
         v12 = v7[8];
         goto LABEL_25;
@@ -129,7 +127,7 @@ __int64 __fastcall RtlpWalkHeap(__int64 a1, __int64 a2, __int64 a3)
         v7 = 0LL;
       }
 LABEL_36:
-      if ( v3 && v12 < v7[9] )
+      if ( a3 && v12 < v7[9] )
         goto LABEL_25;
       v21 = v7[3];
       if ( v21 != a1 + 288 )
@@ -561,7 +559,7 @@ LABEL_170:
   *(_BYTE *)(a2 + 16) = 32;
   *(_QWORD *)(a2 + 36) = 32LL;
 LABEL_196:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v70 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v70 = 2147353472LL;

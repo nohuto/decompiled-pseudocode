@@ -1,7 +1,7 @@
 /*
- * XREFs of PoDeletePowerRequest @ 0x140588E00
+ * XREFs of PoDeletePowerRequest @ 0x140589E00
  * Callers:
- *     PoUnregisterSystemState @ 0x1402DBCF0 (PoUnregisterSystemState.c)
+ *     PoUnregisterSystemState @ 0x1402DBEE0 (PoUnregisterSystemState.c)
  * Callees:
  *     PopPowerRequestCleanUp @ 0x14000333C (PopPowerRequestCleanUp.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)

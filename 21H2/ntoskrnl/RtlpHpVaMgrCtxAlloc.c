@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAlloc @ 0x1402A3F14
+ * XREFs of RtlpHpVaMgrCtxAlloc @ 0x140221354
  * Callers:
- *     RtlpHpAllocVA @ 0x14030AD50 (RtlpHpAllocVA.c)
+ *     RtlpHpAllocVA @ 0x140315AA0 (RtlpHpAllocVA.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     RtlpHpVaMgrAlloc @ 0x1402A3F84 (RtlpHpVaMgrAlloc.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     RtlpHpVaMgrCtxAllocatorFind @ 0x14037BD28 (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     RtlpHpVaMgrAlloc @ 0x1402213C4 (RtlpHpVaMgrAlloc.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x14037B878 (RtlpHpVaMgrCtxAllocatorFind.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

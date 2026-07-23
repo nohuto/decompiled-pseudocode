@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAcquireSecondarySignalListLock @ 0x1405F0988
+ * XREFs of KiAcquireSecondarySignalListLock @ 0x1405F32F8
  * Callers:
- *     KeDispatchSecondaryInterrupt @ 0x1404AF590 (KeDispatchSecondaryInterrupt.c)
- *     KiProcessSecondarySignalList @ 0x1405F09E0 (KiProcessSecondarySignalList.c)
+ *     KeDispatchSecondaryInterrupt @ 0x1404A8C20 (KeDispatchSecondaryInterrupt.c)
+ *     KiProcessSecondarySignalList @ 0x1405F3350 (KiProcessSecondarySignalList.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall KiAcquireSecondarySignalListLock(unsigned __int8 *a1)
@@ -18,5 +18,5 @@ void __fastcall KiAcquireSecondarySignalListLock(unsigned __int8 *a1)
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 12);
   *a1 = CurrentIrql;
-  KxAcquireSpinLock((PKSPIN_LOCK)&KiDpcCorralLock.Timer.TimerListEntry.Blink);
+  KxAcquireSpinLock((PKSPIN_LOCK)&KiDpcCorralLock.WaitBlockFill11[64]);
 }

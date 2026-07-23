@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSelectCandidateProcessor @ 0x140234F10
+ * XREFs of KiSelectCandidateProcessor @ 0x140236870
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
  * Callees:
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x14022F5B4 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x140230F44 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned __int64 *a5)
@@ -57,7 +57,7 @@ __int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3
     v10 = *(_QWORD *)&v9[4 * v5 + 4];
   v11 = v10 & v8[16];
   v12 = v8 + 15;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v12);
     v13 = *v12 & 0x7FFFFFFF;
@@ -95,7 +95,7 @@ LABEL_46:
     _BitScanForward64(&v19, __ROR8__(v17, v18));
     v20 = *(unsigned __int8 *)(v6 + 208) << 6;
     LODWORD(v37) = 0;
-    v6 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+    v6 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                           + v20
                           + (((_BYTE)v19 + v18) & 0x3Fu))];
   }
@@ -168,7 +168,7 @@ LABEL_22:
   if ( ((**(_BYTE **)(v6 + 56) ^ v24) & 0x80u) != 0 )
     KiAcquirePrcbLocksForPreemptionAttemptSlowPath(v6, a4, v23);
   v31 = (volatile signed __int32 *)(v8 + 15);
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd(v31, 0xBFFFFFFF);
     _InterlockedDecrement(v31);

@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlpSetSecurityObject @ 0x1404A56A0
+ * XREFs of RtlpSetSecurityObject @ 0x14051DAA0
  * Callers:
- *     SeSetSecurityDescriptorInfo @ 0x1404A5664 (SeSetSecurityDescriptorInfo.c)
- *     SeSetSecurityDescriptorInfoEx @ 0x140694658 (SeSetSecurityDescriptorInfoEx.c)
+ *     SeSetSecurityDescriptorInfo @ 0x14051DA64 (SeSetSecurityDescriptorInfo.c)
+ *     SeSetSecurityDescriptorInfoEx @ 0x14069473C (SeSetSecurityDescriptorInfoEx.c)
  * Callees:
- *     RtlFindAceBySid @ 0x14000C100 (RtlFindAceBySid.c)
- *     RtlFindAceByType @ 0x140012AA0 (RtlFindAceByType.c)
- *     SepLocateTokenTrustLevel @ 0x140012F20 (SepLocateTokenTrustLevel.c)
- *     RtlSidDominatesForTrust @ 0x1400D3CA0 (RtlSidDominatesForTrust.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlFindAceBySid @ 0x14000BC80 (RtlFindAceBySid.c)
+ *     RtlFindAceByType @ 0x140012620 (RtlFindAceByType.c)
+ *     SepLocateTokenTrustLevel @ 0x140012AA0 (SepLocateTokenTrustLevel.c)
+ *     RtlSidDominatesForTrust @ 0x1400D1B40 (RtlSidDominatesForTrust.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     RtlpApplyAclToObject @ 0x14041E180 (RtlpApplyAclToObject.c)
- *     RtlpCombineAcls @ 0x14041E240 (RtlpCombineAcls.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     RtlValidSid @ 0x1404217D0 (RtlValidSid.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
- *     SepValidOwnerSubjectContext @ 0x1404A2B30 (SepValidOwnerSubjectContext.c)
- *     SepValidLabelSubjectContext @ 0x1404A2F74 (SepValidLabelSubjectContext.c)
- *     RtlpComputeMergedAcl @ 0x140683EF8 (RtlpComputeMergedAcl.c)
- *     RtlpCreateServerAcl @ 0x140684304 (RtlpCreateServerAcl.c)
- *     SepGetDefaultsSubjectContext @ 0x140691098 (SepGetDefaultsSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     RtlpApplyAclToObject @ 0x14041D040 (RtlpApplyAclToObject.c)
+ *     RtlpCombineAcls @ 0x14041D100 (RtlpCombineAcls.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     RtlValidSid @ 0x140420690 (RtlValidSid.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
+ *     SepValidOwnerSubjectContext @ 0x14051AF30 (SepValidOwnerSubjectContext.c)
+ *     SepValidLabelSubjectContext @ 0x14051B374 (SepValidLabelSubjectContext.c)
+ *     RtlpComputeMergedAcl @ 0x140683FDC (RtlpComputeMergedAcl.c)
+ *     RtlpCreateServerAcl @ 0x1406843E8 (RtlpCreateServerAcl.c)
+ *     SepGetDefaultsSubjectContext @ 0x14069117C (SepGetDefaultsSubjectContext.c)
  */
 
 __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64 *a4, char a5, int a6, _DWORD *a7)
@@ -32,7 +32,7 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
   unsigned __int16 v10; // dx
   unsigned __int16 *v11; // r12
   __int16 v12; // di
-  __int64 v13; // r10
+  ACL *v13; // r10
   __int64 v14; // rax
   __int16 v15; // cx
   unsigned __int16 *v16; // rbx
@@ -72,7 +72,7 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
   __int64 v51; // rax
   char v52; // r8
   unsigned __int8 *v53; // r11
-  void *v54; // r10
+  PACL v54; // r10
   __int64 v55; // rdx
   __int16 v56; // cx
   unsigned __int8 *v57; // r9
@@ -88,13 +88,13 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
   __int64 v67; // rcx
   unsigned __int8 *AceBySid; // rax
   __int16 v69; // di
-  unsigned __int8 *AceByType; // rax
+  BOOLEAN *AceByType; // rax
   __int64 v71; // rax
   unsigned int v72; // eax
   __int16 v73; // di
   __int16 v74; // ax
   _DWORD *v75; // rax
-  __int64 TokenTrustLevel; // rax
+  void *TokenTrustLevel; // rax
   unsigned int v77; // r8d
   unsigned int v78; // r8d
   __int16 v79; // cx
@@ -109,8 +109,8 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
   int v88; // ecx
   unsigned __int8 v89; // cl
   __int16 v90; // [rsp+50h] [rbp-B0h]
-  unsigned int v91; // [rsp+54h] [rbp-ACh] BYREF
-  char v92; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG Index; // [rsp+54h] [rbp-ACh] BYREF
+  BOOLEAN DominatesTrust; // [rsp+58h] [rbp-A8h] BYREF
   char v93; // [rsp+59h] [rbp-A7h]
   bool v94; // [rsp+5Ah] [rbp-A6h]
   bool v95; // [rsp+5Bh] [rbp-A5h]
@@ -124,14 +124,14 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
   char v103; // [rsp+63h] [rbp-9Dh]
   char v104[4]; // [rsp+64h] [rbp-9Ch] BYREF
   PVOID v105; // [rsp+68h] [rbp-98h]
-  int v106[2]; // [rsp+70h] [rbp-90h] BYREF
+  PACL Acl; // [rsp+70h] [rbp-90h] BYREF
   int v107; // [rsp+78h] [rbp-88h]
   int v108[2]; // [rsp+80h] [rbp-80h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY PoolType; // [rsp+88h] [rbp-78h] BYREF
+  _SID_IDENTIFIER_AUTHORITY PoolType; // [rsp+88h] [rbp-78h] BYREF
   __int64 v110; // [rsp+90h] [rbp-70h]
   PVOID v111; // [rsp+98h] [rbp-68h]
   PVOID v112; // [rsp+A0h] [rbp-60h]
-  char *v113; // [rsp+A8h] [rbp-58h]
+  void *v113; // [rsp+A8h] [rbp-58h]
   PVOID v114; // [rsp+B0h] [rbp-50h]
   int v115; // [rsp+B8h] [rbp-48h]
   unsigned int Size; // [rsp+BCh] [rbp-44h]
@@ -176,7 +176,7 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
   v114 = 0LL;
   v124 = 0LL;
   v113 = 0LL;
-  v92 = 0;
+  DominatesTrust = 0;
   v94 = 0;
   v115 = a3;
   v90 = 0x8000;
@@ -187,13 +187,13 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
     {
       v60 = *(unsigned int *)(v7 + 12);
       if ( (_DWORD)v60 )
-        v13 = v7 + v60;
+        v13 = (ACL *)(v7 + v60);
       else
         v13 = 0LL;
     }
     else
     {
-      v13 = *(_QWORD *)(v7 + 24);
+      v13 = *(ACL **)(v7 + 24);
     }
   }
   else
@@ -201,7 +201,7 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
     v13 = 0LL;
   }
   v14 = *a4;
-  *(_QWORD *)v106 = v13;
+  Acl = v13;
   v15 = *(_WORD *)(v14 + 2);
   if ( (v15 & 0x10) != 0 )
   {
@@ -339,27 +339,27 @@ __int64 __fastcall RtlpSetSecurityObject(__int64 a1, int a2, __int64 a3, __int64
   Size_4 = a2 & 0x10;
   if ( (a2 & 0x10) != 0 )
   {
-    v91 = 0;
+    Index = 0;
     while ( 1 )
     {
-      AceByType = RtlFindAceByType(*(__int64 *)v106, 17, &v91);
+      AceByType = (BOOLEAN *)RtlFindAceByType(Acl, 0x11u, &Index);
       v105 = AceByType;
       if ( AceByType )
       {
         v36 = (*((_DWORD *)AceByType + 1) & 0xFFFFFFF8) == 0;
-        v113 = (char *)(AceByType + 8);
-        v92 = AceByType[1];
+        v113 = AceByType + 8;
+        DominatesTrust = AceByType[1];
         if ( !v36 )
           break;
       }
       SeCaptureSubjectContext(&Sid);
-      if ( !SepValidLabelSubjectContext((__int64 *)&Sid, v113, v92) )
+      if ( !SepValidLabelSubjectContext((__int64 *)&Sid, v113, DominatesTrust) )
       {
         SeReleaseSubjectContext(&Sid);
         break;
       }
       SeReleaseSubjectContext(&Sid);
-      ++v91;
+      ++Index;
       if ( !v105 )
         goto LABEL_79;
     }
@@ -377,10 +377,10 @@ LABEL_80:
       {
         if ( (a5 & 2) == 0 )
         {
-          v54 = *(void **)v106;
+          v54 = Acl;
           v55 = v110;
-          v53 = *(unsigned __int8 **)v106;
-          v105 = *(PVOID *)v106;
+          v53 = (unsigned __int8 *)Acl;
+          v105 = Acl;
           v73 = *(_WORD *)(v110 + 2);
           v74 = v73 & 0xA00;
           v12 = v73 & 0x2000 | 0x8010;
@@ -395,14 +395,14 @@ LABEL_80:
         ServerAcl = RtlpComputeMergedAcl(
                       v108[0],
                       ((unsigned __int8)*(_WORD *)(*a4 + 2) >> 2) & 4 | ((unsigned __int8)*(_WORD *)(*a4 + 2) >> 2) & 8 | (*(unsigned __int16 *)(*a4 + 2) >> 1) & 0x1400u,
-                      v106[0],
+                      (int)Acl,
                       ((unsigned __int8)*(_WORD *)(v110 + 2) >> 2) & 4 | ((unsigned __int8)*(_WORD *)(v110 + 2) >> 2) & 8 | (*(unsigned __int16 *)(v110 + 2) >> 1) & 0x1400u,
                       (__int64)v19,
                       (__int64)v22,
                       (__int64)a7,
                       2,
                       (__int64)&v121,
-                      (__int64)&v91);
+                      (__int64)&Index);
         if ( ServerAcl < 0 )
         {
           v46 = (void *)v121;
@@ -413,7 +413,7 @@ LABEL_80:
         v52 = a5;
         v99 = 1;
         v105 = (PVOID)v121;
-        v12 = (4 * (v91 & 4)) | (4 * (v91 & 8)) | (2 * (v91 & 0x400)) | (2 * (v91 & 0x1000)) | 0x8010;
+        v12 = (4 * (Index & 4)) | (4 * (Index & 8)) | (2 * (Index & 0x400)) | (2 * (Index & 0x1000)) | 0x8010;
         v90 = v12;
       }
       else
@@ -421,7 +421,7 @@ LABEL_80:
         v53 = (unsigned __int8 *)v16;
         v105 = v16;
       }
-      v54 = *(void **)v106;
+      v54 = Acl;
       v55 = v110;
 LABEL_83:
       if ( (a2 & 0x20) != 0 )
@@ -432,14 +432,14 @@ LABEL_83:
           ServerAcl = RtlpComputeMergedAcl(
                         v108[0],
                         ((unsigned __int8)*(_WORD *)(*a4 + 2) >> 2) & 4 | (*(unsigned __int16 *)(*a4 + 2) >> 1) & 0x400 | ((unsigned __int8)*(_WORD *)(*a4 + 2) >> 2) & 8u,
-                        v106[0],
+                        (int)Acl,
                         ((unsigned __int8)v77 >> 2) & 4 | (v77 >> 1) & 0x400 | ((unsigned __int8)v77 >> 2) & 8,
                         (__int64)v19,
                         (__int64)v22,
                         (__int64)a7,
                         2,
                         (__int64)&v122,
-                        (__int64)&v91);
+                        (__int64)&Index);
           if ( ServerAcl < 0 )
           {
             v47 = (void *)v122;
@@ -447,10 +447,10 @@ LABEL_83:
             goto LABEL_61;
           }
           v16 = *(unsigned __int16 **)v108;
-          v54 = *(void **)v106;
+          v54 = Acl;
           v53 = (unsigned __int8 *)v105;
           v100 = 1;
-          v12 = (4 * (v91 & 4)) | (4 * (v91 & 8)) | (2 * (v91 & 0x400)) | (2 * (v91 & 0x1000)) | v90 | 0x10;
+          v12 = (4 * (Index & 4)) | (4 * (Index & 8)) | (2 * (Index & 0x400)) | (2 * (Index & 0x1000)) | v90 | 0x10;
           v112 = (PVOID)v122;
           v55 = v110;
           v52 = a5;
@@ -481,14 +481,14 @@ LABEL_83:
           ServerAcl = RtlpComputeMergedAcl(
                         v108[0],
                         ((unsigned __int8)*(_WORD *)(*a4 + 2) >> 2) & 4 | (*(unsigned __int16 *)(*a4 + 2) >> 1) & 0x400 | ((unsigned __int8)*(_WORD *)(*a4 + 2) >> 2) & 8u,
-                        v106[0],
+                        (int)Acl,
                         ((unsigned __int8)v78 >> 2) & 4 | (v78 >> 1) & 0x400 | ((unsigned __int8)v78 >> 2) & 8,
                         (__int64)v19,
                         (__int64)v22,
                         (__int64)a7,
                         2,
                         (__int64)&v123,
-                        (__int64)&v91);
+                        (__int64)&Index);
           if ( ServerAcl < 0 )
           {
             v48 = (void *)v123;
@@ -498,12 +498,12 @@ LABEL_83:
           }
           v57 = (unsigned __int8 *)v123;
           v16 = *(unsigned __int16 **)v108;
-          v54 = *(void **)v106;
+          v54 = Acl;
           v53 = (unsigned __int8 *)v105;
           v101 = 1;
           v111 = (PVOID)v123;
           v55 = v110;
-          v12 = (4 * (v91 & 4)) | (4 * (v91 & 8)) | (2 * (v91 & 0x400)) | (2 * (v91 & 0x1000)) | v90 | 0x10;
+          v12 = (4 * (Index & 4)) | (4 * (Index & 8)) | (2 * (Index & 0x400)) | (2 * (Index & 0x1000)) | v90 | 0x10;
           v52 = a5;
           v90 = v12;
         }
@@ -534,14 +534,14 @@ LABEL_83:
           ServerAcl = RtlpComputeMergedAcl(
                         v108[0],
                         ((unsigned __int8)*(_WORD *)(*a4 + 2) >> 2) & 4 | (*(unsigned __int16 *)(*a4 + 2) >> 1) & 0x400 | ((unsigned __int8)*(_WORD *)(*a4 + 2) >> 2) & 8u,
-                        v106[0],
+                        (int)Acl,
                         ((unsigned __int8)v80 >> 2) & 4 | (v80 >> 1) & 0x400 | ((unsigned __int8)v80 >> 2) & 8,
                         (__int64)v19,
                         (__int64)v22,
                         (__int64)a7,
                         2,
                         (__int64)&v124,
-                        (__int64)&v91);
+                        (__int64)&Index);
           if ( ServerAcl < 0 )
           {
             v49 = (void *)v124;
@@ -564,12 +564,12 @@ LABEL_63:
             return (unsigned int)ServerAcl;
           }
           v16 = *(unsigned __int16 **)v108;
-          v54 = *(void **)v106;
+          v54 = Acl;
           v53 = (unsigned __int8 *)v105;
           v57 = (unsigned __int8 *)v111;
           v102 = 1;
           v55 = v110;
-          v12 = (4 * (v91 & 4)) | (4 * (v91 & 8)) | (2 * (v91 & 0x400)) | (2 * (v91 & 0x1000)) | v90 | 0x10;
+          v12 = (4 * (Index & 4)) | (4 * (Index & 8)) | (2 * (Index & 0x400)) | (2 * (Index & 0x1000)) | v90 | 0x10;
           v58 = (unsigned __int8 *)v124;
           v114 = (PVOID)v124;
           v90 = v12;
@@ -605,7 +605,7 @@ LABEL_63:
       }
       else
       {
-        v54 = v16;
+        v54 = (PACL)v16;
       }
       v59 = RtlpCombineAcls(v53, (unsigned __int8 *)v54, (unsigned __int8 *)v112, v57, v58, (ACL **)&P, 0LL);
       if ( v59 < 0 )
@@ -678,7 +678,7 @@ LABEL_27:
             SeCaptureSubjectContext(&Sid);
             SepGetDefaultsSubjectContext(
               (unsigned int)&Sid,
-              (unsigned int)v106,
+              (unsigned int)&Acl,
               (unsigned int)v108,
               (unsigned int)&P,
               (__int64)&v121,
@@ -699,7 +699,7 @@ LABEL_28:
           v29 = 4 * v22[1] + 11;
           Size = 4 * v22[1] + 8;
           v30 = v29 & 0xFFFFFFFC;
-          v106[0] = v30;
+          LODWORD(Acl) = v30;
           if ( v11 )
             v31 = (v11[1] + 3) & 0xFFFFFFFC;
           else
@@ -773,7 +773,7 @@ LABEL_28:
             if ( v64 >= 0 )
             {
               Sid.ImpersonationLevel = 4;
-              v91 = 0;
+              Index = 0;
               while ( 1 )
               {
                 v65 = *((_WORD *)v34 + 1);
@@ -793,11 +793,11 @@ LABEL_28:
                 {
                   v67 = 0LL;
                 }
-                AceBySid = RtlFindAceBySid(v67, &Sid, &v91);
+                AceBySid = RtlFindAceBySid(v67, &Sid, &Index);
                 if ( !AceBySid )
                   break;
                 v89 = AceBySid[1] & 0xF4 | 8;
-                ++v91;
+                ++Index;
                 AceBySid[1] = v89;
               }
               v40 = v125;
@@ -812,8 +812,8 @@ LABEL_48:
                 *((_WORD *)v34 + 1) |= *(_WORD *)(*v40 + 2) & 1;
               v44 = Size;
               memmove(v43, v118, Size);
-              if ( (unsigned int)v44 < v106[0] )
-                memset(&v43[v44], 0, (unsigned int)(v106[0] - v44));
+              if ( (unsigned int)v44 < (unsigned int)Acl )
+                memset(&v43[v44], 0, (unsigned int)((_DWORD)Acl - v44));
               v36 = v97 == 0;
               *((_DWORD *)v34 + 2) = (_DWORD)v43 - (_DWORD)v34;
               if ( v36 )
@@ -890,12 +890,12 @@ LABEL_118:
                     (__int64)a7,
                     Size,
                     (__int64)&v126,
-                    (__int64)&v91);
+                    (__int64)&Index);
       if ( ServerAcl >= 0 )
       {
         v24 = (unsigned __int16 *)v126;
         v98 = 1;
-        v69 = v91 & 0x1408 | 4 | v12;
+        v69 = Index & 0x1408 | 4 | v12;
         goto LABEL_118;
       }
 LABEL_59:
@@ -911,10 +911,10 @@ LABEL_62:
     SeCaptureSubjectContext(&Sid);
     if ( SepLocateTokenTrustLevel((__int64 *)&Sid) )
     {
-      v91 = 0;
+      Index = 0;
       while ( 1 )
       {
-        v75 = RtlFindAceByType(*(__int64 *)v106, 20, &v91);
+        v75 = RtlFindAceByType(Acl, 0x14u, &Index);
         v105 = v75;
         if ( v75 )
         {
@@ -924,12 +924,16 @@ LABEL_62:
             SeReleaseSubjectContext(&Sid);
             return (unsigned int)ServerAcl;
           }
-          TokenTrustLevel = SepLocateTokenTrustLevel((__int64 *)&Sid);
-          if ( !TokenTrustLevel || (int)RtlSidDominatesForTrust(TokenTrustLevel, (__int64)v105 + 8, &v92) < 0 || !v92 )
+          TokenTrustLevel = (void *)SepLocateTokenTrustLevel((__int64 *)&Sid);
+          if ( !TokenTrustLevel
+            || RtlSidDominatesForTrust(TokenTrustLevel, (char *)v105 + 8, &DominatesTrust) < 0
+            || !DominatesTrust )
+          {
             break;
+          }
           v75 = v105;
         }
-        ++v91;
+        ++Index;
         if ( !v75 )
         {
           SeReleaseSubjectContext(&Sid);

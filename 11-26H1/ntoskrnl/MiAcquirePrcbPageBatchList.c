@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAcquirePrcbPageBatchList @ 0x140299200
+ * XREFs of MiAcquirePrcbPageBatchList @ 0x140298760
  * Callers:
- *     MiUnlinkProtoPages @ 0x140297A00 (MiUnlinkProtoPages.c)
- *     MiActivateDecayNode @ 0x140299994 (MiActivateDecayNode.c)
+ *     MiUnlinkProtoPages @ 0x140296F60 (MiUnlinkProtoPages.c)
+ *     MiActivateDecayNode @ 0x140298EF4 (MiActivateDecayNode.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _DWORD *MiAcquirePrcbPageBatchList()

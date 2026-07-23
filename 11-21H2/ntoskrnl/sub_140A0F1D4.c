@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140A0F1D4 @ 0x140A0F1D4
  * Callers:
- *     WbInPlaceEncryptionUnloadModule @ 0x1406D5C1C (WbInPlaceEncryptionUnloadModule.c)
+ *     sub_1406D5C1C @ 0x1406D5C1C (sub_1406D5C1C.c)
  *     sub_140A0EFB4 @ 0x140A0EFB4 (sub_140A0EFB4.c)
  *     sub_140A0F140 @ 0x140A0F140 (sub_140A0F140.c)
  *     sub_140A0F208 @ 0x140A0F208 (sub_140A0F208.c)

@@ -71,7 +71,7 @@ __int64 __fastcall CcPostDeferredWrites(__int64 a1, __int64 a2)
       if ( CcCanIWriteStreamEx(a1, a2, v7[1], v11, v19, 2, 0LL)
         && (!*((_BYTE *)v7 + 88)
          || MEMORY[0xFFFFF78000000320] >= (__int64)((unsigned int)(10000 * CcSoftThrottleDelay)
-                                                  / (unsigned __int64)(unsigned int)KeMaximumIncrement
+                                                  / (unsigned __int64)KeMaximumIncrement
                                                   + v7[12])) )
       {
         v12 = *v9;
@@ -89,10 +89,10 @@ LABEL_13:
       v2 = v19;
     }
     result = KxReleaseSpinLock((volatile signed __int64 *)v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v10 <= 0xFu
         && (unsigned __int8)result >= 2u )

@@ -6,10 +6,22 @@
  *     <none>
  */
 
-__int64 __fastcall RtlWow64ChangeThreadState(__int64 a1, __int64 a2, int a3)
+NTSTATUS __cdecl RtlWow64ChangeThreadState(
+        HANDLE ThreadStateChangeHandle,
+        HANDLE ThreadHandle,
+        THREAD_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
-  if ( a3 )
-    return NtChangeThreadState();
+  if ( StateChangeType )
+    return NtChangeThreadState(
+             ThreadStateChangeHandle,
+             ThreadHandle,
+             StateChangeType,
+             ExtendedInformation,
+             ExtendedInformationLength,
+             Reserved);
   else
-    return RtlpWow64SuspendThread(a2, a1, 0LL);
+    return RtlpWow64SuspendThread(ThreadHandle, ThreadStateChangeHandle, 0LL);
 }

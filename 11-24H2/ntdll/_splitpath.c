@@ -1,9 +1,9 @@
 /*
- * XREFs of _splitpath @ 0x180122250
+ * XREFs of _splitpath @ 0x180120480
  * Callers:
  *     <none>
  * Callees:
- *     _splitpath_helper @ 0x1801222E0 (_splitpath_helper.c)
+ *     _splitpath_helper @ 0x180120510 (_splitpath_helper.c)
  */
 
 void __cdecl splitpath(const char *FullPath, char *Drive, char *Dir, char *Filename, char *Ext)

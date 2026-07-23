@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsIsTagPresentInList @ 0x140C34FA8
+ * XREFs of ViFaultsIsTagPresentInList @ 0x140C3AFB8
  * Callers:
- *     VfFaultsInjectPoolAllocationFailure @ 0x140C346E4 (VfFaultsInjectPoolAllocationFailure.c)
- *     ViFaultsAddTagNoDuplicates @ 0x140C34D9C (ViFaultsAddTagNoDuplicates.c)
+ *     VfFaultsInjectPoolAllocationFailure @ 0x140C3A6F4 (VfFaultsInjectPoolAllocationFailure.c)
+ *     ViFaultsAddTagNoDuplicates @ 0x140C3ADAC (ViFaultsAddTagNoDuplicates.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x14043AD5C (ExCheckSingleFilter.c)
+ *     ExCheckSingleFilter @ 0x14042D60C (ExCheckSingleFilter.c)
  */
 
 __int64 __fastcall ViFaultsIsTagPresentInList(int a1)

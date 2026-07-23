@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpEnumerateAddressSpace @ 0x14042AE3C
+ * XREFs of EtwpEnumerateAddressSpace @ 0x140429D0C
  * Callers:
- *     EtwTraceProcess @ 0x14045D50C (EtwTraceProcess.c)
- *     EtwpProcessEnumCallback @ 0x1404989B4 (EtwpProcessEnumCallback.c)
+ *     EtwTraceProcess @ 0x14045C3DC (EtwTraceProcess.c)
+ *     EtwpProcessEnumCallback @ 0x140499444 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14042A620 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     PerfLogImageUnload @ 0x14042AC2C (PerfLogImageUnload.c)
- *     ObQueryNameStringMode @ 0x140434B90 (ObQueryNameStringMode.c)
- *     EtwpTraceImageRundown @ 0x1404CCBD8 (EtwpTraceImageRundown.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1404294F0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     PerfLogImageUnload @ 0x140429AFC (PerfLogImageUnload.c)
+ *     ObQueryNameStringMode @ 0x140433A60 (ObQueryNameStringMode.c)
+ *     EtwpTraceImageRundown @ 0x1404B2604 (EtwpTraceImageRundown.c)
  */
 
 void __fastcall EtwpEnumerateAddressSpace(__int64 a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PipInitializeEarlyLaunchDrivers @ 0x140C636C8
+ * XREFs of PipInitializeEarlyLaunchDrivers @ 0x140C65844
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x140C633C4 (PipInitializeCoreDriversAndElam.c)
+ *     PipInitializeCoreDriversAndElam @ 0x140C65540 (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     SeRegisterElamCertResources @ 0x14078E2C8 (SeRegisterElamCertResources.c)
- *     IopGetDriverNameFromKeyNode @ 0x1409CA314 (IopGetDriverNameFromKeyNode.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PnpInitializeBootStartDriver @ 0x140C66118 (PnpInitializeBootStartDriver.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     SeRegisterElamCertResources @ 0x14078E1F8 (SeRegisterElamCertResources.c)
+ *     IopGetDriverNameFromKeyNode @ 0x1409B6410 (IopGetDriverNameFromKeyNode.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PnpInitializeBootStartDriver @ 0x140C68294 (PnpInitializeBootStartDriver.c)
  */
 
 void __fastcall PipInitializeEarlyLaunchDrivers(UNICODE_STRING *a1, __int64 a2)

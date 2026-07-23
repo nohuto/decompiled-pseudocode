@@ -1,19 +1,19 @@
 /*
- * XREFs of SleepstudyHelperDestroyBlockerBuilder @ 0x140A89960
+ * XREFs of SleepstudyHelperDestroyBlockerBuilder @ 0x140A90850
  * Callers:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x14043D400 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     SleepstudyHelperCreateBlockerFromComponent @ 0x1407E43C0 (SleepstudyHelperCreateBlockerFromComponent.c)
- *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1407E4560 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1407E4640 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
- *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140A88BC0 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
- *     SleepstudyHelperCreateBlockerFromDevice @ 0x140A88DA0 (SleepstudyHelperCreateBlockerFromDevice.c)
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A89424 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A89550 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelper_RegisterComponentEx @ 0x140B3D0C0 (SleepstudyHelper_RegisterComponentEx.c)
- *     PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140CD1618 (PopUserShutdownInitializeSleepstudyDiagnostics.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x14042FCB0 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x1407E9F30 (SleepstudyHelperCreateBlockerFromComponent.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1407EA0D0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1407EA1A0 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x140A8FC90 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A90314 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A90440 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x140B77D80 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140B77E60 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
+ *     PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140CD77C0 (PopUserShutdownInitializeSleepstudyDiagnostics.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     SshpDereferenceBlocker @ 0x14049BA90 (SshpDereferenceBlocker.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     SshpDereferenceBlocker @ 0x1404955E0 (SshpDereferenceBlocker.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyBlockerBuilder(__int64 *a1)

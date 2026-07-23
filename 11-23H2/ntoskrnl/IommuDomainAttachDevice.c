@@ -1,18 +1,18 @@
 /*
- * XREFs of IommuDomainAttachDevice @ 0x140525680
+ * XREFs of IommuDomainAttachDevice @ 0x140525BD0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     HalpIommuGetDeviceId @ 0x140390C8C (HalpIommuGetDeviceId.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpIommuJoinDmaDomain @ 0x140518344 (HalpIommuJoinDmaDomain.c)
- *     IommupFindAndPopCachedDevice @ 0x140526A74 (IommupFindAndPopCachedDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuCreateDevice @ 0x140829048 (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x140933A2C (HalpIommuDeleteDevice.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     HalpIommuGetDeviceId @ 0x140390E6C (HalpIommuGetDeviceId.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuJoinDmaDomain @ 0x140518894 (HalpIommuJoinDmaDomain.c)
+ *     IommupFindAndPopCachedDevice @ 0x140526FC4 (IommupFindAndPopCachedDevice.c)
+ *     HalpIommuCreateDevice @ 0x140829348 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140933C2C (HalpIommuDeleteDevice.c)
  */
 
 __int64 __fastcall IommuDomainAttachDevice(__int64 a1, __int64 a2, int a3, int a4)
@@ -102,7 +102,7 @@ __int64 __fastcall IommuDomainAttachDevice(__int64 a1, __int64 a2, int a3, int a
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xCuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 12 )
@@ -123,10 +123,10 @@ __int64 __fastcall IommuDomainAttachDevice(__int64 a1, __int64 a2, int a3, int a
     qword_140C600E8 = v7;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpIommuParaVirtDeviceCacheLock);
     v10 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v10 = (unsigned int)CurrentIrql + 1;
@@ -135,7 +135,7 @@ __int64 __fastcall IommuDomainAttachDevice(__int64 a1, __int64 a2, int a3, int a
         v23 = (v22 & v21[5]) == 0;
         v21[5] &= v22;
         if ( v23 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         v6 = v25;
       }
     }

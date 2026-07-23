@@ -1,23 +1,23 @@
 /*
- * XREFs of HvpFindFreeCell @ 0x1408DB370
+ * XREFs of HvpFindFreeCell @ 0x1408E1930
  * Callers:
- *     HvAllocateCell @ 0x1408DB7FC (HvAllocateCell.c)
- *     HvpDoAllocateCell @ 0x1408DBB30 (HvpDoAllocateCell.c)
+ *     HvAllocateCell @ 0x1408E1DBC (HvAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x1408E20F0 (HvpDoAllocateCell.c)
  * Callees:
- *     RtlFindSetBits @ 0x1403F7770 (RtlFindSetBits.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpMapEntryIsDiscardable @ 0x1408D9350 (HvpMapEntryIsDiscardable.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvpMapEntryIsTrimmed @ 0x1408DB6B0 (HvpMapEntryIsTrimmed.c)
- *     HvpMapEntryIsNewAlloc @ 0x1408DB6C0 (HvpMapEntryIsNewAlloc.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140C58710 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     RtlFindSetBits @ 0x1403F1120 (RtlFindSetBits.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpMapEntryIsDiscardable @ 0x1408DF910 (HvpMapEntryIsDiscardable.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvpMapEntryIsTrimmed @ 0x1408E1C70 (HvpMapEntryIsTrimmed.c)
+ *     HvpMapEntryIsNewAlloc @ 0x1408E1C80 (HvpMapEntryIsNewAlloc.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140C5E710 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 __int64 __fastcall HvpFindFreeCell(

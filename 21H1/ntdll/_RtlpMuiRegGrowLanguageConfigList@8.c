@@ -8,9 +8,12 @@
 
 int __fastcall RtlpMuiRegGrowLanguageConfigList(int a1)
 {
+  unsigned int v1; // edx
+
   if ( !a1 )
     return 0;
-  if ( (unsigned int)*(unsigned __int16 *)(a1 + 4) + 1 >= *(unsigned __int16 *)(a1 + 6) )
-    return RtlpMuiRegResizeLanguageConfigList(a1);
+  v1 = *(unsigned __int16 *)(a1 + 4) + 1;
+  if ( v1 >= *(unsigned __int16 *)(a1 + 6) )
+    return RtlpMuiRegResizeLanguageConfigList(a1, v1);
   return a1;
 }

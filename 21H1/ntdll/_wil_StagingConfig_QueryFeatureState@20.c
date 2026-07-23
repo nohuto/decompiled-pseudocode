@@ -12,14 +12,14 @@
 int __fastcall wil_StagingConfig_QueryFeatureState(int a1, int a2, int a3, int a4, int a5)
 {
   int FeatureState; // esi
-  _DWORD v8[13]; // [esp+Ch] [ebp-108h] BYREF
+  ULONG v8[13]; // [esp+Ch] [ebp-108h] BYREF
   int v9[51]; // [esp+40h] [ebp-D4h] BYREF
 
   FeatureState = 0;
-  if ( !wil_details_StagingConfig_Load(v8, a1, (int)v9, a1) )
+  if ( !wil_details_StagingConfig_Load(v8, a1, v9, a1) )
   {
     FeatureState = wil_details_StagingConfig_QueryFeatureState(v8, a2, a3, a4);
-    wil_details_StagingConfig_Free(v8);
+    wil_details_StagingConfig_Free((int)v8);
   }
   return FeatureState;
 }

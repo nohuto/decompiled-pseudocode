@@ -3,10 +3,10 @@
  * Callers:
  *     CmpInitializePreloadedHives @ 0x140B3695C (CmpInitializePreloadedHives.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
- *     CmpSetupLoggingState @ 0x14080E6CC (CmpSetupLoggingState.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
+ *     CmpSetupLoggingState @ 0x14080E99C (CmpSetupLoggingState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

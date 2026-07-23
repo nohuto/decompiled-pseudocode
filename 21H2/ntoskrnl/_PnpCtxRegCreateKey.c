@@ -1,22 +1,22 @@
 /*
- * XREFs of _PnpCtxRegCreateKey @ 0x14063B560
+ * XREFs of _PnpCtxRegCreateKey @ 0x140630370
  * Callers:
- *     PipUpdateDeviceProducts @ 0x1403C7360 (PipUpdateDeviceProducts.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140640698 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
- *     _PnpSetPropertyWorker @ 0x1407467E0 (_PnpSetPropertyWorker.c)
- *     _CmAddDeviceToContainerWorker @ 0x140759280 (_CmAddDeviceToContainerWorker.c)
- *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140766324 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmCreateOrdinalInstanceKey @ 0x140769228 (_CmCreateOrdinalInstanceKey.c)
- *     PiDrvDbOverlayCopyKeys @ 0x1408B6118 (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x1408B66B8 (PiDrvDbOverlayNodeHive.c)
- *     _CmAddPanelDeviceWorker @ 0x140977890 (_CmAddPanelDeviceWorker.c)
- *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
- *     PipCommitPendingOsExtensionResource @ 0x140A90B40 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x140A90D50 (PipCommitPendingService.c)
+ *     PipUpdateDeviceProducts @ 0x1403C7500 (PipUpdateDeviceProducts.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406354A8 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     _PnpOpenPropertiesKey @ 0x14063A2D4 (_PnpOpenPropertiesKey.c)
+ *     _PnpSetPropertyWorker @ 0x1407469A0 (_PnpSetPropertyWorker.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140759440 (_CmAddDeviceToContainerWorker.c)
+ *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1407664E4 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x1407693E8 (_CmCreateOrdinalInstanceKey.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6278 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x1408B6818 (PiDrvDbOverlayNodeHive.c)
+ *     _CmAddPanelDeviceWorker @ 0x140977A70 (_CmAddPanelDeviceWorker.c)
+ *     PipMigratePnpState @ 0x140A52084 (PipMigratePnpState.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140A91B40 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140A91D50 (PipCommitPendingService.c)
  * Callees:
- *     _RegRtlCreateKeyTransacted @ 0x14063E55C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x14063336C (_RegRtlCreateKeyTransacted.c)
  */
 
 __int64 __fastcall PnpCtxRegCreateKey(

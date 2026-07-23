@@ -1,20 +1,20 @@
 /*
- * XREFs of RawInitiateDeleteVolume @ 0x1400072F8
+ * XREFs of RawInitiateDeleteVolume @ 0x140007468
  * Callers:
- *     RawCompletionRoutine @ 0x1400071BC (RawCompletionRoutine.c)
- *     RawVerifyVolume @ 0x140210550 (RawVerifyVolume.c)
- *     RawReadWriteDeviceControl @ 0x1403E9AF8 (RawReadWriteDeviceControl.c)
- *     RawClose @ 0x1403EB960 (RawClose.c)
- *     RawCreate @ 0x1403EB9E4 (RawCreate.c)
- *     RawCleanup @ 0x1403EBB4C (RawCleanup.c)
+ *     RawCompletionRoutine @ 0x14000732C (RawCompletionRoutine.c)
+ *     RawVerifyVolume @ 0x14021037C (RawVerifyVolume.c)
+ *     RawReadWriteDeviceControl @ 0x1403EB128 (RawReadWriteDeviceControl.c)
+ *     RawClose @ 0x1403ECF90 (RawClose.c)
+ *     RawCreate @ 0x1403ED014 (RawCreate.c)
+ *     RawCleanup @ 0x1403ED17C (RawCleanup.c)
  * Callees:
- *     IoAcquireVpbSpinLock @ 0x14000758C (IoAcquireVpbSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RawCleanupVcb @ 0x1403EE474 (RawCleanupVcb.c)
- *     RawDeleteVcb @ 0x140475114 (RawDeleteVcb.c)
+ *     IoAcquireVpbSpinLock @ 0x1400076FC (IoAcquireVpbSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RawCleanupVcb @ 0x1403EFAA4 (RawCleanupVcb.c)
+ *     RawDeleteVcb @ 0x140473FE4 (RawDeleteVcb.c)
  */
 
 char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, int a2, int a3)

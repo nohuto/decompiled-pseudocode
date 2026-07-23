@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlinkPagesUpdateCounts @ 0x1402F8E80
+ * XREFs of MiUnlinkPagesUpdateCounts @ 0x1402DAF00
  * Callers:
- *     MiUnlinkProtoPages @ 0x140297A00 (MiUnlinkProtoPages.c)
- *     MiFinishUnlinkBatch @ 0x1402990A0 (MiFinishUnlinkBatch.c)
+ *     MiUnlinkProtoPages @ 0x140296F60 (MiUnlinkProtoPages.c)
+ *     MiFinishUnlinkBatch @ 0x140298600 (MiFinishUnlinkBatch.c)
  * Callees:
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkPagesUpdateCounts(__int64 a1)

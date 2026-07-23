@@ -1,9 +1,9 @@
 /*
- * XREFs of KiQueryIptSupport @ 0x1409AF6A0
+ * XREFs of KiQueryIptSupport @ 0x1409B05D0
  * Callers:
  *     <none>
  * Callees:
- *     KiXSavesManagesIpt @ 0x14051A604 (KiXSavesManagesIpt.c)
+ *     KiXSavesManagesIpt @ 0x14051A844 (KiXSavesManagesIpt.c)
  */
 
 __int64 __fastcall KiQueryIptSupport(__int64 a1, __int64 a2)

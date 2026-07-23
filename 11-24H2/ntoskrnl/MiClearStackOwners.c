@@ -1,11 +1,11 @@
 /*
- * XREFs of MiClearStackOwners @ 0x140224450
+ * XREFs of MiClearStackOwners @ 0x1402511A0
  * Callers:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
  * Callees:
- *     MI_NODE_FROM_PFN @ 0x1402245F0 (MI_NODE_FROM_PFN.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MI_NODE_FROM_PFN @ 0x140251340 (MI_NODE_FROM_PFN.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiClearStackOwners(__int64 a1, char a2, __int64 a3, __int64 a4)
@@ -35,7 +35,7 @@ __int64 __fastcall MiClearStackOwners(__int64 a1, char a2, __int64 a3, __int64 a
   }
   else
   {
-    v6 = (unsigned __int8)byte_140E35EA4;
+    v6 = (unsigned __int8)byte_140E35FE4;
   }
   v7 = a1 - 8LL * v6;
   v8 = v7 + 8LL * (v6 + 1);
@@ -57,7 +57,7 @@ __int64 __fastcall MiClearStackOwners(__int64 a1, char a2, __int64 a3, __int64 a
           {
             if ( (++v14 & HvlLongSpinCountMask) == 0
               && (HvlEnlightenments & 0x40) != 0
-              && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v11) )
+              && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v11, v10, a3, a4) )
             {
               HvlNotifyLongSpinWait(v14);
             }

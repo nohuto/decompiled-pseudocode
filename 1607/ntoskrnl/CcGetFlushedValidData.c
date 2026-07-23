@@ -1,14 +1,14 @@
 /*
- * XREFs of CcGetFlushedValidData @ 0x1400A96D8
+ * XREFs of CcGetFlushedValidData @ 0x1400A7C58
  * Callers:
- *     CcWriteBehindInternal @ 0x1400E7F30 (CcWriteBehindInternal.c)
+ *     CcWriteBehindInternal @ 0x1400E5DD0 (CcWriteBehindInternal.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     CcDecrementOpenCount @ 0x140073698 (CcDecrementOpenCount.c)
- *     CcFindBitmapRangeToClean @ 0x1400CC834 (CcFindBitmapRangeToClean.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     CcDecrementOpenCount @ 0x140073218 (CcDecrementOpenCount.c)
+ *     CcFindBitmapRangeToClean @ 0x1400CA6D4 (CcFindBitmapRangeToClean.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 LARGE_INTEGER __stdcall CcGetFlushedValidData(PSECTION_OBJECT_POINTERS SectionObjectPointer, BOOLEAN BcbListHeld)

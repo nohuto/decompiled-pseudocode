@@ -1,20 +1,20 @@
 /*
- * XREFs of VrpHandleIoctlLoadDifferencingHive @ 0x14092A298
+ * XREFs of VrpHandleIoctlLoadDifferencingHive @ 0x14092C3D8
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140929280 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x14092B3C0 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x1403F0070 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14040EEDC (PsIsThreadInSilo.c)
- *     PsGetJobSilo @ 0x14040EF70 (PsGetJobSilo.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     VrpUnlockJobContextExclusive @ 0x140929B2C (VrpUnlockJobContextExclusive.c)
- *     VrpLockJobContextExclusive @ 0x14092A064 (VrpLockJobContextExclusive.c)
- *     VrpLoadDifferencingHive @ 0x14092A57C (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x14092AB4C (VrpUnloadDifferencingHive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x1403E3CE0 (PsGetPermanentSiloContext.c)
+ *     PsIsThreadInSilo @ 0x1404070DC (PsIsThreadInSilo.c)
+ *     PsGetJobSilo @ 0x140407170 (PsGetJobSilo.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     VrpUnlockJobContextExclusive @ 0x14092BC6C (VrpUnlockJobContextExclusive.c)
+ *     VrpLockJobContextExclusive @ 0x14092C1A4 (VrpLockJobContextExclusive.c)
+ *     VrpLoadDifferencingHive @ 0x14092C6BC (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14092CC8C (VrpUnloadDifferencingHive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VrpHandleIoctlLoadDifferencingHive(
@@ -113,7 +113,7 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHive(
                       *(_QWORD *)(a1 + 32));
           if ( JobSilo >= 0 )
           {
-            Pool2 = ExAllocatePool2(0x100uLL);
+            Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)LOWORD(Src[0]) + 10, 0x67655256u);
             if ( Pool2 )
             {
               *(_WORD *)(Pool2 + 8) = Src[0];

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPrepareToWakeResourceShared @ 0x14038EC38
+ * XREFs of ExpPrepareToWakeResourceShared @ 0x14038ED88
  * Callers:
- *     ExpReleaseDisownedFastResourceShared @ 0x14038E5EC (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseFastResourceShared @ 0x14038E980 (ExpReleaseFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x14038E73C (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseFastResourceShared @ 0x14038EAD0 (ExpReleaseFastResourceShared.c)
  * Callees:
- *     KeCaptureWaitChainHeadEx @ 0x14038FE30 (KeCaptureWaitChainHeadEx.c)
+ *     KeCaptureWaitChainHeadEx @ 0x14038FF80 (KeCaptureWaitChainHeadEx.c)
  */
 
 __int64 __fastcall ExpPrepareToWakeResourceShared(__int64 a1, _QWORD *a2, _QWORD *a3, int *a4)

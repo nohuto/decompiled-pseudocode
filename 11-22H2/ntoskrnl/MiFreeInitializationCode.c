@@ -25,11 +25,11 @@
  *     MiFreeBootDriverPages @ 0x140B4A754 (MiFreeBootDriverPages.c)
  */
 
-__int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4)
+__int64 __fastcall MiFreeInitializationCode(_QWORD *a1, unsigned __int64 a2, __int64 a3, int a4)
 {
-  unsigned __int64 v6; // rdi
+  PVOID v6; // rdi
   __int64 v7; // rsi
-  unsigned __int64 v8; // r14
+  _QWORD *v8; // r14
   unsigned __int64 v9; // r15
   ULONG_PTR v10; // rbx
   __int64 v11; // r12
@@ -64,14 +64,14 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int6
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 48);
-    v7 = a1 + 160;
+    v6 = (PVOID)a1[6];
+    v7 = (__int64)(a1 + 20);
     v8 = a1;
   }
   v9 = (__int64)(a2 << 25) >> 16;
   BugCheckParameter3 = ((__int64)(a3 - a2) >> 3) + 1;
   v10 = BugCheckParameter3;
-  v11 = (__int64)(a2 - MiGetPteAddress(v6)) >> 3;
+  v11 = (__int64)(a2 - MiGetPteAddress((unsigned __int64)v6)) >> 3;
   if ( !a4 )
   {
     MiLockLoaderEntry(v7, 0);
@@ -80,7 +80,7 @@ __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int6
   }
   v12 = 0LL;
   v13 = &qword_140C65A18;
-  while ( *(_QWORD *)(*v13 + 48) != v6 )
+  while ( *(PVOID *)(*v13 + 48) != v6 )
   {
     v12 = (unsigned int)(v12 + 1);
     ++v13;
@@ -119,7 +119,7 @@ LABEL_8:
   }
   else if ( a4 )
   {
-    MiFreeBootDriverPages(v6, a2, BugCheckParameter3, 1, 0LL);
+    MiFreeBootDriverPages((_DWORD)v6, a2, BugCheckParameter3, 1, 0LL);
     ControlAreaPartition = MiSystemPartition;
     if ( v6 == PsNtosImageBase )
       MxKernelFreedGapCharges += BugCheckParameter3;
@@ -128,7 +128,7 @@ LABEL_8:
   }
   else
   {
-    v14 = *(_QWORD *)(v8 + 112);
+    v14 = v8[14];
     if ( v14 )
     {
       v15 = MiSectionControlArea(v14);

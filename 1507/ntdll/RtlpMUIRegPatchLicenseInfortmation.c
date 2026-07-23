@@ -14,7 +14,7 @@
 __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
 {
   bool v2; // cc
-  __int64 Heap; // r15
+  PVOID Heap; // r15
   int v4; // edi
   char v5; // r14
   __int64 v6; // rsi
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
   __int64 v9; // r8
   int InstalledLanguageIndexByName; // eax
   int v12; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v13; // [rsp+28h] [rbp-30h]
+  PVOID v13; // [rsp+28h] [rbp-30h]
   __int16 v14; // [rsp+60h] [rbp+8h] BYREF
 
   v14 = 0;
@@ -33,7 +33,7 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
   *(_QWORD *)(a1 + 32) = 0LL;
   if ( !v2 )
     return 3221225473LL;
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 170LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( !Heap )
     return 3221225495LL;
   v4 = *(unsigned __int16 *)(a1 + 4) - 1;
@@ -51,7 +51,7 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
       v12 = 11141120;
       if ( (int)GetNameFromLangListNode(g_RegInfo, v7 + v8, &v12) < 0 )
         goto LABEL_13;
-      if ( *(_DWORD *)(g_RegInfo + 120) < 0x3E8u )
+      if ( *((_DWORD *)g_RegInfo + 30) < 0x3E8u )
       {
         LOBYTE(v9) = 1;
         InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(g_RegInfo, v13, v9, &v14);
@@ -73,6 +73,6 @@ LABEL_13:
     }
     while ( v4 >= 0 );
   }
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return 0LL;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetFileHashPage @ 0x14038D060
+ * XREFs of MiGetFileHashPage @ 0x14038D1B0
  * Callers:
- *     MiMapPageFileHash @ 0x1402CDE38 (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x14024C338 (MiMapPageFileHash.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14033C800 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140353660 (MiUnmapPageInHyperSpaceWorker.c)
  */
 
 __int64 __fastcall MiGetFileHashPage(__int64 a1, unsigned int a2)
@@ -82,9 +82,8 @@ LABEL_20:
       memset(v8, 0, 8 * (v9 >> 1));
       if ( (v9 & 1) != 0 )
         *((_DWORD *)v8 + v9 - 1) = 0;
-      LOBYTE(v9) = v15;
-      MiUnmapPageInHyperSpaceWorker(v7, v9, 0x80000000);
-      _InterlockedAdd64(&qword_140C4F828, 1uLL);
+      MiUnmapPageInHyperSpaceWorker(v7, v15, 0x80000000);
+      _InterlockedAdd64(&qword_140C4F868, 1uLL);
     }
     return v6;
   }

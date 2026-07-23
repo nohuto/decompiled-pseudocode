@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpInitializeParseContext @ 0x14092D400
+ * XREFs of CmpInitializeParseContext @ 0x14092F540
  * Callers:
- *     CmpAllocateParseContext @ 0x1406F509C (CmpAllocateParseContext.c)
- *     CmpCreatePredefined @ 0x1407CA0EC (CmpCreatePredefined.c)
- *     NtQueryOpenSubKeys @ 0x1407CFFA0 (NtQueryOpenSubKeys.c)
- *     NtQueryOpenSubKeysEx @ 0x1407D01B0 (NtQueryOpenSubKeysEx.c)
- *     CmpDoBuildVirtualStack @ 0x1407DB5E4 (CmpDoBuildVirtualStack.c)
- *     CmpDoReOpenTransKey @ 0x1407E6EF4 (CmpDoReOpenTransKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x1408BF750 (NtNotifyChangeMultipleKeys.c)
- *     CmUnloadKey @ 0x14092B0F8 (CmUnloadKey.c)
- *     CmpLinkHiveToMaster @ 0x14092C240 (CmpLinkHiveToMaster.c)
- *     CmLoadDifferencingKey @ 0x14092C750 (CmLoadDifferencingKey.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140978D18 (CmKeyBodyReplicateToVirtual.c)
- *     CmKeyBodyRemapToVirtual @ 0x14097A7E4 (CmKeyBodyRemapToVirtual.c)
- *     CmpStartSiloRegistryNamespace @ 0x1409E2450 (CmpStartSiloRegistryNamespace.c)
- *     CmpResolveHiveLoadConflict @ 0x140A86DC4 (CmpResolveHiveLoadConflict.c)
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmpAllocateParseContext @ 0x1406F309C (CmpAllocateParseContext.c)
+ *     CmpCreatePredefined @ 0x1407CA5DC (CmpCreatePredefined.c)
+ *     NtQueryOpenSubKeys @ 0x1407D0490 (NtQueryOpenSubKeys.c)
+ *     NtQueryOpenSubKeysEx @ 0x1407D06A0 (NtQueryOpenSubKeysEx.c)
+ *     CmpDoBuildVirtualStack @ 0x1407DBB34 (CmpDoBuildVirtualStack.c)
+ *     CmpDoReOpenTransKey @ 0x1407E74C4 (CmpDoReOpenTransKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1408BD110 (NtNotifyChangeMultipleKeys.c)
+ *     CmUnloadKey @ 0x14092D238 (CmUnloadKey.c)
+ *     CmpLinkHiveToMaster @ 0x14092E380 (CmpLinkHiveToMaster.c)
+ *     CmLoadDifferencingKey @ 0x14092E890 (CmLoadDifferencingKey.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140961528 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyRemapToVirtual @ 0x140962FF4 (CmKeyBodyRemapToVirtual.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1409DC200 (CmpStartSiloRegistryNamespace.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A8189C (CmpResolveHiveLoadConflict.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall CmpInitializeParseContext(__int64 a1)

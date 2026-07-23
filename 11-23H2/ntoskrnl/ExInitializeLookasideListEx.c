@@ -1,7 +1,7 @@
 /*
  * XREFs of ExInitializeLookasideListEx @ 0x140222410
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x14080AADC (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x14080ADAC (CmpInitializeRegistryProcess.c)
  *     CcInitializeCacheManager @ 0x140B49A88 (CcInitializeCacheManager.c)
  * Callees:
  *     ExInitializeLookasideListExInternal @ 0x140222220 (ExInitializeLookasideListExInternal.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSkipFractionalPagefileRegion @ 0x1402C2AA8
+ * XREFs of MiSkipFractionalPagefileRegion @ 0x140240FC4
  * Callers:
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 unsigned __int64 __fastcall MiSkipFractionalPagefileRegion(unsigned __int64 a1, __int64 a2, unsigned __int64 a3)

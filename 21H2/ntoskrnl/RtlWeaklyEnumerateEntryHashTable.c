@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlWeaklyEnumerateEntryHashTable @ 0x140588AF0
+ * XREFs of RtlWeaklyEnumerateEntryHashTable @ 0x140588D20
  * Callers:
  *     <none>
  * Callees:
- *     RtlEnumerateEntryHashTable @ 0x140251BA0 (RtlEnumerateEntryHashTable.c)
+ *     RtlEnumerateEntryHashTable @ 0x1402F63B0 (RtlEnumerateEntryHashTable.c)
  */
 
 PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlWeaklyEnumerateEntryHashTable(

@@ -1,19 +1,19 @@
 /*
- * XREFs of IoGetDevicePropertyData @ 0x1404F757C
+ * XREFs of IoGetDevicePropertyData @ 0x1404DA508
  * Callers:
- *     PopFxQueryBiosDeviceName @ 0x1400AEE60 (PopFxQueryBiosDeviceName.c)
- *     PopFxChildDeviceActive @ 0x140202518 (PopFxChildDeviceActive.c)
- *     IopGetSessionIdFromPDO @ 0x1404ED078 (IopGetSessionIdFromPDO.c)
- *     ExpCheckPortableOperatingSystem @ 0x1404ED840 (ExpCheckPortableOperatingSystem.c)
- *     ExpHwidGetDevicePropertyDataFixed @ 0x1404F710C (ExpHwidGetDevicePropertyDataFixed.c)
- *     ExpHwidGetDevicePropertyData @ 0x1404F7188 (ExpHwidGetDevicePropertyData.c)
- *     IopGetInterruptConnectionData @ 0x140539B0C (IopGetInterruptConnectionData.c)
- *     PnprIsMemoryDevice @ 0x140644978 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x140644A24 (PnprIsProcessorDevice.c)
+ *     PopFxQueryBiosDeviceName @ 0x1400AD3C8 (PopFxQueryBiosDeviceName.c)
+ *     PopFxChildDeviceActive @ 0x140202344 (PopFxChildDeviceActive.c)
+ *     IopGetSessionIdFromPDO @ 0x1404CF1E4 (IopGetSessionIdFromPDO.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1404CF8F8 (ExpCheckPortableOperatingSystem.c)
+ *     ExpHwidGetDevicePropertyDataFixed @ 0x1404DA098 (ExpHwidGetDevicePropertyDataFixed.c)
+ *     ExpHwidGetDevicePropertyData @ 0x1404DA114 (ExpHwidGetDevicePropertyData.c)
+ *     IopGetInterruptConnectionData @ 0x14053A04C (IopGetInterruptConnectionData.c)
+ *     PnprIsMemoryDevice @ 0x140644A5C (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x140644B08 (PnprIsProcessorDevice.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PnpGetDevicePropertyData @ 0x1404F7610 (PnpGetDevicePropertyData.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PnpGetDevicePropertyData @ 0x1404DA59C (PnpGetDevicePropertyData.c)
  */
 
 NTSTATUS __stdcall IoGetDevicePropertyData(
@@ -81,13 +81,5 @@ NTSTATUS __stdcall IoGetDevicePropertyData(
 LABEL_16:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)Pdo, 0LL, 0LL);
   }
-  return PnpGetDevicePropertyData(
-           (int)Pdo,
-           (int)PropertyKey,
-           Lcid,
-           Flags,
-           Size,
-           Data,
-           (__int64)RequiredSize,
-           (__int64)Type);
+  return PnpGetDevicePropertyData(Pdo, PropertyKey, Lcid, Flags, Size, Data, RequiredSize, Type);
 }

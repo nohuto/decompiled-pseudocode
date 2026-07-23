@@ -1,29 +1,29 @@
 /*
- * XREFs of SepAppendAceToTokenObjectAcl @ 0x1406BD110
+ * XREFs of SepAppendAceToTokenObjectAcl @ 0x1406BD140
  * Callers:
- *     SeCopyClientToken @ 0x14071DCC0 (SeCopyClientToken.c)
- *     SepFinalizeTokenAcls @ 0x14071DDE0 (SepFinalizeTokenAcls.c)
- *     NtDuplicateToken @ 0x1407353C0 (NtDuplicateToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2540 (NtCreateLowBoxToken.c)
+ *     SeCopyClientToken @ 0x14071DEC0 (SeCopyClientToken.c)
+ *     SepFinalizeTokenAcls @ 0x14071DFE0 (SepFinalizeTokenAcls.c)
+ *     NtDuplicateToken @ 0x1407355B0 (NtDuplicateToken.c)
+ *     NtCreateLowBoxToken @ 0x1407F2810 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlFindAceBySid @ 0x140227970 (RtlFindAceBySid.c)
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     RtlGetAce @ 0x140227A60 (RtlGetAce.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlQueryInformationAcl @ 0x140736140 (RtlQueryInformationAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     ObSetSecurityObjectByPointer @ 0x1407366A0 (ObSetSecurityObjectByPointer.c)
- *     RtlAddAce @ 0x140736740 (RtlAddAce.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x140884E14 (ObpReferenceSecurityDescriptorSlow.c)
+ *     RtlFindAceBySid @ 0x140227A80 (RtlFindAceBySid.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     RtlGetAce @ 0x140227B70 (RtlGetAce.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlQueryInformationAcl @ 0x140736330 (RtlQueryInformationAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     ObSetSecurityObjectByPointer @ 0x140736890 (ObSetSecurityObjectByPointer.c)
+ *     RtlAddAce @ 0x140736930 (RtlAddAce.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140885054 (ObpReferenceSecurityDescriptorSlow.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -74,12 +74,12 @@ __int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)
   __int64 v46; // [rsp+78h] [rbp-31h]
   _OWORD SecurityDescriptor[2]; // [rsp+80h] [rbp-29h] BYREF
   __int64 v48; // [rsp+A0h] [rbp-9h]
-  __int64 v49; // [rsp+B0h] [rbp+7h] BYREF
+  __int64 AclInformation; // [rsp+B0h] [rbp+7h] BYREF
   int v50; // [rsp+B8h] [rbp+Fh]
 
   v46 = a1;
   v48 = 0LL;
-  v49 = 0LL;
+  AclInformation = 0LL;
   Acl = 0;
   v50 = 0;
   v40 = 0;
@@ -210,15 +210,15 @@ LABEL_6:
   {
     if ( !RtlFindAceBySid((__int64)v16, v5, 0LL) )
     {
-      Acl = RtlQueryInformationAcl(v16, &v49, 12LL);
+      Acl = RtlQueryInformationAcl(v16, &AclInformation, 0xCu, AclSizeInformation);
       if ( Acl >= 0 )
       {
-        Acl = RtlQueryInformationAcl(v16, &AclRevision, 4LL);
+        Acl = RtlQueryInformationAcl(v16, &AclRevision, 4u, AclRevisionInformation);
         if ( Acl >= 0 )
         {
           v19 = RtlLengthSid(v5);
-          v20 = HIDWORD(v49);
-          v21 = (v19 + HIDWORD(v49) + 11) & 0xFFFFFFFC;
+          v20 = HIDWORD(AclInformation);
+          v21 = (v19 + HIDWORD(AclInformation) + 11) & 0xFFFFFFFC;
           v22 = (ACL *)ExAllocatePool2(256LL, v21, 1665230163LL);
           v23 = v22;
           if ( v22 )

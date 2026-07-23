@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetCurrentProcessorColor @ 0x140328F80
+ * XREFs of MmGetCurrentProcessorColor @ 0x140329210
  * Callers:
- *     MiAddSecureEntry @ 0x140745D84 (MiAddSecureEntry.c)
+ *     MiAddSecureEntry @ 0x140745F74 (MiAddSecureEntry.c)
  * Callees:
  *     <none>
  */

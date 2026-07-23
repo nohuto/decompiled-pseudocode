@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetQuantumProcess @ 0x140350C2C
+ * XREFs of KeSetQuantumProcess @ 0x140350DCC
  * Callers:
- *     KeSetPriorityAndQuantumProcess @ 0x140350190 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x140350330 (KeSetPriorityAndQuantumProcess.c)
  *     PspApplyJobLimitsToProcess @ 0x1406A6EC4 (PspApplyJobLimitsToProcess.c)
- *     PsChangeQuantumTable @ 0x1407C0444 (PsChangeQuantumTable.c)
+ *     PsChangeQuantumTable @ 0x1407C0714 (PsChangeQuantumTable.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeSetQuantumProcess(__int64 a1, char a2)
@@ -28,7 +28,7 @@ void __fastcall KeSetQuantumProcess(__int64 a1, char a2)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v9) = 4;
@@ -43,10 +43,10 @@ void __fastcall KeSetQuantumProcess(__int64 a1, char a2)
     for ( i = *v6; i != v6; i = (_QWORD *)*i )
       *((_BYTE *)i - 109) = a2;
     ExReleaseSpinLockExclusiveFromDpcLevel(v5);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;

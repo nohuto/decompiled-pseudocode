@@ -18,14 +18,14 @@
 
 __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  unsigned __int64 v2; // rbx
+  __int64 v2; // rbx
   __int64 result; // rax
 
   v2 = 0LL;
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   if ( (BugCheckParameter1 & 2) == 0 )
-    v2 = KeAbPreAcquire(BugCheckParameter2);
+    v2 = KeAbPreAcquire(BugCheckParameter2, 0LL);
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v2, (__int16 *)BugCheckParameter2);
   result = *(unsigned int *)(BugCheckParameter2 + 8);

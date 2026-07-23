@@ -9,13 +9,13 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-ULONG __stdcall EtwTraceMessageVa(__int64 a1, int a2, int *a3, __int16 a4, _DWORD *a5)
+ULONG __stdcall EtwTraceMessageVa(int a1, uintptr_t a2, int *a3, __int16 a4, _DWORD *a5)
 {
   int v5; // esi
   int v6; // ecx
   _DWORD *v7; // eax
   NTSTATUS v8; // eax
-  _BYTE v10[4]; // [esp+10h] [ebp-30h] BYREF
+  _BYTE Fields[4]; // [esp+10h] [ebp-30h] BYREF
   __int16 v11; // [esp+14h] [ebp-2Ch]
   int v12; // [esp+18h] [ebp-28h]
   int v13; // [esp+1Ch] [ebp-24h]
@@ -26,7 +26,7 @@ ULONG __stdcall EtwTraceMessageVa(__int64 a1, int a2, int *a3, __int16 a4, _DWOR
   _DWORD *v18; // [esp+30h] [ebp-10h]
 
   if ( (a1 & 0x1000000) != 0 )
-    return EtwpTraceUmMessage(a1, HIDWORD(a1), a4, a5);
+    return EtwpTraceUmMessage(a1, a2, a4, a5);
   v5 = 0;
   v6 = 0;
   if ( *a5 )
@@ -40,12 +40,12 @@ ULONG __stdcall EtwTraceMessageVa(__int64 a1, int a2, int *a3, __int16 a4, _DWOR
     while ( *v7 );
   }
   v11 = a4;
-  v16 = a2;
-  if ( (a2 & 4) != 0 )
+  v16 = HIDWORD(a2);
+  if ( (a2 & 0x400000000LL) != 0 )
   {
     v12 = *a3;
   }
-  else if ( (a2 & 2) != 0 )
+  else if ( (a2 & 0x200000000LL) != 0 )
   {
     v12 = *a3;
     v13 = a3[1];
@@ -55,7 +55,7 @@ ULONG __stdcall EtwTraceMessageVa(__int64 a1, int a2, int *a3, __int16 a4, _DWOR
   }
   v18 = a5;
   v17 = 8 * v6 + 4;
-  v8 = NtTraceEvent(a1, 512, 40, v10);
+  v8 = NtTraceEvent((HANDLE)a1, 0x200u, 0x28u, Fields);
   if ( v8 )
     return RtlNtStatusToDosError(v8);
   return v5;

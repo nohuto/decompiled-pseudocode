@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCloneNoChange @ 0x1408C8688
+ * XREFs of MiCloneNoChange @ 0x1408C87E8
  * Callers:
- *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8BF0 (MiAllocateChildVads.c)
  * Callees:
- *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
+ *     MiAddSecureEntry @ 0x140689430 (MiAddSecureEntry.c)
  */
 
 __int64 __fastcall MiCloneNoChange(__int64 a1, __int64 a2)

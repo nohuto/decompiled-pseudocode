@@ -4,7 +4,7 @@
  *     IopLiveDumpMarkImportantDumpData @ 0x1403DB154 (IopLiveDumpMarkImportantDumpData.c)
  *     IopLiveDumpMarkRequiredDumpData @ 0x1403DB400 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x1401E7A54 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1401E7880 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, __int64, __int64), char a2)
@@ -22,7 +22,7 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   v2 = 0;
   if ( (a2 & 1) != 0 )
   {
-    v5 = MmAddRangeToCrashDump(a1, MmPfnDatabase, 48 * (qword_140326A90 + 1));
+    v5 = MmAddRangeToCrashDump(a1, MmPfnDatabase, 48 * (qword_140326AD0 + 1));
     if ( v5 < 0 )
       v2 = v5;
   }
@@ -41,20 +41,20 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   }
   if ( (a2 & 4) != 0 )
   {
-    v9 = MmAddRangeToCrashDump(a1, PsNtosImageBase, PsNtosImageEnd - PsNtosImageBase);
+    v9 = MmAddRangeToCrashDump(a1, (unsigned __int64)PsNtosImageBase, PsNtosImageEnd - (_QWORD)PsNtosImageBase);
     if ( v9 < 0 )
       v2 = v9;
   }
   if ( (a2 & 8) != 0 )
   {
-    v10 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - PsHalImageBase);
+    v10 = MmAddRangeToCrashDump(a1, (unsigned __int64)PsHalImageBase, PsHalImageEnd - (_QWORD)PsHalImageBase);
     if ( v10 < 0 )
       v2 = v10;
   }
   if ( (a2 & 0x10) != 0 )
   {
-    v11 = (__int64 *)qword_140327810;
-    while ( v11 != &qword_140327810 )
+    v11 = (__int64 *)qword_140327850;
+    while ( v11 != &qword_140327850 )
     {
       v12 = MmAddRangeToCrashDump(a1, (unsigned __int64)(v11 - 18), 0x4000LL);
       v11 = (__int64 *)*v11;

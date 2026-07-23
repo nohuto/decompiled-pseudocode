@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckShadowStackOverflow @ 0x140AA2AE0
+ * XREFs of MiCheckShadowStackOverflow @ 0x140AA45B0
  * Callers:
- *     MiCheckForUserStackOverflow @ 0x140AA2744 (MiCheckForUserStackOverflow.c)
+ *     MiCheckForUserStackOverflow @ 0x140AA4214 (MiCheckForUserStackOverflow.c)
  * Callees:
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall MiCheckShadowStackOverflow(unsigned __int64 a1, _DWORD *a2)

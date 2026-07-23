@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpInitializeMachineDependentConfiguration @ 0x1409C1D98
+ * XREFs of CmpInitializeMachineDependentConfiguration @ 0x1409C2D98
  * Callers:
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwOpenSection @ 0x1401B8870 (ZwOpenSection.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpAddProcessorConfigurationEntry @ 0x140731DE0 (CmpAddProcessorConfigurationEntry.c)
- *     CmpSetVideoBiosInformation @ 0x1409C2418 (CmpSetVideoBiosInformation.c)
- *     CmpSetSystemBiosInformation @ 0x1409C25D4 (CmpSetSystemBiosInformation.c)
- *     CmpInitializeSystemBiosInformation @ 0x1409F3A30 (CmpInitializeSystemBiosInformation.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwOpenSection @ 0x1401B89D0 (ZwOpenSection.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     __report_rangecheckfailure @ 0x140268FBC (__report_rangecheckfailure.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x140732FD0 (CmpAddProcessorConfigurationEntry.c)
+ *     CmpSetVideoBiosInformation @ 0x1409C3418 (CmpSetVideoBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x1409C35D4 (CmpSetSystemBiosInformation.c)
+ *     CmpInitializeSystemBiosInformation @ 0x1409F4A30 (CmpInitializeSystemBiosInformation.c)
  */
 
 NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
@@ -179,8 +179,8 @@ LABEL_21:
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwOpenSection(&SectionHandle, 0xF001Fu, &ObjectAttributes) >= 0 )
     {
-      v15 = dword_140409D90;
-      if ( dword_140409D90 == 1 )
+      v15 = dword_14040ADF0;
+      if ( dword_14040ADF0 == 1 )
         CmpSetSystemBiosInformation(v1, SectionHandle, Handle);
       else
         CmpInitializeSystemBiosInformation(v1);

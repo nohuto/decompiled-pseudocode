@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRemoveIoCompletion @ 0x140159DA0
+ * XREFs of ZwRemoveIoCompletion @ 0x14015A310
  * Callers:
  *     <none>
  * Callees:
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwRemoveIoCompletion(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(IoCompletionHandle, CompletionKey, CompletionContext);
+  return KiServiceInternal(IoCompletionHandle);
 }

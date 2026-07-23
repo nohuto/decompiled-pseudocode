@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSelectRelocationStartHint @ 0x140AECDF0
+ * XREFs of MiSelectRelocationStartHint @ 0x140AEFE00
  * Callers:
- *     MiObtainRelocationBits @ 0x1409CB088 (MiObtainRelocationBits.c)
+ *     MiObtainRelocationBits @ 0x14099C068 (MiObtainRelocationBits.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlFindClearBitsEx @ 0x14035F9A0 (RtlFindClearBitsEx.c)
- *     RtlCopyBitMapEx @ 0x14044B020 (RtlCopyBitMapEx.c)
- *     RtlMergeBitMapsEx @ 0x140618AE0 (RtlMergeBitMapsEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlFindClearBitsEx @ 0x140361740 (RtlFindClearBitsEx.c)
+ *     RtlCopyBitMapEx @ 0x140443150 (RtlCopyBitMapEx.c)
+ *     RtlMergeBitMapsEx @ 0x14061BB30 (RtlMergeBitMapsEx.c)
  */
 
 unsigned __int64 __fastcall MiSelectRelocationStartHint(
@@ -39,14 +39,14 @@ unsigned __int64 __fastcall MiSelectRelocationStartHint(
   if ( !(_DWORD)a4 )
   {
     --CurrentThread->SpecialApcDisable;
-    v10 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E2D150.116 + 4, 0LL, 0LL, a4);
-    v12 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E2D150.116 + 1, 0LL);
+    v10 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E2D2D0.116 + 4, 0LL, 0LL, a4);
+    v12 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E2D2D0.116 + 1, 0LL);
     v13 = v10;
     if ( v12 )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)((char *)&stru_140E2D150.116 + 4),
+        (unsigned __int64 *)((char *)&stru_140E2D2D0.116 + 4),
         v10,
-        (__int64)&stru_140E2D150.116 + 4);
+        (__int64)&stru_140E2D2D0.116 + 4);
     if ( v13 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -55,16 +55,16 @@ unsigned __int64 __fastcall MiSelectRelocationStartHint(
         *((_BYTE *)v13 + 10) = 1;
     }
   }
-  RtlCopyBitMapEx(*(unsigned __int64 **)a1, &stru_140E2D150.Timer.Header.Lock, 0LL);
-  RtlMergeBitMapsEx((unsigned __int64 *)&stru_140E2D150.Timer, *(__int64 **)(a1 + 8));
-  ClearBits = RtlFindClearBitsEx((unsigned __int64 *)&stru_140E2D150.Timer, v6, a3);
+  RtlCopyBitMapEx(*(unsigned __int64 **)a1, &stru_140E2D2D0.Timer.Header.Lock, 0LL);
+  RtlMergeBitMapsEx((unsigned __int64 *)&stru_140E2D2D0.Timer, *(__int64 **)(a1 + 8));
+  ClearBits = RtlFindClearBitsEx((unsigned __int64 *)&stru_140E2D2D0.Timer, v6, a3);
   if ( !v4 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)((char *)&stru_140E2D150.116 + 4), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)((char *)&stru_140E2D150.116 + 4));
-    KeAbPostRelease((unsigned __int64)&stru_140E2D150.116 + 4);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)((char *)&stru_140E2D2D0.116 + 4), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)((char *)&stru_140E2D2D0.116 + 4));
+    KeAbPostRelease((unsigned __int64)&stru_140E2D2D0.116 + 4);
     if ( CurrentThread->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     {
       KiCheckForKernelApcDelivery(v16, v15);
     }

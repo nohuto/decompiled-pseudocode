@@ -23,12 +23,12 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
   __int64 v6; // rcx
   __int64 v7; // rax
   struct _TEB *v8; // rcx
-  __int64 v9; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 ThreadInformation; // [rsp+30h] [rbp-D0h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-C0h] BYREF
-  _OWORD v11[2]; // [rsp+E0h] [rbp-20h] BYREF
+  _OWORD Fields[2]; // [rsp+E0h] [rbp-20h] BYREF
   __int64 v12; // [rsp+100h] [rbp+0h]
 
-  v9 = 0LL;
+  ThreadInformation = 0LL;
   memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   if ( a1 )
   {
@@ -53,12 +53,12 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
         v6 = 2147353488LL;
       if ( *(_BYTE *)v6 && SubProcessTag )
       {
-        memset(v11, 0, sizeof(v11));
-        WORD3(v11[0]) = 1349;
+        memset(Fields, 0, sizeof(Fields));
+        WORD3(Fields[0]) = 1349;
         v12 = (unsigned int)SubProcessTag;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v3 = (__int64)NtCurrentPeb()->SharedData + 566;
-        NtTraceEvent(*(unsigned __int8 *)v3, 1026LL, 8LL, v11);
+        NtTraceEvent((HANDLE)*(unsigned __int8 *)v3, 0x402u, 8u, Fields);
       }
       *(_QWORD *)(a1 + 80) = 0LL;
     }
@@ -73,8 +73,8 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
         ExceptionRecord.ExceptionCode = -1073740016;
         ExceptionRecord.NumberParameters = 2;
         RtlRaiseException(&ExceptionRecord);
-        v9 = 0LL;
-        NtSetInformationThread(-2LL, 5LL, &v9);
+        ThreadInformation = 0LL;
+        NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
       }
       if ( (*(_BYTE *)(a1 + 104) & 0x10) == 0 )
       {
@@ -86,7 +86,7 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
           || v8->TxFsContext != 65534 )
         {
           DbgPrintEx(
-            84,
+            0x54u,
             0,
             "ThreadPool: callback %p(%p) returned with a transaction uncleared\n",
             *(const void **)(a1 + 88),
@@ -101,7 +101,7 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
         && NtCurrentPeb()->LoaderLock->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
       {
         DbgPrintEx(
-          84,
+          0x54u,
           0,
           "ThreadPool: callback %p(%p) returned with the loader lock held\n",
           *(const void **)(a1 + 88),
@@ -114,7 +114,7 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
       if ( (*(_BYTE *)(a1 + 104) & 0x40) == 0 && NtCurrentTeb()->PreferredLanguages )
       {
         DbgPrintEx(
-          84,
+          0x54u,
           0,
           "ThreadPool: callback %p(%p) returned with preferred languages set\n",
           *(const void **)(a1 + 88),
@@ -129,7 +129,7 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
         if ( NtCurrentTeb()->SavedPriorityState )
         {
           DbgPrintEx(
-            84,
+            0x54u,
             0,
             "ThreadPool: callback %p(%p) returned with background priorities set\n",
             *(const void **)(a1 + 88),

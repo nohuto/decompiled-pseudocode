@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPrototypePteBoundaries @ 0x14070FFA4
+ * XREFs of MiGetPrototypePteBoundaries @ 0x140714CA0
  * Callers:
- *     MiMakeTransitionHeatBatch @ 0x14050A470 (MiMakeTransitionHeatBatch.c)
+ *     MiMakeTransitionHeatBatch @ 0x140503EE0 (MiMakeTransitionHeatBatch.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiObtainProtoBaseFromNode @ 0x14044BE20 (MiObtainProtoBaseFromNode.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiObtainProtoBaseFromNode @ 0x140443F40 (MiObtainProtoBaseFromNode.c)
  */
 
 __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)
@@ -17,9 +17,9 @@ __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)
 
   v3 = 0LL;
   *a2 = 0LL;
-  ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
-  CycleTime = (_QWORD *)stru_140E2D150.CycleTime;
-  if ( stru_140E2D150.CycleTime )
+  ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
+  CycleTime = (_QWORD *)stru_140E2D2D0.CycleTime;
+  if ( stru_140E2D2D0.CycleTime )
   {
     do
     {
@@ -40,6 +40,6 @@ __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)
     if ( CycleTime )
       v3 = MiObtainProtoBaseFromNode(CycleTime, a2);
   }
-  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
+  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
   return v3;
 }

@@ -3,13 +3,13 @@
  * Callers:
  *     CmpCreateRegistryRoot @ 0x140B36088 (CmpCreateRegistryRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     HvAllocateCell @ 0x14070A3C8 (HvAllocateCell.c)
- *     CmpCopyName @ 0x14070AA50 (CmpCopyName.c)
- *     CmpNameSize @ 0x1407B69BC (CmpNameSize.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     HvAllocateCell @ 0x14070A5D8 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x14070AC60 (CmpCopyName.c)
+ *     CmpNameSize @ 0x1407B6C9C (CmpNameSize.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
  */
 
 __int64 __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, int *a3)

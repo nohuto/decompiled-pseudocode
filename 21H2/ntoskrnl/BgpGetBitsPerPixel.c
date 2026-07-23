@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpGetBitsPerPixel @ 0x14039C280
+ * XREFs of BgpGetBitsPerPixel @ 0x14039C3D0
  * Callers:
- *     BgpGxDrawRectangle @ 0x14039BE98 (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x14039BF28 (GxpWriteFrameBufferPixels.c)
- *     BgpTxtDisplayCharacter @ 0x1403B1888 (BgpTxtDisplayCharacter.c)
- *     BgpGxProcessQrCodeBitmap @ 0x1403CE610 (BgpGxProcessQrCodeBitmap.c)
- *     BgpClearScreen @ 0x1405C4274 (BgpClearScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1405C5704 (BgpFwDisplayBugCheckScreen.c)
- *     LogFwReport @ 0x1409F1524 (LogFwReport.c)
- *     AnFwConfigureProgressResources @ 0x1409F1744 (AnFwConfigureProgressResources.c)
- *     BgpGxReadRectangle @ 0x1409F19D0 (BgpGxReadRectangle.c)
- *     GxpReadFrameBufferPixels @ 0x1409F1A40 (GxpReadFrameBufferPixels.c)
- *     AnFwDisplayFade @ 0x1409F1C00 (AnFwDisplayFade.c)
- *     AnFwpFadeAnimationTimer @ 0x1409F24C0 (AnFwpFadeAnimationTimer.c)
+ *     BgpGxDrawRectangle @ 0x14039BFE8 (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x14039C078 (GxpWriteFrameBufferPixels.c)
+ *     BgpTxtDisplayCharacter @ 0x1403B19F8 (BgpTxtDisplayCharacter.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x1403CE780 (BgpGxProcessQrCodeBitmap.c)
+ *     BgpClearScreen @ 0x1405C44A4 (BgpClearScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5934 (BgpFwDisplayBugCheckScreen.c)
+ *     LogFwReport @ 0x1409F2524 (LogFwReport.c)
+ *     AnFwConfigureProgressResources @ 0x1409F2744 (AnFwConfigureProgressResources.c)
+ *     BgpGxReadRectangle @ 0x1409F29D0 (BgpGxReadRectangle.c)
+ *     GxpReadFrameBufferPixels @ 0x1409F2A40 (GxpReadFrameBufferPixels.c)
+ *     AnFwDisplayFade @ 0x1409F2C00 (AnFwDisplayFade.c)
+ *     AnFwpFadeAnimationTimer @ 0x1409F34C0 (AnFwpFadeAnimationTimer.c)
  * Callees:
  *     <none>
  */

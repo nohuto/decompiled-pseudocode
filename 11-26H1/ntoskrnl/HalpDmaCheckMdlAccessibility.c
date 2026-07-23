@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaCheckMdlAccessibility @ 0x14043F81C
+ * XREFs of HalpDmaCheckMdlAccessibility @ 0x14043832C
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x14043EEB0 (HalFlushAdapterBuffersEx.c)
- *     HalMapTransferEx @ 0x14043F260 (HalMapTransferEx.c)
+ *     HalFlushAdapterBuffersEx @ 0x1404379C0 (HalFlushAdapterBuffersEx.c)
+ *     HalMapTransferEx @ 0x140437D70 (HalMapTransferEx.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     IopAllocateMdl @ 0x14039EBE0 (IopAllocateMdl.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x140440B80 (HalpDmaGetAdapterCacheAlignment.c)
- *     IoBuildPartialMdl @ 0x140440FA0 (IoBuildPartialMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     IopAllocateMdl @ 0x1403A0940 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140439690 (HalpDmaGetAdapterCacheAlignment.c)
+ *     IoBuildPartialMdl @ 0x140439AB0 (IoBuildPartialMdl.c)
  */
 
 char *__fastcall HalpDmaCheckMdlAccessibility(

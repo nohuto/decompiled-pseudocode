@@ -8,27 +8,25 @@
  *     ZwSetEvent @ 0x1800A4230 (ZwSetEvent.c)
  */
 
-signed __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
+int __fastcall RtlpUnWaitCriticalSection(__int64 a1)
 {
   HANDLE DeferredCriticalSectionEvent; // rax
-  signed __int64 result; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  signed __int32 v6[10]; // [rsp+0h] [rbp-28h] BYREF
+  int result; // eax
+  signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
   DeferredCriticalSectionEvent = *(HANDLE *)(a1 + 24);
   if ( !DeferredCriticalSectionEvent )
     DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(a1);
   if ( DeferredCriticalSectionEvent == (HANDLE)-1LL )
   {
-    _InterlockedOr(v6, 0);
+    _InterlockedOr(v4, 0);
     return RtlpWakeByAddress(a1 + 8, 0);
   }
   else
   {
-    result = ZwSetEvent();
-    if ( (int)result < 0 )
-      RtlRaiseStatus(result, v4, v5);
+    result = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+    if ( result < 0 )
+      RtlRaiseStatus(result);
   }
   return result;
 }

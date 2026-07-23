@@ -1,8 +1,8 @@
 /*
- * XREFs of KiInitializeDpcList @ 0x1405C7118
+ * XREFs of KiInitializeDpcList @ 0x1405C4848
  * Callers:
- *     KiInitPrcb @ 0x140B56204 (KiInitPrcb.c)
- *     KiInitializeProcessor @ 0x140B565CC (KiInitializeProcessor.c)
+ *     KiInitPrcb @ 0x140B58254 (KiInitPrcb.c)
+ *     KiInitializeProcessor @ 0x140B5861C (KiInitializeProcessor.c)
  * Callees:
  *     <none>
  */

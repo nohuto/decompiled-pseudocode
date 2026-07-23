@@ -1,7 +1,7 @@
 /*
- * XREFs of PsPicoSystemCallDispatch @ 0x140681388
+ * XREFs of PsPicoSystemCallDispatch @ 0x14068146C
  * Callers:
- *     KiSystemCall64 @ 0x14016F000 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x14016F500 (KiSystemCall64.c)
  * Callees:
  *     <none>
  */

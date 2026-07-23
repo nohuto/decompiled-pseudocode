@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetFirstIndexedRecord @ 0x14067CCB0
+ * XREFs of SdbpGetFirstIndexedRecord @ 0x14067DE70
  * Callers:
- *     SdbFindFirstStringIndexedTag @ 0x14067CC0C (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x14067DDCC (SdbFindFirstStringIndexedTag.c)
  * Callees:
- *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbpGetMappedTagData @ 0x14067CE08 (SdbpGetMappedTagData.c)
- *     SdbGetTagDataSize @ 0x14067D2EC (SdbGetTagDataSize.c)
- *     SdbpBinarySearchFirst @ 0x14067D7BC (SdbpBinarySearchFirst.c)
- *     SdbpBinarySearchUnique @ 0x14067E73C (SdbpBinarySearchUnique.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1405C92BC (SdbGetTagFromTagID.c)
+ *     SdbpGetMappedTagData @ 0x14067DFC8 (SdbpGetMappedTagData.c)
+ *     SdbGetTagDataSize @ 0x14067E4AC (SdbGetTagDataSize.c)
+ *     SdbpBinarySearchFirst @ 0x14067E97C (SdbpBinarySearchFirst.c)
+ *     SdbpBinarySearchUnique @ 0x14067F8FC (SdbpBinarySearchUnique.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetFirstIndexedRecord(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

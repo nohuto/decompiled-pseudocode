@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405FF790
+ * XREFs of EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405FFD00
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     TelemetryCoverageStringHashInternal @ 0x1403653CC (TelemetryCoverageStringHashInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCoverageRecord @ 0x1407DD580 (EtwpCoverageRecord.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14036556C (TelemetryCoverageStringHashInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCoverageRecord @ 0x1407DD850 (EtwpCoverageRecord.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -55,10 +55,13 @@ LABEL_8:
     v9 = (_BYTE *)v4[4];
     v4[4] = v8;
     KxReleaseSpinLock((volatile signed __int64 *)v1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -97,10 +100,10 @@ LABEL_8:
   v4[4] = (__int64)(v4 + 5);
   *(_DWORD *)(v1 + 72) = 0;
   result = KxReleaseSpinLock((volatile signed __int64 *)v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

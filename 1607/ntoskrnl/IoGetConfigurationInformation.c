@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetConfigurationInformation @ 0x14054F5F8
+ * XREFs of IoGetConfigurationInformation @ 0x14054FB38
  * Callers:
  *     IopCreateArcNamesCd @ 0x140798420 (IopCreateArcNamesCd.c)
  *     IopCreateArcNamesDisk @ 0x1407985F0 (IopCreateArcNamesDisk.c)

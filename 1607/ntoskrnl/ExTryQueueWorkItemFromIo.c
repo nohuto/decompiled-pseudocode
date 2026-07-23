@@ -1,15 +1,15 @@
 /*
- * XREFs of ExTryQueueWorkItemFromIo @ 0x14010D6EC
+ * XREFs of ExTryQueueWorkItemFromIo @ 0x14010DC50
  * Callers:
- *     IoTryQueueWorkItem @ 0x14010D6B0 (IoTryQueueWorkItem.c)
+ *     IoTryQueueWorkItem @ 0x14010DC14 (IoTryQueueWorkItem.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeInsertPriQueue @ 0x14005F700 (KeInsertPriQueue.c)
- *     ExpIsPoolReadyForWork @ 0x14005FE00 (ExpIsPoolReadyForWork.c)
- *     ExpValidateWorkItem @ 0x14005FEAC (ExpValidateWorkItem.c)
- *     ExpNewThreadNecessary @ 0x1400C0E90 (ExpNewThreadNecessary.c)
- *     MmGetNextNode @ 0x1400C0F74 (MmGetNextNode.c)
- *     ExpTypeToPriority @ 0x1400D11BC (ExpTypeToPriority.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeInsertPriQueue @ 0x14005F280 (KeInsertPriQueue.c)
+ *     ExpIsPoolReadyForWork @ 0x14005F980 (ExpIsPoolReadyForWork.c)
+ *     ExpValidateWorkItem @ 0x14005FA2C (ExpValidateWorkItem.c)
+ *     ExpNewThreadNecessary @ 0x1400BED20 (ExpNewThreadNecessary.c)
+ *     MmGetNextNode @ 0x1400BEE04 (MmGetNextNode.c)
+ *     ExpTypeToPriority @ 0x1400CF05C (ExpTypeToPriority.c)
  */
 
 char __fastcall ExTryQueueWorkItemFromIo(_QWORD *a1, unsigned int a2)

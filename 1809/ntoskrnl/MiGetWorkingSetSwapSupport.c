@@ -3,11 +3,11 @@
  * Callers:
  *     MiOutlawInswaps @ 0x140011E64 (MiOutlawInswaps.c)
  *     MmQueryProcessWorkingSetSwapPages @ 0x14001284C (MmQueryProcessWorkingSetSwapPages.c)
- *     MiOutPageSingleKernelStack @ 0x14007FAB0 (MiOutPageSingleKernelStack.c)
- *     MmInSwapWorkingSet @ 0x1400E4E84 (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
+ *     MiOutPageSingleKernelStack @ 0x14007FAA0 (MiOutPageSingleKernelStack.c)
+ *     MmInSwapWorkingSet @ 0x1400E4F04 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1400E51A8 (MmOutSwapWorkingSet.c)
  * Callees:
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
  */
 
 __int64 __fastcall MiGetWorkingSetSwapSupport(__int64 a1, __int64 a2)

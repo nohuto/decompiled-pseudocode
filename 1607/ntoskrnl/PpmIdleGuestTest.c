@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmIdleGuestTest @ 0x14020D96C
+ * XREFs of PpmIdleGuestTest @ 0x14020D798
  * Callers:
  *     <none>
  * Callees:

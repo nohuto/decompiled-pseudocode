@@ -1,9 +1,9 @@
 /*
- * XREFs of MincryptAlloc @ 0x1408A4D98
+ * XREFs of MincryptAlloc @ 0x1408AB1A8
  * Callers:
- *     SymCryptCallbackAlloc @ 0x140722890 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackAlloc @ 0x140727460 (SymCryptCallbackAlloc.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 MincryptAlloc()

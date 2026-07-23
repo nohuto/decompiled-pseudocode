@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPageFreeToZero @ 0x14026ABD0
+ * XREFs of MiPageFreeToZero @ 0x140220160
  * Callers:
- *     MiMoveZeroedPages @ 0x14020B140 (MiMoveZeroedPages.c)
+ *     MiMoveZeroedPages @ 0x140332F20 (MiMoveZeroedPages.c)
  * Callees:
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x1402236D0 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiFreeListPageContentsChanged @ 0x140269BA8 (MiFreeListPageContentsChanged.c)
- *     MiStopPageAccessor @ 0x14026ADB0 (MiStopPageAccessor.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiColorHasSlists @ 0x1402F6D90 (MiColorHasSlists.c)
- *     MiFreeZeroPageSlistSufficient @ 0x1404299A0 (MiFreeZeroPageSlistSufficient.c)
- *     MiSetFreeZeroPfnCold @ 0x1404319A0 (MiSetFreeZeroPfnCold.c)
+ *     MiFreeListPageContentsChanged @ 0x14021F138 (MiFreeListPageContentsChanged.c)
+ *     MiStopPageAccessor @ 0x140220340 (MiStopPageAccessor.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x140250420 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiColorHasSlists @ 0x14033EEA0 (MiColorHasSlists.c)
+ *     MiFreeZeroPageSlistSufficient @ 0x14041DD40 (MiFreeZeroPageSlistSufficient.c)
+ *     MiSetFreeZeroPfnCold @ 0x140423EE0 (MiSetFreeZeroPfnCold.c)
  */
 
 __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a3)
@@ -31,8 +31,6 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
   unsigned __int64 v18; // rcx
   signed __int64 v19; // rtt
   unsigned __int64 v21; // rbx
-  __int64 v22; // rdx
-  __int64 v23; // r8
 
   v6 = 48 * BugCheckParameter2 - 0x220000000000LL;
   v7 = 3;
@@ -43,7 +41,7 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
       v7 = 3;
   }
   v8 = MiPageToNode(BugCheckParameter2);
-  v9 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
+  v9 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
   v10 = *(_QWORD *)(v9 + 16) + 57216LL * v8;
   MiStopPageAccessor(v6);
   if ( (a2 & 2) != 0 )
@@ -57,8 +55,7 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
     if ( a3 )
     {
       if ( v7 != 3
-        || ((v21 = (unsigned int)MI_PAGE_TO_FULL_COLOR(BugCheckParameter2),
-             !(unsigned int)MiColorHasSlists(v21, v22, v23))
+        || ((v21 = (unsigned int)MI_PAGE_TO_FULL_COLOR(BugCheckParameter2), !(unsigned int)MiColorHasSlists(v21))
          || (unsigned int)MiFreeZeroPageSlistSufficient(v10, (unsigned int)v21, 0LL))
         && *(_QWORD *)(*(_QWORD *)(v10 + 8 * ((v21 >> 18) & 3) + 5120) + 8LL * (unsigned __int8)v21) >= (unsigned __int64)(unsigned int)(4 * *(_DWORD *)(v9 + 16976)) )
       {
@@ -81,7 +78,7 @@ __int64 __fastcall MiPageFreeToZero(ULONG_PTR BugCheckParameter2, char a2, int a
     }
     while ( v15 != v14 );
     MiUnlinkFreeOrZeroedPage(BugCheckParameter2, 0LL, 0LL);
-    MiInsertPageInFreeOrZeroedList(BugCheckParameter2, v11);
+    MiInsertPageInFreeOrZeroedList(BugCheckParameter2);
     v16 = v7 == 3;
     if ( v7 != 3 )
     {

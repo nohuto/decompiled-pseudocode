@@ -1,10 +1,10 @@
 /*
- * XREFs of SeQuerySecureBootPolicyValue @ 0x140793CE0
+ * XREFs of SeQuerySecureBootPolicyValue @ 0x140793D80
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SepSecureBootFindMatchingRegistryRule @ 0x140794060 (SepSecureBootFindMatchingRegistryRule.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SepSecureBootFindMatchingRegistryRule @ 0x140794174 (SepSecureBootFindMatchingRegistryRule.c)
  */
 
 __int64 __fastcall SeQuerySecureBootPolicyValue(
@@ -26,12 +26,12 @@ __int64 __fastcall SeQuerySecureBootPolicyValue(
   const void *v16; // r9
   unsigned int v17; // edx
 
-  if ( !qword_140E67B40 )
+  if ( !qword_140E67CE0 )
     return (unsigned int)-2143092730;
   MatchingRegistryRule = SepSecureBootFindMatchingRegistryRule(a1, a1, a2);
   if ( !MatchingRegistryRule )
     return (unsigned int)-1073741772;
-  v10 = (unsigned __int16 *)(qword_140E67B30 + *(unsigned int *)(MatchingRegistryRule + 12));
+  v10 = (unsigned __int16 *)(qword_140E67D28 + *(unsigned int *)(MatchingRegistryRule + 12));
   v11 = *v10;
   if ( a3 != v11 )
     return (unsigned int)-1073741772;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetBaseIoPriorityThread @ 0x1402A7BC0
+ * XREFs of PsGetBaseIoPriorityThread @ 0x1402A7E50
  * Callers:
- *     IoPageReadEx @ 0x1402A6810 (IoPageReadEx.c)
- *     IopSetIrpPriorityHintFromFileObject @ 0x1402A7AA0 (IopSetIrpPriorityHintFromFileObject.c)
- *     ExpApplyPrewaitBoost @ 0x1402A7B20 (ExpApplyPrewaitBoost.c)
- *     ExpApplyPriorityBoost @ 0x1402A8540 (ExpApplyPriorityBoost.c)
- *     KiAbSetMinimumThreadPriority @ 0x140318E28 (KiAbSetMinimumThreadPriority.c)
- *     ExpBoostIoAfterAcquire @ 0x14031AEB0 (ExpBoostIoAfterAcquire.c)
+ *     IoPageReadEx @ 0x1402A6AA0 (IoPageReadEx.c)
+ *     IopSetIrpPriorityHintFromFileObject @ 0x1402A7D30 (IopSetIrpPriorityHintFromFileObject.c)
+ *     ExpApplyPrewaitBoost @ 0x1402A7DB0 (ExpApplyPrewaitBoost.c)
+ *     ExpApplyPriorityBoost @ 0x1402A87D0 (ExpApplyPriorityBoost.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1403190B8 (KiAbSetMinimumThreadPriority.c)
+ *     ExpBoostIoAfterAcquire @ 0x14031B140 (ExpBoostIoAfterAcquire.c)
  * Callees:
  *     <none>
  */

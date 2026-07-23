@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetMatchingCommonClassListWorker @ 0x14081B96C
+ * XREFs of _CmGetMatchingCommonClassListWorker @ 0x14081C0AC
  * Callers:
- *     _CmGetMatchingCommonClassList @ 0x14081B800 (_CmGetMatchingCommonClassList.c)
+ *     _CmGetMatchingCommonClassList @ 0x14081BF40 (_CmGetMatchingCommonClassList.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetMatchingCommonClassListWorker(
@@ -43,7 +43,7 @@ __int64 __fastcall CmGetMatchingCommonClassListWorker(
   CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(a1, v10, v17);
   if ( CachedContextBaseKey >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x30uLL, 0x52504E50u);
     v13 = Pool2;
     if ( Pool2 )
     {

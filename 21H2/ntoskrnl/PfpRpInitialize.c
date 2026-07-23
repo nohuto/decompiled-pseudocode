@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpRpInitialize @ 0x140A6ACA4
+ * XREFs of PfpRpInitialize @ 0x140A6BCA4
  * Callers:
- *     PfInitializeSuperfetch @ 0x140A6A76C (PfInitializeSuperfetch.c)
+ *     PfInitializeSuperfetch @ 0x140A6B76C (PfInitializeSuperfetch.c)
  * Callees:
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     memset @ 0x140414200 (memset.c)
- *     PfpRpStart @ 0x1407C0074 (PfpRpStart.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PfpRpStart @ 0x1407C0590 (PfpRpStart.c)
  */
 
 __int64 __fastcall PfpRpInitialize(__int64 a1)
@@ -44,8 +44,8 @@ __int64 __fastcall PfpRpInitialize(__int64 a1)
   *(_QWORD *)(a1 + 16) = a1 + 24;
   ExInitializePushLock((PKSPIN_LOCK)(a1 + 136));
   ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a1 + 136));
-  result = (unsigned int)xmmword_140C50104;
-  if ( (xmmword_140C50104 & 2) != 0 )
+  result = (unsigned int)xmmword_140C50144;
+  if ( (xmmword_140C50144 & 2) != 0 )
     return PfpRpStart(a1);
   return result;
 }

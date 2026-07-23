@@ -1,12 +1,12 @@
 /*
- * XREFs of _PnpValidateObjectName @ 0x1406F27DC
+ * XREFs of _PnpValidateObjectName @ 0x1406F3A7C
  * Callers:
- *     PiDqOpenUserObjectRegKey @ 0x1406D9C80 (PiDqOpenUserObjectRegKey.c)
- *     PiDmObjectCreate @ 0x1406F1C30 (PiDmObjectCreate.c)
+ *     PiDqOpenUserObjectRegKey @ 0x1406DAF20 (PiDqOpenUserObjectRegKey.c)
+ *     PiDmObjectCreate @ 0x1406F2ED0 (PiDmObjectCreate.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     _PnpValidateObjectNameDispatch @ 0x1406F28A0 (_PnpValidateObjectNameDispatch.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     _PnpValidateObjectNameDispatch @ 0x1406F3B40 (_PnpValidateObjectNameDispatch.c)
  */
 
 __int64 __fastcall PnpValidateObjectName(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiProcessProfileList @ 0x1404B7C3C
+ * XREFs of KiProcessProfileList @ 0x1404B146C
  * Callers:
- *     KeProfileInterruptWithSource @ 0x1404B7BF0 (KeProfileInterruptWithSource.c)
+ *     KeProfileInterruptWithSource @ 0x1404B1420 (KeProfileInterruptWithSource.c)
  * Callees:
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 unsigned __int64 __fastcall KiProcessProfileList(__int64 a1, int a2, unsigned __int16 *a3)

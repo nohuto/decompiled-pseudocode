@@ -7,34 +7,34 @@
  *     RtlBackoff @ 0x180033E20 (RtlBackoff.c)
  */
 
-char __fastcall RtlTryAcquireSRWLockShared(volatile signed __int64 *a1)
+BOOLEAN __cdecl RtlTryAcquireSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
-  char v1; // r10
-  volatile signed __int64 *v2; // r11
-  unsigned __int64 v3; // rax
+  BOOLEAN v1; // r10
+  PRTL_SRWLOCK v2; // r11
+  unsigned __int64 Value; // rax
   __int64 v5; // r8
   signed __int64 v6; // rcx
   unsigned int v7; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = 0;
-  v2 = a1;
+  v2 = SRWLock;
   v7 = 0;
-  v3 = _InterlockedCompareExchange64(a1, 17LL, 0LL);
-  if ( !v3 )
+  Value = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 17LL, 0LL);
+  if ( !Value )
     return 1;
   while ( 1 )
   {
-    v5 = (v3 >> 1) & 1;
-    if ( (v3 & 1) != 0 && (v5 || (v3 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
+    v5 = (Value >> 1) & 1;
+    if ( (Value & 1) != 0 && (v5 || (Value & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
       break;
-    v6 = (v3 | 1) + 16;
+    v6 = (Value | 1) + 16;
     if ( v5 )
-      v6 = v3 | 1;
-    if ( v3 == _InterlockedCompareExchange64(v2, v6, v3) )
+      v6 = Value | 1;
+    if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)v2, v6, Value) )
       return 1;
     RtlBackoff(&v7);
-    _m_prefetchw((const void *)v2);
-    v3 = *v2;
+    _m_prefetchw(v2);
+    Value = v2->Value;
   }
   return v1;
 }

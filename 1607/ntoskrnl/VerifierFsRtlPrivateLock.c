@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlPrivateLock @ 0x14070C67C
+ * XREFs of VerifierFsRtlPrivateLock @ 0x14070C6AC
  * Callers:
  *     <none>
  * Callees:

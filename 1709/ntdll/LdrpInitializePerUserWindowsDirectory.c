@@ -17,41 +17,40 @@
 __int64 __fastcall LdrpInitializePerUserWindowsDirectory(__int64 (__fastcall *a1)(_BYTE *, __int64))
 {
   int v1; // eax
-  __int16 v3; // bx
+  unsigned __int16 v3; // bx
   char v4; // al
-  __m128i v5; // [rsp+30h] [rbp-D0h] BYREF
-  __int16 v6[4]; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE *v7; // [rsp+48h] [rbp-B8h]
-  _BYTE v8[16]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v9[528]; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING Destination; // [rsp+30h] [rbp-D0h] BYREF
+  UNICODE_STRING Source; // [rsp+40h] [rbp-C0h] BYREF
+  PVOID Cookie; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v8[528]; // [rsp+60h] [rbp-A0h] BYREF
 
-  v1 = 2 * a1(v9, 260LL);
+  v1 = 2 * a1(v8, 260LL);
   if ( !v1 )
     return 0LL;
-  v6[0] = v1;
-  v7 = v9;
-  v6[1] = 520;
-  if ( !*((_QWORD *)&RtlpSystemDirs + 1) )
+  Source.Length = v1;
+  Source.Buffer = (wchar_t *)v8;
+  Source.MaximumLength = 520;
+  if ( !RtlpSystemDirs.Buffer )
   {
 LABEL_11:
-    LdrAddDllDirectory(v6, v8);
+    LdrAddDllDirectory(&Source, &Cookie);
     return 0LL;
   }
-  v3 = v1 + RtlpSystemDirs + 2;
-  v5.m128i_i64[1] = RtlAllocateHeap(
-                      (__int64)NtCurrentPeb()->ProcessHeap,
-                      0,
-                      v1 + (unsigned int)(unsigned __int16)RtlpSystemDirs + 2LL);
-  if ( v5.m128i_i64[1] )
+  v3 = v1 + RtlpSystemDirs.Length + 2;
+  Destination.Buffer = (wchar_t *)RtlAllocateHeap(
+                                    NtCurrentPeb()->ProcessHeap,
+                                    0,
+                                    v1 + (unsigned int)RtlpSystemDirs.Length + 2LL);
+  if ( Destination.Buffer )
   {
-    v5.m128i_i16[0] = 0;
-    v5.m128i_i16[1] = v3;
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v5, (__int16 *)&RtlpSystemDirs);
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v5, v6);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v5, L";");
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *((unsigned __int64 *)&RtlpSystemDirs + 1));
-    RtlpSystemDirs = (__int128)v5;
-    *((_QWORD *)&RtlpSystem32Dirs + 1) = _mm_srli_si128(v5, 8).m128i_u64[0];
+    Destination.Length = 0;
+    Destination.MaximumLength = v3;
+    RtlAppendUnicodeStringToString(&Destination, &RtlpSystemDirs);
+    RtlAppendUnicodeStringToString(&Destination, &Source);
+    RtlAppendUnicodeToString(&Destination, L";");
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, RtlpSystemDirs.Buffer);
+    RtlpSystemDirs = Destination;
+    *((_QWORD *)&RtlpSystem32Dirs + 1) = _mm_srli_si128((__m128i)Destination, 8).m128i_u64[0];
     RtlpSignalSystemDirsModification();
     goto LABEL_11;
   }

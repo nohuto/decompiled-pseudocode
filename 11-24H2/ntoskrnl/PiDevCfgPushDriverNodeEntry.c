@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgPushDriverNodeEntry @ 0x1405A6E48
+ * XREFs of PiDevCfgPushDriverNodeEntry @ 0x1405A3E38
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140A7E6CC (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1409C7B64 (PiDevCfgQueryIncludedDriverConfigurations.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDevCfgPushDriverNodeEntry(__int64 a1, __int64 a2)
@@ -13,7 +13,7 @@ __int64 __fastcall PiDevCfgPushDriverNodeEntry(__int64 a1, __int64 a2)
   _QWORD *v6; // rcx
 
   v4 = 0;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x18uLL, 0x63647050u);
   if ( Pool2 )
   {
     Pool2[2] = a2;

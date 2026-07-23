@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyFromRegProp @ 0x140994750
+ * XREFs of _CmGetDeviceMappedPropertyFromRegProp @ 0x1409551B0
  * Callers:
- *     _CmGetDeviceCompoundFilters @ 0x140992AA8 (_CmGetDeviceCompoundFilters.c)
- *     _PnpDispatchDevice @ 0x1409956A0 (_PnpDispatchDevice.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x140AE2F14 (_CmGetDeviceMappedPropertyKeys.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140B227E8 (_CmGetDeviceCompoundFiltersWorker.c)
+ *     _CmGetDeviceCompoundFilters @ 0x140953508 (_CmGetDeviceCompoundFilters.c)
+ *     _PnpDispatchDevice @ 0x140956100 (_PnpDispatchDevice.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x140AE0A94 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x140B24BE8 (_CmGetDeviceCompoundFiltersWorker.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpParseIndirectInfString @ 0x140919280 (_PnpParseIndirectInfString.c)
- *     _PnpParseIndirectResourceString @ 0x140919358 (_PnpParseIndirectResourceString.c)
- *     _PnpMultiSzGetLen @ 0x140992C5C (_PnpMultiSzGetLen.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpMultiSzGetLen @ 0x1409536BC (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     _PnpParseIndirectInfString @ 0x140973CE0 (_PnpParseIndirectInfString.c)
+ *     _PnpParseIndirectResourceString @ 0x140973DB8 (_PnpParseIndirectResourceString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyFromRegProp(
@@ -226,7 +226,7 @@ LABEL_26:
     if ( !v9 )
       goto LABEL_38;
   }
-  if ( PnpParseIndirectInfString(v29) || PnpParseIndirectResourceString(v29) )
+  if ( (unsigned __int8)PnpParseIndirectInfString(v29) || (unsigned __int8)PnpParseIndirectResourceString(v29) )
     *a5 = 25;
   if ( Pool2 )
 LABEL_37:

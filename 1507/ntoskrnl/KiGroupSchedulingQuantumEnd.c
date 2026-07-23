@@ -45,11 +45,11 @@ void __fastcall KiGroupSchedulingQuantumEnd(__int64 a1, __int64 a2, char a3, __i
   __int64 v28; // rcx
   __int64 *v29; // rbx
   __int64 v30; // rax
-  __int64 v31; // rax
+  _RTL_RB_TREE *v31; // rax
   __int64 v32; // rcx
   __int64 *v33; // rbx
   __int64 v34; // rax
-  __int64 v35; // r8
+  _RTL_RB_TREE *v35; // r8
   __int64 v36; // r9
   __int64 v37; // rsi
   __int64 v38; // r9
@@ -195,11 +195,11 @@ LABEL_37:
             v29 = (__int64 *)(v28 + 392);
             v30 = *(_QWORD *)(v28 + 392);
             if ( v30 )
-              v31 = v30 + 376;
+              v31 = (_RTL_RB_TREE *)(v30 + 376);
             else
-              v31 = a1 + 22768;
+              v31 = (_RTL_RB_TREE *)(a1 + 22768);
             *(_BYTE *)(v28 + 112) &= ~1u;
-            RtlRbRemoveNode(v31, v28 + 88);
+            RtlRbRemoveNode(v31, (PRTL_BALANCED_NODE)(v28 + 88));
             v28 = *v29;
           }
           while ( *v29 && (*(_BYTE *)(v28 + 112) & 1) != 0 && !*(_QWORD *)(v28 + 376) && !*(_WORD *)(v28 + 114) );
@@ -402,12 +402,12 @@ LABEL_128:
         {
           v33 = (__int64 *)(v32 + 392);
           v34 = *(_QWORD *)(v32 + 392);
-          v35 = v34 + 376;
+          v35 = (_RTL_RB_TREE *)(v34 + 376);
           if ( !v34 )
-            v35 = a1 + 22768;
+            v35 = (_RTL_RB_TREE *)(a1 + 22768);
           *(_QWORD *)(v32 + 56) += MEMORY[0xFFFFF78000000008] - *(_QWORD *)(v32 + 64);
           *(_BYTE *)(v32 + 112) &= ~1u;
-          RtlRbRemoveNode(v35, v32 + 88);
+          RtlRbRemoveNode(v35, (PRTL_BALANCED_NODE)(v32 + 88));
           v32 = *v33;
         }
         while ( *v33 && (*(_BYTE *)(v32 + 112) & 1) != 0 && !*(_QWORD *)(v32 + 376) && !*(_WORD *)(v32 + 114) );

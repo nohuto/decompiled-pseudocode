@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5964
+ * XREFs of HvpFindNextDirtyBlockAndCreateTemporary @ 0x1401B5848
  * Callers:
- *     HvStoreModifiedData @ 0x140480EEC (HvStoreModifiedData.c)
+ *     HvStoreModifiedData @ 0x14047FC40 (HvStoreModifiedData.c)
  * Callees:
- *     HvpFindNextDirtyRun @ 0x140084698 (HvpFindNextDirtyRun.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     HvViewMapCopyToFileOffset @ 0x1401B6684 (HvViewMapCopyToFileOffset.c)
- *     HvpPointMapEntriesToBuffer @ 0x140513AF8 (HvpPointMapEntriesToBuffer.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvpProtectBin @ 0x140513DE0 (HvpProtectBin.c)
+ *     HvpFindNextDirtyRun @ 0x1400827F8 (HvpFindNextDirtyRun.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvViewMapCopyToFileOffset @ 0x1401B6568 (HvViewMapCopyToFileOffset.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1404F6EE8 (HvpPointMapEntriesToBuffer.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     HvpProtectBin @ 0x1404F71D0 (HvpProtectBin.c)
  */
 
 __int64 __fastcall HvpFindNextDirtyBlockAndCreateTemporary(

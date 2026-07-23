@@ -14,10 +14,10 @@
  *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
  */
 
-__int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2)
+NTSTATUS __cdecl NtShutdownWorkerFactory(HANDLE WorkerFactoryHandle, LONG *PendingWorkerCount)
 {
   KPROCESSOR_MODE PreviousMode; // r9
-  NTSTATUS v4; // esi
+  int v4; // esi
   PVOID v5; // rbx
   _DWORD *v6; // rbx
   unsigned __int8 OldIrql; // bl
@@ -33,19 +33,19 @@ __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)PendingWorkerCount & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (unsigned __int64)(a2 + 1) > 0x7FFFFFFF0000LL || a2 + 1 < a2 )
+    if ( (unsigned __int64)(PendingWorkerCount + 1) > 0x7FFFFFFF0000LL || PendingWorkerCount + 1 < PendingWorkerCount )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
   Object = 0LL;
-  v4 = ObReferenceObjectByHandle(a1, 0x20u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  v4 = ObReferenceObjectByHandle(WorkerFactoryHandle, 0x20u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   if ( v4 >= 0 )
   {
     v5 = Object;
     ExpShutdownWorkerFactory(Object);
     ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v5 + 13);
-    _InterlockedExchangeAdd(a2, *((_DWORD *)v5 + 74));
+    _InterlockedExchangeAdd(PendingWorkerCount, *((_DWORD *)v5 + 74));
     v6 = Object;
     KeAcquireInStackQueuedSpinLock(*((PKSPIN_LOCK *)Object + 2), &LockHandle);
     v6[74] = 0;
@@ -71,5 +71,5 @@ __int64 __fastcall NtShutdownWorkerFactory(void *a1, volatile signed __int32 *a2
     __writecr8(OldIrql);
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
   }
-  return (unsigned int)v4;
+  return v4;
 }

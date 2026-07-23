@@ -19,7 +19,7 @@ __int64 __fastcall SepQueryNameString(PEPROCESS Process, PUNICODE_STRING *pImage
 {
   NTSTATUS NameString; // eax
   NTSTATUS v5; // ebx
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
   SIZE_T NumberOfBytes; // [rsp+38h] [rbp+10h] BYREF
 
   *pImageFileName = 0LL;
@@ -28,10 +28,7 @@ __int64 __fastcall SepQueryNameString(PEPROCESS Process, PUNICODE_STRING *pImage
   v5 = NameString;
   if ( NameString == -1073741820 || NameString == -1073741789 )
   {
-    PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(
-                                                       PagedPool,
-                                                       (unsigned int)NumberOfBytes,
-                                                       0x6E4F6553u);
+    PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6E4F6553u);
     *pImageFileName = &PoolWithTag->Name;
     if ( PoolWithTag )
     {

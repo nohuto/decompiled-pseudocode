@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpShutdownWorkerFactory @ 0x1403A9ED0
+ * XREFs of ExpShutdownWorkerFactory @ 0x1403B3AE0
  * Callers:
- *     NtShutdownWorkerFactory @ 0x1406D3780 (NtShutdownWorkerFactory.c)
- *     ExpCloseWorkerFactory @ 0x140AE94C0 (ExpCloseWorkerFactory.c)
+ *     NtShutdownWorkerFactory @ 0x1406D77B0 (NtShutdownWorkerFactory.c)
+ *     ExpCloseWorkerFactory @ 0x140AEB870 (ExpCloseWorkerFactory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoSetIoCompletionEx3 @ 0x140266450 (IoSetIoCompletionEx3.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x1402C2960 (ExpLeaveWorkerFactoryAwayMode.c)
- *     ExpPurgeThreadHistory @ 0x1403A9FE0 (ExpPurgeThreadHistory.c)
- *     KeCancelTimer2 @ 0x1403AA4E0 (KeCancelTimer2.c)
- *     ?KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z @ 0x1403AA9A8 (-KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoSetIoCompletionEx3 @ 0x1402659C0 (IoSetIoCompletionEx3.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x14030D620 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     ExpPurgeThreadHistory @ 0x1403B3BF0 (ExpPurgeThreadHistory.c)
+ *     KeCancelTimer2 @ 0x1403B40F0 (KeCancelTimer2.c)
+ *     ?KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z @ 0x1403B46B8 (-KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z.c)
  */
 
 __int64 __fastcall ExpShutdownWorkerFactory(ULONG_PTR BugCheckParameter2)

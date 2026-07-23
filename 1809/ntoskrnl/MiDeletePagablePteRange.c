@@ -1,29 +1,29 @@
 /*
- * XREFs of MiDeletePagablePteRange @ 0x140067FE0
+ * XREFs of MiDeletePagablePteRange @ 0x140067FD0
  * Callers:
  *     MiDeleteVirtualAddresses @ 0x140026134 (MiDeleteVirtualAddresses.c)
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiDeleteSessionAddressSpace @ 0x1401542C0 (MiDeleteSessionAddressSpace.c)
- *     MiDeleteSessionPdes @ 0x140158D60 (MiDeleteSessionPdes.c)
- *     MiDeleteVadBitmap @ 0x140608CFC (MiDeleteVadBitmap.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiDeleteSessionAddressSpace @ 0x1401543C0 (MiDeleteSessionAddressSpace.c)
+ *     MiDeleteSessionPdes @ 0x140158E60 (MiDeleteSessionPdes.c)
+ *     MiDeleteVadBitmap @ 0x140609CFC (MiDeleteVadBitmap.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140117BA0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x140118FE0 (ExAcquireAutoExpandPushLockExclusive.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiFreePhysicalPageChain @ 0x1402B05BC (MiFreePhysicalPageChain.c)
- *     MiFreeLargePages @ 0x1402C55CC (MiFreeLargePages.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140117C10 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140119050 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiFreePhysicalPageChain @ 0x1402B07AC (MiFreePhysicalPageChain.c)
+ *     MiFreeLargePages @ 0x1402C57BC (MiFreeLargePages.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 void __fastcall MiDeletePagablePteRange(
@@ -141,7 +141,7 @@ void __fastcall MiDeletePagablePteRange(
       else
       {
         if ( v17 == 2 )
-          v18 = &dword_14043B700;
+          v18 = &dword_14043C7C0;
         else
           v18 = (LONG *)(a1 + 192);
         v19 = KeGetCurrentIrql();

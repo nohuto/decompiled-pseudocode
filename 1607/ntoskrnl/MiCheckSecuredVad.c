@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckSecuredVad @ 0x14040C3EC
+ * XREFs of MiCheckSecuredVad @ 0x14040B2AC
  * Callers:
- *     MiUnmapLockedPagesInUserSpace @ 0x14010E8C4 (MiUnmapLockedPagesInUserSpace.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14040C688 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiUnmapViewOfSection @ 0x14042E400 (MiUnmapViewOfSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiProtectVirtualMemory @ 0x140433470 (MiProtectVirtualMemory.c)
- *     NtFreeVirtualMemory @ 0x140433DC0 (NtFreeVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14010EE28 (MiUnmapLockedPagesInUserSpace.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x14040B548 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiUnmapViewOfSection @ 0x14042D2D0 (MiUnmapViewOfSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiProtectVirtualMemory @ 0x140432340 (MiProtectVirtualMemory.c)
+ *     NtFreeVirtualMemory @ 0x140432C90 (NtFreeVirtualMemory.c)
  * Callees:
- *     MiComparePteProtections @ 0x1401E9164 (MiComparePteProtections.c)
+ *     MiComparePteProtections @ 0x1401E8F90 (MiComparePteProtections.c)
  */
 
 __int64 __fastcall MiCheckSecuredVad(ULONG_PTR a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
@@ -48,7 +48,7 @@ __int64 __fastcall MiCheckSecuredVad(ULONG_PTR a1, unsigned __int64 a2, __int64 
         if ( a4 < 0x55 )
         {
           v14 = (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12;
-          if ( (v14 == 2147352576 || v14 == qword_140326998 && qword_140326998)
+          if ( (v14 == 2147352576 || v14 == qword_1403269D8 && qword_1403269D8)
             && (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000LL) == 0 )
           {
             return 3221225541LL;

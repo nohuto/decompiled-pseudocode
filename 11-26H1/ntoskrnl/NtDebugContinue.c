@@ -1,20 +1,20 @@
 /*
- * XREFs of NtDebugContinue @ 0x140987410
+ * XREFs of NtDebugContinue @ 0x140B077A0
  * Callers:
- *     DifNtDebugContinueWrapper @ 0x1406756D0 (DifNtDebugContinueWrapper.c)
+ *     DifNtDebugContinueWrapper @ 0x1406792B0 (DifNtDebugContinueWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     EtwTraceDebuggerEvent @ 0x1404E5B4C (EtwTraceDebuggerEvent.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     DbgkpWakeTarget @ 0x140985E88 (DbgkpWakeTarget.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     EtwTraceDebuggerEvent @ 0x1404DF0EC (EtwTraceDebuggerEvent.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     DbgkpWakeTarget @ 0x14091D3BC (DbgkpWakeTarget.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtDebugContinue(HANDLE Handle, void *a2, int a3)
+NTSTATUS __cdecl NtDebugContinue(HANDLE DebugObjectHandle, PCLIENT_ID ClientId, NTSTATUS ContinueStatus)
 {
   KPROCESSOR_MODE PreviousMode; // di
   NTSTATUS result; // eax
@@ -32,13 +32,20 @@ NTSTATUS __fastcall NtDebugContinue(HANDLE Handle, void *a2, int a3)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(Object) = PreviousMode;
   if ( PreviousMode )
-    RtlCopyFromUser(&v14, a2, 0x10uLL);
+    RtlCopyFromUser(&v14, ClientId, 0x10uLL);
   else
-    RtlCopyVolatileMemory(&v14, a2, 0x10uLL);
-  if ( a3 != 65538 && a3 != -2147418111 && a3 != 65537 && a3 != 1073807361 && a3 != 1073807363 && a3 != 1073807364 )
+    RtlCopyVolatileMemory(&v14, ClientId, 0x10uLL);
+  if ( ContinueStatus != 65538
+    && ContinueStatus != -2147418111
+    && ContinueStatus != 65537
+    && ContinueStatus != 1073807361
+    && ContinueStatus != 1073807363
+    && ContinueStatus != 1073807364 )
+  {
     return -1073741811;
+  }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(DebugObjectHandle, 1u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
   v7 = result;
   if ( result >= 0 )
   {
@@ -75,7 +82,7 @@ NTSTATUS __fastcall NtDebugContinue(HANDLE Handle, void *a2, int a3)
       return -1073741811;
     if ( (PerfGlobalGroupMask[0] & 0x400000) != 0 )
       EtwTraceDebuggerEvent(*((_QWORD *)v9 + 7), *((_QWORD *)v9 + 8), 2);
-    *((_DWORD *)v9 + 33) = a3;
+    *((_DWORD *)v9 + 33) = ContinueStatus;
     *((_DWORD *)v9 + 18) = 0;
     DbgkpWakeTarget(v9);
     return v7;

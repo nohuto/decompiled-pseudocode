@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpLocateActivationContextSection @ 0x18005E750
+ * XREFs of RtlpLocateActivationContextSection @ 0x180074330
  * Callers:
- *     RtlpQueryInformationActivationContextDetailedInformation @ 0x18001BFD0 (RtlpQueryInformationActivationContextDetailedInformation.c)
- *     RtlpFindActivationContextSection_FillOutReturnedData @ 0x18003E6EC (RtlpFindActivationContextSection_FillOutReturnedData.c)
- *     RtlpFindNextActivationContextSection @ 0x18005E590 (RtlpFindNextActivationContextSection.c)
- *     RtlQueryActivationContextApplicationSettings @ 0x1800AC950 (RtlQueryActivationContextApplicationSettings.c)
- *     RtlpLocateActivationContextSectionForQuery @ 0x1800F3AE8 (RtlpLocateActivationContextSectionForQuery.c)
- *     RtlpQueryInformationActivationContextCompatibilityInformation @ 0x1800F3F14 (RtlpQueryInformationActivationContextCompatibilityInformation.c)
- *     RtlpQueryRunLevel @ 0x18010BA4C (RtlpQueryRunLevel.c)
- *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x180111EFC (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpQueryInformationActivationContextManifestResourceName @ 0x18011699C (RtlpQueryInformationActivationContextManifestResourceName.c)
+ *     RtlQueryActivationContextApplicationSettings @ 0x1800099A0 (RtlQueryActivationContextApplicationSettings.c)
+ *     RtlpFindActivationContextSection_FillOutReturnedData @ 0x18001E96C (RtlpFindActivationContextSection_FillOutReturnedData.c)
+ *     RtlpQueryInformationActivationContextDetailedInformation @ 0x1800489D0 (RtlpQueryInformationActivationContextDetailedInformation.c)
+ *     RtlpFindNextActivationContextSection @ 0x180074170 (RtlpFindNextActivationContextSection.c)
+ *     RtlpLocateActivationContextSectionForQuery @ 0x1800EE004 (RtlpLocateActivationContextSectionForQuery.c)
+ *     RtlpQueryInformationActivationContextCompatibilityInformation @ 0x1800EE434 (RtlpQueryInformationActivationContextCompatibilityInformation.c)
+ *     RtlpQueryRunLevel @ 0x18010641C (RtlpQueryRunLevel.c)
+ *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x18010D36C (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryInformationActivationContextManifestResourceName @ 0x180111BD0 (RtlpQueryInformationActivationContextManifestResourceName.c)
  * Callees:
- *     DbgPrintEx @ 0x18005EA90 (DbgPrintEx.c)
- *     bsearch @ 0x180123D40 (bsearch.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     DbgPrintEx @ 0x180074670 (DbgPrintEx.c)
+ *     bsearch @ 0x180121F70 (bsearch.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD *a4, _DWORD *a5)
@@ -50,8 +50,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
   if ( v6 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
       v6,
@@ -68,8 +68,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
       if ( (int)v24 + 16 > v6 || (unsigned int)(v24 + 16) < 0x10 || (unsigned int)v24 >= v6 )
       {
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
           v24,
           v6);
@@ -97,8 +97,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
               if ( v34 + 16 > v6 || v34 + 16 < 0x10 || v34 >= v6 )
               {
                 DbgPrintEx(
-                  51LL,
-                  0LL,
+                  0x33u,
+                  0,
                   "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
                   i,
                   v34,
@@ -114,8 +114,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
           return (unsigned int)-1072365567;
         }
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of "
           "activation context data (%lu bytes)\n",
           v26,
@@ -187,8 +187,8 @@ LABEL_18:
                 return v9;
               }
               DbgPrintEx(
-                51LL,
-                0LL,
+                0x33u,
+                0,
                 "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
                 v21,
                 v22,
@@ -200,8 +200,8 @@ LABEL_18:
         return (unsigned int)-1072365567;
       }
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
         v14,
         v12,

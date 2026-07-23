@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetGdtIdt @ 0x140C7B320
+ * XREFs of KiGetGdtIdt @ 0x140C81320
  * Callers:
- *     sub_140542730 @ 0x140542730 (sub_140542730.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140C62010 (FsRtlMdlReadCompleteDevEx.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     sub_140544BB0 @ 0x140544BB0 (sub_140544BB0.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140C68010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of IoAllocateAdapterChannel @ 0x1401C89CC
+ * XREFs of IoAllocateAdapterChannel @ 0x1401C886C
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of KxDispatchInterrupt @ 0x140165E40
+ * XREFs of KxDispatchInterrupt @ 0x1401663B0
  * Callers:
- *     KiDispatchInterrupt @ 0x140165DB0 (KiDispatchInterrupt.c)
+ *     KiDispatchInterrupt @ 0x140166320 (KiDispatchInterrupt.c)
  * Callees:
- *     KiAbProcessContextSwitch @ 0x14005C490 (KiAbProcessContextSwitch.c)
- *     KiQueueReadyThread @ 0x1400D0C70 (KiQueueReadyThread.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2750 (KiEndThreadAccountingPeriod.c)
- *     SwapContext @ 0x140166000 (SwapContext.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
+ *     KiAbProcessContextSwitch @ 0x14005C010 (KiAbProcessContextSwitch.c)
+ *     KiQueueReadyThread @ 0x1400CEB10 (KiQueueReadyThread.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D05F0 (KiEndThreadAccountingPeriod.c)
+ *     SwapContext @ 0x140166570 (SwapContext.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
  */
 
 __int64 __fastcall KxDispatchInterrupt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

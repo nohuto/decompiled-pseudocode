@@ -1,9 +1,9 @@
 /*
- * XREFs of CarSetCustomRuleIdRange @ 0x1406175C0
+ * XREFs of CarSetCustomRuleIdRange @ 0x140615B80
  * Callers:
- *     DifRegisterKernelPlugins @ 0x140618A30 (DifRegisterKernelPlugins.c)
+ *     DifRegisterKernelPlugins @ 0x140616FF0 (DifRegisterKernelPlugins.c)
  * Callees:
- *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x14061696C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x140614F2C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
  */
 
 __int64 __fastcall CarSetCustomRuleIdRange(__int64 a1)

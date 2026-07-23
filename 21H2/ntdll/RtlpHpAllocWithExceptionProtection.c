@@ -5,13 +5,13 @@
  * Callees:
  *     RtlpHpTagAllocateHeap @ 0x180007AB4 (RtlpHpTagAllocateHeap.c)
  *     RtlpAllocateHeapInternal @ 0x18002AA20 (RtlpAllocateHeapInternal.c)
- *     RtlpHeapExceptionFilter @ 0x18010E0A4 (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapExceptionFilter @ 0x18010E064 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, unsigned __int64 a2, unsigned int a3)
+unsigned __int64 __fastcall RtlpHpAllocWithExceptionProtection(void *a1, unsigned __int64 a2, int a3)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpTagAllocateHeap(a1, a2, a3);
+    return RtlpHpTagAllocateHeap(a1, a2);
   else
-    return RtlpAllocateHeapInternal(a1, a2, a3, 0);
+    return RtlpAllocateHeapInternal((unsigned __int16 *)a1, a2, a3, 0);
 }

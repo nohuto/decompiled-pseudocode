@@ -1,19 +1,19 @@
 /*
- * XREFs of CMFCreateSecurityDescriptor @ 0x140A01B4C
+ * XREFs of CMFCreateSecurityDescriptor @ 0x140A01DDC
  * Callers:
- *     CMFCheckAccess @ 0x140A018E4 (CMFCheckAccess.c)
- *     CMFSystemThreadRoutine @ 0x140A02AC0 (CMFSystemThreadRoutine.c)
+ *     CMFCheckAccess @ 0x140A01B74 (CMFCheckAccess.c)
+ *     CMFSystemThreadRoutine @ 0x140A02D50 (CMFSystemThreadRoutine.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x140297AD0 (RtlSubAuthoritySid.c)
+ *     RtlSubAuthoritySid @ 0x140297D60 (RtlSubAuthoritySid.c)
  *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlValidAcl @ 0x140736880 (RtlValidAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140781FF0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
- *     RtlValidSecurityDescriptor @ 0x1407B4D10 (RtlValidSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlValidAcl @ 0x140736A70 (RtlValidAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1407821E0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
+ *     RtlValidSecurityDescriptor @ 0x1407B4FF0 (RtlValidSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -45,13 +45,13 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
   unsigned int v25; // r9d
   unsigned int v26; // edi
   void *v27; // rax
-  struct _SID_IDENTIFIER_AUTHORITY v29; // [rsp+30h] [rbp-40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v29; // [rsp+30h] [rbp-40h] BYREF
   void *v30; // [rsp+38h] [rbp-38h]
   void *v31; // [rsp+40h] [rbp-30h]
   _OWORD SecurityDescriptor[2]; // [rsp+48h] [rbp-28h] BYREF
   __int64 v33; // [rsp+68h] [rbp-8h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+C0h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v36; // [rsp+C8h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+C0h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v36; // [rsp+C8h] [rbp+58h] BYREF
 
   *(_WORD *)&v29.Value[4] = 1280;
   *(_DWORD *)v29.Value = 0;
@@ -141,13 +141,13 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
             v19 = 0x10000000;
             if ( a2 )
               v19 = a2[3] & 0xFFFFFFF;
-            Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v19, Src, 0);
+            Acl = RtlpAddKnownAce(v18, 2u, 3, v19, Src, 0);
             if ( (Acl & 0xC0000000) != 0xC0000000 )
             {
               v20 = 0x10000000;
               if ( a2 )
                 v20 = a2[3] & 0xFFFFFFF;
-              Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v20, v3, 0);
+              Acl = RtlpAddKnownAce(v18, 2u, 3, v20, v3, 0);
               if ( (Acl & 0xC0000000) != 0xC0000000 )
               {
                 v21 = 0x80000000;
@@ -163,7 +163,7 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
                     v23 |= a2[3];
                   v22 = v23 & 0xFFFFFFF;
                 }
-                Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v22, (unsigned __int8 *)v31, 0);
+                Acl = RtlpAddKnownAce(v18, 2u, 3, v22, (unsigned __int8 *)v31, 0);
                 if ( (Acl & 0xC0000000) != 0xC0000000 )
                 {
                   v24 = 0x80000000;
@@ -178,7 +178,7 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
                       v25 |= a2[3];
                     v24 = v25 & 0xFFFFFFF;
                   }
-                  Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v24, (unsigned __int8 *)v30, 0);
+                  Acl = RtlpAddKnownAce(v18, 2u, 3, v24, (unsigned __int8 *)v30, 0);
                   if ( (Acl & 0xC0000000) != 0xC0000000 )
                   {
                     if ( a2 )
@@ -192,10 +192,10 @@ __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, _DWORD *a2)
                         v26 |= a2[3];
                       v21 = v26 & 0xFFFFFFF;
                     }
-                    Acl = RtlpAddKnownAce((__int64)v18, 2u, 3, v21, v6, 0);
+                    Acl = RtlpAddKnownAce(v18, 2u, 3, v21, v6, 0);
                     if ( (Acl & 0xC0000000) != 0xC0000000 )
                     {
-                      if ( RtlValidAcl((__int64)v18) )
+                      if ( RtlValidAcl(v18) )
                       {
                         Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v18, 0);
                         if ( (Acl & 0xC0000000) != 0xC0000000 )

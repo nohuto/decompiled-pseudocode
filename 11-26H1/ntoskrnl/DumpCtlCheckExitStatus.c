@@ -1,14 +1,14 @@
 /*
- * XREFs of DumpCtlCheckExitStatus @ 0x1405C6130
+ * XREFs of DumpCtlCheckExitStatus @ 0x1405C89A0
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x1405C6994 (IoFillTriageDumpBuffer.c)
- *     IoSetDumpRange @ 0x1405C7A20 (IoSetDumpRange.c)
- *     IoWriteCrashDump @ 0x1405C7FAC (IoWriteCrashDump.c)
- *     IoAddPagesForPartialKernelDump @ 0x1405D4728 (IoAddPagesForPartialKernelDump.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D4BE0 (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D5088 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IoFillTriageDumpBuffer @ 0x1405C9264 (IoFillTriageDumpBuffer.c)
+ *     IoSetDumpRange @ 0x1405CA2F0 (IoSetDumpRange.c)
+ *     IoWriteCrashDump @ 0x1405CA87C (IoWriteCrashDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x1405D6F18 (IoAddPagesForPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D73D0 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D7878 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     IopWheaSelLogError @ 0x1405CA160 (IopWheaSelLogError.c)
+ *     IopWheaSelLogError @ 0x1405CCA30 (IopWheaSelLogError.c)
  */
 
 __int64 __fastcall DumpCtlCheckExitStatus(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepCaptureInt64Array @ 0x140813908
+ * XREFs of SepCaptureInt64Array @ 0x140819768
  * Callers:
- *     SepCaptureTokenSecurityAttributesInformation @ 0x140AF0268 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140AF2E38 (SepCaptureTokenSecurityAttributesInformation.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureInt64Array(void *Src, unsigned int a2, __int64 a3, _QWORD *a4)

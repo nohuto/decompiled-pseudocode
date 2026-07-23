@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestStatsFreeId @ 0x1407A8504
+ * XREFs of PopPowerRequestStatsFreeId @ 0x1407A86F4
  * Callers:
- *     PopPowerRequestStatsCreate @ 0x1407A77DC (PopPowerRequestStatsCreate.c)
- *     PopPowerRequestStatsCleanup @ 0x1407A78C8 (PopPowerRequestStatsCleanup.c)
- *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7D30 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsCreate @ 0x1407A79CC (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsCleanup @ 0x1407A7AB8 (PopPowerRequestStatsCleanup.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7F20 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

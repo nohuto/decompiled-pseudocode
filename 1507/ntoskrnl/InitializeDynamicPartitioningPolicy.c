@@ -8,16 +8,15 @@
  *     ZwQueryLicenseValue @ 0x140181730 (ZwQueryLicenseValue.c)
  */
 
-__int64 InitializeDynamicPartitioningPolicy()
+int InitializeDynamicPartitioningPolicy()
 {
-  __int64 result; // rax
   const WCHAR *v6; // rdx
-  int v11; // [rsp+30h] [rbp-40h] BYREF
-  int v12; // [rsp+34h] [rbp-3Ch]
-  int v13; // [rsp+38h] [rbp-38h] BYREF
+  int Data; // [rsp+30h] [rbp-40h] BYREF
+  ULONG ResultDataSize; // [rsp+34h] [rbp-3Ch] BYREF
+  ULONG Type; // [rsp+38h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-30h] BYREF
 
-  result = (unsigned int)HvlpFlags;
+  LODWORD(_RAX) = HvlpFlags;
   if ( (HvlpFlags & 4) == 0 )
   {
     _RAX = 1LL;
@@ -29,10 +28,10 @@ __int64 InitializeDynamicPartitioningPolicy()
     if ( (int)_RCX >= 0 )
       v6 = L"Kernel-DynamicPartitioningSupported";
     RtlInitUnicodeString(&DestinationString, v6);
-    if ( (int)ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v13, (__int64)&v11) >= 0
-      && v11
-      && v12 == 4
-      && v13 == 4
+    if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) >= 0
+      && Data
+      && ResultDataSize == 4
+      && Type == 4
       && (HvlpFlags & 8) == 0 )
     {
       KeDynamicPartitioningSupported = 1;
@@ -42,14 +41,14 @@ __int64 InitializeDynamicPartitioningPolicy()
     __asm { cpuid }
     if ( (int)_RCX < 0
       || (RtlInitUnicodeString(&DestinationString, L"Kernel-PhysicalMemoryAddAllowed"),
-          result = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v13, (__int64)&v11),
-          (int)result >= 0)
-      && v11
-      && v12 == 4
-      && v13 == 4 )
+          LODWORD(_RAX) = ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize),
+          (int)_RAX >= 0)
+      && Data
+      && ResultDataSize == 4
+      && Type == 4 )
     {
       MmDynamicMemorySupported = 1;
     }
   }
-  return result;
+  return _RAX;
 }

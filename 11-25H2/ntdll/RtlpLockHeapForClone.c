@@ -15,10 +15,10 @@ __int64 __fastcall RtlpLockHeapForClone(__int64 a1)
 {
   __int64 v2; // rcx
   unsigned int v3; // ebx
-  __int64 v4; // rcx
+  _RTL_CRITICAL_SECTION *v4; // rcx
   int v5; // esi
-  volatile signed __int32 *v6; // rcx
-  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
+  _RTL_SRWLOCK *v6; // rcx
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = 0;
   if ( !(unsigned int)RtlpIsProtectedHeap(a1) )
@@ -26,23 +26,23 @@ __int64 __fastcall RtlpLockHeapForClone(__int64 a1)
     if ( *(_DWORD *)(v2 + 16) == -571548178 )
     {
       RtlpAcquireDescriptorPseudoGlobalLockEx(*(_QWORD *)(v2 + 56), 0);
-      RtlpHpLockHeapForProcessCloneOrTerminate(a1);
+      RtlpHpLockHeapForProcessCloneOrTerminate((_RTL_SRWLOCK *)a1);
     }
     else if ( (*(_BYTE *)(v2 + 112) & 1) == 0 )
     {
-      v4 = *(_QWORD *)(v2 + 352);
+      v4 = *(_RTL_CRITICAL_SECTION **)(v2 + 352);
       v5 = 0;
-      v8 = -250000LL;
-      while ( !(unsigned int)RtlTryEnterCriticalSection(v4) )
+      DelayInterval.QuadPart = -250000LL;
+      while ( !RtlTryEnterCriticalSection(v4) )
       {
-        ZwDelayExecution(0LL, &v8);
+        ZwDelayExecution(0, &DelayInterval);
         if ( (unsigned int)++v5 >= 0x64 )
           return (unsigned int)-1073741420;
-        v4 = *(_QWORD *)(a1 + 352);
+        v4 = *(_RTL_CRITICAL_SECTION **)(a1 + 352);
       }
       if ( *(_BYTE *)(a1 + 418) == 2 )
       {
-        v6 = *(volatile signed __int32 **)(a1 + 408);
+        v6 = *(_RTL_SRWLOCK **)(a1 + 408);
         if ( v6 )
           RtlAcquireSRWLockExclusive(v6);
       }

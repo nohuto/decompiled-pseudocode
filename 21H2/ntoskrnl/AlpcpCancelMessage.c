@@ -1,35 +1,35 @@
 /*
- * XREFs of AlpcpCancelMessage @ 0x1405E301C
+ * XREFs of AlpcpCancelMessage @ 0x1406D277C
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpFlushQueue @ 0x1405E24D0 (AlpcpFlushQueue.c)
- *     AlpcpDispatchReplyToPort @ 0x1405E35BC (AlpcpDispatchReplyToPort.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveSynchronousReply @ 0x1405E7560 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
- *     AlpcpReceiveLegacyMessage @ 0x1405EA7A0 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpFlushMessagesByRequestor @ 0x1406B41E4 (AlpcpFlushMessagesByRequestor.c)
- *     NtAlpcCancelMessage @ 0x1406C1650 (NtAlpcCancelMessage.c)
+ *     AlpcpFlushMessagesByRequestor @ 0x1406133B4 (AlpcpFlushMessagesByRequestor.c)
+ *     NtAlpcCancelMessage @ 0x140620390 (NtAlpcCancelMessage.c)
+ *     AlpcpAcceptConnectPort @ 0x1406D079C (AlpcpAcceptConnectPort.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1406D133C (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpFlushQueue @ 0x1406D1C30 (AlpcpFlushQueue.c)
+ *     AlpcpDispatchReplyToPort @ 0x1406D2D1C (AlpcpDispatchReplyToPort.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1406D6640 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1406D6CC0 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReceiveMessage @ 0x1406D73D0 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x1406D9F00 (AlpcpReceiveLegacyMessage.c)
  * Callees:
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x1405E2F90 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcpTransferQuotaMessage @ 0x1405E355C (AlpcpTransferQuotaMessage.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x1405E38B0 (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpClearOwnerPortMessage @ 0x1405E393C (AlpcpClearOwnerPortMessage.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpSignalPortAndUnlock @ 0x14069314C (AlpcpSignalPortAndUnlock.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x1406BDF6C (AlpcpInsertMessageCanceledQueue.c)
- *     AlpcpRemoveMessagePort @ 0x1406BFDD8 (AlpcpRemoveMessagePort.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpSignalPortAndUnlock @ 0x1405F27DC (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x14061D1CC (AlpcpInsertMessageCanceledQueue.c)
+ *     AlpcpRemoveMessagePort @ 0x14061ECE8 (AlpcpRemoveMessagePort.c)
+ *     PsReleaseProcessWakeCounter @ 0x1406CE130 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x1406D26F0 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpTransferQuotaMessage @ 0x1406D2CBC (AlpcpTransferQuotaMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x1406D3010 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpClearOwnerPortMessage @ 0x1406D309C (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpCancelMessage(__int64 a1, ULONG_PTR a2, int a3)
@@ -49,7 +49,7 @@ __int64 __fastcall AlpcpCancelMessage(__int64 a1, ULONG_PTR a2, int a3)
   __int64 *v17; // r15
   int v18; // edx
   unsigned int v19; // r12d
-  _DWORD *v20; // r9
+  __int64 v20; // r9
   __int64 v21; // rcx
   __int64 v22; // rcx
   __int64 v23; // rcx
@@ -216,7 +216,7 @@ LABEL_59:
       {
         *(_WORD *)(a2 - 30) -= 2;
         *(_QWORD *)(a2 + 32) = 0LL;
-        KeReleaseSemaphoreEx(v23 + 1160, 1LL, 1LL, v20, 2);
+        KeReleaseSemaphoreEx(v23 + 1160, 1, 1, v20, 2);
       }
     }
     else if ( v9 && v10 )

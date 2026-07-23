@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSetSystemAwayMode @ 0x1408E77D0
+ * XREFs of PopSetSystemAwayMode @ 0x1408E7930
  * Callers:
- *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140775BC8 (PopIssueActionRequest.c)
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     PopNotifyConsoleUserPresent @ 0x140773100 (PopNotifyConsoleUserPresent.c)
- *     PopSetAwayModeStatus @ 0x1408E7754 (PopSetAwayModeStatus.c)
+ *     PopDiagTraceEventNoPayload @ 0x14024B6D4 (PopDiagTraceEventNoPayload.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     PopNotifyConsoleUserPresent @ 0x1407732C0 (PopNotifyConsoleUserPresent.c)
+ *     PopSetAwayModeStatus @ 0x1408E78B4 (PopSetAwayModeStatus.c)
  */
 
 __int64 __fastcall PopSetSystemAwayMode(int a1)
@@ -20,18 +20,18 @@ __int64 __fastcall PopSetSystemAwayMode(int a1)
   v1 = 0;
   if ( a1 )
   {
-    if ( !byte_140C23E91 )
+    if ( !byte_140C23331 )
     {
-      if ( byte_140C23E90 )
+      if ( byte_140C23330 )
       {
         KeResetEvent(&PopUserPresentCompletedEvent);
-        _InterlockedExchange(&dword_140C23E94, 1);
+        _InterlockedExchange(&dword_140C23334, 1);
         if ( _InterlockedCompareExchange(&PopUserPresentSetStatus, 0, 0) )
           KeWaitForSingleObject(&PopUserPresentCompletedEvent, Executive, 0, 0, 0LL);
         KeInitializeDpc(
           &PopAwayModeUserPresenceDpcObject,
           (PKDEFERRED_ROUTINE)PopAwayModeUserPresenceDpc,
-          &dword_140C23E94);
+          &dword_140C23334);
         KiSetTimerEx(
           (__int64)&PopAwayModeUserPresenceTimer,
           -30000000LL,
@@ -47,7 +47,7 @@ __int64 __fastcall PopSetSystemAwayMode(int a1)
       }
     }
   }
-  else if ( byte_140C23E91 )
+  else if ( byte_140C23331 )
   {
     PopSetAwayModeStatus(0);
     PopNotifyConsoleUserPresent(0, v2, PopAwaymodeExitReason);

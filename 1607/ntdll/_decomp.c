@@ -1,7 +1,7 @@
 /*
- * XREFs of _decomp @ 0x18009F8D4
+ * XREFs of _decomp @ 0x18009F8C4
  * Callers:
- *     _handle_exc @ 0x18009F248 (_handle_exc.c)
+ *     _handle_exc @ 0x18009F238 (_handle_exc.c)
  * Callees:
  *     <none>
  */

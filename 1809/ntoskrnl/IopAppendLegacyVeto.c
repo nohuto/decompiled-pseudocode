@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAppendLegacyVeto @ 0x14083A77C
+ * XREFs of IopAppendLegacyVeto @ 0x14083B9DC
  * Callers:
- *     IoGetLegacyVetoList @ 0x1405B0B64 (IoGetLegacyVetoList.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1405B0C1C (IopGetLegacyVetoListDeviceNode.c)
- *     IopGetLegacyVetoListDrivers @ 0x1405C8B80 (IopGetLegacyVetoListDrivers.c)
+ *     IoGetLegacyVetoList @ 0x1405B1B64 (IoGetLegacyVetoList.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x1405B1C1C (IopGetLegacyVetoListDeviceNode.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1405C9B80 (IopGetLegacyVetoListDrivers.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopAppendLegacyVeto(const void ***a1, const void **a2)

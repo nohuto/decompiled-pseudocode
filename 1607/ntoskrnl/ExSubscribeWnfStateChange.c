@@ -1,16 +1,16 @@
 /*
- * XREFs of ExSubscribeWnfStateChange @ 0x1404EFB08
+ * XREFs of ExSubscribeWnfStateChange @ 0x1404D1B24
  * Callers:
- *     PopEnsureErratumSubscribed @ 0x14020568C (PopEnsureErratumSubscribed.c)
- *     PopEsWorker @ 0x1405458F4 (PopEsWorker.c)
- *     PopSetupAudioEventNotification @ 0x14057FF24 (PopSetupAudioEventNotification.c)
- *     PopSetupFullScrenVideoNotification @ 0x140581438 (PopSetupFullScrenVideoNotification.c)
- *     PopSetupUserPresencePredictionNotification @ 0x14058146C (PopSetupUserPresencePredictionNotification.c)
+ *     PopEnsureErratumSubscribed @ 0x1402054B8 (PopEnsureErratumSubscribed.c)
+ *     PopEsWorker @ 0x140545E34 (PopEsWorker.c)
+ *     PopSetupAudioEventNotification @ 0x1405803D0 (PopSetupAudioEventNotification.c)
+ *     PopSetupFullScrenVideoNotification @ 0x1405818E4 (PopSetupFullScrenVideoNotification.c)
+ *     PopSetupUserPresencePredictionNotification @ 0x140581918 (PopSetupUserPresencePredictionNotification.c)
  *     PiUEventInit @ 0x14079D7F0 (PiUEventInit.c)
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x140461950 (ExpWnfSubscribeWnfStateChange.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140460820 (ExpWnfSubscribeWnfStateChange.c)
  */
 
 __int64 __fastcall ExSubscribeWnfStateChange(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)

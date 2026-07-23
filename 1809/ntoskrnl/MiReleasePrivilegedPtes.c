@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleasePrivilegedPtes @ 0x14070F578
+ * XREFs of MiReleasePrivilegedPtes @ 0x140710818
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
- *     MiReleaseNewAddressForBootImage @ 0x1409F774C (MiReleaseNewAddressForBootImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiGetSystemAddressForImage @ 0x140684100 (MiGetSystemAddressForImage.c)
+ *     MiReleaseNewAddressForBootImage @ 0x1409F874C (MiReleaseNewAddressForBootImage.c)
  * Callees:
- *     KeReservePrivilegedPages @ 0x14028DC0C (KeReservePrivilegedPages.c)
+ *     KeReservePrivilegedPages @ 0x14028DDFC (KeReservePrivilegedPages.c)
  */
 
 __int64 MiReleasePrivilegedPtes()

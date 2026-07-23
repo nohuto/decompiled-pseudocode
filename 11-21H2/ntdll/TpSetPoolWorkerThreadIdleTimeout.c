@@ -7,20 +7,24 @@
  *     TppRaiseInvalidParameter @ 0x180124388 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpSetPoolWorkerThreadIdleTimeout(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+NTSTATUS __fastcall TpSetPoolWorkerThreadIdleTimeout(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3)
 {
-  _PEB_LDR_DATA *v5; // [rsp+38h] [rbp+10h] BYREF
+  _PEB_LDR_DATA *WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = Ldr;
+  WorkerFactoryInformation = Ldr;
   if ( a1 )
   {
     if ( (__int64)Ldr < 0 )
     {
       Ldr = NtCurrentPeb()->Ldr;
       if ( !Ldr->ShutdownInProgress )
-        return NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 2LL, &v5);
+        return NtSetInformationWorkerFactory(
+                 *(HANDLE *)(a1 + 56),
+                 WorkerFactoryIdleTimeout,
+                 &WorkerFactoryInformation,
+                 8u);
     }
   }
-  TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  return 3221225485LL;
+  TppRaiseInvalidParameter(a1, Ldr, a3);
+  return -1073741811;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiStoreEvictThread @ 0x1403A8650
+ * XREFs of MiStoreEvictThread @ 0x1403A8830
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     KeDisableTimer2 @ 0x14031DB78 (KeDisableTimer2.c)
- *     KiInitializeTimer2 @ 0x14031E51C (KiInitializeTimer2.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x1405C2D34 (-SmpPageEvict@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z.c)
- *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1405CCB48 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140638EFC (MiDerefPageFileSpaceBitmaps.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14063B494 (MiRefPageFileSpaceBitmaps.c)
- *     MiStoreSetPageFileRunEvicted @ 0x14065C9CC (MiStoreSetPageFileRunEvicted.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     KeDisableTimer2 @ 0x14031DE08 (KeDisableTimer2.c)
+ *     KiInitializeTimer2 @ 0x14031E7AC (KiInitializeTimer2.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x1405C32A4 (-SmpPageEvict@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z.c)
+ *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1405CD0B8 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14063944C (MiDerefPageFileSpaceBitmaps.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14063B9E4 (MiRefPageFileSpaceBitmaps.c)
+ *     MiStoreSetPageFileRunEvicted @ 0x14065CF1C (MiStoreSetPageFileRunEvicted.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -233,10 +233,13 @@ LABEL_36:
           if ( v7 == *(_DWORD *)(v2 + 1200) )
             break;
           ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v11 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -255,10 +258,10 @@ LABEL_36:
           KeSetEvent((PRKEVENT)(v2 + 1312), 0, 0);
         }
         ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v37 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v37 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v37 >= 2u )
           {
             v38 = KeGetCurrentPrcb();
             v39 = v38->SchedulerAssist;

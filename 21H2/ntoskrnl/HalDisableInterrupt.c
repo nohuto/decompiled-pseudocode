@@ -1,18 +1,18 @@
 /*
- * XREFs of HalDisableInterrupt @ 0x140377280
+ * XREFs of HalDisableInterrupt @ 0x140376DD0
  * Callers:
- *     KiDisconnectInterruptInternal @ 0x1403771F4 (KiDisconnectInterruptInternal.c)
- *     KiDisconnectSecondaryInterrupt @ 0x14051920C (KiDisconnectSecondaryInterrupt.c)
+ *     KiDisconnectInterruptInternal @ 0x140376D44 (KiDisconnectInterruptInternal.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x14051944C (KiDisconnectSecondaryInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
- *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x140378FA8 (HalpInterruptFindLinesForGsiRange.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403786FC (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptLookupController @ 0x140378850 (HalpInterruptLookupController.c)
+ *     HalpInterruptApplyOverrides @ 0x140378974 (HalpInterruptApplyOverrides.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378AF8 (HalpInterruptFindLinesForGsiRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpDisableSecondaryInterrupt @ 0x1404D0BAC (HalpDisableSecondaryInterrupt.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpDisableSecondaryInterrupt @ 0x1404D0DEC (HalpDisableSecondaryInterrupt.c)
  */
 
 __int64 __fastcall HalDisableInterrupt(_DWORD *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMajorIsNewRequest @ 0x140AD3008
+ * XREFs of VfMajorIsNewRequest @ 0x140AD2FF8
  * Callers:
- *     ViGenericVerifyIrpStackDownward @ 0x140AC30F0 (ViGenericVerifyIrpStackDownward.c)
- *     IovpCallDriver1 @ 0x140ACC1A0 (IovpCallDriver1.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x140AC30E0 (ViGenericVerifyIrpStackDownward.c)
+ *     IovpCallDriver1 @ 0x140ACC190 (IovpCallDriver1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfMajorIsNewRequest(__int64 a1, _BYTE *a2)

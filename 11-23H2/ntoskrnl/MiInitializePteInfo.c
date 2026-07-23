@@ -5,9 +5,9 @@
  *     MiInitializeSystemSpaceMap @ 0x140B453A0 (MiInitializeSystemSpaceMap.c)
  *     MiInitializeKernelStacks @ 0x140B463B4 (MiInitializeKernelStacks.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiInitializeDynamicBitmap @ 0x14081C7A4 (MiInitializeDynamicBitmap.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiInitializeDynamicBitmap @ 0x14081CA74 (MiInitializeDynamicBitmap.c)
  */
 
 __int64 __fastcall MiInitializePteInfo(

@@ -3,29 +3,29 @@
  * Callers:
  *     MmInitSystem @ 0x1407A39F8 (MmInitSystem.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiInitializeCommitment @ 0x140087100 (MiInitializeCommitment.c)
- *     MiComputeHash64 @ 0x1400B3044 (MiComputeHash64.c)
- *     MiInitializeNumaRanges @ 0x1400B5C68 (MiInitializeNumaRanges.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     ExInitializeNPagedLookasideList @ 0x140110BFC (ExInitializeNPagedLookasideList.c)
- *     VslGetNestedPageProtectionFlags @ 0x14013D140 (VslGetNestedPageProtectionFlags.c)
- *     MiFreeUnusedPfnPages @ 0x14013E234 (MiFreeUnusedPfnPages.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     strstr @ 0x14014CF38 (strstr.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiInitializeCommitment @ 0x1400019CC (MiInitializeCommitment.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiComputeHash64 @ 0x1400B0EC4 (MiComputeHash64.c)
+ *     MiInitializeNumaRanges @ 0x1400B3A90 (MiInitializeNumaRanges.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     ExInitializeNPagedLookasideList @ 0x140111160 (ExInitializeNPagedLookasideList.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14013D6B0 (VslGetNestedPageProtectionFlags.c)
+ *     MiFreeUnusedPfnPages @ 0x14013E7A4 (MiFreeUnusedPfnPages.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  *     MmInitializeProcessor @ 0x1403D3D40 (MmInitializeProcessor.c)
- *     MiInitializeSpecialPool @ 0x140535D5C (MiInitializeSpecialPool.c)
- *     MiInitializeSections @ 0x14054F190 (MiInitializeSections.c)
- *     MiInitializeWsSwapping @ 0x14054F2CC (MiInitializeWsSwapping.c)
- *     MiCreateNodeLists @ 0x14054F460 (MiCreateNodeLists.c)
- *     MiCreateLargePfnBitMaps @ 0x140575FB0 (MiCreateLargePfnBitMaps.c)
- *     MiConvertInitialMemoryBlock @ 0x1405793F8 (MiConvertInitialMemoryBlock.c)
- *     MiComputeNodeMemory @ 0x14057ADAC (MiComputeNodeMemory.c)
+ *     MiInitializeSpecialPool @ 0x14053629C (MiInitializeSpecialPool.c)
+ *     MiInitializeSections @ 0x14054F6D0 (MiInitializeSections.c)
+ *     MiInitializeWsSwapping @ 0x14054F80C (MiInitializeWsSwapping.c)
+ *     MiCreateNodeLists @ 0x14054F9A0 (MiCreateNodeLists.c)
+ *     MiCreateLargePfnBitMaps @ 0x1405764F0 (MiCreateLargePfnBitMaps.c)
+ *     MiConvertInitialMemoryBlock @ 0x140579938 (MiConvertInitialMemoryBlock.c)
+ *     MiComputeNodeMemory @ 0x14057B258 (MiComputeNodeMemory.c)
  *     MiBuildPagedPool @ 0x14078E258 (MiBuildPagedPool.c)
  *     MiInitializeKernelStacks @ 0x14078E3DC (MiInitializeKernelStacks.c)
  *     MiInitializeDecayPfns @ 0x14078E618 (MiInitializeDecayPfns.c)
@@ -96,25 +96,25 @@ char __fastcall MiInitNucleus(ULONG_PTR BugCheckParameter2)
   _QWORD v37[4]; // [rsp+48h] [rbp-38h] BYREF
   _BYTE v38[8]; // [rsp+68h] [rbp-18h]
 
-  dword_1403269E4 = 48;
+  dword_140326A24 = 48;
   MiFlags ^= (MiFlags ^ (KiKvaShadowMode << 22)) & 0xC00000;
   if ( (((unsigned int)MiFlags >> 22) & 3) != 0 )
   {
     if ( (((unsigned int)MiFlags >> 22) & 3) == 1 )
     {
-      word_140326AA8 = 0;
+      word_140326AE8 = 0;
     }
     else if ( (((unsigned int)MiFlags >> 22) & 3) == 2 )
     {
-      word_140326AA8 = 256;
+      word_140326AE8 = 256;
     }
   }
   else
   {
-    word_140326AA8 = 1;
+    word_140326AE8 = 1;
   }
   if ( (((unsigned int)MiFlags >> 22) & 3) != 0 && KiImplementedPhysicalBits > 0 )
-    qword_140326A00 = 1LL << ((unsigned __int8)KiImplementedPhysicalBits - 1);
+    qword_140326A40 = 1LL << ((unsigned __int8)KiImplementedPhysicalBits - 1);
   if ( (KeFeatureBits & 0x100000) == 0 )
     KeBugCheckEx(0x1Au, 0x3030306uLL, KeFeatureBits, 0LL, 0LL);
   if ( KiAccessBitErrata == 1 )
@@ -135,9 +135,9 @@ LABEL_16:
   MiInitializeCacheOverrides();
   MiInitializeZeroingAttributes();
   MiInitializeBootDefaults(BugCheckParameter2);
-  InitializeSListHead(&stru_140327400);
-  v3 = &unk_140327D90;
-  qword_140327410 = 0LL;
+  InitializeSListHead(&stru_140327440);
+  v3 = &unk_140327DD0;
+  qword_140327450 = 0LL;
   v4 = 16LL;
   do
   {
@@ -147,20 +147,20 @@ LABEL_16:
     --v4;
   }
   while ( v4 );
-  qword_1403275C0 = 0LL;
-  qword_1403275E8 = (__int64)&qword_1403275E0;
-  qword_1403275E0 = (__int64)&qword_1403275E0;
-  qword_1403275C8[0] = 0LL;
-  qword_1403275D0 = 0LL;
-  qword_1403275D8 = 0LL;
-  qword_140327620 = 0LL;
+  qword_140327600 = 0LL;
+  qword_140327628 = (__int64)&qword_140327620;
+  qword_140327620 = (__int64)&qword_140327620;
+  qword_140327608[0] = 0LL;
+  qword_140327610 = 0LL;
+  qword_140327618 = 0LL;
+  qword_140327660 = 0LL;
   MiComputeUserWorkingSetSpan();
-  qword_140326D30 = 0LL;
-  stru_140326D18.Header.WaitListHead.Blink = &stru_140326D18.Header.WaitListHead;
-  stru_140326D18.Header.WaitListHead.Flink = &stru_140326D18.Header.WaitListHead;
-  LOWORD(stru_140326D18.Header.Lock) = 0;
-  stru_140326D18.Header.Size = 6;
-  stru_140326D18.Header.SignalState = 0;
+  qword_140326D70 = 0LL;
+  stru_140326D58.Header.WaitListHead.Blink = &stru_140326D58.Header.WaitListHead;
+  stru_140326D58.Header.WaitListHead.Flink = &stru_140326D58.Header.WaitListHead;
+  LOWORD(stru_140326D58.Header.Lock) = 0;
+  stru_140326D58.Header.Size = 6;
+  stru_140326D58.Header.SignalState = 0;
   if ( dword_1403A9160 == 6881367 )
   {
     MEMORY[0xFFFFF78000000264] = 1;
@@ -180,7 +180,7 @@ LABEL_16:
   MiMemoryLicense(BugCheckParameter2);
   if ( !(unsigned int)MiFindLargestLoaderDescriptor(BugCheckParameter2) )
   {
-    byte_140327145 = 3;
+    byte_140327185 = 3;
     return 0;
   }
   MiInitMachineDependent();
@@ -219,15 +219,15 @@ LABEL_36:
     goto LABEL_36;
   }
 LABEL_40:
-  qword_140326A18 = -1LL;
+  qword_140326A58 = -1LL;
   SecondLevelCacheSize = KeGetPcr()->SecondLevelCacheSize;
-  dword_1403269DC = SecondLevelCacheSize;
-  if ( !dword_1403269FC )
+  dword_140326A1C = SecondLevelCacheSize;
+  if ( !dword_140326A3C )
   {
-    dword_1403269FC = SecondLevelCacheSize;
+    dword_140326A3C = SecondLevelCacheSize;
     SecondLevelCacheAssociativity = KeGetPcr()->SecondLevelCacheAssociativity;
     if ( SecondLevelCacheAssociativity )
-      dword_1403269FC /= (unsigned int)SecondLevelCacheAssociativity;
+      dword_140326A3C /= (unsigned int)SecondLevelCacheAssociativity;
   }
   CurrentPrcb = KeGetCurrentPrcb();
   CacheCount = CurrentPrcb->CacheCount;
@@ -238,21 +238,21 @@ LABEL_40:
     do
     {
       if ( Cache->Level == 1 && (Cache->Type & 0xFFFFFFFD) == 0 )
-        dword_1403269E0 = Cache->Size;
+        dword_140326A20 = Cache->Size;
       ++Cache;
       --v15;
     }
     while ( v15 );
   }
-  if ( (unsigned int)dword_1403269E0 < 0x4000 )
-    dword_1403269E0 = 0x4000;
-  dword_140326A14 = 256;
+  if ( (unsigned int)dword_140326A20 < 0x4000 )
+    dword_140326A20 = 0x4000;
+  dword_140326A54 = 256;
   MiProtectSharedUserPage();
   if ( (unsigned int)MiCheckLargePageOk(BugCheckParameter2) )
     MiFlags |= 4u;
   if ( !(unsigned int)MiCreatePfnDatabase(BugCheckParameter2) )
   {
-    byte_140327145 = 6;
+    byte_140327185 = 6;
     return 0;
   }
   MiInitializePfnsForValidMappings(BugCheckParameter2);
@@ -265,17 +265,17 @@ LABEL_40:
   MiInitializeDummyPages();
   if ( !(unsigned int)MiInitializeSystemPtes() )
   {
-    byte_140327145 = 9;
+    byte_140327185 = 9;
     return 0;
   }
   if ( !(unsigned int)MiInitializeNonPagedPool() )
   {
-    byte_140327145 = 7;
+    byte_140327185 = 7;
     return 0;
   }
   if ( !(unsigned int)MiMapDummyPages(v17, v16, v18) )
   {
-    byte_140327145 = 5;
+    byte_140327185 = 5;
     return 0;
   }
   v19 = 0;
@@ -283,20 +283,20 @@ LABEL_40:
     v19 = 1024;
   if ( !(unsigned int)InitializePool(512, v19) )
   {
-    byte_140327145 = 2;
+    byte_140327185 = 2;
     return 0;
   }
   MiInitializeKernelStacks();
   if ( !(unsigned int)MmInitializeProcessor((__int64)CurrentPrcb, v20, v21) )
   {
-    byte_140327145 = 10;
+    byte_140327185 = 10;
     return 0;
   }
-  v23 = (_QWORD *)MiReservePtes((__int64)&qword_140327870, 1uLL, v22);
-  qword_140327208 = (__int64)v23;
+  v23 = (_QWORD *)MiReservePtes((__int64)&qword_1403278B0, 1uLL, v22);
+  qword_140327248 = (__int64)v23;
   if ( !v23 )
   {
-    byte_140327145 = 11;
+    byte_140327185 = 11;
     return 0;
   }
   *v23 = 0LL;
@@ -312,25 +312,25 @@ LABEL_40:
   v25 = MmInitializeMemoryLimits(BugCheckParameter2, (__int64)v37);
   if ( !v25 || (v26 = MiConvertInitialMemoryBlock((__int64)MiSystemPartition, v25)) == 0LL )
   {
-    byte_140327145 = 12;
+    byte_140327185 = 12;
     return 0;
   }
   MxConsumeLargePageSlush();
-  qword_140323580 = (__int64)MiCreateNodeLists((__int64)MiSystemPartition, (__int64)v26);
-  if ( !qword_140323580 )
+  qword_1403235C0 = (__int64)MiCreateNodeLists((__int64)MiSystemPartition, (__int64)v26);
+  if ( !qword_1403235C0 )
   {
-    byte_140327145 = 13;
+    byte_140327185 = 13;
     return 0;
   }
   MiComputeNodeMemory((__int64)MiSystemPartition);
   if ( !(unsigned int)MiFillPfnGaps() )
   {
-    byte_140327145 = 18;
+    byte_140327185 = 18;
     return 0;
   }
-  if ( !(unsigned int)MiInitializeGapFrames(-1LL, qword_1403276C8) )
+  if ( !(unsigned int)MiInitializeGapFrames(-1LL, qword_140327708) )
   {
-    byte_140327145 = 19;
+    byte_140327185 = 19;
     return 0;
   }
   if ( !(unsigned int)MiBuildPagedPool() || !(unsigned int)MiInitializeSpecialPool(0) )
@@ -338,22 +338,22 @@ LABEL_40:
   MmPhysicalMemoryBlock = v26;
   if ( !(unsigned int)MiCreateLargePfnBitMaps((__int64)MiSystemPartition, v26, v27) )
   {
-    byte_140327145 = 15;
+    byte_140327185 = 15;
     return 0;
   }
   MiMarkLargePageRanges(v29, v28, v30, v31);
-  v33 = (_QWORD *)MiReservePtes((__int64)&qword_140327870, 1uLL, v32);
+  v33 = (_QWORD *)MiReservePtes((__int64)&qword_1403278B0, 1uLL, v32);
   v34 = (unsigned __int64)v33;
   if ( !v33 )
   {
-    byte_140327145 = 4;
+    byte_140327185 = 4;
     return 0;
   }
-  *v33 = MiMakeValidKernelPte(qword_1403276A0, 1, (unsigned __int64)v33);
+  *v33 = MiMakeValidKernelPte(qword_1403276E0, 1, (unsigned __int64)v33);
   if ( MiPteInShadowRange(v34) )
     MiWritePteShadow(v36, v35);
-  qword_140326E10 = MiComputeHash64((__int64)(v34 << 25) >> 16);
-  MiReleasePtes((__int64)&qword_140327870, v34, 1u);
+  qword_140326E50 = MiComputeHash64((__int64)(v34 << 25) >> 16);
+  MiReleasePtes((__int64)&qword_1403278B0, v34, 1u);
   MiInitializeWsSwapping(MiSystemPartition);
   MiInitializeNumaRanges();
   ExInitializeNPagedLookasideList(&Lookaside, 0LL, 0LL, 0x200u, 0x90uLL, 0x6B4C6D4Du, 0);

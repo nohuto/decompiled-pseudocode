@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetThreadCpuSetMaskPointer @ 0x1402C0388
+ * XREFs of KiGetThreadCpuSetMaskPointer @ 0x1402C0618
  * Callers:
- *     KeQueryCpuSetsThread @ 0x140575108 (KeQueryCpuSetsThread.c)
- *     KeSetSelectedCpuSetsThread @ 0x140575B30 (KeSetSelectedCpuSetsThread.c)
+ *     KeQueryCpuSetsThread @ 0x140575648 (KeQueryCpuSetsThread.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140576070 (KeSetSelectedCpuSetsThread.c)
  * Callees:
  *     <none>
  */

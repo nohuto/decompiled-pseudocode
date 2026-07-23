@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetTransitionPageHeatList @ 0x14055F628
+ * XREFs of MiGetTransitionPageHeatList @ 0x14055F868
  * Callers:
- *     MiMakeTransitionHeatBatch @ 0x14055FA70 (MiMakeTransitionHeatBatch.c)
+ *     MiMakeTransitionHeatBatch @ 0x14055FCB0 (MiMakeTransitionHeatBatch.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY MiGetTransitionPageHeatList()
@@ -13,7 +13,7 @@ PSLIST_ENTRY MiGetTransitionPageHeatList()
   signed __int32 v2; // eax
   signed __int32 v3; // ett
 
-  result = RtlpInterlockedPopEntrySList(&stru_140C4EA10);
+  result = RtlpInterlockedPopEntrySList(&stru_140C4EA50);
   v1 = result;
   if ( result )
   {
@@ -22,11 +22,11 @@ PSLIST_ENTRY MiGetTransitionPageHeatList()
   }
   else
   {
-    v2 = dword_140C4EA20;
+    v2 = dword_140C4EA60;
     while ( v2 )
     {
       v3 = v2;
-      v2 = _InterlockedCompareExchange(&dword_140C4EA20, v2 - 1, v2);
+      v2 = _InterlockedCompareExchange(&dword_140C4EA60, v2 - 1, v2);
       if ( v3 == v2 )
         return v1;
     }

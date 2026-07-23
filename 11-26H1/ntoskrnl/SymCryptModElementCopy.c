@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptModElementCopy @ 0x14055C56C
+ * XREFs of SymCryptModElementCopy @ 0x14055EA54
  * Callers:
- *     SymCryptEcpointTransform @ 0x1405647A4 (SymCryptEcpointTransform.c)
- *     SymCryptMontgomeryPointScalarMul @ 0x1405660C0 (SymCryptMontgomeryPointScalarMul.c)
- *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x140566A6C (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
- *     SymCryptFdefModInvGeneric @ 0x14056F890 (SymCryptFdefModInvGeneric.c)
- *     SymCryptModExpSquareAndMultiply32 @ 0x140571040 (SymCryptModExpSquareAndMultiply32.c)
- *     SymCryptModExpWindowed @ 0x14057116C (SymCryptModExpWindowed.c)
+ *     SymCryptEcpointTransform @ 0x140566B94 (SymCryptEcpointTransform.c)
+ *     SymCryptFdefModInvGeneric @ 0x14056EA70 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptModExpSquareAndMultiply32 @ 0x140570220 (SymCryptModExpSquareAndMultiply32.c)
+ *     SymCryptModExpWindowed @ 0x14057034C (SymCryptModExpWindowed.c)
+ *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x1405746CC (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
+ *     SymCryptMontgomeryPointScalarMul @ 0x140576F70 (SymCryptMontgomeryPointScalarMul.c)
  * Callees:
- *     SymCryptFdefModElementCopy @ 0x14056F468 (SymCryptFdefModElementCopy.c)
+ *     SymCryptFdefModElementCopy @ 0x14056E648 (SymCryptFdefModElementCopy.c)
  */
 
 __int64 SymCryptModElementCopy()

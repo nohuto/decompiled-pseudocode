@@ -1,15 +1,15 @@
 /*
- * XREFs of PipAddRequestToEdge @ 0x14079FBC4
+ * XREFs of PipAddRequestToEdge @ 0x1407A2704
  * Callers:
- *     PipAddDependencyEdgeBetweenNodes @ 0x1405D8D80 (PipAddDependencyEdgeBetweenNodes.c)
- *     PipCreateNewDependencyEdge @ 0x1405D8E1C (PipCreateNewDependencyEdge.c)
- *     PipMergeDependencyEdgeList @ 0x14079FF98 (PipMergeDependencyEdgeList.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x1405DB580 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipCreateNewDependencyEdge @ 0x1405DB61C (PipCreateNewDependencyEdge.c)
+ *     PipMergeDependencyEdgeList @ 0x1407A2AD8 (PipMergeDependencyEdgeList.c)
  * Callees:
- *     PipMergeDependencyTypes @ 0x1405D8F30 (PipMergeDependencyTypes.c)
- *     PipFreeBindingRequestEntry @ 0x14079FECC (PipFreeBindingRequestEntry.c)
- *     RtlDuplicateUnicodeString @ 0x14091E750 (RtlDuplicateUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PipMergeDependencyTypes @ 0x1405DB730 (PipMergeDependencyTypes.c)
+ *     PipFreeBindingRequestEntry @ 0x1407A2A0C (PipFreeBindingRequestEntry.c)
+ *     RtlDuplicateUnicodeString @ 0x1409791B0 (RtlDuplicateUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PipAddRequestToEdge(__int64 a1, PCUNICODE_STRING *a2)

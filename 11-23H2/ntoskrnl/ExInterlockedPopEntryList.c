@@ -1,16 +1,16 @@
 /*
- * XREFs of ExInterlockedPopEntryList @ 0x14060CA90
+ * XREFs of ExInterlockedPopEntryList @ 0x14060CFE0
  * Callers:
  *     <none>
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x140352048 (ExpAcquireSpinLockDisabled.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1403521E8 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPopEntryList(PSINGLE_LIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
   bool v4; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rdi
+  _SINGLE_LIST_ENTRY *Next; // rdi
   struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 *SchedulerAssist; // r8
   signed __int32 v8; // eax

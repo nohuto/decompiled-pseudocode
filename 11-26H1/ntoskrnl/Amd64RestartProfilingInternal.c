@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64RestartProfilingInternal @ 0x140BEFABC
+ * XREFs of Amd64RestartProfilingInternal @ 0x140BF5ABC
  * Callers:
- *     Amd64RestartProfiling @ 0x140BEFA80 (Amd64RestartProfiling.c)
+ *     Amd64RestartProfiling @ 0x140BF5A80 (Amd64RestartProfiling.c)
  * Callees:
- *     Amd64ConfigureCounter @ 0x1405A3640 (Amd64ConfigureCounter.c)
+ *     Amd64ConfigureCounter @ 0x1405A5E50 (Amd64ConfigureCounter.c)
  */
 
 unsigned __int64 __fastcall Amd64RestartProfilingInternal(int a1, unsigned int a2)
@@ -76,7 +76,7 @@ LABEL_24:
         {
 LABEL_23:
           result = 0LL;
-          __writemsr(*((_DWORD *)&xmmword_140F87600 + (unsigned int)(v10 + v8)), 0LL);
+          __writemsr(*((_DWORD *)&xmmword_140F879E0 + (unsigned int)(v10 + v8)), 0LL);
           goto LABEL_24;
         }
         v10 = *(_QWORD *)(KiProcessorBlock[v2] + 88) + 48LL;

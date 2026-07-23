@@ -1,14 +1,14 @@
 /*
- * XREFs of KdSetDbgPrintBufferSize @ 0x1405116E4
+ * XREFs of KdSetDbgPrintBufferSize @ 0x140511924
  * Callers:
- *     NtSystemDebugControl @ 0x1407CFC00 (NtSystemDebugControl.c)
- *     KdAllocateDynamicMemory @ 0x140A565F8 (KdAllocateDynamicMemory.c)
+ *     NtSystemDebugControl @ 0x1407CFD70 (NtSystemDebugControl.c)
+ *     KdAllocateDynamicMemory @ 0x140A575F8 (KdAllocateDynamicMemory.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KdSetDbgPrintBufferSize(SIZE_T NumberOfBytes)
@@ -57,7 +57,7 @@ LABEL_9:
         {
           v11 = 0LL;
           v12 = KdPrintCircularBuffer;
-          qword_140CFA2C8 = (__int64)KeGetCurrentPrcb();
+          qword_140CFA2F8 = (__int64)KeGetCurrentPrcb();
           if ( v1 > (unsigned __int64)(unsigned int)KdPrintBufferSize )
           {
             if ( KdPrintWritePointer - (_UNKNOWN *)KdPrintCircularBuffer >= (unsigned __int64)(unsigned int)KdPrintBufferSize )
@@ -94,7 +94,7 @@ LABEL_9:
           }
           memset(&PoolWithTag[v11], 0, v1 - v11);
           ++KdPrintBufferChanges;
-          qword_140CFA2C8 = 0LL;
+          qword_140CFA2F8 = 0LL;
           KdPrintCircularBuffer = PoolWithTag;
           KdPrintBufferSize = v1;
           KdPrintWritePointer = &PoolWithTag[v11];

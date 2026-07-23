@@ -1,9 +1,9 @@
 /*
- * XREFs of KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted @ 0x1405FFAF0
+ * XREFs of KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted @ 0x140602540
  * Callers:
  *     <none>
  * Callees:
- *     KeSetUserCetAppcompatOptions @ 0x1405FA9AC (KeSetUserCetAppcompatOptions.c)
+ *     KeSetUserCetAppcompatOptions @ 0x1405FD3CC (KeSetUserCetAppcompatOptions.c)
  */
 
 __int64 KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted()

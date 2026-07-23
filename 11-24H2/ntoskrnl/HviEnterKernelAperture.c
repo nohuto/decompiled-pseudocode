@@ -1,25 +1,25 @@
 /*
- * XREFs of HviEnterKernelAperture @ 0x14060429C
+ * XREFs of HviEnterKernelAperture @ 0x1406018DC
  * Callers:
- *     HviCopyMemoryNonTemporal @ 0x14040C8E4 (HviCopyMemoryNonTemporal.c)
- *     HviCopyMemory @ 0x14040CADC (HviCopyMemory.c)
+ *     HviCopyMemoryNonTemporal @ 0x140404F74 (HviCopyMemoryNonTemporal.c)
+ *     HviCopyMemory @ 0x14040516C (HviCopyMemory.c)
  * Callees:
- *     HvipApertureDetectParameters @ 0x1406043BC (HvipApertureDetectParameters.c)
- *     HvipApertureDirectHypercall @ 0x140604488 (HvipApertureDirectHypercall.c)
- *     HvipApertureVmfuncSwitchEptp @ 0x1406B4EF0 (HvipApertureVmfuncSwitchEptp.c)
+ *     HvipApertureDetectParameters @ 0x1406019FC (HvipApertureDetectParameters.c)
+ *     HvipApertureDirectHypercall @ 0x140601AC8 (HvipApertureDirectHypercall.c)
+ *     HvipApertureVmfuncSwitchEptp @ 0x1406B5E90 (HvipApertureVmfuncSwitchEptp.c)
  */
 
 char HviEnterKernelAperture()
 {
   char result; // al
 
-  result = byte_140E678E2;
-  if ( !byte_140E678E2 )
+  result = byte_140E67A8C;
+  if ( !byte_140E67A8C )
     result = HvipApertureDetectParameters();
   _disable();
-  if ( !byte_140E0CC42 )
+  if ( !byte_140E0CD02 )
   {
-    if ( byte_140E678E1 )
+    if ( byte_140E67A8E )
       return HvipApertureVmfuncSwitchEptp(1LL);
     else
       return HvipApertureDirectHypercall(6LL, 1LL);

@@ -1,17 +1,17 @@
 /*
- * XREFs of VfIrpLogRecordEvent @ 0x140B9B684
+ * XREFs of VfIrpLogRecordEvent @ 0x140B9D684
  * Callers:
- *     IovpCallDriver1 @ 0x140B8CCB4 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x140B8ECB4 (IovpCallDriver1.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140B92B44 (IovUtilIsDeviceObjectMarked.c)
- *     VfMajorBuildIrpLogEntry @ 0x140B92E70 (VfMajorBuildIrpLogEntry.c)
- *     ViIrpLogDatabaseFindPointer @ 0x140B9BC1C (ViIrpLogDatabaseFindPointer.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140B94B44 (IovUtilIsDeviceObjectMarked.c)
+ *     VfMajorBuildIrpLogEntry @ 0x140B94E70 (VfMajorBuildIrpLogEntry.c)
+ *     ViIrpLogDatabaseFindPointer @ 0x140B9DC1C (ViIrpLogDatabaseFindPointer.c)
  */
 
 void __fastcall VfIrpLogRecordEvent(__int16 a1, _DWORD *a2, __int64 a3)
@@ -20,7 +20,7 @@ void __fastcall VfIrpLogRecordEvent(__int16 a1, _DWORD *a2, __int64 a3)
   KIRQL v6; // bp
   __int64 Pointer; // rax
   _DWORD *v8; // rsi
-  ULONG_PTR v9; // rbx
+  __int64 v9; // rbx
   _QWORD *v10; // rcx
   int v11; // eax
   _QWORD *v12; // rax
@@ -30,7 +30,7 @@ void __fastcall VfIrpLogRecordEvent(__int16 a1, _DWORD *a2, __int64 a3)
   __int64 v16; // rdx
   __int64 v17; // rdx
   _DWORD *v18; // [rsp+20h] [rbp-68h] BYREF
-  __int128 v19; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v19; // [rsp+30h] [rbp-58h]
   __int128 v20; // [rsp+40h] [rbp-48h]
   __int64 v21; // [rsp+50h] [rbp-38h]
 
@@ -97,7 +97,7 @@ LABEL_21:
         v16 = *(unsigned int *)(v9 + 32);
       else
         v16 = (unsigned int)*v15;
-      if ( (unsigned int)VfMajorBuildIrpLogEntry(a3, v16, v9 + 40 * ((unsigned int)*v15 + 1LL), (__int64)&v19) )
+      if ( (unsigned int)VfMajorBuildIrpLogEntry(a3, v16) )
       {
         v17 = 5 * ((unsigned int)*v15 + 1LL);
         *(_OWORD *)(v9 + 8 * v17) = v19;

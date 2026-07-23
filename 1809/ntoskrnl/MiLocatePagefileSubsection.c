@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLocatePagefileSubsection @ 0x140119D48
+ * XREFs of MiLocatePagefileSubsection @ 0x140119DB8
  * Callers:
  *     MiAdvanceVadView @ 0x140025614 (MiAdvanceVadView.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140080940 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
- *     MiSkipEntirePagefileRegions @ 0x1402BF248 (MiSkipEntirePagefileRegions.c)
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MmCommitSessionMappedView @ 0x14069D8C0 (MmCommitSessionMappedView.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140080930 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiOffsetToProtos @ 0x1400AF770 (MiOffsetToProtos.c)
+ *     MiSkipEntirePagefileRegions @ 0x1402BF438 (MiSkipEntirePagefileRegions.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F4130 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MmCommitSessionMappedView @ 0x14069EB80 (MmCommitSessionMappedView.c)
  * Callees:
  *     <none>
  */

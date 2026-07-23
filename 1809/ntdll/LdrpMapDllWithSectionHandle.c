@@ -17,8 +17,8 @@
  *     LdrpProcessMappedModule @ 0x180026F8C (LdrpProcessMappedModule.c)
  *     LdrpInsertDataTableEntry @ 0x180070B38 (LdrpInsertDataTableEntry.c)
  *     LdrpLoadContextReplaceModule @ 0x180071770 (LdrpLoadContextReplaceModule.c)
- *     LdrpFindLoadedDllByMappingLockHeld @ 0x180076FE4 (LdrpFindLoadedDllByMappingLockHeld.c)
- *     LdrpCorProcessImports @ 0x180087A14 (LdrpCorProcessImports.c)
+ *     LdrpFindLoadedDllByMappingLockHeld @ 0x180076FF4 (LdrpFindLoadedDllByMappingLockHeld.c)
+ *     LdrpCorProcessImports @ 0x180087A24 (LdrpCorProcessImports.c)
  */
 
 __int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1)
@@ -26,21 +26,16 @@ __int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1)
   int v2; // eax
   int v3; // ebx
   __int64 v4; // rdi
-  unsigned __int64 v5; // r8
+  ULONG64 v5; // r8
   int v6; // r15d
-  unsigned __int64 v7; // rdx
-  unsigned __int64 *v8; // r8
-  __int64 v9; // r9
-  int v10; // r8d
-  unsigned __int16 *v11; // rdx
+  int v7; // r8d
+  _UNICODE_STRING *v8; // rdx
   int LoadedDllByNameLockHeld; // eax
-  __int64 v13; // r14
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v17; // rcx
-  _DWORD v18[10]; // [rsp+30h] [rbp-28h] BYREF
-  volatile signed __int32 *v19; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v20; // [rsp+78h] [rbp+20h] BYREF
+  PIMAGE_NT_HEADERS v10; // r14
+  __int64 v11; // rax
+  PIMAGE_NT_HEADERS v13; // rcx
+  __int64 v14; // [rsp+70h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+78h] [rbp+20h] BYREF
 
   v2 = LdrpMinimalMapModule();
   v3 = v2;
@@ -48,67 +43,62 @@ __int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1)
   {
     v4 = *(_QWORD *)(a1 + 56);
     v5 = *(_QWORD *)(a1 + 160);
-    v19 = 0LL;
+    v14 = 0LL;
     v6 = v2;
-    v3 = RtlImageNtHeaderEx(0, *(_QWORD *)(v4 + 48), v5, &v20);
+    v3 = RtlImageNtHeaderEx(0, *(PVOID *)(v4 + 48), v5, &OutHeaders);
     if ( v3 >= 0 )
     {
       if ( (*(_DWORD *)(a1 + 32) & 0x800000) != 0 )
       {
-        v17 = v20;
+        v13 = OutHeaders;
         v6 = 0;
-        *(_DWORD *)(v4 + 128) = *(_DWORD *)(v20 + 8);
-        *(_DWORD *)(v4 + 64) = *(_DWORD *)(v17 + 80);
+        *(_DWORD *)(v4 + 128) = OutHeaders->FileHeader.TimeDateStamp;
+        *(_DWORD *)(v4 + 64) = v13->OptionalHeader.SizeOfImage;
       }
       else
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v7, v8, v9);
-        v10 = *(_DWORD *)(a1 + 32);
-        v11 = 0LL;
-        if ( (v10 & 0x20) == 0 )
-          v11 = (unsigned __int16 *)(v4 + 72);
+        RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+        v7 = *(_DWORD *)(a1 + 32);
+        v8 = 0LL;
+        if ( (v7 & 0x20) == 0 )
+          v8 = (_UNICODE_STRING *)(v4 + 72);
         LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(
-                                    (unsigned __int16 *)(v4 + 88),
-                                    v11,
-                                    v10,
-                                    &v19,
+                                    (PUNICODE_STRING)(v4 + 88),
+                                    v8,
+                                    v7,
+                                    &v14,
                                     *(_DWORD *)(v4 + 264));
-        v13 = v20;
+        v10 = OutHeaders;
         if ( LoadedDllByNameLockHeld == -1073741515 )
-        {
-          v14 = *(_QWORD *)(v4 + 48);
-          v18[0] = *(_DWORD *)(v20 + 8);
-          v18[1] = *(_DWORD *)(v20 + 80);
-          LdrpFindLoadedDllByMappingLockHeld(v14, v20, v18, &v19);
-        }
-        if ( !v19 )
+          LdrpFindLoadedDllByMappingLockHeld(*(PVOID *)(v4 + 48), OutHeaders);
+        if ( !v14 )
         {
           LdrpInsertDataTableEntry(v4);
-          LdrpInsertModuleToIndexLockHeld(v4, v13);
+          LdrpInsertModuleToIndexLockHeld(v4, (__int64)v10);
         }
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-        if ( v19 )
+        if ( v14 )
         {
-          LdrpLoadContextReplaceModule(a1, v19);
+          LdrpLoadContextReplaceModule(a1, v14);
           return (unsigned int)v3;
         }
       }
-      if ( (void *)qword_18015F4D0 == NtCurrentTeb()->ClientId.UniqueThread )
+      if ( LdrpDllNotificationLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
       {
         return (unsigned int)-1073741275;
       }
       else
       {
-        v3 = LdrpCompleteMapModule(a1, v20, v6);
+        v3 = LdrpCompleteMapModule(a1, (__int64)OutHeaders, v6);
         if ( v3 >= 0 )
         {
           v3 = LdrpProcessMappedModule(v4, *(unsigned int *)(a1 + 32), 1LL);
           if ( v3 >= 0 )
           {
             LdrpLogNewDllLoad(*(_QWORD *)(a1 + 48), v4);
-            v15 = *(_QWORD *)(a1 + 48);
-            if ( v15 )
-              *(_QWORD *)(v4 + 184) = *(_QWORD *)(v15 + 48);
+            v11 = *(_QWORD *)(a1 + 48);
+            if ( v11 )
+              *(_QWORD *)(v4 + 184) = *(_QWORD *)(v11 + 48);
             if ( (*(_BYTE *)(v4 + 104) & 4) != 0 || (*(_DWORD *)(a1 + 32) & 0x800000) != 0 )
             {
               if ( (*(_DWORD *)(v4 + 104) & 0x1000000) != 0 )

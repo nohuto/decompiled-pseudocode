@@ -10,12 +10,12 @@
 
 __int64 LdrpThreadTokenSetMainThreadToken()
 {
-  unsigned int v0; // ebx
-  void *v2; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int32 v0; // ebx
+  HANDLE TokenHandle; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = 0LL;
-  v0 = NtOpenThreadToken(-2LL, 131100LL, 0LL, &v2);
-  LdrpMainThreadToken = v2;
+  TokenHandle = 0LL;
+  v0 = NtOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, 0x2001Cu, 0, &TokenHandle);
+  LdrpMainThreadToken = TokenHandle;
   if ( v0 != -1073741700 )
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrapi.c",

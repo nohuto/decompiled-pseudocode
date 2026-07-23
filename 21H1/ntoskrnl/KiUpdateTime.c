@@ -276,15 +276,15 @@ LABEL_9:
   v19 = (unsigned int)KiTickOffset - *((_QWORD *)&v13 + 1);
   if ( v19 <= 0 )
   {
-    v12 = (unsigned int)KeMaximumIncrement;
+    v12 = KeMaximumIncrement;
     *((_QWORD *)&v13 + 1) = 1LL;
-    v19 += (unsigned int)KeMaximumIncrement;
+    v19 += KeMaximumIncrement;
     if ( v19 <= 0 )
     {
       v44 = KeNumberProcessorsGroup0[1];
       v45 = (unsigned __int64)(((unsigned __int64)-v19
                               * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v44;
-      v12 = (v45 + 1) * (unsigned int)KeMaximumIncrement;
+      v12 = (v45 + 1) * KeMaximumIncrement;
       v19 += v12;
       *((_QWORD *)&v13 + 1) = v45 + 2;
     }

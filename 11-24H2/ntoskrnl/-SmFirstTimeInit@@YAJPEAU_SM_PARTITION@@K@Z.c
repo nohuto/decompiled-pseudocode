@@ -1,44 +1,44 @@
 /*
- * XREFs of ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0
+ * XREFs of ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0
  * Callers:
- *     SmProcessCreateRequest @ 0x140A42DD4 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x140A38664 (SmProcessCreateRequest.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     MmStoreChargeResidentAvailableForRead @ 0x1402F687C (MmStoreChargeResidentAvailableForRead.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SmFpCleanup @ 0x14037E384 (SmFpCleanup.c)
- *     SmFpPreAllocate @ 0x1404C3258 (SmFpPreAllocate.c)
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140609FD4 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmCompressManagerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x14060A1D8 (-SmCompressManagerStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPR.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14060A68C (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14060AA58 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
- *     SmTerminateStoreProcess @ 0x14060CB08 (SmTerminateStoreProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePrivateWorkerPool @ 0x1406FBA78 (ExAllocatePrivateWorkerPool.c)
- *     PsCreateMinimalProcess @ 0x1407797C4 (PsCreateMinimalProcess.c)
- *     SmHwAcceleratorPartitionMgrCleanup @ 0x14079CB7C (SmHwAcceleratorPartitionMgrCleanup.c)
- *     SmHwAcceleratorPartitionMgrInitialize @ 0x14079CC94 (SmHwAcceleratorPartitionMgrInitialize.c)
- *     SmHwAcceleratorPartitionMgrStart @ 0x14079CCB0 (SmHwAcceleratorPartitionMgrStart.c)
- *     MmStoreCheckPagefiles @ 0x1407FD364 (MmStoreCheckPagefiles.c)
- *     MmStoreRegister @ 0x1407FD3A8 (MmStoreRegister.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SmRegistrationCtxStart @ 0x140AB42E8 (SmRegistrationCtxStart.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MmStoreChargeResidentAvailableForRead @ 0x14033E98C (MmStoreChargeResidentAvailableForRead.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SmFpCleanup @ 0x1403780A4 (SmFpCleanup.c)
+ *     SmFpPreAllocate @ 0x1404BE790 (SmFpPreAllocate.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140608594 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmCompressManagerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x140608798 (-SmCompressManagerStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPR.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140608C4C (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x140609018 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     SmTerminateStoreProcess @ 0x14060B0C8 (SmTerminateStoreProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePrivateWorkerPool @ 0x1406F96B8 (ExAllocatePrivateWorkerPool.c)
+ *     PsCreateMinimalProcess @ 0x1407798C4 (PsCreateMinimalProcess.c)
+ *     SmHwAcceleratorPartitionMgrCleanup @ 0x14079CC8C (SmHwAcceleratorPartitionMgrCleanup.c)
+ *     SmHwAcceleratorPartitionMgrInitialize @ 0x14079CDA4 (SmHwAcceleratorPartitionMgrInitialize.c)
+ *     SmHwAcceleratorPartitionMgrStart @ 0x14079CDC0 (SmHwAcceleratorPartitionMgrStart.c)
+ *     MmStoreCheckPagefiles @ 0x1407FDAD4 (MmStoreCheckPagefiles.c)
+ *     MmStoreRegister @ 0x1407FDB18 (MmStoreRegister.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SmRegistrationCtxStart @ 0x140AAF258 (SmRegistrationCtxStart.c)
  */
 
 __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2)
 {
   unsigned __int64 *v2; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v6; // rax
-  _QWORD *v7; // r14
+  char *v6; // rax
+  char *v7; // r14
   int v8; // eax
   int v9; // eax
   int v10; // eax
@@ -49,32 +49,34 @@ __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2)
   __int64 v16; // r14
   __int64 v17; // rdi
   int v18; // r9d
-  bool v19; // zf
-  unsigned int v20; // r14d
-  __int64 v21; // xmm1_8
-  int v22; // eax
+  __int64 v19; // r8
+  __int64 v20; // r9
+  bool v21; // zf
+  unsigned int v22; // r14d
+  __int64 v23; // xmm1_8
+  int v24; // eax
   HANDLE Handle; // [rsp+60h] [rbp-49h] BYREF
-  int v24; // [rsp+68h] [rbp-41h]
+  int v26; // [rsp+68h] [rbp-41h]
   PVOID Object; // [rsp+70h] [rbp-39h] BYREF
-  __int128 v26; // [rsp+78h] [rbp-31h] BYREF
-  __int64 v27; // [rsp+88h] [rbp-21h]
-  _OWORD v28[3]; // [rsp+90h] [rbp-19h] BYREF
-  int v29; // [rsp+C0h] [rbp+17h]
-  int v30; // [rsp+C4h] [rbp+1Bh]
-  int v31; // [rsp+C8h] [rbp+1Fh]
+  __int128 v28; // [rsp+78h] [rbp-31h] BYREF
+  __int64 v29; // [rsp+88h] [rbp-21h]
+  _OWORD v30[3]; // [rsp+90h] [rbp-19h] BYREF
+  int v31; // [rsp+C0h] [rbp+17h]
+  int v32; // [rsp+C4h] [rbp+1Bh]
+  int v33; // [rsp+C8h] [rbp+1Fh]
 
-  v31 = 1048596;
-  memset(v28, 0, sizeof(v28));
+  v33 = 1048596;
+  memset(v30, 0, sizeof(v30));
   v2 = (unsigned __int64 *)((char *)a1 + 2152);
   Handle = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = KeAbPreAcquire((__int64)a1 + 2152, 0LL);
+  v6 = (char *)KeAbPreAcquire((__int64)a1 + 2152, 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v2, (__int64)v6, (__int64)v2);
+    ExfAcquirePushLockExclusiveEx(v2, v6, (__int64)v2);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   if ( *((PVOID *)a1 + 262) != PspSystemPartition && !*((_QWORD *)a1 + 263) )
   {
     MinimalProcess = -1073741394;
@@ -96,11 +98,11 @@ __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2)
     }
     v16 = *((_QWORD *)a1 + 262);
     v17 = *(_QWORD *)(v16 + 120);
-    KiStackAttachProcess((_KPROCESS *)v17, 0, (__int64)v28);
+    KiStackAttachProcess((_KPROCESS *)v17, 0, (__int64)v30);
     LOBYTE(v18) = *(_BYTE *)(v17 + 1530);
     MinimalProcess = PsCreateMinimalProcess(
                        v17,
-                       (unsigned int)&unk_140E08E70,
+                       (unsigned int)&unk_140E08EE0,
                        0,
                        v18,
                        0LL,
@@ -111,7 +113,7 @@ __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2)
                        v16,
                        0LL,
                        (__int64)&Handle);
-    KiUnstackDetachProcess((__int64)v28, 0);
+    KiUnstackDetachProcess((__int64)v30, 0, v19, v20);
     if ( MinimalProcess < 0 )
       goto LABEL_17;
     Object = 0LL;
@@ -127,11 +129,11 @@ __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2)
   }
   if ( *((_DWORD *)a1 + 536) == 3 )
   {
-    v19 = (*((_DWORD *)a1 + 556) & 0x1000) == 0;
+    v21 = (*((_DWORD *)a1 + 556) & 0x1000) == 0;
     *((_DWORD *)a1 + 536) = 0;
-    if ( !v19 )
+    if ( !v21 )
     {
-      MinimalProcess = SmHwAcceleratorPartitionMgrStart((char *)a1 + 3120, &unk_140E28288, *((_QWORD *)a1 + 271));
+      MinimalProcess = SmHwAcceleratorPartitionMgrStart((char *)a1 + 3120, &unk_140E283C8, *((_QWORD *)a1 + 271));
       if ( MinimalProcess < 0 )
       {
         SmHwAcceleratorPartitionMgrCleanup((char *)a1 + 3120, *((_QWORD *)a1 + 271));
@@ -146,18 +148,18 @@ __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2)
   v8 = *((_DWORD *)a1 + 534);
   if ( (v8 & 2) == 0 )
   {
-    v20 = *((_DWORD *)a1 + 536);
+    v22 = *((_DWORD *)a1 + 536);
     *((_QWORD *)a1 + 253) = *((_QWORD *)a1 + 270);
     MinimalProcess = SMKM_STORE_MGR<SM_TRAITS>::SmStorePrepare(a1);
     if ( MinimalProcess < 0
       || (*((_DWORD *)a1 + 500) & 0x20) != 0
-      && (MinimalProcess = SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerStart((char *)a1 + 1264, v20), MinimalProcess < 0) )
+      && (MinimalProcess = SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerStart((char *)a1 + 1264, v22), MinimalProcess < 0) )
     {
-      v21 = *((_QWORD *)a1 + 252);
-      v26 = *((_OWORD *)a1 + 125);
-      v27 = v21;
+      v23 = *((_QWORD *)a1 + 252);
+      v28 = *((_OWORD *)a1 + 125);
+      v29 = v23;
       SMKM_STORE_MGR<SM_TRAITS>::SmCleanup(a1);
-      SMKM_STORE_MGR<SM_TRAITS>::SmInitialize(a1, &v26);
+      SMKM_STORE_MGR<SM_TRAITS>::SmInitialize(a1, &v28);
       SmTerminateStoreProcess(a1);
       goto LABEL_17;
     }
@@ -185,10 +187,10 @@ __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2)
   }
   else
   {
-    v24 = (a2 >> 8) & 0xFFFF0 | 0x100003;
-    v22 = (a2 >> 8) & 0xFFFF0;
-    v30 = v22 | 0x100002;
-    v29 = v22 | 0x100005;
+    v26 = (a2 >> 8) & 0xFFFF0 | 0x100003;
+    v24 = (a2 >> 8) & 0xFFFF0;
+    v32 = v24 | 0x100002;
+    v31 = v24 | 0x100005;
     MinimalProcess = SmFpPreAllocate((PEX_SPIN_LOCK)a1 + 720);
     if ( MinimalProcess < 0 )
       goto LABEL_17;

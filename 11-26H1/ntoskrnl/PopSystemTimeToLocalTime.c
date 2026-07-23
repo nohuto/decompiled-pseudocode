@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSystemTimeToLocalTime @ 0x140524878
+ * XREFs of PopSystemTimeToLocalTime @ 0x140526EE8
  * Callers:
- *     PopDiagTraceSmartSuspendPrediction @ 0x1407D4D24 (PopDiagTraceSmartSuspendPrediction.c)
- *     PopDiagTraceSmartSuspendValidation @ 0x1407D5088 (PopDiagTraceSmartSuspendValidation.c)
+ *     PopDiagTraceSmartSuspendPrediction @ 0x1407D7EDC (PopDiagTraceSmartSuspendPrediction.c)
+ *     PopDiagTraceSmartSuspendValidation @ 0x1407D8240 (PopDiagTraceSmartSuspendValidation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 struct _LIST_ENTRY *PopSystemTimeToLocalTime()

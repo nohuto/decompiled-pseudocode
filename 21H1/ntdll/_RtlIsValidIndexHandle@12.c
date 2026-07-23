@@ -7,13 +7,17 @@
  *     _RtlIsValidHandle@8 @ 0x4B2E0560 (_RtlIsValidHandle@8.c)
  */
 
-char __stdcall RtlIsValidIndexHandle(int a1, int a2, int *a3)
+BOOLEAN __cdecl RtlIsValidIndexHandle(
+        PRTL_HANDLE_TABLE HandleTable,
+        ULONG HandleIndex,
+        PRTL_HANDLE_TABLE_ENTRY *Handle)
 {
-  int v3; // esi
+  _RTL_HANDLE_TABLE_ENTRY *v3; // esi
 
-  v3 = *(_DWORD *)(a1 + 20) + a2 * *(_DWORD *)(a1 + 4);
-  if ( !(unsigned __int8)RtlIsValidHandle(a1, v3) )
+  v3 = (PRTL_HANDLE_TABLE_ENTRY)((char *)HandleTable->CommittedHandles
+                               + HandleIndex * HandleTable->SizeOfHandleTableEntry);
+  if ( !RtlIsValidHandle(HandleTable, v3) )
     return 0;
-  *a3 = v3;
+  *Handle = v3;
   return 1;
 }

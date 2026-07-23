@@ -1,9 +1,9 @@
 /*
  * XREFs of KeConfigureHeteroProcessors @ 0x1403DCF74
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14056A584 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14056AAC4 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeGenericCallDpc @ 0x1400A04BC (KeGenericCallDpc.c)
+ *     KeGenericCallDpc @ 0x14009EDE4 (KeGenericCallDpc.c)
  *     KiConfigureCpuSetSchedulingInformation @ 0x1403D39E4 (KiConfigureCpuSetSchedulingInformation.c)
  */
 

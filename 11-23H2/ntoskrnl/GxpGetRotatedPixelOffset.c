@@ -1,7 +1,7 @@
 /*
- * XREFs of GxpGetRotatedPixelOffset @ 0x140671ED8
+ * XREFs of GxpGetRotatedPixelOffset @ 0x140672428
  * Callers:
- *     GxpWriteFrameBufferPixels @ 0x1403852DC (GxpWriteFrameBufferPixels.c)
+ *     GxpWriteFrameBufferPixels @ 0x1403854BC (GxpWriteFrameBufferPixels.c)
  *     GxpReadFrameBufferPixels @ 0x140AEC548 (GxpReadFrameBufferPixels.c)
  * Callees:
  *     <none>

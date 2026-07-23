@@ -23,7 +23,7 @@ PVOID __stdcall RtlInsertElementGenericTable(
   int v12; // ebp
   __int64 v13; // rdx
   _QWORD *v14; // rax
-  RTL_SPLAY_LINKS *v15; // rbx
+  _RTL_SPLAY_LINKS *v15; // rbx
   struct _LIST_ENTRY *v16; // rax
   struct _LIST_ENTRY *Blink; // r8
 
@@ -69,7 +69,7 @@ LABEL_6:
     v14 = (_QWORD *)((__int64 (__fastcall *)(ULONG_PTR))Table->AllocateRoutine == ExAllocatePool2
                    ? ExAllocatePool2((ULONG_PTR)Table)
                    : guard_dispatch_icall_no_overrides(Table, v13));
-    v15 = (RTL_SPLAY_LINKS *)v14;
+    v15 = (_RTL_SPLAY_LINKS *)v14;
     if ( v14 )
     {
       *v14 = v14;

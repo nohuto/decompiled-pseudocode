@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VslSecurePoolUpdate @ 0x14054F710 (VslSecurePoolUpdate.c)
+ *     sub_14054F710 @ 0x14054F710 (sub_14054F710.c)
  */
 
 __int64 __fastcall ExSecurePoolUpdate(
@@ -16,7 +16,7 @@ __int64 __fastcall ExSecurePoolUpdate(
         struct _MDL *a7)
 {
   if ( a6 && a7 && a1 )
-    return VslSecurePoolUpdate(a1, a2, a3, a4, a5, a6, a7);
+    return sub_14054F710(a1, a2, a3, a4, a5, a6, a7);
   else
     return 3221225485LL;
 }

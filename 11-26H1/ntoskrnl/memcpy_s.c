@@ -1,11 +1,11 @@
 /*
- * XREFs of memcpy_s @ 0x14053C3B0
+ * XREFs of memcpy_s @ 0x14053E830
  * Callers:
- *     AstLogIoctl @ 0x1408F7080 (AstLogIoctl.c)
+ *     AstLogIoctl @ 0x140927010 (AstLogIoctl.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 errno_t __cdecl memcpy_s(void *a1, rsize_t DstSize, const void *Src, rsize_t MaxCount)

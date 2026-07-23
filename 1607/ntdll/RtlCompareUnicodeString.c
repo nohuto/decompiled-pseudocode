@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlCompareUnicodeString @ 0x180019570
+ * XREFs of RtlCompareUnicodeString @ 0x180019560
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x1800195B0 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x1800195A0 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall RtlCompareUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+LONG __cdecl RtlCompareUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
   return RtlCompareUnicodeStrings(
-           *((_QWORD *)a1 + 1),
-           (unsigned __int64)*a1 >> 1,
-           *((_QWORD *)a2 + 1),
-           (unsigned __int64)*a2 >> 1,
-           a3);
+           String1->Buffer,
+           (unsigned __int64)String1->Length >> 1,
+           String2->Buffer,
+           (unsigned __int64)String2->Length >> 1,
+           CaseInSensitive);
 }

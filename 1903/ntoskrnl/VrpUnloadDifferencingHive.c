@@ -26,16 +26,15 @@ __int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *String1)
   struct _KTHREAD *CurrentThread; // rax
   __int64 DiffHiveEntryForMountPointWithLock; // rax
   __int64 v4; // rdi
-  int v5; // ebp
+  NTSTATUS v5; // ebp
   struct _KTHREAD *v6; // rax
   volatile signed __int64 *v7; // rsi
   char v8; // al
   char v9; // r14
-  __int64 v10; // r8
-  struct _KTHREAD *v11; // rax
-  signed __int64 v12; // rax
+  struct _KTHREAD *v10; // rax
+  signed __int64 v11; // rax
   unsigned __int64 i; // rdx
-  signed __int64 v14; // rtt
+  signed __int64 v13; // rtt
   OBJECT_ATTRIBUTES KeyObjectAttributes; // [rsp+20h] [rbp-48h] BYREF
 
   memset(&KeyObjectAttributes, 0, sizeof(KeyObjectAttributes));
@@ -73,9 +72,9 @@ __int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *String1)
       KeyObjectAttributes.ObjectName = String1;
       v5 = ZwUnloadKey(&KeyObjectAttributes);
       if ( v5 < 0 )
-        v5 = ZwUnloadKey2((__int64)&KeyObjectAttributes, 1LL, v10);
-      v11 = KeGetCurrentThread();
-      --v11->KernelApcDisable;
+        v5 = ZwUnloadKey2(&KeyObjectAttributes, 1u);
+      v10 = KeGetCurrentThread();
+      --v10->KernelApcDisable;
       ExAcquirePushLockExclusiveEx(v4 + 24, 0LL);
       if ( v5 < 0 )
       {
@@ -83,8 +82,8 @@ __int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *String1)
         if ( ++*(_QWORD *)(v4 + 32) <= 1uLL )
         {
           _m_prefetchw((const void *)(v4 + 16));
-          v12 = *(_QWORD *)(v4 + 16);
-          for ( i = v12 + 1; ; i = v12 + 1 )
+          v11 = *(_QWORD *)(v4 + 16);
+          for ( i = v11 + 1; ; i = v11 + 1 )
           {
             if ( i <= 1 )
             {
@@ -92,9 +91,9 @@ __int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *String1)
                 __fastfail(0xEu);
               __fastfail(0xEu);
             }
-            v14 = v12;
-            v12 = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 16), i, v12);
-            if ( v14 == v12 )
+            v13 = v11;
+            v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 16), i, v11);
+            if ( v13 == v11 )
               break;
           }
         }

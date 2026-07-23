@@ -11,32 +11,32 @@
  */
 
 __int64 __fastcall LdrpGetDataModulePath(
-        __int64 a1,
+        PVOID DllHandle,
         void *a2,
         __int64 a3,
         unsigned int *a4,
-        wchar_t **a5,
+        unsigned __int16 **a5,
         _DWORD *a6,
-        _QWORD *a7)
+        struct _ACTIVATION_CONTEXT **a7)
 {
-  int LoadAsEntry; // ebx
-  __int64 v11; // rdi
+  NTSTATUS LoadAsEntry; // ebx
+  PLDR_DATA_TABLE_ENTRY v11; // rdi
   unsigned int v12; // eax
-  _QWORD *v13; // rcx
-  __int64 v14; // rax
+  struct _ACTIVATION_CONTEXT **v13; // rcx
+  struct _ACTIVATION_CONTEXT *EntryPointActivationContext; // rax
   _BYTE *v15; // rdi
   wchar_t *v16; // rcx
   wchar_t *v17; // rcx
   __int64 v18; // r8
   unsigned int v19; // ecx
   _BYTE v21[48]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v22; // [rsp+70h] [rbp+8h] BYREF
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+70h] [rbp+8h] BYREF
 
-  v22 = 0LL;
+  Entry = 0LL;
   memset(&v21[8], 0, 0x28uLL);
-  if ( (a1 & 3) != 0 )
+  if ( ((unsigned __int8)DllHandle & 3) != 0 )
   {
-    LoadAsEntry = LdrpGetLoadAsEntry(a1, v21);
+    LoadAsEntry = LdrpGetLoadAsEntry(DllHandle, v21);
     if ( LoadAsEntry < 0 )
       return (unsigned int)LoadAsEntry;
     v15 = *(_BYTE **)&v21[8];
@@ -58,7 +58,7 @@ __int64 __fastcall LdrpGetDataModulePath(
       v13 = a7;
       if ( a7 )
       {
-        v14 = *(_QWORD *)&v21[40];
+        EntryPointActivationContext = *(struct _ACTIVATION_CONTEXT **)&v21[40];
         if ( *(_QWORD *)&v21[40] != -1LL )
           goto LABEL_15;
       }
@@ -66,23 +66,23 @@ __int64 __fastcall LdrpGetDataModulePath(
     }
     return (unsigned int)-2147483643;
   }
-  LoadAsEntry = LdrFindEntryForAddress(a1, &v22);
+  LoadAsEntry = LdrFindEntryForAddress(DllHandle, &Entry);
   if ( LoadAsEntry < 0 )
     return (unsigned int)LoadAsEntry;
-  v11 = v22;
-  v12 = *(unsigned __int16 *)(v22 + 72) - *(unsigned __int16 *)(v22 + 88);
+  v11 = Entry;
+  v12 = Entry->FullDllName.Length - Entry->BaseDllName.Length;
   *a4 = v12;
-  if ( v12 > *(unsigned __int16 *)(v11 + 72) || v12 >= 0x2BE )
+  if ( v12 > v11->FullDllName.Length || v12 >= 0x2BE )
     return (unsigned int)-2147483643;
-  memmove(a2, *(const void **)(v11 + 80), v12);
-  *a5 = *(wchar_t **)(v11 + 96);
-  *a6 = *(unsigned __int16 *)(v11 + 88);
+  memmove(a2, v11->FullDllName.Buffer, v12);
+  *a5 = v11->BaseDllName.Buffer;
+  *a6 = v11->BaseDllName.Length;
   v13 = a7;
   if ( a7 )
   {
-    v14 = *(_QWORD *)(v11 + 136);
+    EntryPointActivationContext = v11->EntryPointActivationContext;
 LABEL_15:
-    *v13 = v14;
+    *v13 = EntryPointActivationContext;
   }
   return (unsigned int)LoadAsEntry;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryFullDriverPath @ 0x1403A6EC0
+ * XREFs of IoQueryFullDriverPath @ 0x1403A70A0
  * Callers:
- *     PiGetDriverImageDirectory @ 0x140955EF8 (PiGetDriverImageDirectory.c)
+ *     PiGetDriverImageDirectory @ 0x1409560F8 (PiGetDriverImageDirectory.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -27,7 +27,7 @@
 unsigned __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2, int a3, unsigned __int64 *a4)
 {
   unsigned __int64 Slow; // rbx
-  union _RTL_RUN_ONCE *v8; // r15
+  _RTL_RUN_ONCE *v8; // r15
   __int64 Value; // r15
   unsigned int v10; // r13d
   int v11; // esi
@@ -102,7 +102,7 @@ unsigned __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __
   Slow = 0LL;
   v83 = *a4;
   BYTE3(v83) = 0;
-  v8 = (union _RTL_RUN_ONCE *)&qword_140E6B8D8[2 * (unsigned int)dword_14001E630[(unsigned __int8)BYTE1(*a4)]];
+  v8 = (_RTL_RUN_ONCE *)&qword_140E6B8D8[2 * (unsigned int)dword_14001E630[(unsigned __int8)BYTE1(*a4)]];
   BYTE1(v83) = dword_14001E630[(unsigned __int8)BYTE1(*a4)];
   Parameter = v83;
   if ( !v8->Value && RtlRunOnceExecuteOnce(v8 + 1, RtlpHpMetadataHeapCreate, &Parameter, 0LL) < 0 )

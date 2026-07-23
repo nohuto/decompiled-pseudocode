@@ -1,12 +1,12 @@
 /*
- * XREFs of ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403F3DE0
+ * XREFs of ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403ED790
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403F49B8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403EE368 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x1403F4090 (RtlGetCompressionWorkSpaceSize.c)
- *     ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@K@Z @ 0x1403F40E8 (-StDmStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@K@Z.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x1403EDA40 (RtlGetCompressionWorkSpaceSize.c)
+ *     ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@K@Z @ 0x1403EDA98 (-StDmStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@K@Z.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StStart(__int64 a1, int *a2)
@@ -68,7 +68,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StStart(__int64 a1, int *a2)
   *(_OWORD *)a1 = *(_OWORD *)a2;
   *(_QWORD *)(a1 + 16) = *((_QWORD *)a2 + 2);
   v10 = (unsigned int)(2 * a2[3]);
-  Pool3 = (void *)ExAllocatePool3(64LL, v10, 1951624563LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+  Pool3 = (void *)ExAllocatePool3(64LL, v10, 1951624563LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
   *(_QWORD *)(a1 + 48) = Pool3;
   if ( !Pool3 )
     return -1073741670;
@@ -77,7 +77,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StStart(__int64 a1, int *a2)
   v13 = a2[6];
   *(_DWORD *)(a1 + 2176) = v13;
   v14 = (unsigned int *)(a1 + 2172);
-  result = RtlGetCompressionWorkSpaceSize(word_140016AB8[v13], (PULONG)(a1 + 2172), (PULONG)(a1 + 2168));
+  result = RtlGetCompressionWorkSpaceSize(word_140017648[v13], (PULONG)(a1 + 2172), (PULONG)(a1 + 2168));
   if ( result < 0 )
     return result;
   v15 = *v14;
@@ -85,7 +85,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StStart(__int64 a1, int *a2)
     v15 = *v12;
   if ( v15 )
   {
-    v16 = ExAllocatePool3(64LL, v15, 1951624563LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+    v16 = ExAllocatePool3(64LL, v15, 1951624563LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
     *(_QWORD *)(a1 + 2160) = v16;
     if ( !v16 )
       return -1073741670;
@@ -94,7 +94,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StStart(__int64 a1, int *a2)
           64LL,
           (-(__int64)((*a2 & 0x8000) != 0) & 0x1000) + 4096,
           1951624563LL,
-          &stru_140E27B08.Header.WaitListHead.Blink,
+          &stru_140E27C48.Header.WaitListHead.Blink,
           1);
   *(_QWORD *)(a1 + 2208) = v17;
   if ( !v17 )

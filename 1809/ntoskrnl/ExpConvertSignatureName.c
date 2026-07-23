@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpConvertSignatureName @ 0x1408CFDE4
+ * XREFs of ExpConvertSignatureName @ 0x1408D10A4
  * Callers:
- *     ExpTranslateArcPath @ 0x1408D2570 (ExpTranslateArcPath.c)
+ *     ExpTranslateArcPath @ 0x1408D3830 (ExpTranslateArcPath.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     swprintf_s @ 0x14019A360 (swprintf_s.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpCreateOutputARC @ 0x1408CFFF8 (ExpCreateOutputARC.c)
- *     ExpCreateOutputEFI @ 0x1408D00EC (ExpCreateOutputEFI.c)
- *     ExpCreateOutputNT @ 0x1408D02C8 (ExpCreateOutputNT.c)
- *     ExpFindDiskSignature @ 0x1408D0820 (ExpFindDiskSignature.c)
- *     ExpParseSignatureName @ 0x1408D13D8 (ExpParseSignatureName.c)
- *     ExpTranslateSymbolicLink @ 0x1408D3148 (ExpTranslateSymbolicLink.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     swprintf_s @ 0x14019A4A0 (swprintf_s.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpCreateOutputARC @ 0x1408D12B8 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputEFI @ 0x1408D13AC (ExpCreateOutputEFI.c)
+ *     ExpCreateOutputNT @ 0x1408D1588 (ExpCreateOutputNT.c)
+ *     ExpFindDiskSignature @ 0x1408D1AE0 (ExpFindDiskSignature.c)
+ *     ExpParseSignatureName @ 0x1408D2698 (ExpParseSignatureName.c)
+ *     ExpTranslateSymbolicLink @ 0x1408D4408 (ExpTranslateSymbolicLink.c)
  */
 
 __int64 __fastcall ExpConvertSignatureName(int a1, void *a2, __int64 a3, wchar_t *a4, void *Src)

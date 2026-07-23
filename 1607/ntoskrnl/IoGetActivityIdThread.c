@@ -1,8 +1,8 @@
 /*
- * XREFs of IoGetActivityIdThread @ 0x140096850
+ * XREFs of IoGetActivityIdThread @ 0x140096050
  * Callers:
- *     IopMountVolume @ 0x1403EC2AC (IopMountVolume.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1405506D0 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IopMountVolume @ 0x1403ED8DC (IopMountVolume.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x140550C10 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
  *     <none>
  */

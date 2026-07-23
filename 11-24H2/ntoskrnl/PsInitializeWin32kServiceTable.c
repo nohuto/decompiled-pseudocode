@@ -1,12 +1,12 @@
 /*
- * XREFs of PsInitializeWin32kServiceTable @ 0x140C3478C
+ * XREFs of PsInitializeWin32kServiceTable @ 0x140C368CC
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MmProtectDriverSection @ 0x14066B7C0 (MmProtectDriverSection.c)
- *     MmCompactServiceTable @ 0x1407FB3E8 (MmCompactServiceTable.c)
- *     RtlCompareUnicodeString @ 0x140932290 (RtlCompareUnicodeString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MmProtectDriverSection @ 0x14066C990 (MmProtectDriverSection.c)
+ *     MmCompactServiceTable @ 0x1407FBB58 (MmCompactServiceTable.c)
+ *     RtlCompareUnicodeString @ 0x1409343D0 (RtlCompareUnicodeString.c)
  */
 
 __int64 PsInitializeWin32kServiceTable()
@@ -43,8 +43,8 @@ __int64 PsInitializeWin32kServiceTable()
       KeBugCheckEx(0x164u, 0x47uLL, (int)result, 0LL, 0LL);
     if ( VslVsmEnabled )
     {
-      if ( xmmword_140FC62A0 )
-        return MmProtectDriverSection(xmmword_140FC62A0, 0LL, 0);
+      if ( xmmword_140FC72E0 )
+        return MmProtectDriverSection(xmmword_140FC72E0, 0LL, 0);
     }
   }
   return result;

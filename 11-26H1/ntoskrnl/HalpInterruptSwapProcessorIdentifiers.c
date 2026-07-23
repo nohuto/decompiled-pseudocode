@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptSwapProcessorIdentifiers @ 0x140BEE7C0
+ * XREFs of HalpInterruptSwapProcessorIdentifiers @ 0x140BF47C0
  * Callers:
- *     HalpDpReplaceControl @ 0x140BEE360 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x140BF4360 (HalpDpReplaceControl.c)
  * Callees:
- *     HalpInterruptIsRemappingRequired @ 0x1404E7C88 (HalpInterruptIsRemappingRequired.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpUpdateIrtDestinationId @ 0x14058FB7C (HalpUpdateIrtDestinationId.c)
- *     HalpInterruptEnsureLineSwapComplete @ 0x140BEE730 (HalpInterruptEnsureLineSwapComplete.c)
- *     HalpInterruptUpdateLinesPostSwap @ 0x140BEE928 (HalpInterruptUpdateLinesPostSwap.c)
- *     HalpInterruptUpdateLocalUnitIdentifier @ 0x140BEEA8C (HalpInterruptUpdateLocalUnitIdentifier.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140C09970 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptIsRemappingRequired @ 0x1404E1048 (HalpInterruptIsRemappingRequired.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpUpdateIrtDestinationId @ 0x1405922FC (HalpUpdateIrtDestinationId.c)
+ *     HalpInterruptEnsureLineSwapComplete @ 0x140BF4730 (HalpInterruptEnsureLineSwapComplete.c)
+ *     HalpInterruptUpdateLinesPostSwap @ 0x140BF4928 (HalpInterruptUpdateLinesPostSwap.c)
+ *     HalpInterruptUpdateLocalUnitIdentifier @ 0x140BF4A8C (HalpInterruptUpdateLocalUnitIdentifier.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140C0FB80 (HalpInterruptRestoreAllControllerState.c)
  */
 
 __int64 __fastcall HalpInterruptSwapProcessorIdentifiers(

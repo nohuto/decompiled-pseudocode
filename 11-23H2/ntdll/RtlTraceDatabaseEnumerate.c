@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTraceDatabaseEnumerate @ 0x1801109D0
+ * XREFs of RtlTraceDatabaseEnumerate @ 0x1801109A0
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)
   char v8; // di
   __int64 i; // rax
 
-  RtlEnterCriticalSection(a1 + 48);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   *(_QWORD *)(a1 + 40) = 0LL;
   if ( *(_QWORD *)a2 )
   {
@@ -56,6 +56,6 @@ LABEL_13:
   v8 = 1;
 LABEL_14:
   *(_QWORD *)(a1 + 40) = 0LL;
-  RtlLeaveCriticalSection(a1 + 48);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   return v8;
 }

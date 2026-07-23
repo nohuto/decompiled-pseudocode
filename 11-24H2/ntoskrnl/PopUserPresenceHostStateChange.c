@@ -1,11 +1,11 @@
 /*
- * XREFs of PopUserPresenceHostStateChange @ 0x1409BA7C8
+ * XREFs of PopUserPresenceHostStateChange @ 0x1409A0E18
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
- *     PopEvaluateGlobalUserStatus @ 0x1409BCF98 (PopEvaluateGlobalUserStatus.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1409A35E8 (PopEvaluateGlobalUserStatus.c)
  */
 
 __int64 __fastcall PopUserPresenceHostStateChange(int a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlFreeTunnelNode @ 0x1400C4694
+ * XREFs of FsRtlFreeTunnelNode @ 0x1400C2534
  * Callers:
- *     FsRtlRemoveNodeFromTunnel @ 0x1400C46CC (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlAddToTunnelCache @ 0x1405030D8 (FsRtlAddToTunnelCache.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x1400C256C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlAddToTunnelCache @ 0x1404E6068 (FsRtlAddToTunnelCache.c)
  * Callees:
  *     <none>
  */

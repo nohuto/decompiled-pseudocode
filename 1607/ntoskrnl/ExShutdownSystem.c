@@ -3,16 +3,16 @@
  * Callers:
  *     PopGracefulShutdown @ 0x1403DEE20 (PopGracefulShutdown.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ExpRecordShutdownTime @ 0x14022C934 (ExpRecordShutdownTime.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     ExSwapinWorkerThreads @ 0x14052ECF0 (ExSwapinWorkerThreads.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ExpRecordShutdownTime @ 0x14022C760 (ExpRecordShutdownTime.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     ExSwapinWorkerThreads @ 0x14052F230 (ExSwapinWorkerThreads.c)
  */
 
 unsigned __int64 ExShutdownSystem()
@@ -69,10 +69,10 @@ unsigned __int64 ExShutdownSystem()
       ObfDereferenceObject(ExpControlKey);
       ExpControlKey = 0LL;
     }
-    if ( qword_1402FCFD8 )
+    if ( qword_1402FCF78 )
     {
-      ObfDereferenceObject(qword_1402FCFD8);
-      qword_1402FCFD8 = 0LL;
+      ObfDereferenceObject(qword_1402FCF78);
+      qword_1402FCF78 = 0LL;
     }
     if ( ExpProductTypeKey )
     {

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCopyAbortCopyReadRequest @ 0x140597980
+ * XREFs of IopCopyAbortCopyReadRequest @ 0x140594950
  * Callers:
  *     <none>
  * Callees:
- *     IopCopyCompleteReadRequest @ 0x140268870 (IopCopyCompleteReadRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x14025FD20 (IopCopyCompleteReadRequest.c)
  */
 
 __int64 __fastcall IopCopyAbortCopyReadRequest(__int64 a1)

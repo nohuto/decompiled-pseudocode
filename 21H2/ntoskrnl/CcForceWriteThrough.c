@@ -1,13 +1,13 @@
 /*
- * XREFs of CcForceWriteThrough @ 0x1402CC9DC
+ * XREFs of CcForceWriteThrough @ 0x14024B03C
  * Callers:
- *     CcPrepareMdlWrite @ 0x1402CC660 (CcPrepareMdlWrite.c)
+ *     CcPrepareMdlWrite @ 0x14024ACC0 (CcPrepareMdlWrite.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     CcCanIWriteStreamEx @ 0x14031E220 (CcCanIWriteStreamEx.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -26,11 +26,11 @@ char __fastcall CcForceWriteThrough(__int64 a1, int a2, __int64 a3, char a4)
   v4 = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a3 )
-    Partition = CcGetPartition(a3);
+    Partition = CcGetPartition(a3, a2, a3);
   else
     Partition = *((_QWORD *)PspSystemPartition + 1);
   if ( (*(_DWORD *)(a1 + 80) & 0x1000000) != 0 && !(unsigned __int8)CcCanIWriteStreamEx(Partition, a1, a2, 0, 0, 0LL)
-    || a4 && (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) <= 0 && (*(_DWORD *)(a1 + 80) & 0x8000) == 0 )
+    || a4 && (int)PsGetIoPriorityThread(KeGetCurrentThread()) <= 0 && (*(_DWORD *)(a1 + 80) & 0x8000) == 0 )
   {
     v4 = 1;
     if ( a4 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogCommitRequestFailed @ 0x140A43954
+ * XREFs of MiLogCommitRequestFailed @ 0x140A43C04
  * Callers:
- *     MiCommitRequestFailed @ 0x140A438F4 (MiCommitRequestFailed.c)
+ *     MiCommitRequestFailed @ 0x140A43BA4 (MiCommitRequestFailed.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     PsGetProcessSessionId @ 0x140297620 (PsGetProcessSessionId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PsQueryJobMemoryUsageByProcess @ 0x1409B1CE0 (PsQueryJobMemoryUsageByProcess.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     PsGetProcessSessionId @ 0x1402978B0 (PsGetProcessSessionId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PsQueryJobMemoryUsageByProcess @ 0x1409B1EE0 (PsQueryJobMemoryUsageByProcess.c)
  */
 
 char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
@@ -137,7 +137,7 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
           v60 = 8LL;
           v31 = v16;
           v62 = 8LL;
-          LOBYTE(v3) = tlgWriteEx_EtwWriteEx(v15, (unsigned __int8 *)&byte_14003966D, v13, 1u, v18, v19, 0xFu, &v36);
+          LOBYTE(v3) = tlgWriteEx_EtwWriteEx(v15, (unsigned __int8 *)&byte_140039755, v13, 1u, v18, v19, 0xFu, &v36);
         }
       }
     }

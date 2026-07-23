@@ -1,10 +1,10 @@
 /*
- * XREFs of KeEnterKernelDebugger @ 0x140517A20
+ * XREFs of KeEnterKernelDebugger @ 0x140517C60
  * Callers:
  *     <none>
  * Callees:
- *     KiBugCheckDebugBreak @ 0x140517E20 (KiBugCheckDebugBreak.c)
- *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
+ *     KiBugCheckDebugBreak @ 0x140518060 (KiBugCheckDebugBreak.c)
+ *     KdInitSystem @ 0x1409B6160 (KdInitSystem.c)
  */
 
 __int64 KeEnterKernelDebugger()
@@ -21,7 +21,7 @@ __int64 KeEnterKernelDebugger()
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= ~((unsigned __int16)(1LL << (CurrentIrql + 1)) - 1) & 0xFFFC;
   }
-  if ( !(_BYTE)KdDebuggerEnabled && !KdPitchDebugger && !_InterlockedExchange(&dword_140CFA2EC, 1) )
+  if ( !(_BYTE)KdDebuggerEnabled && !KdPitchDebugger && !_InterlockedExchange(&dword_140CFA330, 1) )
     KdInitSystem(0LL, 0LL);
   return KiBugCheckDebugBreak(5u);
 }

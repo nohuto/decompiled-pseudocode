@@ -31,10 +31,10 @@ __int64 __fastcall IopValidateJunctionTarget(
   void *v9; // r13
   __int64 v10; // r14
   ULONG v11; // r15d
-  struct _REPARSE_DATA_BUFFER *Pool2; // rax
+  _REPARSE_DATA_BUFFER *Pool2; // rax
   const void *v13; // rdx
   size_t v14; // r8
-  struct _REPARSE_DATA_BUFFER *v15; // rsi
+  _REPARSE_DATA_BUFFER *v15; // rsi
   int appended; // ebx
   PVOID *v17; // r15
   char v18; // r12
@@ -53,7 +53,7 @@ __int64 __fastcall IopValidateJunctionTarget(
   PVOID Object; // [rsp+80h] [rbp-E8h] BYREF
   UNICODE_STRING String2; // [rsp+88h] [rbp-E0h] BYREF
   int v34; // [rsp+98h] [rbp-D0h]
-  struct _REPARSE_DATA_BUFFER *v35; // [rsp+A0h] [rbp-C8h]
+  _REPARSE_DATA_BUFFER *v35; // [rsp+A0h] [rbp-C8h]
   HANDLE FileHandle; // [rsp+A8h] [rbp-C0h] BYREF
   UNICODE_STRING Destination; // [rsp+B0h] [rbp-B8h] BYREF
   UNICODE_STRING String1; // [rsp+C0h] [rbp-A8h] BYREF
@@ -84,7 +84,7 @@ __int64 __fastcall IopValidateJunctionTarget(
   {
     v11 = v6 - 32;
     v34 = v6 - 32;
-    Pool2 = (struct _REPARSE_DATA_BUFFER *)ExAllocatePool2(99LL, (unsigned int)(v6 - 32), 1699901257LL);
+    Pool2 = (_REPARSE_DATA_BUFFER *)ExAllocatePool2(99LL, (unsigned int)(v6 - 32), 1699901257LL);
     v13 = a2 + 2;
     v14 = (unsigned int)(v6 - 32);
   }
@@ -92,7 +92,7 @@ __int64 __fastcall IopValidateJunctionTarget(
   {
     v11 = v6;
     v34 = v6;
-    Pool2 = (struct _REPARSE_DATA_BUFFER *)ExAllocatePool2(99LL, v6, 1699901257LL);
+    Pool2 = (_REPARSE_DATA_BUFFER *)ExAllocatePool2(99LL, v6, 1699901257LL);
     v14 = v6;
     v13 = a2;
   }

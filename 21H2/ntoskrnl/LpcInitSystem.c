@@ -1,9 +1,9 @@
 /*
- * XREFs of LpcInitSystem @ 0x140A6FDDC
+ * XREFs of LpcInitSystem @ 0x140A70DDC
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     AlpcpInitSystem @ 0x1407CE04C (AlpcpInitSystem.c)
+ *     AlpcpInitSystem @ 0x1407CE1BC (AlpcpInitSystem.c)
  */
 
 char LpcInitSystem()

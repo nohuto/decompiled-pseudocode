@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEtGetProcessAppId @ 0x14069EBE8
+ * XREFs of PopEtGetProcessAppId @ 0x14069FEA8
  * Callers:
- *     PoEnergyContextStart @ 0x14069EB0C (PoEnergyContextStart.c)
+ *     PoEnergyContextStart @ 0x14069FDCC (PoEnergyContextStart.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopEtAppIdDereference @ 0x140600278 (PopEtAppIdDereference.c)
- *     PopEtAppIdIntern @ 0x14069ED30 (PopEtAppIdIntern.c)
- *     PopEtGetProcessSidAndPackageIdentity @ 0x14069F4CC (PopEtGetProcessSidAndPackageIdentity.c)
- *     PopEtGetProcessImageInfo @ 0x14069F5AC (PopEtGetProcessImageInfo.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopEtAppIdDereference @ 0x140601278 (PopEtAppIdDereference.c)
+ *     PopEtAppIdIntern @ 0x14069FFF0 (PopEtAppIdIntern.c)
+ *     PopEtGetProcessSidAndPackageIdentity @ 0x1406A078C (PopEtGetProcessSidAndPackageIdentity.c)
+ *     PopEtGetProcessImageInfo @ 0x1406A086C (PopEtGetProcessImageInfo.c)
  */
 
 __int64 __fastcall PopEtGetProcessAppId(__int64 a1, __int64 *a2)

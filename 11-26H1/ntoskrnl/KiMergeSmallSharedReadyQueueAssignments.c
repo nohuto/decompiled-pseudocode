@@ -1,11 +1,11 @@
 /*
- * XREFs of KiMergeSmallSharedReadyQueueAssignments @ 0x1405FC1D8
+ * XREFs of KiMergeSmallSharedReadyQueueAssignments @ 0x1405FEC28
  * Callers:
- *     KiAssignCooperativeIdleSearchContexts @ 0x1405EA2A8 (KiAssignCooperativeIdleSearchContexts.c)
- *     KiComputeSharedReadyQueueAssignments @ 0x1405FB9A0 (KiComputeSharedReadyQueueAssignments.c)
+ *     KiAssignCooperativeIdleSearchContexts @ 0x1405ECC18 (KiAssignCooperativeIdleSearchContexts.c)
+ *     KiComputeSharedReadyQueueAssignments @ 0x1405FE3F0 (KiComputeSharedReadyQueueAssignments.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiMergeSmallSharedReadyQueueAssignments(__int64 a1, unsigned int a2, unsigned __int8 *a3)

@@ -443,7 +443,7 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   unsigned int v21; // r10d
   unsigned __int64 v22; // rax
   PVOID *v23; // rcx
-  __int64 v24; // r14
+  _RTL_BALANCED_NODE *v24; // r14
   int v25; // eax
   unsigned __int8 v26; // dl
   unsigned __int8 v27; // di
@@ -480,8 +480,8 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   int v59; // eax
   int v60; // eax
   struct _KPRCB *v61; // rcx
-  __int64 v62; // rax
-  __int64 v63; // rax
+  _RTL_BALANCED_NODE *v62; // rax
+  PRTL_BALANCED_NODE v63; // rax
   int v64; // r14d
   int v65; // eax
   _DWORD *v66; // rcx
@@ -494,7 +494,7 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   int v73; // eax
   int v74; // eax
   int v75; // eax
-  __int64 v76; // rax
+  PRTL_BALANCED_NODE v76; // rax
   struct _KPRCB *v77; // rbx
   _DWORD *v78; // rcx
   int v79; // eax
@@ -540,7 +540,7 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   bool v119; // [rsp+20h] [rbp-61h]
   unsigned __int8 v120; // [rsp+21h] [rbp-60h]
   LONGLONG QuadPart; // [rsp+28h] [rbp-59h]
-  __int64 v122; // [rsp+30h] [rbp-51h]
+  PRTL_BALANCED_NODE Node; // [rsp+30h] [rbp-51h]
   int v123; // [rsp+38h] [rbp-49h] BYREF
   int v124; // [rsp+3Ch] [rbp-45h] BYREF
   int v125; // [rsp+40h] [rbp-41h] BYREF
@@ -564,7 +564,7 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   v141 = WaitReason;
   CurrentThread = KeGetCurrentThread();
   v119 = 0;
-  v122 = 0LL;
+  Node = 0LL;
   v120 = _bittestandreset((signed __int32 *)&CurrentThread->116, 2u);
   if ( !v120 )
   {
@@ -1067,7 +1067,7 @@ LABEL_289:
         CurrentThread->AbWaitObject = 0LL;
         v76 = KeAbPreAcquire(AbWaitObject, 0LL, 1);
         if ( v76 )
-          *(_BYTE *)(v76 + 26) |= 1u;
+          BYTE2(v76[1].Left) |= 1u;
       }
       v27 = CurrentThread->WaitIrql;
       v41.Flags = (unsigned __int8)CurrentThread->WaitRegister;
@@ -1356,11 +1356,11 @@ LABEL_22:
       v20 = QuadPart;
       v24 = v62;
       v21 = Timeouta;
-      v122 = v62;
+      Node = v62;
     }
     else
     {
-      v24 = v122;
+      v24 = Node;
     }
     if ( v24 )
     {
@@ -1381,9 +1381,9 @@ LABEL_22:
       else
       {
         v63 = KeAbPreAcquire((ULONG_PTR)Object, v24, 1);
-        *(_BYTE *)(v63 + 26) |= 1u;
+        BYTE2(v63[1].Left) |= 1u;
       }
-      v122 = v63;
+      Node = v63;
     }
     CurrentThread->AbWaitObject = 0LL;
     if ( (_DWORD)WaitStatus != 256 )

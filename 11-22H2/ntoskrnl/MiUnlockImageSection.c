@@ -100,7 +100,7 @@ void __fastcall MiUnlockImageSection(
         v14 = v13 - 0x220000000000LL;
         v15 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v15 == 2 )
@@ -129,10 +129,10 @@ LABEL_56:
         MiPfnReferenceCountIsZero(v14, 0xAAAAAAAAAAAAAAABuLL * (v13 >> 4));
 LABEL_24:
         _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v34 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v15 <= 0xFu && v34 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v15 <= 0xFu && v34 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v36 = CurrentPrcb->SchedulerAssist;

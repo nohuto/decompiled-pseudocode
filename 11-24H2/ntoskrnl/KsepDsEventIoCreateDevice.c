@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventIoCreateDevice @ 0x1405CB7D0
+ * XREFs of KsepDsEventIoCreateDevice @ 0x1405C8EF0
  * Callers:
- *     KseDsHookIoCreateDevice @ 0x1405CAFF0 (KseDsHookIoCreateDevice.c)
+ *     KseDsHookIoCreateDevice @ 0x1405C8710 (KseDsHookIoCreateDevice.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall KsepDsEventIoCreateDevice(__int64 a1, __int64 a2, int a3, int a4, unsigned __int8 a5, char a6)

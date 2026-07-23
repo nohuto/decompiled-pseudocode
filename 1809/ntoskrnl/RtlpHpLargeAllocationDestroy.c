@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLargeAllocationDestroy @ 0x1402FE114
+ * XREFs of RtlpHpLargeAllocationDestroy @ 0x1402FE304
  * Callers:
- *     RtlpHpHeapDestroy @ 0x1401544C4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1401545C4 (RtlpHpHeapDestroy.c)
  * Callees:
  *     RtlpHpMetadataFree @ 0x1400080A4 (RtlpHpMetadataFree.c)
  *     RtlpHpFreeVA @ 0x14000D214 (RtlpHpFreeVA.c)

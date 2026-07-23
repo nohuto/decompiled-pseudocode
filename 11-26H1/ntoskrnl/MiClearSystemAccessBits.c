@@ -1,15 +1,15 @@
 /*
- * XREFs of MiClearSystemAccessBits @ 0x1406F2490
+ * XREFs of MiClearSystemAccessBits @ 0x1406F7100
  * Callers:
- *     MiPfnRangeIsZero @ 0x1406E9BA0 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x1406EE840 (MiPfnRangeIsZero.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 void __fastcall MiClearSystemAccessBits(unsigned __int64 a1, __int64 a2, int a3)

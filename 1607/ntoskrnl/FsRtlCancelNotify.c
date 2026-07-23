@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlCancelNotify @ 0x1400A20F4
+ * XREFs of FsRtlCancelNotify @ 0x1400A0A1C
  * Callers:
- *     FsRtlNotifySetCancelRoutine @ 0x140076EFC (FsRtlNotifySetCancelRoutine.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x140076F7C (FsRtlNotifySetCancelRoutine.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x140027B7C (PsReturnProcessPagedPoolQuota.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsChargePoolQuota @ 0x14009CE38 (PsChargePoolQuota.c)
- *     FsRtlIsNtstatusExpected @ 0x1400AB6F8 (FsRtlIsNtstatusExpected.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400276FC (PsReturnProcessPagedPoolQuota.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsChargePoolQuota @ 0x14009C638 (PsChargePoolQuota.c)
+ *     FsRtlIsNtstatusExpected @ 0x1400A9C60 (FsRtlIsNtstatusExpected.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)

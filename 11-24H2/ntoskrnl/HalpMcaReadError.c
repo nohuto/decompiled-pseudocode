@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpMcaReadError @ 0x14053FE0C
+ * XREFs of HalpMcaReadError @ 0x14053D70C
  * Callers:
- *     HalpCmcPollProcessor @ 0x14047D32C (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x140540418 (HalpMceHandlerCore.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140B4BA0C (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1404784BC (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x14053DD18 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140B4DA4C (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpMcaStuckErrorCheck @ 0x14047D154 (HalpMcaStuckErrorCheck.c)
- *     HalpWheaReadMsrStatus @ 0x14047D59C (HalpWheaReadMsrStatus.c)
- *     HalpGetCpuVendor @ 0x14047D5E4 (HalpGetCpuVendor.c)
- *     HalpMcaPopulateErrorData @ 0x14053FB8C (HalpMcaPopulateErrorData.c)
- *     HalpMcaReadErrorUncorrected @ 0x140543860 (HalpMcaReadErrorUncorrected.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpMcaStuckErrorCheck @ 0x1404782E4 (HalpMcaStuckErrorCheck.c)
+ *     HalpWheaReadMsrStatus @ 0x14047872C (HalpWheaReadMsrStatus.c)
+ *     HalpGetCpuVendor @ 0x140478774 (HalpGetCpuVendor.c)
+ *     HalpMcaPopulateErrorData @ 0x14053D48C (HalpMcaPopulateErrorData.c)
+ *     HalpMcaReadErrorUncorrected @ 0x1405411B0 (HalpMcaReadErrorUncorrected.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpMcaReadError(int a1, void *a2, int *a3, __int64 a4, __int64 a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportUsageFallback @ 0x1405BF3BC
+ * XREFs of Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportUsageFallback @ 0x1405BC9EC
  * Callers:
- *     Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage @ 0x1403C9F68 (Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage.c)
+ *     Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage @ 0x1403A4B08 (Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportDeviceUsage.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void __fastcall Feature_Servicing_IdealProcessorEventOutsideLocks__private_ReportUsageFallback(char a1, int a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetSectionStrongImageReference @ 0x140B54148
+ * XREFs of MmGetSectionStrongImageReference @ 0x140B569E8
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     MiGetSectionStrongImageReference @ 0x140B4D7C0 (MiGetSectionStrongImageReference.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiGetSectionStrongImageReference @ 0x140B4F550 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MmGetSectionStrongImageReference(ULONG_PTR a1, char a2, void *a3, _QWORD *a4)
@@ -23,15 +23,7 @@ __int64 __fastcall MmGetSectionStrongImageReference(ULONG_PTR a1, char a2, void 
   v5 = a3;
   if ( a1 )
   {
-    result = ObpReferenceObjectByHandleWithTag(
-               a1,
-               0LL,
-               (POBJECT_TYPE *)MmSectionObjectType,
-               a2,
-               0x63536D4Du,
-               &v11,
-               0LL,
-               0LL);
+    result = ObpReferenceObjectByHandleWithTag(a1, 0, (__int64)MmSectionObjectType, a2, 0x63536D4Du, &v11, 0LL, 0LL);
     if ( (int)result < 0 )
       return result;
     v5 = v11;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCreateDumpMdl @ 0x14056A410
+ * XREFs of PopCreateDumpMdl @ 0x14056B410
  * Callers:
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
  * Callees:
- *     MmMapMemoryDumpMdlEx @ 0x140144420 (MmMapMemoryDumpMdlEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
- *     _PopInternalError @ 0x1402D3738 (_PopInternalError.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140144520 (MmMapMemoryDumpMdlEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3514 (PopInternalAddToDumpFile.c)
+ *     _PopInternalError @ 0x1402D3928 (_PopInternalError.c)
  */
 
 void __fastcall PopCreateDumpMdl(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, unsigned __int64 a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFaultInPagedPool @ 0x1402A596C
+ * XREFs of MiFaultInPagedPool @ 0x1402A5B5C
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
- *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
+ *     MiProtectPrivateMemory @ 0x140070DB0 (MiProtectPrivateMemory.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
  */
 
 char __fastcall MiFaultInPagedPool(ULONG_PTR BugCheckParameter2)

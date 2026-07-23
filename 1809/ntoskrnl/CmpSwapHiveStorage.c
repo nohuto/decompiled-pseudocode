@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSwapHiveStorage @ 0x1407F6900
+ * XREFs of CmpSwapHiveStorage @ 0x1407F7B00
  * Callers:
- *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
- *     CmpRefreshHive @ 0x140802DAC (CmpRefreshHive.c)
+ *     CmpReorganizeHive @ 0x1405A7F70 (CmpReorganizeHive.c)
+ *     CmpRefreshHive @ 0x140803FAC (CmpRefreshHive.c)
  * Callees:
- *     HvSwapHiveStorage @ 0x1407F7424 (HvSwapHiveStorage.c)
+ *     HvSwapHiveStorage @ 0x1407F8624 (HvSwapHiveStorage.c)
  */
 
 __int64 __fastcall CmpSwapHiveStorage(__int64 a1, __int64 a2)

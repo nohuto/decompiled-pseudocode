@@ -1,59 +1,62 @@
 /*
- * XREFs of RtlpExtendLowFragHeapSegment @ 0x18009D0A4
+ * XREFs of RtlpExtendLowFragHeapSegment @ 0x1800E8614
  * Callers:
- *     RtlpInitializeSegmentInfoForBucket @ 0x18009D048 (RtlpInitializeSegmentInfoForBucket.c)
- *     RtlpAffinitizeSegmentInfoForBucket @ 0x1800F5060 (RtlpAffinitizeSegmentInfoForBucket.c)
+ *     RtlpAffinitizeSegmentInfoForBucket @ 0x1800E8454 (RtlpAffinitizeSegmentInfoForBucket.c)
+ *     RtlpInitializeSegmentInfoForBucket @ 0x1800E85B8 (RtlpInitializeSegmentInfoForBucket.c)
  * Callees:
- *     RtlpLogHeapExtendEvent @ 0x180044228 (RtlpLogHeapExtendEvent.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpGetHeapProtection @ 0x18009C570 (RtlpGetHeapProtection.c)
- *     RtlpLogHeapCommit @ 0x180114118 (RtlpLogHeapCommit.c)
- *     ZwAllocateVirtualMemory @ 0x180161F90 (ZwAllocateVirtualMemory.c)
+ *     RtlpLogHeapCommit @ 0x1800235BC (RtlpLogHeapCommit.c)
+ *     RtlpGetHeapProtection @ 0x1800288C0 (RtlpGetHeapProtection.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpLogHeapExtendEvent @ 0x1800F2038 (RtlpLogHeapExtendEvent.c)
+ *     ZwAllocateVirtualMemory @ 0x180160350 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpExtendLowFragHeapSegment(__int64 *a1, __int64 a2, _QWORD *a3)
+NTSTATUS __fastcall RtlpExtendLowFragHeapSegment(__int64 *a1, __int64 a2, _QWORD *a3)
 {
-  __int64 *v3; // rsi
+  PVOID *v3; // rsi
   unsigned __int64 v4; // rbp
-  __int64 result; // rax
-  __int64 v8; // rcx
-  int HeapProtection; // eax
+  _DWORD *v7; // rcx
+  ULONG Protect; // eax
+  NTSTATUS result; // eax
   __int64 v10; // rdi
   __int64 v11; // rcx
-  unsigned __int64 v12; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = a1 + 5;
+  v3 = (PVOID *)(a1 + 5);
   v4 = a2 + a1[4];
-  if ( v4 <= a1[5] )
+  if ( v4 > a1[5] )
   {
-LABEL_2:
-    *a3 = a1[4];
-    result = 0LL;
-    a1[4] = v4;
-    return result;
-  }
-  v8 = a1[3];
-  v12 = (v4 - *v3 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  HeapProtection = RtlpGetHeapProtection(v8, 1);
-  result = ZwAllocateVirtualMemory(-1LL, v3, 0LL, &v12, 4096, HeapProtection);
-  if ( (int)result >= 0 )
-  {
-    *(_QWORD *)(a1[3] + 576) += v12;
+    v7 = (_DWORD *)a1[3];
+    RegionSize = (v4 - (_QWORD)*v3 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+    Protect = RtlpGetHeapProtection(v7, 1);
+    result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, 0LL, &RegionSize, 0x1000u, Protect);
+    if ( result < 0 )
+    {
+      *a3 = 0LL;
+      return result;
+    }
+    *(_QWORD *)(a1[3] + 576) += RegionSize;
     v10 = 2147353472LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v11 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
       v11 = 2147353472LL;
     if ( *(_BYTE *)v11 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v10 = (__int64)NtCurrentPeb()->SharedData + 550;
-      RtlpLogHeapExtendEvent(a1[3], *v3, v12, 16LL * *(_QWORD *)(a1[3] + 192), *(unsigned __int8 *)v10);
-      RtlpLogHeapCommit(a1[3], *v3, v12, 9LL);
+      RtlpLogHeapExtendEvent(
+        a1[3],
+        (int)*v3,
+        RegionSize,
+        16 * *(_QWORD *)(a1[3] + 192),
+        (HANDLE)*(unsigned __int8 *)v10);
+      RtlpLogHeapCommit(a1[3], (__int64)*v3, RegionSize, 9);
     }
-    *v3 += v12;
-    goto LABEL_2;
+    *v3 = (char *)*v3 + RegionSize;
   }
-  *a3 = 0LL;
+  *a3 = a1[4];
+  result = 0;
+  a1[4] = v4;
   return result;
 }

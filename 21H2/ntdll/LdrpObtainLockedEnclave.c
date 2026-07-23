@@ -2,53 +2,50 @@
  * XREFs of LdrpObtainLockedEnclave @ 0x18002FA14
  * Callers:
  *     LdrGetProcedureAddressForCaller @ 0x18002FDC0 (LdrGetProcedureAddressForCaller.c)
- *     LdrDeleteEnclave @ 0x1800CCD90 (LdrDeleteEnclave.c)
- *     LdrInitializeEnclave @ 0x1800CCE20 (LdrInitializeEnclave.c)
- *     LdrIsEnclaveAddress @ 0x1800CCF20 (LdrIsEnclaveAddress.c)
- *     LdrLoadEnclaveModule @ 0x1800CCFC0 (LdrLoadEnclaveModule.c)
- *     LdrpIssueEnclaveCall @ 0x1800CD8B0 (LdrpIssueEnclaveCall.c)
+ *     LdrDeleteEnclave @ 0x1800CCD50 (LdrDeleteEnclave.c)
+ *     LdrInitializeEnclave @ 0x1800CCDE0 (LdrInitializeEnclave.c)
+ *     LdrIsEnclaveAddress @ 0x1800CCEE0 (LdrIsEnclaveAddress.c)
+ *     LdrLoadEnclaveModule @ 0x1800CCF80 (LdrLoadEnclaveModule.c)
+ *     LdrpIssueEnclaveCall @ 0x1800CD870 (LdrpIssueEnclaveCall.c)
  * Callees:
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
- *     LdrpDereferenceEnclave @ 0x1800CD470 (LdrpDereferenceEnclave.c)
+ *     LdrpDereferenceEnclave @ 0x1800CD430 (LdrpDereferenceEnclave.c)
  */
 
 __int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
 {
   __int64 *i; // rbx
-  __int64 v5; // rdx
-  __int64 *v6; // r8
-  __int64 v8; // rdx
-  __int64 v9; // r8
+  __int64 *v5; // r8
 
   for ( i = 0LL; ; LdrpDereferenceEnclave(i) )
   {
     RtlEnterCriticalSection(&LdrpEnclaveListLock);
-    v6 = (__int64 *)LdrpEnclaveList;
-    while ( v6 != &LdrpEnclaveList )
+    v5 = (__int64 *)LdrpEnclaveList;
+    while ( v5 != &LdrpEnclaveList )
     {
-      i = v6;
+      i = v5;
       if ( a2 )
       {
-        if ( a1 == v6[9] )
+        if ( a1 == v5[9] )
           break;
       }
-      else if ( a1 >= v6[9] && a1 - v6[9] < v6[10] )
+      else if ( a1 >= v5[9] && a1 - v5[9] < v5[10] )
       {
         break;
       }
-      v6 = (__int64 *)*v6;
+      v5 = (__int64 *)*v5;
       i = 0LL;
     }
     if ( i )
       _InterlockedIncrement((volatile signed __int32 *)i + 15);
-    RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock, v5, (__int64)v6);
+    RtlLeaveCriticalSection(&LdrpEnclaveListLock);
     if ( !i )
       return 0LL;
-    RtlEnterCriticalSection(i + 2);
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
     if ( i[9] )
       break;
-    RtlLeaveCriticalSection((__int64)(i + 2), v8, v9);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
   }
   return i;
 }

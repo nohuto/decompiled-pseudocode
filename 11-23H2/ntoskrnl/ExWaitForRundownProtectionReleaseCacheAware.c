@@ -1,12 +1,12 @@
 /*
- * XREFs of ExWaitForRundownProtectionReleaseCacheAware @ 0x1403221B0
+ * XREFs of ExWaitForRundownProtectionReleaseCacheAware @ 0x140322440
  * Callers:
- *     RawVerifyVolume @ 0x1405A6C5C (RawVerifyVolume.c)
- *     MiDrainCrossPartitionUsage @ 0x140659A24 (MiDrainCrossPartitionUsage.c)
- *     EtwpFreeLoggerContext @ 0x14078DC9C (EtwpFreeLoggerContext.c)
- *     RawUserFsCtrl @ 0x140882194 (RawUserFsCtrl.c)
+ *     RawVerifyVolume @ 0x1405A71CC (RawVerifyVolume.c)
+ *     MiDrainCrossPartitionUsage @ 0x140659F74 (MiDrainCrossPartitionUsage.c)
+ *     EtwpFreeLoggerContext @ 0x14078DE8C (EtwpFreeLoggerContext.c)
+ *     RawUserFsCtrl @ 0x1408823D4 (RawUserFsCtrl.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
  */
 
 void __stdcall ExWaitForRundownProtectionReleaseCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRef)

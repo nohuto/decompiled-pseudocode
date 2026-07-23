@@ -1,12 +1,12 @@
 /*
  * XREFs of MiParseComAndCetHeaders @ 0x1406AB9A4
  * Callers:
- *     MiCreateNewSection @ 0x1407464F0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1407466E0 (MiCreateNewSection.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A24E0 (MiDereferenceControlAreaFile.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A2770 (MiDereferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     MiLogRelocationRva @ 0x1406ABDA0 (MiLogRelocationRva.c)
  *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
  *     MiUnmapImageInSystemSpace @ 0x1406ACB70 (MiUnmapImageInSystemSpace.c)

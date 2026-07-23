@@ -1,8 +1,8 @@
 /*
- * XREFs of TtmiGetTerminalById @ 0x1406779EC
+ * XREFs of TtmiGetTerminalById @ 0x140677AD0
  * Callers:
- *     TtmNotifyDeviceInput @ 0x140676DD4 (TtmNotifyDeviceInput.c)
- *     TtmpPushTerminalState @ 0x140677528 (TtmpPushTerminalState.c)
+ *     TtmNotifyDeviceInput @ 0x140676EB8 (TtmNotifyDeviceInput.c)
+ *     TtmpPushTerminalState @ 0x14067760C (TtmpPushTerminalState.c)
  * Callees:
  *     <none>
  */

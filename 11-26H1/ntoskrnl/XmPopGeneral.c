@@ -1,10 +1,10 @@
 /*
- * XREFs of XmPopGeneral @ 0x1405AC740
+ * XREFs of XmPopGeneral @ 0x1405AEF50
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1404A8658 (XmEvaluateAddressSpecifier.c)
- *     XmSetDestinationValue @ 0x1404A8950 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x1404A1CE8 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDestinationValue @ 0x1404A1FE0 (XmSetDestinationValue.c)
  */
 
 __int64 __fastcall XmPopGeneral(__int64 a1)

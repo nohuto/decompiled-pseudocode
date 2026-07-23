@@ -1,13 +1,13 @@
 /*
- * XREFs of IoEnumerateRegisteredFiltersList @ 0x1407DBBD0
+ * XREFs of IoEnumerateRegisteredFiltersList @ 0x1407DBEA0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IopGetFsRegistrationInProgress @ 0x1405576A8 (IopGetFsRegistrationInProgress.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IopGetFsRegistrationInProgress @ 0x140557D68 (IopGetFsRegistrationInProgress.c)
  */
 
 NTSTATUS __stdcall IoEnumerateRegisteredFiltersList(

@@ -1,21 +1,21 @@
 /*
- * XREFs of SmProcessStatsRequest @ 0x140798698
+ * XREFs of SmProcessStatsRequest @ 0x1407987A8
  * Callers:
- *     SmQueryStoreInformation @ 0x140A18DA0 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140A11F10 (SmQueryStoreInformation.c)
  * Callees:
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     MmSizeOfMdl @ 0x140458550 (MmSizeOfMdl.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1404974E0 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     MmSizeOfMdl @ 0x14044DA00 (MmSizeOfMdl.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140491E70 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall SmProcessStatsRequest(__int64 a1, int a2, _DWORD *a3, KPROCESSOR_MODE a4)
@@ -79,8 +79,8 @@ __int64 __fastcall SmProcessStatsRequest(__int64 a1, int a2, _DWORD *a3, KPROCES
     {
       v13 = HIDWORD(Base[0]);
       if ( (!HIDWORD(Base[0])
-         || (v14 = MmSizeOfMdl(Base[1], HIDWORD(Base[0])), (v7 = (struct _MDL *)SmAllocEx(v14, 1145924979LL, -1)) != 0LL))
-        && (v8 = SmAllocEx(40LL, 1767337331LL, -1)) != 0 )
+         || (v14 = MmSizeOfMdl(Base[1], HIDWORD(Base[0])), (v7 = (struct _MDL *)SmAllocEx(v14, 0x444D6D73u, -1)) != 0LL))
+        && (v8 = SmAllocEx(0x28uLL, 0x69576D73u, -1)) != 0 )
       {
         *(_OWORD *)v8 = 0LL;
         *(_OWORD *)(v8 + 16) = 0LL;

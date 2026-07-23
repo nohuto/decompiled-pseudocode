@@ -1,14 +1,14 @@
 /*
- * XREFs of PipCreateNewDependencyEdge @ 0x140398314
+ * XREFs of PipCreateNewDependencyEdge @ 0x1403984F4
  * Callers:
- *     PipAddDependencyEdgeBetweenNodes @ 0x140398278 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x140398458 (PipAddDependencyEdgeBetweenNodes.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PipReferenceDependencyNode @ 0x1408380B0 (PipReferenceDependencyNode.c)
- *     PipAddRequestToEdge @ 0x1408380BC (PipAddRequestToEdge.c)
- *     PipNotifyDependenciesChanged @ 0x14083827C (PipNotifyDependenciesChanged.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PipReferenceDependencyNode @ 0x1408383B0 (PipReferenceDependencyNode.c)
+ *     PipAddRequestToEdge @ 0x1408383BC (PipAddRequestToEdge.c)
+ *     PipNotifyDependenciesChanged @ 0x14083857C (PipNotifyDependenciesChanged.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -59,10 +59,13 @@ _QWORD *__fastcall PipCreateNewDependencyEdge(__int64 a1, __int64 a2, __int64 a3
       *v11 = v7;
       *(_QWORD *)(a1 + 24) = v7;
       KxReleaseSpinLock((volatile signed __int64 *)&PiDependencyEdgeWriteLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v8 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

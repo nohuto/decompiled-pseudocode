@@ -1,11 +1,11 @@
 /*
- * XREFs of MiModifiedWriterPeriodicTick @ 0x1402A7E04
+ * XREFs of MiModifiedWriterPeriodicTick @ 0x1402A7214
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     MiWakeMappedPageWriter @ 0x1402A7E8C (MiWakeMappedPageWriter.c)
- *     MiScanPagefiles @ 0x1402A7EDC (MiScanPagefiles.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     MiWakeMappedPageWriter @ 0x1402A729C (MiWakeMappedPageWriter.c)
+ *     MiScanPagefiles @ 0x1402A72EC (MiScanPagefiles.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 __int64 __fastcall MiModifiedWriterPeriodicTick(_DWORD *a1)

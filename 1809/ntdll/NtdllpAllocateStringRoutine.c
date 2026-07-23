@@ -24,10 +24,10 @@
  *     RtlUpcaseUnicodeStringToOemString @ 0x18006A470 (RtlUpcaseUnicodeStringToOemString.c)
  *     RtlUnicodeStringToOemString @ 0x18006A560 (RtlUnicodeStringToOemString.c)
  *     RtlUnicodeStringToAnsiString @ 0x18006A800 (RtlUnicodeStringToAnsiString.c)
- *     RtlStringFromGUIDEx @ 0x180074C80 (RtlStringFromGUIDEx.c)
- *     RtlpEnsureBufferSize @ 0x180075A30 (RtlpEnsureBufferSize.c)
- *     RtlDowncaseUnicodeString @ 0x180078210 (RtlDowncaseUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x18007E1C0 (RtlDuplicateUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x180074C90 (RtlStringFromGUIDEx.c)
+ *     RtlpEnsureBufferSize @ 0x180075A40 (RtlpEnsureBufferSize.c)
+ *     RtlDowncaseUnicodeString @ 0x180078220 (RtlDowncaseUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x18007E1D0 (RtlDuplicateUnicodeString.c)
  *     LdrUpdatePackageSearchPath @ 0x1800E0310 (LdrUpdatePackageSearchPath.c)
  *     RtlpGetAssemblyStorageMapRootLocation @ 0x1800E1550 (RtlpGetAssemblyStorageMapRootLocation.c)
  *     RtlUnicodeStringToCountedOemString @ 0x1800EBD60 (RtlUnicodeStringToCountedOemString.c)
@@ -37,7 +37,7 @@
  *     <none>
  */
 
-__int64 __fastcall NtdllpAllocateStringRoutine(__int64 a1)
+PVOID __fastcall NtdllpAllocateStringRoutine(SIZE_T a1)
 {
-  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

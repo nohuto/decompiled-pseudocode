@@ -1,14 +1,14 @@
 /*
- * XREFs of KxFlushNonGlobalTb @ 0x1402EB4C4
+ * XREFs of KxFlushNonGlobalTb @ 0x1402EB754
  * Callers:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
- *     KxSetTimeStampBusy @ 0x140346694 (KxSetTimeStampBusy.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiSendRequestEx @ 0x1402EB880 (KiIpiSendRequestEx.c)
+ *     KxSetTimeStampBusy @ 0x140346924 (KxSetTimeStampBusy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KxFlushNonGlobalTb(int a1)
@@ -30,7 +30,7 @@ __int64 __fastcall KxFlushNonGlobalTb(int a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -73,10 +73,10 @@ LABEL_15:
     _InterlockedAdd(&KiTbFlushTimeStamp, 1u);
   }
 LABEL_6:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;

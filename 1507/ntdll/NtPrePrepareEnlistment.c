@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtPrePrepareEnlistment()
+NTSTATUS __cdecl NtPrePrepareEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 287LL;
+  result = 287;
   __asm { syscall; Low latency system call }
   return result;
 }

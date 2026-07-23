@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpHvWatchdogDiscover @ 0x1403A43D0
+ * XREFs of HalpHvWatchdogDiscover @ 0x1403A45B0
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A434C (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A452C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x140377F3C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpTimerRegister @ 0x140378AB4 (HalpTimerRegister.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403780DC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpTimerRegister @ 0x140378C54 (HalpTimerRegister.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpHvWatchdogDiscover(__int64 a1, __int64 a2)

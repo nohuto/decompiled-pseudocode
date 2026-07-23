@@ -36,7 +36,7 @@ void __fastcall CmpDecommisssionKcb(ULONG_PTR BugCheckParameter2)
       CmpFreeTransientPoolWithTag((void *)v3, 0x624E4D43u);
     *(_DWORD *)(BugCheckParameter2 + 8) |= 0x10000u;
     *(_QWORD *)(BugCheckParameter2 + 32) = 0LL;
-    ExFreeToLookasideListEx(&CmpKcbLookaside, (PVOID)BugCheckParameter2);
+    ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside, (PVOID)BugCheckParameter2);
     _InterlockedDecrement64(qword_140FD9460);
   }
 }

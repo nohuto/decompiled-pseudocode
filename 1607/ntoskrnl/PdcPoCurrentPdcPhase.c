@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoCurrentPdcPhase @ 0x14066F9BC
+ * XREFs of PdcPoCurrentPdcPhase @ 0x14066FAA0
  * Callers:
  *     <none>
  * Callees:
- *     PpmQueryTime @ 0x1400D6ADC (PpmQueryTime.c)
- *     PopFxPauseDeviceAccounting @ 0x140202FB4 (PopFxPauseDeviceAccounting.c)
- *     PpmConvertTimeTo @ 0x14020A734 (PpmConvertTimeTo.c)
- *     PopCsStateChanged @ 0x14066A964 (PopCsStateChanged.c)
+ *     PpmQueryTime @ 0x1400D497C (PpmQueryTime.c)
+ *     PopFxPauseDeviceAccounting @ 0x140202DE0 (PopFxPauseDeviceAccounting.c)
+ *     PpmConvertTimeTo @ 0x14020A560 (PpmConvertTimeTo.c)
+ *     PopCsStateChanged @ 0x14066AA48 (PopCsStateChanged.c)
  */
 
 void __fastcall PdcPoCurrentPdcPhase(int a1, char a2)
@@ -26,13 +26,13 @@ void __fastcall PdcPoCurrentPdcPhase(int a1, char a2)
         Time = PpmQueryTime();
         if ( a2 )
         {
-          qword_140328888 = Time.QuadPart;
+          qword_1403288C8 = Time.QuadPart;
           if ( (PopFxDeviceAccountingLevel & 2) != 0 )
             PopFxResumeDeviceAccounting();
         }
         else
         {
-          qword_140328890 += PpmConvertTimeTo(Time.QuadPart - qword_140328888, 0xF4240uLL);
+          qword_1403288D0 += PpmConvertTimeTo(Time.QuadPart - qword_1403288C8, 0xF4240uLL);
           if ( (PopFxDeviceAccountingLevel & 2) != 0 )
             PopFxPauseDeviceAccounting();
           PopBatteryRefreshStatus();

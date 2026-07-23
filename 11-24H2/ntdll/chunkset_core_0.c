@@ -1,9 +1,9 @@
 /*
- * XREFs of chunkset_core_0 @ 0x180154C64
+ * XREFs of chunkset_core_0 @ 0x180153024
  * Callers:
- *     inflate_fast_chunk_ @ 0x180154DF4 (inflate_fast_chunk_.c)
+ *     inflate_fast_chunk_ @ 0x1801531B4 (inflate_fast_chunk_.c)
  * Callees:
- *     chunkunroll_relaxed @ 0x180154DB4 (chunkunroll_relaxed.c)
+ *     chunkunroll_relaxed @ 0x180153174 (chunkunroll_relaxed.c)
  */
 
 __m128i *__fastcall chunkset_core_0(__m128i *a1, unsigned int a2, int a3)

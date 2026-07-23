@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSetTargetProcessorDpcEx @ 0x14036BCD0
+ * XREFs of KeSetTargetProcessorDpcEx @ 0x14036BE70
  * Callers:
- *     KeMaskInterrupt @ 0x14031F5B4 (KeMaskInterrupt.c)
- *     HalpHvInitMcaPcrContext @ 0x1403802E4 (HalpHvInitMcaPcrContext.c)
- *     HalpPmuReservedResourcesProcessorCallback @ 0x140507938 (HalpPmuReservedResourcesProcessorCallback.c)
- *     KeSetTargetProcessorDpc @ 0x1405723C0 (KeSetTargetProcessorDpc.c)
- *     KiAltContextWorkQueueAddItem @ 0x140580214 (KiAltContextWorkQueueAddItem.c)
- *     WheaFlushETWEventsAddWorkRtn @ 0x140612F74 (WheaFlushETWEventsAddWorkRtn.c)
- *     HalpMcaInitializePcrContext @ 0x140A90488 (HalpMcaInitializePcrContext.c)
+ *     KeMaskInterrupt @ 0x14031F844 (KeMaskInterrupt.c)
+ *     HalpHvInitMcaPcrContext @ 0x140380484 (HalpHvInitMcaPcrContext.c)
+ *     HalpPmuReservedResourcesProcessorCallback @ 0x140507E88 (HalpPmuReservedResourcesProcessorCallback.c)
+ *     KeSetTargetProcessorDpc @ 0x140572900 (KeSetTargetProcessorDpc.c)
+ *     KiAltContextWorkQueueAddItem @ 0x140580704 (KiAltContextWorkQueueAddItem.c)
+ *     WheaFlushETWEventsAddWorkRtn @ 0x1406134C4 (WheaFlushETWEventsAddWorkRtn.c)
+ *     HalpMcaInitializePcrContext @ 0x140A90308 (HalpMcaInitializePcrContext.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
  */
 
 NTSTATUS __stdcall KeSetTargetProcessorDpcEx(PKDPC Dpc, PPROCESSOR_NUMBER ProcNumber)

@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlFindClearBitsAndSetEx @ 0x14029E780
  * Callers:
- *     RtlpHpFixedVsAllocate @ 0x14020DB50 (RtlpHpFixedVsAllocate.c)
- *     MiObtainSessionVa @ 0x14024D180 (MiObtainSessionVa.c)
- *     ExpSaPageGroupAllocateMemory @ 0x14029FB3C (ExpSaPageGroupAllocateMemory.c)
- *     MiObtainRelocationBits @ 0x1407095A8 (MiObtainRelocationBits.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x140709A08 (MiAllocateFromSubAllocatedRegion.c)
+ *     sub_14020DB50 @ 0x14020DB50 (sub_14020DB50.c)
+ *     sub_14024D180 @ 0x14024D180 (sub_14024D180.c)
+ *     sub_14029FB3C @ 0x14029FB3C (sub_14029FB3C.c)
+ *     sub_1407095A8 @ 0x1407095A8 (sub_1407095A8.c)
+ *     sub_140709A08 @ 0x140709A08 (sub_140709A08.c)
  * Callees:
  *     RtlSetBitsEx @ 0x14030B740 (RtlSetBitsEx.c)
  */

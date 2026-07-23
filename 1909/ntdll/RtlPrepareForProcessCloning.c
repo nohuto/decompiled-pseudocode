@@ -20,38 +20,34 @@
 
 __int64 RtlPrepareForProcessCloning()
 {
-  __int64 v0; // rcx
-  struct _RTLP_FLS_CONTEXT *v1; // rcx
-  unsigned __int64 v2; // rdx
-  unsigned __int64 v3; // r8
-  unsigned __int64 v4; // r9
-  volatile signed __int64 *v5; // rbx
-  __int64 v6; // rdi
-  int v7; // ebx
-  struct _RTLP_FLS_CONTEXT *v8; // rcx
+  struct _RTLP_FLS_CONTEXT *v0; // rcx
+  _RTL_SRWLOCK *v1; // rbx
+  __int64 v2; // rdi
+  int v3; // ebx
+  struct _RTLP_FLS_CONTEXT *v4; // rcx
   __int64 result; // rax
 
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     return 3221225876LL;
   LdrpDrainWorkQueue(0);
-  LdrpAcquireLoaderLock(v0);
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
-  RtlpFlsClonePrepare(v1);
-  RtlEnterCriticalSection((__int64)&FastPebLock);
-  RtlAcquireSRWLockShared(&LdrpTlsLock, v2, v3, v4);
-  v5 = (volatile signed __int64 *)&unk_1801661D8;
-  v6 = 16LL;
+  LdrpAcquireLoaderLock();
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
+  RtlpFlsClonePrepare(v0);
+  RtlEnterCriticalSection(&FastPebLock);
+  RtlAcquireSRWLockShared(&LdrpTlsLock);
+  v1 = &SRWLock;
+  v2 = 16LL;
   do
   {
-    RtlAcquireSRWLockExclusive(v5);
-    v5 += 2;
-    --v6;
+    RtlAcquireSRWLockExclusive(v1);
+    v1 += 2;
+    --v2;
   }
-  while ( v6 );
+  while ( v2 );
   RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   LdrForkMrdata(0LL);
-  v7 = RtlLockHeapManagerForCloning();
-  if ( v7 >= 0 )
+  v3 = RtlLockHeapManagerForCloning();
+  if ( v3 >= 0 )
   {
     RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
     RtlAcquireSRWLockExclusive(&LdrpForkActiveLock);
@@ -63,10 +59,10 @@ __int64 RtlPrepareForProcessCloning()
     LdrForkMrdata(2LL);
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
     LdrpUnlockTlsDelayedReclaimTable(0LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    RtlpFlsCloneComplete(v8, 0);
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlpFlsCloneComplete(v4, 0);
     LdrpCompleteProcessCloning(0LL);
-    return (unsigned int)v7;
+    return (unsigned int)v3;
   }
   return result;
 }

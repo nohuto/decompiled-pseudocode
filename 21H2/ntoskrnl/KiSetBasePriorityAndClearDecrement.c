@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetBasePriorityAndClearDecrement @ 0x1402E9CCC
+ * XREFs of KiSetBasePriorityAndClearDecrement @ 0x14029B01C
  * Callers:
- *     KeRemovePriQueue @ 0x1402421D0 (KeRemovePriQueue.c)
- *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
- *     KiUpdateVPBackingThreadPriority @ 0x140258E10 (KiUpdateVPBackingThreadPriority.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1402E9944 (KeSetPriorityAndQuantumProcess.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x140520CC0 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x14027A380 (KiUpdateVPBackingThreadPriority.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14029AC94 (KeSetPriorityAndQuantumProcess.c)
+ *     KeRemovePriQueue @ 0x1402E6A20 (KeRemovePriQueue.c)
+ *     KiDirectSwitchThread @ 0x1402F1090 (KiDirectSwitchThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x140520F00 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
  */
 
 __int64 __fastcall KiSetBasePriorityAndClearDecrement(__int64 a1, char *a2, int a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of IopVerifierExAllocatePoolWithQuota_1 @ 0x140351F10
+ * XREFs of IopVerifierExAllocatePoolWithQuota_1 @ 0x14035CC60
  * Callers:
- *     IopTrackLink @ 0x1406809F0 (IopTrackLink.c)
- *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
- *     IopSetEaOrQuotaInformationFile @ 0x1408923AC (IopSetEaOrQuotaInformationFile.c)
- *     IopValidateJunctionTarget @ 0x140892EE4 (IopValidateJunctionTarget.c)
+ *     IopTrackLink @ 0x1405DBA34 (IopTrackLink.c)
+ *     IopXxxControlFile @ 0x1407153F0 (IopXxxControlFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x14089250C (IopSetEaOrQuotaInformationFile.c)
+ *     IopValidateJunctionTarget @ 0x140893044 (IopValidateJunctionTarget.c)
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     PspExpandQuota @ 0x1402BF1E8 (PspExpandQuota.c)
- *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExpHpIsSpecialPoolHeap @ 0x1403CDD4C (ExpHpIsSpecialPoolHeap.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     PspExpandQuota @ 0x14023D638 (PspExpandQuota.c)
+ *     ExGetHeapFromVA @ 0x1403059CC (ExGetHeapFromVA.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x1403CDEBC (ExpHpIsSpecialPoolHeap.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall IopVerifierExAllocatePoolWithQuota_1(POOL_TYPE a1, SIZE_T a2)
@@ -53,7 +53,7 @@ _WORD *__fastcall IopVerifierExAllocatePoolWithQuota_1(POOL_TYPE a1, SIZE_T a2)
   unsigned __int64 v33; // rcx
   unsigned __int64 v34; // rcx
   __int64 HeapFromVA; // rax
-  signed int v36; // ebx
+  NTSTATUS v36; // ebx
   signed __int32 v37[8]; // [rsp+0h] [rbp-88h] BYREF
   unsigned __int64 v38; // [rsp+30h] [rbp-58h] BYREF
   __int64 v39; // [rsp+38h] [rbp-50h]
@@ -205,7 +205,7 @@ LABEL_14:
     else if ( !PoolWithTag && v3 )
     {
 LABEL_55:
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     }
     return v8;
   }

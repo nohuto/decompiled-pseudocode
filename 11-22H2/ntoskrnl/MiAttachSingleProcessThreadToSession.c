@@ -75,10 +75,10 @@ LABEL_6:
     MiWritePteShadow(v5, v6);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v16);
   OldIrql = v16.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v16.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

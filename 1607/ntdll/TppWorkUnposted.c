@@ -4,39 +4,39 @@
  *     <none>
  * Callees:
  *     TppETWCallbackDequeue @ 0x1800013B0 (TppETWCallbackDequeue.c)
- *     TppBarrierAdjust @ 0x180063E84 (TppBarrierAdjust.c)
+ *     TppBarrierAdjust @ 0x180063E74 (TppBarrierAdjust.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TppWorkUnposted(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall TppWorkUnposted(__int64 a1)
 {
-  __int64 v4; // rbx
-  unsigned __int32 v5; // eax
-  unsigned __int32 v6; // edx
-  unsigned __int32 v7; // ecx
+  __int64 v1; // rbx
+  unsigned __int32 v2; // eax
+  unsigned __int32 v3; // edx
+  unsigned __int32 v4; // ecx
   __int64 result; // rax
 
-  v4 = a1 - 200;
+  v1 = a1 - 200;
   if ( MEMORY[0x7FFE0386] )
-    TppETWCallbackDequeue(*(_QWORD *)(v4 + 144), a1, *(_QWORD *)(v4 + 80), *(_QWORD *)(v4 + 88), *(_QWORD *)(v4 + 104));
-  _m_prefetchw((const void *)(v4 + 232));
-  v5 = *(_DWORD *)(v4 + 232);
+    TppETWCallbackDequeue(*(_QWORD *)(v1 + 144), a1, *(_QWORD *)(v1 + 80), *(_QWORD *)(v1 + 88), *(_QWORD *)(v1 + 104));
+  _m_prefetchw((const void *)(v1 + 232));
+  v2 = *(_DWORD *)(v1 + 232);
   while ( 1 )
   {
-    v6 = v5 >> 1;
-    if ( !(v5 >> 1) )
+    v3 = v2 >> 1;
+    if ( !(v2 >> 1) )
       break;
-    v7 = v5;
-    v5 = _InterlockedCompareExchange((volatile signed __int32 *)(v4 + 232), 0, v5);
-    if ( v5 == v7 )
+    v4 = v2;
+    v2 = _InterlockedCompareExchange((volatile signed __int32 *)(v1 + 232), 0, v2);
+    if ( v2 == v4 )
       goto LABEL_8;
   }
-  v6 = 0;
+  v3 = 0;
 LABEL_8:
-  if ( v6 )
-    TppBarrierAdjust((volatile signed __int64 *)(v4 + 56), -v6, 0LL, a4);
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v4, 0xFFFFFFFF);
+  if ( v3 )
+    TppBarrierAdjust((_RTL_SRWLOCK *)(v1 + 56), -v3, 0);
+  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v1, 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
-    return (**(__int64 (__fastcall ***)(__int64))(v4 + 8))(v4);
+    return (**(__int64 (__fastcall ***)(__int64))(v1 + 8))(v1);
   return result;
 }

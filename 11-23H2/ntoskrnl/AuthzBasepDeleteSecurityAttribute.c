@@ -1,15 +1,15 @@
 /*
- * XREFs of AuthzBasepDeleteSecurityAttribute @ 0x140225B10
+ * XREFs of AuthzBasepDeleteSecurityAttribute @ 0x140225C20
  * Callers:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224CF0 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepReplaceSecurityAttribute @ 0x140225AA4 (AuthzBasepReplaceSecurityAttribute.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x140224DF8 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepReplaceSecurityAttribute @ 0x140225BB4 (AuthzBasepReplaceSecurityAttribute.c)
  * Callees:
- *     AuthzBasepAddSecurityAttributeToLists @ 0x140225A58 (AuthzBasepAddSecurityAttributeToLists.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0C0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepFreeSecurityAttributeValues @ 0x1402A8C10 (AuthzBasepFreeSecurityAttributeValues.c)
- *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x14066EAE4 (AuthzBasepDeleteAllSecurityAttributeValues.c)
- *     AuthzBasepDeleteSecurityAttributeValues @ 0x14066EB8C (AuthzBasepDeleteSecurityAttributeValues.c)
- *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066EE6C (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     AuthzBasepAddSecurityAttributeToLists @ 0x140225B68 (AuthzBasepAddSecurityAttributeToLists.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14022D1D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x1402A8EA0 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x14066F034 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x14066F0DC (AuthzBasepDeleteSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066F3BC (AuthzBasepRemoveSecurityAttributeFromLists.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

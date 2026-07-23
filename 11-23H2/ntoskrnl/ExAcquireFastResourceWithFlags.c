@@ -1,19 +1,19 @@
 /*
- * XREFs of ExAcquireFastResourceWithFlags @ 0x140412180
+ * XREFs of ExAcquireFastResourceWithFlags @ 0x1404124C0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     KeReleaseSpinLockFromDpcLevel @ 0x14032FB40 (KeReleaseSpinLockFromDpcLevel.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403CCA30 (KeAbMarkCrossThreadReleasable.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x14041478C (ExpAcquireFastResourceExclusiveSlow.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140414B10 (ExpAcquireFastResourceSharedSlow.c)
- *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415270 (ExpAddFastOwnerEntryToThreadList2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14032FDD0 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403CCC10 (KeAbMarkCrossThreadReleasable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x140414B20 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x140414EA4 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415604 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceWithFlags(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3)
@@ -154,7 +154,7 @@ char __fastcall ExAcquireFastResourceWithFlags(ULONG_PTR BugCheckParameter2, ULO
                   }
                   while ( v28 != v27 );
                   if ( (v27 & 0x200000) != 0 )
-                    KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
                 }
                 _enable();
               }
@@ -279,7 +279,7 @@ LABEL_94:
         }
         while ( v52 != v51 );
         if ( (v51 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
       _enable();
     }

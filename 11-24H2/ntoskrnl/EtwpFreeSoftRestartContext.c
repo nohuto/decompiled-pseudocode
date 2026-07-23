@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpFreeSoftRestartContext @ 0x1409D7ED4
+ * XREFs of EtwpFreeSoftRestartContext @ 0x140A49584
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1409D77E0 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x140A48E90 (EtwpFreeLoggerContext.c)
  * Callees:
- *     EtwpCancelMemoryPreservation @ 0x1407AF70C (EtwpCancelMemoryPreservation.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpCancelMemoryPreservation @ 0x1407AFB5C (EtwpCancelMemoryPreservation.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeSoftRestartContext(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsSetCreateProcessNotifyRoutineEx @ 0x14078FC00
+ * XREFs of PsSetCreateProcessNotifyRoutineEx @ 0x1407911B0
  * Callers:
  *     <none>
  * Callees:
- *     PspSetCreateProcessNotifyRoutine @ 0x14078FF78 (PspSetCreateProcessNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140791528 (PspSetCreateProcessNotifyRoutine.c)
  */
 
 NTSTATUS __stdcall PsSetCreateProcessNotifyRoutineEx(PCREATE_PROCESS_NOTIFY_ROUTINE_EX NotifyRoutine, BOOLEAN Remove)

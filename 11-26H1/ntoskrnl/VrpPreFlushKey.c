@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpPreFlushKey @ 0x140B60F54
+ * XREFs of VrpPreFlushKey @ 0x140B63FF4
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VrpPreFlushKey(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall VrpPreFlushKey(__int64 a1, __int64 a2)
     if ( (unsigned int)dword_140E0A5C0 > 5 )
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E0A5C0,
-        (unsigned __int8 *)&byte_14005A93F,
+        (unsigned __int8 *)&byte_14005B897,
         &ActivityId,
         0LL,
         2u,
@@ -32,7 +32,7 @@ __int64 __fastcall VrpPreFlushKey(__int64 a1, __int64 a2)
     if ( (unsigned int)dword_140E0A5C0 > 5 )
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E0A5C0,
-        (unsigned __int8 *)&word_14005A91E,
+        (unsigned __int8 *)&word_14005BBA6,
         &ActivityId,
         0LL,
         2u,

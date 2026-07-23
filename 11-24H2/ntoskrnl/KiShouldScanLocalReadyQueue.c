@@ -1,8 +1,8 @@
 /*
- * XREFs of KiShouldScanLocalReadyQueue @ 0x140469A40
+ * XREFs of KiShouldScanLocalReadyQueue @ 0x140462854
  * Callers:
- *     KiNormalPriorityReadyScan @ 0x140251B60 (KiNormalPriorityReadyScan.c)
- *     KiUpdateRunTime @ 0x14029BDF0 (KiUpdateRunTime.c)
+ *     KiNormalPriorityReadyScan @ 0x140282170 (KiNormalPriorityReadyScan.c)
+ *     KiUpdateRunTime @ 0x1402AA8E0 (KiUpdateRunTime.c)
  * Callees:
  *     <none>
  */

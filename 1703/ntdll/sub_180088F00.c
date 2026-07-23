@@ -20,7 +20,7 @@ __int64 __fastcall sub_180088F00(__int64 a1)
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x100) == 0 )
     return 0LL;
   v3 = 0;
-  RtlEnterCriticalSection((__int64)&unk_18015A540);
+  RtlEnterCriticalSection(&stru_18015A540);
   if ( !(unsigned __int8)sub_1800DBA0C(*(_QWORD *)(a1 + 48)) )
   {
     v3 = sub_1800DB530(a1);
@@ -36,6 +36,6 @@ __int64 __fastcall sub_180088F00(__int64 a1)
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&unk_18015A540);
+  RtlLeaveCriticalSection(&stru_18015A540);
   return (unsigned int)v3;
 }

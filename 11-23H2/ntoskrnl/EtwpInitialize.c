@@ -1,38 +1,38 @@
 /*
  * XREFs of EtwpInitialize @ 0x140B47A50
  * Callers:
- *     EtwInitialize @ 0x14081D02C (EtwInitialize.c)
+ *     EtwInitialize @ 0x14081D2FC (EtwInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KiInitializeTimer2 @ 0x14031E51C (KiInitializeTimer2.c)
- *     KiInitializeMutant @ 0x14033ADEC (KiInitializeMutant.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140354A70 (KeRegisterBugCheckReasonCallback.c)
- *     ExRegisterCallback @ 0x1403678A0 (ExRegisterCallback.c)
- *     EtwpGetCurrentSiloMaxLoggers @ 0x1403B3FBC (EtwpGetCurrentSiloMaxLoggers.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     KeBugCheck @ 0x14041EA30 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1407D5670 (EtwpUpdateFileInfoDriverState.c)
- *     ExCreateCallback @ 0x1407DC330 (ExCreateCallback.c)
- *     EtwpMapEnableFlags @ 0x1407FC0F0 (EtwpMapEnableFlags.c)
- *     EtwInitializeProcessorActivityId @ 0x14081D7B4 (EtwInitializeProcessorActivityId.c)
- *     EtwInitializeProcessor @ 0x14081D7D8 (EtwInitializeProcessor.c)
- *     EtwpInitializeProcessorTrace @ 0x14082138C (EtwpInitializeProcessorTrace.c)
- *     EtwpInitializeCoverage @ 0x140821C4C (EtwpInitializeCoverage.c)
- *     TlgRegisterAggregateProvider @ 0x140821C8C (TlgRegisterAggregateProvider.c)
- *     TlgRegisterAggregateProviderEx @ 0x140821CA8 (TlgRegisterAggregateProviderEx.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     WdipSemInitialize @ 0x14082F9F8 (WdipSemInitialize.c)
- *     EtwpInitializeSiloState @ 0x14083B364 (EtwpInitializeSiloState.c)
- *     EtwpPreInitializeSiloState @ 0x140845D4C (EtwpPreInitializeSiloState.c)
- *     EtwpLoadMicroarchitecturalPmcs @ 0x1408628A8 (EtwpLoadMicroarchitecturalPmcs.c)
- *     EtwpInitializePrivateSessionDemuxObject @ 0x140863B1C (EtwpInitializePrivateSessionDemuxObject.c)
- *     EtwpInitializeProviderTraits @ 0x140864874 (EtwpInitializeProviderTraits.c)
- *     EtwpInitializeLastBranchTracing @ 0x140864FE8 (EtwpInitializeLastBranchTracing.c)
- *     EtwpInitializeStackLookasideList @ 0x140865D74 (EtwpInitializeStackLookasideList.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KiInitializeTimer2 @ 0x14031E7AC (KiInitializeTimer2.c)
+ *     KiInitializeMutant @ 0x14033B07C (KiInitializeMutant.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140354C10 (KeRegisterBugCheckReasonCallback.c)
+ *     ExRegisterCallback @ 0x140367A40 (ExRegisterCallback.c)
+ *     EtwpGetCurrentSiloMaxLoggers @ 0x1403B419C (EtwpGetCurrentSiloMaxLoggers.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     KeBugCheck @ 0x14041EDC0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1407D5940 (EtwpUpdateFileInfoDriverState.c)
+ *     ExCreateCallback @ 0x1407DC600 (ExCreateCallback.c)
+ *     EtwpMapEnableFlags @ 0x1407FC3C0 (EtwpMapEnableFlags.c)
+ *     EtwInitializeProcessorActivityId @ 0x14081DA84 (EtwInitializeProcessorActivityId.c)
+ *     EtwInitializeProcessor @ 0x14081DAA8 (EtwInitializeProcessor.c)
+ *     EtwpInitializeProcessorTrace @ 0x14082168C (EtwpInitializeProcessorTrace.c)
+ *     EtwpInitializeCoverage @ 0x140821F4C (EtwpInitializeCoverage.c)
+ *     TlgRegisterAggregateProvider @ 0x140821F8C (TlgRegisterAggregateProvider.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140821FA8 (TlgRegisterAggregateProviderEx.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     WdipSemInitialize @ 0x14082FCF8 (WdipSemInitialize.c)
+ *     EtwpInitializeSiloState @ 0x14083B664 (EtwpInitializeSiloState.c)
+ *     EtwpPreInitializeSiloState @ 0x14084604C (EtwpPreInitializeSiloState.c)
+ *     EtwpLoadMicroarchitecturalPmcs @ 0x140862AE8 (EtwpLoadMicroarchitecturalPmcs.c)
+ *     EtwpInitializePrivateSessionDemuxObject @ 0x140863D5C (EtwpInitializePrivateSessionDemuxObject.c)
+ *     EtwpInitializeProviderTraits @ 0x140864AB4 (EtwpInitializeProviderTraits.c)
+ *     EtwpInitializeLastBranchTracing @ 0x140865228 (EtwpInitializeLastBranchTracing.c)
+ *     EtwpInitializeStackLookasideList @ 0x140865FB4 (EtwpInitializeStackLookasideList.c)
  *     EtwpTraceSystemInitialization @ 0x140B4C830 (EtwpTraceSystemInitialization.c)
  *     EtwpFixBootLoggers @ 0x140B6801C (EtwpFixBootLoggers.c)
  *     PerfDiagInitialize @ 0x140B6F6BC (PerfDiagInitialize.c)
@@ -65,13 +65,10 @@ void __fastcall EtwpInitialize(int a1, int a2, __int64 a3)
   int v19; // eax
   __int64 v20; // rdx
   __int64 v21; // rcx
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
-  int v27; // [rsp+B0h] [rbp+30h] BYREF
-  __int64 v28; // [rsp+C0h] [rbp+40h] BYREF
+  int v24; // [rsp+B0h] [rbp+30h] BYREF
+  __int64 v25; // [rsp+C0h] [rbp+40h] BYREF
 
   if ( !a3 || (v5 = 1, *(_QWORD *)(a3 + 8) == a3 + 8) )
     v5 = 0;
@@ -151,24 +148,24 @@ LABEL_16:
   EtwCPUSpeedInMHz = *(_DWORD *)(KeGetPrcb(0) + 68);
   EtwpInitializeLastBranchTracing();
   EtwpInitializeProcessorTrace(v21, v20);
-  dword_140C31C30 = 0;
+  dword_140C31BD0 = 0;
   EtwpAdjustBuffersWorkItem.WorkerRoutine = (void (__fastcall *)(void *))EtwpAdjustTraceBuffers;
   EtwpMdlTable = 0;
-  qword_140C31C28 = 0LL;
+  qword_140C31BC8 = 0LL;
   EtwpAdjustBuffersWorkItem.Parameter = &EtwpBufferAdjustmentActive;
-  dword_140C31C24 = 12;
+  dword_140C31BC4 = 12;
   EtwpBufferAdjustmentCount = 8;
   EtwpAdjustBuffersWorkItem.List.Flink = 0LL;
-  word_140C32462 = 0;
+  word_140C322C2 = 0;
   KiInitializeTimer2((unsigned __int64)&EtwpMemInfoTimer, (__int64)EtwpLogMemInfoTimerCallback, 0LL, 8);
   EtwpInitializeProviderTraits();
   if ( !ExRegisterCallback((PCALLBACK_OBJECT)ExCbPowerState, (PCALLBACK_FUNCTION)EtwpPowerStateCallback, 0LL) )
     goto LABEL_43;
-  v28 = 0LL;
+  v25 = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  if ( (int)KsrGetFirmwareInformation(&v28) >= 0 )
+  if ( (int)KsrGetFirmwareInformation(&v25) >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"\\Callback\\SoftRestart");
     ObjectAttributes.Length = 48;
@@ -204,7 +201,7 @@ LABEL_43:
   EtwpInitializeCoverage();
   EtwpInitializeCoverageSampler();
   EtwRegister(&KernelProvGuid, (PETWENABLECALLBACK)EtwpKernelProvEnableCallback, 0LL, &EtwKernelProvRegHandle);
-  TlgRegisterAggregateProvider(&dword_140C04320);
+  TlgRegisterAggregateProvider(&dword_140C066C0);
   EtwRegister(&PsProvGuid, (PETWENABLECALLBACK)EtwpCrimsonProvEnableCallback, (PVOID)1, &EtwpPsProvRegHandle);
   TlgRegisterAggregateProviderEx(
     &dword_140C042E8,
@@ -236,17 +233,14 @@ LABEL_43:
     0LL,
     &EtwCpuStarvationProvRegHandle);
   ++EtwpBootPhase;
-  ZwUpdateWnfStateData((__int64)&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL);
-  EtwpTraceSystemInitialization(v23, v22, v24);
-  v27 = 0;
-  if ( ((int (__fastcall *)(__int64, __int64, char *, int *, _QWORD, _DWORD, _DWORD))off_140C020E8[0])(
+  ZwUpdateWnfStateData(&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0, 0LL, 0LL, 0, 0);
+  EtwpTraceSystemInitialization();
+  v24 = 0;
+  if ( ((int (__fastcall *)(__int64, __int64, char *, int *))off_140C020E8[0])(
          44LL,
          4LL,
          (char *)&NlsMbCodePageTag + 6,
-         &v27,
-         0LL,
-         0,
-         0) < 0 )
+         &v24) < 0 )
     *(_DWORD *)((char *)&NlsMbCodePageTag + 6) = 8;
   EtwpMaxProfilingSources = *(_DWORD *)((char *)&NlsMbCodePageTag + 6);
 }

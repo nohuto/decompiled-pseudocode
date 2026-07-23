@@ -37,7 +37,7 @@ __int64 __fastcall EtwpServerSiloCreateNotify(_QWORD *a1)
     v3 = (unsigned __int16 *)v14;
     memset(v14, 0, 0x1B0uLL);
     IsHostSilo = PsIsHostSilo((__int64)a1);
-    *((_OWORD *)v3 + 2) = SecurityProviderGuid;
+    *((GUID *)v3 + 2) = SecurityProviderGuid;
     *((_QWORD *)v3 + 48) = a1;
     if ( a1 )
       PspReferenceSiloObject(a1);

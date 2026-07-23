@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpRecordShutdownStopTime @ 0x14086BF90
+ * XREFs of CmpRecordShutdownStopTime @ 0x14086C0F0
  * Callers:
- *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x14086BA58 (CmShutdownSystem.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
- *     CmpReadBuildLab @ 0x14086BE14 (CmpReadBuildLab.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     RtlGetPersistedStateLocation @ 0x1406347D0 (RtlGetPersistedStateLocation.c)
+ *     CmpReadBuildLab @ 0x14086BF74 (CmpReadBuildLab.c)
  */
 
 __int64 __fastcall CmpRecordShutdownStopTime(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
   struct _PRIVILEGE_SET *v4; // rdi
-  WCHAR *TransientPoolWithTag; // rax
+  WCHAR *TargetPath; // rax
   WCHAR *v6; // rsi
   int PersistedStateLocation; // ebx
   LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp-19h] BYREF
@@ -36,16 +36,16 @@ __int64 __fastcall CmpRecordShutdownStopTime(__int64 a1, __int64 a2, __int64 a3,
   v14 = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
-  TransientPoolWithTag = (WCHAR *)CmpAllocateTransientPoolWithTag(PagedPool, 0x410uLL, 0x30384D43u, a4);
-  v6 = TransientPoolWithTag;
-  if ( TransientPoolWithTag )
+  TargetPath = (WCHAR *)CmpAllocateTransientPoolWithTag(PagedPool, 0x410uLL, 0x30384D43u, a4);
+  v6 = TargetPath;
+  if ( TargetPath )
   {
     PersistedStateLocation = RtlGetPersistedStateLocation(
                                L"ShutdownPath",
                                0LL,
                                L"\\REGISTRY\\MACHINE\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\SHUTDOWN",
-                               0,
-                               TransientPoolWithTag,
+                               LocationTypeRegistry,
+                               TargetPath,
                                0x410u,
                                0LL);
     if ( PersistedStateLocation >= 0 )

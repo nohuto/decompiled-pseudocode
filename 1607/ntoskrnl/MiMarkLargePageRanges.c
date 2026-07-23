@@ -3,10 +3,10 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiMarkLargePageRanges(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

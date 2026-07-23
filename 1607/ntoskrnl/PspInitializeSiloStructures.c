@@ -3,12 +3,12 @@
  * Callers:
  *     PspInitPhase0 @ 0x14079E090 (PspInitPhase0.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PspStorageAllocSlot @ 0x140551F98 (PspStorageAllocSlot.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
- *     PspAllocStorage @ 0x1405794F0 (PspAllocStorage.c)
- *     PspStorageFreeSlot @ 0x140682A68 (PspStorageFreeSlot.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PspStorageAllocSlot @ 0x1405524D8 (PspStorageAllocSlot.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
+ *     PspAllocStorage @ 0x140579A30 (PspAllocStorage.c)
+ *     PspStorageFreeSlot @ 0x140682B4C (PspStorageFreeSlot.c)
  */
 
 char PspInitializeSiloStructures()

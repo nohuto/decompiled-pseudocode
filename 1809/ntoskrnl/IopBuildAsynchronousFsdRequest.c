@@ -1,18 +1,18 @@
 /*
- * XREFs of IopBuildAsynchronousFsdRequest @ 0x1400E0610
+ * XREFs of IopBuildAsynchronousFsdRequest @ 0x1400E0690
  * Callers:
- *     IoBuildAsynchronousFsdRequest @ 0x1400E05D0 (IoBuildAsynchronousFsdRequest.c)
- *     IopBuildSynchronousFsdRequest @ 0x140662EB0 (IopBuildSynchronousFsdRequest.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x1400E0650 (IoBuildAsynchronousFsdRequest.c)
+ *     IopBuildSynchronousFsdRequest @ 0x140664070 (IopBuildSynchronousFsdRequest.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1400DEBC0 (IoSetDiskIoAttributionFromThread.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     IopProbeAndLockPages @ 0x1400E106C (IopProbeAndLockPages.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD8DC (IopVerifierExAllocatePool_0.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1400DEC40 (IoSetDiskIoAttributionFromThread.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     IopProbeAndLockPages @ 0x1400E10EC (IopProbeAndLockPages.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall IopBuildAsynchronousFsdRequest(

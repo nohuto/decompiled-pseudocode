@@ -28,8 +28,8 @@
  *     RtlpWaitOnCriticalSection @ 0x18005EA34 (RtlpWaitOnCriticalSection.c)
  *     RtlAcquireResourceShared @ 0x18006DCC0 (RtlAcquireResourceShared.c)
  *     RtlAcquireResourceExclusive @ 0x18006DE00 (RtlAcquireResourceExclusive.c)
- *     RtlDeactivateActivationContext @ 0x1800766F0 (RtlDeactivateActivationContext.c)
- *     UninitUser32Proc @ 0x18008FBE0 (UninitUser32Proc.c)
+ *     RtlDeactivateActivationContext @ 0x180076700 (RtlDeactivateActivationContext.c)
+ *     UninitUser32Proc @ 0x18008FBF0 (UninitUser32Proc.c)
  *     AVrfInitializeVerifier @ 0x1800DACE8 (AVrfInitializeVerifier.c)
  *     AvrfMiniLoadDll @ 0x1800DCAA8 (AvrfMiniLoadDll.c)
  *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800E0F80 (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
@@ -44,10 +44,10 @@
  *     vDbgPrintExWithPrefixInternal @ 0x18004F348 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrintEx(int a1, int a2, const char *a3, ...)
+ULONG DbgPrintEx(ULONG ComponentId, ULONG Level, PCSTR Format, ...)
 {
   va_list va; // [rsp+58h] [rbp+20h] BYREF
 
-  va_start(va, a3);
-  return vDbgPrintExWithPrefixInternal((unsigned int)&unk_18011CBC2, a1, a2, (_DWORD)a3, (__int64)va, 1);
+  va_start(va, Format);
+  return vDbgPrintExWithPrefixInternal(&Flags, ComponentId, Level, Format, (__int64 *)va, 1);
 }

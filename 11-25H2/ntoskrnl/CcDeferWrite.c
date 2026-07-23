@@ -31,8 +31,8 @@ void __stdcall CcDeferWrite(
   __int64 v11; // rbx
   __int64 *PrivateVolumeCacheMapFromFileObject; // rsi
   KSPIN_LOCK *v13; // r8
-  struct _LIST_ENTRY *v14; // rdx
-  struct _LIST_ENTRY *v15; // rcx
+  _LIST_ENTRY *v14; // rdx
+  _LIST_ENTRY *v15; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -46,10 +46,10 @@ void __stdcall CcDeferWrite(
     CcReferencePartitionAndPrivateVolumeCacheMap(v11, (__int64)PrivateVolumeCacheMapFromFileObject);
     *((_QWORD *)PoolWithTag + 5) = 0LL;
     v13 = (KSPIN_LOCK *)(v11 + 1216);
-    v14 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
+    v14 = (_LIST_ENTRY *)(PoolWithTag + 24);
     *((_DWORD *)PoolWithTag + 4) = BytesToWrite;
     *((_QWORD *)PoolWithTag + 9) = v11;
-    v15 = (struct _LIST_ENTRY *)(PrivateVolumeCacheMapFromFileObject + 138);
+    v15 = (_LIST_ENTRY *)(PrivateVolumeCacheMapFromFileObject + 138);
     *((_QWORD *)PoolWithTag + 10) = PrivateVolumeCacheMapFromFileObject;
     *(_DWORD *)PoolWithTag = 6816508;
     *((_QWORD *)PoolWithTag + 1) = FileObject;
@@ -58,7 +58,7 @@ void __stdcall CcDeferWrite(
     *((_QWORD *)PoolWithTag + 8) = Context2;
     *((_QWORD *)PoolWithTag + 12) = MEMORY[0xFFFFF78000000320];
     if ( !PrivateVolumeCacheMapFromFileObject )
-      v15 = (struct _LIST_ENTRY *)(v11 + 1168);
+      v15 = (_LIST_ENTRY *)(v11 + 1168);
     PoolWithTag[88] = 0;
     if ( Retrying )
       ExInterlockedInsertHeadList(v15, v14, v13);

@@ -13,28 +13,36 @@
  *     BiReleaseBcdSyncMutant @ 0x140807C5C (BiReleaseBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdCreateObject(__int64 a1, int a2, int a3, _QWORD *a4)
+NTSTATUS __cdecl BcdCreateObject(
+        HANDLE BcdStoreHandle,
+        PGUID Identifier,
+        PBCD_OBJECT_DESCRIPTION Description,
+        PHANDLE BcdObjectHandle)
 {
+  int v5; // ebx
+  int v6; // r14d
   __int64 v8; // rcx
   char v9; // bp
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v11; // rcx
-  int Object; // ebx
+  NTSTATUS Object; // ebx
 
-  LOBYTE(v8) = BiIsOfflineHandle(a1);
+  v5 = (int)Description;
+  v6 = (int)Identifier;
+  LOBYTE(v8) = BiIsOfflineHandle((char)BcdStoreHandle);
   v9 = v8;
   result = BiAcquireBcdSyncMutant(v8);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    Object = BiCreateObject(a1, a2, a3, 0, (__int64)a4);
+    Object = BiCreateObject((_DWORD)BcdStoreHandle, v6, v5, 0, (__int64)BcdObjectHandle);
     if ( Object >= 0 )
     {
-      if ( (unsigned __int8)BiIsLinkedToFirmwareVariable(*a4, 0LL) )
-        BiSetFirmwareModified(a1, 1);
+      if ( (unsigned __int8)BiIsLinkedToFirmwareVariable(*BcdObjectHandle, 0LL) )
+        BiSetFirmwareModified((__int64)BcdStoreHandle, 1);
     }
     LOBYTE(v11) = v9;
     BiReleaseBcdSyncMutant(v11);
-    return (unsigned int)Object;
+    return Object;
   }
   return result;
 }

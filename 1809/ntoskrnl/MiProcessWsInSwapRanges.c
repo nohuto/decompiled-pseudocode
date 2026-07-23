@@ -1,11 +1,11 @@
 /*
- * XREFs of MiProcessWsInSwapRanges @ 0x1400E5B58
+ * XREFs of MiProcessWsInSwapRanges @ 0x1400E5BD8
  * Callers:
- *     MiProcessWsInSwapSupport @ 0x1400E5A94 (MiProcessWsInSwapSupport.c)
+ *     MiProcessWsInSwapSupport @ 0x1400E5B14 (MiProcessWsInSwapSupport.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiReleaseOutSwapReservations @ 0x1400E5BDC (MiReleaseOutSwapReservations.c)
- *     MmPrefetchVirtualMemory @ 0x14066BDA8 (MmPrefetchVirtualMemory.c)
+ *     MiReleaseOutSwapReservations @ 0x1400E5C5C (MiReleaseOutSwapReservations.c)
+ *     MmPrefetchVirtualMemory @ 0x14066CF68 (MmPrefetchVirtualMemory.c)
  */
 
 __int64 __fastcall MiProcessWsInSwapRanges(_QWORD *a1, __int64 a2, char a3)

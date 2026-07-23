@@ -1,30 +1,30 @@
 /*
- * XREFs of MiWaitForCollidedFaultComplete @ 0x14038B588
+ * XREFs of MiWaitForCollidedFaultComplete @ 0x14038D338
  * Callers:
- *     MiFlushWaitForReadInProgress @ 0x140337838 (MiFlushWaitForReadInProgress.c)
- *     MiTranslatePageForCopy @ 0x140338D4C (MiTranslatePageForCopy.c)
- *     MiHandleCollidedFault @ 0x14038B418 (MiHandleCollidedFault.c)
- *     MiWalkReadInProgressPte @ 0x1407056C8 (MiWalkReadInProgressPte.c)
+ *     MiFlushWaitForReadInProgress @ 0x1403398B8 (MiFlushWaitForReadInProgress.c)
+ *     MiTranslatePageForCopy @ 0x14033ADCC (MiTranslatePageForCopy.c)
+ *     MiHandleCollidedFault @ 0x14038D1C8 (MiHandleCollidedFault.c)
+ *     MiWalkReadInProgressPte @ 0x14070A398 (MiWalkReadInProgressPte.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     MiObtainProtoReference @ 0x1402E5B70 (MiObtainProtoReference.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiImagePageOk @ 0x1402F7140 (MiImagePageOk.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiRelockProtoPoolPage @ 0x14031BFF4 (MiRelockProtoPoolPage.c)
- *     MiIsFaultPteIntact @ 0x14031C508 (MiIsFaultPteIntact.c)
- *     MiFreeInPageSupportBlock @ 0x14031D5D8 (MiFreeInPageSupportBlock.c)
- *     MiReturnPfnReferenceCountAtDpc @ 0x14031E324 (MiReturnPfnReferenceCountAtDpc.c)
- *     MiRelockFaultState @ 0x14038C0A0 (MiRelockFaultState.c)
- *     MiReleaseFaultState @ 0x14038DD90 (MiReleaseFaultState.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPreWait @ 0x140278050 (KeAbPreWait.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     MiObtainProtoReference @ 0x1402C7BB0 (MiObtainProtoReference.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiImagePageOk @ 0x1402D91C0 (MiImagePageOk.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiRelockProtoPoolPage @ 0x14031E024 (MiRelockProtoPoolPage.c)
+ *     MiIsFaultPteIntact @ 0x14031E538 (MiIsFaultPteIntact.c)
+ *     MiFreeInPageSupportBlock @ 0x14031F608 (MiFreeInPageSupportBlock.c)
+ *     MiReturnPfnReferenceCountAtDpc @ 0x140320354 (MiReturnPfnReferenceCountAtDpc.c)
+ *     MiRelockFaultState @ 0x14038DE50 (MiRelockFaultState.c)
+ *     MiReleaseFaultState @ 0x14038FB40 (MiReleaseFaultState.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiWaitForCollidedFaultComplete(
@@ -37,7 +37,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
   unsigned __int64 v6; // r12
   __int64 *v7; // rcx
   __int64 PteShadow; // rax
-  unsigned __int64 v11; // rdx
+  __int64 v11; // rdx
   int *v12; // r14
   unsigned __int64 v13; // rbp
   __int64 v14; // r15
@@ -101,13 +101,14 @@ LABEL_10:
     goto LABEL_10;
   }
 LABEL_11:
-  MiObtainProtoReference(a3, 1);
+  MiObtainProtoReference(a3, 1LL, a3);
 LABEL_12:
   _InterlockedAdd((volatile signed __int32 *)(v14 + 144), 1u);
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( a3 )
   {
-    MiUnlockProtoPoolPage(a3, v6);
+    LOBYTE(v11) = v6;
+    MiUnlockProtoPoolPage(a3, v11, a3);
   }
   else if ( (unsigned __int8)v6 < 2u )
   {

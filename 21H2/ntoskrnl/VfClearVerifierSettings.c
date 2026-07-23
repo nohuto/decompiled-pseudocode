@@ -1,16 +1,16 @@
 /*
- * XREFs of VfClearVerifierSettings @ 0x1405A02E0
+ * XREFs of VfClearVerifierSettings @ 0x1405A0510
  * Callers:
- *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
- *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C7050 (VfNotifyVerifierOfEvent.c)
+ *     Phase1InitializationIoReady @ 0x140A4D104 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     ZwFlushKey @ 0x1403FC0E0 (ZwFlushKey.c)
- *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     ZwFlushKey @ 0x1403FC2C0 (ZwFlushKey.c)
+ *     VfUtilDbgPrint @ 0x1405A0924 (VfUtilDbgPrint.c)
  */
 
 NTSTATUS VfClearVerifierSettings()

@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlIoDecodeMemIoResource @ 0x1403C8490
  * Callers:
- *     PnpFilterResourceRequirementsList @ 0x14083C0F4 (PnpFilterResourceRequirementsList.c)
- *     IopGenericScoreRequirement @ 0x14083C760 (IopGenericScoreRequirement.c)
- *     IopGenericUnpackRequirement @ 0x14083C7F0 (IopGenericUnpackRequirement.c)
+ *     sub_14083C0F4 @ 0x14083C0F4 (sub_14083C0F4.c)
+ *     sub_14083C760 @ 0x14083C760 (sub_14083C760.c)
+ *     sub_14083C7F0 @ 0x14083C7F0 (sub_14083C7F0.c)
  * Callees:
  *     <none>
  */

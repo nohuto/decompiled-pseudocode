@@ -1,12 +1,12 @@
 /*
  * XREFs of VfIrpDatabaseCheckExFreePool @ 0x140716988
  * Callers:
- *     VerifierExFreePoolWithTag @ 0x1407023F0 (VerifierExFreePoolWithTag.c)
+ *     VerifierExFreePoolWithTag @ 0x140702420 (VerifierExFreePoolWithTag.c)
  * Callees:
- *     ViIrpDatabaseAcquireLockShared @ 0x140223CA0 (ViIrpDatabaseAcquireLockShared.c)
- *     ViIrpDatabaseReleaseLockShared @ 0x140223CD0 (ViIrpDatabaseReleaseLockShared.c)
- *     VfUtilAddressRangeFitNoLock @ 0x140702BB8 (VfUtilAddressRangeFitNoLock.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     ViIrpDatabaseAcquireLockShared @ 0x140223ACC (ViIrpDatabaseAcquireLockShared.c)
+ *     ViIrpDatabaseReleaseLockShared @ 0x140223AFC (ViIrpDatabaseReleaseLockShared.c)
+ *     VfUtilAddressRangeFitNoLock @ 0x140702BE8 (VfUtilAddressRangeFitNoLock.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  *     ViIrpDatabaseFindPointer @ 0x140716C98 (ViIrpDatabaseFindPointer.c)
  */
 

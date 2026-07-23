@@ -1,11 +1,11 @@
 /*
- * XREFs of CarRegisterRuleOverrideAllContexts @ 0x1405D4260
+ * XREFs of CarRegisterRuleOverrideAllContexts @ 0x1405D47D0
  * Callers:
- *     CarRegisterRuleOverridesAllContexts @ 0x1405D4330 (CarRegisterRuleOverridesAllContexts.c)
+ *     CarRegisterRuleOverridesAllContexts @ 0x1405D48A0 (CarRegisterRuleOverridesAllContexts.c)
  * Callees:
- *     CarCreateRuleOverrideEntry @ 0x1405D3964 (CarCreateRuleOverrideEntry.c)
- *     CarDeregisterRuleOverride @ 0x1405D3C20 (CarDeregisterRuleOverride.c)
- *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D3C8C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     CarCreateRuleOverrideEntry @ 0x1405D3ED4 (CarCreateRuleOverrideEntry.c)
+ *     CarDeregisterRuleOverride @ 0x1405D4190 (CarDeregisterRuleOverride.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D41FC (CarFindRuleClassConfigurationEntryByRuleClassId.c)
  */
 
 __int64 __fastcall CarRegisterRuleOverrideAllContexts(__int64 a1, __int64 a2)

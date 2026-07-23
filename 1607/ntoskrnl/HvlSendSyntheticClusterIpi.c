@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlSendSyntheticClusterIpi @ 0x1401BDAD8
+ * XREFs of HvlSendSyntheticClusterIpi @ 0x1401BD9BC
  * Callers:
  *     <none>
  * Callees:
- *     HvlpAffinityToVirtualAffinity @ 0x1401BFEEC (HvlpAffinityToVirtualAffinity.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x1401BFFF8 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpAffinityToVirtualAffinity @ 0x1401BFDD0 (HvlpAffinityToVirtualAffinity.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x1401BFEDC (HvlpUseExtendedProcessorSetHypercalls.c)
  */
 
 __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, __int64 a2)

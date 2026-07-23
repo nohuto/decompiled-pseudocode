@@ -1,8 +1,8 @@
 /*
- * XREFs of PspGetNextMonitor @ 0x14088BC34
+ * XREFs of PspGetNextMonitor @ 0x14088CE94
  * Callers:
- *     PspNotifyServerSiloCreation @ 0x14088BD64 (PspNotifyServerSiloCreation.c)
- *     PspNotifyServerSiloTermination @ 0x14088BE6C (PspNotifyServerSiloTermination.c)
+ *     PspNotifyServerSiloCreation @ 0x14088CFC4 (PspNotifyServerSiloCreation.c)
+ *     PspNotifyServerSiloTermination @ 0x14088D0CC (PspNotifyServerSiloTermination.c)
  * Callees:
  *     <none>
  */

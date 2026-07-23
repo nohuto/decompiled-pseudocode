@@ -1,19 +1,21 @@
 /*
- * XREFs of PiDevCfgFreeDriverNode @ 0x140A9EB68
+ * XREFs of PiDevCfgFreeDriverNode @ 0x140ABF4A0
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072897C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14072AC78 (PiDevCfgQueryIncludedDriverNode.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14072C8FC (PpDevCfgProcessDeviceExtensions.c)
- *     PiDevCfgFindDeviceDriver @ 0x140995E90 (PiDevCfgFindDeviceDriver.c)
- *     PiDevCfgQueryDriverNode @ 0x140996564 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgProcessDevice @ 0x140996E44 (PiDevCfgProcessDevice.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140A7E6CC (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgFreeDriverNode @ 0x140A9EB68 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072650C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgClearDeviceDrivers @ 0x140726C00 (PiDevCfgClearDeviceDrivers.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x140728A48 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x14072A910 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1409C7B64 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgFindDeviceDriver @ 0x1409C86B4 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgProcessDevice @ 0x1409C9598 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgFreeDriverNode @ 0x140ABF4A0 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgQueryDriverNode @ 0x140AC0A0C (PiDevCfgQueryDriverNode.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     PiDevCfgFreeDriverNode @ 0x140A9EB68 (PiDevCfgFreeDriverNode.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline @ 0x1405A3B64 (Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     PiDevCfgFreeDriverNode @ 0x140ABF4A0 (PiDevCfgFreeDriverNode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDevCfgFreeDriverNode(__int64 a1)
@@ -32,18 +34,21 @@ void __fastcall PiDevCfgFreeDriverNode(__int64 a1)
   void *v13; // rcx
   void *v14; // rcx
 
-  v2 = (_QWORD **)(a1 + 224);
-  while ( 1 )
+  if ( !(unsigned int)Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline() )
   {
-    v3 = *v2;
-    if ( *v2 == v2 )
-      break;
-    if ( (_QWORD **)v3[1] != v2 || (v4 = (_QWORD *)*v3, *(_QWORD **)(*v3 + 8LL) != v3) )
-LABEL_16:
-      __fastfail(3u);
-    *v2 = v4;
-    v4[1] = v2;
-    PiDevCfgFreeDriverNode(v3);
+    v2 = (_QWORD **)(a1 + 224);
+    while ( 1 )
+    {
+      v3 = *v2;
+      if ( *v2 == v2 )
+        break;
+      if ( (_QWORD **)v3[1] != v2 || (v4 = (_QWORD *)*v3, *(_QWORD **)(*v3 + 8LL) != v3) )
+LABEL_17:
+        __fastfail(3u);
+      *v2 = v4;
+      v4[1] = v2;
+      PiDevCfgFreeDriverNode(v3);
+    }
   }
   v5 = (_QWORD **)(a1 + 208);
   while ( 1 )
@@ -52,10 +57,10 @@ LABEL_16:
     if ( *v5 == v5 )
       break;
     if ( (_QWORD **)v6[1] != v5 )
-      goto LABEL_16;
+      goto LABEL_17;
     v7 = (_QWORD *)*v6;
     if ( *(_QWORD **)(*v6 + 8LL) != v6 )
-      goto LABEL_16;
+      goto LABEL_17;
     *v5 = v7;
     v7[1] = v5;
     PiDevCfgFreeDriverNode(v6);
@@ -67,10 +72,10 @@ LABEL_16:
     if ( *v8 == v8 )
       break;
     if ( (_QWORD **)v9[1] != v8 )
-      goto LABEL_16;
+      goto LABEL_17;
     v10 = (_QWORD *)*v9;
     if ( *(_QWORD **)(*v9 + 8LL) != v9 )
-      goto LABEL_16;
+      goto LABEL_17;
     *v8 = v10;
     v10[1] = v8;
     PiDevCfgFreeDriverNode(v9);

@@ -1,25 +1,25 @@
 /*
- * XREFs of CcWorkerThread @ 0x140071980
+ * XREFs of CcWorkerThread @ 0x140071500
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     CcPerfLogWorkItemEnqueue @ 0x14006B848 (CcPerfLogWorkItemEnqueue.c)
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
- *     CcWriteBehind @ 0x14007161C (CcWriteBehind.c)
- *     CcFindNextWorkQueueEntry @ 0x140071FDC (CcFindNextWorkQueueEntry.c)
- *     CcPerformReadAhead @ 0x140072334 (CcPerformReadAhead.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcReEngageWorkerThreads @ 0x14010EE28 (CcReEngageWorkerThreads.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CcLogExtraWBThreadAction @ 0x1401B174C (CcLogExtraWBThreadAction.c)
- *     CcOkToAddWriteBehindThread @ 0x1401B17C8 (CcOkToAddWriteBehindThread.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14006B3C8 (CcPerfLogWorkItemEnqueue.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
+ *     CcWriteBehind @ 0x14007119C (CcWriteBehind.c)
+ *     CcFindNextWorkQueueEntry @ 0x140071B5C (CcFindNextWorkQueueEntry.c)
+ *     CcPerformReadAhead @ 0x140071EB4 (CcPerformReadAhead.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcReEngageWorkerThreads @ 0x14010F38C (CcReEngageWorkerThreads.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CcLogExtraWBThreadAction @ 0x1401B1630 (CcLogExtraWBThreadAction.c)
+ *     CcOkToAddWriteBehindThread @ 0x1401B16AC (CcOkToAddWriteBehindThread.c)
  */
 
 void __fastcall CcWorkerThread(__int64 a1)
@@ -310,25 +310,25 @@ LABEL_18:
 LABEL_47:
   if ( v5 )
   {
-    v24 = (__int64 *)qword_1403232D8;
-    if ( *(PWORK_QUEUE_ITEM **)qword_1403232D8 != &CcIdleExtraWriteBehindThreadList )
+    v24 = (__int64 *)qword_1403232F8;
+    if ( *(PWORK_QUEUE_ITEM **)qword_1403232F8 != &CcIdleExtraWriteBehindThreadList )
       __fastfail(3u);
     *(_QWORD *)a1 = &CcIdleExtraWriteBehindThreadList;
     *(_QWORD *)(a1 + 8) = v24;
     *v24 = a1;
-    qword_1403232D8 = a1;
+    qword_1403232F8 = a1;
     --CcActiveExtraWriteBehindThreads;
     v20 = CcNumberActiveWorkerThreads;
   }
   else
   {
-    v19 = (__int64 *)qword_140323078;
-    if ( *(PWORK_QUEUE_ITEM **)qword_140323078 != &CcIdleWorkerThreadList )
+    v19 = (__int64 *)qword_140323098;
+    if ( *(PWORK_QUEUE_ITEM **)qword_140323098 != &CcIdleWorkerThreadList )
       __fastfail(3u);
     *(_QWORD *)a1 = &CcIdleWorkerThreadList;
     *(_QWORD *)(a1 + 8) = v19;
     *v19 = a1;
-    qword_140323078 = a1;
+    qword_140323098 = a1;
     v20 = --CcNumberActiveWorkerThreads;
   }
   if ( CcAddExtraWriteBehindThreads && !CcActiveExtraWriteBehindThreads && v20 <= 1 )

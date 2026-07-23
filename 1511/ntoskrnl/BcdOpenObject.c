@@ -28,56 +28,56 @@
  *     BiGetDefaultBootEntryIdentifier @ 0x14068DC70 (BiGetDefaultBootEntryIdentifier.c)
  */
 
-__int64 __fastcall BcdOpenObject(__int64 a1, __int128 *a2, _QWORD *a3)
+NTSTATUS __cdecl BcdOpenObject(HANDLE BcdStoreHandle, const GUID *Identifier, PHANDLE BcdObjectHandle)
 {
   __int64 v6; // rcx
   char v7; // r15
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v9; // rcx
-  int v10; // ebx
-  int v11; // eax
+  NTSTATUS v10; // ebx
+  NTSTATUS v11; // eax
   wchar_t *Buffer; // rsi
-  int CurrentBootEntryIdentifier; // eax
+  NTSTATUS CurrentBootEntryIdentifier; // eax
   HANDLE Handle; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v15; // [rsp+28h] [rbp-28h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-18h] BYREF
+  GUID Guid; // [rsp+28h] [rbp-28h] BYREF
+  UNICODE_STRING GuidString; // [rsp+38h] [rbp-18h] BYREF
   int v17; // [rsp+88h] [rbp+38h] BYREF
 
-  LOBYTE(v6) = BiIsOfflineHandle(a1);
+  LOBYTE(v6) = BiIsOfflineHandle((char)BcdStoreHandle);
   v7 = v6;
   result = BiAcquireBcdSyncMutant(v6);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
-  *a3 = 0LL;
+  *BcdObjectHandle = 0LL;
   Handle = 0LL;
-  UnicodeString.Buffer = 0LL;
-  v10 = BiOpenKey(a1, L"Objects", 131097LL, &Handle);
+  GuidString.Buffer = 0LL;
+  v10 = BiOpenKey(BcdStoreHandle, L"Objects", 131097LL, &Handle);
   if ( v10 < 0 )
     goto LABEL_9;
-  if ( !(unsigned __int8)BiIsObjectAliased(a2, &v17) )
+  if ( !(unsigned __int8)BiIsObjectAliased(Identifier, &v17) )
   {
-    v15 = *a2;
+    Guid = *Identifier;
 LABEL_5:
-    v11 = RtlStringFromGUIDEx((unsigned int *)&v15, (__int64)&UnicodeString, 1);
-    Buffer = UnicodeString.Buffer;
+    v11 = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
+    Buffer = GuidString.Buffer;
     v10 = v11;
     if ( v11 >= 0 )
-      v10 = BiOpenKey(Handle, UnicodeString.Buffer, 983103LL, a3);
+      v10 = BiOpenKey(Handle, GuidString.Buffer, 983103LL, BcdObjectHandle);
     if ( Buffer )
-      RtlFreeAnsiString(&UnicodeString);
+      RtlFreeAnsiString(&GuidString);
     goto LABEL_9;
   }
   v9 = (unsigned int)(v17 - 1);
   if ( v17 == 1 )
   {
-    CurrentBootEntryIdentifier = BiGetCurrentBootEntryIdentifier(&v15);
+    CurrentBootEntryIdentifier = BiGetCurrentBootEntryIdentifier(&Guid);
 LABEL_15:
     v10 = CurrentBootEntryIdentifier;
     goto LABEL_16;
   }
   if ( v17 == 2 )
   {
-    CurrentBootEntryIdentifier = BiGetDefaultBootEntryIdentifier(a1, &v15);
+    CurrentBootEntryIdentifier = BiGetDefaultBootEntryIdentifier(BcdStoreHandle, &Guid);
     goto LABEL_15;
   }
   v10 = -1073741811;
@@ -89,5 +89,5 @@ LABEL_9:
     BiCloseKey(Handle);
   LOBYTE(v9) = v7;
   BiReleaseBcdSyncMutant(v9);
-  return (unsigned int)v10;
+  return v10;
 }

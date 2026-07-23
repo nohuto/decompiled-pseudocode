@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryEvent @ 0x1401B8C50
+ * XREFs of ZwQueryEvent @ 0x1401B8DB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryEvent(
         HANDLE EventHandle,
         EVENT_INFORMATION_CLASS EventInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryEvent(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EventHandle, *(_QWORD *)&EventInformationClass, EventInformation);
+  return KiServiceInternal(EventHandle);
 }

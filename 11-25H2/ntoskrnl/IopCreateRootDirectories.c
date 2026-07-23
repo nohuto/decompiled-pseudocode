@@ -12,31 +12,28 @@
 bool IopCreateRootDirectories()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  _QWORD v2[3]; // [rsp+30h] [rbp-30h] BYREF
-  int v3; // [rsp+48h] [rbp-18h]
-  int v4; // [rsp+4Ch] [rbp-14h]
-  __int128 v5; // [rsp+50h] [rbp-10h]
-  HANDLE Handle; // [rsp+70h] [rbp+10h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  HANDLE DirectoryHandle; // [rsp+70h] [rbp+10h] BYREF
 
-  Handle = 0LL;
-  v4 = 0;
-  v2[0] = 48LL;
+  DirectoryHandle = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Driver");
-  v2[1] = 0LL;
-  v2[2] = &DestinationString;
-  v3 = 528;
-  v5 = 0LL;
-  if ( (int)NtCreateDirectoryObject((__int64)&Handle, 983055LL, (__int64)v2) < 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Attributes = 528;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes) < 0 )
     return 0;
-  ObCloseHandle(Handle, 0);
+  ObCloseHandle(DirectoryHandle, 0);
   RtlInitUnicodeString(&DestinationString, L"\\FileSystem");
-  if ( (int)NtCreateDirectoryObject((__int64)&Handle, 983055LL, (__int64)v2) < 0 )
+  if ( NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes) < 0 )
     return 0;
-  ObCloseHandle(Handle, 0);
+  ObCloseHandle(DirectoryHandle, 0);
   RtlInitUnicodeString(&DestinationString, L"\\FileSystem\\Filters");
-  if ( (int)NtCreateDirectoryObject((__int64)&Handle, 983055LL, (__int64)v2) < 0 )
+  if ( NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes) < 0 )
     return 0;
-  ObCloseHandle(Handle, 0);
+  ObCloseHandle(DirectoryHandle, 0);
   return (int)IopCreateUmdfDirectory() >= 0;
 }

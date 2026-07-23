@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlockVadShared @ 0x1402BA960
+ * XREFs of MiUnlockVadShared @ 0x1403620A0
  * Callers:
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiHotPatchProcess @ 0x1407F2D08 (MiHotPatchProcess.c)
- *     NtAreMappedFilesTheSame @ 0x1408E8130 (NtAreMappedFilesTheSame.c)
- *     MmIsFileMapped @ 0x1408EF744 (MmIsFileMapped.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140967B50 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiReferenceCfgVad @ 0x140A954F0 (MiReferenceCfgVad.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiHotPatchProcess @ 0x1407F32D8 (MiHotPatchProcess.c)
+ *     MmIsFileMapped @ 0x140860F44 (MmIsFileMapped.c)
+ *     NtAreMappedFilesTheSame @ 0x1408D8910 (NtAreMappedFilesTheSame.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1409505E0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiReferenceCfgVad @ 0x140A91CA0 (MiReferenceCfgVad.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockVadShared(__int64 a1, __int64 a2)
@@ -44,7 +44,7 @@ __int64 __fastcall MiUnlockVadShared(__int64 a1, __int64 a2)
     if ( (a2 & 0x7FFFFFFFFFFFFFFCLL) == v7 && v8[26] && (a2 & 1) == 0 )
     {
       v8[26] = 0;
-      result = KiAbEntryFreeAndEnableInterrupts((__int64)(v8 + 16), (ULONG_PTR)CurrentThread, v2, 1, 0LL);
+      result = KiAbEntryFreeAndEnableInterrupts((__int64)(v8 + 16), (ULONG_PTR)CurrentThread, v2, 1LL, 0LL);
       goto LABEL_14;
     }
     ++v6;

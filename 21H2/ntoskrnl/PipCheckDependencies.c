@@ -1,13 +1,13 @@
 /*
- * XREFs of PipCheckDependencies @ 0x140A5ED14
+ * XREFs of PipCheckDependencies @ 0x140A5FD14
  * Callers:
- *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140A5E754 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     PipLookupGroupName @ 0x140A5ED70 (PipLookupGroupName.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     PipLookupGroupName @ 0x140A5FD70 (PipLookupGroupName.c)
  */
 
 __int64 __fastcall PipCheckDependencies(void *a1)

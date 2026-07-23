@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFreeWorkItem @ 0x1404A1F40
+ * XREFs of IoFreeWorkItem @ 0x14049BA70
  * Callers:
- *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x1404A1EF0 (PnpDeviceCompletionRequestDestroyWorkItem.c)
- *     ?ExpLookasideMgrWorkerSetCleanup@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@@Z @ 0x140846F70 (-ExpLookasideMgrWorkerSetCleanup@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@@Z.c)
+ *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14049BA20 (PnpDeviceCompletionRequestDestroyWorkItem.c)
+ *     ?ExpLookasideMgrWorkerSetCleanup@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@@Z @ 0x14084D1D0 (-ExpLookasideMgrWorkerSetCleanup@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@@Z.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoFreeWorkItem(PIO_WORKITEM IoWorkItem)

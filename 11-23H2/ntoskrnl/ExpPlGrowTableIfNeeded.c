@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPlGrowTableIfNeeded @ 0x140608594
+ * XREFs of ExpPlGrowTableIfNeeded @ 0x140608AE4
  * Callers:
- *     ExpTrackTableInsertLimit @ 0x140608B9C (ExpTrackTableInsertLimit.c)
+ *     ExpTrackTableInsertLimit @ 0x1406090EC (ExpTrackTableInsertLimit.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -65,10 +65,13 @@ __int64 ExpPlGrowTableIfNeeded()
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -146,10 +149,10 @@ __int64 ExpPlGrowTableIfNeeded()
         dword_140CF8104 = (32 * v0) | v18 & 0x1F;
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v25 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v26 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
           {
             v27 = KeGetCurrentPrcb();
             v28 = v27->SchedulerAssist;
@@ -165,10 +168,10 @@ __int64 ExpPlGrowTableIfNeeded()
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v11 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && LockHandle.OldIrql <= 0xFu && v12 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && LockHandle.OldIrql <= 0xFu && v12 >= 2u )
         {
           v13 = KeGetCurrentPrcb();
           v14 = v13->SchedulerAssist;
@@ -186,10 +189,10 @@ __int64 ExpPlGrowTableIfNeeded()
     v8 = 0;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v25 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && LockHandle.OldIrql <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && LockHandle.OldIrql <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;

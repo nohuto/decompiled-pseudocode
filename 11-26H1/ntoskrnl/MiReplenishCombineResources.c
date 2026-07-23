@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReplenishCombineResources @ 0x14048356C
+ * XREFs of MiReplenishCombineResources @ 0x14047CE9C
  * Callers:
- *     MiSharePagesLockPageTable @ 0x1403072AC (MiSharePagesLockPageTable.c)
+ *     MiSharePagesLockPageTable @ 0x1402E932C (MiSharePagesLockPageTable.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
  */
 
 __int64 __fastcall MiReplenishCombineResources(__int64 *a1)

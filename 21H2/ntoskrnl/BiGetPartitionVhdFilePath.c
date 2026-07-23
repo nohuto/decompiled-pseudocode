@@ -1,12 +1,12 @@
 /*
- * XREFs of BiGetPartitionVhdFilePath @ 0x1407854A4
+ * XREFs of BiGetPartitionVhdFilePath @ 0x140785664
  * Callers:
- *     BiGetNtPartitionPath @ 0x140782748 (BiGetNtPartitionPath.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x140784FF8 (BiConvertNtDeviceToBootEnvironment.c)
- *     BiCreatePartitionDevice @ 0x1407850C0 (BiCreatePartitionDevice.c)
+ *     BiGetNtPartitionPath @ 0x140782908 (BiGetNtPartitionPath.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1407851B8 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x140785280 (BiCreatePartitionDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x1407854D4 (BiGetPartitionVhdFilePathFromUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x140785694 (BiGetPartitionVhdFilePathFromUnicodeString.c)
  */
 
 __int64 __fastcall BiGetPartitionVhdFilePath(PCWSTR SourceString)

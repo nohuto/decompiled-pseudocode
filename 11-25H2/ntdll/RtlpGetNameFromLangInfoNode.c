@@ -9,14 +9,14 @@
  *     wcslen @ 0x1801292B0 (wcslen.c)
  */
 
-__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, _UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   size_t v5; // rax
   __int64 v6; // r8
   __int64 v7; // rdx
   __int64 v8; // rsi
-  __int16 v9; // r10
+  unsigned __int16 v9; // r10
 
   v3 = 0;
   if ( a1 && a2 && a3 )
@@ -25,7 +25,7 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
     if ( (__int16)v5 <= 0 )
     {
       if ( ((*(_WORD *)(a2 + 4) - 4096) & 0xFBFF) != 0 )
-        return (unsigned __int8)RtlLCIDToCultureName(*(unsigned __int16 *)(a2 + 4), a3) == 0 ? 0xC00000E5 : 0;
+        return RtlLCIDToCultureName(*(unsigned __int16 *)(a2 + 4), a3) == 0 ? 0xC00000E5 : 0;
     }
     else
     {
@@ -39,10 +39,9 @@ __int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a
         if ( v5 >= 0xFFFE )
           LOWORD(v5) = -4;
       }
-      if ( (unsigned __int16)v5 <= *(_WORD *)(a3 + 2)
-        && (int)RtlStringCbCopyW(*(_QWORD *)(a3 + 8), *(unsigned __int16 *)(a3 + 2), v8) >= 0 )
+      if ( (unsigned __int16)v5 <= a3->MaximumLength && (int)RtlStringCbCopyW(a3->Buffer, a3->MaximumLength, v8) >= 0 )
       {
-        *(_WORD *)a3 = v9;
+        a3->Length = v9;
         return v3;
       }
     }

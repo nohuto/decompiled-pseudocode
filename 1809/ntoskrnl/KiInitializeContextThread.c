@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInitializeContextThread @ 0x14008A018
+ * XREFs of KiInitializeContextThread @ 0x14008A008
  * Callers:
- *     KeInitThread @ 0x1405656E0 (KeInitThread.c)
+ *     KeInitThread @ 0x1405666E0 (KeInitThread.c)
  * Callees:
- *     KiSetSwitchingNpxState @ 0x14008A2D4 (KiSetSwitchingNpxState.c)
- *     KxContextToKframes @ 0x14008A780 (KxContextToKframes.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlLocateSupervisorFeature @ 0x1402F4270 (RtlLocateSupervisorFeature.c)
+ *     KiSetSwitchingNpxState @ 0x14008A2C4 (KiSetSwitchingNpxState.c)
+ *     KxContextToKframes @ 0x14008A770 (KxContextToKframes.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlLocateSupervisorFeature @ 0x1402F4460 (RtlLocateSupervisorFeature.c)
  */
 
-__int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
+unsigned __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
 {
   __int64 v5; // rbx
   unsigned __int64 v7; // rsi
@@ -34,7 +34,7 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3,
   __int128 v25; // xmm0
   __int128 v26; // xmm1
   __int128 v27; // xmm0
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   unsigned int v29; // r9d
   _DWORD *v30; // r10
   __int64 v31; // r8
@@ -181,7 +181,7 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3,
         }
         *(_QWORD *)(v7 + 512) |= 0x800uLL;
         *(_QWORD *)(v7 + 520) = 0x8000000000000803uLL;
-        result = RtlLocateSupervisorFeature(v7 + 512, 11LL);
+        result = (unsigned __int64)RtlLocateSupervisorFeature((PXSAVE_AREA_HEADER)(v7 + 512), 0xBu, 0LL);
         *(_OWORD *)result = *(_OWORD *)v10;
       }
     }

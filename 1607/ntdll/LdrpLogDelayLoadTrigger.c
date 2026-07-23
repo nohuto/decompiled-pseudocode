@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpLogDelayLoadTrigger @ 0x1800112C0
+ * XREFs of LdrpLogDelayLoadTrigger @ 0x1800112B0
  * Callers:
- *     LdrpGetDelayloadExportDll @ 0x18001136C (LdrpGetDelayloadExportDll.c)
+ *     LdrpGetDelayloadExportDll @ 0x18001135C (LdrpGetDelayloadExportDll.c)
  * Callees:
- *     RtlInitAnsiString @ 0x180011330 (RtlInitAnsiString.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     LdrpGetDelayloadAPIInfo @ 0x18007B7FC (LdrpGetDelayloadAPIInfo.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlInitAnsiString @ 0x180011320 (RtlInitAnsiString.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     LdrpGetDelayloadAPIInfo @ 0x18007B7EC (LdrpGetDelayloadAPIInfo.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     sprintf_s @ 0x1800A1E20 (sprintf_s.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
- *     LdrpEventAddAnsiString @ 0x1800D112C (LdrpEventAddAnsiString.c)
- *     LdrpEventAddUnicodeString @ 0x1800D1190 (LdrpEventAddUnicodeString.c)
+ *     LdrpEventAddAnsiString @ 0x1800D11EC (LdrpEventAddAnsiString.c)
+ *     LdrpEventAddUnicodeString @ 0x1800D1250 (LdrpEventAddUnicodeString.c)
  */
 
 char __fastcall LdrpLogDelayLoadTrigger(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -28,9 +28,9 @@ char __fastcall LdrpLogDelayLoadTrigger(__int64 a1, __int64 a2, __int64 a3, int 
   __int64 v16; // rbx
   unsigned int v18; // [rsp+30h] [rbp-50h] BYREF
   int v19; // [rsp+34h] [rbp-4Ch] BYREF
-  char *v20; // [rsp+38h] [rbp-48h] BYREF
-  STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  STRING v22; // [rsp+50h] [rbp-30h] BYREF
+  CHAR *v20; // [rsp+38h] [rbp-48h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
+  _STRING v22; // [rsp+50h] [rbp-30h] BYREF
   char Buffer[16]; // [rsp+60h] [rbp-20h] BYREF
 
   LOBYTE(Heap) = MEMORY[0x7FFE0384];
@@ -42,7 +42,7 @@ char __fastcall LdrpLogDelayLoadTrigger(__int64 a1, __int64 a2, __int64 a3, int 
       && (Heap = NtCurrentPeb(), (Heap->TracingFlags & 4) != 0)
       && (MEMORY[0x7FFE0385] & 0x20) != 0 )
     {
-      v20 = (char *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
+      v20 = (CHAR *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
       RtlInitAnsiString(&DestinationString, v20);
       LdrpGetDelayloadAPIInfo(a1, v7, a4, (unsigned int)&v20, (__int64)&v19);
       v9 = v20;
@@ -56,10 +56,7 @@ char __fastcall LdrpLogDelayLoadTrigger(__int64 a1, __int64 a2, __int64 a3, int 
           + *(unsigned __int16 *)(a3 + 72)
           + 2 * (DestinationString.Length + v22.Length + 4);
       v11 = v10 + 36;
-      Heap = (struct _PEB *)RtlAllocateHeap(
-                              NtCurrentPeb()->ProcessHeap,
-                              (unsigned int)(NtdllBaseTag + 1572864),
-                              v10 + 36);
+      Heap = (struct _PEB *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v10 + 36);
       v12 = Heap;
       if ( Heap )
       {
@@ -73,8 +70,8 @@ char __fastcall LdrpLogDelayLoadTrigger(__int64 a1, __int64 a2, __int64 a3, int 
         v16 = v18 + v14;
         LdrpEventAddAnsiString(&DestinationString, v16, v15, &v18);
         LdrpEventAddAnsiString(&v22, v16 + v18, v15 - v18, &v18);
-        NtTraceEvent(MEMORY[0x7FFE0384], 1026LL, v11 - 32, v12);
-        LOBYTE(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v12);
+        NtTraceEvent((HANDLE)MEMORY[0x7FFE0384], 0x402u, v11 - 32, v12);
+        LOBYTE(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
       }
     }
   }

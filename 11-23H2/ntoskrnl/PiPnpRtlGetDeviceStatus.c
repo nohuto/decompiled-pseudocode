@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlGetDeviceStatus @ 0x1407C07A0
+ * XREFs of PiPnpRtlGetDeviceStatus @ 0x1407C0A70
  * Callers:
  *     <none>
  * Callees:
- *     PlugPlayGetDeviceStatus @ 0x1407C07D4 (PlugPlayGetDeviceStatus.c)
+ *     PlugPlayGetDeviceStatus @ 0x1407C0AA4 (PlugPlayGetDeviceStatus.c)
  */
 
 __int64 __fastcall PiPnpRtlGetDeviceStatus(__int64 a1, int a2, int a3, int a4, __int64 a5, int a6)

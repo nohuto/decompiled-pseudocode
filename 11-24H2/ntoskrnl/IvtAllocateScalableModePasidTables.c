@@ -1,20 +1,20 @@
 /*
- * XREFs of IvtAllocateScalableModePasidTables @ 0x14056D55C
+ * XREFs of IvtAllocateScalableModePasidTables @ 0x14056A9EC
  * Callers:
- *     IvtAllocateTranslationStructures @ 0x14056D8D8 (IvtAllocateTranslationStructures.c)
- *     IvtGrowPasidTable @ 0x14056EA50 (IvtGrowPasidTable.c)
- *     IvtSetupScalableModeDefaultPasidTables @ 0x140B52A38 (IvtSetupScalableModeDefaultPasidTables.c)
+ *     IvtAllocateTranslationStructures @ 0x14056AD68 (IvtAllocateTranslationStructures.c)
+ *     IvtGrowPasidTable @ 0x14056BEE0 (IvtGrowPasidTable.c)
+ *     IvtSetupScalableModeDefaultPasidTables @ 0x140B54A88 (IvtSetupScalableModeDefaultPasidTables.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExtEnvAllocateMemory @ 0x14055FA30 (ExtEnvAllocateMemory.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14055FAA4 (ExtEnvAllocatePhysicalMemory.c)
- *     IvtExtendScalableModePasidTables @ 0x14056E348 (IvtExtendScalableModePasidTables.c)
- *     IvtFreeScalableModePasidTables @ 0x14056E600 (IvtFreeScalableModePasidTables.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExtEnvAllocateMemory @ 0x14055D660 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14055D6D4 (ExtEnvAllocatePhysicalMemory.c)
+ *     IvtExtendScalableModePasidTables @ 0x14056B7D8 (IvtExtendScalableModePasidTables.c)
+ *     IvtFreeScalableModePasidTables @ 0x14056BA90 (IvtFreeScalableModePasidTables.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IvtAllocateScalableModePasidTables(

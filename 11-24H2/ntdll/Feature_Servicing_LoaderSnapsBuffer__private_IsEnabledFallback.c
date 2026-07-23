@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_Servicing_LoaderSnapsBuffer__private_IsEnabledFallback @ 0x18010DF78
+ * XREFs of Feature_Servicing_LoaderSnapsBuffer__private_IsEnabledFallback @ 0x180108E58
  * Callers:
- *     Feature_Servicing_LoaderSnapsBuffer__private_IsEnabledDeviceUsageNoInline @ 0x18011CE48 (Feature_Servicing_LoaderSnapsBuffer__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_LoaderSnapsBuffer__private_IsEnabledDeviceUsageNoInline @ 0x18011B080 (Feature_Servicing_LoaderSnapsBuffer__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPrepareForBugcheck @ 0x14050B8B0
+ * XREFs of HalpPrepareForBugcheck @ 0x14050BE00
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
- *     HalpTimerUpdateApiConsumers @ 0x14051F924 (HalpTimerUpdateApiConsumers.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
+ *     HalpTimerUpdateApiConsumers @ 0x14051FE74 (HalpTimerUpdateApiConsumers.c)
  */
 
 __int64 __fastcall HalpPrepareForBugcheck(char a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of IoReleaseVpbSpinLock @ 0x140136070
+ * XREFs of IoReleaseVpbSpinLock @ 0x140136170
  * Callers:
  *     <none>
  * Callees:

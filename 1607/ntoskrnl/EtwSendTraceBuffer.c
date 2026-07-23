@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwSendTraceBuffer @ 0x140225124
+ * XREFs of EtwSendTraceBuffer @ 0x140224F50
  * Callers:
  *     <none>
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400516A4 (KeGetEffectiveIrql.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     EtwpCloseLogger @ 0x140073C30 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x140073C68 (EtwpOpenLogger.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KeGetEffectiveIrql @ 0x140051224 (KeGetEffectiveIrql.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     EtwpCloseLogger @ 0x1400737B0 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x1400737E8 (EtwpOpenLogger.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall EtwSendTraceBuffer(unsigned __int16 a1, signed __int64 a2, unsigned int a3, __int64 a4, __int64 a5)

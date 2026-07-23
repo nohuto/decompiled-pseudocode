@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpLightWeightCreateModificationData @ 0x14060EB20
+ * XREFs of CmpLightWeightCreateModificationData @ 0x14060EBD4
  * Callers:
- *     CmpLightWeightPrepareAddKeyUoW @ 0x14060ECAC (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14060EEE4 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x14060F280 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x14060ED60 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14060EF98 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14060F334 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14060E2DC (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightDuplicateParentLists @ 0x14060EBE8 (CmpLightWeightDuplicateParentLists.c)
- *     CmpLightWeightUpdateModificationActions @ 0x14060F8B0 (CmpLightWeightUpdateModificationActions.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14060E390 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x14060EC9C (CmpLightWeightDuplicateParentLists.c)
+ *     CmpLightWeightUpdateModificationActions @ 0x14060F964 (CmpLightWeightUpdateModificationActions.c)
  */
 
 __int64 __fastcall CmpLightWeightCreateModificationData(__int64 a1, unsigned int **a2)

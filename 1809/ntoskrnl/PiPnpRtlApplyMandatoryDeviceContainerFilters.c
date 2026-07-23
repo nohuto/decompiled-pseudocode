@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1406DACD4
+ * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1406DBF74
  * Callers:
- *     PiPnpRtlApplyMandatoryFilters @ 0x140595FCC (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x140596FCC (PiPnpRtlApplyMandatoryFilters.c)
  * Callees:
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     PiDmListEnumObjectsWithCallback @ 0x14059824C (PiDmListEnumObjectsWithCallback.c)
- *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x14059924C (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmGetObject @ 0x1405999C8 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
  */
 
 __int64 __fastcall PiPnpRtlApplyMandatoryDeviceContainerFilters(

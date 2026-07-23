@@ -1,17 +1,17 @@
 /*
- * XREFs of WbAllocateSlots @ 0x1407642A0
+ * XREFs of WbAllocateSlots @ 0x140764490
  * Callers:
- *     sub_140764204 @ 0x140764204 (sub_140764204.c)
+ *     sub_1407643F4 @ 0x1407643F4 (sub_1407643F4.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     memset @ 0x140435A00 (memset.c)
- *     sub_1407644BC @ 0x1407644BC (sub_1407644BC.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     sub_1407646AC @ 0x1407646AC (sub_1407646AC.c)
  */
 
 __int64 __fastcall WbAllocateSlots(__int64 a1, unsigned int a2, int a3, unsigned int a4)
@@ -55,7 +55,7 @@ __int64 __fastcall WbAllocateSlots(__int64 a1, unsigned int a2, int a3, unsigned
     }
     if ( a2 == -1 )
       goto LABEL_13;
-    v15 = sub_1407644BC(a1, a2 + 1, a4 - 1);
+    v15 = sub_1407646AC(a1, a2 + 1, a4 - 1);
     if ( v15 == -1 )
       goto LABEL_13;
     a2 = v15 + 1;
@@ -80,7 +80,7 @@ LABEL_13:
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v4, v19, (__int64)v4);
     if ( v20 )
       *(_BYTE *)(v20 + 18) = 1;
-    if ( (unsigned int)sub_1407644BC(a1, a2, a4) == -1 )
+    if ( (unsigned int)sub_1407646AC(a1, a2, a4) == -1 )
     {
       v5 = *(_QWORD *)(a1 + 32) + (a2 << 6);
       if ( a4 )

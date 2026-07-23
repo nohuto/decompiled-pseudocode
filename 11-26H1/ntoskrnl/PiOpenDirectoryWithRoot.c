@@ -1,15 +1,15 @@
 /*
- * XREFs of PiOpenDirectoryWithRoot @ 0x1407A13E4
+ * XREFs of PiOpenDirectoryWithRoot @ 0x1407A3F24
  * Callers:
- *     PiBuildAndOpenDeviceDirectoryPath @ 0x1407A0964 (PiBuildAndOpenDeviceDirectoryPath.c)
- *     PiGetDriverMutableStateDirectory @ 0x1407A1284 (PiGetDriverMutableStateDirectory.c)
+ *     PiBuildAndOpenDeviceDirectoryPath @ 0x1407A34A4 (PiBuildAndOpenDeviceDirectoryPath.c)
+ *     PiGetDriverMutableStateDirectory @ 0x1407A3DC4 (PiGetDriverMutableStateDirectory.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     PiCreateDirectoryPath @ 0x1407A0A9C (PiCreateDirectoryPath.c)
- *     PiAuGetStateDirectorySecurityObject @ 0x1407A8710 (PiAuGetStateDirectorySecurityObject.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     PiCreateDirectoryPath @ 0x1407A35DC (PiCreateDirectoryPath.c)
+ *     PiAuGetStateDirectorySecurityObject @ 0x1407AB2C0 (PiAuGetStateDirectorySecurityObject.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiOpenDirectoryWithRoot(UNICODE_STRING *a1, UNICODE_STRING *a2, char a3, char a4, HANDLE *a5)

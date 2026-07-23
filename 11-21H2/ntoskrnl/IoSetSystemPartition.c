@@ -8,7 +8,7 @@
  *     ZwClose @ 0x14041B940 (ZwClose.c)
  *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
  *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     IopCreateRegistryKeyEx @ 0x14067A8B0 (IopCreateRegistryKeyEx.c)
+ *     sub_14067A8B0 @ 0x14067A8B0 (sub_14067A8B0.c)
  */
 
 NTSTATUS __stdcall IoSetSystemPartition(PUNICODE_STRING VolumeNameString)
@@ -51,7 +51,7 @@ NTSTATUS __stdcall IoSetSystemPartition(PUNICODE_STRING VolumeNameString)
     v14 = 7667828;
     v15 = 112;
     *(_DWORD *)&ValueName.Length = 786442;
-    v4 = IopCreateRegistryKeyEx(&v8, KeyHandle, &ValueName, 0xF003Fu, 0, 0LL);
+    v4 = sub_14067A8B0(&v8, KeyHandle, &ValueName, 0xF003Fu, 0, 0LL);
     v2 = v8;
     v3 = v4;
     if ( v4 >= 0 )

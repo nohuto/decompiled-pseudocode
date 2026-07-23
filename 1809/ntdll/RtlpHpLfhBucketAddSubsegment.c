@@ -8,29 +8,24 @@
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  *     RtlpHpLfhSubsegmentFree @ 0x18001D6AC (RtlpHpLfhSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentSetOwner @ 0x180081018 (RtlpHpLfhSubsegmentSetOwner.c)
+ *     RtlpHpLfhSubsegmentSetOwner @ 0x180081028 (RtlpHpLfhSubsegmentSetOwner.c)
  */
 
-signed __int64 __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, _RTL_SRWLOCK *a2, __int64 a3, char a4)
 {
-  signed __int64 result; // rax
-  char v5; // si
-  __int64 *v6; // rbx
+  __int64 *v5; // rbx
 
-  result = *(unsigned __int16 *)(a3 + 34);
-  v5 = a4;
-  v6 = (__int64 *)a3;
-  if ( *(_WORD *)(a3 + 32) != (_WORD)result )
+  v5 = (__int64 *)a3;
+  if ( *(_WORD *)(a3 + 32) != *(_WORD *)(a3 + 34) )
   {
-    RtlAcquireSRWLockExclusive(a2 + 16, a2, (unsigned __int64 *)a3, a4);
-    RtlpHpLfhSubsegmentSetOwner(v6, a2);
-    if ( *((_WORD *)v6 + 16) == *((_WORD *)v6 + 17) )
-      v6[2] = 0LL;
+    RtlAcquireSRWLockExclusive(a2 + 2);
+    RtlpHpLfhSubsegmentSetOwner(v5, a2);
+    if ( *((_WORD *)v5 + 16) == *((_WORD *)v5 + 17) )
+      v5[2] = 0LL;
     else
-      v6 = RtlpHpLfhOwnerMoveSubsegment(a2, v6, 0);
-    result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 16));
+      v5 = RtlpHpLfhOwnerMoveSubsegment((__int64)a2, v5, 0);
+    RtlReleaseSRWLockExclusive(a2 + 2);
   }
-  if ( v6 )
-    return RtlpHpLfhSubsegmentFree(a1, (__int64)v6, a2, v5 & 1);
-  return result;
+  if ( v5 )
+    RtlpHpLfhSubsegmentFree(a1, (__int64)v5, (__int64)a2, a4 & 1);
 }

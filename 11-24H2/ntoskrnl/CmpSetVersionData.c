@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpSetVersionData @ 0x1407D7920
+ * XREFs of CmpSetVersionData @ 0x1407D7E74
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     sprintf_s @ 0x140504170 (sprintf_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     CmpRestampVersion @ 0x1407D7768 (CmpRestampVersion.c)
- *     CmpHiveRootSecurityDescriptor @ 0x1407DD214 (CmpHiveRootSecurityDescriptor.c)
- *     RtlAnsiStringToUnicodeString @ 0x1408ADC70 (RtlAnsiStringToUnicodeString.c)
- *     PsWow64IsMachineSupported @ 0x1408FB050 (PsWow64IsMachineSupported.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     sprintf_s @ 0x140501A30 (sprintf_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     CmpRestampVersion @ 0x1407D7CBC (CmpRestampVersion.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x1407DD764 (CmpHiveRootSecurityDescriptor.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140903ED0 (RtlAnsiStringToUnicodeString.c)
+ *     PsWow64IsMachineSupported @ 0x14091D930 (PsWow64IsMachineSupported.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void CmpSetVersionData()
@@ -50,7 +50,7 @@ void CmpSetVersionData()
   Data_8 = 0LL;
   Data = 0;
   v0 = (void *)CmpHiveRootSecurityDescriptor();
-  for ( i = &unk_140E09F28; ; i += 3 )
+  for ( i = &unk_140E09F98; ; i += 3 )
   {
     v2 = (const WCHAR *)*(i - 1);
     if ( !v2 )

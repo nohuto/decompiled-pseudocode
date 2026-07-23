@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQuerySingleModuleInformation @ 0x1408CC818
+ * XREFs of ExpQuerySingleModuleInformation @ 0x1408CDAD8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140748898 (ExpConvertLdrEntryToModuleInfo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x140749A88 (ExpConvertLdrEntryToModuleInfo.c)
  */
 
 __int64 __fastcall ExpQuerySingleModuleInformation(unsigned __int64 *a1, unsigned int a2, char a3, _DWORD *a4)

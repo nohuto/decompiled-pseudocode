@@ -17,45 +17,45 @@
  *     sub_1800F8F80 @ 0x1800F8F80 (sub_1800F8F80.c)
  */
 
-__int64 __fastcall RtlDeleteCriticalSection(__int64 *a1)
+NTSTATUS __cdecl RtlDeleteCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  __int64 v2; // rcx
-  unsigned int v3; // r14d
-  __int64 v4; // rbx
+  char *LockSemaphore; // rcx
+  NTSTATUS v3; // r14d
+  PRTL_CRITICAL_SECTION_DEBUG DebugInfo; // rbx
   __int64 v6; // rsi
-  __int64 *v7; // rax
-  __int64 *v8; // rdx
-  __int64 **v9; // rcx
+  LIST_ENTRY *p_ProcessLocksList; // rax
+  _LIST_ENTRY *Flink; // rdx
+  _LIST_ENTRY *Blink; // rcx
   __int64 v10; // rax
 
-  v2 = a1[3];
-  if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-    v3 = ZwClose(v2);
+  LockSemaphore = (char *)CriticalSection->LockSemaphore;
+  if ( (unsigned __int64)(LockSemaphore - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    v3 = ZwClose(LockSemaphore);
   else
     v3 = 0;
-  v4 = *a1;
-  if ( (unsigned __int64)(*a1 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+  DebugInfo = CriticalSection->DebugInfo;
+  if ( (unsigned __int64)&CriticalSection->DebugInfo[-1].Identifier + 1 <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    v6 = a1[4] & 0x4000000;
-    RtlAcquireSRWLockExclusive(&qword_18015C1F8);
-    v7 = (__int64 *)(v4 + 16);
-    if ( *(_QWORD *)(v4 + 16) )
+    v6 = CriticalSection->SpinCount & 0x4000000;
+    RtlAcquireSRWLockExclusive(&stru_18015C1F8);
+    p_ProcessLocksList = &DebugInfo->ProcessLocksList;
+    if ( DebugInfo->ProcessLocksList.Flink )
     {
-      v8 = (__int64 *)*v7;
-      v9 = *(__int64 ***)(v4 + 24);
-      if ( *(__int64 **)(*v7 + 8) != v7 || *v9 != v7 )
+      Flink = p_ProcessLocksList->Flink;
+      Blink = DebugInfo->ProcessLocksList.Blink;
+      if ( p_ProcessLocksList->Flink->Blink != p_ProcessLocksList || Blink->Flink != p_ProcessLocksList )
         __fastfail(3u);
-      *v9 = v8;
-      v8[1] = (__int64)v9;
+      Blink->Flink = Flink;
+      Flink->Blink = Blink;
     }
-    RtlReleaseSRWLockExclusive(&qword_18015C1F8);
-    v10 = sub_180008E00(*(unsigned __int16 *)(v4 + 2), *(unsigned __int16 *)(v4 + 44));
+    RtlReleaseSRWLockExclusive(&stru_18015C1F8);
+    v10 = sub_180008E00(DebugInfo->CreatorBackTraceIndex, DebugInfo->CreatorBackTraceIndexHigh);
     if ( v10 && qword_180159A08 )
       sub_1800F8F80(qword_180159A08, v10);
-    memset((void *)v4, 0, 0x30uLL);
+    memset(DebugInfo, 0, sizeof(_RTL_CRITICAL_SECTION_DEBUG));
     if ( !v6 )
-      sub_180008E24((PSLIST_ENTRY)v4);
+      sub_180008E24((PSLIST_ENTRY)DebugInfo);
   }
-  memset(a1, 0, 0x28uLL);
+  memset(CriticalSection, 0, sizeof(_RTL_CRITICAL_SECTION));
   return v3;
 }

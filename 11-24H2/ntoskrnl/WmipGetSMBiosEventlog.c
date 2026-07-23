@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipGetSMBiosEventlog @ 0x1407A4388
+ * XREFs of WmipGetSMBiosEventlog @ 0x1407A4498
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x140A41D60 (WmipQueryWmiDataBlock.c)
+ *     WmipQueryWmiDataBlock @ 0x140A37640 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     MmUnmapIoSpace @ 0x140263160 (MmUnmapIoSpace.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     RtlCopyDeviceMemory @ 0x140520F1C (RtlCopyDeviceMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     WmipFindSMBiosStructure @ 0x1407A4174 (WmipFindSMBiosStructure.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     MmUnmapIoSpace @ 0x1402929D0 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     RtlCopyDeviceMemory @ 0x14051E7EC (RtlCopyDeviceMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     WmipFindSMBiosStructure @ 0x1407A4284 (WmipFindSMBiosStructure.c)
  */
 
 __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
@@ -92,7 +92,7 @@ __int64 __fastcall WmipGetSMBiosEventlog(__int64 a1, unsigned int *a2)
       MmUnmapIoSpace(BaseAddress, (unsigned int)NumberOfBytes);
     ExReleaseResourceLite(&WmipSMBiosLock);
     KeLeaveCriticalRegion();
-    if ( v9 == 3 && (NumberOfBytes = v10, v16 = (char *)MmMapIoSpaceEx(v10, v8, 4u), v17 = v16, v14) && v16 )
+    if ( v9 == 3 && (NumberOfBytes = v10, v16 = (char *)MmMapIoSpaceEx(v10, v8, 4LL), v17 = v16, v14) && v16 )
     {
       RtlCopyDeviceMemory(v14, v16, v8);
       MmUnmapIoSpace(v17, v8);

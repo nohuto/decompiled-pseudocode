@@ -3,12 +3,12 @@
  * Callers:
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
- *     MiCaptureSecureImageBaseAddress @ 0x140A47F74 (MiCaptureSecureImageBaseAddress.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140A48224 (MiCaptureSecureImageBaseAddress.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MI_LOCK_RELOCATIONS_EXCLUSIVE(__int64 a1, __int64 a2)

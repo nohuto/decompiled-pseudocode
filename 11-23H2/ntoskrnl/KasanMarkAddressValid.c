@@ -1,10 +1,10 @@
 /*
- * XREFs of KasanMarkAddressValid @ 0x1405652A0
+ * XREFs of KasanMarkAddressValid @ 0x140565960
  * Callers:
- *     MmFreeIsrStack @ 0x140A3C778 (MmFreeIsrStack.c)
+ *     MmFreeIsrStack @ 0x140A3CA28 (MmFreeIsrStack.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall KasanMarkAddressValid(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIdleLoop @ 0x140161A70
+ * XREFs of KiIdleLoop @ 0x140161FE0
  * Callers:
  *     KiSystemStartup @ 0x1403C8010 (KiSystemStartup.c)
  * Callees:
- *     KiRetireDpcList @ 0x140058280 (KiRetireDpcList.c)
- *     KiQuantumEnd @ 0x1400D1780 (KiQuantumEnd.c)
- *     KiIdleSchedule @ 0x1400D2630 (KiIdleSchedule.c)
- *     PoIdle @ 0x1400D9F40 (PoIdle.c)
- *     SwapContext @ 0x140166000 (SwapContext.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
+ *     KiRetireDpcList @ 0x140057E00 (KiRetireDpcList.c)
+ *     KiQuantumEnd @ 0x1400CF620 (KiQuantumEnd.c)
+ *     KiIdleSchedule @ 0x1400D04D0 (KiIdleSchedule.c)
+ *     PoIdle @ 0x1400D7DE0 (PoIdle.c)
+ *     SwapContext @ 0x140166570 (SwapContext.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
  */
 
 void __fastcall __noreturn KiIdleLoop(__int64 a1, __int64 a2, _SINGLE_LIST_ENTRY *a3, __int64 a4)

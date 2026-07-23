@@ -16,7 +16,7 @@
 __int64 HalpVpptUpdatePhysicalTimer()
 {
   int v0; // ebx
-  unsigned __int64 v1; // rdi
+  LARGE_INTEGER v1; // rdi
   __int64 InternalData; // rax
   __int64 v3; // rdx
   __int64 v4; // rcx
@@ -24,16 +24,16 @@ __int64 HalpVpptUpdatePhysicalTimer()
   __int64 v6; // rdx
   int v7; // eax
   int v8; // ecx
-  unsigned __int64 InterruptTimePrecise; // rax
-  __int64 v10; // r8
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v10; // r8
   unsigned __int64 v11; // rdi
   unsigned __int64 v12; // rbx
   __int64 result; // rax
   int v14; // ecx
-  LARGE_INTEGER v15; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v0 = *(_DWORD *)(*(_QWORD *)&HalpVpptQueue + 16LL);
-  v1 = *(_QWORD *)(*(_QWORD *)&HalpVpptQueue + 32LL);
+  v1 = *(LARGE_INTEGER *)(*(_QWORD *)&HalpVpptQueue + 32LL);
   if ( HalpVpptPhysicalTimerTarget != v0 )
   {
     InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
@@ -51,9 +51,9 @@ __int64 HalpVpptUpdatePhysicalTimer()
       HalpVpptPhysicalTimerTarget = v0;
     }
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v15);
-  if ( InterruptTimePrecise <= v1 )
-    v11 = v1 - InterruptTimePrecise;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  if ( InterruptTimePrecise.QuadPart <= (unsigned __int64)v1.QuadPart )
+    v11 = v1.QuadPart - InterruptTimePrecise.QuadPart;
   else
     v11 = 0LL;
   v12 = 0x989680uLL / *(_QWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 192LL);
@@ -68,7 +68,11 @@ __int64 HalpVpptUpdatePhysicalTimer()
   }
   if ( v11 >= v12 )
     v12 = v11;
-  result = HalpSetTimerAnyMode(*(__int64 *)&HalpVpptPhysicalTimer, v12, v10, (unsigned __int64 *)&v15.QuadPart);
+  result = HalpSetTimerAnyMode(
+             *(__int64 *)&HalpVpptPhysicalTimer,
+             v12,
+             v10.QuadPart,
+             (unsigned __int64 *)&PerformanceCounter.QuadPart);
   if ( (int)result < 0 )
     ExtEnvCriticalFailure(v14, 277, HalpVpptPhysicalTimer, v12, (int)result);
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of BiIsVolumePartitionInformationRetained @ 0x140806DD0
+ * XREFs of BiIsVolumePartitionInformationRetained @ 0x1408070A0
  * Callers:
- *     BiConvertNtDeviceToBootEnvironment @ 0x140806608 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1408068D8 (BiConvertNtDeviceToBootEnvironment.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
  */
 
 bool __fastcall BiIsVolumePartitionInformationRetained(PCWSTR SourceString)

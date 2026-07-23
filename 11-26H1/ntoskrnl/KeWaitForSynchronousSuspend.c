@@ -1,7 +1,7 @@
 /*
- * XREFs of KeWaitForSynchronousSuspend @ 0x1405EC37C
+ * XREFs of KeWaitForSynchronousSuspend @ 0x1405EECEC
  * Callers:
- *     PspSuspendThread @ 0x140AD5030 (PspSuspendThread.c)
+ *     PspSuspendThread @ 0x140949620 (PspSuspendThread.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of DmrCheckPathMatch @ 0x14057947C
+ * XREFs of DmrCheckPathMatch @ 0x14057690C
  * Callers:
- *     DmrFindDrhdForDeviceScope @ 0x1405793B0 (DmrFindDrhdForDeviceScope.c)
- *     DmrValidateDeviceScope @ 0x1405797DC (DmrValidateDeviceScope.c)
- *     DmrEnumerateRmrrDomains @ 0x1405798D0 (DmrEnumerateRmrrDomains.c)
+ *     DmrFindDrhdForDeviceScope @ 0x140576840 (DmrFindDrhdForDeviceScope.c)
+ *     DmrValidateDeviceScope @ 0x140576C6C (DmrValidateDeviceScope.c)
+ *     DmrEnumerateRmrrDomains @ 0x140576D60 (DmrEnumerateRmrrDomains.c)
  * Callees:
  *     <none>
  */

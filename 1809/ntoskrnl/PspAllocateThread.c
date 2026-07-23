@@ -1,9 +1,9 @@
 /*
- * XREFs of PspAllocateThread @ 0x1405F7E84
+ * XREFs of PspAllocateThread @ 0x1405F8E84
  * Callers:
- *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     PspCreateThread @ 0x140621D64 (PspCreateThread.c)
- *     PspCreatePicoThread @ 0x14088C440 (PspCreatePicoThread.c)
+ *     NtCreateUserProcess @ 0x14060B950 (NtCreateUserProcess.c)
+ *     PspCreateThread @ 0x140622D64 (PspCreateThread.c)
+ *     PspCreatePicoThread @ 0x14088D6A0 (PspCreatePicoThread.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -11,34 +11,34 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeQuerySystemTimeUnsafe @ 0x14008A3C4 (KeQuerySystemTimeUnsafe.c)
- *     KeInitializeSemaphore @ 0x14008A3E0 (KeInitializeSemaphore.c)
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     KeSchedulerAssistThreadFlagEnabled @ 0x14008A40C (KeSchedulerAssistThreadFlagEnabled.c)
- *     KeQueryMaximumGroupCount @ 0x14008A420 (KeQueryMaximumGroupCount.c)
- *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
- *     PsQueryThreadStartAddress @ 0x1400A3970 (PsQueryThreadStartAddress.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
- *     KeSelectIdealProcessor @ 0x1400D89B4 (KeSelectIdealProcessor.c)
- *     KeSelectNodeForAffinity @ 0x140115768 (KeSelectNodeForAffinity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KeInitThread @ 0x1405656E0 (KeInitThread.c)
- *     ExCreateHandleEx @ 0x1405D1380 (ExCreateHandleEx.c)
- *     MmDeleteTeb @ 0x1405DF66C (MmDeleteTeb.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     MmSecureVirtualMemoryEx @ 0x1405F5CB8 (MmSecureVirtualMemoryEx.c)
- *     MmCreateTeb @ 0x1405F8848 (MmCreateTeb.c)
- *     PspSetupUserStack @ 0x1405F8DD0 (PspSetupUserStack.c)
- *     PspWow64InitThread @ 0x1406A7F5C (PspWow64InitThread.c)
- *     PspWow64SetupUserStack @ 0x1406BBBC8 (PspWow64SetupUserStack.c)
- *     PspDeleteUserStack @ 0x1406CB070 (PspDeleteUserStack.c)
- *     PspUmsInitThread @ 0x14088AD0C (PspUmsInitThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KeQuerySystemTimeUnsafe @ 0x14008A3B4 (KeQuerySystemTimeUnsafe.c)
+ *     KeInitializeSemaphore @ 0x14008A3D0 (KeInitializeSemaphore.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     KeSchedulerAssistThreadFlagEnabled @ 0x14008A3FC (KeSchedulerAssistThreadFlagEnabled.c)
+ *     KeQueryMaximumGroupCount @ 0x14008A410 (KeQueryMaximumGroupCount.c)
+ *     KeQuerySystemTimePrecise @ 0x14008A4E0 (KeQuerySystemTimePrecise.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlGetExtendedContextLength @ 0x1400A1C84 (RtlGetExtendedContextLength.c)
+ *     PsQueryThreadStartAddress @ 0x1400A38B0 (PsQueryThreadStartAddress.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACEC0 (PoEnergyEstimationEnabled.c)
+ *     KeSelectIdealProcessor @ 0x1400D8A34 (KeSelectIdealProcessor.c)
+ *     KeSelectNodeForAffinity @ 0x1401157D8 (KeSelectNodeForAffinity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     KeInitThread @ 0x1405666E0 (KeInitThread.c)
+ *     ExCreateHandleEx @ 0x1405D2380 (ExCreateHandleEx.c)
+ *     MmDeleteTeb @ 0x1405E066C (MmDeleteTeb.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     MmSecureVirtualMemoryEx @ 0x1405F6CB0 (MmSecureVirtualMemoryEx.c)
+ *     MmCreateTeb @ 0x1405F9848 (MmCreateTeb.c)
+ *     PspSetupUserStack @ 0x1405F9DD0 (PspSetupUserStack.c)
+ *     PspWow64InitThread @ 0x1406A91FC (PspWow64InitThread.c)
+ *     PspWow64SetupUserStack @ 0x1406BCE68 (PspWow64SetupUserStack.c)
+ *     PspDeleteUserStack @ 0x1406CC310 (PspDeleteUserStack.c)
+ *     PspUmsInitThread @ 0x14088BF6C (PspUmsInitThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspAllocateThread(
@@ -105,7 +105,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v63; // [rsp+90h] [rbp-F8h]
   __int64 v64; // [rsp+98h] [rbp-F0h]
   __int64 v65; // [rsp+A0h] [rbp-E8h]
-  SIZE_T NumberOfBytes; // [rsp+A8h] [rbp-E0h]
+  ULONG ContextLength; // [rsp+A8h] [rbp-E0h] BYREF
   struct _KTHREAD *v67; // [rsp+B0h] [rbp-D8h]
   _KPROCESS *v68; // [rsp+B8h] [rbp-D0h]
   __int64 v69; // [rsp+C0h] [rbp-C8h]
@@ -250,7 +250,7 @@ LABEL_78:
     *((_QWORD *)v26 + 249) = -3LL;
     if ( KeQuerySystemTimeUnsafe() )
     {
-      KeQuerySystemTimePrecise((__int64 *)v26 + 190);
+      KeQuerySystemTimePrecise((LARGE_INTEGER *)v26 + 190);
     }
     else
     {
@@ -319,8 +319,8 @@ LABEL_78:
         *((_QWORD *)v26 + 244) = *(_QWORD *)(v63 + 8);
         *((_QWORD *)v26 + 245) = *(_QWORD *)(v46 + 16);
         _interlockedbittestandset((volatile signed __int32 *)v26, 0x1Au);
-        RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607);
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x63537350u);
+        RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &ContextLength);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, ContextLength, 0x63537350u);
         v26 = (char *)Object;
         *((_QWORD *)Object + 251) = PoolWithTag;
         if ( !PoolWithTag )
@@ -519,7 +519,7 @@ LABEL_109:
   {
     *(_DWORD *)(a4 + 4) = v21 | 0x1000;
     *(_WORD *)(a4 + 328) = *(unsigned __int8 *)(v20 + 208);
-    *(_QWORD *)(a4 + 320) = qword_1405416A8[*(unsigned __int8 *)(v20 + 208)];
+    *(_QWORD *)(a4 + 320) = qword_1405426A8[*(unsigned __int8 *)(v20 + 208)];
 LABEL_71:
     v18 = *(unsigned __int16 *)(*(_QWORD *)(v20 + 192) + 146LL) + 1;
     goto LABEL_8;

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpFreeLoggerContext @ 0x1406C08A0
+ * XREFs of EtwpFreeLoggerContext @ 0x1406C1B40
  * Callers:
- *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
- *     EtwpStopTrace @ 0x140658F90 (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1405C2430 (EtwpLogger.c)
+ *     EtwpStopTrace @ 0x14065A150 (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
  * Callees:
  *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14000E780 (ExWaitForRundownProtectionReleaseCacheAware.c)
  *     ExReInitializeRundownProtectionCacheAware @ 0x14000E830 (ExReInitializeRundownProtectionCacheAware.c)
@@ -11,22 +11,22 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9810 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ExDeleteTimer @ 0x1400F9890 (ExDeleteTimer.c)
- *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
- *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
- *     EtwpFreeCompression @ 0x140132938 (EtwpFreeCompression.c)
- *     EtwpCancelPendingStackwalkApcs @ 0x140132990 (EtwpCancelPendingStackwalkApcs.c)
- *     KeRemoveQueueDpc @ 0x1401329E0 (KeRemoveQueueDpc.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     EtwpFreeTraceBufferPool @ 0x1406C0D24 (EtwpFreeTraceBufferPool.c)
- *     EtwpRealtimeDisconnectAllConsumers @ 0x1406C0EC4 (EtwpRealtimeDisconnectAllConsumers.c)
- *     EtwpFreeStackCache @ 0x1408C38C0 (EtwpFreeStackCache.c)
- *     EtwpCancelMemoryPreservation @ 0x1408C9E0C (EtwpCancelMemoryPreservation.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9890 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExDeleteTimer @ 0x1400F9910 (ExDeleteTimer.c)
+ *     ExReleaseExtensionTable @ 0x14010DC6C (ExReleaseExtensionTable.c)
+ *     KeGenericCallDpc @ 0x140120460 (KeGenericCallDpc.c)
+ *     EtwpFreeCompression @ 0x140132A08 (EtwpFreeCompression.c)
+ *     EtwpCancelPendingStackwalkApcs @ 0x140132A60 (EtwpCancelPendingStackwalkApcs.c)
+ *     KeRemoveQueueDpc @ 0x140132AB0 (KeRemoveQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1405CA410 (ObDereferenceSecurityDescriptor.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     EtwpFreeTraceBufferPool @ 0x1406C1FC4 (EtwpFreeTraceBufferPool.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x1406C2164 (EtwpRealtimeDisconnectAllConsumers.c)
+ *     EtwpFreeStackCache @ 0x1408C4B80 (EtwpFreeStackCache.c)
+ *     EtwpCancelMemoryPreservation @ 0x1408CB0CC (EtwpCancelMemoryPreservation.c)
  */
 
 void __fastcall EtwpFreeLoggerContext(char *P)
@@ -152,7 +152,7 @@ void __fastcall EtwpFreeLoggerContext(char *P)
   }
   if ( (v17 & 0x2000) != 0 )
   {
-    _InterlockedDecrement(&dword_14043F9E0);
+    _InterlockedDecrement(&dword_140440AA0);
     v17 = *((_DWORD *)P + 208);
   }
   if ( (v17 & 0x1000000) != 0 )
@@ -169,7 +169,7 @@ void __fastcall EtwpFreeLoggerContext(char *P)
       do
       {
         if ( *v19 )
-          off_1403FE520[0]();
+          off_1403FF520[0]();
         ++v19;
         --v20;
       }
@@ -182,14 +182,14 @@ void __fastcall EtwpFreeLoggerContext(char *P)
   {
     if ( (*((_DWORD *)P + 208) & 0x8000) != 0 )
     {
-      _InterlockedDecrement(&dword_14043FA00);
+      _InterlockedDecrement(&dword_140440AC0);
       v21 = (_DWORD *)*((_QWORD *)P + 126);
     }
     if ( v21 )
     {
       if ( *v21 )
       {
-        ((void (__fastcall *)(_QWORD))off_1403FE6F8[0])((unsigned int)*v21);
+        ((void (__fastcall *)(_QWORD))off_1403FF6F8[0])((unsigned int)*v21);
         v21 = (_DWORD *)*((_QWORD *)P + 126);
       }
       ExFreePoolWithTag(v21, 0);

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDbgReadWriteEnclave @ 0x140B47294
+ * XREFs of MiDbgReadWriteEnclave @ 0x140B492C4
  * Callers:
- *     MiCopyVmReadBytes @ 0x140A228B0 (MiCopyVmReadBytes.c)
- *     MiCopyVmWriteBytes @ 0x140A22BB0 (MiCopyVmWriteBytes.c)
+ *     MiCopyVmReadBytes @ 0x140A2BED0 (MiCopyVmReadBytes.c)
+ *     MiCopyVmWriteBytes @ 0x140A2C1D0 (MiCopyVmWriteBytes.c)
  * Callees:
- *     KeDebugWriteEnclaveMemory @ 0x1407BA0BC (KeDebugWriteEnclaveMemory.c)
- *     MiDbgReadWriteEnclaveUnaligned @ 0x140B4737C (MiDbgReadWriteEnclaveUnaligned.c)
- *     KeDebugReadEnclaveMemory @ 0x140B47438 (KeDebugReadEnclaveMemory.c)
+ *     KeDebugWriteEnclaveMemory @ 0x1407BD11C (KeDebugWriteEnclaveMemory.c)
+ *     MiDbgReadWriteEnclaveUnaligned @ 0x140B493AC (MiDbgReadWriteEnclaveUnaligned.c)
+ *     KeDebugReadEnclaveMemory @ 0x140B49468 (KeDebugReadEnclaveMemory.c)
  */
 
 __int64 __fastcall MiDbgReadWriteEnclave(__int64 a1, __int64 a2, unsigned __int64 a3, int a4, __int64 *a5)

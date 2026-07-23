@@ -1,43 +1,37 @@
 /*
- * XREFs of BiLogFileOwnerProcess @ 0x1405C3B80
+ * XREFs of BiLogFileOwnerProcess @ 0x1405C3DB0
  * Callers:
- *     BiLoadSystemStore @ 0x140781BD4 (BiLoadSystemStore.c)
+ *     BiLoadSystemStore @ 0x140781D94 (BiLoadSystemStore.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
- *     ZwQueryInformationProcess @ 0x1403FA6C0 (ZwQueryInformationProcess.c)
- *     ZwOpenProcess @ 0x1403FA860 (ZwOpenProcess.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     IopDmaOverrideConflict @ 0x140726270 (IopDmaOverrideConflict.c)
- *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403FA7A0 (ZwQueryInformationFile.c)
+ *     ZwQueryInformationProcess @ 0x1403FA8A0 (ZwQueryInformationProcess.c)
+ *     ZwOpenProcess @ 0x1403FAA40 (ZwOpenProcess.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     IopDmaOverrideConflict @ 0x140726440 (IopDmaOverrideConflict.c)
+ *     BiLogMessage @ 0x140784F5C (BiLogMessage.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 unsigned int __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int *v3; // rsi
-  PVOID v4; // rdi
+  _QWORD *v4; // rdi
   unsigned int result; // eax
   __int64 v6; // rcx
   UNICODE_STRING *v7; // r9
   NTSTATUS v8; // eax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  _DWORD *v11; // r9
   unsigned int *PoolWithTag; // rax
-  NTSTATUS v13; // eax
-  unsigned int v14; // r14d
-  NTSTATUS v15; // eax
-  unsigned int InformationProcess; // eax
-  int v17; // eax
-  const wchar_t *v18; // r9
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  _DWORD *v21; // r9
+  NTSTATUS v10; // eax
+  unsigned int v11; // r14d
+  NTSTATUS v12; // eax
+  unsigned int v13; // eax
+  NTSTATUS v14; // eax
+  const wchar_t *v15; // r9
   CLIENT_ID ClientId; // [rsp+30h] [rbp-49h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-39h] BYREF
-  OBJECT_ATTRIBUTES v24; // [rsp+50h] [rbp-29h] BYREF
+  OBJECT_ATTRIBUTES v18; // [rsp+50h] [rbp-29h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp+7h] BYREF
   ULONG Length; // [rsp+E8h] [rbp+6Fh] BYREF
   HANDLE ProcessHandle; // [rsp+F0h] [rbp+77h] BYREF
@@ -50,7 +44,7 @@ unsigned int __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3
   IoStatusBlock = 0LL;
   Length = 0;
   v4 = 0LL;
-  memset(&v24, 0, sizeof(v24));
+  memset(&v18, 0, sizeof(v18));
   ProcessHandle = 0LL;
   FileHandle = 0LL;
   result = IopDmaOverrideConflict(a1, a2, a3, a1);
@@ -76,15 +70,15 @@ unsigned int __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3
     result = BiLogMessage(4LL, L"Failed to allocate process ID buffer.");
     goto LABEL_29;
   }
-  v13 = ZwQueryInformationFile(FileHandle, &IoStatusBlock, PoolWithTag, Length, FileProcessIdsUsingFileInformation);
-  if ( v13 < 0 )
+  v10 = ZwQueryInformationFile(FileHandle, &IoStatusBlock, PoolWithTag, Length, FileProcessIdsUsingFileInformation);
+  if ( v10 < 0 )
   {
-    result = BiLogMessage(4LL, L"Failed to query processes. Status: %x", (unsigned int)v13);
+    result = BiLogMessage(4LL, L"Failed to query processes. Status: %x", (unsigned int)v10);
 LABEL_29:
     if ( ProcessHandle )
       result = ZwClose(ProcessHandle);
     if ( v4 )
-      result = (unsigned int)ExFreeHeapPool((ULONG_PTR)v4, v9, v10, v11);
+      result = (unsigned int)ExFreeHeapPool((ULONG_PTR)v4);
     goto LABEL_33;
   }
   if ( !*v3 )
@@ -93,24 +87,24 @@ LABEL_29:
     goto LABEL_29;
   }
   result = BiLogMessage(2LL, L"Found %d processes using this file.");
-  v14 = 0;
+  v11 = 0;
   if ( *v3 )
   {
     while ( 1 )
     {
       ClientId.UniqueThread = 0LL;
-      ClientId.UniqueProcess = *(HANDLE *)&v3[2 * v14 + 2];
-      v24.Length = 48;
-      memset(&v24.RootDirectory, 0, 20);
-      *(_OWORD *)&v24.SecurityDescriptor = 0LL;
-      v15 = ZwOpenProcess(&ProcessHandle, 0x1000u, &v24, &ClientId);
-      if ( v15 < 0 )
+      ClientId.UniqueProcess = *(HANDLE *)&v3[2 * v11 + 2];
+      v18.Length = 48;
+      memset(&v18.RootDirectory, 0, 20);
+      *(_OWORD *)&v18.SecurityDescriptor = 0LL;
+      v12 = ZwOpenProcess(&ProcessHandle, 0x1000u, &v18, &ClientId);
+      if ( v12 < 0 )
         break;
       Length = 0;
-      InformationProcess = ZwQueryInformationProcess((__int64)ProcessHandle, 27LL);
-      if ( InformationProcess != -2147483643 && InformationProcess != -1073741789 && InformationProcess != -1073741820 )
+      v13 = ZwQueryInformationProcess(ProcessHandle, ProcessImageFileName, 0LL, 0, &Length);
+      if ( v13 != -2147483643 && v13 != -1073741789 && v13 != -1073741820 )
       {
-        result = BiLogMessage(4LL, L"Failed to query process information for size. Status: %x", InformationProcess);
+        result = BiLogMessage(4LL, L"Failed to query process information for size. Status: %x", v13);
         goto LABEL_28;
       }
       v4 = ExAllocatePoolWithTag(PagedPool, Length, 0x4B444342u);
@@ -119,33 +113,33 @@ LABEL_29:
         result = BiLogMessage(4LL, L"Failed to allocate memory for space for process name.");
         goto LABEL_29;
       }
-      v17 = ZwQueryInformationProcess((__int64)ProcessHandle, 27LL);
-      if ( v17 < 0 )
+      v14 = ZwQueryInformationProcess(ProcessHandle, ProcessImageFileName, v4, Length, &Length);
+      if ( v14 < 0 )
       {
-        result = BiLogMessage(4LL, L"Failed to query process info. Status: %x", (unsigned int)v17);
+        result = BiLogMessage(4LL, L"Failed to query process info. Status: %x", (unsigned int)v14);
         goto LABEL_29;
       }
       if ( *(_WORD *)v4 )
-        v18 = (const wchar_t *)*((_QWORD *)v4 + 1);
+        v15 = (const wchar_t *)v4[1];
       else
-        v18 = L"System";
-      BiLogMessage(4LL, L"Process Name [%d]: %ws", v14, v18, &Length);
+        v15 = L"System";
+      BiLogMessage(4LL, L"Process Name [%d]: %ws", v11, v15);
       ZwClose(ProcessHandle);
       ProcessHandle = 0LL;
-      result = (unsigned int)ExFreeHeapPool((ULONG_PTR)v4, v19, v20, v21);
-      ++v14;
+      result = (unsigned int)ExFreeHeapPool((ULONG_PTR)v4);
+      ++v11;
       v4 = 0LL;
-      if ( v14 >= *v3 )
+      if ( v11 >= *v3 )
         goto LABEL_29;
     }
-    result = BiLogMessage(4LL, L"Failed to open process. Status: %x", (unsigned int)v15);
+    result = BiLogMessage(4LL, L"Failed to open process. Status: %x", (unsigned int)v12);
 LABEL_28:
     v4 = 0LL;
     goto LABEL_29;
   }
 LABEL_33:
   if ( v3 )
-    result = (unsigned int)ExFreeHeapPool((ULONG_PTR)v3, v9, v10, v11);
+    result = (unsigned int)ExFreeHeapPool((ULONG_PTR)v3);
   if ( FileHandle )
     return ZwClose(FileHandle);
   return result;

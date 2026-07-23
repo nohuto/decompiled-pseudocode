@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpGetEnableInfoIndex @ 0x140228648
+ * XREFs of EtwpGetEnableInfoIndex @ 0x140228758
  * Callers:
- *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE40 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpUpdateGuidEnableInfo @ 0x140780878 (EtwpUpdateGuidEnableInfo.c)
- *     EtwpBufferingModeFlush @ 0x1408A7A28 (EtwpBufferingModeFlush.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E74D0 (EtwpNotifyDisallowedGuidChange.c)
- *     SendCaptureStateNotificationsWorker @ 0x1409ECDD0 (SendCaptureStateNotificationsWorker.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x1409F55E4 (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE70 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x140780A68 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpBufferingModeFlush @ 0x1408A7C78 (EtwpBufferingModeFlush.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1409E7760 (EtwpNotifyDisallowedGuidChange.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1409ED060 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x1409F5874 (EtwpTrackGuidEntryRegistrations.c)
  * Callees:
  *     <none>
  */

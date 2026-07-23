@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefIntCopy @ 0x1405371D8
+ * XREFs of SymCryptFdefIntCopy @ 0x140531678
  * Callers:
- *     SymCryptIntCopy @ 0x140523814 (SymCryptIntCopy.c)
- *     SymCryptFdefIntToDivisor @ 0x14052F24C (SymCryptFdefIntToDivisor.c)
+ *     SymCryptIntCopy @ 0x14052112C (SymCryptIntCopy.c)
+ *     SymCryptFdefIntToDivisor @ 0x1405296F4 (SymCryptFdefIntToDivisor.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void *__fastcall SymCryptFdefIntCopy(__int64 a1, __int64 a2)

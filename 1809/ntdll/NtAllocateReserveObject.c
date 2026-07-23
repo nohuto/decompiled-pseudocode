@@ -1,16 +1,19 @@
 /*
- * XREFs of NtAllocateReserveObject @ 0x1800A10F0
+ * XREFs of NtAllocateReserveObject @ 0x1800A1110
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtAllocateReserveObject()
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 113LL;
+  result = 113;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

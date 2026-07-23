@@ -1,5 +1,5 @@
 /*
- * XREFs of TppQueueRemoveHead @ 0x180127C44
+ * XREFs of TppQueueRemoveHead @ 0x180127C14
  * Callers:
  *     TpReleasePool @ 0x180085680 (TpReleasePool.c)
  * Callees:
@@ -7,21 +7,21 @@
  *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)
  */
 
-volatile signed __int64 *__fastcall TppQueueRemoveHead(volatile signed __int64 *a1)
+_RTL_SRWLOCK *__fastcall TppQueueRemoveHead(_RTL_SRWLOCK *a1)
 {
-  volatile signed __int64 *v2; // rdi
-  volatile signed __int64 v3; // rax
-  volatile signed __int64 *result; // rax
+  _RTL_SRWLOCK *Value; // rdi
+  unsigned __int64 v3; // rax
+  _RTL_SRWLOCK *result; // rax
 
   RtlAcquireSRWLockExclusive(a1 + 2);
-  v2 = (volatile signed __int64 *)*a1;
-  if ( *(volatile signed __int64 **)(*a1 + 8) != a1 || (v3 = *v2, *(volatile signed __int64 **)(*v2 + 8) != v2) )
+  Value = (_RTL_SRWLOCK *)a1->Value;
+  if ( *(_RTL_SRWLOCK **)(a1->Value + 8) != a1 || (v3 = Value->Value, *(_RTL_SRWLOCK **)(Value->Value + 8) != Value) )
     __fastfail(3u);
-  *a1 = v3;
+  a1->Value = v3;
   *(_QWORD *)(v3 + 8) = a1;
   RtlReleaseSRWLockExclusive(a1 + 2);
   result = 0LL;
-  if ( v2 != a1 )
-    return v2;
+  if ( Value != a1 )
+    return Value;
   return result;
 }

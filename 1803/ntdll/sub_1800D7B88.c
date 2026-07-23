@@ -8,18 +8,18 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall sub_1800D7B88(_QWORD *a1)
+NTSTATUS __fastcall sub_1800D7B88(PHANDLE EventHandle)
 {
-  _OWORD v3[3]; // [rsp+30h] [rbp-38h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
-  memset(v3, 0, sizeof(v3));
-  if ( !a1 )
-    return 3221225711LL;
-  *a1 = 0LL;
-  LODWORD(v3[0]) = 48;
-  *((_QWORD *)&v3[0] + 1) = 0LL;
-  DWORD2(v3[1]) = 2;
-  *(_QWORD *)&v3[1] = 0LL;
-  v3[2] = 0LL;
-  return ZwCreateEvent();
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  if ( !EventHandle )
+    return -1073741585;
+  *EventHandle = 0LL;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 2;
+  ObjectAttributes.ObjectName = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  return ZwCreateEvent(EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
 }

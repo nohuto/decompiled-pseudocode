@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAdjustCachedStackList @ 0x1402698A4
+ * XREFs of MiAdjustCachedStackList @ 0x1402AF530
  * Callers:
- *     MiAdjustCachedStacks @ 0x140269740 (MiAdjustCachedStacks.c)
+ *     MiAdjustCachedStacks @ 0x1402AF604 (MiAdjustCachedStacks.c)
  * Callees:
- *     MiPruneCachedStackList @ 0x14048CBC8 (MiPruneCachedStackList.c)
- *     MiRemoveNonIdealCachedStacks @ 0x1406800B0 (MiRemoveNonIdealCachedStacks.c)
+ *     MiPruneCachedStackList @ 0x1404878E8 (MiPruneCachedStackList.c)
+ *     MiRemoveNonIdealCachedStacks @ 0x1406812B0 (MiRemoveNonIdealCachedStacks.c)
  */
 
 __int64 __fastcall MiAdjustCachedStackList(__int64 a1, __int64 a2, int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsPteDecommittedPage @ 0x140312010
+ * XREFs of MiIsPteDecommittedPage @ 0x140314040
  * Callers:
- *     MiConfirmFaultClusterDescriptor @ 0x1402ECD70 (MiConfirmFaultClusterDescriptor.c)
- *     MiCommitVadFillPageTables @ 0x140310ED0 (MiCommitVadFillPageTables.c)
- *     MiComputePageCommitment @ 0x140311CE0 (MiComputePageCommitment.c)
+ *     MiConfirmFaultClusterDescriptor @ 0x1402CEDB0 (MiConfirmFaultClusterDescriptor.c)
+ *     MiCommitVadFillPageTables @ 0x140312F04 (MiCommitVadFillPageTables.c)
+ *     MiComputePageCommitment @ 0x140313D10 (MiComputePageCommitment.c)
  * Callees:
  *     <none>
  */

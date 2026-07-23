@@ -41,9 +41,9 @@ void *DrvDbGetSecurityDescriptor()
   void *v16; // rbx
   _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-30h] BYREF
   __int64 v19; // [rsp+50h] [rbp-10h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+A0h] [rbp+40h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v21; // [rsp+A8h] [rbp+48h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v22; // [rsp+B0h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+A0h] [rbp+40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v21; // [rsp+A8h] [rbp+48h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v22; // [rsp+B0h] [rbp+50h] BYREF
 
   v0 = 0LL;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
@@ -99,9 +99,9 @@ void *DrvDbGetSecurityDescriptor()
                           if ( v12 )
                           {
                             if ( RtlCreateAcl(v12, v11, 2u) >= 0
-                              && (int)RtlpAddKnownAce((__int64)v13, 2u, 2, 983103, (unsigned __int8 *)Src, 0) >= 0
-                              && (int)RtlpAddKnownAce((__int64)v13, 2u, 2, 0x20000, (unsigned __int8 *)v4, 0) >= 0
-                              && (int)RtlpAddKnownAce((__int64)v13, 2u, 2, 131097, (unsigned __int8 *)v6, 0) >= 0
+                              && (int)RtlpAddKnownAce(v13, 2u, 2, 983103, (unsigned __int8 *)Src, 0) >= 0
+                              && (int)RtlpAddKnownAce(v13, 2u, 2, 0x20000, (unsigned __int8 *)v4, 0) >= 0
+                              && (int)RtlpAddKnownAce(v13, 2u, 2, 131097, (unsigned __int8 *)v6, 0) >= 0
                               && RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
                               && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v13, 0) >= 0
                               && RtlSetOwnerSecurityDescriptor(SecurityDescriptor, v8, 1u) >= 0

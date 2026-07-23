@@ -1,13 +1,13 @@
 /*
- * XREFs of IoPerfInit @ 0x1402851F4
+ * XREFs of IoPerfInit @ 0x1402853E4
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
- *     IoRegisterIoTracking @ 0x14081DF80 (IoRegisterIoTracking.c)
+ *     EtwpEnableKernelTrace @ 0x1406C6A30 (EtwpEnableKernelTrace.c)
+ *     IoRegisterIoTracking @ 0x14081F180 (IoRegisterIoTracking.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     IopUpdateFunctionPointers @ 0x14027F484 (IopUpdateFunctionPointers.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopUpdateFunctionPointers @ 0x14027F674 (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IoPerfInit(int a1)
@@ -21,9 +21,9 @@ __int64 __fastcall IoPerfInit(int a1)
   v2 = IopPerfStatus == 0;
   IopPerfStatus |= a1;
   if ( (a1 & 1) != 0 )
-    ++dword_1404DC934;
+    ++dword_1404DDA34;
   if ( (a1 & 2) != 0 )
-    ++dword_1404DC938;
+    ++dword_1404DDA38;
   if ( v2 )
     IopUpdateFunctionPointers(2, 1, 1);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);

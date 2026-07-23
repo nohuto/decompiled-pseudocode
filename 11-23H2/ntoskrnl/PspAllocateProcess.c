@@ -1,9 +1,9 @@
 /*
- * XREFs of PspAllocateProcess @ 0x1406B442C
+ * XREFs of PspAllocateProcess @ 0x1406B45D8
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PsCreateMinimalProcess @ 0x140852EAC (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x14085C7C0 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
+ *     PsCreateMinimalProcess @ 0x1408531AC (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x14085CA00 (PspCreateProcess.c)
  * Callees:
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
  *     KeQueryUnbiasedInterruptTime @ 0x1402235A0 (KeQueryUnbiasedInterruptTime.c)
@@ -11,97 +11,97 @@
  *     KeIsUserCetAllowed @ 0x140223CC4 (KeIsUserCetAllowed.c)
  *     PspLockProcessExclusive @ 0x140223CD8 (PspLockProcessExclusive.c)
  *     KeStartIdealProcessorAssignmentBlock @ 0x140223D00 (KeStartIdealProcessorAssignmentBlock.c)
- *     KeInitializeIdealProcessorAssignmentBlock @ 0x140224688 (KeInitializeIdealProcessorAssignmentBlock.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeQuerySystemTimePrecise @ 0x1402BE530 (KeQuerySystemTimePrecise.c)
- *     KeQueryMaximumGroupCount @ 0x1402BE620 (KeQueryMaximumGroupCount.c)
- *     KeQuerySystemTimeUnsafe @ 0x1402BF81C (KeQuerySystemTimeUnsafe.c)
- *     PoEnergyEstimationEnabled @ 0x1402C0B50 (PoEnergyEstimationEnabled.c)
- *     MmGetDefaultPagePriority @ 0x1402F5F64 (MmGetDefaultPagePriority.c)
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
- *     KeCopyXfdMaskToPeb @ 0x14032A190 (KeCopyXfdMaskToPeb.c)
- *     KeQueryAffinityProcess @ 0x14034C110 (KeQueryAffinityProcess.c)
- *     KeQueryActiveGroupCount @ 0x140362470 (KeQueryActiveGroupCount.c)
- *     KeSelectGroupFromNode @ 0x140364490 (KeSelectGroupFromNode.c)
- *     PspWow64PickBestNtdll @ 0x14036B324 (PspWow64PickBestNtdll.c)
- *     PspUnlockProcessExclusive @ 0x14036BF38 (PspUnlockProcessExclusive.c)
- *     KeSetCpuSetsProcess @ 0x14039CB24 (KeSetCpuSetsProcess.c)
- *     KeSelectNodeForAffinity @ 0x1403B54B8 (KeSelectNodeForAffinity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoDiskIoAttributionReference @ 0x140463A78 (IoDiskIoAttributionReference.c)
- *     KeSecureProcess @ 0x14056F740 (KeSecureProcess.c)
+ *     KeInitializeIdealProcessorAssignmentBlock @ 0x140224790 (KeInitializeIdealProcessorAssignmentBlock.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeQuerySystemTimePrecise @ 0x1402BE7C0 (KeQuerySystemTimePrecise.c)
+ *     KeQueryMaximumGroupCount @ 0x1402BE8B0 (KeQueryMaximumGroupCount.c)
+ *     KeQuerySystemTimeUnsafe @ 0x1402BFAAC (KeQuerySystemTimeUnsafe.c)
+ *     PoEnergyEstimationEnabled @ 0x1402C0DE0 (PoEnergyEstimationEnabled.c)
+ *     MmGetDefaultPagePriority @ 0x1402F61F4 (MmGetDefaultPagePriority.c)
+ *     PsReferencePartitionSafe @ 0x1402F9EAC (PsReferencePartitionSafe.c)
+ *     KeCopyXfdMaskToPeb @ 0x14032A420 (KeCopyXfdMaskToPeb.c)
+ *     KeQueryAffinityProcess @ 0x14034C2B0 (KeQueryAffinityProcess.c)
+ *     KeQueryActiveGroupCount @ 0x140362610 (KeQueryActiveGroupCount.c)
+ *     KeSelectGroupFromNode @ 0x140364630 (KeSelectGroupFromNode.c)
+ *     PspWow64PickBestNtdll @ 0x14036B4C4 (PspWow64PickBestNtdll.c)
+ *     PspUnlockProcessExclusive @ 0x14036C0D8 (PspUnlockProcessExclusive.c)
+ *     KeSetCpuSetsProcess @ 0x14039CD04 (KeSetCpuSetsProcess.c)
+ *     KeSelectNodeForAffinity @ 0x1403B5698 (KeSelectNodeForAffinity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoDiskIoAttributionReference @ 0x140463E78 (IoDiskIoAttributionReference.c)
+ *     KeSecureProcess @ 0x14056FC80 (KeSecureProcess.c)
  *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
- *     PspInitializeFullProcessImageName @ 0x1406B3468 (PspInitializeFullProcessImageName.c)
- *     ObInitProcess @ 0x1406B362C (ObInitProcess.c)
- *     PspApplyMitigationOptions @ 0x1406B3700 (PspApplyMitigationOptions.c)
- *     PspInheritMitigationAuditOptions @ 0x1406B4330 (PspInheritMitigationAuditOptions.c)
- *     RtlQueryImageFileKeyOption @ 0x1406B6070 (RtlQueryImageFileKeyOption.c)
- *     PspInheritMitigationOptions @ 0x1406B6248 (PspInheritMitigationOptions.c)
- *     MmGetSessionSchedulingGroupByProcess @ 0x1406B631C (MmGetSessionSchedulingGroupByProcess.c)
- *     ObCreateObject @ 0x1406B6350 (ObCreateObject.c)
- *     SmProcessCreateNotification @ 0x1406B639C (SmProcessCreateNotification.c)
- *     PspComputeQuantumAndPriority @ 0x1406B63FC (PspComputeQuantumAndPriority.c)
- *     PspInitializeProcessSecurity @ 0x1406B64F0 (PspInitializeProcessSecurity.c)
- *     KeInitializeProcess @ 0x1406B66E8 (KeInitializeProcess.c)
- *     ObRetagReferences @ 0x1406B69A0 (ObRetagReferences.c)
- *     PspReadIFEOMitigationOptions @ 0x1406B707C (PspReadIFEOMitigationOptions.c)
- *     PspReadIFEOMitigationAuditOptions @ 0x1406B7104 (PspReadIFEOMitigationAuditOptions.c)
- *     PspSelectMachineForProcess @ 0x1406B7B58 (PspSelectMachineForProcess.c)
- *     PspUpdateCreateInfo @ 0x1406B9974 (PspUpdateCreateInfo.c)
- *     SeIsTokenAssignableToProcess @ 0x1406BA488 (SeIsTokenAssignableToProcess.c)
- *     PspSelectNodeForProcess @ 0x140705DAC (PspSelectNodeForProcess.c)
- *     MmCreateProcessAddressSpace @ 0x140705E50 (MmCreateProcessAddressSpace.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
- *     SeQuerySessionIdToken @ 0x14071A060 (SeQuerySessionIdToken.c)
- *     PsQueryProcessAttributes @ 0x14071DE14 (PsQueryProcessAttributes.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     ExCreateHandle @ 0x14073F824 (ExCreateHandle.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PspSetupUserProcessAddressSpace @ 0x1407A125C (PspSetupUserProcessAddressSpace.c)
- *     PspPrepareSystemDllInitBlock @ 0x1407A14C8 (PspPrepareSystemDllInitBlock.c)
- *     PsWow64GetProcessNtdllType @ 0x1407A1740 (PsWow64GetProcessNtdllType.c)
- *     PspMapSiloSharedDataView @ 0x1407A175C (PspMapSiloSharedDataView.c)
- *     MmMapApiSetView @ 0x1407A1794 (MmMapApiSetView.c)
- *     MmCreatePeb @ 0x1407A189C (MmCreatePeb.c)
- *     PspWritePebAffinityInfo @ 0x1407A26FC (PspWritePebAffinityInfo.c)
- *     MmIsSessionLeaderProcess @ 0x1407A9BA0 (MmIsSessionLeaderProcess.c)
- *     MmGetSectionInformation @ 0x1407BA090 (MmGetSectionInformation.c)
- *     MmSecureVirtualMemory @ 0x1407BA890 (MmSecureVirtualMemory.c)
- *     PspAttachSession @ 0x1407C5C10 (PspAttachSession.c)
- *     PspDetachSession @ 0x1407C5C6C (PspDetachSession.c)
- *     RtlAcquirePrivilege @ 0x1407D2B8C (RtlAcquirePrivilege.c)
- *     PspSetupReservedUserMappings @ 0x1407DEBCC (PspSetupReservedUserMappings.c)
- *     RtlReleasePrivilege @ 0x1407DEF60 (RtlReleasePrivilege.c)
- *     PspHardenMitigationOptions @ 0x1407DFDE8 (PspHardenMitigationOptions.c)
- *     PoEnergyContextInitialize @ 0x1407DFF40 (PoEnergyContextInitialize.c)
- *     RtlOpenImageFileOptionsKey @ 0x1407E2ED0 (RtlOpenImageFileOptionsKey.c)
- *     PspInheritQuota @ 0x1407E2F3C (PspInheritQuota.c)
- *     PspSetProcessPriorityClass @ 0x1407E3860 (PspSetProcessPriorityClass.c)
- *     PspReadIFEONodeOptions @ 0x1407E51C0 (PspReadIFEONodeOptions.c)
- *     PspAssignProcessQuotaBlock @ 0x1407F8468 (PspAssignProcessQuotaBlock.c)
- *     MmInitializeHandBuiltProcess @ 0x14085D118 (MmInitializeHandBuiltProcess.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140860E0C (MmInitializeHandBuiltProcess2.c)
- *     KeInitializeProcessUserCetLogging @ 0x1409755A4 (KeInitializeProcessUserCetLogging.c)
- *     PspSetProcessAffinitySafe @ 0x1409AF8C0 (PspSetProcessAffinitySafe.c)
- *     PspApplyIFEOPerfOptions @ 0x1409B0C88 (PspApplyIFEOPerfOptions.c)
- *     PspReadIFEOPerfOptions @ 0x1409B13AC (PspReadIFEOPerfOptions.c)
- *     MmGetSectionStrongImageReference @ 0x140A437EC (MmGetSectionStrongImageReference.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
+ *     PspInitializeFullProcessImageName @ 0x1406B3498 (PspInitializeFullProcessImageName.c)
+ *     ObInitProcess @ 0x1406B365C (ObInitProcess.c)
+ *     PspApplyMitigationOptions @ 0x1406B3730 (PspApplyMitigationOptions.c)
+ *     PspInheritMitigationAuditOptions @ 0x1406B4360 (PspInheritMitigationAuditOptions.c)
+ *     PspReadIFEOMitigationOptions @ 0x1406B445C (PspReadIFEOMitigationOptions.c)
+ *     PspReadIFEOMitigationAuditOptions @ 0x1406B44E4 (PspReadIFEOMitigationAuditOptions.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406B6220 (RtlQueryImageFileKeyOption.c)
+ *     PspInheritMitigationOptions @ 0x1406B63F8 (PspInheritMitigationOptions.c)
+ *     MmGetSessionSchedulingGroupByProcess @ 0x1406B64CC (MmGetSessionSchedulingGroupByProcess.c)
+ *     ObCreateObject @ 0x1406B6500 (ObCreateObject.c)
+ *     SmProcessCreateNotification @ 0x1406B654C (SmProcessCreateNotification.c)
+ *     PspComputeQuantumAndPriority @ 0x1406B65AC (PspComputeQuantumAndPriority.c)
+ *     PspInitializeProcessSecurity @ 0x1406B66A0 (PspInitializeProcessSecurity.c)
+ *     KeInitializeProcess @ 0x1406B6898 (KeInitializeProcess.c)
+ *     ObRetagReferences @ 0x1406B6B50 (ObRetagReferences.c)
+ *     PspSelectMachineForProcess @ 0x1406B7B88 (PspSelectMachineForProcess.c)
+ *     PspUpdateCreateInfo @ 0x1406B99A4 (PspUpdateCreateInfo.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406BA4B8 (SeIsTokenAssignableToProcess.c)
+ *     PspSelectNodeForProcess @ 0x140705FBC (PspSelectNodeForProcess.c)
+ *     MmCreateProcessAddressSpace @ 0x140706060 (MmCreateProcessAddressSpace.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
+ *     SeQuerySessionIdToken @ 0x14071A260 (SeQuerySessionIdToken.c)
+ *     PsQueryProcessAttributes @ 0x14071E014 (PsQueryProcessAttributes.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     ExCreateHandle @ 0x14073FA14 (ExCreateHandle.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1407A144C (PspSetupUserProcessAddressSpace.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1407A16B8 (PspPrepareSystemDllInitBlock.c)
+ *     PsWow64GetProcessNtdllType @ 0x1407A1930 (PsWow64GetProcessNtdllType.c)
+ *     PspMapSiloSharedDataView @ 0x1407A194C (PspMapSiloSharedDataView.c)
+ *     MmMapApiSetView @ 0x1407A1984 (MmMapApiSetView.c)
+ *     MmCreatePeb @ 0x1407A1A8C (MmCreatePeb.c)
+ *     PspWritePebAffinityInfo @ 0x1407A28EC (PspWritePebAffinityInfo.c)
+ *     MmIsSessionLeaderProcess @ 0x1407A9D90 (MmIsSessionLeaderProcess.c)
+ *     MmGetSectionInformation @ 0x1407BA370 (MmGetSectionInformation.c)
+ *     MmSecureVirtualMemory @ 0x1407BAB60 (MmSecureVirtualMemory.c)
+ *     PspAttachSession @ 0x1407C5EE0 (PspAttachSession.c)
+ *     PspDetachSession @ 0x1407C5F3C (PspDetachSession.c)
+ *     RtlAcquirePrivilege @ 0x1407D2E5C (RtlAcquirePrivilege.c)
+ *     PspSetupReservedUserMappings @ 0x1407DEE9C (PspSetupReservedUserMappings.c)
+ *     RtlReleasePrivilege @ 0x1407DF230 (RtlReleasePrivilege.c)
+ *     PspHardenMitigationOptions @ 0x1407E00B8 (PspHardenMitigationOptions.c)
+ *     PoEnergyContextInitialize @ 0x1407E0210 (PoEnergyContextInitialize.c)
+ *     RtlOpenImageFileOptionsKey @ 0x1407E31A0 (RtlOpenImageFileOptionsKey.c)
+ *     PspInheritQuota @ 0x1407E320C (PspInheritQuota.c)
+ *     PspSetProcessPriorityClass @ 0x1407E3B30 (PspSetProcessPriorityClass.c)
+ *     PspReadIFEONodeOptions @ 0x1407E5490 (PspReadIFEONodeOptions.c)
+ *     PspAssignProcessQuotaBlock @ 0x1407F8738 (PspAssignProcessQuotaBlock.c)
+ *     MmInitializeHandBuiltProcess @ 0x14085D358 (MmInitializeHandBuiltProcess.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x14086104C (MmInitializeHandBuiltProcess2.c)
+ *     KeInitializeProcessUserCetLogging @ 0x1409757A4 (KeInitializeProcessUserCetLogging.c)
+ *     PspSetProcessAffinitySafe @ 0x1409AFAC0 (PspSetProcessAffinitySafe.c)
+ *     PspApplyIFEOPerfOptions @ 0x1409B0E88 (PspApplyIFEOPerfOptions.c)
+ *     PspReadIFEOPerfOptions @ 0x1409B15AC (PspReadIFEOPerfOptions.c)
+ *     MmGetSectionStrongImageReference @ 0x140A43A9C (MmGetSectionStrongImageReference.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -151,7 +151,7 @@ __int64 __fastcall PspAllocateProcess(
   HANDLE *v42; // r12
   int v43; // eax
   __int16 v44; // r11
-  unsigned int v45; // edi
+  ULONG v45; // edi
   KPROCESSOR_MODE v46; // al
   int v47; // ecx
   __int16 v48; // r12
@@ -270,7 +270,7 @@ __int64 __fastcall PspAllocateProcess(
   HANDLE KeyHandle; // [rsp+168h] [rbp-6C0h] BYREF
   PVOID v163; // [rsp+170h] [rbp-6B8h]
   PVOID v164; // [rsp+178h] [rbp-6B0h] BYREF
-  PVOID v165; // [rsp+180h] [rbp-6A8h] BYREF
+  PVOID ReturnedState; // [rsp+180h] [rbp-6A8h] BYREF
   PVOID P; // [rsp+188h] [rbp-6A0h]
   HANDLE Handle; // [rsp+190h] [rbp-698h] BYREF
   __int128 v168; // [rsp+198h] [rbp-690h] BYREF
@@ -313,7 +313,7 @@ __int64 __fastcall PspAllocateProcess(
   $115DCDF994C6370D29323EAB0E0C9502 v205; // [rsp+418h] [rbp-410h] BYREF
   _DWORD v206[68]; // [rsp+450h] [rbp-3D8h] BYREF
   _DWORD v207[136]; // [rsp+560h] [rbp-2C8h] BYREF
-  _DWORD v208[8]; // [rsp+780h] [rbp-A8h] BYREF
+  ULONG Privilege[8]; // [rsp+780h] [rbp-A8h] BYREF
   _OWORD v209[4]; // [rsp+7A0h] [rbp-88h] BYREF
 
   v16 = (int)a3;
@@ -434,7 +434,7 @@ LABEL_11:
   v202 = 0LL;
   v203 = 0LL;
   v204 = 0LL;
-  v165 = 0LL;
+  ReturnedState = 0LL;
   v21 = 2944;
   LODWORD(v146) = 0;
   v155 = 0LL;
@@ -771,27 +771,27 @@ LABEL_69:
           {
             if ( v18 && (*v142 & 0x100) != 0 && *(_BYTE *)(v18 + 248) == 4 )
             {
-              v208[0] = 14;
+              Privilege[0] = 14;
               v45 = 1;
             }
             v47 = a12;
             if ( a12 )
-              v208[v45++] = 3;
+              Privilege[v45++] = 3;
             v48 = v129;
             if ( (v129 & 0x30) != 0 )
-              v208[v45++] = 4;
+              Privilege[v45++] = 4;
             if ( (v48 & 0x80u) != 0 )
             {
               IsSessionLeaderProcess = MmIsSessionLeaderProcess(Process);
               v47 = a12;
               if ( !IsSessionLeaderProcess )
-                v208[v45++] = 10;
+                Privilege[v45++] = 10;
             }
             if ( (v48 & 0x8400) != 0 )
-              v208[v45++] = 7;
+              Privilege[v45++] = 7;
             if ( v45 )
             {
-              v49 = (int)RtlAcquirePrivilege(v208, v45, v47 != 0, &v165) < 0;
+              v49 = RtlAcquirePrivilege(Privilege, v45, v47 != 0, &ReturnedState) < 0;
               v46 = a2;
               if ( !v49 )
                 v19 |= 0x400u;
@@ -960,7 +960,7 @@ LABEL_318:
                 v62 = *(_DWORD **)(v18 + 400);
                 v138 = *(_DWORD *)(v18 + 408);
                 v63 = *(_QWORD *)(v18 + 176);
-                if ( v63 && qword_140C37A60 && (int)qword_140C37A60(v63, v207) >= 0 )
+                if ( v63 && qword_140C37A00 && (int)qword_140C37A00(v63, v207) >= 0 )
                 {
                   if ( !v207[0] && v62 && v138 == 524 )
                   {
@@ -1060,13 +1060,13 @@ LABEL_318:
               v28[641] = v124;
               IsTokenAssignableToProcess = 0;
               v134 = 0;
-              PspReadIFEOMitigationOptions(v18, &v198);
+              PspReadIFEOMitigationOptions(v18, (__int64)&v198);
               v183 = v198;
               v184 = v199;
               v185 = PspSystemMitigationOptions;
               v186 = qword_140D1EFE0;
               PspInheritMitigationOptions(&v185, &v183, &v198);
-              PspReadIFEOMitigationAuditOptions(v18, &v200);
+              PspReadIFEOMitigationAuditOptions(v18, (__int64)&v200);
               v187 = v200;
               v188 = v201;
               v189 = PspSystemMitigationAuditOptions;
@@ -1171,7 +1171,7 @@ LABEL_318:
               {
 LABEL_177:
                 if ( (v19 & 0x400) != 0 )
-                  RtlReleasePrivilege(v165);
+                  RtlReleasePrivilege(ReturnedState);
                 if ( *(_WORD *)v155 == 332 )
                   *((_DWORD *)v28 + 158) |= 1u;
                 v135 = v19 & 0x80;
@@ -1367,7 +1367,7 @@ LABEL_174:
                 }
 LABEL_319:
                 if ( (v19 & 0x400) != 0 )
-                  RtlReleasePrivilege(v165);
+                  RtlReleasePrivilege(ReturnedState);
                 goto LABEL_321;
               }
               v109 = v127;
@@ -1435,8 +1435,8 @@ LABEL_321:
 LABEL_199:
         if ( P )
           ExFreePoolWithTag(P, 0x73437350u);
-        if ( qword_140C37A68 )
-          qword_140C37A68(v207);
+        if ( qword_140C37A08 )
+          qword_140C37A08(v207);
         return (unsigned int)IsTokenAssignableToProcess;
       }
 LABEL_314:

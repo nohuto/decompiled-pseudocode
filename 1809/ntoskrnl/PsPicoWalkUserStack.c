@@ -1,12 +1,12 @@
 /*
- * XREFs of PsPicoWalkUserStack @ 0x14088BF80
+ * XREFs of PsPicoWalkUserStack @ 0x14088D1E0
  * Callers:
- *     EtwpTraceStackWalk @ 0x14030F744 (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x14030F934 (EtwpTraceStackWalk.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PsGetBaseTrapFrame @ 0x1402E9A6C (PsGetBaseTrapFrame.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PsGetBaseTrapFrame @ 0x1402E9C5C (PsGetBaseTrapFrame.c)
  */
 
 __int64 __fastcall PsPicoWalkUserStack(__int64 a1, unsigned int a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PsPicoWalkUserStack(__int64 a1, unsigned int a2)
 
   BaseTrapFrame = (_OWORD *)PsGetBaseTrapFrame((__int64)KeGetCurrentThread());
   result = 0LL;
-  if ( (_QWORD)xmmword_14040E2F0 )
+  if ( (_QWORD)xmmword_14040F350 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
@@ -45,7 +45,7 @@ __int64 __fastcall PsPicoWalkUserStack(__int64 a1, unsigned int a2)
     while ( v8 );
     *v7 = *BaseTrapFrame;
     KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
-    return ((__int64 (__fastcall *)(_BYTE *, __int64, _QWORD))xmmword_14040E2F0)(v10, a1, a2);
+    return ((__int64 (__fastcall *)(_BYTE *, __int64, _QWORD))xmmword_14040F350)(v10, a1, a2);
   }
   return result;
 }

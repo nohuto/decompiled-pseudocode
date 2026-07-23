@@ -1,26 +1,26 @@
 /*
- * XREFs of ViGrowPoolAllocation @ 0x140702610
+ * XREFs of ViGrowPoolAllocation @ 0x140702640
  * Callers:
- *     VeAllocatePoolWithTagPriority @ 0x140701D78 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140701DA8 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     KeZeroSinglePage @ 0x140161E10 (KeZeroSinglePage.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     KeZeroSinglePage @ 0x140162380 (KeZeroSinglePage.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall ViGrowPoolAllocation(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall ViGrowPoolAllocation(_SLIST_HEADER *a1)
 {
-  struct _SLIST_ENTRY *PoolWithTagPriority; // rax
-  struct _SLIST_ENTRY *v3; // rbx
-  union _SLIST_HEADER *v5; // rsi
+  _SLIST_ENTRY *PoolWithTagPriority; // rax
+  _SLIST_ENTRY *v3; // rbx
+  _SLIST_HEADER *v5; // rsi
   __int64 v6; // rdi
 
-  PoolWithTagPriority = (struct _SLIST_ENTRY *)ExAllocatePoolWithTagPriority(
-                                                 (POOL_TYPE)640,
-                                                 0x1000uLL,
-                                                 0x70706556u,
-                                                 HighPoolPriority);
+  PoolWithTagPriority = (_SLIST_ENTRY *)ExAllocatePoolWithTagPriority(
+                                          (POOL_TYPE)640,
+                                          0x1000uLL,
+                                          0x70706556u,
+                                          HighPoolPriority);
   v3 = PoolWithTagPriority;
   if ( !PoolWithTagPriority )
     return RtlpInterlockedPopEntrySList(a1 + 4);

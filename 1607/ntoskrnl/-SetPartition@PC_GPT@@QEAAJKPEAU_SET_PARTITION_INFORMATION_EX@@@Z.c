@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023C52C
+ * XREFs of ?SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023C410
  * Callers:
- *     PcSetPartition @ 0x14023B6CC (PcSetPartition.c)
+ *     PcSetPartition @ 0x14023B5B0 (PcSetPartition.c)
  * Callees:
- *     ?ReadPartitionTable@PC_GPT@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C2C0 (-ReadPartitionTable@PC_GPT@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
- *     ?WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C894 (-WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
- *     PspQueueApcSpecialApc @ 0x1403E5244 (PspQueueApcSpecialApc.c)
+ *     ?ReadPartitionTable@PC_GPT@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C1A4 (-ReadPartitionTable@PC_GPT@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
+ *     ?WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C778 (-WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
+ *     PspQueueApcSpecialApc @ 0x1403E6870 (PspQueueApcSpecialApc.c)
  */
 
 __int64 __fastcall PC_GPT::SetPartition(PC_DISK **this, int a2, struct _SET_PARTITION_INFORMATION_EX *a3)

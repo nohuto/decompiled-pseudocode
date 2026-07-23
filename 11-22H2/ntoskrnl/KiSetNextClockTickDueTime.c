@@ -48,7 +48,7 @@ __int64 __fastcall KiSetNextClockTickDueTime(char a1)
   unsigned __int64 v26; // rcx
   unsigned int v27; // r9d
   unsigned int v28; // eax
-  unsigned __int64 v29; // rcx
+  unsigned __int64 Min; // rcx
   unsigned int v30; // edx
   char v31; // al
   unsigned __int64 v32; // r15
@@ -229,19 +229,19 @@ __int64 __fastcall KiSetNextClockTickDueTime(char a1)
       v28 = v27 / KeMinimumIncrement;
     v21 = v28 * KeMinimumIncrement;
   }
-  if ( (qword_140D0C538 & 1) != 0 )
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( qword_140D0C538 == 1 )
-      v29 = 0LL;
+    if ( KiClockIntervalRequests.Min == (_RTL_BALANCED_NODE *)1 )
+      Min = 0LL;
     else
-      v29 = qword_140D0C538 ^ ((unsigned __int64)&KiClockIntervalRequests + 1);
+      Min = (unsigned __int64)KiClockIntervalRequests.Min ^ ((unsigned __int64)&KiClockIntervalRequests.Root + 1);
   }
   else
   {
-    v29 = qword_140D0C538;
+    Min = (unsigned __int64)KiClockIntervalRequests.Min;
   }
   v31 = 1;
-  v50 = *(_DWORD *)(v29 + 28);
+  v50 = *(_DWORD *)(Min + 28);
   v30 = v50;
   v45 = 1;
   v32 = v13 + v50;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBatteryInitPhaseTwo @ 0x140A6F604
+ * XREFs of PopBatteryInitPhaseTwo @ 0x140A70604
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     PopReadUlongPowerKey @ 0x1403CB944 (PopReadUlongPowerKey.c)
- *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
- *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
+ *     PopReadUlongPowerKey @ 0x1403CBAB4 (PopReadUlongPowerKey.c)
+ *     ExSubscribeWnfStateChange @ 0x140610760 (ExSubscribeWnfStateChange.c)
+ *     EtwRegister @ 0x140762E70 (EtwRegister.c)
  */
 
 NTSTATUS PopBatteryInitPhaseTwo()
@@ -22,8 +22,8 @@ NTSTATUS PopBatteryInitPhaseTwo()
   {
     PopBatteryEtwRegistered = 1;
     return ExSubscribeWnfStateChange(
-             (__int64)&v1,
-             (__int64)&WNF_USB_ERROR_NOTIFICATION,
+             (int)&v1,
+             (int)&WNF_USB_ERROR_NOTIFICATION,
              1,
              0,
              (__int64)PopUsbErrorWNFNotificationCallback,

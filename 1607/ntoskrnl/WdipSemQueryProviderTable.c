@@ -1,7 +1,7 @@
 /*
- * XREFs of WdipSemQueryProviderTable @ 0x140565BFC
+ * XREFs of WdipSemQueryProviderTable @ 0x14056613C
  * Callers:
- *     WdipSemUpdateProviderTableWithEvent @ 0x140565B60 (WdipSemUpdateProviderTableWithEvent.c)
+ *     WdipSemUpdateProviderTableWithEvent @ 0x1405660A0 (WdipSemUpdateProviderTableWithEvent.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall WdipSemQueryProviderTable(_QWORD *a1)
   if ( a1 )
   {
     v3 = 0;
-    if ( dword_1402FFF20 )
+    if ( dword_1402FFF00 )
     {
       while ( 1 )
       {
@@ -27,7 +27,7 @@ __int64 __fastcall WdipSemQueryProviderTable(_QWORD *a1)
           v5 = a1[1] - v4[1];
         if ( !v5 )
           break;
-        if ( ++v3 >= (unsigned int)dword_1402FFF20 )
+        if ( ++v3 >= (unsigned int)dword_1402FFF00 )
           return v1;
       }
       return WdipSemProviderTable[v3];

@@ -6,19 +6,27 @@
  *     _guard_dispatch_icall_nop @ 0x1800A0100 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlDecompressFragment(
-        unsigned __int8 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        unsigned int a5,
-        int a6,
-        __int64 a7,
-        __int64 a8)
+NTSTATUS __cdecl RtlDecompressFragment(
+        USHORT CompressionFormat,
+        PUCHAR UncompressedFragment,
+        ULONG UncompressedFragmentSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        ULONG FragmentOffset,
+        PULONG FinalUncompressedSize,
+        PVOID WorkSpace)
 {
-  if ( a1 < 2u )
-    return 3221225485LL;
-  if ( a1 <= 4u )
-    return qword_180119198[a1](a2, a3, a4, a5, a6, 0, a7, a8);
-  return 3221226079LL;
+  if ( (unsigned __int8)CompressionFormat < 2u )
+    return -1073741811;
+  if ( (unsigned __int8)CompressionFormat <= 4u )
+    return qword_180119198[(unsigned __int8)CompressionFormat](
+             UncompressedFragment,
+             UncompressedFragmentSize,
+             CompressedBuffer,
+             CompressedBufferSize,
+             FragmentOffset,
+             0,
+             FinalUncompressedSize,
+             WorkSpace);
+  return -1073741217;
 }

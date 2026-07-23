@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpGetNextProcessThread @ 0x140968C70
+ * XREFs of ExpGetNextProcessThread @ 0x1409DD7B0
  * Callers:
- *     ExpGetProcessInformation @ 0x14096767C (ExpGetProcessInformation.c)
+ *     ExpGetProcessInformation @ 0x1409DC1B8 (ExpGetProcessInformation.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
 _QWORD *__fastcall ExpGetNextProcessThread(char *a1, _QWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -26,37 +26,35 @@ _QWORD *__fastcall ExpGetNextProcessThread(char *a1, _QWORD *a2, __int64 a3, str
   void *v11; // rdx
   LegacyAutoBoost *v12; // rbx
   _QWORD *v13; // rbx
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  _QWORD *v17; // rcx
-  _QWORD *v18; // rax
-  _QWORD *v19; // rbx
-  signed __int32 v20[8]; // [rsp+0h] [rbp-48h] BYREF
+  _QWORD *v15; // rcx
+  _QWORD *v16; // rax
+  _QWORD *v17; // rbx
+  signed __int32 v18[8]; // [rsp+0h] [rbp-48h] BYREF
 
   if ( a1 == PsIdleProcess )
   {
-    v17 = a1 + 48;
+    v15 = a1 + 48;
     if ( a2 )
-      v18 = (_QWORD *)a2[95];
+      v16 = (_QWORD *)a2[95];
     else
-      v18 = (_QWORD *)*v17;
-    if ( v18 == v17 )
+      v16 = (_QWORD *)*v15;
+    if ( v16 == v15 )
     {
       return 0LL;
     }
     else
     {
-      v19 = v18 - 95;
+      v17 = v16 - 95;
       if ( KeDynamicPartitioningSupported )
       {
-        _InterlockedOr(v20, 0);
-        if ( (KiSupervisorXStateFeaturesLock.WaitBlockFill7[144] & 1) == 0 )
+        _InterlockedOr(v18, 0);
+        if ( (KiSupervisorXStateFeaturesLock.SchedulerApcFill3[56] & 1) == 0 )
         {
-          ExAcquireFastMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[144]);
-          KeReleaseGuardedMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[144]);
+          ExAcquireFastMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[56]);
+          KeReleaseGuardedMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[56]);
         }
       }
-      return v19;
+      return v17;
     }
   }
   else
@@ -95,7 +93,7 @@ _QWORD *__fastcall ExpGetNextProcessThread(char *a1, _QWORD *a2, __int64 a3, str
     if ( _InterlockedCompareExchange64(v10, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v10);
     KeAbPostRelease((unsigned __int64)v10);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread, v14, v15);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     if ( a2 )
       ObfDereferenceObjectWithTag(a2, 0x6E457350u);
     if ( v8 )

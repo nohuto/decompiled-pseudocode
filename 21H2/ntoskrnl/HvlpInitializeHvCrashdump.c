@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpInitializeHvCrashdump @ 0x1404F939C
+ * XREFs of HvlpInitializeHvCrashdump @ 0x1404F931C
  * Callers:
- *     HvlPhase1Initialize @ 0x1403CFB58 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1403CFCC8 (HvlPhase1Initialize.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     KeRegisterBugCheckReasonCallback @ 0x14039E660 (KeRegisterBugCheckReasonCallback.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeRegisterNmiCallback @ 0x140514910 (KeRegisterNmiCallback.c)
- *     MmAllocateMappingAddress @ 0x1406AE480 (MmAllocateMappingAddress.c)
- *     MmAllocateIndependentPages @ 0x1407629F0 (MmAllocateIndependentPages.c)
- *     MmFreeIndependentPages @ 0x1407645D0 (MmFreeIndependentPages.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039E7B0 (KeRegisterBugCheckReasonCallback.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeRegisterNmiCallback @ 0x140514B50 (KeRegisterNmiCallback.c)
+ *     MmAllocateMappingAddress @ 0x14060CD20 (MmAllocateMappingAddress.c)
+ *     MmAllocateIndependentPages @ 0x140762BB0 (MmAllocateIndependentPages.c)
+ *     MmFreeIndependentPages @ 0x140764790 (MmFreeIndependentPages.c)
  */
 
 __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
@@ -22,11 +22,11 @@ __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
   v1 = *(_DWORD *)(a1 + 4);
   v2 = -1073741823;
   v3 = *(_QWORD *)(a1 + 16);
-  dword_140C4751C = *(_DWORD *)a1;
-  qword_140C47520 = *(_QWORD *)(a1 + 8);
-  dword_140C47518 = v1;
-  qword_140C47510 = v3;
-  if ( !v1 || (qword_140C47508 = (void *)MmMapIoSpaceEx(v3, (unsigned int)(v1 << 12), 2u)) != 0LL )
+  dword_140C475BC = *(_DWORD *)a1;
+  qword_140C475C0 = *(_QWORD *)(a1 + 8);
+  dword_140C475B8 = v1;
+  qword_140C475B0 = v3;
+  if ( !v1 || (qword_140C475A8 = (void *)MmMapIoSpaceEx(v3, (unsigned int)(v1 << 12), 2u)) != 0LL )
   {
     IndependentPages = (void *)MmAllocateIndependentPages(4096LL, 0xFFFFFFFFLL);
     HvlpFallbackScratchPage = IndependentPages;
@@ -41,38 +41,38 @@ __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
               KbCallbackSecondaryDumpData,
               (PUCHAR)"HypervisorCrashdumpArea") )
         goto LABEL_16;
-      stru_140C47478.State = 0;
+      stru_140C47518.State = 0;
       if ( !KeRegisterBugCheckReasonCallback(
-              &stru_140C47478,
+              &stru_140C47518,
               (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddPagesCallbackRoutine,
               KbCallbackAddPages,
               (PUCHAR)"HypervisorCrashdumpArea2") )
         goto LABEL_16;
       *(_QWORD *)&HvlpCrashdumpData = KeRegisterNmiCallback((PNMI_CALLBACK)HvlCrashdumpCallbackRoutine, 0LL);
-      qword_140C47528 = MmAllocateMappingAddress(0x1000uLL, 0x204C5648u);
-      if ( !qword_140C47528 )
+      qword_140C475C8 = MmAllocateMappingAddress(0x1000uLL, 0x204C5648u);
+      if ( !qword_140C475C8 )
         goto LABEL_16;
       if ( !VslVsmEnabled )
         return 0;
     }
-    stru_140C474A8.State = 0;
+    stru_140C47548.State = 0;
     if ( KeRegisterBugCheckReasonCallback(
-           &stru_140C474A8,
+           &stru_140C47548,
            (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlSkBugCheckCallbackRoutine,
            KbCallbackSecondaryDumpData,
            (PUCHAR)"SecureKernelCrashdumpArea") )
     {
       if ( (HvlpFlags & 2) == 0
-        || (stru_140C47478.State = 0,
+        || (stru_140C47518.State = 0,
             KeRegisterBugCheckReasonCallback(
-              &stru_140C47478,
+              &stru_140C47518,
               (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddSecureHvPagesCallbackRoutine,
               KbCallbackAddPages,
               (PUCHAR)"HypervisorCrashdumpArea2")) )
       {
-        stru_140C474D8.State = 0;
+        stru_140C47578.State = 0;
         if ( KeRegisterBugCheckReasonCallback(
-               &stru_140C474D8,
+               &stru_140C47578,
                (PKBUGCHECK_REASON_CALLBACK_ROUTINE)HvlAddSecureSkPagesCallbackRoutine,
                KbCallbackAddPages,
                (PUCHAR)"SecureKernelCrashdumpArea2") )

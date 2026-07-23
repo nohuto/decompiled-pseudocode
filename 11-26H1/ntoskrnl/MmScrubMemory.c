@@ -1,19 +1,19 @@
 /*
- * XREFs of MmScrubMemory @ 0x14087DFD4
+ * XREFs of MmScrubMemory @ 0x1408843D4
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     KeInitializeGate @ 0x1404D6C58 (KeInitializeGate.c)
- *     MiReferenceNonPagedMemoryProcessList @ 0x14087DB14 (MiReferenceNonPagedMemoryProcessList.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     KeInitializeGate @ 0x1404D0428 (KeInitializeGate.c)
+ *     MiReferenceNonPagedMemoryProcessList @ 0x140883F14 (MiReferenceNonPagedMemoryProcessList.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmScrubMemory(__int64 a1, ULONG_PTR a2, _QWORD *a3)
@@ -92,7 +92,7 @@ LABEL_11:
       if ( v8[1] || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0 )
         v10 = -1073741248;
       else
-        _InterlockedIncrement((volatile signed __int32 *)&stru_140E2EB88.SchedulerApcFill5[40]);
+        _InterlockedIncrement((volatile signed __int32 *)&stru_140E2ED08.SchedulerApcFill5[40]);
     }
     else
     {

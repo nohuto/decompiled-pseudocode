@@ -9,7 +9,12 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwProtectVirtualMemoryWrapper(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
+NTSTATUS __fastcall DifZwProtectVirtualMemoryWrapper(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG NewProtect,
+        PULONG OldProtect)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -20,7 +25,7 @@ __int64 __fastcall DifZwProtectVirtualMemoryWrapper(__int64 a1, __int64 a2, __in
   int v15; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v19; // rdi
   _QWORD *v20; // rbx
   __int128 v21; // [rsp+30h] [rbp-40h] BYREF
@@ -62,18 +67,18 @@ LABEL_8:
   }
   *(_QWORD *)&v21 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v21 + 1) = a5;
-  *((_QWORD *)&v23 + 1) = a1;
-  *(_QWORD *)&v23 = a2;
-  *((_QWORD *)&v22 + 1) = a3;
-  LODWORD(v22) = a4;
+  *((_QWORD *)&v21 + 1) = OldProtect;
+  *((_QWORD *)&v23 + 1) = ProcessHandle;
+  *(_QWORD *)&v23 = BaseAddress;
+  *((_QWORD *)&v22 + 1) = RegionSize;
+  LODWORD(v22) = NewProtect;
   for ( i = (__int64 *)v14[4]; i != v14 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v21);
   }
 LABEL_17:
-  result = ZwProtectVirtualMemory(a1, a2);
+  result = ZwProtectVirtualMemory(ProcessHandle, BaseAddress, RegionSize, NewProtect, OldProtect);
   LODWORD(v24) = result;
   if ( v14 )
   {
@@ -88,7 +93,7 @@ LABEL_17:
         v20 = (_QWORD *)*v20;
       }
       while ( v20 != v19 );
-      return (unsigned int)v24;
+      return v24;
     }
   }
   return result;

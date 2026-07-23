@@ -1,22 +1,19 @@
 /*
- * XREFs of MiUnlockFlushMdl @ 0x1403572B8
+ * XREFs of MiUnlockFlushMdl @ 0x140362008
  * Callers:
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     MiUnlockMdlWritePages @ 0x1403259E0 (MiUnlockMdlWritePages.c)
- *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
- *     MiDecrementModifiedWriteCount @ 0x140357408 (MiDecrementModifiedWriteCount.c)
- *     MiRetardMdl @ 0x140530CF0 (MiRetardMdl.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     MiUnlockMdlWritePages @ 0x140330730 (MiUnlockMdlWritePages.c)
+ *     MiReleaseControlAreaWaiters @ 0x140361FD4 (MiReleaseControlAreaWaiters.c)
+ *     MiDecrementModifiedWriteCount @ 0x140362158 (MiDecrementModifiedWriteCount.c)
+ *     MiRetardMdl @ 0x140530F30 (MiRetardMdl.c)
  */
 
 _QWORD *__fastcall MiUnlockFlushMdl(PMDL MemoryDescriptorList, __int64 a2, __int64 a3, _DWORD *a4)
 {
   CSHORT MdlFlags; // ax
   _QWORD *result; // rax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  _DWORD *v11; // r9
 
   MdlFlags = MemoryDescriptorList->MdlFlags;
   if ( (MdlFlags & 0x200) != 0 )
@@ -37,6 +34,6 @@ _QWORD *__fastcall MiUnlockFlushMdl(PMDL MemoryDescriptorList, __int64 a2, __int
     a4);
   result = (_QWORD *)MiDecrementModifiedWriteCount(a2, 0LL);
   if ( result )
-    return (_QWORD *)MiReleaseControlAreaWaiters(result, v9, v10, v11);
+    return (_QWORD *)MiReleaseControlAreaWaiters(result);
   return result;
 }

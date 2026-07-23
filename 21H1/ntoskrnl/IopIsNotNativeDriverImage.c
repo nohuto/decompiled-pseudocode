@@ -20,7 +20,7 @@ bool __fastcall IopIsNotNativeDriverImage(UNICODE_STRING *a1)
   _DWORD *v3; // r9
   __int64 v4; // r8
   _DWORD *v5; // r9
-  __int64 v6; // rax
+  PIMAGE_NT_HEADERS v6; // rax
   __int64 v7; // r8
   _DWORD *v8; // r9
   HANDLE FileHandle; // [rsp+58h] [rbp-A0h] BYREF
@@ -73,9 +73,9 @@ LABEL_4:
     ZwClose(SectionHandle);
     goto LABEL_4;
   }
-  v6 = RtlImageNtHeader((__int64)BaseAddress);
+  v6 = RtlImageNtHeader(BaseAddress);
   if ( v6 )
-    v1 = *(_WORD *)(v6 + 4) != 0x8664;
+    v1 = v6->FileHeader.Machine != 0x8664;
   ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   KiUnstackDetachProcess((__int64)v15, 0LL, v7, v8);
   ZwClose(SectionHandle);

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDrvDbRegisterNode @ 0x14073AA50
+ * XREFs of PiDrvDbRegisterNode @ 0x14073BC40
  * Callers:
- *     PiDrvDbInit @ 0x14073A6E0 (PiDrvDbInit.c)
- *     PiDrvDbRegisterNodeCallback @ 0x140763870 (PiDrvDbRegisterNodeCallback.c)
+ *     PiDrvDbInit @ 0x14073B8D0 (PiDrvDbInit.c)
+ *     PiDrvDbRegisterNodeCallback @ 0x140764A60 (PiDrvDbRegisterNodeCallback.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDrvDbCreateNode @ 0x14073AB48 (PiDrvDbCreateNode.c)
- *     DrvDbRegisterDatabase @ 0x14073B354 (DrvDbRegisterDatabase.c)
- *     PiDrvDbDestroyNode @ 0x14083D604 (PiDrvDbDestroyNode.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDrvDbCreateNode @ 0x14073BD38 (PiDrvDbCreateNode.c)
+ *     DrvDbRegisterDatabase @ 0x14073C544 (DrvDbRegisterDatabase.c)
+ *     PiDrvDbDestroyNode @ 0x14083E864 (PiDrvDbDestroyNode.c)
  */
 
 __int64 __fastcall PiDrvDbRegisterNode(const WCHAR *a1, char a2)

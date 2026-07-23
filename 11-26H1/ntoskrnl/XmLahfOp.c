@@ -1,9 +1,9 @@
 /*
- * XREFs of XmLahfOp @ 0x1405AD670
+ * XREFs of XmLahfOp @ 0x1405AFE80
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmLahfOp(__int64 a1)

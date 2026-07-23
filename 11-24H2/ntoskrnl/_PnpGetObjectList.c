@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpGetObjectList @ 0x1408BDE80
+ * XREFs of _PnpGetObjectList @ 0x1408BB7D0
  * Callers:
- *     PiDmObjectManagerPopulate @ 0x140727138 (PiDmObjectManagerPopulate.c)
- *     PiCMGetObjectList @ 0x1408BE080 (PiCMGetObjectList.c)
+ *     PiDmObjectManagerPopulate @ 0x140724CC8 (PiDmObjectManagerPopulate.c)
+ *     PiCMGetObjectList @ 0x1408BB9D0 (PiCMGetObjectList.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     DrvDbDispatchDriverDatabase @ 0x1408BDAB0 (DrvDbDispatchDriverDatabase.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1408BB400 (DrvDbDispatchDriverDatabase.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
  */
 
 __int64 __fastcall PnpGetObjectList(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, int a6, __int64 a7, int a8)
@@ -52,7 +52,7 @@ __int64 __fastcall PnpGetObjectList(__int64 a1, int a2, __int64 a3, __int64 a4, 
     if ( v10 == PiPnpRtlObjectActionCallback )
       v12 = PiPnpRtlObjectActionCallback(v8, 0LL, (unsigned int)v9, 5LL, 1, v19);
     else
-      v12 = guard_dispatch_icall_no_overrides(v8, 0LL, (unsigned int)v9, 5LL);
+      v12 = guard_dispatch_icall_no_overrides(v8, 0LL);
     if ( v12 == -1073741822 )
     {
       v10 = 0LL;
@@ -88,7 +88,7 @@ __int64 __fastcall PnpGetObjectList(__int64 a1, int a2, __int64 a3, __int64 a4, 
       if ( v13 == DrvDbDispatchDriverDatabase )
         v14 = DrvDbDispatchDriverDatabase(v8, 0LL, v9, 5, (unsigned int *)v26);
       else
-        v14 = guard_dispatch_icall_no_overrides(v8, 0LL, (unsigned int)v9, 5LL);
+        v14 = guard_dispatch_icall_no_overrides(v8, 0LL);
       v15 = v14;
     }
     else
@@ -101,7 +101,7 @@ __int64 __fastcall PnpGetObjectList(__int64 a1, int a2, __int64 a3, __int64 a4, 
     v19[0] = v15;
     v16 = v10 == PiPnpRtlObjectActionCallback
         ? PiPnpRtlObjectActionCallback(v8, 0LL, (unsigned int)v9, 5LL, 2, v19)
-        : guard_dispatch_icall_no_overrides(v8, 0LL, (unsigned int)v9, 5LL);
+        : guard_dispatch_icall_no_overrides(v8, 0LL);
     if ( v16 != -1073741822 )
     {
       if ( v16 != -1073741536 )

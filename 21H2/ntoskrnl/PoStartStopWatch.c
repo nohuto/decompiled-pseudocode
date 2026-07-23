@@ -1,11 +1,11 @@
 /*
- * XREFs of PoStartStopWatch @ 0x140263F5C
+ * XREFs of PoStartStopWatch @ 0x14027137C
  * Callers:
- *     PopStatsMarkPowerRequestActive @ 0x14062BDC0 (PopStatsMarkPowerRequestActive.c)
- *     PopStatsScenarioStateChange @ 0x1407724B0 (PopStatsScenarioStateChange.c)
+ *     PopStatsMarkPowerRequestActive @ 0x1406709E8 (PopStatsMarkPowerRequestActive.c)
+ *     PopStatsScenarioStateChange @ 0x140772670 (PopStatsScenarioStateChange.c)
  * Callees:
- *     PopInternalUpdateStopWatchState @ 0x140264248 (PopInternalUpdateStopWatchState.c)
- *     PopInternalUpdateActiveStopWatchesCollectionState @ 0x14026435C (PopInternalUpdateActiveStopWatchesCollectionState.c)
+ *     PopInternalUpdateStopWatchState @ 0x140272464 (PopInternalUpdateStopWatchState.c)
+ *     PopInternalUpdateActiveStopWatchesCollectionState @ 0x140272530 (PopInternalUpdateActiveStopWatchesCollectionState.c)
  */
 
 __int64 __fastcall PoStartStopWatch(__int64 a1)

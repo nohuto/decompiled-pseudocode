@@ -44,7 +44,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
   void *v22; // [rsp+68h] [rbp-41h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-39h] BYREF
   size_t pcbRemaining; // [rsp+80h] [rbp-29h] BYREF
-  __int64 v25; // [rsp+88h] [rbp-21h]
+  ULONG MessageId[2]; // [rsp+88h] [rbp-21h]
   wchar_t *v26; // [rsp+90h] [rbp-19h]
   PVOID P; // [rsp+98h] [rbp-11h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-9h] BYREF
@@ -94,7 +94,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
     *v12 = 0;
     v13 = v12 + 1;
   }
-  v25 = wcstoi64(v11, &EndPtr, 10);
+  *(_QWORD *)MessageId = wcstoi64(v11, &EndPtr, 10);
   if ( *EndPtr )
     goto LABEL_31;
   RtlInitUnicodeString(&String2, v9);
@@ -127,7 +127,7 @@ __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
           {
             v14 = DestinationString.Length - 24;
             v26 = DestinationString.Buffer + 12;
-            inited = PiGetDefaultMessageString(KeyHandle, v25, &v22);
+            inited = PiGetDefaultMessageString(KeyHandle, MessageId[0], &v22);
             if ( inited < 0 )
             {
               v3 = v22;

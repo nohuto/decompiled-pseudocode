@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetKeepAliveCountProcess @ 0x140907884
+ * XREFs of PsGetKeepAliveCountProcess @ 0x1409079E4
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

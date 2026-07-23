@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMapArbitraryPage @ 0x1402F2C80
+ * XREFs of MiMapArbitraryPage @ 0x1402D4D00
  * Callers:
- *     MiConvertStandbyToProto @ 0x140306E68 (MiConvertStandbyToProto.c)
+ *     MiConvertStandbyToProto @ 0x1402E8EE8 (MiConvertStandbyToProto.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiCombineCandidate @ 0x1402F3F80 (MiCombineCandidate.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiCombineCandidate @ 0x1402D6000 (MiCombineCandidate.c)
  */
 
 __int64 __fastcall MiMapArbitraryPage(__int64 a1, _QWORD *a2, unsigned int a3, int a4, int a5)
@@ -85,7 +85,7 @@ LABEL_6:
     if ( (unsigned __int64)((__int64)(v7 << 25) >> 16) >= 0x7FFFFFFF0000LL )
       v18 = v17;
   }
-  v19 = (BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) & 0x100;
+  v19 = (BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) & 0x100;
   a2[7] = v7;
   a2[6] = v5;
   *(_QWORD *)v7 = v18 & 0xFAFFFFFFFFFFFEFFuLL ^ v19 | 0xA00000000000000LL;

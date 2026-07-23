@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPepLockActivityLink @ 0x1403B3A70
+ * XREFs of PopPepLockActivityLink @ 0x1403BD780
  * Callers:
- *     PopPepUpdateConstraints @ 0x1403B37EC (PopPepUpdateConstraints.c)
- *     PopPepSurprisePowerOn @ 0x1403B755C (PopPepSurprisePowerOn.c)
- *     PopPepComponentSetWakeHint @ 0x1404F524C (PopPepComponentSetWakeHint.c)
- *     PopPepCompleteComponentIdleState @ 0x140506C08 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetResidency @ 0x140611524 (PopPepComponentSetResidency.c)
+ *     PopPepUpdateConstraints @ 0x1403BD4FC (PopPepUpdateConstraints.c)
+ *     PopPepSurprisePowerOn @ 0x1403C145C (PopPepSurprisePowerOn.c)
+ *     PopPepComponentSetWakeHint @ 0x1404EE82C (PopPepComponentSetWakeHint.c)
+ *     PopPepCompleteComponentIdleState @ 0x1405005E4 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetResidency @ 0x140614364 (PopPepComponentSetResidency.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall PopPepLockActivityLink(__int64 a1, __int64 *a2, unsigned int a3, unsigned int a4, KIRQL *a5)
@@ -61,7 +61,7 @@ LABEL_3:
     LOBYTE(a2) = 2;
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v8 = 0;
     if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 64), 0x1Fu) )

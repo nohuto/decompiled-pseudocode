@@ -1,24 +1,24 @@
 /*
- * XREFs of _RegRtlCopyTreeInternal @ 0x1406E0128
+ * XREFs of _RegRtlCopyTreeInternal @ 0x1406E0260
  * Callers:
- *     _PnpCtxRegCopyTree @ 0x1406D7020 (_PnpCtxRegCopyTree.c)
- *     _RegRtlCopyTreeInternal @ 0x1406E0128 (_RegRtlCopyTreeInternal.c)
+ *     _PnpCtxRegCopyTree @ 0x1406D7158 (_PnpCtxRegCopyTree.c)
+ *     _RegRtlCopyTreeInternal @ 0x1406E0260 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     IoGetStackLimits @ 0x14004F360 (IoGetStackLimits.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     ZwQuerySecurityObject @ 0x14015C580 (ZwQuerySecurityObject.c)
- *     ZwSetSecurityObject @ 0x14015CF00 (ZwSetSecurityObject.c)
+ *     IoGetStackLimits @ 0x14004EEE0 (IoGetStackLimits.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     ZwQuerySecurityObject @ 0x14015CAF0 (ZwQuerySecurityObject.c)
+ *     ZwSetSecurityObject @ 0x14015D470 (ZwSetSecurityObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _RegRtlEnumValue @ 0x1404DF0EC (_RegRtlEnumValue.c)
- *     _RegRtlQueryInfoKey @ 0x1404E1D04 (_RegRtlQueryInfoKey.c)
- *     _RegRtlSetValue @ 0x1404EE05C (_RegRtlSetValue.c)
- *     _RegRtlCreateKeyTransacted @ 0x1404FA914 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlOpenKeyTransacted @ 0x1404FDBD4 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlEnumKey @ 0x140562664 (_RegRtlEnumKey.c)
- *     _RegRtlCopyTreeInternal @ 0x1406E0128 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlEnumValue @ 0x1404C26F0 (_RegRtlEnumValue.c)
+ *     _RegRtlQueryInfoKey @ 0x1404C5308 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlSetValue @ 0x1404D0124 (_RegRtlSetValue.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1404DD8A0 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1404E0B64 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlEnumKey @ 0x140562BA4 (_RegRtlEnumKey.c)
+ *     _RegRtlCopyTreeInternal @ 0x1406E0260 (_RegRtlCopyTreeInternal.c)
  */
 
 __int64 __fastcall RegRtlCopyTreeInternal(

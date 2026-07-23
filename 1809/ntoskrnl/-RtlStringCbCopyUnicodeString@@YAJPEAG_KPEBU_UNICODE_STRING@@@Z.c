@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x140306CC0
+ * XREFs of ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x140306EB0
  * Callers:
- *     SmKmKeyGenStart @ 0x1408AD2EC (SmKmKeyGenStart.c)
+ *     SmKmKeyGenStart @ 0x1408AE54C (SmKmKeyGenStart.c)
  * Callees:
- *     RtlUnicodeStringValidateSrcWorker @ 0x140306D74 (RtlUnicodeStringValidateSrcWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x140306F64 (RtlUnicodeStringValidateSrcWorker.c)
  */
 
 __int64 __fastcall RtlStringCbCopyUnicodeString(char *a1, unsigned __int64 a2, const struct _UNICODE_STRING *a3)

@@ -1,44 +1,44 @@
 /*
- * XREFs of VfThunkApplyThunksCurrentSession @ 0x140B971AC
+ * XREFs of VfThunkApplyThunksCurrentSession @ 0x140B991AC
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140B9AB3C (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x140B9CB3C (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     VfTargetDriversGetNode @ 0x1403F00E4 (VfTargetDriversGetNode.c)
- *     RtlNumberOfClearBits @ 0x14042B450 (RtlNumberOfClearBits.c)
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     ViIsDriverSuspectForVerifier @ 0x140B8382C (ViIsDriverSuspectForVerifier.c)
- *     ViThunkReplaceAllThunkedImports @ 0x140B97B48 (ViThunkReplaceAllThunkedImports.c)
- *     ViThunkReplaceSharedExports @ 0x140B97D70 (ViThunkReplaceSharedExports.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     RtlNumberOfClearBits @ 0x140377850 (RtlNumberOfClearBits.c)
+ *     VfTargetDriversGetNode @ 0x1403E3D54 (VfTargetDriversGetNode.c)
+ *     ViIsDriverSuspectForVerifier @ 0x140B8582C (ViIsDriverSuspectForVerifier.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x140B99B48 (ViThunkReplaceAllThunkedImports.c)
+ *     ViThunkReplaceSharedExports @ 0x140B99D70 (ViThunkReplaceSharedExports.c)
  */
 
 __int64 __fastcall VfThunkApplyThunksCurrentSession(__int64 a1)
 {
-  unsigned __int64 v1; // rbp
+  void *v1; // rbp
   unsigned int v3; // ebx
   __int64 Node; // rax
   _QWORD *v5; // rdi
-  __int64 v6; // r14
-  unsigned int v7; // ebp
+  PVOID v6; // r14
+  ULONG v7; // ebp
   unsigned int IsDriverSuspectForVerifier; // eax
   ULONG v9; // eax
   ULONG v10; // eax
   ULONG v11; // eax
-  unsigned int v13; // [rsp+40h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(void **)(a1 + 48);
   v3 = 0;
-  v13 = 0;
-  Node = VfTargetDriversGetNode(v1);
+  Size = 0;
+  Node = VfTargetDriversGetNode((__int64)v1);
   v5 = (_QWORD *)Node;
   if ( Node )
   {
     if ( (*(_DWORD *)(Node + 16) & 1) == 0 )
     {
-      v6 = RtlImageDirectoryEntryToData(v1, 1, 0xCu, &v13);
+      v6 = RtlImageDirectoryEntryToData(v1, 1u, 0xCu, &Size);
       if ( v6 )
       {
-        v7 = v13;
-        if ( v13 )
+        v7 = Size;
+        if ( Size )
         {
           IsDriverSuspectForVerifier = ViIsDriverSuspectForVerifier(a1);
           if ( (unsigned int)ViThunkReplaceAllThunkedImports(a1, v6, v7 >> 3, IsDriverSuspectForVerifier) )

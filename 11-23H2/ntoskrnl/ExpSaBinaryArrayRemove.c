@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpSaBinaryArrayRemove @ 0x1403D5CD8
+ * XREFs of ExpSaBinaryArrayRemove @ 0x1403D5EB8
  * Callers:
- *     ExpSaPageGroupDescriptorAllocate @ 0x1403C5DDC (ExpSaPageGroupDescriptorAllocate.c)
- *     ExpSaPageGroupDescriptorFree @ 0x1403D5B44 (ExpSaPageGroupDescriptorFree.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403C5FBC (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x1403D5D24 (ExpSaPageGroupDescriptorFree.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiBeginPageAccessor @ 0x140064A20
+ * XREFs of MiBeginPageAccessor @ 0x140064A10
  * Callers:
- *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
- *     MiGetSinglePageToZero @ 0x1402C1918 (MiGetSinglePageToZero.c)
+ *     MiUnlinkNodeLargePage @ 0x140064280 (MiUnlinkNodeLargePage.c)
+ *     MiGetSinglePageToZero @ 0x1402C1B08 (MiGetSinglePageToZero.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExpAcquireSpinLockExclusive @ 0x1400BC6A0 (ExpAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400BC5E0 (ExpAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
@@ -32,13 +32,13 @@ __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   *(_QWORD *)(a1 + 56) = CurrentThread;
   *(_BYTE *)(a2 + 34) |= 8u;
-  v4 = &dword_14043A6D8;
+  v4 = &dword_14043B798;
   *(_QWORD *)(a2 + 16) = a1;
   v5 = *(_BYTE *)(a1 + 71) == 0;
   LOBYTE(a2) = -1;
   *(_QWORD *)(a1 + 32) = 0LL;
   if ( v5 )
-    v4 = &dword_14043A6E8;
+    v4 = &dword_14043B7A8;
   *(_WORD *)(a1 + 69) = 0;
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(v4, a2);
@@ -47,8 +47,8 @@ __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
   LOBYTE(v6) = 0;
   if ( *(_BYTE *)(a1 + 71) )
   {
-    v7 = (_QWORD *)qword_14043A6E0;
-    if ( qword_14043A6E0 )
+    v7 = (_QWORD *)qword_14043B7A0;
+    if ( qword_14043B7A0 )
     {
       while ( 1 )
       {
@@ -73,11 +73,11 @@ __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
         v7 = v13;
       }
     }
-    v8 = &qword_14043A6E0;
+    v8 = &qword_14043B7A0;
     goto LABEL_9;
   }
-  v7 = (_QWORD *)qword_14043A6F0;
-  if ( !qword_14043A6F0 )
+  v7 = (_QWORD *)qword_14043B7B0;
+  if ( !qword_14043B7B0 )
     goto LABEL_8;
   while ( a1 >= (unsigned __int64)v7 )
   {
@@ -95,7 +95,7 @@ LABEL_19:
     goto LABEL_19;
   LOBYTE(v6) = 0;
 LABEL_8:
-  v8 = &qword_14043A6F0;
+  v8 = &qword_14043B7B0;
 LABEL_9:
   RtlAvlInsertNodeEx(v8, v7, v6, a1);
   *(_BYTE *)(a1 + 68) = 1;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfClearBootOverrides @ 0x14036D834
+ * XREFs of PpmPerfClearBootOverrides @ 0x14036D9D4
  * Callers:
- *     PopPowerRequestCallbackPerfBoostRequired @ 0x1407E9780 (PopPowerRequestCallbackPerfBoostRequired.c)
- *     PopSetupHighPerfPowerRequest @ 0x140822924 (PopSetupHighPerfPowerRequest.c)
+ *     PopPowerRequestCallbackPerfBoostRequired @ 0x1407E9A50 (PopPowerRequestCallbackPerfBoostRequired.c)
+ *     PopSetupHighPerfPowerRequest @ 0x140822C24 (PopSetupHighPerfPowerRequest.c)
  * Callees:
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PpmReinitializeHeteroEngine @ 0x14082F1A8 (PpmReinitializeHeteroEngine.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PpmReinitializeHeteroEngine @ 0x14082F4A8 (PpmReinitializeHeteroEngine.c)
  */
 
 __int64 PpmPerfClearBootOverrides()

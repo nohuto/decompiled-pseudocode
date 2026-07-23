@@ -1,20 +1,20 @@
 /*
- * XREFs of CcNotifyOfMappedWrite @ 0x14038984C
+ * XREFs of CcNotifyOfMappedWrite @ 0x14038B5FC
  * Callers:
- *     MiGatherMappedPages @ 0x140496CD8 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x140490828 (MiGatherMappedPages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcCanIWriteStreamEx @ 0x140383E50 (CcCanIWriteStreamEx.c)
- *     CcPostWorkQueue @ 0x1403863F0 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x140387B50 (CcAllocateWorkQueueEntry.c)
- *     CcGetNodeForLazyWrite @ 0x14038964C (CcGetNodeForLazyWrite.c)
- *     CcGetPrivateVolumeCacheMap @ 0x14039C140 (CcGetPrivateVolumeCacheMap.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     CcScheduleLazyWriteScan @ 0x1403E0640 (CcScheduleLazyWriteScan.c)
- *     CcAcquireByteRangeForWrite @ 0x1403E2360 (CcAcquireByteRangeForWrite.c)
- *     CcIncrementOpenCount @ 0x14049AF30 (CcIncrementOpenCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcCanIWriteStreamEx @ 0x140385C00 (CcCanIWriteStreamEx.c)
+ *     CcPostWorkQueue @ 0x1403881A0 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x140389900 (CcAllocateWorkQueueEntry.c)
+ *     CcGetNodeForLazyWrite @ 0x14038B3FC (CcGetNodeForLazyWrite.c)
+ *     CcGetPrivateVolumeCacheMap @ 0x14039DEA0 (CcGetPrivateVolumeCacheMap.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     CcScheduleLazyWriteScan @ 0x1403E3830 (CcScheduleLazyWriteScan.c)
+ *     CcAcquireByteRangeForWrite @ 0x1403E5550 (CcAcquireByteRangeForWrite.c)
+ *     CcIncrementOpenCount @ 0x140494A80 (CcIncrementOpenCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcNotifyOfMappedWrite(__int64 a1, __int64 a2, unsigned int a3)

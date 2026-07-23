@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpSetDevicePropertyData @ 0x1407071D8
+ * XREFs of PnpSetDevicePropertyData @ 0x140708478
  * Callers:
- *     IoSetDevicePropertyData @ 0x140707130 (IoSetDevicePropertyData.c)
+ *     IoSetDevicePropertyData @ 0x1407083D0 (IoSetDevicePropertyData.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PnpSetDeviceInstancePropertyChangeEvent @ 0x14016A1F0 (PnpSetDeviceInstancePropertyChangeEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PiPnpRtlSetObjectProperty @ 0x1406E5250 (PiPnpRtlSetObjectProperty.c)
- *     PnpSetInterruptInformation @ 0x1407592D4 (PnpSetInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PnpSetDeviceInstancePropertyChangeEvent @ 0x14016A2F0 (PnpSetDeviceInstancePropertyChangeEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1406E64F0 (PiPnpRtlSetObjectProperty.c)
+ *     PnpSetInterruptInformation @ 0x14075A4C4 (PnpSetInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x140897850 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpSetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         int a5,
         unsigned int a6,
@@ -27,13 +27,12 @@ __int64 __fastcall PnpSetDevicePropertyData(
   struct _KTHREAD *CurrentThread; // rax
   int v12; // ebx
   __int64 v14; // rax
-  __int64 v15; // [rsp+50h] [rbp-108h] BYREF
-  _BYTE *v16; // [rsp+58h] [rbp-100h]
-  _BYTE v17[176]; // [rsp+60h] [rbp-F8h] BYREF
+  UNICODE_STRING String; // [rsp+50h] [rbp-108h] BYREF
+  _BYTE v16[176]; // [rsp+60h] [rbp-F8h] BYREF
 
-  memset(v17, 0, 0xAAuLL);
-  v15 = 0LL;
-  v16 = 0LL;
+  memset(v16, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
+  String.Buffer = 0LL;
   if ( a1 )
     v10 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
   else
@@ -42,14 +41,14 @@ __int64 __fastcall PnpSetDevicePropertyData(
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    LODWORD(v15) = 11141120;
-    v16 = v17;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v15) )
+    *(_DWORD *)&String.Length = 11141120;
+    String.Buffer = (wchar_t *)v16;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v16 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -59,7 +58,7 @@ __int64 __fastcall PnpSetDevicePropertyData(
           *(const WCHAR **)(v10 + 48),
           1,
           0LL,
-          (__int64)v16,
+          (__int64)String.Buffer,
           a2,
           a5,
           a7,

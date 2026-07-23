@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlRemovePerFileContext @ 0x1405B58B0
+ * XREFs of FsRtlRemovePerFileContext @ 0x1405B80C0
  * Callers:
- *     FsRtlRemovePerFileContextWithReserve @ 0x1405B5980 (FsRtlRemovePerFileContextWithReserve.c)
+ *     FsRtlRemovePerFileContextWithReserve @ 0x1405B8190 (FsRtlRemovePerFileContextWithReserve.c)
  * Callees:
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x140449634 (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1404497DC (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x14021AF74 (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x14021B11C (FsRtlReleaseAutoExpandPushLockExclusive.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
@@ -12,23 +12,22 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
         PVOID OwnerId,
         PVOID InstanceId)
 {
-  struct _KLOCK_ENTRIES *v3; // r9
-  struct _KTHREAD *v4; // rbp
+  struct _KTHREAD *v3; // rbp
   struct _LIST_ENTRY **p_Blink; // rdi
   struct _FSRTL_PER_FILE_CONTEXT *Flink; // rax
-  struct _FSRTL_PER_FILE_CONTEXT *v9; // rbx
-  struct _FSRTL_PER_FILE_CONTEXT *v10; // rcx
+  struct _FSRTL_PER_FILE_CONTEXT *v8; // rbx
+  struct _FSRTL_PER_FILE_CONTEXT *v9; // rcx
   struct _FSRTL_PER_FILE_CONTEXT **Blink; // rax
 
-  v4 = (struct _KTHREAD *)*PerFileContextPointer;
+  v3 = (struct _KTHREAD *)*PerFileContextPointer;
   if ( !*PerFileContextPointer )
     return 0LL;
-  p_Blink = &v4->Header.WaitListHead.Blink;
+  p_Blink = &v3->Header.WaitListHead.Blink;
   if ( *p_Blink == (struct _LIST_ENTRY *)p_Blink )
     return 0LL;
-  FsRtlAcquireAutoExpandPushLockExclusive((__int64)*PerFileContextPointer, (__int64)OwnerId, (__int64)InstanceId, v3);
+  FsRtlAcquireAutoExpandPushLockExclusive((__int64)*PerFileContextPointer);
   Flink = (struct _FSRTL_PER_FILE_CONTEXT *)*p_Blink;
-  v9 = 0LL;
+  v8 = 0LL;
   if ( InstanceId )
   {
     while ( Flink != (struct _FSRTL_PER_FILE_CONTEXT *)p_Blink )
@@ -50,19 +49,19 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
   else if ( Flink != (struct _FSRTL_PER_FILE_CONTEXT *)p_Blink )
   {
 LABEL_13:
-    v9 = Flink;
+    v8 = Flink;
     if ( Flink )
     {
-      v10 = (struct _FSRTL_PER_FILE_CONTEXT *)Flink->Links.Flink;
+      v9 = (struct _FSRTL_PER_FILE_CONTEXT *)Flink->Links.Flink;
       if ( (struct _FSRTL_PER_FILE_CONTEXT *)Flink->Links.Flink->Blink != Flink
-        || (Blink = (struct _FSRTL_PER_FILE_CONTEXT **)Flink->Links.Blink, *Blink != v9) )
+        || (Blink = (struct _FSRTL_PER_FILE_CONTEXT **)Flink->Links.Blink, *Blink != v8) )
       {
         __fastfail(3u);
       }
-      *Blink = v10;
-      v10->Links.Blink = (struct _LIST_ENTRY *)Blink;
+      *Blink = v9;
+      v9->Links.Blink = (struct _LIST_ENTRY *)Blink;
     }
   }
-  FsRtlReleaseAutoExpandPushLockExclusive(v4);
-  return v9;
+  FsRtlReleaseAutoExpandPushLockExclusive(v3);
+  return v8;
 }

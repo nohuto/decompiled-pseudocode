@@ -16,36 +16,36 @@
  *     sub_180103AE4 @ 0x180103AE4 (sub_180103AE4.c)
  */
 
-char __fastcall RtlUnlockHeap(__int64 a1)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rcx
+  _RTL_CRITICAL_SECTION *v2; // rcx
+  __int64 UserModeGlobalLogger; // rcx
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    sub_180016FFC(a1, 0);
+    sub_180016FFC((__int64)HeapHandle, 0);
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_18015FA18)();
-    if ( !(unsigned __int8)sub_180019C74(a1, "RtlUnlockHeap") )
+    if ( !(unsigned __int8)sub_180019C74(HeapHandle, "RtlUnlockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      v2 = *(_QWORD *)(a1 + 352);
-      --*(_WORD *)(a1 + 416);
+      v2 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+      --*((_WORD *)HeapHandle + 208);
       RtlLeaveCriticalSection(v2);
     }
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v3 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  if ( RtlGetCurrentServiceSessionId() )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v3 = 2147353472LL;
-  if ( *(_BYTE *)v3 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_180103AE4(a1);
+      sub_180103AE4(HeapHandle);
   }
   return 1;
 }

@@ -50,12 +50,12 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
   POPLOCK v6; // rcx
   int v7; // eax
   int v8; // edi
-  struct _RTL_BITMAP *v9; // r12
+  _RTL_BITMAP *v9; // r12
   unsigned int v10; // r8d
   _DWORD *v11; // rcx
   _DWORD *v12; // rdx
   ULONG v13; // eax
-  struct _RTL_BITMAP *v14; // rcx
+  _RTL_BITMAP *v14; // rcx
   __int64 v15; // rdx
   __int64 v16; // rcx
   unsigned __int64 v17; // rdi
@@ -220,7 +220,7 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
           HvlDiscardPagesFromHibernation(Address);
       }
       ++*(_DWORD *)v5;
-      v9 = (struct _RTL_BITMAP *)(Address + 48);
+      v9 = (_RTL_BITMAP *)(Address + 48);
       v10 = 0;
       v11 = (_DWORD *)*((_QWORD *)Address + 7);
       v12 = (_DWORD *)*((_QWORD *)Address + 5);
@@ -240,12 +240,12 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
       }
       if ( byte_14032E8E1 )
       {
-        v14 = (struct _RTL_BITMAP *)(Address + 32);
+        v14 = (_RTL_BITMAP *)(Address + 32);
       }
       else
       {
-        RtlCopyBitMap((unsigned int *)Address + 12, (__int64)(Address + 32), 0);
-        v14 = (struct _RTL_BITMAP *)(Address + 48);
+        RtlCopyBitMap((PRTL_BITMAP)Address + 3, (PRTL_BITMAP)Address + 2, 0);
+        v14 = (_RTL_BITMAP *)(Address + 48);
       }
       RtlSetAllBits(v14);
       v15 = *((_QWORD *)Address + 21);
@@ -294,7 +294,7 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
           }
         }
         while ( v23 != Address + 64 );
-        v9 = (struct _RTL_BITMAP *)(Address + 48);
+        v9 = (_RTL_BITMAP *)(Address + 48);
       }
       PopResetRangeEnum(Address);
       if ( (PoDebug & 0x80u) != 0 )

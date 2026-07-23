@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogFlushPhaseStart @ 0x140752D70
+ * XREFs of CmpLogFlushPhaseStart @ 0x140752F60
  * Callers:
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogFlushPhaseStart(__int64 a1, char a2)
@@ -16,15 +16,15 @@ NTSTATUS __fastcall CmpLogFlushPhaseStart(__int64 a1, char a2)
   int v6; // [rsp+60h] [rbp-18h]
   int v7; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_140C043C8 > 4 )
+  if ( (unsigned int)dword_140C04390 > 4 )
   {
     v3 = a2;
     v5 = &v3;
     v7 = 0;
     v6 = 1;
     return tlgWriteTransfer_EtwWriteTransfer(
-             (__int64)&dword_140C043C8,
-             (unsigned __int8 *)byte_140036B5B,
+             (__int64)&dword_140C04390,
+             (unsigned __int8 *)byte_140036BC1,
              0LL,
              0LL,
              3u,

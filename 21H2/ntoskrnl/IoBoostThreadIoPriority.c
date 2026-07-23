@@ -1,36 +1,36 @@
 /*
- * XREFs of IoBoostThreadIoPriority @ 0x140358630
+ * XREFs of IoBoostThreadIoPriority @ 0x140363380
  * Callers:
- *     ExpApplyPriorityBoost @ 0x14022F000 (ExpApplyPriorityBoost.c)
- *     ExpBoostIoAfterAcquire @ 0x1402872F0 (ExpBoostIoAfterAcquire.c)
- *     FsRtlpWaitForIoAtEof @ 0x140290A2C (FsRtlpWaitForIoAtEof.c)
- *     FsRtlpDoBoost @ 0x1402CA830 (FsRtlpDoBoost.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1402D083C (CcBoostLowPriorityWorkerThread.c)
- *     KiAbProcessThreadLocks @ 0x1402F10C4 (KiAbProcessThreadLocks.c)
- *     KiAbProcessContextSwitch @ 0x140347C50 (KiAbProcessContextSwitch.c)
- *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireResourceExclusiveLite @ 0x14034C9B0 (ExpAcquireResourceExclusiveLite.c)
- *     MiModifiedPageWriter @ 0x1403BDB20 (MiModifiedPageWriter.c)
- *     IoBoostThreadIo @ 0x140505930 (IoBoostThreadIo.c)
- *     PspBoostJobIoPriorityCallback @ 0x1406ABCA0 (PspBoostJobIoPriorityCallback.c)
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     ExpBoostIoAfterAcquire @ 0x140204490 (ExpBoostIoAfterAcquire.c)
+ *     FsRtlpWaitForIoAtEof @ 0x14020E99C (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlpDoBoost @ 0x140249120 (FsRtlpDoBoost.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x14024ECCC (CcBoostLowPriorityWorkerThread.c)
+ *     ExpApplyPriorityBoost @ 0x1402D3850 (ExpApplyPriorityBoost.c)
+ *     KiAbProcessThreadLocks @ 0x1402FBE14 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x1403529A0 (KiAbProcessContextSwitch.c)
+ *     ExpAcquireResourceSharedLite @ 0x140356DB0 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x140357700 (ExpAcquireResourceExclusiveLite.c)
+ *     MiModifiedPageWriter @ 0x1403BF240 (MiModifiedPageWriter.c)
+ *     IoBoostThreadIo @ 0x1405058B0 (IoBoostThreadIo.c)
+ *     PspBoostJobIoPriorityCallback @ 0x14060A390 (PspBoostJobIoPriorityCallback.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExReferenceCallBackBlock @ 0x14027BEC0 (ExReferenceCallBackBlock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
@@ -378,7 +378,7 @@ LABEL_29:
       if ( ((unsigned __int64)v27 ^ v30) >= 0xF )
       {
 LABEL_93:
-        ExReleaseRundownProtection_0(v27);
+        ExReleaseRundownProtection(v27);
       }
       else
       {

@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetProcessWin32Process @ 0x140ADC300
+ * XREFs of PsSetProcessWin32Process @ 0x140AD9850
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PsSetProcessWin32Process(

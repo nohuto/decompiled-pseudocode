@@ -4,7 +4,7 @@
  *     VfSettingsCheckForChanges @ 0x140716730 (VfSettingsCheckForChanges.c)
  *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140716810 (VfSettingsMiscellaneousChecksInitPhase1.c)
  * Callees:
- *     PsSetProcessHandleTracingInformation @ 0x14067D42C (PsSetProcessHandleTracingInformation.c)
+ *     PsSetProcessHandleTracingInformation @ 0x14067D510 (PsSetProcessHandleTracingInformation.c)
  */
 
 __int64 __fastcall ViSettingsEnableKernelHandleChecking(int a1)

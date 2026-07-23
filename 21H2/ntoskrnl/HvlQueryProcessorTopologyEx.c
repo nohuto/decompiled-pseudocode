@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlQueryProcessorTopologyEx @ 0x1404F2450
+ * XREFs of HvlQueryProcessorTopologyEx @ 0x1404F23D0
  * Callers:
- *     HvlQueryProcessorTopology @ 0x1404F23F0 (HvlQueryProcessorTopology.c)
+ *     HvlQueryProcessorTopology @ 0x1404F2370 (HvlQueryProcessorTopology.c)
  * Callees:
- *     HvlpGetLpcbByLpIndex @ 0x140390CF8 (HvlpGetLpcbByLpIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x140390E48 (HvlpGetLpcbByLpIndex.c)
  */
 
 __int64 __fastcall HvlQueryProcessorTopologyEx(unsigned int a1, _WORD *a2, _DWORD *a3, __int64 a4, int *a5)

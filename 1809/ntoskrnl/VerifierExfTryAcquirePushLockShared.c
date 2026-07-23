@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExfTryAcquirePushLockShared @ 0x140942480
+ * XREFs of VerifierExfTryAcquirePushLockShared @ 0x140943480
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViExCheckAPCsDisabled @ 0x1409426FC (ViExCheckAPCsDisabled.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViExCheckAPCsDisabled @ 0x1409436FC (ViExCheckAPCsDisabled.c)
  */
 
 __int64 __fastcall VerifierExfTryAcquirePushLockShared(ULONG_PTR a1)

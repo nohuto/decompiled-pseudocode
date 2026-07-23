@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpFixedVsAllocate @ 0x1402D1E30
+ * XREFs of RtlpHpFixedVsAllocate @ 0x140250200
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     RtlFindClearBitsAndSetEx @ 0x1402793D0 (RtlFindClearBitsAndSetEx.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     RtlFindLongestRunClearEx @ 0x14039B660 (RtlFindLongestRunClearEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     RtlFindClearBitsAndSetEx @ 0x140267370 (RtlFindClearBitsAndSetEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140313100 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     RtlFindLongestRunClearEx @ 0x14039B7B0 (RtlFindLongestRunClearEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, char a3, _DWORD *a4, _DWORD *a5)
@@ -25,7 +25,7 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
   int v8; // r13d
   unsigned __int8 v9; // si
   __m128i v10; // xmm0
-  unsigned __int64 ClearBitsAndSet; // rax
+  __int64 ClearBitsAndSet; // rax
   __m128i *v12; // r15
   int LongestRunClear; // eax
   struct _KTHREAD *CurrentThread; // rbx
@@ -36,18 +36,17 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
   __int64 v20; // rcx
   __int64 v21; // rsi
   __int64 v22; // rdx
-  __int64 v23; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v27; // edx
-  unsigned __int64 v28[3]; // [rsp+30h] [rbp-18h] BYREF
-  unsigned __int64 v29; // [rsp+90h] [rbp+48h] BYREF
-  int v30; // [rsp+98h] [rbp+50h]
-  int v31; // [rsp+A0h] [rbp+58h]
-  _DWORD *v32; // [rsp+A8h] [rbp+60h]
+  int v26; // edx
+  _QWORD v27[3]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v28; // [rsp+90h] [rbp+48h] BYREF
+  int v29; // [rsp+98h] [rbp+50h]
+  int v30; // [rsp+A0h] [rbp+58h]
+  _DWORD *v31; // [rsp+A8h] [rbp+60h]
 
-  v32 = a4;
+  v31 = a4;
   v5 = a2;
   v6 = a1 + 24;
   v8 = a3 & 1;
@@ -56,13 +55,13 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
   else
     v9 = RtlpHpAcquireLockExclusive(a1 + 24, *(unsigned int *)(a1 + 32));
   v10 = *(__m128i *)(a1 + 48);
-  v28[0] = *(_QWORD *)(a1 + 48);
-  v28[1] = a1 ^ _mm_srli_si128(v10, 8).m128i_u64[0];
-  ClearBitsAndSet = RtlFindClearBitsAndSetEx(v28, v5 >> 12, 0LL);
-  v29 = ClearBitsAndSet;
-  if ( ClearBitsAndSet == -1LL )
+  v27[0] = *(_QWORD *)(a1 + 48);
+  v27[1] = a1 ^ _mm_srli_si128(v10, 8).m128i_u64[0];
+  ClearBitsAndSet = RtlFindClearBitsAndSetEx(v27, v5 >> 12, 0LL);
+  v28 = ClearBitsAndSet;
+  if ( ClearBitsAndSet == -1 )
   {
-    LongestRunClear = RtlFindLongestRunClearEx(v28, &v29);
+    LongestRunClear = RtlFindLongestRunClearEx(v27, &v28);
     v12 = 0LL;
     *a5 = LongestRunClear << 12;
   }
@@ -70,7 +69,7 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
   {
     v12 = (__m128i *)(a1 + (ClearBitsAndSet << 12));
     *a5 = 0;
-    *v32 = 0;
+    *v31 = 0;
   }
   if ( !v8 )
   {
@@ -86,9 +85,9 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v27 = ~(unsigned __int16)(-1LL << (v9 + 1));
-            v19 = (v27 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v27;
+            v26 = ~(unsigned __int16)(-1LL << (v9 + 1));
+            v19 = (v26 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v26;
             if ( v19 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
@@ -100,7 +99,7 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
     {
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v6);
-      v31 = 0;
+      v30 = 0;
       CurrentThread = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType(v6) == 1 )
         SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
@@ -112,7 +111,7 @@ __m128i *__fastcall RtlpHpFixedVsAllocate(unsigned __int64 a1, unsigned int a2, 
       while ( 1 )
       {
         v19 = !_BitScanReverse((unsigned int *)&v20, v18);
-        v30 = v20;
+        v29 = v20;
         if ( v19 )
           goto LABEL_17;
         v21 = (__int64)&CurrentThread->LockEntries[v20];
@@ -136,8 +135,8 @@ LABEL_17:
       }
       *(_BYTE *)(v21 + 32) |= 2u;
       if ( *(__int64 *)(v21 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v21);
-      v31 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v21);
+      v30 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
       *(_DWORD *)(v21 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v21 + 25) &= ~1u;
       *(_QWORD *)(v21 + 32) = 0LL;
@@ -153,7 +152,7 @@ LABEL_29:
       if ( v19
         && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(v23);
+        KiCheckForKernelApcDelivery();
       }
       KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     }

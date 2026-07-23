@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceCsResiliencyStats @ 0x140B562D4
+ * XREFs of PopDiagTraceCsResiliencyStats @ 0x140B58FD4
  * Callers:
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x1407D6328 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x1407D94D8 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceCsResiliencyStats(int *a1)
@@ -92,12 +92,12 @@ NTSTATUS __fastcall PopDiagTraceCsResiliencyStats(int *a1)
   v4 = 0LL;
   if ( v3 )
     v4 = *((_QWORD *)a1 + 16);
-  if ( (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x400000000000LL) != 0 )
+  if ( (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x400000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+    if ( (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
     {
-      v15 = *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorSummary;
+      v15 = PopWdiCurrentScenarioInstanceId;
       v29 = &v15;
       v6 = *a1;
       v31 = &v6;
@@ -166,8 +166,8 @@ NTSTATUS __fastcall PopDiagTraceCsResiliencyStats(int *a1)
       v72 = 4LL;
       v74 = 88LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07598,
-               (unsigned __int8 *)&byte_140049DF7,
+               (__int64)&dword_140E07560,
+               (unsigned __int8 *)&byte_14004A3F7,
                0LL,
                0LL,
                0x19u,

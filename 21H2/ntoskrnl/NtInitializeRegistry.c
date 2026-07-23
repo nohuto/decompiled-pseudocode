@@ -1,42 +1,44 @@
 /*
- * XREFs of NtInitializeRegistry @ 0x14078D500
+ * XREFs of NtInitializeRegistry @ 0x14078D6C0
  * Callers:
  *     <none>
  * Callees:
- *     ZwInitializeRegistry @ 0x1403FC3C0 (ZwInitializeRegistry.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     CmpAcceptBoot @ 0x14078D570 (CmpAcceptBoot.c)
- *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
- *     CmpHandlePageFileOpenNotification @ 0x1407C8D38 (CmpHandlePageFileOpenNotification.c)
- *     CmpSyncNextBackupHive @ 0x140871460 (CmpSyncNextBackupHive.c)
+ *     ZwInitializeRegistry @ 0x1403FC5A0 (ZwInitializeRegistry.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     CmpAcceptBoot @ 0x14078D730 (CmpAcceptBoot.c)
+ *     CmCompleteRegistryInitialization @ 0x14079167C (CmCompleteRegistryInitialization.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407C9058 (CmpHandlePageFileOpenNotification.c)
+ *     CmpSyncNextBackupHive @ 0x1408715C0 (CmpSyncNextBackupHive.c)
  */
 
-__int64 __fastcall NtInitializeRegistry(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtInitializeRegistry(USHORT BootCondition)
 {
-  LOBYTE(a2) = KeGetCurrentThread()->PreviousMode;
-  if ( (_BYTE)a2 )
+  KPROCESSOR_MODE PreviousMode; // dl
+
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode )
   {
-    if ( (_WORD)a1 == 5096 )
+    if ( BootCondition == 5096 )
     {
-      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, a2) )
+      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
         return CmpSyncNextBackupHive();
       else
-        return 3221225569LL;
+        return -1073741727;
     }
     else
     {
-      return ZwInitializeRegistry(a1, a2);
+      return ZwInitializeRegistry(BootCondition);
     }
   }
-  else if ( (unsigned __int16)(a1 - 4096) > 0x3E7u )
+  else if ( (unsigned __int16)(BootCondition - 4096) > 0x3E7u )
   {
-    if ( (_WORD)a1 == 2 )
+    if ( BootCondition == 2 )
     {
       return CmpHandlePageFileOpenNotification();
     }
-    else if ( (unsigned __int16)a1 >= 2u )
+    else if ( BootCondition >= 2u )
     {
-      return 3221225485LL;
+      return -1073741811;
     }
     else
     {

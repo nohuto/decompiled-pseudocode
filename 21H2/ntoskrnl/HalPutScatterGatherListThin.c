@@ -1,11 +1,11 @@
 /*
- * XREFs of HalPutScatterGatherListThin @ 0x1404CB290
+ * XREFs of HalPutScatterGatherListThin @ 0x1404CB4D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B8368 (HalpDmaReturnEmergencyLogicalAddressResources.c)
- *     HalpPutScatterGatherListThin @ 0x1404CBA8C (HalpPutScatterGatherListThin.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B85A8 (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpPutScatterGatherListThin @ 0x1404CBCCC (HalpPutScatterGatherListThin.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalPutScatterGatherListThin(struct _DMA_ADAPTER *a1, _QWORD *a2)

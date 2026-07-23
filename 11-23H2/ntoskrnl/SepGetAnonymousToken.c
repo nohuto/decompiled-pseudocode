@@ -1,17 +1,17 @@
 /*
- * XREFs of SepGetAnonymousToken @ 0x1403711F8
+ * XREFs of SepGetAnonymousToken @ 0x140371398
  * Callers:
- *     SepCreateClientSecurityEx @ 0x14071D8F0 (SepCreateClientSecurityEx.c)
- *     NtImpersonateAnonymousToken @ 0x1407F4FB0 (NtImpersonateAnonymousToken.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9360 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SepCreateClientSecurityEx @ 0x14071DAF0 (SepCreateClientSecurityEx.c)
+ *     NtImpersonateAnonymousToken @ 0x1407F5280 (NtImpersonateAnonymousToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9560 (SepCopyAnonymousTokenAndSetSilo.c)
  * Callees:
- *     AuthzBasepDuplicateSecurityAttributes @ 0x140225370 (AuthzBasepDuplicateSecurityAttributes.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
- *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
- *     SepSetTokenPackage @ 0x140714D60 (SepSetTokenPackage.c)
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     SepSetTokenLowboxNumber @ 0x1407F474C (SepSetTokenLowboxNumber.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x140225480 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepSetTokenSessionById @ 0x1406B7B10 (SepSetTokenSessionById.c)
+ *     SepSetTokenCapabilities @ 0x1406BD648 (SepSetTokenCapabilities.c)
+ *     SepSetTokenPackage @ 0x140714F70 (SepSetTokenPackage.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     SepSetTokenLowboxNumber @ 0x1407F4A1C (SepSetTokenLowboxNumber.c)
  */
 
 __int64 __fastcall SepGetAnonymousToken(__int64 a1, PVOID *a2)

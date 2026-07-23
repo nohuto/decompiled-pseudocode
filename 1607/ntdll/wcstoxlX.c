@@ -1,14 +1,14 @@
 /*
- * XREFs of wcstoxlX @ 0x18009C8CC
+ * XREFs of wcstoxlX @ 0x18009C8BC
  * Callers:
- *     wcstol @ 0x18009CAE0 (wcstol.c)
- *     wcstolX @ 0x18009CB10 (wcstolX.c)
- *     wcstoul @ 0x18009CB40 (wcstoul.c)
+ *     wcstol @ 0x18009CAD0 (wcstol.c)
+ *     wcstolX @ 0x18009CB00 (wcstolX.c)
+ *     wcstoul @ 0x18009CB30 (wcstoul.c)
  * Callees:
- *     _errno @ 0x1800883D0 (_errno.c)
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _errno @ 0x1800883C0 (_errno.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     _iswctype_l @ 0x18009A210 (_iswctype_l.c)
- *     _wchartodigit @ 0x18009E484 (_wchartodigit.c)
+ *     _wchartodigit @ 0x18009E474 (_wchartodigit.c)
  */
 
 __int64 __fastcall wcstoxlX(__int64 a1, wint_t *a2, wint_t **a3, unsigned int a4, int a5, int a6)

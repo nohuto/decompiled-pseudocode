@@ -1,14 +1,20 @@
 /*
  * XREFs of ZwQueryInformationThread @ 0x14041BC00
  * Callers:
- *     DifZwQueryInformationThreadWrapper @ 0x140624D40 (DifZwQueryInformationThreadWrapper.c)
+ *     sub_140624D40 @ 0x140624D40 (sub_140624D40.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationThread(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwQueryInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ThreadHandle, *(_QWORD *)&ThreadInformationClass);
 }

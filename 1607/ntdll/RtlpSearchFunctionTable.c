@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpSearchFunctionTable @ 0x1800809C4
+ * XREFs of RtlpSearchFunctionTable @ 0x1800809B4
  * Callers:
- *     RtlpLookupDynamicFunctionEntry @ 0x180080820 (RtlpLookupDynamicFunctionEntry.c)
+ *     RtlpLookupDynamicFunctionEntry @ 0x180080810 (RtlpLookupDynamicFunctionEntry.c)
  * Callees:
  *     <none>
  */

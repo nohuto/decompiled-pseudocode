@@ -1,12 +1,12 @@
 /*
- * XREFs of IoDiskIoAttributionAllocate @ 0x1408E9344
+ * XREFs of IoDiskIoAttributionAllocate @ 0x14085AB74
  * Callers:
- *     PspIoRateEntryActivate @ 0x14085F29C (PspIoRateEntryActivate.c)
- *     PspSetJobIoAttribution @ 0x1408EA0D0 (PspSetJobIoAttribution.c)
+ *     PspSetJobIoAttribution @ 0x14085B900 (PspSetJobIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x140A6D2B4 (PspIoRateEntryActivate.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     IoDiskIoAttributionReference @ 0x1404699FC (IoDiskIoAttributionReference.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     IoDiskIoAttributionReference @ 0x14046277C (IoDiskIoAttributionReference.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall IoDiskIoAttributionAllocate(unsigned __int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ struct _EX_RUNDOWN_REF *__fastcall IoDiskIoAttributionAllocate(unsigned __int64 
   struct _EX_RUNDOWN_REF *v5; // rbx
   signed __int64 v6; // rax
 
-  result = (struct _EX_RUNDOWN_REF *)ExAllocatePool2(0x40uLL);
+  result = (struct _EX_RUNDOWN_REF *)ExAllocatePool2(0x40uLL, 0xB8uLL, 0x41446F49u);
   v5 = result;
   if ( result )
   {

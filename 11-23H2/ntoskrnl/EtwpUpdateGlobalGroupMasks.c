@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpUpdateGlobalGroupMasks @ 0x1407D4E7C
+ * XREFs of EtwpUpdateGlobalGroupMasks @ 0x1407D514C
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x140382DA8 (EtwpUpdateSelectedGroupMasks.c)
- *     EtwpUpdateKernelGroupsWork @ 0x1407D4E50 (EtwpUpdateKernelGroupsWork.c)
- *     EtwDereferenceSpinLockCounters @ 0x1409EBF88 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x1409EBFE4 (EtwReferenceSpinLockCounters.c)
- *     EtwpCoverageSamplerStart @ 0x1409F33D8 (EtwpCoverageSamplerStart.c)
- *     EtwpCoverageSamplerStop @ 0x1409F36C4 (EtwpCoverageSamplerStop.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x140382F48 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpUpdateKernelGroupsWork @ 0x1407D5120 (EtwpUpdateKernelGroupsWork.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1409EC218 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1409EC274 (EtwReferenceSpinLockCounters.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F3668 (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x1409F3954 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     PspGetNextSilo @ 0x1406A31F4 (PspGetNextSilo.c)
- *     EtwpEnableKernelTrace @ 0x1407D5090 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1407D5404 (EtwpDisableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1407D5360 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1407D56D4 (EtwpDisableKernelTrace.c)
  */
 
 __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsigned int a3)

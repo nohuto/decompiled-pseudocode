@@ -11,29 +11,29 @@
  *     ResCLoadCultureMap @ 0x1801116E4 (ResCLoadCultureMap.c)
  */
 
-unsigned __int64 __fastcall ResCReloadCultureMap(unsigned __int64 a1, __int64 a2)
+_QWORD *__fastcall ResCReloadCultureMap(_QWORD *BaseAddress, __int64 a2)
 {
-  __int64 v4; // rcx
-  unsigned __int64 v5; // rdi
+  const WCHAR *v4; // rcx
+  __int64 v5; // rdi
   _BYTE v6[20]; // [rsp+28h] [rbp-40h] BYREF
   __int64 v7; // [rsp+3Ch] [rbp-2Ch]
   int v8; // [rsp+48h] [rbp-20h]
 
-  if ( !a1 )
+  if ( !BaseAddress )
   {
-    RtlSetLastWin32Error(0x57u);
-    return a1;
+    RtlSetLastWin32Error(87);
+    return BaseAddress;
   }
-  v4 = *(_QWORD *)(a1 + 40);
+  v4 = (const WCHAR *)BaseAddress[5];
   if ( !v4
     || !(unsigned int)ResGetFileAttributesEx(v4, a2, (__int64)v6)
-    || *(_DWORD *)(a1 + 48) == v8 && *(_QWORD *)(a1 + 56) == v7 )
+    || *((_DWORD *)BaseAddress + 12) == v8 && BaseAddress[7] == v7 )
   {
-    return a1;
+    return BaseAddress;
   }
-  v5 = ResCLoadCultureMap(*(_WORD **)(a1 + 40));
+  v5 = ResCLoadCultureMap((WCHAR *)BaseAddress[5]);
   if ( !v5 )
-    return a1;
-  ResCFreeCultureMap(a1);
-  return v5;
+    return BaseAddress;
+  ResCFreeCultureMap(BaseAddress);
+  return (_QWORD *)v5;
 }

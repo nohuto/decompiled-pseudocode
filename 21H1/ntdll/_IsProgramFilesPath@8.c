@@ -10,49 +10,50 @@
  *     __wcsnicmp @ 0x4B2F7AC0 (__wcsnicmp.c)
  */
 
-int __fastcall IsProgramFilesPath(const wchar_t *a1, size_t *a2)
+NTSTATUS __fastcall IsProgramFilesPath(const wchar_t *a1, unsigned int *a2)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   wchar_t *Heap; // eax
-  int v4; // eax
-  wchar_t *v5; // edi
+  NTSTATUS v4; // eax
+  wchar_t *Buffer; // edi
   int v6; // ebx
-  size_t v7; // esi
-  __int16 v10; // [esp+18h] [ebp-2D0h] BYREF
-  __int16 v11; // [esp+1Ah] [ebp-2CEh]
-  wchar_t *String2; // [esp+1Ch] [ebp-2CCh]
-  _BYTE v13[708]; // [esp+20h] [ebp-2C8h] BYREF
+  unsigned int v7; // esi
+  SIZE_T v8; // [esp-4h] [ebp-2ECh]
+  _UNICODE_STRING Value; // [esp+18h] [ebp-2D0h] BYREF
+  _BYTE v12[708]; // [esp+20h] [ebp-2C8h] BYREF
 
   *a2 = 0;
-  String2 = (wchar_t *)v13;
-  v11 = 702;
-  result = RtlQueryEnvironmentVariable_U(0, &dword_4B281200, &v10);
+  Value.Buffer = (wchar_t *)v12;
+  Value.MaximumLength = 702;
+  result = RtlQueryEnvironmentVariable_U(0, (PUNICODE_STRING)&stru_4B281200, &Value);
   if ( result == -1073741789 )
   {
-    v11 = v10 + 2;
-    Heap = (wchar_t *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, (unsigned __int16)(v10 + 2));
-    String2 = Heap;
+    Value.MaximumLength = Value.Length + 2;
+    LODWORD(v8) = (unsigned __int16)(Value.Length + 2);
+    Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v8);
+    Value.Buffer = Heap;
   }
   else
   {
     if ( result < 0 )
       return result;
-    Heap = String2;
+    Heap = Value.Buffer;
   }
   if ( !Heap )
     return -1073741637;
-  v4 = RtlQueryEnvironmentVariable_U(0, &dword_4B281200, &v10);
-  v5 = String2;
+  v4 = RtlQueryEnvironmentVariable_U(0, (PUNICODE_STRING)&stru_4B281200, &Value);
+  Buffer = Value.Buffer;
   v6 = v4;
   if ( v4 >= 0 )
   {
-    v7 = wcslen(String2);
-    if ( _wcsnicmp(a1, String2, v7) )
+    v7 = wcslen(Value.Buffer);
+    LODWORD(v8) = v7;
+    if ( _wcsnicmp(a1, Value.Buffer, v8) )
       v6 = -1073741637;
     else
       *a2 = v7;
   }
-  if ( v5 != (wchar_t *)v13 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v5);
+  if ( Buffer != (wchar_t *)v12 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
   return v6;
 }

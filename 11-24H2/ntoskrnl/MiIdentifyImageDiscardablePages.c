@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIdentifyImageDiscardablePages @ 0x1407F2EE0
+ * XREFs of MiIdentifyImageDiscardablePages @ 0x1407F3514
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1407F0C5C (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1407F122C (MiApplyDriverHotPatch.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     RtlSetBitsEx @ 0x1403A4600 (RtlSetBitsEx.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiSnapDriverRange @ 0x140A3DE88 (MiSnapDriverRange.c)
+ *     RtlSetBitsEx @ 0x14026E120 (RtlSetBitsEx.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiSnapDriverRange @ 0x140A33798 (MiSnapDriverRange.c)
  */
 
 __int64 __fastcall MiIdentifyImageDiscardablePages(_QWORD *a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtAddAtomExWrapper @ 0x14066A080
+ * XREFs of DifNtAddAtomExWrapper @ 0x14066DC60
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtAddAtomEx @ 0x140841670 (NtAddAtomEx.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtAddAtomEx @ 0x1408478B0 (NtAddAtomEx.c)
  */
 
-__int64 __fastcall DifNtAddAtomExWrapper(void *a1, unsigned int a2, void *a3, int a4)
+__int64 __fastcall DifNtAddAtomExWrapper(WCHAR *a1, ULONG a2, USHORT *a3, ULONG a4)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v8; // rdx
@@ -61,7 +61,7 @@ __int64 __fastcall DifNtAddAtomExWrapper(void *a1, unsigned int a2, void *a3, in
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v20) = NtAddAtomEx(a1, a2, a3);
+  DWORD2(v20) = NtAddAtomEx(a1, a2, a3, a4);
   if ( v9 )
   {
     if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

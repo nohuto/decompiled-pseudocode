@@ -1,7 +1,7 @@
 /*
- * XREFs of AslpFileMakeBinVersionAttributes @ 0x1406C875C
+ * XREFs of AslpFileMakeBinVersionAttributes @ 0x1406C8894
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x1406C8028 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x1406C8160 (AslpFileGetVersionAttributes.c)
  * Callees:
  *     <none>
  */

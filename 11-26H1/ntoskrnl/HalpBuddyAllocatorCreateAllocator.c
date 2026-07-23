@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBuddyAllocatorCreateAllocator @ 0x1405AB99C
+ * XREFs of HalpBuddyAllocatorCreateAllocator @ 0x1405AE1AC
  * Callers:
- *     HalpIommuAllocateDmaDomain @ 0x14058D094 (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuAllocateDmaDomain @ 0x14058F814 (HalpIommuAllocateDmaDomain.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorCreateAllocator(__int64 a1, __int64 a2)

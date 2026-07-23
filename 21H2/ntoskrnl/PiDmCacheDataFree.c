@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmCacheDataFree @ 0x14074A884
+ * XREFs of PiDmCacheDataFree @ 0x14074AA44
  * Callers:
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14063704C (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmObjectProcessPropertyChange @ 0x14074A454 (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x14062BE5C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmObjectProcessPropertyChange @ 0x14074A614 (PiDmObjectProcessPropertyChange.c)
  * Callees:
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmCacheDataFree(__int64 a1)

@@ -1,11 +1,11 @@
 /*
  * XREFs of _snwscanf_s @ 0x1403E6720
  * Callers:
- *     SiGetBootDeviceName @ 0x1406BAFD4 (SiGetBootDeviceName.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140A22790 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     sub_1406BAFD4 @ 0x1406BAFD4 (sub_1406BAFD4.c)
+ *     sub_140A22790 @ 0x140A22790 (sub_140A22790.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _swinput_s @ 0x1403EA014 (_swinput_s.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
+ *     sub_1403EA014 @ 0x1403EA014 (sub_1403EA014.c)
  */
 
 int snwscanf_s(const wchar_t *Src, size_t MaxCount, const wchar_t *Format, ...)
@@ -14,7 +14,7 @@ int snwscanf_s(const wchar_t *Src, size_t MaxCount, const wchar_t *Format, ...)
 
   va_start(va, Format);
   if ( Format )
-    return swinput_s(Src, MaxCount, Format, (__int64 *)va);
-  xHalTimerWatchdogStop();
+    return sub_1403EA014(Src, MaxCount, Format, (__int64 *)va);
+  _misaligned_access();
   return -1;
 }

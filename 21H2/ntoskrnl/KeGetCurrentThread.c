@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetCurrentThread @ 0x140348B80
+ * XREFs of KeGetCurrentThread @ 0x1403538D0
  * Callers:
  *     <none>
  * Callees:

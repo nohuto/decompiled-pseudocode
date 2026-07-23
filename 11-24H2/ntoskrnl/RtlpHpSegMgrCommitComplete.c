@@ -1,55 +1,55 @@
 /*
- * XREFs of RtlpHpSegMgrCommitComplete @ 0x1402C2B44
+ * XREFs of RtlpHpSegMgrCommitComplete @ 0x14035D3F4
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x1402C21D4 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrCommit @ 0x14035E694 (RtlpHpSegMgrCommit.c)
  * Callees:
- *     RtlpHpReleaseLockExclusive @ 0x1402B9650 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x140360D90 (RtlpHpReleaseLockExclusive.c)
  */
 
-void __fastcall RtlpHpSegMgrCommitComplete(
+signed __int16 __fastcall RtlpHpSegMgrCommitComplete(
         __int64 a1,
         volatile signed __int16 *a2,
         int a3,
         int a4,
-        ULONG_PTR BugCheckParameter2,
-        char a6)
+        ULONG_PTR BugCheckParameter2)
 {
-  signed __int16 v6; // ax
-  signed __int16 v8; // r10
-  signed __int16 v9; // r11
-  signed __int16 v10; // tt
-  __int16 v11; // cx
+  signed __int16 result; // ax
+  signed __int16 v6; // r10
+  signed __int16 v7; // r11
+  signed __int16 v8; // tt
+  __int16 v9; // cx
 
-  v6 = *a2;
+  result = *a2;
   while ( 1 )
   {
-    v8 = v6;
-    v9 = v6;
-    if ( (v6 & 0x4000) != 0 )
+    v6 = result;
+    v7 = result;
+    if ( (result & 0x4000) != 0 )
     {
       if ( a4 && a3 > 0 )
-        v11 = 0x8000;
+        v9 = 0x8000;
       else
-        v11 = 0;
-      v8 = v11 | v6 & 0x3FFF;
+        v9 = 0;
+      v6 = v9 | result & 0x3FFF;
     }
     if ( a3 <= 0 )
     {
-      v8 += a3;
+      v6 += a3;
     }
     else if ( !a4 )
     {
-      v8 -= a3;
+      v6 -= a3;
     }
-    if ( v8 == v6 )
+    if ( v6 == result )
       break;
-    v10 = v6;
-    v6 = _InterlockedCompareExchange16(a2, v8, v6);
-    if ( v10 == v6 )
+    v8 = result;
+    result = _InterlockedCompareExchange16(a2, v6, result);
+    if ( v8 == result )
     {
-      if ( (v9 & 0x4000) != 0 )
-        RtlpHpReleaseLockExclusive(BugCheckParameter2, *(_DWORD *)(a1 + 40) & 1, a6);
-      return;
+      if ( (v7 & 0x4000) != 0 )
+        return RtlpHpReleaseLockExclusive(BugCheckParameter2);
+      return result;
     }
   }
+  return result;
 }

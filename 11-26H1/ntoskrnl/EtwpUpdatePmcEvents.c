@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUpdatePmcEvents @ 0x140827558
+ * XREFs of EtwpUpdatePmcEvents @ 0x14082D798
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     EtwpAllocatePmcData @ 0x140825168 (EtwpAllocatePmcData.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     EtwpAllocatePmcData @ 0x14082B3A8 (EtwpAllocatePmcData.c)
  */
 
 __int64 __fastcall EtwpUpdatePmcEvents(__int64 a1, __int64 a2, unsigned int a3, char a4)

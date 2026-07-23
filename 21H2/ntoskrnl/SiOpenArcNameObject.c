@@ -1,10 +1,10 @@
 /*
- * XREFs of SiOpenArcNameObject @ 0x14077AFC8
+ * XREFs of SiOpenArcNameObject @ 0x14077B188
  * Callers:
- *     SiGetBiosSystemDisk @ 0x14077AEC0 (SiGetBiosSystemDisk.c)
+ *     SiGetBiosSystemDisk @ 0x14077B080 (SiGetBiosSystemDisk.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwOpenSymbolicLinkObject @ 0x1403FC960 (ZwOpenSymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FCB40 (ZwOpenSymbolicLinkObject.c)
  */
 
 __int64 __fastcall SiOpenArcNameObject(PCWSTR SourceString, HANDLE *a2)

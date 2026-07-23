@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetLeafPfnBuddy @ 0x14043A990
+ * XREFs of MiGetLeafPfnBuddy @ 0x14042D1D0
  * Callers:
- *     MiLockOwnedProtoPage @ 0x1402158F0 (MiLockOwnedProtoPage.c)
- *     MiLockProtoPoolPage @ 0x14022E920 (MiLockProtoPoolPage.c)
- *     MiIdentifyPfn @ 0x140307510 (MiIdentifyPfn.c)
- *     MiGetPfnPidSafe @ 0x140309854 (MiGetPfnPidSafe.c)
- *     MiFreePhysicalPageChain @ 0x1403CCA3C (MiFreePhysicalPageChain.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x140414A8C (MiInitializeLargeMdlLeafPfns.c)
- *     MiDeleteSubsectionLargePages @ 0x1404CA9A4 (MiDeleteSubsectionLargePages.c)
+ *     MiFreePhysicalPageChain @ 0x140266C0C (MiFreePhysicalPageChain.c)
+ *     MiLockProtoPoolPage @ 0x140302230 (MiLockProtoPoolPage.c)
+ *     MiIdentifyPfn @ 0x1403113F0 (MiIdentifyPfn.c)
+ *     MiGetPfnPidSafe @ 0x140313734 (MiGetPfnPidSafe.c)
+ *     MiLockOwnedProtoPage @ 0x1403354A0 (MiLockOwnedProtoPage.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x1404A6B00 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiDeleteSubsectionLargePages @ 0x1404C3EC4 (MiDeleteSubsectionLargePages.c)
  * Callees:
  *     <none>
  */

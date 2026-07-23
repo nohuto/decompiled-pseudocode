@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateRetpolineRelocationInformation @ 0x140713C88
+ * XREFs of MiCreateRetpolineRelocationInformation @ 0x1406C22D8
  * Callers:
- *     MiParseImageLoadConfig @ 0x140712E88 (MiParseImageLoadConfig.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x1407A5390 (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiParseImageLoadConfig @ 0x1406C14D8 (MiParseImageLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1407A5590 (MiCaptureBootDriverRetpolineInfo.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlCreateRetpolineRelocationInformation @ 0x14035ED68 (RtlCreateRetpolineRelocationInformation.c)
- *     MiFreeRetpolineRelocationInformation @ 0x14078D7C4 (MiFreeRetpolineRelocationInformation.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x1402A3C98 (RtlCreateRetpolineRelocationInformation.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x14078D984 (MiFreeRetpolineRelocationInformation.c)
  */
 
 __int64 __fastcall MiCreateRetpolineRelocationInformation(__int64 a1, int a2, unsigned int a3, _QWORD *a4)
@@ -44,7 +44,7 @@ __int64 __fastcall MiCreateRetpolineRelocationInformation(__int64 a1, int a2, un
       if ( RetpolineRelocationInformation >= 0 )
       {
         *((_DWORD *)Pool + 2) = *(_DWORD *)a1;
-        v14 = dword_140C4CCB0 + 4095;
+        v14 = dword_140C4CCF0 + 4095;
         *((_DWORD *)Pool + 1) = a2;
         *(_DWORD *)Pool = ((a3 + 4095) & 0xFFFFF000) + (v14 & 0xFFFFF000);
         *a4 = Pool;

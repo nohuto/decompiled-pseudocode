@@ -1,16 +1,16 @@
 /*
- * XREFs of HalMapTransferEx @ 0x14039F6E0
+ * XREFs of HalMapTransferEx @ 0x14039F830
  * Callers:
- *     HalpAllocateAdapterCallbackV3 @ 0x14039F610 (HalpAllocateAdapterCallbackV3.c)
+ *     HalpAllocateAdapterCallbackV3 @ 0x14039F760 (HalpAllocateAdapterCallbackV3.c)
  * Callees:
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     IoMapTransferInternal @ 0x140388CEC (IoMapTransferInternal.c)
- *     HalpDmaCheckMdlAccessibility @ 0x14039F9B8 (HalpDmaCheckMdlAccessibility.c)
- *     HalpDmaFlushDriverMdl @ 0x1404B76FC (HalpDmaFlushDriverMdl.c)
- *     HalpDmaFlushBuffer @ 0x1404C755C (HalpDmaFlushBuffer.c)
- *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
- *     HalpDmaControllerProgramChannel @ 0x1404CE884 (HalpDmaControllerProgramChannel.c)
- *     HalpDmaControllerQueryMaxFragments @ 0x1404CEAB4 (HalpDmaControllerQueryMaxFragments.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     IoMapTransferInternal @ 0x140388E3C (IoMapTransferInternal.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x14039FB08 (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaFlushDriverMdl @ 0x1404B793C (HalpDmaFlushDriverMdl.c)
+ *     HalpDmaFlushBuffer @ 0x1404C779C (HalpDmaFlushBuffer.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C9514 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpDmaControllerProgramChannel @ 0x1404CEAC4 (HalpDmaControllerProgramChannel.c)
+ *     HalpDmaControllerQueryMaxFragments @ 0x1404CECF4 (HalpDmaControllerQueryMaxFragments.c)
  */
 
 __int64 __fastcall HalMapTransferEx(

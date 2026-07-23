@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlpDetermineEnlightenments @ 0x1401BF9E0
+ * XREFs of HvlpDetermineEnlightenments @ 0x1401BF8C4
  * Callers:
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14013D140 (VslGetNestedPageProtectionFlags.c)
- *     HviGetHypervisorFeatures @ 0x14014AF24 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
- *     HvlpTryToLockCpuManagementVersion @ 0x1401BFD1C (HvlpTryToLockCpuManagementVersion.c)
- *     HvlpGetRegister128 @ 0x1401C1340 (HvlpGetRegister128.c)
- *     HviGetEnlightenmentInformation @ 0x140231E9C (HviGetEnlightenmentInformation.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14013D6B0 (VslGetNestedPageProtectionFlags.c)
+ *     HviGetHypervisorFeatures @ 0x14014B494 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
+ *     HvlpTryToLockCpuManagementVersion @ 0x1401BFC00 (HvlpTryToLockCpuManagementVersion.c)
+ *     HvlpGetRegister128 @ 0x1401C1224 (HvlpGetRegister128.c)
+ *     HviGetEnlightenmentInformation @ 0x140231CC8 (HviGetEnlightenmentInformation.c)
  */
 
 __int64 (__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1)

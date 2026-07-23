@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryPackageIdentityAttributes @ 0x1400A5B3C
+ * XREFs of RtlpQueryPackageIdentityAttributes @ 0x1400A5A7C
  * Callers:
- *     RtlQueryPackageClaims @ 0x1400A5590 (RtlQueryPackageClaims.c)
- *     EtwpQueryPsmKey @ 0x1408B4EE4 (EtwpQueryPsmKey.c)
+ *     RtlQueryPackageClaims @ 0x1400A54D0 (RtlQueryPackageClaims.c)
+ *     EtwpQueryPsmKey @ 0x1408B61A4 (EtwpQueryPsmKey.c)
  * Callees:
- *     SeQuerySecurityAttributesToken @ 0x140625740 (SeQuerySecurityAttributesToken.c)
+ *     SeQuerySecurityAttributesToken @ 0x140626760 (SeQuerySecurityAttributesToken.c)
  */
 
 __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
@@ -23,14 +23,14 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int6
   v10 = 1;
   if ( a4 || v5 )
     v10 = 2;
-  result = SeQuerySecurityAttributesToken(a1, (unsigned int)&unk_14034FCB8, v10, a3, 816, (__int64)&v13);
+  result = SeQuerySecurityAttributesToken(a1, (unsigned int)&unk_140350CB8, v10, a3, 816, (__int64)&v13);
   if ( (int)result < 0 )
   {
     if ( (_DWORD)result != -1073741275 )
       return result;
     if ( v10 == 1 )
       return result;
-    result = SeQuerySecurityAttributesToken(a1, (unsigned int)&unk_14034FCB8, 1, a3, 816, (__int64)&v13);
+    result = SeQuerySecurityAttributesToken(a1, (unsigned int)&unk_140350CB8, 1, a3, 816, (__int64)&v13);
     if ( (int)result < 0 )
       return result;
     v9 = 0;
@@ -48,7 +48,7 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int6
   if ( v5 )
   {
     *v5 |= (2LL * v9) | 1;
-    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (unsigned int)&unk_14034F790, 1, 0, 0, (__int64)&v13) == -1073741789 )
+    if ( (unsigned int)SeQuerySecurityAttributesToken(a1, (unsigned int)&unk_140350790, 1, 0, 0, (__int64)&v13) == -1073741789 )
       *v5 |= 4uLL;
   }
   return 0LL;

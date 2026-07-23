@@ -19,139 +19,163 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
   signed int v10; // eax
   unsigned __int16 v11; // cx
   int v12; // eax
-  USHORT v14; // ax
-  USHORT v15; // ax
+  __int16 v14; // ax
+  __int16 v15; // ax
   const char *v16; // edx
   int v17; // eax
-  signed int v18; // [esp+Ch] [ebp-14h]
-  int v19; // [esp+10h] [ebp-10h]
-  PSTR v20; // [esp+14h] [ebp-Ch]
-  signed int v21; // [esp+18h] [ebp-8h]
-  int v22; // [esp+1Ch] [ebp-4h]
+  size_t v18; // [esp-1Ch] [ebp-3Ch]
+  size_t v19; // [esp-18h] [ebp-38h]
+  size_t v20; // [esp-18h] [ebp-38h]
+  size_t v21; // [esp-Ch] [ebp-2Ch]
+  size_t v22; // [esp-8h] [ebp-28h]
+  size_t v23; // [esp-8h] [ebp-28h]
+  const char *v24; // [esp+0h] [ebp-20h]
+  signed int v25; // [esp+Ch] [ebp-14h]
+  int v26; // [esp+10h] [ebp-10h]
+  PSTR v27; // [esp+14h] [ebp-Ch]
+  signed int v28; // [esp+18h] [ebp-8h]
+  int v29; // [esp+1Ch] [ebp-4h]
 
   v2 = 0;
-  v18 = 8;
-  v20 = S + 46;
-  if ( !Addr->u.Word[0] && !Addr->u.Word[1] && !Addr->u.Word[2] && !Addr->u.Word[3] && Addr->u.Word[6] )
+  v25 = 8;
+  v27 = S + 46;
+  if ( !*(_WORD *)Addr
+    && !*((_WORD *)Addr + 1)
+    && !*((_WORD *)Addr + 2)
+    && !*((_WORD *)Addr + 3)
+    && *((_WORD *)Addr + 6) )
   {
-    v14 = Addr->u.Word[4];
+    v14 = *((_WORD *)Addr + 4);
     if ( v14 )
     {
-      if ( v14 == 0xFFFF && !Addr->u.Word[5] )
+      if ( v14 == -1 && !*((_WORD *)Addr + 5) )
       {
+        HIDWORD(v19) = "::ffff:0:%u.%u.%u.%u";
+        LODWORD(v19) = 46;
         v17 = sprintf_s(
                 S,
-                0x2Eu,
-                "::ffff:0:%u.%u.%u.%u",
-                Addr->u.Byte[12],
-                Addr->u.Byte[13],
-                Addr->u.Byte[14],
-                Addr->u.Byte[15]);
+                v19,
+                (const char *const)*((unsigned __int8 *)Addr + 12),
+                *((unsigned __int8 *)Addr + 13),
+                *((unsigned __int8 *)Addr + 14),
+                *((unsigned __int8 *)Addr + 15));
         return &S[v17];
       }
     }
     else
     {
-      v15 = Addr->u.Word[5];
+      v15 = *((_WORD *)Addr + 5);
       if ( !v15 )
       {
         v16 = (const char *)&dword_4B2850A4;
         goto LABEL_33;
       }
-      if ( v15 == 0xFFFF )
+      if ( v15 == -1 )
       {
         v16 = "ffff:";
 LABEL_33:
+        HIDWORD(v18) = "::%hs%u.%u.%u.%u";
+        LODWORD(v18) = 46;
         v17 = sprintf_s(
                 S,
-                0x2Eu,
-                "::%hs%u.%u.%u.%u",
+                v18,
                 v16,
-                Addr->u.Byte[12],
-                Addr->u.Byte[13],
-                Addr->u.Byte[14],
-                Addr->u.Byte[15]);
+                *((unsigned __int8 *)Addr + 12),
+                *((unsigned __int8 *)Addr + 13),
+                *((unsigned __int8 *)Addr + 14),
+                *((unsigned __int8 *)Addr + 15));
         return &S[v17];
       }
     }
   }
   v3 = 0;
   v4 = 0;
-  v22 = 0;
-  v19 = 0;
-  if ( (Addr->u.Word[4] & 0xFFFD) == 0 && Addr->u.Word[5] == 0xFE5E )
-    v18 = 6;
+  v29 = 0;
+  v26 = 0;
+  if ( (*((_WORD *)Addr + 4) & 0xFFFD) == 0 && *((_WORD *)Addr + 5) == 0xFE5E )
+    v25 = 6;
   v5 = 0;
   v6 = 0;
   do
   {
-    if ( Addr->u.Word[v5] )
+    if ( *((_WORD *)Addr + v5) )
     {
       v4 = v5 + 1;
-      v19 = v5 + 1;
+      v26 = v5 + 1;
     }
     else
     {
       v7 = v5 - v4 + 1;
-      v4 = v19;
-      if ( v7 <= v22 - v6 )
+      v4 = v26;
+      if ( v7 <= v29 - v6 )
       {
-        v3 = v22;
+        v3 = v29;
       }
       else
       {
         v3 = v5 + 1;
-        v6 = v19;
-        v22 = v5 + 1;
+        v6 = v26;
+        v29 = v5 + 1;
       }
     }
     ++v5;
   }
-  while ( v5 < v18 );
-  v21 = v6;
+  while ( v5 < v25 );
+  v28 = v6;
   v8 = v3 - v6;
   v9 = S;
   if ( v8 <= 1 )
   {
     v3 = 0;
     v10 = 0;
-    v22 = 0;
-    v21 = 0;
+    v29 = 0;
+    v28 = 0;
   }
   else
   {
-    v10 = v21;
+    v10 = v28;
   }
   do
   {
     if ( v10 > v2 || v2 >= v3 )
     {
       if ( v2 && v2 != v3 )
-        v9 += sprintf_s(v9, v20 - v9, ":");
-      LOBYTE(v11) = HIBYTE(Addr->u.Word[v2]);
-      HIBYTE(v11) = Addr->u.Word[v2];
-      v12 = sprintf_s(v9, v20 - v9, "%x", v11);
-      v3 = v22;
+      {
+        HIDWORD(v22) = ":";
+        LODWORD(v22) = v27 - v9;
+        v9 += sprintf_s(v9, v22, v24);
+      }
+      LOBYTE(v11) = HIBYTE(*((_WORD *)Addr + v2));
+      HIBYTE(v11) = *((_WORD *)Addr + v2);
+      HIDWORD(v21) = "%x";
+      LODWORD(v21) = v27 - v9;
+      v12 = sprintf_s(v9, v21, (const char *const)v11);
+      v3 = v29;
     }
     else
     {
-      v12 = sprintf_s(v9, v20 - v9, "::");
-      v3 = v22;
-      v2 = v22 - 1;
+      HIDWORD(v23) = "::";
+      LODWORD(v23) = v27 - v9;
+      v12 = sprintf_s(v9, v23, v24);
+      v3 = v29;
+      v2 = v29 - 1;
     }
     v9 += v12;
-    v10 = v21;
+    v10 = v28;
     ++v2;
   }
-  while ( v2 < v18 );
-  if ( (unsigned int)v18 < 8 )
+  while ( v2 < v25 );
+  if ( (unsigned int)v25 < 8 )
+  {
+    HIDWORD(v20) = ":%u.%u.%u.%u";
+    LODWORD(v20) = v27 - v9;
     v9 += sprintf_s(
             v9,
-            v20 - v9,
-            ":%u.%u.%u.%u",
-            Addr->u.Byte[12],
-            Addr->u.Byte[13],
-            Addr->u.Byte[14],
-            Addr->u.Byte[15]);
+            v20,
+            (const char *const)*((unsigned __int8 *)Addr + 12),
+            *((unsigned __int8 *)Addr + 13),
+            *((unsigned __int8 *)Addr + 14),
+            *((unsigned __int8 *)Addr + 15));
+  }
   return v9;
 }

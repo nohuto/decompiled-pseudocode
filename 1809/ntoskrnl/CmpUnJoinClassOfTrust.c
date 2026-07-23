@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpUnJoinClassOfTrust @ 0x1401B322C
+ * XREFs of CmpUnJoinClassOfTrust @ 0x1401B336C
  * Callers:
- *     CmpCompleteUnloadKey @ 0x1405AF61C (CmpCompleteUnloadKey.c)
- *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
- *     CmpResolveHiveLoadConflict @ 0x1407F0328 (CmpResolveHiveLoadConflict.c)
- *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     CmpCompleteUnloadKey @ 0x1405B061C (CmpCompleteUnloadKey.c)
+ *     CmShutdownSystem @ 0x1407EDAB4 (CmShutdownSystem.c)
+ *     CmpResolveHiveLoadConflict @ 0x1407F1528 (CmpResolveHiveLoadConflict.c)
+ *     CmpDestroyHive @ 0x1407F7978 (CmpDestroyHive.c)
  * Callees:
- *     CmpLockHiveListExclusive @ 0x1405B00F8 (CmpLockHiveListExclusive.c)
- *     CmpUnlockHiveList @ 0x1405B0118 (CmpUnlockHiveList.c)
+ *     CmpLockHiveListExclusive @ 0x1405B10F8 (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x1405B1118 (CmpUnlockHiveList.c)
  */
 
 void __fastcall CmpUnJoinClassOfTrust(__int64 a1)

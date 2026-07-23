@@ -1,15 +1,15 @@
 /*
- * XREFs of ExIsResourceAcquiredSharedLite @ 0x1400B9AE0
+ * XREFs of ExIsResourceAcquiredSharedLite @ 0x1400B9A20
  * Callers:
- *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
- *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
- *     CmpDoReOpenTransKey @ 0x1408075FC (CmpDoReOpenTransKey.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B30F8 (CmpIsRegistryLockAcquired.c)
+ *     PpDevNodeLockTree @ 0x14059CF10 (PpDevNodeLockTree.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1405DE0AC (FsRtlAcquireFileForCcFlushEx.c)
+ *     CmpDoReOpenTransKey @ 0x1408087FC (CmpDoReOpenTransKey.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExpFastResourceLegacyIsAcquiredShared @ 0x14031B8DC (ExpFastResourceLegacyIsAcquiredShared.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x14031BACC (ExpFastResourceLegacyIsAcquiredShared.c)
  */
 
 ULONG __stdcall ExIsResourceAcquiredSharedLite(PERESOURCE Resource)

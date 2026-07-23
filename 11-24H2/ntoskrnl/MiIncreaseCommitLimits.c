@@ -1,21 +1,21 @@
 /*
- * XREFs of MiIncreaseCommitLimits @ 0x14068620C
+ * XREFs of MiIncreaseCommitLimits @ 0x14068733C
  * Callers:
- *     MiEnableNewPfns @ 0x14066CABC (MiEnableNewPfns.c)
- *     MiInitializeCommitment @ 0x140686338 (MiInitializeCommitment.c)
- *     MiInsertPartitionPageNodes @ 0x14068A6C4 (MiInsertPartitionPageNodes.c)
- *     MiCompleteMemoryAddition @ 0x1407E901C (MiCompleteMemoryAddition.c)
- *     MiCreatePagingFile @ 0x1407EE364 (MiCreatePagingFile.c)
- *     MiExtendPagingFiles @ 0x1407EF148 (MiExtendPagingFiles.c)
- *     MiInsertPageFileInList @ 0x1407EF2F0 (MiInsertPageFileInList.c)
- *     MiFreePartitionPhysicalPages @ 0x1407FC0FC (MiFreePartitionPhysicalPages.c)
+ *     MiEnableNewPfns @ 0x14066DC8C (MiEnableNewPfns.c)
+ *     MiInitializeCommitment @ 0x140687468 (MiInitializeCommitment.c)
+ *     MiInsertPartitionPageNodes @ 0x14068B7F4 (MiInsertPartitionPageNodes.c)
+ *     MiCompleteMemoryAddition @ 0x1407E95EC (MiCompleteMemoryAddition.c)
+ *     MiCreatePagingFile @ 0x1407EE934 (MiCreatePagingFile.c)
+ *     MiExtendPagingFiles @ 0x1407EF718 (MiExtendPagingFiles.c)
+ *     MiInsertPageFileInList @ 0x1407EF8C0 (MiInsertPageFileInList.c)
+ *     MiFreePartitionPhysicalPages @ 0x1407FC86C (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiRestockOverCommit @ 0x14043A6C0 (MiRestockOverCommit.c)
- *     MiComputeCommitThresholds @ 0x1404709E8 (MiComputeCommitThresholds.c)
- *     MiUpdatePageFileList @ 0x14067A25C (MiUpdatePageFileList.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiRestockOverCommit @ 0x14042CEF4 (MiRestockOverCommit.c)
+ *     MiComputeCommitThresholds @ 0x14046B098 (MiComputeCommitThresholds.c)
+ *     MiUpdatePageFileList @ 0x14067B43C (MiUpdatePageFileList.c)
  */
 
 __int64 __fastcall MiIncreaseCommitLimits(

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiConnectSecondaryInterrupt @ 0x1403B7390
+ * XREFs of KiConnectSecondaryInterrupt @ 0x1402B3644
  * Callers:
- *     KeConnectInterrupt @ 0x1403B6EEC (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x1402B31A0 (KeConnectInterrupt.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x14046E6B8 (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiInsertInterruptObjectOrdered @ 0x1404A2AF8 (KiInsertInterruptObjectOrdered.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x1404B6320 (KiAcquireSecondaryPassiveConnectLock.c)
- *     KiReleaseSecondaryPassiveConnectLock @ 0x1404D0B20 (KiReleaseSecondaryPassiveConnectLock.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1402B4BF8 (KiInsertInterruptObjectOrdered.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x1402B5468 (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KiReleaseSecondaryPassiveConnectLock @ 0x1402B54A0 (KiReleaseSecondaryPassiveConnectLock.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x140374A2C (KiAcquireSecondaryInterruptConnectLock.c)
  */
 
 __int64 __fastcall KiConnectSecondaryInterrupt(__int64 a1)

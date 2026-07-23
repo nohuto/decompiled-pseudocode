@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmHeteroComputeRelativePerformance @ 0x140A9E9E8
+ * XREFs of PpmHeteroComputeRelativePerformance @ 0x140AFF6E4
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 char PpmHeteroComputeRelativePerformance()
 {
   unsigned __int16 i; // cx
-  unsigned __int16 v1; // r8
+  unsigned __int16 Count; // r8
   unsigned __int16 v3; // r9
-  __int64 *v4; // r10
+  $B38C3B1372D6E954799962D5DD404846 *v4; // r10
   unsigned __int16 j; // dx
   PBOOLEAN v6; // rcx
   unsigned __int64 v7; // rbx
@@ -46,30 +46,30 @@ char PpmHeteroComputeRelativePerformance()
 
   for ( i = 0; ; ++i )
   {
-    v1 = PpmCheckRegistered[0];
-    if ( i >= LOWORD(PpmCheckRegistered[0]) )
+    Count = PpmCheckRegistered.Count;
+    if ( i >= PpmCheckRegistered.Count )
       break;
-    if ( PpmCheckRegistered[i + 1] )
+    if ( PpmCheckRegistered.Bitmap[i] )
     {
-      if ( LOWORD(PpmPerfStatesRegistered[0]) >= LOWORD(PpmCheckRegistered[0]) )
+      if ( LOWORD(PpmPerfStatesRegistered[0]) >= PpmCheckRegistered.Count )
       {
-        v3 = PpmCheckRegistered[0];
-        v4 = qword_140E0B4C8;
-        v1 = PpmPerfStatesRegistered[0];
+        v3 = PpmCheckRegistered.Count;
+        v4 = ($B38C3B1372D6E954799962D5DD404846 *)qword_140E0B498;
+        Count = PpmPerfStatesRegistered[0];
       }
       else
       {
         v3 = PpmPerfStatesRegistered[0];
-        v4 = qword_140E0B638;
+        v4 = &PpmCheckRegistered.8;
       }
       for ( j = 0; j < v3; ++j )
       {
-        if ( qword_140E0B4C8[j] != PpmCheckRegistered[j + 1] )
+        if ( qword_140E0B498[j] != PpmCheckRegistered.Bitmap[j] )
           return 0;
       }
-      while ( j < v1 )
+      while ( j < Count )
       {
-        if ( v4[j] )
+        if ( v4->Bitmap[j] )
           return 0;
         ++j;
       }

@@ -20,8 +20,10 @@
  *     RtlFreeThreadActivationContextStack @ 0x180073EE0 (RtlFreeThreadActivationContextStack.c)
  */
 
-__int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2)
+void __noreturn LdrShutdownThread(void)
 {
+  __int64 v0; // rdx
+  __int64 v1; // rcx
   struct _TEB *v2; // rbx
   _PEB *ProcessEnvironmentBlock; // r12
   void *FlsData; // r15
@@ -36,25 +38,24 @@ __int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2)
   void **TlsExpansionSlots; // rsi
   __int64 v14; // rdx
   __int64 v15; // rcx
-  __int64 result; // rax
   void *FiberData; // r8
-  __int64 v18; // [rsp+30h] [rbp-C8h] BYREF
-  int v19; // [rsp+38h] [rbp-C0h]
-  __int128 v20; // [rsp+40h] [rbp-B8h]
-  __int128 v21; // [rsp+50h] [rbp-A8h]
-  __int128 v22; // [rsp+60h] [rbp-98h]
-  __int64 v23; // [rsp+70h] [rbp-88h]
-  __int64 v24; // [rsp+80h] [rbp-78h] BYREF
-  int v25; // [rsp+88h] [rbp-70h]
-  __int128 v26; // [rsp+90h] [rbp-68h]
-  __int128 v27; // [rsp+A0h] [rbp-58h]
-  __int128 v28; // [rsp+B0h] [rbp-48h]
-  __int64 v29; // [rsp+C0h] [rbp-38h]
-  _PEB *v30; // [rsp+108h] [rbp+10h]
+  __int64 v17; // [rsp+30h] [rbp-C8h] BYREF
+  int v18; // [rsp+38h] [rbp-C0h]
+  __int128 v19; // [rsp+40h] [rbp-B8h]
+  __int128 v20; // [rsp+50h] [rbp-A8h]
+  __int128 v21; // [rsp+60h] [rbp-98h]
+  __int64 v22; // [rsp+70h] [rbp-88h]
+  __int64 v23; // [rsp+80h] [rbp-78h] BYREF
+  int v24; // [rsp+88h] [rbp-70h]
+  __int128 v25; // [rsp+90h] [rbp-68h]
+  __int128 v26; // [rsp+A0h] [rbp-58h]
+  __int128 v27; // [rsp+B0h] [rbp-48h]
+  __int64 v28; // [rsp+C0h] [rbp-38h]
+  _PEB *v29; // [rsp+108h] [rbp+10h]
 
   v2 = NtCurrentTeb();
   ProcessEnvironmentBlock = v2->ProcessEnvironmentBlock;
-  v30 = ProcessEnvironmentBlock;
+  v29 = ProcessEnvironmentBlock;
   FlsData = v2->FlsData;
   if ( FlsData )
     RtlProcessFlsData(v2->FlsData, 1LL);
@@ -87,33 +88,33 @@ __int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2)
             v7 &= 0x80004u;
             if ( (_DWORD)v7 == 524292 )
             {
-              v18 = 72LL;
-              v19 = 1;
+              v17 = 72LL;
+              v18 = 1;
+              v19 = 0LL;
               v20 = 0LL;
               v21 = 0LL;
               v22 = 0LL;
-              v23 = 0LL;
-              RtlActivateActivationContextUnsafeFast((__int64)&v18, v9[17]);
+              RtlActivateActivationContextUnsafeFast((__int64)&v17, v9[17]);
               if ( *((_WORD *)v9 + 55) )
                 LdrpCallTlsInitializers(3LL, v9);
-              LdrpCallInitRoutine(v10, v9[6], 3LL, 0LL);
-              RtlDeactivateActivationContextUnsafeFast((__int64)&v18);
+              LdrpCallInitRoutine(v10, v9[6], 3u, 0LL);
+              RtlDeactivateActivationContextUnsafeFast((__int64)&v17);
             }
           }
-          ProcessEnvironmentBlock = v30;
+          ProcessEnvironmentBlock = v29;
         }
       }
       if ( *(_WORD *)(LdrpImageEntry + 110) )
       {
-        v24 = 72LL;
-        v25 = 1;
+        v23 = 72LL;
+        v24 = 1;
+        v25 = 0LL;
         v26 = 0LL;
         v27 = 0LL;
         v28 = 0LL;
-        v29 = 0LL;
-        RtlActivateActivationContextUnsafeFast((__int64)&v24, *(_QWORD *)(LdrpImageEntry + 136));
+        RtlActivateActivationContextUnsafeFast((__int64)&v23, *(_QWORD *)(LdrpImageEntry + 136));
         LdrpCallTlsInitializers(3LL, LdrpImageEntry);
-        RtlDeactivateActivationContextUnsafeFast((__int64)&v24);
+        RtlDeactivateActivationContextUnsafeFast((__int64)&v23);
       }
       LdrpReleaseLoaderLock(v7, 19LL);
       if ( !v6 )
@@ -134,19 +135,17 @@ __int64 __fastcall LdrShutdownThread(__int64 a1, __int64 a2)
   if ( TlsExpansionSlots )
   {
     v2->TlsExpansionSlots = 0LL;
-    RtlEnterCriticalSection((__int64)&FastPebLock);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, TlsExpansionSlots);
+    RtlEnterCriticalSection(&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, TlsExpansionSlots);
   }
   if ( (v5->SameTebFlags & 4) != 0 )
   {
     FiberData = v2->NtTib.FiberData;
     v2->NtTib.FiberData = 0LL;
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, FiberData);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, FiberData);
   }
-  RtlFreeThreadActivationContextStack(a1, a2);
-  result = 1024LL;
+  RtlFreeThreadActivationContextStack(v1, v0);
   if ( (v5->SameTebFlags & 0x400) != 0 && LdrInitState == 3 )
-    return TpTrimPools(v15, v14);
-  return result;
+    TpTrimPools(v15, v14);
 }

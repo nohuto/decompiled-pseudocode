@@ -86,7 +86,7 @@ __int64 __fastcall CcCopyReadEx(
   if ( *a2 + (unsigned int)a3 > *(_QWORD *)(v13 + 8) )
     KeBugCheckEx(0x34u, 0x299uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( !a5 )
-    RtlRaiseStatus(3221225704LL);
+    RtlRaiseStatus(-1073741592);
   v15 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] % (unsigned int)CcNumberNumaNodes;
   if ( CcEnablePerVolumeLazyWriter )
   {

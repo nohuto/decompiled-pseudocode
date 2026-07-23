@@ -1,25 +1,25 @@
 /*
- * XREFs of NtQueryInstallUILanguage @ 0x1406B3620
+ * XREFs of NtQueryInstallUILanguage @ 0x1406127F0
  * Callers:
- *     ExpSetPendingUILanguage @ 0x14078C070 (ExpSetPendingUILanguage.c)
- *     NtQueryDefaultUILanguage @ 0x14078ED00 (NtQueryDefaultUILanguage.c)
- *     _RtlpMuiRegValidateInstalled @ 0x140793850 (_RtlpMuiRegValidateInstalled.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098233C (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     ExpSetPendingUILanguage @ 0x14078C230 (ExpSetPendingUILanguage.c)
+ *     NtQueryDefaultUILanguage @ 0x14078EEC0 (NtQueryDefaultUILanguage.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14078F5F0 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098251C (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtQueryInstallUILanguage(_WORD *a1)
+NTSTATUS __cdecl NtQueryInstallUILanguage(LANGID *InstallUILanguageId)
 {
   __int64 v2; // rcx
 
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v2 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v2 = (__int64)a1;
+    if ( (unsigned __int64)InstallUILanguageId < 0x7FFFFFFF0000LL )
+      v2 = (__int64)InstallUILanguageId;
     *(_WORD *)v2 = *(_WORD *)v2;
   }
-  *a1 = PsInstallUILanguageId;
-  return 0LL;
+  *InstallUILanguageId = PsInstallUILanguageId;
+  return 0;
 }

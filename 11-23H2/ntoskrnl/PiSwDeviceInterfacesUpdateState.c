@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwDeviceInterfacesUpdateState @ 0x14081A110
+ * XREFs of PiSwDeviceInterfacesUpdateState @ 0x14081A3E0
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x140818AD0 (PiSwPdoPnPDispatch.c)
- *     PiSwProcessRemove @ 0x1409676D0 (PiSwProcessRemove.c)
+ *     PiSwPdoPnPDispatch @ 0x140818DA0 (PiSwPdoPnPDispatch.c)
+ *     PiSwProcessRemove @ 0x1409678D0 (PiSwProcessRemove.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     McTemplateK0zzzt_EtwWriteTransfer @ 0x140564060 (McTemplateK0zzzt_EtwWriteTransfer.c)
- *     PnpAllocatePWSTR @ 0x1406CCC3C (PnpAllocatePWSTR.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x14077D910 (_CmSetDeviceInterfacePathFormat.c)
- *     IoSetDeviceInterfaceState @ 0x140793660 (IoSetDeviceInterfaceState.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     McTemplateK0zzzt_EtwWriteTransfer @ 0x140564720 (McTemplateK0zzzt_EtwWriteTransfer.c)
+ *     PnpAllocatePWSTR @ 0x1406CCC6C (PnpAllocatePWSTR.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x14077DB00 (_CmSetDeviceInterfacePathFormat.c)
+ *     IoSetDeviceInterfaceState @ 0x140793850 (IoSetDeviceInterfaceState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

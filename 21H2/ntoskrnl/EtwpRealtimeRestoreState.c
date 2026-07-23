@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRealtimeRestoreState @ 0x1407C89FC
+ * XREFs of EtwpRealtimeRestoreState @ 0x1407C8D1C
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140681844 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1405DC884 (EtwpRealtimeCreateLogfile.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
- *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpEventWriteTemplateBackingFile @ 0x140939C1C (EtwpEventWriteTemplateBackingFile.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140253DF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1403FA640 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1403FA680 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1403FA7A0 (ZwQueryInformationFile.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x140939DEC (EtwpEventWriteTemplateBackingFile.c)
  */
 
 NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)

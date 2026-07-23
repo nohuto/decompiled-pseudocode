@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCustomAccessRoutine2 @ 0x14042B310
+ * XREFs of KiCustomAccessRoutine2 @ 0x14042B6A0
  * Callers:
- *     IopIrpStackProfilerDpcRoutine @ 0x140352280 (IopIrpStackProfilerDpcRoutine.c)
+ *     IopIrpStackProfilerDpcRoutine @ 0x140352420 (IopIrpStackProfilerDpcRoutine.c)
  * Callees:
- *     KiCustomRecurseRoutine2 @ 0x14042B2F0 (KiCustomRecurseRoutine2.c)
+ *     KiCustomRecurseRoutine2 @ 0x14042B680 (KiCustomRecurseRoutine2.c)
  */
 
 __int64 __fastcall KiCustomAccessRoutine2(unsigned int *a1)

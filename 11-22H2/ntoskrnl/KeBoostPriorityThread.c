@@ -90,7 +90,7 @@ char __fastcall KeBoostPriorityThread(__int64 a1, int a2)
   _DWORD *v57; // r8
   int v58; // eax
   int v59; // eax
-  __int64 (__fastcall *v60)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  __int64 (__fastcall *v60)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int64 v61; // rdx
   __int16 v62; // r12
   unsigned int *v63; // rbx
@@ -100,7 +100,7 @@ char __fastcall KeBoostPriorityThread(__int64 a1, int a2)
   __int64 (__fastcall *v67)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   __int64 (__fastcall *v68)(_QWORD, __int64 *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v70[2]; // [rsp+40h] [rbp-338h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
   int v72; // [rsp+4Ch] [rbp-32Ch]
   _QWORD *v73; // [rsp+50h] [rbp-328h] BYREF
   __int128 v74; // [rsp+58h] [rbp-320h] BYREF
@@ -136,7 +136,9 @@ char __fastcall KeBoostPriorityThread(__int64 a1, int a2)
   v6 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= (unsigned __int8)((_BYTE)v73 + 15) )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && CurrentIrql <= (unsigned __int8)((_BYTE)v73 + 15) )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -395,9 +397,10 @@ char __fastcall KeBoostPriorityThread(__int64 a1, int a2)
             v90 = 3;
             v70[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
             v59 = *(_DWORD *)(HalpInterruptIpiLines + 16);
-            ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+            ProcNumber = (_PROCESSOR_NUMBER)-1;
             v70[0] = v59;
-            v60 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
+            v60 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController
+                                                                                                  + 120);
             v72 = 1;
             _disable();
             LOBYTE(v2) = v60(*(_QWORD *)(HalpInterruptController + 16), v70, &v90, 47LL, &ProcNumber);
@@ -479,10 +482,10 @@ char __fastcall KeBoostPriorityThread(__int64 a1, int a2)
     }
     if ( !v51 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v52 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v52 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v52 - 2) <= 0xDu )
         {
           v53 = KeGetCurrentPrcb();
           v54 = v53->SchedulerAssist;
@@ -496,10 +499,10 @@ char __fastcall KeBoostPriorityThread(__int64 a1, int a2)
       v38->MiscFlags &= ~0x40u;
       KiDeliverApc(0LL, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v55 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v55 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v55 - 2) <= 0xDu )
       {
         v56 = KeGetCurrentPrcb();
         v57 = v56->SchedulerAssist;

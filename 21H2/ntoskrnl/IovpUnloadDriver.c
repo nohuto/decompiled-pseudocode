@@ -1,17 +1,17 @@
 /*
- * XREFs of IovpUnloadDriver @ 0x1409C5A18
+ * XREFs of IovpUnloadDriver @ 0x1409C6A18
  * Callers:
- *     IovUnloadDrivers @ 0x1409C52F0 (IovUnloadDrivers.c)
+ *     IovUnloadDrivers @ 0x1409C62F0 (IovUnloadDrivers.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopCheckUnloadDriver @ 0x14037C4EC (IopCheckUnloadDriver.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObMakeTemporaryObject @ 0x14062C010 (ObMakeTemporaryObject.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopCheckUnloadDriver @ 0x14037C03C (IopCheckUnloadDriver.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObMakeTemporaryObject @ 0x14061C330 (ObMakeTemporaryObject.c)
  */
 
 __int64 __fastcall IovpUnloadDriver(struct _DMA_ADAPTER *Object)

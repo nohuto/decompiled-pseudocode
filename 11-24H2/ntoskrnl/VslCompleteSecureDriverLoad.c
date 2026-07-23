@@ -1,11 +1,11 @@
 /*
- * XREFs of VslCompleteSecureDriverLoad @ 0x140A3E678
+ * XREFs of VslCompleteSecureDriverLoad @ 0x140A33F88
  * Callers:
- *     MiCompleteSecureDriverLoad @ 0x140A3E480 (MiCompleteSecureDriverLoad.c)
+ *     MiCompleteSecureDriverLoad @ 0x140A33D90 (MiCompleteSecureDriverLoad.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslCompleteSecureDriverLoad(__int64 a1, __int64 a2, unsigned int a3)
@@ -23,5 +23,5 @@ __int64 __fastcall VslCompleteSecureDriverLoad(__int64 a1, __int64 a2, unsigned 
   v8 = a1;
   v9 = a2;
   v10 = v4;
-  return VslpEnterIumSecureMode(2u, 217LL, 0, (__int64)v7);
+  return VslpEnterIumSecureMode(2u, 0xD9u, 0, (__int64)v7);
 }

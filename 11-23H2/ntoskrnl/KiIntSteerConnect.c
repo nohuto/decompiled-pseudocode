@@ -1,18 +1,18 @@
 /*
- * XREFs of KiIntSteerConnect @ 0x140320F2C
+ * XREFs of KiIntSteerConnect @ 0x1403211BC
  * Callers:
- *     KeConnectInterrupt @ 0x140320A54 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140320CE4 (KeConnectInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerUpdateDeviceInterruptMask @ 0x14031FFF0 (KiIntSteerUpdateDeviceInterruptMask.c)
- *     KiIntSteerSetDestination @ 0x1403200A0 (KiIntSteerSetDestination.c)
- *     KiIntSteerChooseInitialTargetProcessors @ 0x140320130 (KiIntSteerChooseInitialTargetProcessors.c)
- *     KiIntSteerGetLineInformation @ 0x1403212B0 (KiIntSteerGetLineInformation.c)
- *     KiIntSteerLogState @ 0x1403213C8 (KiIntSteerLogState.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x140320280 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     KiIntSteerSetDestination @ 0x140320330 (KiIntSteerSetDestination.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x1403203C0 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerGetLineInformation @ 0x140321540 (KiIntSteerGetLineInformation.c)
+ *     KiIntSteerLogState @ 0x140321658 (KiIntSteerLogState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -221,10 +221,10 @@ LABEL_41:
   ExFreePoolWithTag(v10, 0x6B725449u);
 LABEL_27:
   KxReleaseSpinLock((volatile signed __int64 *)&KiIntTrackSpinlock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v14 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v14 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

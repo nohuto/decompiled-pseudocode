@@ -1,25 +1,25 @@
 /*
- * XREFs of MiDbgCopyMemory @ 0x14067E4A8
+ * XREFs of MiDbgCopyMemory @ 0x14067F6A8
  * Callers:
- *     MmDbgCopyMemory @ 0x14067FC78 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x140680E78 (MmDbgCopyMemory.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     KeIsUserVaAccessAllowed @ 0x14042FDA0 (KeIsUserVaAccessAllowed.c)
- *     KeGenericCallDpc @ 0x140494DA0 (KeGenericCallDpc.c)
- *     MiAllocateDbgPatches @ 0x14067DDF8 (MiAllocateDbgPatches.c)
- *     MiCopyFromUntrustedMemory @ 0x14067E1E4 (MiCopyFromUntrustedMemory.c)
- *     MiCopyToUntrustedMemory @ 0x14067E32C (MiCopyToUntrustedMemory.c)
- *     MiDbgPatchIdentity @ 0x14067EF00 (MiDbgPatchIdentity.c)
- *     MiDbgPteWriteInProgress @ 0x14067EFB8 (MiDbgPteWriteInProgress.c)
- *     MiDbgReleaseAddress @ 0x14067F0C0 (MiDbgReleaseAddress.c)
- *     MiDbgTranslatePhysicalAddress @ 0x14067F1F0 (MiDbgTranslatePhysicalAddress.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x14067F588 (MiDbgUnTranslatePhysicalAddress.c)
- *     MiDbgWriteCheck @ 0x14067F674 (MiDbgWriteCheck.c)
- *     MiFillDbgPatches @ 0x14067F9CC (MiFillDbgPatches.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     KeIsUserVaAccessAllowed @ 0x140421850 (KeIsUserVaAccessAllowed.c)
+ *     KeGenericCallDpc @ 0x14048F660 (KeGenericCallDpc.c)
+ *     MiAllocateDbgPatches @ 0x14067EFF8 (MiAllocateDbgPatches.c)
+ *     MiCopyFromUntrustedMemory @ 0x14067F3E4 (MiCopyFromUntrustedMemory.c)
+ *     MiCopyToUntrustedMemory @ 0x14067F52C (MiCopyToUntrustedMemory.c)
+ *     MiDbgPatchIdentity @ 0x140680100 (MiDbgPatchIdentity.c)
+ *     MiDbgPteWriteInProgress @ 0x1406801B8 (MiDbgPteWriteInProgress.c)
+ *     MiDbgReleaseAddress @ 0x1406802C0 (MiDbgReleaseAddress.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x1406803F0 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140680788 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiDbgWriteCheck @ 0x140680874 (MiDbgWriteCheck.c)
+ *     MiFillDbgPatches @ 0x140680BCC (MiFillDbgPatches.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
  */
 
 __int64 __fastcall MiDbgCopyMemory(_BYTE *a1, _BYTE *a2, unsigned int a3, unsigned int a4, int a5)
@@ -166,7 +166,7 @@ LABEL_57:
     {
       v14.QuadPart = (unsigned __int64)MmGetPhysicalAddress(a1).QuadPart >> 12;
       v15 = 6 * v14.QuadPart;
-      if ( v14.QuadPart <= (unsigned __int64)qword_140E2DBE0 )
+      if ( v14.QuadPart <= (unsigned __int64)qword_140E2DD20 )
         v16 = (*(_QWORD *)(48 * v14.QuadPart - 0x21FFFFFFFFD8LL) >> 54) & 1LL;
       else
         LODWORD(v16) = 0;

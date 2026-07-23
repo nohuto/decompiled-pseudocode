@@ -8,16 +8,16 @@
  *     CmUnloadKey @ 0x1408644F8 (CmUnloadKey.c)
  */
 
-__int64 NtUnloadKey2()
+NTSTATUS __cdecl NtUnloadKey2(POBJECT_ATTRIBUTES TargetKey, ULONG Flags)
 {
-  unsigned int v0; // r10d
-  __int64 v1; // r11
-  unsigned int v2; // r8d
-  __int128 v4; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v2; // r10d
+  __int64 v3; // r11
+  NTSTATUS v4; // r8d
+  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = 0LL;
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v4);
-  CmUnloadKey(v1, v0, 0LL, 0LL);
-  CmCleanupThreadInfo((_KAFFINITY_EX **)&v4);
-  return v2;
+  v6 = 0LL;
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v6);
+  CmUnloadKey(v3, v2, 0LL, 0LL);
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v6);
+  return v4;
 }

@@ -1,39 +1,46 @@
 /*
- * XREFs of PopCreateNotificationName @ 0x1406CE5A0
+ * XREFs of PopCreateNotificationName @ 0x1406CF840
  * Callers:
- *     PopGetSettingNotificationName @ 0x14058E66C (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x14058F66C (PopGetSettingNotificationName.c)
  * Callees:
- *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE20 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x1401B9A50 (ZwCreateWnfStateName.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1400DCEA0 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1401B9BB0 (ZwCreateWnfStateName.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x1406325C0 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
  */
 
-NTSTATUS __fastcall PopCreateNotificationName(__int64 a1)
+int __fastcall PopCreateNotificationName(PWNF_STATE_NAME StateName)
 {
-  NTSTATUS result; // eax
-  UNICODE_STRING SourceString; // [rsp+40h] [rbp-C0h] BYREF
+  int result; // eax
+  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int8 Src[48]; // [rsp+78h] [rbp-88h] BYREF
-  char Sid[56]; // [rsp+A8h] [rbp-58h] BYREF
+  unsigned __int8 CapabilitySid[48]; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE CapabilityGroupSid[56]; // [rsp+A8h] [rbp-58h] BYREF
   ACL Acl; // [rsp+E0h] [rbp-20h] BYREF
 
-  *(_DWORD *)&SourceString.Length = 2752552;
-  SourceString.Buffer = L"lpacPnpNotifications";
+  *(_DWORD *)&UnicodeString.Length = 2752552;
+  UnicodeString.Buffer = L"lpacPnpNotifications";
   RtlCreateAcl(&Acl, 0x148u, 2u);
   RtlpAddKnownAce(&Acl, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
   RtlpAddKnownAce(&Acl, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
   RtlpAddKnownAce(&Acl, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
-  result = RtlDeriveCapabilitySidsFromName(&SourceString, Sid, Src);
+  result = RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid);
   if ( result >= 0 )
   {
-    RtlpAddKnownAce(&Acl, 2u, 0, 1179649, Src, 0);
+    RtlpAddKnownAce(&Acl, 2u, 0, 1179649, CapabilitySid, 0);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    return ZwCreateWnfStateName(a1, 3LL, 4LL);
+    return ZwCreateWnfStateName(
+             StateName,
+             WnfTemporaryStateName,
+             WnfDataScopeMachine,
+             0,
+             0LL,
+             0x24u,
+             SecurityDescriptor);
   }
   return result;
 }

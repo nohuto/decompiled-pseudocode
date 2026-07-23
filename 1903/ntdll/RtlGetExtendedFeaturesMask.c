@@ -6,7 +6,7 @@
  *     sub_1800F2878 @ 0x1800F2878 (sub_1800F2878.c)
  */
 
-unsigned __int64 __fastcall RtlGetExtendedFeaturesMask(__int64 a1)
+ULONG64 __cdecl RtlGetExtendedFeaturesMask(PCONTEXT_EX ContextEx)
 {
-  return *(_QWORD *)sub_1800F2878(a1) & 0xFFFFFFFFFFFFFFFCuLL;
+  return *(_QWORD *)sub_1800F2878(ContextEx) & 0xFFFFFFFFFFFFFFFCuLL;
 }

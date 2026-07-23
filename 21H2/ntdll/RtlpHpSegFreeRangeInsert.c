@@ -4,24 +4,23 @@
  *     RtlpHpSegPageRangeShrink @ 0x1800069A0 (RtlpHpSegPageRangeShrink.c)
  *     RtlpHpSegContextCompact @ 0x180006B88 (RtlpHpSegContextCompact.c)
  *     RtlpHpSegContextReserve @ 0x1800085F8 (RtlpHpSegContextReserve.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x18010EE38 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x18010EDF8 (RtlpHpSegLargeRangeAllocate.c)
  * Callees:
  *     RtlRbInsertNodeEx @ 0x180027DC0 (RtlRbInsertNodeEx.c)
- *     RtlpHpTlLogMemStats @ 0x18010B6B0 (RtlpHpTlLogMemStats.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x18010F48C (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlpHpTlLogMemStats @ 0x18010B670 (RtlpHpTlLogMemStats.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x18010F44C (RtlpHpSegPageRangeComputeLargePageCost.c)
  */
 
-__int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbx
   char v6; // al
   __int64 v7; // rdx
-  __int64 v8; // rcx
+  BOOLEAN v8; // r8
+  __int64 v9; // rcx
 
   v3 = 0LL;
-  if ( !(_DWORD)a3
-    && (*(_BYTE *)(a1 + 13) & 0x10) != 0
-    && (a3 = 256 - (unsigned int)*(unsigned __int8 *)(a1 + 10), *(unsigned __int8 *)(a2 + 31) == (_DWORD)a3) )
+  if ( !a3 && (*(_BYTE *)(a1 + 13) & 0x10) != 0 && *(unsigned __int8 *)(a2 + 31) == 256 - *(unsigned __int8 *)(a1 + 10) )
   {
     v3 = a2 & *(_QWORD *)a1;
     *(_DWORD *)a2 = -857879297;
@@ -44,43 +43,43 @@ __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, __int64 a3)
       else
         v7 = 0LL;
     }
-    LOBYTE(a3) = 0;
+    v8 = 0;
     if ( v7 )
     {
       while ( 1 )
       {
         if ( *(_DWORD *)(a2 + 28) < *(_DWORD *)(v7 + 28) )
         {
-          v8 = *(_QWORD *)v7;
+          v9 = *(_QWORD *)v7;
           if ( (*(_BYTE *)(a1 + 104) & 1) != 0 )
           {
-            if ( !v8 )
+            if ( !v9 )
               break;
-            v8 ^= v7;
+            v9 ^= v7;
           }
-          if ( !v8 )
+          if ( !v9 )
             break;
         }
         else
         {
-          v8 = *(_QWORD *)(v7 + 8);
+          v9 = *(_QWORD *)(v7 + 8);
           if ( (*(_BYTE *)(a1 + 104) & 1) != 0 )
           {
-            if ( !v8 )
+            if ( !v9 )
               goto LABEL_21;
-            v8 ^= v7;
+            v9 ^= v7;
           }
-          if ( !v8 )
+          if ( !v9 )
           {
 LABEL_21:
-            LOBYTE(a3) = 1;
+            v8 = 1;
             break;
           }
         }
-        v7 = v8;
+        v7 = v9;
       }
     }
-    RtlRbInsertNodeEx(a1 + 96, v7, a3, a2);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v7, v8, (PRTL_BALANCED_NODE)a2);
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
       (unsigned __int16)~*(_WORD *)(a2 + 28));

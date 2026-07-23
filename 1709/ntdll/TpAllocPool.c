@@ -6,10 +6,17 @@
  *     TppRaiseInvalidParameter @ 0x18010AED8 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocPool(__int64 a1, __int64 a2)
+NTSTATUS __cdecl TpAllocPool(PTP_POOL *PoolReturn, PVOID Reserved)
 {
-  if ( a1 && !a2 && !NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return TpAllocPoolInternal(a1, 0LL);
-  TppRaiseInvalidParameter();
-  return 3221225485LL;
+  if ( PoolReturn )
+  {
+    if ( !Reserved )
+    {
+      Reserved = NtCurrentPeb()->Ldr;
+      if ( !*((_BYTE *)Reserved + 72) )
+        return TpAllocPoolInternal(PoolReturn, 0LL);
+    }
+  }
+  TppRaiseInvalidParameter(PoolReturn, Reserved);
+  return -1073741811;
 }

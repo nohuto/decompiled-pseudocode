@@ -1,11 +1,11 @@
 /*
- * XREFs of VslFinishSecureImageValidation @ 0x14023D420
+ * XREFs of VslFinishSecureImageValidation @ 0x14023D304
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     VslFreePoolTransferObject @ 0x1401C2A38 (VslFreePoolTransferObject.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     VslFreePoolTransferObject @ 0x1401C291C (VslFreePoolTransferObject.c)
  */
 
 __int64 __fastcall VslFinishSecureImageValidation(

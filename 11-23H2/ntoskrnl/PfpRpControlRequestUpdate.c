@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpRpControlRequestUpdate @ 0x1407B52D8
+ * XREFs of PfpRpControlRequestUpdate @ 0x1407B55B8
  * Callers:
- *     PfpRpControlRequestPerform @ 0x1407B5034 (PfpRpControlRequestPerform.c)
+ *     PfpRpControlRequestPerform @ 0x1407B5314 (PfpRpControlRequestPerform.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PsLookupProcessByProcessId @ 0x1406FA370 (PsLookupProcessByProcessId.c)
- *     PfpRpCHashAddEntries @ 0x1407B5488 (PfpRpCHashAddEntries.c)
- *     PfpRpCHashDeleteEntries @ 0x1407B5710 (PfpRpCHashDeleteEntries.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PsLookupProcessByProcessId @ 0x1406FA580 (PsLookupProcessByProcessId.c)
+ *     PfpRpCHashAddEntries @ 0x1407B5768 (PfpRpCHashAddEntries.c)
+ *     PfpRpCHashDeleteEntries @ 0x1407B59F0 (PfpRpCHashDeleteEntries.c)
  */
 
 __int64 __fastcall PfpRpControlRequestUpdate(__int64 a1, _DWORD *a2)

@@ -6,7 +6,7 @@
  *     KeYieldExecution @ 0x1402F1580 (KeYieldExecution.c)
  */
 
-void __noreturn NtYieldExecution()
+NTSTATUS __noreturn NtYieldExecution(void)
 {
-  KeYieldExecution(0LL);
+  return KeYieldExecution(0LL);
 }

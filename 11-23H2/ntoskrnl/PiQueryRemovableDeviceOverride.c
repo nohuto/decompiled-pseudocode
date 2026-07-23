@@ -1,17 +1,17 @@
 /*
- * XREFs of PiQueryRemovableDeviceOverride @ 0x1407C1190
+ * XREFs of PiQueryRemovableDeviceOverride @ 0x1407C1460
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140798794 (PnpDeviceObjectToDeviceInstance.c)
- *     PipFindDeviceOverrideEntry @ 0x1407C1484 (PipFindDeviceOverrideEntry.c)
- *     PnpGetDeviceLocationStrings @ 0x1407FCC08 (PnpGetDeviceLocationStrings.c)
- *     PnpOpenFirstMatchingSubKey @ 0x140958BD8 (PnpOpenFirstMatchingSubKey.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140798984 (PnpDeviceObjectToDeviceInstance.c)
+ *     PipFindDeviceOverrideEntry @ 0x1407C1754 (PipFindDeviceOverrideEntry.c)
+ *     PnpGetDeviceLocationStrings @ 0x1407FCED8 (PnpGetDeviceLocationStrings.c)
+ *     PnpOpenFirstMatchingSubKey @ 0x140958DD8 (PnpOpenFirstMatchingSubKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

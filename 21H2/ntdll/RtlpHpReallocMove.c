@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpReallocMove @ 0x18010E590
+ * XREFs of RtlpHpReallocMove @ 0x18010E550
  * Callers:
- *     RtlpHpLargeReAlloc @ 0x18010E97C (RtlpHpLargeReAlloc.c)
+ *     RtlpHpLargeReAlloc @ 0x18010E93C (RtlpHpLargeReAlloc.c)
  * Callees:
  *     RtlpHpAllocateHeapInternal @ 0x1800076C4 (RtlpHpAllocateHeapInternal.c)
  *     RtlpHpFreeHeap @ 0x180024920 (RtlpHpFreeHeap.c)
  *     RtlpHpExtrasSetPresent @ 0x18006B2D4 (RtlpHpExtrasSetPresent.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-__int64 __fastcall RtlpHpReallocMove(__int64 a1, const void *a2, __int64 a3, unsigned int a4)
+__int64 __fastcall RtlpHpReallocMove(unsigned int *a1, const void *a2, __int64 a3, unsigned int a4)
 {
   void *v8; // rax
   __int64 v9; // rsi
@@ -37,9 +37,9 @@ __int64 __fastcall RtlpHpReallocMove(__int64 a1, const void *a2, __int64 a3, uns
       if ( (a4 & 0x10000000) == 0 )
         v13 = v9 + *(_QWORD *)(a3 + 24);
       memmove((void *)((v13 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v12, 16 * (v12[3] + 1LL));
-      RtlpHpExtrasSetPresent(a1, v9, a4);
+      RtlpHpExtrasSetPresent((__int64)a1, v9, a4);
     }
-    RtlpHpFreeHeap(a1, (unsigned __int64)a2, a4 & 0x11000001, 0LL, 0LL);
+    RtlpHpFreeHeap((__int64)a1, (unsigned __int64)a2, a4 & 0x11000001, 0LL, 0LL);
   }
   return v9;
 }

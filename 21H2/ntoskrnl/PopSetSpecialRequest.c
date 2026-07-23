@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSetSpecialRequest @ 0x1408E1BAC
+ * XREFs of PopSetSpecialRequest @ 0x1408E1D0C
  * Callers:
- *     PopPowerRequestActionInfo @ 0x14067C148 (PopPowerRequestActionInfo.c)
+ *     PopPowerRequestActionInfo @ 0x14066F888 (PopPowerRequestActionInfo.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopDiagTracePowerRequestChange @ 0x140282394 (PopDiagTracePowerRequestChange.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PsChargeProcessWakeCounter @ 0x1406BF030 (PsChargeProcessWakeCounter.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopDiagTracePowerRequestChange @ 0x1402705D4 (PopDiagTracePowerRequestChange.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PsChargeProcessWakeCounter @ 0x1406BCA00 (PsChargeProcessWakeCounter.c)
+ *     PsReleaseProcessWakeCounter @ 0x1406CE130 (PsReleaseProcessWakeCounter.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PopSetSpecialRequest(__int64 a1, int a2, ULONG_PTR a3)
@@ -18,18 +18,20 @@ __int64 __fastcall PopSetSpecialRequest(__int64 a1, int a2, ULONG_PTR a3)
   char v3; // bp
   int v5; // ebx
   PVOID v6; // rsi
-  unsigned __int64 v7; // r14
+  __int64 v7; // r14
+  _QWORD *Tag; // [rsp+20h] [rbp-38h]
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
   Object = 0LL;
   v3 = 0;
   if ( a2 == 3 )
   {
-    v5 = ObpReferenceObjectByHandleWithTag(a3, 0x2000, (__int64)PsProcessType, 1, 0x72506F50u, &Object, 0LL, 0LL);
+    LODWORD(Tag) = 1917874000;
+    v5 = ObpReferenceObjectByHandleWithTag(a3, 0x2000LL, PsProcessType, 1, Tag, &Object, 0LL, 0LL);
     if ( v5 >= 0 )
     {
       v6 = Object;
-      v7 = PsChargeProcessWakeCounter((__int64)Object, 0, 3u, a1);
+      v7 = PsChargeProcessWakeCounter((__int64)Object);
       PopAcquirePowerRequestPushLock(1);
       if ( *(_QWORD *)(a1 + 120) )
       {

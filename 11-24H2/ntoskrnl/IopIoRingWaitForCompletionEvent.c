@@ -1,12 +1,12 @@
 /*
- * XREFs of IopIoRingWaitForCompletionEvent @ 0x1405978CC
+ * XREFs of IopIoRingWaitForCompletionEvent @ 0x14059484C
  * Callers:
- *     NtSubmitIoRing @ 0x1404C3910 (NtSubmitIoRing.c)
- *     IopProcessIoRingEntry @ 0x1406F7A58 (IopProcessIoRingEntry.c)
+ *     NtSubmitIoRing @ 0x1404BEE40 (NtSubmitIoRing.c)
+ *     IopProcessIoRingEntry @ 0x1406F5A58 (IopProcessIoRingEntry.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
  */
 
 __int64 __fastcall IopIoRingWaitForCompletionEvent(__int64 a1, KPROCESSOR_MODE a2, BOOLEAN a3, LARGE_INTEGER *a4)

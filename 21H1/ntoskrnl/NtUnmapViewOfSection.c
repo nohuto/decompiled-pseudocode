@@ -6,7 +6,7 @@
  *     NtUnmapViewOfSectionEx @ 0x140635D40 (NtUnmapViewOfSectionEx.c)
  */
 
-NTSTATUS __fastcall NtUnmapViewOfSection(void *a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  return NtUnmapViewOfSectionEx(a1, a2, 0);
+  return NtUnmapViewOfSectionEx(ProcessHandle, BaseAddress, 0);
 }

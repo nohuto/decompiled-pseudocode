@@ -1,29 +1,29 @@
 /*
- * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140151F20
+ * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140152020
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiPurgePartitionStandby @ 0x140151E1C (MiPurgePartitionStandby.c)
- *     MiPruneStandbyPages @ 0x1402C0A94 (MiPruneStandbyPages.c)
+ *     MiPurgePartitionStandby @ 0x140151F1C (MiPurgePartitionStandby.c)
+ *     MiPruneStandbyPages @ 0x1402C0C84 (MiPruneStandbyPages.c)
  * Callees:
  *     MiDeleteParentDecayNode @ 0x140029354 (MiDeleteParentDecayNode.c)
  *     MiRemoveDecayClusterTimer @ 0x1400293F0 (MiRemoveDecayClusterTimer.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
- *     MiReturnFreeZeroPage @ 0x14008229C (MiReturnFreeZeroPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiDecreaseAvailablePages @ 0x1400EE84C (MiDecreaseAvailablePages.c)
- *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
- *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
- *     MiUnlinkNumaStandbyPage @ 0x140152280 (MiUnlinkNumaStandbyPage.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiRestoreTransitionPte @ 0x140081000 (MiRestoreTransitionPte.c)
+ *     MiReturnFreeZeroPage @ 0x14008228C (MiReturnFreeZeroPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiDecreaseAvailablePages @ 0x1400EE8CC (MiDecreaseAvailablePages.c)
+ *     MiUpdateTransitionPteFrame @ 0x140118A14 (MiUpdateTransitionPteFrame.c)
+ *     MiIsDecayPfn @ 0x140118C7C (MiIsDecayPfn.c)
+ *     MiUnlinkNumaStandbyPage @ 0x140152380 (MiUnlinkNumaStandbyPage.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveLowestPriorityStandbyPage(__int64 a1, unsigned int a2, __int64 a3)
@@ -116,8 +116,8 @@ LABEL_4:
     v8 = v11;
     v21 = *(_QWORD *)(CurrentIrql + 16);
     v4 = CurrentIrql;
-    if ( qword_14043A0C0 && (v21 & 0x10) == 0 )
-      v21 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v21 & 0x10) == 0 )
+      v21 &= ~qword_14043B180;
     v11 = (v21 >> 12) & 0xFFFFFFFFFLL;
     CurrentIrql = v12 + 48 * v11;
     if ( v11 == v8 )
@@ -162,7 +162,7 @@ LABEL_80:
     while ( *(__int64 *)(CurrentIrql + 24) < 0 );
   }
   if ( (*(_BYTE *)(CurrentIrql + 34) & 7) != 2
-    || *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(CurrentIrql + 40) >> 40) & 0x3FFLL)) != a1 )
+    || *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(CurrentIrql + 40) >> 40) & 0x3FFLL)) != a1 )
   {
     goto LABEL_67;
   }
@@ -208,8 +208,8 @@ LABEL_74:
     goto LABEL_79;
   }
   v35 = *(_QWORD *)(v4 + 16);
-  if ( qword_14043A0C0 && (v35 & 0x10) == 0 )
-    v35 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v35 & 0x10) == 0 )
+    v35 &= ~qword_14043B180;
   v8 = 0xFFFFFFFFFLL;
   if ( v11 != ((v35 >> 12) & 0xFFFFFFFFFLL) )
     goto LABEL_64;
@@ -224,11 +224,11 @@ LABEL_11:
   if ( !*v3 )
     KeBugCheckEx(0x4Eu, 1uLL, (ULONG_PTR)v3, *(_QWORD *)(a1 + 7296), 0LL);
   --*v3;
-  if ( dword_14043A76C == 1 )
+  if ( dword_14043B82C == 1 )
   {
     v37 = v11 & 0x1F;
     LOBYTE(v38) = 1;
-    v39 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v11 >> 5));
+    v39 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v11 >> 5));
     if ( v37 + 1 > 0x20 )
     {
       if ( (v11 & 0x1F) != 0 )

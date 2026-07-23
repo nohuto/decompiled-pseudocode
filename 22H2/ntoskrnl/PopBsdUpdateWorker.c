@@ -42,7 +42,7 @@ void PopBsdUpdateWorker()
     if ( (PopBsdUpdateRequests & 1) != 0 )
     {
       *(_QWORD *)&xmmword_140C50598 = MEMORY[0xFFFFF78000000014];
-      DWORD2(xmmword_140C50598) = RtlComputeCrc32(0, (char *)&xmmword_140C50598, 8u);
+      DWORD2(xmmword_140C50598) = RtlComputeCrc32(0, &xmmword_140C50598, 8u);
       v4 = PopBsdPowerTransition;
       v5 = xmmword_140C50598;
     }
@@ -62,11 +62,11 @@ void PopBsdUpdateWorker()
     PopBsdUpdateRequests = 0;
     PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
     if ( v0 )
-      PopWriteBsdPoInfo(7u, (__int64)&v4);
+      PopWriteBsdPoInfo(7u, &v4);
     if ( v1 )
-      PopWriteBsdPoInfo(0x10u, (__int64)&v6);
+      PopWriteBsdPoInfo(0x10u, &v6);
     if ( v2 )
-      PopWriteBsdPoInfo(0xEu, (__int64)&v8);
+      PopWriteBsdPoInfo(0xEu, &v8);
   }
   PopOkayToQueueNextWorkItem((__int64)&PopBsdUpdateWorkItem);
   PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);

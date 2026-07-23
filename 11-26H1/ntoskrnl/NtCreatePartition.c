@@ -1,12 +1,23 @@
 /*
- * XREFs of NtCreatePartition @ 0x1407FD490
+ * XREFs of NtCreatePartition @ 0x140802EC0
  * Callers:
- *     DifNtCreatePartitionWrapper @ 0x140672470 (DifNtCreatePartitionWrapper.c)
+ *     DifNtCreatePartitionWrapper @ 0x140676050 (DifNtCreatePartitionWrapper.c)
  * Callees:
- *     PsCreatePartition @ 0x1407FDA4C (PsCreatePartition.c)
+ *     PsCreatePartition @ 0x14080347C (PsCreatePartition.c)
  */
 
-__int64 __fastcall NtCreatePartition(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl NtCreatePartition(
+        HANDLE ParentPartitionHandle,
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG PreferredNode)
 {
-  return PsCreatePartition(a1, a2, a3, a4, KeGetCurrentThread()->PreviousMode, 0);
+  return PsCreatePartition(
+           (int)ParentPartitionHandle,
+           (int)PartitionHandle,
+           DesiredAccess,
+           (int)ObjectAttributes,
+           KeGetCurrentThread()->PreviousMode,
+           0);
 }

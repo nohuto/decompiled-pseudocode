@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleaseUnusedPageFileReadResources @ 0x1403722AC
+ * XREFs of MiReleaseUnusedPageFileReadResources @ 0x14037405C
  * Callers:
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
  * Callees:
- *     MiFreePageChain @ 0x140292AA4 (MiFreePageChain.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
+ *     MiFreePageChain @ 0x140292004 (MiFreePageChain.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
  */
 
 void __fastcall MiReleaseUnusedPageFileReadResources(__int64 a1, __int64 a2, __int64 a3)

@@ -1,54 +1,54 @@
 /*
- * XREFs of KeBugCheck2 @ 0x140568290
+ * XREFs of KeBugCheck2 @ 0x140568950
  * Callers:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  * Callees:
  *     KiSendFreeze @ 0x14020D150 (KiSendFreeze.c)
  *     KiSendThawExecution @ 0x14020D210 (KiSendThawExecution.c)
  *     KiSetDebuggerOwner @ 0x14020D3C0 (KiSetDebuggerOwner.c)
  *     KiFreezeTargetExecution @ 0x14020E1D0 (KiFreezeTargetExecution.c)
  *     KeSaveSupervisorState @ 0x14020E48C (KeSaveSupervisorState.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     KeQueryCurrentStackInformation @ 0x14034E9B0 (KeQueryCurrentStackInformation.c)
- *     KiFilterBugCheckInfo @ 0x1403E37EC (KiFilterBugCheckInfo.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
- *     HvlLogGuestCrashInformation @ 0x14053F950 (HvlLogGuestCrashInformation.c)
- *     HvlNotifyRootCrashdump @ 0x140545028 (HvlNotifyRootCrashdump.c)
- *     HvlPrepareForRootCrashdump @ 0x1405450B4 (HvlPrepareForRootCrashdump.c)
- *     HvlResumeFromRootCrashdump @ 0x1405454E4 (HvlResumeFromRootCrashdump.c)
- *     IoNotifyDump @ 0x1405508A0 (IoNotifyDump.c)
- *     IoSaveBugCheckProgress @ 0x1405509E0 (IoSaveBugCheckProgress.c)
- *     IoSaveInitialBugCheckProgress @ 0x140550BF0 (IoSaveInitialBugCheckProgress.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x140551004 (IoUpdateBugCheckProgressEnvVariable.c)
- *     KdDecodeDataBlock @ 0x1405671A0 (KdDecodeDataBlock.c)
- *     KdEnableDebuggerWithLock @ 0x14056777C (KdEnableDebuggerWithLock.c)
- *     KiBugCheckDebugBreak @ 0x140569760 (KiBugCheckDebugBreak.c)
- *     KiBugCheckProgressCpusFrozen @ 0x140569980 (KiBugCheckProgressCpusFrozen.c)
- *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x140569A44 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
- *     KiBugCheckUnicodeToAnsi @ 0x140569AA8 (KiBugCheckUnicodeToAnsi.c)
- *     KiBugCheckWriteCrashDump @ 0x140569AEC (KiBugCheckWriteCrashDump.c)
- *     KiBugcheckUnloadDebugSymbols @ 0x140569B58 (KiBugcheckUnloadDebugSymbols.c)
- *     KiCollectTriageDumpDataBlocks @ 0x140569C94 (KiCollectTriageDumpDataBlocks.c)
- *     KiDisplayBlueScreen @ 0x14056A134 (KiDisplayBlueScreen.c)
- *     KiDumpParameterImages @ 0x14056A4C8 (KiDumpParameterImages.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056A6D4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x14056A8CC (KiInvokeBugCheckEntryCallbacks.c)
- *     KiPcToFileHeader @ 0x14056A994 (KiPcToFileHeader.c)
- *     KiScanBugCheckCallbackList @ 0x14056AB90 (KiScanBugCheckCallbackList.c)
- *     KiAttemptBugcheckRecovery @ 0x14057A42C (KiAttemptBugcheckRecovery.c)
- *     KiHandleMultipleBugchecksDuringRecovery @ 0x14057B090 (KiHandleMultipleBugchecksDuringRecovery.c)
- *     WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x1406102FC (WheapSelLogSetNtSchedulerAvailabilityNoLock.c)
- *     MmLocateUnloadedDriver @ 0x14062CA78 (MmLocateUnloadedDriver.c)
- *     IpmiHwContextInitialized @ 0x14067778C (IpmiHwContextInitialized.c)
- *     IpmiLibAddSelBugcheckRecord @ 0x140677CF4 (IpmiLibAddSelBugcheckRecord.c)
- *     VfNotifyVerifierOfEvent @ 0x140AC2150 (VfNotifyVerifierOfEvent.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     KeQueryCurrentStackInformation @ 0x14034EB50 (KeQueryCurrentStackInformation.c)
+ *     KiFilterBugCheckInfo @ 0x1403E39CC (KiFilterBugCheckInfo.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
+ *     HvlLogGuestCrashInformation @ 0x140540010 (HvlLogGuestCrashInformation.c)
+ *     HvlNotifyRootCrashdump @ 0x1405456E8 (HvlNotifyRootCrashdump.c)
+ *     HvlPrepareForRootCrashdump @ 0x140545774 (HvlPrepareForRootCrashdump.c)
+ *     HvlResumeFromRootCrashdump @ 0x140545BA4 (HvlResumeFromRootCrashdump.c)
+ *     IoNotifyDump @ 0x140550F60 (IoNotifyDump.c)
+ *     IoSaveBugCheckProgress @ 0x1405510A0 (IoSaveBugCheckProgress.c)
+ *     IoSaveInitialBugCheckProgress @ 0x1405512B0 (IoSaveInitialBugCheckProgress.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x1405516C4 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     KdDecodeDataBlock @ 0x140567860 (KdDecodeDataBlock.c)
+ *     KdEnableDebuggerWithLock @ 0x140567E3C (KdEnableDebuggerWithLock.c)
+ *     KiBugCheckDebugBreak @ 0x140569E20 (KiBugCheckDebugBreak.c)
+ *     KiBugCheckProgressCpusFrozen @ 0x14056A040 (KiBugCheckProgressCpusFrozen.c)
+ *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x14056A104 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
+ *     KiBugCheckUnicodeToAnsi @ 0x14056A168 (KiBugCheckUnicodeToAnsi.c)
+ *     KiBugCheckWriteCrashDump @ 0x14056A1AC (KiBugCheckWriteCrashDump.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x14056A218 (KiBugcheckUnloadDebugSymbols.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x14056A354 (KiCollectTriageDumpDataBlocks.c)
+ *     KiDisplayBlueScreen @ 0x14056A7F4 (KiDisplayBlueScreen.c)
+ *     KiDumpParameterImages @ 0x14056AB88 (KiDumpParameterImages.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056AD94 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x14056AF8C (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiPcToFileHeader @ 0x14056B054 (KiPcToFileHeader.c)
+ *     KiScanBugCheckCallbackList @ 0x14056B250 (KiScanBugCheckCallbackList.c)
+ *     KiAttemptBugcheckRecovery @ 0x14057A91C (KiAttemptBugcheckRecovery.c)
+ *     KiHandleMultipleBugchecksDuringRecovery @ 0x14057B580 (KiHandleMultipleBugchecksDuringRecovery.c)
+ *     WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x14061084C (WheapSelLogSetNtSchedulerAvailabilityNoLock.c)
+ *     MmLocateUnloadedDriver @ 0x14062CFC8 (MmLocateUnloadedDriver.c)
+ *     IpmiHwContextInitialized @ 0x140677CDC (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelBugcheckRecord @ 0x140678244 (IpmiLibAddSelBugcheckRecord.c)
+ *     VfNotifyVerifierOfEvent @ 0x140AC2140 (VfNotifyVerifierOfEvent.c)
  */
 
 void __fastcall __noreturn KeBugCheck2(
@@ -168,9 +168,9 @@ void __fastcall __noreturn KeBugCheck2(
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -241,11 +241,11 @@ LABEL_23:
   ExtendedSupervisorState = (__int64)CurrentPrcb->ExtendedSupervisorState;
   Number = CurrentPrcb->Number;
   KeSaveSupervisorState(ExtendedSupervisorState, KeEnabledSupervisorXStateFeatures | 0x100);
-  if ( !qword_140C3D100 )
+  if ( !qword_140C3CDC0 )
     goto LABEL_26;
   if ( PopSimulateHiberBugcheck )
     PoPowerDownActionInProgress = 0;
-  if ( *(_BYTE *)(qword_140C3D100 + 3) )
+  if ( *(_BYTE *)(qword_140C3CDC0 + 3) )
   {
     if ( v15 )
     {
@@ -577,7 +577,7 @@ LABEL_94:
   {
     KiDumpParameterImages(pszDest);
   }
-  if ( !LODWORD(WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink) )
+  if ( !WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters )
   {
     WheapSelLogSetNtSchedulerAvailabilityNoLock();
     if ( (unsigned __int8)IpmiHwContextInitialized(&WheaIpmiContext) )
@@ -643,7 +643,7 @@ LABEL_166:
   _disable();
   v49 = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v49 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v49 <= 0xFu )
   {
     v50 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v49 == 15 )

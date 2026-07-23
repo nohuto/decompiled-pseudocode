@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIovIoBuildDeviceIoControlRequest_Exit @ 0x140642960
+ * XREFs of ViIovIoBuildDeviceIoControlRequest_Exit @ 0x140646540
  * Callers:
  *     <none>
  * Callees:
- *     ViSetIoBuildRequestFlag @ 0x140642A10 (ViSetIoBuildRequestFlag.c)
+ *     ViSetIoBuildRequestFlag @ 0x1406465F0 (ViSetIoBuildRequestFlag.c)
  */
 
 __int64 __fastcall ViIovIoBuildDeviceIoControlRequest_Exit(__int64 a1)

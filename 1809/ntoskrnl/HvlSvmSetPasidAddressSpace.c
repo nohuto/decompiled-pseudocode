@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlSvmSetPasidAddressSpace @ 0x140276080
+ * XREFs of HvlSvmSetPasidAddressSpace @ 0x140276270
  * Callers:
  *     <none>
  * Callees:
- *     HvlpHandleInsufficientMemory @ 0x1401B3ABC (HvlpHandleInsufficientMemory.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x1401B3ED4 (HvlpHvStatusIsInsufficientMemory.c)
- *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
- *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
+ *     HvlpHandleInsufficientMemory @ 0x1401B395C (HvlpHandleInsufficientMemory.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1401B3D74 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C73F0 (HvcallpExtendedFastHypercall.c)
+ *     HvlpHvToNtStatus @ 0x140279770 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmSetPasidAddressSpace(int a1, int a2, __int64 a3)

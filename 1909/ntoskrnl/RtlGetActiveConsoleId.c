@@ -14,7 +14,7 @@
  *     PsIsCurrentThreadInServerSilo @ 0x140002880 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   __int64 ThreadServerSilo; // rax
   _QWORD *v2; // rax
@@ -26,5 +26,5 @@ __int64 RtlGetActiveConsoleId()
     v2 = *(_QWORD **)(ThreadServerSilo + 1256);
   else
     v2 = &PspHostSiloGlobals;
-  return *(unsigned int *)(v2[138] + 4LL);
+  return *(_DWORD *)(v2[138] + 4LL);
 }

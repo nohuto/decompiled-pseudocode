@@ -1,29 +1,22 @@
 /*
- * XREFs of RtlAcquireReleaseSRWLockExclusive @ 0x180077510
+ * XREFs of RtlAcquireReleaseSRWLockExclusive @ 0x180077500
  * Callers:
- *     RtlpHpSegLfhExtendContext @ 0x180077420 (RtlpHpSegLfhExtendContext.c)
- *     RtlCloneUserProcess @ 0x1800D3D00 (RtlCloneUserProcess.c)
- *     RtlCompleteProcessCloning @ 0x1800D3FD0 (RtlCompleteProcessCloning.c)
+ *     RtlpHpSegLfhExtendContext @ 0x180077410 (RtlpHpSegLfhExtendContext.c)
+ *     RtlCloneUserProcess @ 0x1800D3DC0 (RtlCloneUserProcess.c)
+ *     RtlCompleteProcessCloning @ 0x1800D4090 (RtlCompleteProcessCloning.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlAcquireReleaseSRWLockExclusive(
-        volatile signed __int64 *a1,
-        char *a2,
-        __int64 a3,
-        __int64 a4)
+void __cdecl RtlAcquireReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
-  signed __int32 v6[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int32 v2[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  _InterlockedOr(v6, 0);
-  result = *a1;
-  if ( (*a1 & 1) != 0 )
+  _InterlockedOr(v2, 0);
+  if ( (SRWLock->Value & 1) != 0 )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)a1, a2, a3, a4);
-    return RtlReleaseSRWLockExclusive(a1);
+    RtlAcquireSRWLockExclusive(SRWLock);
+    RtlReleaseSRWLockExclusive(SRWLock);
   }
-  return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDemoteLocalLargePage @ 0x140064060
+ * XREFs of MiDemoteLocalLargePage @ 0x140064050
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiGetFreeOrZeroPageAnyColor @ 0x1400EB0D0 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x1400EB150 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
  *     MiInsertLargePageInFreeOrZeroList @ 0x140036320 (MiInsertLargePageInFreeOrZeroList.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400EE928 (MiNodeLargeFreeZeroPages.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlinkNodeLargePage @ 0x140064280 (MiUnlinkNodeLargePage.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400EE9A8 (MiNodeLargeFreeZeroPages.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 volatile signed __int32 *__fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, __int16 a3, __int64 a4)
@@ -55,15 +55,15 @@ volatile signed __int32 *__fastcall MiDemoteLocalLargePage(__int64 a1, unsigned 
   v29 = 0;
   if ( (unsigned int)MmNumberOfChannels > 1 )
   {
-    v7 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_14043A04A);
-    v29 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_14043A04A);
+    v7 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_14043B10A);
+    v29 = (unsigned __int16)(unsigned __int8)MiChannelMaximumPowerOf2Mask & (unsigned __int16)(a2 >> byte_14043B10A);
   }
   v8 = 0;
   v9 = *(_QWORD *)(a1 + 16);
   v10 = 0LL;
-  v32 = a2 >> byte_14043A049;
+  v32 = a2 >> byte_14043B109;
   v11 = 0LL;
-  v12 = 1984LL * (a2 >> byte_14043A049);
+  v12 = 1984LL * (a2 >> byte_14043B109);
   v13 = v12 + v9;
   v34 = v12;
   v30 = a3 & 2;

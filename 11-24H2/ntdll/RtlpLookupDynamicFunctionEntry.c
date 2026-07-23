@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpLookupDynamicFunctionEntry @ 0x1800E4C20
+ * XREFs of RtlpLookupDynamicFunctionEntry @ 0x1800E00D0
  * Callers:
- *     RtlLookupFunctionEntry @ 0x180015110 (RtlLookupFunctionEntry.c)
+ *     RtlLookupFunctionEntry @ 0x180041B10 (RtlLookupFunctionEntry.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpLookupDynamicFunctionEntry(unsigned __int64 a1, _QWORD *a2)

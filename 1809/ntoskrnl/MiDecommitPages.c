@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDecommitPages @ 0x140068950
+ * XREFs of MiDecommitPages @ 0x140068940
  * Callers:
- *     MmStoreDecommitVirtualMemory @ 0x140157FBC (MmStoreDecommitVirtualMemory.c)
- *     MiDecommitRegion @ 0x1405EC220 (MiDecommitRegion.c)
- *     MmStoreAllocateVirtualMemory @ 0x1406E0B90 (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreDecommitVirtualMemory @ 0x1401580BC (MmStoreDecommitVirtualMemory.c)
+ *     MiDecommitRegion @ 0x1405ED220 (MiDecommitRegion.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406E1E30 (MmStoreAllocateVirtualMemory.c)
  * Callees:
  *     MiUnlockWsle @ 0x14001A18C (MiUnlockWsle.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -16,38 +16,38 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiRemoveWsle @ 0x14006A870 (MiRemoveWsle.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
- *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     MiCountWslesInPageTable @ 0x1400F8230 (MiCountWslesInPageTable.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
- *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B9B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiDecrementCombinedPte @ 0x14011F9F4 (MiDecrementCombinedPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121EF0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiDecrementCloneBlockReference @ 0x1402C9630 (MiDecrementCloneBlockReference.c)
- *     EtwTraceShouldYieldProcessor @ 0x14031050C (EtwTraceShouldYieldProcessor.c)
+ *     MiRemoveWsle @ 0x14006A860 (MiRemoveWsle.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiVadPureReserve @ 0x140070D20 (MiVadPureReserve.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     MiSetNonResidentPteHeat @ 0x140081E40 (MiSetNonResidentPteHeat.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiDeleteTransitionPte @ 0x140095370 (MiDeleteTransitionPte.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiEvictPageTableLock @ 0x1400982E0 (MiEvictPageTableLock.c)
+ *     MiGetUsedPtesHandle @ 0x140098640 (MiGetUsedPtesHandle.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     MiCountWslesInPageTable @ 0x1400F82B0 (MiCountWslesInPageTable.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiIncreaseUsedPtesCount @ 0x1401100E4 (MiIncreaseUsedPtesCount.c)
+ *     MiCompressTbFlushList @ 0x140113B10 (MiCompressTbFlushList.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011BA24 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiDecrementCombinedPte @ 0x14011FA64 (MiDecrementCombinedPte.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121FC0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128D60 (MI_PROTO_FORMAT_COMBINED.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiDecrementCloneBlockReference @ 0x1402C9820 (MiDecrementCloneBlockReference.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1403106FC (EtwTraceShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiDecommitPages(unsigned __int64 a1, ULONG_PTR a2, __int64 a3, __int64 a4, int a5, _QWORD *a6)
@@ -227,7 +227,7 @@ __int64 __fastcall MiDecommitPages(unsigned __int64 a1, ULONG_PTR a2, __int64 a3
   v22 = 1LL;
   v118 = v21;
   v116 = 1;
-  v123 = *(struct _KEVENT **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v12 + 1454));
+  v123 = *(struct _KEVENT **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v12 + 1454));
   v23 = *(_BYTE *)(v12 + 1464) & 7;
   if ( v23 >= 6u )
   {
@@ -240,7 +240,7 @@ __int64 __fastcall MiDecommitPages(unsigned __int64 a1, ULONG_PTR a2, __int64 a3
   else
   {
     if ( v23 == 2 )
-      v24 = &dword_14043B700;
+      v24 = &dword_14043C7C0;
     else
       v24 = (LONG *)(v12 + 1472);
     v25 = ExAcquireSpinLockShared(v24);
@@ -280,7 +280,7 @@ LABEL_102:
     memset(v134, 0, sizeof(v134));
     LODWORD(v134[0]) = 2145;
     LeafVa = MiGetLeafVa((__int64)(v20 << 25) >> 16);
-    if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_14043BAC0 && LeafVa <= qword_14043A530 )
+    if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_14043CB80 && LeafVa <= qword_14043B5F0 )
       AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
     else
       AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
@@ -356,7 +356,7 @@ LABEL_121:
       }
       if ( (unsigned int)MiPteHasShadow(v82, v81) )
       {
-        if ( HIBYTE(word_14043A1AC) || (v14 & 1) == 0 )
+        if ( HIBYTE(word_14043B26C) || (v14 & 1) == 0 )
           goto LABEL_281;
 LABEL_280:
         v81 |= 0x8000000000000000uLL;
@@ -458,7 +458,7 @@ LABEL_187:
         {
           if ( (unsigned int)MiPteHasShadow(v50, v49) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (v48 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v48 & 1) != 0 )
               v48 |= 0x8000000000000000uLL;
             *(_QWORD *)v42 = v48;
             MiWritePteShadow(v42);
@@ -672,7 +672,7 @@ LABEL_37:
       if ( (v20 & 0x78) == 0 )
       {
         v64 = v117;
-        v65 = (*(_BYTE *)(v117 + 184) & 7) == 2 ? &dword_14043B700 : (LONG *)(v117 + 192);
+        v65 = (*(_BYTE *)(v117 + 184) & 7) == 2 ? &dword_14043C7C0 : (LONG *)(v117 + 192);
         if ( (*v65 & 0x40000000) != 0 )
         {
 LABEL_143:
@@ -792,7 +792,7 @@ LABEL_272:
         goto LABEL_121;
       if ( (unsigned int)MiPteHasShadow(v115, v81) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v14 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v14 & 1) != 0 )
           goto LABEL_280;
         goto LABEL_281;
       }
@@ -803,14 +803,14 @@ LABEL_272:
       if ( ((v27 >> 5) & 0x1F) == 0x10 )
         ++a6[3];
       v28 = v27;
-      if ( qword_14043A0C0 && (v27 & 0x10) == 0 )
-        v28 = v27 & ~(_WORD)qword_14043A0C0;
+      if ( qword_14043B180 && (v27 & 0x10) == 0 )
+        v28 = v27 & ~(_WORD)qword_14043B180;
       if ( (v28 & 0x400) != 0 || (v28 & 0x800) != 0 || (v28 & 4) != 0 )
         _InterlockedExchangeAdd64((volatile signed __int64 *)(a3 + 920), 0xFFFFFFFFFFFFFFFFuLL);
       v29 = *(unsigned __int16 *)(v19 + 174);
       v30 = 1;
       v31 = v14;
-      v32 = *(struct _KEVENT **)(qword_14043A748 + 8 * v29);
+      v32 = *(struct _KEVENT **)(qword_14043B808 + 8 * v29);
       v123 = v32;
       v33 = (v27 >> 1) & 1;
       if ( ((v27 >> 1) & 1) != 0 && !(unsigned int)MI_IS_PTE_IN_WS_SWAP_SET(v32, &v129) )
@@ -839,7 +839,7 @@ LABEL_272:
       {
         if ( (unsigned int)MiPteHasShadow(v29, v22) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v31 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v31 & 1) != 0 )
             v31 |= 0x8000000000000000uLL;
           *(_QWORD *)v20 = v31;
           MiWritePteShadow(v20);
@@ -887,7 +887,7 @@ LABEL_31:
         v88 = *(_QWORD *)(v84 + 40);
         v86 = v83;
         v131[0] = v83;
-        v89 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((v88 >> 40) & 0x3FF));
+        v89 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((v88 >> 40) & 0x3FF));
         v123 = v89;
         if ( (v83 & 2) != 0 )
           v87 = MI_IS_PTE_IN_WS_SWAP_SET(v89, v131) != 0;
@@ -910,8 +910,8 @@ LABEL_31:
       if ( !v87 )
       {
         v93 = *((_QWORD *)&v92[297].Header.WaitListHead.Flink + ((unsigned __int16)v90 >> 12));
-        if ( qword_14043A0C0 && (v90 & 0x10) == 0 )
-          v90 &= ~qword_14043A0C0;
+        if ( qword_14043B180 && (v90 & 0x10) == 0 )
+          v90 &= ~qword_14043B180;
         MiTransferSoftwarePte(v14, v93, HIDWORD(v90), 2LL);
       }
       if ( MiPteInShadowRange(v20) )
@@ -925,7 +925,7 @@ LABEL_31:
           }
           goto LABEL_136;
         }
-        if ( !HIBYTE(word_14043A1AC) && (v94 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v94 & 1) != 0 )
           v94 |= 0x8000000000000000uLL;
         *(_QWORD *)v20 = v94;
         MiWritePteShadow(v20);

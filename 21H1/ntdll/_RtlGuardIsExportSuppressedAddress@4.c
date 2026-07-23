@@ -7,9 +7,10 @@
  *     _RtlpGetTargetRvaFlag@8 @ 0x4B363B9B (_RtlpGetTargetRvaFlag@8.c)
  */
 
-bool __thiscall RtlGuardIsExportSuppressedAddress(void *this)
+bool __fastcall RtlGuardIsExportSuppressedAddress(void *a1)
 {
-  char v2; // [esp+1h] [ebp-1h] BYREF
+  char v2; // [esp+1h] [ebp-1h]
 
-  return (unsigned __int8)RtlpGetTargetRvaFlag(this, &v2, this) && (v2 & 3) == 2;
+  v2 = HIBYTE(a1);
+  return (unsigned __int8)RtlpGetTargetRvaFlag(a1) && (v2 & 3) == 2;
 }

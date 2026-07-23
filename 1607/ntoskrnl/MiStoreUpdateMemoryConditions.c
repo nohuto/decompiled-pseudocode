@@ -1,16 +1,16 @@
 /*
- * XREFs of MiStoreUpdateMemoryConditions @ 0x1400BF048
+ * XREFs of MiStoreUpdateMemoryConditions @ 0x1400BCED8
  * Callers:
- *     MiAdjustModifiedPageLoad @ 0x1400BEA50 (MiAdjustModifiedPageLoad.c)
- *     MiModifiedPageWriter @ 0x140142508 (MiModifiedPageWriter.c)
+ *     MiAdjustModifiedPageLoad @ 0x1400BC8E0 (MiAdjustModifiedPageLoad.c)
+ *     MiModifiedPageWriter @ 0x140142A78 (MiModifiedPageWriter.c)
  * Callees:
- *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@@Z @ 0x140003134 (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@@Z.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeQueryEffectiveBasePriorityThread @ 0x1400BF138 (KeQueryEffectiveBasePriorityThread.c)
- *     MiGetAvailablePagesBelowPriority @ 0x1400C0250 (MiGetAvailablePagesBelowPriority.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
+ *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@@Z @ 0x1400032A8 (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@@Z.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeQueryEffectiveBasePriorityThread @ 0x1400BCFC8 (KeQueryEffectiveBasePriorityThread.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1400BE0E0 (MiGetAvailablePagesBelowPriority.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
  */
 
 void __fastcall MiStoreUpdateMemoryConditions(__int64 a1)

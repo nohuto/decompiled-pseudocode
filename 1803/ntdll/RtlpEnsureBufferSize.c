@@ -12,11 +12,11 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-__int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, SIZE_T a3)
 {
   char v5; // bp
-  void *v6; // rax
-  void *v7; // rsi
+  PVOID v6; // rax
+  PVOID v7; // rsi
 
   v5 = a1;
   if ( (a1 & 0xFFFFFFFE) != 0 || !a2 )
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
     *(_QWORD *)(a2 + 16) = a3;
     return 0LL;
   }
-  v6 = (void *)sub_18003B5E0(a3);
+  v6 = sub_18003B5E0(a3);
   v7 = v6;
   if ( v6 )
   {
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
       memmove(v6, *(const void **)a2, *(_QWORD *)(a2 + 16));
     if ( *(_QWORD *)a2 != *(_QWORD *)(a2 + 8) )
     {
-      RtlDeleteBoundaryDescriptor(*(_QWORD *)a2);
+      RtlDeleteBoundaryDescriptor(*(POBJECT_BOUNDARY_DESCRIPTOR *)a2);
       *(_QWORD *)a2 = 0LL;
     }
     *(_QWORD *)a2 = v7;

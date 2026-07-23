@@ -47,63 +47,66 @@
  *     RtlRaiseStatus @ 0x1800A4A80 (RtlRaiseStatus.c)
  */
 
-unsigned __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
-  unsigned __int64 result; // rax
+  signed __int64 v2; // rax
   signed __int64 v3; // rdx
   signed __int64 v4; // rcx
   bool v5; // zf
-  __int64 v6; // r8
-  __int64 v7; // rax
-  __int64 v8; // rcx
+  signed __int64 v6; // rax
+  __int64 v7; // r8
+  __int64 v8; // rax
+  __int64 v9; // rcx
+  signed __int64 v10; // rax
+  _QWORD *v11; // rax
   __int64 i; // rcx
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 17LL);
-  v3 = result;
-  if ( result == 17 )
-    return result;
-  if ( (result & 1) == 0 )
-    RtlRaiseStatus(3221226084LL);
-  if ( (result & 2) != 0 )
+  v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 17LL);
+  v3 = v2;
+  if ( v2 == 17 )
+    return;
+  if ( (v2 & 1) == 0 )
+    RtlRaiseStatus(-1073741212);
+  if ( (v2 & 2) != 0 )
   {
 LABEL_9:
     if ( (v3 & 8) != 0 )
     {
-      result = v3 & 0xFFFFFFFFFFFFFFF0uLL;
-      for ( i = *(_QWORD *)((v3 & 0xFFFFFFFFFFFFFFF0uLL) + 8); !i; i = *(_QWORD *)(result + 8) )
-        result = *(_QWORD *)result;
+      v11 = (_QWORD *)(v3 & 0xFFFFFFFFFFFFFFF0uLL);
+      for ( i = *(_QWORD *)((v3 & 0xFFFFFFFFFFFFFFF0uLL) + 8); !i; i = v11[1] )
+        v11 = (_QWORD *)*v11;
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)(i + 32), 0xFFFFFFFF) > 1 )
-        return result;
-      v6 = -9LL;
+        return;
+      v7 = -9LL;
     }
     else
     {
-      v6 = -1LL;
+      v7 = -1LL;
     }
     while ( 1 )
     {
-      v7 = (v3 & 6) == 2 ? v6 + 4 : v6;
-      v8 = v7 + v3;
-      result = _InterlockedCompareExchange64(a1, v7 + v3, v3);
-      if ( v3 == result )
+      v8 = (v3 & 6) == 2 ? v7 + 4 : v7;
+      v9 = v8 + v3;
+      v10 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v8 + v3, v3);
+      if ( v3 == v10 )
         break;
-      v3 = result;
+      v3 = v10;
     }
     if ( (v3 & 6) == 2 )
-      return RtlpWakeSRWLock(a1, v8, 0LL);
-    return result;
+      RtlpWakeSRWLock(SRWLock, v9, 0LL);
+    return;
   }
   while ( 1 )
   {
     v4 = v3 - 16;
     if ( (v3 & 0xFFFFFFFFFFFFFFF0uLL) == 0x10 )
       v4 = 0LL;
-    result = _InterlockedCompareExchange64(a1, v4, v3);
-    v5 = v3 == result;
-    v3 = result;
+    v6 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v4, v3);
+    v5 = v3 == v6;
+    v3 = v6;
     if ( v5 )
-      return result;
-    if ( (result & 2) != 0 )
+      break;
+    if ( (v6 & 2) != 0 )
       goto LABEL_9;
   }
 }

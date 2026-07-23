@@ -1,8 +1,8 @@
 /*
- * XREFs of ValidateStringParameter @ 0x18005EE1C
+ * XREFs of ValidateStringParameter @ 0x18005EE0C
  * Callers:
- *     RtlCreateProcessParametersEx @ 0x18005E900 (RtlCreateProcessParametersEx.c)
- *     ValidateOptionalString @ 0x18005EE08 (ValidateOptionalString.c)
+ *     RtlCreateProcessParametersEx @ 0x18005E8F0 (RtlCreateProcessParametersEx.c)
+ *     ValidateOptionalString @ 0x18005EDF8 (ValidateOptionalString.c)
  * Callees:
  *     <none>
  */

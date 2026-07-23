@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapPfaRetireExpiredMemoryEntries @ 0x14095E690
+ * XREFs of WheapPfaRetireExpiredMemoryEntries @ 0x14095E870
  * Callers:
- *     WheapPfaMemoryCheck @ 0x14095E414 (WheapPfaMemoryCheck.c)
+ *     WheapPfaMemoryCheck @ 0x14095E5F4 (WheapPfaMemoryCheck.c)
  * Callees:
- *     WheapPfaLogPageMonitorRemoval @ 0x14095E37C (WheapPfaLogPageMonitorRemoval.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     WheapPfaLogPageMonitorRemoval @ 0x14095E55C (WheapPfaLogPageMonitorRemoval.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WheapPfaRetireExpiredMemoryEntries(unsigned __int64 a1)

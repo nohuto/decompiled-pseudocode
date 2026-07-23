@@ -1,11 +1,11 @@
 /*
- * XREFs of MmPerfLogSessionRundown @ 0x140659F68
+ * XREFs of MmPerfLogSessionRundown @ 0x14065A04C
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140495B04 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140496594 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     MmGetNextSession @ 0x140086620 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     MmGetNextSession @ 0x140087F10 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmPerfLogSessionRundown(unsigned int a1, int a2)

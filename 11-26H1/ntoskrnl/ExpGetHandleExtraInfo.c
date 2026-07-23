@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpGetHandleExtraInfo @ 0x14092C97C
+ * XREFs of ExpGetHandleExtraInfo @ 0x1409084AC
  * Callers:
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCloseHandleTableEntry2 @ 0x1408FAF70 (ObCloseHandleTableEntry2.c)
- *     ExDestroyHandle @ 0x14092C030 (ExDestroyHandle.c)
- *     ExCreateHandleEx @ 0x14092C1A0 (ExCreateHandleEx.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     ObCaptureObjectStateForDuplication @ 0x140971174 (ObCaptureObjectStateForDuplication.c)
- *     ExDupHandleTable @ 0x140971D40 (ExDupHandleTable.c)
- *     ObpAuditObjectAccess @ 0x1409FA54C (ObpAuditObjectAccess.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     ExDestroyHandle @ 0x140907B60 (ExDestroyHandle.c)
+ *     ExCreateHandleEx @ 0x140907CD0 (ExCreateHandleEx.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     ObpAuditObjectAccess @ 0x14091F14C (ObpAuditObjectAccess.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCloseHandleTableEntry2 @ 0x14092AF00 (ObCloseHandleTableEntry2.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1409BB2E4 (ObCaptureObjectStateForDuplication.c)
+ *     ExDupHandleTable @ 0x1409BD030 (ExDupHandleTable.c)
  * Callees:
  *     <none>
  */

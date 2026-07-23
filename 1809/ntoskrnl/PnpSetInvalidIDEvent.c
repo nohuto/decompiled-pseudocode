@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpSetInvalidIDEvent @ 0x1408334D8
+ * XREFs of PnpSetInvalidIDEvent @ 0x140834738
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
- *     PnpQueryID @ 0x1406EC358 (PnpQueryID.c)
+ *     PiProcessNewDeviceNode @ 0x1406E51B4 (PiProcessNewDeviceNode.c)
+ *     PnpQueryID @ 0x1406ED5F8 (PnpQueryID.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PnpInsertEventInQueue @ 0x14058FED8 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x1406C6900 (PnpCreateDeviceEventEntry.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PnpInsertEventInQueue @ 0x140590ED8 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x1406C7BA0 (PnpCreateDeviceEventEntry.c)
  */
 
 __int64 __fastcall PnpSetInvalidIDEvent(const void **a1)

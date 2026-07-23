@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampSampleBufferDecRef @ 0x140603C20
+ * XREFs of EtwpCovSampSampleBufferDecRef @ 0x140604170
  * Callers:
- *     EtwpCovSampCaptureBufferQueue @ 0x140469FEC (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampSampleBufferReserve @ 0x14046A366 (EtwpCovSampSampleBufferReserve.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140603270 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x14046A3EC (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x14046A766 (EtwpCovSampSampleBufferReserve.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1406037C0 (EtwpCovSampCaptureFlushSampleBuffers.c)
  * Callees:
- *     EtwpCovSampCaptureQueueBuffer @ 0x14046A0B8 (EtwpCovSampCaptureQueueBuffer.c)
+ *     EtwpCovSampCaptureQueueBuffer @ 0x14046A4B8 (EtwpCovSampCaptureQueueBuffer.c)
  */
 
 int __fastcall EtwpCovSampSampleBufferDecRef(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ int __fastcall EtwpCovSampSampleBufferDecRef(__int64 a1, __int64 a2)
   {
     if ( v4 )
       __fastfail(0xEu);
-    LODWORD(v4) = EtwpCovSampCaptureQueueBuffer(a1, (struct _SLIST_ENTRY *)a2);
+    LODWORD(v4) = EtwpCovSampCaptureQueueBuffer(a1, (_SLIST_ENTRY *)a2);
   }
   return v4;
 }

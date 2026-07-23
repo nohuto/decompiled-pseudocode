@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfRecordUtility @ 0x1402893F0
+ * XREFs of PpmPerfRecordUtility @ 0x140206590
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x1402892F0 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140206490 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x140220B80 (EtwpLevelKeywordEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     PpmPerfResetHistory @ 0x1403C2418 (PpmPerfResetHistory.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402C5480 (EtwpLevelKeywordEnabled.c)
+ *     PpmPerfResetHistory @ 0x1403C2848 (PpmPerfResetHistory.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
   const EVENT_DESCRIPTOR *v19; // r11
   REGHANDLE v20; // r10
   __int64 v21; // rcx
-  __int64 Keyword; // r8
+  unsigned __int64 Keyword; // r8
   unsigned __int8 v23; // al
   unsigned int *v24; // r11
   int v25; // eax
@@ -167,7 +167,7 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
             && ((*(_DWORD *)(v21 + 104) & 0x40) != 0 && !Keyword
              || (Keyword & *(_QWORD *)(v21 + 112)) != 0 && (*(_QWORD *)(v21 + 120) & Keyword) == *(_QWORD *)(v21 + 120))
             || *(_BYTE *)(PpmEtwHandle + 101)
-            && EtwpLevelKeywordEnabled(*(_QWORD *)(PpmEtwHandle + 40) + 96LL, v19->Level, Keyword) )
+            && (unsigned __int8)EtwpLevelKeywordEnabled(*(_QWORD *)(PpmEtwHandle + 40) + 96LL, v19->Level, Keyword) )
           {
             *(_QWORD *)&UserData.Size = 8LL;
             UserData.Ptr = (ULONGLONG)&PpmCheckTime;

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiSelectIdealProcessorForProcess@@YAGPEAU_KSCHEDULER_SUBNODE@@PEAU_GROUP_AFFINITY@@@Z @ 0x1404B48A8
+ * XREFs of ?KiSelectIdealProcessorForProcess@@YAGPEAU_KSCHEDULER_SUBNODE@@PEAU_GROUP_AFFINITY@@@Z @ 0x1404ADE78
  * Callers:
- *     KiSetIdealNodeProcessByGroup @ 0x1404B47C8 (KiSetIdealNodeProcessByGroup.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x1404ADD98 (KiSetIdealNodeProcessByGroup.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ __int64 __fastcall KiSelectIdealProcessorForProcess(struct _KSCHEDULER_SUBNODE *
       if ( v7 )
         v6 = v7;
       _BitScanForward64((unsigned __int64 *)&v5, v6);
-      v8 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+      v8 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                             + (unsigned int)(v4 + v5))];
     }
     while ( (*(_QWORD *)(v8 + 36528) & Mask) == 0 );
@@ -41,6 +41,6 @@ __int64 __fastcall KiSelectIdealProcessorForProcess(struct _KSCHEDULER_SUBNODE *
   {
     _BitScanForward64((unsigned __int64 *)&v8, a2->Mask & a1->Affinity.Mask);
   }
-  return *((unsigned __int16 *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+  return *((unsigned __int16 *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
          + 2 * (unsigned int)(v4 + v8));
 }

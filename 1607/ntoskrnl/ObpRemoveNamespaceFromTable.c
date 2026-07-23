@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpRemoveNamespaceFromTable @ 0x1404D5BE0
+ * XREFs of ObpRemoveNamespaceFromTable @ 0x1404B91E4
  * Callers:
- *     ObpCloseDirectoryObject @ 0x1404D5BC4 (ObpCloseDirectoryObject.c)
- *     NtDeletePrivateNamespace @ 0x140668A8C (NtDeletePrivateNamespace.c)
+ *     ObpCloseDirectoryObject @ 0x1404B91C8 (ObpCloseDirectoryObject.c)
+ *     NtDeletePrivateNamespace @ 0x140668B70 (NtDeletePrivateNamespace.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 __int64 __fastcall ObpRemoveNamespaceFromTable(_DWORD *Object)

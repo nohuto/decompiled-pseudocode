@@ -7,10 +7,10 @@
  *     _RtlResetRtlTranslations@4 @ 0x4B344160 (_RtlResetRtlTranslations@4.c)
  */
 
-int __thiscall LdrpInitializeNlsInfo(_DWORD *this)
+void __thiscall LdrpInitializeNlsInfo(PUSHORT *this)
 {
-  _BYTE v2[96]; // [esp+0h] [ebp-60h] BYREF
+  _NLSTABLEINFO TableInfo; // [esp+0h] [ebp-60h] BYREF
 
-  RtlInitNlsTables(this[22], this[23], this[24], v2);
-  return RtlResetRtlTranslations(v2);
+  RtlInitNlsTables(this[22], this[23], this[24], &TableInfo);
+  RtlResetRtlTranslations(&TableInfo);
 }

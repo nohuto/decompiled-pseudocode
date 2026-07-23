@@ -1,10 +1,10 @@
 /*
- * XREFs of _SysCtxRegCreateKey @ 0x140A51E2C
+ * XREFs of _SysCtxRegCreateKey @ 0x140A496BC
  * Callers:
- *     _PnpOpenPropertiesKey @ 0x1409937F0 (_PnpOpenPropertiesKey.c)
- *     _PnpCtxRegCreateKey @ 0x140A51DD4 (_PnpCtxRegCreateKey.c)
+ *     _PnpOpenPropertiesKey @ 0x14097E830 (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegCreateKey @ 0x140A49664 (_PnpCtxRegCreateKey.c)
  * Callees:
- *     _RegRtlCreateKeyTransacted @ 0x140926504 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140928644 (_RegRtlCreateKeyTransacted.c)
  */
 
 __int64 __fastcall SysCtxRegCreateKey(

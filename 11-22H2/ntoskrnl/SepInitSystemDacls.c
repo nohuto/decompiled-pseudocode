@@ -59,8 +59,8 @@ NTSTATUS SepInitSystemDacls()
   SeAtomDacl = (PACL)ExAllocatePool2(288LL, v7, 0x63416553u);
   SepDefaultCapeDacl = (PACL)ExAllocatePool2(288LL, v9, 0x63416553u);
   SepDefaultRecoveryCapeDacl = (PACL)ExAllocatePool2(288LL, v10, 0x63416553u);
-  SeMediumSacl = ExAllocatePool2(288LL, v11, 0x63416553u);
-  v12 = (ACL *)SeMediumSacl;
+  SeMediumSacl = (PACL)ExAllocatePool2(288LL, v11, 0x63416553u);
+  v12 = SeMediumSacl;
   RtlCreateAcl(SePublicDefaultDacl, v5, 2u);
   RtlCreateAcl(SePublicDefaultUnrestrictedDacl, v7, 2u);
   RtlCreateAcl(SePublicOpenDacl, v5, 2u);
@@ -106,7 +106,7 @@ NTSTATUS SepInitSystemDacls()
   RtlAddAccessAllowedAce(SepDefaultRecoveryCapeDacl, 2u, 0x1FFFFFu, SeRestrictedSid);
   RtlAddAccessAllowedAce(SepDefaultRecoveryCapeDacl, 2u, 0x1FFFFFu, SeServiceSid);
   RtlAddAccessAllowedAce(SepDefaultRecoveryCapeDacl, 2u, 0x1200A9u, SeAllAppPackagesSid);
-  RtlAddMandatoryAce(SeMediumSacl, 2u, 0, (__int64)SeMediumMandatorySid, 17, 2);
+  RtlAddMandatoryAce(SeMediumSacl, 2u, 0, SeMediumMandatorySid, 0x11u, 2u);
   SePublicDefaultSd = (__int64)&SepPublicDefaultSd;
   RtlCreateSecurityDescriptor(&SepPublicDefaultSd, 1u);
   RtlSetDaclSecurityDescriptor(&SepPublicDefaultSd, 1u, SePublicDefaultDacl, 0);
@@ -143,7 +143,7 @@ NTSTATUS SepInitSystemDacls()
   RtlCreateSecurityDescriptor(&SepNullDaclSd, 1u);
   SeMediumDaclSd = &SepMediumDaclSd;
   RtlCreateSecurityDescriptor(&SepMediumDaclSd, 1u);
-  RtlSetSaclSecurityDescriptor((__int64)&SepMediumDaclSd, 1, SeMediumSacl, 0);
+  RtlSetSaclSecurityDescriptor(&SepMediumDaclSd, 1u, SeMediumSacl, 0);
   RtlSetOwnerSecurityDescriptor(&SepMediumDaclSd, v13, 0);
   return RtlSetGroupSecurityDescriptor(&SepMediumDaclSd, v13, 0);
 }

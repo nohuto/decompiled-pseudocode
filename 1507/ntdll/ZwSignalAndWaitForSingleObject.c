@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwSignalAndWaitForSingleObject()
+NTSTATUS __cdecl ZwSignalAndWaitForSingleObject(
+        HANDLE SignalHandle,
+        HANDLE WaitHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 410LL;
+  result = 410;
   __asm { syscall; Low latency system call }
   return result;
 }

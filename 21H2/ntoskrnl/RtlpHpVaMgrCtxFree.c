@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpHpVaMgrCtxFree @ 0x1402A3484
+ * XREFs of RtlpHpVaMgrCtxFree @ 0x1402208C4
  * Callers:
- *     RtlpHpFreeVA @ 0x1402FA770 (RtlpHpFreeVA.c)
+ *     RtlpHpFreeVA @ 0x1403054C0 (RtlpHpFreeVA.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     RtlpHpVaMgrRangeFree @ 0x1402A35E8 (RtlpHpVaMgrRangeFree.c)
- *     RtlpHpVaMgrFree @ 0x1402A50D4 (RtlpHpVaMgrFree.c)
- *     RtlpHpVaMgrRangeSplit @ 0x1402A5250 (RtlpHpVaMgrRangeSplit.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlpHpEnvFreeVA @ 0x1402FA804 (RtlpHpEnvFreeVA.c)
- *     MmFreePoolMemory @ 0x1402FA848 (MmFreePoolMemory.c)
- *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
- *     RtlSparseArrayElementAllocated @ 0x1403094EC (RtlSparseArrayElementAllocated.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     RtlpHpVaMgrRangeFree @ 0x140220A28 (RtlpHpVaMgrRangeFree.c)
+ *     RtlpHpVaMgrFree @ 0x140222514 (RtlpHpVaMgrFree.c)
+ *     RtlpHpVaMgrRangeSplit @ 0x140222690 (RtlpHpVaMgrRangeSplit.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlpHpEnvFreeVA @ 0x140305554 (RtlpHpEnvFreeVA.c)
+ *     MmFreePoolMemory @ 0x140305598 (MmFreePoolMemory.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140313100 (RtlpHpAcquireLockExclusive.c)
+ *     RtlSparseArrayElementAllocated @ 0x14031423C (RtlSparseArrayElementAllocated.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlSparseArrayElementFindCapped @ 0x1405952BC (RtlSparseArrayElementFindCapped.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlSparseArrayElementFindCapped @ 0x1405954EC (RtlSparseArrayElementFindCapped.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -48,7 +48,6 @@ __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, _QWORD *a2, _QWORD *a3)
   __int64 v26; // rcx
   __int64 v27; // rsi
   __int64 v28; // rdx
-  __int64 v29; // rcx
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
 
@@ -171,7 +170,7 @@ LABEL_39:
     }
     *(_BYTE *)(v27 + 32) |= 2u;
     if ( *(__int64 *)(v27 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v27);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v27);
     *(_DWORD *)(v27 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v27 + 25) &= ~1u;
     *(_QWORD *)(v27 + 32) = 0LL;
@@ -185,7 +184,7 @@ LABEL_51:
     KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
     v25 = CurrentThread->SpecialApcDisable++ == -1;
     if ( v25 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v29);
+      KiCheckForKernelApcDelivery();
     result = KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
   }
   if ( v19 )

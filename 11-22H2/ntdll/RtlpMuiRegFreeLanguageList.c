@@ -20,14 +20,14 @@
  *     RtlFreeHeap @ 0x18003B190 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlpMuiRegFreeLanguageList(__int64 a1)
+LOGICAL __fastcall RtlpMuiRegFreeLanguageList(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    if ( (*(_BYTE *)(a1 + 40) & 0x40) == 0 )
-      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+    if ( (*((_BYTE *)BaseAddress + 40) & 0x40) == 0 )
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

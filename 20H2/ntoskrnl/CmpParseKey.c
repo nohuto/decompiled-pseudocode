@@ -60,7 +60,7 @@ __int64 __fastcall CmpParseKey(
   int v37; // eax
   __int128 v38; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v39; // [rsp+60h] [rbp-A0h] BYREF
-  struct _SLIST_ENTRY v40; // [rsp+68h] [rbp-98h] BYREF
+  _SLIST_ENTRY v40; // [rsp+68h] [rbp-98h] BYREF
   __int64 v41; // [rsp+78h] [rbp-88h]
   _QWORD v42[2]; // [rsp+80h] [rbp-80h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+90h] [rbp-70h]

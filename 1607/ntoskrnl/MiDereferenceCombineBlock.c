@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDereferenceCombineBlock @ 0x1401F9B34
+ * XREFs of MiDereferenceCombineBlock @ 0x1401F9960
  * Callers:
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
  * Callees:
  *     <none>
  */

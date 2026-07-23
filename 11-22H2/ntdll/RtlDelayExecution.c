@@ -7,26 +7,23 @@
  *     ZwDelayExecution @ 0x18009F470 (ZwDelayExecution.c)
  */
 
-__int64 __fastcall RtlDelayExecution(__int64 a1, _QWORD *a2)
+NTSTATUS __cdecl RtlDelayExecution(BOOLEAN Alertable, PLARGE_INTEGER DelayInterval)
 {
   struct _TEB *v2; // rsi
-  unsigned __int8 v4; // di
-  unsigned int v5; // ebx
-  __int64 result; // rax
+  NTSTATUS v5; // ebx
+  NTSTATUS result; // eax
   unsigned int SpinCallCount; // ecx
   int v8; // ecx
   unsigned int v9; // ecx
   __int64 v10; // rax
-  __int64 v11; // rdx
-  unsigned __int64 v12; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = NtCurrentTeb();
-  v4 = a1;
-  if ( !*a2 && (dword_180182F88 || dword_180182F8C) )
+  if ( !DelayInterval->QuadPart && (dword_180182F88 || dword_180182F8C) )
   {
     ++v2->SpinCallCount;
-    RtlQueryPerformanceCounter(&v12, (__int64)a2);
-    if ( v12 - v2->LastSleepCounter < (unsigned int)SmtDelayedConfiguration )
+    RtlQueryPerformanceCounter(&PerformanceCounter);
+    if ( PerformanceCounter.QuadPart - v2->LastSleepCounter < (unsigned int)SmtDelayedConfiguration )
     {
       SpinCallCount = v2->SpinCallCount;
       if ( SpinCallCount >= dword_180182F84 )
@@ -50,13 +47,13 @@ __int64 __fastcall RtlDelayExecution(__int64 a1, _QWORD *a2)
         }
       }
     }
-    v5 = ZwDelayExecution(v4, a2);
-    RtlQueryPerformanceCounter(&v12, v11);
-    v2->LastSleepCounter = v12;
+    v5 = ZwDelayExecution(Alertable, DelayInterval);
+    RtlQueryPerformanceCounter(&PerformanceCounter);
+    v2->LastSleepCounter = PerformanceCounter.QuadPart;
   }
   else
   {
-    v5 = ZwDelayExecution(a1, a2);
+    v5 = ZwDelayExecution(Alertable, DelayInterval);
   }
   result = v5;
   if ( v5 != 1073741860 )

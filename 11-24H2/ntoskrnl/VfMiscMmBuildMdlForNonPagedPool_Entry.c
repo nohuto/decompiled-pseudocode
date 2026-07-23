@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscMmBuildMdlForNonPagedPool_Entry @ 0x140B9E100
+ * XREFs of VfMiscMmBuildMdlForNonPagedPool_Entry @ 0x140BA0100
  * Callers:
  *     <none>
  * Callees:
- *     MmDeterminePoolType @ 0x1402B2B50 (MmDeterminePoolType.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     MmDeterminePoolType @ 0x14035B710 (MmDeterminePoolType.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VfMiscMmBuildMdlForNonPagedPool_Entry(__int64 a1)

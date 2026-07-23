@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpReleaseLookupContext @ 0x14027EAD0
+ * XREFs of ObpReleaseLookupContext @ 0x14026CA70
  * Callers:
- *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
- *     ObpDeleteNameCheck @ 0x14062CBD0 (ObpDeleteNameCheck.c)
- *     ObReferenceObjectByName @ 0x140661100 (ObReferenceObjectByName.c)
- *     ObpInsertOrLocateNamedObject @ 0x140662900 (ObpInsertOrLocateNamedObject.c)
- *     ObpCreateSymbolicLinkName @ 0x1406B8F14 (ObpCreateSymbolicLinkName.c)
- *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
- *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140A3E538 (ObInitSystem.c)
+ *     ObpCreateSymbolicLinkName @ 0x140618538 (ObpCreateSymbolicLinkName.c)
+ *     ObReferenceObjectByName @ 0x140655F20 (ObReferenceObjectByName.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140657720 (ObpInsertOrLocateNamedObject.c)
+ *     ObpDeleteNameCheck @ 0x140663D60 (ObpDeleteNameCheck.c)
+ *     ObReferenceObjectByNameEx @ 0x1406CDDFC (ObReferenceObjectByNameEx.c)
+ *     ObCloseHandleTableEntry @ 0x14070CA40 (ObCloseHandleTableEntry.c)
+ *     ObCreateObjectTypeEx @ 0x140795AF0 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140A3F538 (ObInitSystem.c)
  * Callees:
- *     ObpUnlockDirectory @ 0x14027EB0C (ObpUnlockDirectory.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObpUnlockDirectory @ 0x14026CAAC (ObpUnlockDirectory.c)
  */
 
 void __fastcall ObpReleaseLookupContext(__int64 a1)

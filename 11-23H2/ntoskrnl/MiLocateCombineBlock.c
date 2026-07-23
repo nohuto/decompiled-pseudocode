@@ -2,13 +2,13 @@
  * XREFs of MiLocateCombineBlock @ 0x140215B20
  * Callers:
  *     MiCreateCombineAnchor @ 0x14021503C (MiCreateCombineAnchor.c)
- *     MiProcessCrcList @ 0x1406B02D0 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x1406B0300 (MiProcessCrcList.c)
  * Callees:
- *     ExpTryAcquireSpinLockShared @ 0x140277630 (ExpTryAcquireSpinLockShared.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockShared @ 0x1402778C0 (ExpTryAcquireSpinLockShared.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 _QWORD *__fastcall MiLocateCombineBlock(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, _QWORD *a5)
@@ -37,7 +37,7 @@ _QWORD *__fastcall MiLocateCombineBlock(__int64 a1, unsigned __int64 a2, unsigne
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -97,10 +97,10 @@ LABEL_12:
       _InterlockedAnd(v12, 0xBFFFFFFF);
       _InterlockedDecrement(v12);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v19 = CurrentPrcb->SchedulerAssist;

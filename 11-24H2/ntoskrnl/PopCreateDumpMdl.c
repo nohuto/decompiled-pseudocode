@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCreateDumpMdl @ 0x140B5C7EC
+ * XREFs of PopCreateDumpMdl @ 0x140B5E85C
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1405CCEA0 (PopInternalAddToDumpFile.c)
- *     _PopInternalError @ 0x1405CD440 (_PopInternalError.c)
- *     MmMapMemoryDumpMdlEx @ 0x140677E10 (MmMapMemoryDumpMdlEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1405CA610 (PopInternalAddToDumpFile.c)
+ *     _PopInternalError @ 0x1405CABB0 (_PopInternalError.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140678FF0 (MmMapMemoryDumpMdlEx.c)
  */
 
 __int64 __fastcall PopCreateDumpMdl(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PopCreateDumpMdl(__int64 a1, ULONG_PTR a2, unsigned __int64 a
 
   Number = KeGetCurrentPrcb()->Number;
   if ( a3 >= a4 )
-    PopInternalError(0xA1948uLL);
+    PopInternalError(0xA194EuLL);
   v6 = a4 - a3;
   if ( v6 >= *(unsigned int *)(a1 + 316) )
     v6 = *(unsigned int *)(a1 + 316);

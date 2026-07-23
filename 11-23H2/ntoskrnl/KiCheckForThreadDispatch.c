@@ -1,33 +1,33 @@
 /*
- * XREFs of KiCheckForThreadDispatch @ 0x1402BCA78
+ * XREFs of KiCheckForThreadDispatch @ 0x1402BCD08
  * Callers:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeRemoveQueueEx @ 0x1402AA040 (KeRemoveQueueEx.c)
- *     KiFastReadyThread @ 0x1402BB984 (KiFastReadyThread.c)
- *     KiExitThreadWait @ 0x1402BBC90 (KiExitThreadWait.c)
- *     KiAbProcessContextSwitch @ 0x1402BBE18 (KiAbProcessContextSwitch.c)
- *     KeRemovePriQueue @ 0x1402BF0B0 (KeRemovePriQueue.c)
- *     KiBeginThreadWait @ 0x1402C1910 (KiBeginThreadWait.c)
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeRemoveQueueEx @ 0x1402AA2D0 (KeRemoveQueueEx.c)
+ *     KiFastReadyThread @ 0x1402BBC14 (KiFastReadyThread.c)
+ *     KiExitThreadWait @ 0x1402BBF20 (KiExitThreadWait.c)
+ *     KiAbProcessContextSwitch @ 0x1402BC0A8 (KiAbProcessContextSwitch.c)
+ *     KeRemovePriQueue @ 0x1402BF340 (KeRemovePriQueue.c)
+ *     KiBeginThreadWait @ 0x1402C1BA0 (KiBeginThreadWait.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
  * Callees:
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
- *     KiReadyDeferredReadyList @ 0x140249C90 (KiReadyDeferredReadyList.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiAbPropagateBoosts @ 0x1402BBED0 (KiAbPropagateBoosts.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSwapContext @ 0x1404282E0 (KiSwapContext.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
+ *     KiReadyDeferredReadyList @ 0x140249D60 (KiReadyDeferredReadyList.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiAbPropagateBoosts @ 0x1402BC160 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapContext @ 0x140428670 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
@@ -54,7 +54,7 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
   _DWORD *v22; // rdx
   struct _KPRCB *v23; // r10
   _DWORD *v24; // r9
-  __int64 (__fastcall *v25)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *); // rax
+  __int64 (__fastcall *v25)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *); // rax
   unsigned int *v26; // rbx
   unsigned __int64 v27; // rdi
   int v28; // r15d
@@ -64,7 +64,7 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
   __int64 (__fastcall *v32)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   __int64 (__fastcall *v33)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v35[2]; // [rsp+40h] [rbp-328h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
   int v37; // [rsp+4Ch] [rbp-31Ch]
   __int128 v38; // [rsp+50h] [rbp-318h] BYREF
   int v39; // [rsp+60h] [rbp-308h]
@@ -163,10 +163,10 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
     }
     if ( !v19 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
         {
           v21 = KeGetCurrentPrcb();
           v22 = v21->SchedulerAssist;
@@ -180,10 +180,10 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
       *(_DWORD *)(v5 + 116) &= ~0x40u;
       LOBYTE(v2) = KiDeliverApc(0LL, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v2) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
       {
         LOBYTE(v2) = v2 - 2;
         if ( (unsigned __int8)v2 <= 0xDu )
@@ -216,12 +216,11 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v52 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v37 = 1;
     v35[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v35[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v25 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                + 120);
+    v25 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     _disable();
     LOBYTE(v2) = v25(*(_QWORD *)(HalpInterruptController + 16), v35, &v52, (unsigned int)(v37 + 46), &ProcNumber);
     if ( (v57 & 0x200) != 0 )

@@ -7,11 +7,15 @@
  *     <none>
  */
 
-__int64 NtOpenKeyEx()
+NTSTATUS __cdecl NtOpenKeyEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 268LL;
+  result = 268;
   __asm { syscall; Low latency system call }
   return result;
 }

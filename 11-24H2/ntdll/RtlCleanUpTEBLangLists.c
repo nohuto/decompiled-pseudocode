@@ -1,29 +1,24 @@
 /*
- * XREFs of RtlCleanUpTEBLangLists @ 0x1800EC160
+ * XREFs of RtlCleanUpTEBLangLists @ 0x1800CA500
  * Callers:
- *     RtlpCleanupRegistryKeys @ 0x18013F570 (RtlpCleanupRegistryKeys.c)
+ *     RtlpCleanupRegistryKeys @ 0x18013D760 (RtlpCleanupRegistryKeys.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpMuiRegFreeLanguageList @ 0x180035EE0 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpFreeTebLanguageList @ 0x1800EC22C (RtlpFreeTebLanguageList.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180016160 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpFreeTebLanguageList @ 0x1800CA5CC (RtlpFreeTebLanguageList.c)
  */
 
-struct _TEB *RtlCleanUpTEBLangLists()
+void RtlCleanUpTEBLangLists(void)
 {
-  struct _TEB *result; // rax
-
-  RtlpMuiRegFreeLanguageList((unsigned __int64)NtCurrentTeb()->MergedPrefLanguages);
+  RtlpMuiRegFreeLanguageList((_BYTE *)NtCurrentTeb()->MergedPrefLanguages);
   NtCurrentTeb()->MergedPrefLanguages = 0LL;
   RtlpFreeTebLanguageList(NtCurrentTeb()->UserPrefLanguages);
   NtCurrentTeb()->UserPrefLanguages = 0LL;
-  RtlpMuiRegFreeLanguageList((unsigned __int64)NtCurrentTeb()->PreferredLanguages);
+  RtlpMuiRegFreeLanguageList((_BYTE *)NtCurrentTeb()->PreferredLanguages);
   NtCurrentTeb()->PreferredLanguages = 0LL;
-  result = NtCurrentTeb();
-  if ( result->ResourceRetValue )
+  if ( NtCurrentTeb()->ResourceRetValue )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)NtCurrentTeb()->ResourceRetValue);
-    result = NtCurrentTeb();
-    result->ResourceRetValue = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, NtCurrentTeb()->ResourceRetValue);
+    NtCurrentTeb()->ResourceRetValue = 0LL;
   }
-  return result;
 }

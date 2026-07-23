@@ -1,10 +1,10 @@
 /*
- * XREFs of ViShutdownWatchdogExecuteDpc @ 0x140C33280
+ * XREFs of ViShutdownWatchdogExecuteDpc @ 0x140C39290
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
- *     ViShutdownScheduleWatchdog @ 0x140C33208 (ViShutdownScheduleWatchdog.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
+ *     ViShutdownScheduleWatchdog @ 0x140C39218 (ViShutdownScheduleWatchdog.c)
  */
 
 void __fastcall ViShutdownWatchdogExecuteDpc(

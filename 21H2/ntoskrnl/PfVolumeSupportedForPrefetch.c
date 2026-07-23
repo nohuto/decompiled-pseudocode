@@ -1,7 +1,7 @@
 /*
- * XREFs of PfVolumeSupportedForPrefetch @ 0x1402D4054
+ * XREFs of PfVolumeSupportedForPrefetch @ 0x140272D2C
  * Callers:
- *     PfpVolumeOpenAndVerify @ 0x1406C5DFC (PfpVolumeOpenAndVerify.c)
+ *     PfpVolumeOpenAndVerify @ 0x1406746EC (PfpVolumeOpenAndVerify.c)
  * Callees:
  *     <none>
  */

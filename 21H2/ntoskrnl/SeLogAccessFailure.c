@@ -1,20 +1,20 @@
 /*
- * XREFs of SeLogAccessFailure @ 0x1402BAB40
+ * XREFs of SeLogAccessFailure @ 0x140238D50
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x140358A30 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140372BC4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406922C0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SepFlattenAcl @ 0x14059667C (SepFlattenAcl.c)
- *     SepGetLearningModeObjectInformation @ 0x1405967FC (SepGetLearningModeObjectInformation.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SepFlattenAcl @ 0x1405968AC (SepFlattenAcl.c)
+ *     SepGetLearningModeObjectInformation @ 0x140596A2C (SepGetLearningModeObjectInformation.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall SeLogAccessFailure(
@@ -179,7 +179,7 @@ void __fastcall SeLogAccessFailure(
   v110 = a4;
   v102 = 1;
   CurrentIrql = KeGetCurrentIrql();
-  if ( !byte_140C545F4 || CurrentIrql >= 2u || !EtwKernelProvRegHandle )
+  if ( !byte_140C5451C || CurrentIrql >= 2u || !EtwKernelProvRegHandle )
     return;
   if ( a1 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCovIsModulePresent @ 0x1406B6E80
+ * XREFs of ExpCovIsModulePresent @ 0x1406B6FB8
  * Callers:
- *     ExpCovIsLoadedModulePresent @ 0x1406B6E50 (ExpCovIsLoadedModulePresent.c)
- *     ExpCovIsUnLoadedModulePresent @ 0x1406B6F20 (ExpCovIsUnLoadedModulePresent.c)
+ *     ExpCovIsLoadedModulePresent @ 0x1406B6F88 (ExpCovIsLoadedModulePresent.c)
+ *     ExpCovIsUnLoadedModulePresent @ 0x1406B7058 (ExpCovIsUnLoadedModulePresent.c)
  * Callees:
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
- *     ExpCovReadFriendlyName @ 0x1406B7834 (ExpCovReadFriendlyName.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
+ *     ExpCovReadFriendlyName @ 0x1406B796C (ExpCovReadFriendlyName.c)
  */
 
 bool __fastcall ExpCovIsModulePresent(__int64 a1, __int64 a2, int a3, const UNICODE_STRING *a4, void *Source1)

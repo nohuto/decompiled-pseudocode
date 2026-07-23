@@ -11,7 +11,7 @@
 __int64 MiInitializeTopLevelBitmap()
 {
   unsigned __int64 v0; // rbx
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 256LL;
   dword_140C67080 = (unsigned __int8)ExGenRandom(1);

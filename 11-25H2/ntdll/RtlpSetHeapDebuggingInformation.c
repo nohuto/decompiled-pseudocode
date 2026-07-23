@@ -9,7 +9,7 @@
  *     RtlpHpHeapSetInterceptor @ 0x18015950C (RtlpHpHeapSetInterceptor.c)
  */
 
-__int64 __fastcall RtlpSetHeapDebuggingInformation(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpSetHeapDebuggingInformation(__int64 *HeapHandle, __int64 a2)
 {
   int v4; // ecx
   __int64 (__fastcall *v5)(); // rcx
@@ -22,14 +22,14 @@ __int64 __fastcall RtlpSetHeapDebuggingInformation(__int64 a1, __int64 a2)
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // r8
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    v4 = *(_DWORD *)(a1 + 24);
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+    v4 = *((_DWORD *)HeapHandle + 6);
   else
-    v4 = *(_DWORD *)(a1 + 144);
+    v4 = *((_DWORD *)HeapHandle + 36);
   if ( *(_DWORD *)(a2 + 16) )
   {
     if ( v4 )
-      RtlpCallInterceptRoutine(v4, a1, 0LL, 7u, 0LL);
+      RtlpCallInterceptRoutine(v4, HeapHandle, 0LL, 7u, 0LL);
     v5 = (__int64 (__fastcall *)())RtlpStackTraceDatabaseLogPrefix;
   }
   else
@@ -42,15 +42,15 @@ __int64 __fastcall RtlpSetHeapDebuggingInformation(__int64 a1, __int64 a2)
   if ( HeapInterceptorIndex )
   {
     if ( v7 == -571548178 )
-      RtlpHpHeapSetInterceptor(a1, HeapInterceptorIndex);
+      RtlpHpHeapSetInterceptor(HeapHandle, HeapInterceptorIndex);
     else
-      *(_DWORD *)(a1 + 144) = HeapInterceptorIndex;
+      *((_DWORD *)HeapHandle + 36) = HeapInterceptorIndex;
   }
 LABEL_13:
-  if ( *(_DWORD *)(a1 + 16) != -571548178 && *(_DWORD *)(a2 + 12) )
+  if ( *((_DWORD *)HeapHandle + 4) != -571548178 && *(_DWORD *)(a2 + 12) )
   {
-    if ( (v8 = (__int64 *)(a1 + 408), *(_BYTE *)(a1 + 418) == 2) && (v9 = *v8) != 0
-      || (RtlpActivateLowFragmentationHeap(a1), *(_BYTE *)(a1 + 418) == 2) && (v9 = *v8) != 0 )
+    if ( (v8 = HeapHandle + 51, *((_BYTE *)HeapHandle + 418) == 2) && (v9 = *v8) != 0
+      || (RtlpActivateLowFragmentationHeap(HeapHandle), *((_BYTE *)HeapHandle + 418) == 2) && (v9 = *v8) != 0 )
     {
       v10 = (_BYTE *)(v9 + 679);
       v11 = 129LL;

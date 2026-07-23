@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReleaseDriverPtes @ 0x14070E03C
+ * XREFs of MiReleaseDriverPtes @ 0x14070F2DC
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiReturnSystemImageAddress @ 0x14070E000 (MiReturnSystemImageAddress.c)
- *     MmUnmapLockedRestartPages @ 0x14084C710 (MmUnmapLockedRestartPages.c)
- *     MiGetNewAddressForBootImage @ 0x1409B85F4 (MiGetNewAddressForBootImage.c)
- *     MiReleaseNewAddressForBootImage @ 0x1409F774C (MiReleaseNewAddressForBootImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiReturnSystemImageAddress @ 0x14070F2A0 (MiReturnSystemImageAddress.c)
+ *     MmUnmapLockedRestartPages @ 0x14084D970 (MmUnmapLockedRestartPages.c)
+ *     MiGetNewAddressForBootImage @ 0x1409B95F4 (MiGetNewAddressForBootImage.c)
+ *     MiReleaseNewAddressForBootImage @ 0x1409F874C (MiReleaseNewAddressForBootImage.c)
  * Callees:
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
- *     MiUnlockDriverMappings @ 0x1400F5FA8 (MiUnlockDriverMappings.c)
- *     MiLockDriverMappings @ 0x1400F61A8 (MiLockDriverMappings.c)
- *     RtlAreBitsSet @ 0x14011F450 (RtlAreBitsSet.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiUnlockDriverMappings @ 0x1400F6028 (MiUnlockDriverMappings.c)
+ *     MiLockDriverMappings @ 0x1400F6228 (MiLockDriverMappings.c)
+ *     RtlAreBitsSet @ 0x14011F4C0 (RtlAreBitsSet.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, int a3)
@@ -35,7 +35,7 @@ void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, int a3
   v8 = 0LL;
   MiLockDriverMappings((__int64)CurrentThread);
   v14 = v4;
-  v9 = qword_140438F08[v4];
+  v9 = qword_140439FC8[v4];
   if ( !v9 )
     goto LABEL_16;
   do
@@ -68,7 +68,7 @@ LABEL_16:
     if ( v8 )
       *v8 = v12;
     else
-      qword_140438F08[v14] = v12;
+      qword_140439FC8[v14] = v12;
     MiUnlockDriverMappings((__int64)CurrentThread);
     ExFreePoolWithTag((PVOID)v9, 0);
   }

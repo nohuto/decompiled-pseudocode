@@ -1,12 +1,12 @@
 /*
- * XREFs of BgSetBootGraphicsInformation @ 0x1409F6684
+ * XREFs of BgSetBootGraphicsInformation @ 0x1409F7684
  * Callers:
- *     BgkSetBootGraphicsInformation @ 0x1409F64C4 (BgkSetBootGraphicsInformation.c)
+ *     BgkSetBootGraphicsInformation @ 0x1409F74C4 (BgkSetBootGraphicsInformation.c)
  * Callees:
- *     KeGetCurrentIrql @ 0x14021FAD0 (KeGetCurrentIrql.c)
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
- *     BgpFwSetBootGraphicsInformation @ 0x1405C4490 (BgpFwSetBootGraphicsInformation.c)
+ *     KeGetCurrentIrql @ 0x1402C43D0 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
+ *     BgpFwSetBootGraphicsInformation @ 0x1405C46C0 (BgpFwSetBootGraphicsInformation.c)
  */
 
 __int64 __fastcall BgSetBootGraphicsInformation(__int64 a1, __int64 a2)

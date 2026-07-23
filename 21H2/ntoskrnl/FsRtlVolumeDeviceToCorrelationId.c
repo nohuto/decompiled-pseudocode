@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlVolumeDeviceToCorrelationId @ 0x1406B1EA0
+ * XREFs of FsRtlVolumeDeviceToCorrelationId @ 0x140610EE0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     FsRtlIssueDeviceIoControl @ 0x1406B2330 (FsRtlIssueDeviceIoControl.c)
- *     IoVolumeDeviceToGuid @ 0x1407221C0 (IoVolumeDeviceToGuid.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     FsRtlIssueDeviceIoControl @ 0x140611370 (FsRtlIssueDeviceIoControl.c)
+ *     IoVolumeDeviceToGuid @ 0x1406F9AC0 (IoVolumeDeviceToGuid.c)
  */
 
 __int64 __fastcall FsRtlVolumeDeviceToCorrelationId(struct _DEVICE_OBJECT *a1, _OWORD *a2)

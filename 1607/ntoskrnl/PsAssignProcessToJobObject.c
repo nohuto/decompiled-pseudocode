@@ -1,11 +1,11 @@
 /*
- * XREFs of PsAssignProcessToJobObject @ 0x1404F29F0
+ * XREFs of PsAssignProcessToJobObject @ 0x1404D597C
  * Callers:
- *     NtAssignProcessToJobObject @ 0x1404F2914 (NtAssignProcessToJobObject.c)
- *     PspAssignProcessToJobList @ 0x14067F334 (PspAssignProcessToJobList.c)
+ *     NtAssignProcessToJobObject @ 0x1404D58A0 (NtAssignProcessToJobObject.c)
+ *     PspAssignProcessToJobList @ 0x14067F418 (PspAssignProcessToJobList.c)
  * Callees:
- *     PspGetJobAssignmentDisposition @ 0x1404F2B24 (PspGetJobAssignmentDisposition.c)
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
+ *     PspGetJobAssignmentDisposition @ 0x1404D5AB0 (PspGetJobAssignmentDisposition.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
  */
 
 __int64 __fastcall PsAssignProcessToJobObject(void *a1, ULONG_PTR a2)

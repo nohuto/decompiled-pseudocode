@@ -4,26 +4,26 @@
  *     <none>
  * Callees:
  *     RtlRealSuccessor @ 0x14021D710 (RtlRealSuccessor.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x14021D754 (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlEmptyFreePoolList @ 0x14021D85C (FsRtlEmptyFreePoolList.c)
+ *     sub_14021D754 @ 0x14021D754 (sub_14021D754.c)
+ *     sub_14021D85C @ 0x14021D85C (sub_14021D85C.c)
  *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
  *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
  */
 
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
 {
-  RTL_SPLAY_LINKS *v2; // rbx
+  _RTL_SPLAY_LINKS *v2; // rbx
   PRTL_SPLAY_LINKS v5; // rax
   PRTL_SPLAY_LINKS v6; // rbp
-  _QWORD *v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 *v7[3]; // [rsp+20h] [rbp-18h] BYREF
   char v8; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0LL;
   v8 = 1;
   if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 1) )
     return;
-  v7[1] = v7;
-  v7[0] = v7;
+  v7[1] = (__int64 *)v7;
+  v7[0] = (__int64 *)v7;
   ExAcquireFastMutex(&Cache->Mutex);
   v5 = Cache->Cache;
   while ( v5 )
@@ -53,11 +53,11 @@ LABEL_11:
     v6 = RtlRealSuccessor(v2);
     if ( v2[2].Parent != (_RTL_SPLAY_LINKS *)DirectoryKey )
       break;
-    FsRtlRemoveNodeFromTunnel((__int64)Cache, v2, (__int64)v7, &v8);
+    sub_14021D754((__int64)Cache, v2, (__int64)v7, &v8);
     v2 = v6;
   }
   while ( v6 );
 LABEL_13:
   KeReleaseGuardedMutex(&Cache->Mutex);
-  FsRtlEmptyFreePoolList(v7);
+  sub_14021D85C(v7);
 }

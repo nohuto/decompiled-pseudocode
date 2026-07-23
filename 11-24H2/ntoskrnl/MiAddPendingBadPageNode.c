@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAddPendingBadPageNode @ 0x1406734B4
+ * XREFs of MiAddPendingBadPageNode @ 0x140674684
  * Callers:
- *     MiSetPfnRemovalRequested @ 0x1406745D0 (MiSetPfnRemovalRequested.c)
+ *     MiSetPfnRemovalRequested @ 0x1406757A0 (MiSetPfnRemovalRequested.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiAddPendingBadPageNode(unsigned __int64 a1, _QWORD *a2)
@@ -17,14 +17,14 @@ void __fastcall MiAddPendingBadPageNode(unsigned __int64 a1, _QWORD *a2)
   v2 = 0;
   if ( a2 )
     a2[3] = a1;
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2FED0);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E30010);
   if ( !a2 )
   {
-    ++qword_140E2FED8;
+    ++qword_140E30018;
     goto LABEL_13;
   }
-  v5 = (_QWORD *)qword_140E2FEC0;
-  if ( !qword_140E2FEC0 )
+  v5 = (_QWORD *)qword_140E30000;
+  if ( !qword_140E30000 )
     goto LABEL_11;
   while ( a1 < v5[3] )
   {
@@ -39,8 +39,8 @@ LABEL_9:
     goto LABEL_9;
   v2 = 1;
 LABEL_11:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E2FEC0, (unsigned __int64)v5, v2, a2);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E30000, (unsigned __int64)v5, v2, a2);
 LABEL_13:
-  ++qword_140E2FEC8;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2FED0);
+  ++qword_140E30008;
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E30010);
 }

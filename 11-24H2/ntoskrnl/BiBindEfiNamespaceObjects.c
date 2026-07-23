@@ -1,16 +1,16 @@
 /*
- * XREFs of BiBindEfiNamespaceObjects @ 0x1409C1ADC
+ * XREFs of BiBindEfiNamespaceObjects @ 0x1409A812C
  * Callers:
- *     BiOpenSystemStore @ 0x1409C0FC0 (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x1409A7610 (BiOpenSystemStore.c)
  * Callees:
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     BiBuildIdentifierList @ 0x1409BEF7C (BiBuildIdentifierList.c)
- *     BiBindEfiBootManager @ 0x1409C0574 (BiBindEfiBootManager.c)
- *     BiFreeIdentifierList @ 0x1409C1C00 (BiFreeIdentifierList.c)
- *     BiBindEfiEntries @ 0x140A9AAF4 (BiBindEfiEntries.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     BiBuildIdentifierList @ 0x1409A55CC (BiBuildIdentifierList.c)
+ *     BiBindEfiBootManager @ 0x1409A6BC4 (BiBindEfiBootManager.c)
+ *     BiFreeIdentifierList @ 0x1409A8250 (BiFreeIdentifierList.c)
+ *     BiBindEfiEntries @ 0x140A96064 (BiBindEfiEntries.c)
  */
 
-__int64 __fastcall BiBindEfiNamespaceObjects(__int64 a1)
+__int64 __fastcall BiBindEfiNamespaceObjects(HANDLE BcdStoreHandle)
 {
   __int64 v2; // rdx
   int v3; // ebx
@@ -19,9 +19,13 @@ __int64 __fastcall BiBindEfiNamespaceObjects(__int64 a1)
   BiLogMessage();
   v5[1] = v5;
   v5[0] = v5;
-  v3 = BiBuildIdentifierList(a1, v2, v5);
-  if ( v3 < 0 || (v3 = BiBindEfiEntries(a1, v5), v3 < 0) || (v3 = BiBindEfiBootManager(a1, (__int64)v5), v3 < 0) )
+  v3 = BiBuildIdentifierList(BcdStoreHandle, v2, v5);
+  if ( v3 < 0
+    || (v3 = BiBindEfiEntries(BcdStoreHandle), v3 < 0)
+    || (v3 = BiBindEfiBootManager(BcdStoreHandle, (__int64)v5), v3 < 0) )
+  {
     BiLogMessage();
+  }
   BiFreeIdentifierList(v5);
   return (unsigned int)v3;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeInitializeIdealProcessorAssignmentBlock @ 0x140224688
+ * XREFs of KeInitializeIdealProcessorAssignmentBlock @ 0x140224790
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  *     KiInitializeIdleProcess @ 0x140B5EA40 (KiInitializeIdleProcess.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeInitializeIdealProcessorAssignmentBlock(__int64 a1)

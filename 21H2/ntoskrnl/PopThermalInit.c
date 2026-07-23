@@ -1,9 +1,9 @@
 /*
- * XREFs of PopThermalInit @ 0x140A6CC60
+ * XREFs of PopThermalInit @ 0x140A6DC60
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     PopInitializeTimer @ 0x1407C870C (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x1407C8A2C (PopInitializeTimer.c)
  */
 
 __int64 PopThermalInit()
@@ -14,12 +14,12 @@ __int64 PopThermalInit()
   unsigned int v3; // kr00_4
 
   v0 = 0;
-  LOBYTE(word_140C22E10) = 1;
-  qword_140C23238 = 0LL;
+  LOBYTE(word_140C22E90) = 1;
+  qword_140C23838 = 0LL;
   PopThermalLock = 0LL;
-  qword_140C22F38 = 0LL;
+  qword_140C23548 = 0LL;
   PopThermalTelemetryLock = 0LL;
-  qword_140C22E08 = 0LL;
+  qword_140C22E88 = 0LL;
   PopSystemThermalInfo = 0LL;
   PopInitializeTimer(
     (__int64)&PopThermalTelemetryTimer,

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPromoteControlAreaToStrongCode @ 0x1407F5F2C
+ * XREFs of MiPromoteControlAreaToStrongCode @ 0x1407F661C
  * Callers:
- *     MiLoadHotPatch @ 0x140A9F9D4 (MiLoadHotPatch.c)
+ *     MiLoadHotPatch @ 0x140A9ADA4 (MiLoadHotPatch.c)
  * Callees:
- *     MiValidateSectionCreate @ 0x140957B50 (MiValidateSectionCreate.c)
- *     MiGetSectionStrongImageReference @ 0x1409593FC (MiGetSectionStrongImageReference.c)
+ *     MiGetSectionStrongImageReference @ 0x14093AE14 (MiGetSectionStrongImageReference.c)
+ *     MiValidateSectionCreate @ 0x14093C5D8 (MiValidateSectionCreate.c)
  */
 
 __int64 __fastcall MiPromoteControlAreaToStrongCode(__int64 a1, int a2, int a3, _QWORD *a4)

@@ -6,11 +6,14 @@
  *     _RtlSetControlSecurityDescriptor@12 @ 0x4B2ED370 (_RtlSetControlSecurityDescriptor@12.c)
  */
 
-int __stdcall RtlSetAttributesSecurityDescriptor(_BYTE *a1, __int16 a2, _DWORD *a3)
+NTSTATUS __cdecl RtlSetAttributesSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        SECURITY_DESCRIPTOR_CONTROL Control,
+        PULONG Revision)
 {
-  *a3 = (unsigned __int8)*a1;
-  if ( *a1 == 1 )
-    return RtlSetControlSecurityDescriptor((int)a1, a2 & 0x3FC0, a2 & 0x3FC0);
+  *Revision = *(unsigned __int8 *)SecurityDescriptor;
+  if ( *(_BYTE *)SecurityDescriptor == 1 )
+    return RtlSetControlSecurityDescriptor(SecurityDescriptor, Control & 0x3FC0, Control & 0x3FC0);
   else
     return -1073741736;
 }

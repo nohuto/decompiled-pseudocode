@@ -1,10 +1,10 @@
 /*
- * XREFs of PiSwRemovePdoAssociation @ 0x140967B84
+ * XREFs of PiSwRemovePdoAssociation @ 0x140967D84
  * Callers:
- *     PiSwUnassociateDeviceObject @ 0x140967BF4 (PiSwUnassociateDeviceObject.c)
+ *     PiSwUnassociateDeviceObject @ 0x140967DF4 (PiSwUnassociateDeviceObject.c)
  * Callees:
- *     PiSwFindPdoAssociation @ 0x140848540 (PiSwFindPdoAssociation.c)
- *     PiSwPdoAssociationFree @ 0x14096760C (PiSwPdoAssociationFree.c)
+ *     PiSwFindPdoAssociation @ 0x140848840 (PiSwFindPdoAssociation.c)
+ *     PiSwPdoAssociationFree @ 0x14096780C (PiSwPdoAssociationFree.c)
  */
 
 __int64 __fastcall PiSwRemovePdoAssociation(__int64 a1, __int64 a2)

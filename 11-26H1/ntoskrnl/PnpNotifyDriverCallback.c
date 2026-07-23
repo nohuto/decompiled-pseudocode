@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpNotifyDriverCallback @ 0x1409DD5EC
+ * XREFs of PnpNotifyDriverCallback @ 0x140A1A8A4
  * Callers:
- *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1407A1D3C (PnpNotifyTargetDeviceChangeNotifyEntry.c)
- *     PipKsrNotifyDrivers @ 0x1407B2EFC (PipKsrNotifyDrivers.c)
- *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
- *     PnpNotifyDeviceClassChange @ 0x1409DC660 (PnpNotifyDeviceClassChange.c)
- *     PnpNotifyTargetDeviceChange @ 0x1409DD2BC (PnpNotifyTargetDeviceChange.c)
- *     PnpNotifyHwProfileChange @ 0x140B6A1EC (PnpNotifyHwProfileChange.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1407A487C (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     PipKsrNotifyDrivers @ 0x1407B5F5C (PipKsrNotifyDrivers.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409AAA90 (IoRegisterPlugPlayNotification.c)
+ *     PnpNotifyDeviceClassChange @ 0x140A19910 (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyTargetDeviceChange @ 0x140A1A56C (PnpNotifyTargetDeviceChange.c)
+ *     PnpNotifyHwProfileChange @ 0x140B6D3FC (PnpNotifyHwProfileChange.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     Feature_PreventInterfaceChangeConcurrentNotify__private_ReportDeviceUsage @ 0x1404B5E14 (Feature_PreventInterfaceChangeConcurrentNotify__private_ReportDeviceUsage.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     McTemplateK0qhzr1jxjhzr6_EtwWriteTransfer @ 0x1405D912C (McTemplateK0qhzr1jxjhzr6_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpExtractNotificationSpecificData @ 0x1407A1CD0 (PnpExtractNotificationSpecificData.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     Feature_PreventInterfaceChangeConcurrentNotify__private_ReportDeviceUsage @ 0x1404AF264 (Feature_PreventInterfaceChangeConcurrentNotify__private_ReportDeviceUsage.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     McTemplateK0qhzr1jxjhzr6_EtwWriteTransfer @ 0x1405DB92C (McTemplateK0qhzr1jxjhzr6_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpExtractNotificationSpecificData @ 0x1407A4810 (PnpExtractNotificationSpecificData.c)
  */
 
 __int64 __fastcall PnpNotifyDriverCallback(__int64 a1, __int64 a2, _DWORD *a3)
@@ -67,8 +67,8 @@ __int64 __fastcall PnpNotifyDriverCallback(__int64 a1, __int64 a2, _DWORD *a3)
   }
   if ( (v10 - v7) / 10000 > (unsigned __int16)PiNotifyLongRunningMs )
   {
-    LOBYTE(v20) = byte_140EF3DCC & 2;
-    if ( (byte_140EF3DCC & 2) != 0 )
+    LOBYTE(v20) = byte_140EF412C & 2;
+    if ( (byte_140EF412C & 2) != 0 )
     {
       v23 = 0LL;
       v22 = 0LL;

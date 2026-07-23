@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtUpdateRemappingTableEntry @ 0x1403660F0
+ * XREFs of IvtUpdateRemappingTableEntry @ 0x140366290
  * Callers:
  *     <none>
  * Callees:
- *     IvtUpdateInterruptDestination @ 0x14036628C (IvtUpdateInterruptDestination.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     IvtUpdateInterruptDestination @ 0x14036642C (IvtUpdateInterruptDestination.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall IvtUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a3, _DWORD *a4)

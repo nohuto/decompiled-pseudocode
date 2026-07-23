@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmInfoWriteData @ 0x140ABDD8C
+ * XREFs of PpmInfoWriteData @ 0x140AC037C
  * Callers:
- *     PpmInfoAdjustSetting @ 0x140ABDCD8 (PpmInfoAdjustSetting.c)
+ *     PpmInfoAdjustSetting @ 0x140AC02C8 (PpmInfoAdjustSetting.c)
  * Callees:
- *     PpmInfoApplyMinMaxConstraint @ 0x1404CFC6C (PpmInfoApplyMinMaxConstraint.c)
+ *     PpmInfoApplyMinMaxConstraint @ 0x1404C969C (PpmInfoApplyMinMaxConstraint.c)
  */
 
 bool __fastcall PpmInfoWriteData(unsigned int *a1, unsigned int a2, int a3, __int64 a4, __int64 a5)

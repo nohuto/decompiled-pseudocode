@@ -1,23 +1,23 @@
 /*
- * XREFs of VrpHandleIoctlCreateNamespaceNode @ 0x14077B1D0
+ * XREFs of VrpHandleIoctlCreateNamespaceNode @ 0x14077B3C0
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x14077B080 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x14077B270 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     PsGetJobSilo @ 0x14031C7E0 (PsGetJobSilo.c)
- *     PsGetPermanentSiloContext @ 0x14031C840 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14031C898 (PsIsThreadInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     PsGetJobSilo @ 0x14031CA70 (PsGetJobSilo.c)
+ *     PsGetPermanentSiloContext @ 0x14031CAD0 (PsGetPermanentSiloContext.c)
+ *     PsIsThreadInSilo @ 0x14031CB28 (PsIsThreadInSilo.c)
  *     VRegEnabledInJob @ 0x14068EB28 (VRegEnabledInJob.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x14077B470 (VrpCreateNamespaceNodePlaceholderKey.c)
- *     VrpAddNamespaceNodeToList @ 0x14077B520 (VrpAddNamespaceNodeToList.c)
- *     VrpDestroyNamespaceNode @ 0x14077B604 (VrpDestroyNamespaceNode.c)
- *     VrpCreateNamespaceNode @ 0x14077B818 (VrpCreateNamespaceNode.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x14077B660 (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     VrpAddNamespaceNodeToList @ 0x14077B710 (VrpAddNamespaceNodeToList.c)
+ *     VrpDestroyNamespaceNode @ 0x14077B7F4 (VrpDestroyNamespaceNode.c)
+ *     VrpCreateNamespaceNode @ 0x14077BA08 (VrpCreateNamespaceNode.c)
  */
 
 __int64 __fastcall VrpHandleIoctlCreateNamespaceNode(

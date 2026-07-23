@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFillMapFileInfo @ 0x1408ABE2A
+ * XREFs of MiFillMapFileInfo @ 0x1408AC07A
  * Callers:
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A4CF0 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiLogMapFileEvent @ 0x1408AC042 (MiLogMapFileEvent.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A4EE0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiLogMapFileEvent @ 0x1408AC292 (MiLogMapFileEvent.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiVadMapsLargeImage @ 0x14027CF40 (MiVadMapsLargeImage.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A24E0 (MiDereferenceControlAreaFile.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiVadMapsLargeImage @ 0x14027D1D0 (MiVadMapsLargeImage.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A2770 (MiDereferenceControlAreaFile.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
  */
 
 int __fastcall MiFillMapFileInfo(__int64 a1, __int64 a2)

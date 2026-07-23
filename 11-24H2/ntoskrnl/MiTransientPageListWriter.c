@@ -1,37 +1,39 @@
 /*
- * XREFs of MiTransientPageListWriter @ 0x1404D1B8C
+ * XREFs of MiTransientPageListWriter @ 0x1404CABCC
  * Callers:
- *     MiSystemFault @ 0x140229570 (MiSystemFault.c)
+ *     MiSystemFault @ 0x1402FC7E0 (MiSystemFault.c)
  * Callees:
- *     MiReleaseSpinLockShared @ 0x140244830 (MiReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
+ *     MiReleaseSpinLockShared @ 0x14020CFC0 (MiReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int64 a2)
 {
   KIRQL v4; // al
-  _QWORD *v5; // rbx
-  unsigned int v6; // edi
+  __int64 v5; // r8
+  __int64 v6; // r9
+  _QWORD *v7; // rbx
+  unsigned int v8; // edi
 
-  v4 = ExAcquireSpinLockShared(&dword_140E2FE20);
-  v5 = (_QWORD *)qword_140E2FE28;
-  v6 = 0;
-  while ( v5 )
+  v4 = ExAcquireSpinLockShared(&dword_140E2FF60);
+  v7 = (_QWORD *)qword_140E2FF68;
+  v8 = 0;
+  while ( v7 )
   {
-    if ( a1 <= v5[39] )
+    if ( a1 <= v7[39] )
     {
-      if ( a1 >= v5[39] )
+      if ( a1 >= v7[39] )
         break;
-      v5 = (_QWORD *)*v5;
+      v7 = (_QWORD *)*v7;
     }
     else
     {
-      v5 = (_QWORD *)v5[1];
+      v7 = (_QWORD *)v7[1];
     }
   }
-  if ( v5 && (!v5[36] || a2 < v5[37] || a2 > v5[38]) )
-    v5 = 0LL;
-  MiReleaseSpinLockShared(&dword_140E2FE20, v4);
-  LOBYTE(v6) = v5 != 0LL;
-  return v6;
+  if ( v7 && (!v7[36] || a2 < v7[37] || a2 > v7[38]) )
+    v7 = 0LL;
+  MiReleaseSpinLockShared(&dword_140E2FF60, v4, v5, v6);
+  LOBYTE(v8) = v7 != 0LL;
+  return v8;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlBeginReadTickLock @ 0x180039A50
+ * XREFs of RtlBeginReadTickLock @ 0x180019CD0
  * Callers:
- *     RtlGetMultiTimePrecise @ 0x180039870 (RtlGetMultiTimePrecise.c)
+ *     RtlGetMultiTimePrecise @ 0x180019AF0 (RtlGetMultiTimePrecise.c)
  * Callees:
  *     <none>
  */

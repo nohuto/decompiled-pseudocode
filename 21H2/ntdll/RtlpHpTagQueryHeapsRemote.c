@@ -1,58 +1,85 @@
 /*
- * XREFs of RtlpHpTagQueryHeapsRemote @ 0x18010B318
+ * XREFs of RtlpHpTagQueryHeapsRemote @ 0x18010B2D8
  * Callers:
  *     RtlpHpTagQueryTags @ 0x1800753F4 (RtlpHpTagQueryTags.c)
  * Callees:
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     ZwMapViewOfSection @ 0x18009DB40 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x18009DB80 (NtUnmapViewOfSection.c)
- *     NtCreateSection @ 0x18009DF80 (NtCreateSection.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     RtlpHeapPerformCrossProcessQuery @ 0x1800F4174 (RtlpHeapPerformCrossProcessQuery.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x18009DB00 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x18009DB40 (NtUnmapViewOfSection.c)
+ *     NtCreateSection @ 0x18009DF40 (NtCreateSection.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1800F4134 (RtlpHeapPerformCrossProcessQuery.c)
  */
 
-__int64 __fastcall RtlpHpTagQueryHeapsRemote(_OWORD *a1, unsigned __int64 a2, _QWORD *a3)
+__int64 __fastcall RtlpHpTagQueryHeapsRemote(_OWORD *a1, SIZE_T CommitSize, HANDLE *a3)
 {
-  int Section; // edi
-  __int64 v7; // rcx
-  size_t v8; // r8
-  bool v9; // cc
-  unsigned __int64 v11; // [rsp+50h] [rbp-29h]
-  _QWORD v12[12]; // [rsp+60h] [rbp-19h] BYREF
+  int v6; // edi
+  _OWORD *v7; // rax
+  void *v8; // rcx
+  HANDLE v9; // r8
+  bool v10; // cc
+  PVOID v11; // rbx
+  LARGE_INTEGER MaximumSize; // [rsp+50h] [rbp-29h] BYREF
+  ULONG_PTR ViewSize; // [rsp+58h] [rbp-21h] BYREF
+  HANDLE Buffer[12]; // [rsp+60h] [rbp-19h] BYREF
+  PVOID BaseAddress; // [rsp+E8h] [rbp+6Fh] BYREF
+  HANDLE SectionHandle; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v11 = (a2 + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL;
-  Section = NtCreateSection();
-  if ( Section >= 0 )
+  SectionHandle = 0LL;
+  BaseAddress = 0LL;
+  MaximumSize.QuadPart = (CommitSize + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL;
+  v6 = NtCreateSection(&SectionHandle, 0xF001Fu, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
+  if ( v6 < 0 )
+    goto LABEL_7;
+  ViewSize = CommitSize;
+  v6 = ZwMapViewOfSection(
+         SectionHandle,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         &BaseAddress,
+         0LL,
+         CommitSize,
+         0LL,
+         &ViewSize,
+         ViewUnmap,
+         0,
+         4u);
+  if ( v6 < 0 )
+    goto LABEL_7;
+  v7 = BaseAddress;
+  *(_OWORD *)BaseAddress = *a1;
+  v7[1] = a1[1];
+  v7[2] = a1[2];
+  memset(Buffer, 0, sizeof(Buffer));
+  v8 = (void *)*((_QWORD *)a1 + 1);
+  Buffer[0] = SectionHandle;
+  Buffer[1] = (HANDLE)MaximumSize.QuadPart;
+  LODWORD(Buffer[3]) = 0x40000000;
+  v6 = RtlpHeapPerformCrossProcessQuery(v8, Buffer);
+  if ( v6 < 0 )
   {
-    Section = ZwMapViewOfSection();
-    if ( Section >= 0 )
+LABEL_7:
+    v11 = BaseAddress;
+  }
+  else
+  {
+    v9 = Buffer[4];
+    v10 = Buffer[4] <= (HANDLE)CommitSize;
+    *a3 = Buffer[4];
+    v11 = BaseAddress;
+    if ( v10 )
     {
-      MEMORY[0] = *a1;
-      MEMORY[0x10] = a1[1];
-      MEMORY[0x20] = a1[2];
-      memset(v12, 0, sizeof(v12));
-      v7 = *((_QWORD *)a1 + 1);
-      v12[0] = 0LL;
-      v12[1] = v11;
-      LODWORD(v12[3]) = 0x40000000;
-      Section = RtlpHeapPerformCrossProcessQuery(v7, (__int64)v12);
-      if ( Section >= 0 )
-      {
-        v8 = v12[4];
-        v9 = v12[4] <= a2;
-        *a3 = v12[4];
-        if ( v9 )
-        {
-          memmove(a1, 0LL, v8);
-          return 0;
-        }
-        else
-        {
-          return (unsigned int)-1073741789;
-        }
-      }
+      memmove(a1, BaseAddress, (size_t)v9);
+      v6 = 0;
+    }
+    else
+    {
+      v6 = -1073741789;
     }
   }
-  return (unsigned int)Section;
+  if ( v11 )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v11);
+  if ( SectionHandle )
+    NtClose(SectionHandle);
+  return (unsigned int)v6;
 }

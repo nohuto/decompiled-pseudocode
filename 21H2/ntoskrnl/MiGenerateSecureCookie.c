@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGenerateSecureCookie @ 0x1407D3268
+ * XREFs of MiGenerateSecureCookie @ 0x1407D33D8
  * Callers:
- *     MiInitializeVadSecuring @ 0x140A92310 (MiInitializeVadSecuring.c)
+ *     MiInitializeVadSecuring @ 0x140A93310 (MiInitializeVadSecuring.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
  */
 
 __int64 MiGenerateSecureCookie()

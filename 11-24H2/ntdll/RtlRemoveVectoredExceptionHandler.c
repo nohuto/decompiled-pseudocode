@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlRemoveVectoredExceptionHandler @ 0x18010CC60
+ * XREFs of RtlRemoveVectoredExceptionHandler @ 0x1801079A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlRemoveVectoredExceptionHandler(__int64 a1, __int64 a2, unsigned __int64 a3)
+ULONG __cdecl RtlRemoveVectoredExceptionHandler(PVOID Handle)
 {
-  return RtlpRemoveVectoredHandler(a1, 0LL, a3);
+  return RtlpRemoveVectoredHandler((void **)Handle, 0);
 }

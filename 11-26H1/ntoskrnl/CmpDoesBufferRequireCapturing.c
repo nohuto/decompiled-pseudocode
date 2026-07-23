@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpDoesBufferRequireCapturing @ 0x14097DDF0
+ * XREFs of CmpDoesBufferRequireCapturing @ 0x14093FE00
  * Callers:
- *     NtRenameKey @ 0x14084F890 (NtRenameKey.c)
- *     CmCreateKey @ 0x1409748F0 (CmCreateKey.c)
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
- *     NtDeleteValueKey @ 0x14097CD00 (NtDeleteValueKey.c)
- *     CmpCaptureKeyValueArray @ 0x14097DACC (CmpCaptureKeyValueArray.c)
- *     CmUnloadKey @ 0x140B0A63C (CmUnloadKey.c)
+ *     NtRenameKey @ 0x140855BA0 (NtRenameKey.c)
+ *     CmCreateKey @ 0x140936900 (CmCreateKey.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
+ *     NtDeleteValueKey @ 0x14093ED10 (NtDeleteValueKey.c)
+ *     CmpCaptureKeyValueArray @ 0x14093FADC (CmpCaptureKeyValueArray.c)
+ *     CmUnloadKey @ 0x140A3E88C (CmUnloadKey.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
  */
 
 bool __fastcall CmpDoesBufferRequireCapturing(int a1, unsigned __int64 a2)
 {
-  return a1 || CmpFreezeListLock.RelativeTimerBias && MmIsUserAddress(a2);
+  return a1 || CmpFreezeListLock.CycleTime && MmIsUserAddress(a2);
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of CmLockKeyForWrite @ 0x14068E360
+ * XREFs of CmLockKeyForWrite @ 0x14068F520
  * Callers:
- *     NtLockRegistryKey @ 0x14068E270 (NtLockRegistryKey.c)
+ *     NtLockRegistryKey @ 0x14068F430 (NtLockRegistryKey.c)
  * Callees:
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetPermanentSiloContext @ 0x14010A0A0 (PsGetPermanentSiloContext.c)
- *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpPerformSiloKeyLockTrackerEnabledCheck @ 0x14068E52C (CmpPerformSiloKeyLockTrackerEnabledCheck.c)
- *     CmpGlobalLockKeyForWrite @ 0x14068E5A4 (CmpGlobalLockKeyForWrite.c)
- *     CmpCreateSiloKeyLockEntry @ 0x14068E738 (CmpCreateSiloKeyLockEntry.c)
- *     CmpFreeSiloKeyLockEntry @ 0x1407F5ED0 (CmpFreeSiloKeyLockEntry.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsGetPermanentSiloContext @ 0x14010A120 (PsGetPermanentSiloContext.c)
+ *     CmpLockKcbExclusive @ 0x1405D2728 (CmpLockKcbExclusive.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405D78BC (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpPerformSiloKeyLockTrackerEnabledCheck @ 0x14068F6EC (CmpPerformSiloKeyLockTrackerEnabledCheck.c)
+ *     CmpGlobalLockKeyForWrite @ 0x14068F764 (CmpGlobalLockKeyForWrite.c)
+ *     CmpCreateSiloKeyLockEntry @ 0x14068F8F8 (CmpCreateSiloKeyLockEntry.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x1407F70D0 (CmpFreeSiloKeyLockEntry.c)
  */
 
 __int64 __fastcall CmLockKeyForWrite(__int64 a1)

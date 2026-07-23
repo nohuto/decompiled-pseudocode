@@ -12,10 +12,10 @@
  *     CompareNamesCaseSensitive @ 0x1800F1C44 (CompareNamesCaseSensitive.c)
  *     RtlpCheckBusyBlockTail @ 0x180103A88 (RtlpCheckBusyBlockTail.c)
  *     RtlpValidateHeapHeaders @ 0x180108404 (RtlpValidateHeapHeaders.c)
- *     RtlpHeapTrkTrackStack @ 0x18010CEDC (RtlpHeapTrkTrackStack.c)
- *     RtlpStdLogCapturedStackTrace @ 0x18010FBE4 (RtlpStdLogCapturedStackTrace.c)
- *     RtlpRegisterStackTrace @ 0x180119380 (RtlpRegisterStackTrace.c)
- *     EtwpTrackDebugIdForSession @ 0x180126524 (EtwpTrackDebugIdForSession.c)
+ *     RtlpHeapTrkTrackStack @ 0x18010CEAC (RtlpHeapTrkTrackStack.c)
+ *     RtlpStdLogCapturedStackTrace @ 0x18010FBB4 (RtlpStdLogCapturedStackTrace.c)
+ *     RtlpRegisterStackTrace @ 0x180119350 (RtlpRegisterStackTrace.c)
+ *     EtwpTrackDebugIdForSession @ 0x1801264F4 (EtwpTrackDebugIdForSession.c)
  * Callees:
  *     <none>
  */

@@ -4,9 +4,9 @@
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     PspRegisterResource @ 0x140148AC8 (PspRegisterResource.c)
+ *     PspRegisterResource @ 0x140149038 (PspRegisterResource.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PspSanitizeResourceLimits @ 0x1405766EC (PspSanitizeResourceLimits.c)
+ *     PspSanitizeResourceLimits @ 0x140576C2C (PspSanitizeResourceLimits.c)
  *     PspInitializeQuotaExpansionDescriptor @ 0x1407B6844 (PspInitializeQuotaExpansionDescriptor.c)
  */
 
@@ -37,9 +37,9 @@ LABEL_9:
     LOBYTE(PoolWithTag) = 1;
     return (char)PoolWithTag;
   }
-  dword_140329280 = 1;
-  v1 = &unk_1403290C0;
-  dword_140329284 = 1;
+  dword_1403292C0 = 1;
+  v1 = &unk_140329100;
+  dword_1403292C4 = 1;
   v2 = PspResourceFlags;
   do
   {

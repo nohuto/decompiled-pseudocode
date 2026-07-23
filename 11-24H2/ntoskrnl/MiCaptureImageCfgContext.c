@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCaptureImageCfgContext @ 0x1408F4A80
+ * XREFs of MiCaptureImageCfgContext @ 0x14093D928
  * Callers:
- *     MiParseImageLoadConfig @ 0x1408F42B8 (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x14093D160 (MiParseImageLoadConfig.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiFreeImageCfgContext @ 0x140490D54 (MiFreeImageCfgContext.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     MiLogRelocationRva @ 0x1408F567C (MiLogRelocationRva.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiFreeImageCfgContext @ 0x14048B394 (MiFreeImageCfgContext.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     MiLogRelocationRva @ 0x14093E524 (MiLogRelocationRva.c)
  */
 
 __int64 __fastcall MiCaptureImageCfgContext(
@@ -82,14 +82,14 @@ __int64 __fastcall MiCaptureImageCfgContext(
     v32 = v18;
     if ( v14 < a4 || !v15 || v15 >= 0xFFFFFFFF / v18 )
     {
-      dword_140E2D728 = 4;
+      dword_140E2D868 = 4;
       goto LABEL_15;
     }
     if ( (v16 & 0x4000) != 0 && v12 )
     {
       if ( v12 < a4 || !v13 || v13 >= 0xFFFFFFFF / v18 )
       {
-        dword_140E2D728 = 10;
+        dword_140E2D868 = 10;
 LABEL_15:
         v11 = -1073741819;
         goto LABEL_16;
@@ -99,7 +99,7 @@ LABEL_15:
       v30 = v28 + v29;
       if ( v30 <= v28 || (v20 = a6, v30 > *(unsigned int *)(a6 + 16)) || v29 + 4 < v29 )
       {
-        dword_140E2D728 = 11;
+        dword_140E2D868 = 11;
         goto LABEL_15;
       }
     }
@@ -111,7 +111,7 @@ LABEL_15:
     v22 = v15 * v18;
     if ( v21 + v22 <= v21 || v21 + v22 > *(unsigned int *)(v20 + 16) || v22 + 4 < v22 )
     {
-      dword_140E2D728 = 5;
+      dword_140E2D868 = 5;
       goto LABEL_15;
     }
     Pool = (char *)MiAllocatePool(0x100uLL, v22, 1413704013);
@@ -119,7 +119,7 @@ LABEL_15:
     if ( !Pool )
     {
       v11 = -1073741670;
-      dword_140E2D728 = 6;
+      dword_140E2D868 = 6;
       goto LABEL_16;
     }
     memmove(Pool, (const void *)(v21 + a3), v22);
@@ -130,14 +130,14 @@ LABEL_15:
       v26 = *(unsigned int *)&v33[i];
       if ( v26 >= a5 )
       {
-        dword_140E2D728 = 8;
+        dword_140E2D868 = 8;
 LABEL_30:
         v11 = -1073741701;
         break;
       }
       if ( (_DWORD)i && (unsigned int)v26 < v24 )
       {
-        dword_140E2D728 = 9;
+        dword_140E2D868 = 9;
         goto LABEL_30;
       }
       v24 = *(_DWORD *)&v33[i];
@@ -149,7 +149,7 @@ LABEL_30:
       if ( v17 < a4 || v17 >= a4 + a5 )
       {
         v11 = -1073741701;
-        dword_140E2D728 = 10;
+        dword_140E2D868 = 10;
         goto LABEL_16;
       }
       *(_DWORD *)(a10 + 24) = v17 - a4;

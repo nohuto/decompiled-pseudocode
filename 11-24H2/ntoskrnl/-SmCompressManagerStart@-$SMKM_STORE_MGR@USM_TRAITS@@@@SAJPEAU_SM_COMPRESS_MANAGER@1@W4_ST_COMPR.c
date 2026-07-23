@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SmCompressManagerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x14060A1D8
+ * XREFs of ?SmCompressManagerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x140608798
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
  * Callees:
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     ?SmCompressCtxStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x14060A050 (-SmCompressCtxStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@W4_ST_COMPRESSI.c)
- *     ?SmCompressManagerUpdateTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z @ 0x14060A3F4 (-SmCompressManagerUpdateTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     ?SmCompressCtxStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x140608610 (-SmCompressCtxStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@W4_ST_COMPRESSI.c)
+ *     ?SmCompressManagerUpdateTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z @ 0x1406089B4 (-SmCompressManagerUpdateTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 int __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerStart(__int64 a1, int a2)
@@ -32,7 +32,7 @@ int __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerStart(__int64 a1, int
 
   v4 = *(_DWORD *)(*(_QWORD *)a1 + 2004LL);
   v5 = v4;
-  v6 = SmAllocEx(272LL * v4, 1849912691LL, -1);
+  v6 = SmAllocEx(272LL * v4, 0x6E436D73u, -1);
   *(_QWORD *)(a1 + 24) = v6;
   if ( !v6 )
     return -1073741670;
@@ -55,7 +55,7 @@ int __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerStart(__int64 a1, int
     while ( v9 );
   }
   SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerUpdateTopology(a1);
-  v13 = SmAllocEx(176LL * v4, 1665363315LL, -1);
+  v13 = SmAllocEx(176LL * v4, 0x63436D73u, -1);
   *(_QWORD *)(a1 + 16) = v13;
   if ( !v13 )
     return -1073741670;
@@ -103,7 +103,7 @@ int __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressManagerStart(__int64 a1, int
     if ( result < 0 )
       return result;
   }
-  v19 = SmAllocEx(16LL * v4, 2000907635LL, -1);
+  v19 = SmAllocEx(16LL * v4, 0x77436D73u, -1);
   *(_QWORD *)(a1 + 32) = v19;
   if ( !v19 )
     return -1073741670;

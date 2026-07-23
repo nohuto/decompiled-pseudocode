@@ -17,39 +17,39 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreateEnclave(
-        ULONG_PTR a1,
-        unsigned __int64 *a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        unsigned __int64 a5,
-        int a6,
-        void *Src,
-        unsigned int a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtCreateEnclave(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        SIZE_T Size,
+        SIZE_T InitialCommitment,
+        ULONG EnclaveType,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
   void *Pool; // rsi
   char PreviousMode; // al
   __int64 v12; // rcx
-  unsigned __int64 v13; // r12
-  int Enclave; // ebx
+  SIZE_T v13; // r12
+  NTSTATUS Enclave; // ebx
   int v15; // edi
   __int64 v16; // rcx
   void *Process; // rdi
   char v19; // [rsp+50h] [rbp-E8h]
-  size_t Size; // [rsp+64h] [rbp-D4h] BYREF
+  size_t Sizea; // [rsp+64h] [rbp-D4h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp-C8h] BYREF
   void *v23; // [rsp+78h] [rbp-C0h]
   unsigned __int64 v24[2]; // [rsp+80h] [rbp-B8h] BYREF
-  unsigned __int64 v25; // [rsp+90h] [rbp-A8h]
+  SIZE_T v25; // [rsp+90h] [rbp-A8h]
   __int64 v26[6]; // [rsp+98h] [rbp-A0h] BYREF
   _BYTE v27[48]; // [rsp+C8h] [rbp-70h] BYREF
 
-  v25 = a4;
-  v26[1] = (__int64)a2;
-  v26[0] = a3;
-  Size = a8;
-  v24[1] = (unsigned __int64)a9;
+  v25 = Size;
+  v26[1] = (__int64)BaseAddress;
+  v26[0] = ZeroBits;
+  Sizea = EnclaveInformationLength;
+  v24[1] = (unsigned __int64)EnclaveError;
   BugCheckParameter1 = 0LL;
   memset(v27, 0, sizeof(v27));
   v24[0] = 0LL;
@@ -57,42 +57,42 @@ __int64 __fastcall NtCreateEnclave(
   v23 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v19 = PreviousMode;
-  if ( a9 && PreviousMode == 1 )
+  if ( EnclaveError && PreviousMode == 1 )
   {
     v12 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a9 < 0x7FFFFFFF0000LL )
-      v12 = (__int64)a9;
+    if ( (unsigned __int64)EnclaveError < 0x7FFFFFFF0000LL )
+      v12 = (__int64)EnclaveError;
     *(_DWORD *)v12 = *(_DWORD *)v12;
   }
-  if ( a6 == 1 )
+  if ( EnclaveType == 1 )
   {
 LABEL_17:
     if ( qword_140E37278 )
     {
       v15 = 4096;
-      v13 = a5;
+      v13 = InitialCommitment;
       goto LABEL_19;
     }
 LABEL_16:
     Enclave = -1073741637;
     goto LABEL_46;
   }
-  if ( a6 == 2 )
+  if ( EnclaveType == 2 )
   {
     if ( !RtlIsEnclaveFeaturePresent(2u) )
       goto LABEL_16;
     goto LABEL_17;
   }
-  if ( (unsigned int)(a6 - 16) > 1 || !RtlIsEnclaveFeaturePresent(8u) )
+  if ( EnclaveType - 16 > 1 || !RtlIsEnclaveFeaturePresent(8u) )
     goto LABEL_16;
-  v13 = a5;
-  if ( a5 )
+  v13 = InitialCommitment;
+  if ( InitialCommitment )
   {
 LABEL_11:
     Enclave = -1073741581;
     goto LABEL_46;
   }
-  if ( a8 > 0x24 )
+  if ( EnclaveInformationLength > 0x24 )
     goto LABEL_13;
   v15 = 0;
 LABEL_19:
@@ -111,20 +111,20 @@ LABEL_19:
   if ( v19 == 1 )
   {
     v16 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v16 = (__int64)a2;
+    if ( (unsigned __int64)BaseAddress < 0x7FFFFFFF0000LL )
+      v16 = (__int64)BaseAddress;
     *(_QWORD *)v16 = *(_QWORD *)v16;
   }
-  v24[0] = *a2;
-  if ( (_DWORD)Size )
+  v24[0] = (unsigned __int64)*BaseAddress;
+  if ( (_DWORD)Sizea )
   {
-    if ( v15 && (_DWORD)Size != v15 )
+    if ( v15 && (_DWORD)Sizea != v15 )
     {
 LABEL_13:
       Enclave = -1073741820;
       goto LABEL_46;
     }
-    Pool = (void *)MiAllocatePool(0x100uLL, ((unsigned int)Size + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 1145400653);
+    Pool = (void *)MiAllocatePool(0x100uLL, ((unsigned int)Sizea + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 1145400653);
     v23 = Pool;
     if ( !Pool )
     {
@@ -133,37 +133,42 @@ LABEL_13:
     }
     if ( v19 != 1 )
       goto LABEL_39;
-    if ( (unsigned int)Size >= 0x10000uLL )
+    if ( (unsigned int)Sizea >= 0x10000uLL )
     {
-      if ( ((unsigned __int8)Src & 3) == 0 )
+      if ( ((unsigned __int8)EnclaveInformation & 3) == 0 )
       {
 LABEL_39:
-        memmove(Pool, Src, (unsigned int)Size);
+        memmove(Pool, EnclaveInformation, (unsigned int)Sizea);
         goto LABEL_40;
       }
     }
-    else if ( ((unsigned __int8)Src & 3) == 0 )
+    else if ( ((unsigned __int8)EnclaveInformation & 3) == 0 )
     {
       goto LABEL_39;
     }
     ExRaiseDatatypeMisalignment();
   }
 LABEL_40:
-  if ( a1 == -1LL )
+  if ( ProcessHandle == (HANDLE)-1LL )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
     BugCheckParameter1 = (ULONG_PTR)Process;
   }
   else
   {
-    Enclave = ObpReferenceObjectByHandleWithTag(a1, 0x6D566D4Du, (__int64)&BugCheckParameter1, 0LL, 0LL);
+    Enclave = ObpReferenceObjectByHandleWithTag(
+                (ULONG_PTR)ProcessHandle,
+                0x6D566D4Du,
+                (__int64)&BugCheckParameter1,
+                0LL,
+                0LL);
     if ( Enclave < 0 )
       goto LABEL_46;
     Process = (void *)BugCheckParameter1;
     KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v27);
   }
-  Enclave = MiCreateEnclave((int)Process, v24, v26[0], v25, v13, a6, (__int64)Pool, Size, (__int64)&Size + 4);
-  if ( a1 != -1LL )
+  Enclave = MiCreateEnclave((int)Process, v24, v26[0], v25, v13, EnclaveType, (__int64)Pool, Sizea, (__int64)&Sizea + 4);
+  if ( ProcessHandle != (HANDLE)-1LL )
   {
     KiUnstackDetachProcess((__int64)v27, 0LL);
     ObfDereferenceObjectWithTag(Process, 0x6D566D4Du);
@@ -172,8 +177,8 @@ LABEL_46:
   if ( Pool )
     ExFreePoolWithTag(Pool, 0);
   if ( Enclave >= 0 )
-    *a2 = v24[0];
-  if ( a9 )
-    *a9 = HIDWORD(Size);
-  return (unsigned int)Enclave;
+    *BaseAddress = (PVOID)v24[0];
+  if ( EnclaveError )
+    *EnclaveError = HIDWORD(Sizea);
+  return Enclave;
 }

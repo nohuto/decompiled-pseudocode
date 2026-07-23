@@ -1,19 +1,19 @@
 /*
- * XREFs of AslPathWildcardFindNext @ 0x140A55AAC
+ * XREFs of AslPathWildcardFindNext @ 0x140A55D5C
  * Callers:
- *     SdbpCheckMatchingWildcardFiles @ 0x140A50340 (SdbpCheckMatchingWildcardFiles.c)
- *     AslPathWildcardFindFirst @ 0x140A55554 (AslPathWildcardFindFirst.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140A505F0 (SdbpCheckMatchingWildcardFiles.c)
+ *     AslPathWildcardFindFirst @ 0x140A55804 (AslPathWildcardFindFirst.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyNW @ 0x140396D60 (RtlStringCbCopyNW.c)
- *     ZwQueryDirectoryFile @ 0x14041B400 (ZwQueryDirectoryFile.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlStringCbCatNW @ 0x14066E414 (RtlStringCbCatNW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyNW @ 0x140396F40 (RtlStringCbCopyNW.c)
+ *     ZwQueryDirectoryFile @ 0x14041B790 (ZwQueryDirectoryFile.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlStringCbCatNW @ 0x14066E964 (RtlStringCbCatNW.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     AslpPathWildcardAllocMatchNode @ 0x140A565E8 (AslpPathWildcardAllocMatchNode.c)
- *     AslpPathWildcardFreeMatchNode @ 0x140A568DC (AslpPathWildcardFreeMatchNode.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140A56898 (AslpPathWildcardAllocMatchNode.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x140A56B8C (AslpPathWildcardFreeMatchNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */

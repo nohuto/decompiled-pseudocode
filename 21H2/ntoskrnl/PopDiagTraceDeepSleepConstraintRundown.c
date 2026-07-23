@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDeepSleepConstraintRundown @ 0x140284394
+ * XREFs of PopDiagTraceDeepSleepConstraintRundown @ 0x1402729EC
  * Callers:
- *     PopDiagTraceControlCallback @ 0x14067D270 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140671060 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapClearPoison @ 0x140848C30
+ * XREFs of WheapClearPoison @ 0x14084EF00
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x1408487D0 (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14084EAA0 (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     MmUnmapIoSpace @ 0x140343610 (MmUnmapIoSpace.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MmAddPhysicalMemory @ 0x140867350 (MmAddPhysicalMemory.c)
- *     MmRemovePhysicalMemory @ 0x140867460 (MmRemovePhysicalMemory.c)
+ *     MmUnmapIoSpace @ 0x140345690 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MmAddPhysicalMemory @ 0x14086D730 (MmAddPhysicalMemory.c)
+ *     MmRemovePhysicalMemory @ 0x14086D840 (MmRemovePhysicalMemory.c)
  */
 
 __int64 __fastcall WheapClearPoison(PPHYSICAL_ADDRESS StartAddress)

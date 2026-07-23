@@ -1,13 +1,13 @@
 /*
- * XREFs of IoPerfInit @ 0x140558ED8
+ * XREFs of IoPerfInit @ 0x140559598
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1407D5090 (EtwpEnableKernelTrace.c)
- *     IoRegisterIoTracking @ 0x140948F70 (IoRegisterIoTracking.c)
+ *     EtwpEnableKernelTrace @ 0x1407D5360 (EtwpEnableKernelTrace.c)
+ *     IoRegisterIoTracking @ 0x140949170 (IoRegisterIoTracking.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     IopUpdateFunctionPointers @ 0x1405563EC (IopUpdateFunctionPointers.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopUpdateFunctionPointers @ 0x140556AAC (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IoPerfInit(int a1)
@@ -33,10 +33,10 @@ __int64 __fastcall IoPerfInit(int a1)
     IopUpdateFunctionPointers(2, 1, 1);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v10);
   OldIrql = v10.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -44,7 +44,7 @@ __int64 __fastcall IoPerfInit(int a1)
       v8 = (v7 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v7;
       if ( v8 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

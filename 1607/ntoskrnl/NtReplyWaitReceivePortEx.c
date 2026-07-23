@@ -1,18 +1,18 @@
 /*
- * XREFs of NtReplyWaitReceivePortEx @ 0x1404B2FA0
+ * XREFs of NtReplyWaitReceivePortEx @ 0x14049D380
  * Callers:
- *     NtReplyWaitReceivePort @ 0x1404B2F8C (NtReplyWaitReceivePort.c)
- *     NtListenPort @ 0x140580EF0 (NtListenPort.c)
+ *     NtReplyWaitReceivePort @ 0x14049D36C (NtReplyWaitReceivePort.c)
+ *     NtListenPort @ 0x14058139C (NtListenPort.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     AlpcpReceiveLegacyMessage @ 0x1404B3100 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpCompleteDeferSignalRequest @ 0x1404B33DC (AlpcpCompleteDeferSignalRequest.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x1404B34A4 (AlpcpProbeForWriteMessageHeader.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1404B3C60 (AlpcpReplyLegacySynchronousRequest.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     AlpcpReceiveLegacyMessage @ 0x14049D4E0 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x14049D7BC (AlpcpCompleteDeferSignalRequest.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x14049D884 (AlpcpProbeForWriteMessageHeader.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x14049E040 (AlpcpReplyLegacySynchronousRequest.c)
  */
 
 NTSTATUS __stdcall NtReplyWaitReceivePortEx(

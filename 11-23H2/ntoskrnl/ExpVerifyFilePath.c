@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpVerifyFilePath @ 0x14083E410
+ * XREFs of ExpVerifyFilePath @ 0x14083E710
  * Callers:
- *     NtEnumerateBootEntries @ 0x14083DAB0 (NtEnumerateBootEntries.c)
- *     NtTranslateFilePath @ 0x14083E130 (NtTranslateFilePath.c)
- *     ExpSetBootEntry @ 0x1409FD170 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1409FD900 (ExpSetDriverEntry.c)
- *     ExpVerifyWindowsOsOptions @ 0x1409FE7C8 (ExpVerifyWindowsOsOptions.c)
+ *     NtEnumerateBootEntries @ 0x14083DDB0 (NtEnumerateBootEntries.c)
+ *     NtTranslateFilePath @ 0x14083E430 (NtTranslateFilePath.c)
+ *     ExpSetBootEntry @ 0x1409FD400 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x1409FDB90 (ExpSetDriverEntry.c)
+ *     ExpVerifyWindowsOsOptions @ 0x1409FEA58 (ExpVerifyWindowsOsOptions.c)
  * Callees:
- *     ExpSafeWcslen @ 0x14083E104 (ExpSafeWcslen.c)
+ *     ExpSafeWcslen @ 0x14083E404 (ExpSafeWcslen.c)
  */
 
 __int64 __fastcall ExpVerifyFilePath(_DWORD *a1, unsigned __int64 a2)

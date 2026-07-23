@@ -1,11 +1,11 @@
 /*
- * XREFs of KiFixupControlProtectionKernelModeReturnMismatch @ 0x1405FAA78
+ * XREFs of KiFixupControlProtectionKernelModeReturnMismatch @ 0x1405FD498
  * Callers:
- *     KiProcessControlProtectionFromKernelMode @ 0x14052865C (KiProcessControlProtectionFromKernelMode.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x14052ACCC (KiProcessControlProtectionFromKernelMode.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KiDecrementKernelShadowStack @ 0x140728540 (KiDecrementKernelShadowStack.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiDecrementKernelShadowStack @ 0x14072D110 (KiDecrementKernelShadowStack.c)
  */
 
 __int64 __fastcall KiFixupControlProtectionKernelModeReturnMismatch(

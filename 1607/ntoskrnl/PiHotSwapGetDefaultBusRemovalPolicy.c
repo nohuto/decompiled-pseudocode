@@ -1,10 +1,10 @@
 /*
- * XREFs of PiHotSwapGetDefaultBusRemovalPolicy @ 0x1404EAD24
+ * XREFs of PiHotSwapGetDefaultBusRemovalPolicy @ 0x1404D1EB0
  * Callers:
- *     PpHotSwapUpdateRemovalPolicy @ 0x1404EAC1C (PpHotSwapUpdateRemovalPolicy.c)
+ *     PpHotSwapUpdateRemovalPolicy @ 0x14050F3A0 (PpHotSwapUpdateRemovalPolicy.c)
  * Callees:
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
  */
 
 void __fastcall PiHotSwapGetDefaultBusRemovalPolicy(__int64 a1, int *a2)

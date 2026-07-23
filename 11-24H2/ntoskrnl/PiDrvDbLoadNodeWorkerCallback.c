@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x140A79530
+ * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x140A73830
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PnpDiagnosticTraceObject @ 0x14043B204 (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1404A044C (PnpDiagnosticTraceObjectWithStatus.c)
- *     ZwSetEvent @ 0x1406A65D0 (ZwSetEvent.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwResetEvent @ 0x1406A94F0 (ZwResetEvent.c)
- *     PiDrvDbSetupNodeHive @ 0x140739634 (PiDrvDbSetupNodeHive.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _SysCtxRegOpenKey @ 0x1408C5B50 (_SysCtxRegOpenKey.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PiDrvDbLoadHive @ 0x140A796D4 (PiDrvDbLoadHive.c)
- *     PiDrvDbUnloadHive @ 0x140A797B0 (PiDrvDbUnloadHive.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x1402F0484 (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x14049AACC (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwSetEvent @ 0x1406A7570 (ZwSetEvent.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwResetEvent @ 0x1406AA490 (ZwResetEvent.c)
+ *     PiDrvDbSetupNodeHive @ 0x140737564 (PiDrvDbSetupNodeHive.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _SysCtxRegOpenKey @ 0x1408C3580 (_SysCtxRegOpenKey.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PiDrvDbLoadHive @ 0x140A739D4 (PiDrvDbLoadHive.c)
+ *     PiDrvDbUnloadHive @ 0x140A73AB0 (PiDrvDbUnloadHive.c)
  */
 
 NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
@@ -128,7 +128,7 @@ NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
           PnpSetObjectProperty(
             *(__int64 *)&PiPnpRtlCtx,
             v13,
-            7u,
+            7,
             v12,
             0LL,
             (__int64)DEVPKEY_DriverDatabase_SetupStatus,
@@ -142,7 +142,7 @@ NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
       v1 = (unsigned __int16 *)(a1 + 16);
     }
     ZwClose(Handle);
-    ZwResetEvent(*(_QWORD *)(a1 + 472), 0LL);
+    ZwResetEvent(*(HANDLE *)(a1 + 472), 0LL);
     v9 = PiDrvDbUnloadHive(v3, *(_QWORD *)(a1 + 472));
     if ( v9 == 259 )
     {

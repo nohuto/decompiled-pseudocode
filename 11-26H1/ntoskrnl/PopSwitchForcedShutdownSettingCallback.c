@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSwitchForcedShutdownSettingCallback @ 0x140603CF0
+ * XREFs of PopSwitchForcedShutdownSettingCallback @ 0x1406067F0
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopSwitchForcedShutdownSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -19,7 +19,7 @@ __int64 __fastcall PopSwitchForcedShutdownSettingCallback(_QWORD *a1, _DWORD *a2
     v7 = *(_QWORD *)GUID_ENABLE_SWITCH_FORCED_SHUTDOWN.Data4 - a1[1];
   if ( !v7 && a3 == 4 && a2 )
   {
-    byte_140F10704 = *a2 != 0;
+    LOBYTE(PpmIdlePolicyLock.KeReferenceCount) = *a2 != 0;
     v6 = 0;
   }
   PopReleasePolicyLock();

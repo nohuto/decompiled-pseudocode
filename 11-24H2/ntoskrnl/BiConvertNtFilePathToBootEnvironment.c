@@ -1,12 +1,12 @@
 /*
- * XREFs of BiConvertNtFilePathToBootEnvironment @ 0x1408131A0
+ * XREFs of BiConvertNtFilePathToBootEnvironment @ 0x1408138E0
  * Callers:
- *     BiConvertNtDeviceToBootEnvironment @ 0x140A9857C (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x140A94D38 (BiConvertNtDeviceToBootEnvironment.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x140A9857C (BiConvertNtDeviceToBootEnvironment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x140A94D38 (BiConvertNtDeviceToBootEnvironment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertNtFilePathToBootEnvironment(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4, _QWORD *a5)
@@ -29,7 +29,7 @@ __int64 __fastcall BiConvertNtFilePathToBootEnvironment(__int64 a1, __int64 a2, 
     while ( a3[v7] );
     v8 = 2 * v7 + 2;
     v9 = v8 + *((_DWORD *)Src + 2) + 12;
-    Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL, v9, 0x4B444342u);
     v11 = Pool2;
     if ( Pool2 )
     {

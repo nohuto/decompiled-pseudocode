@@ -17,14 +17,14 @@ bool __fastcall LdrpFusionManifestCodePages(_DWORD *a1, _DWORD *a2)
 
   *a1 = 0;
   *a2 = 0;
-  if ( (int)RtlQueryActivationContextApplicationSettings(
-              0LL,
-              0LL,
-              L"http://schemas.microsoft.com/SMI/2019/WindowsSettings",
-              L"activeCodePage",
-              String1,
-              15LL,
-              0LL) < 0 )
+  if ( RtlQueryActivationContextApplicationSettings(
+         0,
+         0LL,
+         (PWSTR)L"http://schemas.microsoft.com/SMI/2019/WindowsSettings",
+         (PWSTR)L"activeCodePage",
+         String1,
+         0xFuLL,
+         0LL) < 0 )
     goto LABEL_2;
   if ( !wcscmp(String1, L"UTF-8") )
   {

@@ -24,7 +24,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmHighMemPriorityWatchdogWorker(__int
   unsigned __int64 SystemInformation[7]; // [rsp+28h] [rbp-60h] BYREF
 
   v1 = a1 - 1800;
-  if ( ZwQuerySystemInformation(SystemLoadGdiDriverInSystemSpaceInformation|0x80, SystemInformation, 0x38u, 0LL) >= 0 )
+  if ( ZwQuerySystemInformation(SystemMemoryUsageInformation, SystemInformation, 0x38u, 0LL) >= 0 )
   {
     v3 = 128000LL;
     v4 = 0;

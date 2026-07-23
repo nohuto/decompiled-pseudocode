@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReleaseFaultState @ 0x14030F4F4
+ * XREFs of MiReleaseFaultState @ 0x14031A244
  * Callers:
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
- *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
- *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
- *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
- *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
- *     MiKernelWriteToExecutableMemory @ 0x1405489B4 (MiKernelWriteToExecutableMemory.c)
- *     MiReleaseFaultSynchronization @ 0x140548EC4 (MiReleaseFaultSynchronization.c)
- *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
+ *     MiWaitForCollidedFaultComplete @ 0x140209390 (MiWaitForCollidedFaultComplete.c)
+ *     MiPrivateFixup @ 0x140209BC8 (MiPrivateFixup.c)
+ *     MiStealPage @ 0x140259C44 (MiStealPage.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiInPagePageTable @ 0x140316B10 (MiInPagePageTable.c)
+ *     MiIssueHardFault @ 0x140319700 (MiIssueHardFault.c)
+ *     MiKernelWriteToExecutableMemory @ 0x140548BF4 (MiKernelWriteToExecutableMemory.c)
+ *     MiReleaseFaultSynchronization @ 0x140549104 (MiReleaseFaultSynchronization.c)
+ *     MiIdealClusterPage @ 0x140556054 (MiIdealClusterPage.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     MiUnlockFaultPageTable @ 0x140312148 (MiUnlockFaultPageTable.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockFaultPageTable @ 0x14031CE98 (MiUnlockFaultPageTable.c)
  */
 
 __int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, _BYTE *a3)

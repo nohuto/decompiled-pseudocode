@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUpdateAwePageTable @ 0x140474584
+ * XREFs of MiUpdateAwePageTable @ 0x14046E1F0
  * Callers:
- *     MiDeleteEnclavePage @ 0x1403D1B2C (MiDeleteEnclavePage.c)
- *     MiFinishPteChangesInPageTable @ 0x1404738AC (MiFinishPteChangesInPageTable.c)
- *     MiWriteEnclavePte @ 0x1404743C4 (MiWriteEnclavePte.c)
- *     MiUnmapLegacyAwePage @ 0x1406830EC (MiUnmapLegacyAwePage.c)
+ *     MiDeleteEnclavePage @ 0x14046D37C (MiDeleteEnclavePage.c)
+ *     MiFinishPteChangesInPageTable @ 0x14046D518 (MiFinishPteChangesInPageTable.c)
+ *     MiWriteEnclavePte @ 0x14046E030 (MiWriteEnclavePte.c)
+ *     MiUnmapLegacyAwePage @ 0x1406842DC (MiUnmapLegacyAwePage.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiDecreaseUsedPtes @ 0x1403A4830 (MiDecreaseUsedPtes.c)
+ *     MiDecreaseUsedPtes @ 0x14021C060 (MiDecreaseUsedPtes.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
-__int64 __fastcall MiUpdateAwePageTable(unsigned __int64 a1, __int64 a2, signed int a3)
+__int64 __fastcall MiUpdateAwePageTable(unsigned __int64 a1, __int64 a2, int a3)
 {
   unsigned int v6; // ebx
   unsigned __int64 v7; // rsi
@@ -63,9 +63,9 @@ __int64 __fastcall MiUpdateAwePageTable(unsigned __int64 a1, __int64 a2, signed 
   if ( a3 )
   {
     if ( a3 <= 0 )
-      v15 = MiDecreaseUsedPtes(v10, a1, -a3);
+      v15 = MiDecreaseUsedPtes(v10, a1, (unsigned int)-a3);
     else
-      v15 = MiIncreaseUsedPtes(v10, a1, a3, 2);
+      v15 = MiIncreaseUsedPtes(v10, a1, (unsigned int)a3, 2LL);
   }
   else
   {

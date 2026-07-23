@@ -159,7 +159,7 @@ void __fastcall PspJobDelete(__int64 a1)
   if ( v11 )
     IoFreeMiniCompletionPacket(v11);
   if ( (*(_DWORD *)(a1 + 1552) & 0x800) != 0 )
-    ZwDeleteWnfStateName(a1 + 1112);
+    ZwDeleteWnfStateName((PCWNF_STATE_NAME)(a1 + 1112));
   PspGetJobLockHierarchyForDeletion(a1, v27);
   PspLockJobsAndProcessExclusive(v27, 0LL, CurrentThread, 0LL);
   v12 = (_QWORD *)(a1 + 1272);

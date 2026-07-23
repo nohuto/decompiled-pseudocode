@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierMmMapIoSpace @ 0x140C3F7A0
+ * XREFs of VerifierMmMapIoSpace @ 0x140C457B0
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViTargetAddToCounter @ 0x140C29598 (ViTargetAddToCounter.c)
- *     VfFaultsInjectResourceFailure @ 0x140C347B4 (VfFaultsInjectResourceFailure.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViTargetAddToCounter @ 0x140C2F5A8 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x140C3A7C4 (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall VerifierMmMapIoSpace(__int64 a1, unsigned __int64 a2, int a3)

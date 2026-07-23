@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpHpCompactSessionPools @ 0x1402D5848
+ * XREFs of ExpHpCompactSessionPools @ 0x140286B94
  * Callers:
- *     ExpHpCompactionRoutine @ 0x1402FAA50 (ExpHpCompactionRoutine.c)
+ *     ExpHpCompactionRoutine @ 0x1403057A0 (ExpHpCompactionRoutine.c)
  * Callees:
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     RtlpHpHeapCompact @ 0x1402C3FF8 (RtlpHpHeapCompact.c)
- *     MiGetNextSession @ 0x1402D5FA8 (MiGetNextSession.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     RtlpHpHeapCompact @ 0x140242578 (RtlpHpHeapCompact.c)
+ *     MiGetNextSession @ 0x1402872F8 (MiGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 ExpHpCompactSessionPools()
 {
   __int64 result; // rax
-  _KPROCESS *i; // rbx
+  struct _DMA_ADAPTER *i; // rbx
   __int64 v2; // rdi
   __int64 v3; // r9
   __int64 v4; // rax
@@ -25,9 +25,9 @@ __int64 ExpHpCompactSessionPools()
 
   memset(v9, 0, sizeof(v9));
   result = MiGetNextSession(0LL);
-  for ( i = (_KPROCESS *)result; result; i = (_KPROCESS *)result )
+  for ( i = (struct _DMA_ADAPTER *)result; result; i = (struct _DMA_ADAPTER *)result )
   {
-    if ( (int)MmAttachSession(i, (__int64)v9) >= 0 )
+    if ( (int)MmAttachSession((ULONG_PTR)i) >= 0 )
     {
       v2 = *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 672);
       v3 = *(_QWORD *)(v2 + 14560);
@@ -52,7 +52,7 @@ __int64 ExpHpCompactSessionPools()
       }
       MmDetachSession((__int64)i, (__int64)v9);
     }
-    result = MiGetNextSession((PADAPTER_OBJECT)i);
+    result = MiGetNextSession(i);
   }
   return result;
 }

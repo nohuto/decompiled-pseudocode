@@ -6,19 +6,25 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall RtlDecompressBuffer(unsigned __int8 a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl RtlDecompressBuffer(
+        USHORT CompressionFormat,
+        PUCHAR UncompressedBuffer,
+        ULONG UncompressedBufferSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        PULONG FinalUncompressedSize)
 {
-  if ( !a1 || a1 == 1 )
+  if ( !(_BYTE)CompressionFormat || (unsigned __int8)CompressionFormat == 1 )
     return -1073741811;
-  if ( a1 <= 4u )
-    return ((int (__thiscall *)(int, int, int, int, int, _DWORD, int, _DWORD))RtlDecompressBufferProcs[a1])(
-             RtlDecompressBufferProcs[a1],
-             a2,
-             a3,
-             a4,
-             a5,
+  if ( (unsigned __int8)CompressionFormat <= 4u )
+    return ((int (__thiscall *)(int, PUCHAR, ULONG, PUCHAR, ULONG, _DWORD, PULONG, _DWORD))RtlDecompressBufferProcs[(unsigned __int8)CompressionFormat])(
+             RtlDecompressBufferProcs[(unsigned __int8)CompressionFormat],
+             UncompressedBuffer,
+             UncompressedBufferSize,
+             CompressedBuffer,
+             CompressedBufferSize,
              0,
-             a6,
+             FinalUncompressedSize,
              0);
   return -1073741217;
 }

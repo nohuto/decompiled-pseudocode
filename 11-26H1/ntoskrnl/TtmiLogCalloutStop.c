@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutStop @ 0x1407E8644
+ * XREFs of TtmiLogCalloutStop @ 0x1407EE1A4
  * Callers:
- *     TtmpStopCallout @ 0x1407E6244 (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x1407EBDA4 (TtmpStopCallout.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
  */
 
 char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, int a5, unsigned __int64 a6)
@@ -53,16 +53,16 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, 
   v7 = a6;
   if ( a6 > 0x1312D00 )
   {
-    if ( (unsigned int)dword_140FD5870 > 5 )
+    if ( (unsigned int)dword_140FD6880 > 5 )
     {
-      LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD5870, 0x400000000001LL);
+      LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD6880, 0x400000000001LL);
       if ( (_BYTE)v6 )
       {
         SessionId = TtmiGetSessionId(v18, v17, v19);
-        v14 = (unsigned __int8 *)&unk_140052370;
+        v14 = (unsigned __int8 *)&word_140053036;
         v23 = a1;
         p_SessionId = &SessionId;
-        v15 = &dword_140FD5870;
+        v15 = &dword_140FD6880;
         v22 = a2;
         v30 = &v23;
         v32 = &v22;
@@ -78,16 +78,16 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, 
       }
     }
   }
-  else if ( (unsigned int)dword_140FD58A8 > 5 )
+  else if ( (unsigned int)dword_140FD68B8 > 5 )
   {
-    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD58A8, 1LL);
+    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD68B8, 1LL);
     if ( (_BYTE)v6 )
     {
       v21 = TtmiGetSessionId(v12, v11, v13);
-      v14 = (unsigned __int8 *)&dword_140051FD4;
+      v14 = (unsigned __int8 *)&dword_140052B24;
       v22 = a1;
       p_SessionId = &v21;
-      v15 = &dword_140FD58A8;
+      v15 = &dword_140FD68B8;
       v23 = a2;
       v30 = &v22;
       v32 = &v23;

@@ -98,8 +98,8 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
       }
       v9 = 128;
       v10 = 0;
-      v25 = EtwpCheckGuidAccess(PrivateLoggerSecurityGuid, 128LL, 0LL);
-      *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
+      v25 = EtwpCheckGuidAccess(&PrivateLoggerSecurityGuid, 128LL, 0LL);
+      *(GUID *)(a2 + 40) = PrivateLoggerNotificationGuid;
       v27 = v25 < 0;
     }
     else

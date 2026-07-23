@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpAcquireCmosSpinLock @ 0x14033BC0C
+ * XREFs of HalpAcquireCmosSpinLock @ 0x14033BE9C
  * Callers:
- *     HalpAcquireCmosSpinLockAndWait @ 0x14033BBD8 (HalpAcquireCmosSpinLockAndWait.c)
- *     HalpGetSetCmosData @ 0x1403A540C (HalpGetSetCmosData.c)
- *     HalGetEnvironmentVariable @ 0x1405047E0 (HalGetEnvironmentVariable.c)
- *     HalSetEnvironmentVariable @ 0x140504980 (HalSetEnvironmentVariable.c)
- *     HalMakeBeep @ 0x140506600 (HalMakeBeep.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
- *     x86BiosReadCmosPortByte @ 0x140508620 (x86BiosReadCmosPortByte.c)
- *     x86BiosWriteCmosPortByte @ 0x1405087A0 (x86BiosWriteCmosPortByte.c)
- *     HalpSetClockAfterSleep @ 0x14050AF64 (HalpSetClockAfterSleep.c)
- *     HalpSetClockBeforeSleep @ 0x14050AFE8 (HalpSetClockBeforeSleep.c)
- *     HalpReadRtcStdPCAT @ 0x14051FFB0 (HalpReadRtcStdPCAT.c)
- *     HalpReadStdCmosData @ 0x140520040 (HalpReadStdCmosData.c)
- *     HalpWriteRtcStdPCAT @ 0x1405200B0 (HalpWriteRtcStdPCAT.c)
- *     HalpWriteStdCmosData @ 0x140520180 (HalpWriteStdCmosData.c)
+ *     HalpAcquireCmosSpinLockAndWait @ 0x14033BE68 (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpGetSetCmosData @ 0x1403A55EC (HalpGetSetCmosData.c)
+ *     HalGetEnvironmentVariable @ 0x140504D30 (HalGetEnvironmentVariable.c)
+ *     HalSetEnvironmentVariable @ 0x140504ED0 (HalSetEnvironmentVariable.c)
+ *     HalMakeBeep @ 0x140506B50 (HalMakeBeep.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
+ *     x86BiosReadCmosPortByte @ 0x140508B70 (x86BiosReadCmosPortByte.c)
+ *     x86BiosWriteCmosPortByte @ 0x140508CF0 (x86BiosWriteCmosPortByte.c)
+ *     HalpSetClockAfterSleep @ 0x14050B4B4 (HalpSetClockAfterSleep.c)
+ *     HalpSetClockBeforeSleep @ 0x14050B538 (HalpSetClockBeforeSleep.c)
+ *     HalpReadRtcStdPCAT @ 0x140520500 (HalpReadRtcStdPCAT.c)
+ *     HalpReadStdCmosData @ 0x140520590 (HalpReadStdCmosData.c)
+ *     HalpWriteRtcStdPCAT @ 0x140520600 (HalpWriteRtcStdPCAT.c)
+ *     HalpWriteStdCmosData @ 0x1405206D0 (HalpWriteStdCmosData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpAcquireCmosSpinLock(__int64 a1, __int64 a2, __int64 a3)

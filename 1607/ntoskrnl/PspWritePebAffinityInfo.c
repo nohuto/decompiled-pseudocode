@@ -1,18 +1,18 @@
 /*
- * XREFs of PspWritePebAffinityInfo @ 0x14051ACD0
+ * XREFs of PspWritePebAffinityInfo @ 0x1404FE0C0
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     PspApplyJobLimitsToProcess @ 0x14046A1D0 (PspApplyJobLimitsToProcess.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspSetupUserProcessAddressSpace @ 0x14051A604 (PspSetupUserProcessAddressSpace.c)
- *     PspUpdateSingleProcessAffinity @ 0x14067DD8C (PspUpdateSingleProcessAffinity.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     PspApplyJobLimitsToProcess @ 0x1404690A0 (PspApplyJobLimitsToProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1404FD9F4 (PspSetupUserProcessAddressSpace.c)
+ *     PspUpdateSingleProcessAffinity @ 0x14067DE70 (PspUpdateSingleProcessAffinity.c)
  * Callees:
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     KeQueryGroupMaskProcess @ 0x1400F72D8 (KeQueryGroupMaskProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     KeQueryGroupMaskProcess @ 0x1400F5118 (KeQueryGroupMaskProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PspWritePebAffinityInfo(__int64 a1, __int64 a2)

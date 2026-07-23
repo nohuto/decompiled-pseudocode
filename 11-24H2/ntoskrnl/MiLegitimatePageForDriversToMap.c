@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLegitimatePageForDriversToMap @ 0x1402855E0
+ * XREFs of MiLegitimatePageForDriversToMap @ 0x14041DB10
  * Callers:
- *     MiProbeLeafPteAccess @ 0x140283F40 (MiProbeLeafPteAccess.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x140410510 (MmMapLockedPagesWithReservedMapping.c)
- *     MiMapLockedPagesInUserSpace @ 0x1409C3AE8 (MiMapLockedPagesInUserSpace.c)
- *     MiRotateToFrameBuffer @ 0x140A2E9A4 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A2ECC0 (MiRotateToFrameBufferNoCopy.c)
+ *     MiProbeLeafPteAccess @ 0x1402394D0 (MiProbeLeafPteAccess.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14041D8B0 (MmMapLockedPagesWithReservedMapping.c)
+ *     MiMapLockedPagesInUserSpace @ 0x1408DC1EC (MiMapLockedPagesInUserSpace.c)
+ *     MiRotateToFrameBuffer @ 0x140A233E4 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A23700 (MiRotateToFrameBufferNoCopy.c)
  * Callees:
- *     MiGetPageTablePfnBuddyRaw @ 0x140227FA0 (MiGetPageTablePfnBuddyRaw.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x140463848 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1402FB220 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14041DC14 (MiGetPfnPageSizeIndexUnsynchronized.c)
  */
 
 __int64 __fastcall MiLegitimatePageForDriversToMap(__int64 a1)

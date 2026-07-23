@@ -1,9 +1,9 @@
 /*
- * XREFs of KcsaniInsertInDatabase @ 0x1405AE880
+ * XREFs of KcsaniInsertInDatabase @ 0x1405AB7F0
  * Callers:
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall KcsaniInsertInDatabase(__int64 a1, __int64 a2)
@@ -38,15 +38,15 @@ void __fastcall KcsaniInsertInDatabase(__int64 a1, __int64 a2)
     if ( v10 <= 0x100 )
     {
       v11 = *(_OWORD *)(a1 + 24);
-      v12 = (char *)&unk_140F58F10 + 184 * v10 - 184;
+      v12 = (char *)&unk_140F591B0 + 184 * v10 - 184;
       *(_OWORD *)v12 = *(_OWORD *)(a1 + 8);
       *((_OWORD *)v12 + 1) = v11;
       *((_OWORD *)v12 + 2) = *(_OWORD *)(a2 + 8);
       *((_OWORD *)v12 + 3) = *(_OWORD *)(a2 + 24);
       RtlCaptureStackBackTrace(3u, 0xFu, (PVOID *)v12 + 8, 0LL);
-      _InterlockedIncrement(&dword_140F58F04);
+      _InterlockedIncrement(&dword_140F591A4);
       if ( v10 == 256 )
-        byte_140F58F0C = 1;
+        byte_140F591AC = 1;
     }
   }
 }

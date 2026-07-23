@@ -3,12 +3,12 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreatePort @ 0x14015B220 (ZwCreatePort.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     TraceLoggingRegisterEx @ 0x140546994 (TraceLoggingRegisterEx.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14056F854 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     InitializeSidLookupTable @ 0x140575138 (InitializeSidLookupTable.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreatePort @ 0x14015B790 (ZwCreatePort.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     TraceLoggingRegisterEx @ 0x140546ED4 (TraceLoggingRegisterEx.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14056FD94 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     InitializeSidLookupTable @ 0x140575678 (InitializeSidLookupTable.c)
  *     SepInitializeSingletonAttributesStructures @ 0x1407B2E80 (SepInitializeSingletonAttributesStructures.c)
  *     SepAdtInitializeAuditingOptions @ 0x1407B2FB4 (SepAdtInitializeAuditingOptions.c)
  */

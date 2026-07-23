@@ -1,8 +1,8 @@
 /*
- * XREFs of SwapSplayLinks @ 0x1800BFDC0
+ * XREFs of SwapSplayLinks @ 0x1800B7B80
  * Callers:
- *     RtlDeleteNoSplay @ 0x1800BFB40 (RtlDeleteNoSplay.c)
- *     RtlDelete @ 0x1800BFCE0 (RtlDelete.c)
+ *     RtlDeleteNoSplay @ 0x1800B7900 (RtlDeleteNoSplay.c)
+ *     RtlDelete @ 0x1800B7AA0 (RtlDelete.c)
  * Callees:
  *     <none>
  */

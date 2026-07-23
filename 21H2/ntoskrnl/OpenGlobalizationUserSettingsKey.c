@@ -1,17 +1,17 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey @ 0x1403A484C
+ * XREFs of OpenGlobalizationUserSettingsKey @ 0x1403A499C
  * Callers:
- *     NtSetDefaultLocale @ 0x14078BE50 (NtSetDefaultLocale.c)
- *     ExpSetPendingUILanguage @ 0x14078C070 (ExpSetPendingUILanguage.c)
+ *     NtSetDefaultLocale @ 0x14078C010 (NtSetDefaultLocale.c)
+ *     ExpSetPendingUILanguage @ 0x14078C230 (ExpSetPendingUILanguage.c)
  * Callees:
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BA900 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1405BAB90 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     RtlIsMultiSessionSku @ 0x14069CDE0 (RtlIsMultiSessionSku.c)
- *     RtlOpenCurrentUser @ 0x14078C580 (RtlOpenCurrentUser.c)
- *     RtlIsMultiUsersInSessionSku @ 0x140913920 (RtlIsMultiUsersInSessionSku.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BAB30 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1405BADC0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlIsMultiSessionSku @ 0x1405FBEB0 (RtlIsMultiSessionSku.c)
+ *     RtlOpenCurrentUser @ 0x14078C740 (RtlOpenCurrentUser.c)
+ *     RtlIsMultiUsersInSessionSku @ 0x140913A80 (RtlIsMultiUsersInSessionSku.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *a3)
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *a3)
 {
   int v4; // ecx
   int v5; // ecx
@@ -20,15 +20,15 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *
 
   v8 = a1;
   if ( !a3 )
-    return 3221225485LL;
-  v4 = dword_140CDB108;
-  if ( !dword_140CDB108 )
+    return -1073741811;
+  v4 = dword_140CDB148;
+  if ( !dword_140CDB148 )
   {
-    if ( (unsigned __int8)RtlIsMultiSessionSku() )
+    if ( RtlIsMultiSessionSku() )
       v4 = 1;
     else
-      v4 = ((unsigned __int8)RtlIsMultiUsersInSessionSku() != 0) + 2;
-    dword_140CDB108 = v4;
+      v4 = (RtlIsMultiUsersInSessionSku() != 0) + 2;
+    dword_140CDB148 = v4;
   }
   v5 = v4 - 1;
   if ( !v5 )
@@ -37,7 +37,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *
   if ( !(_DWORD)v7 )
     return OpenGlobalizationUserSettingsKey_ForSingleUserModel(v7, a3);
   if ( (_DWORD)v7 != 1 )
-    return 3221225701LL;
+    return -1073741595;
   v8 = 0;
   return OpenGlobalizationUserSettingsKey_ForMua(v7, a2, a3, &v8);
 }

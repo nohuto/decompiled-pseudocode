@@ -16,34 +16,32 @@ __int64 __fastcall LdrpMapDllRetry(__int64 a1)
   __int64 v1; // rax
   int v3; // esi
   int ExistingModule; // ebx
-  unsigned __int64 v5; // r8
-  unsigned __int64 v6; // r9
-  volatile signed __int32 *v8; // [rsp+30h] [rbp-138h] BYREF
-  UNICODE_STRING v9; // [rsp+40h] [rbp-128h] BYREF
-  _WORD v10[128]; // [rsp+50h] [rbp-118h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-138h] BYREF
+  _UNICODE_STRING v7; // [rsp+40h] [rbp-128h] BYREF
+  _WORD v8[128]; // [rsp+50h] [rbp-118h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
-  *(_DWORD *)&v9.Length = 0x1000000;
-  v9.Buffer = v10;
+  *(_DWORD *)&v7.Length = 0x1000000;
+  v7.Buffer = v8;
   v3 = v1 + 72;
-  v10[0] = 0;
+  v8[0] = 0;
   ExistingModule = LdrpFindExistingModule(
-                     (unsigned __int16 *)(v1 + 88),
-                     (unsigned __int16 *)(v1 + 72),
-                     *(unsigned int *)(a1 + 32),
-                     *(unsigned int *)(v1 + 264),
-                     &v8);
-  if ( v8 )
+                     (PUNICODE_STRING)(v1 + 88),
+                     (PUNICODE_STRING)(v1 + 72),
+                     *(_DWORD *)(a1 + 32),
+                     *(_DWORD *)(v1 + 264),
+                     &v6);
+  if ( v6 )
   {
-    LdrpLoadContextReplaceModule(a1, (unsigned __int64)v8, v5, v6);
+    LdrpLoadContextReplaceModule(a1, v6);
   }
   else
   {
-    ExistingModule = LdrpGetNtPathFromDosPath(v3, (__int64)&v9);
+    ExistingModule = LdrpGetNtPathFromDosPath(v3, &v7);
     if ( ExistingModule >= 0 )
-      ExistingModule = LdrpMapDllNtFileName(a1, &v9);
+      ExistingModule = LdrpMapDllNtFileName(a1, &v7);
   }
-  if ( v10 != v9.Buffer )
-    NtdllpFreeStringRoutine((__int64)v9.Buffer);
+  if ( v8 != v7.Buffer )
+    NtdllpFreeStringRoutine(v7.Buffer);
   return (unsigned int)ExistingModule;
 }

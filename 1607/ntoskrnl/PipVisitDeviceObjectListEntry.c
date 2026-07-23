@@ -1,27 +1,27 @@
 /*
- * XREFs of PipVisitDeviceObjectListEntry @ 0x1404C4C10
+ * XREFs of PipVisitDeviceObjectListEntry @ 0x1404865E8
  * Callers:
- *     PipSortDeviceObjectList @ 0x1404C4B6C (PipSortDeviceObjectList.c)
- *     PipVisitDeviceObjectListEntry @ 0x1404C4C10 (PipVisitDeviceObjectListEntry.c)
+ *     PipSortDeviceObjectList @ 0x140486544 (PipSortDeviceObjectList.c)
+ *     PipVisitDeviceObjectListEntry @ 0x1404865E8 (PipVisitDeviceObjectListEntry.c)
  * Callees:
- *     PipVisitDeviceObjectListEntry @ 0x1404C4C10 (PipVisitDeviceObjectListEntry.c)
- *     PiGetDependentList @ 0x1404C4D38 (PiGetDependentList.c)
- *     PipIsDeviceInDeviceObjectList @ 0x1404C4E98 (PipIsDeviceInDeviceObjectList.c)
- *     PiEnumerateDependentListEntry @ 0x14062AD1C (PiEnumerateDependentListEntry.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1404860FC (PipIsDeviceInDeviceObjectList.c)
+ *     PipVisitDeviceObjectListEntry @ 0x1404865E8 (PipVisitDeviceObjectListEntry.c)
+ *     PiGetDependentList @ 0x14048893C (PiGetDependentList.c)
+ *     PiEnumerateDependentListEntry @ 0x14062ADD0 (PiEnumerateDependentListEntry.c)
  */
 
-__int64 __fastcall PipVisitDeviceObjectListEntry(_DWORD *a1, _DWORD *a2, int *a3)
+__int64 __fastcall PipVisitDeviceObjectListEntry(_DWORD *a1, unsigned int *a2, int *a3)
 {
   int v4; // eax
   __int64 v6; // rbp
   __int64 v7; // rdi
-  _QWORD *v8; // rcx
+  unsigned int *v8; // rcx
   _QWORD *v9; // rax
   _QWORD **DependentList; // rbp
   _QWORD *v11; // rdi
   int v12; // eax
-  _QWORD *v14; // [rsp+20h] [rbp-28h] BYREF
-  _QWORD v15[4]; // [rsp+28h] [rbp-20h] BYREF
+  unsigned int *v14; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v15[4]; // [rsp+28h] [rbp-20h] BYREF
   _DWORD *v16; // [rsp+50h] [rbp+8h]
   char v17; // [rsp+68h] [rbp+20h] BYREF
 
@@ -41,7 +41,7 @@ __int64 __fastcall PipVisitDeviceObjectListEntry(_DWORD *a1, _DWORD *a2, int *a3
       do
       {
         v8 = &a2[4 * v7 + 4 + 2 * v7];
-        v9 = (_QWORD *)*v8;
+        v9 = *(_QWORD **)v8;
         v14 = v8;
         if ( v9 )
           v9 = *(_QWORD **)(v9[39] + 40LL);
@@ -58,7 +58,7 @@ __int64 __fastcall PipVisitDeviceObjectListEntry(_DWORD *a1, _DWORD *a2, int *a3
     {
       PiEnumerateDependentListEntry(v11, v15, &v17);
       v11 = (_QWORD *)*v11;
-      if ( v15[0] && (unsigned __int8)PipIsDeviceInDeviceObjectList(a2, v15[0], &v14) )
+      if ( v15[0] && PipIsDeviceInDeviceObjectList(a2, v15[0], (__int64)&v14) )
         PipVisitDeviceObjectListEntry(v14, a2, a3);
     }
     v12 = *a3;

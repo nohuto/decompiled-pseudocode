@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateVadEventBitmap @ 0x140696188
+ * XREFs of MiCreateVadEventBitmap @ 0x140697348
  * Callers:
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140697060 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateChildVads @ 0x14085EC58 (MiAllocateChildVads.c)
  * Callees:
- *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiInsertVadEvent @ 0x140087B30 (MiInsertVadEvent.c)
- *     RtlClearAllBitsEx @ 0x140110310 (RtlClearAllBitsEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140076C00 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiInsertVadEvent @ 0x140087B20 (MiInsertVadEvent.c)
+ *     RtlClearAllBitsEx @ 0x140110390 (RtlClearAllBitsEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateVadEventBitmap(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)
@@ -34,7 +34,7 @@ __int64 __fastcall MiCreateVadEventBitmap(__int64 a1, __int64 a2, unsigned __int
     *((_DWORD *)PoolWithTag + 16) = a4;
     *((_QWORD *)PoolWithTag + 1) = a3;
     *((_QWORD *)PoolWithTag + 2) = PoolWithTag + 72;
-    RtlClearAllBitsEx((__int64)(PoolWithTag + 8));
+    RtlClearAllBitsEx((PRTL_BITMAP_EX)(PoolWithTag + 8));
     MiInsertVadEvent(a2, PoolWithTag, 1LL, v11);
     return 0LL;
   }

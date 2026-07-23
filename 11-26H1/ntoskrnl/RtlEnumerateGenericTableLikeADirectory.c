@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1403B80D0
+ * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1403C1FD0
  * Callers:
- *     PiDmEnumObjectsWithCallback @ 0x1409A718C (PiDmEnumObjectsWithCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140967BEC (PiDmEnumObjectsWithCallback.c)
  * Callees:
- *     RealSuccessor @ 0x1403B8200 (RealSuccessor.c)
- *     FindNodeOrParent @ 0x1403B82F0 (FindNodeOrParent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RealSuccessor @ 0x1403C2100 (RealSuccessor.c)
+ *     FindNodeOrParent @ 0x1403C21F0 (FindNodeOrParent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(

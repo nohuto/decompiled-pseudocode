@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCreate @ 0x1402A66E0
+ * XREFs of RtlpHpLfhSubsegmentCreate @ 0x140223B20
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x14033CE40 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140347B90 (RtlpHpLfhSlotAllocate.c)
  * Callees:
- *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x1402A69A8 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
- *     RtlpHpLfhSubsegmentInitialize @ 0x1402A6A5C (RtlpHpLfhSubsegmentInitialize.c)
- *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x1402A6CD8 (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     RtlpHpAcquireLockShared @ 0x140306D74 (RtlpHpAcquireLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x140223DE8 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x140223E9C (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x140224118 (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     RtlpHpAcquireLockShared @ 0x140311AC4 (RtlpHpAcquireLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned int a3)

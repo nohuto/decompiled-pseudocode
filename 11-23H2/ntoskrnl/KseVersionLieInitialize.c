@@ -4,8 +4,8 @@
  *     KseInitialize @ 0x140B495CC (KseInitialize.c)
  * Callees:
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     KseRegisterShim @ 0x140808710 (KseRegisterShim.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x1408089E0 (KseRegisterShim.c)
  */
 
 __int64 KseVersionLieInitialize()

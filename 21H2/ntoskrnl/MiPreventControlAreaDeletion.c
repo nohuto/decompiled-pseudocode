@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPreventControlAreaDeletion @ 0x1402EE728
+ * XREFs of MiPreventControlAreaDeletion @ 0x1402F9478
  * Callers:
- *     MiTrimSharedPage @ 0x1402EEA08 (MiTrimSharedPage.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
+ *     MiTrimSharedPage @ 0x1402F9758 (MiTrimSharedPage.c)
+ *     MiPurgeBadFileOnlyPages @ 0x140541B30 (MiPurgeBadFileOnlyPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReferenceSubsection @ 0x14031555C (MiReferenceSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveUnusedSegment @ 0x1403573A8 (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140357480 (MiBuildWakeList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReferenceSubsection @ 0x1403202AC (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x1403620F8 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x1403621D0 (MiBuildWakeList.c)
  */
 
 __int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, int a2, __int64 *a3, __int64 *a4)
@@ -23,8 +23,8 @@ __int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, int a2, __int64 *a3,
   *a4 = 0LL;
   *a3 = 0LL;
   v7 = *(_QWORD *)(a1 + 16);
-  if ( qword_140C4DF40 && (v7 & 0x10) == 0 )
-    v7 &= ~qword_140C4DF40;
+  if ( qword_140C4DF80 && (v7 & 0x10) == 0 )
+    v7 &= ~qword_140C4DF80;
   v8 = v7 >> 16;
   if ( (*(_BYTE *)(v8 + 34) & 2) == 0 )
   {

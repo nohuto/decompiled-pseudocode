@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPageTablesForLargeMap @ 0x1402A30D4
+ * XREFs of MiGetPageTablesForLargeMap @ 0x1402A2624
  * Callers:
- *     MiMapContiguousMemoryLarge @ 0x1402A29AC (MiMapContiguousMemoryLarge.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
+ *     MiMapContiguousMemoryLarge @ 0x1402A1EFC (MiMapContiguousMemoryLarge.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
  * Callees:
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiObtainSystemVa @ 0x1402A4D3C (MiObtainSystemVa.c)
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiObtainSystemVa @ 0x1402A428C (MiObtainSystemVa.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
  */
 
 unsigned __int64 __fastcall MiGetPageTablesForLargeMap(unsigned __int64 a1, unsigned int a2, int a3, int a4)

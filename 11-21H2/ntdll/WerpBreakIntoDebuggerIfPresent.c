@@ -9,13 +9,13 @@
  *     WerpIsDebugPortPresent @ 0x1800E9040 (WerpIsDebugPortPresent.c)
  */
 
-void __fastcall WerpBreakIntoDebuggerIfPresent(__int64 a1, __int64 a2, char a3)
+void __fastcall WerpBreakIntoDebuggerIfPresent(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, char a3)
 {
   if ( (a3 & 4) == 0 && (unsigned int)WerpIsDebugPortPresent() )
   {
     do
-      ZwRaiseException();
+      ZwRaiseException(ExceptionRecord, ContextRecord, 0);
     while ( (unsigned int)WerpIsDebugPortPresent() );
-    ZwTerminateProcess();
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionRecord->ExceptionCode);
   }
 }

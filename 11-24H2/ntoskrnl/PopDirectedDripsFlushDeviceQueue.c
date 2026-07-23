@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsFlushDeviceQueue @ 0x140764FE4
+ * XREFs of PopDirectedDripsFlushDeviceQueue @ 0x1407649B4
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140764B50 (PopDirectedDripsBuildBroadcastTreeFull.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x140764E70 (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140764520 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x140764840 (PopDirectedDripsBuildPs4BroadcastTree.c)
  * Callees:
- *     PopDirectedDripsRemoveQueueDevice @ 0x140765090 (PopDirectedDripsRemoveQueueDevice.c)
+ *     PopDirectedDripsRemoveQueueDevice @ 0x140764A60 (PopDirectedDripsRemoveQueueDevice.c)
  */
 
 __int64 __fastcall PopDirectedDripsFlushDeviceQueue(_QWORD *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWin32OpenProcedure @ 0x14042B428
+ * XREFs of ExpWin32OpenProcedure @ 0x14042A2F8
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall ExpWin32OpenProcedure(int a1, __int64 a2, __int64 a3, _DWORD *a4, int *a5, int a6)

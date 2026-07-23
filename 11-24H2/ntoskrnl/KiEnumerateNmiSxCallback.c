@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEnumerateNmiSxCallback @ 0x1405B0DF8
+ * XREFs of KiEnumerateNmiSxCallback @ 0x1405ADD68
  * Callers:
- *     KiEnumerateCallback @ 0x1404D5F20 (KiEnumerateCallback.c)
- *     MmIsVerifierApplicableToImage @ 0x1406756AC (MmIsVerifierApplicableToImage.c)
+ *     KiEnumerateCallback @ 0x1404CF370 (KiEnumerateCallback.c)
+ *     MmIsVerifierApplicableToImage @ 0x14067687C (MmIsVerifierApplicableToImage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiEnumerateNmiSxCallback(PVOID **a1, unsigned __int8 *a2, _QWORD *a3)

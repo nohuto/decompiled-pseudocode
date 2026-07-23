@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpIsSubSegmentReuseable @ 0x1800966B0
+ * XREFs of RtlpIsSubSegmentReuseable @ 0x1800A13D0
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x180028AA0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18002A3E0 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpLowFragHeapFlushCaches @ 0x180095D9C (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800554A0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180056DE0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x1800A0AC0 (RtlpLowFragHeapFlushCaches.c)
  * Callees:
- *     RtlpLogHeapReuseThresholdActivate @ 0x180096938 (RtlpLogHeapReuseThresholdActivate.c)
+ *     RtlpLogHeapReuseThresholdActivate @ 0x1800A1658 (RtlpLogHeapReuseThresholdActivate.c)
  */
 
 bool __fastcall RtlpIsSubSegmentReuseable(__int64 a1, __int64 a2)

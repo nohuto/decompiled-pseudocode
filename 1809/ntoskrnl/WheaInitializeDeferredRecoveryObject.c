@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaInitializeDeferredRecoveryObject @ 0x140190310
+ * XREFs of WheaInitializeDeferredRecoveryObject @ 0x140190450
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void *__fastcall WheaInitializeDeferredRecoveryObject(__int64 a1, __int64 a2, char a3)

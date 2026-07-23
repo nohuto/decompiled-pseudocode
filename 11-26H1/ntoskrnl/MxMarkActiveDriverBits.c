@@ -1,12 +1,12 @@
 /*
- * XREFs of MxMarkActiveDriverBits @ 0x140D01348
+ * XREFs of MxMarkActiveDriverBits @ 0x140D076E8
  * Callers:
- *     MiInitializeSystemImageRegion @ 0x140D00924 (MiInitializeSystemImageRegion.c)
- *     MxMarkActiveDriverBits @ 0x140D01348 (MxMarkActiveDriverBits.c)
+ *     MiInitializeSystemImageRegion @ 0x140D06CC4 (MiInitializeSystemImageRegion.c)
+ *     MxMarkActiveDriverBits @ 0x140D076E8 (MxMarkActiveDriverBits.c)
  * Callees:
- *     MiSplitBitmapPages @ 0x1402A5028 (MiSplitBitmapPages.c)
- *     KeZeroSinglePage @ 0x1407307A0 (KeZeroSinglePage.c)
- *     MxMarkActiveDriverBits @ 0x140D01348 (MxMarkActiveDriverBits.c)
+ *     MiSplitBitmapPages @ 0x1402A4578 (MiSplitBitmapPages.c)
+ *     KeZeroSinglePage @ 0x140735370 (KeZeroSinglePage.c)
+ *     MxMarkActiveDriverBits @ 0x140D076E8 (MxMarkActiveDriverBits.c)
  */
 
 int __fastcall MxMarkActiveDriverBits(unsigned __int64 *a1, _QWORD *a2, unsigned __int64 a3, __int64 a4, int a5)
@@ -63,7 +63,7 @@ int __fastcall MxMarkActiveDriverBits(unsigned __int64 *a1, _QWORD *a2, unsigned
     }
     while ( v6 <= v7 );
     if ( v5 )
-      _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.WaitBlock[0].WaitListEntry.Blink, v5);
+      _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.WaitBlock[0].WaitListEntry.Blink, v5);
   }
   return v10;
 }

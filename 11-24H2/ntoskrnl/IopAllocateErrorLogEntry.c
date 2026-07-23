@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAllocateErrorLogEntry @ 0x1404A26DC
+ * XREFs of IopAllocateErrorLogEntry @ 0x14049D66C
  * Callers:
- *     IoAllocateErrorLogEntry @ 0x1404A26A0 (IoAllocateErrorLogEntry.c)
- *     IoAllocateGenericErrorLogEntry @ 0x140596858 (IoAllocateGenericErrorLogEntry.c)
- *     MiBadMemoryLogger @ 0x140673560 (MiBadMemoryLogger.c)
+ *     IoAllocateErrorLogEntry @ 0x14049D630 (IoAllocateErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140593838 (IoAllocateGenericErrorLogEntry.c)
+ *     MiBadMemoryLogger @ 0x140674730 (MiBadMemoryLogger.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopAllocateErrorLogEntry(PVOID Object, PVOID a2, char a3)
@@ -19,7 +19,7 @@ __int64 __fastcall IopAllocateErrorLogEntry(PVOID Object, PVOID a2, char a3)
     return 0LL;
   v5 = ((a3 + 7) & 0xF8) + 48;
   if ( (unsigned int)_InterlockedExchangeAdd(&IopErrorLogAllocation, v5) > 0x64000
-    || (Pool2 = ExAllocatePool2(0x40uLL)) == 0 )
+    || (Pool2 = ExAllocatePool2(0x40uLL, v5, 0x72456F49u)) == 0 )
   {
     _InterlockedAdd(&IopErrorLogAllocation, -v5);
     return 0LL;

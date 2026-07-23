@@ -1,13 +1,13 @@
 /*
- * XREFs of KeModifySystemAllowedCpuSets @ 0x14039D464
+ * XREFs of KeModifySystemAllowedCpuSets @ 0x14039D644
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  *     KiInitializeReservedCpuSets @ 0x140B736A4 (KiInitializeReservedCpuSets.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x14039D4F0 (KiModifySystemAllowedCpuSetsWithLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x14039D6D0 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeModifySystemAllowedCpuSets(int a1, int a2, __int64 a3, int a4)
@@ -23,10 +23,13 @@ __int64 __fastcall KeModifySystemAllowedCpuSets(int a1, int a2, __int64 a3, int 
   v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(KiSystemCpuPartition + 264));
   v8 = KiModifySystemAllowedCpuSetsWithLock(a1, a2, 0, a4, 0);
   KxReleaseSpinLock((volatile signed __int64 *)(KiSystemCpuPartition + 264));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

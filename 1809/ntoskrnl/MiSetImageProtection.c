@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetImageProtection @ 0x1400DA524
+ * XREFs of MiSetImageProtection @ 0x1400DA5A4
  * Callers:
- *     MmChangeImageProtection @ 0x140651760 (MmChangeImageProtection.c)
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     MiCompactServiceTable @ 0x140718328 (MiCompactServiceTable.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x14085BD84 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MmChangeImageProtection @ 0x140652920 (MmChangeImageProtection.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     MiCompactServiceTable @ 0x1407195C8 (MiCompactServiceTable.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x14085CFE4 (MiProcessKernelCfgImageLoadConfig.c)
  * Callees:
- *     MiSetSystemCodeProtection @ 0x1400862E0 (MiSetSystemCodeProtection.c)
+ *     MiSetSystemCodeProtection @ 0x1400862D0 (MiSetSystemCodeProtection.c)
  */
 
 __int64 __fastcall MiSetImageProtection(__int64 a1, unsigned __int64 a2, unsigned int a3, unsigned int a4)

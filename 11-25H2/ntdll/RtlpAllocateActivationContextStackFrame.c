@@ -69,7 +69,7 @@ __int64 __fastcall RtlpAllocateActivationContextStackFrame(__int64 a1, __int64 a
       }
       while ( v6 != (_QWORD *)v7 );
     }
-    Heap = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0xC20uLL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xC20uLL);
     v15 = Heap;
     if ( Heap )
     {

@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpShutdownDevices @ 0x140B6BDA8
+ * XREFs of PnpShutdownDevices @ 0x140B6EEA4
  * Callers:
- *     IoShutdownSystem @ 0x140C0C858 (IoShutdownSystem.c)
+ *     IoShutdownSystem @ 0x140C12A68 (IoShutdownSystem.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PnpCreateDeviceEventEntry @ 0x14090962C (PnpCreateDeviceEventEntry.c)
- *     PnpInitializeTargetDeviceRemoveEvent @ 0x14090B1C4 (PnpInitializeTargetDeviceRemoveEvent.c)
- *     PipSetDevNodeUserFlags @ 0x14090E790 (PipSetDevNodeUserFlags.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PnpCreateDeviceEventEntry @ 0x1409AB1EC (PnpCreateDeviceEventEntry.c)
+ *     PipSetDevNodeUserFlags @ 0x1409B08C0 (PipSetDevNodeUserFlags.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x1409B6214 (PnpInitializeTargetDeviceRemoveEvent.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PnpShutdownDevices()
@@ -35,7 +35,7 @@ __int64 PnpShutdownDevices()
   LODWORD(v8) = 0;
   KeSetEvent(&PnpShutdownEvent, 0, 0);
   v0 = 0;
-  if ( !PnpTearDownPnpStacksOnShutdown && ((__int64)stru_140F10828.KernelShadowStackInitial & 0x20) == 0 )
+  if ( !PnpTearDownPnpStacksOnShutdown && (PopShutdownCleanly & 0x20) == 0 )
     return v0;
   DeviceEventEntry = PnpCreateDeviceEventEntry();
   if ( !DeviceEventEntry )

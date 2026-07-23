@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPrepareToHotPatchImage @ 0x140A3A908
+ * XREFs of MiPrepareToHotPatchImage @ 0x140A3ABB8
  * Callers:
- *     MiPrepareToHotPatchVad @ 0x140A3AEEC (MiPrepareToHotPatchVad.c)
+ *     MiPrepareToHotPatchVad @ 0x140A3B19C (MiPrepareToHotPatchVad.c)
  * Callees:
- *     RtlClearAllBits @ 0x140290D50 (RtlClearAllBits.c)
- *     RtlFindNextForwardRunClear @ 0x140293830 (RtlFindNextForwardRunClear.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiCommitHotPatchTable @ 0x1406422A8 (MiCommitHotPatchTable.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1406428C8 (MiPrepareImagePagesForHotPatch.c)
- *     RtlHotPatchSynchronizationRequired @ 0x14067ACF4 (RtlHotPatchSynchronizationRequired.c)
- *     MiCheckUnsupportedSections @ 0x140A36580 (MiCheckUnsupportedSections.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x140A3A104 (MiMapHotPatchImageInSystemSpace.c)
- *     MiProcessHotPatchUndoTable @ 0x140A3AF9C (MiProcessHotPatchUndoTable.c)
- *     RtlCheckCurrentPatchesApplied @ 0x140A761A8 (RtlCheckCurrentPatchesApplied.c)
- *     RtlCountRequiredHotPatchAddressTableEntries @ 0x140A76208 (RtlCountRequiredHotPatchAddressTableEntries.c)
- *     RtlEnumerateHotPatchPatches @ 0x140A76404 (RtlEnumerateHotPatchPatches.c)
- *     RtlFindHotPatchBase @ 0x140A7649C (RtlFindHotPatchBase.c)
+ *     RtlClearAllBits @ 0x140290FE0 (RtlClearAllBits.c)
+ *     RtlFindNextForwardRunClear @ 0x140293AC0 (RtlFindNextForwardRunClear.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiCommitHotPatchTable @ 0x1406427F8 (MiCommitHotPatchTable.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140642E18 (MiPrepareImagePagesForHotPatch.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x14067B244 (RtlHotPatchSynchronizationRequired.c)
+ *     MiCheckUnsupportedSections @ 0x140A36830 (MiCheckUnsupportedSections.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x140A3A3B4 (MiMapHotPatchImageInSystemSpace.c)
+ *     MiProcessHotPatchUndoTable @ 0x140A3B24C (MiProcessHotPatchUndoTable.c)
+ *     RtlCheckCurrentPatchesApplied @ 0x140A76458 (RtlCheckCurrentPatchesApplied.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x140A764B8 (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlEnumerateHotPatchPatches @ 0x140A766B4 (RtlEnumerateHotPatchPatches.c)
+ *     RtlFindHotPatchBase @ 0x140A7674C (RtlFindHotPatchBase.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -31,7 +31,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   int v9; // ebx
   unsigned int *v10; // r13
   _QWORD *v11; // rax
-  RTL_BITMAP *v12; // rcx
+  _RTL_BITMAP *v12; // rcx
   int v13; // edx
   _DWORD *v14; // rbx
   _DWORD *v15; // r12
@@ -39,7 +39,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   unsigned int v17; // r12d
   unsigned int *v18; // rcx
   _QWORD *v19; // rax
-  RTL_BITMAP *v20; // rcx
+  _RTL_BITMAP *v20; // rcx
   int v21; // r9d
   ULONG v22; // edx
   PRTL_BITMAP *v23; // r12
@@ -107,7 +107,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
       *(_DWORD *)v11 = *v10;
       v11[1] = v11 + 2;
     }
-    v12 = *(RTL_BITMAP **)(a1 + 40);
+    v12 = *(_RTL_BITMAP **)(a1 + 40);
     if ( v12 )
     {
       RtlClearAllBits(v12);
@@ -142,7 +142,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
       *(_DWORD *)v19 = v17;
       v19[1] = v19 + 2;
     }
-    v20 = *(RTL_BITMAP **)(a1 + 40);
+    v20 = *(_RTL_BITMAP **)(a1 + 40);
     if ( !v20 )
       return (unsigned int)-1073741670;
     RtlClearAllBits(v20);

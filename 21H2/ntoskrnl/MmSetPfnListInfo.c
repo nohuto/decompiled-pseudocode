@@ -1,24 +1,24 @@
 /*
- * XREFs of MmSetPfnListInfo @ 0x140372BE4
+ * XREFs of MmSetPfnListInfo @ 0x140372734
  * Callers:
- *     PfpPfnPrioRequest @ 0x1406F2BB0 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x140709F90 (PfpPfnPrioRequest.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiSetNonResidentPteHeat @ 0x14023E7B0 (MiSetNonResidentPteHeat.c)
- *     MiRelinkStandbyPage @ 0x140271FD8 (MiRelinkStandbyPage.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiRelinkStandbyPage @ 0x14025FF78 (MiRelinkStandbyPage.c)
+ *     MiGetPfnPriority @ 0x1402BCED0 (MiGetPfnPriority.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiSetNonResidentPteHeat @ 0x1402E3000 (MiSetNonResidentPteHeat.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     MiIdentifyPfn @ 0x140353FA0 (MiIdentifyPfn.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiAddPageToHeatList @ 0x1403F7C88 (MiAddPageToHeatList.c)
  *     MiColdPageSizeSupported @ 0x1403F7D58 (MiColdPageSizeSupported.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiNotifyPageHeat @ 0x14055FDC4 (MiNotifyPageHeat.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiNotifyPageHeat @ 0x140560004 (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MmSetPfnListInfo(__int64 a1, _QWORD *a2, int a3)
@@ -69,7 +69,7 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, _QWORD *a2, int a3)
   v9 = 0;
   v36 = CurrentThread;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C50E40, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C50E80, 0LL);
   if ( a2 >= v7 )
     goto LABEL_53;
   v12 = a3;
@@ -191,9 +191,9 @@ LABEL_51:
 LABEL_53:
   if ( HIDWORD(v37) )
     MiNotifyPageHeat(&v37);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C50E40, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140C50E40);
-  KeAbPostRelease((ULONG_PTR)&qword_140C50E40);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C50E80, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_140C50E80);
+  KeAbPostRelease((ULONG_PTR)&qword_140C50E80);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v9;
 }

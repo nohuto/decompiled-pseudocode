@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmSnapPerformanceAccumulation @ 0x140221190
+ * XREFs of PpmSnapPerformanceAccumulation @ 0x1402C5A90
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140220810 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140220BD0 (PpmCheckSnapAllDeliveredPerformance.c)
- *     PpmResetPerfTimes @ 0x1403C22F0 (PpmResetPerfTimes.c)
- *     PpmCapturePerformanceDistributionCallback @ 0x140576E40 (PpmCapturePerformanceDistributionCallback.c)
- *     PpmGetThroughputInfoCallback @ 0x1405770B0 (PpmGetThroughputInfoCallback.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x1402C5110 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x1402C54D0 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmResetPerfTimes @ 0x1403C2720 (PpmResetPerfTimes.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x140577080 (PpmCapturePerformanceDistributionCallback.c)
+ *     PpmGetThroughputInfoCallback @ 0x1405772F0 (PpmGetThroughputInfoCallback.c)
  * Callees:
- *     PpmUpdatePerformanceFeedback @ 0x140224070 (PpmUpdatePerformanceFeedback.c)
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
- *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     PpmConvertTime @ 0x14026A1CC (PpmConvertTime.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1402C8970 (PpmUpdatePerformanceFeedback.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     HalpTimerScaleCounter @ 0x140396440 (HalpTimerScaleCounter.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall PpmSnapPerformanceAccumulation(
@@ -421,8 +421,8 @@ LABEL_8:
     if ( *(_DWORD *)(a1 + 32984) == 3 )
     {
       v62 = *(_QWORD *)(a1 + 33616);
-      v9 = *(_QWORD *)(v62 + 8LL * DWORD2(xmmword_140CED550)) >> 1;
-      if ( (*(_QWORD *)(v62 + 8LL * DWORD2(xmmword_140CED550)) & 1) == 0 )
+      v9 = *(_QWORD *)(v62 + 8LL * DWORD2(xmmword_140CED590)) >> 1;
+      if ( (*(_QWORD *)(v62 + 8LL * DWORD2(xmmword_140CED590)) & 1) == 0 )
         v9 = 0LL;
     }
   }
@@ -495,8 +495,8 @@ LABEL_31:
       {
         if ( *(_DWORD *)(a1 + 32984) == 3 )
         {
-          v34 = *(_QWORD *)(*(_QWORD *)(a1 + 33616) + 8LL * DWORD2(xmmword_140CED550)) >> 1;
-          if ( (*(_QWORD *)(*(_QWORD *)(a1 + 33616) + 8LL * DWORD2(xmmword_140CED550)) & 1) == 0 )
+          v34 = *(_QWORD *)(*(_QWORD *)(a1 + 33616) + 8LL * DWORD2(xmmword_140CED590)) >> 1;
+          if ( (*(_QWORD *)(*(_QWORD *)(a1 + 33616) + 8LL * DWORD2(xmmword_140CED590)) & 1) == 0 )
             v34 = 0LL;
         }
       }

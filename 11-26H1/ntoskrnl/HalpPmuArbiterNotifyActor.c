@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPmuArbiterNotifyActor @ 0x1407816B8
+ * XREFs of HalpPmuArbiterNotifyActor @ 0x1407841B8
  * Callers:
- *     HalpNotifyActorIfPmuAvailable @ 0x140B110C8 (HalpNotifyActorIfPmuAvailable.c)
- *     HalpRequestPmuAccess @ 0x140B5BF20 (HalpRequestPmuAccess.c)
+ *     HalpNotifyActorIfPmuAvailable @ 0x140B12E48 (HalpNotifyActorIfPmuAvailable.c)
+ *     HalpRequestPmuAccess @ 0x140B5F240 (HalpRequestPmuAccess.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpPmuArbiterNotifyActor(__int64 a1, int a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlQueryCachedVdl @ 0x1406BE1C0
+ * XREFs of FsRtlQueryCachedVdl @ 0x14061D420
  * Callers:
  *     <none>
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1402D09B0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FsRtlQueryCachedVdl(PFILE_OBJECT FileObject, _QWORD *a2)

@@ -1,27 +1,27 @@
 /*
- * XREFs of HalpAllocateAdapterCallbackV2 @ 0x14038ED80
+ * XREFs of HalpAllocateAdapterCallbackV2 @ 0x1403886C0
  * Callers:
- *     HalBuildScatterGatherListV2 @ 0x14038E070 (HalBuildScatterGatherListV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403879B0 (HalBuildScatterGatherListV2.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x14038D160 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaFlushBuffer @ 0x14038D450 (HalpDmaFlushBuffer.c)
- *     HalpDmaMapContiguousTransferV2 @ 0x14038D984 (HalpDmaMapContiguousTransferV2.c)
- *     HalpDmaNextContiguousPieceV2 @ 0x14038F490 (HalpDmaNextContiguousPieceV2.c)
- *     HalpDmaGetAdapterVersion @ 0x14038FBDC (HalpDmaGetAdapterVersion.c)
- *     HalpDmaNextContiguousPieceV3 @ 0x14038FC4C (HalpDmaNextContiguousPieceV3.c)
- *     HalpDmaSyncMapBuffers @ 0x14038FF20 (HalpDmaSyncMapBuffers.c)
- *     HalpMapTransferV3 @ 0x140493590 (HalpMapTransferV3.c)
- *     HalpDmaZeroMapBuffers @ 0x14054F91C (HalpDmaZeroMapBuffers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140386AA0 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaFlushBuffer @ 0x140386D90 (HalpDmaFlushBuffer.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x1403872C4 (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaNextContiguousPieceV2 @ 0x140388DD0 (HalpDmaNextContiguousPieceV2.c)
+ *     HalpDmaGetAdapterVersion @ 0x14038951C (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaNextContiguousPieceV3 @ 0x14038958C (HalpDmaNextContiguousPieceV3.c)
+ *     HalpDmaSyncMapBuffers @ 0x140389860 (HalpDmaSyncMapBuffers.c)
+ *     HalpMapTransferV3 @ 0x14048DEC0 (HalpMapTransferV3.c)
+ *     HalpDmaZeroMapBuffers @ 0x14054D25C (HalpDmaZeroMapBuffers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpAllocateAdapterCallbackV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi
   int *v5; // r13
-  unsigned __int8 v6; // al
+  char v6; // al
   __int64 *v7; // rdi
   unsigned __int64 v8; // rdx
   __int64 v9; // r10
@@ -77,7 +77,7 @@ __int64 __fastcall HalpAllocateAdapterCallbackV2(__int64 a1, __int64 a2, __int64
   unsigned __int64 v60; // [rsp+50h] [rbp-B8h]
   __int64 v61; // [rsp+58h] [rbp-B0h]
   unsigned __int64 v62; // [rsp+60h] [rbp-A8h]
-  __int128 v63; // [rsp+68h] [rbp-A0h] BYREF
+  __int128 v63; // [rsp+68h] [rbp-A0h]
   unsigned __int64 v64; // [rsp+78h] [rbp-90h]
   int *v65; // [rsp+80h] [rbp-88h]
   __int64 v66; // [rsp+88h] [rbp-80h]
@@ -86,7 +86,7 @@ __int64 __fastcall HalpAllocateAdapterCallbackV2(__int64 a1, __int64 a2, __int64
   __int128 v69; // [rsp+A0h] [rbp-68h]
   __int64 v70; // [rsp+B0h] [rbp-58h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+B8h] [rbp-50h] BYREF
-  unsigned __int8 v74; // [rsp+128h] [rbp+20h]
+  char v74; // [rsp+128h] [rbp+20h]
 
   v4 = *(_QWORD *)(a4 + 8);
   v5 = (int *)(a4 + 48);
@@ -139,7 +139,6 @@ LABEL_30:
       }
       v5 = v65;
       v9 = a1;
-      v14 = v67;
       v11 = v68;
       goto LABEL_33;
     }
@@ -264,7 +263,7 @@ LABEL_26:
               if ( !v74 && *(_BYTE *)(v13 + 444) )
                 HalpDmaZeroMapBuffers(v27, v62, v17 & 0xFFF, v38);
               KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(v13 + 160) + 128LL), &LockHandle);
-              guard_dispatch_icall_no_overrides(*(_QWORD *)(v13 + 432), v4, v74, v17);
+              guard_dispatch_icall_no_overrides(*(_QWORD *)(v13 + 432), v4);
               KeReleaseInStackQueuedSpinLock(&LockHandle);
             }
             goto LABEL_27;
@@ -309,7 +308,7 @@ LABEL_27:
           v53 = *(_QWORD *)(a3 + 40);
           LODWORD(v63) = 1;
           *((_QWORD *)&v63 + 1) = v31 & 0xFFFFFFFFFFFFF000uLL;
-          guard_dispatch_icall_no_overrides(v51, v53, 3LL, &v63);
+          guard_dispatch_icall_no_overrides(v51, v53);
           *(_QWORD *)(a3 + 40) += v62;
           v31 = *(_QWORD *)v69 + *((_QWORD *)&v69 + 1) + v61;
         }
@@ -335,6 +334,6 @@ LABEL_27:
   }
 LABEL_33:
   *v5 = ((int)v7 - (int)v5 - 16) / 24;
-  guard_dispatch_icall_no_overrides(v9, v11, v5, v14);
+  guard_dispatch_icall_no_overrides(v9, v11);
   return 3LL;
 }

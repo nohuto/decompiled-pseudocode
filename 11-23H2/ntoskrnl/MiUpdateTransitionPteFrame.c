@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdateTransitionPteFrame @ 0x140330BBC
+ * XREFs of MiUpdateTransitionPteFrame @ 0x140330E4C
  * Callers:
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MiInvalidateCollidedIos @ 0x1403300F0 (MiInvalidateCollidedIos.c)
- *     MiReplaceTransitionPage @ 0x140330670 (MiReplaceTransitionPage.c)
- *     MiSplitDirectMapPage @ 0x14063F264 (MiSplitDirectMapPage.c)
- *     MiSwapNumaStandbyPage @ 0x140651DD0 (MiSwapNumaStandbyPage.c)
- *     MiDuplicateCloneLeaf @ 0x140664088 (MiDuplicateCloneLeaf.c)
- *     MiSwapHardFaultPage @ 0x14066C978 (MiSwapHardFaultPage.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MiInvalidateCollidedIos @ 0x140330380 (MiInvalidateCollidedIos.c)
+ *     MiReplaceTransitionPage @ 0x140330900 (MiReplaceTransitionPage.c)
+ *     MiSplitDirectMapPage @ 0x14063F7B4 (MiSplitDirectMapPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140652320 (MiSwapNumaStandbyPage.c)
+ *     MiDuplicateCloneLeaf @ 0x1406645D8 (MiDuplicateCloneLeaf.c)
+ *     MiSwapHardFaultPage @ 0x14066CEC8 (MiSwapHardFaultPage.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall MiUpdateTransitionPteFrame(__int64 a1, __int64 a2)

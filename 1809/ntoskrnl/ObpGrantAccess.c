@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpGrantAccess @ 0x14059578C
+ * XREFs of ObpGrantAccess @ 0x14059678C
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)
- *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1405C95A8 (ObpInsertOrLocateNamedObject.c)
+ *     ObDuplicateObject @ 0x1405D1B70 (ObDuplicateObject.c)
  * Callees:
- *     ObCheckObjectAccess @ 0x1405958F0 (ObCheckObjectAccess.c)
- *     ObpAdjustCreatorAccessState @ 0x1405C84C8 (ObpAdjustCreatorAccessState.c)
+ *     ObCheckObjectAccess @ 0x1405968F0 (ObCheckObjectAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x1405C94C8 (ObpAdjustCreatorAccessState.c)
  */
 
 __int64 __fastcall ObpGrantAccess(int a1, void *a2, struct _ACCESS_STATE *a3, __int64 a4, NTSTATUS a5, ACCESS_MASK *a6)

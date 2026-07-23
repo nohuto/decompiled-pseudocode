@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpAcpiInitSystem @ 0x140B4D110
+ * XREFs of HalpAcpiInitSystem @ 0x140B4F150
  * Callers:
  *     <none>
  * Callees:
- *     HalpNumaSwapP0NodeToFront @ 0x140558940 (HalpNumaSwapP0NodeToFront.c)
- *     HalpAcpiPrmCacheInit @ 0x140C0D960 (HalpAcpiPrmCacheInit.c)
- *     HalpAcpiPrmFwBufferInit @ 0x140C0DC14 (HalpAcpiPrmFwBufferInit.c)
- *     HalpAcpiDetectPiix4 @ 0x140C0F300 (HalpAcpiDetectPiix4.c)
- *     HalpAcpiInitDiscard @ 0x140C0F374 (HalpAcpiInitDiscard.c)
- *     HalpAcpiPopulateTableCache @ 0x140C0F3A8 (HalpAcpiPopulateTableCache.c)
- *     HalpAuditAcpiTables @ 0x140C13DF4 (HalpAuditAcpiTables.c)
+ *     HalpNumaSwapP0NodeToFront @ 0x140556280 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpAcpiPrmCacheInit @ 0x140C0F960 (HalpAcpiPrmCacheInit.c)
+ *     HalpAcpiPrmFwBufferInit @ 0x140C0FC14 (HalpAcpiPrmFwBufferInit.c)
+ *     HalpAcpiDetectPiix4 @ 0x140C11300 (HalpAcpiDetectPiix4.c)
+ *     HalpAcpiInitDiscard @ 0x140C11374 (HalpAcpiInitDiscard.c)
+ *     HalpAcpiPopulateTableCache @ 0x140C113A8 (HalpAcpiPopulateTableCache.c)
+ *     HalpAuditAcpiTables @ 0x140C15DF4 (HalpAuditAcpiTables.c)
  */
 
 __int64 __fastcall HalpAcpiInitSystem(int a1, __int64 a2, __int64 a3)

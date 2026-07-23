@@ -49,7 +49,7 @@ LABEL_9:
       {
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(0xFuLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 15 )
@@ -105,10 +105,10 @@ LABEL_9:
           KdPrintWritePointer = &Pool2[v12];
           HIDWORD(KdDebuggerEnabled) = 0;
           _InterlockedExchange((volatile __int32 *)&KdpPrintSpinLock, 0);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v17 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v19 = CurrentPrcb->SchedulerAssist;
@@ -124,10 +124,10 @@ LABEL_9:
             ExFreePoolWithTag(v13, 0);
           return 0LL;
         }
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v7 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
           {
             v8 = KeGetCurrentPrcb();
             v9 = v8->SchedulerAssist;

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSetModernStandbyTransitionReason @ 0x14086F530
+ * XREFs of PopSetModernStandbyTransitionReason @ 0x140870790
  * Callers:
- *     PdcPoCsEnterExitReason @ 0x14086EC10 (PdcPoCsEnterExitReason.c)
- *     PopPdcEngagePhases @ 0x14086F218 (PopPdcEngagePhases.c)
+ *     PdcPoCsEnterExitReason @ 0x14086FE70 (PdcPoCsEnterExitReason.c)
+ *     PopPdcEngagePhases @ 0x140870478 (PopPdcEngagePhases.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
+ *     RtlGetInterruptTimePrecise @ 0x14008BA90 (RtlGetInterruptTimePrecise.c)
  */
 
 void __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
 {
-  LARGE_INTEGER v2; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+18h] BYREF
 
   if ( a1 )
   {
@@ -18,6 +18,6 @@ void __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
   else
   {
     PopPdcLastCsExitReason = a2;
-    PopPdcLastCsExitTime = RtlGetInterruptTimePrecise(&v2);
+    PopPdcLastCsExitTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   }
 }

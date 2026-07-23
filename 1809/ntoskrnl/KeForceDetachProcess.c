@@ -1,18 +1,18 @@
 /*
- * XREFs of KeForceDetachProcess @ 0x140127F74
+ * XREFs of KeForceDetachProcess @ 0x140128044
  * Callers:
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     MiTrimSharedPageFromViews @ 0x1400EB40C (MiTrimSharedPageFromViews.c)
- *     MiUnlockStealVm @ 0x1400ECD64 (MiUnlockStealVm.c)
- *     MmQueryCommitReleaseState @ 0x140130954 (MmQueryCommitReleaseState.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4BD4 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiReleaseCommitForResetPages @ 0x1402A4DC4 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x1402A4F74 (MiReleaseOutSwappedProcessCommit.c)
- *     MmReleaseCommitForMemResetPages @ 0x1402A5584 (MmReleaseCommitForMemResetPages.c)
- *     PopHandleNextState @ 0x140569410 (PopHandleNextState.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
+ *     MiTrimSharedPageFromViews @ 0x1400EB48C (MiTrimSharedPageFromViews.c)
+ *     MiUnlockStealVm @ 0x1400ECDE4 (MiUnlockStealVm.c)
+ *     MmQueryCommitReleaseState @ 0x140130A24 (MmQueryCommitReleaseState.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4DC4 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReleaseCommitForResetPages @ 0x1402A4FB4 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1402A5164 (MiReleaseOutSwappedProcessCommit.c)
+ *     MmReleaseCommitForMemResetPages @ 0x1402A5774 (MmReleaseCommitForMemResetPages.c)
+ *     PopHandleNextState @ 0x14056A410 (PopHandleNextState.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeForceDetachProcess(char *a1, char a2)

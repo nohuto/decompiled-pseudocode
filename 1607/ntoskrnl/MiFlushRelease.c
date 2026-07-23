@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushRelease @ 0x1400A5E74
+ * XREFs of MiFlushRelease @ 0x1400A43EC
  * Callers:
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x1404D1998 (MmFlushVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x1404B5438 (MmFlushVirtualMemory.c)
  * Callees:
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 __int64 __fastcall MiFlushRelease(__int64 a1, __int64 a2, __int64 a3)

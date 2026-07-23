@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierMmAllocateNonCachedMemory @ 0x1409E6390
+ * XREFs of VerifierMmAllocateNonCachedMemory @ 0x1409E7390
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViTargetTrackContiguousMemory @ 0x1409D76B0 (ViTargetTrackContiguousMemory.c)
- *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
- *     VfAllocPoolNotification @ 0x1409DFFB4 (VfAllocPoolNotification.c)
- *     VfFillAllocatedMemory @ 0x1409DFFF4 (VfFillAllocatedMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViTargetTrackContiguousMemory @ 0x1409D86B0 (ViTargetTrackContiguousMemory.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DD82C (VfFaultsInjectResourceFailure.c)
+ *     VfAllocPoolNotification @ 0x1409E0FB4 (VfAllocPoolNotification.c)
+ *     VfFillAllocatedMemory @ 0x1409E0FF4 (VfFillAllocatedMemory.c)
  */
 
 _SLIST_ENTRY *__fastcall VerifierMmAllocateNonCachedMemory(size_t a1)

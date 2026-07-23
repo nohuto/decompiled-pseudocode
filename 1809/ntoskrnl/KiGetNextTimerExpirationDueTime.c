@@ -2,13 +2,13 @@
  * XREFs of KiGetNextTimerExpirationDueTime @ 0x140061FF0
  * Callers:
  *     PpmIdlePrepare @ 0x14005F3A0 (PpmIdlePrepare.c)
- *     KePrepareClockTimerForIdle @ 0x1400FC870 (KePrepareClockTimerForIdle.c)
- *     KeEstimateClockTickDuration @ 0x1401805F0 (KeEstimateClockTickDuration.c)
+ *     KePrepareClockTimerForIdle @ 0x1400FC8F0 (KePrepareClockTimerForIdle.c)
+ *     KeEstimateClockTickDuration @ 0x140180730 (KeEstimateClockTickDuration.c)
  * Callees:
  *     KiFindNextTimerDueTime @ 0x14005FD20 (KiFindNextTimerDueTime.c)
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x14031C5BC (ExGetNextWakeTimeForDeepSleep.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x14031C7AC (ExGetNextWakeTimeForDeepSleep.c)
  */
 
 int *__fastcall KiGetNextTimerExpirationDueTime(
@@ -78,9 +78,9 @@ LABEL_8:
     v15 = -1LL;
     do
     {
-      if ( qword_140421D70[3 * v13] < v15 )
+      if ( qword_140422E50[3 * v13] < v15 )
       {
-        v15 = qword_140421D70[3 * v13];
+        v15 = qword_140422E50[3 * v13];
         if ( v13 == 3 )
           v14 = 1;
       }
@@ -115,7 +115,7 @@ LABEL_8:
   }
   if ( *(_BYTE *)(a1 + 33) )
   {
-    v16 = off_1403FE6A8[0]();
+    v16 = off_1403FF6A8[0]();
     if ( v16 )
     {
       if ( v6 > v16 )

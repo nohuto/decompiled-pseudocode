@@ -1,12 +1,12 @@
 /*
- * XREFs of Amd64SetInterval @ 0x1404DE200
+ * XREFs of Amd64SetInterval @ 0x1404DE440
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpTimerSetProfilingTarget @ 0x140378338 (HalpTimerSetProfilingTarget.c)
- *     HalpGetProfileDescriptor @ 0x140378378 (HalpGetProfileDescriptor.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpTimerSetProfilingTarget @ 0x140377E88 (HalpTimerSetProfilingTarget.c)
+ *     HalpGetProfileDescriptor @ 0x140377EC8 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

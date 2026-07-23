@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuUpdateRemappingDestination @ 0x140A95FF8
+ * XREFs of HalpIommuUpdateRemappingDestination @ 0x140A95E68
  * Callers:
- *     HalpUpdateIrtDestinationId @ 0x14051A5B8 (HalpUpdateIrtDestinationId.c)
+ *     HalpUpdateIrtDestinationId @ 0x14051AB08 (HalpUpdateIrtDestinationId.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuUpdateRemappingDestination(__int64 a1, __int64 a2, __int64 a3, int a4)

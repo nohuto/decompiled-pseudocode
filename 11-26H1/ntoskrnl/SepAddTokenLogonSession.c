@@ -1,15 +1,15 @@
 /*
- * XREFs of SepAddTokenLogonSession @ 0x140774EB0
+ * XREFs of SepAddTokenLogonSession @ 0x140777EB0
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
- *     SepSetServerSiloToken @ 0x14081221C (SepSetServerSiloToken.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
+ *     SepSetServerSiloToken @ 0x140818078 (SepSetServerSiloToken.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall SepAddTokenLogonSession(__int64 a1)
@@ -27,7 +27,7 @@ void __fastcall SepAddTokenLogonSession(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v4 = v1 >> 28;
-  v5 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v4 & 3));
+  v5 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v4 & 3));
   ExAcquireResourceExclusiveLite(v5, 1u);
   for ( i = *(__int64 **)(SepLogonSessions + 8 * v4); i; i = (__int64 *)*i )
   {

@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpCreateSymbolicLinkName @ 0x1404B8FE8
+ * XREFs of ObpCreateSymbolicLinkName @ 0x1404A33C8
  * Callers:
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
  * Callees:
- *     ObpReleaseLookupContext @ 0x14000BFD0 (ObpReleaseLookupContext.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x140091EB0 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
- *     ObpLookupDirectoryEntryEx @ 0x14040CEF0 (ObpLookupDirectoryEntryEx.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     ObpReleaseLookupContext @ 0x14000BB50 (ObpReleaseLookupContext.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x140091610 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
+ *     ObpLookupDirectoryEntryEx @ 0x14040BDB0 (ObpLookupDirectoryEntryEx.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 char __fastcall ObpCreateSymbolicLinkName(__int64 a1)

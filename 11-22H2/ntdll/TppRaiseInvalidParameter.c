@@ -53,12 +53,12 @@
  *     memset$thunk$772440563353939046 @ 0x180130010 (memset$thunk$772440563353939046.c)
  */
 
-void TppRaiseInvalidParameter()
+void __fastcall TppRaiseInvalidParameter()
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   memset_thunk_772440563353939046(&ExceptionRecord.ExceptionFlags, 0, 0x94uLL);
   ExceptionRecord.ExceptionCode = -1073741811;
-  RtlSetLastWin32Error(0x57u);
+  RtlSetLastWin32Error(87);
   RtlRaiseException(&ExceptionRecord);
 }

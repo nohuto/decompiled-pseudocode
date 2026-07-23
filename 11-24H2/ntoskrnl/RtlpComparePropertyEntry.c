@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpComparePropertyEntry @ 0x1405EA2C0
+ * XREFs of RtlpComparePropertyEntry @ 0x1405E7810
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 int __fastcall RtlpComparePropertyEntry(const void *a1, const void *a2)

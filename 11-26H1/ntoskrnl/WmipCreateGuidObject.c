@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipCreateGuidObject @ 0x140A10030
+ * XREFs of WmipCreateGuidObject @ 0x140A0F220
  * Callers:
- *     WmipOpenGuidObject @ 0x140A0E274 (WmipOpenGuidObject.c)
+ *     WmipOpenGuidObject @ 0x140A0D764 (WmipOpenGuidObject.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     WmipGetGuidSecurityDescriptor @ 0x140A10268 (WmipGetGuidSecurityDescriptor.c)
- *     SeCreateAccessState @ 0x140A10980 (SeCreateAccessState.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     WmipGetGuidSecurityDescriptor @ 0x140A0F458 (WmipGetGuidSecurityDescriptor.c)
+ *     SeCreateAccessState @ 0x140A0FB70 (SeCreateAccessState.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipCreateGuidObject(__int64 a1, unsigned int a2, _OWORD *a3, _QWORD *a4)
@@ -67,7 +67,7 @@ __int64 __fastcall WmipCreateGuidObject(__int64 a1, unsigned int a2, _OWORD *a3,
     {
       v14 = *(_OWORD *)&v28.SubjectSecurityContext.ClientToken;
       v15 = *(_OWORD *)&v28.SubjectSecurityContext.PrimaryToken;
-      v28.SubjectSecurityContext = ymmword_140FD7568;
+      v28.SubjectSecurityContext = ymmword_140FD8578;
       GuidSecurityDescriptor = ObCreateObjectEx(0, WmipGuidObjectType, (__int64)Event_8, 0, v18, 168, 0, 0, &Event, 0LL);
       if ( GuidSecurityDescriptor >= 0 )
       {

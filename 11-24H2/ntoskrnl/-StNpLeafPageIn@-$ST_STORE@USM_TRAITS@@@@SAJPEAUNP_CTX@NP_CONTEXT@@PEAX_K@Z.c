@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StNpLeafPageIn@?$ST_STORE@USM_TRAITS@@@@SAJPEAUNP_CTX@NP_CONTEXT@@PEAX_K@Z @ 0x14060C670
+ * XREFs of ?StNpLeafPageIn@?$ST_STORE@USM_TRAITS@@@@SAJPEAUNP_CTX@NP_CONTEXT@@PEAX_K@Z @ 0x14060AC30
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     ?StDmSinglePageRetrieveSync@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z @ 0x14060C47C (-StDmSinglePageRetrieveSync@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z.c)
- *     StEtaIoTimeout @ 0x14060D028 (StEtaIoTimeout.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     ?StDmSinglePageRetrieveSync@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z @ 0x14060AA3C (-StDmSinglePageRetrieveSync@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z.c)
+ *     StEtaIoTimeout @ 0x14060B5E8 (StEtaIoTimeout.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StNpLeafPageIn(__int64 a1, __int64 a2, int a3)

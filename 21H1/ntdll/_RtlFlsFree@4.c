@@ -14,7 +14,7 @@
  * 000000004B2E8790: mov     edi, edi
  * 000000004B2E8792: push    ebp; struct _RTLP_FLS_CONTEXT *
  * 000000004B2E8793: mov     ebp, esp
- * 000000004B2E8795: mov     edx, [ebp+arg_0]
+ * 000000004B2E8795: mov     edx, [ebp+FlsIndex]
  * 000000004B2E8798: call    ?RtlpFlsFree@@YGJPAU_RTLP_FLS_CONTEXT@@K@Z; RtlpFlsFree(_RTLP_FLS_CONTEXT *,ulong)
  * 000000004B2E879D: pop     ebp
  * 000000004B2E879E: retn    4

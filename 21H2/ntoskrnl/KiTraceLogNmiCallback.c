@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTraceLogNmiCallback @ 0x1408BB27C
+ * XREFs of KiTraceLogNmiCallback @ 0x1408BB3DC
  * Callers:
- *     KeRegisterNmiCallback @ 0x140514910 (KeRegisterNmiCallback.c)
+ *     KeRegisterNmiCallback @ 0x140514B50 (KeRegisterNmiCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall KiTraceLogNmiCallback(unsigned __int64 a1)
@@ -56,7 +56,8 @@ void __fastcall KiTraceLogNmiCallback(unsigned __int64 a1)
   v3 = 0;
   v4 = 0;
   v5 = 0;
-  if ( (a1 < PsNtosImageBase || a1 >= PsNtosImageEnd) && (a1 < PsHalImageBase || a1 >= PsHalImageEnd) )
+  if ( (a1 < (unsigned __int64)PsNtosImageBase || a1 >= PsNtosImageEnd)
+    && (a1 < (unsigned __int64)PsHalImageBase || a1 >= PsHalImageEnd) )
   {
     ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
     for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
@@ -108,7 +109,7 @@ void __fastcall KiTraceLogNmiCallback(unsigned __int64 a1)
         *(_QWORD *)&DestinationString_8.Length = 0x1000000LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C01A70,
-          (unsigned __int8 *)word_1400258DA,
+          (unsigned __int8 *)word_14002599A,
           0LL,
           0LL,
           0xAu,

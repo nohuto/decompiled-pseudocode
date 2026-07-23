@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpViewMapPinForFileOffset @ 0x1401B68C8
+ * XREFs of HvpViewMapPinForFileOffset @ 0x1401B67AC
  * Callers:
- *     HvViewMapPinFile @ 0x1401B6704 (HvViewMapPinFile.c)
- *     HvViewMapPinForFileOffset @ 0x14060FC6C (HvViewMapPinForFileOffset.c)
+ *     HvViewMapPinFile @ 0x1401B65E8 (HvViewMapPinFile.c)
+ *     HvViewMapPinForFileOffset @ 0x14060FD20 (HvViewMapPinForFileOffset.c)
  * Callees:
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
- *     HvpViewMapContiguousBytesAfterFileOffset @ 0x1405818BC (HvpViewMapContiguousBytesAfterFileOffset.c)
- *     HvpViewMapAcquireChargesForPinnedPages @ 0x14060FEC0 (HvpViewMapAcquireChargesForPinnedPages.c)
- *     HvpViewMapCountPinMaskSetBits @ 0x14060FF08 (HvpViewMapCountPinMaskSetBits.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
+ *     HvpViewMapContiguousBytesAfterFileOffset @ 0x140581D6C (HvpViewMapContiguousBytesAfterFileOffset.c)
+ *     HvpViewMapAcquireChargesForPinnedPages @ 0x14060FF74 (HvpViewMapAcquireChargesForPinnedPages.c)
+ *     HvpViewMapCountPinMaskSetBits @ 0x14060FFBC (HvpViewMapCountPinMaskSetBits.c)
  */
 
 __int64 __fastcall HvpViewMapPinForFileOffset(__int64 a1, int a2, int a3)

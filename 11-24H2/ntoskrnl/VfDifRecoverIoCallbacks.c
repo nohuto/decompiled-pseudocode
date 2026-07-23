@@ -1,10 +1,10 @@
 /*
- * XREFs of VfDifRecoverIoCallbacks @ 0x140610F30
+ * XREFs of VfDifRecoverIoCallbacks @ 0x14060F4F0
  * Callers:
- *     VfTargetRecoverIoCallbacks @ 0x1406111E0 (VfTargetRecoverIoCallbacks.c)
+ *     VfTargetRecoverIoCallbacks @ 0x14060F7A0 (VfTargetRecoverIoCallbacks.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViDifFindIoCallbackContext @ 0x140B8A8C4 (ViDifFindIoCallbackContext.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViDifFindIoCallbackContext @ 0x140B8C8C4 (ViDifFindIoCallbackContext.c)
  */
 
 void __fastcall VfDifRecoverIoCallbacks(__int64 a1)
@@ -52,7 +52,7 @@ void __fastcall VfDifRecoverIoCallbacks(__int64 a1)
           *(_QWORD *)(v1 + 8) = v10[3];
           v10[3] = 0LL;
         }
-        v11 = (__int64 (__fastcall ***)(__int64, IRP *))&off_140FF3220;
+        v11 = (__int64 (__fastcall ***)(__int64, IRP *))&off_140FF4220;
         v12 = v9 - (_QWORD)v10;
         v13 = v10 + 4;
         v14 = 28LL;

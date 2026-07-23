@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlCheckNotifyForDelete @ 0x1408168A0
+ * XREFs of FsRtlCheckNotifyForDelete @ 0x140817AA0
  * Callers:
- *     FsRtlNotifyFilterChangeDirectory @ 0x1406A0B00 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x1406A1DA0 (FsRtlNotifyFilterChangeDirectory.c)
  * Callees:
- *     FsRtlNotifyCompleteIrpList @ 0x1406A13AC (FsRtlNotifyCompleteIrpList.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x1406A264C (FsRtlNotifyCompleteIrpList.c)
  */
 
 _QWORD *__fastcall FsRtlCheckNotifyForDelete(_QWORD **a1, __int64 a2)

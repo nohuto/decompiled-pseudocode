@@ -1,21 +1,21 @@
 /*
- * XREFs of PfFbBufferListInsertInFree @ 0x1400E2680
+ * XREFs of PfFbBufferListInsertInFree @ 0x1400E2700
  * Callers:
- *     PfFbBufferListFlushStandby @ 0x1400E2728 (PfFbBufferListFlushStandby.c)
- *     PfFbBufferListAllocateTemporary @ 0x1400E2AA4 (PfFbBufferListAllocateTemporary.c)
- *     PfTFullEventListAdd @ 0x140122928 (PfTFullEventListAdd.c)
- *     PfFbBufferListAllocate @ 0x14018C050 (PfFbBufferListAllocate.c)
- *     PfpRepurposeNameLoggingTrace @ 0x140669AD4 (PfpRepurposeNameLoggingTrace.c)
- *     PfpFlushEventBuffers @ 0x140669B10 (PfpFlushEventBuffers.c)
- *     PfTCleanup @ 0x1408651DC (PfTCleanup.c)
+ *     PfFbBufferListFlushStandby @ 0x1400E27A8 (PfFbBufferListFlushStandby.c)
+ *     PfFbBufferListAllocateTemporary @ 0x1400E2B24 (PfFbBufferListAllocateTemporary.c)
+ *     PfTFullEventListAdd @ 0x1401229F8 (PfTFullEventListAdd.c)
+ *     PfFbBufferListAllocate @ 0x14018C190 (PfFbBufferListAllocate.c)
+ *     PfpRepurposeNameLoggingTrace @ 0x14066AC94 (PfpRepurposeNameLoggingTrace.c)
+ *     PfpFlushEventBuffers @ 0x14066ACD0 (PfpFlushEventBuffers.c)
+ *     PfTCleanup @ 0x14086643C (PfTCleanup.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_ENTRY *P, int a3, int a4, int a5)
+void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, _SLIST_ENTRY *P, int a3, int a4, int a5)
 {
   _SLIST_ENTRY *v7; // r8
   __int64 v8; // rcx
@@ -28,7 +28,7 @@ void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_E
   }
   else
   {
-    v7 = (struct _SLIST_ENTRY *)((char *)P + a3);
+    v7 = (_SLIST_ENTRY *)((char *)P + a3);
     P[1].Next = RunRef;
     P[2].Next = v7;
     v8 = *((unsigned int *)&RunRef[4].Next + 3);

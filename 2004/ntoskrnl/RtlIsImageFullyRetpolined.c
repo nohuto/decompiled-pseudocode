@@ -11,7 +11,7 @@
  *     LdrImageDirectoryEntryToLoadConfig @ 0x140747448 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
-__int64 __fastcall RtlIsImageFullyRetpolined(__int64 a1)
+__int64 __fastcall RtlIsImageFullyRetpolined(void *a1)
 {
   _DWORD *Config; // rax
 

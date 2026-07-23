@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpTreeDoubleRotateNodes @ 0x18006FB28
+ * XREFs of RtlpTreeDoubleRotateNodes @ 0x18006FB18
  * Callers:
- *     RtlAvlRemoveNode @ 0x18006ED80 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x18006F960 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x18006ED70 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x18006F950 (RtlAvlInsertNodeEx.c)
  * Callees:
  *     <none>
  */

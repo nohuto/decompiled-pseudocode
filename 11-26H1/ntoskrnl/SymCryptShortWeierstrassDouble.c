@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptShortWeierstrassDouble @ 0x140567220
+ * XREFs of SymCryptShortWeierstrassDouble @ 0x140574E80
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModAdd @ 0x14055C4EC (SymCryptModAdd.c)
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
- *     SymCryptModMul @ 0x14055C82C (SymCryptModMul.c)
- *     SymCryptModSquare @ 0x14055C908 (SymCryptModSquare.c)
- *     SymCryptModSub @ 0x14055C93C (SymCryptModSub.c)
+ *     SymCryptModAdd @ 0x14055E9D4 (SymCryptModAdd.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
+ *     SymCryptModMul @ 0x14055ED14 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x14055EDF0 (SymCryptModSquare.c)
+ *     SymCryptModSub @ 0x14055EE24 (SymCryptModSub.c)
  */
 
 __int64 __fastcall SymCryptShortWeierstrassDouble(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

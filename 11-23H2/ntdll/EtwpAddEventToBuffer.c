@@ -2,7 +2,7 @@
  * XREFs of EtwpAddEventToBuffer @ 0x180002BE0
  * Callers:
  *     EtwpAddBinaryInfoEvents @ 0x180002A80 (EtwpAddBinaryInfoEvents.c)
- *     EtwpAddDebugInfoEvents @ 0x180126168 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddDebugInfoEvents @ 0x180126138 (EtwpAddDebugInfoEvents.c)
  * Callees:
  *     memmove @ 0x1800A7A40 (memmove.c)
  */

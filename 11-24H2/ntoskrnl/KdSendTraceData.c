@@ -1,14 +1,14 @@
 /*
- * XREFs of KdSendTraceData @ 0x140B76F48
+ * XREFs of KdSendTraceData @ 0x140B78F48
  * Callers:
- *     EtwpSendTraceEvent @ 0x1404AC8C4 (EtwpSendTraceEvent.c)
- *     EtwpSendBufferToDebugger @ 0x1407ACBAC (EtwpSendBufferToDebugger.c)
+ *     EtwpSendTraceEvent @ 0x1404A70B8 (EtwpSendTraceEvent.c)
+ *     EtwpSendBufferToDebugger @ 0x1407AD07C (EtwpSendBufferToDebugger.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KdExitDebugger @ 0x140B75008 (KdExitDebugger.c)
- *     KdEnterDebugger @ 0x140B7A96C (KdEnterDebugger.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KdExitDebugger @ 0x140B77008 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140B7C96C (KdEnterDebugger.c)
  */
 
 __int64 __fastcall KdSendTraceData(__int64 a1, unsigned int a2)
@@ -24,18 +24,17 @@ __int64 __fastcall KdSendTraceData(__int64 a1, unsigned int a2)
   __int64 v11; // rax
   __int64 v12; // rcx
   unsigned __int64 v13; // rdx
-  __int64 v14; // r8
-  __int128 v15; // [rsp+28h] [rbp-39h] BYREF
-  __int128 v16; // [rsp+38h] [rbp-29h] BYREF
-  int v17; // [rsp+48h] [rbp-19h] BYREF
-  __int16 v18; // [rsp+4Ch] [rbp-15h]
+  __int128 v14; // [rsp+28h] [rbp-39h] BYREF
+  __int128 v15; // [rsp+38h] [rbp-29h] BYREF
+  int v16; // [rsp+48h] [rbp-19h] BYREF
+  __int16 v17; // [rsp+4Ch] [rbp-15h]
   __int16 Number; // [rsp+4Eh] [rbp-13h]
-  unsigned int v20; // [rsp+50h] [rbp-11h]
+  unsigned int v19; // [rsp+50h] [rbp-11h]
 
   v2 = a2;
+  v14 = 0LL;
   v15 = 0LL;
-  v16 = 0LL;
-  memset_0(&v17, 0, 0x40uLL);
+  memset_0(&v16, 0, 0x40uLL);
   v4 = 0;
   if ( (_DWORD)v2 )
   {
@@ -67,17 +66,17 @@ __int64 __fastcall KdSendTraceData(__int64 a1, unsigned int a2)
       }
       while ( v2 );
     }
-    v18 = KeProcessorLevel;
-    v17 = 13104;
+    v17 = KeProcessorLevel;
+    v16 = 13104;
     Number = KeGetPcr()->Prcb.Number;
-    *((_QWORD *)&v16 + 1) = &v17;
-    v20 = v4;
-    LOWORD(v16) = 64;
-    LOWORD(v15) = v4;
-    *((_QWORD *)&v15 + 1) = &KdpMessageBuffer;
-    KdSendPacket(9LL, &v16, &v15, &KdpContext);
+    *((_QWORD *)&v15 + 1) = &v16;
+    v19 = v4;
+    LOWORD(v15) = 64;
+    LOWORD(v14) = v4;
+    *((_QWORD *)&v14 + 1) = &KdpMessageBuffer;
+    KdSendPacket(9LL, &v15, &v14, &KdpContext);
     LOBYTE(v12) = v9;
-    return KdExitDebugger(v12, v13, v14);
+    return KdExitDebugger(v12, v13);
   }
   return result;
 }

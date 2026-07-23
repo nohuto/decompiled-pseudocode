@@ -1,9 +1,9 @@
 /*
- * XREFs of CarLoadFromDV @ 0x140619914
+ * XREFs of CarLoadFromDV @ 0x140617ED4
  * Callers:
- *     CarInit @ 0x1406169EC (CarInit.c)
+ *     CarInit @ 0x140614FAC (CarInit.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 unsigned __int64 __fastcall CarLoadFromDV(char a1)

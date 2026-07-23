@@ -1,13 +1,13 @@
 /*
- * XREFs of PiInitFirmwareResources @ 0x1409DF1D0
+ * XREFs of PiInitFirmwareResources @ 0x1409E01D0
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     RtlStringFromGUID @ 0x14058B220 (RtlStringFromGUID.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IopCreateRegistryKeyEx @ 0x1407096C4 (IopCreateRegistryKeyEx.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     RtlStringFromGUID @ 0x14058C220 (RtlStringFromGUID.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     IopCreateRegistryKeyEx @ 0x14070A964 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PiInitFirmwareResources(__int64 a1)

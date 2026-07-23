@@ -6,7 +6,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtSaveKey(int a1, int a2)
+NTSTATUS __cdecl NtSaveKey(HANDLE KeyHandle, HANDLE FileHandle)
 {
   return Wow64SystemServiceCall();
 }

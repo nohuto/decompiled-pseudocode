@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDemoteSlabEntriesDpc @ 0x1403CD0C0
+ * XREFs of MiDemoteSlabEntriesDpc @ 0x1403CD2A0
  * Callers:
  *     <none>
  * Callees:
  *     MiCheckMdlSlabFragmentation @ 0x14021EE44 (MiCheckMdlSlabFragmentation.c)
  *     MiEnumerateSlabAllocators @ 0x14021EF7C (MiEnumerateSlabAllocators.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiDemoteSlabEntry @ 0x1403CD3EC (MiDemoteSlabEntry.c)
- *     MiGatherSlabDemoteCandidates @ 0x1403CD810 (MiGatherSlabDemoteCandidates.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiDemoteSlabEntry @ 0x1403CD5CC (MiDemoteSlabEntry.c)
+ *     MiGatherSlabDemoteCandidates @ 0x1403CD9F0 (MiGatherSlabDemoteCandidates.c)
  */
 
 __int64 __fastcall MiDemoteSlabEntriesDpc(__int64 a1, __int64 *a2, volatile signed __int32 *a3, __int64 a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpSeedGlfsr @ 0x1403F6690
+ * XREFs of RtlpSeedGlfsr @ 0x1403ECAD0
  * Callers:
- *     RtlpGenericRandomPatternWorker @ 0x1403F62F0 (RtlpGenericRandomPatternWorker.c)
+ *     RtlpGenericRandomPatternWorker @ 0x1403EC730 (RtlpGenericRandomPatternWorker.c)
  * Callees:
  *     <none>
  */

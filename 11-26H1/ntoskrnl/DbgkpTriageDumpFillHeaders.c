@@ -1,48 +1,35 @@
 /*
- * XREFs of DbgkpTriageDumpFillHeaders @ 0x14078C810
+ * XREFs of DbgkpTriageDumpFillHeaders @ 0x14078F340
  * Callers:
  *     <none>
  * Callees:
- *     IoFillDumpHeader @ 0x1405C6688 (IoFillDumpHeader.c)
- *     IoFillTriageDumpBuffer @ 0x1405C6994 (IoFillTriageDumpBuffer.c)
+ *     IoFillDumpHeader @ 0x1405C8F58 (IoFillDumpHeader.c)
+ *     IoFillTriageDumpBuffer @ 0x1405C9264 (IoFillTriageDumpBuffer.c)
  */
 
-__int64 __fastcall DbgkpTriageDumpFillHeaders(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+__int64 __fastcall DbgkpTriageDumpFillHeaders(__int64 *a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  char *v6; // rsi
+  __int64 *v6; // rsi
   unsigned int v8; // ecx
   __int64 result; // rax
   int v10; // eax
   _DWORD v11[4]; // [rsp+70h] [rbp-18h] BYREF
   int v12; // [rsp+90h] [rbp+8h] BYREF
 
-  v6 = *(char **)a1;
-  IoFillDumpHeader(*(char **)a1, 4, a2, a3, a4, a5, a6, 0LL);
-  v8 = *(_DWORD *)(a1 + 8);
+  v6 = (__int64 *)*a1;
+  IoFillDumpHeader((_DWORD *)*a1, 4, a2, a3, a4, a5, a6, 0LL);
+  v8 = *((_DWORD *)a1 + 2);
   v11[0] = 0;
   v12 = 0;
   *((_DWORD *)v6 + 1044) |= 0x10u;
   if ( v8 < 0x2000 )
     return 3221225626LL;
-  result = IoFillTriageDumpBuffer(
-             v8 - 0x2000,
-             (__int64 *)v6 + 1024,
-             0,
-             1088,
-             &v12,
-             0LL,
-             0LL,
-             CmNtCSDVersion,
-             0,
-             0,
-             0LL,
-             0LL,
-             v11);
+  result = IoFillTriageDumpBuffer(v8 - 0x2000, v6 + 1024, 0, 1088, &v12, 0LL, 0LL, CmNtCSDVersion, 0, 0, 0LL, 0LL, v11);
   if ( (int)result >= 0 )
   {
     *((_DWORD *)v6 + 1038) = v12;
-    *(_DWORD *)(a1 + 24) = (v11[0] + 8199) & 0xFFFFFFF8;
-    v10 = *(_DWORD *)(a1 + 8) - 4;
+    *((_DWORD *)a1 + 6) = (v11[0] + 8199) & 0xFFFFFFF8;
+    v10 = *((_DWORD *)a1 + 2) - 4;
     *((_DWORD *)v6 + 2079) = 0;
     *((_DWORD *)v6 + 2078) = v10;
     return 0LL;

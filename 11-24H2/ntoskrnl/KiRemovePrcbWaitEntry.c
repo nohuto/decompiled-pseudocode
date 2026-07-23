@@ -1,23 +1,22 @@
 /*
- * XREFs of KiRemovePrcbWaitEntry @ 0x14031CEA0
+ * XREFs of KiRemovePrcbWaitEntry @ 0x1402C5A30
  * Callers:
- *     KiSignalThreadForApc @ 0x140296870 (KiSignalThreadForApc.c)
- *     IopCompleteIrpInFileObjectList @ 0x14031B490 (IopCompleteIrpInFileObjectList.c)
- *     AlpcpSignal @ 0x14031BB60 (AlpcpSignal.c)
- *     IoSetIoCompletionEx @ 0x14031C620 (IoSetIoCompletionEx.c)
- *     KiInsertQueue @ 0x14031CA10 (KiInsertQueue.c)
- *     KiTimerWaitTest @ 0x140335E10 (KiTimerWaitTest.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KiAlertSingleThreadByThreadId @ 0x140337FDC (KiAlertSingleThreadByThreadId.c)
- *     AlpcpQueueIoCompletionPort @ 0x1403BCF10 (AlpcpQueueIoCompletionPort.c)
- *     KeInsertQueueEx @ 0x1403BD5D0 (KeInsertQueueEx.c)
- *     AlpcpQueueIoCompletion @ 0x1403BD9A0 (AlpcpQueueIoCompletion.c)
- *     IoSetIoCompletionEx3 @ 0x1403BDE10 (IoSetIoCompletionEx3.c)
- *     KiWakeOtherQueueWaiters @ 0x1403BE270 (KiWakeOtherQueueWaiters.c)
+ *     IopCompleteIrpInFileObjectList @ 0x1402C4020 (IopCompleteIrpInFileObjectList.c)
+ *     AlpcpSignal @ 0x1402C46F0 (AlpcpSignal.c)
+ *     IoSetIoCompletionEx @ 0x1402C51B0 (IoSetIoCompletionEx.c)
+ *     KiInsertQueue @ 0x1402C55A0 (KiInsertQueue.c)
+ *     KiSignalThreadForApc @ 0x1402DD8B0 (KiSignalThreadForApc.c)
+ *     KiAlertSingleThreadByThreadId @ 0x1402DE880 (KiAlertSingleThreadByThreadId.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1403ABBA0 (AlpcpQueueIoCompletionPort.c)
+ *     KeInsertQueueEx @ 0x1403AC260 (KeInsertQueueEx.c)
+ *     AlpcpQueueIoCompletion @ 0x1403AC630 (AlpcpQueueIoCompletion.c)
+ *     IoSetIoCompletionEx3 @ 0x1403ACAA0 (IoSetIoCompletionEx3.c)
+ *     KiWakeOtherQueueWaiters @ 0x1403ACF00 (KiWakeOtherQueueWaiters.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 void __fastcall KiRemovePrcbWaitEntry(_QWORD *a1)

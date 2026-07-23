@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampStackHashTableAlloc @ 0x1409F2D7C
+ * XREFs of EtwpCovSampStackHashTableAlloc @ 0x1409F300C
  * Callers:
- *     EtwpCovSampCaptureContextStart @ 0x1409F09FC (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409F0C8C (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

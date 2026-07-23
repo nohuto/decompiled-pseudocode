@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmMapViewOfSection @ 0x1409E6D10
+ * XREFs of VerifierMmMapViewOfSection @ 0x1409E7D10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfCheckPageProtection @ 0x1409C7CBC (VfCheckPageProtection.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfCheckPageProtection @ 0x1409C8CBC (VfCheckPageProtection.c)
  */
 
 __int64 __fastcall VerifierMmMapViewOfSection(

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHeteroAttemptPreemptionSwap @ 0x1404617A8
+ * XREFs of KiHeteroAttemptPreemptionSwap @ 0x140461BA8
  * Callers:
- *     KiHeteroChooseTargetProcessor @ 0x140461916 (KiHeteroChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x140461D16 (KiHeteroChooseTargetProcessor.c)
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333400 (KiAcquirePrcbLocksForPreemptionAttempt.c)
- *     KiFindBiasedSetMember @ 0x14045FE0C (KiFindBiasedSetMember.c)
- *     KiIsThreadEligibleForPreemptionSwap @ 0x140461F46 (KiIsThreadEligibleForPreemptionSwap.c)
- *     KiEvaluatePreemptionSwapTarget @ 0x140577010 (KiEvaluatePreemptionSwapTarget.c)
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057739C (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333690 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ *     KiFindBiasedSetMember @ 0x14046020C (KiFindBiasedSetMember.c)
+ *     KiIsThreadEligibleForPreemptionSwap @ 0x140462346 (KiIsThreadEligibleForPreemptionSwap.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x140577500 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057788C (KiHeteroScanQueueForPreemptionSwapTarget.c)
  */
 
 __int64 __fastcall KiHeteroAttemptPreemptionSwap(

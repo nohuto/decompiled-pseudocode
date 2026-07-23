@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeWowPeb @ 0x14051BDC4
+ * XREFs of MiInitializeWowPeb @ 0x1404FF1B4
  * Callers:
- *     MmCreatePeb @ 0x14046C0B8 (MmCreatePeb.c)
+ *     MmCreatePeb @ 0x14046AF88 (MmCreatePeb.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
- *     MmGetSectionInformation @ 0x140471C08 (MmGetSectionInformation.c)
- *     MiCreatePebOrTeb @ 0x14050B230 (MiCreatePebOrTeb.c)
- *     MmCheckImageMapping @ 0x14051C05C (MmCheckImageMapping.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
+ *     MmGetSectionInformation @ 0x140470AD8 (MmGetSectionInformation.c)
+ *     MiCreatePebOrTeb @ 0x1404EE1C0 (MiCreatePebOrTeb.c)
+ *     MmCheckImageMapping @ 0x1404FF44C (MmCheckImageMapping.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -104,7 +104,7 @@ __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int6
     *(_DWORD *)(v17 + 124) = *(_DWORD *)(a1 + 40);
     *(_DWORD *)(v17 + 100) = KeNumberProcessors_0;
     *(_DWORD *)(v17 + 104) = NtGlobalFlag;
-    *(_QWORD *)(v17 + 112) = qword_140326970;
+    *(_QWORD *)(v17 + 112) = qword_1403269B0;
     *(_DWORD *)(v17 + 520) = dword_1403A915C;
     *(_DWORD *)(v17 + 144) = *(_DWORD *)(a1 + 72);
     *(_DWORD *)(v17 + 128) = qword_1403A9170;

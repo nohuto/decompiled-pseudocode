@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSuspendDynamicTracing @ 0x14057EC68
+ * XREFs of KeSuspendDynamicTracing @ 0x14057F158
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140AA859C (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA840C (PopInvokeSystemStateHandler.c)
  * Callees:
  *     <none>
  */

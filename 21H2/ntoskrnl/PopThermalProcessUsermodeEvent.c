@@ -1,14 +1,14 @@
 /*
- * XREFs of PopThermalProcessUsermodeEvent @ 0x1408E7B98
+ * XREFs of PopThermalProcessUsermodeEvent @ 0x1408E7CF8
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     PopThermalWriteShutdownToRegistry @ 0x14056F9D8 (PopThermalWriteShutdownToRegistry.c)
- *     PopDiagTraceUsermodeThermalEvent @ 0x1408EBCE0 (PopDiagTraceUsermodeThermalEvent.c)
- *     PopDiagTraceUsermodeTripPointExceeded @ 0x1408EBDCC (PopDiagTraceUsermodeTripPointExceeded.c)
- *     PopSqmThermalUsermodeEvent @ 0x1408F9D94 (PopSqmThermalUsermodeEvent.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x14056FC18 (PopThermalWriteShutdownToRegistry.c)
+ *     PopDiagTraceUsermodeThermalEvent @ 0x1408EBE40 (PopDiagTraceUsermodeThermalEvent.c)
+ *     PopDiagTraceUsermodeTripPointExceeded @ 0x1408EBF2C (PopDiagTraceUsermodeTripPointExceeded.c)
+ *     PopSqmThermalUsermodeEvent @ 0x1408F9EF4 (PopSqmThermalUsermodeEvent.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopThermalProcessUsermodeEvent(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpPushStackInfoDpc @ 0x1405FFB50
+ * XREFs of ObpPushStackInfoDpc @ 0x140602600
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void ObpPushStackInfoDpc()
 {
-  ExQueueWorkItem(&qword_140F13240, DelayedWorkQueue);
+  ExQueueWorkItem((PWORK_QUEUE_ITEM)&ObpStackTraceLock.SuspendEvent.Header.WaitListHead, DelayedWorkQueue);
 }

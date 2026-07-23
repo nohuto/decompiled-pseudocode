@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWakeCommitRequest @ 0x1403F7558
+ * XREFs of MiWakeCommitRequest @ 0x1403EE13C
  * Callers:
- *     MiRemoveUnusedSegments @ 0x1403F734C (MiRemoveUnusedSegments.c)
+ *     MiRemoveUnusedSegments @ 0x1403EDF30 (MiRemoveUnusedSegments.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiWakeCommitRequest(__int64 a1, int a2)

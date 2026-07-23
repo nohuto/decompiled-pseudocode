@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxDirectedWorkOrderWatchdog @ 0x140604CD0
+ * XREFs of PopFxDirectedWorkOrderWatchdog @ 0x1406077D0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PopInternalSaveStackToDumpFile @ 0x1406008E0 (PopInternalSaveStackToDumpFile.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PopInternalSaveStackToDumpFile @ 0x140603390 (PopInternalSaveStackToDumpFile.c)
  */
 
 void __fastcall __noreturn PopFxDirectedWorkOrderWatchdog(__int64 a1, __int64 a2)
@@ -22,11 +22,11 @@ void __fastcall __noreturn PopFxDirectedWorkOrderWatchdog(__int64 a1, __int64 a2
   v2 = a2 - 1016;
   PopInternalSaveStackToDumpFile(*(_QWORD *)(a2 - 1016 + 96));
   BugCheckParameter4[0] = 98309LL;
-  BugCheckParameter4[1] = (ULONG_PTR)&qword_140F10550;
+  BugCheckParameter4[1] = (ULONG_PTR)&PpmIdlePolicyLock.WaitBlockList;
   v6 = 0;
-  BugCheckParameter4[2] = (ULONG_PTR)&PopWeakChargerLock.WaitBlock[0].Object;
-  BugCheckParameter4[3] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Blink;
-  BugCheckParameter4[4] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Flink;
+  BugCheckParameter4[2] = (ULONG_PTR)&PopIrpThreadList;
+  BugCheckParameter4[3] = *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[64];
+  BugCheckParameter4[4] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.WaitBlock[1].WaitListEntry.Blink;
   v9 = *(_DWORD *)(v2 + 32);
   v3 = *(_QWORD *)(v2 + 96);
   v10 = *(_DWORD *)(v2 + 1200);

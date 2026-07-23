@@ -14,7 +14,7 @@ __int64 PopInitShutdownList()
   LOWORD(PopShutdownEvent.Header.Lock) = 0;
   PopShutdownEvent.Header.WaitListHead.Blink = &PopShutdownEvent.Header.WaitListHead;
   PopShutdownEvent.Header.WaitListHead.Flink = &PopShutdownEvent.Header.WaitListHead;
-  qword_140304488 = (__int64)&PopShutdownQueue;
+  qword_1403044A8 = (__int64)&PopShutdownQueue;
   PopShutdownQueue = (__int64)&PopShutdownQueue;
   PopShutdownListMutex.Event.Header.WaitListHead.Blink = &PopShutdownListMutex.Event.Header.WaitListHead;
   PopShutdownListMutex.Event.Header.WaitListHead.Flink = &PopShutdownListMutex.Event.Header.WaitListHead;

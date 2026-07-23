@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEtProcessEnumSnapshotCallback @ 0x1407B1BE0
+ * XREFs of PopEtProcessEnumSnapshotCallback @ 0x1407B1DD0
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407B1BE0 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407B1DD0 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsQueryProcessEnergyValues @ 0x140741FD0 (PsQueryProcessEnergyValues.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x1407B1BE0 (PopEtProcessEnumSnapshotCallback.c)
- *     PopEtProcessSnapshotUpdate @ 0x1407B1CE8 (PopEtProcessSnapshotUpdate.c)
- *     PopEtIsrDpcQuery @ 0x1407B33B4 (PopEtIsrDpcQuery.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsQueryProcessEnergyValues @ 0x1407421C0 (PsQueryProcessEnergyValues.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407B1DD0 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessSnapshotUpdate @ 0x1407B1ED8 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtIsrDpcQuery @ 0x1407B35A4 (PopEtIsrDpcQuery.c)
  */
 
 __int64 __fastcall PopEtProcessEnumSnapshotCallback(_QWORD *a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeUpdateThreadCpuSets @ 0x1403C6338
+ * XREFs of KeUpdateThreadCpuSets @ 0x14048B8EC
  * Callers:
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C63A0 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14048B954 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KeUpdateThreadCpuSets(__int64 a1)

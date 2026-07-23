@@ -3,12 +3,12 @@
  * Callers:
  *     BgpFwLibraryDisable @ 0x140AEC1EC (BgpFwLibraryDisable.c)
  *     ResFwBackgroundTransition @ 0x140AEEAF8 (ResFwBackgroundTransition.c)
- *     ResFwFreeContext @ 0x140AF1ED4 (ResFwFreeContext.c)
+ *     ResFwFreeContext @ 0x140AF1EE4 (ResFwFreeContext.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

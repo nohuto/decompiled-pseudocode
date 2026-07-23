@@ -1,22 +1,22 @@
 /*
- * XREFs of VfCheckUserHandle @ 0x140C47C38
+ * XREFs of VfCheckUserHandle @ 0x140C4DC48
  * Callers:
- *     ObCloseHandleWithResult @ 0x1407C3270 (ObCloseHandleWithResult.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     ObCloseHandleWithResult @ 0x1407C62D0 (ObCloseHandleWithResult.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     ObQueryTypeName @ 0x1409F8E50 (ObQueryTypeName.c)
- *     VfUtilIsLocalSystem @ 0x140C21924 (VfUtilIsLocalSystem.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
- *     VfDriverIsKernelImageAddress @ 0x140C46BA8 (VfDriverIsKernelImageAddress.c)
- *     VfTargetDriversIsEnabled @ 0x140C46C9C (VfTargetDriversIsEnabled.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     ObQueryTypeName @ 0x140A61F3C (ObQueryTypeName.c)
+ *     VfUtilIsLocalSystem @ 0x140C27934 (VfUtilIsLocalSystem.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
+ *     VfDriverIsKernelImageAddress @ 0x140C4CBB8 (VfDriverIsKernelImageAddress.c)
+ *     VfTargetDriversIsEnabled @ 0x140C4CCAC (VfTargetDriversIsEnabled.c)
  */
 
 char __fastcall VfCheckUserHandle(ULONG_PTR BugCheckParameter2)

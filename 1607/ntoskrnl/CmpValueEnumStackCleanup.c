@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpValueEnumStackCleanup @ 0x14060B58C
+ * XREFs of CmpValueEnumStackCleanup @ 0x14060B640
  * Callers:
- *     CmpPromoteSingleKeyFromKeyNodeStacks @ 0x1401B376C (CmpPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpGetValueCountForKeyNodeStack @ 0x1401B5B98 (CmpGetValueCountForKeyNodeStack.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1405FCCF0 (CmEnumerateValueFromLayeredKey.c)
+ *     CmpPromoteSingleKeyFromKeyNodeStacks @ 0x1401B3650 (CmpPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x1401B5A7C (CmpGetValueCountForKeyNodeStack.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x1405FCDA4 (CmEnumerateValueFromLayeredKey.c)
  * Callees:
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     CmpValueEnumStackEntryCleanup @ 0x1401B5C5C (CmpValueEnumStackEntryCleanup.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14060B5E4 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     CmpValueEnumStackEntryCleanup @ 0x1401B5B40 (CmpValueEnumStackEntryCleanup.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14060B698 (CmpValueEnumStackGetEntryAtLayerHeight.c)
  */
 
 void __fastcall CmpValueEnumStackCleanup(__int64 a1)

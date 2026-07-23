@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllMDIClientWndProc_W @ 0x18015ED30
+ * XREFs of NtdllMDIClientWndProc_W @ 0x18015EC30
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllMDIClientWndProc_W()
 {
-  off_1801E0268();
+  off_1801DF268();
 }

@@ -11,22 +11,20 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlUserThreadStart(__int64 (__fastcall *a1)(__int64), __int64 a2)
+void __cdecl RtlUserThreadStart(PTHREAD_START_ROUTINE Function, PVOID Parameter)
 {
-  unsigned int v3; // eax
-  unsigned int v4; // eax
+  NTSTATUS v2; // eax
 
-  if ( Kernel32ThreadInitThunkFunction )
+  if ( !Kernel32ThreadInitThunkFunction )
   {
-    if ( (char *)Kernel32ThreadInitThunkFunction == (char *)RtlLeaveCriticalSection )
-      return RtlLeaveCriticalSection(0LL);
-    else
-      return Kernel32ThreadInitThunkFunction(0LL, a1, a2);
+    v2 = ((__int64 (__fastcall *)(PVOID))Function)(Parameter);
+    RtlExitUserThread(v2);
   }
+  if ( Kernel32ThreadInitThunkFunction == RtlLeaveCriticalSection )
+    RtlLeaveCriticalSection(0LL);
   else
-  {
-    v3 = a1(a2);
-    v4 = RtlExitUserThread(v3);
-    return ZwTerminateProcess(-1LL, v4);
-  }
+    ((void (__fastcall *)(_QWORD, PTHREAD_START_ROUTINE, PVOID))Kernel32ThreadInitThunkFunction)(
+      0LL,
+      Function,
+      Parameter);
 }

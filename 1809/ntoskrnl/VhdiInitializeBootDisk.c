@@ -1,22 +1,22 @@
 /*
- * XREFs of VhdiInitializeBootDisk @ 0x1409F9480
+ * XREFs of VhdiInitializeBootDisk @ 0x1409FA480
  * Callers:
  *     <none>
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoGetConfigurationInformation @ 0x14070F520 (IoGetConfigurationInformation.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14073251C (RtlCreateUnicodeStringFromAsciiz.c)
- *     VhdiGetPartitionNumber @ 0x1409F928C (VhdiGetPartitionNumber.c)
- *     VhdiGetVolumeNumber @ 0x1409F9328 (VhdiGetVolumeNumber.c)
- *     VhdiQueryVolumeVhdFilePath @ 0x1409F9C84 (VhdiQueryVolumeVhdFilePath.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1401B83D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IoGetConfigurationInformation @ 0x1407107C0 (IoGetConfigurationInformation.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14073370C (RtlCreateUnicodeStringFromAsciiz.c)
+ *     VhdiGetPartitionNumber @ 0x1409FA28C (VhdiGetPartitionNumber.c)
+ *     VhdiGetVolumeNumber @ 0x1409FA328 (VhdiGetVolumeNumber.c)
+ *     VhdiQueryVolumeVhdFilePath @ 0x1409FAC84 (VhdiQueryVolumeVhdFilePath.c)
  */
 
 __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, __int64 a2, UNICODE_STRING *a3)

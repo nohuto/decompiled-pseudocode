@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetSystemAllowedSetsAffinityEx @ 0x140447B50
+ * XREFs of KiGetSystemAllowedSetsAffinityEx @ 0x140440640
  * Callers:
- *     KiComputeCpuSetAffinity @ 0x140229FB8 (KiComputeCpuSetAffinity.c)
+ *     KiComputeCpuSetAffinity @ 0x14022B948 (KiComputeCpuSetAffinity.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmDeleteDeviceRegKey @ 0x1409B379C
+ * XREFs of _CmDeleteDeviceRegKey @ 0x1409AAB2C
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
- *     _CmDeleteDeviceWorker @ 0x1409B2CB8 (_CmDeleteDeviceWorker.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A797FC (_CmDeleteDeviceRegKeyWorker.c)
- *     PiCMDeleteDeviceKey @ 0x140ABCF28 (PiCMDeleteDeviceKey.c)
- *     PipResetDevice @ 0x140C21D70 (PipResetDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x1409AA048 (_CmDeleteDeviceWorker.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x140A73AFC (_CmDeleteDeviceRegKeyWorker.c)
+ *     PiCMDeleteDeviceKey @ 0x140AB7F94 (PiCMDeleteDeviceKey.c)
+ *     PipResetDevice @ 0x140C23DB0 (PipResetDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A797FC (_CmDeleteDeviceRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x140A73AFC (_CmDeleteDeviceRegKeyWorker.c)
  */
 
 __int64 __fastcall CmDeleteDeviceRegKey(__int64 a1, __int64 a2, int a3, int a4)
@@ -38,7 +38,7 @@ __int64 __fastcall CmDeleteDeviceRegKey(__int64 a1, __int64 a2, int a3, int a4)
   if ( v8 )
   {
     v16 = 1;
-    v9 = guard_dispatch_icall_no_overrides(a1, a2, 1LL, 12LL);
+    v9 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v9 == -1073741822 )
     {
       v8 = 0LL;
@@ -57,7 +57,7 @@ __int64 __fastcall CmDeleteDeviceRegKey(__int64 a1, __int64 a2, int a3, int a4)
   if ( !v8 )
     return v10;
   v17[0] = v11;
-  v12 = guard_dispatch_icall_no_overrides(a1, a2, 1LL, 12LL);
+  v12 = guard_dispatch_icall_no_overrides(a1, a2);
   v13 = v12;
   if ( v12 == -1073741822 )
     return v10;

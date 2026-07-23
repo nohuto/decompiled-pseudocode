@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetDriverEntryOrder(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwSetDriverEntryOrder(PULONG Ids, ULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(Ids);
 }

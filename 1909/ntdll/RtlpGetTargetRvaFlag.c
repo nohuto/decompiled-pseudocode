@@ -10,7 +10,7 @@
  *     ZwQueryVirtualMemory @ 0x18009D2F0 (ZwQueryVirtualMemory.c)
  */
 
-char __fastcall RtlpGetTargetRvaFlag(unsigned __int64 a1, _BYTE *a2)
+char __fastcall RtlpGetTargetRvaFlag(PVOID BaseAddress, _BYTE *a2)
 {
   int v4; // ebx
   _DWORD *Config; // rax
@@ -21,24 +21,24 @@ char __fastcall RtlpGetTargetRvaFlag(unsigned __int64 a1, _BYTE *a2)
   _BYTE *v10; // rax
   char v11; // cl
   char result; // al
-  unsigned __int64 v13; // [rsp+30h] [rbp-38h] BYREF
+  int v13[2]; // [rsp+30h] [rbp-38h] BYREF
   char v14; // [rsp+40h] [rbp-28h]
   _QWORD Key[2]; // [rsp+48h] [rbp-20h] BYREF
 
   Key[0] = 0LL;
   Key[1] = 0LL;
-  if ( (int)ZwQueryVirtualMemory(-1LL, a1, 6LL, &v13, 24LL, 0LL) < 0 )
+  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, MemoryImageInformation, v13, 0x18uLL, 0LL) < 0 )
     return 0;
-  v4 = v13;
-  if ( !v13 )
+  v4 = v13[0];
+  if ( !*(_QWORD *)v13 )
     return 0;
   if ( (v14 & 2) != 0 )
     return 0;
   if ( (v14 & 1) != 0 )
     return 0;
-  if ( a1 < v13 )
+  if ( (unsigned __int64)BaseAddress < *(_QWORD *)v13 )
     return 0;
-  Config = LdrImageDirectoryEntryToLoadConfig(v13);
+  Config = LdrImageDirectoryEntryToLoadConfig(*(void **)v13);
   if ( !Config )
     return 0;
   if ( *Config < 0x94u )
@@ -53,7 +53,7 @@ char __fastcall RtlpGetTargetRvaFlag(unsigned __int64 a1, _BYTE *a2)
   v9 = (v6 >> 28) + 4;
   if ( v9 <= 4 )
     return 0;
-  LODWORD(Key[0]) = a1 - v4;
+  LODWORD(Key[0]) = (_DWORD)BaseAddress - v4;
   v10 = bsearch_s(Key, v8, v7, v9, RtlpTargetCompare, 0LL);
   if ( !v10 )
     return 0;

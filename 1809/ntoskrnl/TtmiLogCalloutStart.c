@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutStart @ 0x140882870
+ * XREFs of TtmiLogCalloutStart @ 0x140883AD0
  * Callers:
- *     TtmpStartCallout @ 0x14087E5E0 (TtmpStartCallout.c)
+ *     TtmpStartCallout @ 0x14087F840 (TtmpStartCallout.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutStart(int a1, __int64 a2, int a3, int a4)
@@ -40,9 +40,9 @@ char __fastcall TtmiLogCalloutStart(int a1, __int64 a2, int a3, int a4)
 
   v4 = &retaddr;
   v33 = a3;
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    LOBYTE(v4) = TlgKeywordOn(&stru_14096D820, 1uLL);
+    LOBYTE(v4) = TlgKeywordOn(&stru_14096E820, 1uLL);
     if ( (_BYTE)v4 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -68,7 +68,7 @@ char __fastcall TtmiLogCalloutStart(int a1, __int64 a2, int a3, int a4)
       v25 = 2;
       v28[0] = 4;
       v30 = 4;
-      LOBYTE(v4) = TlgWrite(&stru_14096D820, &unk_140372519, 0LL, 0LL, 8u, &pData);
+      LOBYTE(v4) = TlgWrite(&stru_14096E820, &unk_1403735E4, 0LL, 0LL, 8u, &pData);
     }
   }
   return (char)v4;

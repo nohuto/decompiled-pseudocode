@@ -1,14 +1,14 @@
 /*
- * XREFs of SmpUtilsGetControlDevice @ 0x14079E410
+ * XREFs of SmpUtilsGetControlDevice @ 0x14079E520
  * Callers:
- *     SmcCacheManagerStart @ 0x14079D188 (SmcCacheManagerStart.c)
+ *     SmcCacheManagerStart @ 0x14079D298 (SmcCacheManagerStart.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SmpUtilsGetControlDevice(__int64 a1, _QWORD *a2, PDEVICE_OBJECT *a3)

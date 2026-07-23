@@ -3,41 +3,41 @@
  * Callers:
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
  * Callees:
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     MmMapIoSpaceEx @ 0x14009B870 (MmMapIoSpaceEx.c)
- *     RtlInitString @ 0x1400A9798 (RtlInitString.c)
- *     DbgLoadImageSymbols @ 0x1400B1044 (DbgLoadImageSymbols.c)
- *     KeAdjustInterruptTime @ 0x140126A0C (KeAdjustInterruptTime.c)
- *     KeRegisterBugCheckReasonCallback @ 0x14012DCB0 (KeRegisterBugCheckReasonCallback.c)
- *     HviIsAnyHypervisorPresent @ 0x14013123C (HviIsAnyHypervisorPresent.c)
- *     RtlStringCbPrintfA @ 0x140139A14 (RtlStringCbPrintfA.c)
- *     VslGetNestedPageProtectionFlags @ 0x14013D140 (VslGetNestedPageProtectionFlags.c)
- *     RtlStringCbCopyExA @ 0x14014B79C (RtlStringCbCopyExA.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _strupr @ 0x14014CC70 (_strupr.c)
- *     strstr @ 0x14014CF38 (strstr.c)
- *     atol @ 0x14014CFC8 (atol.c)
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     DbgBreakPointWithStatus @ 0x140166D80 (DbgBreakPointWithStatus.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlStringCbCatExA @ 0x1401B0ECC (RtlStringCbCatExA.c)
- *     __report_rangecheckfailure @ 0x1401B1250 (__report_rangecheckfailure.c)
- *     HvlpMapStatisticsPage @ 0x1401BBBB4 (HvlpMapStatisticsPage.c)
- *     HvlpSetupCachedHypercallPages @ 0x1401BC614 (HvlpSetupCachedHypercallPages.c)
- *     HvlpInitializePowerStatistics @ 0x1401BF5AC (HvlpInitializePowerStatistics.c)
- *     HvlpInitializeHvCrashdump @ 0x1401C08E8 (HvlpInitializeHvCrashdump.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     DbgLoadImageSymbols @ 0x1400846BC (DbgLoadImageSymbols.c)
+ *     MmMapIoSpaceEx @ 0x14009B070 (MmMapIoSpaceEx.c)
+ *     RtlInitString @ 0x1400A7D18 (RtlInitString.c)
+ *     KeAdjustInterruptTime @ 0x140126F7C (KeAdjustInterruptTime.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14012E220 (KeRegisterBugCheckReasonCallback.c)
+ *     HviIsAnyHypervisorPresent @ 0x1401317AC (HviIsAnyHypervisorPresent.c)
+ *     RtlStringCbPrintfA @ 0x140139F84 (RtlStringCbPrintfA.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14013D6B0 (VslGetNestedPageProtectionFlags.c)
+ *     RtlStringCbCopyExA @ 0x14014BD0C (RtlStringCbCopyExA.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _strupr @ 0x14014D1E0 (_strupr.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     atol @ 0x14014D538 (atol.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     DbgBreakPointWithStatus @ 0x1401672F0 (DbgBreakPointWithStatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlStringCbCatExA @ 0x1401B0DB0 (RtlStringCbCatExA.c)
+ *     __report_rangecheckfailure @ 0x1401B1134 (__report_rangecheckfailure.c)
+ *     HvlpMapStatisticsPage @ 0x1401BBA98 (HvlpMapStatisticsPage.c)
+ *     HvlpSetupCachedHypercallPages @ 0x1401BC4F8 (HvlpSetupCachedHypercallPages.c)
+ *     HvlpInitializePowerStatistics @ 0x1401BF490 (HvlpInitializePowerStatistics.c)
+ *     HvlpInitializeHvCrashdump @ 0x1401C07CC (HvlpInitializeHvCrashdump.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     RtlFindMessage @ 0x14051C574 (RtlFindMessage.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14055FCEC (RtlCreateUnicodeStringFromAsciiz.c)
- *     LdrAccessResource @ 0x1405646B4 (LdrAccessResource.c)
- *     LdrFindResource_U @ 0x1405646BC (LdrFindResource_U.c)
- *     RtlInitNlsTables @ 0x14057B890 (RtlInitNlsTables.c)
- *     RtlResetRtlTranslations @ 0x14057D87C (RtlResetRtlTranslations.c)
- *     RtlpInitializeStackTraceDatabase @ 0x140687A58 (RtlpInitializeStackTraceDatabase.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFindMessage @ 0x1404FF964 (RtlFindMessage.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14056022C (RtlCreateUnicodeStringFromAsciiz.c)
+ *     LdrAccessResource @ 0x140564BF4 (LdrAccessResource.c)
+ *     LdrFindResource_U @ 0x140564BFC (LdrFindResource_U.c)
+ *     RtlInitNlsTables @ 0x14057BD3C (RtlInitNlsTables.c)
+ *     RtlResetRtlTranslations @ 0x14057DD28 (RtlResetRtlTranslations.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x140687B3C (RtlpInitializeStackTraceDatabase.c)
  *     KeInitSystem @ 0x140791AC4 (KeInitSystem.c)
  *     PsInitSystem @ 0x140793634 (PsInitSystem.c)
  *     ObInitSystem @ 0x1407A0370 (ObInitSystem.c)
@@ -130,8 +130,8 @@ __int64 __fastcall InitBootProcessor(unsigned int *a1)
   STRING Name; // [rsp+98h] [rbp-70h] BYREF
   char v65; // [rsp+A8h] [rbp-60h] BYREF
   _LDR_RESOURCE_INFO ResourceInfo; // [rsp+C0h] [rbp-48h] BYREF
-  char pszDest[256]; // [rsp+D8h] [rbp-30h] BYREF
-  char Source[64]; // [rsp+1D8h] [rbp+D0h] BYREF
+  CHAR pszDest[256]; // [rsp+D8h] [rbp-30h] BYREF
+  CHAR Source[64]; // [rsp+1D8h] [rbp+D0h] BYREF
 
   v1 = *a1;
   if ( *(_QWORD *)a1 != 10LL || a1[2] != 328 )
@@ -349,9 +349,9 @@ LABEL_60:
   }
   if ( KdBreakAfterSymbolLoad )
     DbgBreakPointWithStatus(1u);
-  dword_1402FD0D0 = ((a1[66] & 1) != 0) + 1;
+  dword_1402FD030 = ((a1[66] & 1) != 0) + 1;
   ExpBootEnvironmentInformation = *(_OWORD *)(*((_QWORD *)a1 + 30) + 152LL);
-  qword_1402FD0D8 = *(_QWORD *)(*((_QWORD *)a1 + 30) + 2264LL);
+  qword_1402FD038 = *(_QWORD *)(*((_QWORD *)a1 + 30) + 2264LL);
   if ( HviIsAnyHypervisorPresent() && (HvlpRootFlags & 4) == 0 )
   {
     HvlpHvIdentityInfoCallbackRecord.State = 0;
@@ -363,7 +363,7 @@ LABEL_60:
   }
   if ( HvlHypervisorConnected )
   {
-    HvlpSetupCachedHypercallPages((union _SLIST_HEADER *)KeGetCurrentPrcb());
+    HvlpSetupCachedHypercallPages((_SLIST_HEADER *)KeGetCurrentPrcb());
     HvlpInitializePowerStatistics();
     if ( (HvlpRootFlags & 0x10) != 0 )
     {

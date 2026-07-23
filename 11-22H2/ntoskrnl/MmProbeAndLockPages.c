@@ -41,11 +41,11 @@
 
 void __stdcall MmProbeAndLockPages(PMDL MemoryDescriptorList, KPROCESSOR_MODE AccessMode, LOCK_OPERATION Operation)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   unsigned int v7; // eax
-  int v8; // eax
+  NTSTATUS v8; // eax
   _BYTE *v9; // rdi
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   __int64 v11; // rax
   unsigned __int64 v12; // r9
   __int64 v13; // rdx
@@ -64,7 +64,7 @@ void __stdcall MmProbeAndLockPages(PMDL MemoryDescriptorList, KPROCESSOR_MODE Ac
          Operation != IoReadAccess,
          1);
   if ( v6 < 0 )
-    RtlRaiseStatus((unsigned int)v6);
+    RtlRaiseStatus(v6);
   v7 = MiProbeAndLockPacket((__int64)v16);
   v8 = MiProbeAndLockComplete(v16, v7, 3LL);
   v9 = (_BYTE *)v16[16];
@@ -83,5 +83,5 @@ void __stdcall MmProbeAndLockPages(PMDL MemoryDescriptorList, KPROCESSOR_MODE Ac
     MiUnlockAndDereferenceVad(v9);
   }
   if ( v10 < 0 )
-    RtlRaiseStatus((unsigned int)v10);
+    RtlRaiseStatus(v10);
 }

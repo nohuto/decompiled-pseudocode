@@ -1,44 +1,44 @@
 /*
- * XREFs of PoSetHiberRange @ 0x140388060
+ * XREFs of PoSetHiberRange @ 0x1403881B0
  * Callers:
- *     HalpPciMarkHiberPhase @ 0x140387F3C (HalpPciMarkHiberPhase.c)
- *     IoGetDumpHiberRanges @ 0x140387F6C (IoGetDumpHiberRanges.c)
- *     HalpDmaMarkHiberAdapter @ 0x140388338 (HalpDmaMarkHiberAdapter.c)
- *     HalpExtEnvMarkHiberRegions @ 0x1403883E4 (HalpExtEnvMarkHiberRegions.c)
- *     HalpTimerMarkHiberPhase @ 0x1404B6984 (HalpTimerMarkHiberPhase.c)
- *     HalpIommuExtMarkHiberMemory @ 0x1404CBE20 (HalpIommuExtMarkHiberMemory.c)
- *     HalpIommuDmarPageTableMarkHiberPhase @ 0x1404DBA8C (HalpIommuDmarPageTableMarkHiberPhase.c)
- *     HvlDiscardPagesFromHibernation @ 0x1404F7C4C (HvlDiscardPagesFromHibernation.c)
- *     HvlDiscardSecurePagesFromHibernation @ 0x1404F7CB4 (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlpMarkHvlPagesForHibernation @ 0x1404F84C8 (HvlpMarkHvlPagesForHibernation.c)
- *     HvlpMarkHypervisorPagesForHibernation @ 0x1404F859C (HvlpMarkHypervisorPagesForHibernation.c)
- *     MiMarkKernelPageTablePte @ 0x140534A00 (MiMarkKernelPageTablePte.c)
- *     RtlMarkHiberPhase @ 0x140592CE4 (RtlMarkHiberPhase.c)
- *     PopHiberInitializeResources @ 0x140777940 (PopHiberInitializeResources.c)
- *     MmMarkHiberRange @ 0x140777BFC (MmMarkHiberRange.c)
- *     PopAllocateHiberContext @ 0x140777C44 (PopAllocateHiberContext.c)
- *     VslAllocateSecureHibernateResources @ 0x14088EB5C (VslAllocateSecureHibernateResources.c)
- *     BgkResumePrepare @ 0x1409961D8 (BgkResumePrepare.c)
- *     HalpIommuMarkHiberPhase @ 0x140996560 (HalpIommuMarkHiberPhase.c)
- *     HaliLocateHiberRanges @ 0x140996620 (HaliLocateHiberRanges.c)
- *     PopBuildMemoryImageHeader @ 0x140996724 (PopBuildMemoryImageHeader.c)
- *     PopBootLoaderTraceCopyPfnList @ 0x140996BE0 (PopBootLoaderTraceCopyPfnList.c)
- *     PopMarkComponentsBootPhase @ 0x1409991F0 (PopMarkComponentsBootPhase.c)
- *     HalpMmAllocCtxMarkHiberPhase @ 0x1409A6ECC (HalpMmAllocCtxMarkHiberPhase.c)
- *     KdMarkHiberPhase @ 0x1409AEEF8 (KdMarkHiberPhase.c)
- *     KeMarkHiberPhase @ 0x1409AEF88 (KeMarkHiberPhase.c)
- *     MiGatherHiberRange @ 0x1409B0220 (MiGatherHiberRange.c)
- *     MiMarkHiberNotCachedPte @ 0x1409B0300 (MiMarkHiberNotCachedPte.c)
- *     MiMarkNonPagedHiberPhasePte @ 0x1409B0520 (MiMarkNonPagedHiberPhasePte.c)
- *     MmMarkHiberPhase @ 0x1409B061C (MmMarkHiberPhase.c)
- *     PopMarkHiberPhase @ 0x1409B15C8 (PopMarkHiberPhase.c)
- *     BgpFwMarkHiberPhase @ 0x1409F70F4 (BgpFwMarkHiberPhase.c)
+ *     HalpPciMarkHiberPhase @ 0x14038808C (HalpPciMarkHiberPhase.c)
+ *     IoGetDumpHiberRanges @ 0x1403880BC (IoGetDumpHiberRanges.c)
+ *     HalpDmaMarkHiberAdapter @ 0x140388488 (HalpDmaMarkHiberAdapter.c)
+ *     HalpExtEnvMarkHiberRegions @ 0x140388534 (HalpExtEnvMarkHiberRegions.c)
+ *     HalpTimerMarkHiberPhase @ 0x1404B6BC4 (HalpTimerMarkHiberPhase.c)
+ *     HalpIommuExtMarkHiberMemory @ 0x1404CC060 (HalpIommuExtMarkHiberMemory.c)
+ *     HalpIommuDmarPageTableMarkHiberPhase @ 0x1404DBCCC (HalpIommuDmarPageTableMarkHiberPhase.c)
+ *     HvlDiscardPagesFromHibernation @ 0x1404F7BCC (HvlDiscardPagesFromHibernation.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1404F7C34 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlpMarkHvlPagesForHibernation @ 0x1404F8448 (HvlpMarkHvlPagesForHibernation.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x1404F851C (HvlpMarkHypervisorPagesForHibernation.c)
+ *     MiMarkKernelPageTablePte @ 0x140534C40 (MiMarkKernelPageTablePte.c)
+ *     RtlMarkHiberPhase @ 0x140592F14 (RtlMarkHiberPhase.c)
+ *     PopHiberInitializeResources @ 0x140777B00 (PopHiberInitializeResources.c)
+ *     MmMarkHiberRange @ 0x140777DBC (MmMarkHiberRange.c)
+ *     PopAllocateHiberContext @ 0x140777E04 (PopAllocateHiberContext.c)
+ *     VslAllocateSecureHibernateResources @ 0x14088ECBC (VslAllocateSecureHibernateResources.c)
+ *     BgkResumePrepare @ 0x1409971D8 (BgkResumePrepare.c)
+ *     HalpIommuMarkHiberPhase @ 0x140997560 (HalpIommuMarkHiberPhase.c)
+ *     HaliLocateHiberRanges @ 0x140997620 (HaliLocateHiberRanges.c)
+ *     PopBuildMemoryImageHeader @ 0x140997724 (PopBuildMemoryImageHeader.c)
+ *     PopBootLoaderTraceCopyPfnList @ 0x140997BE0 (PopBootLoaderTraceCopyPfnList.c)
+ *     PopMarkComponentsBootPhase @ 0x14099A1F0 (PopMarkComponentsBootPhase.c)
+ *     HalpMmAllocCtxMarkHiberPhase @ 0x1409A7DFC (HalpMmAllocCtxMarkHiberPhase.c)
+ *     KdMarkHiberPhase @ 0x1409AFE28 (KdMarkHiberPhase.c)
+ *     KeMarkHiberPhase @ 0x1409AFEB8 (KeMarkHiberPhase.c)
+ *     MiGatherHiberRange @ 0x1409B1150 (MiGatherHiberRange.c)
+ *     MiMarkHiberNotCachedPte @ 0x1409B1230 (MiMarkHiberNotCachedPte.c)
+ *     MiMarkNonPagedHiberPhasePte @ 0x1409B1450 (MiMarkNonPagedHiberPhasePte.c)
+ *     MmMarkHiberPhase @ 0x1409B154C (MmMarkHiberPhase.c)
+ *     PopMarkHiberPhase @ 0x1409B24F8 (PopMarkHiberPhase.c)
+ *     BgpFwMarkHiberPhase @ 0x1409F80F4 (BgpFwMarkHiberPhase.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     PopSetRange @ 0x140388200 (PopSetRange.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MmGetSectionRange @ 0x1408C81E8 (MmGetSectionRange.c)
- *     MmMarkImageForHiberPhase @ 0x1409B08B4 (MmMarkImageForHiberPhase.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     PopSetRange @ 0x140388350 (PopSetRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MmGetSectionRange @ 0x1408C8348 (MmGetSectionRange.c)
+ *     MmMarkImageForHiberPhase @ 0x1409B17E4 (MmMarkImageForHiberPhase.c)
  */
 
 void __stdcall PoSetHiberRange(PVOID MemoryMap, ULONG Flags, PVOID Address, ULONG_PTR Length, ULONG Tag)
@@ -71,11 +71,11 @@ void __stdcall PoSetHiberRange(PVOID MemoryMap, ULONG Flags, PVOID Address, ULON
   }
   else
   {
-    v6 = (PVOID)qword_140C23480;
-    BugCheckParameter3 = (PVOID)qword_140C23480;
-    if ( !qword_140C23480 )
+    v6 = (PVOID)qword_140C23AA0;
+    BugCheckParameter3 = (PVOID)qword_140C23AA0;
+    if ( !qword_140C23AA0 )
       KeBugCheckEx(0xA0u, 0x10BuLL, 0xAuLL, 0LL, 0LL);
-    v7 = *(unsigned int *)(qword_140C23480 + 184);
+    v7 = *(unsigned int *)(qword_140C23AA0 + 184);
     if ( (_DWORD)v7 != 8 )
     {
       if ( (_DWORD)v7 != 9 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpStartTrace @ 0x1408330A4
+ * XREFs of EtwpStartTrace @ 0x1409D0104
  * Callers:
- *     EtwWmitraceWorker @ 0x1407AC83C (EtwWmitraceWorker.c)
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     EtwWmitraceWorker @ 0x1407ACD0C (EtwWmitraceWorker.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
  */
 
 __int64 __fastcall EtwpStartTrace(__int64 a1, __int64 a2)

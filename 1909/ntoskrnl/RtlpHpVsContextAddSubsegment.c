@@ -7,13 +7,13 @@
  *     RtlpHpVsChunkAlignSplit @ 0x140061B60 (RtlpHpVsChunkAlignSplit.c)
  */
 
-__int64 __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, __int64 a2)
+BOOLEAN __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx
   __int64 *v5; // rcx
   unsigned __int64 v6; // r8
   __int64 v7; // rdx
-  _WORD *v8; // rax
+  unsigned __int64 v8; // rax
 
   v4 = a1 + 32;
   v5 = (__int64 *)(a1 + 40);
@@ -27,9 +27,9 @@ __int64 __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, __int64 a2)
   *v5 = v7;
   if ( (*(_DWORD *)(a1 + 176) & 1) != 0 && ((a2 + 80) & 0xFFF) != 0 )
   {
-    v8 = (_WORD *)RtlpHpVsChunkAlignSplit((__int64)v5, a2, a2 + 48);
+    v8 = RtlpHpVsChunkAlignSplit((__int64)v5, a2, a2 + 48);
     if ( v8 )
-      RtlpHpVsFreeChunkInsert((_QWORD *)a1, a2, v8);
+      RtlpHpVsFreeChunkInsert((_RTL_RB_TREE *)a1, a2, v8);
   }
-  return RtlpHpVsFreeChunkInsert((_QWORD *)a1, a2, (_WORD *)(a2 + 48));
+  return RtlpHpVsFreeChunkInsert((_RTL_RB_TREE *)a1, a2, a2 + 48);
 }

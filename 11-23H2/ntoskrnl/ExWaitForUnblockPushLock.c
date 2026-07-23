@@ -1,9 +1,9 @@
 /*
- * XREFs of ExWaitForUnblockPushLock @ 0x140609B10
+ * XREFs of ExWaitForUnblockPushLock @ 0x14060A060
  * Callers:
  *     <none>
  * Callees:
- *     ExTimedWaitForUnblockPushLock @ 0x140348780 (ExTimedWaitForUnblockPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x140348A10 (ExTimedWaitForUnblockPushLock.c)
  */
 
 __int64 __fastcall ExWaitForUnblockPushLock(volatile __int64 *a1, char *a2)

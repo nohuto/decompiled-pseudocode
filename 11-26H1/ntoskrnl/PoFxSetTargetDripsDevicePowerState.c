@@ -1,17 +1,17 @@
 /*
- * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x140B0DD00
+ * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x140B0F450
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopFxTryReferenceDevice @ 0x140218E68 (PopFxTryReferenceDevice.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PopPepGetMinimumDevicePowerState @ 0x1404E5274 (PopPepGetMinimumDevicePowerState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopFxTryReferenceDevice @ 0x14021B7B8 (PopFxTryReferenceDevice.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x1404DE814 (PopPepGetMinimumDevicePowerState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PoFxSetTargetDripsDevicePowerState(__int64 a1, int a2)
@@ -39,15 +39,15 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(__int64 a1, int a2)
   v11 = 0;
   v12 = 0;
   DestinationString = 0LL;
-  if ( !stru_140E66FF0.SchedulerAssistYieldBoostCount )
+  if ( !dword_140E676DC )
   {
     v6 = -1073741637;
     goto LABEL_18;
   }
   if ( a2 == 1 || a2 > 4 )
     goto LABEL_19;
-  v4 = dword_140E27100;
-  if ( dword_140E27100 == -1 )
+  v4 = dword_140E27240;
+  if ( dword_140E27240 == -1 )
   {
     v6 = -1073741823;
     goto LABEL_18;
@@ -102,8 +102,8 @@ LABEL_15:
     goto LABEL_15;
   }
 LABEL_18:
-  RtlInitUnicodeString(&DestinationString, &word_140B814F0);
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  RtlInitUnicodeString(&DestinationString, &word_140B8A320);
+  if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v16 = 2LL;
     v15 = v18;
@@ -119,7 +119,7 @@ LABEL_18:
     v22 = 4LL;
     *(_QWORD *)&DestinationString.Length = 0x1000000LL;
     v24 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)byte_140049B3D, 0LL, 0LL, 7u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)byte_14004A13D, 0LL, 0LL, 7u, &v14);
   }
   return (unsigned int)v6;
 }

@@ -1,24 +1,24 @@
 /*
  * XREFs of KeRegisterBugCheckReasonCallback @ 0x14024AE50
  * Callers:
- *     HvlPhase1Initialize @ 0x1403DF080 (HvlPhase1Initialize.c)
- *     HvlpInitializeHvCrashdump @ 0x14054B14C (HvlpInitializeHvCrashdump.c)
- *     SmPrepareForFatalHeapCorruption @ 0x1405FD49C (SmPrepareForFatalHeapCorruption.c)
- *     SmPrepareForFatalPageError @ 0x1405FD594 (SmPrepareForFatalPageError.c)
- *     CarpBugcheckInit @ 0x140605200 (CarpBugcheckInit.c)
- *     IopInitializeBugCheckDriverData @ 0x140658604 (IopInitializeBugCheckDriverData.c)
- *     IopInitializeTriageDumpData @ 0x1408555E0 (IopInitializeTriageDumpData.c)
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
- *     HalpMiscInitDiscard @ 0x140B27708 (HalpMiscInitDiscard.c)
- *     PopRecorderInit @ 0x140B28664 (PopRecorderInit.c)
- *     HalpFirmwareInitDiscard @ 0x140B2A8FC (HalpFirmwareInitDiscard.c)
+ *     sub_1403DF080 @ 0x1403DF080 (sub_1403DF080.c)
+ *     sub_14054B14C @ 0x14054B14C (sub_14054B14C.c)
+ *     sub_1405FD49C @ 0x1405FD49C (sub_1405FD49C.c)
+ *     sub_1405FD594 @ 0x1405FD594 (sub_1405FD594.c)
+ *     sub_140605200 @ 0x140605200 (sub_140605200.c)
+ *     sub_140658604 @ 0x140658604 (sub_140658604.c)
+ *     sub_1408555E0 @ 0x1408555E0 (sub_1408555E0.c)
+ *     sub_140AFD7A4 @ 0x140AFD7A4 (sub_140AFD7A4.c)
+ *     sub_140B0433C @ 0x140B0433C (sub_140B0433C.c)
+ *     sub_140B27708 @ 0x140B27708 (sub_140B27708.c)
+ *     sub_140B28664 @ 0x140B28664 (sub_140B28664.c)
+ *     sub_140B2A8FC @ 0x140B2A8FC (sub_140B2A8FC.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x14024AFA0 (KiCheckForDuplicateBugCheckCallback.c)
+ *     KeAcquireSpinLockAtDpcLevel @ 0x140211E00 (KeAcquireSpinLockAtDpcLevel.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
+ *     sub_14024AFA0 @ 0x14024AFA0 (sub_14024AFA0.c)
  *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
@@ -33,10 +33,10 @@ BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
   struct _LIST_ENTRY *v10; // rdi
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *Blink; // rax
-  _DWORD *SchedulerAssist; // r9
+  __int64 v14; // r9
   unsigned __int8 v15; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v17; // r9
+  __int64 v17; // r9
   int v18; // edx
   bool v19; // zf
 
@@ -44,17 +44,17 @@ BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
   v8 = 1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
+    v14 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+    *(_DWORD *)(v14 + 20) |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
-  KxAcquireSpinLock(&KeBugCheckCallbackLock);
+  KeAcquireSpinLockAtDpcLevel(&qword_140C2BD10);
   if ( CallbackRecord->State )
     goto LABEL_15;
-  if ( (_DWORD)v5 == 4 || (v10 = (struct _LIST_ENTRY *)&KeBugCheckReasonCallbackListHead, (_DWORD)v5 == 6) )
-    v10 = (struct _LIST_ENTRY *)&KeBugCheckAddRemovePagesCallbackListHead;
-  if ( (unsigned __int8)KiCheckForDuplicateBugCheckCallback(v10, CallbackRecord) )
+  if ( (_DWORD)v5 == 4 || (v10 = (struct _LIST_ENTRY *)&qword_140C2B810, (_DWORD)v5 == 6) )
+    v10 = (struct _LIST_ENTRY *)&qword_140C2B800;
+  if ( (unsigned __int8)sub_14024AFA0(v10, CallbackRecord) )
   {
 LABEL_15:
     v8 = 0;
@@ -67,8 +67,8 @@ LABEL_15:
   CallbackRecord->State = 1;
   if ( (_DWORD)v5 == 1023 )
   {
-    if ( _InterlockedIncrement(&KiRecoveryCallbackCount) == 1 && !KiPristineTriageDump )
-      KeInsertQueueDpc(&KiPristineTriageDumpAllocationDpc, 0LL, 0LL);
+    if ( _InterlockedIncrement(&dword_140C2A954) == 1 && !qword_140C2AAA8 )
+      KeInsertQueueDpc(&stru_140C2AA60, 0LL, 0LL);
   }
   else if ( (_DWORD)v5 == 7 )
   {
@@ -92,21 +92,21 @@ LABEL_22:
   Flink->Blink = &CallbackRecord->Entry;
   v10->Flink = &CallbackRecord->Entry;
 LABEL_10:
-  KxReleaseSpinLock(&KeBugCheckCallbackLock);
-  if ( KiIrqlFlags )
+  KeReleaseSpinLockFromDpcLevel(&qword_140C2BD10);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       v15 = KeGetCurrentIrql();
       if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v17 = CurrentPrcb->SchedulerAssist;
+        v17 = *((_QWORD *)CurrentPrcb + 4375);
         v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
+        v19 = (v18 & *(_DWORD *)(v17 + 20)) == 0;
+        *(_DWORD *)(v17 + 20) &= v18;
         if ( v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
   }

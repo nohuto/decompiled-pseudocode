@@ -8,12 +8,12 @@
 
 PSLIST_ENTRY __fastcall CmpCleanupPathInfo(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // rdx
+  _SLIST_ENTRY *v1; // rdx
   struct _KPRCB *CurrentPrcb; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   PSLIST_ENTRY result; // rax
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 160);
+  v1 = *(_SLIST_ENTRY **)(a1 + 160);
   if ( v1 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -31,7 +31,7 @@ PSLIST_ENTRY __fastcall CmpCleanupPathInfo(__int64 a1)
     else
     {
       ++P->FreeMisses;
-      return (PSLIST_ENTRY)((__int64 (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v1);
+      return (PSLIST_ENTRY)((__int64 (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v1);
     }
   }
   return result;

@@ -95,7 +95,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
   char v56; // [rsp+50h] [rbp-238h]
   char v57; // [rsp+51h] [rbp-237h]
   NTSTATUS v58; // [rsp+54h] [rbp-234h]
-  struct _PROCESSOR_NUMBER v59; // [rsp+5Ch] [rbp-22Ch] BYREF
+  _PROCESSOR_NUMBER v59; // [rsp+5Ch] [rbp-22Ch] BYREF
   __int16 v60; // [rsp+60h] [rbp-228h]
   PVOID v61; // [rsp+68h] [rbp-220h]
   int v62; // [rsp+70h] [rbp-218h]
@@ -140,7 +140,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
   v54 = CurrentThread->$42514DC6747B59BF81E16C40547B231E::gap0[10];
   if ( v54 )
   {
-    if ( ThreadInformationClass == (ThreadDescriptorTableEntry|0x20) )
+    if ( ThreadInformationClass == ThreadNameInformation )
     {
       v11 = 8;
     }
@@ -202,7 +202,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
       {
         switch ( ThreadInformationClass )
         {
-          case 6:
+          case ThreadDescriptorTableEntry:
             result = ObReferenceObjectByHandleWithTag(
                        ThreadHandle,
                        0x40u,
@@ -215,7 +215,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
               return result;
             v32 = xKdEnumerateDebuggingDevices();
             goto LABEL_129;
-          case 9:
+          case ThreadQuerySetWin32StartAddress:
             if ( (_DWORD)v5 != 8 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -235,7 +235,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 8;
             goto LABEL_118;
-          case 11:
+          case ThreadPerformanceCount:
             if ( (_DWORD)v5 != 8 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -254,14 +254,14 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 8;
             goto LABEL_118;
-          case 12:
+          case ThreadAmILastThread:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             *(_DWORD *)ThreadInformation = *(_DWORD *)&CurrentThread->Process[1].0 == 1;
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 14:
+          case ThreadPriorityBoost:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -281,7 +281,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return ContextThread;
-          case 16:
+          case ThreadIsIoPending:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -300,7 +300,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 17:
+          case ThreadHideFromDebugger:
             if ( (_DWORD)v5 != 1 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -319,7 +319,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 1;
             goto LABEL_27;
-          case 18:
+          case ThreadBreakOnTermination:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -338,7 +338,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 20:
+          case ThreadIsTerminated:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -357,7 +357,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 21:
+          case ThreadLastSystemCall:
             result = ObReferenceObjectByHandleWithTag(
                        ThreadHandle,
                        8u,
@@ -372,7 +372,7 @@ NTSTATUS __stdcall NtQueryInformationThread(
 LABEL_129:
             v14 = v32;
             goto LABEL_130;
-          case 22:
+          case ThreadIoPriority:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -392,7 +392,7 @@ LABEL_129:
             if ( ReturnLength )
               *ReturnLength = 4;
             goto LABEL_27;
-          case 24:
+          case ThreadPagePriority:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -411,7 +411,7 @@ LABEL_129:
             if ( ReturnLength )
               *ReturnLength = 4;
             goto LABEL_27;
-          case 26:
+          case ThreadTebInformation:
             if ( (_DWORD)v5 != 16 )
               return -1073741820;
             if ( v54 )
@@ -498,7 +498,7 @@ LABEL_161:
               }
             }
             break;
-          case 29:
+          case ThreadWow64Context:
             result = ObReferenceObjectByHandleWithTag(
                        ThreadHandle,
                        8u,
@@ -514,7 +514,7 @@ LABEL_161:
             if ( ContextThread >= 0 && ReturnLength )
               *ReturnLength = 716;
             return ContextThread;
-          case 30:
+          case ThreadGroupInformation:
             if ( (_DWORD)v5 != 16 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -534,7 +534,7 @@ LABEL_161:
             if ( ReturnLength )
               *ReturnLength = 16;
             goto LABEL_124;
-          case 31:
+          case ThreadUmsInformation:
             if ( (_DWORD)v5 != 24 )
               return -1073741820;
             v37 = *(_DWORD *)ThreadInformation;
@@ -559,7 +559,7 @@ LABEL_161:
             }
             ObfDereferenceObject(v70[0]);
             goto LABEL_118;
-          case 32:
+          case ThreadCounterProfiling:
             if ( (_DWORD)v5 != 1 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -579,7 +579,7 @@ LABEL_161:
             if ( ReturnLength )
               *ReturnLength = 1;
             goto LABEL_118;
-          case 33:
+          case ThreadIdealProcessorEx:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -595,11 +595,11 @@ LABEL_161:
             *(_WORD *)&v59.Number = 64;
             KeSetIdealProcessorThreadByNumber((struct _KTHREAD *)Object, &v59, &v59);
             ObfDereferenceObjectWithTag(Object, 0x79517350u);
-            *(struct _PROCESSOR_NUMBER *)ThreadInformation = v59;
+            *(_PROCESSOR_NUMBER *)ThreadInformation = v59;
             if ( ReturnLength )
               *ReturnLength = 4;
             return 0;
-          case 34:
+          case ThreadCpuAccountingInformation:
             if ( !(_DWORD)v5 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -618,7 +618,7 @@ LABEL_161:
               *ReturnLength = 1;
             v14 = v58;
             goto LABEL_130;
-          case 35:
+          case ThreadSuspendCount:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -638,7 +638,7 @@ LABEL_161:
               *ReturnLength = 4;
             v15 = v40;
             goto LABEL_27;
-          case 36:
+          case ThreadHeterogeneousCpuPolicy:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             ContextThread = ObReferenceObjectByHandleWithTag(
@@ -656,7 +656,7 @@ LABEL_161:
             if ( ReturnLength )
               *ReturnLength = 4;
             goto LABEL_192;
-          case 37:
+          case ThreadContainerId:
             if ( (_DWORD)v5 != 16 )
               return -1073741820;
             if ( ThreadHandle != (HANDLE)-2LL )
@@ -669,7 +669,7 @@ LABEL_161:
                 *ReturnLength = 16;
             }
             return result;
-          case 38:
+          case ThreadNameInformation:
             v46 = 0;
             v57 = 0;
             Object = 0LL;
@@ -736,7 +736,7 @@ LABEL_161:
               return ContextThread;
             ObfDereferenceObjectWithTag(v47, 0x79517350u);
             return ContextThread;
-          case 39:
+          case ThreadSelectedCpuSets:
             if ( (v5 & 7) != 0 || (unsigned int)v5 > 0xA0 )
               return -1073741820;
             v9 = ObReferenceObjectByHandleWithTag(
@@ -760,7 +760,7 @@ LABEL_161:
               memmove(ThreadInformation, Src, v43);
             }
             return v9;
-          case 40:
+          case ThreadSystemThreadInformation:
             if ( (_DWORD)v5 != 80 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -796,7 +796,7 @@ LABEL_161:
 LABEL_192:
             ObfDereferenceObjectWithTag(v41, 0x79517350u);
             return ContextThread;
-          case 41:
+          case ThreadActualGroupAffinity:
             if ( (_DWORD)v5 != 16 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -818,7 +818,7 @@ LABEL_192:
 LABEL_124:
             ObfDereferenceObjectWithTag(v31, 0x79517350u);
             goto LABEL_118;
-          case 42:
+          case ThreadDynamicCodePolicyInfo:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -837,7 +837,7 @@ LABEL_124:
             if ( ReturnLength )
               *ReturnLength = 4;
             goto LABEL_27;
-          case 43:
+          case ThreadExplicitCaseSensitivity:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(
@@ -858,7 +858,7 @@ LABEL_124:
 LABEL_130:
             v15 = Object;
             goto LABEL_27;
-          case 44:
+          case ThreadWorkOnBehalfTicket:
             if ( (_DWORD)v5 != 16 )
               return -1073741820;
             if ( ThreadHandle != (HANDLE)-2LL )
@@ -880,7 +880,7 @@ LABEL_130:
             if ( ReturnLength )
               *ReturnLength = 16;
             return 0;
-          case 45:
+          case ThreadSubsystemInformation:
             if ( (_DWORD)v5 != 4 )
               return -1073741820;
             result = ObReferenceObjectByHandleWithTag(

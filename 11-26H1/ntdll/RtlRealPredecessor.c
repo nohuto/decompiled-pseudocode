@@ -1,38 +1,38 @@
 /*
- * XREFs of RtlRealPredecessor @ 0x1800DFFD0
+ * XREFs of RtlRealPredecessor @ 0x1800DCF10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall RtlRealPredecessor(_QWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlRealPredecessor(PRTL_SPLAY_LINKS Links)
 {
-  __int64 v1; // r8
-  _QWORD *result; // rax
-  _QWORD *v3; // rdx
-  __int64 i; // rcx
+  _RTL_SPLAY_LINKS *LeftChild; // r8
+  PRTL_SPLAY_LINKS result; // rax
+  _RTL_SPLAY_LINKS *v3; // rdx
+  _RTL_SPLAY_LINKS *i; // rcx
 
-  v1 = a1[1];
+  LeftChild = Links->LeftChild;
   result = 0LL;
-  v3 = a1;
-  if ( v1 )
+  v3 = Links;
+  if ( LeftChild )
   {
-    for ( i = *(_QWORD *)(v1 + 16); i; i = *(_QWORD *)(i + 16) )
-      v1 = i;
-    return (_QWORD *)v1;
+    for ( i = LeftChild->RightChild; i; i = i->RightChild )
+      LeftChild = i;
+    return LeftChild;
   }
   else
   {
     while ( 1 )
     {
-      a1 = (_QWORD *)*a1;
-      if ( (_QWORD *)a1[1] != v3 )
+      Links = Links->Parent;
+      if ( Links->LeftChild != v3 )
         break;
-      v3 = a1;
+      v3 = Links;
     }
-    if ( (_QWORD *)a1[2] == v3 )
-      return a1;
+    if ( Links->RightChild == v3 )
+      return Links;
   }
   return result;
 }

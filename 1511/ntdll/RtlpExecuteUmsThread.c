@@ -38,8 +38,11 @@ LABEL_7:
     *(_QWORD *)(a1 + 1280) = v1;
     v6 = *(_QWORD *)(a1 + 168);
     v7 = *(_QWORD *)(a1 + 1248);
-    if ( qword_1801552F0 && ((v6 & 7) != 0 || v6 < *(_QWORD *)(v7 + 16) || v6 >= *(_QWORD *)(v7 + 8)) )
+    if ( LdrSystemDllInitBlock.Wow64SharedInformation[9]
+      && ((v6 & 7) != 0 || v6 < *(_QWORD *)(v7 + 16) || v6 >= *(_QWORD *)(v7 + 8)) )
+    {
       __fastfail(0xDu);
+    }
     if ( !_bittest((const signed __int32 *)(a1 + 1264), 2u) )
     {
       _mm_setcsr(*(_DWORD *)(((a1 + 1375) & 0xFFFFFFFFFFFFFFC0uLL) + 0x18));

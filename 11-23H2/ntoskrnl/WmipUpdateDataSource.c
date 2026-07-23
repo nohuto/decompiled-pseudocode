@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipUpdateDataSource @ 0x1407FFAC8
+ * XREFs of WmipUpdateDataSource @ 0x1407FFD98
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x14086A70C (WmipProcessWmiRegInfo.c)
+ *     WmipProcessWmiRegInfo @ 0x14086A94C (WmipProcessWmiRegInfo.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     WmipReferenceEntry @ 0x1406C688C (WmipReferenceEntry.c)
- *     WmipUnreferenceEntry @ 0x1406C6FE0 (WmipUnreferenceEntry.c)
- *     WmipUpdateModifyGuid @ 0x1407FFC18 (WmipUpdateModifyGuid.c)
- *     WmipFindISInDSByGuid @ 0x1407FFD0C (WmipFindISInDSByGuid.c)
- *     WmipGenerateBinaryMofNotification @ 0x14085240C (WmipGenerateBinaryMofNotification.c)
- *     WmipCachePtrs @ 0x14086AB28 (WmipCachePtrs.c)
- *     WmipEnableCollectionForNewGuid @ 0x14086ABEC (WmipEnableCollectionForNewGuid.c)
- *     WmipSendGuidUpdateNotifications @ 0x14086ACAC (WmipSendGuidUpdateNotifications.c)
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140882764 (WmipUnlinkInstanceSetFromGuidEntry.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140883414 (WmipDisableCollectionForRemovedGuid.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     WmipReferenceEntry @ 0x1406C68BC (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x1406C7010 (WmipUnreferenceEntry.c)
+ *     WmipUpdateModifyGuid @ 0x1407FFEE8 (WmipUpdateModifyGuid.c)
+ *     WmipFindISInDSByGuid @ 0x1407FFFDC (WmipFindISInDSByGuid.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14085270C (WmipGenerateBinaryMofNotification.c)
+ *     WmipCachePtrs @ 0x14086AD68 (WmipCachePtrs.c)
+ *     WmipEnableCollectionForNewGuid @ 0x14086AE2C (WmipEnableCollectionForNewGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x14086AEEC (WmipSendGuidUpdateNotifications.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x1408829A4 (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140883654 (WmipDisableCollectionForRemovedGuid.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

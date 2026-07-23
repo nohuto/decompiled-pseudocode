@@ -1,22 +1,22 @@
 /*
- * XREFs of PiSwIrpCleanup @ 0x14081A4B4
+ * XREFs of PiSwIrpCleanup @ 0x14081A784
  * Callers:
- *     PiSwDispatch @ 0x14079C620 (PiSwDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
+ *     PiSwDispatch @ 0x14079C810 (PiSwDispatch.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x1405637D4 (McTemplateK0zz_EtwWriteTransfer.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x1405638A4 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBEA4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwCloseDescendants @ 0x140869E0C (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x140869F3C (PiSwFindSwDevice.c)
- *     PiSwCloseDevice @ 0x1409670C0 (PiSwCloseDevice.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x140563E94 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x140563F64 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBED4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwCloseDescendants @ 0x14086A04C (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x14086A17C (PiSwFindSwDevice.c)
+ *     PiSwCloseDevice @ 0x1409672C0 (PiSwCloseDevice.c)
  */
 
 void __fastcall PiSwIrpCleanup(__int64 a1, __int64 a2, __int64 a3)

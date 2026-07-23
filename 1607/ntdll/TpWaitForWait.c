@@ -1,64 +1,54 @@
 /*
- * XREFs of TpWaitForWait @ 0x180064F40
+ * XREFs of TpWaitForWait @ 0x180064F30
  * Callers:
- *     RtlDeregisterWaitEx @ 0x180064430 (RtlDeregisterWaitEx.c)
+ *     RtlDeregisterWaitEx @ 0x180064420 (RtlDeregisterWaitEx.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     TppWorkWait @ 0x18003B878 (TppWorkWait.c)
- *     TppCancelWait @ 0x18003BE78 (TppCancelWait.c)
- *     TppWaitpValidateWait @ 0x18003BF98 (TppWaitpValidateWait.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     TppWorkWait @ 0x18003B868 (TppWorkWait.c)
+ *     TppCancelWait @ 0x18003BE68 (TppCancelWait.c)
+ *     TppWaitpValidateWait @ 0x18003BF88 (TppWaitpValidateWait.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpWaitForWait(__int64 a1, int a2)
+void __cdecl TpWaitForWait(PTP_WAIT Wait, LOGICAL CancelPendingCallbacks)
 {
-  int v3; // esi
+  unsigned int v3; // esi
   char v5; // r14
-  __int64 result; // rax
-  char *v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  char *v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rbx
-  int v14; // esi
-  int v15; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 v8; // rbx
+  unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = 0;
-  v15 = 0;
+  v9 = 0;
   v5 = 0;
-  result = TppWaitpValidateWait(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppWaitpValidateWait((__int64)Wait, 0LL, 0LL) )
   {
-    if ( a2 )
+    if ( CancelPendingCallbacks )
     {
-      v13 = *(_QWORD *)(a1 + 144);
-      RtlAcquireSRWLockExclusive(a1 + 240, v7, v8, v9);
-      ++*(_BYTE *)(a1 + 355);
-      TppCancelWait(a1, v13 + 112, 2, &v15);
-      if ( *(_DWORD *)(a1 + 56) )
+      v8 = *((_QWORD *)Wait + 18);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
+      ++*((_BYTE *)Wait + 355);
+      TppCancelWait((__int64)Wait, v8 + 112, 2, (int *)&v9);
+      if ( *((_DWORD *)Wait + 14) )
         v5 = 1;
       else
-        --*(_BYTE *)(a1 + 355);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-      v3 = v15;
+        --*((_BYTE *)Wait + 355);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
+      v3 = v9;
     }
-    result = TppWorkWait((_QWORD *)a1, a2, v8, v9);
+    TppWorkWait(Wait, CancelPendingCallbacks, v6, v7);
     if ( v5 )
     {
-      RtlAcquireSRWLockExclusive(a1 + 240, v10, v11, v12);
-      --*(_BYTE *)(a1 + 355);
-      result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
+      --*((_BYTE *)Wait + 355);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 30);
     }
     if ( v3 )
     {
-      v14 = -v3;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, -v14);
-      if ( (_DWORD)result == v14 )
-        return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v3) == -v3 )
+        (**((void (__fastcall ***)(PTP_WAIT))Wait + 1))(Wait);
     }
   }
-  return result;
 }

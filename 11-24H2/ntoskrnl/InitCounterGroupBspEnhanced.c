@@ -1,11 +1,11 @@
 /*
- * XREFs of InitCounterGroupBspEnhanced @ 0x140B4CCA8
+ * XREFs of InitCounterGroupBspEnhanced @ 0x140B4ECE8
  * Callers:
- *     DefaultInitializeProfilingEnhanced @ 0x140B4CA48 (DefaultInitializeProfilingEnhanced.c)
+ *     DefaultInitializeProfilingEnhanced @ 0x140B4EA88 (DefaultInitializeProfilingEnhanced.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpMmAllocateMemory @ 0x140542CB4 (HalpMmAllocateMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemory @ 0x140540604 (HalpMmAllocateMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _DWORD *__fastcall InitCounterGroupBspEnhanced(int a1, int a2)

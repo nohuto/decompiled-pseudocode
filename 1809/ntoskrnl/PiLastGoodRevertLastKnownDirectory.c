@@ -1,21 +1,21 @@
 /*
- * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x1409F584C
+ * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x1409F684C
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x1409DAB04 (PpLastGoodDoBootProcessing.c)
+ *     PpLastGoodDoBootProcessing @ 0x1409DBB04 (PpLastGoodDoBootProcessing.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1401B83F0 (ZwEnumerateValueKey.c)
- *     ZwDeleteFile @ 0x1401B9B30 (ZwDeleteFile.c)
- *     ZwDeleteKey @ 0x1401B9B50 (ZwDeleteKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopFileUtilClearAttributes @ 0x14083CCC8 (IopFileUtilClearAttributes.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x1409F62C4 (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1401B8550 (ZwEnumerateValueKey.c)
+ *     ZwDeleteFile @ 0x1401B9C90 (ZwDeleteFile.c)
+ *     ZwDeleteKey @ 0x1401B9CB0 (ZwDeleteKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopFileUtilClearAttributes @ 0x14083DF28 (IopFileUtilClearAttributes.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x1409F72C4 (IopFileUtilWalkDirectoryTreeTopDown.c)
  */
 
 void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a2)

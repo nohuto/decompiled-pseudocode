@@ -1,37 +1,41 @@
 /*
- * XREFs of NtCreatePrivateNamespace @ 0x1407C88A0
+ * XREFs of NtCreatePrivateNamespace @ 0x1407C8B70
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ObpVerifyCreatorAccessCheck @ 0x1407C8B08 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCaptureBoundaryDescriptor @ 0x1407C8CB4 (ObpCaptureBoundaryDescriptor.c)
- *     ObpRegisterPrivateNamespace @ 0x1407C9150 (ObpRegisterPrivateNamespace.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x1407C8DD8 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x1407C8F84 (ObpCaptureBoundaryDescriptor.c)
+ *     ObpRegisterPrivateNamespace @ 0x1407C9420 (ObpRegisterPrivateNamespace.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, __int64 a3, void *a4)
+NTSTATUS __cdecl NtCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
   char PreviousMode; // si
   __int64 v8; // rcx
-  __int64 result; // rax
-  int v10; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v10; // ebx
   unsigned __int64 v11; // rbx
   int v12; // eax
   _QWORD *v13; // r14
   unsigned __int64 v14; // rbx
   size_t v15; // r8
   __int64 v16; // rcx
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   void *CurrentServerSiloGlobals; // rsi
   struct _KTHREAD *CurrentThread; // rcx
   _QWORD *v20; // rax
@@ -49,12 +53,12 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, __int64 a3, voi
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a1;
+    if ( (unsigned __int64)NamespaceHandle < 0x7FFFFFFF0000LL )
+      v8 = (__int64)NamespaceHandle;
     *(_QWORD *)v8 = *(_QWORD *)v8;
   }
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     v10 = ObpVerifyCreatorAccessCheck(48LL);
     if ( v10 >= 0 )
@@ -69,7 +73,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, __int64 a3, voi
         v12 = ObCreateObjectEx(
                 PreviousMode,
                 ObpDirectoryObjectType,
-                a3,
+                (__int64)ObjectAttributes,
                 PreviousMode,
                 v25,
                 MEMORY[0x18] + 392,
@@ -107,7 +111,7 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, __int64 a3, voi
             if ( inserted >= 0 )
             {
               ObfReferenceObject(v13);
-              inserted = ObInsertObjectEx((char *)v13, 0LL, a2, 0, 0, 0LL, &v27);
+              inserted = ObInsertObjectEx((char *)v13, 0LL, DesiredAccess, 0, 0, 0LL, &v27);
               CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
@@ -127,8 +131,8 @@ LABEL_16:
                   ExReleasePushLockEx((__int64 *)CurrentServerSiloGlobals + 90, 0LL);
                   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
                   if ( inserted >= 0 )
-                    *a1 = v27;
-                  return (unsigned int)inserted;
+                    *NamespaceHandle = (HANDLE)v27;
+                  return inserted;
                 }
               }
               else
@@ -153,13 +157,13 @@ LABEL_16:
             }
           }
           ObfDereferenceObject(v13);
-          return (unsigned int)inserted;
+          return inserted;
         }
         v10 = v12;
       }
     }
     ExFreePoolWithTag(0LL, 0x534E624Fu);
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

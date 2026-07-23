@@ -11,7 +11,7 @@
 __int64 __fastcall ExpFlushGeneralLookaside(__int64 a1)
 {
   PSLIST_ENTRY v2; // rcx
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
 
   v2 = RtlpInterlockedFlushSList((PSLIST_HEADER)a1);
   if ( v2 )

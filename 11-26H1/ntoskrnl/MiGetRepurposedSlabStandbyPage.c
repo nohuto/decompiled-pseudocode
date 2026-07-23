@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetRepurposedSlabStandbyPage @ 0x140369680
+ * XREFs of MiGetRepurposedSlabStandbyPage @ 0x14036B420
  * Callers:
- *     MiGetPageFromSlabAllocator @ 0x14033A4BC (MiGetPageFromSlabAllocator.c)
+ *     MiGetPageFromSlabAllocator @ 0x14033C53C (MiGetPageFromSlabAllocator.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiLockPageListAndFirstPage @ 0x140369804 (MiLockPageListAndFirstPage.c)
- *     MiReInitializeFreeSlabPfn @ 0x140369C98 (MiReInitializeFreeSlabPfn.c)
- *     MiReleasePageListLock @ 0x140369F10 (MiReleasePageListLock.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiLockPageListAndFirstPage @ 0x14036B5A4 (MiLockPageListAndFirstPage.c)
+ *     MiReInitializeFreeSlabPfn @ 0x14036BA38 (MiReInitializeFreeSlabPfn.c)
+ *     MiReleasePageListLock @ 0x14036BCB0 (MiReleasePageListLock.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiGetRepurposedSlabStandbyPage(__int64 a1)

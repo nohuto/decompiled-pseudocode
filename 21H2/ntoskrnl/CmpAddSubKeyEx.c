@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAddSubKeyEx @ 0x140668BE4
+ * XREFs of CmpAddSubKeyEx @ 0x14065DA04
  * Callers:
- *     CmpCopySyncTree2 @ 0x140878590 (CmpCopySyncTree2.c)
- *     CmpAddSubKey @ 0x14087A398 (CmpAddSubKey.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x14087FF34 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpCopySyncTree2 @ 0x1408786F0 (CmpCopySyncTree2.c)
+ *     CmpAddSubKey @ 0x14087A4F8 (CmpAddSubKey.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140880094 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpAddSubKeyToList @ 0x140669DA0 (CmpAddSubKeyToList.c)
- *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
- *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpAddSubKeyToList @ 0x14065EBC0 (CmpAddSubKeyToList.c)
+ *     HvAllocateCell @ 0x1407207E4 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
+ *     HvMarkCellDirty @ 0x14087BE48 (HvMarkCellDirty.c)
  */
 
 char __fastcall CmpAddSubKeyEx(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3, unsigned int a4)

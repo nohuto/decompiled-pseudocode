@@ -3,16 +3,16 @@
  * Callers:
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiPageToChannel @ 0x14001BA40 (MiPageToChannel.c)
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInitializeUnusablePfns @ 0x14013B380 (MiInitializeUnusablePfns.c)
- *     MiRestrictRangeToNode @ 0x14013B608 (MiRestrictRangeToNode.c)
- *     RtlCompareMemoryUlong @ 0x1401674E0 (RtlCompareMemoryUlong.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiInitializeLargePageNodeLists @ 0x14054F598 (MiInitializeLargePageNodeLists.c)
+ *     MiPageToChannel @ 0x14001B5C0 (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInitializeUnusablePfns @ 0x14013B8F0 (MiInitializeUnusablePfns.c)
+ *     MiRestrictRangeToNode @ 0x14013BB78 (MiRestrictRangeToNode.c)
+ *     RtlCompareMemoryUlong @ 0x140167A50 (RtlCompareMemoryUlong.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiInitializeLargePageNodeLists @ 0x14054FAD8 (MiInitializeLargePageNodeLists.c)
  *     MiCreateFreePfns @ 0x140796948 (MiCreateFreePfns.c)
  */
 
@@ -40,10 +40,10 @@ __int64 __fastcall MiSwitchToPfns(__int64 a1)
   _BYTE v22[16]; // [rsp+70h] [rbp+70h] BYREF
 
   v1 = (__int64 **)((unsigned __int64)v22 & 0xFFFFFFFFFFFFFFC0uLL);
-  v3 = MmPfnDatabase + 48 * qword_140324DC0;
-  if ( !qword_140324DC0 && !*(_WORD *)(v3 + 32) )
+  v3 = MmPfnDatabase + 48 * qword_140324E00;
+  if ( !qword_140324E00 && !*(_WORD *)(v3 + 32) )
   {
-    v4 = (unsigned __int8)MiLockPageInline(MmPfnDatabase + 48 * qword_140324DC0);
+    v4 = (unsigned __int8)MiLockPageInline(MmPfnDatabase + 48 * qword_140324E00);
     *(_QWORD *)(v3 + 40) &= 0xFFFFFFF000000000uLL;
     v5 = *(_QWORD *)(v3 + 24);
     *(_QWORD *)(v3 + 8) = 0xFFFFF68000000000uLL;

@@ -6,11 +6,18 @@
  *     <none>
  */
 
-__int64 NtCreateWnfStateName()
+NTSTATUS __cdecl NtCreateWnfStateName(
+        PWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_LIFETIME NameLifetime,
+        WNF_DATA_SCOPE DataScope,
+        BOOLEAN PersistData,
+        PCWNF_TYPE_ID TypeId,
+        ULONG MaximumStateSize,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 190LL;
+  result = 190;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,25 +1,29 @@
 /*
- * XREFs of NtSetInformationProcess @ 0x180162010
+ * XREFs of NtSetInformationProcess @ 0x1801603D0
  * Callers:
- *     RtlAddGrowableFunctionTable @ 0x180006BA0 (RtlAddGrowableFunctionTable.c)
- *     LdrpHandleTlsData @ 0x180008200 (LdrpHandleTlsData.c)
- *     RtlDeleteGrowableFunctionTable @ 0x1800E76F0 (RtlDeleteGrowableFunctionTable.c)
- *     RtlCreateUserStack @ 0x1800F51C0 (RtlCreateUserStack.c)
- *     LdrpAllocateSchedulerSharedData @ 0x1800F9A50 (LdrpAllocateSchedulerSharedData.c)
- *     RtlCreateUserFiberShadowStack @ 0x180107170 (RtlCreateUserFiberShadowStack.c)
- *     RtlFreeUserFiberShadowStack @ 0x18010CE40 (RtlFreeUserFiberShadowStack.c)
- *     WerpSetProcessFaultInformation @ 0x180113E80 (WerpSetProcessFaultInformation.c)
- *     AVrfpEnableHandleVerifier @ 0x180131DD8 (AVrfpEnableHandleVerifier.c)
- *     RtlSetProcessIsCritical @ 0x180145BC0 (RtlSetProcessIsCritical.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x1800279B0 (RtlDeleteGrowableFunctionTable.c)
+ *     RtlAddGrowableFunctionTable @ 0x1800335A0 (RtlAddGrowableFunctionTable.c)
+ *     LdrpHandleTlsData @ 0x180034C00 (LdrpHandleTlsData.c)
+ *     RtlCreateUserStack @ 0x1800EFCE0 (RtlCreateUserStack.c)
+ *     LdrpAllocateSchedulerSharedData @ 0x1800F4700 (LdrpAllocateSchedulerSharedData.c)
+ *     RtlCreateUserFiberShadowStack @ 0x1801020A0 (RtlCreateUserFiberShadowStack.c)
+ *     RtlFreeUserFiberShadowStack @ 0x180107C90 (RtlFreeUserFiberShadowStack.c)
+ *     WerpSetProcessFaultInformation @ 0x18010F180 (WerpSetProcessFaultInformation.c)
+ *     AVrfpEnableHandleVerifier @ 0x180130008 (AVrfpEnableHandleVerifier.c)
+ *     RtlSetProcessIsCritical @ 0x180143F70 (RtlSetProcessIsCritical.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationProcess()
+NTSTATUS __cdecl NtSetInformationProcess(
+        HANDLE ProcessHandle,
+        PROCESSINFOCLASS ProcessInformationClass,
+        PVOID ProcessInformation,
+        ULONG ProcessInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 28LL;
+  result = 28;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

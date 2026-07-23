@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuGetAcpiDeviceMapCount @ 0x14058D9B4
+ * XREFs of HalpIommuGetAcpiDeviceMapCount @ 0x140590134
  * Callers:
- *     HalpIommuUnblockDevice @ 0x14050C0A0 (HalpIommuUnblockDevice.c)
- *     HalpIommuDmaRemappingCapable @ 0x14058D730 (HalpIommuDmaRemappingCapable.c)
+ *     HalpIommuUnblockDevice @ 0x140505B10 (HalpIommuUnblockDevice.c)
+ *     HalpIommuDmaRemappingCapable @ 0x14058FEB0 (HalpIommuDmaRemappingCapable.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuGetAcpiDeviceMapCount(__int64 a1)

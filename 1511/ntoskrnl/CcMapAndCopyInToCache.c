@@ -38,7 +38,7 @@ char __fastcall CcMapAndCopyInToCache(
   int v10; // esi
   int v11; // eax
   bool v12; // r13
-  struct _SLIST_ENTRY *v13; // rdi
+  _SLIST_ENTRY *v13; // rdi
   __int64 v14; // rbx
   char v15; // r15
   struct _KTHREAD *v16; // rcx
@@ -79,7 +79,7 @@ char __fastcall CcMapAndCopyInToCache(
   struct _KEVENT *v52; // rcx
   KIRQL v53; // al
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v55; // rax
+  _SLIST_ENTRY **v55; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   _GENERAL_LOOKASIDE *P; // r8
   BOOLEAN v58; // al
@@ -176,7 +176,7 @@ LABEL_6:
     if ( (v9[38] & 0x20) != 0 )
     {
       KeAcquireQueuedSpinLockAtDpcLevel((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 128);
-      v13 = (struct _SLIST_ENTRY *)*((_QWORD *)v9 + 62);
+      v13 = (_SLIST_ENTRY *)*((_QWORD *)v9 + 62);
       if ( !v13 )
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)KeGetPcr()->NtTib.ArbitraryUserPointer + 16);
@@ -185,7 +185,7 @@ LABEL_6:
         RtlRaiseStatus(-1073741608);
       }
       Next = v13->Next;
-      v55 = (struct _SLIST_ENTRY **)*((_QWORD *)&v13->Next + 1);
+      v55 = (_SLIST_ENTRY **)*((_QWORD *)&v13->Next + 1);
       if ( *(&v13->Next->Next + 1) != v13 || *v55 != v13 )
         __fastfail(3u);
       *v55 = Next;
@@ -219,7 +219,7 @@ LABEL_6:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v13);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v13);
     }
     v14 = v67;
   }

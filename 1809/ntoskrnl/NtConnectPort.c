@@ -1,9 +1,9 @@
 /*
- * XREFs of NtConnectPort @ 0x1406A5AD0
+ * XREFs of NtConnectPort @ 0x1406A6D70
  * Callers:
  *     <none>
  * Callees:
- *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1406A6DC0 (NtSecureConnectPort.c)
  */
 
 NTSTATUS __stdcall NtConnectPort(

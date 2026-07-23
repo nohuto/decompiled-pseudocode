@@ -18,18 +18,18 @@
  *     ExRaiseAccessViolation @ 0x140936B90 (ExRaiseAccessViolation.c)
  */
 
-__int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2, _DWORD *a3)
+NTSTATUS __cdecl NtQuerySymbolicLinkObject(HANDLE LinkHandle, PUNICODE_STRING LinkTarget, PULONG ReturnedLength)
 {
   unsigned int v6; // r13d
   KPROCESSOR_MODE PreviousMode; // r9
   __int64 v8; // r8
   __int64 v9; // rcx
-  __int64 v10; // rcx
-  __int128 v11; // xmm0
+  __int64 p_MaximumLength; // rcx
+  UNICODE_STRING v11; // xmm0
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rdx
   unsigned __int64 v14; // rdx
-  NTSTATUS v15; // r15d
+  int v15; // r15d
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v17; // rdi
   __int64 *v18; // rax
@@ -48,23 +48,23 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a2 & 1) != 0 )
+    if ( ((unsigned __int8)LinkTarget & 1) != 0 )
       ExRaiseDatatypeMisalignment();
     v8 = 0x7FFFFFFF0000LL;
     v9 = 0x7FFFFFFF0000LL;
-    if ( a2 < 0x7FFFFFFF0000LL )
-      v9 = a2;
+    if ( (unsigned __int64)LinkTarget < 0x7FFFFFFF0000LL )
+      v9 = (__int64)LinkTarget;
     *(_WORD *)v9 = *(_WORD *)v9;
-    v10 = a2 + 2;
-    if ( a2 + 2 >= 0x7FFFFFFF0000LL )
-      v10 = 0x7FFFFFFF0000LL;
-    *(_WORD *)v10 = *(_WORD *)v10;
-    v11 = *(_OWORD *)a2;
-    *(_OWORD *)v26 = v11;
-    if ( WORD1(v11) )
+    p_MaximumLength = (__int64)&LinkTarget->MaximumLength;
+    if ( (unsigned __int64)&LinkTarget->MaximumLength >= 0x7FFFFFFF0000LL )
+      p_MaximumLength = 0x7FFFFFFF0000LL;
+    *(_WORD *)p_MaximumLength = *(_WORD *)p_MaximumLength;
+    v11 = *LinkTarget;
+    *(UNICODE_STRING *)v26 = v11;
+    if ( v11.MaximumLength )
     {
       v12 = (unsigned __int64)v26[1];
-      v13 = (unsigned __int64)v26[1] + WORD1(v11) - 1;
+      v13 = (unsigned __int64)v26[1] + v11.MaximumLength - 1;
       if ( v13 >= 0x7FFFFFFF0000LL || v26[1] > (void *)v13 )
         ExRaiseAccessViolation();
       v14 = (v13 & 0xFFFFFFFFFFFFF000uLL) + 4096;
@@ -75,19 +75,19 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
       }
       while ( v12 != v14 );
     }
-    if ( a3 )
+    if ( ReturnedLength )
     {
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v8 = (__int64)a3;
+      if ( (unsigned __int64)ReturnedLength < 0x7FFFFFFF0000LL )
+        v8 = (__int64)ReturnedLength;
       *(_DWORD *)v8 = *(_DWORD *)v8;
     }
   }
   else
   {
-    *(_OWORD *)v26 = *(_OWORD *)a2;
+    *(UNICODE_STRING *)v26 = *LinkTarget;
   }
   Object[0] = 0LL;
-  v15 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)ObpSymbolicLinkObjectType, PreviousMode, Object, 0LL);
+  v15 = ObReferenceObjectByHandle(LinkHandle, 1u, (POBJECT_TYPE)ObpSymbolicLinkObjectType, PreviousMode, Object, 0LL);
   if ( v15 >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -105,7 +105,7 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
     else
       *(_OWORD *)Src = *(_OWORD *)((char *)Object[0] + 8);
     v20 = (int)Src[0];
-    if ( a3 )
+    if ( ReturnedLength )
     {
       if ( WORD1(Src[0]) <= WORD1(v26[0]) )
       {
@@ -113,15 +113,15 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
 LABEL_29:
         if ( v15 < 0 )
         {
-          if ( a3 )
-            *a3 = WORD1(Src[0]);
+          if ( ReturnedLength )
+            *ReturnedLength = WORD1(Src[0]);
         }
         else
         {
           memmove(v26[1], Src[1], v6);
-          *(_WORD *)a2 = v20;
-          if ( a3 )
-            *a3 = HIWORD(v20);
+          LinkTarget->Length = v20;
+          if ( ReturnedLength )
+            *ReturnedLength = HIWORD(v20);
         }
         _m_prefetchw(v17);
         v21 = *v17;
@@ -136,7 +136,7 @@ LABEL_29:
         KeAbPostRelease((ULONG_PTR)v17);
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         ObfDereferenceObject(Object[0]);
-        return (unsigned int)v15;
+        return v15;
       }
     }
     else if ( LOWORD(Src[0]) <= WORD1(v26[0]) )
@@ -147,5 +147,5 @@ LABEL_29:
     v15 = -1073741789;
     goto LABEL_29;
   }
-  return (unsigned int)v15;
+  return v15;
 }

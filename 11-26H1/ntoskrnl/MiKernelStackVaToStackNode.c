@@ -1,13 +1,13 @@
 /*
- * XREFs of MiKernelStackVaToStackNode @ 0x1402A2024
+ * XREFs of MiKernelStackVaToStackNode @ 0x1402A1574
  * Callers:
- *     MiInPageSingleKernelStack @ 0x1402A0214 (MiInPageSingleKernelStack.c)
- *     MiEvaluatePageFileRead @ 0x140370440 (MiEvaluatePageFileRead.c)
+ *     MiInPageSingleKernelStack @ 0x14029F764 (MiInPageSingleKernelStack.c)
+ *     MiEvaluatePageFileRead @ 0x1403721F0 (MiEvaluatePageFileRead.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1, int a2)
@@ -18,13 +18,13 @@ _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1, int a2)
   if ( a2 )
   {
     v3 = 17;
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E34B98);
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E34D18);
   }
   else
   {
-    v3 = ExAcquireSpinLockShared(&dword_140E34B98);
+    v3 = ExAcquireSpinLockShared(&dword_140E34D18);
   }
-  v4 = (_QWORD *)qword_140E34B90;
+  v4 = (_QWORD *)qword_140E34D10;
   while ( v4 )
   {
     if ( a1 > v4[3] )
@@ -39,8 +39,8 @@ _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1, int a2)
     }
   }
   if ( v3 == 17 )
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E34B98);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E34D18);
   else
-    ExReleaseSpinLockShared(&dword_140E34B98, v3);
+    ExReleaseSpinLockShared(&dword_140E34D18, v3);
   return v4;
 }

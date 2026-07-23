@@ -1,16 +1,16 @@
 /*
- * XREFs of SymCryptEcpointTransform @ 0x1405647A4
+ * XREFs of SymCryptEcpointTransform @ 0x140566B94
  * Callers:
- *     SymCryptEcpointGetValue @ 0x14056440C (SymCryptEcpointGetValue.c)
- *     SymCryptEcpointSetValue @ 0x1405645A0 (SymCryptEcpointSetValue.c)
+ *     SymCryptEcpointGetValue @ 0x1405667FC (SymCryptEcpointGetValue.c)
+ *     SymCryptEcpointSetValue @ 0x140566990 (SymCryptEcpointSetValue.c)
  * Callees:
- *     SymCryptModElementCopy @ 0x14055C56C (SymCryptModElementCopy.c)
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
- *     SymCryptModElementIsZero @ 0x14055C5E8 (SymCryptModElementIsZero.c)
- *     SymCryptModElementSetValueUint32 @ 0x14055C6C4 (SymCryptModElementSetValueUint32.c)
- *     SymCryptModInv @ 0x14055C7F0 (SymCryptModInv.c)
- *     SymCryptModMul @ 0x14055C82C (SymCryptModMul.c)
- *     SymCryptEcpointCopy @ 0x140564310 (SymCryptEcpointCopy.c)
+ *     SymCryptModElementCopy @ 0x14055EA54 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsZero @ 0x14055EAD0 (SymCryptModElementIsZero.c)
+ *     SymCryptModElementSetValueUint32 @ 0x14055EBAC (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModInv @ 0x14055ECD8 (SymCryptModInv.c)
+ *     SymCryptModMul @ 0x14055ED14 (SymCryptModMul.c)
+ *     SymCryptEcpointCopy @ 0x140566700 (SymCryptEcpointCopy.c)
  */
 
 __int64 __fastcall SymCryptEcpointTransform(

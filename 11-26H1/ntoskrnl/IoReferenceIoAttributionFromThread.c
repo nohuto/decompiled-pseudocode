@@ -1,20 +1,20 @@
 /*
- * XREFs of IoReferenceIoAttributionFromThread @ 0x14026CAD0
+ * XREFs of IoReferenceIoAttributionFromThread @ 0x14026C040
  * Callers:
- *     CcCopyReadEx @ 0x14021CC00 (CcCopyReadEx.c)
- *     CcScheduleReadAheadNuma @ 0x14021D0F8 (CcScheduleReadAheadNuma.c)
- *     CcMapAndCopyInToCache @ 0x14026D270 (CcMapAndCopyInToCache.c)
- *     MiCheckAndUpdateIoAttribution @ 0x14026DF30 (MiCheckAndUpdateIoAttribution.c)
- *     CcAsyncCopyRead @ 0x1403877D0 (CcAsyncCopyRead.c)
+ *     CcCopyReadEx @ 0x14021E590 (CcCopyReadEx.c)
+ *     CcScheduleReadAheadNuma @ 0x14021EA88 (CcScheduleReadAheadNuma.c)
+ *     CcMapAndCopyInToCache @ 0x14026C7E0 (CcMapAndCopyInToCache.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x14026D4A0 (MiCheckAndUpdateIoAttribution.c)
+ *     CcAsyncCopyRead @ 0x140389580 (CcAsyncCopyRead.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IoReferenceIoAttributionFromThread(struct _KTHREAD *a1, _QWORD *a2)
@@ -41,7 +41,7 @@ __int64 __fastcall IoReferenceIoAttributionFromThread(struct _KTHREAD *a1, _QWOR
   {
     if ( a1 == KeGetCurrentThread() )
       goto LABEL_10;
-    v15 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime);
+    v15 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument);
     Object = *(_QWORD *)(v5 + 1616);
     v16 = v15;
     if ( Object )
@@ -49,7 +49,7 @@ __int64 __fastcall IoReferenceIoAttributionFromThread(struct _KTHREAD *a1, _QWOR
       ObfReferenceObjectWithTag(*(PVOID *)(v5 + 1616), 0x746C6644u);
       v3 = 1;
     }
-    ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime, v16);
+    ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument, v16);
     if ( Object )
 LABEL_10:
       v5 = Object;
@@ -57,7 +57,7 @@ LABEL_10:
   v6 = *(_QWORD *)(v5 + 544);
   if ( *(_QWORD *)(v6 + 1752) )
   {
-    v12 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&IopSessionNotificationLock.TrapFrame + 1);
+    v12 = ExAcquireSpinLockShared(&IopDiskIoAttributionLock);
     v13 = *(_QWORD *)(v6 + 1752);
     v14 = v12;
     if ( v13 )
@@ -66,14 +66,14 @@ LABEL_10:
         __fastfail(0xEu);
       *a2 = v13;
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
-      _InterlockedAnd((_DWORD *)&IopSessionNotificationLock.TrapFrame + 1, 0xBFFFFFFF);
-      _InterlockedDecrement((_DWORD *)&IopSessionNotificationLock.TrapFrame + 1);
+      _InterlockedAnd(&IopDiskIoAttributionLock, 0xBFFFFFFF);
+      _InterlockedDecrement(&IopDiskIoAttributionLock);
     }
     else
     {
-      ExpReleaseSpinLockSharedFromDpcLevelInstrumented((char *)&IopSessionNotificationLock.TrapFrame + 4, retaddr);
+      ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&IopDiskIoAttributionLock, retaddr);
     }
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v14);

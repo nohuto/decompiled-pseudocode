@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInsertDecayClusterTimer @ 0x1400999F0
+ * XREFs of MiInsertDecayClusterTimer @ 0x1400991F0
  * Callers:
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 unsigned __int64 __fastcall MiInsertDecayClusterTimer(__int64 a1)
@@ -27,7 +27,7 @@ unsigned __int64 __fastcall MiInsertDecayClusterTimer(__int64 a1)
   if ( v7 == 0x7FFFFFFF )
     result = (v2 << 33) | result & 0x1FFFFFFFFLL;
   else
-    *(_QWORD *)(48 * (qword_140327360 + v7) - 0x58000000000LL + 8) = *(_QWORD *)(48 * (qword_140327360 + v7)
+    *(_QWORD *)(48 * (qword_1403273A0 + v7) - 0x58000000000LL + 8) = *(_QWORD *)(48 * (qword_1403273A0 + v7)
                                                                                - 0x58000000000LL
                                                                                + 8) & 0x1FFFFFFFFLL | (v2 << 33);
   *((_QWORD *)v5 + 529) = result ^ (result ^ (2 * v2)) & 0xFFFFFFFE;

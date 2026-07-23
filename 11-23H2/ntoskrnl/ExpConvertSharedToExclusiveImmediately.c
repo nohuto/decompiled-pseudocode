@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpConvertSharedToExclusiveImmediately @ 0x1404154A8
+ * XREFs of ExpConvertSharedToExclusiveImmediately @ 0x14041583C
  * Callers:
- *     ExTryToConvertFastResourceSharedToExclusive2 @ 0x140414598 (ExTryToConvertFastResourceSharedToExclusive2.c)
+ *     ExTryToConvertFastResourceSharedToExclusive2 @ 0x14041492C (ExTryToConvertFastResourceSharedToExclusive2.c)
  * Callees:
- *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415270 (ExpAddFastOwnerEntryToThreadList2.c)
- *     ExpRemoveEntryListAndClear2 @ 0x14041676C (ExpRemoveEntryListAndClear2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415604 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x140416B00 (ExpRemoveEntryListAndClear2.c)
  */
 
 void __fastcall ExpConvertSharedToExclusiveImmediately(__int64 a1, __int64 a2, __int64 a3)
@@ -38,7 +38,7 @@ void __fastcall ExpConvertSharedToExclusiveImmediately(__int64 a1, __int64 a2, _
       }
       while ( v10 != v9 );
       if ( (v9 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
     _enable();
   }

@@ -1,20 +1,20 @@
 /*
- * XREFs of NtSetSecurityObject @ 0x140520B3C
+ * XREFs of NtSetSecurityObject @ 0x140503BA4
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x14052A01C (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlpSysVolTakeOwnership @ 0x140688D98 (RtlpSysVolTakeOwnership.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x14052A55C (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolTakeOwnership @ 0x140688E7C (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlGetSaclSecurityDescriptor @ 0x1403F6FEC (RtlGetSaclSecurityDescriptor.c)
- *     ObSetSecurityObjectByPointer @ 0x1404072C4 (ObSetSecurityObjectByPointer.c)
- *     SeCaptureSecurityDescriptor @ 0x140420EC0 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x14044DB84 (SeReleaseSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SeSetSecurityAccessMask @ 0x140520E44 (SeSetSecurityAccessMask.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x140520EA8 (SeSecurityDescriptorChangedAuditAlarm.c)
- *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x140521130 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
- *     SepRmGlobalSaclFind @ 0x140695604 (SepRmGlobalSaclFind.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1403F5EAC (RtlGetSaclSecurityDescriptor.c)
+ *     ObSetSecurityObjectByPointer @ 0x140406184 (ObSetSecurityObjectByPointer.c)
+ *     SeCaptureSecurityDescriptor @ 0x14041FD80 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x14044CA54 (SeReleaseSecurityDescriptor.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SeSetSecurityAccessMask @ 0x140503EAC (SeSetSecurityAccessMask.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140503F10 (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x140504198 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
+ *     SepRmGlobalSaclFind @ 0x1406956E8 (SepRmGlobalSaclFind.c)
  */
 
 NTSTATUS __stdcall NtSetSecurityObject(

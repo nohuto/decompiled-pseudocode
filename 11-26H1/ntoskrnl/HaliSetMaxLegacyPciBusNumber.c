@@ -1,5 +1,5 @@
 /*
- * XREFs of HaliSetMaxLegacyPciBusNumber @ 0x1404D8D40
+ * XREFs of HaliSetMaxLegacyPciBusNumber @ 0x1404D2420
  * Callers:
  *     <none>
  * Callees:

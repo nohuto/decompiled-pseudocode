@@ -1,25 +1,25 @@
 /*
- * XREFs of MiResolveProtoCombine @ 0x1402E3AF8
+ * XREFs of MiResolveProtoCombine @ 0x1402E3D88
  * Callers:
  *     MiCombineWithExisting @ 0x1402179B4 (MiCombineWithExisting.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
  *     MiLockLeafPage @ 0x140218410 (MiLockLeafPage.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiCaptureDirtyBitToPfn @ 0x140283100 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiMakeTransitionPteValid @ 0x140334FD0 (MiMakeTransitionPteValid.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140283390 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiMakeTransitionPteValid @ 0x140335260 (MiMakeTransitionPteValid.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
  */
 
 __int64 __fastcall MiResolveProtoCombine(unsigned __int64 *a1, __int64 a2, unsigned __int64 *a3)

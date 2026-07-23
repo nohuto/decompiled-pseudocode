@@ -3,9 +3,9 @@
  * Callers:
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     PpmHvConsiderNative @ 0x140139B44 (PpmHvConsiderNative.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     PpmHvConsiderNative @ 0x14013A0B4 (PpmHvConsiderNative.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 char __fastcall PoInitializePrcb(char *DeferredContext)

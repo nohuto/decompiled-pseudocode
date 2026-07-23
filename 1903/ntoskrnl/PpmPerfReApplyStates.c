@@ -11,11 +11,8 @@
 
 __int64 PpmPerfReApplyStates()
 {
-  __int64 v0; // rdx
-  __int64 v1; // r8
-
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PpmPerfSetAllDomainsToUpdate();
   PpmUpdateProcessorPolicy(&PpmAllowedActions, 0LL);
-  return PpmCheckCustomRun(2u, v0, v1);
+  return PpmCheckCustomRun(2);
 }

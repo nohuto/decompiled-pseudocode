@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecrementSubsections @ 0x1403719B0
+ * XREFs of MiDecrementSubsections @ 0x140259D70
  * Callers:
- *     MiAddViewsForSection @ 0x14020DA70 (MiAddViewsForSection.c)
- *     MiReleaseFaultCharges @ 0x14037040C (MiReleaseFaultCharges.c)
- *     MmPurgeSection @ 0x1403704CC (MmPurgeSection.c)
- *     MiUpControlAreaRefs @ 0x1404172CC (MiUpControlAreaRefs.c)
- *     MiUpdateActiveSubsection @ 0x140678F84 (MiUpdateActiveSubsection.c)
+ *     MiAddViewsForSection @ 0x140336DD0 (MiAddViewsForSection.c)
+ *     MmPurgeSection @ 0x1403F06F0 (MmPurgeSection.c)
+ *     MiReleaseFaultCharges @ 0x140427624 (MiReleaseFaultCharges.c)
+ *     MiUpControlAreaRefs @ 0x1404B355C (MiUpControlAreaRefs.c)
+ *     MiUpdateActiveSubsection @ 0x14067A164 (MiUpdateActiveSubsection.c)
  * Callees:
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14036F2F8 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x14036F3BC (MiComputeCrossPartitionSectionCharges.c)
- *     MiInsertUnusedSubsection @ 0x140371BB0 (MiInsertUnusedSubsection.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F9F3C (MiUpdateSubsectionCrossPartitionRefs.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiInsertUnusedSubsection @ 0x140259F70 (MiInsertUnusedSubsection.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14026B278 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x1404C8FF8 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F781C (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)
@@ -26,8 +26,7 @@ __int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 
   __int64 v13; // rax
   __int64 SubsectionHoldingCrossPartitionReferences; // rax
   int v15; // r11d
-  __int64 *v16; // rcx
-  int v17; // r11d
+  int v16; // r11d
 
   v5 = BugCheckParameter2;
   v6 = 0LL;
@@ -55,9 +54,9 @@ __int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 
         else
           v12 = a3 < 0
               ? &MiSystemPartition
-              : (ULONG *)*((_QWORD *)qword_140E2FF88
+              : (ULONG *)*((_QWORD *)qword_140E300C8
                          + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-        if ( v12 != *((ULONG **)qword_140E2FF88 + (*(_WORD *)(v9 + 60) & 0x3FF)) )
+        if ( v12 != *((ULONG **)qword_140E300C8 + (*(_WORD *)(v9 + 60) & 0x3FF)) )
         {
           SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(v5);
           v15 = *(_DWORD *)(MiGetSubsectionHoldingCrossPartitionReferences(SubsectionHoldingCrossPartitionReferences)
@@ -65,8 +64,8 @@ __int64 __fastcall MiDecrementSubsections(ULONG_PTR BugCheckParameter2, __int64 
           if ( v15 != 0x3FFFFFFF )
           {
             MiUpdateSubsectionCrossPartitionRefs(v10, (unsigned int)(v15 - 1));
-            if ( v17 == 1 )
-              v11 = MiComputeCrossPartitionSectionCharges(v16);
+            if ( v16 == 1 )
+              v11 = MiComputeCrossPartitionSectionCharges();
           }
         }
       }

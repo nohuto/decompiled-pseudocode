@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpPerformSingleKcbCacheLookup @ 0x1404A0334
+ * XREFs of CmpPerformSingleKcbCacheLookup @ 0x140518740
  * Callers:
- *     CmpPerformCompleteKcbCacheLookup @ 0x1404A000C (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140518418 (CmpPerformCompleteKcbCacheLookup.c)
  * Callees:
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140087D10 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpGetComponentNameAtIndex @ 0x1404047F0 (CmpGetComponentNameAtIndex.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x140404978 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpFindKcbInHashEntryByName @ 0x140436C74 (CmpFindKcbInHashEntryByName.c)
- *     CmpUnlockHashEntry @ 0x140437EC0 (CmpUnlockHashEntry.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpLockHashEntryShared @ 0x1404A0480 (CmpLockHashEntryShared.c)
- *     CmpGetComponentHashAtIndex @ 0x1404A0524 (CmpGetComponentHashAtIndex.c)
- *     CmpReferenceKeyControlBlock @ 0x1404A0538 (CmpReferenceKeyControlBlock.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14010BF00 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpGetComponentNameAtIndex @ 0x1404036B0 (CmpGetComponentNameAtIndex.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x140403838 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpFindKcbInHashEntryByName @ 0x140435B44 (CmpFindKcbInHashEntryByName.c)
+ *     CmpUnlockHashEntry @ 0x140436D90 (CmpUnlockHashEntry.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpLockHashEntryShared @ 0x14051888C (CmpLockHashEntryShared.c)
+ *     CmpGetComponentHashAtIndex @ 0x140518930 (CmpGetComponentHashAtIndex.c)
+ *     CmpReferenceKeyControlBlock @ 0x140518944 (CmpReferenceKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpPerformSingleKcbCacheLookup(

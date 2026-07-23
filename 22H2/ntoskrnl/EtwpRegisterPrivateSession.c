@@ -20,19 +20,19 @@
 
 __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _WORD *a3, _DWORD *a4)
 {
-  unsigned __int64 *v4; // r13
+  _RTL_RB_TREE *v4; // r13
   struct _KTHREAD *CurrentThread; // rax
-  _DMA_OPERATIONS *v8; // rbx
-  bool v9; // di
+  _RTL_BALANCED_NODE *Root; // rbx
+  BOOLEAN v9; // di
   int v10; // eax
-  void (__fastcall *PutDmaAdapter)(_DMA_ADAPTER *); // rax
-  _DMA_OPERATIONS *PoolWithTag; // rax
-  _DMA_OPERATIONS *v13; // rsi
+  _RTL_BALANCED_NODE *v11; // rax
+  _RTL_BALANCED_NODE *PoolWithTag; // rax
+  _RTL_BALANCED_NODE *v13; // rsi
   unsigned int inserted; // ebx
-  int (__fastcall **p_AllocateAdapterChannel)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *); // r14
-  int (__fastcall *i)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *); // rdi
+  _RTL_BALANCED_NODE **v15; // r14
+  _RTL_BALANCED_NODE *i; // rdi
   struct _DMA_ADAPTER *v17; // r12
-  struct _DMA_ADAPTER **v18; // rax
+  _DMA_OPERATIONS *v18; // rax
   char *v19; // [rsp+28h] [rbp-69h]
   int CurrentThreadProcessId; // [rsp+58h] [rbp-39h] BYREF
   PVOID Object; // [rsp+60h] [rbp-31h] BYREF
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _
   __int128 v26; // [rsp+90h] [rbp-1h]
   __int128 v27; // [rsp+A0h] [rbp+Fh]
 
-  v4 = (unsigned __int64 *)(a1 + 4080);
+  v4 = (_RTL_RB_TREE *)(a1 + 4080);
   v22 = 0LL;
   Object = 0LL;
   v23 = 0LL;
@@ -57,32 +57,30 @@ __int64 __fastcall EtwpRegisterPrivateSession(__int64 a1, unsigned __int16 a2, _
   CurrentThreadProcessId = PsGetCurrentThreadProcessId();
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  BugCheckParameter2 = (ULONG_PTR)(v4 + 2);
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)(v4 + 2), 0LL);
-  v8 = (_DMA_OPERATIONS *)*v4;
+  BugCheckParameter2 = (ULONG_PTR)&v4[1];
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&v4[1], 0LL);
+  Root = v4->Root;
   v9 = 0;
-  if ( *v4 )
+  if ( v4->Root )
   {
     while ( 1 )
     {
-      v10 = PidNodeCompare(&CurrentThreadProcessId, v8);
+      v10 = PidNodeCompare(&CurrentThreadProcessId, Root);
       if ( v10 <= 0 )
       {
         if ( v10 >= 0 )
         {
-          v13 = v8;
+          v13 = Root;
 LABEL_15:
-          p_AllocateAdapterChannel = &v13->AllocateAdapterChannel;
-          for ( i = v13->AllocateAdapterChannel;
-                (char *)i != (char *)p_AllocateAdapterChannel;
-                i = *(int (__fastcall **)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *))i )
+          v15 = &v13[1].Children[1];
+          for ( i = v13[1].Children[1]; i != (_RTL_BALANCED_NODE *)v15; i = i->Children[0] )
           {
-            if ( *((_WORD *)i + 8) == a2 )
+            if ( *(_WORD *)&i->0 == a2 )
             {
               inserted = -1073741811;
               goto LABEL_24;
             }
-            if ( *((_WORD *)i + 8) > a2 )
+            if ( *(_WORD *)&i->0 > a2 )
               break;
           }
           LODWORD(v25) = 48;
@@ -96,11 +94,11 @@ LABEL_15:
             v17 = (struct _DMA_ADAPTER *)Object;
             *((_WORD *)Object + 8) = a2;
             *(&v17[1].Size + 1) = ++*(_WORD *)(a1 + 4104);
-            v17[1].DmaOperations = v13;
-            v18 = (struct _DMA_ADAPTER **)*((_QWORD *)i + 1);
-            *((_QWORD *)i + 1) = v17;
-            *v18 = v17;
-            v17->DmaOperations = (_DMA_OPERATIONS *)v18;
+            v17[1].DmaOperations = (_DMA_OPERATIONS *)v13;
+            v18 = (_DMA_OPERATIONS *)i->Children[1];
+            i->Children[1] = (_RTL_BALANCED_NODE *)v17;
+            *(_QWORD *)&v18->Size = v17;
+            v17->DmaOperations = v18;
             *(_QWORD *)&v17->Version = i;
             ObReferenceObjectByPointer(v17, 0, EtwpSessionDemuxObjectType, 0);
             inserted = ObInsertObjectEx(v17, 0LL, 0, 0, 0, (__int64)&v23, (unsigned __int64 *)&v22);
@@ -112,37 +110,37 @@ LABEL_15:
             }
           }
 LABEL_24:
-          if ( (char *)*p_AllocateAdapterChannel == (char *)p_AllocateAdapterChannel )
+          if ( *v15 == (_RTL_BALANCED_NODE *)v15 )
           {
-            RtlRbRemoveNode(v4, (unsigned __int64)v13);
+            RtlRbRemoveNode(v4, v13);
             ExFreePoolWithTag(v13, 0);
           }
           goto LABEL_26;
         }
-        PutDmaAdapter = *(void (__fastcall **)(_DMA_ADAPTER *))&v8->Size;
-        if ( !*(_QWORD *)&v8->Size )
+        v11 = Root->Children[0];
+        if ( !Root->Children[0] )
           break;
       }
       else
       {
-        PutDmaAdapter = v8->PutDmaAdapter;
-        if ( !PutDmaAdapter )
+        v11 = Root->Children[1];
+        if ( !v11 )
         {
           v9 = 1;
           break;
         }
       }
-      v8 = (_DMA_OPERATIONS *)PutDmaAdapter;
+      Root = v11;
     }
   }
-  PoolWithTag = (_DMA_OPERATIONS *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x48777445u);
+  PoolWithTag = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x48777445u);
   v13 = PoolWithTag;
   if ( PoolWithTag )
   {
-    LODWORD(PoolWithTag->FreeCommonBuffer) = CurrentThreadProcessId;
-    PoolWithTag->FlushAdapterBuffers = (unsigned __int8 (__fastcall *)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8))&PoolWithTag->AllocateAdapterChannel;
-    PoolWithTag->AllocateAdapterChannel = (int (__fastcall *)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *))&PoolWithTag->AllocateAdapterChannel;
-    RtlRbInsertNodeEx(v4, (unsigned __int64)v8, v9, (unsigned __int64)PoolWithTag);
+    LODWORD(PoolWithTag[1].Children[0]) = CurrentThreadProcessId;
+    PoolWithTag[1].ParentValue = (unsigned __int64)&PoolWithTag[1].Children[1];
+    PoolWithTag[1].Children[1] = (_RTL_BALANCED_NODE *)((char *)PoolWithTag + 32);
+    RtlRbInsertNodeEx(v4, Root, v9, PoolWithTag);
     goto LABEL_15;
   }
   inserted = -1073741801;

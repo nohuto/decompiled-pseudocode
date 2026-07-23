@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateUserMappings @ 0x140C06620
+ * XREFs of MiUpdateUserMappings @ 0x140C0C830
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140C04104 (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140C0A314 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiMakeQuasiPte @ 0x14044FAB0 (MiMakeQuasiPte.c)
- *     MiRevertQuasiPte @ 0x140450200 (MiRevertQuasiPte.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiMakeQuasiPte @ 0x140447BE0 (MiMakeQuasiPte.c)
+ *     MiRevertQuasiPte @ 0x140448330 (MiRevertQuasiPte.c)
  */
 
 unsigned __int64 MiUpdateUserMappings()

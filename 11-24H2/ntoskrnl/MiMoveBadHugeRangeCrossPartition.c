@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMoveBadHugeRangeCrossPartition @ 0x140671594
+ * XREFs of MiMoveBadHugeRangeCrossPartition @ 0x140672764
  * Callers:
- *     MiReleasePartitionHugeIoSpace @ 0x1406717FC (MiReleasePartitionHugeIoSpace.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x1406729CC (MiReleasePartitionHugeIoSpace.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiUnlockHugePfn @ 0x1404CF53C (MiUnlockHugePfn.c)
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
- *     MiUnlinkHugeRange @ 0x1404F0F98 (MiUnlinkHugeRange.c)
- *     MiLockHugePfn @ 0x140670D7C (MiLockHugePfn.c)
- *     MiUpdateHugePageCounts @ 0x140671CF4 (MiUpdateHugePageCounts.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlockHugePfn @ 0x1404C8804 (MiUnlockHugePfn.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
+ *     MiUnlinkHugeRange @ 0x1404EEA38 (MiUnlinkHugeRange.c)
+ *     MiLockHugePfn @ 0x140671F4C (MiLockHugePfn.c)
+ *     MiUpdateHugePageCounts @ 0x140672EC4 (MiUpdateHugePageCounts.c)
  */
 
 __int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, _WORD *a2, unsigned __int16 *a3)
@@ -23,7 +23,7 @@ __int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, _WORD *a2, unsig
   int v11; // ebx
 
   v4 = a1 & 0x3FFFFF;
-  v7 = (__int64 *)(qword_140E2FFC0 + 8 * v4);
+  v7 = (__int64 *)(qword_140E30100 + 8 * v4);
   MiPageToNode(v4 << 18);
   v8 = MiLockHugePfn((__int64)v7);
   v9 = *v7;
@@ -34,9 +34,9 @@ __int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, _WORD *a2, unsig
     if ( (v9 & 7) == 4 )
     {
       v11 = 4;
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E2FED0);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E30010);
       MiUnlinkHugeRange((__int64)a2, a1);
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2FED0);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E30010);
       v9 = *v7;
     }
     *v7 = (16LL * *a3) ^ (v9 ^ (16LL * *a3)) & 0xFFFFFFFFFFFF800FuLL;

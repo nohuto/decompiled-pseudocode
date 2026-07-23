@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdatePfnBackingStore @ 0x140119AD8
+ * XREFs of MiUpdatePfnBackingStore @ 0x14011A048
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140118960 (MiStoreWriteModifiedPages.c)
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiStoreWriteModifiedPages @ 0x140118ED0 (MiStoreWriteModifiedPages.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiTransferSoftwarePte @ 0x1401F299C (MiTransferSoftwarePte.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiTransferSoftwarePte @ 0x1401F27A4 (MiTransferSoftwarePte.c)
  */
 
 __int64 __fastcall MiUpdatePfnBackingStore(__int64 a1, __int64 a2, unsigned int a3, int a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of RawPerformDevIoCtrl @ 0x14077CAF4
+ * XREFs of RawPerformDevIoCtrl @ 0x14077C9A4
  * Callers:
- *     RawQueryFileSystemInformation @ 0x14077CCF0 (RawQueryFileSystemInformation.c)
+ *     RawQueryFileSystemInformation @ 0x14077CBF4 (RawQueryFileSystemInformation.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x1402678C0 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14025EEA0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
  */
 
 NTSTATUS __fastcall RawPerformDevIoCtrl(

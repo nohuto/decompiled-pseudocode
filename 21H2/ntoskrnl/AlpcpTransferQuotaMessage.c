@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpTransferQuotaMessage @ 0x1405E355C
+ * XREFs of AlpcpTransferQuotaMessage @ 0x1406D2CBC
  * Callers:
- *     AlpcpCancelMessagesByRequestor @ 0x1405E2A50 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1406D21B0 (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PsTransferProcessQuotaToSharedQuota @ 0x14038DB24 (PsTransferProcessQuotaToSharedQuota.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PsTransferProcessQuotaToSharedQuota @ 0x14038DC74 (PsTransferProcessQuotaToSharedQuota.c)
  */
 
 void __fastcall AlpcpTransferQuotaMessage(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of strncmp @ 0x14014CE80
+ * XREFs of strncmp @ 0x14014D3F0
  * Callers:
- *     HvlDebuggerSupportInitialize @ 0x14014C958 (HvlDebuggerSupportInitialize.c)
- *     EtwpApplyPredicate @ 0x14022BE8C (EtwpApplyPredicate.c)
+ *     HvlDebuggerSupportInitialize @ 0x14014CEC8 (HvlDebuggerSupportInitialize.c)
+ *     EtwpApplyPredicate @ 0x14022BCB8 (EtwpApplyPredicate.c)
  *     KiGetCpuVendor @ 0x1403D622C (KiGetCpuVendor.c)
- *     ApiSetpFindImageSection @ 0x1406BBF8C (ApiSetpFindImageSection.c)
- *     AslpFileHasSecuromWrapper @ 0x1406C86E0 (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x1406C9354 (AslpHasStarForceWrapper.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1406D518C (BiGetObjectReferenceFromEfiEntry.c)
+ *     ApiSetpFindImageSection @ 0x1406BC0C4 (ApiSetpFindImageSection.c)
+ *     AslpFileHasSecuromWrapper @ 0x1406C8818 (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x1406C948C (AslpHasStarForceWrapper.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1406D52C4 (BiGetObjectReferenceFromEfiEntry.c)
  *     KdInitSystem @ 0x1406F3740 (KdInitSystem.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:

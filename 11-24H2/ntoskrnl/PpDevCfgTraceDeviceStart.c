@@ -1,10 +1,10 @@
 /*
- * XREFs of PpDevCfgTraceDeviceStart @ 0x1408BAED0
+ * XREFs of PpDevCfgTraceDeviceStart @ 0x1408B8880
  * Callers:
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
  * Callees:
- *     PiDevCfgLogDeviceStarted @ 0x140AA6798 (PiDevCfgLogDeviceStarted.c)
+ *     PiDevCfgLogDeviceStarted @ 0x140AA1894 (PiDevCfgLogDeviceStarted.c)
  */
 
 char __fastcall PpDevCfgTraceDeviceStart(_DWORD *a1, char a2)

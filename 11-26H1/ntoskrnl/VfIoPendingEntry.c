@@ -1,13 +1,13 @@
 /*
- * XREFs of VfIoPendingEntry @ 0x140645440
+ * XREFs of VfIoPendingEntry @ 0x140649020
  * Callers:
  *     <none>
  * Callees:
- *     VfIoPendingUnload @ 0x140645520 (VfIoPendingUnload.c)
- *     DifRegisterPlugin @ 0x14064BBB0 (DifRegisterPlugin.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     PpvUtilInit @ 0x140C21144 (PpvUtilInit.c)
- *     VfPendingInitPhase1 @ 0x140C2FF28 (VfPendingInitPhase1.c)
+ *     VfIoPendingUnload @ 0x140649100 (VfIoPendingUnload.c)
+ *     DifRegisterPlugin @ 0x14064F790 (DifRegisterPlugin.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     PpvUtilInit @ 0x140C27154 (PpvUtilInit.c)
+ *     VfPendingInitPhase1 @ 0x140C35F38 (VfPendingInitPhase1.c)
  */
 
 __int64 __fastcall VfIoPendingEntry(__int64 a1)

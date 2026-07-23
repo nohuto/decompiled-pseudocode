@@ -1,5 +1,5 @@
 /*
- * XREFs of _frnd @ 0x140502E20
+ * XREFs of _frnd @ 0x1405006E0
  * Callers:
  *     <none>
  * Callees:

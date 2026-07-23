@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEvaluatePreemptionSwapTarget @ 0x140200FAC
+ * XREFs of KiEvaluatePreemptionSwapTarget @ 0x1403296A0
  * Callers:
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041FF3C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041592C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
  * Callees:
- *     KiHeteroComputeThreadImportance @ 0x140201130 (KiHeteroComputeThreadImportance.c)
- *     KiHeteroIsSwapBeneficialForPerformance @ 0x14020119C (KiHeteroIsSwapBeneficialForPerformance.c)
- *     KiGenerateHeteroSets @ 0x140202060 (KiGenerateHeteroSets.c)
+ *     KiHeteroComputeThreadImportance @ 0x140329820 (KiHeteroComputeThreadImportance.c)
+ *     KiHeteroIsSwapBeneficialForPerformance @ 0x14032988C (KiHeteroIsSwapBeneficialForPerformance.c)
+ *     KiGenerateHeteroSets @ 0x14032A750 (KiGenerateHeteroSets.c)
  */
 
 bool __fastcall KiEvaluatePreemptionSwapTarget(__int64 a1, __int64 a2, char *a3)

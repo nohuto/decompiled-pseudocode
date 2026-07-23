@@ -1,18 +1,18 @@
 /*
- * XREFs of PopOpenKey @ 0x140132534
+ * XREFs of PopOpenKey @ 0x140132AA4
  * Callers:
- *     PopOpenPowerKey @ 0x140132520 (PopOpenPowerKey.c)
- *     PpmInitIllegalThrottleLogging @ 0x140147B24 (PpmInitIllegalThrottleLogging.c)
- *     PopThermalWriteShutdownToRegistry @ 0x1402072DC (PopThermalWriteShutdownToRegistry.c)
- *     PopLoadResumeContext @ 0x140533E50 (PopLoadResumeContext.c)
- *     PopSaveHibernateEnabled @ 0x14066A5B0 (PopSaveHibernateEnabled.c)
- *     PopSetHiberFileSize @ 0x14066E5E0 (PopSetHiberFileSize.c)
- *     PopSetHiberFileType @ 0x14066E6E4 (PopSetHiberFileType.c)
+ *     PopOpenPowerKey @ 0x140132A90 (PopOpenPowerKey.c)
+ *     PpmInitIllegalThrottleLogging @ 0x140148094 (PpmInitIllegalThrottleLogging.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x140207108 (PopThermalWriteShutdownToRegistry.c)
+ *     PopLoadResumeContext @ 0x140534390 (PopLoadResumeContext.c)
+ *     PopSaveHibernateEnabled @ 0x14066A694 (PopSaveHibernateEnabled.c)
+ *     PopSetHiberFileSize @ 0x14066E6C4 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x14066E7C8 (PopSetHiberFileType.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
  */
 
 __int64 __fastcall PopOpenKey(HANDLE *a1, const WCHAR *a2, ACCESS_MASK a3)

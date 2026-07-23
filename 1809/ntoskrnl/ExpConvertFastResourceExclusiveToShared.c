@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpConvertFastResourceExclusiveToShared @ 0x140164A18
+ * XREFs of ExpConvertFastResourceExclusiveToShared @ 0x140164B18
  * Callers:
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x140164960 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     ExConvertFastResourceExclusiveToShared @ 0x14031B000 (ExConvertFastResourceExclusiveToShared.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x140164A60 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExConvertFastResourceExclusiveToShared @ 0x14031B1F0 (ExConvertFastResourceExclusiveToShared.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeWakeWaitChain @ 0x140125BD8 (KeWakeWaitChain.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeWakeWaitChain @ 0x140125CA8 (KeWakeWaitChain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpConvertFastResourceExclusiveToShared(__int64 a1, __int64 a2, __int64 a3)

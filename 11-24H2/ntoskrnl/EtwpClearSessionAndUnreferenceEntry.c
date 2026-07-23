@@ -1,41 +1,41 @@
 /*
- * XREFs of EtwpClearSessionAndUnreferenceEntry @ 0x14083ECD8
+ * XREFs of EtwpClearSessionAndUnreferenceEntry @ 0x140837F48
  * Callers:
- *     EtwpDisableTraceProviders @ 0x140A166D4 (EtwpDisableTraceProviders.c)
+ *     EtwpDisableTraceProviders @ 0x140A0F8B4 (EtwpDisableTraceProviders.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpUnreferenceDataBlock @ 0x140835FF0 (EtwpUnreferenceDataBlock.c)
- *     EtwpGetSchematizedFilterSize @ 0x1408384F4 (EtwpGetSchematizedFilterSize.c)
- *     EtwpSendDataBlock @ 0x14083A3F4 (EtwpSendDataBlock.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x14083A9D0 (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpUnreferenceGuidEntry @ 0x14083D760 (EtwpUnreferenceGuidEntry.c)
- *     EtwpCopySchematizedFilters @ 0x14083DD00 (EtwpCopySchematizedFilters.c)
- *     EtwpUpdateGuidFilterData @ 0x1409F3CA8 (EtwpUpdateGuidFilterData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpSendDataBlock @ 0x140834A64 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x140836678 (EtwpUnreferenceDataBlock.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x140837AF0 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140839DC0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpCopySchematizedFilters @ 0x14083A308 (EtwpCopySchematizedFilters.c)
+ *     EtwpUpdateGuidFilterData @ 0x1409E8008 (EtwpUpdateGuidFilterData.c)
+ *     EtwpGetSchematizedFilterSize @ 0x1409E9380 (EtwpGetSchematizedFilterSize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char a3)
+__int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, ULONG_PTR a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rsi
   __int64 v7; // rbx
   unsigned int v8; // r15d
-  _QWORD *v9; // rax
-  _QWORD *v10; // r14
+  char *v9; // rax
+  char *v10; // r14
   char v11; // si
   unsigned int i; // r14d
   signed __int64 v13; // rax
   signed __int64 v14; // rdx
   __int64 v15; // rtt
   __int64 v17; // rax
-  __int64 v18; // rdx
+  ULONG_PTR v18; // rdx
   int v19; // r11d
   unsigned __int8 v20; // r9
   __int64 v21; // r10
@@ -48,49 +48,48 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
   __int64 v28; // r14
   struct _KTHREAD *v29; // rax
   unsigned __int64 *v30; // r15
-  _QWORD *v31; // rax
-  _QWORD *v32; // r13
+  char *v31; // rax
+  char *v32; // r13
   unsigned __int16 *v33; // rdx
   unsigned __int16 v34; // cx
   int SchematizedFilterSize; // eax
   int v36; // r13d
-  int v37; // r15d
-  __int64 v38; // r8
-  signed __int64 *v39; // r14
-  signed __int64 v40; // rax
-  signed __int64 v41; // rdx
-  signed __int64 v42; // rtt
+  unsigned int v37; // r15d
+  signed __int64 *v38; // r14
+  signed __int64 v39; // rax
+  signed __int64 v40; // rdx
+  signed __int64 v41; // rtt
   __int64 Pool2; // rax
-  char v44; // [rsp+28h] [rbp-E0h]
-  int v46; // [rsp+2Ch] [rbp-DCh]
-  unsigned __int16 v47; // [rsp+30h] [rbp-D8h]
-  __int64 v48; // [rsp+38h] [rbp-D0h]
-  int v49; // [rsp+40h] [rbp-C8h]
-  __int128 v51; // [rsp+48h] [rbp-C0h]
-  __int128 v52; // [rsp+58h] [rbp-B0h]
-  _BYTE v53[112]; // [rsp+78h] [rbp-90h] BYREF
+  char v43; // [rsp+28h] [rbp-E0h]
+  int v45; // [rsp+2Ch] [rbp-DCh]
+  unsigned __int16 v46; // [rsp+30h] [rbp-D8h]
+  __int64 v47; // [rsp+38h] [rbp-D0h]
+  int v48; // [rsp+40h] [rbp-C8h]
+  __int128 v50; // [rsp+48h] [rbp-C0h]
+  __int128 v51; // [rsp+58h] [rbp-B0h]
+  _BYTE v52[112]; // [rsp+78h] [rbp-90h] BYREF
   __int128 Source2; // [rsp+E8h] [rbp-20h] BYREF
-  __int128 v55; // [rsp+F8h] [rbp-10h]
+  __int128 v54; // [rsp+F8h] [rbp-10h]
 
   Source2 = 0LL;
-  v55 = 0LL;
+  v54 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v5 = (unsigned __int64 *)(a2 + 664);
-  v44 = 0;
-  v46 = 0;
+  v43 = 0;
+  v45 = 0;
   v7 = 0LL;
   --CurrentThread->KernelApcDisable;
   v8 = 0;
-  v9 = KeAbPreAcquire(a2 + 664, 0LL);
+  v9 = (char *)KeAbPreAcquire(a2 + 664, 0LL);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v5, (__int64)v9, (__int64)v5);
+    ExfAcquirePushLockExclusiveEx(v5, v9, (__int64)v5);
   v11 = 1;
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   *(_QWORD *)(a2 + 672) = KeGetCurrentThread();
-  v49 = *(unsigned __int16 *)(a2 + 88);
-  if ( v49 == a1 )
+  v48 = *(unsigned __int16 *)(a2 + 88);
+  if ( v48 == a1 )
     *(_OWORD *)(a2 + 80) = 0LL;
   for ( i = 0; ; ++i )
   {
@@ -108,7 +107,7 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
   }
   *(_DWORD *)(v17 + a2) = 0;
   v18 = a2 + 132;
-  v51 = 0LL;
+  v50 = 0LL;
   v19 = 0;
   v20 = 0;
   v21 = 0LL;
@@ -119,7 +118,7 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
     if ( *(_DWORD *)(v18 - 4) )
     {
       v26 = v20;
-      LODWORD(v51) = 1;
+      LODWORD(v50) = 1;
       if ( v20 <= *(_BYTE *)v18 )
         v26 = *(_BYTE *)v18;
       v21 |= *(_QWORD *)(v18 + 12);
@@ -131,15 +130,15 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
     --v23;
   }
   while ( v23 );
-  *((_QWORD *)&v52 + 1) = v22;
-  BYTE4(v51) = v20;
-  DWORD2(v51) = v19;
-  *(_QWORD *)&v52 = v21;
-  *(_OWORD *)(a2 + 96) = v51;
-  *(_OWORD *)(a2 + 112) = v52;
-  memset_0(v53, 0, 0x68uLL);
+  *((_QWORD *)&v51 + 1) = v22;
+  BYTE4(v50) = v20;
+  DWORD2(v50) = v19;
+  *(_QWORD *)&v51 = v21;
+  *(_OWORD *)(a2 + 96) = v50;
+  *(_OWORD *)(a2 + 112) = v51;
+  memset_0(v52, 0, 0x68uLL);
   LOBYTE(v24) = 1;
-  EtwpUpdateGuidFilterData(a2, i, v24, v53);
+  EtwpUpdateGuidFilterData(a2, i, v24, v52);
   v25 = *(_QWORD **)(a2 + 56);
   if ( v25 == (_QWORD *)(a2 + 56) )
   {
@@ -147,7 +146,7 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
     goto LABEL_12;
   }
   v27 = ~(unsigned __int16)(1 << i);
-  v47 = v27;
+  v46 = v27;
   do
   {
     if ( a3 )
@@ -156,15 +155,15 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
       v29 = KeGetCurrentThread();
       --v29->KernelApcDisable;
       v30 = (unsigned __int64 *)(v25[2] + 664LL);
-      v31 = KeAbPreAcquire((__int64)v30, 0LL);
+      v31 = (char *)KeAbPreAcquire((__int64)v30, 0LL);
       v32 = v31;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v30, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v30, (__int64)v31, (__int64)v30);
+        ExfAcquirePushLockExclusiveEx(v30, v31, (__int64)v30);
       if ( v32 )
-        *((_BYTE *)v32 + 10) = 1;
+        v32[10] = 1;
       v33 = (unsigned __int16 *)v25 + 43;
-      v27 = v47;
-      v44 = 1;
+      v27 = v46;
+      v43 = 1;
       *(_QWORD *)(v25[2] + 672LL) = KeGetCurrentThread();
     }
     else
@@ -175,14 +174,14 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
     v34 = *v33;
     v25 = (_QWORD *)*v25;
     *v33 &= v27;
-    if ( (*(_BYTE *)(v28 + 98) & 8) != 0 && v49 != a1 || (v34 & v27) == v34 )
+    if ( (*(_BYTE *)(v28 + 98) & 8) != 0 && v48 != a1 || (v34 & v27) == v34 )
     {
-      v8 = v46;
+      v8 = v45;
     }
     else
     {
       EtwpComputeRegEntryEnableInfo(v28, (__int64)&Source2);
-      SchematizedFilterSize = EtwpGetSchematizedFilterSize(a2, *(_WORD *)(v28 + 100));
+      SchematizedFilterSize = EtwpGetSchematizedFilterSize(a2, *(unsigned __int16 *)(v28 + 100));
       v36 = SchematizedFilterSize;
       v37 = 120;
       if ( SchematizedFilterSize )
@@ -194,8 +193,7 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
         EtwpUnreferenceDataBlock((volatile signed __int32 *)v7);
       }
       v7 = 0LL;
-      Pool2 = ExAllocatePool2(0x100uLL);
-      v38 = 0LL;
+      Pool2 = ExAllocatePool2(0x100uLL, v37, 0x44777445u);
       if ( Pool2 )
       {
         *(_DWORD *)(Pool2 + 8) = 1;
@@ -204,18 +202,18 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
         *(_DWORD *)(Pool2 + 4) = v37;
         *(_OWORD *)(Pool2 + 40) = *(_OWORD *)(*(_QWORD *)(v28 + 32) + 40LL);
         *(_OWORD *)(Pool2 + 72) = Source2;
-        *(_OWORD *)(Pool2 + 88) = v55;
+        *(_OWORD *)(Pool2 + 88) = v54;
         *(_DWORD *)(Pool2 + 112) = *(_BYTE *)(a2 + 91) & 1;
-        LOWORD(v48) = *(_WORD *)(a2 + 88);
-        WORD1(v48) = *(unsigned __int8 *)(a2 + 90);
-        HIDWORD(v48) = *(_DWORD *)(a2 + 80);
-        *(_QWORD *)(Pool2 + 104) = v48;
+        LOWORD(v47) = *(_WORD *)(a2 + 88);
+        WORD1(v47) = *(unsigned __int8 *)(a2 + 90);
+        HIDWORD(v47) = *(_DWORD *)(a2 + 80);
+        *(_QWORD *)(Pool2 + 104) = v47;
         if ( v36 )
         {
           *(_DWORD *)(Pool2 + 132) = 0x80000000;
           *(_DWORD *)(Pool2 + 128) = v36;
           *(_QWORD *)(Pool2 + 120) = 136LL;
-          EtwpCopySchematizedFilters((char *)(Pool2 + 136), a2, *(_WORD *)(v28 + 100));
+          EtwpCopySchematizedFilters((void *)(Pool2 + 136));
           *(_DWORD *)(v7 + 116) = 1;
         }
         else
@@ -223,30 +221,30 @@ __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char 
           *(_DWORD *)(Pool2 + 116) = 0;
         }
 LABEL_43:
-        v27 = v47;
-        v8 = EtwpSendDataBlock(v28, v7, v38);
-        v46 = v8;
+        v27 = v46;
+        v8 = EtwpSendDataBlock(v28, v7);
+        v45 = v8;
         goto LABEL_44;
       }
-      v27 = v47;
+      v27 = v46;
       v8 = -1073741801;
-      v46 = -1073741801;
+      v45 = -1073741801;
     }
 LABEL_44:
-    if ( v44 )
+    if ( v43 )
     {
       *(_QWORD *)(*(_QWORD *)(v28 + 32) + 672LL) = 0LL;
-      v39 = (signed __int64 *)(*(_QWORD *)(v28 + 32) + 664LL);
-      _m_prefetchw(v39);
-      v40 = *v39;
-      v41 = *v39 - 16;
-      if ( (*v39 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-        v41 = 0LL;
-      if ( (v40 & 2) != 0 || (v42 = *v39, v42 != _InterlockedCompareExchange64(v39, v41, v40)) )
-        ExfReleasePushLock(v39);
-      KeAbPostRelease((ULONG_PTR)v39);
+      v38 = (signed __int64 *)(*(_QWORD *)(v28 + 32) + 664LL);
+      _m_prefetchw(v38);
+      v39 = *v38;
+      v40 = *v38 - 16;
+      if ( (*v38 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+        v40 = 0LL;
+      if ( (v39 & 2) != 0 || (v41 = *v38, v41 != _InterlockedCompareExchange64(v38, v40, v39)) )
+        ExfReleasePushLock(v38);
+      KeAbPostRelease((ULONG_PTR)v38);
       KeLeaveCriticalRegion();
-      v44 = 0;
+      v43 = 0;
     }
   }
   while ( v25 != (_QWORD *)(a2 + 56) );
@@ -268,6 +266,6 @@ LABEL_12:
   KeAbPostRelease(a2 + 664);
   KeLeaveCriticalRegion();
   if ( v11 )
-    EtwpUnreferenceGuidEntry((__int64 *)a2);
+    EtwpUnreferenceGuidEntry(a2);
   return v8;
 }

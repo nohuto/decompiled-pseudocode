@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmCacheDataDecode @ 0x1404FFBB0
+ * XREFs of PiDmCacheDataDecode @ 0x1404E2B40
  * Callers:
- *     PiDmObjectGetCachedObjectPropertyData @ 0x1404FF354 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectProcessPropertyChange @ 0x14050539C (PiDmObjectProcessPropertyChange.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x1405663BC (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x1404E22E4 (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1404E832C (PiDmObjectProcessPropertyChange.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x1405668FC (PiDmListUpdateAggregationCountWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
  */
 
 __int64 __fastcall PiDmCacheDataDecode(__int64 a1, _DWORD *a2, GUID *a3, unsigned int a4, unsigned int *a5)

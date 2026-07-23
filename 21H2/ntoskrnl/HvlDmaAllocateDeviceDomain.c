@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlDmaAllocateDeviceDomain @ 0x1404F4430
+ * XREFs of HvlDmaAllocateDeviceDomain @ 0x1404F43B0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpHandleInsufficientMemory @ 0x1404F2068 (HvlpHandleInsufficientMemory.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x1404FACD8 (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390450 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpHandleInsufficientMemory @ 0x1404F1FE8 (HvlpHandleInsufficientMemory.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1404FAC58 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x1404FAC74 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDmaAllocateDeviceDomain(int *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of DrvDbRegisterObjects @ 0x140812B74
+ * XREFs of DrvDbRegisterObjects @ 0x140812E44
  * Callers:
- *     DrvDbOpenContext @ 0x140812A40 (DrvDbOpenContext.c)
+ *     DrvDbOpenContext @ 0x140812D10 (DrvDbOpenContext.c)
  * Callees:
  *     <none>
  */

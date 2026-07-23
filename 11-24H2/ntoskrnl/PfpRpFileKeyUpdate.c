@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpRpFileKeyUpdate @ 0x140843C20
+ * XREFs of PfpRpFileKeyUpdate @ 0x14083FEE0
  * Callers:
- *     PfFileInfoNotify @ 0x140275220 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x14022A7B0 (PfFileInfoNotify.c)
  * Callees:
- *     ExfReleaseRundownProtection @ 0x1402456A0 (ExfReleaseRundownProtection.c)
- *     ExfAcquireRundownProtection @ 0x140247210 (ExfAcquireRundownProtection.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     PfpRpRehashIfNeeded @ 0x140A39B64 (PfpRpRehashIfNeeded.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfReleaseRundownProtection @ 0x14020DE80 (ExfReleaseRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquireRundownProtection @ 0x1402F60C0 (ExfAcquireRundownProtection.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     PfpRpRehashIfNeeded @ 0x140A2EC24 (PfpRpRehashIfNeeded.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpFileKeyUpdate(__int64 a1, __int64 a2, int a3)
@@ -25,7 +25,7 @@ __int64 __fastcall PfpRpFileKeyUpdate(__int64 a1, __int64 a2, int a3)
   unsigned __int64 v10; // rtt
   _QWORD *v11; // r13
   unsigned int v12; // eax
-  int v13; // r12d
+  unsigned int v13; // r12d
   WCHAR *v14; // rbx
   __int64 v15; // rax
   __int64 v16; // rsi
@@ -119,7 +119,7 @@ LABEL_33:
     }
     goto LABEL_19;
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x18uLL, 0x4B466650u);
   v11 = Pool2;
   if ( Pool2 )
   {
@@ -130,7 +130,7 @@ LABEL_33:
       v13 = 2 * (*(_DWORD *)(v7 + 4) >> 5);
       if ( !v12 )
         v13 = 64;
-      v38 = (PVOID)ExAllocatePool2(0x100uLL);
+      v38 = (PVOID)ExAllocatePool2(0x100uLL, 8LL * v13, 0x48466650u);
       if ( !v38 )
         v13 = 0;
       v45 = v13;

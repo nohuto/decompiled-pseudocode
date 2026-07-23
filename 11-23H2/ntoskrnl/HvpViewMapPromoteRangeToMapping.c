@@ -1,50 +1,50 @@
 /*
- * XREFs of HvpViewMapPromoteRangeToMapping @ 0x14074FA70
+ * XREFs of HvpViewMapPromoteRangeToMapping @ 0x14074FC60
  * Callers:
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14074F794 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14074F984 (HvpRemapAndEnlistHiveBins.c)
  * Callees:
  *     CmSiGetMemoryAllocationGranularity @ 0x140207D3C (CmSiGetMemoryAllocationGranularity.c)
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     CmSiUnmapViewOfSection @ 0x140208C80 (CmSiUnmapViewOfSection.c)
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9BBC (CmSiReleaseProcessLockedPagesCharge.c)
- *     HvcallpNoHypervisorPresent @ 0x14036E650 (HvcallpNoHypervisorPresent.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9E4C (CmSiReleaseProcessLockedPagesCharge.c)
+ *     HvcallpNoHypervisorPresent @ 0x14036E7F0 (HvcallpNoHypervisorPresent.c)
  *     HvpViewMapMakeViewRangeValid @ 0x140689AA4 (HvpViewMapMakeViewRangeValid.c)
  *     HvpViewMapCreateView @ 0x140689F1C (HvpViewMapCreateView.c)
- *     HvpViewMapMigrateCOWData @ 0x140884FC4 (HvpViewMapMigrateCOWData.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x140885630 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpViewMapMigrateCOWData @ 0x140885204 (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140885870 (HvpViewMapMakeViewRangeInvalid.c)
  */
 
-__int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned int a3, __int64 *a4)
+__int64 __fastcall HvpViewMapPromoteRangeToMapping(ULONG_PTR a1, int a2, unsigned int a3, __int64 *a4)
 {
-  __int64 v4; // r14
+  ULONG_PTR v4; // r14
   unsigned __int64 v5; // rdi
   __int64 v6; // r12
   __int64 v7; // r13
   bool v8; // zf
-  __int64 v9; // rbx
+  ULONG_PTR v9; // rbx
   int v10; // ecx
   unsigned __int64 v11; // rax
   int ViewRangeValid; // esi
   __int64 MemoryAllocationGranularity; // rax
   int v15; // eax
   __int64 v16; // rcx
-  PPRIVILEGE_SET v17; // r15
+  PRTL_BALANCED_NODE v17; // r15
   __int64 v18; // rdx
   unsigned __int64 v19; // rbx
   unsigned __int64 v20; // rax
   __int64 v21; // rdx
   unsigned __int64 v22; // rbx
   unsigned __int64 v23; // rax
-  __int64 i; // rdx
+  _RTL_BALANCED_NODE *i; // rdx
   unsigned __int64 v25; // rdx
-  __int64 v26; // r9
-  __int64 v27; // rdi
-  _QWORD *v28; // rax
+  _RTL_BALANCED_NODE *v26; // r9
+  ULONG_PTR v27; // rdi
+  PPRIVILEGE_SET *v28; // rax
   unsigned __int64 v29; // rdx
-  bool v30; // r8
+  BOOLEAN v30; // r8
   unsigned __int64 v31; // rax
   PPRIVILEGE_SET v32; // rbx
   __int64 v33; // rax
@@ -53,16 +53,16 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
   __int64 v36; // rcx
   unsigned __int64 v37; // rsi
   unsigned __int64 v38; // rax
-  _QWORD *v39; // rax
-  _QWORD *v40; // rax
-  void *v41; // r8
+  PPRIVILEGE_SET *v39; // rax
+  PPRIVILEGE_SET *v40; // rax
+  _RTL_BALANCED_NODE *v41; // r8
   __int64 v42; // rax
   __int64 v43; // rdx
-  PPRIVILEGE_SET v44; // [rsp+30h] [rbp-20h] BYREF
+  PRTL_BALANCED_NODE Node; // [rsp+30h] [rbp-20h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+38h] [rbp-18h] BYREF
   PPRIVILEGE_SET *p_Privileges; // [rsp+40h] [rbp-10h]
 
-  v44 = 0LL;
+  Node = 0LL;
   v4 = a1 + 40;
   v5 = *(_QWORD *)(a1 + 40);
   v6 = (unsigned int)(a2 + 4096);
@@ -97,12 +97,12 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
     return 0;
   }
   MemoryAllocationGranularity = CmSiGetMemoryAllocationGranularity();
-  v15 = HvpViewMapCreateView(v9, (LARGE_INTEGER)(v6 & -MemoryAllocationGranularity), v7, &v44);
-  v17 = v44;
+  v15 = HvpViewMapCreateView(v9, (LARGE_INTEGER)(v6 & -MemoryAllocationGranularity), v7, &Node);
+  v17 = Node;
   ViewRangeValid = v15;
   if ( v15 >= 0 )
   {
-    ViewRangeValid = HvpViewMapMakeViewRangeValid(v9, v44, v6, v7, 0);
+    ViewRangeValid = HvpViewMapMakeViewRangeValid(v9, Node, v6, v7, 0);
     if ( ViewRangeValid >= 0 )
     {
       v18 = v6;
@@ -158,16 +158,18 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
         else
           v22 = v23;
       }
-      for ( i = *(_QWORD *)(v5 + 48); i < *(_QWORD *)(v22 + 40); i = *(_QWORD *)(v37 + 48) )
+      for ( i = *(_RTL_BALANCED_NODE **)(v5 + 48);
+            (__int64)i < *(_QWORD *)(v22 + 40);
+            i = *(_RTL_BALANCED_NODE **)(v37 + 48) )
       {
         v37 = *(_QWORD *)v4;
         if ( (*(_BYTE *)(v4 + 8) & 1) != 0 && v37 )
           v37 ^= v4;
         while ( v37 )
         {
-          if ( i >= *(_QWORD *)(v37 + 40) )
+          if ( (__int64)i >= *(_QWORD *)(v37 + 40) )
           {
-            if ( i < *(_QWORD *)(v37 + 48) )
+            if ( (__int64)i < *(_QWORD *)(v37 + 48) )
               break;
             v38 = *(_QWORD *)(v37 + 8);
           }
@@ -180,43 +182,43 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
           else
             v37 = v38;
         }
-        RtlRbRemoveNode((unsigned __int64 *)v4, v37);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v37);
         v39 = p_Privileges;
         if ( *p_Privileges != (PPRIVILEGE_SET)&Privileges )
           goto LABEL_103;
         *(_QWORD *)(v37 + 8) = p_Privileges;
         *(_QWORD *)v37 = &Privileges;
-        *v39 = v37;
+        *v39 = (PPRIVILEGE_SET)v37;
         p_Privileges = (PPRIVILEGE_SET *)v37;
       }
       v25 = v5;
       if ( *(_QWORD *)(v5 + 40) == v6 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v4, v5);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v5);
         v40 = p_Privileges;
         if ( *p_Privileges != (PPRIVILEGE_SET)&Privileges )
           goto LABEL_103;
         *(_QWORD *)(v5 + 8) = p_Privileges;
         *(_QWORD *)v5 = &Privileges;
-        *v40 = v5;
+        *v40 = (PPRIVILEGE_SET)v5;
         p_Privileges = (PPRIVILEGE_SET *)v5;
         v27 = a1;
       }
       else
       {
-        v26 = *(_QWORD *)(v5 + 48);
+        v26 = *(_RTL_BALANCED_NODE **)(v5 + 48);
         v27 = a1;
         HvpViewMapMakeViewRangeInvalid(a1, v25, v6, v26);
       }
       if ( *(_QWORD *)(v22 + 48) == v7 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v4, v22);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v22);
         v28 = p_Privileges;
         if ( *p_Privileges != (PPRIVILEGE_SET)&Privileges )
           goto LABEL_103;
         *(_QWORD *)(v22 + 8) = p_Privileges;
         *(_QWORD *)v22 = &Privileges;
-        *v28 = v22;
+        *v28 = (PPRIVILEGE_SET)v22;
         p_Privileges = (PPRIVILEGE_SET *)v22;
       }
       else
@@ -231,7 +233,7 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
       {
         while ( 1 )
         {
-          if ( *(_QWORD *)&v17[2].PrivilegeCount >= *(_QWORD *)(v29 + 40) )
+          if ( (signed __int64)v17[1].ParentValue >= *(_QWORD *)(v29 + 40) )
           {
             v31 = *(_QWORD *)(v29 + 8);
             if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
@@ -266,7 +268,7 @@ LABEL_101:
           v29 = v31;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64 *)v4, v29, v30, (unsigned __int64)v17);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v29, v30, v17);
       v32 = Privileges;
       v33 = *(_QWORD *)&Privileges->PrivilegeCount;
       if ( (PPRIVILEGE_SET *)Privileges->Privilege[0].Luid == &Privileges )
@@ -296,7 +298,7 @@ LABEL_101:
           v33 = *(_QWORD *)&Privileges->PrivilegeCount;
         }
         ViewRangeValid = 0;
-        v16 = v6 + *(_QWORD *)&v17[2].Privilege[0].Attributes - *(_QWORD *)&v17[1].Control;
+        v16 = v6 + (char *)v17[2].Children[1] - (char *)v17[1].Children[0];
         v17 = 0LL;
         *a4 = v16;
 LABEL_76:
@@ -310,17 +312,17 @@ LABEL_103:
 LABEL_77:
   if ( v17 )
   {
-    v41 = *(void **)&v17[2].Privilege[0].Attributes;
+    v41 = v17[2].Children[1];
     if ( v41 )
     {
       CmSiUnmapViewOfSection(v16, *(HANDLE **)(v9 + 24), v41);
-      if ( *(_QWORD *)&v17[3].Control )
+      if ( v17[2].ParentValue )
       {
         v42 = HvcallpNoHypervisorPresent();
         CmSiReleaseProcessLockedPagesCharge(*(_QWORD **)(v9 + 24), v42 * v43);
       }
     }
-    CmSiFreeMemory(v17);
+    CmSiFreeMemory((PPRIVILEGE_SET)v17);
   }
   return (unsigned int)ViewRangeValid;
 }

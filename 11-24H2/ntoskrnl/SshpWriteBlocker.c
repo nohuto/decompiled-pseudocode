@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpWriteBlocker @ 0x14048ABA0
+ * XREFs of SshpWriteBlocker @ 0x1404859D0
  * Callers:
- *     SshNotifySystemSessionChange @ 0x140A4B418 (SshNotifySystemSessionChange.c)
+ *     SshNotifySystemSessionChange @ 0x140A42178 (SshNotifySystemSessionChange.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     SSHSupportAllocatePaged @ 0x140A4D3C8 (SSHSupportAllocatePaged.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     SSHSupportAllocatePaged @ 0x140A43F58 (SSHSupportAllocatePaged.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 int __fastcall SshpWriteBlocker(

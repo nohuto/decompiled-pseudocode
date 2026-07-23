@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetPagesToZero @ 0x140185260
+ * XREFs of MiGetPagesToZero @ 0x1401853A0
  * Callers:
- *     MiZeroLargePages @ 0x14018512C (MiZeroLargePages.c)
+ *     MiZeroLargePages @ 0x14018526C (MiZeroLargePages.c)
  * Callees:
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
- *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     MiMapPagesToZero @ 0x1400F90E0 (MiMapPagesToZero.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x140127FD0 (KeFindFirstSetLeftGroupAffinity.c)
- *     KeSetIdealProcessorThreadEx @ 0x14015CE4C (KeSetIdealProcessorThreadEx.c)
- *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
- *     MiGetSinglePageToZero @ 0x1402C1918 (MiGetSinglePageToZero.c)
+ *     MiUnlinkNodeLargePage @ 0x140064280 (MiUnlinkNodeLargePage.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     MiMapPagesToZero @ 0x1400F9160 (MiMapPagesToZero.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1401280A0 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14015CF4C (KeSetIdealProcessorThreadEx.c)
+ *     MiGetHugePageToZero @ 0x1401855A4 (MiGetHugePageToZero.c)
+ *     MiGetSinglePageToZero @ 0x1402C1B08 (MiGetSinglePageToZero.c)
  */
 
 __int64 __fastcall MiGetPagesToZero(__int64 a1, __int64 a2, unsigned int a3)
@@ -30,7 +30,7 @@ __int64 __fastcall MiGetPagesToZero(__int64 a1, __int64 a2, unsigned int a3)
   v3 = a3;
   if ( !a3 && *(_BYTE *)(a2 + 210) )
     return MiGetHugePageToZero(a1, a2);
-  v6 = (unsigned int)(*(_DWORD *)(a2 + 244) >> byte_14043A049);
+  v6 = (unsigned int)(*(_DWORD *)(a2 + 244) >> byte_14043B109);
   *(_QWORD *)(a2 + 32) = 0LL;
   if ( (unsigned int)v3 >= 3 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of IoWMIDeviceObjectToProviderId @ 0x1403C2560
+ * XREFs of IoWMIDeviceObjectToProviderId @ 0x1403C2740
  * Callers:
- *     PpmAllocWmiEvent @ 0x140598CFC (PpmAllocWmiEvent.c)
- *     WmipSetTraceNotify @ 0x14086BD80 (WmipSetTraceNotify.c)
+ *     PpmAllocWmiEvent @ 0x1405991EC (PpmAllocWmiEvent.c)
+ *     WmipSetTraceNotify @ 0x14086BFC0 (WmipSetTraceNotify.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     WmipDoFindRegEntryByDevice @ 0x1403C2654 (WmipDoFindRegEntryByDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WmipDoFindRegEntryByDevice @ 0x1403C2834 (WmipDoFindRegEntryByDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG __stdcall IoWMIDeviceObjectToProviderId(PDEVICE_OBJECT DeviceObject)
@@ -28,10 +28,13 @@ ULONG __stdcall IoWMIDeviceObjectToProviderId(PDEVICE_OBJECT DeviceObject)
   else
     v4 = 0;
   KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

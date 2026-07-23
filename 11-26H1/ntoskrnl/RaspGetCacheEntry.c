@@ -1,7 +1,7 @@
 /*
- * XREFs of RaspGetCacheEntry @ 0x140532744
+ * XREFs of RaspGetCacheEntry @ 0x140534BE4
  * Callers:
- *     RaspGetXExtent @ 0x140718E34 (RaspGetXExtent.c)
+ *     RaspGetXExtent @ 0x14071DB24 (RaspGetXExtent.c)
  * Callees:
  *     <none>
  */

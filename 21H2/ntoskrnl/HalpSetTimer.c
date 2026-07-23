@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpSetTimer @ 0x14024E37C
+ * XREFs of HalpSetTimer @ 0x1402F2BCC
  * Callers:
- *     HalpTimerClockArm @ 0x14024DBE0 (HalpTimerClockArm.c)
- *     HalpTimerWatchdogResetCountdown @ 0x140393A60 (HalpTimerWatchdogResetCountdown.c)
- *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
- *     HalpSetTimerAnyMode @ 0x1404BF9BC (HalpSetTimerAnyMode.c)
- *     HalpTimerRestartProfileInterrupt @ 0x1404C18B8 (HalpTimerRestartProfileInterrupt.c)
- *     HalpTimerSetTimerBackedProfileInterval @ 0x1404C19B4 (HalpTimerSetTimerBackedProfileInterval.c)
- *     HalpTimerStartProfileInterrupt @ 0x1404C1A48 (HalpTimerStartProfileInterrupt.c)
- *     HalpTimerTestHypervisorTimer @ 0x1404C1B2C (HalpTimerTestHypervisorTimer.c)
- *     HalpTimerWatchdogStart @ 0x1404C2670 (HalpTimerWatchdogStart.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C2760 (HalpTimerWatchdogTriggerSystemReset.c)
- *     HalpWatchdogDelayExpiration @ 0x1404C2960 (HalpWatchdogDelayExpiration.c)
+ *     HalpTimerClockArm @ 0x1402F2430 (HalpTimerClockArm.c)
+ *     HalpTimerWatchdogResetCountdown @ 0x140393BB0 (HalpTimerWatchdogResetCountdown.c)
+ *     HalpTimerInitializeClock @ 0x1403A91E4 (HalpTimerInitializeClock.c)
+ *     HalpSetTimerAnyMode @ 0x1404BFBFC (HalpSetTimerAnyMode.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x1404C1AF8 (HalpTimerRestartProfileInterrupt.c)
+ *     HalpTimerSetTimerBackedProfileInterval @ 0x1404C1BF4 (HalpTimerSetTimerBackedProfileInterval.c)
+ *     HalpTimerStartProfileInterrupt @ 0x1404C1C88 (HalpTimerStartProfileInterrupt.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1D6C (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerWatchdogStart @ 0x1404C28B0 (HalpTimerWatchdogStart.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C29A0 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     HalpWatchdogDelayExpiration @ 0x1404C2BA0 (HalpWatchdogDelayExpiration.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     HalpTimerScaleCounter @ 0x140396440 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpSetTimer(__int64 a1, unsigned int a2, ULONGLONG a3, char a4, unsigned __int64 *a5)

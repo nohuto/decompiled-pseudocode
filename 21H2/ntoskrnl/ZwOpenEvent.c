@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwOpenEvent @ 0x1403FABA0
+ * XREFs of ZwOpenEvent @ 0x1403FAD80
  * Callers:
- *     PspShutdownCsrProcess @ 0x140906650 (PspShutdownCsrProcess.c)
+ *     PspShutdownCsrProcess @ 0x1409067B0 (PspShutdownCsrProcess.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenEvent(PHANDLE EventHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EventHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(EventHandle);
 }

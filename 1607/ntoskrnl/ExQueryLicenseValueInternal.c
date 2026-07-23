@@ -1,23 +1,23 @@
 /*
- * XREFs of ExQueryLicenseValueInternal @ 0x1404A40C0
+ * XREFs of ExQueryLicenseValueInternal @ 0x14051C4C0
  * Callers:
- *     NtQueryLicenseValue @ 0x1404A3E00 (NtQueryLicenseValue.c)
+ *     NtQueryLicenseValue @ 0x14051C200 (NtQueryLicenseValue.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x1404A475C (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     sub_1404A4A10 @ 0x1404A4A10 (sub_1404A4A10.c)
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14051CB5C (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     sub_14051CE10 @ 0x14051CE10 (sub_14051CE10.c)
  */
 
 __int64 __fastcall ExQueryLicenseValueInternal(
@@ -126,8 +126,8 @@ __int64 __fastcall ExQueryLicenseValueInternal(
   v9 = 0;
   v10 = a1;
   v11 = *a1;
-  v12 = &off_1406E86F0;
-  v13 = &off_1406E86F0;
+  v12 = &off_1406E8820;
+  v13 = &off_1406E8820;
   while ( 1 )
   {
     v14 = *((_WORD *)v13 + 4);
@@ -251,7 +251,7 @@ LABEL_10:
     {
       if ( *v26 >= 0x18u )
       {
-        v54 = sub_1404A4A10(v65, v59, v58, v55, v17);
+        v54 = sub_14051CE10(v65, v59, v58, v55, v17);
         goto LABEL_32;
       }
       goto LABEL_31;

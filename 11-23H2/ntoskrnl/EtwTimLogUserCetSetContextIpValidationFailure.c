@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB1E8
+ * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB478
  * Callers:
- *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x1409756B0 (KiLogUserCetSetContextIpValidationFailureWorker.c)
+ *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x1409758B0 (KiLogUserCetSetContextIpValidationFailureWorker.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041B1C0 (ZwQueryVirtualMemory.c)
- *     EtwpQueryProcessCommandLine @ 0x140754BE8 (EtwpQueryProcessCommandLine.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwpTiFillProcessIdentity @ 0x1403041E4 (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x14041B550 (ZwQueryVirtualMemory.c)
+ *     EtwpQueryProcessCommandLine @ 0x140754DD8 (EtwpQueryProcessCommandLine.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -143,7 +143,7 @@ void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2
   if ( ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         (MEMORY_INFORMATION_CLASS)2,
+         MemoryMappedFilenameInformation,
          Pool2,
          0x200uLL,
          0LL) < 0 )
@@ -184,7 +184,7 @@ LABEL_14:
   if ( v25 != 1 )
     v24 = &MITIGATION_ENFORCE_USER_CET_SET_CONTEXT_IP_VALIDATION_FAILURE;
   EtwWrite(v29, v24, 0LL, v28, &UserData);
-  if ( (unsigned int)dword_140C04320 > 5 && tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
   {
     v34 = v25;
     v42 = &v34;
@@ -217,8 +217,8 @@ LABEL_14:
     v39 = 0x1000000LL;
     v63 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04320,
-      (unsigned __int8 *)&dword_140035BE4,
+      (__int64)&dword_140C066C0,
+      (unsigned __int8 *)byte_140035E08,
       0LL,
       0LL,
       0xDu,

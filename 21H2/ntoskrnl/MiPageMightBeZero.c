@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPageMightBeZero @ 0x140369E84
+ * XREFs of MiPageMightBeZero @ 0x14036A034
  * Callers:
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
  * Callees:
- *     MiGetPagePrivilege @ 0x1403286F0 (MiGetPagePrivilege.c)
+ *     MiGetPagePrivilege @ 0x140333440 (MiGetPagePrivilege.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 

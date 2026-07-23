@@ -19,8 +19,8 @@ PSLIST_ENTRY __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3
   unsigned __int8 CurrentIrql; // r15
   volatile signed __int32 *j; // rdx
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY **v12; // r14
-  struct _SLIST_ENTRY *v13; // rbx
+  _SLIST_ENTRY **v12; // r14
+  _SLIST_ENTRY *v13; // rbx
   _QWORD v14[4]; // [rsp+20h] [rbp-68h] BYREF
 
   for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 8); i = (unsigned int)(i + 1) )
@@ -43,7 +43,7 @@ PSLIST_ENTRY __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3
       __writecr8(CurrentIrql);
       if ( (_DWORD)v8 )
       {
-        v12 = (struct _SLIST_ENTRY **)v14;
+        v12 = (_SLIST_ENTRY **)v14;
         do
         {
           v13 = *v12;

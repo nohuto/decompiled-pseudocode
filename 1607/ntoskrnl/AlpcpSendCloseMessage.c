@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpSendCloseMessage @ 0x140409ED0
+ * XREFs of AlpcpSendCloseMessage @ 0x140408D90
  * Callers:
- *     AlpcpClosePort @ 0x14040AE68 (AlpcpClosePort.c)
- *     AlpcpDeletePort @ 0x14040B5C8 (AlpcpDeletePort.c)
+ *     AlpcpClosePort @ 0x140409D28 (AlpcpClosePort.c)
+ *     AlpcpDeletePort @ 0x14040A488 (AlpcpDeletePort.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14040B470 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpDispatchCloseMessage @ 0x1404C2E00 (AlpcpDispatchCloseMessage.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14040A330 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpDispatchCloseMessage @ 0x1404AEB14 (AlpcpDispatchCloseMessage.c)
  */
 
 __int64 __fastcall AlpcpSendCloseMessage(__int64 a1)

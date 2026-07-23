@@ -1,9 +1,9 @@
 /*
- * XREFs of _ui64toa @ 0x180121C00
+ * XREFs of _ui64toa @ 0x18011FE30
  * Callers:
  *     <none>
  * Callees:
- *     x64toa @ 0x180121C40 (x64toa.c)
+ *     x64toa @ 0x18011FE70 (x64toa.c)
  */
 
 char *__cdecl ui64toa(unsigned __int64 Value, char *Buffer, int Radix)

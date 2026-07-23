@@ -23,7 +23,6 @@ __int64 __fastcall PiDrvDbOverlayNodeHive(const UNICODE_STRING *a1, const WCHAR 
   wchar_t **v4; // rsi
   unsigned int v5; // r14d
   int appended; // ebx
-  __int64 v8; // r8
   unsigned __int16 i; // cx
   UNICODE_STRING Destination; // [rsp+40h] [rbp-39h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-29h] BYREF
@@ -94,7 +93,7 @@ LABEL_5:
         appended = RtlAppendUnicodeStringToString(&UnicodeString, &DestinationString);
         if ( appended < 0 )
           goto LABEL_20;
-        appended = PiDrvDbLoadHive(&UnicodeString, (__int64)&Destination, 0x2000LL, &KeyHandle);
+        appended = PiDrvDbLoadHive(&UnicodeString, &Destination, 0x2000, &KeyHandle);
         if ( appended < 0 )
           goto LABEL_20;
         v3 = 1;
@@ -114,7 +113,7 @@ LABEL_20:
   if ( Handle )
     ZwClose(Handle);
   if ( v3 )
-    PiDrvDbUnloadHive(&UnicodeString, 0LL, v8);
+    PiDrvDbUnloadHive(&UnicodeString, 0LL);
   RtlFreeAnsiString(&Destination);
   RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)appended;

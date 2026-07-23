@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpBuildMapForLoaderHive @ 0x140563D50
+ * XREFs of HvpBuildMapForLoaderHive @ 0x140564290
  * Callers:
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     HvpInitMap @ 0x1404E3088 (HvpInitMap.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvpEnlistFreeCells @ 0x1405140A0 (HvpEnlistFreeCells.c)
- *     HvpCleanMap @ 0x140610770 (HvpCleanMap.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     HvpInitMap @ 0x1404C5FEC (HvpInitMap.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     HvpEnlistFreeCells @ 0x1404F7490 (HvpEnlistFreeCells.c)
+ *     HvpCleanMap @ 0x140610824 (HvpCleanMap.c)
  */
 
 __int64 __fastcall HvpBuildMapForLoaderHive(ULONG_PTR BugCheckParameter2, unsigned __int64 a2)

@@ -1,7 +1,7 @@
 /*
  * XREFs of VfSuspectDriversIsLoaded @ 0x1407D1AC0
  * Callers:
- *     ViDriverReApplyVerifierForAll @ 0x140704E64 (ViDriverReApplyVerifierForAll.c)
+ *     ViDriverReApplyVerifierForAll @ 0x140704E94 (ViDriverReApplyVerifierForAll.c)
  * Callees:
  *     ViSuspectDriversLookupEntry @ 0x1407166C4 (ViSuspectDriversLookupEntry.c)
  */

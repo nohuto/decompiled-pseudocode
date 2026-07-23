@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAddToHiveFileList @ 0x14049CE58
+ * XREFs of CmpAddToHiveFileList @ 0x1404CD0D8
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x14055D110 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveVolatile @ 0x14060D2DC (CmpLoadHiveVolatile.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x14055D650 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveVolatile @ 0x14060D390 (CmpLoadHiveVolatile.c)
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140087418 (CmpAllocateTransientPoolWithTag.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryObject @ 0x140159E80 (ZwQueryObject.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x1400B0B88 (CmpAllocateTransientPoolWithTag.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryObject @ 0x14015A3F0 (ZwQueryObject.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpAddToHiveFileList(HANDLE a1)

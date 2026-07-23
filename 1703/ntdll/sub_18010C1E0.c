@@ -13,61 +13,56 @@
  *     sub_18010DFF0 @ 0x18010DFF0 (sub_18010DFF0.c)
  */
 
-__int64 __fastcall sub_18010C1E0(__int64 a1, int a2)
+__int64 __fastcall sub_18010C1E0(const WCHAR *a1)
 {
-  __int64 v2; // rbx
-  unsigned __int64 v3; // rdi
-  __int64 v4; // rax
-  unsigned int v5; // ecx
-  __int64 Heap; // rax
-  unsigned int v7; // esi
-  __int64 v8; // rsi
-  int v10; // [rsp+58h] [rbp+10h] BYREF
-  unsigned int v11; // [rsp+60h] [rbp+18h] BYREF
-  int v12; // [rsp+64h] [rbp+1Ch]
+  char *v1; // rbx
+  void *v2; // rdi
+  __int64 v3; // rax
+  LONG v4; // ecx
+  PVOID Heap; // rax
+  int v6; // esi
+  __int64 v7; // rsi
+  SIZE_T Size; // [rsp+60h] [rbp+18h] BYREF
 
-  v10 = a2;
+  v1 = 0LL;
   v2 = 0LL;
-  v3 = 0LL;
-  v11 = 0;
-  v12 = 0;
+  Size = 0LL;
   if ( !a1 )
   {
-    v5 = 87;
+    v4 = 87;
     goto LABEL_12;
   }
-  v4 = sub_18010C428(a1, 0x80000000LL, 1LL);
-  v2 = v4;
-  if ( v4 == -1 || !(unsigned int)sub_18010D3AC(v4, &v11) )
+  v3 = sub_18010C428(a1);
+  v1 = (char *)v3;
+  if ( v3 == -1 || !(unsigned int)sub_18010D3AC(v3, &Size) )
     goto LABEL_13;
-  if ( v12 )
+  if ( HIDWORD(Size) )
     goto LABEL_5;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
-  v3 = Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)Size);
+  v2 = Heap;
   if ( !Heap )
     goto LABEL_13;
-  v7 = v11;
-  v10 = 0;
-  if ( !(unsigned int)sub_18010D57C(v2, Heap, v11, &v10) )
+  v6 = Size;
+  if ( !(unsigned int)sub_18010D57C(v1, Heap, Size) )
     goto LABEL_13;
-  if ( v10 != v7 )
+  if ( v6 )
   {
 LABEL_5:
-    v5 = 536937216;
+    v4 = 536937216;
 LABEL_12:
-    RtlSetLastWin32Error(v5);
+    RtlSetLastWin32Error(v4);
     goto LABEL_13;
   }
-  v8 = sub_18010DFF0(v3, v7, 0LL);
-  if ( v8 )
+  v7 = sub_18010DFF0(v2, 0LL, 0LL);
+  if ( v7 )
   {
-    sub_18010C390(v2);
-    return v8;
+    sub_18010C390(v1);
+    return v7;
   }
 LABEL_13:
-  if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-    sub_18010C390(v2);
-  if ( v3 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
+  if ( (unsigned __int64)(v1 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    sub_18010C390(v1);
+  if ( v2 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
   return 0LL;
 }

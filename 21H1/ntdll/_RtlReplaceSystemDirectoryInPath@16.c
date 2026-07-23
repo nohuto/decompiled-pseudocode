@@ -9,20 +9,24 @@
  *     _RtlpReplaceFirstUnicodeSubstringOfEqualLength@12 @ 0x4B2E61A5 (_RtlpReplaceFirstUnicodeSubstringOfEqualLength@12.c)
  */
 
-int __stdcall RtlReplaceSystemDirectoryInPath(int a1, __int16 a2, __int16 a3, char a4)
+ULONG __cdecl RtlReplaceSystemDirectoryInPath(
+        PUNICODE_STRING Destination,
+        USHORT Machine,
+        USHORT TargetMachine,
+        BOOLEAN IncludePathSeperator)
 {
-  int result; // eax
-  UNICODE_STRING v5; // [esp+8h] [ebp-10h] BYREF
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-8h] BYREF
+  ULONG result; // eax
+  _UNICODE_STRING SearchString; // [esp+8h] [ebp-10h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-8h] BYREF
 
-  if ( a2 == a3 )
+  if ( Machine == TargetMachine )
     return 0;
   result = RtlpWow64SelectSystem32PathInternal(&DestinationString);
-  if ( result >= 0 )
+  if ( (result & 0x80000000) == 0 )
   {
-    result = RtlpWow64SelectSystem32PathInternal(&v5);
-    if ( result >= 0 )
-      return RtlpReplaceFirstUnicodeSubstringOfEqualLength(&DestinationString);
+    result = RtlpWow64SelectSystem32PathInternal(&SearchString);
+    if ( (result & 0x80000000) == 0 )
+      return RtlpReplaceFirstUnicodeSubstringOfEqualLength(Destination, &SearchString, (int)&DestinationString);
   }
   return result;
 }

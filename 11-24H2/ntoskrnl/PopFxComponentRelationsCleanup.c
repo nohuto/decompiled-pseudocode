@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxComponentRelationsCleanup @ 0x1405D0A1C
+ * XREFs of PopFxComponentRelationsCleanup @ 0x1405CE13C
  * Callers:
- *     PopFxUnregisterDevice @ 0x140A74BB4 (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x140A6EED4 (PopFxUnregisterDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     PopFxNextParentRelationSafe @ 0x140375C20 (PopFxNextParentRelationSafe.c)
- *     PopFxIdleComponent @ 0x1403B4888 (PopFxIdleComponent.c)
- *     PopFxNextComponentChildRelationSafe @ 0x140445C38 (PopFxNextComponentChildRelationSafe.c)
- *     KxTryToAcquireSpinLock @ 0x1404633C8 (KxTryToAcquireSpinLock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxNextParentRelationSafe @ 0x1403A6340 (PopFxNextParentRelationSafe.c)
+ *     PopFxIdleComponent @ 0x1403A8D58 (PopFxIdleComponent.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x14043DFE8 (PopFxNextComponentChildRelationSafe.c)
+ *     KxTryToAcquireSpinLock @ 0x140459EB8 (KxTryToAcquireSpinLock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxComponentRelationsCleanup(__int64 a1)

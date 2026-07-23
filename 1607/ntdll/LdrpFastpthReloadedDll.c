@@ -1,49 +1,46 @@
 /*
- * XREFs of LdrpFastpthReloadedDll @ 0x180018F98
+ * XREFs of LdrpFastpthReloadedDll @ 0x180018F88
  * Callers:
- *     LdrpLoadDllInternal @ 0x180018D30 (LdrpLoadDllInternal.c)
+ *     LdrpLoadDllInternal @ 0x180018D20 (LdrpLoadDllInternal.c)
  * Callees:
- *     LdrpDrainWorkQueue @ 0x18000D61C (LdrpDrainWorkQueue.c)
- *     LdrpFindLoadedDllByName @ 0x18001A3DC (LdrpFindLoadedDllByName.c)
- *     LdrpDecrementModuleLoadCountEx @ 0x18002F018 (LdrpDecrementModuleLoadCountEx.c)
- *     LdrpDereferenceModule @ 0x180032238 (LdrpDereferenceModule.c)
- *     LdrpIncrementModuleLoadCount @ 0x180039C90 (LdrpIncrementModuleLoadCount.c)
- *     LdrpBuildForwarderLink @ 0x180073888 (LdrpBuildForwarderLink.c)
- *     LdrpDropLastInProgressCount @ 0x18007A61C (LdrpDropLastInProgressCount.c)
+ *     LdrpDrainWorkQueue @ 0x18000D60C (LdrpDrainWorkQueue.c)
+ *     LdrpFindLoadedDllByName @ 0x18001A3CC (LdrpFindLoadedDllByName.c)
+ *     LdrpDecrementModuleLoadCountEx @ 0x18002F008 (LdrpDecrementModuleLoadCountEx.c)
+ *     LdrpDereferenceModule @ 0x180032228 (LdrpDereferenceModule.c)
+ *     LdrpIncrementModuleLoadCount @ 0x180039C80 (LdrpIncrementModuleLoadCount.c)
+ *     LdrpBuildForwarderLink @ 0x180073878 (LdrpBuildForwarderLink.c)
+ *     LdrpDropLastInProgressCount @ 0x18007A60C (LdrpDropLastInProgressCount.c)
  */
 
-__int64 __fastcall LdrpFastpthReloadedDll(int a1, int a2, __int64 a3, _QWORD *a4)
+__int64 __fastcall LdrpFastpthReloadedDll(PUNICODE_STRING a1, __int16 a2, __int64 a3, PVOID *a4)
 {
   int LoadedDllByName; // ebx
-  int v7; // r8d
-  int v8; // edx
-  char v10; // si
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  int v15; // [rsp+48h] [rbp+10h] BYREF
+  _UNICODE_STRING *v7; // rdx
+  char v9; // si
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // [rsp+48h] [rbp+10h] BYREF
 
-  v15 = 0;
+  LODWORD(v14) = 0;
   LoadedDllByName = -1073741275;
   if ( (a2 & 0x20) != 0 )
   {
-    v7 = a2;
-    v8 = 0;
+    v7 = 0LL;
   }
   else
   {
     if ( (a2 & 0x200) == 0 )
       return (unsigned int)LoadedDllByName;
-    v7 = a2;
-    v8 = a1;
-    a1 = 0;
+    v7 = a1;
+    a1 = 0LL;
   }
-  LoadedDllByName = LdrpFindLoadedDllByName(a1, v8, v7, (_DWORD)a4, (__int64)&v15);
+  LoadedDllByName = LdrpFindLoadedDllByName(a1, v7, (__int64)&v14);
   if ( LoadedDllByName >= 0 )
   {
     LoadedDllByName = -1073741275;
-    if ( v15 != 9 )
+    if ( (_DWORD)v14 != 9 )
       goto LABEL_11;
     LoadedDllByName = LdrpIncrementModuleLoadCount(*a4);
     if ( LoadedDllByName < 0 )
@@ -53,16 +50,16 @@ __int64 __fastcall LdrpFastpthReloadedDll(int a1, int a2, __int64 a3, _QWORD *a4
     {
       if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
       {
-        v10 = 1;
+        v9 = 1;
       }
       else
       {
-        v10 = 0;
+        v9 = 0;
         LdrpDrainWorkQueue(0);
       }
       LdrpDecrementModuleLoadCountEx(*a4, 0LL);
-      if ( !v10 )
-        LdrpDropLastInProgressCount(v12, v11, v13, v14);
+      if ( !v9 )
+        LdrpDropLastInProgressCount(v11, v10, v12, v13);
     }
     if ( LoadedDllByName < 0 )
     {

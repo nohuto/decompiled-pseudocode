@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlDebuggerSupportInitialize @ 0x140193F14
+ * XREFs of HvlDebuggerSupportInitialize @ 0x140194054
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     strncmp @ 0x140194E00 (strncmp.c)
- *     strstr @ 0x140194EC0 (strstr.c)
- *     atol @ 0x140194F70 (atol.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     strncmp @ 0x140194F40 (strncmp.c)
+ *     strstr @ 0x140195000 (strstr.c)
+ *     atol @ 0x1401950B0 (atol.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -37,7 +37,7 @@ void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
   char *v20; // rax
   const char *v21; // rdi
   __int16 v22; // di
-  STRING SourceString; // [rsp+20h] [rbp-E0h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-E0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD v25[32]; // [rsp+40h] [rbp-C0h] BYREF
 
@@ -83,7 +83,7 @@ void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
               v25[28] = DestinationString.Buffer;
               LODWORD(v25[29]) = DestinationString.Length;
               BYTE3(v25[2]) = 1;
-              ((void (__fastcall *)(_QWORD, _QWORD *))off_1403FE440[0])(0LL, v25);
+              ((void (__fastcall *)(_QWORD, _QWORD *))off_1403FF440[0])(0LL, v25);
               RtlFreeAnsiString(&DestinationString);
             }
           }
@@ -168,7 +168,7 @@ void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
                     LOBYTE(v25[2]) = -1;
                   }
                   LODWORD(v25[24]) = 0;
-                  ((void (__fastcall *)(_QWORD, _QWORD *))off_1403FE338[0])(0LL, v25);
+                  ((void (__fastcall *)(_QWORD, _QWORD *))off_1403FF338[0])(0LL, v25);
                 }
               }
             }

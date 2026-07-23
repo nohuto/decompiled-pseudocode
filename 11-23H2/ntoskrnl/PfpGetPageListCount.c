@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpGetPageListCount @ 0x14075D8FC
+ * XREFs of PfpGetPageListCount @ 0x14075DAEC
  * Callers:
  *     PfpVolumePrefetchMetadata @ 0x140684C04 (PfpVolumePrefetchMetadata.c)
- *     PfSnCheckActionsNeeded @ 0x14074DFF8 (PfSnCheckActionsNeeded.c)
- *     PfpPrefetchFilesTrickle @ 0x14075D490 (PfpPrefetchFilesTrickle.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x14075D7E0 (PfpUpdateRepurposedByPrefetch.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D7B0C (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchPrivatePages @ 0x14097E268 (PfpPrefetchPrivatePages.c)
+ *     PfSnCheckActionsNeeded @ 0x14074E1E8 (PfSnCheckActionsNeeded.c)
+ *     PfpPrefetchFilesTrickle @ 0x14075D680 (PfpPrefetchFilesTrickle.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x14075D9D0 (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpPrefetchDirectoryStream @ 0x1407D7DDC (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchPrivatePages @ 0x14097E468 (PfpPrefetchPrivatePages.c)
  * Callees:
  *     <none>
  */

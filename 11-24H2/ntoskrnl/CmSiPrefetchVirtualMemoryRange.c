@@ -1,26 +1,20 @@
 /*
- * XREFs of CmSiPrefetchVirtualMemoryRange @ 0x140488BFC
+ * XREFs of CmSiPrefetchVirtualMemoryRange @ 0x140483CEC
  * Callers:
- *     HvpViewMapMakeViewRangeValid @ 0x140980000 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140968810 (HvpViewMapMakeViewRangeValid.c)
  * Callees:
- *     ZwSetInformationVirtualMemory @ 0x1406A9A10 (ZwSetInformationVirtualMemory.c)
+ *     ZwSetInformationVirtualMemory @ 0x1406AA9B0 (ZwSetInformationVirtualMemory.c)
  */
 
-__int64 __fastcall CmSiPrefetchVirtualMemoryRange(__int64 *a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall CmSiPrefetchVirtualMemoryRange(void **a1, void *a2, SIZE_T a3)
 {
-  __int64 v3; // rcx
-  _QWORD v5[3]; // [rsp+30h] [rbp-18h] BYREF
-  int v6; // [rsp+50h] [rbp+8h] BYREF
+  void *v3; // rcx
+  _MEMORY_RANGE_ENTRY VirtualAddresses; // [rsp+30h] [rbp-18h] BYREF
+  int VmInformation; // [rsp+50h] [rbp+8h] BYREF
 
-  v6 = 0;
+  VmInformation = 0;
   v3 = *a1;
-  v5[0] = a2;
-  v5[1] = a3;
-  return ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _QWORD *, int *, int))ZwSetInformationVirtualMemory)(
-           v3,
-           0LL,
-           1LL,
-           v5,
-           &v6,
-           4);
+  VirtualAddresses.VirtualAddress = a2;
+  VirtualAddresses.NumberOfBytes = a3;
+  return ZwSetInformationVirtualMemory(v3, VmPrefetchInformation, 1uLL, &VirtualAddresses, &VmInformation, 4u);
 }

@@ -1,92 +1,90 @@
 /*
- * XREFs of RtlRaiseCustomSystemEventTrigger @ 0x1801493F0
+ * XREFs of RtlRaiseCustomSystemEventTrigger @ 0x1801492A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     TpPostWork @ 0x180067FB0 (TpPostWork.c)
- *     RtlGUIDFromString @ 0x1800C29A0 (RtlGUIDFromString.c)
- *     RtlpCtContextFree @ 0x18014964C (RtlpCtContextFree.c)
- *     RtlpCtContextInit @ 0x18014969C (RtlpCtContextInit.c)
- *     ZwQueryWnfStateData @ 0x180161D50 (ZwQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x180161D70 (NtQueryWnfStateNameInformation.c)
- *     ZwUpdateWnfStateData @ 0x180162B70 (ZwUpdateWnfStateData.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     TpPostWork @ 0x180088400 (TpPostWork.c)
+ *     RtlGUIDFromString @ 0x1800C0070 (RtlGUIDFromString.c)
+ *     RtlpCtContextFree @ 0x1801494FC (RtlpCtContextFree.c)
+ *     RtlpCtContextInit @ 0x18014954C (RtlpCtContextInit.c)
+ *     ZwQueryWnfStateData @ 0x180161C50 (ZwQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x180161C70 (NtQueryWnfStateNameInformation.c)
+ *     ZwUpdateWnfStateData @ 0x180162A70 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)
+DWORD __cdecl RtlRaiseCustomSystemEventTrigger(PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG TriggerConfig)
 {
-  int updated; // ebx
-  __int64 Atom; // rdi
-  _PEB_LDR_DATA *v3; // rdx
-  __int64 v4; // r8
-  int v6; // [rsp+48h] [rbp-9h] BYREF
-  int v7; // [rsp+4Ch] [rbp-5h] BYREF
-  unsigned int v8; // [rsp+50h] [rbp-1h] BYREF
-  __int64 *v9; // [rsp+58h] [rbp+7h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp+Fh] BYREF
-  __int64 v11; // [rsp+70h] [rbp+1Fh] BYREF
-  __int128 v12; // [rsp+78h] [rbp+27h] BYREF
+  NTSTATUS updated; // ebx
+  _DWORD *Buffer; // rdi
+  ULONG BufferSize; // [rsp+48h] [rbp-9h] BYREF
+  int InfoBuffer; // [rsp+4Ch] [rbp-5h] BYREF
+  ULONG ChangeStamp; // [rsp+50h] [rbp-1h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp+7h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp+Fh] BYREF
+  WNF_STATE_NAME StateName; // [rsp+70h] [rbp+1Fh] BYREF
+  GUID Guid; // [rsp+78h] [rbp+27h] BYREF
 
-  v11 = WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED;
-  v7 = 0;
-  v8 = 0;
-  v9 = 0LL;
+  StateName = (WNF_STATE_NAME)WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED;
+  InfoBuffer = 0;
+  ChangeStamp = 0;
+  BaseAddress = 0LL;
   DestinationString = 0LL;
-  v12 = 0LL;
-  if ( a1 )
+  Guid = 0LL;
+  if ( TriggerConfig )
   {
-    RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(a1 + 8));
-    updated = RtlGUIDFromString(&DestinationString.Length, &v12);
+    RtlInitUnicodeString(&DestinationString, TriggerConfig->TriggerId);
+    updated = RtlGUIDFromString(&DestinationString, &Guid);
     if ( updated < 0 )
-      return (unsigned int)updated;
+      return updated;
     if ( _InterlockedExchange(&RtlpCtPublishInProgress, 1) )
-      return (unsigned int)-1073741823;
-    v6 = 4096;
-    Atom = RtlpAllocateAtom(4096LL);
-    if ( Atom )
+      return -1073741823;
+    BufferSize = 4096;
+    Buffer = RtlpAllocateAtom(0x1000uLL);
+    if ( Buffer )
     {
-      updated = ZwQueryWnfStateData(&v11, 0LL, 0LL, &v8, Atom, &v6);
+      updated = ZwQueryWnfStateData(&StateName, 0LL, 0LL, &ChangeStamp, Buffer, &BufferSize);
       if ( updated >= 0 )
       {
-        updated = NtQueryWnfStateNameInformation(&v11, 2LL, 0LL, &v7, 4);
+        updated = NtQueryWnfStateNameInformation(&StateName, WnfInfoIsQuiescent, 0LL, &InfoBuffer, 4u);
         if ( updated >= 0 )
         {
-          if ( v7 )
+          if ( InfoBuffer )
           {
-            updated = NtQueryWnfStateNameInformation(&v11, 1LL, 0LL, &v7, 4);
+            updated = NtQueryWnfStateNameInformation(&StateName, WnfInfoSubscribersPresent, 0LL, &InfoBuffer, 4u);
             if ( updated >= 0 )
             {
-              if ( v7 )
+              if ( InfoBuffer )
               {
-                v6 = 4096;
-                if ( Atom == -8 )
+                BufferSize = 4096;
+                if ( Buffer == (_DWORD *)-8LL )
                 {
                   updated = -1073741811;
                 }
                 else
                 {
-                  *(_OWORD *)(Atom + 8) = 0LL;
-                  *(_OWORD *)(Atom + 24) = v12;
-                  *(_DWORD *)(Atom + 40) = 16;
-                  v6 = 36;
-                  *(_DWORD *)Atom = 0;
-                  *(_DWORD *)(Atom + 4) = -1;
-                  *(_DWORD *)Atom = 4 * (v6 & 0xFFF | 0x100000);
-                  updated = RtlpCtContextInit(&v9, v8);
+                  *(_OWORD *)(Buffer + 2) = 0LL;
+                  *(GUID *)(Buffer + 6) = Guid;
+                  Buffer[10] = 16;
+                  BufferSize = 36;
+                  *Buffer = 0;
+                  Buffer[1] = -1;
+                  *Buffer = 4 * (BufferSize & 0xFFF | 0x100000);
+                  updated = RtlpCtContextInit(&BaseAddress, ChangeStamp);
                   if ( updated >= 0 )
                   {
-                    updated = ZwUpdateWnfStateData(&v11, Atom, (unsigned int)(v6 + 8), 0LL, 0LL, v8, 1);
+                    updated = ZwUpdateWnfStateData(&StateName, Buffer, BufferSize + 8, 0LL, 0LL, ChangeStamp, 1u);
                     if ( updated >= 0 )
                     {
-                      TpPostWork(*v9, v3, v4);
+                      TpPostWork(*(PTP_WORK *)BaseAddress);
                       goto LABEL_23;
                     }
                   }
-                  if ( v9 )
-                    RtlpCtContextFree();
+                  if ( BaseAddress )
+                    RtlpCtContextFree(BaseAddress);
                 }
               }
               else
@@ -107,11 +105,11 @@ __int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)
       updated = -1073741670;
     }
     _InterlockedExchange(&RtlpCtPublishInProgress, 0);
-    if ( !Atom )
-      return (unsigned int)updated;
+    if ( !Buffer )
+      return updated;
 LABEL_23:
-    RtlpSysVolFree(Atom);
-    return (unsigned int)updated;
+    RtlpSysVolFree(Buffer);
+    return updated;
   }
-  return (unsigned int)-1073741811;
+  return -1073741811;
 }

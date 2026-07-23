@@ -1,8 +1,8 @@
 /*
- * XREFs of OBJECT_HEADER_TO_PROCESS_INFO @ 0x14036BF10
+ * XREFs of OBJECT_HEADER_TO_PROCESS_INFO @ 0x14036C0B0
  * Callers:
- *     ObpIncrementHandleCountEx @ 0x1406E7060 (ObpIncrementHandleCountEx.c)
- *     ObGetObjectInformation @ 0x14097B914 (ObGetObjectInformation.c)
+ *     ObpIncrementHandleCountEx @ 0x1406E7090 (ObpIncrementHandleCountEx.c)
+ *     ObGetObjectInformation @ 0x14097BB14 (ObGetObjectInformation.c)
  * Callees:
  *     <none>
  */

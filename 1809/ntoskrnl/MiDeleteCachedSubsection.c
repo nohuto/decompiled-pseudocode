@@ -1,33 +1,33 @@
 /*
- * XREFs of MiDeleteCachedSubsection @ 0x1402A1A18
+ * XREFs of MiDeleteCachedSubsection @ 0x1402A1C08
  * Callers:
- *     MiRemoveUnusedSegments @ 0x1402A3030 (MiRemoveUnusedSegments.c)
+ *     MiRemoveUnusedSegments @ 0x1402A3220 (MiRemoveUnusedSegments.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
  *     MiDecrementModifiedWriteCount @ 0x140022DA0 (MiDecrementModifiedWriteCount.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     MiInsertUnusedSegment @ 0x14007B5A0 (MiInsertUnusedSegment.c)
- *     MiInsertUnusedSubsection @ 0x14007B7DC (MiInsertUnusedSubsection.c)
- *     MiRemoveUnusedSegment @ 0x14007BB68 (MiRemoveUnusedSegment.c)
- *     MiReduceUnusedSubsectionCount @ 0x14007BC54 (MiReduceUnusedSubsectionCount.c)
- *     MiDeleteControlArea @ 0x140094D1C (MiDeleteControlArea.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDestroySection @ 0x1401697BC (MiDestroySection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiIsSubsectionClean @ 0x1402A2694 (MiIsSubsectionClean.c)
- *     MiPreventControlAreaDelete @ 0x1402A2944 (MiPreventControlAreaDelete.c)
- *     MiPurgeSubsection @ 0x1402A2C28 (MiPurgeSubsection.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1405DCE70 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400794B0 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSegment @ 0x14007B590 (MiInsertUnusedSegment.c)
+ *     MiInsertUnusedSubsection @ 0x14007B7CC (MiInsertUnusedSubsection.c)
+ *     MiRemoveUnusedSegment @ 0x14007BB58 (MiRemoveUnusedSegment.c)
+ *     MiReduceUnusedSubsectionCount @ 0x14007BC44 (MiReduceUnusedSubsectionCount.c)
+ *     MiDeleteControlArea @ 0x140094C5C (MiDeleteControlArea.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDestroySection @ 0x1401698BC (MiDestroySection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiIsSubsectionClean @ 0x1402A2884 (MiIsSubsectionClean.c)
+ *     MiPreventControlAreaDelete @ 0x1402A2B34 (MiPreventControlAreaDelete.c)
+ *     MiPurgeSubsection @ 0x1402A2E18 (MiPurgeSubsection.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x1405DDE70 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1405DE0AC (FsRtlAcquireFileForCcFlushEx.c)
  */
 
 __int64 __fastcall MiDeleteCachedSubsection(__int64 a1)
@@ -213,7 +213,7 @@ LABEL_21:
     v26 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3 + 72));
     v27 = _InterlockedDecrement64((volatile signed __int64 *)(v3 + 112));
     v44 = v27;
-    *(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)) + 1624LL) = 0LL;
+    *(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)) + 1624LL) = 0LL;
     if ( v20 < 0 || (*(_DWORD *)(v3 + 56) & 1) != 0 )
     {
       if ( v27 )

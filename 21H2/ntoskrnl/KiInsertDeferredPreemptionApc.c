@@ -1,31 +1,31 @@
 /*
- * XREFs of KiInsertDeferredPreemptionApc @ 0x14027A5E4
+ * XREFs of KiInsertDeferredPreemptionApc @ 0x140268584
  * Callers:
- *     KiGroupSchedulingQuantumEnd @ 0x1402587E0 (KiGroupSchedulingQuantumEnd.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14025A110 (KiDeferGroupSchedulingPreemption.c)
- *     KiBeginThreadAccountingPeriod @ 0x140288A40 (KiBeginThreadAccountingPeriod.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KiBeginThreadAccountingPeriod @ 0x140205BE0 (KiBeginThreadAccountingPeriod.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140279D50 (KiGroupSchedulingQuantumEnd.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x14027B680 (KiDeferGroupSchedulingPreemption.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiSignalThreadForApc @ 0x14027A6C0 (KiSignalThreadForApc.c)
- *     KiInsertQueueApc @ 0x14027A844 (KiInsertQueueApc.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiSignalThreadForApc @ 0x140268660 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x1402687E4 (KiInsertQueueApc.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiInsertDeferredPreemptionApc(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiInsertDeferredPreemptionApc(__int64 a1, __int64 a2, char a3)
 {
   struct _KPRCB *CurrentPrcb; // rdi
   _DWORD *SchedulerAssist; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r11
+  __int64 v7; // r8
+  __int64 v8; // r11
   __int64 result; // rax
-  _DWORD *v11; // rcx
+  _DWORD *v10; // rcx
+  int v11; // eax
   int v12; // eax
-  int v13; // eax
-  int v14; // [rsp+40h] [rbp+18h] BYREF
+  int v13; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( (_BYTE)a3 )
+  if ( a3 )
   {
     _interlockedbittestandreset((volatile signed __int32 *)(a2 + 120), 0xBu);
   }
@@ -35,7 +35,7 @@ __int64 __fastcall KiInsertDeferredPreemptionApc(__int64 a1, __int64 a2, __int64
   }
   _interlockedbittestandset((volatile signed __int32 *)(a2 + 120), 0xAu);
   CurrentPrcb = KeGetCurrentPrcb();
-  v14 = 0;
+  v13 = 0;
   while ( 1 )
   {
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -43,35 +43,35 @@ __int64 __fastcall KiInsertDeferredPreemptionApc(__int64 a1, __int64 a2, __int64
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v12 = SchedulerAssist[6];
-        SchedulerAssist[6] = v12 + 1;
-        if ( v12 == -1 )
+        v11 = SchedulerAssist[6];
+        SchedulerAssist[6] = v11 + 1;
+        if ( v11 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a2 + 64), 0LL) )
       break;
-    v11 = CurrentPrcb->SchedulerAssist;
-    if ( v11 )
+    v10 = CurrentPrcb->SchedulerAssist;
+    if ( v10 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v13 = v11[6] - 1;
-        v11[6] = v13;
-        if ( !v13 )
+        v12 = v10[6] - 1;
+        v10[6] = v12;
+        if ( !v12 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v14, a2, a3, a4);
+      KeYieldProcessorEx(&v13);
     while ( *(_QWORD *)(a2 + 64) );
   }
   if ( !*(_BYTE *)(a2 + 730) && (*(_DWORD *)(a2 + 116) & 0x4000) != 0 )
   {
     *(_BYTE *)(a2 + 730) = 1;
     KiInsertQueueApc(a2 + 648);
-    LOBYTE(v8) = 2;
-    KiSignalThreadForApc(a1, v9, v8);
+    LOBYTE(v7) = 2;
+    KiSignalThreadForApc(a1, v8, v7);
   }
   return KiReleaseThreadLockSafe(a2);
 }

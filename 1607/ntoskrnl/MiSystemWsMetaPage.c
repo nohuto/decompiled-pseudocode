@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSystemWsMetaPage @ 0x140106250
+ * XREFs of MiSystemWsMetaPage @ 0x140103FD0
  * Callers:
- *     MiActivePageClaimCandidate @ 0x140105A60 (MiActivePageClaimCandidate.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
+ *     MiActivePageClaimCandidate @ 0x1401037E0 (MiActivePageClaimCandidate.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ __int64 __fastcall MiSystemWsMetaPage(__int64 a1, _QWORD *a2)
   unsigned __int64 v10; // rax
 
   v2 = 0;
-  v3 = (__int64 *)&unk_140326DB8;
+  v3 = (__int64 *)&unk_140326DF8;
   for ( i = 0; i < 3; ++i )
   {
     v5 = *v3;

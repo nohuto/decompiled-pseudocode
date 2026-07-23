@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIrpWatchdog @ 0x1401FF280
+ * XREFs of PopIrpWatchdog @ 0x1401FF0AC
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     PopIrpWatchdogBugcheck @ 0x1401FF2A4 (PopIrpWatchdogBugcheck.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopIrpWatchdogBugcheck @ 0x1401FF0D0 (PopIrpWatchdogBugcheck.c)
  */
 
 void __fastcall __noreturn PopIrpWatchdog(__int64 a1, __int64 a2)

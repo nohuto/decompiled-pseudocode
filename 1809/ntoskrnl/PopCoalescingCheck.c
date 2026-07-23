@@ -1,5 +1,5 @@
 /*
- * XREFs of PopCoalescingCheck @ 0x1402DB82C
+ * XREFs of PopCoalescingCheck @ 0x1402DBA1C
  * Callers:
  *     PopScanIdleList @ 0x140010050 (PopScanIdleList.c)
  * Callees:

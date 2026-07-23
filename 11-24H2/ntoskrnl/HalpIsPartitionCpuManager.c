@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIsPartitionCpuManager @ 0x1404F79EC
+ * XREFs of HalpIsPartitionCpuManager @ 0x1404F52CC
  * Callers:
- *     HalpCmcStartPolling @ 0x1404F7940 (HalpCmcStartPolling.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x14054A1C4 (HalpTimerInitializeHypervisorTimer.c)
- *     HalSocRequestConfigurationData @ 0x1405614AC (HalSocRequestConfigurationData.c)
- *     HalpInterruptRegisterController @ 0x140562AC0 (HalpInterruptRegisterController.c)
- *     HalpProcIsSmtDisabled @ 0x140C0F514 (HalpProcIsSmtDisabled.c)
- *     HalpMiscGetParameters @ 0x140C0F650 (HalpMiscGetParameters.c)
+ *     HalpCmcStartPolling @ 0x1404F5220 (HalpCmcStartPolling.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x140547A84 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalSocRequestConfigurationData @ 0x14055F0DC (HalSocRequestConfigurationData.c)
+ *     HalpInterruptRegisterController @ 0x1405606F0 (HalpInterruptRegisterController.c)
+ *     HalpProcIsSmtDisabled @ 0x140C11514 (HalpProcIsSmtDisabled.c)
+ *     HalpMiscGetParameters @ 0x140C11650 (HalpMiscGetParameters.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A57AC (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A053C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char HalpIsPartitionCpuManager()

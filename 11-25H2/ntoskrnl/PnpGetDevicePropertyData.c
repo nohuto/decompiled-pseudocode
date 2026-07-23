@@ -14,7 +14,7 @@
 __int64 __fastcall PnpGetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         ULONG a5,
         void *a6,
@@ -22,16 +22,15 @@ __int64 __fastcall PnpGetDevicePropertyData(
         _DWORD *a8)
 {
   __int64 v11; // rbx
-  const WCHAR *v12; // rax
+  wchar_t *Buffer; // rax
   unsigned int ObjectProperty; // ebx
   __int64 v15; // rax
   ULONG *v16; // rdx
-  __int64 v17; // [rsp+60h] [rbp-108h] BYREF
-  const WCHAR *v18; // [rsp+68h] [rbp-100h]
-  _BYTE v19[176]; // [rsp+70h] [rbp-F8h] BYREF
+  UNICODE_STRING String; // [rsp+60h] [rbp-108h] BYREF
+  _BYTE v18[176]; // [rsp+70h] [rbp-F8h] BYREF
 
-  memset_0(v19, 0, 0xAAuLL);
-  v17 = 0LL;
+  memset_0(v18, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
   if ( !a1 )
     return (unsigned int)-1073741808;
   v11 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
@@ -39,22 +38,22 @@ __int64 __fastcall PnpGetDevicePropertyData(
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    v18 = (const WCHAR *)v19;
-    WORD1(v17) = 170;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v17) )
+    String.Buffer = (wchar_t *)v18;
+    String.MaximumLength = 170;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
-    v12 = v18;
+    Buffer = String.Buffer;
   }
   else
   {
-    v12 = 0LL;
+    Buffer = 0LL;
   }
   ObjectProperty = PnpGetObjectProperty(
                      *(_QWORD **)&PiPnpRtlCtx,
                      *(const WCHAR **)(v11 + 48),
                      1u,
                      0LL,
-                     v12,
+                     Buffer,
                      a2,
                      a8,
                      a6,

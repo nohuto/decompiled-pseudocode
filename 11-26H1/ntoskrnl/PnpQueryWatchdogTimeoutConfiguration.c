@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpQueryWatchdogTimeoutConfiguration @ 0x140CC4788
+ * XREFs of PnpQueryWatchdogTimeoutConfiguration @ 0x140CCA868
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PnpGetRegistryDword @ 0x1404F4BE8 (PnpGetRegistryDword.c)
+ *     PnpGetRegistryDword @ 0x1404EE1C8 (PnpGetRegistryDword.c)
  */
 
 __int64 __fastcall PnpQueryWatchdogTimeoutConfiguration(void *a1)

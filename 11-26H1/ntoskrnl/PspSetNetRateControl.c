@@ -1,16 +1,16 @@
 /*
- * XREFs of PspSetNetRateControl @ 0x1407F9A94
+ * XREFs of PspSetNetRateControl @ 0x1407FF594
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     PspLockJobAndRootExclusive @ 0x1407F8DE0 (PspLockJobAndRootExclusive.c)
- *     PspNetRateControlDispatch @ 0x1407F8EB0 (PspNetRateControlDispatch.c)
- *     PspSetJobRateControl @ 0x1407F987C (PspSetJobRateControl.c)
- *     PspUnlockJobAndRootExclusive @ 0x1407FA038 (PspUnlockJobAndRootExclusive.c)
- *     EtwTraceJobSetQuery @ 0x140AF4B10 (EtwTraceJobSetQuery.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     PspLockJobAndRootExclusive @ 0x1407FE8E0 (PspLockJobAndRootExclusive.c)
+ *     PspNetRateControlDispatch @ 0x1407FE9B0 (PspNetRateControlDispatch.c)
+ *     PspSetJobRateControl @ 0x1407FF37C (PspSetJobRateControl.c)
+ *     PspUnlockJobAndRootExclusive @ 0x1407FFA68 (PspUnlockJobAndRootExclusive.c)
+ *     EtwTraceJobSetQuery @ 0x140AF71B0 (EtwTraceJobSetQuery.c)
  */
 
 __int64 __fastcall PspSetNetRateControl(void *Src, __int64 a2, __int64 a3, char a4)

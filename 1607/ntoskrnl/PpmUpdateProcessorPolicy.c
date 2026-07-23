@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmUpdateProcessorPolicy @ 0x1405454EC
+ * XREFs of PpmUpdateProcessorPolicy @ 0x140545A2C
  * Callers:
- *     PpmPerfReApplyStates @ 0x140531814 (PpmPerfReApplyStates.c)
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x140569DD0 (PpmCheckInitProcessors.c)
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
+ *     PpmPerfReApplyStates @ 0x140531D54 (PpmPerfReApplyStates.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
+ *     PpmCheckInitProcessors @ 0x14056A310 (PpmCheckInitProcessors.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x14000D578 (PopExecuteOnTargetProcessors.c)
- *     KeOrAffinityEx @ 0x1400968D0 (KeOrAffinityEx.c)
- *     KeInitializeAffinityEx @ 0x1400D5490 (KeInitializeAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PpmUpdateTargetProcessorPolicy @ 0x140205370 (PpmUpdateTargetProcessorPolicy.c)
+ *     PopExecuteOnTargetProcessors @ 0x14000D0F8 (PopExecuteOnTargetProcessors.c)
+ *     KeOrAffinityEx @ 0x1400960D0 (KeOrAffinityEx.c)
+ *     KeInitializeAffinityEx @ 0x1400D3330 (KeInitializeAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x14020519C (PpmUpdateTargetProcessorPolicy.c)
  */
 
 __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
@@ -28,7 +28,7 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
 
   v2 = a2;
   LOWORD(v3) = PpmAllowedActions & *a1;
-  v4 = &PpmCurrentProfile[174 * dword_140303E0C];
+  v4 = &PpmCurrentProfile[174 * dword_140303D4C];
   LOWORD(v11[0]) = v3;
   if ( !a2 && (v11[0] & 0x1000) != 0 )
   {

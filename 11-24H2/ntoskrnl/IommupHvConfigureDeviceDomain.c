@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupHvConfigureDeviceDomain @ 0x1405659A4
+ * XREFs of IommupHvConfigureDeviceDomain @ 0x14056365C
  * Callers:
- *     IommuDomainConfigure @ 0x140703C20 (IommuDomainConfigure.c)
+ *     IommuDomainConfigure @ 0x1407017E0 (IommuDomainConfigure.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvConfigureDeviceDomain(int a1, char a2, __int64 a3, __int64 a4)
@@ -24,5 +24,5 @@ __int64 __fastcall IommupHvConfigureDeviceDomain(int a1, char a2, __int64 a3, __
   LODWORD(v6) = *(_DWORD *)a4;
   LODWORD(v5) = a1;
   BYTE4(v5) = a2;
-  return guard_dispatch_icall_no_overrides(&v5, &v6, a3, a4);
+  return guard_dispatch_icall_no_overrides(&v5, &v6);
 }

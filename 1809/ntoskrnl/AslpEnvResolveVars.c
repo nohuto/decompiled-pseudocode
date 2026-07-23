@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpEnvResolveVars @ 0x140721E70
+ * XREFs of AslpEnvResolveVars @ 0x140723110
  * Callers:
- *     AslEnvExpandStrings2 @ 0x140721CD4 (AslEnvExpandStrings2.c)
+ *     AslEnvExpandStrings2 @ 0x140722F74 (AslEnvExpandStrings2.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x1400F4FB8 (RtlStringCchCatW.c)
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1400F5038 (RtlStringCchCatW.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpEnvResolveVars(
@@ -47,14 +47,14 @@ __int64 __fastcall AslpEnvResolveVars(
     if ( v8 )
       goto LABEL_34;
     v13 = 24 * i;
-    v14 = *((_DWORD *)&unk_140400CD0 + 6 * i);
+    v14 = *((_DWORD *)&unk_140401CD0 + 6 * i);
     if ( a2 > v14 )
     {
-      v15 = wcsnicmp(pszSrc, off_140400CC0[v13 / 8], v14);
+      v15 = wcsnicmp(pszSrc, off_140401CC0[v13 / 8], v14);
       a2 = v25;
       if ( v15 )
         goto LABEL_13;
-      v10 = v25 + *(_DWORD *)((char *)&unk_140400CD4 + v13) - *(_DWORD *)((char *)&unk_140400CD0 + v13);
+      v10 = v25 + *(_DWORD *)((char *)&unk_140401CD4 + v13) - *(_DWORD *)((char *)&unk_140401CD0 + v13);
       if ( v10 > v7 )
       {
         v18 = -1073741789;
@@ -71,7 +71,7 @@ LABEL_26:
       {
         for ( j = 0LL; j < 14; j += 2LL )
         {
-          if ( *(_WORD *)((char *)&unk_1404015D0 + j * 8) == a5 && *(_WORD *)((char *)&unk_1404015D2 + j * 8) == a6 )
+          if ( *(_WORD *)((char *)&unk_1404025D0 + j * 8) == a5 && *(_WORD *)((char *)&unk_1404025D2 + j * 8) == a6 )
           {
             v17 = v7;
             v18 = 0;
@@ -108,10 +108,10 @@ LABEL_35:
             }
             if ( v18 < 0 )
               goto LABEL_45;
-            v18 = RtlStringCchCatW(a3, v17, (&off_1404015D8)[j]);
+            v18 = RtlStringCchCatW(a3, v17, (&off_1404025D8)[j]);
             if ( v18 < 0 )
               goto LABEL_45;
-            v18 = RtlStringCchCatW(a3, v17, &v24[*(unsigned int *)((char *)&unk_140400CD0 + v13)]);
+            v18 = RtlStringCchCatW(a3, v17, &v24[*(unsigned int *)((char *)&unk_140401CD0 + v13)]);
             if ( v18 < 0 )
               goto LABEL_45;
             v7 = a4;
@@ -130,10 +130,10 @@ LABEL_13:
         AslLogCallPrintf(1LL);
       }
       v23 = v7;
-      v18 = RtlStringCchCopyW(a3, v7, (&off_140400CC8)[v13 / 8]);
+      v18 = RtlStringCchCopyW(a3, v7, (&off_140401CC8)[v13 / 8]);
       if ( v18 < 0 )
         goto LABEL_45;
-      v18 = RtlStringCchCatW(a3, v23, &v24[*(unsigned int *)((char *)&unk_140400CD0 + v13)]);
+      v18 = RtlStringCchCatW(a3, v23, &v24[*(unsigned int *)((char *)&unk_140401CD0 + v13)]);
       if ( v18 < 0 )
         goto LABEL_45;
       v7 = a4;

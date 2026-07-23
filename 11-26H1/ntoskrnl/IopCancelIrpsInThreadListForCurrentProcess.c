@@ -1,20 +1,20 @@
 /*
- * XREFs of IopCancelIrpsInThreadListForCurrentProcess @ 0x140956BB4
+ * XREFs of IopCancelIrpsInThreadListForCurrentProcess @ 0x14094A5DC
  * Callers:
- *     IopCheckHandleForRevocation @ 0x1405CBAB0 (IopCheckHandleForRevocation.c)
- *     IopCancelIoFile @ 0x140956B1C (IopCancelIoFile.c)
+ *     IopCheckHandleForRevocation @ 0x1405CE320 (IopCheckHandleForRevocation.c)
+ *     IopCancelIoFile @ 0x14094A544 (IopCancelIoFile.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     PspUnlockProcessShared @ 0x14027CFB0 (PspUnlockProcessShared.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IopCancelApcRequired @ 0x14052AAA4 (IopCancelApcRequired.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopCancelIrpsInThreadList @ 0x140956D60 (IopCancelIrpsInThreadList.c)
- *     PsGetNextProcessThread @ 0x1409573A0 (PsGetNextProcessThread.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     PspUnlockProcessShared @ 0x14027C520 (PspUnlockProcessShared.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IopCancelApcRequired @ 0x14052CFC4 (IopCancelApcRequired.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopCancelIrpsInThreadList @ 0x14094A788 (IopCancelIrpsInThreadList.c)
+ *     PsGetNextProcessThread @ 0x14094ADD0 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall IopCancelIrpsInThreadListForCurrentProcess(__int64 a1, __int64 a2)

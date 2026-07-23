@@ -14,7 +14,7 @@ __int64 __fastcall sub_1800D5450(__int64 a1, __int64 a2, __int64 a3)
   int v5; // eax
   __int64 v6; // r9
   __int128 v7; // xmm0
-  unsigned __int64 v8; // rbx
+  unsigned __int64 Root; // rbx
   __int64 v9; // r8
   int v10; // edi
   int v11; // eax
@@ -26,37 +26,40 @@ __int64 __fastcall sub_1800D5450(__int64 a1, __int64 a2, __int64 a3)
   v4 = -4530927LL;
   v5 = sub_1800D5984(a3, a2, a3);
   v7 = *(_OWORD *)(v6 + 88);
-  v8 = qword_1801665C0;
+  Root = (unsigned __int64)stru_1801665C0.Root;
   v14[0] = v5;
   v14[1] = *(_DWORD *)(v6 + 264);
   v15 = v9;
   v16 = v7;
-  if ( (qword_1801665C8 & 1) != 0 && qword_1801665C0 )
-    v8 = (unsigned __int64)&qword_1801665C0 ^ qword_1801665C0;
-  v10 = qword_1801665C8 & 1;
-  if ( v8 )
+  if ( ((__int64)stru_1801665C0.Min & 1) != 0 && stru_1801665C0.Root )
+    Root = (unsigned __int64)&stru_1801665C0 ^ (unsigned __int64)stru_1801665C0.Root;
+  v10 = (__int64)stru_1801665C0.Min & 1;
+  if ( Root )
   {
     do
     {
-      v11 = sub_1800D553C(v14, v8);
+      v11 = sub_1800D553C(v14, Root);
       if ( v11 >= 0 )
       {
         if ( v11 <= 0 )
           break;
-        v12 = *(_QWORD *)(v8 + 8);
+        v12 = *(_QWORD *)(Root + 8);
       }
       else
       {
-        v12 = *(_QWORD *)v8;
+        v12 = *(_QWORD *)Root;
       }
       if ( v10 && v12 )
-        v8 ^= v12;
+        Root ^= v12;
       else
-        v8 = v12;
+        Root = v12;
     }
-    while ( v8 );
-    if ( v8 && (!qword_180165270 || (unsigned __int8)qword_180165270(*(_QWORD *)(a1 + 80), *(unsigned int *)(v8 + 64))) )
-      return *(_QWORD *)(v8 + 56);
+    while ( Root );
+    if ( Root
+      && (!qword_180165270 || (unsigned __int8)qword_180165270(*(_QWORD *)(a1 + 80), *(unsigned int *)(Root + 64))) )
+    {
+      return *(_QWORD *)(Root + 56);
+    }
   }
   return v4;
 }

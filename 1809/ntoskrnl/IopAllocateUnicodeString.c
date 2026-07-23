@@ -1,18 +1,18 @@
 /*
- * XREFs of IopAllocateUnicodeString @ 0x14070FEF4
+ * XREFs of IopAllocateUnicodeString @ 0x140711194
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
- *     PiOpenDriverRedirectedStateKey @ 0x14070542C (PiOpenDriverRedirectedStateKey.c)
- *     PiDeferSetInterfaceState @ 0x14070F790 (PiDeferSetInterfaceState.c)
- *     PnpConcatenateUnicodeStrings @ 0x14070F83C (PnpConcatenateUnicodeStrings.c)
- *     IopBuildGlobalSymbolicLinkString @ 0x14070FDCC (IopBuildGlobalSymbolicLinkString.c)
- *     PiCreateDriverRedirectedStateKey @ 0x1407571F8 (PiCreateDriverRedirectedStateKey.c)
- *     PiBuildAndOpenDeviceDirectoryPath @ 0x140824E9C (PiBuildAndOpenDeviceDirectoryPath.c)
- *     PiGetDriverMutableStateDirectory @ 0x140825654 (PiGetDriverMutableStateDirectory.c)
- *     IoRequestDeviceRemovalForReset @ 0x1408267B0 (IoRequestDeviceRemovalForReset.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x1407066CC (PiOpenDriverRedirectedStateKey.c)
+ *     PiDeferSetInterfaceState @ 0x140710A30 (PiDeferSetInterfaceState.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140710ADC (PnpConcatenateUnicodeStrings.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x14071106C (IopBuildGlobalSymbolicLinkString.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1407583E8 (PiCreateDriverRedirectedStateKey.c)
+ *     PiBuildAndOpenDeviceDirectoryPath @ 0x14082609C (PiBuildAndOpenDeviceDirectoryPath.c)
+ *     PiGetDriverMutableStateDirectory @ 0x140826854 (PiGetDriverMutableStateDirectory.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1408279B0 (IoRequestDeviceRemovalForReset.c)
  * Callees:
- *     RtlUShortAdd @ 0x14011CE1C (RtlUShortAdd.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlUShortAdd @ 0x14011CE8C (RtlUShortAdd.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateUnicodeString(__int64 a1, USHORT a2)

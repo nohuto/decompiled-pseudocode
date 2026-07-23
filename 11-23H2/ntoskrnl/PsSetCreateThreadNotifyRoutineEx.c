@@ -1,10 +1,10 @@
 /*
- * XREFs of PsSetCreateThreadNotifyRoutineEx @ 0x140842C40
+ * XREFs of PsSetCreateThreadNotifyRoutineEx @ 0x140842F40
  * Callers:
  *     <none>
  * Callees:
- *     MmVerifyCallbackFunctionCheckFlags @ 0x14039FF1C (MmVerifyCallbackFunctionCheckFlags.c)
- *     PspSetCreateThreadNotifyRoutine @ 0x140843064 (PspSetCreateThreadNotifyRoutine.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1403A00FC (MmVerifyCallbackFunctionCheckFlags.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x140843364 (PspSetCreateThreadNotifyRoutine.c)
  */
 
 __int64 __fastcall PsSetCreateThreadNotifyRoutineEx(int a1, unsigned __int64 a2)

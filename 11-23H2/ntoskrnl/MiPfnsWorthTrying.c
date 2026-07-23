@@ -1,22 +1,22 @@
 /*
- * XREFs of MiPfnsWorthTrying @ 0x1403BB694
+ * XREFs of MiPfnsWorthTrying @ 0x1403BB874
  * Callers:
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiFindRebuildCandidate @ 0x14046E672 (MiFindRebuildCandidate.c)
- *     MmIdentifyPhysicalMemory @ 0x140A2ED08 (MmIdentifyPhysicalMemory.c)
- *     MmRelocatePfnList @ 0x140A3C988 (MmRelocatePfnList.c)
- *     MiScrubNode @ 0x140A46670 (MiScrubNode.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiFindRebuildCandidate @ 0x14046EA72 (MiFindRebuildCandidate.c)
+ *     MmIdentifyPhysicalMemory @ 0x140A2EFB8 (MmIdentifyPhysicalMemory.c)
+ *     MmRelocatePfnList @ 0x140A3CC38 (MmRelocatePfnList.c)
+ *     MiScrubNode @ 0x140A46920 (MiScrubNode.c)
  * Callees:
  *     MiIsPageOnBadList @ 0x1402186C0 (MiIsPageOnBadList.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
- *     MiFindNextLowerLargePageCandidate @ 0x1403A5F98 (MiFindNextLowerLargePageCandidate.c)
- *     MiActivePageClaimCandidate @ 0x1403BBBF8 (MiActivePageClaimCandidate.c)
- *     MiPfnLargeBitSet @ 0x1403BC068 (MiPfnLargeBitSet.c)
- *     MiRequestIoPageMdlCacheRelease @ 0x1403D6FEC (MiRequestIoPageMdlCacheRelease.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiClusterVadFull @ 0x14046FA20 (MiClusterVadFull.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
+ *     MiFindNextLowerLargePageCandidate @ 0x1403A6178 (MiFindNextLowerLargePageCandidate.c)
+ *     MiActivePageClaimCandidate @ 0x1403BBDD8 (MiActivePageClaimCandidate.c)
+ *     MiPfnLargeBitSet @ 0x1403BC248 (MiPfnLargeBitSet.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x1403D71CC (MiRequestIoPageMdlCacheRelease.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiClusterVadFull @ 0x14046FE20 (MiClusterVadFull.c)
  */
 
 __int64 __fastcall MiPfnsWorthTrying(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, _DWORD *a5)

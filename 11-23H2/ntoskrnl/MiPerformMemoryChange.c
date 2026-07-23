@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPerformMemoryChange @ 0x14061BAC4
+ * XREFs of MiPerformMemoryChange @ 0x14061C014
  * Callers:
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x140398790 (MiInitializeNonPagedPoolThresholds.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x140398970 (MiInitializeNonPagedPoolThresholds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiPerformMemoryChange(__int64 a1, __int64 a2, void **a3, __int64 *a4, int a5, __int64 ***a6)
@@ -70,10 +70,13 @@ LABEL_14:
   }
   MiInitializeNonPagedPoolThresholds();
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6B520);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v12 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));

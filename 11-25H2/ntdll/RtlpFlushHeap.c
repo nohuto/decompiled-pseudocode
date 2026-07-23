@@ -12,12 +12,12 @@
 
 __int64 __fastcall RtlpFlushHeap(__int64 a1)
 {
-  if ( (*(_BYTE *)(a1 + 112) & 1) == 0 && (unsigned int)RtlTryEnterCriticalSection(*(_QWORD *)(a1 + 352)) )
+  if ( (*(_BYTE *)(a1 + 112) & 1) == 0 && RtlTryEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352)) )
   {
     if ( *(_BYTE *)(a1 + 418) == 2 && *(_QWORD *)(a1 + 408) )
       RtlpLowFragHeapFlushCaches();
     RtlpCollectFreeBlocks(a1);
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   }
   return 0LL;
 }

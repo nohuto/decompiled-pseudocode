@@ -3,8 +3,8 @@
  * Callers:
  *     sub_140A100D4 @ 0x140A100D4 (sub_140A100D4.c)
  * Callees:
- *     ?wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x140361540 (-wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCac.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_140361540 @ 0x140361540 (sub_140361540.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     sub_140A102DC @ 0x140A102DC (sub_140A102DC.c)
  *     sub_140A103F4 @ 0x140A103F4 (sub_140A103F4.c)
  */
@@ -16,7 +16,6 @@ __int64 __fastcall sub_140A101C8(__int64 a1)
   __int64 v4; // rax
   int v5; // edi
   int v6; // eax
-  int v8; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = 0;
   v3 = *(_QWORD *)(a1 + 64);
@@ -35,25 +34,8 @@ __int64 __fastcall sub_140A101C8(__int64 a1)
         }
         else
         {
-          v8 = 3;
-          if ( (unsigned int)wil_details_FeatureReporting_ReportUsageToServiceDirect(
-                               &stru_140CE21C8,
-                               0xE67B5Au,
-                               0,
-                               0,
-                               wil_details_ServiceReportingKind_PotentialDeviceUsage)
-            && g_wil_details_pfnFeatureLoggingHook )
-          {
-            g_wil_details_pfnFeatureLoggingHook(
-              0xE67B5Au,
-              &Feature_PdttSupport_logged_traits,
-              0LL,
-              0,
-              (const enum wil_ReportingKind *)&v8,
-              0LL,
-              0,
-              1uLL);
-          }
+          if ( (unsigned int)sub_140361540((__int64)&unk_140CE21C8, 0xE67B5Au, 0, 0, 6u) && qword_140D048F8 )
+            sub_14042A5E0(15104858LL, &qword_14000FFC8);
           if ( *(_DWORD *)(a1 + 48) )
             return (unsigned int)-1073741811;
           v6 = sub_140A102DC(a1, *(_QWORD *)(a1 + 56) + 4 * (3LL * v5 + 61));

@@ -1,9 +1,9 @@
 /*
- * XREFs of BcdUtilGetBootOptionBoolean @ 0x14056ED34
+ * XREFs of BcdUtilGetBootOptionBoolean @ 0x14056F274
  * Callers:
- *     SeAuditBootConfiguration @ 0x14056E8D0 (SeAuditBootConfiguration.c)
+ *     SeAuditBootConfiguration @ 0x14056EE10 (SeAuditBootConfiguration.c)
  * Callees:
- *     BcdUtilGetBootOption @ 0x14056ED78 (BcdUtilGetBootOption.c)
+ *     BcdUtilGetBootOption @ 0x14056F2B8 (BcdUtilGetBootOption.c)
  */
 
 __int64 __fastcall BcdUtilGetBootOptionBoolean(__int64 a1, __int64 a2, __int64 a3)

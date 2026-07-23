@@ -35,27 +35,27 @@ char __fastcall EtwpTraceStackKey(
   _SLIST_ENTRY *v16; // r14
   unsigned __int8 CurrentIrql; // al
   KSPIN_LOCK *v18; // r12
-  struct _SLIST_ENTRY *Next; // rsi
+  _SLIST_ENTRY *Next; // rsi
   unsigned int v20; // eax
   unsigned int v21; // ecx
-  struct _SLIST_ENTRY *v22; // r15
+  _SLIST_ENTRY *v22; // r15
   unsigned int v23; // edx
   _SLIST_ENTRY *v24; // rax
-  struct _SLIST_ENTRY **v25; // rcx
+  _SLIST_ENTRY **v25; // rcx
   _SLIST_ENTRY *v26; // rax
   PSLIST_ENTRY *v27; // rax
   unsigned int v28; // ebx
-  union _SLIST_HEADER *v29; // rbp
+  _SLIST_HEADER *v29; // rbp
   PSLIST_ENTRY v30; // r14
   PSLIST_ENTRY v31; // r15
   unsigned int v32; // r12d
-  struct _SLIST_ENTRY *v33; // rbx
-  struct _SLIST_ENTRY **v34; // rax
+  _SLIST_ENTRY *v33; // rbx
+  _SLIST_ENTRY **v34; // rax
   int v36; // [rsp+30h] [rbp-98h]
   unsigned int v37; // [rsp+38h] [rbp-90h]
   unsigned int **v38; // [rsp+40h] [rbp-88h]
   unsigned int v39; // [rsp+48h] [rbp-80h]
-  union _SLIST_HEADER *ListHead; // [rsp+50h] [rbp-78h]
+  _SLIST_HEADER *ListHead; // [rsp+50h] [rbp-78h]
   unsigned __int8 v41; // [rsp+58h] [rbp-70h]
   PSLIST_ENTRY v42; // [rsp+60h] [rbp-68h] BYREF
   PSLIST_ENTRY ListEntry; // [rsp+68h] [rbp-60h]
@@ -157,7 +157,7 @@ LABEL_26:
     while ( v22 );
     _InterlockedIncrement((volatile signed __int32 *)&Next[1].Next + 2);
     v24 = Next->Next;
-    if ( *(&Next->Next->Next + 1) != Next || (v25 = (struct _SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1), *v25 != Next) )
+    if ( *(&Next->Next->Next + 1) != Next || (v25 = (_SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1), *v25 != Next) )
       __fastfail(3u);
     *v25 = v24;
     *((_QWORD *)&v24->Next + 1) = v25;
@@ -177,9 +177,9 @@ LABEL_32:
   v28 = 0;
   if ( !a6 )
     goto LABEL_52;
-  v29 = (union _SLIST_HEADER *)(v6 + 2);
+  v29 = (_SLIST_HEADER *)(v6 + 2);
   v30 = 0LL;
-  ListHead = (union _SLIST_HEADER *)(v6 + 2);
+  ListHead = (_SLIST_HEADER *)(v6 + 2);
   do
   {
     v31 = RtlpInterlockedPopEntrySList(v29);
@@ -209,7 +209,7 @@ LABEL_52:
     *((_DWORD *)&Next[1].Next + 3) = v37;
     LODWORD(Next[2].Next) = a6;
     *((_DWORD *)&Next[1].Next + 2) = 2;
-    v34 = (struct _SLIST_ENTRY **)*((_QWORD *)&v16->Next + 1);
+    v34 = (_SLIST_ENTRY **)*((_QWORD *)&v16->Next + 1);
     if ( *v34 != v16 )
       __fastfail(3u);
     Next->Next = v16;

@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpReadMappedData @ 0x140960150
+ * XREFs of SdbpReadMappedData @ 0x140947C10
  * Callers:
- *     SdbOpenDatabaseEx @ 0x140800F84 (SdbOpenDatabaseEx.c)
- *     SdbpValidateRootTagSizes @ 0x140802070 (SdbpValidateRootTagSizes.c)
- *     SdbpOpenCompressedDatabase @ 0x140807094 (SdbpOpenCompressedDatabase.c)
- *     SdbpOpenDatabaseInMemory @ 0x14095BC48 (SdbpOpenDatabaseInMemory.c)
- *     SdbpReadTagData @ 0x14095FE60 (SdbpReadTagData.c)
- *     SdbGetTagDataSize @ 0x14095FF20 (SdbGetTagDataSize.c)
- *     SdbpGetTagHeadSize @ 0x1409603A0 (SdbpGetTagHeadSize.c)
+ *     SdbOpenDatabaseEx @ 0x1408016C4 (SdbOpenDatabaseEx.c)
+ *     SdbpValidateRootTagSizes @ 0x1408027B0 (SdbpValidateRootTagSizes.c)
+ *     SdbpOpenCompressedDatabase @ 0x1408077D4 (SdbpOpenCompressedDatabase.c)
+ *     SdbpOpenDatabaseInMemory @ 0x140943708 (SdbpOpenDatabaseInMemory.c)
+ *     SdbpReadTagData @ 0x140947920 (SdbpReadTagData.c)
+ *     SdbGetTagDataSize @ 0x1409479E0 (SdbGetTagDataSize.c)
+ *     SdbpGetTagHeadSize @ 0x140947E60 (SdbpGetTagHeadSize.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpReadMappedData(__int64 a1, unsigned int a2, void *a3, unsigned int a4)

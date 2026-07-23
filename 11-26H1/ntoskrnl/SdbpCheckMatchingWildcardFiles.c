@@ -1,23 +1,23 @@
 /*
- * XREFs of SdbpCheckMatchingWildcardFiles @ 0x14077E1F0
+ * XREFs of SdbpCheckMatchingWildcardFiles @ 0x140780CF0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AslPathWildcardFindClose @ 0x14077C9BC (AslPathWildcardFindClose.c)
- *     SdbpInitializeSearchDBContext @ 0x140884BA8 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x140885488 (SdbpResolveMatchingFile.c)
- *     AslPathWildcardFindFirst @ 0x140889920 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x140889EE8 (AslPathWildcardFindNext.c)
- *     AslpPathWildcardFreeFindContext @ 0x14088AC24 (AslpPathWildcardFreeFindContext.c)
- *     AslFileMappingCreate @ 0x1409E3894 (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x1409E56C8 (AslFileMappingDelete.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     SdbpCheckAllAttributes @ 0x140B45B64 (SdbpCheckAllAttributes.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AslPathWildcardFindClose @ 0x14077F4B0 (AslPathWildcardFindClose.c)
+ *     SdbpInitializeSearchDBContext @ 0x14088AFA8 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x14088B888 (SdbpResolveMatchingFile.c)
+ *     AslPathWildcardFindFirst @ 0x14088FD1C (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1408902E4 (AslPathWildcardFindNext.c)
+ *     AslpPathWildcardFreeFindContext @ 0x140891020 (AslpPathWildcardFreeFindContext.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslFileMappingDelete @ 0x1409D772C (AslFileMappingDelete.c)
+ *     AslFileMappingCreate @ 0x140A37E7C (AslFileMappingCreate.c)
+ *     SdbpCheckAllAttributes @ 0x140B47B94 (SdbpCheckAllAttributes.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingWildcardFiles(

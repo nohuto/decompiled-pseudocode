@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLocatePhysicalViewInTree @ 0x14064AFA0
+ * XREFs of MiLocatePhysicalViewInTree @ 0x14064B4F0
  * Callers:
- *     MiRemoveUserPhysicalPagesView @ 0x140A42078 (MiRemoveUserPhysicalPagesView.c)
+ *     MiRemoveUserPhysicalPagesView @ 0x140A42328 (MiRemoveUserPhysicalPagesView.c)
  * Callees:
  *     <none>
  */

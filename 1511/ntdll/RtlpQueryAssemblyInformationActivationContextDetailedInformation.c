@@ -125,7 +125,7 @@ __int64 __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformat
   else
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
       "RtlpQueryAssemblyInformationActivationContextDetailedInformation",

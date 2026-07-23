@@ -14,26 +14,26 @@
 
 void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
 {
-  struct _PROCESSOR_NUMBER *v4; // r15
-  struct _PROCESSOR_NUMBER *v5; // r14
-  struct _PROCESSOR_NUMBER *v6; // r13
+  _PROCESSOR_NUMBER *v4; // r15
+  _PROCESSOR_NUMBER *v5; // r14
+  _PROCESSOR_NUMBER *v6; // r13
   _KPROCESS *v7; // r9
   unsigned __int64 v8; // rax
   char v9; // di
   char v10; // si
-  struct _PROCESSOR_NUMBER *i; // r12
-  struct _PROCESSOR_NUMBER v12; // eax
+  _PROCESSOR_NUMBER *i; // r12
+  _PROCESSOR_NUMBER v12; // eax
   __int16 v13; // cx
   signed __int32 v14[8]; // [rsp+0h] [rbp-C8h] BYREF
   char v15; // [rsp+20h] [rbp-A8h]
   char v16; // [rsp+21h] [rbp-A7h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
   _KPROCESS *v18; // [rsp+28h] [rbp-A0h]
-  struct _PROCESSOR_NUMBER v19; // [rsp+30h] [rbp-98h] BYREF
-  struct _PROCESSOR_NUMBER *v20; // [rsp+38h] [rbp-90h]
-  struct _PROCESSOR_NUMBER *v21; // [rsp+40h] [rbp-88h]
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
-  struct _PROCESSOR_NUMBER *v23; // [rsp+50h] [rbp-78h]
+  _PROCESSOR_NUMBER v19; // [rsp+30h] [rbp-98h] BYREF
+  _PROCESSOR_NUMBER *v20; // [rsp+38h] [rbp-90h]
+  _PROCESSOR_NUMBER *v21; // [rsp+40h] [rbp-88h]
+  _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
+  _PROCESSOR_NUMBER *v23; // [rsp+50h] [rbp-78h]
   __int64 v24; // [rsp+58h] [rbp-70h]
   $5BC46E0569261879018906DEC3127961 v25; // [rsp+60h] [rbp-68h] BYREF
 
@@ -43,7 +43,7 @@ void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
   v20 = 0LL;
   v5 = 0LL;
   v21 = 0LL;
-  v6 = *(struct _PROCESSOR_NUMBER **)(a2 + 240);
+  v6 = *(_PROCESSOR_NUMBER **)(a2 + 240);
   v23 = v6;
   v7 = *(_KPROCESS **)(a2 + 544);
   v18 = v7;
@@ -97,7 +97,7 @@ void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
       LOWORD(v18) = v12.Group;
       BYTE2(v18) = v12.Number & 0x1F;
       BYTE3(v18) = v12.Reserved & 0x1F;
-      v4[989] = (struct _PROCESSOR_NUMBER)v18;
+      v4[989] = (_PROCESSOR_NUMBER)v18;
     }
     _InterlockedOr(v14, 0);
     KeGetProcessorNumberFromIndex(*(_DWORD *)(a2 + 196), &v19);

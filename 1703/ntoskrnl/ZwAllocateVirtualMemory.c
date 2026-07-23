@@ -34,5 +34,5 @@ NTSTATUS __stdcall ZwAllocateVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, ZeroBits);
+  return KiServiceInternal(ProcessHandle);
 }

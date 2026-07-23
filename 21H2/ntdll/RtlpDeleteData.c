@@ -3,7 +3,7 @@
  * Callers:
  *     RtlDeleteAce @ 0x1800797B0 (RtlDeleteAce.c)
  * Callees:
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 void *__fastcall RtlpDeleteData(__int64 a1, unsigned int a2, unsigned int a3)

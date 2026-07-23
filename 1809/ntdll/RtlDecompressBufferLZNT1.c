@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     LZNT1DecompressChunk @ 0x1800A53D0 (LZNT1DecompressChunk.c)
+ *     LZNT1DecompressChunk @ 0x1800A53F0 (LZNT1DecompressChunk.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  *     memset @ 0x1800A7100 (memset.c)
  */

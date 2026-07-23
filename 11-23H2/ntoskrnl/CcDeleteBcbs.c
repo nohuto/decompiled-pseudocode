@@ -1,17 +1,17 @@
 /*
- * XREFs of CcDeleteBcbs @ 0x1403C6668
+ * XREFs of CcDeleteBcbs @ 0x1403C6848
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x140299FC0 (CcDeleteSharedCacheMap.c)
- *     CcSetFileSizesEx @ 0x1402F0FA0 (CcSetFileSizesEx.c)
+ *     CcDeleteSharedCacheMap @ 0x14029A250 (CcDeleteSharedCacheMap.c)
+ *     CcSetFileSizesEx @ 0x1402F1230 (CcSetFileSizesEx.c)
  * Callees:
  *     CcAdjustVacbLevelLockCount @ 0x1402075C0 (CcAdjustVacbLevelLockCount.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDeallocateBcb @ 0x1402F3F50 (CcDeallocateBcb.c)
- *     CcDeductDirtyPages @ 0x1402F3F80 (CcDeductDirtyPages.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDeallocateBcb @ 0x1402F41E0 (CcDeallocateBcb.c)
+ *     CcDeductDirtyPages @ 0x1402F4210 (CcDeductDirtyPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall CcDeleteBcbs(__int64 a1)
@@ -70,10 +70,13 @@ void __fastcall CcDeleteBcbs(__int64 a1)
           CcDeductDirtyPages(a1, *((_DWORD *)v5 + 1) >> 12);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && LockHandle.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

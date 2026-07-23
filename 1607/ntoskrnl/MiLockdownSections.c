@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockdownSections @ 0x1404839E0
+ * XREFs of MiLockdownSections @ 0x140482734
  * Callers:
- *     MiConstructLoaderEntry @ 0x140482408 (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x14048115C (MiConstructLoaderEntry.c)
  *     MiInitializeLoadedModuleList @ 0x1407B1234 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
  */
 
 void __fastcall MiLockdownSections(__int64 a1)
@@ -13,7 +13,7 @@ void __fastcall MiLockdownSections(__int64 a1)
   void *v1; // rbp
   int v2; // ebx
   PIMAGE_NT_HEADERS v4; // rax
-  struct _RTL_BITMAP *v5; // r14
+  _RTL_BITMAP *v5; // r14
   int NumberOfSections; // esi
   __int64 v7; // rdi
   int v8; // eax
@@ -23,12 +23,12 @@ void __fastcall MiLockdownSections(__int64 a1)
   v2 = 0;
   if ( (MiFlags & 0x4000) != 0 && (!*(_QWORD *)(a1 + 112) || (*(_DWORD *)(a1 + 196) & 3) != 0) )
     v2 = 2;
-  if ( (unsigned __int64)v1 < qword_140326910 || (unsigned __int64)v1 >= qword_140326910 + 0x8000000000LL )
+  if ( (unsigned __int64)v1 < qword_140326950 || (unsigned __int64)v1 >= qword_140326950 + 0x8000000000LL )
     v2 |= 1u;
   if ( v2 )
   {
     v4 = RtlImageNtHeader(v1);
-    v5 = *(struct _RTL_BITMAP **)(a1 + 240);
+    v5 = *(_RTL_BITMAP **)(a1 + 240);
     NumberOfSections = v4->FileHeader.NumberOfSections;
     v7 = (__int64)&v4->OptionalHeader + v4->FileHeader.SizeOfOptionalHeader;
     while ( NumberOfSections > 0 )

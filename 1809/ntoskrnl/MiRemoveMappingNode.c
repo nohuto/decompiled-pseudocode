@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveMappingNode @ 0x14015F8A4
+ * XREFs of MiRemoveMappingNode @ 0x14015F9A4
  * Callers:
- *     MmFreeMappingAddress @ 0x1406FC4B0 (MmFreeMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x1406FD750 (MmFreeMappingAddress.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 unsigned __int64 *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -21,8 +21,8 @@ unsigned __int64 *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, U
   struct _KPRCB *CurrentPrcb; // rcx
 
   v3 = (unsigned int)BugCheckParameter3;
-  v4 = ExAcquireSpinLockExclusive(&dword_14043AC80);
-  v5 = (unsigned __int64 *)qword_14043AC88;
+  v4 = ExAcquireSpinLockExclusive(&dword_14043BD40);
+  v5 = (unsigned __int64 *)qword_14043BD48;
   v6 = BugCheckParameter2 & 0xFFFFFFFFFFFFF000uLL;
   v7 = v4;
   while ( 1 )
@@ -40,8 +40,8 @@ unsigned __int64 *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, U
       break;
     v5 = (unsigned __int64 *)*v5;
   }
-  RtlAvlRemoveNode(&qword_14043AC88, v5);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AC80);
+  RtlAvlRemoveNode(&qword_14043BD48, v5);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BD40);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v7 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

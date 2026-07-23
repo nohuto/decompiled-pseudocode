@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x140637E68
+ * XREFs of RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x14063AE6C
  * Callers:
- *     RtlpHpRegisterEnvironment @ 0x1406389D0 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpRegisterEnvironment @ 0x14063B9E0 (RtlpHpRegisterEnvironment.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
  */
 
 void __fastcall RtlpHpCustomVaCallbacksRegistrarUnregister(

@@ -11,15 +11,15 @@ void __fastcall RtlCSparseBitmapBitsClear(__int64 a1, unsigned __int64 a2, unsig
 {
   __int64 v5; // r10
   unsigned __int64 v6; // rdi
-  __int64 v7; // r11
+  char *v7; // r11
   unsigned __int64 v8; // r8
   volatile signed __int32 *v9; // r9
   __int64 v10; // r14
   int v11; // eax
   unsigned __int64 v12; // r10
-  _QWORD *v13; // r8
-  _QWORD *v14; // r9
-  _QWORD *i; // r8
+  char *v13; // r8
+  char *v14; // r9
+  char *i; // r8
   int v16; // eax
 
   while ( a3 )
@@ -30,9 +30,9 @@ void __fastcall RtlCSparseBitmapBitsClear(__int64 a1, unsigned __int64 a2, unsig
       v6 = a3;
     if ( _bittest64((const signed __int64 *)RtlpHpAllocTrackerBitmap, a2 >> 15) )
     {
-      v7 = qword_18015D6A8 + (a2 >> 15 << 12);
+      v7 = (char *)BaseAddress + 4096 * (a2 >> 15);
       v8 = v6;
-      v9 = (volatile signed __int32 *)(v7 + 4 * ((a2 & 0x7FFF) >> 5));
+      v9 = (volatile signed __int32 *)&v7[4 * ((a2 & 0x7FFF) >> 5)];
       v10 = a2 & 0x1F;
       if ( v10 + v6 > 0x20 )
       {
@@ -72,25 +72,25 @@ LABEL_8:
         v12 = a2 & 0x7E00;
         if ( v12 + 511 >= 0x8000 )
           goto LABEL_16;
-        v13 = (_QWORD *)(v7 + 8 * (v12 >> 6));
-        v14 = (_QWORD *)(v7 + 8 * ((v12 + 511) >> 6));
+        v13 = &v7[8 * (v12 >> 6)];
+        v14 = &v7[8 * ((v12 + 511) >> 6)];
         if ( v13 == v14 )
         {
           LOBYTE(v16) = 1;
           goto LABEL_17;
         }
-        if ( *v13 )
+        if ( *(_QWORD *)v13 )
         {
 LABEL_16:
           LOBYTE(v16) = 0;
           goto LABEL_17;
         }
-        for ( i = v13 + 1; i != v14; ++i )
+        for ( i = v13 + 8; i != v14; i += 8 )
         {
-          if ( *i )
+          if ( *(_QWORD *)i )
             goto LABEL_16;
         }
-        LOBYTE(v16) = *i == 0LL;
+        LOBYTE(v16) = *(_QWORD *)i == 0LL;
 LABEL_17:
         v16 = (unsigned __int8)v16;
       }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopSetLockOperationProcess @ 0x14008C654
+ * XREFs of IopSetLockOperationProcess @ 0x14008C644
  * Callers:
- *     NtLockFile @ 0x1405FA000 (NtLockFile.c)
- *     IopCloseFile @ 0x140639B10 (IopCloseFile.c)
+ *     NtLockFile @ 0x1405FB000 (NtLockFile.c)
+ *     IopCloseFile @ 0x14063AB30 (IopCloseFile.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopVerifierExAllocatePool @ 0x14008D04C (IopVerifierExAllocatePool.c)
- *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x1400B7970 (IopGetFileObjectExtension.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopVerifierExAllocatePool @ 0x14008CF8C (IopVerifierExAllocatePool.c)
+ *     IopGetSetSpecificExtension @ 0x14008CFBC (IopGetSetSpecificExtension.c)
+ *     IopGetFileObjectExtension @ 0x1400B78B0 (IopGetFileObjectExtension.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetLockOperationProcess(__int64 a1, __int64 a2, char a3, __int64 a4)

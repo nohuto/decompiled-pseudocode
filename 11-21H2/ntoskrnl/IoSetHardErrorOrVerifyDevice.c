@@ -12,5 +12,5 @@ void __stdcall IoSetHardErrorOrVerifyDevice(PIRP Irp, PDEVICE_OBJECT DeviceObjec
 
   Thread = Irp->Tail.Overlay.Thread;
   if ( Thread )
-    Thread[1].ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)DeviceObject;
+    *((_QWORD *)Thread + 163) = DeviceObject;
 }

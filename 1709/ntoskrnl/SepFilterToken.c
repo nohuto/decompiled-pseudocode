@@ -52,13 +52,13 @@ __int64 __fastcall SepFilterToken(
         unsigned int a6,
         _DWORD *a7,
         unsigned int a8,
-        _QWORD *a9,
+        PSID *a9,
         UINT uAddend,
         _QWORD *a11)
 {
   PVOID *v14; // r14
   unsigned int v16; // esi
-  _QWORD *v17; // rbx
+  PSID *v17; // rbx
   _DWORD *PoolWithTag; // rax
   _DWORD *v19; // rsi
   _QWORD *v20; // rax
@@ -82,17 +82,17 @@ __int64 __fastcall SepFilterToken(
   __int64 v38; // rdx
   _KPROCESS *Process; // rcx
   PACCESS_TOKEN v40; // rbx
-  struct _SID_AND_ATTRIBUTES *v41; // r14
+  _SID_AND_ATTRIBUTES *v41; // r14
   int v42; // eax
   unsigned int v43; // eax
   int v44; // r12d
   unsigned int v45; // ecx
-  struct _SID_AND_ATTRIBUTES *SidArea; // r12
+  _SID_AND_ATTRIBUTES *SidArea; // r12
   __int64 v47; // r8
   ULONG v48; // r8d
   NTSTATUS v49; // eax
   unsigned int v50; // r13d
-  struct _SID_AND_ATTRIBUTES *v51; // r14
+  _SID_AND_ATTRIBUTES *v51; // r14
   char **v52; // rbx
   unsigned int v53; // edx
   __int64 v54; // rax
@@ -101,14 +101,14 @@ __int64 __fastcall SepFilterToken(
   char *v57; // r12
   char v58; // al
   _DWORD *v59; // rcx
-  __int64 **v60; // r13
+  PSID_AND_ATTRIBUTES *v60; // r13
   unsigned int v61; // r14d
   __int64 v62; // r9
   __int64 v63; // rdx
   __int64 v64; // rcx
   __int64 v65; // rcx
   __int64 v66; // rdx
-  _DWORD *v67; // rbx
+  char *v67; // rbx
   PVOID v68; // rcx
   struct _KTHREAD *v69; // rax
   PERESOURCE *PrimaryToken; // rbx
@@ -118,16 +118,16 @@ __int64 __fastcall SepFilterToken(
   UINT v74[2]; // [rsp+68h] [rbp-A0h] BYREF
   PSID RemainingSidArea; // [rsp+70h] [rbp-98h] BYREF
   __int64 v76; // [rsp+78h] [rbp-90h]
-  __int64 **v77; // [rsp+80h] [rbp-88h]
+  PSID_AND_ATTRIBUTES *v77; // [rsp+80h] [rbp-88h]
   _DWORD *v78; // [rsp+88h] [rbp-80h]
   _QWORD *v79; // [rsp+90h] [rbp-78h]
   _QWORD *v80; // [rsp+98h] [rbp-70h]
   _QWORD *v81; // [rsp+A0h] [rbp-68h]
   _QWORD *v82; // [rsp+A8h] [rbp-60h]
-  __int64 **v83; // [rsp+B0h] [rbp-58h]
-  __int64 **v84; // [rsp+B8h] [rbp-50h]
-  _QWORD *v85; // [rsp+C0h] [rbp-48h]
-  unsigned int *v86; // [rsp+C8h] [rbp-40h]
+  PSID_AND_ATTRIBUTES *v83; // [rsp+B0h] [rbp-58h]
+  PSID_AND_ATTRIBUTES *v84; // [rsp+B8h] [rbp-50h]
+  PSID_AND_ATTRIBUTES_HASH SidAttrHash; // [rsp+C0h] [rbp-48h]
+  ULONG *v86; // [rsp+C8h] [rbp-40h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+D0h] [rbp-38h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT v88; // [rsp+F0h] [rbp-18h] BYREF
 
@@ -142,7 +142,7 @@ __int64 __fastcall SepFilterToken(
   if ( a8 )
   {
     v17 = a9;
-    while ( !(unsigned __int8)RtlIsPackageSid(*v17) && !(unsigned __int8)RtlIsCapabilitySid(*v17) )
+    while ( !RtlIsPackageSid(*v17) && !RtlIsCapabilitySid(*v17) )
     {
       ++v16;
       v17 += 2;
@@ -262,11 +262,11 @@ LABEL_14:
           *((_QWORD *)v31 + 144) = 0LL;
           v82 = v31 + 1152;
           *((_QWORD *)v31 + 99) = 0LL;
-          v84 = (__int64 **)(v31 + 792);
+          v84 = (PSID_AND_ATTRIBUTES *)(v31 + 792);
           *((_QWORD *)v31 + 98) = 0LL;
-          v86 = (unsigned int *)(v31 + 800);
+          v86 = (ULONG *)(v31 + 800);
           *((_DWORD *)v31 + 200) = 0;
-          v85 = v31 + 808;
+          SidAttrHash = (PSID_AND_ATTRIBUTES_HASH)(v31 + 808);
           memset(v31 + 808, 0, 0x110uLL);
           *((_QWORD *)v31 + 22) = 0LL;
           *((_QWORD *)v31 + 138) = 0LL;
@@ -315,11 +315,11 @@ LABEL_14:
             ObfDereferenceObject(v40);
             v31 = (char *)Object;
           }
-          v41 = (struct _SID_AND_ATTRIBUTES *)(v31 + 1168);
+          v41 = (_SID_AND_ATTRIBUTES *)(v31 + 1168);
           v42 = ((_BYTE)v31 - 112) & 7;
           if ( (((_BYTE)v31 - 112) & 7) != 0 )
           {
-            v41 = (struct _SID_AND_ATTRIBUTES *)((char *)v41 + (unsigned int)(8 - v42));
+            v41 = (_SID_AND_ATTRIBUTES *)((char *)v41 + (unsigned int)(8 - v42));
             puResult[0] -= 8 - v42;
           }
           v43 = *(_DWORD *)(a1 + 128);
@@ -328,7 +328,7 @@ LABEL_14:
           *((_QWORD *)v31 + 19) = v41;
           if ( v43 > a8 )
             v45 = v43;
-          v83 = (__int64 **)(v31 + 152);
+          v83 = (PSID_AND_ATTRIBUTES *)(v31 + 152);
           SidArea = &v41[v45 + v44];
           RemainingSidArea = SidArea;
           if ( SepTokenSidSharingEnabled )
@@ -352,12 +352,12 @@ LABEL_14:
                     SidArea,
                     &RemainingSidArea,
                     puResult);
-            SidArea = (struct _SID_AND_ATTRIBUTES *)RemainingSidArea;
+            SidArea = (_SID_AND_ATTRIBUTES *)RemainingSidArea;
             v36 = v49;
           }
           v50 = 0;
-          v51 = (struct _SID_AND_ATTRIBUTES *)((char *)v41 + (unsigned int)(16 * *(_DWORD *)(a1 + 124)));
-          v77 = (__int64 **)(v31 + 160);
+          v51 = (_SID_AND_ATTRIBUTES *)((char *)v41 + (unsigned int)(16 * *(_DWORD *)(a1 + 124)));
+          v77 = (PSID_AND_ATTRIBUTES *)(v31 + 160);
           *((_QWORD *)v31 + 20) = v51;
           if ( a8 )
           {
@@ -375,9 +375,9 @@ LABEL_14:
                         SidArea,
                         &RemainingSidArea,
                         puResult);
-                SidArea = (struct _SID_AND_ATTRIBUTES *)RemainingSidArea;
+                SidArea = (_SID_AND_ATTRIBUTES *)RemainingSidArea;
                 ++v51;
-                LODWORD((*v77)[2 * (unsigned int)(*((_DWORD *)v27 + 32))++ + 1]) = 7;
+                (*v77)[(*((_DWORD *)v27 + 32))++].Attributes = 7;
               }
               ++v50;
               v52 += 2;
@@ -460,12 +460,12 @@ LABEL_14:
                   {
                     ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
                     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-                    v67 = Object;
+                    v67 = (char *)Object;
                     v68 = Object;
                     *((_QWORD *)Object + 21) = &v57[v61];
                     SepRemoveDisabledGroupsAndPrivileges((__int64)v68, a3, a4, a5, a6, a7);
-                    RtlSidHashInitialize(*v83, v67[31], (_QWORD *)v67 + 29);
-                    RtlSidHashInitialize(*v60, *((_DWORD *)v27 + 32), (_QWORD *)v67 + 63);
+                    RtlSidHashInitialize(*v83, *((_DWORD *)v67 + 31), (PSID_AND_ATTRIBUTES_HASH)(v67 + 232));
+                    RtlSidHashInitialize(*v60, *((_DWORD *)v27 + 32), (PSID_AND_ATTRIBUTES_HASH)(v67 + 504));
                     SeCaptureSubjectContext(&SubjectContext);
                     v88.PrimaryToken = SubjectContext.PrimaryToken;
                     if ( (unsigned __int8)RtlIsSandboxedToken(&SubjectContext)
@@ -484,11 +484,11 @@ LABEL_14:
                         SeReleaseSubjectContext(&SubjectContext);
                         return (unsigned int)v36;
                       }
-                      v67 = Object;
+                      v67 = (char *)Object;
                     }
                     SeReleaseSubjectContext(&SubjectContext);
                     if ( *v84 )
-                      RtlSidHashInitialize(*v84, *v86, v85);
+                      RtlSidHashInitialize(*v84, *v86, SidAttrHash);
                     if ( SeTokenLeakTracking && SepTokenLeakMethodWatch == 15 )
                     {
                       if ( KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)SepTokenLeakProcessCid )
@@ -501,7 +501,7 @@ LABEL_14:
                           __debugbreak();
                         }
                       }
-                      v67 = Object;
+                      v67 = (char *)Object;
                     }
                     *a11 = v67;
                     return (unsigned int)v36;

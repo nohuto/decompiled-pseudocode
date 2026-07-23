@@ -11,16 +11,14 @@
  *     memmove @ 0x1800A32C0 (memmove.c)
  */
 
-__int64 __fastcall sub_18005A3AC(__int16 *a1, _WORD *a2, _WORD *a3, _DWORD *a4, char a5, void *a6)
+__int64 __fastcall sub_18005A3AC(PCUNICODE_STRING Source, PCWSTR a2, PCWSTR a3, _DWORD *a4, char a5, void *a6)
 {
-  void *Heap; // r12
+  WCHAR *Heap; // r12
   unsigned __int64 v11; // rax
-  int appended; // ebx
-  __int64 v13; // rdx
-  unsigned __int64 v14; // r14
-  unsigned int v16; // [rsp+20h] [rbp-48h]
-  __int64 v17; // [rsp+28h] [rbp-40h] BYREF
-  void *Src; // [rsp+30h] [rbp-38h]
+  NTSTATUS appended; // ebx
+  unsigned __int64 v13; // r14
+  unsigned __int32 v15; // [rsp+20h] [rbp-48h]
+  _UNICODE_STRING Destination; // [rsp+28h] [rbp-40h] BYREF
 
   Heap = 0LL;
   if ( !a2 || !a3 )
@@ -36,63 +34,61 @@ __int64 __fastcall sub_18005A3AC(__int16 *a1, _WORD *a2, _WORD *a3, _DWORD *a4, 
   {
     appended = -1073741306;
 LABEL_35:
-    v16 = appended;
+    v15 = appended;
     goto LABEL_29;
   }
-  Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+  Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
   if ( !Heap )
   {
     appended = -1073741801;
     goto LABEL_35;
   }
-  v17 = 34078720LL;
-  Src = Heap;
-  appended = RtlAppendUnicodeToString((unsigned __int16 *)&v17, a2);
-  v16 = appended;
+  *(_QWORD *)&Destination.Length = 34078720LL;
+  Destination.Buffer = Heap;
+  appended = RtlAppendUnicodeToString(&Destination, a2);
+  v15 = appended;
   if ( appended >= 0 )
   {
-    appended = RtlAppendUnicodeToString((unsigned __int16 *)&v17, "\\");
-    v16 = appended;
+    appended = RtlAppendUnicodeToString(&Destination, "\\");
+    v15 = appended;
     if ( appended >= 0 )
     {
-      appended = RtlAppendUnicodeStringToString((unsigned __int16 *)&v17, a1);
-      v16 = appended;
+      appended = RtlAppendUnicodeStringToString(&Destination, Source);
+      v15 = appended;
       if ( appended >= 0 )
       {
-        appended = RtlAppendUnicodeToString((unsigned __int16 *)&v17, "\\");
-        v16 = appended;
+        appended = RtlAppendUnicodeToString(&Destination, "\\");
+        v15 = appended;
         if ( appended >= 0 )
         {
-          appended = RtlAppendUnicodeToString((unsigned __int16 *)&v17, a3);
-          v16 = appended;
+          appended = RtlAppendUnicodeToString(&Destination, a3);
+          v15 = appended;
           if ( appended >= 0 )
           {
-            if ( !a5
-              || (appended = RtlAppendUnicodeToString((unsigned __int16 *)&v17, L".mui"), v16 = appended, appended >= 0) )
+            if ( !a5 || (appended = RtlAppendUnicodeToString(&Destination, L".mui"), v15 = appended, appended >= 0) )
             {
-              LOBYTE(v13) = 1;
-              if ( !(unsigned __int8)sub_18005A5EC(Src, v13) )
+              if ( !(unsigned __int8)sub_18005A5EC(Destination.Buffer) )
               {
                 appended = -1073741809;
 LABEL_19:
-                v16 = appended;
+                v15 = appended;
                 goto LABEL_29;
               }
               if ( a6 )
               {
-                v14 = (unsigned __int64)(unsigned __int16)v17 >> 1;
-                if ( (unsigned int)*a4 >= v14 + 1 )
+                v13 = (unsigned __int64)Destination.Length >> 1;
+                if ( (unsigned int)*a4 >= v13 + 1 )
                 {
-                  memmove(a6, Src, (unsigned __int16)v17);
-                  *((_WORD *)a6 + v14) = 0;
+                  memmove(a6, Destination.Buffer, Destination.Length);
+                  *((_WORD *)a6 + v13) = 0;
                   goto LABEL_29;
                 }
-                *a4 = v14 + 1;
+                *a4 = v13 + 1;
                 appended = -1073741789;
                 goto LABEL_19;
               }
               if ( a4 )
-                *a4 = ((unsigned __int16)v17 >> 1) + 1;
+                *a4 = (Destination.Length >> 1) + 1;
             }
           }
         }
@@ -102,8 +98,8 @@ LABEL_19:
 LABEL_29:
   if ( Heap )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
-    return v16;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+    return v15;
   }
   return (unsigned int)appended;
 }

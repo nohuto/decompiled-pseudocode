@@ -1,18 +1,18 @@
 /*
- * XREFs of MiGetPageTablePages @ 0x140102808
+ * XREFs of MiGetPageTablePages @ 0x140100588
  * Callers:
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     MiDemoteLargePage @ 0x14013EC14 (MiDemoteLargePage.c)
- *     MmCreateShadowMapping @ 0x14065BC98 (MmCreateShadowMapping.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     MiDemoteLargePage @ 0x14013F184 (MiDemoteLargePage.c)
+ *     MmCreateShadowMapping @ 0x14065BD7C (MmCreateShadowMapping.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiSetPfnTbFlushStamp @ 0x1400E7490 (MiSetPfnTbFlushStamp.c)
- *     MiCleanupPageTablePages @ 0x140102760 (MiCleanupPageTablePages.c)
- *     MiInitializeColorBase @ 0x1401029C4 (MiInitializeColorBase.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     MiWaitForFreePage @ 0x1401F41DC (MiWaitForFreePage.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiSetPfnTbFlushStamp @ 0x1400E5330 (MiSetPfnTbFlushStamp.c)
+ *     MiCleanupPageTablePages @ 0x1401004E0 (MiCleanupPageTablePages.c)
+ *     MiInitializeColorBase @ 0x140100744 (MiInitializeColorBase.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     MiWaitForFreePage @ 0x1401F4008 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiGetPageTablePages(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
@@ -47,7 +47,7 @@ __int64 __fastcall MiGetPageTablePages(__int64 a1, __int64 a2, unsigned __int64 
     v9 = *(_DWORD *)(a1 + 32);
     *(_QWORD *)(a1 + 16) = a3;
     if ( v9 && (*(_DWORD *)(a1 + 36) & 0x40) == 0 && v9 == 2 )
-      _InterlockedExchangeAdd64(&qword_1403278F0, a3);
+      _InterlockedExchangeAdd64(&qword_140327930, a3);
   }
   v10 = 0LL;
   if ( a3 )

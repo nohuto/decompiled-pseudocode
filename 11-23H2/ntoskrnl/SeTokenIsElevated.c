@@ -1,9 +1,9 @@
 /*
- * XREFs of SeTokenIsElevated @ 0x1407D15F4
+ * XREFs of SeTokenIsElevated @ 0x1407D18C4
  * Callers:
- *     SeTokenCanImpersonate @ 0x140734FA0 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x140735190 (SeTokenCanImpersonate.c)
  * Callees:
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

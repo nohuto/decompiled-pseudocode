@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCreateUnprotectedSymbolicLink @ 0x1406237F4
+ * XREFs of IoCreateUnprotectedSymbolicLink @ 0x1406238A8
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x14015B320 (ZwCreateSymbolicLinkObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x14015B890 (ZwCreateSymbolicLinkObject.c)
  */
 
 NTSTATUS __stdcall IoCreateUnprotectedSymbolicLink(PUNICODE_STRING SymbolicLinkName, PUNICODE_STRING DeviceName)

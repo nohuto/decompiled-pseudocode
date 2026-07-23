@@ -1,13 +1,13 @@
 /*
  * XREFs of VslpIumInitializeTelemetry @ 0x140B7135C
  * Callers:
- *     VslpIumPhase4Initialize @ 0x1403B0A3C (VslpIumPhase4Initialize.c)
+ *     VslpIumPhase4Initialize @ 0x1403B0C1C (VslpIumPhase4Initialize.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwUnregister @ 0x1407C0E00 (EtwUnregister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x1407C10D0 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 char VslpIumInitializeTelemetry()
@@ -39,12 +39,12 @@ char VslpIumInitializeTelemetry()
   int v24; // [rsp+A8h] [rbp+3Fh]
   int v25; // [rsp+ACh] [rbp+43h]
 
-  result = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C062B0, 0LL, 0LL);
+  result = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06270, 0LL, 0LL);
   if ( (*(_DWORD *)(KeLoaderBlock_0 + 264) & 1) != 0 )
   {
-    if ( (unsigned int)dword_140C062B0 <= 5 )
+    if ( (unsigned int)dword_140C06270 <= 5 )
       goto LABEL_8;
-    result = tlgKeywordOn((__int64)&dword_140C062B0, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C06270, 0x400000000000LL);
     if ( result )
     {
       v3 = *(_QWORD *)(v2 + 240);
@@ -61,17 +61,17 @@ char VslpIumInitializeTelemetry()
       v15 = 2;
       v21 = 4;
       result = tlgWriteTransfer_EtwWriteTransfer(
-                 (__int64)&dword_140C062B0,
-                 (unsigned __int8 *)byte_14002B4AB,
+                 (__int64)&dword_140C06270,
+                 (unsigned __int8 *)byte_14002B593,
                  0LL,
                  0LL,
                  5u,
                  v13);
     }
   }
-  if ( (unsigned int)dword_140C062B0 > 5 )
+  if ( (unsigned int)dword_140C06270 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140C062B0, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C06270, 0x400000000000LL);
     if ( result )
     {
       v16 = 0;
@@ -93,8 +93,8 @@ char VslpIumInitializeTelemetry()
       v11 = v7;
       v24 = 4;
       result = tlgWriteTransfer_EtwWriteTransfer(
-                 (__int64)&dword_140C062B0,
-                 (unsigned __int8 *)&byte_14002B4E7,
+                 (__int64)&dword_140C06270,
+                 (unsigned __int8 *)&byte_14002B5CF,
                  0LL,
                  0LL,
                  6u,
@@ -104,9 +104,9 @@ char VslpIumInitializeTelemetry()
 LABEL_8:
   if ( !VslVsmEnabled )
   {
-    v8 = qword_140C062D0;
-    qword_140C062D0 = 0LL;
-    dword_140C062B0 = 0;
+    v8 = qword_140C06290;
+    qword_140C06290 = 0LL;
+    dword_140C06270 = 0;
     return EtwUnregister(v8);
   }
   return result;

@@ -1,16 +1,16 @@
 /*
- * XREFs of AslpFileMakeStringVersionAttributes @ 0x1407B29BC
+ * XREFs of AslpFileMakeStringVersionAttributes @ 0x1407B2B5C
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x1407B2958 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x1407B2AF8 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     AslpFileStringTokenize @ 0x1403BD760 (AslpFileStringTokenize.c)
- *     AslpFileVerBlockGetValueOffset @ 0x1403BD858 (AslpFileVerBlockGetValueOffset.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     AslFree @ 0x14075477C (AslFree.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslStringDuplicate @ 0x14075A8A4 (AslStringDuplicate.c)
- *     AslStringXmlSanitize @ 0x1407B2D50 (AslStringXmlSanitize.c)
- *     AslpFileQueryVersionString @ 0x1407B2E5C (AslpFileQueryVersionString.c)
+ *     AslpFileStringTokenize @ 0x1403BD8D0 (AslpFileStringTokenize.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1403BD9C8 (AslpFileVerBlockGetValueOffset.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     AslFree @ 0x14075493C (AslFree.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslStringDuplicate @ 0x14075AA64 (AslStringDuplicate.c)
+ *     AslStringXmlSanitize @ 0x1407B2EF0 (AslStringXmlSanitize.c)
+ *     AslpFileQueryVersionString @ 0x1407B2FFC (AslpFileQueryVersionString.c)
  */
 
 __int64 __fastcall AslpFileMakeStringVersionAttributes(__int64 a1, unsigned __int16 *a2)
@@ -170,15 +170,15 @@ LABEL_47:
   v23 = (unsigned __int64)v21 >> 2;
   do
   {
-    v24 = *(int *)&byte_140008EF0[v22];
-    v40 = *(_DWORD *)&byte_140008EF0[v22];
+    v24 = *(int *)&byte_140008F00[v22];
+    v40 = *(_DWORD *)&byte_140008F00[v22];
     VersionString = AslpFileQueryVersionString(
                       (int)v36,
                       (int)v37,
                       v38,
                       (int)v20,
                       v23,
-                      *(NTSTRSAFE_PCWSTR *)&byte_140008EF0[v22 + 8]);
+                      *(NTSTRSAFE_PCWSTR *)&byte_140008F00[v22 + 8]);
     v6 = VersionString;
     if ( VersionString < 0 )
     {

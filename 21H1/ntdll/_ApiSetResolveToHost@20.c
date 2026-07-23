@@ -18,7 +18,7 @@ int __fastcall ApiSetResolveToHost(int a1, unsigned __int16 *a2, int a3, char *a
   unsigned int v9; // eax
   unsigned int v10; // eax
   _WORD *v11; // ecx
-  __int16 v12; // ax
+  int v12; // eax
   int v13; // eax
   int v14; // ecx
   unsigned int v16; // [esp+Ch] [ebp-4h]
@@ -44,14 +44,14 @@ int __fastcall ApiSetResolveToHost(int a1, unsigned __int16 *a2, int a3, char *a
       }
       while ( *v11 != 45 );
       v12 = (unsigned __int16)v10 >> 1;
-      if ( v12 )
+      if ( (_WORD)v12 )
       {
-        v13 = ApiSetpSearchForApiSet(v12);
+        v13 = ApiSetpSearchForApiSet(a1, v12);
         if ( v13 )
         {
           if ( a3 && *(_DWORD *)(v13 + 20) > 1u )
           {
-            v14 = ApiSetpSearchForApiSetHost(v13, *(_DWORD *)(a3 + 4), *(_WORD *)a3 >> 1, a1);
+            v14 = ApiSetpSearchForApiSetHost(*(const WCHAR **)(a3 + 4), v13, a1, *(_WORD *)a3 >> 1, a1);
             goto LABEL_14;
           }
           if ( *(_DWORD *)(v13 + 20) )

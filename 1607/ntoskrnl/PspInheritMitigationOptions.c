@@ -1,7 +1,7 @@
 /*
- * XREFs of PspInheritMitigationOptions @ 0x140470C84
+ * XREFs of PspInheritMitigationOptions @ 0x14046FB54
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

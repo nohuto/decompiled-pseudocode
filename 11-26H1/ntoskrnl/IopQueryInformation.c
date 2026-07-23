@@ -1,17 +1,17 @@
 /*
- * XREFs of IopQueryInformation @ 0x140903288
+ * XREFs of IopQueryInformation @ 0x140933218
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x1403B79E0 (MmIsDriverVerifying.c)
- *     FsRtlGetSupportedFeatures @ 0x1404A2990 (FsRtlGetSupportedFeatures.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     FsRtlQueryOpen @ 0x140ABB7B4 (FsRtlQueryOpen.c)
- *     VfFastIoCheckState @ 0x140C47F24 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140C4824C (VfFastIoSnapState.c)
+ *     MmIsDriverVerifying @ 0x1403C18E0 (MmIsDriverVerifying.c)
+ *     FsRtlGetSupportedFeatures @ 0x14049C3B0 (FsRtlGetSupportedFeatures.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     FsRtlQueryOpen @ 0x140ABD4B8 (FsRtlQueryOpen.c)
+ *     VfFastIoCheckState @ 0x140C4DF34 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140C4E25C (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopQueryInformation(

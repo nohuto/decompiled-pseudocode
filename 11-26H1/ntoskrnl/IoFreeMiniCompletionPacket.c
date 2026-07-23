@@ -1,13 +1,13 @@
 /*
- * XREFs of IoFreeMiniCompletionPacket @ 0x140A7A5E0
+ * XREFs of IoFreeMiniCompletionPacket @ 0x140A82520
  * Callers:
- *     AlpcpLookasidePacketCallbackRoutine @ 0x1402695A0 (AlpcpLookasidePacketCallbackRoutine.c)
- *     ExpWorkerFactoryCompletionPacketRoutine @ 0x1404685E0 (ExpWorkerFactoryCompletionPacketRoutine.c)
- *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x1404AAF70 (AlpcpDeferredFreeCompletionPacketLookaside.c)
- *     ExpDeleteWorkerFactory @ 0x1404B50A0 (ExpDeleteWorkerFactory.c)
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
+ *     AlpcpLookasidePacketCallbackRoutine @ 0x140268B10 (AlpcpLookasidePacketCallbackRoutine.c)
+ *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140461C90 (ExpWorkerFactoryCompletionPacketRoutine.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x1404A4600 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     ExpDeleteWorkerFactory @ 0x1404AE4F0 (ExpDeleteWorkerFactory.c)
+ *     PspJobDelete @ 0x1406187E0 (PspJobDelete.c)
  * Callees:
- *     IopFreeMiniCompletionPacket @ 0x140A7A600 (IopFreeMiniCompletionPacket.c)
+ *     IopFreeMiniCompletionPacket @ 0x140A82540 (IopFreeMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoFreeMiniCompletionPacket(ULONG_PTR a1)

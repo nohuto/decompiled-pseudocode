@@ -95,11 +95,11 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v55; // rdx
   __int64 v56; // r9
   ULONG v57; // ecx
-  char *v58; // r9
-  __int64 v59; // rdi
+  _SID_AND_ATTRIBUTES *v58; // r9
+  _SID_AND_ATTRIBUTES *v59; // rdi
   __int64 v60; // r14
   struct _KTHREAD *v61; // rax
-  unsigned __int8 *Src; // rdi
+  unsigned __int8 *v62; // rdi
   char v63; // r15
   ULONG TokenAccessInformationBufferSize; // eax
   struct _KTHREAD *v65; // rax
@@ -129,7 +129,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   _DMA_OPERATIONS *v89; // rdx
   __int64 v90; // r9
   struct _KTHREAD *v91; // rax
-  __int64 v92; // rdx
+  unsigned __int8 *Sid; // rdx
   ULONG v93; // eax
   struct _KTHREAD *v94; // rax
   unsigned int v95; // edx
@@ -146,7 +146,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   NTSTATUS v106; // ebx
   struct _KTHREAD *v107; // rax
   _DMA_OPERATIONS *v108; // rdx
-  unsigned int Size; // r11d
+  ULONG Size; // r11d
   ULONG v110; // r8d
   void (__fastcall *PutDmaAdapter)(_DMA_ADAPTER *); // rdx
   __int64 v112; // r9
@@ -166,11 +166,11 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int64 v126; // rax
   struct _KTHREAD *CurrentThread; // rax
   ULONG v128; // r8d
-  PVOID *NewObject; // [rsp+20h] [rbp-188h]
+  PSID SidArea; // [rsp+20h] [rbp-188h]
   char v130[8]; // [rsp+80h] [rbp-128h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+88h] [rbp-120h] BYREF
   PSID DestinationSid; // [rsp+90h] [rbp-118h] BYREF
-  __int64 v133; // [rsp+98h] [rbp-110h] BYREF
+  PSID RemainingSidArea; // [rsp+98h] [rbp-110h] BYREF
   int v134; // [rsp+A0h] [rbp-108h] BYREF
   ULONG v135; // [rsp+A4h] [rbp-104h] BYREF
   NTSTATUS v136; // [rsp+A8h] [rbp-100h]
@@ -192,8 +192,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   __int128 v152; // [rsp+F8h] [rbp-B0h] BYREF
   __int128 v153; // [rsp+108h] [rbp-A0h]
   __int128 v154; // [rsp+118h] [rbp-90h] BYREF
-  __int64 v155; // [rsp+128h] [rbp-80h]
-  __int128 v156; // [rsp+130h] [rbp-78h] BYREF
+  _SID_AND_ATTRIBUTES *v155; // [rsp+128h] [rbp-80h]
+  _SID_AND_ATTRIBUTES Src; // [rsp+130h] [rbp-78h] BYREF
   _DWORD v157[2]; // [rsp+140h] [rbp-68h] BYREF
   __int64 v158; // [rsp+148h] [rbp-60h]
   __int64 v159; // [rsp+150h] [rbp-58h]
@@ -209,8 +209,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   v145 = 0;
   v155 = 0LL;
   v148 = 0;
-  v156 = 0LL;
-  v133 = 0LL;
+  Src = 0LL;
+  RemainingSidArea = 0LL;
   SessionId = 0;
   v163 = 0LL;
   v152 = 0LL;
@@ -247,12 +247,12 @@ NTSTATUS __stdcall NtQueryInformationToken(
     {
       RtlCopySidAndAttributesArray(
         1u,
-        (__int64)v15[9].DmaOperations,
+        (PSID_AND_ATTRIBUTES)v15[9].DmaOperations,
         v128,
-        (__int64)TokenInformation,
+        (PSID_AND_ATTRIBUTES)TokenInformation,
         (char *)TokenInformation + 16,
-        &v133,
-        (unsigned int *)&v133);
+        &RemainingSidArea,
+        (PULONG)&RemainingSidArea);
 LABEL_242:
       ExReleaseResourceLite(*(PERESOURCE *)&v15[3].Version);
       KeLeaveCriticalRegion();
@@ -299,12 +299,12 @@ LABEL_240:
           *(_DWORD *)TokenInformation = HIDWORD(v15[7].DmaOperations) - 1;
           RtlCopySidAndAttributesArray(
             HIDWORD(v15[7].DmaOperations) - 1,
-            (__int64)&v15[9].DmaOperations->AllocateCommonBuffer,
+            (PSID_AND_ATTRIBUTES)&v15[9].DmaOperations->AllocateCommonBuffer,
             v17,
-            (__int64)TokenInformation + 8,
+            (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
             (char *)TokenInformation + (unsigned int)(16 * HIDWORD(v15[7].DmaOperations) - 32) + 24,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenPrivileges:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -471,12 +471,12 @@ LABEL_240:
           *(_DWORD *)TokenInformation = *(_DWORD *)&v15[8].Version;
           RtlCopySidAndAttributesArray(
             *(_DWORD *)&v15[8].Version,
-            *(_QWORD *)&v15[10].Version,
+            *(PSID_AND_ATTRIBUTES *)&v15[10].Version,
             v22,
-            (__int64)TokenInformation + 8,
+            (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
             (char *)TokenInformation + (unsigned int)(16 * *(_DWORD *)&v15[8].Version) + 8,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenSessionId:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -501,7 +501,7 @@ LABEL_240:
           v135 = SepTokenPrivilegeCount((__int64)v15);
           v45 = 12 * v135;
           v46 = HIDWORD(v15[7].DmaOperations);
-          v47 = 16 * v46;
+          v47 = v46;
           v48 = 16 * v46;
           if ( v46 )
           {
@@ -516,7 +516,7 @@ LABEL_240:
             while ( v50 );
           }
           v51 = *(_DWORD *)&v15[8].Version;
-          v52 = 16 * v51;
+          v52 = v51;
           v53 = 16 * v51;
           v54 = 16 * v51;
           if ( v51 )
@@ -539,13 +539,13 @@ LABEL_240:
           *((_QWORD *)TokenInformation + 6) = v15[1].DmaOperations;
           *((_DWORD *)TokenInformation + 1) = v48;
           *(_DWORD *)TokenInformation = HIDWORD(v15[7].DmaOperations);
-          v58 = (char *)TokenInformation + 56;
+          v58 = (_SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
           *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
           *((_DWORD *)TokenInformation + 5) = v53;
           *((_DWORD *)TokenInformation + 4) = *(_DWORD *)&v15[8].Version;
           if ( *(_DWORD *)&v15[8].Version )
           {
-            v59 = (__int64)&v58[(v48 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL];
+            v59 = (_SID_AND_ATTRIBUTES *)((char *)v58 + ((v48 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
             *((_QWORD *)TokenInformation + 3) = v59;
           }
           else
@@ -555,25 +555,25 @@ LABEL_240:
           }
           *((_DWORD *)TokenInformation + 9) = v45;
           *((_DWORD *)TokenInformation + 8) = v135;
-          v60 = (__int64)&v58[v53 + v48];
+          v60 = (__int64)v58 + v53 + v48;
           *((_QWORD *)TokenInformation + 5) = v60;
           RtlCopySidAndAttributesArray(
             HIDWORD(v15[7].DmaOperations),
-            (__int64)v15[9].DmaOperations,
-            v48 - v47,
-            (__int64)v58,
+            (PSID_AND_ATTRIBUTES)v15[9].DmaOperations,
+            v48 - v47 * 16,
+            v58,
             &v58[v47],
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           if ( v59 )
             RtlCopySidAndAttributesArray(
               *(_DWORD *)&v15[8].Version,
-              *(_QWORD *)&v15[10].Version,
-              v53 - v52,
+              *(PSID_AND_ATTRIBUTES *)&v15[10].Version,
+              v53 - v52 * 16,
               v59,
-              (char *)(v59 + v52),
-              &v133,
-              (unsigned int *)&v133);
+              &v59[v52],
+              &RemainingSidArea,
+              (PULONG)&RemainingSidArea);
           SepConvertTokenPrivilegesToLuidAndAttributes(v15, v60);
           goto LABEL_242;
         case TokenSandBoxInert:
@@ -735,7 +735,7 @@ LABEL_110:
             {
               if ( IsElevatedRid )
                 break;
-              IsElevatedRid = RtlIsElevatedRid((char *)v67[9].DmaOperations + 16 * (unsigned int)v9);
+              IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)v67[9].DmaOperations + (unsigned int)v9);
               LODWORD(v9) = v9 + 1;
             }
             while ( (unsigned int)v9 < v77 );
@@ -769,7 +769,7 @@ LABEL_110:
           --v61->KernelApcDisable;
           v15 = DmaAdapter;
           ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
-          Src = (unsigned __int8 *)DestinationSid;
+          v62 = (unsigned __int8 *)DestinationSid;
           v63 = v130[0];
           TokenAccessInformationBufferSize = SepGetTokenAccessInformationBufferSize(
                                                (__int64)v15,
@@ -803,7 +803,7 @@ LABEL_110:
             v140,
             v139,
             v63,
-            Src);
+            v62);
           goto LABEL_242;
         case TokenVirtualizationAllowed:
         case TokenVirtualizationEnabled:
@@ -851,19 +851,19 @@ LABEL_136:
           v15 = DmaAdapter;
           ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
           SepCopyTokenIntegrity((__int64)v15);
-          v92 = v156;
-          v93 = 4 * *(unsigned __int8 *)(v156 + 1) + 24;
+          Sid = (unsigned __int8 *)Src.Sid;
+          v93 = 4 * *((unsigned __int8 *)Src.Sid + 1) + 24;
           *v12 = v93;
           if ( TokenInformationLength < v93 )
             goto LABEL_240;
           RtlCopySidAndAttributesArray(
             1u,
-            (__int64)&v156,
-            4 * *(unsigned __int8 *)(v92 + 1) + 8,
-            (__int64)TokenInformation,
+            &Src,
+            4 * Sid[1] + 8,
+            (PSID_AND_ATTRIBUTES)TokenInformation,
             (char *)TokenInformation + 16,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenMandatoryPolicy:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -910,12 +910,12 @@ LABEL_173:
           *(_DWORD *)TokenInformation = 1;
           RtlCopySidAndAttributesArray(
             1u,
-            (__int64)v15[9].DmaOperations + v98,
+            (PSID_AND_ATTRIBUTES)((char *)v15[9].DmaOperations + v98),
             4 * *(unsigned __int8 *)(*(_QWORD *)((char *)&v15[9].DmaOperations->Size + v98) + 1LL) + 8,
-            (__int64)TokenInformation + 8,
+            (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
             (char *)TokenInformation + 24,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenIsAppContainer:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -956,12 +956,12 @@ LABEL_173:
           *(_DWORD *)TokenInformation = *(_DWORD *)&v15[50].Version;
           RtlCopySidAndAttributesArray(
             *(_DWORD *)&v15[50].Version,
-            (__int64)v15[49].DmaOperations,
+            (PSID_AND_ATTRIBUTES)v15[49].DmaOperations,
             v88,
-            (__int64)TokenInformation + 8,
+            (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
             (char *)TokenInformation + (unsigned int)(16 * *(_DWORD *)&v15[50].Version) + 8,
-            &v133,
-            (unsigned int *)&v133);
+            &RemainingSidArea,
+            (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenAppContainerSid:
           v82 = 8;
@@ -1082,12 +1082,12 @@ LABEL_173:
           if ( Size )
             RtlCopySidAndAttributesArray(
               Size,
-              (__int64)v15[68].DmaOperations->PutDmaAdapter,
+              (PSID_AND_ATTRIBUTES)v15[68].DmaOperations->PutDmaAdapter,
               v110,
-              (__int64)TokenInformation + 8,
+              (PSID_AND_ATTRIBUTES)((char *)TokenInformation + 8),
               (char *)TokenInformation + 16 * Size + 8,
-              &v133,
-              (unsigned int *)&v133);
+              &RemainingSidArea,
+              (PULONG)&RemainingSidArea);
           goto LABEL_242;
         case TokenSecurityAttributes:
           result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
@@ -1100,8 +1100,8 @@ LABEL_173:
           v114 = v101[48].DmaOperations;
           if ( v114 )
           {
-            LODWORD(NewObject) = 0;
-            AuthzBasepQuerySecurityAttributesToken(v114, 0LL, 0LL, 0LL, (size_t)NewObject, &v134);
+            LODWORD(SidArea) = 0;
+            AuthzBasepQuerySecurityAttributesToken(v114, 0LL, 0LL, 0LL, (size_t)SidArea, &v134);
             v115 = v134;
           }
           else
@@ -1111,13 +1111,13 @@ LABEL_173:
           *v12 = v115;
           if ( TokenInformationLength < v115 )
             goto LABEL_188;
-          LODWORD(NewObject) = TokenInformationLength;
+          LODWORD(SidArea) = TokenInformationLength;
           v106 = AuthzBasepQuerySecurityAttributesToken(
                    &v101[48].DmaOperations->Size,
                    0LL,
                    0LL,
                    TokenInformation,
-                   (size_t)NewObject,
+                   (size_t)SidArea,
                    &v134);
           v136 = v106;
 LABEL_190:
@@ -1226,13 +1226,13 @@ LABEL_188:
           KeLeaveCriticalRegion();
           HalPutDmaAdapter(v101);
           return 0;
-        case MaxTokenInfoClass:
+        case TokenIsSandboxed:
           *v12 = 4;
           if ( TokenInformationLength < 4 )
             return -1073741789;
           *(_DWORD *)TokenInformation = (unsigned __int8)RtlIsSandboxedTokenHandle(TokenHandle);
           return 0;
-        case TokenAppContainerNumber|TokenAuditPolicy:
+        case TokenIsAppSilo:
           Feature_PPLEnforcement__private_ReportDeviceUsage();
           return -1073741821;
         default:

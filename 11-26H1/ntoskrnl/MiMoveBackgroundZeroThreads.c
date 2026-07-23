@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMoveBackgroundZeroThreads @ 0x1403E84D0
+ * XREFs of MiMoveBackgroundZeroThreads @ 0x1402F53B0
  * Callers:
- *     MmReportParkedProcessors @ 0x1403E83AC (MmReportParkedProcessors.c)
+ *     MmReportParkedProcessors @ 0x1402F528C (MmReportParkedProcessors.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiProcessorParked @ 0x1403E8774 (MiProcessorParked.c)
- *     KeSetUserGroupAffinityThread @ 0x1403E87F4 (KeSetUserGroupAffinityThread.c)
- *     MiSelectBestZeroingProcessor @ 0x1403E8AC4 (MiSelectBestZeroingProcessor.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiProcessorParked @ 0x1402F5654 (MiProcessorParked.c)
+ *     KeSetUserGroupAffinityThread @ 0x1402F56D4 (KeSetUserGroupAffinityThread.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402F59A4 (MiSelectBestZeroingProcessor.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiMoveBackgroundZeroThreads(ULONG *a1, __int64 a2)
@@ -76,13 +76,13 @@ unsigned __int64 __fastcall MiMoveBackgroundZeroThreads(ULONG *a1, __int64 a2)
       if ( *(_QWORD *)(v6 + v7 + 13888) || *(_QWORD *)(v6 + v7 + 13904) )
       {
         SpinLock = (volatile LONG *)(v7 + v6 + 14200);
-        v8 = *(__int64 **)(384LL * v4 + qword_140E2D6B8 + 376);
+        v8 = *(__int64 **)(384LL * v4 + qword_140E2D838 + 376);
         ExAcquireSpinLockExclusiveAtDpcLevel(SpinLock);
         v9 = *(_QWORD *)(v6 + v7 + 14192);
         if ( v9 && *(_QWORD *)(v6 + v7 + 14208) )
         {
           if ( (*((_DWORD *)v8 + 9) & 1) != 0 && *(_BYTE *)(v9 + 271) )
-            v8 = &qword_140E2D698;
+            v8 = &qword_140E2D818;
           v10 = *((_DWORD *)v8 + 2);
           v11 = v9 + 768;
           v12 = 2LL;

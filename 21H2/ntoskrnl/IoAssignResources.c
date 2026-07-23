@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAssignResources @ 0x14089D020
+ * XREFs of IoAssignResources @ 0x14089D180
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     IopLegacyResourceAllocation @ 0x140753474 (IopLegacyResourceAllocation.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     IopLegacyResourceAllocation @ 0x140753634 (IopLegacyResourceAllocation.c)
  */
 
 NTSTATUS __stdcall IoAssignResources(

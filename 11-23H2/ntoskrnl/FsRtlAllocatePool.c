@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlAllocatePool @ 0x14053DB40
+ * XREFs of FsRtlAllocatePool @ 0x14053E090
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
 

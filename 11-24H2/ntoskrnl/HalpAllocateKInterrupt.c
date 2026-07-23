@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAllocateKInterrupt @ 0x14055A274
+ * XREFs of HalpAllocateKInterrupt @ 0x140557EA4
  * Callers:
- *     HalpCreateInterrupt @ 0x14055A380 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x140557FB0 (HalpCreateInterrupt.c)
  * Callees:
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char *__fastcall HalpAllocateKInterrupt(int a1, int a2)
@@ -34,7 +34,7 @@ char *__fastcall HalpAllocateKInterrupt(int a1, int a2)
   if ( (unsigned int)HalpKInterruptHeapUsed >= 0x10 )
   {
     if ( HalpKInterruptPostPhaseZeroUsed >= (unsigned int)HalpKInterruptPostPhaseZeroTotal )
-      Pool2 = (char *)ExAllocatePool2(0x40uLL);
+      Pool2 = (char *)ExAllocatePool2(0x40uLL, 0x120uLL, 0x4B6C6148u);
     else
       Pool2 = (char *)(HalpKInterruptPostPhaseZero + 288LL * (unsigned int)HalpKInterruptPostPhaseZeroUsed++);
   }

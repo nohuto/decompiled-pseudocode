@@ -26,7 +26,7 @@ char *__fastcall EtwpCreateRegGuidsContext(__int64 a1, __int64 a2, _OWORD *a3, u
   if ( (int)v10 + 40 < (unsigned int)(v10 + 24) )
     return 0LL;
   v12 = v10 + 40;
-  Heap = (char *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v10 + 40));
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v10 + 40));
   v14 = Heap;
   if ( !Heap )
     return 0LL;

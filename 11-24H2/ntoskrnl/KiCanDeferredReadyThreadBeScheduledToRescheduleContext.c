@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCanDeferredReadyThreadBeScheduledToRescheduleContext @ 0x14029A620
+ * XREFs of KiCanDeferredReadyThreadBeScheduledToRescheduleContext @ 0x1402A9110
  * Callers:
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
  * Callees:
- *     ?KiDoesThreadDominateRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@KPEAPEAU_KSCB@@@Z @ 0x14029A7B0 (-KiDoesThreadDominateRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x14029A850 (KiEvaluateGroupSchedulingPreemption.c)
+ *     ?KiDoesThreadDominateRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@KPEAPEAU_KSCB@@@Z @ 0x1402A92A0 (-KiDoesThreadDominateRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1402A9340 (KiEvaluateGroupSchedulingPreemption.c)
  */
 
 unsigned __int8 __fastcall KiCanDeferredReadyThreadBeScheduledToRescheduleContext(

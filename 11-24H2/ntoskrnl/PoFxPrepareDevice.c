@@ -1,19 +1,19 @@
 /*
- * XREFs of PoFxPrepareDevice @ 0x14048E428
+ * XREFs of PoFxPrepareDevice @ 0x140488860
  * Callers:
- *     PnpStartDevice @ 0x14048E37C (PnpStartDevice.c)
- *     PiProcessAddBootDevices @ 0x140723F94 (PiProcessAddBootDevices.c)
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
+ *     PnpStartDevice @ 0x1404887B4 (PnpStartDevice.c)
+ *     PiProcessAddBootDevices @ 0x140721B24 (PiProcessAddBootDevices.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     IoReleaseRemoveLockEx @ 0x140270610 (IoReleaseRemoveLockEx.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PopPluginPrepareDevice @ 0x14048E5E0 (PopPluginPrepareDevice.c)
- *     PopDiagTraceFxDevicePreparation @ 0x140A74AA8 (PopDiagTraceFxDevicePreparation.c)
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x140A789EC (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     IoReleaseRemoveLockEx @ 0x140225BA0 (IoReleaseRemoveLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopPluginPrepareDevice @ 0x140488A18 (PopPluginPrepareDevice.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x140A6EDC8 (PopDiagTraceFxDevicePreparation.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x140A72CEC (PopFxFindDeviceAndAllocateUniqueId.c)
  */
 
 void __fastcall PoFxPrepareDevice(__int64 a1, char a2)
@@ -21,7 +21,7 @@ void __fastcall PoFxPrepareDevice(__int64 a1, char a2)
   signed __int32 v4; // eax
   signed __int32 v5; // ett
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v7; // rdi
+  char *v7; // rdi
   ULONG_PTR *v8; // rdi
   ULONG_PTR *v9; // rsi
   __int64 v10; // r9
@@ -52,11 +52,11 @@ LABEL_16:
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v7 = KeAbPreAcquire((__int64)&PopFxPluginLock, 0LL);
+    v7 = (char *)KeAbPreAcquire((__int64)&PopFxPluginLock, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxPluginLock, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)&PopFxPluginLock, 0, v7, (__int64)&PopFxPluginLock);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     v8 = (ULONG_PTR *)PopFxPluginList;
     v9 = 0LL;
     while ( v8 != &PopFxPluginList )

@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpDispatchPnp @ 0x140B1A790
+ * XREFs of HalpDispatchPnp @ 0x140B1CA40
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     HalpPassIrpFromFdoToPdo @ 0x1404FAF2C (HalpPassIrpFromFdoToPdo.c)
- *     HalpInitializeLateSystemActions @ 0x14057847C (HalpInitializeLateSystemActions.c)
- *     HalpQueryIdFdo @ 0x1407820C0 (HalpQueryIdFdo.c)
- *     HalpQueryIdPdo @ 0x14078217C (HalpQueryIdPdo.c)
- *     HalpQueryResources @ 0x140782258 (HalpQueryResources.c)
- *     HalpQueryAcpiResourceRequirements @ 0x140785BB4 (HalpQueryAcpiResourceRequirements.c)
- *     HalpQueryDeviceRelations @ 0x140B1A954 (HalpQueryDeviceRelations.c)
- *     HalpQueryInterface @ 0x140B1A9FC (HalpQueryInterface.c)
- *     HalpInitSystemHelper @ 0x140BE99CC (HalpInitSystemHelper.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x1404F453C (HalpPassIrpFromFdoToPdo.c)
+ *     HalpInitializeLateSystemActions @ 0x14057A9AC (HalpInitializeLateSystemActions.c)
+ *     HalpQueryIdFdo @ 0x140784BC0 (HalpQueryIdFdo.c)
+ *     HalpQueryIdPdo @ 0x140784C7C (HalpQueryIdPdo.c)
+ *     HalpQueryResources @ 0x140784D58 (HalpQueryResources.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407886E4 (HalpQueryAcpiResourceRequirements.c)
+ *     HalpQueryDeviceRelations @ 0x140B1CC04 (HalpQueryDeviceRelations.c)
+ *     HalpQueryInterface @ 0x140B1CCAC (HalpQueryInterface.c)
+ *     HalpInitSystemHelper @ 0x140BEF9CC (HalpInitSystemHelper.c)
  */
 
 NTSTATUS __fastcall HalpDispatchPnp(__int64 a1, IRP *a2)

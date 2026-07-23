@@ -1,25 +1,25 @@
 /*
- * XREFs of _RtlpMuiRegLoadInstalledFromKey @ 0x18014A4F4
+ * XREFs of _RtlpMuiRegLoadInstalledFromKey @ 0x1801488A4
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x18011F248 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x18011D478 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     LdrpQueryValueKey @ 0x1800E8D50 (LdrpQueryValueKey.c)
- *     LdrpOpenKey @ 0x1800EA970 (LdrpOpenKey.c)
- *     RtlpMuiRegAddLanguageByName @ 0x1801491C0 (RtlpMuiRegAddLanguageByName.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtEnumerateKey @ 0x1801622D0 (NtEnumerateKey.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     LdrpQueryValueKey @ 0x1800E4440 (LdrpQueryValueKey.c)
+ *     LdrpOpenKey @ 0x1800E61E0 (LdrpOpenKey.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x180147570 (RtlpMuiRegAddLanguageByName.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtEnumerateKey @ 0x180160690 (NtEnumerateKey.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
 {
   unsigned __int64 v1; // rbp
-  unsigned int v3; // edi
-  int v4; // ebx
-  int v6; // eax
+  ULONG v3; // edi
+  NTSTATUS v4; // ebx
+  NTSTATUS v6; // eax
   unsigned __int64 v7; // rcx
-  __int64 v8; // rcx
+  void *v8; // rcx
   int v9; // r9d
   int v10; // ecx
   _DWORD *v11; // rdx
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
   int v14; // ecx
   void *v15; // rcx
   void *v16; // rcx
-  int v17; // [rsp+20h] [rbp-30h]
+  int Length; // [rsp+20h] [rbp-30h]
   int v18; // [rsp+50h] [rbp+0h] BYREF
 
   v1 = (unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL;
@@ -42,18 +42,18 @@ __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
   RtlInitUnicodeString(
     (PUNICODE_STRING)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 40),
     L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages");
-  v4 = LdrpOpenKey(v1 + 40, 0LL, 0x20019u, (_QWORD *)(v1 + 24));
+  v4 = LdrpOpenKey((_UNICODE_STRING *)(v1 + 40), 0LL, 0x20019u, (HANDLE *)(v1 + 24));
   if ( v4 < 0 )
     return 0LL;
   while ( v4 != -2147483622 )
   {
     v6 = NtEnumerateKey(
-           *(_QWORD *)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
+           *(HANDLE *)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
            v3,
-           0LL,
-           v1 + 64,
-           512,
-           v1 + 32);
+           KeyBasicInformation,
+           (PVOID)(v1 + 64),
+           0x200u,
+           (PULONG)(v1 + 32));
     v4 = v6;
     if ( v6 < 0 )
     {
@@ -67,22 +67,22 @@ __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
       {
         *(_WORD *)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50 + 2 * (v7 >> 1)) = 0;
         RtlInitUnicodeString((PUNICODE_STRING)(v1 + 40), (PCWSTR)(v1 + 80));
-        if ( (int)LdrpOpenKey(
-                    v1 + 40,
-                    *(_QWORD *)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
-                    0x20019u,
-                    (_QWORD *)(v1 + 16)) >= 0 )
+        if ( LdrpOpenKey(
+               (_UNICODE_STRING *)(v1 + 40),
+               *(void **)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
+               0x20019u,
+               (HANDLE *)(v1 + 16)) >= 0 )
         {
           RtlInitUnicodeString((PUNICODE_STRING)(v1 + 40), L"Type");
-          v8 = *(_QWORD *)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
+          v8 = *(void **)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
           *(_DWORD *)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 4;
           *(_DWORD *)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x24) = 4;
           if ( (int)LdrpQueryValueKey(
                       v8,
-                      v1 + 40,
+                      (PUNICODE_STRING)(v1 + 40),
                       (_DWORD *)(v1 + 8),
                       (void *)((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL),
-                      (unsigned int *)(v1 + 36)) >= 0 )
+                      (ULONG *)(v1 + 36)) >= 0 )
           {
             v9 = *(_DWORD *)v1;
             if ( (*(_DWORD *)v1 & 0x18) != 0 && (v9 & 7) != 0 )
@@ -112,10 +112,10 @@ __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
                   if ( v14 && (v14 & -v14) == v14 && (v12 & 0xC) != 8 )
                     RtlpMuiRegAddLanguageByName(
                       a1,
-                      *(_QWORD *)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10),
+                      *(void **)(((unsigned __int64)&v18 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10),
                       (wchar_t *)(v1 + 80),
                       v12,
-                      v17,
+                      Length,
                       v1 + 4);
                 }
               }

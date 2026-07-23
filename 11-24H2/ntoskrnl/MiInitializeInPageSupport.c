@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeInPageSupport @ 0x1402E44F8
+ * XREFs of MiInitializeInPageSupport @ 0x1403DC938
  * Callers:
- *     MiGetInPageSupportBlock @ 0x1402E42D0 (MiGetInPageSupportBlock.c)
- *     MiPfIssueCoalescedSupport @ 0x14047E5A4 (MiPfIssueCoalescedSupport.c)
- *     MiReadPagefilePage @ 0x14066A47C (MiReadPagefilePage.c)
- *     MiGetReadyInPageBlock @ 0x140AA3298 (MiGetReadyInPageBlock.c)
+ *     MiPfIssueCoalescedSupport @ 0x1403DAF90 (MiPfIssueCoalescedSupport.c)
+ *     MiGetInPageSupportBlock @ 0x1403DC710 (MiGetInPageSupportBlock.c)
+ *     MiReadPagefilePage @ 0x14066B64C (MiReadPagefilePage.c)
+ *     MiGetReadyInPageBlock @ 0x140A9E628 (MiGetReadyInPageBlock.c)
  * Callees:
- *     MiGetEffectivePagePriorityThread @ 0x1402E44B0 (MiGetEffectivePagePriorityThread.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiGetEffectivePagePriorityThread @ 0x1403DC8F0 (MiGetEffectivePagePriorityThread.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeInPageSupport(__int64 a1, char a2, volatile signed __int64 *a3)
@@ -53,7 +53,7 @@ __int64 __fastcall MiInitializeInPageSupport(__int64 a1, char a2, volatile signe
   *(_DWORD *)(a1 + 192) = v8 | (((unsigned int)result | (8 * v10)) << 11);
   if ( (a2 & 2) != 0 )
   {
-    result = KeAbPreAcquire(a1, 0LL, 0LL);
+    result = (__int64)KeAbPreAcquire(a1, 0LL);
     if ( result )
     {
       *(_BYTE *)(result + 10) = 1;

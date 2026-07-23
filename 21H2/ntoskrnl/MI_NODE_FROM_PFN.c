@@ -1,9 +1,9 @@
 /*
- * XREFs of MI_NODE_FROM_PFN @ 0x140547B38
+ * XREFs of MI_NODE_FROM_PFN @ 0x140547D78
  * Callers:
- *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
+ *     MiDeleteClusterSection @ 0x14030B130 (MiDeleteClusterSection.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
  */
 
 __int64 __fastcall MI_NODE_FROM_PFN(__int64 a1)

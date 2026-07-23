@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetHighWaitLowEventPair @ 0x1406A9870
+ * XREFs of ZwSetHighWaitLowEventPair @ 0x1406AA810
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetHighWaitLowEventPair(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetHighWaitLowEventPair(HANDLE EventPairHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(EventPairHandle);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_295645497__private_IsEnabledFallback @ 0x14063AE6C
+ * XREFs of Feature_295645497__private_IsEnabledFallback @ 0x14063DF34
  * Callers:
- *     Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063AE30 (Feature_295645497__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_295645497__private_IsEnabledDeviceUsageNoInline @ 0x14063DEF8 (Feature_295645497__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_295645497__private_IsEnabledFallback(__int64 a1, unsigned int a2)

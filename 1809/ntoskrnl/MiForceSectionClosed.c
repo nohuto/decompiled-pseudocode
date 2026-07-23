@@ -1,15 +1,15 @@
 /*
- * XREFs of MiForceSectionClosed @ 0x1401220CC
+ * XREFs of MiForceSectionClosed @ 0x14012219C
  * Callers:
- *     MmForceSectionClosed @ 0x140122090 (MmForceSectionClosed.c)
- *     MmForceSectionClosedEx @ 0x1402A3930 (MmForceSectionClosedEx.c)
- *     MiCreateImageOrDataSection @ 0x1405DE390 (MiCreateImageOrDataSection.c)
+ *     MmForceSectionClosed @ 0x140122160 (MmForceSectionClosed.c)
+ *     MmForceSectionClosedEx @ 0x1402A3B20 (MmForceSectionClosedEx.c)
+ *     MiCreateImageOrDataSection @ 0x1405DF390 (MiCreateImageOrDataSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAttemptSectionDelete @ 0x140122170 (MiAttemptSectionDelete.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAttemptSectionDelete @ 0x140122240 (MiAttemptSectionDelete.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiForceSectionClosed(_QWORD *a1, char a2)
@@ -26,12 +26,12 @@ __int64 __fastcall MiForceSectionClosed(_QWORD *a1, char a2)
   v3 = a2 & 1;
   while ( 1 )
   {
-    v5 = ExAcquireSpinLockExclusive(&dword_140438BC0);
+    v5 = ExAcquireSpinLockExclusive(&dword_140439C80);
     v6 = v3 ? *a1 : a1[2];
     if ( !v6 )
       break;
     v7 = ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v6 + 72));
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
     if ( v7 )
     {
       LOBYTE(v8) = v5;
@@ -46,7 +46,7 @@ __int64 __fastcall MiForceSectionClosed(_QWORD *a1, char a2)
     }
     __writecr8(v5);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v5 < 2u )
   {
     v12 = KeGetCurrentPrcb();

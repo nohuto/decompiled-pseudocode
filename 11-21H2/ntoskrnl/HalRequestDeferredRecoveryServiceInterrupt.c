@@ -3,7 +3,7 @@
  * Callers:
  *     WheaRequestDeferredRecovery @ 0x140645B10 (WheaRequestDeferredRecovery.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x1402ADD00 (HalpInterruptSendIpi.c)
+ *     sub_1402ADD00 @ 0x1402ADD00 (sub_1402ADD00.c)
  */
 
 __int64 HalRequestDeferredRecoveryServiceInterrupt()
@@ -12,5 +12,5 @@ __int64 HalRequestDeferredRecoveryServiceInterrupt()
 
   v1[0] = 5;
   *(_OWORD *)&v1[1] = 0LL;
-  return HalpInterruptSendIpi(v1, 0xE3u);
+  return sub_1402ADD00(v1, 0xE3u);
 }

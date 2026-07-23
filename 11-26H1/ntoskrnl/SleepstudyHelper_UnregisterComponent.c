@@ -1,22 +1,15 @@
 /*
- * XREFs of SleepstudyHelper_UnregisterComponent @ 0x1406143F0
+ * XREFs of SleepstudyHelper_UnregisterComponent @ 0x140617250
  * Callers:
  *     <none>
  * Callees:
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x140257660 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
- *     SleepstudyHelperDestroyBlocker @ 0x14049BA60 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x1404955B0 (SleepstudyHelperDestroyBlocker.c)
  */
 
 __int64 __fastcall SleepstudyHelper_UnregisterComponent(KSPIN_LOCK *a1)
 {
-  int IsEnabledDeviceUsageNoInline; // eax
-  unsigned int v3; // edx
-
-  IsEnabledDeviceUsageNoInline = Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline();
-  v3 = 0;
-  if ( !IsEnabledDeviceUsageNoInline )
+  if ( a1 == (KSPIN_LOCK *)&unk_140F0A850 )
+    return 0LL;
+  else
     return SleepstudyHelperDestroyBlocker(a1);
-  if ( a1 != PsAltSystemCallRegistrationLock.Spare35 )
-    return (unsigned int)SleepstudyHelperDestroyBlocker(a1);
-  return v3;
 }

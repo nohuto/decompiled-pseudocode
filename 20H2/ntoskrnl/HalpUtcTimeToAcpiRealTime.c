@@ -12,7 +12,7 @@
 __int64 __fastcall HalpUtcTimeToAcpiRealTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER Timeout)
 {
   __int64 LowPart_high; // rcx
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+48h] [rbp+18h] BYREF
 
   LocalTime.QuadPart = 0LL;

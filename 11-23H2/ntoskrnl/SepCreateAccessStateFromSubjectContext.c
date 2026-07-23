@@ -1,16 +1,16 @@
 /*
- * XREFs of SepCreateAccessStateFromSubjectContext @ 0x140232B40
+ * XREFs of SepCreateAccessStateFromSubjectContext @ 0x140232C10
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     SeCreateAccessStateEx @ 0x1406C2EA0 (SeCreateAccessStateEx.c)
- *     ObOpenObjectByNameEx @ 0x1406ECFE0 (ObOpenObjectByNameEx.c)
- *     PsOpenProcess @ 0x1406F3D00 (PsOpenProcess.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     NtOpenProcessTokenEx @ 0x1407376D0 (NtOpenProcessTokenEx.c)
- *     SeCreateAccessStateFromSubjectContext @ 0x1409C9F68 (SeCreateAccessStateFromSubjectContext.c)
+ *     SeSubProcessToken @ 0x1406B722C (SeSubProcessToken.c)
+ *     SeCreateAccessStateEx @ 0x1406C2ED0 (SeCreateAccessStateEx.c)
+ *     ObOpenObjectByNameEx @ 0x1406ED010 (ObOpenObjectByNameEx.c)
+ *     PsOpenProcess @ 0x1406F3D30 (PsOpenProcess.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     NtOpenProcessTokenEx @ 0x1407378C0 (NtOpenProcessTokenEx.c)
+ *     SeCreateAccessStateFromSubjectContext @ 0x1409CA168 (SeCreateAccessStateFromSubjectContext.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall SepCreateAccessStateFromSubjectContext(_OWORD *a1, _QWORD *a2, _QWORD *a3, int a4, _DWORD *a5)

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlIsMultiSessionSku @ 0x1409113D0
+ * XREFs of RtlIsMultiSessionSku @ 0x1408E8B20
  * Callers:
- *     GetGlobalizationUserModelType @ 0x14065ABAC (GetGlobalizationUserModelType.c)
- *     PopAdaptiveStandbyInitialize @ 0x1407617F8 (PopAdaptiveStandbyInitialize.c)
- *     RtlCapabilityCheckForSingleSessionSku @ 0x140780B90 (RtlCapabilityCheckForSingleSessionSku.c)
- *     NtSetSystemTime @ 0x1407B6BF0 (NtSetSystemTime.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140810790 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     SeTokenCanImpersonate @ 0x140910A30 (SeTokenCanImpersonate.c)
- *     RtlCapabilityCheck @ 0x140A62840 (RtlCapabilityCheck.c)
- *     NtSetDefaultLocale @ 0x140A968F0 (NtSetDefaultLocale.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     GetGlobalizationUserModelType @ 0x1406592CC (GetGlobalizationUserModelType.c)
+ *     PopAdaptiveStandbyInitialize @ 0x140760B64 (PopAdaptiveStandbyInitialize.c)
+ *     RtlCapabilityCheckForSingleSessionSku @ 0x140780AC0 (RtlCapabilityCheckForSingleSessionSku.c)
+ *     NtSetSystemTime @ 0x1407B7040 (NtSetSystemTime.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140810ED0 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     SeTokenCanImpersonate @ 0x1408E8180 (SeTokenCanImpersonate.c)
+ *     RtlCapabilityCheck @ 0x140A5B140 (RtlCapabilityCheck.c)
+ *     NtSetDefaultLocale @ 0x140A93120 (NtSetDefaultLocale.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
  */
 
-char RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return BYTE4(PsGetCurrentServerSiloGlobals()[80].Blink[1].Blink);

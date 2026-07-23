@@ -1,23 +1,23 @@
 /*
- * XREFs of IoRemoveIoCompletion @ 0x1402207D0
+ * XREFs of IoRemoveIoCompletion @ 0x140222160
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x14037CC40 (NtWaitForWorkViaWorkerFactory.c)
- *     NtRemoveIoCompletion @ 0x140A5B4F0 (NtRemoveIoCompletion.c)
- *     NtRemoveIoCompletionEx @ 0x140A5DAF0 (NtRemoveIoCompletionEx.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14037E9F0 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtRemoveIoCompletion @ 0x140A684B0 (NtRemoveIoCompletion.c)
+ *     NtRemoveIoCompletionEx @ 0x140A6AAB0 (NtRemoveIoCompletionEx.c)
  * Callees:
- *     KeRemoveQueueEx @ 0x140220B60 (KeRemoveQueueEx.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     IopDropIrp @ 0x140268190 (IopDropIrp.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IopFreeWaitCompletionPacket @ 0x140269810 (IopFreeWaitCompletionPacket.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     IopCompleteRequest @ 0x14045B5C0 (IopCompleteRequest.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     IopFreeMiniCompletionPacket @ 0x140A7A600 (IopFreeMiniCompletionPacket.c)
+ *     KeRemoveQueueEx @ 0x1402224F0 (KeRemoveQueueEx.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     IopDropIrp @ 0x140267700 (IopDropIrp.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IopFreeWaitCompletionPacket @ 0x140268D80 (IopFreeWaitCompletionPacket.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     IopCompleteRequest @ 0x140454DF0 (IopCompleteRequest.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     IopFreeMiniCompletionPacket @ 0x140A82540 (IopFreeMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoRemoveIoCompletion(

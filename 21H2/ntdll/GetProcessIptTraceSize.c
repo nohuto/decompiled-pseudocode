@@ -1,14 +1,14 @@
 /*
- * XREFs of GetProcessIptTraceSize @ 0x1801180E8
+ * XREFs of GetProcessIptTraceSize @ 0x180118088
  * Callers:
- *     PsspCaptureIptTrace @ 0x180114D90 (PsspCaptureIptTrace.c)
+ *     PsspCaptureIptTrace @ 0x180114D50 (PsspCaptureIptTrace.c)
  * Callees:
  *     RtlReleasePrivilege @ 0x1800814A0 (RtlReleasePrivilege.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtDeviceIoControlFile @ 0x18009D720 (NtDeviceIoControlFile.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     ZwCreateFile @ 0x18009E0E0 (ZwCreateFile.c)
- *     AcquireDebugPrivilege @ 0x180117F58 (AcquireDebugPrivilege.c)
+ *     NtDeviceIoControlFile @ 0x18009D6E0 (NtDeviceIoControlFile.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     ZwCreateFile @ 0x18009E0A0 (ZwCreateFile.c)
+ *     AcquireDebugPrivilege @ 0x180117EF8 (AcquireDebugPrivilege.c)
  */
 
 NTSTATUS __fastcall GetProcessIptTraceSize(__int64 a1, _DWORD *a2)
@@ -17,12 +17,12 @@ NTSTATUS __fastcall GetProcessIptTraceSize(__int64 a1, _DWORD *a2)
   bool v5; // bl
   NTSTATUS v6; // edi
   HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-98h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-98h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
   _DWORD InputBuffer[4]; // [rsp+A8h] [rbp-58h] BYREF
   __int16 v11; // [rsp+B8h] [rbp-48h]
   __int64 v12; // [rsp+C0h] [rbp-40h]
-  struct _IO_STATUS_BLOCK v13; // [rsp+D8h] [rbp-28h] BYREF
+  _IO_STATUS_BLOCK v13; // [rsp+D8h] [rbp-28h] BYREF
   _BYTE OutputBuffer[8]; // [rsp+E8h] [rbp-18h] BYREF
   unsigned __int64 v15; // [rsp+F0h] [rbp-10h]
 
@@ -35,7 +35,7 @@ NTSTATUS __fastcall GetProcessIptTraceSize(__int64 a1, _DWORD *a2)
   result = NtCreateFile(&FileHandle, 0x120089u, &ObjectAttributes, &IoStatusBlock, 0LL, 0x80u, 1u, 1u, 0x4Cu, 0LL, 0);
   if ( result >= 0 )
   {
-    v5 = AcquireDebugPrivilege(&IoStatusBlock);
+    v5 = AcquireDebugPrivilege((PVOID *)&IoStatusBlock);
     InputBuffer[1] = 0;
     InputBuffer[0] = 1;
     InputBuffer[2] = 1;
@@ -44,7 +44,7 @@ NTSTATUS __fastcall GetProcessIptTraceSize(__int64 a1, _DWORD *a2)
     v6 = NtDeviceIoControlFile(FileHandle, 0LL, 0LL, 0LL, &v13, 0x220004u, InputBuffer, 0x30u, OutputBuffer, 0x18u);
     NtClose(FileHandle);
     if ( v5 )
-      RtlReleasePrivilege((HANDLE *)IoStatusBlock.Pointer);
+      RtlReleasePrivilege(IoStatusBlock.Pointer);
     if ( v6 >= 0 )
     {
       if ( v15 <= 0xFFFFFFFF )

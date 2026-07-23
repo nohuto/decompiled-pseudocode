@@ -1,41 +1,44 @@
 /*
- * XREFs of RtlMultiByteToUnicodeSize @ 0x1800883A0
+ * XREFs of RtlMultiByteToUnicodeSize @ 0x180088390
  * Callers:
- *     RtlxOemStringToUnicodeSize @ 0x180088370 (RtlxOemStringToUnicodeSize.c)
+ *     RtlxOemStringToUnicodeSize @ 0x180088360 (RtlxOemStringToUnicodeSize.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlMultiByteToUnicodeSize(_DWORD *a1, unsigned __int8 *a2, int a3)
+NTSTATUS __cdecl RtlMultiByteToUnicodeSize(
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  int v3; // r9d
+  ULONG v3; // r9d
   __int64 v5; // rax
 
   v3 = 0;
   if ( NlsMbCodePageTag )
   {
-    while ( a3 )
+    while ( BytesInMultiByteString )
     {
-      v5 = *a2;
-      --a3;
-      ++a2;
+      v5 = *(unsigned __int8 *)MultiByteString;
+      --BytesInMultiByteString;
+      ++MultiByteString;
       if ( NlsLeadByteInfoTable[v5] )
       {
-        if ( !a3 )
+        if ( !BytesInMultiByteString )
         {
           v3 += 2;
           break;
         }
-        --a3;
-        ++a2;
+        --BytesInMultiByteString;
+        ++MultiByteString;
       }
       v3 += 2;
     }
-    *a1 = v3;
+    *BytesInUnicodeString = v3;
   }
   else
   {
-    *a1 = 2 * a3;
+    *BytesInUnicodeString = 2 * BytesInMultiByteString;
   }
-  return 0LL;
+  return 0;
 }

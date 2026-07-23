@@ -1,31 +1,31 @@
 /*
- * XREFs of PiPnpRtlSetObjectProperty @ 0x140488870
+ * XREFs of PiPnpRtlSetObjectProperty @ 0x140510FE4
  * Callers:
- *     PiSwPropertySet @ 0x140487AA0 (PiSwPropertySet.c)
- *     PiCMSetObjectProperty @ 0x1404EAA14 (PiCMSetObjectProperty.c)
- *     PnpSetDevicePropertyData @ 0x14054D39C (PnpSetDevicePropertyData.c)
- *     PnpSetDeviceInterfacePropertyData @ 0x1405702EC (PnpSetDeviceInterfacePropertyData.c)
- *     PiDqIrpPropertySet @ 0x1406318E0 (PiDqIrpPropertySet.c)
- *     PiDevCfgSetObjectProperty @ 0x140640FCC (PiDevCfgSetObjectProperty.c)
+ *     PiCMSetObjectProperty @ 0x1404CCC18 (PiCMSetObjectProperty.c)
+ *     PiSwPropertySet @ 0x140510214 (PiSwPropertySet.c)
+ *     PnpSetDevicePropertyData @ 0x14054D73C (PnpSetDevicePropertyData.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x14057082C (PnpSetDeviceInterfacePropertyData.c)
+ *     PiDqIrpPropertySet @ 0x140631994 (PiDqIrpPropertySet.c)
+ *     PiDevCfgSetObjectProperty @ 0x1406410B0 (PiDevCfgSetObjectProperty.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     _CmIsRootEnumeratedDevice @ 0x1403F4C50 (_CmIsRootEnumeratedDevice.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140460524 (SeAuditingWithTokenForSubcategory.c)
- *     _PnpSetObjectProperty @ 0x140488D1C (_PnpSetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x14064C6E4 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceOperation @ 0x14064C720 (PiAuditDeviceOperation.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1403F3B14 (_CmIsRootEnumeratedDevice.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14045F3F4 (SeAuditingWithTokenForSubcategory.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140511490 (_PnpSetObjectProperty.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x14064C7C8 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceOperation @ 0x14064C804 (PiAuditDeviceOperation.c)
  */
 
 __int64 __fastcall PiPnpRtlSetObjectProperty(
-        int a1,
+        __int64 a1,
         const WCHAR *a2,
         int a3,
-        int a4,
+        __int64 a4,
         __int64 a5,
         __int64 a6,
         int a7,
@@ -146,7 +146,7 @@ LABEL_33:
       if ( SeAuditingWithTokenForSubcategory(138, 0LL) )
       {
         v30 = 4;
-        if ( (int)CmGetDeviceRegProp(a1, (_DWORD)a2, a4, 11, (__int64)&v34, (__int64)&v31, (__int64)&v30, 0) < 0
+        if ( (int)CmGetDeviceRegProp(a1, (__int64)a2, a4, 11, (__int64)&v34, (__int64)&v31, (__int64)&v30, 0) < 0
           || v30 != 4
           || v34 != 4 )
         {
@@ -163,8 +163,8 @@ LABEL_33:
       v30 = 4;
       if ( (int)PnpGetObjectProperty(
                   a1,
-                  (_DWORD)a2,
-                  1,
+                  (__int64)a2,
+                  1u,
                   a4,
                   0LL,
                   (__int64)&DEVPKEY_Device_InstallError,

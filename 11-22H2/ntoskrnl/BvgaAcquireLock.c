@@ -25,9 +25,9 @@ void BvgaAcquireLock()
       ;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         LODWORD(v2) = 4;

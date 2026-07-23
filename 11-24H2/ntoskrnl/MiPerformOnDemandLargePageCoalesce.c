@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPerformOnDemandLargePageCoalesce @ 0x1403D5278
+ * XREFs of MiPerformOnDemandLargePageCoalesce @ 0x1402640DC
  * Callers:
- *     MiGetLargePage @ 0x1402F35A0 (MiGetLargePage.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1403D4F80 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiGetLargePage @ 0x1402517B0 (MiGetLargePage.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x140263DE4 (MiGetLargePageDemoteAsNeeded.c)
  * Callees:
- *     MiCheckLargePagesExist @ 0x1403098F8 (MiCheckLargePagesExist.c)
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140309950 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     MiProcessLargeCoalesceCandidates @ 0x14030A3A4 (MiProcessLargeCoalesceCandidates.c)
- *     MiLargeCoalesceCandidatesExist @ 0x1403D5AD0 (MiLargeCoalesceCandidatesExist.c)
- *     MiAccumulateTimeBoundTime @ 0x1403D6238 (MiAccumulateTimeBoundTime.c)
+ *     MiLargeCoalesceCandidatesExist @ 0x140264934 (MiLargeCoalesceCandidatesExist.c)
+ *     MiAccumulateTimeBoundTime @ 0x140265384 (MiAccumulateTimeBoundTime.c)
+ *     MiCheckLargePagesExist @ 0x1403137D8 (MiCheckLargePagesExist.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140313830 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x140314284 (MiProcessLargeCoalesceCandidates.c)
  */
 
-__int64 __fastcall MiPerformOnDemandLargePageCoalesce(_QWORD *a1, unsigned int a2, unsigned int a3, int a4, _QWORD *a5)
+__int64 __fastcall MiPerformOnDemandLargePageCoalesce(__int64 a1, unsigned int a2, unsigned int a3, int a4, _QWORD *a5)
 {
   _QWORD *v5; // rdi
   unsigned int v6; // ebx
@@ -29,7 +29,7 @@ __int64 __fastcall MiPerformOnDemandLargePageCoalesce(_QWORD *a1, unsigned int a
   __int64 v20; // rcx
   int v21; // eax
   unsigned __int64 QpcTimeStamp; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD *v23; // [rsp+28h] [rbp-30h] BYREF
+  __int64 v23; // [rsp+28h] [rbp-30h] BYREF
   unsigned int v24; // [rsp+30h] [rbp-28h]
   unsigned int v25; // [rsp+34h] [rbp-24h]
   int v26; // [rsp+38h] [rbp-20h]
@@ -44,7 +44,7 @@ __int64 __fastcall MiPerformOnDemandLargePageCoalesce(_QWORD *a1, unsigned int a
   v5 = a5;
   v6 = 0;
   v8 = a2;
-  v28 = a1[2] + 57216LL * a3;
+  v28 = *(_QWORD *)(a1 + 16) + 57216LL * a3;
   v27 = 0;
   v23 = a1;
   v9 = *(_QWORD *)(v28 + 14976);
@@ -74,7 +74,7 @@ __int64 __fastcall MiPerformOnDemandLargePageCoalesce(_QWORD *a1, unsigned int a
           CurrentThread = KeGetCurrentThread();
           SpareLong = CurrentThread->WaitBlock[0].SpareLong;
         }
-        v17 = MiProcessLargeCoalesceCandidates(a1, v8, (unsigned int *)&v23);
+        v17 = MiProcessLargeCoalesceCandidates(a1, (unsigned int)v8, &v23);
         v10 = v31;
         v15 = v17;
         if ( v17 == -1073741267 )
@@ -103,7 +103,7 @@ __int64 __fastcall MiPerformOnDemandLargePageCoalesce(_QWORD *a1, unsigned int a
         CurrentThread = KeGetCurrentThread();
         SpareLong = CurrentThread->WaitBlock[0].SpareLong;
       }
-      v21 = MiProcessLargeCoalesceCandidates(a1, v14, (unsigned int *)&v23);
+      v21 = MiProcessLargeCoalesceCandidates(a1, v14, &v23);
       v15 = v21;
       if ( v21 == -1073741267 )
       {
@@ -115,7 +115,7 @@ __int64 __fastcall MiPerformOnDemandLargePageCoalesce(_QWORD *a1, unsigned int a
       }
       --v14;
     }
-    v18 = MiCheckLargePagesExist((__int64)&v23);
+    v18 = MiCheckLargePagesExist(&v23);
     v13 = v33;
     if ( v18 <= 1 )
       break;
@@ -127,7 +127,7 @@ LABEL_8:
   if ( v12 )
   {
     MiAccumulateTimeBoundTime(a5 + 5, 1LL);
-    _InterlockedIncrement((volatile signed __int32 *)&a1[6 * v8 + 2064]);
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 48 * (v8 + 344)));
   }
   if ( v15 == 258 )
   {
@@ -135,11 +135,11 @@ LABEL_8:
       v20 = 48 * v8 + 16516;
     else
       v20 = 48 * v8 + 16520;
-    _InterlockedIncrement((volatile signed __int32 *)((char *)a1 + v20));
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + v20));
   }
   else if ( v15 == 255 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)&a1[6 * v8 + 2065] + 1);
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 48 * v8 + 16524));
     return 1;
   }
   return v6;

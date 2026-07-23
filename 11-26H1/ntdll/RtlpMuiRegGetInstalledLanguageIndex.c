@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x180005A20
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x180051150
  * Callers:
- *     RtlpLoadPolicyLanguageSpec @ 0x18000CFC4 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegValidateConfigNode @ 0x1800E0750 (RtlpMuiRegValidateConfigNode.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1800E0938 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1800586F4 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x1800DDFF0 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1800DE1D8 (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1800061D0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x180051900 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int64 a3, _WORD *a4)
@@ -21,13 +21,11 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int
   __int64 v13; // rax
   const wchar_t *v14; // rcx
   size_t v15; // rax
-  unsigned __int16 v16[2]; // [rsp+20h] [rbp-18h] BYREF
-  int v17; // [rsp+24h] [rbp-14h]
-  __int64 v18; // [rsp+28h] [rbp-10h]
-  int v19; // [rsp+40h] [rbp+8h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-18h] BYREF
+  DWORD Lcid; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = (__int16)a3;
-  v19 = 0;
+  Lcid = 0;
   LOBYTE(a3) = 1;
   if ( !a1 )
     return 3221225485LL;
@@ -53,16 +51,16 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int
         v14 = (const wchar_t *)(v13 + 2 * v12);
         if ( v14 )
         {
-          v17 = 0;
-          v18 = v13 + 2 * v12;
+          *(_DWORD *)(&String.MaximumLength + 1) = 0;
+          String.Buffer = (wchar_t *)(v13 + 2 * v12);
           v15 = 2 * wcslen(v14);
           if ( v15 >= 0xFFFE )
             LOWORD(v15) = -4;
-          v16[0] = v15;
-          v16[1] = v15 + 2;
-          if ( RtlCultureNameToLCID(v16, &v19) )
+          String.Length = v15;
+          String.MaximumLength = v15 + 2;
+          if ( RtlCultureNameToLCID(&String, &Lcid) )
           {
-            LOWORD(v4) = v19;
+            LOWORD(v4) = Lcid;
             LOBYTE(a3) = 0;
             return RtlpMuiRegGetInstalledLanguageIndexByLangId(a1, (unsigned __int16)v4, a3, a4);
           }

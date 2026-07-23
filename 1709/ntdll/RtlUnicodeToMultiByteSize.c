@@ -20,7 +20,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   if ( NlsActiveCodePageIsUTF8 )
   {
     if ( BytesInUnicodeString )
-      RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, (unsigned int *)UnicodeString, BytesInUnicodeString);
+      RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, UnicodeString, BytesInUnicodeString);
     else
       *BytesInMultiByteString = 0;
   }

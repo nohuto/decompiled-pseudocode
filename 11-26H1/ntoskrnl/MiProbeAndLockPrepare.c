@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProbeAndLockPrepare @ 0x1402E5470
+ * XREFs of MiProbeAndLockPrepare @ 0x1402C74B0
  * Callers:
- *     MmStoreProbeAndLockPages @ 0x1402F0670 (MmStoreProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x14039F2E0 (MmProbeAndLockSelectedPages.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     MmLockPhysicalPagesByVa @ 0x1406EA82C (MmLockPhysicalPagesByVa.c)
+ *     MmStoreProbeAndLockPages @ 0x1402D26F0 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403A1040 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     MmLockPhysicalPagesByVa @ 0x1406EF4CC (MmLockPhysicalPagesByVa.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiInitializeProbePacketVm @ 0x1402E578C (MiInitializeProbePacketVm.c)
- *     MiVadPureReserve @ 0x1403173B0 (MiVadPureReserve.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiInitializeProbePacketVm @ 0x1402C77CC (MiInitializeProbePacketVm.c)
+ *     MiVadPureReserve @ 0x1403193E0 (MiVadPureReserve.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiProbeAndLockPrepare(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4, __int64 a5)
@@ -48,7 +48,7 @@ __int64 __fastcall MiProbeAndLockPrepare(__int64 a1, __int64 a2, unsigned __int6
   *(_QWORD *)(a1 + 16) = a3 + a4;
   if ( (*(_QWORD *)v5 & 1) != 0 && (!a4 || v10 > 0x7FFFFFFF0000LL || v10 <= a3) )
   {
-    ++LODWORD(stru_140E2EB88.LastXStateSaveDebugInfo);
+    ++LODWORD(stru_140E2ED08.LastXStateSaveDebugInfo);
     return 3221225477LL;
   }
   v11 = v10 - 1;

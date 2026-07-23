@@ -14,7 +14,7 @@
 __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
 {
   unsigned int HighPart; // r14d
-  ULONG updated; // ebx
+  unsigned int updated; // ebx
   __int64 v5; // rbx
   LARGE_INTEGER v6; // rcx
   LARGE_INTEGER v7; // rax
@@ -27,7 +27,7 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
   LARGE_INTEGER v15; // [rsp+48h] [rbp-B8h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v17; // [rsp+58h] [rbp-A8h] BYREF
-  char v18; // [rsp+60h] [rbp-A0h] BYREF
+  char Buffer; // [rsp+60h] [rbp-A0h] BYREF
   __int16 v19; // [rsp+61h] [rbp-9Fh]
   char v20; // [rsp+63h] [rbp-9Dh]
   int v21; // [rsp+64h] [rbp-9Ch]
@@ -54,7 +54,7 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
   v20 = 0;
   if ( (HighPart & 4) != 0 )
   {
-    return (ULONG)-1073741101;
+    return (unsigned int)-1073741101;
   }
   else if ( ((*(_DWORD *)(a1 + 4) >> 1) & 3) != ((HighPart >> 1) & 3)
          || *(_QWORD *)(a1 + 24) != a2[3].QuadPart
@@ -83,10 +83,10 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
     v22 = v8;
     v19 = 0;
     v20 = 0;
-    v18 = 0;
+    Buffer = 0;
     v21 = (HighPart >> 1) & 3;
     v23 = v7;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_ADAPTER_REC_STATUS, (__int64)&v18);
+    updated = ZwUpdateWnfStateData(&WNF_PO_POWER_ADAPTER_REC_STATUS, &Buffer, 0x18u, 0LL, 0LL, 0, 0);
     if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
     {
       v9 = "Power Adapter Online";

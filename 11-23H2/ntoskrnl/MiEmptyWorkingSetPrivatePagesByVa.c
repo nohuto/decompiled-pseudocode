@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x14061C0A4
+ * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x14061C5F4
  * Callers:
- *     MiFlushAllPages @ 0x140639C0C (MiFlushAllPages.c)
- *     MmProcessWorkingSetControl @ 0x140A43514 (MmProcessWorkingSetControl.c)
+ *     MiFlushAllPages @ 0x14063A15C (MiFlushAllPages.c)
+ *     MmProcessWorkingSetControl @ 0x140A437C4 (MmProcessWorkingSetControl.c)
  * Callees:
- *     MiVadSupportsPrivateCommit @ 0x140274B50 (MiVadSupportsPrivateCommit.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadMapsLargeImage @ 0x14027CF40 (MiVadMapsLargeImage.c)
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     MiEmptyWorkingSetInitiate @ 0x14036DBF4 (MiEmptyWorkingSetInitiate.c)
+ *     MiVadSupportsPrivateCommit @ 0x140274DE0 (MiVadSupportsPrivateCommit.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadMapsLargeImage @ 0x14027D1D0 (MiVadMapsLargeImage.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     MiEmptyWorkingSetInitiate @ 0x14036DD94 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, char a2)

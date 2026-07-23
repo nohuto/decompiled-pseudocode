@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpPowerActionStartScenarioTracing @ 0x140AA00D4
+ * XREFs of PfpPowerActionStartScenarioTracing @ 0x140A9FF44
  * Callers:
- *     PfPowerActionNotify @ 0x140A9FE74 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x140A9FCE4 (PfPowerActionNotify.c)
  * Callees:
- *     PfLogEvent @ 0x14028C088 (PfLogEvent.c)
+ *     PfLogEvent @ 0x14028C318 (PfLogEvent.c)
  *     PfTAccessTracingCleanup @ 0x140A874E0 (PfTAccessTracingCleanup.c)
  *     MmPerformMemoryListCommand @ 0x140A884BC (MmPerformMemoryListCommand.c)
  *     PfTAccessTracingStart @ 0x140A88964 (PfTAccessTracingStart.c)

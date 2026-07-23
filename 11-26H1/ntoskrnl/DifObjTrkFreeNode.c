@@ -1,12 +1,12 @@
 /*
- * XREFs of DifObjTrkFreeNode @ 0x14064AE90
+ * XREFs of DifObjTrkFreeNode @ 0x14064EA70
  * Callers:
  *     <none>
  * Callees:
- *     DifPushSegment @ 0x14064D11C (DifPushSegment.c)
+ *     DifPushSegment @ 0x140650CFC (DifPushSegment.c)
  */
 
 __int64 DifObjTrkFreeNode()
 {
-  return DifPushSegment(&stru_140E27B08.ReservedPreviousReadyTimeValue);
+  return DifPushSegment(&DifObjTrkSegContext);
 }

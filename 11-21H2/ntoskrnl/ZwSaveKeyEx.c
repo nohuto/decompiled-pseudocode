@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwSaveKeyEx(HANDLE KeyHandle, HANDLE FileHandle, ULONG Format
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, FileHandle);
+  return sub_140433F80(KeyHandle, FileHandle);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipRawSMBiosTableHandler @ 0x140335590
+ * XREFs of WmipRawSMBiosTableHandler @ 0x140335820
  * Callers:
  *     <none>
  * Callees:
- *     WmipGetSMBiosTableData @ 0x1407AB75C (WmipGetSMBiosTableData.c)
+ *     WmipGetSMBiosTableData @ 0x1407AB94C (WmipGetSMBiosTableData.c)
  */
 
 __int64 __fastcall WmipRawSMBiosTableHandler(_DWORD *a1)

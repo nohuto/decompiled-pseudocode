@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpFreeDrsPool @ 0x14058EE9C
+ * XREFs of HalpFreeDrsPool @ 0x14059161C
  * Callers:
- *     HalpErrorDeferredHandler @ 0x14058EE00 (HalpErrorDeferredHandler.c)
- *     HalpMemoryErrorDeferredRecovery @ 0x14058F17C (HalpMemoryErrorDeferredRecovery.c)
- *     HalpPmemErrorDeferredRecovery @ 0x14058F39C (HalpPmemErrorDeferredRecovery.c)
+ *     HalpErrorDeferredHandler @ 0x140591580 (HalpErrorDeferredHandler.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1405918FC (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x140591B1C (HalpPmemErrorDeferredRecovery.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpFreeDrsPool(_DWORD *a1)

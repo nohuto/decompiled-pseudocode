@@ -1,11 +1,11 @@
 /*
- * XREFs of PspBindProcessSessionToJob @ 0x140613568
+ * XREFs of PspBindProcessSessionToJob @ 0x1406F5DFC
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     PspEstablishJobHierarchy @ 0x1406F5948 (PspEstablishJobHierarchy.c)
  * Callees:
- *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
- *     PspConvertJobToMixed @ 0x140908CB4 (PspConvertJobToMixed.c)
+ *     MmGetSessionId @ 0x1402863C0 (MmGetSessionId.c)
+ *     PspConvertJobToMixed @ 0x140908E14 (PspConvertJobToMixed.c)
  */
 
 __int64 __fastcall PspBindProcessSessionToJob(__int64 a1, __int64 a2)

@@ -1,8 +1,8 @@
 /*
  * XREFs of KdpSysCheckLowMemory @ 0x1406F5B04
  * Callers:
- *     KdSystemDebugControl @ 0x14064E858 (KdSystemDebugControl.c)
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
+ *     KdSystemDebugControl @ 0x14064E93C (KdSystemDebugControl.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
  * Callees:
  *     KdpSearchPhysicalPageRange @ 0x1406F5A74 (KdpSearchPhysicalPageRange.c)
  */

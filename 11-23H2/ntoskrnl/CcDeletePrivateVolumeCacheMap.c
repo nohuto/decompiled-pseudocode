@@ -1,22 +1,22 @@
 /*
- * XREFs of CcDeletePrivateVolumeCacheMap @ 0x1403C2074
+ * XREFs of CcDeletePrivateVolumeCacheMap @ 0x1403C2254
  * Callers:
- *     CcCreatePrivateVolumeCacheMap @ 0x140341A04 (CcCreatePrivateVolumeCacheMap.c)
- *     CcReapPrivateVolumeCachemap @ 0x1403C1CB4 (CcReapPrivateVolumeCachemap.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x140341C94 (CcCreatePrivateVolumeCacheMap.c)
+ *     CcReapPrivateVolumeCachemap @ 0x1403C1E94 (CcReapPrivateVolumeCachemap.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementVolumeUseCountWithDelete @ 0x140299DE0 (CcDecrementVolumeUseCountWithDelete.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x140369D44 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcDeleteNumaNode @ 0x1403C23B4 (CcDeleteNumaNode.c)
- *     CcForEachNumaNode @ 0x1403C3BBC (CcForEachNumaNode.c)
- *     ZwWaitForSingleObject @ 0x14041ADE0 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementVolumeUseCountWithDelete @ 0x14029A070 (CcDecrementVolumeUseCountWithDelete.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x140369EE4 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcDeleteNumaNode @ 0x1403C2594 (CcDeleteNumaNode.c)
+ *     CcForEachNumaNode @ 0x1403C3D9C (CcForEachNumaNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwWaitForSingleObject @ 0x14041B170 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -139,10 +139,13 @@ LABEL_23:
     KeSetEvent((PRKEVENT)(v3 + 56), 0, 0);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,20 +1,20 @@
 /*
- * XREFs of PipResetMatchingFilteredDevices @ 0x140CC3170
+ * XREFs of PipResetMatchingFilteredDevices @ 0x140CC9240
  * Callers:
- *     PipResetDevices @ 0x140CC3094 (PipResetDevices.c)
+ *     PipResetDevices @ 0x140CC9164 (PipResetDevices.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     _PnpCtxRegEnumValue @ 0x14091ACF0 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x14091B2F8 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegCloseKey @ 0x140A9BD98 (_PnpCtxRegCloseKey.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x140AA08FC (_CmGetMatchingFilteredDeviceList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     PipResetDevice @ 0x140CC2E88 (PipResetDevice.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x140975750 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140975D5C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegCloseKey @ 0x140A9E908 (_PnpCtxRegCloseKey.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140AA2310 (_CmGetMatchingFilteredDeviceList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     PipResetDevice @ 0x140CC8F58 (PipResetDevice.c)
  */
 
 __int64 __fastcall PipResetMatchingFilteredDevices(__int64 a1, __int64 a2, int a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of Feature_ID51912085__private_IsEnabledPreCheck @ 0x140494E80
+ * XREFs of Feature_ID51912085__private_IsEnabledPreCheck @ 0x14048E9D0
  * Callers:
- *     PspThreadOpen @ 0x1409854A0 (PspThreadOpen.c)
- *     SeQuerySigningPolicy @ 0x140A283BC (SeQuerySigningPolicy.c)
- *     PspProcessOpen @ 0x140A7FB60 (PspProcessOpen.c)
- *     PspValidateCreateProcessProtection @ 0x140B1B974 (PspValidateCreateProcessProtection.c)
- *     SepSetSystemPaths @ 0x140B5D234 (SepSetSystemPaths.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     PspThreadOpen @ 0x1409474A0 (PspThreadOpen.c)
+ *     SeQuerySigningPolicy @ 0x140A3B45C (SeQuerySigningPolicy.c)
+ *     PspProcessOpen @ 0x140A859D0 (PspProcessOpen.c)
+ *     PspValidateCreateProcessProtection @ 0x140B1DB84 (PspValidateCreateProcessProtection.c)
+ *     SepSetSystemPaths @ 0x140B603B4 (SepSetSystemPaths.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_ID51912085__private_IsEnabledPreCheck()

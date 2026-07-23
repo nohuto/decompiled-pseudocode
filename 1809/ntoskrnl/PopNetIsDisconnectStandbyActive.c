@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetIsDisconnectStandbyActive @ 0x140876DDC
+ * XREFs of PopNetIsDisconnectStandbyActive @ 0x14087803C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
- *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
+ *     PopPowerInformationInternal @ 0x14058EF30 (PopPowerInformationInternal.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
  *     <none>
  */

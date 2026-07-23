@@ -1,26 +1,26 @@
 /*
- * XREFs of MiLocateSharedPageViews @ 0x1406364E0
+ * XREFs of MiLocateSharedPageViews @ 0x140636A30
  * Callers:
- *     MmQueryBadAddresses @ 0x140A2FDD8 (MmQueryBadAddresses.c)
+ *     MmQueryBadAddresses @ 0x140A30088 (MmQueryBadAddresses.c)
  * Callees:
  *     MiIsPageOnBadList @ 0x1402186C0 (MiIsPageOnBadList.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiTrimSection @ 0x1402EF974 (MiTrimSection.c)
- *     MiDecrementModifiedWriteCount @ 0x1402F4824 (MiDecrementModifiedWriteCount.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     MiPreventControlAreaDeletion @ 0x1403A65A8 (MiPreventControlAreaDeletion.c)
- *     MiDecrementSubsection @ 0x1403A668C (MiDecrementSubsection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReferencePfBackedSection @ 0x140669AF0 (MiReferencePfBackedSection.c)
- *     MiDeleteTrimViewInfoList @ 0x14085FB74 (MiDeleteTrimViewInfoList.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402E41BC (MiReleaseControlAreaWaiters.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiTrimSection @ 0x1402EFC04 (MiTrimSection.c)
+ *     MiDecrementModifiedWriteCount @ 0x1402F4AB4 (MiDecrementModifiedWriteCount.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiPreventControlAreaDeletion @ 0x1403A6788 (MiPreventControlAreaDeletion.c)
+ *     MiDecrementSubsection @ 0x1403A686C (MiDecrementSubsection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePfBackedSection @ 0x14066A040 (MiReferencePfBackedSection.c)
+ *     MiDeleteTrimViewInfoList @ 0x14085FDB4 (MiDeleteTrimViewInfoList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -139,10 +139,10 @@ __int64 __fastcall MiLocateSharedPageViews(unsigned __int64 a1, __int64 a2)
     || (*(_QWORD *)(v5 + 24) & 0x4000000000000000LL) != 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_32;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_32;
     if ( CurrentIrql > 0xFu )
       goto LABEL_32;
@@ -164,10 +164,10 @@ __int64 __fastcall MiLocateSharedPageViews(unsigned __int64 a1, __int64 a2)
   if ( (v16 & 0x10000000000LL) == 0 && v17 >= 0 && v17 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_32;
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_32;
     if ( v18 > 0xFu )
       goto LABEL_32;
@@ -203,10 +203,10 @@ LABEL_113:
     v25 = 2147352576LL;
 LABEL_37:
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v26 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v26 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v26 >= 2u )
       {
         v27 = KeGetCurrentPrcb();
         v28 = v27->SchedulerAssist;
@@ -255,10 +255,10 @@ LABEL_37:
     if ( !v35 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v36 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v36 >= 2u )
         {
           v37 = KeGetCurrentPrcb();
           v38 = v37->SchedulerAssist;
@@ -286,10 +286,10 @@ LABEL_37:
       v40 &= ~qword_140C65B40;
     v41 = v40 >> 16;
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v42 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v42 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v42 >= 2u )
       {
         v43 = KeGetCurrentPrcb();
         v44 = v43->SchedulerAssist;
@@ -311,10 +311,10 @@ LABEL_37:
   else
   {
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v46 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v46 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v46 >= 2u )
       {
         v47 = KeGetCurrentPrcb();
         v48 = v47->SchedulerAssist;

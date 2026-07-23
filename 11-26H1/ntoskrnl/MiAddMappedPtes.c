@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAddMappedPtes @ 0x14033FE10
+ * XREFs of MiAddMappedPtes @ 0x140341E90
  * Callers:
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiMapSystemImage @ 0x140B20834 (MiMapSystemImage.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiMapSystemImage @ 0x140B22C34 (MiMapSystemImage.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiGetSharedProtos @ 0x140372BD8 (MiGetSharedProtos.c)
- *     MiAddMappedPtesPadding @ 0x1406F5824 (MiAddMappedPtesPadding.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiGetSharedProtos @ 0x140374988 (MiGetSharedProtos.c)
+ *     MiAddMappedPtesPadding @ 0x1406FA494 (MiAddMappedPtesPadding.c)
  */
 
 __int64 __fastcall MiAddMappedPtes(__int64 a1, __int64 *a2, __int64 a3, _DWORD *a4, _QWORD *a5, int a6)
@@ -147,23 +147,23 @@ LABEL_10:
       goto LABEL_21;
     }
 LABEL_11:
-    v11 = qword_140E37BA0;
+    v11 = qword_140E37D20;
     v21 = v20;
-    if ( v18 < qword_140E37BA0 || v18 >= qword_140E37BA0 + qword_140E37BA8 )
+    if ( v18 < qword_140E37D20 || v18 >= qword_140E37D20 + qword_140E37D28 )
     {
-      v11 = qword_140E37B90;
+      v11 = qword_140E37D10;
       v21 = v20 | 0x800000000000000LL;
     }
     v17 = (v18 - v11) << 9;
     v22 = (v21 ^ v17) & 0xFFC0000000000FFFuLL;
-    v13 = qword_140E2D740;
+    v13 = qword_140E2D8C0;
     v23 = v17 ^ v22;
     v24 = v17 ^ v22 | 0x400;
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
       v11 = v23 | 0x410;
-      v17 = v23 | qword_140E2D740 | 0x400;
-      if ( (qword_140E2D740 & v24) != 0 )
+      v17 = v23 | qword_140E2D8C0 | 0x400;
+      if ( (qword_140E2D8C0 & v24) != 0 )
         v17 = v23 | 0x410;
       v24 = v17;
     }

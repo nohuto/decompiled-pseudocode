@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInterlockedSetClearRun @ 0x1400859C4
+ * XREFs of RtlInterlockedSetClearRun @ 0x1400872B4
  * Callers:
- *     EtwpFindUserBufferSpace @ 0x140491940 (EtwpFindUserBufferSpace.c)
+ *     EtwpFindUserBufferSpace @ 0x1404923D0 (EtwpFindUserBufferSpace.c)
  * Callees:
  *     <none>
  */

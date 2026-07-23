@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpAcpiPreSleep @ 0x140A968A0
+ * XREFs of HalpAcpiPreSleep @ 0x140A96710
  * Callers:
- *     HaliAcpiSleep @ 0x140527F40 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140528490 (HaliAcpiSleep.c)
  * Callees:
- *     HalpAcpiPmRegisterWrite @ 0x140362C90 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterAvailable @ 0x140364940 (HalpAcpiPmRegisterAvailable.c)
- *     HalpAcpiPmRegisterRead @ 0x1403A1D30 (HalpAcpiPmRegisterRead.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpTimerGetSavedPerformanceCounter @ 0x1404FE65C (HalpTimerGetSavedPerformanceCounter.c)
- *     HalpTimerSavePerformanceCounter @ 0x1404FE920 (HalpTimerSavePerformanceCounter.c)
- *     HalpTimerSwitchStallSource @ 0x1404FEB9C (HalpTimerSwitchStallSource.c)
- *     HalpSetClockBeforeSleep @ 0x14050AFE8 (HalpSetClockBeforeSleep.c)
- *     HalpPreserveNvsArea @ 0x14051C5F8 (HalpPreserveNvsArea.c)
- *     KeSynchronizeTimeToQpc @ 0x14056AF80 (KeSynchronizeTimeToQpc.c)
- *     HalpSaveDmaControllerState @ 0x140A95360 (HalpSaveDmaControllerState.c)
+ *     HalpAcpiPmRegisterWrite @ 0x140362E30 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x140364AE0 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x1403A1F10 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetSavedPerformanceCounter @ 0x1404FEBAC (HalpTimerGetSavedPerformanceCounter.c)
+ *     HalpTimerSavePerformanceCounter @ 0x1404FEE70 (HalpTimerSavePerformanceCounter.c)
+ *     HalpTimerSwitchStallSource @ 0x1404FF0EC (HalpTimerSwitchStallSource.c)
+ *     HalpSetClockBeforeSleep @ 0x14050B538 (HalpSetClockBeforeSleep.c)
+ *     HalpPreserveNvsArea @ 0x14051CB48 (HalpPreserveNvsArea.c)
+ *     KeSynchronizeTimeToQpc @ 0x14056B640 (KeSynchronizeTimeToQpc.c)
+ *     HalpSaveDmaControllerState @ 0x140A951D0 (HalpSaveDmaControllerState.c)
  */
 
 void *__fastcall HalpAcpiPreSleep(int a1)

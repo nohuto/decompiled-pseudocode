@@ -1,20 +1,20 @@
 /*
- * XREFs of IopSymlinkRememberJunction @ 0x140540AD0
+ * XREFs of IopSymlinkRememberJunction @ 0x140541010
  * Callers:
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     IopGraftName @ 0x140541028 (IopGraftName.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     IopGraftName @ 0x140541568 (IopGraftName.c)
  * Callees:
- *     IopSymlinkGetECP @ 0x140079FA0 (IopSymlinkGetECP.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     IopSymlinkGetMostRecentlyUsedName @ 0x14012ED68 (IopSymlinkGetMostRecentlyUsedName.c)
+ *     IopSymlinkGetECP @ 0x14007A020 (IopSymlinkGetECP.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x14012F2D8 (IopSymlinkGetMostRecentlyUsedName.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopSymlinkUpdateECP @ 0x140540BD0 (IopSymlinkUpdateECP.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x140540D0C (IopSymlinkFreeRelatedMountPointChain.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x140540EE0 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x14054168C (IopSymlinkGetRelatedMountPoint.c)
- *     IopGetRelatedFileName @ 0x14062149C (IopGetRelatedFileName.c)
+ *     IopSymlinkUpdateECP @ 0x140541110 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x14054124C (IopSymlinkFreeRelatedMountPointChain.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x140541420 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x140541BCC (IopSymlinkGetRelatedMountPoint.c)
+ *     IopGetRelatedFileName @ 0x140621550 (IopGetRelatedFileName.c)
  */
 
 __int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, __int64 a3, UNICODE_STRING *a4)

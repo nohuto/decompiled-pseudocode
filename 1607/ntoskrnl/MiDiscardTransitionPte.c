@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDiscardTransitionPte @ 0x1401238C0
+ * XREFs of MiDiscardTransitionPte @ 0x140123E30
  * Callers:
- *     MiZeroCfgSystemWideBitmapWorker @ 0x14001DF00 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiReservePageFileSpaceForPage @ 0x14001E990 (MiReservePageFileSpaceForPage.c)
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiMakeOutswappedPageResident @ 0x1401DFDE0 (MiMakeOutswappedPageResident.c)
- *     MiReleaseCommitForResetPageCallback @ 0x1401E0860 (MiReleaseCommitForResetPageCallback.c)
- *     MiMakeImagePageOk @ 0x1401F6F38 (MiMakeImagePageOk.c)
- *     MiConvertStandbyToProto @ 0x1401F90BC (MiConvertStandbyToProto.c)
- *     MiResolveProtoCombine @ 0x1401FA48C (MiResolveProtoCombine.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x14001DA80 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiReservePageFileSpaceForPage @ 0x14001E510 (MiReservePageFileSpaceForPage.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiMakeOutswappedPageResident @ 0x1401DFC0C (MiMakeOutswappedPageResident.c)
+ *     MiReleaseCommitForResetPageCallback @ 0x1401E068C (MiReleaseCommitForResetPageCallback.c)
+ *     MiMakeImagePageOk @ 0x1401F6D64 (MiMakeImagePageOk.c)
+ *     MiConvertStandbyToProto @ 0x1401F8EE8 (MiConvertStandbyToProto.c)
+ *     MiResolveProtoCombine @ 0x1401FA2B8 (MiResolveProtoCombine.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  * Callees:
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiSetPfnBlink @ 0x140107ACC (MiSetPfnBlink.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiSetPfnBlink @ 0x14010584C (MiSetPfnBlink.c)
  */
 
 PSLIST_ENTRY __fastcall MiDiscardTransitionPte(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -62,10 +62,13 @@ __int64 __fastcall WmipBuildTraceDeviceList(int a1, _QWORD *a2, unsigned int *a3
         v11 = (_UNKNOWN **)*v11;
       }
       KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v8 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -98,10 +101,10 @@ __int64 __fastcall WmipBuildTraceDeviceList(int a1, _QWORD *a2, unsigned int *a3
     v15 = -1073741632;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;

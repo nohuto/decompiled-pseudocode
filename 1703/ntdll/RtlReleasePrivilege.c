@@ -9,23 +9,23 @@
  *     ZwAdjustPrivilegesToken @ 0x1800A5B20 (ZwAdjustPrivilegesToken.c)
  */
 
-__int64 __fastcall RtlReleasePrivilege(_QWORD *a1)
+void __cdecl RtlReleasePrivilege(PVOID StatePointer)
 {
-  __int64 v2; // rcx
-  unsigned __int64 v3; // r8
+  void *v2; // rcx
+  char *v3; // r8
 
-  if ( (a1[4] & 3) != 1 )
-    ZwAdjustPrivilegesToken(*a1, 0LL, a1[2], 0LL, 0LL, 0LL);
-  if ( (a1[4] & 1) != 0 )
+  if ( (*((_DWORD *)StatePointer + 8) & 3) != 1 )
+    ZwAdjustPrivilegesToken(*(HANDLE *)StatePointer, 0, *((PTOKEN_PRIVILEGES *)StatePointer + 2), 0, 0LL, 0LL);
+  if ( (*((_BYTE *)StatePointer + 32) & 1) != 0 )
   {
-    ZwSetInformationThread(-2LL, 5LL, a1 + 1);
-    v2 = a1[1];
+    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, (char *)StatePointer + 8, 8u);
+    v2 = (void *)*((_QWORD *)StatePointer + 1);
     if ( v2 )
       ZwClose(v2);
   }
-  v3 = a1[2];
-  if ( (_QWORD *)v3 != (_QWORD *)((char *)a1 + 36) )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
-  ZwClose(*a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)a1);
+  v3 = (char *)*((_QWORD *)StatePointer + 2);
+  if ( v3 != (char *)StatePointer + 36 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+  ZwClose(*(HANDLE *)StatePointer);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, StatePointer);
 }

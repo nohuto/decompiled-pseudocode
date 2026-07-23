@@ -1,20 +1,20 @@
 /*
- * XREFs of MiBuildMappedCluster @ 0x14001F5C0
+ * XREFs of MiBuildMappedCluster @ 0x14001F140
  * Callers:
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiWriteCompletePfn @ 0x14004E5A0 (MiWriteCompletePfn.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiReleaseWriteInProgressCharges @ 0x14008EF9C (MiReleaseWriteInProgressCharges.c)
- *     MiReferencePageForModifiedWrite @ 0x140101FB8 (MiReferencePageForModifiedWrite.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiWriteCompletePfn @ 0x14004E120 (MiWriteCompletePfn.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiReleaseWriteInProgressCharges @ 0x14008E6FC (MiReleaseWriteInProgressCharges.c)
+ *     MiReferencePageForModifiedWrite @ 0x1400FFD38 (MiReferencePageForModifiedWrite.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

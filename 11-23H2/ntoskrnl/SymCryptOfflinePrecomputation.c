@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptOfflinePrecomputation @ 0x1403FEED0
+ * XREFs of SymCryptOfflinePrecomputation @ 0x1403FF0B0
  * Callers:
- *     SymCryptEcurveAllocate @ 0x1403F80AC (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveAllocate @ 0x1403F828C (SymCryptEcurveAllocate.c)
  * Callees:
- *     SymCryptPrecomputation @ 0x1403FEF40 (SymCryptPrecomputation.c)
- *     SymCryptEcpointCreate @ 0x1403FF020 (SymCryptEcpointCreate.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x1403FF994 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptPrecomputation @ 0x1403FF120 (SymCryptPrecomputation.c)
+ *     SymCryptEcpointCreate @ 0x1403FF200 (SymCryptEcpointCreate.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403FFB74 (SymCryptSizeofEcpointFromCurve.c)
  */
 
 __int64 __fastcall SymCryptOfflinePrecomputation(__int64 a1, __int64 a2, __int64 a3)

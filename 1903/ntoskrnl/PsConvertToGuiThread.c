@@ -20,10 +20,10 @@ __int64 PsConvertToGuiThread()
   __int64 v4; // rdx
   __int64 v5; // rcx
   char v6; // al
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 result; // rax
   int v9; // esi
-  union _RTL_RUN_ONCE *v10; // rax
+  _RTL_RUN_ONCE *v10; // rax
   int v11; // edi
   _KPROCESS *v12; // [rsp+20h] [rbp-20h] BYREF
   int v13; // [rsp+28h] [rbp-18h]

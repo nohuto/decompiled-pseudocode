@@ -1,7 +1,7 @@
 /*
- * XREFs of AdtpLookupKnownPrivilegeNameQuickly @ 0x1406711E4
+ * XREFs of AdtpLookupKnownPrivilegeNameQuickly @ 0x140671734
  * Callers:
- *     AdtpBuildPrivilegeAuditString @ 0x140A5A9E4 (AdtpBuildPrivilegeAuditString.c)
+ *     AdtpBuildPrivilegeAuditString @ 0x140A5AC94 (AdtpBuildPrivilegeAuditString.c)
  * Callees:
  *     <none>
  */

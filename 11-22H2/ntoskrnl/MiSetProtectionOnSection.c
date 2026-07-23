@@ -428,7 +428,7 @@ LABEL_9:
       CurrentIrql = KeGetCurrentIrql();
       v124 = CurrentIrql;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
       {
         v101 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)CurrentIrql == 2 )
@@ -456,7 +456,7 @@ LABEL_9:
 LABEL_14:
   v28 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v28 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu )
   {
     v104 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v28 == 2 )

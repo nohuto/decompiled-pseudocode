@@ -3,9 +3,9 @@
  * Callers:
  *     RtlQueryVolumeDiskSpeedPolicy @ 0x18005F91C (RtlQueryVolumeDiskSpeedPolicy.c)
  *     SaferpIsDllAllowed @ 0x180073B64 (SaferpIsDllAllowed.c)
- *     GetProcessIptTrace @ 0x18012CBD0 (GetProcessIptTrace.c)
- *     GetProcessIptTraceSize @ 0x18012CD2C (GetProcessIptTraceSize.c)
- *     RtlpQueryDiskWriteConstraintPolicyByHandle @ 0x18012D124 (RtlpQueryDiskWriteConstraintPolicyByHandle.c)
+ *     GetProcessIptTrace @ 0x18012CBFC (GetProcessIptTrace.c)
+ *     GetProcessIptTraceSize @ 0x18012CD58 (GetProcessIptTraceSize.c)
+ *     RtlpQueryDiskWriteConstraintPolicyByHandle @ 0x18012D150 (RtlpQueryDiskWriteConstraintPolicyByHandle.c)
  * Callees:
  *     <none>
  */

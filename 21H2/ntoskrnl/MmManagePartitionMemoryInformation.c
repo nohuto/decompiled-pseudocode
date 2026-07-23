@@ -1,14 +1,14 @@
 /*
- * XREFs of MmManagePartitionMemoryInformation @ 0x1406922BC
+ * XREFs of MmManagePartitionMemoryInformation @ 0x14067CEFC
  * Callers:
- *     NtManagePartition @ 0x140691E80 (NtManagePartition.c)
- *     VfUtilGetAvailableSystemPages @ 0x1409C66E0 (VfUtilGetAvailableSystemPages.c)
- *     VfNotifyDifPlugins @ 0x1409C89A8 (VfNotifyDifPlugins.c)
+ *     NtManagePartition @ 0x14067CAC0 (NtManagePartition.c)
+ *     VfUtilGetAvailableSystemPages @ 0x1409C76E0 (VfUtilGetAvailableSystemPages.c)
+ *     VfNotifyDifPlugins @ 0x1409C99A8 (VfNotifyDifPlugins.c)
  * Callees:
- *     MiQueryMemoryListInformation @ 0x1402AC41C (MiQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiGetChannelInformation @ 0x14069256C (MiGetChannelInformation.c)
+ *     MiQueryMemoryListInformation @ 0x1402749C8 (MiQueryMemoryListInformation.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiGetChannelInformation @ 0x14067D1AC (MiGetChannelInformation.c)
  */
 
 __int64 __fastcall MmManagePartitionMemoryInformation(ULONG_PTR **a1, __int64 a2)
@@ -64,7 +64,7 @@ __int64 __fastcall MmManagePartitionMemoryInformation(ULONG_PTR **a1, __int64 a2
       *(_QWORD *)(a2 + 32) = v2[949];
       *(_QWORD *)(a2 + 40) = v2[776];
       if ( v2 == &MiSystemPartition )
-        v5 = qword_140C4E650;
+        v5 = qword_140C4E690;
       *(_QWORD *)(a2 + 224) = v5;
       MiQueryMemoryListInformation(v2, v30);
       v6 = *(_OWORD *)&v30[7];

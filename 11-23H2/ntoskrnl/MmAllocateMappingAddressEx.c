@@ -1,19 +1,19 @@
 /*
- * XREFs of MmAllocateMappingAddressEx @ 0x14086C480
+ * XREFs of MmAllocateMappingAddressEx @ 0x14086C6C0
  * Callers:
- *     MmAllocateMappingAddress @ 0x14086C460 (MmAllocateMappingAddress.c)
- *     PnprInitializeMappingReserve @ 0x140966274 (PnprInitializeMappingReserve.c)
- *     EtwpSavePersistedLogger @ 0x1409EDA44 (EtwpSavePersistedLogger.c)
+ *     MmAllocateMappingAddress @ 0x14086C6A0 (MmAllocateMappingAddress.c)
+ *     PnprInitializeMappingReserve @ 0x140966474 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x1409EDCD4 (EtwpSavePersistedLogger.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiInsertMappingNode @ 0x1403C2774 (MiInsertMappingNode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiInsertPteTracker @ 0x140661384 (MiInsertPteTracker.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiInsertMappingNode @ 0x1403C2954 (MiInsertMappingNode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiInsertPteTracker @ 0x1406618D4 (MiInsertPteTracker.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

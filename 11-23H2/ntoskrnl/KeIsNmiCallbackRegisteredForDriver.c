@@ -1,9 +1,9 @@
 /*
- * XREFs of KeIsNmiCallbackRegisteredForDriver @ 0x14056C500
+ * XREFs of KeIsNmiCallbackRegisteredForDriver @ 0x14056CBC0
  * Callers:
- *     MmIsVerifierApplicableToImage @ 0x14061C04C (MmIsVerifierApplicableToImage.c)
+ *     MmIsVerifierApplicableToImage @ 0x14061C59C (MmIsVerifierApplicableToImage.c)
  * Callees:
- *     KiEnumerateNmiSxCallback @ 0x1403D5D84 (KiEnumerateNmiSxCallback.c)
+ *     KiEnumerateNmiSxCallback @ 0x1403D5F64 (KiEnumerateNmiSxCallback.c)
  */
 
 __int64 __fastcall KeIsNmiCallbackRegisteredForDriver(unsigned __int64 a1, unsigned __int64 a2)

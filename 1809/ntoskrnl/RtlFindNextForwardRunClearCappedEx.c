@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlFindNextForwardRunClearCappedEx @ 0x14015B120
+ * XREFs of RtlFindNextForwardRunClearCappedEx @ 0x14015B220
  * Callers:
- *     MiMirrorPerformBrownWrites @ 0x140152394 (MiMirrorPerformBrownWrites.c)
- *     MiMirrorVerify @ 0x140152A0C (MiMirrorVerify.c)
- *     MiMirrorPerformBlackWrites @ 0x140152A54 (MiMirrorPerformBlackWrites.c)
- *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
- *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
- *     MiCheckPoolForContiguousPages @ 0x140164414 (MiCheckPoolForContiguousPages.c)
- *     IopAddPageToPageMap @ 0x140280E68 (IopAddPageToPageMap.c)
- *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
- *     RtlFindNextForwardRunClearEx @ 0x1402EEA10 (RtlFindNextForwardRunClearEx.c)
+ *     MiMirrorPerformBrownWrites @ 0x140152494 (MiMirrorPerformBrownWrites.c)
+ *     MiMirrorVerify @ 0x140152B0C (MiMirrorVerify.c)
+ *     MiMirrorPerformBlackWrites @ 0x140152B54 (MiMirrorPerformBlackWrites.c)
+ *     MiScanNonPagedPoolVa @ 0x1401636E0 (MiScanNonPagedPoolVa.c)
+ *     MiScanLeafNonPagedPool @ 0x1401638F0 (MiScanLeafNonPagedPool.c)
+ *     MiCheckPoolForContiguousPages @ 0x140164514 (MiCheckPoolForContiguousPages.c)
+ *     IopAddPageToPageMap @ 0x140281058 (IopAddPageToPageMap.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0308 (MiActOnPartitionNodePages.c)
+ *     RtlFindNextForwardRunClearEx @ 0x1402EEC00 (RtlFindNextForwardRunClearEx.c)
  * Callees:
  *     <none>
  */
@@ -38,7 +38,7 @@ unsigned __int64 __fastcall RtlFindNextForwardRunClearCappedEx(
     v7 = *(const signed __int64 **)(a1 + 8);
     v8 = (_DWORD *)v7 + ((v4 - 1) >> 5);
     v9 = (_DWORD *)v7 + (a2 >> 5);
-    if ( v9 != v8 && (*v9 | dword_140360C80[a2 & 0x1F]) == -1 )
+    if ( v9 != v8 && (*v9 | dword_140361C10[a2 & 0x1F]) == -1 )
     {
       ++v9;
       for ( i = (a2 & 0xFFFFFFFFFFFFFFE0uLL) + 32; v9 < v8; i += 32LL )
@@ -57,7 +57,7 @@ unsigned __int64 __fastcall RtlFindNextForwardRunClearCappedEx(
     if ( v9 != v8 )
     {
       v11 = i & 0x1F;
-      if ( (~dword_140360C80[v11] & *v9) == 0 )
+      if ( (~dword_140361C10[v11] & *v9) == 0 )
       {
         v10 = 32 - v11;
         if ( v11 == 33 )

@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpInterruptFindLinesForGsiRange @ 0x1403B9C8C
+ * XREFs of HalpInterruptFindLinesForGsiRange @ 0x14037265C
  * Callers:
- *     HalEnableInterrupt @ 0x1403B7D10 (HalEnableInterrupt.c)
- *     HalDisableInterrupt @ 0x1403B8EA0 (HalDisableInterrupt.c)
- *     HalpInterruptSetDestination @ 0x1403B9230 (HalpInterruptSetDestination.c)
- *     HalpInterruptSetRemappedDestinationHv @ 0x1403B9368 (HalpInterruptSetRemappedDestinationHv.c)
- *     HalpInterruptFindControllerAndLineState @ 0x1403B9540 (HalpInterruptFindControllerAndLineState.c)
- *     HalpInterruptGsiToLine @ 0x1403B9678 (HalpInterruptGsiToLine.c)
- *     HalpInterruptApplyOverrides @ 0x1403B96C4 (HalpInterruptApplyOverrides.c)
- *     HalpMaskInterrupt @ 0x1403B99F0 (HalpMaskInterrupt.c)
- *     HalpUnmaskInterrupt @ 0x1403B9B20 (HalpUnmaskInterrupt.c)
- *     ExtEnvSetVpptTarget @ 0x1403BB428 (ExtEnvSetVpptTarget.c)
- *     HalpInterruptSetLineState @ 0x1403BBB90 (HalpInterruptSetLineState.c)
- *     HalpInterruptGetApicVersion @ 0x1404CC760 (HalpInterruptGetApicVersion.c)
- *     HalpInterruptRequestInterrupt @ 0x1405427A0 (HalpInterruptRequestInterrupt.c)
- *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x140543FC8 (HalpInterruptPerformDirectedEndOfInterrupt.c)
- *     HalpInterruptServiceActiveBoth @ 0x14054403C (HalpInterruptServiceActiveBoth.c)
- *     HalpInterruptRegisterLine @ 0x140562F80 (HalpInterruptRegisterLine.c)
+ *     HalEnableInterrupt @ 0x1402B3DD0 (HalEnableInterrupt.c)
+ *     HalpInterruptSetLineState @ 0x1402B4E20 (HalpInterruptSetLineState.c)
+ *     HalpMaskInterrupt @ 0x1403723C0 (HalpMaskInterrupt.c)
+ *     HalpUnmaskInterrupt @ 0x1403724F0 (HalpUnmaskInterrupt.c)
+ *     HalpInterruptApplyOverrides @ 0x1403732F0 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x1403733E0 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x1403735D0 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpInterruptSetDestination @ 0x140373710 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x140373848 (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalDisableInterrupt @ 0x140373FF0 (HalDisableInterrupt.c)
+ *     ExtEnvSetVpptTarget @ 0x140374B64 (ExtEnvSetVpptTarget.c)
+ *     HalpInterruptGetApicVersion @ 0x1404C5BD0 (HalpInterruptGetApicVersion.c)
+ *     HalpInterruptRequestInterrupt @ 0x1405400F0 (HalpInterruptRequestInterrupt.c)
+ *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x140541918 (HalpInterruptPerformDirectedEndOfInterrupt.c)
+ *     HalpInterruptServiceActiveBoth @ 0x14054198C (HalpInterruptServiceActiveBoth.c)
+ *     HalpInterruptRegisterLine @ 0x140560BB0 (HalpInterruptRegisterLine.c)
  * Callees:
  *     <none>
  */

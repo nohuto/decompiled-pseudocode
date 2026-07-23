@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpApplyAdminSdOnHiveFiles @ 0x1401B2E58
+ * XREFs of CmpApplyAdminSdOnHiveFiles @ 0x1401B2F98
  * Callers:
- *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x140736D20 (CmpLoadHiveThread.c)
  * Callees:
- *     ZwSetSecurityObject @ 0x1401BB590 (ZwSetSecurityObject.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ZwSetSecurityObject @ 0x1401BB6F0 (ZwSetSecurityObject.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpApplyAdminSdOnHiveFiles(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

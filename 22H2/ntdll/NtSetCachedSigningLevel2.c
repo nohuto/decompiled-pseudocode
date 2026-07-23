@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtSetCachedSigningLevel2()
+NTSTATUS __cdecl NtSetCachedSigningLevel2(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile,
+        SE_SET_FILE_CACHE_INFORMATION *CacheInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 396LL;
+  result = 396;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

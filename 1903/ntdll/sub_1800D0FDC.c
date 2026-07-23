@@ -24,15 +24,15 @@ __int64 __fastcall sub_1800D0FDC(_QWORD *a1)
   int v9; // [rsp+48h] [rbp-B8h] BYREF
   const wchar_t *v10; // [rsp+50h] [rbp-B0h]
   int v11; // [rsp+60h] [rbp-A0h] BYREF
-  _WORD *v12; // [rsp+68h] [rbp-98h]
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [rsp+68h] [rbp-98h]
   _WORD v13[128]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v14[15]; // [rsp+170h] [rbp+70h] BYREF
+  PWSTR Path[15]; // [rsp+170h] [rbp+70h] BYREF
   char v15; // [rsp+1ECh] [rbp+ECh]
 
   v1 = 0;
   v10 = L"apphelp.dll";
   v9 = 1572886;
-  v12 = v13;
+  BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v13;
   v11 = 0x1000000;
   v13[0] = 0;
   if ( qword_18017A208 )
@@ -46,14 +46,14 @@ __int64 __fastcall sub_1800D0FDC(_QWORD *a1)
   v4 = sub_180025714(&v11, (__int64)&v9);
   if ( v4 >= 0 )
   {
-    sub_180021798(0LL, 16385LL, v14);
-    v4 = sub_180022180((__int64)&v11, (int)v14, 0, (__int64)&v8);
+    sub_180021798(0LL, 16385LL, (__int64 *)Path);
+    v4 = sub_180022180((__int64)&v11, (__int64)Path, 0, (__int64)&v8);
     if ( v15 )
-      RtlReleasePath(v14[0]);
+      RtlReleasePath(Path[0]);
     if ( v4 >= 0 )
     {
       *(_DWORD *)(v8 + 104) |= 0x100u;
-      qword_180165398 = *(_QWORD *)(v8 + 48);
+      DllHandle = *(PVOID *)(v8 + 48);
       v4 = sub_180069410();
       if ( v4 >= 0 )
       {
@@ -95,7 +95,7 @@ LABEL_12:
       __debugbreak();
   }
 LABEL_19:
-  if ( v13 != v12 )
-    RtlDeleteBoundaryDescriptor((__int64)v12);
+  if ( v13 != (_WORD *)BoundaryDescriptor )
+    RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
   return (unsigned int)v4;
 }

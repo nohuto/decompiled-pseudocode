@@ -26,11 +26,11 @@ unsigned __int64 __fastcall MiReserveDriverPtes(unsigned int a1, __int64 a2, __i
   __int64 v5; // r15
   unsigned int v6; // edi
   ULONG v7; // ebp
-  struct _RTL_BITMAP *i; // rbx
+  _RTL_BITMAP *i; // rbx
   ULONG ClearBitsAndSet; // eax
   unsigned __int64 v10; // rbx
   unsigned __int64 v12; // r13
-  struct _RTL_BITMAP *PoolWithTag; // r14
+  _RTL_BITMAP *PoolWithTag; // r14
   int v14; // ebx
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rdi
@@ -45,16 +45,16 @@ unsigned __int64 __fastcall MiReserveDriverPtes(unsigned int a1, __int64 a2, __i
   v6 = a2;
   v7 = (unsigned int)(a2 + 15) >> 4;
   MiLockDriverMappings((__int64)CurrentThread, a2, a3, a4);
-  for ( i = (struct _RTL_BITMAP *)qword_14034EA40[v5]; ; i = *(struct _RTL_BITMAP **)&i->SizeOfBitMap )
+  for ( i = (_RTL_BITMAP *)qword_14034EA40[v5]; ; i = *(_RTL_BITMAP **)&i->SizeOfBitMap )
   {
     if ( !i )
     {
       StartingIndex = (unsigned __int8)ExGenRandom(1);
       v12 = (16 * (StartingIndex + v7) + 511) & 0xFFFFFE00;
-      PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                            (POOL_TYPE)((_DWORD)InitializationPhase != 0 ? PagedPool : NonPagedPoolNx),
-                                            (v12 >> 7) + 40,
-                                            0x70446D4Du);
+      PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                     (POOL_TYPE)((_DWORD)InitializationPhase != 0 ? PagedPool : NonPagedPoolNx),
+                                     (v12 >> 7) + 40,
+                                     0x70446D4Du);
       if ( PoolWithTag )
       {
         v14 = 12 - ((_DWORD)v5 != 0);

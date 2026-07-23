@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInsertHotPatchRecord @ 0x1408708FC
+ * XREFs of MiInsertHotPatchRecord @ 0x140876C5C
  * Callers:
- *     MiLoadHotPatch @ 0x140870D5C (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x1408712F4 (MiLoadHotPatchForUserSid.c)
- *     MmRegisterHotPatches @ 0x140CFBBA4 (MmRegisterHotPatches.c)
+ *     MiLoadHotPatch @ 0x1408770BC (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140877654 (MiLoadHotPatchForUserSid.c)
+ *     MmRegisterHotPatches @ 0x140D01F24 (MmRegisterHotPatches.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiCompareHotPatchNodes @ 0x14086F6BC (MiCompareHotPatchNodes.c)
- *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140870AAC (MiInsertPreviouslyRegisteredHotPatchRecord.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiCompareHotPatchNodes @ 0x140875A8C (MiCompareHotPatchNodes.c)
+ *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140876E0C (MiInsertPreviouslyRegisteredHotPatchRecord.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInsertHotPatchRecord(unsigned __int64 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -36,7 +36,7 @@ __int64 __fastcall MiInsertHotPatchRecord(unsigned __int64 *a1, __int64 a2, __in
   _QWORD *v19; // rax
   unsigned int v20; // edi
   __int64 v21; // rcx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v23; // rdx
+  $241382875694CED3D471BC5892DE3337 *v23; // rdx
 
   v4 = 0LL;
   v5 = a3;
@@ -48,11 +48,11 @@ __int64 __fastcall MiInsertHotPatchRecord(unsigned __int64 *a1, __int64 a2, __in
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v9 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558, 0LL, a3, a4);
-    v11 = _interlockedbittestandset64(&stru_140E36558.Header.Lock, 0LL);
+    v9 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8, 0LL, a3, a4);
+    v11 = _interlockedbittestandset64(&stru_140E366D8.Header.Lock, 0LL);
     v12 = v9;
     if ( v11 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E36558, v9, (__int64)&stru_140E36558);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E366D8, v9, (__int64)&stru_140E366D8);
     if ( v12 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -118,13 +118,13 @@ LABEL_29:
 LABEL_30:
   if ( !v5 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E36558, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E36558.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E36558);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E366D8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E366D8.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E366D8);
     if ( CurrentThread->SpecialApcDisable++ == -1 )
     {
       v23 = &CurrentThread->152;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v23->ApcState.ApcListHead[0].Flink != v23 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v23->ApcState.ApcListHead[0].Flink != v23 )
         KiCheckForKernelApcDelivery(v21, (__int64)v23);
     }
   }

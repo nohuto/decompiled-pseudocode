@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDirectedDripsDiagNotifySessionStop @ 0x140B08A3C
+ * XREFs of PopDirectedDripsDiagNotifySessionStop @ 0x140B0A9B8
  * Callers:
- *     PopDirectedDripsSendSessionData @ 0x140B089C0 (PopDirectedDripsSendSessionData.c)
+ *     PopDirectedDripsSendSessionData @ 0x140B0A93C (PopDirectedDripsSendSessionData.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x1404E37D0 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopDirectedDripsDiagRundownBroadcastTrees @ 0x140B08C90 (PopDirectedDripsDiagRundownBroadcastTrees.c)
- *     PopDirectedDripsDiagRundownDevices @ 0x140B08D6C (PopDirectedDripsDiagRundownDevices.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x1404DCD70 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagRundownBroadcastTrees @ 0x140B0AC0C (PopDirectedDripsDiagRundownBroadcastTrees.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x140B0ACE8 (PopDirectedDripsDiagRundownDevices.c)
  */
 
 void __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3)
@@ -45,35 +45,35 @@ void __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3
   __int64 v30; // [rsp+D0h] [rbp-38h]
   _BYTE *v31; // [rsp+D8h] [rbp-30h]
   __int64 v32; // [rsp+E0h] [rbp-28h]
-  _LIST_ENTRY *v33; // [rsp+E8h] [rbp-20h]
+  _BYTE *v33; // [rsp+E8h] [rbp-20h]
   __int64 v34; // [rsp+F0h] [rbp-18h]
   __int64 *v35; // [rsp+F8h] [rbp-10h]
   __int64 v36; // [rsp+100h] [rbp-8h]
   _BYTE v37[128]; // [rsp+108h] [rbp+0h] BYREF
-  _LIST_ENTRY v38[15]; // [rsp+188h] [rbp+80h] BYREF
+  _BYTE v38[240]; // [rsp+188h] [rbp+80h] BYREF
 
   v14 = 0LL;
   v5 = a1;
-  _m_prefetchw(dword_140F12AC0);
-  v6 = dword_140F12AC0[0];
+  _m_prefetchw(&PopDirectedDripsState);
+  v6 = PopDirectedDripsState;
   do
   {
     v7 = v6;
-    v6 = _InterlockedCompareExchange(dword_140F12AC0, v6, v6);
+    v6 = _InterlockedCompareExchange(&PopDirectedDripsState, v6, v6);
   }
   while ( v7 != v6 );
   if ( (v6 & 1) != 0 )
   {
-    PopDirectedDripsDiagQueryAndResetPnpAccounting(a1, &v14, (__int64)v37, v38);
-    v8 = qword_140F0F5D0;
-    v10 = (AutoBoost *)KeAbPreAcquire((__int64)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink, 0LL, 0LL, v9);
-    v12 = _interlockedbittestandset64((volatile signed __int32 *)&PopDirectedDripsUmLock.ApcStateFill[8], 0LL);
+    PopDirectedDripsDiagQueryAndResetPnpAccounting(a1, &v14, (__int64)v37, (__int64)v38);
+    v8 = PopWnfCsEnterScenarioId;
+    v10 = (AutoBoost *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL, 0LL, v9);
+    v12 = _interlockedbittestandset64(&PopDirectedDripsDiagLock.Header.Lock, 0LL);
     v13 = v10;
     if ( v12 )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink,
+        (unsigned __int64 *)&PopDirectedDripsDiagLock,
         v10,
-        (__int64)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink);
+        (__int64)&PopDirectedDripsDiagLock);
     if ( v13 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -81,10 +81,10 @@ void __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3
       else
         *((_BYTE *)v13 + 10) = 1;
     }
-    if ( LOBYTE(PopDirectedDripsUmLock.ThreadListEntry.Blink)
-      && (unsigned int)dword_140FD58E0 > 5
-      && (qword_140FD58F0 & 0x400000000000LL) != 0
-      && (qword_140FD58F8 & 0x400000000000LL) == qword_140FD58F8 )
+    if ( PopDirectedDripsDiagTraceHandleRegistered
+      && (unsigned int)dword_140FD68F0 > 5
+      && (qword_140FD6900 & 0x400000000000LL) != 0
+      && (qword_140FD6908 & 0x400000000000LL) == qword_140FD6908 )
     {
       v18 = v8;
       v21 = &v18;
@@ -108,8 +108,8 @@ void __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3
       v19 = 0x1000000LL;
       v36 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140FD58E0,
-        (unsigned __int8 *)byte_14004FE81,
+        (__int64)&dword_140FD68F0,
+        (unsigned __int8 *)word_140050BF2,
         0LL,
         0LL,
         0xAu,
@@ -117,10 +117,8 @@ void __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3
     }
     PopDirectedDripsDiagRundownBroadcastTrees();
     PopDirectedDripsDiagRundownDevices();
-    if ( (_InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink,
-            0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink);
-    KeAbPostRelease((unsigned __int64)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsDiagLock.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&PopDirectedDripsDiagLock);
   }
 }

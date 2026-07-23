@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceWin32kCalloutStart @ 0x140A3F92C
+ * XREFs of PopDiagTraceWin32kCalloutStart @ 0x1409FB34C
  * Callers:
- *     PopPowerAggregatorNotifyCsStateExited @ 0x140A38E44 (PopPowerAggregatorNotifyCsStateExited.c)
- *     PopControlMonitor @ 0x140A39C20 (PopControlMonitor.c)
- *     PopNotifyConsoleUserPresent @ 0x140A3DB40 (PopNotifyConsoleUserPresent.c)
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
- *     PopSendSessionInfo @ 0x140B46330 (PopSendSessionInfo.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x1409F4A04 (PopPowerAggregatorNotifyCsStateExited.c)
+ *     PopControlMonitor @ 0x1409F5820 (PopControlMonitor.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409F9560 (PopNotifyConsoleUserPresent.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
+ *     PopSendSessionInfo @ 0x140B48360 (PopSendSessionInfo.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTraceWin32kCalloutStart(int a1, __int64 a2, unsigned __int8 a3, char a4, int *a5)
@@ -75,7 +75,7 @@ void __fastcall PopDiagTraceWin32kCalloutStart(int a1, __int64 a2, unsigned __in
   }
   v11 = 6;
 LABEL_7:
-  if ( byte_140E67628 && EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v10) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, v10) )
   {
     UserData = ExAllocatePool2(0x100uLL);
     *(_QWORD *)UserData = &v32;
@@ -114,12 +114,7 @@ LABEL_7:
         *(_QWORD *)(UserData + 112) = &v30;
         *(_QWORD *)(UserData + 120) = 4LL;
 LABEL_16:
-        EtwWrite(
-          *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-          v10,
-          0LL,
-          v11,
-          (PEVENT_DATA_DESCRIPTOR)UserData);
+        EtwWrite(PopDiagHandle, v10, 0LL, v11, (PEVENT_DATA_DESCRIPTOR)UserData);
         if ( UserData )
           ExFreePoolWithTag((PVOID)UserData, 0x50455654u);
         return;

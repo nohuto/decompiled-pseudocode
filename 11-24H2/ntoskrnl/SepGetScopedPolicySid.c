@@ -1,11 +1,11 @@
 /*
- * XREFs of SepGetScopedPolicySid @ 0x140454F4C
+ * XREFs of SepGetScopedPolicySid @ 0x1403B56EC
  * Callers:
- *     SeComputeCreatorDeniedRights @ 0x140359A70 (SeComputeCreatorDeniedRights.c)
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140360470 (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SeComputeCreatorDeniedRights @ 0x1403B5DC0 (SeComputeCreatorDeniedRights.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x140465250 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
  *     <none>
  */

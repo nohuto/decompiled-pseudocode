@@ -1,37 +1,37 @@
 /*
  * XREFs of SbpTraceContextUpdate @ 0x1800FE93C
  * Callers:
- *     SbUpdateSwitchContextBasedOnDll @ 0x18002E6EC (SbUpdateSwitchContextBasedOnDll.c)
- *     SbSelectProcedure @ 0x18002E9C0 (SbSelectProcedure.c)
- *     SbObtainTraceHandle @ 0x1800827E4 (SbObtainTraceHandle.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x18002E6DC (SbUpdateSwitchContextBasedOnDll.c)
+ *     SbSelectProcedure @ 0x18002E9B0 (SbSelectProcedure.c)
+ *     SbObtainTraceHandle @ 0x1800827D4 (SbObtainTraceHandle.c)
  * Callees:
- *     EtwEventWrite @ 0x18005AF20 (EtwEventWrite.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     EtwEventWrite @ 0x18005AF10 (EtwEventWrite.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-__int64 __fastcall SbpTraceContextUpdate(int a1, __int64 a2, __int16 a3, unsigned __int16 a4, __int64 a5)
+ULONG __fastcall SbpTraceContextUpdate(REGHANDLE RegHandle, __int64 a2, __int16 a3, unsigned __int16 a4, __int64 a5)
 {
-  int v9; // r8d
+  ULONG v9; // r8d
   __int16 v11; // [rsp+28h] [rbp-61h] BYREF
-  _QWORD v12[16]; // [rsp+38h] [rbp-51h] BYREF
+  _QWORD UserData[16]; // [rsp+38h] [rbp-51h] BYREF
   unsigned __int16 v13; // [rsp+100h] [rbp+77h] BYREF
 
   v13 = a4;
-  memset(&v12[1], 0, 0x78uLL);
+  memset(&UserData[1], 0, 0x78uLL);
   v11 = a3;
-  v12[0] = a2;
-  v12[2] = &v11;
-  v12[4] = &v13;
-  v12[1] = 16LL;
+  UserData[0] = a2;
+  UserData[2] = &v11;
+  UserData[4] = &v13;
+  UserData[1] = 16LL;
   v9 = 3;
-  v12[3] = 2LL;
-  v12[5] = 2LL;
+  UserData[3] = 2LL;
+  UserData[5] = 2LL;
   if ( a4 )
   {
     v9 = 4;
-    v12[6] = a5;
-    v12[7] = a4;
+    UserData[6] = a5;
+    UserData[7] = a4;
   }
-  return EtwEventWrite(a1, (int)&AeSbContextUpdateEvent, v9, (__int64)v12);
+  return EtwEventWrite(RegHandle, &AeSbContextUpdateEvent, v9, (PEVENT_DATA_DESCRIPTOR)UserData);
 }

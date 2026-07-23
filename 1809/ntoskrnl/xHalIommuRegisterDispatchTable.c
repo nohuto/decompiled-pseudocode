@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalIommuRegisterDispatchTable @ 0x1409AB210
+ * XREFs of xHalIommuRegisterDispatchTable @ 0x1409AC210
  * Callers:
  *     <none>
  * Callees:

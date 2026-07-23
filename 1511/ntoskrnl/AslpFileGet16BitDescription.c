@@ -14,7 +14,7 @@ __int64 __fastcall AslpFileGet16BitDescription(wchar_t **a1, __int64 a2)
 {
   int v4; // edi
   int v5; // ebx
-  char v6[256]; // [rsp+30h] [rbp-118h] BYREF
+  CHAR v6[256]; // [rsp+30h] [rbp-118h] BYREF
 
   if ( *(_DWORD *)(a2 + 576) == 5 )
   {

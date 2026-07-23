@@ -1,14 +1,14 @@
 /*
- * XREFs of KeInitializeQueue @ 0x1402B95A0
+ * XREFs of KeInitializeQueue @ 0x1402377B0
  * Callers:
- *     EtwpCreateUmReplyObject @ 0x14069C0FC (EtwpCreateUmReplyObject.c)
- *     NtCreateIoCompletion @ 0x14069C2D0 (NtCreateIoCompletion.c)
- *     KeInitializeUmsThread @ 0x1408BD4D4 (KeInitializeUmsThread.c)
- *     FsRtlInitializeWorkerThread @ 0x140A6BC0C (FsRtlInitializeWorkerThread.c)
- *     IopInitializePassiveInterruptServices @ 0x140A6D460 (IopInitializePassiveInterruptServices.c)
- *     ExpWorkerFactoryInitialization @ 0x140A71A20 (ExpWorkerFactoryInitialization.c)
+ *     EtwpCreateUmReplyObject @ 0x1405FB2BC (EtwpCreateUmReplyObject.c)
+ *     NtCreateIoCompletion @ 0x1405FB490 (NtCreateIoCompletion.c)
+ *     KeInitializeUmsThread @ 0x1408BD634 (KeInitializeUmsThread.c)
+ *     FsRtlInitializeWorkerThread @ 0x140A6CC0C (FsRtlInitializeWorkerThread.c)
+ *     IopInitializePassiveInterruptServices @ 0x140A6E460 (IopInitializePassiveInterruptServices.c)
+ *     ExpWorkerFactoryInitialization @ 0x140A72A20 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
  */
 
 void __stdcall KeInitializeQueue(PRKQUEUE Queue, ULONG Count)

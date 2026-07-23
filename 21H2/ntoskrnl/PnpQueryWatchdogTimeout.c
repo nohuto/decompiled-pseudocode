@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpQueryWatchdogTimeout @ 0x1402803B8
+ * XREFs of PnpQueryWatchdogTimeout @ 0x14026E5F8
  * Callers:
- *     PnpAllocateWatchdog @ 0x140280324 (PnpAllocateWatchdog.c)
+ *     PnpAllocateWatchdog @ 0x14026E564 (PnpAllocateWatchdog.c)
  * Callees:
  *     <none>
  */

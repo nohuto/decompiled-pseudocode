@@ -1,11 +1,11 @@
 /*
- * XREFs of AslpFileGetHeaderAttributesPE @ 0x1408ECF20
+ * XREFs of AslpFileGetHeaderAttributesPE @ 0x1408EE1E0
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x140720654 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407218F4 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140720780 (AslFileMappingEnsure.c)
- *     AslpFileGetNtHeaderAttributes @ 0x1408ED208 (AslpFileGetNtHeaderAttributes.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x140721A20 (AslFileMappingEnsure.c)
+ *     AslpFileGetNtHeaderAttributes @ 0x1408EE4C8 (AslpFileGetNtHeaderAttributes.c)
  */
 
 __int64 __fastcall AslpFileGetHeaderAttributesPE(__int64 a1, __int64 a2)

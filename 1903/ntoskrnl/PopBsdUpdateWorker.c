@@ -55,11 +55,11 @@ void PopBsdUpdateWorker()
     PopBsdUpdateRequests = 0;
     PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
     if ( v0 )
-      PopWriteBsdPoInfo(7u, (__int64)v4);
+      PopWriteBsdPoInfo(7u, v4);
     if ( v1 )
-      PopWriteBsdPoInfo(0x10u, (__int64)v5);
+      PopWriteBsdPoInfo(0x10u, v5);
     if ( v2 )
-      PopWriteBsdPoInfo(0xEu, (__int64)v6);
+      PopWriteBsdPoInfo(0xEu, v6);
   }
   PopOkayToQueueNextWorkItem((__int64)&PopBsdUpdateWorkItem);
   PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);

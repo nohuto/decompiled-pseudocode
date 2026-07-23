@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpParseSymbolicLinkEx @ 0x140476170
+ * XREFs of ObpParseSymbolicLinkEx @ 0x140475040
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140002DFC (xHalTimerWatchdogStop.c)
- *     ObReferenceObjectByPointer @ 0x14007F760 (ObReferenceObjectByPointer.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     xHalTimerWatchdogStop @ 0x140002F70 (xHalTimerWatchdogStop.c)
+ *     ObReferenceObjectByPointer @ 0x14007F7E0 (ObReferenceObjectByPointer.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlIsSandboxedToken @ 0x140412A10 (RtlIsSandboxedToken.c)
+ *     RtlIsSandboxedToken @ 0x1404118D0 (RtlIsSandboxedToken.c)
  */
 
 NTSTATUS __fastcall ObpParseSymbolicLinkEx(

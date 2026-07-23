@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMceHandler @ 0x140540304
+ * XREFs of HalpMceHandler @ 0x14053DC04
  * Callers:
- *     HalpHandleMachineCheck @ 0x14053F7A8 (HalpHandleMachineCheck.c)
- *     HalpMceHandlerWithRendezvous @ 0x1405405C0 (HalpMceHandlerWithRendezvous.c)
+ *     HalpHandleMachineCheck @ 0x14053D0A8 (HalpHandleMachineCheck.c)
+ *     HalpMceHandlerWithRendezvous @ 0x14053DEC0 (HalpMceHandlerWithRendezvous.c)
  * Callees:
- *     HalpMceHandlerCore @ 0x140540418 (HalpMceHandlerCore.c)
+ *     HalpMceHandlerCore @ 0x14053DD18 (HalpMceHandlerCore.c)
  */
 
 char __fastcall HalpMceHandler(__int64 a1, __int64 a2)

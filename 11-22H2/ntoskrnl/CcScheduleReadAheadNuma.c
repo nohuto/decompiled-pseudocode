@@ -200,10 +200,10 @@ LABEL_34:
                   LODWORD(Next->Next) |= 0x10000u;
                   LODWORD(Next->Next) ^= (LODWORD(Next->Next) ^ ((unsigned int)PsGetPagePriorityThread((__int64)KeGetCurrentThread()) << 18)) & 0x1C0000;
                   KxReleaseSpinLock((volatile signed __int64 *)&Next[5]);
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     CurrentIrql = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                       && CurrentIrql <= 0xFu
                       && (unsigned __int8)v20 <= 0xFu
                       && CurrentIrql >= 2u )
@@ -224,10 +224,10 @@ LABEL_34:
                     LODWORD(Next->Next) &= ~0x10000u;
                     v47 = v46;
                     result = KxReleaseSpinLock((volatile signed __int64 *)&Next[5]);
-                    if ( KiIrqlFlags )
+                    if ( (_DWORD)KiIrqlFlags )
                     {
                       result = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0
+                      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                         && (unsigned __int8)result <= 0xFu
                         && (unsigned __int8)v47 <= 0xFu
                         && (unsigned __int8)result >= 2u )
@@ -257,10 +257,13 @@ LABEL_34:
                     ++*(_DWORD *)(v11 + 544);
                     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
                     OldIrql = LockHandle.OldIrql;
-                    if ( KiIrqlFlags )
+                    if ( (_DWORD)KiIrqlFlags )
                     {
                       v40 = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && LockHandle.OldIrql <= 0xFu && v40 >= 2u )
+                      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                        && v40 <= 0xFu
+                        && LockHandle.OldIrql <= 0xFu
+                        && v40 >= 2u )
                       {
                         v41 = KeGetCurrentPrcb();
                         v42 = v41->SchedulerAssist;
@@ -297,10 +300,10 @@ LABEL_68:
             if ( (xmmword_140D1EAD0 & 0x20000) != 0 )
               CcPerfLogScheduleReadAhead(0, (_DWORD)Object, v23, v64, v19, Pattern, v62);
             result = KxReleaseSpinLock(v60);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               result = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                 && (unsigned __int8)result <= 0xFu
                 && (unsigned __int8)v20 <= 0xFu
                 && (unsigned __int8)result >= 2u )

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCSparseBitmapLock @ 0x1403135B0
+ * XREFs of RtlpCSparseBitmapLock @ 0x140313840
  * Callers:
- *     RtlpCSparseBitmapPageCommit @ 0x140313428 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x140355B7C (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1403136B8 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140355D1C (RtlpCSparseBitmapPageDecommit.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
  */
 
 KIRQL __fastcall RtlpCSparseBitmapLock(__int64 a1, int a2, __int64 a3)

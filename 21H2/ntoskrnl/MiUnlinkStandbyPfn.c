@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkStandbyPfn @ 0x1402B07E0
+ * XREFs of MiUnlinkStandbyPfn @ 0x14022EB40
  * Callers:
- *     MmCopyToCachedPage @ 0x140331500 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x14033C250 (MmCopyToCachedPage.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiDiscardTransitionPteEx @ 0x140388E94 (MiDiscardTransitionPteEx.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiGetPfnPriority @ 0x1402BCED0 (MiGetPfnPriority.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiDiscardTransitionPteEx @ 0x140388FE4 (MiDiscardTransitionPteEx.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyPfn(__int64 *a1, char a2)
@@ -26,25 +26,24 @@ __int64 __fastcall MiUnlinkStandbyPfn(__int64 *a1, char a2)
   unsigned int v11; // eax
   __int64 v12; // rdx
   __int64 ValidPte; // rbx
-  int v14; // edi
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
+  __int64 v14; // r8
+  int v15; // edi
+  __int64 v16; // rdx
+  __int64 v17; // rcx
 
   v4 = MI_READ_PTE_LOCK_FREE(a1);
-  if ( qword_140C4DF40 )
+  if ( qword_140C4DF80 )
   {
     if ( (v4 & 0x10) != 0 )
       v4 &= ~0x10uLL;
     else
-      v4 &= ~qword_140C4DF40;
+      v4 &= ~qword_140C4DF80;
   }
   v5 = (v4 >> 12) & 0xFFFFFFFFFLL;
   v6 = 48 * v5 - 0x58000000000LL;
   if ( (*(_BYTE *)(v6 + 34) & 0x20) != 0 )
     return 2LL;
-  if ( !(unsigned int)MiUnlinkPageFromList(48 * v5 - 0x58000000000LL, 0) )
+  if ( !(unsigned int)MiUnlinkPageFromList(48 * v5 - 0x58000000000LL) )
   {
     MiDiscardTransitionPteEx(48 * v5 - 0x58000000000LL, 0LL);
     return 1LL;
@@ -69,18 +68,18 @@ __int64 __fastcall MiUnlinkStandbyPfn(__int64 *a1, char a2)
     v11 |= 8u;
   }
   ValidPte = MiMakeValidPte(0LL, v5, v11);
-  if ( (a2 & 4) == 0 || !MiIsPfnFileOnly(v6) )
+  if ( (a2 & 4) == 0 || !(unsigned int)MiIsPfnFileOnly(v6, v12, v14) )
   {
     *(_BYTE *)(v6 + 34) = v9 | 0x10;
     ValidPte |= 0x42uLL;
   }
-  v14 = 0;
-  if ( (unsigned int)MiPteInShadowRange(a1, v12) )
+  v15 = 0;
+  if ( (unsigned int)MiPteInShadowRange(a1) )
   {
-    if ( (unsigned int)MiPteHasShadow(v16, v15, v17, v18) )
+    if ( (unsigned int)MiPteHasShadow(v17, v16) )
     {
-      v14 = 1;
-      if ( HIBYTE(word_140C4E008) )
+      v15 = 1;
+      if ( HIBYTE(word_140C4E048) )
         goto LABEL_13;
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
@@ -92,7 +91,7 @@ __int64 __fastcall MiUnlinkStandbyPfn(__int64 *a1, char a2)
   }
 LABEL_13:
   *a1 = ValidPte;
-  if ( v14 )
-    MiWritePteShadow(a1, ValidPte);
+  if ( v15 )
+    MiWritePteShadow(a1);
   return 0LL;
 }

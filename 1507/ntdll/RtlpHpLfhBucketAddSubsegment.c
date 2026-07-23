@@ -11,30 +11,27 @@
  *     RtlpHpLfhSubsegmentSetOwner @ 0x1800721DC (RtlpHpLfhSubsegmentSetOwner.c)
  */
 
-__int64 __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, __int64 a2, __int64 a3, char a4)
+void __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, _RTL_SRWLOCK *a2, __int64 a3, char a4)
 {
-  __int64 result; // rax
-  unsigned int v5; // edi
-  __int64 v7; // rbx
+  unsigned int v4; // edi
+  __int64 v6; // rbx
 
-  result = *(unsigned __int16 *)(a3 + 34);
-  v5 = 0;
-  v7 = a3;
-  if ( *(_WORD *)(a3 + 32) != (_WORD)result )
+  v4 = 0;
+  v6 = a3;
+  if ( *(_WORD *)(a3 + 32) != *(_WORD *)(a3 + 34) )
   {
-    RtlAcquireSRWLockExclusive(a2 + 16);
-    RtlpHpLfhSubsegmentSetOwner(v7, a2);
-    if ( *(_WORD *)(v7 + 32) == *(_WORD *)(v7 + 34) )
-      *(_QWORD *)(v7 + 16) = 0LL;
+    RtlAcquireSRWLockExclusive(a2 + 2);
+    RtlpHpLfhSubsegmentSetOwner(v6, a2);
+    if ( *(_WORD *)(v6 + 32) == *(_WORD *)(v6 + 34) )
+      *(_QWORD *)(v6 + 16) = 0LL;
     else
-      v7 = RtlpHpLfhOwnerMoveSubsegment(a2, v7, 0LL);
-    result = RtlReleaseSRWLockExclusive(a2 + 16);
+      v6 = RtlpHpLfhOwnerMoveSubsegment(a2, v6, 0LL);
+    RtlReleaseSRWLockExclusive(a2 + 2);
   }
-  if ( v7 )
+  if ( v6 )
   {
     if ( (a4 & 1) != 0 )
-      v5 = 2;
-    return RtlpHpLfhSubsegmentFree(a1, v7, a2, v5);
+      v4 = 2;
+    RtlpHpLfhSubsegmentFree(a1, v6, a2, v4);
   }
-  return result;
 }

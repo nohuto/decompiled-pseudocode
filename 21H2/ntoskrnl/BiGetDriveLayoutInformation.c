@@ -1,13 +1,13 @@
 /*
- * XREFs of BiGetDriveLayoutInformation @ 0x14078560C
+ * XREFs of BiGetDriveLayoutInformation @ 0x1407857CC
  * Callers:
- *     BiGetDriveLayoutBlock @ 0x140782D38 (BiGetDriveLayoutBlock.c)
- *     BiCreatePartitionDevice @ 0x1407850C0 (BiCreatePartitionDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x140782EF8 (BiGetDriveLayoutBlock.c)
+ *     BiCreatePartitionDevice @ 0x140785280 (BiCreatePartitionDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     BiIssueGetDriveLayoutIoctl @ 0x1407856D4 (BiIssueGetDriveLayoutIoctl.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     BiIssueGetDriveLayoutIoctl @ 0x140785894 (BiIssueGetDriveLayoutIoctl.c)
  */
 
 __int64 __fastcall BiGetDriveLayoutInformation(PCWSTR SourceString)

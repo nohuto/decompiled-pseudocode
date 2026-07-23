@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpTraceDatabaseInternalFind @ 0x14058EE64
+ * XREFs of RtlpTraceDatabaseInternalFind @ 0x14058F094
  * Callers:
- *     RtlTraceDatabaseFind @ 0x14058EB50 (RtlTraceDatabaseFind.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x14058ECA8 (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlTraceDatabaseFind @ 0x14058ED80 (RtlTraceDatabaseFind.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x14058EED8 (RtlpTraceDatabaseInternalAdd.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 char __fastcall RtlpTraceDatabaseInternalFind(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)

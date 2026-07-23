@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePowerStateEvent @ 0x140A3F064
+ * XREFs of PopDiagTracePowerStateEvent @ 0x1409FAA84
  * Callers:
- *     PopTriggerMonitorPowerEvent @ 0x140A3EF18 (PopTriggerMonitorPowerEvent.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1409FA938 (PopTriggerMonitorPowerEvent.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTracePowerStateEvent(int a1, int a2)
@@ -18,20 +18,15 @@ void __fastcall PopDiagTracePowerStateEvent(int a1, int a2)
 
   v6 = a2;
   v5 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_POWER_STATE) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_STATE) )
     {
       UserData.Ptr = (ULONGLONG)&v5;
       *(_QWORD *)&UserData.Size = 4LL;
       v3 = &v6;
       v4 = 4LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_POWER_STATE,
-        0LL,
-        2u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_STATE, 0LL, 2u, &UserData);
     }
   }
 }

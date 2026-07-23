@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepFindSystemSecurityAttribute @ 0x1406B7784
+ * XREFs of AuthzBasepFindSystemSecurityAttribute @ 0x1406B77B8
  * Callers:
- *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1406B7714 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1406B7748 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x140225B88 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeString @ 0x140225C98 (AuthzBasepEqualUnicodeString.c)
  */
 
 __int64 __fastcall AuthzBasepFindSystemSecurityAttribute(const UNICODE_STRING *a1)

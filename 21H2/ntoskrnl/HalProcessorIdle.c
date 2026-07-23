@@ -1,11 +1,11 @@
 /*
- * XREFs of HalProcessorIdle @ 0x1403F9CA0
+ * XREFs of HalProcessorIdle @ 0x1403F9E80
  * Callers:
- *     PoIdle @ 0x140221ED0 (PoIdle.c)
- *     PpmIdleGuestExecute @ 0x1403906F0 (PpmIdleGuestExecute.c)
- *     PpmIdleDefaultExecute @ 0x1403BCF60 (PpmIdleDefaultExecute.c)
+ *     PoIdle @ 0x1402C67D0 (PoIdle.c)
+ *     PpmIdleGuestExecute @ 0x140390840 (PpmIdleGuestExecute.c)
+ *     PpmIdleDefaultExecute @ 0x1403BD0D0 (PpmIdleDefaultExecute.c)
  * Callees:
- *     HalpTimerResetProfileAdjustment @ 0x1403962A0 (HalpTimerResetProfileAdjustment.c)
+ *     HalpTimerResetProfileAdjustment @ 0x1403963F0 (HalpTimerResetProfileAdjustment.c)
  */
 
 void __noreturn HalProcessorIdle()

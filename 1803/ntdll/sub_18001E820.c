@@ -26,7 +26,7 @@ struct _PEB *__fastcall sub_18001E820(__int64 a1, __int64 a2, __int64 a3, __int6
   int v21; // ecx
   __int64 v22; // rax
   struct _TEB *v23; // rdx
-  __int64 HeapVirtualAffinity_high; // r8
+  __int64 HeapData_high; // r8
   unsigned int v25; // ecx
   __int64 v26; // rdx
   __int16 v27; // bx
@@ -34,8 +34,8 @@ struct _PEB *__fastcall sub_18001E820(__int64 a1, __int64 a2, __int64 a3, __int6
   __int64 v29; // rdx
   __int64 v30; // rcx
   struct _PEB *result; // rax
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v33; // rcx
+  _DWORD *p_ServiceSessionId; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   __int64 v34; // rcx
   unsigned int v35; // eax
   unsigned int v36; // eax
@@ -87,7 +87,7 @@ struct _PEB *__fastcall sub_18001E820(__int64 a1, __int64 a2, __int64 a3, __int6
   *(_WORD *)(a2 + 38) = 0;
   *(_QWORD *)(a2 + 8) = a3;
   if ( (((_BYTE)a2 + 16) & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   *(_QWORD *)(a2 + 16) = 0LL;
   *(_QWORD *)(a2 + 24) = 0LL;
   LOWORD(v40) = (((((unsigned __int64)(unsigned int)((a5 - 64) / v14) + 31) >> 3) & 0xFFFC) + 64) & 0xFFF0;
@@ -131,33 +131,32 @@ LABEL_11:
   v22 = *(_QWORD *)v39;
   *(_DWORD *)(v39 + 168) = ++*(_DWORD *)(v22 + 32);
   v23 = NtCurrentTeb();
-  HeapVirtualAffinity_high = HIWORD(v23->HeapVirtualAffinity);
-  HIWORD(v23->HeapVirtualAffinity) = (unsigned __int8)(HeapVirtualAffinity_high + 2);
-  v25 = byte_18015A460[HeapVirtualAffinity_high];
+  HeapData_high = HIWORD(v23->HeapData);
+  HIWORD(v23->HeapData) = (unsigned __int8)(HeapData_high + 2);
+  v25 = byte_18015A460[HeapData_high];
   *(_DWORD *)(a2 + 44) = 1;
-  v26 = (unsigned int)((v25 | (unsigned __int64)(byte_18015A460[(unsigned __int8)(HeapVirtualAffinity_high + 1)] << 7))
-                     % v16) << 16;
-  HIWORD(v42) = (v25 | (unsigned __int64)(byte_18015A460[(unsigned __int8)(HeapVirtualAffinity_high + 1)] << 7)) % v16;
+  v26 = (unsigned int)((v25 | (unsigned __int64)(byte_18015A460[(unsigned __int8)(HeapData_high + 1)] << 7)) % v16) << 16;
+  HIWORD(v42) = (v25 | (unsigned __int64)(byte_18015A460[(unsigned __int8)(HeapData_high + 1)] << 7)) % v16;
   LOWORD(v42) = v16;
   _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 32), v42, v6);
   if ( (dword_18015D040 & 2) == 0 )
   {
-    v27 = HIWORD(NtCurrentTeb()->HeapVirtualAffinity);
+    v27 = HIWORD(NtCurrentTeb()->HeapData);
     v28 = (unsigned __int64)(unsigned int)sub_18001EBF0(v42, v26) << 32;
     *(_QWORD *)&byte_18015A460[8 * ((unsigned __int8)v27 >> 3)] = (v28 | (unsigned int)sub_18001EBF0(v30, v29)) & 0x7F7F7F7F7F7F7F7FLL;
   }
   result = NtCurrentPeb();
-  HotpatchInformation = result->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
+  p_ServiceSessionId = &result->SharedData->ServiceSessionId;
+  if ( p_ServiceSessionId && *p_ServiceSessionId )
   {
     result = NtCurrentPeb();
-    v33 = (__int64)result->HotpatchInformation + 550;
+    UserModeGlobalLogger = (__int64)result->SharedData->UserModeGlobalLogger;
   }
   else
   {
-    v33 = 2147353472LL;
+    UserModeGlobalLogger = 2147353472LL;
   }
-  if ( *(_BYTE *)v33 )
+  if ( *(_BYTE *)UserModeGlobalLogger )
   {
     result = NtCurrentPeb();
     if ( (result->TracingFlags & 1) != 0 )

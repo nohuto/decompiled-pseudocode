@@ -1,57 +1,60 @@
 /*
- * XREFs of NtPlugPlayControl @ 0x1409A6850
+ * XREFs of NtPlugPlayControl @ 0x1409672B0
  * Callers:
- *     DifNtPlugPlayControlWrapper @ 0x14067FC40 (DifNtPlugPlayControlWrapper.c)
+ *     DifNtPlugPlayControlWrapper @ 0x140683820 (DifNtPlugPlayControlWrapper.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PiControlCopyUserModeCallersBuffer @ 0x1409A6B58 (PiControlCopyUserModeCallersBuffer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     PiControlCopyUserModeCallersBuffer @ 0x1409675B8 (PiControlCopyUserModeCallersBuffer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtPlugPlayControl(unsigned int a1, void *a2, int a3)
+NTSTATUS __cdecl NtPlugPlayControl(
+        PLUGPLAY_CONTROL_CLASS PnPControlClass,
+        PVOID PnPControlData,
+        ULONG PnPControlDataLength)
 {
   __int64 v5; // r14
   char PreviousMode; // di
   __int64 *v7; // rbx
-  void *v8; // rsi
-  unsigned int v9; // ebx
+  PVOID v8; // rsi
+  NTSTATUS v9; // ebx
   int v11; // eax
   void *Pool2; // rax
-  int v13; // r12d
+  NTSTATUS v13; // r12d
 
-  v5 = a1;
+  v5 = (unsigned int)PnPControlClass;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeTcbPrivilege, 1) )
-    return 3221225569LL;
+    return -1073741727;
   if ( (unsigned int)v5 >= 0x18 )
-    return 3221225711LL;
+    return -1073741585;
   v7 = &PlugPlayHandlerTable[3 * v5];
   if ( *(_DWORD *)v7 != (_DWORD)v5 )
-    return 3221225701LL;
+    return -1073741595;
   if ( !v7 )
-    return 3221225711LL;
+    return -1073741585;
   if ( !v7[1] )
-    return 3221225474LL;
-  if ( *((_DWORD *)v7 + 1) != a3 )
-    return 3221225520LL;
+    return -1073741822;
+  if ( *((_DWORD *)v7 + 1) != PnPControlDataLength )
+    return -1073741776;
   if ( PsIsCurrentThreadInServerSilo() && !*((_BYTE *)v7 + 16) )
-    return 3221225569LL;
+    return -1073741727;
   if ( PreviousMode )
   {
-    if ( a3 )
+    if ( PnPControlDataLength )
     {
       Pool2 = (void *)ExAllocatePool2(0x101uLL);
       v8 = Pool2;
       if ( !Pool2 )
-        return 3221225626LL;
+        return -1073741670;
       v13 = PiControlCopyUserModeCallersBuffer(Pool2, PreviousMode, 1);
       if ( v13 < 0 )
       {
         ExFreePoolWithTag(v8, 0);
-        return (unsigned int)v13;
+        return v13;
       }
     }
     else
@@ -61,18 +64,18 @@ __int64 __fastcall NtPlugPlayControl(unsigned int a1, void *a2, int a3)
   }
   else
   {
-    v8 = a2;
+    v8 = PnPControlData;
   }
   v9 = guard_dispatch_icall_no_overrides((unsigned int)v5, (__int64)v8);
   if ( (v9 & 0xC0000000) != 0xC0000000 || v9 == -1073741789 )
   {
     if ( PreviousMode )
     {
-      if ( a3 )
+      if ( PnPControlDataLength )
       {
-        if ( a2 )
+        if ( PnPControlData )
         {
-          v11 = PiControlCopyUserModeCallersBuffer(a2, PreviousMode, 0);
+          v11 = PiControlCopyUserModeCallersBuffer(PnPControlData, PreviousMode, 0);
           if ( v11 < 0 )
             v9 = v11;
         }

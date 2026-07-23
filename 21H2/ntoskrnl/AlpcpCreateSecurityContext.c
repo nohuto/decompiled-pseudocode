@@ -1,27 +1,27 @@
 /*
- * XREFs of AlpcpCreateSecurityContext @ 0x1406605EC
+ * XREFs of AlpcpCreateSecurityContext @ 0x14065540C
  * Callers:
- *     AlpcpCaptureSecurityAttributeInternal @ 0x140660844 (AlpcpCaptureSecurityAttributeInternal.c)
- *     NtAlpcCreateSecurityContext @ 0x140662590 (NtAlpcCreateSecurityContext.c)
- *     AlpcCreateSecurityContext @ 0x1408C22C0 (AlpcCreateSecurityContext.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x140655664 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     NtAlpcCreateSecurityContext @ 0x1406573B0 (NtAlpcCreateSecurityContext.c)
+ *     AlpcCreateSecurityContext @ 0x1408C2420 (AlpcCreateSecurityContext.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14061FB44 (AlpcpReleasePagedPoolQuota.c)
- *     SeCreateClientSecurity @ 0x14065DD70 (SeCreateClientSecurity.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
- *     AlpcpChargePagedPoolQuota @ 0x140660A4C (AlpcpChargePagedPoolQuota.c)
- *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
- *     AlpcpInsertResourcePort @ 0x140660DCC (AlpcpInsertResourcePort.c)
- *     AlpcpEndInitialization @ 0x140662784 (AlpcpEndInitialization.c)
- *     AlpcAddHandleTableEntry @ 0x1406627C8 (AlpcAddHandleTableEntry.c)
+ *     IoThreadToProcess @ 0x140224230 (IoThreadToProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeCreateClientSecurity @ 0x140652B90 (SeCreateClientSecurity.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14065586C (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpAllocateBlob @ 0x1406558AC (AlpcpAllocateBlob.c)
+ *     AlpcpInsertResourcePort @ 0x140655BEC (AlpcpInsertResourcePort.c)
+ *     AlpcpEndInitialization @ 0x1406575A4 (AlpcpEndInitialization.c)
+ *     AlpcAddHandleTableEntry @ 0x1406575E8 (AlpcAddHandleTableEntry.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1406897B4 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcpCreateSecurityContext(
@@ -31,7 +31,7 @@ __int64 __fastcall AlpcpCreateSecurityContext(
         struct _SECURITY_QUALITY_OF_SERVICE *a4,
         ULONG_PTR *a5)
 {
-  struct _KPROCESS *v9; // rdi
+  PEPROCESS v9; // rdi
   void *Blob; // rax
   ULONG_PTR v11; // rbx
   NTSTATUS ClientSecurity; // ebp
@@ -53,7 +53,7 @@ __int64 __fastcall AlpcpCreateSecurityContext(
     ClientSecurity = SeCreateClientSecurity(ClientThread, a4, 0, (PSECURITY_CLIENT_CONTEXT)(v11 + 32));
     if ( ClientSecurity < 0 )
     {
-      AlpcpReleasePagedPoolQuota(v9, 0xA0uLL);
+      AlpcpReleasePagedPoolQuota(v9, 160LL);
     }
     else
     {
@@ -93,7 +93,7 @@ LABEL_10:
         KeAbPostRelease((ULONG_PTR)(Object + 44));
         *(_QWORD *)v11 = 0LL;
         AlpcpEndInitialization(v11);
-        AlpcpDereferenceBlobEx(v11, 2);
+        AlpcpDereferenceBlobEx(v11);
         return 3221225626LL;
       }
       if ( _InterlockedCompareExchange64(v13, 0LL, 17LL) != 17 )
@@ -102,6 +102,6 @@ LABEL_10:
       ClientSecurity = -1073741670;
     }
   }
-  AlpcpDereferenceBlobEx(v11, 1);
+  AlpcpDereferenceBlobEx(v11);
   return (unsigned int)ClientSecurity;
 }

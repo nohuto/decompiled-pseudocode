@@ -1,32 +1,32 @@
 /*
- * XREFs of AlpcpCreateClientPort @ 0x14040849C
+ * XREFs of AlpcpCreateClientPort @ 0x14040735C
  * Callers:
- *     AlpcpConnectPort @ 0x1404080D0 (AlpcpConnectPort.c)
- *     NtSecureConnectPort @ 0x1404B204C (NtSecureConnectPort.c)
+ *     AlpcpConnectPort @ 0x140406F90 (AlpcpConnectPort.c)
+ *     NtSecureConnectPort @ 0x14049C42C (NtSecureConnectPort.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     AlpcpCheckConnectionSecurity @ 0x1404007A0 (AlpcpCheckConnectionSecurity.c)
- *     ObReferenceObjectByName @ 0x140405BE0 (ObReferenceObjectByName.c)
- *     AlpcpSetOwnerProcessPort @ 0x140408970 (AlpcpSetOwnerProcessPort.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     AlpcpAllocateMessage @ 0x14040B38C (AlpcpAllocateMessage.c)
- *     AlpcpAllocateBlob @ 0x14040D624 (AlpcpAllocateBlob.c)
- *     SeCreateClientSecurity @ 0x14040F068 (SeCreateClientSecurity.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObReferenceObjectByNameEx @ 0x140499E04 (ObReferenceObjectByNameEx.c)
- *     AlpcInitializeHandleTable @ 0x1404B3964 (AlpcInitializeHandleTable.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x1404B56B4 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcpInitializePort @ 0x1404B58C0 (AlpcpInitializePort.c)
- *     AlpcpCreatePort @ 0x1404B5A80 (AlpcpCreatePort.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     ObReferenceObjectByNameEx @ 0x1403E4434 (ObReferenceObjectByNameEx.c)
+ *     AlpcpCheckConnectionSecurity @ 0x1403FF660 (AlpcpCheckConnectionSecurity.c)
+ *     ObReferenceObjectByName @ 0x140404AA0 (ObReferenceObjectByName.c)
+ *     AlpcpSetOwnerProcessPort @ 0x140407830 (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     AlpcpAllocateMessage @ 0x14040A24C (AlpcpAllocateMessage.c)
+ *     AlpcpAllocateBlob @ 0x14040C4E4 (AlpcpAllocateBlob.c)
+ *     SeCreateClientSecurity @ 0x14040DF28 (SeCreateClientSecurity.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     AlpcInitializeHandleTable @ 0x14049DD44 (AlpcInitializeHandleTable.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x14049FA94 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpInitializePort @ 0x14049FCA0 (AlpcpInitializePort.c)
+ *     AlpcpCreatePort @ 0x14049FE60 (AlpcpCreatePort.c)
  */
 
 __int64 __fastcall AlpcpCreateClientPort(
@@ -83,7 +83,7 @@ __int64 __fastcall AlpcpCreateClientPort(
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( a5 )
-    result = ObReferenceObjectByNameEx(a5, (_DWORD)a2, 1, (_DWORD)AlpcPortObjectType, PreviousMode, 0LL, (__int64)&v44);
+    result = ObReferenceObjectByNameEx(a5, (__int64)a2, 1u, (__int64)AlpcPortObjectType, PreviousMode, 0LL, &v44);
   else
     result = ObReferenceObjectByName(a4, 0LL, 0LL, 1u, (__int64)AlpcPortObjectType, PreviousMode, 0LL, &v44);
   if ( (int)result >= 0 )

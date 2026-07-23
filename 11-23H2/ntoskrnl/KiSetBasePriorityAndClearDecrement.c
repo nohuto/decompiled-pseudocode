@@ -1,19 +1,19 @@
 /*
- * XREFs of KiSetBasePriorityAndClearDecrement @ 0x1402B8430
+ * XREFs of KiSetBasePriorityAndClearDecrement @ 0x1402B86C0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KeYieldExecution @ 0x1402469F0 (KeYieldExecution.c)
- *     KiDirectSwitchThread @ 0x1402B18A0 (KiDirectSwitchThread.c)
- *     ExpQueueWorkItem @ 0x1402B76A0 (ExpQueueWorkItem.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     KeSetBasePriorityThread @ 0x1402B9DA0 (KeSetBasePriorityThread.c)
- *     KeRemovePriQueue @ 0x1402BF0B0 (KeRemovePriQueue.c)
- *     KiUpdateVPBackingThreadPriority @ 0x14034E2D8 (KiUpdateVPBackingThreadPriority.c)
- *     KeSetPriorityAndQuantumProcess @ 0x140350190 (KeSetPriorityAndQuantumProcess.c)
- *     KiTryUnwaitThreadWithPriority @ 0x140357548 (KiTryUnwaitThreadWithPriority.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056E69C (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KeYieldExecution @ 0x140246AC0 (KeYieldExecution.c)
+ *     KiDirectSwitchThread @ 0x1402B1B30 (KiDirectSwitchThread.c)
+ *     ExpQueueWorkItem @ 0x1402B7930 (ExpQueueWorkItem.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x1402BA030 (KeSetBasePriorityThread.c)
+ *     KeRemovePriQueue @ 0x1402BF340 (KeRemovePriQueue.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x14034E478 (KiUpdateVPBackingThreadPriority.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x140350330 (KeSetPriorityAndQuantumProcess.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x1403576E8 (KiTryUnwaitThreadWithPriority.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056EBDC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x140307D48 (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140307FD8 (KiAbQueueAutoBoostDpc.c)
  */
 
 __int64 __fastcall KiSetBasePriorityAndClearDecrement(__int64 a1, _BYTE *a2, int a3)

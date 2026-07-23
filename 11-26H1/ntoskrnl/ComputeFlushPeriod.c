@@ -1,10 +1,10 @@
 /*
- * XREFs of ComputeFlushPeriod @ 0x1408A017C
+ * XREFs of ComputeFlushPeriod @ 0x1408A658C
  * Callers:
- *     TlgRegisterAggregateProviderEx @ 0x140B6E47C (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140B7192C (TlgRegisterAggregateProviderEx.c)
  * Callees:
- *     RunningHash @ 0x14046DD20 (RunningHash.c)
- *     FinishHash @ 0x1404AF804 (FinishHash.c)
+ *     RunningHash @ 0x1404674A0 (RunningHash.c)
+ *     FinishHash @ 0x1404A8E94 (FinishHash.c)
  */
 
 __int64 __fastcall ComputeFlushPeriod(unsigned __int64 a1, unsigned int a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxDevicePreparation @ 0x14086733C
+ * XREFs of PopDiagTraceFxDevicePreparation @ 0x14086757C
  * Callers:
- *     PoFxPrepareDevice @ 0x140321814 (PoFxPrepareDevice.c)
- *     PoFxAbandonDevice @ 0x140869B78 (PoFxAbandonDevice.c)
+ *     PoFxPrepareDevice @ 0x140321AA4 (PoFxPrepareDevice.c)
+ *     PoFxAbandonDevice @ 0x140869DB8 (PoFxAbandonDevice.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDevicePreparation(__int64 a1, __int64 a2, unsigned __int16 *a3, unsigned __int8 a4)

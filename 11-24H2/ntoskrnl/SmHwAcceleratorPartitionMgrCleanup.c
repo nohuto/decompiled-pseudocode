@@ -1,15 +1,15 @@
 /*
- * XREFs of SmHwAcceleratorPartitionMgrCleanup @ 0x14079CB7C
+ * XREFs of SmHwAcceleratorPartitionMgrCleanup @ 0x14079CC8C
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
- *     SmPartitionCleanup @ 0x140797594 (SmPartitionCleanup.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     SmPartitionCleanup @ 0x1407976A4 (SmPartitionCleanup.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SmHwAcceleratorMgrPartitionUnregister @ 0x14079C72C (SmHwAcceleratorMgrPartitionUnregister.c)
- *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CB08 (SmHwAcceleratorPartitionCtxCleanup.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SmHwAcceleratorMgrPartitionUnregister @ 0x14079C83C (SmHwAcceleratorMgrPartitionUnregister.c)
+ *     SmHwAcceleratorPartitionCtxCleanup @ 0x14079CC18 (SmHwAcceleratorPartitionCtxCleanup.c)
  */
 
 void __fastcall SmHwAcceleratorPartitionMgrCleanup(_QWORD *a1, struct _KPROCESS *a2)
@@ -20,7 +20,9 @@ void __fastcall SmHwAcceleratorPartitionMgrCleanup(_QWORD *a1, struct _KPROCESS 
   PPRIVILEGE_SET v7; // rbx
   struct _PRIVILEGE_SET *v8; // rsi
   struct _PRIVILEGE_SET *v9; // rdi
-  __int64 v10; // rax
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rax
   struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-78h] BYREF
 
   v2 = (PPRIVILEGE_SET *)(a1 + 4);
@@ -41,13 +43,13 @@ void __fastcall SmHwAcceleratorPartitionMgrCleanup(_QWORD *a1, struct _KPROCESS 
           if ( *(PPRIVILEGE_SET *)&v7->PrivilegeCount == v7 )
             break;
           if ( (PPRIVILEGE_SET)v9->Privilege[0].Luid != v7
-            || (v10 = *(_QWORD *)&v9->PrivilegeCount,
+            || (v12 = *(_QWORD *)&v9->PrivilegeCount,
                 *(struct _PRIVILEGE_SET **)(*(_QWORD *)&v9->PrivilegeCount + 8LL) != v9) )
           {
             __fastfail(3u);
           }
-          *(_QWORD *)&v7->PrivilegeCount = v10;
-          *(_QWORD *)(v10 + 8) = v7;
+          *(_QWORD *)&v7->PrivilegeCount = v12;
+          *(_QWORD *)(v12 + 8) = v7;
           --*v6;
           SmHwAcceleratorPartitionCtxCleanup((__int64)v9);
           CmSiFreeMemory(v9);
@@ -65,6 +67,6 @@ void __fastcall SmHwAcceleratorPartitionMgrCleanup(_QWORD *a1, struct _KPROCESS 
   {
     KeStackAttachProcess(a2, &ApcState);
     SmHwAcceleratorMgrPartitionUnregister(a1[2], a1);
-    KiUnstackDetachProcess((__int64)&ApcState, 0);
+    KiUnstackDetachProcess((__int64)&ApcState, 0, v10, v11);
   }
 }

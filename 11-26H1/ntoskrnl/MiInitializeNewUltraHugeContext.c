@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeNewUltraHugeContext @ 0x14048DA98
+ * XREFs of MiInitializeNewUltraHugeContext @ 0x1404875D8
  * Callers:
- *     MiGetBackgroundHugePageToZero @ 0x1404C2588 (MiGetBackgroundHugePageToZero.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1404BBDD8 (MiGetBackgroundHugePageToZero.c)
  * Callees:
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiSafeLockPageAtDpc @ 0x140358BF8 (MiSafeLockPageAtDpc.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiStopPageAccessor @ 0x14048E008 (MiStopPageAccessor.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiSafeLockPageAtDpc @ 0x14035A998 (MiSafeLockPageAtDpc.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiStopPageAccessor @ 0x140487B48 (MiStopPageAccessor.c)
  */
 
 __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
@@ -41,7 +41,7 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
     v5 = v2 & 0x3FFFFF;
     v6 = 0LL;
     v7 = 1;
-    v8 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v5;
+    v8 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v5;
     v2 = v5 << 18;
   }
   else
@@ -70,10 +70,10 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
     if ( v7 )
     {
       _InterlockedAnd(
-        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                   + 4
-                                  * ((((v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << ((v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                  * ((((v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << ((v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
     }
     else if ( v6 )
     {
@@ -112,10 +112,10 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
       _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     else
       _InterlockedAnd(
-        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                   + 4
-                                  * ((((v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << ((v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                  * ((((v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << ((v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
     *(_DWORD *)(a1 + 64) = 0;
     result = 0LL;
     *(_WORD *)(a1 + 320) = 0;
@@ -131,10 +131,10 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
     {
       MiStopPageAccessor(v8);
       _InterlockedAnd(
-        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                   + 4
-                                  * ((((v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << ((v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                  * ((((v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << ((v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
     }
     MiDeleteUltraThreadContext(a2 + 176);
     return 2LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiStoreSetPageFileRunEvicted @ 0x14065C9CC
+ * XREFs of MiStoreSetPageFileRunEvicted @ 0x14065CF1C
  * Callers:
- *     MiStoreEvictThread @ 0x1403A8650 (MiStoreEvictThread.c)
+ *     MiStoreEvictThread @ 0x1403A8830 (MiStoreEvictThread.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiStoreSetPageFileRunEvicted(__int64 a1, ULONG a2, unsigned int a3)
@@ -38,10 +38,13 @@ void __fastcall MiStoreSetPageFileRunEvicted(__int64 a1, ULONG a2, unsigned int 
     v10 = (*(_BYTE *)(a1 + 206) & 1) != 0;
   *(_QWORD *)(a1 + 24) = v9 + v4;
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

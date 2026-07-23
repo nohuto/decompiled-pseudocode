@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpLoadCustomNtdllWithSectionHandle @ 0x18015EF48
+ * XREFs of LdrpLoadCustomNtdllWithSectionHandle @ 0x18015D308
  * Callers:
- *     LdrpLoadPatchedNtdll @ 0x180066450 (LdrpLoadPatchedNtdll.c)
+ *     LdrpLoadPatchedNtdll @ 0x1800AE630 (LdrpLoadPatchedNtdll.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x1800590F0 (RtlImageNtHeaderEx.c)
- *     LdrpProtectAndRelocateImage @ 0x1800E502C (LdrpProtectAndRelocateImage.c)
- *     NpMapViewOfSection @ 0x180161850 (NpMapViewOfSection.c)
- *     NpUnmapViewOfSection @ 0x180161870 (NpUnmapViewOfSection.c)
+ *     RtlImageNtHeaderEx @ 0x18006ECD0 (RtlImageNtHeaderEx.c)
+ *     LdrpProtectAndRelocateImage @ 0x1800E04DC (LdrpProtectAndRelocateImage.c)
+ *     NpMapViewOfSection @ 0x18015FC10 (NpMapViewOfSection.c)
+ *     NpUnmapViewOfSection @ 0x18015FC30 (NpUnmapViewOfSection.c)
  */
 
-__int64 __fastcall LdrpLoadCustomNtdllWithSectionHandle(__int64 a1, __int64 *a2)
+__int64 __fastcall LdrpLoadCustomNtdllWithSectionHandle(__int64 a1, PVOID *a2)
 {
   int v3; // ebx
-  unsigned __int64 v4; // rdx
-  __int64 v6; // [rsp+68h] [rbp+10h] BYREF
+  PVOID v4; // rdx
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+68h] [rbp+10h] BYREF
   __int64 v7; // [rsp+70h] [rbp+18h] BYREF
 
   v7 = 0LL;
@@ -24,9 +24,9 @@ __int64 __fastcall LdrpLoadCustomNtdllWithSectionHandle(__int64 a1, __int64 *a2)
   if ( v3 >= 0 )
   {
     v4 = *a2;
-    v6 = 0LL;
-    RtlImageNtHeaderEx(1, v4, 0LL, &v6);
-    if ( v6 )
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, v4, 0LL, &OutHeaders);
+    if ( OutHeaders )
       return (unsigned int)v3;
     v3 = -1073741701;
   }

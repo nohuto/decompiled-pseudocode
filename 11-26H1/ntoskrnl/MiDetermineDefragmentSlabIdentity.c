@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDetermineDefragmentSlabIdentity @ 0x140706A00
+ * XREFs of MiDetermineDefragmentSlabIdentity @ 0x14070B6D0
  * Callers:
- *     MiEstablishDefragSlabEntries @ 0x140706AC4 (MiEstablishDefragSlabEntries.c)
+ *     MiEstablishDefragSlabEntries @ 0x14070B794 (MiEstablishDefragSlabEntries.c)
  * Callees:
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
  */
 
 __int64 __fastcall MiDetermineDefragmentSlabIdentity(__int64 a1)

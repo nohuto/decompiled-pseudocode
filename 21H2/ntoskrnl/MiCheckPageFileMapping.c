@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckPageFileMapping @ 0x1403BFD8C
+ * XREFs of MiCheckPageFileMapping @ 0x1403C01B8
  * Callers:
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -25,11 +25,11 @@ __int64 __fastcall MiCheckPageFileMapping(__int64 a1)
 
   if ( !*(_QWORD *)(a1 + 40) )
     return 0LL;
-  v2 = ExAcquireSpinLockExclusive(&dword_140C4C980);
+  v2 = ExAcquireSpinLockExclusive(&dword_140C4C9C0);
   v3 = *(_QWORD **)(a1 + 40);
   if ( v3 && (*v3 || v3[2]) )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -51,7 +51,7 @@ __int64 __fastcall MiCheckPageFileMapping(__int64 a1)
   }
   else
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

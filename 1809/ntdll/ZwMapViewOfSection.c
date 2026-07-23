@@ -1,19 +1,19 @@
 /*
- * XREFs of ZwMapViewOfSection @ 0x1800A07E0
+ * XREFs of ZwMapViewOfSection @ 0x1800A0800
  * Callers:
  *     LdrpMinimalMapModule @ 0x180021EDC (LdrpMinimalMapModule.c)
  *     LdrpMapResourceFile @ 0x18002A918 (LdrpMapResourceFile.c)
  *     RtlpFileIsWin32WithRCManifest @ 0x18003451C (RtlpFileIsWin32WithRCManifest.c)
  *     CsrpConnectToServer @ 0x18005D994 (CsrpConnectToServer.c)
- *     LdrpFindLoadedDllByMappingFile @ 0x180076D40 (LdrpFindLoadedDllByMappingFile.c)
- *     RtlpQueryExtendedHeapInformation @ 0x18007B16C (RtlpQueryExtendedHeapInformation.c)
- *     RtlpChangeQueryDebugBufferTarget @ 0x18007DE38 (RtlpChangeQueryDebugBufferTarget.c)
- *     RtlCreateQueryDebugBuffer @ 0x180085F30 (RtlCreateQueryDebugBuffer.c)
- *     PsspWalkInfoClass_PSS_WALK_VA_SPACE @ 0x18008993C (PsspWalkInfoClass_PSS_WALK_VA_SPACE.c)
- *     PsspWalkInfoClass_PSS_WALK_HANDLES @ 0x180089A98 (PsspWalkInfoClass_PSS_WALK_HANDLES.c)
- *     PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES @ 0x180089BC0 (PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES.c)
- *     PsspWalkInfoClass_PSS_WALK_THREADS @ 0x180089C98 (PsspWalkInfoClass_PSS_WALK_THREADS.c)
- *     LdrVerifyImageMatchesChecksumEx @ 0x18008C7B0 (LdrVerifyImageMatchesChecksumEx.c)
+ *     LdrpFindLoadedDllByMappingFile @ 0x180076D50 (LdrpFindLoadedDllByMappingFile.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x18007B17C (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpChangeQueryDebugBufferTarget @ 0x18007DE48 (RtlpChangeQueryDebugBufferTarget.c)
+ *     RtlCreateQueryDebugBuffer @ 0x180085F40 (RtlCreateQueryDebugBuffer.c)
+ *     PsspWalkInfoClass_PSS_WALK_VA_SPACE @ 0x18008994C (PsspWalkInfoClass_PSS_WALK_VA_SPACE.c)
+ *     PsspWalkInfoClass_PSS_WALK_HANDLES @ 0x180089AA8 (PsspWalkInfoClass_PSS_WALK_HANDLES.c)
+ *     PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES @ 0x180089BD0 (PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES.c)
+ *     PsspWalkInfoClass_PSS_WALK_THREADS @ 0x180089CA8 (PsspWalkInfoClass_PSS_WALK_THREADS.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18008C7C0 (LdrVerifyImageMatchesChecksumEx.c)
  *     LdrpMapCleanModuleView @ 0x1800D76D4 (LdrpMapCleanModuleView.c)
  *     RtlCreateProcessReflection @ 0x1800D7C30 (RtlCreateProcessReflection.c)
  *     AvrfMiniLoadDll @ 0x1800DCAA8 (AvrfMiniLoadDll.c)
@@ -38,11 +38,21 @@
  *     <none>
  */
 
-__int64 ZwMapViewOfSection()
+NTSTATUS __cdecl ZwMapViewOfSection(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        SIZE_T CommitSize,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        SECTION_INHERIT InheritDisposition,
+        ULONG AllocationType,
+        ULONG Win32Protect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 40LL;
+  result = 40;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

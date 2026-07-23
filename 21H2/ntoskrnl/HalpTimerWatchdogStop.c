@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerWatchdogStop @ 0x1404C2700
+ * XREFs of HalpTimerWatchdogStop @ 0x1404C2940
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void HalpTimerWatchdogStop()

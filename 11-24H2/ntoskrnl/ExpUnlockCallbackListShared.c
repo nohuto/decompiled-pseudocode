@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpUnlockCallbackListShared @ 0x1404A19B8
+ * XREFs of ExpUnlockCallbackListShared @ 0x14049C948
  * Callers:
- *     ExpGetNextCallback @ 0x140A60060 (ExpGetNextCallback.c)
+ *     ExpGetNextCallback @ 0x140A585B0 (ExpGetNextCallback.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 _QWORD *__fastcall ExpUnlockCallbackListShared(__int64 a1)
@@ -13,8 +13,6 @@ _QWORD *__fastcall ExpUnlockCallbackListShared(__int64 a1)
   signed __int64 v2; // r8
   ULONG_PTR v3; // rtt
   _QWORD *result; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
 
   _m_prefetchw(&ExpCallbackListLock);
   v2 = ExpCallbackListLock - 16;
@@ -31,7 +29,7 @@ _QWORD *__fastcall ExpUnlockCallbackListShared(__int64 a1)
   {
     result = (_QWORD *)(a1 + 152);
     if ( (_QWORD *)*result != result )
-      return (_QWORD *)KiCheckForKernelApcDelivery(v6, v5);
+      return (_QWORD *)KiCheckForKernelApcDelivery();
   }
   return result;
 }

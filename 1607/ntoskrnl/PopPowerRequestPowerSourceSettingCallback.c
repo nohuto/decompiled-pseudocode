@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestPowerSourceSettingCallback @ 0x140581300
+ * XREFs of PopPowerRequestPowerSourceSettingCallback @ 0x1405817AC
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
- *     PopEnableSystemToExecutionRequiredPowerRequests @ 0x14066A9F4 (PopEnableSystemToExecutionRequiredPowerRequests.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
+ *     PopEnableSystemToExecutionRequiredPowerRequests @ 0x14066AAD8 (PopEnableSystemToExecutionRequiredPowerRequests.c)
  */
 
 __int64 __fastcall PopPowerRequestPowerSourceSettingCallback(__int64 a1, int *a2, int a3)
@@ -15,7 +15,7 @@ __int64 __fastcall PopPowerRequestPowerSourceSettingCallback(__int64 a1, int *a2
 
   v5 = -1073741811;
   PopAcquirePowerRequestPushLock(1);
-  if ( a3 == 4 && a2 && byte_140303F74 )
+  if ( a3 == 4 && a2 && byte_140303EB4 )
   {
     PopPowerRequestSyncedPowerSource = *a2;
     if ( PopPowerRequestSyncedPowerSource )

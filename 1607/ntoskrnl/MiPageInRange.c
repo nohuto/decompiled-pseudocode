@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPageInRange @ 0x140106150
+ * XREFs of MiPageInRange @ 0x140103ED0
  * Callers:
- *     MiActivePageClaimCandidate @ 0x140105A60 (MiActivePageClaimCandidate.c)
- *     MiSessionWsMetaPage @ 0x140106070 (MiSessionWsMetaPage.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
+ *     MiActivePageClaimCandidate @ 0x1401037E0 (MiActivePageClaimCandidate.c)
+ *     MiSessionWsMetaPage @ 0x140103DF0 (MiSessionWsMetaPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
  * Callees:
  *     <none>
  */

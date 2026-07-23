@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerRequestStatsGetIdForRequest @ 0x1407A7D30
+ * XREFs of PopPowerRequestStatsGetIdForRequest @ 0x1407A7F20
  * Callers:
- *     PopPowerRequestStatsCreate @ 0x1407A77DC (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsCreate @ 0x1407A79CC (PopPowerRequestStatsCreate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     PsGetCurrentProcess @ 0x140317770 (PsGetCurrentProcess.c)
- *     PopPowerRequestStatsIsDetailedRequestReason @ 0x1407A7F50 (PopPowerRequestStatsIsDetailedRequestReason.c)
- *     PopPowerRequestStatsFreeId @ 0x1407A8504 (PopPowerRequestStatsFreeId.c)
- *     PopAnsiStringToUnicodeString @ 0x1407A85C8 (PopAnsiStringToUnicodeString.c)
- *     PopPowerRequestStatsIdConcat @ 0x1407A8AD0 (PopPowerRequestStatsIdConcat.c)
- *     PopUnicodeStringDeepCopy @ 0x1408597A0 (PopUnicodeStringDeepCopy.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     PsGetCurrentProcess @ 0x140317A00 (PsGetCurrentProcess.c)
+ *     PopPowerRequestStatsIsDetailedRequestReason @ 0x1407A8140 (PopPowerRequestStatsIsDetailedRequestReason.c)
+ *     PopPowerRequestStatsFreeId @ 0x1407A86F4 (PopPowerRequestStatsFreeId.c)
+ *     PopAnsiStringToUnicodeString @ 0x1407A87B8 (PopAnsiStringToUnicodeString.c)
+ *     PopPowerRequestStatsIdConcat @ 0x1407A8CC0 (PopPowerRequestStatsIdConcat.c)
+ *     PopUnicodeStringDeepCopy @ 0x1408599E0 (PopUnicodeStringDeepCopy.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

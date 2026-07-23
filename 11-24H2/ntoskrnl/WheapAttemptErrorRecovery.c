@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapAttemptErrorRecovery @ 0x14065BDA0
+ * XREFs of WheapAttemptErrorRecovery @ 0x14065A4C0
  * Callers:
- *     WheaReportHwError @ 0x14042E300 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x140420030 (WheaReportHwError.c)
  * Callees:
- *     WheapAttemptArchitecturalErrorRecovery @ 0x14065BD00 (WheapAttemptArchitecturalErrorRecovery.c)
+ *     WheapAttemptArchitecturalErrorRecovery @ 0x14065A420 (WheapAttemptArchitecturalErrorRecovery.c)
  */
 
 __int64 __fastcall WheapAttemptErrorRecovery(__int64 a1)

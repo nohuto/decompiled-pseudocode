@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAddSecurityCellToCache @ 0x14070D6D8
+ * XREFs of CmpAddSecurityCellToCache @ 0x14070D8E8
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x14070C9DC (CmpValidateHiveSecurityDescriptors.c)
- *     CmpSetSecurityDescriptorInfo @ 0x14070CF18 (CmpSetSecurityDescriptorInfo.c)
- *     CmpInsertSecurityCellList @ 0x1407DE120 (CmpInsertSecurityCellList.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14070CBEC (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x14070D128 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpInsertSecurityCellList @ 0x1407DE3F0 (CmpInsertSecurityCellList.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x14022CFB0 (CmpFindSecurityCellCacheIndex.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpSecConvKey @ 0x14070DAF0 (CmpSecConvKey.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14022D0C0 (CmpFindSecurityCellCacheIndex.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpSecConvKey @ 0x14070DD00 (CmpSecConvKey.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpAddSecurityCellToCache(

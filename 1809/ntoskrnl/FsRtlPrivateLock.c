@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlPrivateLock @ 0x14008C8F0
+ * XREFs of FsRtlPrivateLock @ 0x14008C8E0
  * Callers:
- *     FsRtlProcessFileLock @ 0x14013F9D0 (FsRtlProcessFileLock.c)
+ *     FsRtlProcessFileLock @ 0x14013FAD0 (FsRtlProcessFileLock.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x140063080 (KeReleaseSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     FsRtlPrivateInsertLock @ 0x14008D14C (FsRtlPrivateInsertLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x14008D444 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140122434 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     FsRtlPrivateInitializeFileLock @ 0x140136CA8 (FsRtlPrivateInitializeFileLock.c)
- *     FsRtlCompleteLockIrpReal @ 0x14013FA90 (FsRtlCompleteLockIrpReal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlPrivateCancelFileLockIrp @ 0x14026F470 (FsRtlPrivateCancelFileLockIrp.c)
- *     FsRtlPrivateRemoveLock @ 0x14026F614 (FsRtlPrivateRemoveLock.c)
+ *     KeReleaseSpinLock @ 0x140063070 (KeReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlPrivateInsertLock @ 0x14008D08C (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x14008D384 (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140122504 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     FsRtlPrivateInitializeFileLock @ 0x140136DA8 (FsRtlPrivateInitializeFileLock.c)
+ *     FsRtlCompleteLockIrpReal @ 0x14013FB90 (FsRtlCompleteLockIrpReal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x14026F660 (FsRtlPrivateCancelFileLockIrp.c)
+ *     FsRtlPrivateRemoveLock @ 0x14026F804 (FsRtlPrivateRemoveLock.c)
  */
 
 BOOLEAN __stdcall FsRtlPrivateLock(

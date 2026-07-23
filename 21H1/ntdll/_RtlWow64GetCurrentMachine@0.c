@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlWow64GetCurrentMachine()
+USHORT RtlWow64GetCurrentMachine(void)
 {
   return 332;
 }

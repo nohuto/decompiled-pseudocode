@@ -6,7 +6,12 @@
  *     MiReadWriteVirtualMemory @ 0x14061FCA0 (MiReadWriteVirtualMemory.c)
  */
 
-__int64 __fastcall NtReadVirtualMemory(void *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl NtReadVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead)
 {
-  return MiReadWriteVirtualMemory(a1, a5, 0x10u);
+  return MiReadWriteVirtualMemory(ProcessHandle, (__int64)NumberOfBytesRead, 0x10u);
 }

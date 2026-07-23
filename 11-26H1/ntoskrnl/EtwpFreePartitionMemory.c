@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpFreePartitionMemory @ 0x140488BA8
+ * XREFs of EtwpFreePartitionMemory @ 0x1404826E8
  * Callers:
- *     EtwpFreeTraceBuffer @ 0x140488B18 (EtwpFreeTraceBuffer.c)
+ *     EtwpFreeTraceBuffer @ 0x140482658 (EtwpFreeTraceBuffer.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     EtwpUnregisterPartitionPages @ 0x140488C0C (EtwpUnregisterPartitionPages.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     EtwpUnregisterPartitionPages @ 0x14048274C (EtwpUnregisterPartitionPages.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreePartitionMemory(__int64 a1, void *a2)

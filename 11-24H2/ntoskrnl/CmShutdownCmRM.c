@@ -1,12 +1,12 @@
 /*
- * XREFs of CmShutdownCmRM @ 0x140A046F4
+ * XREFs of CmShutdownCmRM @ 0x140A00C24
  * Callers:
- *     CmpTryToRundownHive @ 0x1402C6840 (CmpTryToRundownHive.c)
- *     CmShutdownSystem1 @ 0x1406679A8 (CmShutdownSystem1.c)
- *     CmpPerformUnloadKey @ 0x14097B52C (CmpPerformUnloadKey.c)
+ *     CmpTryToRundownHive @ 0x1402BB3C0 (CmpTryToRundownHive.c)
+ *     CmShutdownSystem1 @ 0x140666298 (CmShutdownSystem1.c)
+ *     CmpPerformUnloadKey @ 0x140963D3C (CmpPerformUnloadKey.c)
  * Callees:
- *     CmpStopRMLog @ 0x140A0452C (CmpStopRMLog.c)
- *     CmpRunDownCmRM @ 0x140A04740 (CmpRunDownCmRM.c)
+ *     CmpStopRMLog @ 0x140A00A5C (CmpStopRMLog.c)
+ *     CmpRunDownCmRM @ 0x140A00C70 (CmpRunDownCmRM.c)
  */
 
 __int64 __fastcall CmShutdownCmRM(__int64 a1, __int64 a2)

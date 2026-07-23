@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLockRootJobShared @ 0x140774B38
+ * XREFs of PspLockRootJobShared @ 0x140777B38
  * Callers:
- *     PspLockJobAndRootShared @ 0x140B6A018 (PspLockJobAndRootShared.c)
+ *     PspLockJobAndRootShared @ 0x140B6D224 (PspLockJobAndRootShared.c)
  * Callees:
- *     PspLockJobShared @ 0x140A81FE8 (PspLockJobShared.c)
- *     PspUnlockJobShared @ 0x140AAD180 (PspUnlockJobShared.c)
+ *     PspLockJobShared @ 0x140A87E58 (PspLockJobShared.c)
+ *     PspUnlockJobShared @ 0x140AAB240 (PspUnlockJobShared.c)
  */
 
 __int64 __fastcall PspLockRootJobShared(__int64 a1, __int64 a2, __int64 a3)

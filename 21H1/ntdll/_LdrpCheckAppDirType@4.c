@@ -11,33 +11,33 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-void __thiscall LdrpCheckAppDirType(int *this)
+void __thiscall LdrpCheckAppDirType(_UNICODE_STRING *this)
 {
   HANDLE FileHandle; // [esp+8h] [ebp-148h] BYREF
-  UNICODE_STRING *v2; // [esp+Ch] [ebp-144h] BYREF
-  _DWORD v3[2]; // [esp+10h] [ebp-140h] BYREF
-  UNICODE_STRING UnicodeString; // [esp+18h] [ebp-138h] BYREF
-  _BYTE v5[4]; // [esp+20h] [ebp-130h] BYREF
+  int v2; // [esp+Ch] [ebp-144h] BYREF
+  int v3[2]; // [esp+10h] [ebp-140h] BYREF
+  _UNICODE_STRING UnicodeString; // [esp+18h] [ebp-138h] BYREF
+  _BYTE FsInformation[4]; // [esp+20h] [ebp-130h] BYREF
   int v6; // [esp+24h] [ebp-12Ch]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+28h] [ebp-128h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+40h] [ebp-110h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+28h] [ebp-128h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+40h] [ebp-110h] BYREF
   char v9; // [esp+48h] [ebp-108h] BYREF
 
   v3[0] = 0x1000000;
   v6 = 0;
-  v3[1] = &v9;
+  v3[1] = (int)&v9;
   UnicodeString.Buffer = 0;
   FileHandle = 0;
-  if ( RtlpDosPathNameToRelativeNtPathName(0, this, (unsigned __int16 *)v3, &UnicodeString.Length, &v2, 0, 0) >= 0 )
+  if ( RtlpDosPathNameToRelativeNtPathName(0, this, (unsigned __int16 *)v3, &UnicodeString, (int)&v2, 0, 0) >= 0 )
   {
-    ObjectAttributes.ObjectName = v2;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)v2;
     ObjectAttributes.Length = 24;
     ObjectAttributes.RootDirectory = 0;
     ObjectAttributes.Attributes = 64;
     ObjectAttributes.SecurityDescriptor = 0;
     ObjectAttributes.SecurityQualityOfService = 0;
     if ( NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u) >= 0
-      && NtQueryVolumeInformationFile((int)FileHandle, (int)&IoStatusBlock, (int)v5, 8, 4) >= 0 )
+      && NtQueryVolumeInformationFile(FileHandle, &IoStatusBlock, FsInformation, 8u, FileFsDeviceInformation) >= 0 )
     {
       LdrpIllegalCWDDevices = (v6 & LdrpIllegalCWDDevices) == 0 ? LdrpIllegalCWDDevices : 0;
     }

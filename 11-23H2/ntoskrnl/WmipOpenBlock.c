@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipOpenBlock @ 0x1406C552C
+ * XREFs of WmipOpenBlock @ 0x1406C555C
  * Callers:
- *     IoWMIOpenBlock @ 0x1406C6A20 (IoWMIOpenBlock.c)
- *     WmipIoControl @ 0x1407D6170 (WmipIoControl.c)
+ *     IoWMIOpenBlock @ 0x1406C6A50 (IoWMIOpenBlock.c)
+ *     WmipIoControl @ 0x1407D6440 (WmipIoControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     WmipOpenGuidObject @ 0x1406C5730 (WmipOpenGuidObject.c)
- *     WmipFindGEByGuid @ 0x1406C6404 (WmipFindGEByGuid.c)
- *     WmipEnableCollectOrEvent @ 0x1406C68B8 (WmipEnableCollectOrEvent.c)
- *     WmipIsQuerySetGuid @ 0x1406C69AC (WmipIsQuerySetGuid.c)
- *     WmipAllocGuidEntry @ 0x140841AE4 (WmipAllocGuidEntry.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     WmipOpenGuidObject @ 0x1406C5760 (WmipOpenGuidObject.c)
+ *     WmipFindGEByGuid @ 0x1406C6434 (WmipFindGEByGuid.c)
+ *     WmipEnableCollectOrEvent @ 0x1406C68E8 (WmipEnableCollectOrEvent.c)
+ *     WmipIsQuerySetGuid @ 0x1406C69DC (WmipIsQuerySetGuid.c)
+ *     WmipAllocGuidEntry @ 0x140841DE4 (WmipAllocGuidEntry.c)
  */
 
 __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4, _QWORD *a5)

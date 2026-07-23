@@ -1,28 +1,28 @@
 /*
- * XREFs of PopHandleNextState @ 0x1409930D0
+ * XREFs of PopHandleNextState @ 0x1409940D0
  * Callers:
- *     PopIssueNextState @ 0x14099300C (PopIssueNextState.c)
- *     PopInvokeStateHandlerTargetProcessor @ 0x140993050 (PopInvokeStateHandlerTargetProcessor.c)
+ *     PopIssueNextState @ 0x14099400C (PopIssueNextState.c)
+ *     PopInvokeStateHandlerTargetProcessor @ 0x140994050 (PopInvokeStateHandlerTargetProcessor.c)
  * Callees:
- *     KeForceAttachProcess @ 0x14025C278 (KeForceAttachProcess.c)
- *     KeForceDetachProcess @ 0x1402BA388 (KeForceDetachProcess.c)
- *     KeSaveExtendedAndSupervisorState @ 0x1402C0F5C (KeSaveExtendedAndSupervisorState.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x1402C2C98 (KeRestoreExtendedAndSupervisorState.c)
- *     PopFxNotifySystemStateTransition @ 0x140383448 (PopFxNotifySystemStateTransition.c)
- *     KeResumeClockTimer @ 0x140383468 (KeResumeClockTimer.c)
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x140383554 (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140383C48 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     KeSuspendClockTimer @ 0x140383C68 (KeSuspendClockTimer.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x140383CCC (KeRestoreProcessorSpecificFeatures.c)
- *     HvlNotifyLongSpinWait @ 0x140390140 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeFlushCurrentTbImmediately @ 0x1403A0A80 (KeFlushCurrentTbImmediately.c)
- *     HvlEnlightenProcessor @ 0x1403A7998 (HvlEnlightenProcessor.c)
+ *     KeForceDetachProcess @ 0x140238598 (KeForceDetachProcess.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14023F3FC (KeSaveExtendedAndSupervisorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1402411B8 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeForceAttachProcess @ 0x14027D7E8 (KeForceAttachProcess.c)
+ *     PopFxNotifySystemStateTransition @ 0x1403835F8 (PopFxNotifySystemStateTransition.c)
+ *     KeResumeClockTimer @ 0x140383618 (KeResumeClockTimer.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x140383704 (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140383DF8 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KeSuspendClockTimer @ 0x140383E18 (KeSuspendClockTimer.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140383E7C (KeRestoreProcessorSpecificFeatures.c)
+ *     HvlNotifyLongSpinWait @ 0x140390290 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140391070 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeFlushCurrentTbImmediately @ 0x1403A0BD0 (KeFlushCurrentTbImmediately.c)
+ *     HvlEnlightenProcessor @ 0x1403A7AE8 (HvlEnlightenProcessor.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     PpmResetPerfEngineForProcessorEx @ 0x1403F81B0 (PpmResetPerfEngineForProcessorEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KdPowerTransition @ 0x140510FA0 (KdPowerTransition.c)
- *     PopRestoreHiberContext @ 0x1409934E8 (PopRestoreHiberContext.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KdPowerTransition @ 0x1405111E0 (KdPowerTransition.c)
+ *     PopRestoreHiberContext @ 0x1409944E8 (PopRestoreHiberContext.c)
  */
 
 void __fastcall PopHandleNextState(__int64 a1, __int64 a2)
@@ -66,7 +66,7 @@ void __fastcall PopHandleNextState(__int64 a1, __int64 a2)
   switch ( v6 )
   {
     case 2:
-      PopFxNotifySystemStateTransition((__int64)CurrentPrcb, 1, dword_140C23460);
+      PopFxNotifySystemStateTransition((__int64)CurrentPrcb, 1, dword_140C23A80);
       break;
     case 3:
       KeSaveIptStateBeforeProcessorGoesOffline();
@@ -123,7 +123,7 @@ void __fastcall PopHandleNextState(__int64 a1, __int64 a2)
             Number = CurrentPrcb->Number;
           }
           if ( !Number )
-            qword_140C23A80 = __rdtsc();
+            qword_140C240A0 = __rdtsc();
         }
         *(_DWORD *)(a2 + 112) = v12;
       }
@@ -182,7 +182,7 @@ void __fastcall PopHandleNextState(__int64 a1, __int64 a2)
       __writecr8(v14);
       break;
     case 14:
-      PopFxNotifySystemStateTransition((__int64)CurrentPrcb, 0, dword_140C23460);
+      PopFxNotifySystemStateTransition((__int64)CurrentPrcb, 0, dword_140C23A80);
       break;
     case 15:
       if ( *(_BYTE *)(a2 + 5) )

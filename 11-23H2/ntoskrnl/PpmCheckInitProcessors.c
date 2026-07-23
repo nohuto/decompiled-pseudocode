@@ -1,29 +1,29 @@
 /*
- * XREFs of PpmCheckInitProcessors @ 0x14082E2C4
+ * XREFs of PpmCheckInitProcessors @ 0x14082E5C4
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x14082C6C0 (PpmReapplyPerfPolicy.c)
- *     PopNewProcessorCallback @ 0x140980420 (PopNewProcessorCallback.c)
+ *     PpmReapplyPerfPolicy @ 0x14082C9C0 (PpmReapplyPerfPolicy.c)
+ *     PopNewProcessorCallback @ 0x140980620 (PopNewProcessorCallback.c)
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFB1C (PopExecuteOnTargetProcessors.c)
- *     KiOrAffinityEx @ 0x1402C2AB0 (KiOrAffinityEx.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     KiSubtractAffinityEx @ 0x14033D83C (KiSubtractAffinityEx.c)
- *     PpmParkRegisterParking @ 0x1403918C0 (PpmParkRegisterParking.c)
- *     PpmCheckApplyParkConstraints @ 0x14039305C (PpmCheckApplyParkConstraints.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140393770 (KeQueryActiveProcessorAffinity2.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HvlIsRootPowerSchedulerQosPresent @ 0x14053F8F0 (HvlIsRootPowerSchedulerQosPresent.c)
- *     PpmUpdateProcessorPolicy @ 0x14082C7B0 (PpmUpdateProcessorPolicy.c)
- *     PpmCheckReInit @ 0x14082CAEC (PpmCheckReInit.c)
- *     PpmAllocatePerfCheck @ 0x14082F014 (PpmAllocatePerfCheck.c)
- *     PpmReinitializeHeteroEngine @ 0x14082F1A8 (PpmReinitializeHeteroEngine.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PopExecuteOnTargetProcessors @ 0x1402BFDAC (PopExecuteOnTargetProcessors.c)
+ *     KiOrAffinityEx @ 0x1402C2D40 (KiOrAffinityEx.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     KiSubtractAffinityEx @ 0x14033DACC (KiSubtractAffinityEx.c)
+ *     PpmParkRegisterParking @ 0x140391AA0 (PpmParkRegisterParking.c)
+ *     PpmCheckApplyParkConstraints @ 0x14039323C (PpmCheckApplyParkConstraints.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x140393950 (KeQueryActiveProcessorAffinity2.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvlIsRootPowerSchedulerQosPresent @ 0x14053FFB0 (HvlIsRootPowerSchedulerQosPresent.c)
+ *     PpmUpdateProcessorPolicy @ 0x14082CAB0 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckReInit @ 0x14082CDEC (PpmCheckReInit.c)
+ *     PpmAllocatePerfCheck @ 0x14082F314 (PpmAllocatePerfCheck.c)
+ *     PpmReinitializeHeteroEngine @ 0x14082F4A8 (PpmReinitializeHeteroEngine.c)
  */
 
 void __fastcall PpmCheckInitProcessors(int a1, int a2)
@@ -57,7 +57,7 @@ void __fastcall PpmCheckInitProcessors(int a1, int a2)
         KeQueryActiveProcessorAffinity2((__int64)v20),
         (unsigned __int8)KiSubtractAffinityEx((unsigned __int16 *)v20, (char *)&PpmCheckRegistered, v20, WORD1(v20[0]))) )
   {
-    KiOrAffinityEx((char *)&PpmCheckRegistered, v20, &PpmCheckRegistered, word_140C0BE62);
+    KiOrAffinityEx((char *)&PpmCheckRegistered, v20, &PpmCheckRegistered, word_140C0BE72);
     if ( !(unsigned int)KeIsEmptyAffinityEx(v20) )
     {
       v12[1] = (unsigned __int16 *)v20[1];
@@ -88,7 +88,7 @@ void __fastcall PpmCheckInitProcessors(int a1, int a2)
       && !PpmPerfVmQosSupported )
     {
       PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-      v16[1] = (unsigned __int16 *)qword_140C0BE68[0];
+      v16[1] = (unsigned __int16 *)qword_140C0BE78[0];
       v17 = 0;
       v16[0] = (unsigned __int16 *)&PpmCheckRegistered;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v10, v16) )

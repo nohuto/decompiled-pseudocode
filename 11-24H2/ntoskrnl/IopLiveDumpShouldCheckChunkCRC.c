@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpShouldCheckChunkCRC @ 0x14049B234
+ * XREFs of IopLiveDumpShouldCheckChunkCRC @ 0x140495C24
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x14049ADE4 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpBufferDumpData @ 0x140599878 (IopLiveDumpBufferDumpData.c)
- *     IopLiveDumpGetCapturePages @ 0x14059B194 (IopLiveDumpGetCapturePages.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1404957D4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpBufferDumpData @ 0x1405967F8 (IopLiveDumpBufferDumpData.c)
+ *     IopLiveDumpGetCapturePages @ 0x140598114 (IopLiveDumpGetCapturePages.c)
  * Callees:
- *     IopLiveDumpIsChunkInIOSpace @ 0x14059BA3C (IopLiveDumpIsChunkInIOSpace.c)
+ *     IopLiveDumpIsChunkInIOSpace @ 0x1405989BC (IopLiveDumpIsChunkInIOSpace.c)
  */
 
 bool __fastcall IopLiveDumpShouldCheckChunkCRC(__int64 a1)

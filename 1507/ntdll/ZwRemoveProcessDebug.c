@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRemoveProcessDebug()
+NTSTATUS __cdecl ZwRemoveProcessDebug(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 343LL;
+  result = 343;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -18,20 +18,20 @@
  *     RtlpHeapExceptionFilter @ 0x180121428 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlDebugCreateTagHeap(_DWORD *Src, int a2, __int64 a3, _WORD *a4)
+__int64 __fastcall RtlDebugCreateTagHeap(_DWORD *Src, ULONG a2, WCHAR *a3, WCHAR *a4)
 {
   char v8; // si
-  int v9; // ebx
-  __int64 v10; // rbx
-  _BYTE *v12; // rdi
+  ULONG v9; // ebx
+  _RTL_CRITICAL_SECTION *v10; // rbx
+  int *p_LockCount; // rdi
   signed __int32 v13; // esi
-  HANDLE DeferredCriticalSectionEvent; // r10
+  HANDLE LockSemaphore; // r10
   int v15; // eax
   signed __int32 v17[8]; // [rsp+20h] [rbp-68h] BYREF
   char v18; // [rsp+40h] [rbp-48h]
-  unsigned int TagHeap; // [rsp+44h] [rbp-44h]
+  ULONG TagHeap; // [rsp+44h] [rbp-44h]
   _DWORD *v20; // [rsp+90h] [rbp+8h] BYREF
-  int v21; // [rsp+98h] [rbp+10h]
+  ULONG v21; // [rsp+98h] [rbp+10h]
 
   v21 = a2;
   v20 = Src;
@@ -44,52 +44,52 @@ __int64 __fastcall RtlDebugCreateTagHeap(_DWORD *Src, int a2, __int64 a3, _WORD 
     v21 = v9;
     if ( (v9 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
       v8 = 1;
       v18 = 1;
       v9 |= 1u;
       v21 = v9;
     }
-    if ( (unsigned __int8)RtlpValidateHeap(Src, 0LL) )
-      TagHeap = RtlCreateTagHeap((__int64 *)Src, v9, a3, a4);
+    if ( (unsigned __int8)RtlpValidateHeap((_DWORD)Src) )
+      TagHeap = RtlCreateTagHeap(Src, v9, a3, a4);
     RtlpValidateHeapHeaders(Src);
   }
   if ( v8 )
   {
-    v10 = *((_QWORD *)Src + 44);
-    if ( (*(_DWORD *)(v10 + 12))-- == 1 )
+    v10 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)Src + 44);
+    if ( v10->RecursionCount-- == 1 )
     {
-      *(_QWORD *)(v10 + 16) = 0LL;
-      v12 = (_BYTE *)(v10 + 8);
-      v13 = _InterlockedCompareExchange((volatile signed __int32 *)(v10 + 8), -1, -2);
+      v10->OwningThread = 0LL;
+      p_LockCount = &v10->LockCount;
+      v13 = _InterlockedCompareExchange(&v10->LockCount, -1, -2);
       if ( v13 != -2 )
       {
-        if ( (*v12 & 1) != 0 )
-          RtlpNotOwnerCriticalSection((const void **)v10);
-        DeferredCriticalSectionEvent = *(HANDLE *)(v10 + 24);
-        if ( !DeferredCriticalSectionEvent )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v10);
+        if ( (*(_BYTE *)p_LockCount & 1) != 0 )
+          RtlpNotOwnerCriticalSection(v10);
+        LockSemaphore = v10->LockSemaphore;
+        if ( !LockSemaphore )
+          LockSemaphore = RtlpCreateDeferredCriticalSectionEvent((__int64)v10);
         LODWORD(v20) = 0;
-        while ( v13 != _InterlockedCompareExchange((volatile signed __int32 *)v12, (v13 & 2 | 1) + v13, v13) )
+        while ( v13 != _InterlockedCompareExchange(p_LockCount, (v13 & 2 | 1) + v13, v13) )
         {
           RtlBackoff((unsigned int *)&v20);
-          _m_prefetchw(v12);
-          v13 = *(_DWORD *)v12;
+          _m_prefetchw(p_LockCount);
+          v13 = *p_LockCount;
         }
         if ( (v13 & 2) != 0 )
         {
-          if ( DeferredCriticalSectionEvent == (HANDLE)-1LL )
+          if ( LockSemaphore == (HANDLE)-1LL )
           {
             _InterlockedOr(v17, 0);
-            RtlpWakeByAddress(v10 + 8, 0);
+            RtlpWakeByAddress((unsigned __int64)&v10->LockCount, 0);
             v15 = 0;
           }
           else
           {
-            v15 = ZwSetEvent();
+            v15 = ZwSetEvent(LockSemaphore, 0LL);
           }
           if ( v15 < 0 )
-            RtlRaiseStatus((unsigned int)v15);
+            RtlRaiseStatus(v15);
         }
       }
     }

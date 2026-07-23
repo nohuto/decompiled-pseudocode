@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceControlAreaPfn @ 0x14025B320
+ * XREFs of MiReferenceControlAreaPfn @ 0x14025B5B0
  * Callers:
  *     MiInitializeImageProtos @ 0x14021A200 (MiInitializeImageProtos.c)
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     MiFinishMdlForMappedFileFault @ 0x1402E1B40 (MiFinishMdlForMappedFileFault.c)
- *     MiInitializeNewImageSectionProtos @ 0x140356D90 (MiInitializeNewImageSectionProtos.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1402E1DD0 (MiFinishMdlForMappedFileFault.c)
+ *     MiInitializeNewImageSectionProtos @ 0x140356F30 (MiInitializeNewImageSectionProtos.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
  * Callees:
- *     ExpAcquireSpinLockExclusive @ 0x14025B400 (ExpAcquireSpinLockExclusive.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14025B690 (ExpAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiReferenceControlAreaPfn(__int64 a1, __int64 a2, unsigned int a3)
@@ -33,7 +33,7 @@ __int64 __fastcall MiReferenceControlAreaPfn(__int64 a1, __int64 a2, unsigned in
     a2 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -54,10 +54,10 @@ __int64 __fastcall MiReferenceControlAreaPfn(__int64 a1, __int64 a2, unsigned in
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(a1 + 72, retaddr);
   else
     *(_DWORD *)(a1 + 72) = 0;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;

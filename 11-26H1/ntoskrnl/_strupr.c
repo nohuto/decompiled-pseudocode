@@ -1,16 +1,16 @@
 /*
- * XREFs of _strupr @ 0x140535360
+ * XREFs of _strupr @ 0x1405377E0
  * Callers:
- *     HalInitializeBios @ 0x1405784A0 (HalInitializeBios.c)
- *     InbvDetermineFunction @ 0x1405C4B30 (InbvDetermineFunction.c)
- *     KdInitSystem @ 0x140C12B60 (KdInitSystem.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     InbvDriverInitialize @ 0x140CBA030 (InbvDriverInitialize.c)
- *     BvgaDriverInitialize @ 0x140CBA110 (BvgaDriverInitialize.c)
- *     RamdiskStart @ 0x140D03E44 (RamdiskStart.c)
+ *     HalInitializeBios @ 0x14057A9D0 (HalInitializeBios.c)
+ *     InbvDetermineFunction @ 0x1405C73A0 (InbvDetermineFunction.c)
+ *     KdInitSystem @ 0x140C18B60 (KdInitSystem.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     InbvDriverInitialize @ 0x140CC0070 (InbvDriverInitialize.c)
+ *     BvgaDriverInitialize @ 0x140CC0150 (BvgaDriverInitialize.c)
+ *     RamdiskStart @ 0x140D0A114 (RamdiskStart.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
  */
 
 char *__cdecl strupr(char *String)

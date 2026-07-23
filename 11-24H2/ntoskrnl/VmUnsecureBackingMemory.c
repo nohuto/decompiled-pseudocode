@@ -1,9 +1,9 @@
 /*
- * XREFs of VmUnsecureBackingMemory @ 0x140AAD430
+ * XREFs of VmUnsecureBackingMemory @ 0x140AA84B0
  * Callers:
  *     <none>
  * Callees:
- *     MmUnsecureVirtualMemory @ 0x1408E51C0 (MmUnsecureVirtualMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x140896BF0 (MmUnsecureVirtualMemory.c)
  */
 
 void __fastcall VmUnsecureBackingMemory(void *a1)

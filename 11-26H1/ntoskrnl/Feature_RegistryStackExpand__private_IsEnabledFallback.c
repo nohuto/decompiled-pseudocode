@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_RegistryStackExpand__private_IsEnabledFallback @ 0x140532E58
+ * XREFs of Feature_RegistryStackExpand__private_IsEnabledFallback @ 0x1405352F4
  * Callers:
- *     Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline @ 0x1404690D0 (Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline @ 0x1404626A0 (Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_RegistryStackExpand__private_IsEnabledFallback(__int64 a1, unsigned int a2)

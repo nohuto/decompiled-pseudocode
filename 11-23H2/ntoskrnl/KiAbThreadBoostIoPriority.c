@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAbThreadBoostIoPriority @ 0x1403192F8
+ * XREFs of KiAbThreadBoostIoPriority @ 0x140319588
  * Callers:
- *     KiAbSetMinimumThreadPriority @ 0x140318E28 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1403190B8 (KiAbSetMinimumThreadPriority.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     KiAbQueueAutoBoostDpc @ 0x140307D48 (KiAbQueueAutoBoostDpc.c)
- *     PsBoostThreadIoQoS @ 0x14031A70C (PsBoostThreadIoQoS.c)
- *     KiAbThreadInsertList @ 0x140360020 (KiAbThreadInsertList.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140307FD8 (KiAbQueueAutoBoostDpc.c)
+ *     PsBoostThreadIoQoS @ 0x14031A99C (PsBoostThreadIoQoS.c)
+ *     KiAbThreadInsertList @ 0x1403601C0 (KiAbThreadInsertList.c)
  */
 
 __int64 __fastcall KiAbThreadBoostIoPriority(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

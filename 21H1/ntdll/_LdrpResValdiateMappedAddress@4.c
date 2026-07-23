@@ -6,12 +6,18 @@
  *     _NtQueryVirtualMemory@24 @ 0x4B2F2BB0 (_NtQueryVirtualMemory@24.c)
  */
 
-int __fastcall LdrpResValdiateMappedAddress(int a1)
+NTSTATUS __fastcall LdrpResValdiateMappedAddress(int a1)
 {
-  _BYTE v2[28]; // [esp+0h] [ebp-1Ch] BYREF
+  PSIZE_T MemoryInformation[7]; // [esp+0h] [ebp-1Ch] BYREF
 
   if ( a1 )
-    return NtQueryVirtualMemory(-1, a1 & 0xFFFFFFFC, 0, (int)v2, 28, 0);
+    return NtQueryVirtualMemory(
+             (HANDLE)0xFFFFFFFF,
+             (PVOID)(a1 & 0xFFFFFFFC),
+             MemoryBasicInformation,
+             MemoryInformation,
+             0x1CuLL,
+             MemoryInformation[0]);
   else
     return -1073741811;
 }

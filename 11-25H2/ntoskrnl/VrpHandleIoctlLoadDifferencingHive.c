@@ -125,7 +125,7 @@ __int64 __fastcall VrpHandleIoctlLoadDifferencingHive(
               goto LABEL_22;
             }
             JobSilo = -1073741670;
-            VrpUnloadDifferencingHive((const UNICODE_STRING *)Src);
+            VrpUnloadDifferencingHive((UNICODE_STRING *)Src);
           }
         }
         VrpUnlockJobContextExclusive(v16);

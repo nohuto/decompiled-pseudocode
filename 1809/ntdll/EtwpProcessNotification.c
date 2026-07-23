@@ -5,15 +5,15 @@
  * Callees:
  *     EtwpUpdateEnableInfoAndCallback @ 0x180021104 (EtwpUpdateEnableInfoAndCallback.c)
  *     EtwProcessPrivateLoggerRequest @ 0x18004FE80 (EtwProcessPrivateLoggerRequest.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall EtwpProcessNotification(__int64 a1, __int64 a2, unsigned __int64 *a3, _DWORD *a4, _BYTE *a5)
+char __fastcall EtwpProcessNotification(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4, _BYTE *a5)
 {
   __int16 v5; // ax
   char v6; // bl
-  unsigned __int64 v8; // rax
-  unsigned __int64 v10; // rax
+  __int64 v8; // rax
+  __int64 v10; // rax
   __int64 v11; // rdx
 
   v5 = *(_WORD *)(a1 + 98);
@@ -28,7 +28,7 @@ char __fastcall EtwpProcessNotification(__int64 a1, __int64 a2, unsigned __int64
         v8 = *(_QWORD *)(a1 + 88);
       *a3 = v8;
       *(_QWORD *)(a2 + 24) = v8;
-      EtwpUpdateEnableInfoAndCallback(a1, a2, a3, (__int64)a4);
+      EtwpUpdateEnableInfoAndCallback(a1, a2);
       goto LABEL_6;
     }
   }
@@ -37,7 +37,7 @@ char __fastcall EtwpProcessNotification(__int64 a1, __int64 a2, unsigned __int64
     if ( (unsigned __int16)((v5 & 0x3FFF) - 2) <= 1u )
     {
       *a3 = *(_QWORD *)(a1 + 88);
-      *a4 = EtwProcessPrivateLoggerRequest((char *)a2, 0x3FFFuLL, a3, (__int64)a4);
+      *a4 = EtwProcessPrivateLoggerRequest((char *)a2);
       v6 = 1;
       *a5 = 1;
     }

@@ -11,7 +11,7 @@
  *     ObQuerySecurityObject @ 0x140562964 (ObQuerySecurityObject.c)
  */
 
-NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
+NTSTATUS __cdecl RtlIsUntrustedObject(HANDLE Handle, PVOID Object, PBOOLEAN IsUntrustedObject)
 {
   _BYTE *PoolWithQuotaTag; // rdi
   int v5; // r12d
@@ -20,18 +20,18 @@ NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
   NTSTATUS v9; // ebx
   __int16 v10; // ax
   __int64 v11; // rax
-  __int64 v12; // rsi
-  unsigned __int8 *AceByType; // rax
+  ACL *v12; // rsi
+  _BYTE *AceByType; // rax
   NTSTATUS SecurityObject; // eax
   unsigned __int8 v15; // cl
   ULONG LengthNeeded; // [rsp+30h] [rbp-C8h] BYREF
-  unsigned int v17[3]; // [rsp+34h] [rbp-C4h] BYREF
+  ULONG Index[3]; // [rsp+34h] [rbp-C4h] BYREF
   _BYTE SecurityDescriptor[128]; // [rsp+40h] [rbp-B8h] BYREF
 
-  *a3 = 1;
+  *IsUntrustedObject = 1;
   PoolWithQuotaTag = SecurityDescriptor;
-  v5 = a2;
-  if ( a2 )
+  v5 = (int)Object;
+  if ( Object )
   {
     if ( !Handle )
       goto LABEL_3;
@@ -61,7 +61,7 @@ LABEL_3:
   }
   else
   {
-    result = ObQuerySecurityObject(a2, 16, (unsigned int)SecurityDescriptor, 124, (__int64)&LengthNeeded);
+    result = ObQuerySecurityObject((_DWORD)Object, 16, (unsigned int)SecurityDescriptor, 124, (__int64)&LengthNeeded);
     v9 = result;
     if ( result >= 0 )
       goto LABEL_5;
@@ -86,21 +86,21 @@ LABEL_5:
         {
           if ( v10 >= 0 )
           {
-            v12 = *((_QWORD *)PoolWithQuotaTag + 3);
+            v12 = (ACL *)*((_QWORD *)PoolWithQuotaTag + 3);
           }
           else
           {
             v11 = *((unsigned int *)PoolWithQuotaTag + 3);
             if ( !(_DWORD)v11 )
               goto LABEL_12;
-            v12 = (__int64)&PoolWithQuotaTag[v11];
+            v12 = (ACL *)&PoolWithQuotaTag[v11];
           }
           if ( v12 )
           {
-            v17[0] = 0;
+            Index[0] = 0;
             while ( 1 )
             {
-              AceByType = RtlFindAceByType(v12, 17, v17);
+              AceByType = RtlFindAceByType(v12, 0x11u, Index);
               if ( !AceByType )
                 break;
               if ( (AceByType[1] & 8) == 0 )
@@ -114,7 +114,7 @@ LABEL_5:
           }
         }
 LABEL_12:
-        *a3 = 0;
+        *IsUntrustedObject = 0;
 LABEL_13:
         if ( !v7 )
           return v9;

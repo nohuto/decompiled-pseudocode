@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpSetCoverageSamplerInformation @ 0x140831834
+ * XREFs of EtwpSetCoverageSamplerInformation @ 0x140837A74
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     EtwpCovSampApplyBounds @ 0x1408305C0 (EtwpCovSampApplyBounds.c)
- *     EtwpCovSampSplitSegments @ 0x140830F04 (EtwpCovSampSplitSegments.c)
- *     EtwpCoverageSamplerSetBloomFilter @ 0x140831304 (EtwpCoverageSamplerSetBloomFilter.c)
- *     EtwpCoverageSamplerStart @ 0x1408314FC (EtwpCoverageSamplerStart.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     ExCheckFullProcessInformationAccess @ 0x1409E78E0 (ExCheckFullProcessInformationAccess.c)
- *     EtwpCoverageSamplerStop @ 0x140A84B18 (EtwpCoverageSamplerStop.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     EtwpCovSampApplyBounds @ 0x140836800 (EtwpCovSampApplyBounds.c)
+ *     EtwpCovSampSplitSegments @ 0x140837144 (EtwpCovSampSplitSegments.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x140837544 (EtwpCoverageSamplerSetBloomFilter.c)
+ *     EtwpCoverageSamplerStart @ 0x14083773C (EtwpCoverageSamplerStart.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     EtwpCoverageSamplerStop @ 0x1409BDF40 (EtwpCoverageSamplerStop.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1409D42F8 (ExCheckFullProcessInformationAccess.c)
  */
 
 __int64 __fastcall EtwpSetCoverageSamplerInformation(void *a1, SIZE_T Length, unsigned __int8 AccessMode)
@@ -149,7 +149,7 @@ LABEL_7:
       inserted = ObReferenceObjectByHandle(
                    Handle[1],
                    1u,
-                   (POBJECT_TYPE)ExpSysDbgLock.OtherTransferCount,
+                   (POBJECT_TYPE)ExpSysDbgLock.KernelWaitTime,
                    AccessMode,
                    &Object,
                    0LL);
@@ -250,7 +250,7 @@ LABEL_2:
   *(_QWORD *)&v48 = 0LL;
   v49 = 0LL;
   LOBYTE(v34) = AccessMode;
-  inserted = ObCreateObjectEx(0, ExpSysDbgLock.OtherTransferCount, (unsigned int)&v47, v34);
+  inserted = ObCreateObjectEx(0, ExpSysDbgLock.KernelWaitTime, (unsigned int)&v47, v34);
   if ( inserted < 0 )
   {
     v6 = (char *)Object;
@@ -314,7 +314,7 @@ LABEL_2:
       if ( inserted >= 0 )
       {
         v43 = 1;
-        inserted = EtwpCoverageSamplerStart((__int64)v6);
+        inserted = EtwpCoverageSamplerStart((unsigned __int64)v6);
         if ( inserted >= 0 )
         {
           PsReferenceSiloContext(v6);

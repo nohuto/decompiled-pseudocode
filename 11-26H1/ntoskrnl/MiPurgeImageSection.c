@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPurgeImageSection @ 0x140B69DBC
+ * XREFs of MiPurgeImageSection @ 0x140B6CD4C
  * Callers:
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
  * Callees:
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
  */
 
 __int64 __fastcall MiPurgeImageSection(__int64 a1)

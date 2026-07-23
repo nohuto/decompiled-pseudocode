@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetWorkingSetInfo @ 0x140546C38
+ * XREFs of MiGetWorkingSetInfo @ 0x140546E78
  * Callers:
- *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1406885A0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiGetWorkingSetInfoEx @ 0x140546DE0 (MiGetWorkingSetInfoEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiProbeAndLockPages @ 0x1402AF160 (MiProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MiGetWorkingSetInfoEx @ 0x140547020 (MiGetWorkingSetInfoEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiGetWorkingSetInfo(__int64 a1, int a2, __int64 a3, unsigned __int64 a4, _QWORD *P)

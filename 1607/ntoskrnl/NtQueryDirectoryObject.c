@@ -1,18 +1,18 @@
 /*
- * XREFs of NtQueryDirectoryObject @ 0x1404B0580
+ * XREFs of NtQueryDirectoryObject @ 0x14049A960
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObpUnlockDirectory @ 0x14008BA30 (ObpUnlockDirectory.c)
- *     ObpLockDirectoryShared @ 0x1400EE448 (ObpLockDirectoryShared.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObpUnlockDirectory @ 0x14008B190 (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryShared @ 0x1400EC2BC (ObpLockDirectoryShared.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtQueryDirectoryObject(

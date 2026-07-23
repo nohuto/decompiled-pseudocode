@@ -196,7 +196,7 @@ $727077A9B6E167EAE1398C74674DC5A5 *__fastcall MiInitializePartition(ULONG *Defer
     --v5;
   }
   while ( v5 );
-  MiPopulateFreeKernelShadowStackCacheEntries((union _SLIST_HEADER *)DeferredContext);
+  MiPopulateFreeKernelShadowStackCacheEntries((_SLIST_HEADER *)DeferredContext);
   v32 = DeferredContext + 624;
   *((_QWORD *)DeferredContext + 24) = 0LL;
   v33 = 9LL;

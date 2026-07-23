@@ -6,7 +6,7 @@
  *     <none>
  */
 
-char __fastcall RtlOwnerAcesPresent(__int64 a1, __int64 a2, __int64 a3)
+BOOLEAN __cdecl RtlOwnerAcesPresent(PACL pAcl)
 {
-  return sub_180043FA0(0, a1, a3);
+  return sub_180043FA0(0, (__int64)pAcl);
 }

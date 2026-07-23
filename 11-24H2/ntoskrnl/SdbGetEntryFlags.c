@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbGetEntryFlags @ 0x140AA4CF0
+ * XREFs of SdbGetEntryFlags @ 0x140A9FFF0
  * Callers:
- *     SdbReadEntryInformation @ 0x1408027F8 (SdbReadEntryInformation.c)
- *     SdbpGetExeEntryFlags @ 0x140804700 (SdbpGetExeEntryFlags.c)
+ *     SdbReadEntryInformation @ 0x140802F38 (SdbReadEntryInformation.c)
+ *     SdbpGetExeEntryFlags @ 0x140804E40 (SdbpGetExeEntryFlags.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SdbpQueryAppCompatFlagsByExeID @ 0x140807274 (SdbpQueryAppCompatFlagsByExeID.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     AslGuidToString @ 0x140AA4DBC (AslGuidToString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SdbpQueryAppCompatFlagsByExeID @ 0x1408079B4 (SdbpQueryAppCompatFlagsByExeID.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     AslGuidToString @ 0x140AA00BC (AslGuidToString.c)
  */
 
 __int64 __fastcall SdbGetEntryFlags(__int64 a1, _DWORD *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall SdbGetEntryFlags(__int64 a1, _DWORD *a2)
   }
   else
   {
-    AslLogCallPrintf(1LL, (__int64)"SdbGetEntryFlags", 125LL, (__int64)"Failed to convert EXE id to string [%x]");
+    AslLogCallPrintf(1LL, (__int64)"SdbGetEntryFlags");
   }
   return 1LL;
 }

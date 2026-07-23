@@ -8,21 +8,21 @@
  *     RtlpHpVaMgrCtxAllocatorFind @ 0x180064584 (RtlpHpVaMgrCtxAllocatorFind.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrCtxAlloc(__int64 a1, char *a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall RtlpHpVaMgrCtxAlloc(_RTL_SRWLOCK *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v8; // rdi
-  volatile signed __int64 *v10; // rbx
+  _RTL_SRWLOCK *v6; // rdi
+  _RTL_SRWLOCK *v8; // rbx
 
   if ( *a4 == -1 )
   {
-    v10 = (volatile signed __int64 *)(a1 + 96);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 96), a2, a3, (__int64)a4);
-    v8 = RtlpHpVaMgrCtxAllocatorFind(a1, a4, 0LL, 0LL);
-    RtlReleaseSRWLockShared(v10);
+    v8 = a1 + 12;
+    RtlAcquireSRWLockShared(a1 + 12);
+    v6 = (_RTL_SRWLOCK *)RtlpHpVaMgrCtxAllocatorFind(a1, a4, 0LL, 0LL);
+    RtlReleaseSRWLockShared(v8);
   }
   else
   {
-    v8 = 48LL * (unsigned int)*a4 + a1 + 112;
+    v6 = &a1[6 * (unsigned int)*a4 + 14];
   }
-  return RtlpHpVaMgrAlloc(v8, a2, a3);
+  return RtlpHpVaMgrAlloc(v6);
 }

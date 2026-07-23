@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpCancelDeviceActionRequest @ 0x140562604
+ * XREFs of PnpCancelDeviceActionRequest @ 0x140562CC4
  * Callers:
- *     PiControlGetSetDeviceStatus @ 0x1406CBD20 (PiControlGetSetDeviceStatus.c)
- *     PiQueueDeviceRequest @ 0x14096DEE8 (PiQueueDeviceRequest.c)
+ *     PiControlGetSetDeviceStatus @ 0x1406CBD50 (PiControlGetSetDeviceStatus.c)
+ *     PiQueueDeviceRequest @ 0x14096E0E8 (PiQueueDeviceRequest.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
  */
 
 _QWORD *__fastcall PnpCancelDeviceActionRequest(__int64 a1)

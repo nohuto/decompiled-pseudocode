@@ -1,21 +1,21 @@
 /*
- * XREFs of MiZeroAllPageFiles @ 0x1409AFF70
+ * XREFs of MiZeroAllPageFiles @ 0x1409B0EA0
  * Callers:
- *     MiShutdownSystem @ 0x1409AFDB8 (MiShutdownSystem.c)
+ *     MiShutdownSystem @ 0x1409B0CE8 (MiShutdownSystem.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiZeroPageFile @ 0x14052D750 (MiZeroPageFile.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiZeroPageFile @ 0x14052D990 (MiZeroPageFile.c)
  */
 
 __int64 MiZeroAllPageFiles()
@@ -34,16 +34,16 @@ __int64 MiZeroAllPageFiles()
   VfZeroAllPagesRunning = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C51190, 0LL);
-  v1 = qword_140C50E20;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)qword_140C511D0, 0LL);
+  v1 = qword_140C50E60;
   v2 = Count;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C51190, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&qword_140C51190);
-  KeAbPostRelease((ULONG_PTR)&qword_140C51190);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140C511D0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(qword_140C511D0);
+  KeAbPostRelease((ULONG_PTR)qword_140C511D0);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   if ( v1 && v2 )
   {
-    KeWaitForSingleObject(&unk_140C51078, WrKernel, 0, 0, 0LL);
+    KeWaitForSingleObject(&unk_140C510B8, WrKernel, 0, 0, 0LL);
     v3 = v2;
     do
     {

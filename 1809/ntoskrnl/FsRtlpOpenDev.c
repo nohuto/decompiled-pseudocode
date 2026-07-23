@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlpOpenDev @ 0x140759050
+ * XREFs of FsRtlpOpenDev @ 0x14075A240
  * Callers:
- *     FsRtlpRegisterUncProvider @ 0x140758E74 (FsRtlpRegisterUncProvider.c)
+ *     FsRtlpRegisterUncProvider @ 0x14075A064 (FsRtlpRegisterUncProvider.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
  */
 
 NTSTATUS __fastcall FsRtlpOpenDev(PHANDLE FileHandle)

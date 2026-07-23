@@ -1,9 +1,9 @@
 /*
- * XREFs of IopInitializeBugCheckDriverData @ 0x140865CA0
+ * XREFs of IopInitializeBugCheckDriverData @ 0x140865EE0
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x140354A70 (KeRegisterBugCheckReasonCallback.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140354C10 (KeRegisterBugCheckReasonCallback.c)
  */
 
 BOOLEAN IopInitializeBugCheckDriverData()

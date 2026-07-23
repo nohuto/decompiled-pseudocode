@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlMarkHiberPhase @ 0x140624640
+ * XREFs of RtlMarkHiberPhase @ 0x140627690
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140BFAE30 (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x140C00E30 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
  */
 
 void RtlMarkHiberPhase()

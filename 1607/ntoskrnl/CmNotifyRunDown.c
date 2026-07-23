@@ -1,19 +1,19 @@
 /*
- * XREFs of CmNotifyRunDown @ 0x1405152B8
+ * XREFs of CmNotifyRunDown @ 0x1404F86A8
  * Callers:
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     KeRemoveQueueApc @ 0x1400AF37C (KeRemoveQueueApc.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpFreePostBlock @ 0x14049A988 (CmpFreePostBlock.c)
- *     CmpCancelSubordinatePost @ 0x14049AC48 (CmpCancelSubordinatePost.c)
- *     CmpFreeSubordinatePost @ 0x14049AC84 (CmpFreeSubordinatePost.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     KeRemoveQueueApc @ 0x1400AD8E4 (KeRemoveQueueApc.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     CmpFreePostBlock @ 0x1403E38A8 (CmpFreePostBlock.c)
+ *     CmpCancelSubordinatePost @ 0x1403E3B68 (CmpCancelSubordinatePost.c)
+ *     CmpFreeSubordinatePost @ 0x1403E3BA4 (CmpFreeSubordinatePost.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
  */
 
 void __fastcall CmNotifyRunDown(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetDueTimeWithThreadTimerDelay @ 0x140522A70
+ * XREFs of KiGetDueTimeWithThreadTimerDelay @ 0x140522CB0
  * Callers:
- *     KeRemovePriQueue @ 0x1402421D0 (KeRemovePriQueue.c)
+ *     KeRemovePriQueue @ 0x1402E6A20 (KeRemovePriQueue.c)
  * Callees:
  *     <none>
  */

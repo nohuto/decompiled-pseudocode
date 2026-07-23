@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpDoAllocateCell @ 0x140708E68
+ * XREFs of HvpDoAllocateCell @ 0x140720248
  * Callers:
- *     HvReallocateCell @ 0x1406663B0 (HvReallocateCell.c)
- *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
+ *     HvReallocateCell @ 0x14065B1D0 (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x1407207E4 (HvAllocateCell.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvpFindFreeCell @ 0x140707F4C (HvpFindFreeCell.c)
- *     HvpRemoveFreeCellHint @ 0x140708130 (HvpRemoveFreeCellHint.c)
- *     HvpEnlistFreeCell @ 0x1407082E8 (HvpEnlistFreeCell.c)
- *     HvpDelistFreeCell @ 0x1407097A4 (HvpDelistFreeCell.c)
- *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvpAddBin @ 0x1406FAA84 (HvpAddBin.c)
+ *     HvpFindFreeCell @ 0x14071F32C (HvpFindFreeCell.c)
+ *     HvpRemoveFreeCellHint @ 0x14071F510 (HvpRemoveFreeCellHint.c)
+ *     HvpEnlistFreeCell @ 0x14071F6C8 (HvpEnlistFreeCell.c)
+ *     HvpDelistFreeCell @ 0x140720B84 (HvpDelistFreeCell.c)
  */
 
 __int64 __fastcall HvpDoAllocateCell(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3, _QWORD *a4, __int64 *a5)
@@ -66,7 +66,7 @@ __int64 __fastcall HvpDoAllocateCell(ULONG_PTR BugCheckParameter2, unsigned int 
     v13 = 0;
     goto LABEL_4;
   }
-  v25 = HvpAddBin(BugCheckParameter2);
+  v25 = HvpAddBin(BugCheckParameter2, v8, a3);
   if ( v25 != -1 )
   {
     FreeCell = v25 + 32;

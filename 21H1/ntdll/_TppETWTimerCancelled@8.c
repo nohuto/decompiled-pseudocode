@@ -8,10 +8,10 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall TppETWTimerCancelled(int a1, int a2)
+NTSTATUS __fastcall TppETWTimerCancelled(int a1, int a2)
 {
   int v2; // eax
-  _BYTE v4[6]; // [esp+4h] [ebp-2Ch] BYREF
+  _BYTE Fields[6]; // [esp+4h] [ebp-2Ch] BYREF
   __int16 v5; // [esp+Ah] [ebp-26h]
   int v6; // [esp+24h] [ebp-Ch]
   int v7; // [esp+28h] [ebp-8h]
@@ -23,5 +23,5 @@ int __fastcall TppETWTimerCancelled(int a1, int a2)
     v2 = (int)NtCurrentPeb()->SharedData + 556;
   else
     v2 = 2147353478;
-  return NtTraceEvent(*(unsigned __int8 *)v2, 132098, 8, (int)v4);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v2, 0x20402u, 8u, Fields);
 }

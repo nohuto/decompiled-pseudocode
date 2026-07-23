@@ -1,13 +1,13 @@
 /*
- * XREFs of MiComputeSystemTrimCriteria @ 0x1400EEFD8
+ * XREFs of MiComputeSystemTrimCriteria @ 0x1400EF058
  * Callers:
- *     MiProcessWorkingSets @ 0x14006CED0 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x14006CEC0 (MiProcessWorkingSets.c)
  * Callees:
  *     MiGetAvailablePagesBelowPriority @ 0x140030FC4 (MiGetAvailablePagesBelowPriority.c)
- *     MiGetStandbyRepurposed @ 0x1400EF34C (MiGetStandbyRepurposed.c)
- *     MiComputeAgeDistribution @ 0x140114438 (MiComputeAgeDistribution.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiPulseLowAvailableEvent @ 0x1402CB300 (MiPulseLowAvailableEvent.c)
+ *     MiGetStandbyRepurposed @ 0x1400EF3CC (MiGetStandbyRepurposed.c)
+ *     MiComputeAgeDistribution @ 0x1401144A8 (MiComputeAgeDistribution.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiPulseLowAvailableEvent @ 0x1402CB4F0 (MiPulseLowAvailableEvent.c)
  */
 
 __int64 __fastcall MiComputeSystemTrimCriteria(_QWORD *a1, __int64 a2)

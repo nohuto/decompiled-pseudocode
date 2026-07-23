@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpAddPfnDatabase @ 0x1405CC5B0
+ * XREFs of IopLiveDumpAddPfnDatabase @ 0x1405CEDC0
  * Callers:
  *     <none>
  * Callees:
- *     MmAddPrivateDataToCrashDump @ 0x1406F677C (MmAddPrivateDataToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x1406FB3EC (MmAddPrivateDataToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpAddPfnDatabase(__int64 a1, __int64 a2)

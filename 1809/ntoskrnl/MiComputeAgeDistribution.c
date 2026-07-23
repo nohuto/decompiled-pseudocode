@@ -1,16 +1,16 @@
 /*
- * XREFs of MiComputeAgeDistribution @ 0x140114438
+ * XREFs of MiComputeAgeDistribution @ 0x1401144A8
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1400EEFD8 (MiComputeSystemTrimCriteria.c)
- *     MiOrderTrimList @ 0x1402B3350 (MiOrderTrimList.c)
+ *     MiComputeSystemTrimCriteria @ 0x1400EF058 (MiComputeSystemTrimCriteria.c)
+ *     MiOrderTrimList @ 0x1402B3540 (MiOrderTrimList.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiUpdateClaimDistribution @ 0x1401145A0 (MiUpdateClaimDistribution.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiUpdateClaimDistribution @ 0x140114610 (MiUpdateClaimDistribution.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
@@ -34,7 +34,7 @@ __int64 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
   v4 = *(_QWORD **)(a1 + 7024);
   if ( a2 == 1 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
     v5 = (_QWORD **)(a1 + 7032);
     for ( i = *v5; i != v5; i = (_QWORD *)*i )
       MiUpdateClaimDistribution(i - 3, Src);

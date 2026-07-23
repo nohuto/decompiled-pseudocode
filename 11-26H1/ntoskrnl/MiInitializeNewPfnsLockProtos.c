@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeNewPfnsLockProtos @ 0x1406E9584
+ * XREFs of MiInitializeNewPfnsLockProtos @ 0x1406EE224
  * Callers:
- *     MiInitializeDynamicPfnsWorker @ 0x1406E9410 (MiInitializeDynamicPfnsWorker.c)
+ *     MiInitializeDynamicPfnsWorker @ 0x1406EE0B0 (MiInitializeDynamicPfnsWorker.c)
  * Callees:
- *     MiLockProtoPoolPageForce @ 0x1403A10E0 (MiLockProtoPoolPageForce.c)
+ *     MiLockProtoPoolPageForce @ 0x1403A2E40 (MiLockProtoPoolPageForce.c)
  */
 
 unsigned __int64 __fastcall MiInitializeNewPfnsLockProtos(

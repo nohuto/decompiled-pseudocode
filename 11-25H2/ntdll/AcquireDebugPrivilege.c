@@ -7,10 +7,10 @@
  *     RtlAcquirePrivilege @ 0x1800EA3C0 (RtlAcquirePrivilege.c)
  */
 
-bool __fastcall AcquireDebugPrivilege(_QWORD *a1)
+bool __fastcall AcquireDebugPrivilege(PVOID *ReturnedState)
 {
-  unsigned int v2; // [rsp+38h] [rbp+10h] BYREF
+  ULONG Privilege; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 20;
-  return (int)RtlAcquirePrivilege(&v2, 1u, 0, a1) >= 0;
+  Privilege = 20;
+  return RtlAcquirePrivilege(&Privilege, 1u, 0, ReturnedState) >= 0;
 }

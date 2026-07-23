@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCheckRegistry2 @ 0x1405D8EF0
+ * XREFs of CmpCheckRegistry2 @ 0x1405D9EF0
  * Callers:
- *     CmCheckRegistry @ 0x1405A848C (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x1405A948C (CmCheckRegistry.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     CmpCheckKey @ 0x1405DA210 (CmpCheckKey.c)
- *     CmpCheckLexicographicalOrder @ 0x1405DBCF0 (CmpCheckLexicographicalOrder.c)
- *     CmpCheckAndFixSecurityCellsRefcount @ 0x1406BCA80 (CmpCheckAndFixSecurityCellsRefcount.c)
- *     CmpRemoveSubKeyCellNoCellRef @ 0x1407FFE28 (CmpRemoveSubKeyCellNoCellRef.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     CmpCheckKey @ 0x1405DB210 (CmpCheckKey.c)
+ *     CmpCheckLexicographicalOrder @ 0x1405DCCF0 (CmpCheckLexicographicalOrder.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x1406BDD20 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x140801028 (CmpRemoveSubKeyCellNoCellRef.c)
  */
 
 __int64 __fastcall CmpCheckRegistry2(

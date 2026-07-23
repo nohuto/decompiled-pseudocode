@@ -8,9 +8,9 @@
  *     RtlGetCurrentServiceSessionId @ 0x18003B280 (RtlGetCurrentServiceSessionId.c)
  */
 
-char __fastcall RtlIsMultiSessionSku(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+BOOLEAN RtlIsMultiSessionSku(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
+  if ( RtlGetCurrentServiceSessionId() )
     return *((_BYTE *)NtCurrentPeb()->SharedData + 28);
   else
     return MEMORY[0x7FFE02F1] & 1;

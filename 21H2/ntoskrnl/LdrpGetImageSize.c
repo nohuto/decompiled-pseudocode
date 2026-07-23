@@ -1,33 +1,33 @@
 /*
- * XREFs of LdrpGetImageSize @ 0x1402A8E30
+ * XREFs of LdrpGetImageSize @ 0x140226F70
  * Callers:
- *     LdrpAccessResourceData @ 0x14068D9BC (LdrpAccessResourceData.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14068DA98 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpAccessResourceData @ 0x1405ED82C (LdrpAccessResourceData.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1405ED908 (LdrpAccessResourceDataNoMultipleLanguage.c)
  * Callees:
- *     LdrpKrnGetDataTableEntry @ 0x1402A8F80 (LdrpKrnGetDataTableEntry.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1402270C0 (LdrpKrnGetDataTableEntry.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
  */
 
 __int64 __fastcall LdrpGetImageSize(__int64 a1, _QWORD *a2)
 {
   unsigned int v3; // ebx
-  __int64 v4; // rdi
-  __int64 v6; // rax
+  __int64 SizeOfImage; // rdi
+  PIMAGE_NT_HEADERS v6; // rax
   __int64 DataTableEntry; // rax
   __int64 result; // rax
-  __int16 v9; // cx
+  unsigned __int16 Magic; // cx
 
   v3 = 0;
-  v4 = 0LL;
-  v6 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+  SizeOfImage = 0LL;
+  v6 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
   if ( !v6 )
     goto LABEL_9;
   if ( (a1 & 1) == 0 )
   {
-    v9 = *(_WORD *)(v6 + 24);
-    if ( v9 == 267 || v9 == 523 )
+    Magic = v6->OptionalHeader.Magic;
+    if ( Magic == 267 || Magic == 523 )
     {
-      v4 = *(unsigned int *)(v6 + 80);
+      SizeOfImage = v6->OptionalHeader.SizeOfImage;
       goto LABEL_5;
     }
 LABEL_9:
@@ -36,9 +36,9 @@ LABEL_9:
   }
   DataTableEntry = LdrpKrnGetDataTableEntry(a1);
   if ( DataTableEntry )
-    v4 = *(unsigned int *)(DataTableEntry + 64);
+    SizeOfImage = *(unsigned int *)(DataTableEntry + 64);
 LABEL_5:
   result = v3;
-  *a2 = v4;
+  *a2 = SizeOfImage;
   return result;
 }

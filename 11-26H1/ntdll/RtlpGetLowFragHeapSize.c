@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetLowFragHeapSize @ 0x1800F90BC
+ * XREFs of RtlpGetLowFragHeapSize @ 0x18006CF3C
  * Callers:
- *     RtlpCreateLowFragHeap @ 0x18007EE98 (RtlpCreateLowFragHeap.c)
+ *     RtlpCreateLowFragHeap @ 0x18006CC20 (RtlpCreateLowFragHeap.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of SepAdtObjectReferenceAuditAlarm @ 0x140B4FC88
+ * XREFs of SepAdtObjectReferenceAuditAlarm @ 0x140B52518
  * Callers:
- *     ObpCheckObjectReference @ 0x1408EE834 (ObpCheckObjectReference.c)
+ *     ObpCheckObjectReference @ 0x1408F4DF4 (ObpCheckObjectReference.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SepQueryTypeString @ 0x1409F95CC (SepQueryTypeString.c)
- *     SepQueryNameString @ 0x1409FBF48 (SepQueryNameString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SepQueryNameString @ 0x140920B48 (SepQueryNameString.c)
+ *     SepQueryTypeString @ 0x140A61E9C (SepQueryTypeString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtObjectReferenceAuditAlarm(__int64 a1, __int64 *a2, unsigned int a3, char a4)

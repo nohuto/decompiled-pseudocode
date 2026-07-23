@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCreateSharedZeroPages @ 0x140283980
+ * XREFs of MiCreateSharedZeroPages @ 0x140282EF0
  * Callers:
- *     MiResolveDemandZeroFault @ 0x1402D4B40 (MiResolveDemandZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x1402B6900 (MiResolveDemandZeroFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiSharedVaToPartition @ 0x14028370C (MiSharedVaToPartition.c)
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
- *     MiInitializePfn @ 0x1402D7680 (MiInitializePfn.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiAdvanceFaultList @ 0x14036F4A0 (MiAdvanceFaultList.c)
- *     MiIsAddressGlobal @ 0x140374CF0 (MiIsAddressGlobal.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiSharedVaToPartition @ 0x140282C7C (MiSharedVaToPartition.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
+ *     MiInitializePfn @ 0x1402B9440 (MiInitializePfn.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiAdvanceFaultList @ 0x140371250 (MiAdvanceFaultList.c)
+ *     MiIsAddressGlobal @ 0x140376AA0 (MiIsAddressGlobal.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
  */
 
 __int64 __fastcall MiCreateSharedZeroPages(__int64 a1, _QWORD *a2, __int64 a3)
@@ -302,7 +302,7 @@ __int64 __fastcall MiCreateSharedZeroPages(__int64 a1, _QWORD *a2, __int64 a3)
       v52 = v89;
       if ( v89 )
       {
-        if ( v65 != *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v4 + 56) + 174LL)) )
+        if ( v65 != *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v4 + 56) + 174LL)) )
         {
           v54 = (struct _EX_RUNDOWN_REF *)(v65 + 5538);
           *(_QWORD *)(v4 + 136) = v65;
@@ -369,7 +369,7 @@ __int64 __fastcall MiCreateSharedZeroPages(__int64 a1, _QWORD *a2, __int64 a3)
       v33 = (_QWORD *)*v33;
     v36 = (__int64)(v35 + 0x220000000000LL) / 48;
     if ( (MiFlags & 0x80u) != 0LL
-      && (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
+      && (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
     {
       MiArePageContentsZero(v36);
       v34 = v85;
@@ -409,7 +409,7 @@ __int64 __fastcall MiCreateSharedZeroPages(__int64 a1, _QWORD *a2, __int64 a3)
     v42 = v41 | 0x42;
     if ( v38 >= 0 || (v39 & 5) != 4 )
       v42 = v41;
-    *(_QWORD *)v3 = (unsigned __int16)(BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) ^ (((unsigned __int64)BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) ^ v42) & 0xFAFFFFFFFFFFFEFFuLL | 0xA00000000000000LL;
+    *(_QWORD *)v3 = (unsigned __int16)(BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) ^ (((unsigned __int64)BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) ^ v42) & 0xFAFFFFFFFFFFFEFFuLL | 0xA00000000000000LL;
     if ( (*(_DWORD *)a1 & 0x10) != 0 )
     {
       LODWORD(v89) = 0;

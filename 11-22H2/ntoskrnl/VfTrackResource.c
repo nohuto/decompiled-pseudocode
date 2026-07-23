@@ -17,7 +17,7 @@
 char __fastcall VfTrackResource(__int64 BugCheckParameter2)
 {
   char *v3; // rbp
-  struct _SLIST_ENTRY *v4; // rdi
+  _SLIST_ENTRY *v4; // rdi
   __int128 v5; // [rsp+30h] [rbp-18h] BYREF
 
   v5 = 0LL;
@@ -36,7 +36,7 @@ char __fastcall VfTrackResource(__int64 BugCheckParameter2)
     if ( !ViResourcesAlreadyLoadedDrivers )
       VerifierBugCheckIfAppropriate(0xC4u, 0xD0uLL, BugCheckParameter2, 0LL, 0LL);
     _InterlockedAdd(&ViResourceStaleNodes, 1u);
-    v4 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViResourceAvl, (__int64)&v5, BugCheckParameter2, 0LL);
+    v4 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViResourceAvl, (__int64)&v5, BugCheckParameter2, 0LL);
   }
   VfAvlInsertReservedTreeNode((__int64)&ViResourceAvl, (__int64)&v5, v3);
   VfAvlCleanupLockContext((__int64)&v5);

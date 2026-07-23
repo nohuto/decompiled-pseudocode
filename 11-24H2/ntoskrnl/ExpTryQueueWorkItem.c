@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpTryQueueWorkItem @ 0x1402A0DCC
+ * XREFs of ExpTryQueueWorkItem @ 0x1403AB6FC
  * Callers:
- *     IoTryQueueWorkItem @ 0x14029F4E0 (IoTryQueueWorkItem.c)
- *     PopFxQueueWorkItem @ 0x14029F7F4 (PopFxQueueWorkItem.c)
- *     ExTryQueueWorkItem @ 0x1402A0DA0 (ExTryQueueWorkItem.c)
- *     PopFxRequestWorkerInternal @ 0x1402A142C (PopFxRequestWorkerInternal.c)
- *     PopPepRequestWork @ 0x1403170D0 (PopPepRequestWork.c)
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
+ *     PopPepRequestWork @ 0x1402BFC80 (PopPepRequestWork.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
+ *     IoTryQueueWorkItem @ 0x1403A9FA0 (IoTryQueueWorkItem.c)
+ *     PopFxQueueWorkItem @ 0x1403AA2B4 (PopFxQueueWorkItem.c)
+ *     PopFxRequestWorkerInternal @ 0x1403AB3E4 (PopFxRequestWorkerInternal.c)
+ *     ExTryQueueWorkItem @ 0x1403AB6D0 (ExTryQueueWorkItem.c)
  * Callees:
- *     ExpPartitionCreateThreadIfNecessary @ 0x1402705A0 (ExpPartitionCreateThreadIfNecessary.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiWakePriQueueWaiter @ 0x1403248F0 (KiWakePriQueueWaiter.c)
- *     KeIsThreadRunning @ 0x1403BE4C8 (KeIsThreadRunning.c)
- *     EtwTracePriQEnqueueWork @ 0x1404C9BC0 (EtwTracePriQEnqueueWork.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     EtwTracePriQEnqueueFailed @ 0x14064DCC0 (EtwTracePriQEnqueueFailed.c)
+ *     ExpPartitionCreateThreadIfNecessary @ 0x140225B30 (ExpPartitionCreateThreadIfNecessary.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiWakePriQueueWaiter @ 0x1402CD480 (KiWakePriQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x1403AD158 (KeIsThreadRunning.c)
+ *     EtwTracePriQEnqueueWork @ 0x1404C3070 (EtwTracePriQEnqueueWork.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     EtwTracePriQEnqueueFailed @ 0x14064C2D0 (EtwTracePriQEnqueueFailed.c)
  */
 
 char __fastcall ExpTryQueueWorkItem(__int64 a1, _QWORD *a2, int a3, int a4)
@@ -48,7 +48,7 @@ char __fastcall ExpTryQueueWorkItem(__int64 a1, _QWORD *a2, int a3, int a4)
   __int64 v29; // rdx
   __int64 v30; // r9
   int v31; // [rsp+30h] [rbp-58h]
-  char v32; // [rsp+38h] [rbp-50h]
+  unsigned __int8 v32; // [rsp+38h] [rbp-50h]
   unsigned __int8 v33; // [rsp+40h] [rbp-48h]
   __int64 v34; // [rsp+90h] [rbp+8h]
   unsigned __int16 v35; // [rsp+98h] [rbp+10h]
@@ -129,7 +129,7 @@ char __fastcall ExpTryQueueWorkItem(__int64 a1, _QWORD *a2, int a3, int a4)
               LOBYTE(v30) = KeIsThreadRunning(CurrentPrcb->CurrentThread);
               EtwTracePriQEnqueueWork(CurrentThread, a2, (unsigned int)v12, v30);
             }
-            KiAcquireKobjectLockSafe(v17);
+            KiAcquireKobjectLockSafe((volatile signed __int32 *)v17);
             if ( *(_QWORD *)(v17 + 8) != v17 + 8
               && (CurrentThread->Queue != (_DISPATCHER_HEADER *volatile)v17 || CurrentThread->WaitReason != 15) )
             {
@@ -147,7 +147,7 @@ char __fastcall ExpTryQueueWorkItem(__int64 a1, _QWORD *a2, int a3, int a4)
                 if ( v24 <= v12 )
                 {
                   if ( v26 < *v23 )
-                    v8 = KiWakePriQueueWaiter(CurrentPrcb, v17, a2, (unsigned int)v12);
+                    v8 = KiWakePriQueueWaiter((__int64)CurrentPrcb, v17, (__int64)a2, v12);
                   break;
                 }
               }
@@ -155,7 +155,7 @@ char __fastcall ExpTryQueueWorkItem(__int64 a1, _QWORD *a2, int a3, int a4)
             _InterlockedAnd((volatile signed __int32 *)v17, 0xFFFFFF7F);
             if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 && !v8 )
               EtwTracePriQEnqueueFailed(CurrentThread, a2);
-            KiExitDispatcher(CurrentPrcb, v32);
+            KiExitDispatcher((unsigned __int64)CurrentPrcb, 0LL, 1u, 0, v32);
             if ( v8 )
               break;
             *(_DWORD *)(v17 + 716) |= 0x80000000;
@@ -171,7 +171,7 @@ char __fastcall ExpTryQueueWorkItem(__int64 a1, _QWORD *a2, int a3, int a4)
     if ( (_DWORD)v5 == (unsigned __int16)KeNumberNodes )
       LOWORD(v14) = -1;
     else
-      v14 = *(_DWORD *)(qword_140E2DAD0 + 4LL * ((unsigned int)v5 + v13 * (unsigned __int16)KeNumberNodes));
+      v14 = *(_DWORD *)(qword_140E2DC10 + 4LL * ((unsigned int)v5 + v13 * (unsigned __int16)KeNumberNodes));
     v7 = v34;
     v6 = a4;
   }

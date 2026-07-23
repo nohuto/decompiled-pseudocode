@@ -1,19 +1,19 @@
 /*
- * XREFs of MiConvertLargeActivePageToChain @ 0x14040A4E0
+ * XREFs of MiConvertLargeActivePageToChain @ 0x1404035D0
  * Callers:
- *     MiGetLargePagesForChain @ 0x140284A5C (MiGetLargePagesForChain.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
- *     MiPrefetchPreallocatePages @ 0x1406F719C (MiPrefetchPreallocatePages.c)
- *     MiProcessVaContiguityInformation @ 0x14070B810 (MiProcessVaContiguityInformation.c)
- *     MiSoftFaultClusterTradeGetPage @ 0x14071245C (MiSoftFaultClusterTradeGetPage.c)
+ *     MiGetLargePagesForChain @ 0x140283FC4 (MiGetLargePagesForChain.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
+ *     MiPrefetchPreallocatePages @ 0x1406FBE0C (MiPrefetchPreallocatePages.c)
+ *     MiProcessVaContiguityInformation @ 0x1407104C0 (MiProcessVaContiguityInformation.c)
+ *     MiSoftFaultClusterTradeGetPage @ 0x140717154 (MiSoftFaultClusterTradeGetPage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiConvertLargeActivePageToChain(__int64 a1)
@@ -104,7 +104,7 @@ __int64 __fastcall MiConvertLargeActivePageToChain(__int64 a1)
     *(_QWORD *)v4 = 0LL;
     if ( (*(_QWORD *)(v4 + 16) & 0x3E0LL) == 0
       && (MiFlags & 0x80u) != 0LL
-      && (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
+      && (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
     {
       MiArePageContentsZero(v5);
     }

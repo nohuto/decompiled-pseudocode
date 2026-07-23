@@ -1,28 +1,28 @@
 /*
- * XREFs of MiMapViewOfImageSection @ 0x1409CD37C
+ * XREFs of MiMapViewOfImageSection @ 0x14099E35C
  * Callers:
- *     MiFinalizeLagePageImageMapping @ 0x140774C90 (MiFinalizeLagePageImageMapping.c)
- *     MiMapViewOfSection @ 0x1409C31E8 (MiMapViewOfSection.c)
+ *     MiFinalizeLagePageImageMapping @ 0x140777C90 (MiFinalizeLagePageImageMapping.c)
+ *     MiMapViewOfSection @ 0x1409941C8 (MiMapViewOfSection.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     MiInsertVad @ 0x140316000 (MiInsertVad.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x14050151C (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiRemoveVadEvent @ 0x140528374 (MiRemoveVadEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiReleaseVadEventBlocks @ 0x14095C4CC (MiReleaseVadEventBlocks.c)
- *     MiRemoveSharedCommitNode @ 0x1409C7C70 (MiRemoveSharedCommitNode.c)
- *     MiInitializeImageMapParameters @ 0x1409CD514 (MiInitializeImageMapParameters.c)
- *     MiAllocateImageVad @ 0x1409CD948 (MiAllocateImageVad.c)
- *     MiSelectImageMapAddress @ 0x1409CDB18 (MiSelectImageMapAddress.c)
- *     MiInitializeImageVad @ 0x1409CDD4C (MiInitializeImageVad.c)
- *     MiHandleInsertedImageVad @ 0x1409CDFA4 (MiHandleInsertedImageVad.c)
- *     MiDereferencePerSessionProtos @ 0x140A96D34 (MiDereferencePerSessionProtos.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     MiInsertVad @ 0x140318030 (MiInsertVad.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1404FAD0C (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiRemoveVadEvent @ 0x14052A9E4 (MiRemoveVadEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiRemoveSharedCommitNode @ 0x140998C50 (MiRemoveSharedCommitNode.c)
+ *     MiInitializeImageMapParameters @ 0x14099E4F4 (MiInitializeImageMapParameters.c)
+ *     MiAllocateImageVad @ 0x14099E928 (MiAllocateImageVad.c)
+ *     MiSelectImageMapAddress @ 0x14099EAF8 (MiSelectImageMapAddress.c)
+ *     MiInitializeImageVad @ 0x14099ED2C (MiInitializeImageVad.c)
+ *     MiHandleInsertedImageVad @ 0x14099EF84 (MiHandleInsertedImageVad.c)
+ *     MiReleaseVadEventBlocks @ 0x140A01D8C (MiReleaseVadEventBlocks.c)
+ *     MiDereferencePerSessionProtos @ 0x140A9AEB4 (MiDereferencePerSessionProtos.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMapViewOfImageSection(
@@ -104,7 +104,7 @@ __int64 __fastcall MiMapViewOfImageSection(
           MiRemoveVadEvent((__int64)v17, v32);
         if ( v17 )
         {
-          MiReleaseVadEventBlocks((__int64)v17);
+          MiReleaseVadEventBlocks(v17);
           v24 = (void *)v17[17];
           if ( v24 )
             ObfDereferenceObjectWithTag(v24, 0x63536D4Du);

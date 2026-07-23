@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAllocateTopLevelPage @ 0x140706194
+ * XREFs of MiAllocateTopLevelPage @ 0x1407063A4
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x140705E50 (MmCreateProcessAddressSpace.c)
- *     MiAllocateProcessShadow @ 0x1407060AC (MiAllocateProcessShadow.c)
+ *     MmCreateProcessAddressSpace @ 0x140706060 (MmCreateProcessAddressSpace.c)
+ *     MiAllocateProcessShadow @ 0x1407062BC (MiAllocateProcessShadow.c)
  * Callees:
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     MiGetNextPageColor @ 0x1402923CC (MiGetNextPageColor.c)
- *     MiSetPfnOldestWsleLeafCount @ 0x140292504 (MiSetPfnOldestWsleLeafCount.c)
- *     MiSetPageTablePfnBuddy @ 0x14029251C (MiSetPageTablePfnBuddy.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiSetPfnLink @ 0x1402DF09C (MiSetPfnLink.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiInitializePfnForOtherProcess @ 0x1402E3F60 (MiInitializePfnForOtherProcess.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     MiGetNextPageColor @ 0x14029265C (MiGetNextPageColor.c)
+ *     MiSetPfnOldestWsleLeafCount @ 0x140292794 (MiSetPfnOldestWsleLeafCount.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402927AC (MiSetPageTablePfnBuddy.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiSetPfnLink @ 0x1402DF32C (MiSetPfnLink.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiInitializePfnForOtherProcess @ 0x1402E41F0 (MiInitializePfnForOtherProcess.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiAllocateTopLevelPage(__int64 a1, unsigned __int64 a2)

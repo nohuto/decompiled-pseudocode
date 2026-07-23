@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHa
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FirstTokenHandle, SecondTokenHandle, Equal);
+  return KiServiceInternal(FirstTokenHandle);
 }

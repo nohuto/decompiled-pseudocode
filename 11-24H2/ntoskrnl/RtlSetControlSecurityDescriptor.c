@@ -1,16 +1,19 @@
 /*
- * XREFs of RtlSetControlSecurityDescriptor @ 0x140781170
+ * XREFs of RtlSetControlSecurityDescriptor @ 0x1407810A0
  * Callers:
- *     RtlpSysVolCreateSecurityDescriptor @ 0x140783E04 (RtlpSysVolCreateSecurityDescriptor.c)
- *     DrvDbGetRegistrarSecurityDescriptor @ 0x140823DEC (DrvDbGetRegistrarSecurityDescriptor.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x140783D34 (RtlpSysVolCreateSecurityDescriptor.c)
+ *     DrvDbGetRegistrarSecurityDescriptor @ 0x14082452C (DrvDbGetRegistrarSecurityDescriptor.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetControlSecurityDescriptor(__int64 a1, unsigned __int16 a2, unsigned __int16 a3)
+NTSTATUS __cdecl RtlSetControlSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        SECURITY_DESCRIPTOR_CONTROL ControlBitsOfInterest,
+        SECURITY_DESCRIPTOR_CONTROL ControlBitsToSet)
 {
-  if ( (~a2 & a3) != 0 || (a2 & 0xC03F) != 0 )
-    return 3221225485LL;
-  *(_WORD *)(a1 + 2) = a3 | *(_WORD *)(a1 + 2) & ~a2;
-  return 0LL;
+  if ( (~ControlBitsOfInterest & ControlBitsToSet) != 0 || (ControlBitsOfInterest & 0xC03F) != 0 )
+    return -1073741811;
+  *((_WORD *)SecurityDescriptor + 1) = ControlBitsToSet | *((_WORD *)SecurityDescriptor + 1) & ~ControlBitsOfInterest;
+  return 0;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopIsDirectedDripsEnabled @ 0x140A9D3D4
+ * XREFs of PopIsDirectedDripsEnabled @ 0x140A98944
  * Callers:
- *     PopDripsWatchdogInitialize @ 0x140C3371C (PopDripsWatchdogInitialize.c)
+ *     PopDripsWatchdogInitialize @ 0x140C3585C (PopDripsWatchdogInitialize.c)
  * Callees:
  *     <none>
  */

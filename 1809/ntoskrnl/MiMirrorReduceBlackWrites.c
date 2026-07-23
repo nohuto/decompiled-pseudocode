@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMirrorReduceBlackWrites @ 0x140152DE0
+ * XREFs of MiMirrorReduceBlackWrites @ 0x140152EE0
  * Callers:
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
  * Callees:
- *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
- *     MiMirrorNodeLargePages @ 0x140152BA8 (MiMirrorNodeLargePages.c)
- *     MiMirrorOmitPagesFromCopy @ 0x140152FFC (MiMirrorOmitPagesFromCopy.c)
+ *     MiIsDecayPfn @ 0x140118C7C (MiIsDecayPfn.c)
+ *     MiMirrorNodeLargePages @ 0x140152CA8 (MiMirrorNodeLargePages.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x1401530FC (MiMirrorOmitPagesFromCopy.c)
  */
 
 void __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2, char a3, int a4)
@@ -61,8 +61,8 @@ LABEL_3:
           if ( v9 == 2 && MiIsDecayPfn(v11) )
           {
             v13 = *(_QWORD *)(v12 + 48 * v11 + 16);
-            if ( qword_14043A0C0 && (v13 & 0x10) == 0 )
-              v13 &= ~qword_14043A0C0;
+            if ( qword_14043B180 && (v13 & 0x10) == 0 )
+              v13 &= ~qword_14043B180;
             v14 = (v13 >> 12) & 0xFFFFFFFFFLL;
             if ( v14 == v11 )
               goto LABEL_11;
@@ -92,7 +92,7 @@ LABEL_11:
       if ( v9 > 1 )
         break;
       v5 = (unsigned int)(v5 + 1);
-      if ( (unsigned int)v5 >= dword_14043A08C )
+      if ( (unsigned int)v5 >= dword_14043B14C )
       {
         v5 = 0LL;
         break;
@@ -110,7 +110,7 @@ LABEL_11:
     goto LABEL_3;
   }
   MiMirrorNodeLargePages(a1, (__int64)&MiSystemPartition, 1LL);
-  v15 = (_QWORD *)qword_14043A6F0;
+  v15 = (_QWORD *)qword_14043B7B0;
   i = 0LL;
   while ( v15 )
   {
@@ -139,7 +139,7 @@ LABEL_11:
       }
     }
   }
-  for ( j = (_QWORD *)qword_14043A6E0; j; j = (_QWORD *)*j )
+  for ( j = (_QWORD *)qword_14043B7A0; j; j = (_QWORD *)*j )
     i = (unsigned __int64)j;
   while ( i )
   {

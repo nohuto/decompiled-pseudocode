@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z @ 0x140467070
+ * XREFs of ?KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z @ 0x1404607C0
  * Callers:
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x140332850 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140334880 (KiGroupSchedulingQuantumEnd.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 bool __fastcall KiCheckMaxOverQuotaTransition(struct _KSCB *a1, struct _KSCHEDULING_GROUP *a2)

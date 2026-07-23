@@ -1,12 +1,12 @@
 /*
- * XREFs of PoQueryPowerLimitValue @ 0x14074ACC0
+ * XREFs of PoQueryPowerLimitValue @ 0x140748FF0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopPowerLimitUpdatePendingEvents @ 0x14074BA84 (PopPowerLimitUpdatePendingEvents.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopPowerLimitUpdatePendingEvents @ 0x140749DB4 (PopPowerLimitUpdatePendingEvents.c)
  */
 
 __int64 __fastcall PoQueryPowerLimitValue(__int64 a1, unsigned int a2, __int64 a3)
@@ -16,7 +16,6 @@ __int64 __fastcall PoQueryPowerLimitValue(__int64 a1, unsigned int a2, __int64 a
   unsigned int i; // eax
   __int64 v9; // r8
   unsigned int v10; // ebx
-  __int64 v11; // r9
 
   if ( a1 && a2 && a3 )
   {
@@ -30,7 +29,7 @@ LABEL_7:
       {
         ++*(_DWORD *)(v6 + 180);
         PopReleaseRwLock((signed __int64 *)(v6 + 32));
-        v10 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v6 + 120), a2, a3, v11);
+        v10 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v6 + 120), a2);
         PopAcquireRwLockExclusive((unsigned __int64 *)(v6 + 32));
         --*(_DWORD *)(v6 + 180);
         PopPowerLimitUpdatePendingEvents(v6);

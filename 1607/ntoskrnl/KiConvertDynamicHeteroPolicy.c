@@ -1,12 +1,12 @@
 /*
- * XREFs of KiConvertDynamicHeteroPolicy @ 0x1401D7E4C
+ * XREFs of KiConvertDynamicHeteroPolicy @ 0x1401D7C78
  * Callers:
- *     KiSearchForNewThreadOnProcessor @ 0x14005BD20 (KiSearchForNewThreadOnProcessor.c)
- *     KiSelectReadyThread @ 0x14005C1C0 (KiSelectReadyThread.c)
- *     KiGetHeteroCpuPolicyThread @ 0x1400CEF4C (KiGetHeteroCpuPolicyThread.c)
- *     KiSetHeteroPolicyThread @ 0x1401D8354 (KiSetHeteroPolicyThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x14005B8A0 (KiSearchForNewThreadOnProcessor.c)
+ *     KiSelectReadyThread @ 0x14005BD40 (KiSelectReadyThread.c)
+ *     KiGetHeteroCpuPolicyThread @ 0x1400CCDEC (KiGetHeteroCpuPolicyThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1401D8180 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     KiIsThreadRankBiased @ 0x1401DABB4 (KiIsThreadRankBiased.c)
+ *     KiIsThreadRankBiased @ 0x1401DA9E0 (KiIsThreadRankBiased.c)
  */
 
 __int64 __fastcall KiConvertDynamicHeteroPolicy(__int64 a1, __int64 a2, __int64 a3)

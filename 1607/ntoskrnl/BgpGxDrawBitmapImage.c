@@ -4,7 +4,7 @@
  *     AnFwDisplayBackgroundUpdate @ 0x140728B84 (AnFwDisplayBackgroundUpdate.c)
  *     AnFwpBackgroundUpdateTimer @ 0x14072ACB4 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x140127524 (BgpGxDrawRectangle.c)
+ *     BgpGxDrawRectangle @ 0x140127A94 (BgpGxDrawRectangle.c)
  *     BgpGxParseBitmap @ 0x140725B84 (BgpGxParseBitmap.c)
  *     BgpGxRectangleDestroy @ 0x1407276C0 (BgpGxRectangleDestroy.c)
  */

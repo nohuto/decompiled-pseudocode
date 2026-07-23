@@ -11,7 +11,7 @@
  *     RtlAppendUnicodeStringToString @ 0x180029B40 (RtlAppendUnicodeStringToString.c)
  *     RtlAppendUnicodeToString @ 0x180041260 (RtlAppendUnicodeToString.c)
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
@@ -20,18 +20,17 @@ char __fastcall AVrfpLoadAndInitializeProvider(__int64 a1)
   unsigned int v3; // edx
   unsigned int v4; // ecx
   _WORD *v5; // rax
-  _WORD *NtSystemRoot; // rax
-  void *v7; // rsi
+  const WCHAR *NtSystemRoot; // rax
+  wchar_t *Buffer; // rsi
   int Dll; // eax
   __int64 v9; // rcx
-  __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   __int64 v11; // r8
   __int64 v12; // rdx
   __int64 v13; // rcx
-  int v15; // [rsp+48h] [rbp-C0h] BYREF
-  void *v16; // [rsp+50h] [rbp-B8h]
-  __int64 v17; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v18[16]; // [rsp+60h] [rbp-A8h] BYREF
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v16; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v17[16]; // [rsp+60h] [rbp-A8h] BYREF
 
   v2 = 0;
   if ( (AVrfpDebug & 1) != 0 )
@@ -57,22 +56,22 @@ LABEL_10:
   }
   else
   {
-    v16 = &unk_1801665B0;
-    v15 = 34078720;
-    NtSystemRoot = (_WORD *)RtlGetNtSystemRoot();
-    RtlAppendUnicodeToString((unsigned __int16 *)&v15, NtSystemRoot);
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v15, SlashSystem32SlashString);
-    v7 = v16;
-    LdrpInitializeDllPath(0LL, (__int64)v16, v18);
-    Dll = LdrpLoadDll(a1 + 16, (int)v18, 1, (__int64)&v17);
+    Destination.Buffer = (wchar_t *)&unk_1801665B0;
+    *(_DWORD *)&Destination.Length = 34078720;
+    NtSystemRoot = RtlGetNtSystemRoot();
+    RtlAppendUnicodeToString(&Destination, NtSystemRoot);
+    RtlAppendUnicodeStringToString(&Destination, &SlashSystem32SlashString);
+    Buffer = Destination.Buffer;
+    LdrpInitializeDllPath(0LL, (__int64)Destination.Buffer, v17);
+    Dll = LdrpLoadDll(a1 + 16, (__int64)v17, 1, (__int64)&v16);
     if ( Dll >= 0 )
     {
-      v9 = v17;
-      *(_QWORD *)(a1 + 32) = v17;
-      v10 = RtlImageNtHeader(*(_QWORD *)(v9 + 48));
+      v9 = v16;
+      *(_QWORD *)(a1 + 32) = v16;
+      v10 = RtlImageNtHeader(*(PVOID *)(v9 + 48));
       if ( v10 )
       {
-        if ( (*(_WORD *)(v10 + 22) & 0x2000) != 0 )
+        if ( (v10->FileHeader.Characteristics & 0x2000) != 0 )
         {
           *(_DWORD *)(*(_QWORD *)(a1 + 32) + 104LL) |= 0x400u;
           v12 = *(_QWORD *)(a1 + 32);
@@ -100,7 +99,7 @@ LABEL_10:
         *(_QWORD *)(qword_1801653D0 + 96),
         *(_QWORD *)(a1 + 24),
         (unsigned int)Dll,
-        v7);
+        Buffer);
     }
   }
   return 0;

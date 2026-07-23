@@ -19,57 +19,57 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpLoadDll(unsigned __int16 *a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall LdrpLoadDll(unsigned __int16 *a1, int a2, int a3, __int64 a4)
 {
-  __int64 v6; // rbx
+  __int64 v7; // rbx
   _DWORD *SharedData; // rcx
-  __int64 v8; // rax
-  __int64 v9; // r14
-  _DWORD *v10; // rcx
-  char *v12; // rcx
-  int v13; // [rsp+50h] [rbp-B0h] BYREF
-  int v14; // [rsp+58h] [rbp-A8h] BYREF
-  _DWORD v15[2]; // [rsp+60h] [rbp-A0h] BYREF
-  __int16 *v16; // [rsp+68h] [rbp-98h]
-  __int16 v17; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v18[254]; // [rsp+72h] [rbp-8Eh] BYREF
+  __int64 v9; // rax
+  __int64 v10; // r14
+  _DWORD *v11; // rcx
+  char *v13; // rcx
+  char v14; // [rsp+48h] [rbp-B8h]
+  __int64 v15; // [rsp+50h] [rbp-B0h] BYREF
+  int v16; // [rsp+58h] [rbp-A8h] BYREF
+  _UNICODE_STRING v17; // [rsp+60h] [rbp-A0h] BYREF
+  __int16 v18; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v19[254]; // [rsp+72h] [rbp-8Eh] BYREF
 
-  v14 = a3;
-  v15[1] = 0;
-  memset_thunk_772440563353939046(v18, 0, 0xFEuLL);
-  v6 = 2147353476LL;
+  v16 = a3;
+  *(_DWORD *)(&v17.MaximumLength + 1) = 0;
+  memset_thunk_772440563353939046(v19, 0, 0xFEuLL);
+  v7 = 2147353476LL;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    v8 = (__int64)NtCurrentPeb()->SharedData + 554;
+    v9 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    v8 = 2147353476LL;
-  v9 = 2147353477LL;
-  if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+    v9 = 2147353476LL;
+  v10 = 2147353477LL;
+  if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v12 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
-    if ( (*v12 & 0x20) != 0 )
+    v13 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    if ( (*v13 & 0x20) != 0 )
       LdrpLogEtwEvent(5288, 0LL, 0, 0, a1, 0LL);
   }
-  v15[0] = 0x1000000;
-  v16 = &v17;
-  v17 = 0;
-  v13 = LdrpPreprocessDllName(a1, (unsigned __int16 *)v15, 0LL, &v14);
-  if ( v13 >= 0 )
-    LdrpLoadDllInternal((char)v15, 0LL, 0LL, a4, (__int64)&v13, 0LL);
-  if ( &v17 != v16 )
-    RtlpSysVolFree((__int64)v16);
-  v15[0] = 0x1000000;
-  v16 = &v17;
-  v17 = 0;
-  v10 = NtCurrentPeb()->SharedData;
-  if ( v10 && *v10 )
-    v6 = (__int64)NtCurrentPeb()->SharedData + 554;
-  if ( *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+  *(_DWORD *)&v17.Length = 0x1000000;
+  v17.Buffer = (wchar_t *)&v18;
+  v18 = 0;
+  LODWORD(v15) = LdrpPreprocessDllName(a1, &v17, 0LL, &v16);
+  if ( (int)v15 >= 0 )
+    LdrpLoadDllInternal((int)&v17, a2, v16, 4, 0LL, 0LL, a4, (__int64)&v15, 0LL, v14);
+  if ( &v18 != (__int16 *)v17.Buffer )
+    RtlpSysVolFree(v17.Buffer);
+  *(_DWORD *)&v17.Length = 0x1000000;
+  v17.Buffer = (wchar_t *)&v18;
+  v18 = 0;
+  v11 = NtCurrentPeb()->SharedData;
+  if ( v11 && *v11 )
+    v7 = (__int64)NtCurrentPeb()->SharedData + 554;
+  if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v9 = (__int64)NtCurrentPeb()->SharedData + 555;
-    if ( (*(_BYTE *)v9 & 0x20) != 0 )
+    if ( RtlGetCurrentServiceSessionId() )
+      v10 = (__int64)NtCurrentPeb()->SharedData + 555;
+    if ( (*(_BYTE *)v10 & 0x20) != 0 )
       LdrpLogEtwEvent(5289, 0LL, 0, 0, a1, 0LL);
   }
-  return (unsigned int)v13;
+  return (unsigned int)v15;
 }

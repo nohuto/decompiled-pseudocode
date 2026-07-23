@@ -1,11 +1,11 @@
 /*
- * XREFs of KiCaptureDumpPreRecovery @ 0x14057ACEC
+ * XREFs of KiCaptureDumpPreRecovery @ 0x14057B1DC
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x14057A42C (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x14057A91C (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     IoCapturePristineTriageDump @ 0x14054F768 (IoCapturePristineTriageDump.c)
- *     IoDemoteToTriageDump @ 0x14054FB4C (IoDemoteToTriageDump.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056A6D4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     IoCapturePristineTriageDump @ 0x14054FE28 (IoCapturePristineTriageDump.c)
+ *     IoDemoteToTriageDump @ 0x14055020C (IoDemoteToTriageDump.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056AD94 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
  */
 
 __int64 __fastcall KiCaptureDumpPreRecovery(__int64 a1, _BYTE *a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x140251218
+ * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x140252B78
  * Callers:
- *     HvlpProxySyntheticClusterIpi @ 0x14024F8C8 (HvlpProxySyntheticClusterIpi.c)
- *     HvlSendSyntheticClusterIpi @ 0x14024F9D0 (HvlSendSyntheticClusterIpi.c)
- *     KiFlushAddressSpaceTb @ 0x14024FEF8 (KiFlushAddressSpaceTb.c)
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     KeFlushCurrentTbOnly @ 0x140250688 (KeFlushCurrentTbOnly.c)
- *     KeFlushTb @ 0x1402507D0 (KeFlushTb.c)
+ *     HvlpProxySyntheticClusterIpi @ 0x140251228 (HvlpProxySyntheticClusterIpi.c)
+ *     HvlSendSyntheticClusterIpi @ 0x140251330 (HvlSendSyntheticClusterIpi.c)
+ *     KiFlushAddressSpaceTb @ 0x140251858 (KiFlushAddressSpaceTb.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     KeFlushCurrentTbOnly @ 0x140251FE8 (KeFlushCurrentTbOnly.c)
+ *     KeFlushTb @ 0x140252130 (KeFlushTb.c)
  * Callees:
  *     <none>
  */

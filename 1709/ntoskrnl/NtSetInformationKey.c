@@ -121,7 +121,7 @@ LABEL_13:
         if ( v13 == -1073741790
           && CmpVEEnabled
           && !CmpIsSystemEntity(&v29)
-          && (((KeySetInformationClass - 2) & 0xFFFFFFFA) != 0 || KeySetInformationClass == MaxKeySetInfoClass) )
+          && (((KeySetInformationClass - 2) & 0xFFFFFFFA) != 0 || KeySetInformationClass == KeySetLayerInformation) )
         {
           v15 = ObReferenceObjectByHandle(Handle, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, v10, v40, 0LL);
           v14 = v40[0];

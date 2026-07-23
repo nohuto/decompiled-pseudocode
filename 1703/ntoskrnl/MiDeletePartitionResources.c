@@ -66,7 +66,7 @@ NTSTATUS __fastcall MiDeletePartitionResources(__int64 a1)
   struct _KTHREAD *v26; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v28; // r14
-  __int64 v29; // r8
+  unsigned int v29; // r8d
   int v30; // eax
   __int64 v31; // rcx
   _KLOCK_ENTRY *v32; // rsi
@@ -267,7 +267,7 @@ LABEL_47:
     SessionId = 0xFFFFFFFFLL;
   --v26->SpecialApcDisable;
   v28 = ++v26->AbAllocationRegionCount;
-  LODWORD(v29) = ((char)v26->AbEntrySummary | (char)v26->AbOrphanedEntrySummary) ^ 0x3F;
+  v29 = ((char)v26->AbEntrySummary | (char)v26->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v33 = !_BitScanReverse((unsigned int *)&v34, v29);
@@ -277,7 +277,7 @@ LABEL_47:
     v30 = 1 << v34;
     v31 = v34;
     v32 = &v26->LockEntries[v31];
-    v29 = ~v30 & (unsigned int)v29;
+    v29 &= ~v30;
     if ( (v32->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v32->LockState.0 & 1) == 0
       && (*(_QWORD *)&v32->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)v8 & 0x7FFFFFFFFFFFFFFCLL)
@@ -297,7 +297,7 @@ LABEL_61:
   }
   v32->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v32->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v26->LockEntries[v31], SessionId, v29);
+    KiAbEntryRemoveFromTree(&v26->LockEntries[v31].TreeNode, SessionId);
   v35 = v32->BoostBitmap.AllFields & 0x1FFFF;
   v36 = v32->BoostBitmap.AllFields & 0xFFFE0000;
   v32->ThreadLocalFlags &= ~1u;

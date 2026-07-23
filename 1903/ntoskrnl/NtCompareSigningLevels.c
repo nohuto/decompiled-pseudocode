@@ -6,12 +6,12 @@
  *     _guard_dispatch_icall @ 0x1401CC5F0 (_guard_dispatch_icall.c)
  */
 
-__int64 NtCompareSigningLevels()
+NTSTATUS __cdecl NtCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
-  int v0; // eax
+  int v2; // eax
 
-  v0 = 0;
+  v2 = 0;
   if ( qword_1404364C0 )
-    v0 = ((__int64 (*)(void))qword_1404364C0)();
-  return v0 == 0 ? 0xC0000428 : 0;
+    v2 = qword_1404364C0(FirstSigningLevel, SecondSigningLevel);
+  return v2 == 0 ? 0xC0000428 : 0;
 }

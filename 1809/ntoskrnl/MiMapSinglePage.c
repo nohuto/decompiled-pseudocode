@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapSinglePage @ 0x14012187C
+ * XREFs of MiMapSinglePage @ 0x14012194C
  * Callers:
- *     MiFillCombinePage @ 0x140121784 (MiFillCombinePage.c)
- *     MiInitializeForkMaps @ 0x1402CA878 (MiInitializeForkMaps.c)
- *     MiUpdateForkMaps @ 0x1402CAC08 (MiUpdateForkMaps.c)
- *     MiMapRetpolineStubs @ 0x140853C7C (MiMapRetpolineStubs.c)
+ *     MiFillCombinePage @ 0x140121854 (MiFillCombinePage.c)
+ *     MiInitializeForkMaps @ 0x1402CAA68 (MiInitializeForkMaps.c)
+ *     MiUpdateForkMaps @ 0x1402CADF8 (MiUpdateForkMaps.c)
+ *     MiMapRetpolineStubs @ 0x140854EDC (MiMapRetpolineStubs.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 ULONG_PTR __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, int a3, char a4)
@@ -51,7 +51,7 @@ LABEL_4:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v17 = v18;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_24;
 LABEL_22:
         if ( ((unsigned __int8)v16 & (unsigned __int8)v18) != 0 )
@@ -68,7 +68,7 @@ LABEL_24:
     KeFlushSingleTb(v7, 0, v18);
     goto LABEL_4;
   }
-  result = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+  result = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
   v9 = (_QWORD *)result;
   if ( !result )
     return result;
@@ -81,7 +81,7 @@ LABEL_7:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v14 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_8;
       v15 = (v13 & 1) == 0;
     }

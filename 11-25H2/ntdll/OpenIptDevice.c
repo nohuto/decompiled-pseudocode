@@ -9,8 +9,8 @@
 
 NTSTATUS __fastcall OpenIptDevice(HANDLE *a1)
 {
-  struct _IO_STATUS_BLOCK v2; // [rsp+60h] [rbp-48h] BYREF
-  OBJECT_ATTRIBUTES v3; // [rsp+70h] [rbp-38h] BYREF
+  _IO_STATUS_BLOCK v2; // [rsp+60h] [rbp-48h] BYREF
+  _OBJECT_ATTRIBUTES v3; // [rsp+70h] [rbp-38h] BYREF
 
   *(_QWORD *)&v3.Length = 48LL;
   v3.ObjectName = (PUNICODE_STRING)&unk_1801CE748;

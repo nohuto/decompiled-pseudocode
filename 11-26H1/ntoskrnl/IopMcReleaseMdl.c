@@ -1,14 +1,14 @@
 /*
- * XREFs of IopMcReleaseMdl @ 0x1404114C8
+ * XREFs of IopMcReleaseMdl @ 0x140410BE8
  * Callers:
- *     IopIoRingCompleteIrp @ 0x1404113E8 (IopIoRingCompleteIrp.c)
- *     IopIoRingDispatchWrite @ 0x1407987BC (IopIoRingDispatchWrite.c)
- *     IopIoRingDispatchRead @ 0x140B00E10 (IopIoRingDispatchRead.c)
+ *     IopIoRingCompleteIrp @ 0x140410B08 (IopIoRingCompleteIrp.c)
+ *     IopIoRingDispatchWrite @ 0x14079B2EC (IopIoRingDispatchWrite.c)
+ *     IopIoRingDispatchRead @ 0x140B02B40 (IopIoRingDispatchRead.c)
  * Callees:
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     IopMcDereferenceBufferEntry @ 0x140411A80 (IopMcDereferenceBufferEntry.c)
- *     IopMcDereferenceMdl @ 0x140411AC8 (IopMcDereferenceMdl.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     IopMcDereferenceBufferEntry @ 0x1404111A0 (IopMcDereferenceBufferEntry.c)
+ *     IopMcDereferenceMdl @ 0x1404111E8 (IopMcDereferenceMdl.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopMcReleaseMdl(struct _MDL *BugCheckParameter4)

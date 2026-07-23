@@ -1,15 +1,15 @@
 /*
- * XREFs of PiUEventApplyAdditionalFilters @ 0x14077E4E0
+ * XREFs of PiUEventApplyAdditionalFilters @ 0x14077E6D0
  * Callers:
- *     PiUEventNotifyDeviceInstanceChange @ 0x14077E3F0 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyTargetDeviceChange @ 0x140783544 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x140791288 (PiUEventNotifyDeviceInterfaceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140872360 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x14077E5E0 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x140783734 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140791478 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x1408725A0 (PiUEventNotifyDeviceInstancePropertyChange.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x140741438 (PiPnpRtlApplyMandatoryFilters.c)
- *     SeQuerySessionIdTokenEx @ 0x140741DD0 (SeQuerySessionIdTokenEx.c)
- *     PiAuVerifyAccessToObject @ 0x14079A8CC (PiAuVerifyAccessToObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x140741628 (PiPnpRtlApplyMandatoryFilters.c)
+ *     SeQuerySessionIdTokenEx @ 0x140741FC0 (SeQuerySessionIdTokenEx.c)
+ *     PiAuVerifyAccessToObject @ 0x14079AABC (PiAuVerifyAccessToObject.c)
  */
 
 BOOLEAN __fastcall PiUEventApplyAdditionalFilters(__int64 a1, __int64 a2)

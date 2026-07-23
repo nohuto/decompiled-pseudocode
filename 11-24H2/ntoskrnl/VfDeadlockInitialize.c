@@ -1,21 +1,21 @@
 /*
- * XREFs of VfDeadlockInitialize @ 0x140B97DEC
+ * XREFs of VfDeadlockInitialize @ 0x140B99DEC
  * Callers:
- *     VfDeadlockPluginEntry @ 0x140B98240 (VfDeadlockPluginEntry.c)
+ *     VfDeadlockPluginEntry @ 0x140B9A240 (VfDeadlockPluginEntry.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x14045FB10 (ExInitializeNPagedLookasideListInternal.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViDeadlockDetectionApplySettings @ 0x140B99188 (ViDeadlockDetectionApplySettings.c)
- *     ViDeadlockPopulateLookasideCache @ 0x140B99B5C (ViDeadlockPopulateLookasideCache.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404549D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViDeadlockDetectionApplySettings @ 0x140B9B188 (ViDeadlockDetectionApplySettings.c)
+ *     ViDeadlockPopulateLookasideCache @ 0x140B9BB5C (ViDeadlockPopulateLookasideCache.c)
  */
 
 void VfDeadlockInitialize()
 {
   __int16 v0; // bx
   _QWORD *v1; // rdx
-  ULONG_PTR Pool2; // rax
-  ULONG_PTR v3; // rax
+  __int64 Pool2; // rax
+  __int64 v3; // rax
   __int64 v4; // r8
   __int64 v5; // r9
   _QWORD *v6; // rcx

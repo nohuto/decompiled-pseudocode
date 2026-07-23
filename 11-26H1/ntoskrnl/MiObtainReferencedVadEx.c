@@ -1,65 +1,65 @@
 /*
- * XREFs of MiObtainReferencedVadEx @ 0x1402D0160
+ * XREFs of MiObtainReferencedVadEx @ 0x1402B1F20
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402D28A0 (MiGetWorkingSetInfoList.c)
- *     MiProbeAndLockPrepare @ 0x1402E5470 (MiProbeAndLockPrepare.c)
- *     MiFaultTrimBehind @ 0x140441F5C (MiFaultTrimBehind.c)
- *     MmUpdateUserShadowStackValue @ 0x1404E0BFC (MmUpdateUserShadowStackValue.c)
- *     MiQueryImageExtensionInformation @ 0x1404E6410 (MiQueryImageExtensionInformation.c)
- *     MiPrefetchPreallocatePages @ 0x1406F719C (MiPrefetchPreallocatePages.c)
- *     MmGetEnclaveModuleList @ 0x140700318 (MmGetEnclaveModuleList.c)
- *     MiStoreDiscardPoisonedPage @ 0x14070A464 (MiStoreDiscardPoisonedPage.c)
- *     MiProcessVaContiguityInformation @ 0x14070B810 (MiProcessVaContiguityInformation.c)
- *     MmSecureVirtualMemoryEx @ 0x140777750 (MmSecureVirtualMemoryEx.c)
- *     MiHandleEnclaveFault @ 0x14077BFB4 (MiHandleEnclaveFault.c)
- *     MiGetVadForHotPatchInProgress @ 0x140870088 (MiGetVadForHotPatchInProgress.c)
- *     MmCommitHotPatchTable @ 0x140874A28 (MmCommitHotPatchTable.c)
- *     MmPrepareImagePagesForHotPatch @ 0x140874C50 (MmPrepareImagePagesForHotPatch.c)
- *     NtTerminateEnclave @ 0x140877380 (NtTerminateEnclave.c)
- *     MiScrubProcessLargePage @ 0x14087DEB8 (MiScrubProcessLargePage.c)
- *     MmGetImageInformation @ 0x140942C3C (MmGetImageInformation.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x14095CF04 (MiUnmapLockedPagesInUserSpace.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14095D738 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MmProtectVirtualMemory @ 0x14095E5D8 (MmProtectVirtualMemory.c)
- *     MmDeleteTeb @ 0x14095F004 (MmDeleteTeb.c)
- *     MmFreeVirtualMemory @ 0x14095F3F0 (MmFreeVirtualMemory.c)
- *     NtAreMappedFilesTheSame @ 0x140961230 (NtAreMappedFilesTheSame.c)
- *     MiUnmapViewOfSectionPrepare @ 0x1409C40F0 (MiUnmapViewOfSectionPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
- *     MmGetFileNameForAddress @ 0x1409FBE08 (MmGetFileNameForAddress.c)
- *     MiCopyVmLockVad @ 0x140A22620 (MiCopyVmLockVad.c)
- *     MmFlushVirtualMemory @ 0x140A5CF70 (MmFlushVirtualMemory.c)
- *     MiPrepareWriteWatchPacket @ 0x140A8DCD0 (MiPrepareWriteWatchPacket.c)
- *     MiQuerySingleLoadedPatch @ 0x140A997BC (MiQuerySingleLoadedPatch.c)
- *     MiCfgMarkValidEntries @ 0x140AA0D20 (MiCfgMarkValidEntries.c)
- *     MiCheckShadowStackOverflow @ 0x140AA2AE0 (MiCheckShadowStackOverflow.c)
- *     NtResetWriteWatch @ 0x140AB72D0 (NtResetWriteWatch.c)
- *     MiInitializeEnclave @ 0x140AB757C (MiInitializeEnclave.c)
- *     MmStoreFreeVirtualMemory @ 0x140AB8860 (MmStoreFreeVirtualMemory.c)
- *     MmRotatePhysicalView @ 0x140AEC270 (MmRotatePhysicalView.c)
- *     NtLoadEnclaveData @ 0x140AEE740 (NtLoadEnclaveData.c)
- *     MiReferenceCfgVad @ 0x140AF0820 (MiReferenceCfgVad.c)
- *     MmSelectVsmEnclaveByAddress @ 0x140B2AAB8 (MmSelectVsmEnclaveByAddress.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140B64218 (MiQueryMemoryPhysicalContiguity.c)
- *     MiProcessVaRangesInfoClass @ 0x140B6B41C (MiProcessVaRangesInfoClass.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140C01874 (MiDeleteAllHardwareEnclaves.c)
+ *     MiGetWorkingSetInfoList @ 0x1402B4660 (MiGetWorkingSetInfoList.c)
+ *     MiProbeAndLockPrepare @ 0x1402C74B0 (MiProbeAndLockPrepare.c)
+ *     MiFaultTrimBehind @ 0x14043AA6C (MiFaultTrimBehind.c)
+ *     MmUpdateUserShadowStackValue @ 0x1404DA2DC (MmUpdateUserShadowStackValue.c)
+ *     MiQueryImageExtensionInformation @ 0x1404DF9B0 (MiQueryImageExtensionInformation.c)
+ *     MiPrefetchPreallocatePages @ 0x1406FBE0C (MiPrefetchPreallocatePages.c)
+ *     MmGetEnclaveModuleList @ 0x140704FE8 (MmGetEnclaveModuleList.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14070F118 (MiStoreDiscardPoisonedPage.c)
+ *     MiProcessVaContiguityInformation @ 0x1407104C0 (MiProcessVaContiguityInformation.c)
+ *     MmSecureVirtualMemoryEx @ 0x14077A5F0 (MmSecureVirtualMemoryEx.c)
+ *     MiHandleEnclaveFault @ 0x14077EB34 (MiHandleEnclaveFault.c)
+ *     MiGetVadForHotPatchInProgress @ 0x1408763E8 (MiGetVadForHotPatchInProgress.c)
+ *     MmCommitHotPatchTable @ 0x14087AD88 (MmCommitHotPatchTable.c)
+ *     MmPrepareImagePagesForHotPatch @ 0x14087B034 (MmPrepareImagePagesForHotPatch.c)
+ *     NtTerminateEnclave @ 0x14087D760 (NtTerminateEnclave.c)
+ *     MiScrubProcessLargePage @ 0x1408842B8 (MiScrubProcessLargePage.c)
+ *     MmGetFileNameForAddress @ 0x140920A08 (MmGetFileNameForAddress.c)
+ *     MiUnmapViewOfSectionPrepare @ 0x1409950D0 (MiUnmapViewOfSectionPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140A027C4 (MiUnmapLockedPagesInUserSpace.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140A02FF8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmProtectVirtualMemory @ 0x140A03E98 (MmProtectVirtualMemory.c)
+ *     MmDeleteTeb @ 0x140A048C4 (MmDeleteTeb.c)
+ *     MmFreeVirtualMemory @ 0x140A04CB0 (MmFreeVirtualMemory.c)
+ *     NtAreMappedFilesTheSame @ 0x140A06AE0 (NtAreMappedFilesTheSame.c)
+ *     MiCopyVmLockVad @ 0x140A2BC40 (MiCopyVmLockVad.c)
+ *     MmGetImageInformation @ 0x140A35D4C (MmGetImageInformation.c)
+ *     MmFlushVirtualMemory @ 0x140A69F30 (MmFlushVirtualMemory.c)
+ *     MiPrepareWriteWatchPacket @ 0x140A929A0 (MiPrepareWriteWatchPacket.c)
+ *     MiQuerySingleLoadedPatch @ 0x140A9D93C (MiQuerySingleLoadedPatch.c)
+ *     MiCfgMarkValidEntries @ 0x140AA27E4 (MiCfgMarkValidEntries.c)
+ *     MiCheckShadowStackOverflow @ 0x140AA45B0 (MiCheckShadowStackOverflow.c)
+ *     NtResetWriteWatch @ 0x140AB8910 (NtResetWriteWatch.c)
+ *     MiInitializeEnclave @ 0x140AB8BBC (MiInitializeEnclave.c)
+ *     MmStoreFreeVirtualMemory @ 0x140AB9EA0 (MmStoreFreeVirtualMemory.c)
+ *     MmRotatePhysicalView @ 0x140AEF280 (MmRotatePhysicalView.c)
+ *     NtLoadEnclaveData @ 0x140AF16E0 (NtLoadEnclaveData.c)
+ *     MiReferenceCfgVad @ 0x140AF33F0 (MiReferenceCfgVad.c)
+ *     MmSelectVsmEnclaveByAddress @ 0x140B2CB38 (MmSelectVsmEnclaveByAddress.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140B672B8 (MiQueryMemoryPhysicalContiguity.c)
+ *     MiProcessVaRangesInfoClass @ 0x140B6E518 (MiProcessVaRangesInfoClass.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140C07A84 (MiDeleteAllHardwareEnclaves.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiLockVadShared @ 0x14027E8D0 (MiLockVadShared.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVadShared @ 0x14027EC50 (MiUnlockVadShared.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiTryLockVad @ 0x1404D5B40 (MiTryLockVad.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiWaitForVadDeletion @ 0x140531014 (MiWaitForVadDeletion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiLockVadShared @ 0x14027DE40 (MiLockVadShared.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVadShared @ 0x14027E1C0 (MiUnlockVadShared.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiTryLockVad @ 0x1404CF304 (MiTryLockVad.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiWaitForVadDeletion @ 0x140533514 (MiWaitForVadDeletion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiObtainReferencedVadEx(unsigned __int64 a1, __int64 a2, int *a3)
@@ -103,7 +103,7 @@ ULONG_PTR __fastcall MiObtainReferencedVadEx(unsigned __int64 a1, __int64 a2, in
     LOBYTE(a2) = 2;
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v8);
     v11 = *v8 & 0x7FFFFFFF;
@@ -184,7 +184,7 @@ LABEL_67:
       MiUnlockVadTree(0LL, CurrentIrql);
       v23 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v23
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v28, v27);
       }
@@ -196,7 +196,7 @@ LABEL_67:
   v17 = (volatile signed __int32 *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
   if ( CurrentIrql == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v17, 0xBFFFFFFF);
       _InterlockedDecrement(v17);
@@ -208,7 +208,7 @@ LABEL_67:
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v17, 0xBFFFFFFF);
       _InterlockedDecrement(v17);
@@ -230,7 +230,7 @@ LABEL_67:
   else
     MiLockVad((__int64)CurrentThread, Flink, (__int64)v17, (struct _KLOCK_ENTRIES *)v13);
   v23 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v23 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v23 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v22, v21);
   if ( (*(_DWORD *)(Flink + 48) & 1) != 0 )
   {

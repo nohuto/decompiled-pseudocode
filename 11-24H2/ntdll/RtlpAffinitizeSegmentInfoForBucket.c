@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpAffinitizeSegmentInfoForBucket @ 0x1800F5060
+ * XREFs of RtlpAffinitizeSegmentInfoForBucket @ 0x1800E8454
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x180028AA0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18002A3E0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800554A0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180056DE0 (RtlpLocalInfoAllocFromCache.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlpExtendLowFragHeapSegment @ 0x18009D0A4 (RtlpExtendLowFragHeapSegment.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlpExtendLowFragHeapSegment @ 0x1800E8614 (RtlpExtendLowFragHeapSegment.c)
  */
 
 __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a2)
@@ -33,7 +33,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
     if ( *(_QWORD *)(a1 + 8 * v3 + 2224) )
     {
       v7 = -1073741302;
@@ -42,7 +42,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
     {
       v5 = (unsigned int)(v4 - 1);
       v6 = v5;
-      v7 = RtlpExtendLowFragHeapSegment((__int64 *)a1, 192 * v5, &v13);
+      v7 = RtlpExtendLowFragHeapSegment(a1, 192 * v5, &v13);
       if ( v7 >= 0 )
       {
         v8 = v13;
@@ -65,7 +65,7 @@ __int64 __fastcall RtlpAffinitizeSegmentInfoForBucket(__int64 a1, unsigned int a
         *(_QWORD *)(a1 + 8 * v3 + 2224) = v8;
       }
     }
-    RtlLeaveCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
   }
   return (unsigned int)v7;
 }

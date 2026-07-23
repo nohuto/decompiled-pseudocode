@@ -1,13 +1,13 @@
 /*
- * XREFs of KiPrepareUpdateCoresHeteroMask @ 0x1407B92B0
+ * XREFs of KiPrepareUpdateCoresHeteroMask @ 0x1407BC310
  * Callers:
- *     KiConfigureHeteroMultiCoreProcessors @ 0x140B38AA0 (KiConfigureHeteroMultiCoreProcessors.c)
+ *     KiConfigureHeteroMultiCoreProcessors @ 0x140B3ACB0 (KiConfigureHeteroMultiCoreProcessors.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KiPrepareUpdateCoresHeteroMask(
@@ -124,42 +124,42 @@ void __fastcall KiPrepareUpdateCoresHeteroMask(
       v65 = v23;
       if ( a1 )
       {
-        if ( *(_BYTE *)(a6 + 4 * v23 + 27) )
+        if ( *(_BYTE *)(a6 + 4 * v23 + 51) )
           goto LABEL_21;
       }
       else
       {
-        if ( *(_BYTE *)(a6 + 4 * v23 + 26) )
+        if ( *(_BYTE *)(a6 + 4 * v23 + 50) )
           goto LABEL_21;
         v22 = v20;
       }
       KeAddProcessorAffinityEx(&v77.Count, v19);
-      v24 = *(_BYTE *)(v22 + *(_QWORD *)(a6 + 8));
+      v24 = *(_BYTE *)(v22 + *(_QWORD *)(a6 + 16));
       v25 = v69 + 2LL * v68;
-      if ( v24 >= *((_BYTE *)&stru_140FC01F0.CycleTime + v25) && v24 <= *((_BYTE *)&stru_140FC01F0.StackBase + v25) )
+      if ( v24 >= *((_BYTE *)&stru_140FC11F0.StackBase + v25) && v24 <= *((_BYTE *)&stru_140FC11F0.CycleTime + v25) )
       {
         if ( a1 )
         {
           KeAddProcessorAffinityEx(&v70->Count, v19);
           v14 = v64;
-          v26 = *(_BYTE *)(a6 + 4 * v65 + 25);
+          v26 = *(_BYTE *)(a6 + 4 * v65 + 49);
           v27 = v18;
           if ( v18 >= v26 )
-            v27 = *(_BYTE *)(a6 + 4 * v65 + 25);
+            v27 = *(_BYTE *)(a6 + 4 * v65 + 49);
           v18 = v27;
           if ( v17 <= v26 )
-            v17 = *(_BYTE *)(a6 + 4 * v65 + 25);
+            v17 = *(_BYTE *)(a6 + 4 * v65 + 49);
           goto LABEL_21;
         }
         KeAddProcessorAffinityEx(&v71->Count, v19);
-        v28 = *(_BYTE *)(a6 + 4 * v65 + 24);
+        v28 = *(_BYTE *)(a6 + 4 * v65 + 48);
         v29 = v15;
         if ( v15 >= v28 )
-          v29 = *(_BYTE *)(a6 + 4 * v65 + 24);
+          v29 = *(_BYTE *)(a6 + 4 * v65 + 48);
         v15 = v29;
         v30 = v16;
         if ( v16 <= v28 )
-          v30 = *(_BYTE *)(a6 + 4 * v65 + 24);
+          v30 = *(_BYTE *)(a6 + 4 * v65 + 48);
         v16 = v30;
       }
       v14 = v64;
@@ -196,10 +196,10 @@ LABEL_21:
     while ( !v52 )
     {
       v54 = v17;
-      v17 = *(_BYTE *)(a6 + 4LL * (a5 + v64 * (_DWORD)v65) + 25);
+      v17 = *(_BYTE *)(a6 + 4LL * (a5 + v64 * (_DWORD)v65) + 49);
       v55 = v18;
       if ( v18 >= v17 )
-        v55 = *(_BYTE *)(a6 + 4LL * (a5 + v64 * (_DWORD)v65) + 25);
+        v55 = *(_BYTE *)(a6 + 4LL * (a5 + v64 * (_DWORD)v65) + 49);
       v18 = v55;
       if ( v54 > v17 )
         v17 = v54;
@@ -222,11 +222,11 @@ LABEL_52:
       {
         v57 = v65;
         v58 = 4LL * (a5 + v53 * (_DWORD)v65);
-        if ( v18 == v17 || *(_BYTE *)(v58 + a6 + 25) > v18 )
+        if ( v18 == v17 || *(_BYTE *)(v58 + a6 + 49) > v18 )
           KeAddProcessorAffinityEx(&v45->Count, v65);
-        if ( *(_BYTE *)(v58 + a6 + 25) == v17 )
+        if ( *(_BYTE *)(v58 + a6 + 49) == v17 )
           KeAddProcessorAffinityEx(&v76->Count, v57);
-        if ( !a7 && *(_BYTE *)(v58 + a6 + 25) == v18 )
+        if ( !a7 && *(_BYTE *)(v58 + a6 + 49) == v18 )
         {
           KeAddProcessorAffinityEx(&v56->Count, v57);
           KeAddProcessorAffinityEx(&v72->Count, v57);
@@ -259,10 +259,10 @@ LABEL_52:
     while ( !v33 )
     {
       v35 = v16;
-      v16 = *(_BYTE *)(a6 + 4LL * (a5 + v64 * (_DWORD)v65) + 24);
+      v16 = *(_BYTE *)(a6 + 4LL * (a5 + v64 * (_DWORD)v65) + 48);
       v36 = v15;
       if ( v15 >= v16 )
-        v36 = *(_BYTE *)(a6 + 4LL * (a5 + v64 * (_DWORD)v65) + 24);
+        v36 = *(_BYTE *)(a6 + 4LL * (a5 + v64 * (_DWORD)v65) + 48);
       v15 = v36;
       if ( v35 > v16 )
         v16 = v35;
@@ -282,16 +282,16 @@ LABEL_37:
         if ( a7 )
         {
           v40 = v15 + 1;
-          if ( (unsigned int)v15 + 1 <= *(unsigned __int8 *)(*(_QWORD *)(a6 + 16) + 2LL * a5) )
-            v40 = *(_BYTE *)(*(_QWORD *)(a6 + 16) + 2LL * a5);
+          if ( (unsigned int)v15 + 1 <= *(unsigned __int8 *)(*(_QWORD *)(a6 + 24) + 2LL * a5) )
+            v40 = *(_BYTE *)(*(_QWORD *)(a6 + 24) + 2LL * a5);
           v41 = v40;
           v42 = v40 < v16;
           v43 = v16;
           if ( v42 )
             v43 = v41;
-          if ( v15 == v16 || *(_BYTE *)(a6 + 4 * v39 + 24) >= v43 )
+          if ( v15 == v16 || *(_BYTE *)(a6 + 4 * v39 + 48) >= v43 )
             KeAddProcessorAffinityEx(&v37->Count, v65);
-          if ( *(_BYTE *)(a6 + 4 * v39 + 24) != v16 )
+          if ( *(_BYTE *)(a6 + 4 * v39 + 48) != v16 )
             goto LABEL_50;
         }
         else

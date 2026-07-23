@@ -1,19 +1,19 @@
 /*
- * XREFs of IopLiveDumpPolicyChangeWnfCallback @ 0x14059C620
+ * XREFs of IopLiveDumpPolicyChangeWnfCallback @ 0x1405995A0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTrace @ 0x1405A3070 (IopLiveDumpTrace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     IopInitializeDumpPolicySettings @ 0x140711124 (IopInitializeDumpPolicySettings.c)
- *     RtlIsStateSeparationEnabled @ 0x14085F810 (RtlIsStateSeparationEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTrace @ 0x14059FFB0 (IopLiveDumpTrace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     IopInitializeDumpPolicySettings @ 0x14070ECB4 (IopInitializeDumpPolicySettings.c)
+ *     RtlIsStateSeparationEnabled @ 0x140A579B0 (RtlIsStateSeparationEnabled.c)
  */
 
 __int64 __fastcall IopLiveDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
@@ -51,7 +51,7 @@ __int64 __fastcall IopLiveDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
   {
     IopInitializeDumpPolicySettings(0LL);
     Data = (unsigned __int8)AllowLiveDump;
-    if ( (unsigned __int8)RtlIsStateSeparationEnabled() )
+    if ( RtlIsStateSeparationEnabled() )
     {
       RtlInitUnicodeString(
         &DestinationString,
@@ -87,7 +87,7 @@ __int64 __fastcall IopLiveDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
       v22 = &v4;
       v21 = 4LL;
       v23 = 1LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06E80, (unsigned __int8 *)word_1400456F2, 0LL, 0LL, 5u, v17);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06E80, (unsigned __int8 *)byte_140045B85, 0LL, 0LL, 5u, v17);
     }
     if ( KeyHandle )
       ZwClose(KeyHandle);
@@ -106,7 +106,13 @@ __int64 __fastcall IopLiveDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
       v9 = 0x1000000LL;
       v18 = &v9;
       v19 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06E80, (unsigned __int8 *)byte_1400456B5, 0LL, 0LL, 3u, v17);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140E06E80,
+        (unsigned __int8 *)&word_140045BDE,
+        0LL,
+        0LL,
+        3u,
+        v17);
     }
     return 3221225485LL;
   }

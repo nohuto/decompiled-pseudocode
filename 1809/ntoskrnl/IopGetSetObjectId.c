@@ -1,14 +1,14 @@
 /*
- * XREFs of IopGetSetObjectId @ 0x14068C630
+ * XREFs of IopGetSetObjectId @ 0x14068D7F0
  * Callers:
- *     IopTrackLink @ 0x14068BD28 (IopTrackLink.c)
+ *     IopTrackLink @ 0x14068CEE8 (IopTrackLink.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDD10 (IoBuildDeviceIoControlRequest.c)
  */
 
 NTSTATUS __fastcall IopGetSetObjectId(struct _FILE_OBJECT *Object, struct _IRP *a2, ULONG a3, ULONG a4)

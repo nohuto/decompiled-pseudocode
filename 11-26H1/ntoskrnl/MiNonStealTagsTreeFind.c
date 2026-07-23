@@ -1,7 +1,7 @@
 /*
- * XREFs of MiNonStealTagsTreeFind @ 0x1404596D4
+ * XREFs of MiNonStealTagsTreeFind @ 0x140450F54
  * Callers:
- *     MiLogNonStealNonPagedPoolEntries @ 0x1404594E0 (MiLogNonStealNonPagedPoolEntries.c)
+ *     MiLogNonStealNonPagedPoolEntries @ 0x140450D60 (MiLogNonStealNonPagedPoolEntries.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of KeDeleteThread @ 0x1404106F4
+ * XREFs of KeDeleteThread @ 0x14040FE14
  * Callers:
- *     PspReaper @ 0x140410640 (PspReaper.c)
+ *     PspReaper @ 0x14040FD60 (PspReaper.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiDecrementProcessStackCount @ 0x1404108F0 (KiDecrementProcessStackCount.c)
- *     KiWaitForContextSwap @ 0x1404109FC (KiWaitForContextSwap.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiDecrementProcessStackCount @ 0x140410010 (KiDecrementProcessStackCount.c)
+ *     KiWaitForContextSwap @ 0x14041011C (KiWaitForContextSwap.c)
  */
 
 void __fastcall KeDeleteThread(_QWORD *a1)
@@ -27,7 +27,7 @@ void __fastcall KeDeleteThread(_QWORD *a1)
   v2 = a1 + 110;
   if ( a1[110] != 1LL )
   {
-    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.SchedulerAssist);
+    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.KernelShadowStackBase);
     v5 = *v2;
     v6 = v4;
     if ( *v2 != 1 && a1[111] )
@@ -40,12 +40,12 @@ void __fastcall KeDeleteThread(_QWORD *a1)
       *v7 = (__int64 *)v5;
       *(_QWORD *)(v5 + 8) = v7;
     }
-    KeReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.SchedulerAssist, v6);
+    KeReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.KernelShadowStackBase, v6);
   }
   v3 = a1 + 126;
   if ( a1[126] != 1LL )
   {
-    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Blink);
+    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.WpsFeedback);
     v9 = (__int64 *)*v3;
     v10 = v8;
     if ( *v3 == 1 || !a1[127] )
@@ -58,7 +58,7 @@ void __fastcall KeDeleteThread(_QWORD *a1)
         *v11 = v9;
         v9[1] = (__int64)v11;
 LABEL_16:
-        KeReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Blink, v10);
+        KeReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.WpsFeedback, v10);
         return;
       }
     }

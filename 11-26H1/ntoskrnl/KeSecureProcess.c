@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSecureProcess @ 0x1405E5930
+ * XREFs of KeSecureProcess @ 0x1405E82A0
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     VslInitializeSecureProcess @ 0x1405C34F8 (VslInitializeSecureProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     VslInitializeSecureProcess @ 0x1405C5D68 (VslInitializeSecureProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeSecureProcess(

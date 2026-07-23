@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEtIsrDpcQuery @ 0x1407B33B4
+ * XREFs of PopEtIsrDpcQuery @ 0x1407B35A4
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407B1BE0 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407B1DD0 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeQueryCycleTimeStatsProcessor @ 0x14033AD20 (KeQueryCycleTimeStatsProcessor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeQueryCycleTimeStatsProcessor @ 0x14033AFB0 (KeQueryCycleTimeStatsProcessor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)

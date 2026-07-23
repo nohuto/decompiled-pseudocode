@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpSendDbgId @ 0x14093CD50
+ * XREFs of EtwpSendDbgId @ 0x14093CF20
  * Callers:
- *     EtwpSendTraceEvent @ 0x1405AAB68 (EtwpSendTraceEvent.c)
- *     EtwpProviderArrivalCallback @ 0x1406AAF5C (EtwpProviderArrivalCallback.c)
- *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
+ *     EtwpSendTraceEvent @ 0x1405AAD98 (EtwpSendTraceEvent.c)
+ *     EtwpProviderArrivalCallback @ 0x14060964C (EtwpProviderArrivalCallback.c)
+ *     EtwpUpdateTrace @ 0x140796F68 (EtwpUpdateTrace.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     EtwpGetMaxTrackingEventBufferSize @ 0x1406BC610 (EtwpGetMaxTrackingEventBufferSize.c)
- *     EtwpInitializeProviderInfoBuffer @ 0x1406BC68C (EtwpInitializeProviderInfoBuffer.c)
- *     EtwpAddDebugInfoEvents @ 0x1406DF564 (EtwpAddDebugInfoEvents.c)
- *     EtwpSendBufferToDebugger @ 0x14093CC34 (EtwpSendBufferToDebugger.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwpGetMaxTrackingEventBufferSize @ 0x14061B780 (EtwpGetMaxTrackingEventBufferSize.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x14061B7FC (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpAddDebugInfoEvents @ 0x1406B6844 (EtwpAddDebugInfoEvents.c)
+ *     EtwpSendBufferToDebugger @ 0x14093CE04 (EtwpSendBufferToDebugger.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpSendDbgId(__int64 a1)

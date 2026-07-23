@@ -1,13 +1,13 @@
 /*
- * XREFs of KeRundownPriQueue @ 0x1405F9688
+ * XREFs of KeRundownPriQueue @ 0x1405FC0A8
  * Callers:
- *     ExpWorkQueueDestroy @ 0x14083FEE0 (ExpWorkQueueDestroy.c)
+ *     ExpWorkQueueDestroy @ 0x140846120 (ExpWorkQueueDestroy.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1403DD59C (KiAcquireReleaseObjectRundownLockExclusive.c)
- *     KeRundownQueueCommon @ 0x1403DD884 (KeRundownQueueCommon.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1403E078C (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KeRundownQueueCommon @ 0x1403E0A74 (KeRundownQueueCommon.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall KeRundownPriQueue(unsigned __int64 a1, __int64 a2, __int64 a3)

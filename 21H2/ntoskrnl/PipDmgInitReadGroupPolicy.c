@@ -1,13 +1,13 @@
 /*
- * XREFs of PipDmgInitReadGroupPolicy @ 0x1408A3530
+ * XREFs of PipDmgInitReadGroupPolicy @ 0x1408A3690
  * Callers:
- *     PipDmgInitPhaseTwo @ 0x1407A3FC4 (PipDmgInitPhaseTwo.c)
+ *     PipDmgInitPhaseTwo @ 0x1407A41C4 (PipDmgInitPhaseTwo.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x14039A9C8 (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PnpValidateRegistryDword @ 0x14039AB18 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 PipDmgInitReadGroupPolicy()

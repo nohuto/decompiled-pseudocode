@@ -1,12 +1,12 @@
 /*
- * XREFs of FlushWorkItemRoutineKernelMode @ 0x1400AF00C
+ * XREFs of FlushWorkItemRoutineKernelMode @ 0x1400AD574
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     LookUpTableFlushPartial @ 0x1400AF06C (LookUpTableFlushPartial.c)
- *     EnableFlushTimer @ 0x1400FAE98 (EnableFlushTimer.c)
- *     LookUpTableFlushComplete @ 0x14014915C (LookUpTableFlushComplete.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     LookUpTableFlushPartial @ 0x1400AD5D4 (LookUpTableFlushPartial.c)
+ *     EnableFlushTimer @ 0x1400F8C24 (EnableFlushTimer.c)
+ *     LookUpTableFlushComplete @ 0x1401496CC (LookUpTableFlushComplete.c)
  */
 
 signed __int16 __fastcall FlushWorkItemRoutineKernelMode(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpHvIsReferenceTscConfigured @ 0x14037B1C0
+ * XREFs of HalpHvIsReferenceTscConfigured @ 0x14037B360
  * Callers:
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
  * Callees:
  *     <none>
  */

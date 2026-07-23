@@ -3,14 +3,14 @@
  * Callers:
  *     PipInitComputerIds @ 0x140799740 (PipInitComputerIds.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpStringFromGuid @ 0x1404E9270 (_PnpStringFromGuid.c)
- *     RtlGenerateClass5Guid @ 0x1405501AC (RtlGenerateClass5Guid.c)
+ *     _PnpStringFromGuid @ 0x1404CB360 (_PnpStringFromGuid.c)
+ *     RtlGenerateClass5Guid @ 0x1405506EC (RtlGenerateClass5Guid.c)
  */
 
 __int64 __fastcall PipCreateComputerId(HANDLE KeyHandle, unsigned __int16 **a2, unsigned int a3, int *a4)

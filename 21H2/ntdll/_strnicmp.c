@@ -2,7 +2,7 @@
  * XREFs of _strnicmp @ 0x18008DE10
  * Callers:
  *     LdrpSnapKernelBaseExtensions @ 0x180016EE4 (LdrpSnapKernelBaseExtensions.c)
- *     SbpLookup @ 0x180113A2C (SbpLookup.c)
+ *     SbpLookup @ 0x1801139EC (SbpLookup.c)
  * Callees:
  *     __ascii_strnicmp @ 0x18008DDAC (__ascii_strnicmp.c)
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAllocateUserPhysicalPages @ 0x140724290
+ * XREFs of ZwAllocateUserPhysicalPages @ 0x140728E60
  * Callers:
- *     DifZwAllocateUserPhysicalPagesWrapper @ 0x140699A20 (DifZwAllocateUserPhysicalPagesWrapper.c)
+ *     DifZwAllocateUserPhysicalPagesWrapper @ 0x14069D600 (DifZwAllocateUserPhysicalPagesWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAllocateUserPhysicalPages(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

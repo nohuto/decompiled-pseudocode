@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpPartitionFromParent @ 0x1404A2E00
+ * XREFs of PfpPartitionFromParent @ 0x14049C820
  * Callers:
- *     PfDeletePartition @ 0x1407C6F10 (PfDeletePartition.c)
- *     PfpPartitionFindOrCreate @ 0x1407C70D8 (PfpPartitionFindOrCreate.c)
- *     MmFreeSystemCacheReserveView @ 0x14086AA70 (MmFreeSystemCacheReserveView.c)
- *     PfProcessCreateNotification @ 0x1409E9D20 (PfProcessCreateNotification.c)
- *     PfpPartitionFindByHandle @ 0x140A53E50 (PfpPartitionFindByHandle.c)
+ *     PfDeletePartition @ 0x1407C9F70 (PfDeletePartition.c)
+ *     PfpPartitionFindOrCreate @ 0x1407CA138 (PfpPartitionFindOrCreate.c)
+ *     MmFreeSystemCacheReserveView @ 0x140870E50 (MmFreeSystemCacheReserveView.c)
+ *     PfProcessCreateNotification @ 0x1409D1270 (PfProcessCreateNotification.c)
+ *     PfpPartitionFindByHandle @ 0x140A5D140 (PfpPartitionFindByHandle.c)
  * Callees:
  *     <none>
  */

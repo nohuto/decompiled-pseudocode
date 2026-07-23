@@ -11,7 +11,7 @@
  *     WheapSqmAddToStream @ 0x140724A38 (WheapSqmAddToStream.c)
  */
 
-__int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
+__int64 __fastcall WheapAttemptPhysicalPageOffline(UNICODE_STRING *a1, char a2, char a3)
 {
   __int64 v3; // rbp
   char v4; // di
@@ -27,9 +27,9 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
   __int64 v18; // [rsp+A8h] [rbp+20h] BYREF
 
   v18 = 4096LL;
-  v3 = a1 << 12;
+  v3 = (_QWORD)a1 << 12;
   v4 = 0;
-  v17 = a1 << 12;
+  v17 = (_QWORD)a1 << 12;
   if ( a3 )
   {
     v8 = 2;
@@ -37,7 +37,7 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
   else
   {
     v8 = 1;
-    v17 = (a1 << 12) | 1;
+    v17 = ((_QWORD)a1 << 12) | 1LL;
   }
   v9 = MmMarkPhysicalMemoryAsBad(&v17, &v18);
   v11 = v9;
@@ -58,7 +58,7 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
   }
   if ( WheapPolicyMemPersistOffline )
   {
-    v14 = WheaPersistOfflinedPage(a1, v10);
+    v14 = WheaPersistOfflinedPage(a1, (BCD_OPEN_FLAGS)v10);
     if ( v14 >= 0 )
       v4 = 1;
     else

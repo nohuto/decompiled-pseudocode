@@ -1,11 +1,11 @@
 /*
- * XREFs of KseQueryDeviceFlags @ 0x1409E5610
+ * XREFs of KseQueryDeviceFlags @ 0x1409D7790
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KsepEvntLogFlagsApplied @ 0x140514B1C (KsepEvntLogFlagsApplied.c)
- *     KseQueryDeviceData @ 0x1409E5A00 (KseQueryDeviceData.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KsepEvntLogFlagsApplied @ 0x14050E58C (KsepEvntLogFlagsApplied.c)
+ *     KseQueryDeviceData @ 0x1409D6F80 (KseQueryDeviceData.c)
  */
 
 __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a3)
@@ -13,32 +13,32 @@ __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a
   int v6; // edi
   int v8; // esi
   __int64 v9; // rbx
-  int v10; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v11; // [rsp+38h] [rbp-28h] BYREF
-  UNICODE_STRING v12; // [rsp+40h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
-  int v14; // [rsp+98h] [rbp+38h] BYREF
+  _BYTE var30[72]; // [rsp+30h] [rbp-30h] BYREF
+  int v11; // [rsp+98h] [rbp+38h] BYREF
 
-  v11 = 0LL;
-  if ( dword_140E66B04 != 2 || (KseEngine & 2) != 0 )
+  *(_QWORD *)&var30[8] = 0LL;
+  if ( dword_140E66D14 != 2 || (KseEngine & 2) != 0 )
     return (unsigned int)-1073741275;
   if ( !SourceString || !a2 || !a3 )
     return (unsigned int)-1073741811;
   *a3 = 0LL;
-  v14 = 11;
-  v10 = 8;
-  v6 = KseQueryDeviceData(SourceString, (int)a2, (int)&v14, (int)&v10, &v11);
+  v11 = 11;
+  *(_DWORD *)var30 = 8;
+  v6 = KseQueryDeviceData(SourceString, a2, &v11, (struct _KLOCK_ENTRIES *)var30, &var30[8]);
   if ( v6 >= 0 )
   {
-    v8 = v14;
-    if ( (v14 & 0xCFFFFFFF) == 0xB )
+    v8 = v11;
+    if ( (v11 & 0xCFFFFFFF) == 0xB )
     {
-      DestinationString = 0LL;
-      v12 = 0LL;
-      RtlInitUnicodeString(&DestinationString, SourceString);
-      RtlInitUnicodeString(&v12, a2);
-      v9 = v11;
-      KsepEvntLogFlagsApplied(&DestinationString.Length, &v12.Length, (v8 & 0x10000000) == 0, v11);
+      memset(&var30[16], 0, 32);
+      RtlInitUnicodeString((PUNICODE_STRING)&var30[32], SourceString);
+      RtlInitUnicodeString((PUNICODE_STRING)&var30[16], a2);
+      v9 = *(_QWORD *)&var30[8];
+      KsepEvntLogFlagsApplied(
+        (unsigned __int16 *)&var30[32],
+        (unsigned __int16 *)&var30[16],
+        (v8 & 0x10000000) == 0,
+        *(_QWORD *)&var30[8]);
       *a3 = v9;
       return (unsigned int)v6;
     }

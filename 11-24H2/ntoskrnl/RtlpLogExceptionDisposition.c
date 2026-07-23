@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpLogExceptionDisposition @ 0x1405E71B0
+ * XREFs of RtlpLogExceptionDisposition @ 0x1405E47A0
  * Callers:
  *     <none>
  * Callees:

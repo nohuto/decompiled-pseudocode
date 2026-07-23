@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSetSystemState @ 0x1401778C0
+ * XREFs of PopDiagTraceSetSystemState @ 0x1401779C0
  * Callers:
- *     PopSetSystemState @ 0x1401777B4 (PopSetSystemState.c)
+ *     PopSetSystemState @ 0x1401778B4 (PopSetSystemState.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSetSystemState(int a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeProtoPfn @ 0x1401F5180
+ * XREFs of MiInitializeProtoPfn @ 0x1401F4FAC
  * Callers:
- *     MiFillPerSessionProtos @ 0x140661E34 (MiFillPerSessionProtos.c)
+ *     MiFillPerSessionProtos @ 0x140661F18 (MiFillPerSessionProtos.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiInitializePfn @ 0x1400E7280 (MiInitializePfn.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiInitializePfn @ 0x1400E5120 (MiInitializePfn.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiInitializeProtoPfn(__int64 a1, unsigned __int64 *a2, unsigned int a3, int a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepIsSiblingTokenByPointer @ 0x140716B0C
+ * XREFs of SepIsSiblingTokenByPointer @ 0x1406C515C
  * Callers:
- *     SeIsTokenAssignableToProcess @ 0x14071694C (SeIsTokenAssignableToProcess.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406C4F9C (SeIsTokenAssignableToProcess.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     SepReleaseOrderedReadLocks @ 0x140360024 (SepReleaseOrderedReadLocks.c)
- *     SepAcquireOrderedReadLocks @ 0x140360058 (SepAcquireOrderedReadLocks.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     SepReleaseOrderedReadLocks @ 0x1402A4F54 (SepReleaseOrderedReadLocks.c)
+ *     SepAcquireOrderedReadLocks @ 0x1402A4F88 (SepAcquireOrderedReadLocks.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  */
 
 __int64 __fastcall SepIsSiblingTokenByPointer(unsigned __int64 a1, _BYTE *a2)

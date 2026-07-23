@@ -1,18 +1,18 @@
 /*
- * XREFs of NtSetInformationCpuPartition @ 0x140775EC0
+ * XREFs of NtSetInformationCpuPartition @ 0x1407760E0
  * Callers:
  *     <none>
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeQueryActiveGroupCount @ 0x140481460 (KeQueryActiveGroupCount.c)
- *     KeCpuPartitionMoveCpus @ 0x1405BF6B0 (KeCpuPartitionMoveCpus.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspReferenceCpuPartitionByHandle @ 0x140776EF0 (PspReferenceCpuPartitionByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeQueryActiveGroupCount @ 0x14047C720 (KeQueryActiveGroupCount.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405BCCE0 (KeCpuPartitionMoveCpus.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x140777110 (PspReferenceCpuPartitionByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtSetInformationCpuPartition(
@@ -72,7 +72,7 @@ LABEL_41:
   }
   if ( a4 >= 0x20 && (a4 & 0xF) == 0 )
   {
-    Pool2 = (unsigned __int16 *)ExAllocatePool2(0x101uLL);
+    Pool2 = (unsigned __int16 *)ExAllocatePool2(0x101uLL, a4, 0x50707350u);
     v14 = Pool2;
     v24[2] = Pool2;
     if ( Pool2 )
@@ -104,7 +104,7 @@ LABEL_19:
         goto LABEL_33;
       }
       v20 = (unsigned __int16)(v16 + 1);
-      v21 = ExAllocatePool2(0x41uLL);
+      v21 = ExAllocatePool2(0x41uLL, 8 * v20 + 8, 0x50707350u);
       v9 = (struct _KAFFINITY_EX *)v21;
       if ( v21 )
       {

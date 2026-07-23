@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWnfAllocateNextPersistentNameSequence @ 0x14077D1A4
+ * XREFs of ExpWnfAllocateNextPersistentNameSequence @ 0x14077D394
  * Callers:
- *     ExpWnfGenerateStateName @ 0x140711558 (ExpWnfGenerateStateName.c)
+ *     ExpWnfGenerateStateName @ 0x140711768 (ExpWnfGenerateStateName.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CC90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CCB0 (PsAttachSiloToCurrentThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x140710B4C (ExpWnfGetNameStoreRegistryRoot.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14031CF20 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14031CF40 (PsAttachSiloToCurrentThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x140710D5C (ExpWnfGetNameStoreRegistryRoot.c)
  */
 
 __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(struct _LIST_ENTRY *a1, unsigned __int64 *a2)

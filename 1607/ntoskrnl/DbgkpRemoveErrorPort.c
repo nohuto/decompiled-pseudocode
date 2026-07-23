@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkpRemoveErrorPort @ 0x14061A210
+ * XREFs of DbgkpRemoveErrorPort @ 0x14061A2C4
  * Callers:
- *     PspExitProcess @ 0x140460564 (PspExitProcess.c)
- *     DbgkpSendErrorMessage @ 0x14061A524 (DbgkpSendErrorMessage.c)
+ *     PspExitProcess @ 0x14045F434 (PspExitProcess.c)
+ *     DbgkpSendErrorMessage @ 0x14061A5D8 (DbgkpSendErrorMessage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     DbgkpDereferenceErrorPort @ 0x1401B75A4 (DbgkpDereferenceErrorPort.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     DbgkpDereferenceErrorPort @ 0x1401B7488 (DbgkpDereferenceErrorPort.c)
  */
 
 void __fastcall DbgkpRemoveErrorPort(__int64 a1, volatile signed __int32 *a2)

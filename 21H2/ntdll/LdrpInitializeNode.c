@@ -9,9 +9,9 @@
  *     LdrpCallInitRoutine @ 0x1800199BC (LdrpCallInitRoutine.c)
  *     LdrpCallTlsInitializers @ 0x180019A78 (LdrpCallTlsInitializers.c)
  *     LdrpLogDllState @ 0x18001A6CC (LdrpLogDllState.c)
- *     ZwSetInformationVirtualMemory @ 0x1800A0A30 (ZwSetInformationVirtualMemory.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
- *     RtlReportException @ 0x1800DCAA0 (RtlReportException.c)
+ *     ZwSetInformationVirtualMemory @ 0x1800A09F0 (ZwSetInformationVirtualMemory.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
+ *     RtlReportException @ 0x1800DCA60 (RtlReportException.c)
  */
 
 __int64 __fastcall LdrpInitializeNode(__int64 a1)
@@ -29,14 +29,14 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
   __int64 (__fastcall *v12)(__int64, _QWORD, __int64); // [rsp+48h] [rbp-100h]
   __int64 v13; // [rsp+68h] [rbp-E0h]
   __int64 v14; // [rsp+78h] [rbp-D0h]
-  _QWORD v15[4]; // [rsp+90h] [rbp-B8h] BYREF
+  _MEMORY_RANGE_ENTRY VirtualAddresses; // [rsp+90h] [rbp-B8h] BYREF
   __int64 v16; // [rsp+C0h] [rbp-88h] BYREF
   int v17; // [rsp+C8h] [rbp-80h]
   __int128 v18; // [rsp+D0h] [rbp-78h]
   __int128 v19; // [rsp+E0h] [rbp-68h]
   __int128 v20; // [rsp+F0h] [rbp-58h]
   __int64 v21; // [rsp+100h] [rbp-48h]
-  int v22; // [rsp+168h] [rbp+20h] BYREF
+  int VmInformation; // [rsp+168h] [rbp+20h] BYREF
 
   v1 = a1;
   v13 = a1;
@@ -66,10 +66,16 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
     v7 = i - 160;
     if ( i - 160 != v2 )
     {
-      v22 = 1;
-      v15[0] = *(_QWORD *)(v7 + 48);
-      v15[1] = 4096LL;
-      ZwSetInformationVirtualMemory(-1LL, 4LL, 1LL, v15, &v22, 4);
+      VmInformation = 1;
+      VirtualAddresses.VirtualAddress = *(PVOID *)(v7 + 48);
+      VirtualAddresses.NumberOfBytes = 4096LL;
+      ZwSetInformationVirtualMemory(
+        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+        VmImageHotPatchInformation,
+        1uLL,
+        &VirtualAddresses,
+        &VmInformation,
+        4u);
       v14 = LdrpCurrentDllInitializer;
       LdrpCurrentDllInitializer = i - 160;
       v12 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v7 + 56);

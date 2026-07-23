@@ -1,16 +1,16 @@
 /*
- * XREFs of VmMergeMemoryRanges @ 0x140B21780
+ * XREFs of VmMergeMemoryRanges @ 0x140B23B80
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     VmpMergeMemoryRanges @ 0x1405199E0 (VmpMergeMemoryRanges.c)
- *     VmpLogSplitMergeMemoryRange @ 0x14081EA20 (VmpLogSplitMergeMemoryRange.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     VmpMergeMemoryRanges @ 0x140513450 (VmpMergeMemoryRanges.c)
+ *     VmpLogSplitMergeMemoryRange @ 0x140824C30 (VmpLogSplitMergeMemoryRange.c)
  */
 
 __int64 __fastcall VmMergeMemoryRanges(unsigned __int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -52,13 +52,13 @@ __int64 __fastcall VmMergeMemoryRanges(unsigned __int64 a1, __int64 a2, __int64 
   {
     v8 = -1073741688;
   }
-  if ( stru_140F066E8.QuantumTarget )
+  if ( stru_140F06A28.InitialStack )
   {
-    if ( *(_DWORD *)stru_140F066E8.QuantumTarget )
+    if ( *(_DWORD *)stru_140F06A28.InitialStack )
     {
-      if ( *(char *)(stru_140F066E8.QuantumTarget + 16) < 0 )
+      if ( *((char *)stru_140F06A28.InitialStack + 16) < 0 )
       {
-        v10 = *(_QWORD *)(stru_140F066E8.QuantumTarget + 24);
+        v10 = *((_QWORD *)stru_140F06A28.InitialStack + 3);
         if ( (v10 & 0x80) == v10 )
           VmpLogSplitMergeMemoryRange(v10, 0, a1, a2, v8);
       }

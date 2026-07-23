@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreateNodeLists @ 0x14054F460
+ * XREFs of MiCreateNodeLists @ 0x14054F9A0
  * Callers:
- *     MiMakePartitionMemoryBlock @ 0x1406607FC (MiMakePartitionMemoryBlock.c)
+ *     MiMakePartitionMemoryBlock @ 0x1406608E0 (MiMakePartitionMemoryBlock.c)
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiDescribePageRun @ 0x14013B2C0 (MiDescribePageRun.c)
+ *     MiDescribePageRun @ 0x14013B830 (MiDescribePageRun.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

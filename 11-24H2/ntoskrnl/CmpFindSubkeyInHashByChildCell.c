@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpFindSubkeyInHashByChildCell @ 0x140843700
+ * XREFs of CmpFindSubkeyInHashByChildCell @ 0x14083F9C0
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x14087D660 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumberEx @ 0x140881510 (CmpFindSubKeyByNumberEx.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     CmpDeleteHive @ 0x14084475C (CmpDeleteHive.c)
- *     CmpReferenceKeyControlBlock @ 0x140845AD0 (CmpReferenceKeyControlBlock.c)
- *     CmpHashUnicodeComponent @ 0x1408733F0 (CmpHashUnicodeComponent.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpIsKcbLockAllowed @ 0x140A0BA00 (CmpIsKcbLockAllowed.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140BB9A1C (CmpLockKcbShared.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     CmpDeleteHive @ 0x140840A1C (CmpDeleteHive.c)
+ *     CmpReferenceKeyControlBlock @ 0x140841D90 (CmpReferenceKeyControlBlock.c)
+ *     CmpHashUnicodeComponent @ 0x140877720 (CmpHashUnicodeComponent.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpIsKcbLockAllowed @ 0x140A0AC40 (CmpIsKcbLockAllowed.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140BBBA1C (CmpLockKcbShared.c)
  */
 
 __int64 __fastcall CmpFindSubkeyInHashByChildCell(
@@ -44,7 +44,7 @@ __int64 __fastcall CmpFindSubkeyInHashByChildCell(
   ULONG_PTR v21; // rcx
   ULONG_PTR v22; // rdi
   signed __int64 *v23; // rbp
-  _QWORD *v24; // rsi
+  char *v24; // rsi
   signed __int32 v25; // eax
   signed __int32 v26; // ett
   ULONG_PTR v27; // rdi
@@ -175,11 +175,11 @@ LABEL_22:
   v23 = (signed __int64 *)(*(_QWORD *)(v22 + 1648)
                          + 24
                          * ((unsigned int)(*(_DWORD *)(v22 + 1656) - 1) & ((101027 * (v17 ^ (v17 >> 9))) ^ ((unsigned __int64)(101027 * (v17 ^ (v17 >> 9))) >> 9))));
-  v24 = KeAbPreAcquire((__int64)v23, 0LL);
+  v24 = (char *)KeAbPreAcquire((__int64)v23, 0LL);
   if ( _InterlockedCompareExchange64(v23, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v23, 0, v24, (__int64)v23);
   if ( v24 )
-    *((_BYTE *)v24 + 10) = 1;
+    v24[10] = 1;
   _m_prefetchw((const void *)(v22 + 4232));
   v25 = *(_DWORD *)(v22 + 4232);
   do

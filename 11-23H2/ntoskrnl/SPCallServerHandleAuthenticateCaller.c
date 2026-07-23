@@ -1,7 +1,7 @@
 /*
- * XREFs of SPCallServerHandleAuthenticateCaller @ 0x1407E78C8
+ * XREFs of SPCallServerHandleAuthenticateCaller @ 0x1407E7B98
  * Callers:
- *     sub_1406EF570 @ 0x1406EF570 (sub_1406EF570.c)
+ *     sub_1406EF5A0 @ 0x1406EF5A0 (sub_1406EF5A0.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

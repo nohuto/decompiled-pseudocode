@@ -10,9 +10,9 @@
 
 __int64 RtlpHpGetCurrentProcessorNumber()
 {
-  int v1; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcessorNumber; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0;
-  RtlGetCurrentProcessorNumberEx(&v1);
-  return BYTE2(v1);
+  ProcessorNumber = 0;
+  RtlGetCurrentProcessorNumberEx(&ProcessorNumber);
+  return ProcessorNumber.Number;
 }

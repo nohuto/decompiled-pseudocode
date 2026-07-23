@@ -9,48 +9,44 @@
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopCoalescingCallbackWorker(int a1)
-{
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  int v7; // edx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-
-  while ( 1 )
-  {
-    PopAcquirePolicyLock(a1);
-    if ( (PopCoalescingState & 2) != 0 )
-      break;
-    if ( (PopCoalescingState & 1) == 0 )
-      goto LABEL_9;
-    PopCoalescingSetActiveState(0);
-    PopReleasePolicyLock(v5, v4, v6);
-    v7 = 2;
-LABEL_8:
-    PoIssueCoalescingNotification(PopCoalescingRegistration, v7);
-  }
-  if ( (PopCoalescingState & 1) == 0 )
-  {
-    PopCoalescingState &= ~4u;
-    PopCoalescingSetActiveState(1);
-    PopReleasePolicyLock(v9, v8, v10);
-    v7 = 1;
-    goto LABEL_8;
-  }
-  if ( (PopCoalescingState & 4) != 0 )
-  {
-    PopCoalescingState &= ~4u;
-    PopReleasePolicyLock(v2, v1, v3);
-    v7 = 3;
-    goto LABEL_8;
-  }
-LABEL_9:
-  PopCoalescingState &= ~8u;
-  return PopReleasePolicyLock(v2, v1, v3);
-}
+/*
+ * Hex-Rays decompilation failed for PopCoalescingCallbackWorker @ 0x140987000
+ * Reason: Hex-Rays returned no pseudocode for 0x140987000
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 0000000140987000: sub     rsp, 28h
+ * 0000000140987004: call    PopAcquirePolicyLock
+ * 0000000140987009: mov     al, cs:PopCoalescingState
+ * 000000014098700F: test    al, 2
+ * 0000000140987011: jnz     short loc_14098702A
+ * 0000000140987013: test    al, 1
+ * 0000000140987015: jz      short loc_14098706D
+ * 0000000140987017: xor     ecx, ecx
+ * 0000000140987019: call    PopCoalescingSetActiveState
+ * 000000014098701E: call    PopReleasePolicyLock
+ * 0000000140987023: mov     edx, 2
+ * 0000000140987028: jmp     short loc_14098705F
+ * 000000014098702A: test    al, 1
+ * 000000014098702C: jnz     short loc_140987049
+ * 000000014098702E: and     al, 0FBh
+ * 0000000140987030: mov     cl, 1
+ * 0000000140987032: mov     cs:PopCoalescingState, al
+ * 0000000140987038: call    PopCoalescingSetActiveState
+ * 000000014098703D: call    PopReleasePolicyLock
+ * 0000000140987042: mov     edx, 1
+ * 0000000140987047: jmp     short loc_14098705F
+ * 0000000140987049: test    al, 4
+ * 000000014098704B: jz      short loc_14098706D
+ * 000000014098704D: and     al, 0FBh
+ * 000000014098704F: mov     cs:PopCoalescingState, al
+ * 0000000140987055: call    PopReleasePolicyLock
+ * 000000014098705A: mov     edx, 3
+ * 000000014098705F: mov     rcx, cs:PopCoalescingRegistration
+ * 0000000140987066: call    PoIssueCoalescingNotification
+ * 000000014098706B: jmp     short loc_140987004
+ * 000000014098706D: and     al, 0F7h
+ * 000000014098706F: mov     cs:PopCoalescingState, al
+ * 0000000140987075: call    PopReleasePolicyLock
+ * 000000014098707A: add     rsp, 28h
+ * 000000014098707E: retn
+ */

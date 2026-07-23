@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInSwapSingleProcess @ 0x14034DBB4
+ * XREFs of KiInSwapSingleProcess @ 0x14034DD54
  * Callers:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiAttachProcess @ 0x14022DAB0 (KiAttachProcess.c)
- *     KeReadyThread @ 0x1402BDDBC (KeReadyThread.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiAttachProcess @ 0x14022DBC0 (KiAttachProcess.c)
+ *     KeReadyThread @ 0x1402BE04C (KeReadyThread.c)
  * Callees:
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiRequestProcessInSwap @ 0x14034DC54 (KiRequestProcessInSwap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiRequestProcessInSwap @ 0x14034DDF4 (KiRequestProcessInSwap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiInSwapSingleProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 a3)
@@ -34,7 +34,7 @@ char __fastcall KiInSwapSingleProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 
     {
       *(_BYTE *)(a1 + 643) = 23;
       *(_BYTE *)(a1 + 390) = v4;
-      KiSwapThread(a1, (__int64)CurrentPrcb, 0LL, v7);
+      KiSwapThread(a1, (ULONG_PTR)CurrentPrcb, 0LL, v7);
       return v6;
     }
   }
@@ -43,10 +43,13 @@ char __fastcall KiInSwapSingleProcess(ULONG_PTR a1, __int64 a2, unsigned __int8 
     _InterlockedAnd((volatile signed __int32 *)a2, 0xFFFFFF7F);
     v6 = 0;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       v11 = KeGetCurrentPrcb();
       SchedulerAssist = v11->SchedulerAssist;

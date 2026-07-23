@@ -1,10 +1,10 @@
 /*
- * XREFs of PsQuitNextSession @ 0x140A8F6B0
+ * XREFs of PsQuitNextSession @ 0x140A94380
  * Callers:
- *     PspDetachSession @ 0x1404B6D7C (PspDetachSession.c)
- *     PsQueryCpuQuotaInformation @ 0x14052AF9C (PsQueryCpuQuotaInformation.c)
+ *     PspDetachSession @ 0x1404B05B0 (PspDetachSession.c)
+ *     PsQueryCpuQuotaInformation @ 0x14052D4BC (PsQueryCpuQuotaInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PsQuitNextSession(void *a1)

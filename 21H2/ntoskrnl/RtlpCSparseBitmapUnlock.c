@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpCSparseBitmapUnlock @ 0x1402A4830
+ * XREFs of RtlpCSparseBitmapUnlock @ 0x140221C70
  * Callers:
- *     RtlpCSparseBitmapPageDecommit @ 0x1402A3A20 (RtlpCSparseBitmapPageDecommit.c)
- *     RtlCSparseBitmapBitmaskWrite @ 0x1402A3E48 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlSparseArrayElementAllocate @ 0x1402A4748 (RtlSparseArrayElementAllocate.c)
- *     RtlpCSparseBitmapPageCommit @ 0x1402A4A74 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140220E60 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x140221288 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlSparseArrayElementAllocate @ 0x140221B88 (RtlSparseArrayElementAllocate.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140221EB4 (RtlpCSparseBitmapPageCommit.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpCSparseBitmapUnlock(int *a1)
@@ -37,7 +37,6 @@ __int64 __fastcall RtlpCSparseBitmapUnlock(int *a1)
   __int64 v12; // rcx
   __int64 v13; // rbp
   __int64 v14; // rdx
-  __int64 v15; // rcx
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
 
@@ -105,7 +104,7 @@ __int64 __fastcall RtlpCSparseBitmapUnlock(int *a1)
             {
               *(_BYTE *)(v13 + 32) |= 2u;
               if ( *(__int64 *)(v13 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v13);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
               *(_DWORD *)(v13 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v13 + 25) &= ~1u;
               *(_QWORD *)(v13 + 32) = 0LL;
@@ -129,7 +128,7 @@ LABEL_28:
       if ( v11
         && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(v15);
+        KiCheckForKernelApcDelivery();
       }
     }
     else

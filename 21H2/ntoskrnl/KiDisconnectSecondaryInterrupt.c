@@ -1,16 +1,16 @@
 /*
- * XREFs of KiDisconnectSecondaryInterrupt @ 0x14051920C
+ * XREFs of KiDisconnectSecondaryInterrupt @ 0x14051944C
  * Callers:
- *     KeDisconnectInterrupt @ 0x140376D34 (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x140376884 (KeDisconnectInterrupt.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KiDisconnectInterruptCommon @ 0x1403770AC (KiDisconnectInterruptCommon.c)
- *     HalDisableInterrupt @ 0x140377280 (HalDisableInterrupt.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KiDisconnectInterruptCommon @ 0x140376BFC (KiDisconnectInterruptCommon.c)
+ *     HalDisableInterrupt @ 0x140376DD0 (HalDisableInterrupt.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x140518F2C (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x140518FA4 (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14051916C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x1405191E4 (KiAcquireSecondaryPassiveConnectLock.c)
  */
 
 __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
@@ -25,13 +25,16 @@ __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
   int v11; // eax
   bool v12; // zf
   unsigned int v13; // ebx
-  unsigned __int8 v15; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  unsigned __int8 v18; // [rsp+40h] [rbp+8h] BYREF
 
-  v15 = 0;
+  v18 = 0;
   v4 = 0;
   v5 = KiGlobalSecondaryIDT + 48LL * (unsigned int)(*(_DWORD *)(a1 + 88) - 256);
   KiAcquireSecondaryPassiveConnectLock(v5);
-  KiAcquireSecondaryInterruptConnectLock((PKSPIN_LOCK)v5, &v15);
+  KiAcquireSecondaryInterruptConnectLock((PKSPIN_LOCK)v5, &v18);
   if ( *(_BYTE *)(a1 + 95) )
   {
     v6 = *(_QWORD *)(v5 + 40);
@@ -41,13 +44,13 @@ __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
   KxReleaseSpinLock((PKSPIN_LOCK)v5);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
   {
-    v8 = v15;
-    if ( v15 <= 0xFu && CurrentIrql >= 2u )
+    v8 = v18;
+    if ( v18 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v8 = v15;
-      v11 = ~(unsigned __int16)(-1LL << (v15 + 1));
+      v8 = v18;
+      v11 = ~(unsigned __int16)(-1LL << (v18 + 1));
       v12 = (v11 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v11;
       if ( v12 )
@@ -56,13 +59,13 @@ __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
   }
   else
   {
-    v8 = v15;
+    v8 = v18;
   }
   __writecr8(v8);
   if ( v4 )
     HalDisableInterrupt(a2);
   v13 = KiDisconnectInterruptCommon(1, a1, (__int64)a2);
   KeSetEvent((PRKEVENT)(v5 + 8), 0, 0);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
   return v13;
 }

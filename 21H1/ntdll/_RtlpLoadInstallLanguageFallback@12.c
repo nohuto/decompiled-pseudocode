@@ -15,62 +15,64 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall RtlpLoadInstallLanguageFallback(int a1, _WORD *a2, _WORD *a3)
+NTSTATUS __fastcall RtlpLoadInstallLanguageFallback(int a1, _WORD *a2, _WORD *a3)
 {
-  __int16 *v4; // ebx
-  __int16 *v5; // eax
-  int ValueKey; // esi
+  WCHAR *v4; // ebx
+  WCHAR *v5; // eax
+  NTSTATUS v6; // esi
   int v7; // ecx
   const WCHAR *v9; // edi
-  __int16 v10; // cx
-  __int16 *v11; // eax
-  HANDLE Handle; // [esp+Ch] [ebp-34h] BYREF
-  __int16 v13; // [esp+10h] [ebp-30h] BYREF
-  int v14; // [esp+14h] [ebp-2Ch] BYREF
-  _WORD *v15; // [esp+18h] [ebp-28h]
-  int v16; // [esp+1Ch] [ebp-24h] BYREF
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-20h] BYREF
-  _DWORD v18[6]; // [esp+28h] [ebp-18h] BYREF
+  WCHAR v10; // cx
+  WCHAR *v11; // eax
+  size_t v12; // [esp-4h] [ebp-44h]
+  HANDLE KeyHandle; // [esp+Ch] [ebp-34h] BYREF
+  DWORD Lcid; // [esp+10h] [ebp-30h] BYREF
+  int v15; // [esp+14h] [ebp-2Ch] BYREF
+  _WORD *v16; // [esp+18h] [ebp-28h]
+  int v17; // [esp+1Ch] [ebp-24h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+20h] [ebp-20h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+28h] [ebp-18h] BYREF
 
-  v15 = a2;
+  v16 = a2;
   v4 = 0;
-  Handle = 0;
+  KeyHandle = 0;
   if ( a1 && a2 && a3 )
   {
-    v5 = (__int16 *)MuiRegAllocArray();
+    v5 = (WCHAR *)MuiRegAllocArray();
     v4 = v5;
     if ( v5 )
     {
-      memset(v5, 0, 0x158u);
-      v14 = 0;
+      LODWORD(v12) = 344;
+      memset(v5, 0, v12);
+      v15 = 0;
       *a2 = 0;
       *a3 = 0;
       RtlInitUnicodeString(
         &DestinationString,
         L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\NLS\\Language");
-      v18[0] = 24;
-      v18[2] = &DestinationString;
-      v18[1] = 0;
-      v18[3] = 64;
-      v18[4] = 0;
-      v18[5] = 0;
-      ValueKey = ZwOpenKey(&Handle, 131097, v18);
-      if ( ValueKey >= 0 )
+      ObjectAttributes.Length = 24;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.RootDirectory = 0;
+      ObjectAttributes.Attributes = 64;
+      ObjectAttributes.SecurityDescriptor = 0;
+      ObjectAttributes.SecurityQualityOfService = 0;
+      v6 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+      if ( v6 >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, L"InstallLanguageFallback");
-        v16 = 4;
-        ValueKey = LdrpQueryValueKey((int)&v14, v4, (int)&v16, v7);
-        if ( ValueKey >= 0 )
+        v17 = 4;
+        v6 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v15, v4, &v17, v7);
+        if ( v6 >= 0 )
         {
-          if ( v14 != 1 )
+          if ( v15 != 1 )
             goto LABEL_18;
-          v9 = (const WCHAR *)v4;
+          v9 = v4;
           v10 = *v4;
           if ( *v4 )
           {
             while ( 1 )
             {
-              v11 = (__int16 *)(v9 + 1);
+              v11 = (WCHAR *)(v9 + 1);
               if ( v10 == 44 )
                 break;
               ++v9;
@@ -92,44 +94,44 @@ int __fastcall RtlpLoadInstallLanguageFallback(int a1, _WORD *a2, _WORD *a3)
             while ( *v9 );
           }
 LABEL_23:
-          RtlInitUnicodeString(&DestinationString, (PCWSTR)v4);
-          if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v13) )
+          RtlInitUnicodeString(&DestinationString, v4);
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            *v15 = v13;
+            *v16 = Lcid;
             if ( *v9 )
             {
               RtlInitUnicodeString(&DestinationString, v9);
-              if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v13) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                *a3 = v13;
+                *a3 = Lcid;
               }
               else
               {
-                ValueKey = -1073741823;
-                *v15 = 0;
+                v6 = -1073741823;
+                *v16 = 0;
               }
             }
           }
           else
           {
 LABEL_18:
-            ValueKey = -1073741823;
+            v6 = -1073741823;
           }
         }
       }
     }
     else
     {
-      ValueKey = -1073741801;
+      v6 = -1073741801;
     }
   }
   else
   {
-    ValueKey = -1073741811;
+    v6 = -1073741811;
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   if ( v4 )
     RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
-  return ValueKey;
+  return v6;
 }

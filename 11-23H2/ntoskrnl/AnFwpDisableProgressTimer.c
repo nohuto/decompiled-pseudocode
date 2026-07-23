@@ -3,10 +3,10 @@
  * Callers:
  *     AnFwDisplayFade @ 0x140AEC9E8 (AnFwDisplayFade.c)
  *     AnFwDisplayProgressIndicator @ 0x140AED598 (AnFwDisplayProgressIndicator.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140AF21E0 (AnFwpBackgroundUpdateTimer.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140AF21F0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
  *     RaspClearCache @ 0x140AED540 (RaspClearCache.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  */
@@ -17,12 +17,12 @@ void AnFwpDisableProgressTimer()
   _UNKNOWN **v1; // rbx
   __int64 v2; // rax
 
-  if ( byte_140CF7AF0 )
+  if ( byte_140CF7AE9 )
   {
     v0 = 0;
     if ( (dword_140C0E4B0 & 0x100000) != 0 )
       v0 = (dword_140C0E4B0 & 0x1000) != 0;
-    byte_140CF7AF0 = 0;
+    byte_140CF7AE9 = 0;
     if ( (dword_140C0E4B0 & 0xC00) != 0xC00 && !v0 )
       KeCancelTimer(&stru_140D16980);
     v1 = (_UNKNOWN **)TxtpTextCache;
@@ -45,7 +45,7 @@ LABEL_8:
         goto LABEL_8;
       v2 = *(_QWORD *)TxtpTextCache;
     }
-    dword_140C04410 = 0;
+    dword_140C043D8 = 0;
     if ( RasterizerInitialized )
       RaspClearCache();
   }

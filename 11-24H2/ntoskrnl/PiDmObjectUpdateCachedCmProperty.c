@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmObjectUpdateCachedCmProperty @ 0x1409D4040
+ * XREFs of PiDmObjectUpdateCachedCmProperty @ 0x1409C3E70
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1408C7450 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1408C4E80 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x1408BB2BC (PiDmObjectUpdateCachedObjectProperty.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x1409D4E20 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1408B8C6C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1409C4C50 (_CmMapCmObjectTypeToPnpObjectType.c)
  */
 
 void __fastcall PiDmObjectUpdateCachedCmProperty(

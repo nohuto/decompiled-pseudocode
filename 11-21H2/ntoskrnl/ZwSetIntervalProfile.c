@@ -6,9 +6,10 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetIntervalProfile(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetIntervalProfile(ULONG Interval, KPROFILE_SOURCE Source)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(*(_QWORD *)&Interval, *(_QWORD *)&Source);
 }

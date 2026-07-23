@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDeleteSubsectionExtents @ 0x1404B6680
+ * XREFs of MiDeleteSubsectionExtents @ 0x1404AFAD0
  * Callers:
- *     MiDeleteSegmentPages @ 0x140478E6C (MiDeleteSegmentPages.c)
+ *     MiDeleteSegmentPages @ 0x1404727CC (MiDeleteSegmentPages.c)
  * Callees:
- *     MiDeleteFileExtentList @ 0x1407705B4 (MiDeleteFileExtentList.c)
+ *     MiDeleteFileExtentList @ 0x1407735B4 (MiDeleteFileExtentList.c)
  */
 
 __int64 __fastcall MiDeleteSubsectionExtents(__int64 *a1)

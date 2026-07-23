@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrRscIsTypeExist @ 0x1402A90A0
+ * XREFs of LdrRscIsTypeExist @ 0x1402271E0
  * Callers:
- *     LdrIsResItemExist @ 0x1402A9020 (LdrIsResItemExist.c)
+ *     LdrIsResItemExist @ 0x140227160 (LdrIsResItemExist.c)
  * Callees:
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
  */
 
 __int64 __fastcall LdrRscIsTypeExist(unsigned int *a1, unsigned __int64 a2, __int64 a3, _DWORD *a4)

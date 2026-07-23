@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetKernelStackSwapSupport @ 0x140124034
+ * XREFs of MiGetKernelStackSwapSupport @ 0x140124104
  * Callers:
- *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1400E51A8 (MmOutSwapWorkingSet.c)
  * Callees:
- *     MiAllocateWorkingSetSwapSupport @ 0x1400E5934 (MiAllocateWorkingSetSwapSupport.c)
- *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
- *     MiPageFileLargestBitmapsRun @ 0x140124838 (MiPageFileLargestBitmapsRun.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1400E59B4 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiFindFreePageFileSpace @ 0x14012420C (MiFindFreePageFileSpace.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140124908 (MiPageFileLargestBitmapsRun.c)
  */
 
 __int64 __fastcall MiGetKernelStackSwapSupport(__int64 a1, __int64 a2)
@@ -22,7 +22,7 @@ __int64 __fastcall MiGetKernelStackSwapSupport(__int64 a1, __int64 a2)
 
   v2 = -1;
   v3 = 0;
-  v5 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a2 + 1454));
+  v5 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a2 + 1454));
   v6 = *(_DWORD *)(v5 + 7128);
   if ( !v6 )
     return 3221225799LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetEffectiveContainerId @ 0x140444430
+ * XREFs of PsGetEffectiveContainerId @ 0x140439ED0
  * Callers:
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int64 a3)

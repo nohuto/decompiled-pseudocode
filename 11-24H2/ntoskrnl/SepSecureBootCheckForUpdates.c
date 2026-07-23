@@ -1,14 +1,14 @@
 /*
- * XREFs of SepSecureBootCheckForUpdates @ 0x140C3ABBC
+ * XREFs of SepSecureBootCheckForUpdates @ 0x140C3CD14
  * Callers:
- *     SeSecureBootRegisterPolicy @ 0x140C3A930 (SeSecureBootRegisterPolicy.c)
+ *     SeSecureBootRegisterPolicy @ 0x140C3CA88 (SeSecureBootRegisterPolicy.c)
  * Callees:
- *     Feature_Servicing_DbxRaceCondition__private_IsEnabledDeviceUsageNoInline @ 0x140609200 (Feature_Servicing_DbxRaceCondition__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     NtUpdateWnfStateData @ 0x1408AC540 (NtUpdateWnfStateData.c)
+ *     Feature_Servicing_DbxRaceCondition__private_IsEnabledDeviceUsageNoInline @ 0x1406076A8 (Feature_Servicing_DbxRaceCondition__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     NtUpdateWnfStateData @ 0x1409027A0 (NtUpdateWnfStateData.c)
  */
 
 NTSTATUS SepSecureBootCheckForUpdates()
@@ -34,7 +34,7 @@ NTSTATUS SepSecureBootCheckForUpdates()
   {
     result = ZwQueryValueKey(
                KeyHandle,
-               (PUNICODE_STRING)&stru_14000B550,
+               (PUNICODE_STRING)&stru_14000B830,
                KeyValuePartialInformation,
                &KeyValueInformation,
                0x14u,
@@ -43,7 +43,7 @@ NTSTATUS SepSecureBootCheckForUpdates()
     {
       result = Feature_Servicing_DbxRaceCondition__private_IsEnabledDeviceUsageNoInline();
       if ( !(result ? (BYTE12(KeyValueInformation) & 2) == 0 : HIDWORD(KeyValueInformation) == 0) )
-        result = NtUpdateWnfStateData(&WNF_SBS_UPDATE_AVAILABLE, 0LL, 0LL, 0LL, 0LL, 0, 0);
+        result = NtUpdateWnfStateData(&WNF_SBS_UPDATE_AVAILABLE, 0LL, 0, 0LL, 0LL, 0, 0);
     }
   }
   if ( KeyHandle )

@@ -1,45 +1,45 @@
 /*
- * XREFs of PopValidateWinresume @ 0x140752EA8
+ * XREFs of PopValidateWinresume @ 0x1407511C8
  * Callers:
- *     PopInitializeHibernateGlobals @ 0x14075291C (PopInitializeHibernateGlobals.c)
- *     PopWnfHibernateRevocationCheckCallback @ 0x140753300 (PopWnfHibernateRevocationCheckCallback.c)
+ *     PopInitializeHibernateGlobals @ 0x140750C3C (PopInitializeHibernateGlobals.c)
+ *     PopWnfHibernateRevocationCheckCallback @ 0x140751620 (PopWnfHibernateRevocationCheckCallback.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     MinCrypK_ParseRevocationList @ 0x14069F218 (MinCrypK_ParseRevocationList.c)
- *     MinCryptK_GetBootAppSvnFromRevocationList @ 0x14069F334 (MinCryptK_GetBootAppSvnFromRevocationList.c)
- *     ZwQuerySystemInformation @ 0x1406A6AD0 (ZwQuerySystemInformation.c)
- *     PopLoadFileInMemory @ 0x1407493F4 (PopLoadFileInMemory.c)
- *     PopDiagTraceHibernateRevoked @ 0x140756748 (PopDiagTraceHibernateRevoked.c)
- *     PopBcdGetApplicationPathFromResumeObject @ 0x140763580 (PopBcdGetApplicationPathFromResumeObject.c)
- *     I_MincryptFreeChainInfo @ 0x1408278DC (I_MincryptFreeChainInfo.c)
- *     BcdCloseStore @ 0x14085EED8 (BcdCloseStore.c)
- *     LdrResSearchResource @ 0x140908A90 (LdrResSearchResource.c)
- *     BcdOpenStore @ 0x1409C2038 (BcdOpenStore.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     MinCrypK_ParseRevocationList @ 0x1406A031C (MinCrypK_ParseRevocationList.c)
+ *     MinCryptK_GetBootAppSvnFromRevocationList @ 0x1406A0438 (MinCryptK_GetBootAppSvnFromRevocationList.c)
+ *     ZwQuerySystemInformation @ 0x1406A7A70 (ZwQuerySystemInformation.c)
+ *     PopLoadFileInMemory @ 0x140747724 (PopLoadFileInMemory.c)
+ *     PopDiagTraceHibernateRevoked @ 0x140754BC8 (PopDiagTraceHibernateRevoked.c)
+ *     PopBcdGetApplicationPathFromResumeObject @ 0x140762F44 (PopBcdGetApplicationPathFromResumeObject.c)
+ *     I_MincryptFreeChainInfo @ 0x1408280AC (I_MincryptFreeChainInfo.c)
+ *     LdrResSearchResource @ 0x1408E01B0 (LdrResSearchResource.c)
+ *     BcdOpenStore @ 0x1409A8688 (BcdOpenStore.c)
+ *     BcdCloseStore @ 0x140A81A08 (BcdCloseStore.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopValidateWinresume(_BYTE *a1)
 {
-  __int64 v2; // r14
+  HANDLE v2; // r14
   unsigned int v3; // esi
   void *v4; // r15
   void *v5; // r12
-  __int64 Pool2; // rax
+  UNICODE_STRING *Pool2; // rax
   UNICODE_STRING *v7; // r13
   int SystemInformation; // ebx
   int v9; // eax
   __int64 v10; // r8
-  __int64 v11; // rcx
-  int v12; // eax
+  UNICODE_STRING *v11; // rcx
+  NTSTATUS v12; // eax
   __int64 v13; // rdx
   int BootAppSvnFromRevocationList; // eax
   __int64 v16; // [rsp+40h] [rbp-99h] BYREF
   unsigned int v17; // [rsp+48h] [rbp-91h]
   unsigned int *v18; // [rsp+50h] [rbp-89h] BYREF
   void *v19; // [rsp+58h] [rbp-81h] BYREF
-  __int64 v20; // [rsp+60h] [rbp-79h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+60h] [rbp-79h] BYREF
   void *v21; // [rsp+68h] [rbp-71h] BYREF
   UNICODE_STRING Destination; // [rsp+70h] [rbp-69h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-59h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall PopValidateWinresume(_BYTE *a1)
   v3 = 0;
   *(_QWORD *)&v27.Length = 0LL;
   v4 = 0LL;
-  v20 = 0LL;
+  BcdStoreHandle = 0LL;
   v5 = 0LL;
   v17 = 0;
   Destination.Buffer = 0LL;
@@ -80,16 +80,16 @@ __int64 __fastcall PopValidateWinresume(_BYTE *a1)
   v28 = 0LL;
   v29 = 0LL;
   v30 = 0LL;
-  Pool2 = ExAllocatePool2(0x100uLL);
-  v7 = (UNICODE_STRING *)Pool2;
+  Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL, 0x218uLL, 0x72626968u);
+  v7 = Pool2;
   if ( !Pool2 )
     goto LABEL_2;
-  SystemInformation = ZwQuerySystemInformation(98LL, Pool2);
+  SystemInformation = ZwQuerySystemInformation(SystemSystemPartitionInformation, Pool2, 0x218u, 0LL);
   if ( SystemInformation < 0 )
     goto LABEL_27;
   RtlInitUnicodeString(&DestinationString, L"\\EFI\\Microsoft\\Boot\\boot.stl");
   Destination.MaximumLength = v7->Length + DestinationString.Length;
-  Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, Destination.MaximumLength, 0x72626968u);
   if ( !Destination.Buffer )
   {
 LABEL_2:
@@ -106,12 +106,12 @@ LABEL_2:
   SystemInformation = MinCrypK_ParseRevocationList((int)v21, v33, v10, (__int64)&v26, (__int64)&v28, (__int64)&v25);
   if ( SystemInformation < 0 )
     goto LABEL_27;
-  v12 = BcdOpenStore(v11, 2LL, &v20);
-  v2 = v20;
+  v12 = BcdOpenStore(v11, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle);
+  v2 = BcdStoreHandle;
   SystemInformation = v12;
   if ( v12 < 0 )
     goto LABEL_27;
-  SystemInformation = PopBcdGetApplicationPathFromResumeObject(v20, &v27);
+  SystemInformation = PopBcdGetApplicationPathFromResumeObject(BcdStoreHandle, &v27);
   if ( SystemInformation < 0 )
     goto LABEL_27;
   SystemInformation = PopLoadFileInMemory(&v27, &v19, &v31);

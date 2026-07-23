@@ -1,20 +1,20 @@
 /*
- * XREFs of BapdRecordFirmwareBootStats @ 0x140A8ED64
+ * XREFs of BapdRecordFirmwareBootStats @ 0x140A8EBDC
  * Callers:
- *     PopBootLoaderTraceProcess @ 0x1409883E0 (PopBootLoaderTraceProcess.c)
+ *     PopBootLoaderTraceProcess @ 0x1409885E0 (PopBootLoaderTraceProcess.c)
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     BapdRegisterEtwProvider @ 0x1403840EC (BapdRegisterEtwProvider.c)
- *     ExIsSoftBoot @ 0x140384150 (ExIsSoftBoot.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     EtwUnregister @ 0x1407C0E00 (EtwUnregister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     BapdpWriteEventDataToRegistry @ 0x140A8F084 (BapdpWriteEventDataToRegistry.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     BapdRegisterEtwProvider @ 0x1403842CC (BapdRegisterEtwProvider.c)
+ *     ExIsSoftBoot @ 0x140384330 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     EtwUnregister @ 0x1407C10D0 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     BapdpWriteEventDataToRegistry @ 0x140A8EEFC (BapdpWriteEventDataToRegistry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -67,7 +67,7 @@ void BapdRecordFirmwareBootStats()
   Pool2 = 0LL;
   Tag[0] = 0;
   Data = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06760, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06758, 0LL, 0LL);
   if ( !ExIsSoftBoot() )
   {
     if ( BapdRegisterEtwProvider((const GUID *)&BOOTENV_ETW_PROVIDER, 1, &RegHandle) >= 0
@@ -94,7 +94,7 @@ void BapdRecordFirmwareBootStats()
       v21 = 8LL;
       v23 = 8LL;
       EtwWrite(RegHandle, &BOOT_FW_BOOT_PERF_DATA, 0LL, 5u, &UserData);
-      if ( (unsigned int)dword_140C06760 > 4 && tlgKeywordOn((__int64)&dword_140C06760, 0x400000000000LL) )
+      if ( (unsigned int)dword_140C06758 > 4 && tlgKeywordOn((__int64)&dword_140C06758, 0x400000000000LL) )
       {
         RegHandle = v6;
         v26 = 8LL;
@@ -112,8 +112,8 @@ void BapdRecordFirmwareBootStats()
         v32 = 8LL;
         v34 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C06760,
-          (unsigned __int8 *)&unk_140035E98,
+          (__int64)&dword_140C06758,
+          (unsigned __int8 *)&unk_140035F80,
           0LL,
           0LL,
           7u,

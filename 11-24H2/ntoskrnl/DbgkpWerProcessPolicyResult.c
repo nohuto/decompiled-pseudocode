@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpWerProcessPolicyResult @ 0x140708E78
+ * XREFs of DbgkpWerProcessPolicyResult @ 0x140706A38
  * Callers:
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140AA9BA0 (DbgkWerCaptureLiveKernelDump2.c)
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x140AA4C50 (DbgkWerCaptureLiveKernelDump2.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     DbgkpWerCaptureLiveTriageDump @ 0x140708900 (DbgkpWerCaptureLiveTriageDump.c)
- *     DbgkpWerCaptureLiveFullDump @ 0x140A9AEBC (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x1407064C0 (DbgkpWerCaptureLiveTriageDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140A9642C (DbgkpWerCaptureLiveFullDump.c)
  */
 
 __int64 __fastcall DbgkpWerProcessPolicyResult(__int64 a1, int a2, __int64 a3, _BYTE *a4)

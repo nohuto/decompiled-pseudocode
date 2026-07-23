@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpGetModuleInfoFromVirtualMemory @ 0x1800E6C70
+ * XREFs of LdrpGetModuleInfoFromVirtualMemory @ 0x1800E56D0
  * Callers:
- *     LdrpMUIEtwOutput @ 0x180113278 (LdrpMUIEtwOutput.c)
+ *     LdrpMUIEtwOutput @ 0x180112D28 (LdrpMUIEtwOutput.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     wcsrchr @ 0x18012DF70 (wcsrchr.c)
- *     ZwQueryVirtualMemory @ 0x18015F3A0 (ZwQueryVirtualMemory.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     wcsrchr @ 0x18012DCE0 (wcsrchr.c)
+ *     ZwQueryVirtualMemory @ 0x18015F2A0 (ZwQueryVirtualMemory.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall LdrpGetModuleInfoFromVirtualMemory(
-        __int64 a1,
+        PVOID BaseAddress,
         void *a2,
         unsigned __int16 a3,
         _DWORD *a4,
@@ -19,40 +19,46 @@ __int64 __fastcall LdrpGetModuleInfoFromVirtualMemory(
         _DWORD *a6,
         _BYTE *a7)
 {
-  size_t v8; // rbx
-  __int64 Heap_0; // rbp
+  SIZE_T MemoryInformationLength; // rbx
+  const void **Heap_0; // rbp
   __int64 v12; // rsi
-  int v13; // edi
+  NTSTATUS v13; // edi
   __int64 v14; // rax
-  size_t v15; // r8
+  ULONG_PTR v15; // r8
   wchar_t *v16; // rax
   _WORD *v17; // rbx
   _QWORD *v18; // r14
   __int64 v19; // rsi
-  void *v20; // rax
-  size_t v22; // [rsp+68h] [rbp+10h] BYREF
+  PVOID v20; // rax
+  ULONG_PTR ReturnLength; // [rsp+68h] [rbp+10h] BYREF
 
-  v8 = a3;
-  v22 = 0LL;
-  Heap_0 = RtlAllocateHeap_0();
+  MemoryInformationLength = a3;
+  ReturnLength = 0LL;
+  Heap_0 = (const void **)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, a3);
   if ( !Heap_0 )
     return (unsigned int)-1073741801;
   v12 = -1LL;
-  v13 = ZwQueryVirtualMemory(-1LL, a1, 2LL, Heap_0, v8, &v22);
+  v13 = ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          MemoryMappedFilenameInformation,
+          Heap_0,
+          MemoryInformationLength,
+          &ReturnLength);
   if ( v13 >= 0 )
   {
     v14 = -1LL;
     do
       ++v14;
-    while ( *(_WORD *)(*(_QWORD *)(Heap_0 + 8) + 2 * v14) );
+    while ( *((_WORD *)Heap_0[1] + v14) );
     v15 = 2 * v14 + 2;
-    v22 = v15;
-    if ( v15 >= v8 )
+    ReturnLength = v15;
+    if ( v15 >= MemoryInformationLength )
     {
       v13 = -2147483643;
       goto LABEL_13;
     }
-    memmove(a2, *(const void **)(Heap_0 + 8), v15);
+    memmove(a2, Heap_0[1], v15);
     v16 = wcsrchr((const wchar_t *)a2, 0x5Cu);
     if ( !v16 )
     {
@@ -67,7 +73,7 @@ __int64 __fastcall LdrpGetModuleInfoFromVirtualMemory(
     v19 = (unsigned int)(2 * v12);
     if ( a5 )
     {
-      v20 = (void *)RtlAllocateHeap_0();
+      v20 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, v19 + 2);
       *v18 = v20;
       if ( !v20 )
       {
@@ -84,6 +90,6 @@ __int64 __fastcall LdrpGetModuleInfoFromVirtualMemory(
       *a7 = 1;
   }
 LABEL_13:
-  RtlFreeHeap_0();
+  RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
   return (unsigned int)v13;
 }

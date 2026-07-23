@@ -1,22 +1,22 @@
 /*
- * XREFs of MiUnlockNestedPageTableWritePte @ 0x1402E5B30
+ * XREFs of MiUnlockNestedPageTableWritePte @ 0x1402E5DC0
  * Callers:
- *     MiClearPteAccessed @ 0x14027C5D0 (MiClearPteAccessed.c)
- *     MiWsleFlush @ 0x140280E10 (MiWsleFlush.c)
- *     MiEvictPageTableLock @ 0x1402E5230 (MiEvictPageTableLock.c)
- *     MiRewritePteWithLockBit @ 0x140376490 (MiRewritePteWithLockBit.c)
+ *     MiClearPteAccessed @ 0x14027C860 (MiClearPteAccessed.c)
+ *     MiWsleFlush @ 0x1402810A0 (MiWsleFlush.c)
+ *     MiEvictPageTableLock @ 0x1402E54C0 (MiEvictPageTableLock.c)
+ *     MiRewritePteWithLockBit @ 0x140376630 (MiRewritePteWithLockBit.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiWriteValidPteNewProtection @ 0x140284800 (MiWriteValidPteNewProtection.c)
- *     MiShouldLockPteDirectly @ 0x1402E5D04 (MiShouldLockPteDirectly.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1402E5D40 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiReplicatePteChange @ 0x140368300 (MiReplicatePteChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiWriteValidPteNewProtection @ 0x140284A90 (MiWriteValidPteNewProtection.c)
+ *     MiShouldLockPteDirectly @ 0x1402E5F94 (MiShouldLockPteDirectly.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1402E5FD0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiReplicatePteChange @ 0x1403684A0 (MiReplicatePteChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockNestedPageTableWritePte(__int64 a1, __int64 *a2, __int64 a3, int a4)
@@ -98,10 +98,10 @@ LABEL_9:
     {
       result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && LockHandle.OldIrql <= 0xFu
           && (unsigned __int8)result >= 2u )

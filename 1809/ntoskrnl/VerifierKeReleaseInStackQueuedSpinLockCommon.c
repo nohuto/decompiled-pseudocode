@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x140939E70
+ * XREFs of VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x14093AE70
  * Callers:
- *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140939E30 (VerifierKeReleaseInStackQueuedSpinLock.c)
- *     VerifierKeReleaseInStackQueuedSpinLockNoReboot @ 0x14093A070 (VerifierKeReleaseInStackQueuedSpinLockNoReboot.c)
+ *     VerifierKeReleaseInStackQueuedSpinLock @ 0x14093AE30 (VerifierKeReleaseInStackQueuedSpinLock.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockNoReboot @ 0x14093B070 (VerifierKeReleaseInStackQueuedSpinLockNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
- *     ViKeIrqlLogCommon @ 0x14093AEAC (ViKeIrqlLogCommon.c)
- *     ViKeLowerIrqlSanityChecks @ 0x14093AF18 (ViKeLowerIrqlSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
+ *     ViKeIrqlLogCommon @ 0x14093BEAC (ViKeIrqlLogCommon.c)
+ *     ViKeLowerIrqlSanityChecks @ 0x14093BF18 (ViKeLowerIrqlSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKeReleaseInStackQueuedSpinLockCommon(ULONG_PTR BugCheckParameter3, __int64 a2)

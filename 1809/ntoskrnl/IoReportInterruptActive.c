@@ -1,10 +1,10 @@
 /*
- * XREFs of IoReportInterruptActive @ 0x1401589F0
+ * XREFs of IoReportInterruptActive @ 0x140158AF0
  * Callers:
  *     <none>
  * Callees:
- *     IopUnmaskInterrupt @ 0x140158A24 (IopUnmaskInterrupt.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     IopUnmaskInterrupt @ 0x140158B24 (IopUnmaskInterrupt.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IoReportInterruptActive(unsigned int *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of DifRtlQueryRegistryValueWithFallbackWrapper @ 0x1405EB890
+ * XREFs of DifRtlQueryRegistryValueWithFallbackWrapper @ 0x1405EBE00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     RtlQueryRegistryValueWithFallback @ 0x140741690 (RtlQueryRegistryValueWithFallback.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     RtlQueryRegistryValueWithFallback @ 0x140741880 (RtlQueryRegistryValueWithFallback.c)
  */
 
 NTSTATUS __fastcall DifRtlQueryRegistryValueWithFallbackWrapper(

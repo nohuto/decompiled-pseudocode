@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogSectionCreate @ 0x14084E738
+ * XREFs of MiLogSectionCreate @ 0x14084F998
  * Callers:
- *     MiSegmentDelete @ 0x14061E928 (MiSegmentDelete.c)
- *     MiCreatePagingFileMap @ 0x14061EB18 (MiCreatePagingFileMap.c)
+ *     MiSegmentDelete @ 0x14061F928 (MiSegmentDelete.c)
+ *     MiCreatePagingFileMap @ 0x14061FB18 (MiCreatePagingFileMap.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
- *     MiInitPerfMemoryFlags @ 0x1402B9020 (MiInitPerfMemoryFlags.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9508 (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x1402B9210 (MiInitPerfMemoryFlags.c)
  */
 
 __int64 *__fastcall MiLogSectionCreate(__int64 *a1, int a2)

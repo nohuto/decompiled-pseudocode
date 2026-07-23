@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceTimeZoneBiasChange @ 0x1409E5D4C
+ * XREFs of EtwTraceTimeZoneBiasChange @ 0x1409E5FDC
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x14083EB98 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14083EE98 (ExpRefreshTimeZoneInformation.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceTimeZoneBiasChange(int a1, int a2)
@@ -34,9 +34,9 @@ char __fastcall EtwTraceTimeZoneBiasChange(int a1, int a2)
   v2 = &retaddr;
   v21 = a2;
   v20 = a1;
-  if ( (unsigned int)dword_140C04320 > 5 )
+  if ( (unsigned int)dword_140C066C0 > 5 )
   {
-    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL);
+    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL);
     if ( (_BYTE)v2 )
     {
       v15 = 0;
@@ -48,8 +48,8 @@ char __fastcall EtwTraceTimeZoneBiasChange(int a1, int a2)
       v14 = 4;
       v17 = 4;
       LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140C04320,
-                     (unsigned __int8 *)byte_1400352AD,
+                     (__int64)&dword_140C066C0,
+                     (unsigned __int8 *)byte_140034CD0,
                      0LL,
                      0LL,
                      4u,

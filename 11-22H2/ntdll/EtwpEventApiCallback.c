@@ -23,8 +23,8 @@ __int64 __fastcall EtwpEventApiCallback(__int64 a1, __int64 a2)
   int v11; // ecx
   __int64 v12; // r15
   unsigned __int8 *v13; // r11
-  __int64 v14; // r8
-  __int64 Heap; // rax
+  void *v14; // r8
+  _DWORD *Heap; // rax
   unsigned int Size; // [rsp+60h] [rbp-10h]
   int Size_4; // [rsp+64h] [rbp-Ch]
 
@@ -78,20 +78,20 @@ LABEL_23:
       if ( v4 )
       {
         EtwpAcquireGuidEntryExclusive(v4);
-        v14 = *(_QWORD *)(v4 + 168);
+        v14 = *(void **)(v4 + 168);
         if ( v14 )
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v14);
-        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, Size + 16LL);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Size + 16LL);
         *(_QWORD *)(v4 + 168) = Heap;
         if ( Heap )
         {
-          *(_DWORD *)(Heap + 8) = Size;
+          Heap[2] = Size;
           *(_DWORD *)(*(_QWORD *)(v4 + 168) + 12LL) = Size_4;
           **(_QWORD **)(v4 + 168) = *(_QWORD *)(v4 + 168) + 16LL;
           memmove(**(void ***)(v4 + 168), (const void *)v12, Size);
         }
         *(_DWORD *)(v4 + 48) = 0;
-        RtlReleaseSRWLockExclusive(v4 + 40);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 40));
       }
     }
   }

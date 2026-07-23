@@ -1,10 +1,10 @@
 /*
- * XREFs of BvgaUpdateProgressBar @ 0x140500030
+ * XREFs of BvgaUpdateProgressBar @ 0x1404FFFB0
  * Callers:
- *     BvgaIndicateProgress @ 0x140A8F8D0 (BvgaIndicateProgress.c)
+ *     BvgaIndicateProgress @ 0x140A908D0 (BvgaIndicateProgress.c)
  * Callees:
- *     BvgaAcquireLock @ 0x1404FFB30 (BvgaAcquireLock.c)
- *     BvgaReleaseLock @ 0x1404FFE30 (BvgaReleaseLock.c)
+ *     BvgaAcquireLock @ 0x1404FFAB0 (BvgaAcquireLock.c)
+ *     BvgaReleaseLock @ 0x1404FFDB0 (BvgaReleaseLock.c)
  */
 
 void __fastcall BvgaUpdateProgressBar(int a1)

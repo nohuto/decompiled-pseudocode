@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbpResolveMatchingFile @ 0x140A51760
+ * XREFs of SdbpResolveMatchingFile @ 0x140A51A10
  * Callers:
- *     SdbpCheckMatchingFiles @ 0x140756900 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingDir @ 0x140A4F630 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingTextEntry @ 0x140A4FF54 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140A50340 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x140756AF0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingDir @ 0x140A4F8E0 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140A50204 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140A505F0 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     AslPathClean @ 0x140A54B88 (AslPathClean.c)
- *     AslPathToNetworkPathNt @ 0x140A55260 (AslPathToNetworkPathNt.c)
- *     AslEnvExpandStrings2 @ 0x140A56EC4 (AslEnvExpandStrings2.c)
- *     AslEnvGetProcessWowInfo @ 0x140A570CC (AslEnvGetProcessWowInfo.c)
- *     AslImageFileToArchitecture @ 0x140A57798 (AslImageFileToArchitecture.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     AslPathClean @ 0x140A54E38 (AslPathClean.c)
+ *     AslPathToNetworkPathNt @ 0x140A55510 (AslPathToNetworkPathNt.c)
+ *     AslEnvExpandStrings2 @ 0x140A57174 (AslEnvExpandStrings2.c)
+ *     AslEnvGetProcessWowInfo @ 0x140A5737C (AslEnvGetProcessWowInfo.c)
+ *     AslImageFileToArchitecture @ 0x140A57A48 (AslImageFileToArchitecture.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -3,12 +3,12 @@
  * Callers:
  *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
  *     CmpStartRMLogs @ 0x14069870C (CmpStartRMLogs.c)
- *     CmpVolumeContextStart @ 0x14084EA00 (CmpVolumeContextStart.c)
- *     CmSaveKey @ 0x140A0B990 (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x140A0BD84 (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x140A0C330 (CmpLoadHiveVolatile.c)
+ *     CmpVolumeContextStart @ 0x14084ED00 (CmpVolumeContextStart.c)
+ *     CmSaveKey @ 0x140A0BC40 (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x140A0C034 (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x140A0C5E0 (CmpLoadHiveVolatile.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
  *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
  */
 

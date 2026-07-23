@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbCreateNode @ 0x1407368AC
+ * XREFs of PiDrvDbCreateNode @ 0x1407347DC
  * Callers:
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     KeInitializeTimerEx @ 0x14044DAF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateEvent @ 0x1406A6D10 (ZwCreateEvent.c)
- *     PiDrvDbDestroyNode @ 0x140736BA8 (PiDrvDbDestroyNode.c)
- *     RtlCreateUnicodeString @ 0x140833010 (RtlCreateUnicodeString.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     KeInitializeTimerEx @ 0x1404449F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1406A7CB0 (ZwCreateEvent.c)
+ *     PiDrvDbDestroyNode @ 0x140734AD8 (PiDrvDbDestroyNode.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     RtlCreateUnicodeString @ 0x1409D2A00 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, const WCHAR *a3, const WCHAR *a4, _QWORD *a5)
@@ -21,9 +21,9 @@ __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, const WCHAR *a3, con
   __int64 Pool2; // rax
   _QWORD *v11; // rdi
   _WORD *v12; // r13
-  __int16 v14; // ax
+  unsigned __int16 v14; // ax
   __int64 v15; // rax
-  __int16 v16; // ax
+  unsigned __int16 v16; // ax
   __int64 v17; // rax
   int v18; // eax
   _QWORD *v19; // rax
@@ -33,7 +33,7 @@ __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, const WCHAR *a3, con
   Handle = 0LL;
   appended = 0;
   memset(&ObjectAttributes, 0, 44);
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x208uLL, 0x62647050u);
   v11 = (_QWORD *)Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741670;
@@ -51,7 +51,7 @@ __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, const WCHAR *a3, con
     v14 = *v12 + 38;
     *((_WORD *)v11 + 16) = 0;
     *((_WORD *)v11 + 17) = v14;
-    v15 = ExAllocatePool2(0x100uLL);
+    v15 = ExAllocatePool2(0x100uLL, v14, 0x67727453u);
     v11[5] = v15;
     if ( !v15 )
       goto LABEL_4;
@@ -67,7 +67,7 @@ __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, const WCHAR *a3, con
     v16 = *v12 + 58;
     *((_WORD *)v11 + 24) = 0;
     *((_WORD *)v11 + 25) = v16;
-    v17 = ExAllocatePool2(0x100uLL);
+    v17 = ExAllocatePool2(0x100uLL, v16, 0x67727453u);
     v11[7] = v17;
     if ( v17 )
     {
@@ -129,13 +129,13 @@ LABEL_5:
   *((_DWORD *)v11 + 124) = 259;
   if ( (v18 & 0x40) == 0 )
   {
-    v19 = (_QWORD *)qword_140F89A98;
-    if ( *(__int64 **)qword_140F89A98 != &PiDrvDbNodeList )
+    v19 = (_QWORD *)qword_140F89D38;
+    if ( *(__int64 **)qword_140F89D38 != &PiDrvDbNodeList )
       __fastfail(3u);
     *v11 = &PiDrvDbNodeList;
     v11[1] = v19;
     *v19 = v11;
-    qword_140F89A98 = (__int64)v11;
+    qword_140F89D38 = (__int64)v11;
   }
   *a5 = v11;
   return (unsigned int)appended;

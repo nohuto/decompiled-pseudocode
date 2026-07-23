@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpTryConfigureInterface @ 0x14014AEC4
+ * XREFs of HvlpTryConfigureInterface @ 0x14014B434
  * Callers:
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
  *     HvlEnableVsmCalls @ 0x1407BD24C (HvlEnableVsmCalls.c)
  * Callees:
- *     HviGetHypervisorFeatures @ 0x14014AF24 (HviGetHypervisorFeatures.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x14014AF54 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     HviGetHypervisorFeatures @ 0x14014B494 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14014B4C4 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)

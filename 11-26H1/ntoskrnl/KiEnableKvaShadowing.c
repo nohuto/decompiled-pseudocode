@@ -1,19 +1,19 @@
 /*
- * XREFs of KiEnableKvaShadowing @ 0x140BF8180
+ * XREFs of KiEnableKvaShadowing @ 0x140BFE180
  * Callers:
- *     KiInitializeProcessorState @ 0x1407BB330 (KiInitializeProcessorState.c)
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
+ *     KiInitializeProcessorState @ 0x1407BE390 (KiInitializeProcessorState.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x140247450 (KiSetAddressPolicy.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HvlRescindEnlightenments @ 0x1405C19B8 (HvlRescindEnlightenments.c)
- *     KiIsKvaShadowDisabled @ 0x1405F2210 (KiIsKvaShadowDisabled.c)
- *     KiInitializeDescriptorIst @ 0x1405F720C (KiInitializeDescriptorIst.c)
- *     SpcIsKvaLeakageSimulated @ 0x14071E35C (SpcIsKvaLeakageSimulated.c)
- *     SpcQueryKvaLeakagePresent @ 0x14071E36C (SpcQueryKvaLeakagePresent.c)
- *     KiInitializeIdt @ 0x140BF5F9C (KiInitializeIdt.c)
- *     KiShadowProcessorAllocation @ 0x140BF8350 (KiShadowProcessorAllocation.c)
+ *     KiSetAddressPolicy @ 0x140248DB0 (KiSetAddressPolicy.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HvlRescindEnlightenments @ 0x1405C4228 (HvlRescindEnlightenments.c)
+ *     KiIsKvaShadowDisabled @ 0x1405F4BD0 (KiIsKvaShadowDisabled.c)
+ *     KiInitializeDescriptorIst @ 0x1405F9BCC (KiInitializeDescriptorIst.c)
+ *     SpcIsKvaLeakageSimulated @ 0x140722FEC (SpcIsKvaLeakageSimulated.c)
+ *     SpcQueryKvaLeakagePresent @ 0x140722FFC (SpcQueryKvaLeakagePresent.c)
+ *     KiInitializeIdt @ 0x140BFBF9C (KiInitializeIdt.c)
+ *     KiShadowProcessorAllocation @ 0x140BFE350 (KiShadowProcessorAllocation.c)
  */
 
 __int64 __fastcall KiEnableKvaShadowing(__int64 a1, __int64 a2, __int64 a3)
@@ -60,8 +60,8 @@ __int64 __fastcall KiEnableKvaShadowing(__int64 a1, __int64 a2, __int64 a3)
       {
         KiInitializeIdt(v9, 1);
         KeGetCurrentThread()->ApcState.Process->AddressPolicy = 1;
-        byte_140FC90A0 = 1;
-        _InterlockedOr(dword_140FC953C, 0x4000u);
+        byte_140FCA0A0 = 1;
+        _InterlockedOr(dword_140FCA53C, 0x4000u);
         KiSetAddressPolicy(1LL, v10);
         v11 = _bittest64((const signed __int64 *)(a1 + 36832), 0x2Au);
         *(_WORD *)(a1 + 44714) = 24;

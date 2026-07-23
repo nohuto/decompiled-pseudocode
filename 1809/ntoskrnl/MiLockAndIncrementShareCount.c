@@ -2,10 +2,10 @@
  * XREFs of MiLockAndIncrementShareCount @ 0x140026D44
  * Callers:
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockAndIncrementShareCount(__int64 a1)

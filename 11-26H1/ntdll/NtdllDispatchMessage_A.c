@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDispatchMessage_A @ 0x18015EE20
+ * XREFs of NtdllDispatchMessage_A @ 0x18015ED20
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllDispatchMessage_A()
 {
-  off_1801E01E8();
+  off_1801DF1E8();
 }

@@ -5,7 +5,7 @@
  * Callees:
  *     InitializeUserOrMachineLangList @ 0x180039F7C (InitializeUserOrMachineLangList.c)
  *     RtlpLoadLanguageConfigList @ 0x18004BC10 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x180080C90 (RtlpUpdateTEBLanguage.c)
+ *     RtlpUpdateTEBLanguage @ 0x180080CA0 (RtlpUpdateTEBLanguage.c)
  */
 
 __int64 __fastcall RtlpInitializeUserList(__int64 a1)

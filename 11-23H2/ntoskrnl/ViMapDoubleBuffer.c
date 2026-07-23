@@ -1,19 +1,19 @@
 /*
- * XREFs of ViMapDoubleBuffer @ 0x140AC97BC
+ * XREFs of ViMapDoubleBuffer @ 0x140AC97AC
  * Callers:
- *     VfBuildScatterGatherList @ 0x140AC5680 (VfBuildScatterGatherList.c)
- *     VfGetScatterGatherList @ 0x140AC6830 (VfGetScatterGatherList.c)
- *     VfMapTransfer @ 0x140AC6F30 (VfMapTransfer.c)
+ *     VfBuildScatterGatherList @ 0x140AC5670 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x140AC6820 (VfGetScatterGatherList.c)
+ *     VfMapTransfer @ 0x140AC6F20 (VfMapTransfer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     KeFlushIoBuffers @ 0x1403472B0 (KeFlushIoBuffers.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViAllocateMapRegistersFromFile @ 0x140AC7EBC (ViAllocateMapRegistersFromFile.c)
- *     ViHalPreprocessOptions @ 0x140AC9324 (ViHalPreprocessOptions.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeFlushIoBuffers @ 0x140347540 (KeFlushIoBuffers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViAllocateMapRegistersFromFile @ 0x140AC7EAC (ViAllocateMapRegistersFromFile.c)
+ *     ViHalPreprocessOptions @ 0x140AC9314 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall ViMapDoubleBuffer(__int64 a1, PMDL MemoryDescriptorList, ULONG_PTR a3, unsigned int a4, char a5)
@@ -61,8 +61,8 @@ __int64 __fastcall ViMapDoubleBuffer(__int64 a1, PMDL MemoryDescriptorList, ULON
   v46 = 0;
   if ( !a4 )
   {
-    ViHalPreprocessOptions(byte_140C0DE10, "Driver is attempting to map a 0-length transfer.", 33LL, a1, 0LL, 0LL);
-    Priority = byte_140C0DE10;
+    ViHalPreprocessOptions(byte_140C0DE14, "Driver is attempting to map a 0-length transfer.", 33LL, a1, 0LL, 0LL);
+    Priority = byte_140C0DE14;
     v9 = 0LL;
     BugCheckOnFailure = 0LL;
     v10 = a1;
@@ -76,13 +76,13 @@ LABEL_3:
   if ( (PVOID)a3 < (char *)MemoryDescriptorList->StartVa + MemoryDescriptorList->ByteOffset )
   {
     ViHalPreprocessOptions(
-      &dword_140C0DE24,
+      &dword_140C0DE18,
       "Virtual address %p is before the first MDL %p.",
       268435487LL,
       1LL,
       a3,
       (__int64)MemoryDescriptorList);
-    Priority = (CHAR *)&dword_140C0DE24;
+    Priority = (CHAR *)&dword_140C0DE18;
     v9 = (PMDL)a3;
     BugCheckOnFailure = MemoryDescriptorList;
     v10 = 1LL;
@@ -93,13 +93,13 @@ LABEL_10:
   if ( (unsigned int)(a3 - LODWORD(MemoryDescriptorList->StartVa) - MemoryDescriptorList->ByteOffset) >= MemoryDescriptorList->ByteCount )
   {
     ViHalPreprocessOptions(
-      &dword_140C0DE28,
+      &dword_140C0DE0C,
       "Virtual address %p is after the first MDL %p.",
       268435487LL,
       2LL,
       a3,
       (__int64)MemoryDescriptorList);
-    VfReportIssueWithOptions(0xE6u, 0x1FuLL, 2uLL, a3, (ULONG_PTR)MemoryDescriptorList, &dword_140C0DE28);
+    VfReportIssueWithOptions(0xE6u, 0x1FuLL, 2uLL, a3, (ULONG_PTR)MemoryDescriptorList, &dword_140C0DE0C);
     return 0LL;
   }
   v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 80));
@@ -108,10 +108,13 @@ LABEL_10:
   else
     MappedSystemVa = MmMapLockedPagesSpecifyCache(MemoryDescriptorList, 0, MmCached, 0LL, 0, 0x40000010u);
   KxReleaseSpinLock((volatile signed __int64 *)(a1 + 80));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v13 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -158,7 +161,7 @@ LABEL_10:
           if ( (((v5 - 1) ^ (v21 + v5 - (unsigned __int64)v27)) & 0xFFFFFFFFFFFFF000uLL) != 0 )
           {
             v30 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x.";
-            v31 = (CHAR *)&unk_140C0DE1C;
+            v31 = (CHAR *)&unk_140C0DE10;
 LABEL_33:
             ViHalPreprocessOptions(v31, v30, 268435487LL, 3LL, (__int64)MemoryDescriptorList, v29);
             Priority = v31;
@@ -208,10 +211,10 @@ LABEL_41:
           v34 = MmMapLockedPagesSpecifyCache(v26, 0, MmCached, 0LL, 0, 0x40000010u);
         Src = v34;
         KxReleaseSpinLock((volatile signed __int64 *)(a1 + 80));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v35 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v35 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v35 >= 2u )
           {
             v36 = KeGetCurrentPrcb();
             v25 = v36->SchedulerAssist;

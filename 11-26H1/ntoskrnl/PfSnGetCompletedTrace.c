@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnGetCompletedTrace @ 0x140AF7C90
+ * XREFs of PfSnGetCompletedTrace @ 0x140AFA330
  * Callers:
- *     PfSnQueryPrefetcherInformation @ 0x140AF7B7C (PfSnQueryPrefetcherInformation.c)
+ *     PfSnQueryPrefetcherInformation @ 0x140AFA21C (PfSnQueryPrefetcherInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnGetCompletedTrace(volatile void *a1, unsigned int a2, unsigned int *a3)
@@ -25,29 +25,29 @@ __int64 __fastcall PfSnGetCompletedTrace(volatile void *a1, unsigned int a2, uns
   char v17; // [rsp+98h] [rbp+20h]
 
   v5 = 1;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)((char *)&stru_140E66FF0.116 + 4));
-  *(_DWORD *)&stru_140E66FF0.ApcStateFill[28] = 2;
-  SchedulingGroup = stru_140E66FF0.SchedulingGroup;
-  if ( (_KSCHEDULING_GROUP *volatile *)stru_140E66FF0.SchedulingGroup == &stru_140E66FF0.SchedulingGroup )
+  ExAcquireFastMutex((PKGUARDED_MUTEX)((char *)&stru_140E67200.116 + 4));
+  *(_DWORD *)&stru_140E67200.ApcStateFill[28] = 2;
+  SchedulingGroup = stru_140E67200.SchedulingGroup;
+  if ( (_KSCHEDULING_GROUP *volatile *)stru_140E67200.SchedulingGroup == &stru_140E67200.SchedulingGroup )
   {
     v9 = -2147483622;
   }
   else
   {
-    p_QueryHistoryTimeStamp = &stru_140E66FF0.SchedulingGroup->QueryHistoryTimeStamp;
-    QueryHistoryTimeStamp = stru_140E66FF0.SchedulingGroup->QueryHistoryTimeStamp;
+    p_QueryHistoryTimeStamp = &stru_140E67200.SchedulingGroup->QueryHistoryTimeStamp;
+    QueryHistoryTimeStamp = stru_140E67200.SchedulingGroup->QueryHistoryTimeStamp;
     if ( QueryHistoryTimeStamp <= a2 )
     {
-      Policy = stru_140E66FF0.SchedulingGroup->Policy;
-      if ( *(struct _KTHREAD **)&stru_140E66FF0.SchedulingGroup->RelativeWeight != (struct _KTHREAD *)&stru_140E66FF0.SchedulingGroup
-        || *(_KSCHEDULING_GROUP *volatile *)(*(_QWORD *)&Policy + 8LL) != stru_140E66FF0.SchedulingGroup )
+      Policy = stru_140E67200.SchedulingGroup->Policy;
+      if ( *(struct _KTHREAD **)&stru_140E67200.SchedulingGroup->RelativeWeight != (struct _KTHREAD *)&stru_140E67200.SchedulingGroup
+        || *(_KSCHEDULING_GROUP *volatile *)(*(_QWORD *)&Policy + 8LL) != stru_140E67200.SchedulingGroup )
       {
         __fastfail(3u);
       }
-      stru_140E66FF0.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)stru_140E66FF0.SchedulingGroup->Policy;
-      *(_QWORD *)(*(_QWORD *)&Policy + 8LL) = &stru_140E66FF0.SchedulingGroup;
-      --*(_DWORD *)&stru_140E66FF0.ApcStateFill[24];
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)((char *)&stru_140E66FF0.116 + 4));
+      stru_140E67200.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)stru_140E67200.SchedulingGroup->Policy;
+      *(_QWORD *)(*(_QWORD *)&Policy + 8LL) = &stru_140E67200.SchedulingGroup;
+      --*(_DWORD *)&stru_140E67200.ApcStateFill[24];
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)((char *)&stru_140E67200.116 + 4));
       v5 = 0;
       PreviousMode = KeGetCurrentThread()->PreviousMode;
       v17 = PreviousMode;
@@ -73,6 +73,6 @@ __int64 __fastcall PfSnGetCompletedTrace(volatile void *a1, unsigned int a2, uns
     }
   }
   if ( v5 )
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)((char *)&stru_140E66FF0.116 + 4));
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)((char *)&stru_140E67200.116 + 4));
   return v9;
 }

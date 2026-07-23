@@ -35,7 +35,7 @@ void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
   __int64 v17; // r8
   __int64 v18; // rdi
   __int64 v19; // rbx
-  struct _SLIST_ENTRY *v20; // r14
+  _SLIST_ENTRY *v20; // r14
   unsigned __int64 v21; // r8
   unsigned __int64 v22; // rdx
   __int64 v23; // r9
@@ -55,7 +55,7 @@ void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
   volatile signed __int64 *v38; // [rsp+40h] [rbp-108h]
   __int64 v39; // [rsp+48h] [rbp-100h]
   __int64 v40; // [rsp+50h] [rbp-F8h]
-  struct _SLIST_ENTRY *List; // [rsp+58h] [rbp-F0h]
+  _SLIST_ENTRY *List; // [rsp+58h] [rbp-F0h]
   unsigned __int64 v42; // [rsp+60h] [rbp-E8h]
   __int128 v43; // [rsp+70h] [rbp-D8h] BYREF
   _OWORD v44[8]; // [rsp+80h] [rbp-C8h] BYREF
@@ -109,7 +109,7 @@ void __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3)
         v19 = 48 * v18 - 0x58000000000LL;
         v37 = v14;
         v20 = 0LL;
-        List = (struct _SLIST_ENTRY *)v19;
+        List = (_SLIST_ENTRY *)v19;
         while ( 1 )
         {
           if ( _interlockedbittestandset64((volatile signed __int32 *)(v19 + 24), 0x3FuLL) )
@@ -150,7 +150,7 @@ LABEL_58:
               MiIncreaseAvailablePages(a1, v14, v17);
             return;
           }
-          v20 = (struct _SLIST_ENTRY *)v19;
+          v20 = (_SLIST_ENTRY *)v19;
           if ( !(_DWORD)v5 && (MiFlags & 0x80u) != 0 && (++dword_140C4E7CC & MmPageValidationFrequency) == 0 )
             MiArePageContentsZero((v19 + 0x58000000000LL) / 48);
           if ( dword_140C4E6CC == 1 )

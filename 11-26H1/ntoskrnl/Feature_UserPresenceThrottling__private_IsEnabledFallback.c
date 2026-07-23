@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_UserPresenceThrottling__private_IsEnabledFallback @ 0x140532F3C
+ * XREFs of Feature_UserPresenceThrottling__private_IsEnabledFallback @ 0x1405353B8
  * Callers:
- *     Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline @ 0x140455510 (Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline @ 0x14044D640 (Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_UserPresenceThrottling__private_IsEnabledFallback(__int64 a1, unsigned int a2)

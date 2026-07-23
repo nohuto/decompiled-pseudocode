@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeDanglingProtos @ 0x1402A60A0
+ * XREFs of MiFreeDanglingProtos @ 0x1402A5498
  * Callers:
- *     MiSystemPeriodicTick @ 0x1402A6FA0 (MiSystemPeriodicTick.c)
+ *     MiSystemPeriodicTick @ 0x1402A63BC (MiSystemPeriodicTick.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiOkToDeleteProtos @ 0x14045884C (MiOkToDeleteProtos.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiOkToDeleteProtos @ 0x1404500BC (MiOkToDeleteProtos.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void MiFreeDanglingProtos()
@@ -24,14 +24,14 @@ void MiFreeDanglingProtos()
   PVOID P; // [rsp+20h] [rbp-10h] BYREF
   PVOID *p_P; // [rsp+28h] [rbp-8h]
 
-  if ( stru_140E2D150.KernelStack != &stru_140E2D150.KernelStack )
+  if ( stru_140E2D2D0.KernelStack != &stru_140E2D2D0.KernelStack )
   {
     p_P = &P;
     P = &P;
-    v0 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
-    KernelStack = (struct _KTHREAD **)stru_140E2D150.KernelStack;
+    v0 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
+    KernelStack = (struct _KTHREAD **)stru_140E2D2D0.KernelStack;
     v2 = v0;
-    if ( stru_140E2D150.KernelStack != &stru_140E2D150.KernelStack )
+    if ( stru_140E2D2D0.KernelStack != &stru_140E2D2D0.KernelStack )
     {
       do
       {
@@ -56,12 +56,12 @@ void MiFreeDanglingProtos()
         }
         KernelStack = (struct _KTHREAD **)v3;
       }
-      while ( v3 != (struct _KTHREAD *)&stru_140E2D150.KernelStack );
+      while ( v3 != (struct _KTHREAD *)&stru_140E2D2D0.KernelStack );
     }
     if ( v2 == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
+      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
     else
-      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime, v2);
+      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime, v2);
     while ( 1 )
     {
       v7 = P;

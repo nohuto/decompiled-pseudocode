@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeTbFlushStamps @ 0x14004BACC
+ * XREFs of MiInitializeTbFlushStamps @ 0x14004B64C
  * Callers:
- *     MiClearNonPagedPtes @ 0x140024520 (MiClearNonPagedPtes.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
+ *     MiClearNonPagedPtes @ 0x1400240A0 (MiClearNonPagedPtes.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
  * Callees:
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 __fastcall MiInitializeTbFlushStamps(__int64 a1)

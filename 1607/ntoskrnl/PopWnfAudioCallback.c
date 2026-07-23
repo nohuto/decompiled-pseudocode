@@ -1,15 +1,15 @@
 /*
- * XREFs of PopWnfAudioCallback @ 0x14052925C
+ * XREFs of PopWnfAudioCallback @ 0x14052979C
  * Callers:
  *     <none>
  * Callees:
- *     PopGetCurrentHiberActionSource @ 0x14010E88C (PopGetCurrentHiberActionSource.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     PopGetCurrentHiberActionSource @ 0x14010EDF0 (PopGetCurrentHiberActionSource.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     ExQueryWnfStateData @ 0x1404E1320 (ExQueryWnfStateData.c)
- *     PopAudioAccountingCallback @ 0x140529338 (PopAudioAccountingCallback.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x140675020 (PopUpdateSmartUserPresencePredictions.c)
+ *     ExQueryWnfStateData @ 0x1404C4924 (ExQueryWnfStateData.c)
+ *     PopAudioAccountingCallback @ 0x140529878 (PopAudioAccountingCallback.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140675104 (PopUpdateSmartUserPresencePredictions.c)
  */
 
 __int64 __fastcall PopWnfAudioCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _BYTE *a6)
@@ -38,7 +38,7 @@ LABEL_5:
         {
           if ( ++PopAudioPlaybackCount == 1 )
           {
-            qword_140328898 = MEMORY[0xFFFFF78000000008];
+            qword_1403288D8 = MEMORY[0xFFFFF78000000008];
             if ( (unsigned int)PopGetCurrentHiberActionSource() == 2 )
               PopUpdateSmartUserPresencePredictions(0LL, 5LL);
           }

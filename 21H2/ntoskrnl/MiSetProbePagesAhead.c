@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetProbePagesAhead @ 0x1402FF9B8
+ * XREFs of MiSetProbePagesAhead @ 0x14030A708
  * Callers:
- *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
- *     MiProbeLeafFrame @ 0x1402FD840 (MiProbeLeafFrame.c)
+ *     MiProbeAndLockPages @ 0x1402AF160 (MiProbeAndLockPages.c)
+ *     MiProbeLeafFrame @ 0x140308590 (MiProbeLeafFrame.c)
  * Callees:
- *     MiLegitimatePageForDriversToMap @ 0x1402FFBEC (MiLegitimatePageForDriversToMap.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14030A93C (MiLegitimatePageForDriversToMap.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
@@ -58,9 +58,9 @@ char __fastcall MiSetProbePagesAhead(__int64 a1)
           LOBYTE(v2) = 40;
           if ( ((*(_QWORD *)(v9 - 0x57FFFFFFFD8LL) >> 50) & 1) == 0 )
             break;
-          v10 = (_QWORD *)qword_140C4EE80;
+          v10 = (_QWORD *)qword_140C4EEC0;
           v11 = v9 - 0x58000000000LL;
-          if ( qword_140C4EE80 && ((*(_QWORD *)(v11 + 40) >> 60) & 7) == 1 )
+          if ( qword_140C4EEC0 && ((*(_QWORD *)(v11 + 40) >> 60) & 7) == 1 )
           {
             v12 = (__int64)((unsigned __int128)(v9 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
             v13 = (v12 >> 63) + v12;

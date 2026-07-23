@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpKeyEnumStackCleanup @ 0x140699B20
+ * XREFs of CmpKeyEnumStackCleanup @ 0x1405F8CE0
  * Callers:
  *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
- *     CmpSubtreeEnumeratorCleanup @ 0x140729850 (CmpSubtreeEnumeratorCleanup.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x14087A70C (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpPartialPromoteSubkeys @ 0x1408800C0 (CmpPartialPromoteSubkeys.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x140729D00 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x14087A86C (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x140880220 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     CmpKeyEnumStackEntryCleanup @ 0x140699B8C (CmpKeyEnumStackEntryCleanup.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140699C08 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
- *     CmpCleanupKeyNodeStack @ 0x140699C28 (CmpCleanupKeyNodeStack.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpKeyEnumStackEntryCleanup @ 0x1405F8D4C (CmpKeyEnumStackEntryCleanup.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x1405F8DC8 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpCleanupKeyNodeStack @ 0x1405F8DE8 (CmpCleanupKeyNodeStack.c)
  */
 
 void __fastcall CmpKeyEnumStackCleanup(__int64 a1)

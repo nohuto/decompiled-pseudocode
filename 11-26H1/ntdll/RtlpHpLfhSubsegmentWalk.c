@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentWalk @ 0x1800BEC08
+ * XREFs of RtlpHpLfhSubsegmentWalk @ 0x1800BC668
  * Callers:
- *     RtlpHpSegWalk @ 0x180074638 (RtlpHpSegWalk.c)
+ *     RtlpHpSegWalk @ 0x180094C1C (RtlpHpSegWalk.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1800BEDD0 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _alloca_probe @ 0x180163610 (_alloca_probe.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1800BC830 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180163510 (_alloca_probe.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhSubsegmentWalk(
@@ -36,7 +36,7 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentWalk(
   _DWORD v24[2]; // [rsp+20h] [rbp+0h] BYREF
 
   v8 = 0LL;
-  v9 = qword_1801C6EC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
+  v9 = qword_1801C5EC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
   v10 = *(unsigned __int16 *)(a2 + 34);
   v24[0] = v9;
   if ( a3 == a2 )

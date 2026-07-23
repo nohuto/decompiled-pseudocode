@@ -1,21 +1,21 @@
 /*
- * XREFs of PpmCheckPeriodicStart @ 0x1400D7290
+ * XREFs of PpmCheckPeriodicStart @ 0x1400D5130
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PpmEventTraceFailedPerfCheckStart @ 0x1400AC8E0 (PpmEventTraceFailedPerfCheckStart.c)
- *     PpmReleaseLock @ 0x1400D46D4 (PpmReleaseLock.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     RtlGetInterruptTimePrecise @ 0x1400D71A0 (RtlGetInterruptTimePrecise.c)
- *     EtwpLevelKeywordEnabled @ 0x1400D81F0 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PpmEventTraceFailedPerfCheckStart @ 0x1400AAE48 (PpmEventTraceFailedPerfCheckStart.c)
+ *     PpmReleaseLock @ 0x1400D2574 (PpmReleaseLock.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     RtlGetInterruptTimePrecise @ 0x1400D5040 (RtlGetInterruptTimePrecise.c)
+ *     EtwpLevelKeywordEnabled @ 0x1400D6090 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmCheckPeriodicStart(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v4; // rdx
+  LARGE_INTEGER v4; // rdx
   __int64 v5; // rdx
   __int64 v6; // r8
   REGHANDLE v7; // r10
@@ -25,7 +25,7 @@ void __fastcall PpmCheckPeriodicStart(__int64 a1, __int64 a2, int a3)
   int v11; // [rsp+30h] [rbp-78h] BYREF
   LARGE_INTEGER Timeout; // [rsp+38h] [rbp-70h] BYREF
   __int64 v13; // [rsp+40h] [rbp-68h] BYREF
-  LARGE_INTEGER v14; // [rsp+48h] [rbp-60h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-60h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+50h] [rbp-58h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+60h] [rbp-48h] BYREF
   __int64 *v17; // [rsp+70h] [rbp-38h]
@@ -42,15 +42,18 @@ void __fastcall PpmCheckPeriodicStart(__int64 a1, __int64 a2, int a3)
   {
     PpmCheckMakeupCount = a3;
     PpmCheckCurrentPipelineId = 0;
-    PpmCheckTime = RtlGetInterruptTimePrecise(&v14);
+    PpmCheckTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
     v13 = PpmCheckLastExecutionTime;
     v11 = 0;
     if ( PpmEtwRegistered )
     {
       if ( PpmEtwHandle )
       {
-        LOBYTE(v4) = 5;
-        if ( (unsigned __int8)EtwpLevelKeywordEnabled(*(_QWORD *)(PpmEtwHandle + 32) + 80LL, v4, 2LL)
+        LOBYTE(v4.LowPart) = 5;
+        if ( (unsigned __int8)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))EtwpLevelKeywordEnabled)(
+                                *(_QWORD *)(PpmEtwHandle + 32) + 80LL,
+                                (LARGE_INTEGER)v4.QuadPart,
+                                2LL)
           || *(_BYTE *)(v7 + 101) && (unsigned __int8)EtwpLevelKeywordEnabled(*(_QWORD *)(v7 + 40) + 80LL, v5, v6) )
         {
           UserData.Ptr = (ULONGLONG)&PpmCheckTime;

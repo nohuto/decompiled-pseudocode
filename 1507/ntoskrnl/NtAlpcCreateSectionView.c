@@ -14,11 +14,11 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, ULONG64 a3)
+NTSTATUS __cdecl NtAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, PALPC_DATA_VIEW_ATTR ViewAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
   _BYTE *v6; // rcx
-  NTSTATUS SectionView; // edi
+  int SectionView; // edi
   void *v8; // r12
   ULONG_PTR v9; // rsi
   signed __int64 v10; // rcx
@@ -29,32 +29,29 @@ __int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, ULONG64 a3)
   struct _KTHREAD *v15; // rcx
   __int16 v16; // ax
   PVOID Object[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v19; // [rsp+40h] [rbp-38h]
-  __int128 v20; // [rsp+50h] [rbp-28h]
+  _ALPC_DATA_VIEW_ATTR v19; // [rsp+40h] [rbp-38h]
   ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
     goto LABEL_25;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)ViewAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v6 = (_BYTE *)a3;
-    if ( a3 >= MmUserProbeAddress )
+    v6 = ViewAttributes;
+    if ( (unsigned __int64)ViewAttributes >= MmUserProbeAddress )
       v6 = (_BYTE *)MmUserProbeAddress;
     *v6 = *v6;
     v6[31] = v6[31];
-    v19 = *(_OWORD *)a3;
-    v20 = *(_OWORD *)(a3 + 16);
+    v19 = *ViewAttributes;
   }
   else
   {
-    v19 = *(_OWORD *)a3;
-    v20 = *(_OWORD *)(a3 + 16);
+    v19 = *ViewAttributes;
   }
-  if ( (_DWORD)v19 || !*((_QWORD *)&v20 + 1) || (_QWORD)v20 )
+  if ( v19.Flags || !v19.ViewSize || v19.ViewBase )
   {
 LABEL_25:
     SectionView = -1073741811;
@@ -62,7 +59,7 @@ LABEL_25:
   else
   {
     SectionView = ObReferenceObjectByHandle(
-                    Handle,
+                    PortHandle,
                     1u,
                     AlpcPortObjectType,
                     KeGetCurrentThread()->PreviousMode,
@@ -70,7 +67,7 @@ LABEL_25:
                     0LL);
     if ( SectionView >= 0 )
     {
-      v8 = (void *)AlpcReferenceBlobByHandle(*((_QWORD *)Object[0] + 2) + 40LL, *((_QWORD *)&v19 + 1), &AlpcSectionType);
+      v8 = (void *)AlpcReferenceBlobByHandle(*((_QWORD *)Object[0] + 2) + 40LL, v19.SectionHandle, &AlpcSectionType);
       Object[1] = v8;
       if ( v8 )
       {
@@ -78,8 +75,8 @@ LABEL_25:
         if ( SectionView >= 0 )
         {
           v9 = BugCheckParameter2;
-          *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 40);
-          *(_QWORD *)(a3 + 24) = *(_QWORD *)(v9 + 48);
+          ViewAttributes->ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
+          ViewAttributes->ViewSize = *(_QWORD *)(v9 + 48);
           v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter2 - 24), 0xFFFFFFFFFFFFFFFFuLL);
           v11 = v10 <= 1;
           v12 = v10 - 1;
@@ -116,5 +113,5 @@ LABEL_25:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)SectionView;
+  return SectionView;
 }

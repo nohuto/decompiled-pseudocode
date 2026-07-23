@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipUpdateRegistration @ 0x1409D091C
+ * XREFs of WmipUpdateRegistration @ 0x140A49F68
  * Callers:
- *     IoWMIRegistrationControl @ 0x1409D0C80 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x140A49C40 (IoWMIRegistrationControl.c)
  * Callees:
- *     WmipFindRegEntryByDevice @ 0x140463970 (WmipFindRegEntryByDevice.c)
- *     WmipUnreferenceRegEntry @ 0x14046FC2C (WmipUnreferenceRegEntry.c)
- *     WmipQueueRegWork @ 0x1409D0968 (WmipQueueRegWork.c)
+ *     WmipFindRegEntryByDevice @ 0x14045A0A4 (WmipFindRegEntryByDevice.c)
+ *     WmipUnreferenceRegEntry @ 0x14046A188 (WmipUnreferenceRegEntry.c)
+ *     WmipQueueRegWork @ 0x140A49FB4 (WmipQueueRegWork.c)
  */
 
 __int64 __fastcall WmipUpdateRegistration(__int64 a1)

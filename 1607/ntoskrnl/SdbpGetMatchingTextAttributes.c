@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpGetMatchingTextAttributes @ 0x1406C32EC
+ * XREFs of SdbpGetMatchingTextAttributes @ 0x1406C3424
  * Callers:
- *     SdbpCheckMatchingText @ 0x1406C29D0 (SdbpCheckMatchingText.c)
+ *     SdbpCheckMatchingText @ 0x1406C2B08 (SdbpCheckMatchingText.c)
  * Callees:
- *     AslFree @ 0x14048538C (AslFree.c)
- *     AslAlloc @ 0x14048554C (AslAlloc.c)
- *     SdbReadBinaryTag @ 0x1404954C0 (SdbReadBinaryTag.c)
- *     SdbReadDWORDTag @ 0x1404EA9AC (SdbReadDWORDTag.c)
- *     SdbGetTagDataSize @ 0x140503D74 (SdbGetTagDataSize.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     SdbGetStringTagPtr @ 0x140573D10 (SdbGetStringTagPtr.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x140495F50 (SdbReadBinaryTag.c)
+ *     SdbReadDWORDTag @ 0x1404CCBB0 (SdbReadDWORDTag.c)
+ *     SdbGetTagDataSize @ 0x1404E6D04 (SdbGetTagDataSize.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     AslAlloc @ 0x1405148D4 (AslAlloc.c)
+ *     SdbGetStringTagPtr @ 0x140574250 (SdbGetStringTagPtr.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetMatchingTextAttributes(
@@ -26,18 +26,22 @@ __int64 __fastcall SdbpGetMatchingTextAttributes(
   int v8; // r13d
   void *v11; // rdi
   unsigned int FirstTag; // eax
+  const char *v13; // r9
+  int v14; // r8d
   _WORD *StringTagPtr; // rax
-  _WORD *v14; // r15
-  unsigned int v15; // eax
-  unsigned int v16; // r14d
+  _WORD *v16; // r15
+  unsigned int v17; // eax
+  unsigned int v18; // r14d
   unsigned int TagDataSize; // eax
-  __int64 v18; // rcx
-  unsigned int v19; // ebp
-  PVOID v20; // rax
-  __int64 v21; // rcx
-  unsigned int v22; // eax
+  __int64 v20; // rcx
+  unsigned int v21; // ebp
+  PVOID v22; // rax
+  const char *v23; // r9
+  int v24; // r8d
+  unsigned int v25; // eax
   int DWORDTag; // r14d
-  unsigned int v24; // eax
+  unsigned int v27; // eax
+  __int64 v28; // rcx
 
   v7 = 0;
   *a3 = 0LL;
@@ -50,96 +54,75 @@ __int64 __fastcall SdbpGetMatchingTextAttributes(
   FirstTag = SdbFindFirstTag(a1, a2, 24577);
   if ( !FirstTag )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpGetMatchingTextAttributes",
-      1313,
-      (unsigned int)"Failed to get MATCHING_TEXT file path");
+    v13 = "Failed to get MATCHING_TEXT file path";
+    v14 = 1313;
+LABEL_3:
+    AslLogCallPrintf(1, (unsigned int)"SdbpGetMatchingTextAttributes", v14, (_DWORD)v13);
     return v7;
   }
   StringTagPtr = (_WORD *)SdbGetStringTagPtr(a1, FirstTag);
-  v14 = StringTagPtr;
+  v16 = StringTagPtr;
   if ( !StringTagPtr || !*StringTagPtr )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpGetMatchingTextAttributes",
-      1319,
-      (unsigned int)"Failed to read MATCHING_TEXT file path");
+    v23 = "Failed to read MATCHING_TEXT file path";
+    v24 = 1319;
 LABEL_22:
+    AslLogCallPrintf(1, (unsigned int)"SdbpGetMatchingTextAttributes", v24, (_DWORD)v23);
     if ( v11 )
-      AslFree(v21, v11);
+      AslFree(v28, v11);
     return v7;
   }
-  v15 = SdbFindFirstTag(a1, a2, 36883);
-  v16 = v15;
-  if ( !v15 )
+  v17 = SdbFindFirstTag(a1, a2, 36883);
+  v18 = v17;
+  if ( !v17 )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpGetMatchingTextAttributes",
-      1328,
-      (unsigned int)"Failed to read text to match");
-    return v7;
+    v13 = "Failed to read text to match";
+    v14 = 1328;
+    goto LABEL_3;
   }
-  TagDataSize = SdbGetTagDataSize(a1, v15);
-  v19 = TagDataSize;
+  TagDataSize = SdbGetTagDataSize(a1, v17);
+  v21 = TagDataSize;
   if ( !TagDataSize )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpGetMatchingTextAttributes",
-      1334,
-      (unsigned int)"Failed to get text to match blob");
-    return v7;
+    v13 = "Failed to get text to match blob";
+    v14 = 1334;
+    goto LABEL_3;
   }
-  v20 = AslAlloc(v18, TagDataSize + 2LL);
-  v11 = v20;
-  if ( !v20 )
-  {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpGetMatchingTextAttributes",
-      1340,
-      (unsigned int)"Failed to allocate memory for text blob");
-    return v7;
-  }
-  if ( !(unsigned int)SdbReadBinaryTag(a1, v16, (__int64)v20, v19) )
-  {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpGetMatchingTextAttributes",
-      1345,
-      (unsigned int)"Failed to read matching text blob");
-    goto LABEL_22;
-  }
-  v22 = SdbFindFirstTag(a1, a2, 16467);
+  v22 = AslAlloc(v20, TagDataSize + 2LL);
+  v11 = v22;
   if ( !v22 )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpGetMatchingTextAttributes",
-      1354,
-      (unsigned int)"Failed to read text encoding");
+    v13 = "Failed to allocate memory for text blob";
+    v14 = 1340;
+    goto LABEL_3;
+  }
+  if ( !(unsigned int)SdbReadBinaryTag(a1, v18, (__int64)v22, v21) )
+  {
+    v23 = "Failed to read matching text blob";
+    v24 = 1345;
     goto LABEL_22;
   }
-  DWORDTag = SdbReadDWORDTag(a1, v22, 0);
+  v25 = SdbFindFirstTag(a1, a2, 16467);
+  if ( !v25 )
+  {
+    v23 = "Failed to read text encoding";
+    v24 = 1354;
+    goto LABEL_22;
+  }
+  DWORDTag = SdbReadDWORDTag(a1, v25, 0);
   if ( !DWORDTag )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbpGetMatchingTextAttributes",
-      1360,
-      (unsigned int)"Failed to read encoding type");
+    v23 = "Failed to read encoding type";
+    v24 = 1360;
     goto LABEL_22;
   }
-  v24 = SdbFindFirstTag(a1, a2, 16385);
-  if ( v24 )
-    v8 = SdbReadDWORDTag(a1, v24, 0x2000u);
+  v27 = SdbFindFirstTag(a1, a2, 16385);
+  if ( v27 )
+    v8 = SdbReadDWORDTag(a1, v27, 0x2000u);
   v7 = 1;
-  *a3 = v14;
+  *a3 = v16;
   *a4 = v11;
-  *a5 = v19;
+  *a5 = v21;
   *a6 = DWORDTag;
   *a7 = v8;
   return v7;

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentPrefetch @ 0x1800C14C0
+ * XREFs of RtlpHpLfhSubsegmentPrefetch @ 0x1800BEC50
  * Callers:
- *     RtlpHpAllocateHeap @ 0x180071440 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1800B2AA0 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpAllocateHeapInternal @ 0x1800DF844 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeap @ 0x180091890 (RtlpHpAllocateHeap.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1800AFFC0 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1800DC7B4 (RtlpHpAllocateHeapInternal.c)
  * Callees:
- *     RtlpHpLfhSubsegmentPrefetchRange @ 0x1800C1570 (RtlpHpLfhSubsegmentPrefetchRange.c)
+ *     RtlpHpLfhSubsegmentPrefetchRange @ 0x1800BED00 (RtlpHpLfhSubsegmentPrefetchRange.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentPrefetch(__int64 a1, unsigned __int64 a2, int a3, int a4)
@@ -25,7 +25,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentPrefetch(__int64 a1, unsigned __int64 a2, 
     result = *(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(a2 + 44) << 6) + a1 + 72);
     *(_WORD *)(a2 + 48) = ((result
                           * (unsigned __int64)(v6
-                                             - (WORD1(qword_1801C6EC8) ^ *(unsigned __int16 *)(a2 + 42) ^ ((unsigned int)(a2 >> 12) >> 16)))) >> 32)
+                                             - (WORD1(qword_1801C5EC8) ^ *(unsigned __int16 *)(a2 + 42) ^ ((unsigned int)(a2 >> 12) >> 16)))) >> 32)
                         - 1;
   }
   return result;

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpNlsGetLcidIndex @ 0x18004305C
+ * XREFs of RtlpNlsGetLcidIndex @ 0x18004304C
  * Callers:
- *     RtlpConsoleFallbackNameFromLocaleName @ 0x18003E2A0 (RtlpConsoleFallbackNameFromLocaleName.c)
- *     RtlLcidToLocaleName @ 0x180042E80 (RtlLcidToLocaleName.c)
+ *     RtlpConsoleFallbackNameFromLocaleName @ 0x18003E290 (RtlpConsoleFallbackNameFromLocaleName.c)
+ *     RtlLcidToLocaleName @ 0x180042E70 (RtlLcidToLocaleName.c)
  * Callees:
  *     <none>
  */

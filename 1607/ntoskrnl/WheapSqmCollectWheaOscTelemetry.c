@@ -1,15 +1,15 @@
 /*
- * XREFs of WheapSqmCollectWheaOscTelemetry @ 0x140231AD4
+ * XREFs of WheapSqmCollectWheaOscTelemetry @ 0x140231900
  * Callers:
- *     WheapSqmWaitWorkerRoutine @ 0x1406BBE58 (WheapSqmWaitWorkerRoutine.c)
+ *     WheapSqmWaitWorkerRoutine @ 0x1406BBF90 (WheapSqmWaitWorkerRoutine.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     WheapSqmSetDword @ 0x1406BBE40 (WheapSqmSetDword.c)
+ *     WheapSqmSetDword @ 0x1406BBF78 (WheapSqmSetDword.c)
  */
 
 __int64 WheapSqmCollectWheaOscTelemetry()

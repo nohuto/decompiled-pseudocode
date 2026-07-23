@@ -9,33 +9,33 @@
  *     RtlpInvalidatePathCache @ 0x1800789C0 (RtlpInvalidatePathCache.c)
  */
 
-__int64 __fastcall RtlSetSearchPathMode(int a1)
+NTSTATUS __cdecl RtlSetSearchPathMode(ULONG Flags)
 {
-  int v3; // ebx
-  __int64 v4; // rdi
+  NTSTATUS v3; // ebx
+  void *v4; // rdi
 
-  if ( (a1 & 0xFFFE7FFE) != 0 )
-    return 3221225485LL;
-  if ( !((a1 & 1) != 0 ? (a1 & 0x10000) == 0 : (a1 & 0x18000) == 0x10000) )
-    return 3221225485LL;
-  RtlAcquireSRWLockExclusive(&unk_180185070);
-  if ( (RtlpSearchPathMode & 0x8000) == 0 || (a1 & 0x8000) != 0 )
+  if ( (Flags & 0xFFFE7FFE) != 0 )
+    return -1073741811;
+  if ( !((Flags & 1) != 0 ? (Flags & 0x10000) == 0 : (Flags & 0x18000) == 0x10000) )
+    return -1073741811;
+  RtlAcquireSRWLockExclusive(&SRWLock);
+  if ( (RtlpSearchPathMode & 0x8000) == 0 || (Flags & 0x8000) != 0 )
   {
-    RtlpSearchPathMode = a1;
+    RtlpSearchPathMode = Flags;
     v3 = 0;
   }
   else
   {
     v3 = -1073741790;
   }
-  RtlReleaseSRWLockExclusive(&unk_180185070);
+  RtlReleaseSRWLockExclusive(&SRWLock);
   if ( v3 >= 0 )
   {
     RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
-    v4 = RtlpInvalidatePathCache(&RtlpSearchPath);
+    v4 = (void *)RtlpInvalidatePathCache(&RtlpSearchPath);
     RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
     if ( v4 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v4);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   }
-  return (unsigned int)v3;
+  return v3;
 }

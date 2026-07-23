@@ -27,11 +27,11 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
   int v12; // edx
   __int64 **v13; // rdi
   _KLOCK_ENTRY *v14; // r13
-  __int64 v15; // rax
+  PRTL_BALANCED_NODE v15; // rax
   struct _KPRCB *v16; // rcx
   struct _KPRCB *v17; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
-  __int64 v19; // rax
+  PRTL_BALANCED_NODE v19; // rax
   struct _KPRCB *v20; // rcx
   __int64 v22; // [rsp+20h] [rbp-48h]
   int v23; // [rsp+70h] [rbp+8h]
@@ -93,7 +93,7 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
           v15 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
           v14 = (_KLOCK_ENTRY *)v15;
           if ( v15 )
-            KeAbPreWait(v15);
+            KeAbPreWait((__int64)v15);
           v12 = v23;
         }
       }
@@ -125,7 +125,7 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
     {
       v19 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
       if ( v19 )
-        *(_BYTE *)(v19 + 26) |= 1u;
+        BYTE2(v19[1].Left) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(v8);
       if ( !KiIrqlFlags || (KiIrqlFlags & 1) == 0 || KeGetCurrentIrql() < 2u || v10 >= 2u )
         goto LABEL_58;
@@ -148,7 +148,7 @@ LABEL_57:
     v4 = v25;
     if ( v14 )
     {
-      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, (__int64)v14, 0);
+      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, &v14->TreeNode, 0);
       KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v14);
     }
     v6 = a2;

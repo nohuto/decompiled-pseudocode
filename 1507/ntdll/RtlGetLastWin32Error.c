@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlGetLastWin32Error()
+LONG RtlGetLastWin32Error(void)
 {
   return NtCurrentTeb()->LastErrorValue;
 }

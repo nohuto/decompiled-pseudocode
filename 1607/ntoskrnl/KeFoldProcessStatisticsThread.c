@@ -1,7 +1,7 @@
 /*
- * XREFs of KeFoldProcessStatisticsThread @ 0x140088F04
+ * XREFs of KeFoldProcessStatisticsThread @ 0x14010D0F4
  * Callers:
- *     PspThreadDelete @ 0x1404A37B8 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x14051BBB8 (PspThreadDelete.c)
  * Callees:
  *     <none>
  */

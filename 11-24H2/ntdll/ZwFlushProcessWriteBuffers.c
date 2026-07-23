@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwFlushProcessWriteBuffers @ 0x180163AE0
+ * XREFs of ZwFlushProcessWriteBuffers @ 0x180161EA0
  * Callers:
- *     RtlpReleaseDescriptorPseudoGlobalLock @ 0x180040048 (RtlpReleaseDescriptorPseudoGlobalLock.c)
- *     RtlpHpEnvAcquireGlobalLockExclusive @ 0x1800D5764 (RtlpHpEnvAcquireGlobalLockExclusive.c)
+ *     RtlpReleaseDescriptorPseudoGlobalLock @ 0x180020978 (RtlpReleaseDescriptorPseudoGlobalLock.c)
+ *     RtlpHpEnvAcquireGlobalLockExclusive @ 0x1800D0AD4 (RtlpHpEnvAcquireGlobalLockExclusive.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwFlushProcessWriteBuffers()
+NTSTATUS ZwFlushProcessWriteBuffers(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 243LL;
+  result = 243;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

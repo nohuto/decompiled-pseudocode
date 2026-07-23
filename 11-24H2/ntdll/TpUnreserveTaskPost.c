@@ -1,36 +1,35 @@
 /*
- * XREFs of TpUnreserveTaskPost @ 0x1800EE35C
+ * XREFs of TpUnreserveTaskPost @ 0x1800E953C
  * Callers:
- *     RtlQueueWorkItem @ 0x18006D9E0 (RtlQueueWorkItem.c)
+ *     RtlQueueWorkItem @ 0x18008A2C0 (RtlQueueWorkItem.c)
  * Callees:
- *     TppPoolpDereferenceGlobalPool @ 0x18006D7D0 (TppPoolpDereferenceGlobalPool.c)
+ *     TppPoolpDereferenceGlobalPool @ 0x18008A0B0 (TppPoolpDereferenceGlobalPool.c)
  */
 
-__int64 __fastcall TpUnreserveTaskPost(volatile signed __int32 *a1, __int64 a2)
+void __fastcall TpUnreserveTaskPost(char *a1, __int64 a2)
 {
-  __int64 result; // rax
-  volatile signed __int32 *v3; // rdx
-  __int64 *v4; // rcx
+  _RTL_SRWLOCK *v2; // rdx
+  const void **v3; // rcx
 
   if ( !a1 )
   {
-    if ( !a2 || (a1 = (volatile signed __int32 *)TppPoolpSerializedPool, (*(_BYTE *)(a2 + 56) & 2) == 0) )
-      a1 = (volatile signed __int32 *)TppPoolpGlobalPool;
+    if ( !a2 || (a1 = (char *)TppPoolpSerializedPool, (*(_BYTE *)(a2 + 56) & 2) == 0) )
+      a1 = (char *)TppPoolpGlobalPool;
   }
-  if ( a1 == (volatile signed __int32 *)TppPoolpGlobalPool )
+  if ( a1 == (char *)TppPoolpGlobalPool )
   {
-    v3 = (volatile signed __int32 *)&TppPoolpGlobalPoolLock;
-    v4 = &TppPoolpGlobalPool;
-    return TppPoolpDereferenceGlobalPool((const void **)v4, v3);
+    v2 = &TppPoolpGlobalPoolLock;
+    v3 = (const void **)&TppPoolpGlobalPool;
+LABEL_9:
+    TppPoolpDereferenceGlobalPool(v3, v2);
+    return;
   }
-  if ( a1 == (volatile signed __int32 *)TppPoolpSerializedPool )
+  if ( a1 == TppPoolpSerializedPool )
   {
-    v3 = (volatile signed __int32 *)&TppPoolpSerializedPoolLock;
-    v4 = &TppPoolpSerializedPool;
-    return TppPoolpDereferenceGlobalPool((const void **)v4, v3);
+    v2 = &TppPoolpSerializedPoolLock;
+    v3 = (const void **)&TppPoolpSerializedPool;
+    goto LABEL_9;
   }
-  result = (unsigned int)_InterlockedExchangeAdd(a1, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
-    return TppPoolpFree((unsigned __int64)a1);
-  return result;
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
+    TppPoolpFree(a1);
 }

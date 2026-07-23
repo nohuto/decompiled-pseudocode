@@ -7,15 +7,20 @@
  *     _RtlpGetNormalization@8 @ 0x4B375A88 (_RtlpGetNormalization@8.c)
  */
 
-int __stdcall RtlNormalizeString(int a1, int a2, int a3, int a4, int *a5)
+NTSTATUS __cdecl RtlNormalizeString(
+        ULONG NormForm,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v6; // [esp+8h] [ebp-4h] BYREF
 
-  if ( !a2 || a3 < -1 || !a1 || *a5 < 0 )
+  if ( !SourceString || SourceStringLength < -1 || !NormForm || *DestinationStringLength < 0 )
     return -1073741811;
-  result = RtlpGetNormalization(a1, &v6);
+  result = RtlpGetNormalization(NormForm, &v6);
   if ( result >= 0 )
-    return RtlpNormalizeStringWorker(a3, a4, a5);
+    return RtlpNormalizeStringWorker(SourceStringLength, DestinationString, DestinationStringLength);
   return result;
 }

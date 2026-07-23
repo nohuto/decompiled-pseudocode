@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpExtractCompactedAffinity @ 0x1406C5550
+ * XREFs of EtwpExtractCompactedAffinity @ 0x1406C9190
  * Callers:
- *     EtwTraceThreadAffinity @ 0x14050D0F8 (EtwTraceThreadAffinity.c)
+ *     EtwTraceThreadAffinity @ 0x140506B68 (EtwTraceThreadAffinity.c)
  * Callees:
  *     KeFindFirstSetLeftGroupMask @ 0x140200760 (KeFindFirstSetLeftGroupMask.c)
  *     KeFindFirstSetRightGroupMask @ 0x140200980 (KeFindFirstSetRightGroupMask.c)
  *     KeComputeGroupMask @ 0x140200A08 (KeComputeGroupMask.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpExtractCompactedAffinity(

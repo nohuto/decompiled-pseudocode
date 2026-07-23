@@ -1,14 +1,14 @@
 /*
- * XREFs of ExTimerRundown @ 0x14030A36C
+ * XREFs of ExTimerRundown @ 0x14030A5FC
  * Callers:
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObDereferenceObjectExWithTag @ 0x1402A2574 (ObDereferenceObjectExWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExpCancelTimer @ 0x14032EDB0 (ExpCancelTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObDereferenceObjectExWithTag @ 0x1402A2804 (ObDereferenceObjectExWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExpCancelTimer @ 0x14032F040 (ExpCancelTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 ExTimerRundown()
@@ -48,10 +48,10 @@ __int64 ExTimerRundown()
     v6 = (ULONG_PTR)(v4 - 28);
     ObfReferenceObjectWithTag(v4 - 28, 0x746C6644u);
     KxReleaseSpinLock((volatile signed __int64 *)&CurrentThread[1].StackLimit);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,10 +68,10 @@ __int64 ExTimerRundown()
     if ( (*(_BYTE *)(v6 + 304) & 1) != 0 && CurrentThread == *(struct _KTHREAD **)(v6 + 80) )
       v12 = ExpCancelTimer((PKTIMER)v6) + 1;
     KxReleaseSpinLock((volatile signed __int64 *)(v6 + 64));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = v15->SchedulerAssist;
@@ -87,10 +87,10 @@ __int64 ExTimerRundown()
     v1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&CurrentThread[1].StackLimit);
   }
   KxReleaseSpinLock((volatile signed __int64 *)&CurrentThread[1].StackLimit);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v3 <= 0xFu && v18 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v3 <= 0xFu && v18 >= 2u )
     {
       v19 = KeGetCurrentPrcb();
       v20 = v19->SchedulerAssist;

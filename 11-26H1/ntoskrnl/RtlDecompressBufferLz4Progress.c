@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDecompressBufferLz4Progress @ 0x140624E6C
+ * XREFs of RtlDecompressBufferLz4Progress @ 0x140627EBC
  * Callers:
- *     RtlDecompressBufferProgress @ 0x140617CB8 (RtlDecompressBufferProgress.c)
+ *     RtlDecompressBufferProgress @ 0x14061AD08 (RtlDecompressBufferProgress.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlDecompressBufferLz4Progress(
@@ -232,9 +232,9 @@ LABEL_88:
                     v28[1] = v31[1];
                     v28[2] = v31[2];
                     v28[3] = v31[3];
-                    v61 = &v31[dword_140037450[v30]];
+                    v61 = &v31[dword_1400379E0[v30]];
                     *((_DWORD *)v28 + 1) = *(_DWORD *)v61;
-                    v62 = (char *)&v61[-dword_140037430[v30]];
+                    v62 = (char *)&v61[-dword_1400379C0[v30]];
                   }
                   v64 = v28 + 8;
                   if ( v19 <= (unsigned __int64)(v14 - 12) )
@@ -441,9 +441,9 @@ LABEL_31:
                 v28[1] = v31[1];
                 v28[2] = v31[2];
                 v28[3] = v31[3];
-                v37 = &v31[dword_140037450[v30]];
+                v37 = &v31[dword_1400379E0[v30]];
                 *((_DWORD *)v28 + 1) = *(_DWORD *)v37;
-                v38 = &v37[-dword_140037430[v30]];
+                v38 = &v37[-dword_1400379C0[v30]];
               }
               v41 = (unsigned __int8 *)(v28 + 8);
               v42 = v38 - v41;

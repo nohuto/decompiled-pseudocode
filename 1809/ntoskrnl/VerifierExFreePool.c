@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExFreePool @ 0x140925780
+ * XREFs of VerifierExFreePool @ 0x140926780
  * Callers:
- *     VerifierExFreePoolEx @ 0x1409257B0 (VerifierExFreePoolEx.c)
+ *     VerifierExFreePoolEx @ 0x1409267B0 (VerifierExFreePoolEx.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VerifierExFreePoolWithTag @ 0x1409257D0 (VerifierExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VerifierExFreePoolWithTag @ 0x1409267D0 (VerifierExFreePoolWithTag.c)
  */
 
 void __fastcall VerifierExFreePool(void *a1)

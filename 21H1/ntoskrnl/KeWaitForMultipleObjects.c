@@ -444,7 +444,7 @@ LABEL_186:
                 if ( !_interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
                 {
                   KiSatisfyThreadWait((_DWORD)v123, (_DWORD)CurrentThread, v120, (_DWORD)WaitBlock, v21);
-                  RtlRaiseStatus(3221225873LL);
+                  RtlRaiseStatus(-1073741423);
                 }
                 v92 = v89->SchedulerAssist;
                 if ( v92 )

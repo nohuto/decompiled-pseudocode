@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_Servicing_PDCAgentSessions__private_IsEnabledDeviceUsageNoInline @ 0x1405CFA88
+ * XREFs of Feature_Servicing_PDCAgentSessions__private_IsEnabledDeviceUsageNoInline @ 0x1405CD1FC
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
- *     PopSessionConnected @ 0x140ACB088 (PopSessionConnected.c)
- *     PopSessionConnectionChange @ 0x140ACB140 (PopSessionConnectionChange.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
+ *     PopSessionConnected @ 0x140AC8C44 (PopSessionConnected.c)
+ *     PopSessionConnectionChange @ 0x140AC8CFC (PopSessionConnectionChange.c)
  * Callees:
- *     Feature_Servicing_PDCAgentSessions__private_IsEnabledFallback @ 0x1405CFAC0 (Feature_Servicing_PDCAgentSessions__private_IsEnabledFallback.c)
+ *     Feature_Servicing_PDCAgentSessions__private_IsEnabledFallback @ 0x1405CD234 (Feature_Servicing_PDCAgentSessions__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_PDCAgentSessions__private_IsEnabledDeviceUsageNoInline()

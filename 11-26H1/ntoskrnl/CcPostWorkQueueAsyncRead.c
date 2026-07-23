@@ -1,22 +1,22 @@
 /*
- * XREFs of CcPostWorkQueueAsyncRead @ 0x140387C88
+ * XREFs of CcPostWorkQueueAsyncRead @ 0x140389A38
  * Callers:
- *     CcAsyncCopyRead @ 0x1403877D0 (CcAsyncCopyRead.c)
- *     CcAsyncReadWorker @ 0x140388380 (CcAsyncReadWorker.c)
+ *     CcAsyncCopyRead @ 0x140389580 (CcAsyncCopyRead.c)
+ *     CcAsyncReadWorker @ 0x14038A130 (CcAsyncReadWorker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     CcFreeWorkQueueEntry @ 0x14038364C (CcFreeWorkQueueEntry.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140386DD4 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcShouldSpinAsyncReadWorkerThread @ 0x1403881CC (CcShouldSpinAsyncReadWorkerThread.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140389AC8 (CcPerfLogWorkItemEnqueue.c)
- *     ExAllocatePoolWithTagFromNode @ 0x140398280 (ExAllocatePoolWithTagFromNode.c)
- *     CcCompleteAsyncRead @ 0x14039E848 (CcCompleteAsyncRead.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     CcFreeWorkQueueEntry @ 0x1403853FC (CcFreeWorkQueueEntry.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140388B84 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x140389F7C (CcShouldSpinAsyncReadWorkerThread.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14038B878 (CcPerfLogWorkItemEnqueue.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140399FE0 (ExAllocatePoolWithTagFromNode.c)
+ *     CcCompleteAsyncRead @ 0x1403A05A8 (CcCompleteAsyncRead.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
  */
 
 void __fastcall CcPostWorkQueueAsyncRead(PSLIST_ENTRY ListEntry, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -74,7 +74,7 @@ void __fastcall CcPostWorkQueueAsyncRead(PSLIST_ENTRY ListEntry, __int64 a2, __i
   v11 = (unsigned __int64 *)(&Next[72].Next + 1);
   if ( !CcEnablePerVolumeLazyWriter )
     v11 = (unsigned __int64 *)(v4 + 1224);
-  if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+  if ( (xmmword_140FC0C10 & 0x20000) != 0 )
   {
     CcPerfLogWorkItemEnqueue(a2, ListEntry, 0LL, 0LL, Next);
     Next_high = v45;

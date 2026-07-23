@@ -1,12 +1,12 @@
 /*
- * XREFs of KzReleaseAdditionalPrcbLocks @ 0x14056D124
+ * XREFs of KzReleaseAdditionalPrcbLocks @ 0x14056D7E4
  * Callers:
- *     KiSearchForNewThread @ 0x140240350 (KiSearchForNewThread.c)
- *     KiSearchForNewThreadOnProcessor @ 0x140240C90 (KiSearchForNewThreadOnProcessor.c)
- *     KeYieldExecution @ 0x1402469F0 (KeYieldExecution.c)
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
- *     KiDowngradeIsolationUnitLockHandle @ 0x140309534 (KiDowngradeIsolationUnitLockHandle.c)
- *     KiTryUpgradeIsolationUnitLockHandle @ 0x14056D030 (KiTryUpgradeIsolationUnitLockHandle.c)
+ *     KiSearchForNewThread @ 0x140240420 (KiSearchForNewThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x140240D60 (KiSearchForNewThreadOnProcessor.c)
+ *     KeYieldExecution @ 0x140246AC0 (KeYieldExecution.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
+ *     KiDowngradeIsolationUnitLockHandle @ 0x1403097C4 (KiDowngradeIsolationUnitLockHandle.c)
+ *     KiTryUpgradeIsolationUnitLockHandle @ 0x14056D6F0 (KiTryUpgradeIsolationUnitLockHandle.c)
  * Callees:
  *     <none>
  */

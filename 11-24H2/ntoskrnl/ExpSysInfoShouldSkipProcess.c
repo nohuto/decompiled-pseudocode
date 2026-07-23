@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpSysInfoShouldSkipProcess @ 0x1408EF080
+ * XREFs of ExpSysInfoShouldSkipProcess @ 0x140860880
  * Callers:
- *     ExProcessCounterSetCallback @ 0x1408EDBC0 (ExProcessCounterSetCallback.c)
- *     ExpGetProcessInformation @ 0x140ADAE00 (ExpGetProcessInformation.c)
+ *     ExProcessCounterSetCallback @ 0x14085F3F0 (ExProcessCounterSetCallback.c)
+ *     ExpGetProcessInformation @ 0x140ADC640 (ExpGetProcessInformation.c)
  * Callees:
  *     <none>
  */

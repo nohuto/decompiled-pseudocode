@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPageFileChangeCandidate @ 0x1404E75F0
+ * XREFs of MiPageFileChangeCandidate @ 0x1404E09AC
  * Callers:
- *     MiGetPageFileResizeCandidates @ 0x1404E7480 (MiGetPageFileResizeCandidates.c)
+ *     MiGetPageFileResizeCandidates @ 0x1404E083C (MiGetPageFileResizeCandidates.c)
  * Callees:
- *     MiPageFileVolumeFreeSpace @ 0x1404E7680 (MiPageFileVolumeFreeSpace.c)
+ *     MiPageFileVolumeFreeSpace @ 0x1404E0A3C (MiPageFileVolumeFreeSpace.c)
  */
 
 __int64 __fastcall MiPageFileChangeCandidate(__int64 a1, __int64 a2, int a3)

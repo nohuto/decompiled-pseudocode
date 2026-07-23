@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpDetachRootSvmDevice @ 0x1401BE850
+ * XREFs of HvlpDetachRootSvmDevice @ 0x1401BE734
  * Callers:
- *     HvlSvmAttachPasidSpace @ 0x1401BDF34 (HvlSvmAttachPasidSpace.c)
- *     HvlSvmDetachPasidSpace @ 0x1401BE204 (HvlSvmDetachPasidSpace.c)
+ *     HvlSvmAttachPasidSpace @ 0x1401BDE18 (HvlSvmAttachPasidSpace.c)
+ *     HvlSvmDetachPasidSpace @ 0x1401BE0E8 (HvlSvmDetachPasidSpace.c)
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
  */
 
 __int64 __fastcall HvlpDetachRootSvmDevice(int a1)

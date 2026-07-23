@@ -4,10 +4,10 @@
  *     MiDereferenceSessionFinal @ 0x140681B80 (MiDereferenceSessionFinal.c)
  * Callees:
  *     MiSessionLookupImage @ 0x14020AB68 (MiSessionLookupImage.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
  *     MmUnloadSystemImage @ 0x140696020 (MmUnloadSystemImage.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
  */
 
 __int64 MiSessionUnloadAllImages()

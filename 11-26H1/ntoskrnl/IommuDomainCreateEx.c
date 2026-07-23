@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuDomainCreateEx @ 0x140786FC0
+ * XREFs of IommuDomainCreateEx @ 0x140789AF0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuAllocateDmaDomain @ 0x14058D094 (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuAllocateDmaDomain @ 0x14058F814 (HalpIommuAllocateDmaDomain.c)
  */
 
 __int64 __fastcall IommuDomainCreateEx(__int64 a1, __int64 a2, _DWORD *a3, __int64 *a4, ULONG_PTR *a5)

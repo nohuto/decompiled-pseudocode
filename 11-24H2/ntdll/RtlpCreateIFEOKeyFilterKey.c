@@ -1,74 +1,67 @@
 /*
- * XREFs of RtlpCreateIFEOKeyFilterKey @ 0x18008B48C
+ * XREFs of RtlpCreateIFEOKeyFilterKey @ 0x1800A6F4C
  * Callers:
- *     RtlpOpenImageFileOptionsKeyEx @ 0x180089F88 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1800A5A48 (RtlpOpenImageFileOptionsKeyEx.c)
  * Callees:
- *     RtlRandomEx @ 0x180097DB0 (RtlRandomEx.c)
- *     RtlFreeAnsiString @ 0x1800B4B90 (RtlFreeAnsiString.c)
- *     RtlStringFromGUIDEx @ 0x1800EA050 (RtlStringFromGUIDEx.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwCreateKey @ 0x180162030 (ZwCreateKey.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlRandomEx @ 0x18002CC00 (RtlRandomEx.c)
+ *     RtlFreeAnsiString @ 0x180081430 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x1800E57E0 (RtlStringFromGUIDEx.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwCreateKey @ 0x1801603F0 (ZwCreateKey.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpCreateIFEOKeyFilterKey(_QWORD *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpCreateIFEOKeyFilterKey(HANDLE *a1, void *a2, ACCESS_MASK a3)
 {
-  void *v4; // rcx
-  __int128 *v7; // rbx
+  HANDLE v4; // rcx
+  GUID *p_Guid; // rbx
   __int64 v8; // rdi
-  __int64 v9; // r8
-  int v10; // ebx
-  int v12; // [rsp+40h] [rbp-49h] BYREF
-  int v13; // [rsp+44h] [rbp-45h] BYREF
-  void *v14; // [rsp+48h] [rbp-41h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-39h] BYREF
-  __int128 v16; // [rsp+60h] [rbp-29h] BYREF
-  __int128 v17; // [rsp+70h] [rbp-19h]
-  __int128 v18; // [rsp+80h] [rbp-9h]
-  __int128 v19; // [rsp+90h] [rbp+7h] BYREF
+  NTSTATUS v9; // ebx
+  ULONG Disposition; // [rsp+40h] [rbp-49h] BYREF
+  ULONG Seed; // [rsp+44h] [rbp-45h] BYREF
+  HANDLE KeyHandle; // [rsp+48h] [rbp-41h] BYREF
+  _UNICODE_STRING GuidString; // [rsp+50h] [rbp-39h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-29h] BYREF
+  GUID Guid; // [rsp+90h] [rbp+7h] BYREF
 
-  v12 = 1;
-  *(_QWORD *)&v18 = 0LL;
-  DWORD2(v18) = 0;
+  Disposition = 1;
   v4 = 0LL;
-  v14 = 0LL;
-  v19 = 0LL;
-  UnicodeString = 0LL;
-  v16 = 0LL;
-  v17 = 0LL;
+  KeyHandle = 0LL;
+  Guid = 0LL;
+  GuidString = 0LL;
+  memset(&ObjectAttributes, 0, 44);
   while ( 1 )
   {
     if ( v4 )
       NtClose(v4);
-    v7 = &v19;
-    v13 = MEMORY[0x7FFE0014];
+    p_Guid = &Guid;
+    Seed = MEMORY[0x7FFE0014];
     v8 = 8LL;
     do
     {
-      *(_WORD *)v7 = RtlRandomEx(&v13);
-      v7 = (__int128 *)((char *)v7 + 2);
+      LOWORD(p_Guid->Data1) = RtlRandomEx(&Seed);
+      p_Guid = (GUID *)((char *)p_Guid + 2);
       --v8;
     }
     while ( v8 );
-    LOBYTE(v9) = 1;
-    v10 = RtlStringFromGUIDEx(&v19, &UnicodeString, v9);
-    if ( v10 < 0 )
+    v9 = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
+    if ( v9 < 0 )
       break;
-    LODWORD(v16) = 48;
-    *(_QWORD *)&v17 = &UnicodeString;
-    *((_QWORD *)&v16 + 1) = a2;
-    DWORD2(v17) = 576;
-    v18 = 0LL;
-    v10 = ZwCreateKey(&v14, a3, &v16, 0LL, 0LL, 0, &v12);
-    RtlFreeAnsiString(&UnicodeString);
-    if ( v10 < 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &GuidString;
+    ObjectAttributes.RootDirectory = a2;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v9 = ZwCreateKey(&KeyHandle, a3, &ObjectAttributes, 0, 0LL, 0, &Disposition);
+    RtlFreeAnsiString(&GuidString);
+    if ( v9 < 0 )
       break;
-    if ( v12 != 2 )
+    if ( Disposition != 2 )
     {
-      *a1 = v14;
-      return (unsigned int)v10;
+      *a1 = KeyHandle;
+      return (unsigned int)v9;
     }
-    v4 = v14;
+    v4 = KeyHandle;
   }
-  return (unsigned int)v10;
+  return (unsigned int)v9;
 }

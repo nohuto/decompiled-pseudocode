@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAllocateCalloutStack @ 0x1407C7720
+ * XREFs of KeAllocateCalloutStack @ 0x1407C7A40
  * Callers:
  *     <none>
  * Callees:
- *     KeAllocateCalloutStackEx @ 0x1407801A0 (KeAllocateCalloutStackEx.c)
+ *     KeAllocateCalloutStackEx @ 0x140780360 (KeAllocateCalloutStackEx.c)
  */
 
 __int64 __fastcall KeAllocateCalloutStack(char a1)

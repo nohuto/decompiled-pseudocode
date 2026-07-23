@@ -1,14 +1,14 @@
 /*
  * XREFs of IopLiveDumpCaptureMemoryPages @ 0x1403DA8AC
  * Callers:
- *     IoCaptureLiveDump @ 0x140625F30 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x140625FE4 (IoCaptureLiveDump.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     VslIsSecureKernelRunning @ 0x1400B5F98 (VslIsSecureKernelRunning.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     VslFinalizeLiveDumpInSk @ 0x1401C28CC (VslFinalizeLiveDumpInSk.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     VslIsSecureKernelRunning @ 0x1400B3DC0 (VslIsSecureKernelRunning.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     VslFinalizeLiveDumpInSk @ 0x1401C27B0 (VslFinalizeLiveDumpInSk.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  *     IopLiveDumpUncorralProcessors @ 0x1403DB958 (IopLiveDumpUncorralProcessors.c)
  */
@@ -46,7 +46,7 @@ __int64 __fastcall IopLiveDumpCaptureMemoryPages(__int64 a1)
     v10 = 0;
     v5 = (MEMORY[0xFFFFF78000000008] - v2) / 0x2710uLL;
     v8 = &v5;
-    TlgWrite(&stru_1402F3560, &unk_14027BAA4, (LPCGUID)(a1 + 624), (LPCGUID)(a1 + 608), 3u, &pData);
+    TlgWrite(&stru_1402F3560, &unk_14027BBA4, (LPCGUID)(a1 + 624), (LPCGUID)(a1 + 608), 3u, &pData);
   }
   return (unsigned int)v3;
 }

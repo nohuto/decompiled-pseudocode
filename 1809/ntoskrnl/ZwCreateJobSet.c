@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateJobSet @ 0x1401B96B0
+ * XREFs of ZwCreateJobSet @ 0x1401B9810
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwCreateJobSet(ULONG NumJob, PJOB_SET_ARRAY UserJobSet, ULONG
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&NumJob, UserJobSet, *(_QWORD *)&Flags);
+  return KiServiceInternal(*(_QWORD *)&NumJob);
 }

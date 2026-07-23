@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlFindAceByType @ 0x1800EDD60
+ * XREFs of RtlFindAceByType @ 0x1800E8F40
  * Callers:
- *     RtlIsUntrustedObject @ 0x180139110 (RtlIsUntrustedObject.c)
+ *     RtlIsUntrustedObject @ 0x180137340 (RtlIsUntrustedObject.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 *__fastcall RtlFindAceByType(__int64 a1, int a2, unsigned int *a3)
+PVOID __cdecl RtlFindAceByType(PACL Acl, UCHAR AceType, PULONG Index)
 {
-  unsigned __int8 *v4; // r9
+  PACL v4; // r9
   unsigned int i; // r10d
 
-  if ( a1 )
+  if ( Acl )
   {
-    v4 = (unsigned __int8 *)(a1 + 8);
-    for ( i = 0; i < *(unsigned __int16 *)(a1 + 4); ++i )
+    v4 = Acl + 1;
+    for ( i = 0; i < Acl->AceCount; ++i )
     {
-      if ( a3 )
+      if ( Index )
       {
-        if ( i >= *a3 && *v4 == a2 )
+        if ( i >= *Index && v4->AclRevision == AceType )
         {
-          *a3 = i;
+          *Index = i;
           return v4;
         }
       }
-      else if ( *v4 == a2 )
+      else if ( v4->AclRevision == AceType )
       {
         return v4;
       }
-      v4 += *((unsigned __int16 *)v4 + 1);
+      v4 = (PACL)((char *)v4 + v4->AclSize);
     }
   }
   return 0LL;

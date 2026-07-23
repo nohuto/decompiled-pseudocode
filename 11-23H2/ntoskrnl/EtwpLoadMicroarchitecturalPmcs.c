@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpLoadMicroarchitecturalPmcs @ 0x1408628A8
+ * XREFs of EtwpLoadMicroarchitecturalPmcs @ 0x140862AE8
  * Callers:
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041B3A0 (ZwEnumerateKey.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E4318 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x14041B730 (ZwEnumerateKey.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E45A8 (EtwpLoadMicroarchitecturalProfileGroup.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

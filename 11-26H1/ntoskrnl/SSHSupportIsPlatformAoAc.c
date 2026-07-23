@@ -1,37 +1,38 @@
 /*
- * XREFs of SSHSupportIsPlatformAoAc @ 0x1404C9760
+ * XREFs of SSHSupportIsPlatformAoAc @ 0x1404C3180
  * Callers:
- *     PopPdcRegister @ 0x14077B0D8 (PopPdcRegister.c)
- *     PopLidSwitchReliabilityUpdateCallback @ 0x1407CC9E0 (PopLidSwitchReliabilityUpdateCallback.c)
- *     NtSetThreadExecutionState @ 0x1407D2150 (NtSetThreadExecutionState.c)
- *     PopWnfInSupCallback @ 0x1407D72D0 (PopWnfInSupCallback.c)
- *     PopAdaptiveStandbyInitialize @ 0x1407DFAF8 (PopAdaptiveStandbyInitialize.c)
- *     PopAdaptiveStandbyNotifyShellPhaseState @ 0x1407DFFD0 (PopAdaptiveStandbyNotifyShellPhaseState.c)
- *     PopUpdateSystemIdleContext @ 0x140945524 (PopUpdateSystemIdleContext.c)
- *     PopSqmBatteryUpdate @ 0x1409465DC (PopSqmBatteryUpdate.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
- *     PopValidatePowerSettingData @ 0x140A3EA58 (PopValidatePowerSettingData.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A89550 (SleepstudyHelperBuildBlocker.c)
- *     PopPowerAggregatorHandleActiveIntent @ 0x140AC2DC0 (PopPowerAggregatorHandleActiveIntent.c)
- *     PopGenericEventHandler @ 0x140AF0080 (PopGenericEventHandler.c)
- *     PopS0LowPowerIdleInfo @ 0x140AF9A54 (PopS0LowPowerIdleInfo.c)
- *     PopConnectedStandbySettingCallback @ 0x140B1FCF0 (PopConnectedStandbySettingCallback.c)
- *     PopPdcCsDeviceNotification @ 0x140B3018C (PopPdcCsDeviceNotification.c)
- *     PopSystemIdleEventHandler @ 0x140B38970 (PopSystemIdleEventHandler.c)
- *     PopDiagTraceCsEnterReason @ 0x140B3931C (PopDiagTraceCsEnterReason.c)
- *     PopExternalMonitorUpdatedWorker @ 0x140B3ED80 (PopExternalMonitorUpdatedWorker.c)
- *     PopNotifyLidStateChange @ 0x140B51558 (PopNotifyLidStateChange.c)
- *     PopDiagTraceCsExitReason @ 0x140B58D58 (PopDiagTraceCsExitReason.c)
- *     PopSmartSuspendValidatePredictions @ 0x140B62E3C (PopSmartSuspendValidatePredictions.c)
- *     PopSmartSuspendMakePredictions @ 0x140B6B6EC (PopSmartSuspendMakePredictions.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
- *     PopBroadcastInputSuppressionCallback @ 0x140B71AF0 (PopBroadcastInputSuppressionCallback.c)
+ *     PopLidSwitchReliabilityUpdateCallback @ 0x1407CFA80 (PopLidSwitchReliabilityUpdateCallback.c)
+ *     NtSetThreadExecutionState @ 0x1407D51F0 (NtSetThreadExecutionState.c)
+ *     PopUsb4DisplayPresenceUpdatedWorker @ 0x1407DA3D0 (PopUsb4DisplayPresenceUpdatedWorker.c)
+ *     PopWnfInSupCallback @ 0x1407DA670 (PopWnfInSupCallback.c)
+ *     PopPdcRegister @ 0x1407DF940 (PopPdcRegister.c)
+ *     PopAdaptiveStandbyInitialize @ 0x1407E44EC (PopAdaptiveStandbyInitialize.c)
+ *     PopAdaptiveStandbyNotifyShellPhaseState @ 0x1407E4A18 (PopAdaptiveStandbyNotifyShellPhaseState.c)
+ *     PopUpdateSystemIdleContext @ 0x1409C0E94 (PopUpdateSystemIdleContext.c)
+ *     PopSqmBatteryUpdate @ 0x1409C1F4C (PopSqmBatteryUpdate.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
+ *     PopValidatePowerSettingData @ 0x1409FA478 (PopValidatePowerSettingData.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A90440 (SleepstudyHelperBuildBlocker.c)
+ *     PopPowerAggregatorHandleActiveIntent @ 0x140ADB1A0 (PopPowerAggregatorHandleActiveIntent.c)
+ *     PopGenericEventHandler @ 0x140AF2C50 (PopGenericEventHandler.c)
+ *     PopS0LowPowerIdleInfo @ 0x140AFBEE0 (PopS0LowPowerIdleInfo.c)
+ *     PopConnectedStandbySettingCallback @ 0x140B22110 (PopConnectedStandbySettingCallback.c)
+ *     PopPdcCsDeviceNotification @ 0x140B32390 (PopPdcCsDeviceNotification.c)
+ *     PopSystemIdleEventHandler @ 0x140B3AB80 (PopSystemIdleEventHandler.c)
+ *     PopDiagTraceCsEnterReason @ 0x140B3B52C (PopDiagTraceCsEnterReason.c)
+ *     PopExternalMonitorUpdatedWorker @ 0x140B40DB0 (PopExternalMonitorUpdatedWorker.c)
+ *     PopNotifyLidStateChange @ 0x140B53DF8 (PopNotifyLidStateChange.c)
+ *     PopDiagTraceCsExitReason @ 0x140B5BB78 (PopDiagTraceCsExitReason.c)
+ *     PopSmartSuspendValidatePredictions @ 0x140B65EDC (PopSmartSuspendValidatePredictions.c)
+ *     PopSmartSuspendMakePredictions @ 0x140B6E7E8 (PopSmartSuspendMakePredictions.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
+ *     PopBroadcastInputSuppressionCallback @ 0x140B76320 (PopBroadcastInputSuppressionCallback.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int8 SSHSupportIsPlatformAoAc()
 {
-  return *(_DWORD *)&stru_140E66FF0.WaitBlockFill11[80] != 0 ? stru_140E66FF0.WaitBlockFill6[84] : 0;
+  return *(_DWORD *)&stru_140E67200.WaitBlockFill11[88] != 0 ? stru_140E67200.WaitBlockFill6[80] : 0;
 }

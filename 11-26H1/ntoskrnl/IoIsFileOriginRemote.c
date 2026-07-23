@@ -1,7 +1,7 @@
 /*
- * XREFs of IoIsFileOriginRemote @ 0x140499E70
+ * XREFs of IoIsFileOriginRemote @ 0x1404939C0
  * Callers:
- *     FsRtlpOplockTryPrepForAckTimeout @ 0x140AE6EA0 (FsRtlpOplockTryPrepForAckTimeout.c)
+ *     FsRtlpOplockTryPrepForAckTimeout @ 0x140AE4C60 (FsRtlpOplockTryPrepForAckTimeout.c)
  * Callees:
  *     <none>
  */

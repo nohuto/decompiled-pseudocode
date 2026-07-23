@@ -1,10 +1,10 @@
 /*
- * XREFs of SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1400AA388
+ * XREFs of SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1400A8908
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspIumVerifyParentSd @ 0x1406822E8 (PspIumVerifyParentSd.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspIumVerifyParentSd @ 0x1406823CC (PspIumVerifyParentSd.c)
  * Callees:
- *     LocalConvertStringSDToSD_Rev1 @ 0x1404D67F8 (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1404B9DFC (LocalConvertStringSDToSD_Rev1.c)
  */
 
 __int64 __fastcall SeConvertStringSecurityDescriptorToSecurityDescriptor(__int64 a1, int a2, __int64 a3, __int64 a4)

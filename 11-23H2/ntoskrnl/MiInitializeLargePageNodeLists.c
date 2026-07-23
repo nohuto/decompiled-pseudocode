@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeLargePageNodeLists @ 0x140837928
+ * XREFs of MiInitializeLargePageNodeLists @ 0x140837C28
  * Callers:
- *     MiInitializePartition @ 0x1408372A0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x1408375A0 (MiInitializePartition.c)
  * Callees:
- *     MiInitializeColorTable @ 0x140397CFC (MiInitializeColorTable.c)
+ *     MiInitializeColorTable @ 0x140397EDC (MiInitializeColorTable.c)
  */
 
 unsigned __int64 __fastcall MiInitializeLargePageNodeLists(__int64 a1)

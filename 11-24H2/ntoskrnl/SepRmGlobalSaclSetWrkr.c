@@ -1,21 +1,21 @@
 /*
- * XREFs of SepRmGlobalSaclSetWrkr @ 0x1407947B0
+ * XREFs of SepRmGlobalSaclSetWrkr @ 0x1407948C0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SepRmFetchGlobalSacl @ 0x1407945DC (SepRmFetchGlobalSacl.c)
- *     SepRmGlobalSaclFind @ 0x140889F14 (SepRmGlobalSaclFind.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SepRmFetchGlobalSacl @ 0x1407946EC (SepRmFetchGlobalSacl.c)
+ *     SepRmGlobalSaclFind @ 0x14088DDC4 (SepRmGlobalSaclFind.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepRmGlobalSaclSetWrkr(__int64 a1, __int64 a2)
 {
-  size_t v2; // rsi
+  ULONG_PTR v2; // rsi
   const void *v3; // r12
   char v5; // r15
   int GlobalSacl; // edi
@@ -55,10 +55,10 @@ void __fastcall SepRmGlobalSaclSetWrkr(__int64 a1, __int64 a2)
     {
       if ( !v15 )
         goto LABEL_21;
-      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x20uLL, 0x6C635347u);
       if ( Pool2 )
       {
-        v13 = (void *)ExAllocatePool2(0x100uLL);
+        v13 = (void *)ExAllocatePool2(0x100uLL, v2, 0x6C635347u);
         Pool2[2] = v13;
         if ( v13 )
         {

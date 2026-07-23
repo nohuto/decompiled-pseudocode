@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpSystemErrorHandler @ 0x1401C7020
+ * XREFs of ExpSystemErrorHandler @ 0x1401C7180
  * Callers:
- *     ExpRaiseHardError @ 0x1408D68E0 (ExpRaiseHardError.c)
+ *     ExpRaiseHardError @ 0x1408D7BA0 (ExpRaiseHardError.c)
  * Callees:
- *     KiSaveProcessorControlState @ 0x1401BBF10 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x1401C54F0 (RtlCaptureContext.c)
- *     ExpSystemErrorHandler2 @ 0x14057E930 (ExpSystemErrorHandler2.c)
+ *     KiSaveProcessorControlState @ 0x1401BC070 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x1401C5650 (RtlCaptureContext.c)
+ *     ExpSystemErrorHandler2 @ 0x14057F930 (ExpSystemErrorHandler2.c)
  */
 
 __int64 __fastcall ExpSystemErrorHandler(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)

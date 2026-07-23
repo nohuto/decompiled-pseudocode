@@ -1,10 +1,10 @@
 /*
- * XREFs of _BuildStandardOverlayFilePath @ 0x1800B2CB0
+ * XREFs of _BuildStandardOverlayFilePath @ 0x18007F550
  * Callers:
- *     GetOverlayFilePathUsingChecksum @ 0x1800B25C0 (GetOverlayFilePathUsingChecksum.c)
+ *     GetOverlayFilePathUsingChecksum @ 0x18007EE60 (GetOverlayFilePathUsingChecksum.c)
  * Callees:
- *     _StartPathWithLongPathPrefixIfNeeded @ 0x1800B3190 (_StartPathWithLongPathPrefixIfNeeded.c)
- *     _AppendStandardOverlayFilePath @ 0x1800F7BA8 (_AppendStandardOverlayFilePath.c)
+ *     _StartPathWithLongPathPrefixIfNeeded @ 0x18007FA30 (_StartPathWithLongPathPrefixIfNeeded.c)
+ *     _AppendStandardOverlayFilePath @ 0x1800F2718 (_AppendStandardOverlayFilePath.c)
  */
 
 __int64 __fastcall BuildStandardOverlayFilePath(

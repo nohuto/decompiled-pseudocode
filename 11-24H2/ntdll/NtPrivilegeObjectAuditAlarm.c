@@ -1,16 +1,22 @@
 /*
- * XREFs of NtPrivilegeObjectAuditAlarm @ 0x1801644E0
+ * XREFs of NtPrivilegeObjectAuditAlarm @ 0x1801628A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtPrivilegeObjectAuditAlarm()
+NTSTATUS __cdecl NtPrivilegeObjectAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN AccessGranted)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 323LL;
+  result = 323;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

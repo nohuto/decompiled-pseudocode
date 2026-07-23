@@ -1,18 +1,18 @@
 /*
- * XREFs of PoFxRegisterDebugger @ 0x1409DF33C
+ * XREFs of PoFxRegisterDebugger @ 0x1409E033C
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PoFxActivateComponent @ 0x1400FE090 (PoFxActivateComponent.c)
- *     PoFxStartDevicePowerManagement @ 0x14018BCD0 (PoFxStartDevicePowerManagement.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PoFxRegisterCoreDevice @ 0x1407258B0 (PoFxRegisterCoreDevice.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PoFxActivateComponent @ 0x1400FE110 (PoFxActivateComponent.c)
+ *     PoFxStartDevicePowerManagement @ 0x14018BE10 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PoFxRegisterCoreDevice @ 0x140726B50 (PoFxRegisterCoreDevice.c)
  */
 
 void PoFxRegisterDebugger()
@@ -37,7 +37,7 @@ void PoFxRegisterDebugger()
   _QWORD v17[3]; // [rsp+C8h] [rbp-40h] BYREF
   wchar_t pszDest[24]; // [rsp+E0h] [rbp-28h] BYREF
 
-  if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140400458[0])(
+  if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140401458[0])(
          33LL,
          0LL,
          0LL,
@@ -49,7 +49,7 @@ void PoFxRegisterDebugger()
     if ( PoolWithTag )
     {
       memset(PoolWithTag, 0, v0);
-      if ( ((int (__fastcall *)(__int64, _QWORD, unsigned int *, SIZE_T *))off_140400458[0])(
+      if ( ((int (__fastcall *)(__int64, _QWORD, unsigned int *, SIZE_T *))off_140401458[0])(
              33LL,
              v0,
              v2,

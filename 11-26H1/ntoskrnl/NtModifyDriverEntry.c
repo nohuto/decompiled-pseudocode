@@ -1,15 +1,15 @@
 /*
- * XREFs of NtModifyDriverEntry @ 0x14083DB40
+ * XREFs of NtModifyDriverEntry @ 0x140843D80
  * Callers:
- *     DifNtModifyDriverEntryWrapper @ 0x14067BED0 (DifNtModifyDriverEntryWrapper.c)
+ *     DifNtModifyDriverEntryWrapper @ 0x14067FAB0 (DifNtModifyDriverEntryWrapper.c)
  * Callees:
- *     ExpSetDriverEntry @ 0x14083C5DC (ExpSetDriverEntry.c)
+ *     ExpSetDriverEntry @ 0x14084281C (ExpSetDriverEntry.c)
  */
 
-__int64 __fastcall NtModifyDriverEntry(unsigned int *a1)
+NTSTATUS __cdecl NtModifyDriverEntry(PEFI_DRIVER_ENTRY DriverEntry)
 {
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 2 )
-    return ExpSetDriverEntry(0, a1, 0LL);
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 2 )
+    return ExpSetDriverEntry(0, &DriverEntry->Version, 0LL);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

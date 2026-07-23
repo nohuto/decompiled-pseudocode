@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCheckDisabledReason @ 0x140801AB0
+ * XREFs of PopCheckDisabledReason @ 0x140801D80
  * Callers:
- *     PopEnableHiberFile @ 0x1408016DC (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x1408019AC (PopEnableHiberFile.c)
  * Callees:
- *     PopGetReasonListByReasonCode @ 0x1407A8888 (PopGetReasonListByReasonCode.c)
+ *     PopGetReasonListByReasonCode @ 0x1407A8A78 (PopGetReasonListByReasonCode.c)
  */
 
 char __fastcall PopCheckDisabledReason(int a1)

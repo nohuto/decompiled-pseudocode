@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpHpSegFreeRangeInsert @ 0x14024F8F0
+ * XREFs of RtlpHpSegFreeRangeInsert @ 0x14024F9C0
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCF0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextCompact @ 0x140337DA0 (RtlpHpSegContextCompact.c)
- *     RtlpHpSegContextReserve @ 0x1403893C8 (RtlpHpSegContextReserve.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x1403C4A48 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14024DDC0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextCompact @ 0x140338030 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegContextReserve @ 0x1403895A8 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x1403C4C28 (RtlpHpSegLargeRangeAllocate.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14024FE90 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14024FF60 (RtlpHpSegPageRangeComputeLargePageCost.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, int a3)
 {
   char v5; // al
-  unsigned __int64 v6; // rdx
-  bool v7; // cl
-  unsigned __int64 result; // rax
-  unsigned __int64 v9; // rcx
+  __int64 v6; // rdx
+  BOOLEAN v7; // cl
+  __int64 result; // rax
+  __int64 v9; // rcx
 
   if ( !a3 && (*(_BYTE *)(a1 + 13) & 0x10) != 0 && *(unsigned __int8 *)(a2 + 31) == 256 - *(unsigned __int8 *)(a1 + 10) )
   {
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, unsigned __int6
     if ( (*(_BYTE *)(a1 + 13) & 7) != 0 )
       v5 = RtlpHpSegPageRangeComputeLargePageCost(
              a1,
-             (a2 & *(_QWORD *)a1) + ((__int64)(a2 - (a2 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)),
+             (a2 & *(_QWORD *)a1) + ((a2 - (a2 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)),
              *(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 8));
     else
       v5 = 4;
@@ -81,7 +81,7 @@ LABEL_22:
       }
     }
 LABEL_9:
-    RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 96), v6, v7, a2);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v6, v7, (PRTL_BALANCED_NODE)a2);
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
       (unsigned __int16)~*(_WORD *)(a2 + 28));

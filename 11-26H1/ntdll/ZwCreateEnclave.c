@@ -1,16 +1,25 @@
 /*
- * XREFs of ZwCreateEnclave @ 0x1801604F0
+ * XREFs of ZwCreateEnclave @ 0x1801603F0
  * Callers:
- *     LdrCreateEnclave @ 0x18010E440 (LdrCreateEnclave.c)
+ *     LdrCreateEnclave @ 0x18010DF90 (LdrCreateEnclave.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateEnclave()
+NTSTATUS __cdecl ZwCreateEnclave(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        SIZE_T Size,
+        SIZE_T InitialCommitment,
+        ULONG EnclaveType,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 174LL;
+  result = 174;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

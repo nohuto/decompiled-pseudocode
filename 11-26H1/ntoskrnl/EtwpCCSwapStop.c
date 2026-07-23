@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCCSwapStop @ 0x140831FA4
+ * XREFs of EtwpCCSwapStop @ 0x1408381E4
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x1404CCCE8 (EtwpUpdateSelectedGroupMasks.c)
- *     EtwpFlushTrace @ 0x140A6F6CC (EtwpFlushTrace.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x1404C6488 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpFlushTrace @ 0x140AB2FD0 (EtwpFlushTrace.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 void __fastcall EtwpCCSwapStop(unsigned int a1, char a2)

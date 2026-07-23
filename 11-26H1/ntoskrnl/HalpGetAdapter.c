@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpGetAdapter @ 0x140780C9C
+ * XREFs of HalpGetAdapter @ 0x14078379C
  * Callers:
- *     HaliGetDmaAdapter @ 0x14057CF40 (HaliGetDmaAdapter.c)
- *     HalGetAdapter @ 0x140780C80 (HalGetAdapter.c)
+ *     HaliGetDmaAdapter @ 0x14057F460 (HaliGetDmaAdapter.c)
+ *     HalGetAdapter @ 0x140783780 (HalGetAdapter.c)
  * Callees:
- *     HalpAreDriversDmarCompatible @ 0x140579AA0 (HalpAreDriversDmarCompatible.c)
- *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140579B80 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
- *     HalGetAdapterV3 @ 0x140783334 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140783920 (HalGetAdapterV2.c)
+ *     HalpAreDriversDmarCompatible @ 0x14057BFD0 (HalpAreDriversDmarCompatible.c)
+ *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x14057C0B0 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
+ *     HalGetAdapterV3 @ 0x140785E68 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140786454 (HalGetAdapterV2.c)
  */
 
 __int64 __fastcall HalpGetAdapter(__int64 a1, struct _DEVICE_OBJECT *a2, _DWORD *a3)

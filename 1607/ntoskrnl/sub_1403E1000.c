@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     CcAdjustBcbDepth @ 0x140168EB0 (CcAdjustBcbDepth.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     CcAdjustBcbDepth @ 0x140169420 (CcAdjustBcbDepth.c)
  */
 
 BOOLEAN __fastcall sub_1403E1000(PKDPC Dpc)

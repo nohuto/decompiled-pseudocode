@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptGetRemappedLineState @ 0x140427D44
+ * XREFs of HalpInterruptGetRemappedLineState @ 0x140434E54
  * Callers:
- *     HalpInterruptSetRemappedDestination @ 0x140427BFC (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptSetRemappedDestination @ 0x140434D0C (HalpInterruptSetRemappedDestination.c)
  * Callees:
- *     HalpInterruptFindControllerAndLineState @ 0x140426644 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x140433754 (HalpInterruptFindControllerAndLineState.c)
  */
 
 __int64 __fastcall HalpInterruptGetRemappedLineState(unsigned int *a1, int *a2, __int64 *a3, __int64 a4)

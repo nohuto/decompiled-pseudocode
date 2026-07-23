@@ -1,14 +1,14 @@
 /*
  * XREFs of MiProcessWsInSwapFault @ 0x140200008
  * Callers:
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MiValidFault @ 0x1403334E0 (MiValidFault.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MiValidFault @ 0x140333770 (MiValidFault.c)
  * Callees:
  *     MiReleaseWsSwapReservationPfn @ 0x14021B4A4 (MiReleaseWsSwapReservationPfn.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiSetVaAgeList @ 0x1402709E0 (MiSetVaAgeList.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiGetVaAge @ 0x1402E3A30 (MiGetVaAge.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiSetVaAgeList @ 0x140270C70 (MiSetVaAgeList.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiGetVaAge @ 0x1402E3CC0 (MiGetVaAge.c)
  */
 
 __int64 __fastcall MiProcessWsInSwapFault(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

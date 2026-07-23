@@ -8,5 +8,5 @@
 
 void KeClockTimerPowerChange()
 {
-  ++KiClockStats;
+  ++dword_140C2B140;
 }

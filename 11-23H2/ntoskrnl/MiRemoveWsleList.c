@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRemoveWsleList @ 0x1402A7DD0
+ * XREFs of MiRemoveWsleList @ 0x1402A8060
  * Callers:
- *     MiFreeWsleList @ 0x140280C20 (MiFreeWsleList.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
+ *     MiFreeWsleList @ 0x140280EB0 (MiFreeWsleList.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
  * Callees:
  *     MiWriteWsle @ 0x140216174 (MiWriteWsle.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiIsDriverPage @ 0x1403398C0 (MiIsDriverPage.c)
- *     MiLogRemoveWsleEvent @ 0x14061C31C (MiLogRemoveWsleEvent.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiIsDriverPage @ 0x140339B50 (MiIsDriverPage.c)
+ *     MiLogRemoveWsleEvent @ 0x14061C86C (MiLogRemoveWsleEvent.c)
  */
 
 __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, _BYTE *a3, unsigned __int64 a4)
@@ -129,7 +129,8 @@ __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, _BYTE *a3, unsigned 
       if ( (*(_BYTE *)(v9 + 184) & 7) == 4 )
       {
         if ( PsNtosImageBase
-          && (v21 < PsNtosImageEnd && v21 >= PsNtosImageBase || v21 < PsHalImageEnd && v21 >= PsHalImageBase) )
+          && (v21 < PsNtosImageEnd && v21 >= (unsigned __int64)PsNtosImageBase
+           || v21 < PsHalImageEnd && v21 >= (unsigned __int64)PsHalImageBase) )
         {
           v62 = ++v14;
         }

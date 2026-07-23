@@ -1,21 +1,21 @@
 /*
- * XREFs of PopBootStatCheckIntegrity @ 0x140877250
+ * XREFs of PopBootStatCheckIntegrity @ 0x1408784B0
  * Callers:
- *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14058EF30 (PopPowerInformationInternal.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     RtlUnlockBootStatusData @ 0x140718BA0 (RtlUnlockBootStatusData.c)
- *     RtlLockBootStatusData @ 0x140718C80 (RtlLockBootStatusData.c)
- *     PopBootStatAccessCheck @ 0x140753370 (PopBootStatAccessCheck.c)
- *     RtlCheckBootStatusIntegrity @ 0x140895BE8 (RtlCheckBootStatusIntegrity.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     RtlUnlockBootStatusData @ 0x140719E40 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140719F20 (RtlLockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x140754560 (PopBootStatAccessCheck.c)
+ *     RtlCheckBootStatusIntegrity @ 0x140896E48 (RtlCheckBootStatusIntegrity.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   __int64 v14; // [rsp+40h] [rbp-38h]
   volatile void **v15; // [rsp+48h] [rbp-30h]
   char v16; // [rsp+90h] [rbp+18h]
-  char v17; // [rsp+98h] [rbp+20h]
+  BOOLEAN Verified; // [rsp+98h] [rbp+20h] BYREF
 
   PoolWithTag = 0LL;
   FileHandle = 0LL;
@@ -94,11 +94,11 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   {
     if ( !PreviousMode || (v6 = PopBootStatAccessCheck(FileHandle, PreviousMode, 1u), v6 >= 0) )
     {
-      v6 = RtlCheckBootStatusIntegrity(FileHandle);
+      v6 = RtlCheckBootStatusIntegrity(FileHandle, &Verified);
       if ( v6 >= 0 )
       {
         if ( *((_DWORD *)PoolWithTag + 4) )
-          **((_BYTE **)PoolWithTag + 1) = v17;
+          **((_BYTE **)PoolWithTag + 1) = Verified;
         else
           v6 = -1073741811;
       }

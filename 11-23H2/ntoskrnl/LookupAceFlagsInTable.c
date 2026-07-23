@@ -1,10 +1,10 @@
 /*
- * XREFs of LookupAceFlagsInTable @ 0x140840074
+ * XREFs of LookupAceFlagsInTable @ 0x140840374
  * Callers:
  *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
  *     LocalConvertAclToString @ 0x14069D4D0 (LocalConvertAclToString.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
  */
 
 wchar_t **__fastcall LookupAceFlagsInTable(wchar_t *Str1, int a2, int a3, char a4)
@@ -15,7 +15,7 @@ wchar_t **__fastcall LookupAceFlagsInTable(wchar_t *Str1, int a2, int a3, char a
   unsigned int v13; // ecx
 
   v4 = 0LL;
-  v5 = (char *)&unk_140C065E4;
+  v5 = (char *)&unk_140C065A4;
   for ( i = 0; i < 9; ++i )
   {
     if ( (a3 & *((_DWORD *)v5 - 1)) == a3 )
@@ -40,6 +40,6 @@ LABEL_10:
     v5 += 32;
   }
   if ( i < 9 )
-    return &(&off_140C065D0)[4 * i];
+    return &(&off_140C06590)[4 * i];
   return (wchar_t **)v4;
 }

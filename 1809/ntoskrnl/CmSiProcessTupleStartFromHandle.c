@@ -1,10 +1,10 @@
 /*
- * XREFs of CmSiProcessTupleStartFromHandle @ 0x14018ED54
+ * XREFs of CmSiProcessTupleStartFromHandle @ 0x14018EE94
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x1407572CC (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x1407584BC (CmpInitializeRegistryProcess.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmSiProcessTupleStartFromHandle(void *a1, void *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall CmSiProcessTupleStartFromHandle(void *a1, void *a2)
   else
   {
     v3 = 0;
-    qword_140437C28 = (ULONG_PTR)Object;
+    qword_140438CE8 = (ULONG_PTR)Object;
     CmpRegistryProcess = (__int64)a2;
   }
   return (unsigned int)v3;

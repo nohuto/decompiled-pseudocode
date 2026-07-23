@@ -1,8 +1,8 @@
 /*
- * XREFs of ObGetAssociatedWaitObject @ 0x140428690
+ * XREFs of ObGetAssociatedWaitObject @ 0x14041B310
  * Callers:
- *     IopCancelWaitCompletionPacket @ 0x1404285C4 (IopCancelWaitCompletionPacket.c)
- *     NtAssociateWaitCompletionPacket @ 0x1404E5C30 (NtAssociateWaitCompletionPacket.c)
+ *     IopCancelWaitCompletionPacket @ 0x14041B244 (IopCancelWaitCompletionPacket.c)
+ *     NtAssociateWaitCompletionPacket @ 0x1404DC340 (NtAssociateWaitCompletionPacket.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlUpcaseUnicodeToOemN @ 0x140755A50
+ * XREFs of RtlUpcaseUnicodeToOemN @ 0x140755C40
  * Callers:
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140755B10 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x1408740D0 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140755D00 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x140874310 (RtlUpcaseUnicodeStringToOemString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x14022D3D0 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x1403A5A2C (UpcaseUnicodeToUTF8NHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x140463BC4 (UpcaseUnicodeToMultiByteNHelper.c)
- *     RtlpIsUtf8Process @ 0x1406DA530 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x14022D4E0 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x1403A5C0C (UpcaseUnicodeToUTF8NHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x140463FC4 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     RtlpIsUtf8Process @ 0x1406DA560 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToOemN(

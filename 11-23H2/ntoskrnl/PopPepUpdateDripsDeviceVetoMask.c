@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepUpdateDripsDeviceVetoMask @ 0x14059FE64
+ * XREFs of PopPepUpdateDripsDeviceVetoMask @ 0x1405A0354
  * Callers:
- *     PopFxUpdateVetoMaskWork @ 0x140985F50 (PopFxUpdateVetoMaskWork.c)
+ *     PopFxUpdateVetoMaskWork @ 0x140986150 (PopFxUpdateVetoMaskWork.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopPepUpdateIdleStateRefCount @ 0x14035DFAC (PopPepUpdateIdleStateRefCount.c)
- *     PopFxReinitializeAccountingInstance @ 0x140397C14 (PopFxReinitializeAccountingInstance.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1405841DC (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPepGetMinimumDevicePowerState @ 0x14059F090 (PopPepGetMinimumDevicePowerState.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x14035E14C (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxReinitializeAccountingInstance @ 0x140397DF4 (PopFxReinitializeAccountingInstance.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1405846CC (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x14059F580 (PopPepGetMinimumDevicePowerState.c)
  */
 
 void __fastcall PopPepUpdateDripsDeviceVetoMask(__int64 a1, unsigned int a2)
@@ -78,10 +78,13 @@ void __fastcall PopPepUpdateDripsDeviceVetoMask(__int64 a1, unsigned int a2)
   }
   KxReleaseSpinLock((volatile signed __int64 *)v13);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 64));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopRequestRead @ 0x140BFB3E8
+ * XREFs of PopRequestRead @ 0x140C013E8
  * Callers:
- *     PopDecompressCallback @ 0x140BFA280 (PopDecompressCallback.c)
- *     PopRestoreHiberContext @ 0x140C03138 (PopRestoreHiberContext.c)
+ *     PopDecompressCallback @ 0x140C00280 (PopDecompressCallback.c)
+ *     PopRestoreHiberContext @ 0x140C09348 (PopRestoreHiberContext.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopGetIoLocation @ 0x140BE9524 (PopGetIoLocation.c)
- *     PopHiberChecksumHiberFileData @ 0x140BFAB3C (PopHiberChecksumHiberFileData.c)
- *     ProducerBufferComplete @ 0x140BFE360 (ProducerBufferComplete.c)
- *     ProducerGetBuffer @ 0x140BFE5C8 (ProducerGetBuffer.c)
- *     PopHiberCheckForDebugBreak @ 0x140C04A64 (PopHiberCheckForDebugBreak.c)
- *     PopCheckpointSystemSleep @ 0x140C06470 (PopCheckpointSystemSleep.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopGetIoLocation @ 0x140BEF524 (PopGetIoLocation.c)
+ *     PopHiberChecksumHiberFileData @ 0x140C00B3C (PopHiberChecksumHiberFileData.c)
+ *     ProducerBufferComplete @ 0x140C04568 (ProducerBufferComplete.c)
+ *     ProducerGetBuffer @ 0x140C047D0 (ProducerGetBuffer.c)
+ *     PopHiberCheckForDebugBreak @ 0x140C0AC74 (PopHiberCheckForDebugBreak.c)
+ *     PopCheckpointSystemSleep @ 0x140C0C680 (PopCheckpointSystemSleep.c)
  */
 
 unsigned __int64 __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, unsigned int a3)
@@ -56,15 +56,15 @@ unsigned __int64 __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64
   v8 = BugCheckParameter3;
   while ( *(_QWORD *)(v8 + 432) )
   {
-    if ( ((__int64)stru_140F11D08.InitialStack & 0x1F) == 0 )
+    if ( (PopWatchdogTimerCount & 0x1F) == 0 )
       guard_dispatch_icall_no_overrides(BugCheckParameter3, a2);
-    ++LODWORD(stru_140F11D08.InitialStack);
+    ++PopWatchdogTimerCount;
     v9 = *(_DWORD *)(v8 + 360);
     if ( v9 )
     {
       if ( v9 == 1 )
       {
-        ++stru_140F10070.SchedulerApc.Thread;
+        ++qword_140F10BA0;
         v12 = __rdtsc();
         v13 = guard_dispatch_icall_no_overrides(2LL, v8 + 400);
         BugCheckParameter4 = v13;
@@ -78,20 +78,18 @@ unsigned __int64 __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64
         v15 = __rdtsc();
         a2 = (unsigned __int64)HIDWORD(v15) << 32;
         result = (a2 | (unsigned int)v15) - v12;
-        stru_140F10070.SchedulerApc.Reserved[0] = (char *)stru_140F10070.SchedulerApc.Reserved[0] + result;
+        qword_140F10BB8 += result;
         if ( (_DWORD)BugCheckParameter4 == 259 )
           return result;
         goto LABEL_10;
       }
       PopHiberChecksumHiberFileData(v8, 0, *(_QWORD *)(v8 + 408), *(_QWORD *)(v8 + 416), *(_QWORD *)(v8 + 392));
       v10 = __rdtsc();
-      *(_QWORD *)&stru_140F10070.SavedApcStateFill[40] += v10 - *(_QWORD *)(v8 + 368);
+      qword_140F10B90 += v10 - *(_QWORD *)(v8 + 368);
       ProducerBufferComplete(v7, *(_QWORD *)(v8 + 416), *(unsigned int *)(v8 + 392), *(unsigned int *)(v8 + 392));
       v11 = __rdtsc();
       a2 = (unsigned __int64)HIDWORD(v11) << 32;
-      stru_140F10070.SchedulerApc.Reserved[1] = (char *)stru_140F10070.SchedulerApc.Reserved[1]
-                                              + (a2 | (unsigned int)v11)
-                                              - v10;
+      qword_140F10BC0 += (a2 | (unsigned int)v11) - v10;
       *(_QWORD *)(v8 + 432) -= *(_QWORD *)(v8 + 392);
       result = *(_QWORD *)(v8 + 384);
       *(_QWORD *)(v8 + 408) += result;
@@ -145,7 +143,7 @@ unsigned __int64 __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64
         *(_QWORD *)(v8 + 368) = __rdtsc();
         v23 = guard_dispatch_icall_no_overrides(0LL, v8 + 400);
       }
-      if ( v23 < 0 || dword_140F0FD40 == 8 )
+      if ( v23 < 0 || PopSimulateHiberBugcheck == 8 )
       {
 LABEL_29:
         PopCheckpointSystemSleep(29LL);
@@ -154,9 +152,7 @@ LABEL_29:
       }
       v24 = __rdtsc();
       a2 = (unsigned __int64)HIDWORD(v24) << 32;
-      stru_140F10070.SchedulerApc.Reserved[0] = (char *)stru_140F10070.SchedulerApc.Reserved[0]
-                                              + (a2 | (unsigned int)v24)
-                                              - *(_QWORD *)(v8 + 368);
+      qword_140F10BB8 += (a2 | (unsigned int)v24) - *(_QWORD *)(v8 + 368);
       result = v18;
       BugCheckParameter3 = *(_QWORD *)(v8 + 432);
       *(_QWORD *)(v8 + 384) = v18;

@@ -1,10 +1,10 @@
 /*
- * XREFs of I_MinAsn1ScanFrac @ 0x140A70F1C
+ * XREFs of I_MinAsn1ScanFrac @ 0x140A711CC
  * Callers:
- *     MinAsn1DecodeGeneralizedTime @ 0x140A70F9C (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1DecodeUtcTime @ 0x140A71464 (MinAsn1DecodeUtcTime.c)
+ *     MinAsn1DecodeGeneralizedTime @ 0x140A7124C (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x140A71714 (MinAsn1DecodeUtcTime.c)
  * Callees:
- *     isdigit @ 0x1403DA050 (isdigit.c)
+ *     isdigit @ 0x1403DA230 (isdigit.c)
  */
 
 __int64 __fastcall I_MinAsn1ScanFrac(unsigned __int8 *a1, unsigned int a2, int *a3, _DWORD *a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwUnloadKeyEx @ 0x14041E880
+ * XREFs of ZwUnloadKeyEx @ 0x14041EC10
  * Callers:
- *     PiDrvDbUnloadHive @ 0x14086721C (PiDrvDbUnloadHive.c)
+ *     PiDrvDbUnloadHive @ 0x14086745C (PiDrvDbUnloadHive.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwUnloadKeyEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwUnloadKeyEx(POBJECT_ATTRIBUTES TargetKey, HANDLE Event)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TargetKey);
 }

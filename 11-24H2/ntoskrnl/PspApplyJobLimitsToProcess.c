@@ -1,23 +1,23 @@
 /*
- * XREFs of PspApplyJobLimitsToProcess @ 0x1408E7EF8
+ * XREFs of PspApplyJobLimitsToProcess @ 0x1408D873C
  * Callers:
- *     PspApplyJobChainLimitsToProcess @ 0x1408E7DA0 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetJobLimitsProcessCallback @ 0x1408E80D0 (PspSetJobLimitsProcessCallback.c)
+ *     PspSetJobLimitsProcessCallback @ 0x1408D7870 (PspSetJobLimitsProcessCallback.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x1408D85E4 (PspApplyJobChainLimitsToProcess.c)
  * Callees:
- *     KeSetDisableQuantumProcess @ 0x1403B4014 (KeSetDisableQuantumProcess.c)
- *     PspSetProcessPriorityByClass @ 0x140451FC4 (PspSetProcessPriorityByClass.c)
- *     KeSetQuantumProcess @ 0x1404526D8 (KeSetQuantumProcess.c)
- *     PspLockJobMemoryLimitsShared @ 0x1408ED4D8 (PspLockJobMemoryLimitsShared.c)
- *     PspUnlockJobMemoryLimitsShared @ 0x1408ED564 (PspUnlockJobMemoryLimitsShared.c)
- *     PspUpdatePebForAffinityChange @ 0x14090815C (PspUpdatePebForAffinityChange.c)
- *     PspSetProcessAffinitySafe @ 0x140A4B2A4 (PspSetProcessAffinitySafe.c)
+ *     KeSetDisableQuantumProcess @ 0x1403A2824 (KeSetDisableQuantumProcess.c)
+ *     PspSetProcessPriorityByClass @ 0x140447074 (PspSetProcessPriorityByClass.c)
+ *     KeSetQuantumProcess @ 0x140447788 (KeSetQuantumProcess.c)
+ *     PspLockJobMemoryLimitsShared @ 0x14085ED08 (PspLockJobMemoryLimitsShared.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x14085ED94 (PspUnlockJobMemoryLimitsShared.c)
+ *     PspUpdatePebForAffinityChange @ 0x1408DF878 (PspUpdatePebForAffinityChange.c)
+ *     PspSetProcessAffinitySafe @ 0x140A42004 (PspSetProcessAffinitySafe.c)
  */
 
 __int64 __fastcall PspApplyJobLimitsToProcess(struct _KPROCESS *a1, __int16 a2)
 {
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rbp
-  unsigned __int64 v6; // rdi
+  __int64 v6; // rdi
   __int64 v7; // rax
   unsigned int v8; // esi
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
@@ -51,13 +51,13 @@ __int64 __fastcall PspApplyJobLimitsToProcess(struct _KPROCESS *a1, __int16 a2)
   }
   if ( (a2 & 0x100) == 0 )
   {
-    PspLockJobMemoryLimitsShared(v6, CurrentThread);
+    PspLockJobMemoryLimitsShared(v6, (__int64)CurrentThread);
     if ( (*(_DWORD *)(v6 + 1056) & 0x100) != 0 )
       v7 = *(_QWORD *)(v6 + 1016);
     else
       v7 = 0LL;
     *(_QWORD *)&a1[2].ProcessLock = v7;
-    result = PspUnlockJobMemoryLimitsShared(v6, CurrentThread);
+    result = (__int64)PspUnlockJobMemoryLimitsShared(v6, (__int64)CurrentThread);
   }
   if ( (a2 & 0x80u) == 0 && HIBYTE(a1[1].KernelWaitTime) != 1 )
   {

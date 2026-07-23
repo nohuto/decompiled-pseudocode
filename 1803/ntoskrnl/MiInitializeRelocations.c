@@ -38,8 +38,8 @@ __int64 MiInitializeRelocations()
   v3 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 0x500uLL, 0x69526D4Du);
   if ( !v3 )
     return 0LL;
-  stru_1403CB468.SizeOfBitMap = 10240;
-  stru_1403CB468.Buffer = v3;
+  Destination.SizeOfBitMap = 10240;
+  Destination.Buffer = v3;
   memset(v3, 0, 0x500uLL);
   dword_1403CB424 = (unsigned __int8)ExGenRandom(1);
   dword_1403CB440 = (unsigned int)ExGenRandom(1) % 0x2800;

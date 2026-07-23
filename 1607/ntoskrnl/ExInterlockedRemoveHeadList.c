@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInterlockedRemoveHeadList @ 0x140089280
+ * XREFs of ExInterlockedRemoveHeadList @ 0x140088980
  * Callers:
- *     WheapWorkQueueWorkerRoutine @ 0x140231308 (WheapWorkQueueWorkerRoutine.c)
- *     WmipEventNotification @ 0x140536DB8 (WmipEventNotification.c)
+ *     WheapWorkQueueWorkerRoutine @ 0x140231134 (WheapWorkQueueWorkerRoutine.c)
+ *     WmipEventNotification @ 0x1405372F8 (WmipEventNotification.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
-  struct _LIST_ENTRY *Flink; // rsi
+  _LIST_ENTRY *Flink; // rsi
   struct _LIST_ENTRY *v6; // rax
   __int16 v7; // [rsp+30h] [rbp-8h]
   int v8; // [rsp+40h] [rbp+8h] BYREF

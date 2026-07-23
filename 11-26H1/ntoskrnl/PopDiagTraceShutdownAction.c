@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceShutdownAction @ 0x14060926C
+ * XREFs of PopDiagTraceShutdownAction @ 0x14060BE2C
  * Callers:
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SshSessionManagerTraceShutdownAction @ 0x1407E4020 (SshSessionManagerTraceShutdownAction.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SshSessionManagerTraceShutdownAction @ 0x1407E9450 (SshSessionManagerTraceShutdownAction.c)
  */
 
 __int64 __fastcall PopDiagTraceShutdownAction(unsigned int a1, unsigned int a2, unsigned int a3)
@@ -23,8 +23,7 @@ __int64 __fastcall PopDiagTraceShutdownAction(unsigned int a1, unsigned int a2, 
   v8 = a2;
   v6 = 0;
   v7 = 0;
-  if ( byte_140E67628
-    && EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_SHUTDOWN_ACTION) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SHUTDOWN_ACTION) )
   {
     UserData.Ptr = (ULONGLONG)&v6;
     v6 = a1;
@@ -34,15 +33,7 @@ __int64 __fastcall PopDiagTraceShutdownAction(unsigned int a1, unsigned int a2, 
     *(_QWORD *)&UserData.Size = 4LL;
     v11 = 4LL;
     v13 = 4LL;
-    EtwWriteEx(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_EVENT_SHUTDOWN_ACTION,
-      0LL,
-      0,
-      0LL,
-      0LL,
-      3u,
-      &UserData);
+    EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_SHUTDOWN_ACTION, 0LL, 0, 0LL, 0LL, 3u, &UserData);
   }
   return SshSessionManagerTraceShutdownAction(a1, v8, a3);
 }

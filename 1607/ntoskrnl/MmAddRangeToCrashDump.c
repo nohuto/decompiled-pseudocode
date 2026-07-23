@@ -1,8 +1,8 @@
 /*
- * XREFs of MmAddRangeToCrashDump @ 0x1401E7A54
+ * XREFs of MmAddRangeToCrashDump @ 0x1401E7880
  * Callers:
- *     MmGetDumpRange @ 0x1401E7BA8 (MmGetDumpRange.c)
- *     ExAddPrivateDataToCrashDump @ 0x14022CC20 (ExAddPrivateDataToCrashDump.c)
+ *     MmGetDumpRange @ 0x1401E79D4 (MmGetDumpRange.c)
+ *     ExAddPrivateDataToCrashDump @ 0x14022CA4C (ExAddPrivateDataToCrashDump.c)
  *     IopLiveDumpMarkDeviceNode @ 0x1403DB0FC (IopLiveDumpMarkDeviceNode.c)
  *     IopLiveDumpMarkImportantDumpData @ 0x1403DB154 (IopLiveDumpMarkImportantDumpData.c)
  *     IopLiveDumpMarkLoadedModuleList @ 0x1403DB23C (IopLiveDumpMarkLoadedModuleList.c)
@@ -10,10 +10,10 @@
  *     IopLiveDumpMarkRequiredDumpData @ 0x1403DB400 (IopLiveDumpMarkRequiredDumpData.c)
  *     MmAddPrivateDataToCrashDump @ 0x1403DEC90 (MmAddPrivateDataToCrashDump.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiAddRangeToCrashDump @ 0x1401E763C (MiAddRangeToCrashDump.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiAddRangeToCrashDump @ 0x1401E7468 (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddRangeToCrashDump(
@@ -58,10 +58,10 @@ __int64 __fastcall MmAddRangeToCrashDump(
   }
   while ( v8 );
   v9 = 17;
-  if ( (KiBugCheckActive & 3) == 0 && (struct _KTHREAD *)qword_140327058 != KeGetCurrentThread() )
-    v9 = ExAcquireSpinLockShared(&dword_140326D38);
+  if ( (KiBugCheckActive & 3) == 0 && (struct _KTHREAD *)qword_140327098 != KeGetCurrentThread() )
+    v9 = ExAcquireSpinLockShared(&dword_140326D78);
   v10 = MiAddRangeToCrashDump(a1, v4, v6, (__int64)v12, 3u);
   if ( v9 != 17 )
-    ExReleaseSpinLockShared(&dword_140326D38, v9);
+    ExReleaseSpinLockShared(&dword_140326D78, v9);
   return v10;
 }

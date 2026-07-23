@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpWnfDeliverThreadNotifications @ 0x14060E5F4
+ * XREFs of ExpWnfDeliverThreadNotifications @ 0x14060F5F4
  * Callers:
- *     NtGetCompleteWnfStateSubscription @ 0x14060E4A0 (NtGetCompleteWnfStateSubscription.c)
+ *     NtGetCompleteWnfStateSubscription @ 0x14060F4A0 (NtGetCompleteWnfStateSubscription.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -9,11 +9,11 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExpWnfReadStateData @ 0x14060FFDC (ExpWnfReadStateData.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExpWnfReadStateData @ 0x140610FDC (ExpWnfReadStateData.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406119F8 (ExpWnfNotifyNameSubscribers.c)
  */
 
 __int64 __fastcall ExpWnfDeliverThreadNotifications(__int64 a1, _QWORD *a2, int a3)
@@ -21,10 +21,10 @@ __int64 __fastcall ExpWnfDeliverThreadNotifications(__int64 a1, _QWORD *a2, int 
   unsigned __int64 *v3; // r12
   unsigned int v4; // r13d
   signed __int64 *v5; // r15
-  __int64 v6; // rsi
+  PRTL_BALANCED_NODE v6; // rsi
   volatile signed __int64 *v7; // r14
-  __int64 v8; // rax
-  __int64 v9; // rsi
+  _RTL_BALANCED_NODE *v8; // rax
+  _RTL_BALANCED_NODE *v9; // rsi
   unsigned __int64 *v10; // rax
   unsigned __int64 *v11; // r12
   __int64 v12; // rsi
@@ -63,7 +63,7 @@ LABEL_2:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v3 + 10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v3 + 10, v6, (ULONG_PTR)(v3 + 10));
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v7 = (volatile signed __int64 *)(v3 + 13);
   v30 = v3 + 13;
   v8 = KeAbPreAcquire((ULONG_PTR)(v3 + 13), 0LL, 0);
@@ -71,7 +71,7 @@ LABEL_2:
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3 + 26, 0LL) )
     ExfAcquirePushLockExclusiveEx(v3 + 13, v8, (ULONG_PTR)(v3 + 13));
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v10 = v3 + 14;
   v26 = v3 + 14;
   v11 = (unsigned __int64 *)v3[14];

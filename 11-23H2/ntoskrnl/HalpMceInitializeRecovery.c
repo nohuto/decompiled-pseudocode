@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMceInitializeRecovery @ 0x1403B5EB4
+ * XREFs of HalpMceInitializeRecovery @ 0x1403B6094
  * Callers:
  *     HalpInitializeMce @ 0x140A8ADA0 (HalpInitializeMce.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 HalpMceInitializeRecovery()

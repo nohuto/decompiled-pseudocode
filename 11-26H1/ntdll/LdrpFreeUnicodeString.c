@@ -1,23 +1,23 @@
 /*
- * XREFs of LdrpFreeUnicodeString @ 0x1800E04A0
+ * XREFs of LdrpFreeUnicodeString @ 0x1800DDD40
  * Callers:
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpAppCompatRedirect @ 0x180085190 (LdrpAppCompatRedirect.c)
- *     LdrGetProcedureAddressForCaller @ 0x180085C00 (LdrGetProcedureAddressForCaller.c)
- *     LdrpFindOrPrepareLoadingModule @ 0x1800BBA10 (LdrpFindOrPrepareLoadingModule.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x180118DB0 (LdrpInitializeNtdllDataTableEntry.c)
- *     LdrpLoadPatchImage @ 0x18015BE70 (LdrpLoadPatchImage.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpAppCompatRedirect @ 0x18007C530 (LdrpAppCompatRedirect.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18007CFA0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x1800B8F40 (LdrpFindOrPrepareLoadingModule.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x180118B60 (LdrpInitializeNtdllDataTableEntry.c)
+ *     LdrpLoadPatchImage @ 0x18015BD30 (LdrpLoadPatchImage.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
  */
 
-__int64 __fastcall LdrpFreeUnicodeString(__int64 a1)
+LOGICAL __fastcall LdrpFreeUnicodeString(__int64 a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
+  LOGICAL result; // eax
 
-  v2 = *(_QWORD *)(a1 + 8);
+  v2 = *(void **)(a1 + 8);
   if ( v2 )
   {
     result = RtlpSysVolFree(v2);

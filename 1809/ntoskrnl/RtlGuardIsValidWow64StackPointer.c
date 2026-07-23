@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlGuardIsValidWow64StackPointer @ 0x1406A953C
+ * XREFs of RtlGuardIsValidWow64StackPointer @ 0x1406AA7DC
  * Callers:
- *     KeVerifyContextRecord @ 0x1400A1C88 (KeVerifyContextRecord.c)
- *     PspWow64SetContextThread @ 0x1406A89BC (PspWow64SetContextThread.c)
+ *     KeVerifyContextRecord @ 0x1400A1BC8 (KeVerifyContextRecord.c)
+ *     PspWow64SetContextThread @ 0x1406A9C5C (PspWow64SetContextThread.c)
  * Callees:
  *     <none>
  */

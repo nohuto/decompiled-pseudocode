@@ -1,10 +1,10 @@
 /*
- * XREFs of ExReleaseDisownedFastResourceExclusive @ 0x1405B4210
+ * XREFs of ExReleaseDisownedFastResourceExclusive @ 0x1405B4440
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x1405B4A90 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1405B4CC0 (ExpReleaseDisownedFastResourceExclusive.c)
  */
 
 __int64 __fastcall ExReleaseDisownedFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

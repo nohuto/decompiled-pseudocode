@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmAllocatePerfCheck @ 0x14074EFB4
+ * XREFs of PpmAllocatePerfCheck @ 0x1407501A4
  * Callers:
- *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x14074EE38 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x14074F6AC (PpmRegisterPerfStates.c)
+ *     PpmCheckInitProcessors @ 0x140750028 (PpmCheckInitProcessors.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmAllocatePerfCheck(__int64 a1)

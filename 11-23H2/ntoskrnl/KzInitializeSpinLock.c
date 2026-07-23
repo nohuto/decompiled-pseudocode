@@ -1,5 +1,5 @@
 /*
- * XREFs of KzInitializeSpinLock @ 0x140338310
+ * XREFs of KzInitializeSpinLock @ 0x1403385A0
  * Callers:
  *     <none>
  * Callees:

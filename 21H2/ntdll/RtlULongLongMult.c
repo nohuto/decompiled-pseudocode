@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlULongLongMult @ 0x180057BC8
  * Callers:
- *     RtlpHpVaMgrCtxStart @ 0x18010ECE8 (RtlpHpVaMgrCtxStart.c)
+ *     RtlpHpVaMgrCtxStart @ 0x18010ECA8 (RtlpHpVaMgrCtxStart.c)
  * Callees:
  *     <none>
  */

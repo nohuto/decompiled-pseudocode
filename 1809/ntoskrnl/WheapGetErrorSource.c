@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapGetErrorSource @ 0x140320454
+ * XREFs of WheapGetErrorSource @ 0x140320644
  * Callers:
- *     WheapReportBootError @ 0x14031FAEC (WheapReportBootError.c)
- *     WheaGetErrorSource @ 0x14031FCF0 (WheaGetErrorSource.c)
- *     WheaReportHwError @ 0x14031FD20 (WheaReportHwError.c)
- *     WheapWmiExecuteErrorSourceMethod @ 0x140321338 (WheapWmiExecuteErrorSourceMethod.c)
+ *     WheapReportBootError @ 0x14031FCDC (WheapReportBootError.c)
+ *     WheaGetErrorSource @ 0x14031FEE0 (WheaGetErrorSource.c)
+ *     WheaReportHwError @ 0x14031FF10 (WheaReportHwError.c)
+ *     WheapWmiExecuteErrorSourceMethod @ 0x140321528 (WheapWmiExecuteErrorSourceMethod.c)
  * Callees:
  *     <none>
  */

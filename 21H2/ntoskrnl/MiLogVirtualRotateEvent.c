@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLogVirtualRotateEvent @ 0x1408C8634
+ * XREFs of MiLogVirtualRotateEvent @ 0x1408C8794
  * Callers:
- *     MmRotatePhysicalView @ 0x140682910 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x1405E48E0 (MmRotatePhysicalView.c)
  * Callees:
- *     MiLogPerfMemoryEvent @ 0x140530600 (MiLogPerfMemoryEvent.c)
+ *     MiLogPerfMemoryEvent @ 0x140530840 (MiLogPerfMemoryEvent.c)
  */
 
 __int64 __fastcall MiLogVirtualRotateEvent(__int64 a1, __int64 a2, char a3)

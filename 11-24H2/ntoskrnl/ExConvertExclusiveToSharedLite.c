@@ -1,17 +1,17 @@
 /*
- * XREFs of ExConvertExclusiveToSharedLite @ 0x1403D7950
+ * XREFs of ExConvertExclusiveToSharedLite @ 0x1402F1430
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x140372ABC (FsRtlAcquireFileForModWriteEx.c)
- *     DifExConvertExclusiveToSharedLiteWrapper @ 0x14061CFB0 (DifExConvertExclusiveToSharedLiteWrapper.c)
- *     NtMapCMFModule @ 0x1407C3080 (NtMapCMFModule.c)
- *     CmpConvertRegistryShared @ 0x1407D87C4 (CmpConvertRegistryShared.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14085CCAC (PspAllocateAndQueryNotificationChannel.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140A0EDE0 (PnpUnlinkDeviceRemovalRelations.c)
- *     PpDevNodeUnlockTree @ 0x140A145FC (PpDevNodeUnlockTree.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14025B37C (FsRtlAcquireFileForModWriteEx.c)
+ *     DifExConvertExclusiveToSharedLiteWrapper @ 0x14061B570 (DifExConvertExclusiveToSharedLiteWrapper.c)
+ *     NtMapCMFModule @ 0x1407C42B0 (NtMapCMFModule.c)
+ *     CmpConvertRegistryShared @ 0x1407D8D14 (CmpConvertRegistryShared.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x140858A1C (PspAllocateAndQueryNotificationChannel.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409BD1E4 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PpDevNodeUnlockTree @ 0x140A0D4DC (PpDevNodeUnlockTree.c)
  * Callees:
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403D74B8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     ExpConvertExclusiveToSharedLite @ 0x1403D79F8 (ExpConvertExclusiveToSharedLite.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1402F0F98 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExpConvertExclusiveToSharedLite @ 0x1402F14D8 (ExpConvertExclusiveToSharedLite.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __stdcall ExConvertExclusiveToSharedLite(PERESOURCE Resource)

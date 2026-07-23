@@ -22,9 +22,9 @@ void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
   struct _KTHREAD *CurrentThread; // r15
   ULONG_PTR v6; // r14
   struct _KTHREAD *v7; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v9; // r15
-  __int64 v10; // r8
+  unsigned int v10; // r8d
   bool v11; // zf
   __int64 v12; // rcx
   __int64 v13; // rdi
@@ -32,9 +32,9 @@ void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
   __int64 v15; // rdx
   ULONG_PTR v16; // r14
   __int64 v17; // rdx
-  __int64 v18; // rdx
+  unsigned int v18; // edx
   unsigned __int8 v19; // r15
-  __int64 v20; // r8
+  unsigned int v20; // r8d
   __int64 v21; // rcx
   __int64 v22; // rdi
   unsigned int v23; // ecx
@@ -58,23 +58,23 @@ void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
       ExfTryToWakePushLock(v6);
     v7 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(v6) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx(v7->ApcState.Process);
+      SessionId = MmGetSessionIdEx(v7->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --v7->SpecialApcDisable;
     v9 = ++v7->AbAllocationRegionCount;
-    LODWORD(v10) = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
+    v10 = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v11 = !_BitScanReverse((unsigned int *)&v12, v10);
       if ( v11 )
         goto LABEL_56;
       v13 = (__int64)&v7->LockEntries[v12];
-      v10 = ~(1 << v12) & (unsigned int)v10;
+      v10 &= ~(1 << v12);
       if ( (*(_BYTE *)(v13 + 26) & 1) != 0
         && (*(_DWORD *)(v13 + 32) & 1) == 0
         && (*(_QWORD *)(v13 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v6 & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v13 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v13 + 40) == SessionId )
       {
         *(_BYTE *)(v13 + 26) &= ~1u;
         if ( *(_QWORD *)(v13 + 32) )
@@ -85,12 +85,12 @@ void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
     {
 LABEL_56:
       if ( (*((_DWORD *)&v7->0 + 1) & 0x10000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)v7, v6, (unsigned int)SessionId, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)v7, v6, SessionId, 0LL);
       goto LABEL_30;
     }
     *(_BYTE *)(v13 + 32) |= 2u;
     if ( *(__int64 *)(v13 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v13, SessionId, v10);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
     v14 = *(_DWORD *)(v13 + 88) & 0xFFFE0000;
     *(_BYTE *)(v13 + 25) &= ~1u;
     *(_DWORD *)(v13 + 88) = v14;
@@ -126,23 +126,23 @@ LABEL_56:
       ExfTryToWakePushLock(v16);
     v7 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(v16) == 1 )
-      v18 = (unsigned int)MmGetSessionIdEx(v7->ApcState.Process);
+      v18 = MmGetSessionIdEx(v7->ApcState.Process);
     else
-      v18 = 0xFFFFFFFFLL;
+      v18 = -1;
     --v7->SpecialApcDisable;
     v19 = ++v7->AbAllocationRegionCount;
-    LODWORD(v20) = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
+    v20 = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v11 = !_BitScanReverse((unsigned int *)&v21, v20);
       if ( v11 )
         goto LABEL_58;
       v22 = (__int64)&v7->LockEntries[v21];
-      v20 = ~(1 << v21) & (unsigned int)v20;
+      v20 &= ~(1 << v21);
       if ( (*(_BYTE *)(v22 + 26) & 1) != 0
         && (*(_DWORD *)(v22 + 32) & 1) == 0
         && (*(_QWORD *)(v22 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v16 & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v22 + 40) == (_DWORD)v18 )
+        && *(_DWORD *)(v22 + 40) == v18 )
       {
         *(_BYTE *)(v22 + 26) &= ~1u;
         if ( *(_QWORD *)(v22 + 32) )
@@ -153,12 +153,12 @@ LABEL_56:
     {
 LABEL_58:
       if ( (*((_DWORD *)&v7->0 + 1) & 0x10000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)v7, v16, (unsigned int)v18, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)v7, v16, v18, 0LL);
       goto LABEL_30;
     }
     *(_BYTE *)(v22 + 32) |= 2u;
     if ( *(__int64 *)(v22 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v22, v18, v20);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v22);
     v23 = *(_DWORD *)(v22 + 88) & 0xFFFE0000;
     *(_BYTE *)(v22 + 25) &= ~1u;
     *(_DWORD *)(v22 + 88) = v23;

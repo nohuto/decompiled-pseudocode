@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpMarkValueDataDirty @ 0x140400474
+ * XREFs of CmpMarkValueDataDirty @ 0x1403FF334
  * Callers:
- *     CmDeleteValueKey @ 0x1403FAE34 (CmDeleteValueKey.c)
- *     CmpSetValueKeyExisting @ 0x1403FFF64 (CmpSetValueKeyExisting.c)
- *     CmpMarkKeyDirty @ 0x14040024C (CmpMarkKeyDirty.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B080 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpMarkKeyValuesDirty @ 0x140608DD4 (CmpMarkKeyValuesDirty.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F08C (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmDeleteValueKey @ 0x1403F9CF4 (CmDeleteValueKey.c)
+ *     CmpSetValueKeyExisting @ 0x1403FEE24 (CmpSetValueKeyExisting.c)
+ *     CmpMarkKeyDirty @ 0x1403FF10C (CmpMarkKeyDirty.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B5C0 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpMarkKeyValuesDirty @ 0x140608E88 (CmpMarkKeyValuesDirty.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F140 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
  * Callees:
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 char __fastcall CmpMarkValueDataDirty(ULONG_PTR BugCheckParameter2, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfUtilGetSigningLevel @ 0x140B833C0
+ * XREFs of VfUtilGetSigningLevel @ 0x140B853C0
  * Callers:
- *     VfUtilIsSignedDriver @ 0x140610308 (VfUtilIsSignedDriver.c)
- *     CarReportDifPluginRuleViolation @ 0x140617240 (CarReportDifPluginRuleViolation.c)
+ *     VfUtilIsSignedDriver @ 0x14060E8C8 (VfUtilIsSignedDriver.c)
+ *     CarReportDifPluginRuleViolation @ 0x140615800 (CarReportDifPluginRuleViolation.c)
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140BA7E7C (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x140BA9E7C (VfTargetDriversGetVerifierData.c)
  */
 
 char __fastcall VfUtilGetSigningLevel(__int64 a1)

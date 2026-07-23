@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpSaveX87State @ 0x1800E0C40
+ * XREFs of RtlpSaveX87State @ 0x1800DC190
  * Callers:
- *     RtlUnwindEx @ 0x180015480 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x180041E80 (RtlUnwindEx.c)
  * Callees:
- *     RtlGetEnabledExtendedFeatures @ 0x1800E0CE0 (RtlGetEnabledExtendedFeatures.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlGetEnabledExtendedFeatures @ 0x1800DC230 (RtlGetEnabledExtendedFeatures.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 void *__fastcall RtlpSaveX87State(_QWORD *a1)

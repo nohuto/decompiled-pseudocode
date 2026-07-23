@@ -6,7 +6,9 @@
  *     <none>
  */
 
-void LdrStandardizeSystemPath()
+PUNICODE_STRING __cdecl LdrStandardizeSystemPath(PUNICODE_STRING SystemPath)
 {
-  ;
+  PUNICODE_STRING result; // rax
+
+  return result;
 }

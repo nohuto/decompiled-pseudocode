@@ -9,7 +9,10 @@
 int __stdcall RtlpHpStackDbInitialize()
 {
   int result; // eax
+  size_t v1; // [esp-4h] [ebp-8h]
 
+  LODWORD(v1) = 44;
+  memset(&dword_4B3A6838, 0, v1);
   dword_4B3A6838 = 0;
   dword_4B3A6840 = 0;
   dword_4B3A683C = 0;

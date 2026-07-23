@@ -8,5 +8,5 @@
 
 int __stdcall RtlOpenImageFileOptionsKey(unsigned __int16 *a1, int a2, _DWORD *a3)
 {
-  return RtlpOpenImageFileOptionsKeyEx(a1, 9, 0, a3);
+  return RtlpOpenImageFileOptionsKeyEx(a1, 9u, 0, a3);
 }

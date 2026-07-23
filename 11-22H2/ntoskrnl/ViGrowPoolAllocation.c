@@ -9,14 +9,14 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-PSLIST_ENTRY __fastcall ViGrowPoolAllocation(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall ViGrowPoolAllocation(_SLIST_HEADER *a1)
 {
-  struct _SLIST_ENTRY *Pool2; // rax
-  union _SLIST_HEADER *v3; // rdi
-  struct _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *Pool2; // rax
+  _SLIST_HEADER *v3; // rdi
+  _SLIST_ENTRY *v4; // rbx
   __int64 v6; // rsi
 
-  Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(576LL, 4096LL, 1886414166LL);
+  Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(576LL, 4096LL, 1886414166LL);
   v3 = a1 + 5;
   v4 = Pool2;
   if ( !Pool2 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of ApiSetpOpenSchemaExtensionsRootNode @ 0x1407C9D98
+ * XREFs of ApiSetpOpenSchemaExtensionsRootNode @ 0x1407CA288
  * Callers:
- *     ApiSetLoadSchemaWithExtensions @ 0x1407C9820 (ApiSetLoadSchemaWithExtensions.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x1407C9D10 (ApiSetLoadSchemaWithExtensions.c)
  * Callees:
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall ApiSetpOpenSchemaExtensionsRootNode(HANDLE *a1)

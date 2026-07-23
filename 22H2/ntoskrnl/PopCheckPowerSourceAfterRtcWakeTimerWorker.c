@@ -25,7 +25,7 @@ LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
       v2 = 0;
       PopQueryPowerSettingUlong(&GUID_ALLOW_RTC_WAKE, &v3, &v2);
       if ( !v2 )
-        NtInitiatePowerAction((unsigned int)dword_140C24190, (unsigned int)dword_140C24194, 0x80000000, 1);
+        NtInitiatePowerAction(SystemAction, LightestSystemState, 0x80000000, 1u);
     }
   }
   PopOkayToQueueNextWorkItem((__int64)&unk_140C21208);

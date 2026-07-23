@@ -1,17 +1,17 @@
 /*
- * XREFs of SshpGenerateDeviceFriendlyName @ 0x140A255E4
+ * XREFs of SshpGenerateDeviceFriendlyName @ 0x140A195D4
  * Callers:
- *     SleepstudyHelperCreateBlockerFromComponent @ 0x1407677F0 (SleepstudyHelperCreateBlockerFromComponent.c)
- *     SleepstudyHelper_GetPdoFriendlyName @ 0x140A249D0 (SleepstudyHelper_GetPdoFriendlyName.c)
- *     SleepstudyHelperCreateBlockerFromDevice @ 0x140A24A50 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x140767A20 (SleepstudyHelperCreateBlockerFromComponent.c)
+ *     SleepstudyHelper_GetPdoFriendlyName @ 0x140A189C0 (SleepstudyHelper_GetPdoFriendlyName.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x140A18A40 (SleepstudyHelperCreateBlockerFromDevice.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403EA5B0 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x14041C568 (RtlUnicodeStringCatString.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlUnicodeStringCat @ 0x1403DA240 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x1404105C0 (RtlUnicodeStringCatString.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SshpGenerateDeviceFriendlyName(
@@ -84,7 +84,7 @@ __int64 __fastcall SshpGenerateDeviceFriendlyName(
     v14 = v13 + 2;
     if ( v14 < 0xFFFF )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v14, v21);
       v10 = Pool2;
       if ( Pool2 )
       {

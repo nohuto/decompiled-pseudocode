@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfInsertSubscriptionInPendingQueue @ 0x1408AE0F0
+ * XREFs of ExpWnfInsertSubscriptionInPendingQueue @ 0x140904350
  * Callers:
- *     ExpWnfNotifyNameSubscribers @ 0x1408ADF30 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfNotifySubscription @ 0x1409F4780 (ExpWnfNotifySubscription.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140904190 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfNotifySubscription @ 0x1409E8AE0 (ExpWnfNotifySubscription.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
@@ -15,8 +15,8 @@ __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
   __int64 result; // rax
   unsigned int v5; // ebp
   __int64 v6; // r15
-  _QWORD *v7; // rax
-  _QWORD *v8; // r14
+  char *v7; // rax
+  char *v8; // r14
   int v9; // edi
   __int64 v10; // rax
   int v11; // eax
@@ -28,12 +28,12 @@ __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
     return result;
   v5 = 0;
   v6 = *(_QWORD *)(result + 1512);
-  v7 = KeAbPreAcquire(v6 + 104, 0LL);
+  v7 = (char *)KeAbPreAcquire(v6 + 104, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 104), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 104), (__int64)v7, v6 + 104);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 104), v7, v6 + 104);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v9 = *(_DWORD *)(a1 + 100) & a2;
   if ( (v9 & 8) != 0 )
   {

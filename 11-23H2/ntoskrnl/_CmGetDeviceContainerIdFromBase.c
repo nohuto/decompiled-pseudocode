@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetDeviceContainerIdFromBase @ 0x14079B064
+ * XREFs of _CmGetDeviceContainerIdFromBase @ 0x14079B254
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3BC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x14079B5C0 (PiDcUpdateDeviceContainerMembership.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1407DAE9C (PiDcHandleCustomDeviceEvent.c)
- *     _CmDeleteDeviceWorker @ 0x140A623DC (_CmDeleteDeviceWorker.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3EC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14079B7B0 (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x1407DB16C (PiDcHandleCustomDeviceEvent.c)
+ *     _CmDeleteDeviceWorker @ 0x140A6268C (_CmDeleteDeviceWorker.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcscmp @ 0x1403DB950 (wcscmp.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEB0 (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmIsDeviceInContainer @ 0x14079B200 (_CmIsDeviceInContainer.c)
- *     _CmValidateDeviceContainerName @ 0x14079B380 (_CmValidateDeviceContainerName.c)
- *     _RegRtlEnumKey @ 0x14086B4AC (_RegRtlEnumKey.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcscmp @ 0x1403DBB30 (wcscmp.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEE0 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmIsDeviceInContainer @ 0x14079B3F0 (_CmIsDeviceInContainer.c)
+ *     _CmValidateDeviceContainerName @ 0x14079B570 (_CmValidateDeviceContainerName.c)
+ *     _RegRtlEnumKey @ 0x14086B6EC (_RegRtlEnumKey.c)
  */
 
 __int64 __fastcall CmGetDeviceContainerIdFromBase(__int64 a1, __int64 a2, const wchar_t *a3, wchar_t *a4)

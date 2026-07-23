@@ -4,14 +4,14 @@
  *     VrpPreOpenOrCreate @ 0x14068CFD8 (VrpPreOpenOrCreate.c)
  *     VrpTranslatePath @ 0x14068D49C (VrpTranslatePath.c)
  *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     VrpPreLoadKey @ 0x14077A444 (VrpPreLoadKey.c)
- *     VrpPostEnumerateKey @ 0x14077A9B8 (VrpPostEnumerateKey.c)
- *     VrpCreateNamespaceNode @ 0x14077B818 (VrpCreateNamespaceNode.c)
+ *     VrpPreLoadKey @ 0x14077A634 (VrpPreLoadKey.c)
+ *     VrpPostEnumerateKey @ 0x14077ABA8 (VrpPostEnumerateKey.c)
+ *     VrpCreateNamespaceNode @ 0x14077BA08 (VrpCreateNamespaceNode.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     RtlUShortAdd @ 0x1403225C4 (RtlUShortAdd.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     RtlUShortAdd @ 0x140322854 (RtlUShortAdd.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

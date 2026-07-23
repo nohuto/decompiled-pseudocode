@@ -1,21 +1,21 @@
 /*
- * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140A908F0
+ * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140A918F0
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x140A6EF54 (PpLastGoodDoBootProcessing.c)
+ *     PpLastGoodDoBootProcessing @ 0x140A6FF54 (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
- *     ZwDeleteFile @ 0x1403FBE00 (ZwDeleteFile.c)
- *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopFileUtilClearAttributes @ 0x1408B431C (IopFileUtilClearAttributes.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140A91440 (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403FA7E0 (ZwEnumerateValueKey.c)
+ *     ZwDeleteFile @ 0x1403FBFE0 (ZwDeleteFile.c)
+ *     ZwDeleteKey @ 0x1403FC000 (ZwDeleteKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopFileUtilClearAttributes @ 0x1408B447C (IopFileUtilClearAttributes.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140A92440 (IopFileUtilWalkDirectoryTreeTopDown.c)
  */
 
 void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a2)

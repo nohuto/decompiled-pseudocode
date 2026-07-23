@@ -10,9 +10,9 @@
 
 __int64 __fastcall RtlpHpQueryGCTimerInterval(unsigned __int16 *a1)
 {
-  unsigned int v1; // ebx
+  ULONG v1; // ebx
   unsigned __int64 v2; // rcx
-  unsigned int v4; // [rsp+40h] [rbp+8h] BYREF
+  ULONG v4; // [rsp+40h] [rbp+8h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp+10h] BYREF
 
   Handle = 0LL;
@@ -20,8 +20,8 @@ __int64 __fastcall RtlpHpQueryGCTimerInterval(unsigned __int16 *a1)
   v4 = 0;
   if ( a1 )
   {
-    if ( (int)RtlpOpenImageFileOptionsKeyEx(a1, 9u, 0, &Handle) >= 0
-      && (int)RtlQueryImageFileKeyOption((__int64)Handle, L"GCInterval", 4, (int *)&v4, 4u, 0LL) >= 0 )
+    if ( RtlpOpenImageFileOptionsKeyEx(a1, 9u, 0, &Handle) >= 0
+      && RtlQueryImageFileKeyOption(Handle, (wchar_t *)L"GCInterval", 4, &v4, 4u, 0LL) >= 0 )
     {
       v2 = 1000LL * v4;
       if ( v2 <= 0xFFFFFFFF )

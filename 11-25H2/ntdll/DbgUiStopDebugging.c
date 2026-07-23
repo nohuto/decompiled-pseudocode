@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall DbgUiStopDebugging(__int64 a1)
+NTSTATUS __cdecl DbgUiStopDebugging(HANDLE Process)
 {
-  return ZwRemoveProcessDebug(a1, NtCurrentTeb()->DbgSsReserved[1]);
+  return ZwRemoveProcessDebug(Process, NtCurrentTeb()->DbgSsReserved[1]);
 }

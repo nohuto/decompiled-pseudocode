@@ -124,7 +124,7 @@ LABEL_57:
     v29 = v10;
     goto LABEL_58;
   }
-  if ( (unsigned int)KeyInformationClass > MaxKeyInfoClass )
+  if ( (unsigned int)KeyInformationClass > KeyTrustInformation )
   {
     if ( CmpTraceRoutine
       && KeyHandle
@@ -328,7 +328,7 @@ LABEL_58:
       else
       {
         ++dword_1403D1E20;
-        ((void (__fastcall *)(void *, union _SLIST_HEADER *))qword_1403D1E38)(Src, &CmpBounceBufferLookaside);
+        ((void (__fastcall *)(void *, _SLIST_HEADER *))qword_1403D1E38)(Src, &CmpBounceBufferLookaside);
       }
     }
     else

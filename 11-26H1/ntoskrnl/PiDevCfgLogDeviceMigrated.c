@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgLogDeviceMigrated @ 0x14098C31C
+ * XREFs of PiDevCfgLogDeviceMigrated @ 0x140A46A3C
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14098B138 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x140A45858 (PiDevCfgMigrateDevice.c)
  * Callees:
- *     McTemplateK0zzjzitd_EtwWriteTransfer @ 0x14049EBB8 (McTemplateK0zzjzitd_EtwWriteTransfer.c)
+ *     McTemplateK0zzjzitd_EtwWriteTransfer @ 0x140498708 (McTemplateK0zzjzitd_EtwWriteTransfer.c)
  */
 
 void __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, int a3)
@@ -12,9 +12,9 @@ void __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, int a3)
   __int64 v6; // rcx
   __int64 v7; // rax
 
-  if ( (byte_140EF3DCA & 0x10) != 0 && (byte_140EF3DCA & 0x40) != 0 && (byte_140EF3DCA & 0x20) != 0 )
+  if ( (byte_140EF412A & 0x10) != 0 && (byte_140EF412A & 0x40) != 0 && (byte_140EF412A & 0x20) != 0 )
   {
-    v5 = (const wchar_t *)&dword_140BE1A04;
+    v5 = (const wchar_t *)&dword_140BE88B4;
     v6 = a2 + 80;
     if ( a3 < 0 )
     {

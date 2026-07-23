@@ -3,6 +3,7 @@
  * Callers:
  *     _RtlExitUserProcess@4 @ 0x4B2DD5D0 (_RtlExitUserProcess@4.c)
  *     _RtlExitUserThread@4 @ 0x4B2EB460 (_RtlExitUserThread@4.c)
+ *     sub_4B2EB4AC @ 0x4B2EB4AC (sub_4B2EB4AC.c)
  *     _EtwpCreateEtwThread@8 @ 0x4B2F04A0 (_EtwpCreateEtwThread@8.c)
  *     _LdrpGenericExceptionFilter@8 @ 0x4B334947 (_LdrpGenericExceptionFilter@8.c)
  *     _RtlQueryProcessDebugInformation@12 @ 0x4B336B50 (_RtlQueryProcessDebugInformation@12.c)
@@ -14,7 +15,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwTerminateThread(int a1, int a2)
+NTSTATUS __cdecl ZwTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)
 {
   return Wow64SystemServiceCall();
 }

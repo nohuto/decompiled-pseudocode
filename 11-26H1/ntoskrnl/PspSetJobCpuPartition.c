@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetJobCpuPartition @ 0x1407F938C
+ * XREFs of PspSetJobCpuPartition @ 0x1407FEE8C
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastResourceExclusive @ 0x140275660 (ExAcquireFastResourceExclusive.c)
- *     ExReleaseFastResourceExclusive @ 0x1404912F0 (ExReleaseFastResourceExclusive.c)
- *     PspReferenceCpuPartitionByHandle @ 0x1407F2CB4 (PspReferenceCpuPartitionByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastResourceExclusive @ 0x140274BD0 (ExAcquireFastResourceExclusive.c)
+ *     ExReleaseFastResourceExclusive @ 0x14048AE40 (ExReleaseFastResourceExclusive.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x1407F8814 (PspReferenceCpuPartitionByHandle.c)
  */
 
 __int64 __fastcall PspSetJobCpuPartition(__int64 a1, char a2, __int64 a3)

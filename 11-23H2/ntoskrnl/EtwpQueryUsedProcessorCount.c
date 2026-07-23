@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpQueryUsedProcessorCount @ 0x140228124
+ * XREFs of EtwpQueryUsedProcessorCount @ 0x140228234
  * Callers:
- *     EtwpAdjustSiloTraceBuffers @ 0x140228520 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpBuffersFlushRequired @ 0x140364468 (EtwpBuffersFlushRequired.c)
- *     EtwpAddLastDroppedEvent @ 0x140601018 (EtwpAddLastDroppedEvent.c)
- *     EtwpReenableCompression @ 0x1406029B4 (EtwpReenableCompression.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140228630 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpBuffersFlushRequired @ 0x140364608 (EtwpBuffersFlushRequired.c)
+ *     EtwpAddLastDroppedEvent @ 0x140601568 (EtwpAddLastDroppedEvent.c)
+ *     EtwpReenableCompression @ 0x140602F04 (EtwpReenableCompression.c)
  *     EtwpRealtimeSaveState @ 0x140682854 (EtwpRealtimeSaveState.c)
- *     EtwpAdjustFreeBuffers @ 0x1406BDDAC (EtwpAdjustFreeBuffers.c)
- *     EtwpFlushActiveBuffers @ 0x1406BDE18 (EtwpFlushActiveBuffers.c)
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
- *     EtwpFreeTraceBufferPool @ 0x14078DF9C (EtwpFreeTraceBufferPool.c)
- *     EtwpInitLoggerContext @ 0x1407B34C0 (EtwpInitLoggerContext.c)
- *     EtwpFinalizeHeader @ 0x1407F5E38 (EtwpFinalizeHeader.c)
- *     EtwpUpdateFileHeader @ 0x1407F6FF4 (EtwpUpdateFileHeader.c)
- *     EtwpAllocateTraceBufferPool @ 0x1407F7364 (EtwpAllocateTraceBufferPool.c)
- *     EtwpAddLogHeader @ 0x1407F7574 (EtwpAddLogHeader.c)
- *     EtwpUpdateTrace @ 0x1407F7F7C (EtwpUpdateTrace.c)
- *     EtwpRealtimeRestoreState @ 0x140852208 (EtwpRealtimeRestoreState.c)
- *     EtwpBufferingModeFlush @ 0x1408A7A28 (EtwpBufferingModeFlush.c)
+ *     EtwpAdjustFreeBuffers @ 0x1406BDDDC (EtwpAdjustFreeBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x1406BDE48 (EtwpFlushActiveBuffers.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
+ *     EtwpFreeTraceBufferPool @ 0x14078E18C (EtwpFreeTraceBufferPool.c)
+ *     EtwpInitLoggerContext @ 0x1407B36B0 (EtwpInitLoggerContext.c)
+ *     EtwpFinalizeHeader @ 0x1407F6108 (EtwpFinalizeHeader.c)
+ *     EtwpUpdateFileHeader @ 0x1407F72C4 (EtwpUpdateFileHeader.c)
+ *     EtwpAllocateTraceBufferPool @ 0x1407F7634 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpAddLogHeader @ 0x1407F7844 (EtwpAddLogHeader.c)
+ *     EtwpUpdateTrace @ 0x1407F824C (EtwpUpdateTrace.c)
+ *     EtwpRealtimeRestoreState @ 0x140852508 (EtwpRealtimeRestoreState.c)
+ *     EtwpBufferingModeFlush @ 0x1408A7C78 (EtwpBufferingModeFlush.c)
  * Callees:
- *     HvlQueryStartedProcessors @ 0x140540470 (HvlQueryStartedProcessors.c)
+ *     HvlQueryStartedProcessors @ 0x140540B30 (HvlQueryStartedProcessors.c)
  */
 
 __int64 __fastcall EtwpQueryUsedProcessorCount(__int64 a1)

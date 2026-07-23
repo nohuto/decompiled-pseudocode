@@ -56,10 +56,10 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
   ULONG_PTR v18; // rdi
   unsigned __int8 v19; // dl
   __int64 v20; // rcx
-  ULONG_PTR v21; // rcx
+  PRTL_BALANCED_NODE v21; // rcx
   int SessionId; // eax
   signed __int8 v23; // cf
-  ULONG_PTR v24; // rdi
+  PRTL_BALANCED_NODE v24; // rdi
   int v25; // esi
   char v26; // al
   int v27; // edi
@@ -94,7 +94,7 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
   char v57; // [rsp+5Bh] [rbp-BDh] BYREF
   int v58; // [rsp+5Ch] [rbp-BCh]
   NTSTATUS v59; // [rsp+60h] [rbp-B8h]
-  ULONG_PTR v60; // [rsp+68h] [rbp-B0h]
+  PRTL_BALANCED_NODE Node; // [rsp+68h] [rbp-B0h]
   PVOID v61; // [rsp+70h] [rbp-A8h]
   int v62; // [rsp+78h] [rbp-A0h]
   PVOID EcpContext; // [rsp+80h] [rbp-98h] BYREF
@@ -104,7 +104,7 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
   PVOID P; // [rsp+98h] [rbp-80h] BYREF
   struct _ECP_LIST *ExtraCreateParameter; // [rsp+A0h] [rbp-78h] BYREF
   PVOID v69; // [rsp+A8h] [rbp-70h]
-  ULONG_PTR v70; // [rsp+B0h] [rbp-68h]
+  PRTL_BALANCED_NODE v70; // [rsp+B0h] [rbp-68h]
   struct _KTHREAD *CurrentThread; // [rsp+B8h] [rbp-60h]
   struct _FILE_OBJECT *v72; // [rsp+C0h] [rbp-58h]
   GUID EcpType; // [rsp+C8h] [rbp-50h] BYREF
@@ -529,13 +529,13 @@ LABEL_134:
       _BitScanForward((unsigned int *)&v20, v19);
       LODWORD(v64) = v20;
       *(_BYTE *)(v18 + 792) = v19 & ~(1 << v20);
-      v21 = v18 + 96 * v20 + 800;
-      v60 = v21;
+      v21 = (PRTL_BALANCED_NODE)(v18 + 96 * v20 + 800);
+      Node = v21;
     }
     else
     {
       v21 = 0LL;
-      v60 = 0LL;
+      Node = 0LL;
       if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 )
       {
         EtwTraceAutoBoostEntryExhaustion(v18, v17);
@@ -553,11 +553,11 @@ LABEL_32:
       if ( v34 && *(_QWORD *)(v18 + 152) != v18 + 152 )
         KiCheckForKernelApcDelivery();
       v23 = _interlockedbittestandreset((volatile signed __int32 *)v17, 0);
-      v24 = v60;
+      v24 = Node;
       if ( !v23 )
-        ExpAcquireFastMutexContended(v17);
+        ExpAcquireFastMutexContended(v17, Node);
       if ( v24 )
-        *(_BYTE *)(v24 + 26) |= 1u;
+        BYTE2(v24[1].Left) |= 1u;
       *(_QWORD *)(v17 + 8) = CurrentThread;
       v15 = Flags & 0x10;
       goto LABEL_40;
@@ -567,15 +567,15 @@ LABEL_32:
       if ( byte_140467140[((v17 >> 39) & 0x1FF) - 256] == 1 )
       {
         SessionId = MmGetSessionIdEx(*(_QWORD *)(v18 + 184));
-        v21 = v60;
+        v21 = Node;
         goto LABEL_31;
       }
-      v21 = v60;
+      v21 = Node;
     }
     SessionId = -1;
 LABEL_31:
-    *(_DWORD *)(v21 + 40) = SessionId;
-    *(_QWORD *)(v21 + 32) = v17 & 0x7FFFFFFFFFFFFFFCLL;
+    *(_DWORD *)&v21[1].0 = SessionId;
+    v21[1].Children[1] = (_RTL_BALANCED_NODE *)(v17 & 0x7FFFFFFFFFFFFFFCLL);
     goto LABEL_32;
   }
   return v59;

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUnicodeStringToCountedOemString @ 0x1408B0F30
+ * XREFs of RtlUnicodeStringToCountedOemString @ 0x140907190
  * Callers:
- *     DifRtlUnicodeStringToCountedOemStringWrapper @ 0x14063A740 (DifRtlUnicodeStringToCountedOemStringWrapper.c)
+ *     DifRtlUnicodeStringToCountedOemStringWrapper @ 0x140638D00 (DifRtlUnicodeStringToCountedOemStringWrapper.c)
  * Callees:
- *     AllocateOrValidateCharStringBuffer @ 0x1404412E0 (AllocateOrValidateCharStringBuffer.c)
- *     RtlpDidUnicodeToOemWork @ 0x1408AEAC0 (RtlpDidUnicodeToOemWork.c)
- *     RtlUnicodeToMultiByteSize @ 0x1408AEEA0 (RtlUnicodeToMultiByteSize.c)
- *     RtlUnicodeToOemN @ 0x1408B1040 (RtlUnicodeToOemN.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     AllocateOrValidateCharStringBuffer @ 0x1404379D0 (AllocateOrValidateCharStringBuffer.c)
+ *     RtlpDidUnicodeToOemWork @ 0x140904D20 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUnicodeToMultiByteSize @ 0x140905100 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToOemN @ 0x1409072A0 (RtlUnicodeToOemN.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToCountedOemString(

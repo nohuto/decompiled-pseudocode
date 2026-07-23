@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsIsolationUnitIdleByHandle @ 0x140234E90
+ * XREFs of KiIsIsolationUnitIdleByHandle @ 0x1402367F0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
  *     <none>
  */

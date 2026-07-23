@@ -1,12 +1,12 @@
 /*
- * XREFs of VslRevokeSyscallProviderServiceTables @ 0x140792B3C
+ * XREFs of VslRevokeSyscallProviderServiceTables @ 0x14079566C
  * Callers:
- *     PsRegisterSyscallProvider @ 0x1407ED420 (PsRegisterSyscallProvider.c)
- *     PspDestroySyscallProvider @ 0x1407ED6D8 (PspDestroySyscallProvider.c)
+ *     PsRegisterSyscallProvider @ 0x1407F2F80 (PsRegisterSyscallProvider.c)
+ *     PspDestroySyscallProvider @ 0x1407F3238 (PspDestroySyscallProvider.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslRevokeSyscallProviderServiceTables(__int64 a1)

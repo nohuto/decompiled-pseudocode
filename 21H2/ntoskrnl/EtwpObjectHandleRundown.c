@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpObjectHandleRundown @ 0x14093E12C
+ * XREFs of EtwpObjectHandleRundown @ 0x14093E2FC
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140797940 (EtwpProcessEnumCallback.c)
  * Callees:
- *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
- *     ExEnumHandleTable @ 0x140685A70 (ExEnumHandleTable.c)
+ *     PsGetProcessId @ 0x140269640 (PsGetProcessId.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExEnumHandleTable @ 0x1405E3DF0 (ExEnumHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x1406E4F14 (ObReferenceProcessHandleTable.c)
  */
 
 void __fastcall EtwpObjectHandleRundown(struct _EX_RUNDOWN_REF *Process, __int64 a2)
@@ -20,9 +20,9 @@ void __fastcall EtwpObjectHandleRundown(struct _EX_RUNDOWN_REF *Process, __int64
     *(_BYTE *)(a2 + 68) = (HIDWORD(Process[271].Ptr) & 0x1000) != 0;
     ExEnumHandleTable(
       v4,
-      (__int64 (__fastcall *)(__int64, __int64 *, _QWORD, __int64))EtwpObjectHandleEnumCallback,
+      (__int64 (__fastcall *)(__int64, __int64 *, __int64, __int64))EtwpObjectHandleEnumCallback,
       a2,
       0LL);
-    ExReleaseRundownProtection_0(Process + 139);
+    ExReleaseRundownProtection(Process + 139);
   }
 }

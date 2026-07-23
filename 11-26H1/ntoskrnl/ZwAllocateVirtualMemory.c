@@ -1,30 +1,30 @@
 /*
- * XREFs of ZwAllocateVirtualMemory @ 0x1407236F0
+ * XREFs of ZwAllocateVirtualMemory @ 0x1407282C0
  * Callers:
- *     PspWow64ThunkProcessParameters @ 0x1404BED6C (PspWow64ThunkProcessParameters.c)
- *     RtlpCreateHeap @ 0x1404E3978 (RtlpCreateHeap.c)
- *     RtlpStdExtendLowerWatermark @ 0x140618E54 (RtlpStdExtendLowerWatermark.c)
- *     RtlpStdExtendUpperWatermark @ 0x140618F3C (RtlpStdExtendUpperWatermark.c)
- *     RtlpExtendHeap @ 0x14061C228 (RtlpExtendHeap.c)
- *     RtlpFindAndCommitPages @ 0x14061C484 (RtlpFindAndCommitPages.c)
- *     RtlpHpAllocVirtBlockCommitFirst @ 0x14061CBCC (RtlpHpAllocVirtBlockCommitFirst.c)
- *     RtlpInitializeHeapSegment @ 0x14061CCAC (RtlpInitializeHeapSegment.c)
- *     RtlpHpFixedHeapCommitRoutine @ 0x140638B60 (RtlpHpFixedHeapCommitRoutine.c)
- *     DifZwAllocateVirtualMemoryWrapper @ 0x140699EF0 (DifZwAllocateVirtualMemoryWrapper.c)
- *     VmpUpdateCommitStateMemoryRange @ 0x1406C1C10 (VmpUpdateCommitStateMemoryRange.c)
- *     DbgkUserReportWorkRoutine @ 0x14078AC30 (DbgkUserReportWorkRoutine.c)
- *     RtlCreateUserStack @ 0x1409EA3A8 (RtlCreateUserStack.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1409F1E60 (PspReserveAndCommitUserShadowStack.c)
- *     EtwpFindUserBufferSpace @ 0x140A1574C (EtwpFindUserBufferSpace.c)
- *     PspSchedulerSharedDataRegionSlotAllocate @ 0x140A83A6C (PspSchedulerSharedDataRegionSlotAllocate.c)
- *     PspSetupUserProcessAddressSpace @ 0x140A9A3AC (PspSetupUserProcessAddressSpace.c)
- *     MiCheckForUserStackOverflow @ 0x140AA2744 (MiCheckForUserStackOverflow.c)
- *     MiCheckShadowStackOverflow @ 0x140AA2AE0 (MiCheckShadowStackOverflow.c)
- *     RtlpWow64CreateUserStack @ 0x140AB853C (RtlpWow64CreateUserStack.c)
- *     PspSetupReservedUserMappings @ 0x140ADE30C (PspSetupReservedUserMappings.c)
- *     ExRaiseHardError @ 0x140B06D30 (ExRaiseHardError.c)
- *     VmCreateMemoryProcess @ 0x140B4F050 (VmCreateMemoryProcess.c)
- *     SepAdtCopyToLsaSharedMemory @ 0x140B6DC5C (SepAdtCopyToLsaSharedMemory.c)
+ *     PspWow64ThunkProcessParameters @ 0x1404B85BC (PspWow64ThunkProcessParameters.c)
+ *     RtlpCreateHeap @ 0x1404DCF18 (RtlpCreateHeap.c)
+ *     RtlpStdExtendLowerWatermark @ 0x14061BEA4 (RtlpStdExtendLowerWatermark.c)
+ *     RtlpStdExtendUpperWatermark @ 0x14061BF8C (RtlpStdExtendUpperWatermark.c)
+ *     RtlpExtendHeap @ 0x14061F278 (RtlpExtendHeap.c)
+ *     RtlpFindAndCommitPages @ 0x14061F4D4 (RtlpFindAndCommitPages.c)
+ *     RtlpHpAllocVirtBlockCommitFirst @ 0x14061FC1C (RtlpHpAllocVirtBlockCommitFirst.c)
+ *     RtlpInitializeHeapSegment @ 0x14061FCFC (RtlpInitializeHeapSegment.c)
+ *     RtlpHpFixedHeapCommitRoutine @ 0x14063BB70 (RtlpHpFixedHeapCommitRoutine.c)
+ *     DifZwAllocateVirtualMemoryWrapper @ 0x14069DAD0 (DifZwAllocateVirtualMemoryWrapper.c)
+ *     VmpUpdateCommitStateMemoryRange @ 0x1406C57F0 (VmpUpdateCommitStateMemoryRange.c)
+ *     DbgkUserReportWorkRoutine @ 0x14078D760 (DbgkUserReportWorkRoutine.c)
+ *     PspSchedulerSharedDataRegionSlotAllocate @ 0x14094CB6C (PspSchedulerSharedDataRegionSlotAllocate.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1409E53DC (PspSetupUserProcessAddressSpace.c)
+ *     RtlCreateUserStack @ 0x1409E6B78 (RtlCreateUserStack.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409EE630 (PspReserveAndCommitUserShadowStack.c)
+ *     EtwpFindUserBufferSpace @ 0x140A14940 (EtwpFindUserBufferSpace.c)
+ *     MiCheckForUserStackOverflow @ 0x140AA4214 (MiCheckForUserStackOverflow.c)
+ *     MiCheckShadowStackOverflow @ 0x140AA45B0 (MiCheckShadowStackOverflow.c)
+ *     RtlpWow64CreateUserStack @ 0x140AB9B7C (RtlpWow64CreateUserStack.c)
+ *     PspSetupReservedUserMappings @ 0x140ADB07C (PspSetupReservedUserMappings.c)
+ *     ExRaiseHardError @ 0x140B08E60 (ExRaiseHardError.c)
+ *     VmCreateMemoryProcess @ 0x140B518E0 (VmCreateMemoryProcess.c)
+ *     SepAdtCopyToLsaSharedMemory @ 0x140B7102C (SepAdtCopyToLsaSharedMemory.c)
  * Callees:
  *     <none>
  */
@@ -39,5 +39,5 @@ NTSTATUS __stdcall ZwAllocateVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return KiServiceInternal(ProcessHandle);
 }

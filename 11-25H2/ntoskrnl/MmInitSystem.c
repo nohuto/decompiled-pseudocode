@@ -39,8 +39,8 @@ void __fastcall MmInitSystem(__int64 a1, ULONG_PTR a2, __int64 a3)
   switch ( v4 )
   {
     case -1:
-      dword_140EF47A0 = 2048;
-      qword_140EF47A8 = (__int64)&unk_140EF47B0;
+      stru_140EF47A0.SizeOfBitMap = 2048;
+      stru_140EF47A0.Buffer = (unsigned int *)&unk_140EF47B0;
       word_140EF4912 |= 1u;
       MiInitializeStrongCode();
       if ( byte_140FCDC68 )

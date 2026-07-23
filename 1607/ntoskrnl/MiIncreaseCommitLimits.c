@@ -1,18 +1,18 @@
 /*
- * XREFs of MiIncreaseCommitLimits @ 0x1401429F8
+ * XREFs of MiIncreaseCommitLimits @ 0x140142F68
  * Callers:
- *     MiInitializeCommitment @ 0x140087100 (MiInitializeCommitment.c)
- *     MiDeletePartitionResources @ 0x1401F13D0 (MiDeletePartitionResources.c)
- *     MiInsertPartitionPages @ 0x1401F1B74 (MiInsertPartitionPages.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     MiInsertPageFileInList @ 0x140568B64 (MiInsertPageFileInList.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
- *     MiExtendPagingFiles @ 0x14065AF94 (MiExtendPagingFiles.c)
+ *     MiInitializeCommitment @ 0x1400019CC (MiInitializeCommitment.c)
+ *     MiDeletePartitionResources @ 0x1401F11FC (MiDeletePartitionResources.c)
+ *     MiInsertPartitionPages @ 0x1401F19A0 (MiInsertPartitionPages.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     MiInsertPageFileInList @ 0x1405690A4 (MiInsertPageFileInList.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
+ *     MiExtendPagingFiles @ 0x14065B078 (MiExtendPagingFiles.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiComputeCommitThresholds @ 0x140142AD4 (MiComputeCommitThresholds.c)
- *     MiUpdatePageFileList @ 0x140142C4C (MiUpdatePageFileList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiComputeCommitThresholds @ 0x140143044 (MiComputeCommitThresholds.c)
+ *     MiUpdatePageFileList @ 0x1401431BC (MiUpdatePageFileList.c)
  */
 
 __int64 __fastcall MiIncreaseCommitLimits(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)

@@ -1,8 +1,8 @@
 /*
- * XREFs of AccelpSiovGetOperationType @ 0x1406662E0
+ * XREFs of AccelpSiovGetOperationType @ 0x140664BD0
  * Callers:
- *     AccelpSiovUpdateStatsOnSubmitWork @ 0x140666970 (AccelpSiovUpdateStatsOnSubmitWork.c)
- *     AccelpSiovUpdateStatsOnWorkCompletion @ 0x1406669F0 (AccelpSiovUpdateStatsOnWorkCompletion.c)
+ *     AccelpSiovUpdateStatsOnSubmitWork @ 0x140665260 (AccelpSiovUpdateStatsOnSubmitWork.c)
+ *     AccelpSiovUpdateStatsOnWorkCompletion @ 0x1406652E0 (AccelpSiovUpdateStatsOnWorkCompletion.c)
  * Callees:
  *     <none>
  */

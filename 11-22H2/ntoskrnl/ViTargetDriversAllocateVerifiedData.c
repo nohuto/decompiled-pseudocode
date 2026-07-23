@@ -8,12 +8,12 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-union _SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
+_SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
 {
-  union _SLIST_HEADER *Pool2; // rax
-  union _SLIST_HEADER *v3; // rbx
+  _SLIST_HEADER *Pool2; // rax
+  _SLIST_HEADER *v3; // rbx
 
-  Pool2 = (union _SLIST_HEADER *)ExAllocatePool2(64LL, 0x130uLL, 0x44566656u);
+  Pool2 = (_SLIST_HEADER *)ExAllocatePool2(64LL, 0x130uLL, 0x44566656u);
   v3 = Pool2;
   if ( Pool2 )
   {

@@ -10,11 +10,11 @@
  *     TpAllocIoCompletion @ 0x180076CD0 (TpAllocIoCompletion.c)
  *     TppAllocAlpcCompletion @ 0x18007A804 (TppAllocAlpcCompletion.c)
  *     TpAllocJobNotification @ 0x18007FE30 (TpAllocJobNotification.c)
- *     RtlpTpIoAlloc @ 0x18011314C (RtlpTpIoAlloc.c)
+ *     RtlpTpIoAlloc @ 0x18011310C (RtlpTpIoAlloc.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
- *     TppAdjustRunningThreadGoalWithLock @ 0x180111FB0 (TppAdjustRunningThreadGoalWithLock.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x180111F70 (TppAdjustRunningThreadGoalWithLock.c)
  */
 
 __int64 __fastcall TppGetCurrentThreadNumaNode(__int64 a1, _DWORD *a2, _BYTE *a3)
@@ -37,9 +37,9 @@ __int64 __fastcall TppGetCurrentThreadNumaNode(__int64 a1, _DWORD *a2, _BYTE *a3
     v10 = MEMORY[0x7FFE03C0];
   if ( *(_DWORD *)(a1 + 424) != v10 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 72);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     TppAdjustRunningThreadGoalWithLock(a1);
-    RtlReleaseSRWLockExclusive(a1 + 72);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     v7 = TppNumberNodes;
   }
   v11 = 0;

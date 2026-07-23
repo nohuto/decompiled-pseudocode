@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptFdef369ModPreGetMontgomery @ 0x140409820
+ * XREFs of SymCryptFdef369ModPreGetMontgomery @ 0x140409A00
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
- *     SymCryptFdef369MontgomeryReduceAsm @ 0x14040F420 (SymCryptFdef369MontgomeryReduceAsm.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
+ *     SymCryptFdef369MontgomeryReduceAsm @ 0x14040F600 (SymCryptFdef369MontgomeryReduceAsm.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 void *__fastcall SymCryptFdef369ModPreGetMontgomery(__int64 a1, const void *a2, void *a3)

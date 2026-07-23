@@ -14,19 +14,19 @@
 bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, __int16 a4)
 {
   char v4; // r14
-  unsigned __int64 v8; // rbp
+  unsigned __int16 *v8; // rbp
   unsigned __int16 v9; // ax
   __int64 v12; // r8
   const WCHAR *v13; // rdx
   __int16 v14; // dx
   __int64 v15; // r8
   const WCHAR *v16; // rdx
-  __int64 v17; // rax
+  unsigned __int16 *v17; // rax
   __int64 v18; // r8
   const wchar_t *v19; // rdx
   __int64 v20; // rdx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  int v22; // [rsp+60h] [rbp+18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = 1;
   v8 = 0LL;
@@ -46,8 +46,8 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
       if ( v13 )
       {
         RtlInitUnicodeString(&DestinationString, v13);
-        if ( RtlCultureNameToLCID(&DestinationString.Length, &v22) )
-          return (_WORD)v22 == (unsigned __int16)a4;
+        if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+          return (_WORD)Lcid == (unsigned __int16)a4;
       }
     }
     return 0;
@@ -60,11 +60,11 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
     {
       if ( *(_WORD *)(a2 + 4) )
       {
-        v17 = MuiRegAllocArray(a1, 0x55u);
+        v17 = (unsigned __int16 *)MuiRegAllocArray(a1, 0x55u);
         v8 = v17;
         if ( v17 )
         {
-          if ( RtlpInitAndCallLcidToCultureName((__int64)&DestinationString, v17, *(unsigned __int16 *)(a2 + 4)) )
+          if ( RtlpInitAndCallLcidToCultureName(&DestinationString, v17, *(unsigned __int16 *)(a2 + 4)) )
           {
 LABEL_26:
             v18 = *(_QWORD *)(a1 + 32);
@@ -75,10 +75,10 @@ LABEL_26:
             if ( !v19 || wcsicmp(DestinationString.Buffer, v19) )
               v4 = 0;
             if ( v8 )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
             return v4;
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
         }
       }
     }

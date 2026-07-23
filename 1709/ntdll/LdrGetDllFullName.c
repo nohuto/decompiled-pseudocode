@@ -8,42 +8,42 @@
  *     RtlCopyUnicodeString @ 0x18002DA90 (RtlCopyUnicodeString.c)
  */
 
-__int64 __fastcall LdrGetDllFullName(__int64 a1, unsigned __int16 *a2)
+NTSTATUS __cdecl LdrGetDllFullName(PVOID DllHandle, PUNICODE_STRING FullDllName)
 {
-  unsigned int v2; // esi
-  unsigned __int16 *v4; // rdi
-  __int64 v5; // rbx
+  NTSTATUS v2; // esi
+  const UNICODE_STRING *v4; // rdi
+  char *v5; // rbx
   void *SubSystemTib; // rcx
-  unsigned int LoadedDllByHandle; // eax
+  NTSTATUS LoadedDllByHandle; // eax
   int v9; // [rsp+40h] [rbp+8h] BYREF
   __int64 v10; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0;
   v10 = 0LL;
-  if ( a1 )
+  if ( DllHandle )
   {
-    LoadedDllByHandle = LdrpFindLoadedDllByHandle(a1, &v10, &v9);
-    v5 = v10;
+    LoadedDllByHandle = LdrpFindLoadedDllByHandle((__int64)DllHandle, &v10, &v9);
+    v5 = (char *)v10;
     v2 = LoadedDllByHandle;
     if ( !v10 )
       return v2;
-    v4 = (unsigned __int16 *)(v10 + 72);
+    v4 = (const UNICODE_STRING *)(v10 + 72);
   }
   else
   {
     v10 = LdrpImageEntry;
-    v4 = (unsigned __int16 *)(LdrpImageEntry + 72);
-    v5 = LdrpImageEntry;
+    v4 = (const UNICODE_STRING *)(LdrpImageEntry + 72);
+    v5 = (char *)LdrpImageEntry;
     SubSystemTib = NtCurrentTeb()->NtTib.SubSystemTib;
     if ( SubSystemTib && *((_QWORD *)SubSystemTib + 1) )
-      v4 = (unsigned __int16 *)*((_QWORD *)SubSystemTib + 1);
+      v4 = (const UNICODE_STRING *)*((_QWORD *)SubSystemTib + 1);
   }
   if ( v5 )
   {
-    RtlCopyUnicodeString(a2, v4);
-    if ( *v4 > a2[1] )
+    RtlCopyUnicodeString(FullDllName, v4);
+    if ( v4->Length > FullDllName->MaximumLength )
       v2 = -1073741789;
-    if ( v5 != LdrpImageEntry )
+    if ( v5 != (char *)LdrpImageEntry )
       LdrpDereferenceModule(v5);
   }
   return v2;

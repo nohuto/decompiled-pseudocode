@@ -1,15 +1,12 @@
-[EXCEPTION] LdrpInitializationFailure @ 0x180065FF8: Hex-Rays returned no pseudocode for 0x180065FF8
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180065FF8'), <traceback object at 0x000002A7E7DEFF80>)
+[EXCEPTION] RtlGetCompressionWorkSpaceSize @ 0x1801022C0: Hex-Rays returned no pseudocode for 0x1801022C0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1801022C0'), <traceback object at 0x000001C8EDE43700>)
 
-[EXCEPTION] TppCritResetThread @ 0x1800F80A8: Hex-Rays returned no pseudocode for 0x1800F80A8
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800F80A8'), <traceback object at 0x000002A7E07FAE40>)
+[EXCEPTION] RtlReportException @ 0x18010B4F0: Hex-Rays returned no pseudocode for 0x18010B4F0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18010B4F0'), <traceback object at 0x000001C8F501E440>)
 
-[EXCEPTION] RtlGetCompressionWorkSpaceSize @ 0x180107390: Hex-Rays returned no pseudocode for 0x180107390
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180107390'), <traceback object at 0x000002A7E7DE3900>)
+[EXCEPTION] SymCryptMd5Append @ 0x1801568D0: Hex-Rays returned no pseudocode for 0x1801568D0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1801568D0'), <traceback object at 0x000001C8EDE43700>)
 
-[EXCEPTION] SymCryptMd5Append @ 0x180158510: Hex-Rays returned no pseudocode for 0x180158510
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180158510'), <traceback object at 0x000002A7E7D9B940>)
-
-[EXCEPTION] SymCryptSha1Append @ 0x180158ED0: Hex-Rays returned no pseudocode for 0x180158ED0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180158ED0'), <traceback object at 0x000002A7E7DE1540>)
+[EXCEPTION] SymCryptSha1Append @ 0x180157290: Hex-Rays returned no pseudocode for 0x180157290
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180157290'), <traceback object at 0x000001C8F5063700>)
 

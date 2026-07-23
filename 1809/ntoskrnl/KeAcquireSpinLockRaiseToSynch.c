@@ -1,5 +1,5 @@
 /*
- * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x140290DD0
+ * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x140290FC0
  * Callers:
  *     <none>
  * Callees:

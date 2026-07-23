@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlSplitLocks @ 0x14047A758
+ * XREFs of FsRtlSplitLocks @ 0x140475DD8
  * Callers:
- *     FsRtlPrivateInsertSharedLock @ 0x140248CD8 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14024D62C (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14027DC3C (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402E2F18 (FsRtlPrivateInsertSharedLock.c)
  * Callees:
- *     RtlRealSuccessor @ 0x140248410 (RtlRealSuccessor.c)
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x1402E2650 (RtlRealSuccessor.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
  */
 
 void __fastcall FsRtlSplitLocks(__int64 a1, _RTL_SPLAY_LINKS *a2, unsigned __int64 *a3, _RTL_SPLAY_LINKS **a4)
 {
-  RTL_SPLAY_LINKS *v5; // rbp
+  _RTL_SPLAY_LINKS *v5; // rbp
   _RTL_SPLAY_LINKS *v6; // rbx
   int v7; // r13d
   unsigned __int64 v8; // rdi
@@ -20,13 +20,13 @@ void __fastcall FsRtlSplitLocks(__int64 a1, _RTL_SPLAY_LINKS *a2, unsigned __int
   unsigned __int64 v12; // rax
   _RTL_SPLAY_LINKS *v13; // rax
   _RTL_SPLAY_LINKS *v14; // rax
-  RTL_SPLAY_LINKS *v15; // r15
+  _RTL_SPLAY_LINKS *v15; // r15
   _RTL_SPLAY_LINKS *v16; // r14
   PRTL_SPLAY_LINKS v17; // rax
   _RTL_SPLAY_LINKS *RightChild; // rax
   unsigned __int64 v19; // [rsp+50h] [rbp+8h]
 
-  v5 = (RTL_SPLAY_LINKS *)a1;
+  v5 = (_RTL_SPLAY_LINKS *)a1;
   v6 = 0LL;
   v7 = 0;
   if ( *(_BYTE *)(a1 + 8) )
@@ -58,7 +58,7 @@ LABEL_4:
         v12 = (unsigned __int64)Parent->LeftChild;
         if ( v12 > (unsigned __int64)v6 && (Parent->RightChild || (_RTL_SPLAY_LINKS *)v12 != LeftChild) )
         {
-          v14 = (_RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList(&FsRtlLockTreeNodeLookasideList);
+          v14 = (_RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList);
           v15 = v14;
           if ( v14 )
           {

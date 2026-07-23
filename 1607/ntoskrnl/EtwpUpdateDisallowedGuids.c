@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpUpdateDisallowedGuids @ 0x14052D4FC
+ * XREFs of EtwpUpdateDisallowedGuids @ 0x14052DA3C
  * Callers:
- *     EtwpUpdateDisallowList @ 0x14052D49C (EtwpUpdateDisallowList.c)
+ *     EtwpUpdateDisallowList @ 0x14052D9DC (EtwpUpdateDisallowList.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpDisallowedGuidAddition @ 0x140572A54 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x14069FB14 (EtwpDisallowedGuidRemoval.c)
+ *     EtwpDisallowedGuidAddition @ 0x140572F94 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x14069FC4C (EtwpDisallowedGuidRemoval.c)
  */
 
 __int64 __fastcall EtwpUpdateDisallowedGuids(

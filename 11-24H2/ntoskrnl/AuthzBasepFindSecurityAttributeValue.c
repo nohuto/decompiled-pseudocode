@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepFindSecurityAttributeValue @ 0x1403600AC
+ * XREFs of AuthzBasepFindSecurityAttributeValue @ 0x1403BAA7C
  * Callers:
- *     AuthzBasepAddSecurityAttributeValues @ 0x14035F674 (AuthzBasepAddSecurityAttributeValues.c)
- *     AuthzBasepDeleteSecurityAttributeValues @ 0x1404F89C0 (AuthzBasepDeleteSecurityAttributeValues.c)
- *     AuthzBasepCompareSecurityAttribute @ 0x140A23AD4 (AuthzBasepCompareSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x1403BA040 (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x1404F62A0 (AuthzBasepDeleteSecurityAttributeValues.c)
+ *     AuthzBasepCompareSecurityAttribute @ 0x140A17EE4 (AuthzBasepCompareSecurityAttribute.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x140357D50 (AuthzBasepEqualUnicodeString.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B8930 (AuthzBasepEqualUnicodeString.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall AuthzBasepFindSecurityAttributeValue(__int64 a1, unsigned __int16 *a2, unsigned __int16 a3)
@@ -104,7 +104,7 @@ LABEL_10:
     v31.Buffer = (wchar_t *)v5[7];
     if ( *(_QWORD *)a2 == v5[5] )
     {
-      v23 = AuthzBasepEqualUnicodeString(&String1, &v31);
+      v23 = AuthzBasepEqualUnicodeString((const void **)&String1, &v31);
       goto LABEL_29;
     }
 LABEL_31:
@@ -183,7 +183,7 @@ LABEL_37:
           v31.Buffer = *(wchar_t **)(v6 + 56);
           if ( *(_QWORD *)a2 == *(_QWORD *)(v6 + 40) )
           {
-            v19 = AuthzBasepEqualUnicodeString(&String1, &v31);
+            v19 = AuthzBasepEqualUnicodeString((const void **)&String1, &v31);
             goto LABEL_23;
           }
         }

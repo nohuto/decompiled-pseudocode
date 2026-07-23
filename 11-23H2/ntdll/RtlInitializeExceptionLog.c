@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInitializeExceptionLog @ 0x18010EAE8
+ * XREFs of RtlInitializeExceptionLog @ 0x18010EAB8
  * Callers:
  *     LdrpInitializeProcess @ 0x1800DDBD0 (LdrpInitializeProcess.c)
  * Callees:
@@ -7,11 +7,11 @@
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-void *RtlInitializeExceptionLog()
+PVOID RtlInitializeExceptionLog()
 {
-  void *result; // rax
+  PVOID result; // rax
 
-  result = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 71200LL);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x11620uLL);
   RtlpExceptionLog2 = (__int64)result;
   if ( result )
   {

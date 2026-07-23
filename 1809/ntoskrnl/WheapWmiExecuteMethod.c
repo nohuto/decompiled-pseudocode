@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapWmiExecuteMethod @ 0x140321750
+ * XREFs of WheapWmiExecuteMethod @ 0x140321940
  * Callers:
- *     WheaWmiDispatch @ 0x140191840 (WheaWmiDispatch.c)
+ *     WheaWmiDispatch @ 0x140191980 (WheaWmiDispatch.c)
  * Callees:
- *     WheapWmiExecuteErrorInjectionMethod @ 0x14032124C (WheapWmiExecuteErrorInjectionMethod.c)
- *     WheapWmiExecuteErrorSourceMethod @ 0x140321338 (WheapWmiExecuteErrorSourceMethod.c)
- *     WheapWmiExecutePolicyManagementMethod @ 0x140321878 (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecuteErrorInjectionMethod @ 0x14032143C (WheapWmiExecuteErrorInjectionMethod.c)
+ *     WheapWmiExecuteErrorSourceMethod @ 0x140321528 (WheapWmiExecuteErrorSourceMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x140321A68 (WheapWmiExecutePolicyManagementMethod.c)
  */
 
 __int64 __fastcall WheapWmiExecuteMethod(__int64 *a1, unsigned int a2, int *a3, int *a4)

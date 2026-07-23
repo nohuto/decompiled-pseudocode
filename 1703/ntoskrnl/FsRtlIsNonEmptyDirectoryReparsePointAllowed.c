@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 FsRtlIsNonEmptyDirectoryReparsePointAllowed()
+BOOLEAN __cdecl FsRtlIsNonEmptyDirectoryReparsePointAllowed(ULONG ReparseTag)
 {
-  return RtlIsNonEmptyDirectoryReparsePointAllowed();
+  return RtlIsNonEmptyDirectoryReparsePointAllowed(ReparseTag);
 }

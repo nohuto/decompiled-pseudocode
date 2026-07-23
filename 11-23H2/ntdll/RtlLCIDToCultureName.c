@@ -20,13 +20,13 @@
  *     RtlpGetDefaultLanguageBaseOrParent @ 0x1800FC76C (RtlpGetDefaultLanguageBaseOrParent.c)
  *     RtlpSetInstallLanguage @ 0x1800FCEB0 (RtlpSetInstallLanguage.c)
  *     RtlpSetPreferredUILanguages @ 0x1800FD570 (RtlpSetPreferredUILanguages.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x180112698 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x180112DCC (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
- *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x180113228 (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x180113674 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x1801154B0 (_RtlpMuiRegPopulateBaseLanguages.c)
- *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x1801158E0 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
- *     _RtlpMuiRegValidateInstalled @ 0x180115980 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x180112668 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x180112D9C (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
+ *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x1801131F8 (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x180113644 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x180115480 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x1801158B0 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180115950 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x180013D38 (RtlStringCbCopyW.c)
  *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x180015B98 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
@@ -34,34 +34,34 @@
  *     RtlInitUnicodeString @ 0x1800187C0 (RtlInitUnicodeString.c)
  */
 
-char __fastcall RtlLCIDToCultureName(unsigned int a1, __int64 a2)
+BOOLEAN __cdecl RtlLCIDToCultureName(LCID Lcid, PUNICODE_STRING String)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   __int64 v6; // rcx
   __int64 v7; // rax
-  __int16 v8; // r11
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  unsigned __int16 v8; // r11
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
   __int16 v10; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0;
-  if ( a1 && a2 && a1 != 4096 )
+  if ( Lcid && String && Lcid != 4096 )
   {
     if ( g_RegInfo
-      && (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(g_RegInfo, (unsigned __int16)a1, 0LL, &v10) >= 0
-      && (v6 = 28LL * v10, v7 = *(_QWORD *)(*(_QWORD *)(g_RegInfo + 24) + 16LL), *(__int16 *)(v7 + v6 + 6) > 0) )
+      && (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(g_RegInfo, (unsigned __int16)Lcid, 0LL, &v10) >= 0
+      && (v6 = 28LL * v10, v7 = *(_QWORD *)(*((_QWORD *)g_RegInfo + 3) + 16LL), *(__int16 *)(v7 + v6 + 6) > 0) )
     {
       RtlInitUnicodeString(
         &DestinationString,
-        (PCWSTR)(*(_QWORD *)(*(_QWORD *)(g_RegInfo + 32) + 24LL)
-               + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(g_RegInfo + 32) + 16LL) + 2LL * *(__int16 *)(v7 + v6 + 6))));
-      if ( DestinationString.Length <= *(_WORD *)(a2 + 2)
-        && (int)RtlStringCbCopyW(*(_WORD **)(a2 + 8), *(unsigned __int16 *)(a2 + 2), (__int64)DestinationString.Buffer) >= 0 )
+        (PCWSTR)(*(_QWORD *)(*((_QWORD *)g_RegInfo + 4) + 24LL)
+               + 2LL * *(__int16 *)(*(_QWORD *)(*((_QWORD *)g_RegInfo + 4) + 16LL) + 2LL * *(__int16 *)(v7 + v6 + 6))));
+      if ( DestinationString.Length <= String->MaximumLength
+        && (int)RtlStringCbCopyW(String->Buffer, String->MaximumLength, (__int64)DestinationString.Buffer) >= 0 )
       {
-        *(_WORD *)a2 = v8;
+        String->Length = v8;
         return 1;
       }
     }
-    else if ( (int)RtlLcidToLocaleName(a1, a2, 2LL, 0LL) >= 0 )
+    else if ( RtlLcidToLocaleName(Lcid, String, 2u, 0) >= 0 )
     {
       return 1;
     }

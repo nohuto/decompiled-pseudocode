@@ -63,7 +63,7 @@ __int64 __fastcall KeSetAffinityProcess(__int64 a1, char a2, unsigned __int16 *a
   v31 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v16) = 4;
@@ -77,10 +77,10 @@ __int64 __fastcall KeSetAffinityProcess(__int64 a1, char a2, unsigned __int16 *a
   if ( v6 && (*(_DWORD *)(a1 + 632) & 0x1000) != 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
       {
         v18 = KeGetCurrentPrcb();
         v19 = v18->SchedulerAssist;

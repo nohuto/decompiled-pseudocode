@@ -1,26 +1,26 @@
 /*
- * XREFs of KiProcessDeferredDpcWatchdogViolation @ 0x14032D1E8
+ * XREFs of KiProcessDeferredDpcWatchdogViolation @ 0x14032F218
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x14032D7C0 (KiCallInterruptServiceRoutine.c)
+ *     KiCallInterruptServiceRoutine @ 0x14032F7F0 (KiCallInterruptServiceRoutine.c)
  * Callees:
- *     VslKernelShadowStackAssist @ 0x140368500 (VslKernelShadowStackAssist.c)
+ *     VslKernelShadowStackAssist @ 0x14036A2A0 (VslKernelShadowStackAssist.c)
  */
 
 void (__fastcall __noreturn *__fastcall KiProcessDeferredDpcWatchdogViolation(__int64 a1))()
 {
   void (__fastcall __noreturn *result)(); // rax
 
-  KsepShimDbLock.MutantListHead.Blink = (struct _LIST_ENTRY *)1;
-  *(_OWORD *)&KsepShimDbLock.SchedulerApcFill5[80] = 0LL;
-  KsepShimDbLock.SuspendEvent.Header.WaitListHead = 0LL;
-  KsepShimDbLock.ThreadListEntry = 0LL;
-  LOWORD(KsepShimDbLock.ThreadListEntry.Flink) = *(_WORD *)(a1 + 392);
-  KsepShimDbLock.SuspendEvent.Header.WaitListHead.Blink = *(struct _LIST_ENTRY **)(a1 + 384);
-  LODWORD(KsepShimDbLock.SuspendEvent.Header.WaitListHead.Flink) = *(_DWORD *)(a1 + 376);
-  LOWORD(KsepShimDbLock.SuspendEvent.Header.Lock) = *(_WORD *)(a1 + 368);
-  *(_QWORD *)&KsepShimDbLock.SchedulerApcFill5[80] = *(_QWORD *)(a1 + 360);
-  KsepShimDbLock.ThreadListEntry.Blink = *(struct _LIST_ENTRY **)(a1 + 56);
-  *(_QWORD *)(a1 + 56) = &KsepShimDbLock.SchedulerApcFill5[80];
+  *(_QWORD *)&KsepShimDbLock.PriorityFloorCounts[16] = 1LL;
+  *(_OWORD *)&KsepShimDbLock.ForegroundLossTime = 0LL;
+  *(_OWORD *)&KsepShimDbLock.InGlobalForegroundList = 0LL;
+  *(_OWORD *)&KsepShimDbLock.WriteOperationCount = 0LL;
+  LOWORD(KsepShimDbLock.WriteOperationCount) = *(_WORD *)(a1 + 392);
+  KsepShimDbLock.ReadOperationCount = *(_QWORD *)(a1 + 384);
+  LODWORD(KsepShimDbLock.InGlobalForegroundList) = *(_DWORD *)(a1 + 376);
+  LOWORD(KsepShimDbLock.GlobalForegroundListEntry.Flink) = *(_WORD *)(a1 + 368);
+  *(_QWORD *)&KsepShimDbLock.ForegroundLossTime = *(_QWORD *)(a1 + 360);
+  KsepShimDbLock.OtherOperationCount = *(_QWORD *)(a1 + 56);
+  *(_QWORD *)(a1 + 56) = &KsepShimDbLock.ForegroundLossTime;
   result = KiDeferredDpcWatchdogViolation;
   *(_QWORD *)(a1 + 360) = KiDeferredDpcWatchdogViolation;
   if ( (_BYTE)KiKernelCetEnabled )

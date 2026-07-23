@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpGetUILanguagePolicy @ 0x14071AFE0
+ * XREFs of ExpGetUILanguagePolicy @ 0x14071C280
  * Callers:
- *     ExpGetCurrentUserUILanguage @ 0x14071AEB0 (ExpGetCurrentUserUILanguage.c)
+ *     ExpGetCurrentUserUILanguage @ 0x14071C150 (ExpGetCurrentUserUILanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
- *     ExpIsValidUILanguage @ 0x1408CBA9C (ExpIsValidUILanguage.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140696B10 (RtlUnicodeStringToInteger.c)
+ *     ExpIsValidUILanguage @ 0x1408CCD5C (ExpIsValidUILanguage.c)
  */
 
 __int64 __fastcall ExpGetUILanguagePolicy(void *a1, _WORD *a2)

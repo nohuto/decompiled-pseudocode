@@ -1,20 +1,30 @@
 /*
- * XREFs of NtCreateProfileEx @ 0x140842690
+ * XREFs of NtCreateProfileEx @ 0x14084B730
  * Callers:
- *     DifNtCreateProfileExWrapper @ 0x140672E80 (DifNtCreateProfileExWrapper.c)
+ *     DifNtCreateProfileExWrapper @ 0x140676A60 (DifNtCreateProfileExWrapper.c)
  * Callees:
- *     ExpProfileCreate @ 0x140842064 (ExpProfileCreate.c)
+ *     ExpProfileCreate @ 0x14084B100 (ExpProfileCreate.c)
  */
 
-__int64 __fastcall NtCreateProfileEx(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        int a5,
-        volatile void *a6,
-        unsigned int a7,
-        int a8)
+NTSTATUS __cdecl NtCreateProfileEx(
+        PHANDLE ProfileHandle,
+        HANDLE Process,
+        PVOID ProfileBase,
+        SIZE_T ProfileSize,
+        ULONG BucketSize,
+        PULONG Buffer,
+        ULONG BufferSize,
+        KPROFILE_SOURCE ProfileSource,
+        USHORT GroupCount,
+        PGROUP_AFFINITY GroupAffinity)
 {
-  return ExpProfileCreate(a1, a2, a3, a4, a5, a6, a7, a8);
+  return ExpProfileCreate(
+           (__int64)ProfileHandle,
+           (__int64)Process,
+           (__int64)ProfileBase,
+           ProfileSize,
+           BucketSize,
+           Buffer,
+           BufferSize,
+           ProfileSource);
 }

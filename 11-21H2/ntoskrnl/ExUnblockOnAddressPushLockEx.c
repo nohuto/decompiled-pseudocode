@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpUnblockPushLock @ 0x140369634 (ExpUnblockPushLock.c)
+ *     sub_140369634 @ 0x140369634 (sub_140369634.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -16,6 +16,6 @@ int __fastcall ExUnblockOnAddressPushLockEx(volatile __int64 *BugCheckParameter2
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, (ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
   _InterlockedOr(v3, 0);
   if ( *BugCheckParameter2 )
-    return ExpUnblockPushLock(BugCheckParameter2, 0LL, 0);
+    return sub_140369634(BugCheckParameter2, 0LL, 0);
   return result;
 }

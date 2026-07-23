@@ -1,83 +1,50 @@
 /*
- * XREFs of BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408149C4
+ * XREFs of BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140815104
  * Callers:
- *     BiExportBcdObjects @ 0x14081521C (BiExportBcdObjects.c)
+ *     BiExportBcdObjects @ 0x14081595C (BiExportBcdObjects.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     BcdOpenObject @ 0x1409BE0D4 (BcdOpenObject.c)
- *     BcdSetElementDataWithFlags @ 0x1409BEB2C (BcdSetElementDataWithFlags.c)
- *     BcdCloseObject @ 0x1409BF5DC (BcdCloseObject.c)
- *     BiGetElement @ 0x1409BFBB8 (BiGetElement.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     BcdOpenObject @ 0x1409A4724 (BcdOpenObject.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A517C (BcdSetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x1409A5C2C (BcdCloseObject.c)
+ *     BiGetElement @ 0x1409A6208 (BiGetElement.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(__int64 a1, __int64 a2)
+__int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(void *a1, __int64 a2)
 {
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   int Element; // eax
-  unsigned int v5; // ebx
-  _QWORD *v6; // rdx
-  unsigned int i; // r8d
-  __int64 v8; // rcx
   _OWORD *Pool2; // rax
-  void *v10; // rbp
-  void *v11; // rdx
-  __int64 v12; // r8
-  _QWORD v14[5]; // [rsp+30h] [rbp-28h] BYREF
-  unsigned int v15; // [rsp+70h] [rbp+18h] BYREF
-  void *Src; // [rsp+78h] [rbp+20h] BYREF
+  void *v6; // rbp
+  BCD_FLAGS v7; // r8d
+  HANDLE BcdObjectHandle; // [rsp+30h] [rbp-28h] BYREF
 
-  v15 = 0;
-  Src = 0LL;
-  v14[0] = 0LL;
-  v3 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR, v14);
-  if ( v3 < 0 )
-    goto LABEL_18;
-  Element = BiGetElement(v14[0], 603979777LL, &Src, &v15);
-  v3 = Element;
-  if ( Element == -1073741275 )
+  BcdObjectHandle = 0LL;
+  v3 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR, &BcdObjectHandle);
+  if ( v3 >= 0 )
   {
-    v5 = 0;
-    goto LABEL_6;
-  }
-  if ( Element >= 0 )
-  {
-    v5 = v15;
-LABEL_6:
-    v6 = Src;
-    for ( i = 0; i < v5 >> 4; ++i )
+    Element = BiGetElement(BcdObjectHandle, 0x24000001u);
+    v3 = Element;
+    if ( Element == -1073741275 || Element >= 0 )
     {
-      v8 = *(_QWORD *)(a2 + 16) - *v6;
-      if ( !v8 )
-        v8 = *(_QWORD *)(a2 + 24) - v6[1];
-      if ( !v8 )
+      Pool2 = (_OWORD *)ExAllocatePool2(0x102uLL, 0x10uLL, 0x4B444342u);
+      v6 = Pool2;
+      if ( Pool2 )
       {
-        v3 = 0;
-        goto LABEL_16;
+        *Pool2 = *(_OWORD *)(a2 + 16);
+        memmove(Pool2 + 1, 0LL, 0LL);
+        v3 = BcdSetElementDataWithFlags(BcdObjectHandle, 0x24000001u, v7, v6, 0x10u);
+        ExFreePoolWithTag(v6, 0x4B444342u);
       }
-      v6 += 2;
-    }
-    Pool2 = (_OWORD *)ExAllocatePool2(0x102uLL);
-    v10 = Pool2;
-    if ( Pool2 )
-    {
-      v11 = Src;
-      *Pool2 = *(_OWORD *)(a2 + 16);
-      memmove(Pool2 + 1, v11, v5);
-      v3 = BcdSetElementDataWithFlags(v14[0], 603979777LL, v12, v10, v5 + 16);
-      ExFreePoolWithTag(v10, 0x4B444342u);
-    }
-    else
-    {
-      v3 = -1073741801;
+      else
+      {
+        v3 = -1073741801;
+      }
     }
   }
-LABEL_16:
-  if ( Src )
-    ExFreePoolWithTag(Src, 0x4B444342u);
-LABEL_18:
-  if ( v14[0] )
-    BcdCloseObject(v14[0]);
+  if ( BcdObjectHandle )
+    BcdCloseObject(BcdObjectHandle);
   return (unsigned int)v3;
 }

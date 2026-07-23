@@ -73,10 +73,13 @@ void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -104,10 +107,10 @@ void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
       {
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v8 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v9 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && LockHandle.OldIrql <= 0xFu && v9 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && LockHandle.OldIrql <= 0xFu && v9 >= 2u )
           {
             v10 = KeGetCurrentPrcb();
             v11 = v10->SchedulerAssist;

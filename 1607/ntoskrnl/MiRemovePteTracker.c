@@ -1,34 +1,34 @@
 /*
- * XREFs of MiRemovePteTracker @ 0x1401FC9F0
+ * XREFs of MiRemovePteTracker @ 0x1401FC81C
  * Callers:
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MmUnmapIoSpace @ 0x14009B4B0 (MmUnmapIoSpace.c)
- *     MmFreeMappingAddress @ 0x14052C224 (MmFreeMappingAddress.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MmUnmapIoSpace @ 0x14009ACB0 (MmUnmapIoSpace.c)
+ *     MmFreeMappingAddress @ 0x14052C764 (MmFreeMappingAddress.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, ULONG_PTR a3)
 {
-  struct _SLIST_ENTRY *v5; // rsi
+  _SLIST_ENTRY *v5; // rsi
   ULONG_PTR v6; // r14
   unsigned int v7; // ebx
-  struct _SLIST_ENTRY *v8; // rdx
-  struct _SLIST_ENTRY *Next; // r8
+  _SLIST_ENTRY *v8; // rdx
+  _SLIST_ENTRY *Next; // r8
   _SLIST_ENTRY *v10; // rcx
   _SLIST_ENTRY *v11; // rcx
-  struct _SLIST_ENTRY **v12; // rax
+  _SLIST_ENTRY **v12; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
   v5 = 0LL;
   v6 = a2 & 0xFFFFFFFFFFFFF000uLL;
   v7 = ((unsigned __int8)(95 * (a2 >> 12)) ^ (unsigned __int8)((40543 * (unsigned __int64)(unsigned int)(a2 >> 12)) >> 32)) & 0xF;
-  KeAcquireInStackQueuedSpinLock(&qword_140327410, &LockHandle);
-  v8 = (struct _SLIST_ENTRY *)((char *)&unk_140327D90 + 16 * v7);
+  KeAcquireInStackQueuedSpinLock(&qword_140327450, &LockHandle);
+  v8 = (_SLIST_ENTRY *)((char *)&unk_140327DD0 + 16 * v7);
   Next = v8->Next;
   if ( v8->Next == v8 )
     goto LABEL_16;
@@ -50,7 +50,7 @@ void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int6
             (ULONG_PTR)Next,
             *((_QWORD *)&Next[3].Next + 1),
             *(_QWORD *)(BugCheckParameter3 + 48));
-        if ( !byte_140327670 )
+        if ( !byte_1403276B0 )
         {
           if ( v10 != *(_SLIST_ENTRY **)(BugCheckParameter3 + 24) )
             KeBugCheckEx(0xDAu, 3uLL, (ULONG_PTR)Next, (ULONG_PTR)Next[2].Next, *(_QWORD *)(BugCheckParameter3 + 24));
@@ -64,7 +64,7 @@ void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int6
         }
       }
       v11 = Next->Next;
-      v12 = (struct _SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
+      v12 = (_SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
       if ( *(&Next->Next->Next + 1) != Next || *v12 != Next )
         __fastfail(3u);
       *v12 = v11;
@@ -77,12 +77,12 @@ void __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter3, unsigned __int6
   if ( !v5 )
   {
 LABEL_16:
-    if ( !byte_140327564 )
+    if ( !byte_1403275A4 )
       KeBugCheckEx(0xDAu, 6uLL, BugCheckParameter3, v6, a3);
   }
-  qword_140327E90 -= a3;
-  --qword_140327E98;
+  qword_140327ED0 -= a3;
+  --qword_140327ED8;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v5 )
-    RtlpInterlockedPushEntrySList(&stru_140327400, v5);
+    RtlpInterlockedPushEntrySList(&stru_140327440, v5);
 }

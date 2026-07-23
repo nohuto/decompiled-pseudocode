@@ -1,12 +1,12 @@
 /*
- * XREFs of IopValidateQueryInformationParameters @ 0x14063B290
+ * XREFs of IopValidateQueryInformationParameters @ 0x14063C2B0
  * Callers:
- *     NtQueryInformationFile @ 0x14063AA10 (NtQueryInformationFile.c)
- *     IoQueryInformationByName @ 0x14081C540 (IoQueryInformationByName.c)
+ *     NtQueryInformationFile @ 0x14063BA30 (NtQueryInformationFile.c)
+ *     IoQueryInformationByName @ 0x14081D740 (IoQueryInformationByName.c)
  * Callees:
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExRaiseAccessViolation @ 0x1408D65A0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     ExRaiseAccessViolation @ 0x1408D7860 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall IopValidateQueryInformationParameters(

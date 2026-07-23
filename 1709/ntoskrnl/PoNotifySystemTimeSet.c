@@ -17,13 +17,13 @@ __int64 __fastcall PoNotifySystemTimeSet(_QWORD *a1, _QWORD *a2, unsigned int a3
 {
   unsigned __int8 CurrentIrql; // bl
   __int64 result; // rax
-  _QWORD v8[3]; // [rsp+40h] [rbp-18h] BYREF
+  _QWORD Buffer[3]; // [rsp+40h] [rbp-18h] BYREF
 
   if ( PsWin32CalloutsEstablished )
   {
-    v8[0] = *a1;
-    v8[1] = *a2;
-    ZwUpdateWnfStateData("u", v8, 16LL);
+    Buffer[0] = *a1;
+    Buffer[1] = *a2;
+    ZwUpdateWnfStateData(&WNF_PO_SYSTEM_TIME_CHANGED, Buffer, 0x10u, 0LL, 0LL, 0, 0);
     EtwTraceSystemTimeChange(a1, a2, a3);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);

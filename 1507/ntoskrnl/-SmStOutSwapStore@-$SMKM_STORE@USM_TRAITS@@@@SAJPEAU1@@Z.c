@@ -68,7 +68,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
   v33 = 0LL;
   v4 = 0;
   v5 = -1LL;
-  ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)a1);
+  ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)a1);
   v8 = *(_QWORD **)(a1 + 5016);
   if ( (unsigned __int64)v8 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
   {

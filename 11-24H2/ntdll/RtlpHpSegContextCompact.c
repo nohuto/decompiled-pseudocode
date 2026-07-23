@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegContextCompact @ 0x180051930
+ * XREFs of RtlpHpSegContextCompact @ 0x180067510
  * Callers:
- *     RtlpHpHeapCompact @ 0x180050D34 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x180066914 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpSegFreeRangeRemove @ 0x180051C60 (RtlpHpSegFreeRangeRemove.c)
- *     RtlpHpSegFreeRangeInsert @ 0x180053980 (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x180054AD0 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpSegSegmentFree @ 0x180090324 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegSegmentFree @ 0x180026FA4 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x180067840 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x180069560 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x18006A6B0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
 _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1)
@@ -24,7 +24,7 @@ _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1)
   __int64 v10; // rcx
   _QWORD *v11; // rdx
   _QWORD **v12; // rcx
-  _QWORD *v13; // rdx
+  __int64 v13; // rdx
   _QWORD *v14; // [rsp+20h] [rbp-28h] BYREF
   _QWORD *v15; // [rsp+28h] [rbp-20h]
   char i; // [rsp+50h] [rbp+8h] BYREF
@@ -35,7 +35,7 @@ _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1)
   v14 = &v14;
   if ( !v1 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 64);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v5 = *(_QWORD **)(a1 + 72);
     for ( i = -1; v5 != (_QWORD *)(a1 + 72); v5 = (_QWORD *)*v5 )
     {
@@ -70,14 +70,14 @@ _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1)
         }
       }
     }
-    RtlReleaseSRWLockExclusive(a1 + 64);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v2 = v14;
   }
   for ( result = &v14; v2 != &v14; result = &v14 )
   {
-    v13 = v2;
+    v13 = (__int64)v2;
     v2 = (_QWORD *)*v2;
-    RtlpHpSegSegmentFree(a1, v13, 0x7FFFFFFFLL, 1LL);
+    RtlpHpSegSegmentFree(a1, v13, 0x7FFFFFFFu, 1);
   }
   return result;
 }

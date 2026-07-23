@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     __GSHandlerCheckCommon @ 0x1403E51F8 (__GSHandlerCheckCommon.c)
+ *     sub_1403E51F8 @ 0x1403E51F8 (sub_1403E51F8.c)
  */
 
 __int64 __fastcall _GSHandlerCheck(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _GSHandlerCheckCommon(a2, a4, *(_QWORD *)(a4 + 56));
+  sub_1403E51F8(a2, a4, *(_QWORD *)(a4 + 56));
   return 1LL;
 }

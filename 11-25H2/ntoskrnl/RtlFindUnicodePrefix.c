@@ -16,8 +16,8 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
 {
   PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // r14
   CSHORT i; // ax
-  RTL_SPLAY_LINKS *p_Links; // r15
-  UNICODE_PREFIX_TABLE_ENTRY *v7; // rdi
+  _RTL_SPLAY_LINKS *p_Links; // r15
+  _UNICODE_PREFIX_TABLE_ENTRY *v7; // rdi
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   __int16 v9; // dx
   unsigned __int16 v10; // r8
@@ -33,7 +33,7 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
   unsigned __int64 v20; // rax
   _RTL_SPLAY_LINKS *v21; // rbx
   PRTL_SPLAY_LINKS v22; // rax
-  UNICODE_PREFIX_TABLE_ENTRY *v24; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v24; // rbx
   PUNICODE_PREFIX_TABLE v25; // [rsp+60h] [rbp+8h]
 
   v25 = PrefixTable;
@@ -59,7 +59,7 @@ LABEL_48:
     }
     break;
   }
-  v7 = (UNICODE_PREFIX_TABLE_ENTRY *)&p_Links[-1];
+  v7 = (_UNICODE_PREFIX_TABLE_ENTRY *)&p_Links[-1];
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
   v12 = *v11 >> 1;
   Flink = CurrentServerSiloGlobals[75].Flink;
@@ -167,7 +167,7 @@ LABEL_33:
   if ( (unsigned int)v12 > v14 )
     goto LABEL_18;
 LABEL_40:
-  v7 = (UNICODE_PREFIX_TABLE_ENTRY *)&p_Links[-1];
+  v7 = (_UNICODE_PREFIX_TABLE_ENTRY *)&p_Links[-1];
 LABEL_41:
   if ( CaseInsensitiveIndex )
   {
@@ -189,7 +189,7 @@ LABEL_41:
       NextPrefixTree->NodeTypeCode = 2050;
       v22 = RtlSplay(p_Links);
       LOWORD(v22[-1].Parent) = 2049;
-      v7 = (UNICODE_PREFIX_TABLE_ENTRY *)&v22[-1];
+      v7 = (_UNICODE_PREFIX_TABLE_ENTRY *)&v22[-1];
       v25->NextPrefixTree = (PUNICODE_PREFIX_TABLE_ENTRY)&v22[-1];
       v22[-1].LeftChild = v21;
     }

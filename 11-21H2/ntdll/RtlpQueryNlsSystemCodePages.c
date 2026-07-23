@@ -11,57 +11,55 @@
  *     NtQueryValueKey @ 0x1800A4350 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall RtlpQueryNlsSystemCodePages(int *a1, int *a2)
+__int64 __fastcall RtlpQueryNlsSystemCodePages(PULONG Value, PULONG a2)
 {
-  int ValueKey; // ebx
-  HANDLE Handle; // [rsp+38h] [rbp-51h]
-  UNICODE_STRING v7; // [rsp+40h] [rbp-49h] BYREF
-  UNICODE_STRING v8; // [rsp+50h] [rbp-39h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-29h] BYREF
-  int v10; // [rsp+70h] [rbp-19h]
-  __int64 v11; // [rsp+78h] [rbp-11h]
-  UNICODE_STRING *p_DestinationString; // [rsp+80h] [rbp-9h]
-  int v13; // [rsp+88h] [rbp-1h]
-  __int128 v14; // [rsp+90h] [rbp+7h]
-  int v15; // [rsp+A4h] [rbp+1Bh]
+  NTSTATUS v4; // ebx
+  ULONG ResultLength; // [rsp+30h] [rbp-59h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-51h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+40h] [rbp-49h] BYREF
+  _UNICODE_STRING String; // [rsp+50h] [rbp-39h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-29h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-19h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+A0h] [rbp+17h] BYREF
+  int v13; // [rsp+A4h] [rbp+1Bh]
   WCHAR SourceString[11]; // [rsp+ACh] [rbp+23h] BYREF
-  __int16 v17; // [rsp+C2h] [rbp+39h]
+  __int16 v15; // [rsp+C2h] [rbp+39h]
 
-  *a1 = 65001;
+  *Value = 65001;
   *a2 = 65001;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Nls\\CodePage");
-  v10 = 48;
-  p_DestinationString = &DestinationString;
-  v13 = 576;
-  v11 = 0LL;
-  v14 = 0LL;
-  if ( (int)NtOpenKey() < 0 )
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes) < 0 )
     goto LABEL_9;
-  RtlInitUnicodeString(&v7, L"ACP");
-  ValueKey = NtQueryValueKey();
-  if ( ValueKey >= 0 )
+  RtlInitUnicodeString(&ValueName, L"ACP");
+  v4 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x24u, &ResultLength);
+  if ( v4 >= 0 )
   {
-    if ( v15 != 1
-      || (v17 = 0,
-          RtlInitUnicodeString(&v8, SourceString),
-          ValueKey = RtlUnicodeStringToInteger(&v8.Length, 0xAu, a1),
-          ValueKey >= 0) )
+    if ( v13 != 1
+      || (v15 = 0,
+          RtlInitUnicodeString(&String, SourceString),
+          v4 = RtlUnicodeStringToInteger(&String, 0xAu, Value),
+          v4 >= 0) )
     {
-      RtlInitUnicodeString(&v7, L"OEMCP");
-      ValueKey = NtQueryValueKey();
-      if ( ValueKey >= 0 && v15 == 1 )
+      RtlInitUnicodeString(&ValueName, L"OEMCP");
+      v4 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x24u, &ResultLength);
+      if ( v4 >= 0 && v13 == 1 )
       {
-        v17 = 0;
-        RtlInitUnicodeString(&v8, SourceString);
-        ValueKey = RtlUnicodeStringToInteger(&v8.Length, 0xAu, a2);
+        v15 = 0;
+        RtlInitUnicodeString(&String, SourceString);
+        v4 = RtlUnicodeStringToInteger(&String, 0xAu, a2);
       }
     }
   }
-  NtClose(Handle);
-  if ( ValueKey < 0 )
+  NtClose(KeyHandle);
+  if ( v4 < 0 )
   {
 LABEL_9:
-    *a1 = 65001;
+    *Value = 65001;
     *a2 = 65001;
   }
   return 0LL;

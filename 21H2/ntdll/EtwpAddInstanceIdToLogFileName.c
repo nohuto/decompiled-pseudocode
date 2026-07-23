@@ -3,15 +3,15 @@
  * Callers:
  *     EtwpInitLoggerContext @ 0x1800494AC (EtwpInitLoggerContext.c)
  *     EtwpFlushUmLogger @ 0x18004FA7C (EtwpFlushUmLogger.c)
- *     EtwpUpdateUmLogger @ 0x180111500 (EtwpUpdateUmLogger.c)
+ *     EtwpUpdateUmLogger @ 0x1801114C0 (EtwpUpdateUmLogger.c)
  * Callees:
  *     RtlCreateUnicodeString @ 0x180038AF0 (RtlCreateUnicodeString.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     StringCchCopyW @ 0x1800DE0AC (StringCchCopyW.c)
- *     StringCchPrintfW @ 0x1800DE138 (StringCchPrintfW.c)
+ *     StringCchCopyW @ 0x1800DE06C (StringCchCopyW.c)
+ *     StringCchPrintfW @ 0x1800DE0F8 (StringCchPrintfW.c)
  */
 
-__int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a3)
+__int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
   const wchar_t *v4; // r8
   int UniqueProcess; // r9d
@@ -20,8 +20,8 @@ __int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a3
   int v8; // [rsp+20h] [rbp-828h]
   wchar_t pszDest[1024]; // [rsp+30h] [rbp-818h] BYREF
 
-  *a3 = 0LL;
-  a3[1] = 0LL;
+  *(_QWORD *)&a3->Length = 0LL;
+  a3->Buffer = 0LL;
   v4 = *(const wchar_t **)(a1 + 136);
   UniqueProcess = (int)NtCurrentTeb()->ClientId.UniqueProcess;
   *(_DWORD *)(a1 + 100) = UniqueProcess;
@@ -44,7 +44,7 @@ __int64 __fastcall EtwpAddInstanceIdToLogFileName(__int64 a1, int a2, _QWORD *a3
       return (unsigned __int16)result;
     v6 = pszDest;
   }
-  if ( RtlCreateUnicodeString((__int64)a3, v6) )
+  if ( RtlCreateUnicodeString(a3, v6) )
     return 0LL;
   else
     return 8LL;

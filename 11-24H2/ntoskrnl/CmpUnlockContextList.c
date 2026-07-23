@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpUnlockContextList @ 0x14098B2A0
+ * XREFs of CmpUnlockContextList @ 0x1409758B0
  * Callers:
- *     CmUnRegisterCallback @ 0x1407D1530 (CmUnRegisterCallback.c)
- *     CmpCallbackFillObjectContext @ 0x1408487F0 (CmpCallbackFillObjectContext.c)
- *     CmSetCallbackObjectContext @ 0x14098AF60 (CmSetCallbackObjectContext.c)
+ *     CmUnRegisterCallback @ 0x1407D1A20 (CmUnRegisterCallback.c)
+ *     CmpCallbackFillObjectContext @ 0x140844AB0 (CmpCallbackFillObjectContext.c)
+ *     CmSetCallbackObjectContext @ 0x140975570 (CmSetCallbackObjectContext.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 CmpUnlockContextList()

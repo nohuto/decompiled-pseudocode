@@ -9,27 +9,27 @@
  *     bsearch @ 0x180091F30 (bsearch.c)
  */
 
-__int64 __fastcall RtlQueryProtectedPolicy(void *Key, _QWORD *a2, unsigned __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl RtlQueryProtectedPolicy(PGUID PolicyGuid, PULONG_PTR PolicyValue)
 {
-  unsigned int v6; // ebx
-  _QWORD *v8; // rax
+  NTSTATUS v4; // ebx
+  _QWORD *v6; // rax
 
-  v6 = -1073741275;
+  v4 = -1073741275;
   if ( RtlpProtectedPolicies )
   {
-    RtlAcquireSRWLockShared(&RtlpProtectedPoliciesSRWLock, (unsigned __int64)a2, a3, a4);
-    v8 = bsearch(
-           Key,
+    RtlAcquireSRWLockShared(&RtlpProtectedPoliciesSRWLock);
+    v6 = bsearch(
+           PolicyGuid,
            RtlpProtectedPolicies,
            (unsigned int)RtlpProtectedPoliciesActiveCount,
            0x18uLL,
            (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareActivationContextGuidSectionEntryByGuid);
-    if ( v8 )
+    if ( v6 )
     {
-      v6 = 0;
-      *a2 = v8[2];
+      v4 = 0;
+      *PolicyValue = v6[2];
     }
     RtlReleaseSRWLockShared(&RtlpProtectedPoliciesSRWLock);
   }
-  return v6;
+  return v4;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReplicatePteChangeToProcess @ 0x1403684E4
+ * XREFs of MiReplicatePteChangeToProcess @ 0x140368684
  * Callers:
- *     MiReplicatePteChange @ 0x140368300 (MiReplicatePteChange.c)
+ *     MiReplicatePteChange @ 0x1403684A0 (MiReplicatePteChange.c)
  * Callees:
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiShadowTopLevelPxes @ 0x1402929BC (MiShadowTopLevelPxes.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiTransformValidPteInPlace @ 0x1403C317C (MiTransformValidPteInPlace.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiShadowTopLevelPxes @ 0x140292C4C (MiShadowTopLevelPxes.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiTransformValidPteInPlace @ 0x1403C335C (MiTransformValidPteInPlace.c)
  */
 
 struct _KTHREAD *__fastcall MiReplicatePteChangeToProcess(__int64 a1, unsigned __int64 a2)

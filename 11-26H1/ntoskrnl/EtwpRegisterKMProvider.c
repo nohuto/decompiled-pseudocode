@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwpRegisterKMProvider @ 0x14093B298
+ * XREFs of EtwpRegisterKMProvider @ 0x140916E38
  * Callers:
- *     EtwRegister @ 0x14093BDE0 (EtwRegister.c)
- *     EtwRegisterClassicProvider @ 0x14093BE30 (EtwRegisterClassicProvider.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     EtwRegister @ 0x140917980 (EtwRegister.c)
+ *     EtwRegisterClassicProvider @ 0x1409179D0 (EtwRegisterClassicProvider.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpFindOrCreateGuidEntry @ 0x1409348B0 (EtwpFindOrCreateGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x140936B20 (EtwpUnreferenceGuidEntry.c)
- *     EtwpTrackProviderRegistration @ 0x140936F80 (EtwpTrackProviderRegistration.c)
- *     EtwpCopySchematizedFilters @ 0x1409370E8 (EtwpCopySchematizedFilters.c)
- *     EtwpGetSchematizedFilterSize @ 0x14093A2C0 (EtwpGetSchematizedFilterSize.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x14093A660 (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpAddKmRegEntry @ 0x14093B68C (EtwpAddKmRegEntry.c)
- *     EtwpUpdateEnableMask @ 0x140A6F8F4 (EtwpUpdateEnableMask.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpFindOrCreateGuidEntry @ 0x140910460 (EtwpFindOrCreateGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1409126C0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpTrackProviderRegistration @ 0x140912B20 (EtwpTrackProviderRegistration.c)
+ *     EtwpCopySchematizedFilters @ 0x140912C88 (EtwpCopySchematizedFilters.c)
+ *     EtwpGetSchematizedFilterSize @ 0x140915E60 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x140916200 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpAddKmRegEntry @ 0x14091722C (EtwpAddKmRegEntry.c)
+ *     EtwpUpdateEnableMask @ 0x14097A288 (EtwpUpdateEnableMask.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRegisterKMProvider(
@@ -86,15 +86,15 @@ __int64 __fastcall EtwpRegisterKMProvider(
   *(_QWORD *)&v52 = a7;
   v51 = a2;
   *a7 = 0LL;
-  v11 = *(_QWORD *)a2 - SecurityProviderGuid;
-  v10 = *(_QWORD *)a2 == (_QWORD)SecurityProviderGuid;
+  v11 = *(_QWORD *)a2 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  v10 = *(_QWORD *)a2 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v50 = a5;
   BugCheckParameter2 = 0LL;
   v49 = 0LL;
   UserData = 0LL;
   v54 = 0LL;
   if ( v10 )
-    v11 = *(_QWORD *)(a2 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+    v11 = *(_QWORD *)(a2 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v11 )
     return 3221225506LL;
   if ( !a4 && a5 || a3 != 3 && (a3 != 2 || !a4) )
@@ -196,7 +196,7 @@ __int64 __fastcall EtwpRegisterKMProvider(
           v7 = v51;
         }
       }
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_PROVIDER_REGISTER) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_PROVIDER_REGISTER) )
       {
         v27 = 0;
         if ( v7 )
@@ -205,7 +205,12 @@ __int64 __fastcall EtwpRegisterKMProvider(
           v27 = 1;
           *(_QWORD *)&UserData.Size = 16LL;
         }
-        EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_PROVIDER_REGISTER, 0LL, v27, &UserData);
+        EtwWrite(
+          (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+          &ETW_EVENT_PROVIDER_REGISTER,
+          0LL,
+          v27,
+          &UserData);
       }
     }
     *(_QWORD *)(v16 + 672) = 0LL;

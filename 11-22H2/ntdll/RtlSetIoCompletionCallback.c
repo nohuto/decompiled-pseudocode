@@ -11,21 +11,21 @@
  *     RtlpTpIoLookup @ 0x180126D5C (RtlpTpIoLookup.c)
  */
 
-__int64 __fastcall RtlSetIoCompletionCallback(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlSetIoCompletionCallback(HANDLE FileHandle, APC_CALLBACK_FUNCTION CompletionProc, ULONG Flags)
 {
   int v6; // ebx
   char v7; // al
   __int64 v8; // rdx
   __int64 v9; // [rsp+28h] [rbp-10h] BYREF
-  HANDLE v10; // [rsp+58h] [rbp+20h] BYREF
+  HANDLE TokenHandle; // [rsp+58h] [rbp+20h] BYREF
 
-  v10 = 0LL;
+  TokenHandle = 0LL;
   v9 = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 3221225473LL;
-  if ( !a1 || (_DWORD)a3 )
-    return 3221225485LL;
-  v6 = RtlpTpRevertCapture(&v10, 0, a3);
+    return -1073741823;
+  if ( !FileHandle || Flags )
+    return -1073741811;
+  v6 = RtlpTpRevertCapture(&TokenHandle, 0);
   if ( v6 >= 0 )
   {
     if ( RtlpTpIoRegistered )
@@ -37,7 +37,11 @@ __int64 __fastcall RtlSetIoCompletionCallback(__int64 a1, __int64 a2, __int64 a3
     }
     else
     {
-      v6 = LdrRegisterDllNotification(0, (__int64)RtlpTpIoDllNotification, 0LL, &RtlpTpIoDllNotificationCookie);
+      v6 = LdrRegisterDllNotification(
+             0,
+             (PLDR_DLL_NOTIFICATION_FUNCTION)RtlpTpIoDllNotification,
+             0LL,
+             &RtlpTpIoDllNotificationCookie);
       v7 = RtlpTpIoRegistered;
       if ( v6 >= 0 )
         v7 = 1;
@@ -47,7 +51,7 @@ __int64 __fastcall RtlSetIoCompletionCallback(__int64 a1, __int64 a2, __int64 a3
     if ( v6 >= 0 )
     {
 LABEL_13:
-      v6 = RtlpTpIoLookup(&v9, a2, a1);
+      v6 = RtlpTpIoLookup(&v9, CompletionProc, FileHandle);
       if ( v6 >= 0 )
       {
         v8 = v9;
@@ -57,6 +61,6 @@ LABEL_13:
       }
     }
   }
-  RtlpTpResumeImpersonation(v10);
-  return (unsigned int)v6;
+  RtlpTpResumeImpersonation(TokenHandle);
+  return v6;
 }

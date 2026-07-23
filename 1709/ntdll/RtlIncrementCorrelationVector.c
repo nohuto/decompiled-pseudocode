@@ -10,50 +10,49 @@
  *     RtlpGetCorrelationVectorBufferLength @ 0x1800F554C (RtlpGetCorrelationVectorBufferLength.c)
  */
 
-__int64 __fastcall RtlIncrementCorrelationVector(__int64 a1, __int64 a2)
+DWORD __cdecl RtlIncrementCorrelationVector(PCORRELATION_VECTOR CorrelationVector)
 {
-  unsigned int v2; // ebx
+  __int64 v1; // rdx
+  DWORD v2; // ebx
   int CorrelationVectorBufferLength; // ebp
   int v4; // edi
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  int v10; // r9d
-  __int64 v11; // rax
-  __int64 v12; // rsi
-  int v13; // eax
-  int v15; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  int v9; // r9d
+  __int64 v10; // rax
+  __int64 v11; // rsi
+  int v12; // eax
+  int v14; // [rsp+30h] [rbp-28h] BYREF
   char Buffer[16]; // [rsp+38h] [rbp-20h] BYREF
 
   v2 = 0;
-  v15 = 0;
-  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(a1, a2, a1);
+  v14 = 0;
+  CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength(CorrelationVector, v1);
   v4 = -1;
-  v8 = (int)RtlpGetCorrelationVectorBufferLength(v6, v5, v7);
-  v11 = 0LL;
-  if ( v8 <= 0 )
-    return (unsigned int)-2147483643;
+  v7 = (int)RtlpGetCorrelationVectorBufferLength(v6, v5);
+  v10 = 0LL;
+  if ( v7 <= 0 )
+    return -2147483643;
   do
   {
-    if ( !*(_BYTE *)(v9 + v11 + 1) )
+    if ( !*(_BYTE *)(v8 + v10 + 1) )
       break;
-    if ( *(_BYTE *)(v9 + v11 + 1) == 46 )
-      v4 = v10;
+    if ( *(_BYTE *)(v8 + v10 + 1) == 46 )
+      v4 = v9;
+    ++v9;
     ++v10;
-    ++v11;
   }
-  while ( v11 < v8 );
-  if ( v4 >= 0
-    && (v12 = v9 + v4 + 1, sscanf_s((const char *const)(v12 + 1), "%d", &v15) == 1)
-    && (++v15, v13 = snprintf_s(Buffer, 0xCuLL, 0xCuLL, "%d", v15), v13 < CorrelationVectorBufferLength - v4 - 2) )
-  {
-    strcpy_s((char *)(v12 + 1), v13 + 1, Buffer);
-  }
-  else
-  {
-    return (unsigned int)-2147483643;
-  }
+  while ( v10 < v7 );
+  if ( v4 < 0 )
+    return -2147483643;
+  v11 = v8 + v4 + 1;
+  if ( sscanf_s((const char *const)(v11 + 1), "%d", &v14) != 1 )
+    return -2147483643;
+  v12 = snprintf_s(Buffer, 0xCuLL, 0xCuLL, "%d", ++v14);
+  if ( v12 >= CorrelationVectorBufferLength - v4 - 2 )
+    return -2147483643;
+  strcpy_s((char *)(v11 + 1), v12 + 1, Buffer);
   return v2;
 }

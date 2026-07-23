@@ -20,7 +20,7 @@ __int64 __fastcall sub_1800797B8(__int64 a1, volatile signed __int64 *a2)
   int v12; // edx
   signed __int64 v13; // rax
   int v14; // ecx
-  __int64 v15; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   signed __int64 v16; // [rsp+40h] [rbp+8h]
   signed __int64 v17; // [rsp+40h] [rbp+8h]
 
@@ -71,15 +71,15 @@ __int64 __fastcall sub_1800797B8(__int64 a1, volatile signed __int64 *a2)
       }
       while ( v13 != _InterlockedCompareExchange64(a2 + 20, v17, v13) );
       *(_QWORD *)a1 = a2;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+      if ( RtlGetCurrentServiceSessionId() )
+        UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
       else
-        v15 = 2147353472LL;
-      if ( *(_BYTE *)v15 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+        UserModeGlobalLogger = 2147353472LL;
+      if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
         sub_180103010(
           *(_QWORD *)(*(_QWORD *)(*a2 + 24) + 24LL),
           *(_QWORD *)(a1 + 8),
-          (unsigned int)LOBYTE(NtCurrentTeb()->HeapVirtualAffinity) - 1);
+          (unsigned int)LOBYTE(NtCurrentTeb()->HeapData) - 1);
     }
     else
     {

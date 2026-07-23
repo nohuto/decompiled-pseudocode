@@ -1,20 +1,20 @@
 /*
- * XREFs of SLGetSubscriptionPfn @ 0x1407B9708
+ * XREFs of SLGetSubscriptionPfn @ 0x1407B9B58
  * Callers:
- *     SLQueryLicenseValueInternal @ 0x1407B99EC (SLQueryLicenseValueInternal.c)
+ *     SLQueryLicenseValueInternal @ 0x1407B9E3C (SLQueryLicenseValueInternal.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ExpQueryLicenseValueFromBlobHelper @ 0x1404AFA20 (ExpQueryLicenseValueFromBlobHelper.c)
- *     _local_unwind @ 0x1404FDE70 (_local_unwind.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExpQueryLicenseValueFromBlobHelper @ 0x1404AA410 (ExpQueryLicenseValueFromBlobHelper.c)
+ *     _local_unwind @ 0x1404FB730 (_local_unwind.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
@@ -22,10 +22,10 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
   unsigned int v4; // r14d
   void *v5; // rax
   volatile signed __int64 *v7; // rdi
-  _QWORD *v8; // rax
-  _QWORD *v9; // r15
+  char *v8; // rax
+  char *v9; // r15
   int v10; // r15d
-  _QWORD *v11; // r14
+  char *v11; // r14
   _OWORD *Pool2; // rcx
   __int64 v13; // [rsp+0h] [rbp-88h] BYREF
   int LicenseValueFromBlobHelper; // [rsp+30h] [rbp-58h]
@@ -45,19 +45,19 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     v7 = (volatile signed __int64 *)(a1 + 46840);
-    v11 = KeAbPreAcquire(a1 + 46840, 0LL);
+    v11 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 46840), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 46840), 0, v11, a1 + 46840);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
     if ( *(_BYTE *)(a1 + 46856) )
     {
-      Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_OWORD *)ExAllocatePool2(0x100uLL, 0x82uLL, 0x20534C53u);
       P = Pool2;
       if ( !Pool2 )
       {
         LicenseValueFromBlobHelper = -1073741595;
-        local_unwind((int)v17, (int)&loc_1407B97D6);
+        local_unwind(v17, &loc_1407B9C26);
       }
       *Pool2 = *(_OWORD *)(a1 + 46858);
       Pool2[1] = *(_OWORD *)(a1 + 46874);
@@ -76,7 +76,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
   {
     LicenseValueFromBlobHelper = ExpQueryLicenseValueFromBlobHelper(
                                    a1,
-                                   (__int64)&qword_140B3B718,
+                                   (__int64)&qword_140B3D4D0,
                                    0LL,
                                    0LL,
                                    0,
@@ -84,7 +84,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
     if ( LicenseValueFromBlobHelper == -1073741789 )
     {
       v4 = v18;
-      v5 = (void *)ExAllocatePool2(0x100uLL);
+      v5 = (void *)ExAllocatePool2(0x100uLL, v18, 0x20534C53u);
       P = v5;
       if ( !v5 || v4 > 0x82 )
       {
@@ -93,7 +93,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
       }
       LicenseValueFromBlobHelper = ExpQueryLicenseValueFromBlobHelper(
                                      a1,
-                                     (__int64)&qword_140B3B718,
+                                     (__int64)&qword_140B3D4D0,
                                      0LL,
                                      (__int64)v5,
                                      v4,
@@ -102,12 +102,12 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
     v19 = KeGetCurrentThread();
     --v19->KernelApcDisable;
     v7 = (volatile signed __int64 *)(a1 + 46840);
-    v8 = KeAbPreAcquire(a1 + 46840, 0LL);
+    v8 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
     v9 = v8;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 46840), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), (__int64)v8, a1 + 46840);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 46840), v8, a1 + 46840);
     if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+      v9[10] = 1;
     if ( !*(_BYTE *)(a1 + 46856) )
     {
       v10 = LicenseValueFromBlobHelper;

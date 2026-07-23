@@ -1,11 +1,11 @@
 /*
- * XREFs of MiChangeSlabEntryIdentity @ 0x140705BF8
+ * XREFs of MiChangeSlabEntryIdentity @ 0x14070A8C8
  * Callers:
- *     MiReplenishSlabAllocatorByIdentity @ 0x140506498 (MiReplenishSlabAllocatorByIdentity.c)
- *     MiDeleteSlabEntriesForIdentity @ 0x1407067E0 (MiDeleteSlabEntriesForIdentity.c)
+ *     MiReplenishSlabAllocatorByIdentity @ 0x1404FFD48 (MiReplenishSlabAllocatorByIdentity.c)
+ *     MiDeleteSlabEntriesForIdentity @ 0x14070B4B0 (MiDeleteSlabEntriesForIdentity.c)
  * Callees:
- *     MiSetSlabTypeIdentifiers @ 0x140206F68 (MiSetSlabTypeIdentifiers.c)
- *     MiClearHintSlabEntry @ 0x1402A9900 (MiClearHintSlabEntry.c)
+ *     MiSetSlabTypeIdentifiers @ 0x140207048 (MiSetSlabTypeIdentifiers.c)
+ *     MiClearHintSlabEntry @ 0x1402A8D10 (MiClearHintSlabEntry.c)
  */
 
 char __fastcall MiChangeSlabEntryIdentity(__int64 a1, __int64 a2)

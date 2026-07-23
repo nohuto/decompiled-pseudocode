@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptSha1Result @ 0x140561950
+ * XREFs of SymCryptSha1Result @ 0x140563E60
  * Callers:
- *     HashpFinalizeHash @ 0x1408AC1B4 (HashpFinalizeHash.c)
+ *     HashpFinalizeHash @ 0x1408B25F8 (HashpFinalizeHash.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptSha1AppendBlocks @ 0x140560710 (SymCryptSha1AppendBlocks.c)
- *     SymCryptSha1Init @ 0x140561920 (SymCryptSha1Init.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptSha1AppendBlocks @ 0x140562C20 (SymCryptSha1AppendBlocks.c)
+ *     SymCryptSha1Init @ 0x140563E30 (SymCryptSha1Init.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SymCryptSha1Result(unsigned int *a1, _QWORD *a2)

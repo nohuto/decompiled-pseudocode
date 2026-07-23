@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpMarkCurrentValueDirty @ 0x14084C198
+ * XREFs of CmpMarkCurrentValueDirty @ 0x1408524A8
  * Callers:
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1408D7490 (CmpFindSubKeyByNameWithStatus.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1408DDA50 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
  */
 
 __int64 __fastcall CmpMarkCurrentValueDirty(ULONG_PTR BugCheckParameter3, __int64 a2)

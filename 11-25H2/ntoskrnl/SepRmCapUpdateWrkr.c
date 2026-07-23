@@ -62,7 +62,7 @@ void __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)
     v9 = (volatile signed __int64 *)SepRmCapTable;
     SepRmCapTable = v13;
     SepRmEnforceCap = v13 != 0;
-    if ( v13 && (_DWORD)InitSafeBootMode == 1 )
+    if ( v13 && InitSafeBootMode == 1 )
     {
       SepRmDereferenceCapTable((volatile signed __int64 *)SepRmCapTable);
       SepRmCapTable = 0LL;

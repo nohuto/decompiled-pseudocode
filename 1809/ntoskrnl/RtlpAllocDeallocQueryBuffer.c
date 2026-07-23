@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpAllocDeallocQueryBuffer @ 0x1405C5CC8
+ * XREFs of RtlpAllocDeallocQueryBuffer @ 0x1405C6CC8
  * Callers:
- *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1405C68AC (RtlpQueryRegistryValues.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 PVOID __fastcall RtlpAllocDeallocQueryBuffer(SIZE_T *a1, void *a2, __int64 a3, int *a4)

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiDeleteEnclavePages @ 0x140C01AD8
+ * XREFs of MiDeleteEnclavePages @ 0x140C07CE8
  * Callers:
- *     MiCreateHardwareEnclave @ 0x1408760F0 (MiCreateHardwareEnclave.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140C01874 (MiDeleteAllHardwareEnclaves.c)
+ *     MiCreateHardwareEnclave @ 0x14087C4D4 (MiCreateHardwareEnclave.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140C07A84 (MiDeleteAllHardwareEnclaves.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiDeleteEnclavePage @ 0x140340600 (MiDeleteEnclavePage.c)
- *     KeRemoveEnclavePage @ 0x140341200 (KeRemoveEnclavePage.c)
- *     MiReturnEnclavePage @ 0x140341F44 (MiReturnEnclavePage.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PsDeleteVsmEnclave @ 0x1407FEB08 (PsDeleteVsmEnclave.c)
- *     MiReturnReservedEnclavePages @ 0x140C01D98 (MiReturnReservedEnclavePages.c)
- *     MiTerminateHardwareEnclave @ 0x140C01E04 (MiTerminateHardwareEnclave.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiDeleteEnclavePage @ 0x140342680 (MiDeleteEnclavePage.c)
+ *     KeRemoveEnclavePage @ 0x140343280 (KeRemoveEnclavePage.c)
+ *     MiReturnEnclavePage @ 0x140343FC4 (MiReturnEnclavePage.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PsDeleteVsmEnclave @ 0x140804538 (PsDeleteVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x140C07FA8 (MiReturnReservedEnclavePages.c)
+ *     MiTerminateHardwareEnclave @ 0x140C08014 (MiTerminateHardwareEnclave.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteEnclavePages(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -61,21 +61,21 @@ void __fastcall MiDeleteEnclavePages(__int64 a1, __int64 a2, __int64 a3, struct 
           KeBugCheckEx(0x1Au, 0x51601uLL, v7, v8, 0LL);
         MiDeleteEnclavePage(v7, 0LL);
       }
-      MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v7, 1u);
+      MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v7, 1u);
       v9 = *(void **)(a2 + 96);
       if ( v9 )
         ExFreePoolWithTag(v9, 0);
       MiReturnReservedEnclavePages(a2, -1LL);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      v12 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558.StateSaveArea, 0LL, 0LL, v11);
-      v14 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E36558.StateSaveArea, 0LL);
+      v12 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8.StateSaveArea, 0LL, 0LL, v11);
+      v14 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E366D8.StateSaveArea, 0LL);
       v15 = v12;
       if ( v14 )
         ExfAcquirePushLockExclusiveEx(
-          (unsigned __int64 *)&stru_140E36558.StateSaveArea,
+          (unsigned __int64 *)&stru_140E366D8.StateSaveArea,
           v12,
-          (__int64)&stru_140E36558.StateSaveArea);
+          (__int64)&stru_140E366D8.StateSaveArea);
       if ( v15 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -89,20 +89,20 @@ void __fastcall MiDeleteEnclavePages(__int64 a1, __int64 a2, __int64 a3, struct 
       *v17 = v16;
       *(_QWORD *)(v16 + 8) = v17;
       *v6 = 0LL;
-      if ( *(struct _KTHREAD **)&stru_140E36558.CurrentRunTime == (struct _KTHREAD *)&stru_140E36558.CurrentRunTime )
+      if ( *(struct _KTHREAD **)&stru_140E366D8.CurrentRunTime == (struct _KTHREAD *)&stru_140E366D8.CurrentRunTime )
       {
-        KeRemoveEnclavePage((__int64)stru_140E36558.StackLimit);
-        PteAddress = (unsigned __int64 *)MiGetPteAddress((unsigned __int64)stru_140E36558.StackLimit);
-        stru_140E36558.StackLimit = 0LL;
+        KeRemoveEnclavePage((__int64)stru_140E366D8.StackLimit);
+        PteAddress = (unsigned __int64 *)MiGetPteAddress((unsigned __int64)stru_140E366D8.StackLimit);
+        stru_140E366D8.StackLimit = 0LL;
         v19 = *PteAddress;
-        MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, PteAddress, 1u);
+        MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, PteAddress, 1u);
         MiReturnEnclavePage((v19 >> 12) & 0xFFFFFFFFFFLL, v20);
       }
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E36558.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E36558.StateSaveArea);
-      KeAbPostRelease((unsigned __int64)&stru_140E36558.StateSaveArea);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E366D8.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E366D8.StateSaveArea);
+      KeAbPostRelease((unsigned __int64)&stru_140E366D8.StateSaveArea);
       if ( CurrentThread->SpecialApcDisable++ == -1
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v22, v21);
       }

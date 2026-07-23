@@ -1,18 +1,18 @@
 /*
- * XREFs of HalGetEnvironmentVariableEx @ 0x14035E920
+ * XREFs of HalGetEnvironmentVariableEx @ 0x14035EAC0
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B419C (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     IoSaveInitialBugCheckProgress @ 0x140550BF0 (IoSaveInitialBugCheckProgress.c)
- *     IopGetEnvironmentVariableHal @ 0x1407D3470 (IopGetEnvironmentVariableHal.c)
- *     NtQueryDriverEntryOrder @ 0x1409FF2E0 (NtQueryDriverEntryOrder.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140AA09AC (PopSetMemoryOverwriteRequestAction.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B437C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     IoSaveInitialBugCheckProgress @ 0x1405512B0 (IoSaveInitialBugCheckProgress.c)
+ *     IopGetEnvironmentVariableHal @ 0x1407D3740 (IopGetEnvironmentVariableHal.c)
+ *     NtQueryDriverEntryOrder @ 0x1409FF570 (NtQueryDriverEntryOrder.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140AA081C (PopSetMemoryOverwriteRequestAction.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     HalEfiGetEnvironmentVariable @ 0x14035EA6C (HalEfiGetEnvironmentVariable.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     _alloca_probe @ 0x140429B10 (_alloca_probe.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     HalEfiGetEnvironmentVariable @ 0x14035EC0C (HalEfiGetEnvironmentVariable.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     _alloca_probe @ 0x140429EA0 (_alloca_probe.c)
  */
 
 __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, int a2, __int64 a3, _DWORD *a4, __int64 a5)
@@ -30,8 +30,8 @@ __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, int a2, __int6
   unsigned int EnvironmentVariable; // edi
   __int64 result; // rax
   wchar_t Dst[4]; // [rsp+30h] [rbp+0h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp+8h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp+18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp+8h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp+18h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool __stdcall RtlIsGenericTableEmpty(_DWORD *a1)
+BOOLEAN __cdecl RtlIsGenericTableEmpty(PRTL_GENERIC_TABLE Table)
 {
-  return *a1 == 0;
+  return Table->TableRoot == 0;
 }

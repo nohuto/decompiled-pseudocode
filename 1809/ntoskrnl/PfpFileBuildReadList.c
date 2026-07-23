@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpFileBuildReadList @ 0x14065F118
+ * XREFs of PfpFileBuildReadList @ 0x1406602D8
  * Callers:
- *     PfpFileBuildReadSupport @ 0x14065F2C0 (PfpFileBuildReadSupport.c)
+ *     PfpFileBuildReadSupport @ 0x140660480 (PfpFileBuildReadSupport.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpFileBuildReadList(__int64 a1, __int64 a2, char a3, _QWORD *a4)

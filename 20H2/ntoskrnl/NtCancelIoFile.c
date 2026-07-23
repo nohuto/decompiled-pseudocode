@@ -11,13 +11,13 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F1DD4 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtCancelIoFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)
 {
   char v4; // r15
   struct _KTHREAD *CurrentThread; // rdi
   KPROCESSOR_MODE PreviousMode; // r8
   __int64 v7; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _KTHREAD *v9; // rax
   unsigned __int8 CurrentIrql; // si
   unsigned int *p_SystemCallNumber; // rdi
@@ -45,12 +45,12 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( a2 < 0x7FFFFFFF0000LL )
-      v7 = a2;
+    if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
+      v7 = (__int64)IoStatusBlock;
     *(_DWORD *)v7 = *(_DWORD *)v7;
   }
-  result = IopReferenceFileObject(a1, 0, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 0, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  if ( result >= 0 )
   {
     v9 = KeGetCurrentThread();
     ++v9->OtherOperationCount;
@@ -131,10 +131,10 @@ __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
       (int)KeGetCurrentThread(),
       1,
       0);
-    *(_DWORD *)a2 = 0;
-    *(_QWORD *)(a2 + 8) = 0LL;
+    IoStatusBlock->Status = 0;
+    IoStatusBlock->Information = 0LL;
     HalPutDmaAdapter(v16);
-    return 0LL;
+    return 0;
   }
   return result;
 }

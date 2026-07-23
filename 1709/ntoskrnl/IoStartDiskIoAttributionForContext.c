@@ -10,61 +10,59 @@
  *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140066560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
-__int64 __fastcall IoStartDiskIoAttributionForContext(__int64 a1)
+__int64 __fastcall IoStartDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // al
-  __int64 v3; // r8
-  char v4; // bl
-  __int64 v5; // rdi
-  int v6; // esi
-  KIRQL v7; // r15
+  BOOLEAN v3; // bl
+  __int64 Root; // rdi
+  int v5; // esi
+  KIRQL v6; // r15
   __int64 result; // rax
-  __int64 v9; // rax
+  unsigned __int64 v8; // rax
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  v4 = 0;
-  v5 = IopDiskIoAttributionTree;
-  v6 = BYTE8(IopDiskIoAttributionTree) & 1;
-  v7 = v2;
-  if ( (_QWORD)IopDiskIoAttributionTree )
+  v3 = 0;
+  Root = (__int64)IopDiskIoAttributionTree.Root;
+  v5 = *(_BYTE *)&IopDiskIoAttributionTree.0 & 1;
+  v6 = v2;
+  if ( IopDiskIoAttributionTree.Root )
   {
     while ( 1 )
     {
-      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)(a1 + 24), v5) < 0 )
+      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)&Node[1], Root) < 0 )
       {
-        v9 = *(_QWORD *)v5;
-        if ( v6 )
+        v8 = *(_QWORD *)Root;
+        if ( v5 )
         {
-          if ( !v9 )
+          if ( !v8 )
             break;
-          v9 ^= v5;
+          v8 ^= Root;
         }
-        if ( !v9 )
+        if ( !v8 )
           break;
       }
       else
       {
-        v9 = *(_QWORD *)(v5 + 8);
-        if ( v6 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( v5 )
         {
-          if ( !v9 )
+          if ( !v8 )
           {
 LABEL_6:
-            v4 = 1;
+            v3 = 1;
             break;
           }
-          v9 ^= v5;
+          v8 ^= Root;
         }
-        if ( !v9 )
+        if ( !v8 )
           goto LABEL_6;
       }
-      v5 = v9;
+      Root = v8;
     }
   }
-  LOBYTE(v3) = v4;
-  RtlRbInsertNodeEx(&IopDiskIoAttributionTree, v5, v3, a1);
+  RtlRbInsertNodeEx(&IopDiskIoAttributionTree, (PRTL_BALANCED_NODE)Root, v3, Node);
   ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
-  result = v7;
-  __writecr8(v7);
+  result = v6;
+  __writecr8(v6);
   return result;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiResolveDemandZeroFault @ 0x140269D40
+ * XREFs of MiResolveDemandZeroFault @ 0x140269FD0
  * Callers:
- *     MiDispatchFault @ 0x140237F30 (MiDispatchFault.c)
- *     MiSystemFault @ 0x1402611A0 (MiSystemFault.c)
- *     MiResolveProtoPteFault @ 0x140267ED0 (MiResolveProtoPteFault.c)
+ *     MiDispatchFault @ 0x140238000 (MiDispatchFault.c)
+ *     MiSystemFault @ 0x140261430 (MiSystemFault.c)
+ *     MiResolveProtoPteFault @ 0x140268160 (MiResolveProtoPteFault.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiCheckVirtualAddress @ 0x14025AB00 (MiCheckVirtualAddress.c)
- *     MiCheckUserVirtualAddress @ 0x14025ADB0 (MiCheckUserVirtualAddress.c)
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
- *     MiResolvePrivateZeroFault @ 0x14026A380 (MiResolvePrivateZeroFault.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiCreateSharedZeroPages @ 0x1402E0DC0 (MiCreateSharedZeroPages.c)
- *     MiExpandSharedZeroCluster @ 0x1402F2598 (MiExpandSharedZeroCluster.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiCheckVirtualAddress @ 0x14025AD90 (MiCheckVirtualAddress.c)
+ *     MiCheckUserVirtualAddress @ 0x14025B040 (MiCheckUserVirtualAddress.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
+ *     MiResolvePrivateZeroFault @ 0x14026A610 (MiResolvePrivateZeroFault.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiCreateSharedZeroPages @ 0x1402E1050 (MiCreateSharedZeroPages.c)
+ *     MiExpandSharedZeroCluster @ 0x1402F2828 (MiExpandSharedZeroCluster.c)
  */
 
 __int64 __fastcall MiResolveDemandZeroFault(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

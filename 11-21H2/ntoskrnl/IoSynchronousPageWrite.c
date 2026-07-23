@@ -1,9 +1,9 @@
 /*
  * XREFs of IoSynchronousPageWrite @ 0x140248520
  * Callers:
- *     SmKmStoreFileWriteHeader @ 0x1409D7390 (SmKmStoreFileWriteHeader.c)
+ *     sub_1409D7390 @ 0x1409D7390 (sub_1409D7390.c)
  * Callees:
- *     IoSynchronousPageWriteEx @ 0x140340130 (IoSynchronousPageWriteEx.c)
+ *     sub_140340130 @ 0x140340130 (sub_140340130.c)
  */
 
 NTSTATUS __stdcall IoSynchronousPageWrite(
@@ -13,7 +13,7 @@ NTSTATUS __stdcall IoSynchronousPageWrite(
         PKEVENT Event,
         PIO_STATUS_BLOCK IoStatusBlock)
 {
-  return IoSynchronousPageWriteEx(
+  return sub_140340130(
            (_DWORD)FileObject,
            (_DWORD)MemoryDescriptorList,
            (_DWORD)StartingOffset,

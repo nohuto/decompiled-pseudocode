@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtCreateDevice @ 0x140578AF0
+ * XREFs of IvtCreateDevice @ 0x140575F80
  * Callers:
  *     <none>
  * Callees:
- *     IvtpGetNextInternalDeviceScope @ 0x1404F87F0 (IvtpGetNextInternalDeviceScope.c)
- *     HalpIvtCheckIdPathMatch @ 0x1404F994C (HalpIvtCheckIdPathMatch.c)
- *     ExtEnvFreeMemory @ 0x14055FCA0 (ExtEnvFreeMemory.c)
- *     IvtAllocateDevice @ 0x140578A38 (IvtAllocateDevice.c)
+ *     IvtpGetNextInternalDeviceScope @ 0x1404F60D0 (IvtpGetNextInternalDeviceScope.c)
+ *     HalpIvtCheckIdPathMatch @ 0x1404F722C (HalpIvtCheckIdPathMatch.c)
+ *     ExtEnvFreeMemory @ 0x14055D8D0 (ExtEnvFreeMemory.c)
+ *     IvtAllocateDevice @ 0x140575EC8 (IvtAllocateDevice.c)
  */
 
 __int64 __fastcall IvtCreateDevice(__int64 a1, __int64 a2, char a3, __int64 a4, unsigned __int64 *a5)

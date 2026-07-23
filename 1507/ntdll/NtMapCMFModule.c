@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtMapCMFModule()
+NTSTATUS __cdecl NtMapCMFModule(
+        ULONG What,
+        ULONG Index,
+        PULONG CacheIndexOut,
+        PULONG CacheFlagsOut,
+        PULONG ViewSizeOut,
+        PVOID *BaseAddress)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 256LL;
+  result = 256;
   __asm { syscall; Low latency system call }
   return result;
 }

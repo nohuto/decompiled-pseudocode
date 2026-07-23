@@ -43,7 +43,7 @@ int __fastcall SepNormalAccessCheckEx(
   unsigned int v24; // esi
   int v25; // ebx
   char v26; // al
-  __int64 v27; // rsi
+  void *v27; // rsi
   int *v28; // rbx
   int v29; // r15d
   int v30; // eax
@@ -294,7 +294,7 @@ LABEL_128:
               {
                 if ( !v76 && !a11 && v14 )
                 {
-                  v27 = (__int64)(v23 + 8);
+                  v27 = v23 + 8;
                   if ( (unsigned __int8)SepIsPackageSid(v23 + 8) )
                   {
                     v66 = (_DWORD *)(a14 + 4);
@@ -314,7 +314,13 @@ LABEL_128:
                   {
 LABEL_140:
                     v66 = (_DWORD *)(a14 + 8);
-                    SepMatchCapability(v15, v82, v27, *((_DWORD *)v23 + 1), (_BYTE *)(a14 + 22), (_DWORD *)(a14 + 8));
+                    SepMatchCapability(
+                      v15,
+                      v82,
+                      v27,
+                      *((_DWORD *)v23 + 1),
+                      (_SID_AND_ATTRIBUTES *)(a14 + 22),
+                      (_DWORD *)(a14 + 8));
 LABEL_102:
                     v67 = ~*v66;
                     v14 &= v67;
@@ -409,7 +415,7 @@ LABEL_24:
       {
         if ( !v17 && !v22 && v14 )
         {
-          v27 = (__int64)(v23 + 8);
+          v27 = v23 + 8;
           if ( (unsigned __int8)SepIsPackageSid(v23 + 8) )
           {
             v28 = (int *)(a14 + 4);

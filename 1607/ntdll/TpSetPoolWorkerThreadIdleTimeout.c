@@ -1,26 +1,19 @@
 /*
- * XREFs of TpSetPoolWorkerThreadIdleTimeout @ 0x180072DD0
+ * XREFs of TpSetPoolWorkerThreadIdleTimeout @ 0x180072DC0
  * Callers:
- *     LdrpEnableParallelLoading @ 0x180072C64 (LdrpEnableParallelLoading.c)
+ *     LdrpEnableParallelLoading @ 0x180072C54 (LdrpEnableParallelLoading.c)
  * Callees:
  *     NtSetInformationWorkerFactory @ 0x1800A9590 (NtSetInformationWorkerFactory.c)
  *     TppRaiseInvalidParameter @ 0x1800FE5C4 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpSetPoolWorkerThreadIdleTimeout(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+NTSTATUS __fastcall TpSetPoolWorkerThreadIdleTimeout(__int64 a1, __int64 a2)
 {
-  _PEB_LDR_DATA *v5; // [rsp+38h] [rbp+10h] BYREF
+  __int64 WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = Ldr;
-  if ( a1 )
-  {
-    if ( (__int64)Ldr < 0 )
-    {
-      Ldr = NtCurrentPeb()->Ldr;
-      if ( !Ldr->ShutdownInProgress )
-        return NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 2LL, &v5);
-    }
-  }
-  TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  return 3221225485LL;
+  WorkerFactoryInformation = a2;
+  if ( a1 && a2 < 0 && !NtCurrentPeb()->Ldr->ShutdownInProgress )
+    return NtSetInformationWorkerFactory(*(HANDLE *)(a1 + 56), WorkerFactoryIdleTimeout, &WorkerFactoryInformation, 8u);
+  TppRaiseInvalidParameter(a1);
+  return -1073741811;
 }

@@ -8,23 +8,19 @@
  *     LdrRscIsTypeExist @ 0x180036760 (LdrRscIsTypeExist.c)
  */
 
-int __fastcall sub_180036588(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+int __fastcall sub_180036588(void *a1, _QWORD *a2, __int64 a3, unsigned int a4)
 {
-  unsigned int v4; // edi
   __int64 v6; // rax
   __int64 v7; // rbx
   int result; // eax
   int v9; // [rsp+40h] [rbp+18h] BYREF
 
   v9 = 0;
-  v4 = a4;
-  LOBYTE(a4) = 1;
-  LOBYTE(a3) = 1;
-  v6 = sub_18003660C(a1, a2, a3, a4);
+  v6 = sub_18003660C(a1);
   v7 = v6;
   if ( !v6 )
     return 0x80000;
-  if ( (int)LdrRscIsTypeExist(v6, *a2, v4, &v9) < 0 )
+  if ( (int)LdrRscIsTypeExist(v6, *a2, a4, &v9) < 0 )
     return 393216;
   result = v9;
   if ( (*(_DWORD *)(v7 + 20) & 0x100) != 0 )

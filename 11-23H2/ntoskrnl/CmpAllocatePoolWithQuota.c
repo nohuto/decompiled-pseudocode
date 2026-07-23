@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpAllocatePoolWithQuota @ 0x140616578
+ * XREFs of CmpAllocatePoolWithQuota @ 0x140616AC8
  * Callers:
- *     CmUpdateFeatureConfiguration @ 0x140A11E2C (CmUpdateFeatureConfiguration.c)
- *     CmUpdateFeatureUsageSubscription @ 0x140A1213C (CmUpdateFeatureUsageSubscription.c)
+ *     CmUpdateFeatureConfiguration @ 0x140A120DC (CmUpdateFeatureConfiguration.c)
+ *     CmUpdateFeatureUsageSubscription @ 0x140A123EC (CmUpdateFeatureUsageSubscription.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

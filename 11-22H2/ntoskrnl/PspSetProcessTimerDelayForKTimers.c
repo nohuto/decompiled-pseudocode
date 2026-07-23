@@ -43,10 +43,10 @@ __int64 __fastcall PspSetProcessTimerDelayForKTimers(__int64 a1)
   if ( v3 == *(_DWORD *)(a1 + 68) )
   {
     KxReleaseSpinLock(v1);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_34;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || v4 > 0xFu || CurrentIrql < 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || v4 > 0xFu || CurrentIrql < 2u )
       goto LABEL_34;
     v6 = v4 + 1;
     goto LABEL_32;
@@ -106,10 +106,10 @@ __int64 __fastcall PspSetProcessTimerDelayForKTimers(__int64 a1)
   }
   KeAdjustTimerDelayProcess(a1, v7, v3);
   KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v4 <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v4 <= 0xFu && v17 >= 2u )
     {
       v6 = v4 + 1;
 LABEL_32:

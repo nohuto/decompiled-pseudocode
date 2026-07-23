@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGuardIsValidStackPointer @ 0x14051760C
+ * XREFs of RtlGuardIsValidStackPointer @ 0x1404FA9FC
  * Callers:
- *     KeVerifyContextRecord @ 0x1400F2FB0 (KeVerifyContextRecord.c)
+ *     KeVerifyContextRecord @ 0x1400F0E00 (KeVerifyContextRecord.c)
  * Callees:
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
  */
 
 _BOOL8 __fastcall RtlGuardIsValidStackPointer(unsigned __int64 a1)

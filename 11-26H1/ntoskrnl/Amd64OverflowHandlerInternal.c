@@ -1,13 +1,13 @@
 /*
- * XREFs of Amd64OverflowHandlerInternal @ 0x1405A4530
+ * XREFs of Amd64OverflowHandlerInternal @ 0x1405A6D40
  * Callers:
- *     Amd64OverflowHandler @ 0x1405A4510 (Amd64OverflowHandler.c)
+ *     Amd64OverflowHandler @ 0x1405A6D20 (Amd64OverflowHandler.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeProfileInterruptWithSource @ 0x1404B7BF0 (KeProfileInterruptWithSource.c)
- *     Amd64IsModifiedByBadActorInternal @ 0x1404CF194 (Amd64IsModifiedByBadActorInternal.c)
- *     PoGetProcessorIdleAccounting @ 0x14052F9F0 (PoGetProcessorIdleAccounting.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeProfileInterruptWithSource @ 0x1404B1420 (KeProfileInterruptWithSource.c)
+ *     Amd64IsModifiedByBadActorInternal @ 0x1404C8BC4 (Amd64IsModifiedByBadActorInternal.c)
+ *     PoGetProcessorIdleAccounting @ 0x140531EF0 (PoGetProcessorIdleAccounting.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 unsigned __int64 __fastcall Amd64OverflowHandlerInternal(int a1, unsigned int a2, __int64 a3)
@@ -103,7 +103,7 @@ LABEL_55:
 LABEL_14:
     v15 = (unsigned int)(v11 + v4);
     LODWORD(v11) = 0;
-    v16 = *((_DWORD *)&xmmword_140F87600 + v15);
+    v16 = *((_DWORD *)&xmmword_140F879E0 + v15);
     v46 = v16;
     v17 = v10 - 1;
     if ( v17 )
@@ -114,7 +114,7 @@ LABEL_14:
         if ( v18 != 1 )
         {
 LABEL_25:
-          v44 = *((_DWORD *)&xmmword_140F875A0 + (unsigned int)(v11 + v4));
+          v44 = *((_DWORD *)&xmmword_140F87980 + (unsigned int)(v11 + v4));
           v21 = v44;
           v22 = __readmsr(v44);
           result = (((unsigned __int64)HIDWORD(v22) << 32) | (unsigned int)v22) & 0xFFFFFFFFFFFFLL;
@@ -210,7 +210,7 @@ LABEL_25:
               v23 = v38;
             }
             if ( !*(_DWORD *)v8 && *(_BYTE *)(*(_QWORD *)(v9 + 48 * v4 + 16) + 8LL) )
-              __writemsr(*((_DWORD *)&xmmword_140F875A0 + (unsigned int)(v4 + 1)), 0xFFFFuLL);
+              __writemsr(*((_DWORD *)&xmmword_140F87980 + (unsigned int)(v4 + 1)), 0xFFFFuLL);
             __writemsr(v21, -(__int64)(unsigned int)v6);
             __writemsr(v46, v23 | 0x500000);
             result = Amd64IsModifiedByBadActorInternal(v4, *(_DWORD *)v8, v23, (bool *)&v43);

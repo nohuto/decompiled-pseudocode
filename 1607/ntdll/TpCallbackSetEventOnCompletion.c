@@ -1,21 +1,20 @@
 /*
- * XREFs of TpCallbackSetEventOnCompletion @ 0x1800882C0
+ * XREFs of TpCallbackSetEventOnCompletion @ 0x1800882B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall TpCallbackSetEventOnCompletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl TpCallbackSetEventOnCompletion(PTP_CALLBACK_INSTANCE Instance, HANDLE Event)
 {
-  __int64 result; // rax
-
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  result = a2 - 1;
-  if ( (unsigned __int64)(a2 - 1) > 0xFFFFFFFFFFFFFFFDuLL || *(_DWORD *)(a1 + 148) )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  *(_DWORD *)(a1 + 148) = a2;
-  *(_DWORD *)(a1 + 144) |= 4u;
-  return result;
+  if ( !Instance || (char *)Event - 1 > (char *)0xFFFFFFFFFFFFFFFDLL || *((_DWORD *)Instance + 37) )
+  {
+    TppRaiseInvalidParameter(Instance);
+  }
+  else
+  {
+    *((_DWORD *)Instance + 37) = (_DWORD)Event;
+    *((_DWORD *)Instance + 36) |= 4u;
+  }
 }

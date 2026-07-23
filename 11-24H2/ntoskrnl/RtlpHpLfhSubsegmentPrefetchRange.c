@@ -1,7 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentPrefetchRange @ 0x1402B6AB0
+ * XREFs of RtlpHpLfhSubsegmentPrefetchRange @ 0x1403D86BC
  * Callers:
- *     RtlpHpLfhSubsegmentInitialize @ 0x1402B5728 (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14035FCA0 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1403D8348 (RtlpHpLfhSubsegmentInitialize.c)
  * Callees:
  *     <none>
  */

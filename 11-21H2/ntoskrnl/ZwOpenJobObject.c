@@ -1,14 +1,15 @@
 /*
  * XREFs of ZwOpenJobObject @ 0x14041DC20
  * Callers:
- *     DifZwOpenJobObjectWrapper @ 0x140621BA0 (DifZwOpenJobObjectWrapper.c)
+ *     sub_140621BA0 @ 0x140621BA0 (sub_140621BA0.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenJobObject(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwOpenJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(JobHandle, *(_QWORD *)&DesiredAccess);
 }

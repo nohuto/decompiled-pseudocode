@@ -25,16 +25,17 @@ SIZE_T __stdcall RtlCompareMemory(const void *Source1, const void *Source2, SIZE
 {
   _BYTE *v3; // esi
   bool v5; // zf
-  SIZE_T v6; // ecx
+  unsigned int v6; // ecx
   bool v7; // zf
-  SIZE_T v8; // ecx
+  int v8; // ecx
+  SIZE_T result; // rax
   unsigned __int8 *v10; // edi
   int v11; // ecx
 
   v3 = Source1;
-  v6 = Length >> 2;
-  v5 = Length >> 2 == 0;
-  if ( !(Length >> 2) )
+  v6 = (unsigned int)Length >> 2;
+  v5 = (unsigned int)Length >> 2 == 0;
+  if ( !((unsigned int)Length >> 2) )
     goto LABEL_5;
   do
   {
@@ -66,7 +67,7 @@ LABEL_5:
     v8 = Length & 3;
     v7 = v8 == 0;
     if ( (Length & 3) == 0 )
-      return Length;
+      goto LABEL_9;
     do
     {
       if ( !v8 )
@@ -77,7 +78,12 @@ LABEL_5:
     }
     while ( v7 );
     if ( v7 )
-      return Length;
+    {
+LABEL_9:
+      LODWORD(result) = Length;
+      return result;
+    }
   }
-  return v3 - 1 - (_BYTE *)Source1;
+  LODWORD(result) = v3 - 1 - (_BYTE *)Source1;
+  return result;
 }

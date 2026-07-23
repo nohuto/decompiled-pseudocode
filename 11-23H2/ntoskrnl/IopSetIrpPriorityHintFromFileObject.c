@@ -1,10 +1,10 @@
 /*
- * XREFs of IopSetIrpPriorityHintFromFileObject @ 0x1402A7AA0
+ * XREFs of IopSetIrpPriorityHintFromFileObject @ 0x1402A7D30
  * Callers:
- *     IopCallDriverReference @ 0x1402A7940 (IopCallDriverReference.c)
- *     IopSynchronousServiceTail @ 0x1406E3E90 (IopSynchronousServiceTail.c)
+ *     IopCallDriverReference @ 0x1402A7BD0 (IopCallDriverReference.c)
+ *     IopSynchronousServiceTail @ 0x1406E3EC0 (IopSynchronousServiceTail.c)
  * Callees:
- *     PsGetBaseIoPriorityThread @ 0x1402A7BC0 (PsGetBaseIoPriorityThread.c)
+ *     PsGetBaseIoPriorityThread @ 0x1402A7E50 (PsGetBaseIoPriorityThread.c)
  */
 
 __int64 __fastcall IopSetIrpPriorityHintFromFileObject(__int64 a1, __int64 a2)

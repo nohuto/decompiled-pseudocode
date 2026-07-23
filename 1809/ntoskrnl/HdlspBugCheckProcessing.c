@@ -1,13 +1,13 @@
 /*
- * XREFs of HdlspBugCheckProcessing @ 0x14094BD1C
+ * XREFs of HdlspBugCheckProcessing @ 0x14094CD1C
  * Callers:
- *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x14094CE50 (HdlspDispatch.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _stricmp @ 0x1401953E0 (_stricmp.c)
- *     HdlspGetLine @ 0x14094C584 (HdlspGetLine.c)
- *     HdlspProcessDumpCommand @ 0x14094CB74 (HdlspProcessDumpCommand.c)
- *     HdlspSendStringAtBaud @ 0x14094D228 (HdlspSendStringAtBaud.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _stricmp @ 0x140195520 (_stricmp.c)
+ *     HdlspGetLine @ 0x14094D584 (HdlspGetLine.c)
+ *     HdlspProcessDumpCommand @ 0x14094DB74 (HdlspProcessDumpCommand.c)
+ *     HdlspSendStringAtBaud @ 0x14094E228 (HdlspSendStringAtBaud.c)
  */
 
 __int64 HdlspBugCheckProcessing()

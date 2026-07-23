@@ -1,26 +1,26 @@
 /*
- * XREFs of MmCreateKernelStack @ 0x1400C9F10
+ * XREFs of MmCreateKernelStack @ 0x1400C9FF0
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400C9C20 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     KeInitThread @ 0x1405656E0 (KeInitThread.c)
- *     KeUserModeCallback @ 0x140646460 (KeUserModeCallback.c)
- *     KeAllocateCalloutStackEx @ 0x14070CCA0 (KeAllocateCalloutStackEx.c)
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400C9D00 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KeInitThread @ 0x1405666E0 (KeInitThread.c)
+ *     KeUserModeCallback @ 0x140647480 (KeUserModeCallback.c)
+ *     KeAllocateCalloutStackEx @ 0x14070DF40 (KeAllocateCalloutStackEx.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiAllocateKernelStackPages @ 0x1400B5660 (MiAllocateKernelStackPages.c)
- *     MiMarkPfnTradable @ 0x14013D944 (MiMarkPfnTradable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     MiLogKernelStackEvent @ 0x1402BB764 (MiLogKernelStackEvent.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiAllocateKernelStackPages @ 0x1400B55A0 (MiAllocateKernelStackPages.c)
+ *     MiMarkPfnTradable @ 0x14013DA44 (MiMarkPfnTradable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     MiLogKernelStackEvent @ 0x1402BB954 (MiLogKernelStackEvent.c)
  */
 
 __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, unsigned __int64 a3)
@@ -37,7 +37,7 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, uns
   ULONG_PTR v13; // r9
   __int64 v14; // rbp
   __int64 i; // r15
-  union _SLIST_HEADER *v17; // rsi
+  _SLIST_HEADER *v17; // rsi
   __int16 Alignment; // bp
   unsigned __int8 CurrentIrql; // cl
   PSLIST_ENTRY v20; // rax
@@ -81,12 +81,12 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, uns
   {
     v6 = -32LL;
     if ( a3 )
-      v5 = *(ULONG_PTR **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a3 + 544) + 1454LL));
+      v5 = *(ULONG_PTR **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a3 + 544) + 1454LL));
   }
   else if ( a3 )
   {
     v6 = a3;
-    v5 = *(ULONG_PTR **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a3 + 544) + 1454LL));
+    v5 = *(ULONG_PTR **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a3 + 544) + 1454LL));
   }
   else
   {
@@ -103,10 +103,10 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, uns
   }
   else
   {
-    v7 = (unsigned __int8)byte_14043AC7C;
-    v49 = (unsigned __int8)byte_14043AC7C;
-    v8 = (unsigned __int8)byte_14043AC7C;
-    v50 = (unsigned __int8)byte_14043AC7C;
+    v7 = (unsigned __int8)byte_14043BD3C;
+    v49 = (unsigned __int8)byte_14043BD3C;
+    v8 = (unsigned __int8)byte_14043BD3C;
+    v50 = (unsigned __int8)byte_14043BD3C;
     if ( (a1 & 0x10) != 0 )
     {
       CurrentPrcb = KeGetCurrentPrcb();
@@ -120,8 +120,8 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, uns
           {
             v12 = v11 - 4080;
             v13 = *(_QWORD *)(v12 + 4064);
-            if ( v13 != (v12 ^ qword_14043AEC0) )
-              KeBugCheckEx(0x1Au, 0x3470uLL, v12, v13, v12 ^ qword_14043AEC0);
+            if ( v13 != (v12 ^ qword_14043BF80) )
+              KeBugCheckEx(0x1Au, 0x3470uLL, v12, v13, v12 ^ qword_14043BF80);
             v14 = (__int64)(((v12 & 0xFFFFFFFFFFFFF000uLL) << 16) + 0x10000000) >> 16;
             goto LABEL_11;
           }
@@ -136,7 +136,7 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, uns
     {
       for ( i = v10; ; i = 0LL )
       {
-        v17 = &qword_14043A058[25 * a2 + 2 * i];
+        v17 = &qword_14043B118[25 * a2 + 2 * i];
         Alignment = v17[7].Alignment;
         if ( Alignment )
         {
@@ -159,7 +159,7 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, uns
               *((_DWORD *)&v17[8].HeaderX64 + 3) = 1;
             Next = (ULONG_PTR)v20[-1].Next;
             v22 = (ULONG_PTR)&v20[-255];
-            BugCheckParameter4 = (unsigned __int64)&v20[-255] ^ qword_14043AEC0;
+            BugCheckParameter4 = (unsigned __int64)&v20[-255] ^ qword_14043BF80;
             if ( Next != BugCheckParameter4 )
               KeBugCheckEx(0x1Au, 0x3470uLL, v22, Next, BugCheckParameter4);
             v24 = ((v22 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -167,7 +167,7 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, uns
             v52 = v14;
             if ( v10 != 1 )
             {
-              v25 = v24 - 8LL * (unsigned __int8)byte_14043AC7C + 8;
+              v25 = v24 - 8LL * (unsigned __int8)byte_14043BD3C + 8;
               v26 = 0x7FFFFFFFFFFFFFFFLL;
               do
               {
@@ -303,7 +303,7 @@ LABEL_36:
   v32 = v7;
   if ( !(unsigned int)MiChargeCommit((__int64)v5, v7, (v4 >> 1) & 1) )
     return 0LL;
-  v33 = MiReservePtes((__int64)&unk_14043AC18, (unsigned __int64 *)(unsigned int)(v49 + 1));
+  v33 = MiReservePtes((__int64)&unk_14043BCD8, (unsigned __int64 *)(unsigned int)(v49 + 1));
   v34 = v33;
   if ( !v33 )
   {
@@ -318,7 +318,7 @@ LABEL_118:
   if ( !(unsigned int)MiChargeResident(v5, v50, 0LL) )
   {
 LABEL_117:
-    MiReleasePtes((__int64)&unk_14043AC18, v34, v49 + 1);
+    MiReleasePtes((__int64)&unk_14043BCD8, v34, v49 + 1);
     goto LABEL_118;
   }
   v36 = v35 + 8;
@@ -333,7 +333,7 @@ LABEL_117:
   }
   if ( v5 != &MiSystemPartition )
     goto LABEL_36;
-  _InterlockedExchangeAdd64(&qword_14043B030, v32);
+  _InterlockedExchangeAdd64(&qword_14043C0F0, v32);
   LOBYTE(v4) = a1;
   v7 = v49;
 LABEL_11:

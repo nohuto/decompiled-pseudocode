@@ -8,30 +8,30 @@
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x14022E6D0 (KeExpandKernelStackAndCalloutInternal.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     HviIsAnyHypervisorPresent @ 0x140382850 (HviIsAnyHypervisorPresent.c)
- *     KeInitializeCatRegisters @ 0x1403837AC (KeInitializeCatRegisters.c)
- *     KiDetectTsx @ 0x140383A7C (KiDetectTsx.c)
- *     KiInitMachineDependent @ 0x14039A818 (KiInitMachineDependent.c)
- *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403B2E8C (KiInitializeNormalPriorityAntiStarvationPolicies.c)
- *     KiInitializeIdealProcessorRebalancer @ 0x1403B4718 (KiInitializeIdealProcessorRebalancer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F3340 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage @ 0x140410140 (Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage.c)
- *     Feature_SchedulerRemoveForegroundBoostDecay__private_ReportDeviceUsage @ 0x140410278 (Feature_SchedulerRemoveForegroundBoostDecay__private_ReportDeviceUsage.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HvlSetupPhysicalFaultNotificationQueue @ 0x1405405D0 (HvlSetupPhysicalFaultNotificationQueue.c)
- *     KeRelaxTimingConstraints @ 0x14056AF0C (KeRelaxTimingConstraints.c)
- *     KiApplyDpcVerificationScaleSettings @ 0x14056B5D4 (KiApplyDpcVerificationScaleSettings.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiEpfDrainCompletionQueue @ 0x140578F8C (KiEpfDrainCompletionQueue.c)
- *     KeInitializeTimerTable @ 0x14081D9C4 (KeInitializeTimerTable.c)
- *     KiStartDpcThread @ 0x1408217A0 (KiStartDpcThread.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     KiInitializeProcessor @ 0x140A8EC24 (KiInitializeProcessor.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x14022E7E0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403829F0 (HviIsAnyHypervisorPresent.c)
+ *     KeInitializeCatRegisters @ 0x14038398C (KeInitializeCatRegisters.c)
+ *     KiDetectTsx @ 0x140383C5C (KiDetectTsx.c)
+ *     KiInitMachineDependent @ 0x14039A9F8 (KiInitMachineDependent.c)
+ *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403B306C (KiInitializeNormalPriorityAntiStarvationPolicies.c)
+ *     KiInitializeIdealProcessorRebalancer @ 0x1403B48F8 (KiInitializeIdealProcessorRebalancer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F3520 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage @ 0x14041021C (Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerRemoveForegroundBoostDecay__private_ReportDeviceUsage @ 0x140410354 (Feature_SchedulerRemoveForegroundBoostDecay__private_ReportDeviceUsage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x140540C90 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     KeRelaxTimingConstraints @ 0x14056B5CC (KeRelaxTimingConstraints.c)
+ *     KiApplyDpcVerificationScaleSettings @ 0x14056BC94 (KiApplyDpcVerificationScaleSettings.c)
+ *     KiEpfDrainCompletionQueue @ 0x14057947C (KiEpfDrainCompletionQueue.c)
+ *     KeInitializeTimerTable @ 0x14081DC94 (KeInitializeTimerTable.c)
+ *     KiStartDpcThread @ 0x140821AA0 (KiStartDpcThread.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     KiInitializeProcessor @ 0x140A8EA9C (KiInitializeProcessor.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     KeFreeInitializationCode @ 0x140B17BF4 (KeFreeInitializationCode.c)
  *     KiComputeDispatchInterruptCost @ 0x140B4CBF4 (KiComputeDispatchInterruptCost.c)
@@ -116,7 +116,7 @@ char __fastcall KeInitSystem(int a1)
           v45 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140C02F98,
-            (unsigned __int8 *)byte_14003A839,
+            (unsigned __int8 *)byte_14003A921,
             0LL,
             0LL,
             4u,
@@ -174,7 +174,7 @@ char __fastcall KeInitSystem(int a1)
               KiEpfCompletionQueue = v40;
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                 v33 = 4;
@@ -183,10 +183,10 @@ char __fastcall KeInitSystem(int a1)
                 SchedulerAssist[5] |= v33;
               }
               KiEpfDrainCompletionQueue();
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v34 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   v36 = CurrentPrcb->SchedulerAssist;
@@ -207,14 +207,11 @@ char __fastcall KeInitSystem(int a1)
     }
     KiInitDynamicTraceSupport();
     ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-    v7 = (unsigned int)KeMaximumIncrement;
+    v7 = KeMaximumIncrement;
     v8 = ActiveProcessorCount;
     KiDpcWatchdogConfigurationLock = 0LL;
-    v9 = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement - 1)
-       % ActiveProcessorCount;
-    KiClockKeepAliveCycle = (ActiveProcessorCount
-                           + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement
-                           - 1)
+    v9 = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1) % ActiveProcessorCount;
+    KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1)
                           / ActiveProcessorCount;
     if ( !KiForceBugcheckForDpcWatchdog && HviIsAnyHypervisorPresent() )
     {
@@ -284,7 +281,7 @@ LABEL_27:
         if ( KiInitMachineDependent() )
         {
           v17 = *(unsigned int *)(KiProcessorBlock[0] + 68);
-          v18 = v17 * (unsigned __int64)(unsigned int)KeMaximumIncrement / 0xA;
+          v18 = v17 * (unsigned __int64)KeMaximumIncrement / 0xA;
           KiShortExecutionCycles = v18 / 0xF0;
           KiCyclesPerClockQuantum = v18 / 3;
           KiDirectQuantumTarget = v18 / 3;
@@ -328,11 +325,11 @@ LABEL_27:
             KeBugCheckEx(0x32u, v24, 0x5356694BuLL, 0LL, 0LL);
           KiInitializeIdealProcessorRebalancer();
           KiPristineTriageDumpSize = 268288;
-          qword_140C413F8 = (__int64)KiPristineTriageDumpAllocationWorker;
+          qword_140C41418 = (__int64)KiPristineTriageDumpAllocationWorker;
           LODWORD(KiPristineTriageDumpAllocationDpc) = 275;
-          qword_140C41400 = 0LL;
-          qword_140C41418 = 0LL;
-          qword_140C413F0 = 0LL;
+          qword_140C41420 = 0LL;
+          qword_140C41438 = 0LL;
+          qword_140C41410 = 0LL;
           return 1;
         }
       }

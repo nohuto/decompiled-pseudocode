@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpTlLogGCTimerFinished @ 0x18010B654
+ * XREFs of RtlpHpTlLogGCTimerFinished @ 0x18010B614
  * Callers:
  *     RtlpHpGCCallback @ 0x180075290 (RtlpHpGCCallback.c)
  * Callees:
@@ -7,12 +7,18 @@
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpTlLogGCTimerFinished(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+ULONG __fastcall RtlpHpTlLogGCTimerFinished(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
-  _BYTE v5[32]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG result; // eax
+  _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-38h] BYREF
 
   if ( (unsigned int)dword_180166698 > 5 )
-    return tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_180166698, byte_1801320F0, a3, a4, 2, (__int64)v5);
+    return tlgWriteTransfer_EtwEventWriteTransfer(
+             (__int64)&dword_180166698,
+             (unsigned __int8 *)dword_1801320AA,
+             a3,
+             a4,
+             2u,
+             &v5);
   return result;
 }

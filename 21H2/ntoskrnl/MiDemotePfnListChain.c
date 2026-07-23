@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDemotePfnListChain @ 0x14055E218
+ * XREFs of MiDemotePfnListChain @ 0x14055E458
  * Callers:
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiMakeLargePageTable @ 0x14053DA14 (MiMakeLargePageTable.c)
- *     MiMapUserLargePages @ 0x14055E730 (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiMakeLargePageTable @ 0x14053DC54 (MiMakeLargePageTable.c)
+ *     MiMapUserLargePages @ 0x14055E970 (MiMapUserLargePages.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     MiSetPfnPageState @ 0x140329F00 (MiSetPfnPageState.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     MiSetPfnPageState @ 0x140334C50 (MiSetPfnPageState.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiSetResidentPageMemberInPfn @ 0x1403F4998 (MiSetResidentPageMemberInPfn.c)
- *     MiLockPageAtDpc @ 0x14054F91C (MiLockPageAtDpc.c)
+ *     MiLockPageAtDpc @ 0x14054FB5C (MiLockPageAtDpc.c)
  */
 
 __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -53,7 +53,7 @@ __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2, __int64 a3, _DWORD *
     if ( (_DWORD)v8 == 1 )
     {
       MiUpdateLargePageBitMap(
-        *(_QWORD *)(qword_140C4E648 + 8 * ((v7[5] >> 39) & 0x3FFLL)),
+        *(_QWORD *)(qword_140C4E688 + 8 * ((v7[5] >> 39) & 0x3FFLL)),
         (__int64)(v7 + 0xB000000000LL) / 48,
         v9,
         0,

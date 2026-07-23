@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x14096674C
+ * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x14094F1DC
  * Callers:
- *     ExSetFirmwareEnvironmentVariable @ 0x1407BB470 (ExSetFirmwareEnvironmentVariable.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1409666C0 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1407BB8C0 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x14094F150 (ExGetFirmwareEnvironmentVariable.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 _WORD *__fastcall ExpUnicodeStringToNonpagedWStr(const void **a1)
@@ -15,7 +15,7 @@ _WORD *__fastcall ExpUnicodeStringToNonpagedWStr(const void **a1)
   _WORD *v4; // rbx
 
   v1 = *(unsigned __int16 *)a1;
-  Pool2 = (_WORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_WORD *)ExAllocatePool2(0x40uLL, v1 + 2, 0x72766E45u);
   v4 = Pool2;
   if ( Pool2 )
   {

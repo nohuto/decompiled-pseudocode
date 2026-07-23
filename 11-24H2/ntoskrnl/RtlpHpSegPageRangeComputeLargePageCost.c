@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpSegPageRangeComputeLargePageCost @ 0x1402C2DF0
+ * XREFs of RtlpHpSegPageRangeComputeLargePageCost @ 0x14035CD40
  * Callers:
- *     RtlpHpSegSubAllocate @ 0x1402C0804 (RtlpHpSegSubAllocate.c)
- *     RtlpHpSegAlloc @ 0x1402C162C (RtlpHpSegAlloc.c)
+ *     RtlpHpSegAlloc @ 0x14035DCCC (RtlpHpSegAlloc.c)
+ *     RtlpHpSegSubAllocate @ 0x140368214 (RtlpHpSegSubAllocate.c)
  * Callees:
  *     <none>
  */

@@ -1,64 +1,70 @@
 /*
- * XREFs of NtAllocateUuids @ 0x1406B9660
+ * XREFs of NtAllocateUuids @ 0x140618D20
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1406B9814 (ExpUuidSaveSequenceNumberIf.c)
- *     ExpAllocateUuids @ 0x1406B9844 (ExpAllocateUuids.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x140618ED4 (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpAllocateUuids @ 0x140618F04 (ExpAllocateUuids.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAllocateUuids(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Sequence, PCHAR Seed)
 {
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // rcx
   struct _KTHREAD *v12; // rsi
-  __int64 v13; // rax
-  __int64 v14; // rdi
-  int v15; // edi
+  _RTL_BALANCED_NODE *v13; // rax
+  _RTL_BALANCED_NODE *v14; // rdi
+  NTSTATUS v15; // edi
   char v16; // di
   char v17; // bl
-  int v19; // [rsp+24h] [rbp-44h] BYREF
-  int v20; // [rsp+28h] [rbp-40h] BYREF
-  _QWORD v21[3]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  ULONG v25; // [rsp+24h] [rbp-44h] BYREF
+  ULONG v26; // [rsp+28h] [rbp-40h] BYREF
+  unsigned __int64 v27[3]; // [rsp+30h] [rbp-38h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+48h] [rbp-20h]
 
-  v21[0] = 0LL;
-  v19 = 0;
-  v20 = 0;
+  v27[0] = 0LL;
+  v25 = 0;
+  v26 = 0;
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->PreviousMode )
   {
-    if ( (a1 & 3) != 0 )
+    if ( ((unsigned __int8)Time & 3) != 0 )
       goto LABEL_14;
     v8 = 0x7FFFFFFF0000LL;
     v9 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v9 = a1;
+    if ( (unsigned __int64)Time < 0x7FFFFFFF0000LL )
+      v9 = (__int64)Time;
     *(_BYTE *)v9 = *(_BYTE *)v9;
     *(_BYTE *)(v9 + 7) = *(_BYTE *)(v9 + 7);
-    if ( (a2 & 3) != 0 )
+    if ( ((unsigned __int8)Range & 3) != 0 )
       goto LABEL_14;
     v10 = 0x7FFFFFFF0000LL;
-    if ( a2 < 0x7FFFFFFF0000LL )
-      v10 = a2;
+    if ( (unsigned __int64)Range < 0x7FFFFFFF0000LL )
+      v10 = (__int64)Range;
     *(_DWORD *)v10 = *(_DWORD *)v10;
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)Sequence & 3) != 0 )
 LABEL_14:
       ExRaiseDatatypeMisalignment();
     v11 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v11 = a3;
+    if ( (unsigned __int64)Sequence < 0x7FFFFFFF0000LL )
+      v11 = (__int64)Sequence;
     *(_DWORD *)v11 = *(_DWORD *)v11;
-    if ( a4 < 0x7FFFFFFF0000LL )
-      v8 = a4;
+    if ( (unsigned __int64)Seed < 0x7FFFFFFF0000LL )
+      v8 = (__int64)Seed;
     *(_BYTE *)v8 = *(_BYTE *)v8;
     *(_BYTE *)(v8 + 5) = *(_BYTE *)(v8 + 5);
   }
@@ -69,15 +75,15 @@ LABEL_14:
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
     ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v13, (ULONG_PTR)&ExpUuidLock);
   if ( v14 )
-    *(_BYTE *)(v14 + 26) |= 1u;
-  v15 = ExpAllocateUuids(v21, &v19, &v20);
+    BYTE2(v14[1].Left) |= 1u;
+  v15 = ExpAllocateUuids(v27, &v25, &v26);
   if ( v15 < 0 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
-    KeLeaveCriticalRegionThread((__int64)v12);
-    return (unsigned int)v15;
+    KeLeaveCriticalRegionThread((__int64)v12, v22, v23, v24);
+    return v15;
   }
   else
   {
@@ -87,12 +93,12 @@ LABEL_14:
     if ( (v17 & 2) != 0 && (v17 & 4) == 0 )
       ExfTryToWakePushLock(&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
-    KeLeaveCriticalRegionThread((__int64)v12);
-    *(_QWORD *)a1 = v21[0];
-    *(_DWORD *)a2 = v19;
-    *(_DWORD *)a3 = v20;
-    *(_DWORD *)a4 = *(int *)((char *)&dword_140D2D2C4 + 2);
-    *(_WORD *)(a4 + 4) = word_140D2D2CA;
+    KeLeaveCriticalRegionThread((__int64)v12, v18, v19, v20);
+    *Time = (ULARGE_INTEGER)v27[0];
+    *Range = v25;
+    *Sequence = v26;
+    *(_DWORD *)Seed = *(int *)((char *)&dword_140D2D2C4 + 2);
+    *((_WORD *)Seed + 2) = word_140D2D2CA;
     return v16 == 0 ? 0x40020056 : 0;
   }
 }

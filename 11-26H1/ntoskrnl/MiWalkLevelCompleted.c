@@ -1,26 +1,26 @@
 /*
- * XREFs of MiWalkLevelCompleted @ 0x140247EA0
+ * XREFs of MiWalkLevelCompleted @ 0x140249800
  * Callers:
- *     MiWalkPageTablesEvaluatePte @ 0x140327B30 (MiWalkPageTablesEvaluatePte.c)
+ *     MiWalkPageTablesEvaluatePte @ 0x140329B60 (MiWalkPageTablesEvaluatePte.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiMarkResumptionPoint @ 0x14045BBB0 (MiMarkResumptionPoint.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiMarkResumptionPoint @ 0x1404553E0 (MiMarkResumptionPoint.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiWalkLevelCompleted(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -226,7 +226,7 @@ __int64 __fastcall MiWalkLevelCompleted(__int64 a1, unsigned __int64 a2, __int64
     Process = (__int64)CurrentPrcb->SelfmapLockHandle + 16 * v73 + 8 * v73;
     *(_QWORD *)(Process + 8) = v72;
     *(_QWORD *)Process = 0LL;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( !_InterlockedExchange64((volatile __int64 *)v72, Process) )
       {
@@ -338,7 +338,7 @@ LABEL_233:
             Process = (__int64)v97->SelfmapLockHandle + 16 * v99 + 8 * v99;
             *(_QWORD *)(Process + 8) = v100;
             *(_QWORD *)Process = 0LL;
-            if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+            if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
             {
               if ( _InterlockedExchange64(v100, Process) )
                 KxWaitForLockOwnerShip(Process);
@@ -540,17 +540,17 @@ LABEL_264:
         if ( (*(_DWORD *)(v75 + 184) & 0xF) != 0 && v78 >= 0xFFFFF6FB7DBED000uLL && v78 <= 0xFFFFF6FB7DBEDFFFuLL )
         {
           v80 = 1;
-          if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
           {
             v82 = 0;
-            if ( _interlockedbittestandset(&dword_140E36080, 0x1Fu) )
-              v82 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E36080, 0xFFu);
-            for ( Process = (unsigned int)dword_140E36080;
-                  (dword_140E36080 & 0xBFFFFFFF) != 0x80000000;
-                  Process = (unsigned int)dword_140E36080 )
+            if ( _interlockedbittestandset(&dword_140E36200, 0x1Fu) )
+              v82 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E36200, 0xFFu);
+            for ( Process = (unsigned int)dword_140E36200;
+                  (dword_140E36200 & 0xBFFFFFFF) != 0x80000000;
+                  Process = (unsigned int)dword_140E36200 )
             {
               if ( (Process & 0x40000000) == 0 )
-                _InterlockedOr(&dword_140E36080, 0x40000000u);
+                _InterlockedOr(&dword_140E36200, 0x40000000u);
               if ( (++v82 & HvlLongSpinCountMask) == 0
                 && (HvlEnlightenments & 0x40) != 0
                 && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(Process, v72, v77) )
@@ -567,7 +567,7 @@ LABEL_264:
           else
           {
             LOBYTE(v72) = -1;
-            ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E36080, v72);
+            ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E36200, v72);
           }
         }
         if ( v81 >= 0xFFFFF68000000000uLL && v81 <= 0xFFFFF6FFFFFFFFFFuLL )
@@ -617,7 +617,7 @@ LABEL_264:
           if ( MiPteHasShadow(Process, v72, 0LL) )
           {
             v90 = 1LL;
-            if ( !BYTE5(stru_140E2D930.Header.WaitListHead.Blink) )
+            if ( !BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) )
             {
               v114 = v152;
               if ( (v152 & 1) != 0 )
@@ -657,10 +657,10 @@ LABEL_403:
 LABEL_229:
         if ( v80 )
         {
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-            dword_140E36080 = 0;
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+            dword_140E36200 = 0;
           else
-            ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E36080, retaddr);
+            ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E36200, retaddr);
         }
         v77 = 0xFFFFF6FB7DBED000uLL;
         goto LABEL_233;
@@ -689,7 +689,7 @@ LABEL_214:
   if ( (*(_DWORD *)a1 & 4) == 0 )
   {
     if ( (*(_DWORD *)(v7 + 184) & 0xF) == 1 )
-      v22 = (int **)&qword_140E37800;
+      v22 = (int **)&qword_140E37980;
     else
       v22 = (int **)(v7 + 192);
     v23 = *v22;
@@ -701,7 +701,7 @@ LABEL_214:
       LOBYTE(v22) = 2;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v22);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v25 = 0;
       if ( _interlockedbittestandset(v23, 0x1Fu) )
@@ -737,7 +737,7 @@ LABEL_214:
     v32 = 3LL;
     do
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         v33 = 0;
         if ( _interlockedbittestandset(v31, 0x1Fu) )
@@ -782,7 +782,7 @@ LABEL_214:
   {
     if ( (v9 & 0xFu) <= 5 )
     {
-      v28 = (*(_DWORD *)(v7 + 184) & 0xF) == 1 ? &qword_140E37800 : (__int64 *)(v7 + 192);
+      v28 = (*(_DWORD *)(v7 + 184) & 0xF) == 1 ? &qword_140E37980 : (__int64 *)(v7 + 192);
       v29 = (KeGetPcr()->Prcb.Number >> 1) & 3;
       ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(*v28 + (v29 << 6)));
       MmInternal = KeGetCurrentPrcb()->MmInternal;
@@ -801,7 +801,7 @@ LABEL_214:
   else
   {
     if ( (*(_DWORD *)(v7 + 184) & 0xF) == 1 )
-      v10 = &qword_140E37800;
+      v10 = &qword_140E37980;
     else
       v10 = (__int64 *)(v7 + 192);
     v11 = (KeGetPcr()->Prcb.Number >> 1) & 3;
@@ -812,7 +812,7 @@ LABEL_214:
       __writecr8(2uLL);
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(v14, 2LL);
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       _m_prefetchw(v12);
       v15 = *v12 & 0x7FFFFFFF;
@@ -878,7 +878,7 @@ LABEL_21:
   v41 = &v36->SelfmapLockHandle[0].LockQueue.Next + 2 * v39 + v39;
   *((_QWORD *)v41 + 1) = KernelWaitTime;
   *v41 = 0LL;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     if ( _InterlockedExchange64((volatile __int64 *)KernelWaitTime, (__int64)v41) )
       KxWaitForLockOwnerShip(v41);
@@ -934,31 +934,31 @@ LABEL_21:
     {
       v48 = 1;
       v150 = 1;
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 && !LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 && !PopHibernateInProgress )
       {
         LOBYTE(KernelWaitTime) = -1;
-        ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E36080, KernelWaitTime);
+        ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E36200, KernelWaitTime);
 LABEL_116:
         v48 = v150;
         goto LABEL_117;
       }
       LODWORD(v152) = 0;
-      if ( _interlockedbittestandset(&dword_140E36080, 0x1Fu) )
+      if ( _interlockedbittestandset(&dword_140E36200, 0x1Fu) )
       {
-        v50 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E36080, 0xFFu);
+        v50 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E36200, 0xFFu);
         v48 = v150;
         LODWORD(v152) = v50;
       }
-      KernelWaitTime = (unsigned int)dword_140E36080;
-      v43 = (unsigned int)dword_140E36080;
-      LODWORD(v43) = dword_140E36080 & 0xBFFFFFFF;
-      if ( (dword_140E36080 & 0xBFFFFFFF) != 0x80000000 )
+      KernelWaitTime = (unsigned int)dword_140E36200;
+      v43 = (unsigned int)dword_140E36200;
+      LODWORD(v43) = dword_140E36200 & 0xBFFFFFFF;
+      if ( (dword_140E36200 & 0xBFFFFFFF) != 0x80000000 )
       {
         v51 = v152;
         do
         {
           if ( (KernelWaitTime & 0x40000000) == 0 )
-            _InterlockedOr(&dword_140E36080, 0x40000000u);
+            _InterlockedOr(&dword_140E36200, 0x40000000u);
           if ( (++v51 & HvlLongSpinCountMask) == 0
             && (HvlEnlightenments & 0x40) != 0
             && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v43, KernelWaitTime, v44) )
@@ -969,9 +969,9 @@ LABEL_116:
           {
             _mm_pause();
           }
-          KernelWaitTime = (unsigned int)dword_140E36080;
+          KernelWaitTime = (unsigned int)dword_140E36200;
         }
-        while ( (dword_140E36080 & 0xBFFFFFFF) != 0x80000000 );
+        while ( (dword_140E36200 & 0xBFFFFFFF) != 0x80000000 );
         goto LABEL_116;
       }
     }
@@ -1022,7 +1022,7 @@ LABEL_117:
       if ( MiPteHasShadow(v43, KernelWaitTime, 0LL) )
       {
         v58 = 1LL;
-        if ( !BYTE5(stru_140E2D930.Header.WaitListHead.Blink) )
+        if ( !BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) )
         {
           v113 = v153;
           if ( (v153 & 1) != 0 )
@@ -1061,10 +1061,10 @@ LABEL_400:
 LABEL_127:
     if ( v48 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E36080 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E36200 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E36080, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E36200, retaddr);
     }
     v35 = v151;
     v44 = 0xFFFFF6FB7DBEDFFFuLL;
@@ -1100,7 +1100,7 @@ LABEL_131:
       v67 = &v63->SelfmapLockHandle[0].LockQueue.Next + 2 * v65 + v65;
       *((_QWORD *)v67 + 1) = v66;
       *v67 = 0LL;
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         if ( _InterlockedExchange64(v66, (__int64)v67) )
           KxWaitForLockOwnerShip(v67);

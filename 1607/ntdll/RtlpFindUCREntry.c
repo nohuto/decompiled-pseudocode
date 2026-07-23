@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFindUCREntry @ 0x18004D130
+ * XREFs of RtlpFindUCREntry @ 0x18004D120
  * Callers:
- *     RtlpInsertUCRBlock @ 0x18004D02C (RtlpInsertUCRBlock.c)
+ *     RtlpInsertUCRBlock @ 0x18004D01C (RtlpInsertUCRBlock.c)
  * Callees:
- *     RtlpHeapFindListLookupEntry @ 0x18004B1F0 (RtlpHeapFindListLookupEntry.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     RtlpHeapFindListLookupEntry @ 0x18004B1E0 (RtlpHeapFindListLookupEntry.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     RtlpHeapHandleError @ 0x1800F7D80 (RtlpHeapHandleError.c)
  */
 

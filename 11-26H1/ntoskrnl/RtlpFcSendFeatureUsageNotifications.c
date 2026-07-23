@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcSendFeatureUsageNotifications @ 0x140ABFD7C
+ * XREFs of RtlpFcSendFeatureUsageNotifications @ 0x140AC1E1C
  * Callers:
- *     RtlpFcDrainDelayedUsageReportBuffer @ 0x140ABFC3C (RtlpFcDrainDelayedUsageReportBuffer.c)
+ *     RtlpFcDrainDelayedUsageReportBuffer @ 0x140AC1CDC (RtlpFcDrainDelayedUsageReportBuffer.c)
  * Callees:
- *     RtlpFcNotifyFeatureUsageTarget @ 0x140ABFE1C (RtlpFcNotifyFeatureUsageTarget.c)
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x140AC1EBC (RtlpFcNotifyFeatureUsageTarget.c)
  */
 
 __int64 __fastcall RtlpFcSendFeatureUsageNotifications(__int64 a1, unsigned int *a2, __int64 a3)

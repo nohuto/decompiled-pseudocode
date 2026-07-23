@@ -1,21 +1,21 @@
 /*
- * XREFs of wil_details_RegisterFeatureStagingChangeNotification @ 0x14085517C
+ * XREFs of wil_details_RegisterFeatureStagingChangeNotification @ 0x14085B4DC
  * Callers:
- *     CmInitSystem0 @ 0x140CEBD08 (CmInitSystem0.c)
+ *     CmFcInitSystem1 @ 0x140CF3E50 (CmFcInitSystem1.c)
  * Callees:
- *     RtlRegisterFeatureConfigurationChangeNotification @ 0x1405071B0 (RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     RtlRegisterFeatureConfigurationChangeNotification @ 0x140500B80 (RtlRegisterFeatureConfigurationChangeNotification.c)
  */
 
-__int64 wil_details_RegisterFeatureStagingChangeNotification()
+NTSTATUS wil_details_RegisterFeatureStagingChangeNotification()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   result = RtlRegisterFeatureConfigurationChangeNotification(
-             (__int64)wil_details_ReevaluateOnFeatureConfigurationChange,
+             (PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK)wil_details_ReevaluateOnFeatureConfigurationChange,
              0LL,
              0LL,
-             (__int64)&g_wil_details_featureChangeNotification);
-  if ( (_DWORD)result )
+             &g_wil_details_featureChangeNotification);
+  if ( result )
     g_wil_details_featureChangeNotification = 0LL;
   return result;
 }

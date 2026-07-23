@@ -1,10 +1,10 @@
 /*
- * XREFs of OpenOrCreateKeyWithFlags @ 0x14022FE8C
+ * XREFs of OpenOrCreateKeyWithFlags @ 0x14022FCB8
  * Callers:
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14022FD3C (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14022FB68 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  * Callees:
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
  */
 
 int __fastcall OpenOrCreateKeyWithFlags(__int64 a1, char a2, UNICODE_STRING *a3, HANDLE *a4, PULONG Disposition)

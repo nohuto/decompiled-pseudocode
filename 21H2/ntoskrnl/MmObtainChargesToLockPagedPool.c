@@ -1,18 +1,14 @@
 /*
- * XREFs of MmObtainChargesToLockPagedPool @ 0x1407918C0
+ * XREFs of MmObtainChargesToLockPagedPool @ 0x140792E70
  * Callers:
- *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
- *     PopPreallocateHibernateMemory @ 0x14079163C (PopPreallocateHibernateMemory.c)
- *     HalpMcExportAndChargeNeededData @ 0x140791838 (HalpMcExportAndChargeNeededData.c)
+ *     MiCreatePagingFileMap @ 0x1406861B8 (MiCreatePagingFileMap.c)
+ *     PopPreallocateHibernateMemory @ 0x140792BEC (PopPreallocateHibernateMemory.c)
+ *     HalpMcExportAndChargeNeededData @ 0x140792DE8 (HalpMcExportAndChargeNeededData.c)
  * Callees:
- *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
+ *     MiChargeResident @ 0x14027BBC8 (MiChargeResident.c)
  */
 
-_BOOL8 __fastcall MmObtainChargesToLockPagedPool(__int16 a1, __int64 a2, __int64 a3, __int64 a4)
+_BOOL8 __fastcall MmObtainChargesToLockPagedPool(__int16 a1, __int64 a2)
 {
-  return (unsigned int)MiChargeResident(
-                         &MiSystemPartition,
-                         ((unsigned __int64)(a1 & 0xFFF) + a2 + 4095) >> 12,
-                         1024LL,
-                         a4) != 0;
+  return (unsigned int)MiChargeResident(&MiSystemPartition, ((unsigned __int64)(a1 & 0xFFF) + a2 + 4095) >> 12, 1024LL) != 0;
 }

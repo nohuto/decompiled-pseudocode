@@ -6,16 +6,25 @@
  *     RtlpNewSecurityObject @ 0x18000F5FC (RtlpNewSecurityObject.c)
  */
 
-__int64 __fastcall RtlNewSecurityObjectWithMultipleInheritance(
-        __int64 a1,
-        _BYTE *a2,
-        __int64 *a3,
-        __int64 a4,
-        int a5,
-        char a6,
-        unsigned int a7,
-        void *a8,
-        __int64 a9)
+NTSTATUS __cdecl RtlNewSecurityObjectWithMultipleInheritance(
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CreatorDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        GUID **ObjectType,
+        ULONG GuidCount,
+        BOOLEAN IsDirectoryObject,
+        ULONG AutoInheritFlags,
+        HANDLE Token,
+        PGENERIC_MAPPING GenericMapping)
 {
-  return RtlpNewSecurityObject(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+  return RtlpNewSecurityObject(
+           (__int64)ParentDescriptor,
+           CreatorDescriptor,
+           NewDescriptor,
+           (__int64)ObjectType,
+           GuidCount,
+           IsDirectoryObject,
+           AutoInheritFlags,
+           Token,
+           GenericMapping);
 }

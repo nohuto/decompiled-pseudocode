@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __fastcall RtlInitializeSRWLock(_QWORD *a1)
+void __cdecl RtlInitializeSRWLock(PRTL_SRWLOCK SRWLock)
 {
-  *a1 = 0LL;
+  SRWLock->Value = 0LL;
 }

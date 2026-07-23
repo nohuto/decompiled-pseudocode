@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1405985E0
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140598AD0
  * Callers:
- *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x14028E938 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
- *     PdcPoCurrentPdcPhase @ 0x1405997B0 (PdcPoCurrentPdcPhase.c)
+ *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x14028EBC8 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
+ *     PdcPoCurrentPdcPhase @ 0x140599CA0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PopDeepSleepResiliencyPhaseAccountingBegin(unsigned int a1, char a2)
@@ -27,21 +27,21 @@ void __fastcall PopDeepSleepResiliencyPhaseAccountingBegin(unsigned int a1, char
     v2 = KeAcquireSpinLockRaiseToDpc(&PopDeepSleepDisengageReasonLock);
     KxAcquireSpinLock(&PopCsResiliencyStatsLock);
   }
-  dword_140C3CB3C |= a1;
+  dword_140C3CABC |= a1;
   for ( i = !_BitScanForward((unsigned int *)&v6, a1); !i; i = !_BitScanForward((unsigned int *)&v6, a1) )
   {
     a1 &= a1 - 1;
     if ( ((1 << v6) & PopDeepSleepDisengageReasonMask) != 0 )
-      stru_140C3CB40[v6] = KeQueryPerformanceCounter(0LL);
+      stru_140C3CAC0[v6] = KeQueryPerformanceCounter(0LL);
   }
   if ( !a2 )
   {
     KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
     KxReleaseSpinLock((volatile signed __int64 *)&PopDeepSleepDisengageReasonLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

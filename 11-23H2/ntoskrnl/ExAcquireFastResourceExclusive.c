@@ -1,20 +1,20 @@
 /*
- * XREFs of ExAcquireFastResourceExclusive @ 0x1403C9DC0
+ * XREFs of ExAcquireFastResourceExclusive @ 0x1403C9FA0
  * Callers:
- *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C9820 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C9A00 (ExpFastResourceLegacyAcquireExclusive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     ExpWaitForResource @ 0x1403415C0 (ExpWaitForResource.c)
- *     ExpTryAcquireResourceExclusive @ 0x1403CA2B0 (ExpTryAcquireResourceExclusive.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x1403CA2D8 (ExpAddFastOwnerEntryToThreadList.c)
- *     ExpFindFastOwnerEntryForThread @ 0x1403CA8F4 (ExpFindFastOwnerEntryForThread.c)
- *     ExAcquireFastResourceExclusive2 @ 0x1404129E0 (ExAcquireFastResourceExclusive2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     KeAbPreWait @ 0x1402FD500 (KeAbPreWait.c)
+ *     ExpWaitForResource @ 0x140341850 (ExpWaitForResource.c)
+ *     ExpTryAcquireResourceExclusive @ 0x1403CA490 (ExpTryAcquireResourceExclusive.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x1403CA4B8 (ExpAddFastOwnerEntryToThreadList.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x1403CAAD4 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireFastResourceExclusive2 @ 0x140412D74 (ExAcquireFastResourceExclusive2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
@@ -93,7 +93,7 @@ char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULO
   *(_BYTE *)(a2 + 17) |= 4u;
   v15 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v15 != 2 )
@@ -180,10 +180,10 @@ char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULO
         }
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         ExpAddFastOwnerEntryToThreadList(v45, v35, 0LL, a2);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v36 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && v15 <= 0xFu && v36 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && v15 <= 0xFu && v36 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v38 = CurrentPrcb->SchedulerAssist;
@@ -212,10 +212,10 @@ LABEL_61:
   }
   v18 = 2;
 LABEL_31:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v15 <= 0xFu && v26 >= v18 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v15 <= 0xFu && v26 >= v18 )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

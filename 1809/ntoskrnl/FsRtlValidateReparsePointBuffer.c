@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlValidateReparsePointBuffer @ 0x14011CBB0
+ * XREFs of FsRtlValidateReparsePointBuffer @ 0x14011CC20
  * Callers:
- *     IopValidateJunctionTarget @ 0x14081B6BC (IopValidateJunctionTarget.c)
+ *     IopValidateJunctionTarget @ 0x14081C8BC (IopValidateJunctionTarget.c)
  * Callees:
- *     RtlUShortAdd @ 0x14011CE1C (RtlUShortAdd.c)
+ *     RtlUShortAdd @ 0x14011CE8C (RtlUShortAdd.c)
  */
 
 NTSTATUS __stdcall FsRtlValidateReparsePointBuffer(ULONG BufferLength, PREPARSE_DATA_BUFFER ReparseBuffer)
@@ -52,7 +52,7 @@ LABEL_10:
   }
   if ( v6 == BufferLength
     && (ReparseTag >= 0
-     && !*(_DWORD *)&ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameOffset
+     && !ReparseBuffer->AppExecLinkReparseBuffer.StringCount
      && !ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameOffset
      && !ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameLength
      && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 8)

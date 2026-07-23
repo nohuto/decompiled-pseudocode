@@ -1,24 +1,24 @@
 /*
- * XREFs of MiZeroNodePages @ 0x14017F400
+ * XREFs of MiZeroNodePages @ 0x14017F540
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x140127FD0 (KeFindFirstSetLeftGroupAffinity.c)
- *     MiCreateZeroThreadContext @ 0x14017F66C (MiCreateZeroThreadContext.c)
- *     MiDeleteZeroThreadContext @ 0x1401850B4 (MiDeleteZeroThreadContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1401280A0 (KeFindFirstSetLeftGroupAffinity.c)
+ *     MiCreateZeroThreadContext @ 0x14017F7AC (MiCreateZeroThreadContext.c)
+ *     MiDeleteZeroThreadContext @ 0x1401851F4 (MiDeleteZeroThreadContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
  */
 
 void __fastcall MiZeroNodePages(char *P)
@@ -151,8 +151,8 @@ LABEL_16:
     if ( v8 )
       KeWaitForGate((__int64)P, 0);
   }
-  if ( _InterlockedExchangeAdd(&dword_14043E300, 0xFFFFFFFF) == 1 )
-    KeSignalGate((__int64)&word_14043E308, 1LL, v6);
+  if ( _InterlockedExchangeAdd(&dword_14043F3C0, 0xFFFFFFFF) == 1 )
+    KeSignalGate((__int64)&word_14043F3C8, 1LL, v6);
   if ( v7 )
     ExFreePoolWithTag(v7, 0);
   ExFreePoolWithTag(P, 0);

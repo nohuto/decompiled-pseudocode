@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x14063D95C
+ * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x14063276C
  * Callers:
- *     _CmOpenDeviceInterfaceRegKey @ 0x14063D844 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x140632654 (_CmOpenDeviceInterfaceRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x14063D844 (_CmOpenDeviceInterfaceRegKey.c)
- *     _PnpCtxRegCreateTree @ 0x14063E278 (_PnpCtxRegCreateTree.c)
- *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x140644CEC (_CmGetDeviceInterfaceRegKeyPath.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
- *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140770860 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x140632654 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _PnpCtxRegCreateTree @ 0x140633088 (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegOpenKey @ 0x1406374BC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x140639AFC (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     RtlPrefixUnicodeString @ 0x1406DD340 (RtlPrefixUnicodeString.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D908 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140770A20 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDeviceInterfaceRegKeyWorker(

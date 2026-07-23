@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpQueryNameString @ 0x14049B4E4
+ * XREFs of CmpQueryNameString @ 0x1404CC8A8
  * Callers:
- *     CmpTraceHiveMountBaseFileMounted @ 0x14047F060 (CmpTraceHiveMountBaseFileMounted.c)
- *     CmpInitCmRM @ 0x14049EB58 (CmpInitCmRM.c)
- *     CmKtmNotification @ 0x1404D9B64 (CmKtmNotification.c)
- *     CmpStartRMLog @ 0x1404DAAE0 (CmpStartRMLog.c)
- *     CmpTraceHiveRestoreStart @ 0x1405FBE44 (CmpTraceHiveRestoreStart.c)
- *     CmpAddRemoveRMLogContainer @ 0x140605258 (CmpAddRemoveRMLogContainer.c)
+ *     CmpTraceHiveMountBaseFileMounted @ 0x14047DDB4 (CmpTraceHiveMountBaseFileMounted.c)
+ *     CmKtmNotification @ 0x1404BD168 (CmKtmNotification.c)
+ *     CmpStartRMLog @ 0x1404BE0E4 (CmpStartRMLog.c)
+ *     CmpInitCmRM @ 0x140516F64 (CmpInitCmRM.c)
+ *     CmpTraceHiveRestoreStart @ 0x1405FBEF8 (CmpTraceHiveRestoreStart.c)
+ *     CmpAddRemoveRMLogContainer @ 0x14060530C (CmpAddRemoveRMLogContainer.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpAllocateStringRoutine @ 0x1403F80BC (ExpAllocateStringRoutine.c)
- *     ObQueryNameStringMode @ 0x140434B90 (ObQueryNameStringMode.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ExpAllocateStringRoutine @ 0x1403F6F7C (ExpAllocateStringRoutine.c)
+ *     ObQueryNameStringMode @ 0x140433A60 (ObQueryNameStringMode.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall CmpQueryNameString(void *a1, UNICODE_STRING *a2)

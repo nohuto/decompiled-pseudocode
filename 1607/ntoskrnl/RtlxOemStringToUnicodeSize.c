@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlxOemStringToUnicodeSize @ 0x1406857F0
+ * XREFs of RtlxOemStringToUnicodeSize @ 0x1406858D4
  * Callers:
- *     FsRtlNotifyFilterReportChange @ 0x1404BF290 (FsRtlNotifyFilterReportChange.c)
- *     RtlOemStringToUnicodeString @ 0x1405499E8 (RtlOemStringToUnicodeString.c)
- *     RtlOemStringToCountedUnicodeString @ 0x140685480 (RtlOemStringToCountedUnicodeString.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1404AAFC0 (FsRtlNotifyFilterReportChange.c)
+ *     RtlOemStringToUnicodeString @ 0x140549F28 (RtlOemStringToUnicodeString.c)
+ *     RtlOemStringToCountedUnicodeString @ 0x140685564 (RtlOemStringToCountedUnicodeString.c)
  * Callees:
- *     RtlMultiByteToUnicodeSize @ 0x14054C98C (RtlMultiByteToUnicodeSize.c)
+ *     RtlMultiByteToUnicodeSize @ 0x14054CECC (RtlMultiByteToUnicodeSize.c)
  */
 
 ULONG __stdcall RtlxOemStringToUnicodeSize(PCOEM_STRING OemString)

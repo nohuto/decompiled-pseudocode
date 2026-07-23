@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAllocateCalloutStackEx @ 0x1407801A0
+ * XREFs of KeAllocateCalloutStackEx @ 0x140780360
  * Callers:
- *     KeAllocateCalloutStack @ 0x1407C7720 (KeAllocateCalloutStack.c)
+ *     KeAllocateCalloutStack @ 0x1407C7A40 (KeAllocateCalloutStack.c)
  * Callees:
- *     KeInitializeMutex @ 0x1402ED1A0 (KeInitializeMutex.c)
- *     MmCreateKernelStack @ 0x14032A560 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x14032AB70 (MmDeleteKernelStack.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeMutex @ 0x14029E4F0 (KeInitializeMutex.c)
+ *     MmCreateKernelStack @ 0x1403352B0 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1403358C0 (MmDeleteKernelStack.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 a3, _QWORD *a4)
@@ -53,7 +53,7 @@ __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 
         goto LABEL_10;
     }
     while ( v7 )
-      MmDeleteKernelStack(*(_QWORD *)&PoolWithTag[2 * --v7 + 16], (struct _LIST_ENTRY *)v5);
+      MmDeleteKernelStack(*(_QWORD *)&PoolWithTag[2 * --v7 + 16], v5);
     ExFreePoolWithTag(PoolWithTag, 0);
     return 3221225626LL;
   }

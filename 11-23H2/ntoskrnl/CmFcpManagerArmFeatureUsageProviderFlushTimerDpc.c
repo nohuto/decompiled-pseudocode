@@ -1,9 +1,9 @@
 /*
- * XREFs of CmFcpManagerArmFeatureUsageProviderFlushTimerDpc @ 0x140419CB0
+ * XREFs of CmFcpManagerArmFeatureUsageProviderFlushTimerDpc @ 0x14041A040
  * Callers:
  *     <none>
  * Callees:
- *     CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x140419C50 (CmFcpManagerArmFeatureUsageProviderFlushTimer.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x140419FE0 (CmFcpManagerArmFeatureUsageProviderFlushTimer.c)
  */
 
 void __fastcall CmFcpManagerArmFeatureUsageProviderFlushTimerDpc(

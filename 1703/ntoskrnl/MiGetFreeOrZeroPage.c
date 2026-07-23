@@ -29,7 +29,7 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
   __int64 v3; // rsi
   __int64 v4; // rbp
   _BOOL8 i; // rbx
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_HEADER *v6; // rcx
   PSLIST_ENTRY v7; // rax
   _QWORD *p_Next; // rdi
   __int64 FreePage; // rbx
@@ -71,7 +71,7 @@ __int64 __fastcall MiGetFreeOrZeroPage(__int64 a1, unsigned int a2, unsigned int
   v43 = v35 == 0;
   for ( i = v35 == 0; ; i = 0LL )
   {
-    v6 = (union _SLIST_HEADER *)(v4 + *(_QWORD *)(v3 + 8 * i + 3944));
+    v6 = (_SLIST_HEADER *)(v4 + *(_QWORD *)(v3 + 8 * i + 3944));
     if ( LOWORD(v6->Alignment) )
     {
       v7 = RtlpInterlockedPopEntrySList(v6);

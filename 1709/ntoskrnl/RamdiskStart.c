@@ -43,7 +43,7 @@ __int64 __fastcall RamdiskStart(__int64 a1)
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING GuidString; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+88h] [rbp-78h] BYREF
-  STRING DestinationString; // [rsp+98h] [rbp-68h] BYREF
+  _STRING DestinationString; // [rsp+98h] [rbp-68h] BYREF
   UNICODE_STRING DeviceName; // [rsp+A8h] [rbp-58h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp-48h] BYREF
   _QWORD InputBuffer[8]; // [rsp+F0h] [rbp-10h] BYREF

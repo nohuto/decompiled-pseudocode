@@ -5,11 +5,11 @@
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402FEAC0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, unsigned int a3)
@@ -78,7 +78,7 @@ __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, 
           v20[0] = 0x1000000LL;
           v31 = v20;
           v32 = 8LL;
-          tlgWriteAgg((__int64)&dword_140C03768, (unsigned __int8 *)&word_14002B3DE, v10, v13 + 3, &v22);
+          tlgWriteAgg((__int64)&dword_140C03768, (unsigned __int8 *)&word_14002B4C6, v10, v13 + 3, &v22);
         }
         LODWORD(v14) = 0;
         v5 = FsRtlpOplockBreakByCacheFlags(

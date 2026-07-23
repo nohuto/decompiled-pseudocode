@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPreserveBootDecisions @ 0x14068FB78
+ * XREFs of MiPreserveBootDecisions @ 0x140690C48
  * Callers:
- *     MiNodeZeroConductor @ 0x1407FF7C0 (MiNodeZeroConductor.c)
+ *     MiNodeZeroConductor @ 0x1407FFF00 (MiNodeZeroConductor.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPreserveBootDecisions(__int64 a1, _OWORD *a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAddExpansionNonPagedPool @ 0x1403988C4
+ * XREFs of MiAddExpansionNonPagedPool @ 0x140398AA4
  * Callers:
- *     MiFreeLargeInitializationCodePages @ 0x1403953EC (MiFreeLargeInitializationCodePages.c)
+ *     MiFreeLargeInitializationCodePages @ 0x1403955CC (MiFreeLargeInitializationCodePages.c)
  *     MiInitializeNonPagedPool @ 0x140B5E52C (MiInitializeNonPagedPool.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiReturnPhysicalPoolPages @ 0x1403404FC (MiReturnPhysicalPoolPages.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiReturnPhysicalPoolPages @ 0x14034078C (MiReturnPhysicalPoolPages.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)
@@ -69,10 +69,13 @@ void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)
       *(_QWORD *)(v4 + 8) = -8LL;
       *(_BYTE *)(v4 + 34) = v12 | 5;
       _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v11 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

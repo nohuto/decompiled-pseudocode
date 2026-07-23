@@ -12,63 +12,86 @@
  *     _NtCreateSection@28 @ 0x4B2F2E20 (_NtCreateSection@28.c)
  */
 
-HANDLE *__stdcall RtlCreateQueryDebugBuffer(int a1, int a2)
+PRTL_DEBUG_INFORMATION __cdecl RtlCreateQueryDebugBuffer(ULONG MaximumCommit, BOOLEAN UseEventPair)
 {
-  int v2; // eax
+  ULONG v2; // eax
   unsigned int v3; // esi
-  _DWORD v5[2]; // [esp+Ch] [ebp-24h] BYREF
-  int v6; // [esp+14h] [ebp-1Ch] BYREF
-  int v7; // [esp+18h] [ebp-18h] BYREF
-  int v8; // [esp+1Ch] [ebp-14h] BYREF
-  HANDLE *v9; // [esp+20h] [ebp-10h] BYREF
-  HANDLE Handle; // [esp+24h] [ebp-Ch] BYREF
-  _DWORD *v11; // [esp+28h] [ebp-8h] BYREF
-  HANDLE *v12; // [esp+2Ch] [ebp-4h] BYREF
+  SIZE_T v5; // [esp-14h] [ebp-44h]
+  ULONG_PTR v6; // [esp-10h] [ebp-40h]
+  ULONG_PTR v7; // [esp-10h] [ebp-40h]
+  ULONG v8; // [esp+0h] [ebp-30h]
+  ULONG v9; // [esp+0h] [ebp-30h]
+  ULONG v10; // [esp+0h] [ebp-30h]
+  ULONG v11; // [esp+4h] [ebp-2Ch]
+  LARGE_INTEGER MaximumSize; // [esp+Ch] [ebp-24h] BYREF
+  unsigned int v13; // [esp+14h] [ebp-1Ch] BYREF
+  ULONG_PTR RegionSize; // [esp+18h] [ebp-18h] BYREF
+  PVOID v15; // [esp+20h] [ebp-10h] BYREF
+  HANDLE SectionHandle; // [esp+24h] [ebp-Ch] BYREF
+  PVOID BaseAddress; // [esp+28h] [ebp-8h] BYREF
+  PVOID v18; // [esp+2Ch] [ebp-4h] BYREF
 
-  v2 = a1;
-  Handle = 0;
-  v11 = 0;
-  v12 = 0;
-  v9 = 0;
-  if ( !a1 )
+  v2 = MaximumCommit;
+  SectionHandle = 0;
+  BaseAddress = 0;
+  v18 = 0;
+  v15 = 0;
+  if ( !MaximumCommit )
     v2 = 0x400000;
   v3 = (v2 + 4095) & 0xFFFFF000;
-  if ( RtlULongLongToUInt(&v6, 2 * v3, (unsigned __int64)v3 >> 31) >= 0 )
+  if ( RtlULongLongToUInt((int *)&v13, 2 * v3, (unsigned __int64)v3 >> 31) >= 0 )
   {
-    v5[0] = v6;
-    v5[1] = 0;
-    if ( NtCreateSection((int)&Handle, 983071, 0, (int)v5, 4, 0x4000000, 0) >= 0
-      && ZwMapViewOfSection((int)Handle, -1, (int)&v9, 0, 0, 0, (int)&v6, 2, 0, 4) >= 0 )
+    MaximumSize.QuadPart = v13;
+    if ( NtCreateSection(&SectionHandle, 0xF001Fu, 0, &MaximumSize, 4u, 0x4000000u, 0) >= 0 )
     {
-      v12 = v9;
-      v8 = 104;
-      if ( NtAllocateVirtualMemory(-1, (int)&v12, 0, (int)&v8, 4096, 4) >= 0 )
+      HIDWORD(v5) = &v13;
+      LODWORD(v5) = 0;
+      if ( ZwMapViewOfSection(
+             SectionHandle,
+             (HANDLE)0xFFFFFFFF,
+             &v15,
+             0LL,
+             v5,
+             (PLARGE_INTEGER)2,
+             0,
+             (SECTION_INHERIT)4,
+             v8,
+             v11) >= 0 )
       {
-        v7 = 104;
-        v11 = (HANDLE *)((char *)v12 + v3);
-        if ( NtAllocateVirtualMemory(-1, (int)&v11, 0, (int)&v7, 4096, 4) >= 0 )
+        v18 = v15;
+        HIDWORD(v6) = (char *)&RegionSize + 4;
+        LODWORD(v6) = 0;
+        HIDWORD(RegionSize) = 104;
+        if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &v18, v6, (PSIZE_T)0x1000, 4u, v9) >= 0 )
         {
-          *v12 = Handle;
-          v12[1] = v12;
-          v12[9] = (HANDLE)104;
-          v12[10] = (HANDLE)v8;
-          v12[11] = (HANDLE)v3;
-          qmemcpy(v11, v12, 0x68u);
-          v11[1] = v11;
-          v11[10] = v7;
-          *v11 = 0;
-          return v12;
+          LODWORD(RegionSize) = 104;
+          BaseAddress = (char *)v18 + v3;
+          HIDWORD(v7) = &RegionSize;
+          LODWORD(v7) = 0;
+          if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v7, (PSIZE_T)0x1000, 4u, v10) >= 0 )
+          {
+            *(_DWORD *)v18 = SectionHandle;
+            *((_DWORD *)v18 + 1) = v18;
+            *((_DWORD *)v18 + 9) = 104;
+            *((_DWORD *)v18 + 10) = HIDWORD(RegionSize);
+            *((_DWORD *)v18 + 11) = v3;
+            qmemcpy(BaseAddress, v18, 0x68u);
+            *((_DWORD *)BaseAddress + 1) = BaseAddress;
+            *((_DWORD *)BaseAddress + 10) = RegionSize;
+            *(_DWORD *)BaseAddress = 0;
+            return (PRTL_DEBUG_INFORMATION)v18;
+          }
         }
       }
     }
-    if ( v12 )
-      NtFreeVirtualMemory(-1, (int)&v12, (int)&v8, 0x8000);
-    if ( v11 )
-      NtFreeVirtualMemory(-1, (int)&v11, (int)&v7, 0x8000);
-    if ( v9 )
-      NtUnmapViewOfSection(-1, (int)v9);
-    if ( Handle )
-      NtClose(Handle);
+    if ( v18 )
+      NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &v18, (ULONG_PTR *)((char *)&RegionSize + 4), 0x8000u);
+    if ( BaseAddress )
+      NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
+    if ( v15 )
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, v15);
+    if ( SectionHandle )
+      NtClose(SectionHandle);
   }
   return 0;
 }

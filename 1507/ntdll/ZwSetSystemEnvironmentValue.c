@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSetSystemEnvironmentValue()
+NTSTATUS __cdecl ZwSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUNICODE_STRING VariableValue)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 396LL;
+  result = 396;
   __asm { syscall; Low latency system call }
   return result;
 }

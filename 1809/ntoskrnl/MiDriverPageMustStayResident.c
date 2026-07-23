@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDriverPageMustStayResident @ 0x1400DB118
+ * XREFs of MiDriverPageMustStayResident @ 0x1400DB198
  * Callers:
- *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
+ *     MiSetPagingOfDriver @ 0x1400DAE7C (MiSetPagingOfDriver.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB490 (MiMakeDriverPagesPrivate.c)
  * Callees:
  *     <none>
  */

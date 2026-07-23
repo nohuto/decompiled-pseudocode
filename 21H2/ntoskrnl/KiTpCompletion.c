@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTpCompletion @ 0x140A12130
+ * XREFs of KiTpCompletion @ 0x140A13130
  * Callers:
  *     <none>
  * Callees:
- *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateInstruction @ 0x140A138C0 (KiTpEmulateInstruction.c)
  */
 
 __int64 __fastcall KiTpCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)

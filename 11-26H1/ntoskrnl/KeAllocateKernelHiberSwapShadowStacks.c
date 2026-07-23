@@ -1,14 +1,14 @@
 /*
- * XREFs of KeAllocateKernelHiberSwapShadowStacks @ 0x1405F061C
+ * XREFs of KeAllocateKernelHiberSwapShadowStacks @ 0x1405F2F8C
  * Callers:
- *     VslAllocateSecureHibernateResources @ 0x140791F40 (VslAllocateSecureHibernateResources.c)
- *     VslFreeSecureHibernateResources @ 0x1407922C8 (VslFreeSecureHibernateResources.c)
+ *     VslAllocateSecureHibernateResources @ 0x140794A70 (VslAllocateSecureHibernateResources.c)
+ *     VslFreeSecureHibernateResources @ 0x140794DF8 (VslFreeSecureHibernateResources.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KiAllocateProcessorHiberSwapShadowStacks @ 0x1405F0718 (KiAllocateProcessorHiberSwapShadowStacks.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KiAllocateProcessorHiberSwapShadowStacks @ 0x1405F3088 (KiAllocateProcessorHiberSwapShadowStacks.c)
  */
 
 __int64 __fastcall KeAllocateKernelHiberSwapShadowStacks(unsigned int a1)
@@ -29,14 +29,14 @@ __int64 __fastcall KeAllocateKernelHiberSwapShadowStacks(unsigned int a1)
   if ( !(_BYTE)KiKernelCetEnabled )
     return 0LL;
   ProcessorHiberSwapShadowStacks = 0;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[144]);
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[56]);
   if ( a1 )
   {
     if ( !KiHiberSwapStacksAllocated )
     {
-      v7 = *(__int64 *)((char *)&stru_140FC01F0.116 + 4);
+      v7 = *(__int64 *)((char *)&stru_140FC11F0.116 + 4);
       v8 = 0;
-      p_WaitRegister = &stru_140FC01F0.WaitRegister;
+      p_WaitRegister = &stru_140FC11F0.WaitRegister;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v11, (unsigned __int16 **)&p_WaitRegister) )
       {
         Prcb = KeGetPrcb(v11);
@@ -52,9 +52,9 @@ __int64 __fastcall KeAllocateKernelHiberSwapShadowStacks(unsigned int a1)
   else
   {
 LABEL_9:
-    v7 = *(__int64 *)((char *)&stru_140FC01F0.116 + 4);
+    v7 = *(__int64 *)((char *)&stru_140FC11F0.116 + 4);
     v8 = 0;
-    p_WaitRegister = &stru_140FC01F0.WaitRegister;
+    p_WaitRegister = &stru_140FC11F0.WaitRegister;
     do
     {
       if ( (unsigned int)KeEnumerateNextProcessor(&v11, (unsigned __int16 **)&p_WaitRegister) )
@@ -65,6 +65,6 @@ LABEL_9:
     while ( ProcessorHiberSwapShadowStacks >= 0 );
   }
   KiHiberSwapStacksAllocated = a1;
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[144]);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[56]);
   return (unsigned int)ProcessorHiberSwapShadowStacks;
 }

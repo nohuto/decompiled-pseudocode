@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEmptyDecayClusterTimers @ 0x1400F07F0
+ * XREFs of MiEmptyDecayClusterTimers @ 0x1400F0870
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
  * Callees:
  *     MiRemoveDecayClusterTimer @ 0x1400293F0 (MiRemoveDecayClusterTimer.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiRelinkStandbyPage @ 0x1400F0AB8 (MiRelinkStandbyPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
@@ -75,11 +75,11 @@ __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
     v9 = *(_QWORD *)(8 * v4 + a1 + 4728) >> 33;
     if ( v9 == 0x7FFFFFFF )
       break;
-    v10 = v9 + qword_14043AA60;
-    v11 = 48 * (v9 + qword_14043AA60) - 0x58000000000LL;
+    v10 = v9 + qword_14043BB20;
+    v11 = 48 * (v9 + qword_14043BB20) - 0x58000000000LL;
     v12 = *(_QWORD *)(v11 + 16);
-    if ( qword_14043A0C0 && (v12 & 0x10) == 0 )
-      v12 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v12 & 0x10) == 0 )
+      v12 &= ~qword_14043B180;
     v13 = (v12 >> 12) & 0xFFFFFFFFFLL;
     if ( v13 == v10 )
     {

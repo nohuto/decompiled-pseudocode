@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmExitCoordinatedIdleState @ 0x1404F2C6C
+ * XREFs of PpmExitCoordinatedIdleState @ 0x1404EC24C
  * Callers:
- *     PpmExitCoordinatedIdle @ 0x1403EC374 (PpmExitCoordinatedIdle.c)
+ *     PpmExitCoordinatedIdle @ 0x1402F93B8 (PpmExitCoordinatedIdle.c)
  * Callees:
- *     PpmIdleTransitionStall @ 0x14060274C (PpmIdleTransitionStall.c)
+ *     PpmIdleTransitionStall @ 0x1406051FC (PpmIdleTransitionStall.c)
  */
 
 char __fastcall PpmExitCoordinatedIdleState(volatile signed __int32 *a1, bool *a2)
@@ -20,7 +20,7 @@ char __fastcall PpmExitCoordinatedIdleState(volatile signed __int32 *a1, bool *a
   BYTE12(v9) = 1;
   *(_QWORD *)&v9 = 0LL;
   v8[0] = 0LL;
-  v8[1] = stru_140FC01F0.WaitBlock[1].Object;
+  v8[1] = stru_140FC11F0.WaitBlock[2].WaitListEntry.Flink;
   *a2 = 0;
   while ( v2 )
   {

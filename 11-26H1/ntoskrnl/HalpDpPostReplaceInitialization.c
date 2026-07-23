@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDpPostReplaceInitialization @ 0x140BEE0F0
+ * XREFs of HalpDpPostReplaceInitialization @ 0x140BF40F0
  * Callers:
- *     HalpDpOfflineProcessorForReplace @ 0x140BEDED0 (HalpDpOfflineProcessorForReplace.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x140BF3ED0 (HalpDpOfflineProcessorForReplace.c)
  * Callees:
- *     HalpInterruptEnablePerformanceEvents @ 0x1404298AC (HalpInterruptEnablePerformanceEvents.c)
- *     HalpInterruptEnableNmi @ 0x140429E90 (HalpInterruptEnableNmi.c)
- *     HalpGetCpuInfo @ 0x1404C55D0 (HalpGetCpuInfo.c)
- *     HalpRestartProfiling @ 0x1404F3650 (HalpRestartProfiling.c)
- *     HalpMcUpdateMicrocode @ 0x140510840 (HalpMcUpdateMicrocode.c)
- *     HalpInterruptReinitializeThisProcessor @ 0x140513164 (HalpInterruptReinitializeThisProcessor.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpMcaResumeProcessorConfig @ 0x140C0A7E0 (HalpMcaResumeProcessorConfig.c)
+ *     HalpInterruptEnableNmi @ 0x140435DF0 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1404360DC (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpGetCpuInfo @ 0x1404BEF80 (HalpGetCpuInfo.c)
+ *     HalpRestartProfiling @ 0x1404ECC30 (HalpRestartProfiling.c)
+ *     HalpMcUpdateMicrocode @ 0x14050A2B0 (HalpMcUpdateMicrocode.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x14050CBD4 (HalpInterruptReinitializeThisProcessor.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140C109F0 (HalpMcaResumeProcessorConfig.c)
  */
 
 __int64 __fastcall HalpDpPostReplaceInitialization(int *a1, unsigned __int64 *a2)

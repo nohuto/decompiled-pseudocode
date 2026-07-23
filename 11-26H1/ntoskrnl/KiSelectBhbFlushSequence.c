@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSelectBhbFlushSequence @ 0x1405F3114
+ * XREFs of KiSelectBhbFlushSequence @ 0x1405F5AD4
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30 (KiOptimizeSpecCtrlSettingsWorker.c)
  * Callees:
  *     <none>
  */

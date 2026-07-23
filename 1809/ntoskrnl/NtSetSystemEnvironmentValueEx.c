@@ -1,19 +1,19 @@
 /*
- * XREFs of NtSetSystemEnvironmentValueEx @ 0x1408D5BC0
+ * XREFs of NtSetSystemEnvironmentValueEx @ 0x1408D6E80
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     PsIsProcessAppContainer @ 0x1406B81E8 (PsIsProcessAppContainer.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1408CFB60 (ExSetFirmwareEnvironmentVariable.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1408D24A0 (ExpSetFirmwareEnvironmentVariable.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     PsIsProcessAppContainer @ 0x1406B9488 (PsIsProcessAppContainer.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1408D0E20 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D1CD0 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x1408D3760 (ExpSetFirmwareEnvironmentVariable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetSystemEnvironmentValueEx(
@@ -43,7 +43,7 @@ NTSTATUS __stdcall NtSetSystemEnvironmentValueEx(
              (__int64)Value,
              (unsigned int)ReturnLength,
              (int)Attributes);
-  if ( dword_140409D90 != 2 )
+  if ( dword_14040ADF0 != 2 )
     return -1073741822;
   if ( ((unsigned __int8)VariableName & 3) != 0 )
     ExRaiseDatatypeMisalignment();

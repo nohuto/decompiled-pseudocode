@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaCvmMakeMasterAdapterMapRegistersShared @ 0x1405892CC
+ * XREFs of HalpDmaCvmMakeMasterAdapterMapRegistersShared @ 0x14058B99C
  * Callers:
- *     HalpDmaInit @ 0x140CB0700 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140CB6740 (HalpDmaInit.c)
  * Callees:
- *     CvmDebugLog @ 0x140532568 (CvmDebugLog.c)
- *     HalpDmaCvmSetPageShareability @ 0x140783234 (HalpDmaCvmSetPageShareability.c)
+ *     CvmDebugLog @ 0x140534A08 (CvmDebugLog.c)
+ *     HalpDmaCvmSetPageShareability @ 0x140785D68 (HalpDmaCvmSetPageShareability.c)
  */
 
 void HalpDmaCvmMakeMasterAdapterMapRegistersShared()

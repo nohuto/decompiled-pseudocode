@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReplicatePteChange @ 0x1404F761C
+ * XREFs of MiReplicatePteChange @ 0x1404F4EFC
  * Callers:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     MiAllocateWsle @ 0x14021F980 (MiAllocateWsle.c)
- *     MiUnlockNestedPageTableWritePte @ 0x140285DE4 (MiUnlockNestedPageTableWritePte.c)
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
- *     MiDeleteSystemPageTable @ 0x140485BD0 (MiDeleteSystemPageTable.c)
- *     MiInitializeShadowPageTable @ 0x1407F6428 (MiInitializeShadowPageTable.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x1402023A0 (MiUnlockNestedPageTableWritePte.c)
+ *     MiAllocateWsle @ 0x14024C6D0 (MiAllocateWsle.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
+ *     MiDeleteSystemPageTable @ 0x1404811C0 (MiDeleteSystemPageTable.c)
+ *     MiInitializeShadowPageTable @ 0x1407F6B9C (MiInitializeShadowPageTable.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiReplicatePteChangeToProcess @ 0x14068D440 (MiReplicatePteChangeToProcess.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReplicatePteChangeToProcess @ 0x14068E570 (MiReplicatePteChangeToProcess.c)
  */
 
 void __fastcall MiReplicatePteChange(__int64 a1, int a2)
@@ -33,14 +33,14 @@ void __fastcall MiReplicatePteChange(__int64 a1, int a2)
     if ( CurrentIrql == 2 )
     {
       CurrentIrql = 17;
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E373C0);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&SpinLock);
     }
     else
     {
-      ExAcquireSpinLockExclusive(&dword_140E373C0);
+      ExAcquireSpinLockExclusive(&SpinLock);
     }
   }
-  for ( i = (__int64 *)qword_140E2DA58; i != &qword_140E2DA58; i = (__int64 *)*i )
+  for ( i = (__int64 *)qword_140E2DB98; i != &qword_140E2DB98; i = (__int64 *)*i )
   {
     v7 = i - 168;
     v8 = *((_DWORD *)i - 211);
@@ -58,5 +58,5 @@ void __fastcall MiReplicatePteChange(__int64 a1, int a2)
     }
   }
   if ( !a2 )
-    MiReleaseSpinLockExclusive(&dword_140E373C0, CurrentIrql);
+    MiReleaseSpinLockExclusive(&SpinLock, CurrentIrql);
 }

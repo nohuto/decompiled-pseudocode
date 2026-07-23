@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpGetSubKeyCountForKeyNodeStack @ 0x140915814
+ * XREFs of CmpGetSubKeyCountForKeyNodeStack @ 0x140909284
  * Callers:
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x140462458 (CmpQueryKeyDataFromKeyNodeStack.c)
- *     CmpGetSubKeyCountForKcbStack @ 0x140913D68 (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x140457A68 (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x1409077DC (CmpGetSubKeyCountForKcbStack.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpKeyEnumStackStart @ 0x14091554C (CmpKeyEnumStackStart.c)
- *     CmpKeyEnumStackAdvance @ 0x140916888 (CmpKeyEnumStackAdvance.c)
- *     CmpCleanupKeyNodeStack @ 0x140916C58 (CmpCleanupKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140916CB8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpKeyEnumStackEntryCleanup @ 0x140916D1C (CmpKeyEnumStackEntryCleanup.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140916F14 (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyEnumStackInitialize @ 0x140916F34 (CmpKeyEnumStackInitialize.c)
- *     CmpKeyEnumStackEntryBegin @ 0x140916FE0 (CmpKeyEnumStackEntryBegin.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpKeyEnumStackStart @ 0x140908FBC (CmpKeyEnumStackStart.c)
+ *     CmpKeyEnumStackAdvance @ 0x14090A2F8 (CmpKeyEnumStackAdvance.c)
+ *     CmpCleanupKeyNodeStack @ 0x14090A6C8 (CmpCleanupKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14090A728 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackEntryCleanup @ 0x14090A78C (CmpKeyEnumStackEntryCleanup.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14090A984 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyEnumStackInitialize @ 0x14090A9A4 (CmpKeyEnumStackInitialize.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x14090AA50 (CmpKeyEnumStackEntryBegin.c)
  */
 
 __int64 __fastcall CmpGetSubKeyCountForKeyNodeStack(unsigned __int16 *a1, int *a2)

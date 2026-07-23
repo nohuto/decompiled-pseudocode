@@ -1,10 +1,10 @@
 /*
  * XREFs of KeDispatchSecondaryInterrupt @ 0x14056EBB0
  * Callers:
- *     HalpInvokeIsrForGsiv @ 0x14051D820 (HalpInvokeIsrForGsiv.c)
+ *     sub_14051D820 @ 0x14051D820 (sub_14051D820.c)
  * Callees:
- *     KiInsertSecondarySignalList @ 0x14056F060 (KiInsertSecondarySignalList.c)
- *     KiInterruptDispatchCommon @ 0x140575CD8 (KiInterruptDispatchCommon.c)
+ *     sub_14056F060 @ 0x14056F060 (sub_14056F060.c)
+ *     sub_140575CD8 @ 0x140575CD8 (sub_140575CD8.c)
  */
 
 char __fastcall KeDispatchSecondaryInterrupt(int a1, unsigned int a2, __int64 a3)
@@ -20,8 +20,8 @@ char __fastcall KeDispatchSecondaryInterrupt(int a1, unsigned int a2, __int64 a3
   v4 = v7;
   if ( !CurrentIrql )
     v4 = 0LL;
-  v5 = KiInterruptDispatchCommon(1, a1, (a2 >> 20) & 1, (_DWORD)v4, a3);
+  v5 = sub_140575CD8(1, a1, (a2 >> 20) & 1, (_DWORD)v4, a3);
   if ( CurrentIrql )
-    KiInsertSecondarySignalList(v4);
+    sub_14056F060(v4);
   return v5;
 }

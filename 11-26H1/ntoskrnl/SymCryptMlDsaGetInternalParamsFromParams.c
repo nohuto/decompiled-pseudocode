@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMlDsaGetInternalParamsFromParams @ 0x140572A1C
+ * XREFs of SymCryptMlDsaGetInternalParamsFromParams @ 0x140571C28
  * Callers:
- *     SymCryptMlDsakeyAllocate @ 0x14055E1CC (SymCryptMlDsakeyAllocate.c)
+ *     SymCryptMlDsakeyAllocate @ 0x1405606F0 (SymCryptMlDsakeyAllocate.c)
  * Callees:
  *     <none>
  */

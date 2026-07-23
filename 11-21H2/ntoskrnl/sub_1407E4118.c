@@ -1,10 +1,10 @@
 /*
  * XREFs of sub_1407E4118 @ 0x1407E4118
  * Callers:
- *     WbAddHeapExecutedBlockToCache @ 0x1407E1DC8 (WbAddHeapExecutedBlockToCache.c)
- *     WbGetWarbirdProcess @ 0x1407E2D60 (WbGetWarbirdProcess.c)
- *     WbGetWarbirdThread @ 0x1407E3900 (WbGetWarbirdThread.c)
- *     WbAllocateUserMemory @ 0x1407E43F0 (WbAllocateUserMemory.c)
+ *     sub_1407E1DC8 @ 0x1407E1DC8 (sub_1407E1DC8.c)
+ *     sub_1407E2D60 @ 0x1407E2D60 (sub_1407E2D60.c)
+ *     sub_1407E3900 @ 0x1407E3900 (sub_1407E3900.c)
+ *     sub_1407E43F0 @ 0x1407E43F0 (sub_1407E43F0.c)
  *     sub_140A0EFB4 @ 0x140A0EFB4 (sub_140A0EFB4.c)
  * Callees:
  *     sub_1407E3440 @ 0x1407E3440 (sub_1407E3440.c)

@@ -1,20 +1,20 @@
 /*
- * XREFs of HvpViewMapCreateViewsForRegion @ 0x14097F77C
+ * XREFs of HvpViewMapCreateViewsForRegion @ 0x140967F8C
  * Callers:
- *     HvpViewMapExtendStorage @ 0x14097FB04 (HvpViewMapExtendStorage.c)
- *     HvpViewMapStart @ 0x140982AE8 (HvpViewMapStart.c)
+ *     HvpViewMapExtendStorage @ 0x140968314 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapStart @ 0x14096B2F8 (HvpViewMapStart.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     CmSiGetMemoryAllocationGranularity @ 0x1404A933C (CmSiGetMemoryAllocationGranularity.c)
- *     HvpDetermineFinalViewReservationEnd @ 0x14097F3D4 (HvpDetermineFinalViewReservationEnd.c)
- *     HvpViewMapCreateView @ 0x14097FA0C (HvpViewMapCreateView.c)
- *     HvpViewMapMakeViewRangeValid @ 0x140980000 (HvpViewMapMakeViewRangeValid.c)
- *     HvpViewMapFreeView @ 0x140A4A284 (HvpViewMapFreeView.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     CmSiGetMemoryAllocationGranularity @ 0x1404A375C (CmSiGetMemoryAllocationGranularity.c)
+ *     HvpDetermineFinalViewReservationEnd @ 0x140967BE4 (HvpDetermineFinalViewReservationEnd.c)
+ *     HvpViewMapCreateView @ 0x14096821C (HvpViewMapCreateView.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140968810 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapFreeView @ 0x140A40FA4 (HvpViewMapFreeView.c)
  */
 
 __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  _QWORD *v4; // rbx
+  PRTL_BALANCED_NODE **v4; // rbx
   __int64 v7; // r14
   __int64 MemoryAllocationGranularity; // rax
   __int64 v9; // rsi
@@ -23,27 +23,27 @@ __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int6
   int v12; // r13d
   int v13; // eax
   int ViewRangeValid; // edi
-  _QWORD *v15; // rax
-  _QWORD *v16; // rcx
-  __int64 v17; // rax
-  unsigned __int64 *v18; // rdi
+  PRTL_BALANCED_NODE *v15; // rax
+  PRTL_BALANCED_NODE v16; // rcx
+  _RTL_BALANCED_NODE *v17; // rax
+  _RTL_BALANCED_NODE **v18; // rdi
   unsigned __int64 v19; // rdx
-  bool v20; // r8
+  BOOLEAN v20; // r8
   unsigned __int64 v21; // rax
-  __int64 v22; // rax
-  _QWORD *v23; // rax
-  _QWORD *v25; // rcx
-  _QWORD *v26; // [rsp+30h] [rbp-18h] BYREF
-  _QWORD **v27; // [rsp+38h] [rbp-10h]
-  _QWORD *v29; // [rsp+98h] [rbp+50h] BYREF
+  _RTL_BALANCED_NODE *v22; // rax
+  PRTL_BALANCED_NODE v23; // rax
+  _RTL_BALANCED_NODE *v25; // rcx
+  PRTL_BALANCED_NODE Node; // [rsp+30h] [rbp-18h] BYREF
+  PRTL_BALANCED_NODE *p_Node; // [rsp+38h] [rbp-10h]
+  PRTL_BALANCED_NODE **v29; // [rsp+98h] [rbp+50h] BYREF
   __int64 v30; // [rsp+A0h] [rbp+58h]
   char v31; // [rsp+A8h] [rbp+60h]
 
   v31 = a4;
   v4 = 0LL;
-  v27 = &v26;
+  p_Node = &Node;
   v29 = 0LL;
-  v26 = &v26;
+  Node = (PRTL_BALANCED_NODE)&Node;
   v7 = a1;
   MemoryAllocationGranularity = CmSiGetMemoryAllocationGranularity();
   v30 = MemoryAllocationGranularity;
@@ -52,23 +52,23 @@ __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int6
   {
     if ( a2 >= a3 )
     {
-      v16 = v26;
-      v17 = *v26;
-      if ( (_QWORD **)v26[1] == &v26 && *(_QWORD **)(v17 + 8) == v26 )
+      v16 = Node;
+      v17 = Node->Children[0];
+      if ( (PRTL_BALANCED_NODE *)Node->Children[1] == &Node && v17->Children[1] == Node )
       {
-        v26 = (_QWORD *)*v26;
-        *(_QWORD *)(v17 + 8) = &v26;
-        if ( v16 == &v26 )
+        Node = Node->Children[0];
+        v17->Children[1] = (_RTL_BALANCED_NODE *)&Node;
+        if ( v16 == (PRTL_BALANCED_NODE)&Node )
         {
 LABEL_23:
           ViewRangeValid = 0;
           goto LABEL_24;
         }
-        v18 = (unsigned __int64 *)(v7 + 40);
+        v18 = (_RTL_BALANCED_NODE **)(v7 + 40);
         v4 = 0LL;
         while ( 1 )
         {
-          v19 = *v18;
+          v19 = (unsigned __int64)*v18;
           if ( (*(_BYTE *)(v7 + 48) & 1) != 0 && v19 )
             v19 ^= (unsigned __int64)v18;
           v20 = 0;
@@ -76,7 +76,7 @@ LABEL_23:
           {
             while ( 1 )
             {
-              if ( v16[5] < *(_QWORD *)(v19 + 40) )
+              if ( (signed __int64)v16[1].ParentValue < *(_QWORD *)(v19 + 40) )
               {
                 v21 = *(_QWORD *)v19;
                 if ( (*(_BYTE *)(v7 + 48) & 1) != 0 )
@@ -111,16 +111,16 @@ LABEL_19:
               v19 = v21;
             }
           }
-          RtlRbInsertNodeEx((__int64 *)(v7 + 40), v19, v20, (unsigned __int64)v16);
-          v16 = v26;
-          if ( (_QWORD **)v26[1] != &v26 )
+          RtlRbInsertNodeEx((PRTL_RB_TREE)(v7 + 40), (PRTL_BALANCED_NODE)v19, v20, v16);
+          v16 = Node;
+          if ( (PRTL_BALANCED_NODE *)Node->Children[1] != &Node )
             break;
-          v22 = *v26;
-          if ( *(_QWORD **)(*v26 + 8LL) != v26 )
+          v22 = Node->Children[0];
+          if ( Node->Children[0]->Children[1] != Node )
             break;
-          v26 = (_QWORD *)*v26;
-          *(_QWORD *)(v22 + 8) = &v26;
-          if ( v16 == &v26 )
+          Node = Node->Children[0];
+          v22->Children[1] = (_RTL_BALANCED_NODE *)&Node;
+          if ( v16 == (PRTL_BALANCED_NODE)&Node )
             goto LABEL_23;
         }
       }
@@ -146,14 +146,14 @@ LABEL_8:
     ViewRangeValid = HvpViewMapMakeViewRangeValid(a1, (_DWORD)v29, a2, v12, v31);
     if ( ViewRangeValid < 0 )
       goto LABEL_28;
-    v15 = v27;
-    if ( *v27 != &v26 )
+    v15 = p_Node;
+    if ( *p_Node != (PRTL_BALANCED_NODE)&Node )
       goto LABEL_8;
-    v4[1] = v27;
-    *v4 = &v26;
+    v4[1] = p_Node;
+    *v4 = &Node;
     a2 = v11;
-    *v15 = v4;
-    v27 = (_QWORD **)v4;
+    *v15 = (PRTL_BALANCED_NODE)v4;
+    p_Node = (PRTL_BALANCED_NODE *)v4;
     v4 = 0LL;
     v29 = 0LL;
 LABEL_37:
@@ -170,23 +170,23 @@ LABEL_28:
 LABEL_24:
   if ( v4 )
     HvpViewMapFreeView(v7, v4);
-  v23 = v26;
-  if ( v26 != &v26 )
+  v23 = Node;
+  if ( Node != (PRTL_BALANCED_NODE)&Node )
   {
-    v25 = (_QWORD *)*v26;
-    if ( (_QWORD **)v26[1] == &v26 )
+    v25 = Node->Children[0];
+    if ( (PRTL_BALANCED_NODE *)Node->Children[1] == &Node )
     {
-      while ( (_QWORD *)v25[1] == v23 )
+      while ( v25->Children[1] == v23 )
       {
-        v26 = v25;
-        v25[1] = &v26;
-        if ( v23 == &v26 )
+        Node = v25;
+        v25->Children[1] = (_RTL_BALANCED_NODE *)&Node;
+        if ( v23 == (PRTL_BALANCED_NODE)&Node )
           return (unsigned int)ViewRangeValid;
         HvpViewMapFreeView(v7, v23);
-        v23 = v26;
-        if ( (_QWORD **)v26[1] != &v26 )
+        v23 = Node;
+        if ( (PRTL_BALANCED_NODE *)Node->Children[1] != &Node )
           goto LABEL_8;
-        v25 = (_QWORD *)*v26;
+        v25 = Node->Children[0];
       }
     }
     goto LABEL_8;

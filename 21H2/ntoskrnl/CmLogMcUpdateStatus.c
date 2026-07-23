@@ -1,23 +1,23 @@
 /*
- * XREFs of CmLogMcUpdateStatus @ 0x1404ECA98
+ * XREFs of CmLogMcUpdateStatus @ 0x1404ECCD8
  * Callers:
- *     HvlpLogMicrocodeUpdateStatus @ 0x14088E624 (HvlpLogMicrocodeUpdateStatus.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14088E784 (HvlpLogMicrocodeUpdateStatus.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     RtlIntegerToChar @ 0x14062CDE0 (RtlIntegerToChar.c)
- *     CmpInitializeRegistryNode @ 0x1407A6CEC (CmpInitializeRegistryNode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlIntegerToChar @ 0x14060F430 (RtlIntegerToChar.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     CmpInitializeRegistryNode @ 0x1407A6EEC (CmpInitializeRegistryNode.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
+__int64 __fastcall CmLogMcUpdateStatus(ULONG Value, __int64 a2)
 {
   NTSTATUS v4; // ebx
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
@@ -28,7 +28,7 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
   UNICODE_STRING v11; // [rsp+98h] [rbp-68h] BYREF
   STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
   _DWORD v13[18]; // [rsp+C0h] [rbp-40h] BYREF
-  char SourceString[16]; // [rsp+110h] [rbp+10h] BYREF
+  CHAR String[16]; // [rsp+110h] [rbp+10h] BYREF
   char v15; // [rsp+120h] [rbp+20h] BYREF
 
   DestinationString = 0LL;
@@ -54,8 +54,8 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
     v4 = ZwOpenKey(&v9, 0x20019u, &ObjectAttributes);
     if ( v4 >= 0 )
     {
-      RtlIntegerToChar(a1, 10LL, 12LL, SourceString);
-      RtlInitAnsiString(&DestinationString, SourceString);
+      RtlIntegerToChar(Value, 0xAu, 12, String);
+      RtlInitAnsiString(&DestinationString, String);
       *(_DWORD *)&v11.Length = 1572864;
       v11.Buffer = (wchar_t *)&v15;
       RtlAnsiStringToUnicodeString(&v11, &DestinationString, 0);
@@ -74,7 +74,7 @@ __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
       }
       v13[6] = 1;
       v13[7] = 1;
-      v13[10] = a1;
+      v13[10] = Value;
       v4 = CmpInitializeRegistryNode(
              (unsigned int)v13,
              (_DWORD)KeyHandle,

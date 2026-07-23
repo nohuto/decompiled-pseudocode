@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpTraceMessageVa @ 0x1400D5D90
+ * XREFs of EtwpTraceMessageVa @ 0x1400D3C30
  * Callers:
- *     WmiTraceMessage @ 0x1400B3ABC (WmiTraceMessage.c)
- *     NtTraceEvent @ 0x1400D5560 (NtTraceEvent.c)
- *     WmiTraceMessageVa @ 0x1402258E8 (WmiTraceMessageVa.c)
+ *     WmiTraceMessage @ 0x1400B193C (WmiTraceMessage.c)
+ *     NtTraceEvent @ 0x1400D3400 (NtTraceEvent.c)
+ *     WmiTraceMessageVa @ 0x140225714 (WmiTraceMessageVa.c)
  * Callees:
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140006B90 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140007280 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     EtwpCloseLogger @ 0x140073C30 (EtwpCloseLogger.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x1400AA368 (EtwpGetReserveTraceBufferStatus.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     EtwpReserveTraceBuffer @ 0x1400D68F0 (EtwpReserveTraceBuffer.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     EtwpSendTraceEvent @ 0x140227E34 (EtwpSendTraceEvent.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140006D00 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400073F0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     EtwpCloseLogger @ 0x1400737B0 (EtwpCloseLogger.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x1400A88E8 (EtwpGetReserveTraceBufferStatus.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     EtwpReserveTraceBuffer @ 0x1400D4790 (EtwpReserveTraceBuffer.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     EtwpSendTraceEvent @ 0x140227C60 (EtwpSendTraceEvent.c)
  */
 
 __int64 __fastcall EtwpTraceMessageVa(__int64 a1, char a2, signed __int32 *a3, __int16 a4, __int64 a5, char a6)

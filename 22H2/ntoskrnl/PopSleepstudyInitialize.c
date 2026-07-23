@@ -9,15 +9,15 @@
 
 char PopSleepstudyInitialize()
 {
-  char *v0; // rbx
-  LARGE_INTEGER v2; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER *v0; // rbx
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   qword_140C1E458 = 0LL;
   PopSleepstudySessionLock = 0LL;
-  v0 = (char *)&unk_140C1E518 + 96 * (unsigned int)dword_140C1E510;
-  *(_DWORD *)v0 = 0;
-  *((_DWORD *)v0 + 8) = 1;
-  *((_QWORD *)v0 + 2) = RtlGetInterruptTimePrecise(&v2);
+  v0 = (LARGE_INTEGER *)((char *)&unk_140C1E518 + 96 * (unsigned int)dword_140C1E510);
+  v0->LowPart = 0;
+  v0[4].LowPart = 1;
+  v0[2] = RtlGetInterruptTimePrecise(&PerformanceCounter);
   stru_140C1E4F0.Parameter = 0LL;
   stru_140C1E4F0.List.Flink = 0LL;
   word_140C1E46A = 0;

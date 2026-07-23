@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCopyLargeVad @ 0x140A4934C
+ * XREFs of MiCopyLargeVad @ 0x140A495FC
  * Callers:
- *     MiMapChildLargePageVads @ 0x140A4927C (MiMapChildLargePageVads.c)
+ *     MiMapChildLargePageVads @ 0x140A4952C (MiMapChildLargePageVads.c)
  * Callees:
  *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
- *     MiLocateLockedVadEvent @ 0x14030B424 (MiLocateLockedVadEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MiMapUserLargePages @ 0x140668DC0 (MiMapUserLargePages.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
+ *     MiLocateLockedVadEvent @ 0x14030B6B4 (MiLocateLockedVadEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiMapUserLargePages @ 0x140669310 (MiMapUserLargePages.c)
  *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
  */
 

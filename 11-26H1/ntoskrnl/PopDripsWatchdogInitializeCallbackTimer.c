@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDripsWatchdogInitializeCallbackTimer @ 0x140CD6ACC
+ * XREFs of PopDripsWatchdogInitializeCallbackTimer @ 0x140CDCE20
  * Callers:
- *     PopDripsWatchdogInitialize @ 0x140CD68EC (PopDripsWatchdogInitialize.c)
+ *     PopDripsWatchdogInitialize @ 0x140CDCC40 (PopDripsWatchdogInitialize.c)
  * Callees:
- *     PopInitializeTimer @ 0x1407C8C18 (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x1407CBCB8 (PopInitializeTimer.c)
  */
 
 __int64 PopDripsWatchdogInitializeCallbackTimer()
@@ -13,18 +13,18 @@ __int64 PopDripsWatchdogInitializeCallbackTimer()
   v0 = PopDripsCallbackInterval;
   if ( PopDripsCallbackInterval || (v0 = PopDirectedDripsTimeout) != 0 )
   {
-    LODWORD(PopAdaptiveStandbyLock.WaitBlock[0].WaitListEntry.Flink) = v0;
+    dword_140F0BE60 = v0;
     PopInitializeTimer(
-      (__int64)&PopAdaptiveStandbyLock.TrapFrame,
+      (__int64)&unk_140F0BDB0,
       (__int64)PopDripsWatchdogTimerCallback,
-      (__int64)&PopAdaptiveStandbyLock.QuantumTarget,
+      (__int64)&PopDripsWatchdogContext,
       (__int64)PopDripsWatchdogCallbackWorker,
-      (__int64)&PopAdaptiveStandbyLock.QuantumTarget);
+      (__int64)&PopDripsWatchdogContext);
     if ( PopDripsWatchdogDebounceInterval )
-      LODWORD(PopAdaptiveStandbyLock.Header.WaitListHead.Blink) = (PopDripsWatchdogDebounceInterval - 1) / v0 + 1;
-    if ( LODWORD(PopAdaptiveStandbyLock.Header.WaitListHead.Blink) == 1 )
-      LODWORD(PopAdaptiveStandbyLock.Header.WaitListHead.Blink) = 2;
-    *(_DWORD *)&PopAdaptiveStandbyLock.WaitBlockFill6[4] |= 1u;
+      PopDripsWatchdogDebounceTickInterval = (PopDripsWatchdogDebounceInterval - 1) / v0 + 1;
+    if ( PopDripsWatchdogDebounceTickInterval == 1 )
+      PopDripsWatchdogDebounceTickInterval = 2;
+    dword_140F0BE64 |= 1u;
   }
   return 0LL;
 }

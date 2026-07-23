@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMGetDeviceInterfaceList @ 0x14059F68C
+ * XREFs of PiCMGetDeviceInterfaceList @ 0x1405A068C
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     McTemplateK0d @ 0x14028AC80 (McTemplateK0d.c)
- *     McTemplateK0jzt @ 0x14028AD90 (McTemplateK0jzt.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiCMReturnBufferResultData @ 0x140599DD4 (PiCMReturnBufferResultData.c)
- *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
- *     PiCMCaptureInterfaceListInputData @ 0x14059F850 (PiCMCaptureInterfaceListInputData.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     McTemplateK0d @ 0x14028AE70 (McTemplateK0d.c)
+ *     McTemplateK0jzt @ 0x14028AF80 (McTemplateK0jzt.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiCMReturnBufferResultData @ 0x14059ADD4 (PiCMReturnBufferResultData.c)
+ *     IopGetDeviceInterfaces @ 0x14059F6C4 (IopGetDeviceInterfaces.c)
+ *     PiCMCaptureInterfaceListInputData @ 0x1405A0850 (PiCMCaptureInterfaceListInputData.c)
  */
 
 __int64 __fastcall PiCMGetDeviceInterfaceList(
@@ -54,7 +54,7 @@ __int64 __fastcall PiCMGetDeviceInterfaceList(
     goto LABEL_17;
   v14 = v25;
   v15 = SourceString;
-  if ( (byte_140405847 & 2) != 0 )
+  if ( (byte_140406847 & 2) != 0 )
     McTemplateK0jzt(HIWORD(v25) & 1, v10, v13, (__int64)v26, SourceString, BYTE2(v25) & 1);
   if ( a3 && a4 >= 0x14 )
   {
@@ -100,7 +100,7 @@ LABEL_15:
 LABEL_17:
   if ( SourceString )
     PiControlFreeUserModeCallersBuffer(KeGetCurrentThread()->PreviousMode, (void *)SourceString);
-  if ( (byte_140405847 & 2) != 0 )
+  if ( (byte_140406847 & 2) != 0 )
     McTemplateK0d(v11, &KMPnPEvt_CfgMgr_DeviceInterfaceList_Stop, v13, v12);
   return (unsigned int)v12;
 }

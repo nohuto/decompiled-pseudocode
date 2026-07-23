@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCoalesceFreeLargePages @ 0x140308844
+ * XREFs of MiCoalesceFreeLargePages @ 0x140312724
  * Callers:
- *     MiProcessLargeCoalesceBitmapCandidates @ 0x140309490 (MiProcessLargeCoalesceBitmapCandidates.c)
+ *     MiProcessLargeCoalesceBitmapCandidates @ 0x140313370 (MiProcessLargeCoalesceBitmapCandidates.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiSafeLockPageAtDpc @ 0x1403072A0 (MiSafeLockPageAtDpc.c)
- *     MiLargePfnPromoteCandidate @ 0x1403087D0 (MiLargePfnPromoteCandidate.c)
- *     MiLargePagePromote @ 0x1404316D4 (MiLargePagePromote.c)
- *     MiAddPageToHeatList @ 0x14043F8DC (MiAddPageToHeatList.c)
- *     MiIssuePageHeatList @ 0x14043F9FC (MiIssuePageHeatList.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1404A2E44 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiSafeLockPageAtDpc @ 0x140311180 (MiSafeLockPageAtDpc.c)
+ *     MiLargePfnPromoteCandidate @ 0x1403126B0 (MiLargePfnPromoteCandidate.c)
+ *     MiLargePagePromote @ 0x140423C14 (MiLargePagePromote.c)
+ *     MiAddPageToHeatList @ 0x140435B9C (MiAddPageToHeatList.c)
+ *     MiIssuePageHeatList @ 0x140435CBC (MiIssuePageHeatList.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14049DD64 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCoalesceFreeLargePages(__int64 a1, ULONG_PTR a2, unsigned int a3, unsigned __int8 a4)
@@ -152,7 +152,7 @@ __int64 __fastcall MiCoalesceFreeLargePages(__int64 a1, ULONG_PTR a2, unsigned i
       v46 = 0LL;
       LODWORD(v46) = v4 < 2u ? 10 : 8;
       if ( v4 < 2u )
-        *((_QWORD *)&v46 + 1) = qword_140E2EBF8;
+        *((_QWORD *)&v46 + 1) = qword_140E2ED38;
       v30 = a2;
       v31 = v37;
       MiLargePagePromote(a2, v37, v16, 0, (__int64)&v41);

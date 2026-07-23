@@ -21,7 +21,7 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
   __int64 v4; // rcx
   __int64 **v5; // r8
   __int64 *v6; // rdx
-  int v7; // r14d
+  unsigned int v7; // r14d
   __int64 i; // rsi
   __int64 v9; // rdi
   __int64 v10; // r13
@@ -29,12 +29,14 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
   char v12; // r12
   __int64 v13; // r9
   int v14; // ecx
-  _QWORD v17[2]; // [rsp+70h] [rbp-98h] BYREF
-  __int128 v18; // [rsp+80h] [rbp-88h]
-  __int128 v19; // [rsp+90h] [rbp-78h]
-  __int128 v20; // [rsp+A0h] [rbp-68h]
-  __int64 v21; // [rsp+B0h] [rbp-58h]
-  __int64 v22; // [rsp+C0h] [rbp-48h]
+  int v16; // eax
+  __int64 v17; // [rsp+30h] [rbp-D8h]
+  _QWORD v19[2]; // [rsp+70h] [rbp-98h] BYREF
+  __int128 v20; // [rsp+80h] [rbp-88h]
+  __int128 v21; // [rsp+90h] [rbp-78h]
+  __int128 v22; // [rsp+A0h] [rbp-68h]
+  __int64 v23; // [rsp+B0h] [rbp-58h]
+  __int64 v24; // [rsp+C0h] [rbp-48h]
 
   *(_DWORD *)(a1 + 56) = 8;
   v2 = *(_QWORD *)(a1 + 8);
@@ -68,16 +70,19 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
     {
       if ( *(_DWORD *)(v9 + 268) == 9 )
       {
-        v7 = LdrpApplyPatchImage(i - 160);
-        if ( v7 < 0 )
+        v16 = LdrpApplyPatchImage(i - 160);
+        v7 = v16;
+        if ( v16 < 0 )
         {
+          LODWORD(v17) = v16;
           LdrpLogInternal(
-            (int)"minkernel\\ldr\\ldrsnap.c",
-            1483,
-            (int)"LdrpInitializeNode",
-            0,
+            "minkernel\\ldr\\ldrsnap.c",
+            1483LL,
+            "LdrpInitializeNode",
+            0LL,
             "Applying patch \"%wZ\" failed - Status = 0x%x\n",
-            i - 88);
+            v9 + 72,
+            v17);
           break;
         }
       }
@@ -85,20 +90,21 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
       LdrpCurrentDllInitializer = i - 160;
       v11 = *(_QWORD *)(v9 + 56);
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrsnap.c",
-        1502,
-        (int)"LdrpInitializeNode",
-        2,
+        "minkernel\\ldr\\ldrsnap.c",
+        1502LL,
+        "LdrpInitializeNode",
+        2LL,
         "Calling init routine %p for DLL \"%wZ\"\n",
-        v11);
+        v11,
+        v9 + 72);
       v12 = 1;
-      v17[0] = 72LL;
-      v17[1] = 1LL;
-      v18 = 0LL;
-      v19 = 0LL;
+      v19[0] = 72LL;
+      v19[1] = 1LL;
       v20 = 0LL;
       v21 = 0LL;
-      RtlActivateActivationContextUnsafeFast(v17, *(_QWORD *)(v9 + 136));
+      v22 = 0LL;
+      v23 = 0LL;
+      RtlActivateActivationContextUnsafeFast(v19, *(_QWORD *)(v9 + 136));
       if ( *(_WORD *)(v9 + 110) )
         LdrpCallTlsInitializers(1LL, i - 160);
       if ( v11 )
@@ -106,21 +112,22 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
         v13 = 0LL;
         if ( (*(_BYTE *)(v9 + 104) & 0x20) != 0 )
           v13 = LdrpProcessInitContextRecord;
-        v22 = v13;
+        v24 = v13;
         v12 = LdrpCallInitRoutine(v11, *(_QWORD *)(v9 + 48), 1LL);
       }
-      RtlDeactivateActivationContextUnsafeFast((__int64)v17);
+      RtlDeactivateActivationContextUnsafeFast((__int64)v19);
       LdrpCurrentDllInitializer = v10;
       *(_DWORD *)(v9 + 104) |= 0x80000u;
       if ( !v12 )
       {
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrsnap.c",
-          1556,
-          (int)"LdrpInitializeNode",
-          0,
+          "minkernel\\ldr\\ldrsnap.c",
+          1556LL,
+          "LdrpInitializeNode",
+          0LL,
           "Init routine %p for DLL \"%wZ\" failed during DLL_PROCESS_ATTACH\n",
-          v11);
+          v11,
+          v9 + 72);
         v7 = -1073741502;
         *(_DWORD *)(v9 + 104) |= 0x100000u;
         break;
@@ -133,5 +140,5 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
   if ( v7 )
     v14 = -4;
   *(_DWORD *)(a1 + 56) = v14;
-  return (unsigned int)v7;
+  return v7;
 }

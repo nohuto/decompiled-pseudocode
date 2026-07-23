@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAllocatePoolWithTag @ 0x1400A7788
+ * XREFs of CmpAllocatePoolWithTag @ 0x1400A5D00
  * Callers:
- *     CmpGetNameControlBlock @ 0x140436F80 (CmpGetNameControlBlock.c)
- *     CmpAllocateKeyControlBlock @ 0x140437410 (CmpAllocateKeyControlBlock.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14060EEE4 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpGetNameControlBlock @ 0x140435E50 (CmpGetNameControlBlock.c)
+ *     CmpAllocateKeyControlBlock @ 0x1404362E0 (CmpAllocateKeyControlBlock.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14060EF98 (CmpLightWeightPrepareDeleteKeyUoW.c)
  * Callees:
  *     <none>
  */

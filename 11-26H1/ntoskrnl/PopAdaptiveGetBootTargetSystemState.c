@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAdaptiveGetBootTargetSystemState @ 0x140B389CC
+ * XREFs of PopAdaptiveGetBootTargetSystemState @ 0x140B3ABDC
  * Callers:
- *     PopSystemIdleEventHandler @ 0x140B38970 (PopSystemIdleEventHandler.c)
+ *     PopSystemIdleEventHandler @ 0x140B3AB80 (PopSystemIdleEventHandler.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     PopReleaseAdaptiveLock @ 0x140A3D6E4 (PopReleaseAdaptiveLock.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     PopReleaseAdaptiveLock @ 0x1409F9104 (PopReleaseAdaptiveLock.c)
  */
 
 __int64 __fastcall PopAdaptiveGetBootTargetSystemState(_DWORD *a1, _DWORD *a2)
@@ -15,10 +15,10 @@ __int64 __fastcall PopAdaptiveGetBootTargetSystemState(_DWORD *a1, _DWORD *a2)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&PopAdaptiveStandbyLock.AbCompletedIoQoSBoostCount, 1u);
+  ExAcquireResourceExclusiveLite(&PopAdpmLock, 1u);
   v5 = 0;
   ExpPlatformBinaryLock.WaitBlock[3].WaitListEntry.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
-  LOBYTE(PopAdaptiveStandbyLock.ThreadListEntry.Blink) = 0;
+  PopAdaptiveContext = 0;
   if ( !LOBYTE(ExpPlatformBinaryLock.Timer.Dpc) )
     goto LABEL_2;
   *a2 = 0;

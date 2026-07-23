@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpDispatchCloseMessage @ 0x1405DF2D0
+ * XREFs of AlpcpDispatchCloseMessage @ 0x1406CEA30
  * Callers:
- *     AlpcpSendCloseMessage @ 0x1405E1FC8 (AlpcpSendCloseMessage.c)
+ *     AlpcpSendCloseMessage @ 0x1406D1728 (AlpcpSendCloseMessage.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x1405DF47C (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
- *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x1405E6040 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406B5104 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
- *     AlpcpLogClosePort @ 0x1408C3BE0 (AlpcpLogClosePort.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x14061461C (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x1406CEBDC (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1406D4D10 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406D57A0 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpLogClosePort @ 0x1408C3D40 (AlpcpLogClosePort.c)
  */
 
 __int64 __fastcall AlpcpDispatchCloseMessage(__int64 *a1)
@@ -23,7 +23,7 @@ __int64 __fastcall AlpcpDispatchCloseMessage(__int64 *a1)
   PADAPTER_OBJECT v7; // rcx
   signed __int32 v8; // eax
   PADAPTER_OBJECT v9; // rbx
-  struct _DMA_ADAPTER *v10; // rsi
+  __int64 v10; // rsi
   PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp+40h] BYREF
   __int64 v12; // [rsp+68h] [rbp+48h] BYREF
 
@@ -53,28 +53,28 @@ __int64 __fastcall AlpcpDispatchCloseMessage(__int64 *a1)
       if ( (*(_DWORD *)(v1 + 256) & 0x1000) != 0 )
       {
         AlpcpSetOwnerPortMessage(v2, v9);
-        v10 = (struct _DMA_ADAPTER *)v12;
+        v10 = v12;
       }
       else
       {
         AlpcpSetOwnerPortMessage(v2, v1);
-        v10 = (struct _DMA_ADAPTER *)v12;
+        v10 = v12;
         if ( v9 != (PADAPTER_OBJECT)v12 )
         {
           if ( _InterlockedCompareExchange64((volatile signed __int64 *)&v9[22], 0LL, 17LL) != 17 )
             ExfReleasePushLockShared((signed __int64 *)&v9[22]);
           KeAbPostRelease((ULONG_PTR)&v9[22]);
-          v10 = (struct _DMA_ADAPTER *)v12;
+          v10 = v12;
           v9 = DmaAdapter;
         }
         v6 = 0;
       }
       if ( AlpcpLogEnabled )
         AlpcpLogClosePort(v2);
-      a1[4] = (__int64)v10;
+      a1[4] = v10;
       a1[2] = (__int64)v4;
       AlpcpCompleteDispatchMessage(a1);
-      if ( v6 && v9 != v10 )
+      if ( v6 && v9 != (PADAPTER_OBJECT)v10 )
       {
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)&v9[22], 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)&v9[22]);
@@ -86,7 +86,7 @@ __int64 __fastcall AlpcpDispatchCloseMessage(__int64 *a1)
     }
     else
     {
-      AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v4, v12, DmaAdapter);
+      AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v4, v12, (__int64)DmaAdapter);
       return 3221227271LL;
     }
   }

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpFcBufferManagerReferenceBuffers @ 0x1404D88A8
+ * XREFs of RtlpFcBufferManagerReferenceBuffers @ 0x1404D2078
  * Callers:
- *     RtlQueryAllInternalFeatureConfigurations @ 0x140617720 (RtlQueryAllInternalFeatureConfigurations.c)
- *     RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x1406177D0 (RtlQueryAllInternalRuntimeFeatureConfigurations.c)
- *     RtlQueryInternalFeatureConfiguration @ 0x1406179A0 (RtlQueryInternalFeatureConfiguration.c)
- *     RtlQueryAllFeatureConfigurations @ 0x1408010D0 (RtlQueryAllFeatureConfigurations.c)
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140860BF0 (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x1408611C4 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140ABEC64 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x140ABFB10 (CmFcpManagerDrainUsageNotifications.c)
- *     CmFcManagerStartRuntimePhase @ 0x140CF0AF0 (CmFcManagerStartRuntimePhase.c)
+ *     RtlQueryAllInternalFeatureConfigurations @ 0x14061A770 (RtlQueryAllInternalFeatureConfigurations.c)
+ *     RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x14061A820 (RtlQueryAllInternalRuntimeFeatureConfigurations.c)
+ *     RtlQueryInternalFeatureConfiguration @ 0x14061A9F0 (RtlQueryInternalFeatureConfiguration.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x140806B70 (RtlQueryAllFeatureConfigurations.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140866EE0 (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x1408674B4 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140AC0D04 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x140AC1BB0 (CmFcpManagerDrainUsageNotifications.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140CF6E68 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     RtlAcquireSwapReference @ 0x1402C58E0 (RtlAcquireSwapReference.c)
- *     RtlpFcEnterRegion @ 0x140B1077C (RtlpFcEnterRegion.c)
+ *     RtlAcquireSwapReference @ 0x14031057C (RtlAcquireSwapReference.c)
+ *     RtlpFcEnterRegion @ 0x140B121BC (RtlpFcEnterRegion.c)
  */
 
 __int64 __fastcall RtlpFcBufferManagerReferenceBuffers(__int64 a1, __int64 a2, __int64 *a3)

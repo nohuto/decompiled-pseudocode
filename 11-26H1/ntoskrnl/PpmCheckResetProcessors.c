@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmCheckResetProcessors @ 0x14042A1AC
+ * XREFs of PpmCheckResetProcessors @ 0x1404FB714
  * Callers:
- *     PpmCheckArmPeriod @ 0x1404E6260 (PpmCheckArmPeriod.c)
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
+ *     PpmCheckArmPeriod @ 0x1404DF800 (PpmCheckArmPeriod.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     PpmResetPerfTimes @ 0x1404D1C90 (PpmResetPerfTimes.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     PpmResetPerfTimes @ 0x1404CB840 (PpmResetPerfTimes.c)
  */
 
 __int64 __fastcall PpmCheckResetProcessors(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall PpmCheckResetProcessors(__int64 a1)
   }
   else
   {
-    result = PopExecuteOnTargetProcessors((__int64)PpmCheckRegistered, (__int64)PpmCheckReset, 0LL, 0LL);
+    result = PopExecuteOnTargetProcessors((__int64)&PpmCheckRegistered, (__int64)PpmCheckReset, 0LL, 0LL);
     for ( i = *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2);
           i != (PBOOLEAN)((char *)&Mm64BitPhysicalAddress + 2);
           i = *(PBOOLEAN *)i )

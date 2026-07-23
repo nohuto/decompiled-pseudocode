@@ -1,15 +1,15 @@
 /*
- * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x140571690
+ * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x140571BD0
  * Callers:
- *     KeInsertByKeyDeviceQueue @ 0x1404605E0 (KeInsertByKeyDeviceQueue.c)
- *     KeInsertDeviceQueue @ 0x140573270 (KeInsertDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueue @ 0x140573300 (KeRemoveByKeyDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1405733E0 (KeRemoveByKeyDeviceQueueIfBusy.c)
- *     KeRemoveDeviceQueue @ 0x1405734B0 (KeRemoveDeviceQueue.c)
- *     DifKeReleaseInStackQueuedSpinLockForDpcWrapper @ 0x1405E48B0 (DifKeReleaseInStackQueuedSpinLockForDpcWrapper.c)
+ *     KeInsertByKeyDeviceQueue @ 0x1404609E0 (KeInsertByKeyDeviceQueue.c)
+ *     KeInsertDeviceQueue @ 0x1405737B0 (KeInsertDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x140573840 (KeRemoveByKeyDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueueIfBusy @ 0x140573920 (KeRemoveByKeyDeviceQueueIfBusy.c)
+ *     KeRemoveDeviceQueue @ 0x1405739F0 (KeRemoveDeviceQueue.c)
+ *     DifKeReleaseInStackQueuedSpinLockForDpcWrapper @ 0x1405E4E20 (DifKeReleaseInStackQueuedSpinLockForDpcWrapper.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KeReleaseInStackQueuedSpinLockForDpc(PKLOCK_QUEUE_HANDLE LockHandle)
@@ -25,10 +25,13 @@ void __stdcall KeReleaseInStackQueuedSpinLockForDpc(PKLOCK_QUEUE_HANDLE LockHand
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)LockHandle);
     OldIrql = LockHandle->OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

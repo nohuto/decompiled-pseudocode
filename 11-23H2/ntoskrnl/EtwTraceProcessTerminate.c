@@ -4,7 +4,7 @@
  *     PspTerminateProcess @ 0x1406839D4 (PspTerminateProcess.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceProcessTerminate(__int64 a1)

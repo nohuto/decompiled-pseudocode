@@ -1,101 +1,108 @@
 /*
- * XREFs of MiMapExParametersInitialize @ 0x14099F5A8
+ * XREFs of MiMapExParametersInitialize @ 0x140987D28
  * Callers:
- *     MiMapViewOfSectionExCommon @ 0x14099F100 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x140987880 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     Feature_Servicing_VBSEnclavesForARM64EC__private_IsEnabledDeviceUsageNoInline @ 0x140678244 (Feature_Servicing_VBSEnclavesForARM64EC__private_IsEnabledDeviceUsageNoInline.c)
- *     MiGetUserReservationHighestAddress @ 0x1409C3960 (MiGetUserReservationHighestAddress.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
  */
 
-__int64 __fastcall MiMapExParametersInitialize(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2)
 {
-  unsigned int v5; // ebx
-  unsigned __int64 *v6; // r8
-  _QWORD *v7; // r11
-  unsigned __int64 v8; // r14
-  _QWORD *v9; // rcx
-  unsigned __int64 v10; // rbp
-  _DWORD *v11; // r10
-  unsigned __int64 UserReservationHighestAddress; // rax
+  unsigned __int64 v3; // rax
+  __int64 v4; // r8
+  __int64 v5; // r10
+  unsigned int v6; // r9d
+  unsigned __int64 v7; // rsi
+  unsigned __int64 *v8; // rdx
+  unsigned __int64 v9; // rbx
+  unsigned __int64 *v10; // r11
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rax
   unsigned __int64 v13; // rcx
-  int v14; // ecx
+  int v14; // edx
 
-  v5 = 0;
-  v8 = MiSectionControlArea(*(_QWORD *)(a2 + 32));
-  if ( v6[2] )
+  v3 = MiSectionControlArea(a2[4]);
+  v6 = 0;
+  v7 = v3;
+  if ( *(_QWORD *)(v4 + 16) )
     return (unsigned int)-1073741811;
-  if ( (*(_DWORD *)(a1 + 40) & 0x4000) != 0 )
+  if ( (*(_DWORD *)(v5 + 40) & 0x4000) != 0 )
   {
-    if ( *v6 )
+    if ( *(_QWORD *)v4 )
       return (unsigned int)-1073741811;
-    v9 = v6 + 1;
-    if ( v6[1] )
+    v8 = (unsigned __int64 *)(v4 + 8);
+    if ( *(_QWORD *)(v4 + 8) )
       return (unsigned int)-1073741811;
-    *(_DWORD *)(a1 + 64) |= 0x4000000u;
-    *(_DWORD *)(a1 + 60) |= 2u;
-    *(_QWORD *)(a1 + 16) = 4096LL;
+    *(_DWORD *)(v5 + 64) |= 0x4000000u;
+    *(_DWORD *)(v5 + 60) |= 2u;
+    *(_QWORD *)(v5 + 16) = 4096LL;
   }
   else
   {
-    v9 = v6 + 1;
+    v8 = (unsigned __int64 *)(v4 + 8);
   }
-  v10 = *v6;
-  if ( ((*(_QWORD *)(a1 + 16) - 1LL) & *v6) != 0 )
+  v9 = *(_QWORD *)v4;
+  if ( ((*(_QWORD *)(v5 + 16) - 1LL) & *(_QWORD *)v4) != 0 )
     return (unsigned int)-1073741811;
-  if ( *v7 )
+  if ( *a2 )
   {
-    if ( v10 || *v9 || v6[2] )
+    if ( v9 || *v8 || *(_QWORD *)(v4 + 16) )
       return (unsigned int)-1073741811;
-    v11 = v6 + 1;
+    v10 = (unsigned __int64 *)(v4 + 8);
   }
   else
   {
-    v11 = v9;
+    v10 = v8;
   }
-  if ( *v9 )
+  if ( *v8 )
   {
-    if ( *v9 <= 0x7FFFFFFEFFFFuLL && ((*v11 + 1) & 0xFFF) == 0 )
+    if ( *v8 <= 0x7FFFFFFEFFFFLL && ((*(_DWORD *)v10 + 1) & 0xFFF) == 0 )
     {
-      UserReservationHighestAddress = *v9;
-      goto LABEL_23;
+      v12 = *v8;
+      goto LABEL_13;
     }
     return (unsigned int)-1073741811;
   }
-  if ( (*(_DWORD *)(a1 + 64) & 8) != 0 )
-    UserReservationHighestAddress = 0x7FFFFFFEFFFFLL;
+  if ( (*(_DWORD *)(v5 + 64) & 8) != 0 )
+  {
+    v12 = 0x7FFFFFFEFFFFLL;
+  }
   else
-    UserReservationHighestAddress = MiGetUserReservationHighestAddress(v7[5], 0LL);
-  *(_QWORD *)v11 = UserReservationHighestAddress;
-LABEL_23:
-  if ( v10 >= UserReservationHighestAddress )
+  {
+    v11 = *(_QWORD *)(a2[5] + 872LL) - 1LL;
+    if ( v11 >= 0x7FFFFFFEFFFFLL )
+      v11 = 0x7FFFFFFEFFFFLL;
+    v12 = v11;
+  }
+  *v8 = v12;
+LABEL_13:
+  if ( v9 >= v12 )
     return (unsigned int)-1073741811;
-  v13 = v7[1];
+  v13 = a2[1];
   if ( v13 )
   {
-    if ( UserReservationHighestAddress - v10 + 1 < v13 )
+    if ( v12 - v9 + 1 < v13 )
       return (unsigned int)-1073741811;
   }
-  v14 = *(_DWORD *)(a1 + 40);
+  v14 = *(_DWORD *)(v5 + 40);
   if ( (v14 & 0x7F) != 0
-    || *(_DWORD *)(a1 + 52)
-    || *(_DWORD *)(a3 + 32) > (unsigned int)(unsigned __int16)KeNumberNodes
-    || (v14 & 0x40000000) != 0 && (*(_DWORD *)(v8 + 56) & 0x420) != 0 )
+    || *(_DWORD *)(v5 + 52)
+    || *(_DWORD *)(v4 + 32) > (unsigned int)(unsigned __int16)KeNumberNodes
+    || (v14 & 0x40000000) != 0 && (*(_DWORD *)(v7 + 56) & 0x420) != 0 )
   {
     return (unsigned int)-1073741811;
   }
-  if ( (v14 & 0x20000000) != 0 && (*(_DWORD *)(v8 + 56) & 0x20) != 0 && (*(_DWORD *)(a1 + 60) & 1) != 0 )
+  if ( (v14 & 0x20000000) != 0 && (*(_DWORD *)(v7 + 56) & 0x20) != 0 && (*(_DWORD *)(v5 + 60) & 1) != 0 )
     return (unsigned int)-1073741811;
-  if ( (*(_BYTE *)(a3 + 56) & 0x20) != 0 )
-    *(_DWORD *)(a1 + 64) |= 2u;
-  if ( (*(_BYTE *)(a3 + 56) & 0x40) != 0 )
-    *(_DWORD *)(a1 + 120) |= 8u;
-  *(_DWORD *)(a1 + 52) = *(_DWORD *)(a3 + 32);
-  *(_QWORD *)a1 = *(_QWORD *)a3;
-  *(_QWORD *)(a1 + 8) = *(_QWORD *)(a3 + 8);
-  *(_WORD *)(a1 + 58) = *(_WORD *)(a3 + 50);
-  if ( (unsigned int)Feature_Servicing_VBSEnclavesForARM64EC__private_IsEnabledDeviceUsageNoInline() )
-    *(_QWORD *)(a1 + 112) = *(_QWORD *)(a3 + 56);
-  *(_DWORD *)(a1 + 40) &= ~0x4000u;
-  return v5;
+  if ( (*(_BYTE *)(v4 + 56) & 0x20) != 0 )
+    *(_DWORD *)(v5 + 64) |= 2u;
+  if ( (*(_BYTE *)(v4 + 56) & 0x40) != 0 )
+    *(_DWORD *)(v5 + 120) |= 8u;
+  *(_DWORD *)(v5 + 52) = *(_DWORD *)(v4 + 32);
+  *(_QWORD *)v5 = *(_QWORD *)v4;
+  *(_QWORD *)(v5 + 8) = *(_QWORD *)(v4 + 8);
+  *(_WORD *)(v5 + 58) = *(_WORD *)(v4 + 50);
+  *(_QWORD *)(v5 + 112) = *(_QWORD *)(v4 + 56);
+  *(_DWORD *)(v5 + 40) = v14 & 0xFFFFBFFF;
+  return v6;
 }

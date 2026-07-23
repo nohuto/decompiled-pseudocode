@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCanFlushMakeProgress @ 0x14011329C
+ * XREFs of MiCanFlushMakeProgress @ 0x14011380C
  * Callers:
- *     MiFlushAllPages @ 0x140113188 (MiFlushAllPages.c)
- *     MiFlushAllHintedStorePages @ 0x1401EE714 (MiFlushAllHintedStorePages.c)
+ *     MiFlushAllPages @ 0x1401136F8 (MiFlushAllPages.c)
+ *     MiFlushAllHintedStorePages @ 0x1401EE540 (MiFlushAllHintedStorePages.c)
  * Callees:
  *     <none>
  */

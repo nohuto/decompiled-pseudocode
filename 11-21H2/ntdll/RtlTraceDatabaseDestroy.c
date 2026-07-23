@@ -8,29 +8,29 @@
  *     RtlpTraceDatabaseFree @ 0x18010F5AC (RtlpTraceDatabaseFree.c)
  */
 
-bool __fastcall RtlTraceDatabaseDestroy(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+bool __fastcall RtlTraceDatabaseDestroy(__int64 a1)
 {
-  _QWORD *v5; // rbx
-  char v6; // si
-  _QWORD *v7; // rdi
+  _QWORD *v2; // rbx
+  char v3; // si
+  _QWORD *v4; // rdi
 
-  RtlDeleteCriticalSection((__int64 *)(a1 + 48), a2, a3, a4);
-  v5 = *(_QWORD **)(a1 + 16);
-  if ( !v5 )
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
+  v2 = *(_QWORD **)(a1 + 16);
+  if ( !v2 )
     return 1;
-  v6 = 0;
+  v3 = 0;
   do
   {
-    v7 = (_QWORD *)v5[2];
-    if ( !v7 )
-      v5 -= 24;
-    if ( !(unsigned __int8)RtlpTraceDatabaseFree(v5) )
+    v4 = (_QWORD *)v2[2];
+    if ( !v4 )
+      v2 -= 24;
+    if ( !(unsigned __int8)RtlpTraceDatabaseFree(v2) )
     {
-      DbgPrint("Trace database: failed to release segment %p \n", v5);
-      v6 = 1;
+      DbgPrint("Trace database: failed to release segment %p \n", v2);
+      v3 = 1;
     }
-    v5 = v7;
+    v2 = v4;
   }
-  while ( v7 );
-  return !v6;
+  while ( v4 );
+  return !v3;
 }

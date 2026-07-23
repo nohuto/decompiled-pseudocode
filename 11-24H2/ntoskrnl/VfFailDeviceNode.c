@@ -1,10 +1,10 @@
 /*
- * XREFs of VfFailDeviceNode @ 0x1404AB270
+ * XREFs of VfFailDeviceNode @ 0x1404A5500
  * Callers:
  *     <none>
  * Callees:
- *     PpvUtilIsHardwareBeingVerified @ 0x140B82C58 (PpvUtilIsHardwareBeingVerified.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     PpvUtilIsHardwareBeingVerified @ 0x140B84C58 (PpvUtilIsHardwareBeingVerified.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 void VfFailDeviceNode()

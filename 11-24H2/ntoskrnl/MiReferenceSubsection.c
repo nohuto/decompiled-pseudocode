@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReferenceSubsection @ 0x14020F750
+ * XREFs of MiReferenceSubsection @ 0x140338AB0
  * Callers:
- *     MiComputeDataFlushRange @ 0x14022F300 (MiComputeDataFlushRange.c)
- *     MiPreventControlAreaDeletion @ 0x14022F600 (MiPreventControlAreaDeletion.c)
- *     MiTrimSection @ 0x1402B9B70 (MiTrimSection.c)
- *     MiFlushAcquire @ 0x140489CC0 (MiFlushAcquire.c)
- *     MiUpdateActiveSubsection @ 0x140678F84 (MiUpdateActiveSubsection.c)
+ *     MiComputeDataFlushRange @ 0x140302C10 (MiComputeDataFlushRange.c)
+ *     MiPreventControlAreaDeletion @ 0x140302F10 (MiPreventControlAreaDeletion.c)
+ *     MiTrimSection @ 0x1403612B0 (MiTrimSection.c)
+ *     MiFlushAcquire @ 0x140484FBC (MiFlushAcquire.c)
+ *     MiUpdateActiveSubsection @ 0x14067A164 (MiUpdateActiveSubsection.c)
  * Callees:
- *     MiUnlinkUnusedSubsection @ 0x14020F984 (MiUnlinkUnusedSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14036F2F8 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F9F3C (MiUpdateSubsectionCrossPartitionRefs.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14026B278 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiUnlinkUnusedSubsection @ 0x140338CE4 (MiUnlinkUnusedSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F781C (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiReferenceSubsection(__int64 *BugCheckParameter2, __int16 a2)
+__int64 __fastcall MiReferenceSubsection(__int64 BugCheckParameter2, __int16 a2)
 {
   __int64 v2; // rbp
-  ULONG_PTR SubsectionHoldingCrossPartitionReferences; // r12
+  __int64 SubsectionHoldingCrossPartitionReferences; // r12
   unsigned int v5; // r13d
   unsigned int v6; // r14d
   __int64 v7; // r15
@@ -29,10 +29,10 @@ __int64 __fastcall MiReferenceSubsection(__int64 *BugCheckParameter2, __int16 a2
   int v13; // edx
   char v14; // r8
 
-  v2 = *BugCheckParameter2;
-  if ( !BugCheckParameter2[1] )
+  v2 = *(_QWORD *)BugCheckParameter2;
+  if ( !*(_QWORD *)(BugCheckParameter2 + 8) )
     return 1LL;
-  SubsectionHoldingCrossPartitionReferences = (ULONG_PTR)BugCheckParameter2;
+  SubsectionHoldingCrossPartitionReferences = BugCheckParameter2;
   v5 = 0;
   v6 = 2;
   v7 = *(_QWORD *)(v2 + 64);
@@ -46,13 +46,13 @@ __int64 __fastcall MiReferenceSubsection(__int64 *BugCheckParameter2, __int16 a2
       else
         v12 = (a2 & 0x10) != 0
             ? 0LL
-            : (ULONG *)*((_QWORD *)qword_140E2FF88
+            : (ULONG *)*((_QWORD *)qword_140E300C8
                        + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-      if ( v12 != *((ULONG **)qword_140E2FF88 + (*(_WORD *)(v2 + 60) & 0x3FF)) )
+      if ( v12 != *((ULONG **)qword_140E300C8 + (*(_WORD *)(v2 + 60) & 0x3FF)) )
       {
         if ( (v11 & 1) != 0 && (a2 & 0x100) == 0 )
         {
-          ++dword_140E2FF90;
+          ++dword_140E300D0;
           return v5;
         }
         SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(BugCheckParameter2);
@@ -75,7 +75,7 @@ __int64 __fastcall MiReferenceSubsection(__int64 *BugCheckParameter2, __int16 a2
     v8 = *(_DWORD *)(SubsectionHoldingCrossPartitionReferences + 32);
     if ( (v8 & 0x80000) != 0 )
     {
-      v9 = *((_QWORD *)qword_140E2FF88
+      v9 = *((_QWORD *)qword_140E300C8
            + (*(_WORD *)(*(_QWORD *)SubsectionHoldingCrossPartitionReferences + 60LL) & 0x3FF));
       ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v9 + 1728));
       MiUnlinkUnusedSubsection(SubsectionHoldingCrossPartitionReferences);
@@ -90,7 +90,7 @@ __int64 __fastcall MiReferenceSubsection(__int64 *BugCheckParameter2, __int16 a2
   if ( v7 )
   {
     if ( (*(_DWORD *)(v2 + 56) & 0x20) == 0 )
-      *((_DWORD *)BugCheckParameter2 + 8) |= 1u;
+      *(_DWORD *)(BugCheckParameter2 + 32) |= 1u;
   }
   return v6;
 }

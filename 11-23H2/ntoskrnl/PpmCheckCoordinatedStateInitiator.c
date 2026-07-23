@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckCoordinatedStateInitiator @ 0x140583F20
+ * XREFs of PpmCheckCoordinatedStateInitiator @ 0x140584410
  * Callers:
- *     PpmCheckCoordinatedStateInitiator @ 0x140583F20 (PpmCheckCoordinatedStateInitiator.c)
- *     PpmInstallCoordinatedIdleStates @ 0x140981DD0 (PpmInstallCoordinatedIdleStates.c)
+ *     PpmCheckCoordinatedStateInitiator @ 0x140584410 (PpmCheckCoordinatedStateInitiator.c)
+ *     PpmInstallCoordinatedIdleStates @ 0x140981FD0 (PpmInstallCoordinatedIdleStates.c)
  * Callees:
- *     PpmCheckCoordinatedStateInitiator @ 0x140583F20 (PpmCheckCoordinatedStateInitiator.c)
+ *     PpmCheckCoordinatedStateInitiator @ 0x140584410 (PpmCheckCoordinatedStateInitiator.c)
  */
 
 char __fastcall PpmCheckCoordinatedStateInitiator(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)

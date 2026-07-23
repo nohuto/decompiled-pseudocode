@@ -2,7 +2,7 @@
  * XREFs of RtlStringExHandleOtherFlagsW @ 0x1800CFA20
  * Callers:
  *     RtlStringCchPrintfExW @ 0x18004FCCC (RtlStringCchPrintfExW.c)
- *     RtlStringCbPrintfExW @ 0x1800749F8 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x180074A08 (RtlStringCbPrintfExW.c)
  * Callees:
  *     memset @ 0x1800A7100 (memset.c)
  */

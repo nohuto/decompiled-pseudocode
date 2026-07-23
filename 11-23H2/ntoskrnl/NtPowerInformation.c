@@ -1,123 +1,123 @@
 /*
- * XREFs of NtPowerInformation @ 0x140783F20
+ * XREFs of NtPowerInformation @ 0x140784110
  * Callers:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     PopRecordPepWorkorderBlackboxInformation @ 0x1405A2334 (PopRecordPepWorkorderBlackboxInformation.c)
- *     PopRecordPoIrpBlackboxInformation @ 0x1405A2534 (PopRecordPoIrpBlackboxInformation.c)
- *     PopRecordPowerWatchdogBlackboxInformation @ 0x1405A28D8 (PopRecordPowerWatchdogBlackboxInformation.c)
- *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x1407826BC (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
- *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x140783E84 (PnpRecordBlackboxPnpEventWorkerInformation.c)
- *     PnpRecordBlackboxPnpEventInformation @ 0x1408678D8 (PnpRecordBlackboxPnpEventInformation.c)
- *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x14096ECEC (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
- *     TtmpCalloutArmWatchdog @ 0x1409A3248 (TtmpCalloutArmWatchdog.c)
- *     TtmpCalloutCreateWatchdog @ 0x1409A32EC (TtmpCalloutCreateWatchdog.c)
- *     TtmpCalloutDestroyWatchdog @ 0x1409A334C (TtmpCalloutDestroyWatchdog.c)
- *     TtmpCalloutWatchdogCallback @ 0x1409A33D0 (TtmpCalloutWatchdogCallback.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     PopRecordPepWorkorderBlackboxInformation @ 0x1405A2824 (PopRecordPepWorkorderBlackboxInformation.c)
+ *     PopRecordPoIrpBlackboxInformation @ 0x1405A2A24 (PopRecordPoIrpBlackboxInformation.c)
+ *     PopRecordPowerWatchdogBlackboxInformation @ 0x1405A2DC8 (PopRecordPowerWatchdogBlackboxInformation.c)
+ *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x1407828AC (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
+ *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x140784074 (PnpRecordBlackboxPnpEventWorkerInformation.c)
+ *     PnpRecordBlackboxPnpEventInformation @ 0x140867B18 (PnpRecordBlackboxPnpEventInformation.c)
+ *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x14096EEEC (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
+ *     TtmpCalloutArmWatchdog @ 0x1409A3448 (TtmpCalloutArmWatchdog.c)
+ *     TtmpCalloutCreateWatchdog @ 0x1409A34EC (TtmpCalloutCreateWatchdog.c)
+ *     TtmpCalloutDestroyWatchdog @ 0x1409A354C (TtmpCalloutDestroyWatchdog.c)
+ *     TtmpCalloutWatchdogCallback @ 0x1409A35D0 (TtmpCalloutWatchdogCallback.c)
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BEE0 (RtlStringCbLengthW.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PopPrintEx @ 0x14032A6AC (PopPrintEx.c)
- *     PopPowerRequestReferenceRelease @ 0x14032B428 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14032B828 (PopPowerRequestReferenceAcquire.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     ExNotifyCallback @ 0x14033BF40 (ExNotifyCallback.c)
- *     KeQueryActiveGroupCount @ 0x140362470 (KeQueryActiveGroupCount.c)
- *     PopDisksRegisteredForIdle @ 0x14036B02C (PopDisksRegisteredForIdle.c)
- *     PopPowerRequestCreateUserModeRequest @ 0x14036DE6C (PopPowerRequestCreateUserModeRequest.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     ExVerifySuite @ 0x1403A6920 (ExVerifySuite.c)
- *     PpmHeteroHgsBackupInit @ 0x1403AC3B4 (PpmHeteroHgsBackupInit.c)
- *     PopEventCalloutDispatch @ 0x1403B659C (PopEventCalloutDispatch.c)
- *     PopDiagTraceSessionDisplayStateChange @ 0x1403D6790 (PopDiagTraceSessionDisplayStateChange.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PpmClearExitLatencySamplingPercentage @ 0x140584004 (PpmClearExitLatencySamplingPercentage.c)
- *     PpmClearSimulatedIdle @ 0x14058404C (PpmClearSimulatedIdle.c)
- *     PpmSetExitLatencySamplingPercentage @ 0x140585B8C (PpmSetExitLatencySamplingPercentage.c)
- *     PpmSetSimulatedIdle @ 0x140585C6C (PpmSetSimulatedIdle.c)
- *     PopCapabilityCheck @ 0x140587158 (PopCapabilityCheck.c)
- *     PopFxIsDevicePotentialDripsConstraint @ 0x14058A7CC (PopFxIsDevicePotentialDripsConstraint.c)
- *     PoPowerOffMonitor @ 0x14058F2C0 (PoPowerOffMonitor.c)
- *     PopShutdownListenerInsertCallback @ 0x1405988A0 (PopShutdownListenerInsertCallback.c)
- *     PopUpdatePowerButtonHoldState @ 0x1405994C8 (PopUpdatePowerButtonHoldState.c)
- *     PpmParkSetLpiCap @ 0x14059D28C (PpmParkSetLpiCap.c)
- *     ExGetWakeTimerList @ 0x14060B628 (ExGetWakeTimerList.c)
+ *     RtlStringCbLengthW @ 0x14022BFF0 (RtlStringCbLengthW.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PopPrintEx @ 0x14032A93C (PopPrintEx.c)
+ *     PopPowerRequestReferenceRelease @ 0x14032B6B8 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14032BAB8 (PopPowerRequestReferenceAcquire.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     ExNotifyCallback @ 0x14033C1D0 (ExNotifyCallback.c)
+ *     KeQueryActiveGroupCount @ 0x140362610 (KeQueryActiveGroupCount.c)
+ *     PopDisksRegisteredForIdle @ 0x14036B1CC (PopDisksRegisteredForIdle.c)
+ *     PopPowerRequestCreateUserModeRequest @ 0x14036E00C (PopPowerRequestCreateUserModeRequest.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     ExVerifySuite @ 0x1403A6B00 (ExVerifySuite.c)
+ *     PpmHeteroHgsBackupInit @ 0x1403AC594 (PpmHeteroHgsBackupInit.c)
+ *     PopEventCalloutDispatch @ 0x1403B677C (PopEventCalloutDispatch.c)
+ *     PopDiagTraceSessionDisplayStateChange @ 0x1403D6970 (PopDiagTraceSessionDisplayStateChange.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpmClearExitLatencySamplingPercentage @ 0x1405844F4 (PpmClearExitLatencySamplingPercentage.c)
+ *     PpmClearSimulatedIdle @ 0x14058453C (PpmClearSimulatedIdle.c)
+ *     PpmSetExitLatencySamplingPercentage @ 0x14058607C (PpmSetExitLatencySamplingPercentage.c)
+ *     PpmSetSimulatedIdle @ 0x14058615C (PpmSetSimulatedIdle.c)
+ *     PopCapabilityCheck @ 0x140587648 (PopCapabilityCheck.c)
+ *     PopFxIsDevicePotentialDripsConstraint @ 0x14058ACBC (PopFxIsDevicePotentialDripsConstraint.c)
+ *     PoPowerOffMonitor @ 0x14058F7B0 (PoPowerOffMonitor.c)
+ *     PopShutdownListenerInsertCallback @ 0x140598D90 (PopShutdownListenerInsertCallback.c)
+ *     PopUpdatePowerButtonHoldState @ 0x1405999B8 (PopUpdatePowerButtonHoldState.c)
+ *     PpmParkSetLpiCap @ 0x14059D77C (PpmParkSetLpiCap.c)
+ *     ExGetWakeTimerList @ 0x14060BB78 (ExGetWakeTimerList.c)
  *     PopFreeSessionState @ 0x140682954 (PopFreeSessionState.c)
  *     PopSessionWinlogonNotification @ 0x140682D5C (PopSessionWinlogonNotification.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     PopSetPowerSettingValue @ 0x1407829F8 (PopSetPowerSettingValue.c)
- *     PopGetSettingNotificationName @ 0x140783080 (PopGetSettingNotificationName.c)
- *     PopBlackBoxUpdate @ 0x140785340 (PopBlackBoxUpdate.c)
- *     PopProcessorInformation @ 0x1407A5964 (PopProcessorInformation.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A5BE0 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     PopPowerRequestActionInfo @ 0x1407A5CC4 (PopPowerRequestActionInfo.c)
- *     TtmIsEnabled @ 0x1407A6090 (TtmIsEnabled.c)
- *     PopCurrentPowerState @ 0x1407A6D48 (PopCurrentPowerState.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7570 (PopSetPowerSettingValueAcDc.c)
- *     PopFilterCapabilities @ 0x1407A8694 (PopFilterCapabilities.c)
- *     PopMonitorInvocation @ 0x1407A8F2C (PopMonitorInvocation.c)
- *     PopProcessSessionDisplayStateChange @ 0x1407A91D8 (PopProcessSessionDisplayStateChange.c)
- *     PopEtEnergyTrackerQuery @ 0x1407B83CC (PopEtEnergyTrackerQuery.c)
- *     PspIsContextAdmin @ 0x1407D0278 (PspIsContextAdmin.c)
- *     ExCheckFullProcessInformationAccess @ 0x1407E0A68 (ExCheckFullProcessInformationAccess.c)
- *     PopCapturePlatformRole @ 0x1407E5D34 (PopCapturePlatformRole.c)
- *     PopDiagTraceSessionStates @ 0x1407EB85C (PopDiagTraceSessionStates.c)
- *     PopSessionConnectionChange @ 0x1407EB984 (PopSessionConnectionChange.c)
- *     PopIsRunningAsLocalSystem @ 0x1407EBA38 (PopIsRunningAsLocalSystem.c)
- *     PopGetSettingValue @ 0x1407EC1A0 (PopGetSettingValue.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
- *     PopAcquireTransitionLock @ 0x14080163C (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x140801698 (PopReleaseTransitionLock.c)
- *     PopHibernateEvaluation @ 0x140801C94 (PopHibernateEvaluation.c)
- *     PopResetCurrentPolicies @ 0x1408240F8 (PopResetCurrentPolicies.c)
- *     PopApplyPolicy @ 0x1408241DC (PopApplyPolicy.c)
- *     PopVerifySystemPowerPolicy @ 0x1408244A4 (PopVerifySystemPowerPolicy.c)
- *     PopEtEnergyTrackerCreate @ 0x14085187C (PopEtEnergyTrackerCreate.c)
- *     PopPdcInvocation @ 0x14085A14C (PopPdcInvocation.c)
- *     PopCurrentPowerStatePrecise @ 0x1408737C8 (PopCurrentPowerStatePrecise.c)
- *     PopUpdateConsoleDisplayState @ 0x140873894 (PopUpdateConsoleDisplayState.c)
- *     PopLogSleepDisabled @ 0x140873B7C (PopLogSleepDisabled.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408834E0 (DbgkWerCaptureLiveKernelDump.c)
- *     PopSetDisplayStatus @ 0x140885168 (PopSetDisplayStatus.c)
- *     PopLoggingInformation @ 0x140980DE4 (PopLoggingInformation.c)
- *     PopReadHiberbootPolicy @ 0x140980FFC (PopReadHiberbootPolicy.c)
- *     PopPowerRequestNotifyTtmSessionInitialized @ 0x140981750 (PopPowerRequestNotifyTtmSessionInitialized.c)
- *     PopPowerRequestNotifyTtmSessionUninitialized @ 0x1409817CC (PopPowerRequestNotifyTtmSessionUninitialized.c)
- *     PopApplyAdminPolicy @ 0x140984178 (PopApplyAdminPolicy.c)
- *     PopGetPowerRequestListInfo @ 0x140984250 (PopGetPowerRequestListInfo.c)
- *     PpmClearSimulatedLoad @ 0x1409867F0 (PpmClearSimulatedLoad.c)
- *     PpmSetSimulatedLoad @ 0x140986BA4 (PpmSetSimulatedLoad.c)
- *     PopGetWakeSource @ 0x140987368 (PopGetWakeSource.c)
- *     PopSetHiberFileSize @ 0x140989084 (PopSetHiberFileSize.c)
- *     PopSetHiberFileType @ 0x140989128 (PopSetHiberFileType.c)
- *     PopSetHiberPersistedRegValue @ 0x1409891D8 (PopSetHiberPersistedRegValue.c)
- *     PopSendSuspendResumeNotifications @ 0x14098A648 (PopSendSuspendResumeNotifications.c)
- *     PopThermalProcessUsermodeEvent @ 0x14098ADC8 (PopThermalProcessUsermodeEvent.c)
- *     PopDiagTraceAppPowerMessage @ 0x14098C7B4 (PopDiagTraceAppPowerMessage.c)
- *     PopDiagTraceAppPowerMessageEnd @ 0x14098C8D4 (PopDiagTraceAppPowerMessageEnd.c)
- *     PopDiagTraceDisplayBurstWin32kCallout @ 0x14098E884 (PopDiagTraceDisplayBurstWin32kCallout.c)
- *     PopDiagTraceServiceNotification @ 0x14099146C (PopDiagTraceServiceNotification.c)
- *     PopPowerAggregatorNotifyDisplayPoweredOn @ 0x140993BB0 (PopPowerAggregatorNotifyDisplayPoweredOn.c)
- *     PopEnforceResiliencyScenarios @ 0x140994238 (PopEnforceResiliencyScenarios.c)
- *     PopBatteryDeviceState @ 0x1409950CC (PopBatteryDeviceState.c)
- *     PopBlackBoxDirectAccess @ 0x140996F78 (PopBlackBoxDirectAccess.c)
- *     PopUmpoSendLegacyEvent @ 0x1409978A0 (PopUmpoSendLegacyEvent.c)
- *     PopPdcCsDeviceNotification @ 0x140997E6C (PopPdcCsDeviceNotification.c)
- *     PopScreenOff @ 0x140998234 (PopScreenOff.c)
- *     PpmParkApplyForcedMask @ 0x140999E54 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x140999F54 (PpmParkClearForcedMask.c)
- *     PopUserPresentOverride @ 0x14099BB50 (PopUserPresentOverride.c)
- *     TtmCleanupCurrentSession @ 0x1409A3E90 (TtmCleanupCurrentSession.c)
- *     TtmInitCurrentSession @ 0x1409A3FA0 (TtmInitCurrentSession.c)
- *     TtmNotifySessionDisplayBurst @ 0x1409A4324 (TtmNotifySessionDisplayBurst.c)
- *     TtmDispatchApi @ 0x1409A5F8C (TtmDispatchApi.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     PopSetPowerSettingValue @ 0x140782BE8 (PopSetPowerSettingValue.c)
+ *     PopGetSettingNotificationName @ 0x140783270 (PopGetSettingNotificationName.c)
+ *     PopBlackBoxUpdate @ 0x140785530 (PopBlackBoxUpdate.c)
+ *     PopProcessorInformation @ 0x1407A5B54 (PopProcessorInformation.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x1407A5DD0 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     PopPowerRequestActionInfo @ 0x1407A5EB4 (PopPowerRequestActionInfo.c)
+ *     TtmIsEnabled @ 0x1407A6280 (TtmIsEnabled.c)
+ *     PopCurrentPowerState @ 0x1407A6F38 (PopCurrentPowerState.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1407A7760 (PopSetPowerSettingValueAcDc.c)
+ *     PopFilterCapabilities @ 0x1407A8884 (PopFilterCapabilities.c)
+ *     PopMonitorInvocation @ 0x1407A911C (PopMonitorInvocation.c)
+ *     PopProcessSessionDisplayStateChange @ 0x1407A93C8 (PopProcessSessionDisplayStateChange.c)
+ *     PopEtEnergyTrackerQuery @ 0x1407B86AC (PopEtEnergyTrackerQuery.c)
+ *     PspIsContextAdmin @ 0x1407D0548 (PspIsContextAdmin.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1407E0D38 (ExCheckFullProcessInformationAccess.c)
+ *     PopCapturePlatformRole @ 0x1407E6004 (PopCapturePlatformRole.c)
+ *     PopDiagTraceSessionStates @ 0x1407EBB2C (PopDiagTraceSessionStates.c)
+ *     PopSessionConnectionChange @ 0x1407EBC54 (PopSessionConnectionChange.c)
+ *     PopIsRunningAsLocalSystem @ 0x1407EBD08 (PopIsRunningAsLocalSystem.c)
+ *     PopGetSettingValue @ 0x1407EC470 (PopGetSettingValue.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
+ *     PopAcquireTransitionLock @ 0x14080190C (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x140801968 (PopReleaseTransitionLock.c)
+ *     PopHibernateEvaluation @ 0x140801F64 (PopHibernateEvaluation.c)
+ *     PopResetCurrentPolicies @ 0x1408243F8 (PopResetCurrentPolicies.c)
+ *     PopApplyPolicy @ 0x1408244DC (PopApplyPolicy.c)
+ *     PopVerifySystemPowerPolicy @ 0x1408247A4 (PopVerifySystemPowerPolicy.c)
+ *     PopEtEnergyTrackerCreate @ 0x140851B7C (PopEtEnergyTrackerCreate.c)
+ *     PopPdcInvocation @ 0x14085A38C (PopPdcInvocation.c)
+ *     PopCurrentPowerStatePrecise @ 0x140873A08 (PopCurrentPowerStatePrecise.c)
+ *     PopUpdateConsoleDisplayState @ 0x140873AD4 (PopUpdateConsoleDisplayState.c)
+ *     PopLogSleepDisabled @ 0x140873DBC (PopLogSleepDisabled.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140883720 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopSetDisplayStatus @ 0x1408853A8 (PopSetDisplayStatus.c)
+ *     PopLoggingInformation @ 0x140980FE4 (PopLoggingInformation.c)
+ *     PopReadHiberbootPolicy @ 0x1409811FC (PopReadHiberbootPolicy.c)
+ *     PopPowerRequestNotifyTtmSessionInitialized @ 0x140981950 (PopPowerRequestNotifyTtmSessionInitialized.c)
+ *     PopPowerRequestNotifyTtmSessionUninitialized @ 0x1409819CC (PopPowerRequestNotifyTtmSessionUninitialized.c)
+ *     PopApplyAdminPolicy @ 0x140984378 (PopApplyAdminPolicy.c)
+ *     PopGetPowerRequestListInfo @ 0x140984450 (PopGetPowerRequestListInfo.c)
+ *     PpmClearSimulatedLoad @ 0x1409869F0 (PpmClearSimulatedLoad.c)
+ *     PpmSetSimulatedLoad @ 0x140986DA4 (PpmSetSimulatedLoad.c)
+ *     PopGetWakeSource @ 0x140987568 (PopGetWakeSource.c)
+ *     PopSetHiberFileSize @ 0x140989284 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x140989328 (PopSetHiberFileType.c)
+ *     PopSetHiberPersistedRegValue @ 0x1409893D8 (PopSetHiberPersistedRegValue.c)
+ *     PopSendSuspendResumeNotifications @ 0x14098A848 (PopSendSuspendResumeNotifications.c)
+ *     PopThermalProcessUsermodeEvent @ 0x14098AFC8 (PopThermalProcessUsermodeEvent.c)
+ *     PopDiagTraceAppPowerMessage @ 0x14098C9B4 (PopDiagTraceAppPowerMessage.c)
+ *     PopDiagTraceAppPowerMessageEnd @ 0x14098CAD4 (PopDiagTraceAppPowerMessageEnd.c)
+ *     PopDiagTraceDisplayBurstWin32kCallout @ 0x14098EA84 (PopDiagTraceDisplayBurstWin32kCallout.c)
+ *     PopDiagTraceServiceNotification @ 0x14099166C (PopDiagTraceServiceNotification.c)
+ *     PopPowerAggregatorNotifyDisplayPoweredOn @ 0x140993DB0 (PopPowerAggregatorNotifyDisplayPoweredOn.c)
+ *     PopEnforceResiliencyScenarios @ 0x140994438 (PopEnforceResiliencyScenarios.c)
+ *     PopBatteryDeviceState @ 0x1409952CC (PopBatteryDeviceState.c)
+ *     PopBlackBoxDirectAccess @ 0x140997178 (PopBlackBoxDirectAccess.c)
+ *     PopUmpoSendLegacyEvent @ 0x140997AA0 (PopUmpoSendLegacyEvent.c)
+ *     PopPdcCsDeviceNotification @ 0x14099806C (PopPdcCsDeviceNotification.c)
+ *     PopScreenOff @ 0x140998434 (PopScreenOff.c)
+ *     PpmParkApplyForcedMask @ 0x14099A054 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x14099A154 (PpmParkClearForcedMask.c)
+ *     PopUserPresentOverride @ 0x14099BD50 (PopUserPresentOverride.c)
+ *     TtmCleanupCurrentSession @ 0x1409A4090 (TtmCleanupCurrentSession.c)
+ *     TtmInitCurrentSession @ 0x1409A41A0 (TtmInitCurrentSession.c)
+ *     TtmNotifySessionDisplayBurst @ 0x1409A4524 (TtmNotifySessionDisplayBurst.c)
+ *     TtmDispatchApi @ 0x1409A618C (TtmDispatchApi.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
@@ -134,42 +134,42 @@ NTSTATUS __stdcall NtPowerInformation(
 {
   unsigned __int64 v8; // r14
   __int64 v9; // rdx
-  __int64 v10; // r8
   _QWORD *Pool2; // r15
-  __int64 v12; // rcx
-  KPROCESSOR_MODE v13; // r15
-  ULONG v14; // ebx
-  char *v15; // r12
-  volatile void *v16; // r13
-  unsigned __int64 v17; // rax
+  __int64 v11; // rcx
+  KPROCESSOR_MODE v12; // r15
+  ULONG v13; // ebx
+  char *v14; // r12
+  _WNF_STATE_NAME *v15; // r13
+  unsigned __int64 v16; // rax
+  int v17; // r14d
   int v18; // r14d
-  int v19; // r14d
-  ULONG v20; // r14d
-  int v21; // eax
+  ULONG v19; // r14d
+  int v20; // eax
   NTSTATUS IsAppContainerOrIdentifyLevelContext; // ebx
-  bool v23; // sf
-  PVOID v24; // rcx
+  bool v22; // sf
+  unsigned __int64 v24; // rax
+  unsigned __int64 v25; // rax
   unsigned __int64 v26; // rax
   unsigned __int64 v27; // rax
-  unsigned __int64 v28; // rax
+  __int64 v28; // rcx
   unsigned __int64 v29; // rax
   __int64 v30; // rcx
   unsigned __int64 v31; // rax
   __int64 v32; // rcx
-  unsigned __int64 v33; // rax
-  __int64 v34; // rcx
-  LUID v35; // rcx
-  int v36; // r14d
-  int v37; // r14d
+  LUID v33; // rcx
+  int v34; // r14d
+  int v35; // r14d
   NTSTATUS SettingValue; // eax
+  int v37; // r14d
+  int v38; // r14d
   int v39; // r14d
   int v40; // r14d
   int v41; // r14d
-  int v42; // r14d
-  int v43; // r14d
+  int v42; // eax
+  int v43; // esi
   int v44; // eax
-  int v45; // esi
-  int v46; // eax
+  int v45; // r14d
+  int v46; // r14d
   int v47; // r14d
   int v48; // r14d
   int v49; // r14d
@@ -177,39 +177,39 @@ NTSTATUS __stdcall NtPowerInformation(
   int v51; // r14d
   int v52; // r14d
   int v53; // r14d
-  int v54; // r14d
-  int v55; // r14d
   char IsDevicePotentialDripsConstraint; // al
-  HANDLE *v57; // rax
-  __int64 v58; // rcx
-  int v59; // eax
-  bool v60; // sf
-  _DWORD *v61; // rax
+  HANDLE *v55; // rax
+  __int64 v56; // rcx
+  int v57; // eax
+  bool v58; // sf
+  _DWORD *v59; // rax
+  int v60; // r14d
+  int v61; // r14d
   int v62; // r14d
-  int v63; // r14d
+  __int64 *v63; // rax
   int v64; // r14d
-  __int64 *v65; // rax
+  int v65; // r14d
   int v66; // r14d
-  int v67; // r14d
-  int v68; // r14d
-  USHORT v69; // bx
-  int v70; // eax
-  _BYTE *v71; // rcx
-  int v72; // r9d
-  int v73; // edx
+  USHORT v67; // bx
+  __int64 v68; // rdx
+  int v69; // eax
+  __int64 v70; // rdx
+  __int64 v71; // r8
+  _BYTE *v72; // rcx
+  int v73; // r9d
   int v74; // edx
   int v75; // edx
   int v76; // edx
-  int v77; // ebx
-  char v78; // al
-  int v79; // ecx
-  int v80; // eax
-  __int64 v81; // rdx
-  __int64 v82; // rcx
-  __int64 v83; // r8
-  int v84; // r14d
-  unsigned int v85; // eax
-  __int64 v86; // rcx
+  int v77; // edx
+  int v78; // ebx
+  char v79; // al
+  int v80; // ecx
+  int v81; // eax
+  int v82; // r14d
+  unsigned int v83; // eax
+  __int64 v84; // rdx
+  __int64 v85; // rcx
+  __int64 v86; // r8
   bool v87; // zf
   int v88; // r14d
   int v89; // r14d
@@ -218,146 +218,139 @@ NTSTATUS __stdcall NtPowerInformation(
   int v92; // ebx
   HANDLE *v93; // rax
   int v94; // ecx
-  __int64 v95; // rdx
-  __int64 v96; // rcx
-  __int64 v97; // r8
-  bool v98; // sf
-  __int128 *v99; // rax
+  bool v95; // sf
+  __int128 *v96; // rax
+  int v97; // r14d
+  int v98; // r14d
+  int v99; // r14d
   int v100; // r14d
-  int v101; // r14d
-  int v102; // r14d
-  int v103; // r14d
-  unsigned int *v104; // r14
-  int v105; // ecx
-  unsigned int v106; // eax
-  unsigned int v107; // ecx
+  unsigned int *v101; // r14
+  int v102; // ecx
+  unsigned int v103; // eax
+  unsigned int v104; // ecx
   unsigned int ProcessSessionId; // eax
+  int v106; // r14d
+  int v107; // r14d
+  int v108; // r14d
   int v109; // r14d
-  int v110; // r14d
-  int v111; // r14d
-  int v112; // r14d
-  __int64 v113; // rax
-  _DWORD *v114; // rbx
-  void *v115; // rax
+  __int64 v110; // rax
+  _DWORD *v111; // rbx
+  void *v112; // rax
   NTSTATUS WakeSource; // eax
-  int v117; // r14d
-  int v118; // r14d
-  _QWORD *v119; // rdx
-  int v120; // eax
+  int v114; // r14d
+  int v115; // r14d
+  _QWORD *v116; // rdx
+  int v117; // eax
   int WakeTimerList; // eax
+  int v119; // r14d
+  int v120; // r14d
+  int v121; // r14d
   int v122; // r14d
-  int v123; // r14d
-  int v124; // r14d
-  int v125; // r14d
-  int v126; // ecx
-  __int64 v127; // rdx
+  int v123; // ecx
+  __int64 v124; // rcx
+  int v125; // ecx
+  int v126; // r14d
+  __int64 v127; // rcx
   __int64 v128; // rcx
-  __int64 v129; // r8
-  __int64 v130; // rcx
-  int v131; // ecx
+  int v129; // r14d
+  int v130; // r14d
+  char v131; // r14
   __int64 v132; // rdx
   __int64 v133; // rcx
   __int64 v134; // r8
-  int v135; // r14d
-  __int64 v136; // rcx
-  __int64 v137; // rcx
-  int v138; // r14d
-  int v139; // r14d
-  char v140; // r14
-  __int64 v141; // rcx
-  unsigned int v142; // eax
-  bool v143; // bl
-  int v144; // r14d
-  unsigned int v145; // edx
-  _DWORD *v146; // rcx
-  int v147; // r14d
+  unsigned int v135; // eax
+  bool v136; // bl
+  int v137; // r14d
+  unsigned int v138; // edx
+  _DWORD *v139; // rcx
+  int v140; // r14d
   ULONG Length; // [rsp+50h] [rbp-6E8h]
   unsigned int Length_4; // [rsp+54h] [rbp-6E4h] BYREF
-  char v150; // [rsp+58h] [rbp-6E0h] BYREF
+  char v143; // [rsp+58h] [rbp-6E0h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+59h] [rbp-6DFh]
   void *Src; // [rsp+60h] [rbp-6D8h] BYREF
-  char v153; // [rsp+68h] [rbp-6D0h]
-  char v154; // [rsp+69h] [rbp-6CFh]
-  _BYTE *v155; // [rsp+70h] [rbp-6C8h]
-  int v156; // [rsp+78h] [rbp-6C0h]
-  BOOL v157; // [rsp+7Ch] [rbp-6BCh] BYREF
+  char v146; // [rsp+68h] [rbp-6D0h]
+  char v147; // [rsp+69h] [rbp-6CFh]
+  _BYTE *v148; // [rsp+70h] [rbp-6C8h]
+  int v149; // [rsp+78h] [rbp-6C0h]
+  BOOL v150; // [rsp+7Ch] [rbp-6BCh] BYREF
   _DWORD Size[3]; // [rsp+84h] [rbp-6B4h] BYREF
-  int *v159; // [rsp+90h] [rbp-6A8h]
+  int *v152; // [rsp+90h] [rbp-6A8h]
   PVOID P[3]; // [rsp+98h] [rbp-6A0h] BYREF
-  HANDLE v161[192]; // [rsp+B0h] [rbp-688h] BYREF
-  _BYTE v162[64]; // [rsp+6B0h] [rbp-88h] BYREF
+  HANDLE v154[192]; // [rsp+B0h] [rbp-688h] BYREF
+  _BYTE v155[64]; // [rsp+6B0h] [rbp-88h] BYREF
 
-  v159 = (int *)OutputBuffer;
+  v152 = (int *)OutputBuffer;
   v8 = InformationLevel;
-  v154 = 0;
-  memset(v161, 0, sizeof(v161));
-  v157 = 0;
+  v147 = 0;
+  memset(v154, 0, sizeof(v154));
+  v150 = 0;
   *(_QWORD *)&Size[1] = 0LL;
   Src = 0LL;
   Length_4 = 0;
   Pool2 = 0LL;
-  v155 = 0LL;
+  v148 = 0LL;
   P[0] = 0LL;
-  LOBYTE(v12) = 0;
-  v153 = 0;
-  v150 = 0;
+  LOBYTE(v11) = 0;
+  v146 = 0;
+  v143 = 0;
   if ( (unsigned int)v8 > 0x61 )
     goto LABEL_626;
-  v13 = KeGetCurrentThread()->PreviousMode;
-  PreviousMode = v13;
-  v14 = InputBuffer != 0LL ? InputBufferLength : 0;
-  Size[0] = v14;
-  v15 = (char *)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-  P[1] = v15;
+  v12 = KeGetCurrentThread()->PreviousMode;
+  PreviousMode = v12;
+  v13 = InputBuffer != 0LL ? InputBufferLength : 0;
+  Size[0] = v13;
+  v14 = (char *)((unsigned __int64)InputBuffer & -(__int64)(v13 != 0));
+  P[1] = v14;
   Length = OutputBuffer != 0LL ? OutputBufferLength : 0;
-  v16 = (volatile void *)((unsigned __int64)v159 & -(__int64)(Length != 0));
-  if ( v13 )
+  v15 = (_WNF_STATE_NAME *)((unsigned __int64)v152 & -(__int64)(Length != 0));
+  if ( v12 )
   {
-    if ( (unsigned int)v8 <= 0x22 && (v12 = 0x7C30200C0LL, _bittest64(&v12, v8))
-      || (v26 = (unsigned int)(v8 - 39), (unsigned int)v26 <= 0x3A)
-      && (v12 = 0x4104F0071C2E50FLL, _bittest64(&v12, v26)) )
+    if ( (unsigned int)v8 <= 0x22 && (v11 = 0x7C30200C0LL, _bittest64(&v11, v8))
+      || (v24 = (unsigned int)(v8 - 39), (unsigned int)v24 <= 0x3A)
+      && (v11 = 0x4104F0071C2E50FLL, _bittest64(&v11, v24)) )
     {
       IsAppContainerOrIdentifyLevelContext = -1073741790;
-      InputBuffer = v15;
-      Pool2 = v155;
+      InputBuffer = v14;
+      Pool2 = v148;
       goto LABEL_22;
     }
-    v27 = (unsigned int)(v8 - 37);
-    if ( (unsigned int)v27 <= 0x3A && (v12 = 0x608801808940903LL, _bittest64(&v12, v27)) || (unsigned int)(v8 - 2) <= 1 )
+    v25 = (unsigned int)(v8 - 37);
+    if ( (unsigned int)v25 <= 0x3A && (v11 = 0x608801808940903LL, _bittest64(&v11, v25)) || (unsigned int)(v8 - 2) <= 1 )
     {
       IsAppContainerOrIdentifyLevelContext = SeIsAppContainerOrIdentifyLevelContext(0LL);
-      v156 = IsAppContainerOrIdentifyLevelContext;
+      v149 = IsAppContainerOrIdentifyLevelContext;
       if ( IsAppContainerOrIdentifyLevelContext < 0 )
       {
-        InputBuffer = v15;
-        Pool2 = v155;
+        InputBuffer = v14;
+        Pool2 = v148;
         goto LABEL_22;
       }
     }
     if ( (unsigned int)(v8 - 92) <= 1 )
     {
-      LOBYTE(v12) = v13;
-      IsAppContainerOrIdentifyLevelContext = ExCheckFullProcessInformationAccess(v12);
-      v156 = IsAppContainerOrIdentifyLevelContext;
+      LOBYTE(v11) = v12;
+      IsAppContainerOrIdentifyLevelContext = ExCheckFullProcessInformationAccess(v11);
+      v149 = IsAppContainerOrIdentifyLevelContext;
       if ( IsAppContainerOrIdentifyLevelContext < 0 )
       {
-        InputBuffer = v15;
-        Pool2 = v155;
+        InputBuffer = v14;
+        Pool2 = v148;
         goto LABEL_22;
       }
     }
-    v28 = (unsigned int)(v8 - 28);
-    if ( (unsigned int)v28 <= 0x32 )
+    v26 = (unsigned int)(v8 - 28);
+    if ( (unsigned int)v26 <= 0x32 )
     {
-      v12 = 0x4000000420001LL;
-      if ( _bittest64(&v12, v28) )
+      v11 = 0x4000000420001LL;
+      if ( _bittest64(&v11, v26) )
       {
         if ( !(unsigned __int8)PspIsContextAdmin() )
         {
           IsAppContainerOrIdentifyLevelContext = -1073741790;
-          v156 = -1073741790;
-          InputBuffer = v15;
-          Pool2 = v155;
+          v149 = -1073741790;
+          InputBuffer = v14;
+          Pool2 = v148;
           goto LABEL_22;
         }
       }
@@ -365,107 +358,107 @@ NTSTATUS __stdcall NtPowerInformation(
     if ( (_DWORD)v8 == 71 && !(unsigned __int8)PopIsRunningAsLocalSystem() )
     {
       IsAppContainerOrIdentifyLevelContext = -1073741790;
-      v156 = -1073741790;
-      InputBuffer = v15;
-      Pool2 = v155;
+      v149 = -1073741790;
+      InputBuffer = v14;
+      Pool2 = v148;
       goto LABEL_22;
     }
-    if ( v15 )
+    if ( v14 )
     {
-      v29 = (unsigned int)(v8 - 11);
-      if ( (unsigned int)v29 > 0x3D || (v30 = 0x2001800900000001LL, !_bittest64(&v30, v29)) )
+      v27 = (unsigned int)(v8 - 11);
+      if ( (unsigned int)v27 > 0x3D || (v28 = 0x2001800900000001LL, !_bittest64(&v28, v27)) )
       {
         if ( PsIsCurrentThreadInServerSilo() )
         {
           IsAppContainerOrIdentifyLevelContext = -1073741637;
-          v156 = -1073741637;
-          InputBuffer = v15;
-          Pool2 = v155;
+          v149 = -1073741637;
+          InputBuffer = v14;
+          Pool2 = v148;
           goto LABEL_22;
         }
       }
-      v31 = (unsigned int)(v8 - 38);
-      if ( (unsigned int)v31 <= 0x39 && (v32 = 0x218000004422401LL, _bittest64(&v32, v31)) || (_DWORD)v8 == 9 )
+      v29 = (unsigned int)(v8 - 38);
+      if ( (unsigned int)v29 <= 0x39 && (v30 = 0x218000004422401LL, _bittest64(&v30, v29)) || (_DWORD)v8 == 9 )
       {
         if ( !(unsigned __int8)PspIsContextAdmin() )
         {
           IsAppContainerOrIdentifyLevelContext = -1073741790;
-          v156 = -1073741790;
-          InputBuffer = v15;
-          Pool2 = v155;
+          v149 = -1073741790;
+          InputBuffer = v14;
+          Pool2 = v148;
           goto LABEL_22;
         }
       }
-      v33 = (unsigned int)(v8 - 37);
-      if ( (unsigned int)v33 > 0x3B || (v34 = 0xFAE005C28F40BC3LL, !_bittest64(&v34, v33)) )
+      v31 = (unsigned int)(v8 - 37);
+      if ( (unsigned int)v31 > 0x3B || (v32 = 0xFAE005C28F40BC3LL, !_bittest64(&v32, v31)) )
       {
         if ( (unsigned int)(v8 - 2) > 1 && (_DWORD)v8 != 11 )
         {
-          v35 = SeShutdownPrivilege;
+          v33 = SeShutdownPrivilege;
           if ( (_DWORD)v8 == 10 )
-            v35 = SeCreatePagefilePrivilege;
-          v159 = (int *)v35;
-          if ( !SeSinglePrivilegeCheck(v35, v13) )
+            v33 = SeCreatePagefilePrivilege;
+          v152 = (int *)v33;
+          if ( !SeSinglePrivilegeCheck(v33, v12) )
           {
             IsAppContainerOrIdentifyLevelContext = -1073741727;
-            v156 = -1073741727;
-            InputBuffer = v15;
-            Pool2 = v155;
+            v149 = -1073741727;
+            InputBuffer = v14;
+            Pool2 = v148;
             goto LABEL_22;
           }
         }
       }
-      v14 = Size[0];
-      if ( Size[0] && ((unsigned __int64)&v15[Size[0]] > 0x7FFFFFFF0000LL || &v15[Size[0]] < v15) )
+      v13 = Size[0];
+      if ( Size[0] && ((unsigned __int64)&v14[Size[0]] > 0x7FFFFFFF0000LL || &v14[Size[0]] < v14) )
         MEMORY[0x7FFFFFFF0000] = 0;
       if ( Size[0] > 0x40u )
       {
         Pool2 = (_QWORD *)ExAllocatePool2(256LL, Size[0], 544040269LL);
-        v155 = Pool2;
+        v148 = Pool2;
         if ( !Pool2 )
         {
           IsAppContainerOrIdentifyLevelContext = -1073741670;
-          v156 = -1073741670;
-          InputBuffer = v15;
+          v149 = -1073741670;
+          InputBuffer = v14;
           goto LABEL_22;
         }
       }
       else
       {
-        Pool2 = v162;
-        v155 = v162;
+        Pool2 = v155;
+        v148 = v155;
       }
-      memmove(Pool2, v15, Size[0]);
+      memmove(Pool2, v14, Size[0]);
     }
     else
     {
-      Pool2 = v155;
-      v14 = Size[0];
+      Pool2 = v148;
+      v13 = Size[0];
     }
-    if ( v16 )
-      ProbeForWrite(v16, Length, 1u);
-    LOBYTE(v12) = v153;
+    if ( v15 )
+      ProbeForWrite(v15, Length, 1u);
+    LOBYTE(v11) = v146;
   }
   else
   {
-    Pool2 = (_QWORD *)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
-    v155 = Pool2;
+    Pool2 = (_QWORD *)((unsigned __int64)InputBuffer & -(__int64)(v13 != 0));
+    v148 = Pool2;
   }
-  v17 = (unsigned int)(v8 - 38);
-  if ( (unsigned int)v17 > 0x3B || (v9 = 0xFFFE3BE75BE26EDLL, !_bittest64(&v9, v17)) )
+  v16 = (unsigned int)(v8 - 38);
+  if ( (unsigned int)v16 > 0x3B || (v9 = 0xFFFE3BE75BE26EDLL, !_bittest64(&v9, v16)) )
   {
-    if ( (unsigned int)v8 > 0x1F || (v44 = -234812256, !_bittest(&v44, v8)) )
+    if ( (unsigned int)v8 > 0x1F || (v42 = -234812256, !_bittest(&v42, v8)) )
     {
-      PopAcquirePolicyLock(v12);
-      LOBYTE(v12) = 1;
-      v153 = 1;
+      PopAcquirePolicyLock(v11);
+      LOBYTE(v11) = 1;
+      v146 = 1;
     }
   }
   if ( (int)v8 <= 50 )
   {
     if ( (_DWORD)v8 == 50 )
     {
-      if ( Pool2 || !v16 )
+      if ( Pool2 || !v15 )
         goto LABEL_307;
       WakeTimerList = ExGetWakeTimerList(&Src, &Length_4);
     }
@@ -479,26 +472,26 @@ NTSTATUS __stdcall NtPowerInformation(
           {
             if ( (int)v8 > 18 )
             {
-              v100 = v8 - 19;
-              if ( v100 )
+              v97 = v8 - 19;
+              if ( v97 )
               {
-                v101 = v100 - 1;
-                if ( v101 )
+                v98 = v97 - 1;
+                if ( v98 )
                 {
-                  v102 = v101 - 1;
-                  if ( v102 )
+                  v99 = v98 - 1;
+                  if ( v99 )
                   {
-                    v103 = v102 - 1;
-                    if ( v103 )
+                    v100 = v99 - 1;
+                    if ( v100 )
                     {
-                      if ( v103 == 1 && !Pool2 && v16 )
+                      if ( v100 == 1 && !Pool2 && v15 )
                       {
-                        IsAppContainerOrIdentifyLevelContext = PopLoggingInformation(P, &v157);
-                        InputBuffer = v15;
+                        IsAppContainerOrIdentifyLevelContext = PopLoggingInformation(P, &v150);
+                        InputBuffer = v14;
                         if ( IsAppContainerOrIdentifyLevelContext < 0 )
                           goto LABEL_22;
                         Src = P[0];
-                        Length_4 = v157;
+                        Length_4 = v150;
                         goto LABEL_123;
                       }
                       goto LABEL_307;
@@ -509,31 +502,31 @@ NTSTATUS __stdcall NtPowerInformation(
             }
             else if ( (_DWORD)v8 != 18 )
             {
-              v47 = v8 - 13;
-              if ( v47 )
+              v45 = v8 - 13;
+              if ( v45 )
               {
+                v46 = v45 - 1;
+                if ( !v46 )
+                {
+                  if ( Pool2 || !v15 )
+                    goto LABEL_307;
+                  v63 = &qword_140C3CDC8;
+                  goto LABEL_238;
+                }
+                v47 = v46 - 1;
+                if ( !v47 )
+                {
+                  if ( Pool2 || !v15 )
+                    goto LABEL_307;
+                  v63 = &qword_140C3CDD0;
+                  goto LABEL_238;
+                }
                 v48 = v47 - 1;
-                if ( !v48 )
+                if ( v48 )
                 {
-                  if ( Pool2 || !v16 )
-                    goto LABEL_307;
-                  v65 = &qword_140C3D108;
-                  goto LABEL_238;
-                }
-                v49 = v48 - 1;
-                if ( !v49 )
-                {
-                  if ( Pool2 || !v16 )
-                    goto LABEL_307;
-                  v65 = &qword_140C3D110;
-                  goto LABEL_238;
-                }
-                v50 = v49 - 1;
-                if ( v50 )
-                {
-                  if ( v50 == 1 && Pool2 && !v16 )
+                  if ( v48 == 1 && Pool2 && !v15 )
                   {
-                    if ( v14 < 0x10 )
+                    if ( v13 < 0x10 )
                       goto LABEL_358;
                     if ( !(_QWORD)PopPowerStateNotifyHandler || !*Pool2 )
                     {
@@ -543,14 +536,14 @@ NTSTATUS __stdcall NtPowerInformation(
                   }
                   goto LABEL_307;
                 }
-                if ( Pool2 || !v16 )
+                if ( Pool2 || !v15 )
                   goto LABEL_307;
                 if ( dword_140C035B8 )
-                  LODWORD(v161[0]) |= 1u;
+                  LODWORD(v154[0]) |= 1u;
                 if ( dword_140C03588 )
-                  LODWORD(v161[0]) |= 2u;
+                  LODWORD(v154[0]) |= 2u;
 LABEL_122:
-                Src = v161;
+                Src = v154;
                 Length_4 = 4;
                 goto LABEL_123;
               }
@@ -559,12 +552,12 @@ LABEL_122:
           }
           if ( (_DWORD)v8 == 12 )
           {
-            if ( Pool2 || !v16 )
+            if ( Pool2 || !v15 )
               goto LABEL_307;
-            HIDWORD(v161[0]) = dword_140C3CD04;
-            LODWORD(v161[1]) = dword_140C3CD0C - dword_140C3CD08;
-            BYTE4(v161[1]) = PopCoolingMode;
-            Src = v161;
+            HIDWORD(v154[0]) = dword_140C3CCA4;
+            LODWORD(v154[1]) = dword_140C3CCAC - dword_140C3CCA8;
+            BYTE4(v154[1]) = PopCoolingMode;
+            Src = v154;
             Length_4 = 16;
             goto LABEL_123;
           }
@@ -572,87 +565,87 @@ LABEL_122:
           {
             if ( (int)v8 <= 6 )
             {
-              if ( (_DWORD)v8 && (v39 = v8 - 1) != 0 )
+              if ( (_DWORD)v8 && (v37 = v8 - 1) != 0 )
               {
-                v40 = v39 - 1;
-                if ( v40 )
+                v38 = v37 - 1;
+                if ( v38 )
                 {
-                  v41 = v40 - 1;
-                  if ( v41 )
+                  v39 = v38 - 1;
+                  if ( v39 )
                   {
-                    v42 = v41 - 1;
-                    if ( !v42 )
+                    v40 = v39 - 1;
+                    if ( !v40 )
                     {
                       if ( Pool2 )
                       {
                         if ( (PopSimulate & 1) == 0 )
                           goto LABEL_307;
-                        if ( v14 < 0x4C )
+                        if ( v13 < 0x4C )
                           goto LABEL_358;
                         PopCapabilities = *(_OWORD *)Pool2;
-                        unk_140C3DA30 = *((_OWORD *)Pool2 + 1);
-                        xmmword_140C3DA40 = *((_OWORD *)Pool2 + 2);
-                        xmmword_140C3DA50 = *((_OWORD *)Pool2 + 3);
-                        qword_140C3DA60 = Pool2[8];
-                        dword_140C3DA68 = *((_DWORD *)Pool2 + 18);
+                        unk_140C3DA10 = *((_OWORD *)Pool2 + 1);
+                        xmmword_140C3DA20 = *((_OWORD *)Pool2 + 2);
+                        xmmword_140C3DA30 = *((_OWORD *)Pool2 + 3);
+                        qword_140C3DA40 = Pool2[8];
+                        dword_140C3DA48 = *((_DWORD *)Pool2 + 18);
                         IsAppContainerOrIdentifyLevelContext = PopResetCurrentPolicies();
-                        InputBuffer = v15;
+                        InputBuffer = v14;
                         if ( IsAppContainerOrIdentifyLevelContext < 0 )
                           goto LABEL_22;
                       }
-                      else if ( !v16 )
+                      else if ( !v15 )
                       {
                         goto LABEL_307;
                       }
                       BYTE9(PopCapabilities) = PopFullWake & 1;
-                      byte_140C3DA35 = PopDisksRegisteredForIdle();
-                      PopFilterCapabilities(&PopCapabilities, v161);
-                      Src = v161;
+                      byte_140C3DA15 = PopDisksRegisteredForIdle();
+                      PopFilterCapabilities(&PopCapabilities, v154);
+                      Src = v154;
                       Length_4 = 76;
                       goto LABEL_173;
                     }
-                    if ( v42 != 1 || Pool2 || !v16 )
+                    if ( v40 != 1 || Pool2 || !v15 )
                       goto LABEL_307;
-                    PopCurrentPowerState(v161);
+                    PopCurrentPowerState(v154);
                     goto LABEL_114;
                   }
                 }
-                if ( !Pool2 || !v16 )
+                if ( !Pool2 || !v15 )
                   goto LABEL_307;
-                if ( v14 < 0xE8 )
+                if ( v13 < 0xE8 )
                   goto LABEL_358;
-                IsAppContainerOrIdentifyLevelContext = PopVerifySystemPowerPolicy(Pool2, v161);
-                InputBuffer = v15;
+                IsAppContainerOrIdentifyLevelContext = PopVerifySystemPowerPolicy(Pool2, v154);
+                InputBuffer = v14;
                 if ( IsAppContainerOrIdentifyLevelContext < 0 )
                   goto LABEL_22;
-                v93 = v161;
+                v93 = v154;
               }
               else
               {
                 if ( Pool2 )
                 {
-                  if ( v14 < 0xE8 )
+                  if ( v13 < 0xE8 )
                     goto LABEL_358;
-                  IsAppContainerOrIdentifyLevelContext = PopApplyPolicy(0LL, 0LL, Pool2, v14);
-                  InputBuffer = v15;
+                  IsAppContainerOrIdentifyLevelContext = PopApplyPolicy(0LL, 0LL, Pool2, v13);
+                  InputBuffer = v14;
                   if ( IsAppContainerOrIdentifyLevelContext < 0 )
                     goto LABEL_22;
                 }
-                else if ( !v16 )
+                else if ( !v15 )
                 {
                   goto LABEL_307;
                 }
-                v93 = (HANDLE *)&unk_140C3D784;
+                v93 = (HANDLE *)&unk_140C3D884;
               }
 LABEL_351:
               Src = v93;
               Length_4 = 232;
               goto LABEL_123;
             }
-            v84 = v8 - 7;
-            if ( !v84 )
+            v82 = v8 - 7;
+            if ( !v82 )
             {
-              if ( !Pool2 && v16 )
+              if ( !Pool2 && v15 )
               {
                 PpmHeteroHgsBackupInit();
                 Src = &PpmProcessorDriverDispatchTable;
@@ -661,10 +654,10 @@ LABEL_351:
               }
               goto LABEL_307;
             }
-            v88 = v84 - 1;
+            v88 = v82 - 1;
             if ( !v88 )
             {
-              if ( Pool2 || !v16 )
+              if ( Pool2 || !v15 )
                 goto LABEL_307;
               v93 = (HANDLE *)PopPolicy;
               goto LABEL_351;
@@ -674,145 +667,144 @@ LABEL_351:
             {
               if ( Pool2 )
               {
-                if ( v14 < 0x18 )
+                if ( v13 < 0x18 )
                   goto LABEL_358;
-                IsAppContainerOrIdentifyLevelContext = PopApplyAdminPolicy(v12, Pool2);
-                InputBuffer = v15;
+                IsAppContainerOrIdentifyLevelContext = PopApplyAdminPolicy(v11, Pool2);
+                InputBuffer = v14;
                 if ( IsAppContainerOrIdentifyLevelContext < 0 )
                   goto LABEL_22;
                 IsAppContainerOrIdentifyLevelContext = PopResetCurrentPolicies();
                 if ( IsAppContainerOrIdentifyLevelContext < 0 )
                   goto LABEL_22;
               }
-              else if ( !v16 )
+              else if ( !v15 )
               {
                 goto LABEL_307;
               }
-              v99 = &PopAdminPolicy;
+              v96 = &PopAdminPolicy;
               goto LABEL_373;
             }
             v90 = v89 - 1;
             if ( !v90 )
             {
-              if ( !Pool2 || v16 )
+              if ( !Pool2 || v15 )
                 goto LABEL_307;
-              if ( !v14 )
+              if ( !v13 )
                 goto LABEL_358;
               PopAcquireTransitionLock(3LL);
               PopAcquirePolicyLock(v94);
               PopHiberEnabledReg = *(_BYTE *)Pool2 != 0;
               PopSetHiberPersistedRegValue(0LL);
               IsAppContainerOrIdentifyLevelContext = PopHibernateEvaluation(0LL, 0LL, 0LL);
-              PopReleasePolicyLock(v96, v95, v97);
+              PopReleasePolicyLock();
               PopReleaseTransitionLock(3LL);
-              v98 = IsAppContainerOrIdentifyLevelContext < 0;
+              v95 = IsAppContainerOrIdentifyLevelContext < 0;
               goto LABEL_531;
             }
-            if ( v90 != 1 || Pool2 || !v16 )
+            if ( v90 != 1 || Pool2 || !v15 )
               goto LABEL_307;
-            v70 = PopProcessorInformation(v161, v9, KeGetCurrentPrcb()->Group, &Length_4);
-            Pool2 = v155;
+            v69 = PopProcessorInformation(v154, v9, KeGetCurrentPrcb()->Group, &Length_4);
+            Pool2 = v148;
 LABEL_251:
-            InputBuffer = v15;
-            IsAppContainerOrIdentifyLevelContext = v70;
-            if ( v70 < 0 )
+            InputBuffer = v14;
+            IsAppContainerOrIdentifyLevelContext = v69;
+            if ( v69 < 0 )
               goto LABEL_22;
-            Src = v161;
+            Src = v154;
             goto LABEL_123;
           }
-          if ( !Pool2 || v16 )
+          if ( !Pool2 || v15 )
             goto LABEL_307;
-          if ( v14 < 0x18 )
+          if ( v13 < 0x18 )
             goto LABEL_358;
-          v9 = *(unsigned int *)Pool2;
-          if ( (unsigned int)v9 >= 7 )
+          v70 = *(unsigned int *)Pool2;
+          if ( (unsigned int)v70 >= 7 )
             goto LABEL_307;
-          v10 = 3 * v9;
-          if ( *((_QWORD *)&PopPowerStateHandlers + 3 * v9 + 1) )
+          v71 = 3 * v70;
+          if ( *((_QWORD *)&PopPowerStateHandlers + 3 * v70 + 1) )
           {
-            if ( (_DWORD)v9 != 5
-              && ((_DWORD)v9 != 4 || (void (__fastcall __noreturn *)())qword_140C3D9C8 != PopShutdownHandler) )
+            if ( (_DWORD)v70 != 5
+              && ((_DWORD)v70 != 4 || (void (__fastcall __noreturn *)())qword_140C3D828 != PopShutdownHandler) )
             {
               goto LABEL_307;
             }
           }
-          *(_OWORD *)((char *)&PopPowerStateHandlers + 24 * v9) = *(_OWORD *)Pool2;
-          *((_QWORD *)&PopPowerStateHandlers + 3 * v9 + 2) = Pool2[2];
-          *(_WORD *)((char *)&PopPowerStateHandlers + 24 * v9 + 5) = 0;
-          *((_BYTE *)&PopPowerStateHandlers + 24 * v9 + 7) = 0;
-          v71 = 0LL;
-          v72 = 0;
-          if ( (_DWORD)v9 )
+          *(_OWORD *)((char *)&PopPowerStateHandlers + 24 * v70) = *(_OWORD *)Pool2;
+          *((_QWORD *)&PopPowerStateHandlers + 3 * v70 + 2) = Pool2[2];
+          *(_WORD *)((char *)&PopPowerStateHandlers + 24 * v70 + 5) = 0;
+          *((_BYTE *)&PopPowerStateHandlers + 24 * v70 + 7) = 0;
+          v72 = 0LL;
+          v73 = 0;
+          if ( (_DWORD)v70 )
           {
-            v73 = v9 - 1;
-            if ( v73 )
+            v74 = v70 - 1;
+            if ( v74 )
             {
-              v74 = v73 - 1;
-              if ( v74 )
+              v75 = v74 - 1;
+              if ( v75 )
               {
-                v75 = v74 - 1;
-                if ( v75 )
+                v76 = v75 - 1;
+                if ( v76 )
                 {
-                  v76 = v75 - 1;
-                  if ( !v76 )
+                  v77 = v76 - 1;
+                  if ( !v77 )
                   {
-                    v71 = (char *)&PopCapabilities + 7;
+                    v72 = (char *)&PopCapabilities + 7;
 LABEL_299:
-                    v9 = v72 & (unsigned int)-(*((_BYTE *)&PopPowerStateHandlers + 8 * v10 + 4) != 0);
-                    if ( (int)v9 > (int)qword_140C3DA60 )
-                      LODWORD(qword_140C3DA60) = *((_BYTE *)&PopPowerStateHandlers + 8 * v10 + 4) != 0 ? v72 : 0;
-                    if ( v71 && *v71 != 1 )
+                    if ( (*((_BYTE *)&PopPowerStateHandlers + 8 * v71 + 4) != 0 ? v73 : 0) > (int)qword_140C3DA40 )
+                      LODWORD(qword_140C3DA40) = *((_BYTE *)&PopPowerStateHandlers + 8 * v71 + 4) != 0 ? v73 : 0;
+                    if ( v72 && *v72 != 1 )
                     {
-                      *v71 = 1;
+                      *v72 = 1;
                       PopResetCurrentPolicies();
                     }
                     goto LABEL_123;
                   }
-                  if ( v76 != 2 )
+                  if ( v77 != 2 )
                     goto LABEL_299;
-                  v72 = 4;
+                  v73 = 4;
                   v87 = (PopSimulate & 0x2000) == 0;
-                  v71 = &unk_140C3DA31;
+                  v72 = &unk_140C3DA11;
                 }
                 else
                 {
-                  v72 = 5;
+                  v73 = 5;
                   v87 = (PopSimulate & 0x2000) == 0;
-                  v71 = (char *)&PopCapabilities + 6;
+                  v72 = (char *)&PopCapabilities + 6;
                 }
               }
               else
               {
-                v72 = 4;
+                v73 = 4;
                 v87 = (PopSimulate & 0x20) == 0;
-                v71 = (char *)&PopCapabilities + 5;
+                v72 = (char *)&PopCapabilities + 5;
               }
             }
             else
             {
-              v72 = 3;
+              v73 = 3;
               v87 = (PopSimulate & 0x40) == 0;
-              v71 = (char *)&PopCapabilities + 4;
+              v72 = (char *)&PopCapabilities + 4;
             }
           }
           else
           {
-            v72 = 2;
+            v73 = 2;
             v87 = (PopSimulate & 8) == 0;
-            v71 = (char *)&PopCapabilities + 3;
+            v72 = (char *)&PopCapabilities + 3;
           }
           if ( !v87 )
-            v71 = 0LL;
+            v72 = 0LL;
           goto LABEL_299;
         }
-        if ( !Pool2 || v16 )
+        if ( !Pool2 || v15 )
           goto LABEL_307;
-        if ( v14 < 8 )
+        if ( v13 < 8 )
           goto LABEL_358;
-        v59 = PopLogSleepDisabled(*(unsigned int *)Pool2, *((unsigned int *)Pool2 + 1), 0LL, 0LL);
+        v57 = PopLogSleepDisabled(*(unsigned int *)Pool2, *((unsigned int *)Pool2 + 1), 0LL, 0LL);
 LABEL_200:
-        IsAppContainerOrIdentifyLevelContext = v59;
-        v60 = v59 < 0;
+        IsAppContainerOrIdentifyLevelContext = v57;
+        v58 = v57 < 0;
         goto LABEL_201;
       }
       if ( (int)v8 <= 38 )
@@ -821,25 +813,25 @@ LABEL_200:
         {
           if ( (int)v8 > 32 )
           {
-            v109 = v8 - 33;
-            if ( !v109 )
+            v106 = v8 - 33;
+            if ( !v106 )
               goto LABEL_564;
-            v110 = v109 - 1;
-            if ( !v110 )
+            v107 = v106 - 1;
+            if ( !v107 )
               goto LABEL_564;
-            v111 = v110 - 1;
-            if ( v111 )
+            v108 = v107 - 1;
+            if ( v108 )
             {
-              v112 = v111 - 1;
-              if ( v112 )
+              v109 = v108 - 1;
+              if ( v109 )
               {
-                if ( v112 != 1 || !Pool2 || v16 )
+                if ( v109 != 1 || !Pool2 || v15 )
                   goto LABEL_307;
                 if ( PreviousMode == 1 )
                 {
-                  if ( v14 >= 4 )
+                  if ( v13 >= 4 )
                   {
-                    IsAppContainerOrIdentifyLevelContext = RtlStringCbLengthW((STRSAFE_PCNZWCH)Pool2 + 2, v14 - 4, 0LL);
+                    IsAppContainerOrIdentifyLevelContext = RtlStringCbLengthW((STRSAFE_PCNZWCH)Pool2 + 2, v13 - 4, 0LL);
                     if ( IsAppContainerOrIdentifyLevelContext >= 0 )
                       IsAppContainerOrIdentifyLevelContext = 0;
                   }
@@ -847,7 +839,7 @@ LABEL_200:
                   {
                     IsAppContainerOrIdentifyLevelContext = -1073741811;
                   }
-                  InputBuffer = v15;
+                  InputBuffer = v14;
                   if ( IsAppContainerOrIdentifyLevelContext >= 0 )
                   {
                     PopDiagTraceServiceNotification(Pool2);
@@ -857,43 +849,43 @@ LABEL_200:
                 }
                 goto LABEL_425;
               }
-              if ( !v16 )
+              if ( !v15 )
                 goto LABEL_307;
-              if ( !(_DWORD)dword_140C3CDE0 || !qword_140C3CDD8 )
+              if ( !(_DWORD)dword_140C3CF80 || !qword_140C3CF78 )
               {
                 IsAppContainerOrIdentifyLevelContext = -1073741275;
                 goto LABEL_21;
               }
-              Length_4 = dword_140C3CDE0 + 8;
-              v113 = ExAllocatePool2(256LL, (unsigned int)(dword_140C3CDE0 + 8), 544040269LL);
-              v114 = (_DWORD *)v113;
-              if ( v113 )
+              Length_4 = dword_140C3CF80 + 8;
+              v110 = ExAllocatePool2(256LL, (unsigned int)(dword_140C3CF80 + 8), 544040269LL);
+              v111 = (_DWORD *)v110;
+              if ( v110 )
               {
-                Src = (void *)v113;
-                v150 = 1;
-                memmove((void *)(v113 + 8), qword_140C3CDD8, (unsigned int)dword_140C3CDE0);
-                *v114 = (unsigned int)dword_140C3CDE0 >> 4;
+                Src = (void *)v110;
+                v143 = 1;
+                memmove((void *)(v110 + 8), qword_140C3CF78, (unsigned int)dword_140C3CF80);
+                *v111 = (unsigned int)dword_140C3CF80 >> 4;
                 goto LABEL_123;
               }
             }
             else
             {
-              if ( Pool2 || !v16 )
+              if ( Pool2 || !v15 )
                 goto LABEL_307;
-              if ( (_BYTE)v12 )
+              if ( (_BYTE)v11 )
               {
-                PopReleasePolicyLock(v12, v9, v10);
-                v153 = 0;
+                PopReleasePolicyLock();
+                v146 = 0;
               }
               IsAppContainerOrIdentifyLevelContext = PopGetWakeSource(0LL, &Length_4);
               if ( IsAppContainerOrIdentifyLevelContext != -1073741789 )
                 goto LABEL_445;
-              v115 = (void *)ExAllocatePool2(64LL, Length_4, 544040269LL);
-              Src = v115;
-              if ( v115 )
+              v112 = (void *)ExAllocatePool2(64LL, Length_4, 544040269LL);
+              Src = v112;
+              if ( v112 )
               {
-                v150 = 1;
-                WakeSource = PopGetWakeSource(v115, &Length_4);
+                v143 = 1;
+                WakeSource = PopGetWakeSource(v112, &Length_4);
                 goto LABEL_443;
               }
             }
@@ -907,38 +899,38 @@ LABEL_200:
               case 0x19:
                 if ( !Pool2 )
                   goto LABEL_307;
-                if ( v16 )
+                if ( v15 )
                   goto LABEL_307;
                 if ( Length )
                   goto LABEL_307;
-                if ( v14 < 0x1C )
+                if ( v13 < 0x1C )
                   goto LABEL_307;
-                v104 = (unsigned int *)(Pool2 + 3);
-                v105 = *((_DWORD *)Pool2 + 6);
-                if ( !v105 )
+                v101 = (unsigned int *)(Pool2 + 3);
+                v102 = *((_DWORD *)Pool2 + 6);
+                if ( !v102 )
                   goto LABEL_307;
-                v159 = (int *)Pool2 + 5;
+                v152 = (int *)Pool2 + 5;
                 if ( *((_DWORD *)Pool2 + 5) > 2u )
                   goto LABEL_307;
-                InputBuffer = v15;
+                InputBuffer = v14;
                 if ( *(_DWORD *)Pool2 != 1 )
                 {
                   IsAppContainerOrIdentifyLevelContext = -1073741736;
                   goto LABEL_22;
                 }
-                v106 = v105 + 28;
-                v107 = -1;
-                if ( v106 >= 0x1C )
-                  v107 = v106;
-                Length_4 = v107;
-                IsAppContainerOrIdentifyLevelContext = v106 < 0x1C ? 0xC0000095 : 0;
-                if ( v106 < 0x1C )
+                v103 = v102 + 28;
+                v104 = -1;
+                if ( v103 >= 0x1C )
+                  v104 = v103;
+                Length_4 = v104;
+                IsAppContainerOrIdentifyLevelContext = v103 < 0x1C ? 0xC0000095 : 0;
+                if ( v103 < 0x1C )
                   goto LABEL_22;
-                if ( Size[0] < v107 )
+                if ( Size[0] < v104 )
                   goto LABEL_307;
                 ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-                Pool2 = v155;
-                v59 = PopSetPowerSettingValue((const GUID *)(v155 + 4), ProcessSessionId, *v159, *v104, v155 + 28);
+                Pool2 = v148;
+                v57 = PopSetPowerSettingValue((const GUID *)(v148 + 4), ProcessSessionId, *v152, *v101, v148 + 28);
                 goto LABEL_200;
               case 0x1C:
                 if ( qword_140C6AF40 )
@@ -949,9 +941,9 @@ LABEL_200:
             }
             if ( (_DWORD)v8 != 29 )
             {
-              if ( (unsigned int)(v8 - 30) <= 1 && Pool2 && !v16 )
+              if ( (unsigned int)(v8 - 30) <= 1 && Pool2 && !v15 )
               {
-                if ( v14 < 8 )
+                if ( v13 < 8 )
                   goto LABEL_358;
                 if ( (_DWORD)v8 == 30 )
                   PopDiagTraceAppPowerMessage(Pool2);
@@ -961,52 +953,52 @@ LABEL_200:
               }
               goto LABEL_307;
             }
-            if ( Pool2 || !v16 )
+            if ( Pool2 || !v15 )
               goto LABEL_307;
             Length_4 = 4;
-            v61 = (_DWORD *)ExAllocatePool2(256LL, 4LL, 544040269LL);
-            Src = v61;
-            if ( v61 )
+            v59 = (_DWORD *)ExAllocatePool2(256LL, 4LL, 544040269LL);
+            Src = v59;
+            if ( v59 )
             {
-              v150 = 1;
-              *v61 = PopConsoleDisplayState;
+              v143 = 1;
+              *v59 = PopConsoleDisplayState;
               goto LABEL_123;
             }
           }
           IsAppContainerOrIdentifyLevelContext = -1073741670;
           goto LABEL_21;
         }
-        if ( !Pool2 || v16 )
+        if ( !Pool2 || v15 )
           goto LABEL_307;
-        if ( v14 == 8 )
+        if ( v13 == 8 )
         {
           WakeSource = PpmSetSimulatedLoad((PPROCESSOR_NUMBER)Pool2);
         }
         else
         {
-          if ( v14 != 4 )
+          if ( v13 != 4 )
             goto LABEL_444;
           WakeSource = PpmClearSimulatedLoad((PPROCESSOR_NUMBER)Pool2);
         }
 LABEL_443:
         IsAppContainerOrIdentifyLevelContext = WakeSource;
 LABEL_445:
-        v60 = IsAppContainerOrIdentifyLevelContext < 0;
+        v58 = IsAppContainerOrIdentifyLevelContext < 0;
 LABEL_201:
-        InputBuffer = v15;
-        if ( v60 )
+        InputBuffer = v14;
+        if ( v58 )
           goto LABEL_22;
 LABEL_123:
-        v20 = Length;
+        v19 = Length;
         goto LABEL_19;
       }
       if ( (_DWORD)v8 == 44 )
       {
-        if ( !Pool2 || v16 )
+        if ( !Pool2 || v15 )
           goto LABEL_307;
-        if ( v14 != 24 )
+        if ( v13 != 24 )
           goto LABEL_358;
-        v59 = PopPowerRequestActionInfo(Pool2);
+        v57 = PopPowerRequestActionInfo(Pool2);
         goto LABEL_200;
       }
       if ( (int)v8 <= 44 )
@@ -1014,71 +1006,71 @@ LABEL_123:
         switch ( (_DWORD)v8 )
         {
           case '\'':
-            if ( Pool2 && !v16 && v14 == 24 )
+            if ( Pool2 && !v15 && v13 == 24 )
             {
               PopShutdownListenerInsertCallback(Pool2);
               goto LABEL_123;
             }
             goto LABEL_307;
           case '(':
-            if ( Pool2 && v14 == 4 && !v16 )
+            if ( Pool2 && v13 == 4 && !v15 )
             {
-              v157 = *(_DWORD *)Pool2 != 0;
-              PopSetPowerSettingValueAcDc(&GUID_VIDEO_BRIGHTNESS_CAPABLE, 4LL, &v157);
+              v150 = *(_DWORD *)Pool2 != 0;
+              PopSetPowerSettingValueAcDc(&GUID_VIDEO_BRIGHTNESS_CAPABLE, 4LL, &v150);
               goto LABEL_123;
             }
             goto LABEL_307;
           case ')':
             if ( Pool2 )
               goto LABEL_307;
-            if ( !v16 )
+            if ( !v15 )
               goto LABEL_307;
-            v20 = Length;
+            v19 = Length;
             if ( Length != 64 )
               goto LABEL_307;
             PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
-            v77 = PopEsState;
+            v78 = PopEsState;
             PopReleaseRwLock(&PopEsLock);
-            v78 = (char)v161[6];
-            if ( v77 == 1 )
-              v78 = 1;
-            LOBYTE(v161[6]) = v78;
-            LOBYTE(v161[7]) = TtmIsEnabled();
+            v79 = (char)v154[6];
+            if ( v78 == 1 )
+              v79 = 1;
+            LOBYTE(v154[6]) = v79;
+            LOBYTE(v154[7]) = TtmIsEnabled();
             if ( (unsigned __int8)TtmIsEnabled() )
             {
               IsAppContainerOrIdentifyLevelContext = TtmInitCurrentSession();
-              v156 = IsAppContainerOrIdentifyLevelContext;
-              InputBuffer = v15;
+              v149 = IsAppContainerOrIdentifyLevelContext;
+              InputBuffer = v14;
               if ( IsAppContainerOrIdentifyLevelContext < 0 )
                 goto LABEL_22;
               PopPowerRequestNotifyTtmSessionInitialized();
             }
-            PopAcquirePolicyLock(v79);
-            LODWORD(v161[2]) = 0;
-            v161[0] = &PopNoMoreInput;
-            v161[1] = &PopHiberBootForceMonitorOff;
-            LODWORD(v161[3]) = byte_140C3D871 != 0;
-            HIDWORD(v161[3]) = dword_140C3D86C;
-            HIDWORD(v161[2]) = dword_140C3D88C;
-            v161[4] = (HANDLE)qword_140C3D890;
-            HIDWORD(v161[6]) = HIDWORD(qword_140C3D898);
-            v161[5] = (HANDLE)__PAIR64__(dword_140C3D8A0, qword_140C3D898);
-            BYTE1(v161[6]) = PopLidOpened;
+            PopAcquirePolicyLock(v80);
+            LODWORD(v154[2]) = 0;
+            v154[0] = &PopNoMoreInput;
+            v154[1] = &PopHiberBootForceMonitorOff;
+            LODWORD(v154[3]) = byte_140C3D971 != 0;
+            HIDWORD(v154[3]) = dword_140C3D96C;
+            HIDWORD(v154[2]) = dword_140C3D98C;
+            v154[4] = (HANDLE)qword_140C3D990;
+            HIDWORD(v154[6]) = HIDWORD(qword_140C3D998);
+            v154[5] = (HANDLE)__PAIR64__(dword_140C3D9A0, qword_140C3D998);
+            BYTE1(v154[6]) = PopLidOpened;
             _m_prefetchw(&PopLidStateIsReliable);
-            BYTE1(v161[7]) = _InterlockedOr(&PopLidStateIsReliable, 0) != 0;
-            Src = v161;
+            BYTE1(v154[7]) = _InterlockedOr(&PopLidStateIsReliable, 0) != 0;
+            Src = v154;
             Length_4 = 64;
-            v80 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-            PopPrintEx(3LL, (__int64)"PopAdaptive: Session %u is started\n", v80);
+            v81 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+            PopPrintEx(3u, (__int64)"PopAdaptive: Session %u is started\n", v81);
             PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CREATED);
-            PopReleasePolicyLock(v82, v81, v83);
-            Pool2 = v155;
+            PopReleasePolicyLock();
+            Pool2 = v148;
             goto LABEL_19;
         }
-        v58 = (unsigned int)(v8 - 42);
+        v56 = (unsigned int)(v8 - 42);
         if ( (_DWORD)v8 != 42 )
           goto LABEL_232;
-        if ( !Pool2 || v14 != 16 || v16 )
+        if ( !Pool2 || v13 != 16 || v15 )
           goto LABEL_307;
         if ( !*((_BYTE *)Pool2 + 13) || !*((_BYTE *)Pool2 + 12) )
         {
@@ -1086,7 +1078,7 @@ LABEL_191:
           if ( *((_BYTE *)Pool2 + 14) )
           {
             if ( *((_BYTE *)Pool2 + 12) )
-              ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)Pool2 + 4);
+              ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (char *)Pool2 + 4, 4u, 0LL, 0LL, 0, 0);
             if ( *((_BYTE *)Pool2 + 14) )
               PopDiagTraceSessionDisplayStateChange(
                 *((_DWORD *)Pool2 + 1) == 0,
@@ -1101,8 +1093,8 @@ LABEL_191:
           if ( *((_DWORD *)Pool2 + 1) != 2 )
           {
 LABEL_188:
-            LOBYTE(v58) = *((_BYTE *)Pool2 + 15);
-            PopProcessSessionDisplayStateChange(v58, *((unsigned int *)Pool2 + 2));
+            LOBYTE(v56) = *((_BYTE *)Pool2 + 15);
+            PopProcessSessionDisplayStateChange(v56, *((unsigned int *)Pool2 + 2));
 LABEL_189:
             PopSetDisplayStatus(*((unsigned int *)Pool2 + 1));
             PopUpdateConsoleDisplayState(*((unsigned int *)Pool2 + 1));
@@ -1125,76 +1117,76 @@ LABEL_189:
           goto LABEL_189;
         goto LABEL_188;
       }
-      v67 = v8 - 45;
-      if ( v67 )
+      v65 = v8 - 45;
+      if ( v65 )
       {
-        v68 = v67 - 1;
-        if ( !v68 )
+        v66 = v65 - 1;
+        if ( !v66 )
         {
           if ( !Pool2 )
             goto LABEL_307;
-          if ( v14 < 2 )
+          if ( v13 < 2 )
             goto LABEL_307;
-          if ( !v16 )
+          if ( !v15 )
             goto LABEL_307;
-          v69 = *(_WORD *)Pool2;
-          if ( v69 >= KeQueryActiveGroupCount() )
+          v67 = *(_WORD *)Pool2;
+          if ( v67 >= KeQueryActiveGroupCount() )
             goto LABEL_307;
-          v70 = PopProcessorInformation(v161, v9, v69, &Length_4);
+          v69 = PopProcessorInformation(v154, v68, v67, &Length_4);
           goto LABEL_251;
         }
-        v117 = v68 - 1;
-        if ( !v117 )
+        v114 = v66 - 1;
+        if ( !v114 )
         {
-          if ( !Pool2 || v14 != 16 )
+          if ( !Pool2 || v13 != 16 )
             goto LABEL_307;
-          v120 = PopUmpoSendLegacyEvent(Pool2);
-          IsAppContainerOrIdentifyLevelContext = v120;
-          if ( v120 >= 0 )
+          v117 = PopUmpoSendLegacyEvent(Pool2);
+          IsAppContainerOrIdentifyLevelContext = v117;
+          if ( v117 >= 0 )
             goto LABEL_123;
-          InputBuffer = v15;
-          if ( v120 == -1073741536 )
+          InputBuffer = v14;
+          if ( v117 == -1073741536 )
             goto LABEL_123;
           goto LABEL_22;
         }
-        v118 = v117 - 1;
-        if ( v118 )
+        v115 = v114 - 1;
+        if ( v115 )
         {
 LABEL_563:
-          if ( v118 != 1 )
+          if ( v115 != 1 )
             goto LABEL_307;
           goto LABEL_564;
         }
         if ( !(_BYTE)KdDebuggerEnabled )
           goto LABEL_425;
-        if ( !Pool2 || v16 )
+        if ( !Pool2 || v15 )
           goto LABEL_307;
-        if ( v14 == 16 )
+        if ( v13 == 16 )
         {
-          v119 = 0LL;
+          v116 = 0LL;
 LABEL_474:
-          WakeSource = PpmParkApplyForcedMask(Pool2, v119);
+          WakeSource = PpmParkApplyForcedMask(Pool2, v116);
           goto LABEL_443;
         }
-        if ( v14 == 24 )
+        if ( v13 == 24 )
         {
-          v119 = Pool2 + 2;
+          v116 = Pool2 + 2;
           goto LABEL_474;
         }
-        if ( v14 != 2 )
+        if ( v13 != 2 )
           goto LABEL_444;
         WakeSource = PpmParkClearForcedMask(Pool2);
         goto LABEL_443;
       }
-      if ( Pool2 || !v16 )
+      if ( Pool2 || !v15 )
         goto LABEL_307;
       WakeTimerList = PopGetPowerRequestListInfo(&Src, &Length_4);
     }
     IsAppContainerOrIdentifyLevelContext = WakeTimerList;
-    InputBuffer = v15;
+    InputBuffer = v14;
     if ( WakeTimerList < 0 )
       goto LABEL_22;
-    v150 = 1;
+    v143 = 1;
     goto LABEL_123;
   }
   if ( (int)v8 <= 74 )
@@ -1203,7 +1195,7 @@ LABEL_474:
     {
       if ( PreviousMode )
         goto LABEL_425;
-      if ( !Pool2 || v14 != 16 || v16 || Length )
+      if ( !Pool2 || v13 != 16 || v15 || Length )
         goto LABEL_307;
       SettingValue = PopPdcCsDeviceNotification(Pool2);
       goto LABEL_97;
@@ -1214,21 +1206,23 @@ LABEL_474:
       {
         if ( Pool2 )
         {
-          if ( v14 == 40 )
+          if ( v13 == 40 )
           {
-            if ( v16 )
+            if ( v15 )
             {
-              v20 = Length;
+              v19 = Length;
               if ( Length == 16 )
               {
-                v85 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-                PopSessionConnectionChange(v85, v155, v16);
-                v86 = (unsigned int)PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-                Pool2 = v155;
-                LOBYTE(v10) = *v155;
-                LOBYTE(v9) = v155[1];
+                v83 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+                PopSessionConnectionChange(v83, v148, v15);
+                v85 = (unsigned int)PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+                Pool2 = v148;
                 if ( qword_140C6AF38 )
-                  qword_140C6AF38(v86, v9, v10);
+                {
+                  LOBYTE(v84) = v148[1];
+                  LOBYTE(v86) = *v148;
+                  qword_140C6AF38(v85, v84, v86);
+                }
                 goto LABEL_19;
               }
             }
@@ -1238,27 +1232,27 @@ LABEL_474:
       }
       if ( (int)v8 > 56 )
       {
-        v36 = v8 - 57;
-        if ( v36 )
+        v34 = v8 - 57;
+        if ( v34 )
         {
-          v37 = v36 - 1;
-          if ( v37 )
+          v35 = v34 - 1;
+          if ( v35 )
           {
-            v51 = v37 - 1;
-            if ( v51 )
+            v49 = v35 - 1;
+            if ( v49 )
             {
-              v135 = v51 - 1;
-              if ( v135 )
+              v126 = v49 - 1;
+              if ( v126 )
               {
-                if ( v135 == 1 )
+                if ( v126 == 1 )
                 {
                   if ( Pool2 )
                   {
-                    if ( v14 == 16 )
+                    if ( v13 == 16 )
                     {
-                      if ( v16 )
+                      if ( v15 )
                       {
-                        v20 = Length;
+                        v19 = Length;
                         if ( Length == 8 )
                           goto LABEL_19;
                       }
@@ -1266,110 +1260,110 @@ LABEL_474:
                   }
                 }
               }
-              else if ( Pool2 && !v16 )
+              else if ( Pool2 && !v15 )
               {
-                if ( v14 < 8 )
+                if ( v13 < 8 )
                   goto LABEL_358;
                 PopEnforceResiliencyScenarios(Pool2);
                 goto LABEL_123;
               }
               goto LABEL_307;
             }
-            if ( !Pool2 || !v16 )
+            if ( !Pool2 || !v15 )
               goto LABEL_307;
-            if ( v14 != 16 || Length < 4 )
+            if ( v13 != 16 || Length < 4 )
               goto LABEL_358;
-            SettingValue = PopGetSettingValue(Pool2, v16, Length);
+            SettingValue = PopGetSettingValue(Pool2, v15, Length);
           }
           else
           {
-            if ( !v16 )
+            if ( !v15 )
               goto LABEL_307;
-            if ( v15 && v14 != 20 || Length != 8 )
+            if ( v14 && v13 != 20 || Length != 8 )
               goto LABEL_358;
-            SettingValue = PopGetSettingNotificationName((__int64)Pool2, (__int64 *)v16);
+            SettingValue = PopGetSettingNotificationName((__int64)Pool2, v15);
           }
           goto LABEL_97;
         }
         if ( !ExVerifySuite(PhoneNT) )
           goto LABEL_564;
-        if ( !Pool2 || v14 != 1 || v16 )
+        if ( !Pool2 || v13 != 1 || v15 )
           goto LABEL_307;
-        LOBYTE(v136) = *(_BYTE *)Pool2;
-        IsAppContainerOrIdentifyLevelContext = PopUserPresentOverride(v136);
-        v98 = IsAppContainerOrIdentifyLevelContext < 0;
+        LOBYTE(v127) = *(_BYTE *)Pool2;
+        IsAppContainerOrIdentifyLevelContext = PopUserPresentOverride(v127);
+        v95 = IsAppContainerOrIdentifyLevelContext < 0;
 LABEL_531:
-        if ( v98 )
+        if ( v95 )
           goto LABEL_21;
         goto LABEL_123;
       }
       if ( (_DWORD)v8 == 56 )
       {
-        if ( Pool2 && v16 )
+        if ( Pool2 && v15 )
         {
-          if ( v14 != 8 )
+          if ( v13 != 8 )
             goto LABEL_358;
-          v20 = Length;
+          v19 = Length;
           if ( Length != 4 )
             goto LABEL_358;
           IsAppContainerOrIdentifyLevelContext = PpmParkSetLpiCap(
                                                    *(_DWORD *)Pool2,
                                                    *((_DWORD *)Pool2 + 1),
-                                                   (unsigned int *)v161);
+                                                   (unsigned int *)v154);
           if ( IsAppContainerOrIdentifyLevelContext < 0 )
             goto LABEL_21;
-          Src = v161;
-          Length_4 = 4;
+          Src = v154;
+          Length_4 = Length;
           goto LABEL_19;
         }
         goto LABEL_307;
       }
-      v122 = v8 - 51;
-      if ( !v122 )
+      v119 = v8 - 51;
+      if ( !v119 )
       {
-        if ( !Pool2 || !v16 )
+        if ( !Pool2 || !v15 )
           goto LABEL_307;
-        if ( v14 < 4 )
+        if ( v13 < 4 )
           goto LABEL_358;
         PopAcquireTransitionLock(5LL);
-        PopAcquirePolicyLock(v126);
+        PopAcquirePolicyLock(v123);
         IsAppContainerOrIdentifyLevelContext = PopSetHiberFileSize(*(unsigned int *)Pool2, &Size[1]);
-        PopReleasePolicyLock(v128, v127, v129);
-        v130 = 5LL;
+        PopReleasePolicyLock();
+        v124 = 5LL;
 LABEL_507:
-        PopReleaseTransitionLock(v130);
-        InputBuffer = v15;
+        PopReleaseTransitionLock(v124);
+        InputBuffer = v14;
         if ( IsAppContainerOrIdentifyLevelContext < 0 )
           goto LABEL_22;
-        v65 = (__int64 *)&Size[1];
+        v63 = (__int64 *)&Size[1];
 LABEL_238:
-        Src = v65;
+        Src = v63;
         Length_4 = 8;
         goto LABEL_123;
       }
-      v123 = v122 - 1;
-      if ( v123 )
+      v120 = v119 - 1;
+      if ( v120 )
       {
-        v124 = v123 - 1;
-        if ( v124 )
+        v121 = v120 - 1;
+        if ( v121 )
         {
-          v125 = v124 - 1;
-          if ( v125 )
+          v122 = v121 - 1;
+          if ( v122 )
           {
-            if ( v125 != 1 )
+            if ( v122 != 1 )
               goto LABEL_307;
             if ( !(_BYTE)KdDebuggerEnabled )
               goto LABEL_425;
-            if ( !Pool2 || v16 )
+            if ( !Pool2 || v15 )
               goto LABEL_307;
-            if ( v14 == 8 )
+            if ( v13 == 8 )
             {
               WakeSource = PpmSetSimulatedIdle((__int64)Pool2);
               goto LABEL_443;
             }
-            if ( v14 == 4 )
+            if ( v13 == 4 )
             {
-              WakeSource = PpmClearSimulatedIdle((struct _PROCESSOR_NUMBER *)Pool2);
+              WakeSource = PpmClearSimulatedIdle((_PROCESSOR_NUMBER *)Pool2);
               goto LABEL_443;
             }
 LABEL_444:
@@ -1384,20 +1378,20 @@ LABEL_564:
     }
     if ( (_DWORD)v8 == 68 )
     {
-      if ( !Pool2 || v14 != 8 || v16 || Length )
+      if ( !Pool2 || v13 != 8 || v15 || Length )
         goto LABEL_307;
       SettingValue = PopMonitorInvocation(Pool2);
       goto LABEL_97;
     }
     if ( (int)v8 <= 68 )
     {
-      v52 = v8 - 63;
-      if ( !v52 )
+      v50 = v8 - 63;
+      if ( !v50 )
       {
-        if ( Pool2 || v16 )
+        if ( Pool2 || v15 )
           goto LABEL_307;
         v92 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        PopPrintEx(3LL, (__int64)"PopAdaptive: Session %u is closed\n", v92);
+        PopPrintEx(3u, (__int64)"PopAdaptive: Session %u is closed\n", v92);
         PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CLOSED);
         PopFreeSessionState(v92);
         if ( (unsigned __int8)TtmIsEnabled() )
@@ -1407,48 +1401,48 @@ LABEL_564:
         }
         goto LABEL_173;
       }
-      v53 = v52 - 1;
-      if ( !v53 )
+      v51 = v50 - 1;
+      if ( !v51 )
       {
-        if ( Pool2 && v14 == 8 && !v16 )
+        if ( Pool2 && v13 == 8 && !v15 )
         {
           v91 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-          Pool2 = v155;
-          PopSessionWinlogonNotification(v91, (__int64)v155);
+          Pool2 = v148;
+          PopSessionWinlogonNotification(v91, (__int64)v148);
           goto LABEL_123;
         }
         goto LABEL_307;
       }
-      v54 = v53 - 1;
-      if ( !v54 )
+      v52 = v51 - 1;
+      if ( !v52 )
       {
         if ( PsIsCurrentThreadInServerSilo() )
           goto LABEL_210;
-        if ( Pool2 || !v16 )
+        if ( Pool2 || !v15 )
           goto LABEL_307;
-        PopFilterCapabilities(&PopCapabilities, v161);
-        if ( BYTE2(v161[2]) )
-          PopReadHiberbootPolicy((char *)&v161[2] + 2);
-        v57 = (HANDLE *)((char *)&v161[2] + 2);
+        PopFilterCapabilities(&PopCapabilities, v154);
+        if ( BYTE2(v154[2]) )
+          PopReadHiberbootPolicy((char *)&v154[2] + 2);
+        v55 = (HANDLE *)((char *)&v154[2] + 2);
 LABEL_164:
-        Src = v57;
+        Src = v55;
         Length_4 = 1;
         goto LABEL_123;
       }
-      v55 = v54 - 1;
-      if ( !v55 )
+      v53 = v52 - 1;
+      if ( !v53 )
       {
-        if ( Pool2 || !v16 )
+        if ( Pool2 || !v15 )
           goto LABEL_307;
         IsDevicePotentialDripsConstraint = PopPlatformAoAc;
 LABEL_163:
-        LOBYTE(v161[0]) = IsDevicePotentialDripsConstraint;
-        v57 = v161;
+        LOBYTE(v154[0]) = IsDevicePotentialDripsConstraint;
+        v55 = v154;
         goto LABEL_164;
       }
-      if ( v55 != 1 || !Pool2 || v14 != 216 || v16 && Length != 160 )
+      if ( v53 != 1 || !Pool2 || v13 != 216 || v15 && Length != 160 )
         goto LABEL_307;
-      SettingValue = PopPdcInvocation(Pool2, v16);
+      SettingValue = PopPdcInvocation(Pool2, v15);
 LABEL_97:
       IsAppContainerOrIdentifyLevelContext = SettingValue;
       goto LABEL_21;
@@ -1456,10 +1450,10 @@ LABEL_97:
     switch ( (_DWORD)v8 )
     {
       case 'E':
-        if ( !Pool2 && !v16 )
+        if ( !Pool2 && !v15 )
         {
           IsAppContainerOrIdentifyLevelContext = PopInitPlatformSettings((unsigned int)(v8 - 69));
-          byte_140C3DA34 = PopPlatformAoAc;
+          byte_140C3DA14 = PopPlatformAoAc;
           goto LABEL_21;
         }
         goto LABEL_307;
@@ -1472,34 +1466,34 @@ LABEL_97:
     if ( (_DWORD)v8 != 72 )
       goto LABEL_542;
 LABEL_232:
-    if ( !Pool2 || !v16 )
+    if ( !Pool2 || !v15 )
       goto LABEL_307;
-    if ( v14 != 40 || Length != 8 )
+    if ( v13 != 40 || Length != 8 )
       goto LABEL_358;
     IsAppContainerOrIdentifyLevelContext = PopPowerRequestCreateUserModeRequest(
                                              (unsigned __int64)Pool2,
                                              (_DWORD)v8 == 72,
-                                             v161);
-    InputBuffer = v15;
+                                             v154);
+    InputBuffer = v14;
     if ( IsAppContainerOrIdentifyLevelContext < 0 )
       goto LABEL_22;
-    v65 = (__int64 *)v161;
+    v63 = (__int64 *)v154;
     goto LABEL_238;
   }
   if ( (int)v8 <= 86 )
   {
     if ( (_DWORD)v8 == 86 )
     {
-      if ( !Pool2 || !v16 )
+      if ( !Pool2 || !v15 )
         goto LABEL_307;
-      IsAppContainerOrIdentifyLevelContext = RtlStringCbLengthW((STRSAFE_PCNZWCH)Pool2, v14, 0LL);
-      InputBuffer = v15;
+      IsAppContainerOrIdentifyLevelContext = RtlStringCbLengthW((STRSAFE_PCNZWCH)Pool2, v13, 0LL);
+      InputBuffer = v14;
       if ( IsAppContainerOrIdentifyLevelContext >= 0 )
       {
-        IsAppContainerOrIdentifyLevelContext = PopBatteryDeviceState(Pool2, v161);
+        IsAppContainerOrIdentifyLevelContext = PopBatteryDeviceState(Pool2, v154);
         if ( IsAppContainerOrIdentifyLevelContext >= 0 )
         {
-          Src = v161;
+          Src = v154;
           Length_4 = 52;
           goto LABEL_123;
         }
@@ -1510,33 +1504,33 @@ LABEL_232:
     {
       if ( (_DWORD)v8 == 80 )
         goto LABEL_564;
-      v43 = v8 - 75;
-      if ( !v43 )
+      v41 = v8 - 75;
+      if ( !v41 )
       {
-        if ( Pool2 || !v16 )
+        if ( Pool2 || !v15 )
           goto LABEL_307;
-        LODWORD(v161[0]) = PopCapturePlatformRole();
+        LODWORD(v154[0]) = PopCapturePlatformRole();
         goto LABEL_122;
       }
-      v138 = v43 - 1;
-      if ( v138 )
+      v129 = v41 - 1;
+      if ( v129 )
       {
-        v139 = v138 - 1;
-        if ( v139 )
+        v130 = v129 - 1;
+        if ( v130 )
         {
-          v118 = v139 - 1;
-          if ( !v118 )
+          v115 = v130 - 1;
+          if ( !v115 )
           {
             if ( PreviousMode == 1 )
             {
-              if ( v16 )
+              if ( v15 )
                 goto LABEL_307;
-              v20 = Length;
+              v19 = Length;
               if ( Length )
                 goto LABEL_307;
               if ( Pool2 )
               {
-                if ( v14 != 4 )
+                if ( v13 != 4 )
                   goto LABEL_307;
                 PpmSetExitLatencySamplingPercentage((int *)Pool2);
               }
@@ -1545,15 +1539,15 @@ LABEL_232:
                 PpmClearExitLatencySamplingPercentage();
               }
 LABEL_19:
-              if ( !Src || !v16 )
+              if ( !Src || !v15 )
                 goto LABEL_20;
-              if ( v20 >= Length_4 )
+              if ( v19 >= Length_4 )
               {
-                memmove((void *)v16, Src, Length_4);
+                memmove(v15, Src, Length_4);
 LABEL_20:
                 IsAppContainerOrIdentifyLevelContext = 0;
 LABEL_21:
-                InputBuffer = v15;
+                InputBuffer = v14;
                 goto LABEL_22;
               }
 LABEL_358:
@@ -1566,82 +1560,82 @@ LABEL_425:
           }
           goto LABEL_563;
         }
-        if ( Pool2 || v16 )
+        if ( Pool2 || v15 )
           goto LABEL_307;
-        v140 = PopErrataReportingIncorrectLidState;
+        v131 = PopErrataReportingIncorrectLidState;
         if ( !(unsigned __int8)TtmIsEnabled() )
         {
-          v143 = 0;
+          v136 = 0;
           if ( !PopLidOpened )
-            v143 = PopConsoleExternalDisplayConnected == 0;
-          if ( !v143 )
+            v136 = PopConsoleExternalDisplayConnected == 0;
+          if ( !v136 )
             PopEventCalloutDispatch(10, 6LL);
-          if ( !v140 )
+          if ( !v131 )
           {
-            LOBYTE(v10) = v143;
-            PopDiagTraceDisplayBurstWin32kCallout(v141, v9, v10);
+            LOBYTE(v134) = v136;
+            PopDiagTraceDisplayBurstWin32kCallout(v133, v132, v134);
           }
           goto LABEL_123;
         }
-        v142 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        if ( v142 != -1 )
-          TtmNotifySessionDisplayBurst(v142, 6LL);
+        v135 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+        if ( v135 != -1 )
+          TtmNotifySessionDisplayBurst(v135, 6LL);
 LABEL_173:
-        Pool2 = v155;
+        Pool2 = v148;
         goto LABEL_123;
       }
-      if ( Pool2 || !v16 )
+      if ( Pool2 || !v15 )
         goto LABEL_307;
-      LODWORD(v161[0]) = qword_140C3D388;
-      v161[1] = (HANDLE)qword_140C3D520;
-      v161[2] = (HANDLE)qword_140C3D528;
+      LODWORD(v154[0]) = qword_140C3D348;
+      v154[1] = (HANDLE)qword_140C3D4E0;
+      v154[2] = (HANDLE)qword_140C3D4E8;
       if ( !PopSleepStats )
       {
         IsAppContainerOrIdentifyLevelContext = -1073741823;
         goto LABEL_21;
       }
-      v99 = (__int128 *)v161;
+      v96 = (__int128 *)v154;
 LABEL_373:
-      Src = v99;
+      Src = v96;
       Length_4 = 24;
       goto LABEL_123;
     }
-    v62 = v8 - 81;
-    if ( !v62 )
+    v60 = v8 - 81;
+    if ( !v60 )
       goto LABEL_564;
-    v63 = v62 - 1;
-    if ( !v63 )
+    v61 = v60 - 1;
+    if ( !v61 )
       goto LABEL_564;
-    v64 = v63 - 1;
-    if ( v64 )
+    v62 = v61 - 1;
+    if ( v62 )
     {
-      v144 = v64 - 1;
-      if ( v144 )
+      v137 = v62 - 1;
+      if ( v137 )
       {
-        if ( v144 == 1 )
+        if ( v137 == 1 )
         {
-          v145 = *((_DWORD *)Pool2 + 2);
-          v146 = (_DWORD *)*Pool2;
+          v138 = *((_DWORD *)Pool2 + 2);
+          v139 = (_DWORD *)*Pool2;
           if ( *((_BYTE *)Pool2 + 12) )
-            PopPowerRequestReferenceAcquire(v146, v145);
+            PopPowerRequestReferenceAcquire(v139, v138);
           else
-            PopPowerRequestReferenceRelease(v146, v145);
+            PopPowerRequestReferenceRelease(v139, v138);
           goto LABEL_123;
         }
         goto LABEL_307;
       }
-      if ( !Pool2 || v16 )
+      if ( !Pool2 || v15 )
         goto LABEL_307;
-      if ( v14 < 0x10 || v14 < 2 * (unsigned int)*((unsigned __int16 *)Pool2 + 6) + 14 )
+      if ( v13 < 0x10 || v13 < 2 * (unsigned int)*((unsigned __int16 *)Pool2 + 6) + 14 )
         goto LABEL_358;
-      v59 = PopThermalProcessUsermodeEvent(Pool2);
+      v57 = PopThermalProcessUsermodeEvent(Pool2);
       goto LABEL_200;
     }
-    if ( Pool2 || !v16 )
+    if ( Pool2 || !v15 )
       goto LABEL_307;
-    PopCurrentPowerStatePrecise(v161, 0LL);
+    PopCurrentPowerStatePrecise(v154, 0LL);
 LABEL_114:
-    Src = v161;
+    Src = v154;
     Length_4 = 32;
     goto LABEL_123;
   }
@@ -1649,19 +1643,19 @@ LABEL_114:
   {
     if ( (_DWORD)v8 == 92 )
     {
-      if ( !Pool2 || !v16 )
+      if ( !Pool2 || !v15 )
         goto LABEL_307;
-      if ( v14 != 12 )
+      if ( v13 != 12 )
         goto LABEL_358;
-      v20 = Length;
+      v19 = Length;
       if ( Length != 8 )
         goto LABEL_358;
-      IsAppContainerOrIdentifyLevelContext = PopEtEnergyTrackerCreate(Pool2, v161);
-      InputBuffer = v15;
+      IsAppContainerOrIdentifyLevelContext = PopEtEnergyTrackerCreate(Pool2, v154);
+      InputBuffer = v14;
       if ( IsAppContainerOrIdentifyLevelContext >= 0 )
       {
-        Src = v161;
-        Length_4 = 8;
+        Src = v154;
+        Length_4 = Length;
         goto LABEL_19;
       }
       goto LABEL_22;
@@ -1670,13 +1664,12 @@ LABEL_114:
     {
       if ( Pool2 )
       {
-        if ( v14 >= 8 )
+        if ( v13 >= 8 )
         {
-          v45 = *(_DWORD *)Pool2;
-          v9 = *((unsigned int *)Pool2 + 1);
-          if ( (unsigned int)(*(_DWORD *)Pool2 - 92) > 0xFA3 && v45 < 4107 )
+          v43 = *(_DWORD *)Pool2;
+          if ( (unsigned int)(*(_DWORD *)Pool2 - 92) > 0xFA3 && v43 < 4107 )
           {
-            if ( (unsigned int)(v45 - 4096) <= 0xA )
+            if ( (unsigned int)(v43 - 4096) <= 0xA )
             {
               if ( !SeSinglePrivilegeCheck(SeShutdownPrivilege, PreviousMode)
                 && !PopCapabilityCheck(L"terminalPowerManagement") )
@@ -1684,33 +1677,33 @@ LABEL_114:
                 IsAppContainerOrIdentifyLevelContext = -1073741727;
                 goto LABEL_21;
               }
-              v20 = Length;
-              v46 = TtmDispatchApi(
-                      v45,
+              v19 = Length;
+              v44 = TtmDispatchApi(
+                      v43,
                       (_DWORD)Pool2,
-                      v14,
-                      (_DWORD)v16,
+                      v13,
+                      (_DWORD)v15,
                       Length,
                       (__int64)&Src,
                       (__int64)&Length_4,
-                      (__int64)&v150);
+                      (__int64)&v143);
             }
             else
             {
-              v20 = Length;
-              v46 = PopPowerInformationInternal(
-                      v45,
-                      v9,
+              v19 = Length;
+              v44 = PopPowerInformationInternal(
+                      v43,
+                      *((_DWORD *)Pool2 + 1),
                       (_DWORD)Pool2,
-                      v14,
-                      (__int64)v16,
+                      v13,
+                      (__int64)v15,
                       Length,
                       (__int64)&Src,
                       (__int64)&Length_4,
-                      (__int64)&v150);
+                      (__int64)&v143);
             }
-            IsAppContainerOrIdentifyLevelContext = v46;
-            v23 = v46 < 0;
+            IsAppContainerOrIdentifyLevelContext = v44;
+            v22 = v44 < 0;
             goto LABEL_18;
           }
         }
@@ -1723,7 +1716,7 @@ LABEL_114:
       {
         if ( (_DWORD)v8 == 90 )
         {
-          if ( Pool2 && v14 >= 4 && !v16 )
+          if ( Pool2 && v13 >= 4 && !v15 )
           {
             PopUpdatePowerButtonHoldState(*(_DWORD *)Pool2 != 0);
             goto LABEL_123;
@@ -1736,130 +1729,129 @@ LABEL_210:
           IsAppContainerOrIdentifyLevelContext = -1073741637;
           goto LABEL_21;
         }
-        if ( !Pool2 || v14 != 336 || !v16 )
+        if ( !Pool2 || v13 != 336 || !v15 )
           goto LABEL_307;
         IsDevicePotentialDripsConstraint = PopFxIsDevicePotentialDripsConstraint(Pool2);
         goto LABEL_163;
       }
-      if ( !Pool2 || !v16 )
+      if ( !Pool2 || !v15 )
         goto LABEL_307;
-      if ( v14 < 4 )
+      if ( v13 < 4 )
         goto LABEL_358;
       PopAcquireTransitionLock(6LL);
-      PopAcquirePolicyLock(v131);
+      PopAcquirePolicyLock(v125);
       IsAppContainerOrIdentifyLevelContext = PopSetHiberFileType(*(unsigned int *)Pool2, &Size[1]);
-      PopReleasePolicyLock(v133, v132, v134);
-      v130 = 6LL;
+      PopReleasePolicyLock();
+      v124 = 6LL;
       goto LABEL_507;
     }
 LABEL_542:
-    if ( !Pool2 && !v16 )
+    if ( !Pool2 && !v15 )
     {
-      v137 = 23LL;
+      v128 = 23LL;
       if ( (_DWORD)v8 != 88 )
-        v137 = 11LL;
-      PopScreenOff(v137);
+        v128 = 11LL;
+      PopScreenOff(v128);
       goto LABEL_20;
     }
     goto LABEL_307;
   }
-  v18 = v8 - 93;
-  if ( !v18 )
+  v17 = v8 - 93;
+  if ( !v17 )
   {
-    if ( Pool2 && v16 )
+    if ( Pool2 && v15 )
     {
-      if ( v14 != 8 )
+      if ( v13 != 8 )
         goto LABEL_358;
-      v20 = Length;
+      v19 = Length;
       if ( Length < 0xC )
         goto LABEL_358;
-      v21 = PopEtEnergyTrackerQuery(*Pool2, v16, Length);
+      v20 = PopEtEnergyTrackerQuery(*Pool2, v15, Length);
 LABEL_17:
-      IsAppContainerOrIdentifyLevelContext = v21;
-      v23 = v21 < 0;
+      IsAppContainerOrIdentifyLevelContext = v20;
+      v22 = v20 < 0;
 LABEL_18:
-      InputBuffer = v15;
-      if ( v23 )
+      InputBuffer = v14;
+      if ( v22 )
         goto LABEL_22;
       goto LABEL_19;
     }
     goto LABEL_307;
   }
-  v19 = v18 - 1;
-  if ( !v19 )
+  v18 = v17 - 1;
+  if ( !v18 )
   {
     if ( Pool2 )
     {
-      if ( !v16 )
+      if ( !v15 )
       {
-        v20 = Length;
+        v19 = Length;
         if ( !Length )
         {
-          if ( v14 != 32 )
+          if ( v13 != 32 )
             goto LABEL_358;
           LOBYTE(v9) = PreviousMode;
-          v21 = PopBlackBoxUpdate(Pool2, v9);
+          v20 = PopBlackBoxUpdate(Pool2, v9);
           goto LABEL_17;
         }
       }
     }
     goto LABEL_307;
   }
-  v66 = v19 - 1;
-  if ( !v66 )
+  v64 = v18 - 1;
+  if ( !v64 )
   {
-    if ( Pool2 && v14 == 1 && !v16 )
+    if ( Pool2 && v13 == 1 && !v15 )
     {
       ExNotifyCallback(PipCslCallbackObject, Pool2, 0LL);
       goto LABEL_123;
     }
 LABEL_307:
-    InputBuffer = v15;
+    InputBuffer = v14;
 LABEL_626:
     IsAppContainerOrIdentifyLevelContext = -1073741811;
     goto LABEL_22;
   }
-  v147 = v66 - 1;
-  if ( !v147 )
+  v140 = v64 - 1;
+  if ( !v140 )
   {
-    if ( !Pool2 || v16 )
+    if ( !Pool2 || v15 )
       goto LABEL_307;
-    if ( !v14 )
+    if ( !v13 )
       goto LABEL_358;
-    LOBYTE(v12) = *(_BYTE *)Pool2;
-    v59 = PopSendSuspendResumeNotifications(v12);
+    LOBYTE(v11) = *(_BYTE *)Pool2;
+    v57 = PopSendSuspendResumeNotifications(v11);
     goto LABEL_200;
   }
-  if ( v147 != 1 )
+  if ( v140 != 1 )
     goto LABEL_307;
   if ( !Pool2 )
     goto LABEL_307;
-  if ( !v14 )
+  if ( !v13 )
     goto LABEL_307;
-  if ( !v16 )
+  if ( !v15 )
     goto LABEL_307;
-  v20 = Length;
+  v19 = Length;
   if ( !Length )
     goto LABEL_307;
-  if ( v14 < 0x20 || Length < 0x10 )
+  if ( v13 < 0x20 || Length < 0x10 )
     goto LABEL_358;
-  IsAppContainerOrIdentifyLevelContext = PopBlackBoxDirectAccess(Pool2, v161);
-  InputBuffer = v15;
+  IsAppContainerOrIdentifyLevelContext = PopBlackBoxDirectAccess(Pool2, v154);
+  InputBuffer = v14;
   if ( IsAppContainerOrIdentifyLevelContext >= 0 )
   {
-    Src = v161;
+    Src = v154;
     Length_4 = 16;
     goto LABEL_19;
   }
 LABEL_22:
-  v24 = P[0];
   if ( P[0] )
     ExFreePoolWithTag(P[0], 0);
-  if ( v150 )
+  if ( v143 )
     ExFreePoolWithTag(Src, 0x206D654Du);
-  if ( v153 )
-    PopReleasePolicyLock(v24, v9, v10);
-  if ( Pool2 && Pool2 != InputBuffer && Pool2 != (_QWORD *)v162 )
+  if ( v146 )
+    PopReleasePolicyLock();
+  if ( Pool2 && Pool2 != InputBuffer && Pool2 != (_QWORD *)v155 )
     ExFreePoolWithTag(Pool2, 0x206D654Du);
   return IsAppContainerOrIdentifyLevelContext;
 }

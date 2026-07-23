@@ -1,51 +1,51 @@
 /*
- * XREFs of _ResCLoadFixedSize @ 0x180103908
+ * XREFs of _ResCLoadFixedSize @ 0x180103848
  * Callers:
- *     ResCLoadCultureMap @ 0x180105A7C (ResCLoadCultureMap.c)
+ *     ResCLoadCultureMap @ 0x1801059BC (ResCLoadCultureMap.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     _ResCloseHandle @ 0x180103AE0 (_ResCloseHandle.c)
- *     _ResCreateFile @ 0x180103B80 (_ResCreateFile.c)
- *     _ResGetFileSizeEx @ 0x180104B40 (_ResGetFileSizeEx.c)
- *     _ResReadFile @ 0x180104D20 (_ResReadFile.c)
- *     ResCCultureMapCreateAndPopulate @ 0x1801057C0 (ResCCultureMapCreateAndPopulate.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     _ResCloseHandle @ 0x180103A20 (_ResCloseHandle.c)
+ *     _ResCreateFile @ 0x180103AC0 (_ResCreateFile.c)
+ *     _ResGetFileSizeEx @ 0x180104A80 (_ResGetFileSizeEx.c)
+ *     _ResReadFile @ 0x180104C60 (_ResReadFile.c)
+ *     ResCCultureMapCreateAndPopulate @ 0x180105700 (ResCCultureMapCreateAndPopulate.c)
  */
 
-__int64 __fastcall ResCLoadFixedSize(__int64 a1)
+__int64 __fastcall ResCLoadFixedSize(const WCHAR *a1)
 {
   char *v1; // rbx
-  unsigned __int64 Heap; // rdi
+  void *v2; // rdi
   __int64 File; // rax
-  unsigned int v4; // ecx
-  unsigned int v5; // esi
-  __int64 v6; // rsi
-  unsigned int v8; // [rsp+60h] [rbp+18h] BYREF
-  int v9; // [rsp+64h] [rbp+1Ch]
+  LONG v4; // ecx
+  PVOID Heap; // rax
+  int v6; // esi
+  __int64 v7; // rsi
+  SIZE_T Size; // [rsp+60h] [rbp+18h] BYREF
 
   v1 = 0LL;
-  Heap = 0LL;
-  v8 = 0;
-  v9 = 0;
+  v2 = 0LL;
+  Size = 0LL;
   if ( !a1 || !ResCCultureMapCreateAndPopulate )
   {
     v4 = 87;
     goto LABEL_13;
   }
-  File = ResCreateFile(a1, 0x80000000LL, 1LL);
+  File = ResCreateFile(a1);
   v1 = (char *)File;
-  if ( File == -1 || !(unsigned int)ResGetFileSizeEx(File, &v8) )
+  if ( File == -1 || !(unsigned int)ResGetFileSizeEx(File, &Size) )
     goto LABEL_14;
-  if ( v9 )
+  if ( HIDWORD(Size) )
     goto LABEL_6;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)Size);
+  v2 = Heap;
   if ( !Heap )
     goto LABEL_14;
-  v5 = v8;
-  if ( !(unsigned int)ResReadFile(v1) )
+  v6 = Size;
+  if ( !(unsigned int)ResReadFile(v1, Heap, Size) )
     goto LABEL_14;
-  if ( v5 )
+  if ( v6 )
   {
 LABEL_6:
     v4 = 536937216;
@@ -53,16 +53,16 @@ LABEL_13:
     RtlSetLastWin32Error(v4);
     goto LABEL_14;
   }
-  v6 = ResCCultureMapCreateAndPopulate(Heap, 0LL, 0LL);
-  if ( v6 )
+  v7 = ResCCultureMapCreateAndPopulate(v2, 0LL, 0LL);
+  if ( v7 )
   {
     ResCloseHandle(v1);
-    return v6;
+    return v7;
   }
 LABEL_14:
   if ( (unsigned __int64)(v1 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
     ResCloseHandle(v1);
-  if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+  if ( v2 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
   return 0LL;
 }

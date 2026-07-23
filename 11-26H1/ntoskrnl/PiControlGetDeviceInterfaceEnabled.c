@@ -1,24 +1,24 @@
 /*
- * XREFs of PiControlGetDeviceInterfaceEnabled @ 0x1409A6390
+ * XREFs of PiControlGetDeviceInterfaceEnabled @ 0x140966DF0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     PiControlCopyUserModeCallersBuffer @ 0x1409A6B58 (PiControlCopyUserModeCallersBuffer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     PiControlCopyUserModeCallersBuffer @ 0x1409675B8 (PiControlCopyUserModeCallersBuffer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiControlGetDeviceInterfaceEnabled(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)
@@ -44,29 +44,23 @@ __int64 __fastcall PiControlGetDeviceInterfaceEnabled(__int64 a1, unsigned __int
   unsigned __int64 v24; // r8
   unsigned __int64 *v25; // rax
   unsigned __int64 v26; // rdi
-  __int64 v27; // rdx
-  __int64 v28; // r8
-  struct _KTHREAD *v29; // rax
-  struct _KLOCK_ENTRIES *v30; // r9
-  void *v31; // rdx
-  LegacyAutoBoost *v32; // r14
-  signed __int64 v33; // rax
-  signed __int64 v34; // rdx
-  signed __int64 v35; // rtt
-  __int64 v36; // rdx
-  __int64 v37; // r8
-  __int64 v38; // rdx
-  __int64 v39; // r8
+  struct _KTHREAD *v27; // rax
+  struct _KLOCK_ENTRIES *v28; // r9
+  void *v29; // rdx
+  LegacyAutoBoost *v30; // r14
+  signed __int64 v31; // rax
+  signed __int64 v32; // rdx
+  signed __int64 v33; // rtt
   _WORD *Pool2; // rax
   __int128 *Buffer; // [rsp+30h] [rbp-C8h] BYREF
-  __int128 v43; // [rsp+38h] [rbp-C0h]
-  __int128 v44; // [rsp+50h] [rbp-A8h] BYREF
-  __int128 v45; // [rsp+60h] [rbp-98h]
-  __int128 v46; // [rsp+70h] [rbp-88h]
-  __int128 v47; // [rsp+80h] [rbp-78h]
-  __int128 v48; // [rsp+90h] [rbp-68h]
-  __int128 v49; // [rsp+A0h] [rbp-58h]
-  __int128 v50; // [rsp+B0h] [rbp-48h]
+  __int128 v37; // [rsp+38h] [rbp-C0h]
+  __int128 v38; // [rsp+50h] [rbp-A8h] BYREF
+  __int128 v39; // [rsp+60h] [rbp-98h]
+  __int128 v40; // [rsp+70h] [rbp-88h]
+  __int128 v41; // [rsp+80h] [rbp-78h]
+  __int128 v42; // [rsp+90h] [rbp-68h]
+  __int128 v43; // [rsp+A0h] [rbp-58h]
+  __int128 v44; // [rsp+B0h] [rbp-48h]
 
   v4 = *a2;
   if ( (_WORD)v4 && (unsigned __int16)v4 <= 0x3F0u && (v4 & 1) == 0 && !*((_DWORD *)a2 + 4) )
@@ -124,21 +118,21 @@ LABEL_52:
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite(&PiDmDeviceInterfaceManager, 1u);
-    Buffer = &v44;
+    Buffer = &v38;
+    v38 = 0LL;
+    v39 = 0LL;
+    v40 = 0LL;
+    v41 = 0LL;
+    v42 = 0LL;
+    v43 = 0LL;
     v44 = 0LL;
-    v45 = 0LL;
-    v46 = 0LL;
-    v47 = 0LL;
-    v48 = 0LL;
-    v49 = 0LL;
-    v50 = 0LL;
     if ( !v12 )
       goto LABEL_42;
     v14 = 0x7FFFLL;
-    HIDWORD(v45) = dword_140F83690;
+    HIDWORD(v39) = dword_140F83650;
     v15 = v12;
-    *(_QWORD *)&v45 = v12;
-    v43 = 0LL;
+    *(_QWORD *)&v39 = v12;
+    v37 = 0LL;
     do
     {
       if ( !*v15 )
@@ -155,14 +149,14 @@ LABEL_52:
     }
     else
     {
-      v17 = v43;
+      v17 = v37;
     }
-    if ( v16 < 0 || dword_140F83690 == 3 && v17 <= 8u )
+    if ( v16 < 0 || dword_140F83650 == 3 && v17 <= 8u )
       goto LABEL_42;
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
     v22 = v21 >> 1;
     Flink = CurrentServerSiloGlobals[75].Flink;
-    for ( DWORD2(v45) = 0; v22; v19 = (unsigned __int16)v24 + 65599 * v19 )
+    for ( DWORD2(v39) = 0; v22; v19 = (unsigned __int16)v24 + 65599 * v19 )
     {
       v24 = *v20++;
       --v22;
@@ -184,45 +178,45 @@ LABEL_52:
         }
       }
     }
-    DWORD2(v45) = v19;
-    v25 = (unsigned __int64 *)RtlLookupElementGenericTableAvl(&stru_140F83628, &Buffer);
+    DWORD2(v39) = v19;
+    v25 = (unsigned __int64 *)RtlLookupElementGenericTableAvl(&stru_140F835E8, &Buffer);
     if ( v25 && (v26 = *v25) != 0 )
     {
       _InterlockedIncrement((volatile signed __int32 *)(v26 + 8));
       ExReleaseResourceLite(&PiDmDeviceInterfaceManager);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v27, v28);
-      v29 = KeGetCurrentThread();
-      --v29->KernelApcDisable;
-      v32 = (LegacyAutoBoost *)KeAbPreAcquire(v26, 0LL, 0LL, v30);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      v27 = KeGetCurrentThread();
+      --v27->KernelApcDisable;
+      v30 = (LegacyAutoBoost *)KeAbPreAcquire(v26, 0LL, 0LL, v28);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)v26, 17LL, 0LL) )
-        ExfAcquirePushLockSharedEx((signed __int64 *)v26, 0, v32, (struct _KTHREAD *)v26);
-      if ( v32 )
+        ExfAcquirePushLockSharedEx((signed __int64 *)v26, 0, v30, (struct _KTHREAD *)v26);
+      if ( v30 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
-          AutoBoost::KiAbpPostAcquire(v32, v31);
+          AutoBoost::KiAbpPostAcquire(v30, v29);
         else
-          *((_BYTE *)v32 + 10) = 1;
+          *((_BYTE *)v30 + 10) = 1;
       }
       *((_BYTE *)a2 + 20) = *(_QWORD *)(v26 + 40) != 0LL;
       _m_prefetchw((const void *)v26);
-      v33 = *(_QWORD *)v26;
-      v34 = *(_QWORD *)v26 - 16LL;
+      v31 = *(_QWORD *)v26;
+      v32 = *(_QWORD *)v26 - 16LL;
       if ( (*(_QWORD *)v26 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-        v34 = 0LL;
-      if ( (v33 & 2) != 0
-        || (v35 = *(_QWORD *)v26, v35 != _InterlockedCompareExchange64((volatile signed __int64 *)v26, v34, v33)) )
+        v32 = 0LL;
+      if ( (v31 & 2) != 0
+        || (v33 = *(_QWORD *)v26, v33 != _InterlockedCompareExchange64((volatile signed __int64 *)v26, v32, v31)) )
       {
         ExfReleasePushLock((_QWORD *)v26);
       }
       KeAbPostRelease(v26);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v36, v37);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       PiDmObjectRelease((unsigned int *)v26);
     }
     else
     {
 LABEL_42:
       ExReleaseResourceLite(&PiDmDeviceInterfaceManager);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v38, v39);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       v9 = -1073741772;
       if ( !v12 )
         goto LABEL_46;

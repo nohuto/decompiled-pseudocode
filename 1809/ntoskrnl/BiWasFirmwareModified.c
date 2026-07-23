@@ -1,11 +1,11 @@
 /*
- * XREFs of BiWasFirmwareModified @ 0x14016E4FC
+ * XREFs of BiWasFirmwareModified @ 0x14016E5FC
  * Callers:
- *     BiCloseStore @ 0x140710F48 (BiCloseStore.c)
- *     BiOpenSystemStore @ 0x140712C04 (BiOpenSystemStore.c)
+ *     BiCloseStore @ 0x1407121E8 (BiCloseStore.c)
+ *     BiOpenSystemStore @ 0x140713EA4 (BiOpenSystemStore.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiGetRegistryValue @ 0x1407131A4 (BiGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiGetRegistryValue @ 0x140714444 (BiGetRegistryValue.c)
  */
 
 bool __fastcall BiWasFirmwareModified(__int64 a1)

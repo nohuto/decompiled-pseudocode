@@ -1,21 +1,21 @@
 /*
- * XREFs of MiMapWithLargePages @ 0x14038E714
+ * XREFs of MiMapWithLargePages @ 0x14038E8F4
  * Callers:
  *     MiInsertInSystemSpace @ 0x140213D10 (MiInsertInSystemSpace.c)
- *     MiMapContiguousMemoryLarge @ 0x14038E404 (MiMapContiguousMemoryLarge.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49B64 (MiMapSystemImageWithLargePage.c)
+ *     MiMapContiguousMemoryLarge @ 0x14038E5E4 (MiMapContiguousMemoryLarge.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A49E14 (MiMapSystemImageWithLargePage.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  */
 
 void __fastcall MiMapWithLargePages(

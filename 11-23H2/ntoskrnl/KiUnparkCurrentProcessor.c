@@ -1,14 +1,14 @@
 /*
- * XREFs of KiUnparkCurrentProcessor @ 0x14057E654
+ * XREFs of KiUnparkCurrentProcessor @ 0x14057EB44
  * Callers:
- *     KeTransitionProcessorParkState @ 0x14057D86C (KeTransitionProcessorParkState.c)
+ *     KeTransitionProcessorParkState @ 0x14057DD5C (KeTransitionProcessorParkState.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiUpdateThreadPriority @ 0x140307B90 (KiUpdateThreadPriority.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x140462166 (KiSendHeteroRescheduleIntRequest.c)
- *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057D9BC (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiUpdateThreadPriority @ 0x140307E20 (KiUpdateThreadPriority.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x140462566 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057DEAC (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
  */
 
 __int64 __fastcall KiUnparkCurrentProcessor(__int64 a1, __int64 a2, __int64 *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PoSetPowerState @ 0x1404B0050
+ * XREFs of PoSetPowerState @ 0x1404A96E0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_TYPE Type, POWER_STATE State)
@@ -16,7 +16,7 @@ POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_T
 
   DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
   v6 = 0;
-  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F10070.ResourceIndex);
+  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.Header.WaitListHead.Blink);
   if ( Type )
   {
     if ( Type == DevicePowerState )
@@ -33,6 +33,6 @@ POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_T
     if ( v6 != State.SystemState )
       DeviceObjectExtension->PowerFlags ^= (LOBYTE(State.SystemState) ^ (unsigned __int8)DeviceObjectExtension->PowerFlags) & 0xF;
   }
-  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F10070.ResourceIndex, v7);
+  KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.Header.WaitListHead.Blink, v7);
   return (POWER_STATE)v6;
 }

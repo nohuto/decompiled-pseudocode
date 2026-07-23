@@ -12,36 +12,36 @@
  *     _A_SHAInit@4 @ 0x4B308A40 (_A_SHAInit@4.c)
  */
 
-int __stdcall RtlCreateServiceSid(int a1, _DWORD *a2, unsigned int *a3)
+NTSTATUS __cdecl RtlCreateServiceSid(PUNICODE_STRING ServiceName, PSID ServiceSid, PULONG ServiceSidLength)
 {
-  unsigned int v3; // eax
-  int result; // eax
+  ULONG v3; // eax
+  NTSTATUS result; // eax
   int v5; // eax
-  UNICODE_STRING UnicodeString; // [esp+4h] [ebp-7Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+4h] [ebp-7Ch] BYREF
   int v7[23]; // [esp+Ch] [ebp-74h] BYREF
   int v8[5]; // [esp+68h] [ebp-18h] BYREF
 
-  if ( !a1 || !a3 )
+  if ( !ServiceName || !ServiceSidLength )
     return -1073741811;
-  v3 = *a3;
-  *a3 = 32;
+  v3 = *ServiceSidLength;
+  *ServiceSidLength = 32;
   if ( v3 < 0x20 )
     return -1073741789;
-  result = RtlUpcaseUnicodeString(&UnicodeString, a1, 1);
+  result = RtlUpcaseUnicodeString(&DestinationString, ServiceName, 1u);
   if ( result >= 0 )
   {
     A_SHAInit(v7);
-    A_SHAUpdate((int)v7, UnicodeString.Buffer, UnicodeString.Length);
+    A_SHAUpdate((int)v7, DestinationString.Buffer, DestinationString.Length);
     A_SHAFinal(v7, (int)v8);
-    RtlFreeAnsiString(&UnicodeString);
-    RtlInitializeSid(a2, &RtlpNtAuthority, 6);
+    RtlFreeAnsiString(&DestinationString);
+    RtlInitializeSid(ServiceSid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
     v5 = v8[0];
-    a2[2] = 80;
-    a2[3] = v5;
-    a2[4] = v8[1];
-    a2[5] = v8[2];
-    a2[6] = v8[3];
-    a2[7] = v8[4];
+    *((_DWORD *)ServiceSid + 2) = 80;
+    *((_DWORD *)ServiceSid + 3) = v5;
+    *((_DWORD *)ServiceSid + 4) = v8[1];
+    *((_DWORD *)ServiceSid + 5) = v8[2];
+    *((_DWORD *)ServiceSid + 6) = v8[3];
+    *((_DWORD *)ServiceSid + 7) = v8[4];
     return 0;
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeWaitForSingleObject @ 0x1409DBA10
+ * XREFs of VerifierKeWaitForSingleObject @ 0x1409DCA10
  * Callers:
  *     <none>
  * Callees:
- *     ViKeObjectAcquired @ 0x1409DC204 (ViKeObjectAcquired.c)
- *     ViKeWaitForSingleObjectCommon @ 0x1409DC558 (ViKeWaitForSingleObjectCommon.c)
+ *     ViKeObjectAcquired @ 0x1409DD204 (ViKeObjectAcquired.c)
+ *     ViKeWaitForSingleObjectCommon @ 0x1409DD558 (ViKeWaitForSingleObjectCommon.c)
  */
 
 __int64 __fastcall VerifierKeWaitForSingleObject(__int64 a1, int a2, int a3, int a4, __int64 a5)

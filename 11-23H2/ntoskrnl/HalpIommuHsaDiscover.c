@@ -3,8 +3,8 @@
  * Callers:
  *     HalpIommuInitDiscard @ 0x140B65050 (HalpIommuInitDiscard.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     HalpIommuProcessIvhdEntry @ 0x14052E664 (HalpIommuProcessIvhdEntry.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     HalpIommuProcessIvhdEntry @ 0x14052EBB4 (HalpIommuProcessIvhdEntry.c)
  */
 
 int __fastcall HalpIommuHsaDiscover(_QWORD *a1)

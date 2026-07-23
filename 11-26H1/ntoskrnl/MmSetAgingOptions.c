@@ -1,13 +1,13 @@
 /*
- * XREFs of MmSetAgingOptions @ 0x1406F7E5C
+ * XREFs of MmSetAgingOptions @ 0x1406FCB28
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiSetTrimWhileAgingState @ 0x14051768C (MiSetTrimWhileAgingState.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSetTrimWhileAgingState @ 0x1405110FC (MiSetTrimWhileAgingState.c)
  */
 
 __int64 __fastcall MmSetAgingOptions(__int64 *a1, __int64 a2)

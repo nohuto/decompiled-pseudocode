@@ -1,11 +1,11 @@
 /*
- * XREFs of MiQueryBasicInfo @ 0x140AA3200
+ * XREFs of MiQueryBasicInfo @ 0x140923490
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiSetBasicInfoPartitionId @ 0x1404B820C (MiSetBasicInfoPartitionId.c)
- *     MiQueryReturnResults @ 0x140920250 (MiQueryReturnResults.c)
- *     MiMemoryClassBasicInfo @ 0x140AA32A0 (MiMemoryClassBasicInfo.c)
+ *     MiSetBasicInfoPartitionId @ 0x1404B1A3C (MiSetBasicInfoPartitionId.c)
+ *     MiMemoryClassBasicInfo @ 0x140923530 (MiMemoryClassBasicInfo.c)
+ *     MiQueryReturnResults @ 0x140923994 (MiQueryReturnResults.c)
  */
 
 __int64 __fastcall MiQueryBasicInfo(_QWORD *a1)
@@ -37,7 +37,7 @@ __int64 __fastcall MiQueryBasicInfo(_QWORD *a1)
   {
     a1[3] = 0LL;
   }
-  MiQueryReturnResults((__int64)a1);
+  MiQueryReturnResults(a1);
   if ( !(unsigned int)MiMemoryClassBasicInfo(*(unsigned int *)a1) )
     return (unsigned int)-1073741503;
   return v5;

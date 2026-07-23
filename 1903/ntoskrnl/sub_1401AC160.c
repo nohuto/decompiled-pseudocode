@@ -47,7 +47,7 @@ __int64 __fastcall sub_1401AC160(__int64 a1, __int64 a2)
   int v9; // ebx
   unsigned __int8 v10; // al
   SIZE_T v11; // rbx
-  struct _SLIST_ENTRY *PoolWithTag; // rax
+  _SLIST_ENTRY *PoolWithTag; // rax
   PSLIST_ENTRY v13; // r13
   PSLIST_ENTRY v14; // r15
   __int64 v15; // rdx
@@ -1557,7 +1557,7 @@ __int64 __fastcall sub_1401AC160(__int64 a1, __int64 a2)
   __int64 v1519; // r13
   unsigned __int64 v1520; // rbx
   __int64 v1521; // rdi
-  struct _SLIST_ENTRY *v1522; // r14
+  _SLIST_ENTRY *v1522; // r14
   struct _KPRCB *v1523; // rdx
   unsigned __int64 v1524; // rsi
   __int64 v1525; // r15
@@ -1595,7 +1595,7 @@ __int64 __fastcall sub_1401AC160(__int64 a1, __int64 a2)
   __int64 v1557; // [rsp+28h] [rbp-D8h]
   __int64 *v1558; // [rsp+38h] [rbp-C8h]
   char *v1559; // [rsp+50h] [rbp-B0h]
-  struct _SLIST_ENTRY *v1560; // [rsp+58h] [rbp-A8h]
+  _SLIST_ENTRY *v1560; // [rsp+58h] [rbp-A8h]
   __int64 v1561; // [rsp+60h] [rbp-A0h]
   unsigned int v1562; // [rsp+68h] [rbp-98h]
   ULONG_PTR v1563; // [rsp+70h] [rbp-90h]
@@ -1905,14 +1905,14 @@ LABEL_34:
     if ( v1587 )
       goto LABEL_40;
     ++dword_14042BC58;
-    PoolWithTag = (struct _SLIST_ENTRY *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14042BC70)(
-                                           (unsigned int)dword_14042BC64,
-                                           (unsigned int)dword_14042BC6C,
-                                           (unsigned int)dword_14042BC68);
+    PoolWithTag = (_SLIST_ENTRY *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14042BC70)(
+                                    (unsigned int)dword_14042BC64,
+                                    (unsigned int)dword_14042BC6C,
+                                    (unsigned int)dword_14042BC68);
   }
   else
   {
-    PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x746E494Bu);
+    PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x746E494Bu);
   }
   v1587 = PoolWithTag;
   v13 = PoolWithTag;
@@ -9142,7 +9142,7 @@ LABEL_1029:
 LABEL_1030:
                   i1 = v1581;
 LABEL_1031:
-                  v1560 = (struct _SLIST_ENTRY *)v353;
+                  v1560 = (_SLIST_ENTRY *)v353;
                   v641 = &v353[-v18];
                   v18 = (ULONG_PTR)v353;
                   v642 = &v1559[(_QWORD)v641];
@@ -9160,7 +9160,7 @@ LABEL_1076:
                     goto LABEL_569;
                   }
 LABEL_1079:
-                  v1560 = (struct _SLIST_ENTRY *)v18;
+                  v1560 = (_SLIST_ENTRY *)v18;
                   goto LABEL_181;
                 }
 LABEL_759:

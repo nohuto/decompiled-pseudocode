@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializeSecondaryInterruptServices @ 0x140C11140
+ * XREFs of HalpInitializeSecondaryInterruptServices @ 0x140C13134
  * Callers:
- *     HalpAddDevice @ 0x1406FE8E0 (HalpAddDevice.c)
+ *     HalpAddDevice @ 0x1406FC520 (HalpAddDevice.c)
  * Callees:
- *     HalpCheckSecondaryInterruptSupported @ 0x140700D00 (HalpCheckSecondaryInterruptSupported.c)
- *     HalpRecordSecondaryGsivRange @ 0x140700D78 (HalpRecordSecondaryGsivRange.c)
- *     HalpQueryMaximumGsiv @ 0x140701828 (HalpQueryMaximumGsiv.c)
+ *     HalpCheckSecondaryInterruptSupported @ 0x1406FE940 (HalpCheckSecondaryInterruptSupported.c)
+ *     HalpRecordSecondaryGsivRange @ 0x1406FE9B8 (HalpRecordSecondaryGsivRange.c)
+ *     HalpQueryMaximumGsiv @ 0x1406FF468 (HalpQueryMaximumGsiv.c)
  */
 
 __int64 HalpInitializeSecondaryInterruptServices()
@@ -15,13 +15,13 @@ __int64 HalpInitializeSecondaryInterruptServices()
   unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 0;
-  qword_140F8FBD8 = (__int64)&SecondaryIcList;
+  qword_140F8FE88 = (__int64)&SecondaryIcList;
   SecondaryIcList = (__int64)&SecondaryIcList;
   SecondaryIcListSpinLock = 0LL;
   if ( HalpCheckSecondaryInterruptSupported() )
   {
     SecondarySignalDpc.TargetInfoAsUlong = 275;
-    qword_140F8FC38 = (__int64)&SecondarySignalList;
+    qword_140F8FE98 = (__int64)&SecondarySignalList;
     SecondarySignalList = (__int64)&SecondarySignalList;
     SecondarySignalDpc.DeferredRoutine = (PKDEFERRED_ROUTINE)HalpProcessSecondarySignalList;
     SecondarySignalDpc.DeferredContext = 0LL;

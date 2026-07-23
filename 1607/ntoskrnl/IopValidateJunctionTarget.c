@@ -1,30 +1,30 @@
 /*
  * XREFs of IopValidateJunctionTarget @ 0x1403E2B58
  * Callers:
- *     IopXxxControlFile @ 0x140443F00 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x140442DD0 (IopXxxControlFile.c)
  * Callees:
- *     FsRtlValidateReparsePointBuffer @ 0x1400085A4 (FsRtlValidateReparsePointBuffer.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopReferenceFileObject @ 0x14007B630 (IopReferenceFileObject.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     IopVerifierExAllocatePoolWithQuota_0 @ 0x14009AB34 (IopVerifierExAllocatePoolWithQuota_0.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     FsRtlValidateReparsePointBuffer @ 0x140008118 (FsRtlValidateReparsePointBuffer.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopReferenceFileObject @ 0x14007B6B0 (IopReferenceFileObject.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x14009A334 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
- *     IoVolumeDeviceToDosName @ 0x14050814C (IoVolumeDeviceToDosName.c)
- *     IoQueryFileInformation @ 0x14050A100 (IoQueryFileInformation.c)
- *     IoVolumeDeviceToGuidPath @ 0x14052D04C (IoVolumeDeviceToGuidPath.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
+ *     IoVolumeDeviceToDosName @ 0x1404EB0DC (IoVolumeDeviceToDosName.c)
+ *     IoQueryFileInformation @ 0x1404ED090 (IoQueryFileInformation.c)
+ *     IoVolumeDeviceToGuidPath @ 0x14052D58C (IoVolumeDeviceToGuidPath.c)
  */
 
 __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULONG a3, _QWORD *a4, _DWORD *a5)
 {
   char *v7; // r12
   wchar_t *PoolWithTag; // rsi
-  struct _REPARSE_DATA_BUFFER *PoolWithQuota_0; // r14
+  _REPARSE_DATA_BUFFER *PoolWithQuota_0; // r14
   int appended; // ebx
   PDEVICE_OBJECT DeviceObject; // r13
   char v12; // r15
@@ -38,7 +38,7 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
   UNICODE_STRING v21; // [rsp+40h] [rbp-108h] BYREF
   PFILE_OBJECT FileObject; // [rsp+50h] [rbp-F8h] BYREF
   UNICODE_STRING String1; // [rsp+58h] [rbp-F0h] BYREF
-  struct _REPARSE_DATA_BUFFER *v24; // [rsp+68h] [rbp-E0h]
+  _REPARSE_DATA_BUFFER *v24; // [rsp+68h] [rbp-E0h]
   char *v25; // [rsp+70h] [rbp-D8h]
   HANDLE FileHandle; // [rsp+78h] [rbp-D0h] BYREF
   UNICODE_STRING String2; // [rsp+80h] [rbp-C8h] BYREF
@@ -61,7 +61,7 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
   FileObject = 0LL;
   PoolWithTag = 0LL;
   RtlInitUnicodeString(&DosName, 0LL);
-  PoolWithQuota_0 = (struct _REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, BufferLength);
+  PoolWithQuota_0 = (_REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, BufferLength);
   v24 = PoolWithQuota_0;
   memmove(PoolWithQuota_0, Src, BufferLength);
   if ( PoolWithQuota_0->ReparseTag != -1610612733 )

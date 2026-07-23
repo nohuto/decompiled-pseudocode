@@ -1,13 +1,13 @@
 /*
- * XREFs of IovCallDriverWithStackBuffer @ 0x140C2A83C
+ * XREFs of IovCallDriverWithStackBuffer @ 0x140C3084C
  * Callers:
- *     IovCallDriver @ 0x1404F36FC (IovCallDriver.c)
+ *     IovCallDriver @ 0x1404ECCDC (IovCallDriver.c)
  * Callees:
- *     IopfCallDriver @ 0x1402655E0 (IopfCallDriver.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VfAfterCallDriver @ 0x140C2C09C (VfAfterCallDriver.c)
- *     VfBeforeCallDriver @ 0x140C2C2D8 (VfBeforeCallDriver.c)
+ *     IopfCallDriver @ 0x140264B50 (IopfCallDriver.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VfAfterCallDriver @ 0x140C320AC (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x140C322E8 (VfBeforeCallDriver.c)
  */
 
 __int64 __fastcall IovCallDriverWithStackBuffer(__int64 a1, ULONG_PTR a2, __int64 a3)

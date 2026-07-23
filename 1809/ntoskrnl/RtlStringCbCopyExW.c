@@ -1,17 +1,17 @@
 /*
  * XREFs of RtlStringCbCopyExW @ 0x140007504
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059C504 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     PiCMGetRelatedDeviceInstance @ 0x1406E91A4 (PiCMGetRelatedDeviceInstance.c)
- *     PiDqConvertQueryFlagsToString @ 0x14082AB18 (PiDqConvertQueryFlagsToString.c)
- *     RtlFormatMessageEx @ 0x140891394 (RtlFormatMessageEx.c)
- *     _PnpMultiSzAppend @ 0x14090028C (_PnpMultiSzAppend.c)
- *     ConvertDevpropertyToString @ 0x14090439C (ConvertDevpropertyToString.c)
- *     ExpressionConvertToString @ 0x140904A6C (ExpressionConvertToString.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059D504 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1406EA444 (PiCMGetRelatedDeviceInstance.c)
+ *     PiDqConvertQueryFlagsToString @ 0x14082BD18 (PiDqConvertQueryFlagsToString.c)
+ *     RtlFormatMessageEx @ 0x1408925F4 (RtlFormatMessageEx.c)
+ *     _PnpMultiSzAppend @ 0x14090154C (_PnpMultiSzAppend.c)
+ *     ConvertDevpropertyToString @ 0x14090565C (ConvertDevpropertyToString.c)
+ *     ExpressionConvertToString @ 0x140905D2C (ExpressionConvertToString.c)
  * Callees:
  *     RtlStringCopyWorkerW @ 0x14000764C (RtlStringCopyWorkerW.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x140287754 (StringExHandleOtherFlagsW.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x140287944 (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyExW(

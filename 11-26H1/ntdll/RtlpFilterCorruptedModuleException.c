@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFilterCorruptedModuleException @ 0x18013B11C
+ * XREFs of RtlpFilterCorruptedModuleException @ 0x18013AE8C
  * Callers:
- *     RtlGetImageFileMachines @ 0x180044D50 (RtlGetImageFileMachines.c)
+ *     RtlGetImageFileMachines @ 0x18002F2C0 (RtlGetImageFileMachines.c)
  * Callees:
  *     <none>
  */

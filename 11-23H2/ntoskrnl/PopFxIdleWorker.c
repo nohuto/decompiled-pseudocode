@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxIdleWorker @ 0x140312B9C
+ * XREFs of PopFxIdleWorker @ 0x140312E2C
  * Callers:
- *     PopFxIdleComponent @ 0x140312FC0 (PopFxIdleComponent.c)
- *     PopFxComponentWork @ 0x140364CC0 (PopFxComponentWork.c)
+ *     PopFxIdleComponent @ 0x140313250 (PopFxIdleComponent.c)
+ *     PopFxComponentWork @ 0x140364E60 (PopFxComponentWork.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     PopFxAddLogEntry @ 0x140312AF4 (PopFxAddLogEntry.c)
- *     PopFxIdleWorkerTail @ 0x140312CB8 (PopFxIdleWorkerTail.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     PopFxAddLogEntry @ 0x140312D84 (PopFxAddLogEntry.c)
+ *     PopFxIdleWorkerTail @ 0x140312F48 (PopFxIdleWorkerTail.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopFxIdleWorker(__int64 *BugCheckParameter2, unsigned int a2)
@@ -42,10 +42,10 @@ __int64 __fastcall PopFxIdleWorker(__int64 *BugCheckParameter2, unsigned int a2)
         PopFxAddLogEntry(BugCheckParameter2[6], a2, 13, 0LL);
 LABEL_5:
         result = KxReleaseSpinLock((volatile signed __int64 *)(v4 + 128));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)result <= 0xFu
             && (unsigned __int8)v5 <= 0xFu
             && (unsigned __int8)result >= 2u )
@@ -73,10 +73,10 @@ LABEL_5:
     goto LABEL_5;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)(v4 + 128));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

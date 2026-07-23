@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockVirtualMemoryRevert @ 0x140306D38
+ * XREFs of MiLockVirtualMemoryRevert @ 0x1402E8DB8
  * Callers:
- *     NtLockVirtualMemory @ 0x140318600 (NtLockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x14031A630 (NtLockVirtualMemory.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockVirtualMemoryGoodCitizen @ 0x140306B00 (MiLockVirtualMemoryGoodCitizen.c)
- *     MiUnlockVa @ 0x1404AA78C (MiUnlockVa.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockVirtualMemoryGoodCitizen @ 0x1402E8B80 (MiLockVirtualMemoryGoodCitizen.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiUnlockVa @ 0x1404A3E1C (MiUnlockVa.c)
  */
 
 void __fastcall MiLockVirtualMemoryRevert(__int64 a1)
@@ -42,7 +42,7 @@ void __fastcall MiLockVirtualMemoryRevert(__int64 a1)
           if ( v10 )
             MiUnlockPageTableInternal(v1, v10);
           *(_QWORD *)(a1 + 120) = v11;
-          MiLockPageTableInternal(v1, ((v6 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL, 0);
+          MiLockPageTableInternal(v1, ((v6 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL, 0LL);
         }
         MiUnlockVa(v1, v6);
       }

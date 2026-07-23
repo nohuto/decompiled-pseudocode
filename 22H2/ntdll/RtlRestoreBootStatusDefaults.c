@@ -10,39 +10,42 @@
  *     RtlpRecordBootStatusData @ 0x1800EE504 (RtlpRecordBootStatusData.c)
  */
 
-__int64 RtlRestoreBootStatusDefaults()
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
-  const __m128i *v0; // rax
-  __m128i v1; // xmm1
-  __int64 v2; // rcx
-  __m128i v3; // xmm0
-  __m128i v4; // xmm1
-  __m128i v5; // xmm1
+  const __m128i *p_Buffer; // rax
+  __m128i v3; // xmm1
+  __int64 v4; // rcx
+  __m128i v5; // xmm0
   __m128i v6; // xmm1
-  int v8; // [rsp+70h] [rbp-90h] BYREF
-  _DWORD v9[43]; // [rsp+74h] [rbp-8Ch] BYREF
+  __m128i v7; // xmm1
+  __m128i v8; // xmm1
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
+  int Buffer; // [rsp+70h] [rbp-90h] BYREF
+  _NT_PRODUCT_TYPE NtProductType[43]; // [rsp+74h] [rbp-8Ch] BYREF
 
-  memset(v9, 0, sizeof(v9));
-  v8 = 176;
-  RtlGetNtProductType(v9);
-  v9[41] = 0;
-  v0 = (const __m128i *)&v8;
-  v1 = 0LL;
-  *(_WORD *)((char *)&v9[1] + 1) = 286;
-  v2 = 11LL;
-  BYTE1(v9[11]) = 1;
-  HIBYTE(v9[1]) = 0;
+  memset(NtProductType, 0, sizeof(NtProductType));
+  Buffer = 176;
+  RtlGetNtProductType(NtProductType);
+  NtProductType[41] = 0;
+  p_Buffer = (const __m128i *)&Buffer;
+  v3 = 0LL;
+  *(_WORD *)((char *)&NtProductType[1] + 1) = 286;
+  v4 = 11LL;
+  BYTE1(NtProductType[11]) = 1;
+  HIBYTE(NtProductType[1]) = 0;
   do
   {
-    v3 = _mm_loadu_si128(v0++);
-    v1 = _mm_sub_epi8(v1, v3);
-    --v2;
+    v5 = _mm_loadu_si128(p_Buffer++);
+    v3 = _mm_sub_epi8(v3, v5);
+    --v4;
   }
-  while ( v2 );
-  v4 = _mm_add_epi8(v1, _mm_srli_si128(v1, 8));
-  v5 = _mm_add_epi8(v4, _mm_srli_si128(v4, 4));
-  v6 = _mm_add_epi8(v5, _mm_srli_si128(v5, 2));
-  BYTE2(v9[11]) = _mm_cvtsi128_si32(_mm_add_epi8(v6, _mm_srli_si128(v6, 1)));
-  RtlpRecordBootStatusData(0LL, &v8, 0LL, 176LL);
-  return NtWriteFile();
+  while ( v4 );
+  ByteOffset.QuadPart = 0LL;
+  v6 = _mm_add_epi8(v3, _mm_srli_si128(v3, 8));
+  v7 = _mm_add_epi8(v6, _mm_srli_si128(v6, 4));
+  v8 = _mm_add_epi8(v7, _mm_srli_si128(v7, 2));
+  BYTE2(NtProductType[11]) = _mm_cvtsi128_si32(_mm_add_epi8(v8, _mm_srli_si128(v8, 1)));
+  RtlpRecordBootStatusData(0LL, &Buffer, 0LL, 176LL);
+  return NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 0xB0u, &ByteOffset, 0LL);
 }

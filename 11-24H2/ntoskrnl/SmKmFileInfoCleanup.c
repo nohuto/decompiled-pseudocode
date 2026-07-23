@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmFileInfoCleanup @ 0x140AB19B0
+ * XREFs of SmKmFileInfoCleanup @ 0x140AAC920
  * Callers:
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14037E000 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmKmStoreFileCreate @ 0x14079A748 (SmKmStoreFileCreate.c)
- *     SmKmStoreFileCreateForIoType @ 0x14079ABFC (SmKmStoreFileCreateForIoType.c)
- *     SmcCacheCleanup @ 0x14079CFE4 (SmcCacheCleanup.c)
- *     SmKmFileInfoDuplicate @ 0x140AB181C (SmKmFileInfoDuplicate.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140377D20 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmKmStoreFileCreate @ 0x14079A858 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14079AD0C (SmKmStoreFileCreateForIoType.c)
+ *     SmcCacheCleanup @ 0x14079D0F4 (SmcCacheCleanup.c)
+ *     SmKmFileInfoDuplicate @ 0x140AAC78C (SmKmFileInfoDuplicate.c)
  * Callees:
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IoSetThreadHardErrorMode @ 0x14045D2F0 (IoSetThreadHardErrorMode.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     SmKmSendUsageNotification @ 0x14079A678 (SmKmSendUsageNotification.c)
- *     IoUnregisterPlugPlayNotification @ 0x140A8E890 (IoUnregisterPlugPlayNotification.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IoSetThreadHardErrorMode @ 0x1404523B0 (IoSetThreadHardErrorMode.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     SmKmSendUsageNotification @ 0x14079A788 (SmKmSendUsageNotification.c)
+ *     IoUnregisterPlugPlayNotification @ 0x140A8AF00 (IoUnregisterPlugPlayNotification.c)
  */
 
 BOOLEAN __fastcall SmKmFileInfoCleanup(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspProcessSuspendThreadParameters @ 0x1404F1180
+ * XREFs of PspProcessSuspendThreadParameters @ 0x1404EA760
  * Callers:
- *     NtChangeThreadState @ 0x140AD4B20 (NtChangeThreadState.c)
+ *     NtChangeThreadState @ 0x140949110 (NtChangeThreadState.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall PspProcessSuspendThreadParameters(int a1, __int64 a2, unsigned int a3, char a4, int *a5)

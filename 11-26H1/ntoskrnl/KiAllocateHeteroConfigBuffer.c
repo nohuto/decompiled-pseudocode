@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAllocateHeteroConfigBuffer @ 0x140BF351C
+ * XREFs of KiAllocateHeteroConfigBuffer @ 0x140BF951C
  * Callers:
- *     PoInitHeteroDetection @ 0x140CCE7E8 (PoInitHeteroDetection.c)
+ *     PoInitHeteroDetection @ 0x140CD4948 (PoInitHeteroDetection.c)
  * Callees:
- *     KeQueryMaximumGroupCount @ 0x1404BB300 (KeQueryMaximumGroupCount.c)
- *     KeGetThreadWorkloadClassCount @ 0x140515378 (KeGetThreadWorkloadClassCount.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeQueryMaximumGroupCount @ 0x1404B4AE0 (KeQueryMaximumGroupCount.c)
+ *     KeGetThreadWorkloadClassCount @ 0x14050EDE8 (KeGetThreadWorkloadClassCount.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 KiAllocateHeteroConfigBuffer()

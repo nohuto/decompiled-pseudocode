@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFillMemory @ 0x1402A1930
+ * XREFs of MiFillMemory @ 0x1402A0E80
  * Callers:
- *     MiZeroHugeRangeWorker @ 0x1407055C0 (MiZeroHugeRangeWorker.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1407102D0 (MiComputeCacheAttributeSpeeds.c)
+ *     MiZeroHugeRangeWorker @ 0x14070A290 (MiZeroHugeRangeWorker.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x140714FCC (MiComputeCacheAttributeSpeeds.c)
  * Callees:
- *     AccelFillMemory @ 0x1402A19C4 (AccelFillMemory.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelFillMemory @ 0x1402A0F14 (AccelFillMemory.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall MiFillMemory(__int64 a1, void *a2, size_t a3, __int64 a4, int a5)
@@ -36,7 +36,7 @@ LABEL_2:
   result = (void *)AccelFillMemory(a1, (_DWORD)a2, a3, a4, v9);
   if ( (int)result < 0 )
   {
-    _InterlockedIncrement(&dword_140EF4A84);
+    _InterlockedIncrement(&dword_140EF4DEC);
     goto LABEL_2;
   }
   return result;

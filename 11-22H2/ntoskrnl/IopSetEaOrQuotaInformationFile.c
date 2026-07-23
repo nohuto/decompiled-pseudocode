@@ -50,8 +50,8 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2,
   struct _KTHREAD *v26; // rbx
   ULONG Flags; // eax
   ULONG v28; // r13d
-  struct _FILE_QUOTA_INFORMATION *v29; // rdi
-  NTSTATUS v30; // eax
+  _FILE_QUOTA_INFORMATION *v29; // rdi
+  int v30; // eax
   PMDL Mdl; // rcx
   char v32; // bl
   char v33; // [rsp+40h] [rbp-78h]
@@ -172,7 +172,7 @@ LABEL_23:
           v28 = a4;
           if ( a4 )
           {
-            v29 = (struct _FILE_QUOTA_INFORMATION *)ExAllocatePool2(99LL, a4, 1112764233LL);
+            v29 = (_FILE_QUOTA_INFORMATION *)ExAllocatePool2(99LL, a4, 1112764233LL);
             Irp->AssociatedIrp.MasterIrp = (struct _IRP *)v29;
             memmove(v29, a3, a4);
             v30 = IoCheckQuotaBufferValidity(v29, a4, &ErrorOffset);

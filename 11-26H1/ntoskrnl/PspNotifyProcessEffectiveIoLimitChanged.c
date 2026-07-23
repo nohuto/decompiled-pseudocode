@@ -1,17 +1,17 @@
 /*
- * XREFs of PspNotifyProcessEffectiveIoLimitChanged @ 0x140204BFC
+ * XREFs of PspNotifyProcessEffectiveIoLimitChanged @ 0x140204CDC
  * Callers:
- *     PspApplyJobChainLimitsToProcess @ 0x140A8FD18 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetProcessIoPriorityLimitCallback @ 0x140B025A0 (PspSetProcessIoPriorityLimitCallback.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x140A94870 (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetProcessIoPriorityLimitCallback @ 0x140B042D0 (PspSetProcessIoPriorityLimitCallback.c)
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     KeAbProcessBaseIoPriorityChange @ 0x140237B34 (KeAbProcessBaseIoPriorityChange.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbThreadAreAllEntriesFree @ 0x140271A54 (KeAbThreadAreAllEntriesFree.c)
- *     PspUnlockProcessThreadListShared @ 0x140271AF0 (PspUnlockProcessThreadListShared.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     PspLockProcessThreadListShared @ 0x14044BF00 (PspLockProcessThreadListShared.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x140239494 (KeAbProcessBaseIoPriorityChange.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbThreadAreAllEntriesFree @ 0x140270FC4 (KeAbThreadAreAllEntriesFree.c)
+ *     PspUnlockProcessThreadListShared @ 0x140271060 (PspUnlockProcessThreadListShared.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     PspLockProcessThreadListShared @ 0x140444020 (PspLockProcessThreadListShared.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall PspNotifyProcessEffectiveIoLimitChanged(__int64 a1, unsigned int a2, char a3)

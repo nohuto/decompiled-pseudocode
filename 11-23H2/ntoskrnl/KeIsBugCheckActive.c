@@ -1,5 +1,5 @@
 /*
- * XREFs of KeIsBugCheckActive @ 0x140295D50
+ * XREFs of KeIsBugCheckActive @ 0x140295FE0
  * Callers:
  *     <none>
  * Callees:

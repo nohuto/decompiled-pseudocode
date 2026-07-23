@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSleepstudyCaptureSessionStatistics @ 0x1408FA1C8
+ * XREFs of PopSleepstudyCaptureSessionStatistics @ 0x1408FA328
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140774E98 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  */
 
 struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
@@ -27,7 +27,7 @@ struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(__int64 a1, _Q
   {
     for ( i = 1; i <= 2; ++i )
     {
-      v9 = (char *)&unk_140C1E518 + 96 * (((unsigned __int8)dword_140C1E510 - (unsigned __int8)i) & 7);
+      v9 = (char *)&unk_140C1E4F8 + 96 * (((unsigned __int8)dword_140C1E4F0 - (unsigned __int8)i) & 7);
       v10 = (*((_QWORD *)v9 + 3) - *((_QWORD *)v9 + 2)) / 0xAuLL;
       if ( *(_DWORD *)v9 == 2 )
       {
@@ -51,7 +51,7 @@ struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(__int64 a1, _Q
   }
   PopReleaseRwLock((ULONG_PTR)&PopSleepstudySessionLock);
   PopCaptureSleepStudyStatistics(a2, a3, a4);
-  if ( qword_140C54410 )
-    qword_140C54410(a2, a3);
+  if ( qword_140C54450 )
+    qword_140C54450(a2, a3);
   return PopAcquireRwLockExclusive((ULONG_PTR)&PopSleepstudySessionLock);
 }

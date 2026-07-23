@@ -1,19 +1,17 @@
 /*
- * XREFs of ZwDeleteFile @ 0x140724F50
+ * XREFs of ZwDeleteFile @ 0x140729B20
  * Callers:
- *     DifZwDeleteFileWrapper @ 0x1406A3F00 (DifZwDeleteFileWrapper.c)
- *     KsepDeletePatchSdb @ 0x1407BE428 (KsepDeletePatchSdb.c)
- *     NtEnableLastKnownGood @ 0x1408A6BD0 (NtEnableLastKnownGood.c)
- *     PiLastGoodRevertLastKnownDirectory @ 0x140CC4AA8 (PiLastGoodRevertLastKnownDirectory.c)
+ *     DifZwDeleteFileWrapper @ 0x1406A7AE0 (DifZwDeleteFileWrapper.c)
+ *     KsepDeletePatchSdb @ 0x1407C1488 (KsepDeletePatchSdb.c)
+ *     NtEnableLastKnownGood @ 0x1408AD040 (NtEnableLastKnownGood.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x140CCAB88 (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 v1; // rdx
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectAttributes, v1);
+  return KiServiceInternal(ObjectAttributes);
 }

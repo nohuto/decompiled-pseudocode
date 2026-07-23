@@ -12,8 +12,13 @@
  *     NtClose @ 0x14052EB10 (NtClose.c)
  */
 
-__int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, __int64 a2, int a3, int a4)
+NTSTATUS __cdecl NtCreateRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes,
+        ULONG CreateOptions)
 {
+  int v5; // r12d
   struct _KTHREAD *CurrentThread; // rax
   int v8; // ecx
   BOOLEAN v9; // si
@@ -21,10 +26,11 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, __int64 a2, int a3, i
   char PreviousMode; // r15
   __int64 v12; // rax
   _QWORD *v13; // rcx
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   HANDLE Handle; // [rsp+58h] [rbp-30h] BYREF
   PVOID Object; // [rsp+60h] [rbp-28h]
 
+  v5 = (int)ObjAttributes;
   Object = 0LL;
   Handle = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -32,7 +38,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, __int64 a2, int a3, i
   v9 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   if ( v9 )
   {
-    if ( a4 )
+    if ( CreateOptions )
     {
       inserted = -1073741811;
     }
@@ -42,17 +48,17 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, __int64 a2, int a3, i
       if ( PreviousMode == 1 )
       {
         v12 = 0x7FFFFFFF0000LL;
-        if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-          v12 = (__int64)a1;
+        if ( (unsigned __int64)RegistryTransactionHandle < 0x7FFFFFFF0000LL )
+          v12 = (__int64)RegistryTransactionHandle;
         *(_QWORD *)v12 = 0LL;
       }
       else
       {
-        *a1 = 0LL;
+        *RegistryTransactionHandle = 0LL;
       }
       LOBYTE(v10) = PreviousMode;
       LOBYTE(v8) = PreviousMode;
-      inserted = ObCreateObjectEx(v8, (_DWORD)CmRegistryTransactionType, a3, v10);
+      inserted = ObCreateObjectEx(v8, (_DWORD)CmRegistryTransactionType, v5, v10);
       if ( inserted >= 0 )
       {
         v13 = Object;
@@ -64,7 +70,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, __int64 a2, int a3, i
         Object = 0LL;
         if ( inserted >= 0 )
         {
-          *a1 = Handle;
+          *RegistryTransactionHandle = Handle;
           Handle = 0LL;
           inserted = 0;
         }
@@ -85,5 +91,5 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, __int64 a2, int a3, i
     ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

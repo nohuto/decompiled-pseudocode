@@ -1,11 +1,11 @@
 /*
  * XREFs of EtwEnableTrace @ 0x1408162E0
  * Callers:
- *     WdipSemEnableDisableTrace @ 0x140816288 (WdipSemEnableDisableTrace.c)
- *     EtwWmitraceWorker @ 0x1409E8E6C (EtwWmitraceWorker.c)
+ *     sub_140816288 @ 0x140816288 (sub_140816288.c)
+ *     sub_1409E8E6C @ 0x1409E8E6C (sub_1409E8E6C.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpEnableTrace @ 0x14081637C (EtwpEnableTrace.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
+ *     sub_14081637C @ 0x14081637C (sub_14081637C.c)
  */
 
 __int64 __fastcall EtwEnableTrace(
@@ -18,7 +18,7 @@ __int64 __fastcall EtwEnableTrace(
         __int64 a7,
         int a8)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
+  _QWORD *v8; // rax
   int v9; // edx
   int v10; // r8d
   int v11; // r9d
@@ -27,27 +27,9 @@ __int64 __fastcall EtwEnableTrace(
   size_t v15; // [rsp+70h] [rbp-28h]
   size_t v16; // [rsp+80h] [rbp-18h]
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+  v8 = sub_140347DB0();
   LODWORD(v16) = 0;
   LODWORD(v15) = 0;
   LODWORD(Size) = 0;
-  return EtwpEnableTrace(
-           CurrentServerSiloGlobals[108],
-           v12,
-           v9,
-           v10,
-           v11,
-           a5,
-           a6,
-           a7,
-           a8,
-           0LL,
-           0LL,
-           0LL,
-           Size,
-           0LL,
-           v15,
-           0LL,
-           v16,
-           0LL);
+  return sub_14081637C(v8[108], v12, v9, v10, v11, a5, a6, a7, a8, 0LL, 0LL, 0LL, Size, 0LL, v15, 0LL, v16, 0LL);
 }

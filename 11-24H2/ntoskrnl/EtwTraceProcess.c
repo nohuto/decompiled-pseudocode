@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTraceProcess @ 0x14094CC44
+ * XREFs of EtwTraceProcess @ 0x1408F11B4
  * Callers:
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
- *     PspExitProcess @ 0x1409387A0 (PspExitProcess.c)
+ *     PspExitProcess @ 0x1408F2E70 (PspExitProcess.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x14045D2F0 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpLogProcessPerfCtrs @ 0x1407A9DA8 (EtwpLogProcessPerfCtrs.c)
- *     EtwpInitStateChangeInfo @ 0x14094C3B4 (EtwpInitStateChangeInfo.c)
- *     EtwpWriteAppStateChangeSummary @ 0x14094C470 (EtwpWriteAppStateChangeSummary.c)
- *     EtwpWriteProcessEvent @ 0x14094CE4C (EtwpWriteProcessEvent.c)
- *     EtwpWriteAppStateChange @ 0x14094D6B0 (EtwpWriteAppStateChange.c)
- *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x14094DF38 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
- *     EtwpWriteProcessStarted @ 0x14094E248 (EtwpWriteProcessStarted.c)
- *     EtwpEnumerateAddressSpace @ 0x1409690F0 (EtwpEnumerateAddressSpace.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoSetThreadHardErrorMode @ 0x1404523B0 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpLogProcessPerfCtrs @ 0x1407A9EE8 (EtwpLogProcessPerfCtrs.c)
+ *     EtwpInitStateChangeInfo @ 0x1408F0924 (EtwpInitStateChangeInfo.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x1408F09E0 (EtwpWriteAppStateChangeSummary.c)
+ *     EtwpWriteProcessEvent @ 0x1408F13BC (EtwpWriteProcessEvent.c)
+ *     EtwpWriteAppStateChange @ 0x1408F1C20 (EtwpWriteAppStateChange.c)
+ *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1408F24A8 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
+ *     EtwpEnumerateAddressSpace @ 0x140951B80 (EtwpEnumerateAddressSpace.c)
+ *     EtwpWriteProcessStarted @ 0x140A2FF1C (EtwpWriteProcessStarted.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTraceProcess(PRKPROCESS PROCESS, __int16 a2)
@@ -48,9 +48,9 @@ void __fastcall EtwTraceProcess(PRKPROCESS PROCESS, __int16 a2)
   v4 = v8;
   if ( a2 == 769 )
   {
-    if ( !dword_140E090F0
-      || (qword_140E09100 & 0x600000000003LL) == 0
-      || (v5 = 1, (qword_140E09108 & 0x600000000003LL) != qword_140E09108) )
+    if ( !dword_140E09160
+      || (qword_140E09170 & 0x600000000003LL) == 0
+      || (v5 = 1, (qword_140E09178 & 0x600000000003LL) != qword_140E09178) )
     {
       v5 = 0;
     }

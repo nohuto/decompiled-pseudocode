@@ -1,12 +1,12 @@
 /*
- * XREFs of PopQueueTargetDpc @ 0x1400A5FC0
+ * XREFs of PopQueueTargetDpc @ 0x1400A5F00
  * Callers:
- *     PopExecuteOnTargetProcessors @ 0x1400A5EC8 (PopExecuteOnTargetProcessors.c)
- *     PopExecuteProcessorCallback @ 0x1400A5F70 (PopExecuteProcessorCallback.c)
+ *     PopExecuteOnTargetProcessors @ 0x1400A5E08 (PopExecuteOnTargetProcessors.c)
+ *     PopExecuteProcessorCallback @ 0x1400A5EB0 (PopExecuteProcessorCallback.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 BOOLEAN __fastcall PopQueueTargetDpc(PRKDPC Dpc, __int64 a2)

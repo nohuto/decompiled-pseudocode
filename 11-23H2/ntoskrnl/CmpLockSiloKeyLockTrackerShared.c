@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLockSiloKeyLockTrackerShared @ 0x1408477C8
+ * XREFs of CmpLockSiloKeyLockTrackerShared @ 0x140847AC8
  * Callers:
- *     CmLockKeyForWrite @ 0x1408472CC (CmLockKeyForWrite.c)
+ *     CmLockKeyForWrite @ 0x1408475CC (CmLockKeyForWrite.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 __fastcall CmpLockSiloKeyLockTrackerShared(volatile signed __int64 *a1)

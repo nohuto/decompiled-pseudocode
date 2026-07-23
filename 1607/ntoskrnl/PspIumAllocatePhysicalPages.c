@@ -1,13 +1,13 @@
 /*
- * XREFs of PspIumAllocatePhysicalPages @ 0x1402100F8
+ * XREFs of PspIumAllocatePhysicalPages @ 0x14020FF24
  * Callers:
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x1400AA410 (MmAllocatePagesForMdlEx.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x1400A8990 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

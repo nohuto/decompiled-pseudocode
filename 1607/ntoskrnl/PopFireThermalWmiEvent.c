@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFireThermalWmiEvent @ 0x140207100
+ * XREFs of PopFireThermalWmiEvent @ 0x140206F2C
  * Callers:
- *     PopThermalWorker @ 0x140573F40 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140574480 (PopThermalWorker.c)
  * Callees:
- *     PpmFireWmiEvent @ 0x14020B330 (PpmFireWmiEvent.c)
+ *     PpmFireWmiEvent @ 0x14020B15C (PpmFireWmiEvent.c)
  */
 
 __int64 __fastcall PopFireThermalWmiEvent(unsigned __int8 a1)

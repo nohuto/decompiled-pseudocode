@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLogExceptionHandler @ 0x1800F0924
+ * XREFs of RtlpLogExceptionHandler @ 0x1800EB5A4
  * Callers:
- *     RtlpCallVectoredHandlers @ 0x180019DC0 (RtlpCallVectoredHandlers.c)
+ *     RtlpCallVectoredHandlers @ 0x1800467C0 (RtlpCallVectoredHandlers.c)
  * Callees:
  *     <none>
  */

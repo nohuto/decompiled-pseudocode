@@ -21,17 +21,17 @@ __int64 __fastcall MiSelectUserAddress(
         __int64 a6,
         char a7,
         unsigned int a8,
-        struct _RTL_BITMAP **a9,
+        _RTL_BITMAP **a9,
         __int64 a10)
 {
-  struct _RTL_BITMAP **v11; // r14
+  _RTL_BITMAP **v11; // r14
   unsigned __int64 v13; // r8
   unsigned __int64 v14; // r10
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v16; // ecx
   _KPROCESS *Process; // rsi
   unsigned __int64 v18; // rdx
-  struct _RTL_BITMAP *v19; // rdi
+  _RTL_BITMAP *v19; // rdi
   __int64 v20; // rbp
   char v21; // r15
   int v22; // ebx
@@ -56,7 +56,7 @@ __int64 __fastcall MiSelectUserAddress(
   v18 = Process[1].ActiveProcessors.Bitmap[18];
   if ( a3 > v18 - 1 && v18 <= 0x100000000LL )
     v16 = 2;
-  v19 = (struct _RTL_BITMAP *)(56LL * v16 + *(_QWORD *)&Process[1].IdealGlobalNode + 48LL);
+  v19 = (_RTL_BITMAP *)(56LL * v16 + *(_QWORD *)&Process[1].IdealGlobalNode + 48LL);
   if ( (a1 & 0x20400000) != 541065216 && (a1 & 0x20000000) != 0 && a4 >= 0x40000000 )
   {
     v20 = a5;

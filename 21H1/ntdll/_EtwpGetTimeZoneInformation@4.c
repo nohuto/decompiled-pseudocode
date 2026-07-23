@@ -11,34 +11,36 @@
 int __thiscall EtwpGetTimeZoneInformation(void *this)
 {
   __int16 v2; // ax
+  size_t v4; // [esp-4h] [ebp-CCh]
   int TimeZoneInformationWorker; // [esp+Ch] [ebp-BCh]
-  _WORD v5[90]; // [esp+10h] [ebp-B8h] BYREF
+  _WORD v6[90]; // [esp+10h] [ebp-B8h] BYREF
 
-  TimeZoneInformationWorker = RtlpQueryTimeZoneInformationWorker(v5, 0xACu);
+  TimeZoneInformationWorker = RtlpQueryTimeZoneInformationWorker(v6, 172);
   if ( TimeZoneInformationWorker < 0 )
   {
-    memset(this, 0, 0xACu);
+    LODWORD(v4) = 172;
+    memset(this, 0, v4);
   }
   else
   {
-    v2 = v5[34];
-    qmemcpy(this, v5, 0xACu);
+    v2 = v6[34];
+    qmemcpy(this, v6, 0xACu);
     *((_WORD *)this + 34) = v2;
-    *((_WORD *)this + 35) = v5[35];
-    *((_WORD *)this + 37) = v5[36];
-    *((_WORD *)this + 36) = v5[41];
-    *((_WORD *)this + 38) = v5[37];
-    *((_WORD *)this + 39) = v5[38];
-    *((_WORD *)this + 40) = v5[39];
-    *((_WORD *)this + 41) = v5[40];
-    *((_WORD *)this + 76) = v5[76];
-    *((_WORD *)this + 77) = v5[77];
-    *((_WORD *)this + 79) = v5[78];
-    *((_WORD *)this + 78) = v5[83];
-    *((_WORD *)this + 80) = v5[79];
-    *((_WORD *)this + 81) = v5[80];
-    *((_WORD *)this + 82) = v5[81];
-    *((_WORD *)this + 83) = v5[82];
+    *((_WORD *)this + 35) = v6[35];
+    *((_WORD *)this + 37) = v6[36];
+    *((_WORD *)this + 36) = v6[41];
+    *((_WORD *)this + 38) = v6[37];
+    *((_WORD *)this + 39) = v6[38];
+    *((_WORD *)this + 40) = v6[39];
+    *((_WORD *)this + 41) = v6[40];
+    *((_WORD *)this + 76) = v6[76];
+    *((_WORD *)this + 77) = v6[77];
+    *((_WORD *)this + 79) = v6[78];
+    *((_WORD *)this + 78) = v6[83];
+    *((_WORD *)this + 80) = v6[79];
+    *((_WORD *)this + 81) = v6[80];
+    *((_WORD *)this + 82) = v6[81];
+    *((_WORD *)this + 83) = v6[82];
   }
   return TimeZoneInformationWorker;
 }

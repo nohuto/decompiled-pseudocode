@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWakeZeroingThreads @ 0x1402FF3D0
+ * XREFs of MiWakeZeroingThreads @ 0x14030A120
  * Callers:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiWakePageZeroing @ 0x1402FF128 (MiWakePageZeroing.c)
- *     MiZeroNodePages @ 0x1403B0220 (MiZeroNodePages.c)
- *     MiZeroLargePageThread @ 0x1403B3D10 (MiZeroLargePageThread.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiWakePageZeroing @ 0x140309E78 (MiWakePageZeroing.c)
+ *     MiZeroNodePages @ 0x1403B0390 (MiZeroNodePages.c)
+ *     MiZeroLargePageThread @ 0x1403B3E80 (MiZeroLargePageThread.c)
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 unsigned int __fastcall MiWakeZeroingThreads(__int64 a1, char a2)

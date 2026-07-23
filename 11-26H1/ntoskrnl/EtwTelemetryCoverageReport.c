@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwTelemetryCoverageReport @ 0x14048CFE0
+ * XREFs of EtwTelemetryCoverageReport @ 0x140486B20
  * Callers:
- *     EtwpCoverageRecordAtHighIrql @ 0x1406C68DC (EtwpCoverageRecordAtHighIrql.c)
- *     EtwpCoverageEnsureContext @ 0x140775C70 (EtwpCoverageEnsureContext.c)
- *     EtwpCoverageReset @ 0x140829D38 (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x140829F60 (EtwpCoverageResetCP.c)
- *     DbgkForwardException @ 0x1409535F0 (DbgkForwardException.c)
- *     PsSetProcessFaultInformation @ 0x140ABDE90 (PsSetProcessFaultInformation.c)
- *     PopTransitionTelemetryOsState @ 0x140B20D08 (PopTransitionTelemetryOsState.c)
- *     EtwpCoverageProvEnableCallback @ 0x140B2A2C0 (EtwpCoverageProvEnableCallback.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x1406CA5DC (EtwpCoverageRecordAtHighIrql.c)
+ *     EtwpCoverageEnsureContext @ 0x140778B18 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageReset @ 0x14082FF78 (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1408301A0 (EtwpCoverageResetCP.c)
+ *     DbgkForwardException @ 0x1409CEF30 (DbgkForwardException.c)
+ *     PsSetProcessFaultInformation @ 0x140AC0480 (PsSetProcessFaultInformation.c)
+ *     PopTransitionTelemetryOsState @ 0x140B23108 (PopTransitionTelemetryOsState.c)
+ *     EtwpCoverageProvEnableCallback @ 0x140B2C340 (EtwpCoverageProvEnableCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     EtwpCoverageAddToStringBuffer @ 0x14048D198 (EtwpCoverageAddToStringBuffer.c)
- *     EtwpCoverageValidateCP @ 0x14048D23C (EtwpCoverageValidateCP.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpCoverageEnsureContext @ 0x140775C70 (EtwpCoverageEnsureContext.c)
- *     EtwpCoverageRecord @ 0x140B0E2F8 (EtwpCoverageRecord.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x140486CD8 (EtwpCoverageAddToStringBuffer.c)
+ *     EtwpCoverageValidateCP @ 0x140486D7C (EtwpCoverageValidateCP.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpCoverageEnsureContext @ 0x140778B18 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageRecord @ 0x140B0FA48 (EtwpCoverageRecord.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwTelemetryCoverageReport(_QWORD *a1)
@@ -96,8 +96,8 @@ __int64 __fastcall EtwTelemetryCoverageReport(_QWORD *a1)
     v12 = -1073741811;
 LABEL_36:
     if ( EtwpCoverageCoreTracingEnabled
-      && (unsigned int)dword_140E08FB8 > 5
-      && tlgKeywordOn((__int64)&dword_140E08FB8, 1LL) )
+      && (unsigned int)dword_140E09028 > 5
+      && tlgKeywordOn((__int64)&dword_140E09028, 1LL) )
     {
       v19 = (const CHAR *)*a1;
       v23 = *(_DWORD *)v6;
@@ -122,8 +122,8 @@ LABEL_36:
       v40 = 4LL;
       tlgCreate1Sz_char((__int64)v41, v19);
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E08FB8,
-        (unsigned __int8 *)byte_140054771,
+        (__int64)&dword_140E09028,
+        (unsigned __int8 *)byte_140055631,
         0LL,
         0LL,
         9u,

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiLockHugePfn @ 0x1406213F4
+ * XREFs of MiLockHugePfn @ 0x140621944
  * Callers:
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
- *     MiGetHugeRangeFromNode @ 0x1403C50E4 (MiGetHugeRangeFromNode.c)
- *     MiDecrementHugeContext @ 0x1403D6658 (MiDecrementHugeContext.c)
- *     MiAddPartitionHugeRange @ 0x14061F204 (MiAddPartitionHugeRange.c)
- *     MiGetPageInHugePageBadStatus @ 0x14061FF0C (MiGetPageInHugePageBadStatus.c)
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
- *     MiMarkHugePfnBad @ 0x140621618 (MiMarkHugePfnBad.c)
- *     MiMarkHugePfnGood @ 0x140621DF4 (MiMarkHugePfnGood.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x1406220B8 (MiMoveBadHugeRangeCrossPartition.c)
- *     MiReleaseMemoryRuns @ 0x1406222EC (MiReleaseMemoryRuns.c)
- *     MiReturnUnusedHugeDescriptors @ 0x140622710 (MiReturnUnusedHugeDescriptors.c)
- *     MiZeroHugeRangeWorker @ 0x140622DD0 (MiZeroHugeRangeWorker.c)
- *     MiUpdateBadPfnIdentity @ 0x14062B2EC (MiUpdateBadPfnIdentity.c)
- *     MiFreePartitionPageRun @ 0x140659CFC (MiFreePartitionPageRun.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiZeroPage @ 0x1402D0C80 (MiZeroPage.c)
+ *     MiGetHugeRangeFromNode @ 0x1403C52C4 (MiGetHugeRangeFromNode.c)
+ *     MiDecrementHugeContext @ 0x1403D6838 (MiDecrementHugeContext.c)
+ *     MiAddPartitionHugeRange @ 0x14061F754 (MiAddPartitionHugeRange.c)
+ *     MiGetPageInHugePageBadStatus @ 0x14062045C (MiGetPageInHugePageBadStatus.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
+ *     MiMarkHugePfnBad @ 0x140621B68 (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x140622344 (MiMarkHugePfnGood.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x140622608 (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiReleaseMemoryRuns @ 0x14062283C (MiReleaseMemoryRuns.c)
+ *     MiReturnUnusedHugeDescriptors @ 0x140622C60 (MiReturnUnusedHugeDescriptors.c)
+ *     MiZeroHugeRangeWorker @ 0x140623320 (MiZeroHugeRangeWorker.c)
+ *     MiUpdateBadPfnIdentity @ 0x14062B83C (MiUpdateBadPfnIdentity.c)
+ *     MiFreePartitionPageRun @ 0x14065A24C (MiFreePartitionPageRun.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiLockHugePfnInternal @ 0x140621468 (MiLockHugePfnInternal.c)
+ *     MiLockHugePfnInternal @ 0x1406219B8 (MiLockHugePfnInternal.c)
  */
 
 unsigned __int8 __fastcall MiLockHugePfn(__int64 a1)
@@ -29,7 +29,7 @@ unsigned __int8 __fastcall MiLockHugePfn(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v3 = 4;

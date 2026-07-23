@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpSetThreadReaperEvents @ 0x1400B2FD0
+ * XREFs of ExpSetThreadReaperEvents @ 0x1400B0E50
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  */
 
 int ExpSetThreadReaperEvents()

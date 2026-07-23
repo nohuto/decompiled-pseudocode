@@ -1,21 +1,26 @@
 /*
- * XREFs of Feature_AdaptiveHibernateEnhancements__private_GetVariant @ 0x1405DB0A0
+ * XREFs of Feature_AdaptiveHibernateEnhancements__private_GetVariant @ 0x1405D4DBC
  * Callers:
- *     PopAdaptiveStandbyInitialize @ 0x1407617F8 (PopAdaptiveStandbyInitialize.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x140757B40 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x14075FEF4 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
+ *     PopAdaptiveStandbyInitialize @ 0x140760B64 (PopAdaptiveStandbyInitialize.c)
+ *     PopAdaptiveStandbyUpdateRegions @ 0x1407625A0 (PopAdaptiveStandbyUpdateRegions.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportVariantUsageToService @ 0x1403A4AA8 (wil_details_FeatureReporting_ReportVariantUsageToService.c)
- *     wil_details_FeatureStateCache_ReevaluateCachedVariantState @ 0x1405DB508 (wil_details_FeatureStateCache_ReevaluateCachedVariantState.c)
+ *     wil_details_FeatureReporting_ReportVariantUsageToService @ 0x14021DF60 (wil_details_FeatureReporting_ReportVariantUsageToService.c)
+ *     wil_details_FeatureStateCache_GetCachedVariantState @ 0x1404933E0 (wil_details_FeatureStateCache_GetCachedVariantState.c)
  */
 
-__int64 __fastcall Feature_AdaptiveHibernateEnhancements__private_GetVariant(__int64 a1)
+__int64 Feature_AdaptiveHibernateEnhancements__private_GetVariant()
 {
-  __int64 v1; // rbx
+  __int64 CachedVariantState; // rax
+  unsigned int v1; // ebx
 
-  v1 = Feature_AdaptiveHibernateEnhancements__private_featureState;
-  if ( (Feature_AdaptiveHibernateEnhancements__private_featureState & 8) == 0 )
-    v1 = wil_details_FeatureStateCache_ReevaluateCachedVariantState(
-           a1,
-           Feature_AdaptiveHibernateEnhancements__private_featureState);
-  wil_details_FeatureReporting_ReportVariantUsageToService(a1, v1);
-  return ((unsigned int)v1 >> 12) & 0x3F;
+  CachedVariantState = wil_details_FeatureStateCache_GetCachedVariantState(
+                         &Feature_AdaptiveHibernateEnhancements__private_featureState,
+                         (__int64)&Feature_AdaptiveHibernateEnhancements__private_descriptor);
+  v1 = CachedVariantState;
+  wil_details_FeatureReporting_ReportVariantUsageToService(
+    (__int64)&Feature_AdaptiveHibernateEnhancements__private_descriptor,
+    CachedVariantState);
+  return (v1 >> 12) & 0x3F;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KseHookExAllocatePoolWithTag @ 0x140527220
+ * XREFs of KseHookExAllocatePoolWithTag @ 0x140527460
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void *__fastcall KseHookExAllocatePoolWithTag(__int64 a1, size_t a2)

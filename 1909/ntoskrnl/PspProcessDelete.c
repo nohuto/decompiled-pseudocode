@@ -48,36 +48,34 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
   __int64 *v4; // rcx
   __int64 **v5; // rax
   void *v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  void *v9; // rcx
-  __int64 v10; // rcx
+  void *v7; // rcx
+  __int64 v8; // rcx
   HANDLE ProcessId; // rax
-  __int64 v12; // rcx
-  signed __int64 *v13; // rax
-  void *v14; // rcx
-  __int128 *v15; // r9
-  __int64 v16; // r8
-  int v17; // r10d
-  char v18; // di
-  __int64 v19; // rdx
-  __int64 v20; // rax
-  __int64 v21; // rax
-  bool v22; // zf
-  __int64 v23; // rdx
-  _QWORD *v24; // r11
-  const char *v25; // rax
-  unsigned int v26; // r10d
-  unsigned __int64 v27; // rcx
-  __int64 v28; // r9
-  unsigned __int64 v29; // rax
+  __int64 v10; // rcx
+  signed __int64 *v11; // rax
+  void *v12; // rcx
+  __int128 *v13; // r9
+  __int64 v14; // r8
+  int v15; // r10d
+  char v16; // di
+  __int64 v17; // rdx
+  __int64 v18; // rax
+  __int64 v19; // rax
+  bool v20; // zf
+  __int64 v21; // rdx
+  _QWORD *v22; // r11
+  const char *v23; // rax
+  unsigned int v24; // r10d
+  unsigned __int64 v25; // rcx
+  __int64 v26; // r9
+  unsigned __int64 v27; // rax
+  __int64 v28; // rax
+  __int128 *v29; // r10
   __int64 v30; // rax
-  __int128 *v31; // r10
+  int v31; // r9d
   __int64 v32; // rax
-  int v33; // r9d
-  __int64 v34; // rax
-  volatile signed __int32 *v35; // rcx
-  void *v36; // rcx
+  volatile signed __int32 *v33; // rcx
+  void *v34; // rcx
   struct _KAPC_STATE ApcState; // [rsp+30h] [rbp-58h] BYREF
 
   memset(&ApcState, 0, sizeof(ApcState));
@@ -102,17 +100,17 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
   }
   ObDereferenceDeviceMap(BugCheckParameter2);
   if ( *(_QWORD *)(BugCheckParameter2 + 2080) )
-    ZwDeleteWnfStateName(BugCheckParameter2 + 2080, v7, v8);
-  v9 = *(void **)(BugCheckParameter2 + 1056);
-  if ( v9 )
+    ZwDeleteWnfStateName((PCWNF_STATE_NAME)(BugCheckParameter2 + 2080));
+  v7 = *(void **)(BugCheckParameter2 + 1056);
+  if ( v7 )
   {
-    ObfDereferenceObject(v9);
+    ObfDereferenceObject(v7);
     *(_QWORD *)(BugCheckParameter2 + 1056) = 0LL;
   }
-  v10 = *(_QWORD *)(BugCheckParameter2 + 856);
-  if ( v10 )
+  v8 = *(_QWORD *)(BugCheckParameter2 + 856);
+  if ( v8 )
   {
-    ObfDereferenceObject((PVOID)(v10 & 0xFFFFFFFFFFFFFFF8uLL));
+    ObfDereferenceObject((PVOID)(v8 & 0xFFFFFFFFFFFFFFF8uLL));
     *(_QWORD *)(BugCheckParameter2 + 856) = 0LL;
   }
   ProcessId = PsGetProcessId((PEPROCESS)BugCheckParameter2);
@@ -134,26 +132,26 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
     *(_QWORD *)(BugCheckParameter2 + 912) = 0LL;
     *(_QWORD *)(BugCheckParameter2 + 1776) = MmBadPointer;
   }
-  v12 = *(_QWORD *)(BugCheckParameter2 + 2136);
-  if ( v12 )
-    PsDereferencePartition(v12);
+  v10 = *(_QWORD *)(BugCheckParameter2 + 2136);
+  if ( v10 )
+    PsDereferencePartition(v10);
   if ( *(_QWORD *)(BugCheckParameter2 + 728) )
     KeUnsecureProcess(BugCheckParameter2);
   if ( *(_QWORD *)(BugCheckParameter2 + 744) )
   {
     --CurrentThread->SpecialApcDisable;
-    v13 = ExMapHandleToPointer((unsigned int *)PspCidTable, *(_QWORD *)(BugCheckParameter2 + 744));
-    if ( !v13 )
+    v11 = ExMapHandleToPointer((unsigned int *)PspCidTable, *(_QWORD *)(BugCheckParameter2 + 744));
+    if ( !v11 )
       KeBugCheck(0x17u);
-    ExDestroyHandle(PspCidTable, *(_QWORD *)(BugCheckParameter2 + 744), v13);
+    ExDestroyHandle(PspCidTable, *(_QWORD *)(BugCheckParameter2 + 744), v11);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
   if ( *(_QWORD *)(BugCheckParameter2 + 864) )
     SeDeassignPrimaryToken(BugCheckParameter2);
-  v14 = *(void **)(BugCheckParameter2 + 984);
-  if ( v14 )
+  v12 = *(void **)(BugCheckParameter2 + 984);
+  if ( v12 )
   {
-    ExFreePoolWithTag(v14, 0);
+    ExFreePoolWithTag(v12, 0);
     PsReturnProcessNonPagedPoolQuota((struct _KPROCESS *)BugCheckParameter2, 24616LL);
   }
   SmProcessDeleteNotification(BugCheckParameter2);
@@ -169,105 +167,105 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
   }
   if ( KiQueryUnbiasedInterruptTime() >= (unsigned __int64)qword_140464010 )
   {
-    v15 = &KeServiceDescriptorTable;
+    v13 = &KeServiceDescriptorTable;
     _mm_prefetch((const char *)&KeServiceDescriptorTable, 0);
-    v16 = qword_140464000;
-    v17 = 64;
-    v18 = qword_140464008;
-    v19 = qword_140464000;
-    v20 = 8LL;
+    v14 = qword_140464000;
+    v15 = 64;
+    v16 = qword_140464008;
+    v17 = qword_140464000;
+    v18 = 8LL;
     do
     {
-      v19 = __ROR8__(v19 - *(_QWORD *)v15, qword_140464008);
-      v15 = (__int128 *)((char *)v15 + 8);
-      v17 -= 8;
-      --v20;
+      v17 = __ROR8__(v17 - *(_QWORD *)v13, qword_140464008);
+      v13 = (__int128 *)((char *)v13 + 8);
+      v15 -= 8;
+      --v18;
     }
-    while ( v20 );
-    for ( ; v17; --v17 )
+    while ( v18 );
+    for ( ; v15; --v15 )
     {
-      v21 = *(unsigned __int8 *)v15;
-      v15 = (__int128 *)((char *)v15 + 1);
-      v19 = __ROR8__(v19 - v21, qword_140464008);
+      v19 = *(unsigned __int8 *)v13;
+      v13 = (__int128 *)((char *)v13 + 1);
+      v17 = __ROR8__(v17 - v19, qword_140464008);
     }
-    v22 = qword_140464018 == v19;
-    v23 = qword_140463FD0;
-    if ( !v22 && !qword_140463FD0 )
+    v20 = qword_140464018 == v17;
+    v21 = qword_140463FD0;
+    if ( !v20 && !qword_140463FD0 )
     {
-      v18 = qword_140464008;
-      v16 = qword_140464000;
-      v23 = (unsigned int)__ROR4__(2120, 35);
-      qword_140463FD0 = (unsigned int)v23;
+      v16 = qword_140464008;
+      v14 = qword_140464000;
+      v21 = (unsigned int)__ROR4__(2120, 35);
+      qword_140463FD0 = (unsigned int)v21;
       qword_140463FD8 = 0LL;
       qword_140463FE0 = 0LL;
       qword_140463FE8 = 267LL;
       qword_140463FF0 = (__int64)&KeServiceDescriptorTable;
     }
-    v24 = (_QWORD *)KeServiceDescriptorTable;
-    v25 = (const char *)KeServiceDescriptorTable;
-    v26 = 4 * xmmword_14058A890;
-    v27 = KeServiceDescriptorTable + (unsigned int)(4 * xmmword_14058A890);
-    if ( (unsigned __int64)KeServiceDescriptorTable < v27 )
+    v22 = (_QWORD *)KeServiceDescriptorTable;
+    v23 = (const char *)KeServiceDescriptorTable;
+    v24 = 4 * xmmword_14058A890;
+    v25 = KeServiceDescriptorTable + (unsigned int)(4 * xmmword_14058A890);
+    if ( (unsigned __int64)KeServiceDescriptorTable < v25 )
     {
       do
       {
-        _mm_prefetch(v25, 0);
-        v25 += 64;
+        _mm_prefetch(v23, 0);
+        v23 += 64;
       }
-      while ( (unsigned __int64)v25 < v27 );
+      while ( (unsigned __int64)v23 < v25 );
     }
-    v28 = v16;
-    if ( v26 >= 8 )
+    v26 = v14;
+    if ( v24 >= 8 )
     {
-      v29 = (unsigned __int64)v26 >> 3;
+      v27 = (unsigned __int64)v24 >> 3;
       do
       {
-        v28 = __ROR8__(v28 - *v24++, v18);
-        v26 -= 8;
-        --v29;
+        v26 = __ROR8__(v26 - *v22++, v16);
+        v24 -= 8;
+        --v27;
       }
-      while ( v29 );
+      while ( v27 );
     }
-    for ( ; v26; --v26 )
+    for ( ; v24; --v24 )
     {
-      v30 = *(unsigned __int8 *)v24;
-      v24 = (_QWORD *)((char *)v24 + 1);
-      v28 = __ROR8__(v28 - v30, v18);
+      v28 = *(unsigned __int8 *)v22;
+      v22 = (_QWORD *)((char *)v22 + 1);
+      v26 = __ROR8__(v26 - v28, v16);
     }
-    if ( qword_140464020 != v28 && !v23 )
+    if ( qword_140464020 != v26 && !v21 )
     {
-      v18 = qword_140464008;
-      v16 = qword_140464000;
-      v23 = (unsigned int)__ROR4__(1111490560, 150);
-      qword_140463FD0 = (unsigned int)v23;
+      v16 = qword_140464008;
+      v14 = qword_140464000;
+      v21 = (unsigned int)__ROR4__(1111490560, 150);
+      qword_140463FD0 = (unsigned int)v21;
       qword_140463FD8 = 0LL;
       qword_140463FE0 = 0LL;
       qword_140463FE8 = 267LL;
       qword_140463FF0 = KeServiceDescriptorTable;
     }
-    v31 = &KeServiceDescriptorTableShadow;
+    v29 = &KeServiceDescriptorTableShadow;
     _mm_prefetch((const char *)&KeServiceDescriptorTableShadow, 0);
-    v32 = 4LL;
-    v33 = 32;
+    v30 = 4LL;
+    v31 = 32;
     do
     {
-      v16 = __ROR8__(v16 - *(_QWORD *)v31, v18);
-      v31 = (__int128 *)((char *)v31 + 8);
-      v33 -= 8;
-      --v32;
+      v14 = __ROR8__(v14 - *(_QWORD *)v29, v16);
+      v29 = (__int128 *)((char *)v29 + 8);
+      v31 -= 8;
+      --v30;
     }
-    while ( v32 );
-    for ( ; v33; --v33 )
+    while ( v30 );
+    for ( ; v31; --v31 )
     {
-      v34 = *(unsigned __int8 *)v31;
-      v31 = (__int128 *)((char *)v31 + 1);
-      v16 = __ROR8__(v16 - v34, v18);
+      v32 = *(unsigned __int8 *)v29;
+      v29 = (__int128 *)((char *)v29 + 1);
+      v14 = __ROR8__(v14 - v32, v16);
     }
-    if ( qword_140464028 != v16 && !v23 )
+    if ( qword_140464028 != v14 && !v21 )
     {
       qword_140463FD8 = 0LL;
-      v23 = (unsigned int)__ROR4__(603979780, 186);
-      qword_140463FD0 = (unsigned int)v23;
+      v21 = (unsigned int)__ROR4__(603979780, 186);
+      qword_140463FD0 = (unsigned int)v21;
       qword_140463FE0 = 0LL;
       qword_140463FE8 = 267LL;
       qword_140463FF0 = (__int64)&KeServiceDescriptorTableShadow;
@@ -275,16 +273,16 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter2)
     if ( (_QWORD)KeServiceDescriptorTableShadow != (_QWORD)KeServiceDescriptorTable
       || (_DWORD)xmmword_140572A90 != (_DWORD)xmmword_14058A890 )
     {
-      if ( v23 )
+      if ( v21 )
         goto LABEL_53;
-      v23 = (unsigned int)__ROR4__(4240, 68);
-      qword_140463FD0 = (unsigned int)v23;
+      v21 = (unsigned int)__ROR4__(4240, 68);
+      qword_140463FD0 = (unsigned int)v21;
       qword_140463FD8 = 0LL;
       qword_140463FE0 = 0LL;
       qword_140463FE8 = 267LL;
       qword_140463FF0 = KeServiceDescriptorTableShadow;
     }
-    if ( !v23 )
+    if ( !v21 )
     {
 LABEL_58:
       qword_140464010 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
@@ -298,16 +296,16 @@ LABEL_53:
     goto LABEL_58;
   }
 LABEL_59:
-  v35 = *(volatile signed __int32 **)(BugCheckParameter2 + 1040);
-  if ( v35 )
+  v33 = *(volatile signed __int32 **)(BugCheckParameter2 + 1040);
+  if ( v33 )
   {
-    _InterlockedAdd(v35 + 129, 0xFFFFFFFF);
-    PspDereferenceQuotaBlock(v35);
+    _InterlockedAdd(v33 + 129, 0xFFFFFFFF);
+    PspDereferenceQuotaBlock(v33);
   }
-  v36 = *(void **)(BugCheckParameter2 + 1064);
-  if ( v36 )
+  v34 = *(void **)(BugCheckParameter2 + 1064);
+  if ( v34 )
   {
-    ExFreePoolWithTag(v36, 0);
+    ExFreePoolWithTag(v34, 0);
     *(_QWORD *)(BugCheckParameter2 + 1064) = 0LL;
   }
 }

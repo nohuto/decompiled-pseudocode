@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPortAddAllocation @ 0x140814710
+ * XREFs of IopPortAddAllocation @ 0x1408149E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAddRange @ 0x1408148F0 (RtlAddRange.c)
- *     IopPortGetNextAlias @ 0x140814CF4 (IopPortGetNextAlias.c)
+ *     RtlAddRange @ 0x140814BC0 (RtlAddRange.c)
+ *     IopPortGetNextAlias @ 0x140814FC4 (IopPortGetNextAlias.c)
  */
 
 __int64 __fastcall IopPortAddAllocation(__int64 a1, __int64 *a2)

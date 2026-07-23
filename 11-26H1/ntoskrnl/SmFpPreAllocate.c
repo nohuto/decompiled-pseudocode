@@ -1,20 +1,20 @@
 /*
- * XREFs of SmFpPreAllocate @ 0x1403EFFC0
+ * XREFs of SmFpPreAllocate @ 0x1403E9990
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403F49B8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14063CDAC (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
- *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14063D530 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403EE368 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14064098C (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x140641110 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     SmKmAllocateMdlForLock @ 0x1403944B0 (SmKmAllocateMdlForLock.c)
- *     SmAcquireReleaseCharges @ 0x140394610 (SmAcquireReleaseCharges.c)
- *     SmFpCleanup @ 0x1403F02E0 (SmFpCleanup.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmAllocateMappingAddress @ 0x140AF1F30 (MmAllocateMappingAddress.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     SmKmAllocateMdlForLock @ 0x140396230 (SmKmAllocateMdlForLock.c)
+ *     SmAcquireReleaseCharges @ 0x140396390 (SmAcquireReleaseCharges.c)
+ *     SmFpCleanup @ 0x1403E9CB0 (SmFpCleanup.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmAllocateMappingAddress @ 0x140AF4800 (MmAllocateMappingAddress.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmFpPreAllocate(PEX_SPIN_LOCK SpinLock, _DWORD *a2, unsigned int a3)

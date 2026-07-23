@@ -92,10 +92,13 @@ __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1)
                         if ( !(unsigned int)MiMoveLargeZeroToFree(a1, v1, v5, v31, v15, v10, v13) )
                         {
                           ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-                          if ( KiIrqlFlags )
+                          if ( (_DWORD)KiIrqlFlags )
                           {
                             CurrentIrql = KeGetCurrentIrql();
-                            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+                            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                              && CurrentIrql <= 0xFu
+                              && v7 <= 0xFu
+                              && CurrentIrql >= 2u )
                             {
                               CurrentPrcb = KeGetCurrentPrcb();
                               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -146,10 +149,10 @@ __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1)
       }
       while ( v5 < 3 );
       ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v7 <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v7 <= 0xFu && v21 >= 2u )
         {
           v22 = KeGetCurrentPrcb();
           v23 = v22->SchedulerAssist;

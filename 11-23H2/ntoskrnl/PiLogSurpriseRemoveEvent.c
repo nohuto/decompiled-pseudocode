@@ -1,9 +1,9 @@
 /*
- * XREFs of PiLogSurpriseRemoveEvent @ 0x140884718
+ * XREFs of PiLogSurpriseRemoveEvent @ 0x140884958
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867478 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408676B8 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     McTemplateK0zq_EtwWriteTransfer @ 0x1403D6144 (McTemplateK0zq_EtwWriteTransfer.c)
+ *     McTemplateK0zq_EtwWriteTransfer @ 0x1403D6324 (McTemplateK0zq_EtwWriteTransfer.c)
  */
 
 int __fastcall PiLogSurpriseRemoveEvent(__int64 a1, int a2, int **a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfPacketFindAndLock @ 0x140ADD11C
+ * XREFs of VfPacketFindAndLock @ 0x140ADD10C
  * Callers:
- *     ViSetIoBuildRequestFlag @ 0x1405D1F30 (ViSetIoBuildRequestFlag.c)
+ *     ViSetIoBuildRequestFlag @ 0x1405D24A0 (ViSetIoBuildRequestFlag.c)
  * Callees:
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1798 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1788 (VfIrpDatabaseEntryFindAndLock.c)
  */
 
 __int64 __fastcall VfPacketFindAndLock(__int64 a1)

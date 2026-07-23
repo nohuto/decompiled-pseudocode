@@ -14,32 +14,32 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-int __stdcall LdrInitShimEngineDynamic(unsigned int a1, int a2)
+int __stdcall LdrInitShimEngineDynamic(PVOID DllHandle, int a2)
 {
   int v2; // ebx
   __int16 v3; // ax
   __int16 v4; // di
-  int EntryForAddress; // eax
+  NTSTATUS EntryForAddress; // eax
   int v6; // ecx
   unsigned __int8 ShimEngine; // [esp+13h] [ebp-5h]
-  _DWORD *v9; // [esp+14h] [ebp-4h] BYREF
+  PLDR_DATA_TABLE_ENTRY Entry; // [esp+14h] [ebp-4h] BYREF
 
   v2 = 0;
   v3 = NtCurrentTeb()->SameTebFlags & 0x1000;
-  v9 = 0;
+  Entry = 0;
   v4 = v3;
   if ( !v3 )
     LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
   if ( !g_pShimEngineModule )
   {
-    g_pShimEngineModule = a1;
+    g_pShimEngineModule = DllHandle;
     LdrpGetShimEngineInterface();
   }
-  EntryForAddress = LdrFindEntryForAddress(a1, (int *)&v9);
+  EntryForAddress = LdrFindEntryForAddress(DllHandle, &Entry);
   if ( EntryForAddress >= 0 )
   {
-    LdrpPinModule(v9);
+    LdrpPinModule(Entry);
     ShimEngine = LdrpLoadShimEngine(*(PCWSTR *)(a2 + 4));
     if ( ShimEngine )
       goto LABEL_13;
@@ -52,7 +52,7 @@ int __stdcall LdrInitShimEngineDynamic(unsigned int a1, int a2)
       LdrpLogDbgPrint(
         (int)"minkernel\\ntdll\\ldrinit.c",
         2719,
-        "LdrInitShimEngineDynamic",
+        (int)"LdrInitShimEngineDynamic",
         0,
         "Finding the shim engine entry failed with status 0x%08lx\n",
         EntryForAddress);

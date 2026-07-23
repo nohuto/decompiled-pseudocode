@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x140360E34
+ * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x140360FD4
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpCancelOplockRHIrp @ 0x140360BC0 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D3330 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140766310 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402FDBE0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402FEAC0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockCleanup @ 0x1403011A4 (FsRtlpOplockCleanup.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x140360D60 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D3510 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x140766500 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
  *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201C30 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     FsRtlpOplockKeysEqual @ 0x140300C80 (FsRtlpOplockKeysEqual.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     FsRtlpOplockKeysEqual @ 0x140300F10 (FsRtlpOplockKeysEqual.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)
@@ -70,7 +70,7 @@ NTSTATUS __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)
     v17 = a1;
     v21 = 8;
     v24 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)&word_140029EF6, 0LL, 0LL, 4u, v19);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)byte_140029F5D, 0LL, 0LL, 4u, v19);
     result = 0;
     v3 = 0;
     v4 = 0;
@@ -157,7 +157,7 @@ LABEL_11:
     v36 = 4;
     return tlgWriteTransfer_EtwWriteTransfer(
              (__int64)&dword_140C03768,
-             (unsigned __int8 *)word_140029D92,
+             (unsigned __int8 *)&byte_140029EBF,
              0LL,
              0LL,
              8u,

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCbPrintfW @ 0x18011D65C
+ * XREFs of RtlStringCbPrintfW @ 0x18011B88C
  * Callers:
- *     RtlQueryProcessHeapInformation @ 0x1800463B0 (RtlQueryProcessHeapInformation.c)
- *     LdrpLogEtwHotPatchStatus @ 0x180074798 (LdrpLogEtwHotPatchStatus.c)
- *     RtlpGetTagName @ 0x180118800 (RtlpGetTagName.c)
+ *     RtlQueryProcessHeapInformation @ 0x18002A340 (RtlQueryProcessHeapInformation.c)
+ *     LdrpLogEtwHotPatchStatus @ 0x180091078 (LdrpLogEtwHotPatchStatus.c)
+ *     RtlpGetTagName @ 0x180113834 (RtlpGetTagName.c)
  * Callees:
- *     _vsnwprintf @ 0x180122B60 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x180120D90 (_vsnwprintf.c)
  */
 
 __int64 RtlStringCbPrintfW(wchar_t *a1, unsigned __int64 a2, const wchar_t *a3, ...)

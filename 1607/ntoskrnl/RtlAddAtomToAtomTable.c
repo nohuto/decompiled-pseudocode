@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAddAtomToAtomTable @ 0x1404EEF60
+ * XREFs of RtlAddAtomToAtomTable @ 0x1404D1028
  * Callers:
  *     <none>
  * Callees:

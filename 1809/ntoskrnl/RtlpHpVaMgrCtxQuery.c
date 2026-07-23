@@ -5,7 +5,7 @@
  *     RtlpHpSegMgrCommit @ 0x14000C244 (RtlpHpSegMgrCommit.c)
  * Callees:
  *     RtlSparseArrayElementAllocated @ 0x14000CB98 (RtlSparseArrayElementAllocated.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxQuery(__int64 a1, __int64 a2, _QWORD *a3)

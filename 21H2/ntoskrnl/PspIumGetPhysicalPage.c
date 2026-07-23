@@ -1,66 +1,66 @@
 /*
- * XREFs of PspIumGetPhysicalPage @ 0x14090CB3C
+ * XREFs of PspIumGetPhysicalPage @ 0x14090CC9C
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PspIumReplenishPartitionPages @ 0x140583F78 (PspIumReplenishPartitionPages.c)
- *     MmVirtualAccessFault @ 0x1408D1D64 (MmVirtualAccessFault.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PspIumReplenishPartitionPages @ 0x1405841A8 (PspIumReplenishPartitionPages.c)
+ *     MmVirtualAccessFault @ 0x1408D1EC4 (MmVirtualAccessFault.c)
  */
 
-__int64 __fastcall PspIumGetPhysicalPage(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall PspIumGetPhysicalPage(__int64 a1)
 {
-  int v4; // r15d
-  unsigned __int64 v5; // rdi
-  _KPROCESS *v7; // rsi
-  __int64 v8; // rcx
+  int v1; // r15d
+  unsigned __int64 v2; // rdi
+  _KPROCESS *v4; // rsi
+  __int64 v5; // rcx
   _KPROCESS *Process; // r14
-  __int64 v10; // rax
-  int v11; // edi
+  __int64 v7; // rax
+  int v8; // edi
   __int64 result; // rax
-  __int64 v13; // [rsp+20h] [rbp-50h] BYREF
-  signed __int64 v14[2]; // [rsp+28h] [rbp-48h] BYREF
-  _OWORD v15[3]; // [rsp+38h] [rbp-38h] BYREF
+  __int64 v10; // [rsp+20h] [rbp-50h] BYREF
+  signed __int64 v11[2]; // [rsp+28h] [rbp-48h] BYREF
+  _OWORD v12[3]; // [rsp+38h] [rbp-38h] BYREF
 
-  v4 = *(_DWORD *)(a1 + 8);
-  v5 = *(_QWORD *)(a1 + 16);
-  v7 = *(_KPROCESS **)(a1 + 24);
-  v8 = *(_QWORD *)(a1 + 32);
-  v13 = 0LL;
-  memset(v15, 0, sizeof(v15));
-  if ( v8 && *(_DWORD *)(v8 + 4) < 8u )
-    PspIumReplenishPartitionPages(v8, 3u);
-  if ( v5 >= 0x7FFFFFFF0000LL )
+  v1 = *(_DWORD *)(a1 + 8);
+  v2 = *(_QWORD *)(a1 + 16);
+  v4 = *(_KPROCESS **)(a1 + 24);
+  v5 = *(_QWORD *)(a1 + 32);
+  v10 = 0LL;
+  memset(v12, 0, sizeof(v12));
+  if ( v5 && *(_DWORD *)(v5 + 4) < 8u )
+    PspIumReplenishPartitionPages(v5, 3u);
+  if ( v2 >= 0x7FFFFFFF0000LL )
   {
-    v11 = -1073741819;
+    v8 = -1073741819;
   }
   else
   {
-    v14[1] = 4096LL;
-    v14[0] = v5 & 0xFFFFFFFFFFFFF000uLL;
+    v11[1] = 4096LL;
+    v11[0] = v2 & 0xFFFFFFFFFFFFF000uLL;
     Process = KeGetCurrentThread()->ApcState.Process;
-    if ( Process != v7 )
-      KiStackAttachProcess(v7, 0LL, (__int64)v15, a4);
-    v10 = v13;
+    if ( Process != v4 )
+      KiStackAttachProcess(v4, 0, (__int64)v12);
+    v7 = v10;
     while ( 1 )
     {
-      v13 = v10 & 0xFFFFFFFFFFFFFLL;
-      v11 = MmVirtualAccessFault(v14, (__int64)&v13, v4);
-      if ( v11 < 0 )
+      v10 = v7 & 0xFFFFFFFFFFFFFLL;
+      v8 = MmVirtualAccessFault(v11, (__int64)&v10, v1);
+      if ( v8 < 0 )
         break;
-      v10 = v13;
-      if ( (v13 & 0x10000000000000LL) != 0 )
+      v7 = v10;
+      if ( (v10 & 0x10000000000000LL) != 0 )
       {
-        *(_QWORD *)(a1 + 16) = v13 & 0xFFFFFFFFFFFFFLL;
+        *(_QWORD *)(a1 + 16) = v10 & 0xFFFFFFFFFFFFFLL;
         break;
       }
     }
-    if ( Process != v7 )
-      KiUnstackDetachProcess((__int64)v15, 0);
+    if ( Process != v4 )
+      KiUnstackDetachProcess((__int64)v12, 0LL);
   }
-  result = v11;
-  *(_QWORD *)(a1 + 8) = v11;
+  result = v8;
+  *(_QWORD *)(a1 + 8) = v8;
   return result;
 }

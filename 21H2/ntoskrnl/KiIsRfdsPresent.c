@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsRfdsPresent @ 0x1403F32B8
+ * XREFs of KiIsRfdsPresent @ 0x1403F3308
  * Callers:
- *     KiDetectHardwareSpecControlFeatures @ 0x1403ADD1C (KiDetectHardwareSpecControlFeatures.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403ADE6C (KiDetectHardwareSpecControlFeatures.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpValidateContextFlags @ 0x1400F4A20
+ * XREFs of RtlpValidateContextFlags @ 0x1400F2870
  * Callers:
- *     RtlpCopyExtendedContext @ 0x1400F31F8 (RtlpCopyExtendedContext.c)
- *     RtlGetExtendedContextLength @ 0x1400F4858 (RtlGetExtendedContextLength.c)
- *     RtlInitializeExtendedContext @ 0x1400F490C (RtlInitializeExtendedContext.c)
- *     RtlpReadExtendedContext @ 0x140517E70 (RtlpReadExtendedContext.c)
- *     RtlpSanitizeContextFlags @ 0x1405187CC (RtlpSanitizeContextFlags.c)
- *     RtlpWow64SanitizeContextFlags @ 0x140518E30 (RtlpWow64SanitizeContextFlags.c)
- *     RtlpWriteExtendedContext @ 0x140518E70 (RtlpWriteExtendedContext.c)
- *     RtlCopyContext @ 0x14068C174 (RtlCopyContext.c)
+ *     RtlpCopyExtendedContext @ 0x1400F1048 (RtlpCopyExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x1400F26A8 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x1400F275C (RtlInitializeExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x1404FB260 (RtlpReadExtendedContext.c)
+ *     RtlpSanitizeContextFlags @ 0x1404FBBBC (RtlpSanitizeContextFlags.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x1404FC220 (RtlpWow64SanitizeContextFlags.c)
+ *     RtlpWriteExtendedContext @ 0x1404FC260 (RtlpWriteExtendedContext.c)
+ *     RtlCopyContext @ 0x14068C258 (RtlCopyContext.c)
  * Callees:
  *     <none>
  */

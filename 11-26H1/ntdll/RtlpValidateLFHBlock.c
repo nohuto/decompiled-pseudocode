@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpValidateLFHBlock @ 0x180018130
+ * XREFs of RtlpValidateLFHBlock @ 0x180003210
  * Callers:
- *     RtlpFreeNTHeapInternal @ 0x1800185E0 (RtlpFreeNTHeapInternal.c)
- *     RtlpReAllocateHeapInternal @ 0x18001AED0 (RtlpReAllocateHeapInternal.c)
+ *     RtlpFreeNTHeapInternal @ 0x1800036C0 (RtlpFreeNTHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x180005FB0 (RtlpReAllocateHeapInternal.c)
  * Callees:
- *     RtlpHeapExceptionFilter @ 0x180100D78 (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapExceptionFilter @ 0x1801004C8 (RtlpHeapExceptionFilter.c)
  */
 
 _BOOL8 __fastcall RtlpValidateLFHBlock(int a1, unsigned __int64 a2)

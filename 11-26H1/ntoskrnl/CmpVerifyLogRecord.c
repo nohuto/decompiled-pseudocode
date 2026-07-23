@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpVerifyLogRecord @ 0x14085E8EC
+ * XREFs of CmpVerifyLogRecord @ 0x140864BDC
  * Callers:
- *     CmpRmReDoPhase @ 0x14085E540 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x140864830 (CmpRmReDoPhase.c)
  * Callees:
- *     HvBufferCheckSum @ 0x1408ADAD0 (HvBufferCheckSum.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14094DC20 (RtlValidRelativeSecurityDescriptor.c)
+ *     HvBufferCheckSum @ 0x1408B3F10 (HvBufferCheckSum.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1409C9570 (RtlValidRelativeSecurityDescriptor.c)
  */
 
 __int64 __fastcall CmpVerifyLogRecord(__int64 a1, unsigned int a2)

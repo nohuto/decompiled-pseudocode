@@ -1,19 +1,19 @@
 /*
- * XREFs of ExQueryHandleExceptionsPermanency @ 0x140381050
+ * XREFs of ExQueryHandleExceptionsPermanency @ 0x140380BA0
  * Callers:
- *     ObpCloseHandle @ 0x14061ABC0 (ObpCloseHandle.c)
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     ObpCloseHandle @ 0x140684820 (ObpCloseHandle.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYTE *a3)
@@ -24,14 +24,15 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
   struct _KTHREAD *v9; // rbx
   unsigned int SessionId; // edx
   unsigned __int8 v11; // r14
-  _DWORD *v12; // r9
-  unsigned int v13; // r8d
-  bool v14; // zf
-  __int64 v15; // rcx
-  __int64 v16; // rdi
+  unsigned int v12; // r8d
+  bool v13; // zf
+  __int64 v14; // rcx
+  __int64 v15; // rdi
+  __int64 v16; // rdx
   __int64 v17; // rdx
-  __int64 v18; // rcx
-  int v20; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v18; // r8
+  __int64 v19; // r9
+  int v21; // [rsp+78h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -55,7 +56,7 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
   *a3 = v8;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v7);
-  v20 = 0;
+  v21 = 0;
   v9 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v7) == 1 )
     SessionId = MmGetSessionIdEx((__int64)v9->ApcState.Process);
@@ -63,37 +64,36 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
     SessionId = -1;
   --v9->SpecialApcDisable;
   v11 = ++v9->AbAllocationRegionCount;
-  v12 = (_DWORD *)(v7 & 0x7FFFFFFFFFFFFFFCLL);
-  v13 = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
+  v12 = ((char)v9->AbEntrySummary | (char)v9->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
-    v14 = !_BitScanReverse((unsigned int *)&v15, v13);
-    if ( v14 )
+    v13 = !_BitScanReverse((unsigned int *)&v14, v12);
+    if ( v13 )
       break;
-    v16 = (__int64)&v9->LockEntries[v15];
-    v13 &= ~(1 << v15);
-    if ( (*(_BYTE *)(v16 + 26) & 1) != 0
-      && (*(_DWORD *)(v16 + 32) & 1) == 0
-      && (_DWORD *)(*(_QWORD *)(v16 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v12
-      && *(_DWORD *)(v16 + 40) == SessionId )
+    v15 = (__int64)&v9->LockEntries[v14];
+    v12 &= ~(1 << v14);
+    if ( (*(_BYTE *)(v15 + 26) & 1) != 0
+      && (*(_DWORD *)(v15 + 32) & 1) == 0
+      && (*(_QWORD *)(v15 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v7 & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v15 + 40) == SessionId )
     {
-      *(_BYTE *)(v16 + 26) &= ~1u;
-      if ( *(_QWORD *)(v16 + 32) )
+      *(_BYTE *)(v15 + 26) &= ~1u;
+      if ( *(_QWORD *)(v15 + 32) )
       {
-        if ( v16 )
+        if ( v15 )
         {
-          *(_BYTE *)(v16 + 32) |= 2u;
-          if ( *(__int64 *)(v16 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v16);
-          v20 = *(_DWORD *)(v16 + 88) & 0x1FFFF;
-          *(_DWORD *)(v16 + 88) &= 0xFFFE0000;
-          *(_BYTE *)(v16 + 25) &= ~1u;
-          *(_QWORD *)(v16 + 32) = 0LL;
-          v17 = (signed __int64)(v16 - (unsigned __int64)v9->LockEntries) / 96;
+          *(_BYTE *)(v15 + 32) |= 2u;
+          if ( *(__int64 *)(v15 + 32) < 0 )
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v15);
+          v21 = *(_DWORD *)(v15 + 88) & 0x1FFFF;
+          *(_DWORD *)(v15 + 88) &= 0xFFFE0000;
+          *(_BYTE *)(v15 + 25) &= ~1u;
+          *(_QWORD *)(v15 + 32) = 0LL;
+          v16 = (signed __int64)(v15 - (unsigned __int64)v9->LockEntries) / 96;
           if ( v11 == 1 )
-            v9->AbEntrySummary |= 1 << v17;
+            v9->AbEntrySummary |= 1 << v16;
           else
-            _InterlockedOr8((volatile signed __int8 *)&v9->AbOrphanedEntrySummary, 1 << v17);
+            _InterlockedOr8((volatile signed __int8 *)&v9->AbOrphanedEntrySummary, 1 << v16);
           goto LABEL_20;
         }
         break;
@@ -104,9 +104,9 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
     KeBugCheckEx(0x162u, (ULONG_PTR)v9, v7, SessionId, 0LL);
 LABEL_20:
   --v9->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts((ULONG_PTR)v9, v7, (__int64)&v20, v12);
-  v14 = v9->SpecialApcDisable++ == -1;
-  if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)v9->ApcState.ApcListHead[0].Flink != &v9->152 )
-    KiCheckForKernelApcDelivery(v18);
-  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KiAbThreadRemoveBoosts((ULONG_PTR)v9, v7, (unsigned int *)&v21);
+  v13 = v9->SpecialApcDisable++ == -1;
+  if ( v13 && ($C459BD0D405E8E46662177FB3D0A143F *)v9->ApcState.ApcListHead[0].Flink != &v9->152 )
+    KiCheckForKernelApcDelivery();
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread, v17, v18, v19);
 }

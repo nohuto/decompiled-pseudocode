@@ -1,30 +1,34 @@
 /*
- * XREFs of NtReleaseKeyedEvent @ 0x140B28E70
+ * XREFs of NtReleaseKeyedEvent @ 0x140B2B3B0
  * Callers:
- *     DifNtReleaseKeyedEventWrapper @ 0x140688510 (DifNtReleaseKeyedEventWrapper.c)
+ *     DifNtReleaseKeyedEventWrapper @ 0x14068C0F0 (DifNtReleaseKeyedEventWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtReleaseKeyedEvent(void *a1, struct _LIST_ENTRY *a2, BOOLEAN a3, struct _KLOCK_ENTRIES *a4)
+NTSTATUS __cdecl NtReleaseKeyedEvent(
+        HANDLE KeyedEventHandle,
+        PVOID KeyValue,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
-  LARGE_INTEGER *v4; // r15
+  PLARGE_INTEGER v4; // r15
   NTSTATUS v6; // r12d
   char v7; // r14
   struct _KTHREAD *CurrentThread; // rdi
   KPROCESSOR_MODE PreviousMode; // al
   NTSTATUS result; // eax
-  char *v11; // rcx
+  char *Thread; // rcx
   unsigned __int64 *v12; // rsi
   struct _LIST_ENTRY *v13; // r13
   AutoBoost *v14; // rax
@@ -52,50 +56,50 @@ NTSTATUS __fastcall NtReleaseKeyedEvent(void *a1, struct _LIST_ENTRY *a2, BOOLEA
   void *InitialStack; // [rsp+50h] [rbp-58h]
   AutoBoost *v37; // [rsp+60h] [rbp-48h]
   _KPROCESS *Process; // [rsp+68h] [rbp-40h]
-  void *v39; // [rsp+B0h] [rbp+8h]
+  HANDLE v39; // [rsp+B0h] [rbp+8h]
 
-  v39 = a1;
-  v4 = (LARGE_INTEGER *)a4;
+  v39 = KeyedEventHandle;
+  v4 = Timeout;
   v6 = 0;
   v35.QuadPart = 0LL;
   InitialStack = 0LL;
   v7 = 1;
-  if ( ((unsigned __int8)a2 & 1) != 0 )
+  if ( ((unsigned __int8)KeyValue & 1) != 0 )
     return -1073741585;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   WaitMode = PreviousMode;
-  if ( a4 )
+  if ( Timeout )
   {
     if ( PreviousMode )
     {
-      ProbeForRead(a4, 8uLL, 1u);
-      a1 = v39;
+      ProbeForRead(Timeout, 8uLL, 1u);
+      KeyedEventHandle = v39;
     }
     v35 = *v4;
     v4 = &v35;
     PreviousMode = WaitMode;
   }
-  if ( a1 )
+  if ( KeyedEventHandle )
   {
     Object = 0LL;
-    result = ObReferenceObjectByHandle(a1, 2u, ExpKeyedEventObjectType, PreviousMode, &Object, 0LL);
+    result = ObReferenceObjectByHandle(KeyedEventHandle, 2u, ExpKeyedEventObjectType, PreviousMode, &Object, 0LL);
     v6 = result;
-    v11 = (char *)Object;
+    Thread = (char *)Object;
     if ( result < 0 )
       return result;
   }
   else
   {
-    v11 = *(char **)&WheapConfigTableLock.SuspendEvent.Header.Lock;
-    Object = *(PVOID *)&WheapConfigTableLock.SuspendEvent.Header.Lock;
+    Thread = (char *)WheapConfigTableLock.WaitBlock[1].Thread;
+    Object = WheapConfigTableLock.WaitBlock[1].Thread;
   }
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x20u;
   Process = CurrentThread->ApcState.Process;
-  v12 = (unsigned __int64 *)&v11[24 * (((unsigned __int64)a2 >> 5) & 0x3F)];
+  v12 = (unsigned __int64 *)&Thread[24 * (((unsigned __int64)KeyValue >> 5) & 0x3F)];
   v13 = (struct _LIST_ENTRY *)(v12 + 1);
   --CurrentThread->KernelApcDisable;
-  v14 = (AutoBoost *)KeAbPreAcquire((__int64)v12, 0LL, 0LL, a4);
+  v14 = (AutoBoost *)KeAbPreAcquire((__int64)v12, 0LL, 0LL, (struct _KLOCK_ENTRIES *)Timeout);
   v16 = v14;
   v37 = v14;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
@@ -114,7 +118,7 @@ NTSTATUS __fastcall NtReleaseKeyedEvent(void *a1, struct _LIST_ENTRY *a2, BOOLEA
   while ( Flink != v13 )
   {
     p_Blink = &Flink[-77].Blink;
-    if ( Flink[2].Flink == a2 && p_Blink[68] == (struct _LIST_ENTRY *)Process )
+    if ( Flink[2].Flink == KeyValue && p_Blink[68] == (struct _LIST_ENTRY *)Process )
     {
       v19 = Flink->Flink;
       Blink = Flink->Blink;
@@ -133,7 +137,7 @@ LABEL_26:
     v13 = (struct _LIST_ENTRY *)(v12 + 1);
   }
   InitialStack = CurrentThread[1].InitialStack;
-  CurrentThread[1].InitialStack = (void *)((unsigned __int64)a2 | 1);
+  CurrentThread[1].InitialStack = (void *)((unsigned __int64)KeyValue | 1);
   p_WaitListHead = &CurrentThread[1].Header.WaitListHead;
   v24 = v13->Flink;
   if ( v13->Flink->Blink != v13 )
@@ -155,7 +159,7 @@ LABEL_18:
   else
   {
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v21);
-    v6 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, WaitMode, a3, v4);
+    v6 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, WaitMode, Alertable, v4);
     if ( v6 )
     {
       --CurrentThread->KernelApcDisable;

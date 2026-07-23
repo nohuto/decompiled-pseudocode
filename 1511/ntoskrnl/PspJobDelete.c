@@ -134,7 +134,7 @@ void __fastcall PspJobDelete(char *Object)
   if ( *((_QWORD *)Object + 124) )
     IoFreeMiniCompletionPacket();
   if ( (*((_DWORD *)Object + 324) & 0x800) != 0 )
-    ZwDeleteWnfStateName(Object + 888);
+    ZwDeleteWnfStateName((PCWNF_STATE_NAME)Object + 111);
   if ( (*((_DWORD *)Object + 324) & 0x40000) != 0 )
   {
     v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Object + 151);

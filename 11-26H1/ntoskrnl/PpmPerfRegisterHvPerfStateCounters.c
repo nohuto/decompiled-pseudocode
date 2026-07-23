@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmPerfRegisterHvPerfStateCounters @ 0x1407E1D60
+ * XREFs of PpmPerfRegisterHvPerfStateCounters @ 0x1407E6DF0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x1403E62C0 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlRegisterPerfFeedbackCounters @ 0x1405BF554 (HvlRegisterPerfFeedbackCounters.c)
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1402F31A0 (HvlGetLpIndexFromProcessorIndex.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     HvlRegisterPerfFeedbackCounters @ 0x1405C1DC4 (HvlRegisterPerfFeedbackCounters.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
  */
 
 __int64 __fastcall PpmPerfRegisterHvPerfStateCounters(__int64 a1, __int64 a2, unsigned int a3)
@@ -30,7 +30,7 @@ __int64 __fastcall PpmPerfRegisterHvPerfStateCounters(__int64 a1, __int64 a2, un
   v3 = *(_QWORD *)(a1 + 16);
   v4 = *(_QWORD *)(a1 + 8);
   v5 = *(_DWORD *)(v3 + 16);
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
   for ( i = 0; i < v5; ++i )
   {
     v7 = *(_QWORD *)(v3 + 576);
@@ -50,7 +50,7 @@ __int64 __fastcall PpmPerfRegisterHvPerfStateCounters(__int64 a1, __int64 a2, un
       {
         v13 = -1073741811;
 LABEL_16:
-        PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+        PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
         return (unsigned int)v13;
       }
       LpIndexFromProcessorIndex = HvlGetLpIndexFromProcessorIndex(v12);

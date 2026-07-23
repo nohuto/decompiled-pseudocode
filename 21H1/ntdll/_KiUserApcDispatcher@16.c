@@ -11,7 +11,7 @@
 // positive sp value has been detected, the output may be wrong!
 int __stdcall KiUserApcDispatcher(int a1, int a2, int a3, int a4)
 {
-  int v5; // eax
+  NTSTATUS v5; // eax
   void (*v6)(void); // [esp-4h] [ebp-4h]
 
   if ( !LdrDelegatedKiUserApcDispatcher )
@@ -19,7 +19,7 @@ int __stdcall KiUserApcDispatcher(int a1, int a2, int a3, int a4)
     STACK[0x2DC] = (unsigned int)NtCurrentTeb()->NtTib.ExceptionList;
     STACK[0x2E0] = (unsigned int)KiUserApcExceptionHandler;
     v6();
-    v5 = ZwContinue((int)&a4, a3 & 1);
+    v5 = ZwContinue((PCONTEXT)&a4, a3 & 1);
     RtlRaiseStatus(v5);
   }
   return ((int (__stdcall *)(int, int, int, int))LdrDelegatedKiUserApcDispatcher)(a1, a2, a3, a4);

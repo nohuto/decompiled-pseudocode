@@ -14,24 +14,24 @@
  *     ZwDelayExecution @ 0x18009D510 (ZwDelayExecution.c)
  */
 
-__int64 RtlpInitMuiCriticalSection()
+NTSTATUS RtlpInitMuiCriticalSection()
 {
-  __int64 result; // rax
-  __int64 v1; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   while ( _InterlockedCompareExchange(&InitRegistryInfoCritSect, 1, 0) )
   {
-    result = (unsigned int)InitRegistryInfoCritSect;
+    result = InitRegistryInfoCritSect;
     if ( InitRegistryInfoCritSect == 1 )
     {
-      ZwDelayExecution(0LL, &v1);
-      result = (unsigned int)InitRegistryInfoCritSect;
+      ZwDelayExecution(0, &DelayInterval);
+      result = InitRegistryInfoCritSect;
     }
-    if ( (_DWORD)result == 2 )
+    if ( result == 2 )
       return result;
   }
-  result = RtlInitializeCriticalSectionEx(&RegistryInfoCritSect, 0LL, 0LL);
+  result = RtlInitializeCriticalSectionEx(&RegistryInfoCritSect, 0, 0);
   InitRegistryInfoCritSect = 2;
   return result;
 }

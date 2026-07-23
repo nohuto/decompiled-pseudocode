@@ -8,10 +8,10 @@
 
 __int64 LdrpInitializeSnapsBuffer()
 {
-  void *Heap; // rax
+  PVOID Heap; // rax
   __int64 result; // rax
 
-  Heap = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x1000uLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x1000uLL);
   if ( !Heap )
     return 3221225495LL;
   qword_1801D47E8 = Heap;

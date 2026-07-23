@@ -3,13 +3,13 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PiDmEnumObjectsWithCallback @ 0x1405012F0 (PiDmEnumObjectsWithCallback.c)
- *     PipOpenServiceEnumKeys @ 0x140538DE4 (PipOpenServiceEnumKeys.c)
- *     PiDevCfgQueryObjectProperties @ 0x14057A954 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgSetObjectProperty @ 0x140640FCC (PiDevCfgSetObjectProperty.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1404E4280 (PiDmEnumObjectsWithCallback.c)
+ *     PipOpenServiceEnumKeys @ 0x140539324 (PipOpenServiceEnumKeys.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14057AE94 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgSetObjectProperty @ 0x1406410B0 (PiDevCfgSetObjectProperty.c)
  */
 
 __int64 PpDevCfgInit()

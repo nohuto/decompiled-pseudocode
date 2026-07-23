@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRecoverEnlistment()
+NTSTATUS __cdecl ZwRecoverEnlistment(HANDLE EnlistmentHandle, PVOID EnlistmentKey)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 361LL;
+  result = 361;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

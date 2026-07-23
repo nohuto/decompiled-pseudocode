@@ -43,10 +43,13 @@ __int64 __fastcall MiComputeFlushRange(__int64 *a1, int a2, int a3, int a4, __in
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v10 + 72) )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -70,10 +73,10 @@ __int64 __fastcall MiComputeFlushRange(__int64 *a1, int a2, int a3, int a4, __in
   v14 = (volatile LONG *)(v10 + 72);
 LABEL_8:
   ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v20 >= 2u )
     {
       v21 = KeGetCurrentPrcb();
       v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));

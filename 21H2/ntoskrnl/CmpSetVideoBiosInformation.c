@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSetVideoBiosInformation @ 0x140A592D0
+ * XREFs of CmpSetVideoBiosInformation @ 0x140A5A2D0
  * Callers:
- *     CmpInitializeMachineDependentConfiguration @ 0x140A58C04 (CmpInitializeMachineDependentConfiguration.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140A59C04 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwMapViewOfSection @ 0x1403FA8A0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     CmpGetBiosVersion @ 0x140A597C0 (CmpGetBiosVersion.c)
- *     CmpGetBiosDate @ 0x140A59980 (CmpGetBiosDate.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwMapViewOfSection @ 0x1403FAA80 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403FAAC0 (ZwUnmapViewOfSection.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     CmpGetBiosVersion @ 0x140A5A7C0 (CmpGetBiosVersion.c)
+ *     CmpGetBiosDate @ 0x140A5A980 (CmpGetBiosDate.c)
  */
 
 void __fastcall CmpSetVideoBiosInformation(HANDLE SectionHandle, HANDLE KeyHandle)
@@ -32,7 +32,7 @@ void __fastcall CmpSetVideoBiosInformation(HANDLE SectionHandle, HANDLE KeyHandl
   ULONG_PTR ViewSize; // [rsp+70h] [rbp-90h] BYREF
   STRING v14; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  char SourceString[128]; // [rsp+A0h] [rbp-60h] BYREF
+  CHAR SourceString[128]; // [rsp+A0h] [rbp-60h] BYREF
 
   BaseAddress = 0LL;
   SectionOffset.QuadPart = 0LL;

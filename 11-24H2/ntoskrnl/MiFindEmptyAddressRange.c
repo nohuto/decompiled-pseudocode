@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindEmptyAddressRange @ 0x1408E19C0
+ * XREFs of MiFindEmptyAddressRange @ 0x140918570
  * Callers:
- *     MiSelectUserAddress @ 0x1408E15D0 (MiSelectUserAddress.c)
+ *     MiSelectUserAddress @ 0x140918180 (MiSelectUserAddress.c)
  * Callees:
- *     RtlFindClearBitsEx @ 0x1403F69F0 (RtlFindClearBitsEx.c)
- *     MiExpandVadBitMap @ 0x1408E1EE4 (MiExpandVadBitMap.c)
- *     MiFindClearVadBitsAligned @ 0x1408E3370 (MiFindClearVadBitsAligned.c)
- *     MiFindEmptyAddressRangeInTree @ 0x140A1AE7C (MiFindEmptyAddressRangeInTree.c)
+ *     RtlFindClearBitsEx @ 0x1403ECBF0 (RtlFindClearBitsEx.c)
+ *     MiExpandVadBitMap @ 0x140918A94 (MiExpandVadBitMap.c)
+ *     MiFindClearVadBitsAligned @ 0x140919F20 (MiFindClearVadBitsAligned.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x140A136BC (MiFindEmptyAddressRangeInTree.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRange(
@@ -112,8 +112,8 @@ LABEL_7:
     if ( v18 != 1 && v18 >= *(_QWORD *)(a1 + 24) )
       v19 = *(_QWORD *)(a1 + 32);
     v20 = v43[1];
-    v21 = qword_140E2F288;
-    v22 = (v43[1] - qword_140E2F288) << 19;
+    v21 = qword_140E2F3C8;
+    v22 = (v43[1] - qword_140E2F3C8) << 19;
     if ( v9 <= v22 )
       goto LABEL_27;
     if ( a5 && (v34 = (a5 + 0x3FFFFF) & 0xFFFFFFFFFFC00000uLL, v34 > v22) )
@@ -165,7 +165,7 @@ LABEL_27:
     }
     else
     {
-      v27 = (ClearBits + 8 * (v20 - qword_140E2F288)) << 16;
+      v27 = (ClearBits + 8 * (v20 - qword_140E2F3C8)) << 16;
       if ( v27 < a5 || v27 + (v18 << 16) - 1 > v9 )
         goto LABEL_27;
       v28 = v44;

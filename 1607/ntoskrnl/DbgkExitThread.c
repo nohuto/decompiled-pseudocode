@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkExitThread @ 0x14061AC08
+ * XREFs of DbgkExitThread @ 0x14061ACBC
  * Callers:
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     DbgkpSendApiMessage @ 0x14061A30C (DbgkpSendApiMessage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     DbgkpSendApiMessage @ 0x14061A3C0 (DbgkpSendApiMessage.c)
  */
 
 struct _KTHREAD *__fastcall DbgkExitThread(int a1)

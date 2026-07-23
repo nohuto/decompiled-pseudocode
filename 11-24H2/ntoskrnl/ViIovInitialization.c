@@ -1,15 +1,15 @@
 /*
- * XREFs of ViIovInitialization @ 0x140BA4ED4
+ * XREFs of ViIovInitialization @ 0x140BA6ED4
  * Callers:
- *     VfIovPluginEntry @ 0x1406A3D60 (VfIovPluginEntry.c)
+ *     VfIovPluginEntry @ 0x1406A4D60 (VfIovPluginEntry.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x14045FB10 (ExInitializeNPagedLookasideListInternal.c)
- *     VfAvlInitializeTree @ 0x1406106F4 (VfAvlInitializeTree.c)
- *     ExSetPoolFlags @ 0x140654824 (ExSetPoolFlags.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     IoVerifierInit @ 0x140B82314 (IoVerifierInit.c)
- *     VfMajorRegisterHandlers @ 0x140B93030 (VfMajorRegisterHandlers.c)
- *     VfWdInit @ 0x140B9C8F8 (VfWdInit.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404549D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     VfAvlInitializeTree @ 0x14060ECB4 (VfAvlInitializeTree.c)
+ *     ExSetPoolFlags @ 0x140652F24 (ExSetPoolFlags.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     IoVerifierInit @ 0x140B84318 (IoVerifierInit.c)
+ *     VfMajorRegisterHandlers @ 0x140B95030 (VfMajorRegisterHandlers.c)
+ *     VfWdInit @ 0x140B9E8F8 (VfWdInit.c)
  */
 
 void ViIovInitialization()
@@ -121,18 +121,18 @@ void ViIovInitialization()
     0LL,
     (__int64)VfWmiTestStartedPdoStack,
     0LL);
-  qword_140FFF6B0 = 0LL;
-  qword_140FFF6A0 = (__int64)ViGenericVerifyIrpStackDownward;
-  qword_140FFF698 = (__int64)ViSpIoAllocateIrp_Exit;
-  qword_140FFF6A8 = (__int64)ViGenericVerifyIrpStackUpward;
-  qword_140FFF690 = (__int64)ViGenericDumpIrpStack;
-  qword_140FFF6C0 = (__int64)ViGenericIsValidIrpStatus;
-  qword_140FFF6C8 = (__int64)ViGenericIsNewRequest;
-  qword_140FFF6D0 = (__int64)ViGenericVerifyNewIrp;
-  qword_140FFF6D8 = (__int64)ViSpIoAllocateIrp_Exit;
-  qword_140FFF6E8 = (__int64)ViGenericBuildIrpLogEntry;
-  qword_140FFF6B8 = 0LL;
-  qword_140FFF6E0 = 0LL;
+  qword_1410006B0 = 0LL;
+  qword_1410006A0 = (__int64)ViGenericVerifyIrpStackDownward;
+  qword_141000698 = (__int64)ViSpIoAllocateIrp_Exit;
+  qword_1410006A8 = (__int64)ViGenericVerifyIrpStackUpward;
+  qword_141000690 = (__int64)ViGenericDumpIrpStack;
+  qword_1410006C0 = (__int64)ViGenericIsValidIrpStatus;
+  qword_1410006C8 = (__int64)ViGenericIsNewRequest;
+  qword_1410006D0 = (__int64)ViGenericVerifyNewIrp;
+  qword_1410006D8 = (__int64)ViSpIoAllocateIrp_Exit;
+  qword_1410006E8 = (__int64)ViGenericBuildIrpLogEntry;
+  qword_1410006B8 = 0LL;
+  qword_1410006E0 = 0LL;
   if ( !ViRemLockInitialized )
   {
     if ( (int)VfAvlInitializeTree(&ViRemLockAvl) < 0 )

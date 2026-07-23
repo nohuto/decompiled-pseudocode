@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogContinueTrim @ 0x140634E18
+ * XREFs of MiLogContinueTrim @ 0x140635368
  * Callers:
- *     MiCheckSystemTrimEndCriteria @ 0x14063426C (MiCheckSystemTrimEndCriteria.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x1406347BC (MiCheckSystemTrimEndCriteria.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void MiLogContinueTrim()
@@ -62,7 +62,7 @@ void MiLogContinueTrim()
       v21 = v0 + 7;
       v24 = v0 + 7;
       v12 = 4;
-      tlgWriteTransfer_EtwWriteTransfer(v2, (unsigned __int8 *)byte_140038973, 0LL, 0LL, 7u, &v10);
+      tlgWriteTransfer_EtwWriteTransfer(v2, (unsigned __int8 *)byte_140038A5B, 0LL, 0LL, 7u, &v10);
     }
   }
 }

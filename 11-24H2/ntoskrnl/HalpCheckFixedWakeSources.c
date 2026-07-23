@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCheckFixedWakeSources @ 0x140B6B1B0
+ * XREFs of HalpCheckFixedWakeSources @ 0x140B6CA9C
  * Callers:
- *     HalpAcpiPostSleep @ 0x140B6A5BC (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140B6BE80 (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpAcpiPmRegisterRead @ 0x14041D360 (HalpAcpiPmRegisterRead.c)
- *     HalpAcpiPmRegisterAvailable @ 0x140438240 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x140411C50 (HalpAcpiPmRegisterRead.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x14042AE00 (HalpAcpiPmRegisterAvailable.c)
  */
 
 __int64 HalpCheckFixedWakeSources()
@@ -16,8 +16,8 @@ __int64 HalpCheckFixedWakeSources()
   __int64 result; // rax
   __int16 v5; // [rsp+50h] [rbp+8h] BYREF
 
-  v0 = dword_140FC0D50;
-  v1 = byte_140FC0CE8;
+  v0 = dword_140FC0FF0;
+  v1 = byte_140FC0F88;
   v5 = 0;
   v2 = 0;
   v3 = 0;

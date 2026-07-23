@@ -1,14 +1,14 @@
 /*
- * XREFs of SePrivilegedServiceAuditAlarm @ 0x140853B30
+ * XREFs of SePrivilegedServiceAuditAlarm @ 0x14084FDF0
  * Callers:
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140851390 (ObpGrantAccess.c)
- *     ObpAdjustCreatorAccessState @ 0x14087AD00 (ObpAdjustCreatorAccessState.c)
- *     RtlpNewSecurityObject @ 0x14091A290 (RtlpNewSecurityObject.c)
- *     PspSetQuotaLimits @ 0x1409AFD58 (PspSetQuotaLimits.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14084D650 (ObpGrantAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x14087EBB0 (ObpAdjustCreatorAccessState.c)
+ *     RtlpNewSecurityObject @ 0x14090DD00 (RtlpNewSecurityObject.c)
+ *     PspSetQuotaLimits @ 0x140999A58 (PspSetQuotaLimits.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140853560 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14084F820 (SepAdtPrivilegedServiceAuditAlarm.c)
  */
 
 void __fastcall SePrivilegedServiceAuditAlarm(

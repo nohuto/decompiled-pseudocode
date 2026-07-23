@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwOpenSession @ 0x140725AF0
+ * XREFs of ZwOpenSession @ 0x14072A6C0
  * Callers:
- *     DifZwOpenSessionWrapper @ 0x1406AD7A0 (DifZwOpenSessionWrapper.c)
+ *     DifZwOpenSessionWrapper @ 0x1406B1380 (DifZwOpenSessionWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenSession(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenSession(PHANDLE SessionHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SessionHandle);
 }

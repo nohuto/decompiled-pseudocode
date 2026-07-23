@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcMapDataForOverwrite @ 0x14029C154 (CcMapDataForOverwrite.c)
+ *     sub_14029C154 @ 0x14029C154 (sub_14029C154.c)
  *     CcSetDirtyPinnedData @ 0x14029D3D0 (CcSetDirtyPinnedData.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
+ *     sub_14032AD00 @ 0x14032AD00 (sub_14032AD00.c)
  *     memset @ 0x140435E00 (memset.c)
  *     CcUnpinData @ 0x1406FE6A0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x14080C6EC (CcAllocateObcb.c)
+ *     sub_14080C6EC @ 0x14080C6EC (sub_14080C6EC.c)
  */
 
 BOOLEAN __stdcall CcPreparePinWrite(
@@ -42,7 +42,7 @@ BOOLEAN __stdcall CcPreparePinWrite(
   p_BcbVoid = &BcbVoid;
   if ( (Flags & 0x20) != 0 )
   {
-    CcMapDataForOverwrite((__int64)FileObject, FileOffset, Length, Bcb, (__int64 *)Buffer);
+    sub_14029C154((__int64)FileObject, FileOffset, Length, Bcb, (__int64 *)Buffer);
     return 1;
   }
   else
@@ -54,7 +54,7 @@ BOOLEAN __stdcall CcPreparePinWrite(
       {
         if ( p_BcbVoid == &BcbVoid )
         {
-          BcbVoid = (PVOID)CcAllocateObcb(FileOffset, v8);
+          BcbVoid = (PVOID)sub_14080C6EC(FileOffset, v8);
           p_BcbVoid = (PVOID *)((char *)BcbVoid + 16);
           v21 = (PVOID *)((char *)BcbVoid + 16);
           *Buffer = v20;
@@ -65,7 +65,7 @@ BOOLEAN __stdcall CcPreparePinWrite(
         v18 = v11;
         v21 = ++p_BcbVoid;
       }
-      if ( !(unsigned __int8)CcPinFileData(
+      if ( !(unsigned __int8)sub_14032AD00(
                                (__int64)FileObject,
                                &v18,
                                v8,

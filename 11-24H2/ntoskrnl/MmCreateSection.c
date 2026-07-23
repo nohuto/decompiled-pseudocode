@@ -1,15 +1,15 @@
 /*
- * XREFs of MmCreateSection @ 0x140940B50
+ * XREFs of MmCreateSection @ 0x14098ADB0
  * Callers:
- *     DifMmCreateSectionWrapper @ 0x140632EA0 (DifMmCreateSectionWrapper.c)
- *     NtCreateIoRing @ 0x140717160 (NtCreateIoRing.c)
- *     PspApiSetCopyToSystemSpace @ 0x1407723E8 (PspApiSetCopyToSystemSpace.c)
- *     PspSiloInitializeUserSharedData @ 0x140773424 (PspSiloInitializeUserSharedData.c)
- *     EtwpCoverageEnsureContext @ 0x140903F90 (EtwpCoverageEnsureContext.c)
- *     MiInitializeCfg @ 0x140C58EE4 (MiInitializeCfg.c)
- *     MiInitializeApiSets @ 0x140C5B068 (MiInitializeApiSets.c)
+ *     DifMmCreateSectionWrapper @ 0x140631460 (DifMmCreateSectionWrapper.c)
+ *     NtCreateIoRing @ 0x140714CF0 (NtCreateIoRing.c)
+ *     PspApiSetCopyToSystemSpace @ 0x140772608 (PspApiSetCopyToSystemSpace.c)
+ *     PspSiloInitializeUserSharedData @ 0x140773644 (PspSiloInitializeUserSharedData.c)
+ *     EtwpCoverageEnsureContext @ 0x140ADAD8C (EtwpCoverageEnsureContext.c)
+ *     MiInitializeCfg @ 0x140C5B074 (MiInitializeCfg.c)
+ *     MiInitializeApiSets @ 0x140C5D1F8 (MiInitializeApiSets.c)
  * Callees:
- *     MmCreateSectionEx @ 0x140940C6C (MmCreateSectionEx.c)
+ *     MmCreateSectionEx @ 0x14098AECC (MmCreateSectionEx.c)
  */
 
 __int64 __fastcall MmCreateSection(int a1, __int64 a2, int a3, _QWORD *a4, int a5, int a6, __int64 a7, __int64 a8)

@@ -1,9 +1,9 @@
 /*
- * XREFs of towlower @ 0x180095990
+ * XREFs of towlower @ 0x1800959A0
  * Callers:
  *     RtlCanonicalizeDomainName @ 0x1800464A0 (RtlCanonicalizeDomainName.c)
  * Callees:
- *     iswctype @ 0x180093860 (iswctype.c)
+ *     iswctype @ 0x180093870 (iswctype.c)
  */
 
 wint_t __cdecl towlower(wint_t C)

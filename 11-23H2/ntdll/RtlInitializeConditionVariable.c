@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __fastcall RtlInitializeConditionVariable(_QWORD *a1)
+void __cdecl RtlInitializeConditionVariable(PRTL_CONDITION_VARIABLE ConditionVariable)
 {
-  *a1 = 0LL;
+  ConditionVariable->Ptr = 0LL;
 }

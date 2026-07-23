@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyLocales @ 0x140ADD7A4
+ * XREFs of _CmGetDeviceMappedPropertyLocales @ 0x140ADA514
  * Callers:
- *     _PnpDispatchDevice @ 0x1409956A0 (_PnpDispatchDevice.c)
+ *     _PnpDispatchDevice @ 0x140956100 (_PnpDispatchDevice.c)
  * Callees:
  *     <none>
  */
@@ -57,7 +57,7 @@ LABEL_9:
   }
   for ( i = 0; i < 2; ++i )
   {
-    v13 = (__int64)*(&off_140BD9560 + 4 * i);
+    v13 = (__int64)*(&off_140BE03F0 + 4 * i);
     if ( v13 && *(_DWORD *)(a4 + 16) == *(_DWORD *)(v13 + 16) )
     {
       v17 = *(_QWORD *)a4 - *(_QWORD *)v13;
@@ -69,7 +69,7 @@ LABEL_9:
   }
   for ( j = 0; j < 0x1C; ++j )
   {
-    v15 = (__int64)*(&off_140BDB9A0 + 2 * j);
+    v15 = (__int64)*(&off_140BE2850 + 2 * j);
     if ( *(_DWORD *)(a4 + 16) == *(_DWORD *)(v15 + 16) )
     {
       v16 = *(_QWORD *)a4 - *(_QWORD *)v15;

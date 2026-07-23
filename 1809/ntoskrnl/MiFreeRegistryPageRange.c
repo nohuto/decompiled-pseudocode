@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeRegistryPageRange @ 0x1409C5664
+ * XREFs of MiFreeRegistryPageRange @ 0x1409C6664
  * Callers:
- *     MmFreeLoaderBlock @ 0x1409C5164 (MmFreeLoaderBlock.c)
+ *     MmFreeLoaderBlock @ 0x1409C6164 (MmFreeLoaderBlock.c)
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
  */
 
 __int64 __fastcall MiFreeRegistryPageRange(__int64 a1, __int64 a2)

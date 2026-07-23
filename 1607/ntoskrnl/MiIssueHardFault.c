@@ -1,34 +1,34 @@
 /*
- * XREFs of MiIssueHardFault @ 0x140024930
+ * XREFs of MiIssueHardFault @ 0x1400244B0
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiResolvePageTablePage @ 0x14003FD10 (MiResolvePageTablePage.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiResolvePageTablePage @ 0x14003F890 (MiResolvePageTablePage.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiLockPageAndSetDirty @ 0x140015578 (MiLockPageAndSetDirty.c)
- *     MiIssueHardFaultIo @ 0x1400237A4 (MiIssueHardFaultIo.c)
- *     MiReferenceInPageFile @ 0x140024E50 (MiReferenceInPageFile.c)
- *     MiGetSessionIdForVa @ 0x140024FA4 (MiGetSessionIdForVa.c)
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     MiGetEffectivePagePriorityThread @ 0x140026DB4 (MiGetEffectivePagePriorityThread.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiLogPageAccess @ 0x140048940 (MiLogPageAccess.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     PfHardFaultRecord @ 0x1400A1524 (PfHardFaultRecord.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     MiZeroPhysicalPage @ 0x14010A488 (MiZeroPhysicalPage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeTransitionPteValid @ 0x1401F27C4 (MiMakeTransitionPteValid.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiLockPageAndSetDirty @ 0x1400150F8 (MiLockPageAndSetDirty.c)
+ *     MiIssueHardFaultIo @ 0x140023324 (MiIssueHardFaultIo.c)
+ *     MiReferenceInPageFile @ 0x1400249D0 (MiReferenceInPageFile.c)
+ *     MiGetSessionIdForVa @ 0x140024B24 (MiGetSessionIdForVa.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140026934 (MiGetEffectivePagePriorityThread.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiLogPageAccess @ 0x1400484C0 (MiLogPageAccess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     PfHardFaultRecord @ 0x14009FE4C (PfHardFaultRecord.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     MiZeroPhysicalPage @ 0x140108208 (MiZeroPhysicalPage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeTransitionPteValid @ 0x1401F25F0 (MiMakeTransitionPteValid.c)
  */
 
 __int64 __fastcall MiIssueHardFault(
@@ -118,7 +118,7 @@ __int64 __fastcall MiIssueHardFault(
     v17 = *(_BYTE *)(a4 + 189);
     if ( (v17 & 4) == 0 || (*(_BYTE *)(a4 + 191) & 0x10) == 0 || v17 < 0 )
     {
-      if ( ((PerfGlobalGroupMask & 0x2000) != 0 || (dword_14033B814 & 1) != 0) && v17 >= 0 && (v17 & 4) == 0 )
+      if ( ((PerfGlobalGroupMask & 0x2000) != 0 || (dword_14033B854 & 1) != 0) && v17 >= 0 && (v17 & 4) == 0 )
       {
         v18 = *(_QWORD *)(a4 + 96);
         v19 = *(_QWORD *)(a4 + 216);
@@ -234,7 +234,7 @@ LABEL_70:
     if ( MiAllocateWsle(a1, v28, v27, 0LL, v35, v37) )
     {
 LABEL_47:
-      if ( dword_140327188 && (_DWORD)v41 != 2 && (unsigned int)MiGetEffectivePagePriorityThread(v7) >= dword_1403271B0 )
+      if ( dword_1403271C8 && (_DWORD)v41 != 2 && (unsigned int)MiGetEffectivePagePriorityThread(v7) >= dword_1403271F0 )
         MiLogPageAccess(a1, v28 | 1);
       if ( !v29 )
         return 276;

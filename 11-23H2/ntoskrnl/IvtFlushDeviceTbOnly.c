@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtFlushDeviceTbOnly @ 0x14052C600
+ * XREFs of IvtFlushDeviceTbOnly @ 0x14052CB50
  * Callers:
  *     <none>
  * Callees:
- *     IvtIommuWaitCommand @ 0x1403602B4 (IvtIommuWaitCommand.c)
- *     IvtIommuSendCommand @ 0x1403603E4 (IvtIommuSendCommand.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     IvtIommuWaitCommand @ 0x140360454 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x140360584 (IvtIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IvtFlushDeviceTbOnly(__int64 a1, unsigned __int16 a2, char a3)

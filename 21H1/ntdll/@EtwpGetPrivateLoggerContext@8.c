@@ -19,7 +19,7 @@ int __fastcall EtwpGetPrivateLoggerContext(int a1, _DWORD *a2)
   unsigned int v5; // ecx
   int v6; // eax
   int result; // eax
-  UNICODE_STRING DestinationString; // [esp+8h] [ebp-Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+8h] [ebp-Ch] BYREF
   unsigned int v9; // [esp+10h] [ebp-4h] BYREF
 
   if ( *(_WORD *)(a1 + 144) )

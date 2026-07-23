@@ -6,10 +6,10 @@
  *     RtlGetCurrentServiceSessionId @ 0x180040780 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    return *((unsigned int *)NtCurrentPeb()->HotpatchInformation + 1);
+  if ( RtlGetCurrentServiceSessionId() )
+    return NtCurrentPeb()->SharedData->ActiveConsoleId;
   else
     return MEMORY[0x7FFE02D8];
 }

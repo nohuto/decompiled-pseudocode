@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQuerySection @ 0x1401B8BB0
+ * XREFs of ZwQuerySection @ 0x1401B8D10
  * Callers:
  *     CmSiGetSectionLength @ 0x14000F130 (CmSiGetSectionLength.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQuerySection(
         HANDLE SectionHandle,
         SECTION_INFORMATION_CLASS SectionInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQuerySection(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SectionHandle, *(_QWORD *)&SectionInformationClass, SectionInformation);
+  return KiServiceInternal(SectionHandle);
 }

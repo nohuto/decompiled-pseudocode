@@ -1,9 +1,9 @@
 /*
- * XREFs of ExCopyWakeTimerInfo @ 0x14022E118
+ * XREFs of ExCopyWakeTimerInfo @ 0x14022DF44
  * Callers:
  *     PopHandleWakeSources @ 0x1403D0AEC (PopHandleWakeSources.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

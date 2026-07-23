@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLiveDumpMarkImportantDumpData @ 0x140A9BA00
+ * XREFs of IopLiveDumpMarkImportantDumpData @ 0x140A9B870
  * Callers:
- *     IopLiveDumpCollectPages @ 0x140A9AB04 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x140A9A974 (IopLiveDumpCollectPages.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559D3C (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559D90 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTraceMarkImportantDumpDataDuration @ 0x14055AF18 (IopLiveDumpTraceMarkImportantDumpDataDuration.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055A3FC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14055A450 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTraceMarkImportantDumpDataDuration @ 0x14055B5D8 (IopLiveDumpTraceMarkImportantDumpDataDuration.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 a2)
@@ -44,7 +44,7 @@ __int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 a2)
   if ( (v6 & 0x80u) != 0 )
     MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
   v7 = 0LL;
-  v8 = off_140C074B8;
+  v8 = off_140C074A8;
   while ( 1 )
   {
     v12 = ((__int64 (__fastcall *)(__int64))v8[1])(a1);

@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwCreateSemaphore()
+NTSTATUS __cdecl ZwCreateSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LONG InitialCount,
+        LONG MaximumCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 185LL;
+  result = 185;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfTCreateTraceDump @ 0x140683AC0
+ * XREFs of PfTCreateTraceDump @ 0x140684C80
  * Callers:
- *     PfTGenerateTrace @ 0x140683A70 (PfTGenerateTrace.c)
+ *     PfTGenerateTrace @ 0x140684C30 (PfTGenerateTrace.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfTFreeBufferList @ 0x1406842B8 (PfTFreeBufferList.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PfTFreeBufferList @ 0x140685478 (PfTFreeBufferList.c)
  */
 
 __int64 __fastcall PfTCreateTraceDump(_QWORD *a1)
@@ -92,11 +92,11 @@ __int64 __fastcall PfTCreateTraceDump(_QWORD *a1)
   char *v80; // [rsp+148h] [rbp+20h]
 
   memset(v76, 0, sizeof(v76));
-  v1 = qword_14043BB98;
-  v2 = qword_14043BBA0;
+  v1 = qword_14043CC58;
+  v2 = qword_14043CC60;
   v3 = 0;
   v4 = 0;
-  for ( i = 0; (__int64 *)v1 != &qword_14043BB98; v1 = *(_QWORD *)v1 )
+  for ( i = 0; (__int64 *)v1 != &qword_14043CC58; v1 = *(_QWORD *)v1 )
     i += *(_DWORD *)(v1 + 32);
   v6 = 2LL * i;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x74546650u);
@@ -108,8 +108,8 @@ __int64 __fastcall PfTCreateTraceDump(_QWORD *a1)
     goto LABEL_63;
   }
   memset(PoolWithTag, 0, v6);
-  v10 = &qword_14043BB70;
-  v11 = *(_WORD *)(qword_14043BBA0 + 36);
+  v10 = &qword_14043CC30;
+  v11 = *(_WORD *)(qword_14043CC60 + 36);
   v79 = v11;
   do
   {
@@ -162,8 +162,8 @@ LABEL_9:
           while ( 1 )
           {
             v67 = *(_QWORD *)(v67 + 8);
-            if ( (__int64 *)v67 == &qword_14043BB98 )
-              v67 = qword_14043BBA0;
+            if ( (__int64 *)v67 == &qword_14043CC58 )
+              v67 = qword_14043CC60;
             if ( v67 == v2 )
               break;
             v68 = *(_WORD *)(v67 + 36);
@@ -194,8 +194,8 @@ LABEL_15:
           while ( 1 )
           {
             v69 = *(_QWORD *)(v69 + 8);
-            if ( (__int64 *)v69 == &qword_14043BB98 )
-              v69 = qword_14043BBA0;
+            if ( (__int64 *)v69 == &qword_14043CC58 )
+              v69 = qword_14043CC60;
             if ( v69 == v2 )
               break;
             v70 = *(_WORD *)(v69 + 36);
@@ -240,7 +240,7 @@ LABEL_20:
 LABEL_28:
     ;
   }
-  while ( v10 != (__int64 *)qword_14043BB70 );
+  while ( v10 != (__int64 *)qword_14043CC30 );
   if ( v3 )
   {
     v27 = 16 * v3;
@@ -252,7 +252,7 @@ LABEL_28:
     {
       v31 = (char *)(v30 + 4);
       v30[2] = 0LL;
-      v32 = &qword_14043BB70;
+      v32 = &qword_14043CC30;
       v30[3] = 0LL;
       v30[4] = 0LL;
       v30[5] = 0LL;
@@ -332,8 +332,8 @@ LABEL_28:
                   while ( 1 )
                   {
                     v63 = *(_QWORD *)(v63 + 8);
-                    if ( (__int64 *)v63 == &qword_14043BB98 )
-                      v63 = qword_14043BBA0;
+                    if ( (__int64 *)v63 == &qword_14043CC58 )
+                      v63 = qword_14043CC60;
                     if ( v63 == v2 )
                       break;
                     v64 = *(_WORD *)(v63 + 36);
@@ -362,8 +362,8 @@ LABEL_46:
                   while ( 1 )
                   {
                     v65 = *(_QWORD *)(v65 + 8);
-                    if ( (__int64 *)v65 == &qword_14043BB98 )
-                      v65 = qword_14043BBA0;
+                    if ( (__int64 *)v65 == &qword_14043CC58 )
+                      v65 = qword_14043CC60;
                     if ( v65 == v2 )
                       break;
                     v66 = *(_WORD *)(v65 + 36);
@@ -447,7 +447,7 @@ LABEL_59:
           v9 = 0;
         }
       }
-      while ( v32 != (__int64 *)qword_14043BB70 );
+      while ( v32 != (__int64 *)qword_14043CC30 );
       v56 = HIWORD(v76[10]);
       v8 = P;
       *((_DWORD *)v31 + 5) = LODWORD(v76[9]) - *((_DWORD *)v31 + 4) - (_DWORD)v31;
@@ -465,7 +465,7 @@ LABEL_59:
   }
   ExFreePoolWithTag(v8, 0);
 LABEL_63:
-  PfTFreeBufferList(&unk_14043BB58);
-  PfTFreeBufferList(&unk_14043BB80);
+  PfTFreeBufferList(&unk_14043CC18);
+  PfTFreeBufferList(&unk_14043CC40);
   return v9;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDereferenceSegmentThread @ 0x1401875A0
+ * XREFs of MiDereferenceSegmentThread @ 0x1401876E0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     MiDeleteEmptySubsections @ 0x140093928 (MiDeleteEmptySubsections.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
- *     MiDeleteCachedSegment @ 0x1402A1864 (MiDeleteCachedSegment.c)
- *     MiDeleteControlAreaList @ 0x1402A21C8 (MiDeleteControlAreaList.c)
- *     MiProcessDeleteOnClose @ 0x1402A2980 (MiProcessDeleteOnClose.c)
- *     MiRemoveUnusedSegments @ 0x1402A3030 (MiRemoveUnusedSegments.c)
- *     MiFreeClonePool @ 0x1402C9FE8 (MiFreeClonePool.c)
+ *     MiDeleteEmptySubsections @ 0x140093868 (MiDeleteEmptySubsections.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     MiProcessDereferenceList @ 0x140154150 (MiProcessDereferenceList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CcUnmapInactiveViews @ 0x14026AB50 (CcUnmapInactiveViews.c)
+ *     MiDeleteCachedSegment @ 0x1402A1A54 (MiDeleteCachedSegment.c)
+ *     MiDeleteControlAreaList @ 0x1402A23B8 (MiDeleteControlAreaList.c)
+ *     MiProcessDeleteOnClose @ 0x1402A2B70 (MiProcessDeleteOnClose.c)
+ *     MiRemoveUnusedSegments @ 0x1402A3220 (MiRemoveUnusedSegments.c)
+ *     MiFreeClonePool @ 0x1402CA1D8 (MiFreeClonePool.c)
  */
 
 ULONG_PTR *__fastcall MiDereferenceSegmentThread(__int64 a1)
@@ -43,7 +43,7 @@ ULONG_PTR *__fastcall MiDereferenceSegmentThread(__int64 a1)
   Object[3] = (PVOID)(a1 + 1336);
   Object[5] = (PVOID)(a1 + 1688);
   Object[6] = (PVOID)(a1 + 1744);
-  Object[7] = &stru_14043A538;
+  Object[7] = &stru_14043B5F8;
   while ( 1 )
   {
     v3 = KeWaitForMultipleObjects(
@@ -79,9 +79,9 @@ ULONG_PTR *__fastcall MiDereferenceSegmentThread(__int64 a1)
               {
                 if ( v9 == 1 )
                 {
-                  KeResetEvent(&stru_14043A538);
+                  KeResetEvent(&stru_14043B5F8);
                   while ( (unsigned int)CcUnmapInactiveViews(0LL, v10, 1LL, 0LL)
-                       && (unsigned __int64)qword_14043A1C8 <= 0x8000000 )
+                       && (unsigned __int64)qword_14043B288 <= 0x8000000 )
                     ;
                 }
               }

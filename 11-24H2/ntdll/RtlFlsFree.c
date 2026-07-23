@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFlsFree @ 0x18010B970
+ * XREFs of RtlFlsFree @ 0x180106340
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlFlsFree(int a1)
+NTSTATUS __cdecl RtlFlsFree(ULONG FlsIndex)
 {
-  return RtlpFlsFree(&RtlpFlsContext, a1);
+  return RtlpFlsFree(&RtlpFlsContext, FlsIndex);
 }

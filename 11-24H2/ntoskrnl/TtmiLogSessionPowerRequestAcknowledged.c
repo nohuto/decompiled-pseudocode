@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionPowerRequestAcknowledged @ 0x14076E06C
+ * XREFs of TtmiLogSessionPowerRequestAcknowledged @ 0x14076E28C
  * Callers:
- *     TtmNotifySessionPowerRequestPresent @ 0x140769D28 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x140769F48 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionPowerRequestAcknowledged(
@@ -56,7 +56,7 @@ void __fastcall TtmiLogSessionPowerRequestAcknowledged(
   int v43; // [rsp+F8h] [rbp-8h]
   int v44; // [rsp+FCh] [rbp-4h]
 
-  if ( (unsigned int)dword_140FD78B8 > 5 && tlgKeywordOn((__int64)&dword_140FD78B8, 1LL) )
+  if ( (unsigned int)dword_140FD88C8 > 5 && tlgKeywordOn((__int64)&dword_140FD88C8, 1LL) )
   {
     v23 = 0;
     v26 = 0;
@@ -91,8 +91,8 @@ void __fastcall TtmiLogSessionPowerRequestAcknowledged(
     v40 = 1;
     v43 = 1;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140FD78B8,
-      (unsigned __int8 *)qword_1400508B0,
+      (__int64)&dword_140FD88C8,
+      (unsigned __int8 *)&unk_140050A90,
       0LL,
       0LL,
       0xAu,

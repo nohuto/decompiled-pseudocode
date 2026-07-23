@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x14066A288
+ * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x14066B458
  * Callers:
- *     MmInSwapProcess @ 0x140338A94 (MmInSwapProcess.c)
+ *     MmInSwapProcess @ 0x1402DFEE4 (MmInSwapProcess.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14020D480 (MiLockWorkingSetExclusive.c)
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeForceDetachProcess @ 0x1402F9B70 (KeForceDetachProcess.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MiBeginProcessClean @ 0x140405D10 (MiBeginProcessClean.c)
- *     KeForceAttachProcess @ 0x14042D8D0 (KeForceAttachProcess.c)
- *     KeFreezeProcess @ 0x1404634A0 (KeFreezeProcess.c)
- *     MiLogOutswappedProcessCommitReacquire @ 0x140669F18 (MiLogOutswappedProcessCommitReacquire.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     MiLockWorkingSetExclusive @ 0x1403367E0 (MiLockWorkingSetExclusive.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     KeForceDetachProcess @ 0x1403422E0 (KeForceDetachProcess.c)
+ *     MiBeginProcessClean @ 0x1403C826C (MiBeginProcessClean.c)
+ *     KeForceAttachProcess @ 0x140424E30 (KeForceAttachProcess.c)
+ *     KeFreezeProcess @ 0x14048E57C (KeFreezeProcess.c)
+ *     MiLogOutswappedProcessCommitReacquire @ 0x14066B0E8 (MiLogOutswappedProcessCommitReacquire.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiReAcquireOutSwappedProcessCommit(char *Object)
@@ -30,15 +30,17 @@ __int64 __fastcall MiReAcquireOutSwappedProcessCommit(char *Object)
   struct _WORK_QUEUE_ITEM *v10; // rax
   unsigned __int8 v11; // dl
   struct _WORK_QUEUE_ITEM *v12; // rsi
+  __int64 v13; // r8
+  __int64 v14; // r9
   struct _KEVENT *Blink; // rcx
-  int v15; // [rsp+50h] [rbp+8h]
+  int v17; // [rsp+50h] [rbp+8h]
 
   KeForceAttachProcess((_KPROCESS *)Object, 0LL, 0);
   v2 = Object + 1024;
   if ( (*((_DWORD *)Object + 302) & 0xF) == 1 )
   {
-    v3 = (struct _WORK_QUEUE_ITEM **)&unk_140E38760;
-    v4 = (__int64 *)&unk_140E38748;
+    v3 = (struct _WORK_QUEUE_ITEM **)&unk_140E388A0;
+    v4 = (__int64 *)&unk_140E38888;
   }
   else
   {
@@ -47,7 +49,7 @@ __int64 __fastcall MiReAcquireOutSwappedProcessCommit(char *Object)
   }
   CurrentThread = KeGetCurrentThread();
   v6 = 0;
-  if ( dword_140FC4250 == 1 )
+  if ( dword_140FC5250 == 1 )
   {
     v7 = 1;
 LABEL_9:
@@ -62,7 +64,7 @@ LABEL_9:
   else
   {
     v8 = 0;
-    v7 = MiChargeCommit(*((_QWORD *)qword_140E2FF88 + *((unsigned __int16 *)Object + 599)), *v4, 1);
+    v7 = MiChargeCommit(*((_QWORD *)qword_140E300C8 + *((unsigned __int16 *)Object + 599)), *v4, 1);
     if ( v7 )
       goto LABEL_9;
   }
@@ -80,9 +82,9 @@ LABEL_9:
   v10->List.Flink = 0LL;
 LABEL_11:
   v11 = MiLockWorkingSetExclusive((__int64)(Object + 1024));
-  v15 = *((_DWORD *)Object + 302);
-  if ( (HIBYTE(v15) & 0x30) == 0x20 )
-    Object[1211] = HIBYTE(v15) & 0xCF | 0x10;
+  v17 = *((_DWORD *)Object + 302);
+  if ( (HIBYTE(v17) & 0x30) == 0x20 )
+    Object[1211] = HIBYTE(v17) & 0xCF | 0x10;
   v12 = *v3;
   if ( v7 )
   {
@@ -90,7 +92,7 @@ LABEL_11:
     *v3 = 0LL;
   }
   MiUnlockWorkingSetExclusive((__int64)v2, v11);
-  KeForceDetachProcess(0LL, 0);
+  KeForceDetachProcess(0LL, 0, v13, v14);
   Blink = (struct _KEVENT *)v12[1].List.Blink;
   if ( Blink )
     KeSetEvent(Blink, 0, 0);

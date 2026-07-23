@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwCreateDirectoryObjectEx()
+NTSTATUS __cdecl ZwCreateDirectoryObjectEx(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ShadowDirectoryHandle,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 156LL;
+  result = 156;
   __asm { syscall; Low latency system call }
   return result;
 }

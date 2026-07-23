@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpQueueNotification @ 0x1405C054C
+ * XREFs of EtwpQueueNotification @ 0x1405C154C
  * Callers:
- *     EtwpSendDataBlock @ 0x1405C039C (EtwpSendDataBlock.c)
+ *     EtwpSendDataBlock @ 0x1405C139C (EtwpSendDataBlock.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PsChargeProcessWakeCounter @ 0x140588720 (PsChargeProcessWakeCounter.c)
- *     EtwpAddDataSource @ 0x1405C0704 (EtwpAddDataSource.c)
- *     EtwpReleaseQueueEntry @ 0x1405C0D9C (EtwpReleaseQueueEntry.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PsChargeProcessWakeCounter @ 0x140589720 (PsChargeProcessWakeCounter.c)
+ *     EtwpAddDataSource @ 0x1405C1704 (EtwpAddDataSource.c)
+ *     EtwpReleaseQueueEntry @ 0x1405C1D9C (EtwpReleaseQueueEntry.c)
  */
 
 __int64 __fastcall EtwpQueueNotification(void *a1, __int64 a2, __int64 a3)

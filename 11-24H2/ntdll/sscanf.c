@@ -1,10 +1,10 @@
 /*
- * XREFs of sscanf @ 0x180126560
+ * XREFs of sscanf @ 0x180124790
  * Callers:
  *     <none>
  * Callees:
- *     GetTInputFnL @ 0x180126548 (GetTInputFnL.c)
- *     vscan_fn @ 0x1801265A0 (vscan_fn.c)
+ *     GetTInputFnL @ 0x180124778 (GetTInputFnL.c)
+ *     vscan_fn @ 0x1801247D0 (vscan_fn.c)
  */
 
 int sscanf(const char *const Buffer, const char *const Format, ...)

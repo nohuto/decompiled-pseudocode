@@ -1,11 +1,11 @@
 /*
- * XREFs of KdpSysReadControlSpace @ 0x140918718
+ * XREFs of KdpSysReadControlSpace @ 0x140919718
  * Callers:
- *     KdSystemDebugControl @ 0x1408422B0 (KdSystemDebugControl.c)
- *     KdpReadControlSpace @ 0x14091645C (KdpReadControlSpace.c)
+ *     KdSystemDebugControl @ 0x140843510 (KdSystemDebugControl.c)
+ *     KdpReadControlSpace @ 0x14091745C (KdpReadControlSpace.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     KdpCopyMemoryChunks @ 0x1409199A8 (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpSysReadControlSpace(ULONG a1, unsigned __int64 a2, void *a3, __int64 a4, _DWORD *a5)

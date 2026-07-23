@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwSetIntervalProfile @ 0x14041E340
+ * XREFs of ZwSetIntervalProfile @ 0x14041E6D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetIntervalProfile(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetIntervalProfile(ULONG Interval, KPROFILE_SOURCE Source)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&Interval);
 }

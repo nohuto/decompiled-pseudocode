@@ -1,7 +1,7 @@
 /*
- * XREFs of AVrfpFindClosestThunkDuplicate @ 0x1800DAC04
+ * XREFs of AVrfpFindClosestThunkDuplicate @ 0x1800DABC4
  * Callers:
- *     AVrfpChainDuplicateVerificationLayers @ 0x1800DA658 (AVrfpChainDuplicateVerificationLayers.c)
+ *     AVrfpChainDuplicateVerificationLayers @ 0x1800DA618 (AVrfpChainDuplicateVerificationLayers.c)
  * Callees:
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
  *     _stricmp @ 0x18008DCF0 (_stricmp.c)

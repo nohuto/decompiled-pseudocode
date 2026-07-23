@@ -1,16 +1,16 @@
 /*
- * XREFs of MiBuildNewCloneDescriptor @ 0x140B558E4
+ * XREFs of MiBuildNewCloneDescriptor @ 0x140B58184
  * Callers:
- *     MiSetCloneParentForkInProgress @ 0x1405180AC (MiSetCloneParentForkInProgress.c)
- *     MiCreateCloneZeroDescriptor @ 0x140B5585C (MiCreateCloneZeroDescriptor.c)
+ *     MiSetCloneParentForkInProgress @ 0x140511B1C (MiSetCloneParentForkInProgress.c)
+ *     MiCreateCloneZeroDescriptor @ 0x140B580FC (MiCreateCloneZeroDescriptor.c)
  * Callees:
- *     MiAllocateProtoPool @ 0x140396B20 (MiAllocateProtoPool.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403BCE40 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetVmPartition @ 0x14044FD80 (MiGetVmPartition.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiAllocateProtoPool @ 0x1403988A0 (MiAllocateProtoPool.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403C6CB0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetVmPartition @ 0x140447EB0 (MiGetVmPartition.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiBuildNewCloneDescriptor(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3)

@@ -50,10 +50,10 @@ __int64 __fastcall PopFxIdleTimeoutDpcRoutine(__int64 a1, ULONG_PTR a2)
     PopFxDeliverDevicePowerRequired(a2);
   }
   result = KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmGetExitSamplingCountdown @ 0x14032C3F4
+ * XREFs of PpmGetExitSamplingCountdown @ 0x14032C684
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
- *     PoFxSendSystemLatencyUpdate @ 0x14032C330 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14032C5C0 (PoFxSendSystemLatencyUpdate.c)
  * Callees:
  *     <none>
  */

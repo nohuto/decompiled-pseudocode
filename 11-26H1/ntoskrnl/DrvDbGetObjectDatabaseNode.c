@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetObjectDatabaseNode @ 0x14091E8CC
+ * XREFs of DrvDbGetObjectDatabaseNode @ 0x14097932C
  * Callers:
- *     DrvDbDeleteObjectRegKey @ 0x14089DBC4 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x1408A3FC4 (DrvDbDeleteObjectRegKey.c)
  * Callees:
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     RtlDuplicateUnicodeString @ 0x14091E750 (RtlDuplicateUnicodeString.c)
- *     DrvDbFindDatabaseNode @ 0x14091ECB8 (DrvDbFindDatabaseNode.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     RtlDuplicateUnicodeString @ 0x1409791B0 (RtlDuplicateUnicodeString.c)
+ *     DrvDbFindDatabaseNode @ 0x140979718 (DrvDbFindDatabaseNode.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 __int64 __fastcall DrvDbGetObjectDatabaseNode(__int64 a1, wchar_t *a2, wchar_t **a3, _QWORD *a4)

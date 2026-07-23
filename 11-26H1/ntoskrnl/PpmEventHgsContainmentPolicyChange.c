@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmEventHgsContainmentPolicyChange @ 0x14060E190
+ * XREFs of PpmEventHgsContainmentPolicyChange @ 0x140611290
  * Callers:
- *     PpmHeteroHgsEvaluateContainmentDecision @ 0x1404F9270 (PpmHeteroHgsEvaluateContainmentDecision.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroHgsEvaluateContainmentDecision @ 0x1404F2880 (PpmHeteroHgsEvaluateContainmentDecision.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventHgsContainmentPolicyChange(__int64 a1, __int64 a2, __int64 a3, char a4, char a5, char a6)
 {
-  char RealtimePriorityFloor; // si
+  char v6; // si
   const EVENT_DESCRIPTOR *v8; // rax
   const EVENT_DESCRIPTOR *v9; // rbx
   unsigned int v11; // [rsp+48h] [rbp-79h] BYREF
@@ -34,8 +34,8 @@ char __fastcall PpmEventHgsContainmentPolicyChange(__int64 a1, __int64 a2, __int
   BOOL *v28; // [rsp+D8h] [rbp+17h]
   __int64 v29; // [rsp+E0h] [rbp+1Fh]
 
-  RealtimePriorityFloor = stru_140F11D08.RealtimePriorityFloor;
-  v14 = *(_DWORD *)&PopSleepstudySessionLock.WaitRegister.Flags;
+  v6 = PpmPerfMaxOverrideEnabled;
+  v14 = PpmCheckLatencyBoostActive;
   v12 = PpmHeteroPolicy;
   LOBYTE(v8) = PpmHeteroHgsContainmentState;
   if ( (PpmHeteroHgsContainmentState & 4) != 0 )
@@ -46,12 +46,12 @@ char __fastcall PpmEventHgsContainmentPolicyChange(__int64 a1, __int64 a2, __int
       v9 = &PPM_ETW_WPS_CONTAINMENT_POLICY_CHANGE;
     if ( PpmEtwRegistered )
     {
-      LOBYTE(v8) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v9);
+      LOBYTE(v8) = EtwEventEnabled(PpmEtwHandle, v9);
       if ( (_BYTE)v8 )
       {
         *(_QWORD *)&UserData.Size = 4LL;
         v19 = 4LL;
-        v13 = RealtimePriorityFloor != 0;
+        v13 = v6 != 0;
         v21 = 4LL;
         v23 = 4LL;
         v15 = a4 != 0;
@@ -67,15 +67,7 @@ char __fastcall PpmEventHgsContainmentPolicyChange(__int64 a1, __int64 a2, __int
         v24 = &v15;
         v26 = &PpmHeteroContainmentPolicy;
         v28 = &v16;
-        LOBYTE(v8) = EtwWriteEx(
-                       (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                       v9,
-                       0LL,
-                       0,
-                       0LL,
-                       0LL,
-                       7u,
-                       &UserData);
+        LOBYTE(v8) = EtwWriteEx(PpmEtwHandle, v9, 0LL, 0, 0LL, 0LL, 7u, &UserData);
       }
     }
   }

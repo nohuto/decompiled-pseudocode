@@ -9,7 +9,13 @@
  *     RtlpAnalyzeHeapFailure @ 0x180107D24 (RtlpAnalyzeHeapFailure.c)
  */
 
-__int64 __fastcall RtlpSetupExtendedBlock(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int16 a5, int a6)
+__int64 __fastcall RtlpSetupExtendedBlock(
+        __int64 a1,
+        unsigned __int8 a2,
+        __int64 a3,
+        __int64 a4,
+        unsigned __int16 a5,
+        int a6)
 {
   unsigned __int64 v6; // r14
   char v8; // r15
@@ -27,9 +33,9 @@ __int64 __fastcall RtlpSetupExtendedBlock(__int64 a1, __int64 a2, __int64 a3, __
   v11 = a3 + a5;
   if ( v9 == 4 )
   {
-    if ( (((unsigned __int8)a2 | *(_BYTE *)(a1 + 116)) & 1) == 0 )
+    if ( ((a2 | *(_BYTE *)(a1 + 116)) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v8 = 1;
     }
     if ( *(_DWORD *)(a1 + 124) )
@@ -39,16 +45,14 @@ __int64 __fastcall RtlpSetupExtendedBlock(__int64 a1, __int64 a2, __int64 a3, __
         RtlpAnalyzeHeapFailure(a1, v6);
     }
     *(_WORD *)(a3 - 8) += a5;
-    a2 = a5;
     LOWORD(v12) = *(_WORD *)(a3 - 8);
-    LOWORD(a2) = a5 >> 4;
     *(_BYTE *)(a3 - 2) = a5 >> 4;
     if ( *(_DWORD *)(a1 + 124) )
     {
       *(_BYTE *)(a3 - 5) = *(_BYTE *)(a3 - 8) ^ *(_BYTE *)(a3 - 7) ^ *(_BYTE *)(a3 - 6);
       *(_DWORD *)(a3 - 8) ^= *(_DWORD *)(a1 + 136);
     }
-    *(_BYTE *)(v11 - 2) = a2;
+    *(_BYTE *)(v11 - 2) = a5 >> 4;
   }
   else
   {
@@ -100,6 +104,6 @@ __int64 __fastcall RtlpSetupExtendedBlock(__int64 a1, __int64 a2, __int64 a3, __
   *(_WORD *)(v11 - 4) = a5 + v12;
   *(_DWORD *)(v11 - 8) = a6;
   if ( v8 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352), a2, a3);
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return v11;
 }

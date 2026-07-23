@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageResetTimerCallback @ 0x1406C69D0
+ * XREFs of EtwpCoverageResetTimerCallback @ 0x1406CA6D0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall EtwpCoverageResetTimerCallback(__int64 a1, __int64 a2)

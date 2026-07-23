@@ -9,7 +9,7 @@
  *     _umatherr @ 0x1800955C4 (_umatherr.c)
  * Callees:
  *     _set_fpsr @ 0x180096850 (_set_fpsr.c)
- *     _get_fpsr @ 0x1800A4470 (_get_fpsr.c)
+ *     _get_fpsr @ 0x1800A4430 (_get_fpsr.c)
  */
 
 __int64 __fastcall ctrlfp(int a1, int a2)

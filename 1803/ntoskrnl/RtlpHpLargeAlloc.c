@@ -35,7 +35,7 @@ unsigned __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, unsigned __
   __int64 v22; // rcx
   unsigned __int8 v23; // r14
   unsigned __int64 v24; // rdx
-  bool v25; // r8
+  BOOLEAN v25; // r8
   unsigned __int64 v26; // rax
   __int64 v27; // rdx
   unsigned __int64 v28; // rsi
@@ -124,7 +124,7 @@ LABEL_15:
               v24 = v26;
             }
           }
-          RtlRbInsertNodeEx(a1 + 80, v24, v25, (_QWORD *)v11);
+          RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 80), (PRTL_BALANCED_NODE)v24, v25, (PRTL_BALANCED_NODE)v11);
           if ( (a4 & 1) == 0 )
           {
             if ( (*(_DWORD *)a1 & 1) != 0 )

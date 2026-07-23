@@ -1,25 +1,25 @@
 /*
- * XREFs of LdrpDropLastInProgressCount @ 0x180001F40
+ * XREFs of LdrpDropLastInProgressCount @ 0x1800ACA84
  * Callers:
- *     LdrEnumerateLoadedModules @ 0x180001F90 (LdrEnumerateLoadedModules.c)
- *     LdrShutdownThread @ 0x1800045E0 (LdrShutdownThread.c)
- *     LdrGetProcedureAddressForCaller @ 0x180004FF0 (LdrGetProcedureAddressForCaller.c)
- *     LdrpFindLoadedDll @ 0x18000A400 (LdrpFindLoadedDll.c)
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
- *     LdrpInitializeThread @ 0x180012810 (LdrpInitializeThread.c)
- *     LdrpFastpthReloadedDll @ 0x180019870 (LdrpFastpthReloadedDll.c)
- *     RtlQueryInformationActivationContext @ 0x18001ABD0 (RtlQueryInformationActivationContext.c)
- *     LdrUnloadDll @ 0x18001B6B0 (LdrUnloadDll.c)
- *     LdrInitShimEngineDynamic @ 0x180064C50 (LdrInitShimEngineDynamic.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpInitializeImportRedirection @ 0x1800FA988 (LdrpInitializeImportRedirection.c)
- *     LdrpCompleteProcessCloning @ 0x180160B48 (LdrpCompleteProcessCloning.c)
+ *     LdrGetProcedureAddressForCaller @ 0x1800319F0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpFindLoadedDll @ 0x180036E00 (LdrpFindLoadedDll.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
+ *     LdrpInitializeThread @ 0x18003F210 (LdrpInitializeThread.c)
+ *     LdrpFastpthReloadedDll @ 0x180046270 (LdrpFastpthReloadedDll.c)
+ *     RtlQueryInformationActivationContext @ 0x1800475D0 (RtlQueryInformationActivationContext.c)
+ *     LdrUnloadDll @ 0x1800480B0 (LdrUnloadDll.c)
+ *     LdrEnumerateLoadedModules @ 0x1800AAC50 (LdrEnumerateLoadedModules.c)
+ *     LdrShutdownThread @ 0x1800AB0D0 (LdrShutdownThread.c)
+ *     LdrInitShimEngineDynamic @ 0x1800ACB80 (LdrInitShimEngineDynamic.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrpInitializeImportRedirection @ 0x1800F56E8 (LdrpInitializeImportRedirection.c)
+ *     LdrpCompleteProcessCloning @ 0x18015EF08 (LdrpCompleteProcessCloning.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
  */
 
-__int64 LdrpDropLastInProgressCount()
+NTSTATUS LdrpDropLastInProgressCount()
 {
   struct _TEB *v0; // rax
 

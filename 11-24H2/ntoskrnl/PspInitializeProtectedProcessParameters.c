@@ -1,17 +1,17 @@
 /*
- * XREFs of PspInitializeProtectedProcessParameters @ 0x140771C38
+ * XREFs of PspInitializeProtectedProcessParameters @ 0x140771E58
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140772C80 (PspInitializeServerSiloDeferred.c)
- *     PspInitPhase2 @ 0x140C3516C (PspInitPhase2.c)
+ *     PspInitializeServerSiloDeferred @ 0x140772EA0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitPhase2 @ 0x140C372AC (PspInitPhase2.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PspInitializeProtectedProcessParameters(__int64 a1)
 {
   __int128 v2; // xmm1
-  __int16 v3; // ax
+  unsigned __int16 v3; // ax
   __int64 Pool2; // rax
   __int64 v6; // rbx
   __int64 v7; // rdx
@@ -21,8 +21,9 @@ __int64 __fastcall PspInitializeProtectedProcessParameters(__int64 a1)
   v2 = *(_OWORD *)(a1 + 1232);
   v3 = 2 * (*(_WORD *)(a1 + 1232) + 42);
   *(_WORD *)(a1 + 984) = v3;
-  *(_WORD *)(a1 + 986) = v3 + 2;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  v3 += 2;
+  *(_WORD *)(a1 + 986) = v3;
+  Pool2 = ExAllocatePool2(0x100uLL, v3, 0x6C537350u);
   *(_QWORD *)(a1 + 992) = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

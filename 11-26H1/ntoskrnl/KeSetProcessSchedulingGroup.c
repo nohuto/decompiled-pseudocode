@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetProcessSchedulingGroup @ 0x14051FF00
+ * XREFs of KeSetProcessSchedulingGroup @ 0x1405225A4
  * Callers:
- *     PspSetProcessSchedulingGroup @ 0x1409560C4 (PspSetProcessSchedulingGroup.c)
- *     PspTerminateProcess @ 0x140956EB0 (PspTerminateProcess.c)
+ *     PspTerminateProcess @ 0x14094A8D8 (PspTerminateProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x140AED7E8 (PspSetProcessSchedulingGroup.c)
  * Callees:
- *     KiSetThreadSchedulingGroup @ 0x140203774 (KiSetThreadSchedulingGroup.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSetThreadSchedulingGroup @ 0x140203854 (KiSetThreadSchedulingGroup.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 struct _KSCHEDULING_GROUP *__fastcall KeSetProcessSchedulingGroup(__int64 a1, struct _KSCHEDULING_GROUP *a2)

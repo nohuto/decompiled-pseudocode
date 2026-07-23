@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerRequestTableCompare @ 0x140ACBE60
+ * XREFs of PopPowerRequestTableCompare @ 0x140ACE0A0
  * Callers:
  *     <none>
  * Callees:

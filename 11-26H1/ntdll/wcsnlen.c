@@ -1,15 +1,15 @@
 /*
- * XREFs of wcsnlen @ 0x18012DD40
+ * XREFs of wcsnlen @ 0x18012DAB0
  * Callers:
- *     RtlpLangNameInMultiSzString_Size @ 0x18003AA20 (RtlpLangNameInMultiSzString_Size.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x180123C1C (RtlpSetTimeZoneInformationWorker.c)
- *     RtlpConvertCultureNamesToLCIDs @ 0x1801262E0 (RtlpConvertCultureNamesToLCIDs.c)
- *     _wcslwr_s @ 0x180129000 (_wcslwr_s.c)
- *     _wcsupr_s @ 0x1801294F0 (_wcsupr_s.c)
- *     wcsncat @ 0x18012DC10 (wcsncat.c)
- *     wcsncpy @ 0x18012DCC0 (wcsncpy.c)
- *     RtlpQueryTimeZoneKeyNameRoutine @ 0x180141D40 (RtlpQueryTimeZoneKeyNameRoutine.c)
- *     RtlpConvertLCIDsToCultureNames @ 0x1801424F0 (RtlpConvertLCIDsToCultureNames.c)
+ *     RtlpLangNameInMultiSzString_Size @ 0x180024F90 (RtlpLangNameInMultiSzString_Size.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x18012398C (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlpConvertCultureNamesToLCIDs @ 0x180126050 (RtlpConvertCultureNamesToLCIDs.c)
+ *     _wcslwr_s @ 0x180128D70 (_wcslwr_s.c)
+ *     _wcsupr_s @ 0x180129260 (_wcsupr_s.c)
+ *     wcsncat @ 0x18012D980 (wcsncat.c)
+ *     wcsncpy @ 0x18012DA30 (wcsncpy.c)
+ *     RtlpQueryTimeZoneKeyNameRoutine @ 0x180141C40 (RtlpQueryTimeZoneKeyNameRoutine.c)
+ *     RtlpConvertLCIDsToCultureNames @ 0x1801423F0 (RtlpConvertLCIDsToCultureNames.c)
  * Callees:
  *     <none>
  */

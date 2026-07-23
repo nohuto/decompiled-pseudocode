@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerProfilePowerChange @ 0x14050A8FC
+ * XREFs of HalpTimerProfilePowerChange @ 0x14050AE4C
  * Callers:
- *     HalpTimerPowerChange @ 0x140509610 (HalpTimerPowerChange.c)
+ *     HalpTimerPowerChange @ 0x140509B60 (HalpTimerPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpTimerRestartProfileInterrupt @ 0x14050A958 (HalpTimerRestartProfileInterrupt.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x14050AEA8 (HalpTimerRestartProfileInterrupt.c)
  */
 
 void __fastcall HalpTimerProfilePowerChange(__int64 a1, char a2)

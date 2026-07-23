@@ -14,23 +14,23 @@
  *     ExAllocatePoolWithTag @ 0x1402EADB0 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlGetPersistedStateLocation(
-        PCWSTR SourceString,
-        const WCHAR *a2,
-        _WORD *a3,
-        unsigned int a4,
-        void *a5,
-        unsigned int a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlGetPersistedStateLocation(
+        PCWSTR SourceID,
+        PCWSTR CustomValue,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PWCHAR TargetPath,
+        ULONG BufferLengthIn,
+        PULONG BufferLengthOut)
 {
-  _DWORD *PoolWithTag; // rdi
+  WCHAR *PoolWithTag; // rdi
   NTSTATUS v11; // eax
-  NTSTATUS v12; // ebx
+  signed int v12; // ebx
   __int64 v13; // rax
   unsigned int v14; // eax
   unsigned int v15; // ecx
-  const void *v16; // rdx
-  unsigned int v18; // esi
+  PCWSTR v16; // rdx
+  ULONG v18; // esi
   ULONG Length; // ebx
   NTSTATUS v20; // eax
   unsigned __int64 v21; // rax
@@ -43,10 +43,10 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   KeyHandle = 0LL;
   Handle = 0LL;
   PoolWithTag = 0LL;
-  if ( a4 > 1 )
-    return 3221225713LL;
+  if ( (unsigned int)StateLocationType > LocationTypeFileSystem )
+    return -1073741583;
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_1407F9C40[2 * (int)a4];
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_1407F9C40[2 * StateLocationType];
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -56,7 +56,7 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   {
     if ( v11 < 0 )
       goto LABEL_13;
-    RtlInitUnicodeString(&DestinationString, SourceString);
+    RtlInitUnicodeString(&DestinationString, SourceID);
     ObjectAttributes.RootDirectory = KeyHandle;
     ObjectAttributes.Length = 48;
     ObjectAttributes.ObjectName = &DestinationString;
@@ -66,19 +66,19 @@ __int64 __fastcall RtlGetPersistedStateLocation(
     if ( v12 != -1073741772 )
       goto LABEL_12;
   }
-  if ( !a3 )
+  if ( !DefaultPath )
   {
 LABEL_12:
     if ( v12 < 0 )
       goto LABEL_13;
-    if ( !a2 )
-      a2 = L"TargetNtPath";
-    RtlInitUnicodeString(&DestinationString, a2);
-    v18 = a6;
-    Length = a6 + 16;
-    if ( a6 + 16 >= a6 )
+    if ( !CustomValue )
+      CustomValue = L"TargetNtPath";
+    RtlInitUnicodeString(&DestinationString, CustomValue);
+    v18 = BufferLengthIn;
+    Length = BufferLengthIn + 16;
+    if ( BufferLengthIn + 16 >= BufferLengthIn )
     {
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x70657373u);
+      PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, Length, 0x70657373u);
       if ( !PoolWithTag )
       {
         v12 = -1073741801;
@@ -91,14 +91,14 @@ LABEL_12:
         if ( v20 != -2147483643 )
           goto LABEL_13;
       }
-      else if ( PoolWithTag[1] != 1 )
+      else if ( *((_DWORD *)PoolWithTag + 1) != 1 )
       {
         v12 = -1073741788;
         goto LABEL_13;
       }
-      v15 = PoolWithTag[2];
+      v15 = *((_DWORD *)PoolWithTag + 2);
       ResultLength = v15;
-      if ( v20 >= 0 && *((_WORD *)PoolWithTag + ((unsigned __int64)v15 >> 1) + 5) )
+      if ( v20 >= 0 && PoolWithTag[((unsigned __int64)v15 >> 1) + 5] )
       {
         v21 = v15 + 2;
         ResultLength = v21;
@@ -109,15 +109,15 @@ LABEL_12:
         }
         else
         {
-          *((_WORD *)PoolWithTag + (v21 >> 1) + 5) = 0;
+          PoolWithTag[(v21 >> 1) + 5] = 0;
           v15 = ResultLength;
         }
       }
-      if ( a7 )
-        *a7 = v15;
+      if ( BufferLengthOut )
+        *BufferLengthOut = v15;
       if ( v12 < 0 )
         goto LABEL_13;
-      v16 = PoolWithTag + 3;
+      v16 = PoolWithTag + 6;
       goto LABEL_11;
     }
 LABEL_24:
@@ -127,20 +127,20 @@ LABEL_24:
   v13 = -1LL;
   do
     ++v13;
-  while ( a3[v13] );
+  while ( DefaultPath[v13] );
   v14 = v13 + 1;
   v15 = 2 * v14;
   ResultLength = 2 * v14;
   if ( 2 * v14 < v14 )
     goto LABEL_24;
-  v12 = a6 < v15 ? 0x80000005 : 0;
-  if ( a7 )
-    *a7 = v15;
-  if ( v15 > a6 )
+  v12 = BufferLengthIn < v15 ? 0x80000005 : 0;
+  if ( BufferLengthOut )
+    *BufferLengthOut = v15;
+  if ( v15 > BufferLengthIn )
     goto LABEL_13;
-  v16 = a3;
+  v16 = DefaultPath;
 LABEL_11:
-  memmove(a5, v16, v15);
+  memmove(TargetPath, v16, v15);
 LABEL_13:
   if ( KeyHandle )
     ZwClose(KeyHandle);
@@ -148,5 +148,5 @@ LABEL_13:
     ZwClose(Handle);
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0);
-  return (unsigned int)v12;
+  return v12;
 }

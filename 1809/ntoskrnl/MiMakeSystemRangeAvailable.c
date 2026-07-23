@@ -5,12 +5,12 @@
  * Callees:
  *     MiNonPagedPoolToNode @ 0x1400261A4 (MiNonPagedPoolToNode.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiSystemVaToDynamicBitmap @ 0x1400F7200 (MiSystemVaToDynamicBitmap.c)
- *     MiReleaseSessionVa @ 0x140138084 (MiReleaseSessionVa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1400F7280 (MiSystemVaToDynamicBitmap.c)
+ *     MiReleaseSessionVa @ 0x140138184 (MiReleaseSessionVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiMakeSystemRangeAvailable(
@@ -42,7 +42,7 @@ __int64 __fastcall MiMakeSystemRangeAvailable(
   if ( a3 == 1 )
     return MiReleaseSessionVa(BugCheckParameter2, (unsigned int)v4);
   if ( a3 == 5 )
-    p_Region = &qword_14043A058[25 * (unsigned int)MiNonPagedPoolToNode(BugCheckParameter2) + 11].Region;
+    p_Region = &qword_14043B118[25 * (unsigned int)MiNonPagedPoolToNode(BugCheckParameter2) + 11].Region;
   else
     p_Region = (unsigned __int64 *)MiSystemVaToDynamicBitmap(a3);
   v8 = p_Region;
@@ -101,9 +101,9 @@ LABEL_11:
   {
     p_Region[3] = v9;
   }
-  _InterlockedExchangeAdd64(&qword_14043B8D0[(int)BugCheckParameter4], -(__int64)v4);
+  _InterlockedExchangeAdd64(&qword_14043C990[(int)BugCheckParameter4], -(__int64)v4);
   if ( (_DWORD)BugCheckParameter4 == 8 )
-    qword_14043A1C8 += BugCheckParameter3;
+    qword_14043B288 += BugCheckParameter3;
   KxReleaseQueuedSpinLock(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

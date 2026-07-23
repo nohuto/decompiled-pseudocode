@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __cdecl __ascii_memicmp(unsigned __int8 *a1, unsigned __int8 *a2, int a3)
+int __ascii_memicmp(char *Buf1, char *Buf2, int a3, ...)
 {
   int v3; // ecx
   unsigned __int8 v6; // ah
@@ -17,8 +17,8 @@ int __cdecl __ascii_memicmp(unsigned __int8 *a1, unsigned __int8 *a2, int a3)
   {
     while ( 1 )
     {
-      v6 = *a1++;
-      v7 = *a2++;
+      v6 = *Buf1++;
+      v7 = *Buf2++;
       if ( v6 != v7 )
       {
         if ( v6 >= 0x41u && v6 <= 0x5Au )

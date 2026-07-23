@@ -1,24 +1,24 @@
 /*
- * XREFs of PspChangeProcessExecutionState @ 0x140ADE6AC
+ * XREFs of PspChangeProcessExecutionState @ 0x140ADB89C
  * Callers:
- *     PspExecuteJobFreezeThawCallback @ 0x1404BB3E0 (PspExecuteJobFreezeThawCallback.c)
- *     PsSwapProcessWorkingSet @ 0x1407F0C88 (PsSwapProcessWorkingSet.c)
- *     PspRemoveProcessFromJobChain @ 0x140959638 (PspRemoveProcessFromJobChain.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
- *     PspAssignProcessToJob @ 0x140AC5D48 (PspAssignProcessToJob.c)
+ *     PspExecuteJobFreezeThawCallback @ 0x1404B4BC0 (PspExecuteJobFreezeThawCallback.c)
+ *     PsSwapProcessWorkingSet @ 0x1407F67E8 (PsSwapProcessWorkingSet.c)
+ *     PspRemoveProcessFromJobChain @ 0x1409FEEF8 (PspRemoveProcessFromJobChain.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
+ *     PspAssignProcessToJob @ 0x140AC79B8 (PspAssignProcessToJob.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     MmOutSwapWorkingSet @ 0x1404C28B4 (MmOutSwapWorkingSet.c)
- *     MmInSwapWorkingSet @ 0x1404D58CC (MmInSwapWorkingSet.c)
- *     PsThawMultiProcess @ 0x14051967C (PsThawMultiProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PsFreezeProcess @ 0x14077B540 (PsFreezeProcess.c)
- *     PsRemoveDeepFreezeOptimizations @ 0x140ADE944 (PsRemoveDeepFreezeOptimizations.c)
- *     PsApplyDeepFreezeOptimizations @ 0x140ADE9D0 (PsApplyDeepFreezeOptimizations.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     MmOutSwapWorkingSet @ 0x1404BC104 (MmOutSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x1404CF090 (MmInSwapWorkingSet.c)
+ *     PsThawMultiProcess @ 0x1405130EC (PsThawMultiProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsFreezeProcess @ 0x14077E180 (PsFreezeProcess.c)
+ *     PsRemoveDeepFreezeOptimizations @ 0x140ADBB34 (PsRemoveDeepFreezeOptimizations.c)
+ *     PsApplyDeepFreezeOptimizations @ 0x140ADBBC0 (PsApplyDeepFreezeOptimizations.c)
  */
 
 __int64 __fastcall PspChangeProcessExecutionState(PEPROCESS Process, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

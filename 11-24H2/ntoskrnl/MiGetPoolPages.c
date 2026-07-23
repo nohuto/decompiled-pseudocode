@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetPoolPages @ 0x1402E9F58
+ * XREFs of MiGetPoolPages @ 0x14034B598
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x1402EAA50 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpEnvAllocVA @ 0x14034C090 (RtlpHpEnvAllocVA.c)
  * Callees:
- *     MiSufficientAvailablePages @ 0x1402AA420 (MiSufficientAvailablePages.c)
- *     MiInitializePoolPageChainPacket @ 0x1402D0A70 (MiInitializePoolPageChainPacket.c)
- *     MiReturnPhysicalPoolPages @ 0x1402EA2D4 (MiReturnPhysicalPoolPages.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
- *     MiObtainPoolCharges @ 0x140458B1C (MiObtainPoolCharges.c)
- *     MiReturnExcessPoolCharges @ 0x14045A588 (MiReturnExcessPoolCharges.c)
- *     MiRetryNonPagedAllocation @ 0x140481470 (MiRetryNonPagedAllocation.c)
- *     MiGetCachedPoolPages @ 0x14049F260 (MiGetCachedPoolPages.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiInitializePoolPageChainPacket @ 0x1402F45D8 (MiInitializePoolPageChainPacket.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
+ *     MiReturnPhysicalPoolPages @ 0x14034B914 (MiReturnPhysicalPoolPages.c)
+ *     MiSufficientAvailablePages @ 0x1403526D0 (MiSufficientAvailablePages.c)
+ *     MiObtainPoolCharges @ 0x14044DFCC (MiObtainPoolCharges.c)
+ *     MiReturnExcessPoolCharges @ 0x14044F9D8 (MiReturnExcessPoolCharges.c)
+ *     MiRetryNonPagedAllocation @ 0x14047C730 (MiRetryNonPagedAllocation.c)
+ *     MiGetCachedPoolPages @ 0x14049A090 (MiGetCachedPoolPages.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiGetPoolPages(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MiGetPoolPages(__int64 a1)
   __int64 v9; // rdx
   __int64 v10; // xmm1_8
   __int64 v11; // rax
-  _BYTE v12[24]; // [rsp+20h] [rbp-88h] BYREF
+  _QWORD v12[3]; // [rsp+20h] [rbp-88h] BYREF
   int v13; // [rsp+38h] [rbp-70h]
   __int128 v15; // [rsp+78h] [rbp-30h]
   __int64 v16; // [rsp+88h] [rbp-20h]
@@ -35,7 +35,7 @@ __int64 __fastcall MiGetPoolPages(__int64 a1)
   v3 = a1 + 16;
   *(_OWORD *)(a1 + 16) = 0LL;
   *(_QWORD *)(a1 + 32) = 0LL;
-  if ( *(_QWORD *)(384LL * *(unsigned int *)(a1 + 96) + qword_140E2DAF8 + 96) )
+  if ( *(_QWORD *)(384LL * *(unsigned int *)(a1 + 96) + qword_140E2DC38 + 96) )
   {
     if ( (unsigned int)MiGetCachedPoolPages(a1) )
       return 0LL;
@@ -59,7 +59,7 @@ __int64 __fastcall MiGetPoolPages(__int64 a1)
       return 0LL;
     while ( v5 == 1
          || (*(_WORD *)(a1 + 100) & 0x400) == 0
-         || (unsigned int)MiSufficientAvailablePages((__int64)&MiSystemPartition, v5 + 160) )
+         || (unsigned int)MiSufficientAvailablePages(&MiSystemPartition, v5 + 160) )
     {
       MiRetryNonPagedAllocation((*(unsigned __int16 *)(a1 + 100) >> 10) & 1);
       MiInitializePoolPageChainPacket(v13, v8, v5, (__int64)v12);

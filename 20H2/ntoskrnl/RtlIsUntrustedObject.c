@@ -11,7 +11,7 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
+NTSTATUS __cdecl RtlIsUntrustedObject(HANDLE Handle, PVOID Object, PBOOLEAN IsUntrustedObject)
 {
   _BYTE *PoolWithQuotaTag; // rdi
   int v4; // r13d
@@ -20,21 +20,21 @@ NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
   NTSTATUS v8; // ebx
   __int16 v9; // ax
   __int64 v10; // rax
-  __int64 v11; // rsi
-  unsigned __int8 *AceByType; // rax
+  ACL *v11; // rsi
+  _DWORD *AceByType; // rax
   NTSTATUS SecurityObject; // eax
   int v14; // ecx
   ULONG LengthNeeded; // [rsp+30h] [rbp-69h] BYREF
-  unsigned int v16; // [rsp+34h] [rbp-65h] BYREF
-  _BYTE *v17; // [rsp+38h] [rbp-61h]
+  ULONG Index; // [rsp+34h] [rbp-65h] BYREF
+  PBOOLEAN v17; // [rsp+38h] [rbp-61h]
   _BYTE SecurityDescriptor[128]; // [rsp+40h] [rbp-59h] BYREF
 
   LengthNeeded = 0;
   PoolWithQuotaTag = SecurityDescriptor;
-  v17 = a3;
-  v4 = a2;
-  *a3 = 1;
-  if ( a2 )
+  v17 = IsUntrustedObject;
+  v4 = (int)Object;
+  *IsUntrustedObject = 1;
+  if ( Object )
   {
     if ( !Handle )
       goto LABEL_3;
@@ -62,7 +62,7 @@ LABEL_3:
   }
   else
   {
-    result = ObQuerySecurityObject(a2, 16, (unsigned int)SecurityDescriptor, 124, (__int64)&LengthNeeded);
+    result = ObQuerySecurityObject((_DWORD)Object, 16, (unsigned int)SecurityDescriptor, 124, (__int64)&LengthNeeded);
     v8 = result;
     if ( result >= 0 )
       goto LABEL_5;
@@ -87,27 +87,27 @@ LABEL_5:
       {
         if ( v9 >= 0 )
         {
-          v11 = *((_QWORD *)PoolWithQuotaTag + 3);
+          v11 = (ACL *)*((_QWORD *)PoolWithQuotaTag + 3);
         }
         else
         {
           v10 = *((unsigned int *)PoolWithQuotaTag + 3);
           if ( !(_DWORD)v10 )
             goto LABEL_12;
-          v11 = (__int64)&PoolWithQuotaTag[v10];
+          v11 = (ACL *)&PoolWithQuotaTag[v10];
         }
         if ( v11 )
         {
-          v16 = 0;
+          Index = 0;
           while ( 1 )
           {
-            AceByType = RtlFindAceByType(v11, 17, &v16);
+            AceByType = RtlFindAceByType(v11, 0x11u, &Index);
             if ( !AceByType )
               break;
-            if ( (AceByType[1] & 8) == 0 )
+            if ( (*((_BYTE *)AceByType + 1) & 8) == 0 )
             {
-              v14 = AceByType[9];
-              if ( !(_BYTE)v14 || *(_DWORD *)&AceByType[4 * (v14 - 1) + 16] < 0x2000u )
+              v14 = *((unsigned __int8 *)AceByType + 9);
+              if ( !(_BYTE)v14 || AceByType[v14 - 1 + 4] < 0x2000u )
                 goto LABEL_13;
               break;
             }

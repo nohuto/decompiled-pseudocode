@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCCSwapStart @ 0x1405468E4
+ * XREFs of EtwpCCSwapStart @ 0x140546E24
  * Callers:
- *     EtwpUpdateGroupMasks @ 0x14049582C (EtwpUpdateGroupMasks.c)
+ *     EtwpUpdateGroupMasks @ 0x1404962BC (EtwpUpdateGroupMasks.c)
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

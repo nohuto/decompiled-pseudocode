@@ -1,23 +1,23 @@
 /*
- * XREFs of SmProcessStatsRequest @ 0x140819F3C
+ * XREFs of SmProcessStatsRequest @ 0x14082014C
  * Callers:
- *     SmQueryStoreInformation @ 0x140B26304 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140B28564 (SmQueryStoreInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MmProbeAndLockPages @ 0x14039FC20 (MmProbeAndLockPages.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     MmSizeOfMdl @ 0x140488370 (MmSizeOfMdl.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1404D82CC (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MmProbeAndLockPages @ 0x1403A1980 (MmProbeAndLockPages.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     MmSizeOfMdl @ 0x140481EB0 (MmSizeOfMdl.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1404D1A9C (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall SmProcessStatsRequest(volatile void *a1, int a2, _DWORD *a3, KPROCESSOR_MODE a4)

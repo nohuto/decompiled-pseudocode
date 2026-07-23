@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCommitEnclavePages @ 0x140473ACC
+ * XREFs of MiCommitEnclavePages @ 0x14046D738
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x1402176A0 (MiMakeSystemAddressValid.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiPageTableLockIsContended @ 0x1403CFFE0 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1403D01B0 (MiWorkingSetIsContended.c)
- *     MiAddPagesToEnclave @ 0x140473CEC (MiAddPagesToEnclave.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x140244700 (MiMakeSystemAddressValid.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiPageTableLockIsContended @ 0x140391410 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x1403915E0 (MiWorkingSetIsContended.c)
+ *     MiAddPagesToEnclave @ 0x14046D958 (MiAddPagesToEnclave.c)
  */
 
 __int64 __fastcall MiCommitEnclavePages(
@@ -34,7 +34,10 @@ __int64 __fastcall MiCommitEnclavePages(
   unsigned __int8 v16; // r15
   bool v17; // zf
   __int64 v18; // rax
-  unsigned __int8 v20[8]; // [rsp+80h] [rbp+28h]
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  unsigned __int8 v23[8]; // [rsp+80h] [rbp+28h]
 
   if ( a5 != 4096 )
     return 3221225715LL;
@@ -48,8 +51,8 @@ __int64 __fastcall MiCommitEnclavePages(
   v11 = 0LL;
   v12 = 0LL;
   p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
-  v14 = MiLockWorkingSetShared((__int64)p_Blink);
-  v20[0] = v14;
+  v14 = MiLockWorkingSetShared((__int64)p_Blink, 0x7FFFFFFFF8LL, a3, a4);
+  v23[0] = v14;
   if ( v7 > v8 )
     goto LABEL_6;
   v16 = v14;
@@ -68,7 +71,7 @@ __int64 __fastcall MiCommitEnclavePages(
 LABEL_29:
           MiUnlockPageTableInternal((__int64)p_Blink, v12);
         MiUnlockWorkingSetShared((__int64)p_Blink, v16);
-        MiLockWorkingSetShared((__int64)p_Blink);
+        MiLockWorkingSetShared((__int64)p_Blink, v19, v20, v21);
 LABEL_12:
         v12 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
         MiMakeSystemAddressValid(v10, (*(_DWORD *)(a2 + 48) >> 12) & 0x7F, v16, 0);
@@ -96,7 +99,7 @@ LABEL_13:
   v6 = a6;
   if ( v12 )
     MiUnlockPageTableInternal((__int64)p_Blink, v12);
-  v14 = v20[0];
+  v14 = v23[0];
 LABEL_6:
   MiUnlockWorkingSetShared((__int64)p_Blink, v14);
   if ( v11 )

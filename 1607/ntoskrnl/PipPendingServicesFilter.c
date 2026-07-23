@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
  */
 
 __int64 __fastcall PipPendingServicesFilter(const wchar_t *a1, __int64 a2, __int64 a3, _BYTE *a4)

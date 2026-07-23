@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfApplyDomainStates @ 0x140063AC0
+ * XREFs of PpmPerfApplyDomainStates @ 0x140063AB0
  * Callers:
  *     <none>
  * Callees:
- *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
- *     PpmPerfApplyDomainState @ 0x140112920 (PpmPerfApplyDomainState.c)
- *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeAndAffinityEx @ 0x1400DC780 (KeAndAffinityEx.c)
+ *     PpmPerfApplyDomainState @ 0x140112990 (PpmPerfApplyDomainState.c)
+ *     KeIsEqualAffinityEx @ 0x14018A430 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char PpmPerfApplyDomainStates()

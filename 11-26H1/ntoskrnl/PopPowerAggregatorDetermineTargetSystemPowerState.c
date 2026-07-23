@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140943D98
+ * XREFs of PopPowerAggregatorDetermineTargetSystemPowerState @ 0x1409BF708
  * Callers:
- *     PopPowerAggregatorHandleResumeIntent @ 0x14060BA70 (PopPowerAggregatorHandleResumeIntent.c)
- *     PopPowerAggregatorHandleSystemTransitionIntent @ 0x140943D20 (PopPowerAggregatorHandleSystemTransitionIntent.c)
+ *     PopPowerAggregatorHandleResumeIntent @ 0x14060E990 (PopPowerAggregatorHandleResumeIntent.c)
+ *     PopPowerAggregatorHandleSystemTransitionIntent @ 0x1409BF690 (PopPowerAggregatorHandleSystemTransitionIntent.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
- *     PopIsHibernateSupported @ 0x140B2E808 (PopIsHibernateSupported.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
+ *     PopIsHibernateSupported @ 0x140B30758 (PopIsHibernateSupported.c)
  */
 
 __int64 __fastcall PopPowerAggregatorDetermineTargetSystemPowerState(int a1, char a2, int *a3, __int64 a4)
 {
-  _DWORD *v8; // r10
+  __int64 WriteOperationCount; // r10
   unsigned int v9; // r9d
   bool v10; // zf
   int v11; // r8d
@@ -31,14 +31,14 @@ __int64 __fastcall PopPowerAggregatorDetermineTargetSystemPowerState(int a1, cha
   char v26; // [rsp+36h] [rbp-42h]
 
   memset_0(v20, 0, 0x4CuLL);
-  PopFilterCapabilities(&stru_140F10828.WaitBlockFill11[24], v20);
-  v8 = qword_140F105C0;
+  PopFilterCapabilities(&PpmIdlePolicyLock.Padding[1], v20);
+  WriteOperationCount = PpmIdlePolicyLock.WriteOperationCount;
   v9 = 0;
   v10 = v21 == 0;
   v11 = a1;
   *(_BYTE *)(a4 + 4) = a1;
-  *(_DWORD *)(a4 + 8) = v8[15];
-  *(_DWORD *)(a4 + 12) = v8[22];
+  *(_DWORD *)(a4 + 8) = *(_DWORD *)(WriteOperationCount + 60);
+  *(_DWORD *)(a4 + 12) = *(_DWORD *)(WriteOperationCount + 88);
   v12 = !v10;
   v10 = v22 == 0;
   *(_BYTE *)(a4 + 16) = v12;
@@ -72,13 +72,16 @@ LABEL_3:
             case 2:
             case 3:
             case 4:
-              if ( (v21 != (_BYTE)v9 || v22 != (_BYTE)v9 || v23 != (_BYTE)v9) && (!a2 || v8[15] != v9) )
+              if ( (v21 != (_BYTE)v9 || v22 != (_BYTE)v9 || v23 != (_BYTE)v9)
+                && (!a2 || *(_DWORD *)(WriteOperationCount + 60) != v9) )
+              {
                 goto LABEL_3;
+              }
               break;
             case 5:
               if ( (unsigned __int8)PopIsHibernateSupported(v20) )
               {
-                if ( !a2 || v8[22] != v9 )
+                if ( !a2 || *(_DWORD *)(WriteOperationCount + 88) != v9 )
                   goto LABEL_3;
                 goto LABEL_14;
               }

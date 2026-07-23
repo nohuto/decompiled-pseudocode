@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsStandbyPageCorrupted @ 0x14050A00C
+ * XREFs of MiIsStandbyPageCorrupted @ 0x140503ABC
  * Callers:
- *     MiInsertPageLockStandbyList @ 0x1402DEE20 (MiInsertPageLockStandbyList.c)
+ *     MiInsertPageLockStandbyList @ 0x1402C0C30 (MiInsertPageLockStandbyList.c)
  * Callees:
- *     MiArePagefileContentsCorrupted @ 0x1402DB9F0 (MiArePagefileContentsCorrupted.c)
+ *     MiArePagefileContentsCorrupted @ 0x1402BD7B0 (MiArePagefileContentsCorrupted.c)
  */
 
 __int64 __fastcall MiIsStandbyPageCorrupted(__int64 a1)
@@ -11,7 +11,7 @@ __int64 __fastcall MiIsStandbyPageCorrupted(__int64 a1)
   __int64 v1; // r8
   __int64 v2; // rax
 
-  v1 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(48 * a1 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
+  v1 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(48 * a1 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
   if ( (*(_DWORD *)(v1 + 4) & 0x20) != 0 )
     v1 = **(_QWORD **)(v1 + 21400);
   v2 = *(_QWORD *)(48 * a1 - 0x220000000000LL + 16);

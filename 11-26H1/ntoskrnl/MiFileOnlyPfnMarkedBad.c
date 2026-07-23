@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFileOnlyPfnMarkedBad @ 0x1406F9B58
+ * XREFs of MiFileOnlyPfnMarkedBad @ 0x1406FE828
  * Callers:
- *     MiGetBadPageResources @ 0x1406F1108 (MiGetBadPageResources.c)
+ *     MiGetBadPageResources @ 0x1406F5D78 (MiGetBadPageResources.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiRemoveLockedPageCharge @ 0x14031D180 (MiRemoveLockedPageCharge.c)
- *     MiTrimSharedPage @ 0x140478A54 (MiTrimSharedPage.c)
- *     MiPurgeFileOnlyPfn @ 0x1404CBA94 (MiPurgeFileOnlyPfn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiRemoveLockedPageCharge @ 0x14031F1B0 (MiRemoveLockedPageCharge.c)
+ *     MiTrimSharedPage @ 0x1404723B4 (MiTrimSharedPage.c)
+ *     MiPurgeFileOnlyPfn @ 0x1404C54C4 (MiPurgeFileOnlyPfn.c)
  */
 
 __int64 __fastcall MiFileOnlyPfnMarkedBad(ULONG_PTR a1, unsigned int a2, unsigned __int8 a3)

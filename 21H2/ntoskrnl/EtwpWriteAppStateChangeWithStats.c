@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpWriteAppStateChangeWithStats @ 0x14077B150
+ * XREFs of EtwpWriteAppStateChangeWithStats @ 0x14077B310
  * Callers:
- *     EtwTraceAppStateChange @ 0x1406CDBB8 (EtwTraceAppStateChange.c)
+ *     EtwTraceAppStateChange @ 0x1406A3FC0 (EtwTraceAppStateChange.c)
  * Callees:
- *     PsGetProcessStartKey @ 0x14025F4F0 (PsGetProcessStartKey.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessStartKey @ 0x14023F080 (PsGetProcessStartKey.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void EtwpWriteAppStateChangeWithStats()
@@ -117,7 +117,7 @@ void EtwpWriteAppStateChangeWithStats()
       v47 = v6;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02BB8,
-        (unsigned __int8 *)&unk_14002D098,
+        (unsigned __int8 *)&unk_14002CAD8,
         0LL,
         0LL,
         0xDu,

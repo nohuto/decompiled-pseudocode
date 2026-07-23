@@ -8,22 +8,23 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-__int64 __fastcall RtlpHpRemoteStackSerializeWriter(char *Src, size_t Size, __int64 a3)
+NTSTATUS __fastcall RtlpHpRemoteStackSerializeWriter(char *Src, size_t Size, __int64 a3)
 {
   size_t v4; // rsi
-  size_t *v6; // r14
-  _QWORD *v7; // r12
-  _QWORD *v8; // r15
+  ULONG_PTR *ViewSize; // r14
+  PVOID *v7; // r12
+  LARGE_INTEGER *SectionOffset; // r15
   __int64 v9; // rcx
   size_t v10; // rbx
-  size_t v11; // rax
-  __int64 result; // rax
+  SIZE_T CommitSize; // rax
+  void *v12; // rcx
+  NTSTATUS result; // eax
 
   *(_QWORD *)(a3 + 32) += Size;
   v4 = Size;
   if ( *(_DWORD *)(a3 + 28) != -1073741789 && Size )
   {
-    v6 = (size_t *)(a3 + 56);
+    ViewSize = (ULONG_PTR *)(a3 + 56);
     if ( Size + *(_QWORD *)(a3 + 72) <= *(_QWORD *)(a3 + 56) )
     {
 LABEL_10:
@@ -32,33 +33,44 @@ LABEL_10:
     }
     else
     {
-      v7 = (_QWORD *)(a3 + 48);
-      v8 = (_QWORD *)(a3 + 64);
+      v7 = (PVOID *)(a3 + 48);
+      SectionOffset = (LARGE_INTEGER *)(a3 + 64);
       while ( 1 )
       {
         v9 = *(_QWORD *)(a3 + 72);
-        v10 = *v6 - v9;
-        memmove((void *)(*v7 + v9), Src, v10);
+        v10 = *ViewSize - v9;
+        memmove((char *)*v7 + v9, Src, v10);
         v4 -= v10;
-        *v8 += *v6;
+        SectionOffset->QuadPart += *ViewSize;
         Src += v10;
-        if ( *v8 >= *(_QWORD *)(a3 + 8) )
+        if ( SectionOffset->QuadPart >= *(_QWORD *)(a3 + 8) )
           break;
-        NtUnmapViewOfSection();
-        v11 = *(_QWORD *)(a3 + 8) - *v8;
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v7);
+        CommitSize = *(_QWORD *)(a3 + 8) - SectionOffset->QuadPart;
         *v7 = 0LL;
-        if ( *v6 < v11 )
-          v11 = *v6;
-        *v6 = v11;
-        result = ZwMapViewOfSection();
-        if ( (int)result < 0 )
+        v12 = *(void **)a3;
+        if ( *ViewSize < CommitSize )
+          CommitSize = *ViewSize;
+        *ViewSize = CommitSize;
+        result = ZwMapViewOfSection(
+                   v12,
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   v7,
+                   0LL,
+                   CommitSize,
+                   SectionOffset,
+                   ViewSize,
+                   ViewUnmap,
+                   0,
+                   4u);
+        if ( result < 0 )
           return result;
         *(_QWORD *)(a3 + 72) = 0LL;
-        if ( v4 <= *v6 )
+        if ( v4 <= *ViewSize )
           goto LABEL_10;
       }
       *(_DWORD *)(a3 + 28) = -1073741789;
     }
   }
-  return 0LL;
+  return 0;
 }

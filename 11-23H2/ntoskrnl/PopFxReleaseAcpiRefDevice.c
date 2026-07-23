@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxReleaseAcpiRefDevice @ 0x14058B61C
+ * XREFs of PopFxReleaseAcpiRefDevice @ 0x14058BB0C
  * Callers:
- *     PopFxRegisterDeviceWorker @ 0x1408366AC (PopFxRegisterDeviceWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x1408369AC (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  */
 
 LONG __fastcall PopFxReleaseAcpiRefDevice(__int64 a1)

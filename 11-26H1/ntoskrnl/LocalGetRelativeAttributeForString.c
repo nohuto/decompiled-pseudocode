@@ -1,20 +1,20 @@
 /*
- * XREFs of LocalGetRelativeAttributeForString @ 0x140B5458C
+ * XREFs of LocalGetRelativeAttributeForString @ 0x140B56E2C
  * Callers:
- *     LocalGetAclForString @ 0x1409243B0 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1408FFEC0 (LocalGetAclForString.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     iswspace @ 0x140536D20 (iswspace.c)
- *     wcstoxq @ 0x140538BC0 (wcstoxq.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     GetDigitFromChar @ 0x1408189A8 (GetDigitFromChar.c)
- *     GetFlags @ 0x140818A24 (GetFlags.c)
- *     GetValueType @ 0x140818B34 (GetValueType.c)
- *     IsLegalAttributeChar2 @ 0x140818CDC (IsLegalAttributeChar2.c)
- *     LocalGetSidForString @ 0x140925520 (LocalGetSidForString.c)
- *     SddlpFree @ 0x1409ED230 (SddlpFree.c)
- *     SddlpAlloc @ 0x140A62788 (SddlpAlloc.c)
- *     DecodeAttributeName @ 0x140A6452C (DecodeAttributeName.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     iswspace @ 0x1405391A0 (iswspace.c)
+ *     wcstoxq @ 0x14053B040 (wcstoxq.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     GetDigitFromChar @ 0x14081EBB8 (GetDigitFromChar.c)
+ *     GetFlags @ 0x14081EC34 (GetFlags.c)
+ *     GetValueType @ 0x14081ED44 (GetValueType.c)
+ *     IsLegalAttributeChar2 @ 0x14081EEEC (IsLegalAttributeChar2.c)
+ *     LocalGetSidForString @ 0x140901030 (LocalGetSidForString.c)
+ *     SddlpFree @ 0x1409E9A00 (SddlpFree.c)
+ *     SddlpAlloc @ 0x140A6F758 (SddlpAlloc.c)
+ *     DecodeAttributeName @ 0x140A714FC (DecodeAttributeName.c)
  */
 
 __int64 __fastcall LocalGetRelativeAttributeForString(
@@ -425,7 +425,7 @@ LABEL_75:
                 {
                   v65 = *v23;
                   if ( !*v23 )
-                    goto LABEL_222;
+                    goto LABEL_223;
                   v92 = 0;
                   v88 = wcstoxq(0LL, v23, &EndPointer, 0, 0, &v92);
                   if ( EndPointer == v23 && !v88 )
@@ -447,12 +447,12 @@ LABEL_75:
                   }
                   v65 = *v23;
                   if ( *v23 != 44 )
-                    goto LABEL_222;
+                    goto LABEL_223;
                   ++v23;
                 }
               }
               if ( a7 == 2 )
-                goto LABEL_204;
+                goto LABEL_205;
               if ( a7 == 3 )
               {
                 v9 = v8;
@@ -464,24 +464,18 @@ LABEL_75:
                   for ( kk = *v23; iswspace(kk); kk = *v23 )
                     ++v23;
                   if ( *v23 != 34 )
-                    goto LABEL_203;
+                    goto LABEL_204;
                   v83 = v23[1];
                   v84 = v23 + 1;
                   v85 = 0;
-                  if ( v83 != 34 )
+                  while ( v83 != 34 && v83 )
                   {
-                    do
-                    {
-                      if ( !v83 )
-                        break;
-                      ++v84;
-                      ++v85;
-                      v83 = *v84;
-                    }
-                    while ( *v84 != 34 );
-                    if ( *v84 != 34 )
-                      goto LABEL_203;
+                    ++v84;
+                    ++v85;
+                    v83 = *v84;
                   }
+                  if ( *v84 != 34 )
+                    goto LABEL_204;
                   v9[v91 + 4] = v63;
                   v63 += 2 * v85 + 2;
                   v86 = 2LL * v85;
@@ -500,7 +494,7 @@ LABEL_75:
                 }
                 if ( v81 != 41 )
                 {
-LABEL_203:
+LABEL_204:
                   ValueType = 1336;
                   goto LABEL_25;
                 }
@@ -512,7 +506,7 @@ LABEL_203:
                 {
                   if ( a7 == 6 )
                   {
-LABEL_204:
+LABEL_205:
                     while ( 1 )
                     {
                       v65 = *v23;
@@ -595,10 +589,10 @@ LABEL_204:
                       ++v23;
                     }
                   }
-LABEL_222:
+LABEL_223:
                   if ( v65 != 41 )
                     goto LABEL_141;
-                  goto LABEL_226;
+                  goto LABEL_227;
                 }
                 while ( 1 )
                 {
@@ -644,7 +638,7 @@ LABEL_142:
                 }
               }
               v34 = v94;
-LABEL_226:
+LABEL_227:
               v89 = v101;
               *v102 = v8;
               *v103 = v34;

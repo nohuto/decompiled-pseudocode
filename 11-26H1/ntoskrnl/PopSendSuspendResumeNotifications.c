@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSendSuspendResumeNotifications @ 0x140B606E0
+ * XREFs of PopSendSuspendResumeNotifications @ 0x140B63780
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopSendSuspendResumeApplicationNotification @ 0x1407D10E8 (PopSendSuspendResumeApplicationNotification.c)
- *     PopSendSuspendResumeServiceNotification @ 0x1407D1218 (PopSendSuspendResumeServiceNotification.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopSendSuspendResumeApplicationNotification @ 0x1407D4188 (PopSendSuspendResumeApplicationNotification.c)
+ *     PopSendSuspendResumeServiceNotification @ 0x1407D42B8 (PopSendSuspendResumeServiceNotification.c)
  */
 
 __int64 __fastcall PopSendSuspendResumeNotifications(char a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -23,20 +23,20 @@ __int64 __fastcall PopSendSuspendResumeNotifications(char a1, __int64 a2, __int6
 
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F110C0, a2, a3, a4);
-    if ( HIDWORD(stru_140F110C0.Header.WaitListHead.Blink) == 1 )
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopSuspendResumeNotification, a2, a3, a4);
+    if ( HIDWORD(qword_140F11450) == 1 )
     {
       v5 = -1072103422;
     }
-    else if ( a1 == LOBYTE(stru_140F110C0.Header.WaitListHead.Blink) )
+    else if ( a1 == (_BYTE)qword_140F11450 )
     {
       v5 = -1073741101;
     }
     else
     {
-      stru_140F110C0.SListFaultAddress = KeGetCurrentThread();
-      HIDWORD(stru_140F110C0.Header.WaitListHead.Blink) = 1;
-      PopReleaseRwLock(&stru_140F110C0);
+      qword_140F11458 = (__int64)KeGetCurrentThread();
+      HIDWORD(qword_140F11450) = 1;
+      PopReleaseRwLock((struct _KTHREAD *)&PopSuspendResumeNotification);
       if ( a1 )
       {
         LOBYTE(v7) = a1;
@@ -50,11 +50,11 @@ __int64 __fastcall PopSendSuspendResumeNotifications(char a1, __int64 a2, __int6
         v9 = PopSendSuspendResumeApplicationNotification(0LL, v13);
       }
       v5 = v9;
-      PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F110C0, v10, v11, v12);
-      LOBYTE(stru_140F110C0.Header.WaitListHead.Blink) = a1;
-      HIDWORD(stru_140F110C0.Header.WaitListHead.Blink) = 0;
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopSuspendResumeNotification, v10, v11, v12);
+      LOBYTE(qword_140F11450) = a1;
+      HIDWORD(qword_140F11450) = 0;
     }
-    PopReleaseRwLock(&stru_140F110C0);
+    PopReleaseRwLock((struct _KTHREAD *)&PopSuspendResumeNotification);
   }
   else
   {

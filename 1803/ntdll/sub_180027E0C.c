@@ -25,10 +25,10 @@ __int64 __fastcall sub_180027E0C(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int v14; // ebp
   __int64 v15; // rdx
   _QWORD *v16; // rcx
-  __int64 v17; // r12
+  _RTL_SRWLOCK *v17; // r12
   volatile signed __int64 *v18; // r13
-  __int64 v19; // rsi
-  __int64 v20; // rax
+  __int64 Ptr; // rsi
+  _QWORD *v20; // rax
   signed __int64 v21; // rax
   unsigned int v22; // eax
   _QWORD *v24; // rax
@@ -80,14 +80,14 @@ LABEL_8:
     v33 = a1 + 16;
     while ( 1 )
     {
-      v17 = *v16 + 8 * v15;
-      v18 = (volatile signed __int64 *)(v17 + 16);
-      RtlAcquireSRWLockExclusive(v17 + 16);
-      v19 = *(_QWORD *)v17;
-      if ( *(_QWORD *)(*(_QWORD *)v17 + 8LL) != v17 || (v20 = *(_QWORD *)v19, *(_QWORD *)(*(_QWORD *)v19 + 8LL) != v19) )
+      v17 = (_RTL_SRWLOCK *)(*v16 + 8 * v15);
+      v18 = (volatile signed __int64 *)&v17[2];
+      RtlAcquireSRWLockExclusive(v17 + 2);
+      Ptr = (__int64)v17->Ptr;
+      if ( *((_RTL_SRWLOCK **)v17->Ptr + 1) != v17 || (v20 = *(_QWORD **)Ptr, *(_QWORD *)(*(_QWORD *)Ptr + 8LL) != Ptr) )
         __fastfail(3u);
-      *(_QWORD *)v17 = v20;
-      *(_QWORD *)(v20 + 8) = v17;
+      v17->Ptr = v20;
+      v20[1] = v17;
       v21 = _InterlockedCompareExchange64(v18, 0LL, 1LL);
       if ( v21 != 1 )
       {
@@ -103,11 +103,11 @@ LABEL_8:
         }
         while ( v30 != v21 );
         if ( v27 == 2 )
-          sub_180070AAC(v17 + 16, v29, 0LL);
+          sub_180070AAC(&v17[2], v29, 0LL);
       }
-      if ( v19 == v17 )
-        v19 = 0LL;
-      if ( v19 )
+      if ( (_RTL_SRWLOCK *)Ptr == v17 )
+        Ptr = 0LL;
+      if ( Ptr )
         break;
       v15 = 3LL * v13;
       v16 = (_QWORD *)(v33 + 8);
@@ -128,8 +128,8 @@ LABEL_28:
     v26 = v24;
     while ( 1 )
     {
-      v19 = sub_180089000(*v26 + 24LL * v14, v15);
-      if ( v19 )
+      Ptr = sub_180089000(*v26 + 24LL * v14, v15);
+      if ( Ptr )
         break;
       v14 = v14 + 1 < dword_18015D044 ? v14 + 1 : 0;
       if ( v14 == v13 )
@@ -146,8 +146,8 @@ LABEL_28:
       }
     }
   }
-  *a3 = v19 - 16;
-  sub_180028238(a1, a2, v14, *(unsigned __int8 *)(v19 - 16 + 12));
+  *a3 = Ptr - 16;
+  sub_180028238(a1, a2, v14, *(unsigned __int8 *)(Ptr - 16 + 12));
   if ( v14 == v13 )
   {
     v22 = *(_DWORD *)(a2 + 348);

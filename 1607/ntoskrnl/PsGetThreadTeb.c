@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetThreadTeb @ 0x1400F6828
+ * XREFs of PsGetThreadTeb @ 0x1400F4678
  * Callers:
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x1405188AC (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x1404FBC9C (PspWow64ReadOrWriteThreadCpuArea.c)
  * Callees:
  *     <none>
  */

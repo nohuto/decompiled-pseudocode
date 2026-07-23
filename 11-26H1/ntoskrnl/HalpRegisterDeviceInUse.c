@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpRegisterDeviceInUse @ 0x140C129D4
+ * XREFs of HalpRegisterDeviceInUse @ 0x140C189D4
  * Callers:
- *     HalpKdSetupDebuggingDevice @ 0x140C127C0 (HalpKdSetupDebuggingDevice.c)
+ *     HalpKdSetupDebuggingDevice @ 0x140C187C0 (HalpKdSetupDebuggingDevice.c)
  * Callees:
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     HalpMmAllocateMemory @ 0x14057DCD4 (HalpMmAllocateMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     HalpFindDevice @ 0x140C12214 (HalpFindDevice.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     HalpMmAllocateMemory @ 0x1405801F4 (HalpMmAllocateMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     HalpFindDevice @ 0x140C18214 (HalpFindDevice.c)
  */
 
 __int64 __fastcall HalpRegisterDeviceInUse(__int64 a1)

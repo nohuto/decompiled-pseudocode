@@ -72,7 +72,7 @@ __int64 __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1,
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v6 = (unsigned __int8)v39 - 1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -124,10 +124,10 @@ __int64 __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1,
     KxReleaseQueuedSpinLock(&v39);
     result = (unsigned int)KiIrqlFlags;
     v26 = (unsigned __int8)v41;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v30 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v32 = CurrentPrcb->SchedulerAssist;
@@ -199,10 +199,10 @@ __int64 __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1,
   KiReleaseQueuedSpinLockInstrumented(&v39, retaddr);
 LABEL_23:
   v20 = (unsigned __int8)v41;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v34 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v34 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v34 >= 2u )
     {
       v35 = KeGetCurrentPrcb();
       v36 = v35->SchedulerAssist;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetNextProcessThread @ 0x140742838
+ * XREFs of ExpGetNextProcessThread @ 0x140742A28
  * Callers:
- *     ExpGetProcessInformation @ 0x140742DC0 (ExpGetProcessInformation.c)
+ *     ExpGetProcessInformation @ 0x140742FB0 (ExpGetProcessInformation.c)
  * Callees:
- *     PsGetNextProcessThread @ 0x140742AB0 (PsGetNextProcessThread.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1407D5C8C (KeSynchronizeWithDynamicProcessors.c)
+ *     PsGetNextProcessThread @ 0x140742CA0 (PsGetNextProcessThread.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x1407D5F5C (KeSynchronizeWithDynamicProcessors.c)
  */
 
 __int64 __fastcall ExpGetNextProcessThread(char *a1, __int64 a2)

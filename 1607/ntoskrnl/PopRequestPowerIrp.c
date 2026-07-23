@@ -1,17 +1,17 @@
 /*
- * XREFs of PopRequestPowerIrp @ 0x14012AB98
+ * XREFs of PopRequestPowerIrp @ 0x14012B108
  * Callers:
- *     PoRequestPowerIrp @ 0x14012AB70 (PoRequestPowerIrp.c)
- *     PopFxReleasePowerIrp @ 0x14012BA48 (PopFxReleasePowerIrp.c)
+ *     PoRequestPowerIrp @ 0x14012B0E0 (PoRequestPowerIrp.c)
+ *     PopFxReleasePowerIrp @ 0x14012BFB8 (PopFxReleasePowerIrp.c)
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x14009DD7C (IoReleaseRemoveLockEx.c)
- *     PopMapInternalActionToIrpAction @ 0x1401144F0 (PopMapInternalActionToIrpAction.c)
- *     PopAllocateIrp @ 0x14012AD80 (PopAllocateIrp.c)
- *     PopQueueQuerySetIrp @ 0x14012B068 (PopQueueQuerySetIrp.c)
- *     PopDiagTraceIrpStart @ 0x14012B2C0 (PopDiagTraceIrpStart.c)
- *     IofCallDriverSpecifyReturn @ 0x14012B57C (IofCallDriverSpecifyReturn.c)
- *     PopPepDeviceWaitWake @ 0x14012C338 (PopPepDeviceWaitWake.c)
- *     PopLogNotifyDevice @ 0x1402073C8 (PopLogNotifyDevice.c)
+ *     IoReleaseRemoveLockEx @ 0x14009D57C (IoReleaseRemoveLockEx.c)
+ *     PopMapInternalActionToIrpAction @ 0x140114A60 (PopMapInternalActionToIrpAction.c)
+ *     PopAllocateIrp @ 0x14012B2F0 (PopAllocateIrp.c)
+ *     PopQueueQuerySetIrp @ 0x14012B5D8 (PopQueueQuerySetIrp.c)
+ *     PopDiagTraceIrpStart @ 0x14012B830 (PopDiagTraceIrpStart.c)
+ *     IofCallDriverSpecifyReturn @ 0x14012BAEC (IofCallDriverSpecifyReturn.c)
+ *     PopPepDeviceWaitWake @ 0x14012C8A8 (PopPepDeviceWaitWake.c)
+ *     PopLogNotifyDevice @ 0x1402071F4 (PopLogNotifyDevice.c)
  */
 
 __int64 __fastcall PopRequestPowerIrp(__int64 a1, char a2, int a3, int a4, __int64 a5, char a6, PIRP Irp)
@@ -72,7 +72,7 @@ LABEL_20:
         v16[-1].Parameters.Read.Length = HIDWORD(PopCurrentBroadcast);
         if ( (_BYTE)PopCurrentBroadcast )
           v16[-1].Parameters.Create.EaLength = PopMapInternalActionToIrpAction(
-                                                 qword_1403033E8,
+                                                 qword_140303328,
                                                  WORD2(PopCurrentBroadcast) >> 12,
                                                  1);
         if ( (xmmword_1403AA2D0 & 0x8000) != 0 )

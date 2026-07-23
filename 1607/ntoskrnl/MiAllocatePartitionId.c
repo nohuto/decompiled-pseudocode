@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocatePartitionId @ 0x140659938
+ * XREFs of MiAllocatePartitionId @ 0x140659A1C
  * Callers:
- *     MiCreatePartition @ 0x1406601A8 (MiCreatePartition.c)
+ *     MiCreatePartition @ 0x14066028C (MiCreatePartition.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiExpandPartitionIds @ 0x1406603B4 (MiExpandPartitionIds.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiExpandPartitionIds @ 0x140660498 (MiExpandPartitionIds.c)
  */
 
 __int64 __fastcall MiAllocatePartitionId(__int64 a1)
@@ -23,31 +23,31 @@ __int64 __fastcall MiAllocatePartitionId(__int64 a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v3 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326FB8, 0LL, 0);
-  v4 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326FB8, 0LL);
+  v3 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326FF8, 0LL, 0);
+  v4 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326FF8, 0LL);
   v5 = v3;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(&qword_140326FB8, v3, (ULONG_PTR)&qword_140326FB8);
+    ExfAcquirePushLockExclusiveEx(&qword_140326FF8, v3, (ULONG_PTR)&qword_140326FF8);
   if ( v5 )
     v5[26] |= 1u;
   do
   {
-    ClearBitsAndSet = RtlFindClearBitsAndSet(qword_140326FD8, 1u, 0);
+    ClearBitsAndSet = RtlFindClearBitsAndSet(qword_140327018, 1u, 0);
     v7 = ClearBitsAndSet;
     if ( ClearBitsAndSet != 0xFFFFFFFFLL )
     {
-      *(_QWORD *)(qword_140326FF8 + 8LL * (unsigned __int16)ClearBitsAndSet) = a1;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326FB8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326FB8);
-      KeAbPostRelease((ULONG_PTR)&qword_140326FB8);
+      *(_QWORD *)(qword_140327038 + 8LL * (unsigned __int16)ClearBitsAndSet) = a1;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326FF8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326FF8);
+      KeAbPostRelease((ULONG_PTR)&qword_140326FF8);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
       return v7;
     }
   }
   while ( (unsigned int)MiExpandPartitionIds() );
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326FB8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326FB8);
-  KeAbPostRelease((ULONG_PTR)&qword_140326FB8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326FF8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326FF8);
+  KeAbPostRelease((ULONG_PTR)&qword_140326FF8);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return 0LL;
 }

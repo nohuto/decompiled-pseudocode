@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpInitializeDiscardReplaceContext @ 0x140A1FD10
+ * XREFs of CmpInitializeDiscardReplaceContext @ 0x140A1FFC0
  * Callers:
- *     CmDeleteLayeredKey @ 0x1406168EC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x140616E3C (CmDeleteLayeredKey.c)
  * Callees:
  *     <none>
  */

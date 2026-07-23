@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCheckBusyBlockTail @ 0x180015B4C
+ * XREFs of RtlpCheckBusyBlockTail @ 0x18006127C
  * Callers:
- *     RtlpValidateHeap @ 0x180014EB8 (RtlpValidateHeap.c)
- *     RtlpValidateHeapEntry @ 0x180015970 (RtlpValidateHeapEntry.c)
- *     RtlpValidateHeapSegment @ 0x1800DD034 (RtlpValidateHeapSegment.c)
+ *     RtlpValidateHeap @ 0x1800605E8 (RtlpValidateHeap.c)
+ *     RtlpValidateHeapEntry @ 0x1800610A0 (RtlpValidateHeapEntry.c)
+ *     RtlpValidateHeapSegment @ 0x1800D9FA4 (RtlpValidateHeapSegment.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpBreakPointHeap @ 0x180027944 (RtlpBreakPointHeap.c)
- *     RtlCompareMemory @ 0x1801631E0 (RtlCompareMemory.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpBreakPointHeap @ 0x180012A14 (RtlpBreakPointHeap.c)
+ *     RtlCompareMemory @ 0x1801630E0 (RtlCompareMemory.c)
  */
 
 char __fastcall RtlpCheckBusyBlockTail(__int64 a1, unsigned __int64 a2)

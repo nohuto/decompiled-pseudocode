@@ -1,20 +1,20 @@
 /*
- * XREFs of KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405F9B28
+ * XREFs of KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405FC548
  * Callers:
- *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405F9E44 (KiBugCheckRecoveryPrepareForCrashDump.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x1405FA874 (KiUpdateBugcheckRecoveryProgress.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405FC864 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405FD294 (KiUpdateBugcheckRecoveryProgress.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KeRemoveQueueDpcEx @ 0x140423370 (KeRemoveQueueDpcEx.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KiSetDebuggerOwner @ 0x140530774 (KiSetDebuggerOwner.c)
- *     KeFrozenProcessorCount @ 0x1405F5DF4 (KeFrozenProcessorCount.c)
- *     KiSendFreeze @ 0x1405F6118 (KiSendFreeze.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KeRemoveQueueDpcEx @ 0x140430460 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     KiSetDebuggerOwner @ 0x140532C74 (KiSetDebuggerOwner.c)
+ *     KeFrozenProcessorCount @ 0x1405F87B0 (KeFrozenProcessorCount.c)
+ *     KiSendFreeze @ 0x1405F8AD8 (KiSendFreeze.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiBugCheckRecoveryFreezeOtherProcessors(unsigned int a1)
@@ -49,10 +49,10 @@ __int64 __fastcall KiBugCheckRecoveryFreezeOtherProcessors(unsigned int a1)
     KiSetDebuggerOwner((__int64)CurrentPrcb);
     *(_QWORD *)&v16.Count = 2097153LL;
     memset_0(&v16.8, 0, sizeof(v16.8));
-    RtlpCopyAffinityEx(&v16, 0x20u, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+    RtlpCopyAffinityEx(&v16, 0x20u, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
     KeRemoveProcessorAffinityEx(&v16.Count, CurrentPrcb->Number);
-    KsepShimDbLock.SecureThreadCookie = 1;
-    *(_DWORD *)&KsepShimDbLock.AbWaitEntryCount = 0;
+    LODWORD(KsepShimDbLock.SuspendEvent.Header.WaitListHead.Flink) = 1;
+    *(_DWORD *)&KsepShimDbLock.PriorityFloorCounts[24] = 0;
     v5 = 0;
     v12 = v16.Bitmap[0];
     v11 = &v16;
@@ -69,11 +69,11 @@ __int64 __fastcall KiBugCheckRecoveryFreezeOtherProcessors(unsigned int a1)
     }
     for ( i = 0; i < 0xF4240; i += 50 )
     {
-      if ( *(int *)&KsepShimDbLock.AbWaitEntryCount >= v5 )
+      if ( *(int *)&KsepShimDbLock.PriorityFloorCounts[24] >= v5 )
         break;
       KeStallExecutionProcessor(0x32u);
     }
-    if ( *(int *)&KsepShimDbLock.AbWaitEntryCount < v5 )
+    if ( *(int *)&KsepShimDbLock.PriorityFloorCounts[24] < v5 )
     {
       v12 = v16.Bitmap[0];
       v13 = 0;
@@ -91,7 +91,7 @@ __int64 __fastcall KiBugCheckRecoveryFreezeOtherProcessors(unsigned int a1)
         KeStallExecutionProcessor(0x32u);
       }
     }
-    KsepShimDbLock.SecureThreadCookie = 0;
+    LODWORD(KsepShimDbLock.SuspendEvent.Header.WaitListHead.Flink) = 0;
     return (unsigned int)KeNumberProcessors_0 - (unsigned int)KeFrozenProcessorCount();
   }
   return v2;

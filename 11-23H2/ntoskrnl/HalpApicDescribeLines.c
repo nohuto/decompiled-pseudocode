@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicDescribeLines @ 0x1403790DC
+ * XREFs of HalpApicDescribeLines @ 0x14037927C
  * Callers:
- *     HalpApicInitializeIoUnit @ 0x1403A5120 (HalpApicInitializeIoUnit.c)
+ *     HalpApicInitializeIoUnit @ 0x1403A5300 (HalpApicInitializeIoUnit.c)
  * Callees:
- *     HalpInterruptRegisterLine @ 0x1403794A0 (HalpInterruptRegisterLine.c)
+ *     HalpInterruptRegisterLine @ 0x140379640 (HalpInterruptRegisterLine.c)
  */
 
 __int64 __fastcall HalpApicDescribeLines(__int64 a1)

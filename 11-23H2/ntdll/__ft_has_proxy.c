@@ -1,7 +1,7 @@
 /*
- * XREFs of __ft_has_proxy @ 0x18009FBD0
+ * XREFs of __ft_has_proxy @ 0x18009FB90
  * Callers:
- *     RtlNotifyFeatureToggleUsage @ 0x18009F7A0 (RtlNotifyFeatureToggleUsage.c)
+ *     RtlNotifyFeatureToggleUsage @ 0x18009F760 (RtlNotifyFeatureToggleUsage.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmFcpCleanupSectionState @ 0x14080DEC0
+ * XREFs of CmFcpCleanupSectionState @ 0x14080E190
  * Callers:
  *     CmFcManagerStartRuntimePhase @ 0x140B37FF0 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
  */
 
 LONG_PTR __fastcall CmFcpCleanupSectionState(__int64 a1)

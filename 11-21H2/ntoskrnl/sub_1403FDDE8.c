@@ -1,0 +1,51 @@
+/*
+ * XREFs of sub_1403FDDE8 @ 0x1403FDDE8
+ * Callers:
+ *     sub_1403FCC10 @ 0x1403FCC10 (sub_1403FCC10.c)
+ *     sub_1403FD990 @ 0x1403FD990 (sub_1403FD990.c)
+ *     sub_1403FDA20 @ 0x1403FDA20 (sub_1403FDA20.c)
+ *     sub_1403FDAA0 @ 0x1403FDAA0 (sub_1403FDAA0.c)
+ *     sub_1403FDE00 @ 0x1403FDE00 (sub_1403FDE00.c)
+ *     sub_1403FE0B0 @ 0x1403FE0B0 (sub_1403FE0B0.c)
+ *     sub_1403FF10C @ 0x1403FF10C (sub_1403FF10C.c)
+ *     sub_1403FF3BC @ 0x1403FF3BC (sub_1403FF3BC.c)
+ *     sub_1403FF894 @ 0x1403FF894 (sub_1403FF894.c)
+ *     sub_1403FF93C @ 0x1403FF93C (sub_1403FF93C.c)
+ *     sub_1404000C8 @ 0x1404000C8 (sub_1404000C8.c)
+ *     sub_140400318 @ 0x140400318 (sub_140400318.c)
+ *     sub_140400770 @ 0x140400770 (sub_140400770.c)
+ *     sub_140400914 @ 0x140400914 (sub_140400914.c)
+ *     sub_140400E9C @ 0x140400E9C (sub_140400E9C.c)
+ *     sub_140401470 @ 0x140401470 (sub_140401470.c)
+ *     sub_140401C90 @ 0x140401C90 (sub_140401C90.c)
+ *     sub_140401FB0 @ 0x140401FB0 (sub_140401FB0.c)
+ *     sub_14040362C @ 0x14040362C (sub_14040362C.c)
+ *     sub_140404980 @ 0x140404980 (sub_140404980.c)
+ *     sub_140405390 @ 0x140405390 (sub_140405390.c)
+ *     sub_14040A8C8 @ 0x14040A8C8 (sub_14040A8C8.c)
+ *     sub_14040A9EC @ 0x14040A9EC (sub_14040A9EC.c)
+ *     sub_14040AB38 @ 0x14040AB38 (sub_14040AB38.c)
+ *     sub_14040AC0C @ 0x14040AC0C (sub_14040AC0C.c)
+ *     sub_14040AE3C @ 0x14040AE3C (sub_14040AE3C.c)
+ *     sub_14040B1B0 @ 0x14040B1B0 (sub_14040B1B0.c)
+ *     sub_14040BCF0 @ 0x14040BCF0 (sub_14040BCF0.c)
+ *     sub_14040BD74 @ 0x14040BD74 (sub_14040BD74.c)
+ *     sub_14040C1C0 @ 0x14040C1C0 (sub_14040C1C0.c)
+ *     sub_14040C270 @ 0x14040C270 (sub_14040C270.c)
+ *     sub_14040C640 @ 0x14040C640 (sub_14040C640.c)
+ *     sub_14040C6B0 @ 0x14040C6B0 (sub_14040C6B0.c)
+ *     sub_14040C7CC @ 0x14040C7CC (sub_14040C7CC.c)
+ *     sub_14040CD30 @ 0x14040CD30 (sub_14040CD30.c)
+ *     sub_14040D19C @ 0x14040D19C (sub_14040D19C.c)
+ *     sub_14040D334 @ 0x14040D334 (sub_14040D334.c)
+ *     sub_14040D368 @ 0x14040D368 (sub_14040D368.c)
+ *     sub_1404110E0 @ 0x1404110E0 (sub_1404110E0.c)
+ *     sub_140411200 @ 0x140411200 (sub_140411200.c)
+ * Callees:
+ *     sub_1403FDB10 @ 0x1403FDB10 (sub_1403FDB10.c)
+ */
+
+__int64 __fastcall sub_1403FDDE8(__int64 a1, unsigned __int64 a2)
+{
+  return sub_1403FDB10(a1, a2);
+}

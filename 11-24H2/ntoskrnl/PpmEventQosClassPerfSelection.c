@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventQosClassPerfSelection @ 0x140494BCC
+ * XREFs of PpmEventQosClassPerfSelection @ 0x1403A32A4
  * Callers:
- *     PpmPerfApplyDomainState @ 0x1403B2CE0 (PpmPerfApplyDomainState.c)
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmPerfApplyDomainState @ 0x1403A14F0 (PpmPerfApplyDomainState.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventQosClassPerfSelection(__int64 a1, char a2)

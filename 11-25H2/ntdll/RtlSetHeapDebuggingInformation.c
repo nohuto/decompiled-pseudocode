@@ -12,8 +12,8 @@
 
 __int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
 {
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
+  void *v4; // rcx
+  unsigned int v5; // ebx
 
   if ( a1 )
   {
@@ -25,11 +25,11 @@ __int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
     {
       RtlEnterCriticalSection(&RtlpProcessHeapsLock);
       if ( (unsigned int)RtlpIsProtectedHeap(a1) )
-        v6 = -1073741811;
+        v5 = -1073741811;
       else
-        v6 = RtlpSetHeapDebuggingInformation(v5, a2);
+        v5 = RtlpSetHeapDebuggingInformation(v4);
       RtlLeaveCriticalSection(&RtlpProcessHeapsLock);
-      return v6;
+      return v5;
     }
   }
   else

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140900430
+ * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140922D10
  * Callers:
- *     EtwpCovSampCaptureUserAddresses @ 0x1409003C4 (EtwpCovSampCaptureUserAddresses.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x140922CA4 (EtwpCovSampCaptureUserAddresses.c)
  * Callees:
- *     ExfAcquireRundownProtection @ 0x140247210 (ExfAcquireRundownProtection.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x14043EC48 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x14043EF30 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureBufferIsEmpty @ 0x140467EE0 (EtwpCovSampCaptureBufferIsEmpty.c)
- *     EtwpCovSampReleaseSamplerRundown @ 0x140900574 (EtwpCovSampReleaseSamplerRundown.c)
- *     EtwpCovSampProcessMapAddresses @ 0x1409005D0 (EtwpCovSampProcessMapAddresses.c)
- *     EtwpCovSampStackHashCheck @ 0x14090090C (EtwpCovSampStackHashCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfAcquireRundownProtection @ 0x1402F60C0 (ExfAcquireRundownProtection.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x1404347FC (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140434AE4 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureBufferIsEmpty @ 0x140460890 (EtwpCovSampCaptureBufferIsEmpty.c)
+ *     EtwpCovSampReleaseSamplerRundown @ 0x140922E54 (EtwpCovSampReleaseSamplerRundown.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x140922EB0 (EtwpCovSampProcessMapAddresses.c)
+ *     EtwpCovSampStackHashCheck @ 0x1409231EC (EtwpCovSampStackHashCheck.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64 a2)
@@ -30,24 +30,24 @@ __int64 __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __in
     goto LABEL_11;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  _m_prefetchw(&stru_140EFEC80);
-  v7 = stru_140EFEC80.Count & 0xFFFFFFFFFFFFFFFEuLL;
+  _m_prefetchw(&stru_140EFEFA0);
+  v7 = stru_140EFEFA0.Count & 0xFFFFFFFFFFFFFFFEuLL;
   if ( v7 != _InterlockedCompareExchange64(
-               (volatile signed __int64 *)&stru_140EFEC80,
-               (stru_140EFEC80.Count & 0xFFFFFFFFFFFFFFFEuLL) + 2,
-               stru_140EFEC80.Count & 0xFFFFFFFFFFFFFFFEuLL)
-    && !ExfAcquireRundownProtection(&stru_140EFEC80) )
+               (volatile signed __int64 *)&stru_140EFEFA0,
+               (stru_140EFEFA0.Count & 0xFFFFFFFFFFFFFFFEuLL) + 2,
+               stru_140EFEFA0.Count & 0xFFFFFFFFFFFFFFFEuLL)
+    && !ExfAcquireRundownProtection(&stru_140EFEFA0) )
   {
     KeLeaveCriticalRegionThread();
     goto LABEL_11;
   }
-  v3 = qword_140EFEC78;
+  v3 = qword_140EFEF98;
   if ( (unsigned int)EtwpCovSampStackHashCheck(a1, v5, a2 + 64, *(unsigned __int16 *)(a2 + 62))
     || (Affinity = KeGetCurrentThread()->ApcState.Process[4].Affinity) == 0LL )
   {
 LABEL_11:
     if ( a2 )
-      EtwpCovSampCaptureBufferRelease(a1, (struct _SLIST_ENTRY *)a2);
+      EtwpCovSampCaptureBufferRelease(a1, (_SLIST_ENTRY *)a2);
     return EtwpCovSampReleaseSamplerRundown(v3);
   }
   EtwpCovSampProcessMapAddresses(

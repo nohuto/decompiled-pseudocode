@@ -1,12 +1,12 @@
 /*
- * XREFs of SeQuerySecurityAttributesTokenAccessInformation @ 0x1403CBD30
+ * XREFs of SeQuerySecurityAttributesTokenAccessInformation @ 0x1403B0650
  * Callers:
  *     <none>
  * Callees:
- *     SepTokenFromAccessInformation @ 0x1403CBF70 (SepTokenFromAccessInformation.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403CC2F0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SepTokenFromAccessInformation @ 0x1403B0890 (SepTokenFromAccessInformation.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B0C10 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SeQuerySecurityAttributesTokenAccessInformation(
@@ -19,7 +19,7 @@ __int64 __fastcall SeQuerySecurityAttributesTokenAccessInformation(
 {
   _BYTE v11[1184]; // [rsp+40h] [rbp-4E8h] BYREF
 
-  memset_0(v11, 0, 0x498uLL);
+  memset_0(v11, 0, sizeof(v11));
   if ( a5 )
   {
     if ( a4 )

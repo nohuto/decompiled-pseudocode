@@ -1,13 +1,13 @@
 /*
- * XREFs of KiReadGuestSchedulerAssistPriority @ 0x14051FC48
+ * XREFs of KiReadGuestSchedulerAssistPriority @ 0x14051FE88
  * Callers:
- *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
- *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
- *     KiUpdateVPBackingThreadPriority @ 0x140258E10 (KiUpdateVPBackingThreadPriority.c)
- *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
- *     KiAddThreadToPrcbQueue @ 0x14029C210 (KiAddThreadToPrcbQueue.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x140520CC0 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiAddThreadToPrcbQueue @ 0x140214370 (KiAddThreadToPrcbQueue.c)
+ *     KiQuantumEnd @ 0x140279260 (KiQuantumEnd.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x14027A380 (KiUpdateVPBackingThreadPriority.c)
+ *     KiQueueReadyThread @ 0x14027A920 (KiQueueReadyThread.c)
+ *     KiDirectSwitchThread @ 0x1402F1090 (KiDirectSwitchThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x140520F00 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  * Callees:
  *     <none>
  */

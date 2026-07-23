@@ -1,24 +1,24 @@
 /*
- * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080854C
+ * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080974C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140808EC0 (VrpIoctlDeviceDispatch.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsThreadInSilo @ 0x1400CC270 (PsIsThreadInSilo.c)
- *     PsGetPermanentSiloContext @ 0x14010A0A0 (PsGetPermanentSiloContext.c)
- *     PsGetJobSilo @ 0x1402EA120 (PsGetJobSilo.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     VRegEnabledInJob @ 0x1408082FC (VRegEnabledInJob.c)
- *     VrpAddNamespaceNodeToList @ 0x140809AFC (VrpAddNamespaceNodeToList.c)
- *     VrpCreateNamespaceNode @ 0x140809E3C (VrpCreateNamespaceNode.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x14080A0EC (VrpCreateNamespaceNodePlaceholderKey.c)
- *     VrpDestroyNamespaceNode @ 0x14080A19C (VrpDestroyNamespaceNode.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsThreadInSilo @ 0x1400CC350 (PsIsThreadInSilo.c)
+ *     PsGetPermanentSiloContext @ 0x14010A120 (PsGetPermanentSiloContext.c)
+ *     PsGetJobSilo @ 0x1402EA310 (PsGetJobSilo.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     VRegEnabledInJob @ 0x1408094FC (VRegEnabledInJob.c)
+ *     VrpAddNamespaceNodeToList @ 0x14080ACFC (VrpAddNamespaceNodeToList.c)
+ *     VrpCreateNamespaceNode @ 0x14080B03C (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x14080B2EC (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     VrpDestroyNamespaceNode @ 0x14080B39C (VrpDestroyNamespaceNode.c)
  */
 
 __int64 __fastcall VrpHandleIoctlCreateMultipleNamespaceNodes(

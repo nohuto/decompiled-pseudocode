@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlStringCchCatW @ 0x1400B03B8
+ * XREFs of RtlStringCchCatW @ 0x14010B540
  * Callers:
- *     SdbpCreateSearchDBContext @ 0x1404853AC (SdbpCreateSearchDBContext.c)
- *     ExpGetGlobalLocaleSection @ 0x1404D2D90 (ExpGetGlobalLocaleSection.c)
- *     SdbpCheckMatchingRegistryEntry @ 0x1406C256C (SdbpCheckMatchingRegistryEntry.c)
- *     AslPathToSystemPath @ 0x1406C618C (AslPathToSystemPath.c)
- *     AslEnvResolveVars @ 0x1406C66D4 (AslEnvResolveVars.c)
- *     AslpFileQueryVersionString @ 0x1406C8E7C (AslpFileQueryVersionString.c)
+ *     ExpGetGlobalLocaleSection @ 0x1404B6830 (ExpGetGlobalLocaleSection.c)
+ *     SdbpCreateSearchDBContext @ 0x140514734 (SdbpCreateSearchDBContext.c)
+ *     SdbpCheckMatchingRegistryEntry @ 0x1406C26A4 (SdbpCheckMatchingRegistryEntry.c)
+ *     AslPathToSystemPath @ 0x1406C62C4 (AslPathToSystemPath.c)
+ *     AslEnvResolveVars @ 0x1406C680C (AslEnvResolveVars.c)
+ *     AslpFileQueryVersionString @ 0x1406C8FB4 (AslpFileQueryVersionString.c)
  * Callees:
  *     <none>
  */

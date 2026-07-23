@@ -10,7 +10,13 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __int64 a4, __int64 *a5, __int16 a6)
+__int64 __fastcall EtwpReserveWithPmcCounters(
+        __int64 a1,
+        __int16 a2,
+        int a3,
+        __int64 a4,
+        LARGE_INTEGER *a5,
+        __int16 a6)
 {
   int v8; // r13d
   unsigned int v9; // r14d
@@ -42,9 +48,9 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
   {
     v11 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         v13 = 4;
@@ -58,7 +64,7 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
   v15 = v14;
   if ( v14 )
   {
-    *(_QWORD *)(v14 + 8) = *a5;
+    *(LARGE_INTEGER *)(v14 + 8) = *a5;
     *(_WORD *)(v14 + 4) = v9;
     *(_WORD *)(v14 + 6) = a2;
     *(_DWORD *)v14 = (unsigned __int8)a6 | ((unsigned __int8)v8 << 8) | 0xC0110000;
@@ -69,10 +75,10 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
       memset((void *)(v14 + 16), 0, 8LL * (unsigned __int8)v8);
     if ( CurrentIrql < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v25 = CurrentPrcb->SchedulerAssist;
@@ -91,10 +97,10 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
   {
     if ( CurrentIrql < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v16 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v16 - 2) <= 0xDu )
         {
           v17 = KeGetCurrentPrcb();
           v18 = v17->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of SepHasCriticalAcesRemoved @ 0x1405B9420
+ * XREFs of SepHasCriticalAcesRemoved @ 0x1405BA420
  * Callers:
  *     SepCheckForCriticalAceRemoval @ 0x140013054 (SepCheckForCriticalAceRemoval.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140092330 (RtlGetDaclSecurityDescriptor.c)
- *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
- *     RtlGetControlSecurityDescriptor @ 0x1405B95F0 (RtlGetControlSecurityDescriptor.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140092270 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlEqualSid @ 0x1400A7D30 (RtlEqualSid.c)
+ *     RtlGetControlSecurityDescriptor @ 0x1405BA5F0 (RtlGetControlSecurityDescriptor.c)
  */
 
 int __fastcall SepHasCriticalAcesRemoved(

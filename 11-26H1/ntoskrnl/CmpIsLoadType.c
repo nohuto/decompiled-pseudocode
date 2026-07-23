@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpIsLoadType @ 0x140CEFA5C
+ * XREFs of CmpIsLoadType @ 0x140CF5DD8
  * Callers:
- *     CmpFindDrivers @ 0x140CEEE14 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140CF5190 (CmpFindDrivers.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpValueToData @ 0x140860380 (CmpValueToData.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
- *     CmpFindSubKeyByName @ 0x140AC351C (CmpFindSubKeyByName.c)
- *     CmpGetNodeName @ 0x140CEF7BC (CmpGetNodeName.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpValueToData @ 0x140866670 (CmpValueToData.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
+ *     CmpFindSubKeyByName @ 0x140AC518C (CmpFindSubKeyByName.c)
+ *     CmpGetNodeName @ 0x140CF5B38 (CmpGetNodeName.c)
  */
 
 char CmpIsLoadType(

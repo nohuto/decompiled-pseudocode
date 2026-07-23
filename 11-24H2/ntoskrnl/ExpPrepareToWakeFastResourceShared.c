@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpPrepareToWakeFastResourceShared @ 0x1403D8250
+ * XREFs of ExpPrepareToWakeFastResourceShared @ 0x1402F1D30
  * Callers:
- *     ExpReleaseDisownedFastResourceShared @ 0x1403D7FE8 (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x1402F1AC8 (ExpReleaseDisownedFastResourceShared.c)
  * Callees:
  *     <none>
  */

@@ -8,7 +8,7 @@
  */
 
 unsigned __int64 __fastcall EtwpReserveWithPebsIndex(
-        __int64 a1,
+        unsigned int *a1,
         __int16 a2,
         int a3,
         __int64 a4,

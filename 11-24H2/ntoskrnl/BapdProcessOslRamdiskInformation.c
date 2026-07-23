@@ -1,10 +1,10 @@
 /*
- * XREFs of BapdProcessOslRamdiskInformation @ 0x140C3EC40
+ * XREFs of BapdProcessOslRamdiskInformation @ 0x140C40D90
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140BDE52C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140BE052C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void *BapdProcessOslRamdiskInformation()

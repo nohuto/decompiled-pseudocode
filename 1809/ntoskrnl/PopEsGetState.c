@@ -1,7 +1,7 @@
 /*
- * XREFs of PopEsGetState @ 0x14071F15C
+ * XREFs of PopEsGetState @ 0x1407203FC
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)

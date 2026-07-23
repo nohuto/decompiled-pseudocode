@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpEventWriteTemplateSession @ 0x140A7010C
+ * XREFs of EtwpEventWriteTemplateSession @ 0x140AB32A0
  * Callers:
- *     EtwpTransitionToRealtime @ 0x14052ECDC (EtwpTransitionToRealtime.c)
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x140A6C604 (EtwpUpdateLoggerSecurityDescriptor.c)
- *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
- *     EtwpStopTrace @ 0x140A6F2F8 (EtwpStopTrace.c)
- *     EtwpFlushTrace @ 0x140A6F6CC (EtwpFlushTrace.c)
- *     EtwpTracingProvEnableCallback @ 0x140B4C3A0 (EtwpTracingProvEnableCallback.c)
+ *     EtwpTransitionToRealtime @ 0x1405311FC (EtwpTransitionToRealtime.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
+ *     EtwpUpdateTrace @ 0x140AB081C (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x140AB2A5C (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     EtwpStopTrace @ 0x140AB2D10 (EtwpStopTrace.c)
+ *     EtwpFlushTrace @ 0x140AB2FD0 (EtwpFlushTrace.c)
+ *     EtwpTracingProvEnableCallback @ 0x140B4E130 (EtwpTracingProvEnableCallback.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3)
@@ -105,5 +105,5 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRI
       v40 = 4LL;
     }
   }
-  return EtwWrite(EtwpEventTracingProvRegHandle, a2, 0LL, v3, &UserData);
+  return EtwWrite((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, a2, 0LL, v3, &UserData);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MmInitSystem @ 0x140A53D6C
+ * XREFs of MmInitSystem @ 0x140A54D6C
  * Callers:
- *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
+ *     KiInitializeBootStructures @ 0x14099D160 (KiInitializeBootStructures.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140A4D104 (Phase1InitializationIoReady.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x140277400 (VslGetNestedPageProtectionFlags.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
- *     MiInitializeSystemVa @ 0x140A4F300 (MiInitializeSystemVa.c)
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
- *     KeQueryNumaGraph @ 0x140A91590 (KeQueryNumaGraph.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1402653A0 (VslGetNestedPageProtectionFlags.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
+ *     MiInitializeSystemVa @ 0x140A50300 (MiInitializeSystemVa.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
+ *     KeQueryNumaGraph @ 0x140A92590 (KeQueryNumaGraph.c)
  */
 
 char __fastcall MmInitSystem(int a1, ULONG_PTR a2)
@@ -27,9 +27,9 @@ char __fastcall MmInitSystem(int a1, ULONG_PTR a2)
 
   if ( a1 == -1 )
   {
-    dword_140C2A0C0 = 2048;
-    qword_140C2A0C8 = (__int64)&unk_140C2A0D0;
-    word_140C2A232 |= 1u;
+    stru_140C2A100.SizeOfBitMap = 2048;
+    stru_140C2A100.Buffer = (unsigned int *)&unk_140C2A110;
+    word_140C2A272 |= 1u;
     NestedPageProtectionFlags = VslGetNestedPageProtectionFlags();
     v5 = NestedPageProtectionFlags;
     if ( !NestedPageProtectionFlags )
@@ -89,7 +89,7 @@ LABEL_22:
             do
             {
               v11 = i * v8 + v10++;
-              *(_DWORD *)(qword_140C4DE98 + 4LL * (unsigned int)v11) = NumaGraph[v11];
+              *(_DWORD *)(qword_140C4DED8 + 4LL * (unsigned int)v11) = NumaGraph[v11];
             }
             while ( v10 < v8 );
           }
@@ -99,7 +99,7 @@ LABEL_22:
       MiFlags = MiFlags & 0xFFFFFFCF | 0x10;
       if ( (unsigned __int8)MiInitSystem(1LL, a2) )
       {
-        byte_140C4EEDC = 1;
+        byte_140C4EF1C = 1;
         return 1;
       }
       return 0;

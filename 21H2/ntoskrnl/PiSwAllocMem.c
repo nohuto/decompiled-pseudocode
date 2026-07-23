@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwAllocMem @ 0x1408AE8E8
+ * XREFs of PiSwAllocMem @ 0x1408AEA48
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DD78 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall PiSwAllocMem(SIZE_T NumberOfBytes)

@@ -12,11 +12,11 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(const void **a1, STRING *a2)
+__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(const void **a1, const ANSI_STRING *a2)
 {
-  int Length; // eax
-  char *Buffer; // r9
-  int v6; // edx
+  ULONG UTF8StringByteCount; // eax
+  const CHAR *Buffer; // r9
+  ULONG v6; // edx
   unsigned int v7; // ecx
   __int16 v8; // cx
   __int64 v9; // rax
@@ -24,38 +24,38 @@ __int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(const void **a1, STRING 
   unsigned int v13; // esi
   void *Atom; // rbp
   signed __int32 v15[8]; // [rsp+0h] [rbp-58h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  int v17; // [rsp+68h] [rbp+10h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+68h] [rbp+10h] BYREF
 
-  Length = a2->Length;
+  UTF8StringByteCount = a2->Length;
   DestinationString = 0LL;
-  if ( !(_WORD)Length )
+  if ( !(_WORD)UTF8StringByteCount )
     return 0LL;
   Buffer = a2->Buffer;
-  v17 = 0;
+  UnicodeStringActualByteCount = 0;
   _InterlockedOr(v15, 0);
-  if ( word_1801CEFD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
-    RtlUTF8ToUnicodeN(0, 0, (unsigned int)&v17, (_DWORD)Buffer, Length);
-    v6 = v17;
+    RtlUTF8ToUnicodeN(0LL, 0, &UnicodeStringActualByteCount, Buffer, UTF8StringByteCount);
+    v6 = UnicodeStringActualByteCount;
   }
   else
   {
     _InterlockedOr(v15, 0);
     v6 = 0;
-    if ( word_1801CEF9C )
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      while ( Length-- )
+      while ( UTF8StringByteCount-- )
       {
-        v12 = (unsigned __int8)*Buffer++;
+        v12 = *(unsigned __int8 *)Buffer++;
         if ( *(_WORD *)(qword_1801CF020 + 2 * v12) )
         {
-          if ( !Length )
+          if ( !UTF8StringByteCount )
           {
             v6 += 2;
             break;
           }
-          --Length;
+          --UTF8StringByteCount;
           ++Buffer;
         }
         v6 += 2;
@@ -63,7 +63,7 @@ __int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(const void **a1, STRING 
     }
     else
     {
-      v6 = 2 * Length;
+      v6 = 2 * UTF8StringByteCount;
     }
   }
   v7 = v6 + *(unsigned __int16 *)a1 + 2;

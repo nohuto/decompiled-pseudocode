@@ -1,16 +1,22 @@
 /*
- * XREFs of NtMapCMFModule @ 0x18009F890
+ * XREFs of NtMapCMFModule @ 0x18009F850
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtMapCMFModule()
+NTSTATUS __cdecl NtMapCMFModule(
+        ULONG What,
+        ULONG Index,
+        PULONG CacheIndexOut,
+        PULONG CacheFlagsOut,
+        PULONG ViewSizeOut,
+        PVOID *BaseAddress)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 275LL;
+  result = 275;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

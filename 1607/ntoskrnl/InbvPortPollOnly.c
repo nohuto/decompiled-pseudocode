@@ -1,5 +1,5 @@
 /*
- * XREFs of InbvPortPollOnly @ 0x14023DFB8
+ * XREFs of InbvPortPollOnly @ 0x14023DE9C
  * Callers:
  *     HdlspDispatch @ 0x140722DE0 (HdlspDispatch.c)
  *     HdlspGetLine @ 0x140723450 (HdlspGetLine.c)

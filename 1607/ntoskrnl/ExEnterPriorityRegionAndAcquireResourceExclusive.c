@@ -1,10 +1,10 @@
 /*
- * XREFs of ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x14022D96C
+ * XREFs of ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x14022D798
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x14002D440 (PsBoostThreadIoEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
+ *     PsBoostThreadIoEx @ 0x14002CFC0 (PsBoostThreadIoEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
  */
 
 PVOID __fastcall ExEnterPriorityRegionAndAcquireResourceExclusive(PERESOURCE Resource)

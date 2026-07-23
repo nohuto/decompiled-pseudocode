@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogRelocationFaults @ 0x14071384C
+ * XREFs of MiLogRelocationFaults @ 0x1406C1E9C
  * Callers:
- *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x1406AC790 (MiRelocateImage.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
- *     MiLogRelocationRva @ 0x1407138D4 (MiLogRelocationRva.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x140361F34 (MiDereferenceControlAreaFile.c)
+ *     MiLogRelocationRva @ 0x1406C1F24 (MiLogRelocationRva.c)
  */
 
 void __fastcall MiLogRelocationFaults(__int64 a1, unsigned int *a2, __int64 a3)

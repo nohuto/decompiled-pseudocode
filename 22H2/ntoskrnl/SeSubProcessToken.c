@@ -201,7 +201,7 @@ LABEL_54:
   inserted = SepSetTokenBnoIsolation((__int64)DmaAdapter, 0, 0LL, 0, 0LL);
   if ( inserted < 0 )
     goto LABEL_61;
-  inserted = SepDesktopAppxSubProcessToken((__int64)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v32, &v33);
+  inserted = SepDesktopAppxSubProcessToken((PERESOURCE *)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v32, &v33);
   if ( inserted < 0 )
     goto LABEL_61;
   inserted = SepMandatorySubProcessToken((_DWORD *)(v39 & -(__int64)((a4 & 2) != 0)), (__int64)DmaAdapter, a1, &v40);

@@ -14,23 +14,20 @@
  *     LdrpLogDbgPrint @ 0x1800D0E14 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpMinimalMapModule(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall LdrpMinimalMapModule(__int64 a1)
 {
-  __int64 v4; // rbx
-  char v5; // bp
-  int v6; // esi
-  struct _TEB *v7; // r14
+  __int64 v2; // rbx
+  char v3; // bp
+  ULONG AllocationType; // esi
+  struct _TEB *v5; // r14
   void *ArbitraryUserPointer; // r12
-  int v9; // eax
-  _QWORD *v10; // r15
-  int v11; // eax
-  __int64 v12; // r8
-  int v13; // ebx
-  __int64 v15; // rdx
-  int v16; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v17; // [rsp+98h] [rbp+10h] BYREF
+  ULONG Win32Protect; // eax
+  PVOID *v8; // r15
+  NTSTATUS v9; // eax
+  int v10; // ebx
+  PVOID ReturnedState; // [rsp+98h] [rbp+10h]
 
-  v4 = *(_QWORD *)(a1 + 56);
+  v2 = *(_QWORD *)(a1 + 56);
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
       (unsigned int)"minkernel\\ntdll\\ldrmap.c",
@@ -38,71 +35,68 @@ __int64 __fastcall LdrpMinimalMapModule(__int64 a1, __int64 a2, __int64 a3)
       (unsigned int)"LdrpMinimalMapModule",
       3,
       "DLL name: %wZ\n",
-      v4 + 72);
-  LOBYTE(a3) = 1;
-  if ( !(unsigned __int8)RtlEqualUnicodeString(v4 + 88, &LdrpKernel32DllName, a3)
-    || (v5 = 1, (*(_BYTE *)(LdrpAppHeaders + 22) & 0x20) == 0) )
+      v2 + 72);
+  if ( !RtlEqualUnicodeString((PUNICODE_STRING)(v2 + 88), (PUNICODE_STRING)&LdrpKernel32DllName, 1u)
+    || (v3 = 1, (*(_BYTE *)(LdrpAppHeaders + 22) & 0x20) == 0) )
   {
-    v5 = 0;
+    v3 = 0;
   }
-  v17 = 0LL;
-  v6 = 0x800000;
-  if ( !v5 )
-  {
-    if ( LdrpLargePageDllKeyHandle )
-    {
-      v15 = *(_QWORD *)(v4 + 96);
-      v16 = 0;
-      RtlQueryImageFileKeyOption(LdrpLargePageDllKeyHandle, v15, 4LL, &v16, 4, 0LL);
-      if ( v16 )
-      {
-        if ( (int)RtlAcquirePrivilege(&LdrpLockMemoryPrivilege, 1LL, 0LL, &v17) >= 0 )
-          v6 = 0x20000000;
-      }
-    }
-  }
-  v7 = NtCurrentTeb();
+  ReturnedState = 0LL;
+  AllocationType = 0x800000;
+  if ( !v3 && LdrpLargePageDllKeyHandle )
+    RtlQueryImageFileKeyOption(LdrpLargePageDllKeyHandle, 4, 0LL);
+  v5 = NtCurrentTeb();
   *(_QWORD *)(a1 + 160) = 0LL;
-  ArbitraryUserPointer = v7->NtTib.ArbitraryUserPointer;
-  v7->NtTib.ArbitraryUserPointer = *(void **)(v4 + 80);
-  v9 = 4;
+  ArbitraryUserPointer = v5->NtTib.ArbitraryUserPointer;
+  v5->NtTib.ArbitraryUserPointer = *(void **)(v2 + 80);
+  Win32Protect = 4;
   if ( (*(_DWORD *)(a1 + 32) & 0x800000) != 0 )
   {
-    v9 = 2;
-    v6 |= 0x40000u;
+    Win32Protect = 2;
+    AllocationType = 8650752;
   }
-  v10 = (_QWORD *)(v4 + 48);
-  v11 = ZwMapViewOfSection(*(_QWORD *)(a1 + 24), -1LL, v4 + 48, 0LL, 0LL, 0LL, a1 + 160, 1, v6, v9);
-  v7->NtTib.ArbitraryUserPointer = ArbitraryUserPointer;
-  v13 = v11;
-  if ( v6 == 0x20000000 )
-    RtlReleasePrivilege(v17);
-  switch ( v13 )
+  v8 = (PVOID *)(v2 + 48);
+  v9 = ZwMapViewOfSection(
+         *(HANDLE *)(a1 + 24),
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         (PVOID *)(v2 + 48),
+         0LL,
+         0LL,
+         0LL,
+         (PSIZE_T)(a1 + 160),
+         ViewShare,
+         AllocationType,
+         Win32Protect);
+  v5->NtTib.ArbitraryUserPointer = ArbitraryUserPointer;
+  v10 = v9;
+  if ( AllocationType == 0x20000000 )
+    RtlReleasePrivilege(ReturnedState);
+  switch ( v10 )
   {
     case 1073741827:
-      goto LABEL_36;
+      goto LABEL_33;
     case 1073741838:
-      v13 = LdrpProcessMachineMismatch(a1);
+      v10 = LdrpProcessMachineMismatch(a1);
       break;
     case 1073741878:
-LABEL_36:
+LABEL_33:
       if ( !*(_QWORD *)(a1 + 168) )
       {
         if ( LdrpCheckForRetryLoading(a1, 1) )
         {
-          v13 = -1073741267;
+          v10 = -1073741267;
         }
-        else if ( v5 )
+        else if ( v3 )
         {
-          v13 = -1073741800;
+          v10 = -1073741800;
         }
       }
       break;
   }
-  if ( *v10 && (v13 < 0 || v13 == 1073741838) )
+  if ( *v8 && (v10 < 0 || v10 == 1073741838) )
   {
-    NtUnmapViewOfSection(-1LL, *v10, v12);
-    *v10 = 0LL;
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v8);
+    *v8 = 0LL;
   }
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
@@ -111,6 +105,6 @@ LABEL_36:
       (unsigned int)"LdrpMinimalMapModule",
       4,
       "Status: 0x%08lx\n",
-      v13);
-  return (unsigned int)v13;
+      v10);
+  return (unsigned int)v10;
 }

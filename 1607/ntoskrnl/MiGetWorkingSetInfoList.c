@@ -1,42 +1,42 @@
 /*
- * XREFs of MiGetWorkingSetInfoList @ 0x1400B79E0
+ * XREFs of MiGetWorkingSetInfoList @ 0x1400B5870
  * Callers:
- *     MmQueryVirtualMemory @ 0x140432230 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x140431100 (MmQueryVirtualMemory.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockLeafPage @ 0x14002EA50 (MiLockLeafPage.c)
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MiVaToPfn @ 0x140083A00 (MiVaToPfn.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiGetPfnProtection @ 0x1400B8AB0 (MiGetPfnProtection.c)
- *     MiQueryPfn @ 0x1400B8B28 (MiQueryPfn.c)
- *     MiLockProtoPage @ 0x1400B8B9C (MiLockProtoPage.c)
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiRotatedToFrameBuffer @ 0x1400BDE00 (MiRotatedToFrameBuffer.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockLeafPage @ 0x14002E5D0 (MiLockLeafPage.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MiVaToPfn @ 0x140081B60 (MiVaToPfn.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiGetPfnProtection @ 0x1400B6940 (MiGetPfnProtection.c)
+ *     MiQueryPfn @ 0x1400B69B8 (MiQueryPfn.c)
+ *     MiLockProtoPage @ 0x1400B6A2C (MiLockProtoPage.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiRotatedToFrameBuffer @ 0x1400BBC90 (MiRotatedToFrameBuffer.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -260,7 +260,7 @@ __int64 __fastcall MiGetWorkingSetInfoList(unsigned __int64 Src, unsigned __int6
       MiUnlockAndDereferenceVad(v13);
       v12 = BugCheckParameter1;
     }
-    if ( ((v19 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 || (v19 & 0x7FFFFFFFF000LL) == qword_140326998 && qword_140326998)
+    if ( ((v19 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 || (v19 & 0x7FFFFFFFF000LL) == qword_1403269D8 && qword_1403269D8)
       && (*(_DWORD *)(v12 + 1740) & 1) == 0 )
     {
       v13 = (char *)v102;
@@ -436,7 +436,7 @@ LABEL_123:
             if ( ((v59 >> 54) & 7) != 1 )
             {
               Wsle = MiLocateWsle(BugCheckParameter2, v86, *(_QWORD *)v57);
-              if ( Wsle < *(_QWORD *)(qword_140327F90 + 276841240) )
+              if ( Wsle < *(_QWORD *)(qword_140327FD0 + 276841240) )
                 v63 |= 0x400000uLL;
               if ( (*(_QWORD *)(v57 + 40) & 0x200000000000000LL) == 0 )
               {
@@ -446,8 +446,8 @@ LABEL_123:
               }
               PfnProtection = MiGetPfnProtection(
                                 48 * v32 - 0x58000000000LL,
-                                *(_QWORD *)(qword_140327F90 + 276841312)
-                              + Wsle * *(unsigned int *)(qword_140327F90 + 276841264));
+                                *(_QWORD *)(qword_140327FD0 + 276841312)
+                              + Wsle * *(unsigned int *)(qword_140327FD0 + 276841264));
               v18 = v63 & 0xFFFFFFFFFFFF8001uLL | (2 * (v70 & 7 | (8LL * (MmProtectToValue[PfnProtection] & 0x7FF))));
               if ( v13 == (char *)v102 )
               {
@@ -470,8 +470,8 @@ LABEL_166:
             }
             if ( !v60 )
             {
-              v64 = (_QWORD *)qword_140326A98;
-              if ( !qword_140326A98 )
+              v64 = (_QWORD *)qword_140326AD8;
+              if ( !qword_140326AD8 )
                 goto LABEL_137;
               v65 = (v57 - v61) / 48;
               v101 = v65;
@@ -556,9 +556,9 @@ LABEL_86:
       }
       if ( v13 == (char *)v102 )
       {
-        ProtoPteAddress = qword_140326990;
+        ProtoPteAddress = qword_1403269D0;
         if ( (BugCheckParameter2 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
-          ProtoPteAddress = qword_140326988;
+          ProtoPteAddress = qword_1403269C8;
         PrototypePteDirect = ProtoPteAddress;
       }
       else if ( (*((_DWORD *)v13 + 12) & 0x8000) != 0

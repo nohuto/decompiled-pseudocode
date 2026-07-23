@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerCalibratePerformanceCounter @ 0x1403A5C64
+ * XREFs of HalpTimerCalibratePerformanceCounter @ 0x1403A5DB4
  * Callers:
- *     HalCalibratePerformanceCounter @ 0x140383F60 (HalCalibratePerformanceCounter.c)
- *     HalpTimerRestorePerformanceCounter @ 0x140386CD8 (HalpTimerRestorePerformanceCounter.c)
- *     HalpTimerInitialize @ 0x1403AA034 (HalpTimerInitialize.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x1404BFCA0 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalCalibratePerformanceCounter @ 0x1403840B0 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerRestorePerformanceCounter @ 0x140386E28 (HalpTimerRestorePerformanceCounter.c)
+ *     HalpTimerInitialize @ 0x1403AADC4 (HalpTimerInitialize.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x1404BFEE0 (HalpTimerPerformanceCounterPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     HalpTimerPropagateQpcBiasUpdate @ 0x1403A5D6C (HalpTimerPropagateQpcBiasUpdate.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403A5EBC (HalpTimerPropagateQpcBiasUpdate.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerCalibratePerformanceCounter(__int64 a1, __int64 a2)

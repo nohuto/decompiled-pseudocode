@@ -1,39 +1,39 @@
 /*
- * XREFs of PfQuerySuperfetchInformation @ 0x140418550
+ * XREFs of PfQuerySuperfetchInformation @ 0x140417410
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     PfLockSharedAcquire @ 0x1400064A4 (PfLockSharedAcquire.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     SepPrivilegeCheck @ 0x14000F5B0 (SepPrivilegeCheck.c)
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     ObFastReferenceObject @ 0x14000F760 (ObFastReferenceObject.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PfpMemoryListQuery @ 0x1400ADD24 (PfpMemoryListQuery.c)
- *     PfpMemoryRangesQuery @ 0x1400B0144 (PfpMemoryRangesQuery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     PspUnlockProcessShared @ 0x1400C9C44 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x1400C9C88 (PspLockProcessShared.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PfGetCompletedTrace @ 0x1403E6AB4 (PfGetCompletedTrace.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140414C0C (SepAdtPrivilegedServiceAuditAlarm.c)
- *     PfpPfnPrioRequest @ 0x14041B450 (PfpPfnPrioRequest.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     SepFilterPrivilegeAudits @ 0x1404D24A8 (SepFilterPrivilegeAudits.c)
- *     PfpQueryGpuUtilization @ 0x1404D5DB0 (PfpQueryGpuUtilization.c)
- *     PfpPrivSourceEnum @ 0x140508A08 (PfpPrivSourceEnum.c)
- *     PfpVirtualQuery @ 0x140532640 (PfpVirtualQuery.c)
- *     PfpQueryScenarioInformation @ 0x140532B48 (PfpQueryScenarioInformation.c)
- *     MmLogQueryCombineStats @ 0x1406644B0 (MmLogQueryCombineStats.c)
- *     PfpQueryFileExtentsRequest @ 0x140669118 (PfpQueryFileExtentsRequest.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     PfLockSharedAcquire @ 0x140006614 (PfLockSharedAcquire.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     SepPrivilegeCheck @ 0x14000F130 (SepPrivilegeCheck.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     ObFastReferenceObject @ 0x14000F2E0 (ObFastReferenceObject.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PfpMemoryListQuery @ 0x1400AC28C (PfpMemoryListQuery.c)
+ *     PfpMemoryRangesQuery @ 0x1400AE2E8 (PfpMemoryRangesQuery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     PspUnlockProcessShared @ 0x1400C7AE4 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x1400C7B28 (PspLockProcessShared.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PfGetCompletedTrace @ 0x1403E80E4 (PfGetCompletedTrace.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x140413ACC (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     PfpPfnPrioRequest @ 0x14041A310 (PfpPfnPrioRequest.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     SepFilterPrivilegeAudits @ 0x1404B5F48 (SepFilterPrivilegeAudits.c)
+ *     PfpQueryGpuUtilization @ 0x1404B93B4 (PfpQueryGpuUtilization.c)
+ *     PfpPrivSourceEnum @ 0x1404EB998 (PfpPrivSourceEnum.c)
+ *     PfpVirtualQuery @ 0x140532B80 (PfpVirtualQuery.c)
+ *     PfpQueryScenarioInformation @ 0x140533088 (PfpQueryScenarioInformation.c)
+ *     MmLogQueryCombineStats @ 0x140664594 (MmLogQueryCombineStats.c)
+ *     PfpQueryFileExtentsRequest @ 0x1406691FC (PfpQueryFileExtentsRequest.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, int a3, unsigned __int8 a4, unsigned int *a5)
@@ -233,13 +233,13 @@ LABEL_33:
       case 2:
         if ( LODWORD(Address[1]) != 28 )
           goto LABEL_98;
-        PfLockSharedAcquire((volatile signed __int64 *)qword_140328538);
-        v38 = xmmword_140328384;
-        v35 = qword_140328394;
-        v23 = dword_14032839C;
-        if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140328538, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared((signed __int64 *)qword_140328538);
-        KeAbPostRelease((ULONG_PTR)qword_140328538);
+        PfLockSharedAcquire((volatile signed __int64 *)qword_140328578);
+        v38 = xmmword_1403283C4;
+        v35 = qword_1403283D4;
+        v23 = dword_1403283DC;
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140328578, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared((signed __int64 *)qword_140328578);
+        KeAbPostRelease((ULONG_PTR)qword_140328578);
         KeLeaveCriticalRegion();
         if ( a4 )
         {
@@ -275,7 +275,7 @@ LABEL_33:
           *(_BYTE *)(v26 + 3) = *(_BYTE *)(v26 + 3);
           v7 = 0;
         }
-        *(_DWORD *)Address[0] = dword_14033B810;
+        *(_DWORD *)Address[0] = dword_14033B850;
         *a5 = 4;
         break;
       case 12:
@@ -303,7 +303,7 @@ LABEL_33:
         v36 = *(_OWORD *)Address[0];
         if ( (_DWORD)v36 == 1 )
         {
-          *((_QWORD *)&v36 + 1) = qword_1403286B0;
+          *((_QWORD *)&v36 + 1) = qword_1403286F0;
           *(_OWORD *)Address[0] = v36;
           *a5 = 16;
         }

@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptFdefIntSubMixedSize @ 0x140568990
+ * XREFs of SymCryptFdefIntSubMixedSize @ 0x140567B70
  * Callers:
- *     SymCryptIntSubMixedSize @ 0x14055C414 (SymCryptIntSubMixedSize.c)
+ *     SymCryptIntSubMixedSize @ 0x14055E8FC (SymCryptIntSubMixedSize.c)
  * Callees:
- *     SymCryptFdefRawNeg @ 0x140568FEC (SymCryptFdefRawNeg.c)
- *     SymCryptFdefRawSubUint32 @ 0x140569098 (SymCryptFdefRawSubUint32.c)
- *     SymCryptFdefRawSubAsm @ 0x140571560 (SymCryptFdefRawSubAsm.c)
+ *     SymCryptFdefRawNeg @ 0x1405681CC (SymCryptFdefRawNeg.c)
+ *     SymCryptFdefRawSubUint32 @ 0x140568278 (SymCryptFdefRawSubUint32.c)
+ *     SymCryptFdefRawSubAsm @ 0x140570740 (SymCryptFdefRawSubAsm.c)
  */
 
 __int64 __fastcall SymCryptFdefIntSubMixedSize(__int64 a1, __int64 a2, __int64 a3)

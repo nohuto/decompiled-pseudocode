@@ -7,21 +7,21 @@
  *     ZwQuerySystemInformation @ 0x1403F8830 (ZwQuerySystemInformation.c)
  */
 
-__int64 __fastcall RtlSystemTimeToLocalTime(_QWORD *a1, _QWORD *a2)
+NTSTATUS __cdecl RtlSystemTimeToLocalTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER LocalTime)
 {
-  __int64 result; // rax
-  __int128 v5; // [rsp+20h] [rbp-48h] BYREF
+  NTSTATUS result; // eax
+  __int128 SystemInformation; // [rsp+20h] [rbp-48h] BYREF
   __int128 v6; // [rsp+30h] [rbp-38h]
   __int128 v7; // [rsp+40h] [rbp-28h]
 
-  v5 = 0LL;
+  SystemInformation = 0LL;
   v6 = 0LL;
   v7 = 0LL;
-  result = ZwQuerySystemInformation(3LL, (__int64)&v5);
-  if ( (int)result >= 0 )
+  result = ZwQuerySystemInformation(SystemTimeOfDayInformation, &SystemInformation, 0x30u, 0LL);
+  if ( result >= 0 )
   {
-    *a2 = *a1 - v6;
-    return 0LL;
+    LocalTime->QuadPart = SystemTime->QuadPart - v6;
+    return 0;
   }
   return result;
 }

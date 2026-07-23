@@ -1,16 +1,16 @@
 /*
- * XREFs of VfDriverApplyDifVerification @ 0x140B8A038
+ * XREFs of VfDriverApplyDifVerification @ 0x140B8C038
  * Callers:
- *     VfDriverEnableDisableVerifier @ 0x140B8A1C0 (VfDriverEnableDisableVerifier.c)
+ *     VfDriverEnableDisableVerifier @ 0x140B8C1C0 (VfDriverEnableDisableVerifier.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     ExSetPoolFlags @ 0x140654824 (ExSetPoolFlags.c)
- *     MmIsVerifierApplicableToImage @ 0x1406756AC (MmIsVerifierApplicableToImage.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     VfUtilIsProtectedDriver @ 0x140B834AC (VfUtilIsProtectedDriver.c)
- *     VfDriverLock @ 0x140B8A4B4 (VfDriverLock.c)
- *     VfSuspectApplyDifVolatileVerification @ 0x140B9A568 (VfSuspectApplyDifVolatileVerification.c)
- *     VfSuspectDriversLookupName @ 0x140B9AE84 (VfSuspectDriversLookupName.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     ExSetPoolFlags @ 0x140652F24 (ExSetPoolFlags.c)
+ *     MmIsVerifierApplicableToImage @ 0x14067687C (MmIsVerifierApplicableToImage.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     VfUtilIsProtectedDriver @ 0x140B854AC (VfUtilIsProtectedDriver.c)
+ *     VfDriverLock @ 0x140B8C4B4 (VfDriverLock.c)
+ *     VfSuspectApplyDifVolatileVerification @ 0x140B9C568 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectDriversLookupName @ 0x140B9CE84 (VfSuspectDriversLookupName.c)
  */
 
 __int64 __fastcall VfDriverApplyDifVerification(__int64 a1, __int64 a2, _DWORD *a3)
@@ -32,19 +32,19 @@ __int64 __fastcall VfDriverApplyDifVerification(__int64 a1, __int64 a2, _DWORD *
   {
     KernelVerifier = 1;
 LABEL_4:
-    v8 = (__int64 *)qword_140F045D8;
-    if ( *(__int64 **)qword_140F045D8 != &VfSuspectDriversList )
+    v8 = (__int64 *)qword_140F04728;
+    if ( *(__int64 **)qword_140F04728 != &VfSuspectDriversList )
       __fastfail(3u);
     *(_QWORD *)a1 = &VfSuspectDriversList;
     *(_QWORD *)(a1 + 8) = v8;
     *v8 = a1;
-    qword_140F045D8 = a1;
+    qword_140F04728 = a1;
     if ( KernelVerifier
       || (IsVerifierApplicableToImage = VfSuspectApplyDifVolatileVerification(v3, a1), IsVerifierApplicableToImage >= 0) )
     {
-      v9 = dword_140F03F00 + 1;
+      v9 = dword_140F04860 + 1;
       *a3 = 1;
-      dword_140F03F00 = v9;
+      dword_140F04860 = v9;
       if ( KernelVerifier && ((VfRuleClasses & 8) != 0 || (VfRuleClasses & 1) != 0) )
         ExSetPoolFlags(8u);
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpContainerResumeWnfCallback @ 0x1405AA6D0
+ * XREFs of EtwpContainerResumeWnfCallback @ 0x1405AA900
  * Callers:
  *     <none>
  * Callees:
- *     EtwpQueryPartitionRegistryInformation @ 0x1403AF83C (EtwpQueryPartitionRegistryInformation.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x1403AF9AC (EtwpQueryPartitionRegistryInformation.c)
  */
 
 __int64 EtwpContainerResumeWnfCallback()

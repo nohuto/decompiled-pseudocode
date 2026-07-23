@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReadImageHeaders @ 0x1406D195C
+ * XREFs of MiReadImageHeaders @ 0x1406A8C3C
  * Callers:
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
  * Callees:
- *     MiIsRetryIoStatus @ 0x1402558E4 (MiIsRetryIoStatus.c)
- *     MiPageRead @ 0x1402FCACC (MiPageRead.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiCopyFromDirectMapExtent @ 0x1408CFF7C (MiCopyFromDirectMapExtent.c)
+ *     MiIsRetryIoStatus @ 0x140276E54 (MiIsRetryIoStatus.c)
+ *     MiPageRead @ 0x14030781C (MiPageRead.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiCopyFromDirectMapExtent @ 0x1408D00DC (MiCopyFromDirectMapExtent.c)
  */
 
 __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, ULONG_PTR a2, __int64 a3, __int64 a4)
@@ -55,7 +55,7 @@ __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, ULONG_PTR a2, __i
   }
   if ( v11 < 0 )
   {
-    dword_140C4CC18 = 32;
+    dword_140C4CC58 = 32;
     if ( !MiIsRetryIoStatus(v11, 0LL) && v11 != -1073741740 && v11 != -1073741209 )
       return (unsigned int)-1073741792;
   }

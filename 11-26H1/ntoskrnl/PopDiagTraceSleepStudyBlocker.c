@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagTraceSleepStudyBlocker @ 0x1404D56D4
+ * XREFs of PopDiagTraceSleepStudyBlocker @ 0x1404CEF44
  * Callers:
- *     PpmIdleCaptureCsVetoAccounting @ 0x14042C5F8 (PpmIdleCaptureCsVetoAccounting.c)
- *     PopFxLogSocSubsystemBlockingTimes @ 0x14098911C (PopFxLogSocSubsystemBlockingTimes.c)
+ *     PpmIdleCaptureCsVetoAccounting @ 0x140420CC8 (PpmIdleCaptureCsVetoAccounting.c)
+ *     PopFxLogSocSubsystemBlockingTimes @ 0x140A4383C (PopFxLogSocSubsystemBlockingTimes.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
  */
 
 void __fastcall PopDiagTraceSleepStudyBlocker(PEVENT_DATA_DESCRIPTOR UserData)
 {
-  if ( byte_140E6760C )
+  if ( PopDiagSleepStudyHandleRegistered )
   {
-    if ( EtwEventEnabled(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER) )
-      EtwWriteEx(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER, 0LL, 0, 0LL, 0LL, 8u, UserData);
+    if ( EtwEventEnabled(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER) )
+      EtwWriteEx(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_BLOCKER, 0LL, 0, 0LL, 0LL, 8u, UserData);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpGetSharedLockHandle @ 0x140667F60
+ * XREFs of CmpGetSharedLockHandle @ 0x14066684C
  * Callers:
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  * Callees:
- *     CmpGetThreadInfo @ 0x1404F0110 (CmpGetThreadInfo.c)
+ *     CmpGetThreadInfo @ 0x1404EDBB0 (CmpGetThreadInfo.c)
  */
 
 unsigned __int64 CmpGetSharedLockHandle()

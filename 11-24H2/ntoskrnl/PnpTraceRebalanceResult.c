@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpTraceRebalanceResult @ 0x140732A30
+ * XREFs of PnpTraceRebalanceResult @ 0x140730A40
  * Callers:
- *     PnpRebalance @ 0x1407352B8 (PnpRebalance.c)
+ *     PnpRebalance @ 0x1407331E8 (PnpRebalance.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer @ 0x1405A8DDC (McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer.c)
- *     McTemplateK0zzqqzttquxt_EtwWriteTransfer @ 0x1405A8FE4 (McTemplateK0zzqqzttquxt_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer @ 0x1405A5EC8 (McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer.c)
+ *     McTemplateK0zzqqzttquxt_EtwWriteTransfer @ 0x1405A60D0 (McTemplateK0zzqqzttquxt_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
@@ -79,7 +79,7 @@ char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
     v10 = &PnpEmptyUnicodeString;
   if ( a2 < 0 )
   {
-    if ( (byte_140EEFD24 & 4) != 0 )
+    if ( (byte_140EEFF64 & 4) != 0 )
     {
       v11 = *(_DWORD *)(a3 + 56);
       LOBYTE(v8) = McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer(
@@ -102,7 +102,7 @@ char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
                      (v11 & 2) != 0);
     }
   }
-  else if ( (byte_140EEFD24 & 8) != 0 )
+  else if ( (byte_140EEFF64 & 8) != 0 )
   {
     LOBYTE(v8) = McTemplateK0zzqqzttquxt_EtwWriteTransfer(
                    *(unsigned __int8 *)(a1 + a3 + 40),
@@ -174,7 +174,7 @@ char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
       v59 = 1LL;
       LOBYTE(v8) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140E06FA8,
-                     (unsigned __int8 *)byte_14004654D,
+                     (unsigned __int8 *)&dword_140046BA4,
                      0LL,
                      0LL,
                      0x12u,

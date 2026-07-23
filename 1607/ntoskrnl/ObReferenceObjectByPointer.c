@@ -1,19 +1,19 @@
 /*
- * XREFs of ObReferenceObjectByPointer @ 0x14007F760
+ * XREFs of ObReferenceObjectByPointer @ 0x14007F7E0
  * Callers:
- *     EtwpAddUmRegEntry @ 0x14040DADC (EtwpAddUmRegEntry.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x14046B43C (IopAllocateFoExtensionsOnCreate.c)
- *     NtImpersonateAnonymousToken @ 0x140475D5C (NtImpersonateAnonymousToken.c)
- *     ObpParseSymbolicLinkEx @ 0x140476170 (ObpParseSymbolicLinkEx.c)
- *     EtwpStopTrace @ 0x140493C50 (EtwpStopTrace.c)
- *     WmipQueryAllData @ 0x140504C98 (WmipQueryAllData.c)
- *     WmipQuerySetExecuteSI @ 0x14052A4BC (WmipQuerySetExecuteSI.c)
- *     IoRegisterPlugPlayNotification @ 0x14052BB14 (IoRegisterPlugPlayNotification.c)
- *     WmipRegisterDevice @ 0x14053A528 (WmipRegisterDevice.c)
+ *     EtwpAddUmRegEntry @ 0x14040C99C (EtwpAddUmRegEntry.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14046A30C (IopAllocateFoExtensionsOnCreate.c)
+ *     NtImpersonateAnonymousToken @ 0x140474C2C (NtImpersonateAnonymousToken.c)
+ *     ObpParseSymbolicLinkEx @ 0x140475040 (ObpParseSymbolicLinkEx.c)
+ *     EtwpStopTrace @ 0x1404946E0 (EtwpStopTrace.c)
+ *     WmipQueryAllData @ 0x1404E7C28 (WmipQueryAllData.c)
+ *     IoRegisterPlugPlayNotification @ 0x14052A9FC (IoRegisterPlugPlayNotification.c)
+ *     WmipQuerySetExecuteSI @ 0x14052B10C (WmipQuerySetExecuteSI.c)
+ *     WmipRegisterDevice @ 0x14053AA68 (WmipRegisterDevice.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointer(

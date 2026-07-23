@@ -1,5 +1,5 @@
 /*
- * XREFs of MiLockPageTableInternal @ 0x14006CA20
+ * XREFs of MiLockPageTableInternal @ 0x14006CA10
  * Callers:
  *     MmProtectPool @ 0x14000E16C (MmProtectPool.c)
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
@@ -8,59 +8,59 @@
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
  *     MiCheckProcessShadow @ 0x140046A70 (MiCheckProcessShadow.c)
  *     MiMakeSystemCacheRangeValid @ 0x14004B5A0 (MiMakeSystemCacheRangeValid.c)
- *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiClearPteAccessed @ 0x14006B780 (MiClearPteAccessed.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
- *     MiGetNextPageTablePte @ 0x140070A30 (MiGetNextPageTablePte.c)
- *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
- *     MiDeleteKernelStack @ 0x14007A5B0 (MiDeleteKernelStack.c)
- *     MiOutPageSingleKernelStack @ 0x14007FAB0 (MiOutPageSingleKernelStack.c)
- *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     MiSetSystemCodeProtection @ 0x1400862E0 (MiSetSystemCodeProtection.c)
- *     MiLockWorkingSetOptimal @ 0x140088344 (MiLockWorkingSetOptimal.c)
- *     MiEncodeProtoFill @ 0x140093A8C (MiEncodeProtoFill.c)
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
- *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
- *     MiAllocateKernelStackPages @ 0x1400B5660 (MiAllocateKernelStackPages.c)
- *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
- *     MiInitializeWorkingSetList @ 0x1400F31B0 (MiInitializeWorkingSetList.c)
- *     MiReplaceRotateWithDemandZero @ 0x1401229F0 (MiReplaceRotateWithDemandZero.c)
- *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
- *     MiUnlockPageTableRange @ 0x140157CD8 (MiUnlockPageTableRange.c)
- *     MiJumpStackTarget @ 0x14015E910 (MiJumpStackTarget.c)
- *     MiMapWithLargePages @ 0x140183460 (MiMapWithLargePages.c)
- *     MiGetWsAndMakePageTablesNx @ 0x140191BA0 (MiGetWsAndMakePageTablesNx.c)
- *     MiLockPageTable @ 0x140192848 (MiLockPageTable.c)
- *     MiFaultInPagedPool @ 0x1402A596C (MiFaultInPagedPool.c)
- *     MmReplaceImportEntry @ 0x1402AB1CC (MmReplaceImportEntry.c)
- *     MiDeleteSessionPoolRange @ 0x1402AC224 (MiDeleteSessionPoolRange.c)
- *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
- *     MiFreePhysicalPages @ 0x1402B08E0 (MiFreePhysicalPages.c)
- *     MiScrubAwePage @ 0x1402B1C5C (MiScrubAwePage.c)
- *     MiLockHotPatchPageRange @ 0x1402B96B4 (MiLockHotPatchPageRange.c)
- *     MiRewritePteWithLockBit @ 0x1402BF67C (MiRewritePteWithLockBit.c)
- *     MiReleaseLargePteMappings @ 0x1402C399C (MiReleaseLargePteMappings.c)
- *     MiMarkBootKernelStack @ 0x1409B6464 (MiMarkBootKernelStack.c)
- *     MmFreeLoaderBlock @ 0x1409C5164 (MmFreeLoaderBlock.c)
- *     MiReturnDriverLoadPages @ 0x1409F77A0 (MiReturnDriverLoadPages.c)
+ *     MiDeleteVa @ 0x1400696F0 (MiDeleteVa.c)
+ *     MiClearPteAccessed @ 0x14006B770 (MiClearPteAccessed.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiWalkPageTablesRecursively @ 0x14006EE70 (MiWalkPageTablesRecursively.c)
+ *     MiGetNextPageTablePte @ 0x140070A20 (MiGetNextPageTablePte.c)
+ *     MmUnmapViewInSystemCache @ 0x140078700 (MmUnmapViewInSystemCache.c)
+ *     MiDeleteKernelStack @ 0x14007A5A0 (MiDeleteKernelStack.c)
+ *     MiOutPageSingleKernelStack @ 0x14007FAA0 (MiOutPageSingleKernelStack.c)
+ *     MiRemoveMappedPtes @ 0x1400855C0 (MiRemoveMappedPtes.c)
+ *     MiSetSystemCodeProtection @ 0x1400862D0 (MiSetSystemCodeProtection.c)
+ *     MiLockWorkingSetOptimal @ 0x140088334 (MiLockWorkingSetOptimal.c)
+ *     MiEncodeProtoFill @ 0x1400939CC (MiEncodeProtoFill.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
+ *     MiEvictPageTableLock @ 0x1400982E0 (MiEvictPageTableLock.c)
+ *     MiWsleFlush @ 0x1400B3250 (MiWsleFlush.c)
+ *     MiAllocateKernelStackPages @ 0x1400B55A0 (MiAllocateKernelStackPages.c)
+ *     MiSetPagingOfDriver @ 0x1400DAE7C (MiSetPagingOfDriver.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB490 (MiMakeDriverPagesPrivate.c)
+ *     MiInitializeWorkingSetList @ 0x1400F3230 (MiInitializeWorkingSetList.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140122AC0 (MiReplaceRotateWithDemandZero.c)
+ *     MiSwapStackPage @ 0x14012D250 (MiSwapStackPage.c)
+ *     MiUnlockPageTableRange @ 0x140157DD8 (MiUnlockPageTableRange.c)
+ *     MiJumpStackTarget @ 0x14015EA10 (MiJumpStackTarget.c)
+ *     MiMapWithLargePages @ 0x1401835A0 (MiMapWithLargePages.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x140191CE0 (MiGetWsAndMakePageTablesNx.c)
+ *     MiLockPageTable @ 0x140192988 (MiLockPageTable.c)
+ *     MiFaultInPagedPool @ 0x1402A5B5C (MiFaultInPagedPool.c)
+ *     MmReplaceImportEntry @ 0x1402AB3BC (MmReplaceImportEntry.c)
+ *     MiDeleteSessionPoolRange @ 0x1402AC414 (MiDeleteSessionPoolRange.c)
+ *     MiSwitchToTransition @ 0x1402AF830 (MiSwitchToTransition.c)
+ *     MiFreePhysicalPages @ 0x1402B0AD0 (MiFreePhysicalPages.c)
+ *     MiScrubAwePage @ 0x1402B1E4C (MiScrubAwePage.c)
+ *     MiLockHotPatchPageRange @ 0x1402B98A4 (MiLockHotPatchPageRange.c)
+ *     MiRewritePteWithLockBit @ 0x1402BF86C (MiRewritePteWithLockBit.c)
+ *     MiReleaseLargePteMappings @ 0x1402C3B8C (MiReleaseLargePteMappings.c)
+ *     MiMarkBootKernelStack @ 0x1409B7464 (MiMarkBootKernelStack.c)
+ *     MmFreeLoaderBlock @ 0x1409C6164 (MmFreeLoaderBlock.c)
+ *     MiReturnDriverLoadPages @ 0x1409F87A0 (MiReturnDriverLoadPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KxTryToAcquireQueuedSpinLock @ 0x1400EE264 (KxTryToAcquireQueuedSpinLock.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetPageTableLockBuffer @ 0x14006CE70 (MiGetPageTableLockBuffer.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D090 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x1400EE2E4 (KxTryToAcquireQueuedSpinLock.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiLockPageTableInternal(__int64 a1, unsigned __int64 a2, char a3)
@@ -107,17 +107,17 @@ __int64 __fastcall MiLockPageTableInternal(__int64 a1, unsigned __int64 a2, char
     {
       if ( v8 == 7 )
       {
-        v9 = (volatile __int64 *)&unk_14043A6A8;
+        v9 = (volatile __int64 *)&unk_14043B768;
         SelfmapLockHandle = &CurrentPrcb->SelfmapLockHandle[1];
       }
       else if ( v8 == 5 )
       {
-        v9 = (volatile __int64 *)&unk_14043A6A0;
+        v9 = (volatile __int64 *)&unk_14043B760;
         SelfmapLockHandle = CurrentPrcb->SelfmapLockHandle;
       }
       else
       {
-        v9 = (volatile __int64 *)&unk_14043A6B8;
+        v9 = (volatile __int64 *)&unk_14043B778;
         SelfmapLockHandle = &CurrentPrcb->SelfmapLockHandle[3];
       }
     }

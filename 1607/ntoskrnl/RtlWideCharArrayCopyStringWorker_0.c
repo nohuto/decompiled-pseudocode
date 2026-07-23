@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlWideCharArrayCopyStringWorker_0 @ 0x1401CD4C8
+ * XREFs of RtlWideCharArrayCopyStringWorker_0 @ 0x1401CD314
  * Callers:
- *     RtlUnicodeStringCopyString @ 0x1401CD434 (RtlUnicodeStringCopyString.c)
+ *     RtlUnicodeStringCopyString @ 0x1401CD280 (RtlUnicodeStringCopyString.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ NTSTATUS __stdcall RtlWideCharArrayCopyStringWorker_0(
   size_t v8; // r11
 
   result = 0;
-  v6 = &word_140583CF0;
+  v6 = &word_1405841A0;
   v7 = 0x7FFFLL;
   v8 = 0LL;
   if ( cchDest )
@@ -30,7 +30,7 @@ NTSTATUS __stdcall RtlWideCharArrayCopyStringWorker_0(
         break;
       if ( !*v6 )
         break;
-      *(const WCHAR *)((char *)v6 + (char *)pszDest - (char *)&word_140583CF0) = *v6;
+      *(const WCHAR *)((char *)v6 + (char *)pszDest - (char *)&word_1405841A0) = *v6;
       --v7;
       ++v6;
       ++v8;

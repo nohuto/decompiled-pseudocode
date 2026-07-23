@@ -38,7 +38,7 @@ __int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 
   v9 = 0;
   if ( v5 )
   {
-    FullPath = LdrpApplyFileNameRedirection(a3, (_DWORD)a1, a3, (_DWORD)a2, (__int64)&v21);
+    FullPath = LdrpApplyFileNameRedirection(a3, a1, a3, a2, &v21);
     if ( FullPath < 0 )
       goto LABEL_23;
     v9 = v21;
@@ -95,7 +95,7 @@ LABEL_12:
       if ( (unsigned __int64)j < v13 )
       {
 LABEL_29:
-        FullPath = LdrpAppendUnicodeStringToFilenameBuffer(a2, L"\b\n", a3, a4);
+        FullPath = LdrpAppendUnicodeStringToFilenameBuffer(a2, &LdrpDefaultExtension, a3, a4);
         goto LABEL_23;
       }
       if ( *j == 46 )

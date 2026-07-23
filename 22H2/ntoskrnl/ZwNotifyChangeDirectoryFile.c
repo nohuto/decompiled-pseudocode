@@ -6,9 +6,18 @@
  *     <none>
  */
 
-__int64 __fastcall ZwNotifyChangeDirectoryFile(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwNotifyChangeDirectoryFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FileHandle);
 }

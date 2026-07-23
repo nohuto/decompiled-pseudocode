@@ -1,29 +1,29 @@
 /*
- * XREFs of EtwpRealtimeConnect @ 0x140B294B0
+ * XREFs of EtwpRealtimeConnect @ 0x140AB34A8
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     EtwpCheckLoggerControlAccess @ 0x140A6FAA4 (EtwpCheckLoggerControlAccess.c)
- *     EtwpSynchronizeWithLogger @ 0x140A6FD00 (EtwpSynchronizeWithLogger.c)
- *     EtwpOpenConsumer @ 0x140B29A24 (EtwpOpenConsumer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpCheckLoggerControlAccess @ 0x14097A438 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpSynchronizeWithLogger @ 0x140AB31F8 (EtwpSynchronizeWithLogger.c)
+ *     EtwpOpenConsumer @ 0x140AB3A1C (EtwpOpenConsumer.c)
  */
 
 __int64 __fastcall EtwpRealtimeConnect(__int64 a1)
@@ -183,7 +183,7 @@ LABEL_24:
     v19 = 0;
   *((_BYTE *)v17 + 90) = v19 | v17[45] & 0xEF;
   *((_QWORD *)v17 + 5) = a1;
-  inserted = ObInsertObjectEx((char *)v17, 0LL, 0x400u, 1, 0, (__int64)&v40, (_QWORD *)(a1 + 72));
+  inserted = ObInsertObjectEx((char *)v17, 0LL, 1024, 1, 0, (__int64)&v40, (_QWORD *)(a1 + 72));
   if ( inserted >= 0 )
   {
     v22 = (AutoBoost *)KeAbPreAcquire((__int64)(v14 + 172), 0LL, 0LL, v20);

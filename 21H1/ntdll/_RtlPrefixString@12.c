@@ -6,48 +6,48 @@
  *     _RtlUpperChar@4 @ 0x4B2E0B70 (_RtlUpperChar@4.c)
  */
 
-char __stdcall RtlPrefixString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+BOOLEAN __cdecl RtlPrefixString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  unsigned int v3; // edx
-  char *v4; // esi
+  unsigned int Length; // edx
+  char *Buffer; // esi
   char *v5; // edx
-  int v6; // edi
-  char v8; // bl
-  int v9; // ecx
+  char *v6; // edi
+  CHAR v8; // bl
+  char *v9; // ecx
   char *v10; // [esp+Ch] [ebp-Ch]
-  char v11; // [esp+10h] [ebp-8h]
-  char v12; // [esp+14h] [ebp-4h]
+  CHAR v11; // [esp+10h] [ebp-8h]
+  CHAR Character; // [esp+14h] [ebp-4h]
 
-  v3 = *a1;
-  v4 = (char *)*((_DWORD *)a1 + 1);
-  if ( *a2 >= v3 )
+  Length = String1->Length;
+  Buffer = String1->Buffer;
+  if ( String2->Length >= Length )
   {
-    v5 = &v4[v3];
+    v5 = &Buffer[Length];
     v10 = v5;
-    if ( v4 >= v5 )
+    if ( Buffer >= v5 )
       return 1;
-    if ( a3 )
+    if ( CaseInSensitive )
     {
-      v6 = *((_DWORD *)a2 + 1) - (_DWORD)v4;
+      v6 = (char *)(String2->Buffer - Buffer);
       while ( 1 )
       {
-        v11 = *v4;
-        v12 = v4[v6];
-        if ( *v4 != v12 )
+        v11 = *Buffer;
+        Character = Buffer[(_DWORD)v6];
+        if ( *Buffer != Character )
         {
-          v8 = RtlUpperChar(v12);
-          if ( (unsigned __int8)RtlUpperChar(v11) != v8 )
+          v8 = RtlUpperChar(Character);
+          if ( RtlUpperChar(v11) != v8 )
             return 0;
           v5 = v10;
         }
-        if ( ++v4 >= v5 )
+        if ( ++Buffer >= v5 )
           return 1;
       }
     }
-    v9 = *((_DWORD *)a2 + 1) - (_DWORD)v4;
-    while ( *v4 == v4[v9] )
+    v9 = (char *)(String2->Buffer - Buffer);
+    while ( *Buffer == Buffer[(_DWORD)v9] )
     {
-      if ( ++v4 >= v5 )
+      if ( ++Buffer >= v5 )
         return 1;
     }
   }

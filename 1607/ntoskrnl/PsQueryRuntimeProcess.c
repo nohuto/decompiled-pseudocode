@@ -1,12 +1,12 @@
 /*
- * XREFs of PsQueryRuntimeProcess @ 0x1404B9F30
+ * XREFs of PsQueryRuntimeProcess @ 0x1404A5C60
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140414000 (ExpQuerySystemPerformanceInformation.c)
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     PspSetJobTimeLimitCallback @ 0x140680BA8 (PspSetJobTimeLimitCallback.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140412EC0 (ExpQuerySystemPerformanceInformation.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     PspSetJobTimeLimitCallback @ 0x140680C8C (PspSetJobTimeLimitCallback.c)
  * Callees:
- *     PspUnlockProcessThreadListShared @ 0x140095C98 (PspUnlockProcessThreadListShared.c)
- *     PspLockProcessThreadListShared @ 0x140095CDC (PspLockProcessThreadListShared.c)
+ *     PspUnlockProcessThreadListShared @ 0x140095498 (PspUnlockProcessThreadListShared.c)
+ *     PspLockProcessThreadListShared @ 0x1400954DC (PspLockProcessThreadListShared.c)
  */
 
 __int64 __fastcall PsQueryRuntimeProcess(__int64 a1, _DWORD *a2)

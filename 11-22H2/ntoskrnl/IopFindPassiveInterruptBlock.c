@@ -26,7 +26,9 @@ __int64 __fastcall IopFindPassiveInterruptBlock(unsigned int a1)
   IopAcquireGlobalPassiveInterruptListLock(&v10);
   PassiveInterruptBlockLocked = IopFindPassiveInterruptBlockLocked(a1);
   KxReleaseSpinLock((volatile signed __int64 *)&PassiveInterruptListLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v3 = v10;
     if ( v10 <= 0xFu && CurrentIrql >= 2u )

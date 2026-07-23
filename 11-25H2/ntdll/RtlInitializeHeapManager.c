@@ -20,17 +20,16 @@ NTSTATUS __fastcall RtlInitializeHeapManager(__int64 a1)
   struct _PEB *v2; // rdi
   void (*v3)(void); // rax
   unsigned int GCTimerInterval; // eax
-  __int64 v5; // r9
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // rax
-  __int64 v8; // rtt
-  unsigned __int64 v9; // rdx
-  int v11; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int64 v5; // r8
+  unsigned __int64 v6; // rax
+  __int64 v7; // rtt
+  unsigned __int64 v8; // rdx
+  int v10; // [rsp+38h] [rbp+10h] BYREF
 
   RtlHpGlobalsInitialize();
   v2 = NtCurrentPeb();
-  v11 = 0;
-  if ( (unsigned int)RtlpHpOptIntoSegmentHeap(a1, (unsigned int *)&v11) )
+  v10 = 0;
+  if ( (unsigned int)RtlpHpOptIntoSegmentHeap(a1, (unsigned int *)&v10) )
   {
     RtlpHpHeapFeatures |= 1u;
     v3 = (void (*)(void))qword_1801D06D8;
@@ -41,11 +40,11 @@ NTSTATUS __fastcall RtlInitializeHeapManager(__int64 a1)
       v3();
     }
   }
-  RtlpHpInitializePerfPolicies(v11);
+  RtlpHpInitializePerfPolicies(v10);
   GCTimerInterval = RtlpHpQueryGCTimerInterval(a1);
-  qword_1801D0268 = 0LL;
+  Context = 0LL;
   qword_1801D0278 = 0LL;
-  qword_1801D0270 = -10000LL * GCTimerInterval;
+  DueTime.QuadPart = -10000LL * GCTimerInterval;
   RtlpDisableBreakOnFailureCookie = RtlpGetModifiedProcessCookie();
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x100000) != 0 )
   {
@@ -60,21 +59,21 @@ NTSTATUS __fastcall RtlInitializeHeapManager(__int64 a1)
   v2->MaximumNumberOfHeaps = 16;
   qword_1801D5FE8 = (__int64)&RtlpProcessHeaps;
   RtlpProcessHeaps = (__int64)&RtlpProcessHeaps;
-  RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsLock, 0, 0x10000000LL, v5);
-  v6 = ((((qword_1801CFF00 ^ ((unsigned __int64)qword_1801CFF00 >> 12)) << 25) ^ qword_1801CFF00 ^ ((unsigned __int64)qword_1801CFF00 >> 12)) >> 27) ^ ((qword_1801CFF00 ^ ((unsigned __int64)qword_1801CFF00 >> 12)) << 25) ^ qword_1801CFF00 ^ ((unsigned __int64)qword_1801CFF00 >> 12);
-  v8 = qword_1801CFF00;
-  v7 = _InterlockedCompareExchange64(&qword_1801CFF00, v6, qword_1801CFF00);
-  if ( v8 != v7 )
+  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsLock, 0, 0x10000000u);
+  v5 = ((((qword_1801CFF00 ^ ((unsigned __int64)qword_1801CFF00 >> 12)) << 25) ^ qword_1801CFF00 ^ ((unsigned __int64)qword_1801CFF00 >> 12)) >> 27) ^ ((qword_1801CFF00 ^ ((unsigned __int64)qword_1801CFF00 >> 12)) << 25) ^ qword_1801CFF00 ^ ((unsigned __int64)qword_1801CFF00 >> 12);
+  v7 = qword_1801CFF00;
+  v6 = _InterlockedCompareExchange64(&qword_1801CFF00, v5, qword_1801CFF00);
+  if ( v7 != v6 )
   {
     do
     {
-      v9 = v7;
-      v6 = ((((v7 ^ (v7 >> 12)) << 25) ^ v7 ^ (v7 >> 12)) >> 27) ^ ((v7 ^ (v7 >> 12)) << 25) ^ v7 ^ (v7 >> 12);
-      v7 = _InterlockedCompareExchange64(&qword_1801CFF00, v6, v7);
+      v8 = v6;
+      v5 = ((((v6 ^ (v6 >> 12)) << 25) ^ v6 ^ (v6 >> 12)) >> 27) ^ ((v6 ^ (v6 >> 12)) << 25) ^ v6 ^ (v6 >> 12);
+      v6 = _InterlockedCompareExchange64(&qword_1801CFF00, v5, v6);
     }
-    while ( v7 != v9 );
+    while ( v6 != v8 );
   }
-  RtlpHeapKey = 0x2545F4914F6CDD1DLL * v6;
+  RtlpHeapKey = 0x2545F4914F6CDD1DLL * v5;
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {
     RtlpLowFragHeapGlobalFlags |= 4u;

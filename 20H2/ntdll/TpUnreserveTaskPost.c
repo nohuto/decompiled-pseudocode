@@ -7,31 +7,30 @@
  *     TppPoolpDereferenceGlobalPool @ 0x180013E60 (TppPoolpDereferenceGlobalPool.c)
  */
 
-__int64 __fastcall TpUnreserveTaskPost(volatile signed __int32 *a1, __int64 a2)
+void __fastcall TpUnreserveTaskPost(char *a1, __int64 a2)
 {
-  volatile signed __int64 *v2; // rdx
-  __int64 *v3; // rcx
-  __int64 result; // rax
+  _RTL_SRWLOCK *v2; // rdx
+  const void **v3; // rcx
 
   if ( !a1 )
   {
-    if ( !a2 || (a1 = (volatile signed __int32 *)TppPoolpSerializedPool, (*(_BYTE *)(a2 + 56) & 2) == 0) )
-      a1 = (volatile signed __int32 *)TppPoolpGlobalPool;
+    if ( !a2 || (a1 = (char *)TppPoolpSerializedPool, (*(_BYTE *)(a2 + 56) & 2) == 0) )
+      a1 = (char *)TppPoolpGlobalPool;
   }
-  if ( a1 == (volatile signed __int32 *)TppPoolpGlobalPool )
+  if ( a1 == TppPoolpGlobalPool )
   {
     v2 = &TppPoolpGlobalPoolLock;
-    v3 = &TppPoolpGlobalPool;
-    return TppPoolpDereferenceGlobalPool((const void **)v3, v2);
+    v3 = (const void **)&TppPoolpGlobalPool;
+LABEL_7:
+    TppPoolpDereferenceGlobalPool(v3, v2);
+    return;
   }
-  if ( a1 == (volatile signed __int32 *)TppPoolpSerializedPool )
+  if ( a1 == (char *)TppPoolpSerializedPool )
   {
     v2 = &TppPoolpSerializedPoolLock;
-    v3 = &TppPoolpSerializedPool;
-    return TppPoolpDereferenceGlobalPool((const void **)v3, v2);
+    v3 = (const void **)&TppPoolpSerializedPool;
+    goto LABEL_7;
   }
-  result = (unsigned int)_InterlockedExchangeAdd(a1, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
-    return TppPoolpFree((__int64)a1);
-  return result;
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
+    TppPoolpFree(a1);
 }

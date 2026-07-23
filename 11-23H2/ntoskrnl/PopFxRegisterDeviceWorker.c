@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxRegisterDeviceWorker @ 0x1408366AC
+ * XREFs of PopFxRegisterDeviceWorker @ 0x1408369AC
  * Callers:
- *     PoFxRegisterCoreDevice @ 0x140836010 (PoFxRegisterCoreDevice.c)
- *     PopFxRegisterDevice @ 0x14083651C (PopFxRegisterDevice.c)
+ *     PoFxRegisterCoreDevice @ 0x140836310 (PoFxRegisterCoreDevice.c)
+ *     PopFxRegisterDevice @ 0x14083681C (PopFxRegisterDevice.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E610 (IoAllocateIrp.c)
- *     PopFxActivateComponent @ 0x140287300 (PopFxActivateComponent.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     PopPlRegisterComponent @ 0x140397060 (PopPlRegisterComponent.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x140397170 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopFxCreateDeviceCommon @ 0x140397224 (PopFxCreateDeviceCommon.c)
- *     PopPlRegisterDevice @ 0x1403974F4 (PopPlRegisterDevice.c)
- *     PopFxRegisterDeviceWithPep @ 0x140397608 (PopFxRegisterDeviceWithPep.c)
- *     IoInitializeRemoveLockEx @ 0x1403C50A0 (IoInitializeRemoveLockEx.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
- *     PopFxReleaseAcpiRefDevice @ 0x14058B61C (PopFxReleaseAcpiRefDevice.c)
- *     PopFxVerifyDependencies @ 0x140986190 (PopFxVerifyDependencies.c)
+ *     IoAllocateIrp @ 0x14022E720 (IoAllocateIrp.c)
+ *     PopFxActivateComponent @ 0x140287590 (PopFxActivateComponent.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     PopPlRegisterComponent @ 0x140397240 (PopPlRegisterComponent.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x140397350 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopFxCreateDeviceCommon @ 0x140397404 (PopFxCreateDeviceCommon.c)
+ *     PopPlRegisterDevice @ 0x1403976D4 (PopPlRegisterDevice.c)
+ *     PopFxRegisterDeviceWithPep @ 0x1403977E8 (PopFxRegisterDeviceWithPep.c)
+ *     IoInitializeRemoveLockEx @ 0x1403C5280 (IoInitializeRemoveLockEx.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
+ *     PopFxReleaseAcpiRefDevice @ 0x14058BB0C (PopFxReleaseAcpiRefDevice.c)
+ *     PopFxVerifyDependencies @ 0x140986390 (PopFxVerifyDependencies.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

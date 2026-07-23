@@ -1,16 +1,16 @@
 /*
- * XREFs of InbvDriverInitialize @ 0x140CBA030
+ * XREFs of InbvDriverInitialize @ 0x140CC0070
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     InbvSetFunction @ 0x140531DE8 (InbvSetFunction.c)
- *     _strupr @ 0x140535360 (_strupr.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     InbvDetermineFunction @ 0x1405C4B30 (InbvDetermineFunction.c)
- *     BvgaDriverInitialize @ 0x140CBA110 (BvgaDriverInitialize.c)
- *     BgkInitialize @ 0x140D13854 (BgkInitialize.c)
+ *     InbvSetFunction @ 0x140534288 (InbvSetFunction.c)
+ *     _strupr @ 0x1405377E0 (_strupr.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     InbvDetermineFunction @ 0x1405C73A0 (InbvDetermineFunction.c)
+ *     BvgaDriverInitialize @ 0x140CC0150 (BvgaDriverInitialize.c)
+ *     BgkInitialize @ 0x140D19A1C (BgkInitialize.c)
  */
 
 char __fastcall InbvDriverInitialize(unsigned int a1, __int64 a2, unsigned int a3)

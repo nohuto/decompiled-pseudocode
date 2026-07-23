@@ -1,13 +1,13 @@
 /*
- * XREFs of SepGetStackTraceHash @ 0x140260EE8
+ * XREFs of SepGetStackTraceHash @ 0x140260450
  * Callers:
- *     SepLogLpacAccessFailure @ 0x1404F654C (SepLogLpacAccessFailure.c)
+ *     SepLogLpacAccessFailure @ 0x1404EFB5C (SepLogLpacAccessFailure.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x140723850 (ZwQueryVirtualMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140728420 (ZwQueryVirtualMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 ULONG __fastcall SepGetStackTraceHash(ULONG *a1)
@@ -37,7 +37,7 @@ ULONG __fastcall SepGetStackTraceHash(ULONG *a1)
       if ( ZwQueryVirtualMemory(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
              BackTrace[v4],
-             (MEMORY_INFORMATION_CLASS)6,
+             MemoryImageInformation,
              &MemoryInformation,
              0x18uLL,
              0LL) < 0

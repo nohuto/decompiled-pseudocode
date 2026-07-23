@@ -1,33 +1,33 @@
 /*
- * XREFs of NtSetThreadExecutionState @ 0x140AC6F10
+ * XREFs of NtSetThreadExecutionState @ 0x140AC4920
  * Callers:
  *     <none>
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     SessionIsInteractive @ 0x14033117C (SessionIsInteractive.c)
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x140331BA4 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x140331D38 (PoCaptureReasonContext.c)
- *     PopApplyLegacyPowerRequestFlags @ 0x14046BB18 (PopApplyLegacyPowerRequestFlags.c)
- *     PopGetLegacyPowerRequestFlags @ 0x14047C988 (PopGetLegacyPowerRequestFlags.c)
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     _tlgDefineProvider_annotation__TlgMiTraceHandleProv @ 0x1404B43D0 (_tlgDefineProvider_annotation__TlgMiTraceHandleProv.c)
- *     Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline @ 0x1405CCDE8 (Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline.c)
- *     PopGetCurrentPdcPhase @ 0x1405D88FC (PopGetCurrentPdcPhase.c)
- *     PoEnergyContextUpdateComponentPower @ 0x1409048E0 (PoEnergyContextUpdateComponentPower.c)
- *     PopAdaptiveGetBootIsSystemInitiated @ 0x1409BB16C (PopAdaptiveGetBootIsSystemInitiated.c)
- *     PopNotifyConsoleUserPresent @ 0x1409BB660 (PopNotifyConsoleUserPresent.c)
- *     PopDiagTraceSetThreadExecutionState @ 0x140AC742C (PopDiagTraceSetThreadExecutionState.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     SessionIsInteractive @ 0x1402B9CEC (SessionIsInteractive.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
+ *     PoDestroyReasonContext @ 0x1402BC528 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1402BC6B8 (PoCaptureReasonContext.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x140464798 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopGetLegacyPowerRequestFlags @ 0x140477B10 (PopGetLegacyPowerRequestFlags.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     _tlgDefineProvider_annotation__TlgMiTraceHandleProv @ 0x1404AEC10 (_tlgDefineProvider_annotation__TlgMiTraceHandleProv.c)
+ *     Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline @ 0x1405CA558 (Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopGetCurrentPdcPhase @ 0x1405D5E10 (PopGetCurrentPdcPhase.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x14099B564 (PoEnergyContextUpdateComponentPower.c)
+ *     PopAdaptiveGetBootIsSystemInitiated @ 0x1409A17BC (PopAdaptiveGetBootIsSystemInitiated.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409A1CB0 (PopNotifyConsoleUserPresent.c)
+ *     PopDiagTraceSetThreadExecutionState @ 0x140AC4EB8 (PopDiagTraceSetThreadExecutionState.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
-__int64 __fastcall NtSetThreadExecutionState(int a1, __int64 a2)
+NTSTATUS __cdecl NtSetThreadExecutionState(EXECUTION_STATE NewFlags, EXECUTION_STATE *PreviousFlags)
 {
-  _DWORD *v2; // r12
-  unsigned int v4; // esi
+  EXECUTION_STATE *v2; // r12
+  EXECUTION_STATE v4; // esi
   unsigned int v5; // r13d
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   struct _KTHREAD *CurrentThread; // r14
   __int64 v8; // rcx
   struct _LIST_ENTRY *Blink; // rbx
@@ -63,41 +63,41 @@ __int64 __fastcall NtSetThreadExecutionState(int a1, __int64 a2)
   __int64 v40; // [rsp+20h] [rbp-48h]
   struct _LIST_ENTRY *v41; // [rsp+30h] [rbp-38h] BYREF
   struct _KTHREAD *v42; // [rsp+38h] [rbp-30h]
-  int v43; // [rsp+80h] [rbp+18h] BYREF
+  EXECUTION_STATE v43; // [rsp+80h] [rbp+18h] BYREF
   PVOID P; // [rsp+88h] [rbp+20h] BYREF
 
-  v2 = (_DWORD *)a2;
+  v2 = PreviousFlags;
   v43 = 0;
   P = 0LL;
-  LOBYTE(a2) = KeGetCurrentThread()->PreviousMode;
+  LOBYTE(PreviousFlags) = KeGetCurrentThread()->PreviousMode;
   v4 = 0;
   v5 = 0;
-  if ( !(_BYTE)a2 )
-    return (unsigned int)-1073741637;
+  if ( !(_BYTE)PreviousFlags )
+    return -1073741637;
   CurrentThread = KeGetCurrentThread();
   v42 = CurrentThread;
-  if ( (a1 & 0x7FFFFFBC) != 0 || (a1 & 0x80000040) == 0x40 )
-    return (unsigned int)-1073741811;
+  if ( (NewFlags & 0x7FFFFFBC) != 0 || (NewFlags & 0x80000040) == 0x40 )
+    return -1073741811;
   v8 = 0x7FFFFFFF0000LL;
   if ( (unsigned __int64)v2 < 0x7FFFFFFF0000LL )
     v8 = (__int64)v2;
   *(_DWORD *)v8 = *(_DWORD *)v8;
   Blink = CurrentThread[1].ApcState.ApcListHead[1].Blink;
   v41 = Blink;
-  if ( Blink || a1 >= 0 )
+  if ( Blink || (NewFlags & 0x80000000) == 0 )
   {
 LABEL_15:
-    LegacyPowerRequestFlags = PopGetLegacyPowerRequestFlags(Blink, a1, &v43);
+    LegacyPowerRequestFlags = PopGetLegacyPowerRequestFlags(Blink, NewFlags, (int *)&v43);
     *v2 = v43;
-    if ( a1 < 0 )
+    if ( (NewFlags & 0x80000000) != 0 )
     {
-      PopApplyLegacyPowerRequestFlags(Blink, a1, LegacyPowerRequestFlags);
+      PopApplyLegacyPowerRequestFlags(Blink, NewFlags, LegacyPowerRequestFlags);
       return 0;
     }
     if ( !(unsigned int)Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline() )
     {
 LABEL_29:
-      PopDiagTraceSetThreadExecutionState(CurrentThread, (unsigned int)a1, v4, v5);
+      PopDiagTraceSetThreadExecutionState(CurrentThread, NewFlags, v4, v5);
       if ( (unsigned int)Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline() )
       {
         if ( (v4 & 1) != 0 )
@@ -115,13 +115,13 @@ LABEL_29:
       }
       else
       {
-        if ( (a1 & 1) != 0 )
+        if ( (NewFlags & 1) != 0 )
         {
           PopAcquirePolicyLock(v19, v18);
           tlgDefineProvider_annotation__TlgMiTraceHandleProv();
           PopReleasePolicyLock(v28, v27, v29, v30, v40);
         }
-        if ( (a1 & 2) == 0 )
+        if ( (NewFlags & 2) == 0 )
           return 0;
         PoEnergyContextUpdateComponentPower((__int64)KeGetCurrentThread()->ApcState.Process, 12, 3LL);
         PopAcquirePolicyLock(v32, v31);
@@ -136,14 +136,14 @@ LABEL_29:
       PopNotifyConsoleUserPresent(v25, 8u, v26);
       return 0;
     }
-    v4 = a1;
+    v4 = NewFlags;
     if ( (int)PopGetCurrentPdcPhase() >= 2 )
     {
       v5 = 1;
-      v4 = a1 & 0xFFFFFFFC;
+      v4 = NewFlags & 0xFFFFFFFC;
       goto LABEL_29;
     }
-    if ( (a1 & 2) == 0 )
+    if ( (NewFlags & 2) == 0 )
       goto LABEL_29;
     PopAcquirePolicyLock(v13, v12);
     if ( !SSHSupportIsPlatformAoAc() || PopLidOpened || PopConsoleExternalDisplayConnected )
@@ -160,12 +160,12 @@ LABEL_28:
     {
       v5 = 2;
     }
-    v4 = a1 & 0xFFFFFFFD;
+    v4 = NewFlags & 0xFFFFFFFD;
     goto LABEL_28;
   }
-  v6 = PoCaptureReasonContext(0LL, a2, 0LL, 1, 0LL, &P);
+  v6 = PoCaptureReasonContext(0LL, (__int64)PreviousFlags, 0LL, 1, 0LL, &P);
   if ( v6 < 0 )
-    return (unsigned int)v6;
+    return v6;
   v10 = P;
   v6 = PopPowerRequestCreateCommon(P, 0, &v41);
   if ( v6 >= 0 )
@@ -177,5 +177,5 @@ LABEL_28:
   }
   if ( v10 )
     PoDestroyReasonContext(v10);
-  return (unsigned int)v6;
+  return v6;
 }

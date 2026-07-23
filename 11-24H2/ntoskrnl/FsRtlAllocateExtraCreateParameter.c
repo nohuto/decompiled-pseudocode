@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameter @ 0x1409E9EF0
+ * XREFs of FsRtlAllocateExtraCreateParameter @ 0x1409E4EB0
  * Callers:
- *     IopSymlinkEnforceEnabledTypes @ 0x140A3FC5C (IopSymlinkEnforceEnabledTypes.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x140A3550C (IopSymlinkEnforceEnabledTypes.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameter(
@@ -28,7 +28,7 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameter(
   v10 = (-(__int64)((Flags & 2) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256;
   if ( (Flags & 1) != 0 )
     v10 |= 1uLL;
-  Pool2 = ExAllocatePool2(v10);
+  Pool2 = ExAllocatePool2(v10, v6, PoolTag);
   if ( !Pool2 )
     return -1073741670;
   *(_DWORD *)(Pool2 + 4) = 0;

@@ -9,26 +9,26 @@
  *     RtlpHpVsContextLockUnlock @ 0x18011DC50 (RtlpHpVsContextLockUnlock.c)
  */
 
-__int64 __fastcall RtlpHpUnlockHeapForProcessCloneOrTerminate(__int64 a1, int a2)
+void __fastcall RtlpHpUnlockHeapForProcessCloneOrTerminate(_RTL_SRWLOCK *a1, int a2)
 {
-  volatile signed __int64 *v4; // rcx
+  _RTL_SRWLOCK *v4; // rcx
   __int64 v5; // rdi
   __int64 v6; // rdx
-  _QWORD *v7; // rax
-  _QWORD *v8; // rax
-  volatile signed __int64 *v9; // rcx
+  unsigned __int64 *v7; // rax
+  unsigned __int64 *v8; // rax
+  _RTL_SRWLOCK *v9; // rcx
 
-  RtlpHpLfhContextLockUnlock(a1 + 832);
-  RtlpHpVsContextLockUnlock(a1 + 704, (unsigned int)a2);
-  v4 = (volatile signed __int64 *)(a1 + 232);
+  RtlpHpLfhContextLockUnlock(&a1[104]);
+  RtlpHpVsContextLockUnlock(&a1[88], (unsigned int)a2);
+  v4 = a1 + 29;
   v5 = 2LL;
   if ( a2 >= 2 )
-    *v4 = 1LL;
+    v4->Value = 1LL;
   RtlReleaseSRWLockExclusive(v4);
   if ( a2 >= 2 )
   {
     v6 = 2LL;
-    v7 = (_QWORD *)(a1 + 432);
+    v7 = (unsigned __int64 *)&a1[54];
     do
     {
       *v7 = 1LL;
@@ -37,15 +37,15 @@ __int64 __fastcall RtlpHpUnlockHeapForProcessCloneOrTerminate(__int64 a1, int a2
     }
     while ( v6 );
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 432));
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 624));
+  RtlReleaseSRWLockExclusive(a1 + 54);
+  RtlReleaseSRWLockExclusive(a1 + 78);
   if ( a2 < 2 )
   {
-    v9 = (volatile signed __int64 *)(a1 + 64);
+    v9 = a1 + 8;
   }
   else
   {
-    v8 = (_QWORD *)(a1 + 384);
+    v8 = (unsigned __int64 *)&a1[48];
     do
     {
       *v8 = 1LL;
@@ -53,10 +53,10 @@ __int64 __fastcall RtlpHpUnlockHeapForProcessCloneOrTerminate(__int64 a1, int a2
       --v5;
     }
     while ( v5 );
-    v9 = (volatile signed __int64 *)(a1 + 64);
-    *(_QWORD *)(a1 + 64) = 1LL;
+    v9 = a1 + 8;
+    a1[8].Value = 1LL;
   }
   RtlReleaseSRWLockExclusive(v9);
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 384));
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 576));
+  RtlReleaseSRWLockExclusive(a1 + 48);
+  RtlReleaseSRWLockExclusive(a1 + 72);
 }

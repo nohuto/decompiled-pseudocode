@@ -12,9 +12,9 @@
 
 __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
 {
-  unsigned int FullPathName_Ustr; // esi
+  SIZE_T FullPathName_Ustr; // rsi
   _WORD *Atom; // r14
-  __int64 v7; // rcx
+  void *v7; // rcx
   char v8; // [rsp+68h] [rbp+10h] BYREF
   __int64 v9; // [rsp+70h] [rbp+18h] BYREF
   __int64 v10; // [rsp+78h] [rbp+20h] BYREF
@@ -24,23 +24,29 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
   v9 = 0LL;
   while ( 1 )
   {
-    FullPathName_Ustr = RtlGetFullPathName_Ustr(a1, *(unsigned __int16 *)(a2 + 2), *(_WORD **)(a2 + 8), &v10, &v8, &v9);
+    FullPathName_Ustr = (unsigned int)RtlGetFullPathName_Ustr(
+                                        a1,
+                                        *(unsigned __int16 *)(a2 + 2),
+                                        *(WCHAR **)(a2 + 8),
+                                        &v10,
+                                        &v8,
+                                        &v9);
     if ( v8 )
       return 3221225781LL;
-    if ( FullPathName_Ustr - 1 > 0xFFFD )
+    if ( (unsigned int)(FullPathName_Ustr - 1) > 0xFFFD )
       break;
     if ( (_DWORD)v9 == 5 && (LdrpIllegalCWDDevices & HIDWORD(v9)) != 0 )
       return 3221225781LL;
-    if ( FullPathName_Ustr < *(unsigned __int16 *)(a2 + 2) )
+    if ( (unsigned int)FullPathName_Ustr < *(unsigned __int16 *)(a2 + 2) )
     {
       *(_WORD *)a2 = FullPathName_Ustr;
       return 0LL;
     }
-    Atom = (_WORD *)RtlpAllocateAtom();
+    Atom = RtlpAllocateAtom(FullPathName_Ustr);
     if ( !Atom )
       return 3221225495LL;
-    v7 = *(_QWORD *)(a2 + 8);
-    if ( a2 + 16 != v7 )
+    v7 = *(void **)(a2 + 8);
+    if ( (void *)(a2 + 16) != v7 )
       RtlpSysVolFree(v7);
     *(_WORD *)(a2 + 16) = 0;
     *(_QWORD *)(a2 + 8) = Atom;

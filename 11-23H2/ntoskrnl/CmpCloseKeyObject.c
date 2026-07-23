@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCloseKeyObject @ 0x140768090
+ * XREFs of CmpCloseKeyObject @ 0x140768280
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2F90 (EtwGetKernelTraceTimestamp.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     CmpDelayedDerefKeys @ 0x1406D586C (CmpDelayedDerefKeys.c)
- *     CmpPostNotify @ 0x140766860 (CmpPostNotify.c)
- *     CmpSignalDeferredPosts @ 0x1407682B4 (CmpSignalDeferredPosts.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402A3220 (EtwGetKernelTraceTimestamp.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     CmpDelayedDerefKeys @ 0x1406D589C (CmpDelayedDerefKeys.c)
+ *     CmpPostNotify @ 0x140766A50 (CmpPostNotify.c)
+ *     CmpSignalDeferredPosts @ 0x1407684A4 (CmpSignalDeferredPosts.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x140AF52F0 (CmpIsKeyDeletedForKeyBody.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)

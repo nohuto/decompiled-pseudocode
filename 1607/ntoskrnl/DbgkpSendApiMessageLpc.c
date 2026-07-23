@@ -1,21 +1,21 @@
 /*
- * XREFs of DbgkpSendApiMessageLpc @ 0x14061A408
+ * XREFs of DbgkpSendApiMessageLpc @ 0x14061A4BC
  * Callers:
- *     DbgkForwardException @ 0x1404DBC50 (DbgkForwardException.c)
+ *     DbgkForwardException @ 0x1404BF254 (DbgkForwardException.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwFlushInstructionCache @ 0x14015B800 (ZwFlushInstructionCache.c)
- *     LpcRequestWaitReplyPortEx @ 0x1404B1FD4 (LpcRequestWaitReplyPortEx.c)
- *     PsThawProcess @ 0x14051DFE8 (PsThawProcess.c)
- *     DbgkpSuspendProcess @ 0x14061ADB4 (DbgkpSuspendProcess.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwFlushInstructionCache @ 0x14015BD70 (ZwFlushInstructionCache.c)
+ *     LpcRequestWaitReplyPortEx @ 0x14049C3B4 (LpcRequestWaitReplyPortEx.c)
+ *     PsThawProcess @ 0x140501050 (PsThawProcess.c)
+ *     DbgkpSuspendProcess @ 0x14061AE68 (DbgkpSuspendProcess.c)
  */
 
 __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   char v4; // si
-  __int64 Process; // rbp
+  ULONG_PTR Process; // rbp
   int v8; // edi
   __int64 v9; // rcx
   _OWORD *v10; // rax
@@ -30,7 +30,7 @@ __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
 
   CurrentThread = KeGetCurrentThread();
   v4 = a3;
-  Process = (__int64)CurrentThread->ApcState.Process;
+  Process = (ULONG_PTR)CurrentThread->ApcState.Process;
   if ( a3 )
     v4 = DbgkpSuspendProcess(CurrentThread->ApcState.Process);
   *(_DWORD *)(a1 + 44) = 259;

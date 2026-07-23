@@ -37,7 +37,7 @@ __int64 __fastcall RtlpHpRegisterEnvironment(__int128 *a1, int a2)
     v5 = 0x40000000LL;
     if ( BYTE1(v2) != 3 )
       v5 = 0x200000LL;
-    v6 = RtlpHpVaMgrCtxAllocatorReference(&unk_18016DCA8, v9, v5);
+    v6 = RtlpHpVaMgrCtxAllocatorReference(&unk_18016DC98, v9, v5);
     if ( v6 == -1 )
     {
       return (unsigned int)-1073741670;
@@ -50,7 +50,7 @@ __int64 __fastcall RtlpHpRegisterEnvironment(__int128 *a1, int a2)
   }
   else
   {
-    RtlpHpVaMgrCtxAllocatorDereference((__int64)&unk_18016DCA8, v9);
+    RtlpHpVaMgrCtxAllocatorDereference((__int64)&unk_18016DC98, v9);
   }
   return v3;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvFoldBackDirtyData @ 0x140605E40
+ * XREFs of HvFoldBackDirtyData @ 0x140605EF4
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
  */
 
 void __fastcall HvFoldBackDirtyData(ULONG_PTR a1)

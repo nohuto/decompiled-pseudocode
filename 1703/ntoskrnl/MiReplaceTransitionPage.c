@@ -188,7 +188,7 @@ LABEL_25:
   {
     v28 = v50 & 0x1F;
     LOBYTE(v29) = 1;
-    v30 = (volatile signed __int32 *)(qword_14036C978 + 4 * (v50 >> 5));
+    v30 = (volatile signed __int32 *)stru_14036C970.Buffer + (v50 >> 5);
     if ( v28 + 1 <= 0x20 )
     {
       v31 = 1 << v28;

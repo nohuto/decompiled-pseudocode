@@ -19,7 +19,7 @@
 __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 {
   void *v2; // rdi
-  int SystemStorePath; // eax
+  NTSTATUS SystemStorePath; // eax
   void *v4; // rsi
   unsigned int v5; // ebx
   __int64 v6; // rbx
@@ -39,7 +39,7 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 
   Src = 0LL;
   v2 = 0LL;
-  SystemStorePath = BcdGetSystemStorePath(&Src);
+  SystemStorePath = BcdGetSystemStorePath((PWSTR *)&Src);
   v4 = Src;
   v5 = SystemStorePath;
   if ( SystemStorePath >= 0 )

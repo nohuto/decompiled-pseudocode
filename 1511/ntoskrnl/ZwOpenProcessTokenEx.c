@@ -11,7 +11,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenProcessTokenEx(
         HANDLE ProcessHandle,
         ACCESS_MASK DesiredAccess,
@@ -20,5 +19,5 @@ NTSTATUS __stdcall ZwOpenProcessTokenEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&DesiredAccess, *(_QWORD *)&HandleAttributes);
+  return KiServiceInternal(ProcessHandle);
 }

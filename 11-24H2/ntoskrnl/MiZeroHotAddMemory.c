@@ -1,16 +1,16 @@
 /*
- * XREFs of MiZeroHotAddMemory @ 0x1407EA394
+ * XREFs of MiZeroHotAddMemory @ 0x1407EA964
  * Callers:
- *     MiMapNewPfns @ 0x1407E96AC (MiMapNewPfns.c)
+ *     MiMapNewPfns @ 0x1407E9C7C (MiMapNewPfns.c)
  * Callees:
- *     MmUnmapIoSpace @ 0x140263160 (MmUnmapIoSpace.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     MiInitializeDpcGang @ 0x1403A80A0 (MiInitializeDpcGang.c)
- *     MiStartDpcGang @ 0x1403A875C (MiStartDpcGang.c)
- *     MiRestrictRangeToNode @ 0x140401E10 (MiRestrictRangeToNode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiInitializeDpcGang @ 0x14026F77C (MiInitializeDpcGang.c)
+ *     MiStartDpcGang @ 0x140270670 (MiStartDpcGang.c)
+ *     MmUnmapIoSpace @ 0x1402929D0 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     MiRestrictRangeToNode @ 0x1403FC38C (MiRestrictRangeToNode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiZeroHotAddMemory(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall MiZeroHotAddMemory(__int64 a1)
   memset_0(BugCheckParameter2, 0, 0x168uLL);
   v2 = *(_QWORD *)(a1 + 16);
   v3 = *(_QWORD *)(a1 + 32);
-  v4 = MmMapIoSpaceEx(v2 << 12, v3 << 12, 4u);
+  v4 = MmMapIoSpaceEx(v2 << 12, v3 << 12, 4LL);
   v5 = (void *)v4;
   if ( !v4 )
     return 3221225626LL;
@@ -47,7 +47,7 @@ __int64 __fastcall MiZeroHotAddMemory(__int64 a1)
     BugCheckParameter2[0] = v2;
     BugCheckParameter2[1] = v8;
     BugCheckParameter2[20] = v7;
-    MiStartDpcGang((__int64 *)BugCheckParameter2);
+    MiStartDpcGang((ULONG_PTR)BugCheckParameter2);
     v3 -= v8;
     v2 += v8;
     v7 += v8 << 12;

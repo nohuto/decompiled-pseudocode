@@ -1,24 +1,24 @@
 /*
- * XREFs of KeAccumulateTicks @ 0x14021F980
+ * XREFs of KeAccumulateTicks @ 0x140221310
  * Callers:
- *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
- *     PpmIdleExecuteTransition @ 0x1403EB78C (PpmIdleExecuteTransition.c)
+ *     KiUpdateRunTime @ 0x140220DB0 (KiUpdateRunTime.c)
+ *     PpmIdleExecuteTransition @ 0x1402F87D0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KiCheckForTimerExpiration @ 0x14021EEA0 (KiCheckForTimerExpiration.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiRequestSoftwareInterrupt @ 0x1402C7D20 (KiRequestSoftwareInterrupt.c)
- *     KiQueryEffectivePriorityThread @ 0x14037F0E0 (KiQueryEffectivePriorityThread.c)
- *     KiCheckKeepAlive @ 0x1403EF0E4 (KiCheckKeepAlive.c)
- *     KiDpcWatchdogCounterReset @ 0x14047A150 (KiDpcWatchdogCounterReset.c)
- *     EtwTraceDpcProfilingStackBegin @ 0x14047A1E0 (EtwTraceDpcProfilingStackBegin.c)
- *     KiDpcWatchdogCaptureStack @ 0x14047A2B0 (KiDpcWatchdogCaptureStack.c)
- *     EtwTraceDpcProfilingStack @ 0x14047A358 (EtwTraceDpcProfilingStack.c)
- *     HvlInvokeHypervisorDebugger @ 0x14047A3E8 (HvlInvokeHypervisorDebugger.c)
- *     KiUpdateInterruptRate @ 0x140484B2C (KiUpdateInterruptRate.c)
- *     KdCheckForDebugBreak @ 0x140487E4C (KdCheckForDebugBreak.c)
- *     KiDeferDpcWatchdogViolation @ 0x140515FE8 (KiDeferDpcWatchdogViolation.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x14052DD04 (KiResetGlobalDpcWatchdogProfiler.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiCheckForTimerExpiration @ 0x140220830 (KiCheckForTimerExpiration.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiRequestSoftwareInterrupt @ 0x1403129C0 (KiRequestSoftwareInterrupt.c)
+ *     KiQueryEffectivePriorityThread @ 0x140380E90 (KiQueryEffectivePriorityThread.c)
+ *     KiCheckKeepAlive @ 0x140453C14 (KiCheckKeepAlive.c)
+ *     KiDpcWatchdogCounterReset @ 0x140473AC0 (KiDpcWatchdogCounterReset.c)
+ *     EtwTraceDpcProfilingStackBegin @ 0x140473B50 (EtwTraceDpcProfilingStackBegin.c)
+ *     KiDpcWatchdogCaptureStack @ 0x140473C20 (KiDpcWatchdogCaptureStack.c)
+ *     EtwTraceDpcProfilingStack @ 0x140473CC8 (EtwTraceDpcProfilingStack.c)
+ *     HvlInvokeHypervisorDebugger @ 0x140473D58 (HvlInvokeHypervisorDebugger.c)
+ *     KiUpdateInterruptRate @ 0x14047E49C (KiUpdateInterruptRate.c)
+ *     KdCheckForDebugBreak @ 0x14048198C (KdCheckForDebugBreak.c)
+ *     KiDeferDpcWatchdogViolation @ 0x14050FA58 (KiDeferDpcWatchdogViolation.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x140530224 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KeAccumulateTicks(__int64 a1, int a2, int a3, unsigned __int8 a4, char a5, unsigned int a6)
@@ -88,7 +88,7 @@ void __fastcall KeAccumulateTicks(__int64 a1, int a2, int a3, unsigned __int8 a4
       {
         if ( !*(_DWORD *)(v16 + 33696)
           && KeEnableWatchdogTimeout
-          && ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) == 0 )
+          && ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) == 0 )
         {
           HvlInvokeHypervisorDebugger(1LL, v14);
           KeBugCheckEx(0x101u, (unsigned __int8)KiClockKeepAliveCycle, 0LL, v16, v14);
@@ -249,7 +249,7 @@ LABEL_60:
       HvlInvokeHypervisorDebugger(v36, 0LL);
       if ( !(_BYTE)KdDebuggerEnabled || (_BYTE)KdDebuggerNotPresent || KiForceBugcheckForDpcWatchdog )
       {
-        if ( !v45 || *(int *)&KsepShimDbLock.SchedulerApcFill5[48] <= 0 )
+        if ( !v45 || SLODWORD(KsepShimDbLock.QueueListEntry.Flink) <= 0 )
           KeBugCheckEx(0x133u, v34, v35, BugCheckParameter3, (ULONG_PTR)BugCheckParameter4);
         KiDeferDpcWatchdogViolation();
 LABEL_90:

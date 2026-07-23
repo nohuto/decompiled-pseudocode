@@ -10,44 +10,38 @@
  *     RtlpHpLfhOwnerLockUnlock @ 0x18011F798 (RtlpHpLfhOwnerLockUnlock.c)
  */
 
-void __fastcall RtlpHpLfhOwnerLockUnlock(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+void __fastcall RtlpHpLfhOwnerLockUnlock(__int64 a1, unsigned int a2)
 {
-  unsigned int v4; // edi
-  int v6; // esi
-  __int64 v7; // rcx
-  unsigned __int64 v8; // r9
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // r9
-  volatile signed __int64 *v12; // rcx
-  volatile signed __int64 *v13; // rcx
+  int v4; // esi
+  __int64 v5; // rcx
+  _RTL_SRWLOCK *v6; // rcx
+  _RTL_SRWLOCK *v7; // rcx
 
-  v4 = a2;
-  v6 = a2 & 1;
+  v4 = a2 & 1;
   if ( (a2 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 16, a2, a3, a4);
-  RtlpHpLfhOwnerListLockUnlock(a1, (_QWORD *)(a1 + 24), v4, a4);
-  RtlpHpLfhOwnerListLockUnlock(v7, (_QWORD *)(a1 + 40), v4, v8);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 16));
+  RtlpHpLfhOwnerListLockUnlock(a1, (_RTL_SRWLOCK **)(a1 + 24), a2);
+  RtlpHpLfhOwnerListLockUnlock(v5, (_RTL_SRWLOCK **)(a1 + 40), a2);
   if ( (*(_BYTE *)a1 & 1) != 0 )
   {
-    v12 = (volatile signed __int64 *)(a1 + 80);
-    if ( v6 )
+    v6 = (_RTL_SRWLOCK *)(a1 + 80);
+    if ( v4 )
     {
-      if ( (v4 & 2) != 0 )
-        *v12 = 1LL;
-      RtlReleaseSRWLockExclusive(v12);
+      if ( (a2 & 2) != 0 )
+        v6->Value = 1LL;
+      RtlReleaseSRWLockExclusive(v6);
     }
     else
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)v12, v9, v10, v11);
+      RtlAcquireSRWLockExclusive(v6);
     }
-    RtlpHpLfhOwnerLockUnlock(**(_QWORD **)(a1 + 96), v4);
+    RtlpHpLfhOwnerLockUnlock(**(_QWORD **)(a1 + 96), a2);
   }
-  if ( v6 )
+  if ( v4 )
   {
-    v13 = (volatile signed __int64 *)(a1 + 16);
-    if ( (v4 & 2) != 0 )
-      *v13 = 1LL;
-    RtlReleaseSRWLockExclusive(v13);
+    v7 = (_RTL_SRWLOCK *)(a1 + 16);
+    if ( (a2 & 2) != 0 )
+      v7->Value = 1LL;
+    RtlReleaseSRWLockExclusive(v7);
   }
 }

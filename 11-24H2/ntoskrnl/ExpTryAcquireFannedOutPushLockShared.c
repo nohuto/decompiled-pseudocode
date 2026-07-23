@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTryAcquireFannedOutPushLockShared @ 0x1404735A4
+ * XREFs of ExpTryAcquireFannedOutPushLockShared @ 0x140470394
  * Callers:
- *     ExTryAcquireAutoExpandPushLockShared @ 0x140473480 (ExTryAcquireAutoExpandPushLockShared.c)
+ *     ExTryAcquireAutoExpandPushLockShared @ 0x140470270 (ExTryAcquireAutoExpandPushLockShared.c)
  * Callees:
- *     ExfTryAcquirePushLockSharedEx @ 0x1404736D4 (ExfTryAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1404704C4 (ExfTryAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 volatile signed __int64 *__fastcall ExpTryAcquireFannedOutPushLockShared(unsigned int a1, int a2)

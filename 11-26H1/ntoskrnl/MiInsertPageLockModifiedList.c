@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertPageLockModifiedList @ 0x14051E9C8
+ * XREFs of MiInsertPageLockModifiedList @ 0x140520FD8
  * Callers:
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
  * Callees:
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiDetermineModifiedPageListHead @ 0x140298990 (MiDetermineModifiedPageListHead.c)
- *     MiLockPageListAndLastPage @ 0x14029B840 (MiLockPageListAndLastPage.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiDetermineModifiedPageListHead @ 0x140297EF0 (MiDetermineModifiedPageListHead.c)
+ *     MiLockPageListAndLastPage @ 0x14029ADA0 (MiLockPageListAndLastPage.c)
  */
 
 unsigned __int64 __fastcall MiInsertPageLockModifiedList(__int64 a1, __int64 a2, __int64 a3)

@@ -39,7 +39,7 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
   unsigned int v27; // ebx
   _DWORD *v28; // rdx
   unsigned int SizeOfBitMap; // eax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
   __int64 v31; // [rsp+90h] [rbp+18h]
 
   v2 = 0;

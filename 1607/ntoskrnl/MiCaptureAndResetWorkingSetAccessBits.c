@@ -1,24 +1,24 @@
 /*
- * XREFs of MiCaptureAndResetWorkingSetAccessBits @ 0x140129C50
+ * XREFs of MiCaptureAndResetWorkingSetAccessBits @ 0x14012A1C0
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x1400CDCA0 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1400CBB40 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiLogPageAccess @ 0x140048940 (MiLogPageAccess.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiFlushTbListEarly @ 0x140089820 (MiFlushTbListEarly.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiClearPteAccessed @ 0x1400E1EF0 (MiClearPteAccessed.c)
- *     MiInsertWsle @ 0x1400E2090 (MiInsertWsle.c)
- *     MiRemoveEntryWsle @ 0x1400E2580 (MiRemoveEntryWsle.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MiTbFlushType @ 0x140100DBC (MiTbFlushType.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiLogPageAccess @ 0x1400484C0 (MiLogPageAccess.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiFlushTbListEarly @ 0x140088F20 (MiFlushTbListEarly.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiClearPteAccessed @ 0x1400DFD90 (MiClearPteAccessed.c)
+ *     MiInsertWsle @ 0x1400DFF30 (MiInsertWsle.c)
+ *     MiRemoveEntryWsle @ 0x1400E0420 (MiRemoveEntryWsle.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MiTbFlushType @ 0x1400FEB3C (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  */
 
 void __fastcall MiCaptureAndResetWorkingSetAccessBits(__int64 a1, char a2)
@@ -43,7 +43,7 @@ void __fastcall MiCaptureAndResetWorkingSetAccessBits(__int64 a1, char a2)
   int v20; // edx
   int v21; // ebx
   LONG *SharedVm; // rbx
-  struct _SLIST_ENTRY *v23; // rcx
+  _SLIST_ENTRY *v23; // rcx
   ULONG_PTR *v24; // [rsp+30h] [rbp-118h]
   int v25; // [rsp+38h] [rbp-110h]
   __int64 v26; // [rsp+40h] [rbp-108h] BYREF
@@ -66,7 +66,7 @@ void __fastcall MiCaptureAndResetWorkingSetAccessBits(__int64 a1, char a2)
   {
     v3 = 0LL;
   }
-  v25 = dword_140327188;
+  v25 = dword_1403271C8;
   SharedWorkingSetList = MiGetSharedWorkingSetList(a1);
   v24 = SharedWorkingSetList;
   v7 = *((unsigned int *)SharedWorkingSetList + 8);
@@ -114,7 +114,7 @@ LABEL_30:
       goto LABEL_31;
     }
     v20 = (*(_DWORD *)v8 >> 9) & 7;
-    if ( v20 == 7 && (unsigned int)MiGetPfnPriority(v16) < dword_1403271B0 )
+    if ( v20 == 7 && (unsigned int)MiGetPfnPriority(v16) < dword_1403271F0 )
     {
       v21 = 0;
     }
@@ -153,7 +153,7 @@ LABEL_32:
   if ( v3 )
     MiFlushTbList((__int64)v3, (_KPROCESS *)v4, v5, (__int64)SharedWorkingSetList);
   SharedVm = MiGetSharedVm(a1);
-  v23 = (struct _SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
+  v23 = (_SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
   if ( v23 )
   {
     MiEmptyPageAccessLog(v23);

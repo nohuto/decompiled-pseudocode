@@ -1,17 +1,17 @@
 /*
- * XREFs of KeQueryCpuPartitionAffinity @ 0x1405F3D38
+ * XREFs of KeQueryCpuPartitionAffinity @ 0x1405F66F8
  * Callers:
- *     KeQuerySystemCpuPartitionAffinity @ 0x1405F3E90 (KeQuerySystemCpuPartitionAffinity.c)
- *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F4024 (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
- *     NtQueryInformationCpuPartition @ 0x1407F1ED0 (NtQueryInformationCpuPartition.c)
+ *     KeQuerySystemCpuPartitionAffinity @ 0x1405F6850 (KeQuerySystemCpuPartitionAffinity.c)
+ *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F69E4 (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
+ *     NtQueryInformationCpuPartition @ 0x1407F7A30 (NtQueryInformationCpuPartition.c)
  * Callees:
  *     KeCountSetBitsGroupMask @ 0x1402007F0 (KeCountSetBitsGroupMask.c)
  *     KeComputeGroupMask @ 0x140200A08 (KeComputeGroupMask.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiAcquireCpuPartitionLock @ 0x1404D74BC (KiAcquireCpuPartitionLock.c)
- *     KiReleaseCpuPartitionLock @ 0x1404E0640 (KiReleaseCpuPartitionLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiAcquireCpuPartitionLock @ 0x1404D0C8C (KiAcquireCpuPartitionLock.c)
+ *     KiReleaseCpuPartitionLock @ 0x1404D9D20 (KiReleaseCpuPartitionLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KeQueryCpuPartitionAffinity(

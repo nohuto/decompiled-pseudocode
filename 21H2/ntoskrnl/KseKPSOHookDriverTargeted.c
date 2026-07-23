@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     RtlWriteRegistryValue @ 0x140613DB0 (RtlWriteRegistryValue.c)
  */
 
 __int64 KseKPSOHookDriverTargeted()

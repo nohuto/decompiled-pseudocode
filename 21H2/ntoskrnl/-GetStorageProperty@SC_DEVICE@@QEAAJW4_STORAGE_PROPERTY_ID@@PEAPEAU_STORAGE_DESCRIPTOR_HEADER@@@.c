@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1405C8DD8
+ * XREFs of ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1405C9008
  * Callers:
- *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x1405C90B4 (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
+ *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x1405C92E4 (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x14088D7D0 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x140617060 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x14088D930 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
  */
 
 __int64 __fastcall SC_DEVICE::GetStorageProperty(
@@ -16,7 +16,7 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
 {
   __int64 v4; // rax
   int v6; // edi
-  ULONG Size; // esi
+  DWORD Size; // esi
   struct _STORAGE_DESCRIPTOR_HEADER *v8; // rbx
   SIZE_T NumberOfBytes; // [rsp+40h] [rbp-48h] BYREF
   _DWORD v11[4]; // [rsp+48h] [rbp-40h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
     {
       while ( 1 )
       {
-        v6 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, ULONG))(*(_QWORD *)this + 16LL))(
+        v6 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, DWORD))(*(_QWORD *)this + 16LL))(
                this,
                2954240LL,
                v11,

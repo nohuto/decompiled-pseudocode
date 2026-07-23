@@ -1,15 +1,15 @@
 /*
- * XREFs of SmcCacheAdd @ 0x14079CEA0
+ * XREFs of SmcCacheAdd @ 0x14079CFB0
  * Callers:
- *     SmcProcessCreateRequest @ 0x140798E7C (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x140798F8C (SmcProcessCreateRequest.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall SmcCacheAdd(__int64 a1, int *a2, int *a3)
@@ -18,8 +18,8 @@ __int64 __fastcall SmcCacheAdd(__int64 a1, int *a2, int *a3)
   unsigned int i; // esi
   __int64 v8; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbp
+  char *v10; // rax
+  char *v11; // rbp
   int v12; // ecx
   int v13; // edx
 
@@ -31,12 +31,12 @@ __int64 __fastcall SmcCacheAdd(__int64 a1, int *a2, int *a3)
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v10 = KeAbPreAcquire(v8 + 16, 0LL);
+      v10 = (char *)KeAbPreAcquire(v8 + 16, 0LL);
       v11 = v10;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v8 + 16), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v8 + 16), (__int64)v10, v8 + 16);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v8 + 16), v10, v8 + 16);
       if ( v11 )
-        *((_BYTE *)v11 + 10) = 1;
+        v11[10] = 1;
       if ( !*(_QWORD *)v8 )
       {
         *(_QWORD *)v8 = a2;
@@ -51,7 +51,7 @@ __int64 __fastcall SmcCacheAdd(__int64 a1, int *a2, int *a3)
         *a3 = v13;
         a2 = 0LL;
         _InterlockedExchange64((volatile __int64 *)(v8 + 8), 0LL);
-        ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v8 + 8));
+        ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v8 + 8));
       }
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v8 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)(v8 + 16));

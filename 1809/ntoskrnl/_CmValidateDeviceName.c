@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmValidateDeviceName @ 0x1405C76D0
+ * XREFs of _CmValidateDeviceName @ 0x1405C86D0
  * Callers:
- *     _PnpDispatchDevice @ 0x14059AFF0 (_PnpDispatchDevice.c)
- *     _CmGetDeviceRegKeyPath @ 0x1405C7544 (_CmGetDeviceRegKeyPath.c)
- *     PiCMGetRelatedDeviceInstance @ 0x1406E91A4 (PiCMGetRelatedDeviceInstance.c)
- *     _CmGetDeviceInterfaceName @ 0x1406F847C (_CmGetDeviceInterfaceName.c)
- *     _CmEnumSubkeyCallback @ 0x14074ABA0 (_CmEnumSubkeyCallback.c)
- *     PiCMCreateDevice @ 0x1408367B4 (PiCMCreateDevice.c)
- *     PiCMDeleteDevice @ 0x140837188 (PiCMDeleteDevice.c)
- *     PiCMDeviceAction @ 0x140837978 (PiCMDeviceAction.c)
- *     PiCMGenerateDeviceInstance @ 0x140837E04 (PiCMGenerateDeviceInstance.c)
- *     PiCMGetDeviceDepth @ 0x140838148 (PiCMGetDeviceDepth.c)
- *     PiCMQueryRemove @ 0x140838634 (PiCMQueryRemove.c)
- *     PiCMRegisterDeviceInterface @ 0x140838A30 (PiCMRegisterDeviceInterface.c)
- *     PiCMSetDeviceProblem @ 0x140838CD4 (PiCMSetDeviceProblem.c)
+ *     _PnpDispatchDevice @ 0x14059BFF0 (_PnpDispatchDevice.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1405C8544 (_CmGetDeviceRegKeyPath.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1406EA444 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmGetDeviceInterfaceName @ 0x1406F971C (_CmGetDeviceInterfaceName.c)
+ *     _CmEnumSubkeyCallback @ 0x14074BD90 (_CmEnumSubkeyCallback.c)
+ *     PiCMCreateDevice @ 0x140837A14 (PiCMCreateDevice.c)
+ *     PiCMDeleteDevice @ 0x1408383E8 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x140838BD8 (PiCMDeviceAction.c)
+ *     PiCMGenerateDeviceInstance @ 0x140839064 (PiCMGenerateDeviceInstance.c)
+ *     PiCMGetDeviceDepth @ 0x1408393A8 (PiCMGetDeviceDepth.c)
+ *     PiCMQueryRemove @ 0x140839894 (PiCMQueryRemove.c)
+ *     PiCMRegisterDeviceInterface @ 0x140839C90 (PiCMRegisterDeviceInterface.c)
+ *     PiCMSetDeviceProblem @ 0x140839F34 (PiCMSetDeviceProblem.c)
  * Callees:
  *     RtlUnalignedStringCchLengthW @ 0x140015DA0 (RtlUnalignedStringCchLengthW.c)
  */

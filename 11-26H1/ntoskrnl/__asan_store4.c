@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_store4 @ 0x1405E0AE0
+ * XREFs of __asan_store4 @ 0x1405E3450
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
  */
 
 void __fastcall _asan_store4(ULONG_PTR BugCheckParameter1)

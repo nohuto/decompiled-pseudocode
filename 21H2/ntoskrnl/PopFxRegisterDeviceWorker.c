@@ -1,24 +1,24 @@
 /*
- * XREFs of PopFxRegisterDeviceWorker @ 0x1407B592C
+ * XREFs of PopFxRegisterDeviceWorker @ 0x1407B507C
  * Callers:
- *     PoFxRegisterCoreDevice @ 0x1407B5410 (PoFxRegisterCoreDevice.c)
- *     PopFxRegisterDevice @ 0x1407B578C (PopFxRegisterDevice.c)
+ *     PoFxRegisterCoreDevice @ 0x1407B4B60 (PoFxRegisterCoreDevice.c)
+ *     PopFxRegisterDevice @ 0x1407B4EDC (PopFxRegisterDevice.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x14037E8D4 (PopFxFindAcpiDeviceByUniqueId.c)
- *     IoInitializeRemoveLockEx @ 0x14037F3A0 (IoInitializeRemoveLockEx.c)
- *     PopPlRegisterComponent @ 0x1403BED48 (PopPlRegisterComponent.c)
- *     PopPlRegisterDevice @ 0x1403BEE58 (PopPlRegisterDevice.c)
- *     PopFxRegisterDeviceWithPep @ 0x1403BEF6C (PopFxRegisterDeviceWithPep.c)
- *     PopFxActivateComponent @ 0x1403BF058 (PopFxActivateComponent.c)
- *     PopFxCreateDeviceCommon @ 0x1403BF120 (PopFxCreateDeviceCommon.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
- *     PopFxReleaseAcpiRefDevice @ 0x14056C32C (PopFxReleaseAcpiRefDevice.c)
- *     PopFxVerifyDependencies @ 0x1408E5A54 (PopFxVerifyDependencies.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IoAllocateIrp @ 0x1402F76C0 (IoAllocateIrp.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x14037E424 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     IoInitializeRemoveLockEx @ 0x14037EEF0 (IoInitializeRemoveLockEx.c)
+ *     PopPlRegisterComponent @ 0x1403BE6A8 (PopPlRegisterComponent.c)
+ *     PopPlRegisterDevice @ 0x1403BE7B8 (PopPlRegisterDevice.c)
+ *     PopFxRegisterDeviceWithPep @ 0x1403BE8CC (PopFxRegisterDeviceWithPep.c)
+ *     PopFxActivateComponent @ 0x1403BEC70 (PopFxActivateComponent.c)
+ *     PopFxCreateDeviceCommon @ 0x1403BED38 (PopFxCreateDeviceCommon.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopFxBugCheck @ 0x14056962C (PopFxBugCheck.c)
+ *     PopFxReleaseAcpiRefDevice @ 0x14056C56C (PopFxReleaseAcpiRefDevice.c)
+ *     PopFxVerifyDependencies @ 0x1408E5BB4 (PopFxVerifyDependencies.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxRegisterDeviceWorker(

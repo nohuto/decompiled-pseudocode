@@ -15,7 +15,7 @@ __int64 EtwpReferenceStackLookasideList()
   signed __int32 v0; // ebx
   __int64 Pool2; // rax
   __int64 v2; // rdx
-  struct _SLIST_ENTRY *v3; // rdi
+  _SLIST_ENTRY *v3; // rdi
   __int64 result; // rax
 
   v0 = 2 * KeNumberProcessors_0 * _InterlockedIncrement(&dword_140E28C50);
@@ -24,7 +24,7 @@ __int64 EtwpReferenceStackLookasideList()
     if ( _InterlockedIncrement(&dword_140E28C54) > v0 )
       goto LABEL_8;
     Pool2 = ExAllocatePool2(0x40uLL);
-    v3 = (struct _SLIST_ENTRY *)Pool2;
+    v3 = (_SLIST_ENTRY *)Pool2;
     if ( !Pool2 )
       goto LABEL_8;
     *(_DWORD *)(Pool2 + 16) = -1;

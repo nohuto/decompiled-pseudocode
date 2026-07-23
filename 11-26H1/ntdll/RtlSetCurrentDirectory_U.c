@@ -1,107 +1,111 @@
 /*
- * XREFs of RtlSetCurrentDirectory_U @ 0x1800A4CB0
+ * XREFs of RtlSetCurrentDirectory_U @ 0x1800A3DE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlGetFullPathName_Ustr @ 0x180047AE0 (RtlGetFullPathName_Ustr.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlpIsDosDeviceName_Ustr @ 0x180048E70 (RtlpIsDosDeviceName_Ustr.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpCheckForSameCurdir @ 0x1800A4F40 (RtlpCheckForSameCurdir.c)
- *     RtlpCreateNewDirectoryReference @ 0x1800A54FC (RtlpCreateNewDirectoryReference.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlGetFullPathName_Ustr @ 0x180032060 (RtlGetFullPathName_Ustr.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlpIsDosDeviceName_Ustr @ 0x1800333F0 (RtlpIsDosDeviceName_Ustr.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpCheckForSameCurdir @ 0x1800A4070 (RtlpCheckForSameCurdir.c)
+ *     RtlpCreateNewDirectoryReference @ 0x1800A462C (RtlpCreateNewDirectoryReference.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
  */
 
-__int64 __fastcall RtlSetCurrentDirectory_U(__m128i *a1)
+NTSTATUS __cdecl RtlSetCurrentDirectory_U(PUNICODE_STRING PathName)
 {
+  struct _PEB *v2; // rax
+  void *ProcessHeap; // rsi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // r14
   unsigned int i; // ebx
   _WORD *Heap_0; // rax
   unsigned int FullPathName_Ustr; // eax
-  unsigned __int64 v6; // rbx
-  unsigned __int16 v7; // ax
-  int v8; // edi
-  __int64 v9; // rdx
-  __int64 v10; // rbx
-  unsigned int v12; // ebx
-  __int128 v13; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+78h] [rbp+38h] BYREF
-  __int64 v15; // [rsp+80h] [rbp+40h] BYREF
+  unsigned __int64 v8; // rbx
+  unsigned __int16 v9; // ax
+  NTSTATUS v10; // edi
+  __int64 v11; // rdx
+  HANDLE *v12; // rbx
+  NTSTATUS v14; // ebx
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v16; // [rsp+78h] [rbp+38h] BYREF
+  __int64 v17; // [rsp+80h] [rbp+40h] BYREF
 
-  v13 = 0LL;
-  v15 = 0LL;
-  v14 = 0LL;
-  ProcessParameters = NtCurrentPeb()->ProcessParameters;
+  *(_OWORD *)BaseAddress = 0LL;
+  v17 = 0LL;
+  v2 = NtCurrentPeb();
+  v16 = 0LL;
+  ProcessHeap = v2->ProcessHeap;
+  ProcessParameters = v2->ProcessParameters;
   if ( (unsigned __int8)RtlpCheckForSameCurdir() )
-    return 0LL;
-  if ( (unsigned int)RtlpIsDosDeviceName_Ustr(a1) )
-    return 3221225731LL;
-  for ( i = ProcessParameters->CurrentDirectory.DosPath.MaximumLength; ; i = v6 + 4 )
+    return 0;
+  if ( (unsigned int)RtlpIsDosDeviceName_Ustr((__m128i *)PathName) )
+    return -1073741565;
+  for ( i = ProcessParameters->CurrentDirectory.DosPath.MaximumLength; ; i = v8 + 4 )
   {
-    Heap_0 = (_WORD *)RtlAllocateHeap_0();
-    *((_QWORD *)&v13 + 1) = Heap_0;
+    Heap_0 = RtlAllocateHeap_0(ProcessHeap, 0, i);
+    BaseAddress[1] = Heap_0;
     if ( !Heap_0 )
-      return 3221225495LL;
-    LOWORD(v13) = 0;
+      return -1073741801;
+    LOWORD(BaseAddress[0]) = 0;
     if ( i > 0xFFFF )
     {
-      WORD1(v13) = -1;
+      WORD1(BaseAddress[0]) = -1;
 LABEL_24:
-      v12 = -1073741675;
+      v14 = -1073741675;
       goto LABEL_19;
     }
-    WORD1(v13) = i;
-    FullPathName_Ustr = RtlGetFullPathName_Ustr((unsigned __int16 *)a1, i, Heap_0, 0LL, 0LL, (int *)&v15);
-    v6 = FullPathName_Ustr;
+    WORD1(BaseAddress[0]) = i;
+    FullPathName_Ustr = RtlGetFullPathName_Ustr(&PathName->Length, i, Heap_0, 0LL, 0LL, (int *)&v17);
+    v8 = FullPathName_Ustr;
     if ( !FullPathName_Ustr )
     {
-      v12 = -1073741773;
+      v14 = -1073741773;
 LABEL_19:
-      RtlFreeHeap_0();
-      return v12;
+      RtlFreeHeap_0(ProcessHeap, 0, BaseAddress[1]);
+      return v14;
     }
-    v7 = WORD1(v13);
-    if ( v6 <= (unsigned __int64)WORD1(v13) - 4 )
+    v9 = WORD1(BaseAddress[0]);
+    if ( v8 <= (unsigned __int64)WORD1(BaseAddress[0]) - 4 )
       goto LABEL_8;
     if ( (NtCurrentPeb()->BitField & 0x80u) == 0 )
       break;
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(ProcessHeap, 0, BaseAddress[1]);
   }
-  v7 = WORD1(v13);
+  v9 = WORD1(BaseAddress[0]);
 LABEL_8:
-  if ( (unsigned int)v6 > v7 )
+  if ( (unsigned int)v8 > v9 )
   {
-    v12 = -1073741562;
+    v14 = -1073741562;
     goto LABEL_19;
   }
-  if ( (unsigned int)v6 > 0xFFFF )
+  if ( (unsigned int)v8 > 0xFFFF )
   {
-    LOWORD(v13) = -1;
+    LOWORD(BaseAddress[0]) = -1;
     goto LABEL_24;
   }
-  LOWORD(v13) = v6;
-  v8 = RtlpCreateNewDirectoryReference(&v13, v7, &v14);
-  RtlFreeHeap_0();
-  if ( v8 >= 0 )
+  LOWORD(BaseAddress[0]) = v8;
+  v10 = RtlpCreateNewDirectoryReference(BaseAddress, v9, &v16);
+  RtlFreeHeap_0(ProcessHeap, 0, BaseAddress[1]);
+  if ( v10 >= 0 )
   {
-    RtlEnterCriticalSection((__int64)&FastPebLock);
-    v9 = v14;
-    v10 = RtlpCurDirRef;
-    ProcessParameters->CurrentDirectory.Handle = *(void **)(v14 + 8);
-    ProcessParameters->CurrentDirectory.DosPath.Buffer = *(wchar_t **)(v9 + 32);
-    ProcessParameters->CurrentDirectory.DosPath.Length = *(_WORD *)(v9 + 24);
-    RtlpCurDirRef = v9;
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    if ( v10 )
+    RtlEnterCriticalSection(&FastPebLock);
+    v11 = v16;
+    v12 = (HANDLE *)RtlpCurDirRef;
+    ProcessParameters->CurrentDirectory.Handle = *(void **)(v16 + 8);
+    ProcessParameters->CurrentDirectory.DosPath.Buffer = *(wchar_t **)(v11 + 32);
+    ProcessParameters->CurrentDirectory.DosPath.Length = *(_WORD *)(v11 + 24);
+    RtlpCurDirRef = (PVOID)v11;
+    RtlLeaveCriticalSection(&FastPebLock);
+    if ( v12 )
     {
-      if ( _InterlockedExchangeAdd((volatile signed __int32 *)v10, 0xFFFFFFFF) == 1 )
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)v12, 0xFFFFFFFF) == 1 )
       {
-        NtClose(*(HANDLE *)(v10 + 8));
-        RtlFreeHeap_0();
+        NtClose(v12[1]);
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v12);
       }
     }
   }
-  return (unsigned int)v8;
+  return v10;
 }

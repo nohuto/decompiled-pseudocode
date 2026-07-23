@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDowngradeIsolationUnitLockHandle @ 0x1403E9C10
+ * XREFs of KiDowngradeIsolationUnitLockHandle @ 0x1403D78B0
  * Callers:
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     KiSearchForNewThread @ 0x140296D10 (KiSearchForNewThread.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1404CC7A8 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     KiSearchForNewThread @ 0x1402A59F0 (KiSearchForNewThread.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1402A6534 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
  * Callees:
  *     <none>
  */

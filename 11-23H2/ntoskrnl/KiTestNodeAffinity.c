@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTestNodeAffinity @ 0x1402BFDFC
+ * XREFs of KiTestNodeAffinity @ 0x1402C008C
  * Callers:
- *     KiUpdateNodeAffinitizedFlag @ 0x1402BFDC0 (KiUpdateNodeAffinitizedFlag.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x1402C0050 (KiUpdateNodeAffinitizedFlag.c)
  * Callees:
- *     KeIsEqualAffinityEx @ 0x1402BFED0 (KeIsEqualAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x1402C0160 (KeIsEqualAffinityEx.c)
  */
 
 __int64 __fastcall KiTestNodeAffinity(_WORD *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetCurrentProcessorIndex @ 0x14032F7D0
+ * XREFs of KeGetCurrentProcessorIndex @ 0x14032FA60
  * Callers:
  *     <none>
  * Callees:

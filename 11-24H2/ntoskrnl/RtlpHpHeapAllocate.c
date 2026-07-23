@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpHeapAllocate @ 0x140604AC8
+ * XREFs of RtlpHpHeapAllocate @ 0x140602108
  * Callers:
- *     RtlpHpHeapCreate @ 0x140604D0C (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14060234C (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHpAllocVA @ 0x1402E98A8 (RtlpHpAllocVA.c)
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
- *     RtlpHpFreeVA @ 0x140420FB8 (RtlpHpFreeVA.c)
- *     RtlpHpVsCalculateAffinitySlotCount @ 0x1404F6098 (RtlpHpVsCalculateAffinitySlotCount.c)
- *     RtlpHpMetadataCommit @ 0x140605270 (RtlpHpMetadataCommit.c)
- *     RtlpHpLfhContextMaximumExtension @ 0x1406067A0 (RtlpHpLfhContextMaximumExtension.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlpHpAllocVA @ 0x14034AEE8 (RtlpHpAllocVA.c)
+ *     RtlpHpMetadataAlloc @ 0x140458A08 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpFreeVA @ 0x14045928C (RtlpHpFreeVA.c)
+ *     RtlpHpVsCalculateAffinitySlotCount @ 0x1404F3998 (RtlpHpVsCalculateAffinitySlotCount.c)
+ *     RtlpHpMetadataCommit @ 0x1406028B0 (RtlpHpMetadataCommit.c)
+ *     RtlpHpLfhContextMaximumExtension @ 0x140603DE0 (RtlpHpLfhContextMaximumExtension.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpHeapAllocate(int a1, unsigned int a2, __int128 *a3)

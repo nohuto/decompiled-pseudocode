@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFreeSiloContextCallback @ 0x140873420
+ * XREFs of CmpFreeSiloContextCallback @ 0x140873580
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     CmpStopSiloKeyLockTracker @ 0x140872918 (CmpStopSiloKeyLockTracker.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140872A78 (CmpStopSiloKeyLockTracker.c)
  */
 
 void __fastcall CmpFreeSiloContextCallback(ULONG_PTR a1)

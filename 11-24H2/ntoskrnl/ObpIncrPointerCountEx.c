@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpIncrPointerCountEx @ 0x140419440
+ * XREFs of ObpIncrPointerCountEx @ 0x1404091E0
  * Callers:
- *     NtWriteFile @ 0x1408C1170 (NtWriteFile.c)
- *     ObReferenceFileObjectForWrite @ 0x140988C30 (ObReferenceFileObjectForWrite.c)
- *     ObInitializeFastReference @ 0x140A3134C (ObInitializeFastReference.c)
+ *     ObReferenceFileObjectForWrite @ 0x140863440 (ObReferenceFileObjectForWrite.c)
+ *     NtWriteFile @ 0x1408BEB30 (NtWriteFile.c)
+ *     ObInitializeFastReference @ 0x140A4A4A0 (ObInitializeFastReference.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ObpIncrPointerCountEx(volatile signed __int64 *a1, int a2)

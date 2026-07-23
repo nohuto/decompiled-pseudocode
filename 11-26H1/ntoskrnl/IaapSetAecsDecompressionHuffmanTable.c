@@ -1,10 +1,10 @@
 /*
- * XREFs of IaapSetAecsDecompressionHuffmanTable @ 0x1406E18E8
+ * XREFs of IaapSetAecsDecompressionHuffmanTable @ 0x1406E5B68
  * Callers:
- *     AccelpSiovIaaCompressionDecompression @ 0x1406DFC80 (AccelpSiovIaaCompressionDecompression.c)
+ *     AccelpSiovIaaCompressionDecompression @ 0x1406E3F00 (AccelpSiovIaaCompressionDecompression.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _OWORD *__fastcall IaapSetAecsDecompressionHuffmanTable(_DWORD *a1, __int64 a2, _WORD *a3, __int64 a4, _WORD *a5)

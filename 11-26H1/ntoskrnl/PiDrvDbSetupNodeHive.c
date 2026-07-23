@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDrvDbSetupNodeHive @ 0x1407B7DA0
+ * XREFs of PiDrvDbSetupNodeHive @ 0x1407BAE00
  * Callers:
- *     PiDrvDbSetupNodes @ 0x1407B8228 (PiDrvDbSetupNodes.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140B1EEB0 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodes @ 0x1407BB288 (PiDrvDbSetupNodes.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140B20F30 (PiDrvDbLoadNodeWorkerCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     CmIsStateSeparationEnabled @ 0x1404D5744 (CmIsStateSeparationEnabled.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     PiDrvDbOverlayNodeHive @ 0x1407B5EC0 (PiDrvDbOverlayNodeHive.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x1407B78DC (PiDrvDbResolveNodeFilePaths.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlSuffixUnicodeString @ 0x140AE4280 (RtlSuffixUnicodeString.c)
- *     PiDrvDbLoadHive @ 0x140B1F060 (PiDrvDbLoadHive.c)
- *     PiDrvDbUnloadHive @ 0x140B1F12C (PiDrvDbUnloadHive.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     CmIsStateSeparationEnabled @ 0x1404CEFB4 (CmIsStateSeparationEnabled.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     PiDrvDbOverlayNodeHive @ 0x1407B8F20 (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x1407BA93C (PiDrvDbResolveNodeFilePaths.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
+ *     RtlSuffixUnicodeString @ 0x140AE1D90 (RtlSuffixUnicodeString.c)
+ *     PiDrvDbLoadHive @ 0x140B210E0 (PiDrvDbLoadHive.c)
+ *     PiDrvDbUnloadHive @ 0x140B211AC (PiDrvDbUnloadHive.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDrvDbSetupNodeHive(__int64 a1, const WCHAR *a2)
@@ -66,7 +66,6 @@ LABEL_34:
         PiPnpRtlCtx,
         *(_QWORD *)(a1 + 24),
         7,
-        *(_QWORD *)(a1 + 72),
         0LL,
         (__int64)DEVPKEY_DriverDatabase_SoftwareRegistryPath,
         18,

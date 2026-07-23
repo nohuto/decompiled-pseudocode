@@ -3,10 +3,10 @@
  * Callers:
  *     HdlspDispatch @ 0x140AE9EB0 (HdlspDispatch.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _stricmp @ 0x1403D9750 (_stricmp.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _stricmp @ 0x1403D9930 (_stricmp.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
  *     HdlspGetLine @ 0x140AEA690 (HdlspGetLine.c)
  *     HdlspProcessDumpCommand @ 0x140AEACAC (HdlspProcessDumpCommand.c)
  *     HdlspSendStringAtBaud @ 0x140AEB474 (HdlspSendStringAtBaud.c)

@@ -1,35 +1,35 @@
 /*
- * XREFs of MiGetPoolPages @ 0x140274A0C
+ * XREFs of MiGetPoolPages @ 0x1402629AC
  * Callers:
- *     MiInitializePoolCommitPacket @ 0x14030BBD8 (MiInitializePoolCommitPacket.c)
+ *     MiInitializePoolCommitPacket @ 0x140316928 (MiInitializePoolCommitPacket.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiSetPfnTbFlushStamp @ 0x140240160 (MiSetPfnTbFlushStamp.c)
- *     MiRetryNonPagedAllocation @ 0x140274C3C (MiRetryNonPagedAllocation.c)
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiReturnPhysicalPoolPages @ 0x140296934 (MiReturnPhysicalPoolPages.c)
- *     MiReturnPoolCharges @ 0x140296DB0 (MiReturnPoolCharges.c)
- *     MiObtainPoolCharges @ 0x1402E5C24 (MiObtainPoolCharges.c)
- *     MiFillPhysicalPages @ 0x1402E6470 (MiFillPhysicalPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReturnPhysicalPoolPages @ 0x14021B214 (MiReturnPhysicalPoolPages.c)
+ *     MiRetryNonPagedAllocation @ 0x140262BDC (MiRetryNonPagedAllocation.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
+ *     MiReturnPoolCharges @ 0x140273E90 (MiReturnPoolCharges.c)
+ *     MiObtainPoolCharges @ 0x140296F74 (MiObtainPoolCharges.c)
+ *     MiFillPhysicalPages @ 0x1402977C0 (MiFillPhysicalPages.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E49B0 (MiSetPfnTbFlushStamp.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-_QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
+unsigned __int64 __fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
 {
-  union _SLIST_HEADER *v4; // r14
-  _QWORD *v5; // rsi
+  _SLIST_HEADER *v4; // r14
+  unsigned __int64 v5; // rsi
   signed __int32 v8; // ecx
   __int64 Page; // rax
-  _QWORD *v10; // rbx
+  unsigned __int64 *v10; // rbx
   unsigned __int64 Region; // rdx
   unsigned __int64 v13; // rcx
   _QWORD *v14; // rax
   _QWORD *v15; // rdx
   unsigned __int64 OldIrql; // r14
-  _QWORD *i; // r14
+  _QWORD *v17; // r14
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -57,7 +57,7 @@ _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
     {
       v14 = (_QWORD *)v4[9].Region;
       a3 -= v13;
-      v5 = v14;
+      v5 = (unsigned __int64)v14;
       v4[8].Region = Region - v13;
       do
       {
@@ -91,15 +91,23 @@ _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
     __writecr8(OldIrql);
     if ( (a1 & 0x40000000) != 0 )
     {
-      for ( i = v5; i; i = (_QWORD *)*i )
-        MiFillPhysicalPages((__int64)(i + 0xB000000000LL) / 48);
+      v17 = (_QWORD *)v5;
+      if ( v5 )
+      {
+        do
+        {
+          MiFillPhysicalPages((__int64)(v17 + 0xB000000000LL) / 48);
+          v17 = (_QWORD *)*v17;
+        }
+        while ( v17 );
+      }
     }
     if ( !a3 )
       return v5;
   }
   if ( (unsigned int)MiObtainPoolCharges(a3, 0LL) )
   {
-    MiInitializePageColorBase(0LL, a2 + 1, (__int64)&v23);
+    MiInitializePageColorBase(0LL, a2 + 1, &v23);
     if ( a3 )
     {
       while ( a3 <= 1
@@ -109,7 +117,7 @@ _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
         MiRetryNonPagedAllocation();
         v8 = _InterlockedExchangeAdd((volatile signed __int32 *)v23, 1u);
         Page = MiGetPage(
-                 (__int64)&MiSystemPartition,
+                 &MiSystemPartition,
                  HIDWORD(v23) | (unsigned int)v8 & DWORD2(v23),
                  (a1 & 0x40000000) != 0 ? 782 : 524);
         if ( Page == -1 )
@@ -119,11 +127,11 @@ _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
         }
         else
         {
-          v10 = (_QWORD *)(48 * Page - 0x58000000000LL);
-          MiSetPfnTbFlushStamp((__int64)v10, 0, 0);
+          v10 = (unsigned __int64 *)(48 * Page - 0x58000000000LL);
+          MiSetPfnTbFlushStamp(v10, 0LL, 0LL);
           *v10 = v5;
           --a3;
-          v5 = v10;
+          v5 = (unsigned __int64)v10;
         }
         if ( !a3 )
           break;
@@ -134,7 +142,7 @@ _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
         v28 = 0LL;
         if ( v5 )
         {
-          MiReturnPhysicalPoolPages(v5, 0LL);
+          MiReturnPhysicalPoolPages(v5, 0);
           v5 = 0LL;
         }
         v25 = a3;
@@ -145,6 +153,6 @@ _QWORD *__fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)
     return v5;
   }
   if ( v5 )
-    MiReturnPhysicalPoolPages(v5, 0LL);
+    MiReturnPhysicalPoolPages(v5, 0);
   return 0LL;
 }

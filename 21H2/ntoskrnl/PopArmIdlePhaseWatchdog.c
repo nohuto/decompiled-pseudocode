@@ -1,14 +1,14 @@
 /*
- * XREFs of PopArmIdlePhaseWatchdog @ 0x1408EFC08
+ * XREFs of PopArmIdlePhaseWatchdog @ 0x1408EFD68
  * Callers:
- *     PopProcessSessionDisplayStateChange @ 0x1408F0228 (PopProcessSessionDisplayStateChange.c)
+ *     PopProcessSessionDisplayStateChange @ 0x1408F0388 (PopProcessSessionDisplayStateChange.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     ZwPowerInformation @ 0x1403FAF80 (ZwPowerInformation.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopPdcAreAllPhasesDisengaged @ 0x1408EFDD8 (PopPdcAreAllPhasesDisengaged.c)
- *     PopSnapSystemIdleContext @ 0x1408F0FCC (PopSnapSystemIdleContext.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     ZwPowerInformation @ 0x1403FB160 (ZwPowerInformation.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopPdcAreAllPhasesDisengaged @ 0x1408EFF38 (PopPdcAreAllPhasesDisengaged.c)
+ *     PopSnapSystemIdleContext @ 0x1408F112C (PopSnapSystemIdleContext.c)
  */
 
 void __fastcall PopArmIdlePhaseWatchdog(int a1)
@@ -28,11 +28,11 @@ void __fastcall PopArmIdlePhaseWatchdog(int a1)
   if ( PopPdcIdlePhaseWatchdogContext && (unsigned __int8)PopPdcAreAllPhasesDisengaged() )
   {
     PopSnapSystemIdleContext(&v7, &v6);
-    PopAcquireRwLockExclusive((ULONG_PTR)&unk_140C21388);
+    PopAcquireRwLockExclusive((ULONG_PTR)&unk_140C213C8);
     v3 = v6;
-    qword_140C21398 = v7;
-    dword_140C213A0 = v6;
-    PopReleaseRwLock((ULONG_PTR)&unk_140C21388);
+    qword_140C213D8 = v7;
+    dword_140C213E0 = v6;
+    PopReleaseRwLock((ULONG_PTR)&unk_140C213C8);
     if ( (_DWORD)v2 == 12 || (unsigned int)(v2 - 5) <= 1 )
       v4 = PopIdleScanInterval + v3;
     else

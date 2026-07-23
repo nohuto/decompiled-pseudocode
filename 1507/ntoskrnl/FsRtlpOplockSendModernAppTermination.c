@@ -16,7 +16,7 @@
 void __fastcall FsRtlpOplockSendModernAppTermination(__int64 a1, __int64 a2)
 {
   char v2; // r14
-  unsigned int v4; // edi
+  ULONG v4; // edi
   int *PoolWithTag; // rax
   int *v6; // rbx
   _QWORD *v7; // rbp
@@ -70,7 +70,7 @@ void __fastcall FsRtlpOplockSendModernAppTermination(__int64 a1, __int64 a2)
     v13 = *(_DWORD *)(v11 + 744);
   }
 LABEL_8:
-  FsRtlSendModernAppTermination(v6, v4, 1LL);
+  FsRtlSendModernAppTermination(v6, v4);
   if ( v2 )
     ExFreePoolWithTag(v6, 0);
 }

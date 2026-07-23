@@ -17,30 +17,30 @@
  *     BiAcquireBcdSyncMutant @ 0x140570224 (BiAcquireBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdDeleteElement(__int64 a1, unsigned int a2)
+NTSTATUS __cdecl BcdDeleteElement(HANDLE BcdObjectHandle, ULONG BcdElement)
 {
   __int64 v4; // rcx
   char v5; // bp
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v7; // rcx
-  int v8; // edi
+  NTSTATUS v8; // edi
   int v9; // eax
   HANDLE v10; // rbx
   HANDLE Handle; // [rsp+20h] [rbp-68h] BYREF
   HANDLE v12; // [rsp+28h] [rbp-60h] BYREF
   wchar_t DstBuf[24]; // [rsp+30h] [rbp-58h] BYREF
 
-  LOBYTE(v4) = BiIsOfflineHandle(a1);
+  LOBYTE(v4) = BiIsOfflineHandle((char)BcdObjectHandle);
   v5 = v4;
   result = BiAcquireBcdSyncMutant(v4);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     Handle = 0LL;
     v12 = 0LL;
-    v8 = BiOpenKey(a1, L"Elements", 131097LL, &Handle);
+    v8 = BiOpenKey(BcdObjectHandle, L"Elements", 131097LL, &Handle);
     if ( v8 >= 0 )
     {
-      if ( ultow_s(a2, DstBuf, 0x16uLL, 16) )
+      if ( ultow_s(BcdElement, DstBuf, 0x16uLL, 16) )
       {
         v8 = -1073741823;
       }
@@ -66,7 +66,7 @@ __int64 __fastcall BcdDeleteElement(__int64 a1, unsigned int a2)
       BiCloseKey(Handle);
     LOBYTE(v7) = v5;
     BiReleaseBcdSyncMutant(v7);
-    return (unsigned int)v8;
+    return v8;
   }
   return result;
 }

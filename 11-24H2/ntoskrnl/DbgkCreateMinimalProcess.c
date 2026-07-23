@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkCreateMinimalProcess @ 0x1407071F8
+ * XREFs of DbgkCreateMinimalProcess @ 0x140704DB8
  * Callers:
- *     PsCreateMinimalProcess @ 0x1407797C4 (PsCreateMinimalProcess.c)
+ *     PsCreateMinimalProcess @ 0x1407798C4 (PsCreateMinimalProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     DbgkpSendApiMessage @ 0x14093A238 (DbgkpSendApiMessage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     DbgkpSendApiMessage @ 0x140A5A2C0 (DbgkpSendApiMessage.c)
  */
 
 void *__fastcall DbgkCreateMinimalProcess(volatile signed __int32 *Object)

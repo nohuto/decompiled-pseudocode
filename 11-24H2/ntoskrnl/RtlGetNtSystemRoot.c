@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlGetNtSystemRoot @ 0x140A0B910
+ * XREFs of RtlGetNtSystemRoot @ 0x140A0AB50
  * Callers:
- *     SdbpGetManifestedMergeStubAlloc @ 0x140801460 (SdbpGetManifestedMergeStubAlloc.c)
- *     AslEnvVarQuery @ 0x14080BF80 (AslEnvVarQuery.c)
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
- *     MiCacheImageSymbols @ 0x140ABFD60 (MiCacheImageSymbols.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140801BA0 (SdbpGetManifestedMergeStubAlloc.c)
+ *     AslEnvVarQuery @ 0x14080C6C0 (AslEnvVarQuery.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
+ *     MiCacheImageSymbols @ 0x140ABAE40 (MiCacheImageSymbols.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
  */
 
-char *RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return (char *)&PsGetCurrentServerSiloGlobals()[80].Blink[1].Blink + 6;
+    return (PWSTR)&PsGetCurrentServerSiloGlobals()[80].Blink[1].Blink + 3;
   else
-    return (char *)0xFFFFF78000000030LL;
+    return (PWSTR)0xFFFFF78000000030LL;
 }

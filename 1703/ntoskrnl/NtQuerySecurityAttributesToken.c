@@ -16,21 +16,21 @@
  *     ExRaiseDatatypeMisalignment @ 0x14071ED60 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQuerySecurityAttributesToken(
-        char *a1,
-        __int64 a2,
-        unsigned int a3,
-        volatile void *a4,
-        unsigned int Length,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtQuerySecurityAttributesToken(
+        HANDLE TokenHandle,
+        PUNICODE_STRING Attributes,
+        ULONG NumberOfAttributes,
+        PVOID Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   char v8; // r12
   unsigned __int8 v9; // si
-  __int64 v10; // r14
-  unsigned __int64 v11; // rdx
+  PULONG v10; // r14
+  PULONG v11; // rdx
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rax
-  int SecurityAttributesToken; // edi
+  NTSTATUS SecurityAttributesToken; // edi
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v16; // rbx
   char v17; // dl
@@ -50,7 +50,7 @@ __int64 __fastcall NtQuerySecurityAttributesToken(
   v19[1] = v9;
   if ( Length )
   {
-    if ( a4 )
+    if ( Buffer )
       goto LABEL_3;
 LABEL_27:
     SecurityAttributesToken = -1073741811;
@@ -59,18 +59,18 @@ LABEL_26:
     v16 = (PERESOURCE *)Object;
     goto LABEL_16;
   }
-  if ( a4 )
+  if ( Buffer )
     goto LABEL_27;
 LABEL_3:
   if ( v9 )
   {
-    ProbeForWrite(a4, Length, 4u);
-    v10 = a6;
-    v11 = a6;
-    if ( (a6 & 3) != 0 )
+    ProbeForWrite(Buffer, Length, 4u);
+    v10 = ReturnLength;
+    v11 = ReturnLength;
+    if ( ((unsigned __int8)ReturnLength & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v12 = a6 + 3;
-    if ( a6 >= a6 + 3 || v12 >= 0x7FFFFFFF0000LL )
+    v12 = (unsigned __int64)ReturnLength + 3;
+    if ( ReturnLength >= (PULONG)((char *)ReturnLength + 3) || v12 >= 0x7FFFFFFF0000LL )
     {
       if ( !KeGetCurrentThread()->ApcState.Process->SecurePid )
         ExRaiseAccessViolation();
@@ -81,20 +81,20 @@ LABEL_3:
       do
       {
         *(_BYTE *)v11 = *(_BYTE *)v11;
-        v11 = (v11 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+        v11 = (PULONG)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFF000uLL) + 4096);
       }
-      while ( v11 != v13 );
+      while ( v11 != (PULONG)v13 );
     }
   }
   else
   {
-    v10 = a6;
+    v10 = ReturnLength;
   }
-  SecurityAttributesToken = SepCaptureUnicodeStringArray(a2, a3, v9, &P);
+  SecurityAttributesToken = SepCaptureUnicodeStringArray(Attributes, NumberOfAttributes, v9, &P);
   v20 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_26;
-  SecurityAttributesToken = SepReferenceTokenByHandle(a1, 8u, v9, &Object, v19, v23);
+  SecurityAttributesToken = SepReferenceTokenByHandle((char *)TokenHandle, 8u, v9, &Object, v19, v23);
   v20 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_26;
@@ -107,11 +107,11 @@ LABEL_3:
                               (__int64)v16,
                               v17,
                               (__int64)P,
-                              a3,
+                              NumberOfAttributes,
                               0,
-                              (__int64)a4,
+                              (__int64)Buffer,
                               Length,
-                              v10);
+                              (__int64)v10);
   v20 = SecurityAttributesToken;
 LABEL_16:
   if ( v9 == 1 && P )
@@ -125,5 +125,5 @@ LABEL_16:
   }
   if ( v16 )
     ObfDereferenceObject(v16);
-  return (unsigned int)SecurityAttributesToken;
+  return SecurityAttributesToken;
 }

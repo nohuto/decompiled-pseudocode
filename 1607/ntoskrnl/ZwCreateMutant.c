@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateMutant @ 0x14015B1A0
+ * XREFs of ZwCreateMutant @ 0x14015B710
  * Callers:
  *     BcdInitializeBcdSyncMutant @ 0x1407BCDA0 (BcdInitializeBcdSyncMutant.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateMutant(
         PHANDLE MutantHandle,
         ACCESS_MASK DesiredAccess,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwCreateMutant(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(MutantHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(MutantHandle);
 }

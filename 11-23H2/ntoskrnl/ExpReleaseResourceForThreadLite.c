@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpReleaseResourceForThreadLite @ 0x140260600
+ * XREFs of ExpReleaseResourceForThreadLite @ 0x140260890
  * Callers:
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140260480 (ExReleaseResourceAndLeaveCriticalRegion.c)
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     SepMandatoryIntegrityCheck @ 0x1402B5EA0 (SepMandatoryIntegrityCheck.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140260710 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     SepMandatoryIntegrityCheck @ 0x1402B6130 (SepMandatoryIntegrityCheck.c)
  * Callees:
- *     ExpReleaseResourceSharedForThreadLite @ 0x14023D880 (ExpReleaseResourceSharedForThreadLite.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeWakeWaitChain @ 0x140260940 (KeWakeWaitChain.c)
- *     ExpFreeOwnerEntry @ 0x140260B60 (ExpFreeOwnerEntry.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     KeCaptureWaitChainHeadEx @ 0x1402BB79C (KeCaptureWaitChainHeadEx.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
- *     PerfLogExecutiveResourceRelease @ 0x140600874 (PerfLogExecutiveResourceRelease.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x14023D950 (ExpReleaseResourceSharedForThreadLite.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeWakeWaitChain @ 0x140260BD0 (KeWakeWaitChain.c)
+ *     ExpFreeOwnerEntry @ 0x140260DF0 (ExpFreeOwnerEntry.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     KeCaptureWaitChainHeadEx @ 0x1402BBA2C (KeCaptureWaitChainHeadEx.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
+ *     PerfLogExecutiveResourceRelease @ 0x140600DC4 (PerfLogExecutiveResourceRelease.c)
  */
 
 __int64 __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2)
@@ -72,7 +72,7 @@ __int64 __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1,
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v6 = (unsigned __int8)v39 - 1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -124,10 +124,10 @@ __int64 __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1,
     KxReleaseQueuedSpinLock(&v39);
     result = (unsigned int)KiIrqlFlags;
     v26 = (unsigned __int8)v41;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v30 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v32 = CurrentPrcb->SchedulerAssist;
@@ -199,10 +199,10 @@ __int64 __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1,
   KiReleaseQueuedSpinLockInstrumented(&v39, retaddr);
 LABEL_23:
   v20 = (unsigned __int8)v41;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v34 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v34 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v34 >= 2u )
     {
       v35 = KeGetCurrentPrcb();
       v36 = v35->SchedulerAssist;

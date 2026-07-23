@@ -54,11 +54,17 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAllocateVirtualMemory()
+NTSTATUS __cdecl ZwAllocateVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG Protect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 24LL;
+  result = 24;
   __asm { syscall; Low latency system call }
   return result;
 }

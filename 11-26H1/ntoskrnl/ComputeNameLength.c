@@ -1,11 +1,11 @@
 /*
- * XREFs of ComputeNameLength @ 0x140802AC0
+ * XREFs of ComputeNameLength @ 0x140808560
  * Callers:
- *     PfxFindPrefix @ 0x140802BA0 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x140802CA0 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x140808640 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x140808740 (PfxInsertPrefix.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
  */
 
 __int64 __fastcall ComputeNameLength(unsigned __int16 *a1)
@@ -13,11 +13,11 @@ __int64 __fastcall ComputeNameLength(unsigned __int16 *a1)
   bool v2; // di
   struct _LIST_ENTRY *Blink; // rsi
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
-  unsigned int v5; // r8d
-  unsigned int v6; // ecx
+  unsigned int v5; // ecx
+  unsigned int v6; // r8d
   unsigned int v7; // edx
-  __int64 v8; // r10
-  int v9; // r9d
+  __int64 v8; // r9
+  int v9; // eax
   unsigned int v10; // eax
   _BYTE *v11; // rax
   __int64 v12; // r9
@@ -33,8 +33,8 @@ __int64 __fastcall ComputeNameLength(unsigned __int16 *a1)
     Blink = CurrentServerSiloGlobals[73].Blink;
     v2 = WORD2(CurrentServerSiloGlobals[65].Flink) != 0;
   }
-  v5 = 1;
-  v6 = *a1 - 1;
+  v5 = *a1 - 1;
+  v6 = 1;
   if ( v2 )
   {
     v7 = 0;
@@ -49,31 +49,31 @@ __int64 __fastcall ComputeNameLength(unsigned __int16 *a1)
         }
         else
         {
-          v10 = v5 + 1;
-          v9 = 1;
+          v10 = v6 + 1;
           if ( (_BYTE)v8 != 92 )
-            v10 = v5;
-          v5 = v10;
+            v10 = v6;
+          v6 = v10;
+          v9 = 1;
         }
         v7 += v9;
       }
-      while ( v7 < v6 );
+      while ( v7 < v5 );
     }
   }
   else if ( *a1 != 1 )
   {
     v11 = (_BYTE *)*((_QWORD *)a1 + 1);
-    v12 = v6;
+    v12 = v5;
     do
     {
-      v13 = v5 + 1;
+      v13 = v6 + 1;
       if ( *v11 != 92 )
-        v13 = v5;
+        v13 = v6;
       ++v11;
-      v5 = v13;
+      v6 = v13;
       --v12;
     }
     while ( v12 );
   }
-  return v5;
+  return v6;
 }

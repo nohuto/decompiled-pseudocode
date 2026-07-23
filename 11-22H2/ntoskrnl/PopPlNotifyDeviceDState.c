@@ -143,10 +143,13 @@ void __fastcall PopPlNotifyDeviceDState(__int64 a1, int a2, int a3, char a4)
       PopPlPublishSystemPowerChange(v9, v12);
       v24 = *(unsigned __int8 *)(v9 + 24);
       KxReleaseSpinLock((volatile signed __int64 *)(v9 + 16));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v24 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v24 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

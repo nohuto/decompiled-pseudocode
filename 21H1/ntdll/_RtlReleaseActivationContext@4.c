@@ -20,43 +20,44 @@
  *     @RtlpMoveActCtxToFreeList@4 @ 0x4B33D930 (@RtlpMoveActCtxToFreeList@4.c)
  */
 
-__int16 __stdcall RtlReleaseActivationContext(volatile signed __int32 *a1)
+void __cdecl RtlReleaseActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
-  int v1; // eax
-  signed __int32 v2; // edx
-  int v3; // edi
+  LONG RefCount; // edx
+  int v2; // edi
 
-  if ( a1 )
+  if ( ActivationContext
+    && (((unsigned int)&ActivationContext[-1].InlineStorageMapEntries[31] + 3) | 7) != 0xFFFFFFFF
+    && ActivationContext->RefCount > 0
+    && ActivationContext->RefCount != 0x7FFFFFFF )
   {
-    v1 = ((unsigned int)a1 - 1) | 7;
-    if ( v1 != -1 && *(int *)a1 > 0 && *a1 != 0x7FFFFFFF )
+    while ( 1 )
     {
-      while ( 1 )
-      {
-        v2 = *a1;
-        if ( *a1 == 0x7FFFFFFF )
-          break;
-        v3 = v2 - 1;
-        v1 = _InterlockedCompareExchange(a1, v2 - 1, v2);
-        if ( v1 == v2 )
-          goto LABEL_8;
-      }
-      v3 = 0x7FFFFFFF;
+      RefCount = ActivationContext->RefCount;
+      if ( ActivationContext->RefCount == 0x7FFFFFFF )
+        break;
+      v2 = RefCount - 1;
+      if ( _InterlockedCompareExchange(&ActivationContext->RefCount, RefCount - 1, RefCount) == RefCount )
+        goto LABEL_8;
+    }
+    v2 = 0x7FFFFFFF;
 LABEL_8:
-      if ( g_SxsTrackReleaseStacks )
-        LOWORD(v1) = RtlCaptureStackBackTrace(
-                       1u,
-                       4u,
-                       (PVOID *)&a1[4 * (((unsigned __int8)_InterlockedExchangeAdd(a1 + 58, 1u) + 1) & 3) + 59],
-                       0);
-      if ( !v3 )
-      {
-        if ( g_SxsKeepActivationContextsAlive )
-          LOWORD(v1) = RtlpMoveActCtxToFreeList(a1);
-        else
-          LOWORD(v1) = RtlpFreeActivationContext((int)a1);
-      }
+    if ( g_SxsTrackReleaseStacks )
+      RtlCaptureStackBackTrace(
+        1u,
+        4u,
+        (PVOID *)&ActivationContext[1].NotificationRoutine
+      + 4
+      * (((unsigned __int8)_InterlockedExchangeAdd(
+                             (volatile signed __int32 *)&ActivationContext[1].ActivationContextData,
+                             1u)
+        + 1) & 3),
+        0);
+    if ( !v2 )
+    {
+      if ( g_SxsKeepActivationContextsAlive )
+        RtlpMoveActCtxToFreeList(ActivationContext);
+      else
+        RtlpFreeActivationContext((int)ActivationContext);
     }
   }
-  return v1;
 }

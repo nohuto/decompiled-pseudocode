@@ -149,10 +149,13 @@ __int64 __fastcall MiBuildReservationCluster(_QWORD *a1, __int64 a2, unsigned in
     if ( v7 == *(_QWORD *)(v4 + v6 + 3920) )
       break;
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -182,10 +185,10 @@ LABEL_24:
       *(_QWORD *)(v8 + 16) = v17 & 0xFFFFFFFFFFFFFFFDuLL;
       MiInsertPageInList(v8, 8u);
       _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v18 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v18 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v18 >= 2u )
         {
           v19 = KeGetCurrentPrcb();
           v20 = v19->SchedulerAssist;
@@ -206,10 +209,10 @@ LABEL_24:
     if ( *a3 == 1 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
         {
           v24 = KeGetCurrentPrcb();
           v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
@@ -231,10 +234,10 @@ LABEL_24:
     MiAddLockedPageCharge(v87, 1);
     _InterlockedAnd64((volatile signed __int64 *)(v87 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v29 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v29 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v29 >= 2u )
       {
         v30 = KeGetCurrentPrcb();
         v31 = v30->SchedulerAssist;
@@ -257,10 +260,10 @@ LABEL_99:
       v65 = (unsigned __int8)MiLockPageInline(v87);
       MiRemoveLockedPageChargeAndDecRef(v64);
       _InterlockedAnd64((volatile signed __int64 *)(v64 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v67 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v67 <= 0xFu && (unsigned __int8)v65 <= 0xFu && v67 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v67 <= 0xFu && (unsigned __int8)v65 <= 0xFu && v67 >= 2u )
         {
           v68 = KeGetCurrentPrcb();
           v69 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v65 + 1));
@@ -400,10 +403,10 @@ LABEL_51:
     goto LABEL_99;
   }
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v71 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v71 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v71 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v71 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v71 >= 2u )
     {
       v72 = KeGetCurrentPrcb();
       v73 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));

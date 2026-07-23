@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfClearResponsivenessHints @ 0x1404CAE0C
+ * XREFs of PpmPerfClearResponsivenessHints @ 0x1404C483C
  * Callers:
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
  * Callees:
  *     <none>
  */

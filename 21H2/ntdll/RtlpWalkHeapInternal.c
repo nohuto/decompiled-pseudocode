@@ -3,11 +3,11 @@
  * Callers:
  *     RtlpHpTagDestroyHeap @ 0x1800024D4 (RtlpHpTagDestroyHeap.c)
  *     RtlpQueryExtendedInformationHeap @ 0x18007B920 (RtlpQueryExtendedInformationHeap.c)
- *     RtlWalkHeap @ 0x1800F3480 (RtlWalkHeap.c)
- *     RtlpHpStackTraceHeapSerialize @ 0x180109400 (RtlpHpStackTraceHeapSerialize.c)
+ *     RtlWalkHeap @ 0x1800F3440 (RtlWalkHeap.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x1801093C0 (RtlpHpStackTraceHeapSerialize.c)
  * Callees:
  *     RtlpHpHeapWalk @ 0x1800025B0 (RtlpHpHeapWalk.c)
- *     RtlpWalkHeap @ 0x1800F4F2C (RtlpWalkHeap.c)
+ *     RtlpWalkHeap @ 0x1800F4EEC (RtlpWalkHeap.c)
  */
 
 __int64 __fastcall RtlpWalkHeapInternal(__int64 a1, __int64 a2)

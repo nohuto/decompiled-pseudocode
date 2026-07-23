@@ -7,20 +7,20 @@
  *     ZwReadVirtualMemory @ 0x18009B2A0 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall RtlWow64GetSharedInfoProcess(__int64 a1, _BYTE *a2, __int64 a3)
+int __fastcall RtlWow64GetSharedInfoProcess(HANDLE ProcessHandle, _BYTE *a2, void *a3)
 {
-  __int64 result; // rax
-  __int64 v7; // rdx
+  int result; // eax
+  void *v7; // rdx
   __int64 v8; // [rsp+58h] [rbp+20h] BYREF
 
-  result = ZwQueryInformationProcess(a1, 26LL, &v8);
-  if ( (int)result >= 0 )
+  result = ZwQueryInformationProcess(ProcessHandle, ProcessWow64Information, &v8, 8u, 0LL);
+  if ( result >= 0 )
   {
     if ( v8 )
     {
-      v7 = v8 + 1136;
+      v7 = (void *)(v8 + 1136);
       *a2 = 1;
-      return ZwReadVirtualMemory(a1, v7, a3, 40LL, 0LL);
+      return ZwReadVirtualMemory(ProcessHandle, v7, a3, 0x28uLL, 0LL);
     }
     else
     {

@@ -1,25 +1,25 @@
 /*
- * XREFs of PiCMGetRelatedDeviceInstance @ 0x140998C60
+ * XREFs of PiCMGetRelatedDeviceInstance @ 0x1409596C0
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     _CmGetDeviceParent @ 0x140991D0C (_CmGetDeviceParent.c)
- *     _CmIsRootDevice @ 0x140991F84 (_CmIsRootDevice.c)
- *     PiCMReturnBufferResultData @ 0x1409993B0 (PiCMReturnBufferResultData.c)
- *     PiCMCaptureObjectInputData @ 0x1409994A8 (PiCMCaptureObjectInputData.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     _CmGetDeviceParent @ 0x14095276C (_CmGetDeviceParent.c)
+ *     _CmIsRootDevice @ 0x1409529E4 (_CmIsRootDevice.c)
+ *     PiCMReturnBufferResultData @ 0x140959E10 (PiCMReturnBufferResultData.c)
+ *     PiCMCaptureObjectInputData @ 0x140959F08 (PiCMCaptureObjectInputData.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetRelatedDeviceInstance(void *a1, __int64 a2, __int64 a3, unsigned int a4, int a5, _DWORD *a6)
@@ -42,51 +42,43 @@ __int64 __fastcall PiCMGetRelatedDeviceInstance(void *a1, __int64 a2, __int64 a3
   int v21; // eax
   NTSTATUS v22; // eax
   void *v24; // rax
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  __int64 v27; // rbp
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  unsigned __int64 v31; // rcx
-  unsigned __int64 v32; // rdx
-  wchar_t *v33; // r10
-  signed __int64 v34; // r8
-  wchar_t v35; // ax
-  __int64 *v36; // r14
+  __int64 v25; // rbp
+  __int64 v26; // r9
+  unsigned __int64 v27; // rcx
+  unsigned __int64 v28; // rdx
+  wchar_t *v29; // r10
+  signed __int64 v30; // r8
+  wchar_t v31; // ax
+  __int64 *v32; // r14
   void *i; // r12
-  struct _KTHREAD *v38; // rax
-  __int64 v39; // rdx
-  __int64 v40; // r8
+  struct _KTHREAD *v34; // rax
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD **v42; // rax
-  _QWORD *v43; // rbx
-  __int64 v44; // rcx
-  int v45; // eax
-  int v46; // ebp
-  int v47; // ebp
-  int v48; // eax
-  __int64 *v49; // rax
-  int v50; // eax
-  __int64 v51; // rdx
-  __int64 v52; // r8
+  _QWORD **v36; // rax
+  _QWORD *v37; // rbx
+  __int64 v38; // rcx
+  int v39; // eax
+  int v40; // ebp
+  int v41; // ebp
+  int v42; // eax
+  __int64 *v43; // rax
+  int v44; // eax
   NTSTATUS DeviceParent; // eax
-  char *v54; // [rsp+50h] [rbp-98h]
-  unsigned int v55; // [rsp+58h] [rbp-90h] BYREF
-  __int64 v56; // [rsp+60h] [rbp-88h]
-  __int128 v57; // [rsp+68h] [rbp-80h]
+  char *v46; // [rsp+50h] [rbp-98h]
+  unsigned int v47; // [rsp+58h] [rbp-90h] BYREF
+  __int64 v48; // [rsp+60h] [rbp-88h]
+  __int128 v49; // [rsp+68h] [rbp-80h]
   PVOID P[2]; // [rsp+78h] [rbp-70h]
-  __int64 v59; // [rsp+88h] [rbp-60h]
+  __int64 v51; // [rsp+88h] [rbp-60h]
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-58h] BYREF
   _QWORD Buffer[2]; // [rsp+A0h] [rbp-48h] BYREF
 
   v6 = a4;
-  v57 = 0LL;
+  v49 = 0LL;
   v7 = a3;
   v8 = 0LL;
   Pool2 = 0LL;
   *(_OWORD *)P = 0LL;
-  v59 = 0LL;
+  v51 = 0LL;
   v10 = 0;
   DestinationString = 0LL;
   *a6 = 0;
@@ -94,14 +86,14 @@ __int64 __fastcall PiCMGetRelatedDeviceInstance(void *a1, __int64 a2, __int64 a3
   if ( inited < 0 )
     goto LABEL_41;
   v12 = HIDWORD(P[1]);
-  if ( !P[0] || *(_QWORD *)((char *)&v57 + 4) != 0x100000000LL || !v7 || v6 < 0x14 )
+  if ( !P[0] || *(_QWORD *)((char *)&v49 + 4) != 0x100000000LL || !v7 || v6 < 0x14 )
   {
     inited = -1073741811;
     goto LABEL_36;
   }
   if ( v6 - 20 >= 2 )
     LODWORD(v8) = v6 - 20;
-  v55 = (unsigned int)v8;
+  v47 = (unsigned int)v8;
   if ( (_DWORD)v8 )
   {
     Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
@@ -162,9 +154,9 @@ LABEL_46:
   {
     if ( HIDWORD(P[1]) == 1 )
     {
-      v55 = (unsigned int)v8 >> 1;
-      DeviceParent = CmGetDeviceParent(*(__int64 *)&PiPnpRtlCtx, (const WCHAR *)P[0], Pool2, &v55);
-      v10 = v55;
+      v47 = (unsigned int)v8 >> 1;
+      DeviceParent = CmGetDeviceParent(*(__int64 *)&PiPnpRtlCtx, (const WCHAR *)P[0], Pool2, &v47);
+      v10 = v47;
       inited = DeviceParent;
       v8 = 0LL;
 LABEL_35:
@@ -176,7 +168,7 @@ LABEL_35:
               0LL,
               Pool2,
               2 * v10,
-              v59,
+              v51,
               v7,
               v6,
               a6);
@@ -202,10 +194,10 @@ LABEL_102:
     v8 = 0LL;
     goto LABEL_36;
   }
-  v56 = 400LL;
-  v54 = (char *)ExAllocatePool2(0x100uLL);
-  v8 = v54;
-  if ( !v54 )
+  v48 = 400LL;
+  v46 = (char *)ExAllocatePool2(0x100uLL);
+  v8 = v46;
+  if ( !v46 )
   {
     inited = -1073741670;
     goto LABEL_36;
@@ -217,148 +209,148 @@ LABEL_102:
   Buffer[0] = 0LL;
   Buffer[1] = &DestinationString;
   ExAcquireFastMutex(&PnpDeviceReferenceTableLock);
-  v42 = (_QWORD **)RtlLookupElementGenericTableAvl(&PnpDeviceReferenceTable, Buffer);
-  if ( !v42
-    || (v43 = *v42) == 0LL
-    || *(_WORD *)v43 != 3
-    || (v44 = *(_QWORD *)(v43[39] + 40LL)) == 0
-    || *(_QWORD **)(v44 + 32) != v43 )
+  v36 = (_QWORD **)RtlLookupElementGenericTableAvl(&PnpDeviceReferenceTable, Buffer);
+  if ( !v36
+    || (v37 = *v36) == 0LL
+    || *(_WORD *)v37 != 3
+    || (v38 = *(_QWORD *)(v37[39] + 40LL)) == 0
+    || *(_QWORD **)(v38 + 32) != v37 )
   {
     KeReleaseGuardedMutex(&PnpDeviceReferenceTableLock);
     ExReleaseResourceLite(&IopDeviceTreeLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v51, v52);
-    v8 = v54;
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v8 = v46;
     inited = -1073741810;
     v7 = a3;
     goto LABEL_36;
   }
-  ObfReferenceObjectWithTag(v43, 0x43706E50u);
+  ObfReferenceObjectWithTag(v37, 0x43706E50u);
   KeReleaseGuardedMutex(&PnpDeviceReferenceTableLock);
-  v36 = *(__int64 **)(v43[39] + 40LL);
-  if ( !v36 || (v45 = *((_DWORD *)v36 + 75), v45 == 790) || v45 == 789 )
+  v32 = *(__int64 **)(v37[39] + 40LL);
+  if ( !v32 || (v39 = *((_DWORD *)v32 + 75), v39 == 790) || v39 == 789 )
   {
     inited = -1073741810;
   }
   else
   {
-    v46 = v12 - 1;
-    if ( !v46 )
+    v40 = v12 - 1;
+    if ( !v40 )
     {
-      v36 = (__int64 *)v36[2];
-      i = v43;
+      v32 = (__int64 *)v32[2];
+      i = v37;
       goto LABEL_62;
     }
-    v47 = v46 - 1;
-    if ( !v47 )
+    v41 = v40 - 1;
+    if ( !v41 )
     {
-      v49 = (__int64 *)v36[1];
-      i = v43;
-      v36 = v49;
-      if ( !v49 )
+      v43 = (__int64 *)v32[1];
+      i = v37;
+      v32 = v43;
+      if ( !v43 )
         goto LABEL_62;
-      v50 = *((_DWORD *)v49 + 99);
-      if ( (v50 & 0x2000) == 0 || *((_DWORD *)v36 + 101) != 24 || (v50 & 0x1000) == 0 )
+      v44 = *((_DWORD *)v43 + 99);
+      if ( (v44 & 0x2000) == 0 || *((_DWORD *)v32 + 101) != 24 || (v44 & 0x1000) == 0 )
         goto LABEL_62;
       goto LABEL_81;
     }
-    if ( v47 == 1 )
+    if ( v41 == 1 )
     {
 LABEL_81:
-      v36 = (__int64 *)*v36;
-      for ( i = v43; v36; v36 = (__int64 *)*v36 )
+      v32 = (__int64 *)*v32;
+      for ( i = v37; v32; v32 = (__int64 *)*v32 )
       {
-        v48 = *((_DWORD *)v36 + 99);
-        if ( (v48 & 0x2000) == 0 )
+        v42 = *((_DWORD *)v32 + 99);
+        if ( (v42 & 0x2000) == 0 )
           break;
-        if ( *((_DWORD *)v36 + 101) != 24 )
+        if ( *((_DWORD *)v32 + 101) != 24 )
           break;
-        if ( (v48 & 0x1000) == 0 )
+        if ( (v42 & 0x1000) == 0 )
           break;
       }
 LABEL_62:
-      v38 = KeGetCurrentThread();
-      --v38->KernelApcDisable;
+      v34 = KeGetCurrentThread();
+      --v34->KernelApcDisable;
       ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
       while ( 1 )
       {
-        if ( !v36 )
+        if ( !v32 )
         {
           ExReleaseResourceLite(&PnpRegistryDeviceResource);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v39, v40);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           inited = -1073741810;
           goto LABEL_53;
         }
-        if ( v36[6] )
+        if ( v32[6] )
         {
-          v24 = (void *)PnpDeviceObjectFromDeviceInstanceWithTag(v36 + 5, 1131441744LL);
+          v24 = (void *)PnpDeviceObjectFromDeviceInstanceWithTag(v32 + 5, 1131441744LL);
           if ( v24 )
             break;
         }
-        v36 = (__int64 *)*v36;
+        v32 = (__int64 *)*v32;
       }
       ObfDereferenceObjectWithTag(v24, 0x43706E50u);
       ExReleaseResourceLite(&PnpRegistryDeviceResource);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v25, v26);
-      v27 = *((unsigned __int16 *)v36 + 20);
-      if ( (unsigned int)v27 >= 0x190 )
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      v25 = *((unsigned __int16 *)v32 + 20);
+      if ( (unsigned int)v25 >= 0x190 )
       {
         inited = -1073741789;
-        v56 = (unsigned int)(v27 + 2);
+        v48 = (unsigned int)(v25 + 2);
       }
       else
       {
-        memmove(v54, (const void *)v36[6], *((unsigned __int16 *)v36 + 20));
-        LODWORD(v56) = v27;
-        *(_WORD *)&v54[v27] = 0;
+        memmove(v46, (const void *)v32[6], *((unsigned __int16 *)v32 + 20));
+        LODWORD(v48) = v25;
+        *(_WORD *)&v46[v25] = 0;
       }
       goto LABEL_53;
     }
     inited = -1073741811;
   }
-  i = v43;
+  i = v37;
 LABEL_53:
   ExReleaseResourceLite(&IopDeviceTreeLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v28, v29);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   ObfDereferenceObjectWithTag(i, 0x43706E50u);
-  v8 = v54;
+  v8 = v46;
   if ( inited >= 0 )
   {
-    v30 = v55;
-    v31 = (unsigned __int64)v55 >> 1;
-    if ( v31 )
+    v26 = v47;
+    v27 = (unsigned __int64)v47 >> 1;
+    if ( v27 )
     {
-      v32 = 2147483646 - v31;
-      v33 = Pool2;
-      v34 = v54 - (char *)Pool2;
+      v28 = 2147483646 - v27;
+      v29 = Pool2;
+      v30 = v46 - (char *)Pool2;
       do
       {
-        if ( !(v32 + v31) )
+        if ( !(v28 + v27) )
           break;
-        v35 = *(wchar_t *)((char *)Pool2 + v34);
-        if ( !v35 )
+        v31 = *(wchar_t *)((char *)Pool2 + v30);
+        if ( !v31 )
           break;
-        *Pool2++ = v35;
-        --v31;
+        *Pool2++ = v31;
+        --v27;
       }
-      while ( v31 );
+      while ( v27 );
       v19 = Pool2 - 1;
-      if ( v31 )
+      if ( v27 )
         v19 = Pool2;
-      Pool2 = v33;
-      v20 = v56;
+      Pool2 = v29;
+      v20 = v48;
       *v19 = 0;
       v21 = -2147483643;
-      if ( v31 )
+      if ( v27 )
         v21 = 0;
       inited = v21;
-      if ( v21 < 0 && v30 )
-        *v33 = 0;
+      if ( v21 < 0 && v26 )
+        *v29 = 0;
       if ( v21 == -2147483643 )
         inited = -1073741789;
     }
     else
     {
-      v20 = v56;
+      v20 = v48;
       inited = -1073741811;
     }
     v6 = a4;
@@ -369,7 +361,7 @@ LABEL_53:
   v6 = a4;
   v7 = a3;
 LABEL_36:
-  v22 = PiCMReturnBufferResultData((unsigned int)inited, (unsigned int)(2 * v10), 0LL, 0LL, 0, v59, v7, v6, a6);
+  v22 = PiCMReturnBufferResultData((unsigned int)inited, (unsigned int)(2 * v10), 0LL, 0LL, 0, v51, v7, v6, a6);
 LABEL_37:
   inited = v22;
   if ( Pool2 )

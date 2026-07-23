@@ -1,19 +1,19 @@
 /*
- * XREFs of ExGetHeapFromVA @ 0x1402FAC7C
+ * XREFs of ExGetHeapFromVA @ 0x1403059CC
  * Callers:
- *     ExReturnPoolQuota @ 0x1402AEBCC (ExReturnPoolQuota.c)
- *     ExpHpCompactionRoutine @ 0x1402FAA50 (ExpHpCompactionRoutine.c)
- *     IopVerifierExAllocatePoolWithQuota_1 @ 0x140351F10 (IopVerifierExAllocatePoolWithQuota_1.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     ExpResizeBigPageTable @ 0x1403752C0 (ExpResizeBigPageTable.c)
- *     ExPoolCleanupExpansionTable @ 0x140389790 (ExPoolCleanupExpansionTable.c)
- *     ExQueryPoolBlockSize @ 0x1403CDD00 (ExQueryPoolBlockSize.c)
- *     ExGetBigPoolInfo @ 0x1405B375C (ExGetBigPoolInfo.c)
- *     ExIsSpecialPoolAddress @ 0x1405BA0C0 (ExIsSpecialPoolAddress.c)
+ *     ExReturnPoolQuota @ 0x14022CF2C (ExReturnPoolQuota.c)
+ *     ExpHpCompactionRoutine @ 0x1403057A0 (ExpHpCompactionRoutine.c)
+ *     IopVerifierExAllocatePoolWithQuota_1 @ 0x14035CC60 (IopVerifierExAllocatePoolWithQuota_1.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     ExpResizeBigPageTable @ 0x140374E10 (ExpResizeBigPageTable.c)
+ *     ExPoolCleanupExpansionTable @ 0x1403898E0 (ExPoolCleanupExpansionTable.c)
+ *     ExQueryPoolBlockSize @ 0x1403CDE70 (ExQueryPoolBlockSize.c)
+ *     ExGetBigPoolInfo @ 0x1405B398C (ExGetBigPoolInfo.c)
+ *     ExIsSpecialPoolAddress @ 0x1405BA2F0 (ExIsSpecialPoolAddress.c)
  * Callees:
- *     RtlpHpGetOwnerHeap @ 0x1402FACE4 (RtlpHpGetOwnerHeap.c)
- *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlpHpGetOwnerHeap @ 0x140305A34 (RtlpHpGetOwnerHeap.c)
+ *     MiDeterminePoolType @ 0x140305AEC (MiDeterminePoolType.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExGetHeapFromVA(ULONG_PTR BugCheckParameter3)

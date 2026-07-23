@@ -105,7 +105,7 @@ __int64 __fastcall MiAllocateVirtualMemory(_QWORD *a1, __int64 a2, unsigned __in
   unsigned __int64 v36; // r13
   __int64 v37; // rdx
   __int64 v38; // r9
-  struct _RTL_BITMAP *v39; // r8
+  _RTL_BITMAP *v39; // r8
   volatile signed __int64 *v40; // rdi
   __int64 v41; // r8
   __int64 v42; // r9
@@ -158,7 +158,7 @@ __int64 __fastcall MiAllocateVirtualMemory(_QWORD *a1, __int64 a2, unsigned __in
   int v89; // [rsp+8Ch] [rbp-74h] BYREF
   __int64 v90; // [rsp+90h] [rbp-70h]
   ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp-68h]
-  struct _RTL_BITMAP *v92; // [rsp+A0h] [rbp-60h] BYREF
+  _RTL_BITMAP *v92; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v93; // [rsp+A8h] [rbp-58h]
   unsigned __int64 *v94; // [rsp+B0h] [rbp-50h]
   int v95; // [rsp+B8h] [rbp-48h] BYREF

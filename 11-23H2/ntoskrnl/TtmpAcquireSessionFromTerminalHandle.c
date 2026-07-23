@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmpAcquireSessionFromTerminalHandle @ 0x1409A6238
+ * XREFs of TtmpAcquireSessionFromTerminalHandle @ 0x1409A6438
  * Callers:
- *     TtmpDispatchAssignDevice @ 0x1409A6388 (TtmpDispatchAssignDevice.c)
- *     TtmpDispatchCreateEventQueue @ 0x1409A6430 (TtmpDispatchCreateEventQueue.c)
- *     TtmpDispatchCreateTerminal @ 0x1409A656C (TtmpDispatchCreateTerminal.c)
- *     TtmpDispatchEvacuateDevices @ 0x1409A665C (TtmpDispatchEvacuateDevices.c)
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1409A6868 (TtmpDispatchSetDefaultDeviceAssignment.c)
- *     TtmpDispatchSetDisplayPowerRequest @ 0x1409A6924 (TtmpDispatchSetDisplayPowerRequest.c)
- *     TtmpDispatchSetDisplayState @ 0x1409A69D0 (TtmpDispatchSetDisplayState.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x1409A6A84 (TtmpDispatchSetDisplayTimeouts.c)
- *     TtmpDispatchSetInputWakeCapability @ 0x1409A6B40 (TtmpDispatchSetInputWakeCapability.c)
+ *     TtmpDispatchAssignDevice @ 0x1409A6588 (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchCreateEventQueue @ 0x1409A6630 (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateTerminal @ 0x1409A676C (TtmpDispatchCreateTerminal.c)
+ *     TtmpDispatchEvacuateDevices @ 0x1409A685C (TtmpDispatchEvacuateDevices.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1409A6A68 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x1409A6B24 (TtmpDispatchSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayState @ 0x1409A6BD0 (TtmpDispatchSetDisplayState.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x1409A6C84 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmpDispatchSetInputWakeCapability @ 0x1409A6D40 (TtmpDispatchSetInputWakeCapability.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpAcquireSessionFromTerminalHandle(void *a1, char a2, char a3, _QWORD *a4, _QWORD *a5)

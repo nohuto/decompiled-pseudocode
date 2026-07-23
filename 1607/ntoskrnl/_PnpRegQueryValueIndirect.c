@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpRegQueryValueIndirect @ 0x1404FFED4
+ * XREFs of _PnpRegQueryValueIndirect @ 0x1404E2E64
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnalignedStringCbLengthW @ 0x140085110 (RtlUnalignedStringCbLengthW.c)
+ *     RtlUnalignedStringCbLengthW @ 0x14010B188 (RtlUnalignedStringCbLengthW.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpParseIndirectResourceString @ 0x1404B8CA8 (_PnpParseIndirectResourceString.c)
- *     _PnpParseIndirectInfString @ 0x1404C0640 (_PnpParseIndirectInfString.c)
- *     _RegRtlQueryValue @ 0x1404FDA60 (_RegRtlQueryValue.c)
- *     _PnpCtxRegQueryValue @ 0x140504098 (_PnpCtxRegQueryValue.c)
+ *     _PnpParseIndirectResourceString @ 0x1404A3088 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x1404AC370 (_PnpParseIndirectInfString.c)
+ *     _RegRtlQueryValue @ 0x1404E09F0 (_RegRtlQueryValue.c)
+ *     _PnpCtxRegQueryValue @ 0x1404E7028 (_PnpCtxRegQueryValue.c)
  */
 
 __int64 __fastcall PnpRegQueryValueIndirect(

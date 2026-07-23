@@ -1,7 +1,7 @@
 /*
- * XREFs of MmObtainChargesToLockPagedPool @ 0x1407466D0
+ * XREFs of MmObtainChargesToLockPagedPool @ 0x1407478C0
  * Callers:
- *     PopPreallocateHibernateMemory @ 0x1407464CC (PopPreallocateHibernateMemory.c)
+ *     PopPreallocateHibernateMemory @ 0x1407476BC (PopPreallocateHibernateMemory.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  */

@@ -3,11 +3,11 @@
  * Callers:
  *     MxMapPfnRange @ 0x14079720C (MxMapPfnRange.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeZeroPages @ 0x140161E50 (KeZeroPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1401623C0 (KeZeroPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  *     MxGetNextPage @ 0x1407976E8 (MxGetNextPage.c)
  *     MxFillPhysicalPage @ 0x140798170 (MxFillPhysicalPage.c)
  */
@@ -36,7 +36,7 @@ __int64 __fastcall MxMapVa(__int64 a1)
   v1 = v20;
   v2 = 4LL;
   v4 = *(_QWORD *)a1;
-  v5 = qword_140324DD0 > 0x20000;
+  v5 = qword_140324E10 > 0x20000;
   do
   {
     v4 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -69,7 +69,7 @@ __int64 __fastcall MxMapVa(__int64 a1)
           MiWritePteShadow(v15, v9);
         goto LABEL_18;
       }
-      *(_QWORD *)v10 = (~qword_1403A9350 ^ (v11 << 12)) & 0xFFFFFFFFF000LL ^ ~qword_1403A9350 & (v9 & 0xFFFFFFFFFFFFFEFFuLL | ((unsigned __int64)(word_140326AA8 & 1) << 8) | 0x8000FFFFFFFFF080uLL) | 0x80;
+      *(_QWORD *)v10 = (~qword_1403A9350 ^ (v11 << 12)) & 0xFFFFFFFFF000LL ^ ~qword_1403A9350 & (v9 & 0xFFFFFFFFFFFFFEFFuLL | ((unsigned __int64)(word_140326AE8 & 1) << 8) | 0x8000FFFFFFFFF080uLL) | 0x80;
       if ( MiPteInShadowRange(v10) )
         MiWritePteShadow(v17, v16);
       v18 = *(_DWORD *)(a1 + 12);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryModuleInformation @ 0x140A84B58
+ * XREFs of ExpQueryModuleInformation @ 0x140A7F698
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmEnumerateSystemImagesShared @ 0x1402C8988 (MmEnumerateSystemImagesShared.c)
+ *     MmEnumerateSystemImagesShared @ 0x1404B09EC (MmEnumerateSystemImagesShared.c)
  */
 
 __int64 __fastcall ExpQueryModuleInformation(int a1, _DWORD *a2, unsigned int a3, int *a4)

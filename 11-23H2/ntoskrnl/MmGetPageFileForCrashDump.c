@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetPageFileForCrashDump @ 0x140A32DF8
+ * XREFs of MmGetPageFileForCrashDump @ 0x140A330A8
  * Callers:
- *     IoConfigureCrashDump @ 0x14054F964 (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x140550024 (IoConfigureCrashDump.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1)

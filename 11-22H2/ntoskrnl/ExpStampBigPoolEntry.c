@@ -38,10 +38,13 @@ ULONG_PTR __fastcall ExpStampBigPoolEntry(ULONG_PTR BugCheckParameter2, __int64 
     v11 = -1LL;
   }
   ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));

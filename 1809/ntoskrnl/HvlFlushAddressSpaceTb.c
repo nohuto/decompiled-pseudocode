@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlFlushAddressSpaceTb @ 0x1402795DC
+ * XREFs of HvlFlushAddressSpaceTb @ 0x1402797CC
  * Callers:
- *     KeFlushProcessTb @ 0x140091B94 (KeFlushProcessTb.c)
- *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
- *     KiFlushAddressSpaceTb @ 0x140293CFC (KiFlushAddressSpaceTb.c)
+ *     KeFlushProcessTb @ 0x140091AD4 (KeFlushProcessTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140173F00 (KeFlushCurrentTbOnly.c)
+ *     KiFlushAddressSpaceTb @ 0x140293EEC (KiFlushAddressSpaceTb.c)
  * Callees:
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x1402795B4 (HvlpUseExtendedProcessorSetHypercalls.c)
- *     HvlpFastFlushAddressSpaceTb @ 0x140279808 (HvlpFastFlushAddressSpaceTb.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x14027986C (HvlpFastFlushAddressSpaceTbEx.c)
- *     HvlpSlowFlushAddressSpaceTb @ 0x140279D00 (HvlpSlowFlushAddressSpaceTb.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x140279DA0 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x1402797A4 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x1402799F8 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x140279A5C (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x140279EF0 (HvlpSlowFlushAddressSpaceTb.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x140279F90 (HvlpSlowFlushAddressSpaceTbEx.c)
  */
 
 __int64 __fastcall HvlFlushAddressSpaceTb(__int64 a1, __int64 a2)

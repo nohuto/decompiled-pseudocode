@@ -1,26 +1,22 @@
 /*
- * XREFs of SepBuildCapeSecurityDescriptor @ 0x140595F6C
+ * XREFs of SepBuildCapeSecurityDescriptor @ 0x14059619C
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x140358A30 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140372BC4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406922C0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406CA530 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
  */
 
-NTSTATUS __fastcall SepBuildCapeSecurityDescriptor(
-        PSECURITY_DESCRIPTOR SecurityDescriptor,
-        unsigned __int8 *a2,
-        __int64 a3)
+int __fastcall SepBuildCapeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, unsigned __int8 *a2, ACL *a3)
 {
-  NTSTATUS result; // eax
+  int result; // eax
   __int16 v7; // ax
   ACL *v8; // r8
   __int64 v9; // rax
-  __int64 v10; // rdx
 
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, *a2);
   if ( result >= 0 )
@@ -51,10 +47,7 @@ LABEL_8:
                v8,
                (*((_WORD *)a2 + 1) & 8) != 0);
     if ( result >= 0 )
-    {
-      LOBYTE(v10) = 1;
-      return RtlSetSaclSecurityDescriptor(SecurityDescriptor, v10, a3, 0LL);
-    }
+      return RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, a3, 0);
   }
   return result;
 }

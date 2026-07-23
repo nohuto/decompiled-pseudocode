@@ -1,11 +1,11 @@
 /*
- * XREFs of VslQuerySecureDevice @ 0x140759B40
+ * XREFs of VslQuerySecureDevice @ 0x14075AD30
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 NTSTATUS __fastcall VslQuerySecureDevice(__int64 a1, _QWORD *a2)

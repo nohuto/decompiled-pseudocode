@@ -11,7 +11,7 @@
 
 PSLIST_ENTRY WheapInitializeEventing()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   __int64 v1; // rdi
   PSLIST_ENTRY result; // rax
 
@@ -40,7 +40,7 @@ PSLIST_ENTRY WheapInitializeEventing()
     WheapDispatchPtr.Queue.Wcb.DeviceObject = 0LL;
   }
   if ( ((unsigned __int8)&WheapIpmiLogEntryList & 0xF) != 0 )
-    RtlRaiseStatus(0x80000002);
+    RtlRaiseStatus(-2147483646);
   v0 = &WheapIpmiLogEntry;
   WheapIpmiLogEntryList = 0LL;
   v1 = 128LL;

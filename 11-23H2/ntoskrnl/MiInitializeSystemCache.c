@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeSystemCache @ 0x14085C388
+ * XREFs of MiInitializeSystemCache @ 0x14085C5C8
  * Callers:
- *     MiLateInitializeSystemCache @ 0x1403ADE78 (MiLateInitializeSystemCache.c)
+ *     MiLateInitializeSystemCache @ 0x1403AE058 (MiLateInitializeSystemCache.c)
  * Callees:
- *     MiQuerySystemBase @ 0x14036F0C4 (MiQuerySystemBase.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407A9BC8 (MiInitializeSystemWorkingSetList.c)
+ *     MiQuerySystemBase @ 0x14036F264 (MiQuerySystemBase.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407A9DB8 (MiInitializeSystemWorkingSetList.c)
  *     MiInitializeDynamicRegion @ 0x140B6E7AC (MiInitializeDynamicRegion.c)
  */
 

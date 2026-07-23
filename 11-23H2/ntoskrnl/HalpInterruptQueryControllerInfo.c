@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptQueryControllerInfo @ 0x140863C64
+ * XREFs of HalpInterruptQueryControllerInfo @ 0x140863EA4
  * Callers:
  *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
- *     HalpInterruptIsRemappingRequired @ 0x14031FDCC (HalpInterruptIsRemappingRequired.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
+ *     HalpInterruptIsRemappingRequired @ 0x14032005C (HalpInterruptIsRemappingRequired.c)
  */
 
 __int64 __fastcall HalpInterruptQueryControllerInfo(unsigned int a1, _DWORD *a2, _DWORD *a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MmFreeBootDriverInitializationCode @ 0x14054EA74
+ * XREFs of MmFreeBootDriverInitializationCode @ 0x14054EE14
  * Callers:
- *     Phase1Initialization @ 0x14054EA14 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x14054EDB4 (Phase1Initialization.c)
  * Callees:
- *     MiReleaseResourceLite @ 0x140084C14 (MiReleaseResourceLite.c)
- *     MiAcquireResourceExclusiveLite @ 0x140084C38 (MiAcquireResourceExclusiveLite.c)
- *     MiFreeDriverInitialization @ 0x14047D508 (MiFreeDriverInitialization.c)
- *     MmAcquireLoadLock @ 0x14048342C (MmAcquireLoadLock.c)
+ *     MiReleaseResourceLite @ 0x140082D74 (MiReleaseResourceLite.c)
+ *     MiAcquireResourceExclusiveLite @ 0x140082D98 (MiAcquireResourceExclusiveLite.c)
+ *     MiFreeDriverInitialization @ 0x14047C25C (MiFreeDriverInitialization.c)
+ *     MmAcquireLoadLock @ 0x140482180 (MmAcquireLoadLock.c)
  */
 
 __int64 MmFreeBootDriverInitializationCode()

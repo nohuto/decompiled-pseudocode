@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteMappedMdls @ 0x1404973CC
+ * XREFs of MiDeleteMappedMdls @ 0x140490F1C
  * Callers:
- *     MiMappedPageWriter @ 0x140496920 (MiMappedPageWriter.c)
+ *     MiMappedPageWriter @ 0x140490470 (MiMappedPageWriter.c)
  * Callees:
- *     MiFreeModWriterEntry @ 0x1402CCB90 (MiFreeModWriterEntry.c)
- *     MiUnlockPartitionMappedWriter @ 0x140496C74 (MiUnlockPartitionMappedWriter.c)
- *     MiLockPartitionMappedWriter @ 0x140497478 (MiLockPartitionMappedWriter.c)
+ *     MiFreeModWriterEntry @ 0x1402AE950 (MiFreeModWriterEntry.c)
+ *     MiUnlockPartitionMappedWriter @ 0x1404907C4 (MiUnlockPartitionMappedWriter.c)
+ *     MiLockPartitionMappedWriter @ 0x140490FC8 (MiLockPartitionMappedWriter.c)
  */
 
 void __fastcall MiDeleteMappedMdls(__int64 a1)

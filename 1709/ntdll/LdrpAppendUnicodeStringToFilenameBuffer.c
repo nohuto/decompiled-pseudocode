@@ -17,7 +17,7 @@ __int64 __fastcall LdrpAppendUnicodeStringToFilenameBuffer(const void **a1, unsi
   unsigned int v5; // ebp
   unsigned int v7; // ebp
   __int64 v8; // rsi
-  void *StringRoutine; // rax
+  PVOID StringRoutine; // rax
 
   v4 = 0;
   if ( !*a2 )
@@ -35,7 +35,7 @@ __int64 __fastcall LdrpAppendUnicodeStringToFilenameBuffer(const void **a1, unsi
       v7 = 65534;
     if ( a1[1] == a1 + 2 )
     {
-      StringRoutine = (void *)NtdllpAllocateStringRoutine(v7);
+      StringRoutine = NtdllpAllocateStringRoutine(v7);
       v8 = (__int64)StringRoutine;
       if ( !StringRoutine )
       {

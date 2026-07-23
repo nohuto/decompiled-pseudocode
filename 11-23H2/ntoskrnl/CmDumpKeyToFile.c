@@ -1,12 +1,12 @@
 /*
- * XREFs of CmDumpKeyToFile @ 0x140A0AAA4
+ * XREFs of CmDumpKeyToFile @ 0x140A0AD54
  * Callers:
- *     NtSaveKeyEx @ 0x140A0EBD0 (NtSaveKeyEx.c)
+ *     NtSaveKeyEx @ 0x140A0EE80 (NtSaveKeyEx.c)
  * Callees:
- *     CmSaveKey @ 0x140A0B990 (CmSaveKey.c)
- *     CmpFreeOffsetArray @ 0x140A1AC80 (CmpFreeOffsetArray.c)
- *     CmpWriteOffsetArrayToFile @ 0x140A1AF6C (CmpWriteOffsetArrayToFile.c)
- *     HvAllocateOffsetArraysForHiveSnapshot @ 0x140A259C8 (HvAllocateOffsetArraysForHiveSnapshot.c)
+ *     CmSaveKey @ 0x140A0BC40 (CmSaveKey.c)
+ *     CmpFreeOffsetArray @ 0x140A1AF30 (CmpFreeOffsetArray.c)
+ *     CmpWriteOffsetArrayToFile @ 0x140A1B21C (CmpWriteOffsetArrayToFile.c)
+ *     HvAllocateOffsetArraysForHiveSnapshot @ 0x140A25C78 (HvAllocateOffsetArraysForHiveSnapshot.c)
  *     CmLockHiveSecurityShared @ 0x140AF50A0 (CmLockHiveSecurityShared.c)
  *     CmUnlockHiveSecurity @ 0x140AF5100 (CmUnlockHiveSecurity.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)

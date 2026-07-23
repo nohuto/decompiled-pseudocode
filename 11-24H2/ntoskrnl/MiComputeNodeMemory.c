@@ -1,16 +1,16 @@
 /*
- * XREFs of MiComputeNodeMemory @ 0x14066C790
+ * XREFs of MiComputeNodeMemory @ 0x14066D960
  * Callers:
- *     MiPerformMemoryChange @ 0x14066E094 (MiPerformMemoryChange.c)
- *     MiUpdatePartitionMemory @ 0x14068B9C4 (MiUpdatePartitionMemory.c)
- *     MiCompleteMemoryAddition @ 0x1407E901C (MiCompleteMemoryAddition.c)
- *     MiInitializePhysicalMemoryBlocks @ 0x140C4FB34 (MiInitializePhysicalMemoryBlocks.c)
+ *     MiPerformMemoryChange @ 0x14066F268 (MiPerformMemoryChange.c)
+ *     MiUpdatePartitionMemory @ 0x14068CAF4 (MiUpdatePartitionMemory.c)
+ *     MiCompleteMemoryAddition @ 0x1407E95EC (MiCompleteMemoryAddition.c)
+ *     MiInitializePhysicalMemoryBlocks @ 0x140C51CC4 (MiInitializePhysicalMemoryBlocks.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiReferencePageRuns @ 0x1404401F0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x1404473D0 (MiDereferencePageRuns.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiDereferencePageRuns @ 0x1403F89A4 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x1403F8A50 (MiReferencePageRuns.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void __fastcall MiComputeNodeMemory(ULONG *a1, int a2)
@@ -161,7 +161,7 @@ void __fastcall MiComputeNodeMemory(ULONG *a1, int a2)
         v22 = (unsigned __int8)MmNumberOfChannels;
         do
         {
-          *(_QWORD *)p_Src -= *(_QWORD *)((char *)p_Src + (_QWORD)&unk_140E37800 + 16LL * v11 - (_QWORD)&Src);
+          *(_QWORD *)p_Src -= *(_QWORD *)((char *)p_Src + (_QWORD)&unk_140E37940 + 16LL * v11 - (_QWORD)&Src);
           p_Src = (__int128 *)((char *)p_Src + 8);
           --v22;
         }

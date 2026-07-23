@@ -6,10 +6,20 @@
  *     PsOpenThread @ 0x1406677B4 (PsOpenThread.c)
  */
 
-__int64 __fastcall NtOpenThread(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl NtOpenThread(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PCLIENT_ID ClientId)
 {
   char PreviousMode; // [rsp+20h] [rbp-18h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  return PsOpenThread(a1, a2, a3, a4, PreviousMode, PreviousMode);
+  return PsOpenThread(
+           (int)ThreadHandle,
+           DesiredAccess,
+           (int)ObjectAttributes,
+           (int)ClientId,
+           PreviousMode,
+           PreviousMode);
 }

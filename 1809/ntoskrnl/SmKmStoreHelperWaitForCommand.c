@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmStoreHelperWaitForCommand @ 0x1401463E0
+ * XREFs of SmKmStoreHelperWaitForCommand @ 0x1401464E0
  * Callers:
- *     SmKmStoreHelperCheckWaitCommand @ 0x14011D680 (SmKmStoreHelperCheckWaitCommand.c)
- *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1401460EC (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ *     SmKmStoreHelperCheckWaitCommand @ 0x14011D6F0 (SmKmStoreHelperCheckWaitCommand.c)
+ *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1401461EC (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
  */
 
 __int64 __fastcall SmKmStoreHelperWaitForCommand(__int64 a1, __int64 a2, LARGE_INTEGER *a3, int a4)

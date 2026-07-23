@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCtAllocateMemory @ 0x1409C2098
+ * XREFs of RtlpCtAllocateMemory @ 0x1409C2298
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405B0FA0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1405B1510 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of InitCounterGroupAps @ 0x140B4CBF8
+ * XREFs of InitCounterGroupAps @ 0x140B4EC38
  * Callers:
- *     DefaultInitializeProfilingEnhanced @ 0x140B4CA48 (DefaultInitializeProfilingEnhanced.c)
- *     DefaultInitializeProfilingOriginal @ 0x140B4CB10 (DefaultInitializeProfilingOriginal.c)
+ *     DefaultInitializeProfilingEnhanced @ 0x140B4EA88 (DefaultInitializeProfilingEnhanced.c)
+ *     DefaultInitializeProfilingOriginal @ 0x140B4EB50 (DefaultInitializeProfilingOriginal.c)
  * Callees:
- *     Feature_Test52061194__private_IsEnabledDeviceUsageNoInline @ 0x1404F6654 (Feature_Test52061194__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Test52061194__private_IsEnabledDeviceUsageNoInline @ 0x1404F3F38 (Feature_Test52061194__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall InitCounterGroupAps(int a1, int a2)

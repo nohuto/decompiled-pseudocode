@@ -1,17 +1,17 @@
 /*
- * XREFs of VslStartSecureProcessor @ 0x140792CA4
+ * XREFs of VslStartSecureProcessor @ 0x1407957D4
  * Callers:
- *     HvlHalStartVirtualProcessor @ 0x1405BD4C0 (HvlHalStartVirtualProcessor.c)
+ *     HvlHalStartVirtualProcessor @ 0x1405BFD30 (HvlHalStartVirtualProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x14040FF88 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140410B74 (VslpUnlockPagesForTransfer.c)
- *     KeIsKernelCetEnabled @ 0x140483900 (KeIsKernelCetEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     VslpLockPagesForTransfer @ 0x14040F6A8 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x140410294 (VslpUnlockPagesForTransfer.c)
+ *     KeIsKernelCetEnabled @ 0x14047D230 (KeIsKernelCetEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslStartSecureProcessor(int a1, __int64 a2)

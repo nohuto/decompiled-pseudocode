@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpTryUpgradeResource @ 0x14060FFEC
+ * XREFs of ExpTryUpgradeResource @ 0x14061053C
  * Callers:
- *     ExTryToConvertFastResourceSharedToExclusive @ 0x14060A280 (ExTryToConvertFastResourceSharedToExclusive.c)
- *     ExpTryConvertSharedToExclusiveLite @ 0x14060AE0C (ExpTryConvertSharedToExclusiveLite.c)
+ *     ExTryToConvertFastResourceSharedToExclusive @ 0x14060A7D0 (ExTryToConvertFastResourceSharedToExclusive.c)
+ *     ExpTryConvertSharedToExclusiveLite @ 0x14060B35C (ExpTryConvertSharedToExclusiveLite.c)
  * Callees:
  *     <none>
  */

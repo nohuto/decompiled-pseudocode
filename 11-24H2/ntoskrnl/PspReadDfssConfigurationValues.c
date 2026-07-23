@@ -1,17 +1,17 @@
 /*
- * XREFs of PspReadDfssConfigurationValues @ 0x1405E4BB8
+ * XREFs of PspReadDfssConfigurationValues @ 0x1405E20E0
  * Callers:
- *     PspDfssConfigurationChangeHandler @ 0x140771C20 (PspDfssConfigurationChangeHandler.c)
- *     PspIsDfssEnabled @ 0x140771D94 (PspIsDfssEnabled.c)
+ *     PspDfssConfigurationChangeHandler @ 0x140771E40 (PspDfssConfigurationChangeHandler.c)
+ *     PspIsDfssEnabled @ 0x140771FB4 (PspIsDfssEnabled.c)
  * Callees:
- *     ExSetTimerResolution @ 0x14041D420 (ExSetTimerResolution.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1405C7904 (KeUpdateGroupSchedulingConstants.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwNotifyChangeKey @ 0x1406A8870 (ZwNotifyChangeKey.c)
- *     RtlQueryImageFileKeyOption @ 0x140A22FB0 (RtlQueryImageFileKeyOption.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExSetTimerResolution @ 0x140410F10 (ExSetTimerResolution.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1405C5034 (KeUpdateGroupSchedulingConstants.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwNotifyChangeKey @ 0x1406A9810 (ZwNotifyChangeKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x140A173C0 (RtlQueryImageFileKeyOption.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PspReadDfssConfigurationValues()
@@ -73,7 +73,7 @@ void PspReadDfssConfigurationValues()
   }
   else
   {
-    PspDfssConfigurationNotify = (PIO_APC_ROUTINE)ExAllocatePool2(0x40uLL);
+    PspDfssConfigurationNotify = (PIO_APC_ROUTINE)ExAllocatePool2(0x40uLL, 0x30uLL, 0x73736644u);
     if ( !PspDfssConfigurationNotify )
     {
       ZwClose(KeyHandle);

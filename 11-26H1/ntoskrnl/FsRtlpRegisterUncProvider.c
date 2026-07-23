@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpRegisterUncProvider @ 0x14078E43C
+ * XREFs of FsRtlpRegisterUncProvider @ 0x140790F6C
  * Callers:
- *     FsRtlRegisterUncProvider @ 0x14078E1B0 (FsRtlRegisterUncProvider.c)
- *     FsRtlRegisterUncProviderEx @ 0x14078E1F0 (FsRtlRegisterUncProviderEx.c)
- *     FsRtlRegisterUncProviderEx2 @ 0x14078E230 (FsRtlRegisterUncProviderEx2.c)
+ *     FsRtlRegisterUncProvider @ 0x140790CE0 (FsRtlRegisterUncProvider.c)
+ *     FsRtlRegisterUncProviderEx @ 0x140790D20 (FsRtlRegisterUncProviderEx.c)
+ *     FsRtlRegisterUncProviderEx2 @ 0x140790D60 (FsRtlRegisterUncProviderEx2.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     FsRtlpOpenDev @ 0x14078E260 (FsRtlpOpenDev.c)
- *     FsRtlpRegisterProviderWithMUP @ 0x14078E338 (FsRtlpRegisterProviderWithMUP.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     FsRtlpOpenDev @ 0x140790D90 (FsRtlpOpenDev.c)
+ *     FsRtlpRegisterProviderWithMUP @ 0x140790E68 (FsRtlpRegisterProviderWithMUP.c)
  */
 
 __int64 __fastcall FsRtlpRegisterUncProvider(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4)
@@ -20,7 +20,7 @@ __int64 __fastcall FsRtlpRegisterUncProvider(__int64 a1, __int64 a2, __int64 a3,
   Handle = (HANDLE)-1LL;
   if ( a1 && *(_QWORD *)(a1 + 8) && *(_WORD *)a1 && *(_WORD *)(a1 + 2) && (*(_WORD *)(a3 + 2) < 0x101u || a2) )
   {
-    KeWaitForSingleObject(VslpReservedTransferLock.Padding, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&FsRtlpUncSemaphore, Executive, 0, 0, 0LL);
     v8 = FsRtlpOpenDev(&Handle);
     if ( v8 < 0 || (v8 = FsRtlpRegisterProviderWithMUP(Handle, (const void **)a1, a2, a3), v8 < 0) )
     {
@@ -33,7 +33,7 @@ __int64 __fastcall FsRtlpRegisterUncProvider(__int64 a1, __int64 a2, __int64 a3,
       ++HIDWORD(ExpPlatformBinaryLock.Queue);
       *a4 = Handle;
     }
-    KeReleaseSemaphore((PRKSEMAPHORE)VslpReservedTransferLock.Padding, 0, 1, 0);
+    KeReleaseSemaphore(&FsRtlpUncSemaphore, 0, 1, 0);
     return (unsigned int)v8;
   }
   else

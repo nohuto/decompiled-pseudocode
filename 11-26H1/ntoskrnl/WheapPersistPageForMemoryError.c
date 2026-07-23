@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapPersistPageForMemoryError @ 0x1406D4DD0
+ * XREFs of WheapPersistPageForMemoryError @ 0x1406D8EB0
  * Callers:
- *     WheaReportHwError @ 0x1403DDD80 (WheaReportHwError.c)
- *     WheaRecoveryBugCheck @ 0x1406D4B50 (WheaRecoveryBugCheck.c)
+ *     WheaReportHwError @ 0x1403E0F70 (WheaReportHwError.c)
+ *     WheaRecoveryBugCheck @ 0x1406D8C30 (WheaRecoveryBugCheck.c)
  * Callees:
- *     HalSetEnvironmentVariableEx @ 0x140471AF0 (HalSetEnvironmentVariableEx.c)
+ *     HalSetEnvironmentVariableEx @ 0x14046B270 (HalSetEnvironmentVariableEx.c)
  */
 
 void __fastcall WheapPersistPageForMemoryError(__int64 a1)

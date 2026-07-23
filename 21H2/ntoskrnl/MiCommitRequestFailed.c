@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCommitRequestFailed @ 0x1408D7384
+ * XREFs of MiCommitRequestFailed @ 0x1408D74E4
  * Callers:
- *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
+ *     MiChargeFullProcessCommitment @ 0x1406E8830 (MiChargeFullProcessCommitment.c)
  * Callees:
- *     KeRequestTerminationProcess @ 0x1408BAD30 (KeRequestTerminationProcess.c)
- *     MiLogCommitRequestFailed @ 0x1408D73E4 (MiLogCommitRequestFailed.c)
+ *     KeRequestTerminationProcess @ 0x1408BAE90 (KeRequestTerminationProcess.c)
+ *     MiLogCommitRequestFailed @ 0x1408D7544 (MiLogCommitRequestFailed.c)
  */
 
 void __fastcall MiCommitRequestFailed(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

@@ -3,40 +3,36 @@
  * Callers:
  *     TppPoolpReferenceGlobalPool @ 0x180031818 (TppPoolpReferenceGlobalPool.c)
  *     LdrpEnableParallelLoading @ 0x18004B644 (LdrpEnableParallelLoading.c)
- *     TpSetDefaultPoolMaxThreads @ 0x180126B70 (TpSetDefaultPoolMaxThreads.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x180126B40 (TpSetDefaultPoolMaxThreads.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x18003B120 (RtlGetCurrentServiceSessionId.c)
  *     NtSetInformationWorkerFactory @ 0x1800A4460 (NtSetInformationWorkerFactory.c)
- *     TppRaiseInvalidParameter @ 0x180127278 (TppRaiseInvalidParameter.c)
- *     TppETWPoolThreadMax @ 0x180127740 (TppETWPoolThreadMax.c)
+ *     TppRaiseInvalidParameter @ 0x180127248 (TppRaiseInvalidParameter.c)
+ *     TppETWPoolThreadMax @ 0x180127710 (TppETWPoolThreadMax.c)
  */
 
-unsigned int *__fastcall TpSetPoolMaxThreads(__int64 a1, _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
-  unsigned int *result; // rax
-  __int64 v6; // rcx
-  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // r8
+  __int64 v4; // rcx
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = (unsigned int)Ldr;
-  if ( !a1 )
-    return (unsigned int *)TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  if ( (int)Ldr < 0 )
-    return (unsigned int *)TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  Ldr = NtCurrentPeb()->Ldr;
-  if ( Ldr->ShutdownInProgress )
-    return (unsigned int *)TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-  NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 5LL, &v7);
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  WorkerFactoryInformation = MaxThreads;
+  if ( !Pool
+    || (MaxThreads & 0x80000000) != 0
+    || (*(_QWORD *)&MaxThreads = NtCurrentPeb()->Ldr, *(_BYTE *)(*(_QWORD *)&MaxThreads + 72LL)) )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v6 = *((_QWORD *)result + 18) + 556LL;
+    TppRaiseInvalidParameter(Pool, *(_QWORD *)&MaxThreads, v2);
   }
   else
   {
-    v6 = 2147353478LL;
+    NtSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMaximum, &WorkerFactoryInformation, 4u);
+    if ( RtlGetCurrentServiceSessionId() )
+      v4 = (__int64)NtCurrentPeb()->SharedData + 556;
+    else
+      v4 = 2147353478LL;
+    if ( *(_BYTE *)v4 )
+      TppETWPoolThreadMax(Pool, WorkerFactoryInformation);
   }
-  if ( *(_BYTE *)v6 )
-    return (unsigned int *)TppETWPoolThreadMax(a1, v7);
-  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiBadPageInserted @ 0x14062978C
+ * XREFs of MiBadPageInserted @ 0x140629CDC
  * Callers:
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiBadPageInserted(int a1)

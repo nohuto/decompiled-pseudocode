@@ -1,9 +1,9 @@
 /*
- * XREFs of ExFreeCacheAwareRundownProtection @ 0x140007928
+ * XREFs of ExFreeCacheAwareRundownProtection @ 0x140007A98
  * Callers:
- *     RawCleanupVcb @ 0x1403EE474 (RawCleanupVcb.c)
- *     EtwInitializeSiloState @ 0x1405631E8 (EtwInitializeSiloState.c)
- *     EtwDeleteSiloState @ 0x1406A3110 (EtwDeleteSiloState.c)
+ *     RawCleanupVcb @ 0x1403EFAA4 (RawCleanupVcb.c)
+ *     EtwInitializeSiloState @ 0x140563728 (EtwInitializeSiloState.c)
+ *     EtwDeleteSiloState @ 0x1406A3248 (EtwDeleteSiloState.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

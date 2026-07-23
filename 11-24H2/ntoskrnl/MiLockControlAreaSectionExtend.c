@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockControlAreaSectionExtend @ 0x140414FF0
+ * XREFs of MiLockControlAreaSectionExtend @ 0x140270E50
  * Callers:
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreWait @ 0x14033E810 (KeAbPreWait.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreWait @ 0x14031DCF0 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -16,15 +16,15 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
   struct _KTHREAD *CurrentThread; // rax
   volatile LONG *v5; // r14
   _QWORD *v6; // r15
-  ULONG_PTR v7; // rbp
+  __int64 v7; // rbp
   KIRQL v8; // al
-  __int64 *v9; // rcx
-  unsigned __int8 v10; // r13
-  _QWORD *v11; // rax
-  __int64 *v13; // r12
-  _QWORD *v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r8
+  __int64 v9; // rdx
+  __int64 *v10; // rcx
+  KIRQL v11; // r13
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 *v15; // r12
+  __int64 v16; // rax
 
   CurrentThread = KeGetCurrentThread();
   if ( *(_DWORD *)(a2 + 8) == 16 )
@@ -37,26 +37,27 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
   {
     v7 = 0LL;
     v8 = ExAcquireSpinLockExclusive(v5);
-    v9 = *(__int64 **)(BugCheckParameter2 + 80);
-    v10 = v8;
-    if ( v9 )
+    v10 = *(__int64 **)(BugCheckParameter2 + 80);
+    v11 = v8;
+    if ( v10 )
     {
+      v9 = *(unsigned int *)(a2 + 8);
       while ( 1 )
       {
-        v13 = v9;
-        if ( (*(_DWORD *)(a2 + 8) & (_DWORD)v9[1]) != 0 )
+        v15 = v10;
+        if ( ((unsigned int)v9 & (_DWORD)v10[1]) != 0 )
           break;
-        v9 = (__int64 *)*v9;
-        if ( !v9 )
+        v10 = (__int64 *)*v10;
+        if ( !v10 )
           goto LABEL_5;
       }
-      v14 = KeAbPreAcquire(BugCheckParameter2, 0LL);
-      v7 = (ULONG_PTR)v14;
-      v9 = v13;
-      if ( v14 )
+      v16 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+      v7 = v16;
+      v10 = v15;
+      if ( v16 )
       {
-        KeAbPreWait((__int64)v14, v15, v16);
-        v9 = v13;
+        KeAbPreWait(v16);
+        v10 = v15;
       }
     }
 LABEL_5:
@@ -67,18 +68,20 @@ LABEL_5:
     *v6 = v6;
     *(_QWORD *)a2 = *(_QWORD *)(BugCheckParameter2 + 80);
     *(_QWORD *)(BugCheckParameter2 + 80) = a2;
-    if ( !v9 )
+    if ( !v10 )
       break;
-    MiReleaseSpinLockExclusive(v5, v10);
+    LOBYTE(v9) = v11;
+    MiReleaseSpinLockExclusive(v5, v9);
     KeWaitForGate(a2 + 16, 18LL);
     if ( v7 )
     {
-      KeAbPreAcquire(BugCheckParameter2, v7);
-      KeAbPostReleaseEx(BugCheckParameter2, v7);
+      KeAbPreAcquire(BugCheckParameter2, v7, 0LL);
+      KeAbPostReleaseEx(BugCheckParameter2);
     }
   }
-  v11 = KeAbPreAcquire(BugCheckParameter2, 0LL);
-  if ( v11 )
-    *((_BYTE *)v11 + 10) = 1;
-  return MiReleaseSpinLockExclusive(v5, v10);
+  v12 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+  if ( v12 )
+    *(_BYTE *)(v12 + 10) = 1;
+  LOBYTE(v13) = v11;
+  return MiReleaseSpinLockExclusive(v5, v13);
 }

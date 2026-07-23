@@ -1,14 +1,14 @@
 /*
- * XREFs of AdtpWriteToEtw @ 0x140AAC7D8
+ * XREFs of AdtpWriteToEtw @ 0x140AAA894
  * Callers:
- *     SepRmCallLsa @ 0x1402C3DC0 (SepRmCallLsa.c)
+ *     SepRmCallLsa @ 0x14030EA80 (SepRmCallLsa.c)
  * Callees:
- *     EtwWriteKMSecurityEvent @ 0x140214E28 (EtwWriteKMSecurityEvent.c)
- *     AdtpNormalizeAuditInfoHelper @ 0x140475300 (AdtpNormalizeAuditInfoHelper.c)
- *     AdtpPackageParameters @ 0x140475440 (AdtpPackageParameters.c)
- *     AdtpCleanupParameterAllocations @ 0x140492280 (AdtpCleanupParameterAllocations.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     EtwWriteKMSecurityEvent @ 0x140215158 (EtwWriteKMSecurityEvent.c)
+ *     AdtpNormalizeAuditInfoHelper @ 0x14046EA80 (AdtpNormalizeAuditInfoHelper.c)
+ *     AdtpPackageParameters @ 0x14046EBC0 (AdtpPackageParameters.c)
+ *     AdtpCleanupParameterAllocations @ 0x14048BDD0 (AdtpCleanupParameterAllocations.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AdtpWriteToEtw(__int64 a1, _BYTE *a2)

@@ -13,111 +13,114 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(int a1, HANDLE *a2)
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ACCESS_MASK DesiredAccess, PHANDLE KeyHandle)
 {
-  int v4; // edi
-  int ValueKey; // eax
-  WCHAR *Heap; // eax
+  NTSTATUS v4; // edi
+  NTSTATUS v5; // eax
+  wchar_t *Heap; // eax
   HANDLE v7; // eax
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-88h] BYREF
-  _DWORD v10[6]; // [esp+18h] [ebp-80h] BYREF
-  _DWORD v11[6]; // [esp+30h] [ebp-68h] BYREF
-  _DWORD v12[6]; // [esp+48h] [ebp-50h] BYREF
-  UNICODE_STRING v13; // [esp+60h] [ebp-38h] BYREF
-  UNICODE_STRING v14; // [esp+68h] [ebp-30h] BYREF
-  UNICODE_STRING v15; // [esp+70h] [ebp-28h] BYREF
-  void *v16; // [esp+78h] [ebp-20h] BYREF
-  int v17; // [esp+7Ch] [ebp-1Ch]
-  _DWORD v18[2]; // [esp+80h] [ebp-18h] BYREF
-  int v19; // [esp+88h] [ebp-10h] BYREF
-  WCHAR *v20; // [esp+8Ch] [ebp-Ch]
-  int v21; // [esp+90h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+94h] [ebp-4h] BYREF
+  SIZE_T v9; // [esp-4h] [ebp-9Ch]
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-88h] BYREF
+  _OBJECT_ATTRIBUTES v11; // [esp+18h] [ebp-80h] BYREF
+  _OBJECT_ATTRIBUTES v12; // [esp+30h] [ebp-68h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+48h] [ebp-50h] BYREF
+  _UNICODE_STRING ValueName; // [esp+60h] [ebp-38h] BYREF
+  _UNICODE_STRING v15; // [esp+68h] [ebp-30h] BYREF
+  _UNICODE_STRING SourceString; // [esp+70h] [ebp-28h] BYREF
+  HANDLE v17; // [esp+78h] [ebp-20h] BYREF
+  ACCESS_MASK DesiredAccessa; // [esp+7Ch] [ebp-1Ch]
+  _UNICODE_STRING v19; // [esp+80h] [ebp-18h] BYREF
+  _UNICODE_STRING v20; // [esp+88h] [ebp-10h] BYREF
+  ULONG ResultLength; // [esp+90h] [ebp-8h] BYREF
+  HANDLE KeyHandlea; // [esp+94h] [ebp-4h] BYREF
 
-  v17 = a1;
+  DesiredAccessa = DesiredAccess;
   if ( dword_4B3A8A50 )
   {
     RtlInitUnicodeString(&DestinationString, &word_4B3A6C68);
-    v12[0] = 24;
-    v12[2] = &DestinationString;
-    v12[1] = 0;
-    v12[3] = 576;
-    v12[4] = 0;
-    v12[5] = 0;
-    return ZwOpenKey((int)a2, a1, (int)v12);
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    return ZwOpenKey(KeyHandle, DesiredAccess, &ObjectAttributes);
   }
-  Handle = 0;
-  RtlInitUnicodeString(&v14, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CommonGlobUserSettings\\");
-  v11[0] = 24;
-  v11[2] = &v14;
-  v11[1] = 0;
-  v11[3] = 576;
-  v11[4] = 0;
-  v11[5] = 0;
-  v4 = ZwOpenKey((int)&Handle, a1, (int)v11);
+  KeyHandlea = 0;
+  RtlInitUnicodeString(&v15, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CommonGlobUserSettings\\");
+  v12.Length = 24;
+  v12.ObjectName = &v15;
+  v12.RootDirectory = 0;
+  v12.Attributes = 576;
+  v12.SecurityDescriptor = 0;
+  v12.SecurityQualityOfService = 0;
+  v4 = ZwOpenKey(&KeyHandlea, DesiredAccess, &v12);
   if ( v4 >= 0 )
   {
-    v21 = 0;
-    RtlInitUnicodeString(&v13, L"RedirectedKey");
-    ValueKey = ZwQueryValueKey((int)Handle, (int)&v13, 2, 0, 0, (int)&v21);
-    if ( !v21 || ValueKey != -1073741789 && ValueKey != -2147483643 )
+    ResultLength = 0;
+    RtlInitUnicodeString(&ValueName, L"RedirectedKey");
+    v5 = ZwQueryValueKey(KeyHandlea, &ValueName, KeyValuePartialInformation, 0, 0, &ResultLength);
+    if ( !ResultLength || v5 != -1073741789 && v5 != -2147483643 )
     {
-      v19 = 11141120;
-      v20 = &word_4B3A6C68;
-      if ( v14.Length <= 0xAAu )
+      v20.Length = 0;
+      v20.MaximumLength = 170;
+      v20.Buffer = (wchar_t *)&word_4B3A6C68;
+      if ( v15.Length <= 0xAAu )
       {
-        RtlCopyUnicodeString((unsigned __int16 *)&v19, &v14.Length);
+        RtlCopyUnicodeString(&v20, &v15);
         dword_4B3A8A50 = 1;
       }
       v4 = 0;
-      *a2 = Handle;
-      Handle = 0;
+      *KeyHandle = KeyHandlea;
+      KeyHandlea = 0;
       goto LABEL_21;
     }
-    Heap = (WCHAR *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v21);
-    v20 = Heap;
+    LODWORD(v9) = ResultLength;
+    Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v9);
+    v20.Buffer = Heap;
     if ( Heap )
     {
-      v4 = ZwQueryValueKey((int)Handle, (int)&v13, 2, (int)Heap, v21, (int)&v21);
+      v4 = ZwQueryValueKey(KeyHandlea, &ValueName, KeyValuePartialInformation, Heap, ResultLength, &ResultLength);
       if ( v4 >= 0 )
       {
-        if ( *((_DWORD *)v20 + 1) != 1 )
+        if ( *((_DWORD *)v20.Buffer + 1) != 1 )
         {
-          v7 = Handle;
-          Handle = 0;
+          v7 = KeyHandlea;
+          KeyHandlea = 0;
 LABEL_15:
-          *a2 = v7;
+          *KeyHandle = v7;
           goto LABEL_16;
         }
-        RtlInitUnicodeString(&v15, v20 + 6);
-        v10[0] = 24;
-        v10[2] = &v15;
-        v10[1] = 0;
-        v10[3] = 576;
-        v10[4] = 0;
-        v10[5] = 0;
-        v4 = ZwOpenKey((int)&v16, v17, (int)v10);
+        RtlInitUnicodeString(&SourceString, (PCWSTR)v20.Buffer + 6);
+        v11.Length = 24;
+        v11.ObjectName = &SourceString;
+        v11.RootDirectory = 0;
+        v11.Attributes = 576;
+        v11.SecurityDescriptor = 0;
+        v11.SecurityQualityOfService = 0;
+        v4 = ZwOpenKey(&v17, DesiredAccessa, &v11);
         if ( v4 >= 0 )
         {
-          v18[0] = 11141120;
-          v18[1] = &word_4B3A6C68;
-          if ( v15.Length <= 0xAAu )
+          v19.Length = 0;
+          v19.MaximumLength = 170;
+          v19.Buffer = (wchar_t *)&word_4B3A6C68;
+          if ( SourceString.Length <= 0xAAu )
           {
-            RtlCopyUnicodeString((unsigned __int16 *)v18, &v15.Length);
+            RtlCopyUnicodeString(&v19, &SourceString);
             dword_4B3A8A50 = 1;
           }
-          v7 = v16;
+          v7 = v17;
           goto LABEL_15;
         }
       }
 LABEL_16:
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v20);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v20.Buffer);
       goto LABEL_21;
     }
     v4 = -1073741801;
   }
 LABEL_21:
-  if ( Handle )
-    ZwClose(Handle);
+  if ( KeyHandlea )
+    ZwClose(KeyHandlea);
   return v4;
 }

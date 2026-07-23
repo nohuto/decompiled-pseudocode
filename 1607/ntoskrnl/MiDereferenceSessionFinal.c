@@ -1,32 +1,32 @@
 /*
- * XREFs of MiDereferenceSessionFinal @ 0x140531AD0
+ * XREFs of MiDereferenceSessionFinal @ 0x140532010
  * Callers:
- *     MiDereferenceSession @ 0x14045F498 (MiDereferenceSession.c)
+ *     MiDereferenceSession @ 0x14045E368 (MiDereferenceSession.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiDeleteSessionAddressSpace @ 0x140122D08 (MiDeleteSessionAddressSpace.c)
- *     MiSessionUnlinkProcess @ 0x1401231B4 (MiSessionUnlinkProcess.c)
- *     MiFreeSessionSpaceMap @ 0x140123208 (MiFreeSessionSpaceMap.c)
- *     MiUnlinkSessionWorkingSet @ 0x140123238 (MiUnlinkSessionWorkingSet.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiDeleteSessionAddressSpace @ 0x140123278 (MiDeleteSessionAddressSpace.c)
+ *     MiSessionUnlinkProcess @ 0x140123724 (MiSessionUnlinkProcess.c)
+ *     MiFreeSessionSpaceMap @ 0x140123778 (MiFreeSessionSpaceMap.c)
+ *     MiUnlinkSessionWorkingSet @ 0x1401237A8 (MiUnlinkSessionWorkingSet.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  *     ExDeferredFreePool @ 0x1402557B0 (ExDeferredFreePool.c)
- *     ExpWnfDeleteScopeById @ 0x1404610CC (ExpWnfDeleteScopeById.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     ExDrainPoolLookasideList @ 0x140531D38 (ExDrainPoolLookasideList.c)
- *     MiCheckSessionPoolAllocations @ 0x140531DC8 (MiCheckSessionPoolAllocations.c)
- *     MiSessionUnloadAllImages @ 0x140531F68 (MiSessionUnloadAllImages.c)
+ *     ExpWnfDeleteScopeById @ 0x14045FF9C (ExpWnfDeleteScopeById.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     ExDrainPoolLookasideList @ 0x140532278 (ExDrainPoolLookasideList.c)
+ *     MiCheckSessionPoolAllocations @ 0x140532308 (MiCheckSessionPoolAllocations.c)
+ *     MiSessionUnloadAllImages @ 0x1405324A8 (MiSessionUnloadAllImages.c)
  */
 
 unsigned __int64 MiDereferenceSessionFinal()
@@ -36,7 +36,7 @@ unsigned __int64 MiDereferenceSessionFinal()
   __int64 v2; // rsi
   void (__fastcall *v3)(_QWORD); // rax
   struct _KTHREAD *v4; // rax
-  union _SLIST_HEADER *v5; // rbp
+  _SLIST_HEADER *v5; // rbp
   __int64 v6; // r15
   ULONG_PTR v7; // r8
   _BYTE *v8; // rax
@@ -73,7 +73,7 @@ unsigned __int64 MiDereferenceSessionFinal()
   MiFreeSessionSpaceMap();
   if ( (*(_DWORD *)(v2 + 4) & 1) != 0 )
   {
-    v5 = (union _SLIST_HEADER *)(v2 + 192);
+    v5 = (_SLIST_HEADER *)(v2 + 192);
     v6 = 21LL;
     do
     {
@@ -89,17 +89,17 @@ unsigned __int64 MiDereferenceSessionFinal()
     MiCheckSessionPoolAllocations();
   }
   --CurrentThread->SpecialApcDisable;
-  v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1403268F0, 0LL, 0);
-  v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_1403268F0, 0LL);
+  v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326930, 0LL, 0);
+  v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326930, 0LL);
   v10 = v8;
   if ( v9 )
-    ExfAcquirePushLockExclusiveEx(&qword_1403268F0, v8, (ULONG_PTR)&qword_1403268F0);
+    ExfAcquirePushLockExclusiveEx(&qword_140326930, v8, (ULONG_PTR)&qword_140326930);
   if ( v10 )
     v10[26] |= 1u;
   *(_DWORD *)(v2 + 4) |= 0x20u;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403268F0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403268F0);
-  KeAbPostRelease((ULONG_PTR)&qword_1403268F0);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326930, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326930);
+  KeAbPostRelease((ULONG_PTR)&qword_140326930);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   if ( *(_QWORD *)(Process + 832) )
   {
@@ -107,7 +107,7 @@ unsigned __int64 MiDereferenceSessionFinal()
     *(_QWORD *)(Process + 832) = 0LL;
   }
   MiDeleteSessionAddressSpace(v2, v18);
-  v12 = (_QWORD *)(8 * (((unsigned __int64)qword_140326918 >> 39) & 0x1FF) - 0x90482413000LL);
+  v12 = (_QWORD *)(8 * (((unsigned __int64)qword_140326958 >> 39) & 0x1FF) - 0x90482413000LL);
   *v12 = 0LL;
   if ( MiPteInShadowRange((unsigned __int64)v12) )
     MiWritePteShadow(v13, 0LL);

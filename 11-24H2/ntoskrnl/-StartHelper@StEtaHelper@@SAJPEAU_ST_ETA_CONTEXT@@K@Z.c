@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x140495634
+ * XREFs of ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x14048FEF4
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140449D18 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     SmcCacheStart @ 0x14079D478 (SmcCacheStart.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403767E4 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     SmcCacheStart @ 0x14079D588 (SmcCacheStart.c)
  * Callees:
- *     StEtaStart @ 0x1404956FC (StEtaStart.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     StEtaStart @ 0x14048FFBC (StEtaStart.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall StEtaHelper::StartHelper(struct _ST_ETA_CONTEXT *a1, unsigned int a2)

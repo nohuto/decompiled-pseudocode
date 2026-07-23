@@ -1,9 +1,9 @@
 /*
- * XREFs of MiBadShareCount @ 0x1401B58DC
+ * XREFs of MiBadShareCount @ 0x1401B5A1C
  * Callers:
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn MiBadShareCount(__int64 a1)

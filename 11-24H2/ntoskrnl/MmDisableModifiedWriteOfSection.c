@@ -1,14 +1,14 @@
 /*
- * XREFs of MmDisableModifiedWriteOfSection @ 0x140315B50
+ * XREFs of MmDisableModifiedWriteOfSection @ 0x14044E780
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14045D6F0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapInternal @ 0x1404527B0 (CcInitializeCacheMapInternal.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiLockSectionControlArea @ 0x140316190 (MiLockSectionControlArea.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockSectionControlArea @ 0x1402BED40 (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-char __fastcall MmDisableModifiedWriteOfSection(__int64 a1)
+char __fastcall MmDisableModifiedWriteOfSection(_QWORD *a1)
 {
   bool v1; // di
   __int64 v2; // rax
@@ -19,7 +19,7 @@ char __fastcall MmDisableModifiedWriteOfSection(__int64 a1)
 
   v1 = 1;
   v7 = 0;
-  v2 = MiLockSectionControlArea(a1, 1LL, &v7);
+  v2 = MiLockSectionControlArea(a1, 1, &v7);
   v3 = v2;
   if ( v2 )
   {

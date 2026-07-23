@@ -1,11 +1,11 @@
 /*
- * XREFs of VslSynchronizeXSave @ 0x14058E8B0
+ * XREFs of VslSynchronizeXSave @ 0x14058B8E0
  * Callers:
- *     KiInitializeXSaveConfiguration @ 0x140B56AA0 (KiInitializeXSaveConfiguration.c)
+ *     KiInitializeXSaveConfiguration @ 0x140B58B20 (KiInitializeXSaveConfiguration.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslSynchronizeXSave(__int64 a1, unsigned int a2)
@@ -19,5 +19,5 @@ __int64 __fastcall VslSynchronizeXSave(__int64 a1, unsigned int a2)
   memset_0(v5, 0, 0x68uLL);
   v6 = a1;
   v7 = v2;
-  return VslpEnterIumSecureMode(2u, 229LL, 0, (__int64)v5);
+  return VslpEnterIumSecureMode(2u, 0xE5u, 0, (__int64)v5);
 }

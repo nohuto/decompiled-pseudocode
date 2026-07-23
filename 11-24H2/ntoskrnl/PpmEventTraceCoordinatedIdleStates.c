@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceCoordinatedIdleStates @ 0x140AA3E5C
+ * XREFs of PpmEventTraceCoordinatedIdleStates @ 0x140A9F1EC
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PpmEventTraceCoordinatedIdleStates()
@@ -31,7 +31,7 @@ void PpmEventTraceCoordinatedIdleStates()
     v1 = PpmPlatformStates ? *(_DWORD *)PpmPlatformStates : 0;
     v12 = v1;
     v2 = 2 * v1 + 1;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 16 * v2 + 12 * v1, 0x654D5050u);
     UserData = (struct _EVENT_DATA_DESCRIPTOR *)Pool2;
     if ( Pool2 )
     {

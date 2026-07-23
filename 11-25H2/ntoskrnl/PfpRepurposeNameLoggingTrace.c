@@ -8,5 +8,5 @@
 
 void __fastcall PfpRepurposeNameLoggingTrace(_SLIST_ENTRY *a1, __int64 a2)
 {
-  PfFbBufferListInsertInFree(a1 + 18, (struct _SLIST_ENTRY *)a2, *(_DWORD *)(a2 + 52), *(_DWORD *)(a2 + 56), 1);
+  PfFbBufferListInsertInFree(a1 + 18, (_SLIST_ENTRY *)a2, *(_DWORD *)(a2 + 52), *(_DWORD *)(a2 + 56), 1);
 }

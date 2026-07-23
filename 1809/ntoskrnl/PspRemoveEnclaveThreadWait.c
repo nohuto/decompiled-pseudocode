@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRemoveEnclaveThreadWait @ 0x14088E6FC
+ * XREFs of PspRemoveEnclaveThreadWait @ 0x14088F95C
  * Callers:
- *     PsCallEnclave @ 0x14088D580 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14088E7E0 (PsCallEnclave.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 __int64 __fastcall PspRemoveEnclaveThreadWait(__int64 a1, __int64 *a2, unsigned int a3)

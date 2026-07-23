@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpPageHeapStop @ 0x1800D7EF4
+ * XREFs of RtlpPageHeapStop @ 0x1800D7FB4
  * Callers:
- *     RtlApplicationVerifierStop @ 0x1800D7E50 (RtlApplicationVerifierStop.c)
+ *     RtlApplicationVerifierStop @ 0x1800D7F10 (RtlApplicationVerifierStop.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  */
 
 void __fastcall __noreturn RtlpPageHeapStop(

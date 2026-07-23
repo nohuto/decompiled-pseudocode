@@ -1,10 +1,10 @@
 /*
- * XREFs of KeInitializeInterruptEx @ 0x14016D8E8
+ * XREFs of KeInitializeInterruptEx @ 0x14016D9E8
  * Callers:
- *     KeInitializeInterrupt @ 0x14016D860 (KeInitializeInterrupt.c)
- *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
+ *     KeInitializeInterrupt @ 0x14016D960 (KeInitializeInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407119EC (IopConnectInterrupt.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 (__fastcall *__fastcall KeInitializeInterruptEx(

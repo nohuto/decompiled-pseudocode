@@ -1,10 +1,10 @@
 /*
- * XREFs of IpmiLibpDelay @ 0x14071D864
+ * XREFs of IpmiLibpDelay @ 0x1407224F4
  * Callers:
- *     IpmiLibpKcsSpinRegister @ 0x14071DF0C (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpKcsSpinRegister @ 0x140722B9C (IpmiLibpKcsSpinRegister.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
  */
 
 void __fastcall IpmiLibpDelay(LARGE_INTEGER a1, ULONG a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403A6B70
+ * XREFs of ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403A6D50
  * Callers:
- *     SmFirstTimeInit @ 0x1407B7D14 (SmFirstTimeInit.c)
+ *     SmFirstTimeInit @ 0x1407B7FF4 (SmFirstTimeInit.c)
  * Callees:
- *     SmFpPreAllocate @ 0x1403A6C04 (SmFpPreAllocate.c)
+ *     SmFpPreAllocate @ 0x1403A6DE4 (SmFpPreAllocate.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStorePrepare(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of SiGetBiosSystemDisk @ 0x140816C70
+ * XREFs of SiGetBiosSystemDisk @ 0x1408173B0
  * Callers:
- *     SiGetBiosSystemPartition @ 0x140816DA0 (SiGetBiosSystemPartition.c)
- *     SiGetSystemDisk @ 0x140A2D7C0 (SiGetSystemDisk.c)
+ *     SiGetBiosSystemPartition @ 0x1408174E0 (SiGetBiosSystemPartition.c)
+ *     SiGetSystemDisk @ 0x140A22200 (SiGetSystemDisk.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQuerySymbolicLinkObject @ 0x1406A9170 (ZwQuerySymbolicLinkObject.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140816EE8 (SiIsWinPeHardDiskZeroUfdBoot.c)
- *     SiOpenArcNameObject @ 0x140817038 (SiOpenArcNameObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1406AA110 (ZwQuerySymbolicLinkObject.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140817628 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiOpenArcNameObject @ 0x140817778 (SiOpenArcNameObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetBiosSystemDisk(wchar_t **a1)
@@ -38,7 +38,7 @@ __int64 __fastcall SiGetBiosSystemDisk(wchar_t **a1)
     v3 = v4;
     if ( v4 == -1073741789 )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, ReturnedLength + 2LL, 0x4B505953u);
       if ( Pool2 )
       {
         DestinationString.MaximumLength = ReturnedLength;

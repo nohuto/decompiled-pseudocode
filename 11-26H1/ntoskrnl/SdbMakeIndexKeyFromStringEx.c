@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbMakeIndexKeyFromStringEx @ 0x1409E8AF0
+ * XREFs of SdbMakeIndexKeyFromStringEx @ 0x1409D40B8
  * Callers:
- *     SdbMergeIsEntryUpdated @ 0x1408877E4 (SdbMergeIsEntryUpdated.c)
- *     SdbFindFirstStringIndexedTag @ 0x1409E6084 (SdbFindFirstStringIndexedTag.c)
+ *     SdbMergeIsEntryUpdated @ 0x14088DBE0 (SdbMergeIsEntryUpdated.c)
+ *     SdbFindFirstStringIndexedTag @ 0x1409D6D00 (SdbFindFirstStringIndexedTag.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     RtlUpcaseUnicodeString @ 0x1409E9B60 (RtlUpcaseUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlUpcaseUnicodeString @ 0x1409D2F80 (RtlUpcaseUnicodeString.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbMakeIndexKeyFromStringEx(PCWSTR SourceString, char a2)
@@ -55,7 +55,11 @@ __int64 __fastcall SdbMakeIndexKeyFromStringEx(PCWSTR SourceString, char a2)
   v18.Buffer = (wchar_t *)v19;
   if ( RtlUpcaseUnicodeString(&v18, &SourceStringa, 0) < 0 )
   {
-    AslLogCallPrintf(1LL, (__int64)"SdbMakeIndexKeyFromStringEx");
+    AslLogCallPrintf(
+      1,
+      (unsigned int)"SdbMakeIndexKeyFromStringEx",
+      1627,
+      (unsigned int)"Failed to upcase unicode string \"%ws\"");
     return 0LL;
   }
   v9 = 0LL;

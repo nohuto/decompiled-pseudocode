@@ -148,7 +148,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
   UNICODE_STRING *v118; // [rsp+E0h] [rbp-28h]
   _QWORD v119[4]; // [rsp+E8h] [rbp-20h] BYREF
   UNICODE_STRING UnicodeString[10]; // [rsp+108h] [rbp+0h] BYREF
-  unsigned int v121[60]; // [rsp+1A8h] [rbp+A0h] BYREF
+  _OWORD v121[15]; // [rsp+1A8h] [rbp+A0h] BYREF
   wchar_t SourceString; // [rsp+298h] [rbp+190h] BYREF
   wchar_t pszDest[8]; // [rsp+2A0h] [rbp+198h] BYREF
 
@@ -473,7 +473,7 @@ LABEL_44:
         v118 = &UnicodeString[4];
         v119[0] = &UnicodeString[5];
         v119[1] = &DestinationString;
-        v54 = PipCreateComputerId(v3, v49, &v115, 6LL, &v121[4 * v53]);
+        v54 = PipCreateComputerId(v3, v49, &v115, 6LL, &v121[v53]);
         v55 = v53 + 1;
         v8 = v54;
         if ( v54 < 0 )
@@ -483,7 +483,7 @@ LABEL_44:
         v117 = &UnicodeString[4];
         v118 = &UnicodeString[5];
         v119[0] = &DestinationString;
-        v56 = PipCreateComputerId(v3, v49, &v115, 5LL, &v121[4 * v55]);
+        v56 = PipCreateComputerId(v3, v49, &v115, 5LL, &v121[v55]);
         v57 = v55 + 1;
         v8 = v56;
         if ( v56 < 0 )
@@ -525,7 +525,7 @@ LABEL_44:
                 --v62;
               }
               while ( v62 );
-              v64 = PipCreateComputerId(v3, v49, &v115, 6LL, &v121[4 * v57++]);
+              v64 = PipCreateComputerId(v3, v49, &v115, 6LL, &v121[v57++]);
               v8 = v64;
               if ( v64 < 0 )
                 goto LABEL_149;
@@ -542,7 +542,7 @@ LABEL_44:
             --v65;
           }
           while ( v65 );
-          v68 = PipCreateComputerId(v3, v49, &v115, 4LL, &v121[4 * v57++]);
+          v68 = PipCreateComputerId(v3, v49, &v115, 4LL, &v121[v57++]);
           v8 = v68;
           if ( v68 < 0 )
             goto LABEL_149;
@@ -550,7 +550,7 @@ LABEL_44:
         v115 = UnicodeString;
         v116 = &UnicodeString[1];
         v117 = &UnicodeString[2];
-        v69 = PipCreateComputerId(v3, v49, &v115, 3LL, &v121[4 * v57++]);
+        v69 = PipCreateComputerId(v3, v49, &v115, 3LL, &v121[v57++]);
         v8 = v69;
         if ( v69 < 0 )
           goto LABEL_149;
@@ -575,7 +575,7 @@ LABEL_44:
               --v70;
             }
             while ( v70 );
-            v73 = PipCreateComputerId(v3, v49, &v115, 4LL, &v121[4 * v57++]);
+            v73 = PipCreateComputerId(v3, v49, &v115, 4LL, &v121[v57++]);
             v8 = v73;
             if ( v73 < 0 )
               goto LABEL_149;
@@ -583,7 +583,7 @@ LABEL_44:
         }
         v115 = UnicodeString;
         v116 = &UnicodeString[3];
-        v74 = PipCreateComputerId(v3, v49, &v115, 2LL, &v121[4 * v57++]);
+        v74 = PipCreateComputerId(v3, v49, &v115, 2LL, &v121[v57++]);
         v8 = v74;
         if ( v74 < 0 )
           goto LABEL_149;
@@ -601,7 +601,7 @@ LABEL_44:
             v116 = &UnicodeString[2];
             v117 = &UnicodeString[6];
             v118 = &UnicodeString[7];
-            v75 = PipCreateComputerId(v3, v49, &v115, 4LL, &v121[4 * v57++]);
+            v75 = PipCreateComputerId(v3, v49, &v115, 4LL, &v121[v57++]);
             v8 = v75;
             if ( v75 < 0 )
               goto LABEL_149;
@@ -609,7 +609,7 @@ LABEL_44:
         }
         v115 = UnicodeString;
         v116 = &UnicodeString[2];
-        v76 = PipCreateComputerId(v3, v49, &v115, 2LL, &v121[4 * v57++]);
+        v76 = PipCreateComputerId(v3, v49, &v115, 2LL, &v121[v57++]);
         v8 = v76;
         if ( v76 < 0 )
           goto LABEL_149;
@@ -634,7 +634,7 @@ LABEL_44:
               --v77;
             }
             while ( v77 );
-            v80 = PipCreateComputerId(v3, v49, &v115, 4LL, &v121[4 * v57++]);
+            v80 = PipCreateComputerId(v3, v49, &v115, 4LL, &v121[v57++]);
             v8 = v80;
             if ( v80 < 0 )
               goto LABEL_149;
@@ -642,7 +642,7 @@ LABEL_44:
         }
         v115 = UnicodeString;
         v116 = &UnicodeString[1];
-        v81 = PipCreateComputerId(v3, v49, &v115, 2LL, &v121[4 * v57++]);
+        v81 = PipCreateComputerId(v3, v49, &v115, 2LL, &v121[v57++]);
         v8 = v81;
         if ( v81 < 0 )
           goto LABEL_149;
@@ -658,7 +658,7 @@ LABEL_44:
         RtlInitUnicodeString(&v114, &SourceString);
         v115 = UnicodeString;
         v116 = &v114;
-        v82 = PipCreateComputerId(v3, 0LL, &v115, 2LL, &v121[4 * v57++]);
+        v82 = PipCreateComputerId(v3, 0LL, &v115, 2LL, &v121[v57++]);
         v8 = v82;
         if ( v82 < 0 )
           goto LABEL_149;
@@ -679,13 +679,13 @@ LABEL_44:
         --v12;
       }
       while ( v12 );
-      v85 = PipCreateComputerId(v3, 0LL, &v115, 3LL, &v121[4 * v57++]);
+      v85 = PipCreateComputerId(v3, 0LL, &v115, 3LL, &v121[v57++]);
       v8 = v85;
       if ( v85 >= 0 )
       {
 LABEL_192:
         v115 = UnicodeString;
-        v86 = PipCreateComputerId(v3, 0LL, &v115, 1LL, &v121[4 * v57++]);
+        v86 = PipCreateComputerId(v3, 0LL, &v115, 1LL, &v121[v57++]);
         v8 = v86;
         if ( v86 >= 0 )
         {
@@ -760,7 +760,7 @@ LABEL_126:
                 }
                 if ( v8 < 0 )
                   break;
-                v8 = RtlStringFromGUIDEx(&v121[4 * v90], (__int64)&ValueName, 0);
+                v8 = RtlStringFromGUIDEx((PGUID)&v121[v90], &ValueName, 0);
                 if ( v8 < 0 )
                   break;
                 v8 = RtlUpcaseUnicodeString(&ValueName, &ValueName, 0);

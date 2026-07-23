@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpLogIneligibleLogHeader @ 0x140862AA0
+ * XREFs of HvpLogIneligibleLogHeader @ 0x140868E80
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140ADF748 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140ADCF88 (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void HvpLogIneligibleLogHeader()
@@ -35,6 +35,6 @@ void HvpLogIneligibleLogHeader()
     v8 = 1LL;
     v10 = 4LL;
     v12 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)&byte_1400574C7, 0LL, 0LL, 5u, &v6);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)word_14005844A, 0LL, 0LL, 5u, &v6);
   }
 }

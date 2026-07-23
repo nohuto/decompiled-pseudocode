@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceInterruptConnection @ 0x14078EBD4
+ * XREFs of PnpTraceInterruptConnection @ 0x14078EDC4
  * Callers:
- *     IoDisconnectInterrupt @ 0x14078E1D0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x14078E760 (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x14078E3C0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14078E950 (IopConnectInterrupt.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void PnpTraceInterruptConnection()
@@ -38,7 +38,7 @@ void PnpTraceInterruptConnection()
       v11 = &v5;
       v5 = 0x1000000LL;
       v12 = 8LL;
-      tlgWriteAgg((__int64)&dword_140C03918, (unsigned __int8 *)&word_14002CBA2, v0, v1, &v6);
+      tlgWriteAgg((__int64)&dword_140C03918, (unsigned __int8 *)&word_14002CC8A, v0, v1, &v6);
     }
   }
 }

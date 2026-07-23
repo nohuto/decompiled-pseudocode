@@ -1,7 +1,7 @@
 /*
- * XREFs of MiApplyCrossPartitionCharges @ 0x140561408
+ * XREFs of MiApplyCrossPartitionCharges @ 0x140561648
  * Callers:
- *     MiGetCrossPartitionCharges @ 0x140562428 (MiGetCrossPartitionCharges.c)
+ *     MiGetCrossPartitionCharges @ 0x140562668 (MiGetCrossPartitionCharges.c)
  * Callees:
  *     <none>
  */

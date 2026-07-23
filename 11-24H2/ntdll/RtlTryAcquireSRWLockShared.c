@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlTryAcquireSRWLockShared @ 0x18001E810
+ * XREFs of RtlTryAcquireSRWLockShared @ 0x18004B210
  * Callers:
- *     EtwpFindRegistration @ 0x18001E680 (EtwpFindRegistration.c)
- *     RtlQueryCriticalSectionOwner @ 0x180046160 (RtlQueryCriticalSectionOwner.c)
- *     EtwpGetNextRegistration @ 0x18008BFF0 (EtwpGetNextRegistration.c)
+ *     RtlQueryCriticalSectionOwner @ 0x18002A0F0 (RtlQueryCriticalSectionOwner.c)
+ *     EtwpFindRegistration @ 0x18004B080 (EtwpFindRegistration.c)
+ *     EtwpGetNextRegistration @ 0x1800A7AB0 (EtwpGetNextRegistration.c)
  * Callees:
- *     RtlAbPostRelease @ 0x1800D3C50 (RtlAbPostRelease.c)
+ *     RtlAbPostRelease @ 0x1800CEFC0 (RtlAbPostRelease.c)
  */
 
-__int64 __fastcall RtlTryAcquireSRWLockShared(volatile signed __int64 *a1)
+BOOLEAN __cdecl RtlTryAcquireSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
-  __int64 v2; // r8
-  volatile signed __int64 **v3; // r11
+  unsigned int v2; // r8d
+  PRTL_SRWLOCK *v3; // r11
   _QWORD *SchedulerSharedDataSlot; // rcx
   __int64 v5; // rax
   _QWORD *v6; // rdx
-  signed __int64 v7; // rax
+  unsigned __int64 Value; // rax
   signed __int64 v9; // rcx
-  unsigned int v10; // r9d
+  int v10; // r9d
   unsigned __int64 v11; // rax
   unsigned int v12; // eax
   unsigned int i; // ecx
 
-  v2 = 0LL;
+  v2 = 0;
   v3 = 0LL;
   SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
@@ -36,26 +36,26 @@ __int64 __fastcall RtlTryAcquireSRWLockShared(volatile signed __int64 *a1)
       if ( (unsigned int)v5 >= 8 )
         goto LABEL_8;
     }
-    v3 = (volatile signed __int64 **)&SchedulerSharedDataSlot[v5];
+    v3 = (PRTL_SRWLOCK *)&SchedulerSharedDataSlot[v5];
     if ( v3 )
-      *v3 = a1;
+      *v3 = SRWLock;
   }
 LABEL_8:
-  v7 = _InterlockedCompareExchange64(a1, 17LL, 0LL);
-  if ( !v7 )
-    return 1LL;
-  while ( (v7 & 2) == 0 && ((v7 & 1) == 0 || (v7 & 0xFFFFFFFFFFFFFFF0uLL) != 0)
-       || RtlpSrwLockAllowImplicitUpgrade && (v7 & 1) == 0 )
+  Value = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 17LL, 0LL);
+  if ( !Value )
+    return 1;
+  while ( (Value & 2) == 0 && ((Value & 1) == 0 || (Value & 0xFFFFFFFFFFFFFFF0uLL) != 0)
+       || RtlpSrwLockAllowImplicitUpgrade && (Value & 1) == 0 )
   {
-    v9 = (v7 | 1) + 16;
-    if ( (v7 & 2) != 0 )
-      v9 = v7 | 1;
-    if ( v7 == _InterlockedCompareExchange64(a1, v9, v7) )
-      return 1LL;
+    v9 = (Value | 1) + 16;
+    if ( (Value & 2) != 0 )
+      v9 = Value | 1;
+    if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v9, Value) )
+      return 1;
     v10 = v2;
-    if ( (_DWORD)v2 )
+    if ( v2 )
     {
-      if ( (unsigned int)v2 < 0x1FFF )
+      if ( v2 < 0x1FFF )
         v10 = 2 * v2;
     }
     else
@@ -70,9 +70,9 @@ LABEL_8:
     for ( i = 0; i < v12; ++i )
       _mm_pause();
 LABEL_25:
-    _m_prefetchw((const void *)a1);
-    v7 = *a1;
+    _m_prefetchw(SRWLock);
+    Value = SRWLock->Value;
   }
-  RtlAbPostRelease(a1, v3, v2);
-  return 0LL;
+  RtlAbPostRelease(SRWLock, v3);
+  return 0;
 }

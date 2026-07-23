@@ -58,7 +58,18 @@ __int64 __fastcall PspInitializeProcessSecurity(
     v28 = Process;
     v29 = a13;
     SessionId = MmGetSessionId(a2);
-    v23 = SeSubProcessToken(a2, a3, &a14, v22 != 0 ? 1 : 3, SessionId, (__int64)v27, a8, a9, a10, a11, (__int64)&v30);
+    v23 = SeSubProcessToken(
+            a2,
+            a3,
+            (PERESOURCE **)&a14,
+            v22 != 0 ? 1 : 3,
+            SessionId,
+            (__int64)v27,
+            a8,
+            a9,
+            a10,
+            a11,
+            (__int64)&v30);
     if ( v23 >= 0 )
     {
       ObInitializeFastReference(a2 + 864, a14);

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopInitializeActiveConnectBlock @ 0x140A98EA4
+ * XREFs of IopInitializeActiveConnectBlock @ 0x140A9D024
  * Callers:
- *     IoDisconnectInterrupt @ 0x140A986C0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x140A98890 (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140A9C840 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x140A9CA10 (IopConnectInterrupt.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopInsertActiveConnectListLocked @ 0x140A99088 (IopInsertActiveConnectListLocked.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopInsertActiveConnectListLocked @ 0x140A9D208 (IopInsertActiveConnectListLocked.c)
  */
 
 void __fastcall IopInitializeActiveConnectBlock(__int64 a1, _QWORD *a2)

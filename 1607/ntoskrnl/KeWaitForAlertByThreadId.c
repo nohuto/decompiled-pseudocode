@@ -1,14 +1,14 @@
 /*
- * XREFs of KeWaitForAlertByThreadId @ 0x1400D0448
+ * XREFs of KeWaitForAlertByThreadId @ 0x1400CE2E8
  * Callers:
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
- *     NtWaitForAlertByThreadId @ 0x14050C82C (NtWaitForAlertByThreadId.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
+ *     NtWaitForAlertByThreadId @ 0x1404EF7BC (NtWaitForAlertByThreadId.c)
  * Callees:
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     KiBeginThreadWait @ 0x1400D0980 (KiBeginThreadWait.c)
- *     KiCheckDueTimeExpired @ 0x1400D0AE8 (KiCheckDueTimeExpired.c)
- *     KiCheckWaitNext @ 0x1400D0B40 (KiCheckWaitNext.c)
- *     KiFastExitThreadWait @ 0x1400F2828 (KiFastExitThreadWait.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     KiBeginThreadWait @ 0x1400CE820 (KiBeginThreadWait.c)
+ *     KiCheckDueTimeExpired @ 0x1400CE988 (KiCheckDueTimeExpired.c)
+ *     KiCheckWaitNext @ 0x1400CE9E0 (KiCheckWaitNext.c)
+ *     KiFastExitThreadWait @ 0x1400F0678 (KiFastExitThreadWait.c)
  */
 
 __int64 __fastcall KeWaitForAlertByThreadId(char a1, _QWORD *a2, void *a3)

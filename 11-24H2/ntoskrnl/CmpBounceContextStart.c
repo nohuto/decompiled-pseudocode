@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpBounceContextStart @ 0x14097A220
+ * XREFs of CmpBounceContextStart @ 0x140962A30
  * Callers:
- *     NtQueryMultipleValueKey @ 0x1409790C0 (NtQueryMultipleValueKey.c)
- *     NtEnumerateKey @ 0x140AE3CA0 (NtEnumerateKey.c)
- *     NtQueryValueKey @ 0x140AE41C0 (NtQueryValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x1409618D0 (NtQueryMultipleValueKey.c)
+ *     NtEnumerateKey @ 0x140AE5580 (NtEnumerateKey.c)
+ *     NtQueryValueKey @ 0x140AE5AA0 (NtQueryValueKey.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     ExAllocateFromLookasideListEx @ 0x1403E16C0 (ExAllocateFromLookasideListEx.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404590C0 (CmpAllocateTransientPoolWithQuota.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     ExAllocateFromLookasideListEx @ 0x1403C9D30 (ExAllocateFromLookasideListEx.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x14044E170 (CmpAllocateTransientPoolWithQuota.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall CmpBounceContextStart(__int64 a1, unsigned __int64 a2, size_t a3, int a4, char a5)
@@ -41,7 +41,7 @@ __int64 __fastcall CmpBounceContextStart(__int64 a1, unsigned __int64 a2, size_t
     *(_QWORD *)(a1 + 8) = a2;
     return 0LL;
   }
-  if ( (unsigned int)dword_140E09EE8 > 5 && (qword_140E09EF8 & 4) != 0 && (qword_140E09F00 & 4) == qword_140E09F00 )
+  if ( (unsigned int)dword_140E09F58 > 5 && (qword_140E09F68 & 4) != 0 && (qword_140E09F70 & 4) == qword_140E09F70 )
   {
     v15 = 1LL;
     v18 = &v15;
@@ -67,7 +67,7 @@ __int64 __fastcall CmpBounceContextStart(__int64 a1, unsigned __int64 a2, size_t
     v16 = v11;
     v23 = 8LL;
     v22 = &v16;
-    tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)word_1400547DA, a3, 5u, (__int64)v17);
+    tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)&dword_1400552D4, a3, 5u, (__int64)v17);
   }
   if ( a3 <= 0x40 )
   {
@@ -88,7 +88,7 @@ LABEL_7:
       goto LABEL_7;
     }
   }
-  TransientPoolWithQuota = CmpAllocateTransientPoolWithQuota();
+  TransientPoolWithQuota = CmpAllocateTransientPoolWithQuota(a1, a3, 0x42424D43u);
   if ( !TransientPoolWithQuota )
     return 3221225626LL;
   *(_QWORD *)(a1 + 8) = TransientPoolWithQuota;

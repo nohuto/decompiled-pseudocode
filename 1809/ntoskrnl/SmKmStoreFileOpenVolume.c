@@ -1,18 +1,18 @@
 /*
- * XREFs of SmKmStoreFileOpenVolume @ 0x1408AE2E0
+ * XREFs of SmKmStoreFileOpenVolume @ 0x1408AF540
  * Callers:
- *     SmKmEtwAppendProductName @ 0x140307338 (SmKmEtwAppendProductName.c)
- *     SmKmStoreFileCreate @ 0x1408AD650 (SmKmStoreFileCreate.c)
- *     SmcCacheStart @ 0x1408AEDD4 (SmcCacheStart.c)
+ *     SmKmEtwAppendProductName @ 0x140307528 (SmKmEtwAppendProductName.c)
+ *     SmKmStoreFileCreate @ 0x1408AE8B0 (SmKmStoreFileCreate.c)
+ *     SmcCacheStart @ 0x1408B0034 (SmcCacheStart.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EEDD0 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObQueryNameStringMode @ 0x140662110 (ObQueryNameStringMode.c)
  */
 
 __int64 __fastcall SmKmStoreFileOpenVolume(__int64 a1, _QWORD *a2, PDEVICE_OBJECT *a3)

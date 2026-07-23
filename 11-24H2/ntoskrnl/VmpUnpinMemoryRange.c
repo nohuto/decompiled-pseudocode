@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpUnpinMemoryRange @ 0x14079F79C
+ * XREFs of VmpUnpinMemoryRange @ 0x14079F8AC
  * Callers:
- *     VmpRemoveMemoryRange @ 0x14047ED34 (VmpRemoveMemoryRange.c)
- *     VmPinMemoryRange @ 0x14079EC80 (VmPinMemoryRange.c)
- *     VmUnpinMemoryRange @ 0x14079EF60 (VmUnpinMemoryRange.c)
+ *     VmpRemoveMemoryRange @ 0x140479B50 (VmpRemoveMemoryRange.c)
+ *     VmPinMemoryRange @ 0x14079ED90 (VmPinMemoryRange.c)
+ *     VmUnpinMemoryRange @ 0x14079F070 (VmUnpinMemoryRange.c)
  * Callees:
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
- *     VmpUnpinMemoryRangeHelper @ 0x14064B360 (VmpUnpinMemoryRangeHelper.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
+ *     VmpUnpinMemoryRangeHelper @ 0x140649920 (VmpUnpinMemoryRangeHelper.c)
  */
 
 __int64 __fastcall VmpUnpinMemoryRange(

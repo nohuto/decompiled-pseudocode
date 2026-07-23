@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwUnloadKey @ 0x14041E840
+ * XREFs of ZwUnloadKey @ 0x14041EBD0
  * Callers:
- *     DifZwUnloadKeyWrapper @ 0x1405F80D0 (DifZwUnloadKeyWrapper.c)
- *     VrpUnloadDifferencingHive @ 0x14077BECC (VrpUnloadDifferencingHive.c)
- *     BiLoadHive @ 0x140807084 (BiLoadHive.c)
- *     BiUnloadHiveByName @ 0x140A5D59C (BiUnloadHiveByName.c)
+ *     DifZwUnloadKeyWrapper @ 0x1405F8640 (DifZwUnloadKeyWrapper.c)
+ *     VrpUnloadDifferencingHive @ 0x14077C0BC (VrpUnloadDifferencingHive.c)
+ *     BiLoadHive @ 0x140807354 (BiLoadHive.c)
+ *     BiUnloadHiveByName @ 0x140A5D84C (BiUnloadHiveByName.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwUnloadKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwUnloadKey(POBJECT_ATTRIBUTES TargetKey)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TargetKey);
 }

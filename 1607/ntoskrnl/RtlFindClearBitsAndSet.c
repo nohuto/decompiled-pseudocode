@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlFindClearBitsAndSet @ 0x14007CB08
+ * XREFs of RtlFindClearBitsAndSet @ 0x14007CB88
  * Callers:
- *     MiObtainSessionVa @ 0x1400A397C (MiObtainSessionVa.c)
- *     BgpFwReserveAllocate @ 0x140129748 (BgpFwReserveAllocate.c)
- *     MiAssignSharedUserRanges @ 0x14013D1A0 (MiAssignSharedUserRanges.c)
- *     MiGetUltraHugeAlreadyActive @ 0x140140D60 (MiGetUltraHugeAlreadyActive.c)
- *     SepAddLuidToIndexEntry @ 0x14046E2DC (SepAddLuidToIndexEntry.c)
- *     MiObtainRelocationBits @ 0x14046E834 (MiObtainRelocationBits.c)
- *     SepGetLowBoxNumberEntry @ 0x140476BFC (SepGetLowBoxNumberEntry.c)
- *     MiReserveDriverPtes @ 0x1404CD0DC (MiReserveDriverPtes.c)
- *     MiSessionCreateInternal @ 0x140536508 (MiSessionCreateInternal.c)
- *     PspStorageAllocSlot @ 0x140551F98 (PspStorageAllocSlot.c)
- *     MiAllocatePartitionId @ 0x140659938 (MiAllocatePartitionId.c)
- *     TtmiCreateTerminal @ 0x140677760 (TtmiCreateTerminal.c)
- *     ViAllocateFromContiguousMemory @ 0x140708738 (ViAllocateFromContiguousMemory.c)
+ *     MiObtainSessionVa @ 0x1400A22A4 (MiObtainSessionVa.c)
+ *     BgpFwReserveAllocate @ 0x140129CB8 (BgpFwReserveAllocate.c)
+ *     MiAssignSharedUserRanges @ 0x14013D710 (MiAssignSharedUserRanges.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x1401412D0 (MiGetUltraHugeAlreadyActive.c)
+ *     SepAddLuidToIndexEntry @ 0x14046D1AC (SepAddLuidToIndexEntry.c)
+ *     MiObtainRelocationBits @ 0x14046D704 (MiObtainRelocationBits.c)
+ *     SepGetLowBoxNumberEntry @ 0x140475ACC (SepGetLowBoxNumberEntry.c)
+ *     MiReserveDriverPtes @ 0x1404B2B08 (MiReserveDriverPtes.c)
+ *     MiSessionCreateInternal @ 0x140536A48 (MiSessionCreateInternal.c)
+ *     PspStorageAllocSlot @ 0x1405524D8 (PspStorageAllocSlot.c)
+ *     MiAllocatePartitionId @ 0x140659A1C (MiAllocatePartitionId.c)
+ *     TtmiCreateTerminal @ 0x140677844 (TtmiCreateTerminal.c)
+ *     ViAllocateFromContiguousMemory @ 0x140708768 (ViAllocateFromContiguousMemory.c)
  *     MiAssignSessionRanges @ 0x1407AAAD8 (MiAssignSessionRanges.c)
  *     MiAssignSystemVa @ 0x1407AAFAC (MiAssignSystemVa.c)
  * Callees:
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
  */
 
 ULONG __stdcall RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)

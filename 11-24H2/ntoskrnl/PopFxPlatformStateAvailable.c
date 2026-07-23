@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxPlatformStateAvailable @ 0x1403CAA54
+ * XREFs of PopFxPlatformStateAvailable @ 0x1403A5E38
  * Callers:
- *     PopPepUpdateIdleStateRefCount @ 0x140315390 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A6EB0 (PopPepUpdateIdleStateRefCount.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopUpdateNonAttributedCpuTimeReference @ 0x1403CA934 (PopUpdateNonAttributedCpuTimeReference.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x1403CAB98 (PpmIdleCsVetoAccountingUpdateBlock.c)
- *     PopFxSetDripsBlockedByDeviceActivity @ 0x1403CAC3C (PopFxSetDripsBlockedByDeviceActivity.c)
- *     PopDeepSleepSetDisengageReason @ 0x1403CB2E4 (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1403CB4D8 (PopDeepSleepClearDisengageReason.c)
- *     PopIdleWakeNotifyDevicesActive @ 0x1403CBB1C (PopIdleWakeNotifyDevicesActive.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402B9DFC (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402B9FF0 (PopDeepSleepClearDisengageReason.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x1403A5504 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x1403A57D0 (PopFxSetDripsBlockedByDeviceActivity.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x1403A5F7C (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PopIdleWakeNotifyDevicesActive @ 0x140497BEC (PopIdleWakeNotifyDevicesActive.c)
  */
 
 __int64 __fastcall PopFxPlatformStateAvailable(unsigned int a1, char a2)
@@ -20,9 +20,8 @@ __int64 __fastcall PopFxPlatformStateAvailable(unsigned int a1, char a2)
   __int64 v5; // r8
   __int64 v6; // rdx
   KIRQL v7; // bl
-  __int64 v8; // rcx
   __int64 result; // rax
-  __int64 v10; // rcx
+  __int64 v9; // rcx
 
   v2 = a1;
   v4 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
@@ -36,19 +35,18 @@ __int64 __fastcall PopFxPlatformStateAvailable(unsigned int a1, char a2)
   {
     if ( a2 )
     {
-      PopFxSetDripsBlockedByDeviceActivity(0LL);
+      PopFxSetDripsBlockedByDeviceActivity(0);
       PopIdleWakeNotifyDevicesActive(0LL);
       PopUpdateNonAttributedCpuTimeReference(0);
-      return PopDeepSleepClearDisengageReason(6LL);
+      return PopDeepSleepClearDisengageReason(6u);
     }
     else
     {
-      LOBYTE(v8) = 1;
-      PopFxSetDripsBlockedByDeviceActivity(v8);
-      LOBYTE(v10) = 1;
-      PopIdleWakeNotifyDevicesActive(v10);
+      PopFxSetDripsBlockedByDeviceActivity(1);
+      LOBYTE(v9) = 1;
+      PopIdleWakeNotifyDevicesActive(v9);
       PopUpdateNonAttributedCpuTimeReference(1);
-      return PopDeepSleepSetDisengageReason(6LL);
+      return PopDeepSleepSetDisengageReason(6u);
     }
   }
   return result;

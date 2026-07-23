@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerSetTimerBackedProfileInterval @ 0x1404C19B4
+ * XREFs of HalpTimerSetTimerBackedProfileInterval @ 0x1404C1BF4
  * Callers:
- *     DefaultSetInterval @ 0x1404BE770 (DefaultSetInterval.c)
+ *     DefaultSetInterval @ 0x1404BE9B0 (DefaultSetInterval.c)
  * Callees:
- *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
+ *     HalpSetTimer @ 0x1402F2BCC (HalpSetTimer.c)
  */
 
 unsigned __int64 __fastcall HalpTimerSetTimerBackedProfileInterval(unsigned int a1)

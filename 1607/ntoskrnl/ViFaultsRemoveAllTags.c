@@ -3,7 +3,7 @@
  * Callers:
  *     VfFaultsSetParameters @ 0x140710F7C (VfFaultsSetParameters.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -28,7 +28,7 @@ void ViFaultsRemoveAllTags()
     while ( v3 != &ViFaultTagsList );
   }
   ViHaveFaultTags = 0;
-  qword_1403005E8 = (__int64)&ViFaultTagsList;
+  qword_1403005C8 = (__int64)&ViFaultTagsList;
   ViFaultTagsList = &ViFaultTagsList;
   KeReleaseSpinLock(&ViFaultInjectionLock, v2);
 }

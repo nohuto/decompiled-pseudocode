@@ -6,14 +6,10 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpCallbackReleaseMutexOnCompletion(int a1, int a2)
+void __cdecl TpCallbackReleaseMutexOnCompletion(PTP_CALLBACK_INSTANCE Instance, HANDLE Mutex)
 {
-  int result; // eax
-
-  result = a1;
-  if ( !a1 || !a2 || a2 == -1 || *(_DWORD *)(a1 + 88) )
+  if ( !Instance || !Mutex || Mutex == (HANDLE)-1 || *((_DWORD *)Instance + 22) )
     TppRaiseInvalidParameter();
-  *(_DWORD *)(a1 + 80) |= 2u;
-  *(_DWORD *)(a1 + 88) = a2;
-  return result;
+  *((_DWORD *)Instance + 20) |= 2u;
+  *((_DWORD *)Instance + 22) = Mutex;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockCheckStackLimits @ 0x1409DF1AC
+ * XREFs of ViDeadlockCheckStackLimits @ 0x1409E01AC
  * Callers:
- *     ViDeadlockCanProceed @ 0x1409DEE08 (ViDeadlockCanProceed.c)
+ *     ViDeadlockCanProceed @ 0x1409DFE08 (ViDeadlockCanProceed.c)
  * Callees:
- *     IoGetStackLimits @ 0x140350420 (IoGetStackLimits.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     IoGetStackLimits @ 0x14035B170 (IoGetStackLimits.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
  */
 
 ULONG ViDeadlockCheckStackLimits()

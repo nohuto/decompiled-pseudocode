@@ -10,36 +10,34 @@
  *     sub_1800D7C98 @ 0x1800D7C98 (sub_1800D7C98.c)
  */
 
-__int64 __fastcall LdrGetDllHandleByMapping(__int64 a1, _QWORD *a2)
+NTSTATUS __cdecl LdrGetDllHandleByMapping(PVOID BaseAddress, PVOID *DllHandle)
 {
-  int v4; // eax
-  int v5; // ebx
-  __int64 v6; // rdi
-  __int64 v8; // [rsp+28h] [rbp-10h] BYREF
-  int v9; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  int v4; // ebx
+  PVOID *v5; // rdi
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+28h] [rbp-10h] BYREF
+  int v8; // [rsp+50h] [rbp+18h]
+  PVOID *BaseAddressa; // [rsp+58h] [rbp+20h]
 
-  v4 = RtlImageNtHeaderEx(1LL, a1, 0LL, &v8);
-  v5 = v4;
+  v4 = RtlImageNtHeaderEx(1u, BaseAddress, 0LL, &OutHeaders);
   if ( v4 >= 0 )
   {
-    v5 = sub_18001AB40(a1, v8, &v10, &v9, v4);
-    if ( v5 >= 0 )
+    v4 = sub_18001AB40(BaseAddress, OutHeaders);
+    if ( v4 >= 0 )
     {
-      if ( v9 >= 7 )
+      if ( v8 >= 7 )
       {
-        v6 = v10;
-        v5 = sub_18001BDBC(v10);
-        if ( v5 >= 0 )
-          *a2 = *(_QWORD *)(v6 + 48);
+        v5 = BaseAddressa;
+        v4 = sub_18001BDBC(BaseAddressa);
+        if ( v4 >= 0 )
+          *DllHandle = BaseAddressa[6];
       }
       else
       {
-        v5 = -1073741515;
-        v6 = v10;
+        v4 = -1073741515;
+        v5 = BaseAddressa;
       }
-      sub_18003015C(v6);
+      sub_18003015C(v5);
     }
   }
-  return (unsigned int)v5;
+  return v4;
 }

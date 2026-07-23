@@ -19,16 +19,16 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
         int a2,
         __int64 a3,
         unsigned __int16 a4,
-        __int16 a5,
+        unsigned __int16 a5,
         char a6,
-        _BYTE *a7,
+        unsigned __int8 *Sid,
         unsigned __int16 a8,
         int a9,
         __int64 a10,
         __int64 a11)
 {
   int v11; // esi
-  _BYTE *v13; // r12
+  unsigned __int8 *v13; // r12
   _BYTE *Heap; // rdi
   unsigned __int8 v15; // r15
   unsigned int v16; // ecx
@@ -38,17 +38,17 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
   unsigned int v20; // r8d
   int v21; // eax
   __int64 v22; // rax
-  __int64 v23; // r8
+  ULONG v23; // r8d
   unsigned int v24; // r9d
   __int64 v25; // rdx
   __int64 v26; // r10
   __int64 v27; // rax
   int v28; // edx
-  unsigned int v29; // eax
+  LONG v29; // eax
   __int64 v30; // rcx
   __int64 v32; // [rsp+0h] [rbp-2D8h] BYREF
   int v33; // [rsp+50h] [rbp-288h]
-  unsigned int v34; // [rsp+54h] [rbp-284h]
+  LONG Win32Error; // [rsp+54h] [rbp-284h]
   int v35; // [rsp+58h] [rbp-280h] BYREF
   int v36; // [rsp+5Ch] [rbp-27Ch] BYREF
   unsigned int i; // [rsp+60h] [rbp-278h]
@@ -57,34 +57,34 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
   __int64 v40; // [rsp+70h] [rbp-268h] BYREF
   __int64 v41; // [rsp+78h] [rbp-260h]
   __int64 *v42; // [rsp+80h] [rbp-258h]
-  __int128 v43; // [rsp+88h] [rbp-250h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+88h] [rbp-250h] BYREF
   _BYTE v44[512]; // [rsp+A0h] [rbp-238h] BYREF
 
   v42 = &v32;
   v11 = a4;
   v38 = a2;
   v41 = a1;
-  v13 = a7;
-  v34 = 0;
+  v13 = Sid;
+  Win32Error = 0;
   Heap = v44;
   v39 = v44;
   v15 = 0;
   v35 = 0;
   if ( a9 && !a11 || !a10 && a8 || !a3 )
   {
-    v34 = 87;
+    Win32Error = 87;
     goto LABEL_32;
   }
-  v16 = a8 + (a7 != 0LL) + 7;
+  v16 = a8 + (Sid != 0LL) + 7;
   if ( a9 )
     ++v16;
   if ( v16 > 0x20 )
   {
-    Heap = (_BYTE *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 16LL * v16);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 16LL * v16);
     v39 = Heap;
     if ( !Heap )
     {
-      v34 = 8;
+      Win32Error = 8;
       goto LABEL_32;
     }
   }
@@ -110,19 +110,20 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
         break;
     }
   }
-  LODWORD(v43) = 0;
-  WORD2(v43) = v15;
-  WORD3(v43) = a5;
-  *((_QWORD *)&v43 + 1) = v17;
+  *(_DWORD *)&EventDescriptor.Id = 0;
+  EventDescriptor.Level = v15;
+  EventDescriptor.Task = a5;
+  EventDescriptor.Opcode = 0;
+  EventDescriptor.Keyword = v17;
   if ( v13 )
   {
     if ( !RtlValidSid(v13) )
     {
-      v34 = 87;
+      Win32Error = 87;
       local_unwind(v42, &loc_180053679);
       goto LABEL_29;
     }
-    v35 = 4 * (unsigned __int8)v13[1] + 8;
+    v35 = 4 * v13[1] + 8;
   }
   v40 = MEMORY[0x7FFE0014];
   *(_QWORD *)Heap = &v40;
@@ -157,13 +158,12 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
   v22 = 2LL * v20;
   *(_QWORD *)&Heap[8 * v22] = &a8;
   *(_QWORD *)&Heap[8 * v22 + 8] = 2LL;
-  LODWORD(v23) = v20 + 1;
+  v23 = v20 + 1;
   v33 = v23;
   v24 = 0;
   for ( i = 0; ; i = v24 )
   {
-    v25 = 2LL * (unsigned int)v23;
-    v23 = (unsigned int)(v23 + 1);
+    v25 = 2LL * v23++;
     if ( v24 >= a8 )
       break;
     v26 = *(_QWORD *)(a10 + 8LL * v24);
@@ -182,25 +182,24 @@ _BOOL8 __fastcall EvtIntReportEventWorker(
   v28 = a9;
   if ( a9 )
   {
-    v30 = 2LL * (unsigned int)v23;
+    v30 = 2LL * v23;
     *(_QWORD *)&Heap[8 * v30] = a11;
     *(_DWORD *)&Heap[8 * v30 + 8] = v28;
     *(_DWORD *)&Heap[8 * v30 + 12] = 0;
-    v23 = (unsigned int)(v23 + 1);
-    v33 = v23;
+    v33 = ++v23;
   }
   if ( !v38 )
   {
-    v29 = EtwpEventWriteFull(v41, &v43, 0LL, 0, 4u, 0LL, 0LL, v23, (__int64)Heap);
+    v29 = EtwpEventWriteFull(v41, (__int128 *)&EventDescriptor, 0LL, 0, 4u, 0LL, 0LL, v23, (__int64)Heap);
     goto LABEL_30;
   }
 LABEL_29:
-  v29 = EtwWriteUMSecurityEvent(&v43, 4LL, v23, Heap);
+  v29 = EtwWriteUMSecurityEvent(&EventDescriptor, 4u, v23, (PEVENT_DATA_DESCRIPTOR)Heap);
 LABEL_30:
-  v34 = v29;
+  Win32Error = v29;
   if ( Heap != v44 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
 LABEL_32:
-  RtlSetLastWin32Error(v34);
-  return v34 == 0;
+  RtlSetLastWin32Error(Win32Error);
+  return Win32Error == 0;
 }

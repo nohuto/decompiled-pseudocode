@@ -1,21 +1,21 @@
 /*
- * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x140613754
+ * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x140613808
  * Callers:
- *     IoctlDeviceDispatch @ 0x140612A54 (IoctlDeviceDispatch.c)
+ *     IoctlDeviceDispatch @ 0x140612B08 (IoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ULongLongMult @ 0x1401B7584 (ULongLongMult.c)
- *     PsGetJobSilo @ 0x14020F794 (PsGetJobSilo.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ULongLongMult @ 0x1401B7468 (ULongLongMult.c)
+ *     PsGetJobSilo @ 0x14020F5C0 (PsGetJobSilo.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     PsInsertSiloContext @ 0x14067DF24 (PsInsertSiloContext.c)
- *     PsMakeSiloContextPermanent @ 0x14067DFC4 (PsMakeSiloContextPermanent.c)
- *     PsRemoveSiloContext @ 0x14067DFE0 (PsRemoveSiloContext.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     PsInsertSiloContext @ 0x14067E008 (PsInsertSiloContext.c)
+ *     PsMakeSiloContextPermanent @ 0x14067E0A8 (PsMakeSiloContextPermanent.c)
+ *     PsRemoveSiloContext @ 0x14067E0C4 (PsRemoveSiloContext.c)
  */
 
 __int64 __fastcall VrpHandleIoctlInitializeJobForVreg(

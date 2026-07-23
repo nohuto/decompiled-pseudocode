@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhHeatMapUpdate @ 0x14045A904
+ * XREFs of RtlpHpLfhHeatMapUpdate @ 0x14044FD54
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x1402B6D78 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x14035EE00 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
  *     <none>
  */

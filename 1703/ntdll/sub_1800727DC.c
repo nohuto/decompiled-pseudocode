@@ -10,18 +10,11 @@
  *     _wcsicmp @ 0x1800976A0 (_wcsicmp.c)
  */
 
-__int64 __fastcall sub_1800727DC(
-        __int64 a1,
-        wchar_t *a2,
-        __int64 a3,
-        __int64 **a4,
-        _DWORD *a5,
-        _QWORD *a6,
-        __int64 *a7)
+__int64 __fastcall sub_1800727DC(__int64 a1, WCHAR *a2, __int64 a3, __int64 **a4, _DWORD *a5, _QWORD *a6, __int64 *a7)
 {
-  unsigned __int16 *v10; // rsi
+  WCHAR *v10; // rsi
   unsigned int i; // edi
-  unsigned __int16 v12; // ax
+  WCHAR v12; // ax
   __int64 v13; // rsi
   __int64 *v14; // r15
   __int64 j; // rdi

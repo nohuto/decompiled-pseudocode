@@ -1,8 +1,8 @@
 /*
- * XREFs of bi_windup @ 0x140602C80
+ * XREFs of bi_windup @ 0x1406002C0
  * Callers:
- *     _tr_flush_block @ 0x140602828 (_tr_flush_block.c)
- *     _tr_stored_block @ 0x140602AF0 (_tr_stored_block.c)
+ *     _tr_flush_block @ 0x1405FFE68 (_tr_flush_block.c)
+ *     _tr_stored_block @ 0x140600130 (_tr_stored_block.c)
  * Callees:
  *     <none>
  */

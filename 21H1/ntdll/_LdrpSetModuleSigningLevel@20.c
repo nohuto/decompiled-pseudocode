@@ -9,23 +9,28 @@
  *     _NtSetCachedSigningLevel@20 @ 0x4B2F4210 (_NtSetCachedSigningLevel@20.c)
  */
 
-int __fastcall LdrpSetModuleSigningLevel(int a1, int a2, int a3, int a4, _BYTE *a5)
+NTSTATUS __fastcall LdrpSetModuleSigningLevel(
+        HANDLE File,
+        int a2,
+        PULONG Flags,
+        SE_SIGNING_LEVEL SecondSigningLevel,
+        _BYTE *a5)
 {
-  _BYTE *v5; // edi
-  int CachedSigningLevel; // esi
-  int v8; // [esp+Ch] [ebp-4h] BYREF
+  SE_SIGNING_LEVEL *v5; // edi
+  NTSTATUS CachedSigningLevel; // esi
+  HANDLE SourceFiles; // [esp+Ch] [ebp-4h] BYREF
 
-  v8 = a1;
-  v5 = (_BYTE *)(a2 + 164);
+  SourceFiles = File;
+  v5 = (SE_SIGNING_LEVEL *)(a2 + 164);
   *a5 = 0;
-  CachedSigningLevel = ZwGetCachedSigningLevel(a1, a3, a2 + 164, 0, 0, 0);
-  if ( CachedSigningLevel < 0 || NtCompareSigningLevels((unsigned __int8)*v5, a4) < 0 )
+  CachedSigningLevel = ZwGetCachedSigningLevel(File, Flags, (PSE_SIGNING_LEVEL)(a2 + 164), 0, 0, 0);
+  if ( CachedSigningLevel < 0 || NtCompareSigningLevels(*v5, SecondSigningLevel) < 0 )
   {
-    CachedSigningLevel = NtSetCachedSigningLevel(2052, a4, (int)&v8, 1, v8);
+    CachedSigningLevel = NtSetCachedSigningLevel(0x804u, SecondSigningLevel, &SourceFiles, 1u, SourceFiles);
     if ( CachedSigningLevel < 0 )
       *a5 = 1;
     else
-      *v5 = a4;
+      *v5 = SecondSigningLevel;
   }
   return CachedSigningLevel;
 }

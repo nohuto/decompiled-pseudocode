@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierPoFxSetDeviceIdleTimeout @ 0x140932B40
+ * XREFs of VerifierPoFxSetDeviceIdleTimeout @ 0x140933B40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierPoFxSetDeviceIdleTimeout()

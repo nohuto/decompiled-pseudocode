@@ -1,14 +1,14 @@
 /*
  * XREFs of KeCleanupThreadState @ 0x140201FC8
  * Callers:
- *     PspThreadDelete @ 0x140AA21E0 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x140AA3CB0 (PspThreadDelete.c)
  * Callees:
- *     ?KiAbpCleanupThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@@Z @ 0x1402039CC (-KiAbpCleanupThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@@Z.c)
- *     ?KiAbCleanupLockEntriesState@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRIES@@PEAU_KTHREAD@@@Z @ 0x140203BC8 (-KiAbCleanupLockEntriesState@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRIES@@PEAU_KTHREAD@@@Z.c)
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     KeFlushQueuedDpcs @ 0x14051BE50 (KeFlushQueuedDpcs.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ?KiAbpCleanupThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@@Z @ 0x140203AAC (-KiAbpCleanupThreadEntries@AutoBoost@@YAXPEAU_AB_THREAD_ENTRIES@1@PEAU_KTHREAD@@@Z.c)
+ *     ?KiAbCleanupLockEntriesState@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRIES@@PEAU_KTHREAD@@@Z @ 0x140203CA8 (-KiAbCleanupLockEntriesState@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRIES@@PEAU_KTHREAD@@@Z.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KeFlushQueuedDpcs @ 0x1405163E0 (KeFlushQueuedDpcs.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter2)

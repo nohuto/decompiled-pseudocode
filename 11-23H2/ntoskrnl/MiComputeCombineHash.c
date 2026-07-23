@@ -1,18 +1,18 @@
 /*
- * XREFs of MiComputeCombineHash @ 0x140281C50
+ * XREFs of MiComputeCombineHash @ 0x140281EE0
  * Callers:
- *     MiCombinePte @ 0x140653290 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
+ *     MiCombinePte @ 0x1406537E0 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiCombineCandidate @ 0x140281FB0 (MiCombineCandidate.c)
- *     MiPerformCombineScan @ 0x140282EC0 (MiPerformCombineScan.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiCombineCandidate @ 0x140282240 (MiCombineCandidate.c)
+ *     MiPerformCombineScan @ 0x140283150 (MiPerformCombineScan.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiComputeCombineHash(__int64 *a1, _QWORD *a2)
@@ -85,7 +85,7 @@ __int64 __fastcall MiComputeCombineHash(__int64 *a1, _QWORD *a2)
   __writecr8(2uLL);
   LODWORD(v13) = 4;
   v56 = 4LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql != 2 )
@@ -103,10 +103,10 @@ __int64 __fastcall MiComputeCombineHash(__int64 *a1, _QWORD *a2)
   {
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     v36 = v55;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_33;
     v41 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_33;
     if ( v41 > 0xFu )
       goto LABEL_33;
@@ -132,10 +132,10 @@ LABEL_33:
   {
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     v36 = v55;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_33;
     v45 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_33;
     if ( v45 > 0xFu )
       goto LABEL_33;
@@ -184,10 +184,10 @@ LABEL_9:
 LABEL_10:
   _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   v21 = v55;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v49 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v55 <= 0xFu && v49 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v55 <= 0xFu && v49 >= 2u )
     {
       v37 = KeGetCurrentPrcb();
       v38 = v37->SchedulerAssist;
@@ -210,7 +210,7 @@ LABEL_10:
   v25 = v23;
   v26 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v26 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu )
   {
     v34 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v26 == 2 )
@@ -249,10 +249,10 @@ LABEL_16:
 LABEL_17:
   v3[7] = 0LL;
   _InterlockedAnd64((volatile signed __int64 *)(v24 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v50 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && v26 <= 0xFu && v50 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && v26 <= 0xFu && v50 >= 2u )
     {
       v51 = KeGetCurrentPrcb();
       v52 = v51->SchedulerAssist;

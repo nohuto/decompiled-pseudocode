@@ -1,20 +1,20 @@
 /*
- * XREFs of PsGetPermanentSiloContext @ 0x14010A0A0
+ * XREFs of PsGetPermanentSiloContext @ 0x14010A120
  * Callers:
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     CmLockKeyForWrite @ 0x14068E360 (CmLockKeyForWrite.c)
- *     CmpGetRegistryNamespaceRootForSilo @ 0x14068E550 (CmpGetRegistryNamespaceRootForSilo.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x14073092C (CmpGetOrCreateContextForSiloNoRef.c)
- *     ObInitServerSilo @ 0x140759EA0 (ObInitServerSilo.c)
- *     CmGetRootKeyObjectForSilo @ 0x1407F6BD0 (CmGetRootKeyObjectForSilo.c)
- *     VRegEnabledInJob @ 0x1408082FC (VRegEnabledInJob.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080854C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x1408088A4 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140809070 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlModifyFlags @ 0x140809594 (VrpHandleIoctlModifyFlags.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098B0 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     PspDeleteExternalServerSiloState @ 0x1408870D4 (PspDeleteExternalServerSiloState.c)
- *     ObGetSiloRootDirectoryPath @ 0x140906218 (ObGetSiloRootDirectoryPath.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
+ *     CmLockKeyForWrite @ 0x14068F520 (CmLockKeyForWrite.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x14068F710 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x140731B1C (CmpGetOrCreateContextForSiloNoRef.c)
+ *     ObInitServerSilo @ 0x14075B090 (ObInitServerSilo.c)
+ *     CmGetRootKeyObjectForSilo @ 0x1407F7DD0 (CmGetRootKeyObjectForSilo.c)
+ *     VRegEnabledInJob @ 0x1408094FC (VRegEnabledInJob.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080974C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140809AA4 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x14080A270 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlModifyFlags @ 0x14080A794 (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14080AAB0 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     PspDeleteExternalServerSiloState @ 0x140888334 (PspDeleteExternalServerSiloState.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1409074D8 (ObGetSiloRootDirectoryPath.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +27,7 @@ __int64 __fastcall PsGetPermanentSiloContext(__int64 a1, unsigned int a2, unsign
   if ( a1 )
     v3 = *(_QWORD *)(a1 + 1288);
   else
-    v3 = qword_14055B988;
+    v3 = qword_14055C988;
   *a3 = 0LL;
   if ( a2 >= 0x20 )
   {

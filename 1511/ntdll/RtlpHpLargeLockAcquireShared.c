@@ -7,11 +7,8 @@
  *     RtlAcquireSRWLockShared @ 0x1800277C0 (RtlAcquireSRWLockShared.c)
  */
 
-signed __int64 __fastcall RtlpHpLargeLockAcquireShared(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpLargeLockAcquireShared(_RTL_SRWLOCK *a1, char a2)
 {
-  signed __int64 result; // rax
-
-  if ( ((unsigned __int8)a2 & 1) == 0 )
-    return RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 48), a2, a3, a4);
-  return result;
+  if ( (a2 & 1) == 0 )
+    RtlAcquireSRWLockShared(a1 + 6);
 }

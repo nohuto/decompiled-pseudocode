@@ -52,10 +52,10 @@ __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __in
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_18;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_18;
     if ( CurrentIrql > 0xFu )
       goto LABEL_18;
@@ -112,8 +112,8 @@ __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __in
         return 1LL;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( !KiIrqlFlags
-        || (v23 = KeGetCurrentIrql(), (KiIrqlFlags & 1) == 0)
+      if ( !(_DWORD)KiIrqlFlags
+        || (v23 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) == 0)
         || v23 > 0xFu
         || LockHandle.OldIrql > 0xFu
         || v23 < 2u
@@ -138,10 +138,10 @@ LABEL_34:
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v27 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v30 = v29->SchedulerAssist;

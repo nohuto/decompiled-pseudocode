@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRequestWaitReplyPort @ 0x1401B85D0
+ * XREFs of ZwRequestWaitReplyPort @ 0x1401B8730
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x14012FD64 (SepRmDispatchDataToLsa.c)
+ *     SepRmDispatchDataToLsa @ 0x14012FE34 (SepRmDispatchDataToLsa.c)
  * Callees:
  *     <none>
  */
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwRequestWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE LpcRe
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, LpcReply, LpcRequest);
+  return KiServiceInternal(PortHandle);
 }

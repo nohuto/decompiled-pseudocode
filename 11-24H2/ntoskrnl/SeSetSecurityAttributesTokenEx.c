@@ -1,17 +1,17 @@
 /*
- * XREFs of SeSetSecurityAttributesTokenEx @ 0x1406092E0
+ * XREFs of SeSetSecurityAttributesTokenEx @ 0x140607780
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     SepInternalSetSecurityAttributesToken @ 0x1403571CC (SepInternalSetSecurityAttributesToken.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x140357454 (AuthzBasepSetSecurityAttributesToken.c)
- *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140477780 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
- *     SepSetSingletonEntry @ 0x140609480 (SepSetSingletonEntry.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403B8BCC (AuthzBasepSetSecurityAttributesToken.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x1403B9324 (SepInternalSetSecurityAttributesToken.c)
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140473D20 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     SepSetSingletonEntry @ 0x140607920 (SepSetSingletonEntry.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SeSetSecurityAttributesTokenEx(
@@ -40,7 +40,7 @@ __int64 __fastcall SeSetSecurityAttributesTokenEx(
   if ( !a4 || (SepTokenSingletonAttributesConfig & 3) != 3 )
   {
     *a7 = 0;
-    return (unsigned int)SepInternalSetSecurityAttributesToken(a1, a2, 1, (__int64)a5, a6);
+    return (unsigned int)SepInternalSetSecurityAttributesToken(a1, a2, 1, a5, a6);
   }
   if ( a2 )
     return (unsigned int)-1073741790;

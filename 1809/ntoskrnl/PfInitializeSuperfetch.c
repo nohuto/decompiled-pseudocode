@@ -1,18 +1,18 @@
 /*
- * XREFs of PfInitializeSuperfetch @ 0x1409D4634
+ * XREFs of PfInitializeSuperfetch @ 0x1409D5634
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ExRundownCompleted @ 0x14008F8D0 (ExRundownCompleted.c)
- *     ZwNotifyChangeKey @ 0x1401BA3F0 (ZwNotifyChangeKey.c)
- *     PfTInitialize @ 0x140751D58 (PfTInitialize.c)
- *     PfpScenCtxStart @ 0x140752DF4 (PfpScenCtxStart.c)
- *     PfpScenCtxInitialize @ 0x14075303C (PfpScenCtxInitialize.c)
- *     PfpParametersInitialize @ 0x1409D472C (PfpParametersInitialize.c)
- *     PfSnInitializePrefetcher @ 0x1409D48C4 (PfSnInitializePrefetcher.c)
- *     PfpRpInitialize @ 0x1409D4B8C (PfpRpInitialize.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     ExRundownCompleted @ 0x14008F7F0 (ExRundownCompleted.c)
+ *     ZwNotifyChangeKey @ 0x1401BA550 (ZwNotifyChangeKey.c)
+ *     PfTInitialize @ 0x140752F48 (PfTInitialize.c)
+ *     PfpScenCtxStart @ 0x140753FE4 (PfpScenCtxStart.c)
+ *     PfpScenCtxInitialize @ 0x14075422C (PfpScenCtxInitialize.c)
+ *     PfpParametersInitialize @ 0x1409D572C (PfpParametersInitialize.c)
+ *     PfSnInitializePrefetcher @ 0x1409D58C4 (PfSnInitializePrefetcher.c)
+ *     PfpRpInitialize @ 0x1409D5B8C (PfpRpInitialize.c)
  */
 
 __int64 PfInitializeSuperfetch()
@@ -20,20 +20,20 @@ __int64 PfInitializeSuperfetch()
   __int64 v0; // rdx
 
   PfpParametersInitialize(&PfGlobals);
-  PfpRpInitialize(&unk_14043C118);
-  PfpScenCtxInitialize(qword_14043C0A0);
-  PfpScenCtxStart((__int64)qword_14043C0A0);
-  ExInitializePushLock(&stru_14043C1C0);
-  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_14043C1C0);
-  ExRundownCompleted((PEX_RUNDOWN_REF)&stru_14043C1C0);
-  qword_14043C1C8 = 0LL;
+  PfpRpInitialize(&unk_14043D1D8);
+  PfpScenCtxInitialize(qword_14043D160);
+  PfpScenCtxStart((__int64)qword_14043D160);
+  ExInitializePushLock(&stru_14043D280);
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_14043D280);
+  ExRundownCompleted((PEX_RUNDOWN_REF)&stru_14043D280);
+  qword_14043D288 = 0LL;
   BugCheckParameter2 = 0LL;
-  dword_14043C1E8 |= 1u;
-  qword_14043C1E0 = (__int64)&qword_14043C1D8;
-  qword_14043C1D8 = (__int64)&qword_14043C1D8;
+  dword_14043D2A8 |= 1u;
+  qword_14043D2A0 = (__int64)&qword_14043D298;
+  qword_14043D298 = (__int64)&qword_14043D298;
   PfSnInitializePrefetcher();
   PfTInitialize((__int64)&PfTGlobals, v0, 0);
   if ( KeyHandle )
-    ZwNotifyChangeKey(KeyHandle, 0LL, ApcRoutine, (PVOID)1, &IoStatusBlock, 0x1000000Fu, 0, &unk_14043BEC0, 4u, 1u);
+    ZwNotifyChangeKey(KeyHandle, 0LL, ApcRoutine, (PVOID)1, &IoStatusBlock, 0x1000000Fu, 0, &unk_14043CF80, 4u, 1u);
   return 0LL;
 }

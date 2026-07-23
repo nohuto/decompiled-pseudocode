@@ -3,24 +3,24 @@
  * Callers:
  *     NtQueryDirectoryFile @ 0x140756250 (NtQueryDirectoryFile.c)
  * Callees:
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
- *     BuildQueryDirectoryIrp @ 0x1407563A0 (BuildQueryDirectoryIrp.c)
+ *     sub_140731680 @ 0x140731680 (sub_140731680.c)
+ *     sub_1407563A0 @ 0x1407563A0 (sub_1407563A0.c)
  */
 
-__int64 __fastcall NtQueryDirectoryFileEx(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        volatile void *a6,
-        SIZE_T a7,
-        int a8,
-        char a9,
-        __int64 a10)
+NTSTATUS __cdecl NtQueryDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass,
+        ULONG QueryFlags,
+        PUNICODE_STRING FileName)
 {
-  __int64 result; // rax
-  SIZE_T Length; // [rsp+38h] [rbp-49h]
+  NTSTATUS result; // eax
+  SIZE_T v11; // [rsp+38h] [rbp-49h]
   __int64 v12; // [rsp+58h] [rbp-29h]
   char v13; // [rsp+88h] [rbp+7h] BYREF
   char v14[7]; // [rsp+89h] [rbp+8h] BYREF
@@ -31,27 +31,27 @@ __int64 __fastcall NtQueryDirectoryFileEx(
   DeviceObject = 0LL;
   Irp = 0LL;
   v15 = 0LL;
-  LODWORD(Length) = a7;
+  LODWORD(v11) = Length;
   v13 = 0;
   v14[0] = 0;
-  result = BuildQueryDirectoryIrp(
-             a1,
-             a2,
-             a3,
-             a4,
-             a5,
-             a6,
-             Length,
-             a8,
-             a9,
-             a10,
+  result = sub_1407563A0(
+             (int)FileHandle,
+             (int)Event,
+             (int)ApcRoutine,
+             (int)ApcContext,
+             (__int64)IoStatusBlock,
+             FileInformation,
+             v11,
+             FileInformationClass,
+             QueryFlags,
+             (__int64)FileName,
              v12,
              (__int64)&v13,
              (__int64)&DeviceObject,
              (__int64)&Irp,
              (__int64)&v15,
              v14);
-  if ( !(_DWORD)result )
-    return IopSynchronousServiceTail(DeviceObject, Irp, v15, 1, v14[0], v13, 2u);
+  if ( !result )
+    return sub_140731680(DeviceObject, Irp, v15, 1, v14[0], v13, 2u);
   return result;
 }

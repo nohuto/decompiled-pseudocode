@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSetHandleExtraInfo @ 0x1409F91A0
+ * XREFs of ExpSetHandleExtraInfo @ 0x1409F9430
  * Callers:
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     ObDuplicateObject @ 0x1406FB8F0 (ObDuplicateObject.c)
- *     ExCreateHandleEx @ 0x140740464 (ExCreateHandleEx.c)
- *     ExpDuplicateSingleHandle @ 0x1407B0458 (ExpDuplicateSingleHandle.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     ObDuplicateObject @ 0x1406FBB00 (ObDuplicateObject.c)
+ *     ExCreateHandleEx @ 0x140740654 (ExCreateHandleEx.c)
+ *     ExpDuplicateSingleHandle @ 0x1407B0648 (ExpDuplicateSingleHandle.c)
  * Callees:
  *     ExpFreeTablePagedPool @ 0x14068AD30 (ExpFreeTablePagedPool.c)
- *     ExpLookupHandleTableEntry @ 0x1406E6930 (ExpLookupHandleTableEntry.c)
- *     ExpAllocateTablePagedPool @ 0x1407B0A68 (ExpAllocateTablePagedPool.c)
+ *     ExpLookupHandleTableEntry @ 0x1406E6960 (ExpLookupHandleTableEntry.c)
+ *     ExpAllocateTablePagedPool @ 0x1407B0C58 (ExpAllocateTablePagedPool.c)
  */
 
 __int64 __fastcall ExpSetHandleExtraInfo(__int64 a1, __int64 a2, _QWORD *a3)

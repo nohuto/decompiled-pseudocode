@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMoveHibernatePageFreeToZero @ 0x1406F0000
+ * XREFs of MiMoveHibernatePageFreeToZero @ 0x1406F4C70
  * Callers:
  *     <none>
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiDetermineNewPfnHeatState @ 0x140497664 (MiDetermineNewPfnHeatState.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiDetermineNewPfnHeatState @ 0x1404911B4 (MiDetermineNewPfnHeatState.c)
  */
 
 __int64 __fastcall MiMoveHibernatePageFreeToZero(__int64 a1, _QWORD *a2)
@@ -31,27 +31,27 @@ __int64 __fastcall MiMoveHibernatePageFreeToZero(__int64 a1, _QWORD *a2)
   PfnPageSizeIndex = MiGetPfnPageSizeIndex(a1);
   v6 = 0;
   v7 = MiPageSizes[PfnPageSizeIndex];
-  if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 && v4 < *(_QWORD *)&stru_140E2EB88.WaitBlockFill11[64] )
+  if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 && v4 < *(_QWORD *)&stru_140E2ED08.WaitBlockFill11[64] )
   {
     if ( v7 <= 1 )
     {
       if ( v7 != 1
-        || !_bittest64((const signed __int64 *)&stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v4 >> 6), v4 & 0x3F) )
+        || !_bittest64((const signed __int64 *)&stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v4 >> 6), v4 & 0x3F) )
       {
         goto LABEL_6;
       }
 LABEL_16:
-      v16 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+      v16 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
       v17 = MiPageToNode(v4);
       MiDetermineNewPfnHeatState(0, PfnPageSizeIndex, *(_QWORD *)(v16 + 16) + 56320LL * v17);
       goto LABEL_6;
     }
-    if ( *(_QWORD *)&stru_140E2EB88.WaitBlockFill11[64] - v4 < v7 )
+    if ( *(_QWORD *)&stru_140E2ED08.WaitBlockFill11[64] - v4 < v7 )
       goto LABEL_6;
     v8 = v7 + v4 - 1;
-    v9 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + 2 * (v4 >> 6);
+    v9 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + 2 * (v4 >> 6);
     v10 = *(_QWORD *)v9;
-    v11 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + 2 * ((v7 + v4 - 1) >> 6);
+    v11 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + 2 * ((v7 + v4 - 1) >> 6);
     if ( v9 == v11 )
     {
       v12 = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v7) << v4;

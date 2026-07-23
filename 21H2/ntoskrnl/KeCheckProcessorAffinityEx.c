@@ -1,5 +1,5 @@
 /*
- * XREFs of KeCheckProcessorAffinityEx @ 0x1402293D0
+ * XREFs of KeCheckProcessorAffinityEx @ 0x1402CDCD0
  * Callers:
  *     <none>
  * Callees:

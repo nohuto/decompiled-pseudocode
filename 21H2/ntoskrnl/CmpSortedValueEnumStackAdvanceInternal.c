@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSortedValueEnumStackAdvanceInternal @ 0x14087B564
+ * XREFs of CmpSortedValueEnumStackAdvanceInternal @ 0x14087B6C4
  * Callers:
- *     CmpSortedValueEnumStackAdvance @ 0x14087B530 (CmpSortedValueEnumStackAdvance.c)
+ *     CmpSortedValueEnumStackAdvance @ 0x14087B690 (CmpSortedValueEnumStackAdvance.c)
  * Callees:
- *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x14087B894 (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x14087BA10 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpSortedValueEnumStackGetEntryAtLayerHeight @ 0x14087B9F4 (CmpSortedValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x14087BB70 (CmpSortedValueEnumStackValueCompareFunction.c)
  */
 
 __int64 __fastcall CmpSortedValueEnumStackAdvanceInternal(__int16 *a1)

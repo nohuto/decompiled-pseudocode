@@ -1,0 +1,25 @@
+/*
+ * XREFs of sub_140377310 @ 0x140377310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
+ */
+
+__int64 __fastcall sub_140377310(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
+{
+  unsigned int v3; // ebx
+  __int64 v5; // [rsp+20h] [rbp-18h] BYREF
+  ULONG v6; // [rsp+58h] [rbp+20h] BYREF
+
+  v3 = 0;
+  v5 = 8LL;
+  v6 = 0;
+  if ( ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v5, 8u, &v6) >= 0 )
+  {
+    v3 = 1;
+    if ( (v5 & 0x200000000LL) != 0 )
+      byte_140C11664 = 1;
+  }
+  return v3;
+}

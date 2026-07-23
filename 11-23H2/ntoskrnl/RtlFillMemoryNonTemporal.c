@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFillMemoryNonTemporal @ 0x140429A10
+ * XREFs of RtlFillMemoryNonTemporal @ 0x140429DA0
  * Callers:
- *     RtlFillNonVolatileMemory @ 0x1405AF7E0 (RtlFillNonVolatileMemory.c)
+ *     RtlFillNonVolatileMemory @ 0x1405AFD50 (RtlFillNonVolatileMemory.c)
  * Callees:
  *     <none>
  */

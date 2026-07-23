@@ -1,10 +1,10 @@
 /*
- * XREFs of IopErrorLogDpc @ 0x140286300
+ * XREFs of IopErrorLogDpc @ 0x1402864F0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopErrorLogDpc(struct _KDPC *Dpc, PVOID DeferredContext, PVOID SystemArgument1, PVOID SystemArgument2)

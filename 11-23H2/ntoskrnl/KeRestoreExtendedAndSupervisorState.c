@@ -2,15 +2,15 @@
  * XREFs of KeRestoreExtendedAndSupervisorState @ 0x14020E028
  * Callers:
  *     KeRestoreExtendedProcessorState @ 0x14020E010 (KeRestoreExtendedProcessorState.c)
- *     DifKeRestoreExtendedProcessorStateWrapper @ 0x1405E5760 (DifKeRestoreExtendedProcessorStateWrapper.c)
- *     PnprQuiesceProcessorDpc @ 0x140A9D480 (PnprQuiesceProcessorDpc.c)
- *     PopHandleNextState @ 0x140AA811C (PopHandleNextState.c)
+ *     DifKeRestoreExtendedProcessorStateWrapper @ 0x1405E5CD0 (DifKeRestoreExtendedProcessorStateWrapper.c)
+ *     PnprQuiesceProcessorDpc @ 0x140A9D2F0 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x140AA7F8C (PopHandleNextState.c)
  * Callees:
  *     RtlXRestore @ 0x14020E140 (RtlXRestore.c)
  *     KeFreeXStateContext @ 0x14020E184 (KeFreeXStateContext.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlXRestoreS @ 0x14033FCB8 (RtlXRestoreS.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlXRestoreS @ 0x14033FF48 (RtlXRestoreS.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall KeRestoreExtendedAndSupervisorState(__int64 a1)

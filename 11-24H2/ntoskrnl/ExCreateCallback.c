@@ -1,32 +1,32 @@
 /*
- * XREFs of ExCreateCallback @ 0x140A64310
+ * XREFs of ExCreateCallback @ 0x140A5CC10
  * Callers:
- *     HvlPhase2Initialize @ 0x140582B80 (HvlPhase2Initialize.c)
- *     DifExCreateCallbackWrapper @ 0x14061D280 (DifExCreateCallbackWrapper.c)
- *     HaliInitPowerManagement @ 0x140702360 (HaliInitPowerManagement.c)
- *     HalpMiscInitializeKsr @ 0x140702E94 (HalpMiscInitializeKsr.c)
- *     IoRegisterBootDriverCallback @ 0x140720500 (IoRegisterBootDriverCallback.c)
- *     KeRegisterProcessorChangeCallback @ 0x14073C2D0 (KeRegisterProcessorChangeCallback.c)
- *     ExInitLicenseCallback @ 0x1407B8114 (ExInitLicenseCallback.c)
- *     KiFilterFiberContext @ 0x140BDF530 (KiFilterFiberContext.c)
- *     IopInitializeSessionNotifications @ 0x140C1E018 (IopInitializeSessionNotifications.c)
- *     PiCslInitialize @ 0x140C26098 (PiCslInitialize.c)
- *     PiKsrNotifyInitialize @ 0x140C26320 (PiKsrNotifyInitialize.c)
- *     PopSetupKsrCallbacks @ 0x140C2EDFC (PopSetupKsrCallbacks.c)
- *     PopUmpoInitializeChannel @ 0x140C32438 (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140C326B4 (PopUmpoInitializeMonitorChannel.c)
- *     SshpAlpcInitialize @ 0x140C34404 (SshpAlpcInitialize.c)
- *     EtwpInitializeKsrSupport @ 0x140C3E954 (EtwpInitializeKsrSupport.c)
- *     ExpInitializeCallbacks @ 0x140C42828 (ExpInitializeCallbacks.c)
+ *     HvlPhase2Initialize @ 0x14057FF00 (HvlPhase2Initialize.c)
+ *     DifExCreateCallbackWrapper @ 0x14061B840 (DifExCreateCallbackWrapper.c)
+ *     HaliInitPowerManagement @ 0x1406FFFA0 (HaliInitPowerManagement.c)
+ *     HalpMiscInitializeKsr @ 0x140700AD4 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x14071E090 (IoRegisterBootDriverCallback.c)
+ *     KeRegisterProcessorChangeCallback @ 0x14073A200 (KeRegisterProcessorChangeCallback.c)
+ *     ExInitLicenseCallback @ 0x1407B8564 (ExInitLicenseCallback.c)
+ *     KiFilterFiberContext @ 0x140BE1530 (KiFilterFiberContext.c)
+ *     IopInitializeSessionNotifications @ 0x140C20058 (IopInitializeSessionNotifications.c)
+ *     PiCslInitialize @ 0x140C280E8 (PiCslInitialize.c)
+ *     PiKsrNotifyInitialize @ 0x140C28370 (PiKsrNotifyInitialize.c)
+ *     PopSetupKsrCallbacks @ 0x140C30F1C (PopSetupKsrCallbacks.c)
+ *     PopUmpoInitializeChannel @ 0x140C34578 (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140C347F4 (PopUmpoInitializeMonitorChannel.c)
+ *     SshpAlpcInitialize @ 0x140C36544 (SshpAlpcInitialize.c)
+ *     EtwpInitializeKsrSupport @ 0x140C40AA4 (EtwpInitializeKsrSupport.c)
+ *     ExpInitializeCallbacks @ 0x140C44978 (ExpInitializeCallbacks.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     ExpUnlockCallbackListExclusive @ 0x1404CC00C (ExpUnlockCallbackListExclusive.c)
- *     ExpLockCallbackListExclusive @ 0x1404CD1C0 (ExpLockCallbackListExclusive.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1404C547C (ExpUnlockCallbackListExclusive.c)
+ *     ExpLockCallbackListExclusive @ 0x1404C6590 (ExpLockCallbackListExclusive.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
  */
 
 NTSTATUS __stdcall ExCreateCallback(
@@ -96,14 +96,14 @@ LABEL_3:
       v16->Vpb = (PVPB)&v16->Vpb;
       v16->DeviceObject = 0LL;
       ExpLockCallbackListExclusive((__int64)CurrentThread);
-      v17 = (PSECTION_OBJECT_POINTERS **)qword_140EFA788;
+      v17 = (PSECTION_OBJECT_POINTERS **)qword_140EFAAB8;
       p_SectionObjectPointer = &v16->SectionObjectPointer;
-      if ( *(__int64 **)qword_140EFA788 != &ExpCallbackListHead )
+      if ( *(__int64 **)qword_140EFAAB8 != &ExpCallbackListHead )
         __fastfail(3u);
       *p_SectionObjectPointer = (PSECTION_OBJECT_POINTERS)&ExpCallbackListHead;
       v16->PrivateCacheMap = v17;
       *v17 = p_SectionObjectPointer;
-      qword_140EFA788 = (__int64)&v16->SectionObjectPointer;
+      qword_140EFAAB8 = (__int64)&v16->SectionObjectPointer;
       ExpUnlockCallbackListExclusive((__int64)CurrentThread);
       inserted = ObInsertObjectEx(v16, 0LL, 1, 0, 0, 0LL, (__int64)&Handle);
       if ( inserted >= 0 )

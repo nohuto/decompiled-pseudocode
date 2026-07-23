@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpMapTransferV2 @ 0x1404CC994
+ * XREFs of HalpMapTransferV2 @ 0x1404CCBD4
  * Callers:
- *     IoMapTransferInternal @ 0x140388CEC (IoMapTransferInternal.c)
+ *     IoMapTransferInternal @ 0x140388E3C (IoMapTransferInternal.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpDmaZeroMapBuffers @ 0x1404C88D4 (HalpDmaZeroMapBuffers.c)
- *     HalpDmaMapContiguousTransferV2 @ 0x1404CDAAC (HalpDmaMapContiguousTransferV2.c)
- *     HalpDmaMapScatterTransferV2 @ 0x1404CDC04 (HalpDmaMapScatterTransferV2.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpDmaZeroMapBuffers @ 0x1404C8B14 (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x1404CDCEC (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x1404CDE44 (HalpDmaMapScatterTransferV2.c)
  */
 
 __int64 __fastcall HalpMapTransferV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5, char a6)

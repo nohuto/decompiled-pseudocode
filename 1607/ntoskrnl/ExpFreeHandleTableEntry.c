@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpFreeHandleTableEntry @ 0x1404A3C94
+ * XREFs of ExpFreeHandleTableEntry @ 0x14051C094
  * Callers:
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     ExDestroyHandle @ 0x1404A3C38 (ExDestroyHandle.c)
- *     ExCreateHandleEx @ 0x14050DBE0 (ExCreateHandleEx.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     ExCreateHandleEx @ 0x1404F0B70 (ExCreateHandleEx.c)
+ *     ExDestroyHandle @ 0x14051C038 (ExDestroyHandle.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExpGetHandleExtraInfo @ 0x1406AD554 (ExpGetHandleExtraInfo.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExpGetHandleExtraInfo @ 0x1406AD68C (ExpGetHandleExtraInfo.c)
  */
 
 unsigned __int64 __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int64 a3)

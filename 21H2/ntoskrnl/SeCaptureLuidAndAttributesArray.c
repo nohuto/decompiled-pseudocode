@@ -1,15 +1,15 @@
 /*
- * XREFs of SeCaptureLuidAndAttributesArray @ 0x14060855C
+ * XREFs of SeCaptureLuidAndAttributesArray @ 0x140697FEC
  * Callers:
- *     NtFilterToken @ 0x1405D9FB0 (NtFilterToken.c)
- *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
- *     NtPrivilegeCheck @ 0x140607B40 (NtPrivilegeCheck.c)
- *     NtAdjustPrivilegesToken @ 0x140607D30 (NtAdjustPrivilegesToken.c)
+ *     NtPrivilegeCheck @ 0x1406975D0 (NtPrivilegeCheck.c)
+ *     NtAdjustPrivilegesToken @ 0x1406977C0 (NtAdjustPrivilegesToken.c)
+ *     NtFilterToken @ 0x1406C7EA0 (NtFilterToken.c)
+ *     NtCreateTokenEx @ 0x1406CC0B0 (NtCreateTokenEx.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureLuidAndAttributesArray(

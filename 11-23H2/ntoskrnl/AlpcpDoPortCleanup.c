@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpDoPortCleanup @ 0x140718D20
+ * XREFs of AlpcpDoPortCleanup @ 0x140718F20
  * Callers:
- *     AlpcpClosePort @ 0x140719620 (AlpcpClosePort.c)
+ *     AlpcpClosePort @ 0x140719820 (AlpcpClosePort.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphore @ 0x140321430 (KeReleaseSemaphore.c)
- *     AlpcpFlushMessagesPort @ 0x1407188F0 (AlpcpFlushMessagesPort.c)
- *     AlpcpDisconnectPort @ 0x140718EC0 (AlpcpDisconnectPort.c)
- *     AlpcpFlushResourcesPort @ 0x140719510 (AlpcpFlushResourcesPort.c)
- *     AlpcpFreeCompletionList @ 0x1409796C4 (AlpcpFreeCompletionList.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KeReleaseSemaphore @ 0x1403216C0 (KeReleaseSemaphore.c)
+ *     AlpcpFlushMessagesPort @ 0x140718AF0 (AlpcpFlushMessagesPort.c)
+ *     AlpcpDisconnectPort @ 0x1407190C0 (AlpcpDisconnectPort.c)
+ *     AlpcpFlushResourcesPort @ 0x140719710 (AlpcpFlushResourcesPort.c)
+ *     AlpcpFreeCompletionList @ 0x1409798C4 (AlpcpFreeCompletionList.c)
  */
 
 signed __int32 __fastcall AlpcpDoPortCleanup(__int64 a1)

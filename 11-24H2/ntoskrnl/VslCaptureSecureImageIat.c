@@ -1,13 +1,13 @@
 /*
- * XREFs of VslCaptureSecureImageIat @ 0x140AA0A10
+ * XREFs of VslCaptureSecureImageIat @ 0x140A9BDA0
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140A8760C (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140A83AFC (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslCaptureSecureImageIat(__int64 a1, struct _MDL *a2, __int64 a3)
@@ -30,7 +30,7 @@ __int64 __fastcall VslCaptureSecureImageIat(__int64 a1, struct _MDL *a2, __int64
     v11 = v8[0];
     v12 = v8[7];
     v10 = a1;
-    v7 = VslpEnterIumSecureMode(2u, 43LL, 0, (__int64)v9);
+    v7 = VslpEnterIumSecureMode(2u, 0x2Bu, 0, (__int64)v9);
     VslpUnlockPagesForTransfer(v8);
     return v7;
   }

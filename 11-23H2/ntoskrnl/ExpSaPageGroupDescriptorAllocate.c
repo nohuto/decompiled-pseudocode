@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x1403C5DDC
+ * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x1403C5FBC
  * Callers:
  *     ExpSaAllocatorAllocate @ 0x1402236D0 (ExpSaAllocatorAllocate.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KeQueryNodeActiveAffinity @ 0x1403059B0 (KeQueryNodeActiveAffinity.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033AFA0 (KeQueryMaximumProcessorCountEx.c)
- *     ExpSaBinaryArrayInsert @ 0x1403C6140 (ExpSaBinaryArrayInsert.c)
- *     ExpSaBinaryArrayRemove @ 0x1403D5CD8 (ExpSaBinaryArrayRemove.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeQueryNodeActiveAffinity @ 0x140305C40 (KeQueryNodeActiveAffinity.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14033B230 (KeQueryMaximumProcessorCountEx.c)
+ *     ExpSaBinaryArrayInsert @ 0x1403C6320 (ExpSaBinaryArrayInsert.c)
+ *     ExpSaBinaryArrayRemove @ 0x1403D5EB8 (ExpSaBinaryArrayRemove.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
@@ -43,7 +43,7 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   __int64 v20; // r13
   struct _KPRCB *v21; // rax
   USHORT v22; // r15
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   void *Pool3; // rbx
   char v25; // si
   signed __int32 v26; // eax
@@ -55,9 +55,9 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   unsigned int v33; // [rsp+40h] [rbp-21h]
   unsigned int v34; // [rsp+44h] [rbp-1Dh]
   __int64 v35; // [rsp+48h] [rbp-19h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-9h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-9h] BYREF
   __int128 v37; // [rsp+68h] [rbp+7h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp+17h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp+17h] BYREF
 
   Affinity = 0LL;
   v4 = 0;

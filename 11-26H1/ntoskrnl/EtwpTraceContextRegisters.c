@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpTraceContextRegisters @ 0x1406C4208
+ * XREFs of EtwpTraceContextRegisters @ 0x1406C7E48
  * Callers:
- *     EtwpContextRegisterTracingDispatcher @ 0x140507CB4 (EtwpContextRegisterTracingDispatcher.c)
- *     EtwpContextRegisterTracingApc @ 0x1406C3900 (EtwpContextRegisterTracingApc.c)
+ *     EtwpContextRegisterTracingDispatcher @ 0x140501688 (EtwpContextRegisterTracingDispatcher.c)
+ *     EtwpContextRegisterTracingApc @ 0x1406C7540 (EtwpContextRegisterTracingApc.c)
  * Callees:
- *     IoGetStackLimits @ 0x140263C80 (IoGetStackLimits.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsGetUserContextThread @ 0x1409EBE78 (PsGetUserContextThread.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IoGetStackLimits @ 0x1402631F0 (IoGetStackLimits.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsGetUserContextThread @ 0x1409E8648 (PsGetUserContextThread.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTraceContextRegisters(__int64 a1, _QWORD *a2, __int64 a3, int a4)

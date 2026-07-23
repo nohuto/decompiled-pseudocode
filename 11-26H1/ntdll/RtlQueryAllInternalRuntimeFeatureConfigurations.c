@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x180148C10
+ * XREFs of RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x180148AC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x180013B08 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x180014134 (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x180152FF0 (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
- *     RtlpFcQueryAllGovernedFeaturesFromBufferSet @ 0x18016F008 (RtlpFcQueryAllGovernedFeaturesFromBufferSet.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005F238 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005F864 (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x180152EC0 (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
+ *     RtlpFcQueryAllGovernedFeaturesFromBufferSet @ 0x18016E008 (RtlpFcQueryAllGovernedFeaturesFromBufferSet.c)
  */
 
 __int64 __fastcall RtlQueryAllInternalRuntimeFeatureConfigurations(
@@ -57,6 +57,6 @@ __int64 __fastcall RtlQueryAllInternalRuntimeFeatureConfigurations(
     }
   }
   if ( v12 )
-    RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)&xmmword_1801CCC48, v12);
+    RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&xmmword_1801CBC88, v12);
   return (unsigned int)AllInternalFeatureConfigurationsFromBufferSet;
 }

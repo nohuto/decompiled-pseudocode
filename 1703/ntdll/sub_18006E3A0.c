@@ -14,24 +14,24 @@
  *     ZwDelayExecution @ 0x1800A5980 (ZwDelayExecution.c)
  */
 
-__int64 __fastcall sub_18006E3A0(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS sub_18006E3A0()
 {
-  __int64 result; // rax
-  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   while ( _InterlockedCompareExchange(&dword_18015C270, 1, 0) )
   {
-    result = (unsigned int)dword_18015C270;
+    result = dword_18015C270;
     if ( dword_18015C270 == 1 )
     {
-      ZwDelayExecution(0LL, &v5);
-      result = (unsigned int)dword_18015C270;
+      ZwDelayExecution(0, &DelayInterval);
+      result = dword_18015C270;
     }
-    if ( (_DWORD)result == 2 )
+    if ( result == 2 )
       return result;
   }
-  result = RtlInitializeCriticalSectionEx((__int64)&unk_180159BA0, 0LL, 0LL, a4);
+  result = RtlInitializeCriticalSectionEx(&stru_180159BA0, 0, 0);
   dword_18015C270 = 2;
   return result;
 }

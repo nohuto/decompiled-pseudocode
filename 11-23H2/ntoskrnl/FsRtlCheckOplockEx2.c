@@ -1,38 +1,38 @@
 /*
- * XREFs of FsRtlCheckOplockEx2 @ 0x1402FD950
+ * XREFs of FsRtlCheckOplockEx2 @ 0x1402FDBE0
  * Callers:
- *     FsRtlCheckOplockEx @ 0x1402FD900 (FsRtlCheckOplockEx.c)
- *     FsRtlCheckOplock @ 0x1402FE610 (FsRtlCheckOplock.c)
+ *     FsRtlCheckOplockEx @ 0x1402FDB90 (FsRtlCheckOplockEx.c)
+ *     FsRtlCheckOplock @ 0x1402FE8A0 (FsRtlCheckOplock.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExpReleaseFastMutexContended @ 0x1402BBF60 (ExpReleaseFastMutexContended.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     FsRtlpOplockBreakToII @ 0x1402FBB38 (FsRtlpOplockBreakToII.c)
- *     ExpAcquireFastMutexContended @ 0x1402FCD4C (ExpAcquireFastMutexContended.c)
- *     FsRtlpClearOwner @ 0x1402FD62C (FsRtlpClearOwner.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402FE6F0 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockKeysEqual @ 0x140300C80 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpOplockDequeueRH @ 0x140301520 (FsRtlpOplockDequeueRH.c)
- *     FsRtlpComputeShareableOplockState @ 0x140302370 (FsRtlpComputeShareableOplockState.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpCallerIsAtomicRequestor @ 0x140302984 (FsRtlpCallerIsAtomicRequestor.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140317E40 (KiAbThreadRemoveBoostsSlow.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140360E34 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     IoSetOplockKeyContext @ 0x1403CF138 (IoSetOplockKeyContext.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     FsRtlGetMarkHandleInfo @ 0x14053DC2C (FsRtlGetMarkHandleInfo.c)
- *     FsRtlpOplockBreakToNone @ 0x14053E8F0 (FsRtlpOplockBreakToNone.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14073E120 (FsRtlFreeExtraCreateParameter.c)
- *     FsRtlAcknowledgeEcp @ 0x140765320 (FsRtlAcknowledgeEcp.c)
- *     IoGetIrpExtraCreateParameter @ 0x140765330 (IoGetIrpExtraCreateParameter.c)
- *     FsRtlFindExtraCreateParameter @ 0x140765350 (FsRtlFindExtraCreateParameter.c)
- *     FsRtlRemoveExtraCreateParameter @ 0x1407653E0 (FsRtlRemoveExtraCreateParameter.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExpReleaseFastMutexContended @ 0x1402BC1F0 (ExpReleaseFastMutexContended.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     FsRtlpOplockBreakToII @ 0x1402FBDC8 (FsRtlpOplockBreakToII.c)
+ *     ExpAcquireFastMutexContended @ 0x1402FCFDC (ExpAcquireFastMutexContended.c)
+ *     FsRtlpClearOwner @ 0x1402FD8BC (FsRtlpClearOwner.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402FE980 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402FEAC0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockKeysEqual @ 0x140300F10 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpOplockCleanup @ 0x1403011A4 (FsRtlpOplockCleanup.c)
+ *     FsRtlpOplockDequeueRH @ 0x1403017B0 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140302600 (FsRtlpComputeShareableOplockState.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpCallerIsAtomicRequestor @ 0x140302C14 (FsRtlpCallerIsAtomicRequestor.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1403180D0 (KiAbThreadRemoveBoostsSlow.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140360FD4 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     IoSetOplockKeyContext @ 0x1403CF318 (IoSetOplockKeyContext.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlGetMarkHandleInfo @ 0x14053E17C (FsRtlGetMarkHandleInfo.c)
+ *     FsRtlpOplockBreakToNone @ 0x14053EFB8 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14073E310 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlAcknowledgeEcp @ 0x140765510 (FsRtlAcknowledgeEcp.c)
+ *     IoGetIrpExtraCreateParameter @ 0x140765520 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x140765540 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlRemoveExtraCreateParameter @ 0x1407655D0 (FsRtlRemoveExtraCreateParameter.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -541,7 +541,7 @@ LABEL_65:
                 v89 = 4LL;
                 tlgWriteTransfer_EtwWriteTransfer(
                   (__int64)&dword_140C03768,
-                  (unsigned __int8 *)&dword_14002B454,
+                  (unsigned __int8 *)&dword_14002B53C,
                   0LL,
                   0LL,
                   6u,

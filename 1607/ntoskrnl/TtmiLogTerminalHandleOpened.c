@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalHandleOpened @ 0x14067C62C
+ * XREFs of TtmiLogTerminalHandleOpened @ 0x14067C710
  * Callers:
- *     TtmpOpenTerminalHandle @ 0x14067806C (TtmpOpenTerminalHandle.c)
+ *     TtmpOpenTerminalHandle @ 0x140678150 (TtmpOpenTerminalHandle.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogTerminalHandleOpened(int a1)
@@ -43,7 +43,7 @@ void __fastcall TtmiLogTerminalHandleOpened(int a1)
       v13 = 4LL;
       v15 = 8LL;
       v17 = 4LL;
-      TlgWrite(&stru_1407478B0, &unk_14027DDD9, 0LL, 0LL, 6u, &pData);
+      TlgWrite(&stru_1407478B0, &unk_14027DED9, 0LL, 0LL, 6u, &pData);
     }
   }
 }

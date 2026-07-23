@@ -1,15 +1,15 @@
 /*
- * XREFs of ViHookDmaAdapter @ 0x1409CEE8C
+ * XREFs of ViHookDmaAdapter @ 0x1409CFE8C
  * Callers:
- *     VfGetDmaAdapter @ 0x1409CBE60 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x1409CCE60 (VfGetDmaAdapter.c)
  * Callees:
- *     ExInterlockedInsertHeadList @ 0x1402A0300 (ExInterlockedInsertHeadList.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     ViAllocateContiguousMemory @ 0x1409CD3AC (ViAllocateContiguousMemory.c)
- *     ViCopyDeviceDescription @ 0x1409CE0DC (ViCopyDeviceDescription.c)
- *     ViGetAdapterInformationInternal @ 0x1409CE748 (ViGetAdapterInformationInternal.c)
+ *     ExInterlockedInsertHeadList @ 0x14021D880 (ExInterlockedInsertHeadList.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     ViAllocateContiguousMemory @ 0x1409CE3AC (ViAllocateContiguousMemory.c)
+ *     ViCopyDeviceDescription @ 0x1409CF0DC (ViCopyDeviceDescription.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CF748 (ViGetAdapterInformationInternal.c)
  */
 
 struct _LIST_ENTRY *__fastcall ViHookDmaAdapter(struct _LIST_ENTRY *Object, __int64 a2, int a3, char a4)

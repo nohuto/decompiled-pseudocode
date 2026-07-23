@@ -42,10 +42,10 @@ __int64 __fastcall SepSetSingletonEntry(unsigned int a1, int *a2, __int64 a3)
       {
         v5 = -1073741801;
         ExReleaseSpinLockExclusiveFromDpcLevel(v7);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu )
           {
             v14 = CurrentIrql < 2u;
 LABEL_17:
@@ -77,10 +77,10 @@ LABEL_6:
     v5 = AuthzBasepSetSecurityAttributesToken(*((_QWORD *)v7 + 2), a2, a3);
     *((_DWORD *)SepSingletonGlobal + 4) |= 1u;
     ExReleaseSpinLockExclusiveFromDpcLevel(v7);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v8 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v8 <= 0xFu )
       {
         v14 = v15 < 2u;
         goto LABEL_17;

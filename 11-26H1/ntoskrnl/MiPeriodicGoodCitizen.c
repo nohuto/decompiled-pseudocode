@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPeriodicGoodCitizen @ 0x140313E40
+ * XREFs of MiPeriodicGoodCitizen @ 0x140315E70
  * Callers:
- *     MiAgePte @ 0x1402FE880 (MiAgePte.c)
- *     MiWalkLeap @ 0x1403260B0 (MiWalkLeap.c)
- *     MiWalkPageTablesRecursively @ 0x1403270E0 (MiWalkPageTablesRecursively.c)
+ *     MiAgePte @ 0x1402E0900 (MiAgePte.c)
+ *     MiWalkLeap @ 0x1403280E0 (MiWalkLeap.c)
+ *     MiWalkPageTablesRecursively @ 0x140329110 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     EtwTraceShouldYieldProcessor @ 0x1403142E8 (EtwTraceShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140316318 (EtwTraceShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall MiPeriodicGoodCitizen(int *a1, unsigned __int64 a2, int a3)
@@ -58,7 +58,7 @@ _BOOL8 __fastcall MiPeriodicGoodCitizen(int *a1, unsigned __int64 a2, int a3)
   if ( v8 == 5 || v8 <= 4u )
   {
     if ( (*(_DWORD *)(v5 + 184) & 0xF) == 1 )
-      v9 = &qword_140E37800;
+      v9 = &qword_140E37980;
     else
       v9 = (__int64 *)(v5 + 192);
     v10 = *v9;
@@ -153,7 +153,7 @@ LABEL_19:
     goto LABEL_19;
   }
   v35 = 2 * (unsigned int)((__int64)(v14 + 0x90482413000LL) >> 3);
-  if ( ((*(_DWORD *)&stru_140E2D930.PriorityFloorCounts[4 * (v35 >> 5) + 4] >> (v35 & 0x1F)) & 2) == 0 )
+  if ( ((*(_DWORD *)&stru_140E2DAB0.PriorityFloorCounts[4 * (v35 >> 5) + 4] >> (v35 & 0x1F)) & 2) == 0 )
   {
 LABEL_21:
     if ( *((_BYTE *)a1 + 9) >= 2u )

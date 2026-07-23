@@ -30,44 +30,37 @@ int ExpKeyedEventInitialization()
   ULONG v6; // esi
   ACL *v7; // rax
   ACL *v8; // rdi
-  __int64 v9; // rdx
-  int KeyedEvent; // esi
-  PVOID *Object; // [rsp+20h] [rbp-E0h]
+  ULONG v9; // edx
+  NTSTATUS v10; // esi
+  UCHAR Object; // [rsp+20h] [rbp-E0h]
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D0h] BYREF
-  int v13; // [rsp+40h] [rbp-C0h]
-  int v14; // [rsp+44h] [rbp-BCh]
-  __int64 v15; // [rsp+48h] [rbp-B8h]
-  UNICODE_STRING *p_DestinationString; // [rsp+50h] [rbp-B0h]
-  int v17; // [rsp+58h] [rbp-A8h]
-  int v18; // [rsp+5Ch] [rbp-A4h]
-  _OWORD *v19; // [rsp+60h] [rbp-A0h]
-  __int64 v20; // [rsp+68h] [rbp-98h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-C0h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v22; // [rsp+90h] [rbp-70h]
-  _DWORD v23[32]; // [rsp+A0h] [rbp-60h] BYREF
-  HANDLE Handle; // [rsp+150h] [rbp+50h] BYREF
-  PVOID v25; // [rsp+158h] [rbp+58h] BYREF
+  __int64 v15; // [rsp+90h] [rbp-70h]
+  _DWORD v16[32]; // [rsp+A0h] [rbp-60h] BYREF
+  HANDLE KeyedEventHandle; // [rsp+150h] [rbp+50h] BYREF
+  PVOID v18; // [rsp+158h] [rbp+58h] BYREF
 
   DestinationString = 0LL;
-  memset(v23, 0, 0x78uLL);
-  v14 = 0;
-  v18 = 0;
-  Handle = 0LL;
+  memset(v16, 0, 0x78uLL);
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  KeyedEventHandle = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v22 = 0LL;
+  v15 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"KeyedEvent");
-  v23[2] = 0;
-  v23[10] = 0;
-  v23[11] = 0;
-  BYTE2(v23[0]) |= 4u;
-  v23[9] = 1;
-  v23[7] = 983043;
-  v23[6] = 983043;
-  LOWORD(v23[0]) = 120;
-  v23[3] = 131073;
-  v23[4] = 131074;
-  v23[5] = 0x20000;
-  result = ObCreateObjectType(&DestinationString, (__int64)v23, 0LL, (__int64)&ExpKeyedEventObjectType);
+  v16[2] = 0;
+  v16[10] = 0;
+  v16[11] = 0;
+  BYTE2(v16[0]) |= 4u;
+  v16[9] = 1;
+  v16[7] = 983043;
+  v16[6] = 983043;
+  LOWORD(v16[0]) = 120;
+  v16[3] = 131073;
+  v16[4] = 131074;
+  v16[5] = 0x20000;
+  result = ObCreateObjectType(&DestinationString, (__int64)v16, 0LL, (__int64)&ExpKeyedEventObjectType);
   if ( result < 0 )
     return result;
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -107,11 +100,10 @@ LABEL_19:
     Acl = -1073741670;
     goto LABEL_19;
   }
-  KeyedEvent = RtlCreateAcl(v7, v6, 2u);
-  if ( KeyedEvent < 0
-    || (KeyedEvent = RtlAddMandatoryAce((__int64)v8, v9, 0, (__int64)SeLowMandatorySid, (__int64)Object, 1),
-        KeyedEvent < 0)
-    || (KeyedEvent = RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, (__int64)v8, 0), KeyedEvent < 0) )
+  v10 = RtlCreateAcl(v7, v6, 2u);
+  if ( v10 < 0
+    || (v10 = RtlAddMandatoryAce(v8, v9, 0, SeLowMandatorySid, Object, 1u), v10 < 0)
+    || (v10 = RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, v8, 0), v10 < 0) )
   {
     ExFreePoolWithTag(v3, 0);
     ExFreePoolWithTag(v8, 0);
@@ -119,22 +111,22 @@ LABEL_19:
   else
   {
     RtlInitUnicodeString(&DestinationString, L"\\KernelObjects\\CritSecOutOfMemoryEvent");
-    v15 = 0LL;
-    v20 = 0LL;
-    p_DestinationString = &DestinationString;
-    v13 = 48;
-    v19 = SecurityDescriptor;
-    v17 = 16;
-    KeyedEvent = ZwCreateKeyedEvent((__int64)&Handle, 983043LL);
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.SecurityQualityOfService = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+    ObjectAttributes.Attributes = 16;
+    v10 = ZwCreateKeyedEvent(&KeyedEventHandle, 0xF0003u, &ObjectAttributes, 0);
     ExFreePoolWithTag(v3, 0);
     ExFreePoolWithTag(v8, 0);
-    if ( KeyedEvent >= 0 )
+    if ( v10 >= 0 )
     {
-      v25 = 0LL;
-      KeyedEvent = ObReferenceObjectByHandle(Handle, 0xF0003u, ExpKeyedEventObjectType, 0, &v25, 0LL);
-      ExpCritSecOutOfMemoryEvent = (__int64)v25;
-      ZwClose(Handle);
+      v18 = 0LL;
+      v10 = ObReferenceObjectByHandle(KeyedEventHandle, 0xF0003u, ExpKeyedEventObjectType, 0, &v18, 0LL);
+      ExpCritSecOutOfMemoryEvent = (__int64)v18;
+      ZwClose(KeyedEventHandle);
     }
   }
-  return KeyedEvent;
+  return v10;
 }

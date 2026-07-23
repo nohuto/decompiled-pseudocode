@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMapProcessExecutable @ 0x14046CDE8
+ * XREFs of MiMapProcessExecutable @ 0x14046BCB8
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14046D378 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x14046C248 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiGetPdeAddress @ 0x1400AB5EC (MiGetPdeAddress.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     PsMapSystemDlls @ 0x14046BE08 (PsMapSystemDlls.c)
- *     MmMapViewOfSection @ 0x14046BFE8 (MmMapViewOfSection.c)
- *     MiCfgInitializeProcess @ 0x14046CF1C (MiCfgInitializeProcess.c)
- *     MiInitializeUserNoAccess @ 0x1404DC360 (MiInitializeUserNoAccess.c)
- *     MiSessionCreate @ 0x140535604 (MiSessionCreate.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiGetPdeAddress @ 0x1400847A4 (MiGetPdeAddress.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     PsMapSystemDlls @ 0x14046ACD8 (PsMapSystemDlls.c)
+ *     MmMapViewOfSection @ 0x14046AEB8 (MmMapViewOfSection.c)
+ *     MiCfgInitializeProcess @ 0x14046BDEC (MiCfgInitializeProcess.c)
+ *     MiInitializeUserNoAccess @ 0x1404BF964 (MiInitializeUserNoAccess.c)
+ *     MiSessionCreate @ 0x140535B44 (MiSessionCreate.c)
  */
 
 __int64 __fastcall MiMapProcessExecutable(_KPROCESS *a1, __int64 a2, _BYTE *a3, __int64 a4)

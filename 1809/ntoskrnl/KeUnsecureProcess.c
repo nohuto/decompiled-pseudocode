@@ -1,10 +1,10 @@
 /*
- * XREFs of KeUnsecureProcess @ 0x14028E838
+ * XREFs of KeUnsecureProcess @ 0x14028EA28
  * Callers:
- *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x140608590 (PspProcessDelete.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 int __fastcall KeUnsecureProcess(__int64 a1)

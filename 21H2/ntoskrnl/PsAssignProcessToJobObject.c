@@ -1,16 +1,16 @@
 /*
- * XREFs of PsAssignProcessToJobObject @ 0x14071F3B0
+ * XREFs of PsAssignProcessToJobObject @ 0x1406F6D10
  * Callers:
- *     NtAssignProcessToJobObject @ 0x14071F2B0 (NtAssignProcessToJobObject.c)
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
- *     PspSetJobMemoryPartition @ 0x14090953C (PspSetJobMemoryPartition.c)
- *     PspAssignProcessToJobList @ 0x140909EEC (PspAssignProcessToJobList.c)
+ *     NtAssignProcessToJobObject @ 0x1406F6D90 (NtAssignProcessToJobObject.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
+ *     PspSetJobMemoryPartition @ 0x14090969C (PspSetJobMemoryPartition.c)
+ *     PspAssignProcessToJobList @ 0x14090A04C (PspAssignProcessToJobList.c)
  * Callees:
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
- *     PspGetJobAssignmentDisposition @ 0x140720678 (PspGetJobAssignmentDisposition.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
+ *     PspGetJobAssignmentDisposition @ 0x1406F6B28 (PspGetJobAssignmentDisposition.c)
  */
 
-__int64 __fastcall PsAssignProcessToJobObject(__int64 a1, PEPROCESS Process, __int64 a3)
+__int64 __fastcall PsAssignProcessToJobObject(_QWORD *Object, PEPROCESS Process, __int64 a3)
 {
   unsigned int i; // ebx
   __int64 result; // rax
@@ -19,9 +19,9 @@ __int64 __fastcall PsAssignProcessToJobObject(__int64 a1, PEPROCESS Process, __i
   v8 = 0;
   for ( i = 0; i <= 0xA; ++i )
   {
-    if ( (int)PspGetJobAssignmentDisposition(a1, Process, a3, &v8) < 0 )
+    if ( (int)PspGetJobAssignmentDisposition((__int64)Object, (__int64)Process, a3, &v8) < 0 )
       return 3221225506LL;
-    result = PspAssignProcessToJob(a1, Process, a3);
+    result = PspAssignProcessToJob(Object, Process, a3, v8);
     if ( (_DWORD)result != -1073741267 )
       return result;
   }

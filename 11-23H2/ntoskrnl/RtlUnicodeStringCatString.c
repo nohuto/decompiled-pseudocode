@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlUnicodeStringCatString @ 0x140209B44
  * Callers:
- *     PopPowerRequestStatsIdConcat @ 0x1407A8AD0 (PopPowerRequestStatsIdConcat.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140843E94 (SshpGenerateDeviceFriendlyName.c)
- *     PopGenerateDeviceFriendlyName @ 0x140849204 (PopGenerateDeviceFriendlyName.c)
- *     AslpPathWildcardAllocMatchNode @ 0x140A565E8 (AslpPathWildcardAllocMatchNode.c)
+ *     PopPowerRequestStatsIdConcat @ 0x1407A8CC0 (PopPowerRequestStatsIdConcat.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140844194 (SshpGenerateDeviceFriendlyName.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140849504 (PopGenerateDeviceFriendlyName.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140A56898 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
  *     RtlUnicodeStringValidateDestWorker @ 0x140208D74 (RtlUnicodeStringValidateDestWorker.c)
  */

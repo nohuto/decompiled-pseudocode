@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpLogPmcCounterRundown @ 0x140A7EF6C
+ * XREFs of EtwpLogPmcCounterRundown @ 0x140A7871C
  * Callers:
- *     EtwpStopLoggerInstance @ 0x1409D9164 (EtwpStopLoggerInstance.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x140A15CC0 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpStopLoggerInstance @ 0x1409D3C74 (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x140A0EEA0 (EtwpCheckLoggerAccessAndDoRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
@@ -35,7 +35,7 @@ void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
   unsigned int v23; // [rsp+30h] [rbp-48h]
   __int64 v24; // [rsp+38h] [rbp-40h]
   unsigned int v26; // [rsp+90h] [rbp+18h] BYREF
-  int v27; // [rsp+98h] [rbp+20h] BYREF
+  int v27; // [rsp+98h] [rbp+20h]
 
   v2 = KeNumberProcessors_0;
   v3 = 0;
@@ -43,10 +43,10 @@ void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
   v23 = KeNumberProcessors_0;
   v27 = 0;
   v5 = 0LL;
-  Pool2 = (unsigned int **)ExAllocatePool2(0x40uLL);
+  Pool2 = (unsigned int **)ExAllocatePool2(0x40uLL, (unsigned int)(32 * (EtwpMaxPmcCounter + 1)), 0x74777445u);
   if ( Pool2 )
   {
-    v24 = ExAllocatePool2(0x40uLL);
+    v24 = ExAllocatePool2(0x40uLL, (unsigned int)(24 * EtwpMaxPmcCounter), 0x74777445u);
     v7 = (void *)v24;
     if ( v24 )
     {
@@ -66,7 +66,7 @@ void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
             v11 = v9;
             v12 = v24 + 24LL * v9;
             *(_DWORD *)v12 = *(_DWORD *)(*(_QWORD *)v8 + 4LL * v9);
-            if ( (int)guard_dispatch_icall_no_overrides(1LL, 24LL, v12, &v27) < 0 )
+            if ( (int)guard_dispatch_icall_no_overrides(1LL, 24LL) < 0 )
               v13 = L"Unknown";
             else
               v13 = *(const WCHAR **)(v12 + 16);
@@ -88,7 +88,7 @@ void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
         if ( *(_QWORD *)(a1 + 24) == 1LL )
         {
           v16 = 16 * v26 + 24;
-          v5 = (unsigned int *)ExAllocatePool2(0x40uLL);
+          v5 = (unsigned int *)ExAllocatePool2(0x40uLL, v16, 0x74777445u);
           if ( v5 )
           {
             if ( v2 )
@@ -99,7 +99,7 @@ void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
                 if ( *v17 )
                 {
                   *(_QWORD *)v5 = *v17;
-                  if ( (int)guard_dispatch_icall_no_overrides(52LL, v16, v5, &v27) >= 0 )
+                  if ( (int)guard_dispatch_icall_no_overrides(52LL, v16) >= 0 )
                   {
                     Pool2[1] = (unsigned int *)4;
                     *Pool2 = v5 + 2;

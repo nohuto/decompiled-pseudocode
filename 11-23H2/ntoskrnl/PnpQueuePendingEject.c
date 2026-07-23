@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpQueuePendingEject @ 0x14095925C
+ * XREFs of PnpQueuePendingEject @ 0x14095945C
  * Callers:
- *     IopEjectDevice @ 0x14096CD18 (IopEjectDevice.c)
+ *     IopEjectDevice @ 0x14096CF18 (IopEjectDevice.c)
  * Callees:
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
  */
 
 char __fastcall PnpQueuePendingEject(_QWORD *a1)

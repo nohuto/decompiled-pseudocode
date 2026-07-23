@@ -1,10 +1,10 @@
 /*
- * XREFs of PiEnumerateDependentListEntry @ 0x1406F996C
+ * XREFs of PiEnumerateDependentListEntry @ 0x1406F75AC
  * Callers:
- *     PipVisitDeviceObjectListEntry @ 0x140A0F988 (PipVisitDeviceObjectListEntry.c)
- *     PnpProcessDependencyRelations @ 0x140A1123C (PnpProcessDependencyRelations.c)
+ *     PipVisitDeviceObjectListEntry @ 0x1409BDD98 (PipVisitDeviceObjectListEntry.c)
+ *     PnpProcessDependencyRelations @ 0x1409BF64C (PnpProcessDependencyRelations.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x1404F8618 (PiListEntryToDependencyEdge.c)
+ *     PiListEntryToDependencyEdge @ 0x1404F5EF8 (PiListEntryToDependencyEdge.c)
  */
 
 __int64 __fastcall PiEnumerateDependentListEntry(__int64 a1)

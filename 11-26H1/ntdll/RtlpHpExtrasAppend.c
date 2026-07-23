@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpExtrasAppend @ 0x18001A390
+ * XREFs of RtlpHpExtrasAppend @ 0x180005470
  * Callers:
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpVsChunkSetExtraPresent @ 0x18001A594 (RtlpHpVsChunkSetExtraPresent.c)
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpHpLargeAllocGetMetadata @ 0x180074A54 (RtlpHpLargeAllocGetMetadata.c)
- *     RtlpHpPgSetExtraPresent @ 0x1800E1F84 (RtlpHpPgSetExtraPresent.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpVsChunkSetExtraPresent @ 0x180005674 (RtlpHpVsChunkSetExtraPresent.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpLargeAllocGetMetadata @ 0x180095038 (RtlpHpLargeAllocGetMetadata.c)
+ *     RtlpHpPgSetExtraPresent @ 0x1800DF824 (RtlpHpPgSetExtraPresent.c)
  */
 
 unsigned __int64 __fastcall RtlpHpExtrasAppend(
-        __int64 a1,
+        _RTL_SRWLOCK *a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -23,15 +23,15 @@ unsigned __int64 __fastcall RtlpHpExtrasAppend(
   __m128i *v9; // rsi
   unsigned __int64 v10; // rsi
   int v11; // eax
-  __int64 v12; // rdi
-  __int64 v13; // r9
-  _BYTE *v14; // r10
+  _RTL_SRWLOCK *v12; // rdi
+  unsigned __int64 v13; // r9
+  _RTL_SRWLOCK *v14; // r10
   char v15; // cl
   unsigned __int64 v16; // rax
   unsigned __int64 v17; // rax
   char v18; // dl
   unsigned int v19; // edx
-  __int64 v20; // r8
+  unsigned __int64 v20; // r8
   unsigned __int64 v21; // r9
   unsigned __int64 v23; // rcx
   __int64 v24; // rax
@@ -56,22 +56,22 @@ unsigned __int64 __fastcall RtlpHpExtrasAppend(
     }
     else
     {
-      v24 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801C78C0, 2 * ((unsigned __int64)(a2 - qword_1801C78B8) >> 20));
+      v24 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((unsigned __int64)(a2 - qword_1801C6908) >> 20));
       if ( !v24 || (v11 = v24 - 1, v11 == 2) )
       {
-        RtlAcquireSRWLockShared(a1 + 64);
+        RtlAcquireSRWLockShared(a1 + 8);
         Metadata = RtlpHpLargeAllocGetMetadata(a1, a2);
-        RtlReleaseSRWLockShared(a1 + 64);
+        RtlReleaseSRWLockShared(a1 + 8);
         *(_QWORD *)(Metadata + 32) |= 1uLL;
         return v10;
       }
     }
-    v12 = a1 + 192LL * v11;
-    v13 = a2 & *(_QWORD *)(v12 + 320);
-    if ( (RtlpHpHeapGlobals ^ *(_QWORD *)(v13 + 0x10) ^ v13) == v12 + 320 )
+    v12 = &a1[24 * v11];
+    v13 = a2 & v12[40].Value;
+    if ( (_RTL_SRWLOCK *)(RtlpHpHeapGlobals ^ *(_QWORD *)(v13 + 0x10) ^ v13) == &v12[40] )
     {
-      v14 = (_BYTE *)(v12 + 328);
-      v15 = *(_BYTE *)(v12 + 328);
+      v14 = v12 + 41;
+      v15 = (char)v12[41].0;
       v16 = v13 + 32 * ((unsigned __int64)(unsigned int)(a2 - v13) >> v15);
       v17 = v16 - 32LL * *(unsigned __int8 *)(v16 + 26);
       v18 = *(_BYTE *)(v17 + 24);
@@ -81,7 +81,7 @@ unsigned __int64 __fastcall RtlpHpExtrasAppend(
     else
     {
       v17 = 0LL;
-      v14 = (_BYTE *)(v12 + 328);
+      v14 = v12 + 41;
     }
     v19 = *(_BYTE *)(v17 + 24) & 0x1C;
     if ( v19 < 8 )
@@ -90,20 +90,20 @@ unsigned __int64 __fastcall RtlpHpExtrasAppend(
     }
     else
     {
-      v20 = v17 & *(_QWORD *)(v12 + 320);
-      v21 = v20 + ((unsigned int)((__int64)(v17 - v20) >> 5) << *v14);
+      v20 = v17 & v12[40].Value;
+      v21 = v20 + ((unsigned int)((__int64)(v17 - v20) >> 5) << *(_BYTE *)&v14->0);
       if ( v19 == 8 )
       {
-        v23 = (unsigned __int16)qword_1801C6EC8 ^ *(unsigned __int16 *)(v21 + 40) ^ (unsigned __int64)(unsigned __int16)(v21 >> 12);
+        v23 = (unsigned __int16)qword_1801C5EC8 ^ *(unsigned __int16 *)(v21 + 40) ^ (unsigned __int64)(unsigned __int16)(v21 >> 12);
         *(_WORD *)(v23 + a2 - 2) |= 0x4000u;
       }
       else if ( v19 == 12 )
       {
-        RtlpHpVsChunkSetExtraPresent(*(_QWORD *)(v12 + 352), a2, v20, v21);
+        RtlpHpVsChunkSetExtraPresent(v12[44].Value, a2, v20, v21);
       }
       else
       {
-        RtlpHpPgSetExtraPresent(*(_QWORD *)(v12 + 464), a2, v20, v21);
+        RtlpHpPgSetExtraPresent(v12[58].Value, a2, v20, v21);
       }
     }
     return v10;

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void *LdrGetFailureData()
+PLDR_FAILURE_DATA LdrGetFailureData(void)
 {
-  return &unk_18015AEE0;
+  return (PLDR_FAILURE_DATA)&unk_18015AEE0;
 }

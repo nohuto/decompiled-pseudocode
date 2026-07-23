@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSetSchedulerAssistPriority @ 0x1404104A0
+ * XREFs of KiSetSchedulerAssistPriority @ 0x140410704
  * Callers:
  *     KiUpdateThreadSchedulingProperties @ 0x140204EA0 (KiUpdateThreadSchedulingProperties.c)
  *     KiCheckForEffectivePriorityChange @ 0x1402064E4 (KiCheckForEffectivePriorityChange.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiCommitRescheduleContextEntry @ 0x140242E90 (KiCommitRescheduleContextEntry.c)
- *     KeYieldExecution @ 0x1402469F0 (KeYieldExecution.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiComputeEffectivePriority @ 0x1402B2790 (KiComputeEffectivePriority.c)
- *     KiRemoveBoostThread @ 0x1402BB250 (KiRemoveBoostThread.c)
- *     KiInitializeForegroundBoostThread @ 0x1402BDE58 (KiInitializeForegroundBoostThread.c)
- *     KiUpdateThreadPriority @ 0x140307B90 (KiUpdateThreadPriority.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x14030860C (KiTransitionSchedulingGroupGeneration.c)
- *     KiApplyForegroundBoostThread @ 0x1403504D8 (KiApplyForegroundBoostThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiCommitRescheduleContextEntry @ 0x140242F60 (KiCommitRescheduleContextEntry.c)
+ *     KeYieldExecution @ 0x140246AC0 (KeYieldExecution.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiComputeEffectivePriority @ 0x1402B2A20 (KiComputeEffectivePriority.c)
+ *     KiRemoveBoostThread @ 0x1402BB4E0 (KiRemoveBoostThread.c)
+ *     KiInitializeForegroundBoostThread @ 0x1402BE0E8 (KiInitializeForegroundBoostThread.c)
+ *     KiUpdateThreadPriority @ 0x140307E20 (KiUpdateThreadPriority.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x14030889C (KiTransitionSchedulingGroupGeneration.c)
+ *     KiApplyForegroundBoostThread @ 0x140350678 (KiApplyForegroundBoostThread.c)
  * Callees:
  *     <none>
  */

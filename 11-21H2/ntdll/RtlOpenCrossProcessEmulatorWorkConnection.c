@@ -11,43 +11,61 @@
  *     ZwDuplicateObject @ 0x1800A47F0 (ZwDuplicateObject.c)
  */
 
-int __fastcall RtlOpenCrossProcessEmulatorWorkConnection(void *a1, HANDLE *a2, _QWORD *a3)
+char __fastcall RtlOpenCrossProcessEmulatorWorkConnection(HANDLE ProcessHandle, HANDLE *a2, PVOID *a3)
 {
-  int result; // eax
-  __int64 v7; // [rsp+50h] [rbp-30h] BYREF
-  _BYTE v8[16]; // [rsp+58h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+68h] [rbp-18h]
-  char v10; // [rsp+B8h] [rbp+38h] BYREF
-  HANDLE Handle; // [rsp+C0h] [rbp+40h] BYREF
-  __int64 v12; // [rsp+C8h] [rbp+48h] BYREF
+  int SharedInfoProcess; // eax
+  ULONG_PTR ViewSize; // [rsp+50h] [rbp-30h] BYREF
+  _BYTE v9[16]; // [rsp+58h] [rbp-28h] BYREF
+  HANDLE SourceHandle; // [rsp+68h] [rbp-18h]
+  char v11; // [rsp+B8h] [rbp+38h] BYREF
+  HANDLE TargetHandle; // [rsp+C0h] [rbp+40h] BYREF
+  PVOID BaseAddress; // [rsp+C8h] [rbp+48h] BYREF
 
   *a2 = 0LL;
   *a3 = 0LL;
-  result = RtlIsCurrentProcess();
-  if ( !(_BYTE)result )
+  LOBYTE(SharedInfoProcess) = RtlIsCurrentProcess(ProcessHandle);
+  if ( !(_BYTE)SharedInfoProcess )
   {
-    result = RtlWow64GetSharedInfoProcess(a1, &v10, (__int64)v8);
-    if ( result >= 0 && v10 && (v8[4] & 2) != 0 && v9 )
+    SharedInfoProcess = RtlWow64GetSharedInfoProcess(ProcessHandle, &v11, v9);
+    if ( SharedInfoProcess >= 0 && v11 && (v9[4] & 2) != 0 && SourceHandle )
     {
-      Handle = 0LL;
-      v12 = 0LL;
-      v7 = 0LL;
-      result = ZwDuplicateObject(a1, v9, -1LL, &Handle, 0, 0);
-      if ( result < 0
-        || (result = ZwMapViewOfSection(Handle, -1LL, &v12, 0LL, 0LL, 0LL, &v7, 2, 0x100000, 4), result < 0) )
+      TargetHandle = 0LL;
+      BaseAddress = 0LL;
+      ViewSize = 0LL;
+      SharedInfoProcess = ZwDuplicateObject(
+                            ProcessHandle,
+                            SourceHandle,
+                            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                            &TargetHandle,
+                            0,
+                            0,
+                            6u);
+      if ( SharedInfoProcess < 0
+        || (SharedInfoProcess = ZwMapViewOfSection(
+                                  TargetHandle,
+                                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                                  &BaseAddress,
+                                  0LL,
+                                  0LL,
+                                  0LL,
+                                  &ViewSize,
+                                  ViewUnmap,
+                                  0x100000u,
+                                  4u),
+            SharedInfoProcess < 0) )
       {
-        if ( v12 )
-          result = NtUnmapViewOfSection(-1LL);
-        if ( Handle )
-          return NtClose(Handle);
+        if ( BaseAddress )
+          LOBYTE(SharedInfoProcess) = NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+        if ( TargetHandle )
+          LOBYTE(SharedInfoProcess) = NtClose(TargetHandle);
       }
       else
       {
-        *a2 = Handle;
-        result = v12;
-        *a3 = v12;
+        *a2 = TargetHandle;
+        LOBYTE(SharedInfoProcess) = (_BYTE)BaseAddress;
+        *a3 = BaseAddress;
       }
     }
   }
-  return result;
+  return SharedInfoProcess;
 }

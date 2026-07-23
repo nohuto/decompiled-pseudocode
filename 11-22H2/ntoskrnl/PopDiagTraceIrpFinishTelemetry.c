@@ -87,10 +87,10 @@ char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
     }
   }
   LOBYTE(v11) = KxReleaseSpinLock((volatile signed __int64 *)(v3 + 288));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     LOBYTE(v11) = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v11 <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)v11 >= 2u )

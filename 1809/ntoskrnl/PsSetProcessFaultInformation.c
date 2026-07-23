@@ -1,17 +1,17 @@
 /*
- * XREFs of PsSetProcessFaultInformation @ 0x1406E1DA0
+ * XREFs of PsSetProcessFaultInformation @ 0x1406E3040
  * Callers:
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
- *     DbgkForwardException @ 0x1406D68DC (DbgkForwardException.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
+ *     DbgkForwardException @ 0x1406D7B7C (DbgkForwardException.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x14012A768 (TelemetryCoverageStringHashInternal.c)
- *     PsSetProcessTelemetryAppState @ 0x1405B1974 (PsSetProcessTelemetryAppState.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x140888F60 (PspRecordCrashedProcessIntoBlackbox.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A650 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14012A838 (TelemetryCoverageStringHashInternal.c)
+ *     PsSetProcessTelemetryAppState @ 0x1405B2974 (PsSetProcessTelemetryAppState.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x14088A1C0 (PspRecordCrashedProcessIntoBlackbox.c)
  */
 
 __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR a1, int *a2)
@@ -38,11 +38,11 @@ __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR a1, int *a2)
     while ( v9 != v8 );
     if ( (v8 & 4) == 0 )
     {
-      if ( (unsigned int)dword_140401AF4 < MEMORY[0xFFFFF7800000037C] )
+      if ( (unsigned int)dword_140402AF4 < MEMORY[0xFFFFF7800000037C] )
       {
-        if ( !dword_140401AF0 )
-          dword_140401AF0 = TelemetryCoverageStringHashInternal(off_140401AE8, &v12);
-        EtwTelemetryCoverageReport(&off_140401AE8);
+        if ( !dword_140402AF0 )
+          dword_140402AF0 = TelemetryCoverageStringHashInternal(off_140402AE8, &v12);
+        EtwTelemetryCoverageReport(&off_140402AE8);
       }
       PspRecordCrashedProcessIntoBlackbox(a1);
       PsSetProcessTelemetryAppState(a1, 4);
@@ -51,11 +51,11 @@ __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR a1, int *a2)
   v4 = *a2;
   if ( (*a2 & 2) != 0 )
   {
-    if ( (unsigned int)dword_140401ADC < MEMORY[0xFFFFF7800000037C] )
+    if ( (unsigned int)dword_140402ADC < MEMORY[0xFFFFF7800000037C] )
     {
-      if ( !dword_140401AD8 )
-        dword_140401AD8 = TelemetryCoverageStringHashInternal(off_140401AD0, &v13);
-      EtwTelemetryCoverageReport(&off_140401AD0);
+      if ( !dword_140402AD8 )
+        dword_140402AD8 = TelemetryCoverageStringHashInternal(off_140402AD0, &v13);
+      EtwTelemetryCoverageReport(&off_140402AD0);
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;

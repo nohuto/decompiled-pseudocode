@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFxDeviceInvalidTransition @ 0x140608BD8
+ * XREFs of PopDiagTraceFxDeviceInvalidTransition @ 0x14060B798
  * Callers:
- *     PopFxNotifyPreDIrpIssue @ 0x140518984 (PopFxNotifyPreDIrpIssue.c)
+ *     PopFxNotifyPreDIrpIssue @ 0x1405123F4 (PopFxNotifyPreDIrpIssue.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDeviceInvalidTransition(__int64 a1, __int64 a2)
@@ -39,9 +39,9 @@ char __fastcall PopDiagTraceFxDeviceInvalidTransition(__int64 a1, __int64 a2)
 
   v26 = a2;
   result = *(_BYTE *)(a2 + 66);
-  if ( (unsigned int)dword_140E07598 > 5 )
+  if ( (unsigned int)dword_140E07560 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
     if ( result )
     {
       v17 = 2LL;
@@ -59,8 +59,8 @@ char __fastcall PopDiagTraceFxDeviceInvalidTransition(__int64 a1, __int64 a2)
       v10 = 0x1000000LL;
       v25 = 8LL;
       result = tlgWriteEx_EtwWriteEx(
-                 (__int64)&dword_140E07598,
-                 (unsigned __int8 *)&byte_14004B2F9,
+                 (__int64)&dword_140E07560,
+                 (unsigned __int8 *)&byte_14004B907,
                  v4,
                  1u,
                  ActivityId,
@@ -69,11 +69,9 @@ char __fastcall PopDiagTraceFxDeviceInvalidTransition(__int64 a1, __int64 a2)
                  &v15);
     }
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_FX_INVALID_DEVICE_TRANSITION);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_FX_INVALID_DEVICE_TRANSITION);
     if ( result )
     {
       v11 = *(_QWORD *)(a1 + 48);
@@ -81,15 +79,7 @@ char __fastcall PopDiagTraceFxDeviceInvalidTransition(__int64 a1, __int64 a2)
       UserData.Ptr = (ULONGLONG)&v11;
       v13 = &v26;
       v14 = 8LL;
-      return EtwWriteEx(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_FX_INVALID_DEVICE_TRANSITION,
-               0LL,
-               1u,
-               0LL,
-               0LL,
-               2u,
-               &UserData);
+      return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_FX_INVALID_DEVICE_TRANSITION, 0LL, 1u, 0LL, 0LL, 2u, &UserData);
     }
   }
   return result;

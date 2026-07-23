@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetProcessTimerDelayForKTimers @ 0x1405A47B0
+ * XREFs of PspSetProcessTimerDelayForKTimers @ 0x1405A4D20
  * Callers:
- *     PspApplyTimerDelayProcess @ 0x1405A41A8 (PspApplyTimerDelayProcess.c)
+ *     PspApplyTimerDelayProcess @ 0x1405A4718 (PspApplyTimerDelayProcess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeAdjustTimerDelayProcess @ 0x14056F4C8 (KeAdjustTimerDelayProcess.c)
- *     ExpTimerAdjust @ 0x14060BD5C (ExpTimerAdjust.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAdjustTimerDelayProcess @ 0x14056FA08 (KeAdjustTimerDelayProcess.c)
+ *     ExpTimerAdjust @ 0x14060C2AC (ExpTimerAdjust.c)
  */
 
 __int64 __fastcall PspSetProcessTimerDelayForKTimers(__int64 a1)
@@ -43,10 +43,10 @@ __int64 __fastcall PspSetProcessTimerDelayForKTimers(__int64 a1)
   if ( v3 == *(_DWORD *)(a1 + 68) )
   {
     KxReleaseSpinLock(v1);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_34;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || v4 > 0xFu || CurrentIrql < 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || v4 > 0xFu || CurrentIrql < 2u )
       goto LABEL_34;
     v6 = v4 + 1;
     goto LABEL_32;
@@ -106,10 +106,10 @@ __int64 __fastcall PspSetProcessTimerDelayForKTimers(__int64 a1)
   }
   KeAdjustTimerDelayProcess(a1, v7, v3);
   KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v4 <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v4 <= 0xFu && v17 >= 2u )
     {
       v6 = v4 + 1;
 LABEL_32:

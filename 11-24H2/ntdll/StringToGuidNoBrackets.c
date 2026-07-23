@@ -1,7 +1,7 @@
 /*
- * XREFs of StringToGuidNoBrackets @ 0x1800B54F4
+ * XREFs of StringToGuidNoBrackets @ 0x180081D94
  * Callers:
- *     EtwpAddLogHeaderToLogFile @ 0x1800B3D70 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180080610 (EtwpAddLogHeaderToLogFile.c)
  * Callees:
  *     <none>
  */

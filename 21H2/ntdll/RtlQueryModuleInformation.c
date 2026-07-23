@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryModuleInformation @ 0x1800E3ED0
+ * XREFs of RtlQueryModuleInformation @ 0x1800E3E90
  * Callers:
  *     <none>
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x18009DD00 (NtQuerySystemInformation.c)
+ *     NtQuerySystemInformation @ 0x18009DCC0 (NtQuerySystemInformation.c)
  */
 
 __int64 __fastcall RtlQueryModuleInformation(unsigned int *a1, int a2, __int64 a3)
@@ -114,15 +114,12 @@ LABEL_30:
       goto LABEL_30;
     }
     if ( Heap != (unsigned int *)SystemInformation )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
-    Heap = (unsigned int *)RtlAllocateHeap(
-                             (__int64)NtCurrentPeb()->ProcessHeap,
-                             NtdllBaseTag + 1572864,
-                             ReturnLength[0]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+    Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, ReturnLength[0]);
     if ( !Heap )
       return 3221225626LL;
   }
   if ( Heap != (unsigned int *)SystemInformation )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v11;
 }

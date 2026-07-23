@@ -19,150 +19,149 @@
 
 __int64 __fastcall LdrpAddRedirectedFunction(__int64 a1, int a2)
 {
-  const char *v3; // rdx
+  const CHAR *v3; // rdx
   int inited; // edi
-  __int64 v6; // rdx
-  int v7; // eax
-  unsigned __int64 v8; // rbx
-  int v9; // esi
-  int v10; // eax
-  unsigned __int64 v11; // rax
-  __int64 Heap; // rax
-  unsigned __int64 v13; // r14
-  size_t v14; // r8
-  __int64 v15; // rbx
-  bool v16; // r8
-  int v17; // esi
-  __int64 v18; // rax
-  int v20; // [rsp+28h] [rbp-E0h] BYREF
-  __int128 v21; // [rsp+30h] [rbp-D8h] BYREF
-  __int128 v22; // [rsp+40h] [rbp-C8h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
-  __int128 v24; // [rsp+68h] [rbp-A0h] BYREF
-  _WORD v25[128]; // [rsp+78h] [rbp-90h] BYREF
-  int v26; // [rsp+178h] [rbp+70h] BYREF
-  _WORD *v27; // [rsp+180h] [rbp+78h]
-  _WORD v28[128]; // [rsp+188h] [rbp+80h] BYREF
+  int v6; // eax
+  unsigned __int64 Root; // rbx
+  int v8; // esi
+  int v9; // eax
+  unsigned __int64 v10; // rax
+  char *Heap; // rax
+  _RTL_BALANCED_NODE *v12; // r14
+  size_t v13; // r8
+  unsigned __int64 v14; // rbx
+  BOOLEAN v15; // r8
+  int v16; // esi
+  unsigned __int64 v17; // rax
+  int v19; // [rsp+28h] [rbp-E0h] BYREF
+  __int128 v20; // [rsp+30h] [rbp-D8h] BYREF
+  _UNICODE_STRING v21; // [rsp+40h] [rbp-C8h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
+  _UNICODE_STRING v23; // [rsp+68h] [rbp-A0h] BYREF
+  _WORD v24[128]; // [rsp+78h] [rbp-90h] BYREF
+  int v25; // [rsp+178h] [rbp+70h] BYREF
+  _WORD *v26; // [rsp+180h] [rbp+78h]
+  _WORD v27[128]; // [rsp+188h] [rbp+80h] BYREF
 
-  LODWORD(v24) = 0x1000000;
-  *((_QWORD *)&v24 + 1) = v25;
-  v3 = *(const char **)a1;
-  v27 = v28;
-  v26 = 0x1000000;
-  v25[0] = 0;
-  v28[0] = 0;
+  *(_DWORD *)&v23.Length = 0x1000000;
+  v23.Buffer = v24;
+  v3 = *(const CHAR **)a1;
+  v26 = v27;
+  v25 = 0x1000000;
+  v24[0] = 0;
+  v27[0] = 0;
   inited = RtlInitAnsiStringEx(&DestinationString, v3);
   if ( inited >= 0 )
   {
-    inited = LdrpAppendAnsiStringToFilenameBuffer((unsigned __int16 *)&v26, &DestinationString);
+    inited = LdrpAppendAnsiStringToFilenameBuffer((unsigned __int16 *)&v25, &DestinationString);
     if ( inited >= 0 )
     {
-      v20 = 0;
-      inited = LdrpPreprocessDllName((unsigned __int16 *)&v26, (unsigned __int16 *)&v24, 0LL, &v20);
+      v19 = 0;
+      inited = LdrpPreprocessDllName((unsigned __int16 *)&v25, &v23.Length, 0LL, &v19);
       if ( inited >= 0 )
       {
-        v22 = v24;
-        if ( (v20 & 0x20) == 0 )
-          LdrpGetBaseNameFromFullName((unsigned __int16 *)&v22, (__int64)&v22);
-        *((_QWORD *)&v21 + 1) = *(_QWORD *)(a1 + 8);
-        LODWORD(v21) = LdrpHashAsciizString();
-        v7 = LdrpHashUnicodeString((__int64)&v22, v6);
-        v8 = LdrpRedirectionTree;
-        DWORD1(v21) = v7;
-        if ( (qword_18017B090 & 1) != 0 )
+        v21 = v23;
+        if ( (v19 & 0x20) == 0 )
+          LdrpGetBaseNameFromFullName(&v21.Length, (__int64)&v21);
+        *((_QWORD *)&v20 + 1) = *(_QWORD *)(a1 + 8);
+        LODWORD(v20) = LdrpHashAsciizString();
+        v6 = LdrpHashUnicodeString(&v21);
+        Root = (unsigned __int64)LdrpRedirectionTree.Root;
+        DWORD1(v20) = v6;
+        if ( (*(_BYTE *)&LdrpRedirectionTree.0 & 1) != 0 )
         {
-          if ( LdrpRedirectionTree )
-            v8 = (unsigned __int64)&LdrpRedirectionTree ^ LdrpRedirectionTree;
+          if ( LdrpRedirectionTree.Root )
+            Root = (unsigned __int64)&LdrpRedirectionTree ^ (unsigned __int64)LdrpRedirectionTree.Root;
           else
-            v8 = 0LL;
+            Root = 0LL;
         }
-        v9 = qword_18017B090 & 1;
-        if ( !v8 )
+        v8 = *(_BYTE *)&LdrpRedirectionTree.0 & 1;
+        if ( !Root )
           goto LABEL_23;
         do
         {
-          v10 = LdrpCompareRedirectedFunction(&v21, v8);
-          if ( v10 >= 0 )
+          v9 = LdrpCompareRedirectedFunction(&v20, Root);
+          if ( v9 >= 0 )
           {
-            if ( v10 <= 0 )
+            if ( v9 <= 0 )
               break;
-            v11 = *(_QWORD *)(v8 + 8);
+            v10 = *(_QWORD *)(Root + 8);
           }
           else
           {
-            v11 = *(_QWORD *)v8;
+            v10 = *(_QWORD *)Root;
           }
-          if ( v9 && v11 )
-            v8 ^= v11;
+          if ( v8 && v10 )
+            Root ^= v10;
           else
-            v8 = v11;
+            Root = v10;
         }
-        while ( v8 );
-        if ( v8 && !LdrpRedirectionByFunctionCalloutFunc )
+        while ( Root );
+        if ( Root && !LdrpRedirectionByFunctionCalloutFunc )
         {
           inited = -1073739509;
         }
         else
         {
 LABEL_23:
-          Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, (unsigned __int16)v22 + 74LL);
-          v13 = Heap;
+          Heap = (char *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, v21.Length + 74LL);
+          v12 = (_RTL_BALANCED_NODE *)Heap;
           if ( Heap )
           {
-            *(_OWORD *)(Heap + 24) = v21;
-            *(_OWORD *)(Heap + 40) = v22;
-            v14 = *(unsigned __int16 *)(Heap + 40);
-            *(_QWORD *)(Heap + 56) = *(_QWORD *)(a1 + 16);
-            *(_DWORD *)(Heap + 64) = a2;
-            *(_QWORD *)(Heap + 48) = Heap + 72;
-            v14 += 2LL;
-            *(_WORD *)(Heap + 42) = v14;
-            memmove((void *)(Heap + 72), *((const void **)&v22 + 1), v14);
-            v15 = LdrpRedirectionTree;
-            if ( (qword_18017B090 & 1) != 0 && LdrpRedirectionTree )
-              v15 = (unsigned __int64)&LdrpRedirectionTree ^ LdrpRedirectionTree;
-            v16 = 0;
-            v17 = qword_18017B090 & 1;
-            if ( v15 )
+            *(_OWORD *)(Heap + 24) = v20;
+            *(_UNICODE_STRING *)(Heap + 40) = v21;
+            v13 = *((unsigned __int16 *)Heap + 20);
+            *((_QWORD *)Heap + 7) = *(_QWORD *)(a1 + 16);
+            *((_DWORD *)Heap + 16) = a2;
+            *((_QWORD *)Heap + 6) = Heap + 72;
+            v13 += 2LL;
+            *((_WORD *)Heap + 21) = v13;
+            memmove(Heap + 72, v21.Buffer, v13);
+            v14 = (unsigned __int64)LdrpRedirectionTree.Root;
+            if ( (*(_BYTE *)&LdrpRedirectionTree.0 & 1) != 0 && LdrpRedirectionTree.Root )
+              v14 = (unsigned __int64)&LdrpRedirectionTree ^ (unsigned __int64)LdrpRedirectionTree.Root;
+            v15 = 0;
+            v16 = *(_BYTE *)&LdrpRedirectionTree.0 & 1;
+            if ( v14 )
             {
               while ( 1 )
               {
-                if ( (int)LdrpCompareRedirectedFunction(v13 + 24, v15) < 0 )
+                if ( (int)LdrpCompareRedirectedFunction(&v12[1], v14) < 0 )
                 {
-                  v18 = *(_QWORD *)v15;
-                  if ( v17 )
+                  v17 = *(_QWORD *)v14;
+                  if ( v16 )
                   {
-                    if ( !v18 )
+                    if ( !v17 )
                       goto LABEL_40;
-                    v18 ^= v15;
+                    v17 ^= v14;
                   }
-                  if ( !v18 )
+                  if ( !v17 )
                   {
 LABEL_40:
-                    v16 = 0;
+                    v15 = 0;
                     break;
                   }
                 }
                 else
                 {
-                  v18 = *(_QWORD *)(v15 + 8);
-                  if ( v17 )
+                  v17 = *(_QWORD *)(v14 + 8);
+                  if ( v16 )
                   {
-                    if ( !v18 )
+                    if ( !v17 )
                       goto LABEL_34;
-                    v18 ^= v15;
+                    v17 ^= v14;
                   }
-                  if ( !v18 )
+                  if ( !v17 )
                   {
 LABEL_34:
-                    v16 = 1;
+                    v15 = 1;
                     break;
                   }
                 }
-                v15 = v18;
+                v14 = v17;
               }
             }
-            RtlRbInsertNodeEx((unsigned __int64 *)&LdrpRedirectionTree, v15, v16, v13);
+            RtlRbInsertNodeEx(&LdrpRedirectionTree, (PRTL_BALANCED_NODE)v14, v15, v12);
           }
           else
           {
@@ -172,12 +171,12 @@ LABEL_34:
       }
     }
   }
-  if ( v25 != *((_WORD **)&v24 + 1) )
-    NtdllpFreeStringRoutine(*((__int64 *)&v24 + 1));
-  *((_QWORD *)&v24 + 1) = v25;
-  LODWORD(v24) = 0x1000000;
-  v25[0] = 0;
-  if ( v28 != v27 )
-    NtdllpFreeStringRoutine((__int64)v27);
+  if ( v24 != v23.Buffer )
+    NtdllpFreeStringRoutine(v23.Buffer);
+  v23.Buffer = v24;
+  *(_DWORD *)&v23.Length = 0x1000000;
+  v24[0] = 0;
+  if ( v27 != v26 )
+    NtdllpFreeStringRoutine(v26);
   return (unsigned int)inited;
 }

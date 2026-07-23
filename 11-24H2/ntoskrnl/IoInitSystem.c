@@ -1,45 +1,43 @@
 /*
- * XREFs of IoInitSystem @ 0x140C1A988
+ * XREFs of IoInitSystem @ 0x140C1C9C8
  * Callers:
- *     Phase1Initialization @ 0x1406FC8E0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x1406FA520 (Phase1Initialization.c)
  * Callees:
- *     HeadlessKernelAddLogEntry @ 0x1404AD660 (HeadlessKernelAddLogEntry.c)
- *     PnpSerializeBoot @ 0x1405A3F1C (PnpSerializeBoot.c)
- *     IopRegistryInitializeCallbacks @ 0x140719A88 (IopRegistryInitializeCallbacks.c)
- *     IopInitializeMdlCache @ 0x140719B98 (IopInitializeMdlCache.c)
- *     VfNotifyVerifierOfEvent @ 0x140B82EA0 (VfNotifyVerifierOfEvent.c)
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
- *     IopInitializeSystemDrivers @ 0x140C629DC (IopInitializeSystemDrivers.c)
+ *     HeadlessKernelAddLogEntry @ 0x1404A7D40 (HeadlessKernelAddLogEntry.c)
+ *     PnpSerializeBoot @ 0x1405A0E5C (PnpSerializeBoot.c)
+ *     IopRegistryInitializeCallbacks @ 0x140717618 (IopRegistryInitializeCallbacks.c)
+ *     IopInitializeMdlCache @ 0x140717728 (IopInitializeMdlCache.c)
+ *     VfNotifyVerifierOfEvent @ 0x140B84EA0 (VfNotifyVerifierOfEvent.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140C64B58 (IopInitializeSystemDrivers.c)
  */
 
-__int64 IoInitSystem()
+__int64 __fastcall IoInitSystem(void *a1)
 {
   __int64 result; // rax
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  int v3; // ebx
-  __int64 v4; // r8
-  __int64 v5; // r9
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  int v4; // ebx
 
-  result = IoInitSystemPreDrivers();
+  result = IoInitSystemPreDrivers(a1);
   if ( (int)result >= 0 )
   {
     WerLiveKernelInitSystem();
-    v3 = IopInitializeSystemDrivers();
-    if ( v3 >= 0 )
+    v4 = IopInitializeSystemDrivers();
+    if ( v4 >= 0 )
     {
       if ( !PnpBootOptions )
         PnpSerializeBoot();
       if ( ViVerifierEnabled )
         VfNotifyVerifierOfEvent(0);
-      IopRegistryInitializeCallbacks(v2, v1, v4, v5);
+      IopRegistryInitializeCallbacks(v3, v2);
       IopInitializeMdlCache();
       return 0LL;
     }
     else
     {
       HeadlessKernelAddLogEntry();
-      result = (unsigned int)v3;
+      result = (unsigned int)v4;
       LODWORD(IopInitFailCode) = 8;
     }
   }

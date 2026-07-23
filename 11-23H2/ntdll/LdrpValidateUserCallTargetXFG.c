@@ -15,7 +15,7 @@ void __fastcall LdrpValidateUserCallTargetXFG(unsigned __int64 a1, __int64 a2)
   __int64 v6; // rdx
   unsigned __int64 v7; // rdx
 
-  v2 = *(_QWORD *)(qword_18019C3C8 + 8 * (a1 >> 9));
+  v2 = *(_QWORD *)(LdrSystemDllInitBlock.CfgBitMap + 8 * (a1 >> 9));
   v3 = a1 >> 3;
   if ( (a1 & 0xF) == 0 )
   {

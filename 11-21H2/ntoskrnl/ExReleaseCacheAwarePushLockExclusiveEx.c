@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
@@ -38,6 +38,6 @@ char __fastcall ExReleaseCacheAwarePushLockExclusiveEx(
     while ( (unsigned __int64)v6 < v5 );
   }
   if ( (v3 & 2) == 0 )
-    LOBYTE(v2) = KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
+    LOBYTE(v2) = sub_1402AFC00((ULONG_PTR)BugCheckParameter2);
   return (char)v2;
 }

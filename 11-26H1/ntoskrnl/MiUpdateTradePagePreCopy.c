@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUpdateTradePagePreCopy @ 0x1404870B0
+ * XREFs of MiUpdateTradePagePreCopy @ 0x140480A80
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpBlkPoGetApicIdByIndex @ 0x1404DE8D0
+ * XREFs of HalpBlkPoGetApicIdByIndex @ 0x1404DEB10
  * Callers:
  *     <none>
  * Callees:

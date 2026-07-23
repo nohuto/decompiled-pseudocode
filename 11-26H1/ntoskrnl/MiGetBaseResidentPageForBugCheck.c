@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetBaseResidentPageForBugCheck @ 0x1404CB620
+ * XREFs of MiGetBaseResidentPageForBugCheck @ 0x1404C5050
  * Callers:
- *     MiMirrorRemoveInactivePages @ 0x1404CB2E0 (MiMirrorRemoveInactivePages.c)
- *     MiGetPagesRemainingInResidentPage @ 0x140703334 (MiGetPagesRemainingInResidentPage.c)
+ *     MiMirrorRemoveInactivePages @ 0x1404C4D10 (MiMirrorRemoveInactivePages.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x140708004 (MiGetPagesRemainingInResidentPage.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
  */
 
 __int64 __fastcall MiGetBaseResidentPageForBugCheck(__int64 a1)

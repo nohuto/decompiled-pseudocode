@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSendSuspendResumeNotifications @ 0x14098A648
+ * XREFs of PopSendSuspendResumeNotifications @ 0x14098A848
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopSendSuspendResumeApplicationNotification @ 0x14098A528 (PopSendSuspendResumeApplicationNotification.c)
- *     PopSendSuspendResumeServiceNotification @ 0x14098A724 (PopSendSuspendResumeServiceNotification.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopSendSuspendResumeApplicationNotification @ 0x14098A728 (PopSendSuspendResumeApplicationNotification.c)
+ *     PopSendSuspendResumeServiceNotification @ 0x14098A924 (PopSendSuspendResumeServiceNotification.c)
  */
 
 __int64 __fastcall PopSendSuspendResumeNotifications(char a1)

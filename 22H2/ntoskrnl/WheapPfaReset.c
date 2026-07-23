@@ -21,7 +21,7 @@ char WheapPfaReset()
   PVOID *v5; // rcx
   PVOID **v6; // rdx
 
-  v0 = KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0LL);
+  v0 = KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0);
   v1 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
   v2 = v0;
   if ( v1 )

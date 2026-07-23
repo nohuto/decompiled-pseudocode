@@ -1,15 +1,15 @@
 /*
- * XREFs of PipSendGuestAssignedNotification @ 0x1407B4B18
+ * XREFs of PipSendGuestAssignedNotification @ 0x1407B7B78
  * Callers:
- *     PiUpdateGuestAssignedState @ 0x14090E948 (PiUpdateGuestAssignedState.c)
- *     PnpDeleteLockedDeviceNodes @ 0x140A89F58 (PnpDeleteLockedDeviceNodes.c)
+ *     PiUpdateGuestAssignedState @ 0x1409B0A78 (PiUpdateGuestAssignedState.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1409B6D78 (PnpDeleteLockedDeviceNodes.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     IoGetAttachedDevice @ 0x14044F180 (IoGetAttachedDevice.c)
- *     IoQueueThreadIrp @ 0x1404F0940 (IoQueueThreadIrp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PpIrpAllocateDeviceUsageNotification @ 0x1407B2B34 (PpIrpAllocateDeviceUsageNotification.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IoGetAttachedDevice @ 0x1404472B0 (IoGetAttachedDevice.c)
+ *     IoQueueThreadIrp @ 0x1404E9F20 (IoQueueThreadIrp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PpIrpAllocateDeviceUsageNotification @ 0x1407B5B94 (PpIrpAllocateDeviceUsageNotification.c)
  */
 
 NTSTATUS __fastcall PipSendGuestAssignedNotification(__int64 a1, char a2)

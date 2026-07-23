@@ -9,59 +9,59 @@
  *     __security_check_cookie @ 0x18008B0F0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall sub_18006DD40(__int16 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall sub_18006DD40(__int16 a1, __int64 a2)
 {
-  int v6; // eax
-  __int64 v7; // r10
-  __int64 v8; // rax
-  __int64 v9; // rbx
-  __int64 v11; // rax
-  __int64 v12; // rax
-  bool v13; // zf
-  _DWORD v14[10]; // [rsp+20h] [rbp-38h] BYREF
+  int v4; // eax
+  __int64 v5; // r10
+  __int64 v6; // rax
+  __int64 v7; // rbx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  bool v11; // zf
+  _DWORD v12[10]; // [rsp+20h] [rbp-38h] BYREF
 
-  RtlAcquireSRWLockShared(&qword_18015D3E0, a2, a3, a4);
-  v6 = v14[0];
+  RtlAcquireSRWLockShared(&SRWLock);
+  v4 = v12[0];
   if ( (a1 & 0x100) != 0 )
-    v6 = 5;
-  v14[0] = v6;
-  LODWORD(v7) = (a1 & 0x100) != 0;
+    v4 = 5;
+  v12[0] = v4;
+  LODWORD(v5) = (a1 & 0x100) != 0;
   if ( (a1 & 0x200) != 0 )
   {
-    LODWORD(v7) = v7 + 1;
-    v14[(a1 & 0x100) != 0] = 1;
+    LODWORD(v5) = v5 + 1;
+    v12[(a1 & 0x100) != 0] = 1;
   }
   if ( (a1 & 0x400) != 0 )
   {
-    v12 = (unsigned int)v7;
-    v7 = (unsigned int)(v7 + 1);
-    v13 = (_WORD)xmmword_18015CFE8 == 0;
-    v14[v12] = 6;
-    if ( !v13 )
+    v10 = (unsigned int)v5;
+    v5 = (unsigned int)(v5 + 1);
+    v11 = stru_18015CFE8.Length == 0;
+    v12[v10] = 6;
+    if ( !v11 )
     {
-      v14[v7] = 0;
-      LODWORD(v7) = v7 + 1;
+      v12[v5] = 0;
+      LODWORD(v5) = v5 + 1;
     }
   }
   if ( (a1 & 0x4800) != 0 )
   {
-    v8 = (unsigned int)v7;
-    LODWORD(v7) = v7 + 1;
-    v14[v8] = 7;
+    v6 = (unsigned int)v5;
+    LODWORD(v5) = v5 + 1;
+    v12[v6] = 7;
   }
   if ( DestinationString.Length )
   {
-    v11 = (unsigned int)v7;
-    LODWORD(v7) = v7 + 1;
-    v14[v11] = 8;
+    v9 = (unsigned int)v5;
+    LODWORD(v5) = v5 + 1;
+    v12[v9] = 8;
   }
-  v9 = sub_18006DF50(v14, (unsigned int)v7, a2);
-  RtlReleaseSRWLockShared(&qword_18015D3E0);
-  if ( v9 )
+  v7 = sub_18006DF50(v12, (unsigned int)v5, a2);
+  RtlReleaseSRWLockShared(&SRWLock);
+  if ( v7 )
   {
-    *(_BYTE *)(v9 + 100) = 1;
+    *(_BYTE *)(v7 + 100) = 1;
     if ( !DestinationString.Length )
-      *(_QWORD *)(v9 + 88) = 0LL;
+      *(_QWORD *)(v7 + 88) = 0LL;
   }
-  return v9;
+  return v7;
 }

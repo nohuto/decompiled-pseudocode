@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReserveExistingDriverPtes @ 0x140A71AD8
+ * XREFs of MiReserveExistingDriverPtes @ 0x140A6AEB8
  * Callers:
- *     MiReserveDriverPtes @ 0x140AB636C (MiReserveDriverPtes.c)
+ *     MiReserveDriverPtes @ 0x140A555D0 (MiReserveDriverPtes.c)
  * Callees:
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     MiMakeZeroedPageTables @ 0x1403A582C (MiMakeZeroedPageTables.c)
- *     RtlFindClearBits @ 0x14040A120 (RtlFindClearBits.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     RtlAreBitsSet @ 0x140449470 (RtlAreBitsSet.c)
+ *     MiMakeZeroedPageTables @ 0x14026CB1C (MiMakeZeroedPageTables.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     RtlFindClearBits @ 0x140402600 (RtlFindClearBits.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     RtlAreBitsSet @ 0x140441BC0 (RtlAreBitsSet.c)
  */
 
 unsigned __int64 __fastcall MiReserveExistingDriverPtes(ULONG NumberToFind)
@@ -24,9 +24,9 @@ unsigned __int64 __fastcall MiReserveExistingDriverPtes(ULONG NumberToFind)
   __int64 v11; // rdx
   __int64 v12; // r14
 
-  v1 = (char *)qword_140E2D860;
+  v1 = (char *)qword_140E2D9A0;
   ClearBits = -1;
-  if ( !qword_140E2D860 )
+  if ( !qword_140E2D9A0 )
     return 0LL;
   do
   {

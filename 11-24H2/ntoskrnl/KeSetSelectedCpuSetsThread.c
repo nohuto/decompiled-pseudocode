@@ -1,55 +1,57 @@
 /*
- * XREFs of KeSetSelectedCpuSetsThread @ 0x1403C6670
+ * XREFs of KeSetSelectedCpuSetsThread @ 0x14048B570
  * Callers:
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiAcquireProcessLockShared @ 0x1403B1634 (KiAcquireProcessLockShared.c)
- *     KiUpdateThreadCpuSets @ 0x1403C6418 (KiUpdateThreadCpuSets.c)
- *     KiValidateCpuSetMasks @ 0x1403C8288 (KiValidateCpuSetMasks.c)
- *     KiWriteCpuSetMasks @ 0x1404F91D8 (KiWriteCpuSetMasks.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiAcquireProcessLockShared @ 0x14039FE44 (KiAcquireProcessLockShared.c)
+ *     KiValidateCpuSetMasks @ 0x14048B8AC (KiValidateCpuSetMasks.c)
+ *     KiUpdateThreadCpuSets @ 0x14048B9CC (KiUpdateThreadCpuSets.c)
+ *     KiWriteCpuSetMasks @ 0x1404F6AB8 (KiWriteCpuSetMasks.c)
  */
 
 __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 result; // rax
-  _QWORD *v7; // rsi
-  __int64 v8; // r14
-  unsigned int v9; // ebp
-  unsigned int v10; // edi
-  struct _SINGLE_LIST_ENTRY v11; // [rsp+20h] [rbp-38h] BYREF
-  unsigned __int8 v12; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v7; // r8
+  __int64 v8; // r9
+  _QWORD *v9; // rsi
+  __int64 v10; // r14
+  unsigned int v11; // ebp
+  unsigned int v12; // edi
+  struct _SINGLE_LIST_ENTRY v13; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int8 v14; // [rsp+78h] [rbp+20h] BYREF
 
-  v12 = 0;
+  v14 = 0;
   result = KiValidateCpuSetMasks(a3);
   if ( (int)result >= 0 )
   {
-    v11.Next = 0LL;
-    v7 = (_QWORD *)(a1 + 1680);
-    v8 = *(_QWORD *)(a1 + 544);
+    v13.Next = 0LL;
+    v9 = (_QWORD *)(a1 + 1680);
+    v10 = *(_QWORD *)(a1 + 544);
     if ( (*(_DWORD *)(a1 + 1440) & 0x20000) != 0 )
     {
-      v9 = (unsigned __int16)KiMaximumGroups;
-      v7 = (_QWORD *)*v7;
+      v11 = (unsigned __int16)KiMaximumGroups;
+      v9 = (_QWORD *)*v9;
     }
     else
     {
-      v9 = 1;
+      v11 = 1;
     }
-    KiAcquireProcessLockShared(*(_QWORD *)(a1 + 544), &v12);
-    v10 = 0;
+    KiAcquireProcessLockShared(*(_QWORD *)(a1 + 544), &v14, v7, v8);
+    v12 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
     {
       do
       {
-        if ( (++v10 & HvlLongSpinCountMask) == 0
+        if ( (++v12 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
           && KiCheckVpBackingLongSpinWaitHypercall() )
         {
-          HvlNotifyLongSpinWait(v10);
+          HvlNotifyLongSpinWait(v12);
         }
         else
         {
@@ -58,10 +60,10 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, __int
       }
       while ( *(_QWORD *)(a1 + 64) );
     }
-    KiWriteCpuSetMasks(v7, v9, a3, a2, v11.Next);
-    KiUpdateThreadCpuSets(a1, &v11);
-    ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v8 + 64));
-    KiProcessDeferredReadyList(KeGetCurrentPrcb(), &v11, v12);
+    KiWriteCpuSetMasks(v9, v11, a3, a2, v13.Next);
+    KiUpdateThreadCpuSets(a1, &v13);
+    ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v10 + 64));
+    KiProcessDeferredReadyList(KeGetCurrentPrcb(), &v13, v14);
     return 0LL;
   }
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGenericPolledWorkerRoutine @ 0x1404CFA60
+ * XREFs of HalpGenericPolledWorkerRoutine @ 0x1404CFCA0
  * Callers:
  *     <none>
  * Callees:
- *     HalpCheckAndReportGhes @ 0x1404CF948 (HalpCheckAndReportGhes.c)
+ *     HalpCheckAndReportGhes @ 0x1404CFB88 (HalpCheckAndReportGhes.c)
  */
 
 __int64 __fastcall HalpGenericPolledWorkerRoutine(__int64 a1)

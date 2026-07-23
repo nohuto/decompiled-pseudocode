@@ -1,5 +1,5 @@
 /*
- * XREFs of srand @ 0x140196AC0
+ * XREFs of srand @ 0x140196C00
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __cdecl srand(unsigned int Seed)
 {
-  dword_140401E90 = Seed;
+  dword_140402E90 = Seed;
 }

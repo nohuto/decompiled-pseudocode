@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpEnlightenmentInitialize @ 0x140585848
+ * XREFs of HalpEnlightenmentInitialize @ 0x140587D68
  * Callers:
- *     HalpHvInitDiscard @ 0x140CAF3C0 (HalpHvInitDiscard.c)
+ *     HalpHvInitDiscard @ 0x140CB5400 (HalpHvInitDiscard.c)
  * Callees:
- *     Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline @ 0x1405857EC (Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline @ 0x140587D0C (Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 HalpEnlightenmentInitialize()
@@ -103,85 +103,85 @@ __int64 HalpEnlightenmentInitialize()
         if ( ((unsigned int)result & v5[0]) == 0 )
         {
           HalpEnlightenment = v2[0];
-          dword_140FBB024 = v2[1];
-          dword_140FBB03C = v5[0];
-          qword_140FBB040 = *(_QWORD *)&v5[1];
-          qword_140FBB048 = v6;
-          qword_140FBB068 = v10;
-          qword_140FBB070 = v11;
-          qword_140FBB078 = v12;
-          qword_140FBB050 = v7;
-          qword_140FBB058 = v8;
-          qword_140FBB060 = v9;
-          qword_140FBB090 = v15;
-          qword_140FBB0B8 = v20;
-          qword_140FBB0C0 = v21;
-          qword_140FBB0C8 = v22;
-          qword_140FBB0D0 = v23;
-          qword_140FBB0D8 = v24;
-          qword_140FBB0E0 = v25;
-          qword_140FBB0E8 = v26;
-          qword_140FBB1A8 = v50;
-          qword_140FBB1B0 = v51;
-          qword_140FBB0F0 = v27;
-          qword_140FBB0F8 = v28;
-          qword_140FBB100 = v29;
-          qword_140FBB120 = v33;
-          qword_140FBB188 = v46;
-          qword_140FBB118 = v32;
-          qword_140FBB128 = v34;
-          qword_140FBB140 = v37;
-          qword_140FBB148 = v38;
-          qword_140FBB150 = v39;
-          qword_140FBB158 = v40;
-          qword_140FBB130 = v35;
-          qword_140FBB108 = v30;
-          qword_140FBB110 = v31;
-          xmmword_140FBB028 = v3;
-          qword_140FBB080 = v13;
-          qword_140FBB088 = v14;
-          qword_140FBB098 = v16;
-          qword_140FBB0A0 = v17;
-          qword_140FBB0A8 = v18;
-          qword_140FBB0B0 = v19;
-          qword_140FBB160 = v41;
-          qword_140FBB168 = v42;
-          qword_140FBB170 = v43;
-          qword_140FBB178 = v44;
-          qword_140FBB180 = v45;
-          qword_140FBB190 = v47;
-          qword_140FBB198 = v48;
-          qword_140FBB1A0 = v49;
-          qword_140FBB1B8 = v52;
-          qword_140FBB1C0 = v53;
-          qword_140FBB1C8 = v54;
-          qword_140FBB1D0 = v55;
-          qword_140FBB1D8 = v56;
-          qword_140FBB1E0 = v57;
-          qword_140FBB210 = v63;
-          qword_140FBB218 = v64;
-          qword_140FBB230 = v66;
-          qword_140FBB238 = v67;
-          qword_140FBB1E8 = v58;
-          qword_140FBB1F0 = v59;
-          qword_140FBB1F8 = v60;
-          qword_140FBB200 = v61;
-          qword_140FBB208 = v62;
-          qword_140FBB248 = v68;
-          qword_140FBB258 = v70;
-          qword_140FBB250 = v69;
-          qword_140FBB260 = v71;
-          qword_140FBB268 = v72;
-          qword_140FBB270 = v73;
-          qword_140FBB228 = v65;
-          qword_140FBB278 = v74;
-          qword_140FBB280 = v75;
-          qword_140FBB138 = v36;
+          dword_140FBB3C4 = v2[1];
+          dword_140FBB3DC = v5[0];
+          qword_140FBB3E0 = *(_QWORD *)&v5[1];
+          qword_140FBB3E8 = v6;
+          qword_140FBB408 = v10;
+          qword_140FBB410 = v11;
+          qword_140FBB418 = v12;
+          qword_140FBB3F0 = v7;
+          qword_140FBB3F8 = v8;
+          qword_140FBB400 = v9;
+          qword_140FBB430 = v15;
+          qword_140FBB458 = v20;
+          qword_140FBB460 = v21;
+          qword_140FBB468 = v22;
+          qword_140FBB470 = v23;
+          qword_140FBB478 = v24;
+          qword_140FBB480 = v25;
+          qword_140FBB488 = v26;
+          qword_140FBB548 = v50;
+          qword_140FBB550 = v51;
+          qword_140FBB490 = v27;
+          qword_140FBB498 = v28;
+          qword_140FBB4A0 = v29;
+          qword_140FBB4C0 = v33;
+          qword_140FBB528 = v46;
+          qword_140FBB4B8 = v32;
+          qword_140FBB4C8 = v34;
+          qword_140FBB4E0 = v37;
+          qword_140FBB4E8 = v38;
+          qword_140FBB4F0 = v39;
+          qword_140FBB4F8 = v40;
+          qword_140FBB4D0 = v35;
+          qword_140FBB4A8 = v30;
+          qword_140FBB4B0 = v31;
+          xmmword_140FBB3C8 = v3;
+          qword_140FBB420 = v13;
+          qword_140FBB428 = v14;
+          qword_140FBB438 = v16;
+          qword_140FBB440 = v17;
+          qword_140FBB448 = v18;
+          qword_140FBB450 = v19;
+          qword_140FBB500 = v41;
+          qword_140FBB508 = v42;
+          qword_140FBB510 = v43;
+          qword_140FBB518 = v44;
+          qword_140FBB520 = v45;
+          qword_140FBB530 = v47;
+          qword_140FBB538 = v48;
+          qword_140FBB540 = v49;
+          qword_140FBB558 = v52;
+          qword_140FBB560 = v53;
+          qword_140FBB568 = v54;
+          qword_140FBB570 = v55;
+          qword_140FBB578 = v56;
+          qword_140FBB580 = v57;
+          qword_140FBB5B0 = v63;
+          qword_140FBB5B8 = v64;
+          qword_140FBB5D0 = v66;
+          qword_140FBB5D8 = v67;
+          qword_140FBB588 = v58;
+          qword_140FBB590 = v59;
+          qword_140FBB598 = v60;
+          qword_140FBB5A0 = v61;
+          qword_140FBB5A8 = v62;
+          qword_140FBB5E8 = v68;
+          qword_140FBB5F8 = v70;
+          qword_140FBB5F0 = v69;
+          qword_140FBB600 = v71;
+          qword_140FBB608 = v72;
+          qword_140FBB610 = v73;
+          qword_140FBB5C8 = v65;
+          qword_140FBB618 = v74;
+          qword_140FBB620 = v75;
+          qword_140FBB4D8 = v36;
           if ( (unsigned int)Feature_CvmDmaBouncing__private_IsEnabledDeviceUsageNoInline() )
-            qword_140FBB288 = v76;
-          qword_140FBB290 = v77;
+            qword_140FBB628 = v76;
+          qword_140FBB630 = v77;
           result = v78;
-          qword_140FBB298 = v78;
+          qword_140FBB638 = v78;
         }
       }
     }

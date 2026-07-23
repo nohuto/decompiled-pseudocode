@@ -1,20 +1,20 @@
 /*
- * XREFs of IopSymlinkRememberJunction @ 0x140904710
+ * XREFs of IopSymlinkRememberJunction @ 0x14093469C
  * Callers:
- *     IopSymlinkProcessReparse @ 0x1409041CC (IopSymlinkProcessReparse.c)
- *     IopGraftName @ 0x140904274 (IopGraftName.c)
+ *     IopSymlinkProcessReparse @ 0x14093415C (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x140934204 (IopGraftName.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     IopSymlinkGetECP @ 0x14048345C (IopSymlinkGetECP.c)
- *     IopSymlinkGetMostRecentlyUsedName @ 0x1404AF6B0 (IopSymlinkGetMostRecentlyUsedName.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopGetRelatedFileName @ 0x140794A10 (IopGetRelatedFileName.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x140904814 (IopSymlinkGetRelatedMountPoint.c)
- *     IopSymlinkUpdateECP @ 0x140904868 (IopSymlinkUpdateECP.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x140904A08 (IopSymlinkFreeRelatedMountPointChain.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     IopSymlinkGetECP @ 0x14047CDCC (IopSymlinkGetECP.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x1404A8D40 (IopSymlinkGetMostRecentlyUsedName.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IopGetRelatedFileName @ 0x140797540 (IopGetRelatedFileName.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x1409347A0 (IopSymlinkGetRelatedMountPoint.c)
+ *     IopSymlinkUpdateECP @ 0x1409347F8 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x140934998 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, __int64 a3, const UNICODE_STRING *a4)

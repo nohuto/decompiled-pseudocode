@@ -1,53 +1,53 @@
 /*
- * XREFs of MmLoadSystemImageEx @ 0x140A269D4
+ * XREFs of MmLoadSystemImageEx @ 0x140A39A74
  * Callers:
- *     IopLoadCrashdumpDriver @ 0x14050F1D4 (IopLoadCrashdumpDriver.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x14086E384 (MiApplyHotPatchToLoadedDriver.c)
- *     IopLoadCrashdmpImage @ 0x140A24F90 (IopLoadCrashdmpImage.c)
- *     MmLoadSystemImage @ 0x140A26990 (MmLoadSystemImage.c)
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     MiResolveImageReferences @ 0x140ADCF50 (MiResolveImageReferences.c)
+ *     IopLoadCrashdumpDriver @ 0x140508C44 (IopLoadCrashdumpDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140874754 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiResolveImageReferences @ 0x14097E950 (MiResolveImageReferences.c)
+ *     IopLoadCrashdmpImage @ 0x140A38030 (IopLoadCrashdmpImage.c)
+ *     MmLoadSystemImage @ 0x140A39A30 (MmLoadSystemImage.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiSetImageProtection @ 0x14038B930 (MiSetImageProtection.c)
- *     MiUpdateDriverLoadInProgress @ 0x14040BD98 (MiUpdateDriverLoadInProgress.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiReferenceActiveSubsection @ 0x14045AE40 (MiReferenceActiveSubsection.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     PsAttachSiloToCurrentThread @ 0x14046CE80 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140476400 (PsDetachSiloFromCurrentThread.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MiControlAreaRequiresCharge @ 0x1404A9D84 (MiControlAreaRequiresCharge.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     KasanDriverLoadImage @ 0x1404FC030 (KasanDriverLoadImage.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x140772CFC (MiLogStrongCodeDriverLoadFailure.c)
- *     MiConfigureDriverProxyState @ 0x1408649B0 (MiConfigureDriverProxyState.c)
- *     MiResolveImageImports @ 0x1408753A8 (MiResolveImageImports.c)
- *     MmCallDllInitialize @ 0x1408754D8 (MmCallDllInitialize.c)
- *     MiCompactServiceTable @ 0x14087AC6C (MiCompactServiceTable.c)
- *     KseDriverLoadImage @ 0x140A25978 (KseDriverLoadImage.c)
- *     MiDriverLoadSucceeded @ 0x140A78E84 (MiDriverLoadSucceeded.c)
- *     MiConstructLoaderEntry @ 0x140AA8F54 (MiConstructLoaderEntry.c)
- *     MiGetSystemAddressForImage @ 0x140AC6DF4 (MiGetSystemAddressForImage.c)
- *     MiFinalizeDriverCfgState @ 0x140AC7330 (MiFinalizeDriverCfgState.c)
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
- *     MiHandleDriverNonPagedSections @ 0x140AC8ED0 (MiHandleDriverNonPagedSections.c)
- *     MiFreeDriverInitialization @ 0x140AC90AC (MiFreeDriverInitialization.c)
- *     MiObtainSectionForDriver @ 0x140AEB960 (MiObtainSectionForDriver.c)
- *     MiProcessLoadConfigForDriver @ 0x140B0594C (MiProcessLoadConfigForDriver.c)
- *     MiFinalizeKernelScpForSystemImage @ 0x140B1F2AC (MiFinalizeKernelScpForSystemImage.c)
- *     MiValidateStrongCodeDriverImage @ 0x140B1FD78 (MiValidateStrongCodeDriverImage.c)
- *     MiMapSystemImage @ 0x140B20834 (MiMapSystemImage.c)
- *     MiGenerateSystemImageNames @ 0x140B25868 (MiGenerateSystemImageNames.c)
- *     MiRelocateAmount @ 0x140B26E3C (MiRelocateAmount.c)
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3C35C (MiApplyImportOptimizationToRuntimeDriver.c)
- *     MiLogFailedDriverLoad @ 0x140B518F0 (MiLogFailedDriverLoad.c)
- *     MiApplyRequiredDriverHotPatches @ 0x140B57160 (MiApplyRequiredDriverHotPatches.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfDriverLoadImage @ 0x140C46AD0 (VfDriverLoadImage.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiSetImageProtection @ 0x14038D6E0 (MiSetImageProtection.c)
+ *     MiUpdateDriverLoadInProgress @ 0x1404294E0 (MiUpdateDriverLoadInProgress.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiReferenceActiveSubsection @ 0x140454670 (MiReferenceActiveSubsection.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     PsAttachSiloToCurrentThread @ 0x140466600 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14046FB80 (PsDetachSiloFromCurrentThread.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MiControlAreaRequiresCharge @ 0x1404A3414 (MiControlAreaRequiresCharge.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     KasanDriverLoadImage @ 0x1404F5570 (KasanDriverLoadImage.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x140775CFC (MiLogStrongCodeDriverLoadFailure.c)
+ *     MiConfigureDriverProxyState @ 0x14086AD90 (MiConfigureDriverProxyState.c)
+ *     MiResolveImageImports @ 0x14087B78C (MiResolveImageImports.c)
+ *     MmCallDllInitialize @ 0x14087B8BC (MmCallDllInitialize.c)
+ *     MiCompactServiceTable @ 0x14088106C (MiCompactServiceTable.c)
+ *     MiDriverLoadSucceeded @ 0x1409E4E98 (MiDriverLoadSucceeded.c)
+ *     KseDriverLoadImage @ 0x140A38A18 (KseDriverLoadImage.c)
+ *     MiConstructLoaderEntry @ 0x140AA535C (MiConstructLoaderEntry.c)
+ *     MiGetSystemAddressForImage @ 0x140AC89E4 (MiGetSystemAddressForImage.c)
+ *     MiFinalizeDriverCfgState @ 0x140AC8F20 (MiFinalizeDriverCfgState.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
+ *     MiHandleDriverNonPagedSections @ 0x140ACAFE8 (MiHandleDriverNonPagedSections.c)
+ *     MiFreeDriverInitialization @ 0x140ACB1C4 (MiFreeDriverInitialization.c)
+ *     MiObtainSectionForDriver @ 0x140AEE86C (MiObtainSectionForDriver.c)
+ *     MiProcessLoadConfigForDriver @ 0x140B079E0 (MiProcessLoadConfigForDriver.c)
+ *     MiFinalizeKernelScpForSystemImage @ 0x140B2132C (MiFinalizeKernelScpForSystemImage.c)
+ *     MiValidateStrongCodeDriverImage @ 0x140B22198 (MiValidateStrongCodeDriverImage.c)
+ *     MiMapSystemImage @ 0x140B22C34 (MiMapSystemImage.c)
+ *     MiGenerateSystemImageNames @ 0x140B27AC8 (MiGenerateSystemImageNames.c)
+ *     MiRelocateAmount @ 0x140B2909C (MiRelocateAmount.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3E5DC (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiLogFailedDriverLoad @ 0x140B54190 (MiLogFailedDriverLoad.c)
+ *     MiApplyRequiredDriverHotPatches @ 0x140B5A0B4 (MiApplyRequiredDriverHotPatches.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfDriverLoadImage @ 0x140C4CAE0 (VfDriverLoadImage.c)
  */
 
 __int64 __fastcall MmLoadSystemImageEx(
@@ -74,7 +74,7 @@ __int64 __fastcall MmLoadSystemImageEx(
   int v23; // edi
   struct _LIST_ENTRY ***v24; // r12
   int v25; // eax
-  _DWORD *v26; // rbx
+  PIMAGE_NT_HEADERS v26; // rbx
   __int64 v27; // rbx
   __int64 v28; // r15
   __int64 v29; // rcx
@@ -92,9 +92,7 @@ __int64 __fastcall MmLoadSystemImageEx(
   PVOID P[2]; // [rsp+70h] [rbp-19h] BYREF
   struct _KTHREAD *Lock; // [rsp+80h] [rbp-9h]
   _OWORD v43[4]; // [rsp+88h] [rbp-1h] BYREF
-  int v45; // [rsp+E0h] [rbp+57h]
 
-  v45 = a2;
   v7 = a6;
   v8 = a7;
   v9 = a5;
@@ -181,13 +179,13 @@ LABEL_14:
       v35 = 0;
       *(_DWORD *)(BaseLoaderPortion + 184) |= 0x2000u;
       LOBYTE(a5) = 0;
-      v26 = RtlImageNtHeader((unsigned __int64)v24);
+      v26 = RtlImageNtHeader(v24);
       if ( !v26 )
       {
         active = -1073741279;
         goto LABEL_12;
       }
-      if ( *((_WORD *)v26 + 2) != 0x8664 || *((_WORD *)v26 + 12) != 523 )
+      if ( v26->FileHeader.Machine != 0x8664 || v26->OptionalHeader.Magic != 523 )
       {
         active = -1073741520;
         goto LABEL_12;
@@ -198,8 +196,8 @@ LABEL_14:
         if ( active < 0 )
         {
           *(_OWORD *)(v19 + 88) = v40;
-          *((_DWORD *)v19 + 30) = v26[22];
-          *((_DWORD *)v19 + 39) = v26[2];
+          *((_DWORD *)v19 + 30) = v26->OptionalHeader.CheckSum;
+          *((_DWORD *)v19 + 39) = v26->FileHeader.TimeDateStamp;
           MiLogStrongCodeDriverLoadFailure("SectionWXable", (__int64)v19);
           goto LABEL_12;
         }
@@ -219,7 +217,7 @@ LABEL_14:
       *(_DWORD *)(v28 + 184) |= 0x10000u;
       if ( (v9 & 0x20000000) == 0 )
       {
-        active = MiResolveImageImports(v27, v45, (int)v43, (int)&v40, v30 != 0, &a5);
+        active = MiResolveImageImports(v27, a2, (__int64)v43, (__int64)&v40, v30 != 0, &a5);
         v35 = a5;
         if ( active < 0 )
           goto LABEL_12;
@@ -277,7 +275,7 @@ LABEL_14:
         active = MiApplyRequiredDriverHotPatches(v27);
         if ( active < 0 )
           goto LABEL_12;
-        MiDriverLoadSucceeded(v27, a1, P, &v40);
+        MiDriverLoadSucceeded(v27, a1, (__int64)P, (__int64)&v40);
       }
       if ( (v9 & 8) == 0 )
       {

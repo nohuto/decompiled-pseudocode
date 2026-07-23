@@ -3,7 +3,7 @@
  * Callers:
  *     KeHwPolicyLocateResource @ 0x140B60390 (KeHwPolicyLocateResource.c)
  * Callees:
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall KiHwPolicyFindDriverImage(__int64 a1)

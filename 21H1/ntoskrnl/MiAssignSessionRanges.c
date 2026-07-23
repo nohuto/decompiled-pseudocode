@@ -25,7 +25,7 @@ __int64 MiAssignSessionRanges()
   unsigned __int64 v10; // rdi
   ULONG ClearBitsAndSet; // eax
   __int64 result; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-89h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-89h] BYREF
   _QWORD v14[12]; // [rsp+38h] [rbp-79h] BYREF
   _BYTE v15[64]; // [rsp+98h] [rbp-19h] BYREF
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfRemoveVerifierEntry @ 0x140B9C4D4
+ * XREFs of VfRemoveVerifierEntry @ 0x140B9E4D4
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     VfSuspectDriversRemove @ 0x140B9AEA4 (VfSuspectDriversRemove.c)
+ *     VfSuspectDriversRemove @ 0x140B9CEA4 (VfSuspectDriversRemove.c)
  */
 
 __int64 __fastcall VfRemoveVerifierEntry(const UNICODE_STRING *a1)

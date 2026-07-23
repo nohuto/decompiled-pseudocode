@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipDetermineInstanceBaseIndex @ 0x1409D0A48
+ * XREFs of WmipDetermineInstanceBaseIndex @ 0x1409AFE8C
  * Callers:
- *     WmipBuildInstanceSet @ 0x1409D00F4 (WmipBuildInstanceSet.c)
+ *     WmipBuildInstanceSet @ 0x1409B053C (WmipBuildInstanceSet.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WmipFindGEByGuid @ 0x1409CD8B0 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x1409CE1D4 (WmipUnreferenceEntry.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WmipFindGEByGuid @ 0x1409B2884 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x1409B31A8 (WmipUnreferenceEntry.c)
  */
 
-__int64 __fastcall WmipDetermineInstanceBaseIndex(_QWORD *a1, char *a2)
+__int64 __fastcall WmipDetermineInstanceBaseIndex(__int64 a1, char *a2)
 {
   unsigned int v4; // edi
-  volatile signed __int64 *GEByGuid; // rax
-  volatile signed __int64 *v6; // r11
-  __int64 *v7; // r8
+  __int64 GEByGuid; // rax
+  __int64 v6; // r11
+  __int64 v7; // r8
   __int64 *i; // rdx
   int v9; // r10d
   int v10; // ecx
@@ -23,12 +23,12 @@ __int64 __fastcall WmipDetermineInstanceBaseIndex(_QWORD *a1, char *a2)
 
   v4 = 0;
   KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
-  GEByGuid = WmipFindGEByGuid(a1, 0);
+  GEByGuid = WmipFindGEByGuid(a1, 0LL);
   v6 = GEByGuid;
   if ( GEByGuid )
   {
-    v7 = (__int64 *)(GEByGuid + 7);
-    for ( i = (__int64 *)*((_QWORD *)GEByGuid + 7); i != v7; i = (__int64 *)*i )
+    v7 = GEByGuid + 56;
+    for ( i = *(__int64 **)(GEByGuid + 56); i != (__int64 *)v7; i = (__int64 *)*i )
     {
       if ( (i[2] & 1) != 0 )
       {
@@ -47,7 +47,7 @@ __int64 __fastcall WmipDetermineInstanceBaseIndex(_QWORD *a1, char *a2)
           v4 = *v12 + *((_DWORD *)i + 18);
       }
     }
-    WmipUnreferenceEntry((__int64)&WmipGEChunkInfo, v6);
+    WmipUnreferenceEntry(&WmipGEChunkInfo, v6);
   }
   KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
   return v4;

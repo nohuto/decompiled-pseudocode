@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpReleaseWriteQueue @ 0x1408B45D0
+ * XREFs of CmpReleaseWriteQueue @ 0x1408BABA4
  * Callers:
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140856D48 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14085D0E0 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
  *     <none>
  */

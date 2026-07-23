@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlDoesDbcsContainWildCards @ 0x140A59100
+ * XREFs of FsRtlDoesDbcsContainWildCards @ 0x140A66680
  * Callers:
- *     FsRtlIsFatDbcsLegal @ 0x140A58E90 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlIsFatDbcsLegal @ 0x140A66410 (FsRtlIsFatDbcsLegal.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ BOOLEAN __stdcall FsRtlDoesDbcsContainWildCards(PANSI_STRING Name)
     }
     else
     {
-      if ( (v2 & 0x80u) == 0LL && (*((_BYTE *)qword_140017750 + v2) & 8) != 0 )
+      if ( (v2 & 0x80u) == 0LL && (*((_BYTE *)qword_140017650 + v2) & 8) != 0 )
         return 1;
       v1 = (unsigned int)(v1 + 1);
     }

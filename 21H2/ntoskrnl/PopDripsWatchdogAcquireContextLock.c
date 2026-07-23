@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDripsWatchdogAcquireContextLock @ 0x1408EEDB0
+ * XREFs of PopDripsWatchdogAcquireContextLock @ 0x1408EEF10
  * Callers:
- *     PopDripsWatchdogCallbackWorker @ 0x1408EEF80 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1408EF0E0 (PopDripsWatchdogCallbackWorker.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall PopDripsWatchdogAcquireContextLock(struct _ERESOURCE *a1)

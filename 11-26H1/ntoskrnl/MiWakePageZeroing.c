@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWakePageZeroing @ 0x14028E71C
+ * XREFs of MiWakePageZeroing @ 0x14028DC7C
  * Callers:
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertHugeRangeInList @ 0x14048E66C (MiInsertHugeRangeInList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertHugeRangeInList @ 0x1404881AC (MiInsertHugeRangeInList.c)
  * Callees:
- *     MiPeriodicZeroingNeeded @ 0x1402A64FC (MiPeriodicZeroingNeeded.c)
- *     MiImmediateZeroingNeeded @ 0x1402DEC2C (MiImmediateZeroingNeeded.c)
- *     MiResumeBackgroundZeroing @ 0x14051F69C (MiResumeBackgroundZeroing.c)
+ *     MiPeriodicZeroingNeeded @ 0x1402A58F4 (MiPeriodicZeroingNeeded.c)
+ *     MiImmediateZeroingNeeded @ 0x1402C09EC (MiImmediateZeroingNeeded.c)
+ *     MiResumeBackgroundZeroing @ 0x140521D40 (MiResumeBackgroundZeroing.c)
  */
 
 void __fastcall MiWakePageZeroing(__int64 a1, unsigned __int64 a2)

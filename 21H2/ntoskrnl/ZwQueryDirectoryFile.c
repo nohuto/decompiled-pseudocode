@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwQueryDirectoryFile @ 0x1403FAA40
+ * XREFs of ZwQueryDirectoryFile @ 0x1403FAC20
  * Callers:
- *     IopFileUtilWalkDirectoryTreeHelper @ 0x14077C850 (IopFileUtilWalkDirectoryTreeHelper.c)
- *     AslPathWildcardFindNext @ 0x1409690C4 (AslPathWildcardFindNext.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14077CA10 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     AslPathWildcardFindNext @ 0x1409692A4 (AslPathWildcardFindNext.c)
  * Callees:
  *     <none>
  */
@@ -22,5 +22,5 @@ NTSTATUS __stdcall ZwQueryDirectoryFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event);
+  return KiServiceInternal(FileHandle);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspScheduleEnforcementWorker @ 0x1406809A0
+ * XREFs of PspScheduleEnforcementWorker @ 0x1405DB440
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x140680630 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x1405DB0D0 (PspChangeJobMemoryUsageByProcess.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PspScheduleEnforcementWorker(__int64 a1)

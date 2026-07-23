@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpDispatchNewMessage @ 0x1407398D0
+ * XREFs of AlpcpDispatchNewMessage @ 0x140739AC0
  * Callers:
- *     AlpcpDispatchMessage @ 0x1407172F0 (AlpcpDispatchMessage.c)
- *     AlpcpSendMessage @ 0x1407390A0 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x1407174F0 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x140739290 (AlpcpSendMessage.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PsGetProcessJob @ 0x140360F30 (PsGetProcessJob.c)
- *     PsGetJobEffectiveFreezeCount @ 0x1405A3CD8 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpUnlockMessage @ 0x14071BEB8 (AlpcpUnlockMessage.c)
- *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x140739AF0 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
- *     AlpcpCompleteDispatchMessage @ 0x140739E80 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1407DAD88 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PsGetProcessJob @ 0x1403610D0 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1405A41C8 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpUnlockMessage @ 0x14071C0B8 (AlpcpUnlockMessage.c)
+ *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x140739CE0 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14073A070 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1407DB058 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
  */
 
 __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)

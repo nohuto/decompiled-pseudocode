@@ -1,9 +1,9 @@
 /*
- * XREFs of SeCloseObjectAuditAlarmForNonObObject @ 0x140921360
+ * XREFs of SeCloseObjectAuditAlarmForNonObObject @ 0x1409214C0
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtCloseObjectAuditAlarm @ 0x14091EAF8 (SepAdtCloseObjectAuditAlarm.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x14091EC58 (SepAdtCloseObjectAuditAlarm.c)
  */
 
 void __fastcall SeCloseObjectAuditAlarmForNonObObject(

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUpdateIdleReevaluationDuration @ 0x1405856E4
+ * XREFs of PpmIdleUpdateIdleReevaluationDuration @ 0x140585BD4
  * Callers:
- *     PpmIdleSelectStates @ 0x1403B7470 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x1403B7650 (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */
@@ -42,7 +42,7 @@ char __fastcall PpmIdleUpdateIdleReevaluationDuration(
     if ( a2 != 2147483656LL || *(_BYTE *)(a5 + 8) )
       return v5;
     v6 = PpmCurrentProfile;
-    v7 = 55LL * dword_140C3D86C;
+    v7 = 55LL * dword_140C3D96C;
     *(_BYTE *)(a5 + 8) = 1;
     a4 = (unsigned int)(10 * LODWORD(v6[v7 + 24]));
   }

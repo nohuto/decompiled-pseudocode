@@ -1,19 +1,19 @@
 /*
- * XREFs of LocalConvertSDToStringSD_Rev1 @ 0x140A61D64
+ * XREFs of LocalConvertSDToStringSD_Rev1 @ 0x140A6ED34
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14043282C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1404B02C0 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14041F85C (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1404A9950 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140486620 (RtlGetDaclSecurityDescriptor.c)
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     SddlpFree @ 0x1409ED230 (SddlpFree.c)
- *     LocalConvertAclToString @ 0x140A607C4 (LocalConvertAclToString.c)
- *     RtlNtStatusToDosError @ 0x140A62640 (RtlNtStatusToDosError.c)
- *     LocalGetStringForSid @ 0x140A626A0 (LocalGetStringForSid.c)
- *     SddlpAlloc @ 0x140A62788 (SddlpAlloc.c)
- *     LocalGetStringForControl @ 0x140A627D4 (LocalGetStringForControl.c)
- *     SddlFilterSacl @ 0x140A62910 (SddlFilterSacl.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x14047FDF0 (RtlGetDaclSecurityDescriptor.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     SddlpFree @ 0x1409E9A00 (SddlpFree.c)
+ *     LocalConvertAclToString @ 0x140A6D784 (LocalConvertAclToString.c)
+ *     RtlNtStatusToDosError @ 0x140A6F610 (RtlNtStatusToDosError.c)
+ *     LocalGetStringForSid @ 0x140A6F670 (LocalGetStringForSid.c)
+ *     SddlpAlloc @ 0x140A6F758 (SddlpAlloc.c)
+ *     LocalGetStringForControl @ 0x140A6F7A4 (LocalGetStringForControl.c)
+ *     SddlFilterSacl @ 0x140A6F8E0 (SddlFilterSacl.c)
  */
 
 ULONG __fastcall LocalConvertSDToStringSD_Rev1(

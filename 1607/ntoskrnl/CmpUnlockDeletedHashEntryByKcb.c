@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpUnlockDeletedHashEntryByKcb @ 0x1403FC040
+ * XREFs of CmpUnlockDeletedHashEntryByKcb @ 0x1403FAF00
  * Callers:
- *     CmpDiscardKcb @ 0x14000ADEC (CmpDiscardKcb.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x140436D30 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpDiscardKcb @ 0x14000A96C (CmpDiscardKcb.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140435C00 (CmpCleanUpKcbCacheWithLock.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 __int64 __fastcall CmpUnlockDeletedHashEntryByKcb(__int64 a1)

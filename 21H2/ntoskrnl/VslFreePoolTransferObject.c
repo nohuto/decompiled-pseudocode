@@ -1,11 +1,11 @@
 /*
- * XREFs of VslFreePoolTransferObject @ 0x1404FC510
+ * XREFs of VslFreePoolTransferObject @ 0x1404FC490
  * Callers:
- *     VslFinishSecureImageValidation @ 0x1404FE6F0 (VslFinishSecureImageValidation.c)
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     VslFinishSecureImageValidation @ 0x1404FE670 (VslFinishSecureImageValidation.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403941C4 (VslpUnlockPagesForTransfer.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslFreePoolTransferObject(__int64 **P, _QWORD *a2)

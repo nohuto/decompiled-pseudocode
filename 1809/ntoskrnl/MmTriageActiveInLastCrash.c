@@ -1,10 +1,10 @@
 /*
- * XREFs of MmTriageActiveInLastCrash @ 0x1409F6E98
+ * XREFs of MmTriageActiveInLastCrash @ 0x1409F7E98
  * Callers:
- *     VfTriageSystem @ 0x1409DB150 (VfTriageSystem.c)
+ *     VfTriageSystem @ 0x1409DC150 (VfTriageSystem.c)
  * Callees:
- *     TriageGetBugcheckData @ 0x1409FA6FC (TriageGetBugcheckData.c)
- *     TriagepVerifyDump @ 0x1409FA7EC (TriagepVerifyDump.c)
+ *     TriageGetBugcheckData @ 0x1409FB6FC (TriageGetBugcheckData.c)
+ *     TriagepVerifyDump @ 0x1409FB7EC (TriagepVerifyDump.c)
  */
 
 _BOOL8 __fastcall MmTriageActiveInLastCrash(__int64 a1)

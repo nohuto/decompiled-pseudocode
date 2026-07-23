@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpClaimGlobalQuota @ 0x14087F12C
+ * XREFs of CmpClaimGlobalQuota @ 0x140882FDC
  * Callers:
- *     CmpAllocateForNonPagedHive @ 0x1404CF960 (CmpAllocateForNonPagedHive.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x1407E37DC (HvpBuildMapForMemoryBackedHive.c)
- *     CmpAllocate @ 0x14087F0C0 (CmpAllocate.c)
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
- *     HvpMapHiveImageFromViewMap @ 0x1409829FC (HvpMapHiveImageFromViewMap.c)
- *     HvpAllocateNonPagedBin @ 0x140A60388 (HvpAllocateNonPagedBin.c)
+ *     CmpAllocateForNonPagedHive @ 0x1404C8A10 (CmpAllocateForNonPagedHive.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407E3D2C (HvpBuildMapForMemoryBackedHive.c)
+ *     CmpAllocate @ 0x140882F70 (CmpAllocate.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
+ *     HvpMapHiveImageFromViewMap @ 0x14096B20C (HvpMapHiveImageFromViewMap.c)
+ *     HvpAllocateNonPagedBin @ 0x140A588D8 (HvpAllocateNonPagedBin.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     CmpUpdateGlobalQuotaAllowed @ 0x14087F180 (CmpUpdateGlobalQuotaAllowed.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     CmpUpdateGlobalQuotaAllowed @ 0x140883030 (CmpUpdateGlobalQuotaAllowed.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char __fastcall CmpClaimGlobalQuota(__int64 a1, __int64 a2)
@@ -26,7 +26,7 @@ char __fastcall CmpClaimGlobalQuota(__int64 a1, __int64 a2)
     && !CmpQuotaWarningPopupDisplayed
     && ExReadyForErrors )
   {
-    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
+    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x20204D43u);
     if ( Pool2 )
     {
       Pool2->List.Flink = 0LL;

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiExtendSection @ 0x14061C4C8
+ * XREFs of MiExtendSection @ 0x14061D4C8
  * Callers:
- *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
+ *     MmExtendSection @ 0x14061D8CC (MmExtendSection.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     MiControlAreaUsingExtents @ 0x1400321B0 (MiControlAreaUsingExtents.c)
- *     MiIncrementSubsectionViewCount @ 0x140077A50 (MiIncrementSubsectionViewCount.c)
- *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     MiAppendSubsectionChain @ 0x140092AA4 (MiAppendSubsectionChain.c)
- *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
- *     MiDeleteSubsectionPages @ 0x140094F80 (MiDeleteSubsectionPages.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     MiSetSubsectionBase @ 0x140138FC0 (MiSetSubsectionBase.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiSubsectionNeedsExtents @ 0x1402B4690 (MiSubsectionNeedsExtents.c)
- *     MiGetSubsectionCharges @ 0x1402C4A94 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiInitializePrototypePtes @ 0x14061F030 (MiInitializePrototypePtes.c)
+ *     MiIncrementSubsectionViewCount @ 0x140077A40 (MiIncrementSubsectionViewCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400794B0 (MiDecrementSubsectionViewCount.c)
+ *     MiAppendSubsectionChain @ 0x1400929E4 (MiAppendSubsectionChain.c)
+ *     MiGetControlAreaPartition @ 0x1400937E8 (MiGetControlAreaPartition.c)
+ *     MiDeleteSubsectionPages @ 0x140094EC0 (MiDeleteSubsectionPages.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiSetSubsectionBase @ 0x1401390C0 (MiSetSubsectionBase.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiSubsectionNeedsExtents @ 0x1402B4880 (MiSubsectionNeedsExtents.c)
+ *     MiGetSubsectionCharges @ 0x1402C4C84 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiInitializePrototypePtes @ 0x140620030 (MiInitializePrototypePtes.c)
  */
 
 __int64 MiExtendSection(__int64 a1, _QWORD *a2, unsigned int a3, __int64 a4, ...)

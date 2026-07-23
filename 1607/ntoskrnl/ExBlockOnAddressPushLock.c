@@ -1,21 +1,21 @@
 /*
- * XREFs of ExBlockOnAddressPushLock @ 0x1400872BC
+ * XREFs of ExBlockOnAddressPushLock @ 0x14009DC4C
  * Callers:
- *     CmpWaitForLateUnloadWorker @ 0x140087264 (CmpWaitForLateUnloadWorker.c)
- *     CmLoadAppKey @ 0x1403FC110 (CmLoadAppKey.c)
- *     CmpTransSearchAddTrans @ 0x1403FF144 (CmpTransSearchAddTrans.c)
- *     MiLockImageSection @ 0x140499ABC (MiLockImageSection.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14049B4BC (ExpBlockOnLockedHandleEntry.c)
- *     CmpRollbackLightWeightTransaction @ 0x1404E979C (CmpRollbackLightWeightTransaction.c)
- *     PopBatteryUpdateCurrentState @ 0x140547C48 (PopBatteryUpdateCurrentState.c)
- *     CmUnRegisterCallback @ 0x1405FB13C (CmUnRegisterCallback.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
- *     ObDrainDeferredObjectDeletion @ 0x140665CD0 (ObDrainDeferredObjectDeletion.c)
- *     EtwpKsrCallback @ 0x1406A9D84 (EtwpKsrCallback.c)
+ *     CmpWaitForLateUnloadWorker @ 0x14009DBF4 (CmpWaitForLateUnloadWorker.c)
+ *     CmLoadAppKey @ 0x1403FAFD0 (CmLoadAppKey.c)
+ *     CmpTransSearchAddTrans @ 0x1403FE004 (CmpTransSearchAddTrans.c)
+ *     MiLockImageSection @ 0x1404AEF68 (MiLockImageSection.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1404AF024 (ExpBlockOnLockedHandleEntry.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1404CB88C (CmpRollbackLightWeightTransaction.c)
+ *     PopBatteryUpdateCurrentState @ 0x140548188 (PopBatteryUpdateCurrentState.c)
+ *     CmUnRegisterCallback @ 0x1405FB1F0 (CmUnRegisterCallback.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
+ *     ObDrainDeferredObjectDeletion @ 0x140665DB4 (ObDrainDeferredObjectDeletion.c)
+ *     EtwpKsrCallback @ 0x1406A9EBC (EtwpKsrCallback.c)
  * Callees:
- *     ExBlockPushLock @ 0x14008735C (ExBlockPushLock.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140087378 (ExTimedWaitForUnblockPushLock.c)
- *     ExpUnblockPushLock @ 0x140087548 (ExpUnblockPushLock.c)
+ *     ExBlockPushLock @ 0x14009DCEC (ExBlockPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x14009DD08 (ExTimedWaitForUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x14010B740 (ExpUnblockPushLock.c)
  */
 
 __int64 __fastcall ExBlockOnAddressPushLock(__int64 a1, _QWORD *a2, _QWORD *a3, unsigned __int64 a4, __int64 a5)

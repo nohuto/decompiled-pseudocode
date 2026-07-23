@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmpDispatchSetInputWakeCapability @ 0x14090124C
+ * XREFs of TtmpDispatchSetInputWakeCapability @ 0x1409013AC
  * Callers:
- *     TtmDispatchApi @ 0x140900694 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409007F4 (TtmDispatchApi.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     TtmiSetInputWakeCapability @ 0x1408FC5AC (TtmiSetInputWakeCapability.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x140900934 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     TtmiSetInputWakeCapability @ 0x1408FC70C (TtmiSetInputWakeCapability.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140900A94 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpDispatchSetInputWakeCapability(__int64 a1)

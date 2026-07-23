@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlCopyWrite @ 0x14088A890
+ * XREFs of FsRtlCopyWrite @ 0x14088A9F0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     CcCopyWriteWontFlush @ 0x14022BF00 (CcCopyWriteWontFlush.c)
- *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
- *     CcZeroData @ 0x1402E82C0 (CcZeroData.c)
- *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     IoSetTopLevelIrp @ 0x140356C20 (IoSetTopLevelIrp.c)
- *     IoGetTopLevelIrp @ 0x140356C40 (IoGetTopLevelIrp.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CcCopyWrite @ 0x1404EA010 (CcCopyWrite.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402406E0 (FsRtlIsNtstatusExpected.c)
+ *     CcZeroData @ 0x140299610 (CcZeroData.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     CcCopyWriteWontFlush @ 0x1402D0780 (CcCopyWriteWontFlush.c)
+ *     CcCanIWrite @ 0x14031DF20 (CcCanIWrite.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     IoSetTopLevelIrp @ 0x140361970 (IoSetTopLevelIrp.c)
+ *     IoGetTopLevelIrp @ 0x140361990 (IoGetTopLevelIrp.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CcCopyWrite @ 0x1404EA250 (CcCopyWrite.c)
  */
 
 BOOLEAN __stdcall FsRtlCopyWrite(
@@ -33,38 +33,43 @@ BOOLEAN __stdcall FsRtlCopyWrite(
   __int64 v14; // rsi
   __int64 v15; // r14
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v17; // r9
-  char v19; // r9
-  LARGE_INTEGER v20; // rdi
-  LONGLONG v21; // rbx
-  char v22; // cl
-  LONGLONG v23; // r8
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  char v21; // r9
+  LONGLONG QuadPart; // rdi
+  LONGLONG v23; // rbx
+  char v24; // cl
+  LONGLONG v25; // r8
   PFAST_IO_DISPATCH FastIoDispatch; // rax
-  PLARGE_INTEGER v25; // rdx
-  struct _ERESOURCE *v26; // rcx
-  struct _ERESOURCE *v27; // rcx
-  struct _ERESOURCE *v28; // rcx
-  BOOLEAN v29; // [rsp+50h] [rbp-88h]
-  char v30; // [rsp+51h] [rbp-87h]
-  char v31; // [rsp+52h] [rbp-86h]
-  LONGLONG v32; // [rsp+58h] [rbp-80h]
+  PLARGE_INTEGER v27; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  __int64 v30; // r9
+  struct _ERESOURCE *v31; // rcx
+  struct _ERESOURCE *v32; // rcx
+  struct _ERESOURCE *v33; // rcx
+  BOOLEAN v34; // [rsp+50h] [rbp-88h]
+  char v35; // [rsp+51h] [rbp-87h]
+  char v36; // [rsp+52h] [rbp-86h]
+  LONGLONG v37; // [rsp+58h] [rbp-80h]
   LARGE_INTEGER EndOffset; // [rsp+60h] [rbp-78h] BYREF
-  signed __int64 v34; // [rsp+68h] [rbp-70h]
-  __int64 v35; // [rsp+70h] [rbp-68h]
-  __int64 v36; // [rsp+78h] [rbp-60h]
-  char *v37; // [rsp+80h] [rbp-58h]
-  __int128 v38[5]; // [rsp+88h] [rbp-50h] BYREF
+  signed __int64 v39; // [rsp+68h] [rbp-70h]
+  __int64 v40; // [rsp+70h] [rbp-68h]
+  __int64 v41; // [rsp+78h] [rbp-60h]
+  char *v42; // [rsp+80h] [rbp-58h]
+  __int128 v43[5]; // [rsp+88h] [rbp-50h] BYREF
 
   v9 = Length;
   v12 = 0;
-  v29 = 1;
-  v31 = 0;
-  if ( FileOffset->LowPart != -1 || (v30 = 1, FileOffset->HighPart != -1) )
-    v30 = 0;
+  v34 = 1;
+  v36 = 0;
+  if ( FileOffset->LowPart != -1 || (v35 = 1, FileOffset->HighPart != -1) )
+    v35 = 0;
   if ( IoGetTopLevelIrp() )
     return 0;
   FsContext = (char *)FileObject->FsContext;
-  v37 = FsContext;
+  v42 = FsContext;
   if ( !CcCanIWrite(FileObject, v9, Wait, 0)
     || (FileObject->Flags & 0x10) != 0
     || !CcCopyWriteWontFlush(FileObject, FileOffset, v9) )
@@ -72,139 +77,139 @@ BOOLEAN __stdcall FsRtlCopyWrite(
     return 0;
   }
   IoStatus->Status = 0;
-  v34 = v9;
+  v39 = v9;
   IoStatus->Information = v9;
   if ( !(_DWORD)v9 )
     return 1;
   v14 = 0LL;
-  v35 = 0LL;
+  v40 = 0LL;
   v15 = 0LL;
-  v36 = 0LL;
+  v41 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( v30 || (signed __int64)(FileOffset->QuadPart + v9) > *((_QWORD *)FsContext + 5) )
+  if ( v35 || (signed __int64)(FileOffset->QuadPart + v9) > *((_QWORD *)FsContext + 5) )
   {
     if ( !ExAcquireResourceExclusiveLite(*((PERESOURCE *)FsContext + 1), Wait) )
       goto LABEL_12;
-    v19 = 0;
+    v21 = 0;
   }
   else
   {
     if ( !ExAcquireResourceSharedLite(*((PERESOURCE *)FsContext + 1), Wait) )
     {
 LABEL_12:
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v17, v18, v19);
       return 0;
     }
-    v19 = 1;
+    v21 = 1;
   }
-  if ( v30 )
-    v20 = *(LARGE_INTEGER *)(FsContext + 32);
+  if ( v35 )
+    QuadPart = *((_QWORD *)FsContext + 4);
   else
-    v20 = *FileOffset;
-  v21 = v20.QuadPart + v34;
-  v32 = v20.QuadPart + v34;
-  EndOffset = v20;
+    QuadPart = FileOffset->QuadPart;
+  v23 = QuadPart + v39;
+  v37 = QuadPart + v39;
+  EndOffset.QuadPart = QuadPart;
   if ( !FileObject->PrivateCacheMap )
     goto LABEL_33;
-  v22 = FsContext[5];
-  if ( !v22 )
+  v24 = FsContext[5];
+  if ( !v24 )
     goto LABEL_33;
-  v23 = *((_QWORD *)FsContext + 5);
-  if ( v20.QuadPart >= v23 + 0x2000 || 0x7FFFFFFFFFFFFFFFLL - v20.QuadPart < v34 || v21 > *((_QWORD *)FsContext + 3) )
+  v25 = *((_QWORD *)FsContext + 5);
+  if ( QuadPart >= v25 + 0x2000 || 0x7FFFFFFFFFFFFFFFLL - QuadPart < v39 || v23 > *((_QWORD *)FsContext + 3) )
     goto LABEL_33;
-  if ( v19 && v21 > v23 )
+  if ( v21 && v23 > v25 )
   {
     ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
     if ( !ExAcquireResourceExclusiveLite(*((PERESOURCE *)FsContext + 1), Wait) )
       goto LABEL_12;
-    if ( v30 )
+    if ( v35 )
     {
-      v20 = *(LARGE_INTEGER *)(FsContext + 32);
-      EndOffset = v20;
-      v21 = v20.QuadPart + v34;
-      v32 = v20.QuadPart + v34;
+      QuadPart = *((_QWORD *)FsContext + 4);
+      EndOffset.QuadPart = QuadPart;
+      v23 = QuadPart + v39;
+      v37 = QuadPart + v39;
     }
-    if ( !FileObject->PrivateCacheMap || (v22 = FsContext[5]) == 0 || v21 > *((_QWORD *)FsContext + 3) )
+    if ( !FileObject->PrivateCacheMap || (v24 = FsContext[5]) == 0 || v23 > *((_QWORD *)FsContext + 3) )
     {
 LABEL_33:
       ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
       goto LABEL_12;
     }
   }
-  if ( v22 != 2 )
+  if ( v24 != 2 )
     goto LABEL_39;
   FastIoDispatch = DeviceObject->DriverObject->FastIoDispatch;
-  v38[0] = 0LL;
-  v25 = FileOffset;
+  v43[0] = 0LL;
+  v27 = FileOffset;
   if ( FileOffset->QuadPart == -1 )
-    v25 = (PLARGE_INTEGER)(FsContext + 32);
-  LOBYTE(v17) = Wait;
+    v27 = (PLARGE_INTEGER)(FsContext + 32);
+  LOBYTE(v19) = Wait;
   if ( ((unsigned __int8 (__fastcall *)(PFILE_OBJECT, PLARGE_INTEGER, _QWORD, __int64, ULONG, _BYTE, __int128 *, PDEVICE_OBJECT))FastIoDispatch->FastIoCheckIfPossible)(
          FileObject,
-         v25,
+         v27,
          Length,
-         v17,
+         v19,
          LockKey,
          0,
-         v38,
+         v43,
          DeviceObject) )
   {
 LABEL_39:
-    if ( v21 > *((_QWORD *)FsContext + 4) )
+    if ( v23 > *((_QWORD *)FsContext + 4) )
     {
-      v31 = 1;
+      v36 = 1;
       v14 = *((_QWORD *)FsContext + 4);
-      v35 = v14;
+      v40 = v14;
       v15 = *((_QWORD *)FsContext + 5);
-      v36 = v15;
-      if ( *((_DWORD *)FsContext + 9) == HIDWORD(v32) || (v26 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 2)) == 0LL )
+      v41 = v15;
+      if ( *((_DWORD *)FsContext + 9) == HIDWORD(v37) || (v31 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 2)) == 0LL )
       {
-        *((_QWORD *)FsContext + 4) = v21;
+        *((_QWORD *)FsContext + 4) = v23;
       }
       else
       {
-        ExAcquireResourceExclusiveLite(v26, 1u);
-        *((_QWORD *)FsContext + 4) = v21;
+        ExAcquireResourceExclusiveLite(v31, 1u);
+        *((_QWORD *)FsContext + 4) = v23;
         ExReleaseResourceLite(*((PERESOURCE *)FsContext + 2));
       }
     }
     IoSetTopLevelIrp((PIRP)4);
-    if ( v20.QuadPart > *((_QWORD *)FsContext + 5) )
-      v29 = CcZeroData(FileObject, (PLARGE_INTEGER)FsContext + 5, &EndOffset, Wait);
-    if ( v29 )
-      v29 = CcCopyWrite(FileObject, &EndOffset, Length, Wait, Buffer);
+    if ( QuadPart > *((_QWORD *)FsContext + 5) )
+      v34 = CcZeroData(FileObject, (PLARGE_INTEGER)FsContext + 5, &EndOffset, Wait);
+    if ( v34 )
+      v34 = CcCopyWrite(FileObject, &EndOffset, Length, Wait, Buffer);
     IoSetTopLevelIrp(0LL);
-    if ( v29 )
+    if ( v34 )
     {
-      if ( v21 > *((_QWORD *)FsContext + 5) )
+      if ( v23 > *((_QWORD *)FsContext + 5) )
       {
-        if ( *((_DWORD *)FsContext + 11) == HIDWORD(v32)
-          || (v27 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 2)) == 0LL )
+        if ( *((_DWORD *)FsContext + 11) == HIDWORD(v37)
+          || (v32 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 2)) == 0LL )
         {
-          *((_QWORD *)FsContext + 5) = v21;
+          *((_QWORD *)FsContext + 5) = v23;
         }
         else
         {
-          ExAcquireResourceExclusiveLite(v27, 1u);
-          *((_QWORD *)FsContext + 5) = v21;
+          ExAcquireResourceExclusiveLite(v32, 1u);
+          *((_QWORD *)FsContext + 5) = v23;
           ExReleaseResourceLite(*((PERESOURCE *)FsContext + 2));
         }
       }
       FileObject->Flags |= 0x1000u;
-      if ( v31 )
+      if ( v36 )
       {
-        *((_QWORD *)FileObject->SectionObjectPointer->SharedCacheMap + 1) = v21;
+        *((_QWORD *)FileObject->SectionObjectPointer->SharedCacheMap + 1) = v23;
         FileObject->Flags |= 0x2000u;
       }
-      FileObject->CurrentByteOffset.QuadPart = v20.QuadPart + Length;
+      FileObject->CurrentByteOffset.QuadPart = QuadPart + Length;
     }
-    else if ( v31 )
+    else if ( v36 )
     {
-      v28 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 2);
-      if ( v28 )
+      v33 = (struct _ERESOURCE *)*((_QWORD *)FsContext + 2);
+      if ( v33 )
       {
-        ExAcquireResourceExclusiveLite(v28, 1u);
+        ExAcquireResourceExclusiveLite(v33, 1u);
         *((_QWORD *)FsContext + 4) = v14;
         *((_QWORD *)FsContext + 5) = v15;
         ExReleaseResourceLite(*((PERESOURCE *)FsContext + 2));
@@ -216,12 +221,12 @@ LABEL_39:
       }
     }
     ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
-    v12 = v29;
+    v12 = v34;
   }
   else
   {
     ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v28, v29, v30);
   return v12;
 }

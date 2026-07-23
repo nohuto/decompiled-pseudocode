@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOp_MOVAPS @ 0x14057FA30
+ * XREFs of KiOp_MOVAPS @ 0x14057FF20
  * Callers:
  *     <none>
  * Callees:
- *     KiOpPatchCode @ 0x14057F400 (KiOpPatchCode.c)
+ *     KiOpPatchCode @ 0x14057F8F0 (KiOpPatchCode.c)
  */
 
 __int64 __fastcall KiOp_MOVAPS(__int64 a1)

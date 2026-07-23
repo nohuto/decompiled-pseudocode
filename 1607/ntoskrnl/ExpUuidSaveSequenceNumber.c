@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpUuidSaveSequenceNumber @ 0x14058077C
+ * XREFs of ExpUuidSaveSequenceNumber @ 0x140580C28
  * Callers:
- *     ExpUuidSaveSequenceNumberIf @ 0x1404E5644 (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1404C8260 (ExpUuidSaveSequenceNumberIf.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
  */
 
 __int64 ExpUuidSaveSequenceNumber()

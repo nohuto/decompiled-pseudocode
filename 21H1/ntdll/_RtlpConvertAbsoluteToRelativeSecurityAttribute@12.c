@@ -35,16 +35,16 @@ int __stdcall RtlpConvertAbsoluteToRelativeSecurityAttribute(int a1, unsigned in
   const void *v24; // [esp-14h] [ebp-48h]
   size_t v25; // [esp-10h] [ebp-44h]
   size_t v26; // [esp-4h] [ebp-38h]
+  size_t v27; // [esp-4h] [ebp-38h]
   void *Src; // [esp+Ch] [ebp-28h]
-  void **v28; // [esp+1Ch] [ebp-18h]
-  char *v29; // [esp+1Ch] [ebp-18h]
+  void **v29; // [esp+1Ch] [ebp-18h]
   char *v30; // [esp+1Ch] [ebp-18h]
   char *v31; // [esp+1Ch] [ebp-18h]
-  int *v32; // [esp+20h] [ebp-14h]
-  unsigned int v33; // [esp+20h] [ebp-14h]
-  int v34; // [esp+20h] [ebp-14h]
+  char *v32; // [esp+1Ch] [ebp-18h]
+  int *v33; // [esp+20h] [ebp-14h]
+  unsigned int v34; // [esp+20h] [ebp-14h]
+  int v35; // [esp+20h] [ebp-14h]
   size_t Size; // [esp+24h] [ebp-10h] BYREF
-  unsigned int v36; // [esp+28h] [ebp-Ch] BYREF
   unsigned int v37; // [esp+2Ch] [ebp-8h] BYREF
   unsigned int v38; // [esp+30h] [ebp-4h] BYREF
 
@@ -52,9 +52,8 @@ int __stdcall RtlpConvertAbsoluteToRelativeSecurityAttribute(int a1, unsigned in
   v38 = 20;
   v4 = a1;
   v5 = 0;
-  Size = 0;
+  Size = 0LL;
   v37 = 0;
-  v36 = 0;
   if ( !a1 || !a3 )
     return -1073741811;
   v6 = *(_DWORD *)(a1 + 12);
@@ -68,10 +67,10 @@ int __stdcall RtlpConvertAbsoluteToRelativeSecurityAttribute(int a1, unsigned in
   v7 = RtlULongPtrAdd(0x14u, v5, (int *)&v38);
   if ( v7 >= 0 )
   {
-    v7 = RtlStringCbLengthW(*(void **)a1, &v36);
+    v7 = RtlStringCbLengthW(*(void **)a1, (_DWORD *)&Size + 1);
     if ( v7 >= 0 )
     {
-      v7 = RtlULongPtrAdd(v36, 2, (int *)&Size);
+      v7 = RtlULongPtrAdd(HIDWORD(Size), 2, (int *)&Size);
       if ( v7 >= 0 )
       {
         v7 = RtlULongPtrAdd(v38, Size, (int *)&v38);
@@ -91,7 +90,7 @@ LABEL_16:
               if ( *(_DWORD *)(a1 + 12) )
               {
                 v9 = (int *)(*(_DWORD *)(a1 + 16) + 4);
-                v32 = v9;
+                v33 = v9;
                 do
                 {
                   v7 = RtlULongPtrAdd(v38, *v9, (int *)&v38);
@@ -100,15 +99,15 @@ LABEL_16:
                   v7 = RtlULongPtrAdd(v38, 4, (int *)&v38);
                   if ( v7 < 0 )
                     return v7;
-                  v9 = v32 + 2;
+                  v9 = v33 + 2;
                   ++v37;
-                  v32 += 2;
+                  v33 += 2;
                 }
                 while ( v37 < *(_DWORD *)(a1 + 12) );
               }
 LABEL_31:
               v7 = RtlULongPtrAdd(v38, 3, (int *)&v38);
-              v34 = v7;
+              v35 = v7;
               if ( v7 < 0 )
                 return v7;
               v11 = v38 & 0xFFFFFFFC;
@@ -119,10 +118,10 @@ LABEL_31:
               }
               if ( a2 )
               {
-                v26 = v38 & 0xFFFFFFFC;
+                LODWORD(v26) = v38 & 0xFFFFFFFC;
                 *a3 = v11;
                 memset(a2, 0, v26);
-                v25 = Size;
+                LODWORD(v25) = Size;
                 *((_WORD *)a2 + 2) = *(_WORD *)(a1 + 4);
                 *((_WORD *)a2 + 3) = *(_WORD *)(a1 + 6);
                 a2[2] = *(_DWORD *)(a1 + 8);
@@ -135,7 +134,7 @@ LABEL_31:
                 v13 = Size + v37;
                 v14 = (char *)a2;
                 v37 = v13;
-                v29 = (char *)a2 + v13;
+                v30 = (char *)a2 + v13;
                 v15 = *(_WORD *)(a1 + 4);
                 if ( v15 )
                 {
@@ -150,17 +149,18 @@ LABEL_31:
                         {
                           *(_DWORD *)&v14[4 * v3 + 16] = v13;
                           Src = *(void **)(*(_DWORD *)(v4 + 16) + 4 * v3);
-                          v7 = RtlStringCbLengthW(Src, &v36);
+                          v7 = RtlStringCbLengthW(Src, (_DWORD *)&Size + 1);
                           if ( v7 < 0 )
                             break;
-                          v20 = v36 + 2;
-                          memcpy(v29, Src, v36 + 2);
+                          v20 = HIDWORD(Size) + 2;
+                          LODWORD(v27) = HIDWORD(Size) + 2;
+                          memcpy(v30, Src, v27);
                           v14 = (char *)a2;
                           v13 = v20 + v37;
                           v4 = a1;
                           ++v3;
                           v37 = v13;
-                          v29 = (char *)a2 + v13;
+                          v30 = (char *)a2 + v13;
                         }
                         while ( v3 < *(_DWORD *)(a1 + 12) );
                       }
@@ -172,7 +172,7 @@ LABEL_51:
                       if ( !*(_DWORD *)(a1 + 12) )
                         return v7;
                       v21 = a2 + 4;
-                      v31 = (char *)(a2 + 4);
+                      v32 = (char *)(a2 + 4);
                       do
                       {
                         *v21 = v13;
@@ -182,11 +182,11 @@ LABEL_51:
                         *(unsigned int *)((char *)a2 + v13 + 4) = *(_DWORD *)(v22 + 8 * v3 + 4);
                         v13 += 8;
                         ++v3;
-                        v21 = (unsigned int *)(v31 + 4);
-                        v31 += 4;
+                        v21 = (unsigned int *)(v32 + 4);
+                        v32 += 4;
                       }
                       while ( v3 < *(_DWORD *)(a1 + 12) );
-                      return v34;
+                      return v35;
                   }
                   if ( *(_WORD *)(a1 + 4) == 16 )
                   {
@@ -195,7 +195,7 @@ LABEL_41:
                       return v7;
                     v16 = v37;
                     v17 = a2 + 4;
-                    v30 = (char *)(a2 + 4);
+                    v31 = (char *)(a2 + 4);
                     do
                     {
                       *v17 = v16;
@@ -204,16 +204,17 @@ LABEL_41:
                       v19 = *(_DWORD *)(a1 + 16);
                       if ( *(_DWORD *)(v19 + 8 * v3 + 4) )
                       {
-                        memcpy(&v14[v18], *(const void **)(v19 + 8 * v3), *(_DWORD *)(v19 + 8 * v3 + 4));
+                        LODWORD(v27) = *(_DWORD *)(v19 + 8 * v3 + 4);
+                        memcpy(&v14[v18], *(const void **)(v19 + 8 * v3), v27);
                         v19 = *(_DWORD *)(a1 + 16);
                         v14 = (char *)a2;
                       }
                       v16 = *(_DWORD *)(v19 + 8 * v3++ + 4) + v18;
-                      v17 = (unsigned int *)(v30 + 4);
-                      v30 += 4;
+                      v17 = (unsigned int *)(v31 + 4);
+                      v31 += 4;
                     }
                     while ( v3 < *(_DWORD *)(a1 + 12) );
-                    return v34;
+                    return v35;
                   }
                 }
               }
@@ -237,26 +238,26 @@ LABEL_29:
               return v7;
             goto LABEL_31;
           }
-          v33 = 0;
+          v34 = 0;
           if ( !*(_DWORD *)(a1 + 12) )
             goto LABEL_31;
           v10 = *(void ***)(a1 + 16);
-          v28 = v10;
+          v29 = v10;
           while ( 1 )
           {
-            v7 = RtlStringCbLengthW(*v10, &v36);
+            v7 = RtlStringCbLengthW(*v10, (_DWORD *)&Size + 1);
             if ( v7 < 0 )
               break;
-            v7 = RtlULongPtrAdd(v36, 2, (int *)&v37);
+            v7 = RtlULongPtrAdd(HIDWORD(Size), 2, (int *)&v37);
             if ( v7 < 0 )
               break;
             v7 = RtlULongPtrAdd(v38, v37, (int *)&v38);
             if ( v7 < 0 )
               break;
-            v10 = v28 + 1;
-            ++v33;
-            ++v28;
-            if ( v33 >= *(_DWORD *)(a1 + 12) )
+            v10 = v29 + 1;
+            ++v34;
+            ++v29;
+            if ( v34 >= *(_DWORD *)(a1 + 12) )
               goto LABEL_31;
           }
         }

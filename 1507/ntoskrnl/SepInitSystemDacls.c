@@ -52,7 +52,7 @@ NTSTATUS SepInitSystemDacls()
        + *((unsigned __int8 *)SeServiceSid + 1)
        + *((unsigned __int8 *)SeNetworkServiceSid + 1)
        + 25);
-  v11 = 4 * *(unsigned __int8 *)(*(_QWORD *)&SeMediumMandatorySid + 1LL) + 28;
+  v11 = 4 * *((unsigned __int8 *)SeMediumMandatorySid + 1) + 28;
   SePublicDefaultDacl = (PACL)ExAllocatePoolWithTag((POOL_TYPE)17, v5, 0x63416553u);
   SePublicDefaultUnrestrictedDacl = (PACL)ExAllocatePoolWithTag((POOL_TYPE)17, v7, 0x63416553u);
   SePublicOpenDacl = (PACL)ExAllocatePoolWithTag((POOL_TYPE)17, v5, 0x63416553u);
@@ -110,7 +110,7 @@ NTSTATUS SepInitSystemDacls()
   RtlAddAccessAllowedAce(SepDefaultRecoveryCapeDacl, 2u, 0x1FFFFFu, SeServiceSid);
   RtlAddAccessAllowedAce(SepDefaultRecoveryCapeDacl, 2u, 0x1200A9u, SeAllAppPackagesSid);
   LODWORD(LabelSid) = 2;
-  RtlAddMandatoryAce(SeMediumSacl, v13, 0, SeMediumMandatorySid, v16, LabelSid);
+  RtlAddMandatoryAce(SeMediumSacl, v13, 0, (ULONG)SeMediumMandatorySid, v16, LabelSid);
   SePublicDefaultSd = (__int64)&SepPublicDefaultSd;
   RtlCreateSecurityDescriptor(&SepPublicDefaultSd, 1u);
   RtlSetDaclSecurityDescriptor(&SepPublicDefaultSd, 1u, SePublicDefaultDacl, 0);

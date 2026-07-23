@@ -17,27 +17,26 @@
  *     __security_check_cookie @ 0x18008C7B0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall sub_180022180(__int64 a1, int a2, int a3, __int64 a4)
+__int64 __fastcall sub_180022180(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
-  int v8; // [rsp+40h] [rbp-C0h] BYREF
-  int v9; // [rsp+48h] [rbp-B8h] BYREF
-  int v10; // [rsp+50h] [rbp-B0h] BYREF
-  _WORD *v11; // [rsp+58h] [rbp-A8h]
-  _WORD v12[128]; // [rsp+60h] [rbp-A0h] BYREF
+  int v7; // [rsp+40h] [rbp-C0h] BYREF
+  int v8; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING v9; // [rsp+50h] [rbp-B0h] BYREF
+  _WORD v10[128]; // [rsp+60h] [rbp-A0h] BYREF
 
-  v8 = a3;
+  v7 = a3;
   sub_1800255A8(0LL, a1, 5288LL);
-  v10 = 0x1000000;
-  v11 = v12;
-  v12[0] = 0;
-  v9 = sub_180025240(a1, &v10, 0LL, &v8);
-  if ( v9 >= 0 )
-    sub_180022378((unsigned int)&v10, a2, v8, 4, 0LL, 0LL, a4, (__int64)&v9);
-  if ( v12 != v11 )
-    RtlDeleteBoundaryDescriptor(v11);
-  v10 = 0x1000000;
-  v11 = v12;
-  v12[0] = 0;
+  *(_DWORD *)&v9.Length = 0x1000000;
+  v9.Buffer = v10;
+  v10[0] = 0;
+  v8 = sub_180025240(a1, &v9, 0LL, &v7);
+  if ( v8 >= 0 )
+    sub_180022378(&v9, 0LL, 0LL, a4, (__int64)&v8);
+  if ( v10 != v9.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v9.Buffer);
+  *(_DWORD *)&v9.Length = 0x1000000;
+  v9.Buffer = v10;
+  v10[0] = 0;
   sub_1800255A8(0LL, a1, 5289LL);
-  return (unsigned int)v9;
+  return (unsigned int)v8;
 }

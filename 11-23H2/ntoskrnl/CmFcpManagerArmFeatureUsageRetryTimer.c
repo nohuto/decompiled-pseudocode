@@ -1,10 +1,10 @@
 /*
- * XREFs of CmFcpManagerArmFeatureUsageRetryTimer @ 0x140617224
+ * XREFs of CmFcpManagerArmFeatureUsageRetryTimer @ 0x140617774
  * Callers:
- *     CmFcpManagerDrainUsageNotifications @ 0x14080E008 (CmFcpManagerDrainUsageNotifications.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x14080E2D8 (CmFcpManagerDrainUsageNotifications.c)
  * Callees:
- *     ExSetTimer @ 0x14031DDF0 (ExSetTimer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ExSetTimer @ 0x14031E080 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall CmFcpManagerArmFeatureUsageRetryTimer(__int64 a1)

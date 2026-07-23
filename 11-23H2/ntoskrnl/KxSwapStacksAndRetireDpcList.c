@@ -1,13 +1,13 @@
 /*
- * XREFs of KxSwapStacksAndRetireDpcList @ 0x1404282C0
+ * XREFs of KxSwapStacksAndRetireDpcList @ 0x140428650
  * Callers:
- *     KiSwapStacksAndRetireDpcList @ 0x1404282A0 (KiSwapStacksAndRetireDpcList.c)
+ *     KiSwapStacksAndRetireDpcList @ 0x140428630 (KiSwapStacksAndRetireDpcList.c)
  * Callees:
- *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
+ *     KiRetireDpcList @ 0x140245AC0 (KiRetireDpcList.c)
  */
 
 void __fastcall KxSwapStacksAndRetireDpcList(__int64 a1)
 {
   KiRetireDpcList(a1);
-  JUMPOUT(0x1404282AFLL);
+  JUMPOUT(0x14042863FLL);
 }

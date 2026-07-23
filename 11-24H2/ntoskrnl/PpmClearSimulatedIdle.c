@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmClearSimulatedIdle @ 0x1404CF11C
+ * XREFs of PpmClearSimulatedIdle @ 0x1404C82E8
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KeGetProcessorIndexFromNumber @ 0x140352BB0 (KeGetProcessorIndexFromNumber.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140370440 (KeGetProcessorIndexFromNumber.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
+__int64 __fastcall PpmClearSimulatedIdle(_PROCESSOR_NUMBER *a1)
 {
   ULONG ProcessorIndexFromNumber; // eax
   char v3; // cl
@@ -21,8 +21,8 @@ __int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
   __int64 v7; // rdx
   _PPM_IDLE_STATES *IdleStates; // rax
   unsigned int v9; // ebx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

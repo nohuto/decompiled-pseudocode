@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpSizeHeap @ 0x18002D260
+ * XREFs of RtlpHpSizeHeap @ 0x180059C60
  * Callers:
- *     RtlpHpFreeHeapSlow @ 0x18002B6C4 (RtlpHpFreeHeapSlow.c)
- *     RtlValidateHeap @ 0x18003F7D0 (RtlValidateHeap.c)
+ *     RtlValidateHeap @ 0x180020100 (RtlValidateHeap.c)
+ *     RtlpHpFreeHeapSlow @ 0x1800580C4 (RtlpHpFreeHeapSlow.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18002CA00 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlCompareMemory @ 0x180165F10 (RtlCompareMemory.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180059400 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlCompareMemory @ 0x1801642D0 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
   unsigned __int64 v11; // rdx
   char v12; // r9
   __int64 v14; // rax
-  volatile signed __int64 *v15; // rsi
+  _RTL_SRWLOCK *v15; // rsi
   __int64 v16; // rax
   unsigned __int64 *v17; // rdi
   unsigned __int64 v18; // rcx
@@ -47,15 +47,15 @@ __int64 __fastcall RtlpHpSizeHeap(__int64 a1, unsigned __int64 a2, int a3)
     return -1LL;
   if ( !(_WORD)a2 )
   {
-    v14 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801CE930, 2 * ((a2 - qword_1801CE928) >> 20));
+    v14 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801CD918) >> 20));
     if ( v14 )
     {
       v6 = v14 - 1;
       if ( v6 != 2 )
         goto LABEL_5;
     }
-    v15 = (volatile signed __int64 *)(a1 + 64);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 64));
+    v15 = (_RTL_SRWLOCK *)(a1 + 64);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 64));
     v16 = *(_QWORD *)(a1 + 80);
     v17 = (unsigned __int64 *)(a1 + 72);
     v18 = *v17;
@@ -133,20 +133,20 @@ LABEL_5:
   {
     v25 = *(_DWORD *)((v11 & *(_QWORD *)v7) + ((__int64)(v11 - (v11 & *(_QWORD *)v7)) >> 5 << v23) + 0x28);
     v26 = (((unsigned int)a2
-          - (((unsigned int)qword_1801CDEC8 ^ (unsigned int)(v24 >> 12) ^ *(_DWORD *)(v24 + 40)) >> 16)
+          - (((unsigned int)qword_1801CCEC8 ^ (unsigned int)(v24 >> 12) ^ *(_DWORD *)(v24 + 40)) >> 16)
           - (unsigned int)v24)
          * (unsigned __int64)*(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(v24 + 44) << 6)
                                              + *(_QWORD *)(v7 + 24)
                                              + 72)) >> 32;
     if ( (_DWORD)a2
-       - (((unsigned int)qword_1801CDEC8 ^ (unsigned int)(v24 >> 12) ^ *(_DWORD *)(v24 + 40)) >> 16)
-       - (_DWORD)v24 == (_DWORD)v26 * (unsigned __int16)(qword_1801CDEC8 ^ (v24 >> 12) ^ *(_WORD *)(v24 + 40)) )
+       - (((unsigned int)qword_1801CCEC8 ^ (unsigned int)(v24 >> 12) ^ *(_DWORD *)(v24 + 40)) >> 16)
+       - (_DWORD)v24 == (_DWORD)v26 * (unsigned __int16)(qword_1801CCEC8 ^ (v24 >> 12) ^ *(_WORD *)(v24 + 40)) )
     {
       v27 = 1LL << (v26 & 0x1F);
       v28 = (_QWORD *)(v24 + 8 * ((v26 >> 5) + 8));
       if ( (*(_DWORD *)v28 & (unsigned int)v27) != 0 )
       {
-        v29 = (unsigned __int16)qword_1801CDEC8 ^ (unsigned int)(unsigned __int16)(v25 ^ (v24 >> 12));
+        v29 = (unsigned __int16)qword_1801CCEC8 ^ (unsigned int)(unsigned __int16)(v25 ^ (v24 >> 12));
         if ( (HIDWORD(*v28) & v27) != 0 )
         {
           v30 = *(_WORD *)(v29 + a2 - 2) & 0x3FF;

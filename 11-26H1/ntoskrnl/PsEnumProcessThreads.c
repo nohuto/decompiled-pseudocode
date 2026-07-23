@@ -1,13 +1,13 @@
 /*
- * XREFs of PsEnumProcessThreads @ 0x14096F1F0
+ * XREFs of PsEnumProcessThreads @ 0x1409BC840
  * Callers:
- *     EtwpProcessEnumCallback @ 0x14096EA90 (EtwpProcessEnumCallback.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     EtwpProcessEnumCallback @ 0x1409BC0E0 (EtwpProcessEnumCallback.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KiFatalFilter @ 0x1405E50D0 (KiFatalFilter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PsGetNextProcessThread @ 0x1409573A0 (PsGetNextProcessThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KiFatalFilter @ 0x1405E7A40 (KiFatalFilter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsGetNextProcessThread @ 0x14094ADD0 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall PsEnumProcessThreads(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of NormalizationList__Lock @ 0x140594378
+ * XREFs of NormalizationList__Lock @ 0x1405945A8
  * Callers:
- *     RtlpGetNormalization @ 0x14091B820 (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x14091B980 (RtlpGetNormalization.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void NormalizationList__Lock()

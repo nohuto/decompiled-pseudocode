@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmQueryDevicePanelPldProperty @ 0x14098F8FC
+ * XREFs of _CmQueryDevicePanelPldProperty @ 0x14097A934
  * Callers:
- *     _CmUpdateDevicePanelInterface @ 0x14098EC58 (_CmUpdateDevicePanelInterface.c)
- *     _CmUpdateDevicePanel @ 0x14098EE00 (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140979C90 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x140979E38 (_CmUpdateDevicePanel.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmQueryDevicePanelPldProperty(
@@ -49,7 +49,7 @@ __int64 __fastcall CmQueryDevicePanelPldProperty(
       v19 = v21;
     }
     *a7 = v19;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v19, 0x52504E50u);
     *a6 = (const wchar_t *)Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741801;

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpRemoveFreeCellHint @ 0x1405FBB90
+ * XREFs of HvpRemoveFreeCellHint @ 0x1405FCB90
  * Callers:
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     HvpDelistFreeCell @ 0x1405ADE60 (HvpDelistFreeCell.c)
- *     HvpDoAllocateCell @ 0x1405FB690 (HvpDoAllocateCell.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     HvpDelistFreeCell @ 0x1405AEE60 (HvpDelistFreeCell.c)
+ *     HvpDoAllocateCell @ 0x1405FC690 (HvpDoAllocateCell.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     RtlFindSetBits @ 0x14008BE50 (RtlFindSetBits.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     RtlFindSetBits @ 0x14008BE40 (RtlFindSetBits.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
  */
 
 void __fastcall HvpRemoveFreeCellHint(
@@ -34,7 +34,7 @@ void __fastcall HvpRemoveFreeCellHint(
   ULONG v18; // ebp
   __int64 v19; // r14
   int v20; // ebx
-  struct _RTL_BITMAP *v21; // rdi
+  _RTL_BITMAP *v21; // rdi
   ULONG SetBits; // eax
   int v23; // ecx
   unsigned int v24; // ecx
@@ -91,7 +91,7 @@ void __fastcall HvpRemoveFreeCellHint(
   v18 = v12 >> 12;
   v19 = 24 * v10;
   v20 = 1 << v10;
-  v21 = (struct _RTL_BITMAP *)(24 * v10 + BugCheckParameter2 + 632 * v5 + 312);
+  v21 = (_RTL_BITMAP *)(24 * v10 + BugCheckParameter2 + 632 * v5 + 312);
   if ( v7 )
   {
     *(_DWORD *)(BugCheckParameter2 + v17 + 896) |= v20;

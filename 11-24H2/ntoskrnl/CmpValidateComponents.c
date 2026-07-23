@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpValidateComponents @ 0x14098CB50
+ * XREFs of CmpValidateComponents @ 0x140977470
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1408768A0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14087ABD0 (CmpGetSymbolicLinkTarget.c)
  * Callees:
  *     <none>
  */

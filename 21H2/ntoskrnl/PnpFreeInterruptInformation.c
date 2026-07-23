@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpFreeInterruptInformation @ 0x14071B49C
+ * XREFs of PnpFreeInterruptInformation @ 0x1406C9908
  * Callers:
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpFreeInterruptInformation(__int64 a1)

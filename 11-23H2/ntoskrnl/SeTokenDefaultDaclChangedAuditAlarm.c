@@ -1,19 +1,19 @@
 /*
- * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x1407F1400
+ * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x1407F16D0
  * Callers:
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
  * Callees:
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     SepAdtAuditThisEventWithContext @ 0x1406C34D0 (SepAdtAuditThisEventWithContext.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     SeCaptureSecurityDescriptor @ 0x140736B50 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x1407373D0 (SeReleaseSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409CCC40 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x1409CD3F0 (SepQueryTypeString.c)
- *     SepIsAclEqual @ 0x1409D11D8 (SepIsAclEqual.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1406C3500 (SepAdtAuditThisEventWithContext.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     SeCaptureSecurityDescriptor @ 0x140736D40 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407375C0 (SeReleaseSecurityDescriptor.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409CCE40 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x1409CD5F0 (SepQueryTypeString.c)
+ *     SepIsAclEqual @ 0x1409D13D8 (SepIsAclEqual.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

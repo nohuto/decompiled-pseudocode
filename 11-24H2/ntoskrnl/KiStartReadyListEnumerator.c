@@ -1,7 +1,7 @@
 /*
- * XREFs of KiStartReadyListEnumerator @ 0x1404585A4
+ * XREFs of KiStartReadyListEnumerator @ 0x14044DA54
  * Callers:
- *     KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x14030E650 (KiRemoveCurrentThreadScbReadyQueueEnumerator.c)
+ *     KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x1402D8A9C (KiRemoveCurrentThreadScbReadyQueueEnumerator.c)
  * Callees:
  *     <none>
  */

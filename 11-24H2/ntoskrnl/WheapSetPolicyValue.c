@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapSetPolicyValue @ 0x1407C8E4C
+ * XREFs of WheapSetPolicyValue @ 0x1407C933C
  * Callers:
- *     WheapScanRegistryForPolicyChanges @ 0x1407C8D68 (WheapScanRegistryForPolicyChanges.c)
+ *     WheapScanRegistryForPolicyChanges @ 0x1407C9258 (WheapScanRegistryForPolicyChanges.c)
  * Callees:
- *     WheaInitializeRegChangeNotify @ 0x1407C89CC (WheaInitializeRegChangeNotify.c)
- *     WheapOpenPolicyRegistryKey @ 0x140C44D34 (WheapOpenPolicyRegistryKey.c)
+ *     WheaInitializeRegChangeNotify @ 0x1407C8EBC (WheaInitializeRegChangeNotify.c)
+ *     WheapOpenPolicyRegistryKey @ 0x140C46E84 (WheapOpenPolicyRegistryKey.c)
  */
 
 __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
@@ -25,14 +25,14 @@ __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
     return (unsigned int)-1073741811;
   v5 = *a2;
   v6 = 32 * v3;
-  if ( *a2 < *((_DWORD *)&unk_140E09540 + 8 * v3) || v5 > *(_DWORD *)((char *)&unk_140E09544 + v6) )
+  if ( *a2 < *((_DWORD *)&unk_140E095B0 + 8 * v3) || v5 > *(_DWORD *)((char *)&unk_140E095B4 + v6) )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
     _mm_lfence();
-    v7 = *(unsigned int **)((char *)&off_140E09538 + v6);
+    v7 = *(unsigned int **)((char *)&off_140E095A8 + v6);
     if ( *v7 != v5 )
     {
       *v7 = v5;

@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140AB2EBC
+ * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140AADE2C
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B95AC (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B6F54 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
@@ -20,7 +20,7 @@ __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
   __int64 v11; // r8
   __int64 v12; // rcx
 
-  result = guard_dispatch_icall_no_overrides(a1, a2, 2LL, 4LL);
+  result = guard_dispatch_icall_no_overrides(a1, a2);
   v8 = &qword_1400063C8;
   v9 = 3LL;
   do
@@ -36,7 +36,7 @@ __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
           v12 = *(_QWORD *)(a5 + 8) - *(_QWORD *)(v11 + 8);
         if ( !v12 )
         {
-          result = guard_dispatch_icall_no_overrides(a1, a2, 2LL, 4LL);
+          result = guard_dispatch_icall_no_overrides(a1, a2);
           break;
         }
       }

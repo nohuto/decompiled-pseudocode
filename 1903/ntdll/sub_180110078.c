@@ -15,18 +15,19 @@
 __int64 __fastcall sub_180110078(_WORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
-  __int64 v5; // [rsp+30h] [rbp-A38h] BYREF
-  _BYTE v6[24]; // [rsp+38h] [rbp-A30h] BYREF
-  _WORD v7[256]; // [rsp+50h] [rbp-A18h] BYREF
+  PVOID DllHandle; // [rsp+30h] [rbp-A38h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-A30h] BYREF
+  WCHAR SourceString[256]; // [rsp+50h] [rbp-A18h] BYREF
   unsigned __int16 v8[1024]; // [rsp+250h] [rbp-818h] BYREF
 
   v3 = 0LL;
   if ( a1
-    && (unsigned int)sub_18010FFE0(a1, v7, a3, v8)
-    && (int)RtlInitUnicodeStringEx((__int64)v6, (__int64)v7) >= 0
-    && ((int)LdrGetDllHandleEx(1, 1LL, 0LL, (__int64)v6, &v5) >= 0 || (int)LdrLoadDll(0LL, 0LL, (__int64)v6, &v5) >= 0) )
+    && (unsigned int)sub_18010FFE0(a1, SourceString, a3, v8)
+    && RtlInitUnicodeStringEx(&DestinationString, SourceString) >= 0
+    && (LdrGetDllHandleEx(1u, (PWSTR)1, 0LL, &DestinationString, &DllHandle) >= 0
+     || LdrLoadDll(0LL, 0LL, &DestinationString, &DllHandle) >= 0) )
   {
-    return sub_18010FEDC(v5, v8);
+    return sub_18010FEDC((__int64)DllHandle, v8);
   }
   return v3;
 }

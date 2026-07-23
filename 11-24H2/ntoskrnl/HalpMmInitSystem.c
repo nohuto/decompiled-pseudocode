@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMmInitSystem @ 0x140B4D7D0
+ * XREFs of HalpMmInitSystem @ 0x140B4F820
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxInit @ 0x140542BFC (HalpMmAllocCtxInit.c)
- *     HalpMmReservePageTablePages @ 0x140542F5C (HalpMmReservePageTablePages.c)
- *     HalpInitMemoryCachingRequirementsTable @ 0x140B4C1A4 (HalpInitMemoryCachingRequirementsTable.c)
- *     HalpConsumeLowMemory @ 0x140C0E34C (HalpConsumeLowMemory.c)
+ *     HalpMmAllocCtxInit @ 0x14054054C (HalpMmAllocCtxInit.c)
+ *     HalpMmReservePageTablePages @ 0x1405408AC (HalpMmReservePageTablePages.c)
+ *     HalpInitMemoryCachingRequirementsTable @ 0x140B4E1E4 (HalpInitMemoryCachingRequirementsTable.c)
+ *     HalpConsumeLowMemory @ 0x140C1034C (HalpConsumeLowMemory.c)
  */
 
 __int64 __fastcall HalpMmInitSystem(int a1, __int64 a2, __int64 a3)

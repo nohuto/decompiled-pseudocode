@@ -1,15 +1,15 @@
 /*
- * XREFs of ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14030F768
+ * XREFs of ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402D716C
  * Callers:
- *     KiTransitionSchedulingGroupGeneration @ 0x14030CC70 (KiTransitionSchedulingGroupGeneration.c)
- *     KeSetSchedulingGroupRankBias @ 0x14030ED08 (KeSetSchedulingGroupRankBias.c)
- *     ?KiResetScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@@Z @ 0x14030F1D8 (-KiResetScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@@Z.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1402DBCD0 (KiTransitionSchedulingGroupGeneration.c)
+ *     ?KiResetScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@@Z @ 0x14045D264 (-KiResetScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@@Z.c)
+ *     KeSetSchedulingGroupRankBias @ 0x14045D344 (KeSetSchedulingGroupRankBias.c)
  * Callees:
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14029ABF0 (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiCheckForMaxOverQuotaScb @ 0x14029AC10 (KiCheckForMaxOverQuotaScb.c)
- *     KiAddThreadToPrcbQueue @ 0x1403102F0 (KiAddThreadToPrcbQueue.c)
- *     EtwTraceReadyQueueInsertion @ 0x14034A55C (EtwTraceReadyQueueInsertion.c)
- *     KiInsertDeferredReadyList @ 0x1403CBE30 (KiInsertDeferredReadyList.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x1402A96E0 (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x1402A9700 (KiCheckForMaxOverQuotaScb.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402D7CF0 (KiAddThreadToPrcbQueue.c)
+ *     KiInsertDeferredReadyList @ 0x1403BC660 (KiInsertDeferredReadyList.c)
+ *     EtwTraceReadyQueueInsertion @ 0x1403C1604 (EtwTraceReadyQueueInsertion.c)
  */
 
 void __fastcall KiMoveScbThreadsToNewReadylist(
@@ -122,7 +122,7 @@ void __fastcall KiMoveScbThreadsToNewReadylist(
           while ( v18 );
         }
         KiAddThreadToPrcbQueue((_DWORD)v12, p_Blink, *(char *)(p_Blink + 195), 0, v17 != 0, (__int64)&v29);
-        if ( (WORD2(xmmword_140FC5B10) & 0x800) != 0 )
+        if ( (WORD2(xmmword_140FC6B50) & 0x800) != 0 )
           EtwTraceReadyQueueInsertion(p_Blink, v12->Number, v29, 0LL);
         a4 = v31;
         v4 = 0LL;

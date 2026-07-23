@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpCheckKey @ 0x14043D610
+ * XREFs of CmpCheckKey @ 0x14043C4E0
  * Callers:
- *     CmpCheckRegistry2 @ 0x14043EF70 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x14043DE40 (CmpCheckRegistry2.c)
  * Callees:
- *     HvpReleaseHCell @ 0x14002D330 (HvpReleaseHCell.c)
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryIsDiscardable @ 0x14002D6D0 (HvpMapEntryIsDiscardable.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     RtlUIntAdd @ 0x140089230 (RtlUIntAdd.c)
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     RtlULongMult @ 0x1401B4D5C (RtlULongMult.c)
- *     CmpKeySecurityIncrementReferenceCount @ 0x1401B65D4 (CmpKeySecurityIncrementReferenceCount.c)
- *     HvMarkCellDirty @ 0x1403FD480 (HvMarkCellDirty.c)
- *     HvIsCellAllocated @ 0x1404399C0 (HvIsCellAllocated.c)
- *     CmpCheckValueList @ 0x14043C940 (CmpCheckValueList.c)
- *     CmpCheckLeaf @ 0x14043FDC0 (CmpCheckLeaf.c)
+ *     HvpReleaseHCell @ 0x14002CEB0 (HvpReleaseHCell.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryIsDiscardable @ 0x14002D250 (HvpMapEntryIsDiscardable.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     RtlUIntAdd @ 0x1400C1B78 (RtlUIntAdd.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     RtlULongMult @ 0x1401B4C40 (RtlULongMult.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x1401B64B8 (CmpKeySecurityIncrementReferenceCount.c)
+ *     HvMarkCellDirty @ 0x1403FC340 (HvMarkCellDirty.c)
+ *     HvIsCellAllocated @ 0x140438890 (HvIsCellAllocated.c)
+ *     CmpCheckValueList @ 0x14043B810 (CmpCheckValueList.c)
+ *     CmpCheckLeaf @ 0x14043EC90 (CmpCheckLeaf.c)
  */
 
 __int64 __fastcall CmpCheckKey(

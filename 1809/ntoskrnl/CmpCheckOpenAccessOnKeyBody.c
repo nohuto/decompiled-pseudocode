@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpCheckOpenAccessOnKeyBody @ 0x140596210
+ * XREFs of CmpCheckOpenAccessOnKeyBody @ 0x140597210
  * Callers:
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
@@ -13,21 +13,21 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpCheckKeyOwnerForPca @ 0x140580A4C (CmpCheckKeyOwnerForPca.c)
- *     CmpGetSecurityDescriptorForKcbStackEx @ 0x140580AA0 (CmpGetSecurityDescriptorForKcbStackEx.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     CmpVEPerformOpenAccessCheck @ 0x140596A64 (CmpVEPerformOpenAccessCheck.c)
- *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpSetKcbAtLayerHeight @ 0x1405D5E8C (CmpSetKcbAtLayerHeight.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpIsKeyStackDeleted @ 0x140644650 (CmpIsKeyStackDeleted.c)
- *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
- *     CmRmIsKCBVisible @ 0x140699930 (CmRmIsKCBVisible.c)
- *     SeAppendPrivileges @ 0x140699A20 (SeAppendPrivileges.c)
- *     CmListGetPrevElement @ 0x1406C05EC (CmListGetPrevElement.c)
- *     CmpSetAccessStateForBackupRestore @ 0x1407055F0 (CmpSetAccessStateForBackupRestore.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpCheckKeyOwnerForPca @ 0x140581A4C (CmpCheckKeyOwnerForPca.c)
+ *     CmpGetSecurityDescriptorForKcbStackEx @ 0x140581AA0 (CmpGetSecurityDescriptorForKcbStackEx.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x140597850 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x140597A64 (CmpVEPerformOpenAccessCheck.c)
+ *     CmEqualTrans @ 0x1405AA4E8 (CmEqualTrans.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1405CCDE0 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1405D6E8C (CmpSetKcbAtLayerHeight.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405D9AC0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpIsKeyStackDeleted @ 0x140645670 (CmpIsKeyStackDeleted.c)
+ *     CmListGetNextElement @ 0x140695A80 (CmListGetNextElement.c)
+ *     CmRmIsKCBVisible @ 0x14069AAF0 (CmRmIsKCBVisible.c)
+ *     SeAppendPrivileges @ 0x14069ABE0 (SeAppendPrivileges.c)
+ *     CmListGetPrevElement @ 0x1406C188C (CmListGetPrevElement.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x140706890 (CmpSetAccessStateForBackupRestore.c)
  */
 
 __int64 __fastcall CmpCheckOpenAccessOnKeyBody(

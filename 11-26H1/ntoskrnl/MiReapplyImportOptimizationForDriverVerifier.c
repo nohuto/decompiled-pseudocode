@@ -1,41 +1,41 @@
 /*
- * XREFs of MiReapplyImportOptimizationForDriverVerifier @ 0x1406FB178
+ * XREFs of MiReapplyImportOptimizationForDriverVerifier @ 0x1406FFE48
  * Callers:
- *     MmApplyVerifierToRunningImage @ 0x140C43750 (MmApplyVerifierToRunningImage.c)
+ *     MmApplyVerifierToRunningImage @ 0x140C49760 (MmApplyVerifierToRunningImage.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     KeIpiGenericCall @ 0x1404AAD60 (KeIpiGenericCall.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlDeleteBarrier @ 0x140622DC0 (RtlDeleteBarrier.c)
- *     MiUnlockAndFreeDvPatchImage @ 0x1406FBA88 (MiUnlockAndFreeDvPatchImage.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VslReapplyImportOptimizationForDriverVerifier @ 0x140792F08 (VslReapplyImportOptimizationForDriverVerifier.c)
- *     MiLockAndMapEntireDriver @ 0x14086D784 (MiLockAndMapEntireDriver.c)
- *     MiUnlockEntireDriver @ 0x14086D940 (MiUnlockEntireDriver.c)
- *     MiCheckVerifierFunctionsCfgState @ 0x14087BAA8 (MiCheckVerifierFunctionsCfgState.c)
- *     MmHasImageBeenImportOptimized @ 0x140AC7E30 (MmHasImageBeenImportOptimized.c)
- *     MiInitializeDriverPatchState @ 0x140B3E6F8 (MiInitializeDriverPatchState.c)
- *     MiEnumerateBasePatches @ 0x140C016F8 (MiEnumerateBasePatches.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     KeIpiGenericCall @ 0x1404A43F0 (KeIpiGenericCall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlDeleteBarrier @ 0x140625E10 (RtlDeleteBarrier.c)
+ *     MiUnlockAndFreeDvPatchImage @ 0x140700758 (MiUnlockAndFreeDvPatchImage.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VslReapplyImportOptimizationForDriverVerifier @ 0x140795A38 (VslReapplyImportOptimizationForDriverVerifier.c)
+ *     MiLockAndMapEntireDriver @ 0x140873B54 (MiLockAndMapEntireDriver.c)
+ *     MiUnlockEntireDriver @ 0x140873D10 (MiUnlockEntireDriver.c)
+ *     MiCheckVerifierFunctionsCfgState @ 0x140881EA8 (MiCheckVerifierFunctionsCfgState.c)
+ *     MmHasImageBeenImportOptimized @ 0x140AC9A20 (MmHasImageBeenImportOptimized.c)
+ *     MiInitializeDriverPatchState @ 0x140B405C8 (MiInitializeDriverPatchState.c)
+ *     MiEnumerateBasePatches @ 0x140C07908 (MiEnumerateBasePatches.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int *a2, unsigned int a3)
+__int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(ULONG_PTR a1, int *a2, unsigned int a3)
 {
   __int64 v4; // r14
   __int64 v6; // rcx
   int v7; // ebx
-  __int64 v8; // rax
+  PVOID v8; // rax
   __int64 v9; // rcx
   __int64 v10; // r15
   __int64 v11; // rdx
   __int64 v12; // r12
-  char *MappedSystemVa; // r13
+  char *v13; // r13
   char *v14; // r13
   __int64 v15; // rdx
   __int64 v16; // rcx
@@ -57,29 +57,25 @@ __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int 
   unsigned __int8 CurrentIrql; // di
   PVOID v33; // rcx
   __int64 v34; // rax
-  ULONG Context; // [rsp+30h] [rbp-A9h] BYREF
-  ULONG Context_4; // [rsp+34h] [rbp-A5h]
-  int v38; // [rsp+38h] [rbp-A1h]
-  __int64 v39; // [rsp+40h] [rbp-99h]
-  PMDL MemoryDescriptorList; // [rsp+48h] [rbp-91h] BYREF
+  _RTL_BARRIER Context; // [rsp+30h] [rbp-A9h] BYREF
   PVOID P; // [rsp+50h] [rbp-89h]
-  int *v42; // [rsp+58h] [rbp-81h]
-  int v43; // [rsp+60h] [rbp-79h]
-  PVOID v44[2]; // [rsp+68h] [rbp-71h] BYREF
-  int v45; // [rsp+78h] [rbp-61h]
-  __int64 v46; // [rsp+80h] [rbp-59h]
-  _BYTE v47[160]; // [rsp+90h] [rbp-49h] BYREF
-  int v48; // [rsp+140h] [rbp+67h]
-  __int64 v50; // [rsp+158h] [rbp+7Fh] BYREF
+  int *v38; // [rsp+58h] [rbp-81h]
+  int v39; // [rsp+60h] [rbp-79h]
+  PVOID v40[2]; // [rsp+68h] [rbp-71h] BYREF
+  int v41; // [rsp+78h] [rbp-61h]
+  PVOID v42; // [rsp+80h] [rbp-59h]
+  _BYTE v43[160]; // [rsp+90h] [rbp-49h] BYREF
+  int v44; // [rsp+140h] [rbp+67h]
+  __int64 Size; // [rsp+158h] [rbp+7Fh] BYREF
 
   v4 = a3;
-  memset_0(v47, 0, 0x68uLL);
-  v48 = 0;
+  memset_0(v43, 0, 0x68uLL);
+  v44 = 0;
   memset_0(&Context, 0, 0x50uLL);
-  v44[1] = v44;
-  v44[0] = v44;
-  MiInitializeDriverPatchState(a1, v47);
-  v39 = a1;
+  v40[1] = v40;
+  v40[0] = v40;
+  MiInitializeDriverPatchState(a1, v43);
+  Context.Reserved3[1] = a1;
   if ( (unsigned int)MmHasImageBeenImportOptimized(a1) )
   {
     if ( (*(_DWORD *)(a1 + 184) & 0x80u) != 0 )
@@ -87,14 +83,14 @@ __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int 
     if ( *(_QWORD *)(a1 + 256) != a1 + 256 )
     {
       MiEnumerateBasePatches(v6, MiLockPatchIatForDV, &Context);
-      v7 = v45;
-      if ( v45 < 0 )
+      v7 = v41;
+      if ( v41 < 0 )
         goto LABEL_58;
     }
-    v8 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 0xCu, &v50);
+    v8 = RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xCu, (PULONG)&Size);
     v9 = *(_QWORD *)(a1 + 112);
     v10 = 0LL;
-    v46 = v8;
+    v42 = v8;
     if ( v9 )
     {
       v11 = *(_QWORD *)((*(_QWORD *)(MiSectionControlArea(v9) + 96) & 0xFFFFFFFFFFFFFFF8uLL) + 32);
@@ -108,14 +104,14 @@ __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int 
     v12 = *(_DWORD *)(a1 + 64) >> 12;
     if ( v10 )
     {
-      v7 = MiLockAndMapEntireDriver(a1, v47, &MemoryDescriptorList);
+      v7 = MiLockAndMapEntireDriver(a1, v43, &Context.Reserved4);
       if ( v7 >= 0 )
       {
-        if ( (MemoryDescriptorList->MdlFlags & 5) != 0 )
-          MappedSystemVa = (char *)MemoryDescriptorList->MappedSystemVa;
+        if ( (*(_BYTE *)(*(_QWORD *)&Context.Reserved4 + 10LL) & 5) != 0 )
+          v13 = *(char **)(*(_QWORD *)&Context.Reserved4 + 24LL);
         else
-          MappedSystemVa = (char *)MmMapLockedPagesSpecifyCache(MemoryDescriptorList, 0, MmCached, 0LL, 1u, 0x20u);
-        v14 = &MappedSystemVa[v46 - *(_QWORD *)(a1 + 48)];
+          v13 = (char *)MmMapLockedPagesSpecifyCache(*(PMDL *)&Context.Reserved4, 0, MmCached, 0LL, 1u, 0x20u);
+        v14 = &v13[(_QWORD)v42 - *(_QWORD *)(a1 + 48)];
         if ( (MiFlags & 0x20000) != 0 )
         {
           v7 = MiCheckVerifierFunctionsCfgState(a2, (unsigned int)v4);
@@ -142,7 +138,7 @@ __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int 
         }
         else
         {
-          v38 = 8 * v12 + 64;
+          LODWORD(Context.Reserved3[0]) = 8 * v12 + 64;
           if ( (_DWORD)v12 )
           {
             v18 = 0;
@@ -156,14 +152,14 @@ __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int 
               --v20;
             }
             while ( v20 );
-            v48 = v18;
+            v44 = v18;
             LODWORD(v4) = a3;
           }
           v21 = 64LL;
-          v50 = 64LL;
+          Size = 64LL;
           PoolMm = (_OWORD *)ExAllocatePoolMm(
                                64LL,
-                               (unsigned int)(8 * v12 + 64 + 4 * (v12 + v48 + 2 * v12)),
+                               (unsigned int)(8 * v12 + 64 + 4 * (v12 + v44 + 2 * v12)),
                                1719037261,
                                KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000);
           P = PoolMm;
@@ -184,26 +180,26 @@ __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int 
                 {
                   v25 = v23[1] + 12 + v23[2] + *v23;
                   v26 = (void *)(*((_QWORD *)P + 7) + v24);
-                  *(_QWORD *)((char *)P + v50) = v26;
+                  *(_QWORD *)((char *)P + Size) = v26;
                   memmove(v26, v23, v25);
                   v24 += v25;
-                  v21 = v50;
+                  v21 = Size;
                 }
                 v21 += 8LL;
-                v50 = v21;
+                Size = v21;
                 --v12;
               }
               while ( v12 );
               LODWORD(v4) = a3;
             }
-            *((_DWORD *)P + 1) = v46 - *(_DWORD *)(a1 + 48);
+            *((_DWORD *)P + 1) = (_DWORD)v42 - *(_DWORD *)(a1 + 48);
             *((_QWORD *)P + 3) = v14;
             *((_QWORD *)P + 2) = 0LL;
             *((_QWORD *)P + 4) = *(_QWORD *)(a1 + 48);
             if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
               *((_QWORD *)P + 5) = MiIsTargetFullyRetpolined;
-            v42 = a2;
-            v43 = 24 * v4;
+            v38 = a2;
+            v39 = 24 * v4;
             v27 = *(_QWORD *)(v10 + 16);
             if ( (_DWORD)v4 )
             {
@@ -224,7 +220,7 @@ __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int 
                   *(_DWORD *)(v27 + 4LL * *((int *)v28 - 2)) = v31;
                   if ( (KiSpeculationFeatures & 0x20000000000LL) != 0
                     && !_bittest64(
-                          *(const signed __int64 **)&stru_140E2D150.WaitBlockFill11[112],
+                          *(const signed __int64 **)&stru_140E2D2D0.WaitBlockFill11[112],
                           (unsigned __int64)(*v28 + 0x800000000000LL) >> 16) )
                   {
                     *(_DWORD *)(v27 + 4LL * *((int *)v28 - 2)) = 0;
@@ -243,8 +239,8 @@ __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(__int64 a1, int 
               LOBYTE(v23) = 12;
               KiRaiseIrqlProcessIrqlFlags(CurrentIrql, (int)v23);
             }
-            Context_4 = KeQueryActiveProcessorCountEx(0xFFFFu);
-            Context = Context_4;
+            Context.Reserved2 = KeQueryActiveProcessorCountEx(0xFFFFu);
+            Context.Reserved1 = Context.Reserved2;
             v7 = KeIpiGenericCall(MiReapplyImportOptimizationIsr, (ULONG_PTR)&Context);
             if ( KiIrqlFlags )
               KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
@@ -269,17 +265,17 @@ LABEL_4:
     v7 = -1073741436;
   }
 LABEL_58:
-  MiUnlockEntireDriver(v47, MemoryDescriptorList);
+  MiUnlockEntireDriver(v43, *(_QWORD *)&Context.Reserved4);
   while ( 1 )
   {
-    v33 = v44[0];
-    if ( v44[0] == v44 )
+    v33 = v40[0];
+    if ( v40[0] == v40 )
       break;
-    v34 = *(_QWORD *)v44[0];
-    if ( *((PVOID **)v44[0] + 1) != v44 || *(PVOID *)(v34 + 8) != v44[0] )
+    v34 = *(_QWORD *)v40[0];
+    if ( *((PVOID **)v40[0] + 1) != v40 || *(PVOID *)(v34 + 8) != v40[0] )
       __fastfail(3u);
-    v44[0] = *(PVOID *)v44[0];
-    *(_QWORD *)(v34 + 8) = v44;
+    v40[0] = *(PVOID *)v40[0];
+    *(_QWORD *)(v34 + 8) = v40;
     MiUnlockAndFreeDvPatchImage(v33);
   }
   if ( P )

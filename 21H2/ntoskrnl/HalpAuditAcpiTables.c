@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAuditAcpiTables @ 0x140A65350
+ * XREFs of HalpAuditAcpiTables @ 0x140A66350
  * Callers:
- *     HalpAcpiInitSystem @ 0x1409A03F0 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x1409A1320 (HalpAcpiInitSystem.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     HalpAuditSlicTables @ 0x140A65410 (HalpAuditSlicTables.c)
- *     HalpAuditQuerySlicAddresses @ 0x140A654C8 (HalpAuditQuerySlicAddresses.c)
- *     HalpAuditEnumerateRsdts @ 0x140A65638 (HalpAuditEnumerateRsdts.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     HalpAuditSlicTables @ 0x140A66410 (HalpAuditSlicTables.c)
+ *     HalpAuditQuerySlicAddresses @ 0x140A664C8 (HalpAuditQuerySlicAddresses.c)
+ *     HalpAuditEnumerateRsdts @ 0x140A66638 (HalpAuditEnumerateRsdts.c)
  */
 
 void __fastcall HalpAuditAcpiTables(__int64 a1)

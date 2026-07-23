@@ -67,6 +67,6 @@
 
 void __noreturn sub_18008AD60()
 {
-  DbgPrintEx(0, 0, (int)"User32 init not called");
+  DbgPrintEx(0, 0, "User32 init not called");
   __debugbreak();
 }

@@ -2,17 +2,17 @@
  * XREFs of RtlpResetDriveEnvironment @ 0x18000189C
  * Callers:
  *     RtlpCheckRelativeDrive @ 0x180001718 (RtlpCheckRelativeDrive.c)
- *     RtlpReferenceCurrentDirectory @ 0x18007936C (RtlpReferenceCurrentDirectory.c)
+ *     RtlpReferenceCurrentDirectory @ 0x18007935C (RtlpReferenceCurrentDirectory.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlSetEnvironmentVariable @ 0x18005F260 (RtlSetEnvironmentVariable.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlSetEnvironmentVariable @ 0x18005F250 (RtlSetEnvironmentVariable.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpResetDriveEnvironment(WCHAR a1)
+NTSTATUS __fastcall RtlpResetDriveEnvironment(WCHAR a1)
 {
-  UNICODE_STRING v3; // [rsp+20h] [rbp-40h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-30h] BYREF
+  _UNICODE_STRING Value; // [rsp+20h] [rbp-40h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-30h] BYREF
   WCHAR SourceString[2]; // [rsp+40h] [rbp-20h] BYREF
   int v6; // [rsp+44h] [rbp-1Ch]
   WCHAR v7; // [rsp+48h] [rbp-18h] BYREF
@@ -26,6 +26,6 @@ __int64 __fastcall RtlpResetDriveEnvironment(WCHAR a1)
   v7 = a1;
   v8 = 6029370;
   v9 = 0;
-  RtlInitUnicodeString(&v3, &v7);
-  return RtlSetEnvironmentVariable(0LL, &DestinationString, &v3);
+  RtlInitUnicodeString(&Value, &v7);
+  return RtlSetEnvironmentVariable(0LL, &DestinationString, &Value);
 }

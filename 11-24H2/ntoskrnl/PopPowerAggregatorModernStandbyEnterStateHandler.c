@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorModernStandbyEnterStateHandler @ 0x1407598D0
+ * XREFs of PopPowerAggregatorModernStandbyEnterStateHandler @ 0x140757D70
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x1409025F8 (PopPowerAggregatorDisengageModernStandby.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x140A6DED8 (PopPowerAggregatorDisengageModernStandby.c)
  */
 
 __int64 __fastcall PopPowerAggregatorModernStandbyEnterStateHandler(__int64 a1)

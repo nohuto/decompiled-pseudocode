@@ -1,17 +1,17 @@
 /*
- * XREFs of HvlpSetupCachedHypercallPages @ 0x1404F4028
+ * XREFs of HvlpSetupCachedHypercallPages @ 0x1404F3FA8
  * Callers:
- *     HvlPhase1Initialize @ 0x1403CFB58 (HvlPhase1Initialize.c)
- *     HvlInitializeProcessor @ 0x14079FD30 (HvlInitializeProcessor.c)
+ *     HvlPhase1Initialize @ 0x1403CFCC8 (HvlPhase1Initialize.c)
+ *     HvlInitializeProcessor @ 0x14079FF30 (HvlInitializeProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     InterlockedPushListSList @ 0x1404079E0 (InterlockedPushListSList.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     InterlockedPushListSList @ 0x140407BC0 (InterlockedPushListSList.c)
  */
 
-PSLIST_ENTRY __fastcall HvlpSetupCachedHypercallPages(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall HvlpSetupCachedHypercallPages(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // r14
+  _SLIST_HEADER *v1; // r14
   __int64 v2; // rdi
   PHYSICAL_ADDRESS *v3; // rbx
   char *v4; // rsi

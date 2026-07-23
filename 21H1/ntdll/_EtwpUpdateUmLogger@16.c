@@ -15,7 +15,7 @@
 int __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, int a4)
 {
   int result; // eax
-  ULONG v5; // esi
+  unsigned __int32 v5; // esi
   int v6; // ebx
   int v7; // eax
   int v8; // ecx
@@ -24,7 +24,7 @@ int __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, int a
   int v11; // eax
   int v12; // edx
   NTSTATUS v13; // eax
-  UNICODE_STRING UnicodeString; // [esp+10h] [ebp-18h] BYREF
+  _UNICODE_STRING UnicodeString; // [esp+10h] [ebp-18h] BYREF
   unsigned int v15; // [esp+18h] [ebp-10h]
   _DWORD *v16; // [esp+1Ch] [ebp-Ch]
   wchar_t *v17; // [esp+20h] [ebp-8h]
@@ -84,11 +84,11 @@ int __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, int a
     *(_DWORD *)&UnicodeString.Length = v18;
     v17 = *(wchar_t **)(v6 + 120);
     UnicodeString.Buffer = v17;
-    v5 = EtwpAddInstanceIdToLogFileName(a4, v12, (UNICODE_STRING *)(v6 + 116));
+    v5 = EtwpAddInstanceIdToLogFileName(a4, v12, (_UNICODE_STRING *)(v6 + 116));
     if ( v5 )
       goto LABEL_23;
-    EtwpSynchronizeWithLogger((_DWORD *)v6, 2);
-    v13 = EtwpSynchronizeWithLogger((_DWORD *)v6, 4);
+    EtwpSynchronizeWithLogger(v6, 2);
+    v13 = EtwpSynchronizeWithLogger(v6, 4);
     if ( v13 )
     {
       v5 = RtlNtStatusToDosError(v13);

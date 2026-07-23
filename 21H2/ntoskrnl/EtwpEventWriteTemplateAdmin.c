@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpEventWriteTemplateAdmin @ 0x140939B5C
+ * XREFs of EtwpEventWriteTemplateAdmin @ 0x140939D2C
  * Callers:
- *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
- *     EtwpFlushBufferToLogfile @ 0x1406AB9A4 (EtwpFlushBufferToLogfile.c)
- *     EtwpRealtimeSaveBuffer @ 0x1406BEE5C (EtwpRealtimeSaveBuffer.c)
- *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     EtwpFlushBufferToLogfile @ 0x14060A094 (EtwpFlushBufferToLogfile.c)
+ *     EtwpRealtimeSaveBuffer @ 0x14061DF4C (EtwpRealtimeSaveBuffer.c)
+ *     EtwpLogger @ 0x14063A500 (EtwpLogger.c)
+ *     EtwpStartLogger @ 0x1406B5480 (EtwpStartLogger.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateAdmin(

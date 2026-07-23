@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmHeteroDispatchHgsInterrupt @ 0x14059E770
+ * XREFs of PpmHeteroDispatchHgsInterrupt @ 0x14059EC60
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
  */
 
 __int64 PpmHeteroDispatchHgsInterrupt()

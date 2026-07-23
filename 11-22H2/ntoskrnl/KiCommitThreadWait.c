@@ -181,7 +181,7 @@ LABEL_16:
         KiDecrementProcessStackCount(*(_QWORD *)(a1 + 184));
       *(_BYTE *)(a1 + 565) = 0;
       if ( !v9 )
-        return KiSwapThread(a1, (__int64)CurrentPrcb, a5, v5);
+        return KiSwapThread(a1, (ULONG_PTR)CurrentPrcb, a5, v5);
       if ( v9 == 2 )
       {
         v22 = v51 + MEMORY[0xFFFFF780000003B0] + *(_QWORD *)(a1 + 248);
@@ -217,11 +217,11 @@ LABEL_16:
         {
           _InterlockedAnd((volatile signed __int32 *)v6, 0xFFFFFF7F);
         }
-        return KiSwapThread(a1, (__int64)CurrentPrcb, a5, v5);
+        return KiSwapThread(a1, (ULONG_PTR)CurrentPrcb, a5, v5);
       }
 LABEL_87:
       KiTimerWaitTest(CurrentPrcb, v6, 0LL);
-      return KiSwapThread(a1, (__int64)CurrentPrcb, a5, v5);
+      return KiSwapThread(a1, (ULONG_PTR)CurrentPrcb, a5, v5);
     }
     if ( (*v16 & 0x7F) == 0x15 )
     {

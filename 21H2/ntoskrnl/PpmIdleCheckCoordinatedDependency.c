@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmIdleCheckCoordinatedDependency @ 0x140566140
+ * XREFs of PpmIdleCheckCoordinatedDependency @ 0x140566380
  * Callers:
- *     PpmIdleCheckCoordinatedDependencies @ 0x140565FE0 (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x140566220 (PpmIdleCheckCoordinatedDependencies.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     PpmIdleCheckCoordinatedDependencies @ 0x140565FE0 (PpmIdleCheckCoordinatedDependencies.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566410 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleRollbackCoordinatedSelection @ 0x140566CCC (PpmIdleRollbackCoordinatedSelection.c)
- *     PpmIdleTransitionStall @ 0x140566F98 (PpmIdleTransitionStall.c)
- *     PpmTestAndLockProcessor @ 0x140567A2C (PpmTestAndLockProcessor.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x140566220 (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566650 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x140566F0C (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleTransitionStall @ 0x1405671D8 (PpmIdleTransitionStall.c)
+ *     PpmTestAndLockProcessor @ 0x140567C6C (PpmTestAndLockProcessor.c)
  */
 
 __int64 __fastcall PpmIdleCheckCoordinatedDependency(

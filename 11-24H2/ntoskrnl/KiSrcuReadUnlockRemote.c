@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSrcuReadUnlockRemote @ 0x1405C170C
+ * XREFs of KiSrcuReadUnlockRemote @ 0x1405BECDC
  * Callers:
- *     KeSrcuReadUnlock @ 0x1405C0D30 (KeSrcuReadUnlock.c)
+ *     KeSrcuReadUnlock @ 0x1405BE300 (KeSrcuReadUnlock.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KiIpiSendPacket @ 0x1404656E8 (KiIpiSendPacket.c)
- *     KiIpiStallOnPacketTargets @ 0x1404679AC (KiIpiStallOnPacketTargets.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeSrcuReadUnlock @ 0x1405C0D30 (KeSrcuReadUnlock.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KiIpiSendPacket @ 0x14045D668 (KiIpiSendPacket.c)
+ *     KiIpiStallOnPacketTargets @ 0x14045F44C (KiIpiStallOnPacketTargets.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeSrcuReadUnlock @ 0x1405BE300 (KeSrcuReadUnlock.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiSrcuReadUnlockRemote(__int64 a1, _DWORD *a2)

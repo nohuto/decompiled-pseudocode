@@ -1,14 +1,14 @@
 /*
- * XREFs of VrpPreUnloadKey @ 0x140A72FA4
+ * XREFs of VrpPreUnloadKey @ 0x140A73254
  * Callers:
  *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     VrpFindExactNamespaceNode @ 0x14077B7F4 (VrpFindExactNamespaceNode.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     VrpFindExactNamespaceNode @ 0x14077B9E4 (VrpFindExactNamespaceNode.c)
  */
 
 __int64 __fastcall VrpPreUnloadKey(__int64 a1, unsigned __int64 *a2)

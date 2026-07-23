@@ -26,5 +26,5 @@ __int64 __fastcall PopUmpoSendLegacyEvent(__int128 *a1)
   v7 = v4;
   if ( !v3 )
     PfIoPowerEventNotify(*((_DWORD *)a1 + 1), v2, 0);
-  return PopUmpoSendPowerMessage(Src, 0x48uLL, *((_BYTE *)a1 + 13), 0LL);
+  return PopUmpoSendPowerMessage(Src, 0x48uLL, *((_BYTE *)a1 + 13));
 }

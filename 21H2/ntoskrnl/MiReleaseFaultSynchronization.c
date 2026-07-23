@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReleaseFaultSynchronization @ 0x140548EC4
+ * XREFs of MiReleaseFaultSynchronization @ 0x140549104
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     MiFaultGetFileExtents @ 0x1405483F0 (MiFaultGetFileExtents.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     MiFaultGetFileExtents @ 0x140548630 (MiFaultGetFileExtents.c)
  * Callees:
- *     MiReleaseFaultState @ 0x14030F4F4 (MiReleaseFaultState.c)
- *     MiUnlockSystemVa @ 0x1403120FC (MiUnlockSystemVa.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiReleaseFaultState @ 0x14031A244 (MiReleaseFaultState.c)
+ *     MiUnlockSystemVa @ 0x14031CE4C (MiUnlockSystemVa.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall MiReleaseFaultSynchronization(__int64 a1)

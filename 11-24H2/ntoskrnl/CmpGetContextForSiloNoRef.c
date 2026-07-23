@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetContextForSiloNoRef @ 0x1409E1EF0
+ * XREFs of CmpGetContextForSiloNoRef @ 0x1409DBCA0
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x140772928 (PspDeleteExternalServerSiloState.c)
- *     CmGetRootKeyObjectForSilo @ 0x1409E1B94 (CmGetRootKeyObjectForSilo.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x1409E1D14 (CmpGetOrCreateContextForSiloNoRef.c)
- *     CmLockKeyForWrite @ 0x1409E1DB8 (CmLockKeyForWrite.c)
+ *     PspDeleteExternalServerSiloState @ 0x140772B48 (PspDeleteExternalServerSiloState.c)
+ *     CmGetRootKeyObjectForSilo @ 0x1409DB944 (CmGetRootKeyObjectForSilo.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x1409DBAC4 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmLockKeyForWrite @ 0x1409DBB68 (CmLockKeyForWrite.c)
  * Callees:
- *     PsGetPermanentSiloContext @ 0x1403F0070 (PsGetPermanentSiloContext.c)
+ *     PsGetPermanentSiloContext @ 0x1403E3CE0 (PsGetPermanentSiloContext.c)
  */
 
 unsigned __int64 __fastcall CmpGetContextForSiloNoRef(__int64 a1)

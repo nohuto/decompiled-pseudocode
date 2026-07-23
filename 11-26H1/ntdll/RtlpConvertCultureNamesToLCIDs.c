@@ -1,36 +1,36 @@
 /*
- * XREFs of RtlpConvertCultureNamesToLCIDs @ 0x1801262E0
+ * XREFs of RtlpConvertCultureNamesToLCIDs @ 0x180126050
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     LdrpMultiSZCchLength @ 0x1800DE504 (LdrpMultiSZCchLength.c)
- *     RtlConvertLCIDToString @ 0x180126000 (RtlConvertLCIDToString.c)
- *     wcsnlen @ 0x18012DD40 (wcsnlen.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     LdrpMultiSZCchLength @ 0x1800DB474 (LdrpMultiSZCchLength.c)
+ *     RtlConvertLCIDToString @ 0x180125D70 (RtlConvertLCIDToString.c)
+ *     wcsnlen @ 0x18012DAB0 (wcsnlen.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpConvertCultureNamesToLCIDs(wchar_t *SourceString, __int64 *a2)
+__int64 __fastcall RtlpConvertCultureNamesToLCIDs(wchar_t *SourceString, _QWORD *a2)
 {
   unsigned int v2; // ebx
   const wchar_t *v4; // rdi
-  __int64 v5; // r14
+  void *v5; // r14
   unsigned int v6; // esi
   unsigned int i; // ebp
   unsigned int v8; // r15d
   unsigned int j; // edx
   unsigned int v10; // r15d
-  __int64 Heap_0; // rax
-  _WORD *v12; // rdi
+  PVOID Heap_0; // rax
+  WCHAR *v12; // rdi
   unsigned int k; // ebp
   __int64 v14; // rcx
   __int64 v15; // rax
   int v17; // [rsp+30h] [rbp-68h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-60h] BYREF
-  int v19[4]; // [rsp+48h] [rbp-50h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-60h] BYREF
+  LCID LcidValue[4]; // [rsp+48h] [rbp-50h] BYREF
 
   v2 = 0;
   v17 = 0;
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpConvertCultureNamesToLCIDs(wchar_t *SourceString, __int64
     if ( v6 >= 4
       || (v8 = 2 * wcsnlen(v4, (unsigned __int64)i >> 1),
           RtlInitUnicodeString(&DestinationString, v4),
-          !RtlCultureNameToLCID(&DestinationString.Length, &v19[v6])) )
+          !RtlCultureNameToLCID(&DestinationString, &LcidValue[v6])) )
     {
 LABEL_16:
       v2 = -1073741811;
@@ -53,21 +53,21 @@ LABEL_16:
     }
     for ( j = 0; j < v6; ++j )
     {
-      if ( v19[v6] == v19[j] )
+      if ( LcidValue[v6] == LcidValue[j] )
         goto LABEL_16;
     }
     v4 = (const wchar_t *)((char *)v4 + v8 + 2);
     ++v6;
   }
   v10 = (unsigned __int16)(((_WORD)v6 << 6) + 4);
-  Heap_0 = RtlAllocateHeap_0();
+  Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, (unsigned __int16)(((_WORD)v6 << 6) + 4));
   v5 = Heap_0;
   if ( Heap_0 )
   {
-    v12 = (_WORD *)Heap_0;
+    v12 = (WCHAR *)Heap_0;
     for ( k = 0; k < v6; ++k )
     {
-      RtlConvertLCIDToString(v19[k], 0x10u, 4u, v12, 0x20u);
+      RtlConvertLCIDToString(LcidValue[k], 0x10u, 4u, v12, 0x20u);
       v14 = -1LL;
       do
         ++v14;
@@ -81,7 +81,7 @@ LABEL_16:
       if ( v10 < 4 )
       {
         v2 = -1073741595;
-        RtlFreeHeap_0();
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v5);
         return v2;
       }
     }

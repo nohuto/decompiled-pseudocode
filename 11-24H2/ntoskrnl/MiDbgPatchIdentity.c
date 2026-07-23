@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDbgPatchIdentity @ 0x14067EF00
+ * XREFs of MiDbgPatchIdentity @ 0x140680100
  * Callers:
- *     MiDbgCopyMemory @ 0x14067E4A8 (MiDbgCopyMemory.c)
- *     MiDbgTranslatePhysicalAddress @ 0x14067F1F0 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgCopyMemory @ 0x14067F6A8 (MiDbgCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x1406803F0 (MiDbgTranslatePhysicalAddress.c)
  * Callees:
  *     <none>
  */
@@ -25,8 +25,8 @@ __int64 __fastcall MiDbgPatchIdentity(__int64 a1, _QWORD *a2, _DWORD *a3)
   v6 = *(_QWORD *)(a1 + 16);
   if ( (v6 & 0x400) == 0 )
     return 0LL;
-  if ( qword_140E2DB80 && (v6 & 0x10) == 0 )
-    v6 &= ~qword_140E2DB80;
+  if ( qword_140E2DCC0 && (v6 & 0x10) == 0 )
+    v6 &= ~qword_140E2DCC0;
   v7 = v6 >> 16;
   v8 = *(_QWORD *)v7;
   if ( (*(_DWORD *)(*(_QWORD *)v7 + 56LL) & 0x20) == 0 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpApplyEventIdPayloadFilter @ 0x14051CB68
+ * XREFs of EtwpApplyEventIdPayloadFilter @ 0x14051F084
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     EtwpPerfectHashFunctionSearch @ 0x140448E70 (EtwpPerfectHashFunctionSearch.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwpApplyPayloadFilterInternal @ 0x1406C8DE8 (EtwpApplyPayloadFilterInternal.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     EtwpPerfectHashFunctionSearch @ 0x140441960 (EtwpPerfectHashFunctionSearch.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x1406CCDC8 (EtwpApplyPayloadFilterInternal.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall EtwpApplyEventIdPayloadFilter(

@@ -11,7 +11,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwQuerySystemInformationEx(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl ZwQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   return Wow64SystemServiceCall();
 }

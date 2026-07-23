@@ -1,5 +1,5 @@
 /*
- * XREFs of MmMapMdl @ 0x1402AD860
+ * XREFs of MmMapMdl @ 0x1402ADA50
  * Callers:
  *     <none>
  * Callees:
@@ -9,20 +9,20 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiMappingHasIoReferences @ 0x1400E63FC (MiMappingHasIoReferences.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiZeroAndFlushPtes @ 0x14012337C (MiZeroAndFlushPtes.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MiInsertPteTracker @ 0x1402CDAC0 (MiInsertPteTracker.c)
- *     MiFreeUltraMdlContext @ 0x1402CDF58 (MiFreeUltraMdlContext.c)
- *     MiGetUltraMdlContext @ 0x1402CDFEC (MiGetUltraMdlContext.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MiMappingHasIoReferences @ 0x1400E647C (MiMappingHasIoReferences.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiZeroAndFlushPtes @ 0x14012344C (MiZeroAndFlushPtes.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MiInsertPteTracker @ 0x1402CDCB0 (MiInsertPteTracker.c)
+ *     MiFreeUltraMdlContext @ 0x1402CE148 (MiFreeUltraMdlContext.c)
+ *     MiGetUltraMdlContext @ 0x1402CE1DC (MiGetUltraMdlContext.c)
  */
 
 __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(__int64, unsigned __int64), __int64 a4)
 {
-  struct _SLIST_ENTRY *v5; // r13
+  _SLIST_ENTRY *v5; // r13
   void (__fastcall *v6)(__int64, _QWORD); // r8
   __int64 v7; // r9
   unsigned int ProtectionMask; // r14d
@@ -62,12 +62,12 @@ __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(_
   if ( MmProtectFreedNonPagedPool == 1 )
     v11 = v10 + 1;
   if ( v11 > 0x200
-    || (UltraMdlContext = MiGetUltraMdlContext(), (v5 = (struct _SLIST_ENTRY *)UltraMdlContext) == 0LL)
+    || (UltraMdlContext = MiGetUltraMdlContext(), (v5 = (_SLIST_ENTRY *)UltraMdlContext) == 0LL)
     || (UltraMapping = MiGetUltraMapping((unsigned __int64 *)(UltraMdlContext + 8), 3u, v11, 0),
         v14 = ((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
         ((UltraMapping >> 9) & 0x7FFFFFFFF8LL) == 0x98000000000LL) )
   {
-    v14 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)v11);
+    v14 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)v11);
     if ( !v14 )
       return 3221225626LL;
   }
@@ -81,7 +81,7 @@ __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(_
       MiMappingHasIoReferences(v15);
       *(_WORD *)(a1 + 10) |= 0x800u;
     }
-    if ( (dword_14054017C & 1) != 0 )
+    if ( (dword_14054117C & 1) != 0 )
     {
       v18 = MiProtectionToCacheAttribute(ProtectionMask);
       MiInsertPteTracker(a1, 0LL, v19, v18);
@@ -102,7 +102,7 @@ __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(_
           if ( (unsigned int)MiPteHasShadow() )
           {
             v21 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
               v23 = (v20 & 1) == 0;
               goto LABEL_31;
@@ -127,6 +127,6 @@ LABEL_31:
     v14 = 0LL;
   }
   if ( v14 )
-    MiReleasePtes((__int64)&qword_14043AFA0, v14, v11);
+    MiReleasePtes((__int64)&qword_14043C060, v14, v11);
   return (unsigned int)v16;
 }

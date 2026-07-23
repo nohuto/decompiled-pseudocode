@@ -1,27 +1,27 @@
 /*
- * XREFs of MiRelocateImagePfn @ 0x1407442C0
+ * XREFs of MiRelocateImagePfn @ 0x1407444B0
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiValidateInPage @ 0x1402DC480 (MiValidateInPage.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiFillPerSessionProtos @ 0x140A49FAC (MiFillPerSessionProtos.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiValidateInPage @ 0x1402DC710 (MiValidateInPage.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiFillPerSessionProtos @ 0x140A4A25C (MiFillPerSessionProtos.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     RtlDoesRequireFunctionOverrideFixups @ 0x14067BD68 (RtlDoesRequireFunctionOverrideFixups.c)
- *     MiPerformFixups @ 0x14079D900 (MiPerformFixups.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x14067C2B8 (RtlDoesRequireFunctionOverrideFixups.c)
+ *     MiPerformFixups @ 0x14079DAF0 (MiPerformFixups.c)
  */
 
 __int64 __fastcall MiRelocateImagePfn(

@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlGetSupportedFeatures @ 0x1400B4A28
+ * XREFs of FsRtlGetSupportedFeatures @ 0x1400B28A8
  * Callers:
- *     IopCopyOffloadCapable @ 0x1404EF33C (IopCopyOffloadCapable.c)
+ *     IopCopyOffloadCapable @ 0x1404D1430 (IopCopyOffloadCapable.c)
  * Callees:
  *     <none>
  */

@@ -84,7 +84,7 @@ LABEL_22:
   {
     if ( (Microsoft_Windows_Dedup_ChangeEnableBits & 1) != 0 )
       McTemplateK0jjtq_EtwWriteTransfer(MS_Dedup_Change_Provider_Context, v17, a4, a1, (__int64)a2, a3, *a5);
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_REFSDEDUP_VOLUME_DETECTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_REFSDEDUP_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v12;
 }

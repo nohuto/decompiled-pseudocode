@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampCaptureCleanupDpc @ 0x1406C8660
+ * XREFs of EtwpCovSampCaptureCleanupDpc @ 0x1406CC640
  * Callers:
  *     <none>
  * Callees:
- *     EtwpCovSampCaptureCleanupLookasides @ 0x1404FE700 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x1404F7CB0 (EtwpCovSampCaptureCleanupLookasides.c)
  */
 
 void __fastcall EtwpCovSampCaptureCleanupDpc(

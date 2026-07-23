@@ -1,20 +1,20 @@
 /*
- * XREFs of KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A650
+ * XREFs of KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A8E0
  * Callers:
- *     CcFlushCachePreProcess @ 0x14029DE80 (CcFlushCachePreProcess.c)
- *     CcMapAndCopyInToCache @ 0x1402CC8F0 (CcMapAndCopyInToCache.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x14041478C (ExpAcquireFastResourceExclusiveSlow.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140414B10 (ExpAcquireFastResourceSharedSlow.c)
- *     ExpConvertFastResourceExclusiveToShared2 @ 0x14041532C (ExpConvertFastResourceExclusiveToShared2.c)
- *     ExpReleaseDisownedFastResourceExclusive2 @ 0x140416018 (ExpReleaseDisownedFastResourceExclusive2.c)
- *     ExpReleaseDisownedFastResourceShared2 @ 0x1404161C8 (ExpReleaseDisownedFastResourceShared2.c)
- *     ExpReleaseFastResourceExclusiveSlow @ 0x140416414 (ExpReleaseFastResourceExclusiveSlow.c)
- *     ExpReleaseFastResourceShared2 @ 0x14041657C (ExpReleaseFastResourceShared2.c)
- *     PnprMirrorMarkedPages @ 0x140A9D12C (PnprMirrorMarkedPages.c)
+ *     CcFlushCachePreProcess @ 0x14029E110 (CcFlushCachePreProcess.c)
+ *     CcMapAndCopyInToCache @ 0x1402CCB80 (CcMapAndCopyInToCache.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x140414B20 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x140414EA4 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x1404156C0 (ExpConvertFastResourceExclusiveToShared2.c)
+ *     ExpReleaseDisownedFastResourceExclusive2 @ 0x1404163AC (ExpReleaseDisownedFastResourceExclusive2.c)
+ *     ExpReleaseDisownedFastResourceShared2 @ 0x14041655C (ExpReleaseDisownedFastResourceShared2.c)
+ *     ExpReleaseFastResourceExclusiveSlow @ 0x1404167A8 (ExpReleaseFastResourceExclusiveSlow.c)
+ *     ExpReleaseFastResourceShared2 @ 0x140416910 (ExpReleaseFastResourceShared2.c)
+ *     PnprMirrorMarkedPages @ 0x140A9CF9C (PnprMirrorMarkedPages.c)
  * Callees:
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
  */
 
 void __stdcall KeReleaseInStackQueuedSpinLockFromDpcLevel(PKLOCK_QUEUE_HANDLE LockHandle)

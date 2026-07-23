@@ -13,7 +13,7 @@
  *     NtSetSystemTime @ 0x140947400 (NtSetSystemTime.c)
  */
 
-__int64 __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
+int __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
 {
   __int64 v4; // rdi
   unsigned __int64 v5; // rbx
@@ -21,8 +21,8 @@ __int64 __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
   __int64 v7; // rcx
   wchar_t *v8; // rax
   int *v9; // rcx
-  __int64 result; // rax
-  int v11; // ebx
+  int result; // eax
+  NTSTATUS v11; // ebx
   _OWORD ValueData[27]; // [rsp+20h] [rbp-378h] BYREF
   wchar_t v13[216]; // [rsp+1D0h] [rbp-1C8h] BYREF
 
@@ -53,7 +53,7 @@ __int64 __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
   else
   {
     if ( a2 != 432 )
-      return 3221225476LL;
+      return -1073741820;
     v4 = 3LL;
     if ( (a1 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
@@ -104,12 +104,12 @@ __int64 __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
   ExReleaseResourceLite(&ExpTimeRefreshLock);
   KeLeaveCriticalRegion();
   result = RtlpSetTimeZoneInformationWorker((wchar_t *)ValueData, 0x1B0u);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v11 = NtSetSystemTime(0LL, 0LL);
     if ( v11 < 0 )
       RtlpSetTimeZoneInformationWorker(v13, 0x1B0u);
-    return (unsigned int)v11;
+    return v11;
   }
   return result;
 }

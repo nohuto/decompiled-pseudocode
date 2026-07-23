@@ -14,7 +14,12 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcQueryInformation(HANDLE Handle, int a2, ULONG64 a3, unsigned int a4, ULONG64 a5)
+NTSTATUS __cdecl NtAlpcQueryInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r13
@@ -22,18 +27,18 @@ __int64 __fastcall NtAlpcQueryInformation(HANDLE Handle, int a2, ULONG64 a3, uns
   ULONG64 v12; // rax
   unsigned __int64 v13; // rax
   PVOID v14; // rdi
-  ULONG64 v15; // r14
+  PULONG v15; // r14
   _DWORD *v16; // rcx
-  NTSTATUS v17; // esi
-  NTSTATUS BasicInfo; // eax
-  int v20; // r15d
-  int v21; // r15d
+  int v17; // esi
+  int BasicInfo; // eax
+  __int32 v20; // r15d
+  __int32 v21; // r15d
   int Object; // [rsp+20h] [rbp-38h]
   PVOID v23; // [rsp+70h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( !a3 )
+  if ( !PortInformation )
   {
     v17 = -1073741811;
     goto LABEL_26;
@@ -42,22 +47,22 @@ __int64 __fastcall NtAlpcQueryInformation(HANDLE Handle, int a2, ULONG64 a3, uns
   if ( !PreviousMode )
   {
     v14 = 0LL;
-    v15 = a5;
+    v15 = ReturnLength;
     goto LABEL_19;
   }
-  if ( ((a2 - 3) & 0xFFFFFFF7) == 0 )
+  if ( ((PortInformationClass - 3) & 0xFFFFFFF7) == 0 )
   {
 LABEL_10:
     v14 = 0LL;
     goto LABEL_11;
   }
-  if ( a4 )
+  if ( Length )
   {
-    v11 = a3;
-    if ( (a3 & 3) != 0 )
+    v11 = (unsigned __int64)PortInformation;
+    if ( ((unsigned __int8)PortInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v12 = a3 + a4 - 1LL;
-    if ( a3 > v12 || v12 >= MmUserProbeAddress )
+    v12 = (ULONG64)PortInformation + Length - 1;
+    if ( (unsigned __int64)PortInformation > v12 || v12 >= MmUserProbeAddress )
     {
       v14 = 0LL;
       if ( !KeGetCurrentThread()->ApcState.Process->SecurePid )
@@ -75,45 +80,45 @@ LABEL_10:
   }
   v14 = 0LL;
 LABEL_11:
-  v15 = a5;
-  if ( a5 )
+  v15 = ReturnLength;
+  if ( ReturnLength )
   {
-    v16 = (_DWORD *)a5;
-    if ( a5 >= MmUserProbeAddress )
+    v16 = ReturnLength;
+    if ( (unsigned __int64)ReturnLength >= MmUserProbeAddress )
       v16 = (_DWORD *)MmUserProbeAddress;
     *v16 = *v16;
   }
 LABEL_19:
-  if ( Handle )
+  if ( PortHandle )
   {
-    v17 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &v23, 0LL);
+    v17 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &v23, 0LL);
     v14 = v23;
     if ( v17 < 0 )
       goto LABEL_26;
   }
-  if ( !a2 )
+  if ( PortInformationClass == AlpcBasicInformation )
   {
-    BasicInfo = AlpcpPortQueryBasicInfo(v14, a3, a4, v15);
+    BasicInfo = AlpcpPortQueryBasicInfo(v14, PortInformation, Length, v15);
 LABEL_23:
     v17 = BasicInfo;
     goto LABEL_24;
   }
-  v20 = a2 - 3;
+  v20 = PortInformationClass - 3;
   if ( !v20 )
   {
     LOBYTE(Object) = PreviousMode;
-    BasicInfo = AlpcpPortQueryConnectedSidInfo(v14, a3, a3, v15, Object);
+    BasicInfo = AlpcpPortQueryConnectedSidInfo(v14, PortInformation, PortInformation, v15, Object);
     goto LABEL_23;
   }
   v21 = v20 - 1;
   if ( !v21 )
   {
-    BasicInfo = AlpcpPortQueryServerInfo((int)v14, a3, a4, v15, PreviousMode);
+    BasicInfo = AlpcpPortQueryServerInfo((int)v14, (int)PortInformation, Length, (int)v15, PreviousMode);
     goto LABEL_23;
   }
   if ( v21 == 7 )
   {
-    BasicInfo = AlpcpWaitForPortReferences((_DWORD)v14, a3, a4, v15, PreviousMode);
+    BasicInfo = AlpcpWaitForPortReferences((_DWORD)v14, (_DWORD)PortInformation, Length, (_DWORD)v15, PreviousMode);
     goto LABEL_23;
   }
   v17 = -1073741811;
@@ -122,5 +127,5 @@ LABEL_24:
     ObfDereferenceObject(v14);
 LABEL_26:
   KeLeaveCriticalRegion();
-  return (unsigned int)v17;
+  return v17;
 }

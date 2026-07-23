@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHeapFindListLookupEntry @ 0x18004B1F0
+ * XREFs of RtlpHeapFindListLookupEntry @ 0x18004B1E0
  * Callers:
- *     RtlpFindAndCommitPages @ 0x180028400 (RtlpFindAndCommitPages.c)
- *     RtlpInsertFreeBlock @ 0x18004AE00 (RtlpInsertFreeBlock.c)
- *     RtlpFindEntry @ 0x18004BE88 (RtlpFindEntry.c)
- *     RtlpFindUCREntry @ 0x18004D130 (RtlpFindUCREntry.c)
+ *     RtlpFindAndCommitPages @ 0x1800283F0 (RtlpFindAndCommitPages.c)
+ *     RtlpInsertFreeBlock @ 0x18004ADF0 (RtlpInsertFreeBlock.c)
+ *     RtlpFindEntry @ 0x18004BE78 (RtlpFindEntry.c)
+ *     RtlpFindUCREntry @ 0x18004D120 (RtlpFindUCREntry.c)
  * Callees:
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  */

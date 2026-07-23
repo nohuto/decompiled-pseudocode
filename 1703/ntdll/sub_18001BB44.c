@@ -9,39 +9,38 @@
  *     sub_180030384 @ 0x180030384 (sub_180030384.c)
  */
 
-__int64 __fastcall sub_18001BB44(__int64 a1, __int64 a2)
+BOOLEAN __fastcall sub_18001BB44(__int64 a1, __int64 a2)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   int v4; // eax
-  __int64 v5; // rdi
+  PRTL_BALANCED_NODE Root; // rdi
   int v6; // esi
   __int64 v7; // r8
-  __int64 v8; // rax
-  __int64 v9; // r8
-  __int64 v10; // rdi
-  int v11; // esi
-  __int64 v12; // rax
-  __int64 result; // rax
-  int v14; // [rsp+30h] [rbp+8h] BYREF
-  int v15; // [rsp+34h] [rbp+Ch]
+  _RTL_BALANCED_NODE *v8; // rax
+  PRTL_BALANCED_NODE v9; // rdi
+  int v10; // esi
+  _RTL_BALANCED_NODE *v11; // rax
+  BOOLEAN result; // al
+  int v13; // [rsp+30h] [rbp+8h] BYREF
+  int v14; // [rsp+34h] [rbp+Ch]
 
   v7 = *(unsigned int *)(a2 + 8);
   v2 = 0;
   *(_DWORD *)(a1 + 128) = v7;
   v4 = *(_DWORD *)(a2 + 80);
   *(_DWORD *)(a1 + 64) = v4;
-  v5 = qword_18015C218;
-  v6 = byte_18015C220 & 1;
-  v14 = v7;
+  Root = Tree.Root;
+  v6 = (__int64)Tree.Min & 1;
+  v13 = v7;
   LOBYTE(v7) = 0;
-  v15 = v4;
-  if ( qword_18015C218 )
+  v14 = v4;
+  if ( Tree.Root )
   {
     while ( 1 )
     {
-      if ( (int)sub_18001BD90(&v14, v5, v7) < 0 )
+      if ( (int)sub_18001BD90(&v13, Root, v7) < 0 )
       {
-        v8 = *(_QWORD *)v5;
+        v8 = Root->Children[0];
         if ( v6 )
         {
           if ( !v8 )
@@ -50,14 +49,14 @@ LABEL_8:
             LOBYTE(v7) = 0;
             break;
           }
-          v8 ^= v5;
+          v8 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v8);
         }
         if ( !v8 )
           goto LABEL_8;
       }
       else
       {
-        v8 = *(_QWORD *)(v5 + 8);
+        v8 = Root->Children[1];
         if ( v6 )
         {
           if ( !v8 )
@@ -66,54 +65,53 @@ LABEL_9:
             LOBYTE(v7) = 1;
             break;
           }
-          v8 ^= v5;
+          v8 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v8);
         }
         if ( !v8 )
           goto LABEL_9;
       }
-      v5 = v8;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx(&qword_18015C218, v5, v7, a1 + 224);
-  v10 = qword_18015C208;
-  v11 = byte_18015C210 & 1;
-  if ( qword_18015C208 )
+  RtlRbInsertNodeEx(&Tree, Root, v7, (PRTL_BALANCED_NODE)(a1 + 224));
+  v9 = stru_18015C208.Root;
+  v10 = (__int64)stru_18015C208.Min & 1;
+  if ( stru_18015C208.Root )
   {
     while ( 1 )
     {
-      if ( (int)sub_180030384(*(_QWORD *)(a1 + 48), v10) >= 0 )
+      if ( (int)sub_180030384(*(_QWORD *)(a1 + 48), v9) >= 0 )
       {
-        v12 = *(_QWORD *)(v10 + 8);
-        if ( v11 )
+        v11 = v9->Children[1];
+        if ( v10 )
         {
-          if ( !v12 )
+          if ( !v11 )
           {
 LABEL_17:
             v2 = 1;
             break;
           }
-          v12 ^= v10;
+          v11 = (_RTL_BALANCED_NODE *)((unsigned __int64)v9 ^ (unsigned __int64)v11);
         }
-        if ( !v12 )
+        if ( !v11 )
           goto LABEL_17;
       }
       else
       {
-        v12 = *(_QWORD *)v10;
-        if ( v11 )
+        v11 = v9->Children[0];
+        if ( v10 )
         {
-          if ( !v12 )
+          if ( !v11 )
             break;
-          v12 ^= v10;
+          v11 = (_RTL_BALANCED_NODE *)((unsigned __int64)v9 ^ (unsigned __int64)v11);
         }
-        if ( !v12 )
+        if ( !v11 )
           break;
       }
-      v10 = v12;
+      v9 = v11;
     }
   }
-  LOBYTE(v9) = v2;
-  result = RtlRbInsertNodeEx(&qword_18015C208, v10, v9, a1 + 200);
+  result = RtlRbInsertNodeEx(&stru_18015C208, v9, v2, (PRTL_BALANCED_NODE)(a1 + 200));
   *(_DWORD *)(a1 + 104) |= 0x80u;
   return result;
 }

@@ -1,56 +1,56 @@
 /*
- * XREFs of EtwpStartLogger @ 0x1406BBFB0
+ * XREFs of EtwpStartLogger @ 0x1406BBFE0
  * Callers:
- *     EtwpStartTrace @ 0x1407E4DE0 (EtwpStartTrace.c)
- *     EtwStartAutoLogger @ 0x14083BFA8 (EtwStartAutoLogger.c)
+ *     EtwpStartTrace @ 0x1407E50B0 (EtwpStartTrace.c)
+ *     EtwStartAutoLogger @ 0x14083C2A8 (EtwStartAutoLogger.c)
  *     EtwpStartBootLogger @ 0x140B976C4 (EtwpStartBootLogger.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259CD0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     MmGetSessionId @ 0x1402A3C40 (MmGetSessionId.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140321E00 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpStartLoggerThread @ 0x140343944 (EtwpStartLoggerThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     EtwpSetQpcDeltaTracking @ 0x1405FC378 (EtwpSetQpcDeltaTracking.c)
- *     EtwpSetPartitionContext @ 0x140601794 (EtwpSetPartitionContext.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259F60 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     MmGetSessionId @ 0x1402A3ED0 (MmGetSessionId.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140322090 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpStartLoggerThread @ 0x140343BD4 (EtwpStartLoggerThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     EtwpSetQpcDeltaTracking @ 0x1405FC8E8 (EtwpSetQpcDeltaTracking.c)
+ *     EtwpSetPartitionContext @ 0x140601CE4 (EtwpSetPartitionContext.c)
  *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
- *     EtwpLookupLoggerIdByName @ 0x1406BD758 (EtwpLookupLoggerIdByName.c)
- *     EtwpAccessCheck @ 0x1406BDBDC (EtwpAccessCheck.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpFreeSecurityDescriptor @ 0x1406C048C (EtwpFreeSecurityDescriptor.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0F5C (EtwpGetSecurityDescriptorByGuid.c)
- *     SeCreateClientSecurity @ 0x14071D350 (SeCreateClientSecurity.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     EtwpSendSessionNotification @ 0x14077E820 (EtwpSendSessionNotification.c)
- *     EtwpCheckGuidAccess @ 0x140781B64 (EtwpCheckGuidAccess.c)
- *     EtwpFreeLoggerContext @ 0x14078DC9C (EtwpFreeLoggerContext.c)
- *     EtwpFreeTraceBufferPool @ 0x14078DF9C (EtwpFreeTraceBufferPool.c)
- *     EtwpInitLoggerContext @ 0x1407B34C0 (EtwpInitLoggerContext.c)
- *     EtwpInitializeTimeStamp @ 0x1407DBCB0 (EtwpInitializeTimeStamp.c)
- *     EtwpInitializeLoggerSecurityDescriptor @ 0x1407E5CDC (EtwpInitializeLoggerSecurityDescriptor.c)
- *     EtwpGenerateFileName @ 0x1407E92A0 (EtwpGenerateFileName.c)
- *     EtwpStopLoggerInstance @ 0x1407F6374 (EtwpStopLoggerInstance.c)
- *     EtwpCreateLogFile @ 0x1407F66D0 (EtwpCreateLogFile.c)
- *     EtwpAllocateTraceBufferPool @ 0x1407F7364 (EtwpAllocateTraceBufferPool.c)
- *     EtwpValidateFlagExtension @ 0x1407F7E00 (EtwpValidateFlagExtension.c)
- *     EtwpCheckForStackTracingExtension @ 0x1407F7ED0 (EtwpCheckForStackTracingExtension.c)
- *     EtwpGetFlagExtension @ 0x1407F7F38 (EtwpGetFlagExtension.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1407F8B3C (EtwpGetLoggerInfoFromContext.c)
- *     EtwpCaptureString @ 0x1407FAC30 (EtwpCaptureString.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x14081FF04 (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpCheckForPoolTagFilterExtension @ 0x14085C1E0 (EtwpCheckForPoolTagFilterExtension.c)
- *     EtwpEventWriteTemplateAdmin @ 0x1409E39C0 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateSession @ 0x1409E3C04 (EtwpEventWriteTemplateSession.c)
- *     EtwpUpdatePerProcessTracing @ 0x1409E795C (EtwpUpdatePerProcessTracing.c)
+ *     EtwpLookupLoggerIdByName @ 0x1406BD788 (EtwpLookupLoggerIdByName.c)
+ *     EtwpAccessCheck @ 0x1406BDC0C (EtwpAccessCheck.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpFreeSecurityDescriptor @ 0x1406C04BC (EtwpFreeSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0F8C (EtwpGetSecurityDescriptorByGuid.c)
+ *     SeCreateClientSecurity @ 0x14071D550 (SeCreateClientSecurity.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     EtwpSendSessionNotification @ 0x14077EA10 (EtwpSendSessionNotification.c)
+ *     EtwpCheckGuidAccess @ 0x140781D54 (EtwpCheckGuidAccess.c)
+ *     EtwpFreeLoggerContext @ 0x14078DE8C (EtwpFreeLoggerContext.c)
+ *     EtwpFreeTraceBufferPool @ 0x14078E18C (EtwpFreeTraceBufferPool.c)
+ *     EtwpInitLoggerContext @ 0x1407B36B0 (EtwpInitLoggerContext.c)
+ *     EtwpInitializeTimeStamp @ 0x1407DBF80 (EtwpInitializeTimeStamp.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x1407E5FAC (EtwpInitializeLoggerSecurityDescriptor.c)
+ *     EtwpGenerateFileName @ 0x1407E9570 (EtwpGenerateFileName.c)
+ *     EtwpStopLoggerInstance @ 0x1407F6644 (EtwpStopLoggerInstance.c)
+ *     EtwpCreateLogFile @ 0x1407F69A0 (EtwpCreateLogFile.c)
+ *     EtwpAllocateTraceBufferPool @ 0x1407F7634 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpValidateFlagExtension @ 0x1407F80D0 (EtwpValidateFlagExtension.c)
+ *     EtwpCheckForStackTracingExtension @ 0x1407F81A0 (EtwpCheckForStackTracingExtension.c)
+ *     EtwpGetFlagExtension @ 0x1407F8208 (EtwpGetFlagExtension.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407F8E0C (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpCaptureString @ 0x1407FAF00 (EtwpCaptureString.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x140820204 (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x14085C420 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x1409E3C50 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateSession @ 0x1409E3E94 (EtwpEventWriteTemplateSession.c)
+ *     EtwpUpdatePerProcessTracing @ 0x1409E7BEC (EtwpUpdatePerProcessTracing.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -193,14 +193,14 @@ __int64 __fastcall EtwpStartLogger(ULONGLONG a1, __int64 a2)
     {
       goto LABEL_143;
     }
-    v57 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
+    v57 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
     if ( !v57 )
-      v57 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
+      v57 = *(_QWORD *)(a2 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
     if ( !v57 )
       goto LABEL_143;
-    v58 = *(_QWORD *)(a2 + 24) - CKCLGuid;
+    v58 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&CKCLGuid.Data1;
     if ( !v58 )
-      v58 = *(_QWORD *)(a2 + 32) - 0x74F156D0633E71AFLL;
+      v58 = *(_QWORD *)(a2 + 32) - *(_QWORD *)CKCLGuid.Data4;
     if ( !v58 || (v6 & 4) != 0 )
       goto LABEL_143;
   }
@@ -272,23 +272,23 @@ LABEL_143:
   }
   v12 = *(_QWORD *)&Buf2.Data1;
   v13 = *(_QWORD *)(a1 + 456);
-  v14 = *(_QWORD *)&Buf2.Data1 - SystemTraceControlGuid;
+  v14 = *(_QWORD *)&Buf2.Data1 - *(_QWORD *)&SystemTraceControlGuid.Data1;
   v15 = *(_QWORD *)Buf2.Data4;
   v80 = v13;
-  if ( *(_QWORD *)&Buf2.Data1 == SystemTraceControlGuid )
-    v14 = *(_QWORD *)Buf2.Data4 - 0x3969A8086000829ALL;
+  if ( *(_QWORD *)&Buf2.Data1 == *(_QWORD *)&SystemTraceControlGuid.Data1 )
+    v14 = *(_QWORD *)Buf2.Data4 - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v14 )
     goto LABEL_212;
-  v16 = *(_QWORD *)&Buf2.Data1 - CKCLGuid;
-  if ( *(_QWORD *)&Buf2.Data1 == CKCLGuid )
-    v16 = *(_QWORD *)Buf2.Data4 - 0x74F156D0633E71AFLL;
+  v16 = *(_QWORD *)&Buf2.Data1 - *(_QWORD *)&CKCLGuid.Data1;
+  if ( *(_QWORD *)&Buf2.Data1 == *(_QWORD *)&CKCLGuid.Data1 )
+    v16 = *(_QWORD *)Buf2.Data4 - *(_QWORD *)CKCLGuid.Data4;
   if ( !v16 )
   {
 LABEL_212:
     RtlFreeUnicodeString(&DestinationString);
-    v59 = v12 - SystemTraceControlGuid;
+    v59 = v12 - *(_QWORD *)&SystemTraceControlGuid.Data1;
     if ( !v59 )
-      v59 = v15 - 0x3969A8086000829ALL;
+      v59 = v15 - *(_QWORD *)SystemTraceControlGuid.Data4;
     if ( v59 )
     {
       v60 = 2;
@@ -327,9 +327,9 @@ LABEL_65:
       v15 = *(_QWORD *)Buf2.Data4;
       v12 = *(_QWORD *)&Buf2.Data1;
     }
-    v28 = HeapGuid - v12;
-    if ( HeapGuid == v12 )
-      v28 = 0x4AA2F2756B3425A8LL - v15;
+    v28 = *(_QWORD *)&HeapGuid.Data1 - v12;
+    if ( *(_QWORD *)&HeapGuid.Data1 == v12 )
+      v28 = *(_QWORD *)HeapGuid.Data4 - v15;
     if ( v28 )
       v73 = memcmp(&CritSecGuid, &Buf2, 0x10uLL) != 0 ? 9 : 1;
     else
@@ -664,9 +664,9 @@ LABEL_269:
     v56 = _InterlockedCompareExchange64((volatile signed __int64 *)(v13 + 8), v13 | 1, 1LL) == 1;
     goto LABEL_195;
   }
-  v18 = *(_QWORD *)&Buf2.Data1 - AuditLoggerGuid;
-  if ( *(_QWORD *)&Buf2.Data1 == AuditLoggerGuid )
-    v18 = *(_QWORD *)Buf2.Data4 + 0x6A2DF162E6CE8D6ELL;
+  v18 = *(_QWORD *)&Buf2.Data1 - *(_QWORD *)&AuditLoggerGuid.Data1;
+  if ( *(_QWORD *)&Buf2.Data1 == *(_QWORD *)&AuditLoggerGuid.Data1 )
+    v18 = *(_QWORD *)Buf2.Data4 - *(_QWORD *)AuditLoggerGuid.Data4;
   if ( !v18 )
   {
     v72 = 3;
@@ -687,9 +687,9 @@ LABEL_255:
   }
   if ( !wcsicmp(DestinationString.Buffer, L"Eventlog-Security") )
   {
-    v64 = v12 - AuditLoggerGuid;
-    if ( v12 == AuditLoggerGuid )
-      v64 = v15 + 0x6A2DF162E6CE8D6ELL;
+    v64 = v12 - *(_QWORD *)&AuditLoggerGuid.Data1;
+    if ( v12 == *(_QWORD *)&AuditLoggerGuid.Data1 )
+      v64 = v15 - *(_QWORD *)AuditLoggerGuid.Data4;
     if ( v64 )
       goto LABEL_240;
   }

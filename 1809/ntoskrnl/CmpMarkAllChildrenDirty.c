@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpMarkAllChildrenDirty @ 0x1407FFBDC
+ * XREFs of CmpMarkAllChildrenDirty @ 0x140800DDC
  * Callers:
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x1408045F8 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x1408057F8 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpFindSubKeyByNumber @ 0x1406B2C88 (CmpFindSubKeyByNumber.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
+ *     CmpFindSubKeyByNumber @ 0x1406B3F28 (CmpFindSubKeyByNumber.c)
  */
 
 char __fastcall CmpMarkAllChildrenDirty(ULONG_PTR BugCheckParameter2, __int64 a2)

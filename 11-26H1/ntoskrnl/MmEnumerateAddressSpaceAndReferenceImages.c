@@ -1,25 +1,25 @@
 /*
- * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x140A7CF90
+ * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x140A82E00
  * Callers:
- *     EtwpCovSampEnumerateProcess @ 0x140940AF0 (EtwpCovSampEnumerateProcess.c)
- *     EtwpEnumerateAddressSpace @ 0x1409FD0D0 (EtwpEnumerateAddressSpace.c)
+ *     EtwpEnumerateAddressSpace @ 0x140921CD0 (EtwpEnumerateAddressSpace.c)
+ *     EtwpCovSampEnumerateProcess @ 0x140A33C00 (EtwpCovSampEnumerateProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     MiLockVadShared @ 0x14027E8D0 (MiLockVadShared.c)
- *     MiUnlockVadShared @ 0x14027EC50 (MiUnlockVadShared.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiVadMapsLargeImage @ 0x1403BC004 (MiVadMapsLargeImage.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404057B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140405820 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiReadVadFlags2 @ 0x14047A070 (MiReadVadFlags2.c)
- *     MiVadDeleted @ 0x140480A68 (MiVadDeleted.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiFillMapFileInfo @ 0x1409C6BC8 (MiFillMapFileInfo.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     MiLockVadShared @ 0x14027DE40 (MiLockVadShared.c)
+ *     MiUnlockVadShared @ 0x14027E1C0 (MiUnlockVadShared.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiVadMapsLargeImage @ 0x1403C5E74 (MiVadMapsLargeImage.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403FE8A4 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403FE914 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiReadVadFlags2 @ 0x1404739E0 (MiReadVadFlags2.c)
+ *     MiVadDeleted @ 0x14047A3A8 (MiVadDeleted.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiFillMapFileInfo @ 0x140997BA8 (MiFillMapFileInfo.c)
  */
 
 __int64 __fastcall MmEnumerateAddressSpaceAndReferenceImages(

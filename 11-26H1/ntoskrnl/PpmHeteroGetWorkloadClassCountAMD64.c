@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroGetWorkloadClassCountAMD64 @ 0x140BFDD64
+ * XREFs of PpmHeteroGetWorkloadClassCountAMD64 @ 0x140C03DB0
  * Callers:
- *     PoGetWorkloadClassCount @ 0x140BFDD08 (PoGetWorkloadClassCount.c)
+ *     PoGetWorkloadClassCount @ 0x140C03D54 (PoGetWorkloadClassCount.c)
  * Callees:
  *     <none>
  */

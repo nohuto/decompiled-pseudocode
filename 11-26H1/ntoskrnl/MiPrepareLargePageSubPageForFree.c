@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPrepareLargePageSubPageForFree @ 0x140712130
+ * XREFs of MiPrepareLargePageSubPageForFree @ 0x140716E28
  * Callers:
- *     MiReadyLargePageToFree @ 0x1403C5920 (MiReadyLargePageToFree.c)
+ *     MiReadyLargePageToFree @ 0x1403CF82C (MiReadyLargePageToFree.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiClearPfnImageVerified @ 0x14046FA64 (MiClearPfnImageVerified.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiClearPfnImageVerified @ 0x1404691E4 (MiClearPfnImageVerified.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiPrepareLargePageSubPageForFree(__int64 a1)

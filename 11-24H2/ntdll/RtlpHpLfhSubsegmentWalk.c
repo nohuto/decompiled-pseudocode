@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentWalk @ 0x1800D5500
+ * XREFs of RtlpHpLfhSubsegmentWalk @ 0x1800D0870
  * Callers:
- *     RtlpHpSegWalk @ 0x1800478F0 (RtlpHpSegWalk.c)
+ *     RtlpHpSegWalk @ 0x18002B478 (RtlpHpSegWalk.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1800D56D0 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     _alloca_probe @ 0x180166340 (_alloca_probe.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1800D0A40 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180164700 (_alloca_probe.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhSubsegmentWalk(
@@ -37,7 +37,7 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentWalk(
 
   v7 = *(unsigned __int16 *)(a2 + 34);
   v8 = 0LL;
-  v10 = qword_1801CDEC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
+  v10 = qword_1801CCEC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
   v24[0] = v10;
   if ( a3 == a2 )
   {

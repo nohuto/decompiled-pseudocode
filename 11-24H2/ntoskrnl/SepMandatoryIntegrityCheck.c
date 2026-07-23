@@ -1,21 +1,21 @@
 /*
- * XREFs of SepMandatoryIntegrityCheck @ 0x140259F30
+ * XREFs of SepMandatoryIntegrityCheck @ 0x14028A540
  * Callers:
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140360470 (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x140465250 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireFastResourceShared @ 0x1403411F0 (ExAcquireFastResourceShared.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
- *     ExIsFastResourceHeldExclusive @ 0x1403436B0 (ExIsFastResourceHeldExclusive.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x140343DB0 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireFastResourceShared @ 0x1403206D0 (ExAcquireFastResourceShared.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
+ *     ExIsFastResourceHeldExclusive @ 0x140322B90 (ExIsFastResourceHeldExclusive.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x140323290 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepMandatoryIntegrityCheck(_DWORD *a1, __int64 a2, char a3, __int64 a4, char a5, __int64 a6)

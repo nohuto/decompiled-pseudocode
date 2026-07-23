@@ -1,48 +1,48 @@
 /*
- * XREFs of PopSaveHiberContext @ 0x140BFBD50
+ * XREFs of PopSaveHiberContext @ 0x140C01D50
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x140730A80 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x140735650 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     RtlNumberOfClearBits @ 0x140356550 (RtlNumberOfClearBits.c)
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     RtlCopyBitMap @ 0x140492FF0 (RtlCopyBitMap.c)
- *     DbgUnLoadImageSymbols @ 0x1404FDB4C (DbgUnLoadImageSymbols.c)
- *     KdPowerTransition @ 0x14052B940 (KdPowerTransition.c)
- *     IoGetDumpStackTransferSizes @ 0x140532138 (IoGetDumpStackTransferSizes.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalReturnToFirmware @ 0x14057F640 (HalReturnToFirmware.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x1405B8380 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlDisableEnlightenment @ 0x1405B8740 (HvlDisableEnlightenment.c)
- *     HvlDiscardPagesFromHibernation @ 0x1405BEFBC (HvlDiscardPagesFromHibernation.c)
- *     HvlDiscardSecurePagesFromHibernation @ 0x1405BF024 (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlPrepareForHibernate @ 0x1405BF348 (HvlPrepareForHibernate.c)
- *     HvlPrepareForSecureHibernate @ 0x1405BF470 (HvlPrepareForSecureHibernate.c)
- *     VslNotifyShutdown @ 0x1405C36C0 (VslNotifyShutdown.c)
- *     IoDumpStackResumeCapable @ 0x1405C65C8 (IoDumpStackResumeCapable.c)
- *     IoGetDumpHiberRanges @ 0x1405C70CC (IoGetDumpHiberRanges.c)
- *     IoInitializeDumpStack @ 0x1405C7230 (IoInitializeDumpStack.c)
- *     IoNotifyDump @ 0x1405C7314 (IoNotifyDump.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
- *     _PopInternalError @ 0x140600DC4 (_PopInternalError.c)
- *     PopResetRangeEnum @ 0x1406074D8 (PopResetRangeEnum.c)
- *     PopWriteSecurePages @ 0x1406074F4 (PopWriteSecurePages.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140BF90C8 (PopSetMemoryOverwriteRequestAction.c)
- *     PopSstInvokeNotificationHandlers @ 0x140BF9490 (PopSstInvokeNotificationHandlers.c)
- *     PopCompressHiberBlocks @ 0x140BF9F94 (PopCompressHiberBlocks.c)
- *     PopCreateDumpMdl @ 0x140BFA18C (PopCreateDumpMdl.c)
- *     PopHiberWriteBootFreePageMap @ 0x140BFAD84 (PopHiberWriteBootFreePageMap.c)
- *     PopMarkComponentsBootPhase @ 0x140BFAE30 (PopMarkComponentsBootPhase.c)
- *     PopWriteChecksumPages @ 0x140BFC820 (PopWriteChecksumPages.c)
- *     PopWriteHeaderPages @ 0x140BFC8B8 (PopWriteHeaderPages.c)
- *     PopWriteHiberImage @ 0x140BFCAD4 (PopWriteHiberImage.c)
- *     PopWriteImageHeader @ 0x140BFCEA4 (PopWriteImageHeader.c)
- *     PopNotifyShutdownListener @ 0x140BFDF58 (PopNotifyShutdownListener.c)
- *     PopCheckpointSystemSleep @ 0x140C06470 (PopCheckpointSystemSleep.c)
- *     KiGetCpuVendor @ 0x140C0A4F8 (KiGetCpuVendor.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     RtlNumberOfClearBits @ 0x1403582F0 (RtlNumberOfClearBits.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     RtlCopyBitMap @ 0x14048CE30 (RtlCopyBitMap.c)
+ *     DbgUnLoadImageSymbols @ 0x1404F708C (DbgUnLoadImageSymbols.c)
+ *     KdPowerTransition @ 0x14052DE60 (KdPowerTransition.c)
+ *     IoGetDumpStackTransferSizes @ 0x1405345D8 (IoGetDumpStackTransferSizes.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalReturnToFirmware @ 0x140581B60 (HalReturnToFirmware.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x1405BABF0 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlDisableEnlightenment @ 0x1405BAFB0 (HvlDisableEnlightenment.c)
+ *     HvlDiscardPagesFromHibernation @ 0x1405C182C (HvlDiscardPagesFromHibernation.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1405C1894 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlPrepareForHibernate @ 0x1405C1BB8 (HvlPrepareForHibernate.c)
+ *     HvlPrepareForSecureHibernate @ 0x1405C1CE0 (HvlPrepareForSecureHibernate.c)
+ *     VslNotifyShutdown @ 0x1405C5F30 (VslNotifyShutdown.c)
+ *     IoDumpStackResumeCapable @ 0x1405C8E98 (IoDumpStackResumeCapable.c)
+ *     IoGetDumpHiberRanges @ 0x1405C999C (IoGetDumpHiberRanges.c)
+ *     IoInitializeDumpStack @ 0x1405C9B00 (IoInitializeDumpStack.c)
+ *     IoNotifyDump @ 0x1405C9BE4 (IoNotifyDump.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
+ *     _PopInternalError @ 0x140603874 (_PopInternalError.c)
+ *     PopResetRangeEnum @ 0x14060A034 (PopResetRangeEnum.c)
+ *     PopWriteSecurePages @ 0x14060A050 (PopWriteSecurePages.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140BFF0C8 (PopSetMemoryOverwriteRequestAction.c)
+ *     PopSstInvokeNotificationHandlers @ 0x140BFF490 (PopSstInvokeNotificationHandlers.c)
+ *     PopCompressHiberBlocks @ 0x140BFFF94 (PopCompressHiberBlocks.c)
+ *     PopCreateDumpMdl @ 0x140C0018C (PopCreateDumpMdl.c)
+ *     PopHiberWriteBootFreePageMap @ 0x140C00D84 (PopHiberWriteBootFreePageMap.c)
+ *     PopMarkComponentsBootPhase @ 0x140C00E30 (PopMarkComponentsBootPhase.c)
+ *     PopWriteChecksumPages @ 0x140C02820 (PopWriteChecksumPages.c)
+ *     PopWriteHeaderPages @ 0x140C028B8 (PopWriteHeaderPages.c)
+ *     PopWriteHiberImage @ 0x140C02AD4 (PopWriteHiberImage.c)
+ *     PopWriteImageHeader @ 0x140C02EA4 (PopWriteImageHeader.c)
+ *     PopNotifyShutdownListener @ 0x140C03FA4 (PopNotifyShutdownListener.c)
+ *     PopCheckpointSystemSleep @ 0x140C0C680 (PopCheckpointSystemSleep.c)
+ *     KiGetCpuVendor @ 0x140C10708 (KiGetCpuVendor.c)
  */
 
 __int64 __fastcall PopSaveHiberContext(char *Address)
@@ -61,11 +61,11 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
   __int64 v23; // rcx
   int v24; // eax
   int v25; // ebx
-  RTL_BITMAP *v26; // rbx
+  _RTL_BITMAP *v26; // rbx
   unsigned int v27; // r8d
   _DWORD *v28; // rcx
   _DWORD *v29; // rdx
-  __int64 v30; // rcx
+  _IMAGE_NT_HEADERS64 *v30; // rcx
   __int64 v31; // rdx
   unsigned __int64 v32; // rdi
   ULONG_PTR v33; // rbx
@@ -86,19 +86,19 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
   unsigned int v48; // r12d
   int v49; // eax
   unsigned int v50; // ecx
-  struct _LIST_ENTRY *Blink; // rbx
+  __int64 v51; // rbx
   ULONG v52; // eax
   _DWORD *v53; // rdi
   int v54; // esi
   __int64 v55; // rbx
   __int64 v56; // r14
-  struct _LIST_ENTRY *v57; // rdi
+  __int64 v57; // rdi
   __int64 v58; // rax
   unsigned __int64 v59; // rbx
   unsigned __int64 v60; // rax
-  void *v61; // rax
+  __int64 v61; // rax
   unsigned int v62; // ebx
-  _KSCB **p_QueuedScb; // r8
+  _QWORD *v63; // r8
   __int64 v64; // r10
   __int64 v65; // r9
   char *v66; // rdx
@@ -108,7 +108,7 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
   int v70; // esi
   __int64 v71; // rbx
   unsigned __int64 v72; // r14
-  struct _LIST_ENTRY *v73; // rdi
+  __int64 v73; // rdi
   unsigned __int64 v74; // rbx
   unsigned __int64 v75; // r9
   __int64 v76; // rdx
@@ -138,7 +138,7 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
       _InterlockedAdd((volatile signed __int32 *)Address + 4, 1u);
       while ( *((_DWORD *)Address + 4) )
         _mm_pause();
-      if ( LOBYTE(stru_140F10828.OtherOperationCount) )
+      if ( PoResumeFromHibernate )
         return 1073742484;
       _InterlockedAdd((volatile signed __int32 *)Address + 5, 1u);
       while ( *((_DWORD *)Address + 5) )
@@ -162,15 +162,15 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
       _mm_pause();
     return (unsigned int)PopCompressHiberBlocks(Address, v5 + *((_QWORD *)Address + 37), 0);
   }
-  LODWORD(stru_140F11D08.InitialStack) = 0;
+  PopWatchdogTimerCount = 0;
   if ( KeDisableInterrupts() )
-    PopInternalError(0xA1DFBuLL);
-  if ( (dword_140F0FD40 & 0x80u) != 0 )
+    PopInternalError(0xA1E15uLL);
+  if ( (PopSimulateHiberBugcheck & 0x80u) != 0 )
   {
     v85 = 0;
 LABEL_27:
-    dword_140F0FE38 |= 4u;
-    byte_140F0FDA1 = 1;
+    dword_140F109B8 |= 4u;
+    byte_140F10921 = 1;
     goto LABEL_28;
   }
   v85 = IoDumpStackResumeCapable((__int64)&v87);
@@ -179,15 +179,15 @@ LABEL_27:
 LABEL_28:
   if ( (unsigned int)PshedArePluginsPresent() )
   {
-    dword_140F0FE38 |= 8u;
-    byte_140F0FDA1 = 1;
+    dword_140F109B8 |= 8u;
+    byte_140F10921 = 1;
   }
   if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(v7, v6) )
   {
-    dword_140F0FE38 |= 1u;
-    byte_140F0FDA1 = 1;
+    dword_140F109B8 |= 1u;
+    byte_140F10921 = 1;
   }
-  if ( byte_140F0FDA1 )
+  if ( byte_140F10921 )
   {
     if ( (unsigned int)KiGetCpuVendor(v8) == 2 )
     {
@@ -213,7 +213,7 @@ LABEL_28:
   Address[1] = 1;
   if ( !v20 )
   {
-    stru_140F11D08.UserIdealProcessor = 1;
+    PopHibernateHvMinloopEnabled = 1;
     HvlDisableEnlightenment(0);
     guard_dispatch_icall_no_overrides(v23, v22);
     if ( VslVsmEnabled || (HvlpFlags & 2) != 0 )
@@ -221,17 +221,17 @@ LABEL_28:
       _InterlockedAdd((volatile signed __int32 *)Address + 4, 1u);
       while ( *((_DWORD *)Address + 4) != (_DWORD)KeNumberProcessors_0 )
         _mm_pause();
-      *(_QWORD *)&v79 = qword_140E26B68;
-      *((_QWORD *)&v79 + 1) = qword_140E26B08;
-      *(_QWORD *)&v80 = qword_140E26B10;
-      *((_QWORD *)&v80 + 1) = qword_140E26B00;
-      *(_QWORD *)&v81 = qword_140E26B20;
-      *((_QWORD *)&v81 + 1) = qword_140E26B18;
+      *(_QWORD *)&v79 = qword_140E26CA8;
+      *((_QWORD *)&v79 + 1) = qword_140E26C48;
+      *(_QWORD *)&v80 = qword_140E26C50;
+      *((_QWORD *)&v80 + 1) = qword_140E26C40;
+      *(_QWORD *)&v81 = qword_140E26C60;
+      *((_QWORD *)&v81 + 1) = qword_140E26C58;
       v82[0] = v79;
       v82[1] = v80;
       v82[2] = v81;
-      v82[4] = xmmword_140E26B58;
-      v82[3] = xmmword_140E26B48;
+      v82[4] = xmmword_140E26C98;
+      v82[3] = xmmword_140E26C88;
       if ( Address[488] )
         v24 = HvlPrepareForSecureHibernate(v82);
       else
@@ -261,7 +261,7 @@ LABEL_28:
   }
   PopSstInvokeNotificationHandlers(0);
   ++*(_DWORD *)v21;
-  v26 = (RTL_BITMAP *)(Address + 64);
+  v26 = (_RTL_BITMAP *)(Address + 64);
   v27 = 0;
   v28 = (_DWORD *)*((_QWORD *)Address + 9);
   v29 = (_DWORD *)*((_QWORD *)Address + 7);
@@ -273,17 +273,17 @@ LABEL_28:
       *v28++ |= *v29++;
     }
     while ( v27 < v26->SizeOfBitMap >> 5 );
-    v26 = (RTL_BITMAP *)(Address + 64);
+    v26 = (_RTL_BITMAP *)(Address + 64);
   }
-  if ( byte_140F0FDA1 )
-    v26 = (RTL_BITMAP *)(Address + 48);
+  if ( byte_140F10921 )
+    v26 = (_RTL_BITMAP *)(Address + 48);
   else
-    RtlCopyBitMap(&v26->SizeOfBitMap, (__int64)(Address + 48), 0);
+    RtlCopyBitMap(v26, (PRTL_BITMAP)Address + 3, 0);
   RtlSetAllBits(v26);
   *((_DWORD *)Address + 50) = 8;
-  LODWORD(stru_140F11D08.WaitStatus) = 1;
+  PopHibernateInProgress = 1;
   IoGetDumpHiberRanges(v30, *((_QWORD *)Address + 23));
-  if ( !byte_140F0FDA1 )
+  if ( !byte_140F10921 )
     IoNotifyDump(1LL, v31);
   v32 = __rdtsc();
   v33 = (int)IoInitializeDumpStack(*((_QWORD *)Address + 23));
@@ -303,10 +303,8 @@ LABEL_28:
     *((_DWORD *)Address + 110) = v35;
   }
   v37 = __rdtsc();
-  stru_140F10070.WaitBlock[0].Thread = (struct _KTHREAD *)((char *)stru_140F10070.WaitBlock[0].Thread
-                                                         + (((unsigned __int64)HIDWORD(v37) << 32) | (unsigned int)v37)
-                                                         - v32);
-  if ( (v33 & 0x80000000) != 0LL || dword_140F0FD40 == 1 )
+  qword_140F10A68 += (((unsigned __int64)HIDWORD(v37) << 32) | (unsigned int)v37) - v32;
+  if ( (v33 & 0x80000000) != 0LL || PopSimulateHiberBugcheck == 1 )
   {
     PopCheckpointSystemSleep(20LL);
     PopInternalAddToDumpFile(*((_QWORD *)Address + 23), 0x178u, 0LL);
@@ -344,8 +342,8 @@ LABEL_28:
   }
   PopResetRangeEnum(Address);
   v46 = (_QWORD *)*((_QWORD *)Address + 22);
-  v47 = qword_140F0FD78;
-  *v46 = qword_140F0FD78;
+  v47 = qword_140F108F8;
+  *v46 = qword_140F108F8;
   v46[1] = v47;
   v46[2] = 0LL;
   v88 = __rdtsc();
@@ -359,29 +357,28 @@ LABEL_28:
     v50 = (*((_DWORD *)Address + 8) >> 3) + 4095;
     *((_DWORD *)Address + 50) = 3;
     *(_QWORD *)(v21 + 96) = (v50 >> 12) + v49;
-    Blink = stru_140F10070.WaitBlock[0].WaitListEntry.Blink;
+    v51 = qword_140F10A58;
     PopWriteSecurePages((ULONG_PTR)Address);
-    stru_140F10070.KernelShadowStackInitial = (void *)((char *)stru_140F10070.WaitBlock[0].WaitListEntry.Blink
-                                                     - (char *)Blink);
-    stru_140F10070.SuspendEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)*((unsigned int *)Address + 71);
+    qword_140F10D20 = qword_140F10A58 - v51;
+    qword_140F10BF8 = *((unsigned int *)Address + 71);
   }
   *((_DWORD *)Address + 50) = 4;
   *((_QWORD *)Address + 14) = Address + 64;
   v52 = RtlNumberOfClearBits((PRTL_BITMAP)Address + 4);
-  v53 = qword_140F0FE08;
+  v53 = qword_140F10988;
   v54 = *((_DWORD *)Address + 78);
   v55 = *((_QWORD *)Address + 38);
   v56 = (v52 + *((_QWORD *)Address + 13)) << 12;
-  memset_0(qword_140F0FE08, 0, 0x40uLL);
+  memset_0(qword_140F10988, 0, 0x40uLL);
   v53[6] = 0;
   v53[2] = v54;
   *(_QWORD *)v53 = v55;
   *((_QWORD *)v53 + 2) = v56;
-  stru_140F10070.SuspendEvent.Header.WaitListHead.Blink = 0LL;
-  stru_140F10070.ThreadListEntry.Flink = 0LL;
+  qword_140F10C00 = 0LL;
+  qword_140F10C08 = 0LL;
   *((_DWORD *)Address + 90) = 0;
   *((_QWORD *)Address + 47) = 0LL;
-  v57 = stru_140F10070.WaitBlock[0].WaitListEntry.Blink;
+  v57 = qword_140F10A58;
   if ( v85 && *(_QWORD *)(*((_QWORD *)Address + 23) + 128LL) )
     Address[424] = 1;
   v58 = *((_DWORD *)Address + 71)
@@ -397,61 +394,55 @@ LABEL_28:
   while ( *((_DWORD *)Address + 2) != *((_DWORD *)Address + 72) )
     _mm_pause();
   v60 = __rdtsc();
-  v61 = (void *)((((unsigned __int64)HIDWORD(v60) << 32) | (unsigned int)v60) - v59);
+  v61 = (((unsigned __int64)HIDWORD(v60) << 32) | (unsigned int)v60) - v59;
   v62 = 0;
-  for ( stru_140F10070.KernelShadowStackBase = v61;
+  for ( qword_140F10D28 = v61;
         v62 < *((_DWORD *)Address + 72);
         *(_QWORD *)(168 * v67 + *((_QWORD *)Address + 37) + 56) = 0LL )
   {
-    p_QueuedScb = &stru_140F10070.QueuedScb;
+    v63 = &unk_140F10CC0;
     v64 = 5LL;
-    v65 = 168LL * v62 - (_QWORD)&stru_140F10070.QueuedScb;
+    v65 = 168LL * v62 - (_QWORD)&unk_140F10CC0;
     do
     {
-      v66 = (char *)p_QueuedScb + v65;
-      *p_QueuedScb = (_KSCB *)((char *)*p_QueuedScb
-                             + *(_QWORD *)((char *)p_QueuedScb + v65 + *((_QWORD *)Address + 37) + 88));
-      ++p_QueuedScb;
+      v66 = (char *)v63 + v65;
+      *v63 += *(_QWORD *)((char *)v63 + v65 + *((_QWORD *)Address + 37) + 88);
+      ++v63;
       *(_QWORD *)&v66[*((_QWORD *)Address + 37) + 88] = 0LL;
       --v64;
     }
     while ( v64 );
-    stru_140F10070.WaitBlock[0].SparePtr = (char *)stru_140F10070.WaitBlock[0].SparePtr
-                                         + *(_QWORD *)(168LL * v62 + *((_QWORD *)Address + 37) + 40);
+    qword_140F10A78 += *(_QWORD *)(168LL * v62 + *((_QWORD *)Address + 37) + 40);
     *(_QWORD *)(168LL * v62 + *((_QWORD *)Address + 37) + 40) = 0LL;
-    stru_140F10070.SuspendEvent.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)((char *)stru_140F10070.SuspendEvent.Header.WaitListHead.Blink
-                                                                                 + *(_QWORD *)(168LL * v62
-                                                                                             + *((_QWORD *)Address + 37)
-                                                                                             + 56));
+    qword_140F10C00 += *(_QWORD *)(168LL * v62 + *((_QWORD *)Address + 37) + 56);
     v67 = v62++;
   }
-  *(_QWORD *)&stru_140F10070.SchedulerAssistPriorityFloor = (char *)stru_140F10070.WaitBlock[0].WaitListEntry.Blink
-                                                          - (char *)v57;
-  stru_140F10070.ThreadListEntry.Blink = (struct _LIST_ENTRY *)stru_140F10070.SchedulerSharedSystemSlot;
-  stru_140F10070.MutantListHead.Blink = (struct _LIST_ENTRY *)LODWORD(stru_140F10070.PropagateBoostsEntry.Next);
-  stru_140F10070.SchedulerSharedSystemSlot = 0LL;
-  LODWORD(stru_140F10070.PropagateBoostsEntry.Next) = 0;
+  qword_140F10D10 = qword_140F10A58 - v57;
+  qword_140F10C10 = qword_140F10C30;
+  qword_140F10C20 = (unsigned int)dword_140F10C38;
+  qword_140F10C30 = 0LL;
+  dword_140F10C38 = 0;
   *((_DWORD *)Address + 50) = 5;
   *((_QWORD *)Address + 14) = Address + 48;
   *((_QWORD *)Address + 16) = 0LL;
   v68 = RtlNumberOfClearBits((PRTL_BITMAP)Address + 3);
-  v69 = qword_140F0FE08;
+  v69 = qword_140F10988;
   v70 = *((_DWORD *)Address + 78);
   v71 = *((_QWORD *)Address + 38);
   v72 = (unsigned __int64)v68 << 12;
-  memset_0(qword_140F0FE08, 0, 0x40uLL);
+  memset_0(qword_140F10988, 0, 0x40uLL);
   v69[6] = 0;
   *(_QWORD *)v69 = v71;
   v69[2] = v70;
   *((_QWORD *)v69 + 2) = v72;
   *(_QWORD *)(v21 + 112) = (unsigned __int64)(*((_QWORD *)Address + 51) + 4095LL) >> 12;
-  v73 = stru_140F10070.WaitBlock[0].WaitListEntry.Blink;
+  v73 = qword_140F10A58;
   *((_DWORD *)Address + 2) = 0;
   *((_QWORD *)Address + 47) = 0LL;
   v74 = __rdtsc();
   PopWriteHiberImage((ULONG_PTR)Address);
-  stru_140F10070.KernelShadowStackLimit.AllFields = __rdtsc() - v74;
-  stru_140F10070.KernelShadowStack = (void *)((char *)stru_140F10070.WaitBlock[0].WaitListEntry.Blink - (char *)v73);
+  qword_140F10D30 = __rdtsc() - v74;
+  qword_140F10D18 = qword_140F10A58 - v73;
   PopHiberWriteBootFreePageMap((__int64)Address, v21);
   *((_DWORD *)Address + 50) = 7;
   PopWriteChecksumPages(Address);
@@ -461,16 +452,16 @@ LABEL_28:
   v4 = *((_DWORD *)Address + 51);
   if ( v4 < 0 )
     goto LABEL_100;
-  if ( dword_140F0FB8C == dword_140F0FB94 )
+  if ( dword_140F1044C == dword_140F10454 )
   {
-    if ( (*(_WORD *)&stru_140F10828.WaitBlockFill11[100] & 0x8000) == 0 )
+    if ( (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x8000) == 0 )
       DbgUnLoadImageSymbols(0LL, -2LL, 0LL);
     VslNotifyShutdown(1u);
   }
-  if ( (*(_WORD *)&stru_140F10828.WaitBlockFill11[100] & 0x1000) != 0 )
+  if ( (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x1000) != 0 )
     HalReturnToFirmware(3);
   v4 = 0;
-  if ( (dword_140F0FD40 & 0x10) != 0 )
+  if ( (PopSimulateHiberBugcheck & 0x10) != 0 )
   {
     v4 = 1073742484;
   }
@@ -478,7 +469,7 @@ LABEL_28:
   {
 LABEL_100:
     KdPowerTransition(4);
-    if ( v4 >= 0 && dword_140F0FB8C == 5 )
+    if ( v4 >= 0 && dword_140F1044C == 5 )
     {
       PopNotifyShutdownListener();
       if ( HvlHypervisorConnected )

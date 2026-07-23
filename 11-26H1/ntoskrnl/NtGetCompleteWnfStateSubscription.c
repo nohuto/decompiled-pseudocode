@@ -1,26 +1,26 @@
 /*
- * XREFs of NtGetCompleteWnfStateSubscription @ 0x14094A2E0
+ * XREFs of NtGetCompleteWnfStateSubscription @ 0x1409C5C50
  * Callers:
- *     DifNtGetCompleteWnfStateSubscriptionWrapper @ 0x140678B40 (DifNtGetCompleteWnfStateSubscriptionWrapper.c)
+ *     DifNtGetCompleteWnfStateSubscriptionWrapper @ 0x14067C720 (DifNtGetCompleteWnfStateSubscriptionWrapper.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ExpWnfDeliverThreadNotifications @ 0x14094A448 (ExpWnfDeliverThreadNotifications.c)
- *     ExpWnfCompleteThreadSubscriptions @ 0x14094C014 (ExpWnfCompleteThreadSubscriptions.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x1409C5DB8 (ExpWnfDeliverThreadNotifications.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x1409C7984 (ExpWnfCompleteThreadSubscriptions.c)
  */
 
-__int64 __fastcall NtGetCompleteWnfStateSubscription(
-        volatile void *a1,
-        volatile void *a2,
-        int a3,
-        int a4,
-        volatile void *Address,
-        SIZE_T Length)
+NTSTATUS __cdecl NtGetCompleteWnfStateSubscription(
+        PWNF_STATE_NAME OldDescriptorStateName,
+        ULONG64 *OldSubscriptionId,
+        ULONG OldDescriptorEventMask,
+        ULONG OldDescriptorStatus,
+        PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   __int64 v10; // rsi
   int v11; // r9d
   int v13; // [rsp+38h] [rbp-30h]
@@ -35,25 +35,25 @@ __int64 __fastcall NtGetCompleteWnfStateSubscription(
     v10 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[3].BasePriority;
     if ( v10 )
     {
-      if ( !a1
-        || !a2
-        || a3
-        && (!a4 || a4 == -1073741267)
-        && (ULong64FromUser = RtlReadULong64FromUser(a1),
-            v13 = RtlReadULong64FromUser(a2),
-            v9 = ExpWnfCompleteThreadSubscriptions(v10, (unsigned int)&ULong64FromUser, v13, v11, a4),
+      if ( !OldDescriptorStateName
+        || !OldSubscriptionId
+        || OldDescriptorEventMask
+        && (!OldDescriptorStatus || OldDescriptorStatus == -1073741267)
+        && (ULong64FromUser = RtlReadULong64FromUser(OldDescriptorStateName),
+            v13 = RtlReadULong64FromUser(OldSubscriptionId),
+            v9 = ExpWnfCompleteThreadSubscriptions(v10, (unsigned int)&ULong64FromUser, v13, v11, OldDescriptorStatus),
             v9 >= 0) )
       {
-        if ( (_DWORD)Length )
+        if ( DescriptorSize )
         {
-          if ( (unsigned int)Length < 0x1030 )
+          if ( DescriptorSize < 0x1030 )
           {
             v9 = -1073741789;
           }
           else
           {
-            ProbeForWrite(Address, (unsigned int)Length, 8u);
-            v9 = ExpWnfDeliverThreadNotifications(v10, Address, (unsigned int)Length);
+            ProbeForWrite(NewDeliveryDescriptor, DescriptorSize, 8u);
+            v9 = ExpWnfDeliverThreadNotifications(v10, NewDeliveryDescriptor, DescriptorSize);
           }
         }
       }
@@ -64,5 +64,5 @@ __int64 __fastcall NtGetCompleteWnfStateSubscription(
     v9 = -1073741796;
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v9;
+  return v9;
 }

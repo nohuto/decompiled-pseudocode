@@ -1,9 +1,9 @@
 /*
- * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x1404BE33C
+ * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x1404B7B8C
  * Callers:
- *     IopPerfCallDriver @ 0x1404E25FC (IopPerfCallDriver.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x1405CBC50 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsZeroingOffsetRequired @ 0x1405CBCF0 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x1404DBCDC (IopPerfCallDriver.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x1405CE4C0 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x1405CE560 (IoSetFsZeroingOffsetRequired.c)
  * Callees:
  *     <none>
  */

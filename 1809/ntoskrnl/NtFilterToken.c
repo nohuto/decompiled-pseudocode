@@ -1,17 +1,17 @@
 /*
- * XREFs of NtFilterToken @ 0x1406C6B60
+ * XREFs of NtFilterToken @ 0x1406C7E00
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
- *     SeReleaseLuidAndAttributesArray @ 0x1405BCE84 (SeReleaseLuidAndAttributesArray.c)
- *     SeCaptureSidAndAttributesArray @ 0x1405BD0D0 (SeCaptureSidAndAttributesArray.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     SeCaptureLuidAndAttributesArray @ 0x14060A1F8 (SeCaptureLuidAndAttributesArray.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     SepFinalizeTokenAcls @ 0x140583ABC (SepFinalizeTokenAcls.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1405BDE84 (SeReleaseLuidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1405BE0D0 (SeCaptureSidAndAttributesArray.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x14060B1F8 (SeCaptureLuidAndAttributesArray.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     SepFilterToken @ 0x140658E8C (SepFilterToken.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtFilterToken(
@@ -149,7 +149,7 @@ NTSTATUS __stdcall NtFilterToken(
                    uAddend[1],
                    v24,
                    v18,
-                   (__int64 *)v20,
+                   (PSID *)v20,
                    uAddend[0],
                    &v25);
       if ( inserted >= 0 )

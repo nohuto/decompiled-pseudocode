@@ -14,18 +14,18 @@
  *     sub_180104DB4 @ 0x180104DB4 (sub_180104DB4.c)
  */
 
-__int64 __fastcall RtlCreateTagHeap(void *Src, int a2, __int64 a3, _WORD *a4)
+ULONG __cdecl RtlCreateTagHeap(PVOID HeapHandle, ULONG Flags, PWSTR TagPrefix, PWSTR TagNames)
 {
-  __int64 v5; // r13
-  int v7; // edx
-  unsigned int v8; // esi
+  unsigned __int64 v5; // r13
+  ULONG v7; // edx
+  ULONG v8; // esi
   int v9; // esi
   int v10; // edx
   __int16 v11; // ax
-  __int16 *v12; // rdi
-  const wchar_t *v13; // r14
-  __int16 *v14; // rax
-  __int16 v15; // cx
+  PWSTR v12; // rdi
+  PWSTR v13; // r14
+  PWSTR v14; // rax
+  WCHAR v15; // cx
   __int64 v16; // rax
   __int64 v17; // rbx
   const wchar_t *v18; // r8
@@ -38,25 +38,25 @@ __int64 __fastcall RtlCreateTagHeap(void *Src, int a2, __int64 a3, _WORD *a4)
   v5 = 0LL;
   v23 = 0;
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
-    return 0LL;
+    return 0;
   if ( !qword_180166968 )
   {
-    qword_180166968 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 704LL);
+    qword_180166968 = (__int64)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x2C0uLL);
     if ( !qword_180166968 )
-      return 0LL;
+      return 0;
   }
-  if ( Src && (*((_DWORD *)Src + 4) == -571548178 || (*((_DWORD *)Src + 29) & 0x1000000) != 0) )
-    return 0LL;
-  if ( !Src )
+  if ( HeapHandle && (*((_DWORD *)HeapHandle + 4) == -571548178 || (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0) )
+    return 0;
+  if ( !HeapHandle )
   {
 LABEL_13:
     v9 = 0;
     v10 = 0;
     v11 = 33;
-    v12 = a4;
-    if ( *a4 == 33 )
+    v12 = TagNames;
+    if ( *TagNames == 33 )
     {
-      v13 = a4 + 1;
+      v13 = TagNames + 1;
       while ( 1 )
       {
         ++v12;
@@ -84,7 +84,7 @@ LABEL_13:
       }
       ++v10;
     }
-    if ( !v10 || (v16 = sub_1800EFB70(Src), (v17 = v16) == 0) )
+    if ( !v10 || (v16 = sub_1800EFB70(HeapHandle), (v17 = v16) == 0) )
     {
 LABEL_47:
       v8 = v9 << 18;
@@ -106,12 +106,12 @@ LABEL_31:
         v17 += 72LL;
         v9 = *(unsigned __int16 *)(v17 + 16);
 LABEL_32:
-        if ( !a3 )
+        if ( !TagPrefix )
           goto LABEL_40;
         v19 = -1LL;
         do
           ++v19;
-        while ( *(_WORD *)(a3 + 2 * v19) );
+        while ( TagPrefix[v19] );
         v20 = v19;
         if ( v19 )
         {
@@ -119,7 +119,7 @@ LABEL_32:
             v25 = 23 - v19;
           else
             v19 = 0LL;
-          v5 = a3 & -(__int64)(v20 < 0x13);
+          v5 = (unsigned __int64)TagPrefix & -(__int64)(v20 < 0x13);
         }
         else
         {
@@ -146,19 +146,19 @@ LABEL_40:
     sub_180016F74((_WORD *)(v16 + 20), 0x2EuLL, (__int64)v18);
     goto LABEL_31;
   }
-  v7 = *((_DWORD *)Src + 29) | a2;
+  v7 = *((_DWORD *)HeapHandle + 29) | Flags;
   if ( (v7 & 0x61000000) == 0 || (v7 & 0x10000000) != 0 )
   {
     if ( (v7 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
       v23 = 1;
     }
     goto LABEL_13;
   }
-  v8 = sub_180104DB4(Src);
+  v8 = sub_180104DB4(HeapHandle);
 LABEL_48:
   if ( v23 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
   return v8;
 }

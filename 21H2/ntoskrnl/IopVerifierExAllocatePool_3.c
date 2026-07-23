@@ -1,12 +1,12 @@
 /*
- * XREFs of IopVerifierExAllocatePool_3 @ 0x1405088EC
+ * XREFs of IopVerifierExAllocatePool_3 @ 0x140508B28
  * Callers:
- *     NtQueryEaFile @ 0x14069B320 (NtQueryEaFile.c)
- *     NtSetEaFile @ 0x140730CB0 (NtSetEaFile.c)
- *     NtQueryQuotaInformationFile @ 0x140895B40 (NtQueryQuotaInformationFile.c)
+ *     NtQueryEaFile @ 0x1405FA4E0 (NtQueryEaFile.c)
+ *     NtSetEaFile @ 0x140730E70 (NtSetEaFile.c)
+ *     NtQueryQuotaInformationFile @ 0x140895CA0 (NtQueryQuotaInformationFile.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID IopVerifierExAllocatePool_3()

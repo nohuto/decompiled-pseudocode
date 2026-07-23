@@ -8,25 +8,25 @@
  *     RtlFreeHeap @ 0x18003B030 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrUnregisterDllNotification(_QWORD *a1)
+NTSTATUS __cdecl LdrUnregisterDllNotification(PVOID Cookie)
 {
-  __int64 v2; // rdi
-  int v3; // ebx
+  void *v2; // rdi
+  NTSTATUS v3; // ebx
   _QWORD *v4; // rax
   _QWORD *v5; // rcx
   _QWORD *v7; // rdx
 
   v2 = 0LL;
   v3 = -1073741515;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   v4 = LdrpDllNotificationList;
   if ( LdrpDllNotificationList != (_UNKNOWN *)&LdrpDllNotificationList )
   {
     while ( 1 )
     {
       v5 = (_QWORD *)*v4;
-      v2 = (__int64)v4;
-      if ( v4 == a1 )
+      v2 = v4;
+      if ( v4 == Cookie )
         break;
       v4 = (_QWORD *)*v4;
       if ( v5 == &LdrpDllNotificationList )
@@ -39,8 +39,8 @@ __int64 __fastcall LdrUnregisterDllNotification(_QWORD *a1)
     v5[1] = v7;
   }
 LABEL_4:
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   if ( v3 >= 0 )
     RtlFreeHeap(LdrpHeap, 0, v2);
-  return (unsigned int)v3;
+  return v3;
 }

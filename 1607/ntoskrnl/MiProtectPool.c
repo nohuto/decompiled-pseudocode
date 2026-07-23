@@ -1,43 +1,43 @@
 /*
- * XREFs of MiProtectPool @ 0x1400EA400
+ * XREFs of MiProtectPool @ 0x1400E8270
  * Callers:
- *     ExProtectPoolEx @ 0x1400EA270 (ExProtectPoolEx.c)
+ *     ExProtectPoolEx @ 0x1400E80E0 (ExProtectPoolEx.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140016E5C (MI_WSLE_LOG_ACCESS.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockNonPagedPoolPte @ 0x140024750 (MiLockNonPagedPoolPte.c)
- *     MiMakeProtectionMask @ 0x14002BD00 (MiMakeProtectionMask.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     KeFlushMultipleRangeTb @ 0x1400B5D3C (KeFlushMultipleRangeTb.c)
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiVaIsSessionSpecialPool @ 0x1400EB2E0 (MiVaIsSessionSpecialPool.c)
- *     MI_TIGHTER_PERMISSIONS @ 0x1400FE718 (MI_TIGHTER_PERMISSIONS.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x14012F798 (KeFlushMultipleRangeCurrentTb.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeFlushCurrentTbOnly @ 0x1401D60C4 (KeFlushCurrentTbOnly.c)
- *     MiFindLargeMapping @ 0x1401ECC74 (MiFindLargeMapping.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1400169DC (MI_WSLE_LOG_ACCESS.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockNonPagedPoolPte @ 0x1400242D0 (MiLockNonPagedPoolPte.c)
+ *     MiMakeProtectionMask @ 0x14002B880 (MiMakeProtectionMask.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     KeFlushMultipleRangeTb @ 0x1400B3B64 (KeFlushMultipleRangeTb.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiVaIsSessionSpecialPool @ 0x1400E9150 (MiVaIsSessionSpecialPool.c)
+ *     MI_TIGHTER_PERMISSIONS @ 0x1400FC498 (MI_TIGHTER_PERMISSIONS.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x14012FD08 (KeFlushMultipleRangeCurrentTb.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeFlushCurrentTbOnly @ 0x1401D5EF0 (KeFlushCurrentTbOnly.c)
+ *     MiFindLargeMapping @ 0x1401ECAA0 (MiFindLargeMapping.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 __int64 __fastcall MiProtectPool(__int64 a1, __int64 a2, unsigned int a3)
@@ -141,9 +141,9 @@ __int64 __fastcall MiProtectPool(__int64 a1, __int64 a2, unsigned int a3)
   AnyMultiplexedVm = 0LL;
   v13 = 0;
   v14 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  if ( v6 < qword_140327F30 || v6 >= qword_140327F30 + 0xF8000000000LL )
+  if ( v6 < qword_140327F70 || v6 >= qword_140327F70 + 0xF8000000000LL )
   {
-    if ( qword_140326C30 && v6 >= qword_140326C30 && v6 < qword_140326C30 + (qword_140326C10 << 21) )
+    if ( qword_140326C70 && v6 >= qword_140326C70 && v6 < qword_140326C70 + (qword_140326C50 << 21) )
     {
       if ( ((v10 ^ v6) & 0xFFFFFFFFFFFFF000uLL) == 0 )
       {
@@ -164,8 +164,8 @@ __int64 __fastcall MiProtectPool(__int64 a1, __int64 a2, unsigned int a3)
         goto LABEL_23;
       }
     }
-    else if ( v15 >= qword_140327F20[0]
-           && v15 < qword_140327F20[0] + 0x100000000000LL
+    else if ( v15 >= qword_140327F60[0]
+           && v15 < qword_140327F60[0] + 0x100000000000LL
            && !(unsigned int)MiFindLargeMapping(
                                v15,
                                *(_QWORD *)(((unsigned __int64)&v85 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20)) )
@@ -178,7 +178,7 @@ __int64 __fastcall MiProtectPool(__int64 a1, __int64 a2, unsigned int a3)
     }
     return 0LL;
   }
-  AnyMultiplexedVm = (char *)&unk_140327B60;
+  AnyMultiplexedVm = (char *)&unk_140327BA0;
 LABEL_23:
   v16 = (_KPROCESS *)(v9 + ((v10 >> 9) & 0x7FFFFFFFF8LL));
   *(_QWORD *)(((unsigned __int64)&v85 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) = 20LL;
@@ -190,7 +190,7 @@ LABEL_23:
   if ( AnyMultiplexedVm )
   {
     SharedWorkingSetList = MiGetSharedWorkingSetList((__int64)AnyMultiplexedVm);
-    v18 = &dword_140327C80;
+    v18 = &dword_140327CC0;
     v19 = AnyMultiplexedVm[184] & 7;
     *(_QWORD *)(((unsigned __int64)&v85 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = SharedWorkingSetList;
     if ( v19 != 2 )
@@ -294,7 +294,7 @@ LABEL_83:
           }
           if ( *(_DWORD *)(((unsigned __int64)&v85 & 0xFFFFFFFFFFFFFFE0uLL) + 0x4C) )
           {
-            v39 = qword_140326A18;
+            v39 = qword_140326A58;
             if ( (*(_BYTE *)(((unsigned __int64)&v85 & 0xFFFFFFFFFFFFFFE0uLL) + 0x44) & 2) != 0 )
               goto LABEL_67;
             Process = KeGetCurrentThread()->ApcState.Process;
@@ -354,7 +354,7 @@ LABEL_80:
         if ( (v28[5] & 0x200000000000000LL) == 0 )
         {
           Wsle = MiLocateWsle((__int64)((v14 << 25) - (v30 << 25)) >> 16, (__int64)AnyMultiplexedVm, *v28);
-          if ( dword_140327188 )
+          if ( dword_1403271C8 )
             MI_WSLE_LOG_ACCESS(
               (__int64)AnyMultiplexedVm,
               (_DWORD *)(*(_QWORD *)(*(_QWORD *)(((unsigned __int64)&v85 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) + 80LL)
@@ -370,7 +370,7 @@ LABEL_80:
         }
         if ( *(_DWORD *)(((unsigned __int64)&v85 & 0xFFFFFFFFFFFFFFE0uLL) + 0x4C) )
         {
-          v31 = qword_140326A18;
+          v31 = qword_140326A58;
           if ( (*(_BYTE *)(((unsigned __int64)&v85 & 0xFFFFFFFFFFFFFFE0uLL) + 0x44) & 2) != 0 )
             goto LABEL_39;
           v32 = KeGetCurrentThread()->ApcState.Process;

@@ -20,8 +20,8 @@ __int64 __fastcall PfpPrefetchSharedStart(ULONG_PTR BugCheckParameter2)
   unsigned int v3; // esi
   struct _KTHREAD *v4; // rax
   __int64 v5; // rax
-  __int64 v6; // rax
-  __int64 v7; // rax
+  PRTL_BALANCED_NODE v6; // rax
+  PRTL_BALANCED_NODE v7; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -51,14 +51,14 @@ __int64 __fastcall PfpPrefetchSharedStart(ULONG_PTR BugCheckParameter2)
   KeLeaveCriticalRegion();
   if ( *(_QWORD *)BugCheckParameter2 )
   {
-    v6 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+    v6 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
     *(_QWORD *)(BugCheckParameter2 + 128) = v6;
     if ( v6 )
-      *(_BYTE *)(v6 + 26) |= 1u;
-    v7 = KeAbPreAcquire((ULONG_PTR)&PfGlobals, 0LL, 0LL);
+      BYTE2(v6[1].Left) |= 1u;
+    v7 = KeAbPreAcquire((ULONG_PTR)&PfGlobals, 0LL, 0);
     *(_QWORD *)(BugCheckParameter2 + 136) = v7;
     if ( v7 )
-      *(_BYTE *)(v7 + 26) |= 1u;
+      BYTE2(v7[1].Left) |= 1u;
   }
   else
   {

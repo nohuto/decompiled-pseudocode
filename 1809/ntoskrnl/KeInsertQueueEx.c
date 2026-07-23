@@ -1,17 +1,17 @@
 /*
- * XREFs of KeInsertQueueEx @ 0x1400FD6A0
+ * XREFs of KeInsertQueueEx @ 0x1400FD720
  * Callers:
- *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
- *     IoSetIoCompletionEx @ 0x1400C6330 (IoSetIoCompletionEx.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1400CDDB0 (NtReleaseWorkerFactoryWorker.c)
- *     IoSetIoCompletionEx2 @ 0x1400FD5E8 (IoSetIoCompletionEx2.c)
+ *     IopCompleteRequest @ 0x1400BFC50 (IopCompleteRequest.c)
+ *     IoSetIoCompletionEx @ 0x1400C6270 (IoSetIoCompletionEx.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1400CDE30 (NtReleaseWorkerFactoryWorker.c)
+ *     IoSetIoCompletionEx2 @ 0x1400FD668 (IoSetIoCompletionEx2.c)
  * Callees:
- *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14030FD8C (EtwTraceEnqueueWork.c)
+ *     KiWakeQueueWaiter @ 0x1400AC950 (KiWakeQueueWaiter.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDCE0 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KeIsThreadRunning @ 0x14028DF98 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x14030FF7C (EtwTraceEnqueueWork.c)
  */
 
 __int64 __fastcall KeInsertQueueEx(__int64 a1, _QWORD *a2, __int64 a3, char a4)

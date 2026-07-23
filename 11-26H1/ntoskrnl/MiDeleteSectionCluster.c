@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteSectionCluster @ 0x140318360
+ * XREFs of MiDeleteSectionCluster @ 0x14031A390
  * Callers:
- *     MiInsertPurgedPages @ 0x140309EC4 (MiInsertPurgedPages.c)
+ *     MiInsertPurgedPages @ 0x1402EBF44 (MiInsertPurgedPages.c)
  * Callees:
- *     MiInitializeAllResidentPageBasePfns @ 0x14028E4A4 (MiInitializeAllResidentPageBasePfns.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlockBatchPage @ 0x140318550 (MiUnlockBatchPage.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiCreateInitialLargeLeafPfns @ 0x14046AE30 (MiCreateInitialLargeLeafPfns.c)
- *     MiClearPfnImageVerified @ 0x14046FA64 (MiClearPfnImageVerified.c)
+ *     MiInitializeAllResidentPageBasePfns @ 0x14028DA04 (MiInitializeAllResidentPageBasePfns.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlockBatchPage @ 0x14031A580 (MiUnlockBatchPage.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiCreateInitialLargeLeafPfns @ 0x1404645B0 (MiCreateInitialLargeLeafPfns.c)
+ *     MiClearPfnImageVerified @ 0x1404691E4 (MiClearPfnImageVerified.c)
  */
 
 __int64 __fastcall MiDeleteSectionCluster(__int64 a1, ULONG_PTR a2)

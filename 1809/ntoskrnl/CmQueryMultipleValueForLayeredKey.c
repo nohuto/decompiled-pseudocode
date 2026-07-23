@@ -1,22 +1,22 @@
 /*
- * XREFs of CmQueryMultipleValueForLayeredKey @ 0x1407ED62C
+ * XREFs of CmQueryMultipleValueForLayeredKey @ 0x1407EE82C
  * Callers:
- *     CmQueryMultipleValueKey @ 0x1405D0194 (CmQueryMultipleValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x1405D1194 (CmQueryMultipleValueKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpGetKeyNodeForKcb @ 0x1405AA400 (CmpGetKeyNodeForKcb.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpFindNameInListWithStatus @ 0x1405D0670 (CmpFindNameInListWithStatus.c)
- *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpLockKcbStackShared @ 0x140644030 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
- *     CmpIsValueTombstone @ 0x1406CDC08 (CmpIsValueTombstone.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpGetKeyNodeForKcb @ 0x1405AB400 (CmpGetKeyNodeForKcb.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1405CCDE0 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpFindNameInListWithStatus @ 0x1405D1670 (CmpFindNameInListWithStatus.c)
+ *     CmpGetValueData @ 0x1405D30A0 (CmpGetValueData.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405D78BC (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405D9AC0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpLockKcbStackShared @ 0x140645050 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406450E0 (CmpUnlockKcbStack.c)
+ *     CmpIsValueTombstone @ 0x1406CEEA8 (CmpIsValueTombstone.c)
  */
 
 __int64 __fastcall CmQueryMultipleValueForLayeredKey(

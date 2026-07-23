@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBatteryCheckCompositeCapacity @ 0x1407800D0
+ * XREFs of PopBatteryCheckCompositeCapacity @ 0x140780290
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FDDC (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
  */
 
 void __fastcall PopBatteryCheckCompositeCapacity(_DWORD *a1, int a2, _DWORD *a3)
@@ -58,7 +58,7 @@ void __fastcall PopBatteryCheckCompositeCapacity(_DWORD *a1, int a2, _DWORD *a3)
   __int64 v49; // r9
   unsigned int v50; // eax
   unsigned __int64 v51; // rax
-  int v52; // [rsp+40h] [rbp-C0h] BYREF
+  int Buffer; // [rsp+40h] [rbp-C0h] BYREF
   int v53; // [rsp+44h] [rbp-BCh] BYREF
   int v54; // [rsp+48h] [rbp-B8h] BYREF
   unsigned int v55; // [rsp+4Ch] [rbp-B4h] BYREF
@@ -93,71 +93,71 @@ void __fastcall PopBatteryCheckCompositeCapacity(_DWORD *a1, int a2, _DWORD *a3)
   __int64 v84; // [rsp+168h] [rbp+68h]
   int *v85; // [rsp+170h] [rbp+70h]
   __int64 v86; // [rsp+178h] [rbp+78h]
-  int *v87; // [rsp+180h] [rbp+80h]
+  int *p_Buffer; // [rsp+180h] [rbp+80h]
   __int64 v88; // [rsp+188h] [rbp+88h]
   __int64 *v89; // [rsp+190h] [rbp+90h]
   __int64 v90; // [rsp+198h] [rbp+98h]
 
   *a3 = 0;
-  if ( !dword_140C23634 )
+  if ( !dword_140C23C54 )
   {
     v6 = 0;
-    dword_140C237B8 = 0;
+    dword_140C23DD8 = 0;
 LABEL_3:
     LOBYTE(v7) = 0;
 LABEL_4:
-    dword_140C237D8 = 0;
+    dword_140C23DF8 = 0;
     goto LABEL_5;
   }
   v13 = (unsigned int)a1[1];
   LODWORD(v14) = 100000;
-  if ( HIDWORD(qword_140C23680) > (unsigned int)v13 )
+  if ( HIDWORD(qword_140C23CA0) > (unsigned int)v13 )
   {
-    if ( HIDWORD(qword_140C23680) )
-      v14 = 100000 * v13 / (unsigned __int64)HIDWORD(qword_140C23680);
+    if ( HIDWORD(qword_140C23CA0) )
+      v14 = 100000 * v13 / (unsigned __int64)HIDWORD(qword_140C23CA0);
     else
       LODWORD(v14) = 0;
   }
   v15 = 0;
-  if ( dword_140C237AC != -1 )
-    v15 = v14 - dword_140C237AC;
+  if ( dword_140C23DCC != -1 )
+    v15 = v14 - dword_140C23DCC;
   v16 = ((int)v14 + 500) / 0x3E8u;
-  v17 = (dword_140C237AC + 500) / 0x3E8u;
+  v17 = (dword_140C23DCC + 500) / 0x3E8u;
   if ( v16 != v17 )
     *a3 = v16 - v17;
-  v6 = byte_140C237BC;
-  LOBYTE(v7) = byte_140C237A8;
-  dword_140C237AC = v14;
+  v6 = byte_140C23DDC;
+  LOBYTE(v7) = byte_140C23DC8;
+  dword_140C23DCC = v14;
   if ( a2 == 1 )
   {
     v6 = 0;
-    dword_140C237B8 = 0;
+    dword_140C23DD8 = 0;
     LOBYTE(v7) = 1;
     goto LABEL_4;
   }
-  if ( a2 != ((unk_140C23660 & 1) == 0) )
+  if ( a2 != ((unk_140C23C80 & 1) == 0) )
   {
     v6 = 0;
 LABEL_20:
-    dword_140C237B8 = v14;
+    dword_140C23DD8 = v14;
     goto LABEL_3;
   }
-  if ( byte_140C23638 )
+  if ( byte_140C23C58 )
   {
-    if ( byte_140C237BC )
+    if ( byte_140C23DDC )
       goto LABEL_3;
     goto LABEL_20;
   }
-  v18 = dword_140C237B8;
-  if ( dword_140C237B8 < (unsigned int)v14 )
+  v18 = dword_140C23DD8;
+  if ( dword_140C23DD8 < (unsigned int)v14 )
   {
     v18 = v14;
-    dword_140C237B8 = v14;
+    dword_140C23DD8 = v14;
   }
   if ( v18 > (int)v14 + WeakChargerChargeDropMilliPercent )
     v6 = 1;
-  v19 = v15 + dword_140C237D8;
-  dword_140C237D8 = v19;
+  v19 = v15 + dword_140C23DF8;
+  dword_140C23DF8 = v19;
   if ( (int)abs32(v19) >= BatteryChargeTrajectoryThresholdMilliPercent )
   {
     v7 = v19 >> 31;
@@ -169,21 +169,21 @@ LABEL_5:
   v10 = "Battery Charging";
   v11 = "Battery Critical";
   v12 = "Battery charge limiting mode";
-  if ( byte_140C237BC != v6 )
+  if ( byte_140C23DDC != v6 )
   {
-    byte_140C237BC = v6;
-    v52 = v6;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_WEAK_CHARGER, (__int64)&v52);
+    byte_140C23DDC = v6;
+    Buffer = v6;
+    ZwUpdateWnfStateData(&WNF_PO_WEAK_CHARGER, &Buffer, 4u, 0LL, 0LL, 0, 0);
     if ( (unsigned int)dword_140C02228 > 5 )
     {
       if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
       {
         v64 = &v53;
         v20 = "AC Power";
-        v54 = dword_140C23634;
+        v54 = dword_140C23C54;
         v66 = &v54;
         v21 = (*a1 & 1) == 0;
-        v53 = (unsigned __int8)byte_140C237BC;
+        v53 = (unsigned __int8)byte_140C23DDC;
         if ( v21 )
           v20 = "DC Power";
         v65 = 4LL;
@@ -214,21 +214,21 @@ LABEL_5:
           v33 = v32;
         tlgCreate1Sz_char((__int64)v74, v33);
         v36 = (unsigned int)a1[1];
-        if ( HIDWORD(qword_140C23680) )
-          v37 = (unsigned int)((HIDWORD(qword_140C23680) >> 1) + 100 * v36) / HIDWORD(qword_140C23680);
+        if ( HIDWORD(qword_140C23CA0) )
+          v37 = (unsigned int)((HIDWORD(qword_140C23CA0) >> 1) + 100 * v36) / HIDWORD(qword_140C23CA0);
         else
           v37 = v35;
         v55 = v37;
         v75 = &v55;
         v76 = 4LL;
-        if ( HIDWORD(qword_140C23680) )
-          v38 = 100000 * v36 / (unsigned __int64)HIDWORD(qword_140C23680);
+        if ( HIDWORD(qword_140C23CA0) )
+          v38 = 100000 * v36 / (unsigned __int64)HIDWORD(qword_140C23CA0);
         else
           LODWORD(v38) = v35;
         v56 = v38;
         v57 = v36;
         v77 = &v56;
-        v58 = HIDWORD(qword_140C23680);
+        v58 = HIDWORD(qword_140C23CA0);
         v79 = &v57;
         v78 = 4LL;
         v81 = &v58;
@@ -236,7 +236,7 @@ LABEL_5:
         v83 = &v59;
         v60 = a1[3];
         v85 = &v60;
-        v87 = &v61;
+        p_Buffer = &v61;
         v89 = &v62;
         v80 = 4LL;
         v82 = 4LL;
@@ -248,7 +248,7 @@ LABEL_5:
         v90 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02228,
-          (unsigned __int8 *)byte_140029650,
+          (unsigned __int8 *)byte_140029881,
           0LL,
           0LL,
           0x13u,
@@ -256,20 +256,20 @@ LABEL_5:
       }
     }
   }
-  if ( byte_140C237A8 != (_BYTE)v7 )
+  if ( byte_140C23DC8 != (_BYTE)v7 )
   {
-    byte_140C237A8 = v7;
+    byte_140C23DC8 = v7;
     v61 = (unsigned __int8)v7;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v61);
+    ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &v61, 4u, 0LL, 0LL, 0, 0);
     if ( (unsigned int)dword_140C02228 > 5 )
     {
       if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
       {
         v64 = &v60;
-        v59 = dword_140C23634;
+        v59 = dword_140C23C54;
         v66 = &v59;
         v21 = (*a1 & 1) == 0;
-        v60 = (unsigned __int8)byte_140C237A8;
+        v60 = (unsigned __int8)byte_140C23DC8;
         if ( v21 )
           v8 = "DC Power";
         v65 = 4LL;
@@ -296,21 +296,21 @@ LABEL_5:
           v46 = v45;
         tlgCreate1Sz_char((__int64)v74, v46);
         v49 = (unsigned int)a1[1];
-        if ( HIDWORD(qword_140C23680) )
-          v50 = (unsigned int)((HIDWORD(qword_140C23680) >> 1) + 100 * v49) / HIDWORD(qword_140C23680);
+        if ( HIDWORD(qword_140C23CA0) )
+          v50 = (unsigned int)((HIDWORD(qword_140C23CA0) >> 1) + 100 * v49) / HIDWORD(qword_140C23CA0);
         else
           v50 = 0;
         v58 = v50;
         v75 = &v58;
         v76 = v48;
-        if ( HIDWORD(qword_140C23680) )
-          v51 = 100000 * v49 / (unsigned __int64)HIDWORD(qword_140C23680);
+        if ( HIDWORD(qword_140C23CA0) )
+          v51 = 100000 * v49 / (unsigned __int64)HIDWORD(qword_140C23CA0);
         else
           LODWORD(v51) = 0;
         v57 = v51;
         v56 = v49;
         v77 = &v57;
-        v55 = HIDWORD(qword_140C23680);
+        v55 = HIDWORD(qword_140C23CA0);
         v79 = &v56;
         v78 = v48;
         v81 = &v55;
@@ -318,16 +318,16 @@ LABEL_5:
         v83 = &v54;
         v53 = a1[3];
         v85 = &v53;
-        v87 = &v52;
+        p_Buffer = &Buffer;
         v80 = v48;
         v82 = v48;
         v84 = v48;
         v86 = v48;
-        v52 = v47;
+        Buffer = v47;
         v88 = v48;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02228,
-          (unsigned __int8 *)byte_140029805,
+          (unsigned __int8 *)&word_1400296CE,
           0LL,
           0LL,
           0x12u,

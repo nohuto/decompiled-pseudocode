@@ -12,75 +12,75 @@
  *     ExRaiseDatatypeMisalignment @ 0x140767450 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCancelMessage(void *a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcCancelMessage(HANDLE PortHandle, ULONG Flags, PALPC_CONTEXT_ATTR MessageContext)
 {
-  int v4; // r14d
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v6; // edi
-  int v7; // r15d
-  void *v8; // rsi
-  int v9; // ebx
+  ULONG MessageContext_high; // edi
+  ULONG Sequence; // r15d
+  PVOID PortContext_high; // rsi
+  NTSTATUS v9; // ebx
   __int64 v10; // rdx
   struct _DMA_ADAPTER *v11; // rdi
   PVOID Object[6]; // [rsp+38h] [rbp-30h] BYREF
   ULONG_PTR v14; // [rsp+88h] [rbp+20h] BYREF
 
-  v4 = a2;
   v14 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( (a2 & 0xFFFFFFF0) != 0 )
+  if ( (Flags & 0xFFFFFFF0) != 0 )
   {
     v9 = -1073741811;
     goto LABEL_17;
   }
-  LOBYTE(a4) = KeGetCurrentThread()->PreviousMode;
-  if ( (_BYTE)a4 )
+  LOBYTE(v3) = KeGetCurrentThread()->PreviousMode;
+  if ( (_BYTE)v3 )
   {
-    if ( (a2 & 4) != 0 )
+    if ( (Flags & 4) != 0 )
     {
-      if ( (a3 & 3) == 0 )
+      if ( ((unsigned __int8)MessageContext & 3) == 0 )
       {
-        v6 = *(_DWORD *)(a3 + 12);
-        v7 = *(_DWORD *)(a3 + 16);
-        v8 = (void *)*(unsigned int *)(a3 + 4);
+        MessageContext_high = HIDWORD(MessageContext->MessageContext);
+        Sequence = MessageContext->Sequence;
+        PortContext_high = (PVOID)HIDWORD(MessageContext->PortContext);
         goto LABEL_9;
       }
     }
-    else if ( (a3 & 3) == 0 )
+    else if ( ((unsigned __int8)MessageContext & 3) == 0 )
     {
-      v6 = *(_DWORD *)(a3 + 20);
-      v7 = *(_DWORD *)(a3 + 24);
-      v8 = *(void **)(a3 + 8);
+      MessageContext_high = MessageContext->MessageId;
+      Sequence = MessageContext->CallbackId;
+      PortContext_high = MessageContext->MessageContext;
 LABEL_9:
-      Object[1] = v8;
+      Object[1] = PortContext_high;
       goto LABEL_10;
     }
     ExRaiseDatatypeMisalignment();
   }
-  v6 = *(_DWORD *)(a3 + 20);
-  v7 = *(_DWORD *)(a3 + 24);
-  v8 = *(void **)(a3 + 8);
+  MessageContext_high = MessageContext->MessageId;
+  Sequence = MessageContext->CallbackId;
+  PortContext_high = MessageContext->MessageContext;
 LABEL_10:
-  if ( !v6 )
+  if ( !MessageContext_high )
   {
     v9 = -1073741559;
     goto LABEL_17;
   }
   Object[0] = 0LL;
-  v9 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, a4, Object, 0LL);
+  v9 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, v3, Object, 0LL);
   if ( v9 >= 0 )
   {
-    v10 = v6;
+    v10 = MessageContext_high;
     v11 = (struct _DMA_ADAPTER *)Object[0];
-    v9 = AlpcpLookupMessage((__int64)Object[0], v10, v7, a4, &v14);
+    v9 = AlpcpLookupMessage((__int64)Object[0], v10, Sequence, v3, &v14);
     if ( v9 >= 0 )
     {
-      if ( (v4 & 8) == 0 )
+      if ( (Flags & 8) == 0 )
         goto LABEL_14;
       if ( (*(_DWORD *)&v11[26].Version & 6) == 4 )
       {
-        if ( v8 == *(void **)(v14 + 104) )
+        if ( PortContext_high == *(PVOID *)(v14 + 104) )
         {
 LABEL_14:
           if ( (*(_DWORD *)(v14 + 40) & 0x80u) != 0 )
@@ -90,12 +90,12 @@ LABEL_14:
           }
           else
           {
-            v9 = AlpcpCancelMessage((__int64)v11, v14, v4);
+            v9 = AlpcpCancelMessage((__int64)v11, v14, Flags);
           }
           goto LABEL_16;
         }
       }
-      else if ( v8 == *(void **)(v14 + 112) )
+      else if ( PortContext_high == *(PVOID *)(v14 + 112) )
       {
         goto LABEL_14;
       }
@@ -106,6 +106,6 @@ LABEL_16:
     HalPutDmaAdapter(v11);
   }
 LABEL_17:
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3, a4);
-  return (unsigned int)v9;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, (__int64)MessageContext, v3);
+  return v9;
 }

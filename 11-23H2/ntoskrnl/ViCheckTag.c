@@ -1,14 +1,14 @@
 /*
- * XREFs of ViCheckTag @ 0x140AC8544
+ * XREFs of ViCheckTag @ 0x140AC8534
  * Callers:
- *     ViCheckAdapterBuffers @ 0x140AC8214 (ViCheckAdapterBuffers.c)
- *     ViCheckPadding @ 0x140AC8394 (ViCheckPadding.c)
- *     ViFreeMapRegistersToFile @ 0x140AC8C90 (ViFreeMapRegistersToFile.c)
+ *     ViCheckAdapterBuffers @ 0x140AC8204 (ViCheckAdapterBuffers.c)
+ *     ViCheckPadding @ 0x140AC8384 (ViCheckPadding.c)
+ *     ViFreeMapRegistersToFile @ 0x140AC8C80 (ViFreeMapRegistersToFile.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140AC9324 (ViHalPreprocessOptions.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC9314 (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ViCheckTag(ULONG_PTR a1, unsigned int a2, int a3, char a4)
@@ -41,11 +41,11 @@ void __fastcall ViCheckTag(ULONG_PTR a1, unsigned int a2, int a3, char a4)
     if ( RtlCompareMemory(v10, &ViDmaVerifierTag, 8uLL) != 8 )
     {
       ViHalPreprocessOptions(
-        byte_140C0DDF0,
+        byte_140C0DE08,
         "Area after %x byte allocation at %p has been modified.",
         268435471,
         (const void *)2);
-      VfReportIssueWithOptions(0xE6u, 0xFuLL, 2uLL, v4, a1, byte_140C0DDF0);
+      VfReportIssueWithOptions(0xE6u, 0xFuLL, 2uLL, v4, a1, byte_140C0DE08);
     }
     v6 += 8LL;
   }

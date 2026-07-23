@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipReadSMBiosSysInfo @ 0x14064C35C
+ * XREFs of WmipReadSMBiosSysInfo @ 0x14064A91C
  * Callers:
- *     WmiMatchSMBiosSysInfo @ 0x1407A4050 (WmiMatchSMBiosSysInfo.c)
+ *     WmiMatchSMBiosSysInfo @ 0x1407A4160 (WmiMatchSMBiosSysInfo.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     WmipFindSMBiosStructure @ 0x1407A4174 (WmipFindSMBiosStructure.c)
- *     WmipGetSMBiosString @ 0x1407A4560 (WmipGetSMBiosString.c)
- *     WmipReleaseSmbiosLockShared @ 0x140A7BAE8 (WmipReleaseSmbiosLockShared.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     WmipFindSMBiosStructure @ 0x1407A4284 (WmipFindSMBiosStructure.c)
+ *     WmipGetSMBiosString @ 0x1407A4670 (WmipGetSMBiosString.c)
+ *     WmipReleaseSmbiosLockShared @ 0x140A75DE8 (WmipReleaseSmbiosLockShared.c)
  */
 
 __int64 __fastcall WmipReadSMBiosSysInfo(__int64 a1)

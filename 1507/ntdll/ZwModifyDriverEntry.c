@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwModifyDriverEntry()
+NTSTATUS __cdecl ZwModifyDriverEntry(PEFI_DRIVER_ENTRY DriverEntry)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 259LL;
+  result = 259;
   __asm { syscall; Low latency system call }
   return result;
 }

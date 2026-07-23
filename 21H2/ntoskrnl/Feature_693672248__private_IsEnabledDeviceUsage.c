@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_693672248__private_IsEnabledDeviceUsage @ 0x1403F8B20
+ * XREFs of Feature_693672248__private_IsEnabledDeviceUsage @ 0x1403F8B50
  * Callers:
- *     SepCopyTokenAccessInformation @ 0x1405DBD68 (SepCopyTokenAccessInformation.c)
+ *     SepCopyTokenAccessInformation @ 0x1406CB4E8 (SepCopyTokenAccessInformation.c)
  * Callees:
- *     Feature_693672248__private_IsEnabledFallback @ 0x1403F8B58 (Feature_693672248__private_IsEnabledFallback.c)
+ *     Feature_693672248__private_IsEnabledFallback @ 0x1403F8B88 (Feature_693672248__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_693672248__private_IsEnabledDeviceUsage()

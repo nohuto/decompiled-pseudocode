@@ -1,13 +1,13 @@
 /*
- * XREFs of IoWMIDeviceObjectToInstanceName @ 0x1407C3AE0
+ * XREFs of IoWMIDeviceObjectToInstanceName @ 0x1407C3DB0
  * Callers:
- *     IoWMIHandleToInstanceName @ 0x1407C3910 (IoWMIHandleToInstanceName.c)
+ *     IoWMIHandleToInstanceName @ 0x1407C3BE0 (IoWMIHandleToInstanceName.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x140302AF0 (IoGetDeviceAttachmentBaseRef.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     WmipGetGuidObjectInstanceInfo @ 0x1407C3BD4 (WmipGetGuidObjectInstanceInfo.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x140302D80 (IoGetDeviceAttachmentBaseRef.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     WmipGetGuidObjectInstanceInfo @ 0x1407C3EA4 (WmipGetGuidObjectInstanceInfo.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

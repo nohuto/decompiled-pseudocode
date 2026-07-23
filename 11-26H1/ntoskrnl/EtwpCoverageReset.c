@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpCoverageReset @ 0x140829D38
+ * XREFs of EtwpCoverageReset @ 0x14082FF78
  * Callers:
- *     EtwpCoverageResetWorkItemCallback @ 0x14082A280 (EtwpCoverageResetWorkItemCallback.c)
- *     EtwSetProcessTelemetryCoverage @ 0x140B0E008 (EtwSetProcessTelemetryCoverage.c)
- *     EtwpCoverageFlushWorkItemCallback @ 0x140B43DD0 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwpCoverageResetWorkItemCallback @ 0x1408304C0 (EtwpCoverageResetWorkItemCallback.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140B0F758 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x140B45CC0 (EtwpCoverageFlushWorkItemCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     EtwTelemetryCoverageReport @ 0x14048CFE0 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x14050814C (TelemetryCoverageStringHashInternal.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpCoverageFreeStringBuffers @ 0x140829C8C (EtwpCoverageFreeStringBuffers.c)
- *     EtwpCoverageFlushPending @ 0x140B433F0 (EtwpCoverageFlushPending.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     EtwTelemetryCoverageReport @ 0x140486B20 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x140501C30 (TelemetryCoverageStringHashInternal.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpCoverageFreeStringBuffers @ 0x14082FECC (EtwpCoverageFreeStringBuffers.c)
+ *     EtwpCoverageFlushPending @ 0x140B452E0 (EtwpCoverageFlushPending.c)
  */
 
 void __fastcall EtwpCoverageReset(__int64 a1, char a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -30,22 +30,22 @@ void __fastcall EtwpCoverageReset(__int64 a1, char a2, __int64 a3, struct _KLOCK
 
   if ( *(_DWORD *)(*(_QWORD *)(a1 + 16) + 32LL) )
   {
-    if ( (unsigned int)dword_140E0905C < MEMORY[0xFFFFF7800000037C] )
+    if ( (unsigned int)dword_140E08FD4 < MEMORY[0xFFFFF7800000037C] )
     {
-      if ( !dword_140E09058 )
+      if ( !dword_140E08FD0 )
       {
         v12 = 0;
-        dword_140E09058 = TelemetryCoverageStringHashInternal(off_140E09050, &v12);
+        dword_140E08FD0 = TelemetryCoverageStringHashInternal(off_140E08FC8, &v12);
       }
-      EtwTelemetryCoverageReport(&off_140E09050);
+      EtwTelemetryCoverageReport(&off_140E08FC8);
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v7 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.1136, 0LL, 0LL, a4);
-    v9 = _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock.1136, 0LL);
+    v7 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.Padding[2], 0LL, 0LL, a4);
+    v9 = _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock.Padding[2], 0LL);
     v10 = v7;
     if ( v9 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&ExpSysDbgLock.1136, v7, (__int64)&ExpSysDbgLock.1136);
+      ExfAcquirePushLockExclusiveEx(&ExpSysDbgLock.Padding[2], v7, (__int64)&ExpSysDbgLock.Padding[2]);
     if ( v10 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -83,11 +83,9 @@ void __fastcall EtwpCoverageReset(__int64 a1, char a2, __int64 a3, struct _KLOCK
   if ( (struct _KTHREAD *)EtwpCoverageLockOwner == KeGetCurrentThread() )
   {
     EtwpCoverageLockOwner = 0LL;
-    if ( (_InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&ExpSysDbgLock.AutoBoostThreadState,
-            0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.1136);
-    KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.1136);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpSysDbgLock.Padding[2], 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.Padding[2]);
+    KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.Padding[2]);
     KeLeaveCriticalRegion();
   }
 }

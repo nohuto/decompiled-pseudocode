@@ -3,7 +3,7 @@
  * Callers:
  *     KiInitializeNxSupportDiscard @ 0x1407A11F4 (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     KiGetCpuVendor @ 0x1403D622C (KiGetCpuVendor.c)
  */
 

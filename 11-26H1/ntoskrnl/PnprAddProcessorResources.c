@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddProcessorResources @ 0x1407AEAEC
+ * XREFs of PnprAddProcessorResources @ 0x1407B1B4C
  * Callers:
- *     PnprAddDeviceResources @ 0x1407AE880 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x1407B18E0 (PnprAddDeviceResources.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1404289E0 (KeGetProcessorNumberFromIndex.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140202CC0 (KeGetProcessorNumberFromIndex.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAddProcessorResources(__int64 a1, ULONG a2, int a3, _DWORD **a4)
@@ -34,7 +34,7 @@ __int64 __fastcall PnprAddProcessorResources(__int64 a1, ULONG a2, int a3, _DWOR
       v11 = PnprContext;
       v12 = *(_DWORD *)(PnprContext + 33288);
       if ( !v12 )
-        v12 = 815;
+        v12 = 766;
       *(_DWORD *)(PnprContext + 33288) = v12;
       v13 = *(_DWORD *)(v11 + 33292);
       if ( !v13 )

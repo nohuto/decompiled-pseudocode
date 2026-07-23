@@ -1,16 +1,16 @@
 /*
- * XREFs of ExUpdateOsPfnInRegistry @ 0x1406AEA38
+ * XREFs of ExUpdateOsPfnInRegistry @ 0x1406AEB70
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall ExUpdateOsPfnInRegistry(ULONG DataSize, PVOID Data, ULONG a3, PVOID a4)
@@ -38,13 +38,13 @@ __int64 __fastcall ExUpdateOsPfnInRegistry(ULONG DataSize, PVOID Data, ULONG a3,
   {
     if ( a3 )
     {
-      v15 = ZwCreateKey(&KeyHandle, 0x20006u, (POBJECT_ATTRIBUTES)&stru_1406EA720, 0, 0LL, 0, 0LL);
+      v15 = ZwCreateKey(&KeyHandle, 0x20006u, (POBJECT_ATTRIBUTES)&stru_1406EA850, 0, 0LL, 0, 0LL);
       if ( v15 >= 0 )
       {
         v14 = 1;
-        v15 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&stru_1406E98A0, 0, 1u, Data, DataSize);
+        v15 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&stru_1406E99D0, 0, 1u, Data, DataSize);
         if ( v15 >= 0 )
-          v15 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&stru_1406E9CA8, 0, 1u, a4, a3);
+          v15 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&stru_1406E9DD8, 0, 1u, a4, a3);
       }
     }
   }

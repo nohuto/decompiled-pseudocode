@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSleepDeviceList @ 0x1403831B4
+ * XREFs of PopSleepDeviceList @ 0x140383364
  * Callers:
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     PopIsNotifyForDirectedPowerTransition @ 0x14038342C (PopIsNotifyForDirectedPowerTransition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     PopIsNotifyForDirectedPowerTransition @ 0x1403835DC (PopIsNotifyForDirectedPowerTransition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIssueDirectedPowerTransition @ 0x1408F0754 (PopIssueDirectedPowerTransition.c)
- *     PopNotifyDevice @ 0x14099290C (PopNotifyDevice.c)
+ *     PopIssueDirectedPowerTransition @ 0x1408F08B4 (PopIssueDirectedPowerTransition.c)
+ *     PopNotifyDevice @ 0x14099390C (PopNotifyDevice.c)
  */
 
 int __fastcall PopSleepDeviceList(__int64 a1, __int64 a2)
@@ -96,7 +96,7 @@ int __fastcall PopSleepDeviceList(__int64 a1, __int64 a2)
       LODWORD(v8) = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 0, 0LL, 0LL);
       if ( *(int *)(a1 + 448) < 0 )
         break;
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C23430 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C23A50 + 1, &LockHandle);
       v9 = *v3;
       v10 = (_QWORD *)**v3;
       if ( (_QWORD **)(*v3)[1] == v3 && (_QWORD *)v10[1] == v9 )

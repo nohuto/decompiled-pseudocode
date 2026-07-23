@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSetThreadExecutionState()
+NTSTATUS __cdecl ZwSetThreadExecutionState(EXECUTION_STATE NewFlags, EXECUTION_STATE *PreviousFlags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 421LL;
+  result = 421;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

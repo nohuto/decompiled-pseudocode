@@ -1,10 +1,10 @@
 /*
- * XREFs of ExfReleasePushLockExclusive @ 0x1402BD910
+ * XREFs of ExfReleasePushLockExclusive @ 0x1402BDBA0
  * Callers:
  *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
  * Callees:
- *     ExpWakePushLock @ 0x1402BD990 (ExpWakePushLock.c)
+ *     ExpWakePushLock @ 0x1402BDC20 (ExpWakePushLock.c)
  */
 
 signed __int64 __fastcall ExfReleasePushLockExclusive(volatile signed __int64 *a1)

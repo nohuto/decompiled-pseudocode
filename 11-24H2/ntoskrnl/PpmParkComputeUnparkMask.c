@@ -1,22 +1,22 @@
 /*
- * XREFs of PpmParkComputeUnparkMask @ 0x140200488
+ * XREFs of PpmParkComputeUnparkMask @ 0x140328B7C
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1404EDA40 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1404E5250 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     KeGetTopologySiblingGroupAffinityForProcessor @ 0x1402021F4 (KeGetTopologySiblingGroupAffinityForProcessor.c)
- *     KeFindFirstSetRightAffinityEx @ 0x140202700 (KeFindFirstSetRightAffinityEx.c)
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     PpmHeteroRestrictToFavoredClass @ 0x14045E5E4 (PpmHeteroRestrictToFavoredClass.c)
- *     PpmEventHeteroFavoredCoreRotationChange @ 0x14046EFD0 (PpmEventHeteroFavoredCoreRotationChange.c)
- *     PpmEventParkNodePreference @ 0x1405D99DC (PpmEventParkNodePreference.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     PpmHeteroRestrictToFavoredClass @ 0x1402AF330 (PpmHeteroRestrictToFavoredClass.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeGetTopologySiblingGroupAffinityForProcessor @ 0x14032A8E4 (KeGetTopologySiblingGroupAffinityForProcessor.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x14032ADF0 (KeFindFirstSetRightAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     PpmEventHeteroFavoredCoreRotationChange @ 0x1404696E0 (PpmEventHeteroFavoredCoreRotationChange.c)
+ *     PpmEventParkNodePreference @ 0x1405D6CF8 (PpmEventParkNodePreference.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall PpmParkComputeUnparkMask(
@@ -32,9 +32,9 @@ char __fastcall PpmParkComputeUnparkMask(
         _QWORD *a10,
         _DWORD *a11,
         __int64 a12,
-        int a13,
-        char a14,
-        char a15,
+        unsigned int a13,
+        unsigned __int8 a14,
+        unsigned __int8 a15,
         int a16)
 {
   _DWORD *v18; // rdi
@@ -54,7 +54,7 @@ char __fastcall PpmParkComputeUnparkMask(
   __int64 v32; // r14
   unsigned __int64 v33; // r12
   unsigned int v34; // r8d
-  int v35; // r9d
+  char v35; // r9
   unsigned __int64 v36; // rdx
   __int64 v37; // rax
   unsigned __int64 v38; // rcx
@@ -62,8 +62,8 @@ char __fastcall PpmParkComputeUnparkMask(
   __int64 Prcb; // rax
   unsigned __int64 v41; // r14
   unsigned int v42; // ecx
-  unsigned __int64 v43; // rdx
-  unsigned __int64 v44; // rdx
+  __int64 v43; // rdx
+  __int64 v44; // rdx
   __int64 v45; // rsi
   __int64 v46; // r13
   __int64 v47; // rdi
@@ -72,14 +72,14 @@ char __fastcall PpmParkComputeUnparkMask(
   int v50; // edx
   unsigned int v51; // r8d
   unsigned __int16 i; // cx
-  unsigned __int64 v53; // rcx
+  __int64 v53; // rcx
   __int64 v54; // rax
   unsigned __int64 v55; // rcx
   int v56; // eax
   int v57; // ecx
   unsigned __int64 v58; // rcx
   __int64 v59; // rax
-  unsigned __int64 v60; // rdx
+  __int64 v60; // rdx
   unsigned __int64 v61; // r14
   __int64 v62; // rsi
   __int64 v63; // r12
@@ -92,8 +92,8 @@ char __fastcall PpmParkComputeUnparkMask(
   unsigned __int64 v70; // rax
   unsigned __int64 v71; // rdx
   unsigned __int16 v73; // [rsp+50h] [rbp-B0h]
-  char v74; // [rsp+52h] [rbp-AEh] BYREF
-  char v75; // [rsp+53h] [rbp-ADh]
+  unsigned __int8 v74; // [rsp+52h] [rbp-AEh] BYREF
+  unsigned __int8 v75; // [rsp+53h] [rbp-ADh]
   char v76; // [rsp+54h] [rbp-ACh]
   char v77; // [rsp+55h] [rbp-ABh]
   char v78; // [rsp+56h] [rbp-AAh]
@@ -111,7 +111,7 @@ char __fastcall PpmParkComputeUnparkMask(
   unsigned int v90; // [rsp+A8h] [rbp-58h] BYREF
   unsigned int v91; // [rsp+B0h] [rbp-50h] BYREF
   unsigned int v92; // [rsp+B8h] [rbp-48h] BYREF
-  int v93; // [rsp+C0h] [rbp-40h] BYREF
+  unsigned int v93; // [rsp+C0h] [rbp-40h] BYREF
   __int64 *v94; // [rsp+C8h] [rbp-38h]
   __int64 v95; // [rsp+D0h] [rbp-30h]
   __int64 v96; // [rsp+D8h] [rbp-28h]
@@ -127,7 +127,7 @@ char __fastcall PpmParkComputeUnparkMask(
   _DWORD *v106; // [rsp+130h] [rbp+30h]
   __int64 v107; // [rsp+138h] [rbp+38h]
   unsigned __int64 v108; // [rsp+140h] [rbp+40h] BYREF
-  unsigned __int64 v109; // [rsp+148h] [rbp+48h] BYREF
+  __int64 v109; // [rsp+148h] [rbp+48h] BYREF
   unsigned __int64 v110; // [rsp+150h] [rbp+50h] BYREF
   unsigned __int64 v111; // [rsp+158h] [rbp+58h] BYREF
   unsigned __int64 v112; // [rsp+160h] [rbp+60h] BYREF
@@ -151,11 +151,11 @@ char __fastcall PpmParkComputeUnparkMask(
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+900h] [rbp+800h] BYREF
   int *v131; // [rsp+910h] [rbp+810h]
   __int64 v132; // [rsp+918h] [rbp+818h]
-  int *v133; // [rsp+920h] [rbp+820h]
+  unsigned int *v133; // [rsp+920h] [rbp+820h]
   __int64 v134; // [rsp+928h] [rbp+828h]
-  int *v135; // [rsp+930h] [rbp+830h]
+  unsigned int *v135; // [rsp+930h] [rbp+830h]
   __int64 v136; // [rsp+938h] [rbp+838h]
-  int *v137; // [rsp+940h] [rbp+840h]
+  unsigned int *v137; // [rsp+940h] [rbp+840h]
   __int64 v138; // [rsp+948h] [rbp+848h]
   unsigned __int64 *v139; // [rsp+950h] [rbp+850h]
   __int64 v140; // [rsp+958h] [rbp+858h]
@@ -196,12 +196,12 @@ char __fastcall PpmParkComputeUnparkMask(
   memset_0(&v119, 0, sizeof(v119));
   v19 = 0;
   v20 = *(unsigned __int16 *)(a1 + 4);
-  v21 = 61LL * dword_140F0BA4C;
+  v21 = 61LL * dword_140F0B38C;
   v73 = *(_WORD *)(a1 + 4);
   v77 = PpmCurrentProfile[0][v21 + 62];
   v76 = BYTE1(PpmCurrentProfile[0][v21 + 62]);
-  v88 = *(unsigned __int16 *)(a1 + 1244);
-  v97 = *(_QWORD *)(a1 + 1248);
+  v88 = *(unsigned __int16 *)(a1 + 1252);
+  v97 = *(_QWORD *)(a1 + 1256);
   LOBYTE(v22) = BYTE2(PpmCurrentProfile[0][v21 + 62]);
   *a9 = 0LL;
   v78 = v22;
@@ -224,10 +224,10 @@ char __fastcall PpmParkComputeUnparkMask(
       v122[1] = 0;
       v122[0] = 2097153;
       memset_0(v123, 0, 0x100uLL);
-      KeAddGroupAffinityEx(&v128, (unsigned __int16)v20, a2);
-      KeAddGroupAffinityEx(v126, (unsigned __int16)v20, a7);
-      KeAddGroupAffinityEx(v124, (unsigned __int16)v20, a8);
-      guard_dispatch_icall_no_overrides(0LL, PpmCheckTime, a5, &v128, v126, v124, v120, v122);
+      KeAddGroupAffinityEx((unsigned __int16 *)&v128, v20, a2);
+      KeAddGroupAffinityEx((unsigned __int16 *)v126, v20, a7);
+      KeAddGroupAffinityEx((unsigned __int16 *)v124, v20, a8);
+      guard_dispatch_icall_no_overrides(0LL, PpmCheckTime);
       if ( (unsigned __int16)v20 >= LOWORD(v120[0]) )
         v62 = 0LL;
       else
@@ -273,7 +273,7 @@ char __fastcall PpmParkComputeUnparkMask(
       KiCopyAffinityEx(
         &v119,
         v119.Size,
-        (struct _KAFFINITY_EX *)(264LL * *(int *)(*(_QWORD *)(v87 + 1272) + 4LL) + *(_QWORD *)(v87 + 1272) + 16LL));
+        (struct _KAFFINITY_EX *)(264LL * *(int *)(*(_QWORD *)(v87 + 1280) + 4LL) + *(_QWORD *)(v87 + 1280) + 16LL));
       v28 = 0LL;
       if ( (v119.Bitmap[v73] & a2) != 0 )
       {
@@ -331,10 +331,9 @@ char __fastcall PpmParkComputeUnparkMask(
       }
       if ( ((PopHeteroSystem - 3) & 0xFFFFFFFC) == 0 && PopHeteroSystem != 4 )
       {
-        LOBYTE(v35) = a14;
         *v18 |= 0x8000u;
         v19 |= 0x8000u;
-        v65 = PpmHeteroRestrictToFavoredClass(v33, v30, (unsigned int)&v74, v35, a15, a13, v34, a16);
+        v65 = PpmHeteroRestrictToFavoredClass(v33, v30, &v74, a14, a15, a13, v34, a16);
         v33 = v65;
         if ( v74 != v75 )
         {
@@ -359,7 +358,7 @@ char __fastcall PpmParkComputeUnparkMask(
           PpmEventHeteroFavoredCoreRotationChange(v68, (unsigned int)(v66 - 1), v67);
         }
         v29 = v86;
-        LOBYTE(v35) = v80;
+        v35 = v80;
       }
       if ( (v32 & v33) != 0 )
       {
@@ -375,7 +374,7 @@ char __fastcall PpmParkComputeUnparkMask(
       }
       LODWORD(v83) = 0;
       _BitScanForward64(&v39, __ROR8__(v33, v35));
-      Prcb = KeGetPrcb(*((unsigned int *)qword_140F21E78 + 64 * v73 + (((_BYTE)v35 + (_BYTE)v39) & 0x3Fu)));
+      Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * v73 + ((v35 + (_BYTE)v39) & 0x3Fu)));
       v95 = Prcb;
       if ( PpmParkCoreMask )
         v41 = *(_QWORD *)(Prcb + 36448);
@@ -386,7 +385,7 @@ char __fastcall PpmParkComputeUnparkMask(
       v83 = v41;
       if ( v42 < a5 )
       {
-        if ( v97 && *(_DWORD *)(v87 + 1224) == 3 )
+        if ( v97 && *(_DWORD *)(v87 + 1232) == 3 )
         {
           LOWORD(v104) = v73;
           v45 = a5 - 1 + v88 - v42;
@@ -401,7 +400,7 @@ char __fastcall PpmParkComputeUnparkMask(
               if ( (unsigned int)v45 < *(unsigned __int16 *)(v46 + 10) && *(_DWORD *)(v47 + 4 * v45) != v81 )
               {
                 *(_DWORD *)(v47 + 4 * v45) = v81;
-                *(_BYTE *)(v46 + 1246) = 1;
+                *(_BYTE *)(v46 + 1254) = 1;
               }
               v45 = (unsigned int)(v45 - 1);
             }
@@ -410,7 +409,7 @@ char __fastcall PpmParkComputeUnparkMask(
             v41 = v83;
             v27 = v107;
           }
-          *(_WORD *)(v87 + 1244) += (unsigned __int8)__popcnt(v41);
+          *(_WORD *)(v87 + 1252) += (unsigned __int8)__popcnt(v41);
 LABEL_69:
           v42 = v79;
           v26 = v94;
@@ -487,12 +486,12 @@ LABEL_65:
           *(_QWORD *)&UserData.Size = 4LL;
           v131 = (int *)&v90;
           v132 = 4LL;
-          v133 = (int *)&v91;
-          v135 = (int *)&v92;
+          v133 = &v91;
+          v135 = &v92;
           v137 = &v93;
           v139 = &v83;
           v141 = &v108;
-          v143 = (__int64 *)&v109;
+          v143 = &v109;
           v145 = &v110;
           v147 = (__int64 *)&v111;
           v149 = (__int64 *)&v112;

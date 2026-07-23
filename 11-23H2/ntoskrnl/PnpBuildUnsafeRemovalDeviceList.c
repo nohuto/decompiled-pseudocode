@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x140883CE0
+ * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x140883F20
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867478 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408676B8 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     IopEnumerateRelations @ 0x140868390 (IopEnumerateRelations.c)
- *     PnpIsBeingRemovedSafely @ 0x140883E10 (PnpIsBeingRemovedSafely.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopEnumerateRelations @ 0x1408685D0 (IopEnumerateRelations.c)
+ *     PnpIsBeingRemovedSafely @ 0x140884050 (PnpIsBeingRemovedSafely.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

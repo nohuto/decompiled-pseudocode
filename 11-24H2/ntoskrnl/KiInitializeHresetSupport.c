@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializeHresetSupport @ 0x140B585A8
+ * XREFs of KiInitializeHresetSupport @ 0x140B5A628
  * Callers:
- *     KiSetFeatureBits @ 0x140B59BF4 (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x140B5BC74 (KiSetFeatureBits.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiInitializeHresetSupport(__int64 a1)

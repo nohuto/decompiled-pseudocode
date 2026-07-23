@@ -1,20 +1,20 @@
 /*
- * XREFs of ExAllocateContiguousHeapPool @ 0x1403BA114
+ * XREFs of ExAllocateContiguousHeapPool @ 0x1403BA2F4
  * Callers:
- *     MiAllocateContiguousMemory @ 0x1403B9CD4 (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1403B9EB4 (MiAllocateContiguousMemory.c)
  * Callees:
- *     RtlpHpSegAlloc @ 0x14024DB40 (RtlpHpSegAlloc.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     ExpAddTagForBigPages @ 0x140331B30 (ExpAddTagForBigPages.c)
- *     ExpPlFindLimitEntry @ 0x14035CF38 (ExpPlFindLimitEntry.c)
- *     ExGetHeapFromType @ 0x1403BA3BC (ExGetHeapFromType.c)
- *     ExpPoolTrackerChargeEntry @ 0x1403BA6FC (ExpPoolTrackerChargeEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1405FD190 (EtwTracePool.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140607B38 (ExpInsertPoolTrackerExpansion.c)
+ *     RtlpHpSegAlloc @ 0x14024DC10 (RtlpHpSegAlloc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     ExpAddTagForBigPages @ 0x140331DC0 (ExpAddTagForBigPages.c)
+ *     ExpPlFindLimitEntry @ 0x14035D0D8 (ExpPlFindLimitEntry.c)
+ *     ExGetHeapFromType @ 0x1403BA59C (ExGetHeapFromType.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403BA8DC (ExpPoolTrackerChargeEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1405FD700 (EtwTracePool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140608088 (ExpInsertPoolTrackerExpansion.c)
  */
 
 unsigned __int64 __fastcall ExAllocateContiguousHeapPool(
@@ -136,10 +136,13 @@ unsigned __int64 __fastcall ExAllocateContiguousHeapPool(
         }
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && LockHandle.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

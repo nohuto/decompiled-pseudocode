@@ -1,9 +1,10 @@
 /*
- * XREFs of PspLockThreadSecurityShared @ 0x1405818FC
+ * XREFs of PspLockThreadSecurityShared @ 0x140581784
  * Callers:
- *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     PsLockThreadNameShared @ 0x1403F8534 (PsLockThreadNameShared.c)
+ *     NtQueryInformationThread @ 0x1406EB0A0 (NtQueryInformationThread.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspLockThreadSecurityShared(__int64 a1, __int64 a2)

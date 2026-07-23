@@ -13,10 +13,10 @@
  *     _RtlpHpMetadataFree@12 @ 0x4B379479 (_RtlpHpMetadataFree@12.c)
  */
 
-unsigned int __fastcall RtlpHpLargeFree(int a1, unsigned int a2, char a3)
+int __fastcall RtlpHpLargeFree(int a1, unsigned int a2, char a3)
 {
   bool v3; // zf
-  unsigned int v5; // ebx
+  int v5; // ebx
   unsigned int v6; // esi
   unsigned int v7; // ecx
   unsigned int v8; // ecx
@@ -26,17 +26,16 @@ unsigned int __fastcall RtlpHpLargeFree(int a1, unsigned int a2, char a3)
   int v12; // eax
   int v14; // [esp-8h] [ebp-20h]
   int v15; // [esp-4h] [ebp-1Ch]
-  unsigned int v16; // [esp+Ch] [ebp-Ch] BYREF
-  unsigned int v17; // [esp+10h] [ebp-8h] BYREF
-  int v18; // [esp+20h] [ebp+8h]
+  ULONG_PTR RegionSize; // [esp+Ch] [ebp-Ch] BYREF
+  int v17; // [esp+20h] [ebp+8h]
 
   v3 = (a3 & 1) == 0;
-  v18 = a3 & 1;
-  v17 = a2;
+  v17 = a3 & 1;
+  HIDWORD(RegionSize) = a2;
   if ( v3 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
-    a2 = v17;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+    a2 = HIDWORD(RegionSize);
   }
   v5 = 0;
   v6 = *(_DWORD *)(a1 + 68);
@@ -70,23 +69,25 @@ unsigned int __fastcall RtlpHpLargeFree(int a1, unsigned int a2, char a3)
   while ( v6 );
   if ( v6 )
   {
-    RtlRbRemoveNode(a1 + 68, v6);
-    if ( !v18 )
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 68), (PRTL_BALANCED_NODE)v6);
+    if ( !v17 )
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v9 = *(_DWORD *)(v6 + 16);
     v15 = *(_DWORD *)(a1 + 4);
     v14 = *(_DWORD *)a1;
     v10 = (((v9 >> 12) + ((v9 >> 1) & 1)) << 12) - 1;
-    v16 = (1 << ((v9 >> 2) & 0x3F)) - (((1 << ((v9 >> 2) & 0x3F)) - 1) & ((1 << ((v9 >> 2) & 0x3F)) + v10)) + v10;
-    RtlpHpFreeVA((int *)&v17, (int *)&v16, 0x8000, v14, v15);
+    LODWORD(RegionSize) = (1 << ((v9 >> 2) & 0x3F))
+                        - (((1 << ((v9 >> 2) & 0x3F)) - 1) & ((1 << ((v9 >> 2) & 0x3F)) + v10))
+                        + v10;
+    RtlpHpFreeVA((PVOID *)&RegionSize + 1, &RegionSize, 0x8000, v14, v15);
     _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 80), -(*(_DWORD *)(v6 + 16) >> 12));
-    _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 76), -(v16 >> 12));
+    _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 76), -((unsigned int)RegionSize >> 12));
     RtlpHpMetadataFree(*(_DWORD *)a1, *(_DWORD *)(a1 + 4));
-    v11 = v16;
-    v5 = v16;
+    v11 = RegionSize;
+    v5 = RegionSize;
     if ( RtlGetCurrentServiceSessionId() )
     {
-      v11 = v16;
+      v11 = RegionSize;
       v12 = (int)NtCurrentPeb()->SharedData + 558;
     }
     else
@@ -94,15 +95,15 @@ unsigned int __fastcall RtlpHpLargeFree(int a1, unsigned int a2, char a3)
       v12 = 2147353480;
     }
     if ( *(_BYTE *)v12 )
-      RtlpHeapLogRangeRelease(a1, v17, v11);
+      RtlpHeapLogRangeRelease(a1, SHIDWORD(RegionSize), v11);
   }
   else
   {
 LABEL_18:
-    if ( !v18 )
+    if ( !v17 )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
-      a2 = v17;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+      a2 = HIDWORD(RegionSize);
     }
     RtlpLogHeapFailure(8, a1, a2, 0, 0, 0);
   }

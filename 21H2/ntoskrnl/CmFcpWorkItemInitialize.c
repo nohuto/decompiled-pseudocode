@@ -1,11 +1,11 @@
 /*
- * XREFs of CmFcpWorkItemInitialize @ 0x1407D27E0
+ * XREFs of CmFcpWorkItemInitialize @ 0x1407D2950
  * Callers:
- *     CmFcpInitializeChangeSubscription @ 0x14087E46C (CmFcpInitializeChangeSubscription.c)
- *     CmFcManagerInitialize @ 0x140A38D64 (CmFcManagerInitialize.c)
+ *     CmFcpInitializeChangeSubscription @ 0x14087E5CC (CmFcpInitializeChangeSubscription.c)
+ *     CmFcManagerInitialize @ 0x140A39D64 (CmFcManagerInitialize.c)
  * Callees:
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall CmFcpWorkItemInitialize(KSPIN_LOCK *a1, __int64 a2, KSPIN_LOCK a3, KSPIN_LOCK a4)

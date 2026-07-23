@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlIsDosDeviceName_U @ 0x180010180
+ * XREFs of RtlIsDosDeviceName_U @ 0x180010170
  * Callers:
- *     BaseIsThisAConsoleName @ 0x18010312C (BaseIsThisAConsoleName.c)
+ *     BaseIsThisAConsoleName @ 0x18010306C (BaseIsThisAConsoleName.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x180011910 (RtlInitUnicodeStringEx.c)
- *     RtlpIsDosDeviceName_Ustr @ 0x18001E290 (RtlpIsDosDeviceName_Ustr.c)
+ *     RtlInitUnicodeStringEx @ 0x180011900 (RtlInitUnicodeStringEx.c)
+ *     RtlpIsDosDeviceName_Ustr @ 0x18001E280 (RtlpIsDosDeviceName_Ustr.c)
  */
 
-__int64 __fastcall RtlIsDosDeviceName_U(__int64 a1)
+ULONG __cdecl RtlIsDosDeviceName_U(PCWSTR DosFileName)
 {
-  _BYTE v2[24]; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( (int)RtlInitUnicodeStringEx(v2, a1) < 0 )
-    return 0LL;
+  if ( RtlInitUnicodeStringEx(&DestinationString, DosFileName) < 0 )
+    return 0;
   else
-    return RtlpIsDosDeviceName_Ustr(v2);
+    return RtlpIsDosDeviceName_Ustr(&DestinationString);
 }

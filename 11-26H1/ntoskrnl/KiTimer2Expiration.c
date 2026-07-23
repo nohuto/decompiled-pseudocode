@@ -1,22 +1,22 @@
 /*
- * XREFs of KiTimer2Expiration @ 0x140336A40
+ * XREFs of KiTimer2Expiration @ 0x140338AC0
  * Callers:
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
- *     KiTimerExpirationDpc @ 0x1405FB010 (KiTimerExpirationDpc.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
+ *     KiTimerExpirationDpc @ 0x1405FDA30 (KiTimerExpirationDpc.c)
  * Callees:
- *     KiProcessThreadWaitList @ 0x14023BDB0 (KiProcessThreadWaitList.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiCheckAndRearmForceIdle @ 0x140336E2C (KiCheckAndRearmForceIdle.c)
- *     KiExpireTimer2 @ 0x140336F08 (KiExpireTimer2.c)
- *     KiInsertTimer2 @ 0x140337730 (KiInsertTimer2.c)
- *     KiRemoveTimer2 @ 0x140378EB0 (KiRemoveTimer2.c)
- *     KiSendClockInterruptToTargetProcessor @ 0x1403793EC (KiSendClockInterruptToTargetProcessor.c)
- *     KiUpdateTimer2Flags @ 0x1403AA610 (KiUpdateTimer2Flags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiProcessThreadWaitList @ 0x14023D710 (KiProcessThreadWaitList.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiCheckAndRearmForceIdle @ 0x140338EAC (KiCheckAndRearmForceIdle.c)
+ *     KiExpireTimer2 @ 0x140338F88 (KiExpireTimer2.c)
+ *     KiInsertTimer2 @ 0x1403397B0 (KiInsertTimer2.c)
+ *     KiRemoveTimer2 @ 0x14037AC60 (KiRemoveTimer2.c)
+ *     KiSendClockInterruptToTargetProcessor @ 0x14037B19C (KiSendClockInterruptToTargetProcessor.c)
+ *     KiUpdateTimer2Flags @ 0x1403B4220 (KiUpdateTimer2Flags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall KiTimer2Expiration(
@@ -63,7 +63,7 @@ unsigned __int64 __fastcall KiTimer2Expiration(
     v10 = 0;
     v29 = (volatile signed __int32 *)&v28;
     v28 = &v28;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset64((volatile signed __int32 *)&KiTimer2CollectionLock, 0LL) )
         KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&KiTimer2CollectionLock);
@@ -144,7 +144,7 @@ unsigned __int64 __fastcall KiTimer2Expiration(
       v11 += 24LL;
     }
     while ( v14 < v24 );
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       _InterlockedAnd64((volatile signed __int64 *)&KiTimer2CollectionLock, 0LL);
     else
       KiReleaseSpinLockInstrumented((volatile signed __int64 *)&KiTimer2CollectionLock, retaddr);
@@ -188,10 +188,10 @@ LABEL_18:
 LABEL_21:
     if ( a1[1441].Next )
       KiProcessThreadWaitList(a1, 1LL, 0LL, 2);
-    v19 = qword_140F26C28;
-    if ( qword_140F26C40 < (unsigned __int64)qword_140F26C28 )
-      v19 = qword_140F26C40;
-    result = MEMORY[0xFFFFF78000000008] + (unsigned int)KeMaximumIncrement;
+    v19 = qword_140F26DC8;
+    if ( qword_140F26DE0 < (unsigned __int64)qword_140F26DC8 )
+      v19 = qword_140F26DE0;
+    result = MEMORY[0xFFFFF78000000008] + KeMaximumIncrement;
     if ( v19 < result )
     {
       if ( !KiClockOwnerOneShotRequest )

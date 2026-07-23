@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpVolumeContextCleanup @ 0x140872DD0
+ * XREFs of CmpVolumeContextCleanup @ 0x140872F30
  * Callers:
- *     CmpVolumeContextDecrementRefCount @ 0x14071CA40 (CmpVolumeContextDecrementRefCount.c)
- *     CmpVolumeContextCreate @ 0x1407D0100 (CmpVolumeContextCreate.c)
- *     CmpVolumeContextFree @ 0x140872E08 (CmpVolumeContextFree.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x1405E0904 (CmpVolumeContextDecrementRefCount.c)
+ *     CmpVolumeContextCreate @ 0x1407D0270 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextFree @ 0x140872F68 (CmpVolumeContextFree.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PiPagePathSetState @ 0x1407C9E40 (PiPagePathSetState.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PiPagePathSetState @ 0x1407CA160 (PiPagePathSetState.c)
  */
 
 void __fastcall CmpVolumeContextCleanup(__int64 a1)

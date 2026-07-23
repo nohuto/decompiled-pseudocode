@@ -85,7 +85,7 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, __int64 a3)
   __int64 v17; // r8
   __int64 v18; // rdx
   unsigned int i; // r13d
-  union _SLIST_HEADER *v20; // rcx
+  _SLIST_HEADER *v20; // rcx
   __int64 PerfectColorHeadPage; // r14
   __int64 v22; // r13
   unsigned int v23; // r13d
@@ -104,7 +104,7 @@ __int64 __fastcall MiGetPage(__int64 a1, unsigned int a2, __int64 a3)
   __int64 *v37; // rdx
   unsigned int v38; // r8d
   int v39; // eax
-  union _SLIST_HEADER *v40; // rcx
+  _SLIST_HEADER *v40; // rcx
   __int64 FreeOrZeroPageAnyColor; // rax
   __int64 v42; // rax
   __int64 v43; // r8
@@ -256,7 +256,7 @@ LABEL_3:
       v99 = v18;
       for ( i = *(_DWORD *)v16; ; i = *((_DWORD *)v16 + 1) )
       {
-        v20 = (union _SLIST_HEADER *)(v18 + *(_QWORD *)(v5 + 8LL * (int)i + 4200));
+        v20 = (_SLIST_HEADER *)(v18 + *(_QWORD *)(v5 + 8LL * (int)i + 4200));
         if ( LOWORD(v20->Alignment) )
         {
           PerfectColorHeadPage = (__int64)RtlpInterlockedPopEntrySList(v20);
@@ -677,7 +677,7 @@ LABEL_210:
       while ( 2 )
       {
         v105 = v39;
-        v40 = (union _SLIST_HEADER *)(v36 + *(_QWORD *)(v22 + 8LL * v39 + 4200));
+        v40 = (_SLIST_HEADER *)(v36 + *(_QWORD *)(v22 + 8LL * v39 + 4200));
         if ( LOWORD(v40->Alignment) )
         {
           PerfectColorHeadPage = (__int64)RtlpInterlockedPopEntrySList(v40);

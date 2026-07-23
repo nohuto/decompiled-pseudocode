@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFastS4Check @ 0x1406E1EE8
+ * XREFs of PopFastS4Check @ 0x1406E3188
  * Callers:
- *     PopActionRetrieveInitialState @ 0x140159604 (PopActionRetrieveInitialState.c)
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopActionRetrieveInitialState @ 0x140159704 (PopActionRetrieveInitialState.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +11,12 @@ char PopFastS4Check()
 {
   char result; // al
 
-  if ( dword_140417720 != 4 )
+  if ( dword_1404187C0 != 4 )
     return 0;
-  if ( byte_1404180DC )
+  if ( byte_14041919C )
     return 0;
   result = 1;
-  if ( byte_1404177D9 != 1 || byte_1404177D0 != 1 || byte_1404177DE != 2 )
+  if ( byte_140418879 != 1 || byte_140418870 != 1 || byte_14041887E != 2 )
     return 0;
   return result;
 }

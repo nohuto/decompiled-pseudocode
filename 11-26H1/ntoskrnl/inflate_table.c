@@ -1,10 +1,10 @@
 /*
- * XREFs of inflate_table @ 0x140635550
+ * XREFs of inflate_table @ 0x140638558
  * Callers:
- *     inflate @ 0x14062664C (inflate.c)
+ *     inflate @ 0x14062969C (inflate.c)
  * Callees:
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall inflate_table(
@@ -165,13 +165,13 @@ __int64 __fastcall inflate_table(
     if ( a1 == 1 )
     {
       v6 = 257;
-      v55 = qword_140037550;
-      v7 = (unsigned __int64)qword_140037510;
+      v55 = qword_140037AA0;
+      v7 = (unsigned __int64)qword_140037B20;
     }
     else
     {
-      v55 = qword_140037590;
-      v7 = (unsigned __int64)qword_1400375D0;
+      v55 = qword_140037AE0;
+      v7 = (unsigned __int64)qword_140037B60;
     }
   }
   else

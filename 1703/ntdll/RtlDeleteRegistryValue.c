@@ -9,20 +9,20 @@
  *     ZwDeleteValueKey @ 0x1800A6CB0 (ZwDeleteValueKey.c)
  */
 
-__int64 __fastcall RtlDeleteRegistryValue(int a1, _WORD *a2, const WCHAR *a3)
+NTSTATUS __cdecl RtlDeleteRegistryValue(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName)
 {
-  __int64 result; // rax
-  unsigned int v6; // ebx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+58h] [rbp+20h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v6; // ebx
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  HANDLE KeyHandle; // [rsp+58h] [rbp+20h] BYREF
 
-  result = sub_180056CCC(a1, a2, 1, &v8);
-  if ( (int)result >= 0 )
+  result = sub_180056CCC(RelativeTo, Path, 1, &KeyHandle);
+  if ( result >= 0 )
   {
-    RtlInitUnicodeString(&DestinationString, a3);
-    v6 = ZwDeleteValueKey(v8, &DestinationString);
-    if ( (a1 & 0x40000000) == 0 )
-      ZwClose(v8);
+    RtlInitUnicodeString(&DestinationString, ValueName);
+    v6 = ZwDeleteValueKey(KeyHandle, &DestinationString);
+    if ( (RelativeTo & 0x40000000) == 0 )
+      ZwClose(KeyHandle);
     return v6;
   }
   return result;

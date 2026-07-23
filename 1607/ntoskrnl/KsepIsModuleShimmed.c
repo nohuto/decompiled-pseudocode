@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepIsModuleShimmed @ 0x140485CC8
+ * XREFs of KsepIsModuleShimmed @ 0x140515050
  * Callers:
- *     KsepGetShimsForDriver @ 0x140484638 (KsepGetShimsForDriver.c)
- *     KsepGetShimCallbacksForDriver @ 0x1404E5924 (KsepGetShimCallbacksForDriver.c)
- *     KseDriverUnloadImage @ 0x140546854 (KseDriverUnloadImage.c)
+ *     KsepGetShimsForDriver @ 0x1405139C0 (KsepGetShimsForDriver.c)
+ *     KsepGetShimCallbacksForDriver @ 0x1405151DC (KsepGetShimCallbacksForDriver.c)
+ *     KseDriverUnloadImage @ 0x140546D94 (KseDriverUnloadImage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
@@ -28,11 +28,11 @@ __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
   CurrentThread = KeGetCurrentThread();
   *a3 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F20, 0LL, 0);
-  v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F20, 0LL);
+  v8 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F60, 0LL, 0);
+  v9 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F60, 0LL);
   v10 = v8;
   if ( v9 )
-    ExfAcquirePushLockExclusiveEx(&qword_140328F20, v8, (ULONG_PTR)&qword_140328F20);
+    ExfAcquirePushLockExclusiveEx(&qword_140328F60, v8, (ULONG_PTR)&qword_140328F60);
   if ( v10 )
     v10[26] |= 1u;
   v11 = *(_QWORD **)(a1 + 32);
@@ -47,9 +47,9 @@ __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
       break;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-  KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+  KeAbPostRelease((ULONG_PTR)&qword_140328F60);
   KeLeaveCriticalRegion();
   return v3;
 }

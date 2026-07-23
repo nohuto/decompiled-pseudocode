@@ -66,10 +66,10 @@
  *     sub_1800085D4 @ 0x1800085D4 (sub_1800085D4.c)
  */
 
-__int64 DbgPrint(const char *a1, ...)
+ULONG DbgPrint(PCSTR Format, ...)
 {
   va_list va; // [rsp+48h] [rbp+10h] BYREF
 
-  va_start(va, a1);
-  return sub_1800085D4((unsigned int)&unk_180114112, 101, 3, (_DWORD)a1, (__int64)va, 1);
+  va_start(va, Format);
+  return sub_1800085D4(&dword_180114112, 101LL, 3LL, Format, (__int64 *)va, 1);
 }

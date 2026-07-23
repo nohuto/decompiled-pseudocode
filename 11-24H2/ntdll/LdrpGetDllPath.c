@@ -1,31 +1,38 @@
 /*
- * XREFs of LdrpGetDllPath @ 0x180083EF0
+ * XREFs of LdrpGetDllPath @ 0x180005DA0
  * Callers:
- *     LdrpComputeLazyDllPath @ 0x180083D90 (LdrpComputeLazyDllPath.c)
- *     LdrGetDllPath @ 0x180083EC0 (LdrGetDllPath.c)
+ *     LdrpComputeLazyDllPath @ 0x180005C40 (LdrpComputeLazyDllPath.c)
+ *     LdrGetDllPath @ 0x180005D70 (LdrGetDllPath.c)
  * Callees:
- *     RtlDetermineDosPathNameType_U @ 0x180083CF0 (RtlDetermineDosPathNameType_U.c)
- *     LdrpLogDllStateEx2 @ 0x180084174 (LdrpLogDllStateEx2.c)
- *     RtlpGetCachedPath @ 0x1800842B0 (RtlpGetCachedPath.c)
- *     LdrpLogRelativePathWithAlteredSearchError @ 0x180084424 (LdrpLogRelativePathWithAlteredSearchError.c)
+ *     RtlDetermineDosPathNameType_U @ 0x180005BA0 (RtlDetermineDosPathNameType_U.c)
+ *     LdrpLogDllStateEx2 @ 0x180006024 (LdrpLogDllStateEx2.c)
+ *     RtlpGetCachedPath @ 0x180006160 (RtlpGetCachedPath.c)
+ *     LdrpLogRelativePathWithAlteredSearchError @ 0x1800062D4 (LdrpLogRelativePathWithAlteredSearchError.c)
  */
 
-__int64 __fastcall LdrpGetDllPath(__int16 *a1, int a2, _QWORD *a3, _QWORD *a4, _DWORD *a5, _OWORD *a6, _QWORD *a7)
+__int64 __fastcall LdrpGetDllPath(
+        PCWSTR DosFileName,
+        int a2,
+        _QWORD *a3,
+        _QWORD *a4,
+        _DWORD *a5,
+        _OWORD *a6,
+        _QWORD *a7)
 {
   int v8; // edx
   bool v11; // r12
   unsigned int v12; // ebx
   __int64 v13; // r15
   char v14; // cl
-  __int16 *v15; // rbp
+  PCWSTR v15; // rbp
   char v16; // al
-  __int16 *v17; // r9
+  PCWSTR v17; // r9
   __int64 (__fastcall *v18)(); // rdx
-  __int16 *v19; // r8
+  PCWSTR v19; // r8
   __int64 *v20; // rcx
   __int64 CachedPath; // rax
   _QWORD *v22; // rcx
-  int v24; // eax
+  RTL_PATH_TYPE v24; // eax
   bool v25; // [rsp+20h] [rbp-48h]
   char v26; // [rsp+78h] [rbp+10h]
 
@@ -59,18 +66,18 @@ LABEL_4:
   v15 = 0LL;
   if ( (v12 & 0x100) == 0 && !v14 )
     goto LABEL_6;
-  v24 = RtlDetermineDosPathNameType_U(a1);
+  v24 = RtlDetermineDosPathNameType_U(DosFileName);
   if ( (unsigned int)(v24 - 1) > 1 )
   {
-    if ( v24 != 6 || a1[2] != 63 )
+    if ( v24 != RtlPathTypeLocalDevice || DosFileName[2] != 63 )
     {
       v11 = 1;
-      v15 = a1;
+      v15 = DosFileName;
       goto LABEL_33;
     }
-    v11 = (unsigned int)RtlDetermineDosPathNameType_U(a1 + 4) != 2;
+    v11 = RtlDetermineDosPathNameType_U(DosFileName + 4) != RtlPathTypeDriveAbsolute;
   }
-  v15 = a1;
+  v15 = DosFileName;
   if ( !v11 )
   {
 LABEL_6:
@@ -80,7 +87,7 @@ LABEL_6:
 LABEL_33:
   if ( !v26 )
     goto LABEL_6;
-  LdrpLogRelativePathWithAlteredSearchError(a1);
+  LdrpLogRelativePathWithAlteredSearchError(DosFileName);
   v16 = LdrpPolicyBits;
   if ( (LdrpPolicyBits & 0x40) != 0 )
   {
@@ -98,13 +105,13 @@ LABEL_7:
         if ( (v16 & 4) != 0 )
           v12 |= 0x400u;
       }
-      v19 = (__int16 *)v12;
+      v19 = (PCWSTR)v12;
       v18 = RtlpComputeDllPathWithOptions;
       LODWORD(v19) = v12 | 0x100;
       v20 = &RtlpDllSearchPathWithOptions;
       v17 = v15;
       if ( !v26 )
-        v19 = (__int16 *)v12;
+        v19 = (PCWSTR)v12;
       goto LABEL_9;
     }
     return 3221225485LL;
@@ -139,7 +146,7 @@ LABEL_9:
       v22 = (_QWORD *)*(unsigned int *)(CachedPath + 112);
       *a5 = (_DWORD)v22;
     }
-    LdrpLogDllStateEx2(v22, a1, *a3, 5313LL);
+    LdrpLogDllStateEx2(v22, DosFileName, *a3, 5313LL);
     return 0LL;
   }
   else

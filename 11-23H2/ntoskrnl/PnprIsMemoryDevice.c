@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprIsMemoryDevice @ 0x140966340
+ * XREFs of PnprIsMemoryDevice @ 0x140966540
  * Callers:
- *     PnprAddDeviceResources @ 0x140965550 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x140965750 (PnprAddDeviceResources.c)
  * Callees:
  *     IoGetDeviceInterfaces @ 0x1406878A0 (IoGetDeviceInterfaces.c)
- *     IoGetDevicePropertyData @ 0x140790FE0 (IoGetDevicePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x1407911D0 (IoGetDevicePropertyData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

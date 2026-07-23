@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbpBuildAllocationStack @ 0x140737FA4
+ * XREFs of ArbpBuildAllocationStack @ 0x140739194
  * Callers:
- *     ArbTestAllocation @ 0x140737E40 (ArbTestAllocation.c)
+ *     ArbTestAllocation @ 0x140739030 (ArbTestAllocation.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ArbpBuildAlternative @ 0x1407382B0 (ArbpBuildAlternative.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ArbpBuildAlternative @ 0x1407394A0 (ArbpBuildAlternative.c)
  */
 
 __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)

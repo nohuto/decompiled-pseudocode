@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceXSchedulerPriorityKickReceive @ 0x1406C53C4
+ * XREFs of EtwTraceXSchedulerPriorityKickReceive @ 0x1406C9004
  * Callers:
- *     KeSetThreadSchedulerAssist @ 0x1403BFAB8 (KeSetThreadSchedulerAssist.c)
+ *     KeSetThreadSchedulerAssist @ 0x1403C99B8 (KeSetThreadSchedulerAssist.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
  */
 
 __int64 __fastcall EtwTraceXSchedulerPriorityKickReceive(__int64 a1, int a2)

@@ -17,7 +17,7 @@ int __fastcall LdrpInitializeProcessWrapperFilter(const void **a1, _DWORD *a2)
     LdrpLogDbgPrint(
       (int)"minkernel\\ntdll\\ldrinit.c",
       2011,
-      "LdrpInitializeProcessWrapperFilter",
+      (int)"LdrpInitializeProcessWrapperFilter",
       0,
       "Process initialization raised exception 0x%08lx\n\tException record: .exr %p\n\tContext record: .cxr %p\n",
       *(_DWORD *)*a1,
@@ -29,6 +29,6 @@ int __fastcall LdrpInitializeProcessWrapperFilter(const void **a1, _DWORD *a2)
     __debugbreak();
   if ( g_LdrBreakOnLdrpInitializeProcessFailure )
     __debugbreak();
-  *a2 = RtlReportException(*a1, a1[1], 2) >= 0;
+  *a2 = RtlReportException((PEXCEPTION_RECORD)*a1, (PCONTEXT)a1[1], 2u) >= 0;
   return 1;
 }

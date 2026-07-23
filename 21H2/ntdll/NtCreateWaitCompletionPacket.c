@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateWaitCompletionPacket @ 0x18009EF70
+ * XREFs of NtCreateWaitCompletionPacket @ 0x18009EF30
  * Callers:
  *     TpAllocWait @ 0x18000DF40 (TpAllocWait.c)
  *     TppInitializeTimerSubQueue @ 0x180063294 (TppInitializeTimerSubQueue.c)
@@ -7,11 +7,14 @@
  *     <none>
  */
 
-__int64 NtCreateWaitCompletionPacket()
+NTSTATUS __cdecl NtCreateWaitCompletionPacket(
+        PHANDLE WaitCompletionPacketHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 202LL;
+  result = 202;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

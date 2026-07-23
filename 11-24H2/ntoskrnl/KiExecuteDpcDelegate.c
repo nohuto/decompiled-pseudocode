@@ -1,12 +1,12 @@
 /*
- * XREFs of KiExecuteDpcDelegate @ 0x1405C7080
+ * XREFs of KiExecuteDpcDelegate @ 0x1405C47B0
  * Callers:
  *     <none>
  * Callees:
- *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSwapThread @ 0x1402A6990 (KiSwapThread.c)
- *     KeAttachProcess @ 0x14047B6B0 (KeAttachProcess.c)
+ *     KiRetireDpcList @ 0x1402824C0 (KiRetireDpcList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapThread @ 0x1402D60C0 (KiSwapThread.c)
+ *     KeAttachProcess @ 0x140477330 (KeAttachProcess.c)
  */
 
 void __noreturn KiExecuteDpcDelegate()
@@ -25,7 +25,7 @@ void __noreturn KiExecuteDpcDelegate()
   {
     _disable();
     _InterlockedAnd16((volatile signed __int16 *)&CurrentPrcb->14524, 0xFF7Fu);
-    KiRetireDpcList(CurrentPrcb);
+    KiRetireDpcList((__int64)CurrentPrcb);
     CurrentPrcb->PrcbFlagsReserved &= ~0x800u;
     v2 = KeGetCurrentPrcb();
     SchedulerAssist = (signed __int32 *)v2->SchedulerAssist;

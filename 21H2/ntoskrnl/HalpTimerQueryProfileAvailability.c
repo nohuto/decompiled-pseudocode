@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerQueryProfileAvailability @ 0x1404C18A4
+ * XREFs of HalpTimerQueryProfileAvailability @ 0x1404C1AE4
  * Callers:
- *     DefaultQueryInformation @ 0x1408647F0 (DefaultQueryInformation.c)
+ *     DefaultQueryInformation @ 0x140864950 (DefaultQueryInformation.c)
  * Callees:
  *     <none>
  */

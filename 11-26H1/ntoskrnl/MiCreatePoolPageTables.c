@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreatePoolPageTables @ 0x1402A50F4
+ * XREFs of MiCreatePoolPageTables @ 0x1402A4644
  * Callers:
- *     MiCommitPoolMemory @ 0x140364AE0 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x140366880 (MiCommitPoolMemory.c)
  * Callees:
- *     MiMakeZeroedPageTablesEx @ 0x1402A515C (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x1402A46AC (MiMakeZeroedPageTablesEx.c)
  */
 
 __int64 __fastcall MiCreatePoolPageTables(__int64 a1, __int64 a2)

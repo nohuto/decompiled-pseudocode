@@ -1,27 +1,32 @@
 /*
  * XREFs of ZwQueryLicenseValue @ 0x14041E2C0
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x140203EE0 (SepDesktopAppxSubProcessToken.c)
+ *     sub_140203EE0 @ 0x140203EE0 (sub_140203EE0.c)
  *     RtlGetProductInfo @ 0x14025B190 (RtlGetProductInfo.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403B3BA0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     DifZwQueryLicenseValueWrapper @ 0x140625530 (DifZwQueryLicenseValueWrapper.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x140660F7C (RtlpGetPolicyValueForSystemCapability.c)
- *     ExGetExpirationDate @ 0x14082D70C (ExGetExpirationDate.c)
- *     RtlpGetWindowsPolicy @ 0x140830FE0 (RtlpGetWindowsPolicy.c)
+ *     sub_1403B3BA0 @ 0x1403B3BA0 (sub_1403B3BA0.c)
+ *     sub_140625530 @ 0x140625530 (sub_140625530.c)
+ *     sub_140660F7C @ 0x140660F7C (sub_140660F7C.c)
+ *     sub_14082D70C @ 0x14082D70C (sub_14082D70C.c)
+ *     sub_140830FE0 @ 0x140830FE0 (sub_140830FE0.c)
  *     MmCreateMirror @ 0x14096BA60 (MmCreateMirror.c)
- *     SepIsLockedDown @ 0x1409C599C (SepIsLockedDown.c)
- *     ExpGenuinePolicyPostProcess @ 0x1409F9E40 (ExpGenuinePolicyPostProcess.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
- *     PpmInitIdlePolicy @ 0x140B25110 (PpmInitIdlePolicy.c)
- *     WheapLoadPolicy @ 0x140B2A640 (WheapLoadPolicy.c)
- *     InitializeDynamicPartitioningPolicy @ 0x140B30458 (InitializeDynamicPartitioningPolicy.c)
+ *     sub_1409C599C @ 0x1409C599C (sub_1409C599C.c)
+ *     sub_1409F9E40 @ 0x1409F9E40 (sub_1409F9E40.c)
+ *     sub_140AFBDF4 @ 0x140AFBDF4 (sub_140AFBDF4.c)
+ *     sub_140B25110 @ 0x140B25110 (sub_140B25110.c)
+ *     sub_140B2A640 @ 0x140B2A640 (sub_140B2A640.c)
+ *     sub_140B30458 @ 0x140B30458 (sub_140B30458.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryLicenseValue(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ValueName, Type);
 }

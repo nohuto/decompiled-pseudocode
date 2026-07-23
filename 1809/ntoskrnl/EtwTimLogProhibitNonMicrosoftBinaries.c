@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTimLogProhibitNonMicrosoftBinaries @ 0x1408BCFBC
+ * XREFs of EtwTimLogProhibitNonMicrosoftBinaries @ 0x1408BE27C
  * Callers:
- *     MiValidateSectionSigningPolicy @ 0x14064F440 (MiValidateSectionSigningPolicy.c)
+ *     MiValidateSectionSigningPolicy @ 0x140650600 (MiValidateSectionSigningPolicy.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     EtwpTiFillThreadIdentity @ 0x140131FB4 (EtwpTiFillThreadIdentity.c)
- *     EtwpTiFillProcessIdentity @ 0x140131FEC (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     EtwpTiFillThreadIdentity @ 0x140132084 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillProcessIdentity @ 0x1401320BC (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066DA18 (EtwpQueryProcessCommandLine.c)
  */
 
 void __fastcall EtwTimLogProhibitNonMicrosoftBinaries(int a1, __int64 a2, char a3, char a4, unsigned __int16 *a5)
@@ -161,7 +161,7 @@ void __fastcall EtwTimLogProhibitNonMicrosoftBinaries(int a1, __int64 a2, char a
     v28 = &MITIGATION_ENFORCE_PROHIBIT_NON_MICROSOFT_BINARIES;
   EtwWrite(EtwSecurityMitigationsRegHandle, v28, 0LL, v27, &UserData);
   v29 = P;
-  if ( stru_1404002D0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1404002D0, 0x400000000000uLL) )
+  if ( stru_140401308.LevelPlus1 > 5 && TlgKeywordOn(&stru_140401308, 0x400000000000uLL) )
   {
     v39 = v38;
     v30 = v69;
@@ -190,7 +190,7 @@ void __fastcall EtwTimLogProhibitNonMicrosoftBinaries(int a1, __int64 a2, char a
     v56[1] = 0;
     v58 = 1LL;
     v60 = 1LL;
-    TlgWrite(&stru_1404002D0, &unk_140373AB5, 0LL, 0LL, 0xCu, &pData);
+    TlgWrite(&stru_140401308, &unk_140374BB6, 0LL, 0LL, 0xCu, &pData);
   }
   if ( v29 )
     ExFreePoolWithTag(v29, 0);

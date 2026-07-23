@@ -1,13 +1,13 @@
 /*
- * XREFs of MiComputeFaultCluster @ 0x1400BFA8C
+ * XREFs of MiComputeFaultCluster @ 0x1400BD91C
  * Callers:
- *     MiResolveMappedFileFault @ 0x1400E68A0 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x140121360 (MiResolvePageFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1400E4740 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x1401218D0 (MiResolvePageFileFault.c)
  * Callees:
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MiAdvanceFaultList @ 0x1400C01B0 (MiAdvanceFaultList.c)
- *     MiIsPteInStore @ 0x140122330 (MiIsPteInStore.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MiAdvanceFaultList @ 0x1400BE040 (MiAdvanceFaultList.c)
+ *     MiIsPteInStore @ 0x1401228A0 (MiIsPteInStore.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiComputeFaultCluster(__int64 a1, _QWORD *a2, __int64 a3, int a4)

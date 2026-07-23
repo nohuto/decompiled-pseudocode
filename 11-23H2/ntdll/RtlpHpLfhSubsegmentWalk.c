@@ -31,7 +31,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentWalk(
   __int64 v19; // rbp
   char v21; // cl
   unsigned int v22; // esi
-  unsigned __int64 v23; // rdx
+  unsigned int v23; // edx
   __int64 v24; // r14
   __int16 *v25; // rcx
   unsigned int v26; // eax
@@ -118,11 +118,11 @@ LABEL_12:
     v21 = *(_BYTE *)(a2 + 44);
     v22 = (unsigned int)v18 >> 1;
     v23 = HIWORD(v8) + v22 * (unsigned __int16)v8;
-    v24 = (unsigned int)v23 >> v21;
+    v24 = v23 >> v21;
     v19 = a2 + v23;
-    v39 = (((unsigned int)(unsigned __int16)v8 + (_DWORD)v23 - 1) >> v21) + 1;
+    v39 = (((unsigned __int16)v8 + v23 - 1) >> v21) + 1;
     v37 = a2 + *(unsigned __int16 *)(a2 + 46);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a2 + 24), v23, v13, i);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
     if ( (unsigned int)v24 < v39 )
     {
       v25 = (__int16 *)(v37 + 2 * v24);
@@ -136,7 +136,7 @@ LABEL_12:
       LODWORD(v24) = -1;
     }
 LABEL_23:
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a2 + 24));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 24));
     if ( (_DWORD)v24 == -1 )
     {
       v11 = (unsigned int)(v11 + 2);

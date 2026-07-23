@@ -1,10 +1,10 @@
 /*
- * XREFs of TpCallbackSendPendingAlpcMessage @ 0x1800E8150
+ * XREFs of TpCallbackSendPendingAlpcMessage @ 0x1800E6BB0
  * Callers:
  *     <none>
  * Callees:
- *     TppCallbackSendAndDestroyAlpcMessage @ 0x18003C634 (TppCallbackSendAndDestroyAlpcMessage.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
+ *     TppCallbackSendAndDestroyAlpcMessage @ 0x180026BA4 (TppCallbackSendAndDestroyAlpcMessage.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
  */
 
 __int64 __fastcall TpCallbackSendPendingAlpcMessage(__int64 a1)

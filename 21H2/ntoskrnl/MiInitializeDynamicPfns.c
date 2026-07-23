@@ -1,29 +1,29 @@
 /*
- * XREFs of MiInitializeDynamicPfns @ 0x14052E5A0
+ * XREFs of MiInitializeDynamicPfns @ 0x14052E7E0
  * Callers:
- *     MiMapNewPfns @ 0x1408C5CD4 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
+ *     MiMapNewPfns @ 0x1408C5E34 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
  * Callees:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     MiAbortCombineScan @ 0x140303770 (MiAbortCombineScan.c)
- *     MiReferenceControlAreaPfn @ 0x140319F80 (MiReferenceControlAreaPfn.c)
- *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInitializeUnusablePfns @ 0x1403B0FE0 (MiInitializeUnusablePfns.c)
- *     MiRestrictRangeToNode @ 0x1403B14C0 (MiRestrictRangeToNode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     MiAbortCombineScan @ 0x14030E4C0 (MiAbortCombineScan.c)
+ *     MiReferenceControlAreaPfn @ 0x140324CD0 (MiReferenceControlAreaPfn.c)
+ *     MiLockProtoPoolPage @ 0x140324E50 (MiLockProtoPoolPage.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializeUnusablePfns @ 0x1403B1150 (MiInitializeUnusablePfns.c)
+ *     MiRestrictRangeToNode @ 0x1403B1630 (MiRestrictRangeToNode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiInitializeAllResidentPageBasePfns @ 0x1403F6BC8 (MiInitializeAllResidentPageBasePfns.c)
  *     MiDetermineNewPfnHeatState @ 0x1403F7D80 (MiDetermineNewPfnHeatState.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiSetPfnRemovalRequested @ 0x14054F428 (MiSetPfnRemovalRequested.c)
- *     MiInitializeDpcGang @ 0x140560550 (MiInitializeDpcGang.c)
- *     MiStartDpcGang @ 0x1405606AC (MiStartDpcGang.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiSetPfnRemovalRequested @ 0x14054F668 (MiSetPfnRemovalRequested.c)
+ *     MiInitializeDpcGang @ 0x140560790 (MiInitializeDpcGang.c)
+ *     MiStartDpcGang @ 0x1405608EC (MiStartDpcGang.c)
  */
 
 void __fastcall MiInitializeDynamicPfns(
@@ -59,7 +59,7 @@ void __fastcall MiInitializeDynamicPfns(
   char v32; // al
   unsigned __int64 v33; // rsi
   int v34; // r15d
-  char v35; // al
+  unsigned __int8 v35; // al
   __int64 v36; // r8
   __int128 v37; // xmm1
   __int64 v38; // rax
@@ -71,7 +71,7 @@ void __fastcall MiInitializeDynamicPfns(
   unsigned __int8 v44; // di
   struct _KPRCB *v45; // r10
   int v46; // eax
-  char v47[2]; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int8 v47[2]; // [rsp+40h] [rbp-C0h] BYREF
   __int16 v48; // [rsp+42h] [rbp-BEh]
   int v49; // [rsp+44h] [rbp-BCh]
   __int64 v50; // [rsp+48h] [rbp-B8h]
@@ -102,11 +102,11 @@ void __fastcall MiInitializeDynamicPfns(
   v49 = v15;
   if ( v15 == 4 )
   {
-    v16 = ExAcquireSpinLockExclusive(&dword_140C50E48);
-    qword_140C52890 += a2;
+    v16 = ExAcquireSpinLockExclusive(&dword_140C50E88);
+    qword_140C528D0 += a2;
     v17 = v16;
-    byte_140C50D8C = 1;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C50E48);
+    byte_140C50DCC = 1;
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C50E88);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -169,7 +169,7 @@ void __fastcall MiInitializeDynamicPfns(
           v29 = (unsigned __int64)(4096 - (unsigned int)(v25 & 0xFFF)) >> 3;
         while ( 1 )
         {
-          v27 = MiLockProtoPoolPage(v25, (__int64)v47);
+          v27 = MiLockProtoPoolPage(v25, v47);
           if ( v27 )
             break;
           MmAccessFault(2uLL, v25, 0, 0LL);

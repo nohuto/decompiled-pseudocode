@@ -1,8 +1,8 @@
 /*
- * XREFs of ScRsa32Compat_Md4ExportAndWipe @ 0x180158A50
+ * XREFs of ScRsa32Compat_Md4ExportAndWipe @ 0x180158920
  * Callers:
- *     MD4Init @ 0x180158930 (MD4Init.c)
- *     MD4Update @ 0x1801589C0 (MD4Update.c)
+ *     MD4Init @ 0x180158800 (MD4Init.c)
+ *     MD4Update @ 0x180158890 (MD4Update.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of EnlistKeyBodyWithKCB @ 0x140A31A60
+ * XREFs of EnlistKeyBodyWithKCB @ 0x140A4C9C0
  * Callers:
- *     CmpCreateRegistryRoot @ 0x140CEA70C (CmpCreateRegistryRoot.c)
+ *     CmpCreateRegistryRoot @ 0x140CF0AAC (CmpCreateRegistryRoot.c)
  * Callees:
  *     <none>
  */

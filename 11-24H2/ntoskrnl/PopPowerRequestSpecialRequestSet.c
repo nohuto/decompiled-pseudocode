@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestSpecialRequestSet @ 0x140A14F84
+ * XREFs of PopPowerRequestSpecialRequestSet @ 0x140A0DD9C
  * Callers:
- *     PopPowerRequestActionInfo @ 0x140A14DA0 (PopPowerRequestActionInfo.c)
+ *     PopPowerRequestActionInfo @ 0x140A0DBB8 (PopPowerRequestActionInfo.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     PsReleaseProcessWakeCounter @ 0x14088E750 (PsReleaseProcessWakeCounter.c)
- *     PsChargeProcessWakeCounter @ 0x14088E7A0 (PsChargeProcessWakeCounter.c)
- *     PopAcquirePowerRequestPushLock @ 0x140A50600 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsReleaseProcessWakeCounter @ 0x140898050 (PsReleaseProcessWakeCounter.c)
+ *     PsChargeProcessWakeCounter @ 0x1408983D0 (PsChargeProcessWakeCounter.c)
+ *     PopAcquirePowerRequestPushLock @ 0x140A473B0 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 __fastcall PopPowerRequestSpecialRequestSet(__int64 a1, int a2, ULONG_PTR a3)
@@ -29,7 +29,7 @@ __int64 __fastcall PopPowerRequestSpecialRequestSet(__int64 a1, int a2, ULONG_PT
     if ( v5 >= 0 )
     {
       v6 = Object;
-      v7 = PsChargeProcessWakeCounter((__int64)Object);
+      v7 = PsChargeProcessWakeCounter(Object);
       LOBYTE(v8) = 1;
       v9 = v7;
       PopAcquirePowerRequestPushLock(v8);
@@ -44,7 +44,7 @@ __int64 __fastcall PopPowerRequestSpecialRequestSet(__int64 a1, int a2, ULONG_PT
         v5 = 0;
         *(_QWORD *)(a1 + 144) = v9;
       }
-      PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+      PopReleaseRwLock(&PopPowerRequestLock);
       if ( v3 )
       {
         if ( v9 )

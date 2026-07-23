@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRestockOverCommit @ 0x140656638
+ * XREFs of MiRestockOverCommit @ 0x140656B88
  * Callers:
- *     MiProbeUnlockPage @ 0x1402CB170 (MiProbeUnlockPage.c)
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiZeroAndReleasePages @ 0x1402D3030 (MiZeroAndReleasePages.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiIncreaseCommitLimits @ 0x140396064 (MiIncreaseCommitLimits.c)
+ *     MiProbeUnlockPage @ 0x1402CB400 (MiProbeUnlockPage.c)
+ *     MiCanBatchHardFaultPages @ 0x1402CDEF0 (MiCanBatchHardFaultPages.c)
+ *     MiZeroAndReleasePages @ 0x1402D32C0 (MiZeroAndReleasePages.c)
+ *     MiRemoveLockedPageCharge @ 0x1402DBDB0 (MiRemoveLockedPageCharge.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiIncreaseCommitLimits @ 0x140396244 (MiIncreaseCommitLimits.c)
  * Callees:
  *     <none>
  */

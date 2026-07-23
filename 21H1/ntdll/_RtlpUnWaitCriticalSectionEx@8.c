@@ -10,13 +10,13 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-int __fastcall RtlpUnWaitCriticalSectionEx(signed __int32 a1, int a2)
+int __fastcall RtlpUnWaitCriticalSectionEx(signed __int32 a1, void *a2)
 {
   int result; // eax
   signed __int32 v3; // [esp+0h] [ebp-4h] BYREF
 
   v3 = a1;
-  if ( a2 == -1 )
+  if ( a2 == (void *)-1 )
   {
     _InterlockedOr(&v3, 0);
     return RtlpWakeByAddress(a1);

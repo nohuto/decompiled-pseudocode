@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlInsertPerStreamContext @ 0x1404492B0
+ * XREFs of FsRtlInsertPerStreamContext @ 0x14021B420
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     FsRtlReleasePushLock @ 0x1402C23EC (FsRtlReleasePushLock.c)
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x140449634 (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1404497DC (FsRtlReleaseAutoExpandPushLockExclusive.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1404499E8 (FsRtlAcquirePushLockExclusive.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x14021AF74 (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x14021B11C (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     FsRtlReleasePushLock @ 0x14030D0AC (FsRtlReleasePushLock.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1404C0ECC (FsRtlAcquirePushLockExclusive.c)
  */
 
 NTSTATUS __stdcall FsRtlInsertPerStreamContext(
         PFSRTL_ADVANCED_FCB_HEADER PerStreamContext,
         PFSRTL_PER_STREAM_CONTEXT Ptr)
 {
-  struct _KTHREAD **p_AePushLock; // rdi
+  __int64 *p_AePushLock; // rdi
   unsigned __int8 v5; // al
   struct _LIST_ENTRY *p_FilterContexts; // rax
   struct _LIST_ENTRY *Flink; // rdx
@@ -23,11 +23,11 @@ NTSTATUS __stdcall FsRtlInsertPerStreamContext(
 
   if ( !PerStreamContext || (PerStreamContext->Flags2 & 2) == 0 )
     return -1073741808;
-  p_AePushLock = (struct _KTHREAD **)&PerStreamContext->AePushLock;
+  p_AePushLock = (__int64 *)&PerStreamContext->AePushLock;
   v5 = *((_BYTE *)PerStreamContext + 7) >> 4;
   if ( v5 >= 3u && *p_AePushLock )
   {
-    FsRtlAcquireAutoExpandPushLockExclusive();
+    FsRtlAcquireAutoExpandPushLockExclusive(*p_AePushLock);
   }
   else if ( v5 )
   {
@@ -61,6 +61,6 @@ LABEL_14:
     FsRtlReleasePushLock((struct _KTHREAD *)&PerStreamContext->PushLock);
     return 0;
   }
-  FsRtlReleaseAutoExpandPushLockExclusive(*p_AePushLock);
+  FsRtlReleaseAutoExpandPushLockExclusive((struct _KTHREAD *)*p_AePushLock);
   return 0;
 }

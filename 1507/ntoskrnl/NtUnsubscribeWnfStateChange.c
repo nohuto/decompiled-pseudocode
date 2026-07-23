@@ -9,19 +9,19 @@
  *     ExpWnfDeleteSubscription @ 0x1405059CC (ExpWnfDeleteSubscription.c)
  */
 
-__int64 __fastcall NtUnsubscribeWnfStateChange(__int64 *a1)
+NTSTATUS __cdecl NtUnsubscribeWnfStateChange(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v2; // rdx
   struct _KTHREAD *v3; // rcx
   __int16 v4; // ax
-  int v6; // [rsp+24h] [rbp-14h]
+  NTSTATUS v6; // [rsp+24h] [rbp-14h]
   unsigned __int64 v7; // [rsp+48h] [rbp+10h] BYREF
   PVOID P; // [rsp+50h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = ExpCaptureWnfStateName(a1, &v7, KeGetCurrentThread()->PreviousMode);
+  v6 = ExpCaptureWnfStateName((__int64 *)StateName, &v7, KeGetCurrentThread()->PreviousMode);
   if ( v6 >= 0 )
   {
     v2 = KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[19];
@@ -48,5 +48,5 @@ __int64 __fastcall NtUnsubscribeWnfStateChange(__int64 *a1)
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v6;
+  return v6;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiConvertDynamicHeteroPolicy @ 0x1402983B0
+ * XREFs of KiConvertDynamicHeteroPolicy @ 0x1402985A0
  * Callers:
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
  *     KiSelectReadyThread @ 0x140057A20 (KiSelectReadyThread.c)
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     KiCheckPreferredHeteroProcessor @ 0x1400D0CB4 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x14029868C (KiHeteroChooseTargetProcessor.c)
- *     KiSetHeteroPolicyThread @ 0x14029905C (KiSetHeteroPolicyThread.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1400D0D34 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14029887C (KiHeteroChooseTargetProcessor.c)
+ *     KiSetHeteroPolicyThread @ 0x14029924C (KiSetHeteroPolicyThread.c)
  * Callees:
- *     KiIsThreadRankBiased @ 0x14029B6B0 (KiIsThreadRankBiased.c)
+ *     KiIsThreadRankBiased @ 0x14029B8A0 (KiIsThreadRankBiased.c)
  */
 
 __int64 __fastcall KiConvertDynamicHeteroPolicy(__int64 a1, __int64 a2, __int64 a3)
@@ -31,7 +31,7 @@ __int64 __fastcall KiConvertDynamicHeteroPolicy(__int64 a1, __int64 a2, __int64 
   v5 = a1;
   v6 = 1;
   if ( (v3 & 0x400000) != 0 )
-    return (unsigned int)dword_140540324[2 * (v3 & 3)];
+    return (unsigned int)dword_140541324[2 * (v3 & 3)];
   v8 = *(_QWORD *)(a1 + 1912);
   if ( !v8 )
   {
@@ -101,10 +101,10 @@ LABEL_39:
   v9 = *(_DWORD *)(a1 + 120) & 3;
   v10 = *(_DWORD *)(v8 + 120) & 3;
   if ( v10 == v9 || v10 != 3 && v9 != 3 && v10 >= v9 )
-    return (unsigned int)dword_140540324[2 * (v3 & 3)];
+    return (unsigned int)dword_140541324[2 * (v3 & 3)];
   do
 LABEL_35:
     v15 = *(_DWORD *)(v5 + 120);
   while ( v15 != _InterlockedCompareExchange((volatile signed __int32 *)(v5 + 120), v10 | v15 & 0xFFFFFFFC, v15) );
-  return *(unsigned int *)(v4 + 4 * (v6 + 2LL * v10) + 5505824);
+  return *(unsigned int *)(v4 + 4 * (v6 + 2LL * v10) + 5509920);
 }

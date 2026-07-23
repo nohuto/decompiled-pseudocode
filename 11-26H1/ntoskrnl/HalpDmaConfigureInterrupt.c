@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaConfigureInterrupt @ 0x1405A0DCC
+ * XREFs of HalpDmaConfigureInterrupt @ 0x1405A35DC
  * Callers:
- *     HalpDmaInitializeControllers @ 0x14058B92C (HalpDmaInitializeControllers.c)
+ *     HalpDmaInitializeControllers @ 0x14058E0AC (HalpDmaInitializeControllers.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpInterruptConnect @ 0x14057B950 (HalpInterruptConnect.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpInterruptConnect @ 0x14057DE80 (HalpInterruptConnect.c)
  */
 
 int __fastcall HalpDmaConfigureInterrupt(unsigned __int64 a1, __int128 *a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiOutSwapKernelStackPage @ 0x1400E503C
+ * XREFs of MiOutSwapKernelStackPage @ 0x1400E50BC
  * Callers:
- *     MiOutPageSingleKernelStack @ 0x14007FAB0 (MiOutPageSingleKernelStack.c)
+ *     MiOutPageSingleKernelStack @ 0x14007FAA0 (MiOutPageSingleKernelStack.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
- *     MiOutSwapWorkingSet @ 0x1400E57E8 (MiOutSwapWorkingSet.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiOutSwapWorkingSet @ 0x1400E5868 (MiOutSwapWorkingSet.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiOutSwapKernelStackPage(__int64 a1, __int64 a2, __int64 a3)

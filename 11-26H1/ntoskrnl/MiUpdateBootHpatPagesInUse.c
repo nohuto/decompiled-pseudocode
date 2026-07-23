@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdateBootHpatPagesInUse @ 0x140CFB804
+ * XREFs of MiUpdateBootHpatPagesInUse @ 0x140D01B84
  * Callers:
- *     MiHandleBootImage @ 0x140CFFFDC (MiHandleBootImage.c)
+ *     MiHandleBootImage @ 0x140D0637C (MiHandleBootImage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiIsPfnFromChargedSlabAllocation @ 0x140309350 (MiIsPfnFromChargedSlabAllocation.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiFindLoaderAppliedHotPatchEntry @ 0x140CFB678 (MiFindLoaderAppliedHotPatchEntry.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiIsPfnFromChargedSlabAllocation @ 0x1402EB3D0 (MiIsPfnFromChargedSlabAllocation.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiFindLoaderAppliedHotPatchEntry @ 0x140D019F8 (MiFindLoaderAppliedHotPatchEntry.c)
  */
 
 unsigned __int64 __fastcall MiUpdateBootHpatPagesInUse(__int64 a1, _QWORD *a2, __int64 a3)
@@ -31,10 +31,10 @@ unsigned __int64 __fastcall MiUpdateBootHpatPagesInUse(__int64 a1, _QWORD *a2, _
   __int64 v18; // rdi
   unsigned int v19; // r8d
   int IsPfnFromChargedSlabAllocation; // eax
-  __int64 v21; // rcx
+  PVOID v21; // rcx
   int v22; // [rsp+68h] [rbp+20h] BYREF
 
-  if ( !HIDWORD(stru_140E36558.SListFaultAddress) )
+  if ( !HIDWORD(stru_140E366D8.SListFaultAddress) )
     return 0LL;
   LoaderAppliedHotPatchEntry = MiFindLoaderAppliedHotPatchEntry(a1, a3);
   if ( !LoaderAppliedHotPatchEntry )
@@ -73,7 +73,7 @@ unsigned __int64 __fastcall MiUpdateBootHpatPagesInUse(__int64 a1, _QWORD *a2, _
         MiMarkPfnVerified(v18, 4);
       if ( (unsigned int)MiGetPfnSlabType(v18) == 9 )
       {
-        _InterlockedIncrement64(&qword_140E3D880);
+        _InterlockedIncrement64(&qword_140E3DA00);
       }
       else
       {
@@ -94,14 +94,14 @@ unsigned __int64 __fastcall MiUpdateBootHpatPagesInUse(__int64 a1, _QWORD *a2, _
     if ( v14 )
     {
       MiAcquireNonPagedResources(&MiSystemPartition, v14, 0LL, 0LL);
-      qword_140E3D8A8 += v14;
+      qword_140E3DA28 += v14;
     }
-    _InterlockedAdd64(&qword_140E2D7A8, v8);
-    v21 = *(_QWORD *)(a1 + 48);
+    _InterlockedAdd64(&qword_140E2D928, v8);
+    v21 = *(PVOID *)(a1 + 48);
     if ( v21 == PsNtosImageBase || v21 == PsHalImageBase )
-      _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.320, v14 - v8);
+      _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.320, v14 - v8);
     else
-      _InterlockedExchangeAdd((volatile signed __int32 *)&stru_140E36558.WaitBlockFill11[16], v14 - v8);
+      _InterlockedExchangeAdd((volatile signed __int32 *)&stru_140E366D8.WaitBlockFill11[16], v14 - v8);
   }
   return v8;
 }

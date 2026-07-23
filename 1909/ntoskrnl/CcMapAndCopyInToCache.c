@@ -56,7 +56,7 @@ char __fastcall CcMapAndCopyInToCache(
   __int64 v13; // r10
   bool v14; // r8
   int v15; // r14d
-  struct _SLIST_ENTRY *v16; // r13
+  _SLIST_ENTRY *v16; // r13
   char v17; // si
   __int64 v18; // r13
   __int64 v19; // rdi
@@ -106,7 +106,7 @@ char __fastcall CcMapAndCopyInToCache(
   void *v63; // r10
   int v64; // edx
   unsigned int v65; // edx
-  NTSTATUS v66; // r12d
+  signed int v66; // r12d
   char v67; // al
   struct _MDL *v68; // r12
   unsigned int v69; // ecx
@@ -133,7 +133,7 @@ char __fastcall CcMapAndCopyInToCache(
   _DWORD *v91; // rcx
   KIRQL v92; // di
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v94; // rax
+  _SLIST_ENTRY **v94; // rax
   __int64 v95; // rdi
   struct _KEVENT *v96; // rcx
   int v97; // eax
@@ -172,7 +172,7 @@ char __fastcall CcMapAndCopyInToCache(
   __int64 v130; // [rsp+80h] [rbp-120h] BYREF
   BOOL v131; // [rsp+88h] [rbp-118h]
   __int64 v132; // [rsp+90h] [rbp-110h] BYREF
-  NTSTATUS v133; // [rsp+98h] [rbp-108h]
+  signed int v133; // [rsp+98h] [rbp-108h]
   unsigned int v134; // [rsp+9Ch] [rbp-104h]
   int v135; // [rsp+A0h] [rbp-100h]
   int v136; // [rsp+A4h] [rbp-FCh]
@@ -530,7 +530,7 @@ LABEL_22:
       v151.LockQueue.Lock = (unsigned __int64 *volatile)(v129 + 192);
       v151.LockQueue.Next = 0LL;
       KxAcquireQueuedSpinLock((__int64)&v151, (volatile __int64 *)(v129 + 192));
-      v16 = *(struct _SLIST_ENTRY **)(v11 + 496);
+      v16 = *(_SLIST_ENTRY **)(v11 + 496);
       if ( !v16 )
       {
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&v151);
@@ -539,7 +539,7 @@ LABEL_22:
         RtlRaiseStatus(-1073741608);
       }
       Next = v16->Next;
-      v94 = (struct _SLIST_ENTRY **)*((_QWORD *)&v16->Next + 1);
+      v94 = (_SLIST_ENTRY **)*((_QWORD *)&v16->Next + 1);
       if ( *(&v16->Next->Next + 1) != v16 || *v94 != v16 )
         __fastfail(3u);
       *v94 = Next;
@@ -782,7 +782,7 @@ LABEL_46:
         }
         else if ( v67 )
         {
-          v66 = RtlWriteNonVolatileMemory(-1LL, v63, a2, v65, 2);
+          v66 = RtlWriteNonVolatileMemory((PVOID)0xFFFFFFFFFFFFFFFFLL, v63, a2, v65, 2u);
           v133 = v66;
         }
         else

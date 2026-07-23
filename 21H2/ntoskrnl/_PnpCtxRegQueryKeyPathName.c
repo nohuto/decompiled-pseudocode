@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpCtxRegQueryKeyPathName @ 0x1407A30A0
+ * XREFs of _PnpCtxRegQueryKeyPathName @ 0x1407A32A0
  * Callers:
- *     PipHardwareConfigInit @ 0x140A512F4 (PipHardwareConfigInit.c)
+ *     PipHardwareConfigInit @ 0x140A522F4 (PipHardwareConfigInit.c)
  * Callees:
- *     _RegRtlQueryKeyPathName @ 0x1407D2068 (_RegRtlQueryKeyPathName.c)
+ *     _RegRtlQueryKeyPathName @ 0x1407D21D8 (_RegRtlQueryKeyPathName.c)
  */
 
 __int64 __fastcall PnpCtxRegQueryKeyPathName(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

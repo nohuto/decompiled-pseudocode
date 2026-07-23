@@ -1,33 +1,33 @@
 /*
- * XREFs of EtwpFreeLoggerContext @ 0x140A6CBB4
+ * XREFs of EtwpFreeLoggerContext @ 0x140A16604
  * Callers:
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
- *     EtwpStopTrace @ 0x140A6F2F8 (EtwpStopTrace.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x140AB2D10 (EtwpStopTrace.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     ExDeleteTimer @ 0x1403AABC0 (ExDeleteTimer.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     EtwpFreeCompression @ 0x140423294 (EtwpFreeCompression.c)
- *     KeRemoveQueueDpc @ 0x140423350 (KeRemoveQueueDpc.c)
- *     EtwpCancelPendingApcs @ 0x1404676B0 (EtwpCancelPendingApcs.c)
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14048B090 (ExWaitForRundownProtectionReleaseCacheAware.c)
- *     ExReInitializeRundownProtectionCacheAware @ 0x14048D7D0 (ExReInitializeRundownProtectionCacheAware.c)
- *     KeGenericCallDpc @ 0x1404D1460 (KeGenericCallDpc.c)
- *     EtwpFreeApcPool @ 0x1404D9704 (EtwpFreeApcPool.c)
- *     EtwpClearPartitionContext @ 0x1404FA0F4 (EtwpClearPartitionContext.c)
- *     EtwpFreePmcData @ 0x140825E74 (EtwpFreePmcData.c)
- *     EtwpFreeLbrData @ 0x140830124 (EtwpFreeLbrData.c)
- *     EtwpDestructIptData @ 0x140830344 (EtwpDestructIptData.c)
- *     SeDeleteClientSecurity @ 0x1408E8BE0 (SeDeleteClientSecurity.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     EtwpFreeTraceBufferPool @ 0x140A6CF98 (EtwpFreeTraceBufferPool.c)
- *     EtwpShutdownConsumers @ 0x140A6D194 (EtwpShutdownConsumers.c)
- *     EtwpFreeSoftRestartContext @ 0x140A6D2A4 (EtwpFreeSoftRestartContext.c)
- *     EtwpFreeStackCache @ 0x140ABDC1C (EtwpFreeStackCache.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     ExDeleteTimer @ 0x1403B48D0 (ExDeleteTimer.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     EtwpFreeCompression @ 0x140430384 (EtwpFreeCompression.c)
+ *     KeRemoveQueueDpc @ 0x140430440 (KeRemoveQueueDpc.c)
+ *     EtwpCancelPendingApcs @ 0x140460E00 (EtwpCancelPendingApcs.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x140484BD0 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     ExReInitializeRundownProtectionCacheAware @ 0x140487310 (ExReInitializeRundownProtectionCacheAware.c)
+ *     KeGenericCallDpc @ 0x1404CAE90 (KeGenericCallDpc.c)
+ *     EtwpFreeApcPool @ 0x1404D2DE4 (EtwpFreeApcPool.c)
+ *     EtwpClearPartitionContext @ 0x1404F3704 (EtwpClearPartitionContext.c)
+ *     EtwpFreePmcData @ 0x14082C0B4 (EtwpFreePmcData.c)
+ *     EtwpFreeLbrData @ 0x140836364 (EtwpFreeLbrData.c)
+ *     EtwpDestructIptData @ 0x140836584 (EtwpDestructIptData.c)
+ *     SeDeleteClientSecurity @ 0x1408EF1A0 (SeDeleteClientSecurity.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
+ *     EtwpFreeSoftRestartContext @ 0x140A15394 (EtwpFreeSoftRestartContext.c)
+ *     EtwpShutdownConsumers @ 0x140A153E4 (EtwpShutdownConsumers.c)
+ *     EtwpFreeTraceBufferPool @ 0x140A154F4 (EtwpFreeTraceBufferPool.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     EtwpFreeStackCache @ 0x140AC020C (EtwpFreeStackCache.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeLoggerContext(char *P)
@@ -59,11 +59,11 @@ void __fastcall EtwpFreeLoggerContext(char *P)
   __int64 v26; // [rsp+30h] [rbp-28h]
 
   v1 = *((_QWORD *)P + 170);
-  EtwpShutdownConsumers();
+  EtwpShutdownConsumers((__int64)P);
   v3 = *(unsigned int *)P;
-  EtwpCancelPendingApcs((union _SLIST_HEADER *)P + 52);
+  EtwpCancelPendingApcs((_SLIST_HEADER *)P + 52);
   if ( (*((_DWORD *)P + 205) & 2) != 0 )
-    EtwpCancelPendingApcs((union _SLIST_HEADER *)P + 68);
+    EtwpCancelPendingApcs((_SLIST_HEADER *)P + 68);
   v4 = v3;
   ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v1 + 704) + 8 * v3), 1u);
   ExWaitForRundownProtectionReleaseCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v1 + 704) + 8 * v3));
@@ -95,8 +95,8 @@ void __fastcall EtwpFreeLoggerContext(char *P)
   EtwpFreeCompression((__int64)P);
   KeCancelTimer((PKTIMER)(P + 504));
   KeRemoveQueueDpc((PRKDPC)(P + 568));
-  EtwpFreeSoftRestartContext(P);
-  EtwpFreeTraceBufferPool(P);
+  EtwpFreeSoftRestartContext((__int64)P);
+  EtwpFreeTraceBufferPool((unsigned int *)P);
   v6 = KeNumberProcessors_0;
   for ( i = 0; i < v6; *(_QWORD *)(*(_QWORD *)(v9 + 8) + 8 * v4) = 0LL )
   {
@@ -122,7 +122,7 @@ void __fastcall EtwpFreeLoggerContext(char *P)
   if ( (*((_DWORD *)P + 204) & 0x80u) != 0 )
     ExFreePoolWithTag(*((PVOID *)P + 131), 0);
   if ( (*((_DWORD *)P + 204) & 0x2000) != 0 )
-    _InterlockedDecrement((volatile signed __int32 *)&stru_140E28440.PriorityFloorCounts[8]);
+    _InterlockedDecrement((volatile signed __int32 *)&stru_140E285C0.MutantListHead.Blink);
   if ( (*((_DWORD *)P + 204) & 0x1000000) != 0 )
     EtwpFreeStackCache(*((PVOID *)P + 132));
   if ( (*((_DWORD *)P + 3) & 0x2000000) != 0 )

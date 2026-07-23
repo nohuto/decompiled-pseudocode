@@ -1,12 +1,12 @@
 /*
- * XREFs of KiScheduleThreadToRescheduleContext @ 0x140243A40
+ * XREFs of KiScheduleThreadToRescheduleContext @ 0x140243B10
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402425A0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140242670 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
  * Callees:
- *     KiInsertDeferredReadyList @ 0x1402B9C54 (KiInsertDeferredReadyList.c)
- *     KiIsPrcbThread @ 0x140324D00 (KiIsPrcbThread.c)
+ *     KiInsertDeferredReadyList @ 0x1402B9EE4 (KiInsertDeferredReadyList.c)
+ *     KiIsPrcbThread @ 0x140324F90 (KiIsPrcbThread.c)
  */
 
 __int64 __fastcall KiScheduleThreadToRescheduleContext(

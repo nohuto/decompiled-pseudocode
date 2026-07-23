@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCaptureSectionCreateExtendedParameters @ 0x1409BAA7C
+ * XREFs of MiCaptureSectionCreateExtendedParameters @ 0x14098BA5C
  * Callers:
- *     MmCreateSection @ 0x1409B8FA0 (MmCreateSection.c)
- *     MiCreateSectionCommon @ 0x1409B9D9C (MiCreateSectionCommon.c)
- *     MmCreateSectionEx @ 0x1409BA2F0 (MmCreateSectionEx.c)
- *     AlpcpCreateSection @ 0x1409BB8D8 (AlpcpCreateSection.c)
+ *     MmCreateSection @ 0x140989F80 (MmCreateSection.c)
+ *     MiCreateSectionCommon @ 0x14098AD7C (MiCreateSectionCommon.c)
+ *     MmCreateSectionEx @ 0x14098B2D0 (MmCreateSectionEx.c)
+ *     AlpcpCreateSection @ 0x14098C8B8 (AlpcpCreateSection.c)
  * Callees:
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
  */
 
 __int64 __fastcall MiCaptureSectionCreateExtendedParameters(

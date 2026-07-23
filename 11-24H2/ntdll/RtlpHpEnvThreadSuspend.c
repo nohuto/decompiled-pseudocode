@@ -1,74 +1,72 @@
 /*
- * XREFs of RtlpHpEnvThreadSuspend @ 0x1800E8B60
+ * XREFs of RtlpHpEnvThreadSuspend @ 0x1800E4250
  * Callers:
- *     RtlpHpLfhPrivateSlotListCompact @ 0x1800E8930 (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x1800E4020 (RtlpHpLfhPrivateSlotListCompact.c)
  * Callees:
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwQueryInformationThread @ 0x180162130 (ZwQueryInformationThread.c)
- *     ZwResumeThread @ 0x1801626D0 (ZwResumeThread.c)
- *     ZwGetContextThread @ 0x180163BE0 (ZwGetContextThread.c)
- *     ZwOpenThread @ 0x1801643A0 (ZwOpenThread.c)
- *     NtSuspendThread @ 0x180165660 (NtSuspendThread.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwQueryInformationThread @ 0x1801604F0 (ZwQueryInformationThread.c)
+ *     ZwResumeThread @ 0x180160A90 (ZwResumeThread.c)
+ *     ZwGetContextThread @ 0x180161FA0 (ZwGetContextThread.c)
+ *     ZwOpenThread @ 0x180162760 (ZwOpenThread.c)
+ *     NtSuspendThread @ 0x180163A20 (NtSuspendThread.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpEnvThreadSuspend(unsigned int a1, __int64 a2, HANDLE *a3, _DWORD *a4)
 {
-  int ContextThread; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp-D0h] BYREF
+  NTSTATUS ContextThread; // ebx
+  HANDLE ThreadHandle; // [rsp+30h] [rbp-D0h] BYREF
   int v10; // [rsp+38h] [rbp-C8h] BYREF
   __int64 v11; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 *v12; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 *ThreadInformation; // [rsp+48h] [rbp-B8h] BYREF
   int v13; // [rsp+50h] [rbp-B0h]
   int v14; // [rsp+54h] [rbp-ACh]
-  _QWORD v15[2]; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v16[3]; // [rsp+68h] [rbp-98h] BYREF
-  int v17; // [rsp+80h] [rbp-80h]
-  int v18; // [rsp+84h] [rbp-7Ch]
-  __int128 v19; // [rsp+88h] [rbp-78h]
-  _BYTE v20[1232]; // [rsp+A0h] [rbp-60h] BYREF
+  _CLIENT_ID ClientId; // [rsp+58h] [rbp-A8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
+  struct _CONTEXT ThreadContext; // [rsp+A0h] [rbp-60h] BYREF
 
-  Handle = 0LL;
-  v18 = 0;
-  v15[0] = 0LL;
-  v16[1] = 0LL;
-  v17 = 0;
-  v16[2] = 0LL;
-  v16[0] = 48LL;
-  v15[1] = a1;
-  v19 = 0LL;
-  ContextThread = ZwOpenThread(&Handle, 2074LL, v16, v15);
+  ThreadHandle = 0LL;
+  ClientId.UniqueProcess = 0LL;
+  memset(&ObjectAttributes.RootDirectory, 0, 40);
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ClientId.UniqueThread = (void *)a1;
+  ContextThread = ZwOpenThread(&ThreadHandle, 0x81Au, &ObjectAttributes, &ClientId);
   if ( ContextThread >= 0 )
   {
-    ContextThread = NtSuspendThread(Handle, 0LL);
+    ContextThread = NtSuspendThread(ThreadHandle, 0LL);
     if ( ContextThread >= 0 )
     {
-      ContextThread = ZwGetContextThread(Handle, v20);
+      ContextThread = ZwGetContextThread(ThreadHandle, &ThreadContext);
       if ( ContextThread >= 0 )
       {
         v11 = 0LL;
-        v12 = &v11;
+        ThreadInformation = &v11;
         v14 = 8;
         v13 = 6232;
-        ContextThread = ZwQueryInformationThread(Handle, 58LL, &v12, 16LL, 0LL);
+        ContextThread = ZwQueryInformationThread(
+                          ThreadHandle,
+                          ThreadTebInformationAtomic,
+                          &ThreadInformation,
+                          0x10u,
+                          0LL);
         if ( ContextThread >= 0 )
         {
           if ( v11 != a2 )
           {
             v10 = 0;
-            ZwQueryInformationThread(Handle, 33LL, &v10, 4LL, 0LL);
+            ZwQueryInformationThread(ThreadHandle, ThreadIdealProcessorEx, &v10, 4u, 0LL);
             ContextThread = 0;
-            *a3 = Handle;
+            *a3 = ThreadHandle;
             *a4 = BYTE2(v10);
             return (unsigned int)ContextThread;
           }
           ContextThread = -2147483631;
         }
       }
-      ZwResumeThread(Handle, 0LL);
+      ZwResumeThread(ThreadHandle, 0LL);
     }
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( ThreadHandle )
+    NtClose(ThreadHandle);
   return (unsigned int)ContextThread;
 }

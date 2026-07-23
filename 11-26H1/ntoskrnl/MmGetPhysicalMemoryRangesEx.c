@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGetPhysicalMemoryRangesEx @ 0x140867440
+ * XREFs of MmGetPhysicalMemoryRangesEx @ 0x14086D820
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalMemoryRangesEx2 @ 0x140B4D600 (MmGetPhysicalMemoryRangesEx2.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x140B4F390 (MmGetPhysicalMemoryRangesEx2.c)
  */
 
 __int64 __fastcall MmGetPhysicalMemoryRangesEx(__int64 a1)

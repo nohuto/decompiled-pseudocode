@@ -13,7 +13,7 @@
 bool __fastcall sub_180036544(__int64 a1, int a2)
 {
   int v2; // eax
-  void *ThreadPoolData; // rcx
+  PVOID ThreadPoolData; // rcx
 
   v2 = *(_DWORD *)(a1 + 168);
   if ( (v2 & 0x10000) != 0 )

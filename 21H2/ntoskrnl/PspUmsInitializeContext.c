@@ -1,10 +1,10 @@
 /*
- * XREFs of PspUmsInitializeContext @ 0x14090A834
+ * XREFs of PspUmsInitializeContext @ 0x14090A994
  * Callers:
- *     PspUmsInitThread @ 0x14090A74C (PspUmsInitThread.c)
+ *     PspUmsInitThread @ 0x14090A8AC (PspUmsInitThread.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     RtlGetUmsContextExtendedSize @ 0x1405931FC (RtlGetUmsContextExtendedSize.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlGetUmsContextExtendedSize @ 0x14059342C (RtlGetUmsContextExtendedSize.c)
  */
 
 __int64 __fastcall PspUmsInitializeContext(_QWORD *a1, __int64 a2)

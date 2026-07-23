@@ -11,43 +11,31 @@
  *     NtGetCompleteWnfStateSubscription @ 0x180165150 (NtGetCompleteWnfStateSubscription.c)
  */
 
-void __fastcall RtlpWnfNotificationThread(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall RtlpWnfNotificationThread(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WAIT a3)
 {
-  __int64 Heap; // rbx
-  int CompleteWnfStateSubscription; // edi
-  int v7; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v8[4]; // [rsp+38h] [rbp-20h] BYREF
-  int v9; // [rsp+68h] [rbp+10h] BYREF
+  NTSTATUS CompleteWnfStateSubscription; // edi
+  _WNF_DELIVERY_DESCRIPTOR *NewDeliveryDescriptor; // rbx
+  LARGE_INTEGER Timeout; // [rsp+38h] [rbp-20h] BYREF
 
-  v8[0] = -50000000LL;
-  Heap = 0LL;
-  v7 = 0;
-  v9 = 0;
+  Timeout.QuadPart = -50000000LL;
   if ( qword_1801D0200 )
   {
     TpSetWaitEx(a3, a2, 0LL, 0LL);
     while ( 1 )
     {
-      if ( !Heap )
-      {
-        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap);
-        if ( !Heap )
-          break;
-      }
-      CompleteWnfStateSubscription = NtGetCompleteWnfStateSubscription(0LL, 0LL, 0LL, 0LL, Heap, 4144);
+      NewDeliveryDescriptor = (_WNF_DELIVERY_DESCRIPTOR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x1030uLL);
+      if ( !NewDeliveryDescriptor )
+        break;
+      CompleteWnfStateSubscription = NtGetCompleteWnfStateSubscription(0LL, 0LL, 0, 0, NewDeliveryDescriptor, 0x1030u);
       if ( CompleteWnfStateSubscription < 0 )
       {
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, NewDeliveryDescriptor);
         if ( CompleteWnfStateSubscription == -2147483622 )
           return;
         break;
       }
-      RtlpWnfProcessCurrentDescriptor(Heap, 0LL, &v7, &v9);
-      if ( v9 )
-        RtlpWnfCalculateAndSetNextTimer();
-      if ( !v7 )
-        Heap = 0LL;
+      RtlpWnfProcessCurrentDescriptor(&NewDeliveryDescriptor->SubscriptionId);
     }
-    TpSetWaitEx(a3, a2, v8, 0LL);
+    TpSetWaitEx(a3, a2, &Timeout, 0LL);
   }
 }

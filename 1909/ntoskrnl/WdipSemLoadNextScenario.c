@@ -265,6 +265,6 @@ LABEL_37:
   if ( KeyHandlea )
     ZwClose(KeyHandlea);
   if ( v6 )
-    WdipSemFastFree(0, (struct _SLIST_ENTRY *)v6);
+    WdipSemFastFree(0, (_SLIST_ENTRY *)v6);
   return (unsigned int)v8;
 }

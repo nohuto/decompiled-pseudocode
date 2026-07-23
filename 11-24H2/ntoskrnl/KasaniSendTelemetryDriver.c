@@ -1,11 +1,11 @@
 /*
- * XREFs of KasaniSendTelemetryDriver @ 0x1405AAD40
+ * XREFs of KasaniSendTelemetryDriver @ 0x1405A7CB0
  * Callers:
- *     KasanDriverLoadImageInternal @ 0x1404B7B70 (KasanDriverLoadImageInternal.c)
- *     KasanInitSystem @ 0x140C26690 (KasanInitSystem.c)
+ *     KasanDriverLoadImageInternal @ 0x1404B24C0 (KasanDriverLoadImageInternal.c)
+ *     KasanInitSystem @ 0x140C286E0 (KasanInitSystem.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall KasaniSendTelemetryDriver(__int64 a1)
@@ -42,7 +42,7 @@ void __fastcall KasaniSendTelemetryDriver(__int64 a1)
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     EventDescriptor.Keyword = 0x400000000000LL;
     UserData.Size = *(unsigned __int16 *)off_140E07008;
-    v7 = byte_140046D93;
+    v7 = byte_140047165;
     UserData.Reserved = 2;
     v8 = 43;
     v9 = 1;

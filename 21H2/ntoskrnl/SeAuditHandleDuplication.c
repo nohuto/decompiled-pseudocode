@@ -1,16 +1,16 @@
 /*
- * XREFs of SeAuditHandleDuplication @ 0x14091DACC
+ * XREFs of SeAuditHandleDuplication @ 0x14091DC2C
  * Callers:
- *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
- *     ObCompleteObjectDuplication @ 0x14062D640 (ObCompleteObjectDuplication.c)
- *     ObAuditInheritedHandleProcedure @ 0x1408DC400 (ObAuditInheritedHandleProcedure.c)
+ *     ObCompleteObjectDuplication @ 0x1405E36D0 (ObCompleteObjectDuplication.c)
+ *     ObDuplicateObject @ 0x1406E4910 (ObDuplicateObject.c)
+ *     ObAuditInheritedHandleProcedure @ 0x1408DC560 (ObAuditInheritedHandleProcedure.c)
  * Callees:
- *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     ObpIsKernelHandle @ 0x140353610 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2884 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
  */
 
 void __fastcall SeAuditHandleDuplication(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

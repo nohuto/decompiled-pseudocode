@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInitializeReservedCpuSets @ 0x140A4CD9C
+ * XREFs of KiInitializeReservedCpuSets @ 0x140A4DD9C
  * Callers:
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     KeSetSystemAllowedCpuSets @ 0x1402AAC7C (KeSetSystemAllowedCpuSets.c)
- *     KiValidateCpuSetMasks @ 0x1402AB540 (KiValidateCpuSetMasks.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeSetSystemAllowedCpuSets @ 0x140228DBC (KeSetSystemAllowedCpuSets.c)
+ *     KiValidateCpuSetMasks @ 0x140229680 (KiValidateCpuSetMasks.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS KiInitializeReservedCpuSets()

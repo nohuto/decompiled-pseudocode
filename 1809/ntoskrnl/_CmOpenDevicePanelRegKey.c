@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmOpenDevicePanelRegKey @ 0x1408FC034
+ * XREFs of _CmOpenDevicePanelRegKey @ 0x1408FD2F4
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x140749A60 (_PnpDispatchDevicePanel.c)
- *     _CmCreateDevicePanelWorker @ 0x1408FB538 (_CmCreateDevicePanelWorker.c)
+ *     _PnpDispatchDevicePanel @ 0x14074AC50 (_PnpDispatchDevicePanel.c)
+ *     _CmCreateDevicePanelWorker @ 0x1408FC7F8 (_CmCreateDevicePanelWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     _CmOpenDevicePanelRegKeyWorker @ 0x1408FC1A8 (_CmOpenDevicePanelRegKeyWorker.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     _CmOpenDevicePanelRegKeyWorker @ 0x1408FD468 (_CmOpenDevicePanelRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenDevicePanelRegKey(

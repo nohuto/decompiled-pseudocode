@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCrcStillIntact @ 0x140367B74
+ * XREFs of MiCrcStillIntact @ 0x140367D24
  * Callers:
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
  * Callees:
- *     MiVadSupportsPrivateCommit @ 0x14021B240 (MiVadSupportsPrivateCommit.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     MiGetWsleContents @ 0x140270D40 (MiGetWsleContents.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
- *     MiClearPteAccessed @ 0x140339E00 (MiClearPteAccessed.c)
- *     MiRecheckVaVm @ 0x140369594 (MiRecheckVaVm.c)
- *     MiCombineCandidate @ 0x1403697A0 (MiCombineCandidate.c)
- *     MiMakeCombineCandidateClean @ 0x140369D8C (MiMakeCombineCandidateClean.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiGetWsleContents @ 0x14025ECE0 (MiGetWsleContents.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     MiVadSupportsPrivateCommit @ 0x1402BFB40 (MiVadSupportsPrivateCommit.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiTbFlushType @ 0x140341F58 (MiTbFlushType.c)
+ *     MiClearPteAccessed @ 0x140344B50 (MiClearPteAccessed.c)
+ *     MiRecheckVaVm @ 0x140369744 (MiRecheckVaVm.c)
+ *     MiCombineCandidate @ 0x140369950 (MiCombineCandidate.c)
+ *     MiMakeCombineCandidateClean @ 0x140369F3C (MiMakeCombineCandidateClean.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
@@ -101,7 +101,7 @@ __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, unsigned int a3, __i
     v26[3] = 0LL;
     LODWORD(v26[0]) = v22;
     LODWORD(v26[1]) = 20;
-    if ( !(unsigned int)MiClearPteAccessed(v23, v12, v9, (__int64)v26, dword_140C4E828, 0) )
+    if ( !(unsigned int)MiClearPteAccessed(v23, v12, v9, (__int64)v26, dword_140C4E868, 0) )
       return 0LL;
   }
   return 1LL;

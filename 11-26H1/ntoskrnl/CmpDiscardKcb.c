@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDiscardKcb @ 0x1408B9D6C
+ * XREFs of CmpDiscardKcb @ 0x1408C033C
  * Callers:
- *     CmDeleteLayeredKey @ 0x140446A10 (CmDeleteLayeredKey.c)
- *     CmpRemoveHiveFromNamespace @ 0x1404CC980 (CmpRemoveHiveFromNamespace.c)
- *     CmpRefreshWorkerRoutine @ 0x14084E200 (CmpRefreshWorkerRoutine.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x14085ED40 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
- *     CmpCompleteUnloadKey @ 0x1408B9ACC (CmpCompleteUnloadKey.c)
- *     CmDeleteKey @ 0x1408BAD90 (CmDeleteKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x1408BC6D0 (CmpTransMgrFreeVolatileData.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A2E164 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpCommitDiscardReplacePost @ 0x140A2F58C (CmpCommitDiscardReplacePost.c)
- *     CmpInvalidateSubtreeWorker @ 0x140B1C7F0 (CmpInvalidateSubtreeWorker.c)
+ *     CmDeleteLayeredKey @ 0x14043F510 (CmDeleteLayeredKey.c)
+ *     CmpRemoveHiveFromNamespace @ 0x1404C6120 (CmpRemoveHiveFromNamespace.c)
+ *     CmpRefreshWorkerRoutine @ 0x140854510 (CmpRefreshWorkerRoutine.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x140865030 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmpCompleteUnloadKey @ 0x1408C009C (CmpCompleteUnloadKey.c)
+ *     CmDeleteKey @ 0x1408C1360 (CmDeleteKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1408C2CA0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A3FFF0 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpCommitDiscardReplacePost @ 0x140A41418 (CmpCommitDiscardReplacePost.c)
+ *     CmpInvalidateSubtreeWorker @ 0x140B1EA00 (CmpInvalidateSubtreeWorker.c)
  * Callees:
- *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x1408B9E68 (CmpLockDeletedHashEntryExclusiveByKcb.c)
- *     CmpUnlockDeletedHashEntryByKcb @ 0x1408B9F4C (CmpUnlockDeletedHashEntryByKcb.c)
- *     CmpRemoveKeyHash @ 0x1408BA020 (CmpRemoveKeyHash.c)
+ *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x1408C0438 (CmpLockDeletedHashEntryExclusiveByKcb.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x1408C051C (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpRemoveKeyHash @ 0x1408C05F0 (CmpRemoveKeyHash.c)
  */
 
 __int64 __fastcall CmpDiscardKcb(ULONG_PTR BugCheckParameter4)

@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbInitDatabaseInMemory @ 0x14095D30C
+ * XREFs of SdbInitDatabaseInMemory @ 0x140944DCC
  * Callers:
- *     PpBootDDBHelper @ 0x140724D6C (PpBootDDBHelper.c)
- *     KsepSdbBootInitialize @ 0x14073FF0C (KsepSdbBootInitialize.c)
- *     KsepSdbMapToMemory @ 0x14095CECC (KsepSdbMapToMemory.c)
- *     PiInitializeDDB @ 0x1409C7B30 (PiInitializeDDB.c)
+ *     PpBootDDBHelper @ 0x1407228FC (PpBootDDBHelper.c)
+ *     KsepSdbBootInitialize @ 0x14073DE3C (KsepSdbBootInitialize.c)
+ *     KsepSdbMapToMemory @ 0x14094498C (KsepSdbMapToMemory.c)
+ *     PiInitializeDDB @ 0x1409B8DD4 (PiInitializeDDB.c)
  * Callees:
- *     SdbpInitializeMatchers @ 0x14095BBD4 (SdbpInitializeMatchers.c)
- *     SdbpOpenDatabaseInMemory @ 0x14095BC48 (SdbpOpenDatabaseInMemory.c)
- *     SdbCloseDatabaseRead @ 0x14095BDD8 (SdbCloseDatabaseRead.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbpInitializeMatchers @ 0x140943694 (SdbpInitializeMatchers.c)
+ *     SdbpOpenDatabaseInMemory @ 0x140943708 (SdbpOpenDatabaseInMemory.c)
+ *     SdbCloseDatabaseRead @ 0x140943898 (SdbCloseDatabaseRead.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, int a2)

@@ -830,7 +830,7 @@ LABEL_21:
     }
     if ( v24 )
     {
-      KeAbPreWait(v24, ThreadTimerDelay, WaitMode);
+      KeAbPreWait(v24);
       LODWORD(v9) = QuadPart;
       v21 = Timeouta;
     }
@@ -869,7 +869,7 @@ LABEL_21:
   {
     _InterlockedAnd((volatile signed __int32 *)Object, 0xFFFFFF7F);
     KiFastExitThreadWait(v18, CurrentThread, v13);
-    RtlRaiseStatus(3221225873LL);
+    RtlRaiseStatus(-1073741423);
   }
   v32 = v31 - 1;
   *((_DWORD *)Object + 1) = v32;

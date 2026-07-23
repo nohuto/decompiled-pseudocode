@@ -62,7 +62,7 @@ __int64 __fastcall MiUnlockPartitionSystemThreads(__int64 a1, __int64 a2)
         {
           *(_BYTE *)(v11 + 32) |= 2u;
           if ( *(__int64 *)(v11 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v11);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11);
           v12 = *(_DWORD *)(v11 + 88) & 0x1FFFF;
           v13 = *(_DWORD *)(v11 + 88) & 0xFFFE0000;
           *(_BYTE *)(v11 + 25) &= ~1u;

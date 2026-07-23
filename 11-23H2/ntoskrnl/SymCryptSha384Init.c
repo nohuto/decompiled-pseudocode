@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptSha384Init @ 0x1403FA510
+ * XREFs of SymCryptSha384Init @ 0x1403FA6F0
  * Callers:
- *     SymCryptSha384Result @ 0x1403FA55C (SymCryptSha384Result.c)
- *     HashpInitHash @ 0x140A7765C (HashpInitHash.c)
+ *     SymCryptSha384Result @ 0x1403FA73C (SymCryptSha384Result.c)
+ *     HashpInitHash @ 0x140A7790C (HashpInitHash.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiActivateWaiterKQueue @ 0x1403F69C0
+ * XREFs of KiActivateWaiterKQueue @ 0x1403F0370
  * Callers:
- *     KiActivateWaiterQueueWithNoLocks @ 0x140223020 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiActivateWaiterQueueWithThreadLock @ 0x1403F65F0 (KiActivateWaiterQueueWithThreadLock.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402249B0 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterQueueWithThreadLock @ 0x1403EFFA0 (KiActivateWaiterQueueWithThreadLock.c)
  * Callees:
- *     KiWakeQueueWaiter @ 0x1403F6E10 (KiWakeQueueWaiter.c)
+ *     KiWakeQueueWaiter @ 0x1403F07C0 (KiWakeQueueWaiter.c)
  */
 
 unsigned __int64 __fastcall KiActivateWaiterKQueue(__int64 a1)

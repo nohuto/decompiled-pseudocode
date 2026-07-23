@@ -1,5 +1,5 @@
 /*
- * XREFs of MiZeroPageThread @ 0x140179200
+ * XREFs of MiZeroPageThread @ 0x140179300
  * Callers:
  *     <none>
  * Callees:
@@ -7,25 +7,25 @@
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
  *     MiWaitForFreePagesToZero @ 0x140053280 (MiWaitForFreePagesToZero.c)
- *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     MiMapPagesToZero @ 0x1400F90E0 (MiMapPagesToZero.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x140127FD0 (KeFindFirstSetLeftGroupAffinity.c)
- *     KeSetIdealProcessorThreadEx @ 0x14015CE4C (KeSetIdealProcessorThreadEx.c)
- *     MiInitializeColorTable @ 0x14016A4CC (MiInitializeColorTable.c)
- *     MiDeleteZeroThreadContext @ 0x1401850B4 (MiDeleteZeroThreadContext.c)
- *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
- *     MiZeroBootLargePages @ 0x140192554 (MiZeroBootLargePages.c)
- *     MiSetZeroPageThreadPriority @ 0x14019305C (MiSetZeroPageThreadPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiUnlinkNodeLargePage @ 0x140064280 (MiUnlinkNodeLargePage.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     MiMapPagesToZero @ 0x1400F9160 (MiMapPagesToZero.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1401280A0 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14015CF4C (KeSetIdealProcessorThreadEx.c)
+ *     MiInitializeColorTable @ 0x14016A5CC (MiInitializeColorTable.c)
+ *     MiDeleteZeroThreadContext @ 0x1401851F4 (MiDeleteZeroThreadContext.c)
+ *     MiGetHugePageToZero @ 0x1401855A4 (MiGetHugePageToZero.c)
+ *     MiZeroBootLargePages @ 0x140192694 (MiZeroBootLargePages.c)
+ *     MiSetZeroPageThreadPriority @ 0x14019319C (MiSetZeroPageThreadPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiZeroPageThread(ULONG_PTR *a1)
@@ -126,7 +126,7 @@ void __fastcall MiZeroPageThread(ULONG_PTR *a1)
         HugePageToZero = MiGetHugePageToZero(v1, v2);
         goto LABEL_19;
       }
-      v9 = (unsigned int)(v4[3] >> byte_14043A049);
+      v9 = (unsigned int)(v4[3] >> byte_14043B109);
       *(_QWORD *)(v2 + 32) = 0LL;
       if ( v8 < 3 )
       {
@@ -144,7 +144,7 @@ void __fastcall MiZeroPageThread(ULONG_PTR *a1)
         v19 = *(_QWORD *)&SchedulerAssist[10 * v17 + 4];
         if ( v19 == 0xFFFFFFFFFLL )
         {
-          v17 = v17 & ~dword_14043A040 | dword_14043A040 & (v17 + 1);
+          v17 = v17 & ~dword_14043B100 | dword_14043B100 & (v17 + 1);
           *(_DWORD *)(v2 + 244) = v17;
           goto LABEL_24;
         }
@@ -212,7 +212,7 @@ LABEL_24:
         v36 = 0;
         goto LABEL_49;
       }
-      v25 = &dword_14043A6D8;
+      v25 = &dword_14043B798;
       *(_QWORD *)(v51 + 24) = v12;
       v26 = KeGetCurrentThread();
       *(_QWORD *)(v51 + 56) = v26;
@@ -221,7 +221,7 @@ LABEL_24:
       v27 = *(_BYTE *)(v51 + 71) == 0;
       *(_QWORD *)(v51 + 32) = 0LL;
       if ( v27 )
-        v25 = &dword_14043A6E8;
+        v25 = &dword_14043B7A8;
       *(_WORD *)(v51 + 69) = 0;
       if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
       {
@@ -280,8 +280,8 @@ LABEL_24:
       v31 = 0;
       if ( *(_BYTE *)(v51 + 71) )
       {
-        v32 = (_QWORD *)qword_14043A6E0;
-        if ( qword_14043A6E0 )
+        v32 = (_QWORD *)qword_14043B7A0;
+        if ( qword_14043B7A0 )
         {
           while ( 1 )
           {
@@ -306,13 +306,13 @@ LABEL_24:
             v32 = v47;
           }
         }
-        v33 = &qword_14043A6E0;
+        v33 = &qword_14043B7A0;
         v2 = v51;
         goto LABEL_45;
       }
-      v32 = (_QWORD *)qword_14043A6F0;
+      v32 = (_QWORD *)qword_14043B7B0;
       v2 = v51;
-      if ( !qword_14043A6F0 )
+      if ( !qword_14043B7B0 )
         goto LABEL_44;
       while ( 2 )
       {
@@ -337,7 +337,7 @@ LABEL_96:
       }
       v31 = 1;
 LABEL_44:
-      v33 = &qword_14043A6F0;
+      v33 = &qword_14043B7B0;
 LABEL_45:
       RtlAvlInsertNodeEx((unsigned __int64 *)v33, (unsigned __int64)v32, v31, (_QWORD *)v2);
       *(_BYTE *)(v2 + 68) = 1;

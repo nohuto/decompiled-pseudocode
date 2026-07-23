@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFinishPageTableForLargePage @ 0x1402A254C
+ * XREFs of MiFinishPageTableForLargePage @ 0x1402A1A9C
  * Callers:
- *     MiMapWithLargePages @ 0x1402A2694 (MiMapWithLargePages.c)
+ *     MiMapWithLargePages @ 0x1402A1BE4 (MiMapWithLargePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
  */
 
 void __fastcall MiFinishPageTableForLargePage(__int64 a1)

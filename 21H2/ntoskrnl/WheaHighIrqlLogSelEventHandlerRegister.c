@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaHighIrqlLogSelEventHandlerRegister @ 0x1405BD360
+ * XREFs of WheaHighIrqlLogSelEventHandlerRegister @ 0x1405BD590
  * Callers:
  *     <none>
  * Callees:
- *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD510 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD740 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
  */
 
 char __fastcall WheaHighIrqlLogSelEventHandlerRegister(void *a1)

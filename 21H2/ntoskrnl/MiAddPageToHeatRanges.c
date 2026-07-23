@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAddPageToHeatRanges @ 0x14055F4FC
+ * XREFs of MiAddPageToHeatRanges @ 0x14055F73C
  * Callers:
  *     MiAddPageToHeatList @ 0x1403F7C88 (MiAddPageToHeatList.c)
- *     MiMakeTransitionHeatBatch @ 0x14055FA70 (MiMakeTransitionHeatBatch.c)
+ *     MiMakeTransitionHeatBatch @ 0x14055FCB0 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     <none>
  */

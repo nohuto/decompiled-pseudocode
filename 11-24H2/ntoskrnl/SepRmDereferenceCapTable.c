@@ -1,14 +1,10 @@
 /*
- * XREFs of SepRmDereferenceCapTable @ 0x1404F5488
+ * XREFs of SepRmDereferenceCapTable @ 0x1404F2D88
  * Callers:
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140360470 (SepCommonAccessCheckEx.c)
- *     SepRmReferenceFindCap @ 0x140454FA4 (SepRmReferenceFindCap.c)
- *     SepRmCapUpdateWrkr @ 0x140796050 (SepRmCapUpdateWrkr.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SepRmReferenceFindCap @ 0x1403B562C (SepRmReferenceFindCap.c)
+ *     SepRmCapUpdateWrkr @ 0x140796160 (SepRmCapUpdateWrkr.c)
  * Callees:
- *     SepRmDestroyCapTable @ 0x140796214 (SepRmDestroyCapTable.c)
+ *     SepRmDestroyCapTable @ 0x140796324 (SepRmDestroyCapTable.c)
  */
 
 __int64 __fastcall SepRmDereferenceCapTable(volatile signed __int64 *a1)

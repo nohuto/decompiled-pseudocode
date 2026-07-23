@@ -1,13 +1,13 @@
 /*
  * XREFs of IoQueueThreadIrp @ 0x140389E20
  * Callers:
- *     PiPagePathSetState @ 0x14084BB98 (PiPagePathSetState.c)
- *     PipSendGuestAssignedNotification @ 0x14095A544 (PipSendGuestAssignedNotification.c)
+ *     sub_14084BB98 @ 0x14084BB98 (sub_14084BB98.c)
+ *     sub_14095A544 @ 0x14095A544 (sub_14095A544.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
+ *     sub_1402AE1B0 @ 0x1402AE1B0 (sub_1402AE1B0.c)
  */
 
 void __stdcall IoQueueThreadIrp(PIRP Irp)
 {
-  IopQueueThreadIrp((__int64)Irp);
+  sub_1402AE1B0((__int64)Irp);
 }

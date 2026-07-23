@@ -12,20 +12,20 @@
 __int64 __fastcall sub_18005032C(__int64 a1)
 {
   struct _PEB *v1; // rax
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
-  wchar_t *Buffer; // rbx
+  PRTL_USER_PROCESS_PARAMETERS ProcessParameters; // rax
+  const WCHAR *Buffer; // rbx
   __int64 result; // rax
   int v6; // r8d
   int v7; // r9d
-  char v8[32]; // [rsp+30h] [rbp-58h] BYREF
-  char v9[16]; // [rsp+50h] [rbp-38h] BYREF
-  char v10[16]; // [rsp+60h] [rbp-28h] BYREF
+  _BYTE v8[32]; // [rsp+30h] [rbp-58h] BYREF
+  _BYTE v9[16]; // [rsp+50h] [rbp-38h] BYREF
+  _BYTE v10[16]; // [rsp+60h] [rbp-28h] BYREF
 
   v1 = NtCurrentPeb();
   if ( v1 && (ProcessParameters = v1->ProcessParameters) != 0LL )
     Buffer = ProcessParameters->ImagePathName.Buffer;
   else
-    Buffer = (wchar_t *)&unk_18011B604;
+    Buffer = &word_18011B604;
   result = (unsigned int)_InterlockedCompareExchange(&dword_18015C058, 1, 0);
   if ( !(_DWORD)result )
   {
@@ -36,7 +36,7 @@ __int64 __fastcall sub_18005032C(__int64 a1)
   {
     sub_1800D6BE4(v9, a1);
     sub_1800D6BE4(v10, Buffer);
-    return sub_1800905E4((unsigned int)&dword_180155540, (unsigned int)&unk_1801243C4, v6, v7, 4, (__int64)v8);
+    return sub_1800905E4((int)&dword_180155540, (int)&dword_1801243C4, v6, v7, 4u, (PEVENT_DATA_DESCRIPTOR)v8);
   }
   return result;
 }

@@ -3,13 +3,13 @@
  * Callers:
  *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     MiPageRead @ 0x1402A3BAC (MiPageRead.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     MiIsRetryIoStatus @ 0x1402F4998 (MiIsRetryIoStatus.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiCopyFromDirectMapExtent @ 0x140A3394C (MiCopyFromDirectMapExtent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     MiPageRead @ 0x1402A3E3C (MiPageRead.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     MiIsRetryIoStatus @ 0x1402F4C28 (MiIsRetryIoStatus.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiCopyFromDirectMapExtent @ 0x140A33BFC (MiCopyFromDirectMapExtent.c)
  */
 
 __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, ULONG_PTR a2, __int64 a3, __int64 a4)

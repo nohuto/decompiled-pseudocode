@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuUnmapLogicalRange @ 0x1404DC62C
+ * XREFs of HalpIommuUnmapLogicalRange @ 0x1404DC86C
  * Callers:
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
- *     IommuMapIdentityRange @ 0x1404DA7D0 (IommuMapIdentityRange.c)
- *     IommuUnmapIdentityRange @ 0x1404DAC60 (IommuUnmapIdentityRange.c)
- *     HalpIommuMapLogical @ 0x1404DBE24 (HalpIommuMapLogical.c)
- *     HalpIommuMapLogicalRange @ 0x1404DC20C (HalpIommuMapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
+ *     IommuMapIdentityRange @ 0x1404DAA10 (IommuMapIdentityRange.c)
+ *     IommuUnmapIdentityRange @ 0x1404DAEA0 (IommuUnmapIdentityRange.c)
+ *     HalpIommuMapLogical @ 0x1404DC064 (HalpIommuMapLogical.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC44C (HalpIommuMapLogicalRange.c)
  * Callees:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0 (KeInvalidateRangeAllCachesNoIpi.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x14030E640 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpIommuUnmapLogicalRange(__int64 a1, unsigned __int64 *a2, __int64 a3)

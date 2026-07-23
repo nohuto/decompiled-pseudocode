@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReferenceFileObjectForMap @ 0x140A66F20
+ * XREFs of MiReferenceFileObjectForMap @ 0x140A73EF0
  * Callers:
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiAllocateImageVad @ 0x1409CD948 (MiAllocateImageVad.c)
- *     MiAllowImageMap @ 0x140B1FE0C (MiAllowImageMap.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiAllocateImageVad @ 0x14099E928 (MiAllocateImageVad.c)
+ *     MiAllowImageMap @ 0x140B2222C (MiAllowImageMap.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
  */
 
 void *__fastcall MiReferenceFileObjectForMap(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetPageForHeader @ 0x1400934B8
+ * XREFs of MiGetPageForHeader @ 0x1400933F8
  * Callers:
- *     MiInitializeImageProtos @ 0x140093198 (MiInitializeImageProtos.c)
- *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
+ *     MiInitializeImageProtos @ 0x1400930D8 (MiInitializeImageProtos.c)
+ *     MiCreateImageFileMap @ 0x14061DEB8 (MiCreateImageFileMap.c)
  * Callees:
  *     MiGetEffectivePagePriorityThread @ 0x14001AEA8 (MiGetEffectivePagePriorityThread.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
- *     MiGetSystemPage @ 0x1400935E4 (MiGetSystemPage.c)
- *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiObtainFaultCharges @ 0x140064D50 (MiObtainFaultCharges.c)
+ *     MiGetSystemPage @ 0x140093524 (MiGetSystemPage.c)
+ *     MiReturnFaultCharges @ 0x140134924 (MiReturnFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPageForHeader(ULONG_PTR *a1, int a2)

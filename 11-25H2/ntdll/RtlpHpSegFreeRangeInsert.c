@@ -16,7 +16,7 @@ __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, int a3)
 {
   char v5; // al
   __int64 v6; // rdx
-  unsigned __int8 v7; // cl
+  BOOLEAN v7; // cl
   __int64 v8; // rcx
   __int64 v9; // r8
   __int64 v10; // r9
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, int a3)
   __int64 v16; // [rsp+40h] [rbp-49h] BYREF
   __int64 v17; // [rsp+48h] [rbp-41h] BYREF
   __int64 v18; // [rsp+50h] [rbp-39h] BYREF
-  _BYTE v19[32]; // [rsp+60h] [rbp-29h] BYREF
+  _EVENT_DATA_DESCRIPTOR v19; // [rsp+60h] [rbp-29h] BYREF
   __int64 *v20; // [rsp+80h] [rbp-9h]
   __int64 v21; // [rsp+88h] [rbp-1h]
   __int64 *v22; // [rsp+90h] [rbp+7h]
@@ -102,7 +102,7 @@ LABEL_10:
 LABEL_23:
   v7 = 0;
 LABEL_11:
-  RtlRbInsertNodeEx(a1 + 96, v6, v7, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v6, v7, (PRTL_BALANCED_NODE)a2);
   _InterlockedAdd64(
     (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
     (unsigned __int16)~*(_WORD *)(a2 + 28));
@@ -127,7 +127,13 @@ LABEL_11:
       v27 = 8LL;
       v18 = v13;
       v29 = 8LL;
-      tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801CE670, byte_1801A43AB, v9, v10, 7, (__int64)v19);
+      tlgWriteTransfer_EtwEventWriteTransfer(
+        (__int64)&dword_1801CE670,
+        (unsigned __int8 *)dword_1801A43AB,
+        v9,
+        v10,
+        7u,
+        &v19);
     }
   }
   return 0LL;

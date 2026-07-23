@@ -9,21 +9,26 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __thiscall RtlpDecrementWnfSerializationGroup(int this)
+void __thiscall RtlpDecrementWnfSerializationGroup(char *BaseAddress)
 {
-  int v3; // edx
-  _DWORD *v4; // ecx
-  int v5; // eax
+  char **v2; // edx
+  PVOID *v3; // ecx
+  _RTL_SRWLOCK *v4; // eax
 
-  RtlAcquireSRWLockExclusive(dword_4B3A664C + 24);
-  if ( _InterlockedDecrement((volatile signed __int32 *)(this + 20)) )
-    return RtlReleaseSRWLockExclusive(dword_4B3A664C + 24);
-  v3 = *(_DWORD *)(this + 8);
-  if ( *(_DWORD *)(v3 + 4) != this + 8 || (v4 = *(_DWORD **)(this + 12), *v4 != this + 8) )
-    __fastfail(3u);
-  v5 = dword_4B3A664C + 24;
-  *v4 = v3;
-  *(_DWORD *)(v3 + 4) = v4;
-  RtlReleaseSRWLockExclusive(v5);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(dword_4B3A664C + 24));
+  if ( _InterlockedDecrement((volatile signed __int32 *)BaseAddress + 5) )
+  {
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(dword_4B3A664C + 24));
+  }
+  else
+  {
+    v2 = (char **)*((_DWORD *)BaseAddress + 2);
+    if ( v2[1] != BaseAddress + 8 || (v3 = (PVOID *)*((_DWORD *)BaseAddress + 3), *v3 != BaseAddress + 8) )
+      __fastfail(3u);
+    v4 = (_RTL_SRWLOCK *)(dword_4B3A664C + 24);
+    *v3 = v2;
+    v2[1] = (char *)v3;
+    RtlReleaseSRWLockExclusive(v4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+  }
 }

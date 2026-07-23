@@ -1,17 +1,17 @@
 /*
- * XREFs of VmAccessFault @ 0x140A07D80
+ * XREFs of VmAccessFault @ 0x140A042B0
  * Callers:
- *     VmpPinMemoryRange @ 0x14064ACC0 (VmpPinMemoryRange.c)
+ *     VmpPinMemoryRange @ 0x140649280 (VmpPinMemoryRange.c)
  * Callees:
- *     ExFreeToLookasideListEx @ 0x1402CD350 (ExFreeToLookasideListEx.c)
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140309950 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     VmpAccessFaultBatch @ 0x1403AB20C (VmpAccessFaultBatch.c)
- *     ExAllocateFromLookasideListEx @ 0x1403E16C0 (ExAllocateFromLookasideListEx.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     VmpPrefetchForVirtualFault @ 0x14079F46C (VmpPrefetchForVirtualFault.c)
- *     VmpLogAccessFault @ 0x14079F8F4 (VmpLogAccessFault.c)
- *     VmpLogAccessFaultRange @ 0x14079FABC (VmpLogAccessFaultRange.c)
+ *     ExFreeToLookasideListEx @ 0x1402E6050 (ExFreeToLookasideListEx.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140313830 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     VmpAccessFaultBatch @ 0x140399920 (VmpAccessFaultBatch.c)
+ *     ExAllocateFromLookasideListEx @ 0x1403C9D30 (ExAllocateFromLookasideListEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     VmpPrefetchForVirtualFault @ 0x14079F57C (VmpPrefetchForVirtualFault.c)
+ *     VmpLogAccessFault @ 0x14079FA04 (VmpLogAccessFault.c)
+ *     VmpLogAccessFaultRange @ 0x14079FBCC (VmpLogAccessFaultRange.c)
  */
 
 __int64 __fastcall VmAccessFault(
@@ -86,7 +86,7 @@ __int64 __fastcall VmAccessFault(
     v15 = &v40;
     if ( v10 > 0x10 || *(_QWORD *)(a1 + 8) > 0x10uLL )
     {
-      v27 = (char *)ExAllocateFromLookasideListEx(&VmpLargeFaultBatchLookasideList);
+      v27 = (char *)ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&VmpLargeFaultBatchLookasideList);
       v7 = v27;
       if ( v27 )
       {
@@ -154,7 +154,7 @@ __int64 __fastcall VmAccessFault(
     }
 LABEL_24:
     if ( v7 )
-      ExFreeToLookasideListEx(&VmpLargeFaultBatchLookasideList, v7);
+      ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&VmpLargeFaultBatchLookasideList, v7);
     v12 = v33;
     v13 = a5;
     v10 = v37;

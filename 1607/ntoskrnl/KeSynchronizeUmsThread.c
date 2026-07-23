@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSynchronizeUmsThread @ 0x14065068C
+ * XREFs of KeSynchronizeUmsThread @ 0x140650770
  * Callers:
- *     PspRundownUmsThreadForApcDelivery @ 0x1406826F4 (PspRundownUmsThreadForApcDelivery.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x1406827D8 (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeInsertQueue @ 0x140085F70 (KeInsertQueue.c)
- *     KiSwapToUmsThreadContinue @ 0x1401DC690 (KiSwapToUmsThreadContinue.c)
- *     KiCopyUchToStagingArea @ 0x140651E48 (KiCopyUchToStagingArea.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeInsertQueue @ 0x140087860 (KeInsertQueue.c)
+ *     KiSwapToUmsThreadContinue @ 0x1401DC4BC (KiSwapToUmsThreadContinue.c)
+ *     KiCopyUchToStagingArea @ 0x140651F2C (KiCopyUchToStagingArea.c)
  */
 
 __int64 __fastcall KeSynchronizeUmsThread(__int64 a1, char a2)

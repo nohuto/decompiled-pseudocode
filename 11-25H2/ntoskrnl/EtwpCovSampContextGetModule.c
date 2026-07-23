@@ -31,7 +31,7 @@ __int64 __fastcall EtwpCovSampContextGetModule(__int64 a1, __int64 a2, __int64 a
   __int64 v8; // r12
   void *v9; // r13
   char *v10; // r14
-  unsigned __int64 v11; // rax
+  PIMAGE_NT_HEADERS v11; // rax
   __int64 v12; // rcx
   __int64 v13; // rcx
   __int64 v14; // rax
@@ -135,15 +135,15 @@ __int64 __fastcall EtwpCovSampContextGetModule(__int64 a1, __int64 a2, __int64 a
   v92 = 0LL;
   v93 = 0LL;
   *((_QWORD *)&v92 + 1) = *(_QWORD *)(a5 + 32);
-  v11 = RtlImageNtHeader(*(_QWORD *)(a5 + 16));
+  v11 = RtlImageNtHeader(*(PVOID *)(a5 + 16));
   v95[2] = v11;
   if ( !v11 )
   {
     Name = -1073741637;
     goto LABEL_136;
   }
-  LODWORD(v93) = *(_DWORD *)(v11 + 88);
-  DWORD1(v93) = *(_DWORD *)(v11 + 8);
+  LODWORD(v93) = v11->OptionalHeader.CheckSum;
+  DWORD1(v93) = v11->FileHeader.TimeDateStamp;
   if ( (*(_DWORD *)(a5 + 8) & 0x100) != 0 )
   {
     v12 = *(_QWORD *)(a5 + 16);
@@ -232,7 +232,7 @@ LABEL_21:
   v87 = 0;
   v80 = (__m128i *)v95;
   v82 = 1;
-  if ( (int)EtwpFindDebugId(*(_QWORD *)(a5 + 16), v21, (__int64 *)v10 + 6, (_DWORD *)v10 + 14) >= 0 )
+  if ( (int)EtwpFindDebugId(*(char **)(a5 + 16), v21, (__int64 *)v10 + 6, (_DWORD *)v10 + 14) >= 0 )
   {
     v22 = *((_QWORD *)v10 + 6);
     if ( *((_DWORD *)v10 + 14) <= 0x400u )

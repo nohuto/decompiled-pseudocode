@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlPinAtomInAtomTable @ 0x1404E1468
+ * XREFs of RtlPinAtomInAtomTable @ 0x1404C4A6C
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLookupLowBox @ 0x140013E94 (RtlpLookupLowBox.c)
- *     RtlpLockAtomTable @ 0x140421FD0 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x140425940 (RtlpAtomMapAtomToHandleEntry.c)
- *     RtlpUnlockAtomTable @ 0x14042B3F0 (RtlpUnlockAtomTable.c)
+ *     RtlpLookupLowBox @ 0x140013A14 (RtlpLookupLowBox.c)
+ *     RtlpLockAtomTable @ 0x140420E90 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x140424810 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpUnlockAtomTable @ 0x14042A2C0 (RtlpUnlockAtomTable.c)
  */
 
 NTSTATUS __stdcall RtlPinAtomInAtomTable(PRTL_ATOM_TABLE AtomTable, RTL_ATOM Atom)

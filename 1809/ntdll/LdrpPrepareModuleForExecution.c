@@ -10,7 +10,7 @@
  *     LdrpDynamicShimModule @ 0x18002AF68 (LdrpDynamicShimModule.c)
  *     LdrpReleaseLoaderLock @ 0x18002AFD4 (LdrpReleaseLoaderLock.c)
  *     LdrpAcquireLoaderLock @ 0x18002B034 (LdrpAcquireLoaderLock.c)
- *     LdrpAddNodeServiceTag @ 0x18007D1C0 (LdrpAddNodeServiceTag.c)
+ *     LdrpAddNodeServiceTag @ 0x18007D1D0 (LdrpAddNodeServiceTag.c)
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  */
 
@@ -25,7 +25,7 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
   char v11; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0;
-  if ( (void *)qword_18015F4D0 == NtCurrentTeb()->ClientId.UniqueThread )
+  if ( LdrpDllNotificationLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
     return (unsigned int)v2;
   v5 = *(_QWORD *)(a1 + 152);
   switch ( *(_DWORD *)(v5 + 56) )

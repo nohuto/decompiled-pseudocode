@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$RtlpxLookupPrimaryFunctionEntry@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA?AVCDirectFnEnt@@V0@_KPEBU_AMD64_UNWIND_PARAMS@@@Z @ 0x140531EE0
+ * XREFs of ??$RtlpxLookupPrimaryFunctionEntry@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA?AVCDirectFnEnt@@V0@_KPEBU_AMD64_UNWIND_PARAMS@@@Z @ 0x140534380
  * Callers:
- *     ??$RtlpxSameFunction@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA?AVCDirectFnEnt@@V0@_K1PEBU_AMD64_UNWIND_PARAMS@@@Z @ 0x14062118C (--$RtlpxSameFunction@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA-AVCDirectFnEnt@@V0@_K1PEBU_AMD64_UN.c)
- *     RtlLookupPrimaryFunctionEntry @ 0x140622A38 (RtlLookupPrimaryFunctionEntry.c)
+ *     ??$RtlpxSameFunction@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA?AVCDirectFnEnt@@V0@_K1PEBU_AMD64_UNWIND_PARAMS@@@Z @ 0x1406241DC (--$RtlpxSameFunction@VCDirectFnEnt@@VCDirectUnwindInfo@@@@YA-AVCDirectFnEnt@@V0@_K1PEBU_AMD64_UN.c)
+ *     RtlLookupPrimaryFunctionEntry @ 0x140625A88 (RtlLookupPrimaryFunctionEntry.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
  */
 
 _QWORD *__fastcall RtlpxLookupPrimaryFunctionEntry<CDirectFnEnt,CDirectUnwindInfo>(_QWORD *a1, _BYTE *a2, __int64 a3)

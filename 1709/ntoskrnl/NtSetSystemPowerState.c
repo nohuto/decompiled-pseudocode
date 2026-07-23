@@ -155,63 +155,57 @@ NTSTATUS __stdcall NtSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER
   __int64 v56; // rdx
   __int64 v57; // rcx
   __int64 v58; // r8
-  __int64 v59; // rdx
-  __int64 v60; // rcx
-  __int64 v61; // r8
-  __int64 v62; // rdx
-  __int64 v63; // rcx
-  __int64 v64; // r8
-  __int64 v65; // r9
-  int v66; // r14d
-  int v67; // ecx
-  __int64 v68; // rax
-  char v69; // al
-  SYSTEM_POWER_STATE v70; // eax
-  char v71; // al
-  __int64 v72; // rdx
-  char v73; // [rsp+41h] [rbp-BFh] BYREF
-  char v74; // [rsp+42h] [rbp-BEh]
-  unsigned int v75; // [rsp+44h] [rbp-BCh] BYREF
-  unsigned int v76; // [rsp+48h] [rbp-B8h] BYREF
-  char v77; // [rsp+4Ch] [rbp-B4h] BYREF
-  unsigned int v78; // [rsp+50h] [rbp-B0h] BYREF
-  int v79; // [rsp+58h] [rbp-A8h]
-  __int64 v80; // [rsp+60h] [rbp-A0h]
-  void *v81; // [rsp+68h] [rbp-98h] BYREF
-  int v82; // [rsp+70h] [rbp-90h] BYREF
-  int v83; // [rsp+74h] [rbp-8Ch] BYREF
-  __int64 v84; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v85; // [rsp+80h] [rbp-80h] BYREF
-  int v86; // [rsp+88h] [rbp-78h]
-  __int64 v87; // [rsp+90h] [rbp-70h] BYREF
-  _QWORD v88[3]; // [rsp+98h] [rbp-68h] BYREF
-  int v89; // [rsp+B0h] [rbp-50h] BYREF
-  char *v90; // [rsp+B8h] [rbp-48h]
-  int v91; // [rsp+C0h] [rbp-40h]
-  int v92; // [rsp+C8h] [rbp-38h]
-  unsigned __int64 v93; // [rsp+D0h] [rbp-30h]
-  int v94; // [rsp+D8h] [rbp-28h]
+  __int64 v59; // r9
+  int v60; // r14d
+  int v61; // ecx
+  __int64 v62; // rax
+  char v63; // al
+  SYSTEM_POWER_STATE v64; // eax
+  char v65; // al
+  __int64 v66; // rdx
+  char v67; // [rsp+41h] [rbp-BFh] BYREF
+  char v68; // [rsp+42h] [rbp-BEh]
+  unsigned int v69; // [rsp+44h] [rbp-BCh] BYREF
+  unsigned int v70; // [rsp+48h] [rbp-B8h] BYREF
+  char v71; // [rsp+4Ch] [rbp-B4h] BYREF
+  unsigned int v72; // [rsp+50h] [rbp-B0h] BYREF
+  int v73; // [rsp+58h] [rbp-A8h]
+  __int64 v74; // [rsp+60h] [rbp-A0h]
+  void *v75; // [rsp+68h] [rbp-98h] BYREF
+  int v76; // [rsp+70h] [rbp-90h] BYREF
+  int v77; // [rsp+74h] [rbp-8Ch] BYREF
+  __int64 v78; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v79; // [rsp+80h] [rbp-80h] BYREF
+  int v80; // [rsp+88h] [rbp-78h]
+  __int64 v81; // [rsp+90h] [rbp-70h] BYREF
+  _QWORD v82[3]; // [rsp+98h] [rbp-68h] BYREF
+  int v83; // [rsp+B0h] [rbp-50h] BYREF
+  char *v84; // [rsp+B8h] [rbp-48h]
+  int v85; // [rsp+C0h] [rbp-40h]
+  int v86; // [rsp+C8h] [rbp-38h]
+  unsigned __int64 v87; // [rsp+D0h] [rbp-30h]
+  int v88; // [rsp+D8h] [rbp-28h]
   UNICODE_STRING DestinationString; // [rsp+E0h] [rbp-20h] BYREF
-  _BYTE v96[32]; // [rsp+F0h] [rbp-10h] BYREF
-  char v97[24]; // [rsp+110h] [rbp+10h] BYREF
+  _BYTE v90[32]; // [rsp+F0h] [rbp-10h] BYREF
+  char v91[24]; // [rsp+110h] [rbp+10h] BYREF
   struct _KEVENT Event; // [rsp+128h] [rbp+28h] BYREF
   char Object[28]; // [rsp+140h] [rbp+40h] BYREF
-  NTSTATUS v100; // [rsp+15Ch] [rbp+5Ch]
-  char v104; // [rsp+1C8h] [rbp+C8h]
+  NTSTATUS v94; // [rsp+15Ch] [rbp+5Ch]
+  char v98; // [rsp+1C8h] [rbp+C8h]
 
   v3 = 0;
-  v87 = 0LL;
-  v5 = SystemAction;
-  v74 = 0;
-  v6 = Flags;
-  v84 = 0LL;
   v81 = 0LL;
-  LODWORD(v80) = 1;
+  v5 = SystemAction;
+  v68 = 0;
+  v6 = Flags;
+  v78 = 0LL;
+  v75 = 0LL;
+  LODWORD(v74) = 1;
   v7 = 0LL;
-  v78 = 1;
-  v75 = 0;
-  v82 = 0;
-  v83 = 0;
+  v72 = 1;
+  v69 = 0;
+  v76 = 0;
+  v77 = 0;
   PopTransitionCheckpoint(8LL);
   if ( (unsigned int)(MinSystemState - 1) > 5
     || (unsigned int)(v5 - 1) > 6
@@ -241,14 +235,14 @@ NTSTATUS __stdcall NtSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER
   }
   if ( v5 == PowerActionShutdown )
     PopReadShutdownPolicy();
-  memset(v88, 0, sizeof(v88));
-  v86 = 0;
+  memset(v82, 0, sizeof(v82));
+  v80 = 0;
   v12 = dword_1403657F4;
-  v85 = (unsigned int)v5;
+  v79 = (unsigned int)v5;
   if ( dword_1403657F4 >= 15 )
     v12 = 5;
-  HIDWORD(v85) = v6;
-  v88[0] = v12 | 0x8000000000LL;
+  HIDWORD(v79) = v6;
+  v82[0] = v12 | 0x8000000000LL;
   PopAcquireTransitionLock();
   MmLockPagableSectionByHandle(ExPageLockHandle);
   PopRunMaximumIrpWorkers();
@@ -263,7 +257,7 @@ NTSTATUS __stdcall NtSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER
     goto LABEL_25;
   PopCheckPowerSourceAfterRtcWakeCancel();
   PopAcquirePolicyLock();
-  v104 = 1;
+  v98 = 1;
   PopFilterCapabilities(&PopCapabilities, &unk_1403658A8);
   if ( !byte_1403657E1 )
   {
@@ -275,17 +269,17 @@ NTSTATUS __stdcall NtSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER
 LABEL_28:
     PopSetPowerActionState(3);
     qword_140365818 = (__int64)qword_140365770;
-    PopExecutePowerAction((unsigned int)v88, 0, (unsigned int)&v85, MinSystemState, 1);
+    PopExecutePowerAction((unsigned int)v82, 0, (unsigned int)&v79, MinSystemState, 1);
     PopIgnoreBatteryStatusChange();
     PopCheckResiliencyScenarios();
-    PopEnforceResiliencyScenarios(&v87);
+    PopEnforceResiliencyScenarios(&v81);
     PopExecuteOnTargetProcessors((__int64)KeActiveProcessors, (__int64)PpmStopIllegalProcessorThrottleLogging, 0LL, 0LL);
     if ( v5 == PowerActionShutdownOff )
       LODWORD(qword_1403657E4) = 6;
     if ( (unsigned int)(v5 - 4) <= 2 && PopHiberInfo && FileObject && (unsigned int)MmZeroPageFileAtShutdown() )
       PopZeroHiberFile(PopHiberInfo);
-    v73 = 0;
-    v76 = 0;
+    v67 = 0;
+    v70 = 0;
     v15 = 0;
     if ( (unsigned int)(v5 - 2) <= 1 )
       PoPowerDownActionInProgress = 1;
@@ -296,7 +290,7 @@ LABEL_28:
       if ( !v16 )
       {
         PopAcquirePolicyLock();
-        v104 = 1;
+        v98 = 1;
       }
       if ( !(_DWORD)qword_1403657E4 )
       {
@@ -316,26 +310,26 @@ LABEL_155:
           v51 = 0LL;
           goto LABEL_156;
         }
-        PopActionRetrieveInitialState((_DWORD *)&qword_1403657E4 + 1, &v76, &dword_140365800, &v73);
+        PopActionRetrieveInitialState((_DWORD *)&qword_1403657E4 + 1, &v70, &dword_140365800, &v67);
         if ( (unsigned int)(qword_1403657E4 - 4) <= 2 )
         {
           byte_1403657E2 = 1;
           dword_1403657EC = v6;
         }
-        v15 = v76;
+        v15 = v70;
         inited = 0;
       }
       if ( inited < 0 )
         goto LABEL_155;
       PopReleasePolicyLock();
-      v104 = 0;
-      v78 = 1;
-      v75 = 0;
-      PopQueryPowerSettingUlong(&GUID_ALLOW_RTC_WAKE, &v78, &v75);
+      v98 = 0;
+      v72 = 1;
+      v69 = 0;
+      PopQueryPowerSettingUlong(&GUID_ALLOW_RTC_WAKE, &v72, &v69);
       if ( (dword_1403657EC & 0x40000000) != 0 )
       {
-        v78 = 0;
-        v75 = 0;
+        v72 = 0;
+        v69 = 0;
       }
       PopInitializePowerPolicySimulate();
       dword_140365804 = dword_140365800;
@@ -350,7 +344,7 @@ LABEL_155:
         v19 = dword_140365800;
         byte_140365B40 = 1;
         dword_140365808 = 5;
-        v79 = 6;
+        v73 = 6;
       }
       else
       {
@@ -359,13 +353,13 @@ LABEL_155:
           v19 = (unsigned int)dword_140365800;
           dword_140365808 = 5;
           v20 = 6;
-          v79 = dword_140365800;
+          v73 = dword_140365800;
           v21 = 1;
           goto LABEL_59;
         }
         v19 = dword_140365800;
         dword_140365808 = dword_140365800;
-        v79 = dword_140365800;
+        v73 = dword_140365800;
       }
       v21 = 0;
       v20 = PopPowerStateHandlerLookup[v19];
@@ -394,10 +388,10 @@ LABEL_66:
       {
         PopReleasePolicyLock();
         PopCheckpointSystemSleep(10LL, v23, v24, v25);
-        LOBYTE(v26) = v73;
+        LOBYTE(v26) = v67;
         byte_1403657FC = 3;
         PopDiagTraceKernelQueriesAllowed(v26);
-        if ( !v73 )
+        if ( !v67 )
           goto LABEL_71;
         v29 = PopSetDevicesSystemState(v14, v19, v27, v28);
         inited = v29;
@@ -406,7 +400,7 @@ LABEL_66:
 LABEL_72:
           PopCheckpointSystemSleep(13LL, v19, v27, v28);
           HiberContext = PopAllocateHiberContext();
-          v15 = v76;
+          v15 = v70;
           inited = HiberContext;
           if ( HiberContext >= 0 )
           {
@@ -414,27 +408,27 @@ LABEL_72:
             PopTransitionCheckpoint(9LL);
             if ( !byte_1403657E2 )
             {
-              PopDiagTracePreSleepNotification(v79, dword_140365808, dword_1403657F4, dword_1403657F8, v31);
+              PopDiagTracePreSleepNotification(v73, dword_140365808, dword_1403657F4, dword_1403657F8, v31);
               PopCheckpointSystemSleep(16LL, v32, v33, v34);
               PopUmpoSendFlushSleepStudyLoggerNotification();
             }
             PopEsEnterSleepShutdown();
             PopForceCompleteCsSleepStudySession(dword_1403657F4);
             PopThermalSxEntry(v35);
-            if ( !v74 )
+            if ( !v68 )
             {
               if ( byte_1403657E2 )
               {
-                v77 = 1;
-                v89 = 5;
-                v91 = 1;
-                v90 = &v77;
-                v92 = 11;
-                v93 = 0xFFFFF780000002C4uLL;
-                v94 = 4;
-                RtlSetSystemBootStatusEx(&v89, 2LL, 0LL);
+                v71 = 1;
+                v83 = 5;
+                v85 = 1;
+                v84 = &v71;
+                v86 = 11;
+                v87 = 0xFFFFF780000002C4uLL;
+                v88 = 4;
+                RtlSetSystemBootStatusEx(&v83, 2LL, 0LL);
               }
-              v74 = 1;
+              v68 = 1;
             }
             PopFlushVolumes(dword_140365800);
             if ( dword_140365808 < dword_140365800 )
@@ -457,7 +451,7 @@ LABEL_72:
               return -1073741077;
             }
             KeMtrrComparisonFailed = 0;
-            inited = PopInitSystemSleeperThread(v20, v97);
+            inited = PopInitSystemSleeperThread(v20, v91);
             if ( inited >= 0 )
             {
               if ( !byte_140365890 )
@@ -465,7 +459,7 @@ LABEL_72:
                 ExWakeTimersPause();
                 byte_140365890 = 1;
               }
-              v80 = 0LL;
+              v74 = 0LL;
               v36 = MEMORY[0xFFFFF78000000008];
               v37 = MEMORY[0xFFFFF78000000014];
               if ( !*((_DWORD *)PopPolicy + 22)
@@ -479,13 +473,13 @@ LABEL_72:
                   && qword_140365728
                   && ((dword_1403657F4 - 11) & 0xFFFFFFFD) == 0 )
                 {
-                  v80 = -2LL;
+                  v74 = -2LL;
                   v7 = v36 + qword_140365728 + -10000000LL * (unsigned int)PopSmartUserPresenceWakeOffset - v37;
                 }
               }
               else
               {
-                v80 = -1LL;
+                v74 = -1LL;
                 v7 = v36 + 10000000 * v38;
                 if ( !qword_1403658A0 )
                   qword_1403658A0 = v36;
@@ -495,23 +489,23 @@ LABEL_72:
               dword_140365840 = 3;
               if ( !byte_140365B40 && dword_1403657F4 != 14 )
               {
-                v41 = v75;
-                v42 = v78;
-                if ( dword_140365800 == 5 && v78 != 1 && v75 != 1 )
+                v41 = v69;
+                v42 = v72;
+                if ( dword_140365800 == 5 && v72 != 1 && v69 != 1 )
                 {
-                  PopQueryPowerSettingUlong(&GUID_LEGACY_RTC_MITIGATION, &v82, &v83);
-                  if ( v82 || v83 )
+                  PopQueryPowerSettingUlong(&GUID_LEGACY_RTC_MITIGATION, &v76, &v77);
+                  if ( v76 || v77 )
                   {
                     v42 = 0;
-                    v78 = 0;
+                    v72 = 0;
                     v41 = 0;
-                    v75 = 0;
+                    v69 = 0;
                   }
                 }
                 if ( v7 )
                 {
-                  v43 = v80;
-                  if ( v80 == -2 )
+                  v43 = v74;
+                  if ( v74 == -2 )
                   {
                     if ( v42 )
                     {
@@ -548,10 +542,10 @@ LABEL_72:
                 {
                   if ( v42 != 2 || (LOBYTE(v40) = 1, PopSimulate < 0) )
                     LOBYTE(v40) = 0;
-                  if ( (unsigned __int8)ExGetNextWakeTime(v45 + 1, v7, v40, (unsigned int)&v84, (__int64)&v81) )
+                  if ( (unsigned __int8)ExGetNextWakeTime(v45 + 1, v7, v40, (unsigned int)&v78, (__int64)&v75) )
                   {
-                    qword_140365848 = v84;
-                    qword_140365858[0] = (__int64)v81;
+                    qword_140365848 = v78;
+                    qword_140365858[0] = (__int64)v75;
                   }
                 }
                 if ( v41 )
@@ -559,10 +553,10 @@ LABEL_72:
                   if ( v41 != 2 || (LOBYTE(v40) = 1, PopSimulate < 0) )
                     LOBYTE(v40) = 0;
                   v5 = SystemAction;
-                  if ( (unsigned __int8)ExGetNextWakeTime(v45 + 1, v7, v40, (unsigned int)&v84, (__int64)&v81) )
+                  if ( (unsigned __int8)ExGetNextWakeTime(v45 + 1, v7, v40, (unsigned int)&v78, (__int64)&v75) )
                   {
-                    qword_140365860 = v84;
-                    qword_140365870 = (__int64)v81;
+                    qword_140365860 = v78;
+                    qword_140365870 = (__int64)v75;
                   }
                 }
                 else
@@ -583,11 +577,11 @@ LABEL_72:
               PopSetDevicesSystemState(v48, v47, v49, v50);
               PopNewWakeInfo();
               v51 = MEMORY[0xFFFFF78000000008];
-              LODWORD(v80) = dword_1403661AC;
+              LODWORD(v74) = dword_1403661AC;
               PpmCheckPausePpmEngineForSx();
               KeSetEvent(&Event, 0, 1u);
               KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
-              inited = v100;
+              inited = v94;
               qword_140365BD0 = 0LL;
               PpmCheckResumePpmEngineFromSx();
               v52 = dword_140365800;
@@ -628,13 +622,13 @@ LABEL_156:
                 ExUpdateSystemTimeFromCmos(v14, 1LL);
                 LOBYTE(v55) = 1;
                 if ( ((unsigned __int8 (__fastcall *)(__int64))off_140353688[0])(v55) )
-                  ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0LL);
+                  ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
                 qword_140365C08 = KeQueryPerformanceCounter(0LL).QuadPart;
                 PfPowerActionNotify(2, 0, 0);
                 qword_140365828 = MEMORY[0xFFFFF78000000008];
-                PopDiagComputeEarlyHiberStats(v57, v56, v58);
+                PopDiagComputeEarlyHiberStats();
                 if ( v53 == 4 )
-                  PopDiagTraceFirmwareS3Stats(v60, v59, v61);
+                  PopDiagTraceFirmwareS3Stats();
               }
               byte_1403657FD = 1;
               PoPowerDownActionInProgress = 0;
@@ -643,13 +637,13 @@ LABEL_156:
               if ( qword_140365818 )
               {
                 PfPowerActionNotify(3, 0, 0);
-                PopSetDevicesSystemState(v63, v62, v64, v65);
+                PopSetDevicesSystemState(v57, v56, v58, v59);
                 PfPowerActionNotify(3, 1, 0);
               }
-              if ( v81 )
+              if ( v75 )
               {
-                ExDeleteWakeTimerInfo(v81);
-                v81 = 0LL;
+                ExDeleteWakeTimerInfo(v75);
+                v75 = 0LL;
               }
               ((void (__fastcall *)(_QWORD, _QWORD))off_140353300)(0LL, 0LL);
               PopNotifyTelemetryOsState(qword_1403657E4, dword_140365800, dword_140365808, v54, 0);
@@ -659,18 +653,18 @@ LABEL_156:
                 (__int64)PpmStartIllegalProcessorThrottleLogging,
                 0LL,
                 0LL);
-              if ( v104 )
+              if ( v98 )
                 PopReleasePolicyLock();
               PoClearBroadcast();
               qword_140365818 = 0LL;
               PopEsExitSleep();
-              PopCurrentPowerStatePrecise(v96);
-              v66 = dword_1403661AC;
+              PopCurrentPowerStatePrecise(v90);
+              v60 = dword_1403661AC;
               PopSpoilEstimatesOnPowerStateTransitionWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopSpoilEstimatesOnPowerStateTransitionWorker;
               PopSpoilEstimatesOnPowerStateTransitionWorkItem.Parameter = 0LL;
               PopSpoilEstimatesOnPowerStateTransitionWorkItem.List.Flink = 0LL;
               ExQueueWorkItem(&PopSpoilEstimatesOnPowerStateTransitionWorkItem, DelayedWorkQueue);
-              PopThermalSxExit(v67);
+              PopThermalSxExit(v61);
               PopAcquirePolicyLock();
               if ( inited >= 0 )
               {
@@ -679,28 +673,28 @@ LABEL_156:
                 if ( (unsigned __int64)dword_140365840 < 3 )
                 {
                   qword_140365898 = qword_140365850[3 * dword_140365840];
-                  v68 = qword_140365858[3 * dword_140365840];
+                  v62 = qword_140365858[3 * dword_140365840];
                   PopFullWake = 0;
                   PopPendingUserPresenceDuringSystemSleep = 0;
                   PopPendingUserPresenceMonitorOnReason = 0;
-                  if ( v68 == -1 )
+                  if ( v62 == -1 )
                   {
-                    v69 = PopDeferDoze(v78, v75, v96);
+                    v63 = PopDeferDoze(v72, v69, v90);
                     PopAction |= 2u;
-                    if ( !v69 )
+                    if ( !v63 )
                     {
                       LODWORD(qword_1403657E4) = 2;
-                      v70 = PowerSystemHibernate;
+                      v64 = PowerSystemHibernate;
                       goto LABEL_181;
                     }
 LABEL_180:
-                    v70 = MinSystemState;
+                    v64 = MinSystemState;
                     LODWORD(qword_1403657E4) = v5;
 LABEL_181:
-                    HIDWORD(qword_1403657E4) = v70;
-                    v71 = 0;
+                    HIDWORD(qword_1403657E4) = v64;
+                    v65 = 0;
 LABEL_186:
-                    if ( byte_140365890 && v71 )
+                    if ( byte_140365890 && v65 )
                     {
                       ExWakeTimersResume();
                       byte_140365890 = 0;
@@ -716,7 +710,7 @@ LABEL_186:
                     PopSetPowerActionState(2);
                     PopReleasePolicyLock();
                     if ( PopPendingUserPresenceDuringSystemSleep )
-                      PoSetUserPresent((unsigned int)PopPendingUserPresenceMonitorOnReason, v72);
+                      PoSetUserPresent((unsigned int)PopPendingUserPresenceMonitorOnReason, v66);
                     ExQueueWorkItem(&PopUnlockAfterSleepWorkItem, DelayedWorkQueue);
                     PopCheckForWork();
                     if ( inited >= 0 )
@@ -725,35 +719,35 @@ LABEL_186:
                     qword_140365D70 = PopCaptureTimeOnProcZero();
                     return inited;
                   }
-                  if ( v68 == -2 )
+                  if ( v62 == -2 )
                   {
                     if ( !qword_140365838 )
                       qword_140365838 = qword_140365828;
                   }
                   else if ( dword_1403661AC == 1 )
                   {
-                    if ( !v75 )
+                    if ( !v69 )
                     {
                       PopAction = 2;
                       goto LABEL_180;
                     }
                   }
-                  else if ( !v75 && (_DWORD)v80 == v66 )
+                  else if ( !v69 && (_DWORD)v74 == v60 )
                   {
                     PopCheckPowerSourceAfterRtcWakeSet();
                   }
                 }
               }
-              v71 = 1;
+              v65 = 1;
               goto LABEL_186;
             }
-            v15 = v76;
+            v15 = v70;
           }
         }
         else if ( v29 == -1073741536 )
         {
 LABEL_71:
-          v15 = v76;
+          v15 = v70;
           if ( inited >= 0 )
             goto LABEL_72;
         }
@@ -761,17 +755,17 @@ LABEL_71:
         {
 LABEL_84:
           LOBYTE(v19) = v21;
-          v15 = v76;
-          if ( !(unsigned __int8)PopFindNextSystemPowerState(v76, v19, &v73) )
+          v15 = v70;
+          if ( !(unsigned __int8)PopFindNextSystemPowerState(v70, v19, &v67) )
             goto LABEL_155;
           inited = 0;
         }
         v16 = 0;
         goto LABEL_39;
       }
-      v15 = v76;
+      v15 = v70;
       v16 = 1;
-      v104 = 1;
+      v98 = 1;
       inited = -1073741536;
 LABEL_39:
       v6 = Flags;

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmCheckNoTxContext @ 0x14092D620
+ * XREFs of CmCheckNoTxContext @ 0x14092F760
  * Callers:
- *     NtCompactKeys @ 0x1407CF750 (NtCompactKeys.c)
- *     NtCompressKey @ 0x1407CF9F0 (NtCompressKey.c)
- *     NtReplaceKey @ 0x1407D0990 (NtReplaceKey.c)
- *     NtRestoreKey @ 0x1407D0CE0 (NtRestoreKey.c)
- *     NtSaveMergedKeys @ 0x1407D1090 (NtSaveMergedKeys.c)
- *     CmLoadDifferencingKey @ 0x14092C750 (CmLoadDifferencingKey.c)
- *     NtSaveKeyEx @ 0x140A6DF30 (NtSaveKeyEx.c)
+ *     NtCompactKeys @ 0x1407CFC40 (NtCompactKeys.c)
+ *     NtCompressKey @ 0x1407CFEE0 (NtCompressKey.c)
+ *     NtReplaceKey @ 0x1407D0E80 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x1407D11D0 (NtRestoreKey.c)
+ *     NtSaveMergedKeys @ 0x1407D1580 (NtSaveMergedKeys.c)
+ *     CmLoadDifferencingKey @ 0x14092E890 (CmLoadDifferencingKey.c)
+ *     NtSaveKeyEx @ 0x140A67430 (NtSaveKeyEx.c)
  * Callees:
  *     <none>
  */

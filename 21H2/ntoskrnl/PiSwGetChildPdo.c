@@ -1,22 +1,22 @@
 /*
- * XREFs of PiSwGetChildPdo @ 0x14077093C
+ * XREFs of PiSwGetChildPdo @ 0x140770AFC
  * Callers:
- *     PipEnumerateCompleted @ 0x140745380 (PipEnumerateCompleted.c)
+ *     PipEnumerateCompleted @ 0x140745540 (PipEnumerateCompleted.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
- *     IoInvalidateDeviceRelations @ 0x1403707A0 (IoInvalidateDeviceRelations.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     ObSetSecurityObjectByPointer @ 0x140660460 (ObSetSecurityObjectByPointer.c)
- *     PnpConcatPWSTR @ 0x1406A9C64 (PnpConcatPWSTR.c)
- *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
- *     PiSwProcessRemove @ 0x140732BD8 (PiSwProcessRemove.c)
- *     PiSwMakePdoInactive @ 0x140732E14 (PiSwMakePdoInactive.c)
- *     PiSwFindPdoAssociation @ 0x140770B48 (PiSwFindPdoAssociation.c)
- *     PiSwAddPdoAssociation @ 0x140770B90 (PiSwAddPdoAssociation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IoInvalidateDeviceRelations @ 0x1403702F0 (IoInvalidateDeviceRelations.c)
+ *     PnpConcatPWSTR @ 0x140607BE4 (PnpConcatPWSTR.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14062D4E0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ObSetSecurityObjectByPointer @ 0x140655280 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x1406C9950 (IoCreateDevice.c)
+ *     PiSwProcessRemove @ 0x140732D98 (PiSwProcessRemove.c)
+ *     PiSwMakePdoInactive @ 0x140732FD4 (PiSwMakePdoInactive.c)
+ *     PiSwFindPdoAssociation @ 0x140770D08 (PiSwFindPdoAssociation.c)
+ *     PiSwAddPdoAssociation @ 0x140770D50 (PiSwAddPdoAssociation.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 PDEVICE_OBJECT __fastcall PiSwGetChildPdo(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3)

@@ -17,14 +17,14 @@
 bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
 {
   int v1; // ecx
-  _BYTE v3[4]; // [rsp+30h] [rbp-D0h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
+  BOOLEAN IsMember[4]; // [rsp+30h] [rbp-D0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
   ULONG v5; // [rsp+3Ch] [rbp-C4h] BYREF
   __int64 SystemInformation; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING v7; // [rsp+48h] [rbp-B8h] BYREF
   ULONG ReturnLength; // [rsp+58h] [rbp-A8h] BYREF
   HANDLE TokenInformation; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING CapabilityName; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING v11; // [rsp+78h] [rbp-88h] BYREF
   _QWORD Sid[3]; // [rsp+88h] [rbp-78h] BYREF
   __int64 v13; // [rsp+A0h] [rbp-60h] BYREF
@@ -50,14 +50,14 @@ bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
   v18 = aMicrosoftFirmw[36];
   v16[3] = *(_OWORD *)L"w5n1h2txyewy";
   v19[0] = *(_OWORD *)L"Microsoft.firmwareWrite_cw5n1h2txyewy";
-  SourceString.Buffer = (wchar_t *)v16;
+  CapabilityName.Buffer = (wchar_t *)v16;
   v21 = *(_DWORD *)L"y";
   v19[1] = *(_OWORD *)L"t.firmwareWrite_cw5n1h2txyewy";
   v19[2] = *(_OWORD *)L"reWrite_cw5n1h2txyewy";
   v7.Buffer = (wchar_t *)v19;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_DWORD *)&v11.Length = 917516;
-  *(_DWORD *)&SourceString.Length = 4849736;
+  *(_DWORD *)&CapabilityName.Length = 4849736;
   v19[3] = *(_OWORD *)L"cw5n1h2txyewy";
   v20 = *(_QWORD *)L"xyewy";
   *(_DWORD *)&v7.Length = 4980810;
@@ -73,24 +73,24 @@ LABEL_6:
       return 0;
     goto LABEL_8;
   }
-  if ( !ExpCapabilityCheck(&SourceString) )
+  if ( !ExpCapabilityCheck(&CapabilityName) )
     goto LABEL_6;
 LABEL_8:
   if ( BYTE2(KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0]) != 0x81 )
   {
     SystemInformation = 8LL;
-    if ( ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &SystemInformation, 8u, &ReturnLength) < 0
+    if ( ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, &ReturnLength) < 0
       || (SystemInformation & 0x200000000LL) == 0 )
     {
       return 0;
     }
   }
-  v3[0] = 0;
+  IsMember[0] = 0;
   RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
   *RtlSubAuthoritySid(Sid, 0) = 32;
   *RtlSubAuthoritySid(Sid, 1u) = 544;
   return ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, TokenLinkedToken, &TokenInformation, 8u, &v5) >= 0
       && v5 == 8
-      && (int)RtlCheckTokenMembershipEx(TokenInformation, Sid, 1, v3) >= 0
-      && v3[0];
+      && RtlCheckTokenMembershipEx(TokenInformation, Sid, 1u, IsMember) >= 0
+      && IsMember[0];
 }

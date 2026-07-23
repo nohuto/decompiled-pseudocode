@@ -19,7 +19,7 @@ struct _KTHREAD *__fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
   unsigned int v1; // ebx
   __int64 v2; // rdx
   __int64 v3; // rcx
-  int v5; // [rsp+40h] [rbp-38h] BYREF
+  int Buffer; // [rsp+40h] [rbp-38h] BYREF
   __int64 v6; // [rsp+48h] [rbp-30h] BYREF
   int v7; // [rsp+50h] [rbp-28h]
   int v8; // [rsp+54h] [rbp-24h]
@@ -39,8 +39,8 @@ struct _KTHREAD *__fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
   v8 = 2;
   if ( qword_140E67238 )
     guard_dispatch_icall_no_overrides(&v6);
-  v5 = 1;
-  ZwUpdateWnfStateData((__int64)&WNF_PO_STANDBY_AUDIO_POLICY, (__int64)&v5);
+  Buffer = 1;
+  ZwUpdateWnfStateData(&WNF_PO_STANDBY_AUDIO_POLICY, &Buffer, 4u, 0LL, 0LL, 0, 0);
   guard_dispatch_icall_no_overrides(v1);
   return PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
 }

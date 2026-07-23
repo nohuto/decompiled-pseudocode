@@ -1,9 +1,9 @@
 /*
- * XREFs of HvcallpExtendedFastHypercallWithOutput @ 0x140168600
+ * XREFs of HvcallpExtendedFastHypercallWithOutput @ 0x140168B70
  * Callers:
- *     HvcallFastExtended @ 0x14023203C (HvcallFastExtended.c)
+ *     HvcallFastExtended @ 0x140231E68 (HvcallFastExtended.c)
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
  */
 
 __int64 __fastcall HvcallpExtendedFastHypercallWithOutput(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, __int64 a5)

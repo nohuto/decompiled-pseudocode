@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlInitializeOplockPerf @ 0x140CB90F0
+ * XREFs of FsRtlInitializeOplockPerf @ 0x140CBF134
  * Callers:
- *     FsRtlInitSystem @ 0x140CB8A6C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140CBEAB0 (FsRtlInitSystem.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
- *     Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline @ 0x140526AE8 (Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline.c)
- *     FsRtlpOplockGetAckTimeoutOverride @ 0x14078EE80 (FsRtlpOplockGetAckTimeoutOverride.c)
- *     FsRtlpOplockPerfInitializeLatencyInfo @ 0x14078F22C (FsRtlpOplockPerfInitializeLatencyInfo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline @ 0x140529158 (Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline.c)
+ *     FsRtlpOplockGetAckTimeoutOverride @ 0x1407919B0 (FsRtlpOplockGetAckTimeoutOverride.c)
+ *     FsRtlpOplockPerfInitializeLatencyInfo @ 0x140791D5C (FsRtlpOplockPerfInitializeLatencyInfo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 FsRtlInitializeOplockPerf()
@@ -35,10 +35,10 @@ __int64 FsRtlInitializeOplockPerf()
     && *(_QWORD *)(*(_QWORD *)g_OplockPerfData + 8LL) )
   {
     FsRtlpOplockPerfInitializeLatencyInfo();
-    qword_140E65AD0 = 36000000000LL;
+    qword_140E65DE0 = 36000000000LL;
     *(_QWORD *)(g_OplockPerfData + 24) = 10LL;
-    qword_140E65AD8 = KiQueryUnbiasedInterruptTime();
-    byte_140E65AB1 = v3;
+    qword_140E65DE8 = KiQueryUnbiasedInterruptTime();
+    byte_140E65DC1 = v3;
     if ( !(unsigned int)Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline() )
       return AckTimeoutOverride;
     ExInitializeNPagedLookasideListInternal((__int64)&g_OplockAckTimeoutLookaside, 0LL, 0LL, 528, 184, 1869763398, 0, 0);

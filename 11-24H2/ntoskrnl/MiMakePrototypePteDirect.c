@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMakePrototypePteDirect @ 0x1402331F0
+ * XREFs of MiMakePrototypePteDirect @ 0x140203600
  * Callers:
- *     MiPteForTrimmedProto @ 0x140232FE4 (MiPteForTrimmedProto.c)
- *     MiMapImageScpCfgPages @ 0x140264810 (MiMapImageScpCfgPages.c)
- *     MiBuildForkPte @ 0x1402C53E8 (MiBuildForkPte.c)
- *     MiExpandSharedZeroCluster @ 0x1402E548C (MiExpandSharedZeroCluster.c)
- *     MiCombineWithExisting @ 0x1402F92E0 (MiCombineWithExisting.c)
- *     MiResolveSharedZeroFault @ 0x1402FFD60 (MiResolveSharedZeroFault.c)
- *     MiCombineWithStandbyExisting @ 0x140313D4C (MiCombineWithStandbyExisting.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
- *     MiHandleForkTransitionPte @ 0x14036D640 (MiHandleForkTransitionPte.c)
- *     MiWriteSharedDemandZeroPte @ 0x1403951B4 (MiWriteSharedDemandZeroPte.c)
- *     MiMakePerSessionProtoPte @ 0x14046D870 (MiMakePerSessionProtoPte.c)
- *     MiTrimSystemImagePages @ 0x1404A7A78 (MiTrimSystemImagePages.c)
- *     MiAddMappedPtesPadding @ 0x1404D0B44 (MiAddMappedPtesPadding.c)
+ *     MiPteForTrimmedProto @ 0x140202660 (MiPteForTrimmedProto.c)
+ *     MiHandleForkTransitionPte @ 0x1402678C4 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1402687D0 (MiBuildForkPte.c)
+ *     MiMakePerSessionProtoPte @ 0x140269F88 (MiMakePerSessionProtoPte.c)
+ *     MiWriteSharedDemandZeroPte @ 0x14026A080 (MiWriteSharedDemandZeroPte.c)
+ *     MiMapImageScpCfgPages @ 0x140294080 (MiMapImageScpCfgPages.c)
+ *     MiCombineWithExisting @ 0x140294840 (MiCombineWithExisting.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
+ *     MiResolveSharedZeroFault @ 0x14030A4E0 (MiResolveSharedZeroFault.c)
+ *     MiExpandSharedZeroCluster @ 0x14034162C (MiExpandSharedZeroCluster.c)
+ *     MiCombineWithStandbyExisting @ 0x1403F1098 (MiCombineWithStandbyExisting.c)
+ *     MiTrimSystemImagePages @ 0x1404A24CC (MiTrimSystemImagePages.c)
+ *     MiAddMappedPtesPadding @ 0x1404C9B84 (MiAddMappedPtesPadding.c)
  * Callees:
  *     <none>
  */
@@ -23,9 +23,9 @@ __int64 __fastcall MiMakePrototypePteDirect(__int64 a1)
   __int64 v1; // rcx
 
   v1 = (a1 << 16) | 0x400;
-  if ( !qword_140E2DB80 )
+  if ( !qword_140E2DCC0 )
     return v1;
-  if ( (qword_140E2DB80 & v1) != 0 )
+  if ( (qword_140E2DCC0 & v1) != 0 )
     return v1 | 0x10;
-  return v1 | qword_140E2DB80;
+  return v1 | qword_140E2DCC0;
 }

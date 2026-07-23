@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpWriteAppStateChangeWithStats @ 0x140A452AC
+ * XREFs of EtwpWriteAppStateChangeWithStats @ 0x140A3AE58
  * Callers:
- *     EtwTraceAppStateChange @ 0x14094C00C (EtwTraceAppStateChange.c)
+ *     EtwTraceAppStateChange @ 0x1408F057C (EtwTraceAppStateChange.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessStartKey @ 0x140452EB0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessStartKey @ 0x140447F60 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpWriteAppStateChangeWithStats(__int64 a1, __int64 a2)
@@ -48,9 +48,9 @@ void __fastcall EtwpWriteAppStateChangeWithStats(__int64 a1, __int64 a2)
   __int64 *v37; // [rsp+110h] [rbp+10h]
   __int64 v38; // [rsp+118h] [rbp+18h]
 
-  if ( (unsigned int)dword_140E090F0 > 5 )
+  if ( (unsigned int)dword_140E09160 > 5 )
   {
-    if ( (qword_140E09100 & 0x200000000003LL) == 0 || (v2 = 1, (qword_140E09108 & 0x200000000003LL) != qword_140E09108) )
+    if ( (qword_140E09170 & 0x200000000003LL) == 0 || (v2 = 1, (qword_140E09178 & 0x200000000003LL) != qword_140E09178) )
       v2 = 0;
     if ( v2 )
     {
@@ -89,8 +89,8 @@ void __fastcall EtwpWriteAppStateChangeWithStats(__int64 a1, __int64 a2)
       v36 = 4LL;
       v38 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E090F0,
-        (unsigned __int8 *)&unk_140052D58,
+        (__int64)&dword_140E09160,
+        (unsigned __int8 *)&dword_140052F5C,
         0LL,
         0LL,
         0xDu,

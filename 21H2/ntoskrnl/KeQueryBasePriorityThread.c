@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryBasePriorityThread @ 0x1402A74C0
+ * XREFs of KeQueryBasePriorityThread @ 0x140225600
  * Callers:
- *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1406EB0A0 (NtQueryInformationThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140327620 (ExAcquireSpinLockSharedAtDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -14,22 +14,19 @@ __int64 __fastcall KeQueryBasePriorityThread(__int64 a1)
 {
   __int64 v1; // r15
   unsigned __int8 CurrentIrql; // si
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
   struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *v5; // rcx
+  unsigned int v6; // ebx
   _DWORD *v8; // rcx
-  unsigned int v9; // ebx
-  _DWORD *v11; // rcx
   _DWORD *SchedulerAssist; // r9
-  int v13; // eax
-  int v14; // eax
-  unsigned __int8 v15; // al
-  struct _KPRCB *v16; // rax
-  _DWORD *v17; // r9
-  int v18; // edx
-  bool v19; // zf
-  int v20; // [rsp+40h] [rbp+8h] BYREF
+  int v10; // eax
+  int v11; // eax
+  unsigned __int8 v12; // al
+  struct _KPRCB *v13; // rax
+  _DWORD *v14; // r9
+  int v15; // edx
+  bool v16; // zf
+  int v17; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 544);
   CurrentIrql = KeGetCurrentIrql();
@@ -41,59 +38,59 @@ __int64 __fastcall KeQueryBasePriorityThread(__int64 a1)
   }
   ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v1 + 64));
   CurrentPrcb = KeGetCurrentPrcb();
-  v20 = 0;
+  v17 = 0;
   while ( 1 )
   {
-    v8 = CurrentPrcb->SchedulerAssist;
-    if ( v8 )
+    v5 = CurrentPrcb->SchedulerAssist;
+    if ( v5 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v13 = v8[6];
-        v8[6] = v13 + 1;
-        if ( v13 == -1 )
+        v10 = v5[6];
+        v5[6] = v10 + 1;
+        if ( v10 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
       break;
-    v11 = CurrentPrcb->SchedulerAssist;
-    if ( v11 )
+    v8 = CurrentPrcb->SchedulerAssist;
+    if ( v8 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v14 = v11[6] - 1;
-        v11[6] = v14;
-        if ( !v14 )
+        v11 = v8[6] - 1;
+        v8[6] = v11;
+        if ( !v11 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v20, v4, v5, v6);
+      KeYieldProcessorEx(&v17);
     while ( *(_QWORD *)(a1 + 64) );
   }
-  v9 = *(char *)(a1 + 563) - *(char *)(v1 + 640);
+  v6 = *(char *)(a1 + 563) - *(char *)(v1 + 640);
   if ( *(_BYTE *)(a1 + 645) )
-    v9 = 16 * *(char *)(a1 + 645);
+    v6 = 16 * *(char *)(a1 + 645);
   KiReleaseThreadLockSafe(a1);
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v1 + 64));
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v15 = KeGetCurrentIrql();
-      if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      v12 = KeGetCurrentIrql();
+      if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
-        v16 = KeGetCurrentPrcb();
-        v17 = v16->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick(v16);
+        v13 = KeGetCurrentPrcb();
+        v14 = v13->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v16 = (v15 & v14[5]) == 0;
+        v14[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick(v13);
       }
     }
   }
   __writecr8(CurrentIrql);
-  return v9;
+  return v6;
 }

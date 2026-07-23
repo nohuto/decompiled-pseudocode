@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1407319B8
+ * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140731B78
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x1406A3E64 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1405E1934 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpMarkValueDataDirty @ 0x140666F88 (CmpMarkValueDataDirty.c)
- *     CmpFindNameInList @ 0x1406695F8 (CmpFindNameInList.c)
- *     CmpLightWeightUpdateSharedSetValueData @ 0x1406A36A0 (CmpLightWeightUpdateSharedSetValueData.c)
- *     CmpInitializeValueNameString @ 0x1406A45C8 (CmpInitializeValueNameString.c)
- *     CmpLightWeightCreateSetValueData @ 0x1406A4644 (CmpLightWeightCreateSetValueData.c)
- *     CmpRemoveValueFromList @ 0x1406A54A0 (CmpRemoveValueFromList.c)
- *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpLightWeightUpdateSharedSetValueData @ 0x1405DF3F4 (CmpLightWeightUpdateSharedSetValueData.c)
+ *     CmpInitializeValueNameString @ 0x1405E2098 (CmpInitializeValueNameString.c)
+ *     CmpLightWeightCreateSetValueData @ 0x1405E2114 (CmpLightWeightCreateSetValueData.c)
+ *     CmpRemoveValueFromList @ 0x1406030D0 (CmpRemoveValueFromList.c)
+ *     CmpMarkValueDataDirty @ 0x14065BDA8 (CmpMarkValueDataDirty.c)
+ *     CmpFindNameInList @ 0x14065E418 (CmpFindNameInList.c)
+ *     HvMarkCellDirty @ 0x14087BE48 (HvMarkCellDirty.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareDeleteValueKeyUoW(
@@ -30,7 +30,7 @@ __int64 __fastcall CmpLightWeightPrepareDeleteValueKeyUoW(
   _DWORD *TransientPoolWithTag; // rax
   _DWORD *v10; // rsi
   ULONG_PTR v11; // r12
-  _WORD *PoolWithTag; // rax
+  PVOID PoolWithTag; // rax
   void *v13; // r15
   unsigned int v14; // r12d
   __int64 v15; // r13
@@ -76,7 +76,7 @@ __int64 __fastcall CmpLightWeightPrepareDeleteValueKeyUoW(
       PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x8000uLL, 0x62534D43u);
       v13 = PoolWithTag;
       if ( PoolWithTag
-        && (CmpInitializeValueNameString(v11, (__int64)v18, PoolWithTag),
+        && (CmpInitializeValueNameString(v11, (__int64)v18, (__int64)PoolWithTag),
             CmpFindNameInList(v7, v4 + 1, (__int64)v18, 0, (__int64)&v20, (__int64)&v19)) )
       {
         v14 = v19;

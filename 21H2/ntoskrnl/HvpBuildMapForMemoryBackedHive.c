@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1407B1EFC
+ * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1407B209C
  * Callers:
- *     HvHiveStartMemoryBacked @ 0x14076FE14 (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x14076FFD4 (HvHiveStartMemoryBacked.c)
  * Callees:
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     HvpEnlistFreeCells @ 0x140709B00 (HvpEnlistFreeCells.c)
- *     HvpValidateLoadedBin @ 0x140709BE4 (HvpValidateLoadedBin.c)
- *     CmpClaimGlobalQuota @ 0x140720E44 (CmpClaimGlobalQuota.c)
- *     HvpPointMapEntriesToBuffer @ 0x14072305C (HvpPointMapEntriesToBuffer.c)
- *     HvpInitMap @ 0x140723F9C (HvpInitMap.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     CmpClaimGlobalQuota @ 0x1406F82B4 (CmpClaimGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1406FB088 (HvpPointMapEntriesToBuffer.c)
+ *     HvpInitMap @ 0x1406FBFC8 (HvpInitMap.c)
+ *     HvpEnlistFreeCells @ 0x140720EE0 (HvpEnlistFreeCells.c)
+ *     HvpValidateLoadedBin @ 0x140720FC4 (HvpValidateLoadedBin.c)
  */
 
 __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
@@ -40,7 +40,7 @@ __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, 
       if ( (a3 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
       {
         inited = -1073741492;
-        SetFailureLocation(v3, 0, 4, -1073741492, 0);
+        SetFailureLocation(v3, 0, 4, 0xC000014C, 0);
         goto LABEL_20;
       }
       *v10 = 1852400232;
@@ -48,12 +48,12 @@ __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, 
       v10[2] = 4096;
       v6 = 1;
       *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 4088LL) |= 4u;
-      SetFailureLocation(v3, 1, 4, 1073741833, 0);
+      SetFailureLocation(v3, 1, 4, 0x40000009u, 0);
     }
     if ( !CmpClaimGlobalQuota((unsigned int)v10[2], v11) )
     {
       inited = -1073741670;
-      SetFailureLocation(v3, 0, 4, -1073741670, 16);
+      SetFailureLocation(v3, 0, 4, 0xC000009A, 0x10u);
 LABEL_20:
       *(_DWORD *)(v3 + 296) = v9;
       *(_DWORD *)(v3 + 300) = v8;
@@ -68,7 +68,7 @@ LABEL_20:
       if ( v12 >= 0 )
         goto LABEL_9;
       inited = -1073741492;
-      SetFailureLocation(v3, 0, 4, -1073741492, 32);
+      SetFailureLocation(v3, 0, 4, 0xC000014C, 0x20u);
       *(_DWORD *)(v3 + 296) = v10[2];
       *(_DWORD *)(v3 + 300) = v10[1];
 LABEL_22:

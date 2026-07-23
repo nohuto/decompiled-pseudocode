@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreeSessionSpaceMap @ 0x140389D10
+ * XREFs of MiFreeSessionSpaceMap @ 0x140389E60
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x1407784E0 (MiDereferenceSessionFinal.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 MiFreeSessionSpaceMap()

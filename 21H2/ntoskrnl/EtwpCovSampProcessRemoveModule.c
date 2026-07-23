@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCovSampProcessRemoveModule @ 0x140945A4C
+ * XREFs of EtwpCovSampProcessRemoveModule @ 0x140945C1C
  * Callers:
- *     EtwpCovSampProcessAddModule @ 0x1409454B8 (EtwpCovSampProcessAddModule.c)
- *     EtwpCoverageSamplerUnloadImage @ 0x1409476F0 (EtwpCoverageSamplerUnloadImage.c)
+ *     EtwpCovSampProcessAddModule @ 0x140945688 (EtwpCovSampProcessAddModule.c)
+ *     EtwpCoverageSamplerUnloadImage @ 0x1409478C0 (EtwpCoverageSamplerUnloadImage.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpCovSampModuleDereference @ 0x1409452C8 (EtwpCovSampModuleDereference.c)
- *     EtwpCovSampProcessUpperBoundModule @ 0x140945AF4 (EtwpCovSampProcessUpperBoundModule.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpCovSampModuleDereference @ 0x140945498 (EtwpCovSampModuleDereference.c)
+ *     EtwpCovSampProcessUpperBoundModule @ 0x140945CC4 (EtwpCovSampProcessUpperBoundModule.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessRemoveModule(__int64 a1, __int64 a2, __int64 a3)

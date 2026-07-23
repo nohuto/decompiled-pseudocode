@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllpReallocateStringRoutine @ 0x1800D4A28
+ * XREFs of NtdllpReallocateStringRoutine @ 0x1800D49E8
  * Callers:
  *     LdrpLoadDependentModule @ 0x180017BE0 (LdrpLoadDependentModule.c)
  *     LdrpAllocateFileNameBufferIfNeeded @ 0x18001A930 (LdrpAllocateFileNameBufferIfNeeded.c)
@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 __fastcall NtdllpReallocateStringRoutine(__int64 a1, __int64 a2)
+PVOID __fastcall NtdllpReallocateStringRoutine(SIZE_T a1, void *a2)
 {
-  return RtlReAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a2, a1);
+  return RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a2, a1);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAttemptPageFileExtension @ 0x1408D0304
+ * XREFs of MiAttemptPageFileExtension @ 0x1408D0464
  * Callers:
- *     MiExtendPagingFiles @ 0x1408D0630 (MiExtendPagingFiles.c)
+ *     MiExtendPagingFiles @ 0x1408D0790 (MiExtendPagingFiles.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiFinishPageFileExtension @ 0x1405435F0 (MiFinishPageFileExtension.c)
- *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
- *     IoSetInformation @ 0x14077C0D0 (IoSetInformation.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiFinishPageFileExtension @ 0x140543830 (MiFinishPageFileExtension.c)
+ *     IopQueryXxxInformation @ 0x140677FF8 (IopQueryXxxInformation.c)
+ *     IoSetInformation @ 0x14077C290 (IoSetInformation.c)
  */
 
 unsigned __int64 __fastcall MiAttemptPageFileExtension(__int64 a1, __int64 a2, unsigned __int64 a3)

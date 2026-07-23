@@ -1,27 +1,27 @@
 /*
- * XREFs of AdtpBuildAccessReasonAuditStringInternal @ 0x14043282C
+ * XREFs of AdtpBuildAccessReasonAuditStringInternal @ 0x14041F85C
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x1404322F0 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x14041F320 (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     AdtpFormatPrefix @ 0x140432E04 (AdtpFormatPrefix.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     RtlGetAce @ 0x140433010 (RtlGetAce.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     StringCchPrintfW @ 0x1404AC750 (StringCchPrintfW.c)
- *     StringCchPrintfExW @ 0x140715790 (StringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     AdtpBuildAccessesString @ 0x14096A1B4 (AdtpBuildAccessesString.c)
- *     RtlIntegerToUnicodeString @ 0x14096B330 (RtlIntegerToUnicodeString.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlAddAce @ 0x1409F4690 (RtlAddAce.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x140A61D64 (LocalConvertSDToStringSD_Rev1.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     AdtpBuildPrivilegeAuditString @ 0x140AE727C (AdtpBuildPrivilegeAuditString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AdtpFormatPrefix @ 0x14041FE34 (AdtpFormatPrefix.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     RtlGetAce @ 0x140420040 (RtlGetAce.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     StringCchPrintfW @ 0x1404A5DE0 (StringCchPrintfW.c)
+ *     StringCchPrintfExW @ 0x14071A480 (StringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     AdtpBuildAccessesString @ 0x14097AAF4 (AdtpBuildAccessesString.c)
+ *     RtlIntegerToUnicodeString @ 0x14097BC70 (RtlIntegerToUnicodeString.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlAddAce @ 0x1409E03E0 (RtlAddAce.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x140A6ED34 (LocalConvertSDToStringSD_Rev1.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     AdtpBuildPrivilegeAuditString @ 0x140AE50FC (AdtpBuildPrivilegeAuditString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildAccessReasonAuditStringInternal(

@@ -1,16 +1,16 @@
 /*
- * XREFs of HsaUpdateDeviceTableEntry @ 0x140530D20
+ * XREFs of HsaUpdateDeviceTableEntry @ 0x140531270
  * Callers:
- *     HalpHsapInitializeReservedDomain @ 0x14052E2C8 (HalpHsapInitializeReservedDomain.c)
- *     HsaAttachDeviceDomainInternal @ 0x14052F098 (HsaAttachDeviceDomainInternal.c)
- *     HsaProcessDeviceExceptions @ 0x140530838 (HsaProcessDeviceExceptions.c)
- *     HsaSetDevicePasidTable @ 0x140530B90 (HsaSetDevicePasidTable.c)
+ *     HalpHsapInitializeReservedDomain @ 0x14052E818 (HalpHsapInitializeReservedDomain.c)
+ *     HsaAttachDeviceDomainInternal @ 0x14052F5E8 (HsaAttachDeviceDomainInternal.c)
+ *     HsaProcessDeviceExceptions @ 0x140530D88 (HsaProcessDeviceExceptions.c)
+ *     HsaSetDevicePasidTable @ 0x1405310E0 (HsaSetDevicePasidTable.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HsaBuildDeviceTableEntry @ 0x14052F298 (HsaBuildDeviceTableEntry.c)
- *     HsaGetBlockedDomain @ 0x14052FFBC (HsaGetBlockedDomain.c)
- *     HsaIommuSendCommand @ 0x1405305C8 (HsaIommuSendCommand.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HsaBuildDeviceTableEntry @ 0x14052F7E8 (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x14053050C (HsaGetBlockedDomain.c)
+ *     HsaIommuSendCommand @ 0x140530B18 (HsaIommuSendCommand.c)
  */
 
 __int64 *__fastcall HsaUpdateDeviceTableEntry(

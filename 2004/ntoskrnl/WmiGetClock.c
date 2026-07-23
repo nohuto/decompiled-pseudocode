@@ -8,10 +8,10 @@
  *     RtlGetSystemTimePrecise @ 0x1402F9590 (RtlGetSystemTimePrecise.c)
  */
 
-__int64 __fastcall WmiGetClock(int a1)
+unsigned __int64 __fastcall WmiGetClock(int a1)
 {
   __int64 v2; // rcx
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   int v4; // ecx
 
   v2 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
@@ -27,7 +27,7 @@ __int64 __fastcall WmiGetClock(int a1)
         if ( a1 == 5 )
           return __rdtsc();
       }
-      return RtlGetSystemTimePrecise();
+      return RtlGetSystemTimePrecise().QuadPart;
     }
     return KeQueryPerformanceCounter(0LL).QuadPart;
   }
@@ -38,5 +38,5 @@ __int64 __fastcall WmiGetClock(int a1)
       return __rdtsc();
     return KeQueryPerformanceCounter(0LL).QuadPart;
   }
-  return RtlGetSystemTimePrecise();
+  return RtlGetSystemTimePrecise().QuadPart;
 }

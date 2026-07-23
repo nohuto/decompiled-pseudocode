@@ -41,7 +41,7 @@
 __int64 __fastcall IopGetSetSecurityObject(
         __int64 BugCheckParameter2,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         UNICODE_STRING *a4,
         PULONG Length,
         int a6,
@@ -73,7 +73,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   __int64 v34; // r8
   __int64 v35; // r9
   ULONG *v36; // r8
-  ULONG *v37; // rcx
+  DWORD *v37; // rcx
   struct _KTHREAD *CurrentThread; // rbx
   __int64 v39; // rdx
   __int64 v40; // r8
@@ -89,7 +89,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   __int128 v50; // [rsp+48h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+58h] [rbp-40h] BYREF
   char v52; // [rsp+A0h] [rbp+8h] BYREF
-  ULONG *v53; // [rsp+B0h] [rbp+18h]
+  DWORD *v53; // [rsp+B0h] [rbp+18h]
 
   v53 = a3;
   v49 = 0LL;

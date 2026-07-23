@@ -38,7 +38,7 @@ void __fastcall PspRecordCrashedProcessIntoBlackbox(__int64 a1)
     v6 = 13;
     InputBuffer[0] = v4;
     InputBuffer[1] = (unsigned int)(v2 + 8);
-    ZwPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    ZwPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
     ExFreePoolWithTag(v4, 0x62427350u);
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KsepGetModuleInfoByAddress @ 0x1407286E8
+ * XREFs of KsepGetModuleInfoByAddress @ 0x1407298D8
  * Callers:
- *     KsepValidateShimProviderAndData @ 0x140728640 (KsepValidateShimProviderAndData.c)
+ *     KsepValidateShimProviderAndData @ 0x140729830 (KsepValidateShimProviderAndData.c)
  * Callees:
  *     <none>
  */

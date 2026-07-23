@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateHardwareDescriptor @ 0x1404AE4C8
+ * XREFs of MiAllocateHardwareDescriptor @ 0x1404A8DD8
  * Callers:
- *     MiTryZeroMemory @ 0x14020BD20 (MiTryZeroMemory.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1406931D8 (MiComputeCacheAttributeSpeeds.c)
+ *     MiTryZeroMemory @ 0x140331A60 (MiTryZeroMemory.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x1406942A8 (MiComputeCacheAttributeSpeeds.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 *__fastcall MiAllocateHardwareDescriptor(_QWORD *a1)

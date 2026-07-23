@@ -1,57 +1,44 @@
 /*
- * XREFs of RtlRunEncodeUnicodeString @ 0x180110260
+ * XREFs of RtlRunEncodeUnicodeString @ 0x18010B380
  * Callers:
  *     <none>
  * Callees:
- *     ZwQuerySystemTime @ 0x1801627D0 (ZwQuerySystemTime.c)
+ *     ZwQuerySystemTime @ 0x180160B90 (ZwQuerySystemTime.c)
  */
 
-__int64 __fastcall RtlRunEncodeUnicodeString(char *a1, unsigned __int16 *a2)
+void __cdecl RtlRunEncodeUnicodeString(PUCHAR Seed, PUNICODE_STRING String)
 {
-  char v3; // r8
-  unsigned int v5; // r9d
+  UCHAR v3; // r8
+  unsigned int j; // r9d
   __int64 v6; // rax
   __int64 v7; // rdx
   unsigned int i; // ecx
-  __int64 result; // rax
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER SystemTime; // [rsp+30h] [rbp+8h] BYREF
 
-  v10 = 0LL;
-  v3 = *a1;
-  if ( !*a1 )
+  SystemTime.QuadPart = 0LL;
+  v3 = *Seed;
+  if ( !*Seed )
   {
-    result = ZwQuerySystemTime(&v10);
-    v3 = BYTE1(v10);
+    ZwQuerySystemTime(&SystemTime);
+    v3 = BYTE1(SystemTime.LowPart);
     for ( i = 1; ; ++i )
     {
-      *a1 = v3;
+      *Seed = v3;
       if ( v3 || i >= 8 )
         break;
-      result = i;
-      v3 = *((_BYTE *)&v10 + i);
+      v3 = *((_BYTE *)&SystemTime.LowPart + i);
     }
     if ( !v3 )
     {
-      *a1 = 1;
+      *Seed = 1;
       v3 = 1;
     }
   }
-  if ( *a2 )
+  if ( String->Length )
+    *(_BYTE *)String->Buffer ^= v3 | 0x43;
+  for ( j = 1; j < String->Length; *((_BYTE *)String->Buffer + v7) ^= *Seed ^ *((_BYTE *)String->Buffer + v6) )
   {
-    result = *((_QWORD *)a2 + 1);
-    *(_BYTE *)result ^= v3 | 0x43;
+    v6 = j - 1;
+    v7 = j++;
   }
-  v5 = 1;
-  if ( *a2 > 1u )
-  {
-    do
-    {
-      v6 = v5 - 1;
-      v7 = v5++;
-      *(_BYTE *)(v7 + *((_QWORD *)a2 + 1)) ^= *a1 ^ *(_BYTE *)(v6 + *((_QWORD *)a2 + 1));
-      result = *a2;
-    }
-    while ( v5 < (unsigned int)result );
-  }
-  return result;
 }

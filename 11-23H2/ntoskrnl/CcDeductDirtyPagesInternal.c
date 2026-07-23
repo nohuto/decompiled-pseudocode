@@ -1,10 +1,10 @@
 /*
- * XREFs of CcDeductDirtyPagesInternal @ 0x1402F3FB8
+ * XREFs of CcDeductDirtyPagesInternal @ 0x1402F4248
  * Callers:
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     CcDeductDirtyPages @ 0x1402F3F80 (CcDeductDirtyPages.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     CcDeductDirtyPages @ 0x1402F4210 (CcDeductDirtyPages.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall CcDeductDirtyPagesInternal(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)

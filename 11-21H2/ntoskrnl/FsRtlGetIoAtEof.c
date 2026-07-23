@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpWaitForIoAtEof @ 0x14035D3E0 (FsRtlpWaitForIoAtEof.c)
+ *     sub_14035D3E0 @ 0x14035D3E0 (sub_14035D3E0.c)
  */
 
 __int64 __fastcall FsRtlGetIoAtEof(__int64 a1, volatile signed __int32 *a2, __int64 a3, __int64 a4, char a5, char *a6)
@@ -30,6 +30,6 @@ __int64 __fastcall FsRtlGetIoAtEof(__int64 a1, volatile signed __int32 *a2, __in
   }
   if ( !a5 )
     return 3221225556LL;
-  *a6 = FsRtlpWaitForIoAtEof(a1, a2, v7);
+  *a6 = sub_14035D3E0(a1, a2, v7);
   return 0LL;
 }

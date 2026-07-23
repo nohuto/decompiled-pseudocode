@@ -3,17 +3,17 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x14013BF80 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14015B5E0 (ZwDeleteValueKey.c)
+ *     RtlUnicodeStringPrintf @ 0x14013C4F0 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14015BB50 (ZwDeleteValueKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     RtlStringFromGUID @ 0x1404EE054 (RtlStringFromGUID.c)
- *     IopCreateRegistryKeyEx @ 0x1405391F8 (IopCreateRegistryKeyEx.c)
- *     PipHardwareConfigClearStartOverrides @ 0x140629848 (PipHardwareConfigClearStartOverrides.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x14062996C (PipHardwareConfigTriggerRespecialize.c)
+ *     RtlStringFromGUID @ 0x1404D011C (RtlStringFromGUID.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     IopCreateRegistryKeyEx @ 0x140539738 (IopCreateRegistryKeyEx.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x1406298FC (PipHardwareConfigClearStartOverrides.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x140629A20 (PipHardwareConfigTriggerRespecialize.c)
  *     PipHardwareConfigExists @ 0x1407CEBD0 (PipHardwareConfigExists.c)
  */
 

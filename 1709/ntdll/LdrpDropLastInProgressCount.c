@@ -18,16 +18,14 @@
  *     RtlEnterCriticalSection @ 0x180047C50 (RtlEnterCriticalSection.c)
  */
 
-__int64 LdrpDropLastInProgressCount()
+NTSTATUS LdrpDropLastInProgressCount()
 {
   struct _TEB *v0; // rax
-  __int64 v1; // r8
-  __int64 v2; // r9
 
   v0 = NtCurrentTeb();
   v0->SameTebFlags &= ~0x1000u;
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
   LdrpWorkInProgress = 0;
-  RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
-  return ZwSetEvent(LdrpLoadCompleteEvent, 0LL, v1, v2);
+  RtlLeaveCriticalSection(&LdrpWorkQueueLock);
+  return ZwSetEvent(LdrpLoadCompleteEvent, 0LL);
 }

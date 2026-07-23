@@ -22,13 +22,13 @@ int __cdecl _vswprintf_l(
   wchar_t *v10; // [esp+Ch] [ebp-18h]
   int v11; // [esp+10h] [ebp-14h]
 
-  if ( BufferCount && Buffer )
+  if ( (_DWORD)BufferCount && Buffer )
   {
     v10 = Buffer;
     v8 = Buffer;
     v11 = 66;
     v9 = 0x7FFFFFFF;
-    v5 = _woutput_l(&v8, BufferCount, Format, Locale);
+    v5 = _woutput_l(&v8, BufferCount, HIDWORD(BufferCount), Format);
     if ( --v9 < 0 )
     {
       _flsbuf_s(0, &v8);

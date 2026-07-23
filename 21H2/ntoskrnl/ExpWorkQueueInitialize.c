@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWorkQueueInitialize @ 0x1407C26E8
+ * XREFs of ExpWorkQueueInitialize @ 0x1407C2C08
  * Callers:
- *     ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C267C (ExpWorkQueueInitializeWithMinimumThreads.c)
+ *     ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C2B9C (ExpWorkQueueInitializeWithMinimumThreads.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     KeInitializePriQueue @ 0x1403C6D54 (KeInitializePriQueue.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializePriQueue @ 0x1403C6EF4 (KeInitializePriQueue.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4, __int64 a5, unsigned int a6)
 {
   __int64 v10; // rbx
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
   USHORT Count; // [rsp+58h] [rbp+10h] BYREF
 
   Count = 0;

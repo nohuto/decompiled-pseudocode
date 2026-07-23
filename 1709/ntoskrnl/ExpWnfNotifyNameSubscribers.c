@@ -26,7 +26,7 @@ char __fastcall ExpWnfNotifyNameSubscribers(__int64 a1, int a2, int a3, unsigned
   signed __int64 *v4; // rdi
   unsigned int v5; // ebx
   int v6; // ebp
-  unsigned __int64 v7; // rsi
+  PRTL_BALANCED_NODE v7; // rsi
   _QWORD *v8; // rsi
   __int64 v9; // rcx
   int inserted; // eax
@@ -44,9 +44,9 @@ char __fastcall ExpWnfNotifyNameSubscribers(__int64 a1, int a2, int a3, unsigned
   v6 = 1;
   v7 = KeAbPreAcquire(a1 + 112, 0LL, 0);
   if ( _InterlockedCompareExchange64(v4, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v4, v7, (unsigned __int64)v4);
+    ExfAcquirePushLockSharedEx(v4, (__int64)v7, (ULONG_PTR)v4);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   v8 = *(_QWORD **)(a1 + 120);
   if ( v8 != (_QWORD *)(a1 + 120) )
   {

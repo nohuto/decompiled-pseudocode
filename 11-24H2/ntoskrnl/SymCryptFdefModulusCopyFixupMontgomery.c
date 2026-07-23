@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefModulusCopyFixupMontgomery @ 0x140536C50
+ * XREFs of SymCryptFdefModulusCopyFixupMontgomery @ 0x1405310F0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptFdefSizeofDivisorFromDigits @ 0x1405376A8 (SymCryptFdefSizeofDivisorFromDigits.c)
+ *     SymCryptFdefSizeofDivisorFromDigits @ 0x140531B48 (SymCryptFdefSizeofDivisorFromDigits.c)
  */
 
 __int64 __fastcall SymCryptFdefModulusCopyFixupMontgomery(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
  * XREFs of CarRegisterDefaultRuleClassConfiguration @ 0x140603CB0
  * Callers:
- *     DifRegisterKernelPlugin @ 0x140604884 (DifRegisterKernelPlugin.c)
+ *     sub_140604884 @ 0x140604884 (sub_140604884.c)
  * Callees:
  *     CarRegisterRuleClassConfiguration @ 0x140603D10 (CarRegisterRuleClassConfiguration.c)
  */
@@ -13,10 +13,10 @@ __int64 __fastcall CarRegisterDefaultRuleClassConfiguration(int a1, int a2)
   __m128i v5; // [rsp+40h] [rbp-28h]
   __m128i v6; // [rsp+50h] [rbp-18h]
 
-  si128 = _mm_load_si128((const __m128i *)&_xmm);
+  si128 = _mm_load_si128((const __m128i *)&xmmword_140047DC0);
   v5 = si128;
   v3[0] = a1;
-  v6 = _mm_load_si128((const __m128i *)&_xmm);
+  v6 = _mm_load_si128((const __m128i *)&xmmword_140047D90);
   v3[2] = 5;
   v3[3] = 3;
   v3[1] = a2;

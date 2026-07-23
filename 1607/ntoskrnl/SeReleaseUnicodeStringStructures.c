@@ -1,7 +1,7 @@
 /*
- * XREFs of SeReleaseUnicodeStringStructures @ 0x140690B64
+ * XREFs of SeReleaseUnicodeStringStructures @ 0x140690C48
  * Callers:
- *     SepCaptureUnicodeStringArray @ 0x140411D10 (SepCaptureUnicodeStringArray.c)
+ *     SepCaptureUnicodeStringArray @ 0x140410BD0 (SepCaptureUnicodeStringArray.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

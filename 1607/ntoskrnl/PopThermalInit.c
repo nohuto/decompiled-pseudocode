@@ -3,7 +3,7 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     PopInitializeTimer @ 0x14057A27C (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x14057A7BC (PopInitializeTimer.c)
  */
 
 __int64 PopThermalInit()
@@ -15,8 +15,8 @@ __int64 PopThermalInit()
 
   v0 = 0;
   PopThermalLock = 0LL;
-  qword_140303258 = 0LL;
-  qword_140303FE8 = 0LL;
+  qword_140304098 = 0LL;
+  qword_140303F28 = 0LL;
   PopThermalTelemetryLock = 0LL;
   LOBYTE(PopSystemThermalInfo) = 1;
   PopInitializeTimer(

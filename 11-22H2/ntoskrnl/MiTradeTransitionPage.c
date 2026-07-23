@@ -65,10 +65,13 @@ __int64 __fastcall MiTradeTransitionPage(ULONG_PTR BugCheckParameter2, unsigned 
       {
         v40 = *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL));
         _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v5 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -113,10 +116,10 @@ LABEL_21:
           *(_QWORD *)(BugCheckParameter2 + 16) = ZeroPte;
           MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(BugCheckParameter2 + 16));
           _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v35 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v35 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v35 >= 2u )
             {
               v36 = KeGetCurrentPrcb();
               v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
@@ -165,10 +168,10 @@ LABEL_21:
 LABEL_49:
         ++dword_140C13784;
         _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v31 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v31 >= 2u )
           {
             v32 = KeGetCurrentPrcb();
             v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
@@ -191,10 +194,10 @@ LABEL_49:
     }
     _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;

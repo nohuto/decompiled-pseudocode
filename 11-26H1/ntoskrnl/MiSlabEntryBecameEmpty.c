@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSlabEntryBecameEmpty @ 0x14036A070
+ * XREFs of MiSlabEntryBecameEmpty @ 0x14036BE10
  * Callers:
- *     MiFreeSlabEntries @ 0x1402A76DC (MiFreeSlabEntries.c)
- *     MiFreePageToSlabEntry @ 0x140369DBC (MiFreePageToSlabEntry.c)
- *     MiInsertSlabEntry @ 0x1404C33F4 (MiInsertSlabEntry.c)
+ *     MiFreeSlabEntries @ 0x1402A6AEC (MiFreeSlabEntries.c)
+ *     MiFreePageToSlabEntry @ 0x14036BB5C (MiFreePageToSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x1404BCC44 (MiInsertSlabEntry.c)
  * Callees:
  *     <none>
  */

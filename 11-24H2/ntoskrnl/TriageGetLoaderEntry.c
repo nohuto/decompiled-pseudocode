@@ -1,9 +1,9 @@
 /*
- * XREFs of TriageGetLoaderEntry @ 0x1406A17B0
+ * XREFs of TriageGetLoaderEntry @ 0x1406A2808
  * Callers:
- *     ViTriageSameDriversFromDump @ 0x140C3C560 (ViTriageSameDriversFromDump.c)
+ *     ViTriageSameDriversFromDump @ 0x140C3E6B8 (ViTriageSameDriversFromDump.c)
  * Callees:
- *     TriagepVerifyDump @ 0x140C5F1A0 (TriagepVerifyDump.c)
+ *     TriagepVerifyDump @ 0x140C612F0 (TriagepVerifyDump.c)
  */
 
 __int64 __fastcall TriageGetLoaderEntry(__int64 a1, unsigned int a2)

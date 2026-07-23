@@ -1,16 +1,16 @@
 /*
- * XREFs of AccelpSubmitWork @ 0x14040AB90
+ * XREFs of AccelpSubmitWork @ 0x140403070
  * Callers:
- *     MiFillPhysicalPages @ 0x14021EFA0 (MiFillPhysicalPages.c)
- *     MiFillMemory @ 0x14040A5D0 (MiFillMemory.c)
- *     AccelFillMemory @ 0x14040A67C (AccelFillMemory.c)
- *     AccelCompressBuffer @ 0x1406656FC (AccelCompressBuffer.c)
- *     AccelDecompressBuffer @ 0x14066586C (AccelDecompressBuffer.c)
- *     AccelpComputeHistogram @ 0x140666040 (AccelpComputeHistogram.c)
+ *     MiFillPhysicalPages @ 0x14024BCF0 (MiFillPhysicalPages.c)
+ *     MiFillMemory @ 0x140402AB0 (MiFillMemory.c)
+ *     AccelFillMemory @ 0x140402B5C (AccelFillMemory.c)
+ *     AccelCompressBuffer @ 0x140663FEC (AccelCompressBuffer.c)
+ *     AccelDecompressBuffer @ 0x14066415C (AccelDecompressBuffer.c)
+ *     AccelpComputeHistogram @ 0x140664930 (AccelpComputeHistogram.c)
  * Callees:
- *     AccelGetStatusFromCompletionRecord @ 0x14040A548 (AccelGetStatusFromCompletionRecord.c)
- *     AccelSubmitWorkAsync @ 0x14040ABE8 (AccelSubmitWorkAsync.c)
- *     AccelWaitForWorkCompletion @ 0x14040AC70 (AccelWaitForWorkCompletion.c)
+ *     AccelGetStatusFromCompletionRecord @ 0x140402A28 (AccelGetStatusFromCompletionRecord.c)
+ *     AccelSubmitWorkAsync @ 0x1404030C8 (AccelSubmitWorkAsync.c)
+ *     AccelWaitForWorkCompletion @ 0x140403150 (AccelWaitForWorkCompletion.c)
  */
 
 __int64 __fastcall AccelpSubmitWork(__int64 *a1, __int64 a2)

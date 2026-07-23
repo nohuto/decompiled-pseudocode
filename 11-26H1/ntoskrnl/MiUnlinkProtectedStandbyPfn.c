@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlinkProtectedStandbyPfn @ 0x14046229C
+ * XREFs of MiUnlinkProtectedStandbyPfn @ 0x14045B25C
  * Callers:
- *     MiUnlinkSingleBatchPage @ 0x1402F80B0 (MiUnlinkSingleBatchPage.c)
- *     MiUnlinkStandbyPage @ 0x1402F9C20 (MiUnlinkStandbyPage.c)
+ *     MiUnlinkSingleBatchPage @ 0x1402DA130 (MiUnlinkSingleBatchPage.c)
+ *     MiUnlinkStandbyPage @ 0x1402DBCA0 (MiUnlinkStandbyPage.c)
  * Callees:
- *     MiDecayNodeNowEmpty @ 0x140462438 (MiDecayNodeNowEmpty.c)
+ *     MiDecayNodeNowEmpty @ 0x14045B3F8 (MiDecayNodeNowEmpty.c)
  */
 
 signed __int64 __fastcall MiUnlinkProtectedStandbyPfn(__int64 *a1)
@@ -30,7 +30,7 @@ signed __int64 __fastcall MiUnlinkProtectedStandbyPfn(__int64 *a1)
   v3 = *a1 & 0xFFFFFFFFFFLL;
   v4 = v2 & 0xFFFFFFFFFFLL;
   v5 = 0;
-  if ( (v2 & 0xFFFFFFFFFFuLL) < qword_140E347B0 || v4 >= qword_140E347B0 + 2048 )
+  if ( (v2 & 0xFFFFFFFFFFuLL) < qword_140E34930 || v4 >= qword_140E34930 + 2048 )
   {
     v6 = 0;
   }
@@ -43,13 +43,13 @@ signed __int64 __fastcall MiUnlinkProtectedStandbyPfn(__int64 *a1)
   if ( v6 )
   {
     v9 = (v3 << 12) | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFF0000000000C9FuLL | 0x880;
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
       v8 = (v3 << 12) | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFF0000000000C9FuLL;
-      if ( (qword_140E2D740 & v9) != 0 )
+      if ( (qword_140E2D8C0 & v9) != 0 )
         v9 = v8 | 0x890;
       else
-        v9 = qword_140E2D740 | v8 | 0x880;
+        v9 = qword_140E2D8C0 | v8 | 0x880;
     }
     v7[2] = v9;
   }
@@ -58,7 +58,7 @@ signed __int64 __fastcall MiUnlinkProtectedStandbyPfn(__int64 *a1)
     *v7 = v1 ^ (v1 ^ *v7) & 0xFFFFFF0000000000uLL;
   }
   v10 = 48 * v3 - 0x220000000000LL;
-  if ( v3 < qword_140E347B0 || v3 >= qword_140E347B0 + 2048 )
+  if ( v3 < qword_140E34930 || v3 >= qword_140E34930 + 2048 )
   {
     v11 = *(_QWORD *)(v10 + 24);
     result = _InterlockedCompareExchange64(

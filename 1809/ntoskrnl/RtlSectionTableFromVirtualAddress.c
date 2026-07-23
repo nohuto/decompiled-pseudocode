@@ -1,46 +1,49 @@
 /*
- * XREFs of RtlSectionTableFromVirtualAddress @ 0x1400F3450
+ * XREFs of RtlSectionTableFromVirtualAddress @ 0x1400F34D0
  * Callers:
- *     RtlAddressInSectionTable @ 0x1400F33FC (RtlAddressInSectionTable.c)
- *     KeQueryKvaShadowRegion @ 0x14012B14C (KeQueryKvaShadowRegion.c)
- *     KiShadowProcessorAllocation @ 0x140572D84 (KiShadowProcessorAllocation.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067AC98 (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     KeSetTracepoint @ 0x140844E00 (KeSetTracepoint.c)
- *     KiVerifyXcpt15 @ 0x14098E2F0 (KiVerifyXcpt15.c)
- *     CcInitializeBcbProfiler @ 0x14098E324 (CcInitializeBcbProfiler.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     RtlAddressInSectionTable @ 0x1400F347C (RtlAddressInSectionTable.c)
+ *     KeQueryKvaShadowRegion @ 0x14012B21C (KeQueryKvaShadowRegion.c)
+ *     KiShadowProcessorAllocation @ 0x140573D84 (KiShadowProcessorAllocation.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067BE58 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     KeSetTracepoint @ 0x140846060 (KeSetTracepoint.c)
+ *     KiVerifyXcpt15 @ 0x14098F2F0 (KiVerifyXcpt15.c)
+ *     CcInitializeBcbProfiler @ 0x14098F324 (CcInitializeBcbProfiler.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlSectionTableFromVirtualAddress(unsigned __int64 a1, __int64 a2, unsigned int a3)
+PIMAGE_SECTION_HEADER __cdecl RtlSectionTableFromVirtualAddress(
+        PIMAGE_NT_HEADERS NtHeaders,
+        PVOID BaseOfImage,
+        ULONG VirtualAddress)
 {
-  unsigned __int64 v3; // r9
-  unsigned int v4; // r10d
+  _IMAGE_SECTION_HEADER *v3; // r9
+  unsigned int NumberOfSections; // r10d
   int v5; // edx
-  unsigned int v6; // ecx
-  unsigned __int64 v8; // rax
+  ULONG v6; // ecx
+  unsigned __int64 Name; // rax
 
-  v3 = *(unsigned __int16 *)(a1 + 20) + a1 + 24;
-  v4 = *(unsigned __int16 *)(a1 + 6);
-  if ( a1 <= 0x7FFFFFFEFFFFLL )
+  v3 = (_IMAGE_SECTION_HEADER *)((char *)&NtHeaders->OptionalHeader + NtHeaders->FileHeader.SizeOfOptionalHeader);
+  NumberOfSections = NtHeaders->FileHeader.NumberOfSections;
+  if ( (unsigned __int64)NtHeaders <= 0x7FFFFFFEFFFFLL )
   {
-    if ( v3 > 0x7FFFFFFEFFFFLL )
+    if ( (unsigned __int64)v3 > 0x7FFFFFFEFFFFLL )
       return 0LL;
-    v8 = v3 + 40LL * *(unsigned __int16 *)(a1 + 6);
-    if ( v8 < v3 || v8 >= 0x7FFFFFFEFFFFLL )
+    Name = (unsigned __int64)v3[NtHeaders->FileHeader.NumberOfSections].Name;
+    if ( Name < (unsigned __int64)v3 || Name >= 0x7FFFFFFEFFFFLL )
       return 0LL;
   }
   v5 = 0;
-  if ( !*(_WORD *)(a1 + 6) )
+  if ( !NtHeaders->FileHeader.NumberOfSections )
     return 0LL;
   while ( 1 )
   {
-    v6 = *(_DWORD *)(v3 + 12);
-    if ( a3 >= v6 && a3 < *(_DWORD *)(v3 + 16) + v6 )
+    v6 = v3->VirtualAddress;
+    if ( VirtualAddress >= v6 && VirtualAddress < v3->SizeOfRawData + v6 )
       break;
-    v3 += 40LL;
-    if ( ++v5 >= v4 )
+    ++v3;
+    if ( ++v5 >= NumberOfSections )
       return 0LL;
   }
   return v3;

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpChannelAscendingSort @ 0x140CB4C40
+ * XREFs of HalpChannelAscendingSort @ 0x140CBAC80
  * Callers:
  *     <none>
  * Callees:

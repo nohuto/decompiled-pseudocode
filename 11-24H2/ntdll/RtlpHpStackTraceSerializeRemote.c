@@ -1,99 +1,109 @@
 /*
- * XREFs of RtlpHpStackTraceSerializeRemote @ 0x18014C1C8
+ * XREFs of RtlpHpStackTraceSerializeRemote @ 0x18014A590
  * Callers:
- *     RtlpHpStackTraceSerialize @ 0x18011F158 (RtlpHpStackTraceSerialize.c)
+ *     RtlpHpStackTraceSerialize @ 0x18011D388 (RtlpHpStackTraceSerialize.c)
  * Callees:
- *     RtlpHeapPerformCrossProcessQuery @ 0x1800444B0 (RtlpHeapPerformCrossProcessQuery.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwMapViewOfSection @ 0x180162190 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
- *     NtCreateSection @ 0x1801625D0 (NtCreateSection.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1801109D0 (RtlpHeapPerformCrossProcessQuery.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x180160550 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
+ *     NtCreateSection @ 0x180160990 (NtCreateSection.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpStackTraceSerializeRemote(__int64 a1)
 {
-  __int64 v1; // rsi
-  int v3; // ebx
+  ULONG_PTR v1; // rsi
+  NTSTATUS v3; // ebx
   int v4; // eax
-  __int64 v5; // rdx
+  PVOID v5; // rdx
   signed __int64 v6; // rax
-  unsigned __int64 v7; // rcx
-  __int64 v8; // rdx
-  signed __int64 v10; // [rsp+50h] [rbp-39h] BYREF
-  _QWORD v11[3]; // [rsp+60h] [rbp-29h] BYREF
+  ULONG_PTR v7; // rcx
+  ULONG_PTR v8; // rdx
+  LARGE_INTEGER SectionOffset; // [rsp+50h] [rbp-39h] BYREF
+  HANDLE Buffer[3]; // [rsp+60h] [rbp-29h] BYREF
   int v12; // [rsp+78h] [rbp-11h]
-  unsigned __int64 v13; // [rsp+80h] [rbp-9h]
+  ULONG_PTR v13; // [rsp+80h] [rbp-9h]
   char v14; // [rsp+B8h] [rbp+2Fh]
-  __int64 v15; // [rsp+F0h] [rbp+67h] BYREF
-  HANDLE Handle; // [rsp+F8h] [rbp+6Fh] BYREF
-  signed __int64 i; // [rsp+100h] [rbp+77h] BYREF
-  __int64 v18; // [rsp+108h] [rbp+7Fh] BYREF
+  PVOID BaseAddress; // [rsp+F0h] [rbp+67h] BYREF
+  HANDLE SectionHandle; // [rsp+F8h] [rbp+6Fh] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+100h] [rbp+77h] BYREF
+  ULONG_PTR ViewSize; // [rsp+108h] [rbp+7Fh] BYREF
 
-  v18 = 0LL;
+  ViewSize = 0LL;
   v1 = 0x10000LL;
-  v10 = 0LL;
-  Handle = 0LL;
-  v15 = 0LL;
-  for ( i = 0x10000LL; ; i = (v13 + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL )
+  SectionOffset.QuadPart = 0LL;
+  SectionHandle = 0LL;
+  BaseAddress = 0LL;
+  for ( MaximumSize.QuadPart = 0x10000LL; ; MaximumSize.QuadPart = (v13 + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL )
   {
-    memset_thunk_772440563353939046(v11, 0, 0x60uLL);
+    memset_thunk_772440563353939046(Buffer, 0, 0x60uLL);
     if ( *(_BYTE *)(a1 + 32) == 2 )
     {
-      v3 = NtCreateSection(&Handle, 983071LL, 0LL, &i);
+      v3 = NtCreateSection(&SectionHandle, 0xF001Fu, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
       if ( v3 < 0 )
         goto LABEL_22;
-      v11[0] = Handle;
-      v11[1] = i;
+      Buffer[0] = SectionHandle;
+      Buffer[1] = (HANDLE)MaximumSize.QuadPart;
       v12 = 0x20000000;
     }
     else
     {
       v12 = 0x8000000;
     }
-    v4 = RtlpHeapPerformCrossProcessQuery(*(_QWORD *)(a1 + 8), (__int64)v11);
+    v4 = RtlpHeapPerformCrossProcessQuery(*(HANDLE *)(a1 + 8), Buffer);
     v3 = v4;
     if ( v4 >= 0 )
       break;
     if ( v4 != -1073741789 )
       goto LABEL_22;
-    NtClose(Handle);
+    NtClose(SectionHandle);
   }
   if ( (v14 & 1) != 0 )
     *(_BYTE *)(a1 + 33) |= 1u;
   if ( *(_BYTE *)(a1 + 32) == 1 )
   {
 LABEL_22:
-    v5 = v15;
+    v5 = BaseAddress;
     goto LABEL_23;
   }
-  v5 = v15;
+  v5 = BaseAddress;
   v6 = 0LL;
   v7 = 0LL;
-  v18 = 0x10000LL;
-  while ( v6 < i && v7 < v13 )
+  ViewSize = 0x10000LL;
+  while ( v6 < MaximumSize.QuadPart && v7 < v13 )
   {
-    v3 = ZwMapViewOfSection(Handle, -1LL, &v15, 0LL, v1, &v10, &v18, 2, 0, 4);
+    v3 = ZwMapViewOfSection(
+           SectionHandle,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &BaseAddress,
+           0LL,
+           v1,
+           &SectionOffset,
+           &ViewSize,
+           ViewUnmap,
+           0,
+           4u);
     if ( v3 < 0 )
       goto LABEL_22;
-    v8 = v10 + v18 <= v13 ? v18 : v13 - v10;
-    v3 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))(a1 + 16))(v15, v8, *(_QWORD *)(a1 + 24));
+    v8 = SectionOffset.QuadPart + ViewSize <= v13 ? ViewSize : v13 - SectionOffset.QuadPart;
+    v3 = (*(__int64 (__fastcall **)(PVOID, ULONG_PTR, _QWORD))(a1 + 16))(BaseAddress, v8, *(_QWORD *)(a1 + 24));
     if ( v3 < 0 )
       goto LABEL_22;
-    NtUnmapViewOfSection(-1LL);
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
     v5 = 0LL;
-    v1 = v18;
-    v6 = v18 + v10;
-    v15 = 0LL;
-    v10 = v6;
+    v1 = ViewSize;
+    v6 = ViewSize + SectionOffset.QuadPart;
+    BaseAddress = 0LL;
+    SectionOffset.QuadPart = v6;
     v7 = v6;
   }
   v3 = 0;
 LABEL_23:
   if ( v5 )
-    NtUnmapViewOfSection(-1LL);
-  if ( Handle )
-    NtClose(Handle);
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v5);
+  if ( SectionHandle )
+    NtClose(SectionHandle);
   return (unsigned int)v3;
 }

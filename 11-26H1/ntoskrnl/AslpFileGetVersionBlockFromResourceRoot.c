@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpFileGetVersionBlockFromResourceRoot @ 0x14088E12C
+ * XREFs of AslpFileGetVersionBlockFromResourceRoot @ 0x140894528
  * Callers:
- *     AslpFileGetVersionBlockImageOnly @ 0x14088E394 (AslpFileGetVersionBlockImageOnly.c)
+ *     AslpFileGetVersionBlockImageOnly @ 0x140894790 (AslpFileGetVersionBlockImageOnly.c)
  * Callees:
- *     AslpMemoryCheckBounds @ 0x140714E44 (AslpMemoryCheckBounds.c)
- *     AslpFileGetImageNtHeader @ 0x14088D430 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x14088F60C (AslpImageRvaToVa.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     AslpMemoryCheckBounds @ 0x140719B34 (AslpMemoryCheckBounds.c)
+ *     AslpFileGetImageNtHeader @ 0x14089382C (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x140895A08 (AslpImageRvaToVa.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetVersionBlockFromResourceRoot(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtUnloadDriver @ 0x140B2ADE0
+ * XREFs of NtUnloadDriver @ 0x140B2CE60
  * Callers:
- *     DifNtUnloadDriverWrapper @ 0x14068FE00 (DifNtUnloadDriverWrapper.c)
+ *     DifNtUnloadDriverWrapper @ 0x1406939E0 (DifNtUnloadDriverWrapper.c)
  * Callees:
- *     IopUnloadDriver @ 0x140B2ADF8 (IopUnloadDriver.c)
+ *     IopUnloadDriver @ 0x140B2CE78 (IopUnloadDriver.c)
  */
 
-__int64 __fastcall NtUnloadDriver(__int64 a1)
+NTSTATUS __cdecl NtUnloadDriver(PUNICODE_STRING DriverServiceName)
 {
-  return IopUnloadDriver(a1, 0LL);
+  return IopUnloadDriver(DriverServiceName, 0LL);
 }

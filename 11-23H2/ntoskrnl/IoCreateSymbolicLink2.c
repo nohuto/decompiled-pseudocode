@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCreateSymbolicLink2 @ 0x14086FCA0
+ * XREFs of IoCreateSymbolicLink2 @ 0x14086FEE0
  * Callers:
- *     IoCreateSymbolicLink @ 0x14086FC60 (IoCreateSymbolicLink.c)
+ *     IoCreateSymbolicLink @ 0x14086FEA0 (IoCreateSymbolicLink.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ObCreateSymbolicLink @ 0x1407F3368 (ObCreateSymbolicLink.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ObCreateSymbolicLink @ 0x1407F3638 (ObCreateSymbolicLink.c)
  */
 
 __int64 __fastcall IoCreateSymbolicLink2(__int64 a1, int *a2)

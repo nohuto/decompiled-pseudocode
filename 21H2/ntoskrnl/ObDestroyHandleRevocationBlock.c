@@ -1,14 +1,14 @@
 /*
- * XREFs of ObDestroyHandleRevocationBlock @ 0x1406A5884
+ * XREFs of ObDestroyHandleRevocationBlock @ 0x1406034B4
  * Callers:
- *     SepDeReferenceLogonSession @ 0x1406A5640 (SepDeReferenceLogonSession.c)
- *     SepDeleteLogonSessionTrack @ 0x14077A670 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x140603270 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x14077A830 (SepDeleteLogonSessionTrack.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x1408DC9E0 (ObpHandleRevocationBlockRemoveInsertedObject.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x1408DCB40 (ObpHandleRevocationBlockRemoveInsertedObject.c)
  */
 
 void __fastcall ObDestroyHandleRevocationBlock(struct _EX_RUNDOWN_REF *a1)

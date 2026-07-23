@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpRegisterResumeInformation @ 0x140A41964
+ * XREFs of BapdpRegisterResumeInformation @ 0x140A42964
  * Callers:
- *     BapdpProcessResumeInformation @ 0x140A4126C (BapdpProcessResumeInformation.c)
+ *     BapdpProcessResumeInformation @ 0x140A4226C (BapdpProcessResumeInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
  */
 
 void __fastcall BapdpRegisterResumeInformation(PVOID Data, ULONG DataSize)

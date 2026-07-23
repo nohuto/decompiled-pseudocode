@@ -28,7 +28,7 @@ int AdtpObjsInitialize()
   char *v8; // r15
   int v9; // eax
   int v10; // esi
-  unsigned int v11; // r15d
+  ULONG v11; // r15d
   bool i; // sf
   bool v13; // zf
   HANDLE v14; // r13
@@ -41,38 +41,37 @@ int AdtpObjsInitialize()
   SIZE_T v21; // rdx
   PVOID v22; // rax
   HANDLE v23; // rdi
-  unsigned int v24; // r13d
-  int v25; // r15d
-  char *v26; // rdi
+  ULONG v24; // r13d
+  NTSTATUS v25; // r15d
+  unsigned __int16 *v26; // rdi
   char *v27; // rsi
   char *v28; // rax
-  __int16 v29; // cx
+  unsigned __int16 v29; // cx
   SIZE_T v30; // rdx
   PVOID v31; // rax
-  SIZE_T Length; // [rsp+20h] [rbp-59h]
   HANDLE Handle; // [rsp+30h] [rbp-49h] BYREF
-  char *v34; // [rsp+38h] [rbp-41h]
+  char *v33; // [rsp+38h] [rbp-41h]
   UNICODE_STRING SourceString; // [rsp+40h] [rbp-39h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-29h] BYREF
-  __int128 v37; // [rsp+60h] [rbp-19h] BYREF
-  __int128 v38; // [rsp+70h] [rbp-9h]
-  __int128 v39; // [rsp+80h] [rbp+7h]
-  SIZE_T NumberOfBytes; // [rsp+E0h] [rbp+67h] BYREF
-  unsigned int v41; // [rsp+E8h] [rbp+6Fh]
-  HANDLE v42; // [rsp+F0h] [rbp+77h] BYREF
-  HANDLE v43; // [rsp+F8h] [rbp+7Fh] BYREF
+  __int128 v36; // [rsp+60h] [rbp-19h] BYREF
+  __int128 v37; // [rsp+70h] [rbp-9h]
+  __int128 v38; // [rsp+80h] [rbp+7h]
+  ULONG ResultLength; // [rsp+E0h] [rbp+67h] BYREF
+  ULONG v40; // [rsp+E8h] [rbp+6Fh]
+  HANDLE v41; // [rsp+F0h] [rbp+77h] BYREF
+  HANDLE KeyHandle; // [rsp+F8h] [rbp+7Fh] BYREF
 
   v0 = 0;
-  v43 = 0LL;
+  KeyHandle = 0LL;
   Handle = 0LL;
-  v37 = 0LL;
+  v36 = 0LL;
   v1 = 0LL;
-  v42 = 0LL;
-  v38 = 0LL;
-  LODWORD(NumberOfBytes) = 0;
+  v41 = 0LL;
+  v37 = 0LL;
+  ResultLength = 0;
   v2 = 1;
-  v39 = 0LL;
-  v34 = 0LL;
+  v38 = 0LL;
+  v33 = 0LL;
   DestinationString = 0LL;
   AdtpSourceModules = 0LL;
   SourceString = 0LL;
@@ -109,40 +108,35 @@ int AdtpObjsInitialize()
           RtlInitUnicodeString(
             &DestinationString,
             L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\EventLog\\Security");
-          LODWORD(v37) = 48;
-          *(_QWORD *)&v38 = &DestinationString;
-          *((_QWORD *)&v37 + 1) = 0LL;
-          DWORD2(v38) = 576;
-          v39 = 0LL;
-          v9 = CmOpenKey(&v43, 131097, (__int64)&v37, 0LL, 0LL);
+          LODWORD(v36) = 48;
+          *(_QWORD *)&v37 = &DestinationString;
+          *((_QWORD *)&v36 + 1) = 0LL;
+          DWORD2(v37) = 576;
+          v38 = 0LL;
+          v9 = CmOpenKey(&KeyHandle, 131097, (__int64)&v36, 0, 0LL);
           v10 = v9;
           if ( v9 == -1073741772 )
             return 0;
           v11 = 0;
           for ( i = v9 < 0; ; i = v10 < 0 )
           {
-            v41 = v11;
+            v40 = v11;
             if ( i )
               break;
-            v14 = v43;
-            LODWORD(Length) = 0;
-            v10 = NtEnumerateKey(v43, v11, 0, 0LL, Length, &NumberOfBytes);
+            v14 = KeyHandle;
+            v10 = NtEnumerateKey(KeyHandle, v11, KeyBasicInformation, 0LL, 0, &ResultLength);
             if ( v10 == -1073741789 )
             {
-              PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(
-                                                  PagedPool,
-                                                  (unsigned int)NumberOfBytes,
-                                                  0x6B416553u);
+              PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, ResultLength, 0x6B416553u);
               v16 = PoolWithTag;
               if ( !PoolWithTag )
                 return -1073741801;
-              LODWORD(Length) = NumberOfBytes;
-              v10 = NtEnumerateKey(v14, v11, 0, PoolWithTag, Length, &NumberOfBytes);
+              v10 = NtEnumerateKey(v14, v11, KeyBasicInformation, PoolWithTag, ResultLength, &ResultLength);
               if ( v10 >= 0 )
               {
                 v2 = 1;
                 v17 = (char *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x6B416553u);
-                v34 = v17;
+                v33 = v17;
                 v18 = v17;
                 if ( !v17 )
                   return -1073741801;
@@ -163,24 +157,24 @@ int AdtpObjsInitialize()
                 SourceString.Buffer = v16 + 8;
                 RtlCopyUnicodeString(v19, &SourceString);
                 ExFreePoolWithTag(v16, 0);
-                *(_QWORD *)&v38 = v19;
-                LODWORD(v37) = 48;
-                *((_QWORD *)&v37 + 1) = v14;
-                DWORD2(v38) = 576;
-                v39 = 0LL;
-                result = CmOpenKey(&Handle, 131097, (__int64)&v37, 0LL, 0LL);
+                *(_QWORD *)&v37 = v19;
+                LODWORD(v36) = 48;
+                *((_QWORD *)&v36 + 1) = v14;
+                DWORD2(v37) = 576;
+                v38 = 0LL;
+                result = CmOpenKey(&Handle, 131097, (__int64)&v36, 0, 0LL);
                 if ( result < 0 )
                   return result;
                 RtlInitUnicodeString(&SourceString, L"ObjectNames");
-                LODWORD(v37) = 48;
+                LODWORD(v36) = 48;
                 v23 = Handle;
-                *((_QWORD *)&v37 + 1) = Handle;
-                *(_QWORD *)&v38 = &SourceString;
-                DWORD2(v38) = 576;
-                v39 = 0LL;
-                v10 = CmOpenKey(&v42, 131097, (__int64)&v37, 0LL, 0LL);
+                *((_QWORD *)&v36 + 1) = Handle;
+                *(_QWORD *)&v37 = &SourceString;
+                DWORD2(v37) = 576;
+                v38 = 0LL;
+                v10 = CmOpenKey(&v41, 131097, (__int64)&v36, 0, 0LL);
                 NtClose(v23);
-                v1 = v42;
+                v1 = v41;
                 if ( v10 == -1073741772 )
                 {
                   v2 = 0;
@@ -196,24 +190,22 @@ int AdtpObjsInitialize()
               {
                 if ( !v2 )
                   break;
-                LODWORD(Length) = 0;
-                v25 = NtEnumerateValueKey(v1, v24, 1u, 0LL, Length, &NumberOfBytes);
+                v25 = NtEnumerateValueKey(v1, v24, KeyValueFullInformation, 0LL, 0, &ResultLength);
                 if ( v25 == -1073741789 )
                 {
-                  v26 = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6B416553u);
+                  v26 = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, ResultLength, 0x6B416553u);
                   if ( !v26 )
                     return -1073741801;
-                  LODWORD(Length) = NumberOfBytes;
-                  v25 = NtEnumerateValueKey(v1, v24, 1u, v26, Length, &NumberOfBytes);
+                  v25 = NtEnumerateValueKey(v1, v24, KeyValueFullInformation, v26, ResultLength, &ResultLength);
                   if ( v25 >= 0 )
                   {
                     v27 = (char *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x6B416553u);
                     if ( !v27 )
                       return -1073741801;
-                    v28 = v34;
-                    *(_QWORD *)v27 = *((_QWORD *)v34 + 3);
+                    v28 = v33;
+                    *(_QWORD *)v27 = *((_QWORD *)v33 + 3);
                     *((_QWORD *)v28 + 3) = v27;
-                    v29 = *((_WORD *)v26 + 8);
+                    v29 = v26[8];
                     *((_WORD *)v27 + 4) = v29;
                     v30 = (unsigned __int16)(v29 + 2);
                     *((_WORD *)v27 + 5) = v30;
@@ -221,14 +213,14 @@ int AdtpObjsInitialize()
                     *((_QWORD *)v27 + 2) = v31;
                     if ( !v31 )
                       return -1073741801;
-                    SourceString.Length = *((_WORD *)v26 + 8);
+                    SourceString.Length = v26[8];
                     SourceString.MaximumLength = SourceString.Length;
-                    SourceString.Buffer = (wchar_t *)(v26 + 20);
+                    SourceString.Buffer = v26 + 10;
                     RtlCopyUnicodeString((PUNICODE_STRING)(v27 + 8), &SourceString);
                     if ( *((_DWORD *)v26 + 3) < 4u )
                       *((_DWORD *)v27 + 6) = 1552;
                     else
-                      *((_DWORD *)v27 + 6) = *(_DWORD *)&v26[*((unsigned int *)v26 + 2)];
+                      *((_DWORD *)v27 + 6) = *(_DWORD *)((char *)v26 + *((unsigned int *)v26 + 2));
                   }
                   ExFreePoolWithTag(v26, 0);
                 }
@@ -239,7 +231,7 @@ int AdtpObjsInitialize()
                 v2 = v25 != -2147483622;
               }
               while ( v10 >= 0 );
-              v11 = v41;
+              v11 = v40;
               v13 = v10 == 0;
             }
             if ( v13 && !v2 )
@@ -248,12 +240,12 @@ int AdtpObjsInitialize()
               {
                 NtClose(v1);
                 v1 = 0LL;
-                v42 = 0LL;
+                v41 = 0LL;
               }
             }
             ++v11;
           }
-          NtClose(v43);
+          NtClose(KeyHandle);
           if ( v10 != -2147483622 )
             return v10;
           return v0;

@@ -51,7 +51,7 @@ __int64 __fastcall RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3, _QWOR
   __int64 v33; // rcx
   __int16 v34; // ax
   char v35; // al
-  unsigned int v36; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v36; // [rsp+70h] [rbp+18h] BYREF
 
   v6 = 0;
   v8 = a3 | a1[5] & 0x11000001;
@@ -128,7 +128,7 @@ LABEL_21:
             {
               RtlpHpSegPageRangeShrink(v15, DescriptorValidateSafe, 0, v12);
               v22 = 1;
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              if ( RtlGetCurrentServiceSessionId() )
                 v33 = (__int64)NtCurrentPeb()->SharedData + 550;
               else
                 v33 = 2147353472LL;
@@ -143,14 +143,14 @@ LABEL_21:
               }
               else
               {
-                v22 = RtlpHpVsContextFree(*(_QWORD *)(v15 + 32), v21, a2, v12, &v36);
+                v22 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(v15 + 32), v21, a2, v12, (unsigned int *)&v36);
                 v6 = 1;
                 if ( v22 )
                 {
                   v26 = *(_QWORD *)(v15 + 24);
-                  if ( v36 <= (unsigned int)*(unsigned __int16 *)(v26 + 60) - 16 )
+                  if ( (unsigned int)v36 <= (unsigned int)*(unsigned __int16 *)(v26 + 60) - 16 )
                   {
-                    v27 = RtlpLfhBucketIndexMap[(unsigned __int64)(v36 + 15) >> 4];
+                    v27 = RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(v36 + 15) >> 4];
                     if ( (*(_QWORD *)(v26 + 8 * v27 + 128) & 1) != 0 )
                     {
                       do
@@ -204,7 +204,7 @@ LABEL_21:
     RtlpLogHeapFailure(9, *(_QWORD *)(v15 + 56), a2, 0, 0LL, 0LL);
     return 0;
   }
-  v30 = RtlCSparseBitmapBitmaskRead(&unk_18017B720, 2 * ((a2 - qword_18017B718) >> 20));
+  v30 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_18017B718) >> 20));
   if ( v30 )
   {
     v14 = v30 - 1;
@@ -212,7 +212,7 @@ LABEL_21:
       goto LABEL_13;
   }
   v31 = RtlpHpLargeFree(a1, a2, v12) != 0;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v32 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v32 = 2147353472LL;

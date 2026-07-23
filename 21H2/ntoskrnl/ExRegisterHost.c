@@ -1,29 +1,29 @@
 /*
- * XREFs of ExRegisterHost @ 0x14079DA20
+ * XREFs of ExRegisterHost @ 0x14079DC20
  * Callers:
- *     IopInitializeIoRate @ 0x1403B45E8 (IopInitializeIoRate.c)
- *     EtwpInitializeProcessorTrace @ 0x14079D798 (EtwpInitializeProcessorTrace.c)
- *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
- *     VmInitSystem @ 0x140A47B1C (VmInitSystem.c)
- *     PspInitializeBackgroundActivityModeratorCallouts @ 0x140A47BDC (PspInitializeBackgroundActivityModeratorCallouts.c)
- *     PspInitializeDesktopActivityModeratorCallouts @ 0x140A47C3C (PspInitializeDesktopActivityModeratorCallouts.c)
- *     PspInitializeHwTraceCallouts @ 0x140A47C94 (PspInitializeHwTraceCallouts.c)
- *     PspInitializeMMCSSCallouts @ 0x140A47CF4 (PspInitializeMMCSSCallouts.c)
- *     PspInitializeOctagonExtensionHost @ 0x140A47D54 (PspInitializeOctagonExtensionHost.c)
- *     PspInitializeSecExtensionHost @ 0x140A47DAC (PspInitializeSecExtensionHost.c)
- *     PspInitializeNetRateControl @ 0x140A47E04 (PspInitializeNetRateControl.c)
- *     SepInitializeAuthorizationCallbacks @ 0x140A47E64 (SepInitializeAuthorizationCallbacks.c)
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     IopInitializeIoRate @ 0x1403B4758 (IopInitializeIoRate.c)
+ *     EtwpInitializeProcessorTrace @ 0x14079D998 (EtwpInitializeProcessorTrace.c)
+ *     ExpInitSystemPhase1 @ 0x140A3DEBC (ExpInitSystemPhase1.c)
+ *     VmInitSystem @ 0x140A48B1C (VmInitSystem.c)
+ *     PspInitializeBackgroundActivityModeratorCallouts @ 0x140A48BDC (PspInitializeBackgroundActivityModeratorCallouts.c)
+ *     PspInitializeDesktopActivityModeratorCallouts @ 0x140A48C3C (PspInitializeDesktopActivityModeratorCallouts.c)
+ *     PspInitializeHwTraceCallouts @ 0x140A48C94 (PspInitializeHwTraceCallouts.c)
+ *     PspInitializeMMCSSCallouts @ 0x140A48CF4 (PspInitializeMMCSSCallouts.c)
+ *     PspInitializeOctagonExtensionHost @ 0x140A48D54 (PspInitializeOctagonExtensionHost.c)
+ *     PspInitializeSecExtensionHost @ 0x140A48DAC (PspInitializeSecExtensionHost.c)
+ *     PspInitializeNetRateControl @ 0x140A48E04 (PspInitializeNetRateControl.c)
+ *     SepInitializeAuthorizationCallbacks @ 0x140A48E64 (SepInitializeAuthorizationCallbacks.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExpFindHost @ 0x14079DB78 (ExpFindHost.c)
- *     ExpDereferenceHost @ 0x140956AEC (ExpDereferenceHost.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExpFindHost @ 0x14079DD78 (ExpFindHost.c)
+ *     ExpDereferenceHost @ 0x140956CBC (ExpDereferenceHost.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)
@@ -32,12 +32,15 @@ __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)
   unsigned int v6; // edi
   _QWORD *v7; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v9; // rax
+  _RTL_BALANCED_NODE *v9; // rax
   signed __int8 v10; // cf
-  __int64 v11; // rbp
+  _RTL_BALANCED_NODE *v11; // rbp
   __int64 Host; // rbp
   _QWORD *v13; // rax
   char v14; // si
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
 
   PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)*((_DWORD *)a3 + 2), 0x60uLL, 0x48457845u);
   v6 = 0;
@@ -61,7 +64,7 @@ __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)
   if ( v10 )
     ExfAcquirePushLockExclusiveEx(&ExpHostListLock, v9, (ULONG_PTR)&ExpHostListLock);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   Host = ExpFindHost(*a3, a3[1]);
   if ( Host )
   {
@@ -84,6 +87,6 @@ __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)
   if ( (v14 & 2) != 0 && (v14 & 4) == 0 )
     ExfTryToWakePushLock(&ExpHostListLock);
   KeAbPostRelease((ULONG_PTR)&ExpHostListLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v15, v16, v17);
   return v6;
 }

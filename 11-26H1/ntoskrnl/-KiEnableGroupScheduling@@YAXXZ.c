@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiEnableGroupScheduling@@YAXXZ @ 0x1405F8E3C
+ * XREFs of ?KiEnableGroupScheduling@@YAXXZ @ 0x1405FB85C
  * Callers:
- *     KeInsertSchedulingGroup @ 0x140444BD0 (KeInsertSchedulingGroup.c)
+ *     KeInsertSchedulingGroup @ 0x14043D6E0 (KeInsertSchedulingGroup.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1405F9184 (KeUpdateGroupSchedulingConstants.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1405FBBA4 (KeUpdateGroupSchedulingConstants.c)
  */
 
 void KiEnableGroupScheduling(void)
@@ -24,7 +24,8 @@ void KiEnableGroupScheduling(void)
     KiSchedulingGroupList.Blink = &KiSchedulingGroupList;
     KiSchedulingGroupList.Flink = &KiSchedulingGroupList;
     KeUpdateGroupSchedulingConstants(v0);
-    KiGenerationEndTick = MEMORY[0xFFFFF78000000320] + (unsigned int)KiGenerationTicks;
+    KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)(MEMORY[0xFFFFF78000000320]
+                                                                                          + (unsigned int)KiGenerationTicks);
     if ( (_DWORD)KeNumberProcessors_0 )
     {
       v1 = KiProcessorBlock;
@@ -37,7 +38,7 @@ void KiEnableGroupScheduling(void)
         *(_QWORD *)(v3 + 35552) = v3 + 35544;
         *(_QWORD *)(v3 + 35544) = v3 + 35544;
         *(_DWORD *)(v3 + 216) = 464 * *(_DWORD *)(v3 + 36) + 128;
-        *(_QWORD *)(v3 + 35864) = KiGenerationEndTick;
+        *(_QWORD *)(v3 + 35864) = KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink;
         --v2;
       }
       while ( v2 );

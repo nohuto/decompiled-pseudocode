@@ -18,8 +18,8 @@
  *     RtlpIsAttributeAceInSacl @ 0x1800F664C (RtlpIsAttributeAceInSacl.c)
  *     RtlpCompareProtectedPolicyEntry @ 0x180102760 (RtlpCompareProtectedPolicyEntry.c)
  *     RtlpIsNameInExpressionPrivate @ 0x180108F4C (RtlpIsNameInExpressionPrivate.c)
- *     RtlpStackDbEntryIsEqual @ 0x18012E014 (RtlpStackDbEntryIsEqual.c)
- *     RtlpStackDbSegmentComparitor @ 0x18012E120 (RtlpStackDbSegmentComparitor.c)
+ *     RtlpStackDbEntryIsEqual @ 0x18012E040 (RtlpStackDbEntryIsEqual.c)
+ *     RtlpStackDbSegmentComparitor @ 0x18012E14C (RtlpStackDbSegmentComparitor.c)
  * Callees:
  *     <none>
  */

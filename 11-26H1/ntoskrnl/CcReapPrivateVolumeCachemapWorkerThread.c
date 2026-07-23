@@ -1,12 +1,12 @@
 /*
- * XREFs of CcReapPrivateVolumeCachemapWorkerThread @ 0x140389F20
+ * XREFs of CcReapPrivateVolumeCachemapWorkerThread @ 0x14038BCD0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDereferencePartition @ 0x1403843F0 (CcDereferencePartition.c)
- *     CcReapPrivateVolumeCachemap @ 0x140389DE0 (CcReapPrivateVolumeCachemap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDereferencePartition @ 0x1403861A0 (CcDereferencePartition.c)
+ *     CcReapPrivateVolumeCachemap @ 0x14038BB90 (CcReapPrivateVolumeCachemap.c)
  */
 
 char __fastcall CcReapPrivateVolumeCachemapWorkerThread(_QWORD *a1)

@@ -13,8 +13,7 @@
 
 int sprintf_s(char *const Buffer, const size_t BufferCount, const char *const Format, ...)
 {
-  va_list ArgList; // [esp+14h] [ebp+14h] BYREF
+  va_list savedregs; // [esp+0h] [ebp+0h]
 
-  va_start(ArgList, Format);
-  return vsprintf_s(Buffer, BufferCount, Format, ArgList);
+  return vsprintf_s(Buffer, BufferCount, (const char *const)&Format, savedregs);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipParseSysIdTable @ 0x1407A4898
+ * XREFs of WmipParseSysIdTable @ 0x1407A49A8
  * Callers:
- *     WmipGetSysIds @ 0x1407A45E0 (WmipGetSysIds.c)
+ *     WmipGetSysIds @ 0x1407A46F0 (WmipGetSysIds.c)
  * Callees:
- *     MmUnmapIoSpace @ 0x140263160 (MmUnmapIoSpace.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
+ *     MmUnmapIoSpace @ 0x1402929D0 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall WmipParseSysIdTable(
@@ -40,7 +40,7 @@ __int64 __fastcall WmipParseSysIdTable(
   v6 = 25 * a2;
   v8 = a2;
   NumberOfBytes = 25 * a2;
-  v10 = MmMapIoSpaceEx(a1, NumberOfBytes, 4u);
+  v10 = MmMapIoSpaceEx(a1, NumberOfBytes, 4LL);
   BaseAddress = (PVOID)v10;
   if ( v10 )
   {

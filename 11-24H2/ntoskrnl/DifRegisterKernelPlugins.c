@@ -1,14 +1,14 @@
 /*
- * XREFs of DifRegisterKernelPlugins @ 0x140618A30
+ * XREFs of DifRegisterKernelPlugins @ 0x140616FF0
  * Callers:
- *     VfVolatileSetDifRuleClass @ 0x140614A94 (VfVolatileSetDifRuleClass.c)
- *     VfInitBootDriversLoaded @ 0x140C3B240 (VfInitBootDriversLoaded.c)
+ *     VfVolatileSetDifRuleClass @ 0x140613054 (VfVolatileSetDifRuleClass.c)
+ *     VfInitBootDriversLoaded @ 0x140C3D398 (VfInitBootDriversLoaded.c)
  * Callees:
- *     CarRegisterDefaultRuleClassConfiguration @ 0x140616EF0 (CarRegisterDefaultRuleClassConfiguration.c)
- *     CarSetCustomRuleIdRange @ 0x1406175C0 (CarSetCustomRuleIdRange.c)
- *     DifUtilDbgPrint @ 0x140617B60 (DifUtilDbgPrint.c)
- *     DifCallPluginEntry @ 0x140618590 (DifCallPluginEntry.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     CarRegisterDefaultRuleClassConfiguration @ 0x1406154B0 (CarRegisterDefaultRuleClassConfiguration.c)
+ *     CarSetCustomRuleIdRange @ 0x140615B80 (CarSetCustomRuleIdRange.c)
+ *     DifUtilDbgPrint @ 0x140616120 (DifUtilDbgPrint.c)
+ *     DifCallPluginEntry @ 0x140616B50 (DifCallPluginEntry.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void DifRegisterKernelPlugins()
@@ -16,7 +16,7 @@ void DifRegisterKernelPlugins()
   unsigned int *v0; // rbx
   __int64 v1; // rdi
   int v2; // eax
-  int *v3; // rbx
+  unsigned int *v3; // rbx
   __int64 v4; // rdi
   int v5; // [rsp+20h] [rbp-89h] BYREF
   __int64 (__fastcall *v6)(); // [rsp+28h] [rbp-81h]
@@ -47,7 +47,7 @@ void DifRegisterKernelPlugins()
 
   v7 = 0;
   v6 = VfLwSPEntry;
-  v0 = (unsigned int *)&unk_140E0EA2C;
+  v0 = (unsigned int *)&unk_140E0EAEC;
   v5 = 39;
   v8 = VfSpecialPoolEntry;
   v1 = 4LL;
@@ -87,11 +87,11 @@ void DifRegisterKernelPlugins()
     --v1;
   }
   while ( v1 );
-  v3 = &v5;
+  v3 = (unsigned int *)&v5;
   v4 = 13LL;
   do
   {
-    DifCallPluginEntry(*v3, *((_QWORD *)v3 + 1));
+    DifCallPluginEntry(*v3);
     v3 += 4;
     --v4;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExReleasePushLockSharedEx @ 0x14025DCC0
+ * XREFs of ExReleasePushLockSharedEx @ 0x14028E2D0
  * Callers:
  *     <none>
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleasePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -15,12 +15,14 @@ __int64 __fastcall ExReleasePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // r10
   _KLOCK_ENTRIES *KernelAbEntries; // r8
-  unsigned int i; // eax
-  char *v8; // r11
-  __int64 v9; // rdx
+  unsigned int v7; // eax
+  ULONG_PTR v8; // r9
+  char *v9; // r11
+  __int64 v10; // rdx
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // r8
-  int v12; // ett
+  __int64 v13; // rdx
+  int v14; // ett
 
   v2 = BugCheckParameter1;
   if ( (BugCheckParameter1 & 0xFFFFFFF8) != 0 )
@@ -33,20 +35,23 @@ __int64 __fastcall ExReleasePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG
     CurrentThread = KeGetCurrentThread();
     _disable();
     KernelAbEntries = CurrentThread->KernelAbEntries;
-    for ( i = 0; i < KernelAbEntries->EntryCount; ++i )
+    v7 = 0;
+    v8 = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
+    while ( v7 < KernelAbEntries->EntryCount )
     {
-      v8 = (char *)KernelAbEntries + 88 * i;
-      v9 = *((_QWORD *)v8 + 2);
-      if ( (v9 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL) && v8[26] && (v9 & 1) == 0 )
+      v9 = (char *)KernelAbEntries + 88 * v7;
+      v10 = *((_QWORD *)v9 + 2);
+      if ( (v10 & 0x7FFFFFFFFFFFFFFCLL) == v8 && v9[26] && (v10 & 1) == 0 )
       {
-        v8[26] = 0;
+        v9[26] = 0;
         return KiAbEntryFreeAndEnableInterrupts(
-                 (__int64)(v8 + 16),
+                 (__int64)(v9 + 16),
                  (ULONG_PTR)CurrentThread,
                  BugCheckParameter2,
-                 1,
+                 1LL,
                  0LL);
       }
+      ++v7;
     }
     result = *((unsigned int *)&CurrentThread->MiscFlags + 1);
     if ( (result & 0x10000) == 0 )
@@ -59,12 +64,14 @@ __int64 __fastcall ExReleasePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG
       LODWORD(result) = *SchedulerAssist;
       do
       {
-        v12 = result;
+        v13 = (unsigned int)result;
+        LODWORD(v13) = result & 0xFFDFFFFF;
+        v14 = result;
         result = (unsigned int)_InterlockedCompareExchange(SchedulerAssist, result & 0xFFDFFFFF, result);
       }
-      while ( v12 != (_DWORD)result );
+      while ( v14 != (_DWORD)result );
       if ( (result & 0x200000) != 0 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb, v13, SchedulerAssist, v8);
     }
     _enable();
   }

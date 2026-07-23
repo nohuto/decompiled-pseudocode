@@ -1,13 +1,13 @@
 /*
- * XREFs of VslGetSetSecureContext @ 0x14088FAC4
+ * XREFs of VslGetSetSecureContext @ 0x14088FC24
  * Callers:
- *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x14063E6D0 (PspGetSetContextInternal.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403941C4 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x140394218 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall VslGetSetSecureContext(__int64 a1, struct _MDL *a2, ULONG a3)

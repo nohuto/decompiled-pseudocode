@@ -1,16 +1,19 @@
 /*
- * XREFs of NtReplacePartitionUnit @ 0x1800A0510
+ * XREFs of NtReplacePartitionUnit @ 0x1800A04D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtReplacePartitionUnit()
+NTSTATUS __cdecl NtReplacePartitionUnit(
+        PUNICODE_STRING TargetInstancePath,
+        PUNICODE_STRING SpareInstancePath,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 375LL;
+  result = 375;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

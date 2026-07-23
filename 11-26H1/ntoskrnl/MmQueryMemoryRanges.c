@@ -1,13 +1,13 @@
 /*
- * XREFs of MmQueryMemoryRanges @ 0x140868080
+ * XREFs of MmQueryMemoryRanges @ 0x14086E460
  * Callers:
- *     IoInitializeLiveDump @ 0x1405CC0D4 (IoInitializeLiveDump.c)
- *     IopLiveDumpQueryIOSpaceRanges @ 0x1405D1490 (IopLiveDumpQueryIOSpaceRanges.c)
+ *     IoInitializeLiveDump @ 0x1405CE8E8 (IoInitializeLiveDump.c)
+ *     IopLiveDumpQueryIOSpaceRanges @ 0x1405D3C78 (IopLiveDumpQueryIOSpaceRanges.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1403486D4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiWalkAllHugeRanges @ 0x140532B50 (MiWalkAllHugeRanges.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiPartitionObjectToPartition @ 0x14034A754 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiWalkAllHugeRanges @ 0x140534FF0 (MiWalkAllHugeRanges.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmQueryMemoryRanges(_QWORD *a1)
@@ -60,7 +60,7 @@ __int64 __fastcall MmQueryMemoryRanges(_QWORD *a1)
   v1 = v15;
 LABEL_12:
   v9 = 0;
-  if ( *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)
+  if ( *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)
     && (P[1] = a1, LOWORD(v14) = v7, v9 = MiWalkAllHugeRanges((__int64)MiAddRuns, (__int64)&v12), v9 < 0) )
   {
     v10 = P[0];

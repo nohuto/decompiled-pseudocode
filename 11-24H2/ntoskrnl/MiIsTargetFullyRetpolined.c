@@ -1,5 +1,5 @@
 /*
- * XREFs of MiIsTargetFullyRetpolined @ 0x1404C1B10
+ * XREFs of MiIsTargetFullyRetpolined @ 0x1404BD100
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall MiIsTargetFullyRetpolined(__int64 a1)
 {
-  return _bittest64((const signed __int64 *)qword_140E2D760, (unsigned __int64)(a1 + 0x800000000000LL) >> 16);
+  return _bittest64((const signed __int64 *)qword_140E2D8A0, (unsigned __int64)(a1 + 0x800000000000LL) >> 16);
 }

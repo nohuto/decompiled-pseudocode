@@ -44,7 +44,7 @@ __int64 *__fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   v3 = 0;
   v4 = *(_QWORD *)(qword_1408F25D8 + 48);
   v5 = *(_QWORD *)qword_1408F25D8;
-  PsNtosImageBase = v4;
+  PsNtosImageBase = (PVOID)v4;
   v6 = v4 + *(unsigned int *)(qword_1408F25D8 + 64);
   MxHalDataTableEntry = v5;
   PsNtosImageEnd = v6;

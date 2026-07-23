@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsThreadTerminating @ 0x1400722DC
+ * XREFs of PsIsThreadTerminating @ 0x140071E5C
  * Callers:
  *     <none>
  * Callees:

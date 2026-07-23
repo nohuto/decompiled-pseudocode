@@ -1,18 +1,18 @@
 /*
  * XREFs of PopUpdateUpgradeInProgress @ 0x1405CF3D0
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x1403FC6E0 (ZwNotifyChangeKey.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x14067B62C (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x14077EC0C (PopLogSleepDisabled.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x1403FC8C0 (ZwNotifyChangeKey.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14066ED6C (PopRemoveReasonRecordByReasonCode.c)
+ *     PopLogSleepDisabled @ 0x14077EDCC (PopLogSleepDisabled.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
@@ -69,8 +69,8 @@ int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
   }
   if ( !KeyHandle && (result = PopLogSleepDisabled(15LL, 8LL, 0LL, 0LL), result < 0)
     || (*(_QWORD *)PopSetupInProgressUpdateWorkItem = 0LL,
-        qword_140C25130 = (__int64)PopUpdateUpgradeInProgress,
-        qword_140C25138 = (__int64)KeyHandlea,
+        qword_140C251F0 = (__int64)PopUpdateUpgradeInProgress,
+        qword_140C251F8 = (__int64)KeyHandlea,
         result = ZwNotifyChangeKey(
                    KeyHandlea,
                    0LL,

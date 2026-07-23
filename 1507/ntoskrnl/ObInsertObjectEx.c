@@ -51,7 +51,7 @@ __int64 __fastcall ObInsertObjectEx(
         __int64 a6,
         _QWORD *a7)
 {
-  struct _SLIST_ENTRY *v7; // rdi
+  _SLIST_ENTRY *v7; // rdi
   char *v11; // rdx
   unsigned __int64 v12; // rcx
   char v13; // al
@@ -79,7 +79,7 @@ __int64 __fastcall ObInsertObjectEx(
   int v36; // esi
   _SLIST_ENTRY *v37; // rcx
   int v38; // ecx
-  struct _SLIST_ENTRY *v39; // rax
+  _SLIST_ENTRY *v39; // rax
   int v40; // r14d
   __int64 v41; // r8
   struct _KTHREAD *v42; // rax
@@ -112,7 +112,7 @@ __int64 __fastcall ObInsertObjectEx(
   _QWORD v69[20]; // [rsp+B0h] [rbp-1D8h] BYREF
   __int64 v70[28]; // [rsp+150h] [rbp-138h] BYREF
 
-  v7 = (struct _SLIST_ENTRY *)*(Object - 2);
+  v7 = (_SLIST_ENTRY *)*(Object - 2);
   v11 = 0LL;
   v12 = *((unsigned __int8 *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8);
   v60 = a3;
@@ -162,7 +162,7 @@ __int64 __fastcall ObInsertObjectEx(
       if ( LOWORD(P->ListHead.Alignment) >= P->Depth )
       {
         ++P->FreeMisses;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v7);
+        ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v7);
         ObfDereferenceObject(Object);
         return (unsigned int)Handle;
       }
@@ -318,7 +318,7 @@ LABEL_74:
   else
   {
     ++L->FreeMisses;
-    ((void (__fastcall *)(struct _SLIST_ENTRY *))L->FreeEx)(v7);
+    ((void (__fastcall *)(_SLIST_ENTRY *))L->FreeEx)(v7);
   }
   if ( a2 == (struct _ACCESS_STATE *)v69 )
   {

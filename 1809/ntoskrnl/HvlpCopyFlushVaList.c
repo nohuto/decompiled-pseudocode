@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpCopyFlushVaList @ 0x1402796F8
+ * XREFs of HvlpCopyFlushVaList @ 0x1402798E8
  * Callers:
- *     HvlpFastFlushPasidAddressList @ 0x14027639C (HvlpFastFlushPasidAddressList.c)
- *     HvlpSlowFlushPasidAddressList @ 0x1402765E0 (HvlpSlowFlushPasidAddressList.c)
- *     HvlpFastFlushListTb @ 0x140279920 (HvlpFastFlushListTb.c)
- *     HvlpFastFlushListTbEx @ 0x1402799F8 (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTb @ 0x140279EAC (HvlpSlowFlushListTb.c)
- *     HvlpSlowFlushListTbEx @ 0x14027A024 (HvlpSlowFlushListTbEx.c)
+ *     HvlpFastFlushPasidAddressList @ 0x14027658C (HvlpFastFlushPasidAddressList.c)
+ *     HvlpSlowFlushPasidAddressList @ 0x1402767D0 (HvlpSlowFlushPasidAddressList.c)
+ *     HvlpFastFlushListTb @ 0x140279B10 (HvlpFastFlushListTb.c)
+ *     HvlpFastFlushListTbEx @ 0x140279BE8 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTb @ 0x14027A09C (HvlpSlowFlushListTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x14027A214 (HvlpSlowFlushListTbEx.c)
  * Callees:
  *     <none>
  */

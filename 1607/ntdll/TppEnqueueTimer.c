@@ -1,10 +1,10 @@
 /*
- * XREFs of TppEnqueueTimer @ 0x18003C61C
+ * XREFs of TppEnqueueTimer @ 0x18003C60C
  * Callers:
- *     TppSetTimer @ 0x18003C388 (TppSetTimer.c)
- *     TppSingleTimerExpiration @ 0x18003CC28 (TppSingleTimerExpiration.c)
+ *     TppSetTimer @ 0x18003C378 (TppSetTimer.c)
+ *     TppSingleTimerExpiration @ 0x18003CC18 (TppSingleTimerExpiration.c)
  * Callees:
- *     TppPHInsert @ 0x18003C6B8 (TppPHInsert.c)
+ *     TppPHInsert @ 0x18003C6A8 (TppPHInsert.c)
  */
 
 __int64 __fastcall TppEnqueueTimer(__int64 a1, __int64 a2)

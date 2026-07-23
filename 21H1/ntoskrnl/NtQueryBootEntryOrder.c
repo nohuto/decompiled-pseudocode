@@ -13,14 +13,14 @@
  *     IoGetEnvironmentVariableEx @ 0x1408954AC (IoGetEnvironmentVariableEx.c)
  */
 
-__int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a2)
+NTSTATUS __cdecl NtQueryBootEntryOrder(PULONG Ids, PULONG Count)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v6; // rcx
-  unsigned int v7; // eax
+  ULONG v7; // eax
   struct _KTHREAD *v8; // rax
-  int EnvironmentVariable; // ebx
+  NTSTATUS EnvironmentVariable; // ebx
   __int64 v10; // rdx
   __int64 v11; // r8
   __int64 v12; // r9
@@ -32,40 +32,40 @@ __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a
   __int64 v18; // [rsp+38h] [rbp-30h] BYREF
   PVOID P; // [rsp+40h] [rbp-28h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-10h]
-  unsigned int v21; // [rsp+88h] [rbp+20h] BYREF
+  ULONG v21; // [rsp+88h] [rbp+20h] BYREF
 
   v18 = 0LL;
   v21 = 0;
   P = 0LL;
   if ( dword_140C19730 != 2 )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a2;
+    if ( (unsigned __int64)Count < 0x7FFFFFFF0000LL )
+      v6 = (__int64)Count;
     *(_DWORD *)v6 = *(_DWORD *)v6;
-    v7 = 4 * *a2;
+    v7 = 4 * *Count;
     v21 = v7;
-    if ( !Address )
+    if ( !Ids )
     {
       v21 = 0;
       v7 = 0;
     }
     if ( v7 )
-      ProbeForWrite(Address, v7, 4u);
+      ProbeForWrite(Ids, v7, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v21 = Address != 0LL ? 4 * *a2 : 0;
+    v21 = Ids != 0LL ? 4 * *Count : 0;
   }
   if ( !v21
-    || (result = ExLockUserBuffer((unsigned __int64)Address, v21, PreviousMode, IoWriteAccess, &v18, (struct _MDL **)&P),
-        (int)result >= 0) )
+    || (result = ExLockUserBuffer((unsigned __int64)Ids, v21, PreviousMode, IoWriteAccess, &v18, (struct _MDL **)&P),
+        result >= 0) )
   {
     v21 >>= 1;
     v8 = KeGetCurrentThread();
@@ -102,8 +102,8 @@ __int64 __fastcall NtQueryBootEntryOrder(volatile void *Address, unsigned int *a
       ExUnlockUserBuffer((struct _MDL *)P);
       v17 = v21;
     }
-    *a2 = v17 >> 2;
-    return (unsigned int)EnvironmentVariable;
+    *Count = v17 >> 2;
+    return EnvironmentVariable;
   }
   return result;
 }

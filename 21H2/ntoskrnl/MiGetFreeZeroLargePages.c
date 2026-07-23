@@ -1,12 +1,12 @@
 /*
  * XREFs of MiGetFreeZeroLargePages @ 0x1403F6914
  * Callers:
- *     MiDemoteLocalLargePage @ 0x140232110 (MiDemoteLocalLargePage.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
- *     MiFindLargeNodePage @ 0x140394ED0 (MiFindLargeNodePage.c)
+ *     MiDemoteLocalLargePage @ 0x1402D6960 (MiDemoteLocalLargePage.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
+ *     MiFindLargeNodePage @ 0x140395020 (MiFindLargeNodePage.c)
  *     MiGetLargePagesDemoteAsNeeded @ 0x1403F5870 (MiGetLargePagesDemoteAsNeeded.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MiUnlinkNodeLargePages @ 0x1403F70E8 (MiUnlinkNodeLargePages.c)
  */
 

@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampCaptureContextStop @ 0x140603098
+ * XREFs of EtwpCovSampCaptureContextStop @ 0x1406035E8
  * Callers:
- *     EtwpCoverageSamplerStop @ 0x1409F36C4 (EtwpCoverageSamplerStop.c)
+ *     EtwpCoverageSamplerStop @ 0x1409F3954 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140602E00 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureCleanupLookasides @ 0x140602F68 (EtwpCovSampCaptureCleanupLookasides.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140603270 (EtwpCovSampCaptureFlushSampleBuffers.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x1409F0F90 (EtwpCovSampCaptureFreeLookasides.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140603350 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x1406034B8 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1406037C0 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x1409F1220 (EtwpCovSampCaptureFreeLookasides.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -49,10 +49,13 @@ _QWORD *__fastcall EtwpCovSampCaptureContextStop(__int64 a1)
   KeResetEvent((PRKEVENT)(a1 + 1256));
   *(_DWORD *)(a1 + 1288) = 0;
   KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

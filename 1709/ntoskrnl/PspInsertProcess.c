@@ -54,9 +54,9 @@ __int64 __fastcall PspInsertProcess(
   ACCESS_MASK v20; // r13d
   __int64 v21; // rcx
   NTSTATUS v23; // eax
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   struct _KTHREAD *v25; // rax
-  STRING DestinationString; // [rsp+40h] [rbp-58h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-58h] BYREF
   UNICODE_STRING String1; // [rsp+50h] [rbp-48h] BYREF
   char v28; // [rsp+A0h] [rbp+8h]
   PVOID v29; // [rsp+A8h] [rbp+10h] BYREF
@@ -147,7 +147,7 @@ __int64 __fastcall PspInsertProcess(
 LABEL_21:
               if ( (ObpTraceFlags & 0x20) != 0 )
               {
-                ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)Object);
+                ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)Object);
                 RtlInitAnsiString(&DestinationString, ProcessImageFileName);
                 if ( DestinationString.Length )
                 {

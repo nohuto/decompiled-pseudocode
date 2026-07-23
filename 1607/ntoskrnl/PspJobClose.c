@@ -1,14 +1,14 @@
 /*
- * XREFs of PspJobClose @ 0x1404E2DE8
+ * XREFs of PspJobClose @ 0x1404C5D4C
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PspLockJobMemoryLimitsExclusive @ 0x140464B30 (PspLockJobMemoryLimitsExclusive.c)
- *     PspUnlockJobMemoryLimitsExclusive @ 0x140464B90 (PspUnlockJobMemoryLimitsExclusive.c)
- *     PspUnlockJob @ 0x140468EB0 (PspUnlockJob.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1404E2F28 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PspLockJobMemoryLimitsExclusive @ 0x140463A00 (PspLockJobMemoryLimitsExclusive.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x140463A60 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspUnlockJob @ 0x140467D80 (PspUnlockJob.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x1404C5E8C (PspTerminateAllProcessesInJobHierarchy.c)
  */
 
 void __fastcall PspJobClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

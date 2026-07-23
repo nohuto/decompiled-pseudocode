@@ -19,17 +19,20 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
   _GUID v2; // xmm0
   __int64 v3; // rax
   int v4; // r8d
-  __int64 v5; // [rsp+30h] [rbp-69h] BYREF
+  __int64 ThreadInformation; // [rsp+30h] [rbp-69h] BYREF
   __int64 v6; // [rsp+38h] [rbp-61h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-59h] BYREF
 
   if ( a1 )
   {
     v2 = *(_GUID *)(a1 + 232);
-    v5 = 0LL;
+    ThreadInformation = 0LL;
     NtCurrentTeb()->ActivityId = v2;
-    if ( *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket != v5 && (int)NtSetInformationThread(-2LL, 44LL, &v5) >= 0 )
-      *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = v5;
+    if ( *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket != ThreadInformation
+      && NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, &ThreadInformation, 8u) >= 0 )
+    {
+      *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = ThreadInformation;
+    }
     if ( (*(_BYTE *)(a1 + 76) & 1) != 0 && (*(_BYTE *)(a1 + 104) & 1) == 0 )
     {
       RtlDeactivateActivationContextUnsafeFast(a1);
@@ -52,14 +55,14 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
         ExceptionRecord.NumberParameters = 2;
         RtlRaiseException(&ExceptionRecord);
         v6 = 0LL;
-        NtSetInformationThread(-2LL, 5LL, &v6);
+        NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &v6, 8u);
       }
       v4 = *(_DWORD *)(a1 + 104);
       if ( (v4 & 0x10) == 0 && (unsigned __int8)TppCheckForTransactions() )
       {
         DbgPrintEx(
-          84LL,
-          0LL,
+          0x54u,
+          0,
           "ThreadPool: callback %p(%p) returned with a transaction uncleared\n",
           *(const void **)(a1 + 88),
           *(const void **)(a1 + 96));
@@ -72,8 +75,8 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
       if ( (v4 & 0x20) == 0 && NtCurrentPeb()->LoaderLock->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
       {
         DbgPrintEx(
-          84LL,
-          0LL,
+          0x54u,
+          0,
           "ThreadPool: callback %p(%p) returned with the loader lock held\n",
           *(const void **)(a1 + 88),
           *(const void **)(a1 + 96));
@@ -86,8 +89,8 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
       if ( (v4 & 0x40) == 0 && NtCurrentTeb()->PreferredLanguages )
       {
         DbgPrintEx(
-          84LL,
-          0LL,
+          0x54u,
+          0,
           "ThreadPool: callback %p(%p) returned with preferred languages set\n",
           *(const void **)(a1 + 88),
           *(const void **)(a1 + 96));
@@ -102,8 +105,8 @@ void __fastcall TppCallbackCheckThreadAfterCallback(__int64 a1)
         if ( NtCurrentTeb()->SavedPriorityState )
         {
           DbgPrintEx(
-            84LL,
-            0LL,
+            0x54u,
+            0,
             "ThreadPool: callback %p(%p) returned with background priorities set\n",
             *(const void **)(a1 + 88),
             *(const void **)(a1 + 96));

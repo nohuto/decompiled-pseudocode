@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSwapDirectoryTableBase @ 0x14045B984
+ * XREFs of KeSwapDirectoryTableBase @ 0x140450D1C
  * Callers:
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
  * Callees:
- *     KeGenericProcessorCallback @ 0x1403390A4 (KeGenericProcessorCallback.c)
- *     KeFlushProcessTb @ 0x14045BC40 (KeFlushProcessTb.c)
- *     KiCpuPartitionCheckGenericDpc @ 0x1405C01CC (KiCpuPartitionCheckGenericDpc.c)
+ *     KeGenericProcessorCallback @ 0x140318580 (KeGenericProcessorCallback.c)
+ *     KeFlushProcessTb @ 0x140450FD8 (KeFlushProcessTb.c)
+ *     KiCpuPartitionCheckGenericDpc @ 0x1405BD7FC (KiCpuPartitionCheckGenericDpc.c)
  */
 
 __int64 __fastcall KeSwapDirectoryTableBase(__int64 a1, int a2, __int64 a3)
@@ -35,7 +35,7 @@ __int64 __fastcall KeSwapDirectoryTableBase(__int64 a1, int a2, __int64 a3)
   {
     v3 = *(_QWORD *)(a1 + 40);
   }
-  if ( (WORD2(xmmword_140FC5B10) & 0x200) != 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x200) != 0 )
     KiCpuPartitionCheckGenericDpc(KiSwapDirectoryTableBaseTarget);
   v5[0] = KiSwapDirectoryTableBaseTarget;
   v5[1] = &v6;

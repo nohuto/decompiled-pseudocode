@@ -1,10 +1,10 @@
 /*
- * XREFs of KiExtendProcessAffinity @ 0x1405243FC
+ * XREFs of KiExtendProcessAffinity @ 0x14052463C
  * Callers:
- *     KeStartThread @ 0x140277A6C (KeStartThread.c)
- *     KeSetAffinityThread @ 0x1403993CC (KeSetAffinityThread.c)
+ *     KeStartThread @ 0x140265A0C (KeStartThread.c)
+ *     KeSetAffinityThread @ 0x14039951C (KeSetAffinityThread.c)
  * Callees:
- *     KiSetIdealNodeProcessByGroup @ 0x1402E9704 (KiSetIdealNodeProcessByGroup.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x14029AA54 (KiSetIdealNodeProcessByGroup.c)
  */
 
 __int64 __fastcall KiExtendProcessAffinity(__int64 a1, unsigned __int16 a2)

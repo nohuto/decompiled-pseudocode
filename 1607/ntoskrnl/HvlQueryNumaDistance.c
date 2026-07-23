@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlQueryNumaDistance @ 0x1401BAF48
+ * XREFs of HvlQueryNumaDistance @ 0x1401BAE2C
  * Callers:
  *     KiComputeNumaCosts @ 0x1407927E0 (KiComputeNumaCosts.c)
  * Callees:
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlQueryNumaDistance(unsigned __int16 a1, unsigned __int16 a2, _QWORD *a3)

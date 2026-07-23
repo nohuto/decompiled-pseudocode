@@ -1,195 +1,199 @@
 /*
- * XREFs of CmKeyBodyReplicateToVirtual @ 0x140B3181C
+ * XREFs of CmKeyBodyReplicateToVirtual @ 0x140B33A1C
  * Callers:
- *     NtRenameKey @ 0x14084F890 (NtRenameKey.c)
- *     NtSetInformationKey @ 0x1408B0310 (NtSetInformationKey.c)
- *     NtSetValueKey @ 0x14097DE30 (NtSetValueKey.c)
+ *     NtRenameKey @ 0x140855BA0 (NtRenameKey.c)
+ *     NtSetInformationKey @ 0x1408B6800 (NtSetInformationKey.c)
+ *     NtSetValueKey @ 0x14093FE40 (NtSetValueKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     CmpDrainDelayDerefContext @ 0x140446E30 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x14044EE20 (CmpInitializeDelayDerefContext.c)
- *     KCBNeedsVirtualImage @ 0x14044F7D8 (KCBNeedsVirtualImage.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpReplicateKeyToVirtual @ 0x140859F40 (CmpReplicateKeyToVirtual.c)
- *     CmpExamineSaclForAuditEvent @ 0x14085B068 (CmpExamineSaclForAuditEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x14085B480 (CmpReportAuditVirtualizationEvent.c)
- *     CmpReparseToVirtualPath @ 0x1408AF5E0 (CmpReparseToVirtualPath.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     CmpInitializeParseContext @ 0x14097C5D0 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14097C850 (CmpCleanupParseContext.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     CmpCheckAdminAccess @ 0x140A33904 (CmpCheckAdminAccess.c)
- *     SeCreateAccessStateFromSubjectContext @ 0x140AC859C (SeCreateAccessStateFromSubjectContext.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140AE0D24 (CmpSearchKeyControlBlockTreeEx.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140C587C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     CmObReferenceObjectByName @ 0x140C58F38 (CmObReferenceObjectByName.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     CmpDrainDelayDerefContext @ 0x14043F920 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140446F50 (CmpInitializeDelayDerefContext.c)
+ *     KCBNeedsVirtualImage @ 0x140447908 (KCBNeedsVirtualImage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpReplicateKeyToVirtual @ 0x140860234 (CmpReplicateKeyToVirtual.c)
+ *     CmpExamineSaclForAuditEvent @ 0x14086135C (CmpExamineSaclForAuditEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140861774 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     CmpInitializeParseContext @ 0x14093E5E0 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14093E860 (CmpCleanupParseContext.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     CmpCheckAdminAccess @ 0x140A4E864 (CmpCheckAdminAccess.c)
+ *     SeCreateAccessStateFromSubjectContext @ 0x140ACA18C (SeCreateAccessStateFromSubjectContext.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140ADE3F8 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpReparseToVirtualPath @ 0x140B07FA4 (CmpReparseToVirtualPath.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140C5E7C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     CmObReferenceObjectByName @ 0x140C5EF38 (CmObReferenceObjectByName.c)
  */
 
-__int64 __fastcall CmKeyBodyReplicateToVirtual(_QWORD **a1, char a2, ACCESS_MASK a3, __int64 a4)
+__int64 __fastcall CmKeyBodyReplicateToVirtual(_QWORD **a1, char a2, ACCESS_MASK a3, int *a4)
 {
   _QWORD *v7; // r14
-  __int64 v8; // rcx
-  __int64 v9; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   __int64 v10; // r8
-  struct _KLOCK_ENTRIES *v11; // r9
+  __int64 v11; // r9
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  struct _KLOCK_ENTRIES *v14; // r9
   char i; // r12
-  ULONG_PTR v13; // rdi
+  ULONG_PTR v16; // rdi
   int AccessStateFromSubjectContext; // ebx
-  __int64 v15; // rcx
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  int v19; // eax
-  __int64 v20; // rcx
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  int v23; // r9d
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v22; // rdx
+  __int64 v23; // r8
   int v24; // eax
-  BOOLEAN v25; // [rsp+40h] [rbp-C0h] BYREF
-  char v26; // [rsp+41h] [rbp-BFh] BYREF
-  char v27; // [rsp+42h] [rbp-BEh]
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  int v28; // eax
+  BOOLEAN v29; // [rsp+40h] [rbp-C0h] BYREF
+  char v30; // [rsp+41h] [rbp-BFh] BYREF
+  char v31; // [rsp+42h] [rbp-BEh]
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
-  ULONG_PTR v29; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD *v31; // [rsp+68h] [rbp-98h]
-  __int128 v32; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v33; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v34; // [rsp+90h] [rbp-70h]
-  __int128 v35; // [rsp+A0h] [rbp-60h]
-  _DWORD v36[18]; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v37; // [rsp+F8h] [rbp-8h]
+  ULONG_PTR v33; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v34; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD *v35; // [rsp+68h] [rbp-98h]
+  __int128 v36; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v37; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v38; // [rsp+90h] [rbp-70h]
+  __int128 v39; // [rsp+A0h] [rbp-60h]
+  _DWORD v40[18]; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v41; // [rsp+F8h] [rbp-8h]
   struct _KAPC_STATE ApcState; // [rsp+280h] [rbp+180h] BYREF
-  _QWORD v39[20]; // [rsp+2B0h] [rbp+1B0h] BYREF
-  _QWORD v40[28]; // [rsp+350h] [rbp+250h] BYREF
+  _QWORD v43[20]; // [rsp+2B0h] [rbp+1B0h] BYREF
+  _QWORD v44[28]; // [rsp+350h] [rbp+250h] BYREF
 
-  v27 = a2;
-  v31 = a1;
-  v25 = 0;
-  v29 = 0LL;
-  v26 = 0;
-  DestinationString = 0LL;
-  memset_0(v36, 0, 0x1D0uLL);
-  memset(&ApcState, 0, sizeof(ApcState));
-  v32 = 0LL;
-  memset_0(v39, 0, sizeof(v39));
-  memset_0(v40, 0, sizeof(v40));
-  *(_QWORD *)&v35 = 0LL;
-  DWORD2(v35) = 0;
+  v31 = a2;
+  v35 = a1;
+  v29 = 0;
   v33 = 0LL;
-  v34 = 0LL;
+  v30 = 0;
+  DestinationString = 0LL;
+  memset_0(v40, 0, 0x1D0uLL);
+  memset(&ApcState, 0, sizeof(ApcState));
+  v36 = 0LL;
+  memset_0(v43, 0, sizeof(v43));
+  memset_0(v44, 0, sizeof(v44));
+  *(_QWORD *)&v39 = 0LL;
+  DWORD2(v39) = 0;
+  v37 = 0LL;
+  v38 = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   v7 = *a1;
-  CmpInitializeParseContext((__int64)v36);
-  v30 = 0LL;
-  CmpInitializeDelayDerefContext(&v32);
+  CmpInitializeParseContext((__int64)v40);
+  v34 = 0LL;
+  CmpInitializeDelayDerefContext(&v36);
   CmpAttachToRegistryProcess(&ApcState);
-  CmpLockRegistry(v8);
+  CmpLockRegistry(v9, v8, v10, v11);
   for ( i = 0; ; i = 1 )
   {
-    v13 = v7[1];
-    CmpLockKcbExclusive(v13, v9, v10, v11);
+    v16 = v7[1];
+    CmpLockKcbExclusive(v16, v12, v13, v14);
     if ( !KCBNeedsVirtualImage() )
     {
 LABEL_3:
       AccessStateFromSubjectContext = -1073741790;
 LABEL_4:
-      CmpUnlockKcb(v13);
-      CmpUnlockRegistry(v15);
+      CmpUnlockKcb(v16);
+      CmpUnlockRegistry(v18);
       goto LABEL_5;
     }
     AccessStateFromSubjectContext = CmpPerformKeyBodyDeletionCheck(v7, 0LL);
     if ( AccessStateFromSubjectContext < 0 )
       goto LABEL_4;
-    if ( CmpReparseToVirtualPath(v13, v17, a4, &DestinationString) )
+    if ( CmpReparseToVirtualPath(v16, v22, a4, &DestinationString) )
     {
-      CmpUnlockKcb(v13);
+      CmpUnlockKcb(v16);
       goto LABEL_23;
     }
-    if ( (*(_DWORD *)(v13 + 184) & 0x20) != 0 )
+    if ( (*(_DWORD *)(v16 + 184) & 0x20) != 0 )
       goto LABEL_3;
     AccessStateFromSubjectContext = CmpCheckAdminAccess(
                                       a3,
-                                      (PSECURITY_DESCRIPTOR)(*(_QWORD *)(v13 + 88) + 32LL),
-                                      a4,
-                                      &v25);
+                                      (PSECURITY_DESCRIPTOR)(*(_QWORD *)(v16 + 88) + 32LL),
+                                      (__int64)a4,
+                                      &v29);
     if ( AccessStateFromSubjectContext < 0 )
       goto LABEL_4;
-    if ( !v25 )
+    if ( !v29 )
       goto LABEL_3;
-    LOBYTE(v18) = i;
-    v19 = CmpReplicateKeyToVirtual(v13, a4, v18, &v29);
-    AccessStateFromSubjectContext = v19;
-    if ( v19 != -1073741739 )
+    LOBYTE(v23) = i;
+    v24 = CmpReplicateKeyToVirtual(v16, (__int64)a4, v23, &v33);
+    AccessStateFromSubjectContext = v24;
+    if ( v24 != -1073741739 )
       break;
-    CmpUnlockKcb(v13);
-    CmpUnlockRegistry(v20);
+    CmpUnlockKcb(v16);
+    CmpUnlockRegistry(v25);
     CmpLockRegistryExclusive();
   }
-  if ( v19 < 0 )
+  if ( v24 < 0 )
     goto LABEL_4;
-  AccessStateFromSubjectContext = CmpExamineSaclForAuditEvent((void *)(*(_QWORD *)(v13 + 88) + 32LL), a4, &v26);
+  AccessStateFromSubjectContext = CmpExamineSaclForAuditEvent((void *)(*(_QWORD *)(v16 + 88) + 32LL), (__int64)a4, &v30);
   if ( AccessStateFromSubjectContext < 0 )
     goto LABEL_4;
-  if ( v26 )
+  if ( v30 )
   {
-    AccessStateFromSubjectContext = CmpReportAuditVirtualizationEvent(v13, a4);
+    AccessStateFromSubjectContext = CmpReportAuditVirtualizationEvent(v16, (__int64)a4);
     if ( AccessStateFromSubjectContext < 0 )
       goto LABEL_4;
   }
-  if ( !CmpReparseToVirtualPath(v13, v21, a4, &DestinationString) )
+  if ( !CmpReparseToVirtualPath(v16, v26, a4, &DestinationString) )
   {
     AccessStateFromSubjectContext = -1073741670;
     goto LABEL_4;
   }
-  CmpUnlockKcb(v13);
-  CmpSearchKeyControlBlockTreeEx((__int64)CmpSyncKcbCacheForHive, v29, (__int64)&v32, 0LL, 1);
+  CmpUnlockKcb(v16);
+  CmpSearchKeyControlBlockTreeEx((__int64)CmpSyncKcbCacheForHive, v33, (__int64)&v36, 0LL, 1);
 LABEL_23:
-  CmpDrainDelayDerefContext((_QWORD **)&v32);
-  CmpUnlockRegistry(v22);
-  v36[0] = 8;
-  v37 = v7[7];
+  CmpDrainDelayDerefContext((_QWORD **)&v36);
+  CmpUnlockRegistry(v27);
+  v40[0] = 8;
+  v41 = v7[7];
   AccessStateFromSubjectContext = SeCreateAccessStateFromSubjectContext(
-                                    a4,
-                                    v39,
-                                    v40,
+                                    (__int64)a4,
+                                    v43,
+                                    v44,
                                     a3,
                                     (_DWORD *)CmKeyObjectType + 19);
   if ( AccessStateFromSubjectContext >= 0 )
   {
-    v24 = 1600;
-    LODWORD(v33) = 48;
-    *((_QWORD *)&v33 + 1) = 0LL;
-    if ( v27 != 1 )
-      v24 = 576;
-    DWORD2(v34) = v24;
-    *(_QWORD *)&v34 = &DestinationString;
-    v35 = 0LL;
+    v28 = 1600;
+    LODWORD(v37) = 48;
+    *((_QWORD *)&v37 + 1) = 0LL;
+    if ( v31 != 1 )
+      v28 = 576;
+    DWORD2(v38) = v28;
+    *(_QWORD *)&v38 = &DestinationString;
+    v39 = 0LL;
     AccessStateFromSubjectContext = CmObReferenceObjectByName(
-                                      (unsigned int)&v33,
-                                      (unsigned int)v39,
+                                      (unsigned int)&v37,
+                                      (unsigned int)v43,
                                       a3,
-                                      v23,
+                                      v20,
                                       0,
-                                      (__int64)v36,
-                                      (__int64)&v30);
+                                      (__int64)v40,
+                                      (__int64)&v34);
     if ( AccessStateFromSubjectContext >= 0 )
     {
-      *v31 = v30;
+      *v35 = v34;
       ObfDereferenceObject(v7);
       AccessStateFromSubjectContext = 0;
     }
-    SeDeleteAccessState((__int64)v39);
+    SeDeleteAccessState((__int64)v43);
   }
 LABEL_5:
-  CmpCleanupParseContext((__int64)v36, 0);
+  CmpCleanupParseContext((__int64)v40, 0LL, v19, v20);
   if ( DestinationString.Buffer )
     RtlFreeAnsiString(&DestinationString);
   CmpDetachFromRegistryProcess(&ApcState);

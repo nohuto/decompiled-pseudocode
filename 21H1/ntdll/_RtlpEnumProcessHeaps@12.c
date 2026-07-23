@@ -38,7 +38,7 @@ int __fastcall RtlpEnumProcessHeaps(int (__stdcall *a1)(void *, int), int a2, ch
   v10 = 0;
   if ( (a3 & 1) == 0 )
   {
-    RtlEnterCriticalSection((int)&RtlpProcessHeapsListLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
     v3 = v9;
     a2 = v11;
   }
@@ -74,6 +74,6 @@ int __fastcall RtlpEnumProcessHeaps(int (__stdcall *a1)(void *, int), int a2, ch
   }
 LABEL_16:
   if ( (a3 & 1) == 0 )
-    RtlLeaveCriticalSection((int)&RtlpProcessHeapsListLock);
+    RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   return v10;
 }

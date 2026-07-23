@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCheckForAtlThunk @ 0x14029C3FC
+ * XREFs of KiCheckForAtlThunk @ 0x14029C5EC
  * Callers:
- *     KiPreprocessFault @ 0x1400A3490 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x1400A33D0 (KiPreprocessFault.c)
  * Callees:
- *     KiEmulateAtlThunk @ 0x14029F724 (KiEmulateAtlThunk.c)
+ *     KiEmulateAtlThunk @ 0x14029F914 (KiEmulateAtlThunk.c)
  */
 
 __int64 __fastcall KiCheckForAtlThunk(__int64 a1)

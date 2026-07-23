@@ -1,10 +1,10 @@
 /*
  * XREFs of MiGetFastLargePages @ 0x1403F7B20
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E6690 (MiProtectionToCacheAttribute.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
  *     MiGetLargePagesDemoteAsNeeded @ 0x1403F5870 (MiGetLargePagesDemoteAsNeeded.c)
  *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)
  */
@@ -20,7 +20,7 @@ __int64 __fastcall MiGetFastLargePages(__int64 a1, __int64 a2, __int64 a3, __int
   __int64 LargePagesDemoteAsNeeded; // rdi
   _QWORD *v14; // rbx
   unsigned __int64 v15; // r10
-  unsigned int v17; // [rsp+30h] [rbp-18h]
+  int v17; // [rsp+30h] [rbp-18h]
 
   KeGetCurrentIrql();
   v17 = MiProtectionToCacheAttribute(a5);

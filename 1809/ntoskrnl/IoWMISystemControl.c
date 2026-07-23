@@ -1,17 +1,17 @@
 /*
- * XREFs of IoWMISystemControl @ 0x1406CC0FC
+ * XREFs of IoWMISystemControl @ 0x1406CD39C
  * Callers:
- *     WmipSystemControl @ 0x1406CC0E0 (WmipSystemControl.c)
+ *     WmipSystemControl @ 0x1406CD380 (WmipSystemControl.c)
  * Callees:
- *     WmipFindRegEntryByProviderId @ 0x14008DA68 (WmipFindRegEntryByProviderId.c)
- *     WmipUnreferenceRegEntry @ 0x14008DB30 (WmipUnreferenceRegEntry.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipQueryWmiDataBlock @ 0x1406A7BD0 (WmipQueryWmiDataBlock.c)
- *     IoWMICompleteRequest @ 0x1406A7CC4 (IoWMICompleteRequest.c)
- *     WmipFindGuid @ 0x1406CC434 (WmipFindGuid.c)
- *     WmipQueryWmiRegInfo @ 0x140763E00 (WmipQueryWmiRegInfo.c)
+ *     WmipFindRegEntryByProviderId @ 0x14008D9A8 (WmipFindRegEntryByProviderId.c)
+ *     WmipUnreferenceRegEntry @ 0x14008DA70 (WmipUnreferenceRegEntry.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WmipQueryWmiDataBlock @ 0x1406A8E70 (WmipQueryWmiDataBlock.c)
+ *     IoWMICompleteRequest @ 0x1406A8F64 (IoWMICompleteRequest.c)
+ *     WmipFindGuid @ 0x1406CD6D4 (WmipFindGuid.c)
+ *     WmipQueryWmiRegInfo @ 0x140764FF0 (WmipQueryWmiRegInfo.c)
  */
 
 __int64 __fastcall IoWMISystemControl(__int64 a1, __int64 a2, IRP *a3)

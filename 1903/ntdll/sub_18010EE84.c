@@ -10,26 +10,28 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall sub_18010EE84(const void **a1, int a2)
+LONG __fastcall sub_18010EE84(PEXCEPTION_POINTERS ExceptionPointers, __int64 a2)
 {
   unsigned int v2; // eax
   __int64 v4; // rbx
-  int InformationProcess; // eax
-  __int64 (__fastcall *v6)(const void **); // rbx
+  int v5; // eax
+  __int64 (__fastcall *v6)(PEXCEPTION_POINTERS); // rbx
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
 
+  v8 = a2;
   v2 = dword_180166018;
   v4 = qword_180165350;
   if ( !dword_180166018 )
   {
-    InformationProcess = ZwQueryInformationProcess();
-    if ( InformationProcess < 0 )
-      RtlRaiseStatus(InformationProcess);
-    v2 = a2;
-    dword_180166018 = a2;
+    v5 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &v8, 4u, 0LL);
+    if ( v5 < 0 )
+      RtlRaiseStatus(v5);
+    v2 = v8;
+    dword_180166018 = v8;
   }
-  v6 = (__int64 (__fastcall *)(const void **))(v2 ^ __ROR8__(v4, 64 - (v2 & 0x3F)));
+  v6 = (__int64 (__fastcall *)(PEXCEPTION_POINTERS))(v2 ^ __ROR8__(v4, 64 - (v2 & 0x3F)));
   if ( v6 )
-    return v6(a1);
+    return v6(ExceptionPointers);
   else
-    return RtlUnhandledExceptionFilter2(a1);
+    return RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&dword_18011D492);
 }

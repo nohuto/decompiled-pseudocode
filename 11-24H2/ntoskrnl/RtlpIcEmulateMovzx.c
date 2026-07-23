@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpIcEmulateMovzx @ 0x140BB81FC
+ * XREFs of RtlpIcEmulateMovzx @ 0x140BBA1FC
  * Callers:
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
  * Callees:
- *     RtlpIcAccessMemory @ 0x140BB7198 (RtlpIcAccessMemory.c)
- *     RtlpIcDecodeModRm @ 0x140BB72B0 (RtlpIcDecodeModRm.c)
- *     RtlpIcDecodeModRmOperand @ 0x140BB739C (RtlpIcDecodeModRmOperand.c)
- *     RtlpIcGetRegisterAddressByIndex @ 0x140BB8498 (RtlpIcGetRegisterAddressByIndex.c)
+ *     RtlpIcAccessMemory @ 0x140BB9198 (RtlpIcAccessMemory.c)
+ *     RtlpIcDecodeModRm @ 0x140BB92B0 (RtlpIcDecodeModRm.c)
+ *     RtlpIcDecodeModRmOperand @ 0x140BB939C (RtlpIcDecodeModRmOperand.c)
+ *     RtlpIcGetRegisterAddressByIndex @ 0x140BBA498 (RtlpIcGetRegisterAddressByIndex.c)
  */
 
 __int64 __fastcall RtlpIcEmulateMovzx(_BYTE *a1, __int64 a2, unsigned __int8 a3, int *a4)

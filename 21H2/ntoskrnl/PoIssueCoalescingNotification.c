@@ -1,14 +1,14 @@
 /*
- * XREFs of PoIssueCoalescingNotification @ 0x14056EA78
+ * XREFs of PoIssueCoalescingNotification @ 0x14056ECB8
  * Callers:
- *     CmpIssueNewDirtyCallback @ 0x1406BD060 (CmpIssueNewDirtyCallback.c)
- *     PopCoalescingCallbackWorker @ 0x1408E6820 (PopCoalescingCallbackWorker.c)
+ *     CmpIssueNewDirtyCallback @ 0x14061C1E0 (CmpIssueNewDirtyCallback.c)
+ *     PopCoalescingCallbackWorker @ 0x1408E6980 (PopCoalescingCallbackWorker.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExReferenceCallBackBlock @ 0x14027BEC0 (ExReferenceCallBackBlock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
@@ -50,7 +50,7 @@ void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
         if ( v8 == v7 )
           goto LABEL_9;
       }
-      ExReleaseRundownProtection_0(v6);
+      ExReleaseRundownProtection(v6);
     }
 LABEL_9:
     ;

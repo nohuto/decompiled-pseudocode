@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpIsKeyStackDeleted @ 0x1406D3EAC
+ * XREFs of CmpIsKeyStackDeleted @ 0x1406D3EDC
  * Callers:
  *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
  *     CmpDoWritethroughReparse @ 0x140693570 (CmpDoWritethroughReparse.c)
- *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
- *     CmpCreateKeyBody @ 0x14072F810 (CmpCreateKeyBody.c)
- *     CmpEnlistKeyBody @ 0x1407C026C (CmpEnlistKeyBody.c)
- *     CmpIsKeyDeleted @ 0x1407CB1FC (CmpIsKeyDeleted.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpPromoteKey @ 0x140A265AC (CmpPromoteKey.c)
+ *     CmpCreateChild @ 0x1406D0FA0 (CmpCreateChild.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
+ *     CmpCreateKeyBody @ 0x14072FA00 (CmpCreateKeyBody.c)
+ *     CmpEnlistKeyBody @ 0x1407C053C (CmpEnlistKeyBody.c)
+ *     CmpIsKeyDeleted @ 0x1407CB4CC (CmpIsKeyDeleted.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpPromoteKey @ 0x140A2685C (CmpPromoteKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D57A0 (CmpGetKcbAtLayerHeight.c)
- *     CmEqualTrans @ 0x1407691C0 (CmEqualTrans.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406D57D0 (CmpGetKcbAtLayerHeight.c)
+ *     CmEqualTrans @ 0x1407693B0 (CmEqualTrans.c)
  *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
  */
 

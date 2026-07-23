@@ -13,10 +13,10 @@
 __int64 __fastcall BiGetFirmwareType(_QWORD *a1)
 {
   unsigned int v2; // ebx
-  __int128 v4; // [rsp+20h] [rbp-38h] BYREF
+  __int128 SystemInformation; // [rsp+20h] [rbp-38h] BYREF
   __int128 v5; // [rsp+30h] [rbp-28h]
 
-  v4 = 0LL;
+  SystemInformation = 0LL;
   v5 = 0LL;
   if ( byte_140EEF808 )
   {
@@ -25,7 +25,7 @@ __int64 __fastcall BiGetFirmwareType(_QWORD *a1)
   else
   {
     v2 = 1;
-    if ( (int)ZwQuerySystemInformation(90LL, (__int64)&v4) >= 0 )
+    if ( ZwQuerySystemInformation(SystemBootEnvironmentInformation, &SystemInformation, 0x20u, 0LL) >= 0 )
     {
       v2 = 0;
       qword_140E62038 = *((_QWORD *)&v5 + 1);

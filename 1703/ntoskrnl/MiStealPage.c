@@ -568,7 +568,7 @@ LABEL_179:
           if ( (v9 & 0x10) == 0 )
             goto LABEL_179;
           BugCheckParameter2 = qword_1403E4260 + 8;
-          v83 = (_KLOCK_ENTRY *)KeAbPreAcquire(qword_1403E4260 + 8, 0LL, (unsigned int)v82);
+          v83 = (_KLOCK_ENTRY *)KeAbPreAcquire(qword_1403E4260 + 8, 0LL, v82);
           v84 = BugCheckParameter2;
           if ( !_interlockedbittestandreset((volatile signed __int32 *)BugCheckParameter2, 0) )
           {
@@ -1125,8 +1125,8 @@ LABEL_133:
   }
   else if ( v27 == 12
          || PsNtosImageBase
-         && ((unsigned __int64)Src >= PsNtosImageBase && (unsigned __int64)Src < PsNtosImageEnd
-          || (unsigned __int64)Src >= PsHalImageBase && (unsigned __int64)Src < PsHalImageEnd) )
+         && (Src >= PsNtosImageBase && (unsigned __int64)Src < PsNtosImageEnd
+          || Src >= PsHalImageBase && (unsigned __int64)Src < PsHalImageEnd) )
   {
     v9 = 64;
   }
@@ -1192,7 +1192,8 @@ LABEL_46:
       if ( !v146
         || (unsigned int)MiGetSystemRegionType((unsigned __int64)Src) != 12
         && (!PsNtosImageBase
-         || (v35 < PsNtosImageBase || v35 >= PsNtosImageEnd) && (v35 < PsHalImageBase || v35 >= PsHalImageEnd)) )
+         || (v35 < (unsigned __int64)PsNtosImageBase || v35 >= PsNtosImageEnd)
+         && (v35 < (unsigned __int64)PsHalImageBase || v35 >= PsHalImageEnd)) )
       {
         goto LABEL_47;
       }

@@ -1,32 +1,32 @@
 /*
- * XREFs of BiGetDefaultBootEntryIdentifier @ 0x140812304
+ * XREFs of BiGetDefaultBootEntryIdentifier @ 0x140812A44
  * Callers:
- *     BiGetAliasedIdentifier @ 0x140812288 (BiGetAliasedIdentifier.c)
+ *     BiGetAliasedIdentifier @ 0x1408129C8 (BiGetAliasedIdentifier.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     BcdOpenObject @ 0x1409BE0D4 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x1409BF5DC (BcdCloseObject.c)
- *     BcdGetElementData @ 0x1409BF8B0 (BcdGetElementData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     BcdOpenObject @ 0x1409A4724 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x1409A5C2C (BcdCloseObject.c)
+ *     BcdGetElementData @ 0x1409A5F00 (BcdGetElementData.c)
  */
 
-__int64 __fastcall BiGetDefaultBootEntryIdentifier(__int64 a1, _OWORD *a2)
+__int64 __fastcall BiGetDefaultBootEntryIdentifier(void *a1, _OWORD *a2)
 {
-  int ElementData; // ebx
-  int v5; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-30h] BYREF
-  __int128 v7; // [rsp+30h] [rbp-28h] BYREF
+  NTSTATUS ElementData; // ebx
+  ULONG BufferSize; // [rsp+20h] [rbp-38h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+28h] [rbp-30h] BYREF
+  __int128 Buffer; // [rsp+30h] [rbp-28h] BYREF
 
-  v6 = 0LL;
-  v7 = 0LL;
-  ElementData = BcdOpenObject(a1, &GUID_WINDOWS_BOOTMGR, &v6);
+  BcdObjectHandle = 0LL;
+  Buffer = 0LL;
+  ElementData = BcdOpenObject(a1, &GUID_WINDOWS_BOOTMGR, &BcdObjectHandle);
   if ( ElementData >= 0 )
   {
-    v5 = 16;
-    ElementData = BcdGetElementData(v6, 587202563LL, &v7, &v5);
+    BufferSize = 16;
+    ElementData = BcdGetElementData(BcdObjectHandle, 0x23000003u, &Buffer, &BufferSize);
     if ( ElementData >= 0 )
-      *a2 = v7;
+      *a2 = Buffer;
   }
-  if ( v6 )
-    BcdCloseObject(v6);
+  if ( BcdObjectHandle )
+    BcdCloseObject(BcdObjectHandle);
   return (unsigned int)ElementData;
 }

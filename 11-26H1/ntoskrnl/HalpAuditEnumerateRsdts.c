@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpAuditEnumerateRsdts @ 0x140CB3FCC
+ * XREFs of HalpAuditEnumerateRsdts @ 0x140CBA00C
  * Callers:
- *     HalpAuditAcpiTables @ 0x140CB3E60 (HalpAuditAcpiTables.c)
+ *     HalpAuditAcpiTables @ 0x140CB9EA0 (HalpAuditAcpiTables.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     HalpAuditAllocateRsdtArrayTable @ 0x140CB3F24 (HalpAuditAllocateRsdtArrayTable.c)
- *     HalpAuditEnumerateRsdtsInRange @ 0x140CB40B8 (HalpAuditEnumerateRsdtsInRange.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     HalpAuditAllocateRsdtArrayTable @ 0x140CB9F64 (HalpAuditAllocateRsdtArrayTable.c)
+ *     HalpAuditEnumerateRsdtsInRange @ 0x140CBA0F8 (HalpAuditEnumerateRsdtsInRange.c)
  */
 
 __int64 __fastcall HalpAuditEnumerateRsdts(__int64 a1, PVOID *a2)

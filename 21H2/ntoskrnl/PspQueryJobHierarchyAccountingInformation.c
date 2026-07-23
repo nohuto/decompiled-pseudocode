@@ -1,17 +1,17 @@
 /*
- * XREFs of PspQueryJobHierarchyAccountingInformation @ 0x14061776C
+ * XREFs of PspQueryJobHierarchyAccountingInformation @ 0x1406813CC
  * Callers:
- *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1406804E0 (NtQueryInformationJobObject.c)
  * Callees:
- *     PsAddProcessEnergyValues @ 0x1402548F0 (PsAddProcessEnergyValues.c)
- *     KeQuerySchedulingGroupReadyTime @ 0x1402B9724 (KeQuerySchedulingGroupReadyTime.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspLockRootJobShared @ 0x140618874 (PspLockRootJobShared.c)
- *     PspUnlockJobConditionally @ 0x140618F8C (PspUnlockJobConditionally.c)
+ *     KeQuerySchedulingGroupReadyTime @ 0x140237934 (KeQuerySchedulingGroupReadyTime.c)
+ *     PsAddProcessEnergyValues @ 0x140275E60 (PsAddProcessEnergyValues.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140681C50 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspLockRootJobShared @ 0x1406824D4 (PspLockRootJobShared.c)
+ *     PspUnlockJobConditionally @ 0x140682BEC (PspUnlockJobConditionally.c)
  */
 
 __int64 __fastcall PspQueryJobHierarchyAccountingInformation(char *Object, __int64 a2)
@@ -19,32 +19,29 @@ __int64 __fastcall PspQueryJobHierarchyAccountingInformation(char *Object, __int
   struct _KTHREAD *CurrentThread; // rsi
   int v5; // ecx
   PVOID *v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  _DWORD *v9; // r9
-  __int64 v10; // rcx
-  __int64 v11; // rcx
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  _OWORD *v11; // rbx
   __int64 v12; // rcx
-  __int64 v13; // rdx
-  _OWORD *v14; // rbx
-  __int64 v15; // rcx
-  __int64 *v16; // rax
-  __int128 v17; // xmm1
-  __int128 v18; // xmm0
-  __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  __int128 v21; // xmm1
-  __int128 v22; // xmm0
-  __int128 v23; // xmm1
-  _QWORD v25[2]; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v26[86]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 *v13; // rax
+  __int128 v14; // xmm1
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  __int128 v18; // xmm1
+  __int128 v19; // xmm0
+  __int128 v20; // xmm1
+  _QWORD v22[2]; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v23[86]; // [rsp+40h] [rbp-C0h] BYREF
 
-  v25[0] = 0LL;
+  v22[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
-  memset(v26, 0, sizeof(v26));
-  PspLockRootJobShared(Object, CurrentThread, v25);
+  memset(v23, 0, sizeof(v23));
+  PspLockRootJobShared(Object, CurrentThread, v22);
   v5 = 0;
-  v6 = (PVOID *)v25;
+  v6 = (PVOID *)v22;
   while ( Object != *v6 )
   {
     ++v5;
@@ -55,71 +52,71 @@ __int64 __fastcall PspQueryJobHierarchyAccountingInformation(char *Object, __int
       break;
     }
   }
-  PspEnumJobsAndProcessesInJobHierarchy(Object, (__int64)v26, 1);
-  v10 = v26[14];
-  *(_QWORD *)a2 = v26[14] + *((_QWORD *)Object + 20);
-  *(_QWORD *)(a2 + 16) = *((_QWORD *)Object + 23) + v10;
-  v11 = v26[13];
-  *(_QWORD *)(a2 + 8) = v26[13] + *((_QWORD *)Object + 21);
-  *(_QWORD *)(a2 + 24) = *((_QWORD *)Object + 24) + v11;
-  *(_DWORD *)(a2 + 32) = LODWORD(v26[31]) + *((_DWORD *)Object + 52);
+  PspEnumJobsAndProcessesInJobHierarchy(Object, (__int64)v23, 1);
+  v7 = v23[14];
+  *(_QWORD *)a2 = v23[14] + *((_QWORD *)Object + 20);
+  *(_QWORD *)(a2 + 16) = *((_QWORD *)Object + 23) + v7;
+  v8 = v23[13];
+  *(_QWORD *)(a2 + 8) = v23[13] + *((_QWORD *)Object + 21);
+  *(_QWORD *)(a2 + 24) = *((_QWORD *)Object + 24) + v8;
+  *(_DWORD *)(a2 + 32) = LODWORD(v23[31]) + *((_DWORD *)Object + 52);
   *(_DWORD *)(a2 + 36) = *((_DWORD *)Object + 53);
   *(_DWORD *)(a2 + 40) = *((_DWORD *)Object + 54);
   *(_DWORD *)(a2 + 44) = *((_DWORD *)Object + 55);
-  *(_QWORD *)(a2 + 48) = v26[18] + *((_QWORD *)Object + 61);
-  *(_QWORD *)(a2 + 56) = v26[19] + *((_QWORD *)Object + 62);
-  *(_QWORD *)(a2 + 64) = v26[20] + *((_QWORD *)Object + 63);
-  *(_QWORD *)(a2 + 72) = v26[21] + *((_QWORD *)Object + 64);
-  *(_QWORD *)(a2 + 80) = v26[22] + *((_QWORD *)Object + 65);
-  *(_QWORD *)(a2 + 88) = v26[23] + *((_QWORD *)Object + 66);
-  *(_QWORD *)(a2 + 96) = v26[26] + *((_QWORD *)Object + 67);
-  *(_QWORD *)(a2 + 104) = v26[27] + *((_QWORD *)Object + 68);
-  *(_QWORD *)(a2 + 112) = v26[28] + *((_QWORD *)Object + 69);
-  *(_QWORD *)(a2 + 120) = v26[29] + *((_QWORD *)Object + 70);
-  *(_QWORD *)(a2 + 128) = v26[30] + *((_QWORD *)Object + 71);
-  *(_QWORD *)(a2 + 136) = v26[17] + *((_QWORD *)Object + 25);
-  *(_QWORD *)(a2 + 144) = v26[16] + *((_QWORD *)Object + 22);
-  *(_QWORD *)(a2 + 152) = v26[15] + *((_QWORD *)Object + 128);
-  *(_QWORD *)(a2 + 432) = v26[24] + *((_QWORD *)Object + 198);
-  *(_QWORD *)(a2 + 440) = v26[25] + *((_QWORD *)Object + 199);
-  v12 = *((_QWORD *)Object + 126);
-  if ( v12 )
-    *(_QWORD *)(a2 + 152) += KeQuerySchedulingGroupReadyTime(v12 + 128, v7, v8, v9);
-  v13 = *((_QWORD *)Object + 166);
-  v14 = (_OWORD *)(a2 + 160);
-  if ( v13 )
+  *(_QWORD *)(a2 + 48) = v23[18] + *((_QWORD *)Object + 61);
+  *(_QWORD *)(a2 + 56) = v23[19] + *((_QWORD *)Object + 62);
+  *(_QWORD *)(a2 + 64) = v23[20] + *((_QWORD *)Object + 63);
+  *(_QWORD *)(a2 + 72) = v23[21] + *((_QWORD *)Object + 64);
+  *(_QWORD *)(a2 + 80) = v23[22] + *((_QWORD *)Object + 65);
+  *(_QWORD *)(a2 + 88) = v23[23] + *((_QWORD *)Object + 66);
+  *(_QWORD *)(a2 + 96) = v23[26] + *((_QWORD *)Object + 67);
+  *(_QWORD *)(a2 + 104) = v23[27] + *((_QWORD *)Object + 68);
+  *(_QWORD *)(a2 + 112) = v23[28] + *((_QWORD *)Object + 69);
+  *(_QWORD *)(a2 + 120) = v23[29] + *((_QWORD *)Object + 70);
+  *(_QWORD *)(a2 + 128) = v23[30] + *((_QWORD *)Object + 71);
+  *(_QWORD *)(a2 + 136) = v23[17] + *((_QWORD *)Object + 25);
+  *(_QWORD *)(a2 + 144) = v23[16] + *((_QWORD *)Object + 22);
+  *(_QWORD *)(a2 + 152) = v23[15] + *((_QWORD *)Object + 128);
+  *(_QWORD *)(a2 + 432) = v23[24] + *((_QWORD *)Object + 198);
+  *(_QWORD *)(a2 + 440) = v23[25] + *((_QWORD *)Object + 199);
+  v9 = *((_QWORD *)Object + 126);
+  if ( v9 )
+    *(_QWORD *)(a2 + 152) += KeQuerySchedulingGroupReadyTime(v9 + 128);
+  v10 = *((_QWORD *)Object + 166);
+  v11 = (_OWORD *)(a2 + 160);
+  if ( v10 )
   {
-    PsAddProcessEnergyValues((__int64)&v26[32], v13);
-    v15 = 2LL;
-    v16 = &v26[32];
+    PsAddProcessEnergyValues((__int64)&v23[32], v10);
+    v12 = 2LL;
+    v13 = &v23[32];
     do
     {
-      v17 = *((_OWORD *)v16 + 1);
-      *v14 = *(_OWORD *)v16;
-      v18 = *((_OWORD *)v16 + 2);
-      v14[1] = v17;
-      v19 = *((_OWORD *)v16 + 3);
-      v14[2] = v18;
-      v20 = *((_OWORD *)v16 + 4);
-      v14[3] = v19;
-      v21 = *((_OWORD *)v16 + 5);
-      v14[4] = v20;
-      v22 = *((_OWORD *)v16 + 6);
-      v14[5] = v21;
-      v23 = *((_OWORD *)v16 + 7);
-      v16 += 16;
-      v14[6] = v22;
-      v14 += 8;
-      *(v14 - 1) = v23;
-      --v15;
+      v14 = *((_OWORD *)v13 + 1);
+      *v11 = *(_OWORD *)v13;
+      v15 = *((_OWORD *)v13 + 2);
+      v11[1] = v14;
+      v16 = *((_OWORD *)v13 + 3);
+      v11[2] = v15;
+      v17 = *((_OWORD *)v13 + 4);
+      v11[3] = v16;
+      v18 = *((_OWORD *)v13 + 5);
+      v11[4] = v17;
+      v19 = *((_OWORD *)v13 + 6);
+      v11[5] = v18;
+      v20 = *((_OWORD *)v13 + 7);
+      v13 += 16;
+      v11[6] = v19;
+      v11 += 8;
+      *(v11 - 1) = v20;
+      --v12;
     }
-    while ( v15 );
-    *v14 = *(_OWORD *)v16;
+    while ( v12 );
+    *v11 = *(_OWORD *)v13;
   }
   else
   {
-    memset(v14, 0, 0x110uLL);
+    memset(v11, 0, 0x110uLL);
   }
-  PspUnlockJobConditionally(Object, v25);
-  return PspUnlockJob(v25[0], CurrentThread);
+  PspUnlockJobConditionally(Object, v22);
+  return PspUnlockJob(v22[0], CurrentThread);
 }

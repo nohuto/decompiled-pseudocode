@@ -1,24 +1,24 @@
 /*
- * XREFs of MmDeleteProcessAddressSpace @ 0x1407059E8
+ * XREFs of MmDeleteProcessAddressSpace @ 0x140705BF8
  * Callers:
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
  * Callees:
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiDeleteFinalPageTables @ 0x1402915B4 (MiDeleteFinalPageTables.c)
- *     MiDeletePxeSharedLocks @ 0x140292C80 (MiDeletePxeSharedLocks.c)
- *     MiDeleteWorkingSetList @ 0x140292CB0 (MiDeleteWorkingSetList.c)
- *     MiContractPagingFiles @ 0x140292D44 (MiContractPagingFiles.c)
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     MiUnlinkWorkingSet @ 0x140292F74 (MiUnlinkWorkingSet.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiEmptyPageAccessLog @ 0x1402E1F40 (MiEmptyPageAccessLog.c)
- *     PsReturnProcessQuota @ 0x1402EA0CC (PsReturnProcessQuota.c)
- *     ExCleanupAutoExpandPushLock @ 0x1402FD3A0 (ExCleanupAutoExpandPushLock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x1406FABC0 (PspChangeJobMemoryUsageByProcess.c)
- *     MiReleaseProcessReferenceToSessionDataPage @ 0x140706CDC (MiReleaseProcessReferenceToSessionDataPage.c)
- *     MiDeleteAweInfo @ 0x140A41A48 (MiDeleteAweInfo.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiDeleteFinalPageTables @ 0x140291844 (MiDeleteFinalPageTables.c)
+ *     MiDeletePxeSharedLocks @ 0x140292F10 (MiDeletePxeSharedLocks.c)
+ *     MiDeleteWorkingSetList @ 0x140292F40 (MiDeleteWorkingSetList.c)
+ *     MiContractPagingFiles @ 0x140292FD4 (MiContractPagingFiles.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     MiUnlinkWorkingSet @ 0x140293204 (MiUnlinkWorkingSet.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiEmptyPageAccessLog @ 0x1402E21D0 (MiEmptyPageAccessLog.c)
+ *     PsReturnProcessQuota @ 0x1402EA35C (PsReturnProcessQuota.c)
+ *     ExCleanupAutoExpandPushLock @ 0x1402FD630 (ExCleanupAutoExpandPushLock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x1406FADD0 (PspChangeJobMemoryUsageByProcess.c)
+ *     MiReleaseProcessReferenceToSessionDataPage @ 0x140706EEC (MiReleaseProcessReferenceToSessionDataPage.c)
+ *     MiDeleteAweInfo @ 0x140A41CF8 (MiDeleteAweInfo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

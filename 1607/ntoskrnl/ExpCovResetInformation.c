@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpCovResetInformation @ 0x1406B7A34
+ * XREFs of ExpCovResetInformation @ 0x1406B7B6C
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfAcquirePushLockExclusive @ 0x1400C8064 (ExfAcquirePushLockExclusive.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlDuplicateUnicodeString @ 0x1403F7F80 (RtlDuplicateUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     MmEnumerateSystemImages @ 0x140498F00 (MmEnumerateSystemImages.c)
- *     ExpCovDeleteUnloadedModuleEntry @ 0x1406B6D84 (ExpCovDeleteUnloadedModuleEntry.c)
- *     ExpCovIsUnLoadedModulePresent @ 0x1406B6F20 (ExpCovIsUnLoadedModulePresent.c)
- *     ExpCovReadRequestBuffer @ 0x1406B78B8 (ExpCovReadRequestBuffer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfAcquirePushLockExclusive @ 0x1400C5F04 (ExfAcquirePushLockExclusive.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlDuplicateUnicodeString @ 0x1403F6E40 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     MmEnumerateSystemImages @ 0x140499990 (MmEnumerateSystemImages.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x1406B6EBC (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovIsUnLoadedModulePresent @ 0x1406B7058 (ExpCovIsUnLoadedModulePresent.c)
+ *     ExpCovReadRequestBuffer @ 0x1406B79F0 (ExpCovReadRequestBuffer.c)
  */
 
 __int64 __fastcall ExpCovResetInformation(unsigned __int64 a1, unsigned int a2)

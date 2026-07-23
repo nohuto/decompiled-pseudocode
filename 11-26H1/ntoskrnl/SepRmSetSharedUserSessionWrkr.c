@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmSetSharedUserSessionWrkr @ 0x140815A90
+ * XREFs of SepRmSetSharedUserSessionWrkr @ 0x14081BC40
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 struct _LIST_ENTRY *SepRmSetSharedUserSessionWrkr()

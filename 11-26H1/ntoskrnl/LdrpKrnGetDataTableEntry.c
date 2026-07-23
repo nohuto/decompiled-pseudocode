@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpKrnGetDataTableEntry @ 0x1404AB078
+ * XREFs of LdrpKrnGetDataTableEntry @ 0x1404A4708
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1403DCBD0 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpGetImageSize @ 0x1404AAFB8 (LdrpGetImageSize.c)
- *     LdrpResGetMappingSize @ 0x140A9B310 (LdrpResGetMappingSize.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1403DFDC0 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpGetImageSize @ 0x1404A4648 (LdrpGetImageSize.c)
+ *     LdrpResGetMappingSize @ 0x1409E6340 (LdrpResGetMappingSize.c)
  * Callees:
- *     MiLockLoadedDataTableEntry @ 0x1406FD170 (MiLockLoadedDataTableEntry.c)
- *     MmUnlockLoadedDataTableEntryShared @ 0x1406FD1D0 (MmUnlockLoadedDataTableEntryShared.c)
+ *     MiLockLoadedDataTableEntry @ 0x140701E40 (MiLockLoadedDataTableEntry.c)
+ *     MmUnlockLoadedDataTableEntryShared @ 0x140701EA0 (MmUnlockLoadedDataTableEntryShared.c)
  */
 
 __int64 __fastcall LdrpKrnGetDataTableEntry(__int64 a1)

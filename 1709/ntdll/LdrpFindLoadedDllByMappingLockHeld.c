@@ -11,52 +11,52 @@
  */
 
 __int64 __fastcall LdrpFindLoadedDllByMappingLockHeld(
-        __int64 a1,
-        const void *a2,
+        PVOID File2MappedAsFile,
+        void *Buf1,
         unsigned int *a3,
         volatile signed __int32 **a4)
 {
-  __int64 v5; // rdi
+  unsigned __int64 Root; // rdi
   int v6; // esi
   _QWORD *v7; // rbx
   int v11; // eax
-  __int64 v12; // rax
+  unsigned __int64 v12; // rax
   _QWORD *v13; // rax
   unsigned int v14; // eax
   volatile signed __int32 *v16; // rdi
   _QWORD *v17; // rcx
   unsigned int v18; // eax
   __int64 v19; // rax
-  void *Buf2; // [rsp+20h] [rbp-28h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+20h] [rbp-28h] BYREF
 
-  v5 = LdrpMappingInfoIndex;
-  v6 = byte_1801602D0 & 1;
+  Root = (unsigned __int64)LdrpMappingInfoIndex.Root;
+  v6 = *(_BYTE *)&LdrpMappingInfoIndex.0 & 1;
   v7 = 0LL;
-  while ( v5 )
+  while ( Root )
   {
-    v11 = LdrpCompareModuleMappingInfo(a3, v5, a3);
+    v11 = LdrpCompareModuleMappingInfo(a3, Root, a3);
     if ( v11 >= 0 )
     {
       if ( v11 > 0 )
       {
-        v12 = *(_QWORD *)(v5 + 8);
+        v12 = *(_QWORD *)(Root + 8);
         goto LABEL_6;
       }
-      v7 = (_QWORD *)v5;
+      v7 = (_QWORD *)Root;
     }
-    v12 = *(_QWORD *)v5;
+    v12 = *(_QWORD *)Root;
 LABEL_6:
     if ( v6 && v12 )
-      v5 ^= v12;
+      Root ^= v12;
     else
-      v5 = v12;
+      Root = v12;
   }
   while ( v7 )
   {
     v16 = (volatile signed __int32 *)(v7 - 28);
-    if ( (int)RtlImageNtHeaderEx(3, *(v7 - 22), 0LL, &Buf2) >= 0
-      && !memcmp(a2, Buf2, 0x30uLL)
-      && (int)ZwAreMappedFilesTheSame(*((_QWORD *)v16 + 6), a1) >= 0 )
+    if ( RtlImageNtHeaderEx(3u, (PVOID)*(v7 - 22), 0LL, &OutHeaders) >= 0
+      && !memcmp(Buf1, OutHeaders, 0x30uLL)
+      && ZwAreMappedFilesTheSame(*((PVOID *)v16 + 6), File2MappedAsFile) >= 0 )
     {
       v19 = *((_QWORD *)v16 + 19);
       if ( *(_DWORD *)(v19 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v19 - 56LL) & 0x20) == 0 )

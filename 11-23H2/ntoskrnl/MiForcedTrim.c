@@ -1,11 +1,11 @@
 /*
- * XREFs of MiForcedTrim @ 0x1406348E0
+ * XREFs of MiForcedTrim @ 0x140634E30
  * Callers:
- *     MiSelfTrim @ 0x14065025C (MiSelfTrim.c)
+ *     MiSelfTrim @ 0x1406507AC (MiSelfTrim.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
- *     MiTrimWorkingSet @ 0x14035D6C4 (MiTrimWorkingSet.c)
- *     MiForceAgeWorkingSet @ 0x1406348A0 (MiForceAgeWorkingSet.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
+ *     MiTrimWorkingSet @ 0x14035D864 (MiTrimWorkingSet.c)
+ *     MiForceAgeWorkingSet @ 0x140634DF0 (MiForceAgeWorkingSet.c)
  */
 
 __int64 __fastcall MiForcedTrim(__int64 a1, __int8 a2)

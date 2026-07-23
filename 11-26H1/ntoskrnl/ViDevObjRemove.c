@@ -1,14 +1,14 @@
 /*
- * XREFs of ViDevObjRemove @ 0x140C3092C
+ * XREFs of ViDevObjRemove @ 0x140C3693C
  * Callers:
- *     VfIoDeleteDevice @ 0x140C306C0 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x140C366D0 (VfIoDeleteDevice.c)
  * Callees:
- *     VfAvlFreeNodeNoLock @ 0x1403B7710 (VfAvlFreeNodeNoLock.c)
- *     VfAvlDeleteTreeNode @ 0x1403B7A64 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     VfAvlFreeNodeNoLock @ 0x1403C1610 (VfAvlFreeNodeNoLock.c)
+ *     VfAvlDeleteTreeNode @ 0x1403C1964 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall ViDevObjRemove(ULONG_PTR BugCheckParameter2)

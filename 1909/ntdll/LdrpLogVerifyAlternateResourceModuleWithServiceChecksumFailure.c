@@ -14,7 +14,7 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
         __int64 a2,
         __int64 a3)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   const struct _TlgProvider_t *v7; // rcx
   const GUID *v8; // r8
   const GUID *v9; // r9
@@ -35,8 +35,8 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
   __int64 v25; // [rsp+C0h] [rbp+3Fh]
 
   v6 = RtlRunOnceExecuteOnce(
-         &qword_1801660D0,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
+         &stru_1801660D0,
+         (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce,
          0LL,
          0LL);
   if ( v6 >= 0 && (unsigned int)dword_18015F450 > 5 )

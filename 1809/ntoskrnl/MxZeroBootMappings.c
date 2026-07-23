@@ -1,15 +1,15 @@
 /*
- * XREFs of MxZeroBootMappings @ 0x1409D3114
+ * XREFs of MxZeroBootMappings @ 0x1409D4114
  * Callers:
- *     MiZeroBootMappings @ 0x1409D30A4 (MiZeroBootMappings.c)
- *     MxZeroBootMappings @ 0x1409D3114 (MxZeroBootMappings.c)
+ *     MiZeroBootMappings @ 0x1409D40A4 (MiZeroBootMappings.c)
+ *     MxZeroBootMappings @ 0x1409D4114 (MxZeroBootMappings.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MxZeroBootMappings @ 0x1409D3114 (MxZeroBootMappings.c)
- *     MiFreeBootPageTable @ 0x1409D3228 (MiFreeBootPageTable.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MxZeroBootMappings @ 0x1409D4114 (MxZeroBootMappings.c)
+ *     MiFreeBootPageTable @ 0x1409D4228 (MiFreeBootPageTable.c)
  */
 
 void __fastcall MxZeroBootMappings(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -54,7 +54,7 @@ LABEL_12:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v9 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_12;
       v10 = (v8 & 1) == 0;
     }

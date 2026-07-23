@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCopyJobGuidSafe @ 0x1409369D4
+ * XREFs of EtwpCopyJobGuidSafe @ 0x140936BA4
  * Callers:
- *     EtwTraceJobServerSiloMonitorCallback @ 0x1403C82F0 (EtwTraceJobServerSiloMonitorCallback.c)
- *     EtwTraceJob @ 0x140935D48 (EtwTraceJob.c)
- *     EtwTraceJobAssignProcess @ 0x140935E28 (EtwTraceJobAssignProcess.c)
- *     EtwTraceJobSendNotification @ 0x140935F7C (EtwTraceJobSendNotification.c)
- *     EtwTraceJobSetQuery @ 0x1409360DC (EtwTraceJobSetQuery.c)
+ *     EtwTraceJobServerSiloMonitorCallback @ 0x1403C8490 (EtwTraceJobServerSiloMonitorCallback.c)
+ *     EtwTraceJob @ 0x140935F18 (EtwTraceJob.c)
+ *     EtwTraceJobAssignProcess @ 0x140935FF8 (EtwTraceJobAssignProcess.c)
+ *     EtwTraceJobSendNotification @ 0x14093614C (EtwTraceJobSendNotification.c)
+ *     EtwTraceJobSetQuery @ 0x1409362AC (EtwTraceJobSetQuery.c)
  * Callees:
  *     <none>
  */

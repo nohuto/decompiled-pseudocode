@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlCaptureContext @ 0x1800AA150
  * Callers:
- *     RtlUnwindEx @ 0x180035340 (RtlUnwindEx.c)
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x180096C90 (__report_gsfailure.c)
- *     __report_securityfailure @ 0x180096DFC (__report_securityfailure.c)
+ *     RtlUnwindEx @ 0x180035330 (RtlUnwindEx.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x180096C80 (__report_gsfailure.c)
+ *     __report_securityfailure @ 0x180096DEC (__report_securityfailure.c)
  *     LdrAppxHandleIntegrityFailure @ 0x1800CEEC0 (LdrAppxHandleIntegrityFailure.c)
- *     RtlAssert @ 0x1800E4CD0 (RtlAssert.c)
+ *     RtlAssert @ 0x1800E4D90 (RtlAssert.c)
  * Callees:
  *     <none>
  */

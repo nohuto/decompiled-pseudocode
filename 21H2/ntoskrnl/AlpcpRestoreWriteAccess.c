@@ -1,39 +1,39 @@
 /*
- * XREFs of AlpcpRestoreWriteAccess @ 0x14061F950
+ * XREFs of AlpcpRestoreWriteAccess @ 0x1406895C0
  * Callers:
- *     AlpcViewDestroyProcedure @ 0x14061DE30 (AlpcViewDestroyProcedure.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x140661B50 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140656970 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcViewDestroyProcedure @ 0x140687AA0 (AlpcViewDestroyProcedure.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MmUnsecureVirtualMemory @ 0x1406893D0 (MmUnsecureVirtualMemory.c)
  */
 
-void __fastcall AlpcpRestoreWriteAccess(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+void __fastcall AlpcpRestoreWriteAccess(__int64 a1)
 {
-  __int64 v5; // rdi
-  void *v6; // rcx
+  __int64 v2; // rdi
+  void *v3; // rcx
   _KPROCESS *Process; // rsi
-  _OWORD v8[3]; // [rsp+20h] [rbp-48h] BYREF
+  _OWORD v5[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(v8, 0, sizeof(v8));
-  v5 = *(_QWORD *)(a1 + 16);
-  v6 = *(void **)(a1 + 64);
+  memset(v5, 0, sizeof(v5));
+  v2 = *(_QWORD *)(a1 + 16);
+  v3 = *(void **)(a1 + 64);
   Process = KeGetCurrentThread()->ApcState.Process;
-  if ( v6 )
+  if ( v3 )
   {
     if ( *(_KPROCESS **)(a1 + 32) != Process )
     {
-      KiStackAttachProcess(*(_KPROCESS **)(a1 + 32), 0LL, (__int64)v8, a4);
-      v6 = *(void **)(a1 + 64);
+      KiStackAttachProcess(*(_KPROCESS **)(a1 + 32), 0, (__int64)v5);
+      v3 = *(void **)(a1 + 64);
     }
-    MmUnsecureVirtualMemory(v6);
+    MmUnsecureVirtualMemory(v3);
     if ( *(_KPROCESS **)(a1 + 32) != Process )
-      KiUnstackDetachProcess((__int64)v8, 0);
+      KiUnstackDetachProcess((__int64)v5, 0LL);
     *(_QWORD *)(a1 + 64) = 0LL;
   }
   *(_DWORD *)(a1 + 72) |= 1u;
-  *(_QWORD *)(v5 + 72) = 0LL;
-  *(_QWORD *)(v5 + 80) = a1;
+  *(_QWORD *)(v2 + 72) = 0LL;
+  *(_QWORD *)(v2 + 80) = a1;
 }

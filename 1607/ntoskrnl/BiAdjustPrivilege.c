@@ -1,14 +1,14 @@
 /*
- * XREFs of BiAdjustPrivilege @ 0x14053BDE0
+ * XREFs of BiAdjustPrivilege @ 0x14053C320
  * Callers:
- *     BiReleasePrivilege @ 0x14053BD20 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x14053BD6C (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14053C260 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14053C2AC (BiAcquirePrivilege.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenThreadTokenEx @ 0x14015A260 (ZwOpenThreadTokenEx.c)
- *     ZwOpenProcessTokenEx @ 0x14015A280 (ZwOpenProcessTokenEx.c)
- *     ZwAdjustPrivilegesToken @ 0x14015A4A0 (ZwAdjustPrivilegesToken.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenThreadTokenEx @ 0x14015A7D0 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x14015A7F0 (ZwOpenProcessTokenEx.c)
+ *     ZwAdjustPrivilegesToken @ 0x14015AA10 (ZwAdjustPrivilegesToken.c)
  */
 
 __int64 __fastcall BiAdjustPrivilege(unsigned int a1, char a2, bool *a3)

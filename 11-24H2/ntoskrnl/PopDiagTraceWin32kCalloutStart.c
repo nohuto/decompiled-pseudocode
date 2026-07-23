@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceWin32kCalloutStart @ 0x1409BD01C
+ * XREFs of PopDiagTraceWin32kCalloutStart @ 0x1409A366C
  * Callers:
- *     PopPowerAggregatorNotifyCsStateExited @ 0x140902C54 (PopPowerAggregatorNotifyCsStateExited.c)
- *     PopNotifyConsoleUserPresent @ 0x1409BB660 (PopNotifyConsoleUserPresent.c)
- *     PopInvokeWin32Callout @ 0x1409BE358 (PopInvokeWin32Callout.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409A1CB0 (PopNotifyConsoleUserPresent.c)
+ *     PopInvokeWin32Callout @ 0x1409A49A8 (PopInvokeWin32Callout.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x140A6E534 (PopPowerAggregatorNotifyCsStateExited.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTraceWin32kCalloutStart(int a1, __int64 a2, unsigned __int8 a3, char a4, int *a5)
@@ -75,7 +75,7 @@ void __fastcall PopDiagTraceWin32kCalloutStart(int a1, __int64 a2, unsigned __in
 LABEL_7:
   if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, v10) )
   {
-    UserData = ExAllocatePool2(0x100uLL);
+    UserData = ExAllocatePool2(0x100uLL, 16LL * v11, 0x50455654u);
     *(_QWORD *)UserData = &v32;
     *(_QWORD *)(UserData + 8) = 8LL;
     v24 = a3;

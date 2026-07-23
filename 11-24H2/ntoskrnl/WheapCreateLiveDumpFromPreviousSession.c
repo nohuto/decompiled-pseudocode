@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapCreateLiveDumpFromPreviousSession @ 0x140B61ED8
+ * XREFs of WheapCreateLiveDumpFromPreviousSession @ 0x140B63FA8
  * Callers:
- *     WheapProcessWorkQueueItem @ 0x140477F90 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWorkQueueItem @ 0x140474590 (WheapProcessWorkQueueItem.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     WheapReportLiveDump @ 0x1407C88F8 (WheapReportLiveDump.c)
- *     WheapSaveRecordForLiveDump @ 0x140B61F6C (WheapSaveRecordForLiveDump.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     WheapReportLiveDump @ 0x1407C8DE8 (WheapReportLiveDump.c)
+ *     WheapSaveRecordForLiveDump @ 0x140B6403C (WheapSaveRecordForLiveDump.c)
  */
 
 __int64 __fastcall WheapCreateLiveDumpFromPreviousSession(__int64 a1)

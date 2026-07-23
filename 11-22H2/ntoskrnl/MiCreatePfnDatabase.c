@@ -80,8 +80,8 @@ __int64 __fastcall MiCreatePfnDatabase(__int64 a1)
   MiInitializePartitions(0LL);
   MiInitializePartition((unsigned __int64)MiSystemPartition, 0);
   MiPopulateFreeKernelShadowStackCacheEntries(
-    (union _SLIST_HEADER *)MiSystemPartition,
-    (struct _SLIST_ENTRY *)(v15 + MmPfnDatabase),
+    (_SLIST_HEADER *)MiSystemPartition,
+    (_SLIST_ENTRY *)(v15 + MmPfnDatabase),
     v14);
   MiInitializeNumaGraph(a1);
   return 1LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAllocatePoolZero @ 0x140437FE0
+ * XREFs of ExAllocatePoolZero @ 0x14042ABA0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall ExAllocatePoolZero(int a1, SIZE_T a2, ULONG a3)

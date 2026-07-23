@@ -1,13 +1,13 @@
 /*
- * XREFs of BCryptEncrypt @ 0x140595AA8
+ * XREFs of BCryptEncrypt @ 0x140595CD8
  * Callers:
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14050A4D4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_Encrypt_DmpData @ 0x14050A740 (SecureDump_Encrypt_DmpData.c)
- *     SmCrAuthEncrypt @ 0x1405A00D4 (SmCrAuthEncrypt.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14050A714 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_Encrypt_DmpData @ 0x14050A980 (SecureDump_Encrypt_DmpData.c)
+ *     SmCrAuthEncrypt @ 0x1405A0304 (SmCrAuthEncrypt.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x14021C858 (ExGetExtensionTable.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptEncrypt(
@@ -40,7 +40,7 @@ NTSTATUS __stdcall BCryptEncrypt(
             cbOutput,
             pcbResult,
             dwFlags);
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(SepBCryptExtensionHost + 64));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(SepBCryptExtensionHost + 64));
   }
   return v14;
 }

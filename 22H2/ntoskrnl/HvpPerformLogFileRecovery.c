@@ -115,7 +115,7 @@ LABEL_10:
         }
         if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x20000) != 0 )
         {
-          v15 = HvpViewMapExtendStorage((__int64 *)(BugCheckParameter2 + 216), v12);
+          v15 = HvpViewMapExtendStorage(BugCheckParameter2 + 216, v12);
           if ( v15 < 0 )
             SetFailureLocation((__int64)a4, 0, 27, v15, 16);
         }

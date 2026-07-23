@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlHalStartVirtualProcessor @ 0x1405873D0
+ * XREFs of HvlHalStartVirtualProcessor @ 0x140584750
  * Callers:
  *     <none>
  * Callees:
- *     HvlpStartVirtualProcessor @ 0x14058579C (HvlpStartVirtualProcessor.c)
- *     VslStartSecureProcessor @ 0x1407103F8 (VslStartSecureProcessor.c)
+ *     HvlpStartVirtualProcessor @ 0x140582B1C (HvlpStartVirtualProcessor.c)
+ *     VslStartSecureProcessor @ 0x14070DF88 (VslStartSecureProcessor.c)
  */
 
 __int64 __fastcall HvlHalStartVirtualProcessor(int a1, _OWORD *a2)

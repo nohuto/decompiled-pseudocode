@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSoftParkElectionDpcRoutine @ 0x14057E250
+ * XREFs of KiSoftParkElectionDpcRoutine @ 0x14057E740
  * Callers:
  *     <none>
  * Callees:
- *     KiShouldSoftParkElectionBePerformed @ 0x140234D20 (KiShouldSoftParkElectionBePerformed.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRequestSoftwareInterrupt @ 0x140318968 (KiRequestSoftwareInterrupt.c)
- *     KiAcquireSoftParkElectionLock @ 0x140410348 (KiAcquireSoftParkElectionLock.c)
- *     KiPerformMultiRoundSoftParkElection @ 0x140410F98 (KiPerformMultiRoundSoftParkElection.c)
- *     KiReleaseParkSummaryLockExclusive @ 0x1404110B0 (KiReleaseParkSummaryLockExclusive.c)
- *     KiSoftParkElectionUnparkProcessor @ 0x1404110CC (KiSoftParkElectionUnparkProcessor.c)
- *     KiAdvanceSoftParkElectionGeneration @ 0x14057DAB8 (KiAdvanceSoftParkElectionGeneration.c)
+ *     KiShouldSoftParkElectionBePerformed @ 0x140234DF0 (KiShouldSoftParkElectionBePerformed.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRequestSoftwareInterrupt @ 0x140318BF8 (KiRequestSoftwareInterrupt.c)
+ *     KiAcquireSoftParkElectionLock @ 0x140410424 (KiAcquireSoftParkElectionLock.c)
+ *     KiPerformMultiRoundSoftParkElection @ 0x1404111A4 (KiPerformMultiRoundSoftParkElection.c)
+ *     KiReleaseParkSummaryLockExclusive @ 0x1404112BC (KiReleaseParkSummaryLockExclusive.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x1404112D8 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiAdvanceSoftParkElectionGeneration @ 0x14057DFA8 (KiAdvanceSoftParkElectionGeneration.c)
  */
 
 void __fastcall KiSoftParkElectionDpcRoutine(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiPatchCfgCallTargetsSort @ 0x1407F5310
+ * XREFs of MiPatchCfgCallTargetsSort @ 0x1407F5A00
  * Callers:
  *     <none>
  * Callees:

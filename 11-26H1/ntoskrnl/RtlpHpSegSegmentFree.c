@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegSegmentFree @ 0x14034F76C
+ * XREFs of RtlpHpSegSegmentFree @ 0x1403517EC
  * Callers:
- *     RtlpHpSegContextCompact @ 0x14034742C (RtlpHpSegContextCompact.c)
- *     RtlpHpSegSegmentAllocate @ 0x14034FDFC (RtlpHpSegSegmentAllocate.c)
- *     RtlpHpSegContextCleanup @ 0x140639124 (RtlpHpSegContextCleanup.c)
+ *     RtlpHpSegContextCompact @ 0x1403494AC (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegSegmentAllocate @ 0x140351E7C (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegContextCleanup @ 0x14063C134 (RtlpHpSegContextCleanup.c)
  * Callees:
- *     RtlCSparseBitmapBitsClear @ 0x14034E15C (RtlCSparseBitmapBitsClear.c)
- *     RtlpHpSegMgrRelease @ 0x14034E480 (RtlpHpSegMgrRelease.c)
+ *     RtlCSparseBitmapBitsClear @ 0x1403501DC (RtlCSparseBitmapBitsClear.c)
+ *     RtlpHpSegMgrRelease @ 0x140350500 (RtlpHpSegMgrRelease.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentFree(__int64 a1, __int64 a2, unsigned int a3, int a4)
@@ -16,8 +16,8 @@ __int64 __fastcall RtlpHpSegSegmentFree(__int64 a1, __int64 a2, unsigned int a3,
 
   if ( a4 )
     RtlCSparseBitmapBitsClear(
-      (__int64)&ExpUuidLock.ThreadLock,
-      2 * ((a2 - (unsigned __int64)ExpUuidLock.StackBase) >> 20),
+      (__int64)&ExpUuidLock.CycleTime,
+      2 * ((a2 - ExpUuidLock.ThreadLock) >> 20),
       2 * ((unsigned __int64)(unsigned int)-*(_DWORD *)a1 >> 20));
   if ( a3 == 0x7FFFFFFF )
   {

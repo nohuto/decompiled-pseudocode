@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpMapResourceFile @ 0x140176BFC
+ * XREFs of LdrpMapResourceFile @ 0x140176CFC
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1400F406C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F40EC (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
- *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MmMapViewInSystemSpace @ 0x1405A33A0 (MmMapViewInSystemSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x1405E0390 (MmUnmapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a3, _QWORD *a4, ULONG_PTR *a5)

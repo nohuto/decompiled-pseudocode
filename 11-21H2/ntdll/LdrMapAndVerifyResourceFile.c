@@ -13,54 +13,54 @@
 
 __int64 __fastcall LdrMapAndVerifyResourceFile(
         __int64 a1,
-        __int128 *a2,
+        const WCHAR **a2,
         char a3,
         int a4,
         __int64 a5,
         int a6,
         HANDLE *a7,
         _QWORD *a8,
-        __int64 *a9)
+        unsigned __int64 *a9)
 {
   __int64 v13; // rcx
   int v14; // ebx
-  __int64 v15; // rdi
+  unsigned __int64 v15; // rdi
   __int64 v17; // rcx
-  __int64 v18; // [rsp+30h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+30h] [rbp-48h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-38h] BYREF
+  ULONG_PTR v20[2]; // [rsp+40h] [rbp-38h] BYREF
 
   Handle = 0LL;
   *a7 = 0LL;
   *a8 = 0LL;
   *a9 = 0LL;
-  v18 = 0LL;
-  v20 = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  BaseAddress = 0LL;
+  v20[0] = 0LL;
+  if ( RtlGetCurrentServiceSessionId() )
     v13 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v13 = 2147353477LL;
   if ( (*(_BYTE *)v13 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v17 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v17 = 2147353476LL;
     LdrpTraceLoadMUIDll(a2, *(unsigned __int8 *)v17);
   }
-  v14 = LdrpMapResourceFile(a1, a2, a3, &Handle, &v18, &v20);
+  v14 = LdrpMapResourceFile(a1, a2, a3, &Handle, &BaseAddress, v20);
   if ( v14 >= 0 )
   {
-    v15 = v18 | 1;
-    if ( (unsigned __int8)LdrpVerifyAlternateResourceModuleEx(a1, v18 | 1, a2, a5, a4, a6) )
+    v15 = (unsigned __int64)BaseAddress | 1;
+    if ( (unsigned __int8)LdrpVerifyAlternateResourceModuleEx(a1, (unsigned __int64)BaseAddress | 1, a2, a5, a4, a6) )
     {
       *a7 = Handle;
-      *a8 = v20;
+      *a8 = v20[0];
       *a9 = v15;
     }
     else
     {
-      NtUnmapViewOfSection(-1LL);
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
       NtClose(Handle);
       return (unsigned int)-1073020926;
     }

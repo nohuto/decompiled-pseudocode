@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDbgPteWriteInProgress @ 0x1406FEB70
+ * XREFs of MiDbgPteWriteInProgress @ 0x140703840
  * Callers:
- *     MiDbgCopyMemoryInternal @ 0x1406FD8F0 (MiDbgCopyMemoryInternal.c)
+ *     MiDbgCopyMemoryInternal @ 0x1407025C0 (MiDbgCopyMemoryInternal.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
  */
 
 __int64 __fastcall MiDbgPteWriteInProgress(__int64 a1)
@@ -28,8 +28,8 @@ __int64 __fastcall MiDbgPteWriteInProgress(__int64 a1)
   else
     Process = 0LL;
   v7 = 0;
-  v6[1] = *(unsigned __int16 **)((char *)&stru_140FC01F0.116 + 4);
-  v6[0] = (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags;
+  v6[1] = *(unsigned __int16 **)((char *)&stru_140FC11F0.116 + 4);
+  v6[0] = (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v10, v6) )
   {
     v4 = *(_KPROCESS ***)(KeGetPrcb(v10) + 40008);

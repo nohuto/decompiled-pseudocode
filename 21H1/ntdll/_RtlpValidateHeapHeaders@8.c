@@ -15,39 +15,44 @@
  *     _RtlCompareMemory@12 @ 0x4B307F30 (_RtlCompareMemory@12.c)
  */
 
-char __fastcall RtlpValidateHeapHeaders(void **Src, char a2)
+char __fastcall RtlpValidateHeapHeaders(char *Src, char a2)
 {
   void **v3; // ebx
   void *v4; // eax
-  SIZE_T v5; // edi
-  size_t v6; // eax
+  unsigned int v5; // edi
+  unsigned int v6; // eax
   int v7; // esi
   int v8; // eax
-  size_t v10; // [esp+Ch] [ebp-4h] BYREF
+  ULONG_PTR v10; // [esp-10h] [ebp-20h]
+  size_t v11; // [esp-4h] [ebp-14h]
+  unsigned int v12; // [esp+Ch] [ebp-4h] BYREF
 
   if ( !RtlpValidateHeapHdrsEnable )
     return 1;
-  v3 = Src + 32;
-  v4 = Src[32];
+  v3 = (void **)(Src + 128);
+  v4 = (void *)*((_DWORD *)Src + 32);
   if ( v4 )
     goto LABEL_5;
-  v10 = *((unsigned __int16 *)Src + 63);
-  if ( NtAllocateVirtualMemory(-1, (int)(Src + 32), 0, (int)&v10, 4096, 4) < 0 )
+  v12 = *((unsigned __int16 *)Src + 63);
+  HIDWORD(v10) = &v12;
+  LODWORD(v10) = 0;
+  if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)Src + 32, v10, (PSIZE_T)0x1000, 4u, HIDWORD(v11)) < 0 )
     return 1;
   v4 = *v3;
   a2 = 1;
 LABEL_5:
-  v10 = *((unsigned __int16 *)Src + 63);
+  v12 = *((unsigned __int16 *)Src + 63);
+  LODWORD(v11) = v12;
   if ( a2 )
   {
-    memcpy(v4, Src, v10);
-    v6 = v10;
-    v5 = v10;
+    memcpy(v4, Src, v11);
+    v6 = v12;
+    v5 = v12;
   }
   else
   {
-    v5 = RtlCompareMemory(Src, v4, v10);
-    v6 = v10;
+    v5 = RtlCompareMemory(Src, v4, v11);
+    v6 = v12;
   }
   if ( v6 == v5 )
     return 1;
@@ -58,8 +63,8 @@ LABEL_5:
   DbgPrint(
     "Heap %p - headers modified (%p is %lx instead of %lx)\n",
     Src,
-    (char *)Src + v5,
-    *(void **)((char *)Src + v5),
+    &Src[v5],
+    *(_DWORD *)&Src[v5],
     *(_DWORD *)((char *)*v3 + v5));
   v7 = 0;
   if ( "Entry" )

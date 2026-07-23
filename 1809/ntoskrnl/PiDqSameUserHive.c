@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqSameUserHive @ 0x14082B22C
+ * XREFs of PiDqSameUserHive @ 0x14082C42C
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x1406F7878 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1406F8B18 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
+ *     RtlEqualSid @ 0x1400A7D30 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SeQueryUserSidToken @ 0x1406112AC (SeQueryUserSidToken.c)
  */
 
 __int64 __fastcall PiDqSameUserHive(__int64 *a1, __int64 *a2, BOOLEAN *a3)

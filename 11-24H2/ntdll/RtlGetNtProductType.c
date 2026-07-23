@@ -1,36 +1,36 @@
 /*
- * XREFs of RtlGetNtProductType @ 0x1800AA990
+ * XREFs of RtlGetNtProductType @ 0x18000BB20
  * Callers:
- *     SwitchedRtlGetVersion @ 0x1800A9C70 (SwitchedRtlGetVersion.c)
- *     RtlGetVersion @ 0x1800AA620 (RtlGetVersion.c)
- *     RtlpHpInitializePerfPolicies @ 0x18010FF68 (RtlpHpInitializePerfPolicies.c)
- *     RtlpQueryPhysicalMemoryPolicy @ 0x18011AF78 (RtlpQueryPhysicalMemoryPolicy.c)
- *     RtlRestoreBootStatusDefaults @ 0x18013E5F0 (RtlRestoreBootStatusDefaults.c)
+ *     SwitchedRtlGetVersion @ 0x18000AE00 (SwitchedRtlGetVersion.c)
+ *     RtlGetVersion @ 0x18000B7B0 (RtlGetVersion.c)
+ *     RtlpHpInitializePerfPolicies @ 0x18010AF48 (RtlpHpInitializePerfPolicies.c)
+ *     RtlpQueryPhysicalMemoryPolicy @ 0x1801191A8 (RtlpQueryPhysicalMemoryPolicy.c)
+ *     RtlRestoreBootStatusDefaults @ 0x18013C7E0 (RtlRestoreBootStatusDefaults.c)
  * Callees:
- *     RtlpGetNtProductTypeFromRegistry @ 0x18008B86C (RtlpGetNtProductTypeFromRegistry.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x1800A732C (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-bool __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
   _DWORD *SharedData; // rax
-  bool result; // al
+  BOOLEAN result; // al
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
   {
-    *a1 = *((_DWORD *)NtCurrentPeb()->SharedData + 4);
+    *NtProductType = *((PNT_PRODUCT_TYPE)NtCurrentPeb()->SharedData + 4);
     return 1;
   }
   else if ( MEMORY[0x7FFE0268] )
   {
-    *a1 = MEMORY[0x7FFE0264];
+    *NtProductType = MEMORY[0x7FFE0264];
     return 1;
   }
   else
   {
-    result = (int)RtlpGetNtProductTypeFromRegistry(a1) >= 0;
+    result = (int)RtlpGetNtProductTypeFromRegistry() >= 0;
     if ( !result )
-      *a1 = 1;
+      *NtProductType = NtProductWinNt;
   }
   return result;
 }

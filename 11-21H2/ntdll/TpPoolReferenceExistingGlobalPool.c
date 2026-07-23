@@ -9,10 +9,10 @@
  *     RtlReleaseSRWLockShared @ 0x18003AB90 (RtlReleaseSRWLockShared.c)
  */
 
-__int64 TpPoolReferenceExistingGlobalPool()
+PVOID TpPoolReferenceExistingGlobalPool()
 {
-  __int64 v0; // rbx
-  __int64 v2; // [rsp+30h] [rbp+8h]
+  PVOID v0; // rbx
+  PVOID v2; // [rsp+30h] [rbp+8h]
 
   v0 = 0LL;
   if ( TppPoolpGlobalPool )

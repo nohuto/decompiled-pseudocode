@@ -1,9 +1,9 @@
 /*
- * XREFs of IopQueryEnvironmentVariableInfoHal @ 0x14079B000
+ * XREFs of IopQueryEnvironmentVariableInfoHal @ 0x14079DB40
  * Callers:
  *     <none>
  * Callees:
- *     HalQueryEnvironmentVariableInfoEx @ 0x140471990 (HalQueryEnvironmentVariableInfoEx.c)
+ *     HalQueryEnvironmentVariableInfoEx @ 0x14046B110 (HalQueryEnvironmentVariableInfoEx.c)
  */
 
 __int64 __fastcall IopQueryEnvironmentVariableInfoHal(

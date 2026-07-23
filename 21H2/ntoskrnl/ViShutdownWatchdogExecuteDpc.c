@@ -1,12 +1,12 @@
 /*
- * XREFs of ViShutdownWatchdogExecuteDpc @ 0x1409DA420
+ * XREFs of ViShutdownWatchdogExecuteDpc @ 0x1409DB420
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     VfErrorStoreTriageInformation @ 0x1409D81BC (VfErrorStoreTriageInformation.c)
- *     ViShutdownScheduleWatchdog @ 0x1409DA3A4 (ViShutdownScheduleWatchdog.c)
+ *     VfUtilDbgPrint @ 0x1405A0924 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x1409D91BC (VfErrorStoreTriageInformation.c)
+ *     ViShutdownScheduleWatchdog @ 0x1409DB3A4 (ViShutdownScheduleWatchdog.c)
  */
 
 void __fastcall ViShutdownWatchdogExecuteDpc(

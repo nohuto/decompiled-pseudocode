@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEnableExecutionRequiredPowerRequests @ 0x1407633E8
+ * XREFs of PopEnableExecutionRequiredPowerRequests @ 0x1407645D8
  * Callers:
- *     PopHandleExecutionRequiredEnablementUpdate @ 0x1406DB684 (PopHandleExecutionRequiredEnablementUpdate.c)
+ *     PopHandleExecutionRequiredEnablementUpdate @ 0x1406DC924 (PopHandleExecutionRequiredEnablementUpdate.c)
  * Callees:
- *     PopPowerRequestIsExecutionRequiredStatusHeld @ 0x140589974 (PopPowerRequestIsExecutionRequiredStatusHeld.c)
- *     PopUpdatePowerRequestProcessWakeCounter @ 0x14058999C (PopUpdatePowerRequestProcessWakeCounter.c)
- *     PopPowerRequestIsExecutionRequiredCapable @ 0x140589D2C (PopPowerRequestIsExecutionRequiredCapable.c)
+ *     PopPowerRequestIsExecutionRequiredStatusHeld @ 0x14058A974 (PopPowerRequestIsExecutionRequiredStatusHeld.c)
+ *     PopUpdatePowerRequestProcessWakeCounter @ 0x14058A99C (PopUpdatePowerRequestProcessWakeCounter.c)
+ *     PopPowerRequestIsExecutionRequiredCapable @ 0x14058AD2C (PopPowerRequestIsExecutionRequiredCapable.c)
  */
 
 void __fastcall PopEnableExecutionRequiredPowerRequests(char a1)

@@ -1,15 +1,15 @@
 /*
  * XREFs of MmCreateSection @ 0x14066BF30
  * Callers:
- *     AlpcpCreateSection @ 0x14066BC7C (AlpcpCreateSection.c)
- *     EtwpCoverageEnsureContext @ 0x14085A124 (EtwpCoverageEnsureContext.c)
- *     NtCreateIoRing @ 0x140938B40 (NtCreateIoRing.c)
- *     PspApiSetCopyToSystemSpace @ 0x1409AB9D8 (PspApiSetCopyToSystemSpace.c)
- *     PspSiloInitializeUserSharedData @ 0x1409AC998 (PspSiloInitializeUserSharedData.c)
- *     MiInitializeApiSets @ 0x140B087BC (MiInitializeApiSets.c)
- *     MiInitializeCfg @ 0x140B08F6C (MiInitializeCfg.c)
+ *     sub_14066BC7C @ 0x14066BC7C (sub_14066BC7C.c)
+ *     sub_14085A124 @ 0x14085A124 (sub_14085A124.c)
+ *     ntoskrnl_30 @ 0x140938B40 (ntoskrnl_30.c)
+ *     sub_1409AB9D8 @ 0x1409AB9D8 (sub_1409AB9D8.c)
+ *     sub_1409AC998 @ 0x1409AC998 (sub_1409AC998.c)
+ *     sub_140B087BC @ 0x140B087BC (sub_140B087BC.c)
+ *     sub_140B08F6C @ 0x140B08F6C (sub_140B08F6C.c)
  * Callees:
- *     MmCreateSectionEx @ 0x14066BFB8 (MmCreateSectionEx.c)
+ *     sub_14066BFB8 @ 0x14066BFB8 (sub_14066BFB8.c)
  */
 
 __int64 __fastcall MmCreateSection(int a1, __int64 a2, int a3, _QWORD *a4, int a5, int a6, __int64 a7, __int64 a8)
@@ -32,5 +32,5 @@ __int64 __fastcall MmCreateSection(int a1, __int64 a2, int a3, _QWORD *a4, int a
     v9 = 1;
     *((_QWORD *)&v13 + 1) = (a6 & 0x7Fu) - 1;
   }
-  return MmCreateSectionEx(a1, a3, *a4, a5, v8, a7, a8, 0, v12, Address, v9);
+  return sub_14066BFB8(a1, a3, *a4, a5, v8, a7, a8, 0, v12, Address, v9);
 }

@@ -6,9 +6,19 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCreateProfileEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateProfileEx(
+        PHANDLE ProfileHandle,
+        HANDLE Process,
+        PVOID ProfileBase,
+        SIZE_T ProfileSize,
+        ULONG BucketSize,
+        PULONG Buffer,
+        ULONG BufferSize,
+        KPROFILE_SOURCE ProfileSource,
+        USHORT GroupCount,
+        PGROUP_AFFINITY GroupAffinity)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ProfileHandle, Process);
 }

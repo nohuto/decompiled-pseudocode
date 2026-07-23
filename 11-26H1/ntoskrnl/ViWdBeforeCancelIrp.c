@@ -1,10 +1,10 @@
 /*
- * XREFs of ViWdBeforeCancelIrp @ 0x140C3A130
+ * XREFs of ViWdBeforeCancelIrp @ 0x140C40140
  * Callers:
- *     IovCancelIrp @ 0x140C20DF0 (IovCancelIrp.c)
+ *     IovCancelIrp @ 0x140C26E00 (IovCancelIrp.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
  */
 
 void __fastcall ViWdBeforeCancelIrp(__int64 *a1)
@@ -38,7 +38,7 @@ LABEL_14:
     }
     *((_DWORD *)a1 + 6) = v3;
     *((_WORD *)a1 + 15) = v1;
-    for ( i = qword_140FF0088; (__int64 *)i != &VfWdIrpListHead && *(_DWORD *)(i + 24) > v3; i = *(_QWORD *)(i + 8) )
+    for ( i = qword_140FF1088; (__int64 *)i != &VfWdIrpListHead && *(_DWORD *)(i + 24) > v3; i = *(_QWORD *)(i + 8) )
       ;
     a1[1] = i;
     *a1 = *(_QWORD *)i;

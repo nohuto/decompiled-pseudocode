@@ -1,8 +1,8 @@
 /*
- * XREFs of IoIsDeviceEjectable @ 0x140491560
+ * XREFs of IoIsDeviceEjectable @ 0x14048C058
  * Callers:
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
- *     MiConstructLoaderEntry @ 0x140A92FE4 (MiConstructLoaderEntry.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
+ *     MiConstructLoaderEntry @ 0x140A8F794 (MiConstructLoaderEntry.c)
  * Callees:
  *     <none>
  */

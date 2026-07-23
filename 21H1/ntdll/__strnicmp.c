@@ -8,7 +8,14 @@
  *     <none>
  */
 
-int __cdecl _strnicmp(const char *String1, const char *String2, size_t MaxCount)
-{
-  return __ascii_strnicmp(String1, String2, MaxCount);
-}
+/*
+ * Hex-Rays decompilation failed for __strnicmp @ 0x4B2F74A0
+ * Reason: Hex-Rays returned no pseudocode for 0x4B2F74A0
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 000000004B2F74A0: mov     edi, edi
+ * 000000004B2F74A2: push    ebp
+ * 000000004B2F74A3: mov     ebp, esp
+ * 000000004B2F74A5: pop     ebp
+ * 000000004B2F74A6: jmp     ___ascii_strnicmp
+ */

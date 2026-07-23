@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpRpControlRequestCopy @ 0x1407B50B0
+ * XREFs of PfpRpControlRequestCopy @ 0x1407B5390
  * Callers:
- *     PfpRpControlRequest @ 0x1407B4F68 (PfpRpControlRequest.c)
+ *     PfpRpControlRequest @ 0x1407B5248 (PfpRpControlRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

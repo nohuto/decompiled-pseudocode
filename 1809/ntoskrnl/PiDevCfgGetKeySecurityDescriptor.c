@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgGetKeySecurityDescriptor @ 0x140705B18
+ * XREFs of PiDevCfgGetKeySecurityDescriptor @ 0x140706DB8
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x1406F2CD4 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1406F3F74 (PiDevCfgCopyDeviceKey.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     ZwQuerySecurityObject @ 0x1401BAC10 (ZwQuerySecurityObject.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGetControlSecurityDescriptor @ 0x1405B95F0 (RtlGetControlSecurityDescriptor.c)
- *     RtlGetGroupSecurityDescriptor @ 0x1406CC070 (RtlGetGroupSecurityDescriptor.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     ZwQuerySecurityObject @ 0x1401BAD70 (ZwQuerySecurityObject.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGetControlSecurityDescriptor @ 0x1405BA5F0 (RtlGetControlSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x1406CD310 (RtlGetGroupSecurityDescriptor.c)
  */
 
 __int64 __fastcall PiDevCfgGetKeySecurityDescriptor(HANDLE Handle, _QWORD *a2)

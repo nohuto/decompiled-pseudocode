@@ -1,7 +1,7 @@
 /*
- * XREFs of VmpCheckPinTooLate @ 0x14081D828
+ * XREFs of VmpCheckPinTooLate @ 0x140823A38
  * Callers:
- *     VmpPinMemoryRanges @ 0x1406C1F74 (VmpPinMemoryRanges.c)
+ *     VmpPinMemoryRanges @ 0x1406C5B54 (VmpPinMemoryRanges.c)
  * Callees:
  *     <none>
  */

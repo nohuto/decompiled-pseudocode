@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledDeviceUsage @ 0x14040F824
+ * XREFs of Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledDeviceUsage @ 0x14040FA04
  * Callers:
- *     HalpQueryProfileSource @ 0x140507B1C (HalpQueryProfileSource.c)
+ *     HalpQueryProfileSource @ 0x14050806C (HalpQueryProfileSource.c)
  * Callees:
- *     Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledFallback @ 0x14040F85C (Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledFallback.c)
+ *     Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledFallback @ 0x14040FA3C (Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_DefaultProfileIntervalQueryErrorETLVMPlatforms__private_IsEnabledDeviceUsage()

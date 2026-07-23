@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCancelIrpsInCurrentThreadListApcRoutine @ 0x1404CC87C
+ * XREFs of IopCancelIrpsInCurrentThreadListApcRoutine @ 0x1404B22A8
  * Callers:
  *     <none>
  * Callees:
- *     IopCancelIrpsInCurrentThreadList @ 0x1400A1F6C (IopCancelIrpsInCurrentThreadList.c)
+ *     IopCancelIrpsInCurrentThreadList @ 0x1400A0894 (IopCancelIrpsInCurrentThreadList.c)
  */
 
 LONG __fastcall IopCancelIrpsInCurrentThreadListApcRoutine(__int64 a1)

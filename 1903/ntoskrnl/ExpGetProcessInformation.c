@@ -108,8 +108,8 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   unsigned __int64 *k; // rbx
   char *v72; // r13
   PACCESS_TOKEN v73; // rdi
-  unsigned __int64 v74; // r14
-  unsigned __int64 v75; // rsi
+  ULONG_PTR v74; // r14
+  ULONG_PTR v75; // rsi
   size_t v76; // rcx
   unsigned int v77; // edi
   unsigned int v78; // eax
@@ -124,7 +124,7 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   int v87; // [rsp+40h] [rbp-628h]
   unsigned int v88; // [rsp+44h] [rbp-624h]
   PVOID Object; // [rsp+48h] [rbp-620h]
-  int PackageIdentity; // [rsp+50h] [rbp-618h]
+  NTSTATUS v90; // [rsp+50h] [rbp-618h]
   unsigned int v91; // [rsp+54h] [rbp-614h]
   char v92; // [rsp+58h] [rbp-610h]
   int v93; // [rsp+5Ch] [rbp-60Ch]
@@ -141,9 +141,9 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   unsigned int *v104; // [rsp+A8h] [rbp-5C0h]
   size_t Size; // [rsp+B0h] [rbp-5B8h] BYREF
   void *v106; // [rsp+B8h] [rbp-5B0h]
-  __int64 v107; // [rsp+C0h] [rbp-5A8h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+C0h] [rbp-5A8h] BYREF
   PVOID P; // [rsp+C8h] [rbp-5A0h] BYREF
-  __int64 v109; // [rsp+D0h] [rbp-598h] BYREF
+  ULONG_PTR PackageSize; // [rsp+D0h] [rbp-598h] BYREF
   int v110; // [rsp+D8h] [rbp-590h]
   __int64 v111; // [rsp+E0h] [rbp-588h] BYREF
   int v112; // [rsp+E8h] [rbp-580h]
@@ -168,15 +168,15 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   _QWORD v131[12]; // [rsp+230h] [rbp-438h] BYREF
   _BYTE Src[80]; // [rsp+290h] [rbp-3D8h] BYREF
   _OWORD v133[27]; // [rsp+2E0h] [rbp-388h] BYREF
-  _BYTE v134[144]; // [rsp+490h] [rbp-1D8h] BYREF
-  _BYTE v135[256]; // [rsp+520h] [rbp-148h] BYREF
+  WCHAR AppId[72]; // [rsp+490h] [rbp-1D8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+520h] [rbp-148h] BYREF
 
   v110 = a5;
   v116 = a1;
   v104 = a3;
-  v107 = 130LL;
+  AppIdSize = 130LL;
   memset(v133, 0, sizeof(v133));
-  v109 = 254LL;
+  PackageSize = 254LL;
   v6 = 0LL;
   Process = 0LL;
   memset(v131, 0, 0x58uLL);
@@ -208,7 +208,7 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigne
   {
     if ( (unsigned int)ExIsRestrictedCaller(v10) )
       v92 = 1;
-    PackageIdentity = 0;
+    v90 = 0;
     P = 0LL;
     KeFlushProcessWriteBuffers(1);
     CurrentServerSilo = PsGetCurrentServerSilo();
@@ -227,9 +227,9 @@ LABEL_101:
           {
             *v102 = 0;
             v25 = (struct _KPROCESS *)Object;
-            if ( PackageIdentity < 0 )
+            if ( v90 < 0 )
             {
-              v87 = PackageIdentity;
+              v87 = v90;
               v6 = (unsigned __int64 *)v95;
               goto LABEL_271;
             }
@@ -340,7 +340,7 @@ LABEL_100:
       v91 += 624;
       v28 = 0;
     }
-    PackageIdentity = v28;
+    v90 = v28;
     if ( v28 < 0 )
     {
       v87 = v28;
@@ -351,7 +351,7 @@ LABEL_100:
     {
       v55 = ExpCopyProcessInfo(v52, v11, v98, v131);
       v28 = v55;
-      PackageIdentity = v55;
+      v90 = v55;
       if ( v55 < 0 )
       {
         v87 = v55;
@@ -436,7 +436,7 @@ LABEL_121:
       }
       v11 = (char *)Process;
       Object = Process;
-      v28 = PackageIdentity;
+      v28 = v90;
       v29 = v91;
       v88 = v91;
       v52 = v102;
@@ -565,8 +565,8 @@ LABEL_121:
             {
               *((_DWORD *)v18 + 12) |= 0x20u;
             }
-            v28 = PackageIdentity;
-            if ( PackageIdentity >= 0 )
+            v28 = v90;
+            if ( v90 >= 0 )
             {
               v6 = (unsigned __int64 *)v95;
               v29 = v91;
@@ -575,7 +575,7 @@ LABEL_121:
               v13 = (char *)v100;
               goto LABEL_45;
             }
-            v87 = PackageIdentity;
+            v87 = v90;
             v6 = (unsigned __int64 *)v95;
 LABEL_271:
             if ( v25 && v25 != PsIdleProcess )
@@ -641,7 +641,7 @@ LABEL_46:
                   }
                   v11 = (char *)Object;
                 }
-                PackageIdentity = v31;
+                v90 = v31;
                 if ( v31 < 0 )
                   v35 = (const wchar_t *)*((_QWORD *)v11 + 141);
                 else
@@ -686,7 +686,7 @@ LABEL_46:
                 v28 = 0;
               }
               v91 = v42;
-              PackageIdentity = v28;
+              v90 = v28;
               if ( v28 < 0 )
               {
                 v87 = v28;
@@ -743,26 +743,20 @@ LABEL_77:
           v73 = PsReferencePrimaryToken(v25);
           Handle[7] = v73;
           SeQueryUserSidToken(v73, Src, 68LL, &Size);
-          v109 = 254LL;
-          v107 = 130LL;
+          PackageSize = 254LL;
+          AppIdSize = 130LL;
           v74 = 0LL;
-          PackageIdentity = RtlQueryPackageIdentity(
-                              (__int64)v73,
-                              (__int64)v135,
-                              (__int64)&v109,
-                              (__int64)v134,
-                              (__int64)&v107,
-                              0LL);
-          if ( PackageIdentity >= 0 )
+          v90 = RtlQueryPackageIdentity(v73, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL);
+          if ( v90 >= 0 )
           {
-            v74 = v107;
-            v75 = v109;
+            v74 = AppIdSize;
+            v75 = PackageSize;
           }
           else
           {
             v75 = 0LL;
-            v109 = 0LL;
-            v107 = 0LL;
+            PackageSize = 0LL;
+            AppIdSize = 0LL;
           }
           ObFastDereferenceObject((signed __int64 *)Object + 108, (unsigned __int64)v73);
           v76 = (unsigned int)Size;
@@ -781,7 +775,7 @@ LABEL_77:
           v91 = v78;
           v88 = v78;
           v79 = v78;
-          PackageIdentity = v28;
+          v90 = v28;
           if ( v28 < 0 )
           {
             v87 = v28;
@@ -828,7 +822,7 @@ LABEL_77:
                 v91 = v75 + v79;
                 v28 = 0;
               }
-              PackageIdentity = v28;
+              v90 = v28;
               if ( v28 < 0 )
               {
                 v87 = v28;
@@ -847,7 +841,7 @@ LABEL_77:
               else
               {
                 *((_DWORD *)v12 + 14) = (_DWORD)v13 - (_DWORD)v12;
-                memmove(v13, v135, (unsigned int)v75);
+                memmove(v13, PackageFullName, (unsigned int)v75);
                 v80 = v88;
                 v13 += (unsigned int)v75;
                 v100 = v13;
@@ -883,7 +877,7 @@ LABEL_77:
                 v91 = v74 + v80;
                 v28 = 0;
               }
-              PackageIdentity = v28;
+              v90 = v28;
               if ( v28 >= 0 )
               {
                 v93 += v74;
@@ -896,7 +890,7 @@ LABEL_77:
                 else
                 {
                   *((_DWORD *)v12 + 84) = (_DWORD)v13 - (_DWORD)v12;
-                  memmove(v13, v134, (unsigned int)v74);
+                  memmove(v13, AppId, (unsigned int)v74);
                   v13 += (unsigned int)v74;
                   v100 = v13;
                 }
@@ -926,7 +920,7 @@ LABEL_207:
           v91 = v63;
           v88 = v63;
           v64 = v63;
-          PackageIdentity = v28;
+          v90 = v28;
           if ( v28 < 0 )
           {
             v87 = v28;
@@ -972,7 +966,7 @@ LABEL_207:
                   v54 = 0LL;
                 v11 = (char *)Process;
                 Object = Process;
-                v28 = PackageIdentity;
+                v28 = v90;
                 v6 = (unsigned __int64 *)v95;
                 v88 = v91;
                 v52 = v102;
@@ -999,7 +993,7 @@ LABEL_207:
                   *((_QWORD *)v100 + 11) = v6[6];
                   v11 = (char *)Process;
                   Object = Process;
-                  v28 = PackageIdentity;
+                  v28 = v90;
                   v6 = (unsigned __int64 *)v95;
                   v88 = v91;
                   v52 = v102;
@@ -1063,7 +1057,7 @@ LABEL_207:
         v119 = v6;
         v11 = (char *)Process;
         Object = Process;
-        v28 = PackageIdentity;
+        v28 = v90;
         v88 = v91;
         v52 = v102;
         v101 = v102;

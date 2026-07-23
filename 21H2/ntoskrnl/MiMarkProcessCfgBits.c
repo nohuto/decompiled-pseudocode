@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkProcessCfgBits @ 0x14061BF08
+ * XREFs of MiMarkProcessCfgBits @ 0x140685B78
  * Callers:
- *     MiCommitVadCfgBits @ 0x14061BCBC (MiCommitVadCfgBits.c)
+ *     MiCommitVadCfgBits @ 0x14068592C (MiCommitVadCfgBits.c)
  * Callees:
- *     MiMarkPrivateOpenCfgBits @ 0x1406A9198 (MiMarkPrivateOpenCfgBits.c)
- *     MiMarkSharedImageCfgBits @ 0x1406E9604 (MiMarkSharedImageCfgBits.c)
- *     MiMarkPrivateImageCfgBits @ 0x140713DA4 (MiMarkPrivateImageCfgBits.c)
+ *     MiMarkPrivateOpenCfgBits @ 0x140607118 (MiMarkPrivateOpenCfgBits.c)
+ *     MiMarkPrivateImageCfgBits @ 0x1406C23F4 (MiMarkPrivateImageCfgBits.c)
+ *     MiMarkSharedImageCfgBits @ 0x1407009E4 (MiMarkSharedImageCfgBits.c)
  */
 
 __int64 __fastcall MiMarkProcessCfgBits(
@@ -19,7 +19,7 @@ __int64 __fastcall MiMarkProcessCfgBits(
 {
   int v8; // ecx
   int v10; // ecx
-  __int64 v11; // r9
+  int v11; // r9d
 
   v8 = a1 - 1;
   if ( !v8 )
@@ -32,6 +32,6 @@ __int64 __fastcall MiMarkProcessCfgBits(
   if ( a7 )
     v11 = *a7;
   else
-    v11 = 1LL;
+    v11 = 1;
   return MiMarkPrivateOpenCfgBits(a6, a4, a5, v11);
 }

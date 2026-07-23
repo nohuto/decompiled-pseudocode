@@ -1,15 +1,15 @@
 /*
- * XREFs of IopDoDeferredSetInterfaceState @ 0x140B0AD24
+ * XREFs of IopDoDeferredSetInterfaceState @ 0x140B0C470
  * Callers:
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     PipProcessStartPhase2 @ 0x140B0AC1C (PipProcessStartPhase2.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     PipProcessStartPhase2 @ 0x140B0C368 (PipProcessStartPhase2.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PpMarkDeviceStackExtensionFlag @ 0x1404E3478 (PpMarkDeviceStackExtensionFlag.c)
- *     IopProcessSetInterfaceState @ 0x1409D82B0 (IopProcessSetInterfaceState.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PpMarkDeviceStackExtensionFlag @ 0x1404DCA0C (PpMarkDeviceStackExtensionFlag.c)
+ *     IopProcessSetInterfaceState @ 0x1409A91A0 (IopProcessSetInterfaceState.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopDoDeferredSetInterfaceState(__int64 a1)

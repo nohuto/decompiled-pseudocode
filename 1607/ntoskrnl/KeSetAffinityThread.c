@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSetAffinityThread @ 0x140134304
+ * XREFs of KeSetAffinityThread @ 0x140134874
  * Callers:
- *     ExpWorkerThread @ 0x1400E7700 (ExpWorkerThread.c)
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
- *     ExpWorkerThreadBalanceManager @ 0x140566108 (ExpWorkerThreadBalanceManager.c)
+ *     ExpWorkerThread @ 0x1400E55A0 (ExpWorkerThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
+ *     ExpWorkerThreadBalanceManager @ 0x140566648 (ExpWorkerThreadBalanceManager.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiSetAffinityThread @ 0x1400CA9BC (KiSetAffinityThread.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     KiExtendProcessAffinity @ 0x1401DAF6C (KiExtendProcessAffinity.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiSetAffinityThread @ 0x1400C885C (KiSetAffinityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     KiExtendProcessAffinity @ 0x1401DAD98 (KiExtendProcessAffinity.c)
  */
 
 __int64 __fastcall KeSetAffinityThread(__int64 a1, __int64 a2)

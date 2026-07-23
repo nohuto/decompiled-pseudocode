@@ -1,21 +1,21 @@
 /*
- * XREFs of _PnpDispatchInterfaceClass @ 0x14063B450
+ * XREFs of _PnpDispatchInterfaceClass @ 0x140630260
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x1402653E0 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmOpenInterfaceClassRegKey @ 0x14063A994 (_CmOpenInterfaceClassRegKey.c)
- *     _CmGetInterfaceClassMappedProperty @ 0x14063B1B4 (_CmGetInterfaceClassMappedProperty.c)
- *     _CmValidateInstallerClassName @ 0x140645BCC (_CmValidateInstallerClassName.c)
- *     _CmCreateInterfaceClass @ 0x14074BB54 (_CmCreateInterfaceClass.c)
- *     _CmGetMatchingCommonClassList @ 0x1407B073C (_CmGetMatchingCommonClassList.c)
- *     _CmDeleteInterfaceClass @ 0x140975558 (_CmDeleteInterfaceClass.c)
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14097B488 (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _CmGetInterfaceClassMappedPropertyLocales @ 0x14097B69C (_CmGetInterfaceClassMappedPropertyLocales.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x14097BDE0 (_CmSetInterfaceClassMappedProperty.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x1402533F8 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmValidateInstallerClassName @ 0x1406184E0 (_CmValidateInstallerClassName.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x14062F7A4 (_CmOpenInterfaceClassRegKey.c)
+ *     _CmGetInterfaceClassMappedProperty @ 0x14062FFC4 (_CmGetInterfaceClassMappedProperty.c)
+ *     _CmCreateInterfaceClass @ 0x14074BD14 (_CmCreateInterfaceClass.c)
+ *     _CmGetMatchingCommonClassList @ 0x1407B08DC (_CmGetMatchingCommonClassList.c)
+ *     _CmDeleteInterfaceClass @ 0x140975738 (_CmDeleteInterfaceClass.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14097B668 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmGetInterfaceClassMappedPropertyLocales @ 0x14097B87C (_CmGetInterfaceClassMappedPropertyLocales.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x14097BFC0 (_CmSetInterfaceClassMappedProperty.c)
  */
 
-__int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
+__int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 (__fastcall *v5)(); // r8
   __int128 *v6; // rbx
@@ -60,7 +60,7 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3,
                   if ( v14 == 1 )
                     InterfaceClassMappedProperty = CmSetInterfaceClassMappedProperty(
                                                      a1,
-                                                     a2,
+                                                     (_DWORD)a2,
                                                      *(_QWORD *)(a5 + 16),
                                                      *(_DWORD *)(a5 + 24),
                                                      *(_QWORD *)(a5 + 32),
@@ -72,7 +72,7 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3,
                 {
                   InterfaceClassMappedProperty = CmGetInterfaceClassMappedProperty(
                                                    a1,
-                                                   a2,
+                                                   (int)a2,
                                                    *(_QWORD *)a5,
                                                    *(_QWORD *)(a5 + 8),
                                                    *(_QWORD *)(a5 + 16),
@@ -86,7 +86,7 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3,
               {
                 InterfaceClassMappedProperty = CmGetInterfaceClassMappedPropertyLocales(
                                                  a1,
-                                                 a2,
+                                                 (_DWORD)a2,
                                                  0,
                                                  *(_QWORD *)(a5 + 8),
                                                  *(_QWORD *)(a5 + 16),
@@ -98,7 +98,7 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3,
             {
               InterfaceClassMappedProperty = CmGetInterfaceClassMappedPropertyKeys(
                                                a1,
-                                               a2,
+                                               (_DWORD)a2,
                                                *(_QWORD *)a5,
                                                0,
                                                *(_QWORD *)(a5 + 24),
@@ -135,7 +135,7 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3,
       {
         InterfaceClassMappedProperty = CmCreateInterfaceClass(
                                          a1,
-                                         a2,
+                                         (_DWORD)a2,
                                          *(_DWORD *)a5,
                                          (int)a5 + 8,
                                          a5 + 16,
@@ -146,7 +146,7 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3,
     {
       InterfaceClassMappedProperty = CmOpenInterfaceClassRegKey(
                                        a1,
-                                       a2,
+                                       (int)a2,
                                        0LL,
                                        v8,
                                        *(_DWORD *)a5,
@@ -157,7 +157,7 @@ __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, __int64 a2, __int64 a3,
   }
   else
   {
-    InterfaceClassMappedProperty = CmValidateInstallerClassName();
+    InterfaceClassMappedProperty = CmValidateInstallerClassName(a1, a2);
   }
   return PnpMapCmStatusToDispatchStatus(InterfaceClassMappedProperty);
 }

@@ -40,7 +40,9 @@ __int64 IoProcessPassiveInterrupts()
       KiInsertQueueDpc(v1 + 104, 0LL, 0LL, 0LL, 0);
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v1 + 56));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v3 = v8;
       if ( v8 <= 0xFu && CurrentIrql >= 2u )

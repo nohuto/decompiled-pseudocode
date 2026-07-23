@@ -1,13 +1,13 @@
 /*
- * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x1405CE95C
+ * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x1405CEECC
  * Callers:
- *     VfPutDmaAdapter @ 0x140AC72B0 (VfPutDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x140AC72A0 (VfPutDmaAdapter.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140AC45BC (SUBTRACT_MAP_REGISTERS.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140AC45AC (SUBTRACT_MAP_REGISTERS.c)
  */
 
 __int64 __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
@@ -45,10 +45,10 @@ __int64 __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
     }
   }
   result = KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

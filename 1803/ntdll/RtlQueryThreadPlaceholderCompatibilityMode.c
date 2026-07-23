@@ -6,13 +6,13 @@
  *     <none>
  */
 
-char RtlQueryThreadPlaceholderCompatibilityMode()
+CHAR RtlQueryThreadPlaceholderCompatibilityMode(void)
 {
   struct _TEB *v0; // rax
 
   v0 = NtCurrentTeb();
   if ( v0 )
-    return (char)v0->SystemReserved1[46];
+    return v0->PlaceholderCompatibilityMode;
   else
     return -2;
 }

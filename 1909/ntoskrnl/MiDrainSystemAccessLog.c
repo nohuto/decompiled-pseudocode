@@ -20,7 +20,7 @@ LONG *__fastcall MiDrainSystemAccessLog(__int64 a1)
   __int64 v2; // rdx
   LONG *v3; // rdi
   unsigned __int8 CurrentIrql; // bl
-  struct _SLIST_ENTRY *v5; // rcx
+  _SLIST_ENTRY *v5; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
@@ -36,7 +36,7 @@ LONG *__fastcall MiDrainSystemAccessLog(__int64 a1)
     LockHandle.LockQueue.Next = 0LL;
     LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(MiGetSharedVm(v2) + 16);
     KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)LockHandle.LockQueue.Lock);
-    v5 = (struct _SLIST_ENTRY *)*((_QWORD *)v3 + 5);
+    v5 = (_SLIST_ENTRY *)*((_QWORD *)v3 + 5);
     if ( v5 )
     {
       MiEmptyPageAccessLog(v5);

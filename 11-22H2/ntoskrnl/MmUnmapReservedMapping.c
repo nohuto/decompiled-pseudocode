@@ -70,10 +70,13 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
   if ( !v8 )
     KeBugCheckEx(0xDAu, 0x106uLL, v5, v3, 2uLL);
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C685C0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v10 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

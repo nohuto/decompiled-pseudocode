@@ -1,7 +1,7 @@
 /*
- * XREFs of ExBlockPushLock @ 0x14008735C
+ * XREFs of ExBlockPushLock @ 0x14009DCEC
  * Callers:
- *     ExBlockOnAddressPushLock @ 0x1400872BC (ExBlockOnAddressPushLock.c)
+ *     ExBlockOnAddressPushLock @ 0x14009DC4C (ExBlockOnAddressPushLock.c)
  * Callees:
  *     <none>
  */

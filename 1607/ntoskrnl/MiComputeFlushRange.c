@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeFlushRange @ 0x140021854
+ * XREFs of MiComputeFlushRange @ 0x1400213D4
  * Callers:
- *     MmFlushSection @ 0x140022558 (MmFlushSection.c)
- *     MmTrimSection @ 0x14008F450 (MmTrimSection.c)
+ *     MmFlushSection @ 0x1400220D8 (MmFlushSection.c)
+ *     MmTrimSection @ 0x14008EBB0 (MmTrimSection.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1400218CC (MiLockSectionControlArea.c)
- *     MiComputeDataFlushRange @ 0x140021958 (MiComputeDataFlushRange.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
+ *     MiLockSectionControlArea @ 0x14002144C (MiLockSectionControlArea.c)
+ *     MiComputeDataFlushRange @ 0x1400214D8 (MiComputeDataFlushRange.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiComputeFlushRange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

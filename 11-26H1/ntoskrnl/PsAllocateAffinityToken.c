@@ -1,10 +1,10 @@
 /*
- * XREFs of PsAllocateAffinityToken @ 0x1404F5070
+ * XREFs of PsAllocateAffinityToken @ 0x1404EE650
  * Callers:
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PsAllocateAffinityToken(__int64 *a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpShutdown @ 0x140506C48
+ * XREFs of HalpShutdown @ 0x140507198
  * Callers:
- *     HalpCheckPowerButton @ 0x14040F780 (HalpCheckPowerButton.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
- *     HaliHaltSystem @ 0x140506A00 (HaliHaltSystem.c)
+ *     HalpCheckPowerButton @ 0x14040F960 (HalpCheckPowerButton.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
+ *     HaliHaltSystem @ 0x140506F50 (HaliHaltSystem.c)
  * Callees:
- *     HalpAcpiPmRegisterWrite @ 0x140362C90 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterRead @ 0x1403A1D30 (HalpAcpiPmRegisterRead.c)
- *     VslTerminateSecureServices @ 0x14040FCD8 (VslTerminateSecureServices.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpHvEnterSleepState @ 0x14050BEAC (HalpHvEnterSleepState.c)
- *     HalEfiResetSystem @ 0x14050D190 (HalEfiResetSystem.c)
+ *     HalpAcpiPmRegisterWrite @ 0x140362E30 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterRead @ 0x1403A1F10 (HalpAcpiPmRegisterRead.c)
+ *     VslTerminateSecureServices @ 0x14040FEB8 (VslTerminateSecureServices.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpHvEnterSleepState @ 0x14050C3FC (HalpHvEnterSleepState.c)
+ *     HalEfiResetSystem @ 0x14050D6E0 (HalEfiResetSystem.c)
  */
 
 __int64 HalpShutdown()

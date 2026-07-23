@@ -14,13 +14,13 @@
  *     <none>
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
   _DWORD *SharedData; // rcx
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    return *((unsigned int *)NtCurrentPeb()->SharedData + 5);
+    return *((_DWORD *)NtCurrentPeb()->SharedData + 5);
   else
     return MEMORY[0x7FFE02D0];
 }

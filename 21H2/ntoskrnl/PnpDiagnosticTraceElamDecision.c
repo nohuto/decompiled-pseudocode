@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDiagnosticTraceElamDecision @ 0x1403B823C
+ * XREFs of PnpDiagnosticTraceElamDecision @ 0x1403B83AC
  * Callers:
- *     PnpDoPolicyCheck @ 0x140A5EB20 (PnpDoPolicyCheck.c)
+ *     PnpDoPolicyCheck @ 0x140A5FB20 (PnpDoPolicyCheck.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PnpDiagnosticTraceElamDecision(__int64 a1, int a2, int a3, int a4)

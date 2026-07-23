@@ -6,12 +6,12 @@
  *     _RtlStdReleaseStackTrace@8 @ 0x4B369090 (_RtlStdReleaseStackTrace@8.c)
  */
 
-int __stdcall RtlReleaseStackTrace(int a1)
+PRTL_SRWLOCK __stdcall RtlReleaseStackTrace(int a1)
 {
-  int result; // eax
+  PRTL_SRWLOCK result; // eax
 
   result = RtlpStackTraceDatabase;
   if ( RtlpStackTraceDatabase )
-    return RtlStdReleaseStackTrace(RtlpStackTraceDatabase, a1);
+    return (PRTL_SRWLOCK)RtlStdReleaseStackTrace(RtlpStackTraceDatabase, a1);
   return result;
 }

@@ -476,17 +476,17 @@
  *     <none>
  */
 
-void __cdecl _security_check_cookie(uintptr_t StackCookie)
+void __cdecl _security_check_cookie(uintptr_t _StackCookie)
 {
   __int64 v1; // rcx
 
-  if ( StackCookie != _security_cookie )
+  if ( _StackCookie != _security_cookie )
 LABEL_4:
-    _report_gsfailure(StackCookie);
-  v1 = __ROL8__(StackCookie, 16);
+    _report_gsfailure(_StackCookie);
+  v1 = __ROL8__(_StackCookie, 16);
   if ( (_WORD)v1 )
   {
-    StackCookie = __ROR8__(v1, 16);
+    _StackCookie = __ROR8__(v1, 16);
     goto LABEL_4;
   }
 }

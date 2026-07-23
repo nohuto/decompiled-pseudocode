@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCtFreeMemory @ 0x1409195A0
+ * XREFs of RtlpCtFreeMemory @ 0x140919700
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x14058E5E0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x14058E810 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall RtlpCtFreeMemory(void *a1)

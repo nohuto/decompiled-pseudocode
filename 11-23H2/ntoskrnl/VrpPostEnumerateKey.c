@@ -1,29 +1,29 @@
 /*
- * XREFs of VrpPostEnumerateKey @ 0x14077A9B8
+ * XREFs of VrpPostEnumerateKey @ 0x14077ABA8
  * Callers:
  *     VrpRegistryCallback @ 0x14068E300 (VrpRegistryCallback.c)
  * Callees:
  *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
  *     ExGetPreviousMode @ 0x140208C20 (ExGetPreviousMode.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x14041B020 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x14041B3A0 (ZwEnumerateKey.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x14041B3B0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x14041B730 (ZwEnumerateKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     VrpCleanupBufferParameter @ 0x14068CC68 (VrpCleanupBufferParameter.c)
  *     VrpOutputBufferParameter @ 0x14068CCA0 (VrpOutputBufferParameter.c)
  *     VrpBuildKeyPath @ 0x14068DE10 (VrpBuildKeyPath.c)
  *     VrpProcessBufferParameter @ 0x14068F3B8 (VrpProcessBufferParameter.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     VrpFindExactNamespaceNode @ 0x14077B7F4 (VrpFindExactNamespaceNode.c)
- *     VrpUpdateKeyInformation @ 0x1407E0120 (VrpUpdateKeyInformation.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     VrpFindExactNamespaceNode @ 0x14077B9E4 (VrpFindExactNamespaceNode.c)
+ *     VrpUpdateKeyInformation @ 0x1407E03F0 (VrpUpdateKeyInformation.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -120,7 +120,7 @@ __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
   v41 = 0LL;
   v6 = *(_DWORD *)(a1 + 8);
   v45 = 0LL;
-  if ( (unsigned int)dword_140C04460 > 5 )
+  if ( (unsigned int)dword_140C04420 > 5 )
   {
     v40 = *(_DWORD *)(v4 + 12);
     v57 = &v40;
@@ -136,8 +136,8 @@ __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
     v62 = v24;
     v63 = 0;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04460,
-      (unsigned __int8 *)&word_14003A4F6,
+      (__int64)&dword_140C04420,
+      (unsigned __int8 *)word_14003A5BA,
       &ActivityId,
       0LL,
       5u,
@@ -325,7 +325,7 @@ LABEL_26:
     KeAbPostRelease(v21);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  if ( v6 < 0 && (unsigned int)dword_140C04460 > 2 )
+  if ( v6 < 0 && (unsigned int)dword_140C04420 > 2 )
   {
     v40 = *(_DWORD *)(v4 + 12);
     v57 = &v40;
@@ -345,7 +345,7 @@ LABEL_26:
     else
     {
       v36 = 0;
-      v35 = &word_14001F044;
+      v35 = &word_14001F0C4;
     }
     v64 = v67;
     v65 = 2LL;
@@ -356,8 +356,8 @@ LABEL_26:
     v68 = &v38;
     v69 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04460,
-      (unsigned __int8 *)byte_14003A351,
+      (__int64)&dword_140C04420,
+      (unsigned __int8 *)word_14003A3D2,
       &ActivityId,
       0LL,
       8u,

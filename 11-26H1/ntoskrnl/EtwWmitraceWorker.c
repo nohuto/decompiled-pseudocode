@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwWmitraceWorker @ 0x14082C2B8
+ * XREFs of EtwWmitraceWorker @ 0x1408324F8
  * Callers:
- *     ExpDebuggerWorker @ 0x140C16D60 (ExpDebuggerWorker.c)
+ *     ExpDebuggerWorker @ 0x140C1CD60 (ExpDebuggerWorker.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpPrepareWmitraceLoggerInfo @ 0x14082C5E4 (EtwpPrepareWmitraceLoggerInfo.c)
- *     EtwpQueryTrace @ 0x14091F240 (EtwpQueryTrace.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     PsGetSiloBySessionId @ 0x140A3B134 (PsGetSiloBySessionId.c)
- *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
- *     EtwpStartTrace @ 0x140A6E138 (EtwpStartTrace.c)
- *     EtwpStopTrace @ 0x140A6F2F8 (EtwpStopTrace.c)
- *     EtwEnableTrace @ 0x140AD9B90 (EtwEnableTrace.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpPrepareWmitraceLoggerInfo @ 0x140832824 (EtwpPrepareWmitraceLoggerInfo.c)
+ *     EtwpQueryTrace @ 0x140979CA0 (EtwpQueryTrace.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     PsGetSiloBySessionId @ 0x1409F6C94 (PsGetSiloBySessionId.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     EtwpUpdateTrace @ 0x140AB081C (EtwpUpdateTrace.c)
+ *     EtwpStartTrace @ 0x140AB0EB0 (EtwpStartTrace.c)
+ *     EtwpStopTrace @ 0x140AB2D10 (EtwpStopTrace.c)
+ *     EtwEnableTrace @ 0x140AD6640 (EtwEnableTrace.c)
  */
 
 void EtwWmitraceWorker()
@@ -43,9 +43,9 @@ void EtwWmitraceWorker()
   memset_0(v9, 0, 0xB0uLL);
   v7 = 0LL;
   DestinationString = 0LL;
-  if ( dword_140F03884 )
+  if ( dword_140F03F64 )
   {
-    SiloBySessionId = PsGetSiloBySessionId((unsigned int)dword_140F03884, &v7);
+    SiloBySessionId = PsGetSiloBySessionId((unsigned int)dword_140F03F64, &v7);
     if ( SiloBySessionId < 0 || !v7 )
       goto LABEL_29;
     v0 = *(_QWORD *)(*(_QWORD *)(v7 + 1504) + 832LL);
@@ -58,17 +58,17 @@ void EtwWmitraceWorker()
   {
     case 1:
       EtwpPrepareWmitraceLoggerInfo(v9);
-      RtlInitAnsiString(&DestinationString, qword_140F03888);
+      RtlInitAnsiString(&DestinationString, qword_140F03F68);
       RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
-      v12 = dword_140F03950;
-      v13 = dword_140F03954;
-      v11 = dword_140F03958;
-      v15 = dword_140F0395C;
-      v16 = dword_140F03960;
-      v14 = dword_140F0394C;
-      if ( byte_140F038C9 )
+      v12 = dword_140F04030;
+      v13 = dword_140F04034;
+      v11 = dword_140F04038;
+      v15 = dword_140F0403C;
+      v16 = dword_140F04040;
+      v14 = dword_140F0402C;
+      if ( byte_140F03FA9 )
       {
-        RtlInitAnsiString(&DestinationString, &byte_140F038C9);
+        RtlInitAnsiString(&DestinationString, &byte_140F03FA9);
         RtlAnsiStringToUnicodeString(&v17, &DestinationString, 1u);
       }
       started = EtwpStartTrace(v0, v9);
@@ -78,7 +78,7 @@ void EtwWmitraceWorker()
       else
         DbgPrintEx(0x17u, 3u, "wmitrace: EtwpStartTrace failed: 0x%x\n", started);
       RtlFreeAnsiString(&UnicodeString);
-      if ( byte_140F038C9 )
+      if ( byte_140F03FA9 )
         RtlFreeAnsiString(&v17);
       break;
     case 2:
@@ -117,11 +117,11 @@ void EtwWmitraceWorker()
       if ( Trace >= 0 )
       {
         v3 = EtwEnableTrace(
-               (unsigned int)&unk_140F0389C,
-               byte_140F038AC,
-               *(__int64 *)qword_140F03888,
-               qword_140F03890,
-               dword_140F03898);
+               (unsigned int)&unk_140F03F7C,
+               byte_140F03F8C,
+               *(__int64 *)qword_140F03F68,
+               qword_140F03F70,
+               dword_140F03F78);
         SiloBySessionId = v3;
         if ( v3 < 0 )
           DbgPrintEx(0x17u, 3u, "wmitrace: EtwpEnableTraceEx failed: 0x%x\n", (unsigned int)v3);
@@ -132,6 +132,6 @@ LABEL_19:
       break;
   }
 LABEL_29:
-  dword_140F03968 = SiloBySessionId;
+  dword_140F04048 = SiloBySessionId;
   EtwWmitraceWork = 0;
 }

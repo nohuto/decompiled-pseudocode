@@ -1,7 +1,7 @@
 /*
- * XREFs of KsepSdbBootRelease @ 0x140843B74
+ * XREFs of KsepSdbBootRelease @ 0x140843E74
  * Callers:
- *     KseShimDatabaseBootRelease @ 0x140843AC4 (KseShimDatabaseBootRelease.c)
+ *     KseShimDatabaseBootRelease @ 0x140843DC4 (KseShimDatabaseBootRelease.c)
  *     KseShimDatabaseBootInitialize @ 0x140B73254 (KseShimDatabaseBootInitialize.c)
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)

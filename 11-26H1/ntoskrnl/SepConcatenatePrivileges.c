@@ -1,15 +1,15 @@
 /*
- * XREFs of SepConcatenatePrivileges @ 0x140904FC0
+ * XREFs of SepConcatenatePrivileges @ 0x140934F50
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     SeAppendPrivileges @ 0x140903960 (SeAppendPrivileges.c)
- *     ObCheckObjectAccess @ 0x140904A50 (ObCheckObjectAccess.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140930170 (ObpGrantAccess.c)
- *     CmpCheckKeyBodyAccess @ 0x140930990 (CmpCheckKeyBodyAccess.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140930F10 (CmpCheckOpenAccessOnKeyBody.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14090BCA0 (ObpGrantAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x14090C4C0 (CmpCheckKeyBodyAccess.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14090CA40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     SeAppendPrivileges @ 0x1409338F0 (SeAppendPrivileges.c)
+ *     ObCheckObjectAccess @ 0x1409349E0 (ObCheckObjectAccess.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall SepConcatenatePrivileges(_DWORD *a1, __int64 a2, unsigned int *a3)

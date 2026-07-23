@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCmEncodeMemIoResource @ 0x1800F1FF0
+ * XREFs of RtlCmEncodeMemIoResource @ 0x1800F1FB0
  * Callers:
  *     <none>
  * Callees:

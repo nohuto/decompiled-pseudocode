@@ -1,106 +1,86 @@
 /*
- * XREFs of PopPowerAggregatorNotifyPdcPhaseState @ 0x1407D6C24
+ * XREFs of PopPowerAggregatorNotifyPdcPhaseState @ 0x1407D9D94
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x14060D4E0 (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x1406105F0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline @ 0x1406004D0 (Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x14060B92C (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140A3F1C4 (PopPowerAggregatorHandleIntentUnsafe.c)
- *     PopPowerAggregatorEvaluateDozeTimers @ 0x140B2BBD4 (PopPowerAggregatorEvaluateDozeTimers.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x14060E8A8 (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1409FABE4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorEvaluateDozeTimers @ 0x140B2DC54 (PopPowerAggregatorEvaluateDozeTimers.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
-void __fastcall PopPowerAggregatorNotifyPdcPhaseState(int a1, char a2)
+void __fastcall PopPowerAggregatorNotifyPdcPhaseState(__int64 a1, __int64 a2)
 {
-  int IsEnabledDeviceUsageNoInline; // eax
-  __int64 v4; // rdx
-  __int64 v5; // rcx
+  char v2; // bl
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  struct _KLOCK_ENTRIES *v5; // r9
   __int64 v6; // rdx
-  __int64 v7; // r8
-  struct _KLOCK_ENTRIES *v8; // r9
-  int v9; // eax
-  int v10; // ecx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // [rsp+20h] [rbp-40h]
-  _DWORD v16[4]; // [rsp+30h] [rbp-30h] BYREF
-  _OWORD v17[2]; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // [rsp+20h] [rbp-40h]
+  _DWORD v11[4]; // [rsp+30h] [rbp-30h] BYREF
+  _OWORD v12[2]; // [rsp+40h] [rbp-20h] BYREF
 
-  if ( a1 != 2 )
+  if ( (_DWORD)a1 != 2 )
     return;
-  memset(v17, 0, sizeof(v17));
-  IsEnabledDeviceUsageNoInline = Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline();
-  v5 = 0LL;
-  if ( IsEnabledDeviceUsageNoInline )
-    v5 = 17LL;
-  LODWORD(v17[0]) = v5;
-  PopAcquirePolicyLock(v5, v4);
-  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, v6, v7, v8);
-  if ( !a2 )
+  v2 = a2;
+  memset(v12, 0, sizeof(v12));
+  LODWORD(v12[0]) = 17;
+  PopAcquirePolicyLock(a1, a2);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, v3, v4, v5);
+  if ( !v2 )
   {
-    LOBYTE(PopPowerAggregatorLock.Timer.Period) = 0;
-    goto LABEL_21;
+    byte_140F0D9EC = 0;
+    goto LABEL_16;
   }
-  if ( LODWORD(PopPowerAggregatorLock.QuantumTarget) == 1 )
+  if ( (_DWORD)xmmword_140F0D8D0 == 1 )
   {
-    BYTE2(stru_140F10828.WriteOperationCount) = 1;
-    LOBYTE(PopPowerAggregatorLock.Timer.Period) = 1;
-    if ( LODWORD(PopPowerAggregatorLock.WaitBlock[0].WaitListEntry.Flink) != 1 )
+    PoModernStandbyActionInProgress = 1;
+    byte_140F0D9EC = 1;
+    if ( dword_140F0D9F0 != 1 )
     {
-      if ( LODWORD(PopPowerAggregatorLock.WaitBlock[0].WaitListEntry.Flink) == 2 )
-        goto LABEL_16;
-      if ( LODWORD(PopPowerAggregatorLock.WaitBlock[0].WaitListEntry.Flink) == 3 )
+      if ( dword_140F0D9F0 == 2 )
       {
-LABEL_12:
-        PopPowerAggregatorHandleIntentUnsafe(3LL, 0LL, 0LL, 53LL);
-LABEL_19:
-        LODWORD(PopPowerAggregatorLock.WaitBlock[0].WaitListEntry.Flink) = 0;
-        goto LABEL_21;
+        LODWORD(v12[0]) = 14;
+        goto LABEL_13;
       }
-      if ( LODWORD(PopPowerAggregatorLock.WaitBlock[0].WaitListEntry.Flink) != 4 )
+      if ( dword_140F0D9F0 == 3 )
+        goto LABEL_10;
+      if ( dword_140F0D9F0 != 4 )
       {
-        if ( LODWORD(PopPowerAggregatorLock.WaitBlock[0].WaitListEntry.Flink) != 5
+        if ( dword_140F0D9F0 != 5
           || !(unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
         {
-          goto LABEL_19;
+          goto LABEL_13;
         }
-        goto LABEL_12;
+LABEL_10:
+        PopPowerAggregatorHandleIntentUnsafe(3LL, 0LL, 0LL, 53LL);
+LABEL_13:
+        dword_140F0D9F0 = 0;
+        goto LABEL_16;
       }
       if ( !(unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
-        goto LABEL_19;
+        goto LABEL_13;
     }
-    if ( (unsigned int)Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline() )
-    {
-      LODWORD(v17[0]) = 13;
-      goto LABEL_19;
-    }
+    LODWORD(v12[0]) = 13;
+    goto LABEL_13;
+  }
 LABEL_16:
-    v9 = Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline();
-    v10 = v17[0];
-    if ( v9 )
-      v10 = 14;
-    LODWORD(v17[0]) = v10;
-    goto LABEL_19;
-  }
-LABEL_21:
   PopPowerAggregatorEvaluateDozeTimers();
-  PopReleaseRwLock(&PopPowerAggregatorLock);
-  if ( (unsigned int)Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline() )
+  PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
+  if ( LODWORD(v12[0]) != 17 )
   {
-    if ( LODWORD(v17[0]) != 17 )
-    {
-      DWORD1(v17[0]) = 128;
-      v16[2] = 0;
-      v16[0] = 3;
-      v16[1] = -2147483612;
-      PopExecutePowerAction((unsigned int)v17, 0, (unsigned int)v16, 5, 1);
-    }
+    DWORD1(v12[0]) = 128;
+    v11[2] = 0;
+    v11[0] = 3;
+    v11[1] = -2147483612;
+    PopExecutePowerAction((unsigned int)v12, 0, (unsigned int)v11, 5, 1);
   }
-  PopReleasePolicyLock(v12, v11, v13, v14, v15);
+  PopReleasePolicyLock(v7, v6, v8, v9, v10);
 }

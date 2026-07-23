@@ -1,12 +1,12 @@
 /*
- * XREFs of ObWaitForSingleObject @ 0x14071E0A0
+ * XREFs of ObWaitForSingleObject @ 0x14071F340
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ObpGetWaitObject @ 0x14006311C (ObpGetWaitObject.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpGetWaitObject @ 0x14006310C (ObpGetWaitObject.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall ObWaitForSingleObject(ULONG_PTR a1, char a2, KPROCESSOR_MODE a3, BOOLEAN a4, LARGE_INTEGER *Timeout)

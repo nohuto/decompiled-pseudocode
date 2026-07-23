@@ -1,9 +1,9 @@
 /*
- * XREFs of MxDbgGetPhase0Mapping @ 0x140CFC058
+ * XREFs of MxDbgGetPhase0Mapping @ 0x140D023D8
  * Callers:
- *     MiDbgMapPhysicalAddress @ 0x1406FE368 (MiDbgMapPhysicalAddress.c)
+ *     MiDbgMapPhysicalAddress @ 0x140703038 (MiDbgMapPhysicalAddress.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MxDbgGetPhase0Mapping(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpDmaTranslationEntryToIndex @ 0x1403BBF78
+ * XREFs of HalpDmaTranslationEntryToIndex @ 0x1403BC0E8
  * Callers:
- *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBD0C (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaReturnToContiguousPool @ 0x1404C8014 (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBE7C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaReturnToContiguousPool @ 0x1404C8254 (HalpDmaReturnToContiguousPool.c)
  * Callees:
  *     <none>
  */

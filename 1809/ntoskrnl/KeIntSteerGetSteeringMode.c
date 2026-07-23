@@ -1,8 +1,8 @@
 /*
- * XREFs of KeIntSteerGetSteeringMode @ 0x14016E3A0
+ * XREFs of KeIntSteerGetSteeringMode @ 0x14016E4A0
  * Callers:
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14016E288 (KiIntSteerChooseInitialTargetProcessors.c)
- *     ExpQueryInterruptSteeringInformation @ 0x14075F3A8 (ExpQueryInterruptSteeringInformation.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14016E388 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x140760598 (ExpQueryInterruptSteeringInformation.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall KeIntSteerGetSteeringMode(__int64 a1, __int64 a2, char a3, in
   {
     v6 = 0LL;
     if ( LOWORD(KeActiveProcessors[0]) )
-      v6 = qword_1405416A8[0];
+      v6 = qword_1405426A8[0];
     if ( *(_QWORD *)a5 == v6 )
     {
       if ( (KiInterruptControllerInfo & 1) == 0 || a4 )

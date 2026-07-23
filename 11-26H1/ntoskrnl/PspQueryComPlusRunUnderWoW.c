@@ -1,28 +1,28 @@
 /*
- * XREFs of PspQueryComPlusRunUnderWoW @ 0x140B4CF04
+ * XREFs of PspQueryComPlusRunUnderWoW @ 0x140B4EC94
  * Callers:
- *     PspSelectMachineForProcess @ 0x140A9174C (PspSelectMachineForProcess.c)
+ *     PspSelectMachineForProcess @ 0x140A9629C (PspSelectMachineForProcess.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     RtlQueryImageFileKeyOption @ 0x1409665B0 (RtlQueryImageFileKeyOption.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     RtlQueryImageFileKeyOption @ 0x140A786C0 (RtlQueryImageFileKeyOption.c)
  */
 
-int __fastcall PspQueryComPlusRunUnderWoW(__int64 a1, _BYTE *a2)
+NTSTATUS __fastcall PspQueryComPlusRunUnderWoW(__int64 a1, _BYTE *a2)
 {
   char v2; // al
-  int result; // eax
+  NTSTATUS result; // eax
   void *v6; // rcx
-  int v7; // [rsp+50h] [rbp+18h] BYREF
+  int SystemInformation; // [rsp+50h] [rbp+18h] BYREF
   int v8; // [rsp+58h] [rbp+20h] BYREF
 
   v2 = MEMORY[0xFFFFF780000002E0];
-  v7 = MEMORY[0xFFFFF780000002E0];
+  SystemInformation = MEMORY[0xFFFFF780000002E0];
   if ( MEMORY[0xFFFFF780000002E0] == -1 )
   {
-    result = ZwQuerySystemInformation(59LL, (__int64)&v7);
+    result = ZwQuerySystemInformation(SystemComPlusPackage, &SystemInformation, 4u, 0LL);
     if ( result < 0 )
       return result;
-    v2 = v7;
+    v2 = SystemInformation;
   }
   if ( (v2 & 1) == 0 )
     goto LABEL_13;

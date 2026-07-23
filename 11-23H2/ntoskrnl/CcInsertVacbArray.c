@@ -1,10 +1,10 @@
 /*
- * XREFs of CcInsertVacbArray @ 0x1403C28A8
+ * XREFs of CcInsertVacbArray @ 0x1403C2A88
  * Callers:
- *     CcGetVirtualAddress @ 0x140264DF0 (CcGetVirtualAddress.c)
- *     CcInitializePartitionVacbs @ 0x1403A0810 (CcInitializePartitionVacbs.c)
+ *     CcGetVirtualAddress @ 0x140265080 (CcGetVirtualAddress.c)
+ *     CcInitializePartitionVacbs @ 0x1403A09F0 (CcInitializePartitionVacbs.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall CcInsertVacbArray(__int64 a1, _DWORD *a2)

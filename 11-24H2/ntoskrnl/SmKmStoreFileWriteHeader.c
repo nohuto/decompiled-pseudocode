@@ -1,23 +1,23 @@
 /*
- * XREFs of SmKmStoreFileWriteHeader @ 0x14079B5E8
+ * XREFs of SmKmStoreFileWriteHeader @ 0x14079B6F8
  * Callers:
- *     SmKmStoreFileCreate @ 0x14079A748 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreate @ 0x14079A858 (SmKmStoreFileCreate.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x140263DD0 (MmBuildMdlForNonPagedPool.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoSynchronousPageWrite @ 0x140372A90 (IoSynchronousPageWrite.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     MmMdlPageContentsState @ 0x14044BC80 (MmMdlPageContentsState.c)
- *     MmCreateMdl @ 0x14045AB70 (MmCreateMdl.c)
- *     IoSetThreadHardErrorMode @ 0x14045D2F0 (IoSetThreadHardErrorMode.c)
- *     RtlComputeCrc32 @ 0x140460AE0 (RtlComputeCrc32.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1406A6510 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoSynchronousPageWrite @ 0x14025B350 (IoSynchronousPageWrite.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140293640 (MmBuildMdlForNonPagedPool.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     MmMdlPageContentsState @ 0x140442DC0 (MmMdlPageContentsState.c)
+ *     MmCreateMdl @ 0x14044FFA0 (MmCreateMdl.c)
+ *     IoSetThreadHardErrorMode @ 0x1404523B0 (IoSetThreadHardErrorMode.c)
+ *     RtlComputeCrc32 @ 0x140455F70 (RtlComputeCrc32.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1406A74B0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)
@@ -44,7 +44,7 @@ __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)
   v4 = 0LL;
   FileInformation = 0LL;
   v5 = IoSetThreadHardErrorMode(0);
-  v6 = (struct _PRIVILEGE_SET *)SmAllocEx(0x10000LL, 1749446003LL, -1);
+  v6 = (struct _PRIVILEGE_SET *)SmAllocEx(0x10000uLL, 0x68466D73u, -1);
   Buffer = v6;
   if ( !v6 )
   {
@@ -67,7 +67,7 @@ __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)
   Buffer->PrivilegeCount = 1164135783;
   Buffer->Control = 3;
   Buffer[2].PrivilegeCount = 1;
-  Buffer->Privilege[0].Luid.LowPart = RtlComputeCrc32(0LL, (__int64)Buffer, 48LL);
+  Buffer->Privilege[0].Luid.LowPart = RtlComputeCrc32(0, Buffer, 0x30u);
   v10 = *(void **)a1;
   if ( a2 )
   {

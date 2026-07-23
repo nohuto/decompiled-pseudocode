@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpValueEnumStackMatchingValueInUpperLayer @ 0x140A25784
+ * XREFs of CmpValueEnumStackMatchingValueInUpperLayer @ 0x140A25A34
  * Callers:
- *     CmpValueEnumStackAdvance @ 0x140A25554 (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackAdvance @ 0x140A25804 (CmpValueEnumStackAdvance.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     CmpFindNameInListCellWithStatus @ 0x1406DF830 (CmpFindNameInListCellWithStatus.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A25320 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     CmpFindNameInListCellWithStatus @ 0x1406DF860 (CmpFindNameInListCellWithStatus.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A255D0 (CmpValueEnumStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpValueEnumStackMatchingValueInUpperLayer(__int64 a1, __int16 a2, unsigned __int16 *a3, char *a4)

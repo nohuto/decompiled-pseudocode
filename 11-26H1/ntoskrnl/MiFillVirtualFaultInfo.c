@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFillVirtualFaultInfo @ 0x1404B2A04
+ * XREFs of MiFillVirtualFaultInfo @ 0x1404AC080
  * Callers:
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiValidVirtualizationFault @ 0x140525860 (MiValidVirtualizationFault.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x140527ED0 (MiValidVirtualizationFault.c)
  * Callees:
  *     <none>
  */

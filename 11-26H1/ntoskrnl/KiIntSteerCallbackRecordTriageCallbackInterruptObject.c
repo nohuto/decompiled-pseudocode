@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntSteerCallbackRecordTriageCallbackInterruptObject @ 0x1405F77D4
+ * XREFs of KiIntSteerCallbackRecordTriageCallbackInterruptObject @ 0x1405FA1F4
  * Callers:
- *     KiIntSteerCallbackRecordTriageCallback @ 0x1405F76D0 (KiIntSteerCallbackRecordTriageCallback.c)
+ *     KiIntSteerCallbackRecordTriageCallback @ 0x1405FA0F0 (KiIntSteerCallbackRecordTriageCallback.c)
  * Callees:
- *     KiIntSteerComputeRelevanceForTriageDumps @ 0x1405F7898 (KiIntSteerComputeRelevanceForTriageDumps.c)
+ *     KiIntSteerComputeRelevanceForTriageDumps @ 0x1405FA2B8 (KiIntSteerComputeRelevanceForTriageDumps.c)
  */
 
 __int64 __fastcall KiIntSteerCallbackRecordTriageCallbackInterruptObject(__int64 a1, __int64 a2)

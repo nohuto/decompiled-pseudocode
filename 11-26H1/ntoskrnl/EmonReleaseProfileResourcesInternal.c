@@ -1,14 +1,14 @@
 /*
- * XREFs of EmonReleaseProfileResourcesInternal @ 0x140595FF4
+ * XREFs of EmonReleaseProfileResourcesInternal @ 0x140598774
  * Callers:
- *     EmonAllocateResources @ 0x140594F44 (EmonAllocateResources.c)
- *     EmonReleaseProfileResources @ 0x140595F60 (EmonReleaseProfileResources.c)
+ *     EmonAllocateResources @ 0x1405976C4 (EmonAllocateResources.c)
+ *     EmonReleaseProfileResources @ 0x1405986E0 (EmonReleaseProfileResources.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     HalpPmuReservedResourcesProcessorCallback @ 0x1405805F8 (HalpPmuReservedResourcesProcessorCallback.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     HalpPmuReservedResourcesProcessorCallback @ 0x140582B18 (HalpPmuReservedResourcesProcessorCallback.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall EmonReleaseProfileResourcesInternal(__int64 a1)

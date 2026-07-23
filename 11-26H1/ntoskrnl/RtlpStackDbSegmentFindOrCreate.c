@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpStackDbSegmentFindOrCreate @ 0x140443D78
+ * XREFs of RtlpStackDbSegmentFindOrCreate @ 0x14043C888
  * Callers:
- *     RtlpStackDbEntryCreate @ 0x14044380C (RtlpStackDbEntryCreate.c)
+ *     RtlpStackDbEntryCreate @ 0x14043C31C (RtlpStackDbEntryCreate.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlpStackDbRefCountIncrement @ 0x1404437A8 (RtlpStackDbRefCountIncrement.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     RtlpStackDbSegmentComparitor @ 0x140623674 (RtlpStackDbSegmentComparitor.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlpStackDbRefCountIncrement @ 0x14043C2B8 (RtlpStackDbRefCountIncrement.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     RtlpStackDbSegmentComparitor @ 0x1406266C4 (RtlpStackDbSegmentComparitor.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall RtlpStackDbSegmentFindOrCreate(__int64 a1, unsigned int *a2)

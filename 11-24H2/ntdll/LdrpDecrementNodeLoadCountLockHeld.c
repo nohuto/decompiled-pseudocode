@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpDecrementNodeLoadCountLockHeld @ 0x18001C9D0
+ * XREFs of LdrpDecrementNodeLoadCountLockHeld @ 0x1800493D0
  * Callers:
- *     LdrUnloadDll @ 0x18001B6B0 (LdrUnloadDll.c)
- *     LdrpDecrementModuleLoadCountEx @ 0x18001C830 (LdrpDecrementModuleLoadCountEx.c)
- *     LdrpUnloadNode @ 0x18001CA60 (LdrpUnloadNode.c)
+ *     LdrUnloadDll @ 0x1800480B0 (LdrUnloadDll.c)
+ *     LdrpDecrementModuleLoadCountEx @ 0x180049230 (LdrpDecrementModuleLoadCountEx.c)
+ *     LdrpUnloadNode @ 0x180049460 (LdrpUnloadNode.c)
  * Callees:
  *     <none>
  */

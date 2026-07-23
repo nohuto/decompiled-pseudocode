@@ -1,17 +1,17 @@
 /*
- * XREFs of KiResumeClockTimer @ 0x140523C58
+ * XREFs of KiResumeClockTimer @ 0x1405262C8
  * Callers:
- *     KeResumeClockTimer @ 0x140523C40 (KeResumeClockTimer.c)
- *     KeResumeClockTimerSafe @ 0x1405EE0F0 (KeResumeClockTimerSafe.c)
+ *     KeResumeClockTimer @ 0x1405262B0 (KeResumeClockTimer.c)
+ *     KeResumeClockTimerSafe @ 0x1405F0A60 (KeResumeClockTimerSafe.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiSetClockTimerKTimerDeadlines @ 0x140379C60 (KiSetClockTimerKTimerDeadlines.c)
- *     KiRestoreClockTickRate @ 0x140418994 (KiRestoreClockTickRate.c)
- *     KiSetClockTimer @ 0x140418F10 (KiSetClockTimer.c)
- *     KiEventClockStateChange @ 0x14048CBA0 (KiEventClockStateChange.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x14037BA10 (KiSetClockTimerKTimerDeadlines.c)
+ *     KiRestoreClockTickRate @ 0x14040CECC (KiRestoreClockTickRate.c)
+ *     KiSetClockTimer @ 0x14040D440 (KiSetClockTimer.c)
+ *     KiEventClockStateChange @ 0x1404866E0 (KiEventClockStateChange.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiResumeClockTimer(__int64 a1, __int64 a2)
@@ -22,11 +22,11 @@ __int64 __fastcall KiResumeClockTimer(__int64 a1, __int64 a2)
   __int64 result; // rax
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 InterruptTimePrecise; // r14
+  LARGE_INTEGER InterruptTimePrecise; // r14
   unsigned __int8 CurrentIrql; // si
   __int64 v10; // [rsp+70h] [rbp+8h] BYREF
   __int64 v11; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int64 v12; // [rsp+80h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+80h] [rbp+18h] BYREF
 
   v11 = 0LL;
   v2 = 0;
@@ -57,7 +57,7 @@ LABEL_8:
   ++KiClockStats;
   CurrentPrcb->ClockOwner = 1;
 LABEL_9:
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v12);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   if ( KiClockTimerPerCpuTickScheduling )
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -79,13 +79,13 @@ LABEL_9:
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
   }
-  result = KiRestoreClockTickRate(InterruptTimePrecise, &v10, (int *)&v11);
+  result = KiRestoreClockTickRate(InterruptTimePrecise.QuadPart, &v10, (int *)&v11);
   if ( v2 )
   {
     if ( v4 == 2 )
       LOBYTE(v4) = _InterlockedExchange(&KiClockState, 0);
     KiEventClockStateChange(0, v4, &v11, &v10);
-    result = InterruptTimePrecise + (unsigned int)KeTimeIncrement;
+    result = InterruptTimePrecise.QuadPart + (unsigned int)KeTimeIncrement;
     KiClockTimerNextTickTime = result;
   }
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCloneKCBValueListForTrans @ 0x1406BCDE4
+ * XREFs of CmpCloneKCBValueListForTrans @ 0x14061BF60
  * Callers:
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x14065B364 (CmDeleteValueKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvDuplicateCell @ 0x1406BCEB4 (HvDuplicateCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvDuplicateCell @ 0x14061C030 (HvDuplicateCell.c)
  */
 
 char __fastcall CmpCloneKCBValueListForTrans(__int64 a1, __int64 a2, _BYTE *a3)

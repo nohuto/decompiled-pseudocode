@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __cdecl memicmp_0(const void *Buf1, const void *Buf2, size_t Size)
+int __cdecl memicmp_0(const void *_Buf1, const void *_Buf2, size_t _Size)
 {
   int v3; // r9d
   int v4; // eax
@@ -16,15 +16,15 @@ int __cdecl memicmp_0(const void *Buf1, const void *Buf2, size_t Size)
 
   v3 = 0;
   v4 = 0;
-  if ( Size )
+  if ( _Size )
   {
-    v5 = (_BYTE *)Buf1 - (_BYTE *)Buf2;
+    v5 = (_BYTE *)_Buf1 - (_BYTE *)_Buf2;
     do
     {
-      v6 = *((_BYTE *)Buf2 + v5);
-      --Size;
-      v7 = *(_BYTE *)Buf2;
-      if ( v6 != *(_BYTE *)Buf2 )
+      v6 = *((_BYTE *)_Buf2 + v5);
+      --_Size;
+      v7 = *(_BYTE *)_Buf2;
+      if ( v6 != *(_BYTE *)_Buf2 )
       {
         v3 = v6;
         if ( (unsigned __int8)(v6 - 65) <= 0x19u )
@@ -35,9 +35,9 @@ int __cdecl memicmp_0(const void *Buf1, const void *Buf2, size_t Size)
         if ( v3 != v4 )
           break;
       }
-      Buf2 = (char *)Buf2 + 1;
+      _Buf2 = (char *)_Buf2 + 1;
     }
-    while ( Size );
+    while ( _Size );
   }
   return v3 - v4;
 }

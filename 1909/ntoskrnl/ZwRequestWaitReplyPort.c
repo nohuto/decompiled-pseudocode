@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwRequestWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE LpcRe
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, LpcReply, LpcRequest);
+  return KiServiceInternal(PortHandle);
 }

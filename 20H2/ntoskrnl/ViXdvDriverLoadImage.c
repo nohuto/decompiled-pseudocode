@@ -17,12 +17,12 @@
 
 char __fastcall ViXdvDriverLoadImage(__int64 a1)
 {
-  __int64 v1; // rbp
+  char *v1; // rbp
   char v2; // r14
-  __int64 v3; // rax
-  __int64 v4; // rbx
+  _DWORD *v3; // rax
+  _DWORD *v4; // rbx
   char v5; // r12
-  __int64 v6; // r13
+  char *v6; // r13
   char v7; // r15
   __int64 v8; // rdi
   const char *v9; // rsi
@@ -32,21 +32,21 @@ char __fastcall ViXdvDriverLoadImage(__int64 a1)
   __int64 (*v13)(void); // rax
   void (__fastcall *v14)(__int64 (__fastcall **)(PCONTEXT)); // rax
   __int64 (__fastcall *v15)(_QWORD); // rax
-  __int64 v17; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v17; // [rsp+50h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(char **)(a1 + 48);
   v2 = 1;
-  v3 = RtlImageDirectoryEntryToData(v1, 1, 0, (int)&v17);
+  v3 = RtlImageDirectoryEntryToData(v1, 1u, 0, &v17);
   v4 = v3;
-  if ( !v3 || !*(_DWORD *)(v3 + 24) )
+  if ( !v3 || !v3[6] )
     return 0;
   v5 = 0;
-  v6 = v1 + *(unsigned int *)(v3 + 32);
+  v6 = &v1[v3[8]];
   v7 = 0;
   v8 = 0LL;
   do
   {
-    v9 = (const char *)(v1 + *(unsigned int *)(v6 + 4 * v8));
+    v9 = &v1[*(unsigned int *)&v6[4 * v8]];
     if ( !strcmp("DifLoadPlugins", v9) )
     {
       if ( VfIsRuleClassEnabled(0x23u) )
@@ -106,7 +106,7 @@ char __fastcall ViXdvDriverLoadImage(__int64 a1)
     }
     v8 = (unsigned int)(v8 + 1);
   }
-  while ( (unsigned int)v8 < *(_DWORD *)(v4 + 24) );
+  while ( (unsigned int)v8 < v4[6] );
   if ( !v5 || !v7 )
     return 0;
   return v2;

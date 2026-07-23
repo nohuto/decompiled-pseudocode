@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMGetRelatedDeviceInstance @ 0x140799CF0
+ * XREFs of PiCMGetRelatedDeviceInstance @ 0x140799EE0
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0760 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406D0790 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbCopyExW @ 0x14034E7C0 (RtlStringCbCopyExW.c)
- *     PiGetRelatedDevice @ 0x1406C91E8 (PiGetRelatedDevice.c)
- *     _CmValidateDeviceName @ 0x1406CE7C0 (_CmValidateDeviceName.c)
- *     PiCMReturnBufferResultData @ 0x1406D060C (PiCMReturnBufferResultData.c)
- *     PiCMReleaseObjectInputData @ 0x14079A0D8 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14079A184 (PiCMCaptureObjectInputData.c)
- *     _CmGetDeviceParent @ 0x14079A334 (_CmGetDeviceParent.c)
- *     _CmIsRootDevice @ 0x14079A498 (_CmIsRootDevice.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbCopyExW @ 0x14034E960 (RtlStringCbCopyExW.c)
+ *     PiGetRelatedDevice @ 0x1406C9218 (PiGetRelatedDevice.c)
+ *     _CmValidateDeviceName @ 0x1406CE7F0 (_CmValidateDeviceName.c)
+ *     PiCMReturnBufferResultData @ 0x1406D063C (PiCMReturnBufferResultData.c)
+ *     PiCMReleaseObjectInputData @ 0x14079A2C8 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14079A374 (PiCMCaptureObjectInputData.c)
+ *     _CmGetDeviceParent @ 0x14079A524 (_CmGetDeviceParent.c)
+ *     _CmIsRootDevice @ 0x14079A688 (_CmIsRootDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCancelAlertedRequest @ 0x1404F0BD8
+ * XREFs of IopCancelAlertedRequest @ 0x1404D2CCC
  * Callers:
- *     NtSetInformationFile @ 0x140079360 (NtSetInformationFile.c)
- *     IopWaitForSynchronousIo @ 0x1400CA4C0 (IopWaitForSynchronousIo.c)
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     NtQueryInformationFile @ 0x140444D30 (NtQueryInformationFile.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x1404C9698 (IopSynchronousApiServiceTail.c)
- *     IoSetInformation @ 0x1404E8078 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x1400793E0 (NtSetInformationFile.c)
+ *     IopWaitForSynchronousIo @ 0x1400C8360 (IopWaitForSynchronousIo.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     NtQueryInformationFile @ 0x140443C00 (NtQueryInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x1404AF418 (IopSynchronousApiServiceTail.c)
+ *     IoSetInformation @ 0x1404CA404 (IoSetInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoCancelIrp @ 0x1400A2054 (IoCancelIrp.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoCancelIrp @ 0x1400A097C (IoCancelIrp.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
  */
 
 char __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)

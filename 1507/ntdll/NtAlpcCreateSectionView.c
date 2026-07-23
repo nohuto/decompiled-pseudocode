@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcCreateSectionView()
+NTSTATUS __cdecl NtAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, PALPC_DATA_VIEW_ATTR ViewAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 122LL;
+  result = 122;
   __asm { syscall; Low latency system call }
   return result;
 }

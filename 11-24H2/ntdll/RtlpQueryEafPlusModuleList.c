@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpQueryEafPlusModuleList @ 0x1801131A8
+ * XREFs of RtlpQueryEafPlusModuleList @ 0x1800A3084
  * Callers:
- *     RtlQueryImageMitigationPolicy @ 0x180087B60 (RtlQueryImageMitigationPolicy.c)
+ *     RtlQueryImageMitigationPolicy @ 0x1800A3620 (RtlQueryImageMitigationPolicy.c)
  * Callees:
- *     RtlQueryImageFileKeyOption @ 0x180089B50 (RtlQueryImageFileKeyOption.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800A5610 (RtlQueryImageFileKeyOption.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpQueryEafPlusModuleList(__int64 a1, void *a2)
+__int64 __fastcall RtlpQueryEafPlusModuleList(HANDLE KeyHandle, void *a2)
 {
-  unsigned int v4; // esi
+  unsigned int v3; // esi
   int ImageFileKeyOption; // eax
 
   memset_thunk_772440563353939046(a2, 0, 0x400uLL);
-  v4 = 0;
-  ImageFileKeyOption = RtlQueryImageFileKeyOption(a1, L"EAFModules", 1, (int *)a2, 0x400u, 0LL);
+  v3 = 0;
+  ImageFileKeyOption = RtlQueryImageFileKeyOption(KeyHandle, (wchar_t *)L"EAFModules", 1024, 0LL);
   if ( ImageFileKeyOption >= 0 )
     return 0LL;
   if ( ImageFileKeyOption != -1073741772 )
     return (unsigned int)ImageFileKeyOption;
-  return v4;
+  return v3;
 }

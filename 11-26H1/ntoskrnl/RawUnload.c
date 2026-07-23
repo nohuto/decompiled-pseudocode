@@ -1,14 +1,14 @@
 /*
- * XREFs of RawUnload @ 0x1407FFF00
+ * XREFs of RawUnload @ 0x140805930
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
  */
 
 LONG_PTR RawUnload()
 {
-  ObfDereferenceObject(NormalizationListLock.Timer.TimerListEntry.Blink);
-  ObfDereferenceObject(*(PVOID *)&NormalizationListLock.Timer.Processor);
-  return ObfDereferenceObject(NormalizationListLock.Timer.Dpc);
+  ObfDereferenceObject(*(PVOID *)&NormalizationListLock.WaitBlockFill11[16]);
+  ObfDereferenceObject(NormalizationListLock.WaitBlock[0].WaitListEntry.Blink);
+  return ObfDereferenceObject(NormalizationListLock.WaitBlock[0].WaitListEntry.Flink);
 }

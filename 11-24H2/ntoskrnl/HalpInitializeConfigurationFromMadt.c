@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInitializeConfigurationFromMadt @ 0x140C11680
+ * XREFs of HalpInitializeConfigurationFromMadt @ 0x140C13674
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140C119F8 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140C139F8 (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     HalpParseChannelCount @ 0x140568100 (HalpParseChannelCount.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HalpAllocateNumaConfigData @ 0x140C11238 (HalpAllocateNumaConfigData.c)
- *     HalpChannelInitializeStaticConfiguration @ 0x140C14C38 (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     HalpParseChannelCount @ 0x140565BF0 (HalpParseChannelCount.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HalpAllocateNumaConfigData @ 0x140C1322C (HalpAllocateNumaConfigData.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140C16C38 (HalpChannelInitializeStaticConfiguration.c)
  */
 
 __int64 __fastcall HalpInitializeConfigurationFromMadt(__int64 a1)
@@ -52,7 +52,7 @@ __int64 __fastcall HalpInitializeConfigurationFromMadt(__int64 a1)
   __int64 v38; // rcx
 
   v1 = 0;
-  result = HalpAcpiGetTable(a1, 1128878145, 0LL, 0LL);
+  result = HalpAcpiGetTable(a1, 1128878145, 0, 0);
   if ( result )
   {
     v3 = (char *)(result + 44);

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiSwapDirectoryTableBaseTarget @ 0x1402BD0A0
+ * XREFs of KiSwapDirectoryTableBaseTarget @ 0x140307D60
  * Callers:
  *     <none>
  * Callees:
- *     KiLoadDirectoryTableBase @ 0x140247600 (KiLoadDirectoryTableBase.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeCanUseHaltOnAddress @ 0x1403E5790 (KeCanUseHaltOnAddress.c)
- *     KiHaltOnAddress @ 0x1403E57E8 (KiHaltOnAddress.c)
- *     MmStealTopLevelPage @ 0x1404C2F84 (MmStealTopLevelPage.c)
+ *     KiLoadDirectoryTableBase @ 0x140248F60 (KiLoadDirectoryTableBase.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeCanUseHaltOnAddress @ 0x1403E8980 (KeCanUseHaltOnAddress.c)
+ *     KiHaltOnAddress @ 0x1403E89D8 (KiHaltOnAddress.c)
+ *     MmStealTopLevelPage @ 0x1404BC7D4 (MmStealTopLevelPage.c)
  */
 
 volatile signed __int32 *__fastcall KiSwapDirectoryTableBaseTarget(

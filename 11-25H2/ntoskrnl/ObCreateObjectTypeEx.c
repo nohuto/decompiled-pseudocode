@@ -80,7 +80,7 @@ __int64 __fastcall ObCreateObjectTypeEx(PCUNICODE_STRING SourceString, _DWORD *S
   __int128 P_8; // [rsp+70h] [rbp-98h] BYREF
   __int64 v56; // [rsp+80h] [rbp-88h]
   __int16 *v57; // [rsp+88h] [rbp-80h]
-  STRING v58; // [rsp+90h] [rbp-78h] BYREF
+  _STRING v58; // [rsp+90h] [rbp-78h] BYREF
   PVOID v59; // [rsp+A0h] [rbp-68h]
   _QWORD *v60; // [rsp+A8h] [rbp-60h]
   __int128 v61; // [rsp+B8h] [rbp-50h] BYREF

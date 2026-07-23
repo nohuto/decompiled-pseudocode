@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpValidateFilterDescriptors @ 0x1406A940C
+ * XREFs of EtwpValidateFilterDescriptors @ 0x1406A9544
  * Callers:
- *     EtwpValidateEnableNotification @ 0x14048ED80 (EtwpValidateEnableNotification.c)
+ *     EtwpValidateEnableNotification @ 0x14048F810 (EtwpValidateEnableNotification.c)
  * Callees:
- *     EtwpAllocateEventNameFilter @ 0x1406A8494 (EtwpAllocateEventNameFilter.c)
- *     EtwpAllocatePayloadFilterData @ 0x1406A8854 (EtwpAllocatePayloadFilterData.c)
- *     EtwpAllocateStringFilterData @ 0x1406A88D8 (EtwpAllocateStringFilterData.c)
- *     EtwpCreatePerfectHashFunction @ 0x1406A8DE0 (EtwpCreatePerfectHashFunction.c)
+ *     EtwpAllocateEventNameFilter @ 0x1406A85CC (EtwpAllocateEventNameFilter.c)
+ *     EtwpAllocatePayloadFilterData @ 0x1406A898C (EtwpAllocatePayloadFilterData.c)
+ *     EtwpAllocateStringFilterData @ 0x1406A8A10 (EtwpAllocateStringFilterData.c)
+ *     EtwpCreatePerfectHashFunction @ 0x1406A8F18 (EtwpCreatePerfectHashFunction.c)
  */
 
 __int64 __fastcall EtwpValidateFilterDescriptors(_DWORD *a1, _QWORD *a2)

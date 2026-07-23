@@ -1,13 +1,13 @@
 /*
- * XREFs of SleepstudyHelperCreateBlockerFromGuid @ 0x1403E4390
+ * XREFs of SleepstudyHelperCreateBlockerFromGuid @ 0x1403D1F30
  * Callers:
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A24E10 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
- *     SleepstudyHelper_RegisterComponentEx @ 0x140ACB790 (SleepstudyHelper_RegisterComponentEx.c)
- *     PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140C2EB68 (PopUserShutdownInitializeSleepstudyDiagnostics.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A18E00 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x140AC9430 (SleepstudyHelper_RegisterComponentEx.c)
+ *     PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140C30C88 (PopUserShutdownInitializeSleepstudyDiagnostics.c)
  * Callees:
- *     SleepstudyHelperSetBlockerFriendlyName @ 0x1403E4470 (SleepstudyHelperSetBlockerFriendlyName.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A252E0 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SSHSupportAllocatePaged @ 0x140A4D3C8 (SSHSupportAllocatePaged.c)
+ *     SleepstudyHelperSetBlockerFriendlyName @ 0x1403D2010 (SleepstudyHelperSetBlockerFriendlyName.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A192D0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SSHSupportAllocatePaged @ 0x140A43F58 (SSHSupportAllocatePaged.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateBlockerFromGuid(

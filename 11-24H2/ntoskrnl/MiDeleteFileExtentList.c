@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteFileExtentList @ 0x1407F02DC
+ * XREFs of MiDeleteFileExtentList @ 0x1407F08AC
  * Callers:
- *     MiDeleteSegmentPages @ 0x1403707BC (MiDeleteSegmentPages.c)
- *     MiEnableImageDirectMap @ 0x14067A928 (MiEnableImageDirectMap.c)
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
- *     MiDeleteFileExtents @ 0x140A204B8 (MiDeleteFileExtents.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiDeleteSegmentPages @ 0x140203D4C (MiDeleteSegmentPages.c)
+ *     MiEnableImageDirectMap @ 0x14067BB08 (MiEnableImageDirectMap.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
+ *     MiDeleteFileExtents @ 0x140A155B8 (MiDeleteFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiGetExtentTable @ 0x14067B2D8 (MiGetExtentTable.c)
- *     MiLockFileExtentsExclusive @ 0x1407F0608 (MiLockFileExtentsExclusive.c)
- *     MiUnlockFileExtentsExclusive @ 0x1407F0688 (MiUnlockFileExtentsExclusive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiGetExtentTable @ 0x14067C4B8 (MiGetExtentTable.c)
+ *     MiLockFileExtentsExclusive @ 0x1407F0BD8 (MiLockFileExtentsExclusive.c)
+ *     MiUnlockFileExtentsExclusive @ 0x1407F0C58 (MiUnlockFileExtentsExclusive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteFileExtentList(_DWORD *P)

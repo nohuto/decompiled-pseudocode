@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwReleaseSemaphore @ 0x1401B82D0
+ * XREFs of ZwReleaseSemaphore @ 0x1401B8430
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwReleaseSemaphore(HANDLE SemaphoreHandle, LONG ReleaseCount, PLONG PreviousCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SemaphoreHandle, *(_QWORD *)&ReleaseCount, PreviousCount);
+  return KiServiceInternal(SemaphoreHandle);
 }

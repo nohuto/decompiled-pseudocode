@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNode @ 0x1406EE134
+ * XREFs of PnpDeleteLockedDeviceNode @ 0x1406EF3D4
  * Callers:
- *     PnpDeleteLockedDeviceNodes @ 0x1406EDE18 (PnpDeleteLockedDeviceNodes.c)
- *     PnpCancelRemoveOnHungDevices @ 0x140827FEC (PnpCancelRemoveOnHungDevices.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1406EF0B8 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x1408291EC (PnpCancelRemoveOnHungDevices.c)
  * Callees:
- *     PoFxIdleDevice @ 0x140159F28 (PoFxIdleDevice.c)
- *     PoFxActivateDevice @ 0x14015A08C (PoFxActivateDevice.c)
- *     PnpRemoveLockedDeviceNode @ 0x14015A95C (PnpRemoveLockedDeviceNode.c)
- *     PipRestoreDevNodeState @ 0x14015ACC0 (PipRestoreDevNodeState.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x1406EB5B8 (PnpStartedDeviceNodeDependencyCheck.c)
- *     IopRemoveDevice @ 0x1406ECE04 (IopRemoveDevice.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406ED428 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x1408283DC (PnpQueryRemoveLockedDeviceNode.c)
+ *     PoFxIdleDevice @ 0x14015A028 (PoFxIdleDevice.c)
+ *     PoFxActivateDevice @ 0x14015A18C (PoFxActivateDevice.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14015AA5C (PnpRemoveLockedDeviceNode.c)
+ *     PipRestoreDevNodeState @ 0x14015ADC0 (PipRestoreDevNodeState.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x1406EC858 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     IopRemoveDevice @ 0x1406EE0A4 (IopRemoveDevice.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406EE6C8 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x1408295DC (PnpQueryRemoveLockedDeviceNode.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNode(

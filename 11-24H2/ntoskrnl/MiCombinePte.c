@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCombinePte @ 0x1406850D0
+ * XREFs of MiCombinePte @ 0x140686200
  * Callers:
  *     <none>
  * Callees:
- *     MiCombineCandidate @ 0x14020C0F0 (MiCombineCandidate.c)
- *     MiComputeCombineHash @ 0x14020C3A0 (MiComputeCombineHash.c)
- *     MiProcessSuitableForCombining @ 0x1402FB97C (MiProcessSuitableForCombining.c)
- *     MiComputeHash64 @ 0x14036D4E0 (MiComputeHash64.c)
- *     MiCombineWorkingSetTail @ 0x140685430 (MiCombineWorkingSetTail.c)
+ *     MiComputeCombineHash @ 0x140335700 (MiComputeCombineHash.c)
+ *     MiProcessSuitableForCombining @ 0x1403435EC (MiProcessSuitableForCombining.c)
+ *     MiCombineCandidate @ 0x140344930 (MiCombineCandidate.c)
+ *     MiComputeHash64 @ 0x14041CBD0 (MiComputeHash64.c)
+ *     MiCombineWorkingSetTail @ 0x140686560 (MiCombineWorkingSetTail.c)
  */
 
-__int64 __fastcall MiCombinePte(__int64 a1, __int64 *a2, int a3)
+__int64 __fastcall MiCombinePte(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rcx
   _QWORD *v6; // rdi
-  _QWORD *v7; // r14
+  __int64 *v7; // r14
   _QWORD *v8; // r9
   __int64 v9; // rbx
   __int64 v10; // r15
@@ -29,14 +29,14 @@ __int64 __fastcall MiCombinePte(__int64 a1, __int64 *a2, int a3)
   if ( !*(_QWORD *)(v5 + 104) )
   {
     v6 = *(_QWORD **)(a1 + 184);
-    v7 = (_QWORD *)v6[3];
+    v7 = (__int64 *)v6[3];
     v8 = (_QWORD *)*v7;
-    if ( (*(_DWORD *)(v5 + 184) & 0xF) != 0 || MiProcessSuitableForCombining(v5 - 1024) )
+    if ( (*(_DWORD *)(v5 + 184) & 0xF) != 0 || MiProcessSuitableForCombining(v5 - 1024, a2, a3, (__int64)v8) )
     {
-      if ( a3 < 1 )
+      if ( (int)a3 < 1 )
       {
-        v9 = *a2;
-        v10 = ((unsigned __int64)*a2 >> 12) & 0xFFFFFFFFFFLL;
+        v9 = *(_QWORD *)a2;
+        v10 = (*(_QWORD *)a2 >> 12) & 0xFFFFFFFFFFLL;
         v11 = (_QWORD *)(48 * v10 - 0x220000000000LL);
         if ( (__int64)v11[5] >= 0 )
         {
@@ -46,17 +46,17 @@ __int64 __fastcall MiCombinePte(__int64 a1, __int64 *a2, int a3)
             return 5LL;
           if ( (unsigned int)MiCombineCandidate(v8, 0, v11) )
           {
-            ++*(_QWORD *)(v7[13] + 16LL);
+            ++*(_QWORD *)(v7[13] + 16);
             v15 = (_QWORD *)(v6[4] + 40LL * v6[1]);
             *v15 = 0LL;
             v15[2] = v10;
             if ( (v9 & 0x20) != 0 )
             {
-              v16 = MiComputeHash64((__int64)((_QWORD)a2 << 25) >> 16);
+              v16 = MiComputeHash64(a2 << 25 >> 16);
               *(_QWORD *)(v17 + 8) = v16;
               goto LABEL_14;
             }
-            if ( (unsigned int)MiComputeCombineHash((__int64)v7, v15, 1) )
+            if ( (unsigned int)MiComputeCombineHash(v7, v15, 1) )
             {
 LABEL_14:
               if ( ++v6[1] == v6[2] )

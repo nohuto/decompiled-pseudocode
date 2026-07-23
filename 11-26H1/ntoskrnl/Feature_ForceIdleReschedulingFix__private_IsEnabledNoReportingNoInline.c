@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_ForceIdleReschedulingFix__private_IsEnabledNoReportingNoInline @ 0x1405FB1A4
+ * XREFs of Feature_ForceIdleReschedulingFix__private_IsEnabledNoReportingNoInline @ 0x1405FDBC4
  * Callers:
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404F1878 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404EAE58 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
  * Callees:
- *     Feature_ForceIdleReschedulingFix__private_IsEnabledFallback @ 0x140532DD4 (Feature_ForceIdleReschedulingFix__private_IsEnabledFallback.c)
+ *     Feature_ForceIdleReschedulingFix__private_IsEnabledFallback @ 0x140535274 (Feature_ForceIdleReschedulingFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ForceIdleReschedulingFix__private_IsEnabledNoReportingNoInline()

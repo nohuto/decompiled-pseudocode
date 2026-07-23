@@ -1,19 +1,19 @@
 /*
- * XREFs of MiPrefetchPreallocatePages @ 0x1404D5620
+ * XREFs of MiPrefetchPreallocatePages @ 0x1404CEA68
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1402A98D0 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchVirtualMemory @ 0x140351B80 (MiPrefetchVirtualMemory.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MI_NODE_FROM_PFN @ 0x1402245F0 (MI_NODE_FROM_PFN.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1402BB330 (MiUnlockAndDereferenceVadShared.c)
- *     MiProtectionToCacheAttribute @ 0x1402EF870 (MiProtectionToCacheAttribute.c)
- *     MiGetLargePage @ 0x1402F35A0 (MiGetLargePage.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiConvertLargeActivePageToChain @ 0x1403083C0 (MiConvertLargeActivePageToChain.c)
- *     MiThreadIdealNode @ 0x14036F010 (MiThreadIdealNode.c)
- *     MiPrefetchReleasePreallocatedPages @ 0x14045AD24 (MiPrefetchReleasePreallocatedPages.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MI_NODE_FROM_PFN @ 0x140251340 (MI_NODE_FROM_PFN.c)
+ *     MiGetLargePage @ 0x1402517B0 (MiGetLargePage.c)
+ *     MiProtectionToCacheAttribute @ 0x140253A30 (MiProtectionToCacheAttribute.c)
+ *     MiThreadIdealNode @ 0x14026AF90 (MiThreadIdealNode.c)
+ *     MiConvertLargeActivePageToChain @ 0x1403122A0 (MiConvertLargeActivePageToChain.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140362A70 (MiUnlockAndDereferenceVadShared.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x1404AE77C (MiPrefetchReleasePreallocatedPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiPrefetchPreallocatePages(
@@ -63,7 +63,7 @@ void __fastcall MiPrefetchPreallocatePages(
           v14 = (int *)(a1 + 40);
           goto LABEL_17;
         }
-        v15 = MiObtainReferencedVadEx(v9, 6LL, &v30);
+        v15 = MiObtainReferencedVadEx(v9, 6LL, &v30, a4);
         v17 = v15;
         if ( !v15 )
           goto LABEL_37;
@@ -95,11 +95,11 @@ LABEL_17:
               }
               v14 = (int *)(a1 + 40);
             }
-            MiPrefetchReleasePreallocatedPages(a1, (__int64)a2, (__int64)a3, 0LL);
+            MiPrefetchReleasePreallocatedPages(a1, (__int64)a2, (__int64)a3, 0);
           }
           *(_QWORD *)(a1 + 8) = 0LL;
           if ( *(_DWORD *)(a1 + 16)
-            || (v23 = (int)MiAcquireNonPagedResources(a3, 0x200uLL, 1024LL, 6u) >= 0, (*(_DWORD *)(a1 + 16) = v23) != 0) )
+            || (v23 = (int)MiAcquireNonPagedResources(a3, 0x200uLL, 1024LL, 6LL) >= 0, (*(_DWORD *)(a1 + 16) = v23) != 0) )
           {
             v24 = *v14;
             if ( v24 )
@@ -141,7 +141,7 @@ LABEL_17:
       }
 LABEL_37:
       if ( !*(_QWORD *)a1 )
-        MiPrefetchReleasePreallocatedPages(a1, (__int64)a2, (__int64)a3, 0LL);
+        MiPrefetchReleasePreallocatedPages(a1, (__int64)a2, (__int64)a3, 0);
     }
   }
 }

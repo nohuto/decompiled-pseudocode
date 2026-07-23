@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 NtCreateDirectoryObject()
+NTSTATUS __cdecl NtCreateDirectoryObject(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 155LL;
+  result = 155;
   __asm { syscall; Low latency system call }
   return result;
 }

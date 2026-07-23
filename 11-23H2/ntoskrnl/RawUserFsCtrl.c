@@ -1,15 +1,15 @@
 /*
- * XREFs of RawUserFsCtrl @ 0x140882194
+ * XREFs of RawUserFsCtrl @ 0x1408823D4
  * Callers:
- *     RawFileSystemControl @ 0x140791FA8 (RawFileSystemControl.c)
+ *     RawFileSystemControl @ 0x140792198 (RawFileSystemControl.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     RawBeginOperation @ 0x140321DBC (RawBeginOperation.c)
- *     RawEndOperation @ 0x14032217C (RawEndOperation.c)
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1403221B0 (ExWaitForRundownProtectionReleaseCacheAware.c)
- *     FsRtlNotifyVolumeEvent @ 0x140874C90 (FsRtlNotifyVolumeEvent.c)
- *     RawQueryFileSystemInformation @ 0x1409B8874 (RawQueryFileSystemInformation.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     RawBeginOperation @ 0x14032204C (RawBeginOperation.c)
+ *     RawEndOperation @ 0x14032240C (RawEndOperation.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x140322440 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     FsRtlNotifyVolumeEvent @ 0x140874ED0 (FsRtlNotifyVolumeEvent.c)
+ *     RawQueryFileSystemInformation @ 0x1409B8A74 (RawQueryFileSystemInformation.c)
  */
 
 __int64 __fastcall RawUserFsCtrl(__int64 a1, __int64 a2, __int64 a3)

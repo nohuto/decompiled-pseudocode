@@ -20,12 +20,12 @@
  *     RtlImpersonateSelfEx @ 0x140A28334 (RtlImpersonateSelfEx.c)
  */
 
-__int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
+NTSTATUS __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
 {
   __int64 v2; // rsi
   char v4; // bl
   int v5; // edi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 ThreadInformation; // [rsp+40h] [rbp+18h] BYREF
 
   LOBYTE(ThreadInformation) = 0;
@@ -37,8 +37,8 @@ __int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
   else
   {
     v4 = 0;
-    result = RtlImpersonateSelfEx(2LL, 0LL, 0LL);
-    if ( (int)result < 0 )
+    result = RtlImpersonateSelfEx(SecurityImpersonation, 0, 0LL);
+    if ( result < 0 )
       return result;
   }
   LOBYTE(a2) = 1;
@@ -57,5 +57,5 @@ __int64 __fastcall BiAcquirePrivilege(unsigned int a1, __int64 a2)
     *(_BYTE *)(v2 + 5) = v4;
     *(_DWORD *)v2 = a1;
   }
-  return (unsigned int)v5;
+  return v5;
 }

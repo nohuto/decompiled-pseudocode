@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateForkWsle @ 0x140663B68
+ * XREFs of MiCreateForkWsle @ 0x1406640B8
  * Callers:
- *     MiCreateForkWsle @ 0x140663B68 (MiCreateForkWsle.c)
- *     MiCreateForkWsles @ 0x140663C70 (MiCreateForkWsles.c)
+ *     MiCreateForkWsle @ 0x1406640B8 (MiCreateForkWsle.c)
+ *     MiCreateForkWsles @ 0x1406641C0 (MiCreateForkWsles.c)
  * Callees:
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCreateForkWsle @ 0x140663B68 (MiCreateForkWsle.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCreateForkWsle @ 0x1406640B8 (MiCreateForkWsle.c)
  */
 
 void __fastcall MiCreateForkWsle(__int64 a1, char a2, unsigned __int64 a3, unsigned __int64 a4, int a5)

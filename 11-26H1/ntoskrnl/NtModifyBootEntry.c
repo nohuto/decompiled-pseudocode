@@ -1,15 +1,15 @@
 /*
- * XREFs of NtModifyBootEntry @ 0x14083DB10
+ * XREFs of NtModifyBootEntry @ 0x140843D50
  * Callers:
- *     DifNtModifyBootEntryWrapper @ 0x14067BD60 (DifNtModifyBootEntryWrapper.c)
+ *     DifNtModifyBootEntryWrapper @ 0x14067F940 (DifNtModifyBootEntryWrapper.c)
  * Callees:
- *     ExpSetBootEntry @ 0x14083BEC0 (ExpSetBootEntry.c)
+ *     ExpSetBootEntry @ 0x140842100 (ExpSetBootEntry.c)
  */
 
-__int64 __fastcall NtModifyBootEntry(unsigned int *a1)
+NTSTATUS __cdecl NtModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 2 )
-    return ExpSetBootEntry(0, a1, 0LL);
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 2 )
+    return ExpSetBootEntry(0, &BootEntry->Version, 0LL);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

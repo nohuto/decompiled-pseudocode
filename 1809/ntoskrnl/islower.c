@@ -1,10 +1,10 @@
 /*
- * XREFs of islower @ 0x140195F40
+ * XREFs of islower @ 0x140196080
  * Callers:
- *     RtlIpv4StringToAddressA @ 0x140166920 (RtlIpv4StringToAddressA.c)
- *     RtlEthernetStringToAddressA @ 0x1402F3440 (RtlEthernetStringToAddressA.c)
- *     RtlIpv4StringToAddressExA @ 0x1402F3580 (RtlIpv4StringToAddressExA.c)
- *     RtlIpv6StringToAddressExA @ 0x1402F3B80 (RtlIpv6StringToAddressExA.c)
+ *     RtlIpv4StringToAddressA @ 0x140166A20 (RtlIpv4StringToAddressA.c)
+ *     RtlEthernetStringToAddressA @ 0x1402F3630 (RtlEthernetStringToAddressA.c)
+ *     RtlIpv4StringToAddressExA @ 0x1402F3770 (RtlIpv4StringToAddressExA.c)
+ *     RtlIpv6StringToAddressExA @ 0x1402F3D70 (RtlIpv6StringToAddressExA.c)
  * Callees:
  *     <none>
  */

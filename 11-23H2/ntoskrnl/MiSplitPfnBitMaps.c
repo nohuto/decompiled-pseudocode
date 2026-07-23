@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSplitPfnBitMaps @ 0x14081C5C8
+ * XREFs of MiSplitPfnBitMaps @ 0x14081C898
  * Callers:
- *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x14065B5A0 (MiSplitPfnBitMapsForPartitionHierarchy.c)
- *     MiCreatePfnBitMaps @ 0x14081C29C (MiCreatePfnBitMaps.c)
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
+ *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x14065BAF0 (MiSplitPfnBitMapsForPartitionHierarchy.c)
+ *     MiCreatePfnBitMaps @ 0x14081C56C (MiCreatePfnBitMaps.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x14020B1E8 (MiSplitBitmapPages.c)
  */

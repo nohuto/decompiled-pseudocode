@@ -1,11 +1,11 @@
 /*
- * XREFs of _snwscanf_s @ 0x14019AD40
+ * XREFs of _snwscanf_s @ 0x14019AE80
  * Callers:
- *     SiGetBootDeviceName @ 0x1406AE8A4 (SiGetBootDeviceName.c)
- *     SiGetBiosSystemDisk @ 0x140704428 (SiGetBiosSystemDisk.c)
+ *     SiGetBootDeviceName @ 0x1406AFB44 (SiGetBootDeviceName.c)
+ *     SiGetBiosSystemDisk @ 0x1407056C8 (SiGetBiosSystemDisk.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
- *     _swinput_s @ 0x14019E6D8 (_swinput_s.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
+ *     _swinput_s @ 0x14019E818 (_swinput_s.c)
  */
 
 int snwscanf_s(const wchar_t *Src, size_t MaxCount, const wchar_t *Format, ...)

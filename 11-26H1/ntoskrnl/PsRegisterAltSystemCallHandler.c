@@ -1,15 +1,15 @@
 /*
- * XREFs of PsRegisterAltSystemCallHandler @ 0x1407FC610
+ * XREFs of PsRegisterAltSystemCallHandler @ 0x140802040
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -50,7 +50,7 @@ __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2, _
   _m_prefetchw(&PsAltSystemCallRegistrationLock);
   v11 = *(_QWORD *)&PsAltSystemCallRegistrationLock.Header.Lock;
   v12 = *(_QWORD *)&PsAltSystemCallRegistrationLock.Header.Lock - 16LL;
-  if ( *((_QWORD *)&stru_140FC01F0.QueueListEntry.Blink + v4) )
+  if ( *((_QWORD *)&stru_140FC11F0.QueueListEntry.Blink + v4) )
   {
     if ( (*(_QWORD *)&PsAltSystemCallRegistrationLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
       v12 = 0LL;
@@ -65,10 +65,10 @@ __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2, _
     }
     KeAbPostRelease((unsigned __int64)&PsAltSystemCallRegistrationLock);
     KeLeaveCriticalRegion();
-    KeBugCheckEx(0x1E0u, 1uLL, *((_QWORD *)&stru_140FC01F0.QueueListEntry.Blink + v4), 0LL, 0LL);
+    KeBugCheckEx(0x1E0u, 1uLL, *((_QWORD *)&stru_140FC11F0.QueueListEntry.Blink + v4), 0LL, 0LL);
   }
   v14 = *(_QWORD *)&PsAltSystemCallRegistrationLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL;
-  *((_QWORD *)&stru_140FC01F0.QueueListEntry.Blink + v4) = a1;
+  *((_QWORD *)&stru_140FC11F0.QueueListEntry.Blink + v4) = a1;
   if ( v14 <= 0x10 )
     v12 = 0LL;
   if ( (v11 & 2) != 0

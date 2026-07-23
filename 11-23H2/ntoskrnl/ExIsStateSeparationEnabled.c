@@ -1,10 +1,10 @@
 /*
- * XREFs of ExIsStateSeparationEnabled @ 0x1409F8C08
+ * XREFs of ExIsStateSeparationEnabled @ 0x1409F8E98
  * Callers:
- *     PspSiloInitializeIsStateSeparationEnabled @ 0x1409AD644 (PspSiloInitializeIsStateSeparationEnabled.c)
+ *     PspSiloInitializeIsStateSeparationEnabled @ 0x1409AD844 (PspSiloInitializeIsStateSeparationEnabled.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall ExIsStateSeparationEnabled(bool *a1)

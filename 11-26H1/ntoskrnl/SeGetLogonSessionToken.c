@@ -1,12 +1,12 @@
 /*
- * XREFs of SeGetLogonSessionToken @ 0x140AEA550
+ * XREFs of SeGetLogonSessionToken @ 0x140AED040
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall SeGetLogonSessionToken(void *a1, KPROCESSOR_MODE a2, _QWORD *a3)
@@ -40,10 +40,10 @@ NTSTATUS __fastcall SeGetLogonSessionToken(void *a1, KPROCESSOR_MODE a2, _QWORD 
       v12 = 0LL;
       v15 = 0LL;
       v13 = a2 == 0 ? 0x200 : 0;
-      inserted = SepDuplicateToken(*(_QWORD *)(*((_QWORD *)Object + 27) + 56LL), (__int64)v10, 0, 1, 0, 0, 0, &v8);
+      inserted = SepDuplicateToken(*(_QWORD *)(*((_QWORD *)Object + 27) + 56LL), (int)v10, 0, 1, 0, 0, 0, &v8);
       if ( inserted >= 0 )
       {
-        inserted = ObInsertObjectEx(v8, 0LL, 0xF01FFu, 0, 0, 0LL, &v9);
+        inserted = ObInsertObjectEx(v8, 0LL, 983551, 0, 0, 0LL, &v9);
         if ( inserted >= 0 )
           *a3 = v9;
       }

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTraceLogHeteroRundown @ 0x140438E68
+ * XREFs of KiTraceLogHeteroRundown @ 0x14042BA28
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x140438880 (KeConfigureHeteroProcessors.c)
- *     KiTraceLogControlCallback @ 0x1406F6980 (KiTraceLogControlCallback.c)
+ *     KeConfigureHeteroProcessors @ 0x14042B440 (KeConfigureHeteroProcessors.c)
+ *     KiTraceLogControlCallback @ 0x1406F4980 (KiTraceLogControlCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KiQueryHeteroSetFromSubNode @ 0x1404396D0 (KiQueryHeteroSetFromSubNode.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiQueryHeteroSetFromSubNode @ 0x14042C290 (KiQueryHeteroSetFromSubNode.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall KiTraceLogHeteroRundown(_DWORD *a1)
@@ -97,7 +97,7 @@ unsigned __int64 __fastcall KiTraceLogHeteroRundown(_DWORD *a1)
       v44 = 4LL;
       v21 = PpmHeteroMultiCoreClassesEnabled != 0;
       v43 = &v21;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)a1, (unsigned __int8 *)byte_140047E8B, 0LL, 0LL, 7u, &v34);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)a1, (unsigned __int8 *)byte_14004828B, 0LL, 0LL, 7u, &v34);
     }
     v4 = KiHgsPlusConfiguration;
     v5 = 0;
@@ -146,10 +146,10 @@ unsigned __int64 __fastcall KiTraceLogHeteroRundown(_DWORD *a1)
                   tlgCreate1Sz_char(v50, v32[KiDynamicHeteroCpuPolicy[v1 + v9]]);
                   v23 = v7;
                   v51 = &v23;
-                  v15 = *(_BYTE *)(v13 + v14 + 16539880);
+                  v15 = *(_BYTE *)(v13 + v14 + 16544048);
                   v52 = 4LL;
                   v53 = &v15;
-                  v16 = *(_BYTE *)(v13 + v14 + 16539896);
+                  v16 = *(_BYTE *)(v13 + v14 + 16544032);
                   v55 = &v16;
                   v27 = v29;
                   v57 = &v27;
@@ -163,7 +163,7 @@ unsigned __int64 __fastcall KiTraceLogHeteroRundown(_DWORD *a1)
                   v62 = 8LL;
                   tlgWriteTransfer_EtwWriteTransfer(
                     (__int64)a1,
-                    (unsigned __int8 *)byte_140047DA5,
+                    (unsigned __int8 *)byte_1400481A5,
                     0LL,
                     0LL,
                     0xCu,

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFormCopyExtents @ 0x1406FA11C
+ * XREFs of MiFormCopyExtents @ 0x1406FEDEC
  * Callers:
- *     MiInsertCopyExtents @ 0x1406FA5AC (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x1406FA964 (MiMergeCopyExtents.c)
+ *     MiInsertCopyExtents @ 0x1406FF27C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x1406FF634 (MiMergeCopyExtents.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
  */
 
 __int64 __fastcall MiFormCopyExtents(__int64 a1, unsigned int a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmCancelExitLatencyTrace @ 0x1405656E0
+ * XREFs of PpmCancelExitLatencyTrace @ 0x140565920
  * Callers:
- *     KdPowerTransitionEx @ 0x140510FC0 (KdPowerTransitionEx.c)
- *     PpmIdleCompleteExitLatencyTrace @ 0x14056670C (PpmIdleCompleteExitLatencyTrace.c)
+ *     KdPowerTransitionEx @ 0x140511200 (KdPowerTransitionEx.c)
+ *     PpmIdleCompleteExitLatencyTrace @ 0x14056694C (PpmIdleCompleteExitLatencyTrace.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIsXboxNanovisorPresent @ 0x14058526C
+ * XREFs of HalpIsXboxNanovisorPresent @ 0x14058778C
  * Callers:
- *     HalpHvIsFrequencyAvailable @ 0x1405850F8 (HalpHvIsFrequencyAvailable.c)
- *     HalpHvVpStartEnabled @ 0x140585F74 (HalpHvVpStartEnabled.c)
- *     HalpApicSetupRegisterAccess @ 0x1405913A8 (HalpApicSetupRegisterAccess.c)
- *     HalpHvStartProcessor @ 0x140592C34 (HalpHvStartProcessor.c)
- *     HaliAcpiMachineStateInit @ 0x1407854C0 (HaliAcpiMachineStateInit.c)
- *     HalpMiscGetParameters @ 0x140CAF604 (HalpMiscGetParameters.c)
+ *     HalpHvIsFrequencyAvailable @ 0x140587618 (HalpHvIsFrequencyAvailable.c)
+ *     HalpHvVpStartEnabled @ 0x140588494 (HalpHvVpStartEnabled.c)
+ *     HalpApicSetupRegisterAccess @ 0x140593B28 (HalpApicSetupRegisterAccess.c)
+ *     HalpHvStartProcessor @ 0x1405953B4 (HalpHvStartProcessor.c)
+ *     HaliAcpiMachineStateInit @ 0x140787FF0 (HaliAcpiMachineStateInit.c)
+ *     HalpMiscGetParameters @ 0x140CB5644 (HalpMiscGetParameters.c)
  * Callees:
  *     <none>
  */

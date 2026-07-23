@@ -1,23 +1,23 @@
 /*
- * XREFs of MiWsleFree @ 0x1402813A0
+ * XREFs of MiWsleFree @ 0x140281630
  * Callers:
- *     MiFreeWsleList @ 0x140280C20 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x140280EB0 (MiFreeWsleList.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
- *     MiPageMightBeZero @ 0x140281800 (MiPageMightBeZero.c)
- *     MiPfnShareCountIsZero @ 0x1402818C0 (MiPfnShareCountIsZero.c)
- *     MiCaptureDirtyBitToPfn @ 0x140283100 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x140346C04 (MiRewriteTrimPteAsDemandZero.c)
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
- *     MiBadShareCount @ 0x14064D68C (MiBadShareCount.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
+ *     MiPageMightBeZero @ 0x140281A90 (MiPageMightBeZero.c)
+ *     MiPfnShareCountIsZero @ 0x140281B50 (MiPfnShareCountIsZero.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140283390 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140346E94 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
+ *     MiBadShareCount @ 0x14064DBDC (MiBadShareCount.c)
  */
 
 __int64 MiWsleFree(__int64 a1, unsigned __int64 a2, char a3, ...)

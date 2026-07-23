@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReplaceLockedPage @ 0x14018B034
+ * XREFs of MiReplaceLockedPage @ 0x14018B174
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x1400EB40C (MiTrimSharedPageFromViews.c)
+ *     MiTrimSharedPageFromViews @ 0x1400EB48C (MiTrimSharedPageFromViews.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     MiCanPageMove @ 0x1401183F4 (MiCanPageMove.c)
- *     MiTradeActivePage @ 0x14012DF24 (MiTradeActivePage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     MiCanPageMove @ 0x140118464 (MiCanPageMove.c)
+ *     MiTradeActivePage @ 0x14012DFF4 (MiTradeActivePage.c)
  */
 
 __int64 __fastcall MiReplaceLockedPage(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
@@ -30,8 +30,8 @@ __int64 __fastcall MiReplaceLockedPage(__int64 a1, __int64 a2, unsigned __int64 
     v8 = (*(_QWORD *)(a2 + 40) >> 36) & 3LL;
     v9 = MiPageToNode((a2 + 0x58000000000LL) / 48, 0);
     Page = MiGetPage(
-             *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a2 + 40) >> 40) & 0x3FFLL)),
-             (v9 << byte_14043A049) | ((_DWORD)v8 << byte_14043A04A) | (unsigned int)((a2 + 0x58000000000LL) / 48) & dword_14043A088,
+             *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a2 + 40) >> 40) & 0x3FFLL)),
+             (v9 << byte_14043B109) | ((_DWORD)v8 << byte_14043B10A) | (unsigned int)((a2 + 0x58000000000LL) / 48) & dword_14043B148,
              0);
     if ( Page != -1 )
     {

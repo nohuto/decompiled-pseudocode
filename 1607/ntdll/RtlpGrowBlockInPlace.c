@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpGrowBlockInPlace @ 0x18004C470
+ * XREFs of RtlpGrowBlockInPlace @ 0x18004C460
  * Callers:
- *     RtlpReAllocateHeap @ 0x1800211D0 (RtlpReAllocateHeap.c)
+ *     RtlpReAllocateHeap @ 0x1800211C0 (RtlpReAllocateHeap.c)
  * Callees:
- *     RtlpCommitBlock @ 0x180028B34 (RtlpCommitBlock.c)
- *     RtlpDeCommitFreeBlock @ 0x18004A810 (RtlpDeCommitFreeBlock.c)
- *     RtlpCreateSplitBlock @ 0x18004BF00 (RtlpCreateSplitBlock.c)
- *     RtlpZeroBlockFromOffset @ 0x18004CA94 (RtlpZeroBlockFromOffset.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     RtlpCommitBlock @ 0x180028B24 (RtlpCommitBlock.c)
+ *     RtlpDeCommitFreeBlock @ 0x18004A800 (RtlpDeCommitFreeBlock.c)
+ *     RtlpCreateSplitBlock @ 0x18004BEF0 (RtlpCreateSplitBlock.c)
+ *     RtlpZeroBlockFromOffset @ 0x18004CA84 (RtlpZeroBlockFromOffset.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     RtlCompareMemoryUlong @ 0x1800AA730 (RtlCompareMemoryUlong.c)
- *     RtlpUpdateTagEntry @ 0x1800EADFC (RtlpUpdateTagEntry.c)
+ *     RtlpUpdateTagEntry @ 0x1800EAEBC (RtlpUpdateTagEntry.c)
  *     RtlpAnalyzeHeapFailure @ 0x1800F79F4 (RtlpAnalyzeHeapFailure.c)
  *     RtlpBreakPointHeap @ 0x1800FB678 (RtlpBreakPointHeap.c)
  */
@@ -57,8 +57,8 @@ char __fastcall RtlpGrowBlockInPlace(
   __int64 *v39; // rax
   __int64 v40; // r15
   unsigned __int64 v41; // rax
-  unsigned __int64 v42; // rdi
-  __int64 v43; // r14
+  SIZE_T v42; // rdi
+  SIZE_T v43; // r14
   __int64 v44; // rax
   unsigned int v45; // ecx
   int v46; // eax
@@ -191,7 +191,7 @@ LABEL_28:
   }
   *v51 = v13;
   *(_QWORD *)(v13 + 8) = v51;
-  if ( (*(_BYTE *)(v10 + 10) & 8) != 0 && !RtlpCommitBlock(a1, v10) )
+  if ( (*(_BYTE *)(v10 + 10) & 8) != 0 && !RtlpCommitBlock((PVOID)a1, v10) )
   {
     RtlpDeCommitFreeBlock(a1, v10, *(unsigned __int16 *)(v10 + 8), 1);
     return 0;
@@ -202,7 +202,7 @@ LABEL_28:
     v42 = 16LL * *(unsigned __int16 *)(v10 + 8) - 32;
     if ( (v27 & 2) != 0 && v42 > 4 )
       v42 = 16LL * *(unsigned __int16 *)(v10 + 8) - 36;
-    v43 = RtlCompareMemoryUlong(v10 + 32, v42, 4277075694LL);
+    v43 = RtlCompareMemoryUlong((PVOID)(v10 + 32), v42, 0xFEEEFEEE);
     if ( v43 != v42 )
     {
       if ( NtCurrentPeb()->Ldr )

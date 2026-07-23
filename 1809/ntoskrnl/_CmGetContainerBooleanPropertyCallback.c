@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmGetContainerBooleanPropertyCallback @ 0x1408F92B0
+ * XREFs of _CmGetContainerBooleanPropertyCallback @ 0x1408FA570
  * Callers:
  *     <none>
  * Callees:
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall CmGetContainerBooleanPropertyCallback(__int64 a1, __int64 a2, __int64 a3)

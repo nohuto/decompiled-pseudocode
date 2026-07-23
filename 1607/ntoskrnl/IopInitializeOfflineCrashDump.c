@@ -1,17 +1,17 @@
 /*
- * XREFs of IopInitializeOfflineCrashDump @ 0x14013D3BC
+ * XREFs of IopInitializeOfflineCrashDump @ 0x14013D92C
  * Callers:
  *     IopInitCrashDumpDuringSysInit @ 0x1407AB1C0 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IopConstructInMemoryDumpHeader @ 0x1401C7070 (IopConstructInMemoryDumpHeader.c)
- *     IopInitializeInMemoryDumpData @ 0x1401C75E4 (IopInitializeInMemoryDumpData.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IopConstructInMemoryDumpHeader @ 0x1401C6F10 (IopConstructInMemoryDumpHeader.c)
+ *     IopInitializeInMemoryDumpData @ 0x1401C7484 (IopInitializeInMemoryDumpData.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x1404E6780 (IopOpenRegistryKey.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     IoGetEnvironmentVariableEx @ 0x140628138 (IoGetEnvironmentVariableEx.c)
- *     IoSetEnvironmentVariableEx @ 0x140628264 (IoSetEnvironmentVariableEx.c)
+ *     IopOpenRegistryKey @ 0x1404C90F0 (IopOpenRegistryKey.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     IoGetEnvironmentVariableEx @ 0x1406281EC (IoGetEnvironmentVariableEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x140628318 (IoSetEnvironmentVariableEx.c)
  *     IopCachePreviousBootData @ 0x1407CE44C (IopCachePreviousBootData.c)
  */
 
@@ -32,7 +32,7 @@ void __fastcall IopInitializeOfflineCrashDump(__int64 a1)
   v1 = 0;
   v11[0] = 2012912317;
   Handle = 0LL;
-  dword_140328E40 = 0;
+  dword_140328E80 = 0;
   v11[1] = 1295123289;
   v11[2] = -198680387;
   v11[3] = 1266192359;
@@ -46,7 +46,7 @@ void __fastcall IopInitializeOfflineCrashDump(__int64 a1)
     if ( (unsigned int)(*(_DWORD *)(a1 + 2424) - 1) <= 1 )
     {
       PoOffCrashConfigTable = *(_OWORD *)(a1 + 2424);
-      xmmword_140304CD0 = *(_OWORD *)(a1 + 2440);
+      xmmword_140304D10 = *(_OWORD *)(a1 + 2440);
       v2 = IopOpenRegistryKey(&Handle, 0LL, &v9, 131097LL, 0);
       if ( v2 >= 0 )
       {
@@ -102,18 +102,18 @@ LABEL_14:
       }
       else
       {
-        dword_140328E40 = v2;
+        dword_140328E80 = v2;
       }
     }
     else
     {
-      dword_140328E40 = -1073741736;
+      dword_140328E80 = -1073741736;
     }
     if ( Handle )
       ObCloseHandle(Handle, 0);
   }
   else
   {
-    dword_140328E40 = -1073741275;
+    dword_140328E80 = -1073741275;
   }
 }

@@ -1,39 +1,27 @@
 /*
- * XREFs of ExDestroyPool @ 0x140654030
+ * XREFs of ExDestroyPool @ 0x140652790
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpMetadataFree @ 0x140420E2C (RtlpHpMetadataFree.c)
- *     ExpPoolContextHeaderFromHandle @ 0x1404F5F24 (ExpPoolContextHeaderFromHandle.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     VslSecurePoolDestroy @ 0x14058E490 (VslSecurePoolDestroy.c)
- *     ExpPrivatePoolDestroy @ 0x1407C616C (ExpPrivatePoolDestroy.c)
+ *     ExpPoolContextHeaderFromHandle @ 0x1404F3824 (ExpPoolContextHeaderFromHandle.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExpPrivatePoolDestroy @ 0x1407C65CC (ExpPrivatePoolDestroy.c)
  */
 
 __int64 __fastcall ExDestroyPool(__int64 a1)
 {
   _DWORD *v1; // rax
-  ULONG_PTR v2; // r8
-  ULONG_PTR v3; // rbx
-  int v4; // eax
-  int v5; // eax
-  __int128 v7; // [rsp+30h] [rbp-18h] BYREF
+  ULONG_PTR v2; // r10
 
   v1 = ExpPoolContextHeaderFromHandle(a1);
-  v3 = (ULONG_PTR)v1;
   if ( !v1 )
-    goto LABEL_8;
-  v4 = v1[1] - 1;
-  if ( !v4 )
-    return ExpPrivatePoolDestroy(v3);
-  if ( v4 != 1 )
-LABEL_8:
+LABEL_6:
     KeBugCheckEx(0xC2u, 0x9EuLL, v2, 0LL, 0LL);
-  v5 = VslSecurePoolDestroy(*(_QWORD *)(v3 + 8));
-  if ( v5 < 0 )
-    KeBugCheckEx(0xC2u, 0x10uLL, *(_QWORD *)(v3 + 8), v5, 0LL);
-  v7 = 0LL;
-  *(_WORD *)((char *)&v7 + 1) = 1;
-  LOBYTE(v7) = 3;
-  return RtlpHpMetadataFree(v3, &v7);
+  if ( v1[1] != 1 )
+  {
+    if ( v1[1] == 2 )
+      KeBugCheckEx(0xC2u, 0x10uLL, *((_QWORD *)v1 + 1), 0xFFFFFFFFC00000BBuLL, 0LL);
+    goto LABEL_6;
+  }
+  return ExpPrivatePoolDestroy(v1);
 }

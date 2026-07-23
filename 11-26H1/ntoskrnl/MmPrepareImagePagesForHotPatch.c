@@ -1,16 +1,16 @@
 /*
- * XREFs of MmPrepareImagePagesForHotPatch @ 0x140874C50
+ * XREFs of MmPrepareImagePagesForHotPatch @ 0x14087B034
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1406FC830 (MiPrepareImagePagesForHotPatch.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiImageVadHotPatchEligible @ 0x140870654 (MiImageVadHotPatchEligible.c)
- *     MiReleaseHotPatchResources @ 0x140B55540 (MiReleaseHotPatchResources.c)
- *     MiInitializeImageHotPatchContext @ 0x140B611FC (MiInitializeImageHotPatchContext.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140701500 (MiPrepareImagePagesForHotPatch.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiImageVadHotPatchEligible @ 0x1408769B4 (MiImageVadHotPatchEligible.c)
+ *     MiReleaseHotPatchResources @ 0x140B57DDC (MiReleaseHotPatchResources.c)
+ *     MiInitializeImageHotPatchContext @ 0x140B6429C (MiInitializeImageHotPatchContext.c)
  */
 
 __int64 __fastcall MmPrepareImagePagesForHotPatch(unsigned __int64 a1, __int64 a2, _QWORD *a3)

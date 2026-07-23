@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpPopulateKeyNodeInformation @ 0x1408C1BE4
+ * XREFs of CmpPopulateKeyNodeInformation @ 0x1408C81B4
  * Callers:
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x1404925D8 (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x14048C128 (CmpQueryKeyDataFromKeyNodeStack.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     CmpCopyCompressedName @ 0x1408C1D10 (CmpCopyCompressedName.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     CmpCopyCompressedName @ 0x1408C82E0 (CmpCopyCompressedName.c)
  */
 
 __int64 __fastcall CmpPopulateKeyNodeInformation(

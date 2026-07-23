@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiWriteEventToAllQueues @ 0x140678DF0
+ * XREFs of TtmiWriteEventToAllQueues @ 0x140678ED4
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x140677444 (TtmpPublishDeviceEvent.c)
- *     TtmiSessionTerminalListWorker @ 0x140677B2C (TtmiSessionTerminalListWorker.c)
+ *     TtmpPublishDeviceEvent @ 0x140677528 (TtmpPublishDeviceEvent.c)
+ *     TtmiSessionTerminalListWorker @ 0x140677C10 (TtmiSessionTerminalListWorker.c)
  * Callees:
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmiCloseEventQueue @ 0x140679E18 (TtmiCloseEventQueue.c)
- *     TtmiWriteEventToSingleQueue @ 0x14067A12C (TtmiWriteEventToSingleQueue.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmiCloseEventQueue @ 0x140679EFC (TtmiCloseEventQueue.c)
+ *     TtmiWriteEventToSingleQueue @ 0x14067A210 (TtmiWriteEventToSingleQueue.c)
  */
 
 void __fastcall TtmiWriteEventToAllQueues(__int64 a1, __int64 a2)

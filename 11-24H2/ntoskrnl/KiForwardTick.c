@@ -1,22 +1,22 @@
 /*
- * XREFs of KiForwardTick @ 0x14029D53C
+ * XREFs of KiForwardTick @ 0x1402AC02C
  * Callers:
- *     KiUpdateTime @ 0x14029B7C0 (KiUpdateTime.c)
+ *     KiUpdateTime @ 0x1402AA2B0 (KiUpdateTime.c)
  * Callees:
- *     PoCopyDeepIdleMask @ 0x140205068 (PoCopyDeepIdleMask.c)
- *     ?KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140205180 (-KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     KeOrAffinityEx2 @ 0x1402067F0 (KeOrAffinityEx2.c)
- *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14029B69C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     HalRequestClockInterrupt @ 0x1403B5510 (HalRequestClockInterrupt.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x1403C8980 (KeIsEqualAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402AA18C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     PoCopyDeepIdleMask @ 0x14032C648 (PoCopyDeepIdleMask.c)
+ *     ?KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14032C760 (-KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     KeOrAffinityEx2 @ 0x14032DDD0 (KeOrAffinityEx2.c)
+ *     HalRequestClockInterrupt @ 0x1403718A0 (HalRequestClockInterrupt.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeIsEqualAffinityEx @ 0x1403A3520 (KeIsEqualAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, struct _KAFFINITY_EX *a5)
@@ -41,7 +41,7 @@ void __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, stru
     goto LABEL_6;
   *(_QWORD *)&v20.Count = 2097153LL;
   memset_0(&v20.8, 0, sizeof(v20.8));
-  PoCopyDeepIdleMask(&v20.Count);
+  PoCopyDeepIdleMask(&v20);
   for ( i = 0; ; ++i )
   {
     if ( i >= v20.Count )
@@ -50,9 +50,9 @@ void __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, stru
       break;
   }
   KiComplementAffinityEx(a5, a5->Size, &v20);
-  KeAndAffinityEx2(a5, &KeActiveProcessors, (__int64)a5);
+  KeAndAffinityEx2(a5, &KeActiveProcessors, a5);
   if ( a4 )
-    KeOrAffinityEx2(a5, (struct _KAFFINITY_EX *)KiGroupSchedulingOverQuotaMask, a5);
+    KeOrAffinityEx2(a5, KiGroupSchedulingOverQuotaMask, a5);
   if ( !KiSerializeTimerExpiration )
   {
     v12 = KiLastForwardedHand;
@@ -62,7 +62,7 @@ void __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, stru
     while ( 1 )
     {
       LOBYTE(v14) = v12 - 1;
-      v15 = qword_140FC7508[2 * v13];
+      v15 = qword_140FC8568[2 * v13];
       do
       {
         v14 = (unsigned __int8)(v14 + 1);

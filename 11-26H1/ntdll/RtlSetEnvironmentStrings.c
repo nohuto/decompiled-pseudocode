@@ -1,55 +1,55 @@
 /*
- * XREFs of RtlSetEnvironmentStrings @ 0x1800A06D0
+ * XREFs of RtlSetEnvironmentStrings @ 0x18009F800
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpClearEnvironmentHashTable @ 0x18009EEDC (RtlpClearEnvironmentHashTable.c)
- *     RtlpAllocationSize @ 0x18009EFD8 (RtlpAllocationSize.c)
- *     RtlpAllocateEnvBlock @ 0x18009EFF8 (RtlpAllocateEnvBlock.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpClearEnvironmentHashTable @ 0x18009E00C (RtlpClearEnvironmentHashTable.c)
+ *     RtlpAllocationSize @ 0x18009E108 (RtlpAllocationSize.c)
+ *     RtlpAllocateEnvBlock @ 0x18009E128 (RtlpAllocateEnvBlock.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlSetEnvironmentStrings(void *Src, size_t Size)
+NTSTATUS __cdecl RtlSetEnvironmentStrings(PCWCHAR NewEnvironment, SIZE_T NewEnvironmentSize)
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rbx
   void *Environment; // rsi
-  unsigned __int64 v6; // r14
-  void *EnvBlock; // rax
-  void *v9; // rsi
-  __int64 v10; // r14
+  SIZE_T v6; // r14
+  PVOID EnvBlock; // rax
+  PVOID v9; // rsi
+  void *v10; // r14
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&FastPebLock);
   Environment = ProcessParameters->Environment;
-  v6 = RtlpAllocationSize((unsigned __int64)Environment);
-  if ( v6 >= Size )
+  v6 = RtlpAllocationSize(Environment);
+  if ( v6 >= NewEnvironmentSize )
   {
-    memmove(Environment, Src, Size);
+    memmove(Environment, NewEnvironment, NewEnvironmentSize);
     ProcessParameters->Environment = Environment;
-    ProcessParameters->EnvironmentSize = Size;
+    ProcessParameters->EnvironmentSize = NewEnvironmentSize;
     ++ProcessParameters->EnvironmentVersion;
     RtlpClearEnvironmentHashTable();
   }
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
-  if ( v6 >= Size )
-    return 0LL;
-  EnvBlock = (void *)RtlpAllocateEnvBlock(Size);
+  RtlLeaveCriticalSection(&FastPebLock);
+  if ( v6 >= NewEnvironmentSize )
+    return 0;
+  EnvBlock = RtlpAllocateEnvBlock(NewEnvironmentSize);
   v9 = EnvBlock;
   if ( EnvBlock )
   {
-    memmove(EnvBlock, Src, Size);
-    RtlEnterCriticalSection((__int64)&FastPebLock);
-    v10 = (__int64)ProcessParameters->Environment;
+    memmove(EnvBlock, NewEnvironment, NewEnvironmentSize);
+    RtlEnterCriticalSection(&FastPebLock);
+    v10 = ProcessParameters->Environment;
     RtlpClearEnvironmentHashTable();
     ProcessParameters->Environment = v9;
-    ProcessParameters->EnvironmentSize = Size;
+    ProcessParameters->EnvironmentSize = NewEnvironmentSize;
     ++ProcessParameters->EnvironmentVersion;
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
     RtlpSysVolFree(v10);
-    return 0LL;
+    return 0;
   }
-  return 3221225626LL;
+  return -1073741670;
 }

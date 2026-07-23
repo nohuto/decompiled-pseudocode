@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCloseIoCompletion @ 0x140685770
+ * XREFs of IopCloseIoCompletion @ 0x140686930
  * Callers:
  *     <none>
  * Callees:
- *     IopDeleteIoCompletionInternal @ 0x1400FA85C (IopDeleteIoCompletionInternal.c)
+ *     IopDeleteIoCompletionInternal @ 0x1400FA8DC (IopDeleteIoCompletionInternal.c)
  */
 
 KSPIN_LOCK *__fastcall IopCloseIoCompletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

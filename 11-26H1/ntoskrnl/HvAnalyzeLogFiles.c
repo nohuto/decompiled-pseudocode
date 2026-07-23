@@ -1,24 +1,24 @@
 /*
- * XREFs of HvAnalyzeLogFiles @ 0x140ADF748
+ * XREFs of HvAnalyzeLogFiles @ 0x140ADCF88
  * Callers:
- *     HvRecoverFlushProtocolStateFromFiles @ 0x14085CFE4 (HvRecoverFlushProtocolStateFromFiles.c)
- *     HvLoadHive @ 0x140AC26A0 (HvLoadHive.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x1408632D4 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvLoadHive @ 0x140AC4740 (HvLoadHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpCompareLogSequenceNumbers @ 0x140862A6C (HvpCompareLogSequenceNumbers.c)
- *     HvpLogIneligibleLogHeader @ 0x140862AA0 (HvpLogIneligibleLogHeader.c)
- *     HvpIsReadErrorTransient @ 0x140ADFBC4 (HvpIsReadErrorTransient.c)
- *     HvpLogUnreadableLog @ 0x140ADFC38 (HvpLogUnreadableLog.c)
- *     HvpIsLogFileBaseBlockValid @ 0x140ADFCE8 (HvpIsLogFileBaseBlockValid.c)
- *     HvpLogInvalidLogHeader @ 0x140ADFD54 (HvpLogInvalidLogHeader.c)
- *     HvpDetermineResultingLoggingState @ 0x140ADFEE8 (HvpDetermineResultingLoggingState.c)
- *     HvpDetermineLogFileApplicationOrder @ 0x140ADFFB0 (HvpDetermineLogFileApplicationOrder.c)
- *     HvpAnalyzeSingleLogFile @ 0x140AE0208 (HvpAnalyzeSingleLogFile.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpCompareLogSequenceNumbers @ 0x140868E4C (HvpCompareLogSequenceNumbers.c)
+ *     HvpLogIneligibleLogHeader @ 0x140868E80 (HvpLogIneligibleLogHeader.c)
+ *     HvpIsReadErrorTransient @ 0x140ADD404 (HvpIsReadErrorTransient.c)
+ *     HvpLogUnreadableLog @ 0x140ADD478 (HvpLogUnreadableLog.c)
+ *     HvpIsLogFileBaseBlockValid @ 0x140ADD528 (HvpIsLogFileBaseBlockValid.c)
+ *     HvpLogInvalidLogHeader @ 0x140ADD594 (HvpLogInvalidLogHeader.c)
+ *     HvpDetermineResultingLoggingState @ 0x140ADD728 (HvpDetermineResultingLoggingState.c)
+ *     HvpDetermineLogFileApplicationOrder @ 0x140ADD7F0 (HvpDetermineLogFileApplicationOrder.c)
+ *     HvpAnalyzeSingleLogFile @ 0x140ADDA48 (HvpAnalyzeSingleLogFile.c)
  */
 
 __int64 __fastcall HvAnalyzeLogFiles(
@@ -133,7 +133,7 @@ LABEL_12:
         *((_QWORD *)&v51 + 1) = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E09EE8,
-          (unsigned __int8 *)word_1400572FA,
+          (unsigned __int8 *)byte_1400584D1,
           0LL,
           0LL,
           3u,
@@ -150,7 +150,7 @@ LABEL_12:
         *(_QWORD *)&v52 = &v47;
         v47 = 0x1000000LL;
         *((_QWORD *)&v52 + 1) = 8LL;
-        tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)&qword_1400572B0, v22, 4u, &v49);
+        tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)&byte_140058505, v22, 4u, &v49);
       }
     }
     return 3221225804LL;
@@ -241,7 +241,7 @@ LABEL_10:
       v44 = 0x1000000LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E09EE8,
-        (unsigned __int8 *)byte_14005738B,
+        (unsigned __int8 *)byte_1400582A3,
         0LL,
         0LL,
         3u,
@@ -266,7 +266,7 @@ LABEL_10:
     v62 = 1LL;
     v64 = 4LL;
     v66 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)&word_14005732E, 0LL, 0LL, 7u, &v56);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_1400582D5, 0LL, 0LL, 7u, &v56);
   }
   LOBYTE(v8) = a3;
   HvpDetermineLogFileApplicationOrder(&v49, v8);

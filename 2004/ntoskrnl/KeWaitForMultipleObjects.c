@@ -446,7 +446,7 @@ LABEL_186:
                 if ( !_interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
                 {
                   KiSatisfyThreadWait((_DWORD)v121, (_DWORD)CurrentThread, v118, (_DWORD)WaitBlock, v21);
-                  RtlRaiseStatus(3221225873LL);
+                  RtlRaiseStatus(-1073741423);
                 }
                 v90 = v87->SchedulerAssist;
                 if ( v90 )
@@ -643,7 +643,7 @@ LABEL_29:
         v71 = v70;
         v129[1] = v70;
         v123 = v20 & ~(1LL << v70);
-        v72 = KeAbPreAcquire((ULONG_PTR)v19[v70], 0LL, 0LL);
+        v72 = KeAbPreAcquire((ULONG_PTR)v19[v70], 0LL, 0);
         v73 = v72;
         if ( !v72 )
           break;
@@ -685,7 +685,7 @@ LABEL_29:
         v28 &= ~(1LL << v77);
         v78 = v76;
         v79 = &KeGetCurrentThread()->LockEntries[v139[v76] >> 1];
-        KeAbPreAcquire((ULONG_PTR)v120[v77], (__int64)v79, 0LL);
+        KeAbPreAcquire((ULONG_PTR)v120[v77], (__int64)v79, 0);
         v79->AcquiredByte |= 1u;
         if ( v78 >= 6 )
           _report_rangecheckfailure();
@@ -705,7 +705,7 @@ LABEL_165:
       if ( !v139[v26] )
         ++v26;
       v81 = &KeGetCurrentThread()->LockEntries[v139[v26] >> 1];
-      KeAbPreAcquire((ULONG_PTR)v30[(unsigned int)v80], (__int64)v81, 0LL);
+      KeAbPreAcquire((ULONG_PTR)v30[(unsigned int)v80], (__int64)v81, 0);
       KeAbPostReleaseEx((ULONG_PTR)v120[v124], (ULONG_PTR)v81);
       v30 = v120;
     }
@@ -802,7 +802,7 @@ LABEL_45:
   if ( AbWaitObject )
   {
     CurrentThread->AbWaitObject = 0LL;
-    v101 = KeAbPreAcquire(AbWaitObject, 0LL, 1LL);
+    v101 = KeAbPreAcquire(AbWaitObject, 0LL, 1);
     if ( v101 )
       *(_BYTE *)(v101 + 26) |= 1u;
     v34 = 0LL;

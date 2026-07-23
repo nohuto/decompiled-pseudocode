@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhBlockBitmapInitialize @ 0x1800C1620
+ * XREFs of RtlpHpLfhBlockBitmapInitialize @ 0x1800BEDB0
  * Callers:
- *     RtlpHpLfhSubsegmentInitialize @ 0x1800C11AC (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1800BE93C (RtlpHpLfhSubsegmentInitialize.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpLfhBlockBitmapInitialize(void *a1, unsigned int a2)

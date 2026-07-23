@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpQuitNextHive @ 0x14076DB94
+ * XREFs of CmpQuitNextHive @ 0x14076DD54
  * Callers:
- *     CmpDoFlushAll @ 0x14037DE9C (CmpDoFlushAll.c)
+ *     CmpDoFlushAll @ 0x14037D9EC (CmpDoFlushAll.c)
  * Callees:
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
  */
 
 void __fastcall CmpQuitNextHive(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalFreeCommonBufferDmaThin @ 0x1403442A0
+ * XREFs of HalFreeCommonBufferDmaThin @ 0x140346320
  * Callers:
  *     <none>
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     HalpPopCommonBufferEntry @ 0x140344374 (HalpPopCommonBufferEntry.c)
- *     HalpDmaDereferenceDomainObject @ 0x1403444A8 (HalpDmaDereferenceDomainObject.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     HalpPopCommonBufferEntry @ 0x1403463F4 (HalpPopCommonBufferEntry.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140346528 (HalpDmaDereferenceDomainObject.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalFreeCommonBufferDmaThin(__int64 a1, unsigned int a2, __int64 a3, void *a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteVadHotPatchState @ 0x140AB2524
+ * XREFs of MiDeleteVadHotPatchState @ 0x140AAD494
  * Callers:
- *     MiFinishVadDeletion @ 0x14044C9BC (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x1404438BC (MiFinishVadDeletion.c)
  * Callees:
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     MiGetVadWakeList @ 0x14044CC20 (MiGetVadWakeList.c)
- *     MiDeleteHotPatchEntry @ 0x1407F2550 (MiDeleteHotPatchEntry.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     MiGetVadWakeList @ 0x140443B20 (MiGetVadWakeList.c)
+ *     MiDeleteHotPatchEntry @ 0x1407F2B20 (MiDeleteHotPatchEntry.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 int __fastcall MiDeleteVadHotPatchState(__int64 a1)

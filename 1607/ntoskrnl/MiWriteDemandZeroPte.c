@@ -1,15 +1,15 @@
 /*
- * XREFs of MiWriteDemandZeroPte @ 0x14007BCA0
+ * XREFs of MiWriteDemandZeroPte @ 0x14007BD20
  * Callers:
- *     MiCommitPageTablesForVad @ 0x140430A30 (MiCommitPageTablesForVad.c)
- *     MiMakeHyperRangeAccessible @ 0x14046DB20 (MiMakeHyperRangeAccessible.c)
+ *     MiCommitPageTablesForVad @ 0x14042F900 (MiCommitPageTablesForVad.c)
+ *     MiMakeHyperRangeAccessible @ 0x14046C9F0 (MiMakeHyperRangeAccessible.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiWriteDemandZeroPte(__int64 *BugCheckParameter4, __int64 a2, __int64 a3, __int64 a4)

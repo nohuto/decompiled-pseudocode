@@ -16,97 +16,106 @@
  *     NtQuerySystemInformationEx @ 0x1800A6D80 (NtQuerySystemInformationEx.c)
  */
 
-NTSTATUS __fastcall RtlGetVersion(int *a1)
+NTSTATUS __cdecl RtlGetVersion(PRTL_OSVERSIONINFOEXW VersionInformation)
 {
   struct _PEB *v2; // r11
   wchar_t *Buffer; // r8
-  wchar_t *v4; // rsi
-  int v5; // edi
+  WCHAR *szCSDVersion; // rsi
+  DWORD dwOSVersionInfoSize; // edi
   NTSTATUS result; // eax
-  unsigned int v7; // ecx
+  unsigned int dwMinorVersion_low; // ecx
   unsigned int v8; // ecx
-  char *p_SourceString; // rdx
+  CHAR *p_SourceString; // rdx
   unsigned int v10; // ecx
   unsigned int v11; // ecx
   unsigned int v12; // ecx
   unsigned int v13; // ecx
-  int v14; // [rsp+38h] [rbp-D0h] BYREF
-  int v15; // [rsp+3Ch] [rbp-CCh] BYREF
-  int v16; // [rsp+40h] [rbp-C8h] BYREF
-  int v17; // [rsp+44h] [rbp-C4h] BYREF
-  int v18; // [rsp+48h] [rbp-C0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
-  UNICODE_STRING v20; // [rsp+60h] [rbp-A8h] BYREF
-  STRING v21; // [rsp+70h] [rbp-98h] BYREF
-  _BYTE v22[2]; // [rsp+88h] [rbp-80h] BYREF
+  int Data; // [rsp+38h] [rbp-D0h] BYREF
+  ULONG ResultDataSize; // [rsp+3Ch] [rbp-CCh] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+40h] [rbp-C8h] BYREF
+  ULONG Type; // [rsp+44h] [rbp-C4h] BYREF
+  int InputBuffer; // [rsp+48h] [rbp-C0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+60h] [rbp-A8h] BYREF
+  _STRING v21; // [rsp+70h] [rbp-98h] BYREF
+  _BYTE SystemInformation[2]; // [rsp+88h] [rbp-80h] BYREF
   __int16 v23; // [rsp+8Ah] [rbp-7Eh]
-  int v24; // [rsp+8Ch] [rbp-7Ch]
-  int v25; // [rsp+90h] [rbp-78h]
-  int v26; // [rsp+94h] [rbp-74h]
-  int v27; // [rsp+98h] [rbp-70h]
-  char SourceString; // [rsp+9Ch] [rbp-6Ch] BYREF
+  DWORD v24; // [rsp+8Ch] [rbp-7Ch]
+  DWORD v25; // [rsp+90h] [rbp-78h]
+  DWORD v26; // [rsp+94h] [rbp-74h]
+  DWORD v27; // [rsp+98h] [rbp-70h]
+  CHAR SourceString; // [rsp+9Ch] [rbp-6Ch] BYREF
   char v29; // [rsp+11Ch] [rbp+14h] BYREF
   char v30; // [rsp+19Ch] [rbp+94h] BYREF
   char v31; // [rsp+21Ch] [rbp+114h] BYREF
   char v32; // [rsp+29Ch] [rbp+194h] BYREF
   char v33; // [rsp+2B6h] [rbp+1AEh] BYREF
-  int v34; // [rsp+2C8h] [rbp+1C0h]
+  DWORD v34; // [rsp+2C8h] [rbp+1C0h]
 
-  v20 = 0LL;
-  v14 = 0;
+  ValueName = 0LL;
+  Data = 0;
   v2 = NtCurrentPeb();
-  a1[1] = v2->OSMajorVersion;
-  a1[2] = v2->OSMinorVersion;
-  a1[3] = v2->OSBuildNumber;
-  a1[4] = v2->OSPlatformId;
+  VersionInformation->dwMajorVersion = v2->OSMajorVersion;
+  VersionInformation->dwMinorVersion = v2->OSMinorVersion;
+  VersionInformation->dwBuildNumber = v2->OSBuildNumber;
+  VersionInformation->dwPlatformId = v2->OSPlatformId;
   Buffer = v2->CSDVersion.Buffer;
   if ( !Buffer || !*Buffer )
   {
-    v4 = (wchar_t *)(a1 + 5);
+    szCSDVersion = VersionInformation->szCSDVersion;
 LABEL_4:
-    *v4 = 0;
+    *szCSDVersion = 0;
     goto LABEL_5;
   }
-  v4 = (wchar_t *)(a1 + 5);
-  if ( (int)RtlStringCbCopyW((_WORD *)a1 + 10, 0x100uLL, (__int64)Buffer) < 0 )
+  szCSDVersion = VersionInformation->szCSDVersion;
+  if ( (int)RtlStringCbCopyW(VersionInformation->szCSDVersion, 0x100uLL, (__int64)Buffer) < 0 )
     goto LABEL_4;
 LABEL_5:
-  v5 = *a1;
-  if ( ((*a1 - 284) & 0xFFFFFFE7) != 0 || v5 == 308 )
+  dwOSVersionInfoSize = VersionInformation->dwOSVersionInfoSize;
+  if ( ((VersionInformation->dwOSVersionInfoSize - 284) & 0xFFFFFFE7) != 0 || dwOSVersionInfoSize == 308 )
     return 0;
-  *((_WORD *)a1 + 138) = HIBYTE(v2->OSCSDVersion);
-  *((_WORD *)a1 + 139) = (unsigned __int8)v2->OSCSDVersion;
-  *((_WORD *)a1 + 140) = RtlGetSuiteMask();
-  if ( v5 == 292 )
-    a1[71] = RtlGetSuiteMask() & 0x1FFFF;
-  *((_BYTE *)a1 + 282) = 0;
-  if ( (unsigned __int8)RtlGetNtProductType(&v16) )
-    *((_BYTE *)a1 + 282) = v16;
-  RtlInitUnicodeString(&v20, L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
-  if ( (int)ZwQueryLicenseValue(&v20, &v17, &v14, 4LL, &v15) < 0 || v14 != 1 || v17 != 4 || v15 != 4 )
+  VersionInformation->wServicePackMajor = HIBYTE(v2->OSCSDVersion);
+  VersionInformation->wServicePackMinor = (unsigned __int8)v2->OSCSDVersion;
+  VersionInformation->wSuiteMask = RtlGetSuiteMask();
+  if ( dwOSVersionInfoSize == 292 )
+    VersionInformation[1].dwOSVersionInfoSize = RtlGetSuiteMask() & 0x1FFFF;
+  VersionInformation->wProductType = 0;
+  if ( RtlGetNtProductType(&NtProductType) )
+    VersionInformation->wProductType = NtProductType;
+  RtlInitUnicodeString(&ValueName, L"TerminalServices-RemoteConnectionManager-AllowAppServerMode");
+  if ( ZwQueryLicenseValue(&ValueName, &Type, &Data, 4u, &ResultDataSize) < 0
+    || Data != 1
+    || Type != 4
+    || ResultDataSize != 4 )
   {
-    *((_WORD *)a1 + 140) &= ~0x10u;
-    *((_WORD *)a1 + 140) |= 0x100u;
-    if ( *a1 == 292 )
+    VersionInformation->wSuiteMask &= ~0x10u;
+    VersionInformation->wSuiteMask |= 0x100u;
+    if ( VersionInformation->dwOSVersionInfoSize == 292 )
     {
-      a1[71] &= 0xFFFDFFEF;
-      a1[71] |= 0x100u;
+      VersionInformation[1].dwOSVersionInfoSize &= 0xFFFDFFEF;
+      VersionInformation[1].dwOSVersionInfoSize |= 0x100u;
     }
   }
-  if ( *a1 != 300 )
+  if ( VersionInformation->dwOSVersionInfoSize != 300 )
     return 0;
-  v18 = a1[73] & 0xFFF;
-  result = NtQuerySystemInformationEx(222LL, &v18, 4LL, v22, 580, &v15);
+  InputBuffer = VersionInformation[1].dwMinorVersion & 0xFFF;
+  result = NtQuerySystemInformationEx(
+             SystemBuildVersionInformation,
+             &InputBuffer,
+             4u,
+             SystemInformation,
+             0x244u,
+             &ResultDataSize);
   if ( result < 0 )
     return result;
-  v7 = *((unsigned __int16 *)a1 + 146);
-  a1[1] = v24;
-  a1[2] = v25;
-  a1[3] = v26;
-  a1[4] = v27;
-  v8 = v7 >> 12;
-  *((_WORD *)a1 + 147) = v23;
-  a1[74] = v34;
+  dwMinorVersion_low = LOWORD(VersionInformation[1].dwMinorVersion);
+  VersionInformation->dwMajorVersion = v24;
+  VersionInformation->dwMinorVersion = v25;
+  VersionInformation->dwBuildNumber = v26;
+  VersionInformation->dwPlatformId = v27;
+  v8 = dwMinorVersion_low >> 12;
+  HIWORD(VersionInformation[1].dwMinorVersion) = v23;
+  VersionInformation[1].dwBuildNumber = v34;
   if ( v8 )
   {
     v10 = v8 - 1;
@@ -151,7 +160,7 @@ LABEL_5:
   }
   RtlInitAnsiString(&v21, p_SourceString);
   *(_DWORD *)&DestinationString.Length = 0x1000000;
-  DestinationString.Buffer = v4;
+  DestinationString.Buffer = szCSDVersion;
   result = RtlAnsiStringToUnicodeString(&DestinationString, &v21, 0);
   if ( result >= 0 )
     return 0;

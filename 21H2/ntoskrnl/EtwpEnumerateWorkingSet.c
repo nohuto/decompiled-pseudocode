@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpEnumerateWorkingSet @ 0x14093DA2C
+ * XREFs of EtwpEnumerateWorkingSet @ 0x14093DBFC
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140797940 (EtwpProcessEnumCallback.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     MiGetWorkingSetInfoEx @ 0x140546DE0 (MiGetWorkingSetInfoEx.c)
- *     EtwLogPfnInfoRundown @ 0x14093D658 (EtwLogPfnInfoRundown.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiGetWorkingSetInfoEx @ 0x140547020 (MiGetWorkingSetInfoEx.c)
+ *     EtwLogPfnInfoRundown @ 0x14093D828 (EtwLogPfnInfoRundown.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void *__fastcall EtwpEnumerateWorkingSet(__int64 a1, __int64 a2)

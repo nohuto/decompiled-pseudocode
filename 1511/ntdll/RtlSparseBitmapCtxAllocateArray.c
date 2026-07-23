@@ -13,37 +13,37 @@ __int64 __fastcall RtlSparseBitmapCtxAllocateArray(__int64 a1)
 {
   __int64 v1; // rsi
   void *v2; // r15
-  size_t v4; // rsi
+  ULONG_PTR v4; // rsi
   bool v5; // zf
-  int v6; // esi
-  size_t v7; // r14
+  NTSTATUS v6; // esi
+  ULONG_PTR v7; // r14
   size_t v8; // rsi
   void *v9; // rax
-  void *v10; // r14
+  PVOID v10; // r14
   void *v12; // rax
-  void *v13; // [rsp+60h] [rbp+30h] BYREF
-  size_t Size; // [rsp+68h] [rbp+38h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp+30h] BYREF
+  ULONG_PTR RegionSize; // [rsp+68h] [rbp+38h] BYREF
 
   v1 = *(unsigned int *)(a1 + 52);
   v2 = 0LL;
-  v13 = 0LL;
+  BaseAddress = 0LL;
   v4 = 8 * v1;
   v5 = (*(_BYTE *)(a1 + 72) & 2) == 0;
-  Size = v4;
+  RegionSize = v4;
   if ( v5 )
   {
-    v12 = (void *)(*(__int64 (__fastcall **)(size_t))(a1 + 32))(v4);
-    v13 = v12;
+    v12 = (void *)(*(__int64 (__fastcall **)(ULONG_PTR))(a1 + 32))(v4);
+    BaseAddress = v12;
     if ( !v12 )
       return (unsigned int)-1073741670;
-    memset(v12, 0, Size);
+    memset(v12, 0, RegionSize);
     goto LABEL_5;
   }
-  v6 = ZwAllocateVirtualMemory(-1LL, &v13, 0LL, &Size, 0x2000, 4);
+  v6 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, 4u);
   if ( v6 >= 0 )
   {
-    v7 = Size >> 12;
-    v8 = 4 * (((Size >> 12) + 31) >> 5);
+    v7 = RegionSize >> 12;
+    v8 = 4 * (((RegionSize >> 12) + 31) >> 5);
     v9 = (void *)(*(__int64 (__fastcall **)(size_t))(a1 + 32))(v8);
     v2 = v9;
     if ( v9 )
@@ -53,27 +53,27 @@ __int64 __fastcall RtlSparseBitmapCtxAllocateArray(__int64 a1)
       *(_QWORD *)(a1 + 24) = v2;
 LABEL_5:
       v10 = 0LL;
-      *(_QWORD *)(a1 + 8) = v13;
+      *(_QWORD *)(a1 + 8) = BaseAddress;
       v6 = 0;
-      v13 = 0LL;
+      BaseAddress = 0LL;
       goto LABEL_6;
     }
     v6 = -1073741670;
   }
-  v10 = v13;
+  v10 = BaseAddress;
 LABEL_6:
   if ( v10 )
   {
     if ( (*(_BYTE *)(a1 + 72) & 2) != 0 )
     {
-      Size = 0LL;
-      ZwFreeVirtualMemory(-1LL, &v13, &Size, 0x8000LL);
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
       if ( v2 )
         (*(void (__fastcall **)(void *))(a1 + 40))(v2);
     }
     else
     {
-      (*(void (__fastcall **)(void *))(a1 + 40))(v10);
+      (*(void (__fastcall **)(PVOID))(a1 + 40))(v10);
     }
   }
   return (unsigned int)v6;

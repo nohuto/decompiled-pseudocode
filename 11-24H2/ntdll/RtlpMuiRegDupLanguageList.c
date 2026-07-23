@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegDupLanguageList @ 0x18007D0E0
+ * XREFs of RtlpMuiRegDupLanguageList @ 0x1800C9DCC
  * Callers:
- *     RtlGetThreadPreferredUILanguages @ 0x180037120 (RtlGetThreadPreferredUILanguages.c)
- *     RtlSetThreadPreferredUILanguages @ 0x18007C4E0 (RtlSetThreadPreferredUILanguages.c)
- *     RtlSetThreadPreferredUILanguages2 @ 0x1800EBF30 (RtlSetThreadPreferredUILanguages2.c)
- *     RtlpDupTebLanguageList @ 0x1800EC0D4 (RtlpDupTebLanguageList.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180011A20 (RtlSetThreadPreferredUILanguages.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x1800173A0 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlSetThreadPreferredUILanguages2 @ 0x1800C99F0 (RtlSetThreadPreferredUILanguages2.c)
+ *     RtlpDupTebLanguageList @ 0x1800CA478 (RtlpDupTebLanguageList.c)
  * Callees:
- *     RtlpMuiRegCreateLanguageList @ 0x18007E2D0 (RtlpMuiRegCreateLanguageList.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x1800CA3B0 (RtlpMuiRegCreateLanguageList.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpMuiRegDupLanguageList(__int64 a1, __int64 a2)

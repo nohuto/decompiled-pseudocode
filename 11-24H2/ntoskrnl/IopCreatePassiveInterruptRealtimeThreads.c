@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCreatePassiveInterruptRealtimeThreads @ 0x140722618
+ * XREFs of IopCreatePassiveInterruptRealtimeThreads @ 0x1407201A8
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
@@ -15,29 +15,28 @@ __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
   unsigned int v1; // edi
   __int64 result; // rax
   NTSTATUS v3; // ebx
-  __int64 v4; // r8
-  _QWORD v5[3]; // [rsp+50h] [rbp-30h] BYREF
-  int v6; // [rsp+68h] [rbp-18h]
-  int v7; // [rsp+6Ch] [rbp-14h]
-  __int128 v8; // [rsp+70h] [rbp-10h]
+  _QWORD v4[3]; // [rsp+50h] [rbp-30h] BYREF
+  int v5; // [rsp+68h] [rbp-18h]
+  int v6; // [rsp+6Ch] [rbp-14h]
+  __int128 v7; // [rsp+70h] [rbp-10h]
   PVOID Object; // [rsp+90h] [rbp+10h] BYREF
   HANDLE Handle; // [rsp+98h] [rbp+18h] BYREF
 
   Object = a1;
-  v7 = 0;
+  v6 = 0;
   Handle = 0LL;
-  v5[1] = 0LL;
-  v5[2] = 0LL;
-  v5[0] = 48LL;
+  v4[1] = 0LL;
+  v4[2] = 0LL;
+  v4[0] = 48LL;
   v1 = 0;
-  v6 = 512;
-  v8 = 0LL;
+  v5 = 512;
+  v7 = 0LL;
   while ( v1 < (unsigned __int8)PassiveInterruptRealtimeWorkerCount )
   {
     result = PsCreateSystemThreadEx(
                &Handle,
                0x1FFFFFLL,
-               v5,
+               v4,
                0LL,
                0LL,
                IopPassiveInterruptRealtimeWorker,
@@ -51,7 +50,7 @@ __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
     ZwClose(Handle);
     if ( v3 >= 0 )
     {
-      KeSetActualBasePriorityThread((ULONG_PTR)Object, (unsigned __int8)PassiveInterruptRealtimeWorkerPriority, v4);
+      KeSetActualBasePriorityThread((ULONG_PTR)Object, (unsigned __int8)PassiveInterruptRealtimeWorkerPriority);
       ObfDereferenceObject(Object);
     }
     ++v1;

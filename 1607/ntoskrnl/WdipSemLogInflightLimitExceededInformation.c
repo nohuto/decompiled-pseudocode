@@ -1,15 +1,15 @@
 /*
- * XREFs of WdipSemLogInflightLimitExceededInformation @ 0x14069BA2C
+ * XREFs of WdipSemLogInflightLimitExceededInformation @ 0x14069BB10
  * Callers:
- *     WdipSemReserveInstanceTableEntry @ 0x140541C74 (WdipSemReserveInstanceTableEntry.c)
+ *     WdipSemReserveInstanceTableEntry @ 0x1405421B4 (WdipSemReserveInstanceTableEntry.c)
  * Callees:
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     WdipSemFastFree @ 0x1404E4414 (WdipSemFastFree.c)
- *     WdipSemUpdateFrequentScenarioTable @ 0x14069BBE0 (WdipSemUpdateFrequentScenarioTable.c)
- *     WdipSemUpdateInflightScenarioTable @ 0x14069BD18 (WdipSemUpdateInflightScenarioTable.c)
- *     WdipSemWriteInflightLimitExceededEvent @ 0x14069C118 (WdipSemWriteInflightLimitExceededEvent.c)
- *     WdipSemSqmEnabled @ 0x14069C774 (WdipSemSqmEnabled.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     WdipSemFastFree @ 0x1404C70CC (WdipSemFastFree.c)
+ *     WdipSemUpdateFrequentScenarioTable @ 0x14069BCC4 (WdipSemUpdateFrequentScenarioTable.c)
+ *     WdipSemUpdateInflightScenarioTable @ 0x14069BDFC (WdipSemUpdateInflightScenarioTable.c)
+ *     WdipSemWriteInflightLimitExceededEvent @ 0x14069C1FC (WdipSemWriteInflightLimitExceededEvent.c)
+ *     WdipSemSqmEnabled @ 0x14069C858 (WdipSemSqmEnabled.c)
  */
 
 __int64 __fastcall WdipSemLogInflightLimitExceededInformation(__int64 a1, unsigned __int16 a2, __int64 a3)
@@ -63,7 +63,7 @@ LABEL_14:
   if ( LODWORD(v10[125]) )
   {
     do
-      WdipSemFastFree(5, (struct _SLIST_ENTRY *)v10[v6++]);
+      WdipSemFastFree(5, (_SLIST_ENTRY *)v10[v6++]);
     while ( v6 < LODWORD(v10[125]) );
   }
   return (unsigned int)updated;

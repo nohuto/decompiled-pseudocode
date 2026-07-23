@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnStartTraceTimer @ 0x14048E84C
+ * XREFs of PfSnStartTraceTimer @ 0x140488C7C
  * Callers:
- *     PfSnBeginScenario @ 0x140960CB0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140948770 (PfSnBeginScenario.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
  */
 
 __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
@@ -20,7 +20,7 @@ __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
 
   v1 = a1 + 45;
   v2 = a1;
-  if ( ExAcquireRundownProtection(a1 + 45) )
+  if ( ExAcquireRundownProtection_0(a1 + 45) )
   {
     p_Count = &v2[34].Count;
     v4 = KeAcquireSpinLockRaiseToDpc(&v2[34].Count);

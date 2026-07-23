@@ -1,32 +1,32 @@
 /*
- * XREFs of Phase1InitializationIoReady @ 0x1409C4788
+ * XREFs of Phase1InitializationIoReady @ 0x1409C5788
  * Callers:
- *     Phase1Initialization @ 0x14074B5B0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x14074C7A0 (Phase1Initialization.c)
  * Callees:
- *     ExNotifyCallback @ 0x14008E560 (ExNotifyCallback.c)
- *     InbvSetProgressBarSubset @ 0x140187330 (InbvSetProgressBarSubset.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     VfClearVerifierSettings @ 0x1403097A8 (VfClearVerifierSettings.c)
- *     ExQueryBootEntropyInformation @ 0x140736914 (ExQueryBootEntropyInformation.c)
- *     VfNotifyVerifierOfEvent @ 0x140925D20 (VfNotifyVerifierOfEvent.c)
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
- *     MmInitSystem @ 0x1409BC4E4 (MmInitSystem.c)
- *     EmInitSystem @ 0x1409BD7E0 (EmInitSystem.c)
- *     ExInitLicenseData @ 0x1409C43A0 (ExInitLicenseData.c)
- *     MmInitSystemDll @ 0x1409C4738 (MmInitSystemDll.c)
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
- *     StartFirstUserProcess @ 0x1409C5CC0 (StartFirstUserProcess.c)
- *     SeRmInitPhase1 @ 0x1409C61C4 (SeRmInitPhase1.c)
- *     CmInitSystem2 @ 0x1409C62F8 (CmInitSystem2.c)
- *     BootApplicationPersistentDataProcess @ 0x1409D1004 (BootApplicationPersistentDataProcess.c)
- *     PspInitPhase2 @ 0x1409D5F0C (PspInitPhase2.c)
- *     KeInitializeClock @ 0x1409D8C58 (KeInitializeClock.c)
- *     SaveNodeDistanceInformation @ 0x1409DE6C4 (SaveNodeDistanceInformation.c)
- *     PspInitPhase3 @ 0x1409DF584 (PspInitPhase3.c)
- *     InitSafeBoot @ 0x1409F3348 (InitSafeBoot.c)
+ *     ExNotifyCallback @ 0x14008E480 (ExNotifyCallback.c)
+ *     InbvSetProgressBarSubset @ 0x140187470 (InbvSetProgressBarSubset.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     KeBugCheck @ 0x1401BBD00 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     VfClearVerifierSettings @ 0x140309998 (VfClearVerifierSettings.c)
+ *     ExQueryBootEntropyInformation @ 0x140737B04 (ExQueryBootEntropyInformation.c)
+ *     VfNotifyVerifierOfEvent @ 0x140926D20 (VfNotifyVerifierOfEvent.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
+ *     MmInitSystem @ 0x1409BD4E4 (MmInitSystem.c)
+ *     EmInitSystem @ 0x1409BE7E0 (EmInitSystem.c)
+ *     ExInitLicenseData @ 0x1409C53A0 (ExInitLicenseData.c)
+ *     MmInitSystemDll @ 0x1409C5738 (MmInitSystemDll.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
+ *     StartFirstUserProcess @ 0x1409C6CC0 (StartFirstUserProcess.c)
+ *     SeRmInitPhase1 @ 0x1409C71C4 (SeRmInitPhase1.c)
+ *     CmInitSystem2 @ 0x1409C72F8 (CmInitSystem2.c)
+ *     BootApplicationPersistentDataProcess @ 0x1409D2004 (BootApplicationPersistentDataProcess.c)
+ *     PspInitPhase2 @ 0x1409D6F0C (PspInitPhase2.c)
+ *     KeInitializeClock @ 0x1409D9C58 (KeInitializeClock.c)
+ *     SaveNodeDistanceInformation @ 0x1409DF6C4 (SaveNodeDistanceInformation.c)
+ *     PspInitPhase3 @ 0x1409E0584 (PspInitPhase3.c)
+ *     InitSafeBoot @ 0x1409F4348 (InitSafeBoot.c)
  */
 
 __int64 __fastcall Phase1InitializationIoReady(ULONG_PTR a1, char a2)
@@ -40,7 +40,7 @@ __int64 __fastcall Phase1InitializationIoReady(ULONG_PTR a1, char a2)
   unsigned int v10; // [rsp+34h] [rbp-34h]
   char v11; // [rsp+38h] [rbp-30h]
 
-  if ( ZwQuerySystemInformation((SYSTEM_INFORMATION_CLASS)192, SystemInformation, 0x20u, 0LL) >= 0 )
+  if ( ZwQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL) >= 0 )
   {
     if ( (v11 & 1) != 0 )
       RtlpIsFlushRequired = 0;

@@ -1,23 +1,23 @@
 /*
- * XREFs of BapdWriteEtwEvents @ 0x1406C9F80
+ * XREFs of BapdWriteEtwEvents @ 0x1406CDFBC
  * Callers:
- *     BapdpProcessEtwEvents @ 0x1406CAA8C (BapdpProcessEtwEvents.c)
- *     PopBootLoaderTraceProcess @ 0x1407CFAB0 (PopBootLoaderTraceProcess.c)
+ *     BapdpProcessEtwEvents @ 0x1406CEABC (BapdpProcessEtwEvents.c)
+ *     PopBootLoaderTraceProcess @ 0x1407D2B50 (PopBootLoaderTraceProcess.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     BapdRegisterEtwProvider @ 0x14050AC94 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     EtwSetInformation @ 0x1408287B0 (EtwSetInformation.c)
- *     EtwUnregister @ 0x140A84ED0 (EtwUnregister.c)
- *     BapdpWriteEventDataToRegistry @ 0x140C07D14 (BapdpWriteEventDataToRegistry.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     BapdRegisterEtwProvider @ 0x140504704 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     EtwSetInformation @ 0x14082E9F0 (EtwSetInformation.c)
+ *     EtwUnregister @ 0x1409BE550 (EtwUnregister.c)
+ *     BapdpWriteEventDataToRegistry @ 0x140C0DF24 (BapdpWriteEventDataToRegistry.c)
  */
 
 __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigned int a3)
 {
-  __int128 *v3; // r15
+  const GUID *v3; // r15
   unsigned __int64 v4; // rdi
   unsigned __int64 v5; // rbx
   ULONGLONG v6; // r12
@@ -45,7 +45,7 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
   const WCHAR *v28; // rdx
   char v30; // [rsp+48h] [rbp-59h]
   NTSTATUS v31; // [rsp+4Ch] [rbp-55h]
-  __int128 *v32; // [rsp+50h] [rbp-51h]
+  const GUID *v32; // [rsp+50h] [rbp-51h]
   unsigned __int64 v33; // [rsp+58h] [rbp-49h]
   REGHANDLE RegHandle; // [rsp+68h] [rbp-39h] BYREF
   REGHANDLE v36; // [rsp+70h] [rbp-31h] BYREF
@@ -127,9 +127,9 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
           v22 = 0x6B3FAED6A2C303F9LL - *(_QWORD *)(v5 + 40);
         if ( v22 )
         {
-          v23 = *(_QWORD *)v3 - v19;
-          if ( *(_QWORD *)v3 == v19 )
-            v23 = *((_QWORD *)v3 + 1) - *(_QWORD *)(v5 + 40);
+          v23 = *(_QWORD *)&v3->Data1 - v19;
+          if ( *(_QWORD *)&v3->Data1 == v19 )
+            v23 = *(_QWORD *)v3->Data4 - *(_QWORD *)(v5 + 40);
           if ( v23 )
           {
             if ( v8 )
@@ -144,7 +144,7 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
             if ( v24 < 0 )
               goto LABEL_63;
             v21 = v38;
-            v32 = (__int128 *)(v5 + 32);
+            v32 = (const GUID *)(v5 + 32);
             if ( *(_BYTE *)(v5 + 51) == 11 )
               EtwSetInformation(v38, EventProviderSetTraits, (PVOID)EventInformation.Ptr, EventInformation.Size);
           }
@@ -201,7 +201,7 @@ __int64 __fastcall BapdWriteEtwEvents(ULONGLONG a1, unsigned __int64 a2, unsigne
         {
           if ( !*v14 )
           {
-            ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL, 0LL, 0LL, 0, 0);
+            ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0, 0LL, 0LL, 0, 0);
             goto LABEL_47;
           }
 LABEL_48:
@@ -248,7 +248,7 @@ LABEL_47:
 LABEL_50:
     v5 = (*(unsigned int *)(v5 + 4) + v5 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
   }
-  if ( (ExpSysDbgLock.SchedulerApcFill5[72] & 4) != 0 )
+  if ( ((__int64)ExpSysDbgLock.MutantListHead.Flink & 4) != 0 )
   {
     RtlInitUnicodeString(&DestinationString, L"BootmgrUserInputTime");
     BapdpWriteEventDataToRegistry(&Data);

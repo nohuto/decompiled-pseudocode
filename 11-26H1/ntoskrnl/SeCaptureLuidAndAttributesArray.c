@@ -1,15 +1,15 @@
 /*
- * XREFs of SeCaptureLuidAndAttributesArray @ 0x140A43158
+ * XREFs of SeCaptureLuidAndAttributesArray @ 0x1409E2108
  * Callers:
- *     NtAdjustPrivilegesToken @ 0x140A42610 (NtAdjustPrivilegesToken.c)
- *     NtPrivilegeCheck @ 0x140A42F40 (NtPrivilegeCheck.c)
- *     NtCreateTokenEx @ 0x140A44080 (NtCreateTokenEx.c)
- *     NtFilterToken @ 0x140A45140 (NtFilterToken.c)
+ *     NtAdjustPrivilegesToken @ 0x1409E1580 (NtAdjustPrivilegesToken.c)
+ *     NtPrivilegeCheck @ 0x1409E1EF0 (NtPrivilegeCheck.c)
+ *     NtCreateTokenEx @ 0x1409E2210 (NtCreateTokenEx.c)
+ *     NtFilterToken @ 0x1409E32D0 (NtFilterToken.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureLuidAndAttributesArray(

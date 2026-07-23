@@ -1,17 +1,17 @@
 /*
- * XREFs of PspExitProcess @ 0x1409387A0
+ * XREFs of PspExitProcess @ 0x1408F2E70
  * Callers:
- *     PspExitLastThread @ 0x1409374F0 (PspExitLastThread.c)
+ *     PspExitLastThread @ 0x1408F27B8 (PspExitLastThread.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PspProcessUnbindVirtualizedTimers @ 0x1403E3FE0 (PspProcessUnbindVirtualizedTimers.c)
- *     ExCleanTimerResolutionRequest @ 0x1404A6E8C (ExCleanTimerResolutionRequest.c)
- *     PspCallProcessNotifyRoutines @ 0x140938898 (PspCallProcessNotifyRoutines.c)
- *     PsSetProcessTelemetryAppState @ 0x1409394B0 (PsSetProcessTelemetryAppState.c)
- *     DbgkFlushErrorPort @ 0x140939888 (DbgkFlushErrorPort.c)
- *     PfProcessExitNotification @ 0x1409398E0 (PfProcessExitNotification.c)
- *     EtwTraceProcess @ 0x14094CC44 (EtwTraceProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PspProcessUnbindVirtualizedTimers @ 0x14046BC94 (PspProcessUnbindVirtualizedTimers.c)
+ *     ExCleanTimerResolutionRequest @ 0x1404A17F8 (ExCleanTimerResolutionRequest.c)
+ *     EtwTraceProcess @ 0x1408F11B4 (EtwTraceProcess.c)
+ *     PspCallProcessNotifyRoutines @ 0x1408F2F68 (PspCallProcessNotifyRoutines.c)
+ *     PsSetProcessTelemetryAppState @ 0x1408F3B80 (PsSetProcessTelemetryAppState.c)
+ *     PfProcessExitNotification @ 0x14094BDC4 (PfProcessExitNotification.c)
+ *     DbgkFlushErrorPort @ 0x140A527EC (DbgkFlushErrorPort.c)
  */
 
 void __fastcall PspExitProcess(char a1, __int64 a2)
@@ -25,7 +25,7 @@ void __fastcall PspExitProcess(char a1, __int64 a2)
   {
     PsSetProcessTelemetryAppState((PRKPROCESS)a2);
     if ( (PerfGlobalGroupMask[0] & 1) != 0 )
-      EtwTraceProcess((PRKPROCESS)a2);
+      EtwTraceProcess((PRKPROCESS)a2, 770);
     if ( (*(_DWORD *)(a2 + 1532) & 1) == 0 || *(_QWORD *)(a2 + 1600) )
     {
       --CurrentThread->KernelApcDisable;

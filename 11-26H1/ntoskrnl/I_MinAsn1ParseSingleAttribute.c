@@ -1,15 +1,15 @@
 /*
- * XREFs of I_MinAsn1ParseSingleAttribute @ 0x1408A308C
+ * XREFs of I_MinAsn1ParseSingleAttribute @ 0x1408A949C
  * Callers:
- *     I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x1408A2310 (I_MinCryptGetPlatformManifestBinaryIDAttribute.c)
- *     I_MinCryptGetSigningTime @ 0x1408A23A4 (I_MinCryptGetSigningTime.c)
- *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A250C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
- *     I_MinCryptVerifyHashSignerAuthenticatedAttributes @ 0x1408A2728 (I_MinCryptVerifyHashSignerAuthenticatedAttributes.c)
+ *     I_MinCryptGetPlatformManifestBinaryIDAttribute @ 0x1408A8720 (I_MinCryptGetPlatformManifestBinaryIDAttribute.c)
+ *     I_MinCryptGetSigningTime @ 0x1408A87B4 (I_MinCryptGetSigningTime.c)
+ *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A891C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
+ *     I_MinCryptVerifyHashSignerAuthenticatedAttributes @ 0x1408A8B38 (I_MinCryptVerifyHashSignerAuthenticatedAttributes.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     MinAsn1ExtractContent @ 0x1408A46CC (MinAsn1ExtractContent.c)
- *     MinAsn1ExtractValues @ 0x1408A4838 (MinAsn1ExtractValues.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     MinAsn1ExtractContent @ 0x1408AAADC (MinAsn1ExtractContent.c)
+ *     MinAsn1ExtractValues @ 0x1408AAC48 (MinAsn1ExtractValues.c)
  */
 
 char __fastcall I_MinAsn1ParseSingleAttribute(__int64 a1, unsigned int *a2, __int64 a3, _OWORD *a4)
@@ -55,7 +55,7 @@ char __fastcall I_MinAsn1ParseSingleAttribute(__int64 a1, unsigned int *a2, __in
       goto LABEL_23;
     }
     v17 = 4;
-    Values = MinAsn1ExtractValues(v8, i, (unsigned int)&v17, (unsigned int)&qword_140010320, 5, (__int64)v21);
+    Values = MinAsn1ExtractValues(v8, i, (unsigned int)&v17, (unsigned int)&qword_140010390, 5, (__int64)v21);
     if ( Values <= 0 )
       break;
     if ( !v5 )

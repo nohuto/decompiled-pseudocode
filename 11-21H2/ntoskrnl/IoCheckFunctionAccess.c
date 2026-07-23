@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     SeQuerySecurityAccessMask @ 0x1406A6138 (SeQuerySecurityAccessMask.c)
- *     SeSetSecurityAccessMask @ 0x1406B5B10 (SeSetSecurityAccessMask.c)
+ *     sub_1406A6138 @ 0x1406A6138 (sub_1406A6138.c)
+ *     sub_1406B5B10 @ 0x1406B5B10 (sub_1406B5B10.c)
  */
 
 NTSTATUS __stdcall IoCheckFunctionAccess(
@@ -31,13 +31,13 @@ NTSTATUS __stdcall IoCheckFunctionAccess(
   {
     if ( MajorFunction == 10 )
     {
-      if ( (~GrantedAccess & IopQueryFsOperationAccess[*(int *)Arg2]) != 0 )
+      if ( (~GrantedAccess & dword_140A39810[*(int *)Arg2]) != 0 )
         return -1073741790;
       return v6;
     }
     if ( MajorFunction == 11 )
     {
-      v11 = (~GrantedAccess & IopSetFsOperationAccess[*(int *)Arg2]) != 0;
+      v11 = (~GrantedAccess & dword_140A39850[*(int *)Arg2]) != 0;
       goto LABEL_20;
     }
     if ( MajorFunction != 12 )
@@ -57,10 +57,10 @@ NTSTATUS __stdcall IoCheckFunctionAccess(
             v7 = GrantedAccess & 3;
             goto LABEL_8;
           case 0x14u:
-            SeQuerySecurityAccessMask(*(_DWORD *)Arg1, &v15);
+            sub_1406A6138(*(_DWORD *)Arg1, &v15);
             break;
           case 0x15u:
-            SeSetSecurityAccessMask(*(_DWORD *)Arg1, &v15);
+            sub_1406B5B10(*(_DWORD *)Arg1, &v15);
             break;
           default:
             return -1073741808;
@@ -99,7 +99,7 @@ LABEL_8:
     switch ( MajorFunction )
     {
       case 6u:
-        v12 = IopSetOperationAccess[*(int *)Arg1];
+        v12 = dword_140A3A610[*(int *)Arg1];
         goto LABEL_23;
       case 7u:
         v10 = ~(_BYTE)GrantedAccess & 8;
@@ -110,7 +110,7 @@ LABEL_8:
     }
     return -1073741808;
   }
-  v12 = IopQueryOperationAccess[*(int *)Arg1];
+  v12 = dword_140A3B230[*(int *)Arg1];
 LABEL_23:
   if ( v12 && (~GrantedAccess & v12) != 0 )
     return -1073741790;

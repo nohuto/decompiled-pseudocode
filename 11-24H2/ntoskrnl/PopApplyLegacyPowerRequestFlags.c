@@ -1,15 +1,15 @@
 /*
- * XREFs of PopApplyLegacyPowerRequestFlags @ 0x14046BB18
+ * XREFs of PopApplyLegacyPowerRequestFlags @ 0x140464798
  * Callers:
- *     PoRegisterSystemState @ 0x1403310B0 (PoRegisterSystemState.c)
- *     NtSetThreadExecutionState @ 0x140AC6F10 (NtSetThreadExecutionState.c)
+ *     PoRegisterSystemState @ 0x1402B9710 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x140AC4920 (NtSetThreadExecutionState.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     PopPowerRequestReferenceRelease @ 0x14046BD60 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14046BE70 (PopPowerRequestReferenceAcquire.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14046C0C4 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestReferenceRelease @ 0x1404649E0 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x140464AF0 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x140464D44 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
  */
 
 void __fastcall PopApplyLegacyPowerRequestFlags(PVOID Object, char a2, char a3)

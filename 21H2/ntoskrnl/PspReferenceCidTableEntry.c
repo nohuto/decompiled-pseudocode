@@ -1,17 +1,17 @@
 /*
- * XREFs of PspReferenceCidTableEntry @ 0x140625A50
+ * XREFs of PspReferenceCidTableEntry @ 0x14068F6C0
  * Callers:
- *     PsLookupThreadByThreadId @ 0x140625630 (PsLookupThreadByThreadId.c)
- *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
- *     PspThreadFromTicket @ 0x140625930 (PspThreadFromTicket.c)
+ *     PsLookupThreadByThreadId @ 0x14068F2A0 (PsLookupThreadByThreadId.c)
+ *     PsLookupProcessByProcessId @ 0x14068F4F0 (PsLookupProcessByProcessId.c)
+ *     PspThreadFromTicket @ 0x14068F5A0 (PspThreadFromTicket.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExSlowReplenishHandleTableEntry @ 0x140348800 (ExSlowReplenishHandleTableEntry.c)
- *     ExLockHandleTableEntry @ 0x140348860 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140685788 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1406F11F0 (ExpLookupHandleTableEntry.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x140353550 (ExSlowReplenishHandleTableEntry.c)
+ *     ExLockHandleTableEntry @ 0x1403535B0 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1405E2998 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1407085D0 (ExpLookupHandleTableEntry.c)
  */
 
 struct _DMA_ADAPTER *__fastcall PspReferenceCidTableEntry(__int64 a1, char a2)
@@ -101,7 +101,7 @@ LABEL_27:
   {
     if ( (v7 & 1) == 0 )
     {
-      ExpBlockOnLockedHandleEntry(v5, v4);
+      ExpBlockOnLockedHandleEntry(v5, v4, v7);
       _m_prefetchw(v4);
       v6 = v4[1];
       *(_QWORD *)&v22 = *v4;

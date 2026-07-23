@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSystemIdleS0LowPowerDoze @ 0x140875540
+ * XREFs of PopTraceSystemIdleS0LowPowerDoze @ 0x1408767A0
  * Callers:
- *     PopIdleAoAcDozeToS4 @ 0x140877610 (PopIdleAoAcDozeToS4.c)
+ *     PopIdleAoAcDozeToS4 @ 0x140878870 (PopIdleAoAcDozeToS4.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PopTraceSystemIdleS0LowPowerDoze()

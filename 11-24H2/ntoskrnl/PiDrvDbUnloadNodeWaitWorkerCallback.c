@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDrvDbUnloadNodeWaitWorkerCallback @ 0x1405A9910
+ * XREFs of PiDrvDbUnloadNodeWaitWorkerCallback @ 0x1405A6880
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1404A044C (PnpDiagnosticTraceObjectWithStatus.c)
- *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x14049AACC (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwWaitForSingleObject @ 0x1406A7430 (ZwWaitForSingleObject.c)
  */
 
 void __fastcall PiDrvDbUnloadNodeWaitWorkerCallback(__int64 a1)

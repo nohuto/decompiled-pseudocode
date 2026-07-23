@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCheckDiskName @ 0x14017FB40
+ * XREFs of IopCheckDiskName @ 0x14017FC80
  * Callers:
- *     IopGetBootDiskInformationLite @ 0x1409BDED8 (IopGetBootDiskInformationLite.c)
+ *     IopGetBootDiskInformationLite @ 0x1409BEED8 (IopGetBootDiskInformationLite.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     RtlPrefixString @ 0x140679790 (RtlPrefixString.c)
- *     RtlCharToInteger @ 0x14072CDD0 (RtlCharToInteger.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     RtlPrefixString @ 0x14067A950 (RtlPrefixString.c)
+ *     RtlCharToInteger @ 0x14072DFC0 (RtlCharToInteger.c)
  */
 
 char __fastcall IopCheckDiskName(const STRING *a1, const STRING *a2, ULONG *a3)
 {
   char v6; // bl
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   *a3 = 0;
   *(_QWORD *)&DestinationString.Length = 0LL;

@@ -22,7 +22,7 @@ __int64 __fastcall MiLeapPrefetch(_QWORD *a1, unsigned __int64 a2)
   struct _KTHREAD *CurrentThread; // rsi
   char Queue; // al
   __int64 Process; // rbp
-  unsigned __int64 v8; // rdi
+  PRTL_BALANCED_NODE v8; // rdi
   KIRQL v9; // di
   unsigned __int64 v10; // rdx
   unsigned __int64 v11; // rbx
@@ -69,14 +69,14 @@ LABEL_27:
     || ExfTryAcquirePushLockShared((signed __int64 *)(Process + 872)) )
   {
     if ( v8 )
-      *(_BYTE *)(v8 + 26) |= 1u;
+      BYTE2(v8[1].Left) |= 1u;
     LOBYTE(CurrentThread[1].Queue) |= 2u;
     v9 = 17;
   }
   else
   {
     if ( v8 )
-      KeAbPostReleaseEx(Process + 872, v8);
+      KeAbPostReleaseEx(Process + 872, (unsigned __int64)v8);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     v9 = MiLockWorkingSetShared(Process + 1280);
   }

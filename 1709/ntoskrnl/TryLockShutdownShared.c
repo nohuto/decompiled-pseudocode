@@ -12,7 +12,7 @@
 char TryLockShutdownShared()
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v1; // rdi
+  PRTL_BALANCED_NODE v1; // rdi
   char v2; // bl
 
   CurrentThread = KeGetCurrentThread();
@@ -23,13 +23,13 @@ char TryLockShutdownShared()
     || ExfTryAcquirePushLockShared((signed __int64 *)&CmpShutdownLock) )
   {
     if ( v1 )
-      *(_BYTE *)(v1 + 26) |= 1u;
+      BYTE2(v1[1].Left) |= 1u;
     return 1;
   }
   else
   {
     if ( v1 )
-      KeAbPostReleaseEx((ULONG_PTR)&CmpShutdownLock, v1);
+      KeAbPostReleaseEx((ULONG_PTR)&CmpShutdownLock, (unsigned __int64)v1);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return v2;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PipSetGuestAssignedProperty @ 0x1407B4BBC
+ * XREFs of PipSetGuestAssignedProperty @ 0x1407B7C1C
  * Callers:
- *     PiUpdateGuestAssignedState @ 0x14090E948 (PiUpdateGuestAssignedState.c)
+ *     PiUpdateGuestAssignedState @ 0x1409B0A78 (PiUpdateGuestAssignedState.c)
  * Callees:
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PipSetGuestAssignedProperty(__int64 a1, char a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PipSetGuestAssignedProperty(__int64 a1, char a2)
   v4 = *(_QWORD *)(a1 + 48);
   if ( v3 )
   {
-    PnpSetObjectProperty(PiPnpRtlCtx, v4, 1, 0, 0LL, (__int64)DEVPKEY_Device_AssignedToGuest, 0, 0LL, 0, 0);
+    PnpSetObjectProperty(PiPnpRtlCtx, v4, 1, 0LL, (__int64)DEVPKEY_Device_AssignedToGuest, 0, 0LL, 0, 0);
   }
   else
   {
@@ -27,7 +27,6 @@ __int64 __fastcall PipSetGuestAssignedProperty(__int64 a1, char a2)
                            PiPnpRtlCtx,
                            v4,
                            1,
-                           0,
                            0LL,
                            (__int64)DEVPKEY_Device_AssignedToGuest,
                            17,

@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlDestroyHandleTable @ 0x180110BF0
+ * XREFs of RtlDestroyHandleTable @ 0x18010BEB0
  * Callers:
- *     RtlDestroyAtomTable @ 0x180114540 (RtlDestroyAtomTable.c)
+ *     RtlDestroyAtomTable @ 0x18010F790 (RtlDestroyAtomTable.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     ZwFreeVirtualMemory @ 0x180162050 (ZwFreeVirtualMemory.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     ZwFreeVirtualMemory @ 0x180160410 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall RtlDestroyHandleTable(__int64 a1)
+NTSTATUS __cdecl RtlDestroyHandleTable(PRTL_HANDLE_TABLE HandleTable)
 {
-  unsigned __int64 v1; // rdx
-  unsigned int v2; // ebx
-  unsigned __int64 v4; // [rsp+30h] [rbp+8h] BYREF
-  unsigned __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+  PRTL_HANDLE_TABLE_ENTRY CommittedHandles; // rdx
+  NTSTATUS v2; // ebx
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 24);
+  CommittedHandles = HandleTable->CommittedHandles;
   v2 = 0;
-  v4 = v1;
-  if ( v1 )
+  BaseAddress = CommittedHandles;
+  if ( CommittedHandles )
   {
-    if ( *(_DWORD *)(a1 + 8) )
+    if ( HandleTable->Reserved[0] )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     }
     else
     {
-      v5 = *(_QWORD *)(a1 + 40) - v1;
-      return (unsigned int)ZwFreeVirtualMemory(-1LL, &v4, &v5, 0x8000LL);
+      RegionSize = (char *)HandleTable->MaxReservedHandles - (char *)CommittedHandles;
+      return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
     }
   }
   return v2;

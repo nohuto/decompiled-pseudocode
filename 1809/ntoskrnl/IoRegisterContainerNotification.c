@@ -1,5 +1,5 @@
 /*
- * XREFs of IoRegisterContainerNotification @ 0x14075FFE0
+ * XREFs of IoRegisterContainerNotification @ 0x1407611D0
  * Callers:
  *     <none>
  * Callees:
@@ -9,13 +9,13 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     IopAllocateFileObjectExtension @ 0x140062920 (IopAllocateFileObjectExtension.c)
- *     MmGetSessionObjectById @ 0x14007F244 (MmGetSessionObjectById.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExRegisterCallback @ 0x14016C680 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x14016CEF0 (ExUnregisterCallback.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetSessionIdFromPDO @ 0x1406EBC34 (IopGetSessionIdFromPDO.c)
+ *     MmGetSessionObjectById @ 0x14007F234 (MmGetSessionObjectById.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExRegisterCallback @ 0x14016C780 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x14016CFF0 (ExUnregisterCallback.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopGetSessionIdFromPDO @ 0x1406ECED4 (IopGetSessionIdFromPDO.c)
  */
 
 NTSTATUS __stdcall IoRegisterContainerNotification(
@@ -110,13 +110,13 @@ LABEL_11:
           v12[3] = v7;
           v12[6] = SessionObjectById;
           *(_QWORD *)CallbackRegistration = v13;
-          v16 = (_QWORD *)qword_1404359A8;
-          if ( *(PVOID **)qword_1404359A8 != &IopSessionNotificationQueueHead )
+          v16 = (_QWORD *)qword_140436A48;
+          if ( *(PVOID **)qword_140436A48 != &IopSessionNotificationQueueHead )
             __fastfail(3u);
           *v12 = &IopSessionNotificationQueueHead;
           v12[1] = v16;
           *v16 = v12;
-          qword_1404359A8 = (__int64)v12;
+          qword_140436A48 = (__int64)v12;
           goto LABEL_13;
         case 5:
           v15 = *(void **)(*(_QWORD *)(v9 + 8) + 8LL);

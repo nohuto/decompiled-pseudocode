@@ -1,13 +1,13 @@
 /*
- * XREFs of PopThermalWriteShutdownToRegistry @ 0x140590120
+ * XREFs of PopThermalWriteShutdownToRegistry @ 0x140590610
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1403A1854 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalProcessUsermodeEvent @ 0x14098ADC8 (PopThermalProcessUsermodeEvent.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403A1A34 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalProcessUsermodeEvent @ 0x14098AFC8 (PopThermalProcessUsermodeEvent.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PopOpenThermalLoggingKey @ 0x1403B06EC (PopOpenThermalLoggingKey.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PopOpenThermalLoggingKey @ 0x1403B08CC (PopOpenThermalLoggingKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall PopThermalWriteShutdownToRegistry(__int64 a1, void *a2)

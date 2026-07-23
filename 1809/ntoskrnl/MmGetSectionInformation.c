@@ -1,16 +1,16 @@
 /*
- * XREFs of MmGetSectionInformation @ 0x14066D850
+ * XREFs of MmGetSectionInformation @ 0x14066EA10
  * Callers:
- *     AlpcpMapLegacyPortView @ 0x14061CCE4 (AlpcpMapLegacyPortView.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
- *     NtQuerySection @ 0x1406B60E0 (NtQuerySection.c)
- *     PspLocateSystemDll @ 0x14075613C (PspLocateSystemDll.c)
- *     DbgkpSendErrorMessage @ 0x140810DCC (DbgkpSendErrorMessage.c)
+ *     AlpcpMapLegacyPortView @ 0x14061DCE4 (AlpcpMapLegacyPortView.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
+ *     NtQuerySection @ 0x1406B7380 (NtQuerySection.c)
+ *     PspLocateSystemDll @ 0x14075732C (PspLocateSystemDll.c)
+ *     DbgkpSendErrorMessage @ 0x140811FCC (DbgkpSendErrorMessage.c)
  * Callees:
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiAweControlArea @ 0x140077E6C (MiAweControlArea.c)
- *     MiGetControlAreaLoadConfig @ 0x1400D9514 (MiGetControlAreaLoadConfig.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiAweControlArea @ 0x140077E5C (MiAweControlArea.c)
+ *     MiGetControlAreaLoadConfig @ 0x1400D9594 (MiGetControlAreaLoadConfig.c)
  */
 
 __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2)
@@ -86,7 +86,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2)
           v14 = v10[3];
           if ( (*(_DWORD *)(v9 + 56) & 0x10000000) != 0 )
           {
-            *(_QWORD *)&v29 = qword_140439FD0 | (unsigned __int16)v29;
+            *(_QWORD *)&v29 = qword_14043B090 | (unsigned __int16)v29;
             v11 = v29;
           }
           if ( a2 == 4 )
@@ -127,7 +127,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2)
         if ( a2 == 2 )
         {
           if ( (*(_DWORD *)(v9 + 56) & 0x10000000) != 0 )
-            v16 += qword_140439FD0 - *(_QWORD *)(*(_QWORD *)v9 + 32LL);
+            v16 += qword_14043B090 - *(_QWORD *)(*(_QWORD *)v9 + 32LL);
           *(_QWORD *)v8 = v16;
         }
         else

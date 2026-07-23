@@ -1,28 +1,28 @@
 /*
- * XREFs of CcWriteBehindInternal @ 0x1400E7F30
+ * XREFs of CcWriteBehindInternal @ 0x1400E5DD0
  * Callers:
- *     CcWriteBehind @ 0x14007161C (CcWriteBehind.c)
+ *     CcWriteBehind @ 0x14007119C (CcWriteBehind.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x1400709A0 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcApplyLowIoPriorityToThread @ 0x1400717E0 (CcApplyLowIoPriorityToThread.c)
- *     CcDecrementOpenCount @ 0x140073698 (CcDecrementOpenCount.c)
- *     CcIsFatalWriteError @ 0x14008E97C (CcIsFatalWriteError.c)
- *     CcGetFlushedValidData @ 0x1400A96D8 (CcGetFlushedValidData.c)
- *     CcSetValidData @ 0x1400C6024 (CcSetValidData.c)
- *     CcDeleteSharedCacheMap @ 0x1400CCD34 (CcDeleteSharedCacheMap.c)
- *     CcDereferenceSharedCacheMapFileObject @ 0x1400CFCF4 (CcDereferenceSharedCacheMapFileObject.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1400CFD4C (CcReferenceSharedCacheMapFileObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcFlushCachePriv @ 0x1400E8E10 (CcFlushCachePriv.c)
- *     CcCancelMmWaitForUninitializeCacheMap @ 0x1401B1390 (CcCancelMmWaitForUninitializeCacheMap.c)
- *     CcMmLogLostDelayedWriteError @ 0x1401B1BFC (CcMmLogLostDelayedWriteError.c)
- *     FsRtlAcquireFileExclusive @ 0x14042DE48 (FsRtlAcquireFileExclusive.c)
- *     FsRtlReleaseFile @ 0x14042DE60 (FsRtlReleaseFile.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140070520 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcApplyLowIoPriorityToThread @ 0x140071360 (CcApplyLowIoPriorityToThread.c)
+ *     CcDecrementOpenCount @ 0x140073218 (CcDecrementOpenCount.c)
+ *     CcIsFatalWriteError @ 0x14008E0DC (CcIsFatalWriteError.c)
+ *     CcGetFlushedValidData @ 0x1400A7C58 (CcGetFlushedValidData.c)
+ *     CcSetValidData @ 0x1400C3EC4 (CcSetValidData.c)
+ *     CcDeleteSharedCacheMap @ 0x1400CABD4 (CcDeleteSharedCacheMap.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1400CDB94 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1400CDBEC (CcReferenceSharedCacheMapFileObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcFlushCachePriv @ 0x1400E6CB0 (CcFlushCachePriv.c)
+ *     CcCancelMmWaitForUninitializeCacheMap @ 0x1401B1274 (CcCancelMmWaitForUninitializeCacheMap.c)
+ *     CcMmLogLostDelayedWriteError @ 0x1401B1AE0 (CcMmLogLostDelayedWriteError.c)
+ *     FsRtlAcquireFileExclusive @ 0x14042CD18 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlReleaseFile @ 0x14042CD30 (FsRtlReleaseFile.c)
  */
 
 void __fastcall CcWriteBehindInternal(__int64 a1)
@@ -235,7 +235,7 @@ LABEL_45:
         *(_DWORD *)(v1 + 152) &= ~0x20u;
       if ( v29 )
       {
-        byte_1403231C1 = 1;
+        byte_1403231E1 = 1;
         if ( (*(_DWORD *)(v1 + 152) & 0x10000) != 0 )
         {
           v31 = 1;

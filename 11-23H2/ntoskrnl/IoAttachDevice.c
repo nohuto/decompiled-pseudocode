@@ -1,14 +1,14 @@
 /*
- * XREFs of IoAttachDevice @ 0x140946C00
+ * XREFs of IoAttachDevice @ 0x140946E00
  * Callers:
- *     DifIoAttachDeviceWrapper @ 0x1405DD4D0 (DifIoAttachDeviceWrapper.c)
+ *     DifIoAttachDeviceWrapper @ 0x1405DDA40 (DifIoAttachDeviceWrapper.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoAttachDeviceToDeviceStackSafe @ 0x14035F8F0 (IoAttachDeviceToDeviceStackSafe.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IoAttachDeviceToDeviceStackSafe @ 0x14035FA90 (IoAttachDeviceToDeviceStackSafe.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall IoAttachDevice(

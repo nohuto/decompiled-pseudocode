@@ -1,14 +1,14 @@
 /*
- * XREFs of MiWriteValidPteVolatile @ 0x140232800
+ * XREFs of MiWriteValidPteVolatile @ 0x140203330
  * Callers:
- *     MiLockOwnedProtoPage @ 0x1402158F0 (MiLockOwnedProtoPage.c)
- *     MiLockProtoPoolPage @ 0x14022E920 (MiLockProtoPoolPage.c)
- *     MiLockCode @ 0x14023D6F0 (MiLockCode.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x1402F6DBC (MiTryLockProtoPoolPageAtDpc.c)
- *     MiLockPagedAddress @ 0x14047910C (MiLockPagedAddress.c)
- *     MiProtectDriverSectionPte @ 0x14066B400 (MiProtectDriverSectionPte.c)
+ *     MiLockCode @ 0x140205480 (MiLockCode.c)
+ *     MiLockProtoPoolPage @ 0x140302230 (MiLockProtoPoolPage.c)
+ *     MiLockOwnedProtoPage @ 0x1403354A0 (MiLockOwnedProtoPage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14033EECC (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiLockPagedAddress @ 0x14047499C (MiLockPagedAddress.c)
+ *     MiProtectDriverSectionPte @ 0x14066C5D0 (MiProtectDriverSectionPte.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
  */
 
 signed __int64 __fastcall MiWriteValidPteVolatile(

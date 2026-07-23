@@ -1,10 +1,10 @@
 /*
- * XREFs of MiModifiedWriterWakeMdls @ 0x140406948
+ * XREFs of MiModifiedWriterWakeMdls @ 0x1403FFA38
  * Callers:
- *     MiModifiedWriterShouldWrite @ 0x1404066FC (MiModifiedWriterShouldWrite.c)
+ *     MiModifiedWriterShouldWrite @ 0x1403FF7EC (MiModifiedWriterShouldWrite.c)
  * Callees:
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x14040646C (MiMakePagefileWriterEntryAvailable.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x1403FF560 (MiMakePagefileWriterEntryAvailable.c)
  */
 
 char __fastcall MiModifiedWriterWakeMdls(struct _KEVENT *a1)

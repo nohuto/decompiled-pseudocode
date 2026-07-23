@@ -1,5 +1,5 @@
 /*
- * XREFs of KzRaiseIrql @ 0x14002ECD0
+ * XREFs of KzRaiseIrql @ 0x14002E850
  * Callers:
  *     <none>
  * Callees:

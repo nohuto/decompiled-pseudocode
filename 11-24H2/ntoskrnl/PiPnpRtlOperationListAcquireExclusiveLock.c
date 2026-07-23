@@ -1,10 +1,10 @@
 /*
- * XREFs of PiPnpRtlOperationListAcquireExclusiveLock @ 0x1408CC29C
+ * XREFs of PiPnpRtlOperationListAcquireExclusiveLock @ 0x1408C9CCC
  * Callers:
- *     PiPnpRtlBeginOperation @ 0x1408CBF78 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1408CC158 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1408C99A8 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1408C9B88 (PiPnpRtlEndOperation.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN PiPnpRtlOperationListAcquireExclusiveLock()

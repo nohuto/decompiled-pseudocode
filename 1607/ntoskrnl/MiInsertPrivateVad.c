@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertPrivateVad @ 0x1400965F0
+ * XREFs of MiInsertPrivateVad @ 0x140095DF0
  * Callers:
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiAllocateEnclaveVad @ 0x14065E4C4 (MiAllocateEnclaveVad.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiAllocateEnclaveVad @ 0x14065E5A8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiUnlockVad @ 0x1400144A0 (MiUnlockVad.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiInsertVad @ 0x140042950 (MiInsertVad.c)
- *     MiCreatePageTablesForPhysicalRange @ 0x1401EFE1C (MiCreatePageTablesForPhysicalRange.c)
- *     MiAweViewInserter @ 0x14065C078 (MiAweViewInserter.c)
+ *     MiUnlockVad @ 0x140014020 (MiUnlockVad.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiInsertVad @ 0x1400424D0 (MiInsertVad.c)
+ *     MiCreatePageTablesForPhysicalRange @ 0x1401EFC48 (MiCreatePageTablesForPhysicalRange.c)
+ *     MiAweViewInserter @ 0x14065C15C (MiAweViewInserter.c)
  */
 
 __int64 __fastcall MiInsertPrivateVad(unsigned __int64 a1, __int64 a2, __int64 a3)
@@ -25,11 +25,11 @@ __int64 __fastcall MiInsertPrivateVad(unsigned __int64 a1, __int64 a2, __int64 a
 
   CurrentThread = KeGetCurrentThread();
   if ( (*(_DWORD *)(a1 + 48) & 0x100000) != 0 )
-    ++*(_QWORD *)(qword_140327F90 + 276840648);
+    ++*(_QWORD *)(qword_140327FD0 + 276840648);
   if ( (*(_BYTE *)(a1 + 48) & 7) == 3 )
     MiLockVad((__int64)CurrentThread, a1);
   if ( (*(_BYTE *)(a3 + 1464) & 7) == 2 )
-    v7 = &dword_140327C80;
+    v7 = &dword_140327CC0;
   else
     v7 = (LONG *)(a3 + 1472);
   v8 = ExAcquireSpinLockExclusive(v7);

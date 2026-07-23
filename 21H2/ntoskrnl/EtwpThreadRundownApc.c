@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpThreadRundownApc @ 0x1405AB850
+ * XREFs of EtwpThreadRundownApc @ 0x1405ABA80
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     EtwpTraceThreadRundown @ 0x1403AE820 (EtwpTraceThreadRundown.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     EtwpTraceThreadRundown @ 0x1403AE970 (EtwpTraceThreadRundown.c)
  */
 
 LONG __fastcall EtwpThreadRundownApc(__int64 a1, __int64 a2, __int64 a3, struct _KEVENT **a4, __int64 *a5)

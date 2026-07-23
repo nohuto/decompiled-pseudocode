@@ -43,6 +43,6 @@ unsigned __int64 __fastcall RtlpHpSegMgrAllocate(int *a1, int a2, int a3)
     }
   }
   if ( v7 )
-    RtlpHpSegMgrRelease(a1, v7, 0LL);
+    RtlpHpSegMgrRelease((int)a1);
   return v8;
 }

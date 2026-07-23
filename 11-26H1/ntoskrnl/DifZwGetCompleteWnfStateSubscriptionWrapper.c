@@ -1,23 +1,23 @@
 /*
- * XREFs of DifZwGetCompleteWnfStateSubscriptionWrapper @ 0x1406A7350
+ * XREFs of DifZwGetCompleteWnfStateSubscriptionWrapper @ 0x1406AAF30
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwGetCompleteWnfStateSubscription @ 0x140725330 (ZwGetCompleteWnfStateSubscription.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwGetCompleteWnfStateSubscription @ 0x140729F00 (ZwGetCompleteWnfStateSubscription.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall DifZwGetCompleteWnfStateSubscriptionWrapper(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        unsigned int a4,
-        __int64 a5,
-        int a6)
+        _WNF_STATE_NAME *a1,
+        ULONG64 *a2,
+        ULONG a3,
+        ULONG a4,
+        _WNF_DELIVERY_DESCRIPTOR *NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -58,8 +58,8 @@ __int64 __fastcall DifZwGetCompleteWnfStateSubscriptionWrapper(
 LABEL_7:
   v14 = 0;
   *((_QWORD *)&v22 + 1) = a1;
-  *(_QWORD *)&v21 = a5;
-  DWORD2(v20) = a6;
+  *(_QWORD *)&v21 = NewDeliveryDescriptor;
+  DWORD2(v20) = DescriptorSize;
   *(_QWORD *)&v22 = a2;
   *((_QWORD *)&v21 + 1) = __PAIR64__(a3, a4);
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
@@ -74,20 +74,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  LODWORD(v23) = ZwGetCompleteWnfStateSubscription(
-                   a1,
-                   a2,
-                   a3,
-                   a4,
-                   a5,
-                   a6,
-                   v20,
-                   *((_QWORD *)&v20 + 1),
-                   v21,
-                   *((_QWORD *)&v21 + 1),
-                   v22,
-                   *((_QWORD *)&v22 + 1),
-                   v23);
+  LODWORD(v23) = ZwGetCompleteWnfStateSubscription(a1, a2, a3, a4, NewDeliveryDescriptor, DescriptorSize);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

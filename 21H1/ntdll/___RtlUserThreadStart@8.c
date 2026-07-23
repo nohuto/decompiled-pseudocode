@@ -14,7 +14,7 @@
 
 int __fastcall __RtlUserThreadStart(int (__thiscall *a1)(_DWORD, int), int a2, int a3, int a4)
 {
-  int v5; // eax
+  NTSTATUS v5; // eax
 
   if ( !Kernel32ThreadInitThunkFunction )
   {

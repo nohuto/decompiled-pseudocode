@@ -1,16 +1,16 @@
 /*
- * XREFs of XpressDecodeClose @ 0x14023E4B4
+ * XREFs of XpressDecodeClose @ 0x14023E398
  * Callers:
- *     CMFReadCompressedSegment @ 0x1406B9298 (CMFReadCompressedSegment.c)
+ *     CMFReadCompressedSegment @ 0x1406B93D0 (CMFReadCompressedSegment.c)
  * Callees:
- *     CMFFreeFn @ 0x1404F1544 (CMFFreeFn.c)
+ *     CMFFreeFn @ 0x1404D3638 (CMFFreeFn.c)
  */
 
-void __fastcall XpressDecodeClose(_DWORD *Buffer)
+void __fastcall XpressDecodeClose(_DWORD *a1)
 {
-  if ( CMFFreeFn && Buffer && Buffer[26] == 903790814 )
+  if ( CMFFreeFn && a1 && a1[26] == 903790814 )
   {
-    Buffer[26] = 0;
-    CMFFreeFn(0LL, Buffer);
+    a1[26] = 0;
+    CMFFreeFn(0LL, a1);
   }
 }

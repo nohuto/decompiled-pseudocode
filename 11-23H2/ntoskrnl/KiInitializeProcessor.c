@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInitializeProcessor @ 0x140A8EC24
+ * XREFs of KiInitializeProcessor @ 0x140A8EA9C
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140A9F2E0 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9F150 (KiInitializeDynamicProcessorDpc.c)
  *     KeInitSystem @ 0x140B4DED4 (KeInitSystem.c)
  * Callees:
- *     KeInitializeGate @ 0x140293234 (KeInitializeGate.c)
- *     KiInitializeDpcList @ 0x14036EF40 (KiInitializeDpcList.c)
- *     KeInitializeThreadedDpc @ 0x140383920 (KeInitializeThreadedDpc.c)
- *     KiCreateDpcLimitsProcessorConfiguration @ 0x140383940 (KiCreateDpcLimitsProcessorConfiguration.c)
- *     KiApplyProcessorDpcLimits @ 0x140A8ECE8 (KiApplyProcessorDpcLimits.c)
+ *     KeInitializeGate @ 0x1402934C4 (KeInitializeGate.c)
+ *     KiInitializeDpcList @ 0x14036F0E0 (KiInitializeDpcList.c)
+ *     KeInitializeThreadedDpc @ 0x140383B00 (KeInitializeThreadedDpc.c)
+ *     KiCreateDpcLimitsProcessorConfiguration @ 0x140383B20 (KiCreateDpcLimitsProcessorConfiguration.c)
+ *     KiApplyProcessorDpcLimits @ 0x140A8EB60 (KiApplyProcessorDpcLimits.c)
  */
 
 __int64 __fastcall KiInitializeProcessor(__int64 a1)

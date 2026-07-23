@@ -1,15 +1,15 @@
 /*
- * XREFs of WbInPlaceEncryptionUnloadModule @ 0x1407E05A0
+ * XREFs of WbInPlaceEncryptionUnloadModule @ 0x1407E0870
  * Callers:
- *     WbProcessModuleUnload @ 0x1407E04BC (WbProcessModuleUnload.c)
+ *     WbProcessModuleUnload @ 0x1407E078C (WbProcessModuleUnload.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     sub_140761978 @ 0x140761978 (sub_140761978.c)
- *     sub_1407D2580 @ 0x1407D2580 (sub_1407D2580.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     sub_140761B68 @ 0x140761B68 (sub_140761B68.c)
+ *     sub_1407D2850 @ 0x1407D2850 (sub_1407D2850.c)
  */
 
 __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2)
@@ -42,10 +42,10 @@ __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2)
     {
       if ( *(_QWORD *)(v14 + 32) == a2 )
       {
-        v6 = sub_140761978(a1 + 136, 0, 0, i, 0LL);
+        v6 = sub_140761B68(a1 + 136, 0, 0, i, 0LL);
         if ( v6 >= 0 )
         {
-          sub_1407D2580((volatile signed __int64 *)v14);
+          sub_1407D2850((volatile signed __int64 *)v14);
           --i;
         }
       }

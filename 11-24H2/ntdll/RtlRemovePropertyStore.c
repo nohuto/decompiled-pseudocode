@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlRemovePropertyStore @ 0x180143480
+ * XREFs of RtlRemovePropertyStore @ 0x180141830
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     bsearch @ 0x180123D40 (bsearch.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     bsearch @ 0x180121F70 (bsearch.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlRemovePropertyStore(void *Key, volatile signed __int32 **a2, unsigned __int64 a3)
+NTSTATUS __cdecl RtlRemovePropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
-  unsigned int v5; // edi
-  char *v6; // rax
-  unsigned int v7; // ebx
-  __int64 v8; // rcx
+  NTSTATUS v4; // edi
+  unsigned __int64 *v5; // rax
+  unsigned int v6; // ebx
+  __int64 v7; // rcx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpPropStoreLock, a2, a3);
-  v5 = 0;
+  RtlAcquireSRWLockExclusive(&RtlpPropStoreLock);
+  v4 = 0;
   if ( RtlpPropStoreEntries
-    && (v6 = (char *)bsearch(
-                       Key,
-                       RtlpPropStoreEntries,
-                       (unsigned int)RtlpPropStoreEntriesActiveCount,
-                       0x18uLL,
-                       (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry)) != 0LL )
+    && (v5 = (unsigned __int64 *)bsearch(
+                                   (const void *)Key,
+                                   RtlpPropStoreEntries,
+                                   (unsigned int)RtlpPropStoreEntriesActiveCount,
+                                   0x18uLL,
+                                   (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry)) != 0LL )
   {
-    v7 = RtlpPropStoreEntriesActiveCount;
-    v8 = v6 - (_BYTE *)RtlpPropStoreEntries;
-    *a2 = (volatile signed __int32 *)*((_QWORD *)v6 + 2);
-    memmove(v6, v6 + 24, 24 * (v7 - 0xAAAAAAAAAAAAAAABuLL * (v8 >> 3)) - 24);
-    LODWORD(RtlpPropStoreEntriesActiveCount) = v7 - 1;
+    v6 = RtlpPropStoreEntriesActiveCount;
+    v7 = (char *)v5 - (_BYTE *)RtlpPropStoreEntries;
+    *Context = v5[2];
+    memmove(v5, v5 + 3, 24 * (v6 - 0xAAAAAAAAAAAAAAABuLL * (v7 >> 3)) - 24);
+    LODWORD(RtlpPropStoreEntriesActiveCount) = v6 - 1;
   }
   else
   {
-    v5 = -1073741275;
+    v4 = -1073741275;
   }
   RtlReleaseSRWLockExclusive(&RtlpPropStoreLock);
-  return v5;
+  return v4;
 }

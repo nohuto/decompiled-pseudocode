@@ -6,9 +6,18 @@
  *     <none>
  */
 
-__int64 __fastcall ZwNotifyChangeSession(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwNotifyChangeSession(
+        HANDLE SessionHandle,
+        ULONG ChangeSequenceNumber,
+        PLARGE_INTEGER ChangeTimeStamp,
+        IO_SESSION_EVENT Event,
+        IO_SESSION_STATE NewState,
+        IO_SESSION_STATE PreviousState,
+        PVOID Payload,
+        ULONG PayloadSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(SessionHandle, *(_QWORD *)&ChangeSequenceNumber);
 }

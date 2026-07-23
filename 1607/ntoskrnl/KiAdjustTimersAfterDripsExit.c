@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAdjustTimersAfterDripsExit @ 0x1401D25A4
+ * XREFs of KiAdjustTimersAfterDripsExit @ 0x1401D23D0
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1400DCA70 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1400DA910 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     KiAdjustTimerDueTimes @ 0x14012A614 (KiAdjustTimerDueTimes.c)
+ *     KiAdjustTimerDueTimes @ 0x14012AB84 (KiAdjustTimerDueTimes.c)
  */
 
 __int64 __fastcall KiAdjustTimersAfterDripsExit(__int64 a1)

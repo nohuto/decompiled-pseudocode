@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUnlockNestedPageTableWritePte @ 0x14030C84C
+ * XREFs of MiUnlockNestedPageTableWritePte @ 0x14031759C
  * Callers:
- *     MiEvictPageTableLock @ 0x14030C620 (MiEvictPageTableLock.c)
- *     MiWsleFlush @ 0x1403274F0 (MiWsleFlush.c)
- *     MiClearPteAccessed @ 0x140339E00 (MiClearPteAccessed.c)
- *     MiRewritePteWithLockBit @ 0x1403B6C18 (MiRewritePteWithLockBit.c)
+ *     MiEvictPageTableLock @ 0x140317370 (MiEvictPageTableLock.c)
+ *     MiWsleFlush @ 0x140332240 (MiWsleFlush.c)
+ *     MiClearPteAccessed @ 0x140344B50 (MiClearPteAccessed.c)
+ *     MiRewritePteWithLockBit @ 0x1403B6D88 (MiRewritePteWithLockBit.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1402BB418 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiShouldLockPteDirectly @ 0x14030CA20 (MiShouldLockPteDirectly.c)
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140239628 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiShouldLockPteDirectly @ 0x140317770 (MiShouldLockPteDirectly.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -23,15 +23,13 @@ void __fastcall MiUnlockNestedPageTableWritePte(__int64 a1, volatile __int64 *a2
   volatile __int64 *v6; // rdi
   int v8; // ebp
   __int64 v9; // rcx
-  __int64 v10; // r8
   unsigned __int64 OldIrql; // rbx
-  BOOL v12; // esi
-  __int64 v13; // r8
+  BOOL v11; // esi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v17; // eax
-  bool v18; // zf
+  int v15; // eax
+  bool v16; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -68,8 +66,8 @@ void __fastcall MiUnlockNestedPageTableWritePte(__int64 a1, volatile __int64 *a2
     if ( (unsigned int)MiShouldLockPteDirectly(a1) )
     {
       _InterlockedExchange64(v6, a3);
-      if ( (unsigned int)MiPteInShadowRange(v6, a2) )
-        MiWritePteShadow((__int64)v6, a3, v10);
+      if ( (unsigned int)MiPteInShadowRange(v6) )
+        MiWritePteShadow((__int64)v6, a3);
       v6 = 0LL;
       goto LABEL_11;
     }
@@ -79,12 +77,12 @@ void __fastcall MiUnlockNestedPageTableWritePte(__int64 a1, volatile __int64 *a2
       goto LABEL_11;
     }
   }
-  v12 = 0;
-  if ( (unsigned int)MiPteInShadowRange(v6, a2) )
-    v12 = MiPteHasShadow() != 0;
+  v11 = 0;
+  if ( (unsigned int)MiPteInShadowRange(v6) )
+    v11 = MiPteHasShadow() != 0;
   *v6 = a3;
-  if ( v12 )
-    MiWritePteShadow((__int64)v6, a3, v13);
+  if ( v11 )
+    MiWritePteShadow((__int64)v6, a3);
 LABEL_11:
   if ( v8 && !a4 )
   {
@@ -99,10 +97,10 @@ LABEL_11:
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v17 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v18 = (v17 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v17;
-          if ( v18 )
+          v15 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v15;
+          if ( v16 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }

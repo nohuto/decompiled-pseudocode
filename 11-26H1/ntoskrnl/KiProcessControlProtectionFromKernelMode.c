@@ -1,12 +1,12 @@
 /*
- * XREFs of KiProcessControlProtectionFromKernelMode @ 0x14052865C
+ * XREFs of KiProcessControlProtectionFromKernelMode @ 0x14052ACCC
  * Callers:
- *     KiProcessControlProtection @ 0x1404F7C00 (KiProcessControlProtection.c)
+ *     KiProcessControlProtection @ 0x1404F1210 (KiProcessControlProtection.c)
  * Callees:
- *     VslKernelShadowStackAssist @ 0x140368500 (VslKernelShadowStackAssist.c)
- *     KiFixupControlProtectionKernelModeReturnMismatch @ 0x1405FAA78 (KiFixupControlProtectionKernelModeReturnMismatch.c)
- *     KiGetCurrentKernelShadowStackBounds @ 0x1405FABB0 (KiGetCurrentKernelShadowStackBounds.c)
- *     KiLogControlProtectionKernelModeReturnMismatch @ 0x1405FACD4 (KiLogControlProtectionKernelModeReturnMismatch.c)
+ *     VslKernelShadowStackAssist @ 0x14036A2A0 (VslKernelShadowStackAssist.c)
+ *     KiFixupControlProtectionKernelModeReturnMismatch @ 0x1405FD498 (KiFixupControlProtectionKernelModeReturnMismatch.c)
+ *     KiGetCurrentKernelShadowStackBounds @ 0x1405FD5D0 (KiGetCurrentKernelShadowStackBounds.c)
+ *     KiLogControlProtectionKernelModeReturnMismatch @ 0x1405FD6F4 (KiLogControlProtectionKernelModeReturnMismatch.c)
  */
 
 __int64 __fastcall KiProcessControlProtectionFromKernelMode(__int64 a1)
@@ -52,7 +52,7 @@ __int64 __fastcall KiProcessControlProtectionFromKernelMode(__int64 a1)
           if ( *v11 >= 0x10000uLL && *v11 == v6 )
           {
             v5 = (((int)VslKernelShadowStackAssist(0, v8, 0LL, (__int64)v11, 0LL, 4) >> 31) & 1) + 1;
-            _InterlockedIncrement(&dword_140FC1328);
+            _InterlockedIncrement(&dword_140FC2328);
             return v5;
           }
           ++v11;

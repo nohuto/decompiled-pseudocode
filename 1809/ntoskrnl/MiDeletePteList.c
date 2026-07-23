@@ -1,24 +1,24 @@
 /*
  * XREFs of MiDeletePteList @ 0x140035B80
  * Callers:
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B9B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiDecrementCombinedPte @ 0x14011F9F4 (MiDecrementCombinedPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiReduceShareCount @ 0x140123FDC (MiReduceShareCount.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiDecrementCloneBlockReference @ 0x1402C9630 (MiDecrementCloneBlockReference.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011BA24 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiDecrementCombinedPte @ 0x14011FA64 (MiDecrementCombinedPte.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiReduceShareCount @ 0x1401240AC (MiReduceShareCount.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiDecrementCloneBlockReference @ 0x1402C9820 (MiDecrementCloneBlockReference.c)
  */
 
 __int64 __fastcall MiDeletePteList(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -143,7 +143,7 @@ __int64 __fastcall MiDeletePteList(__int64 a1, __int64 a2, unsigned __int64 a3, 
       v14 = 48 * ((v13 >> 12) & 0xFFFFFFFFFLL);
       v15 = *(_QWORD *)(v14 - 0x58000000000LL + 40);
       v16 = v14 - 0x58000000000LL;
-      v17 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((v15 >> 40) & 0x3FF));
+      v17 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((v15 >> 40) & 0x3FF));
       v50 = v17;
       if ( (v15 & 0x200000000000000LL) != 0 )
       {
@@ -227,8 +227,8 @@ __int64 __fastcall MiDeletePteList(__int64 a1, __int64 a2, unsigned __int64 a3, 
         if ( v9 )
         {
           v34 = *((_QWORD *)&v17[297].Header.WaitListHead.Flink + ((unsigned __int16)v9 >> 12));
-          if ( qword_14043A0C0 && (v9 & 0x10) == 0 )
-            v9 &= ~qword_14043A0C0;
+          if ( qword_14043B180 && (v9 & 0x10) == 0 )
+            v9 &= ~qword_14043B180;
           v47 = MiTransferSoftwarePte(a3, v34, HIDWORD(v9), 2LL);
           v9 = 0LL;
         }
@@ -248,7 +248,7 @@ LABEL_15:
         *(_QWORD *)v11 = v25;
         goto LABEL_16;
       }
-      if ( !HIBYTE(word_14043A1AC) && (v25 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v25 & 1) != 0 )
         v25 |= 0x8000000000000000uLL;
       *(_QWORD *)v11 = v25;
       MiWritePteShadow(v11);

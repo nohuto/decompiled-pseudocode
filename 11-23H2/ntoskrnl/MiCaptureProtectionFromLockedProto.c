@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCaptureProtectionFromLockedProto @ 0x14046CAC0
+ * XREFs of MiCaptureProtectionFromLockedProto @ 0x14046CEC0
  * Callers:
- *     MiGetPageProtection @ 0x140272A20 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x140272CB0 (MiGetPageProtection.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 a1)
@@ -47,10 +47,13 @@ unsigned __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 
     if ( v3 == MI_READ_PTE_LOCK_FREE(a1) )
       break;
     _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -58,17 +61,17 @@ unsigned __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 
         v11 = (v10 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v10;
         if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v6);
   }
   v12 = *(_QWORD *)(v5 + 16) >> 5;
   _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
     {
       v14 = KeGetCurrentPrcb();
       v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
@@ -76,7 +79,7 @@ unsigned __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 
       v11 = (v15 & v16[5]) == 0;
       v16[5] &= v15;
       if ( v11 )
-        KiRemoveSystemWorkPriorityKick(v14);
+        KiRemoveSystemWorkPriorityKick((__int64)v14);
     }
   }
   __writecr8(v6);

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopLogSleepDisabled @ 0x14077EC0C
+ * XREFs of PopLogSleepDisabled @ 0x14077EDCC
  * Callers:
  *     PopUpdateUpgradeInProgress @ 0x1405CF3D0 (PopUpdateUpgradeInProgress.c)
- *     PopLogDisabledSleepReason @ 0x14067B38C (PopLogDisabledSleepReason.c)
- *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
- *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
- *     PopInitPlatformSettings @ 0x140A71334 (PopInitPlatformSettings.c)
+ *     PopLogDisabledSleepReason @ 0x14066EACC (PopLogDisabledSleepReason.c)
+ *     PopFilterCapabilities @ 0x14066EBC4 (PopFilterCapabilities.c)
+ *     PopEnableHiberFile @ 0x1407926A0 (PopEnableHiberFile.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
+ *     PopInitPlatformSettings @ 0x140A72334 (PopInitPlatformSettings.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopGetReasonListByReasonCode @ 0x14067B678 (PopGetReasonListByReasonCode.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopGetReasonListByReasonCode @ 0x14066EDB8 (PopGetReasonListByReasonCode.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a4)
@@ -51,13 +51,13 @@ __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a
         *(_DWORD *)(v10 + 28) = a4;
         memmove((void *)(v10 + 32), a3, a4);
       }
-      v11 = (__int64 *)qword_140C23F38;
-      if ( *(__int64 **)qword_140C23F38 != &PowerStateDisableReasonListHead )
+      v11 = (__int64 *)qword_140C230F8;
+      if ( *(__int64 **)qword_140C230F8 != &PowerStateDisableReasonListHead )
         __fastfail(3u);
       *(_QWORD *)v10 = &PowerStateDisableReasonListHead;
       *(_QWORD *)(v10 + 8) = v11;
       *v11 = v10;
-      qword_140C23F38 = v10;
+      qword_140C230F8 = v10;
     }
     else
     {

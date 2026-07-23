@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpAcquireFastMutexContended @ 0x1402FCD4C
+ * XREFs of ExpAcquireFastMutexContended @ 0x1402FCFDC
  * Callers:
- *     FsRtlAcquireHeaderMutex @ 0x140230240 (FsRtlAcquireHeaderMutex.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     CcPinFileData @ 0x140263890 (CcPinFileData.c)
- *     CcSetDirtyInMask @ 0x1402C8FF0 (CcSetDirtyInMask.c)
- *     CcSetDirtyPinnedData @ 0x1402FC580 (CcSetDirtyPinnedData.c)
- *     KeAcquireGuardedMutex @ 0x1402FCC60 (KeAcquireGuardedMutex.c)
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlAcquireEofLock @ 0x140304790 (FsRtlAcquireEofLock.c)
- *     FsRtlReleaseEofLock @ 0x1403287E0 (FsRtlReleaseEofLock.c)
- *     CmpDeleteKeyObject @ 0x1406DB340 (CmpDeleteKeyObject.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7E90 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     FsRtlAcquireHeaderMutex @ 0x140230330 (FsRtlAcquireHeaderMutex.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     CcPinFileData @ 0x140263B20 (CcPinFileData.c)
+ *     CcSetDirtyInMask @ 0x1402C9280 (CcSetDirtyInMask.c)
+ *     CcSetDirtyPinnedData @ 0x1402FC810 (CcSetDirtyPinnedData.c)
+ *     KeAcquireGuardedMutex @ 0x1402FCEF0 (KeAcquireGuardedMutex.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402FDBE0 (FsRtlCheckOplockEx2.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlAcquireEofLock @ 0x140304A20 (FsRtlAcquireEofLock.c)
+ *     FsRtlReleaseEofLock @ 0x140328A70 (FsRtlReleaseEofLock.c)
+ *     CmpDeleteKeyObject @ 0x1406DB370 (CmpDeleteKeyObject.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7EC0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeAbPreWait @ 0x1402FD500 (KeAbPreWait.c)
  */
 
 __int64 __fastcall ExpAcquireFastMutexContended(__int64 a1, __int64 a2, __int64 a3)

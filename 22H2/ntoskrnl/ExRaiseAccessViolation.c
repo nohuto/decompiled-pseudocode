@@ -14,5 +14,5 @@
 
 void __noreturn ExRaiseAccessViolation(void)
 {
-  RtlRaiseStatus(0xC0000005);
+  RtlRaiseStatus(-1073741819);
 }

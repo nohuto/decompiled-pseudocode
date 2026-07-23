@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSelectActiveTimerTable @ 0x14046CEA0
+ * XREFs of KiSelectActiveTimerTable @ 0x140466620
  * Callers:
- *     KiAdjustTimersAfterDripsExit @ 0x1405EE258 (KiAdjustTimersAfterDripsExit.c)
+ *     KiAdjustTimersAfterDripsExit @ 0x1405F0BC8 (KiAdjustTimersAfterDripsExit.c)
  * Callees:
  *     <none>
  */

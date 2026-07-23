@@ -1,28 +1,28 @@
 /*
- * XREFs of BgFreeContext @ 0x140BB0664
+ * XREFs of BgFreeContext @ 0x140BB2664
  * Callers:
- *     BgkResumeFinished @ 0x140B6CD54 (BgkResumeFinished.c)
+ *     BgkResumeFinished @ 0x140B6E5F4 (BgkResumeFinished.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1404A9ACC (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1404A9CA4 (BgpFwAcquireLock.c)
- *     ResFwFreeContext @ 0x140BB34C4 (ResFwFreeContext.c)
+ *     BgpFwReleaseLock @ 0x1404A3D9C (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1404A3F74 (BgpFwAcquireLock.c)
+ *     ResFwFreeContext @ 0x140BB54C4 (ResFwFreeContext.c)
  */
 
-__int64 BgFreeContext()
+__int64 __fastcall BgFreeContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  PVOID v0; // rbx
+  PVOID v4; // rbx
   __int64 result; // rax
-  __int64 v2; // rdx
-  __int64 v3; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
 
-  v0 = qword_140E65D88;
+  v4 = qword_140E65EC8;
   result = KeGetCurrentIrql();
-  if ( (unsigned __int8)result <= 2u && qword_140E65D88 )
+  if ( (unsigned __int8)result <= 2u && qword_140E65EC8 )
   {
-    BgpFwAcquireLock();
-    if ( (dword_140EF0050 & 1) != 0 )
-      ResFwFreeContext(v0);
-    return BgpFwReleaseLock(v3, v2);
+    BgpFwAcquireLock(a1, a2, a3, a4);
+    if ( (dword_140EF0270 & 1) != 0 )
+      ResFwFreeContext(v4);
+    return BgpFwReleaseLock(v7, v6);
   }
   return result;
 }

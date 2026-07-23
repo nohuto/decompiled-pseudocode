@@ -1,10 +1,10 @@
 /*
- * XREFs of CcNotifyWriteBehindHelper @ 0x1403E01E0
+ * XREFs of CcNotifyWriteBehindHelper @ 0x1403E33D0
  * Callers:
  *     <none>
  * Callees:
- *     CcNotifyWriteBehindInternal @ 0x1403E07DC (CcNotifyWriteBehindInternal.c)
- *     CcNotifyWriteBehindVolume @ 0x1403E0844 (CcNotifyWriteBehindVolume.c)
+ *     CcNotifyWriteBehindInternal @ 0x1403E39CC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403E3A34 (CcNotifyWriteBehindVolume.c)
  */
 
 char __fastcall CcNotifyWriteBehindHelper(__int64 a1, __int64 a2, unsigned int a3)

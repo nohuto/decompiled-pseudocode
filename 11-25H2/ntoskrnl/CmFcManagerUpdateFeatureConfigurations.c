@@ -37,14 +37,14 @@ __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(
 {
   __int64 v6; // rbx
   __int64 v8; // rax
-  __int64 *v9; // r15
+  unsigned __int64 *v9; // r15
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v11; // rax
   __int64 *v12; // rdi
   __int64 v13; // rdx
   __int64 v14; // r14
   int v15; // edi
-  __int64 v16; // rsi
+  unsigned __int64 v16; // rsi
   _DWORD *v17; // rcx
   NTSTATUS updated; // eax
   __int64 v19; // rdx
@@ -79,7 +79,7 @@ __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(
   __int64 v49; // [rsp+B0h] [rbp-50h] BYREF
   __int64 v50; // [rsp+B8h] [rbp-48h] BYREF
   _QWORD v51[9]; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v52; // [rsp+108h] [rbp+8h] BYREF
+  unsigned __int64 v52; // [rsp+108h] [rbp+8h] BYREF
   void *v53; // [rsp+110h] [rbp+10h]
   __int64 v54; // [rsp+118h] [rbp+18h] BYREF
   char v55; // [rsp+120h] [rbp+20h] BYREF
@@ -116,7 +116,7 @@ __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(
   v11 = KeAbPreAcquire((__int64)&stru_140EF6B70, 0LL);
   v12 = v11;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140EF6B70, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&stru_140EF6B70, v11, (__int64)&stru_140EF6B70);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140EF6B70, v11, (__int64)&stru_140EF6B70);
   if ( v12 )
     *((_BYTE *)v12 + 10) = 1;
   RtlpFcBufferManagerReferenceBuffers((__int64)qword_140EF6BE8, (__int64)&v43, &v37);
@@ -153,13 +153,7 @@ LABEL_32:
     v15 = CmFcpMapSection(&v39, v9);
     if ( v15 < 0 )
       goto LABEL_32;
-    v15 = RtlpFcUpdateFeatureConfiguration(
-            *(_DWORD **)(v14 + 8 * v45 + 8),
-            v19,
-            a4,
-            a5,
-            (void *)v9[1],
-            (size_t *)v9 + 2);
+    v15 = RtlpFcUpdateFeatureConfiguration(*(_DWORD **)(v14 + 8 * v45 + 8), v19, a4, a5, (void *)v9[1], v9 + 2);
     if ( v15 < 0 )
       goto LABEL_32;
     v20 = (unsigned int *)v9[1];
@@ -229,7 +223,7 @@ LABEL_31:
   v25 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140EF6B68, 0LL);
   v26 = v24;
   if ( v25 )
-    ExfAcquirePushLockExclusiveEx(&stru_140EF6B68, v24, (__int64)&stru_140EF6B68);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140EF6B68, v24, (__int64)&stru_140EF6B68);
   if ( v26 )
     *((_BYTE *)v26 + 10) = 1;
   v27 = 3LL * v38;

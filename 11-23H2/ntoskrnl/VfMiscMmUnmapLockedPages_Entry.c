@@ -1,13 +1,13 @@
 /*
- * XREFs of VfMiscMmUnmapLockedPages_Entry @ 0x140AE02E0
+ * XREFs of VfMiscMmUnmapLockedPages_Entry @ 0x140AE02D0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetProcessExitProcessCalled @ 0x140366460 (PsGetProcessExitProcessCalled.c)
- *     ZwQueryVirtualMemory @ 0x14041B1C0 (ZwQueryVirtualMemory.c)
- *     VfUtilCheckRuleEnforcement @ 0x140AC2664 (VfUtilCheckRuleEnforcement.c)
- *     ViTargetAddToCounter @ 0x140ACB9C4 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     PsGetProcessExitProcessCalled @ 0x140366600 (PsGetProcessExitProcessCalled.c)
+ *     ZwQueryVirtualMemory @ 0x14041B550 (ZwQueryVirtualMemory.c)
+ *     VfUtilCheckRuleEnforcement @ 0x140AC2654 (VfUtilCheckRuleEnforcement.c)
+ *     ViTargetAddToCounter @ 0x140ACB9B4 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall VfMiscMmUnmapLockedPages_Entry(__int64 a1)
@@ -58,7 +58,7 @@ LABEL_7:
             ZwQueryVirtualMemory(
               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
               v5,
-              (MEMORY_INFORMATION_CLASS)7,
+              MemoryRegionInformationEx,
               &MemoryInformation,
               0x30uLL,
               0LL) < 0)

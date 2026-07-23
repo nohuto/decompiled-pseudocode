@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlUnicodeStringCat @ 0x14012B4CC
+ * XREFs of RtlUnicodeStringCat @ 0x14012B59C
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoWritethroughReparse @ 0x14063C0E0 (CmpDoWritethroughReparse.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406CF668 (CmpLogTransactionAbortedWithChildName.c)
- *     PopFxGenerateFriendlyName @ 0x140725300 (PopFxGenerateFriendlyName.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F3BB0 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDBC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405D8CC0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoWritethroughReparse @ 0x14063D100 (CmpDoWritethroughReparse.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406D0908 (CmpLogTransactionAbortedWithChildName.c)
+ *     PopFxGenerateFriendlyName @ 0x1407265A0 (PopFxGenerateFriendlyName.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x1407F4DB0 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14087101C (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_0 @ 0x14012B5B8 (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x14012B688 (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCat(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)

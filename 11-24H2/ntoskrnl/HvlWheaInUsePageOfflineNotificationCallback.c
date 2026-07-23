@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlWheaInUsePageOfflineNotificationCallback @ 0x140583160
+ * XREFs of HvlWheaInUsePageOfflineNotificationCallback @ 0x1405804E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 bool __fastcall HvlWheaInUsePageOfflineNotificationCallback(
@@ -25,7 +25,7 @@ bool __fastcall HvlWheaInUsePageOfflineNotificationCallback(
     *(_BYTE *)(Poisoned + 8) = 0;
     *(_DWORD *)(Poisoned + 10) = 0x1000000;
     *(_BYTE *)(Poisoned + 14) = 0;
-    v6 = guard_dispatch_icall_no_overrides(Poisoned, 0LL, Poisoned, Context);
+    v6 = guard_dispatch_icall_no_overrides(Poisoned, 0LL);
     *Context = v6;
     return v6 >= 0;
   }

@@ -10,46 +10,46 @@
  *     ObReferenceObjectByHandle @ 0x1405317C0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtCancelWaitCompletionPacket(void *a1)
+NTSTATUS __cdecl NtCancelWaitCompletionPacket(HANDLE WaitCompletionPacketHandle, BOOLEAN RemoveSignaledPacket)
 {
   NTSTATUS result; // eax
-  int v2; // ebx
-  _BYTE *v3; // rbp
-  KSPIN_LOCK *v4; // rsi
-  KIRQL v5; // di
+  NTSTATUS v3; // ebx
+  _BYTE *v4; // rbp
+  KSPIN_LOCK *v5; // rsi
+  KIRQL v6; // di
   PVOID Object; // [rsp+60h] [rbp+18h] BYREF
 
   result = ObReferenceObjectByHandle(
-             a1,
+             WaitCompletionPacketHandle,
              1u,
              IopWaitCompletionPacketObjectType,
              KeGetCurrentThread()->PreviousMode,
              &Object,
              0LL);
-  v2 = result;
+  v3 = result;
   if ( result >= 0 )
   {
-    v3 = Object;
-    v4 = (KSPIN_LOCK *)((char *)Object + 96);
-    v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Object + 12);
-    if ( v3[104] )
+    v4 = Object;
+    v5 = (KSPIN_LOCK *)((char *)Object + 96);
+    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Object + 12);
+    if ( v4[104] )
     {
       if ( !(unsigned __int8)IopCancelWaitCompletionPacket(Object) )
       {
-        if ( v3[104] )
-          v2 = 259;
-        KxReleaseSpinLock(v4);
-        __writecr8(v5);
+        if ( v4[104] )
+          v3 = 259;
+        KxReleaseSpinLock(v5);
+        __writecr8(v6);
       }
     }
     else
     {
-      v2 = -1073741536;
-      KxReleaseSpinLock(v4);
-      __writecr8(v5);
+      v3 = -1073741536;
+      KxReleaseSpinLock(v5);
+      __writecr8(v6);
     }
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-    return v2;
+    return v3;
   }
   return result;
 }

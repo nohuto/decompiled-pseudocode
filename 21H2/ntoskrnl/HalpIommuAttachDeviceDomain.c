@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuAttachDeviceDomain @ 0x1404CBC50
+ * XREFs of HalpIommuAttachDeviceDomain @ 0x1404CBE90
  * Callers:
- *     HalpIommuJoinDmaDomain @ 0x1404C98BC (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x1404C9994 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuJoinDmaDomain @ 0x1404C9AFC (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404C9BD4 (HalpIommuLeaveDmaDomain.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuAttachDeviceDomain(__int64 a1, __int64 a2, __int64 a3)

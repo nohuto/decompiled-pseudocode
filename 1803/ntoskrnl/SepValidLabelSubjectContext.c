@@ -11,18 +11,18 @@
  *     SeSinglePrivilegeCheckEx @ 0x1404D569C (SeSinglePrivilegeCheckEx.c)
  */
 
-BOOLEAN __fastcall SepValidLabelSubjectContext(struct _SECURITY_SUBJECT_CONTEXT *a1, char *a2, char a3)
+BOOLEAN __fastcall SepValidLabelSubjectContext(struct _SECURITY_SUBJECT_CONTEXT *a1, void *a2, char a3)
 {
-  char *SeMediumMandatorySid; // rdi
+  PSID SeMediumMandatorySid; // rdi
   __int64 ClientToken; // rbx
   struct _KTHREAD *CurrentThread; // rax
   BOOLEAN result; // al
-  char *Buf1; // [rsp+20h] [rbp-18h]
-  BOOLEAN v10; // [rsp+40h] [rbp+8h] BYREF
+  PSID Sid1; // [rsp+20h] [rbp-18h]
+  BOOLEAN Dominates; // [rsp+40h] [rbp+8h] BYREF
 
   SeMediumMandatorySid = a2;
   if ( !a2 )
-    SeMediumMandatorySid = (char *)SeExports->SeMediumMandatorySid;
+    SeMediumMandatorySid = SeExports->SeMediumMandatorySid;
   ClientToken = (__int64)a1->ClientToken;
   if ( !a1->ClientToken )
     ClientToken = (__int64)a1->PrimaryToken;
@@ -36,15 +36,15 @@ BOOLEAN __fastcall SepValidLabelSubjectContext(struct _SECURITY_SUBJECT_CONTEXT 
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( (a3 & 8) != 0 )
   {
-    if ( (int)RtlSidDominates(SeMediumMandatorySid, (char *)SeExports->SeMediumMandatorySid, (char *)&v10) < 0 )
+    if ( RtlSidDominates(SeMediumMandatorySid, SeExports->SeMediumMandatorySid, &Dominates) < 0 )
       return 0;
-    if ( !v10 )
-      SeMediumMandatorySid = (char *)SeExports->SeMediumMandatorySid;
+    if ( !Dominates )
+      SeMediumMandatorySid = SeExports->SeMediumMandatorySid;
   }
-  if ( (int)RtlSidDominates(Buf1, SeMediumMandatorySid, (char *)&v10) < 0 )
+  if ( RtlSidDominates(Sid1, SeMediumMandatorySid, &Dominates) < 0 )
     return 0;
-  result = v10;
-  if ( !v10 )
+  result = Dominates;
+  if ( !Dominates )
     return SeSinglePrivilegeCheckEx((LUID)SeRelabelPrivilege, a1, 1);
   return result;
 }

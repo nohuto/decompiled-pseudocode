@@ -1,12 +1,12 @@
 /*
- * XREFs of RebalanceNode @ 0x1403F0D50
+ * XREFs of RebalanceNode @ 0x1403E4A70
  * Callers:
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvlEx @ 0x1403F0930 (RtlDeleteElementGenericTableAvlEx.c)
- *     RtlInsertElementGenericTableFullAvl @ 0x1403F0BC0 (RtlInsertElementGenericTableFullAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvlEx @ 0x1403E4650 (RtlDeleteElementGenericTableAvlEx.c)
+ *     RtlInsertElementGenericTableFullAvl @ 0x1403E48E0 (RtlInsertElementGenericTableFullAvl.c)
  * Callees:
- *     PromoteNode @ 0x1403F0E08 (PromoteNode.c)
+ *     PromoteNode @ 0x1403E4B28 (PromoteNode.c)
  */
 
 __int64 __fastcall RebalanceNode(__int64 a1)

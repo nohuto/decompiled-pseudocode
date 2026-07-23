@@ -1,25 +1,26 @@
 /*
- * XREFs of MiCapturePfnVm @ 0x1405136D0
+ * XREFs of MiCapturePfnVm @ 0x14050D140
  * Callers:
- *     MiProcessCrcList @ 0x140A5ACD0 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140A67C40 (MiProcessCrcList.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiCombineCandidate @ 0x1402F3F80 (MiCombineCandidate.c)
- *     MiProcessSuitableForCombining @ 0x1404042DC (MiProcessSuitableForCombining.c)
- *     MiGetTopLevelPfn @ 0x140404690 (MiGetTopLevelPfn.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140404850 (MiGetPageTablePfnBuddyRaw.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiCheckProcessCombineSequence @ 0x140497E80 (MiCheckProcessCombineSequence.c)
- *     MiGetCombineDomain @ 0x1404A2F70 (MiGetCombineDomain.c)
- *     VmCheckPageCombine @ 0x140AF13B4 (VmCheckPageCombine.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiCombineCandidate @ 0x1402D6000 (MiCombineCandidate.c)
+ *     MiProcessSuitableForCombining @ 0x1403FD3DC (MiProcessSuitableForCombining.c)
+ *     MiGetTopLevelPfn @ 0x1403FD790 (MiGetTopLevelPfn.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1403FD950 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiCheckProcessCombineSequence @ 0x1404919D0 (MiCheckProcessCombineSequence.c)
+ *     MiGetCombineDomain @ 0x14049C990 (MiGetCombineDomain.c)
+ *     VmCheckPageCombine @ 0x140AF3FF4 (VmCheckPageCombine.c)
  */
 
-__int64 __fastcall MiCapturePfnVm(__int64 a1, const __m128i *a2, char a3, __int64 a4, __int64 a5)
+__int64 __fastcall MiCapturePfnVm(__int64 a1, const __m128i *a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v6; // r10
   _QWORD *v8; // r15
+  char v9; // bl
   unsigned int v10; // ecx
   __int64 v11; // rdx
   unsigned int v12; // ebp
@@ -35,6 +36,7 @@ __int64 __fastcall MiCapturePfnVm(__int64 a1, const __m128i *a2, char a3, __int6
 
   v6 = *(_QWORD *)(a1 + 120);
   v8 = *(_QWORD **)a1;
+  v9 = a3;
   v10 = *(_DWORD *)(a1 + 136);
   v11 = 0LL;
   *(_OWORD *)a5 = 0LL;
@@ -45,7 +47,7 @@ __int64 __fastcall MiCapturePfnVm(__int64 a1, const __m128i *a2, char a3, __int6
     if ( a4 == *(_QWORD *)(v6 + 8 * v11) )
     {
       v12 = 1;
-      *(_QWORD *)(a5 + 24) = qword_140E2EA50;
+      *(_QWORD *)(a5 + 24) = qword_140E2EBD0;
       goto LABEL_7;
     }
     v11 = (unsigned int)(v11 + 1);
@@ -54,11 +56,12 @@ __int64 __fastcall MiCapturePfnVm(__int64 a1, const __m128i *a2, char a3, __int6
 LABEL_7:
   v13 = MiSafeLockPage(
           (__int64)a2[0x22000000000LL].m128i_i64 / 48,
-          (__int64)((unsigned __int128)((__int64)a2[0x22000000000LL].m128i_i64 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3);
+          (__int64)((unsigned __int128)((__int64)a2[0x22000000000LL].m128i_i64 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3,
+          a3);
   v14 = v13;
   if ( v13 == 17 )
     return 0LL;
-  v15 = MiCombineCandidate(v8, a3, a2);
+  v15 = MiCombineCandidate(v8, v9, a2);
   if ( !v15 )
   {
     _InterlockedAnd64(&a2[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);

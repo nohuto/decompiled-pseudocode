@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReadyLargePageToFree @ 0x1403C5920
+ * XREFs of MiReadyLargePageToFree @ 0x1403CF82C
  * Callers:
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLargePageHasNoDanglingReferences @ 0x1403C61CC (MiLargePageHasNoDanglingReferences.c)
- *     MiBadRefCount @ 0x1405067A4 (MiBadRefCount.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiPrepareLargePageSubPageForFree @ 0x140712130 (MiPrepareLargePageSubPageForFree.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiLargePageHasNoDanglingReferences @ 0x1403D00CC (MiLargePageHasNoDanglingReferences.c)
+ *     MiBadRefCount @ 0x140500054 (MiBadRefCount.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiPrepareLargePageSubPageForFree @ 0x140716E28 (MiPrepareLargePageSubPageForFree.c)
  */
 
 __int64 __fastcall MiReadyLargePageToFree(unsigned __int64 a1, int a2, char a3)

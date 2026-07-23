@@ -7,26 +7,26 @@
  *     RtlReleaseSRWLockShared @ 0x180030740 (RtlReleaseSRWLockShared.c)
  */
 
-__int64 __fastcall EtwEnumerateProcessRegGuids(__int64 a1, unsigned int a2, _DWORD *a3)
+ULONG __cdecl EtwEnumerateProcessRegGuids(PVOID OutBuffer, ULONG OutBufferSize, PULONG ReturnLength)
 {
-  unsigned int v5; // ebx
-  unsigned int v6; // esi
-  unsigned int v7; // edi
+  ULONG v5; // ebx
+  ULONG v6; // esi
+  ULONG v7; // edi
   __int64 i; // rax
-  unsigned __int64 v10; // rcx
-  unsigned int v11; // r9d
-  unsigned int j; // eax
+  _RTL_SRWLOCK *v10; // rcx
+  ULONG v11; // r9d
+  ULONG j; // eax
   __int64 v13; // r8
-  __int64 v14; // rdx
+  unsigned __int64 v14; // rdx
 
   v5 = 0;
-  v6 = a2 >> 4;
+  v6 = OutBufferSize >> 4;
   v7 = 0;
-  if ( !a1 && a2 )
-    return 87LL;
+  if ( !OutBuffer && OutBufferSize )
+    return 87;
   for ( i = EtwpGetNextRegistration(0LL); ; i = EtwpGetNextRegistration(v10) )
   {
-    v10 = i;
+    v10 = (_RTL_SRWLOCK *)i;
     if ( !i )
       break;
     v11 = v6;
@@ -35,20 +35,20 @@ __int64 __fastcall EtwEnumerateProcessRegGuids(__int64 a1, unsigned int a2, _DWO
     for ( j = 0; j < v11; ++j )
     {
       v13 = 16LL * j;
-      v14 = *(_QWORD *)(v10 + 32) - *(_QWORD *)(v13 + a1);
+      v14 = v10[4].Value - *(_QWORD *)((char *)OutBuffer + v13);
       if ( !v14 )
-        v14 = *(_QWORD *)(v10 + 40) - *(_QWORD *)(v13 + a1 + 8);
+        v14 = v10[5].Value - *(_QWORD *)((char *)OutBuffer + v13 + 8);
       if ( !v14 )
         goto LABEL_17;
     }
     if ( v7 < v6 )
-      *(_OWORD *)(16LL * v7 + a1) = *(_OWORD *)(v10 + 32);
+      *((_OWORD *)OutBuffer + v7) = *(_OWORD *)&v10[4].0;
     ++v7;
 LABEL_17:
     ;
   }
   if ( v7 > v6 )
     v5 = 122;
-  *a3 = 16 * v7;
+  *ReturnLength = 16 * v7;
   return v5;
 }

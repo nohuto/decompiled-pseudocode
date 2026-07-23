@@ -9,62 +9,61 @@
  *     RtlpRecordBootStatusData @ 0x1800EE504 (RtlpRecordBootStatusData.c)
  */
 
-__int64 __fastcall RtlpGetSetBootStatusData(
-        __int64 a1,
-        char a2,
-        unsigned int a3,
-        __int64 a4,
-        unsigned int a5,
-        _DWORD *a6)
+int __fastcall RtlpGetSetBootStatusData(HANDLE FileHandle, char a2, unsigned int a3, void *a4, ULONG a5, _DWORD *a6)
 {
-  __int64 result; // rax
-  __int64 v10; // rdi
-  int File; // ebx
-  int v12; // eax
-  __int64 v13; // rcx
-  _DWORD v14[2]; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v15; // [rsp+58h] [rbp-18h] BYREF
-  int v16; // [rsp+68h] [rbp-8h]
+  int result; // eax
+  __int64 v11; // rdi
+  NTSTATUS v12; // ebx
+  NTSTATUS v13; // eax
+  __int64 v14; // rcx
+  ULONG Length; // [rsp+50h] [rbp-20h] BYREF
+  unsigned int Buffer; // [rsp+54h] [rbp-1Ch] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+58h] [rbp-18h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-10h] BYREF
 
-  v15 = 0LL;
-  result = NtReadFile();
-  if ( (int)result >= 0 )
+  ByteOffset.QuadPart = 0LL;
+  result = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 4u, &ByteOffset, 0LL);
+  if ( result >= 0 )
   {
-    result = RtlBootStatusItemInfo(a3, &v15, v14);
-    if ( (int)result >= 0 )
+    result = RtlBootStatusItemInfo(a3, &ByteOffset, &Length);
+    if ( result >= 0 )
     {
-      HIDWORD(v15) = 0;
-      v10 = v14[0];
-      if ( v14[0] + (unsigned __int64)(unsigned int)v15 <= v14[1] )
+      ByteOffset.HighPart = 0;
+      v11 = Length;
+      if ( Length + (unsigned __int64)ByteOffset.LowPart <= Buffer )
       {
-        if ( a5 >= v14[0] )
+        if ( a5 >= Length )
         {
           if ( a2 )
           {
-            File = NtReadFile();
+            v12 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a4, Length, &ByteOffset, 0LL);
           }
           else
           {
-            v12 = NtWriteFile();
-            LOBYTE(v13) = 1;
-            File = v12;
-            RtlpRecordBootStatusData(v13, a4, v15, v10);
+            v13 = NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a4, Length, &ByteOffset, 0LL);
+            LOBYTE(v14) = 1;
+            v12 = v13;
+            ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))RtlpRecordBootStatusData)(
+              v14,
+              a4,
+              (LARGE_INTEGER)ByteOffset.QuadPart,
+              v11);
           }
-          if ( File >= 0 )
+          if ( v12 >= 0 )
           {
             if ( a6 )
-              *a6 = v16;
+              *a6 = IoStatusBlock.Information;
           }
-          return (unsigned int)File;
+          return v12;
         }
         else
         {
-          return 3221225507LL;
+          return -1073741789;
         }
       }
       else
       {
-        return 3221225561LL;
+        return -1073741735;
       }
     }
   }

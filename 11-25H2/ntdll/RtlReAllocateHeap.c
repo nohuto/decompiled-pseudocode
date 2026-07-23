@@ -18,18 +18,18 @@
  *     RtlpHeapFatalExceptionFilter @ 0x18013D8A4 (RtlpHeapFatalExceptionFilter.c)
  */
 
-__int64 __fastcall RtlReAllocateHeap(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+PVOID __cdecl RtlReAllocateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress, SIZE_T Size)
 {
-  if ( !a1 )
-    RtlpLogHeapFailure(19, 0, a3, 0, 0LL, 0LL);
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( !HeapHandle )
+    RtlpLogHeapFailure(19, 0, (_DWORD)BaseAddress, 0, 0LL, 0LL);
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
     if ( (RtlpHpHeapFeatures & 2) == 0 )
-      return RtlpReAllocateHeapInternal(a1, a2, a3, a4);
+      return (PVOID)RtlpReAllocateHeapInternal((int)HeapHandle);
   }
   else if ( (RtlpHpHeapFeatures & 2) == 0 )
   {
-    return RtlpReAllocateHeapInternal(a1, a2, a3, a4);
+    return (PVOID)RtlpReAllocateHeapInternal((int)HeapHandle);
   }
-  return RtlpHpTagReAllocateHeap(a1, a3, a4, a2);
+  return (PVOID)RtlpHpTagReAllocateHeap((_DWORD)HeapHandle);
 }

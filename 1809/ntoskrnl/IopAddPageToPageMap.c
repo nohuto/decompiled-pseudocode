@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAddPageToPageMap @ 0x140280E68
+ * XREFs of IopAddPageToPageMap @ 0x140281058
  * Callers:
- *     IoSetDumpRange @ 0x1402802B0 (IoSetDumpRange.c)
+ *     IoSetDumpRange @ 0x1402804A0 (IoSetDumpRange.c)
  * Callees:
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
- *     IopAddPageRangeToPageMaps @ 0x140280D7C (IopAddPageRangeToPageMaps.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B220 (RtlFindNextForwardRunClearCappedEx.c)
+ *     IopAddPageRangeToPageMaps @ 0x140280F6C (IopAddPageRangeToPageMaps.c)
  */
 
 __int64 __fastcall IopAddPageToPageMap(

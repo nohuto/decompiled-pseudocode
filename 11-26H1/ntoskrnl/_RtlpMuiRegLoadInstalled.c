@@ -1,15 +1,15 @@
 /*
- * XREFs of _RtlpMuiRegLoadInstalled @ 0x1408A9C44
+ * XREFs of _RtlpMuiRegLoadInstalled @ 0x1408B00B4
  * Callers:
- *     RtlpMuiRegLoadRegistryInfo @ 0x1408A9168 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x1408AF5D8 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x1407202C4 (_RtlpMuiRegLoadInstalledFromKey.c)
- *     _SafeAllocBlob @ 0x1407206A0 (_SafeAllocBlob.c)
- *     ZwQueryInstallUILanguage @ 0x140725F90 (ZwQueryInstallUILanguage.c)
- *     RtlpLoadInstallLanguageFallback @ 0x1408A7868 (RtlpLoadInstallLanguageFallback.c)
- *     RtlpMuiRegCreateStringPool @ 0x1408A81E4 (RtlpMuiRegCreateStringPool.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x1408A8290 (RtlpMuiRegFreeRegistryInfo.c)
- *     _RtlpMuiRegValidateInstalled @ 0x1408AA5F8 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x140724EE4 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     _SafeAllocBlob @ 0x1407252C0 (_SafeAllocBlob.c)
+ *     ZwQueryInstallUILanguage @ 0x14072AB60 (ZwQueryInstallUILanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x1408ADCD8 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1408AE654 (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1408AE700 (RtlpMuiRegFreeRegistryInfo.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x1408B0A68 (_RtlpMuiRegValidateInstalled.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -24,9 +24,9 @@ __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2, __int64 a3, u
   InstallUILanguage = 0;
   if ( !a1 )
     return 3221225485LL;
-  if ( HIDWORD(PspSiloMonitorLock.CycleTime) )
+  if ( PspSiloMonitorLock.CurrentRunTime )
   {
-    InstallUILanguage = ZwQueryInstallUILanguage(a1 + 4, a2);
+    InstallUILanguage = ZwQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_14;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));

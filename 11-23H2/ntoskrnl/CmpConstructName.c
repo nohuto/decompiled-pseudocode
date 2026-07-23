@@ -3,7 +3,7 @@
  * Callers:
  *     CmpDoQueryKeyName @ 0x140208F88 (CmpDoQueryKeyName.c)
  * Callees:
- *     CmpConstructNameWithStatus @ 0x1406D7BB0 (CmpConstructNameWithStatus.c)
+ *     CmpConstructNameWithStatus @ 0x1406D7BE0 (CmpConstructNameWithStatus.c)
  */
 
 __int64 __fastcall CmpConstructName(__int64 a1)

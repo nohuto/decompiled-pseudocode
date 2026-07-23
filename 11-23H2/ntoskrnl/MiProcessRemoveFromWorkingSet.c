@@ -1,9 +1,9 @@
 /*
- * XREFs of MiProcessRemoveFromWorkingSet @ 0x140A31150
+ * XREFs of MiProcessRemoveFromWorkingSet @ 0x140A31400
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1407A4020 (NtSetInformationVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x1407A4210 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     MiEmptyWorkingSetInitiate @ 0x14036DBF4 (MiEmptyWorkingSetInitiate.c)
+ *     MiEmptyWorkingSetInitiate @ 0x14036DD94 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MiProcessRemoveFromWorkingSet(unsigned __int64 a1, __int64 a2, char a3)

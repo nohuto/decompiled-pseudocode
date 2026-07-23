@@ -26,7 +26,7 @@ __int64 __fastcall LdrpGetFileSizeFromLoadAsDataTable(__int64 a1)
   {
     while ( v3 > 0 )
     {
-      v4 = (_QWORD *)(LoadAsDataTable + 48LL * --v3);
+      v4 = (char *)LoadAsDataTable + 48 * --v3;
       if ( *v4 == a1 )
       {
         v2 = v4[2];

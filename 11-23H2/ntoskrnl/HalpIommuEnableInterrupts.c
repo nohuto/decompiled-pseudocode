@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuEnableInterrupts @ 0x1403B57C4
+ * XREFs of HalpIommuEnableInterrupts @ 0x1403B59A4
  * Callers:
  *     HalpIommuInitSystem @ 0x140A89BC0 (HalpIommuInitSystem.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpIommuEnableInterrupts()

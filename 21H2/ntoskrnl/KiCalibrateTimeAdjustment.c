@@ -1,20 +1,20 @@
 /*
- * XREFs of KiCalibrateTimeAdjustment @ 0x140994B90
+ * XREFs of KiCalibrateTimeAdjustment @ 0x140995B90
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KiSelectActiveTimerTable @ 0x140247A60 (KiSelectActiveTimerTable.c)
- *     RtlWriteAcquireTickLock @ 0x1402AB51C (RtlWriteAcquireTickLock.c)
- *     KeRemoveQueueDpc @ 0x1402C7FE0 (KeRemoveQueueDpc.c)
- *     KiPollFreezeExecution @ 0x1402D3968 (KiPollFreezeExecution.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     KeRebaselineInterruptTime @ 0x140383F28 (KeRebaselineInterruptTime.c)
- *     HalCalibratePerformanceCounter @ 0x140383F60 (HalCalibratePerformanceCounter.c)
- *     KiUpdateSystemTime @ 0x140397EA8 (KiUpdateSystemTime.c)
- *     RtlWriteReleaseTickLock @ 0x1403A73F4 (RtlWriteReleaseTickLock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlWriteAcquireTickLock @ 0x14022965C (RtlWriteAcquireTickLock.c)
+ *     KeRemoveQueueDpc @ 0x140246840 (KeRemoveQueueDpc.c)
+ *     KiPollFreezeExecution @ 0x140251C68 (KiPollFreezeExecution.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KiSelectActiveTimerTable @ 0x1402EC2B0 (KiSelectActiveTimerTable.c)
+ *     KeRebaselineInterruptTime @ 0x14038407C (KeRebaselineInterruptTime.c)
+ *     HalCalibratePerformanceCounter @ 0x1403840B0 (HalCalibratePerformanceCounter.c)
+ *     KiUpdateSystemTime @ 0x140397FF8 (KiUpdateSystemTime.c)
+ *     RtlWriteReleaseTickLock @ 0x1403A7544 (RtlWriteReleaseTickLock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
@@ -71,11 +71,11 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
       *(_DWORD *)(Argument + 16) = v17 / 0x989680;
       *(_QWORD *)(Argument + 16) += v9.QuadPart;
     }
-    v22 = v8 / (unsigned int)KeMaximumIncrement;
+    v22 = v8 / KeMaximumIncrement;
     v11 = *(_QWORD *)(Argument + 8);
-    KiTickOffset = KeMaximumIncrement - v8 % (unsigned int)KeMaximumIncrement;
+    KiTickOffset = KeMaximumIncrement - v8 % KeMaximumIncrement;
     MEMORY[0xFFFFF780000003B0] += v11;
-    LODWORD(v19) = v8 % (unsigned int)KeMaximumIncrement;
+    LODWORD(v19) = v8 % KeMaximumIncrement;
     if ( MEMORY[0xFFFFF780000003B0] < 0 )
       __fastfail(5u);
     RtlWriteAcquireTickLock((signed __int64 *)0xFFFFF78000000340LL);

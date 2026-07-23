@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpNlsGetNameIndex @ 0x180004930
+ * XREFs of RtlpNlsGetNameIndex @ 0x180050060
  * Callers:
- *     RtlpConsoleFallbackNameFromLocaleName @ 0x180001794 (RtlpConsoleFallbackNameFromLocaleName.c)
- *     RtlIsValidLocaleName @ 0x180001D40 (RtlIsValidLocaleName.c)
- *     RtlGetParentLocaleName @ 0x1800036A0 (RtlGetParentLocaleName.c)
- *     RtlGetNeutralFallback @ 0x180004170 (RtlGetNeutralFallback.c)
- *     RtlLocaleNameToLcid @ 0x1800045B0 (RtlLocaleNameToLcid.c)
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     LdrpLangFallbackListAppendNode @ 0x180004E90 (LdrpLangFallbackListAppendNode.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800052F0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpGetProcessCodepagesForLocale @ 0x180121708 (RtlpGetProcessCodepagesForLocale.c)
+ *     RtlpConsoleFallbackNameFromLocaleName @ 0x18004CECC (RtlpConsoleFallbackNameFromLocaleName.c)
+ *     RtlIsValidLocaleName @ 0x18004D470 (RtlIsValidLocaleName.c)
+ *     RtlGetParentLocaleName @ 0x18004EDD0 (RtlGetParentLocaleName.c)
+ *     RtlGetNeutralFallback @ 0x18004F8A0 (RtlGetNeutralFallback.c)
+ *     RtlLocaleNameToLcid @ 0x18004FCE0 (RtlLocaleNameToLcid.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     LdrpLangFallbackListAppendNode @ 0x1800505C0 (LdrpLangFallbackListAppendNode.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180050A20 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpGetProcessCodepagesForLocale @ 0x1801214A4 (RtlpGetProcessCodepagesForLocale.c)
  * Callees:
  *     <none>
  */

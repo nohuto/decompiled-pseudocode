@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpFindDelayloadedMethodInDescriptor @ 0x18015F118
+ * XREFs of LdrpFindDelayloadedMethodInDescriptor @ 0x18015D4D8
  * Callers:
- *     LdrQueryOptionalDelayLoadedAPI @ 0x180117C30 (LdrQueryOptionalDelayLoadedAPI.c)
- *     LdrpFindDelayloadedMethod @ 0x18015F078 (LdrpFindDelayloadedMethod.c)
+ *     LdrQueryOptionalDelayLoadedAPI @ 0x180112D60 (LdrQueryOptionalDelayLoadedAPI.c)
+ *     LdrpFindDelayloadedMethod @ 0x18015D438 (LdrpFindDelayloadedMethod.c)
  * Callees:
  *     <none>
  */

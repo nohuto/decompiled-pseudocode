@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimPteWorker @ 0x140242AA4
+ * XREFs of MiTrimPteWorker @ 0x140212FB0
  * Callers:
- *     MiTrimWorkingSetVpabCallback @ 0x1403CD940 (MiTrimWorkingSetVpabCallback.c)
+ *     MiTrimWorkingSetVpabCallback @ 0x1404041F0 (MiTrimWorkingSetVpabCallback.c)
  * Callees:
- *     MiAcquirePrcbAgeTrimLists @ 0x140231E18 (MiAcquirePrcbAgeTrimLists.c)
- *     MiTrimThisWsle @ 0x140242F50 (MiTrimThisWsle.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MI_WSLE_LOG_ACCESS @ 0x1402EFF38 (MI_WSLE_LOG_ACCESS.c)
- *     MiTrimWorkingSetBuildup @ 0x14037D1A0 (MiTrimWorkingSetBuildup.c)
+ *     MiTrimThisWsle @ 0x140213460 (MiTrimThisWsle.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1402590F0 (MI_WSLE_LOG_ACCESS.c)
+ *     MiTrimWorkingSetBuildup @ 0x1402EA6B0 (MiTrimWorkingSetBuildup.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x140303A64 (MiAcquirePrcbAgeTrimLists.c)
  */
 
 __int64 __fastcall MiTrimPteWorker(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, char a6, __int64 a7)
@@ -24,7 +24,7 @@ __int64 __fastcall MiTrimPteWorker(__int64 a1, __int64 a2, __int64 a3, int a4, _
   v13 = *(_QWORD *)(a5 + 72);
   if ( !v13 )
   {
-    MiAcquirePrcbAgeTrimLists(v7, (__int64 *)(a5 + 64));
+    MiAcquirePrcbAgeTrimLists(v7, a5 + 64);
     v13 = *(_QWORD *)(a5 + 72);
   }
   MiInsertTbFlushEntry(v13, a3, 1LL);

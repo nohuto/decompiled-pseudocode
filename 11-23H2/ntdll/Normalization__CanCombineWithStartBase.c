@@ -1,9 +1,9 @@
 /*
- * XREFs of Normalization__CanCombineWithStartBase @ 0x18010E208
+ * XREFs of Normalization__CanCombineWithStartBase @ 0x18010E1D8
  * Callers:
- *     Normalization__IsNormalized @ 0x18010E578 (Normalization__IsNormalized.c)
+ *     Normalization__IsNormalized @ 0x18010E548 (Normalization__IsNormalized.c)
  * Callees:
- *     Normalization__GetFirstDecomposedCharPlane0 @ 0x18010E2DC (Normalization__GetFirstDecomposedCharPlane0.c)
+ *     Normalization__GetFirstDecomposedCharPlane0 @ 0x18010E2AC (Normalization__GetFirstDecomposedCharPlane0.c)
  */
 
 __int64 __fastcall Normalization__CanCombineWithStartBase(__int64 a1, int *a2, unsigned int a3, int a4)

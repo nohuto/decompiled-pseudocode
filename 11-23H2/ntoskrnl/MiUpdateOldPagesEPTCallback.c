@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateOldPagesEPTCallback @ 0x1406355C0
+ * XREFs of MiUpdateOldPagesEPTCallback @ 0x140635B10
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdateOldPteWorker @ 0x14046C3E6 (MiUpdateOldPteWorker.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateOldPteWorker @ 0x14046C7E6 (MiUpdateOldPteWorker.c)
  */
 
 __int64 __fastcall MiUpdateOldPagesEPTCallback(__int64 a1, __int64 *a2, unsigned __int64 a3)

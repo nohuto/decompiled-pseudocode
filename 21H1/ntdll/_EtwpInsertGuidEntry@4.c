@@ -9,57 +9,58 @@
  *     _EtwpGuidEntryCompare@8 @ 0x4B2F1D5B (_EtwpGuidEntryCompare@8.c)
  */
 
-signed __int32 __thiscall EtwpInsertGuidEntry(int this)
+void __thiscall EtwpInsertGuidEntry(PRTL_BALANCED_NODE Node)
 {
-  int v2; // esi
+  int Root; // esi
   int v3; // edi
-  int v4; // eax
+  unsigned int v4; // eax
 
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  v2 = EtwpGuidEntryTable;
-  if ( (dword_4B3A68A8 & 1) != 0 )
+  Root = (int)EtwpGuidEntryTable.Root;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 )
   {
-    if ( EtwpGuidEntryTable )
-      v2 = (unsigned int)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
+    if ( EtwpGuidEntryTable.Root )
+      Root = (unsigned int)&EtwpGuidEntryTable ^ (unsigned int)EtwpGuidEntryTable.Root;
     else
-      v2 = 0;
+      Root = 0;
   }
-  v3 = dword_4B3A68A8 & 1;
-  if ( v2 )
+  v3 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( EtwpGuidEntryCompare((void *)(this + 12), v2) < 0 )
+      if ( EtwpGuidEntryCompare(&Node[1], Root) < 0 )
       {
-        v4 = *(_DWORD *)v2;
+        v4 = *(_DWORD *)Root;
         if ( v3 )
         {
           if ( !v4 )
             break;
-          v4 ^= v2;
+          v4 ^= Root;
         }
         if ( !v4 )
           break;
       }
       else
       {
-        v4 = *(_DWORD *)(v2 + 4);
+        v4 = *(_DWORD *)(Root + 4);
         if ( v3 )
         {
           if ( !v4 )
             goto LABEL_15;
-          v4 ^= v2;
+          v4 ^= Root;
         }
         if ( !v4 )
         {
 LABEL_15:
-          RtlRbInsertNodeEx(&EtwpGuidEntryTable, v2, 1, this);
-          return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+          RtlRbInsertNodeEx(&EtwpGuidEntryTable, (PRTL_BALANCED_NODE)Root, 1u, Node);
+          goto LABEL_14;
         }
       }
-      v2 = v4;
+      Root = v4;
     }
   }
-  RtlRbInsertNodeEx(&EtwpGuidEntryTable, v2, 0, this);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlRbInsertNodeEx(&EtwpGuidEntryTable, (PRTL_BALANCED_NODE)Root, 0, Node);
+LABEL_14:
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

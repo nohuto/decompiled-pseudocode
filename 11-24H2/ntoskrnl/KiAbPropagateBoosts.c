@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbPropagateBoosts @ 0x140255240
+ * XREFs of KiAbPropagateBoosts @ 0x140285850
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402552D0 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x1402858E0 (KiExecuteAllDpcs.c)
  * Callees:
- *     KiAbProcessThreadLocks @ 0x1402509C0 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessThreadLocks @ 0x140280FD0 (KiAbProcessThreadLocks.c)
  */
 
 _QWORD *__fastcall KiAbPropagateBoosts(_QWORD *a1, _QWORD *a2, __int64 a3)

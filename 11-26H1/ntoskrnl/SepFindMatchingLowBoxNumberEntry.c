@@ -1,11 +1,11 @@
 /*
- * XREFs of SepFindMatchingLowBoxNumberEntry @ 0x140A2C938
+ * XREFs of SepFindMatchingLowBoxNumberEntry @ 0x140A3E594
  * Callers:
- *     SepGetLowBoxNumberEntry @ 0x140A2C7B8 (SepGetLowBoxNumberEntry.c)
+ *     SepGetLowBoxNumberEntry @ 0x140A3E414 (SepGetLowBoxNumberEntry.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     RtlLookupEntryHashTable @ 0x140418450 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x140471940 (RtlGetNextEntryHashTable.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     RtlLookupEntryHashTable @ 0x14040CA60 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x14046B0C0 (RtlGetNextEntryHashTable.c)
  */
 
 __int64 __fastcall SepFindMatchingLowBoxNumberEntry(PRTL_DYNAMIC_HASH_TABLE HashTable, unsigned int *Sid1, __int64 *a3)
@@ -15,7 +15,7 @@ __int64 __fastcall SepFindMatchingLowBoxNumberEntry(PRTL_DYNAMIC_HASH_TABLE Hash
   ULONG_PTR v8; // r8
   ULONG_PTR v9; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = 0;
   memset(&Context, 0, sizeof(Context));

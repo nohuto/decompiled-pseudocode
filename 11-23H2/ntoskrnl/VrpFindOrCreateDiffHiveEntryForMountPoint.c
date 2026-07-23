@@ -1,16 +1,16 @@
 /*
- * XREFs of VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14077C178
+ * XREFs of VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14077C368
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14077BA9C (VrpLoadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14077BC8C (VrpLoadDifferencingHive.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14077C3F4 (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpAllocateDiffHiveEntry @ 0x14077C838 (VrpAllocateDiffHiveEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14077C5E4 (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpAllocateDiffHiveEntry @ 0x14077CA28 (VrpAllocateDiffHiveEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

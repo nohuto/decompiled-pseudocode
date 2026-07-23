@@ -1,113 +1,159 @@
 /*
- * XREFs of HvlpSetRegister64 @ 0x140548E30
+ * XREFs of HvlpSetRegister64 @ 0x1405494F0
  * Callers:
- *     HvlEnlightenProcessor @ 0x1403828D0 (HvlEnlightenProcessor.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x14053F54C (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlLogGuestCrashInformation @ 0x14053F950 (HvlLogGuestCrashInformation.c)
- *     HvlSetGuestSchedulerEventRegister @ 0x1405405B0 (HvlSetGuestSchedulerEventRegister.c)
- *     HvlpPhase0Enlightenments @ 0x14054941C (HvlpPhase0Enlightenments.c)
- *     HvlpTryToLockCpuManagementVersion @ 0x1405495D8 (HvlpTryToLockCpuManagementVersion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmHvSetVirtualProcessorQos @ 0x1405A00B4 (PpmHvSetVirtualProcessorQos.c)
- *     HvlDeleteProcessor @ 0x1409411FC (HvlDeleteProcessor.c)
+ *     HvlEnlightenProcessor @ 0x140382A70 (HvlEnlightenProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x14053FC0C (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlLogGuestCrashInformation @ 0x140540010 (HvlLogGuestCrashInformation.c)
+ *     HvlSetGuestSchedulerEventRegister @ 0x140540C70 (HvlSetGuestSchedulerEventRegister.c)
+ *     HvlpPhase0Enlightenments @ 0x140549ADC (HvlpPhase0Enlightenments.c)
+ *     HvlpTryToLockCpuManagementVersion @ 0x140549C98 (HvlpTryToLockCpuManagementVersion.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x1405A05A4 (PpmHvSetVirtualProcessorQos.c)
+ *     HvlDeleteProcessor @ 0x1409413FC (HvlDeleteProcessor.c)
  * Callees:
- *     RtlRaiseException @ 0x14030D590 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x14030D820 (RtlRaiseException.c)
  */
 
-/*
- * Hex-Rays decompilation failed for HvlpSetRegister64 @ 0x140548E30
- * Reason: Hex-Rays returned no pseudocode for 0x140548E30
- * Fallback: raw IDA disassembly follows.
- *
- * 0000000140548E30: sub     rsp, 28h
- * 0000000140548E34: mov     eax, 0A0002h
- * 0000000140548E39: mov     r8d, ecx
- * 0000000140548E3C: cmp     ecx, eax
- * 0000000140548E3E: jg      loc_140548EDE
- * 0000000140548E44: jz      loc_140548F10
- * 0000000140548E4A: mov     eax, 90002h
- * 0000000140548E4F: cmp     ecx, eax
- * 0000000140548E51: jg      short loc_140548EA3
- * 0000000140548E53: jz      short loc_140548E9C
- * 0000000140548E55: sub     ecx, 210h
- * 0000000140548E5B: jz      short loc_140548E93
- * 0000000140548E5D: sub     ecx, 1
- * 0000000140548E60: jz      short loc_140548E93
- * 0000000140548E62: sub     ecx, 1
- * 0000000140548E65: jz      short loc_140548E93
- * 0000000140548E67: sub     ecx, 1
- * 0000000140548E6A: jz      short loc_140548E93
- * 0000000140548E6C: sub     ecx, 1
- * 0000000140548E6F: jz      short loc_140548E93
- * 0000000140548E71: sub     ecx, 1
- * 0000000140548E74: jz      short loc_140548E89
- * 0000000140548E76: cmp     ecx, 5Bh ; '['
- * 0000000140548E79: jnz     loc_140548F47
- * 0000000140548E7F: mov     ecx, 40000116h
- * 0000000140548E84: jmp     loc_140548F17
- * 0000000140548E89: mov     ecx, 40000105h
- * 0000000140548E8E: jmp     loc_140548F17
- * 0000000140548E93: lea     ecx, [r8+3FFFFEF0h]
- * 0000000140548E9A: jmp     short loc_140548F17
- * 0000000140548E9C: mov     ecx, 40000000h
- * 0000000140548EA1: jmp     short loc_140548F17
- * 0000000140548EA3: sub     ecx, 90007h
- * 0000000140548EA9: jz      short loc_140548ED7
- * 0000000140548EAB: sub     ecx, 0Ch
- * 0000000140548EAE: jz      short loc_140548ED0
- * 0000000140548EB0: sub     ecx, 4
- * 0000000140548EB3: jz      short loc_140548EC9
- * 0000000140548EB5: sub     ecx, 4
- * 0000000140548EB8: jz      short loc_140548EC2
- * 0000000140548EBA: sub     ecx, 0FFE5h
- * 0000000140548EC0: jmp     short loc_140548F09
- * 0000000140548EC2: mov     ecx, 400000C2h
- * 0000000140548EC7: jmp     short loc_140548F17
- * 0000000140548EC9: mov     ecx, 40000021h
- * 0000000140548ECE: jmp     short loc_140548F17
- * 0000000140548ED0: mov     ecx, 40000073h
- * 0000000140548ED5: jmp     short loc_140548F17
- * 0000000140548ED7: mov     ecx, 40000004h
- * 0000000140548EDC: jmp     short loc_140548F17
- * 0000000140548EDE: mov     eax, 0A000Ah
- * 0000000140548EE3: cmp     r8d, eax
- * 0000000140548EE6: jg      short loc_140548F26
- * 0000000140548EE8: jz      short loc_140548F10
- * 0000000140548EEA: sub     ecx, 0A0003h
- * 0000000140548EF0: jz      short loc_140548F10
- * 0000000140548EF2: sub     ecx, 1
- * 0000000140548EF5: jz      short loc_140548F10
- * 0000000140548EF7: sub     ecx, 1
- * 0000000140548EFA: jz      short loc_140548F10
- * 0000000140548EFC: sub     ecx, 1
- * 0000000140548EFF: jz      short loc_140548F10
- * 0000000140548F01: sub     ecx, 1
- * 0000000140548F04: jz      short loc_140548F10
- * 0000000140548F06: sub     ecx, 1
- * 0000000140548F09: jz      short loc_140548F10
- * 0000000140548F0B: cmp     ecx, 1
- * 0000000140548F0E: jnz     short loc_140548F47
- * 0000000140548F10: lea     ecx, [r8+3FF60090h]
- * 0000000140548F17: mov     rax, rdx
- * 0000000140548F1A: shr     rdx, 20h
- * 0000000140548F1E: wrmsr
- * 0000000140548F20: add     rsp, 28h
- * 0000000140548F24: retn
- * 0000000140548F26: sub     ecx, 0A000Bh
- * 0000000140548F2C: jz      short loc_140548F10
- * 0000000140548F2E: sub     ecx, 1
- * 0000000140548F31: jz      short loc_140548F10
- * 0000000140548F33: sub     ecx, 1
- * 0000000140548F36: jz      short loc_140548F10
- * 0000000140548F38: sub     ecx, 1
- * 0000000140548F3B: jz      short loc_140548F10
- * 0000000140548F3D: sub     ecx, 1
- * 0000000140548F40: jz      short loc_140548F10
- * 0000000140548F42: cmp     ecx, 4
- * 0000000140548F45: jz      short loc_140548F55
- * 0000000140548F47: lea     rcx, qword_140C0D0D0; ULONG_PTR
- * 0000000140548F4E: call    RtlRaiseException
- * 0000000140548F53: jmp     short loc_140548F20
- * 0000000140548F55: mov     ecx, 40000083h
- * 0000000140548F5A: jmp     short loc_140548F17
- */
+void __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
+{
+  int v3; // ecx
+  int v4; // ecx
+  int v5; // ecx
+  int v6; // ecx
+  int v7; // ecx
+  int v8; // ecx
+  unsigned int v9; // ecx
+  int v10; // ecx
+  int v11; // ecx
+  int v12; // ecx
+  int v13; // ecx
+  bool v14; // zf
+  int v15; // ecx
+  int v16; // ecx
+  int v17; // ecx
+  int v18; // ecx
+  int v19; // ecx
+  int v20; // ecx
+  int v21; // ecx
+  int v22; // ecx
+  int v23; // ecx
+  int v24; // ecx
+  int v25; // ecx
+
+  if ( a1 > 655362 )
+  {
+    if ( a1 > 655370 )
+    {
+      v21 = a1 - 655371;
+      if ( v21 )
+      {
+        v22 = v21 - 1;
+        if ( v22 )
+        {
+          v23 = v22 - 1;
+          if ( v23 )
+          {
+            v24 = v23 - 1;
+            if ( v24 )
+            {
+              v25 = v24 - 1;
+              if ( v25 )
+              {
+                if ( v25 == 4 )
+                {
+                  v9 = 1073741955;
+                  goto LABEL_36;
+                }
+                goto LABEL_43;
+              }
+            }
+          }
+        }
+      }
+LABEL_35:
+      v9 = a1 + 1073086608;
+      goto LABEL_36;
+    }
+    if ( a1 == 655370 )
+      goto LABEL_35;
+    v16 = a1 - 655363;
+    if ( !v16 )
+      goto LABEL_35;
+    v17 = v16 - 1;
+    if ( !v17 )
+      goto LABEL_35;
+    v18 = v17 - 1;
+    if ( !v18 )
+      goto LABEL_35;
+    v19 = v18 - 1;
+    if ( !v19 )
+      goto LABEL_35;
+    v20 = v19 - 1;
+    if ( !v20 )
+      goto LABEL_35;
+    v15 = v20 - 1;
+    v14 = v15 == 0;
+LABEL_33:
+    if ( !v14 && v15 != 1 )
+      goto LABEL_43;
+    goto LABEL_35;
+  }
+  if ( a1 == 655362 )
+    goto LABEL_35;
+  if ( a1 > 589826 )
+  {
+    v10 = a1 - 589831;
+    if ( !v10 )
+    {
+      v9 = 1073741828;
+      goto LABEL_36;
+    }
+    v11 = v10 - 12;
+    if ( !v11 )
+    {
+      v9 = 1073741939;
+      goto LABEL_36;
+    }
+    v12 = v11 - 4;
+    if ( !v12 )
+    {
+      v9 = 1073741857;
+      goto LABEL_36;
+    }
+    v13 = v12 - 4;
+    if ( !v13 )
+    {
+      v9 = 1073742018;
+      goto LABEL_36;
+    }
+    v15 = v13 - 65509;
+    v14 = v15 == 0;
+    goto LABEL_33;
+  }
+  if ( a1 == 589826 )
+  {
+    v9 = 0x40000000;
+    goto LABEL_36;
+  }
+  v3 = a1 - 528;
+  if ( !v3 || (v4 = v3 - 1) == 0 || (v5 = v4 - 1) == 0 || (v6 = v5 - 1) == 0 || (v7 = v6 - 1) == 0 )
+  {
+    v9 = a1 + 1073741552;
+    goto LABEL_36;
+  }
+  v8 = v7 - 1;
+  if ( !v8 )
+  {
+    v9 = 1073742085;
+    goto LABEL_36;
+  }
+  if ( v8 == 91 )
+  {
+    v9 = 1073742102;
+LABEL_36:
+    __writemsr(v9, a2);
+    return;
+  }
+LABEL_43:
+  RtlRaiseException(&ExceptionRecord);
+}

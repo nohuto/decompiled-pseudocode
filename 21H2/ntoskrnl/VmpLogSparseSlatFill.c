@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogSparseSlatFill @ 0x1405A4138
+ * XREFs of VmpLogSparseSlatFill @ 0x1405A4368
  * Callers:
- *     VmpFillSlat @ 0x1405A348C (VmpFillSlat.c)
+ *     VmpFillSlat @ 0x1405A36BC (VmpFillSlat.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall VmpLogSparseSlatFill(__int64 a1, __int64 a2, unsigned int a3)
@@ -51,7 +51,7 @@ void __fastcall VmpLogSparseSlatFill(__int64 a1, __int64 a2, unsigned int a3)
       v18 = v5;
       v20 = 0;
       v22 = 4LL;
-      tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&byte_14002C501, 0LL, 0, v6, v7, 7u, &v11);
+      tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&word_14002C4DA, 0LL, 0, v6, v7, 7u, &v11);
     }
   }
 }

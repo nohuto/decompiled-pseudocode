@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSetVersionData @ 0x14055D9A8
+ * XREFs of CmpSetVersionData @ 0x14055DEE8
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14055D110 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x14055D650 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     sprintf_s @ 0x140152AEC (sprintf_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14015B5E0 (ZwDeleteValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1401530AC (sprintf_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14015BB50 (ZwDeleteValueKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExFreePool @ 0x140255B30 (ExFreePool.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     PspWow64GetSharedInformation @ 0x14051AC8C (PspWow64GetSharedInformation.c)
- *     CmpHiveRootSecurityDescriptor @ 0x14055E73C (CmpHiveRootSecurityDescriptor.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     PspWow64GetSharedInformation @ 0x1404FE07C (PspWow64GetSharedInformation.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x14055EC7C (CmpHiveRootSecurityDescriptor.c)
  */
 
 void CmpSetVersionData()
@@ -30,7 +30,7 @@ void CmpSetVersionData()
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
   UNICODE_STRING v8; // [rsp+50h] [rbp-B8h] BYREF
   int Data; // [rsp+60h] [rbp-A8h] BYREF
-  STRING SourceString; // [rsp+68h] [rbp-A0h] BYREF
+  _STRING SourceString; // [rsp+68h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-90h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-88h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF
@@ -112,12 +112,12 @@ void CmpSetVersionData()
         v8.Buffer = (wchar_t *)v15;
         if ( RtlAnsiStringToUnicodeString(&v8, &SourceString, 0) >= 0 )
           ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpCurrentBuildNumberString, 0, 1u, v8.Buffer, v8.Length + 2);
-        RtlInitAnsiString(&SourceString, "14393.rs1_release.260227-2344");
+        RtlInitAnsiString(&SourceString, "14393.rs1_release.260710-1833");
         *(_DWORD *)&v8.Length = 0x1000000;
         v8.Buffer = (wchar_t *)v15;
         if ( RtlAnsiStringToUnicodeString(&v8, &SourceString, 0) >= 0 )
           ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpBuildLabString, 0, 1u, v8.Buffer, v8.Length + 2);
-        RtlInitAnsiString(&SourceString, "14393.8957.amd64fre.rs1_release.260227-2344");
+        RtlInitAnsiString(&SourceString, "14393.9339.amd64fre.rs1_release.260710-1833");
         *(_DWORD *)&v8.Length = 0x1000000;
         v8.Buffer = (wchar_t *)v15;
         if ( RtlAnsiStringToUnicodeString(&v8, &SourceString, 0) >= 0 )

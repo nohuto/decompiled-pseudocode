@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpReleaseProviderTraitsReference @ 0x1405C4680
+ * XREFs of EtwpReleaseProviderTraitsReference @ 0x1405C5680
  * Callers:
- *     EtwpDeleteRegistrationObject @ 0x1405C3E20 (EtwpDeleteRegistrationObject.c)
- *     EtwpSetProviderTraitsCommon @ 0x1405C4A10 (EtwpSetProviderTraitsCommon.c)
- *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
+ *     EtwpDeleteRegistrationObject @ 0x1405C4E20 (EtwpDeleteRegistrationObject.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1405C5A10 (EtwpSetProviderTraitsCommon.c)
+ *     EtwUnregister @ 0x140708610 (EtwUnregister.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
 {
-  _DWORD *v1; // rbx
+  __int64 v1; // rbx
   char v3; // si
   struct _FAST_MUTEX *v4; // rdi
-  __int64 *v6; // rcx
+  _RTL_RB_TREE *v6; // rcx
 
-  v1 = (_DWORD *)_InterlockedExchange64((volatile __int64 *)(a1 + 104), 0LL);
+  v1 = _InterlockedExchange64((volatile __int64 *)(a1 + 104), 0LL);
   if ( v1 )
   {
     v3 = *(_BYTE *)(a1 + 98) & 1;
@@ -26,12 +26,12 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
     if ( !v3 )
       v4 = &EtwpProviderTraitsUmMutex;
     ExAcquireFastMutex(v4);
-    if ( v1[6]-- == 1 )
+    if ( (*(_DWORD *)(v1 + 24))-- == 1 )
     {
       v6 = &EtwpProviderTraitsKmTree;
       if ( !v3 )
         v6 = &EtwpProviderTraitsUmTree;
-      RtlRbRemoveNode((__int64)v6, (unsigned __int64)v1);
+      RtlRbRemoveNode(v6, (PRTL_BALANCED_NODE)v1);
     }
     else
     {
@@ -39,7 +39,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
     }
     KeReleaseGuardedMutex(v4);
     if ( v1 )
-      ExFreePoolWithTag(v1, 0);
+      ExFreePoolWithTag((PVOID)v1, 0);
   }
   return 0LL;
 }

@@ -8,7 +8,7 @@
  *     RtlPrefixUnicodeString @ 0x18006ED20 (RtlPrefixUnicodeString.c)
  */
 
-__int64 __fastcall RtlpDetermineDosPathNameType4(__int64 a1, unsigned __int16 *a2, _DWORD *a3, _DWORD *a4)
+__int64 __fastcall RtlpDetermineDosPathNameType4(__int64 a1, _UNICODE_STRING *a2, _DWORD *a3, _DWORD *a4)
 {
   unsigned int v4; // ebx
   char v7; // r15
@@ -18,10 +18,8 @@ __int64 __fastcall RtlpDetermineDosPathNameType4(__int64 a1, unsigned __int16 *a
   int v11; // eax
   bool v12; // zf
   _DWORD *v13; // r11
-  __int64 v14; // r8
-  __int64 v16; // r8
-  __m128i v17; // xmm0
-  _QWORD v18[5]; // [rsp+20h] [rbp-28h] BYREF
+  __m128i v15; // xmm0
+  _QWORD v16[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = 0;
   v7 = 0;
@@ -34,43 +32,43 @@ __int64 __fastcall RtlpDetermineDosPathNameType4(__int64 a1, unsigned __int16 *a
     *a4 = 0;
   if ( !a2 || !a3 || !a4 )
     return (unsigned int)-1073741811;
-  v11 = RtlDetermineDosPathNameType_Ustr(a2);
-  v12 = *a2 == 4;
+  v11 = RtlDetermineDosPathNameType_Ustr(&a2->Length);
+  v12 = a2->Length == 4;
   *v13 = v11;
   if ( v12 )
     goto LABEL_30;
-  if ( RtlEqualUnicodeString(RtlpWin32NtRoot, a2, 1) || RtlEqualUnicodeString(L"\b\n", a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtRoot, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtRootSlash, a2, 1u) )
   {
     v10 = 1;
     v7 = 1;
   }
   else
   {
-    LOBYTE(v14) = 1;
-    if ( !(unsigned __int8)RtlPrefixUnicodeString(L"\b\n", a2, v14) )
+    if ( !RtlPrefixUnicodeString((PUNICODE_STRING)&RtlpWin32NtRootSlash, a2, 1u) )
       return v4;
     v7 = 1;
   }
-  if ( RtlEqualUnicodeString(RtlpWin32NtUncRoot, a2, 1) || RtlEqualUnicodeString(RtlpWin32NtUncRootSlash, a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRoot, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRootSlash, a2, 1u) )
   {
     v10 = 1;
     v8 = 1;
     goto LABEL_29;
   }
-  LOBYTE(v16) = 1;
-  if ( (unsigned __int8)RtlPrefixUnicodeString(RtlpWin32NtUncRootSlash, a2, v16) )
+  if ( RtlPrefixUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRootSlash, a2, 1u) )
   {
     v8 = 1;
     goto LABEL_29;
   }
   if ( v10 )
     goto LABEL_30;
-  v17 = *(__m128i *)a2;
-  v18[0] = *(_QWORD *)a2;
-  v18[1] = _mm_srli_si128(v17, 8).m128i_u64[0] + 8;
-  LOWORD(v18[0]) -= 8;
-  WORD1(v18[0]) -= 8;
-  if ( (unsigned int)RtlDetermineDosPathNameType_Ustr((unsigned __int16 *)v18) != 2 )
+  v15 = *(__m128i *)a2;
+  v16[0] = *(_QWORD *)&a2->Length;
+  v16[1] = _mm_srli_si128(v15, 8).m128i_u64[0] + 8;
+  LOWORD(v16[0]) -= 8;
+  WORD1(v16[0]) -= 8;
+  if ( (unsigned int)RtlDetermineDosPathNameType_Ustr((unsigned __int16 *)v16) != 2 )
   {
     *a4 |= 0x200u;
 LABEL_29:

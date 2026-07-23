@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptMlDsaPolyElementAdd @ 0x1405730B8
+ * XREFs of SymCryptMlDsaPolyElementAdd @ 0x1405722C4
  * Callers:
- *     SymCryptMlDsaMatrixVectorMontMul @ 0x140572CA0 (SymCryptMlDsaMatrixVectorMontMul.c)
- *     SymCryptMlDsaVectorAdd @ 0x140574290 (SymCryptMlDsaVectorAdd.c)
+ *     SymCryptMlDsaMatrixVectorMontMul @ 0x140571EAC (SymCryptMlDsaMatrixVectorMontMul.c)
+ *     SymCryptMlDsaVectorAdd @ 0x1405734F4 (SymCryptMlDsaVectorAdd.c)
  * Callees:
  *     <none>
  */

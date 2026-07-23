@@ -1,5 +1,5 @@
 /*
- * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x140864680
+ * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x1408658E0
  * Callers:
  *     <none>
  * Callees:
@@ -13,13 +13,13 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
         void (__fastcall **a3)(volatile signed __int64 *a1, _KLOCK_ENTRY *a2))
 {
   unsigned int v3; // ebx
-  __int64 v5; // rdi
-  __int64 v6; // rax
+  PRTL_BALANCED_NODE v5; // rdi
+  PRTL_BALANCED_NODE v6; // rax
   __int64 v7; // rdx
 
   v3 = 0;
   v5 = 0LL;
-  ++dword_14043C1EC;
+  ++dword_14043D2AC;
   if ( BugCheckParameter2 )
   {
     *((_DWORD *)BugCheckParameter2 + 18) = 1;
@@ -38,7 +38,7 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
   v5 = v6;
   if ( v6 )
   {
-    KeAbPreWait(v6, v7);
+    KeAbPreWait((__int64)v6, v7);
     goto LABEL_9;
   }
 LABEL_6:

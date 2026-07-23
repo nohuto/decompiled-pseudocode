@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenIoCompletion @ 0x140624028
+ * XREFs of NtOpenIoCompletion @ 0x1406240DC
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
  */
 
 NTSTATUS __stdcall NtOpenIoCompletion(

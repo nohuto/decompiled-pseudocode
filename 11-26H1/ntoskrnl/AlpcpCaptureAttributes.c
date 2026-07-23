@@ -1,25 +1,25 @@
 /*
- * XREFs of AlpcpCaptureAttributes @ 0x1409BE688
+ * XREFs of AlpcpCaptureAttributes @ 0x14098F668
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1408E6A30 (AlpcpAcceptConnectPort.c)
- *     AlpcpFormatConnectionRequest @ 0x1408E7C0C (AlpcpFormatConnectionRequest.c)
- *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
+ *     AlpcpAcceptConnectPort @ 0x1408ECFF0 (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x1408EE1CC (AlpcpFormatConnectionRequest.c)
+ *     AlpcpSendMessage @ 0x14098E2D0 (AlpcpSendMessage.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     AlpcpCaptureDirectAttribute @ 0x1407C1F80 (AlpcpCaptureDirectAttribute.c)
- *     AlpcpCaptureDirectAttribute32 @ 0x1407C2034 (AlpcpCaptureDirectAttribute32.c)
- *     AlpcpProbeMessageAttributes @ 0x1408F5B50 (AlpcpProbeMessageAttributes.c)
- *     AlpcpCaptureHandleAttribute @ 0x140970BE4 (AlpcpCaptureHandleAttribute.c)
- *     AlpcpCaptureSecurityAttribute @ 0x1409BBEF0 (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpReleaseAttributes @ 0x1409BCAB0 (AlpcpReleaseAttributes.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x140A59C70 (AlpcpCaptureWorkOnBehalfAttribute.c)
- *     AlpcpCaptureContextAttribute @ 0x140A8216C (AlpcpCaptureContextAttribute.c)
- *     AlpcpCaptureContextAttribute32 @ 0x140AA20F0 (AlpcpCaptureContextAttribute32.c)
- *     AlpcpCaptureViewAttribute @ 0x140AB0550 (AlpcpCaptureViewAttribute.c)
- *     AlpcpCaptureSecurityAttribute32 @ 0x140AB70EC (AlpcpCaptureSecurityAttribute32.c)
- *     AlpcpCaptureViewAttribute32 @ 0x140AFD040 (AlpcpCaptureViewAttribute32.c)
- *     AlpcpCaptureHandleAttribute32 @ 0x140B59F8C (AlpcpCaptureHandleAttribute32.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     AlpcpCaptureDirectAttribute @ 0x1407C4FE0 (AlpcpCaptureDirectAttribute.c)
+ *     AlpcpCaptureDirectAttribute32 @ 0x1407C5094 (AlpcpCaptureDirectAttribute32.c)
+ *     AlpcpProbeMessageAttributes @ 0x140925AE0 (AlpcpProbeMessageAttributes.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x14098CED0 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpReleaseAttributes @ 0x14098DA90 (AlpcpReleaseAttributes.c)
+ *     AlpcpCaptureHandleAttribute32 @ 0x1409B924C (AlpcpCaptureHandleAttribute32.c)
+ *     AlpcpCaptureHandleAttribute @ 0x1409BAD54 (AlpcpCaptureHandleAttribute.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x140A66BE0 (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     AlpcpCaptureContextAttribute @ 0x140A87FDC (AlpcpCaptureContextAttribute.c)
+ *     AlpcpCaptureContextAttribute32 @ 0x140AA3BC0 (AlpcpCaptureContextAttribute32.c)
+ *     AlpcpCaptureViewAttribute @ 0x140AAE534 (AlpcpCaptureViewAttribute.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x140AB872C (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x140AFEBB0 (AlpcpCaptureViewAttribute32.c)
  */
 
 __int64 __fastcall AlpcpCaptureAttributes(__int64 a1, int a2, unsigned int *a3, __int64 a4, _QWORD *a5)
@@ -105,7 +105,7 @@ __int64 __fastcall AlpcpCaptureAttributes(__int64 a1, int a2, unsigned int *a3, 
       v27 = v26 + 32;
       if ( (v13 & 0x20000000) == 0 )
         v27 = v26;
-      v15 = AlpcpCaptureHandleAttribute((char *)a3 + v27, (__int64)a5, AccessMode);
+      v15 = AlpcpCaptureHandleAttribute((char *)a3 + v27);
       if ( v15 < 0 )
         goto LABEL_60;
     }

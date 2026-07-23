@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetWakeSource @ 0x1407787B8
+ * XREFs of PopGetWakeSource @ 0x140778978
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     PopDereferenceWakeInfos @ 0x14038B984 (PopDereferenceWakeInfos.c)
- *     PopGetCurrentWakeInfos @ 0x14038BA3C (PopGetCurrentWakeInfos.c)
- *     PopCopyWakeSource @ 0x1408E69A0 (PopCopyWakeSource.c)
- *     PopWakeSourceSize @ 0x1408E6EA0 (PopWakeSourceSize.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     PopDereferenceWakeInfos @ 0x14038BAD4 (PopDereferenceWakeInfos.c)
+ *     PopGetCurrentWakeInfos @ 0x14038BB8C (PopGetCurrentWakeInfos.c)
+ *     PopCopyWakeSource @ 0x1408E6B00 (PopCopyWakeSource.c)
+ *     PopWakeSourceSize @ 0x1408E7000 (PopWakeSourceSize.c)
  */
 
 __int64 __fastcall PopGetWakeSource(_DWORD *a1, unsigned int *a2)

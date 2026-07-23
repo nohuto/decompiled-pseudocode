@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpStackDbSegmentComparitor @ 0x18012E120
+ * XREFs of RtlpStackDbSegmentComparitor @ 0x18012E14C
  * Callers:
- *     RtlpStackDbSegmentFindOrCreate @ 0x18012E15C (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x18012E188 (RtlpStackDbSegmentFindOrCreate.c)
  * Callees:
  *     memcmp @ 0x180093310 (memcmp.c)
  */

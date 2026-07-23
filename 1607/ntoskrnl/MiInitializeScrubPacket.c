@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeScrubPacket @ 0x140664CDC
+ * XREFs of MiInitializeScrubPacket @ 0x140664DC0
  * Callers:
- *     MiScrubMemoryWorker @ 0x140664DB8 (MiScrubMemoryWorker.c)
- *     MiScrubProcesses @ 0x140664E40 (MiScrubProcesses.c)
+ *     MiScrubMemoryWorker @ 0x140664E9C (MiScrubMemoryWorker.c)
+ *     MiScrubProcesses @ 0x140664F24 (MiScrubProcesses.c)
  * Callees:
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     MiCreatePteCopyList @ 0x140107178 (MiCreatePteCopyList.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     MiCreatePteCopyList @ 0x140104EF8 (MiCreatePteCopyList.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiReleaseScrubPacket @ 0x140664D84 (MiReleaseScrubPacket.c)
+ *     MiReleaseScrubPacket @ 0x140664E68 (MiReleaseScrubPacket.c)
  */
 
 __int64 __fastcall MiInitializeScrubPacket(__int64 a1, int a2, __int64 a3, unsigned __int64 a4)

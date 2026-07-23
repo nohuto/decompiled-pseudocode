@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCopyOverNewPathSecure @ 0x14099D844
+ * XREFs of IopCopyOverNewPathSecure @ 0x140A2F5A8
  * Callers:
- *     IopGraftName @ 0x14099D348 (IopGraftName.c)
+ *     IopGraftName @ 0x140A2F1E8 (IopGraftName.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopCopyOverNewPathSecure(

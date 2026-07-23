@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorSetPep @ 0x1403B53B0
+ * XREFs of PopProcessorSetPep @ 0x1403B5590
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PopProcessorSetPep(unsigned int a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmGetVisibleMaxNameLenAndClassLen @ 0x14066AA6C
+ * XREFs of CmGetVisibleMaxNameLenAndClassLen @ 0x14065F88C
  * Callers:
- *     CmpQueryKeyDataFromCache @ 0x14066A75C (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x14066AB20 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromCache @ 0x14065F57C (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x14065F940 (CmpQueryKeyDataFromNode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpIsKeyDeleted @ 0x140670F30 (CmpIsKeyDeleted.c)
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
+ *     CmpIsKeyDeleted @ 0x140667410 (CmpIsKeyDeleted.c)
  */
 
 __int64 __fastcall CmGetVisibleMaxNameLenAndClassLen(
@@ -18,16 +18,16 @@ __int64 __fastcall CmGetVisibleMaxNameLenAndClassLen(
         unsigned int *a5)
 {
   unsigned int *v7; // rbx
-  __int64 v9; // r14
-  __int64 NextElement; // rax
-  __int64 v11; // rdi
+  _QWORD **v9; // r14
+  char *NextElement; // rax
+  char *v11; // rdi
   __int64 v12; // rdi
   __int64 v13; // rax
   unsigned int v14; // ecx
   unsigned int v15; // eax
   int v16; // [rsp+48h] [rbp+10h] BYREF
   int v17; // [rsp+4Ch] [rbp+14h]
-  __int64 v18; // [rsp+58h] [rbp+20h] BYREF
+  _QWORD *v18; // [rsp+58h] [rbp+20h] BYREF
 
   v16 = -1;
   v18 = 0LL;
@@ -47,18 +47,18 @@ __int64 __fastcall CmGetVisibleMaxNameLenAndClassLen(
     *a4 = *(unsigned __int16 *)(a1 + 176);
     if ( a3 )
     {
-      v9 = a1 + 208;
+      v9 = (_QWORD **)(a1 + 208);
       while ( 1 )
       {
-        NextElement = CmListGetNextElement(v9, &v18, 32LL);
+        NextElement = CmListGetNextElement(v9, &v18, 32);
         v11 = NextElement;
         if ( !NextElement )
           break;
-        if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), a3) )
+        if ( (unsigned __int8)CmEqualTrans(*((_QWORD *)NextElement + 7), a3) )
         {
-          if ( *(_DWORD *)(v11 + 68) == 1 )
+          if ( *((_DWORD *)v11 + 17) == 1 )
           {
-            v12 = *(_QWORD *)(v11 + 88);
+            v12 = *((_QWORD *)v11 + 11);
             if ( !(unsigned __int8)CmpIsKeyDeleted(v12, 0LL) )
             {
               v13 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, int *))(*(_QWORD *)(v12 + 32) + 8LL))(

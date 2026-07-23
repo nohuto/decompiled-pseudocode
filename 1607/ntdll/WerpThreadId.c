@@ -1,20 +1,20 @@
 /*
- * XREFs of WerpThreadId @ 0x180007848
+ * XREFs of WerpThreadId @ 0x180007838
  * Callers:
- *     RtlReportExceptionHelper @ 0x18000787C (RtlReportExceptionHelper.c)
- *     RtlReportExceptionEx @ 0x1800D86C0 (RtlReportExceptionEx.c)
+ *     RtlReportExceptionHelper @ 0x18000786C (RtlReportExceptionHelper.c)
+ *     RtlReportExceptionEx @ 0x1800D8780 (RtlReportExceptionEx.c)
  * Callees:
  *     ZwQueryInformationThread @ 0x1800A68C0 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall WerpThreadId(__int64 a1)
+__int64 __fastcall WerpThreadId(void *a1)
 {
-  int InformationThread; // eax
+  NTSTATUS InformationThread; // eax
   unsigned int v2; // ecx
-  _BYTE v4[24]; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE ThreadInformation[24]; // [rsp+30h] [rbp-38h] BYREF
   unsigned int v5; // [rsp+48h] [rbp-20h]
 
-  InformationThread = ZwQueryInformationThread(a1, 0LL, v4, 48LL, 0LL);
+  InformationThread = ZwQueryInformationThread(a1, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
   v2 = v5;
   if ( InformationThread < 0 )
     return 0;

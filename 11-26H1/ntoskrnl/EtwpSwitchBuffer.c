@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpSwitchBuffer @ 0x140219160
+ * XREFs of EtwpSwitchBuffer @ 0x1402192C0
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x140218410 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x140218740 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     EtwpDequeueFreeBuffer @ 0x1402193F4 (EtwpDequeueFreeBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x1402195F8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpEnqueueOverflowBuffer @ 0x140219884 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpRequestFlushTimer @ 0x1402198F0 (EtwpRequestFlushTimer.c)
- *     EtwpBuffersFlushRequired @ 0x14021999C (EtwpBuffersFlushRequired.c)
- *     EtwpAllocateFreeBuffers @ 0x1402199DC (EtwpAllocateFreeBuffers.c)
- *     EtwpGetLoggerTimeStamp @ 0x14021BEC0 (EtwpGetLoggerTimeStamp.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     EtwpCompressionDpc @ 0x1405306E0 (EtwpCompressionDpc.c)
- *     EtwpReenableCompression @ 0x140532448 (EtwpReenableCompression.c)
+ *     EtwpDequeueFreeBuffer @ 0x140219554 (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x140219758 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x1402199E4 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpRequestFlushTimer @ 0x140219A50 (EtwpRequestFlushTimer.c)
+ *     EtwpBuffersFlushRequired @ 0x140219AFC (EtwpBuffersFlushRequired.c)
+ *     EtwpAllocateFreeBuffers @ 0x140219B3C (EtwpAllocateFreeBuffers.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14021D850 (EtwpGetLoggerTimeStamp.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     EtwpCompressionDpc @ 0x140532BE0 (EtwpCompressionDpc.c)
+ *     EtwpReenableCompression @ 0x1405348E8 (EtwpReenableCompression.c)
  */
 
 __int64 __fastcall EtwpSwitchBuffer(ULONG_PTR a1, __int64 a2, signed __int64 *a3, __int16 a4, __int16 a5)

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiStartIdleThread @ 0x1405C3210
+ * XREFs of KiStartIdleThread @ 0x1405C07E0
  * Callers:
- *     KiInitializeAndStartInitialThread @ 0x1405C2E04 (KiInitializeAndStartInitialThread.c)
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeAndStartInitialThread @ 0x1405C03D4 (KiInitializeAndStartInitialThread.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     KeInterlockedSetProcessorAffinityEx @ 0x1403E9E20 (KeInterlockedSetProcessorAffinityEx.c)
- *     KiInitializeContextThread @ 0x140406F34 (KiInitializeContextThread.c)
- *     KiStartPrcbThread @ 0x1405B7FCC (KiStartPrcbThread.c)
- *     KiInitializePriorityState @ 0x1405C2FE0 (KiInitializePriorityState.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1403D7AC0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KiInitializeContextThread @ 0x1403FF414 (KiInitializeContextThread.c)
+ *     KiStartPrcbThread @ 0x1405B55AC (KiStartPrcbThread.c)
+ *     KiInitializePriorityState @ 0x1405C05B0 (KiInitializePriorityState.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall KiStartIdleThread(__int64 a1, struct _KPRCB *a2, __int64 a3)
@@ -29,6 +29,6 @@ char __fastcall KiStartIdleThread(__int64 a1, struct _KPRCB *a2, __int64 a3)
   KiStartPrcbThread(a1, (__int64)a2);
   *(_BYTE *)(a1 + 388) = 2;
   *(_BYTE *)(a1 + 113) = 1;
-  KeInterlockedSetProcessorAffinityEx(qword_140FCEF80, a2->Number);
+  KeInterlockedSetProcessorAffinityEx(qword_140FCFF80, a2->Number);
   return KiInitializePriorityState(&a2->PriorityState->AllFields, a2, a1);
 }

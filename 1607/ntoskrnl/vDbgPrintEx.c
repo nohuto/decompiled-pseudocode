@@ -1,11 +1,11 @@
 /*
- * XREFs of vDbgPrintEx @ 0x140081B88
+ * XREFs of vDbgPrintEx @ 0x140084D0C
  * Callers:
- *     PopPrintEx @ 0x140081AE0 (PopPrintEx.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
+ *     PopPrintEx @ 0x140084C64 (PopPrintEx.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x140081BB0 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x140084D34 (vDbgPrintExWithPrefixInternal.c)
  */
 
 ULONG __stdcall vDbgPrintEx(ULONG ComponentId, ULONG Level, PCCH Format, va_list arglist)

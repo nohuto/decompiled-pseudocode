@@ -17,32 +17,32 @@
 
 __int64 sub_18008A338(__int64 *a1, _WORD *a2, __int64 a3, __int64 a4, ...)
 {
-  wchar_t *Heap; // rsi
+  WCHAR *Heap; // rsi
   int v9; // ebx
   __int16 v10; // di
   unsigned __int16 v11; // dx
   __int16 v12; // dx
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int64 v15; // [rsp+70h] [rbp+30h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp+30h] BYREF
   va_list va; // [rsp+90h] [rbp+50h] BYREF
 
   va_start(va, a4);
-  v15 = 0LL;
+  BaseAddress = 0LL;
   Heap = 0LL;
   if ( !a1 || !*a1 || !a2 || !a3 )
   {
     v9 = -1073741811;
     goto LABEL_19;
   }
-  v9 = sub_18005845C((__int64 *)&v15);
+  v9 = sub_18005845C(&BaseAddress);
   if ( v9 >= 0 )
   {
-    if ( !sub_1800583CC(a2, v15, a3, a4, 0, 42) )
+    if ( !sub_1800583CC(a2, (__int64)BaseAddress, a3, a4, 0, 42) )
     {
       v9 = -1073741823;
       goto LABEL_21;
     }
-    Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+    Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
     if ( !Heap )
     {
       v9 = -1073741801;
@@ -51,26 +51,26 @@ __int64 sub_18008A338(__int64 *a1, _WORD *a2, __int64 a3, __int64 a4, ...)
     v10 = 0;
     while ( 1 )
     {
-      if ( v10 && *(_DWORD *)(v15 + 8LL * v10 + 4) )
+      if ( v10 && *((_DWORD *)BaseAddress + 2 * v10 + 1) )
       {
-        v11 = *(_WORD *)(v15 + 8LL * v10);
+        v11 = *((_WORD *)BaseAddress + 4 * v10);
         if ( v11 )
         {
           DestinationString.Buffer = Heap;
           *(_DWORD *)&DestinationString.Length = 11141120;
-          if ( !RtlLCIDToCultureName(v11, (__int64)&DestinationString) )
+          if ( !RtlLCIDToCultureName(v11, &DestinationString) )
           {
 LABEL_18:
             v9 = -1073741595;
 LABEL_19:
             if ( Heap )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
             break;
           }
         }
         else
         {
-          v12 = *(_WORD *)(v15 + 8LL * v10 + 2);
+          v12 = *((_WORD *)BaseAddress + 4 * v10 + 1);
           if ( v12 < 0 )
             goto LABEL_18;
           RtlInitUnicodeString(
@@ -87,7 +87,7 @@ LABEL_19:
     }
   }
 LABEL_21:
-  if ( v15 )
-    sub_180058398(v15);
+  if ( BaseAddress )
+    sub_180058398(BaseAddress);
   return (unsigned int)v9;
 }

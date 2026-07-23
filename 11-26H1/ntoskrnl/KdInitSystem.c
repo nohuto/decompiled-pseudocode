@@ -1,30 +1,30 @@
 /*
- * XREFs of KdInitSystem @ 0x140C12B60
+ * XREFs of KdInitSystem @ 0x140C18B60
  * Callers:
- *     KdEnableDebuggerWithLock @ 0x1405E3B4C (KdEnableDebuggerWithLock.c)
- *     KeEnterKernelDebugger @ 0x1405E7070 (KeEnterKernelDebugger.c)
- *     KiSystemStartup @ 0x140BE9640 (KiSystemStartup.c)
- *     KiSetFeatureBits @ 0x140BF74E8 (KiSetFeatureBits.c)
- *     PopHiberCheckResume @ 0x140BFA8A0 (PopHiberCheckResume.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     KdEnableDebuggerWithLock @ 0x1405E64BC (KdEnableDebuggerWithLock.c)
+ *     KeEnterKernelDebugger @ 0x1405E99E0 (KeEnterKernelDebugger.c)
+ *     KiSystemStartup @ 0x140BEF640 (KiSystemStartup.c)
+ *     KiSetFeatureBits @ 0x140BFD4E8 (KiSetFeatureBits.c)
+ *     PopHiberCheckResume @ 0x140C008A0 (PopHiberCheckResume.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeIsKernelCetEnabled @ 0x140483900 (KeIsKernelCetEnabled.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     KdPollBreakIn @ 0x140487E90 (KdPollBreakIn.c)
- *     DbgLoadImageSymbols @ 0x1404DF6D0 (DbgLoadImageSymbols.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     _strupr @ 0x140535360 (_strupr.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     atol @ 0x140535D80 (atol.c)
- *     KdDisableDebuggerWithLock @ 0x1405E39E8 (KdDisableDebuggerWithLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     strncmp @ 0x14073D360 (strncmp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     KdInitializeDebuggerDataBlock @ 0x140C1328C (KdInitializeDebuggerDataBlock.c)
- *     KdRegisterDebuggerDataBlock @ 0x140C13318 (KdRegisterDebuggerDataBlock.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeIsKernelCetEnabled @ 0x14047D230 (KeIsKernelCetEnabled.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     KdPollBreakIn @ 0x1404819D0 (KdPollBreakIn.c)
+ *     DbgLoadImageSymbols @ 0x1404D8DB0 (DbgLoadImageSymbols.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     _strupr @ 0x1405377E0 (_strupr.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     atol @ 0x140538200 (atol.c)
+ *     KdDisableDebuggerWithLock @ 0x1405E6358 (KdDisableDebuggerWithLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     KdInitializeDebuggerDataBlock @ 0x140C1928C (KdInitializeDebuggerDataBlock.c)
+ *     KdRegisterDebuggerDataBlock @ 0x140C19318 (KdRegisterDebuggerDataBlock.c)
  */
 
 char __fastcall KdInitSystem(__int64 a1, _QWORD *a2)
@@ -52,15 +52,15 @@ char __fastcall KdInitSystem(__int64 a1, _QWORD *a2)
   unsigned int v23; // esi
   __int64 **v24; // rbx
   __int64 v25; // rdx
-  char *v26; // r9
+  CHAR *v26; // r9
   unsigned int v27; // r8d
-  char v28; // al
+  CHAR v28; // al
   __int64 v29; // rcx
   unsigned int i; // ebx
   ULONG_PTR Pool2; // rax
   signed __int32 v33[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v3 = 0;
   v4 = 0;
@@ -87,18 +87,18 @@ char __fastcall KdInitSystem(__int64 a1, _QWORD *a2)
     KdpDebugRoutineSelect = 0;
     if ( !KdPitchDebugger || (v7 = 1, !KdLocalDebugEnabled) )
       v7 = 0;
-    if ( HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink
-      && HIDWORD(HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink[14].Blink) == 3 )
+    if ( *(_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.Lock
+      && *(_DWORD *)(*(_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.Lock + 236LL) == 3 )
     {
       KdTransportMaxPacketSize = 1152;
     }
     if ( !KdpDebuggerDataListHead )
     {
-      *((_QWORD *)&KdpContext + 1) = HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink;
+      *((_QWORD *)&KdpContext + 1) = *(_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.Lock;
       KdpPowerSpinLock = 0LL;
-      qword_140F594F8 = (__int64)&KdpDebuggerDataListHead;
+      qword_140F597D8 = (__int64)&KdpDebuggerDataListHead;
       KdpDebuggerDataListHead = (__int64)&KdpDebuggerDataListHead;
-      qword_140F594D8 = (__int64)&KdpPowerListHead;
+      qword_140F5D828 = (__int64)&KdpPowerListHead;
       KdpPowerListHead = (__int64)&KdpPowerListHead;
       KdRegisterDebuggerDataBlock(a1, &KdDebuggerDataBlock);
       KdInitializeDebuggerDataBlock();
@@ -115,7 +115,7 @@ char __fastcall KdInitSystem(__int64 a1, _QWORD *a2)
       off_140E01348 = &KdpLoaderDebuggerBlock;
       KdpLoaderDebuggerBlock = (__int64)(a2 + 2);
       v10 = (char *)a2[27];
-      *(_QWORD *)&xmmword_140E0AAA8 = v9;
+      *(_QWORD *)&xmmword_140E0AAA0 = v9;
       if ( v10 )
       {
         strupr(v10);
@@ -253,9 +253,9 @@ char __fastcall KdInitSystem(__int64 a1, _QWORD *a2)
     else
     {
       v11 = 1;
-      *(_QWORD *)&xmmword_140E0AAA8 = PsNtosImageBase;
+      *(_QWORD *)&xmmword_140E0AAA0 = PsNtosImageBase;
     }
-    qword_140E01088 = xmmword_140E0AAA8;
+    qword_140E01088 = xmmword_140E0AAA0;
     if ( !v7 )
     {
       if ( !v11 )
@@ -322,7 +322,7 @@ char __fastcall KdInitSystem(__int64 a1, _QWORD *a2)
         {
           DestinationString = 0LL;
           LODWORD(v25) = 0;
-          v26 = (char *)v24[10];
+          v26 = (CHAR *)v24[10];
           v27 = *((unsigned __int16 *)v24 + 36) >> 1;
           if ( v27 >= 0x100 )
             v27 = 255;

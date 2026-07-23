@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpArtDiscover @ 0x140560784
+ * XREFs of HalpArtDiscover @ 0x14055E3B4
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1405488E4 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1405461A4 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     HalpArtAvailable @ 0x1404A5570 (HalpArtAvailable.c)
- *     HalpTimerRegister @ 0x14056008C (HalpTimerRegister.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     HalpArtAvailable @ 0x1404A0300 (HalpArtAvailable.c)
+ *     HalpTimerRegister @ 0x14055DCBC (HalpTimerRegister.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 HalpArtDiscover()
@@ -23,12 +23,12 @@ __int64 HalpArtDiscover()
   int v9; // [rsp+A4h] [rbp+1Bh]
   int v10; // [rsp+B8h] [rbp+2Fh]
   __int64 v11; // [rsp+C0h] [rbp+37h] BYREF
-  unsigned int v12; // [rsp+C8h] [rbp+3Fh] BYREF
+  int v12; // [rsp+C8h] [rbp+3Fh]
 
   v11 = 0LL;
   v12 = 0;
   DestinationString = 0LL;
-  if ( HalpArtAvailable(&v11, &v12) )
+  if ( HalpArtAvailable() )
   {
     memset_0(v2, 0, 0x90uLL);
     v8 = 0LL;

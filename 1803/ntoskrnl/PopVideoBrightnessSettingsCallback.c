@@ -17,9 +17,6 @@ __int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int 
   __int64 v10; // r8
   __int64 v11; // r8
   __int64 v12; // r8
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
 
   v3 = *a1;
   v6 = -1073741811;
@@ -93,7 +90,7 @@ __int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int 
     PopAcquirePolicyLock(a1);
     BYTE10(PopCapabilities) = 1;
 LABEL_25:
-    PopReleasePolicyLock(v14, v13, v15);
+    PopReleasePolicyLock();
     return 0;
   }
   return v6;

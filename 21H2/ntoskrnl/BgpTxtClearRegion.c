@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpTxtClearRegion @ 0x1409F7754
+ * XREFs of BgpTxtClearRegion @ 0x1409F8754
  * Callers:
- *     BgpTxtDisplayString @ 0x1409F7784 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayString @ 0x1409F8784 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x14039BE98 (BgpGxDrawRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14039BFE8 (BgpGxDrawRectangle.c)
  */
 
 __int64 __fastcall BgpTxtClearRegion(__int64 a1)

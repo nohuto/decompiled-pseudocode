@@ -1,11 +1,11 @@
 /*
- * XREFs of PspUnlockQuotaListExclusive @ 0x14014C39C
+ * XREFs of PspUnlockQuotaListExclusive @ 0x14014C90C
  * Callers:
- *     PspLookupProcessQuotaBlock @ 0x1404D7A50 (PspLookupProcessQuotaBlock.c)
- *     PspRemoveQuotaBlock @ 0x14067CF60 (PspRemoveQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x1404BB054 (PspLookupProcessQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x14067D044 (PspRemoveQuotaBlock.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspUnlockQuotaListExclusive(__int64 a1, volatile signed __int64 *a2)

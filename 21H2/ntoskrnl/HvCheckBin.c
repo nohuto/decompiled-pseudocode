@@ -1,12 +1,12 @@
 /*
- * XREFs of HvCheckBin @ 0x140709190
+ * XREFs of HvCheckBin @ 0x140720570
  * Callers:
- *     HvCheckHive @ 0x140709848 (HvCheckHive.c)
+ *     HvCheckHive @ 0x140720C28 (HvCheckHive.c)
  * Callees:
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     HvMoveLayoutStats @ 0x1407093D8 (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x1407093F4 (HvAddToLayoutStats.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     HvMoveLayoutStats @ 0x1407207B8 (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1407207D4 (HvAddToLayoutStats.c)
  */
 
 __int64 __fastcall HvCheckBin(
@@ -30,7 +30,7 @@ __int64 __fastcall HvCheckBin(
   int *v17; // rsi
   char v19; // al
   __int64 v20; // rdx
-  int v21; // [rsp+20h] [rbp-48h]
+  unsigned int v21; // [rsp+20h] [rbp-48h]
   unsigned int v22; // [rsp+80h] [rbp+18h]
   _DWORD *v23; // [rsp+88h] [rbp+20h]
 
@@ -63,7 +63,7 @@ LABEL_14:
       v21 = 96;
     }
     v8 = -1073741492;
-    SetFailureLocation(v7, 0, 17, -1073741492, v21);
+    SetFailureLocation(v7, 0, 17, 0xC000014C, v21);
     return v8;
   }
   while ( 1 )
@@ -78,7 +78,7 @@ LABEL_14:
       v8 = -1073741492;
       if ( !a7 )
         return v8;
-      SetFailureLocation(a7, 0, 17, -1073741492, 32);
+      SetFailureLocation(a7, 0, 17, 0xC000014C, 0x20u);
       goto LABEL_39;
     }
     v11 -= v15;
@@ -88,7 +88,7 @@ LABEL_14:
       v8 = -1073741492;
       if ( !a7 )
         return v8;
-      SetFailureLocation(a7, 0, 17, -1073741492, 48);
+      SetFailureLocation(a7, 0, 17, 0xC000014C, 0x30u);
       goto LABEL_39;
     }
     if ( a6 && (unsigned int)v16 >= 0x54uLL && *((_WORD *)v13 + 2) == 27502 )
@@ -151,7 +151,7 @@ LABEL_12:
     v8 = -1073741492;
     if ( a7 )
     {
-      SetFailureLocation(a7, 0, 17, -1073741492, 80);
+      SetFailureLocation(a7, 0, 17, 0xC000014C, 0x50u);
 LABEL_39:
       *(_QWORD *)(a7 + 336) = v13;
       return v8;
@@ -160,7 +160,7 @@ LABEL_39:
   }
   if ( a7 )
   {
-    SetFailureLocation(a7, 0, 17, -1073741492, 64);
+    SetFailureLocation(a7, 0, 17, 0xC000014C, 0x40u);
     *(_QWORD *)(a7 + 336) = v13;
   }
   return 60LL;

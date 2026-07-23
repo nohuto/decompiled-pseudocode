@@ -38,7 +38,7 @@ __int64 __fastcall CmFcManagerRegisterFeatureConfigurationChangeNotification(
     v10 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140EF6DD8, 0LL);
     v11 = v9;
     if ( v10 )
-      ExfAcquirePushLockExclusiveEx(&stru_140EF6DD8, v9, (__int64)&stru_140EF6DD8);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140EF6DD8, v9, (__int64)&stru_140EF6DD8);
     if ( v11 )
       *((_BYTE *)v11 + 10) = 1;
     v12 = (__int64 *)qword_140EF6DE8;

@@ -1,19 +1,19 @@
 /*
- * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1800D5C3C
+ * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1800D0FAC
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1800D5B10 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1800D0E80 (wil_details_FeatureReporting_ReportUsageToService.c)
  * Callees:
- *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1800D5CE4 (wil_details_FeatureReporting_RecordUsageInCache.c)
- *     RtlNotifyFeatureUsage @ 0x1800D6140 (RtlNotifyFeatureUsage.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1800D1054 (wil_details_FeatureReporting_RecordUsageInCache.c)
+ *     RtlNotifyFeatureUsage @ 0x1800D14B0 (RtlNotifyFeatureUsage.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int16 v4; // bx
   unsigned int v7; // edi
-  int v9; // [rsp+30h] [rbp-68h] BYREF
-  int v10; // [rsp+34h] [rbp-64h]
+  ULONG v9; // eax
+  _RTL_FEATURE_USAGE_REPORT FeatureUsageReport; // [rsp+30h] [rbp-68h] BYREF
   char v11; // [rsp+38h] [rbp-60h] BYREF
   __int64 v12; // [rsp+60h] [rbp-38h]
 
@@ -29,10 +29,12 @@ __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(__int
   if ( (v4 & 0x400) != 0 && a3 != 254 )
   {
     v9 = *(_DWORD *)(a1 + 24);
-    v10 = (unsigned __int16)a3;
+    FeatureUsageReport.ReportingOptions = 0;
+    FeatureUsageReport.FeatureId = v9;
+    FeatureUsageReport.ReportingKind = a3;
     if ( (v4 & 0x800) != 0 )
-      HIWORD(v10) |= 1u;
-    RtlNotifyFeatureUsage(&v9);
+      FeatureUsageReport.ReportingOptions |= 1u;
+    RtlNotifyFeatureUsage(&FeatureUsageReport);
   }
   LOBYTE(v7) = (_DWORD)v12 == 0;
   return v7;

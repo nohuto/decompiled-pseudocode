@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x1403B6BBC
+ * XREFs of ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x1403B6D9C
  * Callers:
- *     SmpKeyedStoreEntryGet @ 0x140344AE4 (SmpKeyedStoreEntryGet.c)
+ *     SmpKeyedStoreEntryGet @ 0x140344D74 (SmpKeyedStoreEntryGet.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

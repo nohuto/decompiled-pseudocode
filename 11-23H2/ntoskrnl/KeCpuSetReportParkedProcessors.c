@@ -1,29 +1,29 @@
 /*
- * XREFs of KeCpuSetReportParkedProcessors @ 0x14039D6B4
+ * XREFs of KeCpuSetReportParkedProcessors @ 0x14039D894
  * Callers:
- *     PpmParkReportMask @ 0x14035AD60 (PpmParkReportMask.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x14039D4F0 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     PpmParkReportMask @ 0x14035AF00 (PpmParkReportMask.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x14039D6D0 (KiModifySystemAllowedCpuSetsWithLock.c)
  * Callees:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x14039DEEC (KiUpdateGlobalCpuSetConfiguration.c)
- *     RtlWriteAcquireTickLock @ 0x1403C16E0 (RtlWriteAcquireTickLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x14039E0CC (KiUpdateGlobalCpuSetConfiguration.c)
+ *     RtlWriteAcquireTickLock @ 0x1403C18C0 (RtlWriteAcquireTickLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
 {
-  struct _PROCESSOR_NUMBER v1; // r14d
+  _PROCESSOR_NUMBER v1; // r14d
   int v3; // ebp
   int v4; // r13d
   unsigned __int16 v5; // di
@@ -53,7 +53,7 @@ char __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
   char v29; // si
   _QWORD *v30; // rdi
   int Processor; // eax
-  __int64 (__fastcall *v32)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  __int64 (__fastcall *v32)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v33; // r12
   unsigned int *v34; // rbx
   unsigned __int64 v35; // rdi
@@ -63,7 +63,7 @@ char __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
   __int64 (__fastcall *v39)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   __int64 (__fastcall *v40)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v42[2]; // [rsp+30h] [rbp-418h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-410h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-410h] BYREF
   int v44; // [rsp+3Ch] [rbp-40Ch]
   _QWORD *v45; // [rsp+40h] [rbp-408h] BYREF
   __int128 v46; // [rsp+48h] [rbp-400h] BYREF
@@ -86,8 +86,8 @@ char __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
   _QWORD v63[66]; // [rsp+1F0h] [rbp-258h] BYREF
   int v64; // [rsp+440h] [rbp-8h]
 
-  v1 = (struct _PROCESSOR_NUMBER)(unsigned __int16)KiActiveGroups;
-  ProcNumber = (struct _PROCESSOR_NUMBER)(unsigned __int16)KiActiveGroups;
+  v1 = (_PROCESSOR_NUMBER)(unsigned __int16)KiActiveGroups;
+  ProcNumber = (_PROCESSOR_NUMBER)(unsigned __int16)KiActiveGroups;
   _m_prefetchw(KiCpuSetAffinities);
   _m_prefetchw(KiCpuSetAffinitiesShadow);
   v3 = 0;
@@ -256,11 +256,12 @@ LABEL_37:
       if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
       {
         v59 = 3;
-        ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+        ProcNumber = (_PROCESSOR_NUMBER)-1;
         v44 = 1;
         v42[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
         v42[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-        v32 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
+        v32 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController
+                                                                                              + 120);
         _disable();
         LOBYTE(Processor) = v32(*(_QWORD *)(HalpInterruptController + 16), v42, &v59, 47LL, &ProcNumber);
         if ( (v64 & 0x200) != 0 )

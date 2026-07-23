@@ -47,7 +47,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, uns
   unsigned __int64 v30; // [rsp+40h] [rbp-31h] BYREF
   void *v31; // [rsp+48h] [rbp-29h] BYREF
   PVOID MappedBase; // [rsp+50h] [rbp-21h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+58h] [rbp-19h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+58h] [rbp-19h] BYREF
   unsigned int BugCheckParameter3; // [rsp+68h] [rbp-9h] BYREF
   int BugCheckParameter3_4; // [rsp+6Ch] [rbp-5h]
   unsigned int v36; // [rsp+70h] [rbp-1h]

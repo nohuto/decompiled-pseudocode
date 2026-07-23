@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceFxDeviceAccounting @ 0x14032F5A4
+ * XREFs of PopDiagTraceFxDeviceAccounting @ 0x1402B7DE8
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x14032F168 (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x1402B79AC (PopFxStopDeviceAccounting.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     wcslen @ 0x1404FFED0 (wcslen.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopDiagQueryDevicePropertyString @ 0x140A89E80 (PopDiagQueryDevicePropertyString.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     wcslen @ 0x1404FD790 (wcslen.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopDiagQueryDevicePropertyString @ 0x140A86280 (PopDiagQueryDevicePropertyString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 *a2, unsigned __int16 *a3, ...)
@@ -115,9 +115,9 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 *a2, unsigned __int16 *a
           v11 = P;
           v12 = v21;
           v13 = DevicePropertyString >> 31;
-          if ( (unsigned int)dword_140E07680 > 5 )
+          if ( (unsigned int)dword_140E076F0 > 5 )
           {
-            if ( (qword_140E07690 & 0x400000000000LL) == 0 || (qword_140E07698 & 0x400000000000LL) != qword_140E07698 )
+            if ( (qword_140E07700 & 0x400000000000LL) == 0 || (qword_140E07708 & 0x400000000000LL) != qword_140E07708 )
               v7 = 0;
             if ( v7 )
             {
@@ -159,7 +159,7 @@ void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 *a2, unsigned __int16 *a
               v56 = 2LL;
               v18 = 0x1000000LL;
               v60 = 8LL;
-              tlgWriteTransfer_EtwWriteTransfer(&dword_140E07680, &word_14004A67E, 0LL, 0LL, 16, v32);
+              tlgWriteTransfer_EtwWriteTransfer(&dword_140E076F0, byte_14004A8C9, 0LL, 0LL, 16, v32);
             }
           }
           if ( !(_BYTE)v9 )

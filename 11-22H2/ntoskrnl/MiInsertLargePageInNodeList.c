@@ -408,10 +408,13 @@ LABEL_90:
             MiWakeZeroingThreads(v47, 0);
           }
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v44 + 21008));
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v48 <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && (unsigned __int8)v48 <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -442,10 +445,10 @@ LABEL_90:
         _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( (v65 & 2) == 0 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v55 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v54 <= 0xFu && v55 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu && (unsigned __int8)v54 <= 0xFu && v55 >= 2u )
             {
               v56 = KeGetCurrentPrcb();
               v57 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v54 + 1));
@@ -466,10 +469,10 @@ LABEL_90:
     v59 = *(unsigned __int8 *)(a1 + 16);
     if ( (_BYTE)v59 != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v60 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v60 <= 0xFu && (unsigned __int8)v59 <= 0xFu && v60 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v60 <= 0xFu && (unsigned __int8)v59 <= 0xFu && v60 >= 2u )
         {
           v61 = KeGetCurrentPrcb();
           v62 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v59 + 1));

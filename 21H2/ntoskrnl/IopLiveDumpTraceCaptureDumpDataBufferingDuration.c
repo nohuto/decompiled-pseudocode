@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTraceCaptureDumpDataBufferingDuration @ 0x140508E20
+ * XREFs of IopLiveDumpTraceCaptureDumpDataBufferingDuration @ 0x14050905C
  * Callers:
- *     IopLiveDumpStartDumpDataBuffering @ 0x1409AD558 (IopLiveDumpStartDumpDataBuffering.c)
+ *     IopLiveDumpStartDumpDataBuffering @ 0x1409AE488 (IopLiveDumpStartDumpDataBuffering.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508C5C (IopLiveDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopLiveDumpTraceCaptureDumpDataBufferingDuration(const GUID *a1)
@@ -56,7 +56,7 @@ char __fastcall IopLiveDumpTraceCaptureDumpDataBufferingDuration(const GUID *a1)
             v10 = &v7;
             LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
                            (__int64)&dword_140C044D8,
-                           (unsigned __int8 *)&word_140024C4E,
+                           (unsigned __int8 *)&dword_140024B6C,
                            a1 + 54,
                            a1 + 53,
                            3u,

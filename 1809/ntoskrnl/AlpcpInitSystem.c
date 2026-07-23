@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpInitSystem @ 0x14075D28C
+ * XREFs of AlpcpInitSystem @ 0x14075E47C
  * Callers:
- *     LpcInitSystem @ 0x1409D9D94 (LpcInitSystem.c)
+ *     LpcInitSystem @ 0x1409DAD94 (LpcInitSystem.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ExInitializePagedLookasideListInternal @ 0x1400F3910 (ExInitializePagedLookasideListInternal.c)
- *     ExInitializeNPagedLookasideList @ 0x14015F960 (ExInitializeNPagedLookasideList.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     NtQuerySystemInformation @ 0x140626240 (NtQuerySystemInformation.c)
- *     ExCreateHandleTable @ 0x140696400 (ExCreateHandleTable.c)
- *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
- *     AlpcpInitializeMessageLog @ 0x14075D570 (AlpcpInitializeMessageLog.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ExInitializePagedLookasideListInternal @ 0x1400F3990 (ExInitializePagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideList @ 0x14015FA60 (ExInitializeNPagedLookasideList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     NtQuerySystemInformation @ 0x140627260 (NtQuerySystemInformation.c)
+ *     ExCreateHandleTable @ 0x1406975C0 (ExCreateHandleTable.c)
+ *     ObCreateObjectTypeEx @ 0x140729BCC (ObCreateObjectTypeEx.c)
+ *     AlpcpInitializeMessageLog @ 0x14075E760 (AlpcpInitializeMessageLog.c)
  */
 
 __int64 AlpcpInitSystem()
@@ -36,7 +36,7 @@ __int64 AlpcpInitSystem()
   {
     KeInitializeEvent(PoolWithTag, NotificationEvent, 1u);
     AlpcpPortListLock = 0LL;
-    qword_14041AA58 = (__int64)&AlpcpPortList;
+    qword_14041BB38 = (__int64)&AlpcpPortList;
     AlpcpPortList = (__int64)&AlpcpPortList;
     RtlInitUnicodeString(&DestinationString, L"ALPC Port");
     memset(v5, 0, 0x78uLL);
@@ -64,7 +64,7 @@ __int64 AlpcpInitSystem()
         32,
         0);
       ExInitializePagedLookasideListInternal(
-        (__int64)&unk_1404D7200,
+        (__int64)&unk_1404D8240,
         (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))AlpcpAllocateBuffer,
         (void (__stdcall *)(PVOID))SC_ENV::Free,
         0,
@@ -72,7 +72,7 @@ __int64 AlpcpInitSystem()
         1229155393,
         32,
         0);
-      ExInitializePagedLookasideListInternal((__int64)&stru_1404D7280, 0LL, 0LL, 0, 128, 1632136257, 32, 0);
+      ExInitializePagedLookasideListInternal((__int64)&stru_1404D82C0, 0LL, 0LL, 0, 128, 1632136257, 32, 0);
       ExInitializeNPagedLookasideList(&AlpcpNPLookasides, 0LL, 0LL, 0x200u, 0x20uLL, 0x65536C41u, 0x20u);
       v2 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
       if ( v2 >= 0 )
@@ -87,16 +87,16 @@ __int64 AlpcpInitSystem()
       else
       {
         AlpcpMessageLogLock = 0LL;
-        qword_14041AAF8 = (__int64)&AlpcpMessageLogListHead;
+        qword_14041BBA8 = (__int64)&AlpcpMessageLogListHead;
         AlpcpMessageLogListHead = (__int64)&AlpcpMessageLogListHead;
-        qword_14041AAE8 = (__int64)&AlpcpFreeMessageLogListHead;
+        qword_14041BBD8 = (__int64)&AlpcpFreeMessageLogListHead;
         AlpcpFreeMessageLogListHead = (__int64)&AlpcpFreeMessageLogListHead;
-        qword_14041AB18 = (__int64)&AlpcpFreeMessageSnapshotListHead;
+        qword_14041BBC8 = (__int64)&AlpcpFreeMessageSnapshotListHead;
         AlpcpFreeMessageSnapshotListHead = (__int64)&AlpcpFreeMessageSnapshotListHead;
       }
       AlpcpCompletionListDatabase = 0LL;
-      qword_14041AA98 = (__int64)&qword_14041AA90;
-      qword_14041AA90 = (__int64)&qword_14041AA90;
+      qword_14041BB58 = (__int64)&qword_14041BB50;
+      qword_14041BB50 = (__int64)&qword_14041BB50;
     }
   }
   else

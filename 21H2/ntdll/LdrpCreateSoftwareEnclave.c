@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpCreateSoftwareEnclave @ 0x1800CD2FC
+ * XREFs of LdrpCreateSoftwareEnclave @ 0x1800CD2BC
  * Callers:
- *     LdrCreateEnclave @ 0x1800CCC80 (LdrCreateEnclave.c)
+ *     LdrCreateEnclave @ 0x1800CCC40 (LdrCreateEnclave.c)
  * Callees:
  *     RtlInitializeCriticalSectionEx @ 0x180020BC0 (RtlInitializeCriticalSectionEx.c)
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
@@ -11,40 +11,38 @@
 
 __int64 __fastcall LdrpCreateSoftwareEnclave(__int64 a1, __int64 a2, int a3)
 {
-  __int64 Heap; // rax
+  char *Heap; // rax
   __int64 v7; // rbx
-  __int64 v9; // rcx
+  _RTL_CRITICAL_SECTION *v9; // rcx
   _QWORD *v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 *v13; // rax
+  __int64 *v11; // rax
 
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 136LL);
-  v7 = Heap;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x88uLL);
+  v7 = (__int64)Heap;
   if ( !Heap )
     return 3221225626LL;
-  *(_QWORD *)(Heap + 88) = 0LL;
-  v9 = Heap + 16;
-  *(_QWORD *)(Heap + 112) = 0LL;
-  *(_QWORD *)(Heap + 72) = a1;
-  *(_QWORD *)(Heap + 80) = a2;
-  *(_DWORD *)(Heap + 56) = a3;
-  v10 = (_QWORD *)(Heap + 96);
+  *((_QWORD *)Heap + 11) = 0LL;
+  v9 = (_RTL_CRITICAL_SECTION *)(Heap + 16);
+  *((_QWORD *)Heap + 14) = 0LL;
+  *((_QWORD *)Heap + 9) = a1;
+  *((_QWORD *)Heap + 10) = a2;
+  *((_DWORD *)Heap + 14) = a3;
+  v10 = Heap + 96;
   v10[1] = v10;
   *v10 = v10;
-  RtlInitializeCriticalSectionEx(v9, 0LL, 0);
+  RtlInitializeCriticalSectionEx(v9, 0, 0);
   *(_DWORD *)(v7 + 64) = 0;
   *(_QWORD *)(v7 + 120) = 0LL;
   *(_QWORD *)(v7 + 128) = 0LL;
   *(_DWORD *)(v7 + 60) = 1;
-  RtlEnterCriticalSection((__int64)&LdrpEnclaveListLock);
-  v13 = (__int64 *)qword_18016CBD8;
+  RtlEnterCriticalSection(&LdrpEnclaveListLock);
+  v11 = (__int64 *)qword_18016CBD8;
   if ( *(__int64 **)qword_18016CBD8 != &LdrpEnclaveList )
     __fastfail(3u);
   *(_QWORD *)v7 = &LdrpEnclaveList;
-  *(_QWORD *)(v7 + 8) = v13;
-  *v13 = v7;
+  *(_QWORD *)(v7 + 8) = v11;
+  *v11 = v7;
   qword_18016CBD8 = v7;
-  RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock, v11, v12);
+  RtlLeaveCriticalSection(&LdrpEnclaveListLock);
   return 0LL;
 }

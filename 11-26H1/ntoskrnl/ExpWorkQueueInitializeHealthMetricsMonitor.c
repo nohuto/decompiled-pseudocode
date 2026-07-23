@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWorkQueueInitializeHealthMetricsMonitor @ 0x140840160
+ * XREFs of ExpWorkQueueInitializeHealthMetricsMonitor @ 0x1408463A0
  * Callers:
- *     ExpWorkerInitialization @ 0x140CE6768 (ExpWorkerInitialization.c)
+ *     ExpWorkerInitialization @ 0x140CECB08 (ExpWorkerInitialization.c)
  * Callees:
- *     KeInitializeTimer2 @ 0x140456ED0 (KeInitializeTimer2.c)
- *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline @ 0x1406D0F2C (Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeInitializeTimer2 @ 0x14044E740 (KeInitializeTimer2.c)
+ *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline @ 0x1406D4F5C (Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 ExpWorkQueueInitializeHealthMetricsMonitor()
 {
-  struct _LIST_ENTRY *Pool2; // r10
+  _QWORD *Pool2; // r10
   unsigned int v2; // ecx
   __int64 v3; // r11
   __int64 v4; // r8
@@ -22,11 +22,11 @@ __int64 ExpWorkQueueInitializeHealthMetricsMonitor()
   if ( (unsigned int)Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline() )
   {
     KeInitializeTimer2(
-      (__int64)&ExSaPageGroupDescriptorArrayLock.WaitBlock[3].Thread,
+      (__int64)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[112],
       (__int64)ExpWorkQueueHealthMetricsMonitorCallback,
       0LL,
       8LL);
-    Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
     if ( !Pool2 )
       return 3221225626LL;
     v2 = ExpWorkQueueDelayHistogramSegmentSize;
@@ -47,7 +47,7 @@ __int64 ExpWorkQueueInitializeHealthMetricsMonitor()
             v8 = v7 + v2 * v5;
             if ( (unsigned int)v8 >= ExpWorkQueueDelayHistogramBucketCount )
               break;
-            *((_QWORD *)&Pool2->Flink + v8) = v3 + v4 * ++v7;
+            Pool2[v8] = v3 + v4 * ++v7;
             v2 = ExpWorkQueueDelayHistogramSegmentSize;
           }
           while ( v7 < ExpWorkQueueDelayHistogramSegmentSize );
@@ -58,7 +58,7 @@ __int64 ExpWorkQueueInitializeHealthMetricsMonitor()
       }
       while ( v5 < v6 );
     }
-    ExSaPageGroupDescriptorArrayLock.SavedApcState.ApcListHead[1].Blink = Pool2;
+    ExSaPageGroupDescriptorArrayLock.WaitBlock[1].Object = Pool2;
   }
   return 0LL;
 }

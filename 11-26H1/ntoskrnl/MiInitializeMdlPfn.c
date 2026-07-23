@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeMdlPfn @ 0x14033BC60
+ * XREFs of MiInitializeMdlPfn @ 0x14033DCE0
  * Callers:
- *     MiInitializeMdlSinglePage @ 0x14033BB38 (MiInitializeMdlSinglePage.c)
- *     MmAllocateNonChargedSecurePages @ 0x1404170E8 (MmAllocateNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x1404E93EC (MmAllocateSecureKernelPages.c)
+ *     MiInitializeMdlSinglePage @ 0x14033DBB8 (MiInitializeMdlSinglePage.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14040B6F8 (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x1404E279C (MmAllocateSecureKernelPages.c)
  * Callees:
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiInitializeMdlPfnSecureState @ 0x14033BD48 (MiInitializeMdlPfnSecureState.c)
- *     MiInitializeAwePfn @ 0x1405105D4 (MiInitializeAwePfn.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiInitializeMdlPfnSecureState @ 0x14033DDC8 (MiInitializeMdlPfnSecureState.c)
+ *     MiInitializeAwePfn @ 0x14050A044 (MiInitializeAwePfn.c)
  */
 
 __int64 __fastcall MiInitializeMdlPfn(__int64 a1, int a2)

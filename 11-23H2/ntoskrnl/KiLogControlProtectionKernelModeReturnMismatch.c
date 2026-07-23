@@ -1,9 +1,9 @@
 /*
- * XREFs of KiLogControlProtectionKernelModeReturnMismatch @ 0x14057BDE0
+ * XREFs of KiLogControlProtectionKernelModeReturnMismatch @ 0x14057C2D0
  * Callers:
- *     KiProcessControlProtectionFromKernelMode @ 0x14057C348 (KiProcessControlProtectionFromKernelMode.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x14057C838 (KiProcessControlProtectionFromKernelMode.c)
  * Callees:
- *     EtwTimLogControlProtectionKernelModeReturnMismatch @ 0x1405FFDDC (EtwTimLogControlProtectionKernelModeReturnMismatch.c)
+ *     EtwTimLogControlProtectionKernelModeReturnMismatch @ 0x14060034C (EtwTimLogControlProtectionKernelModeReturnMismatch.c)
  */
 
 void __fastcall KiLogControlProtectionKernelModeReturnMismatch(unsigned int a1, __int64 a2)

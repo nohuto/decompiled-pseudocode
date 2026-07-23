@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpGetLicenseTamperState @ 0x140639C30 (ExpGetLicenseTamperState.c)
+ *     sub_140639C30 @ 0x140639C30 (sub_140639C30.c)
  *     sub_1409F992C @ 0x1409F992C (sub_1409F992C.c)
  */
 
@@ -13,7 +13,7 @@ __int64 __fastcall sub_1409FA310(__int64 a1, _DWORD *a2, _DWORD *a3, unsigned in
   _DWORD v11[6]; // [rsp+30h] [rbp-18h] BYREF
 
   v11[0] = 0;
-  ExpGetLicenseTamperState(a1, v11);
+  sub_140639C30(a1, v11);
   if ( v11[0] )
   {
     *a6 = 1;

@@ -22,11 +22,11 @@
 __int64 __fastcall sub_180038ED4(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _TEB *v3; // r10
-  struct _PEB *ProcessEnvironmentBlock; // rsi
+  PPEB ProcessEnvironmentBlock; // rsi
   __int64 v5; // r10
   __int64 result; // rax
-  int v7; // eax
-  unsigned int v8; // ebx
+  NTSTATUS v7; // eax
+  NTSTATUS v8; // ebx
   __int64 v9; // rcx
   __int64 i; // rbx
   int v11; // eax
@@ -41,7 +41,7 @@ __int64 __fastcall sub_180038ED4(__int64 a1, __int64 a2, __int64 a3)
   __int64 v20; // [rsp+80h] [rbp-58h] BYREF
   int v21; // [rsp+88h] [rbp-50h]
   _BYTE v22[56]; // [rsp+90h] [rbp-48h] BYREF
-  __int64 v23; // [rsp+E8h] [rbp+10h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+E8h] [rbp+10h] BYREF
 
   v3 = NtCurrentTeb();
   ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
@@ -64,12 +64,12 @@ __int64 __fastcall sub_180038ED4(__int64 a1, __int64 a2, __int64 a3)
         v8 = v7;
         if ( v7 != -1073741801 )
           break;
-        v23 = -3000000LL;
-        ZwDelayExecution(0LL, &v23);
+        DelayInterval.QuadPart = -3000000LL;
+        ZwDelayExecution(0, &DelayInterval);
       }
       if ( v7 < 0 )
       {
-        ZwTerminateProcess(-1LL, (unsigned int)v7);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v7);
         RtlRaiseStatus(v8);
       }
       sub_1800435B4(0LL);
@@ -77,7 +77,7 @@ __int64 __fastcall sub_180038ED4(__int64 a1, __int64 a2, __int64 a3)
       for ( i = qword_18015C370; (__int64 *)i != &qword_18015C370; i = *(_QWORD *)i )
       {
         if ( *(int *)(*(_QWORD *)(i + 152) + 56LL) >= 9
-          && ProcessEnvironmentBlock->ImageBaseAddress != *(void **)(i + 48) )
+          && ProcessEnvironmentBlock->ImageBaseAddress != *(PVOID *)(i + 48) )
         {
           v11 = *(_DWORD *)(i + 104);
           if ( (v11 & 0x40000) == 0 )

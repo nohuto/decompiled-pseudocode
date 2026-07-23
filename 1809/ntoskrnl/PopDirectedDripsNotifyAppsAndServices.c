@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsNotifyAppsAndServices @ 0x140867FBC
+ * XREFs of PopDirectedDripsNotifyAppsAndServices @ 0x14086921C
  * Callers:
- *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
+ *     PopDirectedDripsProcessWork @ 0x140869698 (PopDirectedDripsProcessWork.c)
  * Callees:
- *     PoBlockConsoleSwitch @ 0x1406DDC10 (PoBlockConsoleSwitch.c)
- *     PopDispatchStateCallout @ 0x1406DDC60 (PopDispatchStateCallout.c)
- *     PopSuspendApps @ 0x1406DEBD0 (PopSuspendApps.c)
- *     PopSuspendServices @ 0x1406DEC38 (PopSuspendServices.c)
- *     PopResumeApps @ 0x1406DECA8 (PopResumeApps.c)
- *     PopResumeServices @ 0x1406DED40 (PopResumeServices.c)
- *     PopDiagTraceDirectedDripsNotifyAppsAndServices @ 0x14087202C (PopDiagTraceDirectedDripsNotifyAppsAndServices.c)
+ *     PoBlockConsoleSwitch @ 0x1406DEEB0 (PoBlockConsoleSwitch.c)
+ *     PopDispatchStateCallout @ 0x1406DEF00 (PopDispatchStateCallout.c)
+ *     PopSuspendApps @ 0x1406DFE70 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x1406DFED8 (PopSuspendServices.c)
+ *     PopResumeApps @ 0x1406DFF48 (PopResumeApps.c)
+ *     PopResumeServices @ 0x1406DFFE0 (PopResumeServices.c)
+ *     PopDiagTraceDirectedDripsNotifyAppsAndServices @ 0x14087328C (PopDiagTraceDirectedDripsNotifyAppsAndServices.c)
  */
 
 __int64 __fastcall PopDirectedDripsNotifyAppsAndServices(_DWORD *a1, int *a2, char a3)

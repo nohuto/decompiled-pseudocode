@@ -6,7 +6,7 @@
  *     <none>
  */
 
-_BOOL8 __fastcall TpSetWait(__int64 a1, __int64 a2, __int64 *a3)
+void __cdecl TpSetWait(PTP_WAIT Wait, HANDLE Handle, PLARGE_INTEGER Timeout)
 {
-  return TpSetWaitEx(a1, a2, a3, 0LL);
+  TpSetWaitEx(Wait, Handle, Timeout, 0LL);
 }

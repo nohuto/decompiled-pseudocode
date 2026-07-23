@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmCheckStart @ 0x140457794
+ * XREFs of PpmCheckStart @ 0x14044C244
  * Callers:
- *     PpmCheckCustomRun @ 0x1403B45DC (PpmCheckCustomRun.c)
- *     PpmCheckPeriodicStart @ 0x1404576F0 (PpmCheckPeriodicStart.c)
+ *     PpmCheckCustomRun @ 0x14044C05C (PpmCheckCustomRun.c)
+ *     PpmCheckPeriodicStart @ 0x14044C1A0 (PpmCheckPeriodicStart.c)
  * Callees:
- *     PpmCheckRun @ 0x14029FA80 (PpmCheckRun.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     PpmEventTracePerfCheckStart @ 0x140457864 (PpmEventTracePerfCheckStart.c)
- *     PpmHeteroHgsCheckContainmentDecision @ 0x140457958 (PpmHeteroHgsCheckContainmentDecision.c)
- *     PpmPerfSetAllDomainsToUpdate @ 0x1404579A4 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmCheckRun @ 0x1402ADDF0 (PpmCheckRun.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     PpmEventTracePerfCheckStart @ 0x14044C314 (PpmEventTracePerfCheckStart.c)
+ *     PpmHeteroHgsCheckContainmentDecision @ 0x14044C408 (PpmHeteroHgsCheckContainmentDecision.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x14044C454 (PpmPerfSetAllDomainsToUpdate.c)
  */
 
 __int64 __fastcall PpmCheckStart(int a1)
@@ -17,11 +17,11 @@ __int64 __fastcall PpmCheckStart(int a1)
   __int64 v2; // rdx
   int v4; // r8d
   int v5; // edx
-  unsigned __int64 v6; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = a1;
   PpmCheckCurrentPipelineId = a1;
-  PpmCheckTime = RtlGetInterruptTimePrecise(&v6);
+  PpmCheckTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   PpmEventTracePerfCheckStart(PpmCheckLastEffectiveExecutionTime, (unsigned int)v1);
   v2 = 0LL;
   PpmCheckPipeline = *(_QWORD *)(PpmCheckPipelines + 8 * v1);
@@ -38,5 +38,5 @@ __int64 __fastcall PpmCheckStart(int a1)
     PpmCheckDeadlineBoostActive = v5;
     PpmHeteroHgsCheckContainmentDecision();
   }
-  return PpmCheckRun(0LL, 0LL, 0LL, 0LL);
+  return PpmCheckRun(0LL, 0LL);
 }

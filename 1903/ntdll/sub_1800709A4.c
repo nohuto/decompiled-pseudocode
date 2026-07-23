@@ -11,31 +11,27 @@
  *     RtlLeaveCriticalSection @ 0x18003A8A0 (RtlLeaveCriticalSection.c)
  */
 
-struct _PEB *__fastcall sub_1800709A4(__int64 a1)
+void __fastcall sub_1800709A4(__int64 a1)
 {
-  struct _PEB *result; // rax
-  _QWORD *v3; // rcx
-  _QWORD *v4; // rax
+  _QWORD *v2; // rcx
+  _QWORD *v3; // rax
 
-  result = *(struct _PEB **)(a1 + 40);
-  if ( *(int *)&result->InheritedAddressSpace >= 0 )
+  if ( **(int **)(a1 + 40) >= 0 )
   {
-    RtlEnterCriticalSection((__int64)&unk_1801652C0);
-    v3 = (_QWORD *)qword_1801652F8;
-    v4 = (_QWORD *)(a1 + 64);
+    RtlEnterCriticalSection(&stru_1801652C0);
+    v2 = (_QWORD *)qword_1801652F8;
+    v3 = (_QWORD *)(a1 + 64);
     if ( *(__int64 **)qword_1801652F8 != &qword_1801652F0 )
       __fastfail(3u);
     *(_QWORD *)(a1 + 72) = qword_1801652F8;
-    *v4 = &qword_1801652F0;
-    *v3 = v4;
+    *v3 = &qword_1801652F0;
+    *v2 = v3;
     qword_1801652F8 = a1 + 64;
-    result = (struct _PEB *)RtlLeaveCriticalSection((__int64)&unk_1801652C0);
-    if ( qword_180165288 )
+    RtlLeaveCriticalSection(&stru_1801652C0);
+    if ( Work )
     {
-      result = NtCurrentPeb();
-      if ( !result->Ldr->ShutdownInProgress )
-        return (struct _PEB *)TpPostWork((struct _PEB_LDR_DATA *)qword_180165288);
+      if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
+        TpPostWork(Work);
     }
   }
-  return result;
 }

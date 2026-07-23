@@ -1,26 +1,16 @@
 /*
- * XREFs of KeQueryIntervalProfile @ 0x14073C6B0
+ * XREFs of KeQueryIntervalProfile @ 0x14073A5E0
  * Callers:
- *     NtQueryIntervalProfile @ 0x1407C4370 (NtQueryIntervalProfile.c)
- *     KeSetIntervalProfile @ 0x140AC23D4 (KeSetIntervalProfile.c)
+ *     NtQueryIntervalProfile @ 0x1407C2190 (NtQueryIntervalProfile.c)
+ *     KeSetIntervalProfile @ 0x140ABD6BC (KeSetIntervalProfile.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KeQueryIntervalProfile(int a1)
 {
-  __int128 v2; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v3; // [rsp+40h] [rbp-18h]
-  int v4; // [rsp+60h] [rbp+8h] BYREF
-
-  v4 = 0;
-  v3 = 0LL;
-  v2 = 0LL;
   if ( a1 == 1 )
     return (unsigned int)KiProfileAlignmentFixupInterval;
-  LODWORD(v2) = a1;
-  if ( (int)guard_dispatch_icall_no_overrides(1LL, 24LL, &v2, &v4) >= 0 && BYTE4(v2) )
-    return DWORD2(v2);
-  else
-    return 0LL;
+  guard_dispatch_icall_no_overrides(1LL, 24LL);
+  return 0LL;
 }

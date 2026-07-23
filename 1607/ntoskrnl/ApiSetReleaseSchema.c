@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetReleaseSchema @ 0x140231E58
+ * XREFs of ApiSetReleaseSchema @ 0x140231C84
  * Callers:
- *     PspSiloLoadApiSets @ 0x14067EE40 (PspSiloLoadApiSets.c)
+ *     PspSiloLoadApiSets @ 0x14067EF24 (PspSiloLoadApiSets.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

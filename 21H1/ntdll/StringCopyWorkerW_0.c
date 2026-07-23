@@ -16,7 +16,7 @@ HRESULT __stdcall StringCopyWorkerW_0(
   int v5; // edx
   _WORD *v6; // ecx
   int v7; // esi
-  size_t v8; // eax
+  int v8; // eax
   __int16 v9; // di
 
   if ( !v5 )

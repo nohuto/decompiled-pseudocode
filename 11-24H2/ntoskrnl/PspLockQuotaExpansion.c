@@ -1,14 +1,14 @@
 /*
- * XREFs of PspLockQuotaExpansion @ 0x14024B79C
+ * XREFs of PspLockQuotaExpansion @ 0x14027BDAC
  * Callers:
- *     PspReturnResourceQuota @ 0x14024B468 (PspReturnResourceQuota.c)
- *     PspExpandQuota @ 0x14024B688 (PspExpandQuota.c)
- *     PspExpandLimit @ 0x1405E517C (PspExpandLimit.c)
- *     PspInsertExpansionEntry @ 0x1405E51F8 (PspInsertExpansionEntry.c)
+ *     PspReturnResourceQuota @ 0x14027BA78 (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x14027BC98 (PspExpandQuota.c)
+ *     PspExpandLimit @ 0x1405E26A4 (PspExpandLimit.c)
+ *     PspInsertExpansionEntry @ 0x1405E2720 (PspInsertExpansionEntry.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
 char __fastcall PspLockQuotaExpansion(_DWORD *a1, _BYTE *a2)

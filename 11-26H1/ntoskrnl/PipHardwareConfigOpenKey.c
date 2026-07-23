@@ -1,16 +1,16 @@
 /*
- * XREFs of PipHardwareConfigOpenKey @ 0x140B698F0
+ * XREFs of PipHardwareConfigOpenKey @ 0x140B6C880
  * Callers:
- *     PipCheckComputerSupported @ 0x14079B714 (PipCheckComputerSupported.c)
- *     PipHardwareConfigGetIndex @ 0x14079BA1C (PipHardwareConfigGetIndex.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x14079C094 (PnpHardwareConfigCreateBootDriverFlags.c)
- *     PipHardwareConfigGetLastUseTime @ 0x140B4CE6C (PipHardwareConfigGetLastUseTime.c)
- *     PipCheckSystemFirmwareUpdated @ 0x140CC1338 (PipCheckSystemFirmwareUpdated.c)
- *     PipInitComputerIds @ 0x140D056B0 (PipInitComputerIds.c)
+ *     PipCheckComputerSupported @ 0x14079E254 (PipCheckComputerSupported.c)
+ *     PipHardwareConfigGetIndex @ 0x14079E55C (PipHardwareConfigGetIndex.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x14079EBD4 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     PipHardwareConfigGetLastUseTime @ 0x140B4EBFC (PipHardwareConfigGetLastUseTime.c)
+ *     PipCheckSystemFirmwareUpdated @ 0x140CC7408 (PipCheckSystemFirmwareUpdated.c)
+ *     PipInitComputerIds @ 0x140D0B980 (PipInitComputerIds.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140996AB8 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140957518 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigOpenKey(__int64 a1, unsigned int a2, HANDLE *a3)

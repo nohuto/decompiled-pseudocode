@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSelectCandidateProcessor @ 0x140525BA4
+ * XREFs of KiSelectCandidateProcessor @ 0x140525DE4
  * Callers:
- *     KiChooseTargetProcessor @ 0x140344DE0 (KiChooseTargetProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x14051F500 (KiHeteroChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x14034FB30 (KiChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14051F740 (KiHeteroChooseTargetProcessor.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140327620 (ExAcquireSpinLockSharedAtDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

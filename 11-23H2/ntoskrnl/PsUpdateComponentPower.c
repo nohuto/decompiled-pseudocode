@@ -2,7 +2,7 @@
  * XREFs of PsUpdateComponentPower @ 0x14020E6A0
  * Callers:
  *     PspApplyJobChainLimitsToProcess @ 0x1406A6FC4 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetProcessEnergyTrackingStateCallback @ 0x1407EA130 (PspSetProcessEnergyTrackingStateCallback.c)
+ *     PspSetProcessEnergyTrackingStateCallback @ 0x1407EA400 (PspSetProcessEnergyTrackingStateCallback.c)
  * Callees:
  *     RtlInterlockedTimelineBitmapUpdate @ 0x14020E754 (RtlInterlockedTimelineBitmapUpdate.c)
  *     PoEnergyContextUpdateComponentPower @ 0x1406A7514 (PoEnergyContextUpdateComponentPower.c)

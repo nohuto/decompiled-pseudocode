@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCreateSharedZeroPages @ 0x1402E0DC0
+ * XREFs of MiCreateSharedZeroPages @ 0x1402E1050
  * Callers:
- *     MiResolveDemandZeroFault @ 0x140269D40 (MiResolveDemandZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x140269FD0 (MiResolveDemandZeroFault.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiInitializePfn @ 0x1402E1040 (MiInitializePfn.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     MiSharedVaToPartition @ 0x1402E2788 (MiSharedVaToPartition.c)
- *     MiAdvanceFaultList @ 0x1402EE7F4 (MiAdvanceFaultList.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiArePageContentsZero @ 0x14064D420 (MiArePageContentsZero.c)
- *     MiGetClusterPage @ 0x140669FF4 (MiGetClusterPage.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiInitializePfn @ 0x1402E12D0 (MiInitializePfn.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E17F0 (MiProtectionToCacheAttribute.c)
+ *     MiSharedVaToPartition @ 0x1402E2A18 (MiSharedVaToPartition.c)
+ *     MiAdvanceFaultList @ 0x1402EEA84 (MiAdvanceFaultList.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiArePageContentsZero @ 0x14064D970 (MiArePageContentsZero.c)
+ *     MiGetClusterPage @ 0x14066A544 (MiGetClusterPage.c)
  */
 
 __int64 __fastcall MiCreateSharedZeroPages(int *a1, unsigned __int64 *a2)

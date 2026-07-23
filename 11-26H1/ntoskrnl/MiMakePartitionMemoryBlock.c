@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMakePartitionMemoryBlock @ 0x14087C5D4
+ * XREFs of MiMakePartitionMemoryBlock @ 0x1408829D4
  * Callers:
- *     MiClearPartitionPageBitMap @ 0x140708808 (MiClearPartitionPageBitMap.c)
- *     MiInsertPartitionPageNodes @ 0x140708F28 (MiInsertPartitionPageNodes.c)
- *     MiPartitionDeleteMemoryNode @ 0x1407094E0 (MiPartitionDeleteMemoryNode.c)
- *     MiRebuildPartitionMemoryBlock @ 0x1407095C0 (MiRebuildPartitionMemoryBlock.c)
- *     MiReturnPartitionPagesToParent @ 0x1407098B8 (MiReturnPartitionPagesToParent.c)
- *     MiFinishChildPartitionHotAdd @ 0x14087BDA0 (MiFinishChildPartitionHotAdd.c)
+ *     MiClearPartitionPageBitMap @ 0x14070D4BC (MiClearPartitionPageBitMap.c)
+ *     MiInsertPartitionPageNodes @ 0x14070DBDC (MiInsertPartitionPageNodes.c)
+ *     MiPartitionDeleteMemoryNode @ 0x14070E194 (MiPartitionDeleteMemoryNode.c)
+ *     MiRebuildPartitionMemoryBlock @ 0x14070E274 (MiRebuildPartitionMemoryBlock.c)
+ *     MiReturnPartitionPagesToParent @ 0x14070E56C (MiReturnPartitionPagesToParent.c)
+ *     MiFinishChildPartitionHotAdd @ 0x1408821A0 (MiFinishChildPartitionHotAdd.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
- *     MiUpdatePartitionMemory @ 0x140709F1C (MiUpdatePartitionMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiConvertInitialMemoryBlock @ 0x140865D74 (MiConvertInitialMemoryBlock.c)
- *     MiCreateNodeLists @ 0x140866094 (MiCreateNodeLists.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
+ *     MiUpdatePartitionMemory @ 0x14070EBD0 (MiUpdatePartitionMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiConvertInitialMemoryBlock @ 0x14086C154 (MiConvertInitialMemoryBlock.c)
+ *     MiCreateNodeLists @ 0x14086C474 (MiCreateNodeLists.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiMakePartitionMemoryBlock(__int64 a1)
@@ -42,11 +42,10 @@ void __fastcall MiMakePartitionMemoryBlock(__int64 a1)
   __int64 v20; // [rsp+28h] [rbp-79h] BYREF
   __int128 v21; // [rsp+30h] [rbp-71h]
   __int64 v22; // [rsp+40h] [rbp-61h]
-  _BYTE v23[40]; // [rsp+48h] [rbp-59h] BYREF
+  _QWORD v23[5]; // [rsp+48h] [rbp-59h] BYREF
   unsigned __int64 v24; // [rsp+70h] [rbp-31h]
   __int64 v25; // [rsp+78h] [rbp-29h]
-  _BYTE v26[64]; // [rsp+98h] [rbp-9h] BYREF
-  __int64 v27; // [rsp+D8h] [rbp+37h]
+  _QWORD v26[10]; // [rsp+98h] [rbp-9h] BYREF
 
   v20 = 0LL;
   v22 = 0LL;
@@ -82,7 +81,7 @@ void __fastcall MiMakePartitionMemoryBlock(__int64 a1)
           v6 = v3;
         }
       }
-      MiActOnPartitionNodePages(v5, 7u, 0, (__int64)v23);
+      MiActOnPartitionNodePages(v5, 7u, 0, v23);
     }
     v8 = v25;
     v9 = v24;
@@ -97,7 +96,7 @@ void __fastcall MiMakePartitionMemoryBlock(__int64 a1)
       v13 = (void *)PoolMm;
       if ( PoolMm )
       {
-        v27 = PoolMm;
+        v26[8] = PoolMm;
         *(_DWORD *)PoolMm = v9;
         v14 = 0LL;
         *(_QWORD *)(PoolMm + 8) = v8;
@@ -124,7 +123,7 @@ void __fastcall MiMakePartitionMemoryBlock(__int64 a1)
               v18 = v14;
             }
           }
-          MiActOnPartitionNodePages(v17, 8u, 0, (__int64)v26);
+          MiActOnPartitionNodePages(v17, 8u, 0, v26);
         }
         *(_QWORD *)&v21 = MiConvertInitialMemoryBlock(a1, (__int64)v13);
         ExFreePoolWithTag(v13, 0);

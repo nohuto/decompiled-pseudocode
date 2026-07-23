@@ -18,7 +18,8 @@ __int64 __fastcall HaliSetSystemInformation(int a1, __int64 a2, int *a3)
   int v8; // ecx
   int v9; // ecx
   unsigned int v10; // ebx
-  __int64 v13; // [rsp+48h] [rbp+20h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
+  __int64 SystemInformation; // [rsp+48h] [rbp+20h] BYREF
 
   v4 = a2;
   v5 = a1 - 11;
@@ -58,9 +59,13 @@ __int64 __fastcall HaliSetSystemInformation(int a1, __int64 a2, int *a3)
   }
   if ( v9 == 5 )
   {
-    v13 = 8LL;
-    if ( (int)ZwQuerySystemInformation(103LL, (__int64)&v13) < 0 || (v13 & 0x200000000LL) == 0 )
+    ReturnLength = 0;
+    SystemInformation = 8LL;
+    if ( ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, &ReturnLength) < 0
+      || (SystemInformation & 0x200000000LL) == 0 )
+    {
       return (unsigned int)-1073741790;
+    }
     if ( v4 == 4 )
       return (unsigned int)HalpTimerSetClockTimerMinimumInterval(*a3);
     return (unsigned int)-1073741820;

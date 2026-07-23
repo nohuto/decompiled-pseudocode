@@ -15,7 +15,7 @@ int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
   unsigned int i; // edi
   int result; // eax
   __int64 v7; // rcx
-  const wchar_t *v8; // rax
+  const WCHAR *v8; // rax
   const wchar_t *v9; // rcx
   __int64 v10; // rax
   struct _UNICODE_STRING v11; // [rsp+40h] [rbp-58h] BYREF
@@ -47,7 +47,7 @@ int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
     if ( !--v7 )
       goto LABEL_12;
   }
-  v11.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
+  v11.Buffer = (wchar_t *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\StoreParameters";
   v11.Length = 2 * (0x7FFF - v7);
   v11.MaximumLength = v11.Length + 2;
 LABEL_12:

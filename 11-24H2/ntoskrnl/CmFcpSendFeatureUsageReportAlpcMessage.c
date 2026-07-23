@@ -1,61 +1,62 @@
 /*
- * XREFs of CmFcpSendFeatureUsageReportAlpcMessage @ 0x1404C183C
+ * XREFs of CmFcpSendFeatureUsageReportAlpcMessage @ 0x1404BCE2C
  * Callers:
- *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x140A80154 (CmFcpManagerPublishFeatureUsageDataBuffers.c)
+ *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x140A7ABB4 (CmFcpManagerPublishFeatureUsageDataBuffers.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwAlpcDeletePortSection @ 0x1406A7450 (ZwAlpcDeletePortSection.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1406A75D0 (ZwAlpcSendWaitReceivePort.c)
- *     CmFcpCreateAlpcSectionView @ 0x140AC0FAC (CmFcpCreateAlpcSectionView.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwAlpcDeletePortSection @ 0x1406A83F0 (ZwAlpcDeletePortSection.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x1406A8570 (ZwAlpcSendWaitReceivePort.c)
+ *     CmFcpCreateAlpcSectionView @ 0x140ABC10C (CmFcpCreateAlpcSectionView.c)
  */
 
-__int64 __fastcall CmFcpSendFeatureUsageReportAlpcMessage(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall CmFcpSendFeatureUsageReportAlpcMessage(HANDLE PortHandle, void *a2, int a3)
 {
-  int v5; // ebx
-  unsigned __int64 v7; // [rsp+40h] [rbp-49h] BYREF
-  __int64 v8; // [rsp+48h] [rbp-41h] BYREF
-  __int128 v9; // [rsp+50h] [rbp-39h] BYREF
-  __int128 v10; // [rsp+60h] [rbp-29h]
-  __int128 v11; // [rsp+70h] [rbp-19h]
-  __int64 v12; // [rsp+80h] [rbp-9h]
-  _DWORD v13[2]; // [rsp+88h] [rbp-1h] BYREF
-  __int128 v14; // [rsp+90h] [rbp+7h]
-  __int128 v15; // [rsp+A0h] [rbp+17h]
+  NTSTATUS v5; // ebx
+  ULONG_PTR BufferLength; // [rsp+40h] [rbp-49h] BYREF
+  ALPC_HANDLE SectionHandle; // [rsp+48h] [rbp-41h] BYREF
+  _BYTE SendMessageA[48]; // [rsp+50h] [rbp-39h] BYREF
+  __int64 v10; // [rsp+80h] [rbp-9h]
+  _ALPC_MESSAGE_ATTRIBUTES SendMessageAttributes; // [rsp+88h] [rbp-1h] BYREF
+  __int128 v12; // [rsp+90h] [rbp+7h]
+  __int128 v13; // [rsp+A0h] [rbp+17h]
 
-  v13[0] = 0x40000000;
-  v8 = 0LL;
-  v13[1] = 0;
-  v12 = 0LL;
-  v7 = 56LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v9 = 0LL;
+  SendMessageAttributes.AllocatedAttributes = 0x40000000;
+  SectionHandle = 0LL;
+  SendMessageAttributes.ValidAttributes = 0;
   v10 = 0LL;
-  v11 = 0LL;
-  v5 = CmFcpCreateAlpcSectionView(a1, a2, (unsigned int)(8 * a3), v13, &v8);
+  BufferLength = 56LL;
+  v12 = 0LL;
+  v13 = 0LL;
+  memset(SendMessageA, 0, sizeof(SendMessageA));
+  v5 = CmFcpCreateAlpcSectionView(
+         PortHandle,
+         a2,
+         (unsigned int)(8 * a3),
+         &SendMessageAttributes,
+         (__int64)&SectionHandle);
   if ( v5 >= 0 )
   {
-    DWORD2(v10) = 0;
-    WORD2(v9) = -32767;
-    LODWORD(v9) = 3670032;
-    DWORD2(v11) = 2;
-    LODWORD(v12) = a3;
-    v5 = ((__int64 (__fastcall *)(__int64, __int64, __int128 *, _DWORD *, __int128 *, unsigned __int64 *, _QWORD, _QWORD))ZwAlpcSendWaitReceivePort)(
-           a1,
-           0x20000LL,
-           &v9,
-           v13,
-           &v9,
-           &v7,
+    *(_DWORD *)&SendMessageA[24] = 0;
+    *(_WORD *)&SendMessageA[4] = -32767;
+    *(_DWORD *)SendMessageA = 3670032;
+    *(_DWORD *)&SendMessageA[40] = 2;
+    LODWORD(v10) = a3;
+    v5 = ZwAlpcSendWaitReceivePort(
+           PortHandle,
+           0x20000u,
+           (PPORT_MESSAGE)SendMessageA,
+           &SendMessageAttributes,
+           (PPORT_MESSAGE)SendMessageA,
+           &BufferLength,
            0LL,
            0LL);
     if ( v5 >= 0 )
     {
-      if ( v7 >= 0x30 && BYTE4(v9) == 2 )
+      if ( BufferLength >= 0x30 && SendMessageA[4] == 2 )
       {
         v5 = 0;
-        if ( v11 < 0 )
-          v5 = HIDWORD(v11);
+        if ( *(int *)&SendMessageA[44] < 0 )
+          v5 = *(_DWORD *)&SendMessageA[44];
       }
       else
       {
@@ -63,7 +64,7 @@ __int64 __fastcall CmFcpSendFeatureUsageReportAlpcMessage(__int64 a1, __int64 a2
       }
     }
   }
-  if ( v8 )
-    ZwAlpcDeletePortSection(a1, 0LL);
+  if ( SectionHandle )
+    ZwAlpcDeletePortSection(PortHandle, 0, SectionHandle);
   return (unsigned int)v5;
 }

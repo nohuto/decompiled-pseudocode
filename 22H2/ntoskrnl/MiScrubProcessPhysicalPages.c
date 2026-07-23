@@ -21,10 +21,10 @@ char __fastcall MiScrubProcessPhysicalPages(__int64 a1)
   unsigned __int64 v4; // rax
   __int64 v5; // rbx
   unsigned __int64 v6; // r14
-  unsigned __int64 v7; // rsi
+  ULONG64 v7; // rsi
   __int64 v8; // rcx
   BOOL v9; // eax
-  unsigned __int64 SetBits; // rax
+  ULONG64 SetBits; // rax
   _DWORD *v11; // r9
   unsigned __int64 v12; // rbp
   __int64 v13; // r14
@@ -48,7 +48,7 @@ char __fastcall MiScrubProcessPhysicalPages(__int64 a1)
     v9 = MiScrubInterrupted(a1);
     while ( !v9 )
     {
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)(v5 + 16), 1uLL, v7);
+      SetBits = RtlFindSetBitsEx((PRTL_BITMAP_EX)(v5 + 16), 1uLL, v7);
       v12 = SetBits;
       if ( SetBits < v7 || SetBits == -1LL )
         break;

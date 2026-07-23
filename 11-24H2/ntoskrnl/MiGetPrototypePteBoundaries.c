@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPrototypePteBoundaries @ 0x140692DA8
+ * XREFs of MiGetPrototypePteBoundaries @ 0x140693E78
  * Callers:
- *     MiMakeTransitionHeatBatch @ 0x140402D04 (MiMakeTransitionHeatBatch.c)
+ *     MiMakeTransitionHeatBatch @ 0x1403FD304 (MiMakeTransitionHeatBatch.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiObtainProtoBaseFromNode @ 0x14042E0C0 (MiObtainProtoBaseFromNode.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiObtainProtoBaseFromNode @ 0x14041FDF0 (MiObtainProtoBaseFromNode.c)
  */
 
 __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)
@@ -17,8 +17,8 @@ __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)
 
   v3 = 0LL;
   *a2 = 0LL;
-  ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2D610);
-  v5 = (_QWORD *)qword_140E2D608;
+  ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2D750);
+  v5 = (_QWORD *)qword_140E2D748;
   while ( v5 )
   {
     v8 = 0LL;
@@ -36,6 +36,6 @@ __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)
   }
   if ( v5 )
     v3 = MiObtainProtoBaseFromNode(v5, a2);
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D610);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D750);
   return v3;
 }

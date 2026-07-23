@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIsNameInExpression @ 0x1403474C0
+ * XREFs of RtlIsNameInExpression @ 0x140325F30
  * Callers:
- *     AuthzBasepCompareUnicodeStringOperands @ 0x1403468F4 (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepCompareFQBNOperands @ 0x14045728C (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x140325368 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x14044CACC (AuthzBasepCompareFQBNOperands.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     RtlpIsNameInExpressionPrivate @ 0x140347600 (RtlpIsNameInExpressionPrivate.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x140347BD0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x140326070 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1403265D0 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
  */
 
 BOOLEAN __stdcall RtlIsNameInExpression(
@@ -17,7 +17,7 @@ BOOLEAN __stdcall RtlIsNameInExpression(
         PWCH UpcaseTable)
 {
   int v5; // edi
-  int v6; // eax
+  NTSTATUS v6; // eax
   BOOLEAN IsNameInExpressionPrivate; // bl
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
 

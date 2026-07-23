@@ -33,12 +33,12 @@ void KiAttemptBugcheckRecovery()
   _DWORD *v12; // r9
   unsigned __int8 v13; // cl
   struct _KPRCB *v14; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
   __int128 v16; // [rsp+30h] [rbp-50h] BYREF
   __int128 v17; // [rsp+40h] [rbp-40h]
   __int128 v18; // [rsp+50h] [rbp-30h]
   __int64 v19; // [rsp+60h] [rbp-20h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

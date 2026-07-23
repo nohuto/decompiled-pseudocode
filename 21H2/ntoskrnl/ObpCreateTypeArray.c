@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpCreateTypeArray @ 0x1408DDB00
+ * XREFs of ObpCreateTypeArray @ 0x1408DDC60
  * Callers:
- *     ObEnumerateObjectsByType @ 0x1408DD3AC (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x1408DD478 (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x1408DD50C (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x1408DD5D8 (ObGetObjectInformation.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *__fastcall ObpCreateTypeArray(_QWORD **a1)

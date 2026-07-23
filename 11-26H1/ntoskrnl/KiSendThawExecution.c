@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSendThawExecution @ 0x1405023B0
+ * XREFs of KiSendThawExecution @ 0x1404FBC80
  * Callers:
- *     KeThawExecution @ 0x140502280 (KeThawExecution.c)
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x1405F9A74 (KiBugCheckRecoveryCleanupFromCrashDump.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x1405FA874 (KiUpdateBugcheckRecoveryProgress.c)
- *     ExRebootSystemForRecovery @ 0x1406CB54C (ExRebootSystemForRecovery.c)
+ *     KeThawExecution @ 0x1404FBB50 (KeThawExecution.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x1405FC494 (KiBugCheckRecoveryCleanupFromCrashDump.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405FD294 (KiUpdateBugcheckRecoveryProgress.c)
+ *     ExRebootSystemForRecovery @ 0x1406CF57C (ExRebootSystemForRecovery.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KeIsBugCheckActive @ 0x14043C2B0 (KeIsBugCheckActive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KeIsBugCheckActive @ 0x14042EB60 (KeIsBugCheckActive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiSendThawExecution(char a1)
@@ -39,7 +39,7 @@ __int64 __fastcall KiSendThawExecution(char a1)
   CurrentPrcb->IpiFrozen = 0;
   KiFreezeStallOwner = 0LL;
   result = _InterlockedExchange64(&KiDebuggerOwner, 0LL);
-  if ( ((unsigned int)KeNumberProcessors_0 > 1 || CurrentPrcb->Number) && !LOBYTE(stru_140F10828.WriteOperationCount) )
+  if ( ((unsigned int)KeNumberProcessors_0 > 1 || CurrentPrcb->Number) && !PoAllProcIntrDisabled )
   {
     if ( KiResumeForReboot
       || (v4 = _InterlockedExchangeAdd(&KiFreezeNestingLevel, 0xFFFFFFFF),
@@ -48,7 +48,7 @@ __int64 __fastcall KiSendThawExecution(char a1)
           v5)
       && (!KeIsBugCheckActive(&v9)
        || (result = (__int64)KeGetCurrentPrcb(), (_DWORD)v9 != *(_DWORD *)(result + 36))
-       || !KiBugcheckOwnerKeepsOthersFrozen) )
+       || !BYTE4(KiDpcWatchdogConfigurationLock.InitialStack)) )
     {
       v14 = 2097153LL;
       memset_0(v15, 0, 0x100uLL);

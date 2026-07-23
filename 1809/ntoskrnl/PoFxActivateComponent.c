@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxActivateComponent @ 0x1400FE090
+ * XREFs of PoFxActivateComponent @ 0x1400FE110
  * Callers:
- *     PopFxActivateDevice @ 0x14015A0A8 (PopFxActivateDevice.c)
- *     PoFxStartDevicePowerManagement @ 0x14018BCD0 (PoFxStartDevicePowerManagement.c)
- *     PopFxUnregisterDevice @ 0x14086A7AC (PopFxUnregisterDevice.c)
- *     PoFxRegisterDebugger @ 0x1409DF33C (PoFxRegisterDebugger.c)
+ *     PopFxActivateDevice @ 0x14015A1A8 (PopFxActivateDevice.c)
+ *     PoFxStartDevicePowerManagement @ 0x14018BE10 (PoFxStartDevicePowerManagement.c)
+ *     PopFxUnregisterDevice @ 0x14086BA0C (PopFxUnregisterDevice.c)
+ *     PoFxRegisterDebugger @ 0x1409E033C (PoFxRegisterDebugger.c)
  * Callees:
- *     PopFxActivateComponent @ 0x1400FE110 (PopFxActivateComponent.c)
- *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
+ *     PopFxActivateComponent @ 0x1400FE190 (PopFxActivateComponent.c)
+ *     PopFxBugCheck @ 0x1402D76B0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PoFxActivateComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, __int64 a3)

@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExUnregisterCallback @ 0x14036E6A0 (ExUnregisterCallback.c)
+ *     ExUnregisterCallback @ 0x14036E840 (ExUnregisterCallback.c)
  */
 
 void __fastcall IoUnregisterBootDriverCallback(void *a1)

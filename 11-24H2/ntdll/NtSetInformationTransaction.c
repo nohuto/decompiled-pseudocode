@@ -1,16 +1,20 @@
 /*
- * XREFs of NtSetInformationTransaction @ 0x180165240
+ * XREFs of NtSetInformationTransaction @ 0x180163600
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationTransaction()
+NTSTATUS __cdecl NtSetInformationTransaction(
+        HANDLE TransactionHandle,
+        TRANSACTION_INFORMATION_CLASS TransactionInformationClass,
+        PVOID TransactionInformation,
+        ULONG TransactionInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 430LL;
+  result = 430;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -7,7 +7,12 @@
  */
 
 // attributes: thunk
-__int64 NtCreateDirectoryObjectEx()
+NTSTATUS __cdecl NtCreateDirectoryObjectEx(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ShadowDirectoryHandle,
+        ULONG Flags)
 {
-  return ObpCreateDirectoryObject();
+  return ObpCreateDirectoryObject(DirectoryHandle, DesiredAccess, ObjectAttributes, ShadowDirectoryHandle, Flags);
 }

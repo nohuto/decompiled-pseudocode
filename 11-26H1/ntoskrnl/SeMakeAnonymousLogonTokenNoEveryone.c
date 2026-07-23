@@ -1,20 +1,20 @@
 /*
- * XREFs of SeMakeAnonymousLogonTokenNoEveryone @ 0x140CDD570
+ * XREFs of SeMakeAnonymousLogonTokenNoEveryone @ 0x140CE3908
  * Callers:
- *     SepInitializationPhase1 @ 0x140810284 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140815D14 (SepInitializationPhase1.c)
  * Callees:
- *     RtlpTimeFieldsToTime @ 0x1404522F8 (RtlpTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SepCreateToken @ 0x140815004 (SepCreateToken.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x1409D8260 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1409F49E0 (RtlAddAccessAllowedAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140AABBB0 (RtlSetGroupSecurityDescriptor.c)
- *     SeSetMandatoryPolicyToken @ 0x140ADDB0C (SeSetMandatoryPolicyToken.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlpTimeFieldsToTime @ 0x14044A428 (RtlpTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SepCreateToken @ 0x14081B1B8 (SepCreateToken.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1409A9150 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x1409E0730 (RtlAddAccessAllowedAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140AA9160 (RtlSetGroupSecurityDescriptor.c)
+ *     SeSetMandatoryPolicyToken @ 0x140ADA87C (SeSetMandatoryPolicyToken.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 SeMakeAnonymousLogonTokenNoEveryone()
@@ -33,42 +33,41 @@ __int64 SeMakeAnonymousLogonTokenNoEveryone()
   int v12; // [rsp+A8h] [rbp-80h] BYREF
   __int64 v13; // [rsp+B0h] [rbp-78h] BYREF
   __int64 v14; // [rsp+B8h] [rbp-70h] BYREF
-  PSID v15; // [rsp+C0h] [rbp-68h] BYREF
-  int v16; // [rsp+C8h] [rbp-60h]
-  int v17; // [rsp+CCh] [rbp-5Ch]
-  _DWORD v18[2]; // [rsp+D0h] [rbp-58h] BYREF
-  __int64 v19; // [rsp+D8h] [rbp-50h]
-  __int64 v20; // [rsp+E0h] [rbp-48h]
-  int v21; // [rsp+E8h] [rbp-40h]
-  int v22; // [rsp+ECh] [rbp-3Ch]
-  void *v23; // [rsp+F0h] [rbp-38h]
-  __int64 v24; // [rsp+F8h] [rbp-30h]
+  _SID_AND_ATTRIBUTES v15; // [rsp+C0h] [rbp-68h] BYREF
+  _DWORD v16[2]; // [rsp+D0h] [rbp-58h] BYREF
+  __int64 v17; // [rsp+D8h] [rbp-50h]
+  __int64 v18; // [rsp+E0h] [rbp-48h]
+  int v19; // [rsp+E8h] [rbp-40h]
+  int v20; // [rsp+ECh] [rbp-3Ch]
+  void *v21; // [rsp+F0h] [rbp-38h]
+  __int64 v22; // [rsp+F8h] [rbp-30h]
   __m128i si128; // [rsp+100h] [rbp-28h] BYREF
-  PSID v26; // [rsp+118h] [rbp-10h] BYREF
-  int v27; // [rsp+120h] [rbp-8h]
+  _SID_AND_ATTRIBUTES v24; // [rsp+118h] [rbp-10h] BYREF
 
   v12 = 1;
   v13 = 0LL;
-  v17 = 0;
-  v18[1] = 0;
-  v22 = 0;
+  *(&v15.Attributes + 1) = 0;
+  v16[1] = 0;
+  v20 = 0;
   v14 = 0LL;
   si128 = _mm_load_si128((const __m128i *)&_xmm);
   RtlpTimeFieldsToTime((__int64)&si128, &v14);
   v0 = SeAnonymousLogonSid;
-  v26 = SeUntrustedMandatorySid;
-  v15 = SeAnonymousLogonSid;
-  v16 = 0;
-  v27 = 96;
+  v24.Sid = SeUntrustedMandatorySid;
+  v15.Sid = SeAnonymousLogonSid;
+  v15.Attributes = 0;
+  v24.Attributes = 96;
   v1 = ((4 * *((unsigned __int8 *)SeUntrustedMandatorySid + 1) + 11) & 0xFFFFFFFC) + 16;
-  v2 = 4 * (*((unsigned __int8 *)SeAnonymousLogonSid + 1) + HIBYTE(RtlpBootStatHandleLock.StateSaveArea->ControlWord))
+  v2 = 4
+     * (*((unsigned __int8 *)SeAnonymousLogonSid + 1)
+      + *(unsigned __int8 *)(*(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags + 1LL))
      + 48;
   Pool2 = (ACL *)ExAllocatePool2(256LL, 0xC8uLL, 0x63416553u);
   v4 = Pool2;
   if ( !Pool2 )
     return 0LL;
   RtlCreateAcl(Pool2, v2, 2u);
-  RtlAddAccessAllowedAce(v4, 2u, 0xF01FFu, RtlpBootStatHandleLock.StateSaveArea);
+  RtlAddAccessAllowedAce(v4, 2u, 0xF01FFu, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags);
   RtlAddAccessAllowedAce(v4, 2u, 0xF01FFu, SeAnonymousLogonSid);
   v6 = (void *)ExAllocatePool2(256LL, 0x28uLL, 0x64536553u);
   v7 = v6;
@@ -79,26 +78,26 @@ __int64 SeMakeAnonymousLogonTokenNoEveryone()
   }
   RtlCreateSecurityDescriptor(v6, 1u);
   RtlSetDaclSecurityDescriptor(v7, 1u, v4, 0);
-  RtlSetOwnerSecurityDescriptor(v7, RtlpBootStatHandleLock.StateSaveArea, 0);
-  RtlSetGroupSecurityDescriptor(v7, RtlpBootStatHandleLock.StateSaveArea, 0);
-  v18[0] = 48;
-  v19 = 0LL;
-  v21 = 0;
-  v20 = 0LL;
-  v23 = v7;
-  v24 = 0LL;
+  RtlSetOwnerSecurityDescriptor(v7, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
+  RtlSetGroupSecurityDescriptor(v7, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
+  v16[0] = 48;
+  v17 = 0LL;
+  v19 = 0;
+  v18 = 0LL;
+  v21 = v7;
+  v22 = 0LL;
   SepCreateToken(
     (HANDLE *)&v13,
     v8,
     v9,
-    (__int64)v18,
+    (__int64)v16,
     v10,
     v11,
     (__int64)&SeAnonymousAuthenticationId,
     &v14,
     &v15,
-    1,
-    (__int64)&v26,
+    1u,
+    &v24,
     v1,
     0,
     0LL,

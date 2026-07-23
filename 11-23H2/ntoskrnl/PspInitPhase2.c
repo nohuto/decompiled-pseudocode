@@ -3,11 +3,11 @@
  * Callers:
  *     PsInitSystem @ 0x140B4DE90 (PsInitSystem.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E10 (RtlGetSystemTimePrecise.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     RtlRandom @ 0x1407E63E0 (RtlRandom.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PspInitializeProtectedProcessParameters @ 0x14084CFE4 (PspInitializeProtectedProcessParameters.c)
+ *     RtlGetSystemTimePrecise @ 0x140226F20 (RtlGetSystemTimePrecise.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     RtlRandom @ 0x1407E66B0 (RtlRandom.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PspInitializeProtectedProcessParameters @ 0x14084D2E4 (PspInitializeProtectedProcessParameters.c)
  *     PspInitializeSystemDlls @ 0x140B6735C (PspInitializeSystemDlls.c)
  */
 
@@ -23,7 +23,7 @@ bool PspInitPhase2()
 
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C03048, 0LL, 0LL);
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[2].Affinity.StaticBitmap[7] = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlEqualSid @ 0x1800CE210
+ * XREFs of RtlEqualSid @ 0x1800C5DD0
  * Callers:
- *     RtlpValidOwnerSubjectContext @ 0x1800C6760 (RtlpValidOwnerSubjectContext.c)
- *     RtlpSetSecurityObject @ 0x1800C6F30 (RtlpSetSecurityObject.c)
- *     RtlpCompareKnownObjectAces @ 0x1800CD30C (RtlpCompareKnownObjectAces.c)
- *     RtlGetAppContainerNamedObjectPath @ 0x1800CDDC0 (RtlGetAppContainerNamedObjectPath.c)
- *     RtlpCompareAces @ 0x1800CE000 (RtlpCompareAces.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1800CEBBC (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x180131B50 (RtlAppxIsFileOwnedByTrustedInstaller.c)
+ *     RtlpValidOwnerSubjectContext @ 0x1800BE320 (RtlpValidOwnerSubjectContext.c)
+ *     RtlpSetSecurityObject @ 0x1800BEAF0 (RtlpSetSecurityObject.c)
+ *     RtlpCompareKnownObjectAces @ 0x1800C4ECC (RtlpCompareKnownObjectAces.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x1800C5980 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlpCompareAces @ 0x1800C5BC0 (RtlpCompareAces.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1800C677C (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x18012FD80 (RtlAppxIsFileOwnedByTrustedInstaller.c)
  * Callees:
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
-bool __fastcall RtlEqualSid(unsigned __int16 *a1, _WORD *a2)
+BOOLEAN __cdecl RtlEqualSid(PSID Sid1, PSID Sid2)
 {
   unsigned __int64 v2; // rax
 
-  v2 = *a1;
-  return (_WORD)v2 == *a2 && memcmp(a1, a2, 4 * (v2 >> 8) + 8) == 0;
+  v2 = *(unsigned __int16 *)Sid1;
+  return (_WORD)v2 == *(_WORD *)Sid2 && memcmp(Sid1, Sid2, 4 * (v2 >> 8) + 8) == 0;
 }

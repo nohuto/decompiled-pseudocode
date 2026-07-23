@@ -1,22 +1,22 @@
 /*
- * XREFs of PopPdcCsDeviceNotification @ 0x14086F010
+ * XREFs of PopPdcCsDeviceNotification @ 0x140870270
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x14075DC84 (PopNetUpdateCsConsumptionFlags.c)
- *     PopPdcUpdateDeviceCompliance @ 0x14086F38C (PopPdcUpdateDeviceCompliance.c)
- *     PopNetCompliantNicUpdate @ 0x140876C64 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x140876E58 (PopNetNonCompliantDeviceUpdate.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x14075EE74 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x1408705EC (PopPdcUpdateDeviceCompliance.c)
+ *     PopNetCompliantNicUpdate @ 0x140877EC4 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x1408780B8 (PopNetNonCompliantDeviceUpdate.c)
  */
 
 __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
@@ -77,13 +77,13 @@ LABEL_8:
         *((_DWORD *)v8 + 6) = *(_DWORD *)(a1 + 8);
         *((_BYTE *)v8 + 32) = *(_BYTE *)(a1 + 13);
         *((_DWORD *)v8 + 7) = 1;
-        v9 = off_1404018C0;
-        if ( *(_UNKNOWN ***)off_1404018C0 == &PopPdcDeviceList )
+        v9 = off_1404028C0;
+        if ( *(_UNKNOWN ***)off_1404028C0 == &PopPdcDeviceList )
         {
           *v8 = &PopPdcDeviceList;
           v8[1] = v9;
           *v9 = v8;
-          off_1404018C0 = v8;
+          off_1404028C0 = v8;
           goto LABEL_20;
         }
         goto LABEL_28;

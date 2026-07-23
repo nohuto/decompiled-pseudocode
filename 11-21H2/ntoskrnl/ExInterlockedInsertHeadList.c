@@ -3,13 +3,13 @@
  * Callers:
  *     CcCanIWrite @ 0x140283F40 (CcCanIWrite.c)
  *     CcDeferWrite @ 0x140539E20 (CcDeferWrite.c)
- *     ViAllocateMapRegisterFile @ 0x140A872C8 (ViAllocateMapRegisterFile.c)
- *     ViHookDmaAdapter @ 0x140A88B74 (ViHookDmaAdapter.c)
- *     ViScatterGatherCallback @ 0x140A89390 (ViScatterGatherCallback.c)
- *     ViSpecialAllocateCommonBuffer @ 0x140A8942C (ViSpecialAllocateCommonBuffer.c)
+ *     sub_140A872C8 @ 0x140A872C8 (sub_140A872C8.c)
+ *     sub_140A88B74 @ 0x140A88B74 (sub_140A88B74.c)
+ *     sub_140A89390 @ 0x140A89390 (sub_140A89390.c)
+ *     sub_140A8942C @ 0x140A8942C (sub_140A8942C.c)
  * Callees:
- *     ExpReleaseSpinLockDisabled @ 0x140243164 (ExpReleaseSpinLockDisabled.c)
- *     ExpAcquireSpinLockDisabled @ 0x14024319C (ExpAcquireSpinLockDisabled.c)
+ *     sub_140243164 @ 0x140243164 (sub_140243164.c)
+ *     sub_14024319C @ 0x14024319C (sub_14024319C.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedInsertHeadList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)
@@ -18,7 +18,7 @@ PLIST_ENTRY __stdcall ExInterlockedInsertHeadList(PLIST_ENTRY ListHead, PLIST_EN
   __int64 v7; // rdx
   struct _LIST_ENTRY *Flink; // rbx
 
-  v6 = ExpAcquireSpinLockDisabled(Lock);
+  v6 = sub_14024319C(Lock);
   Flink = ListHead->Flink;
   if ( ListHead->Flink->Blink != ListHead )
     __fastfail(3u);
@@ -27,7 +27,7 @@ PLIST_ENTRY __stdcall ExInterlockedInsertHeadList(PLIST_ENTRY ListHead, PLIST_EN
   ListEntry->Blink = ListHead;
   Flink->Blink = ListEntry;
   ListHead->Flink = ListEntry;
-  ExpReleaseSpinLockDisabled(Lock, v7);
+  sub_140243164(Lock, v7);
   if ( Flink == ListHead )
     return 0LL;
   return Flink;

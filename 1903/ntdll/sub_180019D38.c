@@ -26,7 +26,7 @@ __int64 __fastcall sub_180019D38(
   unsigned __int16 v16; // r12
   int v17; // ecx
   unsigned __int16 v18; // ax
-  void *Environment; // rax
+  PVOID Environment; // rax
   const void *v21; // rdx
   unsigned __int64 v22; // rcx
   __int64 v23; // rbx
@@ -48,11 +48,11 @@ __int64 __fastcall sub_180019D38(
 LABEL_12:
     if ( v11 == 3 )
     {
-      Environment = (void *)*((_QWORD *)v10 + 6);
+      Environment = (PVOID)*((_QWORD *)v10 + 6);
     }
     else
     {
-      Environment = (void *)qword_180165FE0;
+      Environment = (PVOID)qword_180165FE0;
       if ( !qword_180165FE0 )
         Environment = NtCurrentPeb()->ProcessParameters->Environment;
     }

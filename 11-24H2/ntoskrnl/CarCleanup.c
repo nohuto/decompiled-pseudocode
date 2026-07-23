@@ -1,15 +1,15 @@
 /*
- * XREFs of CarCleanup @ 0x1406164FC
+ * XREFs of CarCleanup @ 0x140614ABC
  * Callers:
- *     VfVolatileClearDifRuleClass @ 0x1406148D0 (VfVolatileClearDifRuleClass.c)
- *     VfVolatileSetDifRuleClass @ 0x140614A94 (VfVolatileSetDifRuleClass.c)
- *     CarReportUnusualShutdown @ 0x14061750C (CarReportUnusualShutdown.c)
+ *     VfVolatileClearDifRuleClass @ 0x140612E90 (VfVolatileClearDifRuleClass.c)
+ *     VfVolatileSetDifRuleClass @ 0x140613054 (VfVolatileSetDifRuleClass.c)
+ *     CarReportUnusualShutdown @ 0x140615ACC (CarReportUnusualShutdown.c)
  * Callees:
- *     KeDeregisterBugCheckReasonCallback @ 0x1404A1620 (KeDeregisterBugCheckReasonCallback.c)
- *     McGenEventUnregister_EtwUnregister @ 0x140607618 (McGenEventUnregister_EtwUnregister.c)
- *     CarDeleteRuleViolationDB @ 0x1406194C0 (CarDeleteRuleViolationDB.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwUnregister @ 0x140A00060 (EtwUnregister.c)
+ *     KeDeregisterBugCheckReasonCallback @ 0x14049BE80 (KeDeregisterBugCheckReasonCallback.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x140604C20 (McGenEventUnregister_EtwUnregister.c)
+ *     CarDeleteRuleViolationDB @ 0x140617A80 (CarDeleteRuleViolationDB.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwUnregister @ 0x140A52EC0 (EtwUnregister.c)
  */
 
 unsigned __int64 CarCleanup()
@@ -23,9 +23,9 @@ unsigned __int64 CarCleanup()
     CarDeleteRuleViolationDB();
     if ( CarLogInitialized )
     {
-      v1 = qword_140E09020;
-      qword_140E09020 = 0LL;
-      dword_140E09000 = 0;
+      v1 = qword_140E09090;
+      qword_140E09090 = 0LL;
+      dword_140E09070 = 0;
       EtwUnregister(v1);
       CarLogInitialized = 0;
       McGenEventUnregister_EtwUnregister();

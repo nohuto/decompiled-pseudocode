@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x14054E014
+ * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x14054E3B4
  * Callers:
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     CmpSaveKeyByFileCopy @ 0x14060DA94 (CmpSaveKeyByFileCopy.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     CmpSaveKeyByFileCopy @ 0x14060DB48 (CmpSaveKeyByFileCopy.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     CmpLockRegistryFreezeAware @ 0x1403FB854 (CmpLockRegistryFreezeAware.c)
- *     CmpWaitOnHiveWriteQueue @ 0x1406030E0 (CmpWaitOnHiveWriteQueue.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     CmpLockRegistryFreezeAware @ 0x1403FA714 (CmpLockRegistryFreezeAware.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x140603194 (CmpWaitOnHiveWriteQueue.c)
  */
 
 __int64 __fastcall CmpBecomeActiveFlusherAndReconciler(__int64 a1)

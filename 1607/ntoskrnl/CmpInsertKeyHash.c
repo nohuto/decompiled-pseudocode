@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpInsertKeyHash @ 0x1405FF830
+ * XREFs of CmpInsertKeyHash @ 0x1405FF8E4
  * Callers:
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpRehashKcbSubtree @ 0x1405FF874 (CmpRehashKcbSubtree.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpRehashKcbSubtree @ 0x1405FF928 (CmpRehashKcbSubtree.c)
  * Callees:
  *     <none>
  */

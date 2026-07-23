@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWorkQueueManagerReaperTimer @ 0x1404B7A50
+ * XREFs of ExpWorkQueueManagerReaperTimer @ 0x1404B23A0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 LONG __fastcall ExpWorkQueueManagerReaperTimer(__int64 a1, __int64 a2)

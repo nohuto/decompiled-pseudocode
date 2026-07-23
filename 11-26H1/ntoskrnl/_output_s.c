@@ -1,15 +1,15 @@
 /*
- * XREFs of _output_s @ 0x14053CEA0
+ * XREFs of _output_s @ 0x14053F320
  * Callers:
- *     _soutput_s @ 0x14053D7CC (_soutput_s.c)
+ *     _soutput_s @ 0x14053FC4C (_soutput_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     write_char_0 @ 0x14053A1B0 (write_char_0.c)
- *     write_multi_char_0 @ 0x14053A200 (write_multi_char_0.c)
- *     write_string_0 @ 0x14053A258 (write_string_0.c)
- *     _safecrt_wctomb_s @ 0x14053D6E8 (_safecrt_wctomb_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     write_char_0 @ 0x14053C630 (write_char_0.c)
+ *     write_multi_char_0 @ 0x14053C680 (write_multi_char_0.c)
+ *     write_string_0 @ 0x14053C6D8 (write_string_0.c)
+ *     _safecrt_wctomb_s @ 0x14053FB68 (_safecrt_wctomb_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall output_s(FILE *a1, char *a2, unsigned __int16 *a3)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpRpFileKeyUpdate @ 0x140601860
+ * XREFs of PfpRpFileKeyUpdate @ 0x1406F0FC0
  * Callers:
- *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x140328350 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
- *     PfpRpRehashIfNeeded @ 0x140602060 (PfpRpRehashIfNeeded.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     RtlUpcaseUnicodeChar @ 0x1406F14F0 (RtlUpcaseUnicodeChar.c)
+ *     PfpRpRehashIfNeeded @ 0x1406F17C0 (PfpRpRehashIfNeeded.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpFileKeyUpdate(__int64 a1, __int64 a2, int a3)
@@ -61,7 +61,7 @@ __int64 __fastcall PfpRpFileKeyUpdate(__int64 a1, __int64 a2, int a3)
   if ( (v5 & 1) == 0 )
     return 3221225600LL;
   RunRef = (PEX_RUNDOWN_REF)(a1 + 136);
-  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 136)) )
+  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 136)) )
     return 3221225600LL;
   if ( !a3 )
   {
@@ -225,7 +225,7 @@ LABEL_15:
     v21 = 0LL;
   }
 LABEL_21:
-  ExReleaseRundownProtection_0(RunRef);
+  ExReleaseRundownProtection(RunRef);
   if ( v21 )
     ExFreePoolWithTag(v21, 0);
   while ( v9 )

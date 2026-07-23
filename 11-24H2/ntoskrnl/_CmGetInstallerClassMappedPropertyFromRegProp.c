@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1409B6F24
+ * XREFs of _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1409AE2B4
  * Callers:
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14081E810 (_CmGetInstallerClassCompoundFiltersWorker.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x14081EDE0 (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmGetInstallerClassMappedProperty @ 0x1409B6854 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetInstallerClassCompoundFilters @ 0x1409B6D74 (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14081EF50 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14081F520 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x1409ADBE4 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x1409AE104 (_CmGetInstallerClassCompoundFilters.c)
  * Callees:
- *     _CmGetInstallerClassRegProp @ 0x14099405C (_CmGetInstallerClassRegProp.c)
- *     _PnpParseIndirectInfString @ 0x1409B6464 (_PnpParseIndirectInfString.c)
- *     _PnpParseIndirectResourceString @ 0x1409B6534 (_PnpParseIndirectResourceString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _CmGetInstallerClassRegProp @ 0x14097F09C (_CmGetInstallerClassRegProp.c)
+ *     _PnpParseIndirectInfString @ 0x1409AD7F4 (_PnpParseIndirectInfString.c)
+ *     _PnpParseIndirectResourceString @ 0x1409AD8C4 (_PnpParseIndirectResourceString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegProp(
@@ -36,20 +36,21 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegProp(
   unsigned int InstallerClassRegProp; // ebx
   __int64 v22; // rcx
   int v23; // eax
+  ULONG_PTR v24; // rax
   void *Pool2; // rdi
-  int v25; // eax
-  int v26; // [rsp+40h] [rbp-10h] BYREF
-  int v27; // [rsp+44h] [rbp-Ch] BYREF
-  int v28; // [rsp+48h] [rbp-8h] BYREF
+  int v26; // eax
+  int v27; // [rsp+40h] [rbp-10h] BYREF
+  int v28; // [rsp+44h] [rbp-Ch] BYREF
+  int v29; // [rsp+48h] [rbp-8h] BYREF
 
   v8 = a5;
   v9 = a8;
   v11 = a6;
-  v26 = 0;
+  v27 = 0;
   *a5 = 0;
   *v9 = 0;
+  v29 = 0;
   v28 = 0;
-  v27 = 0;
   if ( v11 )
   {
     v13 = a7;
@@ -84,29 +85,30 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegProp(
   if ( v19 == 27 )
   {
     LODWORD(a5) = 4;
-    InstallerClassRegProp = CmGetInstallerClassRegProp(a1, a2, a3, 27, (__int64)&v26, (__int64)&v27, (__int64)&a5);
+    InstallerClassRegProp = CmGetInstallerClassRegProp(a1, a2, a3, 27, (__int64)&v27, (__int64)&v28, (__int64)&a5);
     if ( (InstallerClassRegProp & 0x80000000) != 0 )
       return InstallerClassRegProp;
-    if ( v26 != *((_DWORD *)v18 + 4) )
+    if ( v27 != *((_DWORD *)v18 + 4) )
       return (unsigned int)-1073741811;
     *v9 = 1;
     *v8 = *((_DWORD *)v18 + 2);
     if ( v13 >= *v9 )
-      *(_BYTE *)v11 = -(v27 != 0);
+      *(_BYTE *)v11 = -(v28 != 0);
     else
       return (unsigned int)-1073741789;
     return InstallerClassRegProp;
   }
   *v9 = v13;
-  InstallerClassRegProp = CmGetInstallerClassRegProp(a1, a2, a3, v19, (__int64)&v26, v11, (__int64)v9);
+  InstallerClassRegProp = CmGetInstallerClassRegProp(a1, a2, a3, v19, (__int64)&v27, v11, (__int64)v9);
   if ( InstallerClassRegProp && InstallerClassRegProp != -1073741789 )
     return InstallerClassRegProp;
-  if ( v26 != *((_DWORD *)v18 + 4) )
+  if ( v27 != *((_DWORD *)v18 + 4) )
     return (unsigned int)-1073741811;
   v23 = *((_DWORD *)v18 + 2);
   *v8 = v23;
   if ( v23 != 18 )
     return InstallerClassRegProp;
+  v24 = *v9;
   LODWORD(a5) = *v9;
   if ( !InstallerClassRegProp )
   {
@@ -117,13 +119,13 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyFromRegProp(
       return InstallerClassRegProp;
     goto LABEL_24;
   }
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, v24, 0x52504E50u);
   if ( !Pool2 )
     return (unsigned int)-1073741801;
-  v25 = CmGetInstallerClassRegProp(a1, a2, a3, v19, (__int64)&v28, (__int64)Pool2, (__int64)&a5);
-  if ( v25 < 0 )
+  v26 = CmGetInstallerClassRegProp(a1, a2, a3, v19, (__int64)&v29, (__int64)Pool2, (__int64)&a5);
+  if ( v26 < 0 )
   {
-    InstallerClassRegProp = v25;
+    InstallerClassRegProp = v26;
     goto LABEL_27;
   }
   if ( (unsigned int)a5 < 2 )

@@ -1,30 +1,30 @@
 /*
- * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x1404AFA54
+ * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x1404A90E4
  * Callers:
- *     PopFxPauseDeviceAccounting @ 0x1403949DC (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x1404AF898 (PopFxResumeDeviceAccounting.c)
+ *     PopFxPauseDeviceAccounting @ 0x14039675C (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x1404A8F28 (PopFxResumeDeviceAccounting.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x1404AFACC (PopFxUpdateGlobalDeviceAccountingInfo.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x1404A915C (PopFxUpdateGlobalDeviceAccountingInfo.c)
  */
 
 void __fastcall PopFxSetGlobalDeviceAccountingEnabled(unsigned __int8 a1)
 {
   KIRQL v2; // r10
 
-  v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12420.320);
+  v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.Timer.Header.WaitListHead);
   if ( a1 )
   {
-    if ( stru_140F12420.WaitBlockFill5[32] )
-      stru_140F12420.WaitBlock[0].SparePtr = (PVOID)MEMORY[0xFFFFF78000000008];
+    if ( PopFxBlockingDeviceListLock.SavedApcStateFill[0] )
+      PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
     else
-      ++*(_QWORD *)&stru_140F12420.WaitBlockFill11[64];
+      ++PopFxBlockingDeviceListLock.SavedApcState.Process;
   }
-  else if ( stru_140F12420.WaitBlockFill5[32] )
+  else if ( PopFxBlockingDeviceListLock.SavedApcStateFill[0] )
   {
     PopFxUpdateGlobalDeviceAccountingInfo(MEMORY[0xFFFFF78000000008], 1200000000LL);
   }
-  stru_140F12420.WaitBlockFill5[33] = a1;
-  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F12420.320, v2);
+  PopFxBlockingDeviceListLock.SavedApcStateFill[1] = a1;
+  KeReleaseSpinLock((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.Timer.Header.WaitListHead, v2);
 }

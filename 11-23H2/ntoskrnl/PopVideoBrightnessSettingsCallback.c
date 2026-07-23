@@ -1,5 +1,5 @@
 /*
- * XREFs of PopVideoBrightnessSettingsCallback @ 0x1403ABFF0
+ * XREFs of PopVideoBrightnessSettingsCallback @ 0x1403AC1D0
  * Callers:
  *     <none>
  * Callees:
@@ -51,35 +51,35 @@ __int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int 
             if ( !v12 && a3 == 4 && a2 )
             {
               PopAcquirePolicyLock(a1, 3221225485LL);
-              dword_140C3D88C = *a2;
+              dword_140C3D98C = *a2;
               goto LABEL_25;
             }
           }
           else if ( a3 == 4 && a2 )
           {
             PopAcquirePolicyLock(a1, 3221225485LL);
-            dword_140C3D8A0 = *a2;
+            dword_140C3D9A0 = *a2;
             goto LABEL_25;
           }
         }
         else if ( a3 == 4 && a2 )
         {
           PopAcquirePolicyLock(a1, 3221225485LL);
-          HIDWORD(qword_140C3D898) = *a2;
+          HIDWORD(qword_140C3D998) = *a2;
           goto LABEL_25;
         }
       }
       else if ( a3 == 4 && a2 )
       {
         PopAcquirePolicyLock(a1, 3221225485LL);
-        HIDWORD(qword_140C3D890) = *a2;
+        HIDWORD(qword_140C3D990) = *a2;
         goto LABEL_25;
       }
     }
     else if ( a3 == 4 && a2 )
     {
       PopAcquirePolicyLock(a1, 3221225485LL);
-      LODWORD(qword_140C3D890) = *a2;
+      LODWORD(qword_140C3D990) = *a2;
       goto LABEL_25;
     }
   }

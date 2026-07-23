@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRemoveQueueApc @ 0x1400AF37C
+ * XREFs of KeRemoveQueueApc @ 0x1400AD8E4
  * Callers:
- *     ExpCancelTimer @ 0x1400EE1E4 (ExpCancelTimer.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140229098 (EtwpTraceThreadRundownWithStack.c)
- *     CmNotifyRunDown @ 0x1405152B8 (CmNotifyRunDown.c)
+ *     ExpCancelTimer @ 0x1400EC064 (ExpCancelTimer.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x140228EC4 (EtwpTraceThreadRundownWithStack.c)
+ *     CmNotifyRunDown @ 0x1404F86A8 (CmNotifyRunDown.c)
  * Callees:
- *     KiRemoveQueueApc @ 0x1400AF3C0 (KiRemoveQueueApc.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiRemoveQueueApc @ 0x1400AD928 (KiRemoveQueueApc.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C (KiAcquireThreadLockRaiseToDpc.c)
  */
 
 __int64 __fastcall KeRemoveQueueApc(__int64 a1)

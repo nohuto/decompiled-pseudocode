@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildHexInt64String @ 0x1408109A0
+ * XREFs of AdtpBuildHexInt64String @ 0x1408110E0
  * Callers:
- *     AdtpBuildRegistryValueString @ 0x140810B1C (AdtpBuildRegistryValueString.c)
+ *     AdtpBuildRegistryValueString @ 0x14081125C (AdtpBuildRegistryValueString.c)
  * Callees:
- *     StringCchPrintfW @ 0x14046FE5C (StringCchPrintfW.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     StringCchPrintfW @ 0x14046A284 (StringCchPrintfW.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildHexInt64String(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5, _BYTE *a6)
@@ -15,7 +15,7 @@ __int64 __fastcall AdtpBuildHexInt64String(_QWORD *a1, __int64 a2, __int64 a3, _
   __int64 result; // rax
   __int64 v11; // rax
 
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x26uLL, 0x6B416553u);
   v9 = Pool2;
   if ( !Pool2 )
     return 3221225495LL;

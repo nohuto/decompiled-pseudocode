@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAllocateEntireImageFileExtents @ 0x14086CD18
+ * XREFs of MiAllocateEntireImageFileExtents @ 0x1408730F8
  * Callers:
- *     MiEnableImageDirectMap @ 0x1406F9834 (MiEnableImageDirectMap.c)
- *     MiCreateImageMapSectionHeaders @ 0x140A55B2C (MiCreateImageMapSectionHeaders.c)
- *     MiCreateImageMapReadNtHeader @ 0x140A55D18 (MiCreateImageMapReadNtHeader.c)
- *     MiCreateImageMapHeader @ 0x140A55DDC (MiCreateImageMapHeader.c)
+ *     MiEnableImageDirectMap @ 0x1406FE504 (MiEnableImageDirectMap.c)
+ *     MiCreateImageMapSectionHeaders @ 0x140A630B4 (MiCreateImageMapSectionHeaders.c)
+ *     MiCreateImageMapReadNtHeader @ 0x140A632A0 (MiCreateImageMapReadNtHeader.c)
+ *     MiCreateImageMapHeader @ 0x140A63364 (MiCreateImageMapHeader.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     FsRtlGetFileExtents @ 0x1405B5170 (FsRtlGetFileExtents.c)
- *     MiInsertCopyExtents @ 0x1406FA5AC (MiInsertCopyExtents.c)
- *     MiNewPfnsSuitable @ 0x140866C3C (MiNewPfnsSuitable.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     FsRtlGetFileExtents @ 0x1405B7980 (FsRtlGetFileExtents.c)
+ *     MiInsertCopyExtents @ 0x1406FF27C (MiInsertCopyExtents.c)
+ *     MiNewPfnsSuitable @ 0x14086D01C (MiNewPfnsSuitable.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateEntireImageFileExtents(

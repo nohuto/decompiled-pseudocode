@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRecheckThreadPasidMsrState @ 0x140A04124
+ * XREFs of PspRecheckThreadPasidMsrState @ 0x140A7BE9C
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x140A04188 (ExIsSvmPasidMsrUpdateRequiredForProcess.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x140A7BF00 (ExIsSvmPasidMsrUpdateRequiredForProcess.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PspRecheckThreadPasidMsrState(__int64 a1, __int64 a2)

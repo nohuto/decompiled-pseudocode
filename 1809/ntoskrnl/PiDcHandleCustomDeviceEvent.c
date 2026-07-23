@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDcHandleCustomDeviceEvent @ 0x14058FC40
+ * XREFs of PiDcHandleCustomDeviceEvent @ 0x140590C40
  * Callers:
- *     PnpProcessCustomDeviceEvent @ 0x14058E8E0 (PnpProcessCustomDeviceEvent.c)
+ *     PnpProcessCustomDeviceEvent @ 0x14058F8E0 (PnpProcessCustomDeviceEvent.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _CmIsLocalMachineContainer @ 0x1406DB4A0 (_CmIsLocalMachineContainer.c)
- *     PnpQueryDeviceRelations @ 0x1406E8020 (PnpQueryDeviceRelations.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x1406EA66C (_CmGetDeviceContainerIdFromBase.c)
- *     PiDcContainerRequiresConfiguration @ 0x1406EB384 (PiDcContainerRequiresConfiguration.c)
- *     _CmMoveBaseContainer @ 0x1408F96B4 (_CmMoveBaseContainer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     PiPnpRtlEndOperation @ 0x140596CA4 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140597E08 (PiPnpRtlBeginOperation.c)
+ *     _CmGetDeviceRegProp @ 0x1405C799C (_CmGetDeviceRegProp.c)
+ *     _CmIsLocalMachineContainer @ 0x1406DC740 (_CmIsLocalMachineContainer.c)
+ *     PnpQueryDeviceRelations @ 0x1406E92C0 (PnpQueryDeviceRelations.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1406EB90C (_CmGetDeviceContainerIdFromBase.c)
+ *     PiDcContainerRequiresConfiguration @ 0x1406EC624 (PiDcContainerRequiresConfiguration.c)
+ *     _CmMoveBaseContainer @ 0x1408FA974 (_CmMoveBaseContainer.c)
  */
 
 __int64 __fastcall PiDcHandleCustomDeviceEvent(__int64 a1)

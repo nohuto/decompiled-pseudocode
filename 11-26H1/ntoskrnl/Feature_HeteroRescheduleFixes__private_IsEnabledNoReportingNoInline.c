@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x14023DE70
+ * XREFs of Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x14023F7D0
  * Callers:
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x14021E510 (KiSendHeteroRescheduleIntRequestHelper.c)
- *     KiCheckPreferredHeteroProcessor @ 0x14021EB80 (KiCheckPreferredHeteroProcessor.c)
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x14021FEA0 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140220510 (KiCheckPreferredHeteroProcessor.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
  * Callees:
- *     Feature_HeteroRescheduleFixes__private_IsEnabledFallback @ 0x140532D30 (Feature_HeteroRescheduleFixes__private_IsEnabledFallback.c)
+ *     Feature_HeteroRescheduleFixes__private_IsEnabledFallback @ 0x1405351D0 (Feature_HeteroRescheduleFixes__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline()

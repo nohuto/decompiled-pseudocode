@@ -45,7 +45,7 @@ NTSTATUS __stdcall NtSetSecurityObject(
   int v24; // eax
   NTSTATUS SaclSecurityDescriptor; // eax
   bool v26; // al
-  ULONG v27; // edx
+  DWORD v27; // edx
   __int64 v28; // [rsp+60h] [rbp-39h]
   BOOLEAN SaclDefaulted[4]; // [rsp+70h] [rbp-29h] BYREF
   ACCESS_MASK DesiredAccess; // [rsp+74h] [rbp-25h] BYREF

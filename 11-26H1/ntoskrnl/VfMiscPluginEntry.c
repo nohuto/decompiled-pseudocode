@@ -1,14 +1,14 @@
 /*
- * XREFs of VfMiscPluginEntry @ 0x140C3D620
+ * XREFs of VfMiscPluginEntry @ 0x140C43630
  * Callers:
  *     <none>
  * Callees:
- *     VfAvlInitializeTree @ 0x140640BA8 (VfAvlInitializeTree.c)
- *     DifIsPluginRunningWithoutReboot @ 0x14064B940 (DifIsPluginRunningWithoutReboot.c)
- *     DifRegisterPlugin @ 0x14064BBB0 (DifRegisterPlugin.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VfSettingsApplyMiscellaneousChecks @ 0x140C390EC (VfSettingsApplyMiscellaneousChecks.c)
- *     VfCtxInit @ 0x140C40BB4 (VfCtxInit.c)
+ *     VfAvlInitializeTree @ 0x140644788 (VfAvlInitializeTree.c)
+ *     DifIsPluginRunningWithoutReboot @ 0x14064F520 (DifIsPluginRunningWithoutReboot.c)
+ *     DifRegisterPlugin @ 0x14064F790 (DifRegisterPlugin.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x140C3F0FC (VfSettingsApplyMiscellaneousChecks.c)
+ *     VfCtxInit @ 0x140C46BC4 (VfCtxInit.c)
  */
 
 __int64 VfMiscPluginEntry()
@@ -297,7 +297,7 @@ __int64 VfMiscPluginEntry()
 
   LODWORD(v7) = 238;
   v9 = 0LL;
-  qword_140F081C8 = (__int64)VfMiscPluginUnload;
+  qword_140F08528 = (__int64)VfMiscPluginUnload;
   v6 = "MmAllocateContiguousMemory";
   v8 = VfMiscMmAllocateContiguousMemory_Entry;
   v10 = "MmAllocateContiguousMemoryEx";

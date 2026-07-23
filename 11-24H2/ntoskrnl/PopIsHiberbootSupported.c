@@ -1,8 +1,8 @@
 /*
- * XREFs of PopIsHiberbootSupported @ 0x1406F98F0
+ * XREFs of PopIsHiberbootSupported @ 0x1406F7530
  * Callers:
- *     PopVerifySystemPowerPolicy @ 0x1409B88AC (PopVerifySystemPowerPolicy.c)
- *     PopVerifySystemPowerState @ 0x140A7DC9C (PopVerifySystemPowerState.c)
+ *     PopVerifySystemPowerPolicy @ 0x14099EEFC (PopVerifySystemPowerPolicy.c)
+ *     PopVerifySystemPowerState @ 0x140A77F9C (PopVerifySystemPowerState.c)
  * Callees:
  *     <none>
  */

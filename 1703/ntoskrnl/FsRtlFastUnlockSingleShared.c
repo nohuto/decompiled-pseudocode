@@ -33,7 +33,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   unsigned int v15; // edi
   KIRQL v16; // r12
   __int64 FirstOverlappingSharedNode; // rax
-  struct _RTL_SPLAY_LINKS *v18; // r9
+  _RTL_SPLAY_LINKS *v18; // r9
   _RTL_SPLAY_LINKS *v19; // r14
   _RTL_SPLAY_LINKS *v20; // rax
   _RTL_SPLAY_LINKS *Parent; // rsi
@@ -61,7 +61,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   }
   v25 = (_RTL_SPLAY_LINKS *)((char *)v9 + (_QWORD)*a4 - 1);
   FirstOverlappingSharedNode = FsRtlFindFirstOverlappingSharedNode(v14, (unsigned int)&v27, (unsigned int)&v25, 0, 0LL);
-  v18 = (struct _RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
+  v18 = (_RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
   if ( !FirstOverlappingSharedNode
     || (v19 = (_RTL_SPLAY_LINKS *)(FirstOverlappingSharedNode - 24),
         v20 = 0LL,

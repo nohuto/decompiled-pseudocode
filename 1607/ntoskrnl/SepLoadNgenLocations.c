@@ -1,14 +1,14 @@
 /*
  * XREFs of SepLoadNgenLocations @ 0x1407B7D5C
  * Callers:
- *     SepSetSystemPaths @ 0x14057A068 (SepSetSystemPaths.c)
+ *     SepSetSystemPaths @ 0x14057A5A8 (SepSetSystemPaths.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x140159EE0 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x14015A450 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -160,7 +160,7 @@ LABEL_30:
                 *(_WORD *)(v9 + 4) += 8;
                 *(_WORD *)(v9 + 6) += 8;
                 *(_DWORD *)v9 = v0;
-                v9 &= -(__int64)(_InterlockedCompareExchange64(&qword_140341558, v9, 0LL) != 0);
+                v9 &= -(__int64)(_InterlockedCompareExchange64(&qword_140341598, v9, 0LL) != 0);
               }
               if ( v9 )
                 ExFreePoolWithTag((PVOID)v9, 0x63734943u);

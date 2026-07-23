@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIdleInitAoAcDozeS4Timer @ 0x14075C48C
+ * XREFs of PopIdleInitAoAcDozeS4Timer @ 0x14075B47C
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     KeInitializeIRTimer @ 0x1404C1B3C (KeInitializeIRTimer.c)
- *     PoRegisterPowerSettingCallback @ 0x140A6B150 (PoRegisterPowerSettingCallback.c)
+ *     KeInitializeIRTimer @ 0x1404BD12C (KeInitializeIRTimer.c)
+ *     PoRegisterPowerSettingCallback @ 0x140A646B0 (PoRegisterPowerSettingCallback.c)
  */
 
 NTSTATUS PopIdleInitAoAcDozeS4Timer()

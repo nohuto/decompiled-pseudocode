@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpInitiateCorralStateChange @ 0x1405D010C
+ * XREFs of IopLiveDumpInitiateCorralStateChange @ 0x1405D291C
  * Callers:
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpCorralProcessors @ 0x1405CED50 (IopLiveDumpCorralProcessors.c)
- *     IopLiveDumpUncorralProcessors @ 0x1405D2C0C (IopLiveDumpUncorralProcessors.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCorralProcessors @ 0x1405D1560 (IopLiveDumpCorralProcessors.c)
+ *     IopLiveDumpUncorralProcessors @ 0x1405D53FC (IopLiveDumpUncorralProcessors.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     IopLiveDumpProcessCorralStateChange @ 0x1404A70C8 (IopLiveDumpProcessCorralStateChange.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x1404E48C0 (IopLiveDumpGetMillisecondCounter.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1404A0758 (IopLiveDumpProcessCorralStateChange.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1404DDE60 (IopLiveDumpGetMillisecondCounter.c)
  */
 
 __int64 __fastcall IopLiveDumpInitiateCorralStateChange(__int64 a1, __int32 a2, __int64 *a3, __int64 a4)

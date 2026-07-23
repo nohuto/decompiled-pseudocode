@@ -1,11 +1,11 @@
 /*
- * XREFs of NtReleaseSemaphore @ 0x140698C30
+ * XREFs of NtReleaseSemaphore @ 0x140699DF0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KeReleaseSemaphore @ 0x1400C5E00 (KeReleaseSemaphore.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtReleaseSemaphore(HANDLE SemaphoreHandle, LONG ReleaseCount, PLONG PreviousCount)

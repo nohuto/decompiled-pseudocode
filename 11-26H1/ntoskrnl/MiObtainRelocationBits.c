@@ -1,18 +1,18 @@
 /*
- * XREFs of MiObtainRelocationBits @ 0x1409CB088
+ * XREFs of MiObtainRelocationBits @ 0x14099C068
  * Callers:
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     RtlFindClearBitsAndSetEx @ 0x140499760 (RtlFindClearBitsAndSetEx.c)
- *     MiSelectRelocationStartHint @ 0x140AECDF0 (MiSelectRelocationStartHint.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     RtlFindClearBitsAndSetEx @ 0x1404932B0 (RtlFindClearBitsAndSetEx.c)
+ *     MiSelectRelocationStartHint @ 0x140AEFE00 (MiSelectRelocationStartHint.c)
  */
 
 unsigned __int64 __fastcall MiObtainRelocationBits(
@@ -38,13 +38,13 @@ unsigned __int64 __fastcall MiObtainRelocationBits(
   CurrentThread = KeGetCurrentThread();
   v6 = a2;
   --CurrentThread->SpecialApcDisable;
-  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E2D150.116 + 4, 0LL, 0LL, a4);
+  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E2D2D0.116 + 4, 0LL, 0LL, a4);
   v10 = v8;
-  if ( _interlockedbittestandset64((_DWORD *)&stru_140E2D150.0 + 1, 0LL) )
+  if ( _interlockedbittestandset64((_DWORD *)&stru_140E2D2D0.0 + 1, 0LL) )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)((char *)&stru_140E2D150.116 + 4),
+      (unsigned __int64 *)((char *)&stru_140E2D2D0.116 + 4),
       v8,
-      (__int64)&stru_140E2D150.116 + 4);
+      (__int64)&stru_140E2D2D0.116 + 4);
   if ( v10 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -75,11 +75,11 @@ unsigned __int64 __fastcall MiObtainRelocationBits(
       }
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)((char *)&stru_140E2D150.116 + 4), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)((char *)&stru_140E2D150.116 + 4));
-  KeAbPostRelease((unsigned __int64)&stru_140E2D150.116 + 4);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)((char *)&stru_140E2D2D0.116 + 4), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)((char *)&stru_140E2D2D0.116 + 4));
+  KeAbPostRelease((unsigned __int64)&stru_140E2D2D0.116 + 4);
   v16 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v16 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v16 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v15, v14);
   return v12;
 }

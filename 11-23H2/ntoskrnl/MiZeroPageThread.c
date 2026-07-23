@@ -1,13 +1,13 @@
 /*
- * XREFs of MiZeroPageThread @ 0x1403B0030
+ * XREFs of MiZeroPageThread @ 0x1403B0210
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     ZwWaitForSingleObject @ 0x14041ADE0 (ZwWaitForSingleObject.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     MiCreatePerNodeZeroingConductor @ 0x14085F658 (MiCreatePerNodeZeroingConductor.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     ZwWaitForSingleObject @ 0x14041B170 (ZwWaitForSingleObject.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     MiCreatePerNodeZeroingConductor @ 0x14085F898 (MiCreatePerNodeZeroingConductor.c)
  */
 
 NTSTATUS __fastcall MiZeroPageThread(__int64 a1)

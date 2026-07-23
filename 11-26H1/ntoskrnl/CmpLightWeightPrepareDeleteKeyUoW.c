@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpLightWeightPrepareDeleteKeyUoW @ 0x140A2DFD4
+ * XREFs of CmpLightWeightPrepareDeleteKeyUoW @ 0x140A3FE60
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x1408AEB00 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1408B4F40 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x14085EDB4 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpMarkKeyDirty @ 0x1408BCEC4 (CmpMarkKeyDirty.c)
- *     CmpRemoveSubKeyFromList @ 0x1408BDBF0 (CmpRemoveSubKeyFromList.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpLightWeightCreateModificationData @ 0x140A2E888 (CmpLightWeightCreateModificationData.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A2EC9C (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpCleanupDiscardReplaceContext @ 0x140A2EE10 (CmpCleanupDiscardReplaceContext.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1408650A4 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpMarkKeyDirty @ 0x1408C3494 (CmpMarkKeyDirty.c)
+ *     CmpRemoveSubKeyFromList @ 0x1408C41C0 (CmpRemoveSubKeyFromList.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpLightWeightCreateModificationData @ 0x140A40714 (CmpLightWeightCreateModificationData.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A40B28 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x140A40C9C (CmpCleanupDiscardReplaceContext.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareDeleteKeyUoW(ULONG_PTR *a1, __int64 a2)

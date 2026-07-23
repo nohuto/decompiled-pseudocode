@@ -1,23 +1,23 @@
 /*
- * XREFs of CmUnRegisterCallback @ 0x1408505D0
+ * XREFs of CmUnRegisterCallback @ 0x1408568E0
  * Callers:
- *     DifCmUnRegisterCallbackWrapper @ 0x14064DE30 (DifCmUnRegisterCallbackWrapper.c)
- *     EtwpRegTraceEnableCallback @ 0x140A04FC0 (EtwpRegTraceEnableCallback.c)
- *     VrpDecrementSiloCount @ 0x140B27A30 (VrpDecrementSiloCount.c)
+ *     DifCmUnRegisterCallbackWrapper @ 0x140651A10 (DifCmUnRegisterCallbackWrapper.c)
+ *     EtwpRegTraceEnableCallback @ 0x1409F07B0 (EtwpRegTraceEnableCallback.c)
+ *     VrpDecrementSiloCount @ 0x140B296C0 (VrpDecrementSiloCount.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     ObReferenceObjectSafe @ 0x140449C10 (ObReferenceObjectSafe.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     ExBlockOnAddressPushLock @ 0x14047EBC0 (ExBlockOnAddressPushLock.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpLockCallbackListExclusive @ 0x140770A48 (CmpLockCallbackListExclusive.c)
- *     CmpUnlockCallbackList @ 0x140A05350 (CmpUnlockCallbackList.c)
- *     CmpUnlockContextList @ 0x140A23680 (CmpUnlockContextList.c)
- *     CmpLockContextListExclusive @ 0x140A318F8 (CmpLockContextListExclusive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x140C58A70 (CmListGetNextElement.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     ObReferenceObjectSafe @ 0x140441D40 (ObReferenceObjectSafe.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     ExBlockOnAddressPushLock @ 0x140478530 (ExBlockOnAddressPushLock.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpLockCallbackListExclusive @ 0x140773A48 (CmpLockCallbackListExclusive.c)
+ *     CmpUnlockCallbackList @ 0x1409F0B40 (CmpUnlockCallbackList.c)
+ *     CmpUnlockContextList @ 0x140A36190 (CmpUnlockContextList.c)
+ *     CmpLockContextListExclusive @ 0x140A4C858 (CmpLockContextListExclusive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmListGetNextElement @ 0x140C5EA70 (CmListGetNextElement.c)
  */
 
 NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)
@@ -79,7 +79,7 @@ NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)
   {
     do
     {
-      NextElement = CmListGetNextElement(&CmpCallbackListLock.Header.WaitListHead, &v42, 0LL);
+      NextElement = CmListGetNextElement(&CmpContextListLock.Header.WaitListHead.Blink, &v42, 0LL);
       v8 = (char *)NextElement;
       if ( !NextElement )
         goto LABEL_12;
@@ -111,7 +111,7 @@ LABEL_46:
     LODWORD(v42) = *((_DWORD *)v8 + 4);
     if ( (_DWORD)v42 == 0x80000000 )
       break;
-    ExBlockOnAddressPushLock((signed __int64 *)&CmpCallbackListLock.QuantumTarget, v8 + 16, &v42, 4LL, 0LL);
+    ExBlockOnAddressPushLock(&CallbackListDeleteEvent, v8 + 16, &v42, 4LL, 0LL);
   }
   CmpLockCallbackListExclusive(v11, v10, v12, v13);
   v14 = *(_QWORD **)v8;
@@ -205,11 +205,11 @@ LABEL_18:
       if ( v31 == v30 )
         v19 = 0;
       else
-        ExBlockOnAddressPushLock((signed __int64 *)&CmpCallbackListLock.QuantumTarget, v8 + 64, &v42, 8LL, 0LL);
+        ExBlockOnAddressPushLock(&CallbackListDeleteEvent, v8 + 64, &v42, 8LL, 0LL);
     }
     while ( v19 );
   }
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)&WheapPfaLock.ExpectedRunTime, 0xFFFFFFFF) == 1 )
+  if ( _InterlockedExchangeAdd((_DWORD *)&WheapPfaLock.StateSaveArea + 1, 0xFFFFFFFF) == 1 )
   {
     v32 = RtlpInterlockedFlushSList(&CmpCallbackContextSList);
     while ( v32 )

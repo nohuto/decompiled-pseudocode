@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmCancelExitLatencyTrace @ 0x140601658
+ * XREFs of PpmCancelExitLatencyTrace @ 0x140604108
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403EB78C (PpmIdleExecuteTransition.c)
- *     KdPowerTransitionEx @ 0x14050A220 (KdPowerTransitionEx.c)
+ *     PpmIdleExecuteTransition @ 0x1402F87D0 (PpmIdleExecuteTransition.c)
+ *     KdPowerTransitionEx @ 0x140503C90 (KdPowerTransitionEx.c)
  * Callees:
  *     <none>
  */
@@ -17,8 +17,8 @@ __int64 __fastcall PpmCancelExitLatencyTrace(__int64 a1)
   {
     if ( *(_BYTE *)(v1 + 3) )
     {
-      result = HIDWORD(stru_140E66FF0.SchedulerSharedSwappablePage);
-      *(_DWORD *)(v1 + 20) = HIDWORD(stru_140E66FF0.SchedulerSharedSwappablePage) != 0;
+      result = LODWORD(stru_140E67200.Padding[1]);
+      *(_DWORD *)(v1 + 20) = LODWORD(stru_140E67200.Padding[1]) != 0;
       *(_BYTE *)(v1 + 3) = 0;
     }
   }

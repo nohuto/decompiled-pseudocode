@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvGetPageFault @ 0x1404DA000
+ * XREFs of IommupHvGetPageFault @ 0x1404DA240
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvGetPageFault(
@@ -31,7 +31,7 @@ __int64 __fastcall IommupHvGetPageFault(
   if ( (_DWORD)v11 == HIDWORD(v11) )
   {
     if ( *(_BYTE *)(*((_QWORD *)a1 + 1) + 9LL) )
-      ((void (__fastcall *)(_QWORD))qword_140C4A2B8)(*a1);
+      ((void (__fastcall *)(_QWORD))qword_140C4A2F8)(*a1);
     return 0LL;
   }
   else

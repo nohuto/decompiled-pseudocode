@@ -16,7 +16,7 @@ bool __fastcall MiVaIsUltra(unsigned __int64 a1)
   if ( qword_140C685F8 )
   {
     if ( a1 >= qword_140C685F8 )
-      return a1 < qword_140C685F8 + (qword_140C68608 << 30);
+      return a1 < qword_140C685F8 + (BitMapHeader.SizeOfBitMap << 30);
   }
   return result;
 }

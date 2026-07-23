@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlHeapZero @ 0x1407322C0
+ * XREFs of RtlHeapZero @ 0x140736E90
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x140249DB0 (RtlpHpVsContextAllocate.c)
- *     RtlpHpSegAlloc @ 0x14034B0CC (RtlpHpSegAlloc.c)
- *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14034C7D0 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
- *     RtlpHpLargeAlloc @ 0x140351D9C (RtlpHpLargeAlloc.c)
- *     RtlpHpAllocVA @ 0x140364350 (RtlpHpAllocVA.c)
- *     RtlpHpAllocateHeap @ 0x140397A80 (RtlpHpAllocateHeap.c)
- *     ExAllocateHeapPool @ 0x1403987D0 (ExAllocateHeapPool.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
- *     RtlpHpPgContextAllocate @ 0x14063A000 (RtlpHpPgContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x14024B710 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpSegAlloc @ 0x14034D14C (RtlpHpSegAlloc.c)
+ *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14034E850 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
+ *     RtlpHpLargeAlloc @ 0x140353E20 (RtlpHpLargeAlloc.c)
+ *     RtlpHpAllocVA @ 0x1403660F0 (RtlpHpAllocVA.c)
+ *     RtlpHpAllocateHeap @ 0x140399800 (RtlpHpAllocateHeap.c)
+ *     ExAllocateHeapPool @ 0x14039A530 (ExAllocateHeapPool.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpPgContextAllocate @ 0x14063D010 (RtlpHpPgContextAllocate.c)
  * Callees:
  *     <none>
  */

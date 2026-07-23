@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406723AC
+ * XREFs of MiMoveUnusedSubsectionsToDeleteOnClose @ 0x14067357C
  * Callers:
- *     MiPrepareDeleteOnClose @ 0x140672500 (MiPrepareDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x14067257C (MiProcessDeleteOnClose.c)
+ *     MiPrepareDeleteOnClose @ 0x1406736D0 (MiPrepareDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x14067374C (MiProcessDeleteOnClose.c)
  * Callees:
  *     <none>
  */

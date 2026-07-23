@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventBiosCapChange @ 0x1402E53F4
+ * XREFs of PpmEventBiosCapChange @ 0x1402E55E4
  * Callers:
- *     PpmRegisterPerfCap @ 0x1402DB3B0 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x1402DB5A0 (PpmRegisterPerfCap.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventBiosCapChange(__int64 a1, int a2)

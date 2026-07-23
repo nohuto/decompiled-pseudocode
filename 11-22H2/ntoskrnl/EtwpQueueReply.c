@@ -13,7 +13,7 @@
 __int64 __fastcall EtwpQueueReply(PRKQUEUE Queue, unsigned int *a2)
 {
   int v3; // edi
-  struct _LIST_ENTRY *Pool2; // rax
+  _LIST_ENTRY *Pool2; // rax
 
   v3 = EtwpAllocDataBlock(a2[1], a2);
   if ( v3 < 0 )
@@ -22,7 +22,7 @@ __int64 __fastcall EtwpQueueReply(PRKQUEUE Queue, unsigned int *a2)
   }
   else
   {
-    Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(64LL, 56LL, 1920431173LL);
+    Pool2 = (_LIST_ENTRY *)ExAllocatePool2(64LL, 56LL, 1920431173LL);
     if ( Pool2 )
     {
       Pool2[1].Flink = 0LL;

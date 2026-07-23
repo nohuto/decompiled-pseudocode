@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x1407D1EC0
+ * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x1407D23B0
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
  */
 
 void CmpInitializeMachineHiveLoadedCallbacks()
@@ -12,7 +12,7 @@ void CmpInitializeMachineHiveLoadedCallbacks()
   __int64 v1; // rdi
 
   KeInitializeEvent(&CmpMachineHiveCallbackEvent, NotificationEvent, 0);
-  v0 = &unk_140E098C8;
+  v0 = &unk_140E09938;
   v1 = 7LL;
   do
   {

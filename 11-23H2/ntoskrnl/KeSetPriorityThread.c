@@ -1,33 +1,33 @@
 /*
- * XREFs of KeSetPriorityThread @ 0x1402B0340
+ * XREFs of KeSetPriorityThread @ 0x1402B05D0
  * Callers:
- *     CcApplyLowIoPriorityToThread @ 0x14029BBA8 (CcApplyLowIoPriorityToThread.c)
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
- *     PfTSetTraceWorkerPriority @ 0x14035EE00 (PfTSetTraceWorkerPriority.c)
- *     CcBoostLowPriorityWorkerThread @ 0x14036D6E4 (CcBoostLowPriorityWorkerThread.c)
- *     MiMappedPageWriter @ 0x1403915B0 (MiMappedPageWriter.c)
- *     KeBalanceSetManager @ 0x140394500 (KeBalanceSetManager.c)
- *     KeSwapProcessOrStack @ 0x1403954B0 (KeSwapProcessOrStack.c)
- *     MiRebuildLargePagesThread @ 0x1403967A0 (MiRebuildLargePagesThread.c)
- *     KiExecuteDpc @ 0x14039AA10 (KiExecuteDpc.c)
- *     MiDereferenceSegmentThread @ 0x1403A7C90 (MiDereferenceSegmentThread.c)
- *     FsRtlWorkerThread @ 0x1403B3DF0 (FsRtlWorkerThread.c)
- *     KeSetThreadSchedulerAssist @ 0x14056D21C (KeSetThreadSchedulerAssist.c)
- *     ExRegisterBootDevice @ 0x1406094B0 (ExRegisterBootDevice.c)
- *     MiPartitionWorkingSetManager @ 0x140629550 (MiPartitionWorkingSetManager.c)
- *     MiSetIdealProcessorThread @ 0x14066706C (MiSetIdealProcessorThread.c)
- *     NtSetInformationThread @ 0x1407335B0 (NtSetInformationThread.c)
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
- *     ViPendingQueuePassiveLevelCompletion @ 0x140AD1EE0 (ViPendingQueuePassiveLevelCompletion.c)
+ *     CcApplyLowIoPriorityToThread @ 0x14029BE38 (CcApplyLowIoPriorityToThread.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
+ *     PfTSetTraceWorkerPriority @ 0x14035EFA0 (PfTSetTraceWorkerPriority.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x14036D884 (CcBoostLowPriorityWorkerThread.c)
+ *     MiMappedPageWriter @ 0x140391790 (MiMappedPageWriter.c)
+ *     KeBalanceSetManager @ 0x1403946E0 (KeBalanceSetManager.c)
+ *     KeSwapProcessOrStack @ 0x140395690 (KeSwapProcessOrStack.c)
+ *     MiRebuildLargePagesThread @ 0x140396980 (MiRebuildLargePagesThread.c)
+ *     KiExecuteDpc @ 0x14039ABF0 (KiExecuteDpc.c)
+ *     MiDereferenceSegmentThread @ 0x1403A7E70 (MiDereferenceSegmentThread.c)
+ *     FsRtlWorkerThread @ 0x1403B3FD0 (FsRtlWorkerThread.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056D8DC (KeSetThreadSchedulerAssist.c)
+ *     ExRegisterBootDevice @ 0x140609A00 (ExRegisterBootDevice.c)
+ *     MiPartitionWorkingSetManager @ 0x140629AA0 (MiPartitionWorkingSetManager.c)
+ *     MiSetIdealProcessorThread @ 0x1406675BC (MiSetIdealProcessorThread.c)
+ *     NtSetInformationThread @ 0x1407337A0 (NtSetInformationThread.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
+ *     ViPendingQueuePassiveLevelCompletion @ 0x140AD1ED0 (ViPendingQueuePassiveLevelCompletion.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x1402B0E70 (KiProcessDeferredReadyList.c)
- *     KiSetQuantumTargetThread @ 0x1402B2AF0 (KiSetQuantumTargetThread.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     EtwTracePriority @ 0x14046738E (EtwTracePriority.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402B1100 (KiProcessDeferredReadyList.c)
+ *     KiSetQuantumTargetThread @ 0x1402B2D80 (KiSetQuantumTargetThread.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     EtwTracePriority @ 0x14046778E (EtwTracePriority.c)
  */
 
 KPRIORITY __stdcall KeSetPriorityThread(PKTHREAD Thread, KPRIORITY Priority)
@@ -56,7 +56,7 @@ KPRIORITY __stdcall KeSetPriorityThread(PKTHREAD Thread, KPRIORITY Priority)
   v21 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )

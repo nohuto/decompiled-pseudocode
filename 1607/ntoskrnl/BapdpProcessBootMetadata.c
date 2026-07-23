@@ -4,7 +4,7 @@
  *     BootApplicationPersistentDataProcess @ 0x1407A92C0 (BootApplicationPersistentDataProcess.c)
  * Callees:
  *     KsrInitPageDatabase_0 @ 0x1400012C8 (KsrInitPageDatabase_0.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     BapdpQueryData @ 0x1407A9868 (BapdpQueryData.c)
  */
@@ -23,7 +23,7 @@ void __fastcall BapdpProcessBootMetadata(__int64 a1)
   v4 = 0x479C9BC55B043C6CLL;
   v5 = 1736995215;
   v6 = 1054971003;
-  if ( (qword_1402FD0D8 & 4) != 0 )
+  if ( (qword_1402FD038 & 4) != 0 )
   {
     v3 = 0;
     ExSoftRebootFlags = 2;

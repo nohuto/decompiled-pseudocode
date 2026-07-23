@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetCurrentThreadWin32Thread @ 0x14008BAB0
+ * XREFs of PsGetCurrentThreadWin32Thread @ 0x14008B210
  * Callers:
  *     <none>
  * Callees:

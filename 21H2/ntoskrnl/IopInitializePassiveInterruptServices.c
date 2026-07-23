@@ -1,11 +1,11 @@
 /*
- * XREFs of IopInitializePassiveInterruptServices @ 0x140A6D460
+ * XREFs of IopInitializePassiveInterruptServices @ 0x140A6E460
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeInitializeQueue @ 0x1402B95A0 (KeInitializeQueue.c)
- *     IopCreatePassiveInterruptRealtimeThreads @ 0x1407C9674 (IopCreatePassiveInterruptRealtimeThreads.c)
- *     IopQueryPassiveInterruptRegistryOptions @ 0x1407C9794 (IopQueryPassiveInterruptRegistryOptions.c)
+ *     KeInitializeQueue @ 0x1402377B0 (KeInitializeQueue.c)
+ *     IopCreatePassiveInterruptRealtimeThreads @ 0x1407C9994 (IopCreatePassiveInterruptRealtimeThreads.c)
+ *     IopQueryPassiveInterruptRegistryOptions @ 0x1407C9AB4 (IopQueryPassiveInterruptRegistryOptions.c)
  */
 
 __int64 IopInitializePassiveInterruptServices()

@@ -1,8 +1,8 @@
 /*
- * XREFs of BiZwOpenKey @ 0x14012E070
+ * XREFs of BiZwOpenKey @ 0x14012E5E0
  * Callers:
- *     BiCreateKey @ 0x14053D6A0 (BiCreateKey.c)
- *     BiOpenKey @ 0x14053DE4C (BiOpenKey.c)
+ *     BiCreateKey @ 0x14053DBE0 (BiCreateKey.c)
+ *     BiOpenKey @ 0x14053E38C (BiOpenKey.c)
  * Callees:
  *     <none>
  */

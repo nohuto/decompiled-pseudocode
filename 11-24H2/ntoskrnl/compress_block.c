@@ -1,7 +1,7 @@
 /*
- * XREFs of compress_block @ 0x140602F28
+ * XREFs of compress_block @ 0x140600568
  * Callers:
- *     _tr_flush_block @ 0x140602828 (_tr_flush_block.c)
+ *     _tr_flush_block @ 0x1405FFE68 (_tr_flush_block.c)
  * Callees:
  *     <none>
  */
@@ -146,14 +146,14 @@ char __fastcall compress_block(__int64 a1, __int64 a2, __int64 a3)
         *(_WORD *)(a1 + 5980) = v33;
         *v4 = v32;
         v34 = v23;
-        v35 = dword_1400356D0[v23];
+        v35 = dword_140035AC0[v23];
         v67 = v17;
         v71 = v17;
         v69 = (__int64 *)(a1 + 16);
         v68 = v17;
         if ( v35 )
         {
-          v36 = v13 - dword_1400355D0[v34];
+          v36 = v13 - dword_140036120[v34];
           v33 |= (_WORD)v36 << v32;
           *(_WORD *)(a1 + 5980) = v33;
           if ( v32 <= 16 - v35 )
@@ -207,10 +207,10 @@ char __fastcall compress_block(__int64 a1, __int64 a2, __int64 a3)
         }
         *(_WORD *)(a1 + 5980) = v51;
         *v4 = v50;
-        v52 = dword_140035CB0[v40];
+        v52 = dword_1400360A0[v40];
         if ( v52 )
         {
-          v53 = v38 - dword_140035650[v40];
+          v53 = v38 - dword_140035A40[v40];
           *(_WORD *)(a1 + 5980) = v51 | ((_WORD)v53 << v50);
           if ( v50 <= 16 - v52 )
           {

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFindProcessImageHotPatchRecord @ 0x140A36D0C
+ * XREFs of MiFindProcessImageHotPatchRecord @ 0x140A36FBC
  * Callers:
- *     MiGetAllRegisteredPatches @ 0x140A36FAC (MiGetAllRegisteredPatches.c)
- *     MiQuerySingleLoadedPatch @ 0x140A3BB5C (MiQuerySingleLoadedPatch.c)
+ *     MiGetAllRegisteredPatches @ 0x140A3725C (MiGetAllRegisteredPatches.c)
+ *     MiQuerySingleLoadedPatch @ 0x140A3BE0C (MiQuerySingleLoadedPatch.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeQueryUserSidToken @ 0x140714E00 (SeQueryUserSidToken.c)
- *     MiFindHotPatchRecord @ 0x140A36B7C (MiFindHotPatchRecord.c)
- *     MiFindUserSidHotPatchContext @ 0x140A36ECC (MiFindUserSidHotPatchContext.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeQueryUserSidToken @ 0x140715010 (SeQueryUserSidToken.c)
+ *     MiFindHotPatchRecord @ 0x140A36E2C (MiFindHotPatchRecord.c)
+ *     MiFindUserSidHotPatchContext @ 0x140A3717C (MiFindUserSidHotPatchContext.c)
  */
 
 __int64 __fastcall MiFindProcessImageHotPatchRecord(__int64 a1, int a2, int a3, int a4, UNICODE_STRING *StringOut)

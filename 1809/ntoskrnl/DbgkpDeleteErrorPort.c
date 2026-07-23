@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpDeleteErrorPort @ 0x1407070E4
+ * XREFs of DbgkpDeleteErrorPort @ 0x140708384
  * Callers:
- *     DbgkFlushErrorPort @ 0x140607444 (DbgkFlushErrorPort.c)
- *     DbgkRegisterErrorPort @ 0x1407024A0 (DbgkRegisterErrorPort.c)
- *     DbgkpRemoveErrorPort @ 0x140706C60 (DbgkpRemoveErrorPort.c)
- *     DbgkpSendErrorMessage @ 0x140810DCC (DbgkpSendErrorMessage.c)
+ *     DbgkFlushErrorPort @ 0x140608444 (DbgkFlushErrorPort.c)
+ *     DbgkRegisterErrorPort @ 0x140703740 (DbgkRegisterErrorPort.c)
+ *     DbgkpRemoveErrorPort @ 0x140707F00 (DbgkpRemoveErrorPort.c)
+ *     DbgkpSendErrorMessage @ 0x140811FCC (DbgkpSendErrorMessage.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
  */
 
 void __fastcall DbgkpDeleteErrorPort(HANDLE *P)

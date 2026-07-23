@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMd5Append @ 0x140528260
+ * XREFs of SymCryptMd5Append @ 0x140525B80
  * Callers:
- *     HashpHashBytes @ 0x1408300C8 (HashpHashBytes.c)
+ *     HashpHashBytes @ 0x1408308F8 (HashpHashBytes.c)
  * Callees:
- *     SymCryptHashAppendInternal @ 0x14052E944 (SymCryptHashAppendInternal.c)
+ *     SymCryptHashAppendInternal @ 0x140528DEC (SymCryptHashAppendInternal.c)
  */
 
 __int64 __fastcall SymCryptMd5Append(__int64 a1, __int64 a2, __int64 a3)

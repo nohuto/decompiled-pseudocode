@@ -1,10 +1,11 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x1404037D0
+ * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x1403FE590
  * Callers:
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402B61E0 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402B9010 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14035FCA0 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x140360750 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1403D8DE0 (RtlpHpLfhSubsegmentDecommitPages.c)
  * Callees:
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x1402B93D8 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x140360B18 (RtlpHpLfhContextUpdateFreeCommitCount.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentDecBlockCounts(__int64 *a1, __int64 a2, unsigned int a3, int a4)

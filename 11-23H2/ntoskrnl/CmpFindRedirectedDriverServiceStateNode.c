@@ -3,8 +3,8 @@
  * Callers:
  *     CmpFindDrivers @ 0x140B5A8DC (CmpFindDrivers.c)
  * Callees:
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
  *     CmpGetStateSepKeysRedirectionPathValue @ 0x140B5AD9C (CmpGetStateSepKeysRedirectionPathValue.c)
  *     CmpGetKnownHivePathNode @ 0x140B98EFC (CmpGetKnownHivePathNode.c)
  */

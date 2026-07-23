@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogRemoveWsleEvent @ 0x140530664
+ * XREFs of MiLogRemoveWsleEvent @ 0x1405308A4
  * Callers:
- *     MiRemoveWsleList @ 0x14028EBD0 (MiRemoveWsleList.c)
- *     MiRemoveWsle @ 0x140338FE0 (MiRemoveWsle.c)
+ *     MiRemoveWsleList @ 0x14020BD70 (MiRemoveWsleList.c)
+ *     MiRemoveWsle @ 0x140343D30 (MiRemoveWsle.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiFillPageExtraInfo @ 0x1405304E8 (MiFillPageExtraInfo.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiFillPageExtraInfo @ 0x140530728 (MiFillPageExtraInfo.c)
  */
 
 __int64 __fastcall MiLogRemoveWsleEvent(__int64 a1, int a2)

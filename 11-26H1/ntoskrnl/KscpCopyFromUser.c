@@ -1,7 +1,7 @@
 /*
- * XREFs of KscpCopyFromUser @ 0x140C5EBC0
+ * XREFs of KscpCopyFromUser @ 0x140C64BC0
  * Callers:
- *     KasanUmaCopyFromUser @ 0x14071EF20 (KasanUmaCopyFromUser.c)
+ *     KasanUmaCopyFromUser @ 0x140723B40 (KasanUmaCopyFromUser.c)
  * Callees:
  *     <none>
  */

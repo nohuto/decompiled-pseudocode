@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpReferenceConnectedPort @ 0x140929760
+ * XREFs of AlpcpReferenceConnectedPort @ 0x140905270
  * Callers:
- *     AlpcpImpersonateMessage @ 0x1409281A0 (AlpcpImpersonateMessage.c)
- *     AlpcpExposeAttributes @ 0x140972B20 (AlpcpExposeAttributes.c)
- *     NtAlpcImpersonateClientOfPort @ 0x1409C1390 (NtAlpcImpersonateClientOfPort.c)
- *     AlpcpPortQueryServerSessionInfo @ 0x140A6BF08 (AlpcpPortQueryServerSessionInfo.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x140A6C0A8 (AlpcpPortQueryConnectedSidInfo.c)
+ *     AlpcpImpersonateMessage @ 0x140903CB0 (AlpcpImpersonateMessage.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x140992370 (NtAlpcImpersonateClientOfPort.c)
+ *     AlpcpExposeAttributes @ 0x1409B93B0 (AlpcpExposeAttributes.c)
+ *     AlpcpPortQueryServerSessionInfo @ 0x140A7D538 (AlpcpPortQueryServerSessionInfo.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x140A7D6D8 (AlpcpPortQueryConnectedSidInfo.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ObReferenceObjectSafe @ 0x140449C10 (ObReferenceObjectSafe.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ObReferenceObjectSafe @ 0x140441D40 (ObReferenceObjectSafe.c)
  */
 
 __int64 __fastcall AlpcpReferenceConnectedPort(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

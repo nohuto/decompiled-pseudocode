@@ -1,11 +1,11 @@
 /*
- * XREFs of Amd64AllocateCounter @ 0x1405A320C
+ * XREFs of Amd64AllocateCounter @ 0x1405A5A1C
  * Callers:
- *     Amd64EnableMonitoring @ 0x1405A3B40 (Amd64EnableMonitoring.c)
+ *     Amd64EnableMonitoring @ 0x1405A6350 (Amd64EnableMonitoring.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     HalpAllocateHalCounters @ 0x14057A660 (HalpAllocateHalCounters.c)
- *     Amd64CheckCoreEventConstraints @ 0x1405A353C (Amd64CheckCoreEventConstraints.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     HalpAllocateHalCounters @ 0x14057CB90 (HalpAllocateHalCounters.c)
+ *     Amd64CheckCoreEventConstraints @ 0x1405A5D4C (Amd64CheckCoreEventConstraints.c)
  */
 
 __int64 __fastcall Amd64AllocateCounter(signed __int32 a1, _DWORD *a2, _DWORD *a3, _BYTE *a4, int *a5)
@@ -129,7 +129,7 @@ __int64 __fastcall Amd64AllocateCounter(signed __int32 a1, _DWORD *a2, _DWORD *a
       LODWORD(v26) = *(_DWORD *)(v26 + 4);
     LODWORD(v23) = v26 + v25;
 LABEL_38:
-    if ( (__readmsr(*((_DWORD *)&xmmword_140F87600 + (unsigned int)(v23 + i))) & 0xF004000FFLL) != 0 )
+    if ( (__readmsr(*((_DWORD *)&xmmword_140F879E0 + (unsigned int)(v23 + i))) & 0xF004000FFLL) != 0 )
       continue;
     v27 = a2 + 76;
     if ( v7 )

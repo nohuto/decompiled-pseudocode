@@ -1,11 +1,11 @@
 /*
- * XREFs of ViInitializePadding @ 0x140B895A8
+ * XREFs of ViInitializePadding @ 0x140B8B5A8
  * Callers:
- *     ViAllocateMapRegisterFile @ 0x140B87EAC (ViAllocateMapRegisterFile.c)
- *     ViSpecialAllocateCommonBuffer @ 0x140B89BC0 (ViSpecialAllocateCommonBuffer.c)
+ *     ViAllocateMapRegisterFile @ 0x140B89EAC (ViAllocateMapRegisterFile.c)
+ *     ViSpecialAllocateCommonBuffer @ 0x140B8BBC0 (ViSpecialAllocateCommonBuffer.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ViTagBuffer @ 0x140B89F14 (ViTagBuffer.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ViTagBuffer @ 0x140B8BF14 (ViTagBuffer.c)
  */
 
 void *__fastcall ViInitializePadding(void *a1, unsigned int a2, unsigned __int64 a3, unsigned int a4)

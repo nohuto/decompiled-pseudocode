@@ -12,36 +12,46 @@
 
 int __thiscall TppPoolUpdateNodeRelation(void **this)
 {
-  unsigned int Heap; // ebx
-  int v3; // esi
-  _DWORD *v4; // ecx
+  char *Heap; // ebx
+  NTSTATUS v3; // esi
+  char *v4; // ecx
   void **v5; // edx
   _DWORD *v6; // edi
-  int v8; // [esp+14h] [ebp-8h] BYREF
-  int v9; // [esp+18h] [ebp-4h] BYREF
+  SIZE_T v8; // [esp-4h] [ebp-20h]
+  size_t v9; // [esp-4h] [ebp-20h]
+  int InputBuffer; // [esp+14h] [ebp-8h] BYREF
+  ULONG SystemInformationLength; // [esp+18h] [ebp-4h] BYREF
 
-  v8 = 1;
-  v9 = 76 * TppNumberNodes;
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, 76 * TppNumberNodes);
+  InputBuffer = 1;
+  LODWORD(v8) = 76 * TppNumberNodes;
+  SystemInformationLength = 76 * TppNumberNodes;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, v8);
   if ( !Heap )
     return -1073741801;
-  v3 = ZwQuerySystemInformationEx(107, &v8, 4, Heap, v9, &v9);
+  v3 = ZwQuerySystemInformationEx(
+         SystemLogicalProcessorAndGroupInformation,
+         &InputBuffer,
+         4u,
+         Heap,
+         SystemInformationLength,
+         &SystemInformationLength);
   if ( v3 >= 0 )
   {
-    memset(this[8], 0, 12 * TppNumberNodes);
-    v4 = (_DWORD *)Heap;
-    if ( Heap < Heap + v9 )
+    LODWORD(v9) = 12 * TppNumberNodes;
+    memset(this[8], 0, v9);
+    v4 = Heap;
+    if ( Heap < &Heap[SystemInformationLength] )
     {
       v5 = this;
       do
       {
-        v6 = (char *)v5[8] + 12 * v4[2];
-        *v6++ = v4[8];
-        *v6 = v4[9];
-        v6[1] = v4[10];
-        v4 = (_DWORD *)((char *)v4 + v4[1]);
+        v6 = (char *)v5[8] + 12 * *((_DWORD *)v4 + 2);
+        *v6++ = *((_DWORD *)v4 + 8);
+        *v6 = *((_DWORD *)v4 + 9);
+        v6[1] = *((_DWORD *)v4 + 10);
+        v4 += *((_DWORD *)v4 + 1);
       }
-      while ( (unsigned int)v4 < Heap + v9 );
+      while ( v4 < &Heap[SystemInformationLength] );
     }
   }
   RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);

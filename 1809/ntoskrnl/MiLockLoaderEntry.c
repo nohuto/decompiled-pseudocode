@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockLoaderEntry @ 0x1400DBD64
+ * XREFs of MiLockLoaderEntry @ 0x1400DBDE4
  * Callers:
- *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
- *     MiFindDriverNonPagedSections @ 0x14065569C (MiFindDriverNonPagedSections.c)
- *     MiLockdownSections @ 0x140682BE4 (MiLockdownSections.c)
- *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
+ *     MiSetPagingOfDriver @ 0x1400DAE7C (MiSetPagingOfDriver.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB490 (MiMakeDriverPagesPrivate.c)
+ *     MiFindDriverNonPagedSections @ 0x14065685C (MiFindDriverNonPagedSections.c)
+ *     MiLockdownSections @ 0x140683DA4 (MiLockdownSections.c)
+ *     MiFreeInitializationCode @ 0x1406C8ABC (MiFreeInitializationCode.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x140118FE0 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140119050 (ExAcquireAutoExpandPushLockExclusive.c)
  */
 
 void __fastcall MiLockLoaderEntry(__int64 a1, ULONG_PTR a2)

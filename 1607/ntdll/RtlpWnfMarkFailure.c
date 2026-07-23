@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpWnfMarkFailure @ 0x1800D9C80
+ * XREFs of RtlpWnfMarkFailure @ 0x1800D9D40
  * Callers:
- *     RtlpWnfWalkUserSubscriptionList @ 0x180065F08 (RtlpWnfWalkUserSubscriptionList.c)
+ *     RtlpWnfWalkUserSubscriptionList @ 0x180065EF8 (RtlpWnfWalkUserSubscriptionList.c)
  * Callees:
  *     <none>
  */

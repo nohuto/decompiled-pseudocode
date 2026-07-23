@@ -1,11 +1,11 @@
 /*
- * XREFs of ExReferenceHandleDebugInfo @ 0x1404D4164
+ * XREFs of ExReferenceHandleDebugInfo @ 0x1404B7C04
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     ExpUpdateDebugInfo @ 0x1406AD814 (ExpUpdateDebugInfo.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     ExpUpdateDebugInfo @ 0x1406AD94C (ExpUpdateDebugInfo.c)
  * Callees:
- *     ExpUnlockHandleTableExclusive @ 0x1400A8A44 (ExpUnlockHandleTableExclusive.c)
- *     ExpLockHandleTableExclusive @ 0x1400A8A84 (ExpLockHandleTableExclusive.c)
+ *     ExpUnlockHandleTableExclusive @ 0x1400A6FC4 (ExpUnlockHandleTableExclusive.c)
+ *     ExpLockHandleTableExclusive @ 0x1400A7004 (ExpLockHandleTableExclusive.c)
  */
 
 volatile signed __int32 *__fastcall ExReferenceHandleDebugInfo(__int64 a1)

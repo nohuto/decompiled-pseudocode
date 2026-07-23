@@ -1,15 +1,15 @@
 /*
- * XREFs of IopKeepAliveWorker @ 0x1404CA700
+ * XREFs of IopKeepAliveWorker @ 0x1404C4130
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140B05900 (PspAdjustKeepAliveCountProcess.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140B07994 (PspAdjustKeepAliveCountProcess.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void IopKeepAliveWorker()
@@ -27,20 +27,20 @@ void IopKeepAliveWorker()
   __int64 v10; // r9
   __int64 v11; // rdi
 
-  v0 = KeAcquireSpinLockRaiseToDpc(&IopSessionNotificationLock.Padding[4]);
-  qword_140F85360 = (__int64)KeGetCurrentThread();
+  v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink);
+  IopPerfIoTrackingLock.SchedulerSharedSystemSlot = KeGetCurrentThread();
 LABEL_2:
   v1 = v0;
   while ( 1 )
   {
-    v2 = (void *)IopSessionNotificationLock.Padding[2];
-    if ( (unsigned __int64 *)IopSessionNotificationLock.Padding[2] == &IopSessionNotificationLock.Padding[2] )
+    v2 = *(void **)&IopPerfIoTrackingLock.SuspendEvent.Header.Lock;
+    if ( *(struct _KTHREAD **)&IopPerfIoTrackingLock.SuspendEvent.Header.Lock == (struct _KTHREAD *)&IopPerfIoTrackingLock.SuspendEvent )
       break;
-    v3 = *(_DWORD *)(IopSessionNotificationLock.Padding[2] + 32);
-    *(_DWORD *)(IopSessionNotificationLock.Padding[2] + 32) = 0;
+    v3 = *(_DWORD *)(*(_QWORD *)&IopPerfIoTrackingLock.SuspendEvent.Header.Lock + 32LL);
+    *(_DWORD *)(*(_QWORD *)&IopPerfIoTrackingLock.SuspendEvent.Header.Lock + 32LL) = 0;
     if ( v3 )
     {
-      KeReleaseSpinLock(&IopSessionNotificationLock.Padding[4], v1);
+      KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink, v1);
       if ( v3 > 0 )
       {
         do
@@ -69,17 +69,17 @@ LABEL_2:
       v8 = *((_QWORD *)v2 + 3);
       if ( (*(_DWORD *)((-(__int64)((_BYTE)v7 != 0) & 0xFFFFFFFFFFFFFFE0uLL) + v8 + 1868) & 0x7FFFFFFF) == 1 )
       {
-        v9 = KeAcquireSpinLockRaiseToDpc(&IopSessionNotificationLock.Padding[4]);
+        v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink);
         if ( MEMORY[0xFFFFF78000000014] < *((_QWORD *)v2 + 6) )
         {
           --*((_DWORD *)v2 + 8);
-          KeReleaseSpinLock(&IopSessionNotificationLock.Padding[4], v9);
+          KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink, v9);
           KeDelayExecutionThread(0, 1u, (PLARGE_INTEGER)v2 + 6);
 LABEL_14:
-          v0 = KeAcquireSpinLockRaiseToDpc(&IopSessionNotificationLock.Padding[4]);
+          v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink);
           goto LABEL_2;
         }
-        KeReleaseSpinLock(&IopSessionNotificationLock.Padding[4], v9);
+        KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink, v9);
         LOBYTE(v7) = *((_BYTE *)v2 + 18);
         v8 = *((_QWORD *)v2 + 3);
       }
@@ -97,7 +97,7 @@ LABEL_14:
     if ( v6 )
       ExFreePoolWithTag(v2, 0);
   }
-  byte_140F85358 = 0;
-  qword_140F85360 = 0LL;
-  KeReleaseSpinLock(&IopSessionNotificationLock.Padding[4], v1);
+  IopPerfIoTrackingLock.AbWaitEntryCount = 0;
+  IopPerfIoTrackingLock.SchedulerSharedSystemSlot = 0LL;
+  KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink, v1);
 }

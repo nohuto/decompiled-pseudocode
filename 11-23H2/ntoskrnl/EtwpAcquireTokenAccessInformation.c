@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpAcquireTokenAccessInformation @ 0x140853460
+ * XREFs of EtwpAcquireTokenAccessInformation @ 0x140853760
  * Callers:
- *     EtwpEnableGuid @ 0x14077FD00 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x14077FEF0 (EtwpEnableGuid.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

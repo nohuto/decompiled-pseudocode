@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpTraceHiveRestoreStart @ 0x1407D66D0
+ * XREFs of CmpTraceHiveRestoreStart @ 0x1407D6C44
  * Callers:
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     CmpQueryNameString @ 0x1409839B4 (CmpQueryNameString.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     CmpQueryNameString @ 0x14096C1C4 (CmpQueryNameString.c)
  */
 
 void __fastcall CmpTraceHiveRestoreStart(__int64 a1, int a2)

@@ -1,59 +1,56 @@
 /*
- * XREFs of RtlFindExportedRoutineByName @ 0x1406AD3F0
+ * XREFs of RtlFindExportedRoutineByName @ 0x1406AD420
  * Callers:
- *     HalpMcResolveMicrocodeOperation @ 0x14051BC1C (HalpMcResolveMicrocodeOperation.c)
- *     PrExtControlOperations @ 0x140615588 (PrExtControlOperations.c)
- *     MmGetSystemRoutineAddress @ 0x140756870 (MmGetSystemRoutineAddress.c)
- *     MiCompactServiceTable @ 0x1407BC8A4 (MiCompactServiceTable.c)
- *     MiCallDllInitialize @ 0x140810FFC (MiCallDllInitialize.c)
- *     KsepResolveShimHooks @ 0x14085B9D8 (KsepResolveShimHooks.c)
- *     MiCallDllUnload @ 0x140865250 (MiCallDllUnload.c)
- *     MiApplyDriverHotPatch @ 0x140A34878 (MiApplyDriverHotPatch.c)
+ *     HalpMcResolveMicrocodeOperation @ 0x14051C16C (HalpMcResolveMicrocodeOperation.c)
+ *     PrExtControlOperations @ 0x140615AD8 (PrExtControlOperations.c)
+ *     MmGetSystemRoutineAddress @ 0x140756A60 (MmGetSystemRoutineAddress.c)
+ *     MiCompactServiceTable @ 0x1407BCB74 (MiCompactServiceTable.c)
+ *     MiCallDllInitialize @ 0x1408112CC (MiCallDllInitialize.c)
+ *     KsepResolveShimHooks @ 0x14085BC18 (KsepResolveShimHooks.c)
+ *     MiCallDllUnload @ 0x140865490 (MiCallDllUnload.c)
+ *     MiApplyDriverHotPatch @ 0x140A34B28 (MiApplyDriverHotPatch.c)
  *     PspInitializeSystemDlls @ 0x140B6735C (PspInitializeSystemDlls.c)
  * Callees:
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
- *     MmDecodeExportSection @ 0x14034BACC (MmDecodeExportSection.c)
- *     MmEncodeExportSection @ 0x14034BC68 (MmEncodeExportSection.c)
+ *     MmDecodeExportSection @ 0x14034BC6C (MmDecodeExportSection.c)
+ *     MmEncodeExportSection @ 0x14034BE08 (MmEncodeExportSection.c)
  */
 
-unsigned __int64 __fastcall RtlFindExportedRoutineByName(__int64 a1, char *a2)
+PVOID __cdecl RtlFindExportedRoutineByName(PVOID BaseOfImage, PCSTR RoutineName)
 {
-  char *v2; // r15
-  _DWORD *v4; // rax
-  _DWORD *v5; // r8
-  unsigned __int64 v6; // rbx
+  char *v4; // rax
+  char *v5; // r8
+  char *v6; // rbx
   int v7; // r9d
-  __int64 v8; // rbp
-  __int64 v9; // r11
+  char *v8; // rbp
+  char *v9; // r11
   int v10; // eax
-  char *v11; // rcx
+  PCSTR v11; // rcx
   int v12; // edx
-  __int64 v13; // rsi
-  char v14; // r10
+  signed __int64 v13; // rsi
+  CHAR v14; // r10
   int v15; // ecx
-  unsigned int v17; // [rsp+50h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = a2;
-  v17 = 0;
-  if ( a1 == PsNtosImageBase )
+  Size = 0;
+  if ( BaseOfImage == PsNtosImageBase )
     MmDecodeExportSection();
-  LOBYTE(a2) = 1;
-  v4 = (_DWORD *)RtlImageDirectoryEntryToData(a1, (int)a2, 0, (int)&v17);
+  v4 = (char *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0, &Size);
   v5 = v4;
   v6 = 0LL;
   if ( v4 )
   {
     v7 = 0;
-    v8 = a1 + (unsigned int)v4[8];
-    v9 = a1 + (unsigned int)v4[9];
-    v10 = v4[6] - 1;
+    v8 = (char *)BaseOfImage + *((unsigned int *)v4 + 8);
+    v9 = (char *)BaseOfImage + *((unsigned int *)v4 + 9);
+    v10 = *((_DWORD *)v4 + 6) - 1;
     if ( v10 >= 0 )
     {
       do
       {
-        v11 = v2;
+        v11 = RoutineName;
         v12 = (v7 + v10) >> 1;
-        v13 = a1 + *(unsigned int *)(v8 + 4LL * v12) - (_QWORD)v2;
+        v13 = (_BYTE *)BaseOfImage + *(unsigned int *)&v8[4 * v12] - RoutineName;
         while ( 1 )
         {
           v14 = *v11;
@@ -66,7 +63,7 @@ unsigned __int64 __fastcall RtlFindExportedRoutineByName(__int64 a1, char *a2)
             goto LABEL_9;
           }
         }
-        v15 = (unsigned __int8)*v11 < (unsigned __int8)v11[v13] ? -1 : 1;
+        v15 = *v11 < (unsigned int)v11[v13] ? -1 : 1;
 LABEL_9:
         if ( v15 < 0 )
         {
@@ -78,10 +75,13 @@ LABEL_9:
         {
           if ( v15 <= 0 )
           {
-            if ( v10 >= v7 && (unsigned int)*(unsigned __int16 *)(v9 + 2LL * v12) < v5[5] )
+            if ( v10 >= v7 && (unsigned int)*(unsigned __int16 *)&v9[2 * v12] < *((_DWORD *)v5 + 5) )
             {
-              v6 = a1 + *(unsigned int *)(a1 + (unsigned int)v5[7] + 4LL * *(unsigned __int16 *)(v9 + 2LL * v12));
-              if ( v6 > (unsigned __int64)v5 && v6 < (unsigned __int64)v5 + v17 )
+              v6 = (char *)BaseOfImage
+                 + *(unsigned int *)((char *)BaseOfImage
+                                   + 4 * *(unsigned __int16 *)&v9[2 * v12]
+                                   + *((unsigned int *)v5 + 7));
+              if ( v6 > v5 && v6 < &v5[Size] )
                 v6 = 0LL;
             }
             break;
@@ -92,7 +92,7 @@ LABEL_9:
       while ( v10 >= v7 );
     }
   }
-  if ( a1 == PsNtosImageBase )
+  if ( BaseOfImage == PsNtosImageBase )
     MmEncodeExportSection();
   return v6;
 }

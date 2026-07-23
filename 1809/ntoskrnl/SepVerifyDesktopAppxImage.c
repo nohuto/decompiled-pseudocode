@@ -1,17 +1,17 @@
 /*
- * XREFs of SepVerifyDesktopAppxImage @ 0x1402FF010
+ * XREFs of SepVerifyDesktopAppxImage @ 0x1402FF200
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x1400DA020 (SepDesktopAppxSubProcessToken.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1400DA0A0 (SepDesktopAppxSubProcessToken.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     SeGetTrustLabelAce @ 0x1400AA950 (SeGetTrustLabelAce.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1402FF1CC (SepVerifyDesktopAppxPackageName.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsReferenceProcessFilePointer @ 0x14061CB90 (PsReferenceProcessFilePointer.c)
- *     ObQuerySecurityObject @ 0x14064FDF4 (ObQuerySecurityObject.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     SeGetTrustLabelAce @ 0x1400AA890 (SeGetTrustLabelAce.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1402FF3BC (SepVerifyDesktopAppxPackageName.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsReferenceProcessFilePointer @ 0x14061DB90 (PsReferenceProcessFilePointer.c)
+ *     ObQuerySecurityObject @ 0x140650FB4 (ObQuerySecurityObject.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
  */
 
 __int64 __fastcall SepVerifyDesktopAppxImage(__int64 a1, __int64 a2, char a3, _BYTE *a4)

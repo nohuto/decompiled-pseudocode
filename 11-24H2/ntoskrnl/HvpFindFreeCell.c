@@ -1,20 +1,20 @@
 /*
- * XREFs of HvpFindFreeCell @ 0x1408825A0
+ * XREFs of HvpFindFreeCell @ 0x140886450
  * Callers:
- *     HvpDoAllocateCell @ 0x140882054 (HvpDoAllocateCell.c)
- *     HvAllocateCell @ 0x1408822D8 (HvAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x140885F04 (HvpDoAllocateCell.c)
+ *     HvAllocateCell @ 0x140886188 (HvAllocateCell.c)
  * Callees:
- *     RtlFindSetBits @ 0x1403F3D00 (RtlFindSetBits.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpMarkDirty @ 0x140882A90 (HvpMarkDirty.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140BB9770 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140BB9790 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140BB98D0 (HvpGetBinContextInitialize.c)
+ *     RtlFindSetBits @ 0x1403E6CF0 (RtlFindSetBits.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpMarkDirty @ 0x140886940 (HvpMarkDirty.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140BBB770 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140BBB790 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140BBB8D0 (HvpGetBinContextInitialize.c)
  */
 
 __int64 __fastcall HvpFindFreeCell(

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetSystemEnvironmentValue @ 0x140726B50
+ * XREFs of ZwSetSystemEnvironmentValue @ 0x14072B720
  * Callers:
- *     DifZwSetSystemEnvironmentValueWrapper @ 0x1406BBC40 (DifZwSetSystemEnvironmentValueWrapper.c)
+ *     DifZwSetSystemEnvironmentValueWrapper @ 0x1406BF820 (DifZwSetSystemEnvironmentValueWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetSystemEnvironmentValue(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUNICODE_STRING VariableValue)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(VariableName);
 }

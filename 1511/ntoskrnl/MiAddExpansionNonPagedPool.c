@@ -24,8 +24,8 @@ void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)
   char v11; // dl
   char v12; // al
   char v13; // al
-  union _SLIST_HEADER *v14; // rbx
-  union _SLIST_HEADER *v15; // rbx
+  _SLIST_HEADER *v14; // rbx
+  _SLIST_HEADER *v15; // rbx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
 
   if ( a2 )

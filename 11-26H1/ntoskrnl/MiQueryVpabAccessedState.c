@@ -1,20 +1,20 @@
 /*
- * XREFs of MiQueryVpabAccessedState @ 0x1404646AC
+ * XREFs of MiQueryVpabAccessedState @ 0x14045D66C
  * Callers:
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
- *     MiAgeWorkingSetTail @ 0x140328CE0 (MiAgeWorkingSetTail.c)
- *     MiTrimWorkingSetTail @ 0x140464090 (MiTrimWorkingSetTail.c)
- *     MiUpdateOldWorkingSetPagesTail @ 0x140464260 (MiUpdateOldWorkingSetPagesTail.c)
- *     MiAgeTrimListsTail @ 0x140464350 (MiAgeTrimListsTail.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
+ *     MiAgeWorkingSetTail @ 0x14032AD10 (MiAgeWorkingSetTail.c)
+ *     MiTrimWorkingSetTail @ 0x14045D050 (MiTrimWorkingSetTail.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x14045D220 (MiUpdateOldWorkingSetPagesTail.c)
+ *     MiAgeTrimListsTail @ 0x14045D310 (MiAgeTrimListsTail.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiReacquireWalkLocks @ 0x140301220 (MiReacquireWalkLocks.c)
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     MiReleaseWalkLocks @ 0x140362F00 (MiReleaseWalkLocks.c)
- *     VslQueryPrivilegedAccessedState @ 0x140464850 (VslQueryPrivilegedAccessedState.c)
- *     VmpQueryAccessedState @ 0x140464934 (VmpQueryAccessedState.c)
- *     MiLockWorkingSetExclusiveAtDpc @ 0x1404C31C0 (MiLockWorkingSetExclusiveAtDpc.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiReacquireWalkLocks @ 0x1402E32A0 (MiReacquireWalkLocks.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     MiReleaseWalkLocks @ 0x140364CA0 (MiReleaseWalkLocks.c)
+ *     VslQueryPrivilegedAccessedState @ 0x14045D810 (VslQueryPrivilegedAccessedState.c)
+ *     VmpQueryAccessedState @ 0x14045D8F4 (VmpQueryAccessedState.c)
+ *     MiLockWorkingSetExclusiveAtDpc @ 0x1404BCA10 (MiLockWorkingSetExclusiveAtDpc.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiQueryVpabAccessedState(__int64 a1, __int64 a2, int a3)

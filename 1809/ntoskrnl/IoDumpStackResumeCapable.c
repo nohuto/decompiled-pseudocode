@@ -1,9 +1,9 @@
 /*
- * XREFs of IoDumpStackResumeCapable @ 0x1401599E0
+ * XREFs of IoDumpStackResumeCapable @ 0x140159AE0
  * Callers:
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 IoDumpStackResumeCapable()
@@ -13,8 +13,8 @@ __int64 IoDumpStackResumeCapable()
   result = 0LL;
   if ( CrashdmpImageEntry )
   {
-    if ( qword_14043C808 )
-      return ((__int64 (*)(void))qword_14043C808)();
+    if ( qword_14043D8C8 )
+      return ((__int64 (*)(void))qword_14043D8C8)();
   }
   return result;
 }

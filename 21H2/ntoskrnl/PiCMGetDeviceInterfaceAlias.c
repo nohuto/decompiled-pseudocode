@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMGetDeviceInterfaceAlias @ 0x14072AE3C
+ * XREFs of PiCMGetDeviceInterfaceAlias @ 0x14072B2EC
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PiCMReturnBufferResultData @ 0x140637784 (PiCMReturnBufferResultData.c)
- *     IoGetDeviceInterfaceAlias @ 0x14072B010 (IoGetDeviceInterfaceAlias.c)
- *     PiCMCaptureInterfaceAliasInputData @ 0x14072B500 (PiCMCaptureInterfaceAliasInputData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140252870 (PiControlFreeUserModeCallersBuffer.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PiCMReturnBufferResultData @ 0x14062C594 (PiCMReturnBufferResultData.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14072B4C0 (IoGetDeviceInterfaceAlias.c)
+ *     PiCMCaptureInterfaceAliasInputData @ 0x14072B9B0 (PiCMCaptureInterfaceAliasInputData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetDeviceInterfaceAlias(

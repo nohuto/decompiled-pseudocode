@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlSetBitsEx @ 0x14028B3C0
+ * XREFs of RtlSetBitsEx @ 0x14028B650
  * Callers:
  *     RtlFindClearBitsAndSetEx @ 0x140210350 (RtlFindClearBitsAndSetEx.c)
  *     MiObtainDynamicVa @ 0x140211044 (MiObtainDynamicVa.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     RtlpHpFixedHeapCreate @ 0x140362E88 (RtlpHpFixedHeapCreate.c)
- *     IopAddPageRangeToPageMaps @ 0x14055204C (IopAddPageRangeToPageMaps.c)
- *     MiPhysicalMemoryEverRemoved @ 0x14061BC60 (MiPhysicalMemoryEverRemoved.c)
- *     MiAddPartitionHugeRange @ 0x14061F204 (MiAddPartitionHugeRange.c)
- *     MiMirrorAddPagesToBrownList @ 0x140626B0C (MiMirrorAddPagesToBrownList.c)
- *     MiMarkSystemVaAllocated @ 0x1406372B0 (MiMarkSystemVaAllocated.c)
- *     MiAddRangeToPartitionTree @ 0x140658B1C (MiAddRangeToPartitionTree.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     RtlpHpFixedHeapCreate @ 0x140363028 (RtlpHpFixedHeapCreate.c)
+ *     IopAddPageRangeToPageMaps @ 0x14055270C (IopAddPageRangeToPageMaps.c)
+ *     MiPhysicalMemoryEverRemoved @ 0x14061C1B0 (MiPhysicalMemoryEverRemoved.c)
+ *     MiAddPartitionHugeRange @ 0x14061F754 (MiAddPartitionHugeRange.c)
+ *     MiMirrorAddPagesToBrownList @ 0x14062705C (MiMirrorAddPagesToBrownList.c)
+ *     MiMarkSystemVaAllocated @ 0x140637800 (MiMarkSystemVaAllocated.c)
+ *     MiAddRangeToPartitionTree @ 0x14065906C (MiAddRangeToPartitionTree.c)
  *     MiObtainRelocationBits @ 0x1406AAE04 (MiObtainRelocationBits.c)
- *     MiCopyToCfgBitMap @ 0x1406B1380 (MiCopyToCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406B19D0 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiSetVadBits @ 0x1406FAA20 (MiSetVadBits.c)
- *     MiFreeInitializationCode @ 0x140703AFC (MiFreeInitializationCode.c)
- *     MiActOnMirrorBitmap @ 0x140A2EFF8 (MiActOnMirrorBitmap.c)
- *     MiMarkRetpolineBits @ 0x140A34480 (MiMarkRetpolineBits.c)
- *     MiIdentifyImageDiscardablePages @ 0x140A37674 (MiIdentifyImageDiscardablePages.c)
- *     MiIdentifyPatchImageDataPages @ 0x140A3777C (MiIdentifyPatchImageDataPages.c)
- *     MiPatchDataPagesCallback @ 0x140A3A730 (MiPatchDataPagesCallback.c)
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A9BF90 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
- *     IopLiveDumpPopulateBitmapForDump @ 0x140A9C160 (IopLiveDumpPopulateBitmapForDump.c)
+ *     MiCopyToCfgBitMap @ 0x1406B13B0 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406B1A00 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiSetVadBits @ 0x1406FAC30 (MiSetVadBits.c)
+ *     MiFreeInitializationCode @ 0x140703D0C (MiFreeInitializationCode.c)
+ *     MiActOnMirrorBitmap @ 0x140A2F2A8 (MiActOnMirrorBitmap.c)
+ *     MiMarkRetpolineBits @ 0x140A34730 (MiMarkRetpolineBits.c)
+ *     MiIdentifyImageDiscardablePages @ 0x140A37924 (MiIdentifyImageDiscardablePages.c)
+ *     MiIdentifyPatchImageDataPages @ 0x140A37A2C (MiIdentifyPatchImageDataPages.c)
+ *     MiPatchDataPagesCallback @ 0x140A3A9E0 (MiPatchDataPagesCallback.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A9BE00 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140A9BFD0 (IopLiveDumpPopulateBitmapForDump.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall RtlSetBitsEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -41,14 +41,14 @@ void __fastcall RtlSetBitsEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a
     v6 = a3;
     if ( v4 + a3 <= 8 )
     {
-      v7 = byte_140018F88[a3] << v4;
+      v7 = byte_140018F80[a3] << v4;
 LABEL_4:
       *v5 |= v7;
       return;
     }
     if ( (_DWORD)v4 )
     {
-      *v5++ |= byte_140016E88[v4];
+      *v5++ |= byte_140016E78[v4];
       v6 = a3 - (unsigned int)(8 - v4);
     }
     if ( v6 > 8 )
@@ -59,7 +59,7 @@ LABEL_4:
     }
     if ( v6 )
     {
-      v7 = byte_140018F88[v6];
+      v7 = byte_140018F80[v6];
       goto LABEL_4;
     }
   }

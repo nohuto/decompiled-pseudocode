@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpWriteEventLog @ 0x14058B744
+ * XREFs of HvlpWriteEventLog @ 0x140588A34
  * Callers:
- *     HvlPhase2Initialize @ 0x140582B80 (HvlPhase2Initialize.c)
- *     HvlpCheckTscSync @ 0x14058B060 (HvlpCheckTscSync.c)
- *     HvlpLogGuestStateScrubbingStatus @ 0x14058B1EC (HvlpLogGuestStateScrubbingStatus.c)
- *     HvlpLogIommuInitStatus @ 0x14058B484 (HvlpLogIommuInitStatus.c)
- *     HvlpLogProcessorStartupFailure @ 0x14058B67C (HvlpLogProcessorStartupFailure.c)
+ *     HvlPhase2Initialize @ 0x14057FF00 (HvlPhase2Initialize.c)
+ *     HvlpCheckTscSync @ 0x140588350 (HvlpCheckTscSync.c)
+ *     HvlpLogGuestStateScrubbingStatus @ 0x1405884DC (HvlpLogGuestStateScrubbingStatus.c)
+ *     HvlpLogIommuInitStatus @ 0x140588774 (HvlpLogIommuInitStatus.c)
+ *     HvlpLogProcessorStartupFailure @ 0x14058896C (HvlpLogProcessorStartupFailure.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
  */
 
 NTSTATUS __fastcall HvlpWriteEventLog(

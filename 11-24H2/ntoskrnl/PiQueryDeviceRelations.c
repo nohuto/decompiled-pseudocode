@@ -1,18 +1,18 @@
 /*
- * XREFs of PiQueryDeviceRelations @ 0x140A3E9EC
+ * XREFs of PiQueryDeviceRelations @ 0x140A3435C
  * Callers:
- *     PiControlQueryDeviceRelations @ 0x140A3E880 (PiControlQueryDeviceRelations.c)
+ *     PiControlQueryDeviceRelations @ 0x140A341F0 (PiControlQueryDeviceRelations.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpQueryDeviceRelations @ 0x1408BB608 (PnpQueryDeviceRelations.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BDDF0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpQueryDeviceRelations @ 0x1408B8FB8 (PnpQueryDeviceRelations.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BB740 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryDeviceRelations(__int64 a1, int a2, unsigned int *a3, _WORD *a4)
@@ -112,7 +112,7 @@ __int64 __fastcall PiQueryDeviceRelations(__int64 a1, int a2, unsigned int *a3, 
           v18 = (_QWORD *)*v18;
           ++v19;
         }
-        Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+        Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, 8LL * v19 + 16, 0x20207050u);
         P = Pool2;
         v21 = Pool2;
         if ( !Pool2 )

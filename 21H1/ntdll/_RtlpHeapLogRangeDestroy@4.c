@@ -9,17 +9,17 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __thiscall RtlpHeapLogRangeDestroy(void *this)
+NTSTATUS __thiscall RtlpHeapLogRangeDestroy(void *this)
 {
   int v1; // eax
-  _DWORD v3[11]; // [esp+8h] [ebp-30h] BYREF
+  _DWORD Fields[11]; // [esp+8h] [ebp-30h] BYREF
 
-  memset(v3, 0, 0x28u);
-  v3[8] = this;
-  HIWORD(v3[1]) = 616;
+  memset(Fields, 0, 0x28u);
+  Fields[8] = this;
+  HIWORD(Fields[1]) = 616;
   if ( RtlGetCurrentServiceSessionId() )
     v1 = (int)NtCurrentPeb()->SharedData + 558;
   else
     v1 = 2147353480;
-  return NtTraceEvent(*(unsigned __int8 *)v1, 132098, 8, (int)v3);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v1, 0x20402u, 8u, Fields);
 }

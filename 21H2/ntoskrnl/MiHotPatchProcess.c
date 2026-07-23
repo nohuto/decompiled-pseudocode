@@ -1,18 +1,18 @@
 /*
- * XREFs of MiHotPatchProcess @ 0x1408CA658
+ * XREFs of MiHotPatchProcess @ 0x1408CA7B8
  * Callers:
- *     MiHotPatchAllProcesses @ 0x1408CA278 (MiHotPatchAllProcesses.c)
+ *     MiHotPatchAllProcesses @ 0x1408CA3D8 (MiHotPatchAllProcesses.c)
  * Callees:
- *     MiUnlockVadShared @ 0x14025B10C (MiUnlockVadShared.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
- *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x14025B344 (MiLockVadShared.c)
- *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     MiUnlockVadShared @ 0x14027C67C (MiUnlockVadShared.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14027C780 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027C7C0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadDeleted @ 0x14027C8A0 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14027C8B4 (MiLockVadShared.c)
+ *     MiReferenceVad @ 0x14027C900 (MiReferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403534E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiHotPatchImage @ 0x1408CA494 (MiHotPatchImage.c)
  */
 
 __int64 __fastcall MiHotPatchProcess(struct _EX_RUNDOWN_REF *a1, int a2, int a3)
@@ -36,7 +36,7 @@ __int64 __fastcall MiHotPatchProcess(struct _EX_RUNDOWN_REF *a1, int a2, int a3)
   _QWORD *v23; // rcx
 
   v3 = a1 + 139;
-  if ( !ExAcquireRundownProtection_0(a1 + 139) )
+  if ( !ExAcquireRundownProtection(a1 + 139) )
     return 3221225738LL;
   CurrentThread = KeGetCurrentThread();
   LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
@@ -66,7 +66,7 @@ LABEL_4:
         MiReferenceVad(i);
         MiUnlockVadShared((__int64)CurrentThread, i);
         UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
-        MiHotPatchImage(v18, v17, i, a2, a3, v16, 0);
+        MiHotPatchImage(v18, v17, (_RTL_BALANCED_NODE *)i, a2, a3, v16, 0);
         LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
         MiLockVadShared((__int64)CurrentThread, i);
         v19 = MiVadDeleted(i);
@@ -99,6 +99,6 @@ LABEL_4:
     }
   }
   UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
-  ExReleaseRundownProtection_0(v3);
+  ExReleaseRundownProtection(v3);
   return 0LL;
 }

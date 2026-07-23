@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmGetDevicePanelMappedPropertyKeys @ 0x1409784BC
+ * XREFs of _CmGetDevicePanelMappedPropertyKeys @ 0x14097869C
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x1407AFBE0 (_PnpDispatchDevicePanel.c)
- *     _CmDeleteDevicePanelWorker @ 0x1409781E0 (_CmDeleteDevicePanelWorker.c)
+ *     _PnpDispatchDevicePanel @ 0x1407AFD80 (_PnpDispatchDevicePanel.c)
+ *     _CmDeleteDevicePanelWorker @ 0x1409783C0 (_CmDeleteDevicePanelWorker.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ __int64 __fastcall CmGetDevicePanelMappedPropertyKeys(
   unsigned int v13; // ebx
   unsigned int v14; // ecx
 
-  v7 = &off_140009D80;
+  v7 = &off_140009D90;
   v8 = 0;
   *a7 = 0;
   v9 = 0LL;

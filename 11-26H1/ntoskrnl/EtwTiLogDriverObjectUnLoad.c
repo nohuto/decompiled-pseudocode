@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTiLogDriverObjectUnLoad @ 0x140B2BA00
+ * XREFs of EtwTiLogDriverObjectUnLoad @ 0x140B2DA80
  * Callers:
- *     IoDeleteDriver @ 0x1407963D0 (IoDeleteDriver.c)
- *     IopUnloadDriver @ 0x140B2ADF8 (IopUnloadDriver.c)
+ *     IoDeleteDriver @ 0x140798F00 (IoDeleteDriver.c)
+ *     IopUnloadDriver @ 0x140B2CE78 (IopUnloadDriver.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTiLogDriverObjectUnLoad(unsigned __int16 *a1)
@@ -22,10 +22,10 @@ BOOLEAN __fastcall EtwTiLogDriverObjectUnLoad(unsigned __int16 *a1)
   int v9; // [rsp+50h] [rbp-18h]
   int v10; // [rsp+54h] [rbp-14h]
 
-  result = EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, &THREATINT_DRIVER_OBJECT_UNLOAD);
+  result = EtwEventEnabled(EtwThreatIntProvRegHandle, &THREATINT_DRIVER_OBJECT_UNLOAD);
   if ( result )
   {
-    result = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x40000000uLL);
+    result = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x40000000uLL);
     if ( result )
     {
       if ( a1 && *a1 )
@@ -46,12 +46,7 @@ BOOLEAN __fastcall EtwTiLogDriverObjectUnLoad(unsigned __int16 *a1)
       v9 = v4;
       *(_QWORD *)&UserData.Size = 2LL;
       v10 = 0;
-      return EtwWrite(
-               *(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount,
-               &THREATINT_DRIVER_OBJECT_UNLOAD,
-               0LL,
-               2u,
-               &UserData);
+      return EtwWrite(EtwThreatIntProvRegHandle, &THREATINT_DRIVER_OBJECT_UNLOAD, 0LL, 2u, &UserData);
     }
   }
   return result;

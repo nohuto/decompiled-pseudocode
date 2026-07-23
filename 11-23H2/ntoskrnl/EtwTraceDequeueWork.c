@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceDequeueWork @ 0x1405FCA60
+ * XREFs of EtwTraceDequeueWork @ 0x1405FCFD0
  * Callers:
- *     KeRemoveQueueEx @ 0x1402AA040 (KeRemoveQueueEx.c)
+ *     KeRemoveQueueEx @ 0x1402AA2D0 (KeRemoveQueueEx.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceDequeueWork(__int64 a1, __int64 a2, int a3)

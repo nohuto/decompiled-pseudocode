@@ -1,14 +1,14 @@
 /*
- * XREFs of ObGetObjectSecurity @ 0x140905190
+ * XREFs of ObGetObjectSecurity @ 0x140935120
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x140260160 (SepSetProcessTrustLabelAceForToken.c)
- *     DifObGetObjectSecurityWrapper @ 0x1406920C0 (DifObGetObjectSecurityWrapper.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x140406340 (SepSetProcessTrustLabelAceForToken.c)
+ *     DifObGetObjectSecurityWrapper @ 0x140695CA0 (DifObGetObjectSecurityWrapper.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x140905024 (ObpReferenceSecurityDescriptorSlow.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140934FB4 (ObpReferenceSecurityDescriptorSlow.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall ObGetObjectSecurity(
@@ -28,7 +28,7 @@ NTSTATUS __stdcall ObGetObjectSecurity(
   int v16; // [rsp+90h] [rbp+8h]
 
   v6 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
-  if ( *(_UNKNOWN **)(v6 + 152) != &SeDefaultObjectMethod )
+  if ( *(__int64 (__fastcall **)(__int64, int, DWORD *, struct _KLOCK_ENTRIES *, ULONG *, __int64 *, int, __int64))(v6 + 152) != SeDefaultObjectMethod )
   {
     v16 = ObpDefaultSecurityDescriptorLength;
     Pool2 = (void *)ExAllocatePool2(0x100uLL);
@@ -81,7 +81,7 @@ NTSTATUS __stdcall ObGetObjectSecurity(
   v10 = (void *)(v7 & 0xFFFFFFFFFFFFFFF0uLL);
   v11 = (struct _KLOCK_ENTRIES *)(v8 & 0xF);
   if ( (unsigned int)v11 <= 1 && v10 )
-    v10 = (void *)ObpReferenceSecurityDescriptorSlow((__int64)Object - 48, (int)v11, (unsigned __int64)v10, v11);
+    v10 = (void *)ObpReferenceSecurityDescriptorSlow((__int64)Object - 48, (int)v11, (__int64)v10, v11);
   *SecurityDescriptor = v10;
   *MemoryAllocated = 0;
   if ( !*SecurityDescriptor && ((*(_BYTE *)(v6 + 66) & 8) != 0 || (*((char *)Object - 22) & 2) != 0) )

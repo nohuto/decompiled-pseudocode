@@ -12,20 +12,20 @@
 __int64 __fastcall WbMoveHeapExecutedBlockToBackOfLRU(__int64 a1, __int64 *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _BYTE *v5; // rax
-  _BYTE *v6; // rsi
+  PRTL_BALANCED_NODE v5; // rax
+  PRTL_BALANCED_NODE v6; // rsi
   __int64 *v7; // rcx
   __int64 **v8; // rax
   __int64 **v9; // rcx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v5 = (_BYTE *)KeAbPreAcquire(a1 + 80, 0LL, 0LL);
+  v5 = KeAbPreAcquire(a1 + 80, 0LL, 0);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 80), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v5, a1 + 80);
   if ( v6 )
-    v6[26] |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   if ( (a2[2] & 1) != 0 )
   {
     v7 = (__int64 *)*a2;

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeUnmaskInterrupt @ 0x140423A04
+ * XREFs of KeUnmaskInterrupt @ 0x140430AF4
  * Callers:
- *     IopUnmaskInterrupt @ 0x1404239DC (IopUnmaskInterrupt.c)
+ *     IopUnmaskInterrupt @ 0x140430ACC (IopUnmaskInterrupt.c)
  * Callees:
- *     KiUnmaskSecondaryInterruptInternal @ 0x140423578 (KiUnmaskSecondaryInterruptInternal.c)
- *     KiUnmaskInterruptInternal @ 0x14042370C (KiUnmaskInterruptInternal.c)
- *     KiIsInterruptTypeSecondary @ 0x140424BA4 (KiIsInterruptTypeSecondary.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x140430668 (KiUnmaskSecondaryInterruptInternal.c)
+ *     KiUnmaskInterruptInternal @ 0x1404307FC (KiUnmaskInterruptInternal.c)
+ *     KiIsInterruptTypeSecondary @ 0x140431C94 (KiIsInterruptTypeSecondary.c)
  */
 
 __int64 __fastcall KeUnmaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3)

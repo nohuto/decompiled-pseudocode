@@ -1,16 +1,17 @@
 /*
- * XREFs of RtlWakeAddressAll @ 0x1800664A0
+ * XREFs of RtlWakeAddressAll @ 0x180066490
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlWakeAddressAll(__int64 a1, __int64 a2)
+void __cdecl RtlWakeAddressAll(PVOID Address)
 {
-  signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
+  char v1; // dl
+  signed __int32 v2[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  _InterlockedOr(v3, 0);
-  LOBYTE(a2) = 1;
-  return RtlpWakeByAddress(a1, a2);
+  _InterlockedOr(v2, 0);
+  v1 = 1;
+  RtlpWakeByAddress(Address, v1);
 }

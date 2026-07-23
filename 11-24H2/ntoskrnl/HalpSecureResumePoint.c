@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpSecureResumePoint @ 0x1406A5FA0
+ * XREFs of HalpSecureResumePoint @ 0x1406A6FD0
  * Callers:
  *     <none>
  * Callees:

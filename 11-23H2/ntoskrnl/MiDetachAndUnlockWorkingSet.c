@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDetachAndUnlockWorkingSet @ 0x14033EF28
+ * XREFs of MiDetachAndUnlockWorkingSet @ 0x14033F1B8
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x14025B4A0 (MiTrimOrAgeWorkingSet.c)
- *     MiHandleForceTrimWorkingSets @ 0x140634AC0 (MiHandleForceTrimWorkingSets.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14025B730 (MiTrimOrAgeWorkingSet.c)
+ *     MiHandleForceTrimWorkingSets @ 0x140635010 (MiHandleForceTrimWorkingSets.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MiDetachSessionGlobal @ 0x14033EFBC (MiDetachSessionGlobal.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MiDetachSessionGlobal @ 0x14033F24C (MiDetachSessionGlobal.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiDetachAndUnlockWorkingSet(__int64 a1)

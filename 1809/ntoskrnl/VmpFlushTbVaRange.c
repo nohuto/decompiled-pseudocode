@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpFlushTbVaRange @ 0x14030C644
+ * XREFs of VmpFlushTbVaRange @ 0x14030C834
  * Callers:
- *     VmpFlushTb @ 0x14030C4CC (VmpFlushTb.c)
- *     VmpRemoveMemoryRange @ 0x14030D610 (VmpRemoveMemoryRange.c)
+ *     VmpFlushTb @ 0x14030C6BC (VmpFlushTb.c)
+ *     VmpRemoveMemoryRange @ 0x14030D800 (VmpRemoveMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x14030BF54 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpInvalidateOutstandingFaults @ 0x14030CA98 (VmpInvalidateOutstandingFaults.c)
- *     VmpProcessContextLockExclusive @ 0x14030D1AC (VmpProcessContextLockExclusive.c)
- *     HvlMapGpaPages @ 0x14032C010 (HvlMapGpaPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x14030C144 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpInvalidateOutstandingFaults @ 0x14030CC88 (VmpInvalidateOutstandingFaults.c)
+ *     VmpProcessContextLockExclusive @ 0x14030D39C (VmpProcessContextLockExclusive.c)
+ *     HvlMapGpaPages @ 0x14032C200 (HvlMapGpaPages.c)
  */
 
 unsigned __int64 __fastcall VmpFlushTbVaRange(

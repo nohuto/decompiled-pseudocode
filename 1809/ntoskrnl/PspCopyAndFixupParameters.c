@@ -1,10 +1,10 @@
 /*
- * XREFs of PspCopyAndFixupParameters @ 0x140678C24
+ * XREFs of PspCopyAndFixupParameters @ 0x140679DE4
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x140677F6C (PspSetupUserProcessAddressSpace.c)
+ *     PspSetupUserProcessAddressSpace @ 0x14067912C (PspSetupUserProcessAddressSpace.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ObDuplicateObject @ 0x1405D1B70 (ObDuplicateObject.c)
  */
 
 __int64 __fastcall PspCopyAndFixupParameters(ULONG_PTR a1, void **a2, __int64 a3)

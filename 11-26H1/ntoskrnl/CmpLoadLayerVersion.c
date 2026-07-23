@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLoadLayerVersion @ 0x140855900
+ * XREFs of CmpLoadLayerVersion @ 0x14085BC98
  * Callers:
- *     CmpLoadLayerVersions @ 0x140855D54 (CmpLoadLayerVersions.c)
+ *     CmpLoadLayerVersions @ 0x14085C0EC (CmpLoadLayerVersions.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpQueryLayerVersionString @ 0x14085631C (CmpQueryLayerVersionString.c)
- *     CmpQueryLayerVersionUlong @ 0x140856450 (CmpQueryLayerVersionUlong.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpQueryLayerVersionString @ 0x14085C6B4 (CmpQueryLayerVersionString.c)
+ *     CmpQueryLayerVersionUlong @ 0x14085C7E8 (CmpQueryLayerVersionUlong.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
  */
 
 NTSTATUS __fastcall CmpLoadLayerVersion(_DWORD *a1, void *a2, UNICODE_STRING *a3, int a4)
@@ -40,7 +40,7 @@ NTSTATUS __fastcall CmpLoadLayerVersion(_DWORD *a1, void *a2, UNICODE_STRING *a3
   HANDLE v30; // r8
   int v31; // eax
   HANDLE v32; // rcx
-  STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   HANDLE KeyHandle; // [rsp+B0h] [rbp+40h] BYREF
   int v36; // [rsp+B8h] [rbp+48h] BYREF

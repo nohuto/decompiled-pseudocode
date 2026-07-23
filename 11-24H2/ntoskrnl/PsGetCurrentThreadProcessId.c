@@ -1,19 +1,19 @@
 /*
- * XREFs of PsGetCurrentThreadProcessId @ 0x1404296F0
+ * XREFs of PsGetCurrentThreadProcessId @ 0x14041D840
  * Callers:
- *     PiSwQueuedCreateInfoCreate @ 0x140730E8C (PiSwQueuedCreateInfoCreate.c)
- *     PoShutdownBugCheck @ 0x140753440 (PoShutdownBugCheck.c)
- *     EtwpRegisterPrivateSession @ 0x1407AD42C (EtwpRegisterPrivateSession.c)
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
- *     EtwpNotifyGuid @ 0x140836EE4 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
- *     CmpCreateKeyBody @ 0x14083E100 (CmpCreateKeyBody.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     PiUEventHandleRegistration @ 0x14085BCBC (PiUEventHandleRegistration.c)
- *     SeAuditHandleCreation @ 0x1408F0F70 (SeAuditHandleCreation.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409F6160 (EtwpNotifyDisallowedGuidChange.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiDqTraceQueryCreate @ 0x1409F9FD4 (PiDqTraceQueryCreate.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x14072EE9C (PiSwQueuedCreateInfoCreate.c)
+ *     PoShutdownBugCheck @ 0x140751760 (PoShutdownBugCheck.c)
+ *     EtwpRegisterPrivateSession @ 0x1407AD880 (EtwpRegisterPrivateSession.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1408332EC (EtwpNotifyDisallowedGuidChange.c)
+ *     EtwpNotifyGuid @ 0x140834644 (EtwpNotifyGuid.c)
+ *     CmpCreateKeyBody @ 0x14083A700 (CmpCreateKeyBody.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     PiUEventHandleRegistration @ 0x140857A2C (PiUEventHandleRegistration.c)
+ *     SeAuditHandleCreation @ 0x140862770 (SeAuditHandleCreation.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiDqTraceQueryCreate @ 0x1409F2944 (PiDqTraceQueryCreate.c)
+ *     EtwpEnableGuid @ 0x140A3EA20 (EtwpEnableGuid.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
  *     <none>
  */

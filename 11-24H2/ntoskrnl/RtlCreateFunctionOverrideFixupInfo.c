@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlCreateFunctionOverrideFixupInfo @ 0x1409EB0E0
+ * XREFs of RtlCreateFunctionOverrideFixupInfo @ 0x14093F474
  * Callers:
- *     RtlApplyFunctionOverrideFixupsToImage @ 0x140787C90 (RtlApplyFunctionOverrideFixupsToImage.c)
- *     MiParseImageLoadConfig @ 0x1408F42B8 (MiParseImageLoadConfig.c)
+ *     RtlApplyFunctionOverrideFixupsToImage @ 0x140787BC0 (RtlApplyFunctionOverrideFixupsToImage.c)
+ *     MiParseImageLoadConfig @ 0x14093D160 (MiParseImageLoadConfig.c)
  * Callees:
- *     ??$copy@$$CBE$0?0E$0?0@gsl@@YAXV?$span@$$CBE$0?0@0@V?$span@E$0?0@0@@Z @ 0x140492648 (--$copy@$$CBE$0-0E$0-0@gsl@@YAXV-$span@$$CBE$0-0@0@V-$span@E$0-0@0@@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1404F8960 (-terminate@details@gsl@@YAXXZ.c)
- *     ?RtlpFindFunctionOverrideDvrtRecord@@YAJV?$span@$$CBE$0?0@gsl@@PEAV12@@Z @ 0x1409EB26C (-RtlpFindFunctionOverrideDvrtRecord@@YAJV-$span@$$CBE$0-0@gsl@@PEAV12@@Z.c)
- *     ?RtlpCreateFunctionOverrideFixupInfo@@YAJV?$span@$$CBE$0?0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@@Z @ 0x1409EB484 (-RtlpCreateFunctionOverrideFixupInfo@@YAJV-$span@$$CBE$0-0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAP.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ??$copy@$$CBE$0?0E$0?0@gsl@@YAXV?$span@$$CBE$0?0@0@V?$span@E$0?0@0@@Z @ 0x14048D4B8 (--$copy@$$CBE$0-0E$0-0@gsl@@YAXV-$span@$$CBE$0-0@0@V-$span@E$0-0@0@@Z.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6240 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?RtlpFindFunctionOverrideDvrtRecord@@YAJV?$span@$$CBE$0?0@gsl@@PEAV12@@Z @ 0x14093F600 (-RtlpFindFunctionOverrideDvrtRecord@@YAJV-$span@$$CBE$0-0@gsl@@PEAV12@@Z.c)
+ *     ?RtlpCreateFunctionOverrideFixupInfo@@YAJV?$span@$$CBE$0?0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@@Z @ 0x14093F818 (-RtlpCreateFunctionOverrideFixupInfo@@YAJV-$span@$$CBE$0-0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAP.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlCreateFunctionOverrideFixupInfo(
         gsl::details *a1,
         __int64 a2,
-        __int64 a3,
+        unsigned int a3,
         __int64 a4,
         int a5,
         __int64 a6,
@@ -44,11 +44,11 @@ __int64 __fastcall RtlCreateFunctionOverrideFixupInfo(
     goto LABEL_14;
   *a7 = 0LL;
   a1 = (gsl::details *)(*(unsigned int *)(a4 + 4) + 8LL);
-  a2 = (unsigned int)a3;
-  if ( v11 < (unsigned int)a3 || v11 - (unsigned int)a3 < (unsigned __int64)a1 )
+  a2 = a3;
+  if ( v11 < a3 || v11 - a3 < (unsigned __int64)a1 )
     goto LABEL_14;
   v17[0] = *(unsigned int *)(a4 + 4) + 8LL;
-  v17[1] = (char *)v9 + (unsigned int)a3;
+  v17[1] = (char *)v9 + a3;
   FunctionOverrideDvrtRecord = RtlpFindFunctionOverrideDvrtRecord(v17, &v18);
   FunctionOverrideFixupInfo = FunctionOverrideDvrtRecord;
   if ( FunctionOverrideDvrtRecord == -1073741275 || FunctionOverrideDvrtRecord == -1073741637 )
@@ -60,7 +60,7 @@ __int64 __fastcall RtlCreateFunctionOverrideFixupInfo(
     if ( FunctionOverrideDvrtRecord < 0 )
       goto LABEL_10;
     v14 = v18;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v18, 0x6F467452u);
     v10 = (void *)Pool2;
     v17[0] = Pool2;
     if ( Pool2 )
@@ -76,7 +76,7 @@ __int64 __fastcall RtlCreateFunctionOverrideFixupInfo(
         goto LABEL_10;
       }
 LABEL_14:
-      gsl::details::terminate(a1, a2, a3, a4);
+      gsl::details::terminate(a1, a2);
       __debugbreak();
     }
     FunctionOverrideFixupInfo = -1073741801;

@@ -11,7 +11,7 @@ struct _TEB *LdrFastFailInLoaderCallout()
   struct _TEB *result; // rax
 
   result = NtCurrentTeb();
-  if ( (HANDLE)qword_1801555B8 == result->ClientId.UniqueThread || dword_18015B398 < 2 )
+  if ( stru_1801555A8.OwningThread == result->ClientId.UniqueThread || dword_18015B398 < 2 )
     __fastfail(0x17u);
   return result;
 }

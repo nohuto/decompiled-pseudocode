@@ -132,8 +132,8 @@ __int64 __fastcall InitBootProcessor(unsigned int *a1)
   STRING Name; // [rsp+98h] [rbp-70h] BYREF
   char v66; // [rsp+A8h] [rbp-60h] BYREF
   _LDR_RESOURCE_INFO ResourceInfo; // [rsp+C0h] [rbp-48h] BYREF
-  char pszDest[256]; // [rsp+D8h] [rbp-30h] BYREF
-  char Source[64]; // [rsp+1D8h] [rbp+D0h] BYREF
+  CHAR pszDest[256]; // [rsp+D8h] [rbp-30h] BYREF
+  CHAR Source[64]; // [rsp+1D8h] [rbp+D0h] BYREF
 
   v1 = *a1;
   if ( *(_QWORD *)a1 != 10LL || a1[2] != 328 )
@@ -372,7 +372,7 @@ LABEL_62:
   }
   if ( HvlHypervisorConnected )
   {
-    HvlpSetupCachedHypercallPages((union _SLIST_HEADER *)KeGetCurrentPrcb());
+    HvlpSetupCachedHypercallPages((_SLIST_HEADER *)KeGetCurrentPrcb());
     HvlpInitializePowerStatistics();
     if ( (HvlpRootFlags & 0x10) != 0 )
     {

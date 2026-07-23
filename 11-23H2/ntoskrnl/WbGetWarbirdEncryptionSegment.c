@@ -1,17 +1,17 @@
 /*
- * XREFs of WbGetWarbirdEncryptionSegment @ 0x1407D2410
+ * XREFs of WbGetWarbirdEncryptionSegment @ 0x1407D26E0
  * Callers:
- *     WbGetInitializedEncryptionSegment @ 0x1407D2280 (WbGetInitializedEncryptionSegment.c)
+ *     WbGetInitializedEncryptionSegment @ 0x1407D2550 (WbGetInitializedEncryptionSegment.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     sub_1407D20A4 @ 0x1407D20A4 (sub_1407D20A4.c)
- *     WbAddWarbirdEncryptionSegment @ 0x1407D2138 (WbAddWarbirdEncryptionSegment.c)
- *     sub_1407D2580 @ 0x1407D2580 (sub_1407D2580.c)
- *     sub_1407D25B4 @ 0x1407D25B4 (sub_1407D25B4.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     sub_1407D2374 @ 0x1407D2374 (sub_1407D2374.c)
+ *     WbAddWarbirdEncryptionSegment @ 0x1407D2408 (WbAddWarbirdEncryptionSegment.c)
+ *     sub_1407D2850 @ 0x1407D2850 (sub_1407D2850.c)
+ *     sub_1407D2884 @ 0x1407D2884 (sub_1407D2884.c)
  */
 
 __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64 *a3)
@@ -39,7 +39,7 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
     ExfAcquirePushLockSharedEx(v4, 0LL, v8, (__int64)v4);
   if ( v8 )
     *(_BYTE *)(v8 + 18) = 1;
-  v9 = sub_1407D25B4(a1, a2, &v18, &v17);
+  v9 = sub_1407D2884(a1, a2, &v18, &v17);
   if ( _InterlockedCompareExchange64(v4, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v4);
   KeAbPostRelease((ULONG_PTR)v4);
@@ -49,7 +49,7 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
     KiCheckForKernelApcDelivery();
   if ( v9 == -1073741198 )
   {
-    v12 = sub_1407D20A4(a2, &v18);
+    v12 = sub_1407D2374(a2, &v18);
     v13 = v18;
     v9 = v12;
     if ( v12 < 0 )
@@ -60,7 +60,7 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
     v14 = v16;
     if ( v16 )
     {
-      sub_1407D2580(v13);
+      sub_1407D2850(v13);
       v13 = v14;
     }
   }
@@ -76,7 +76,7 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
     v13 = 0LL;
   }
 LABEL_17:
-  sub_1407D2580(v13);
-  sub_1407D2580(v16);
+  sub_1407D2850(v13);
+  sub_1407D2850(v16);
   return (unsigned int)v9;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceLPIState @ 0x1404FBEFC
+ * XREFs of PpmEventTraceLPIState @ 0x1404F5448
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PpmEventTraceLPIState()
@@ -18,7 +18,7 @@ void PpmEventTraceLPIState()
 
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, &PPM_ETW_LPI_RUNDOWN) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_LPI_RUNDOWN) )
     {
       v0 = PpmParkLpiCap;
       v1 = PpmParkLpiEngaged;
@@ -26,15 +26,7 @@ void PpmEventTraceLPIState()
       v3 = &v1;
       *(_QWORD *)&UserData.Size = 4LL;
       v4 = 4LL;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_LPI_RUNDOWN,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        2u,
-        &UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_LPI_RUNDOWN, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
 }

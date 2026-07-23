@@ -1,13 +1,13 @@
 /*
- * XREFs of KeCheckStackAndTargetAddress @ 0x1402B2030
+ * XREFs of KeCheckStackAndTargetAddress @ 0x1402301E0
  * Callers:
- *     __C_specific_handler @ 0x1403D0490 (__C_specific_handler.c)
- *     longjmp @ 0x1403D0670 (longjmp.c)
- *     RtlRestoreContext @ 0x140407D00 (RtlRestoreContext.c)
- *     RcFrameConsolidation @ 0x140407FD0 (RcFrameConsolidation.c)
+ *     __C_specific_handler @ 0x1403D0600 (__C_specific_handler.c)
+ *     longjmp @ 0x1403D07E0 (longjmp.c)
+ *     RtlRestoreContext @ 0x140407EE0 (RtlRestoreContext.c)
+ *     RcFrameConsolidation @ 0x1404081B0 (RcFrameConsolidation.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x1403504A0 (KeQueryCurrentStackInformationEx.c)
- *     _guard_icall_bugcheck @ 0x140408500 (_guard_icall_bugcheck.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14035B1F0 (KeQueryCurrentStackInformationEx.c)
+ *     _guard_icall_bugcheck @ 0x1404086E0 (_guard_icall_bugcheck.c)
  */
 
 __int64 __fastcall KeCheckStackAndTargetAddress(signed __int64 BugCheckParameter4, unsigned __int64 a2)

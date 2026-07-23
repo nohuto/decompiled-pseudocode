@@ -22,7 +22,7 @@ __int64 *__fastcall PspGetScpCfgFunctions(__int64 a1)
   v3 = PspSystemDlls[0][4];
   v8 = 0LL;
   v9 = 0LL;
-  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, (MEMORY_INFORMATION_CLASS)14, &v8, 0x18uLL, 0LL) == -1073741637 )
+  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, MaxMemoryInfoClass, &v8, 0x18uLL, 0LL) == -1073741637 )
     return 0LL;
   if ( !v9 )
     return 0LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFastReadLeafPte @ 0x140316D70
+ * XREFs of MiFastReadLeafPte @ 0x140318DA0
  * Callers:
- *     MiMakeHyperRangeAccessible @ 0x140316870 (MiMakeHyperRangeAccessible.c)
+ *     MiMakeHyperRangeAccessible @ 0x1403188A0 (MiMakeHyperRangeAccessible.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiFastReadLeafPte(unsigned __int64 a1, __int64 *a2)

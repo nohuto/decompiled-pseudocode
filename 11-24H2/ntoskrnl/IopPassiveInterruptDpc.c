@@ -1,15 +1,15 @@
 /*
- * XREFs of IopPassiveInterruptDpc @ 0x1403BCD90
+ * XREFs of IopPassiveInterruptDpc @ 0x140456570
  * Callers:
  *     <none>
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiWakeQueueWaiter @ 0x140324B20 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x1403BE270 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1403BE4C8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1403BE4F4 (EtwTraceEnqueueWork.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiWakeQueueWaiter @ 0x1402CD6B0 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x1403ACF00 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1403AD158 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1403AD184 (EtwTraceEnqueueWork.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall IopPassiveInterruptDpc(
@@ -21,10 +21,10 @@ void __fastcall IopPassiveInterruptDpc(
   struct _LIST_ENTRY *v4; // rbx
   unsigned __int8 CurrentIrql; // bp
   struct _KPRCB *CurrentPrcb; // rdi
-  _KTHREAD *CurrentThread; // rsi
+  __int64 CurrentThread; // rsi
   LONG v8; // ecx
   struct _LIST_ENTRY *Blink; // rax
-  __int64 v10; // r8
+  char IsThreadRunning; // al
 
   v4 = (struct _LIST_ENTRY *)(DeferredContext + 72);
   CurrentIrql = KeGetCurrentIrql();
@@ -35,16 +35,17 @@ void __fastcall IopPassiveInterruptDpc(
     KiRaiseIrqlProcessIrqlFlags(Dpc, 2LL);
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  CurrentThread = CurrentPrcb->CurrentThread;
+  CurrentThread = (__int64)CurrentPrcb->CurrentThread;
   if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
   {
-    LOBYTE(v10) = KeIsThreadRunning(CurrentPrcb->CurrentThread);
-    EtwTraceEnqueueWork(CurrentThread, v4, v10);
+    IsThreadRunning = KeIsThreadRunning((__int64)CurrentPrcb->CurrentThread);
+    EtwTraceEnqueueWork(CurrentThread, (__int64)v4, IsThreadRunning);
   }
   KiAcquireKobjectLockSafe(&PassiveInterruptRealtimeWorkQueue.Header.Lock);
   if ( PassiveInterruptRealtimeWorkQueue.Header.WaitListHead.Flink == &PassiveInterruptRealtimeWorkQueue.Header.WaitListHead
     || PassiveInterruptRealtimeWorkQueue.CurrentCount >= PassiveInterruptRealtimeWorkQueue.MaximumCount
-    || (struct _KQUEUE *)CurrentThread->Queue == &PassiveInterruptRealtimeWorkQueue && CurrentThread->WaitReason == 15
+    || *(struct _KQUEUE **)(CurrentThread + 232) == &PassiveInterruptRealtimeWorkQueue
+    && *(_BYTE *)(CurrentThread + 643) == 15
     || !KiWakeQueueWaiter((__int64)CurrentPrcb, (__int64)&PassiveInterruptRealtimeWorkQueue, (__int64)v4) )
   {
     v8 = PassiveInterruptRealtimeWorkQueue.Header.SignalState++;
@@ -58,7 +59,7 @@ void __fastcall IopPassiveInterruptDpc(
     if ( !v8
       && PassiveInterruptRealtimeWorkQueue.Header.WaitListHead.Flink != &PassiveInterruptRealtimeWorkQueue.Header.WaitListHead )
     {
-      KiWakeOtherQueueWaiters(CurrentPrcb, &PassiveInterruptRealtimeWorkQueue);
+      KiWakeOtherQueueWaiters((__int64)CurrentPrcb, (__int64)&PassiveInterruptRealtimeWorkQueue);
     }
   }
   else

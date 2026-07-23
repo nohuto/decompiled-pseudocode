@@ -11,7 +11,7 @@
 
 char __fastcall HvlGetCoverageInfo(_OWORD *a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
-  union _SLIST_HEADER *v4; // rbp
+  _SLIST_HEADER *v4; // rbp
   char v5; // r13
   unsigned __int8 v6; // si
   _DWORD *HypercallCachedPages; // rbx
@@ -21,7 +21,7 @@ char __fastcall HvlGetCoverageInfo(_OWORD *a1, __int64 a2, _DWORD *a3, _DWORD *a
   char *v11; // rdi
   PHYSICAL_ADDRESS PhysicalAddress; // r14
   PSLIST_ENTRY v13; // rax
-  struct _SLIST_ENTRY *v14; // r15
+  _SLIST_ENTRY *v14; // r15
   int v15; // eax
   char v16; // di
   __int64 v17; // rax
@@ -32,10 +32,10 @@ char __fastcall HvlGetCoverageInfo(_OWORD *a1, __int64 a2, _DWORD *a3, _DWORD *a
   char v23; // [rsp+28h] [rbp-960h]
   PHYSICAL_ADDRESS Next; // [rsp+30h] [rbp-958h]
   PSLIST_ENTRY ListEntry; // [rsp+38h] [rbp-950h]
-  union _SLIST_HEADER *v26; // [rsp+48h] [rbp-940h]
-  struct _SLIST_ENTRY *v27; // [rsp+50h] [rbp-938h]
-  union _SLIST_HEADER *v28; // [rsp+68h] [rbp-920h]
-  struct _SLIST_ENTRY *v29; // [rsp+70h] [rbp-918h]
+  _SLIST_HEADER *v26; // [rsp+48h] [rbp-940h]
+  _SLIST_ENTRY *v27; // [rsp+50h] [rbp-938h]
+  _SLIST_HEADER *v28; // [rsp+68h] [rbp-920h]
+  _SLIST_ENTRY *v29; // [rsp+70h] [rbp-918h]
   _BYTE v33[7]; // [rsp+98h] [rbp-8F0h] BYREF
   _BYTE v34[73]; // [rsp+DFh] [rbp-8A9h] BYREF
   _BYTE v35[7]; // [rsp+128h] [rbp-860h] BYREF
@@ -54,7 +54,7 @@ char __fastcall HvlGetCoverageInfo(_OWORD *a1, __int64 a2, _DWORD *a3, _DWORD *a
       v6 = (unsigned __int8)CurrentPrcb;
       Next = (PHYSICAL_ADDRESS)v9[1].Next;
       v22 = 1;
-      v28 = (union _SLIST_HEADER *)CurrentPrcb;
+      v28 = (_SLIST_HEADER *)CurrentPrcb;
     }
     else
     {
@@ -86,7 +86,7 @@ char __fastcall HvlGetCoverageInfo(_OWORD *a1, __int64 a2, _DWORD *a3, _DWORD *a
   }
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    v4 = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    v4 = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v13 = RtlpInterlockedPopEntrySList(v4 + 1535);
     v11 = (char *)v13;
     if ( v13 )

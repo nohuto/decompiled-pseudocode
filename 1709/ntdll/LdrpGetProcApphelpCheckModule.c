@@ -17,16 +17,16 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
 {
   unsigned int v1; // edi
   __int64 v3; // r8
-  int ShimEngineInterface; // ebx
+  int Dll; // ebx
   char v5; // al
   __int64 v6; // rdx
-  __int64 v8; // [rsp+40h] [rbp-C0h] BYREF
+  _DWORD *v8; // [rsp+40h] [rbp-C0h] BYREF
   int v9; // [rsp+48h] [rbp-B8h] BYREF
   const wchar_t *v10; // [rsp+50h] [rbp-B0h]
   int v11; // [rsp+60h] [rbp-A0h] BYREF
   _WORD *v12; // [rsp+68h] [rbp-98h]
   _WORD v13[128]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v14[15]; // [rsp+170h] [rbp+70h] BYREF
+  PWSTR Path[15]; // [rsp+170h] [rbp+70h] BYREF
   char v15; // [rsp+1ECh] [rbp+ECh]
 
   v1 = 0;
@@ -43,25 +43,25 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
       return (unsigned int)-1073741823;
     return v1;
   }
-  ShimEngineInterface = LdrpBuildSystem32FileName(&v11, (__int64)&v9);
-  if ( ShimEngineInterface >= 0 )
+  Dll = LdrpBuildSystem32FileName(&v11, (__int64)&v9);
+  if ( Dll >= 0 )
   {
-    LdrpInitializeDllPath(0LL, 16385LL, v14);
-    ShimEngineInterface = LdrpLoadDll((__int64)&v11, (int)v14, 0, 1, &v8);
+    LdrpInitializeDllPath(0LL, 16385LL, (__int64 *)Path);
+    Dll = LdrpLoadDll((__int64)&v11, (int)Path, 0, 1, (PVOID *)&v8);
     if ( v15 )
-      RtlReleasePath(v14[0]);
-    if ( ShimEngineInterface >= 0 )
+      RtlReleasePath(Path[0]);
+    if ( Dll >= 0 )
     {
-      *(_DWORD *)(v8 + 104) |= 0x100u;
-      g_pShimEngineModule = *(_QWORD *)(v8 + 48);
-      ShimEngineInterface = LdrpGetShimEngineInterface();
-      if ( ShimEngineInterface >= 0 )
+      v8[26] |= 0x100u;
+      g_pShimEngineModule = (PVOID)*((_QWORD *)v8 + 6);
+      Dll = LdrpGetShimEngineInterface();
+      if ( Dll >= 0 )
       {
-        ShimEngineInterface = 0;
+        Dll = 0;
         v6 = MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnApphelpCheckModuleProc, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
         *a1 = v6;
         if ( !v6 )
-          ShimEngineInterface = -1073741823;
+          Dll = -1073741823;
         goto LABEL_19;
       }
       v5 = LdrpDebugFlags;
@@ -73,7 +73,7 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
         "LdrpGetProcApphelpCheckModule",
         0,
         "Getting the shim engine exports failed with status 0x%08lx\n",
-        ShimEngineInterface);
+        Dll);
     }
     else
     {
@@ -87,7 +87,7 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
         0,
         "Loading the shim engine DLL \"%wZ\" failed with status 0x%08lx\n",
         &v11,
-        ShimEngineInterface);
+        Dll);
     }
     v5 = LdrpDebugFlags;
 LABEL_12:
@@ -96,6 +96,6 @@ LABEL_12:
   }
 LABEL_19:
   if ( v13 != v12 )
-    NtdllpFreeStringRoutine((unsigned __int64)v12);
-  return (unsigned int)ShimEngineInterface;
+    NtdllpFreeStringRoutine(v12);
+  return (unsigned int)Dll;
 }

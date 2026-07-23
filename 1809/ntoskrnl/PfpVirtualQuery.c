@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpVirtualQuery @ 0x140865078
+ * XREFs of PfpVirtualQuery @ 0x1408662D8
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14062AAF0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MmQueryVirtualMemory @ 0x1405EF910 (MmQueryVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfpVirtualQuery(__int64 a1, char a2, _DWORD *a3)

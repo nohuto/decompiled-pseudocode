@@ -1,22 +1,22 @@
 /*
- * XREFs of IopFreeCopyObjectsFromIrp @ 0x14026850C
+ * XREFs of IopFreeCopyObjectsFromIrp @ 0x14025F930
  * Callers:
- *     IopFreeIrpExtension @ 0x14031B360 (IopFreeIrpExtension.c)
+ *     IopFreeIrpExtension @ 0x1402C3EF0 (IopFreeIrpExtension.c)
  * Callees:
- *     IopUnlockAndFreeMdl @ 0x140268818 (IopUnlockAndFreeMdl.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x14025F988 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     IopUnlockAndFreeMdl @ 0x14025FCC8 (IopUnlockAndFreeMdl.c)
  */
 
-void __fastcall IopFreeCopyObjectsFromIrp(__int64 a1)
+__int64 __fastcall IopFreeCopyObjectsFromIrp(__int64 a1)
 {
-  __int64 v1; // rax
+  __int64 result; // rax
   struct _MDL *v3; // rcx
-  __int64 v4; // rbx
-  void *v5; // rcx
 
-  v1 = *(_QWORD *)(a1 + 200);
-  if ( *(char *)(a1 + 71) >= 0 && v1 && _bittest16((const signed __int16 *)(v1 + 2), 9u) && *(_QWORD *)(a1 + 112) )
+  result = *(_QWORD *)(a1 + 200);
+  if ( *(char *)(a1 + 71) >= 0
+    && result
+    && _bittest16((const signed __int16 *)(result + 2), 9u)
+    && *(_QWORD *)(a1 + 112) )
   {
     v3 = *(struct _MDL **)(a1 + 8);
     if ( v3 )
@@ -24,10 +24,7 @@ void __fastcall IopFreeCopyObjectsFromIrp(__int64 a1)
       IopUnlockAndFreeMdl(v3);
       *(_QWORD *)(a1 + 8) = 0LL;
     }
-    v4 = *(_QWORD *)(a1 + 112);
-    v5 = *(void **)(v4 - 16);
-    if ( v5 )
-      ObfDereferenceObjectWithTag(v5, 0x746C6644u);
-    ExFreePoolWithTag((PVOID)(v4 - 72), 0);
+    return IopFreeCopyObjectsFromDataBuffer(*(_QWORD *)(a1 + 112), 0LL);
   }
+  return result;
 }

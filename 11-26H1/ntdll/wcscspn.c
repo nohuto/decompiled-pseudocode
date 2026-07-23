@@ -1,9 +1,9 @@
 /*
- * XREFs of wcscspn @ 0x18012DA70
+ * XREFs of wcscspn @ 0x18012D7E0
  * Callers:
  *     <none>
  * Callees:
- *     wcschr @ 0x18012D9A0 (wcschr.c)
+ *     wcschr @ 0x18012D710 (wcschr.c)
  */
 
 size_t __cdecl wcscspn(const wchar_t *String, const wchar_t *Control)

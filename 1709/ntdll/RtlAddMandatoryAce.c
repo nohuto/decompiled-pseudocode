@@ -11,46 +11,52 @@
  *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlAddMandatoryAce(__int64 a1, unsigned int a2, int a3, __int64 a4, char a5, int a6)
+NTSTATUS __cdecl RtlAddMandatoryAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        PSID Sid,
+        UCHAR AceType,
+        ACCESS_MASK AccessMask)
 {
   int v10; // ecx
-  __int64 v11; // rdx
+  char *v11; // rdx
   unsigned __int16 v12; // r8
-  __int64 result; // rax
-  __int64 v14; // [rsp+20h] [rbp-38h] BYREF
+  NTSTATUS result; // eax
+  PVOID FirstFree; // [rsp+20h] [rbp-38h] BYREF
 
-  LODWORD(v14) = 0;
-  WORD2(v14) = 4096;
-  if ( !a1 )
-    return 3221225591LL;
-  if ( a5 != 17 )
-    return 3221225485LL;
-  if ( !RtlValidSid((_BYTE *)a4) )
-    return 3221225592LL;
-  v10 = *(_DWORD *)(a4 + 2) - v14;
+  LODWORD(FirstFree) = 0;
+  WORD2(FirstFree) = 4096;
+  if ( !Acl )
+    return -1073741705;
+  if ( AceType != 17 )
+    return -1073741811;
+  if ( !RtlValidSid(Sid) )
+    return -1073741704;
+  v10 = *(_DWORD *)((char *)Sid + 2) - (_DWORD)FirstFree;
   if ( !v10 )
-    v10 = *(unsigned __int16 *)(a4 + 6) - WORD2(v14);
+    v10 = *((unsigned __int16 *)Sid + 3) - WORD2(FirstFree);
   if ( v10 )
-    return 3221225485LL;
-  if ( *(_BYTE *)a1 > 4u || a2 > 4 )
-    return 3221225561LL;
-  if ( *(_BYTE *)a1 > (unsigned __int8)a2 )
-    LOBYTE(a2) = *(_BYTE *)a1;
-  if ( (a3 & 0xFFFFFFE0) != 0 || (a6 & 0xFFFFFFF8) != 0 )
-    return 3221225485LL;
-  if ( !RtlValidAcl(a1) || !RtlFirstFreeAce(a1, &v14) )
-    return 3221225591LL;
-  v11 = v14;
-  v12 = 4 * (*(unsigned __int8 *)(a4 + 1) + 4);
-  if ( !v14 || v14 + (unsigned __int64)v12 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
-    return 3221225625LL;
-  *(_WORD *)(v14 + 2) = v12;
-  *(_BYTE *)(v11 + 1) = a3;
-  *(_BYTE *)v11 = 17;
-  *(_DWORD *)(v11 + 4) = a6;
-  RtlCopySid(4 * (unsigned int)*(unsigned __int8 *)(a4 + 1) + 8, v11 + 8, a4);
-  ++*(_WORD *)(a1 + 4);
-  result = 0LL;
-  *(_BYTE *)a1 = a2;
+    return -1073741811;
+  if ( Acl->AclRevision > 4u || AceRevision > 4 )
+    return -1073741735;
+  if ( Acl->AclRevision > (unsigned __int8)AceRevision )
+    LOBYTE(AceRevision) = Acl->AclRevision;
+  if ( (AceFlags & 0xFFFFFFE0) != 0 || (AccessMask & 0xFFFFFFF8) != 0 )
+    return -1073741811;
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
+    return -1073741705;
+  v11 = (char *)FirstFree;
+  v12 = 4 * (*((unsigned __int8 *)Sid + 1) + 4);
+  if ( !FirstFree || (char *)FirstFree + v12 > (char *)Acl + Acl->AclSize )
+    return -1073741671;
+  *((_WORD *)FirstFree + 1) = v12;
+  v11[1] = AceFlags;
+  *v11 = 17;
+  *((_DWORD *)v11 + 1) = AccessMask;
+  RtlCopySid(4 * *((unsigned __int8 *)Sid + 1) + 8, v11 + 8, Sid);
+  ++Acl->AceCount;
+  result = 0;
+  Acl->AclRevision = AceRevision;
   return result;
 }

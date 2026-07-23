@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReferenceControlArea @ 0x1402882B8
+ * XREFs of MiReferenceControlArea @ 0x140288548
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140723350 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x140723550 (MiCreateImageOrDataSection.c)
  * Callees:
  *     MiControlAreaRequiresCharge @ 0x140214CC4 (MiControlAreaRequiresCharge.c)
  *     MiReferenceActiveControlArea @ 0x140219910 (MiReferenceActiveControlArea.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiValidateControlAreaPartition @ 0x1402A25F4 (MiValidateControlAreaPartition.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlReleaseFile @ 0x140723910 (FsRtlReleaseFile.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiValidateControlAreaPartition @ 0x1402A2884 (MiValidateControlAreaPartition.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402E41BC (MiReleaseControlAreaWaiters.c)
+ *     KeAbPreWait @ 0x1402FD500 (KeAbPreWait.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlReleaseFile @ 0x140723B10 (FsRtlReleaseFile.c)
  */
 
 __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
@@ -84,10 +84,13 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
       if ( v15 )
         *(_BYTE *)(v15 + 18) = 1;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v10 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v42 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
@@ -105,10 +108,10 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v9 + 72) )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v20 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v20 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v20 >= 2u )
       {
         v21 = KeGetCurrentPrcb();
         v22 = v21->SchedulerAssist;
@@ -126,10 +129,10 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
   if ( v11 < 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v24 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v24 >= 2u )
       {
         v25 = KeGetCurrentPrcb();
         v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
@@ -160,10 +163,10 @@ LABEL_55:
         if ( (v12 & 0x100000) != 0 && !(unsigned int)MiControlAreaRequiresCharge(v9, ((v12 & 0x200000) == 0) | 2u) )
         {
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v32 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v32 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v32 >= 2u )
             {
               v33 = KeGetCurrentPrcb();
               v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
@@ -180,10 +183,10 @@ LABEL_55:
       }
       active = MiReferenceActiveControlArea((_DWORD *)a1, v9);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v36 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v36 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v36 >= 2u )
         {
           v37 = KeGetCurrentPrcb();
           v38 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
@@ -212,10 +215,10 @@ LABEL_55:
     *(_QWORD *)&v44 = *(_QWORD *)(v9 + 80);
     *(_QWORD *)(v9 + 80) = &v44;
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));

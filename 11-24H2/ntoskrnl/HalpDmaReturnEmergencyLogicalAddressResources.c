@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x14053C948
+ * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x14053A1C0
  * Callers:
- *     HalPutScatterGatherListDmarThin @ 0x1403AD350 (HalPutScatterGatherListDmarThin.c)
- *     HalpDmaFreeLa @ 0x14053C600 (HalpDmaFreeLa.c)
+ *     HalPutScatterGatherListDmarThin @ 0x14039BB60 (HalPutScatterGatherListDmarThin.c)
+ *     HalpDmaFreeLa @ 0x140539E8C (HalpDmaFreeLa.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140392950 (HalpAllocateDmaResourcesInternal.c)
- *     HalpConstructScatterGatherListDmarThin @ 0x14045EE40 (HalpConstructScatterGatherListDmarThin.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14038C280 (HalpAllocateDmaResourcesInternal.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140453D00 (HalpConstructScatterGatherListDmarThin.c)
  */
 
 void __fastcall HalpDmaReturnEmergencyLogicalAddressResources(__int64 a1)
@@ -20,10 +20,7 @@ void __fastcall HalpDmaReturnEmergencyLogicalAddressResources(__int64 a1)
   _QWORD *v7; // rdx
   char v8; // si
   __int64 v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  int v13; // ecx
+  int v10; // ecx
 
   v1 = (KSPIN_LOCK *)(a1 + 568);
   v3 = 0LL;
@@ -48,10 +45,10 @@ void __fastcall HalpDmaReturnEmergencyLogicalAddressResources(__int64 a1)
   KeReleaseSpinLock(v1, v6);
   if ( !v8 )
   {
-    v13 = *(_DWORD *)(v3 + 16);
-    if ( v13 )
+    v10 = *(_DWORD *)(v3 + 16);
+    if ( v10 )
     {
-      if ( v13 != 1 )
+      if ( v10 != 1 )
         return;
     }
     else if ( *(_DWORD *)(a1 + 624) == 3 )
@@ -61,6 +58,6 @@ void __fastcall HalpDmaReturnEmergencyLogicalAddressResources(__int64 a1)
       HalpAllocateDmaResourcesInternal(a1, 1, 0LL);
       return;
     }
-    HalpConstructScatterGatherListDmarThin(v3, v10, v11, v12);
+    HalpConstructScatterGatherListDmarThin(v3);
   }
 }

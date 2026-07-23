@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiFillZeroVad @ 0x140363A60
+ * XREFs of EtwpTiFillZeroVad @ 0x140363C00
  * Callers:
- *     EtwpTiFillVadEventWrite @ 0x140368018 (EtwpTiFillVadEventWrite.c)
- *     EtwTiLogReadWriteVm @ 0x14076BE3C (EtwTiLogReadWriteVm.c)
- *     EtwTiLogProtectExecVm @ 0x1408A75EA (EtwTiLogProtectExecVm.c)
+ *     EtwpTiFillVadEventWrite @ 0x1403681B8 (EtwpTiFillVadEventWrite.c)
+ *     EtwTiLogReadWriteVm @ 0x14076C02C (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogProtectExecVm @ 0x1408A783A (EtwTiLogProtectExecVm.c)
  * Callees:
  *     <none>
  */
@@ -13,14 +13,14 @@ __int64 __fastcall EtwpTiFillZeroVad(_QWORD *a1)
   __int64 result; // rax
 
   a1[1] = 4LL;
-  *a1 = &qword_140015148;
+  *a1 = &qword_140015138;
   result = 7LL;
-  a1[2] = &qword_140015148;
-  a1[4] = &qword_140015148;
-  a1[6] = &qword_140015148;
-  a1[8] = &qword_140015148;
-  a1[10] = &qword_140015148;
-  a1[12] = &qword_140015148;
+  a1[2] = &qword_140015138;
+  a1[4] = &qword_140015138;
+  a1[6] = &qword_140015138;
+  a1[8] = &qword_140015138;
+  a1[10] = &qword_140015138;
+  a1[12] = &qword_140015138;
   a1[3] = 8LL;
   a1[5] = 4LL;
   a1[7] = 4LL;

@@ -4,8 +4,8 @@
  *     PipInitializeDriverDependentDLLs @ 0x140B3C8F8 (PipInitializeDriverDependentDLLs.c)
  *     PnpInitializeBootStartDriver @ 0x140B3DA00 (PnpInitializeBootStartDriver.c)
  * Callees:
- *     ExNotifyWithProcessing @ 0x14033BF60 (ExNotifyWithProcessing.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExNotifyWithProcessing @ 0x14033C1F0 (ExNotifyWithProcessing.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall PnpNotifyEarlyLaunchImageLoad(__int64 a1, __int64 a2)

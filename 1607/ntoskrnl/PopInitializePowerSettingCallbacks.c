@@ -3,7 +3,7 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x1403F2E38 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x1403F1CFC (PoRegisterPowerSettingCallback.c)
  *     PpmInfoRegisterCallbacks @ 0x1407B6678 (PpmInfoRegisterCallbacks.c)
  */
 

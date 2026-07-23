@@ -1,19 +1,19 @@
 /*
- * XREFs of KeUpdateUmsThreadState @ 0x1408BD75C
+ * XREFs of KeUpdateUmsThreadState @ 0x1408BD8BC
  * Callers:
- *     KiParkUmsThread @ 0x140525F20 (KiParkUmsThread.c)
- *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
- *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
- *     KiResumeUmsThread @ 0x1408BD870 (KiResumeUmsThread.c)
- *     KiSuspendUmsThread @ 0x1408BD8C8 (KiSuspendUmsThread.c)
- *     PspUmsInitThread @ 0x14090A74C (PspUmsInitThread.c)
- *     PspUmsUnInitThread @ 0x14090A89C (PspUmsUnInitThread.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14090E844 (PspDisassociateUmsThreadFromPrimary.c)
+ *     KiParkUmsThread @ 0x140526160 (KiParkUmsThread.c)
+ *     PspInsertThread @ 0x14063DE48 (PspInsertThread.c)
+ *     PspGetSetContextInternal @ 0x14063E6D0 (PspGetSetContextInternal.c)
+ *     KiResumeUmsThread @ 0x1408BD9D0 (KiResumeUmsThread.c)
+ *     KiSuspendUmsThread @ 0x1408BDA28 (KiSuspendUmsThread.c)
+ *     PspUmsInitThread @ 0x14090A8AC (PspUmsInitThread.c)
+ *     PspUmsUnInitThread @ 0x14090A9FC (PspUmsUnInitThread.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14090E9A4 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     KeRemoveUmsThreadCidOwnership @ 0x1408BD5BC (KeRemoveUmsThreadCidOwnership.c)
- *     KiUmsExceptionFilter @ 0x1408BDD64 (KiUmsExceptionFilter.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     KeRemoveUmsThreadCidOwnership @ 0x1408BD71C (KeRemoveUmsThreadCidOwnership.c)
+ *     KiUmsExceptionFilter @ 0x1408BDEC4 (KiUmsExceptionFilter.c)
  */
 
 __int64 __fastcall KeUpdateUmsThreadState(__int64 a1, int a2, char a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeRemoveQueueDpc_Entry @ 0x140C3CF60
+ * XREFs of VfMiscKeRemoveQueueDpc_Entry @ 0x140C42F70
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404FD268 (VfMiscCheckKernelAddress.c)
+ *     VfMiscCheckKernelAddress @ 0x1404F67A8 (VfMiscCheckKernelAddress.c)
  */
 
 __int64 __fastcall VfMiscKeRemoveQueueDpc_Entry(__int64 a1)

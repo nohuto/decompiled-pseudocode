@@ -12,20 +12,20 @@
  */
 
 __int64 __fastcall RtlpGetMUIRedirectedFilePathInternal(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        PCUNICODE_STRING Source,
+        PCWSTR a2,
+        PCWSTR a3,
         _DWORD *a4,
         char a5,
         void *a6)
 {
-  void *v10; // r12
+  wchar_t *v10; // r12
   unsigned __int64 v11; // rax
-  void *Heap; // rax
-  int appended; // ebx
+  wchar_t *Heap; // rax
+  NTSTATUS appended; // ebx
   unsigned __int64 v14; // r14
-  unsigned int v16; // [rsp+20h] [rbp-48h]
-  void *Src[2]; // [rsp+28h] [rbp-40h] BYREF
+  unsigned __int32 v16; // [rsp+20h] [rbp-48h]
+  _UNICODE_STRING Destination; // [rsp+28h] [rbp-40h] BYREF
 
   v10 = 0LL;
   if ( !a2 || !a3 )
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpGetMUIRedirectedFilePathInternal(
   v11 = -1LL;
   do
     ++v11;
-  while ( *(_WORD *)(a2 + 2 * v11) );
+  while ( a2[v11] );
   if ( v11 >= 0x104 )
   {
     appended = -1073741306;
@@ -44,43 +44,43 @@ LABEL_35:
     v16 = appended;
     goto LABEL_29;
   }
-  Heap = (void *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 520LL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
   v10 = Heap;
   if ( !Heap )
   {
     appended = -1073741801;
     goto LABEL_35;
   }
-  Src[0] = (void *)34078720;
-  Src[1] = Heap;
-  appended = RtlAppendUnicodeToString(Src, a2);
+  *(_QWORD *)&Destination.Length = 34078720LL;
+  Destination.Buffer = Heap;
+  appended = RtlAppendUnicodeToString(&Destination, a2);
   v16 = appended;
   if ( appended < 0 )
     goto LABEL_29;
-  appended = RtlAppendUnicodeToString(Src, L"\\");
+  appended = RtlAppendUnicodeToString(&Destination, L"\\");
   v16 = appended;
   if ( appended < 0 )
     goto LABEL_29;
-  appended = RtlAppendUnicodeStringToString(Src, a1);
+  appended = RtlAppendUnicodeStringToString(&Destination, Source);
   v16 = appended;
   if ( appended < 0 )
     goto LABEL_29;
-  appended = RtlAppendUnicodeToString(Src, L"\\");
+  appended = RtlAppendUnicodeToString(&Destination, L"\\");
   v16 = appended;
   if ( appended < 0 )
     goto LABEL_29;
-  appended = RtlAppendUnicodeToString(Src, a3);
+  appended = RtlAppendUnicodeToString(&Destination, a3);
   v16 = appended;
   if ( appended < 0 )
     goto LABEL_29;
   if ( a5 )
   {
-    appended = RtlAppendUnicodeToString(Src, L".mui");
+    appended = RtlAppendUnicodeToString(&Destination, L".mui");
     v16 = appended;
     if ( appended < 0 )
       goto LABEL_29;
   }
-  if ( !RtlDoesFileExists_UEx((__int64)Src[1], 1) )
+  if ( !RtlDoesFileExists_UEx(Destination.Buffer, 1) )
   {
     appended = -1073741809;
 LABEL_20:
@@ -89,10 +89,10 @@ LABEL_20:
   }
   if ( a6 )
   {
-    v14 = (unsigned __int64)LOWORD(Src[0]) >> 1;
+    v14 = (unsigned __int64)Destination.Length >> 1;
     if ( (unsigned int)*a4 >= v14 + 1 )
     {
-      memmove(a6, Src[1], LOWORD(Src[0]));
+      memmove(a6, Destination.Buffer, Destination.Length);
       *((_WORD *)a6 + v14) = 0;
       goto LABEL_29;
     }
@@ -101,11 +101,11 @@ LABEL_20:
     goto LABEL_20;
   }
   if ( a4 )
-    *a4 = (LOWORD(Src[0]) >> 1) + 1;
+    *a4 = (Destination.Length >> 1) + 1;
 LABEL_29:
   if ( v10 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v10);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
     return v16;
   }
   return (unsigned int)appended;

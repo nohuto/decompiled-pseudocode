@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpCheckMatchingText @ 0x1408833A0
+ * XREFs of SdbpCheckMatchingText @ 0x1408897A0
  * Callers:
  *     <none>
  * Callees:
- *     SdbpUmaInit_PCWSTR @ 0x1407149BC (SdbpUmaInit_PCWSTR.c)
- *     SdbpCheckMatchingTextEntry @ 0x140883550 (SdbpCheckMatchingTextEntry.c)
- *     SdbpGetMatchingTextAttributes @ 0x1408843F0 (SdbpGetMatchingTextAttributes.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     SdbpUmaInit_PCWSTR @ 0x1407196AC (SdbpUmaInit_PCWSTR.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140889950 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpGetMatchingTextAttributes @ 0x14088A7F0 (SdbpGetMatchingTextAttributes.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingText(_DWORD *a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6)

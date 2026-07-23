@@ -1,17 +1,17 @@
 /*
- * XREFs of CcCopyReadEx @ 0x140320720
+ * XREFs of CcCopyReadEx @ 0x14032B470
  * Callers:
- *     CcCopyRead @ 0x1406C1B70 (CcCopyRead.c)
- *     CcFastCopyRead @ 0x140867790 (CcFastCopyRead.c)
- *     FsRtlCopyRead @ 0x14088A610 (FsRtlCopyRead.c)
+ *     CcCopyRead @ 0x140620870 (CcCopyRead.c)
+ *     CcFastCopyRead @ 0x1408678F0 (CcFastCopyRead.c)
+ *     FsRtlCopyRead @ 0x14088A770 (FsRtlCopyRead.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14028A7B4 (IoDiskIoAttributionDereference.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     CcUpdateSharedCacheMapFlag @ 0x1402EE374 (CcUpdateSharedCacheMapFlag.c)
- *     IoReferenceIoAttributionFromThread @ 0x1402F88E8 (IoReferenceIoAttributionFromThread.c)
- *     CcScheduleReadAheadEx @ 0x1402F8E00 (CcScheduleReadAheadEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CcMapAndCopyFromCache @ 0x1406EF550 (CcMapAndCopyFromCache.c)
+ *     IoDiskIoAttributionDereference @ 0x140207954 (IoDiskIoAttributionDereference.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402F90C0 (CcUpdateSharedCacheMapFlag.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140303638 (IoReferenceIoAttributionFromThread.c)
+ *     CcScheduleReadAheadEx @ 0x140303B50 (CcScheduleReadAheadEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CcMapAndCopyFromCache @ 0x140706930 (CcMapAndCopyFromCache.c)
  */
 
 __int64 __fastcall CcCopyReadEx(
@@ -64,7 +64,7 @@ __int64 __fastcall CcCopyReadEx(
     KeBugCheckEx(0x34u, 0x273uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   v15 = a5;
   if ( !a5 )
-    RtlRaiseStatus(0xC00000E8);
+    RtlRaiseStatus(-1073741592);
   v16 = a7;
   if ( ((__int64)Next->Next & 0x20000) != 0 )
   {

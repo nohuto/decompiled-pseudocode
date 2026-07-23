@@ -1,16 +1,16 @@
 /*
- * XREFs of SmProcessListRequest @ 0x140929B84
+ * XREFs of SmProcessListRequest @ 0x140929CE4
  * Callers:
- *     SmQueryStoreInformation @ 0x1406C2DB8 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140621A68 (SmQueryStoreInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     SmProcessListRequestExtended @ 0x140929D54 (SmProcessListRequestExtended.c)
- *     SmKmGetStoreList @ 0x14092B598 (SmKmGetStoreList.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402483BC (SSHSupportAllocateNonPaged.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     SmProcessListRequestExtended @ 0x140929EB4 (SmProcessListRequestExtended.c)
+ *     SmKmGetStoreList @ 0x14092B6F8 (SmKmGetStoreList.c)
  */
 
 __int64 __fastcall SmProcessListRequest(__int64 a1, unsigned __int64 a2, unsigned int a3, unsigned int *a4, char a5)

@@ -1,18 +1,18 @@
 /*
- * XREFs of KseDriverLoadImage @ 0x14067DF40
+ * XREFs of KseDriverLoadImage @ 0x14067F100
  * Callers:
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     IopInitializeBuiltinDriver @ 0x1409CBA80 (IopInitializeBuiltinDriver.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     IopInitializeBuiltinDriver @ 0x1409CCA80 (IopInitializeBuiltinDriver.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
- *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
- *     KsepEvntLogShimsApplied @ 0x14029FC88 (KsepEvntLogShimsApplied.c)
- *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
- *     KsepGetShimsForDriver @ 0x14067DBAC (KsepGetShimsForDriver.c)
- *     KsepStringFree @ 0x14067E14C (KsepStringFree.c)
- *     KsepStringDuplicateUnicode @ 0x14067E184 (KsepStringDuplicateUnicode.c)
- *     KsepApplyShimsToDriver @ 0x14084815C (KsepApplyShimsToDriver.c)
+ *     KsepLogInfo @ 0x1400F4DB8 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14029FE34 (KsepDebugPrint.c)
+ *     KsepEvntLogShimsApplied @ 0x14029FE78 (KsepEvntLogShimsApplied.c)
+ *     KsepLogError @ 0x1402A00D4 (KsepLogError.c)
+ *     KsepGetShimsForDriver @ 0x14067ED6C (KsepGetShimsForDriver.c)
+ *     KsepStringFree @ 0x14067F30C (KsepStringFree.c)
+ *     KsepStringDuplicateUnicode @ 0x14067F344 (KsepStringDuplicateUnicode.c)
+ *     KsepApplyShimsToDriver @ 0x1408493BC (KsepApplyShimsToDriver.c)
  */
 
 __int64 __fastcall KseDriverLoadImage(__int64 a1)
@@ -38,7 +38,7 @@ __int64 __fastcall KseDriverLoadImage(__int64 a1)
   LOBYTE(v2) = MmIsSessionAddress(*(_QWORD *)(a1 + 48));
   if ( v2 == 1 )
     return 3221225659LL;
-  if ( dword_14043C8B4 == 2 && (KseEngine & 1) == 0 )
+  if ( dword_14043D974 == 2 && (KseEngine & 1) == 0 )
   {
     ShimsForDriver = KsepStringDuplicateUnicode(v6, a1 + 88);
     if ( ShimsForDriver >= 0 )
@@ -63,8 +63,8 @@ __int64 __fastcall KseDriverLoadImage(__int64 a1)
     }
     if ( !ShimsForDriver )
     {
-      dword_14043C8B8 |= 0x800u;
-      qword_14043C908 = *(_QWORD *)(a1 + 48);
+      dword_14043D978 |= 0x800u;
+      qword_14043D9C8 = *(_QWORD *)(a1 + 48);
     }
     if ( (int)(ShimsForDriver + 0x80000000) < 0 || ShimsForDriver == -1073741275 )
     {
@@ -76,7 +76,7 @@ __int64 __fastcall KseDriverLoadImage(__int64 a1)
     else if ( v7 )
     {
       v5 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_14041ABE4[2 * v5] = ShimsForDriver;
+      dword_14041BCA4[2 * v5] = ShimsForDriver;
       KsepHistoryErrors[2 * v5] = 458941;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(

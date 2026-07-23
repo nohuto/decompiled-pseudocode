@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpCopyFlushVaList @ 0x14032BEF0
+ * XREFs of HvlpCopyFlushVaList @ 0x14032DF20
  * Callers:
- *     HvlFlushRangeListTb @ 0x14032B100 (HvlFlushRangeListTb.c)
- *     HvlpFastFlushListTbEx @ 0x1403E7688 (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x1403E7DF8 (HvlpSlowFlushListTbEx.c)
- *     HvlpDmaFastFlushDeviceDomainVaList @ 0x1405BE764 (HvlpDmaFastFlushDeviceDomainVaList.c)
- *     HvlpDmaSlowFlushDeviceDomainVaList @ 0x1405BE844 (HvlpDmaSlowFlushDeviceDomainVaList.c)
- *     HvlpSlowFlushPasidAddressList @ 0x1405BEAC0 (HvlpSlowFlushPasidAddressList.c)
+ *     HvlpFastFlushListTbEx @ 0x1402F4568 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x1402F4CD8 (HvlpSlowFlushListTbEx.c)
+ *     HvlFlushRangeListTb @ 0x14032D130 (HvlFlushRangeListTb.c)
+ *     HvlpDmaFastFlushDeviceDomainVaList @ 0x1405C0FD4 (HvlpDmaFastFlushDeviceDomainVaList.c)
+ *     HvlpDmaSlowFlushDeviceDomainVaList @ 0x1405C10B4 (HvlpDmaSlowFlushDeviceDomainVaList.c)
+ *     HvlpSlowFlushPasidAddressList @ 0x1405C1330 (HvlpSlowFlushPasidAddressList.c)
  * Callees:
  *     <none>
  */

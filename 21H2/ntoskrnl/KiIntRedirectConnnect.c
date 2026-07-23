@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntRedirectConnnect @ 0x1403A5A9C
+ * XREFs of KiIntRedirectConnnect @ 0x1403A5BEC
  * Callers:
- *     KiIntSteerChooseInitialTargetProcessors @ 0x140378014 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x140377B64 (KiIntSteerChooseInitialTargetProcessors.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KiIntRedirectConnnect(__int64 *a1, unsigned int a2, __int64 a3)

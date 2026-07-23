@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcSectionTypeToBufferType @ 0x18016F764
+ * XREFs of RtlpFcSectionTypeToBufferType @ 0x18016E764
  * Callers:
- *     RtlpFcUpdateLocalConfiguration @ 0x1800137F4 (RtlpFcUpdateLocalConfiguration.c)
+ *     RtlpFcUpdateLocalConfiguration @ 0x18005EF24 (RtlpFcUpdateLocalConfiguration.c)
  * Callees:
  *     <none>
  */

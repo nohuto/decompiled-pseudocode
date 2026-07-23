@@ -1,21 +1,21 @@
 /*
- * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x14047E148
+ * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x140477AB8
  * Callers:
- *     MiInvalidatePageFileBitmapsCache @ 0x14047DE74 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1404777E4 (MiInvalidatePageFileBitmapsCache.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
 char __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 a2, int a3)
 {
-  bool v3; // bl
+  BOOLEAN v3; // bl
   unsigned __int64 v6; // rax
   unsigned __int64 v7; // r9
   _QWORD *v8; // rdx
   __int64 i; // r9
   unsigned int v10; // ecx
-  unsigned __int64 v11; // rsi
+  __int64 v11; // rsi
   unsigned __int64 v12; // rdx
   unsigned __int64 v13; // rax
   __int64 j; // r9
@@ -89,7 +89,7 @@ char __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 a
     return v6;
   }
   v11 = a1 + 112;
-  RtlRbRemoveNode(v11, a2);
+  RtlRbRemoveNode((PRTL_RB_TREE)v11, (PRTL_BALANCED_NODE)a2);
   v12 = *(_QWORD *)v11;
   if ( (*(_BYTE *)(v11 + 8) & 1) != 0 )
   {
@@ -133,6 +133,6 @@ LABEL_21:
       v12 = v13;
     }
   }
-  LOBYTE(v6) = RtlRbInsertNodeEx(v11, v12, v3, a2);
+  LOBYTE(v6) = RtlRbInsertNodeEx((PRTL_RB_TREE)v11, (PRTL_BALANCED_NODE)v12, v3, (PRTL_BALANCED_NODE)a2);
   return v6;
 }

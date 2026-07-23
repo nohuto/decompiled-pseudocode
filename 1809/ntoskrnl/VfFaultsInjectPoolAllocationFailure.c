@@ -1,13 +1,13 @@
 /*
- * XREFs of VfFaultsInjectPoolAllocationFailure @ 0x140938240
+ * XREFs of VfFaultsInjectPoolAllocationFailure @ 0x140939240
  * Callers:
- *     VeAllocatePoolWithTagPriority @ 0x140924F50 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140925F50 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     VfFaultsInjectResourceFailure @ 0x140938308 (VfFaultsInjectResourceFailure.c)
- *     ViFaultsIsTagTarget @ 0x140938E44 (ViFaultsIsTagTarget.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfFaultsInjectResourceFailure @ 0x140939308 (VfFaultsInjectResourceFailure.c)
+ *     ViFaultsIsTagTarget @ 0x140939E44 (ViFaultsIsTagTarget.c)
  */
 
 __int64 __fastcall VfFaultsInjectPoolAllocationFailure(unsigned int a1)
@@ -20,12 +20,12 @@ __int64 __fastcall VfFaultsInjectPoolAllocationFailure(unsigned int a1)
     return 0LL;
   if ( !ViFaultsInitialized )
   {
-    ++dword_140985E2C;
+    ++dword_140986E2C;
     return 0LL;
   }
   if ( ViFaultsDisabled )
   {
-    ++dword_140985E54;
+    ++dword_140986E54;
     return 0LL;
   }
   v3 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetAweVadPageSize @ 0x14084FF04
+ * XREFs of MiGetAweVadPageSize @ 0x140851164
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
- *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
+ *     MiReturnPageTablePageCommitment @ 0x1405ED380 (MiReturnPageTablePageCommitment.c)
+ *     MiCommitPageTablesForVad @ 0x1405EDBB0 (MiCommitPageTablesForVad.c)
  * Callees:
- *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
+ *     ExGetCallBackBlockRoutine @ 0x140088BA0 (ExGetCallBackBlockRoutine.c)
  */
 
 _BOOL8 __fastcall MiGetAweVadPageSize(__int64 a1)

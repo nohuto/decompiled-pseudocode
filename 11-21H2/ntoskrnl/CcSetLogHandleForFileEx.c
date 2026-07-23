@@ -6,8 +6,8 @@
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_1403119F0 @ 0x1403119F0 (sub_1403119F0.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -43,7 +43,7 @@ __int64 __fastcall CcSetLogHandleForFileEx(__int64 a1, __int64 a2, __int64 a3, _
   __int64 **v34; // rdx
   __int64 *v35; // rcx
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *SchedulerAssist; // r8
+  __int64 v37; // r8
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-A9h] BYREF
   __int64 v39; // [rsp+48h] [rbp-91h]
   struct _KLOCK_QUEUE_HANDLE v40; // [rsp+50h] [rbp-89h] BYREF
@@ -59,17 +59,17 @@ __int64 __fastcall CcSetLogHandleForFileEx(__int64 a1, __int64 a2, __int64 a3, _
   v10 = *(_QWORD **)(v9 + 528);
   if ( (*(_DWORD *)(v9 + 152) & 0x2000000) != 0 )
     KeBugCheckEx(0x34u, 0x336uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  KeAcquireInStackQueuedSpinLock(&CcMasterLock, (PKLOCK_QUEUE_HANDLE)&LockHandle.LockQueue.Lock);
+  KeAcquireInStackQueuedSpinLock(&SpinLock, (PKLOCK_QUEUE_HANDLE)&LockHandle.LockQueue.Lock);
   v40.LockQueue.Next = 0LL;
   v40.LockQueue.Lock = v10 + 88;
-  KxAcquireQueuedSpinLock(&v40);
+  sub_1403119F0(&v40);
   if ( *(_QWORD *)(v9 + 240) )
   {
     v20 = *(_QWORD *)(v9 + 120);
     v21 = *(_QWORD **)(v9 + 128);
     if ( *(_QWORD *)(v20 + 8) != v9 + 120 || *v21 != v9 + 120 )
       goto LABEL_32;
-    v13 = CcEnablePerVolumeLazyWriter == 1;
+    v13 = byte_140C54C58 == 1;
     *v21 = v20;
     *(_QWORD *)(v20 + 8) = v21;
     if ( v13 )
@@ -94,7 +94,7 @@ __int64 __fastcall CcSetLogHandleForFileEx(__int64 a1, __int64 a2, __int64 a3, _
     v22 = (_QWORD *)v10[85];
     if ( (_QWORD *)*v22 != v10 + 84 )
       goto LABEL_32;
-    v13 = CcEnablePerVolumeLazyWriter == 1;
+    v13 = byte_140C54C58 == 1;
     *v11 = v10 + 84;
     *(_QWORD *)(v9 + 128) = v22;
     *v22 = v11;
@@ -107,7 +107,7 @@ __int64 __fastcall CcSetLogHandleForFileEx(__int64 a1, __int64 a2, __int64 a3, _
   v12 = (_QWORD *)v10[77];
   if ( (_QWORD *)*v12 != v10 + 76 )
     goto LABEL_32;
-  v13 = CcEnablePerVolumeLazyWriter == 1;
+  v13 = byte_140C54C58 == 1;
   *v11 = v10 + 76;
   *(_QWORD *)(v9 + 128) = v12;
   *v12 = v11;
@@ -179,22 +179,22 @@ LABEL_8:
 LABEL_13:
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&v40);
   KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)&LockHandle.LockQueue.Lock);
-  result = (unsigned int)KiIrqlFlags;
+  result = (unsigned int)dword_140D06B08;
   v19 = (unsigned __int8)v39;
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       result = KeGetCurrentIrql();
       if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v39 <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v37 = *((_QWORD *)CurrentPrcb + 4375);
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v39 + 1));
-        v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
+        v13 = ((unsigned int)result & *(_DWORD *)(v37 + 20)) == 0;
+        *(_DWORD *)(v37 + 20) &= result;
         if ( v13 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = sub_140418E4C(CurrentPrcb);
       }
     }
   }

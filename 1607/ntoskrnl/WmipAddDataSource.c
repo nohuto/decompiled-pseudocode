@@ -1,24 +1,24 @@
 /*
- * XREFs of WmipAddDataSource @ 0x140537074
+ * XREFs of WmipAddDataSource @ 0x1405375B4
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x140536F84 (WmipProcessWmiRegInfo.c)
+ *     WmipProcessWmiRegInfo @ 0x1405374C4 (WmipProcessWmiRegInfo.c)
  *     WmipInitializeDataStructs @ 0x14079C638 (WmipInitializeDataStructs.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     WmipUnreferenceEntry @ 0x140505084 (WmipUnreferenceEntry.c)
- *     WmipCountedToSz @ 0x14052A9C8 (WmipCountedToSz.c)
- *     WmipAllocDataSource @ 0x140536F3C (WmipAllocDataSource.c)
- *     WmipBuildInstanceSet @ 0x140537360 (WmipBuildInstanceSet.c)
- *     WmipGenerateRegistrationNotification @ 0x140537750 (WmipGenerateRegistrationNotification.c)
- *     WmipLinkDataSourceToList @ 0x140537CA4 (WmipLinkDataSourceToList.c)
- *     WmipAllocEntry @ 0x140537E68 (WmipAllocEntry.c)
- *     WmipAddMofResource @ 0x140550C40 (WmipAddMofResource.c)
- *     WmipLegacyEtwWorker @ 0x140574E44 (WmipLegacyEtwWorker.c)
- *     WmipGenerateMofResourceNotification @ 0x140576CD8 (WmipGenerateMofResourceNotification.c)
- *     WmipGenerateBinaryMofNotification @ 0x14069F03C (WmipGenerateBinaryMofNotification.c)
+ *     WmipUnreferenceEntry @ 0x1404E8014 (WmipUnreferenceEntry.c)
+ *     WmipCountedToSz @ 0x14052B618 (WmipCountedToSz.c)
+ *     WmipAllocDataSource @ 0x14053747C (WmipAllocDataSource.c)
+ *     WmipBuildInstanceSet @ 0x1405378A0 (WmipBuildInstanceSet.c)
+ *     WmipGenerateRegistrationNotification @ 0x140537C90 (WmipGenerateRegistrationNotification.c)
+ *     WmipLinkDataSourceToList @ 0x1405381E4 (WmipLinkDataSourceToList.c)
+ *     WmipAllocEntry @ 0x1405383A8 (WmipAllocEntry.c)
+ *     WmipAddMofResource @ 0x140551180 (WmipAddMofResource.c)
+ *     WmipLegacyEtwWorker @ 0x140575384 (WmipLegacyEtwWorker.c)
+ *     WmipGenerateMofResourceNotification @ 0x140577218 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14069F174 (WmipGenerateBinaryMofNotification.c)
  */
 
 __int64 __fastcall WmipAddDataSource(__int64 a1, __int64 a2, int a3, unsigned __int16 *a4, unsigned __int16 *a5)

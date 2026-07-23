@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpHpetQueryCounter @ 0x1403D6DB0
+ * XREFs of HalpHpetQueryCounter @ 0x1403BC400
  * Callers:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140309950 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     KiStartThreadCycleAccumulationContextSwap @ 0x14030BC30 (KiStartThreadCycleAccumulationContextSwap.c)
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     KiEndIdleCycleAccumulation @ 0x14034C5A0 (KiEndIdleCycleAccumulation.c)
- *     KiEndThreadCycleAccumulation @ 0x14034D120 (KiEndThreadCycleAccumulation.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     HalpTimerSavePerformanceCounter @ 0x1403D6404 (HalpTimerSavePerformanceCounter.c)
- *     HalpTimerDpcRoutine @ 0x1403D66C0 (HalpTimerDpcRoutine.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x1403D69D4 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpTimerDelayedQueryCounter @ 0x1405477F0 (HalpTimerDelayedQueryCounter.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x140548008 (HalpTimerPerformanceCounterPowerChange.c)
+ *     KiStartThreadCycleAccumulationContextSwap @ 0x1402DAC90 (KiStartThreadCycleAccumulationContextSwap.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140313830 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     KiEndIdleCycleAccumulation @ 0x14036AA80 (KiEndIdleCycleAccumulation.c)
+ *     KiEndThreadCycleAccumulation @ 0x14036B600 (KiEndThreadCycleAccumulation.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     HalpTimerSavePerformanceCounter @ 0x1403BBA50 (HalpTimerSavePerformanceCounter.c)
+ *     HalpTimerDpcRoutine @ 0x1403BBD10 (HalpTimerDpcRoutine.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403BC024 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerDelayedQueryCounter @ 0x1405450B0 (HalpTimerDelayedQueryCounter.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x1405458C8 (HalpTimerPerformanceCounterPowerChange.c)
  * Callees:
  *     <none>
  */

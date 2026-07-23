@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlQueryRegistryValues @ 0x140A10F10
+ * XREFs of RtlQueryRegistryValues @ 0x140A10100
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
  */
 
 NTSTATUS __stdcall RtlQueryRegistryValues(

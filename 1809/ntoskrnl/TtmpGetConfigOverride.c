@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpGetConfigOverride @ 0x14087E0DC
+ * XREFs of TtmpGetConfigOverride @ 0x14087F33C
  * Callers:
- *     TtmpInitializeWatchdogTimeouts @ 0x14087E1D4 (TtmpInitializeWatchdogTimeouts.c)
+ *     TtmpInitializeWatchdogTimeouts @ 0x14087F434 (TtmpInitializeWatchdogTimeouts.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
  */
 
 char __fastcall TtmpGetConfigOverride(__int64 a1, const WCHAR *a2, _DWORD *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpGetLpcbByLpIndex @ 0x1401BB990
+ * XREFs of HvlpGetLpcbByLpIndex @ 0x1401BB874
  * Callers:
- *     KiQueryProcessorNode @ 0x1401394AC (KiQueryProcessorNode.c)
- *     HvlEnlightenProcessor @ 0x140139B58 (HvlEnlightenProcessor.c)
- *     HvlQueryHypervisorProcessorNodeNumber @ 0x1401BAF0C (HvlQueryHypervisorProcessorNodeNumber.c)
- *     HvlQueryProcessorTopologyEx @ 0x1401BB070 (HvlQueryProcessorTopologyEx.c)
+ *     KiQueryProcessorNode @ 0x140139A1C (KiQueryProcessorNode.c)
+ *     HvlEnlightenProcessor @ 0x14013A0C8 (HvlEnlightenProcessor.c)
+ *     HvlQueryHypervisorProcessorNodeNumber @ 0x1401BADF0 (HvlQueryHypervisorProcessorNodeNumber.c)
+ *     HvlQueryProcessorTopologyEx @ 0x1401BAF54 (HvlQueryProcessorTopologyEx.c)
  * Callees:
  *     <none>
  */

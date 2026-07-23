@@ -1,16 +1,16 @@
 /*
- * XREFs of PipCheckSystemFirmwareUpdated @ 0x140CC1338
+ * XREFs of PipCheckSystemFirmwareUpdated @ 0x140CC7408
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     _PnpCtxRegCloseKey @ 0x140A9BD98 (_PnpCtxRegCloseKey.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
- *     PipHardwareConfigOpenKey @ 0x140B698F0 (PipHardwareConfigOpenKey.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     _PnpCtxRegCloseKey @ 0x140A9E908 (_PnpCtxRegCloseKey.c)
+ *     PipHardwareConfigOpenKey @ 0x140B6C880 (PipHardwareConfigOpenKey.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PipCheckSystemFirmwareUpdated(_BYTE *a1)
@@ -36,7 +36,7 @@ void __fastcall PipCheckSystemFirmwareUpdated(_BYTE *a1)
   v3 = 0LL;
   v13 = 0LL;
   ValueName = 0LL;
-  if ( IopOpenRegistryKeyEx(&Handle, 0LL, (UNICODE_STRING *)&PspSiloMonitorLock.648, 0xF003Fu) >= 0 )
+  if ( IopOpenRegistryKeyEx(&Handle, 0LL, (UNICODE_STRING *)&PspSiloMonitorLock.SavedApcStateFill[32], 0xF003Fu) >= 0 )
   {
     if ( IopGetRegistryValue(Handle, L"SystemBiosVersion", 0, &v11) < 0 )
     {

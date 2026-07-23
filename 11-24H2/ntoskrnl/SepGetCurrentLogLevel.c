@@ -1,8 +1,8 @@
 /*
- * XREFs of SepGetCurrentLogLevel @ 0x14040C5D0
+ * XREFs of SepGetCurrentLogLevel @ 0x140404C60
  * Callers:
- *     SeSetLearningModeObjectInformation @ 0x1404BBE8C (SeSetLearningModeObjectInformation.c)
- *     SepGetLearningModeObjectInformation @ 0x140608AD4 (SepGetLearningModeObjectInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x1404B6F50 (SeSetLearningModeObjectInformation.c)
+ *     SepGetLearningModeObjectInformation @ 0x140606348 (SepGetLearningModeObjectInformation.c)
  * Callees:
  *     <none>
  */

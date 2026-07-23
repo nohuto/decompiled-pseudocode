@@ -8,54 +8,54 @@
  *     RtlFindUnicodeSubstring @ 0x140976ED0 (RtlFindUnicodeSubstring.c)
  */
 
-unsigned __int64 __fastcall PiDrvDbFindSystemFilePathToken(__int128 *a1, unsigned __int16 *a2, _WORD *a3)
+PWCHAR __fastcall PiDrvDbFindSystemFilePathToken(UNICODE_STRING *a1, UNICODE_STRING *a2)
 {
-  __int64 v5; // rbx
-  _WORD *v6; // r14
-  __int16 i; // r12
-  unsigned __int64 UnicodeSubstring; // rax
-  unsigned __int64 v9; // rdi
-  __int64 v10; // rsi
-  wint_t v11; // r15
-  wint_t v12; // cx
-  __int16 v13; // dx
-  __int128 v15; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v4; // rbx
+  wchar_t *Buffer; // r14
+  unsigned __int16 i; // r12
+  PWCHAR UnicodeSubstring; // rax
+  PWCHAR v8; // rdi
+  __int64 v9; // rsi
+  wint_t v10; // r15
+  wint_t v11; // cx
+  wchar_t *v12; // r8
+  wchar_t v13; // dx
+  UNICODE_STRING FullString; // [rsp+20h] [rbp-38h] BYREF
 
-  v5 = 0LL;
-  v15 = *a1;
-  v6 = (_WORD *)*((_QWORD *)&v15 + 1);
-  for ( i = v15; *v6; LOWORD(v15) = i )
+  v4 = 0LL;
+  FullString = *a1;
+  Buffer = FullString.Buffer;
+  for ( i = FullString.Length; *Buffer; FullString.Length = i )
   {
-    LOBYTE(a3) = 1;
-    UnicodeSubstring = RtlFindUnicodeSubstring(&v15, a2, a3);
-    v9 = UnicodeSubstring;
+    UnicodeSubstring = RtlFindUnicodeSubstring(&FullString, a2, 1u);
+    v8 = UnicodeSubstring;
     if ( !UnicodeSubstring )
       break;
-    v10 = *a2 >> 1;
-    if ( UnicodeSubstring > *((_QWORD *)a1 + 1) )
+    v9 = a2->Length >> 1;
+    if ( UnicodeSubstring > a1->Buffer )
     {
-      v11 = *(_WORD *)(UnicodeSubstring - 2);
-      v12 = **((_WORD **)a2 + 1);
-      if ( v12 == 92 )
+      v10 = *(UnicodeSubstring - 1);
+      v11 = *a2->Buffer;
+      if ( v11 == 92 )
       {
-        if ( iswalnum(v11) || v11 == 92 )
+        if ( iswalnum(v10) || v10 == 92 )
           goto LABEL_17;
       }
-      else if ( iswalpha(v12) && iswalnum(v11) )
+      else if ( iswalpha(v11) && iswalnum(v10) )
       {
         goto LABEL_17;
       }
     }
-    if ( i == *a2 && !*(_WORD *)(v9 + 2 * v10) )
-      return v9;
-    a3 = (_WORD *)*((_QWORD *)a2 + 1);
-    v13 = a3[(unsigned int)(v10 - 1)];
-    if ( v13 == 92 || *(_WORD *)(v9 + 2 * v10) == 92 || v13 == 37 && *a3 == 37 )
-      return v9;
+    if ( i == a2->Length && !v8[v9] )
+      return v8;
+    v12 = a2->Buffer;
+    v13 = v12[(unsigned int)(v9 - 1)];
+    if ( v13 == 92 || v8[v9] == 92 || v13 == 37 && *v12 == 37 )
+      return v8;
 LABEL_17:
-    i -= *a2;
-    v6 += v10;
-    *((_QWORD *)&v15 + 1) = v6;
+    i -= a2->Length;
+    Buffer += v9;
+    FullString.Buffer = Buffer;
   }
-  return v5;
+  return (PWCHAR)v4;
 }

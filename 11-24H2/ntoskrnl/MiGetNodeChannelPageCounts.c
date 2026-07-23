@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetNodeChannelPageCounts @ 0x1403D560C
+ * XREFs of MiGetNodeChannelPageCounts @ 0x140264470
  * Callers:
- *     MiGetChannelInformation @ 0x1403D54BC (MiGetChannelInformation.c)
+ *     MiGetChannelInformation @ 0x140264320 (MiGetChannelInformation.c)
  * Callees:
- *     MiGetPartitionNodePageCounts @ 0x1403D5894 (MiGetPartitionNodePageCounts.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiGetPartitionNodePageCounts @ 0x1402646F8 (MiGetPartitionNodePageCounts.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 *__fastcall MiGetNodeChannelPageCounts(

@@ -9,11 +9,11 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __thiscall RtlpTpWaitRundown(int this)
+LOGICAL __thiscall RtlpTpWaitRundown(HANDLE *BaseAddress)
 {
-  if ( *(_DWORD *)(this + 44) )
-    NtSetEvent(*(_DWORD *)(this + 44), 0);
-  if ( *(_DWORD *)this )
-    NtClose(*(HANDLE *)this);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this);
+  if ( BaseAddress[11] )
+    NtSetEvent(BaseAddress[11], 0);
+  if ( *BaseAddress )
+    NtClose(*BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

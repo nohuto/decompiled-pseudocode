@@ -1,18 +1,18 @@
 /*
- * XREFs of MmFreeNonChargedSecurePages @ 0x1403C2E54
+ * XREFs of MmFreeNonChargedSecurePages @ 0x1403CCD54
  * Callers:
- *     PspIumFreePartitionPages @ 0x1403C2D98 (PspIumFreePartitionPages.c)
- *     PspIumAllocatePartitionState @ 0x14061621C (PspIumAllocatePartitionState.c)
- *     PspIumFreePartitionState @ 0x140616730 (PspIumFreePartitionState.c)
+ *     PspIumFreePartitionPages @ 0x1403CCC98 (PspIumFreePartitionPages.c)
+ *     PspIumAllocatePartitionState @ 0x14061920C (PspIumAllocatePartitionState.c)
+ *     PspIumFreePartitionState @ 0x140619720 (PspIumFreePartitionState.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MiPartitionObjectToPartition @ 0x1403486D4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiFreeSecureKernelPage @ 0x1403C3010 (MiFreeSecureKernelPage.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MiPartitionObjectToPartition @ 0x14034A754 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiFreeSecureKernelPage @ 0x1403CCF10 (MiFreeSecureKernelPage.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MmFreeNonChargedSecurePages(ULONG **BugCheckParameter2, int a2, unsigned int a3, _QWORD *a4)

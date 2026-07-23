@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpFailLogging @ 0x14011311C
+ * XREFs of EtwpFailLogging @ 0x14011318C
  * Callers:
- *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406473D0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x1400C8420 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406483F0 (EtwpWriteUserEvent.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1400D7870 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9810 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpReleaseTraceBuffer @ 0x140113898 (EtwpReleaseTraceBuffer.c)
- *     EtwpUpdateEventsLostCount @ 0x1401138D4 (EtwpUpdateEventsLostCount.c)
- *     EtwpTraceLostEvent @ 0x140312748 (EtwpTraceLostEvent.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1400D78F0 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9890 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpReleaseTraceBuffer @ 0x140113908 (EtwpReleaseTraceBuffer.c)
+ *     EtwpUpdateEventsLostCount @ 0x140113944 (EtwpUpdateEventsLostCount.c)
+ *     EtwpTraceLostEvent @ 0x140312938 (EtwpTraceLostEvent.c)
  */
 
 void __fastcall EtwpFailLogging(

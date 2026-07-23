@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateInPageSupportBlock @ 0x14039742C
+ * XREFs of MiAllocateInPageSupportBlock @ 0x1403991AC
  * Callers:
- *     MiAllocateInPageSupport @ 0x140371500 (MiAllocateInPageSupport.c)
- *     MiInitializePageFaultResources @ 0x1406F76AC (MiInitializePageFaultResources.c)
+ *     MiAllocateInPageSupport @ 0x1403732B0 (MiAllocateInPageSupport.c)
+ *     MiInitializePageFaultResources @ 0x1406FC31C (MiInitializePageFaultResources.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
  */
 
 __int64 __fastcall MiAllocateInPageSupportBlock(int a1, unsigned int a2)

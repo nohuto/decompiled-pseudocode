@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidateSectionPrepare @ 0x140B03C04
+ * XREFs of MiValidateSectionPrepare @ 0x140B05814
  * Callers:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 __fastcall MiValidateSectionPrepare(__int64 *a1)
   {
     if ( (v3 & 0x40000000) != 0 )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 115;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 115;
       return 3221226547LL;
     }
     v3 |= 0x10000000u;
@@ -44,7 +44,7 @@ __int64 __fastcall MiValidateSectionPrepare(__int64 *a1)
   }
   else
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 116;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 116;
     return 3221225595LL;
   }
 }

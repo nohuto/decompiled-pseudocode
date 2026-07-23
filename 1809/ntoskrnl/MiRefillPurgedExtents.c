@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRefillPurgedExtents @ 0x1402B6C50
+ * XREFs of MiRefillPurgedExtents @ 0x1402B6E40
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDereferenceControlArea @ 0x14013B57C (MiDereferenceControlArea.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDereferenceControlArea @ 0x14013B67C (MiDereferenceControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateFileExtents @ 0x140853410 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiRefillPurgedExtents(__int64 *BugCheckParameter2)

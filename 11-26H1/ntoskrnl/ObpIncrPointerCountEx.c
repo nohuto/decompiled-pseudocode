@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpIncrPointerCountEx @ 0x140431EE0
+ * XREFs of ObpIncrPointerCountEx @ 0x14041EF10
  * Callers:
- *     ObInitializeFastReference @ 0x140A2BC10 (ObInitializeFastReference.c)
+ *     ObInitializeFastReference @ 0x140A7BD9C (ObInitializeFastReference.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ObpIncrPointerCountEx(volatile signed __int64 *a1, int a2)

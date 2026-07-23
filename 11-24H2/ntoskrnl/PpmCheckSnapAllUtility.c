@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckSnapAllUtility @ 0x140417640
+ * XREFs of PpmCheckSnapAllUtility @ 0x1404073F0
  * Callers:
  *     <none>
  * Callees:
- *     PpmParkSnapNodeStatistics @ 0x14027B69C (PpmParkSnapNodeStatistics.c)
- *     PpmPerfSnapUtility @ 0x140417750 (PpmPerfSnapUtility.c)
+ *     PpmParkSnapNodeStatistics @ 0x140230C2C (PpmParkSnapNodeStatistics.c)
+ *     PpmPerfSnapUtility @ 0x140407500 (PpmPerfSnapUtility.c)
  */
 
 char PpmCheckSnapAllUtility()
@@ -26,7 +26,7 @@ char PpmCheckSnapAllUtility()
     {
       _BitScanForward64(&v2, v0);
       v0 &= ~(1LL << v2);
-      v3 = *((unsigned int *)qword_140F21E78 + 64 * i + (unsigned __int8)v2);
+      v3 = *((unsigned int *)qword_140F22998 + 64 * i + (unsigned __int8)v2);
       if ( (unsigned int)v3 >= (unsigned int)KeNumberProcessors_0 )
         v4 = 0LL;
       else

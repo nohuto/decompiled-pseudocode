@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTranslateBootEntryNameToId @ 0x14083E028
+ * XREFs of ExpTranslateBootEntryNameToId @ 0x14083E328
  * Callers:
- *     NtEnumerateBootEntries @ 0x14083DAB0 (NtEnumerateBootEntries.c)
- *     ExpIsBootEntry @ 0x14083DFE0 (ExpIsBootEntry.c)
+ *     NtEnumerateBootEntries @ 0x14083DDB0 (NtEnumerateBootEntries.c)
+ *     ExpIsBootEntry @ 0x14083E2E0 (ExpIsBootEntry.c)
  * Callees:
- *     towlower @ 0x1403DB7A0 (towlower.c)
+ *     towlower @ 0x1403DB980 (towlower.c)
  */
 
 __int64 __fastcall ExpTranslateBootEntryNameToId(wint_t *a1, int *a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpLargeFree @ 0x140323E6C
+ * XREFs of RtlpHpLargeFree @ 0x1403240FC
  * Callers:
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
  * Callees:
  *     RtlpHpFreeVA @ 0x140212158 (RtlpHpFreeVA.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpMetadataFree @ 0x14032405C (RtlpHpMetadataFree.c)
- *     RtlpHpLargeLockAcquire @ 0x140324700 (RtlpHpLargeLockAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpMetadataFree @ 0x1403242EC (RtlpHpMetadataFree.c)
+ *     RtlpHpLargeLockAcquire @ 0x140324990 (RtlpHpLargeLockAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, unsigned __int64 a2, unsigned int a3)
@@ -70,16 +70,19 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, unsigned __int64 a2, u
   }
   if ( v7 )
   {
-    RtlRbRemoveNode((unsigned __int64 *)a1 + 9, v7);
+    RtlRbRemoveNode((PRTL_RB_TREE)((char *)a1 + 72), (PRTL_BALANCED_NODE)v7);
     if ( (v4 & 1) == 0 )
     {
       if ( (*(_DWORD *)a1 & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)a1 + 16);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v6 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -125,10 +128,10 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, unsigned __int64 a2, u
       if ( (*(_DWORD *)a1 & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)a1 + 16);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v21 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v21 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v21 >= 2u )
           {
             v22 = KeGetCurrentPrcb();
             v23 = v22->SchedulerAssist;

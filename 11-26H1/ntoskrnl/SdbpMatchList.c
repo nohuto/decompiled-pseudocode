@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbpMatchList @ 0x1408850CC
+ * XREFs of SdbpMatchList @ 0x14088B4CC
  * Callers:
- *     SdbpMatchAll @ 0x140714470 (SdbpMatchAll.c)
- *     SdbpMatchEquality @ 0x140714520 (SdbpMatchEquality.c)
- *     SdbpMatchOne @ 0x1408853E0 (SdbpMatchOne.c)
- *     SdbpCheckForMatch @ 0x140A92960 (SdbpCheckForMatch.c)
+ *     SdbpMatchAll @ 0x140719160 (SdbpMatchAll.c)
+ *     SdbpMatchEquality @ 0x140719210 (SdbpMatchEquality.c)
+ *     SdbpMatchOne @ 0x14088B7E0 (SdbpMatchOne.c)
+ *     SdbpCheckForMatch @ 0x140A974B0 (SdbpCheckForMatch.c)
  * Callees:
- *     Feature_MissingMatcherBehaviorIgnoreAndDoNotCache__private_IsEnabledDeviceUsageNoInline @ 0x140714118 (Feature_MissingMatcherBehaviorIgnoreAndDoNotCache__private_IsEnabledDeviceUsageNoInline.c)
- *     SdbpUmaInit_PCWSTR @ 0x1407149BC (SdbpUmaInit_PCWSTR.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SdbpIsSdbCapabilityPresent @ 0x140884CE8 (SdbpIsSdbCapabilityPresent.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x1409E86F4 (SdbGetNextChild.c)
- *     SdbGetFirstChild @ 0x1409E87E4 (SdbGetFirstChild.c)
- *     SdbpFindMatcher @ 0x140B3E748 (SdbpFindMatcher.c)
+ *     Feature_MissingMatcherBehaviorIgnoreAndDoNotCache__private_IsEnabledDeviceUsageNoInline @ 0x140718E08 (Feature_MissingMatcherBehaviorIgnoreAndDoNotCache__private_IsEnabledDeviceUsageNoInline.c)
+ *     SdbpUmaInit_PCWSTR @ 0x1407196AC (SdbpUmaInit_PCWSTR.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SdbpIsSdbCapabilityPresent @ 0x14088B0E8 (SdbpIsSdbCapabilityPresent.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x1409D5104 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x1409D51F4 (SdbGetFirstChild.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     SdbpFindMatcher @ 0x140B40618 (SdbpFindMatcher.c)
  */
 
 __int64 __fastcall SdbpMatchList(

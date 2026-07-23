@@ -1,8 +1,8 @@
 /*
  * XREFs of KeSelectInitialIdealProcessorForThread @ 0x14020380C
  * Callers:
- *     KeStartThread @ 0x1402BE0D8 (KeStartThread.c)
- *     PspAllocateThread @ 0x1407409D0 (PspAllocateThread.c)
+ *     KeStartThread @ 0x1402BE368 (KeStartThread.c)
+ *     PspAllocateThread @ 0x140740BC0 (PspAllocateThread.c)
  * Callees:
  *     KeSelectIdealProcessor @ 0x14020385C (KeSelectIdealProcessor.c)
  */

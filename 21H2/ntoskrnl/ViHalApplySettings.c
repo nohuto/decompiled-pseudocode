@@ -1,8 +1,8 @@
 /*
- * XREFs of ViHalApplySettings @ 0x1409CEAEC
+ * XREFs of ViHalApplySettings @ 0x1409CFAEC
  * Callers:
- *     VfHalVerifierInitialize @ 0x1409CC708 (VfHalVerifierInitialize.c)
- *     VfSettingsCheckForChanges @ 0x1409E047C (VfSettingsCheckForChanges.c)
+ *     VfHalVerifierInitialize @ 0x1409CD708 (VfHalVerifierInitialize.c)
+ *     VfSettingsCheckForChanges @ 0x1409E147C (VfSettingsCheckForChanges.c)
  * Callees:
  *     <none>
  */

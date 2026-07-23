@@ -1,15 +1,15 @@
 /*
- * XREFs of PerfLogImageLoad @ 0x140A79674
+ * XREFs of PerfLogImageLoad @ 0x140A8B0E0
  * Callers:
- *     PsCallImageNotifyRoutines @ 0x140A791A4 (PsCallImageNotifyRoutines.c)
+ *     PsCallImageNotifyRoutines @ 0x1409E6750 (PsCallImageNotifyRoutines.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140216A20 (EtwTraceSiloKernelEvent.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     EtwpPsProvTraceImage @ 0x140A798C4 (EtwpPsProvTraceImage.c)
+ *     EtwTraceSiloKernelEvent @ 0x140216D50 (EtwTraceSiloKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     EtwpPsProvTraceImage @ 0x140A8B330 (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
@@ -18,12 +18,12 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
   int v7; // ecx
   int v8; // r14d
   int v9; // r14d
-  _DWORD *v10; // rax
-  _DWORD *v11; // rsi
-  int ULongFromUser; // eax
-  int v13; // eax
-  __int64 ULong64FromUser; // rax
-  unsigned __int64 v15[2]; // [rsp+50h] [rbp-B8h] BYREF
+  PIMAGE_NT_HEADERS v10; // rax
+  PIMAGE_NT_HEADERS v11; // rsi
+  int CheckSum; // eax
+  int TimeDateStamp; // eax
+  __int64 ImageBase; // rax
+  PVOID v15[2]; // [rsp+50h] [rbp-B8h] BYREF
   int v16; // [rsp+60h] [rbp-A8h]
   __int64 v17; // [rsp+64h] [rbp-A4h]
   char v18; // [rsp+6Ch] [rbp-9Ch]
@@ -51,8 +51,8 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
           v7 = *(_DWORD *)(a2 + 464);
         else
           v7 = 0;
-        v15[0] = *((_QWORD *)a3 + 1);
-        v15[1] = *((_QWORD *)a3 + 3);
+        v15[0] = *((PVOID *)a3 + 1);
+        v15[1] = *((PVOID *)a3 + 3);
         v16 = v7;
         *(_WORD *)&v19[1] = 0;
         v21 = 0LL;
@@ -68,20 +68,20 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
         if ( v10 )
         {
           if ( v9 )
-            ULongFromUser = v10[22];
+            CheckSum = v10->OptionalHeader.CheckSum;
           else
-            ULongFromUser = RtlReadULongFromUser(v10 + 22);
-          LODWORD(v17) = ULongFromUser;
+            CheckSum = RtlReadULongFromUser(&v10->OptionalHeader.CheckSum);
+          LODWORD(v17) = CheckSum;
           if ( v9 )
-            v13 = v11[2];
+            TimeDateStamp = v11->FileHeader.TimeDateStamp;
           else
-            v13 = RtlReadULongFromUser(v11 + 2);
-          HIDWORD(v17) = v13;
+            TimeDateStamp = RtlReadULongFromUser(&v11->FileHeader.TimeDateStamp);
+          HIDWORD(v17) = TimeDateStamp;
           if ( v9 )
-            ULong64FromUser = *((_QWORD *)v11 + 6);
+            ImageBase = v11->OptionalHeader.ImageBase;
           else
-            ULong64FromUser = RtlReadULong64FromUser(v11 + 12);
-          v20 = ULong64FromUser;
+            ImageBase = RtlReadULong64FromUser(&v11->OptionalHeader.ImageBase);
+          v20 = ImageBase;
         }
         if ( EtwpHostSiloState != -4812 && (*(_DWORD *)(EtwpHostSiloState + 4812) & 4) != 0 )
           EtwpPsProvTraceImage(a1, v15, 5121LL, 0LL);

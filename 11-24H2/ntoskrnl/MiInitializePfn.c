@@ -1,29 +1,29 @@
 /*
- * XREFs of MiInitializePfn @ 0x14021E510
+ * XREFs of MiInitializePfn @ 0x14024B260
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x14021D340 (MiCompletePrivateZeroFault.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     MiCreateSharedZeroPages @ 0x1402EED80 (MiCreateSharedZeroPages.c)
- *     MiMakePageAvoidRead @ 0x1402EF168 (MiMakePageAvoidRead.c)
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
- *     MmInitializeImageViewExtensionCfg @ 0x140C5428C (MmInitializeImageViewExtensionCfg.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     MiCompletePrivateZeroFault @ 0x14024A090 (MiCompletePrivateZeroFault.c)
+ *     MiMakePageAvoidRead @ 0x140253334 (MiMakePageAvoidRead.c)
+ *     MiCreateSharedZeroPages @ 0x140342A48 (MiCreateSharedZeroPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
+ *     MmInitializeImageViewExtensionCfg @ 0x140C5641C (MmInitializeImageViewExtensionCfg.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiIncreaseUsedPtesInPfn @ 0x140396FF4 (MiIncreaseUsedPtesInPfn.c)
- *     MiCanPfnOriginalPteBeLost @ 0x14039E1D0 (MiCanPfnOriginalPteBeLost.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x1402EE318 (MiCanPfnOriginalPteBeLost.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1403916FC (MiIncreaseUsedPtesInPfn.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
  */
 
-__int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __int16 a4)
+__int64 __fastcall MiInitializePfn(__int64 a1, _KPROCESS *Process, unsigned __int64 KernelWaitTime, __int16 a4)
 {
   __int64 v4; // rbx
   __int64 v6; // r9
-  __int64 *v7; // r10
+  unsigned __int64 v7; // r10
   unsigned __int64 v9; // r11
   __int64 v10; // rax
   unsigned __int64 DemandZeroPte; // rax
@@ -37,55 +37,60 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
   __int64 v19; // rax
   signed __int64 v20; // rdx
   unsigned __int64 v21; // r8
-  unsigned __int64 v22; // rcx
-  signed __int64 v23; // rax
-  signed __int64 v24; // rdx
+  __int64 v22; // r9
+  unsigned __int64 v23; // rcx
+  signed __int64 i; // rax
   __int64 v25; // rbp
   struct _KTHREAD *CurrentThread; // rax
   unsigned int Queue; // esi
   unsigned int v28; // esi
-  __int64 v29; // rcx
+  __int64 v29; // rdx
+  __int64 v30; // rcx
   __int64 result; // rax
-  unsigned int v31; // r11d
-  _KPROCESS *Process; // rdx
-  unsigned __int64 KernelWaitTime; // r8
-  __int64 v34; // rcx
-  _KPROCESS *v35; // r8
-  unsigned __int64 v36; // r10
-  __int64 v37; // rdx
-  _KPROCESS *v38; // rdx
-  unsigned __int64 v39; // rcx
-  __int64 v40; // rcx
-  unsigned __int64 v41; // rax
-  unsigned int v42; // eax
-  _QWORD v43[11]; // [rsp+20h] [rbp-58h] BYREF
-  unsigned __int8 v45; // [rsp+90h] [rbp+18h]
-  unsigned int v46; // [rsp+98h] [rbp+20h]
-  int v47; // [rsp+98h] [rbp+20h]
+  unsigned int v32; // r11d
+  __int64 v33; // rcx
+  _KPROCESS *v34; // r8
+  unsigned __int64 v35; // r10
+  __int64 v36; // rdx
+  _KPROCESS *v37; // rdx
+  unsigned __int64 v38; // rcx
+  __int64 v39; // rcx
+  unsigned __int64 v40; // rax
+  unsigned int v41; // eax
+  _QWORD v42[11]; // [rsp+20h] [rbp-58h] BYREF
+  unsigned __int64 v43; // [rsp+88h] [rbp+10h]
+  unsigned __int8 v44; // [rsp+90h] [rbp+18h]
+  unsigned int v45; // [rsp+98h] [rbp+20h]
+  int v46; // [rsp+98h] [rbp+20h]
+  unsigned int v47; // [rsp+98h] [rbp+20h]
   unsigned int v48; // [rsp+98h] [rbp+20h]
-  unsigned int v49; // [rsp+98h] [rbp+20h]
 
-  v4 = *a2;
-  v6 = a3;
-  v7 = a2;
+  v43 = (unsigned __int64)Process;
+  v4 = *(_QWORD *)&Process->Header.Lock;
+  v6 = (unsigned int)KernelWaitTime;
+  v7 = (unsigned __int64)Process;
   v9 = 0xFFFFF6FB7DBED7F8uLL;
-  if ( (unsigned __int64)a2 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)a2 <= 0xFFFFF6FB7DBED7F8uLL )
+  if ( (unsigned __int64)Process >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)Process <= 0xFFFFF6FB7DBED7F8uLL )
   {
-    v10 = *a2;
-    if ( (v4 & 1) != 0 && ((v4 & 0x42) == 0 || (v4 & 0x20) == 0) && (MiFlags & 0x600000) != 0 )
+    v10 = *(_QWORD *)&Process->Header.Lock;
+    if ( (v4 & 1) != 0 )
     {
-      Process = KeGetCurrentThread()->ApcState.Process;
-      if ( Process->AddressPolicy != 1 )
+      LOBYTE(Process) = (v4 & 0x42) != 0;
+      if ( ((unsigned __int8)Process & ((v4 & 0x20) != 0)) == 0 && (MiFlags & 0x600000) != 0 )
       {
-        KernelWaitTime = Process[2].KernelWaitTime;
-        if ( KernelWaitTime )
+        Process = KeGetCurrentThread()->ApcState.Process;
+        if ( Process->AddressPolicy != 1 )
         {
-          v34 = *(_QWORD *)(KernelWaitTime + 8 * (((unsigned __int64)v7 >> 3) & 0x1FF));
-          if ( (v34 & 0x20) != 0 )
-            v10 = v4 | 0x20;
-          v4 = v10 | 0x42;
-          if ( (v34 & 0x42) == 0 )
-            v4 = v10;
+          KernelWaitTime = Process[2].KernelWaitTime;
+          if ( KernelWaitTime )
+          {
+            v33 = *(_QWORD *)(KernelWaitTime + 8 * ((v7 >> 3) & 0x1FF));
+            if ( (v33 & 0x20) != 0 )
+              v10 = v4 | 0x20;
+            v4 = v10 | 0x42;
+            if ( (v33 & 0x42) == 0 )
+              v4 = v10;
+          }
         }
       }
     }
@@ -96,45 +101,45 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
     if ( v4 )
       DemandZeroPte = (32 * v6) ^ (v4 ^ (32 * v6)) & 0xFFFFFFFFFFFFFC1FuLL;
     else
-      DemandZeroPte = MiMakeDemandZeroPte((unsigned int)v6);
+      DemandZeroPte = MiMakeDemandZeroPte((unsigned int)v6, Process, KernelWaitTime, v6);
   }
-  v43[0] = DemandZeroPte;
+  v42[0] = DemandZeroPte;
   v12 = DemandZeroPte;
-  if ( (unsigned __int64)v43 >= 0xFFFFF6FB7DBED000uLL
-    && (unsigned __int64)v43 <= v9
+  if ( (unsigned __int64)v42 >= 0xFFFFF6FB7DBED000uLL
+    && (unsigned __int64)v42 <= v9
     && (DemandZeroPte & 1) != 0
     && ((DemandZeroPte & 0x42) == 0 || (DemandZeroPte & 0x20) == 0)
     && (MiFlags & 0x600000) != 0 )
   {
-    v35 = KeGetCurrentThread()->ApcState.Process;
-    if ( v35->AddressPolicy != 1 )
+    v34 = KeGetCurrentThread()->ApcState.Process;
+    if ( v34->AddressPolicy != 1 )
     {
-      v36 = v35[2].KernelWaitTime;
-      if ( v36 )
+      v35 = v34[2].KernelWaitTime;
+      if ( v35 )
       {
-        v37 = *(_QWORD *)(v36 + 8 * (((unsigned __int64)v43 >> 3) & 0x1FF));
-        if ( (v37 & 0x20) != 0 )
+        v36 = *(_QWORD *)(v35 + 8 * (((unsigned __int64)v42 >> 3) & 0x1FF));
+        if ( (v36 & 0x20) != 0 )
           DemandZeroPte |= 0x20uLL;
         v12 = DemandZeroPte | 0x42;
-        if ( (v37 & 0x42) == 0 )
+        if ( (v36 & 0x42) == 0 )
           v12 = DemandZeroPte;
       }
-      v7 = a2;
+      v7 = v43;
     }
   }
   v13 = -9LL;
   if ( (v12 & 0x400) != 0 )
     v13 = -2049LL;
   v14 = v12 & v13;
-  v43[0] = v14;
+  v42[0] = v14;
   if ( (a4 & 8) != 0 )
   {
     v14 = 128LL;
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
       v14 = 144LL;
-      if ( (qword_140E2DB80 & 0x80u) == 0LL )
-        v14 = qword_140E2DB80 | 0x80;
+      if ( (qword_140E2DCC0 & 0x80u) == 0LL )
+        v14 = qword_140E2DCC0 | 0x80;
     }
   }
   v15 = 0;
@@ -162,24 +167,24 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
   {
     v16 = 3;
   }
-  v17 = (((unsigned __int64)v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v17 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v18 = *(_QWORD *)v17;
   if ( v17 >= 0xFFFFF6FB7DBED000uLL && v17 <= v9 )
   {
     v19 = *(_QWORD *)v17;
     if ( (v18 & 1) != 0 && ((v18 & 0x42) == 0 || (v18 & 0x20) == 0) && (MiFlags & 0x600000) != 0 )
     {
-      v38 = KeGetCurrentThread()->ApcState.Process;
-      if ( v38->AddressPolicy != 1 )
+      v37 = KeGetCurrentThread()->ApcState.Process;
+      if ( v37->AddressPolicy != 1 )
       {
-        v39 = v38[2].KernelWaitTime;
-        if ( v39 )
+        v38 = v37[2].KernelWaitTime;
+        if ( v38 )
         {
-          v40 = *(_QWORD *)(v39 + 8 * ((v17 >> 3) & 0x1FF));
-          if ( (v40 & 0x20) != 0 )
+          v39 = *(_QWORD *)(v38 + 8 * ((v17 >> 3) & 0x1FF));
+          if ( (v39 & 0x20) != 0 )
             v19 = v18 | 0x20;
           v18 = v19 | 0x42;
-          if ( (v40 & 0x42) == 0 )
+          if ( (v39 & 0x42) == 0 )
             v18 = v19;
         }
       }
@@ -187,19 +192,16 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
   }
   v20 = *(_QWORD *)(a1 + 40);
   v21 = v18 >> 12;
-  v22 = v21 ^ (v20 ^ v21) & 0xFFFFFF0000000000uLL;
-  v23 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 40), v22, v20);
-  if ( v20 != v23 )
+  v22 = v21 & 0xFFFFFFFFFFLL;
+  v23 = v21 ^ (v20 ^ v21) & 0xFFFFFF0000000000uLL;
+  for ( i = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 40), v23, v20);
+        v20 != i;
+        i = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 40), v23, i) )
   {
-    do
-    {
-      v24 = v23;
-      v22 = v21 ^ (v23 ^ v21) & 0xFFFFFF0000000000uLL;
-      v23 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 40), v22, v23);
-    }
-    while ( v24 != v23 );
+    v20 = i;
+    v23 = v21 ^ (i ^ v21) & 0xFFFFFF0000000000uLL;
   }
-  v25 = 48 * (v21 & 0xFFFFFFFFFFLL) - 0x220000000000LL;
+  v25 = 48 * v22 - 0x220000000000LL;
   CurrentThread = KeGetCurrentThread();
   Queue = (unsigned int)CurrentThread[1].Queue;
   if ( (Queue & 0x100) != 0 )
@@ -209,15 +211,15 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
   else
   {
     v28 = (*((_DWORD *)&CurrentThread[1].SwapListEntry + 2) >> 12) & 7;
-    v41 = CurrentThread->Process[1].Padding[3];
-    if ( v41 )
+    v40 = CurrentThread->Process[1].Padding[3];
+    if ( v40 )
     {
-      v42 = *(_DWORD *)(v41 + 1092);
-      if ( v28 >= v42 )
-        LOBYTE(v28) = v42;
+      v41 = *(_DWORD *)(v40 + 1092);
+      if ( v28 >= v41 )
+        LOBYTE(v28) = v41;
     }
   }
-  v45 = 17;
+  v44 = 17;
   if ( (a4 & 1) == 0 )
   {
     if ( (a4 & 0x10) != 0 )
@@ -228,7 +230,7 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
         {
           if ( (++v15 & HvlLongSpinCountMask) == 0
             && (HvlEnlightenments & 0x40) != 0
-            && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v22) )
+            && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v23, v20, v21, v22) )
           {
             HvlNotifyLongSpinWait(v15);
           }
@@ -243,20 +245,21 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
     }
     else
     {
-      v45 = MiLockPageInline(a1);
+      v44 = MiLockPageInline(a1);
     }
   }
-  HIWORD(v46) = HIWORD(*(_DWORD *)(a1 + 32));
-  LOWORD(v46) = 1;
-  v29 = v46;
-  *(_DWORD *)(a1 + 32) = v46;
+  v29 = 1LL;
+  HIWORD(v45) = HIWORD(*(_DWORD *)(a1 + 32));
+  LOWORD(v45) = 1;
+  v30 = v45;
+  *(_DWORD *)(a1 + 32) = v45;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v25 + 24), 0x3FuLL) )
   {
     do
     {
       if ( (++v15 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v29) )
+        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v30, v29, v21, v22) )
       {
         HvlNotifyLongSpinWait(v15);
       }
@@ -267,7 +270,7 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
     }
     while ( *(__int64 *)(v25 + 24) < 0 );
   }
-  if ( !v4 && (unsigned __int64)a2 >= 0xFFFFF68000000000uLL && (unsigned __int64)a2 <= 0xFFFFF6FFFFFFFFFFuLL )
+  if ( !v4 && v43 >= 0xFFFFF68000000000uLL && v43 <= 0xFFFFF6FFFFFFFFFFuLL )
     MiIncreaseUsedPtesInPfn(v25, 1LL);
   *(_QWORD *)(v25 + 24) = (*(_QWORD *)(v25 + 24) + 1LL) ^ (*(_QWORD *)(v25 + 24) ^ (*(_QWORD *)(v25 + 24) + 1LL)) & 0xC000000000000000uLL;
   _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
@@ -275,27 +278,27 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
     MiChangePageAttribute(a1, v16, 1LL);
   *(_QWORD *)(a1 + 24) &= 0xC7FFFFFFFFFFFFFFuLL;
   *(_QWORD *)(a1 + 24) = *(_QWORD *)(a1 + 24) & 0xC000000000000000uLL | 1;
+  v46 = *(_DWORD *)(a1 + 32);
+  HIBYTE(v46) ^= (HIBYTE(v46) ^ v28) & 7;
+  *(_DWORD *)(a1 + 32) = v46;
+  *(_QWORD *)(a1 + 8) = v43;
   v47 = *(_DWORD *)(a1 + 32);
-  HIBYTE(v47) ^= (HIBYTE(v47) ^ v28) & 7;
+  BYTE2(v47) = BYTE2(v47) & 0xF8 | 6;
+  result = v47;
   *(_DWORD *)(a1 + 32) = v47;
-  *(_QWORD *)(a1 + 8) = a2;
-  v48 = *(_DWORD *)(a1 + 32);
-  BYTE2(v48) = BYTE2(v48) & 0xF8 | 6;
-  result = v48;
-  *(_DWORD *)(a1 + 32) = v48;
   if ( (a4 & 0x20) == 0 )
   {
-    v49 = *(_DWORD *)(a1 + 32);
-    v31 = HIWORD(v49);
-    if ( (v49 & 0x80000) != 0
+    v48 = *(_DWORD *)(a1 + 32);
+    v32 = HIWORD(v48);
+    if ( (v48 & 0x80000) != 0
       && (unsigned int)MiCanPfnOriginalPteBeLost(a1)
       && (((*(_QWORD *)(a1 + 16) & 4) != 0) & (unsigned __int8)~(*(_BYTE *)(a1 + 34) >> 4)) != 0 )
     {
       *(_QWORD *)(a1 + 16) &= ~4uLL;
     }
-    BYTE2(v49) = v31 | 0x10;
-    result = v49;
-    *(_DWORD *)(a1 + 32) = v49;
+    BYTE2(v48) = v32 | 0x10;
+    result = v48;
+    *(_DWORD *)(a1 + 32) = v48;
   }
   if ( (a4 & 0x2000) != 0 )
   {
@@ -310,7 +313,7 @@ __int64 __fastcall MiInitializePfn(__int64 a1, __int64 *a2, unsigned int a3, __i
     if ( (a4 & 0x10) != 0 )
       _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     else
-      return MiUnlockPage(a1, v45);
+      return MiUnlockPage(a1, v44);
   }
   return result;
 }

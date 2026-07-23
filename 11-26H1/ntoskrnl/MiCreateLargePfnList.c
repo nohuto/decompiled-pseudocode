@@ -1,24 +1,24 @@
 /*
- * XREFs of MiCreateLargePfnList @ 0x14031037C
+ * XREFs of MiCreateLargePfnList @ 0x1402F23FC
  * Callers:
- *     MiMapUserLargePages @ 0x14030FD60 (MiMapUserLargePages.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x14031070C (MiAllocateLargeProcessPagesFromCache.c)
- *     MiAllocateFastAwePages @ 0x1408776E8 (MiAllocateFastAwePages.c)
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
+ *     MiMapUserLargePages @ 0x1402F1DE0 (MiMapUserLargePages.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x1402F278C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiAllocateFastAwePages @ 0x14087DAC8 (MiAllocateFastAwePages.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
  * Callees:
- *     MiInitializeDemandCoalesceContext @ 0x140206AD0 (MiInitializeDemandCoalesceContext.c)
- *     MiFreeLargeZeroPages @ 0x1402A5600 (MiFreeLargeZeroPages.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiComputePreferredNode @ 0x14030EAE0 (MiComputePreferredNode.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x14031070C (MiAllocateLargeProcessPagesFromCache.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnCrossPartitionCharges @ 0x14036E1E8 (MiReturnCrossPartitionCharges.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiAllocateLargeZeroPages @ 0x1403C673C (MiAllocateLargeZeroPages.c)
- *     MiGetCrossPartitionCharges @ 0x1404B6A78 (MiGetCrossPartitionCharges.c)
- *     MiComputeIdealLargePage @ 0x1404F85EC (MiComputeIdealLargePage.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiInitializeDemandCoalesceContext @ 0x140206BB0 (MiInitializeDemandCoalesceContext.c)
+ *     MiFreeLargeZeroPages @ 0x1402A4B50 (MiFreeLargeZeroPages.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiComputePreferredNode @ 0x1402F0B60 (MiComputePreferredNode.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x1402F278C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnCrossPartitionCharges @ 0x14036FF88 (MiReturnCrossPartitionCharges.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiAllocateLargeZeroPages @ 0x1403D0630 (MiAllocateLargeZeroPages.c)
+ *     MiGetCrossPartitionCharges @ 0x1404AFEC8 (MiGetCrossPartitionCharges.c)
+ *     MiComputeIdealLargePage @ 0x1404F1BFC (MiComputeIdealLargePage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCreateLargePfnList(
@@ -89,7 +89,7 @@ __int64 __fastcall MiCreateLargePfnList(
   v31 = *((_DWORD *)a1 + 4);
   Process = CurrentThread->ApcState.Process;
   v30 = v14;
-  v16 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * HIWORD(Process[2].ProcessListEntry.Blink));
+  v16 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * HIWORD(Process[2].ProcessListEntry.Blink));
   if ( !*a1 )
     goto LABEL_11;
   if ( !a7 )
@@ -131,7 +131,7 @@ LABEL_11:
     if ( (a8 & 8) != 0 )
       v24 = 8;
     v45 = v18;
-    v25 = (int *)(qword_140E2D690 + 4LL * v22 * (unsigned int)(unsigned __int16)KeNumberNodes);
+    v25 = (int *)(qword_140E2D810 + 4LL * v22 * (unsigned int)(unsigned __int16)KeNumberNodes);
     v37 = a3;
     v26 = &v25[(unsigned __int16)KeNumberNodes];
     v38 = a4;

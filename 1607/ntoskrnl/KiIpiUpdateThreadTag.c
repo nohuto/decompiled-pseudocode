@@ -1,5 +1,5 @@
 /*
- * XREFs of KiIpiUpdateThreadTag @ 0x14010D1C0
+ * XREFs of KiIpiUpdateThreadTag @ 0x14010D724
  * Callers:
  *     <none>
  * Callees:

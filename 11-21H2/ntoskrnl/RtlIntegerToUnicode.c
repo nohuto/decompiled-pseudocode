@@ -59,7 +59,7 @@ LABEL_4:
       v11 = a1 % v6;
       a1 /= v6;
     }
-    *--v10 = RtlpIntegerWChars[v11];
+    *--v10 = a0123456789abcd[v11];
   }
   while ( a1 );
   v12 = (v18 - (_BYTE *)v10) >> 1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIncrementConcurrencyCount @ 0x1400A4784
+ * XREFs of KiIncrementConcurrencyCount @ 0x1400A2E90
  * Callers:
- *     KiTimerWaitTest @ 0x140058C90 (KiTimerWaitTest.c)
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
+ *     KiTimerWaitTest @ 0x140058810 (KiTimerWaitTest.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
  * Callees:
  *     <none>
  */

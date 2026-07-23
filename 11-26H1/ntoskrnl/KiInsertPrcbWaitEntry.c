@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInsertPrcbWaitEntry @ 0x140418340
+ * XREFs of KiInsertPrcbWaitEntry @ 0x14040C950
  * Callers:
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
  */
 
 __int64 __fastcall KiInsertPrcbWaitEntry(_QWORD *a1, __int64 a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of SepMandatoryIntegrityCheck @ 0x1402B5410
+ * XREFs of SepMandatoryIntegrityCheck @ 0x1403000E0
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x1402AD130 (SepCommonAccessCheckEx.c)
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x1403AD570 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x1402B26BC (ExpAllocateOwnerEntryForLegacyShim.c)
- *     ExIsFastResourceHeldExclusive @ 0x1402B2710 (ExIsFastResourceHeldExclusive.c)
- *     ExpAcquireResourceSharedLite @ 0x1402B4158 (ExpAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x1402FD38C (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     ExIsFastResourceHeldExclusive @ 0x1402FD3E0 (ExIsFastResourceHeldExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402FEE28 (ExpAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepMandatoryIntegrityCheck(_DWORD *a1, __int64 a2, char a3, __int64 a4, char a5, __int64 a6)
@@ -31,7 +31,7 @@ __int64 __fastcall SepMandatoryIntegrityCheck(_DWORD *a1, __int64 a2, char a3, _
   __int64 v16; // rdx
   __int64 v17; // rcx
   unsigned int i; // r8d
-  struct _LIST_ENTRY *Blink; // rcx
+  void *v19; // rcx
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR v21; // rbp
   char v22; // cl
@@ -117,10 +117,10 @@ LABEL_12:
     if ( v17 && (*(_BYTE *)(v17 + 1) & 8) == 0 )
     {
       v44 = *(_DWORD *)(v17 + 4);
-      Blink = (struct _LIST_ENTRY *)(v17 + 8);
+      v19 = (void *)(v17 + 8);
       v55 = v44;
 LABEL_14:
-      Buf1 = Blink;
+      Buf1 = v19;
       if ( a5 )
       {
         CurrentThread = KeGetCurrentThread();
@@ -312,7 +312,7 @@ LABEL_43:
       goto LABEL_44;
     }
 LABEL_13:
-    Blink = RtlpBootStatHandleLock.SavedApcState.ApcListHead[1].Blink;
+    v19 = *(void **)&RtlpBootStatHandleLock.SavedApcStateFill[40];
     v55 = 1;
     goto LABEL_14;
   }

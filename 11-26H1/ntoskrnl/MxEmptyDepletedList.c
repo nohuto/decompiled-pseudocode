@@ -1,9 +1,9 @@
 /*
- * XREFs of MxEmptyDepletedList @ 0x140CF677C
+ * XREFs of MxEmptyDepletedList @ 0x140CFCAFC
  * Callers:
- *     MxCreatePfnsForPfns @ 0x140CF6108 (MxCreatePfnsForPfns.c)
+ *     MxCreatePfnsForPfns @ 0x140CFC488 (MxCreatePfnsForPfns.c)
  * Callees:
- *     MxCreatePfnsForDescriptor @ 0x140CF60C4 (MxCreatePfnsForDescriptor.c)
+ *     MxCreatePfnsForDescriptor @ 0x140CFC444 (MxCreatePfnsForDescriptor.c)
  */
 
 __int64 __fastcall MxEmptyDepletedList(unsigned int a1)

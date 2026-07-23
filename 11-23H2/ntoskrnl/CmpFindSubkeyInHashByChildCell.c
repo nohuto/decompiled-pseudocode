@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpFindSubkeyInHashByChildCell @ 0x1407692E0
+ * XREFs of CmpFindSubkeyInHashByChildCell @ 0x1407694D0
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x1406DAFD0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406DB000 (CmpFindSubKeyByNumberEx.c)
  * Callees:
- *     CmpUnlockTwoKcbs @ 0x1406DBD14 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x1406DBD6C (CmpLockTwoKcbsShared.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpHashUnicodeComponent @ 0x140708CE0 (CmpHashUnicodeComponent.c)
- *     CmpHashCompressedComponent @ 0x140769474 (CmpHashCompressedComponent.c)
- *     CmpLockHashEntryShared @ 0x1407694DC (CmpLockHashEntryShared.c)
- *     CmpUnlockHashEntry @ 0x14076A5C0 (CmpUnlockHashEntry.c)
- *     CmpReferenceKeyControlBlock @ 0x14076A6F0 (CmpReferenceKeyControlBlock.c)
- *     CmpIsKcbLockAllowed @ 0x14076A724 (CmpIsKcbLockAllowed.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpUnlockTwoKcbs @ 0x1406DBD44 (CmpUnlockTwoKcbs.c)
+ *     CmpLockTwoKcbsShared @ 0x1406DBD9C (CmpLockTwoKcbsShared.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpHashUnicodeComponent @ 0x140708EF0 (CmpHashUnicodeComponent.c)
+ *     CmpHashCompressedComponent @ 0x140769664 (CmpHashCompressedComponent.c)
+ *     CmpLockHashEntryShared @ 0x1407696CC (CmpLockHashEntryShared.c)
+ *     CmpUnlockHashEntry @ 0x14076A7B0 (CmpUnlockHashEntry.c)
+ *     CmpReferenceKeyControlBlock @ 0x14076A8E0 (CmpReferenceKeyControlBlock.c)
+ *     CmpIsKcbLockAllowed @ 0x14076A914 (CmpIsKcbLockAllowed.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  *     CmpLockKcbShared @ 0x140AF5530 (CmpLockKcbShared.c)
  *     CmpUnlockKcb @ 0x140AF55A0 (CmpUnlockKcb.c)
  */

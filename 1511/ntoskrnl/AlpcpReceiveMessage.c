@@ -105,7 +105,7 @@ __int64 __fastcall AlpcpReceiveMessage(__int64 a1, ULONG64 a2, _QWORD *a3, unsig
   signed __int64 BugCheckParameter4; // rcx
   __int64 v73; // rbx
   int (__fastcall *v74)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v75; // r8
+  _SLIST_HEADER *v75; // r8
   __int64 v76; // r14
   volatile signed __int64 *v77; // r12
   __int64 v78; // rdi

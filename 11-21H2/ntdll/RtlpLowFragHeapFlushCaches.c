@@ -19,7 +19,7 @@
  *     RtlpLogHeapFailure @ 0x18011F650 (RtlpLogHeapFailure.c)
  */
 
-unsigned int *__fastcall RtlpLowFragHeapFlushCaches(__int64 a1)
+int __fastcall RtlpLowFragHeapFlushCaches(__int64 a1)
 {
   unsigned int v2; // ecx
   __int64 v3; // rdx
@@ -29,8 +29,8 @@ unsigned int *__fastcall RtlpLowFragHeapFlushCaches(__int64 a1)
   __int64 v7; // rdi
   __int64 v8; // r15
   int v9; // ebx
-  unsigned int *result; // rax
-  unsigned int *v11; // rsi
+  struct _PEB *v10; // rax
+  struct _PEB *v11; // rsi
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rsi
   __int64 v14; // rdx
@@ -65,39 +65,39 @@ unsigned int *__fastcall RtlpLowFragHeapFlushCaches(__int64 a1)
   __int64 v43; // rbx
   int v44; // edx
   signed __int64 v45; // rax
-  unsigned int *v46; // rbp
+  struct _PEB *v46; // rbp
   unsigned __int64 v47; // rdx
   unsigned __int64 v48; // r14
   __int64 v49; // rcx
   unsigned __int16 ReservedBlockSize; // ax
-  __int64 v51; // rcx
-  unsigned int HeapProtection; // eax
+  _DWORD *v51; // rcx
+  ULONG HeapProtection; // eax
   signed __int32 v53; // eax
   __int64 v54; // rcx
-  __int64 v55; // [rsp+30h] [rbp-68h]
-  signed __int64 v56; // [rsp+38h] [rbp-60h]
-  unsigned __int64 v57; // [rsp+40h] [rbp-58h] BYREF
-  unsigned __int64 v58[10]; // [rsp+48h] [rbp-50h] BYREF
-  unsigned int v59; // [rsp+A0h] [rbp+8h]
-  __int64 v60; // [rsp+A0h] [rbp+8h]
-  unsigned int v61; // [rsp+A8h] [rbp+10h]
-  __int64 v62; // [rsp+A8h] [rbp+10h]
-  unsigned int v63; // [rsp+B0h] [rbp+18h]
-  char v64; // [rsp+B8h] [rbp+20h] BYREF
+  __int64 v56; // [rsp+30h] [rbp-68h]
+  signed __int64 v57; // [rsp+38h] [rbp-60h]
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-58h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-50h] BYREF
+  unsigned int v60; // [rsp+A0h] [rbp+8h]
+  __int64 v61; // [rsp+A0h] [rbp+8h]
+  unsigned int v62; // [rsp+A8h] [rbp+10h]
+  __int64 v63; // [rsp+A8h] [rbp+10h]
+  unsigned int v64; // [rsp+B0h] [rbp+18h]
+  ULONG OldProtect; // [rsp+B8h] [rbp+20h] BYREF
 
   v2 = 0;
   v3 = 0LL;
   v4 = 0LL;
-  v63 = 0;
-  v55 = 0LL;
+  v64 = 0;
+  v56 = 0LL;
   do
   {
     if ( (*(_BYTE *)(a1 + 4 * v3 + 679) & 1) == 0 || (*(_BYTE *)(a1 + 672) & 1) != 0 )
     {
-      v61 = 1;
+      v62 = 1;
 LABEL_4:
       v5 = 0;
-      v59 = 0;
+      v60 = 0;
 LABEL_5:
       if ( v5 )
         v6 = (_DWORD *)(*(_QWORD *)(a1 + 8 * v3 + 2224) + 192LL * v5 - 192);
@@ -129,7 +129,7 @@ LABEL_5:
         RtlpLogHeapFailure(3, *(_QWORD *)(v19 + 24), v12, 0, 0LL, 0LL);
         goto LABEL_24;
       }
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v21 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v21 = 2147353472LL;
@@ -275,12 +275,17 @@ LABEL_66:
             v43 = *(_QWORD *)(v41 + 24);
             if ( (*((_BYTE *)v15 + 38) & 3) != 0 )
             {
-              v58[0] = (*((_QWORD *)v15 + 1) + 4151LL) & 0xFFFFFFFFFFFFF000uLL;
+              BaseAddress = (PVOID)((*((_QWORD *)v15 + 1) + 4151LL) & 0xFFFFFFFFFFFFF000uLL);
               ReservedBlockSize = RtlpGetReservedBlockSize(v15, v36, v25, v35);
-              v51 = *(_QWORD *)(v43 + 24);
-              v57 = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v15 + 20);
+              v51 = *(_DWORD **)(v43 + 24);
+              RegionSize = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v15 + 20);
               HeapProtection = RtlpGetHeapProtection(v51, 1);
-              ZwProtectVirtualMemory(-1LL, v58, &v57, HeapProtection, &v64);
+              ZwProtectVirtualMemory(
+                (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                &BaseAddress,
+                &RegionSize,
+                HeapProtection,
+                &OldProtect);
             }
             *(_DWORD *)(*((_QWORD *)v15 + 1) + 20LL) = 0;
             RtlpFreeUserBlock(v43, *((_QWORD *)v15 + 1));
@@ -288,10 +293,10 @@ LABEL_66:
             do
             {
               v45 = v42[20];
-              LODWORD(v56) = v45 + v44;
-              HIDWORD(v56) = HIDWORD(v45) - 1;
+              LODWORD(v57) = v45 + v44;
+              HIDWORD(v57) = HIDWORD(v45) - 1;
             }
-            while ( v45 != _InterlockedCompareExchange64(v42 + 20, v56, v45) );
+            while ( v45 != _InterlockedCompareExchange64(v42 + 20, v57, v45) );
             *((_QWORD *)v15 + 1) = 0LL;
             _InterlockedAdd((volatile signed __int32 *)(v43 + 60), 1u);
             v15[8] = 0;
@@ -303,14 +308,14 @@ LABEL_66:
               goto LABEL_72;
             }
 LABEL_24:
-            v5 = v59;
+            v5 = v60;
 LABEL_25:
-            v3 = v55;
+            v3 = v56;
 LABEL_9:
-            v59 = ++v5;
-            if ( v5 >= v61 )
+            v60 = ++v5;
+            if ( v5 >= v62 )
             {
-              v2 = v63;
+              v2 = v64;
               goto LABEL_11;
             }
             goto LABEL_5;
@@ -331,43 +336,43 @@ LABEL_9:
         }
       }
     }
-    v61 = RtlpAffinityState[0];
+    v62 = RtlpAffinityState[0];
     if ( LODWORD(RtlpAffinityState[0]) )
       goto LABEL_4;
 LABEL_11:
     ++v2;
     ++v3;
-    v63 = v2;
-    v55 = v3;
+    v64 = v2;
+    v56 = v3;
   }
   while ( v2 < 0x81 );
   v7 = a1 + 96;
   v8 = 12LL;
-  v60 = a1 + 96;
-  v62 = 12LL;
+  v61 = a1 + 96;
+  v63 = 12LL;
   do
   {
     v9 = 0;
-    result = (unsigned int *)RtlpInterlockedFlushSList(v7);
-    v11 = result;
-    if ( result )
+    v10 = (struct _PEB *)RtlpInterlockedFlushSList(v7);
+    v11 = v10;
+    if ( v10 )
     {
       do
       {
         v46 = v11;
-        v11 = *(unsigned int **)v11;
-        v47 = 1LL << *((_BYTE *)v46 + 16);
+        v11 = *(struct _PEB **)&v11->InheritedAddressSpace;
+        v47 = 1LL << LOBYTE(v46->ImageBaseAddress);
         if ( v47 > 0xF0000 )
           v47 = 983040LL;
-        v48 = v47 + *((unsigned __int16 *)v46 + 9);
+        v48 = v47 + WORD1(v46->ImageBaseAddress);
         v4 += v48;
-        RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), v46);
+        RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), v46);
         ++v9;
-        result = RtlGetCurrentServiceSessionId();
-        if ( (_DWORD)result )
+        LODWORD(v10) = RtlGetCurrentServiceSessionId();
+        if ( (_DWORD)v10 )
         {
-          result = (unsigned int *)NtCurrentPeb();
-          v49 = *((_QWORD *)result + 18) + 550LL;
+          v10 = NtCurrentPeb();
+          v49 = (__int64)v10->SharedData + 550;
         }
         else
         {
@@ -375,27 +380,27 @@ LABEL_11:
         }
         if ( *(_BYTE *)v49 )
         {
-          result = (unsigned int *)NtCurrentPeb();
-          if ( (result[222] & 1) != 0 )
+          v10 = NtCurrentPeb();
+          if ( (v10->TracingFlags & 1) != 0 )
           {
             RtlpLogHeapSubSegmentAllocCached(*(_QWORD *)(a1 + 24), v46, v48, 0LL);
-            result = (unsigned int *)RtlpLogHeapSubSegmentFree(*(_QWORD *)(a1 + 24), v46, v48, 0LL);
+            LODWORD(v10) = RtlpLogHeapSubSegmentFree(*(_QWORD *)(a1 + 24), v46, v48, 0LL);
           }
         }
       }
       while ( v11 );
-      v7 = v60;
-      v8 = v62;
+      v7 = v61;
+      v8 = v63;
       if ( v9 )
-        _InterlockedExchangeAdd((volatile signed __int32 *)(v60 + 16), -v9);
+        _InterlockedExchangeAdd((volatile signed __int32 *)(v61 + 16), -v9);
     }
     v7 += 48LL;
     --v8;
-    v60 = v7;
-    v62 = v8;
+    v61 = v7;
+    v63 = v8;
   }
   while ( v8 );
   if ( v4 )
     _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -v4);
-  return result;
+  return (int)v10;
 }

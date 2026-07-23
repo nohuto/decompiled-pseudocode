@@ -1,8 +1,8 @@
 /*
- * XREFs of ExInitializeNPagedLookasideList @ 0x140110BFC
+ * XREFs of ExInitializeNPagedLookasideList @ 0x140111160
  * Callers:
- *     AlpcpInitSystem @ 0x14057BD0C (AlpcpInitSystem.c)
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x14057EA80 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     AlpcpInitSystem @ 0x14057C1B8 (AlpcpInitSystem.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x14057EF2C (FsRtlInitExtraCreateParameterLookasideList.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  *     WmipInitializeRegistration @ 0x14079C5A8 (WmipInitializeRegistration.c)
@@ -14,7 +14,7 @@
  *     PopInitializeIrpWorkers @ 0x1407BB170 (PopInitializeIrpWorkers.c)
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x140110C30 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x140111194 (ExInitializeNPagedLookasideListInternal.c)
  */
 
 void __stdcall ExInitializeNPagedLookasideList(

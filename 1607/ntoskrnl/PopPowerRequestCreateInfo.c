@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestCreateInfo @ 0x14051E69C
+ * XREFs of PopPowerRequestCreateInfo @ 0x140501704
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     PoDestroyReasonContext @ 0x1400FB8C8 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x1400FC0BC (PoCaptureReasonContext.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     PopCreateUserPowerRequest @ 0x14051E750 (PopCreateUserPowerRequest.c)
+ *     PoDestroyReasonContext @ 0x1400F9654 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1400F9E3C (PoCaptureReasonContext.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     PopCreateUserPowerRequest @ 0x1405017B8 (PopCreateUserPowerRequest.c)
  */
 
 __int64 __fastcall PopPowerRequestCreateInfo(unsigned __int64 a1, __int64 a2, HANDLE *a3)

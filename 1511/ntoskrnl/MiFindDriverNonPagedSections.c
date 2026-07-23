@@ -10,7 +10,7 @@
 
 __int64 __fastcall MiFindDriverNonPagedSections(__int64 a1, ULONG *a2, __int64 *a3, _QWORD *a4)
 {
-  struct _RTL_BITMAP *v4; // rbx
+  _RTL_BITMAP *v4; // rbx
   ULONG v6; // esi
   __int64 v8; // r12
   ULONG SetBits; // eax
@@ -20,7 +20,7 @@ __int64 __fastcall MiFindDriverNonPagedSections(__int64 a1, ULONG *a2, __int64 *
   __int64 PteAddress; // rax
   ULONG StartingRunIndex; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = *(struct _RTL_BITMAP **)(a1 + 240);
+  v4 = *(_RTL_BITMAP **)(a1 + 240);
   v6 = *a2;
   v8 = *(_QWORD *)(a1 + 48);
   if ( *a2 == v4->SizeOfBitMap )

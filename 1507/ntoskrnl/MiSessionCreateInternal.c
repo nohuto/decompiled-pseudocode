@@ -42,8 +42,8 @@ __int64 __fastcall MiSessionCreateInternal(unsigned int *a1, __int64 a2, __int64
   ULONG ClearBitsAndSet; // eax
   int v13; // ecx
   unsigned int v14; // esi
-  struct _RTL_BITMAP *PoolWithTag; // rax
-  struct _RTL_BITMAP *v16; // r14
+  _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *v16; // r14
   __int16 v17; // ax
   unsigned __int64 v18; // r8
   __int64 v19; // r9
@@ -87,7 +87,7 @@ __int64 __fastcall MiSessionCreateInternal(unsigned int *a1, __int64 a2, __int64
     if ( v14 > 0x7FFFF )
       v14 = 0x7FFFF;
     LOBYTE(v13) = (v14 & 0x3F) != 0;
-    PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 8 * (v13 + (v14 >> 6)) + 16, 0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 8 * (v13 + (v14 >> 6)) + 16, 0x20206D4Du);
     v16 = PoolWithTag;
     if ( !PoolWithTag )
     {
@@ -161,7 +161,7 @@ LABEL_35:
   v27 = v26;
   *(_DWORD *)(v23 + 8) = *a1;
   *(_DWORD *)(v23 + 112) = PsDefaultSystemLocaleId;
-  *(_QWORD *)(v23 + 7992) = KeQueryInterruptTimePrecise(v4 + 2);
+  *(LARGE_INTEGER *)(v23 + 7992) = KeQueryInterruptTimePrecise(v4 + 2);
   PteShadow = MEMORY[0xFFFFF6FB7E400000];
   if ( MiPteInShadowRange(0xFFFFF6FB7E400000uLL) )
     PteShadow = MiReadPteShadow(0xFFFFF6FB7E400000uLL, PteShadow);

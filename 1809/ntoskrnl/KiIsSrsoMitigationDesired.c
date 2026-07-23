@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsSrsoMitigationDesired @ 0x1401B4658
+ * XREFs of KiIsSrsoMitigationDesired @ 0x1401B4798
  * Callers:
- *     KeOptimizeSpecCtrlSettings @ 0x14018EDF0 (KeOptimizeSpecCtrlSettings.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x14018EF30 (KeOptimizeSpecCtrlSettings.c)
  * Callees:
- *     KiIsBranchConfusionMitigationDesired @ 0x1401B445C (KiIsBranchConfusionMitigationDesired.c)
- *     KiIsBranchConfusionMitigationSupported @ 0x1401B44B8 (KiIsBranchConfusionMitigationSupported.c)
- *     KiIsBranchConfusionPresent @ 0x1401B44E0 (KiIsBranchConfusionPresent.c)
+ *     KiIsBranchConfusionMitigationDesired @ 0x1401B459C (KiIsBranchConfusionMitigationDesired.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1401B45F8 (KiIsBranchConfusionMitigationSupported.c)
+ *     KiIsBranchConfusionPresent @ 0x1401B4620 (KiIsBranchConfusionPresent.c)
  */
 
 __int64 __fastcall KiIsSrsoMitigationDesired(__int64 a1, _QWORD *a2)

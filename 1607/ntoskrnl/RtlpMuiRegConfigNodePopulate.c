@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegConfigNodePopulate @ 0x1406E6B70
+ * XREFs of RtlpMuiRegConfigNodePopulate @ 0x1406E6CA8
  * Callers:
- *     RtlpPopulateLanguageConfigList @ 0x1405605D4 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x140560B14 (RtlpPopulateLanguageConfigList.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14009ED7C (RtlStringCbLengthW.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x1406E6FE0 (RtlpMuiRegGetLanguageSpec.c)
+ *     RtlStringCbLengthW @ 0x140085E34 (RtlStringCbLengthW.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x1406E7118 (RtlpMuiRegGetLanguageSpec.c)
  */
 
 NTSTATUS __fastcall RtlpMuiRegConfigNodePopulate(__int64 a1, __int64 a2, const wchar_t *a3, int a4)

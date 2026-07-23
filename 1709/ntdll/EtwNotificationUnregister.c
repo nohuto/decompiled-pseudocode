@@ -20,45 +20,45 @@
  *     NtClose @ 0x1800A02A0 (NtClose.c)
  */
 
-__int64 __fastcall EtwNotificationUnregister(unsigned __int64 a1, _QWORD *a2, unsigned __int64 *a3, __int64 a4)
+ULONG __cdecl EtwNotificationUnregister(REGHANDLE RegHandle, PVOID *Context)
 {
-  unsigned __int64 v4; // rdi
-  __int64 v6; // rbx
-  __int64 v7; // rax
-  __int64 v8; // rcx
+  REGHANDLE v2; // rdi
+  REGHANDLE v4; // rbx
+  __int64 v5; // rax
+  _RTL_BALANCED_NODE *v6; // rcx
 
-  v4 = HIWORD(a1);
-  if ( !HIWORD(a1) )
+  v2 = HIWORD(RegHandle);
+  if ( !HIWORD(RegHandle) )
     goto LABEL_14;
-  v6 = a1 & 0xFFFFFFFFFFFFLL;
-  if ( (a1 & 1) != 0 || HIWORD(a1) != *(_WORD *)((a1 & 0xFFFFFFFFFFFFLL) + 0x60) )
+  v4 = RegHandle & 0xFFFFFFFFFFFFLL;
+  if ( (RegHandle & 1) != 0 || HIWORD(RegHandle) != *(_WORD *)((RegHandle & 0xFFFFFFFFFFFFLL) + 0x60) )
     goto LABEL_14;
-  RtlAcquireSRWLockExclusive(v6 + 72, (unsigned __int64)a2, a3, a4);
-  if ( (_WORD)v4 != _InterlockedCompareExchange16((volatile signed __int16 *)(v6 + 96), 0, v4) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
+  if ( (_WORD)v2 != _InterlockedCompareExchange16((volatile signed __int16 *)(v4 + 96), 0, v2) )
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v6 + 72));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
 LABEL_14:
-    RtlSetLastWin32Error(6u);
-    return 6LL;
+    RtlSetLastWin32Error(6);
+    return 6;
   }
-  EtwpRemoveRegistrationFromTable(v6);
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v6 + 72));
-  if ( (*(_WORD *)(v6 + 98) & 0x3FFF) != 0xA )
+  EtwpRemoveRegistrationFromTable((PRTL_BALANCED_NODE)v4);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
+  if ( (*(_WORD *)(v4 + 98) & 0x3FFF) != 0xA )
   {
-    NtClose(*(HANDLE *)(v6 + 88));
-    v7 = PrivateLoggerNotificationEntry;
-    if ( v6 == PrivateLoggerNotificationEntry )
-      v7 = 0LL;
-    PrivateLoggerNotificationEntry = v7;
+    NtClose(*(HANDLE *)(v4 + 88));
+    v5 = PrivateLoggerNotificationEntry;
+    if ( v4 == PrivateLoggerNotificationEntry )
+      v5 = 0LL;
+    PrivateLoggerNotificationEntry = v5;
   }
-  v8 = *(_QWORD *)(v6 + 248);
-  if ( v8 )
+  v6 = *(_RTL_BALANCED_NODE **)(v4 + 248);
+  if ( v6 )
   {
-    EtwpDereferenceUmGuidEntry(v8);
-    *(_QWORD *)(v6 + 248) = 0LL;
+    EtwpDereferenceUmGuidEntry(v6);
+    *(_QWORD *)(v4 + 248) = 0LL;
   }
-  if ( a2 )
-    *a2 = *(_QWORD *)(v6 + 56);
-  EtwpFreeRegistration(v6);
-  return 0LL;
+  if ( Context )
+    *Context = *(PVOID *)(v4 + 56);
+  EtwpFreeRegistration(v4);
+  return 0;
 }

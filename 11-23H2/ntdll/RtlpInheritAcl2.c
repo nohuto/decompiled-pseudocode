@@ -15,7 +15,7 @@ __int64 __fastcall RtlpInheritAcl2(
         unsigned __int8 *a2,
         int a3,
         char a4,
-        char a5,
+        int a5,
         char a6,
         __int64 a7,
         __int64 a8,
@@ -25,19 +25,19 @@ __int64 __fastcall RtlpInheritAcl2(
         int a12,
         __int64 a13,
         int a14,
-        _DWORD *a15,
-        __int64 a16,
+        ULONG *a15,
+        PACL Acl,
         _BYTE *a17,
-        int *a18)
+        PVOID a18)
 {
-  __int64 v18; // rsi
+  PACL v18; // rsi
   int v20; // r13d
   int v21; // edi
   unsigned int v22; // r14d
   int v23; // ebx
   char v24; // r15
   _BYTE *v25; // r9
-  int *v26; // rax
+  _DWORD *v26; // rax
   int v27; // r8d
   int v28; // ecx
   bool v29; // zf
@@ -51,34 +51,32 @@ __int64 __fastcall RtlpInheritAcl2(
   int v37; // eax
   char v38; // [rsp+88h] [rbp-19h]
   char v39; // [rsp+89h] [rbp-18h]
-  __int16 v40; // [rsp+8Ah] [rbp-17h]
-  int v41; // [rsp+8Ch] [rbp-15h] BYREF
-  int v42; // [rsp+90h] [rbp-11h] BYREF
-  void *Src; // [rsp+98h] [rbp-9h] BYREF
-  int v45; // [rsp+F8h] [rbp+57h] BYREF
-  char v46; // [rsp+100h] [rbp+5Fh]
+  unsigned __int16 AceCount; // [rsp+8Ah] [rbp-17h]
+  __int64 v41; // [rsp+8Ch] [rbp-15h] BYREF
+  PVOID FirstFree; // [rsp+98h] [rbp-9h] BYREF
+  __int64 v44; // [rsp+F8h] [rbp+57h] BYREF
+  char v45; // [rsp+100h] [rbp+5Fh]
 
-  v46 = a4;
-  v45 = a3;
-  v18 = a16;
-  v42 = 0;
+  v45 = a4;
+  LODWORD(v44) = a3;
+  v18 = Acl;
   v20 = 0;
-  v41 = 0;
+  v41 = 0LL;
   v21 = 0;
-  v40 = 0;
-  Src = 0LL;
+  AceCount = 0;
+  FirstFree = 0LL;
   v22 = 2;
   v38 = 0;
   v39 = 1;
   v23 = 0;
   v24 = 0;
-  RtlCreateAcl(a16, (unsigned int)*a15, 2LL);
+  RtlCreateAcl(Acl, *a15, 2u);
   v25 = a17;
   v26 = a18;
-  v27 = v45;
-  v28 = a5 != 0 ? 0x400 : 0;
-  v29 = (v45 & 8) == 0;
-  v30 = v45 & 8;
+  v27 = v44;
+  v28 = (_BYTE)a5 != 0 ? 0x400 : 0;
+  v29 = (v44 & 8) == 0;
+  v30 = v44 & 8;
   *a17 = 0;
   LODWORD(a18) = v30;
   *v26 = v28;
@@ -99,7 +97,7 @@ __int64 __fastcall RtlpInheritAcl2(
     v39 = 0;
     if ( *a2 >= 2u )
       v22 = *a2;
-    if ( a5 )
+    if ( (_BYTE)a5 )
     {
       if ( (v27 & 0x1000) != 0 )
       {
@@ -118,9 +116,9 @@ __int64 __fastcall RtlpInheritAcl2(
     }
     LOBYTE(v25) = 0;
 LABEL_36:
-    result = RtlpCopyAces((_DWORD)a2, a11, v34, (_DWORD)v25, v35, a7, a8, a9, a10, v46, 0, a12, (__int64)&v42, v18);
-    v20 = v42;
-    v21 = v42;
+    result = RtlpCopyAces((int)a2, a11, v34, (int)v25, v35, a7, a8, a9, a10, v45, 0, a12, (__int64)&v41 + 4, v18);
+    v20 = HIDWORD(v41);
+    v21 = HIDWORD(v41);
     if ( (_DWORD)result == -1073741789 )
     {
       v24 = 1;
@@ -131,18 +129,18 @@ LABEL_36:
     }
     if ( a6 )
     {
-      if ( v42 )
+      if ( HIDWORD(v41) )
       {
-        v40 = *(_WORD *)(v18 + 4);
-        if ( !(unsigned __int8)RtlFirstFreeAce(v18, &Src) )
+        AceCount = v18->AceCount;
+        if ( !RtlFirstFreeAce(v18, &FirstFree) )
           return 3221225597LL;
       }
     }
-    v27 = v45;
+    v27 = v44;
     v25 = a17;
     goto LABEL_40;
   }
-  if ( a5 )
+  if ( (_BYTE)a5 )
   {
     v36 = a12;
     if ( a12 == 1 )
@@ -168,16 +166,16 @@ LABEL_5:
 LABEL_6:
   v30 = (int)a18;
 LABEL_7:
-  if ( (!a5 && (v27 & 4) == 0 || v30 || a5 && !v31) && a1 )
+  if ( (!(_BYTE)a5 && (v27 & 4) == 0 || v30 || (_BYTE)a5 && !v31) && a1 )
   {
     if ( (unsigned __int8)(*a1 - 2) > 2u )
       return 3221225560LL;
     LOBYTE(v27) = a5;
     if ( v22 <= (unsigned __int8)*a1 )
       LOBYTE(v22) = *a1;
-    LOBYTE(v30) = v46;
+    LOBYTE(v30) = v45;
     result = RtlpGenerateInheritAcl(
-               (_DWORD)a1,
+               (int)a1,
                v30,
                v27,
                a7,
@@ -191,7 +189,7 @@ LABEL_7:
                v24,
                (__int64)&v41,
                v18,
-               (__int64)&v45);
+               (__int64)&v44);
     if ( (_DWORD)result == -1073741789 )
     {
       v24 = 1;
@@ -200,15 +198,15 @@ LABEL_7:
     {
       return result;
     }
-    if ( a6 && v20 && (_BYTE)v45 && !v24 )
+    if ( a6 && v20 && (_BYTE)v44 && !v24 )
     {
-      if ( !(unsigned __int8)RtlFirstFreeAce(v18, &a18) )
+      if ( !RtlFirstFreeAce(v18, &a18) )
         return 3221225597LL;
       v37 = (int)a18;
       if ( !a18 )
-        v37 = v18 + *(unsigned __int16 *)(v18 + 2);
-      memmove((void *)(v18 + 8), Src, (unsigned int)(v37 - (_DWORD)Src));
-      *(_WORD *)(v18 + 4) -= v40;
+        v37 = (_DWORD)v18 + v18->AclSize;
+      memmove(&v18[1], FirstFree, (unsigned int)(v37 - (_DWORD)FirstFree));
+      v18->AceCount -= AceCount;
       v21 = 0;
     }
     v23 = v41;
@@ -234,7 +232,7 @@ LABEL_20:
   *a15 = v23 + v20 + 8;
   if ( v24 )
     return 3221225507LL;
-  *(_BYTE *)v18 = v22;
-  *(_WORD *)(v18 + 2) = v23 + v21 + 8;
+  v18->AclRevision = v22;
+  v18->AclSize = v23 + v21 + 8;
   return 0LL;
 }

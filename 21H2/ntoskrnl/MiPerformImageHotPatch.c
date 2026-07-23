@@ -1,38 +1,38 @@
 /*
- * XREFs of MiPerformImageHotPatch @ 0x1408CCEC4
+ * XREFs of MiPerformImageHotPatch @ 0x1408CD024
  * Callers:
- *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x1408CA494 (MiHotPatchImage.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
- *     MiObtainReferencedSecureVad @ 0x14025B6F0 (MiObtainReferencedSecureVad.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiBeginHoldingDirtyFaults @ 0x14053E230 (MiBeginHoldingDirtyFaults.c)
- *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
- *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
- *     MiMapViewOfSectionExCommon @ 0x1407125A8 (MiMapViewOfSectionExCommon.c)
- *     MiUnmapImageInSystemSpace @ 0x1407155A4 (MiUnmapImageInSystemSpace.c)
- *     MiApplyImageHotPatch @ 0x1408C955C (MiApplyImageHotPatch.c)
- *     MiInitializeImageHotPatchContext @ 0x1408CA8E4 (MiInitializeImageHotPatchContext.c)
- *     MiOpenHotPatchFile @ 0x1408CCB08 (MiOpenHotPatchFile.c)
- *     MiPrepareToHotPatchImage @ 0x1408CD638 (MiPrepareToHotPatchImage.c)
- *     MiReleaseHotPatchResources @ 0x1408CE44C (MiReleaseHotPatchResources.c)
- *     MiSetProcessPebHotPatchState @ 0x1408CE664 (MiSetProcessPebHotPatchState.c)
- *     RtlFindHotPatchBase @ 0x14091AF20 (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x14091AF50 (RtlFindHotPatchInformation.c)
- *     RtlValidateHotPatchBase @ 0x14091B1E4 (RtlValidateHotPatchBase.c)
- *     RtlApplyHotPatch @ 0x1409B2744 (RtlApplyHotPatch.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiVadDeleted @ 0x14027C8A0 (MiVadDeleted.c)
+ *     MiObtainReferencedSecureVad @ 0x14027CC60 (MiObtainReferencedSecureVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiUnlockVad @ 0x14031F3A8 (MiUnlockVad.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiBeginHoldingDirtyFaults @ 0x14053E470 (MiBeginHoldingDirtyFaults.c)
+ *     MiUnmapViewOfSection @ 0x140687D60 (MiUnmapViewOfSection.c)
+ *     MmUnsecureVirtualMemory @ 0x1406893D0 (MmUnsecureVirtualMemory.c)
+ *     MiMapViewOfSectionExCommon @ 0x1406C0BF8 (MiMapViewOfSectionExCommon.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406C3BF4 (MiUnmapImageInSystemSpace.c)
+ *     MiApplyImageHotPatch @ 0x1408C96BC (MiApplyImageHotPatch.c)
+ *     MiInitializeImageHotPatchContext @ 0x1408CAA44 (MiInitializeImageHotPatchContext.c)
+ *     MiOpenHotPatchFile @ 0x1408CCC68 (MiOpenHotPatchFile.c)
+ *     MiPrepareToHotPatchImage @ 0x1408CD798 (MiPrepareToHotPatchImage.c)
+ *     MiReleaseHotPatchResources @ 0x1408CE5AC (MiReleaseHotPatchResources.c)
+ *     MiSetProcessPebHotPatchState @ 0x1408CE7C4 (MiSetProcessPebHotPatchState.c)
+ *     RtlFindHotPatchBase @ 0x14091B080 (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x14091B0B0 (RtlFindHotPatchInformation.c)
+ *     RtlValidateHotPatchBase @ 0x14091B344 (RtlValidateHotPatchBase.c)
+ *     RtlApplyHotPatch @ 0x1409B3674 (RtlApplyHotPatch.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
@@ -40,7 +40,7 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   __int64 v2; // rsi
   void *v3; // r14
   _QWORD *v4; // r15
-  _DWORD *v5; // rcx
+  unsigned int *v5; // rcx
   __int64 Process; // r12
   int v7; // esi
   __int64 v8; // r13
@@ -74,7 +74,7 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   char v37[8]; // [rsp+100h] [rbp-1B8h] BYREF
   __int64 v38[18]; // [rsp+110h] [rbp-1A8h] BYREF
   _QWORD v39[18]; // [rsp+1A0h] [rbp-118h] BYREF
-  _OWORD v40[8]; // [rsp+230h] [rbp-88h] BYREF
+  PVOID BaseOfImage[17]; // [rsp+230h] [rbp-88h] BYREF
   __int64 v43; // [rsp+2D0h] [rbp+18h] BYREF
   va_list va; // [rsp+2D0h] [rbp+18h]
   __int64 v45; // [rsp+2D8h] [rbp+20h]
@@ -83,7 +83,7 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   __int64 v48; // [rsp+2F0h] [rbp+38h]
   __int64 v49; // [rsp+2F8h] [rbp+40h]
   __int64 v50; // [rsp+300h] [rbp+48h]
-  _QWORD *v51; // [rsp+308h] [rbp+50h]
+  unsigned int *v51; // [rsp+308h] [rbp+50h]
   va_list va1; // [rsp+310h] [rbp+58h] BYREF
 
   va_start(va1, a2);
@@ -95,9 +95,9 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   v48 = va_arg(va1, _QWORD);
   v49 = va_arg(va1, _QWORD);
   v50 = va_arg(va1, _QWORD);
-  v51 = va_arg(va1, _QWORD *);
+  v51 = va_arg(va1, unsigned int *);
   v2 = a2;
-  memset(v40, 0, 0x50uLL);
+  memset(BaseOfImage, 0, 0x50uLL);
   v36 = 0LL;
   v32 = 0;
   memset(v39, 0, sizeof(v39));
@@ -111,7 +111,7 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   MiInitializeImageHotPatchContext(v39, 0LL);
   MiInitializeImageHotPatchContext(v38, 0LL);
   v5 = v51;
-  *v51 = 0LL;
+  *(_QWORD *)v51 = 0LL;
   Process = (__int64)KeGetCurrentThread()->ApcState.Process;
   v29 = Process;
   DmaAdapter[1] = (PADAPTER_OBJECT)Process;
@@ -197,17 +197,17 @@ LABEL_23:
     Process = v29;
     goto LABEL_36;
   }
-  v7 = MiOpenHotPatchFile(v47, 0, v50, &Handle, DmaAdapter, v40, 0LL, v5);
+  v7 = MiOpenHotPatchFile(v47, 0, v50, &Handle, DmaAdapter, BaseOfImage, 0LL, v5);
   if ( v7 < 0 )
     goto LABEL_36;
-  v9 = (unsigned __int64)LODWORD(v40[1]) << 12;
+  v9 = (unsigned __int64)LODWORD(BaseOfImage[2]) << 12;
   if ( v9 > 0xFFFFFFFF )
   {
 LABEL_8:
     v7 = -1073741701;
     goto LABEL_36;
   }
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)&v40[0]);
+  HotPatchInformation = RtlFindHotPatchInformation(BaseOfImage[0]);
   v11 = (const void *)HotPatchInformation;
   v36 = HotPatchInformation;
   if ( !HotPatchInformation )
@@ -238,7 +238,7 @@ LABEL_12:
     v7 = -1073741735;
     goto LABEL_36;
   }
-  if ( *(_DWORD *)(a2 + 88) && *v51 == *(_QWORD *)(a2 + 80) )
+  if ( *(_DWORD *)(a2 + 88) && *(_QWORD *)v51 == *(_QWORD *)(a2 + 80) )
   {
     v7 = 255;
     goto LABEL_36;
@@ -246,10 +246,10 @@ LABEL_12:
   *(_QWORD *)v37 = 0LL;
   LODWORD(ullMultiplicand) = 0;
   v7 = MiMapViewOfSectionExCommon(
-         DmaAdapter[0],
+         (__int64)DmaAdapter[0],
          Process,
-         1,
-         (__int64 *)v31,
+         1u,
+         v31,
          0LL,
          v37,
          0,
@@ -265,7 +265,7 @@ LABEL_12:
     v4 = MiAllocatePool(256, 0x18uLL, 0x45505048u);
     if ( v4 )
     {
-      v17 = (char *)MiObtainReferencedSecureVad(Process ^ (unsigned __int64)SecureHandle ^ qword_140C4DE50, (int *)va);
+      v17 = (char *)MiObtainReferencedSecureVad(Process ^ (unsigned __int64)SecureHandle ^ qword_140C4DE90, (int *)va);
       MiInitializeImageHotPatchContext(v38, (__int64)v17);
       MiBeginHoldingDirtyFaults(a1, &v38[11]);
       LODWORD(v38[17]) |= 2u;
@@ -281,14 +281,14 @@ LABEL_12:
 LABEL_36:
   if ( Handle )
     ZwClose(Handle);
-  if ( *(_QWORD *)&v40[0] )
-    MiUnmapImageInSystemSpace((unsigned __int64 *)v40);
+  if ( BaseOfImage[0] )
+    MiUnmapImageInSystemSpace((unsigned __int64 *)BaseOfImage);
   if ( DmaAdapter[0] )
     HalPutDmaAdapter(DmaAdapter[0]);
   if ( SecureHandle )
     MmUnsecureVirtualMemory(SecureHandle);
   if ( *(_QWORD *)v31 )
-    MiUnmapViewOfSection((_KPROCESS *)Process, *(unsigned __int64 *)v31, 0, 0LL);
+    MiUnmapViewOfSection((_KPROCESS *)Process, *(unsigned __int64 *)v31, 0, 0);
   if ( v3 )
     ExFreePoolWithTag(v3, 0);
   if ( v4 )

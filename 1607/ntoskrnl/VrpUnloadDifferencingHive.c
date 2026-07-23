@@ -1,32 +1,31 @@
 /*
- * XREFs of VrpUnloadDifferencingHive @ 0x140617878
+ * XREFs of VrpUnloadDifferencingHive @ 0x14061792C
  * Callers:
- *     VrpCleanupNamespace @ 0x140612E20 (VrpCleanupNamespace.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x1406139F8 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140613F7C (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VrpCleanupNamespace @ 0x140612ED4 (VrpCleanupNamespace.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x140613AAC (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140614030 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
  * Callees:
- *     ZwUnloadKey @ 0x14015D2E0 (ZwUnloadKey.c)
- *     ZwUnloadKey2 @ 0x14015D300 (ZwUnloadKey2.c)
- *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x140616F50 (VrpBecomeDiffHiveEntryTransitionOwner.c)
- *     VrpDecrementDiffHiveEntryHardRefCount @ 0x140616F9C (VrpDecrementDiffHiveEntryHardRefCount.c)
- *     VrpDereferenceDiffHiveEntry @ 0x140616FDC (VrpDereferenceDiffHiveEntry.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x140617140 (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpIncrementDiffHiveEntryHardRefCount @ 0x140617438 (VrpIncrementDiffHiveEntryHardRefCount.c)
- *     VrpLockDiffHiveEntry @ 0x14061771C (VrpLockDiffHiveEntry.c)
- *     VrpLockDiffHiveTableShared @ 0x1406177D8 (VrpLockDiffHiveTableShared.c)
- *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x140617840 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
- *     VrpUnlockDiffHiveEntry @ 0x14061798C (VrpUnlockDiffHiveEntry.c)
- *     VrpUnlockDiffHiveTable @ 0x1406179C8 (VrpUnlockDiffHiveTable.c)
+ *     ZwUnloadKey @ 0x14015D850 (ZwUnloadKey.c)
+ *     ZwUnloadKey2 @ 0x14015D870 (ZwUnloadKey2.c)
+ *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x140617004 (VrpBecomeDiffHiveEntryTransitionOwner.c)
+ *     VrpDecrementDiffHiveEntryHardRefCount @ 0x140617050 (VrpDecrementDiffHiveEntryHardRefCount.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x140617090 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x1406171F4 (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpIncrementDiffHiveEntryHardRefCount @ 0x1406174EC (VrpIncrementDiffHiveEntryHardRefCount.c)
+ *     VrpLockDiffHiveEntry @ 0x1406177D0 (VrpLockDiffHiveEntry.c)
+ *     VrpLockDiffHiveTableShared @ 0x14061788C (VrpLockDiffHiveTableShared.c)
+ *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x1406178F4 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
+ *     VrpUnlockDiffHiveEntry @ 0x140617A40 (VrpUnlockDiffHiveEntry.c)
+ *     VrpUnlockDiffHiveTable @ 0x140617A7C (VrpUnlockDiffHiveTable.c)
  */
 
 __int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *String1)
 {
   __int64 DiffHiveEntryForMountPointWithLock; // rax
   __int64 v3; // rbx
-  int v4; // edi
+  NTSTATUS v4; // edi
   char v5; // al
   char v6; // si
-  __int64 v7; // r8
   OBJECT_ATTRIBUTES KeyObjectAttributes; // [rsp+20h] [rbp-38h] BYREF
 
   VrpLockDiffHiveTableShared();
@@ -54,7 +53,7 @@ __int64 __fastcall VrpUnloadDifferencingHive(UNICODE_STRING *String1)
       KeyObjectAttributes.ObjectName = String1;
       v4 = ZwUnloadKey(&KeyObjectAttributes);
       if ( v4 < 0 )
-        v4 = ZwUnloadKey2((__int64)&KeyObjectAttributes, 1LL, v7);
+        v4 = ZwUnloadKey2(&KeyObjectAttributes, 1u);
       VrpLockDiffHiveEntry(v3);
       if ( v4 < 0 )
       {

@@ -17,7 +17,7 @@ char __fastcall IopProcessIoTracking(__int64 a1, int a2)
 {
   char v2; // di
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v4; // rbx
+  PRTL_BALANCED_NODE v4; // rbx
   char result; // al
   __int64 i; // rbx
   __int16 v7; // [rsp+28h] [rbp-50h] BYREF
@@ -39,7 +39,7 @@ char __fastcall IopProcessIoTracking(__int64 a1, int a2)
     || (result = ExfTryAcquirePushLockShared((signed __int64 *)&IopPerfIoTrackingLock)) != 0 )
   {
     if ( v4 )
-      *(_BYTE *)(v4 + 26) |= 1u;
+      BYTE2(v4[1].Left) |= 1u;
     for ( i = IopPerfIoTrackingListHead; (__int64 *)i != &IopPerfIoTrackingListHead; i = *(_QWORD *)i )
       (*(void (__fastcall **)(__int16 *))(i + 16))(&v7);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&IopPerfIoTrackingLock, 0LL, 17LL) != 17 )
@@ -48,7 +48,7 @@ char __fastcall IopProcessIoTracking(__int64 a1, int a2)
   }
   else if ( v4 )
   {
-    result = KeAbPostReleaseEx((ULONG_PTR)&IopPerfIoTrackingLock, v4);
+    result = KeAbPostReleaseEx((ULONG_PTR)&IopPerfIoTrackingLock, (unsigned __int64)v4);
   }
   if ( v2 == 1 )
     return KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());

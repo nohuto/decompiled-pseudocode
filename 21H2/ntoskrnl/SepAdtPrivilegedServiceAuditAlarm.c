@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAdtPrivilegedServiceAuditAlarm @ 0x140627808
+ * XREFs of SepAdtPrivilegedServiceAuditAlarm @ 0x140693918
  * Callers:
- *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
- *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1406B7670 (NtPrivilegedServiceAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x140616B80 (NtPrivilegedServiceAuditAlarm.c)
+ *     PfQuerySuperfetchInformation @ 0x140649630 (PfQuerySuperfetchInformation.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14069382C (SePrivilegedServiceAuditAlarm.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1406279F0 (SepAdtAuditPrivilegeUseWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x14023C620 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2884 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14067B228 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140693B00 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAuditFailed @ 0x140925A60 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtPrivilegedServiceAuditAlarm(
@@ -54,7 +54,7 @@ void __fastcall SepAdtPrivilegedServiceAuditAlarm(
   {
     CurrentThreadProcess = PsGetCurrentThreadProcess();
     Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-    AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(CurrentThreadProcess, &P);
+    AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
     if ( AllocatedFullProcessImageName >= 0 )
     {
       if ( a4 )

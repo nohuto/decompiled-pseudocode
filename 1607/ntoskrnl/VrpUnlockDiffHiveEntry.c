@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpUnlockDiffHiveEntry @ 0x14061798C
+ * XREFs of VrpUnlockDiffHiveEntry @ 0x140617A40
  * Callers:
- *     VrpLoadDifferencingHive @ 0x140617474 (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x140617878 (VrpUnloadDifferencingHive.c)
- *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140617A28 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
+ *     VrpLoadDifferencingHive @ 0x140617528 (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14061792C (VrpUnloadDifferencingHive.c)
+ *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140617ADC (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall VrpUnlockDiffHiveEntry(__int64 a1)

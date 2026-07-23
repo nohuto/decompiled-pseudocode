@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpProcessPerfCtrsRundown @ 0x14093E754
+ * XREFs of EtwpProcessPerfCtrsRundown @ 0x14093E924
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140797940 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ObGetProcessHandleCount @ 0x1406B471C (ObGetProcessHandleCount.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ObGetProcessHandleCount @ 0x1406138EC (ObGetProcessHandleCount.c)
  */
 
 void __fastcall EtwpProcessPerfCtrsRundown(__int64 a1, __int64 a2)

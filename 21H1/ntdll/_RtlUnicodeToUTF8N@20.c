@@ -11,53 +11,58 @@
  *     _CountUnicodeToUTF8@12 @ 0x4B2E47B1 (_CountUnicodeToUTF8@12.c)
  */
 
-int __stdcall RtlUnicodeToUTF8N(_BYTE *a1, int a2, _DWORD *a3, unsigned int *a4, unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToUTF8N(
+        PCHAR UTF8StringDestination,
+        ULONG UTF8StringMaxByteCount,
+        PULONG UTF8StringActualByteCount,
+        PCWCH UnicodeStringSource,
+        ULONG UnicodeStringByteCount)
 {
-  unsigned int *v5; // ecx
+  PCWCH v5; // ecx
   unsigned int v6; // ebx
-  int result; // eax
-  _BYTE *v8; // edx
-  unsigned int v9; // edi
+  NTSTATUS result; // eax
+  PCHAR v8; // edx
+  const WCHAR *v9; // edi
   int v10; // esi
   int v11; // esi
   unsigned int v12; // eax
   unsigned int v13; // esi
-  int v14; // edi
-  unsigned int *v15; // esi
+  NTSTATUS v14; // edi
+  const WCHAR *v15; // esi
   unsigned int v16; // ebx
-  char v17; // al
-  char v18; // al
+  CHAR v17; // al
+  CHAR v18; // al
   unsigned int v19; // eax
   unsigned int v20; // eax
   int v21; // edi
-  unsigned int v22; // [esp+8h] [ebp-10h]
+  int v22; // [esp+8h] [ebp-10h]
   int v23; // [esp+Ch] [ebp-Ch]
-  _BYTE *v24; // [esp+10h] [ebp-8h]
+  CHAR *v24; // [esp+10h] [ebp-8h]
 
-  v5 = a4;
+  v5 = UnicodeStringSource;
   v6 = 0;
   v23 = 0;
-  if ( !a4 )
+  if ( !UnicodeStringSource )
     return -1073741582;
-  if ( !a1 )
+  if ( !UTF8StringDestination )
   {
-    if ( a3 )
-      return CountUnicodeToUTF8(a3);
+    if ( UTF8StringActualByteCount )
+      return CountUnicodeToUTF8(UTF8StringActualByteCount);
     else
       return -1073741811;
   }
-  if ( (a5 & 1) != 0 )
+  if ( (UnicodeStringByteCount & 1) != 0 )
     return -1073741581;
-  v8 = a1;
-  v9 = (unsigned int)a4 + 2 * (a5 >> 1);
-  v24 = &a1[a2];
-LABEL_8:
+  v8 = UTF8StringDestination;
+  v9 = &UnicodeStringSource[UnicodeStringByteCount >> 1];
+  v24 = &UTF8StringDestination[UTF8StringMaxByteCount];
+LABEL_7:
   while ( 2 )
   {
-    if ( (unsigned int)v5 >= v9 )
+    if ( v5 >= v9 )
     {
       if ( !v6 )
-        goto LABEL_22;
+        goto LABEL_21;
     }
     else
     {
@@ -67,14 +72,13 @@ LABEL_8:
         if ( (unsigned int)(v10 - 56320) <= 0x3FF )
         {
           v6 = v10 + (v6 << 10) - 56613888;
-          v5 = (unsigned int *)((char *)v5 + 2);
+          ++v5;
         }
       }
       else
       {
-        v6 = *(unsigned __int16 *)v5;
-        v5 = (unsigned int *)((char *)v5 + 2);
-LABEL_11:
+        v6 = *(unsigned __int16 *)v5++;
+LABEL_10:
         if ( v6 - 55296 <= 0x3FF )
           continue;
       }
@@ -119,89 +123,85 @@ LABEL_11:
       LOBYTE(v6) = v6 & 0x3F | 0x80;
     }
     *v8++ = v6;
-    v12 = (int)(v9 - (_DWORD)v5) >> 1;
+    v12 = v9 - v5;
     v13 = v24 - v8;
     if ( v12 <= 0xD )
     {
       if ( v13 < v12 )
-        goto LABEL_34;
-      while ( (unsigned int)v5 < v9 )
+        goto LABEL_33;
+      while ( v5 < v9 )
       {
-        v6 = *(unsigned __int16 *)v5;
-        v5 = (unsigned int *)((char *)v5 + 2);
+        v6 = *(unsigned __int16 *)v5++;
         if ( v6 > 0x7F )
-          goto LABEL_11;
+          goto LABEL_10;
         *v8++ = v6;
       }
-LABEL_22:
+LABEL_21:
       v14 = v23;
-      goto LABEL_23;
+      goto LABEL_22;
     }
     if ( v13 < v12 )
       v12 = v24 - v8;
-    v15 = (unsigned int *)((char *)v5 + 2 * v12 - 10);
+    v15 = &v5[v12 - 5];
     if ( v5 >= v15 )
-      goto LABEL_34;
+      goto LABEL_33;
     while ( 1 )
     {
-      v16 = *(unsigned __int16 *)v5;
-      v5 = (unsigned int *)((char *)v5 + 2);
+      v16 = *(unsigned __int16 *)v5++;
       if ( v16 <= 0x7F )
       {
         *v8++ = v16;
         if ( ((unsigned __int8)v5 & 2) != 0 )
         {
-          v16 = *(unsigned __int16 *)v5;
-          v5 = (unsigned int *)((char *)v5 + 2);
+          v16 = *(unsigned __int16 *)v5++;
           if ( v16 > 0x7F )
-            goto LABEL_57;
+            goto LABEL_56;
           *v8++ = v16;
         }
         if ( v5 >= v15 )
-          goto LABEL_33;
+          goto LABEL_32;
         while ( 1 )
         {
-          v16 = *v5;
-          v22 = v5[1];
-          if ( ((*v5 | v22) & 0xFF80FF80) != 0 )
+          v16 = *(_DWORD *)v5;
+          v22 = *((_DWORD *)v5 + 1);
+          if ( ((*(_DWORD *)v5 | v22) & 0xFF80FF80) != 0 )
             break;
-          v5 += 2;
+          v5 += 4;
           *v8 = v16;
           v8[2] = v22;
           v8[1] = BYTE2(v16);
           v8[3] = BYTE2(v22);
           v8 += 4;
           if ( v5 >= v15 )
-            goto LABEL_32;
+            goto LABEL_31;
         }
         v16 = (unsigned __int16)v16;
-        v5 = (unsigned int *)((char *)v5 + 2);
+        ++v5;
         if ( (unsigned __int16)v16 <= 0x7Fu )
         {
           *v8++ = v16;
-          goto LABEL_32;
+          goto LABEL_31;
         }
       }
-LABEL_57:
+LABEL_56:
       if ( v16 > 0x7FF )
       {
         if ( v16 - 55296 <= 0x7FF )
         {
           if ( v16 > 0xDBFF )
           {
-            v5 = (unsigned int *)((char *)v5 - 2);
+            --v5;
+LABEL_32:
+            v9 = &UnicodeStringSource[UnicodeStringByteCount >> 1];
 LABEL_33:
-            v9 = (unsigned int)a4 + 2 * (a5 >> 1);
-LABEL_34:
             v6 = 0;
-            goto LABEL_8;
+            goto LABEL_7;
           }
-          v21 = *(unsigned __int16 *)v5;
-          v5 = (unsigned int *)((char *)v5 + 2);
+          v21 = *(unsigned __int16 *)v5++;
           if ( (unsigned int)(v21 - 56320) > 0x3FF )
           {
-            --v5;
-            goto LABEL_33;
+            v5 -= 2;
+            goto LABEL_32;
           }
           v16 = v21 + (v16 << 10) - 56613888;
           *v8++ = (v16 >> 18) | 0xF0;
@@ -211,7 +211,7 @@ LABEL_34:
         {
           v20 = v16 | 0xE0000;
         }
-        v15 = (unsigned int *)((char *)v15 - 2);
+        --v15;
         *v8++ = v20 >> 12;
         v19 = v16 & 0xFC0 | 0x2000;
       }
@@ -220,17 +220,17 @@ LABEL_34:
         v19 = v16 | 0x3000;
       }
       *v8 = v19 >> 6;
-      v15 = (unsigned int *)((char *)v15 - 2);
+      --v15;
       v8[1] = v16 & 0x3F | 0x80;
       v8 += 2;
-LABEL_32:
+LABEL_31:
       if ( v5 >= v15 )
-        goto LABEL_33;
+        goto LABEL_32;
     }
   }
   v14 = -1073741789;
-LABEL_23:
+LABEL_22:
   result = v14;
-  *a3 = v8 - a1;
+  *UTF8StringActualByteCount = v8 - UTF8StringDestination;
   return result;
 }

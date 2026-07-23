@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpDoWritethroughReparse @ 0x1408C11D0
+ * XREFs of CmpDoWritethroughReparse @ 0x1408C77A0
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403E4700 (RtlUnicodeStringCat.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x1405EC790 (RtlUnicodeStringValidateDestWorker.c)
- *     RtlUnicodeStringValidateSrcWorker @ 0x1405EC7DC (RtlUnicodeStringValidateSrcWorker.c)
- *     RtlWideCharArrayCopyWorker @ 0x1405EC870 (RtlWideCharArrayCopyWorker.c)
- *     CmpGetKcbAtLayerHeight @ 0x1408BACF0 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1408BC470 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpKeyFullNameLength @ 0x1408C1564 (CmpKeyFullNameLength.c)
- *     CmpConstructNameWithStatus @ 0x1408C1660 (CmpConstructNameWithStatus.c)
- *     CmpRecordParseFailure @ 0x1408C64C0 (CmpRecordParseFailure.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
+ *     RtlUnicodeStringCat @ 0x1403E78F0 (RtlUnicodeStringCat.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1405EF100 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1405EF14C (RtlUnicodeStringValidateSrcWorker.c)
+ *     RtlWideCharArrayCopyWorker @ 0x1405EF1E0 (RtlWideCharArrayCopyWorker.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1408C12C0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1408C2A40 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpKeyFullNameLength @ 0x1408C7B34 (CmpKeyFullNameLength.c)
+ *     CmpConstructNameWithStatus @ 0x1408C7C30 (CmpConstructNameWithStatus.c)
+ *     CmpRecordParseFailure @ 0x1408CCA90 (CmpRecordParseFailure.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
  */
 
 __int64 __fastcall CmpDoWritethroughReparse(

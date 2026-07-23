@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetNextDirectFixupProto @ 0x14085C25C
+ * XREFs of MiGetNextDirectFixupProto @ 0x14085D4BC
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  * Callees:
- *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E9D4 (MiGetLeafPfnBuddy.c)
  */
 
 unsigned __int64 __fastcall MiGetNextDirectFixupProto(__int64 a1, _QWORD *a2)

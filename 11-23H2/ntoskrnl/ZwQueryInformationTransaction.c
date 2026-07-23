@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryInformationTransaction @ 0x14041D840
+ * XREFs of ZwQueryInformationTransaction @ 0x14041DBD0
  * Callers:
- *     DifZwQueryInformationTransactionWrapper @ 0x1405F4EB0 (DifZwQueryInformationTransactionWrapper.c)
+ *     DifZwQueryInformationTransactionWrapper @ 0x1405F5420 (DifZwQueryInformationTransactionWrapper.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationTransaction(
         HANDLE TransactionHandle,
         TRANSACTION_INFORMATION_CLASS TransactionInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryInformationTransaction(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionHandle, *(_QWORD *)&TransactionInformationClass);
+  return KiServiceInternal(TransactionHandle);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuJoinDmaDomain @ 0x1404C98BC
+ * XREFs of HalpIommuJoinDmaDomain @ 0x1404C9AFC
  * Callers:
- *     HalJoinDmaDomain @ 0x1403C7110 (HalJoinDmaDomain.c)
- *     HalpIommuUnblockDevice @ 0x1404C9E80 (HalpIommuUnblockDevice.c)
- *     IommuDomainAttachDevice @ 0x1404DA3E0 (IommuDomainAttachDevice.c)
+ *     HalJoinDmaDomain @ 0x1403C72B0 (HalJoinDmaDomain.c)
+ *     HalpIommuUnblockDevice @ 0x1404CA0C0 (HalpIommuUnblockDevice.c)
+ *     IommuDomainAttachDevice @ 0x1404DA620 (IommuDomainAttachDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpIommuDereferenceHardwareDomain @ 0x1404C910C (HalpIommuDereferenceHardwareDomain.c)
- *     HalpIommuGetHardwareDomain @ 0x1404C95F4 (HalpIommuGetHardwareDomain.c)
- *     HalpIommuAttachDeviceDomain @ 0x1404CBC50 (HalpIommuAttachDeviceDomain.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x1404C934C (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C9834 (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuAttachDeviceDomain @ 0x1404CBE90 (HalpIommuAttachDeviceDomain.c)
  */
 
 __int64 __fastcall HalpIommuJoinDmaDomain(_QWORD *a1, __int64 a2)
@@ -36,7 +36,7 @@ __int64 __fastcall HalpIommuJoinDmaDomain(_QWORD *a1, __int64 a2)
     LODWORD(v12) = *(_DWORD *)(a2 + 32);
     BYTE4(v12) = *(_BYTE *)(a2 + 40);
     v8 = 4;
-    return (unsigned int)((__int64 (__fastcall *)(int *, _QWORD **))qword_140C4A2F8)(&v8, &v12);
+    return (unsigned int)((__int64 (__fastcall *)(int *, _QWORD **))qword_140C4A338)(&v8, &v12);
   }
   else
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpQueryKeyData @ 0x1406D6254
+ * XREFs of CmpQueryKeyData @ 0x1406D6284
  * Callers:
- *     CmQueryKey @ 0x1406D71D0 (CmQueryKey.c)
+ *     CmQueryKey @ 0x1406D7200 (CmQueryKey.c)
  * Callees:
- *     CmpQueryKeyDataFromCache @ 0x1406D4FB0 (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x1406DAA50 (CmpQueryKeyDataFromNode.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpQueryKeyDataFromCache @ 0x1406D4FE0 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1406DAA80 (CmpQueryKeyDataFromNode.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpQueryKeyData(__int64 a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, __int64 a6)

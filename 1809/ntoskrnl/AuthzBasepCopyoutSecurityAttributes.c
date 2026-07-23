@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepCopyoutSecurityAttributes @ 0x1400A5770
+ * XREFs of AuthzBasepCopyoutSecurityAttributes @ 0x1400A56B0
  * Callers:
- *     AuthzBasepQuerySecurityAttributesToken @ 0x1400A6B70 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1400A6AB0 (AuthzBasepQuerySecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepCopyoutSecurityAttributeValues @ 0x1400A59F8 (AuthzBasepCopyoutSecurityAttributeValues.c)
- *     AuthzBasepFindSecurityAttribute @ 0x1400A71F0 (AuthzBasepFindSecurityAttribute.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     AuthzBasepCopyoutSecurityAttributeValues @ 0x1400A5938 (AuthzBasepCopyoutSecurityAttributeValues.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1400A7130 (AuthzBasepFindSecurityAttribute.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall AuthzBasepCopyoutSecurityAttributes(

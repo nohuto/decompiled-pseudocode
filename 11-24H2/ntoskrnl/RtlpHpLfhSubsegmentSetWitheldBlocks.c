@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x1402B523C
+ * XREFs of RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x1403D9724
  * Callers:
- *     RtlpHpLfhSubsegmentInitialize @ 0x1402B5728 (RtlpHpLfhSubsegmentInitialize.c)
- *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x1402B5E60 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x1403D8348 (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x1403D8A60 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
  * Callees:
  *     <none>
  */

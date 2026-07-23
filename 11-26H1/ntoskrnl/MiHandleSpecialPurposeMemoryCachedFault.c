@@ -1,28 +1,28 @@
 /*
- * XREFs of MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0
+ * XREFs of MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0
  * Callers:
- *     MiCachedPageCandidate @ 0x1402A9B60 (MiCachedPageCandidate.c)
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiResolveTransitionFault @ 0x1403A6F04 (MiResolveTransitionFault.c)
+ *     MiCachedPageCandidate @ 0x1402A8F70 (MiCachedPageCandidate.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiResolveTransitionFault @ 0x1403A8C64 (MiResolveTransitionFault.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiReplaceTransitionPage @ 0x140293C88 (MiReplaceTransitionPage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiLockLeafPage @ 0x140298E10 (MiLockLeafPage.c)
- *     MiReuseStandbyPage @ 0x1402AA32C (MiReuseStandbyPage.c)
- *     MiReturnFreeZeroPage @ 0x1402AA690 (MiReturnFreeZeroPage.c)
- *     MiPageAvailable @ 0x1402AA7BC (MiPageAvailable.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiComputeFaultNode @ 0x140370A58 (MiComputeFaultNode.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiReplaceTransitionPage @ 0x1402931E8 (MiReplaceTransitionPage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiLockLeafPage @ 0x140298370 (MiLockLeafPage.c)
+ *     MiReuseStandbyPage @ 0x1402A973C (MiReuseStandbyPage.c)
+ *     MiReturnFreeZeroPage @ 0x1402A9A90 (MiReturnFreeZeroPage.c)
+ *     MiPageAvailable @ 0x1402A9BBC (MiPageAvailable.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiComputeFaultNode @ 0x140372808 (MiComputeFaultNode.c)
  */
 
 __int64 __fastcall MiHandleSpecialPurposeMemoryCachedFault(
@@ -64,7 +64,7 @@ __int64 __fastcall MiHandleSpecialPurposeMemoryCachedFault(
   v34 = 0LL;
   v7 = 0LL;
   v8 = a4;
-  v9 = **(_QWORD **)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a4 + 40) >> 43) & 0x3FFLL)) + 21400LL);
+  v9 = **(_QWORD **)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a4 + 40) >> 43) & 0x3FFLL)) + 21400LL);
   if ( *(__int64 *)(a4 + 40) < 0 && (*(_DWORD *)(a4 + 16) & 0x400LL) != 0 )
     v7 = *(_QWORD *)MiGetSubsectionFromPte(*(_QWORD *)(a4 + 16));
   if ( a1 )
@@ -111,7 +111,7 @@ LABEL_39:
     MiReleaseFreshPageAtDpc(v21, v19, v20);
     return 0LL;
   }
-  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v18 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v18 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
   {
 LABEL_26:
     v24 = 48 * Page - 0x220000000000LL;

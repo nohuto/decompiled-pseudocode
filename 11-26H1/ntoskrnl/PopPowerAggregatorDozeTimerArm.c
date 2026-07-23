@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorDozeTimerArm @ 0x1407D65DC
+ * XREFs of PopPowerAggregatorDozeTimerArm @ 0x1407D9768
  * Callers:
- *     PopPowerAggregatorEvaluateDozeTimers @ 0x140B2BBD4 (PopPowerAggregatorEvaluateDozeTimers.c)
+ *     PopPowerAggregatorEvaluateDozeTimers @ 0x140B2DC54 (PopPowerAggregatorEvaluateDozeTimers.c)
  * Callees:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x140ABB3B8 (PopPowerAggregatorDiagTraceEvent.c)
- *     PopPowerAggregatorDozeTimerDisarm @ 0x140B2BCBC (PopPowerAggregatorDozeTimerDisarm.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x140ABC878 (PopPowerAggregatorDiagTraceEvent.c)
+ *     PopPowerAggregatorDozeTimerDisarm @ 0x140B2DD3C (PopPowerAggregatorDozeTimerDisarm.c)
  */
 
 __int64 __fastcall PopPowerAggregatorDozeTimerArm(__int64 a1, unsigned int a2, __int64 a3)

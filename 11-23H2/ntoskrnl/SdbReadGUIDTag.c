@@ -1,8 +1,8 @@
 /*
- * XREFs of SdbReadGUIDTag @ 0x1408557B4
+ * XREFs of SdbReadGUIDTag @ 0x140855AB4
  * Callers:
  *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
- *     KsepDbGetShimInfo @ 0x140855540 (KsepDbGetShimInfo.c)
+ *     KsepDbGetShimInfo @ 0x140855840 (KsepDbGetShimInfo.c)
  * Callees:
  *     SdbReadBinaryTag @ 0x140695430 (SdbReadBinaryTag.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)

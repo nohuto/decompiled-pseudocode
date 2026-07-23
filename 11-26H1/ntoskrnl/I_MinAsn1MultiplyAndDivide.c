@@ -1,9 +1,9 @@
 /*
- * XREFs of I_MinAsn1MultiplyAndDivide @ 0x1408A4120
+ * XREFs of I_MinAsn1MultiplyAndDivide @ 0x1408AA530
  * Callers:
- *     I_MinAsn1DecodeGeneralizedTimeFraction @ 0x1408A3FA0 (I_MinAsn1DecodeGeneralizedTimeFraction.c)
+ *     I_MinAsn1DecodeGeneralizedTimeFraction @ 0x1408AA3B0 (I_MinAsn1DecodeGeneralizedTimeFraction.c)
  * Callees:
- *     ?RtlLongLongMult@@YAJ_J0PEA_J@Z @ 0x14071CEBC (-RtlLongLongMult@@YAJ_J0PEA_J@Z.c)
+ *     ?RtlLongLongMult@@YAJ_J0PEA_J@Z @ 0x140721B4C (-RtlLongLongMult@@YAJ_J0PEA_J@Z.c)
  */
 
 char __fastcall I_MinAsn1MultiplyAndDivide(int a1, int a2, __int64 a3, _DWORD *a4)

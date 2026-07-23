@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCopyVirtualMemory @ 0x140A22370
+ * XREFs of MiCopyVirtualMemory @ 0x140A2B990
  * Callers:
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
- *     MmCopyVirtualMemory @ 0x140A21C90 (MmCopyVirtualMemory.c)
- *     MiReadWriteVirtualMemory @ 0x140A21D00 (MiReadWriteVirtualMemory.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
+ *     MmCopyVirtualMemory @ 0x140A2B2B0 (MmCopyVirtualMemory.c)
+ *     MiReadWriteVirtualMemory @ 0x140A2B320 (MiReadWriteVirtualMemory.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCopyVmLockVad @ 0x140A22620 (MiCopyVmLockVad.c)
- *     MiCopyVmReadBytes @ 0x140A228B0 (MiCopyVmReadBytes.c)
- *     MiCopyVmWriteBytes @ 0x140A22BB0 (MiCopyVmWriteBytes.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCopyVmLockVad @ 0x140A2BC40 (MiCopyVmLockVad.c)
+ *     MiCopyVmReadBytes @ 0x140A2BED0 (MiCopyVmReadBytes.c)
+ *     MiCopyVmWriteBytes @ 0x140A2C1D0 (MiCopyVmWriteBytes.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCopyVirtualMemory(

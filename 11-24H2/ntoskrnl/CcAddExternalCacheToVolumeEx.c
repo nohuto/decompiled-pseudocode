@@ -1,10 +1,10 @@
 /*
- * XREFs of CcAddExternalCacheToVolumeEx @ 0x14057A13C
+ * XREFs of CcAddExternalCacheToVolumeEx @ 0x1405775CC
  * Callers:
- *     CcRegisterExternalCacheEx @ 0x14057A990 (CcRegisterExternalCacheEx.c)
+ *     CcRegisterExternalCacheEx @ 0x140577E20 (CcRegisterExternalCacheEx.c)
  * Callees:
- *     CcCreatePrivateVolumeCacheMap @ 0x1402CA5A8 (CcCreatePrivateVolumeCacheMap.c)
- *     CcAddExternalCacheInternalEx @ 0x14057A0A8 (CcAddExternalCacheInternalEx.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x14042FE00 (CcCreatePrivateVolumeCacheMap.c)
+ *     CcAddExternalCacheInternalEx @ 0x140577538 (CcAddExternalCacheInternalEx.c)
  */
 
 __int64 __fastcall CcAddExternalCacheToVolumeEx(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventAffinityMask @ 0x1405D8D90
+ * XREFs of PpmEventAffinityMask @ 0x1405D6230
  * Callers:
- *     PoExecuteIdleCheck @ 0x14029D050 (PoExecuteIdleCheck.c)
- *     PpmIdleUpdateSystemLatencyLimit @ 0x1403B5810 (PpmIdleUpdateSystemLatencyLimit.c)
+ *     PoExecuteIdleCheck @ 0x1402ABB40 (PoExecuteIdleCheck.c)
+ *     PpmIdleUpdateSystemLatencyLimit @ 0x1402AEDA4 (PpmIdleUpdateSystemLatencyLimit.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventAffinityMaskEx @ 0x1405DD5A0 (PpmEventAffinityMaskEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventAffinityMaskEx @ 0x1405DA420 (PpmEventAffinityMaskEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventAffinityMask(PCEVENT_DESCRIPTOR EventDescriptor, unsigned __int16 *a2)

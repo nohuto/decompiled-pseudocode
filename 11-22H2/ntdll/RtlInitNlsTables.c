@@ -6,7 +6,11 @@
  *     <none>
  */
 
-void RtlInitNlsTables()
+void __cdecl RtlInitNlsTables(
+        PUSHORT AnsiNlsBase,
+        PUSHORT OemNlsBase,
+        PUSHORT LanguageNlsBase,
+        PNLSTABLEINFO TableInfo)
 {
   ;
 }

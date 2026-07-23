@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmInstallPlatformIdleStates @ 0x140A39740
+ * XREFs of PpmInstallPlatformIdleStates @ 0x140A2E800
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeGetProcessorIndexFromNumber @ 0x140352BB0 (KeGetProcessorIndexFromNumber.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140461060 (KeQueryActiveProcessorAffinity2.c)
- *     PpmIdleIsStateDisabled @ 0x1404FB60C (PpmIdleIsStateDisabled.c)
- *     PpmResetPlatformIdleAccounting @ 0x1405CF1A0 (PpmResetPlatformIdleAccounting.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PpmEnableCoordinatedIdleStates @ 0x140749E80 (PpmEnableCoordinatedIdleStates.c)
- *     PpmIdleUpdatePlatformDependencies @ 0x140A399EC (PpmIdleUpdatePlatformDependencies.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140370440 (KeGetProcessorIndexFromNumber.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x1404564F0 (KeQueryActiveProcessorAffinity2.c)
+ *     PpmIdleIsStateDisabled @ 0x1404F8ED0 (PpmIdleIsStateDisabled.c)
+ *     PpmResetPlatformIdleAccounting @ 0x1405CC8C0 (PpmResetPlatformIdleAccounting.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x1407481B0 (PpmEnableCoordinatedIdleStates.c)
+ *     PpmIdleUpdatePlatformDependencies @ 0x140A2EAAC (PpmIdleUpdatePlatformDependencies.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1)
   __int64 v1; // r15
   unsigned int v2; // esi
   char v3; // bp
-  int v4; // edi
+  __int64 v4; // rdi
   unsigned int v6; // r12d
   unsigned int v7; // edx
   int v8; // r13d
@@ -82,7 +82,7 @@ __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1)
   __int64 v62; // rax
   unsigned int v63; // [rsp+20h] [rbp-68h]
   unsigned int v64; // [rsp+28h] [rbp-60h]
-  unsigned int v65; // [rsp+2Ch] [rbp-5Ch]
+  int v65; // [rsp+2Ch] [rbp-5Ch]
   __int64 Pool2; // [rsp+30h] [rbp-58h]
   __int64 v67; // [rsp+30h] [rbp-58h]
   int *v68; // [rsp+38h] [rbp-50h]
@@ -103,8 +103,8 @@ __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1)
     v2 = -1073741431;
     goto LABEL_4;
   }
-  v4 = *(_DWORD *)(v1 + 4);
-  if ( !v4 )
+  v4 = *(unsigned int *)(v1 + 4);
+  if ( !(_DWORD)v4 )
   {
 LABEL_3:
     v2 = -1073741811;
@@ -136,14 +136,14 @@ LABEL_4:
     v75 = (448 * v4 + 71) & 0xFFFFFFF8;
     v63 = v75 + 24 * v6 * *(_DWORD *)(v1 + 4);
     v71 = v63 + 24 * *(_DWORD *)(v1 + 4) * (v6 + v8);
-    v64 = (v71 + (v4 << 10) + 47) & 0xFFFFFFF8;
+    v64 = (v71 + ((_DWORD)v4 << 10) + 47) & 0xFFFFFFF8;
     v65 = (4 * v4 + 15) & 0xFFFFFFF8;
     if ( PpmIdleVetoList )
     {
       v30 = *((_DWORD *)PpmIdleVetoList + 1);
       if ( v30 )
       {
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, (v4 * v30) << 6, 0x694D5050u);
         v31 = (void *)Pool2;
         if ( !Pool2 )
           goto LABEL_78;
@@ -156,7 +156,7 @@ LABEL_4:
     }
     v31 = 0LL;
 LABEL_51:
-    v32 = ExAllocatePool2(0x48uLL);
+    v32 = ExAllocatePool2(0x48uLL, v64 + v6 * ((4 * (_DWORD)v4 + 15) & 0xFFFFFFF8), 0x694D5050u);
     v11 = v32;
     if ( v32 )
     {
@@ -275,7 +275,7 @@ LABEL_78:
     v2 = -1073741670;
     goto LABEL_4;
   }
-  if ( *(_DWORD *)(PpmPlatformStates + 4) != v6 || *(_DWORD *)PpmPlatformStates != v4 )
+  if ( *(_DWORD *)(PpmPlatformStates + 4) != v6 || *(_DWORD *)PpmPlatformStates != (_DWORD)v4 )
     goto LABEL_3;
 LABEL_17:
   if ( *(_DWORD *)(v1 + 4) )

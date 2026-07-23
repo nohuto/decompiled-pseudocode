@@ -12,7 +12,7 @@ __int64 __fastcall CmpAcquireWriteQueue(_QWORD *a1)
 {
   __int64 result; // rax
 
-  result = KeAbPreAcquire((ULONG_PTR)a1, 0LL, 0LL);
+  result = KeAbPreAcquire((ULONG_PTR)a1, 0LL, 0);
   *a1 = KeGetCurrentThread();
   if ( result )
     *(_BYTE *)(result + 26) |= 1u;

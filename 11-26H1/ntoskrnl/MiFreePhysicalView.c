@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreePhysicalView @ 0x140A8F4FC
+ * XREFs of MiFreePhysicalView @ 0x140A941CC
  * Callers:
- *     MiRemoveVad @ 0x140455D20 (MiRemoveVad.c)
+ *     MiRemoveVad @ 0x14044DF80 (MiRemoveVad.c)
  * Callees:
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
  */
 
 char __fastcall MiFreePhysicalView(__int64 a1, __int64 a2)

@@ -9,31 +9,31 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpGetTimeZoneInfoHandle(char a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall RtlpGetTimeZoneInfoHandle(char a1, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
-  __int64 v6; // [rsp+40h] [rbp-238h] BYREF
-  _BYTE v7[528]; // [rsp+50h] [rbp-228h] BYREF
+  NTSTATUS result; // eax
+  ULONG BufferLengthOut[4]; // [rsp+40h] [rbp-238h] BYREF
+  WCHAR TargetPath[264]; // [rsp+50h] [rbp-228h] BYREF
 
   if ( dword_1801D06C4 == 2 )
     goto LABEL_2;
   result = RtlGetPersistedStateLocation(
-             (wchar_t *)L"TimeZoneInformationSettings",
+             L"TimeZoneInformationSettings",
              L"TargetNtPath",
              0LL,
-             0,
-             v7,
+             LocationTypeRegistry,
+             TargetPath,
              0x208u,
-             (unsigned int *)&v6);
-  if ( (int)result >= 0 )
+             BufferLengthOut);
+  if ( result >= 0 )
   {
     dword_1801D06C4 = 1;
     LOBYTE(a3) = a1;
-    result = RtlpGetRegistryHandle(0LL, v7, a3, a2);
-    if ( (_DWORD)result == -1073741772 )
+    result = RtlpGetRegistryHandle(0LL, TargetPath, a3, a2);
+    if ( result == -1073741772 )
       goto LABEL_2;
   }
-  else if ( (_DWORD)result == -1073741772 )
+  else if ( result == -1073741772 )
   {
     dword_1801D06C4 = 2;
 LABEL_2:

@@ -1,12 +1,12 @@
 /*
- * XREFs of IovpBuildDriverObjectList @ 0x1409C5410
+ * XREFs of IovpBuildDriverObjectList @ 0x1409C6410
  * Callers:
- *     ObEnumerateObjectsByType @ 0x1408DD3AC (ObEnumerateObjectsByType.c)
+ *     ObEnumerateObjectsByType @ 0x1408DD50C (ObEnumerateObjectsByType.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     PnpIsLegacyDriver @ 0x1407402EC (PnpIsLegacyDriver.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     PnpIsLegacyDriver @ 0x1407404AC (PnpIsLegacyDriver.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall IovpBuildDriverObjectList(__int64 a1)

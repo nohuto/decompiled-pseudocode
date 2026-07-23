@@ -66,10 +66,10 @@
  *     sub_18005FF34 @ 0x18005FF34 (sub_18005FF34.c)
  */
 
-__int64 DbgPrint(const char *a1, ...)
+ULONG DbgPrint(PCSTR Format, ...)
 {
   va_list va; // [rsp+48h] [rbp+10h] BYREF
 
-  va_start(va, a1);
-  return sub_18005FF34((unsigned int)&unk_1801150C2, 101, 3, (_DWORD)a1, (__int64)va, 1);
+  va_start(va, Format);
+  return sub_18005FF34(&dword_1801150C2, 101LL, 3LL, Format, (__int64 *)va, 1);
 }

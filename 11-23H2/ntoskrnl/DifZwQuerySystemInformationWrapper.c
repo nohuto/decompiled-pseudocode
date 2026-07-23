@@ -1,15 +1,19 @@
 /*
- * XREFs of DifZwQuerySystemInformationWrapper @ 0x1405F5930
+ * XREFs of DifZwQuerySystemInformationWrapper @ 0x1405F5EA0
  * Callers:
  *     <none>
  * Callees:
- *     ZwQuerySystemInformation @ 0x14041B420 (ZwQuerySystemInformation.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwQuerySystemInformation @ 0x14041B7B0 (ZwQuerySystemInformation.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwQuerySystemInformationWrapper(unsigned int a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __fastcall DifZwQuerySystemInformationWrapper(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -20,7 +24,7 @@ __int64 __fastcall DifZwQuerySystemInformationWrapper(unsigned int a1, __int64 a
   int v14; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v18; // rdi
   _QWORD *v19; // rbx
   __int128 v20; // [rsp+20h] [rbp-30h] BYREF
@@ -60,17 +64,17 @@ LABEL_8:
   }
   *(_QWORD *)&v20 = 0LL;
 LABEL_10:
-  LODWORD(v22) = a1;
-  *((_QWORD *)&v21 + 1) = a2;
-  LODWORD(v21) = a3;
-  *((_QWORD *)&v20 + 1) = a4;
+  LODWORD(v22) = SystemInformationClass;
+  *((_QWORD *)&v21 + 1) = SystemInformation;
+  LODWORD(v21) = SystemInformationLength;
+  *((_QWORD *)&v20 + 1) = ReturnLength;
   for ( i = (__int64 *)v13[4]; i != v13 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v20);
   }
 LABEL_17:
-  result = ZwQuerySystemInformation(a1, a2);
+  result = ZwQuerySystemInformation(SystemInformationClass, SystemInformation, SystemInformationLength, ReturnLength);
   HIDWORD(v22) = result;
   if ( v13 )
   {

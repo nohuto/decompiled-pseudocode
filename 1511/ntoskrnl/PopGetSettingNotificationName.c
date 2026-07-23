@@ -14,21 +14,21 @@
  *     PopValidateContextMembership @ 0x14050CEF0 (PopValidateContextMembership.c)
  */
 
-__int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
+__int64 __fastcall PopGetSettingNotificationName(__int64 a1, _WNF_STATE_NAME *a2)
 {
   char v4; // r12
   char v5; // r15
   int v6; // edi
-  _QWORD *PowerSettingConfiguration; // rax
+  _WNF_STATE_NAME *PowerSettingConfiguration; // rax
   __int64 v8; // rdx
-  _QWORD *v9; // rdi
-  __int64 v10; // rax
+  _WNF_STATE_NAME *v9; // rdi
+  _WNF_STATE_NAME v10; // rax
   int v11; // ebx
   __int64 v13; // rax
   int SessionId; // eax
   int v15; // r14d
   int v16; // eax
-  __int64 v17; // [rsp+28h] [rbp-40h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+28h] [rbp-40h] BYREF
 
   v4 = 0;
   ExAcquireFastMutex(&PopSettingLock);
@@ -69,32 +69,32 @@ __int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
     {
       v6 = -1;
     }
-    PowerSettingConfiguration = PopFindPowerSettingConfiguration((_QWORD *)a1, v6);
+    PowerSettingConfiguration = (_WNF_STATE_NAME *)PopFindPowerSettingConfiguration((_QWORD *)a1, v6);
     v9 = PowerSettingConfiguration;
     if ( PowerSettingConfiguration )
     {
-      if ( *((_DWORD *)PowerSettingConfiguration + 14) || *((_DWORD *)PowerSettingConfiguration + 15) )
+      if ( PowerSettingConfiguration[7].Data[0] || PowerSettingConfiguration[7].Data[1] )
       {
         v10 = PowerSettingConfiguration[7];
 LABEL_10:
-        v17 = v10;
+        StateName = v10;
 LABEL_11:
         KeReleaseGuardedMutex(&PopSettingLock);
         v5 = 0;
-        *a2 = v17;
+        *a2 = StateName;
         v11 = 0;
         goto LABEL_12;
       }
-      v11 = PopCreateNotificationName(&v17);
+      v11 = PopCreateNotificationName(&StateName);
       if ( v11 >= 0 )
       {
         v13 = *(_QWORD *)a1 - *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1;
         if ( *(_QWORD *)a1 == *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 )
           v13 = *(_QWORD *)(a1 + 8) - *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4;
         if ( !v13 )
-          *((_DWORD *)v9 + 13) |= 8u;
-        v9[7] = v17;
-        *((_DWORD *)v9 + 13) |= 1u;
+          v9[6].Data[1] |= 8u;
+        v9[7] = StateName;
+        v9[6].Data[1] |= 1u;
         v4 = 1;
         goto LABEL_11;
       }
@@ -107,13 +107,13 @@ LABEL_11:
   else
   {
     v10 = PopPopPowerSettingSetChangeNotification;
-    if ( PopPopPowerSettingSetChangeNotification != __PAIR64__(PopPopPowerSettingSetChangeNotification, 0) )
+    if ( PopPopPowerSettingSetChangeNotification != __PAIR64__(PopPopPowerSettingSetChangeNotification.Data[0], 0) )
       goto LABEL_10;
-    v16 = PopCreateNotificationName(&v17);
+    v16 = PopCreateNotificationName(&StateName);
     v11 = v16;
     if ( v16 >= 0 )
     {
-      PopPopPowerSettingSetChangeNotification = v17;
+      PopPopPowerSettingSetChangeNotification = StateName;
       goto LABEL_11;
     }
   }

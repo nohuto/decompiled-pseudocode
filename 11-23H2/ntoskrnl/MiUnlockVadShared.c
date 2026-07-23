@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlockVadShared @ 0x14032A3E4
+ * XREFs of MiUnlockVadShared @ 0x14032A674
  * Callers:
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
- *     MiReferenceCfgVad @ 0x1407A4C0C (MiReferenceCfgVad.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A4CF0 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     NtAreMappedFilesTheSame @ 0x140871690 (NtAreMappedFilesTheSame.c)
- *     MiHotPatchProcess @ 0x140A374C4 (MiHotPatchProcess.c)
- *     MmIsFileMapped @ 0x140A3C5EC (MmIsFileMapped.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
+ *     MiReferenceCfgVad @ 0x1407A4DFC (MiReferenceCfgVad.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A4EE0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     NtAreMappedFilesTheSame @ 0x1408718D0 (NtAreMappedFilesTheSame.c)
+ *     MiHotPatchProcess @ 0x140A37774 (MiHotPatchProcess.c)
+ *     MmIsFileMapped @ 0x140A3C89C (MmIsFileMapped.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char __fastcall MiUnlockVadShared(__int64 a1, __int64 a2)

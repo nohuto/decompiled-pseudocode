@@ -1,16 +1,16 @@
 /*
- * XREFs of PopIdlePhaseWatchdogCallback @ 0x1404BF450
+ * XREFs of PopIdlePhaseWatchdogCallback @ 0x1404BA980
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopPdcSnapDiagnosticContext @ 0x1406FBA00 (PopPdcSnapDiagnosticContext.c)
- *     PopPowerAggregatorSnapDiagnosticContext @ 0x140759D64 (PopPowerAggregatorSnapDiagnosticContext.c)
- *     PopSnapSystemIdleContext @ 0x140902A80 (PopSnapSystemIdleContext.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140AA9B20 (DbgkWerCaptureLiveKernelDump.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopPdcSnapDiagnosticContext @ 0x1406F9640 (PopPdcSnapDiagnosticContext.c)
+ *     PopPowerAggregatorSnapDiagnosticContext @ 0x1407581B4 (PopPowerAggregatorSnapDiagnosticContext.c)
+ *     PopSnapSystemIdleContext @ 0x140A6E360 (PopSnapSystemIdleContext.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140AA4BD0 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
@@ -54,12 +54,12 @@ __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int 
   v26 = v17[1];
   if ( ((__int64)v16[0] & 0xFFFFFFDF) != 0 )
   {
-    PopAcquireRwLockExclusive(&xmmword_140F07648);
-    P = qword_140F07658;
-    v19 = dword_140F07660;
-    dword_140F07660 = 0;
-    qword_140F07658 = 0LL;
-    PopReleaseRwLock((signed __int64 *)&xmmword_140F07648);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&xmmword_140F07948);
+    P = qword_140F07958;
+    v19 = dword_140F07960;
+    dword_140F07960 = 0;
+    qword_140F07958 = 0LL;
+    PopReleaseRwLock((signed __int64 *)&xmmword_140F07948);
     PopSnapSystemIdleContext(&v20, v21);
     PopPowerAggregatorSnapDiagnosticContext(v27);
     v13 = DbgkWerCaptureLiveKernelDump((unsigned int)L"IdlePhaseWatchdog", a2, a3, a4, a5, a6, 0LL, 0LL, 0);

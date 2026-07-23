@@ -1,7 +1,7 @@
 /*
- * XREFs of ObpIsObjectPoolTagTraced @ 0x14097D0D4
+ * XREFs of ObpIsObjectPoolTagTraced @ 0x14097D2D4
  * Callers:
- *     ObpRegisterObject @ 0x14097D3B4 (ObpRegisterObject.c)
+ *     ObpRegisterObject @ 0x14097D5B4 (ObpRegisterObject.c)
  * Callees:
  *     <none>
  */

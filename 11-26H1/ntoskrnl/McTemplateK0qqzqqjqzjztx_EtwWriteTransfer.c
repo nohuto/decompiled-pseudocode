@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0qqzqqjqzjztx_EtwWriteTransfer @ 0x1405DAA28
+ * XREFs of McTemplateK0qqzqqjqzjztx_EtwWriteTransfer @ 0x1405DD228
  * Callers:
- *     PiUEventMovePendingEventToSynchronousQueue @ 0x140772AE8 (PiUEventMovePendingEventToSynchronousQueue.c)
- *     PiUEventNotifyClient @ 0x14099A7E8 (PiUEventNotifyClient.c)
+ *     PiUEventMovePendingEventToSynchronousQueue @ 0x140775AE8 (PiUEventMovePendingEventToSynchronousQueue.c)
+ *     PiUEventNotifyClient @ 0x14095B248 (PiUEventNotifyClient.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14049F320 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x140498E70 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqzqqjqzjztx_EtwWriteTransfer(

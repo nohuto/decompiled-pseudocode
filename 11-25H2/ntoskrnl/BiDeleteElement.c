@@ -22,10 +22,10 @@
  *     BiIsLinkedToFirmwareVariable @ 0x140A27ED0 (BiIsLinkedToFirmwareVariable.c)
  */
 
-int __fastcall BiDeleteElement(void *a1, unsigned int a2)
+NTSTATUS __fastcall BiDeleteElement(void *a1, unsigned int a2)
 {
   char IsOfflineHandle; // r12
-  int result; // eax
+  NTSTATUS result; // eax
   int v6; // ebx
   void *v7; // rdi
   void *v8; // [rsp+20h] [rbp-50h] BYREF

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCopyOverNewPath @ 0x14090460C
+ * XREFs of IopCopyOverNewPath @ 0x140934598
  * Callers:
- *     IopGraftName @ 0x140904274 (IopGraftName.c)
+ *     IopGraftName @ 0x140934204 (IopGraftName.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopCopyOverNewPath(char *a1, const void *a2, unsigned __int16 a3, __int64 a4, unsigned __int16 a5)

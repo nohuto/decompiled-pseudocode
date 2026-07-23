@@ -1,14 +1,14 @@
 /*
- * XREFs of PsChangeQuantumTable @ 0x14071BFC8
+ * XREFs of PsChangeQuantumTable @ 0x14071D268
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
  * Callees:
  *     MmIsThisAnNtAsSystem @ 0x14000EC80 (MmIsThisAnNtAsSystem.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     KeSetQuantumProcess @ 0x1400D80C4 (KeSetQuantumProcess.c)
- *     PspUnlockProcessListShared @ 0x140175DDC (PspUnlockProcessListShared.c)
- *     PspComputeQuantum @ 0x14064B318 (PspComputeQuantum.c)
+ *     KeSetQuantumProcess @ 0x1400D8144 (KeSetQuantumProcess.c)
+ *     PspUnlockProcessListShared @ 0x140175EDC (PspUnlockProcessListShared.c)
+ *     PspComputeQuantum @ 0x14064C4D8 (PspComputeQuantum.c)
  */
 
 char __fastcall PsChangeQuantumTable(char a1, char a2)
@@ -47,8 +47,8 @@ char __fastcall PsChangeQuantumTable(char a1, char a2)
     v6 += 3;
   PspForegroundQuantum = *(_WORD *)v6;
   result = v6[2];
-  PspUseJobSchedulingClasses = v6 == &byte_140908BB7;
-  byte_14096E736 = result;
+  PspUseJobSchedulingClasses = v6 == &byte_140909E77;
+  byte_14096F736 = result;
   if ( a1 )
   {
     CurrentThread = KeGetCurrentThread();

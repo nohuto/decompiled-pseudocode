@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDebugPageHeapCreate @ 0x18010B100
+ * XREFs of RtlpDebugPageHeapCreate @ 0x18010B0C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RtlpDebugPageHeapCreate(__int64 a1, __int64 a2)

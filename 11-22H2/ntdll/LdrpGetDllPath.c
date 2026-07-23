@@ -10,21 +10,28 @@
  *     LdrpLogRelativePathWithAlteredSearchError @ 0x18007E704 (LdrpLogRelativePathWithAlteredSearchError.c)
  */
 
-__int64 __fastcall LdrpGetDllPath(__int64 a1, int a2, _QWORD *a3, _QWORD *a4, _DWORD *a5, _OWORD *a6, _QWORD *a7)
+__int64 __fastcall LdrpGetDllPath(
+        PCWSTR DosFileName,
+        int a2,
+        _QWORD *a3,
+        _QWORD *a4,
+        _DWORD *a5,
+        _OWORD *a6,
+        _QWORD *a7)
 {
   int v9; // edx
   bool v11; // bp
   unsigned int v12; // ebx
   char v13; // r12
-  __int64 v14; // rsi
+  PCWSTR v14; // rsi
   char v15; // al
-  __int64 v16; // r9
+  PCWSTR v16; // r9
   __int64 (__fastcall *v17)(); // rdx
-  __int64 v18; // r8
+  PCWSTR v18; // r8
   void *v19; // rcx
   __int64 CachedPath; // rax
   __int64 v21; // rcx
-  int v23; // eax
+  RTL_PATH_TYPE v23; // eax
   __int64 v24; // rax
   bool v25; // [rsp+68h] [rbp+10h]
 
@@ -56,18 +63,18 @@ LABEL_4:
   v14 = 0LL;
   if ( (v12 & 0x100) == 0 && !v13 )
     goto LABEL_6;
-  v23 = RtlDetermineDosPathNameType_U(a1);
+  v23 = RtlDetermineDosPathNameType_U(DosFileName);
   if ( (unsigned int)(v23 - 1) > 1 )
   {
-    if ( v23 != 6 || *(_WORD *)(a1 + 4) != 63 )
+    if ( v23 != RtlPathTypeLocalDevice || DosFileName[2] != 63 )
     {
       v11 = 1;
-      v14 = a1;
+      v14 = DosFileName;
       goto LABEL_23;
     }
-    v11 = (unsigned int)RtlDetermineDosPathNameType_U(a1 + 8) != 2;
+    v11 = RtlDetermineDosPathNameType_U(DosFileName + 4) != RtlPathTypeDriveAbsolute;
   }
-  v14 = a1;
+  v14 = DosFileName;
   if ( !v11 )
   {
 LABEL_6:
@@ -77,7 +84,7 @@ LABEL_6:
 LABEL_23:
   if ( !v13 )
     goto LABEL_6;
-  LdrpLogRelativePathWithAlteredSearchError(a1);
+  LdrpLogRelativePathWithAlteredSearchError(DosFileName);
   v15 = LdrpPolicyBits;
   if ( (LdrpPolicyBits & 0x40) != 0 )
   {
@@ -95,13 +102,13 @@ LABEL_7:
         if ( (v15 & 4) != 0 )
           v12 |= 0x400u;
       }
-      v18 = v12;
+      v18 = (PCWSTR)v12;
       v17 = RtlpComputeDllPathWithOptions;
       LODWORD(v18) = v12 | 0x100;
       v19 = &RtlpDllSearchPathWithOptions;
       v16 = v14;
       if ( !v13 )
-        v18 = v12;
+        v18 = (PCWSTR)v12;
       goto LABEL_9;
     }
     return 3221225485LL;
@@ -135,7 +142,7 @@ LABEL_9:
     }
     if ( a5 )
       *a5 = *(_DWORD *)(v21 + 112);
-    LdrpLogDllStateEx2(v21, a1, *a3, 5313LL);
+    LdrpLogDllStateEx2(v21, DosFileName, *a3, 5313LL);
     return 0LL;
   }
   else

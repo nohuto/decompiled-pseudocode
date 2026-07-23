@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTransientPageListWriter @ 0x1402CD894
+ * XREFs of MiTransientPageListWriter @ 0x1402CDA84
  * Callers:
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int64 a2)
@@ -17,8 +17,8 @@ __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int
   unsigned __int64 v8; // r8
   struct _KPRCB *CurrentPrcb; // rcx
 
-  v4 = ExAcquireSpinLockShared(&dword_14043A6D8);
-  v5 = (_QWORD *)qword_14043A6E0;
+  v4 = ExAcquireSpinLockShared(&dword_14043B798);
+  v5 = (_QWORD *)qword_14043B7A0;
   v6 = v4;
   v7 = 0;
   while ( v5 )
@@ -37,7 +37,7 @@ __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int
   }
   if ( v5 && (!v5[4] || a2 < v5[5] || a2 > v5[6]) )
     v5 = 0LL;
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_14043A6D8);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_14043B798);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v6 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_load1_atomic @ 0x1405DE7B0
+ * XREFs of __asan_load1_atomic @ 0x1405E1120
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
  */
 
 signed __int8 __fastcall _asan_load1_atomic(ULONG_PTR a1)

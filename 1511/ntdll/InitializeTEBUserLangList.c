@@ -18,7 +18,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   bool v5; // si
   bool v6; // r14
   bool v7; // bp
-  __int64 *UserPrefLanguages; // rdi
+  PVOID *UserPrefLanguages; // rdi
   __int64 v9; // rax
   unsigned __int16 v10; // r8
   __int64 v11; // r10
@@ -39,7 +39,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   __int64 v27; // rax
   struct _TEB *v28; // rcx
   __int64 v29; // rax
-  __int64 v30; // rcx
+  _BYTE *v30; // rcx
   char v31; // di
   char v32; // al
   __int64 v33; // rcx
@@ -57,7 +57,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   v5 = 0;
   v6 = 0;
   v7 = 0;
-  UserPrefLanguages = (__int64 *)NtCurrentTeb()->UserPrefLanguages;
+  UserPrefLanguages = (PVOID *)NtCurrentTeb()->UserPrefLanguages;
   if ( a2 )
   {
     v9 = *(_QWORD *)(a2 + 24);
@@ -140,7 +140,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
             goto LABEL_43;
           if ( *UserPrefLanguages )
           {
-            v20 = *(_QWORD *)(*UserPrefLanguages + 16);
+            v20 = *((_QWORD *)*UserPrefLanguages + 2);
             if ( v20 )
             {
               if ( *(_DWORD *)(v20 + 12) < *(_DWORD *)(a2 + 12) )
@@ -151,10 +151,10 @@ LABEL_36:
                   v30 = *UserPrefLanguages;
                   if ( *UserPrefLanguages )
                   {
-                    v6 = (*(_BYTE *)(v30 + 40) & 2) != 0;
-                    v5 = (*(_BYTE *)(v30 + 40) & 4) != 0;
-                    if ( (*(_BYTE *)(v30 + 40) & 2) != 0 || (*(_BYTE *)(v30 + 40) & 4) != 0 )
-                      v4 = *(_DWORD *)(v30 + 40) & 0xFFFF0000;
+                    v6 = (v30[40] & 2) != 0;
+                    v5 = (v30[40] & 4) != 0;
+                    if ( (v30[40] & 2) != 0 || (v30[40] & 4) != 0 )
+                      v4 = *((_DWORD *)v30 + 10) & 0xFFFF0000;
                     RtlpMuiRegFreeLanguageList(v30);
                     *UserPrefLanguages = 0LL;
                   }
@@ -167,7 +167,7 @@ LABEL_36:
           }
           if ( UserPrefLanguages && *UserPrefLanguages )
           {
-            v21 = *(_DWORD *)(*UserPrefLanguages + 40);
+            v21 = *((_DWORD *)*UserPrefLanguages + 10);
             if ( a1 )
               v22 = (v21 & 0x20) == 0;
             else
@@ -186,7 +186,7 @@ LABEL_36:
             *UserPrefLanguages = 0LL;
             if ( NtCurrentTeb()->MergedPrefLanguages )
             {
-              RtlpMuiRegFreeLanguageList((__int64)NtCurrentTeb()->MergedPrefLanguages);
+              RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);
               NtCurrentTeb()->MergedPrefLanguages = 0LL;
             }
           }

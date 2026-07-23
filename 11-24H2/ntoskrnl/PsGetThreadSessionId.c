@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetThreadSessionId @ 0x1409F4900
+ * XREFs of PsGetThreadSessionId @ 0x1409E8C60
  * Callers:
  *     <none>
  * Callees:
- *     PsGetSessionId @ 0x1403D5E10 (PsGetSessionId.c)
+ *     PsGetSessionId @ 0x1403C1560 (PsGetSessionId.c)
  */
 
 __int64 __fastcall PsGetThreadSessionId(__int64 a1)

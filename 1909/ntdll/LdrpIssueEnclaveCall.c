@@ -12,27 +12,27 @@
  *     LdrpDereferenceEnclave @ 0x1800CDC04 (LdrpDereferenceEnclave.c)
  */
 
-__int64 __fastcall LdrpIssueEnclaveCall(__int64 (__fastcall *a1)(_QWORD), __int64 a2, _QWORD *a3)
+__int64 __fastcall LdrpIssueEnclaveCall(PENCLAVE_ROUTINE Routine, ULONG Flags, PVOID *RoutineParamReturn)
 {
-  __int64 *v5; // rax
-  __int64 v6; // rdi
-  unsigned int v7; // ebx
+  __int64 *v6; // rax
+  __int64 *v7; // rdi
+  unsigned int v8; // ebx
 
-  v5 = LdrpObtainLockedEnclave((unsigned __int64)a1, 0);
-  v6 = (__int64)v5;
-  v7 = 0;
-  if ( v5 )
+  v6 = LdrpObtainLockedEnclave((unsigned __int64)Routine, 0);
+  v7 = v6;
+  v8 = 0;
+  if ( v6 )
   {
-    RtlLeaveCriticalSection((__int64)(v5 + 2));
-    LdrpDereferenceEnclave(v6);
-    if ( *(_DWORD *)(v6 + 56) == 16 )
-      return (unsigned int)RtlCallEnclave();
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v6 + 2));
+    LdrpDereferenceEnclave(v7);
+    if ( *((_DWORD *)v7 + 14) == 16 )
+      return (unsigned int)RtlCallEnclave(Routine, 0LL, Flags, RoutineParamReturn);
     else
-      return (unsigned int)ZwCallEnclave();
+      return (unsigned int)ZwCallEnclave(Routine, 0LL, Flags, RoutineParamReturn);
   }
   else
   {
-    *a3 = a1(*a3);
+    *RoutineParamReturn = (PVOID)((__int64 (__fastcall *)(_QWORD))Routine)(*RoutineParamReturn);
   }
-  return v7;
+  return v8;
 }

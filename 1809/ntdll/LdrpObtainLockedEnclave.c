@@ -39,13 +39,13 @@ __int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
     }
     if ( i )
       _InterlockedIncrement((volatile signed __int32 *)i + 14);
-    RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock);
+    RtlLeaveCriticalSection(&LdrpEnclaveListLock);
     if ( !i )
       return 0LL;
-    RtlEnterCriticalSection(i + 2);
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
     if ( i[8] )
       break;
-    RtlLeaveCriticalSection((__int64)(i + 2));
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
   }
   return i;
 }

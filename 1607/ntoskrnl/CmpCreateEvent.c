@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCreateEvent @ 0x1403F9948
+ * XREFs of CmpCreateEvent @ 0x1403F8808
  * Callers:
- *     CmpFileReadEx @ 0x1400848A0 (CmpFileReadEx.c)
- *     CmpDoFileWrite @ 0x1403F9028 (CmpDoFileWrite.c)
- *     CmpOpenHiveFile @ 0x1403F9400 (CmpOpenHiveFile.c)
- *     CmpGetVolumeClusterSize @ 0x140481F90 (CmpGetVolumeClusterSize.c)
- *     CmpTouchFile @ 0x1406043E4 (CmpTouchFile.c)
+ *     CmpFileReadEx @ 0x140082A00 (CmpFileReadEx.c)
+ *     CmpDoFileWrite @ 0x1403F7EE8 (CmpDoFileWrite.c)
+ *     CmpOpenHiveFile @ 0x1403F82C0 (CmpOpenHiveFile.c)
+ *     CmpGetVolumeClusterSize @ 0x140480CE4 (CmpGetVolumeClusterSize.c)
+ *     CmpTouchFile @ 0x140604498 (CmpTouchFile.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateEvent @ 0x14015A580 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x14015AAF0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall CmpCreateEvent(EVENT_TYPE EventType, PHANDLE EventHandle, PVOID *a3)

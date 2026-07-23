@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpCompareEntryLevel1 @ 0x140672DA0
+ * XREFs of ObpCompareEntryLevel1 @ 0x140667FD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x14067362C (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x14066885C (RtlEnumerateBoundaryDescriptorEntries.c)
  */
 
 __int64 __fastcall ObpCompareEntryLevel1(__int64 a1, __int64 a2)

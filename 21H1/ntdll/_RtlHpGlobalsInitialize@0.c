@@ -6,9 +6,9 @@
  *     _RtlpHeapGenerateRandomValue32@0 @ 0x4B2B22F0 (_RtlpHeapGenerateRandomValue32@0.c)
  */
 
-unsigned int __stdcall RtlHpGlobalsInitialize()
+ULONG __stdcall RtlHpGlobalsInitialize()
 {
-  unsigned int result; // eax
+  ULONG result; // eax
 
   memset(&RtlpHpHeapGlobals, 0, 0x1Cu);
   RtlpHeapGenerateRandomValue32();

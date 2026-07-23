@@ -1,9 +1,9 @@
 /*
- * XREFs of EvtIntReportEventAndSourceAsync @ 0x1800F3FE0
+ * XREFs of EvtIntReportEventAndSourceAsync @ 0x1800EE6F0
  * Callers:
  *     <none>
  * Callees:
- *     EvtIntReportEventWorker @ 0x1800F4050 (EvtIntReportEventWorker.c)
+ *     EvtIntReportEventWorker @ 0x1800EE760 (EvtIntReportEventWorker.c)
  */
 
 __int64 __fastcall EvtIntReportEventAndSourceAsync(
@@ -12,7 +12,7 @@ __int64 __fastcall EvtIntReportEventAndSourceAsync(
         unsigned __int16 a3,
         __int16 a4,
         char a5,
-        __int64 a6,
+        void *a6,
         __int16 a7,
         int a8,
         __int64 a9,

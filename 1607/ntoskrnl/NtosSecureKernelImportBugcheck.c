@@ -1,9 +1,9 @@
 /*
- * XREFs of NtosSecureKernelImportBugcheck @ 0x14020FC04
+ * XREFs of NtosSecureKernelImportBugcheck @ 0x14020FA30
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __noreturn NtosSecureKernelImportBugcheck()

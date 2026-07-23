@@ -10,19 +10,21 @@
  *     RtlpMuiRegFreeLanguageConfigList @ 0x18006F850 (RtlpMuiRegFreeLanguageConfigList.c)
  */
 
-__int64 __fastcall RtlpFreeTebLanguageList(__int64 *a1)
+LOGICAL __fastcall RtlpFreeTebLanguageList(void **a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
+  void *v3; // rcx
+  LOGICAL result; // eax
 
   if ( a1 )
   {
     v2 = *a1;
     if ( v2 )
       RtlpMuiRegFreeLanguageList(v2);
-    if ( a1[1] )
-      RtlpMuiRegFreeLanguageConfigList();
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)a1);
+    v3 = a1[1];
+    if ( v3 )
+      RtlpMuiRegFreeLanguageConfigList(v3);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
   }
   return result;
 }

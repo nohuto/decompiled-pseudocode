@@ -8,20 +8,19 @@
 
 char __thiscall LdrpIsModuleUnderSystem32(int this)
 {
-  unsigned __int16 v1; // ax
+  unsigned __int16 Length; // ax
   char v2; // bl
-  _DWORD v4[2]; // [esp+8h] [ebp-8h] BYREF
+  _UNICODE_STRING String1; // [esp+8h] [ebp-8h] BYREF
 
-  v4[0] = *(_DWORD *)(this + 36);
-  v1 = v4[0];
-  v4[1] = *(_DWORD *)(this + 40);
-  LOWORD(v4[0]) = LdrpSystem32;
-  if ( v1 - (unsigned int)*(unsigned __int16 *)(this + 44) <= (unsigned int)(unsigned __int16)LdrpSystem32 + 2 )
+  String1 = *(_UNICODE_STRING *)(this + 36);
+  Length = String1.Length;
+  String1.Length = LdrpSystem32.Length;
+  if ( Length - (unsigned int)*(unsigned __int16 *)(this + 44) <= (unsigned int)LdrpSystem32.Length + 2 )
     return 0;
-  if ( *(_WORD *)(*(_DWORD *)(this + 40) + 2 * ((unsigned __int16)LdrpSystem32 >> 1)) != 92 )
+  if ( *(_WORD *)(*(_DWORD *)(this + 40) + 2 * (LdrpSystem32.Length >> 1)) != 92 )
     return 0;
   v2 = 1;
-  if ( RtlCompareUnicodeString((unsigned __int16 *)v4, (unsigned __int16 *)&LdrpSystem32, 1) )
+  if ( RtlCompareUnicodeString(&String1, &LdrpSystem32, 1u) )
     return 0;
   return v2;
 }

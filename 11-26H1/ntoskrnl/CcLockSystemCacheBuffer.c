@@ -1,15 +1,15 @@
 /*
- * XREFs of CcLockSystemCacheBuffer @ 0x14052625C
+ * XREFs of CcLockSystemCacheBuffer @ 0x1405288CC
  * Callers:
- *     CcMapAndCopyInToCache @ 0x14026D270 (CcMapAndCopyInToCache.c)
- *     CcCopyBytesToUserBuffer @ 0x14046BC40 (CcCopyBytesToUserBuffer.c)
+ *     CcMapAndCopyInToCache @ 0x14026C7E0 (CcMapAndCopyInToCache.c)
+ *     CcCopyBytesToUserBuffer @ 0x1404653C0 (CcCopyBytesToUserBuffer.c)
  * Callees:
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     IopAllocateMdl @ 0x14039EBE0 (IopAllocateMdl.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     IopAllocateMdl @ 0x1403A0940 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
  */
 
 PVOID __fastcall CcLockSystemCacheBuffer(__int64 a1, __int64 *a2, unsigned int a3, __int64 a4, int *a5)

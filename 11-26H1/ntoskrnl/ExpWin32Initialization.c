@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWin32Initialization @ 0x140CE62D4
+ * XREFs of ExpWin32Initialization @ 0x140CEC674
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
  */
 
 bool ExpWin32Initialization()

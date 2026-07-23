@@ -7,11 +7,15 @@
  *     <none>
  */
 
-__int64 NtSubscribeWnfStateChange()
+NTSTATUS __cdecl NtSubscribeWnfStateChange(
+        PCWNF_STATE_NAME StateName,
+        WNF_CHANGE_STAMP ChangeStamp,
+        ULONG EventMask,
+        PULONG64 SubscriptionId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 414LL;
+  result = 414;
   __asm { syscall; Low latency system call }
   return result;
 }

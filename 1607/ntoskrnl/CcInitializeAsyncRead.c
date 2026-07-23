@@ -1,13 +1,13 @@
 /*
- * XREFs of CcInitializeAsyncRead @ 0x140146138
+ * XREFs of CcInitializeAsyncRead @ 0x1401466A8
  * Callers:
  *     CcInitializeCacheManager @ 0x14079FAB0 (CcInitializeCacheManager.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
  */
 
 char CcInitializeAsyncRead()

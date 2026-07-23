@@ -1,55 +1,54 @@
 /*
- * XREFs of AlpcpSignalAndWait @ 0x140324E10
+ * XREFs of AlpcpSignalAndWait @ 0x1402CD9A0
  * Callers:
- *     AlpcpReceiveSynchronousReply @ 0x14088AA00 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpReceiveMessagePort @ 0x140895660 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x14089DB00 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveSynchronousReply @ 0x140993FB0 (AlpcpReceiveSynchronousReply.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiWakeQueueWaiter @ 0x140324B20 (KiWakeQueueWaiter.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     AlpcpQueueIoCompletion @ 0x1403BD9A0 (AlpcpQueueIoCompletion.c)
- *     KiWakeOtherQueueWaiters @ 0x1403BE270 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1403BE4C8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1403BE4F4 (EtwTraceEnqueueWork.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     AlpcpReleaseDirectAttribute @ 0x14046ABC0 (AlpcpReleaseDirectAttribute.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     AlpcpLogUnwait @ 0x140742948 (AlpcpLogUnwait.c)
- *     IopAllocateMiniCompletionPacket @ 0x1409D54A0 (IopAllocateMiniCompletionPacket.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiWakeQueueWaiter @ 0x1402CD6B0 (KiWakeQueueWaiter.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     AlpcpQueueIoCompletion @ 0x1403AC630 (AlpcpQueueIoCompletion.c)
+ *     KiWakeOtherQueueWaiters @ 0x1403ACF00 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1403AD158 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1403AD184 (EtwTraceEnqueueWork.c)
+ *     AlpcpReleaseDirectAttribute @ 0x140463550 (AlpcpReleaseDirectAttribute.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     AlpcpLogUnwait @ 0x140740878 (AlpcpLogUnwait.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1409C52D0 (IopAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall AlpcpSignalAndWait(
         __int64 a1,
         void *a2,
         KWAIT_REASON a3,
-        __int64 a4,
+        KPROCESSOR_MODE a4,
         LARGE_INTEGER *Timeout,
         unsigned __int8 a6)
 {
   PVOID *v6; // rdi
   __int64 *v7; // rbp
-  KPROCESSOR_MODE v8; // r12
   BOOLEAN v10; // bl
   void *v11; // r14
   __int64 v13; // r15
   __int64 v14; // rdi
   __int64 v15; // rcx
-  _QWORD *v16; // rdx
+  __int64 v16; // rdx
   unsigned int v17; // ecx
   _QWORD *v18; // r14
   __int64 MiniCompletionPacket; // r14
@@ -69,7 +68,7 @@ __int64 __fastcall AlpcpSignalAndWait(
   unsigned __int64 v34; // rcx
   int v35; // r8d
   __int64 *v36; // rdx
-  char v37; // al
+  int v37; // eax
   __int64 v38; // rdi
   __int64 CurrentIrql; // rcx
   int v40; // eax
@@ -97,7 +96,6 @@ __int64 __fastcall AlpcpSignalAndWait(
 
   v6 = (PVOID *)(a1 + 32);
   v7 = *(__int64 **)(a1 + 32);
-  v8 = a4;
   v10 = (*(_DWORD *)(a1 + 48) & 0x200000) != 0;
   v11 = a2;
   if ( v7 )
@@ -196,13 +194,13 @@ __int64 __fastcall AlpcpSignalAndWait(
     LockHandle.OldIrql = v15;
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      v16 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)v13, (__int64)&LockHandle);
+      v16 = _InterlockedExchange64((volatile __int64 *)v13, (__int64)&LockHandle);
       if ( v16 )
-        KxWaitForLockOwnerShip((__int64)&LockHandle, v16);
+        KxWaitForLockOwnerShip(&LockHandle, v16);
     }
     else
     {
-      KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)v13);
+      KiAcquireQueuedSpinLockInstrumented(&LockHandle, v13);
     }
     v17 = *(_DWORD *)(v13 + 12);
     if ( v17 >= *(_DWORD *)(v13 + 8) )
@@ -309,7 +307,7 @@ LABEL_44:
     v37 = 5;
     if ( a6 )
       v37 = 1;
-    KeReleaseSemaphoreEx((volatile signed __int32 *)(v33 + 1304), 1LL, 1, a4, v37, 0LL);
+    KeReleaseSemaphoreEx((PVOID)(v33 + 1304), v37, 0LL);
   }
   else
   {
@@ -327,7 +325,7 @@ LABEL_44:
   }
 LABEL_28:
   KeLeaveCriticalRegionThread();
-  v29 = KeWaitForSingleObject(v11, a3, v8, v10, Timeout);
+  v29 = KeWaitForSingleObject(v11, a3, a4, v10, Timeout);
   v30 = KeGetCurrentThread();
   v31 = v29;
   --v30->KernelApcDisable;

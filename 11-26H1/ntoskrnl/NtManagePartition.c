@@ -1,42 +1,47 @@
 /*
- * XREFs of NtManagePartition @ 0x1407FD4C0
+ * XREFs of NtManagePartition @ 0x140802EF0
  * Callers:
- *     DifNtManagePartitionWrapper @ 0x14067B340 (DifNtManagePartitionWrapper.c)
+ *     DifNtManagePartitionWrapper @ 0x14067EF20 (DifNtManagePartitionWrapper.c)
  * Callees:
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     MmSetAgingOptions @ 0x1406F7E5C (MmSetAgingOptions.c)
- *     MmManagePartitionSetMemoryThresholds @ 0x14070A140 (MmManagePartitionSetMemoryThresholds.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmManagePartitionCreateLargePages @ 0x14077E0A0 (MmManagePartitionCreateLargePages.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     MmIssueMemoryListCommand @ 0x14086AD20 (MmIssueMemoryListCommand.c)
- *     MiCreatePagingFile @ 0x14086B464 (MiCreatePagingFile.c)
- *     MmManagePartitionCharges @ 0x14087CE38 (MmManagePartitionCharges.c)
- *     MmManagePartitionInitialAddMemory @ 0x14087D018 (MmManagePartitionInitialAddMemory.c)
- *     MmManagePartitionMoveMemory @ 0x14087D0C8 (MmManagePartitionMoveMemory.c)
- *     MmManagePartitionNodeInformation @ 0x14087D38C (MmManagePartitionNodeInformation.c)
- *     MmManagePartitionQueryPageFileInformation @ 0x14087D498 (MmManagePartitionQueryPageFileInformation.c)
- *     MmManagePartitionUpdateAttributes @ 0x14087D548 (MmManagePartitionUpdateAttributes.c)
- *     MiOpenSpecialPurposeMemory @ 0x14087E770 (MiOpenSpecialPurposeMemory.c)
- *     MiQuerySpecialPurposeMemoryInformation @ 0x14087E918 (MiQuerySpecialPurposeMemoryInformation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
- *     MmManagePartitionMemoryInformation @ 0x140AB9F38 (MmManagePartitionMemoryInformation.c)
- *     MmCheckPartitionManagementSupported @ 0x140AE4BE0 (MmCheckPartitionManagementSupported.c)
- *     MiCombineIdenticalPages @ 0x140B49E94 (MiCombineIdenticalPages.c)
- *     MmManagePartitionGetMemoryEvents @ 0x140B4F824 (MmManagePartitionGetMemoryEvents.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     MmSetAgingOptions @ 0x1406FCB28 (MmSetAgingOptions.c)
+ *     MmManagePartitionSetMemoryThresholds @ 0x14070EDF4 (MmManagePartitionSetMemoryThresholds.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmManagePartitionCreateLargePages @ 0x1407809E4 (MmManagePartitionCreateLargePages.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     MmIssueMemoryListCommand @ 0x140871100 (MmIssueMemoryListCommand.c)
+ *     MiCreatePagingFile @ 0x140871844 (MiCreatePagingFile.c)
+ *     MmManagePartitionCharges @ 0x140883238 (MmManagePartitionCharges.c)
+ *     MmManagePartitionInitialAddMemory @ 0x140883418 (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x1408834C8 (MmManagePartitionMoveMemory.c)
+ *     MmManagePartitionNodeInformation @ 0x14088378C (MmManagePartitionNodeInformation.c)
+ *     MmManagePartitionQueryPageFileInformation @ 0x140883898 (MmManagePartitionQueryPageFileInformation.c)
+ *     MmManagePartitionUpdateAttributes @ 0x140883948 (MmManagePartitionUpdateAttributes.c)
+ *     MiOpenSpecialPurposeMemory @ 0x140884B70 (MiOpenSpecialPurposeMemory.c)
+ *     MiQuerySpecialPurposeMemoryInformation @ 0x140884D18 (MiQuerySpecialPurposeMemoryInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
+ *     MmManagePartitionMemoryInformation @ 0x140ABB3FC (MmManagePartitionMemoryInformation.c)
+ *     MmCheckPartitionManagementSupported @ 0x140AE26F0 (MmCheckPartitionManagementSupported.c)
+ *     MiCombineIdenticalPages @ 0x140B4BC24 (MiCombineIdenticalPages.c)
+ *     MmManagePartitionGetMemoryEvents @ 0x140B520B4 (MmManagePartitionGetMemoryEvents.c)
  */
 
-__int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, void *a4, unsigned int Size)
+NTSTATUS __cdecl NtManagePartition(
+        HANDLE TargetHandle,
+        HANDLE SourceHandle,
+        PARTITION_INFORMATION_CLASS PartitionInformationClass,
+        PVOID PartitionInformation,
+        ULONG PartitionInformationLength)
 {
   __int64 v6; // rbx
   __int64 v8; // r8
   unsigned __int8 PreviousMode; // r14
   __int64 *v10; // rsi
-  int v11; // edi
+  NTSTATUS v11; // edi
   __int64 v12; // r13
   char v13; // cl
   unsigned int v14; // esi
@@ -51,7 +56,7 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, vo
   __int64 *v23; // rcx
   int v24; // ebx
   int v25; // ebx
-  int SpecialPurposeMemoryInformation; // eax
+  NTSTATUS SpecialPurposeMemoryInformation; // eax
   __int64 v27; // r9
   ULONG *v28; // rcx
   int v29; // ebx
@@ -64,15 +69,15 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, vo
   int v37; // [rsp+30h] [rbp-B8h]
   __int64 *v38; // [rsp+38h] [rbp-B0h] BYREF
   __int64 *v39; // [rsp+40h] [rbp-A8h] BYREF
-  __int64 v40[3]; // [rsp+48h] [rbp-A0h] BYREF
+  HANDLE v40[3]; // [rsp+48h] [rbp-A0h] BYREF
   __int64 Src; // [rsp+60h] [rbp-88h] BYREF
   unsigned int v42; // [rsp+68h] [rbp-80h]
   int v43; // [rsp+6Ch] [rbp-7Ch]
-  __int64 v44; // [rsp+70h] [rbp-78h]
+  HANDLE v44; // [rsp+70h] [rbp-78h]
   int v45; // [rsp+80h] [rbp-68h]
 
-  v6 = a3;
-  v40[0] = a2;
+  v6 = (unsigned int)PartitionInformationClass;
+  v40[0] = SourceHandle;
   memset_0(&Src, 0, 0x40uLL);
   BYTE2(v37) = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -87,25 +92,29 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, vo
   }
   v12 = v6;
   v13 = HIBYTE(PspPartitionInfoDetails[v6]);
-  if ( (v13 & 0x20) == 0 && Size != WORD2(PspPartitionInfoDetails[v6]) )
+  if ( (v13 & 0x20) == 0 && PartitionInformationLength != WORD2(PspPartitionInfoDetails[v6]) )
   {
     v11 = -1073741820;
     goto LABEL_81;
   }
   if ( (v13 & 1) != 0 )
   {
-    if ( PreviousMode && Size && ((BYTE6(PspPartitionInfoDetails[v6]) - 1) & (unsigned int)a4) != 0 )
+    if ( PreviousMode
+      && PartitionInformationLength
+      && ((BYTE6(PspPartitionInfoDetails[v6]) - 1) & (unsigned int)PartitionInformation) != 0 )
+    {
       ExRaiseDatatypeMisalignment();
+    }
     if ( PreviousMode )
-      RtlCopyFromUser(&Src, a4, Size);
+      RtlCopyFromUser(&Src, PartitionInformation, PartitionInformationLength);
     else
-      RtlCopyVolatileMemory(&Src, a4, Size);
+      RtlCopyVolatileMemory(&Src, PartitionInformation, PartitionInformationLength);
   }
   v14 = PspPartitionInfoDetails[v6];
   if ( (_DWORD)v6 == 11 && (_DWORD)Src == 2 )
     v14 = 2;
   LOBYTE(v8) = PreviousMode;
-  v11 = PsReferencePartitionByHandle(a1, v14, v8, 1884123984LL, &v38);
+  v11 = PsReferencePartitionByHandle(TargetHandle, v14, v8, 1884123984LL, &v38);
   if ( v11 < 0 )
   {
     v10 = v38;
@@ -153,7 +162,7 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, vo
         if ( !v30 )
         {
           LOBYTE(v18) = PreviousMode;
-          SpecialPurposeMemoryInformation = MmManagePartitionCharges(v10, &Src, a4, v18);
+          SpecialPurposeMemoryInformation = MmManagePartitionCharges(v10, &Src, PartitionInformation, v18);
           goto LABEL_69;
         }
         v31 = v30 - 1;
@@ -202,13 +211,21 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, vo
         if ( (_DWORD)v6 == 9 )
         {
           LOBYTE(v18) = PreviousMode;
-          SpecialPurposeMemoryInformation = MiQuerySpecialPurposeMemoryInformation(*v10, a4, Size, v18);
+          SpecialPurposeMemoryInformation = MiQuerySpecialPurposeMemoryInformation(
+                                              *v10,
+                                              PartitionInformation,
+                                              PartitionInformationLength,
+                                              v18);
           goto LABEL_69;
         }
         if ( !(_DWORD)v6 )
         {
           LOBYTE(v18) = PreviousMode;
-          SpecialPurposeMemoryInformation = MmManagePartitionMemoryInformation(v10, a4, Size, v18);
+          SpecialPurposeMemoryInformation = MmManagePartitionMemoryInformation(
+                                              v10,
+                                              PartitionInformation,
+                                              PartitionInformationLength,
+                                              v18);
           goto LABEL_69;
         }
         v19 = v6 - 1;
@@ -222,7 +239,13 @@ __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, vo
         if ( !v20 )
         {
           LOBYTE(v18) = PreviousMode;
-          SpecialPurposeMemoryInformation = MiCreatePagingFile((_DWORD)a4, (int)a4 + 16, (int)a4 + 24, v18, v45, *v10);
+          SpecialPurposeMemoryInformation = MiCreatePagingFile(
+                                              (_DWORD)PartitionInformation,
+                                              (int)PartitionInformation + 16,
+                                              (int)PartitionInformation + 24,
+                                              v18,
+                                              v45,
+                                              *v10);
           goto LABEL_69;
         }
         v21 = v20 - 1;
@@ -250,12 +273,16 @@ LABEL_70:
 LABEL_72:
             if ( (PspPartitionInfoDetails[v12] & 0x200000000000000LL) != 0 )
             {
-              if ( PreviousMode && Size && ((BYTE6(PspPartitionInfoDetails[v12]) - 1) & (unsigned int)a4) != 0 )
+              if ( PreviousMode
+                && PartitionInformationLength
+                && ((BYTE6(PspPartitionInfoDetails[v12]) - 1) & (unsigned int)PartitionInformation) != 0 )
+              {
                 ExRaiseDatatypeMisalignment();
+              }
               if ( PreviousMode )
-                RtlCopyToUser(a4, &Src, Size);
+                RtlCopyToUser(PartitionInformation, &Src, PartitionInformationLength);
               else
-                RtlCopyVolatileMemory(a4, &Src, Size);
+                RtlCopyVolatileMemory(PartitionInformation, &Src, PartitionInformationLength);
             }
             goto LABEL_81;
           }
@@ -269,7 +296,7 @@ LABEL_71:
         if ( !v22 )
         {
           LOBYTE(v18) = PreviousMode;
-          SpecialPurposeMemoryInformation = MmManagePartitionInitialAddMemory(v10, &Src, a4, v18);
+          SpecialPurposeMemoryInformation = MmManagePartitionInitialAddMemory(v10, &Src, PartitionInformation, v18);
           goto LABEL_69;
         }
         v24 = v22 - 1;
@@ -301,5 +328,5 @@ LABEL_81:
     PsDereferencePartition((__int64)v10);
   if ( BYTE2(v37) )
     PsDereferencePartition((__int64)v39);
-  return (unsigned int)v11;
+  return v11;
 }

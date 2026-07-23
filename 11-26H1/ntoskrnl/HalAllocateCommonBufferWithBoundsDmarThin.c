@@ -1,12 +1,12 @@
 /*
- * XREFs of HalAllocateCommonBufferWithBoundsDmarThin @ 0x14058B3D0
+ * XREFs of HalAllocateCommonBufferWithBoundsDmarThin @ 0x14058DB50
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateCommonBufferDmarThin @ 0x1404F1E84 (HalpAllocateCommonBufferDmarThin.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1404EB464 (HalpAllocateCommonBufferDmarThin.c)
  */
 
-__int64 __fastcall HalAllocateCommonBufferWithBoundsDmarThin(
+_RTL_BALANCED_NODE *__fastcall HalAllocateCommonBufferWithBoundsDmarThin(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -19,7 +19,7 @@ __int64 __fastcall HalAllocateCommonBufferWithBoundsDmarThin(
   _QWORD *v8; // rdi
   __int64 *v9; // rcx
   __int64 v10; // rbx
-  __int64 v12; // [rsp+60h] [rbp+8h] BYREF
+  _RTL_BALANCED_NODE *v12; // [rsp+60h] [rbp+8h] BYREF
 
   v8 = a8;
   v9 = *(__int64 **)(a1 + 512);
@@ -28,5 +28,5 @@ __int64 __fastcall HalAllocateCommonBufferWithBoundsDmarThin(
   if ( (int)HalpAllocateCommonBufferDmarThin(v9, a2, a3, a4, a5, a6, a7, a8, &v12) >= 0 )
     return v12;
   *v8 = 0LL;
-  return v10;
+  return (_RTL_BALANCED_NODE *)v10;
 }

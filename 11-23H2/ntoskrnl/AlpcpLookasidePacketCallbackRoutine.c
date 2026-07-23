@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x140319C00
+ * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x140319E90
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x1403056B8 (AlpcpDeferredFreeCompletionPacketLookaside.c)
- *     AlpcpQueueIoCompletion @ 0x14031A968 (AlpcpQueueIoCompletion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x140305948 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     AlpcpQueueIoCompletion @ 0x14031ABF8 (AlpcpQueueIoCompletion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
@@ -62,10 +62,13 @@ void __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

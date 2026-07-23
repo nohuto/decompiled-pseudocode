@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIdleWakeNotifyModernStandbyEnter @ 0x1404A94CC
+ * XREFs of PopIdleWakeNotifyModernStandbyEnter @ 0x1404A38EC
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140AAC910 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140AA7940 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void PopIdleWakeNotifyModernStandbyEnter()
@@ -19,7 +19,7 @@ void PopIdleWakeNotifyModernStandbyEnter()
   KIRQL v5; // al
   signed __int32 v6; // eax
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x9520uLL, 0x67696450u);
   v1 = (void *)Pool2;
   if ( Pool2 )
   {

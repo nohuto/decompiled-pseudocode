@@ -19,12 +19,12 @@ __int64 __fastcall KiRemoveTimer2(__int64 a1)
   __int64 v4; // rbp
   __int64 v6; // rsi
   char v7; // al
-  unsigned __int64 v8; // r13
+  _RTL_RB_TREE *v8; // r13
   __int64 v9; // rcx
-  unsigned __int64 *v10; // rdx
+  _RTL_BALANCED_NODE *v10; // rdx
   __int64 v11; // rax
   __int64 result; // rax
-  __int64 v13; // rax
+  _RTL_BALANCED_NODE *Min; // rax
   __int64 v14; // rcx
   __int64 v15; // rax
   __int64 *v16; // rdx
@@ -43,45 +43,45 @@ __int64 __fastcall KiRemoveTimer2(__int64 a1)
     v7 = *v2;
     if ( (*v2 & 0x10) != 0 )
       goto LABEL_7;
-    v8 = 0x140000000LL + 24LL * (v7 & 7) + 15865632;
+    v8 = (_RTL_RB_TREE *)(0x140000000LL + 24LL * (v7 & 7) + 15865632);
     v9 = *(_QWORD *)(0x140000008LL + 24LL * (v7 & 7) + 15865632);
-    v10 = (unsigned __int64 *)(a1 + 24 * (v1 + 1LL));
+    v10 = (_RTL_BALANCED_NODE *)(a1 + 24 * (v1 + 1LL));
     if ( (v9 & 1) != 0 )
     {
       if ( v9 == 1 )
         v11 = 0LL;
       else
-        v11 = v9 ^ (v8 | 1);
+        v11 = v9 ^ ((unsigned __int64)v8 | 1);
     }
     else
     {
       v11 = *(_QWORD *)(0x140000008LL + 24LL * (v7 & 7) + 15865632);
     }
-    if ( (unsigned __int64 *)v11 != v10 )
+    if ( (_RTL_BALANCED_NODE *)v11 != v10 )
     {
       RtlRbRemoveNode(v8, v10);
       goto LABEL_7;
     }
     RtlRbRemoveNode(v8, v10);
-    v13 = *(_QWORD *)(v8 + 8);
+    Min = v8->Min;
     v3 = 1;
-    if ( (v13 & 1) != 0 )
+    if ( ((unsigned __int8)Min & 1) != 0 )
     {
-      if ( v13 == 1 )
+      if ( Min == (_RTL_BALANCED_NODE *)1 )
       {
 LABEL_14:
-        *(_QWORD *)(v8 + 16) = -1LL;
+        v8[1].Root = (_RTL_BALANCED_NODE *)-1LL;
         goto LABEL_7;
       }
-      v14 = v13 ^ (v8 | 1);
+      v14 = (unsigned __int64)Min ^ ((unsigned __int64)v8 | 1);
     }
     else
     {
-      v14 = *(_QWORD *)(v8 + 8);
+      v14 = (__int64)v8->Min;
     }
     if ( !v14 )
       goto LABEL_14;
-    *(_QWORD *)(v8 + 16) = *(_QWORD *)(v4 - v6 + v14 - 24);
+    v8[1].Root = *(_RTL_BALANCED_NODE **)(v4 - v6 + v14 - 24);
 LABEL_7:
     ++v1;
     v4 += 8LL;

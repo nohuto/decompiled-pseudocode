@@ -1,20 +1,20 @@
 /*
- * XREFs of ExCreateHandleEx @ 0x1405D1380
+ * XREFs of ExCreateHandleEx @ 0x1405D2380
  * Callers:
- *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
- *     NtCreateJobObject @ 0x140605F80 (NtCreateJobObject.c)
- *     ObCompleteObjectDuplication @ 0x140612FA0 (ObCompleteObjectDuplication.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     AlpcpAllocateMessageFunction @ 0x1406B15D0 (AlpcpAllocateMessageFunction.c)
- *     RtlpInsertStringAtom @ 0x1406B73FC (RtlpInsertStringAtom.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x14084A790 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ObDuplicateObject @ 0x1405D1B70 (ObDuplicateObject.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
+ *     NtCreateJobObject @ 0x140606F80 (NtCreateJobObject.c)
+ *     ObCompleteObjectDuplication @ 0x140613FA0 (ObCompleteObjectDuplication.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     AlpcpAllocateMessageFunction @ 0x1406B2870 (AlpcpAllocateMessageFunction.c)
+ *     RtlpInsertStringAtom @ 0x1406B869C (RtlpInsertStringAtom.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x14084B9F0 (AlpcpAllocateMessageFromExtendedTables.c)
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExpAllocateHandleTableEntry @ 0x1405D1470 (ExpAllocateHandleTableEntry.c)
- *     ExpFreeHandleTableEntry @ 0x1405FB378 (ExpFreeHandleTableEntry.c)
- *     ExpSetHandleExtraInfo @ 0x1408CE15C (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
+ *     ExpAllocateHandleTableEntry @ 0x1405D2470 (ExpAllocateHandleTableEntry.c)
+ *     ExpFreeHandleTableEntry @ 0x1405FC378 (ExpFreeHandleTableEntry.c)
+ *     ExpSetHandleExtraInfo @ 0x1408CF41C (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1408CF6A8 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ExCreateHandleEx(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5)

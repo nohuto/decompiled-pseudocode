@@ -7,7 +7,7 @@
  *     DWORDToBigEndian @ 0x180040474 (DWORDToBigEndian.c)
  *     A_SHAUpdate @ 0x1800410B0 (A_SHAUpdate.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 void *__fastcall A_SHAFinal(_DWORD *a1, __int64 a2)

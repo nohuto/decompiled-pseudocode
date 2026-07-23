@@ -1,16 +1,16 @@
 /*
- * XREFs of SymCryptTwistedEdwardsDouble @ 0x1403FFDE0
+ * XREFs of SymCryptTwistedEdwardsDouble @ 0x1403FFFC0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptModAdd @ 0x1403F95D4 (SymCryptModAdd.c)
- *     SymCryptModElementCreate @ 0x1403F966C (SymCryptModElementCreate.c)
- *     SymCryptModMul @ 0x1403F98F4 (SymCryptModMul.c)
- *     SymCryptModSquare @ 0x1403F99D0 (SymCryptModSquare.c)
- *     SymCryptModSub @ 0x1403F9A04 (SymCryptModSub.c)
- *     SymCryptSizeofModElementFromModulus @ 0x1403F9A88 (SymCryptSizeofModElementFromModulus.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptModAdd @ 0x1403F97B4 (SymCryptModAdd.c)
+ *     SymCryptModElementCreate @ 0x1403F984C (SymCryptModElementCreate.c)
+ *     SymCryptModMul @ 0x1403F9AD4 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x1403F9BB0 (SymCryptModSquare.c)
+ *     SymCryptModSub @ 0x1403F9BE4 (SymCryptModSub.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F9C68 (SymCryptSizeofModElementFromModulus.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall SymCryptTwistedEdwardsDouble(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiMarkPfnVerified @ 0x1402B8A04
+ * XREFs of MiMarkPfnVerified @ 0x140236C14
  * Callers:
- *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
- *     MiValidateInPage @ 0x14023B570 (MiValidateInPage.c)
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     MiGatherMappedPages @ 0x140255BC8 (MiGatherMappedPages.c)
- *     MiSetSystemCodeProtection @ 0x1402E6818 (MiSetSystemCodeProtection.c)
- *     MiRevertValidPte @ 0x140334300 (MiRevertValidPte.c)
- *     MiCompleteSecureProcessFault @ 0x140548184 (MiCompleteSecureProcessFault.c)
- *     MiValidateImagePfn @ 0x14069BD04 (MiValidateImagePfn.c)
- *     MiFillPerSessionProtos @ 0x1408D7FE0 (MiFillPerSessionProtos.c)
- *     MiSwitchToPfns @ 0x140A43AD8 (MiSwitchToPfns.c)
- *     MiInitializeBootLoadedDriverPfns @ 0x140A65FFC (MiInitializeBootLoadedDriverPfns.c)
- *     MiValidateKernelHalLargePageRange @ 0x140A92D10 (MiValidateKernelHalLargePageRange.c)
+ *     MiGatherMappedPages @ 0x140277138 (MiGatherMappedPages.c)
+ *     MiSetSystemCodeProtection @ 0x140297B68 (MiSetSystemCodeProtection.c)
+ *     MiAllocateWsle @ 0x1402B65C0 (MiAllocateWsle.c)
+ *     MiValidateInPage @ 0x1402DFDC0 (MiValidateInPage.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     MiRevertValidPte @ 0x14033F050 (MiRevertValidPte.c)
+ *     MiCompleteSecureProcessFault @ 0x1405483C4 (MiCompleteSecureProcessFault.c)
+ *     MiValidateImagePfn @ 0x1405FAEC4 (MiValidateImagePfn.c)
+ *     MiFillPerSessionProtos @ 0x1408D8140 (MiFillPerSessionProtos.c)
+ *     MiSwitchToPfns @ 0x140A44AD8 (MiSwitchToPfns.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140A66FFC (MiInitializeBootLoadedDriverPfns.c)
+ *     MiValidateKernelHalLargePageRange @ 0x140A93D10 (MiValidateKernelHalLargePageRange.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiGetPagePrivilege @ 0x1403286F0 (MiGetPagePrivilege.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiGetPagePrivilege @ 0x140333440 (MiGetPagePrivilege.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KeSetPagePrivilege @ 0x140512E78 (KeSetPagePrivilege.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KeSetPagePrivilege @ 0x1405130B8 (KeSetPagePrivilege.c)
  */
 
 unsigned __int8 __fastcall MiMarkPfnVerified(ULONG_PTR BugCheckParameter2, char a2)
@@ -44,10 +44,7 @@ unsigned __int8 __fastcall MiMarkPfnVerified(ULONG_PTR BugCheckParameter2, char 
   if ( (a2 & 4) != 0 )
     v5 = 17;
   else
-    v5 = MiLockPageInline(
-           BugCheckParameter2,
-           (unsigned __int128)((__int64)(BugCheckParameter2 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64,
-           BugCheckParameter2 + 0x58000000000LL);
+    v5 = MiLockPageInline(BugCheckParameter2);
   if ( (v2 & 2) != 0 && ((*(_QWORD *)(BugCheckParameter2 + 40) >> 60) & 7) == 3 )
     v2 &= ~2u;
   if ( (v2 & 2) != 0 && (MiFlags & 0x10000) != 0 )

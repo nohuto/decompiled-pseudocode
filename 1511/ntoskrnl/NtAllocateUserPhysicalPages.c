@@ -256,7 +256,7 @@ LABEL_24:
             ExReleaseAutoExpandPushLockShared(v24, 0LL);
             KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
             UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)v11);
-            AweInfo = MiResizeAweBitMap((unsigned __int64 *)v41);
+            AweInfo = MiResizeAweBitMap((_RTL_BITMAP_EX *)v41);
             if ( AweInfo < 0 && v44 >= *(_QWORD *)v41 )
             {
               MiFreePagesFromMdl((__int64)v42, (ULONG_PTR)PagesForMdl, 1u);

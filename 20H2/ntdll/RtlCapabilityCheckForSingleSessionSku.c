@@ -7,17 +7,20 @@
  *     RtlIsMultiSessionSku @ 0x180040250 (RtlIsMultiSessionSku.c)
  */
 
-__int64 __fastcall RtlCapabilityCheckForSingleSessionSku(void *a1, unsigned __int16 *a2, char *a3)
+__int64 __fastcall RtlCapabilityCheckForSingleSessionSku(
+        HANDLE TokenHandle,
+        PUNICODE_STRING CapabilityName,
+        PBOOLEAN HasCapability)
 {
   unsigned int v3; // ebx
 
   v3 = 0;
-  if ( a3 )
+  if ( HasCapability )
   {
     if ( RtlIsMultiSessionSku() )
-      *a3 = 0;
+      *HasCapability = 0;
     else
-      return (unsigned int)RtlCapabilityCheck(a1, a2, a3);
+      return (unsigned int)RtlCapabilityCheck(TokenHandle, CapabilityName, HasCapability);
   }
   else
   {

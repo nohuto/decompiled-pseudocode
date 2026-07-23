@@ -55,10 +55,13 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, unsigned int *a
     if ( !PoolBigPageTable )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v6 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -82,10 +85,10 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, unsigned int *a
       break;
     v31 = PoolBigPageTableSize;
     ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v17 >= 2u )
       {
         v18 = KeGetCurrentPrcb();
         v19 = v18->SchedulerAssist;
@@ -109,10 +112,10 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, unsigned int *a
   v7 = 32 * PoolBigPageTableSize;
   memmove(HeapPages, PoolBigPageTable, 32 * PoolBigPageTableSize);
   ExReleaseSpinLockExclusiveFromDpcLevel(&ExpLargePoolTableLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v8 >= 2u )
     {
       v9 = KeGetCurrentPrcb();
       v10 = v9->SchedulerAssist;

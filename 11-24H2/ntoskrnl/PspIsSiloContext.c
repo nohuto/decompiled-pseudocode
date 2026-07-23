@@ -1,9 +1,9 @@
 /*
- * XREFs of PspIsSiloContext @ 0x1409E2188
+ * XREFs of PspIsSiloContext @ 0x1409DBF38
  * Callers:
- *     PsReplaceSiloContext @ 0x140772230 (PsReplaceSiloContext.c)
- *     PsInsertSiloContext @ 0x1409E1C10 (PsInsertSiloContext.c)
- *     PsInsertPermanentSiloContextEx @ 0x1409E20A4 (PsInsertPermanentSiloContextEx.c)
+ *     PsReplaceSiloContext @ 0x140772450 (PsReplaceSiloContext.c)
+ *     PsInsertSiloContext @ 0x1409DB9C0 (PsInsertSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x1409DBE54 (PsInsertPermanentSiloContextEx.c)
  * Callees:
  *     <none>
  */

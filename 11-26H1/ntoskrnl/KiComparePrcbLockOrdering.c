@@ -1,5 +1,5 @@
 /*
- * XREFs of KiComparePrcbLockOrdering @ 0x14047CFB0
+ * XREFs of KiComparePrcbLockOrdering @ 0x140476920
  * Callers:
  *     <none>
  * Callees:

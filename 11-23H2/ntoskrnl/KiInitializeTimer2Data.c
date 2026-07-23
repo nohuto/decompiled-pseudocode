@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeTimer2Data @ 0x1403B1B44
+ * XREFs of KiInitializeTimer2Data @ 0x1403B1D24
  * Callers:
- *     KeInitializeTimerTable @ 0x14081D9C4 (KeInitializeTimerTable.c)
+ *     KeInitializeTimerTable @ 0x14081DC94 (KeInitializeTimerTable.c)
  * Callees:
  *     <none>
  */

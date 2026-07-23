@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTryLockHugePfnAtDpc @ 0x1406EDDCC
+ * XREFs of MiTryLockHugePfnAtDpc @ 0x1406F2A6C
  * Callers:
- *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C007C4 (MiAddPostHibernateZeroPagesToBitmap.c)
+ *     MiAddPostHibernateZeroPagesToBitmap @ 0x140C069D4 (MiAddPostHibernateZeroPagesToBitmap.c)
  * Callees:
- *     MiLockHugePfnInternal @ 0x1405013E8 (MiLockHugePfnInternal.c)
+ *     MiLockHugePfnInternal @ 0x1404FABD8 (MiLockHugePfnInternal.c)
  */
 
 __int64 __fastcall MiTryLockHugePfnAtDpc(__int64 a1)

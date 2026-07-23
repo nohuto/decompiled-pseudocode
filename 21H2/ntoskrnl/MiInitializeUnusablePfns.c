@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInitializeUnusablePfns @ 0x1403B0FE0
+ * XREFs of MiInitializeUnusablePfns @ 0x1403B1150
  * Callers:
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
- *     MiDoGangAssignment @ 0x140560170 (MiDoGangAssignment.c)
- *     MiSwitchToPfns @ 0x140A43AD8 (MiSwitchToPfns.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
+ *     MiDoGangAssignment @ 0x1405603B0 (MiDoGangAssignment.c)
+ *     MiSwitchToPfns @ 0x140A44AD8 (MiSwitchToPfns.c)
  * Callees:
- *     MiGetContainingPageTable @ 0x14023E450 (MiGetContainingPageTable.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiSetPageTablePfnBuddy @ 0x1402E5B84 (MiSetPageTablePfnBuddy.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiMakeTransitionPte @ 0x14032E9B0 (MiMakeTransitionPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiCreatePfnTemplate @ 0x1403B1424 (MiCreatePfnTemplate.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiSetPageTablePfnBuddy @ 0x140296ED4 (MiSetPageTablePfnBuddy.c)
+ *     MiGetContainingPageTable @ 0x1402E2CA0 (MiGetContainingPageTable.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiMakeTransitionPte @ 0x140339700 (MiMakeTransitionPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiCreatePfnTemplate @ 0x1403B1594 (MiCreatePfnTemplate.c)
  *     MiCreateInitialLargeLeafPfns @ 0x1403F63D4 (MiCreateInitialLargeLeafPfns.c)
  */
 
@@ -84,7 +84,7 @@ __int64 __fastcall MiInitializeUnusablePfns(
   if ( v7 < 0 )
   {
     v42.m128i_i64[1] = v42.m128i_i64[1] & 0x8FFFFFFFFFFFFFFFuLL | 0x3000000000000000LL;
-    _InterlockedExchangeAdd64(&qword_140C4E000, a2);
+    _InterlockedExchangeAdd64(&qword_140C4E040, a2);
     goto LABEL_13;
   }
   if ( (v7 & 0x40) != 0 )
@@ -116,10 +116,10 @@ LABEL_13:
     v41.m128i_i64[1] = v41.m128i_i64[1] & 0xC000000000000000uLL | 1;
     v41.m128i_i64[0] = MiSwizzleInvalidPte(128LL);
     v42.m128i_i64[1] = v17 & 0xFFFFFFF000000000uLL | 0xFFFFFFFFDLL;
-    MiSetPageTablePfnBuddy((__int64)&v40, (__int64)KeGetCurrentThread()->ApcState.Process, 1LL);
+    MiSetPageTablePfnBuddy((__int64)&v40, (__int64)KeGetCurrentThread()->ApcState.Process, 1);
     v41.m128i_i64[1] |= 0x4000000000000000uLL;
     v42.m128i_i16[0] = 2;
-    result = _InterlockedExchangeAdd64(&qword_140C4EFB8, a2);
+    result = _InterlockedExchangeAdd64(&qword_140C4EFF8, a2);
   }
   if ( (v7 & 2) != 0 )
   {
@@ -155,7 +155,7 @@ LABEL_13:
           goto LABEL_34;
         v27 = i;
 LABEL_33:
-        MiWritePteShadow((__int64)v20, v27, v28);
+        MiWritePteShadow((__int64)v20, v27);
         goto LABEL_34;
       }
       v28 = 0LL;
@@ -165,7 +165,7 @@ LABEL_33:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v28 = 1LL;
-          if ( HIBYTE(word_140C4E008) )
+          if ( HIBYTE(word_140C4E048) )
             goto LABEL_27;
         }
         else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )

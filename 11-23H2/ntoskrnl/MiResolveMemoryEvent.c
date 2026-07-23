@@ -1,10 +1,10 @@
 /*
- * XREFs of MiResolveMemoryEvent @ 0x1407EB490
+ * XREFs of MiResolveMemoryEvent @ 0x1407EB760
  * Callers:
  *     <none>
  * Callees:
- *     MiGetThreadPartition @ 0x14036F218 (MiGetThreadPartition.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     MiGetThreadPartition @ 0x14036F3B8 (MiGetThreadPartition.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall MiResolveMemoryEvent(__int64 a1, __int64 a2, __int64 a3, PVOID *a4)

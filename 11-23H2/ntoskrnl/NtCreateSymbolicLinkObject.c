@@ -1,23 +1,27 @@
 /*
- * XREFs of NtCreateSymbolicLinkObject @ 0x1407F3050
+ * XREFs of NtCreateSymbolicLinkObject @ 0x1407F3320
  * Callers:
  *     CreateSystemRootLink @ 0x140B6E898 (CreateSystemRootLink.c)
  *     IopReassignSystemRoot @ 0x140B6FE8C (IopReassignSystemRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ObCreateSymbolicLink @ 0x1407F3368 (ObCreateSymbolicLink.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ObCreateSymbolicLink @ 0x1407F3638 (ObCreateSymbolicLink.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateSymbolicLinkObject(unsigned __int64 a1, int a2, __int64 a3, UNICODE_STRING *a4)
+NTSTATUS __cdecl NtCreateSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LinkTarget)
 {
   char PreviousMode; // r9
-  __m128i v9; // xmm1
+  UNICODE_STRING v9; // xmm1
   UNICODE_STRING *v10; // rax
   unsigned __int16 v11; // di
-  unsigned int SymbolicLink; // ebx
+  NTSTATUS SymbolicLink; // ebx
   REGHANDLE v13; // r10
   unsigned int v14; // r9d
   __int64 v15; // rax
@@ -33,12 +37,12 @@ __int64 __fastcall NtCreateSymbolicLinkObject(unsigned __int64 a1, int a2, __int
   wchar_t *v26; // r8
   __int16 v27; // [rsp+30h] [rbp-F8h] BYREF
   UNICODE_STRING v28; // [rsp+38h] [rbp-F0h] BYREF
-  int v29; // [rsp+48h] [rbp-E0h] BYREF
-  unsigned int v30; // [rsp+50h] [rbp-D8h] BYREF
+  ACCESS_MASK v29; // [rsp+48h] [rbp-E0h] BYREF
+  NTSTATUS v30; // [rsp+50h] [rbp-D8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-D0h] BYREF
-  UNICODE_STRING *v32; // [rsp+68h] [rbp-C0h]
+  UNICODE_STRING *ObjectName; // [rsp+68h] [rbp-C0h]
   __int64 v33; // [rsp+70h] [rbp-B8h] BYREF
-  __m128i v34; // [rsp+78h] [rbp-B0h]
+  UNICODE_STRING v34; // [rsp+78h] [rbp-B0h]
   struct _EVENT_DATA_DESCRIPTOR UserData[6]; // [rsp+90h] [rbp-98h] BYREF
 
   v28 = 0LL;
@@ -49,13 +53,13 @@ __int64 __fastcall NtCreateSymbolicLinkObject(unsigned __int64 a1, int a2, __int
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)ObjectAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v23 = 0x7FFFFFFF0000LL;
-    v32 = *(UNICODE_STRING **)(a3 + 16);
-    if ( v32 )
+    ObjectName = ObjectAttributes->ObjectName;
+    if ( ObjectName )
     {
-      DestinationString = *v32;
+      DestinationString = *ObjectName;
       v24 = _mm_cvtsi128_si32((__m128i)DestinationString);
       if ( v24 )
       {
@@ -64,41 +68,46 @@ __int64 __fastcall NtCreateSymbolicLinkObject(unsigned __int64 a1, int a2, __int
           MEMORY[0x7FFFFFFF0000] = 0;
       }
     }
-    v28 = *a4;
+    v28 = *LinkTarget;
     if ( v28.MaximumLength )
     {
       v26 = (wchar_t *)((char *)v28.Buffer + v28.MaximumLength);
       if ( (unsigned __int64)v26 > 0x7FFFFFFF0000LL || v26 < v28.Buffer )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v23 = a1;
+    if ( (unsigned __int64)LinkHandle < 0x7FFFFFFF0000LL )
+      v23 = (__int64)LinkHandle;
     *(_QWORD *)v23 = *(_QWORD *)v23;
-    v9 = (__m128i)v28;
+    v9 = v28;
   }
   else
   {
-    v9 = *(__m128i *)a4;
-    v28 = *a4;
-    v10 = *(UNICODE_STRING **)(a3 + 16);
+    v9 = *LinkTarget;
+    v28 = *LinkTarget;
+    v10 = ObjectAttributes->ObjectName;
     if ( v10 )
       DestinationString = *v10;
   }
-  if ( (v9.m128i_i8[2] & 1) != 0 )
+  if ( (v9.MaximumLength & 1) != 0 )
   {
-    v28.MaximumLength = v9.m128i_i16[1] & 0xFFFE;
-    v9 = (__m128i)v28;
+    v28.MaximumLength = v9.MaximumLength & 0xFFFE;
+    v9 = v28;
   }
   if ( !v28.MaximumLength )
-    return 3221225485LL;
-  v11 = _mm_cvtsi128_si32(v9);
-  if ( v11 > v28.MaximumLength || (_mm_cvtsi128_si32(v9) & 1) != 0 )
-    return 3221225485LL;
+    return -1073741811;
+  v11 = _mm_cvtsi128_si32((__m128i)v9);
+  if ( v11 > v28.MaximumLength || (_mm_cvtsi128_si32((__m128i)v9) & 1) != 0 )
+    return -1073741811;
   v33 = 4LL;
   v34 = v9;
-  SymbolicLink = ObCreateSymbolicLink(a1, a2, a3, (unsigned int)&v33, PreviousMode);
+  SymbolicLink = ObCreateSymbolicLink(
+                   (_DWORD)LinkHandle,
+                   DesiredAccess,
+                   (_DWORD)ObjectAttributes,
+                   (unsigned int)&v33,
+                   PreviousMode);
   v30 = SymbolicLink;
-  v29 = a2;
+  v29 = DesiredAccess;
   v13 = EtwApiCallsProvRegHandle;
   if ( EtwApiCallsProvRegHandle )
   {

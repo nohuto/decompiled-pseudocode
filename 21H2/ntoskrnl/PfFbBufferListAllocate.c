@@ -1,21 +1,21 @@
 /*
- * XREFs of PfFbBufferListAllocate @ 0x1403C5024
+ * XREFs of PfFbBufferListAllocate @ 0x1403C5454
  * Callers:
- *     PfTStart @ 0x1407BFA40 (PfTStart.c)
+ *     PfTStart @ 0x1407BFF5C (PfTStart.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x1402D4690 (PfFbBufferListInsertInFree.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PfFbBufferListInsertInFree @ 0x140273370 (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfFbBufferListAllocate(_SLIST_ENTRY *RunRef, signed int a2, unsigned int a3)
 {
   __int64 v3; // rbx
   __int64 v6; // rbp
-  struct _SLIST_ENTRY *PoolWithTag; // rax
-  struct _SLIST_ENTRY *v8; // rsi
+  _SLIST_ENTRY *PoolWithTag; // rax
+  _SLIST_ENTRY *v8; // rsi
   char *v9; // r15
-  struct _SLIST_ENTRY *v10; // rbx
+  _SLIST_ENTRY *v10; // rbx
   __int64 result; // rax
 
   v3 = a2;
@@ -27,10 +27,10 @@ LABEL_9:
     return result;
   }
   v6 = ((a2 - 32) / a3) & 0xFFFFFFF0;
-  PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(
-                                         (POOL_TYPE)*((_DWORD *)&RunRef[4].Next + 2),
-                                         a2,
-                                         HIDWORD(RunRef[4].Next));
+  PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(
+                                  (POOL_TYPE)*((_DWORD *)&RunRef[4].Next + 2),
+                                  a2,
+                                  HIDWORD(RunRef[4].Next));
   v8 = PoolWithTag;
   if ( !PoolWithTag )
   {
@@ -48,7 +48,7 @@ LABEL_9:
   while ( (char *)v10 + v6 <= v9 )
   {
     PfFbBufferListInsertInFree(RunRef, v10, v6, 0, 0);
-    v10 = (struct _SLIST_ENTRY *)((char *)v10 + (unsigned int)v6);
+    v10 = (_SLIST_ENTRY *)((char *)v10 + (unsigned int)v6);
   }
   RtlpInterlockedPushEntrySList((PSLIST_HEADER)&RunRef[3], v8);
   return 0LL;

@@ -8,11 +8,8 @@
  *     RtlReleaseSRWLockShared @ 0x1800276F0 (RtlReleaseSRWLockShared.c)
  */
 
-unsigned __int64 __fastcall RtlpSparseBitmapCtxUnlockShared(__int64 a1, volatile signed __int64 *a2)
+void __fastcall RtlpSparseBitmapCtxUnlockShared(__int64 a1, _RTL_SRWLOCK *a2)
 {
-  unsigned __int64 result; // rax
-
   if ( (*(_BYTE *)(a1 + 72) & 4) == 0 )
-    return RtlReleaseSRWLockShared(a2);
-  return result;
+    RtlReleaseSRWLockShared(a2);
 }

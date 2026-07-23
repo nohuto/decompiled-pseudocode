@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAddBugcheckTriageIrp @ 0x14055BFD0
+ * XREFs of IopAddBugcheckTriageIrp @ 0x14055C690
  * Callers:
- *     IopAddBugcheckPowerTriageData @ 0x14055BB80 (IopAddBugcheckPowerTriageData.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x14055BEE0 (IopAddBugcheckTriageDeviceNode.c)
- *     IopAddBugcheckTriageThread @ 0x14055C14C (IopAddBugcheckTriageThread.c)
+ *     IopAddBugcheckPowerTriageData @ 0x14055C240 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14055C5A0 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageThread @ 0x14055C80C (IopAddBugcheckTriageThread.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KiIsAddressRangeValid @ 0x14038840C (KiIsAddressRangeValid.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x14055BEE0 (IopAddBugcheckTriageDeviceNode.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403885EC (KiIsAddressRangeValid.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14055C5A0 (IopAddBugcheckTriageDeviceNode.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageIrp(__int64 MaxDataSize, char a2)

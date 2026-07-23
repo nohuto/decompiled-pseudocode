@@ -7,10 +7,10 @@
  *     RtlAcquireSRWLockShared @ 0x1800277C0 (RtlAcquireSRWLockShared.c)
  */
 
-__int64 __fastcall RtlpSparseBitmapCtxLockShared(__int64 a1, volatile signed __int64 *a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpSparseBitmapCtxLockShared(__int64 a1, _RTL_SRWLOCK *a2)
 {
   if ( (*(_BYTE *)(a1 + 72) & 4) != 0 )
     return 1LL;
-  RtlAcquireSRWLockShared(a2, (char *)a2, a3, a4);
+  RtlAcquireSRWLockShared(a2);
   return 0LL;
 }

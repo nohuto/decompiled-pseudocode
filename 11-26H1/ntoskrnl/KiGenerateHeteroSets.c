@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGenerateHeteroSets @ 0x1404156A0
+ * XREFs of KiGenerateHeteroSets @ 0x140409CD0
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x14021EB80 (KiCheckPreferredHeteroProcessor.c)
- *     KiEvaluatePreemptionSwapTarget @ 0x140415474 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140220510 (KiCheckPreferredHeteroProcessor.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x140409AA4 (KiEvaluatePreemptionSwapTarget.c)
  * Callees:
  *     <none>
  */

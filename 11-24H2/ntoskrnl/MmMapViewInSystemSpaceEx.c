@@ -1,9 +1,9 @@
 /*
- * XREFs of MmMapViewInSystemSpaceEx @ 0x140946C30
+ * XREFs of MmMapViewInSystemSpaceEx @ 0x1408EB550
  * Callers:
  *     <none>
  * Callees:
- *     MiMapViewInSystemSpace @ 0x140946C58 (MiMapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x1408EB578 (MiMapViewInSystemSpace.c)
  */
 
 __int64 __fastcall MmMapViewInSystemSpaceEx(int a1, int a2, int a3, int a4, __int64 a5)

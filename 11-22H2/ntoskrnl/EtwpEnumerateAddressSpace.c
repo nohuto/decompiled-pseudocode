@@ -22,7 +22,7 @@
 void __fastcall EtwpEnumerateAddressSpace(__int64 BugCheckParameter1, __int64 a2, int *a3)
 {
   int v3; // eax
-  __int64 *v4; // r12
+  PVOID *v4; // r12
   __int64 v5; // r15
   ULONG_PTR v6; // r9
   int v7; // ecx
@@ -35,17 +35,17 @@ void __fastcall EtwpEnumerateAddressSpace(__int64 BugCheckParameter1, __int64 a2
   __int64 v14; // rax
   int v15; // edx
   unsigned __int64 v16; // rax
-  __int64 v17; // rax
-  int v18; // r11d
-  int v19; // r9d
-  __int64 v20; // rax
+  PIMAGE_NT_HEADERS v17; // rax
+  int CheckSum; // r11d
+  int TimeDateStamp; // r9d
+  __int64 ImageBase; // rax
   __int64 v21; // rdx
   __int64 v22; // r8
   void *v23; // r8
   unsigned int v24; // eax
   int v25; // ecx
   unsigned int v26; // r8d
-  __int64 v27; // rcx
+  unsigned __int64 v27; // rcx
   __m128i v28; // xmm2
   __m128i v29; // xmm3
   unsigned int v30; // ecx
@@ -229,15 +229,15 @@ LABEL_57:
 LABEL_39:
         ;
       }
-      v4 = (__int64 *)(i + 8);
+      v4 = (PVOID *)(i + 8);
       if ( (v8 & 2) != 0 )
       {
         v38 = 1;
-        v27 = *v4;
+        v27 = (unsigned __int64)*v4;
         v56 = ((unsigned __int64)*v4 >> 1) & 0x1F;
         v44 = v56;
         v60 = *(_QWORD *)(i + 32);
-        *v4 = v27 & 0xFFFFFFFFFFFFFFC0uLL;
+        *v4 = (PVOID)(v27 & 0xFFFFFFFFFFFFFFC0uLL);
         LODWORD(v27) = v27 & 1;
         v55 = (unsigned int)v27;
         v45 = v27;
@@ -247,12 +247,12 @@ LABEL_39:
         v38 = 0;
       }
       v67 = i + 8;
-      v16 = *v4;
+      v16 = (unsigned __int64)*v4;
       v63 = ((unsigned __int64)*v4 >> 6) & 0xF;
       v51 = v63;
       v64 = (v16 >> 10) & 7;
       v52 = (v16 >> 10) & 7;
-      *v4 = v16 & 0xFFFFFFFFFFFFE03FuLL;
+      *v4 = (PVOID)(v16 & 0xFFFFFFFFFFFFE03FuLL);
       v54 = 0LL;
       if ( KeAreAllApcsDisabled() )
         __int2c();
@@ -276,18 +276,18 @@ LABEL_39:
       v17 = RtlImageNtHeader(*v4);
       if ( v17 )
       {
-        v18 = *(_DWORD *)(v17 + 88);
-        v46 = v18;
-        v19 = *(_DWORD *)(v17 + 8);
-        v41 = v19;
-        v20 = *(_QWORD *)(v17 + 48);
-        v59 = v20;
+        CheckSum = v17->OptionalHeader.CheckSum;
+        v46 = CheckSum;
+        TimeDateStamp = v17->FileHeader.TimeDateStamp;
+        v41 = TimeDateStamp;
+        ImageBase = v17->OptionalHeader.ImageBase;
+        v59 = ImageBase;
       }
       else
       {
-        v19 = v41;
-        v18 = v50;
-        v20 = v62;
+        TimeDateStamp = v41;
+        CheckSum = v50;
+        ImageBase = v62;
       }
       v21 = v63;
       v22 = v64;
@@ -296,7 +296,17 @@ LABEL_39:
         if ( v5 )
           EtwpTraceImageRundown(v49, (unsigned __int16)v40, (_DWORD)Pool2, *(_QWORD *)(v48 + 1088), i, v63, v64);
         else
-          EtwpTraceImageUnload(Pool2, v48, *v4, *(_QWORD *)(i + 24), v18, v19, v63, v64, v20, 0);
+          EtwpTraceImageUnload(
+            Pool2,
+            v48,
+            (__int64)*v4,
+            *(_QWORD *)(i + 24),
+            CheckSum,
+            TimeDateStamp,
+            v63,
+            v64,
+            ImageBase,
+            0);
       }
       if ( v54 )
         (*(void (__fastcall **)(__int64, __int64, __int64))(FltMgrCallbacks + 32))(v54, v21, v22);
@@ -309,7 +319,7 @@ LABEL_39:
         *(_OWORD *)(i + 16) = 0LL;
         *(_OWORD *)(i + 32) = 0LL;
         *v68 = *(_DWORD *)(v48 + 1088);
-        *v4 = *(_QWORD *)(v28.m128i_i64[0] + 24);
+        *v4 = *(PVOID *)(v28.m128i_i64[0] + 24);
         *(_QWORD *)i = _mm_srli_si128(v28, 8).m128i_u64[0];
         *(_QWORD *)(i + 24) = _mm_srli_si128(v29, 8).m128i_u64[0];
         *(_QWORD *)(i + 32) = v60;

@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlNumberOfSetBits @ 0x140253830
+ * XREFs of RtlNumberOfSetBits @ 0x140274DA0
  * Callers:
- *     RtlNumberOfClearBits @ 0x140253800 (RtlNumberOfClearBits.c)
- *     HvpGenerateLogEntryDirtyData @ 0x140268570 (HvpGenerateLogEntryDirtyData.c)
- *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x1402CBF88 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1402E1B0C (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14035AFCC (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404B717C (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x1404CD3E8 (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
- *     SepAddLuidToIndexEntry @ 0x140604128 (SepAddLuidToIndexEntry.c)
- *     PspQueryRateControlHistory @ 0x140615DDC (PspQueryRateControlHistory.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     PopEvaluateGlobalUserStatus @ 0x14067DA64 (PopEvaluateGlobalUserStatus.c)
- *     SepGetLowBoxNumberEntry @ 0x1407180B8 (SepGetLowBoxNumberEntry.c)
- *     HvFreeHivePartial @ 0x14072153C (HvFreeHivePartial.c)
- *     HvpGenerateLogEntry @ 0x140721960 (HvpGenerateLogEntry.c)
- *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
- *     HvWriteHivePrimaryFile @ 0x140725240 (HvWriteHivePrimaryFile.c)
- *     MiReleaseDriverPtes @ 0x14075FCF0 (MiReleaseDriverPtes.c)
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
- *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
- *     HvFoldBackUnreconciledData @ 0x140876A24 (HvFoldBackUnreconciledData.c)
- *     HvpApplyLegacyLogFile @ 0x14088154C (HvpApplyLegacyLogFile.c)
- *     EtwQueryPerformanceTraceInformation @ 0x140937E6C (EtwQueryPerformanceTraceInformation.c)
+ *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x14024A6F4 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x140256510 (HvpGenerateLogEntryDirtyData.c)
+ *     RtlNumberOfClearBits @ 0x140274D70 (RtlNumberOfClearBits.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140292E5C (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14029FD6C (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404B73BC (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x1404CD628 (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
+ *     HvWriteHivePrimaryFile @ 0x140613AFC (HvWriteHivePrimaryFile.c)
+ *     PopEvaluateGlobalUserStatus @ 0x140671854 (PopEvaluateGlobalUserStatus.c)
+ *     PspQueryRateControlHistory @ 0x14067FA3C (PspQueryRateControlHistory.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     SepGetLowBoxNumberEntry @ 0x1406C6708 (SepGetLowBoxNumberEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x1406F3858 (SepAddLuidToIndexEntry.c)
+ *     HvFreeHivePartial @ 0x1406F8D94 (HvFreeHivePartial.c)
+ *     HvpGenerateLogEntry @ 0x1406F91B8 (HvpGenerateLogEntry.c)
+ *     HvpAddBin @ 0x1406FAA84 (HvpAddBin.c)
+ *     MiReleaseDriverPtes @ 0x14075FEB0 (MiReleaseDriverPtes.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AADF4 (CmpMountPreloadedHives.c)
+ *     HvpPerformLogFileRecovery @ 0x14087421C (HvpPerformLogFileRecovery.c)
+ *     HvFoldBackUnreconciledData @ 0x140876B84 (HvFoldBackUnreconciledData.c)
+ *     HvpApplyLegacyLogFile @ 0x1408816AC (HvpApplyLegacyLogFile.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14093803C (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */
@@ -75,7 +75,7 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
     v13 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v7 - 1 && v5 )
-      v13 &= byte_14001E8E0[SizeOfBitMap & 7];
+      v13 &= byte_14001E890[SizeOfBitMap & 7];
     ++i;
     v1 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v13);
   }
@@ -102,7 +102,7 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
     v18 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v7 - 1 && v5 )
-      v18 &= byte_14001E8E0[SizeOfBitMap & 7];
+      v18 &= byte_14001E890[SizeOfBitMap & 7];
     ++i;
     v1 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v18);
   }

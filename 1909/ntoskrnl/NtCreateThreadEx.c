@@ -16,63 +16,68 @@
  *     PspCreateThread @ 0x14060E80C (PspCreateThread.c)
  */
 
-__int64 __fastcall NtCreateThreadEx(
-        unsigned __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        ULONG_PTR a4,
-        __int64 a5,
-        __int64 a6,
-        int a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        unsigned __int64 *a11)
+NTSTATUS __cdecl NtCreateThreadEx(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PUSER_THREAD_START_ROUTINE StartRoutine,
+        PVOID Argument,
+        ULONG CreateFlags,
+        SIZE_T ZeroBits,
+        SIZE_T StackSize,
+        SIZE_T MaximumStackSize,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v16; // esi
   unsigned __int64 v17; // rax
   void *v18; // rsp
   __int64 v19; // r9
   __int64 v20; // r10
-  unsigned int v21; // ebx
+  NTSTATUS v21; // ebx
   __int64 v22; // rcx
-  unsigned int v23; // [rsp+70h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+70h] [rbp+0h] BYREF
   PVOID Object; // [rsp+78h] [rbp+8h] BYREF
   char v25; // [rsp+80h] [rbp+10h] BYREF
   int v26; // [rsp+81h] [rbp+11h]
   __int16 v27; // [rsp+85h] [rbp+15h]
   char v28; // [rsp+87h] [rbp+17h]
-  __int64 v29; // [rsp+88h] [rbp+18h]
-  __int64 v30; // [rsp+90h] [rbp+20h]
-  __int64 v31; // [rsp+98h] [rbp+28h]
-  _BYTE v32[80]; // [rsp+B0h] [rbp+40h] BYREF
-  _QWORD v33[62]; // [rsp+100h] [rbp+90h] BYREF
+  SIZE_T v29; // [rsp+88h] [rbp+18h]
+  SIZE_T v30; // [rsp+90h] [rbp+20h]
+  SIZE_T v31; // [rsp+98h] [rbp+28h]
+  PCONTEXT_EX ContextEx; // [rsp+A0h] [rbp+30h] BYREF
+  _BYTE v33[80]; // [rsp+B0h] [rbp+40h] BYREF
+  _QWORD v34[62]; // [rsp+100h] [rbp+90h] BYREF
 
-  memset(v32, 0, 0x48uLL);
+  memset(v33, 0, 0x48uLL);
   v26 = 0;
   v27 = 0;
   v28 = 0;
-  if ( (a7 & 0xFFFFFF80) != 0 )
-    return 3221225717LL;
+  if ( (CreateFlags & 0xFFFFFF80) != 0 )
+    return -1073741579;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    v22 = a1;
-    if ( a1 >= 0x7FFFFFFF0000LL )
+    v22 = (__int64)ThreadHandle;
+    if ( (unsigned __int64)ThreadHandle >= 0x7FFFFFFF0000LL )
       v22 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v22 = *(_QWORD *)v22;
   }
   v25 = 0;
-  v30 = a9;
-  v31 = a10;
-  v29 = a8;
-  memset(v33, 0, sizeof(v33));
-  if ( !a11
-    || (result = PspBuildCreateProcessContext(a11, KeGetCurrentThread()->PreviousMode, 1LL, (__int64)v33),
-        (int)result >= 0) )
+  v30 = StackSize;
+  v31 = MaximumStackSize;
+  v29 = ZeroBits;
+  memset(v34, 0, sizeof(v34));
+  if ( !AttributeList
+    || (result = PspBuildCreateProcessContext(
+                   &AttributeList->TotalLength,
+                   KeGetCurrentThread()->PreviousMode,
+                   1,
+                   (__int64)v34),
+        result >= 0) )
   {
     result = ObpReferenceObjectByHandleWithTag(
-               a4,
+               (ULONG_PTR)ProcessHandle,
                2,
                (__int64)PsProcessType,
                KeGetCurrentThread()->PreviousMode,
@@ -80,20 +85,33 @@ __int64 __fastcall NtCreateThreadEx(
                &Object,
                0LL,
                0LL);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       v16 = (*((_DWORD *)Object + 533) >> 8) & 0x40;
       ObfDereferenceObjectWithTag(Object, 0x72437350u);
-      RtlGetExtendedContextLength((unsigned int)(v16 + 1048587));
-      v17 = v23 + 15LL;
-      if ( v17 <= v23 )
+      RtlGetExtendedContextLength(v16 + 1048587, &ContextLength);
+      v17 = ContextLength + 15LL;
+      if ( v17 <= ContextLength )
         v17 = 0xFFFFFFFFFFFFFF0LL;
       v18 = alloca(v17 & 0xFFFFFFFFFFFFFFF0uLL);
-      memset(&v23, 0, v23);
-      RtlInitializeExtendedContext((__int64)&v23, v16 + 1048587);
-      PspCreateUserContext((__int64)&v23, 1, PspUserThreadStart, a5, a6);
-      v21 = PspCreateThread(a1, a2, a3, a4, 0LL, v33, v33[2], &v23, v32, a7, v19, v20, &v25);
-      PspDeleteCreateProcessContext((__int64)v33);
+      memset(&ContextLength, 0, ContextLength);
+      RtlInitializeExtendedContext((PCONTEXT)&ContextLength, v16 + 1048587, &ContextEx);
+      PspCreateUserContext((__int64)&ContextLength, 1, PspUserThreadStart, (__int64)StartRoutine, (__int64)Argument);
+      v21 = PspCreateThread(
+              ThreadHandle,
+              DesiredAccess,
+              ObjectAttributes,
+              ProcessHandle,
+              0LL,
+              v34,
+              v34[2],
+              &ContextLength,
+              v33,
+              CreateFlags,
+              v19,
+              v20,
+              &v25);
+      PspDeleteCreateProcessContext((__int64)v34);
       return v21;
     }
   }

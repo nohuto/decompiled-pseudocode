@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpAttachRootSvmDevice @ 0x140276214
+ * XREFs of HvlpAttachRootSvmDevice @ 0x140276404
  * Callers:
- *     HvlSvmAttachPasidSpace @ 0x140275850 (HvlSvmAttachPasidSpace.c)
+ *     HvlSvmAttachPasidSpace @ 0x140275A40 (HvlSvmAttachPasidSpace.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvlpHandleInsufficientMemory @ 0x1401B3ABC (HvlpHandleInsufficientMemory.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x1401B3ED4 (HvlpHvStatusIsInsufficientMemory.c)
- *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvlpHandleInsufficientMemory @ 0x1401B395C (HvlpHandleInsufficientMemory.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1401B3D74 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C73F0 (HvcallpExtendedFastHypercall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlpHvToNtStatus @ 0x140279770 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlpAttachRootSvmDevice(unsigned int a1, int a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeInPageSupport @ 0x14023EFE0
+ * XREFs of MiInitializeInPageSupport @ 0x1402E3830
  * Callers:
- *     MiGetInPageSupportBlock @ 0x14023EF24 (MiGetInPageSupportBlock.c)
- *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
- *     MiPfIssueCoalescedSupport @ 0x1405392A8 (MiPfIssueCoalescedSupport.c)
- *     MiGetReadyInPageBlock @ 0x1408C85B4 (MiGetReadyInPageBlock.c)
+ *     MiGetInPageSupportBlock @ 0x1402E3774 (MiGetInPageSupportBlock.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BD00 (MiMakeOutswappedPageResident.c)
+ *     MiPfIssueCoalescedSupport @ 0x1405394E8 (MiPfIssueCoalescedSupport.c)
+ *     MiGetReadyInPageBlock @ 0x1408C8714 (MiGetReadyInPageBlock.c)
  * Callees:
- *     PsGetPagePriorityThread @ 0x1402427D0 (PsGetPagePriorityThread.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     memset @ 0x140414200 (memset.c)
+ *     PsGetPagePriorityThread @ 0x1402E7020 (PsGetPagePriorityThread.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiInitializeInPageSupport(ULONG_PTR BugCheckParameter2, char a2)
@@ -59,7 +59,7 @@ __int64 __fastcall MiInitializeInPageSupport(ULONG_PTR BugCheckParameter2, char 
   *(_DWORD *)(BugCheckParameter2 + 192) = v8 & 0xFFFF81FF | (((unsigned int)result | (8 * (v4 & 7))) << 9);
   if ( (a2 & 2) != 0 )
   {
-    result = KeAbPreAcquire(BugCheckParameter2);
+    result = KeAbPreAcquire(BugCheckParameter2, 0LL);
     *(_QWORD *)(BugCheckParameter2 + 216) = result;
     if ( result )
       *(_BYTE *)(result + 26) |= 1u;

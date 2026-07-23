@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpPartitionFindOrCreate @ 0x1407473E0
+ * XREFs of PfpPartitionFindOrCreate @ 0x1407456D0
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PfpPartitionRundownProtectionAcquire @ 0x140477518 (PfpPartitionRundownProtectionAcquire.c)
- *     PfpPartitionFromParent @ 0x140498054 (PfpPartitionFromParent.c)
- *     PfpPartitionCreate @ 0x1405CC80C (PfpPartitionCreate.c)
- *     PfpTraceLogPartitionId @ 0x1405CCB30 (PfpTraceLogPartitionId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PfpPartitionRundownProtectionAcquire @ 0x140473AB8 (PfpPartitionRundownProtectionAcquire.c)
+ *     PfpPartitionFromParent @ 0x140492A30 (PfpPartitionFromParent.c)
+ *     PfpPartitionCreate @ 0x1405C9F7C (PfpPartitionCreate.c)
+ *     PfpTraceLogPartitionId @ 0x1405CA2A0 (PfpTraceLogPartitionId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PfpPartitionFindOrCreate(PEX_RUNDOWN_REF_CACHE_AWARE **a1, __int64 a2, __int64 a3)
@@ -35,7 +35,7 @@ __int64 __fastcall PfpPartitionFindOrCreate(PEX_RUNDOWN_REF_CACHE_AWARE **a1, __
     v12 = PfpTraceLogPartitionId(v6);
     v16 = 4;
     v15 = &v12;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&dword_14004822C, 0LL, 0LL, 3u, v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&dword_14004862C, 0LL, 0LL, 3u, v14);
   }
   v7 = (PEX_RUNDOWN_REF_CACHE_AWARE *)PfpPartitionFromParent(a3);
   v13 = v7;
@@ -66,7 +66,7 @@ LABEL_9:
     LODWORD(v13) = v9;
     v18 = &v13;
     v19 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&word_140048186, 0LL, 0LL, 4u, v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&unk_140048560, 0LL, 0LL, 4u, v14);
   }
   return (unsigned int)v9;
 }

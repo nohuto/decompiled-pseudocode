@@ -227,10 +227,13 @@ LABEL_28:
     v32 = HalpAcquireHighLevelLock(&HalpInterruptLock);
     v20 = HalpInterruptSetLineState(&v39, a2, a3, v46[2], SHIDWORD(v46[1]), (__int64)&v41, (__int64)v40, v38);
     KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v32 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v32 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

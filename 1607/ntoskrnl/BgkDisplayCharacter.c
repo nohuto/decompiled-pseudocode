@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     BgkpAcquireConsole @ 0x1401C3F00 (BgkpAcquireConsole.c)
- *     BgkpReleaseConsole @ 0x1401C3F1C (BgkpReleaseConsole.c)
+ *     BgkpAcquireConsole @ 0x1401C3DE4 (BgkpAcquireConsole.c)
+ *     BgkpReleaseConsole @ 0x1401C3E00 (BgkpReleaseConsole.c)
  *     BgDisplayFade @ 0x140725814 (BgDisplayFade.c)
  */
 
@@ -14,13 +14,13 @@ __int64 __fastcall BgkDisplayCharacter(unsigned __int16 a1, unsigned int a2, uns
 
   if ( !BgkpAcquireConsole() )
     return 3221225473LL;
-  if ( byte_140328CD2 || byte_140328CD0 )
+  if ( byte_140328D12 || byte_140328D10 )
   {
-    byte_140328CD2 = 0;
-    byte_140328CD0 = 0;
+    byte_140328D12 = 0;
+    byte_140328D10 = 0;
     BgDisplayFade();
   }
-  v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, int))(qword_140328CC8 + 32))(a1, a2, a3, a4, a5);
+  v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, int))(qword_140328D08 + 32))(a1, a2, a3, a4, a5);
   BgkpReleaseConsole();
   return v10;
 }

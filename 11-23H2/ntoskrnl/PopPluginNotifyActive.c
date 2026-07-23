@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginNotifyActive @ 0x140314894
+ * XREFs of PopPluginNotifyActive @ 0x140314B24
  * Callers:
- *     PopPluginComponentActive @ 0x14031378C (PopPluginComponentActive.c)
+ *     PopPluginComponentActive @ 0x140313A1C (PopPluginComponentActive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginNotifyActive(__int64 a1, int a2, char a3)

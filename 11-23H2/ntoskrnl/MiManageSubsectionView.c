@@ -1,24 +1,24 @@
 /*
- * XREFs of MiManageSubsectionView @ 0x1402A0500
+ * XREFs of MiManageSubsectionView @ 0x1402A0790
  * Callers:
  *     MiSessionInsertImage @ 0x14020AE64 (MiSessionInsertImage.c)
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
  *     MiInsertInSystemSpace @ 0x140213D10 (MiInsertInSystemSpace.c)
- *     MmMapViewInSystemCache @ 0x14029F630 (MmMapViewInSystemCache.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
- *     MiPostInsertVad @ 0x14030BBC0 (MiPostInsertVad.c)
+ *     MmMapViewInSystemCache @ 0x14029F8C0 (MmMapViewInSystemCache.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
+ *     MiPostInsertVad @ 0x14030BE50 (MiPostInsertVad.c)
  *     MiReleaseSessionDriverCharges @ 0x140683154 (MiReleaseSessionDriverCharges.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiConstructLoaderEntry @ 0x14070498C (MiConstructLoaderEntry.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiConstructLoaderEntry @ 0x140704B9C (MiConstructLoaderEntry.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)

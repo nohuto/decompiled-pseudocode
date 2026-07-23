@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpCancelReadOnlyOplockIrp @ 0x14026FB88
+ * XREFs of FsRtlpCancelReadOnlyOplockIrp @ 0x14026FD78
  * Callers:
  *     FsRtlpRequestShareableOplock @ 0x140017E60 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x14026F958 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x14026FFB0 (FsRtlpReadOnlyOplockIrpCancelRoutine.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14026FB48 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x1402701A0 (FsRtlpReadOnlyOplockIrpCancelRoutine.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     FsRtlpComputeShareableOplockState @ 0x140018750 (FsRtlpComputeShareableOplockState.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FFCC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1402701BC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
  */
 
 void __fastcall FsRtlpCancelReadOnlyOplockIrp(__int64 a1, char a2)

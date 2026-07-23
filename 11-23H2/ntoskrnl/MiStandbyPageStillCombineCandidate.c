@@ -1,8 +1,8 @@
 /*
- * XREFs of MiStandbyPageStillCombineCandidate @ 0x14035A4B0
+ * XREFs of MiStandbyPageStillCombineCandidate @ 0x14035A650
  * Callers:
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiCombineWithStandbyExisting @ 0x14035A17C (MiCombineWithStandbyExisting.c)
+ *     MiCombineInitialInstance @ 0x1402EC920 (MiCombineInitialInstance.c)
+ *     MiCombineWithStandbyExisting @ 0x14035A31C (MiCombineWithStandbyExisting.c)
  * Callees:
  *     MiStandbyPageContentsIntact @ 0x1402186F0 (MiStandbyPageContentsIntact.c)
  */

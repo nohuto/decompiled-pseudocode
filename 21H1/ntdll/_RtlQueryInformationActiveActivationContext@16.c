@@ -6,7 +6,20 @@
  *     _RtlQueryInformationActivationContext@28 @ 0x4B2B4CC0 (_RtlQueryInformationActivationContext@28.c)
  */
 
-int __stdcall RtlQueryInformationActiveActivationContext(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlQueryInformationActiveActivationContext(
+        ACTIVATION_CONTEXT_INFO_CLASS ActivationContextInformationClass,
+        PVOID ActivationContextInformation,
+        SIZE_T ActivationContextInformationLength,
+        PSIZE_T ReturnLength)
 {
-  return RtlQueryInformationActivationContext(1, 0, 0, a1, a2, a3, a4);
+  ULONG_PTR *savedregs; // [esp+0h] [ebp+0h]
+
+  return RtlQueryInformationActivationContext(
+           1u,
+           0,
+           0,
+           ActivationContextInformationClass,
+           ActivationContextInformation,
+           ActivationContextInformationLength,
+           savedregs);
 }

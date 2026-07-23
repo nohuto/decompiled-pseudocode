@@ -1,11 +1,11 @@
 /*
- * XREFs of ResFwConfigureDisplayStringResources @ 0x140BB18C4
+ * XREFs of ResFwConfigureDisplayStringResources @ 0x140BB38C4
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140BB5400 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x140BB7400 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpTxtRegionSize @ 0x1406987FC (BgpTxtRegionSize.c)
- *     BgpTxtCreateRegion @ 0x140BB2908 (BgpTxtCreateRegion.c)
- *     BgpFoGetFontHandle @ 0x140BB52B0 (BgpFoGetFontHandle.c)
+ *     BgpTxtRegionSize @ 0x14069987C (BgpTxtRegionSize.c)
+ *     BgpTxtCreateRegion @ 0x140BB4908 (BgpTxtCreateRegion.c)
+ *     BgpFoGetFontHandle @ 0x140BB72B0 (BgpFoGetFontHandle.c)
  */
 
 __int64 __fastcall ResFwConfigureDisplayStringResources(__int64 a1)
@@ -22,10 +22,10 @@ __int64 __fastcall ResFwConfigureDisplayStringResources(__int64 a1)
   v6 = 0LL;
   if ( !a1 || (*(_DWORD *)(a1 + 24) & 1) == 0 || (int)BgpFoGetFontHandle(0LL) < 0 )
     return 0LL;
-  if ( (_BYTE)qword_140EF01D0 )
+  if ( (_BYTE)qword_140EF03F0 )
   {
-    v4 = HIDWORD(qword_140EF01D0);
-    v5 = dword_140EF01D8;
+    v4 = HIDWORD(qword_140EF03F0);
+    v5 = dword_140EF03F8;
   }
   else
   {
@@ -37,6 +37,6 @@ __int64 __fastcall ResFwConfigureDisplayStringResources(__int64 a1)
   v7 = v2;
   if ( (int)BgpTxtCreateRegion(a1, (int)a1 + 8, (unsigned int)&v4, (int)a1 + 28, (__int64)&v9, 0) < 0 )
     return 0LL;
-  dword_140EF007C = BgpTxtRegionSize(v9);
+  dword_140EF029C = BgpTxtRegionSize(v9);
   return v9;
 }

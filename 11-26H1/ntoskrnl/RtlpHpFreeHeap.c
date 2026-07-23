@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpFreeHeap @ 0x140347010
+ * XREFs of RtlpHpFreeHeap @ 0x140349090
  * Callers:
- *     ExpFreeHeapSpecialPool @ 0x140345B28 (ExpFreeHeapSpecialPool.c)
- *     ExFreeHeapPages @ 0x140346358 (ExFreeHeapPages.c)
- *     ExpHpCompactHeapCallback @ 0x140346EF0 (ExpHpCompactHeapCallback.c)
- *     ExAllocateContiguousHeapPool @ 0x14034AA60 (ExAllocateContiguousHeapPool.c)
- *     ExAllocateHeapPool @ 0x1403987D0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
+ *     ExpFreeHeapSpecialPool @ 0x140347BA8 (ExpFreeHeapSpecialPool.c)
+ *     ExFreeHeapPages @ 0x1403483D8 (ExFreeHeapPages.c)
+ *     ExpHpCompactHeapCallback @ 0x140348F70 (ExpHpCompactHeapCallback.c)
+ *     ExAllocateContiguousHeapPool @ 0x14034CAE0 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapPool @ 0x14039A530 (ExAllocateHeapPool.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpSegFreeInternal @ 0x140352AC8 (RtlpHpSegFreeInternal.c)
- *     RtlpHpLargeFree @ 0x1403546B4 (RtlpHpLargeFree.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x14052769C (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpSegFreeInternal @ 0x140354B48 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpLargeFree @ 0x14035645C (RtlpHpLargeFree.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x140529D0C (RtlpHpLfhThreadDataInitializeSet.c)
  */
 
 __int64 __fastcall RtlpHpFreeHeap(__int64 a1, __int64 a2)
@@ -57,9 +57,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, __int64 a2)
   }
   else
   {
-    v4 = RtlCSparseBitmapBitmaskRead(
-           (__int64)&ExpUuidLock.ThreadLock,
-           2 * ((a2 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+    v4 = RtlCSparseBitmapBitmaskRead((__int64)&ExpUuidLock.CycleTime, 2 * ((a2 - ExpUuidLock.ThreadLock) >> 20));
     if ( !v4 )
       return RtlpHpLargeFree(a1, a2) != 0;
     v5 = v4 - 1;
@@ -144,8 +142,8 @@ LABEL_18:
         {
           *(_BYTE *)(v27 + v13 + 92) = 1;
           if ( !(BYTE1(**(_QWORD **)(*(_QWORD *)v13 + 56LL)) == 1
-               ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-               : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+               ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+               : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
             RtlpHpEnvCompactionSchedule(*(_QWORD *)(*(_QWORD *)v13 + 56LL), v27, v22, 2LL);
         }
         if ( BYTE2(v36) == 1 )

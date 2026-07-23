@@ -1,11 +1,11 @@
 /*
- * XREFs of MiProtectAweTransitionPte @ 0x140702154
+ * XREFs of MiProtectAweTransitionPte @ 0x140706E24
  * Callers:
- *     MiProtectAweRegion @ 0x140701F34 (MiProtectAweRegion.c)
+ *     MiProtectAweRegion @ 0x140706C04 (MiProtectAweRegion.c)
  * Callees:
- *     MiMakeTransitionPteValid @ 0x1403035C0 (MiMakeTransitionPteValid.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
+ *     MiMakeTransitionPteValid @ 0x1402E5640 (MiMakeTransitionPteValid.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
  */
 
 unsigned __int64 __fastcall MiProtectAweTransitionPte(__int64 a1, unsigned __int64 *a2, __int64 a3)

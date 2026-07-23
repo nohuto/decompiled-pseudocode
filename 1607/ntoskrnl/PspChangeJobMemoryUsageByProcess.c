@@ -1,20 +1,20 @@
 /*
- * XREFs of PspChangeJobMemoryUsageByProcess @ 0x140507750
+ * XREFs of PspChangeJobMemoryUsageByProcess @ 0x1404EA6E0
  * Callers:
- *     MiReturnFullProcessCharges @ 0x1400275E0 (MiReturnFullProcessCharges.c)
- *     MmAssignProcessToJob @ 0x1400B934C (MmAssignProcessToJob.c)
- *     MiDecommitRegion @ 0x140430190 (MiDecommitRegion.c)
- *     PsChangeJobMemoryUsageByProcess @ 0x14068008C (PsChangeJobMemoryUsageByProcess.c)
+ *     MiReturnFullProcessCharges @ 0x140027160 (MiReturnFullProcessCharges.c)
+ *     MmAssignProcessToJob @ 0x1400B71DC (MmAssignProcessToJob.c)
+ *     MiDecommitRegion @ 0x14042F060 (MiDecommitRegion.c)
+ *     PsChangeJobMemoryUsageByProcess @ 0x140680170 (PsChangeJobMemoryUsageByProcess.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PspSendJobNotification @ 0x1400AC040 (PspSendJobNotification.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     PspLockJobMemoryLimitsExclusive @ 0x140464B30 (PspLockJobMemoryLimitsExclusive.c)
- *     PspUnlockJobMemoryLimitsExclusive @ 0x140464B90 (PspUnlockJobMemoryLimitsExclusive.c)
- *     PspScheduleEnforcementWorker @ 0x140507B98 (PspScheduleEnforcementWorker.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PspSendJobNotification @ 0x1400AA5A8 (PspSendJobNotification.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     PspLockJobMemoryLimitsExclusive @ 0x140463A00 (PspLockJobMemoryLimitsExclusive.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x140463A60 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspScheduleEnforcementWorker @ 0x1404EAB28 (PspScheduleEnforcementWorker.c)
  */
 
 char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3, __int64 a4)

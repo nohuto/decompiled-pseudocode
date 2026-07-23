@@ -9,24 +9,24 @@
  *     sub_18010E088 @ 0x18010E088 (sub_18010E088.c)
  */
 
-_DWORD *__fastcall sub_18010DFF0(__int64 a1, unsigned int a2, int a3)
+unsigned int *__fastcall sub_18010DFF0(__int64 a1, unsigned int a2, int a3)
 {
-  _DWORD *result; // rax
-  __int64 Heap; // rax
-  _DWORD *v8; // rbx
+  unsigned int *result; // rax
+  unsigned int *Heap; // rax
+  unsigned int *v8; // rbx
 
   if ( !a1 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 64LL);
-  v8 = (_DWORD *)Heap;
+  Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x40uLL);
+  v8 = Heap;
   if ( !Heap )
     return 0LL;
   if ( !(unsigned int)sub_18010E088(Heap, a1, a2) )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v8);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
     return 0LL;
   }
   result = v8;

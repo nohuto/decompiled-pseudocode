@@ -11,7 +11,7 @@
  *     PopPowerRequestRevokeRequests @ 0x140583C54 (PopPowerRequestRevokeRequests.c)
  */
 
-__int64 PopPowerRequestHandleExecutionEnablementUpdate()
+void PopPowerRequestHandleExecutionEnablementUpdate()
 {
   int v0; // ecx
 
@@ -25,10 +25,10 @@ __int64 PopPowerRequestHandleExecutionEnablementUpdate()
      || MEMORY[0xFFFFF78000000008] - qword_140C3F698 < 10000000
                                                      * (unsigned __int64)(unsigned int)PopExecutionRequiredTimeout) )
   {
-    return PopPowerRequestUnrevokeRequests(v0);
+    PopPowerRequestUnrevokeRequests(v0);
   }
   else
   {
-    return PopPowerRequestRevokeRequests(v0, 0);
+    PopPowerRequestRevokeRequests(v0, 0);
   }
 }

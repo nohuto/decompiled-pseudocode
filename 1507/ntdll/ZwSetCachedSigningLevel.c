@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwSetCachedSigningLevel()
+NTSTATUS __cdecl ZwSetCachedSigningLevel(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 366LL;
+  result = 366;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MinAsn1DecodeGeneralizedTime @ 0x140A70F9C
+ * XREFs of MinAsn1DecodeGeneralizedTime @ 0x140A7124C
  * Callers:
- *     MinAsn1DecodeTime @ 0x140A713EC (MinAsn1DecodeTime.c)
+ *     MinAsn1DecodeTime @ 0x140A7169C (MinAsn1DecodeTime.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x14033B350 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     atoi @ 0x1403D9260 (atoi.c)
- *     isdigit @ 0x1403DA050 (isdigit.c)
- *     I_MinAsn1AdjustFileTime @ 0x140A70D98 (I_MinAsn1AdjustFileTime.c)
- *     I_MinAsn1MultiplyAndDivide @ 0x140A70EC0 (I_MinAsn1MultiplyAndDivide.c)
- *     I_MinAsn1ScanFrac @ 0x140A70F1C (I_MinAsn1ScanFrac.c)
+ *     RtlTimeFieldsToTime @ 0x14033B5E0 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     atoi @ 0x1403D9440 (atoi.c)
+ *     isdigit @ 0x1403DA230 (isdigit.c)
+ *     I_MinAsn1AdjustFileTime @ 0x140A71048 (I_MinAsn1AdjustFileTime.c)
+ *     I_MinAsn1MultiplyAndDivide @ 0x140A71170 (I_MinAsn1MultiplyAndDivide.c)
+ *     I_MinAsn1ScanFrac @ 0x140A711CC (I_MinAsn1ScanFrac.c)
  */
 
 bool __fastcall MinAsn1DecodeGeneralizedTime(__int64 a1, LARGE_INTEGER *a2)
@@ -48,7 +48,7 @@ bool __fastcall MinAsn1DecodeGeneralizedTime(__int64 a1, LARGE_INTEGER *a2)
   PLARGE_INTEGER v33; // rbx
   int v35; // [rsp+20h] [rbp-40h] BYREF
   int v36; // [rsp+24h] [rbp-3Ch] BYREF
-  TIME_FIELDS TimeFields; // [rsp+28h] [rbp-38h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+28h] [rbp-38h] BYREF
   int v38; // [rsp+38h] [rbp-28h]
   int v39; // [rsp+3Ch] [rbp-24h]
   int v40; // [rsp+40h] [rbp-20h]

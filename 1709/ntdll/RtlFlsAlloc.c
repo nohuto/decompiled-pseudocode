@@ -10,18 +10,18 @@
  *     RtlAcquireSRWLockExclusive @ 0x180046170 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlFlsAlloc(__int64 a1, unsigned int *a2)
+NTSTATUS __cdecl RtlFlsAlloc(PFLS_CALLBACK_FUNCTION Callback, PULONG FlsIndex)
 {
   struct _TEB *v2; // r15
   _LIST_ENTRY *v5; // rdi
   _PEB *ProcessEnvironmentBlock; // rsi
   struct _FLS_CALLBACK_INFO *v7; // rbp
-  int v8; // ebx
-  unsigned int ClearBitsAndSet; // eax
-  unsigned int v10; // r14d
+  NTSTATUS v8; // ebx
+  ULONG ClearBitsAndSet; // eax
+  ULONG v10; // r14d
   struct _FLS_CALLBACK_INFO *v12; // rax
   __int64 v13; // rcx
-  __int64 Heap; // rax
+  _LIST_ENTRY *Heap; // rax
   _LIST_ENTRY *Blink; // rcx
 
   v2 = NtCurrentTeb();
@@ -30,11 +30,11 @@ __int64 __fastcall RtlFlsAlloc(__int64 a1, unsigned int *a2)
     v5 = 0LL;
     goto LABEL_3;
   }
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (NtdllBaseTag + 2883584) | 8u, 1040LL);
-  v5 = (_LIST_ENTRY *)Heap;
+  Heap = (_LIST_ENTRY *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (NtdllBaseTag + 2883584) | 8, 0x410uLL);
+  v5 = Heap;
   if ( Heap )
   {
-    v2->FlsData = (void *)Heap;
+    v2->FlsData = Heap;
 LABEL_3:
     ProcessEnvironmentBlock = v2->ProcessEnvironmentBlock;
     if ( ProcessEnvironmentBlock->FlsCallback )
@@ -43,10 +43,7 @@ LABEL_3:
     }
     else
     {
-      v12 = (struct _FLS_CALLBACK_INFO *)RtlAllocateHeap(
-                                           NtCurrentPeb()->ProcessHeap,
-                                           (unsigned int)(NtdllBaseTag + 2883584),
-                                           2048LL);
+      v12 = (struct _FLS_CALLBACK_INFO *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 2883584, 0x800uLL);
       v7 = v12;
       if ( !v12 )
       {
@@ -81,7 +78,7 @@ LABEL_3:
       ProcessEnvironmentBlock->FlsListHead.Blink = v5;
       v5 = 0LL;
     }
-    ClearBitsAndSet = RtlFindClearBitsAndSet(ProcessEnvironmentBlock->FlsBitmap, 1LL);
+    ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)ProcessEnvironmentBlock->FlsBitmap, 1u, 1u);
     v10 = ClearBitsAndSet;
     if ( ClearBitsAndSet == -1 )
     {
@@ -89,26 +86,26 @@ LABEL_3:
     }
     else
     {
-      *((_QWORD *)ProcessEnvironmentBlock->FlsCallback + 2 * ClearBitsAndSet) = a1;
+      *((_QWORD *)ProcessEnvironmentBlock->FlsCallback + 2 * ClearBitsAndSet) = Callback;
       *((_QWORD *)v2->FlsData + ClearBitsAndSet + 2) = 0LL;
       if ( ClearBitsAndSet > ProcessEnvironmentBlock->FlsHighIndex )
         ProcessEnvironmentBlock->FlsHighIndex = ClearBitsAndSet;
     }
     RtlReleaseSRWLockExclusive(&RtlpFlsLock);
     if ( v7 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v7);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     if ( v8 >= 0 )
     {
-      *a2 = v10;
-      return (unsigned int)v8;
+      *FlsIndex = v10;
+      return v8;
     }
 LABEL_29:
     if ( v5 )
     {
       v2->FlsData = 0LL;
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v5);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
     }
-    return (unsigned int)v8;
+    return v8;
   }
-  return 3221225495LL;
+  return -1073741801;
 }

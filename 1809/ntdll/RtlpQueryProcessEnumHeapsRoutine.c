@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x18007DD5C (RtlpCommitQueryDebugInfo.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18007DD6C (RtlpCommitQueryDebugInfo.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlHpQuerySegmentHeapRoutine @ 0x1800F1F60 (RtlHpQuerySegmentHeapRoutine.c)
  */

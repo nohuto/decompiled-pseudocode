@@ -20,9 +20,9 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, __int64 a4, u
   int v8; // r12d
   unsigned int v11; // ebx
   __int64 v12; // rax
-  unsigned __int64 v13; // rsi
+  __int64 v13; // rsi
   int v14; // r14d
-  unsigned __int64 v15; // rax
+  __int64 v15; // rax
   __int64 v16; // rbx
   void *v17; // rbx
   int v19; // eax
@@ -64,7 +64,7 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, __int64 a4, u
       memset(v17, 0, a2);
 LABEL_17:
       if ( v13 )
-        RtlpHpSegPageRangeShrink(a1, v13, 0LL, a5);
+        RtlpHpSegPageRangeShrink(a1, v13, 0, a5);
     }
   }
   return v17;

@@ -188,10 +188,13 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
     dword_140C3CA00 = 0;
     v54 = v53;
     KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C9F8);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v54 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v54 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -238,10 +241,10 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
     PopDisplayOnPerformance = 0LL;
     dword_140C3CA00 = 1;
     KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3C9F8);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;
@@ -312,10 +315,10 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
         v35 = PpmPlatformStates;
       }
       KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v41 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v41 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && (unsigned __int8)v36 <= 0xFu && v41 >= 2u )
         {
           v42 = KeGetCurrentPrcb();
           v43 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v36 + 1));

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetNtDdiVersion @ 0x1404C791C
+ * XREFs of KiGetNtDdiVersion @ 0x1404C165C
  * Callers:
- *     sub_140542730 @ 0x140542730 (sub_140542730.c)
+ *     sub_140544BB0 @ 0x140544BB0 (sub_140544BB0.c)
  * Callees:
  *     <none>
  */

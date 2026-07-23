@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAbThreadBoostIoPriority @ 0x140288934
+ * XREFs of KiAbThreadBoostIoPriority @ 0x140205AD4
  * Callers:
- *     KiAbSetMinimumThreadPriority @ 0x1402F1D84 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1402FCAD4 (KiAbSetMinimumThreadPriority.c)
  * Callees:
- *     PsBoostThreadIoQoS @ 0x140287458 (PsBoostThreadIoQoS.c)
- *     KiAbQueueAutoBoostDpc @ 0x1402889FC (KiAbQueueAutoBoostDpc.c)
- *     KiAbThreadInsertList @ 0x1402C7CCC (KiAbThreadInsertList.c)
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoQoS @ 0x1402045F8 (PsBoostThreadIoQoS.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140205B9C (KiAbQueueAutoBoostDpc.c)
+ *     KiAbThreadInsertList @ 0x14024652C (KiAbThreadInsertList.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
  */
 
 __int64 __fastcall KiAbThreadBoostIoPriority(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -19,7 +19,7 @@ __int64 __fastcall KiAbThreadBoostIoPriority(__int64 a1, __int64 a2, __int64 a3,
   v6 = a3;
   if ( (_DWORD)a3 )
   {
-    PsBoostThreadIoQoS(a1, 0LL);
+    PsBoostThreadIoQoS(a1, 0);
     v8 = 864LL;
   }
   else
@@ -42,7 +42,7 @@ LABEL_12:
     return v9;
   }
   if ( v6 )
-    PsBoostThreadIoQoS(a1, 1LL);
+    PsBoostThreadIoQoS(a1, 1);
   else
     PsBoostThreadIoEx(a1, 1LL, 0LL, 0LL);
   if ( (unsigned int)KiAbThreadInsertList(a1, a2, a1 + 816) )

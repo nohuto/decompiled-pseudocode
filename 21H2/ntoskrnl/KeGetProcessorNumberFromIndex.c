@@ -1,15 +1,15 @@
 /*
- * XREFs of KeGetProcessorNumberFromIndex @ 0x1402754F0
+ * XREFs of KeGetProcessorNumberFromIndex @ 0x140263490
  * Callers:
- *     KeMaskInterrupt @ 0x140376F40 (KeMaskInterrupt.c)
- *     HalGetProcessorIdByNtNumber @ 0x140377550 (HalGetProcessorIdByNtNumber.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x14037A874 (KeSetIdealProcessorThreadByNumber.c)
- *     IoGetAffinityInterrupt @ 0x140381DC0 (IoGetAffinityInterrupt.c)
- *     HalpInterruptInitializeIpis @ 0x1403A92CC (HalpInterruptInitializeIpis.c)
- *     PspWriteTebIdealProcessor @ 0x1406476C8 (PspWriteTebIdealProcessor.c)
- *     PnprAddProcessorResources @ 0x1408AD064 (PnprAddProcessorResources.c)
- *     EtwpProcessorRundown @ 0x14093E88C (EtwpProcessorRundown.c)
- *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
+ *     KeMaskInterrupt @ 0x140376A90 (KeMaskInterrupt.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403770A0 (HalGetProcessorIdByNtNumber.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14037A3C4 (KeSetIdealProcessorThreadByNumber.c)
+ *     IoGetAffinityInterrupt @ 0x140381910 (IoGetAffinityInterrupt.c)
+ *     HalpInterruptInitializeIpis @ 0x1403AA05C (HalpInterruptInitializeIpis.c)
+ *     PspWriteTebIdealProcessor @ 0x14063C4B8 (PspWriteTebIdealProcessor.c)
+ *     PnprAddProcessorResources @ 0x1408AD1C4 (PnprAddProcessorResources.c)
+ *     EtwpProcessorRundown @ 0x14093EA5C (EtwpProcessorRundown.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AF2C0 (PnprQuiesceProcessorDpc.c)
  * Callees:
  *     <none>
  */

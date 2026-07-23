@@ -1,11 +1,11 @@
 /*
- * XREFs of AVrfpQueryProcessVerifierOptions @ 0x180046094
+ * XREFs of AVrfpQueryProcessVerifierOptions @ 0x18002A024
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x180044CD0 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x180028C60 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x180047450 (RtlpCommitQueryDebugInfo.c)
- *     RtlpDeCommitQueryDebugInfo @ 0x18011ECFC (RtlpDeCommitQueryDebugInfo.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18002B900 (RtlpCommitQueryDebugInfo.c)
+ *     RtlpDeCommitQueryDebugInfo @ 0x18011CF2C (RtlpDeCommitQueryDebugInfo.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall AVrfpQueryProcessVerifierOptions(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall AVrfpQueryProcessVerifierOptions(__int64 a1)
   v7 = 0;
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x2000100) == 0 )
     return 0LL;
-  v2 = ((__int64 (__fastcall *)(_QWORD, unsigned int *, _QWORD))qword_1801CC628)(0LL, &v7, 0LL);
+  v2 = ((__int64 (__fastcall *)(_QWORD, unsigned int *, _QWORD))qword_1801CB628)(0LL, &v7, 0LL);
   if ( v2 == -1073741820 )
   {
     DebugInfo = (unsigned int *)RtlpCommitQueryDebugInfo(a1, v7);
@@ -31,7 +31,7 @@ __int64 __fastcall AVrfpQueryProcessVerifierOptions(__int64 a1)
       v8 = v7;
       DebugInfo[1] = 0;
       *DebugInfo = v5;
-      v2 = ((__int64 (__fastcall *)(_QWORD, unsigned int *, unsigned int *))qword_1801CC628)(0LL, &v8, DebugInfo);
+      v2 = ((__int64 (__fastcall *)(_QWORD, unsigned int *, unsigned int *))qword_1801CB628)(0LL, &v8, DebugInfo);
       if ( v2 < 0 )
         RtlpDeCommitQueryDebugInfo(a1, v4, v7);
       else

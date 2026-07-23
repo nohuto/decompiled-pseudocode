@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlGetSystemTimePrecise @ 0x1400F2118
+ * XREFs of RtlGetSystemTimePrecise @ 0x1400EFF68
  * Callers:
- *     EtwpGetSystemTime @ 0x1400AB8E4 (EtwpGetSystemTime.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     KeQuerySystemTimePrecise @ 0x1400F2100 (KeQuerySystemTimePrecise.c)
- *     KiSetSystemTimeDpc @ 0x14012A438 (KiSetSystemTimeDpc.c)
- *     WmiGetClock @ 0x14022588C (WmiGetClock.c)
+ *     EtwpGetSystemTime @ 0x1400A9E4C (EtwpGetSystemTime.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     KeQuerySystemTimePrecise @ 0x1400EFF50 (KeQuerySystemTimePrecise.c)
+ *     KiSetSystemTimeDpc @ 0x14012A9A8 (KiSetSystemTimeDpc.c)
+ *     WmiGetClock @ 0x1402256B8 (WmiGetClock.c)
  *     EtwpTraceSystemInitialization @ 0x1407A9CCC (EtwpTraceSystemInitialization.c)
  *     PspInitPhase2 @ 0x1407B5F0C (PspInitPhase2.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x1400F21EC (RtlBeginReadTickLock.c)
+ *     RtlBeginReadTickLock @ 0x1400F003C (RtlBeginReadTickLock.c)
  */
 
-__int64 RtlGetSystemTimePrecise()
+LARGE_INTEGER RtlGetSystemTimePrecise(void)
 {
   __int64 TickLock; // rax
   unsigned __int64 v1; // rbp
@@ -47,5 +47,5 @@ __int64 RtlGetSystemTimePrecise()
       v10 <<= v5;
     v9 = ((unsigned __int64)v10 * (unsigned __int128)v2) >> 64;
   }
-  return v7 + v9;
+  return (LARGE_INTEGER)(v7 + v9);
 }

@@ -7,7 +7,7 @@
  *     _NtWow64DebuggerCall@20 @ 0x4B2F4790 (_NtWow64DebuggerCall@20.c)
  */
 
-int __stdcall DbgPrompt(const char *a1, int a2, unsigned __int16 a3)
+ULONG __cdecl DbgPrompt(PCCH Prompt, PCH Response, ULONG Length)
 {
-  return NtWow64DebuggerCall(2, (int)a1, (unsigned __int16)strlen(a1), a2, a3);
+  return NtWow64DebuggerCall(2, (int)Prompt, (unsigned __int16)strlen(Prompt), (int)Response, (unsigned __int16)Length);
 }

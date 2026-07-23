@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlGetSyntheticMachineCheckContext @ 0x1405B93B8
+ * XREFs of HvlGetSyntheticMachineCheckContext @ 0x1405BBC28
  * Callers:
- *     HvGetMachineCheckContext @ 0x1405BBA20 (HvGetMachineCheckContext.c)
+ *     HvGetMachineCheckContext @ 0x1405BE290 (HvGetMachineCheckContext.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
  */
 
 __int64 __fastcall HvlGetSyntheticMachineCheckContext(int a1, _OWORD *a2)

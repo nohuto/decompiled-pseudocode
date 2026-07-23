@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReplaceLockedPage @ 0x1401EB18C
+ * XREFs of MiReplaceLockedPage @ 0x1401EAFB8
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x140018E50 (MiTrimSharedPageFromViews.c)
+ *     MiTrimSharedPageFromViews @ 0x1400189D0 (MiTrimSharedPageFromViews.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiTbFlushType @ 0x140100DBC (MiTbFlushType.c)
- *     MiCanPageMove @ 0x14010745C (MiCanPageMove.c)
- *     MiTradeActivePage @ 0x14010B184 (MiTradeActivePage.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiTbFlushType @ 0x1400FEB3C (MiTbFlushType.c)
+ *     MiCanPageMove @ 0x1401051DC (MiCanPageMove.c)
+ *     MiTradeActivePage @ 0x140108F04 (MiTradeActivePage.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
  */
 
 __int64 __fastcall MiReplaceLockedPage(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
@@ -33,8 +33,8 @@ __int64 __fastcall MiReplaceLockedPage(__int64 a1, __int64 a2, unsigned __int64 
     return 0LL;
   v15 = 17;
   v8 = (*(_QWORD *)(a2 + 40) >> 36) & 3LL;
-  LODWORD(v8) = ((unsigned int)MiPageToNode((a2 + 0x58000000000LL) / 48, 0) << byte_1403269C9) | ((a2 + 0x58000000000LL)
-                                                                                                / 48) & dword_1403269F8 | ((_DWORD)v8 << byte_1403269D8);
+  LODWORD(v8) = ((unsigned int)MiPageToNode((a2 + 0x58000000000LL) / 48, 0) << byte_140326A09) | ((a2 + 0x58000000000LL)
+                                                                                                / 48) & dword_140326A38 | ((_DWORD)v8 << byte_140326A18);
   v9 = MiPartitionIdToPointer(((unsigned int)HIDWORD(*(_QWORD *)(a2 + 40)) >> 8) & 0x3FF);
   Page = MiGetPage((__int64)v9, v8, 0);
   if ( Page == -1 )

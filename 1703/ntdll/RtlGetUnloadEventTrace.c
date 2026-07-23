@@ -6,7 +6,7 @@
  *     <none>
  */
 
-_WORD *RtlGetUnloadEventTrace()
+PRTL_UNLOAD_EVENT_TRACE RtlGetUnloadEventTrace(void)
 {
-  return word_18015B3C0;
+  return (PRTL_UNLOAD_EVENT_TRACE)word_18015B3C0;
 }

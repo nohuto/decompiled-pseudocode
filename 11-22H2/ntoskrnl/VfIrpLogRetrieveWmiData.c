@@ -12,7 +12,7 @@
 __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3, _DWORD *a4, _DWORD *a5, ULONG *a6)
 {
   __int64 v6; // rbx
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rsi
+  _OBJECT_NAME_INFORMATION *Pool2; // rsi
   int v10; // ecx
   _QWORD *v11; // r12
   _QWORD *v12; // rdi
@@ -21,7 +21,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
   _DWORD *v15; // r15
   _WORD *v16; // r14
   NTSTATUS v17; // ebx
-  struct _OBJECT_NAME_INFORMATION *v18; // rax
+  _OBJECT_NAME_INFORMATION *v18; // rax
   void *v19; // rcx
   unsigned int v20; // edi
   __int64 v21; // r15
@@ -54,7 +54,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
   *a5 = 0;
   *a6 = 0;
   *(_QWORD *)Length = 16LL;
-  Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, 0x10uLL, 0x74496656u);
+  Pool2 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, 0x10uLL, 0x74496656u);
   if ( !Pool2 )
     return 3221225626LL;
   v42 = 3 * v6;
@@ -84,7 +84,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
     if ( v17 == -1073741820 )
     {
       ExFreePoolWithTag(Pool2, 0);
-      v18 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 0x74496656u);
+      v18 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 0x74496656u);
       Pool2 = v18;
       if ( !v18 )
         return (unsigned int)-1073741670;

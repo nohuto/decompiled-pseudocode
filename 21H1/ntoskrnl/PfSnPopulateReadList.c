@@ -28,7 +28,7 @@ void __fastcall PfSnPopulateReadList(__int64 a1, __int64 a2, __int64 a3, _DWORD 
   __int64 v8; // r14
   _KPROCESS *v9; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  int Event; // eax
+  NTSTATUS v11; // eax
   __int64 v12; // rdx
   __int64 v13; // r8
   __int64 v14; // r9
@@ -64,7 +64,7 @@ void __fastcall PfSnPopulateReadList(__int64 a1, __int64 a2, __int64 a3, _DWORD 
   __int64 v44; // [rsp+78h] [rbp-90h]
   __int64 v45; // [rsp+80h] [rbp-88h] BYREF
   __int64 v46; // [rsp+88h] [rbp-80h]
-  HANDLE Handle; // [rsp+90h] [rbp-78h] BYREF
+  HANDLE EventHandle; // [rsp+90h] [rbp-78h] BYREF
   __int64 v48; // [rsp+98h] [rbp-70h]
   __int64 v49; // [rsp+A0h] [rbp-68h]
   __int64 v50; // [rsp+A8h] [rbp-60h]
@@ -72,40 +72,35 @@ void __fastcall PfSnPopulateReadList(__int64 a1, __int64 a2, __int64 a3, _DWORD 
   __int64 v52; // [rsp+B8h] [rbp-50h]
   __int64 v53; // [rsp+C0h] [rbp-48h]
   UNICODE_STRING DestinationString; // [rsp+C8h] [rbp-40h] BYREF
-  _DWORD v55[2]; // [rsp+D8h] [rbp-30h] BYREF
-  __int64 v56; // [rsp+E0h] [rbp-28h]
-  __int64 v57; // [rsp+E8h] [rbp-20h]
-  int v58; // [rsp+F0h] [rbp-18h]
-  int v59; // [rsp+F4h] [rbp-14h]
-  __int128 v60; // [rsp+F8h] [rbp-10h]
-  _OWORD v61[3]; // [rsp+108h] [rbp+0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-30h] BYREF
+  _OWORD v56[3]; // [rsp+108h] [rbp+0h] BYREF
 
   v4 = *(_QWORD *)(a1 + 32);
   v5 = a1;
   v6 = 0;
-  memset(v61, 0, sizeof(v61));
+  memset(v56, 0, sizeof(v56));
   v52 = a1;
   PoolWithTag = 0LL;
-  v55[1] = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   v8 = *(_QWORD *)(v4 + 8);
   v9 = *(_KPROCESS **)(v4 + 16);
   v46 = v8;
-  v59 = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   v43 = v4;
   v39 = 0;
-  Handle = 0LL;
-  KiStackAttachProcess(v9, 0LL, (__int64)v61, a4);
+  EventHandle = 0LL;
+  KiStackAttachProcess(v9, 0LL, (__int64)v56, a4);
   PsSetCurrentThreadPrefetching(1u);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v55[0] = 48;
-  v56 = 0LL;
-  v58 = 512;
-  v57 = 0LL;
-  v60 = 0LL;
-  Event = NtCreateEvent((unsigned __int64)&Handle, 2031619LL, (int)v55, NotificationEvent, 0);
-  if ( Event >= 0 )
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.ObjectName = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v11 = NtCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
+  if ( v11 >= 0 )
   {
     v15 = *(unsigned int **)v8;
     v16 = *(_DWORD *)(v5 + 40);
@@ -191,7 +186,7 @@ LABEL_10:
       if ( !PoolWithTag )
       {
         v4 = v43;
-        Event = -1073741670;
+        v11 = -1073741670;
         v8 = v46;
         goto LABEL_52;
       }
@@ -210,7 +205,7 @@ LABEL_10:
                   v41,
                   v6,
                   v25,
-                  (__int64)Handle,
+                  (__int64)EventHandle,
                   (__int64)&v45,
                   (__int64)&v39) >= 0 )
       {
@@ -298,7 +293,7 @@ LABEL_24:
     goto LABEL_33;
   }
 LABEL_52:
-  *(_DWORD *)(v4 + 40) = Event;
+  *(_DWORD *)(v4 + 40) = v11;
 LABEL_49:
   if ( v39 )
   {
@@ -306,10 +301,10 @@ LABEL_49:
     PfSnCleanupPrefetchSectionInfo(*(_QWORD *)(v8 + 56) + 56LL * v6, v8, v13);
   }
 LABEL_3:
-  if ( Handle )
-    NtClose(Handle);
+  if ( EventHandle )
+    NtClose(EventHandle);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
   PsSetCurrentThreadPrefetching(0);
-  KiUnstackDetachProcess((__int64)v61, 0LL, v20, v21);
+  KiUnstackDetachProcess((__int64)v56, 0LL, v20, v21);
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)v4);
 }

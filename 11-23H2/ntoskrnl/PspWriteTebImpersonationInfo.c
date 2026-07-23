@@ -1,14 +1,14 @@
 /*
- * XREFs of PspWriteTebImpersonationInfo @ 0x140734DF0
+ * XREFs of PspWriteTebImpersonationInfo @ 0x140734FE0
  * Callers:
- *     PsRestoreImpersonation @ 0x14071E530 (PsRestoreImpersonation.c)
- *     PsImpersonateClient @ 0x140734A30 (PsImpersonateClient.c)
+ *     PsRestoreImpersonation @ 0x14071E730 (PsRestoreImpersonation.c)
+ *     PsImpersonateClient @ 0x140734C20 (PsImpersonateClient.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspWriteTebImpersonationInfo(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiWriteFixedMtrr @ 0x140B57B18
+ * XREFs of KiWriteFixedMtrr @ 0x140B59B98
  * Callers:
- *     KeLoadMTRR @ 0x140B68C20 (KeLoadMTRR.c)
+ *     KeLoadMTRR @ 0x140B6F790 (KeLoadMTRR.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ unsigned __int64 __fastcall KiWriteFixedMtrr(unsigned __int64 *a1)
   unsigned __int64 result; // rax
 
   v1 = 0LL;
-  if ( byte_140F10111 == 1 )
+  if ( byte_140F103D1 == 1 )
   {
     v1 = __readmsr(0xC0010010) & 0xFFFFFFFFFFF3FFFFuLL | 0x80000;
   }
@@ -41,7 +41,7 @@ LABEL_8:
   __writemsr(0x26Eu, a1[9]);
   result = a1[10];
   __writemsr(0x26Fu, result);
-  if ( byte_140F10111 == 1 )
+  if ( byte_140F103D1 == 1 )
   {
     result = v1 & 0xFFFFFFFFFFF3FFFFuLL | 0x40000;
     __writemsr(0xC0010010, result);

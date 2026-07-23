@@ -36,16 +36,16 @@ char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
   DestinationString = 0LL;
   if ( a2 )
     *a2 = 0;
-  if ( (_DWORD)InitSafeBootMode == 1 )
+  if ( InitSafeBootMode == 1 )
   {
     v6 = L"MINIMAL";
   }
   else
   {
     result = InitSafeBootMode - 2;
-    if ( (_DWORD)InitSafeBootMode != 2 )
+    if ( InitSafeBootMode != 2 )
     {
-      if ( (_DWORD)InitSafeBootMode == 3 )
+      if ( InitSafeBootMode == 3 )
         return result;
       return 0;
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HaliInitPowerManagement @ 0x140785870
+ * XREFs of HaliInitPowerManagement @ 0x1407883A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x1404F0710 (ExRegisterCallback.c)
- *     HalpAcpiGetFacsMapping @ 0x14057978C (HalpAcpiGetFacsMapping.c)
- *     HalpPutAcpiHacksInRegistry @ 0x140785984 (HalpPutAcpiHacksInRegistry.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
- *     HalpPiix4Detect @ 0x140C0A8DC (HalpPiix4Detect.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x1404E9CF0 (ExRegisterCallback.c)
+ *     HalpAcpiGetFacsMapping @ 0x14057BCBC (HalpAcpiGetFacsMapping.c)
+ *     HalpPutAcpiHacksInRegistry @ 0x1407884B4 (HalpPutAcpiHacksInRegistry.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
+ *     HalpPiix4Detect @ 0x140C10AEC (HalpPiix4Detect.c)
  */
 
 NTSTATUS __fastcall HaliInitPowerManagement(__int64 a1, _QWORD *a2)
@@ -43,7 +43,7 @@ NTSTATUS __fastcall HaliInitPowerManagement(__int64 a1, _QWORD *a2)
     ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)HalpPowerStateCallback, 0LL);
     FacsMapping = HalpAcpiGetFacsMapping(v6);
     if ( FacsMapping )
-      *(_QWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[24] = FacsMapping + 12;
+      HalpDeviceBlockUnblockPushLock.IoSelfBoostsEntry.Next = (struct _SINGLE_LIST_ENTRY *)(FacsMapping + 12);
     return 0;
   }
   return result;

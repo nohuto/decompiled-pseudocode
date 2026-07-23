@@ -1,16 +1,16 @@
 /*
  * XREFs of ObCheckObjectAccess @ 0x1406698A0
  * Callers:
- *     ObpGrantAccess @ 0x140669830 (ObpGrantAccess.c)
+ *     sub_140669830 @ 0x140669830 (sub_140669830.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
+ *     SeFreePrivileges @ 0x140208AC0 (SeFreePrivileges.c)
  *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
  *     SeOpenObjectAuditAlarm @ 0x140669A30 (SeOpenObjectAuditAlarm.c)
  *     SeAppendPrivileges @ 0x1406A8AD0 (SeAppendPrivileges.c)
- *     ObReleaseObjectSecurityEx @ 0x140722890 (ObReleaseObjectSecurityEx.c)
+ *     sub_140722890 @ 0x140722890 (sub_140722890.c)
  *     SeLockSubjectContext @ 0x140722AE0 (SeLockSubjectContext.c)
  *     SeUnlockSubjectContext @ 0x140723F40 (SeUnlockSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x1407248C0 (ObpGetObjectSecurity.c)
+ *     sub_1407248C0 @ 0x1407248C0 (sub_1407248C0.c)
  */
 
 BOOLEAN __fastcall ObCheckObjectAccess(
@@ -24,7 +24,7 @@ BOOLEAN __fastcall ObCheckObjectAccess(
   unsigned __int64 v7; // r10
   KPROCESSOR_MODE AccessMode; // r12
   __int64 v10; // r14
-  int ObjectSecurity; // edx
+  int v11; // edx
   BOOLEAN v12; // r14
   ACCESS_MASK v13; // eax
   __int64 v14; // rdx
@@ -43,10 +43,10 @@ BOOLEAN __fastcall ObCheckObjectAccess(
   AccessMode = a4;
   Privileges = 0LL;
   SecurityDescriptor = 0LL;
-  v10 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v7];
+  v10 = qword_140D07490[(unsigned __int8)dword_140D06C0C ^ v7];
   v20 = (UNICODE_STRING *)v10;
-  ObjectSecurity = ObpGetObjectSecurity(Object, &SecurityDescriptor, &v21, a4);
-  if ( ObjectSecurity < 0 )
+  v11 = sub_1407248C0(Object, &SecurityDescriptor, &v21, a4);
+  if ( v11 < 0 )
     goto LABEL_9;
   if ( !SecurityDescriptor )
   {
@@ -55,7 +55,7 @@ BOOLEAN __fastcall ObCheckObjectAccess(
     v5 = 1;
 LABEL_9:
     result = v5;
-    *AccessStatus = ObjectSecurity;
+    *AccessStatus = v11;
     return result;
   }
   SeLockSubjectContext(&AccessState->SubjectSecurityContext);
@@ -73,7 +73,7 @@ LABEL_9:
   if ( Privileges )
   {
     SeAppendPrivileges(AccessState, Privileges);
-    CmSiFreeMemory(Privileges);
+    SeFreePrivileges(Privileges);
   }
   if ( v12 )
   {
@@ -93,6 +93,6 @@ LABEL_9:
     &AccessState->GenerateOnClose);
   SeUnlockSubjectContext(&AccessState->SubjectSecurityContext);
   LOBYTE(v14) = v21;
-  ObReleaseObjectSecurityEx(SecurityDescriptor, v14, Object, v15);
+  sub_140722890(SecurityDescriptor, v14, Object, v15);
   return v12;
 }

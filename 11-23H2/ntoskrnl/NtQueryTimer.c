@@ -1,55 +1,60 @@
 /*
- * XREFs of NtQueryTimer @ 0x1409FB710
+ * XREFs of NtQueryTimer @ 0x1409FB9A0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeQueryTimerDueTime @ 0x140570D80 (KeQueryTimerDueTime.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeQueryTimerDueTime @ 0x1405712C0 (KeQueryTimerDueTime.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtQueryTimer(
+        HANDLE TimerHandle,
+        TIMER_INFORMATION_CLASS TimerInformationClass,
+        PVOID TimerInformation,
+        ULONG TimerInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r13
   __int64 v9; // rdx
   __int64 v10; // rcx
-  _DWORD *v11; // rsi
-  NTSTATUS v12; // r15d
+  PULONG v11; // rsi
+  int v12; // r15d
   char v13; // r12
   __int64 v14; // rbx
   __int64 v15; // rdi
   PVOID Object; // [rsp+30h] [rbp-38h] BYREF
 
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 16 )
-    return 3221225476LL;
+  if ( TimerInformationClass )
+    return -1073741821;
+  if ( TimerInformationLength != 16 )
+    return -1073741820;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)TimerInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v9 = 0x7FFFFFFF0000LL;
     v10 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v10 = a3;
+    if ( (unsigned __int64)TimerInformation < 0x7FFFFFFF0000LL )
+      v10 = (__int64)TimerInformation;
     *(_BYTE *)v10 = *(_BYTE *)v10;
     *(_BYTE *)(v10 + 15) = *(_BYTE *)(v10 + 15);
-    v11 = (_DWORD *)a5;
-    if ( a5 )
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
-      if ( a5 < 0x7FFFFFFF0000LL )
-        v9 = a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v9 = (__int64)ReturnLength;
       *(_DWORD *)v9 = *(_DWORD *)v9;
     }
   }
   else
   {
-    v11 = (_DWORD *)a5;
+    v11 = ReturnLength;
   }
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 1u, ExTimerObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(TimerHandle, 1u, ExTimerObjectType, PreviousMode, &Object, 0LL);
   if ( v12 >= 0 )
   {
     v13 = *((_BYTE *)Object + 4);
@@ -58,18 +63,18 @@ __int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int 
     ObfDereferenceObject(Object);
     if ( PreviousMode )
     {
-      *(_BYTE *)(a3 + 8) = v13;
-      *(_QWORD *)a3 = v15;
+      *((_BYTE *)TimerInformation + 8) = v13;
+      *(_QWORD *)TimerInformation = v15;
       if ( v11 )
         *v11 = 16;
     }
     else
     {
-      *(_BYTE *)(a3 + 8) = v13;
-      *(_QWORD *)a3 = v15;
+      *((_BYTE *)TimerInformation + 8) = v13;
+      *(_QWORD *)TimerInformation = v15;
       if ( v11 )
         *v11 = 16;
     }
   }
-  return (unsigned int)v12;
+  return v12;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateGuidEnableInfo @ 0x1406E2F58
+ * XREFs of EtwpUpdateGuidEnableInfo @ 0x1406BA238
  * Callers:
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpReferenceGuidEntry @ 0x1405EBAA4 (EtwpReferenceGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
- *     EtwpUpdateFilterData @ 0x1406E32D0 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x1406BA5B0 (EtwpUpdateFilterData.c)
+ *     EtwpReferenceGuidEntry @ 0x1406DB204 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406ECBA8 (EtwpUnreferenceGuidEntry.c)
  */
 
 __int64 __fastcall EtwpUpdateGuidEnableInfo(
@@ -96,7 +96,7 @@ __int64 __fastcall EtwpUpdateGuidEnableInfo(
       LOBYTE(v21) = *(_DWORD *)(a2 + 72) == 0;
       EtwpUpdateFilterData(BugCheckParameter2, v9, a2, (_DWORD)v21, a4);
       if ( !*(_DWORD *)(a2 + 72) )
-        EtwpUnreferenceGuidEntry((__int64 *)BugCheckParameter2);
+        EtwpUnreferenceGuidEntry((PVOID)BugCheckParameter2);
       return 0LL;
     }
     ++v9;

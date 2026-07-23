@@ -41,11 +41,7 @@ char __fastcall LdrpLogCFGModuleInfoTelemetry(__int64 a1, __int64 a2)
   v2 = NtCurrentPeb();
   if ( v2->ProcessHeap )
   {
-    LOBYTE(v2) = RtlRunOnceExecuteOnce(
-                   &LibLoaderTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LibLoaderTelemetryInitOnce,
-                   0LL,
-                   0LL);
+    LOBYTE(v2) = RtlRunOnceExecuteOnce(&LibLoaderTelemetryInitRunOnce, LibLoaderTelemetryInitOnce, 0LL, 0LL);
     if ( dword_1801594C0 > 5u )
     {
       LOBYTE(v2) = TlgKeywordOn((TraceLoggingHProvider)&dword_1801594C0, 0x200000000000uLL);

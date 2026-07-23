@@ -12,12 +12,12 @@
  *     sub_1800FA81C @ 0x1800FA81C (sub_1800FA81C.c)
  */
 
-__int64 __fastcall sub_18006E4FC(__int64 a1, __int64 *a2, __int64 a3)
+__int64 __fastcall sub_18006E4FC(HANDLE KeyHandle, __int64 *a2, __int64 a3)
 {
-  unsigned __int8 *v3; // rbp
+  ULONG *v3; // rbp
   __int64 v7; // rdi
-  unsigned int v8; // r14d
-  int v9; // eax
+  ULONG v8; // r14d
+  NTSTATUS v9; // eax
   int v10; // r9d
   int v11; // ebx
   __int64 v12; // rax
@@ -32,16 +32,16 @@ __int64 __fastcall sub_18006E4FC(__int64 a1, __int64 *a2, __int64 a3)
   int v22; // eax
   _BYTE v23[4]; // [rsp+50h] [rbp+0h] BYREF
 
-  v3 = (unsigned __int8 *)((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL);
+  v3 = (ULONG *)((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL);
   v7 = 0LL;
-  if ( a1 && a2 && a3 )
+  if ( KeyHandle && a2 && a3 )
   {
     v7 = *a2;
     v8 = 0;
     *(_QWORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = *a2;
     while ( 1 )
     {
-      v9 = ZwEnumerateValueKey(a1, v8, 1LL, v3 + 64, 512, v3 + 24);
+      v9 = ZwEnumerateValueKey(KeyHandle, v8, KeyValueFullInformation, v3 + 16, 0x200u, v3 + 6);
       v11 = v9;
       if ( v9 >= 0 )
       {
@@ -56,10 +56,10 @@ __int64 __fastcall sub_18006E4FC(__int64 a1, __int64 *a2, __int64 a3)
                                                                                    + 0x54
                                                                                    + 2 * v15);
         *(_WORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x54 + 2 * v15) = 0;
-        v11 = sub_18006E860(a3, (int)v3 + 84, (unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL, v10, (__int64)(v3 + 4));
+        v11 = sub_18006E860(a3, (int)v3 + 84, (unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL, v10, (__int64)(v3 + 1));
         if ( v11 >= 0 )
         {
-          v17 = *v3;
+          v17 = *(unsigned __int8 *)v3;
           *(_QWORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20) = 0LL;
           *(_DWORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = 0;
           v18 = *(_WORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x22) & 0x3FFF | (v17 << 14);
@@ -68,12 +68,12 @@ __int64 __fastcall sub_18006E4FC(__int64 a1, __int64 *a2, __int64 a3)
           *(_WORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x54 + 2 * v16) = *(_WORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL)
                                                                                                   + 8);
           v19 = *(_DWORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x4C);
-          v20 = &v3[*(unsigned int *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) + 64];
+          v20 = (unsigned __int8 *)v3 + *(unsigned int *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) + 64;
           *(_WORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x22) = v18;
-          v11 = sub_18006BEBC((__int64)(v3 + 32), a3, v20, v19);
+          v11 = sub_18006BEBC((__int64)(v3 + 8), a3, v20, v19);
           if ( v11 >= 0 )
           {
-            v11 = sub_18008A180(a3, v3 + 32);
+            v11 = sub_18008A180(a3, v3 + 8);
             if ( v11 >= 0 )
             {
               if ( !v7 )
@@ -87,7 +87,7 @@ __int64 __fastcall sub_18006E4FC(__int64 a1, __int64 *a2, __int64 a3)
                 }
                 *a2 = v21;
               }
-              v22 = sub_1800FA81C(v3 + 16, v3 + 32);
+              v22 = sub_1800FA81C(v3 + 4, v3 + 8);
               v7 = *(_QWORD *)(((unsigned __int64)v23 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
               v11 = v22;
               if ( v22 >= 0 )

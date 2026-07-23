@@ -1,9 +1,9 @@
 /*
- * XREFs of Xp10ReadMtfHeader @ 0x14080E87C
+ * XREFs of Xp10ReadMtfHeader @ 0x14081430C
  * Callers:
- *     RtlDecompressBuffer2Xp10 @ 0x14080A530 (RtlDecompressBuffer2Xp10.c)
+ *     RtlDecompressBuffer2Xp10 @ 0x14080FFC0 (RtlDecompressBuffer2Xp10.c)
  * Callees:
- *     Xp10ScatteredReadBytes @ 0x14080EE58 (Xp10ScatteredReadBytes.c)
+ *     Xp10ScatteredReadBytes @ 0x1408148E8 (Xp10ScatteredReadBytes.c)
  */
 
 __int64 __fastcall Xp10ReadMtfHeader(_WORD *a1, _OWORD *a2, __int64 a3)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAllocateFastAwePages @ 0x140A401A4
+ * XREFs of MiAllocateFastAwePages @ 0x140A40454
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x140A40358 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A40608 (MiAllocateUserPhysicalPages.c)
  * Callees:
  *     MiFreeLargeZeroPages @ 0x140212098 (MiFreeLargeZeroPages.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiInitializeLargePfnList @ 0x1402E8F98 (MiInitializeLargePfnList.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiFillUserPhysicalMdl @ 0x140649AE4 (MiFillUserPhysicalMdl.c)
- *     MiGetAweInfoPartition @ 0x14064A858 (MiGetAweInfoPartition.c)
- *     MiGetAwePageSize @ 0x14064A918 (MiGetAwePageSize.c)
- *     MiReleaseNonPagedResources @ 0x14066106C (MiReleaseNonPagedResources.c)
- *     MiCreateLargePfnList @ 0x1406679EC (MiCreateLargePfnList.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiInitializeLargePfnList @ 0x1402E9228 (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiFillUserPhysicalMdl @ 0x14064A034 (MiFillUserPhysicalMdl.c)
+ *     MiGetAweInfoPartition @ 0x14064ADA8 (MiGetAweInfoPartition.c)
+ *     MiGetAwePageSize @ 0x14064AE68 (MiGetAwePageSize.c)
+ *     MiReleaseNonPagedResources @ 0x1406615BC (MiReleaseNonPagedResources.c)
+ *     MiCreateLargePfnList @ 0x140667F3C (MiCreateLargePfnList.c)
  */
 
 __int64 __fastcall MiAllocateFastAwePages(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned __int64 a5)

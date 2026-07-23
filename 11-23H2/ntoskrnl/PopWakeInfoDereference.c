@@ -1,14 +1,14 @@
 /*
- * XREFs of PopWakeInfoDereference @ 0x14058E858
+ * XREFs of PopWakeInfoDereference @ 0x14058ED48
  * Callers:
- *     PopDereferenceWakeInfos @ 0x14058E3EC (PopDereferenceWakeInfos.c)
- *     PopQueryMostRecentWakeSourceAttributes @ 0x140987574 (PopQueryMostRecentWakeSourceAttributes.c)
- *     PopQueryMostRecentWakeSourceInfo @ 0x140987674 (PopQueryMostRecentWakeSourceInfo.c)
- *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1409939E0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
- *     PopIsMostRecentWakeAttended @ 0x140AA107C (PopIsMostRecentWakeAttended.c)
- *     PopNewWakeInfo @ 0x140AA10A8 (PopNewWakeInfo.c)
+ *     PopDereferenceWakeInfos @ 0x14058E8DC (PopDereferenceWakeInfos.c)
+ *     PopQueryMostRecentWakeSourceAttributes @ 0x140987774 (PopQueryMostRecentWakeSourceAttributes.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140987874 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x140993BE0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ *     PopIsMostRecentWakeAttended @ 0x140AA0EEC (PopIsMostRecentWakeAttended.c)
+ *     PopNewWakeInfo @ 0x140AA0F18 (PopNewWakeInfo.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PopWakeInfoDereference(__int64 a1)

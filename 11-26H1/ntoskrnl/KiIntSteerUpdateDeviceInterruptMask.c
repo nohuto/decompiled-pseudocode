@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x140425C60
+ * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x140432D70
  * Callers:
- *     KiIntSteerConnect @ 0x140424BD8 (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x140431CC8 (KiIntSteerConnect.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 void __fastcall KiIntSteerUpdateDeviceInterruptMask(__int64 a1, int a2)
@@ -24,8 +24,8 @@ LABEL_2:
     {
       _BitScanForward64(&v6, v4);
       v4 &= ~(1LL << v6);
-      Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                       + 64 * (unsigned __int16)v2
+      Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16
+                                                                                                 * (unsigned __int16)v2].Flink
                        + (unsigned int)(unsigned __int8)v6));
       if ( a2 )
       {

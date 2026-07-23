@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxClearDeviceConstraints @ 0x140569DC4
+ * XREFs of PopFxClearDeviceConstraints @ 0x14056A004
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopFxAddRefDevice @ 0x14026077C (PopFxAddRefDevice.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x14036FCD0 (PopFxActivateDevice.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopFxAddRefDevice @ 0x140281C48 (PopFxAddRefDevice.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoFxIdleDevice @ 0x14036FCE4 (PoFxIdleDevice.c)
+ *     PopFxActivateDevice @ 0x14036FE80 (PopFxActivateDevice.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x140565CEC (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPepClearDripsDeviceVetoMask @ 0x1405740C4 (PopPepClearDripsDeviceVetoMask.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x140565F2C (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPepClearDripsDeviceVetoMask @ 0x140574304 (PopPepClearDripsDeviceVetoMask.c)
  */
 
 __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
@@ -123,7 +123,7 @@ __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 244), 0xFFFFFFFF) == 1 )
       KeSetEvent((PRKEVENT)(a1 + 248), 0, 0);
     if ( !v3 )
-      ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL);
+      ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v3;
 }

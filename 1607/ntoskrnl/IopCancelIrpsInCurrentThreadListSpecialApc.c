@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCancelIrpsInCurrentThreadListSpecialApc @ 0x1400AD124
+ * XREFs of IopCancelIrpsInCurrentThreadListSpecialApc @ 0x1400AB68C
  * Callers:
  *     <none>
  * Callees:
- *     KeAlertThread @ 0x1400C9CF4 (KeAlertThread.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAlertThread @ 0x1400C7B94 (KeAlertThread.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 LONG __fastcall IopCancelIrpsInCurrentThreadListSpecialApc(__int64 a1, __int64 a2, __int64 a3, _BYTE **a4)

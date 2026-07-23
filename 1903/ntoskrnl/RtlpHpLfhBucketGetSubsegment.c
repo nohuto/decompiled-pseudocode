@@ -93,7 +93,7 @@ __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, int a2)
           {
             v18->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v18->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v17]);
+              KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v17].TreeNode);
             v21 = v18->BoostBitmap.AllFields & 0x1FFFF;
             v18->BoostBitmap.AllFields &= 0xFFFE0000;
             v18->ThreadLocalFlags &= ~1u;

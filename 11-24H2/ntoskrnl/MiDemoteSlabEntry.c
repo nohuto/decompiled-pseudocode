@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDemoteSlabEntry @ 0x140442F50
+ * XREFs of MiDemoteSlabEntry @ 0x14043BE9C
  * Callers:
- *     MiDemoteSlabEntriesDpc @ 0x140442780 (MiDemoteSlabEntriesDpc.c)
+ *     MiDemoteSlabEntriesDpc @ 0x14043B750 (MiDemoteSlabEntriesDpc.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140264F54 (MiUpdateSlabPagePlaceholderState.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiUpdateLargePageBitMap @ 0x1403A29EC (MiUpdateLargePageBitMap.c)
- *     MiRemoveSlabEntry @ 0x140414068 (MiRemoveSlabEntry.c)
- *     MiReleaseFreshPageLocked @ 0x14044321C (MiReleaseFreshPageLocked.c)
- *     MiLogSlabEntryDemote @ 0x140443234 (MiLogSlabEntryDemote.c)
- *     MiRelinkTransitionSlabPages @ 0x14044334C (MiRelinkTransitionSlabPages.c)
- *     MiUnlinkTransitionSlabPages @ 0x14044342C (MiUnlinkTransitionSlabPages.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiUpdateLargePageBitMap @ 0x140219EE0 (MiUpdateLargePageBitMap.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1403A9C00 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiReleaseFreshPageLocked @ 0x14043C168 (MiReleaseFreshPageLocked.c)
+ *     MiLogSlabEntryDemote @ 0x14043C180 (MiLogSlabEntryDemote.c)
+ *     MiRemoveSlabEntry @ 0x14043C298 (MiRemoveSlabEntry.c)
+ *     MiRelinkTransitionSlabPages @ 0x14043C4D4 (MiRelinkTransitionSlabPages.c)
+ *     MiUnlinkTransitionSlabPages @ 0x14043C5B4 (MiUnlinkTransitionSlabPages.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiDemoteSlabEntry(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiDemoteSlabEntry(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
   volatile LONG *v3; // rbx
   unsigned __int64 v6; // rdi
@@ -56,8 +56,8 @@ __int64 __fastcall MiDemoteSlabEntry(__int64 a1, __int64 a2, __int64 a3)
   v8 = MiUnlinkTransitionSlabPages(v7, a3);
   v9 = *(_QWORD *)(a3 + 40);
   v10 = v8;
-  v11 = qword_140E3D140 + 2 * ((v6 + v9 - 1) >> 9);
-  for ( i = (_WORD *)(qword_140E3D140 + 2 * (v9 >> 9)); (unsigned __int64)i <= v11; ++i )
+  v11 = qword_140E3D280 + 2 * ((v6 + v9 - 1) >> 9);
+  for ( i = (_WORD *)(qword_140E3D280 + 2 * (v9 >> 9)); (unsigned __int64)i <= v11; ++i )
     *i = 0;
   MiUpdateLargePageBitMap(a1, *(_QWORD *)(a3 + 40), v6, 6);
   v34 = *(unsigned int *)(a3 + 84) + MiRelinkTransitionSlabPages(v10);

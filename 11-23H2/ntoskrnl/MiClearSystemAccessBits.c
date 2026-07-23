@@ -1,14 +1,14 @@
 /*
- * XREFs of MiClearSystemAccessBits @ 0x14038FC04
+ * XREFs of MiClearSystemAccessBits @ 0x14038FDE4
  * Callers:
- *     MiPfnRangeIsZero @ 0x14038F184 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x14038F364 (MiPfnRangeIsZero.c)
  * Callees:
  *     MiInsertLargeTbFlushEntry @ 0x140211C2C (MiInsertLargeTbFlushEntry.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall MiClearSystemAccessBits(unsigned __int64 a1, __int64 a2, int a3)

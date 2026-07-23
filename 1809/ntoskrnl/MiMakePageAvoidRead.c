@@ -15,28 +15,28 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWriteValidPteVolatile @ 0x140085FA0 (MiWriteValidPteVolatile.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
- *     MiIsAddressGlobal @ 0x1400B22E0 (MiIsAddressGlobal.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockAndInsertPageInFreeList @ 0x140188C1C (MiLockAndInsertPageInFreeList.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiMapCacheExceptionFilter @ 0x14084EFF8 (MiMapCacheExceptionFilter.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiWriteValidPteVolatile @ 0x140085F90 (MiWriteValidPteVolatile.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiIdentifyPfn @ 0x1400A7E20 (MiIdentifyPfn.c)
+ *     MiIsAddressGlobal @ 0x1400B2220 (MiIsAddressGlobal.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     MiUserPdeOrAbove @ 0x1400F96CC (MiUserPdeOrAbove.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140188D5C (MiLockAndInsertPageInFreeList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiMapCacheExceptionFilter @ 0x140850258 (MiMapCacheExceptionFilter.c)
  */
 
 __int64 __fastcall MiMakePageAvoidRead(
@@ -258,30 +258,30 @@ __int64 __fastcall MiMakePageAvoidRead(
     }
   }
   v165 = v8;
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
     if ( (v8 & 0x10) != 0 )
       v8 &= ~0x10uLL;
     else
-      v8 &= ~qword_14043A0C0;
+      v8 &= ~qword_14043B180;
   }
   v184 = v8 >> 16;
   v166 = v8 >> 16;
   v173 = *(_QWORD *)(v8 >> 16);
   BugCheckParameter2 = v173;
-  v9 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v173 + 60) & 0x3FF));
+  v9 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v173 + 60) & 0x3FF));
   v10 = (*(_DWORD *)(v173 + 56) >> 20) & 0x3F;
   if ( v10 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    NodeShiftedColor = ((_WORD)v10 - 1) << byte_14043A049;
+    NodeShiftedColor = ((_WORD)v10 - 1) << byte_14043B109;
   }
   else
   {
     CurrentPrcb = (struct _KPRCB *)KiProcessorBlock[KeGetCurrentThread()->IdealProcessor];
     NodeShiftedColor = CurrentPrcb->NodeShiftedColor;
   }
-  v13 = (1 << byte_14043A04A) - 1;
+  v13 = (1 << byte_14043B10A) - 1;
   v14 = (unsigned __int16)(v13 & _InterlockedExchangeAdd((volatile signed __int32 *)&CurrentPrcb->PageColor, 1u));
   v15 = 0LL;
   if ( a4 != 4096 )
@@ -358,7 +358,7 @@ __int64 __fastcall MiMakePageAvoidRead(
     }
     while ( v124 != v25 );
   }
-  v27 = MiReservePtes(&qword_14043AFA0, v21);
+  v27 = MiReservePtes(&qword_14043C060, v21);
   v186 = v27;
   if ( v27 )
   {
@@ -400,25 +400,25 @@ __int64 __fastcall MiMakePageAvoidRead(
         v32 |= 4uLL;
       if ( v34 < 0xFFFF800000000000uLL )
       {
-        v35 = HIBYTE(word_14043A1AC);
+        v35 = HIBYTE(word_14043B26C);
       }
       else
       {
-        if ( byte_14043B950[((v34 >> 39) & 0x1FF) - 256] == 1
+        if ( byte_14043CA10[((v34 >> 39) & 0x1FF) - 256] == 1
           || v34 >= 0xFFFFF68000000000uLL && v34 <= 0xFFFFF6FFFFFFFFFFuLL )
         {
 LABEL_39:
           LOBYTE(v26) = (v30 & 5) == 4;
           if ( ((unsigned __int8)v26 & (v30 < 0)) != 0 )
             v32 |= 0x42uLL;
-          v36 = v32 & 0xFAFFFFFFFFFFFEFFuLL | ((word_14043A1AC & 1 | 0xA000000000000LL) << 8);
+          v36 = v32 & 0xFAFFFFFFFFFFFEFFuLL | ((word_14043B26C & 1 | 0xA000000000000LL) << 8);
           v37 = 0;
           if ( v27 < 0xFFFFF6FB7DBED000uLL || v27 > 0xFFFFF6FB7DBED7F8uLL )
             goto LABEL_42;
           if ( (unsigned int)MiPteHasShadow(v26, v36) )
           {
             v37 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
               goto LABEL_263;
           }
           else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )
@@ -441,7 +441,7 @@ LABEL_42:
           }
           v161 = 0;
           memmove(v39, Src, a4);
-          MiReleasePtes((__int64)&qword_14043AFA0, v27, 1u);
+          MiReleasePtes((__int64)&qword_14043C060, v27, 1u);
           v18 = v168;
 LABEL_46:
           v155 = (BYTE4(PerfGlobalGroupMask) & 1) != 0;
@@ -567,7 +567,7 @@ LABEL_63:
               if ( v52 <= 0xFFFFF6BFFFFFFF78uLL && v52 >= 0xFFFFF68000000000uLL )
                 v51 = (*(_BYTE *)(v43 - 0x57FFFFFFFDDLL) & 0x20) != 0;
             }
-            v53 = *(ULONG_PTR **)(qword_14043A748 + 8 * ((v48 >> 40) & 0x3FF));
+            v53 = *(ULONG_PTR **)(qword_14043B808 + 8 * ((v48 >> 40) & 0x3FF));
             if ( v51 )
             {
               if ( !(unsigned int)MiChargeCommit(v53, 1LL, 4LL) )
@@ -901,7 +901,7 @@ LABEL_72:
                   if ( HasShadow )
                   {
                     v86 = 1;
-                    if ( !HIBYTE(word_14043A1AC) )
+                    if ( !HIBYTE(word_14043B26C) )
                       v89 = v85 | 0x8000000000000000uLL;
                   }
                   else
@@ -1010,7 +1010,7 @@ LABEL_147:
                       {
                         v106 = 1;
                       }
-                      v107 = *(_QWORD *)(qword_14043A748 + 8 * ((v100 >> 40) & 0x3FF));
+                      v107 = *(_QWORD *)(qword_14043B808 + 8 * ((v100 >> 40) & 0x3FF));
                       if ( v106 == 1 )
                         MiReturnCommit(v107, 1LL);
                       if ( (ULONG_PTR *)v107 == &MiSystemPartition )
@@ -1044,7 +1044,7 @@ LABEL_147:
                             v108 = (int)v110 - 192 + 1LL;
                           }
                         }
-                        _InterlockedExchangeAdd64(&qword_14043E600, v108);
+                        _InterlockedExchangeAdd64(&qword_14043F6C0, v108);
                       }
                       else
                       {
@@ -1087,7 +1087,7 @@ LABEL_148:
                 if ( (unsigned int)MiPteHasShadow(0xFFFFF6FB7DBED7F8uLL, 0LL) )
                 {
                   v90 = 1;
-                  if ( HIBYTE(word_14043A1AC) || (v85 & 1) == 0 )
+                  if ( HIBYTE(word_14043B26C) || (v85 & 1) == 0 )
                     goto LABEL_120;
                 }
                 else
@@ -1126,10 +1126,10 @@ LABEL_423:
           v136 = v18;
           goto LABEL_424;
         }
-        if ( v34 < qword_14043BAC0 || v34 > qword_14043A530 )
-          v35 = (unsigned __int8)word_14043A1AC;
+        if ( v34 < qword_14043CB80 || v34 > qword_14043B5F0 )
+          v35 = (unsigned __int8)word_14043B26C;
         else
-          v35 = HIBYTE(word_14043A1AC);
+          v35 = HIBYTE(word_14043B26C);
       }
       if ( !v35 )
         goto LABEL_39;

@@ -1,8 +1,8 @@
 /*
- * XREFs of ULongAddStringSize @ 0x1406D0268
+ * XREFs of ULongAddStringSize @ 0x1406D03A0
  * Callers:
- *     GetPrintableOperandValue @ 0x1406CD89C (GetPrintableOperandValue.c)
- *     LocalpGetStringForCondition @ 0x1406CFC88 (LocalpGetStringForCondition.c)
+ *     GetPrintableOperandValue @ 0x1406CD9D4 (GetPrintableOperandValue.c)
+ *     LocalpGetStringForCondition @ 0x1406CFDC0 (LocalpGetStringForCondition.c)
  * Callees:
  *     <none>
  */

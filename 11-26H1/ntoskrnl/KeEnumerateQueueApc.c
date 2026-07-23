@@ -1,11 +1,11 @@
 /*
- * XREFs of KeEnumerateQueueApc @ 0x1405F13B0
+ * XREFs of KeEnumerateQueueApc @ 0x1405F3D20
  * Callers:
- *     DbgkpLkmdSnapThread @ 0x1405B4164 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSnapThread @ 0x1405B6974 (DbgkpLkmdSnapThread.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KeEnumerateQueueApc(__int64 a1, __int64 a2, __int64 a3, char *a4)

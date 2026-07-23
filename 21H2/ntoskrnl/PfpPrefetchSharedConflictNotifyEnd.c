@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpPrefetchSharedConflictNotifyEnd @ 0x1408DFBF0
+ * XREFs of PfpPrefetchSharedConflictNotifyEnd @ 0x1408DFD50
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     PfpPrefetchSharedDeref @ 0x1406C6C38 (PfpPrefetchSharedDeref.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     PfpPrefetchSharedDeref @ 0x140675528 (PfpPrefetchSharedDeref.c)
  */
 
-void __fastcall PfpPrefetchSharedConflictNotifyEnd(volatile signed __int64 *a1, ULONG_PTR a2)
+void __fastcall PfpPrefetchSharedConflictNotifyEnd(volatile signed __int64 *a1, _RTL_BALANCED_NODE *a2)
 {
   ULONG_PTR *v4; // rbx
 
@@ -18,7 +18,7 @@ void __fastcall PfpPrefetchSharedConflictNotifyEnd(volatile signed __int64 *a1, 
     if ( !a1 )
       v4 = &PfGlobals;
     KeAbPreAcquire((ULONG_PTR)v4, a2, 0);
-    KeAbPostReleaseEx((ULONG_PTR)v4, a2);
+    KeAbPostReleaseEx((ULONG_PTR)v4, (ULONG_PTR)a2);
   }
   if ( a1 )
     PfpPrefetchSharedDeref(a1);

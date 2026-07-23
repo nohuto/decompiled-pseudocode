@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerRequestCreateCommon @ 0x14036A698 (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x14036B090 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x14036B98C (PoCaptureReasonContext.c)
+ *     sub_14036A698 @ 0x14036A698 (sub_14036A698.c)
+ *     sub_14036B090 @ 0x14036B090 (sub_14036B090.c)
+ *     sub_14036B98C @ 0x14036B98C (sub_14036B98C.c)
  */
 
 NTSTATUS __stdcall PoCreatePowerRequest(
@@ -22,11 +22,11 @@ NTSTATUS __stdcall PoCreatePowerRequest(
   *PowerRequest = 0LL;
   if ( !DeviceObject )
     return -1073741811;
-  v4 = PoCaptureReasonContext((_DWORD)Context, 0, (_DWORD)DeviceObject, 1, 0LL, (__int64)&P);
-  if ( v4 < 0 || (v4 = PopPowerRequestCreateCommon(P, 0LL, &v7), v4 < 0) )
+  v4 = sub_14036B98C((_DWORD)Context, 0, (_DWORD)DeviceObject, 1, 0LL, (__int64)&P);
+  if ( v4 < 0 || (v4 = sub_14036A698(P, 0LL, &v7), v4 < 0) )
   {
     if ( P )
-      PoDestroyReasonContext(P);
+      sub_14036B090(P);
   }
   else
   {

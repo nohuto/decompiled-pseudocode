@@ -1,34 +1,35 @@
 /*
- * XREFs of MiEmptyDecayClusterTimers @ 0x140271E00
+ * XREFs of MiEmptyDecayClusterTimers @ 0x14025FDA0
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     MiRelinkStandbyPage @ 0x140271FD8 (MiRelinkStandbyPage.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiRemoveDecayClusterTimer @ 0x1402AB810 (MiRemoveDecayClusterTimer.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiRemoveDecayClusterTimer @ 0x140229950 (MiRemoveDecayClusterTimer.c)
+ *     MiRelinkStandbyPage @ 0x14025FF78 (MiRelinkStandbyPage.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
 {
+  __int64 v1; // rbp
   __int64 result; // rax
   __int64 v3; // r8
-  char v4; // r14
-  __int64 v5; // r14
-  unsigned __int8 CurrentIrql; // di
-  __int64 v7; // rax
-  ULONG_PTR v8; // rdx
-  ULONG_PTR v9; // rbx
-  unsigned __int64 v10; // rax
-  __int64 v11; // rax
-  ULONG_PTR v12; // rsi
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v14; // al
+  char v5; // r14
+  __int64 v6; // r14
+  unsigned __int8 CurrentIrql; // di
+  __int64 v8; // rax
+  ULONG_PTR v9; // rdx
+  ULONG_PTR v10; // rbx
+  unsigned __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rsi
+  unsigned int v14; // ebx
+  unsigned __int8 v15; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v16; // r9
   int v17; // eax
   bool v18; // zf
   unsigned __int8 v19; // al
@@ -37,14 +38,16 @@ __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
   int v22; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
 
+  v1 = a1;
+  LOBYTE(a1) = 1;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  result = KiQueryUnbiasedInterruptTime();
-  if ( (unsigned __int64)(result - *(_QWORD *)(a1 + 4832)) >= 0x989680 )
+  result = KiQueryUnbiasedInterruptTime(a1);
+  if ( (unsigned __int64)(result - *(_QWORD *)(v1 + 4832)) >= 0x989680 )
   {
-    v4 = *(_DWORD *)(a1 + 4824) + 1;
-    *(_QWORD *)(a1 + 4832) = result;
-    v5 = v4 & 3;
-    result = *(_QWORD *)(a1 + 8 * v5 + 4792) >> 33;
+    v5 = *(_DWORD *)(v1 + 4824) + 1;
+    *(_QWORD *)(v1 + 4832) = result;
+    v6 = v5 & 3;
+    result = *(_QWORD *)(v1 + 8 * v6 + 4792) >> 33;
     if ( result != 0x7FFFFFFF )
     {
       while ( 1 )
@@ -58,51 +61,52 @@ __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
           SchedulerAssist[5] = v3;
         }
         LockHandle.LockQueue.Next = 0LL;
-        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 2664);
-        KxAcquireQueuedSpinLock(&LockHandle, a1 + 2664, v3);
-        v7 = *(_QWORD *)(a1 + 8LL * (unsigned int)v5 + 4792) >> 33;
-        if ( v7 == 0x7FFFFFFF )
+        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v1 + 2664);
+        KxAcquireQueuedSpinLock(&LockHandle, v1 + 2664, v3, SchedulerAssist);
+        v8 = *(_QWORD *)(v1 + 8LL * (unsigned int)v6 + 4792) >> 33;
+        if ( v8 == 0x7FFFFFFF )
           break;
-        v8 = v7 + qword_140C4E9A0;
-        v9 = 48 * (v7 + qword_140C4E9A0) - 0x58000000000LL;
-        v10 = *(_QWORD *)(v9 + 16);
-        if ( qword_140C4DF40 && (v10 & 0x10) == 0 )
-          v10 &= ~qword_140C4DF40;
-        v11 = (v10 >> 12) & 0xFFFFFFFFFLL;
-        if ( v11 == v8 )
+        v9 = v8 + qword_140C4E9E0;
+        v10 = 48 * (v8 + qword_140C4E9E0) - 0x58000000000LL;
+        v11 = *(_QWORD *)(v10 + 16);
+        if ( qword_140C4DF80 && (v11 & 0x10) == 0 )
+          v11 &= ~qword_140C4DF80;
+        v12 = (v11 >> 12) & 0xFFFFFFFFFLL;
+        if ( v12 == v9 )
         {
-          MiUnlinkPageFromList(v9, 1);
-          *(_BYTE *)(v9 + 35) &= ~8u;
-          MiRemoveDecayClusterTimer(v9);
+          MiUnlinkPageFromList(v10);
+          *(_BYTE *)(v10 + 35) &= ~8u;
+          MiRemoveDecayClusterTimer(v10);
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
         }
         else
         {
-          v12 = 48 * v11 - 0x58000000000LL;
-          if ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 24), 0x3FuLL) )
+          v13 = 48 * v12 - 0x58000000000LL;
+          if ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
           {
             KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
           }
           else
           {
+            v14 = *(_BYTE *)(v13 + 35) & 7;
             KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-            MiRelinkStandbyPage(v12);
-            _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+            MiRelinkStandbyPage(v13, v14);
+            _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
           }
         }
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v14 = KeGetCurrentIrql();
-            if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+            v15 = KeGetCurrentIrql();
+            if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
-              v16 = CurrentPrcb->SchedulerAssist;
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
               v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-              v18 = (v17 & v16[5]) == 0;
-              v3 = (unsigned int)v17 & v16[5];
-              v16[5] = v3;
+              v18 = (v17 & SchedulerAssist[5]) == 0;
+              v3 = (unsigned int)v17 & SchedulerAssist[5];
+              SchedulerAssist[5] = v3;
               if ( v18 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
@@ -131,7 +135,7 @@ __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
       result = CurrentIrql;
       __writecr8(CurrentIrql);
     }
-    *(_DWORD *)(a1 + 4824) = v5;
+    *(_DWORD *)(v1 + 4824) = v6;
   }
   return result;
 }

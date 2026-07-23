@@ -1,11 +1,11 @@
 /*
- * XREFs of KiProcessSecondarySignalList @ 0x1405F09E0
+ * XREFs of KiProcessSecondarySignalList @ 0x1405F3350
  * Callers:
  *     <none>
  * Callees:
- *     KiProcessDisconnectList @ 0x1402C3660 (KiProcessDisconnectList.c)
- *     KiAcquireSecondarySignalListLock @ 0x1405F0988 (KiAcquireSecondarySignalListLock.c)
- *     KiReleaseSecondarySignalListLock @ 0x1405F0AB8 (KiReleaseSecondarySignalListLock.c)
+ *     KiProcessDisconnectList @ 0x14030E320 (KiProcessDisconnectList.c)
+ *     KiAcquireSecondarySignalListLock @ 0x1405F32F8 (KiAcquireSecondarySignalListLock.c)
+ *     KiReleaseSecondarySignalListLock @ 0x1405F3428 (KiReleaseSecondarySignalListLock.c)
  */
 
 void __fastcall KiProcessSecondarySignalList(
@@ -15,36 +15,36 @@ void __fastcall KiProcessSecondarySignalList(
         PVOID SystemArgument2)
 {
   struct _LIST_ENTRY *v4; // rcx
-  __int64 v5; // rax
+  struct _LIST_ENTRY *Flink; // rax
   unsigned __int8 v6[8]; // [rsp+20h] [rbp-20h] BYREF
   __int64 v7; // [rsp+28h] [rbp-18h] BYREF
-  struct _LIST_ENTRY *Flink; // [rsp+30h] [rbp-10h]
+  struct _LIST_ENTRY *Blink; // [rsp+30h] [rbp-10h]
 
   v6[0] = 0;
-  Flink = (struct _LIST_ENTRY *)&v7;
+  Blink = (struct _LIST_ENTRY *)&v7;
   v7 = (__int64)&v7;
   KiAcquireSecondarySignalListLock(v6);
-  if ( *(struct _KTHREAD **)&KiDpcCorralLock.Timer.Processor != (struct _KTHREAD *)&KiDpcCorralLock.Timer.Processor )
+  if ( (unsigned __int8 *)KiDpcCorralLock.WaitBlock[1].WaitListEntry.Flink != &KiDpcCorralLock.WaitBlockFill11[48] )
   {
-    v4 = Flink;
+    v4 = Blink;
     if ( *(__int64 **)(v7 + 8) != &v7
-      || (__int64 *)Flink->Flink != &v7
-      || *(struct _KTHREAD **)(*(_QWORD *)&KiDpcCorralLock.Timer.Processor + 8LL) != (struct _KTHREAD *)&KiDpcCorralLock.Timer.Processor
-      || KiDpcCorralLock.WaitBlock[0].WaitListEntry.Flink->Flink != (struct _LIST_ENTRY *)&KiDpcCorralLock.Timer.Processor
-      || (Flink->Flink = (struct _LIST_ENTRY *)&KiDpcCorralLock.Timer.Processor,
-          Flink = KiDpcCorralLock.WaitBlock[0].WaitListEntry.Flink,
-          KiDpcCorralLock.WaitBlock[0].WaitListEntry.Flink->Flink = (struct _LIST_ENTRY *)&v7,
-          v5 = *(_QWORD *)&KiDpcCorralLock.Timer.Processor,
-          KiDpcCorralLock.WaitBlock[0].WaitListEntry.Flink = v4,
-          *(struct _KTHREAD **)(*(_QWORD *)&KiDpcCorralLock.Timer.Processor + 8LL) != (struct _KTHREAD *)&KiDpcCorralLock.Timer.Processor)
-      || (unsigned __int16 *)v4->Flink != &KiDpcCorralLock.Timer.Processor )
+      || (__int64 *)Blink->Flink != &v7
+      || (unsigned __int8 *)KiDpcCorralLock.WaitBlock[1].WaitListEntry.Flink->Blink != &KiDpcCorralLock.WaitBlockFill11[48]
+      || KiDpcCorralLock.WaitBlock[1].WaitListEntry.Blink->Flink != (struct _LIST_ENTRY *)&KiDpcCorralLock.WaitBlockFill11[48]
+      || (Blink->Flink = &KiDpcCorralLock.WaitBlock[1].WaitListEntry,
+          Blink = KiDpcCorralLock.WaitBlock[1].WaitListEntry.Blink,
+          KiDpcCorralLock.WaitBlock[1].WaitListEntry.Blink->Flink = (struct _LIST_ENTRY *)&v7,
+          Flink = KiDpcCorralLock.WaitBlock[1].WaitListEntry.Flink,
+          KiDpcCorralLock.WaitBlock[1].WaitListEntry.Blink = v4,
+          (unsigned __int8 *)KiDpcCorralLock.WaitBlock[1].WaitListEntry.Flink->Blink != &KiDpcCorralLock.WaitBlockFill11[48])
+      || (unsigned __int8 *)v4->Flink != &KiDpcCorralLock.WaitBlockFill11[48] )
     {
       __fastfail(3u);
     }
-    v4->Flink = *(struct _LIST_ENTRY **)&KiDpcCorralLock.Timer.Processor;
-    *(_QWORD *)(v5 + 8) = v4;
-    KiDpcCorralLock.WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)&KiDpcCorralLock.Timer.Processor;
-    *(_QWORD *)&KiDpcCorralLock.Timer.Processor = &KiDpcCorralLock.Timer.Processor;
+    v4->Flink = KiDpcCorralLock.WaitBlock[1].WaitListEntry.Flink;
+    Flink->Blink = v4;
+    KiDpcCorralLock.WaitBlock[1].WaitListEntry.Blink = &KiDpcCorralLock.WaitBlock[1].WaitListEntry;
+    KiDpcCorralLock.WaitBlock[1].WaitListEntry.Flink = &KiDpcCorralLock.WaitBlock[1].WaitListEntry;
   }
   LOBYTE(v4) = v6[0];
   LOBYTE(KiDpcCorralLock.Timer.TimerListEntry.Flink) = 0;

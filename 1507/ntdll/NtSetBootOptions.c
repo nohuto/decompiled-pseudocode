@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetBootOptions()
+NTSTATUS __cdecl NtSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 365LL;
+  result = 365;
   __asm { syscall; Low latency system call }
   return result;
 }

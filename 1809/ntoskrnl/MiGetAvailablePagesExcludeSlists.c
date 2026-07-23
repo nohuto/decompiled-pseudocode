@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetAvailablePagesExcludeSlists @ 0x1401348AC
+ * XREFs of MiGetAvailablePagesExcludeSlists @ 0x14013497C
  * Callers:
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */

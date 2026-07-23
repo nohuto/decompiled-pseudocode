@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetDeviceInterfaceClassGuidString @ 0x14059AE1C
+ * XREFs of _CmGetDeviceInterfaceClassGuidString @ 0x14059BE1C
  * Callers:
- *     _CmGetDeviceInterfaceClassGuid @ 0x14059ADB0 (_CmGetDeviceInterfaceClassGuid.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x14070479C (_CmCreateDeviceInterfaceWorker.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x14059BDB0 (_CmGetDeviceInterfaceClassGuid.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x140705A3C (_CmCreateDeviceInterfaceWorker.c)
  * Callees:
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1405C65E8 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1405C75E8 (_CmGetDeviceInterfaceSubkeyPath.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceClassGuidString(__int64 a1, __int64 a2, __int64 a3)

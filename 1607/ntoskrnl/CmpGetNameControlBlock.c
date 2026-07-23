@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpGetNameControlBlock @ 0x140436F80
+ * XREFs of CmpGetNameControlBlock @ 0x140435E50
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x140434610 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
+ *     CmpCreateKeyControlBlock @ 0x1404334E0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CmpAllocatePoolWithTag @ 0x1400A7788 (CmpAllocatePoolWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpHashUnicodeComponent @ 0x1404B1340 (CmpHashUnicodeComponent.c)
- *     CmpCompareCompressedName @ 0x140512960 (CmpCompareCompressedName.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
- *     CmpUnlockNameHashEntry @ 0x140603E18 (CmpUnlockNameHashEntry.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CmpAllocatePoolWithTag @ 0x1400A5D00 (CmpAllocatePoolWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpHashUnicodeComponent @ 0x14049B720 (CmpHashUnicodeComponent.c)
+ *     CmpCompareCompressedName @ 0x1404F5D50 (CmpCompareCompressedName.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
+ *     CmpUnlockNameHashEntry @ 0x140603ECC (CmpUnlockNameHashEntry.c)
  */
 
 char *__fastcall CmpGetNameControlBlock(unsigned __int16 *a1, unsigned int *a2, char *a3)

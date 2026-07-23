@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x1406FC410
+ * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x1407137F0
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1406DE1D0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     CmpLockHashEntrySharedByKcb @ 0x1405EC238 (CmpLockHashEntrySharedByKcb.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpUnlockHashEntryByKcb @ 0x14066C050 (CmpUnlockHashEntryByKcb.c)
- *     CmpRecordParseFailure @ 0x14068A510 (CmpRecordParseFailure.c)
- *     CmpIsHiveLoadingOnOtherThread @ 0x14068B27C (CmpIsHiveLoadingOnOtherThread.c)
- *     CmpLockKcbShared @ 0x1406F2B10 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0 (CmpPerformSingleKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
- *     CmpGetComponentNameAtIndex @ 0x1406FC5A0 (CmpGetComponentNameAtIndex.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071D94C (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpWaitForHiveMount @ 0x1407C3E84 (CmpWaitForHiveMount.c)
+ *     CmpRecordParseFailure @ 0x1405E99A0 (CmpRecordParseFailure.c)
+ *     CmpIsHiveLoadingOnOtherThread @ 0x1405EB0EC (CmpIsHiveLoadingOnOtherThread.c)
+ *     CmpUnlockHashEntryByKcb @ 0x140660E70 (CmpUnlockHashEntryByKcb.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1406643E8 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpLockHashEntrySharedByKcb @ 0x1406DB998 (CmpLockHashEntrySharedByKcb.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1406DED80 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpLockKcbShared @ 0x140709EF0 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x14070A290 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpGetComponentNameAtIndex @ 0x140713980 (CmpGetComponentNameAtIndex.c)
+ *     CmpWaitForHiveMount @ 0x1407C43A4 (CmpWaitForHiveMount.c)
  */
 
 __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
@@ -57,7 +57,7 @@ __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
   {
     CmpPerformSingleKcbCacheLookup(
       (volatile signed __int64 *)v14,
-      *(_QWORD *)(v14 + 32),
+      *(_QWORD **)(v14 + 32),
       a2,
       v11,
       a4,
@@ -65,7 +65,7 @@ __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
       (char *)&v26,
       &v25);
     if ( v14 != BugCheckParameter2 )
-      CmpDereferenceKeyControlBlockUnsafe(v14);
+      CmpDereferenceKeyControlBlockUnsafe((volatile signed __int64 *)v14);
     v15 = BugCheckParameter2a[0];
     a2 += (__int16)v25;
     v16 = v26;
@@ -124,7 +124,7 @@ LABEL_23:
   v8 = 259;
 LABEL_24:
   CmpRecordParseFailure((__int64)a5, v18, v8);
-  CmpDereferenceKeyControlBlockUnsafe(v14);
+  CmpDereferenceKeyControlBlockUnsafe((volatile signed __int64 *)v14);
   v23 = v26;
   CmpUnlockKcb(v15);
   if ( v23 )

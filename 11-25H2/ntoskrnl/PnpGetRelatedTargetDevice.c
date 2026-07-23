@@ -32,7 +32,7 @@ __int64 __fastcall PnpGetRelatedTargetDevice(PFILE_OBJECT FileObject, _QWORD *a2
   int v13; // [rsp+40h] [rbp-19h]
   PDEVICE_OBJECT v14; // [rsp+60h] [rbp+7h]
   PFILE_OBJECT v15; // [rsp+68h] [rbp+Fh]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp+27h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp+27h] BYREF
 
   P = 0LL;
   *a2 = 0LL;

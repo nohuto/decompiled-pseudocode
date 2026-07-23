@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x1407F4A9C
+ * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x1407F4D6C
  * Callers:
- *     SepGetCachedHandlesEntry @ 0x1407F465C (SepGetCachedHandlesEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x1407F492C (SepGetCachedHandlesEntry.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     RtlCopySid @ 0x140714F70 (RtlCopySid.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     RtlCopySid @ 0x140715180 (RtlCopySid.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of SmcCacheRemove @ 0x14079D398
+ * XREFs of SmcCacheRemove @ 0x14079D4A8
  * Callers:
- *     SmcCacheDelete @ 0x14079D07C (SmcCacheDelete.c)
+ *     SmcCacheDelete @ 0x14079D18C (SmcCacheDelete.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 struct _EX_RUNDOWN_REF __fastcall SmcCacheRemove(__int64 a1, unsigned int a2)
@@ -17,20 +17,20 @@ struct _EX_RUNDOWN_REF __fastcall SmcCacheRemove(__int64 a1, unsigned int a2)
   struct _EX_RUNDOWN_REF *v3; // rdi
   unsigned int v4; // r15d
   struct _EX_RUNDOWN_REF v5; // r14
-  _QWORD *v6; // rax
-  _QWORD *v7; // rbp
+  char *v6; // rax
+  char *v7; // rbp
 
   CurrentThread = KeGetCurrentThread();
   v3 = (struct _EX_RUNDOWN_REF *)(a1 + 32LL * (a2 & 0xF));
   v4 = a2 >> 4;
   --CurrentThread->KernelApcDisable;
   v5.Count = 0LL;
-  v6 = KeAbPreAcquire((__int64)&v3[2], 0LL);
+  v6 = (char *)KeAbPreAcquire((__int64)&v3[2], 0LL);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&v3[2], 0LL) )
-    ExfAcquirePushLockExclusiveEx(&v3[2].Count, (__int64)v6, (__int64)&v3[2]);
+    ExfAcquirePushLockExclusiveEx(&v3[2].Count, v6, (__int64)&v3[2]);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   if ( v4 == (v3[3].Count & 0xFFF) && v3->Count )
   {
     ExWaitForRundownProtectionRelease(v3 + 1);

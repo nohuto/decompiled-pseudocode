@@ -1,21 +1,21 @@
 /*
- * XREFs of PfTInitialize @ 0x140751D58
+ * XREFs of PfTInitialize @ 0x140752F48
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
- *     PfTStart @ 0x140752A7C (PfTStart.c)
- *     PfpParametersPropagate @ 0x1408658E4 (PfpParametersPropagate.c)
- *     PfInitializeSuperfetch @ 0x1409D4634 (PfInitializeSuperfetch.c)
+ *     PfSetSuperfetchInformation @ 0x140666A38 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x140753C6C (PfTStart.c)
+ *     PfpParametersPropagate @ 0x140866B44 (PfpParametersPropagate.c)
+ *     PfInitializeSuperfetch @ 0x1409D5634 (PfInitializeSuperfetch.c)
  * Callees:
  *     KeInitializeGuardedMutex @ 0x1400063D0 (KeInitializeGuardedMutex.c)
  *     KeQueryTimeIncrement @ 0x1400077E0 (KeQueryTimeIncrement.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PfTAccessTracingInitialize @ 0x140566100 (PfTAccessTracingInitialize.c)
- *     PfFbBufferListInitialize @ 0x140751FB4 (PfFbBufferListInitialize.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PfTAccessTracingInitialize @ 0x140567100 (PfTAccessTracingInitialize.c)
+ *     PfFbBufferListInitialize @ 0x1407531A4 (PfFbBufferListInitialize.c)
  */
 
 __int64 __fastcall PfTInitialize(__int64 a1, __int64 a2, char a3)

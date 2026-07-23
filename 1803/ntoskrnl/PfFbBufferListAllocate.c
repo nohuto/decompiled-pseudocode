@@ -16,7 +16,7 @@ __int64 __fastcall PfFbBufferListAllocate(_SLIST_ENTRY *RunRef, signed int a2, u
   char *PoolWithTag; // rax
   char *v8; // rsi
   char *v9; // r15
-  struct _SLIST_ENTRY *v10; // rbx
+  _SLIST_ENTRY *v10; // rbx
   __int64 result; // rax
 
   v3 = a2;
@@ -39,12 +39,12 @@ LABEL_9:
   *((_DWORD *)v8 + 4) = a3;
   v9 = &v8[v3];
   *((_DWORD *)v8 + 6) = v3;
-  v10 = (struct _SLIST_ENTRY *)(v8 + 32);
+  v10 = (_SLIST_ENTRY *)(v8 + 32);
   *((_DWORD *)v8 + 5) = v6;
   while ( (char *)v10 + v6 <= v9 )
   {
     PfFbBufferListInsertInFree(RunRef, v10, v6, 0, 0);
-    v10 = (struct _SLIST_ENTRY *)((char *)v10 + (unsigned int)v6);
+    v10 = (_SLIST_ENTRY *)((char *)v10 + (unsigned int)v6);
   }
   RtlpInterlockedPushEntrySList((PSLIST_HEADER)&RunRef[3], (PSLIST_ENTRY)v8);
   return 0LL;

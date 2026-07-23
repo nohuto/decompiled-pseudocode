@@ -1,28 +1,28 @@
 /*
- * XREFs of MmExtendSection @ 0x1406894BC
+ * XREFs of MmExtendSection @ 0x1405E894C
  * Callers:
- *     CcSetFileSizesEx @ 0x14022E120 (CcSetFileSizesEx.c)
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     NtExtendSection @ 0x140689410 (NtExtendSection.c)
- *     MiCreateSection @ 0x140705710 (MiCreateSection.c)
+ *     CcSetFileSizesEx @ 0x1402D2970 (CcSetFileSizesEx.c)
+ *     NtExtendSection @ 0x1405E88A0 (NtExtendSection.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
+ *     MiCreateSection @ 0x14071CAF0 (MiCreateSection.c)
  * Callees:
- *     MiUnlockControlAreaSectionExtend @ 0x1402A1234 (MiUnlockControlAreaSectionExtend.c)
- *     MiLockControlAreaSectionExtend @ 0x1402A12EC (MiLockControlAreaSectionExtend.c)
- *     MiFindLastSubsection @ 0x1402A13FC (MiFindLastSubsection.c)
- *     MiUpdateLastSubsectionSize @ 0x1402A1728 (MiUpdateLastSubsectionSize.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     MiControlAreaUsingExtents @ 0x140332C50 (MiControlAreaUsingExtents.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
- *     MiSubsectionNeedsExtents @ 0x14053CE40 (MiSubsectionNeedsExtents.c)
- *     MiUpdateActiveSubsection @ 0x14053CEE0 (MiUpdateActiveSubsection.c)
- *     MiExtendSection @ 0x140689798 (MiExtendSection.c)
- *     FsRtlSetFileSize @ 0x140689B90 (FsRtlSetFileSize.c)
- *     FsRtlGetFileSize @ 0x1406D4860 (FsRtlGetFileSize.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x14021E7B4 (MiUnlockControlAreaSectionExtend.c)
+ *     MiLockControlAreaSectionExtend @ 0x14021E86C (MiLockControlAreaSectionExtend.c)
+ *     MiFindLastSubsection @ 0x14021E97C (MiFindLastSubsection.c)
+ *     MiUpdateLastSubsectionSize @ 0x14021ECA8 (MiUpdateLastSubsectionSize.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     MiControlAreaUsingExtents @ 0x14033D9A0 (MiControlAreaUsingExtents.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferenceControlAreaFile @ 0x140361F34 (MiDereferenceControlAreaFile.c)
+ *     MiSubsectionNeedsExtents @ 0x14053D080 (MiSubsectionNeedsExtents.c)
+ *     MiUpdateActiveSubsection @ 0x14053D120 (MiUpdateActiveSubsection.c)
+ *     MiExtendSection @ 0x1405E8C28 (MiExtendSection.c)
+ *     FsRtlSetFileSize @ 0x1405E9020 (FsRtlSetFileSize.c)
+ *     FsRtlGetFileSize @ 0x1406ABB40 (FsRtlGetFileSize.c)
  */
 
 __int64 __fastcall MmExtendSection(__int64 a1, LARGE_INTEGER *a2, int a3)
@@ -89,13 +89,13 @@ LABEL_18:
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->SpecialApcDisable;
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4C990, 0LL);
+          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4C9D0, 0LL);
           v21 = *(LARGE_INTEGER **)(v8 + 32);
           if ( v21 )
             *v21 = FileSize;
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4C990, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock(&qword_140C4C990);
-          KeAbPostRelease((ULONG_PTR)&qword_140C4C990);
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4C9D0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock(&qword_140C4C9D0);
+          KeAbPostRelease((ULONG_PTR)&qword_140C4C9D0);
           KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
         }
         MiUnlockControlAreaSectionExtend(v7, (__int64)v23);

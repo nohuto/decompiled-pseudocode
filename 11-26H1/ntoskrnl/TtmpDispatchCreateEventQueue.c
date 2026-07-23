@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmpDispatchCreateEventQueue @ 0x1407E7D34
+ * XREFs of TtmpDispatchCreateEventQueue @ 0x1407ED894
  * Callers:
- *     TtmDispatchApi @ 0x140A3A3D0 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409F5FD0 (TtmDispatchApi.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiWriteEnumerationEventsToQueue @ 0x1407E6B40 (TtmiWriteEnumerationEventsToQueue.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1407E7B48 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiCreateEventQueue @ 0x1407ECD18 (TtmiCreateEventQueue.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1407EC698 (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x1407ED6A8 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiCreateEventQueue @ 0x1407F2878 (TtmiCreateEventQueue.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpDispatchCreateEventQueue(__int64 a1, _QWORD *a2)
@@ -72,7 +72,7 @@ LABEL_3:
 LABEL_11:
   if ( v11 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
   if ( Object[0] )

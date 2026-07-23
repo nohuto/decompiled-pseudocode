@@ -1,13 +1,13 @@
 /*
- * XREFs of ExSaFree @ 0x1404638EC
+ * XREFs of ExSaFree @ 0x14045C8AC
  * Callers:
- *     ExCleanupAutoExpandPushLock @ 0x1404638C0 (ExCleanupAutoExpandPushLock.c)
- *     RtlpHpHeapDestroy @ 0x1406386F4 (RtlpHpHeapDestroy.c)
- *     KiTraceCpuPartitionRundown @ 0x1407BB200 (KiTraceCpuPartitionRundown.c)
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
+ *     ExCleanupAutoExpandPushLock @ 0x14045C880 (ExCleanupAutoExpandPushLock.c)
+ *     RtlpHpHeapDestroy @ 0x14063B6F8 (RtlpHpHeapDestroy.c)
+ *     KiTraceCpuPartitionRundown @ 0x1407BE260 (KiTraceCpuPartitionRundown.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
  * Callees:
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExpSaAllocatorFree @ 0x14027E340 (ExpSaAllocatorFree.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExpSaAllocatorFree @ 0x14027D8B0 (ExpSaAllocatorFree.c)
  */
 
 void __fastcall ExSaFree(__int64 a1, unsigned int a2)
@@ -25,7 +25,7 @@ void __fastcall ExSaFree(__int64 a1, unsigned int a2)
   v5 = v3 ^ (unsigned int)(1 << v4);
   v6 = (struct _KLOCK_ENTRIES *)(((unsigned __int64)a2 + 7) >> 3);
   CurrentThread = KeGetCurrentThread();
-  v8 = *(__int64 **)(*(_QWORD *)(ExSaPageGroupDescriptorArray + 8LL * (v4 - 2)) + 8 * v5 + 8);
+  v8 = *(__int64 **)(*(_QWORD *)(ExSaPageGroupDescriptorArrayLock.QuantumTarget + 8LL * (v4 - 2)) + 8 * v5 + 8);
   v9 = (struct _KTHREAD *)v8[2];
   --CurrentThread->SpecialApcDisable;
   ExpSaAllocatorFree(v9, v8, a1, v6);

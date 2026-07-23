@@ -15,8 +15,8 @@ __int64 __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
   __int64 v1; // r15
   unsigned __int64 v2; // rsi
   __int64 result; // rax
-  unsigned __int64 *v5; // r14
-  unsigned __int64 SetBits; // rdi
+  _RTL_BITMAP_EX *v5; // r14
+  ULONG64 SetBits; // rdi
   unsigned __int64 v7; // rsi
   __int64 v8; // rax
   unsigned __int64 v9; // r15
@@ -26,10 +26,10 @@ __int64 __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
   unsigned __int64 v13; // rax
   _QWORD v14[2]; // [rsp+20h] [rbp-48h] BYREF
   _QWORD v15[7]; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v16; // [rsp+B0h] [rbp+48h] BYREF
+  ULONG64 v16; // [rsp+B0h] [rbp+48h] BYREF
   unsigned __int64 v17; // [rsp+B8h] [rbp+50h] BYREF
   unsigned __int64 NextForwardRunClear; // [rsp+C0h] [rbp+58h]
-  unsigned __int64 v19; // [rsp+C8h] [rbp+60h]
+  ULONG64 v19; // [rsp+C8h] [rbp+60h]
 
   v1 = a1 + 368;
   v2 = *(_QWORD *)(a1 + 368);
@@ -41,7 +41,7 @@ __int64 __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
   v15[1] = IoFreeDumpRange;
   v15[2] = a1 + 424;
   result = MmRemoveSystemCacheFromDump((__int64)v15);
-  v5 = (unsigned __int64 *)(a1 + 424);
+  v5 = (_RTL_BITMAP_EX *)(a1 + 424);
   if ( a1 != -424 )
   {
     do
@@ -99,8 +99,8 @@ __int64 __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
         while ( SetBits < v19 );
       }
       result = a1 + 424;
-      if ( v5 == (unsigned __int64 *)(a1 + 424) && (result = *(unsigned int *)(a1 + 40), (result & 4) != 0) )
-        v5 = (unsigned __int64 *)(a1 + 448);
+      if ( v5 == (_RTL_BITMAP_EX *)(a1 + 424) && (result = *(unsigned int *)(a1 + 40), (result & 4) != 0) )
+        v5 = (_RTL_BITMAP_EX *)(a1 + 448);
       else
         v5 = 0LL;
     }

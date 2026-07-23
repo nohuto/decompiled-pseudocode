@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPrepareIoctl @ 0x140847E20
+ * XREFs of PopPrepareIoctl @ 0x140848120
  * Callers:
- *     PopThermalWorker @ 0x140847830 (PopThermalWorker.c)
- *     PopFanWorker @ 0x140847C10 (PopFanWorker.c)
- *     PopBatteryInitialize @ 0x140995318 (PopBatteryInitialize.c)
- *     PopBatteryQueryEstimatedTime @ 0x1409954A8 (PopBatteryQueryEstimatedTime.c)
- *     PopBatteryQueryStatus @ 0x140995530 (PopBatteryQueryStatus.c)
- *     PopBatteryReadTag @ 0x1409956B4 (PopBatteryReadTag.c)
- *     PopBatteryWaitTag @ 0x140995B14 (PopBatteryWaitTag.c)
+ *     PopThermalWorker @ 0x140847B30 (PopThermalWorker.c)
+ *     PopFanWorker @ 0x140847F10 (PopFanWorker.c)
+ *     PopBatteryInitialize @ 0x140995518 (PopBatteryInitialize.c)
+ *     PopBatteryQueryEstimatedTime @ 0x1409956A8 (PopBatteryQueryEstimatedTime.c)
+ *     PopBatteryQueryStatus @ 0x140995730 (PopBatteryQueryStatus.c)
+ *     PopBatteryReadTag @ 0x1409958B4 (PopBatteryReadTag.c)
+ *     PopBatteryWaitTag @ 0x140995D14 (PopBatteryWaitTag.c)
  * Callees:
- *     IoReuseIrp @ 0x1402903D0 (IoReuseIrp.c)
+ *     IoReuseIrp @ 0x140290660 (IoReuseIrp.c)
  */
 
 __int64 __fastcall PopPrepareIoctl(IRP *a1, ULONG a2, char a3, struct _IRP *a4, ULONG a5, ULONG a6)

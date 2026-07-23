@@ -1,10 +1,10 @@
 /*
- * XREFs of MinAsn1SignedDataGetContent @ 0x1408A4AB4
+ * XREFs of MinAsn1SignedDataGetContent @ 0x1408AAEC4
  * Callers:
- *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A2AC4 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A8ED4 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     MinAsn1DecodeInteger @ 0x1408A448C (MinAsn1DecodeInteger.c)
- *     MinAsn1ExtractContent @ 0x1408A46CC (MinAsn1ExtractContent.c)
+ *     MinAsn1DecodeInteger @ 0x1408AA89C (MinAsn1DecodeInteger.c)
+ *     MinAsn1ExtractContent @ 0x1408AAADC (MinAsn1ExtractContent.c)
  */
 
 __int64 __fastcall MinAsn1SignedDataGetContent(__int64 a1, unsigned int *a2)

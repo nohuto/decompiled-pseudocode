@@ -1,14 +1,14 @@
 /*
- * XREFs of WbMakeUserDataPagesKernelWritable @ 0x1405849A0
+ * XREFs of WbMakeUserDataPagesKernelWritable @ 0x1405859A0
  * Callers:
- *     sub_140584974 @ 0x140584974 (sub_140584974.c)
+ *     sub_140585974 @ 0x140585974 (sub_140585974.c)
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     ZwProtectVirtualMemory @ 0x1401B8B90 (ZwProtectVirtualMemory.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     ZwProtectVirtualMemory @ 0x1401B8CF0 (ZwProtectVirtualMemory.c)
  */
 
 __int64 __fastcall WbMakeUserDataPagesKernelWritable(PVOID VirtualAddress, ULONG Length, struct _MDL **a3, _QWORD *a4)

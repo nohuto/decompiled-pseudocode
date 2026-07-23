@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlApplicationVerifierStop @ 0x180131FF0
+ * XREFs of RtlApplicationVerifierStop @ 0x180130220
  * Callers:
- *     RtlCheckHeldCriticalSections @ 0x1800F31A0 (RtlCheckHeldCriticalSections.c)
+ *     RtlCheckHeldCriticalSections @ 0x1800EDA90 (RtlCheckHeldCriticalSections.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 struct _PEB *__fastcall RtlApplicationVerifierStop(

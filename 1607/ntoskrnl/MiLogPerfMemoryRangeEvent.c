@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLogPerfMemoryRangeEvent @ 0x1401E35E0
+ * XREFs of MiLogPerfMemoryRangeEvent @ 0x1401E340C
  * Callers:
- *     MiAssignNonPagedPoolPtes @ 0x14001B400 (MiAssignNonPagedPoolPtes.c)
- *     MmFreeContiguousMemory @ 0x14009ABB8 (MmFreeContiguousMemory.c)
- *     MiAllocateContiguousMemory @ 0x14009AF40 (MiAllocateContiguousMemory.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
- *     MiReturnNonPagedPoolVa @ 0x140103670 (MiReturnNonPagedPoolVa.c)
- *     MiUnmapLargeUserPages @ 0x1401F5AE0 (MiUnmapLargeUserPages.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
- *     MiUseLargeDriverPage @ 0x1404ED9A4 (MiUseLargeDriverPage.c)
- *     MiLogSectionCreate @ 0x140659210 (MiLogSectionCreate.c)
- *     MiMapUserLargePages @ 0x140662B28 (MiMapUserLargePages.c)
+ *     MiAssignNonPagedPoolPtes @ 0x14001AF80 (MiAssignNonPagedPoolPtes.c)
+ *     MmFreeContiguousMemory @ 0x14009A3B8 (MmFreeContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x14009A740 (MiAllocateContiguousMemory.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
+ *     MiReturnNonPagedPoolVa @ 0x1401013F0 (MiReturnNonPagedPoolVa.c)
+ *     MiUnmapLargeUserPages @ 0x1401F590C (MiUnmapLargeUserPages.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
+ *     MiUseLargeDriverPage @ 0x1404CFA5C (MiUseLargeDriverPage.c)
+ *     MiLogSectionCreate @ 0x1406592F4 (MiLogSectionCreate.c)
+ *     MiMapUserLargePages @ 0x140662C0C (MiMapUserLargePages.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogPerfMemoryRangeEvent(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

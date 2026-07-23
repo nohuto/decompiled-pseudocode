@@ -1,12 +1,12 @@
 /*
- * XREFs of PpInitSystem @ 0x140A72804
+ * XREFs of PpInitSystem @ 0x140A73804
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     RtlInitializeGenericTableAvl @ 0x140264400 (RtlInitializeGenericTableAvl.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlInitializeGenericTableAvl @ 0x1402524C0 (RtlInitializeGenericTableAvl.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char PpInitSystem()

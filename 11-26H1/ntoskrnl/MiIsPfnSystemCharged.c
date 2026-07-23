@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsPfnSystemCharged @ 0x14043D030
+ * XREFs of MiIsPfnSystemCharged @ 0x14042F8E0
  * Callers:
- *     MiDecommitPrivatePageTail @ 0x1402DB300 (MiDecommitPrivatePageTail.c)
- *     MiDecommitHandleTransitionPte @ 0x14033DDD4 (MiDecommitHandleTransitionPte.c)
- *     MiReturnPagedPoolLockCharge @ 0x14043CF44 (MiReturnPagedPoolLockCharge.c)
+ *     MiDecommitPrivatePageTail @ 0x1402BD0C0 (MiDecommitPrivatePageTail.c)
+ *     MiDecommitHandleTransitionPte @ 0x14033FE54 (MiDecommitHandleTransitionPte.c)
+ *     MiReturnPagedPoolLockCharge @ 0x14042F7F4 (MiReturnPagedPoolLockCharge.c)
  * Callees:
  *     <none>
  */

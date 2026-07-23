@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpInitializeApcPool @ 0x140498EE8
+ * XREFs of EtwpInitializeApcPool @ 0x140492A38
  * Callers:
- *     EtwpUpdateContextRegisterTraceEvents @ 0x1408272DC (EtwpUpdateContextRegisterTraceEvents.c)
- *     EtwpInitLoggerContext @ 0x140A6DD54 (EtwpInitLoggerContext.c)
+ *     EtwpUpdateContextRegisterTraceEvents @ 0x14082D51C (EtwpUpdateContextRegisterTraceEvents.c)
+ *     EtwpInitLoggerContext @ 0x140AB20E0 (EtwpInitLoggerContext.c)
  * Callees:
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
  */
 
 void (__fastcall *__fastcall EtwpInitializeApcPool(

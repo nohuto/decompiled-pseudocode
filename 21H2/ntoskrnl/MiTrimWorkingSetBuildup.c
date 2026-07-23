@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimWorkingSetBuildup @ 0x1402672B8
+ * XREFs of MiTrimWorkingSetBuildup @ 0x140255258
  * Callers:
- *     MiTrimWorkingSetTail @ 0x140267250 (MiTrimWorkingSetTail.c)
- *     MiTrimPte @ 0x140308900 (MiTrimPte.c)
- *     MiTrimPteWorker @ 0x14053C1E8 (MiTrimPteWorker.c)
+ *     MiTrimWorkingSetTail @ 0x1402551F0 (MiTrimWorkingSetTail.c)
+ *     MiTrimPte @ 0x140313650 (MiTrimPte.c)
+ *     MiTrimPteWorker @ 0x14053C428 (MiTrimPteWorker.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     MiFreeWsleList @ 0x140327320 (MiFreeWsleList.c)
- *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     MiFreeWsleList @ 0x140332070 (MiFreeWsleList.c)
+ *     MiSetVaAgeList @ 0x140338400 (MiSetVaAgeList.c)
  */
 
 void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
@@ -37,7 +37,7 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
   ULONG v25; // ebx
   _DWORD *v26; // rdx
   unsigned int SizeOfBitMap; // eax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
   __int64 v29; // [rsp+90h] [rbp+18h]
 
   v2 = 0;
@@ -105,7 +105,7 @@ LABEL_41:
         if ( v22 != (_DWORD *)(v5 + 60) )
         {
           v6 = v19 & 0x1F;
-          if ( (*v22 | *((_DWORD *)qword_140011C70 + v6)) == -1 )
+          if ( (*v22 | *((_DWORD *)qword_140012120 + v6)) == -1 )
           {
             v21 = v19 - v6 + 32;
             for ( ++v22; v22 < v20 && *v22 == -1; ++v22 )
@@ -118,7 +118,7 @@ LABEL_41:
         if ( v22 == v20 )
           goto LABEL_32;
         v6 = v21 & 0x1F;
-        if ( (*v22 & ~*((_DWORD *)qword_140011C70 + v6)) != 0 )
+        if ( (*v22 & ~*((_DWORD *)qword_140012120 + v6)) != 0 )
           goto LABEL_32;
         v23 = 32 - v6;
         if ( (_DWORD)v6 != 33 )
@@ -146,7 +146,7 @@ LABEL_49:
 LABEL_38:
       LOBYTE(v6) = v2 != 0 ? 6 : 0;
       v25 = v21 - v19;
-      MiSetVaAgeList(v29, v8 + (v19 << 12), v25, v6, BitMapHeader.SizeOfBitMap);
+      MiSetVaAgeList(v29, v8 + (v19 << 12), v25, v6);
       RtlClearBits(&BitMapHeader, v19, v25);
       v6 = v19 + v23 + v25;
       if ( v23 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiConfigureCooperativeIdleSearchTargets @ 0x1405B6964
+ * XREFs of KiConfigureCooperativeIdleSearchTargets @ 0x1405B3C24
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140B575C0 (KiInitializeDynamicProcessorDpc.c)
- *     KiConfigureAllSchedulingInformation @ 0x140C27EA8 (KiConfigureAllSchedulingInformation.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140B59640 (KiInitializeDynamicProcessorDpc.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140C29E84 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B6868 (KiConfigureCooperativeIdleSearchContextTargets.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B3B28 (KiConfigureCooperativeIdleSearchContextTargets.c)
  */
 
 __int64 KiConfigureCooperativeIdleSearchTargets()

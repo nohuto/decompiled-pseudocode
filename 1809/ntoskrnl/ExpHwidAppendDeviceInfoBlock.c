@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpHwidAppendDeviceInfoBlock @ 0x14058628C
+ * XREFs of ExpHwidAppendDeviceInfoBlock @ 0x14058728C
  * Callers:
- *     sub_140585A70 @ 0x140585A70 (sub_140585A70.c)
- *     sub_140585B00 @ 0x140585B00 (sub_140585B00.c)
- *     ExpHwidNetworkIfDeviceInfoProvider @ 0x140585BC0 (ExpHwidNetworkIfDeviceInfoProvider.c)
- *     ExpHwidProcessDevice @ 0x140586158 (ExpHwidProcessDevice.c)
- *     ExpHwidSysVolIfGetDiskInfo @ 0x140586E88 (ExpHwidSysVolIfGetDiskInfo.c)
- *     sub_1408DB060 @ 0x1408DB060 (sub_1408DB060.c)
+ *     sub_140586A70 @ 0x140586A70 (sub_140586A70.c)
+ *     sub_140586B00 @ 0x140586B00 (sub_140586B00.c)
+ *     ExpHwidNetworkIfDeviceInfoProvider @ 0x140586BC0 (ExpHwidNetworkIfDeviceInfoProvider.c)
+ *     ExpHwidProcessDevice @ 0x140587158 (ExpHwidProcessDevice.c)
+ *     ExpHwidSysVolIfGetDiskInfo @ 0x140587E88 (ExpHwidSysVolIfGetDiskInfo.c)
+ *     sub_1408DC320 @ 0x1408DC320 (sub_1408DC320.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpHwidAppendDeviceInfoBlock(__int64 a1, __int64 a2, const void *a3, unsigned int a4)

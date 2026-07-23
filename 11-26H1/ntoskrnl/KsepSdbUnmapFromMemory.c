@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepSdbUnmapFromMemory @ 0x1409E6EA4
+ * XREFs of KsepSdbUnmapFromMemory @ 0x1409D5E7C
  * Callers:
- *     KseShimDatabaseOpen @ 0x1409E63D0 (KseShimDatabaseOpen.c)
- *     KseShimDatabaseClose @ 0x1409E6D54 (KseShimDatabaseClose.c)
+ *     KseShimDatabaseClose @ 0x1409D5D2C (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x1409D6414 (KseShimDatabaseOpen.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     SdbReleaseDatabase @ 0x1409E6F28 (SdbReleaseDatabase.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     SdbReleaseDatabase @ 0x1409D5F00 (SdbReleaseDatabase.c)
  */
 
 void __fastcall KsepSdbUnmapFromMemory(_QWORD *a1)

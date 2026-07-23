@@ -6,7 +6,7 @@
  *     NtAddAtomEx @ 0x14091E290 (NtAddAtomEx.c)
  */
 
-__int64 __fastcall NtAddAtom(void *a1, size_t a2)
+NTSTATUS __cdecl NtAddAtom(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
-  return NtAddAtomEx(a1, a2);
+  return NtAddAtomEx(AtomName, Length, Atom, 0);
 }

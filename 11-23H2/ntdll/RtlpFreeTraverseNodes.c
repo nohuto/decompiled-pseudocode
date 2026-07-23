@@ -7,13 +7,13 @@
  *     RtlFreeHeap @ 0x18003B030 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlpFreeTraverseNodes(__int64 a1)
+__int64 __fastcall RtlpFreeTraverseNodes(PVOID BaseAddress)
 {
   unsigned int v1; // ebx
 
   v1 = 0;
-  if ( a1 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  if ( BaseAddress )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   else
     return (unsigned int)-1073741811;
   return v1;

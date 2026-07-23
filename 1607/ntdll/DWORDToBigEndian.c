@@ -1,8 +1,8 @@
 /*
- * XREFs of DWORDToBigEndian @ 0x18000A460
+ * XREFs of DWORDToBigEndian @ 0x18000A450
  * Callers:
- *     SHA256Final @ 0x18000A224 (SHA256Final.c)
- *     A_SHAFinal @ 0x18000A350 (A_SHAFinal.c)
+ *     SHA256Final @ 0x18000A214 (SHA256Final.c)
+ *     A_SHAFinal @ 0x18000A340 (A_SHAFinal.c)
  * Callees:
  *     <none>
  */

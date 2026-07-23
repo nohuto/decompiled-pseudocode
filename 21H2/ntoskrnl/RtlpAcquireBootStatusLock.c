@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpAcquireBootStatusLock @ 0x1403F8678
+ * XREFs of RtlpAcquireBootStatusLock @ 0x1403F86A8
  * Callers:
- *     RtlLockBootStatusData @ 0x14077F570 (RtlLockBootStatusData.c)
- *     RtlUnlockBootStatusData @ 0x14078C6B0 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x14077F730 (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x14078C870 (RtlUnlockBootStatusData.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void RtlpAcquireBootStatusLock()

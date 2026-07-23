@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAllocatePoolWithQuotaTag @ 0x1404CD760
+ * XREFs of ExAllocatePoolWithQuotaTag @ 0x1404C7190
  * Callers:
- *     FsRtlAllocatePoolWithQuota @ 0x1405B5E00 (FsRtlAllocatePoolWithQuota.c)
- *     FsRtlAllocatePoolWithQuotaTag @ 0x1405B5E30 (FsRtlAllocatePoolWithQuotaTag.c)
- *     VerifierExAllocatePoolWithQuotaTag @ 0x140C2FAF0 (VerifierExAllocatePoolWithQuotaTag.c)
- *     VerifierPortExAllocatePoolWithQuotaTag @ 0x140C39630 (VerifierPortExAllocatePoolWithQuotaTag.c)
+ *     FsRtlAllocatePoolWithQuota @ 0x1405B8610 (FsRtlAllocatePoolWithQuota.c)
+ *     FsRtlAllocatePoolWithQuotaTag @ 0x1405B8640 (FsRtlAllocatePoolWithQuotaTag.c)
+ *     VerifierExAllocatePoolWithQuotaTag @ 0x140C35B00 (VerifierExAllocatePoolWithQuotaTag.c)
+ *     VerifierPortExAllocatePoolWithQuotaTag @ 0x140C3F640 (VerifierPortExAllocatePoolWithQuotaTag.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExpPoolTypeToPoolFlags @ 0x140C10EA0 (ExpPoolTypeToPoolFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExpPoolTypeToPoolFlags @ 0x140C16EA0 (ExpPoolTypeToPoolFlags.c)
  */
 
 PVOID __stdcall ExAllocatePoolWithQuotaTag(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag)

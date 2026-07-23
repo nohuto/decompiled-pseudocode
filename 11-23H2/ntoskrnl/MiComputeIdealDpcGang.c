@@ -1,17 +1,17 @@
 /*
- * XREFs of MiComputeIdealDpcGang @ 0x14038B91C
+ * XREFs of MiComputeIdealDpcGang @ 0x14038BAFC
  * Callers:
- *     MiInitializeDpcGang @ 0x14038B890 (MiInitializeDpcGang.c)
+ *     MiInitializeDpcGang @ 0x14038BA70 (MiInitializeDpcGang.c)
  * Callees:
  *     MiInitializeDpcGroupAffinity @ 0x140221C20 (MiInitializeDpcGroupAffinity.c)
  *     MiObtainParkedCoreMasks @ 0x14022320C (MiObtainParkedCoreMasks.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     KeQueryNodeActiveAffinity @ 0x1403059B0 (KeQueryNodeActiveAffinity.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14036BB80 (KeQueryNodeActiveAffinity2.c)
- *     MiGetClosestNodeWithProcessors @ 0x14036E7F0 (MiGetClosestNodeWithProcessors.c)
- *     MiGetNextAffinityWalker @ 0x1403BF8C8 (MiGetNextAffinityWalker.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     KeQueryNodeActiveAffinity @ 0x140305C40 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x14036BD20 (KeQueryNodeActiveAffinity2.c)
+ *     MiGetClosestNodeWithProcessors @ 0x14036E990 (MiGetClosestNodeWithProcessors.c)
+ *     MiGetNextAffinityWalker @ 0x1403BFAA8 (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiComputeIdealDpcGang(__int64 a1, int a2, unsigned int a3)

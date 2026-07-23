@@ -7,16 +7,16 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
-        _BYTE *a1,
-        unsigned int a2,
-        _DWORD *a3,
-        unsigned __int16 *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUpcaseUnicodeToMultiByteN(
+        PCHAR MultiByteString,
+        ULONG MaxBytesInMultiByteString,
+        PULONG BytesInMultiByteString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v6; // ebx
+  ULONG v6; // ebx
   __int64 v8; // r11
-  _BYTE *v9; // r10
+  PCHAR v9; // r10
   __int64 v10; // r9
   __int64 v11; // rdi
   __int64 v12; // rbx
@@ -31,9 +31,9 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
   __int16 v22; // dx
   unsigned int v23; // eax
 
-  v6 = a5 >> 1;
-  v8 = a2;
-  v9 = a1;
+  v6 = BytesInUnicodeString >> 1;
+  v8 = MaxBytesInMultiByteString;
+  v9 = MultiByteString;
   if ( NlsMbCodePageTag )
   {
     if ( v6 )
@@ -46,7 +46,7 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
       {
         if ( !(_DWORD)v8 )
           break;
-        v19 = *a4++;
+        v19 = *UnicodeString++;
         v20 = *(_WORD *)(v17 + 2 * v19);
         if ( word_18015ADC0[HIBYTE(v20)] )
           v21 = *(_WORD *)(v18
@@ -82,15 +82,15 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
       }
       while ( v6 );
     }
-    if ( a3 )
-      *a3 = (_DWORD)v9 - (_DWORD)a1;
+    if ( BytesInMultiByteString )
+      *BytesInMultiByteString = (_DWORD)v9 - (_DWORD)MultiByteString;
   }
   else
   {
-    if ( v6 < a2 )
+    if ( v6 < MaxBytesInMultiByteString )
       v8 = v6;
-    if ( a3 )
-      *a3 = v8;
+    if ( BytesInMultiByteString )
+      *BytesInMultiByteString = v8;
     v10 = qword_18015B218;
     if ( (_DWORD)v8 )
     {
@@ -98,7 +98,7 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
       v12 = qword_18015B238;
       do
       {
-        v13 = *(_WORD *)(v11 + 2LL * *(unsigned __int8 *)(*a4 + v10));
+        v13 = *(_WORD *)(v11 + 2LL * *(unsigned __int8 *)(*UnicodeString + v10));
         if ( v13 >= 0x61u )
         {
           if ( v13 > 0x7Au )
@@ -112,12 +112,12 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
           else
             v13 -= 32;
         }
-        ++a4;
+        ++UnicodeString;
         *v9++ = *(_BYTE *)(v13 + v10);
         --v8;
       }
       while ( v8 );
     }
   }
-  return 0LL;
+  return 0;
 }

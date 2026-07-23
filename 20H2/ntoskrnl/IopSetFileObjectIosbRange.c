@@ -144,7 +144,7 @@ LABEL_57:
     Mdl = IoAllocateMdl((PVOID)v9, v7, 0, 1u, 0LL);
     MemoryDescriptorList = Mdl;
     if ( !Mdl )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     MmProbeAndLockPages(Mdl, *(_BYTE *)(a2 + 64), IoWriteAccess);
     if ( (Mdl->MdlFlags & 5) != 0 )
       MappedSystemVa = (struct _LIST_ENTRY *)Mdl->MappedSystemVa;

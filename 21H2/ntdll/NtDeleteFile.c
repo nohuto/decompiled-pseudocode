@@ -1,16 +1,16 @@
 /*
- * XREFs of NtDeleteFile @ 0x18009F090
+ * XREFs of NtDeleteFile @ 0x18009F050
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtDeleteFile()
+NTSTATUS __cdecl NtDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 211LL;
+  result = 211;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

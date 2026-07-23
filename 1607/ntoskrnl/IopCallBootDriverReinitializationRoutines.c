@@ -3,9 +3,9 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     IopInterlockedRemoveHeadList @ 0x1400B04D0 (IopInterlockedRemoveHeadList.c)
- *     PnpDiagnosticTrace @ 0x1400B0D90 (PnpDiagnosticTrace.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IopInterlockedRemoveHeadList @ 0x1400AE5AC (IopInterlockedRemoveHeadList.c)
+ *     PnpDiagnosticTrace @ 0x1400AEE00 (PnpDiagnosticTrace.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

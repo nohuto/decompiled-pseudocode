@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpSpinLockConfigRunDown @ 0x1408BFB88
+ * XREFs of EtwpSpinLockConfigRunDown @ 0x1408C0E48
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140726174 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140727414 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpSpinLockConfigRunDown(__int64 a1, char a2)

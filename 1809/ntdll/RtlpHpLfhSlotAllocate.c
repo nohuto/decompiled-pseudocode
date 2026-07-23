@@ -15,18 +15,23 @@
  *     RtlpHpLfhSubsegmentCreate @ 0x180062088 (RtlpHpLfhSubsegmentCreate.c)
  *     RtlBackoff @ 0x18006ADA0 (RtlBackoff.c)
  *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x18006E5D8 (RtlpHpLfhSubsegmentIncBlockCounts.c)
- *     RtlpOptimizeSRWLockList @ 0x1800751F4 (RtlpOptimizeSRWLockList.c)
- *     RtlpWakeSRWLock @ 0x180075250 (RtlpWakeSRWLock.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x180077430 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x18007E914 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwTerminateProcess @ 0x1800A0860 (ZwTerminateProcess.c)
- *     NtWaitForAlertByThreadId @ 0x1800A3BF0 (NtWaitForAlertByThreadId.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     RtlpOptimizeSRWLockList @ 0x180075204 (RtlpOptimizeSRWLockList.c)
+ *     RtlpWakeSRWLock @ 0x180075260 (RtlpWakeSRWLock.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x180077440 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x18007E924 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwTerminateProcess @ 0x1800A0880 (ZwTerminateProcess.c)
+ *     NtWaitForAlertByThreadId @ 0x1800A3C10 (NtWaitForAlertByThreadId.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     RtlpHpLfhSubsegmentAllocateBlock @ 0x18010CE74 (RtlpHpLfhSubsegmentAllocateBlock.c)
  */
 
-__int64 __fastcall RtlpHpLfhSlotAllocate(__int64 UniqueThread, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall RtlpHpLfhSlotAllocate(
+        __int64 UniqueThread,
+        _RTL_SRWLOCK *a2,
+        __int64 a3,
+        __int64 a4,
+        unsigned int a5)
 {
   __int64 Block; // r14
   unsigned int v7; // esi
@@ -89,8 +94,8 @@ __int64 __fastcall RtlpHpLfhSlotAllocate(__int64 UniqueThread, __int64 a2, __int
   signed __int64 v65; // rdx
   signed __int64 v66; // rtt
   bool v67; // zf
-  volatile signed __int64 *v68; // rcx
-  _QWORD *v69; // rbx
+  _RTL_SRWLOCK *v68; // rcx
+  unsigned __int64 *v69; // rbx
   char v70; // cl
   int v71; // r11d
   unsigned int v72; // r10d
@@ -179,10 +184,10 @@ LABEL_160:
           if ( v9 == 2 )
             goto LABEL_6;
           v9 = 2;
-          RtlAcquireSRWLockExclusive(a3 + 16);
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a3 + 16));
         }
         if ( v9 )
-          RtlReleaseSRWLockExclusive(a3 + 16);
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a3 + 16));
         Block = RtlpHpLfhSubsegmentAllocateBlock(v8, a3, v93, v117);
         if ( !Block )
           RtlpHpLfhSubsegmentFreeBlock(v8, v93, 0LL, a5);
@@ -201,7 +206,7 @@ LABEL_160:
             if ( (v12 & 1) != 0 && (v77 || (v12 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
             {
               if ( (unsigned __int8)RtlpWaitCouldDeadlock(UniqueThread, v11, a3, a4, v94) )
-                ZwTerminateProcess(-1LL, 3221225547LL);
+                ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
               UniqueThread = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
               v112 = UniqueThread;
               LOBYTE(UniqueThread) = 0;
@@ -248,7 +253,7 @@ LABEL_160:
               if ( _interlockedbittestandreset(v114, 1u) )
               {
                 do
-                  NtWaitForAlertByThreadId(a3 + 16, 0LL);
+                  NtWaitForAlertByThreadId((PVOID)(a3 + 16), 0LL);
                 while ( (v114[0] & 4) == 0 );
               }
             }
@@ -340,7 +345,7 @@ LABEL_19:
       if ( v21 == 17 )
         goto LABEL_21;
       if ( (v21 & 1) == 0 )
-        RtlRaiseStatus(3221226084LL);
+        RtlRaiseStatus(-1073741212);
       if ( (v21 & 2) != 0 )
       {
 LABEL_113:
@@ -516,7 +521,7 @@ LABEL_27:
                 if ( (_DWORD)v40 )
                   break;
                 v104 = 1;
-                RtlAcquireSRWLockExclusive(v13 + 24);
+                RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v13 + 24));
                 v40 = v104;
               }
               v54 = v99;
@@ -555,7 +560,7 @@ LABEL_41:
             if ( v54 == -1 )
             {
               if ( (_DWORD)v40 )
-                RtlReleaseSRWLockExclusive(v13 + 24);
+                RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v13 + 24));
             }
             else
             {
@@ -571,7 +576,7 @@ LABEL_41:
               if ( v73(v75, v13 + v72, v74, v40) < 0 )
               {
                 RtlpHpLfhSubsegmentDecBlockCounts(v115, v13, v45, v107);
-                RtlReleaseSRWLockExclusive(v13 + 24);
+                RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v13 + 24));
                 v34 = ~(3LL << ((2 * v44) & 0x3F));
                 _InterlockedAnd64((volatile signed __int64 *)(v13 + 8 * ((unsigned __int64)(2 * v44) >> 6) + 48), v34);
 LABEL_50:
@@ -601,19 +606,19 @@ LABEL_52:
         goto LABEL_50;
       }
       v9 = 2;
-      RtlAcquireSRWLockExclusive(a3 + 16);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a3 + 16));
     }
-    v68 = (volatile signed __int64 *)(a3 + 16);
+    v68 = (_RTL_SRWLOCK *)(a3 + 16);
     if ( v9 == 2 )
       RtlReleaseSRWLockExclusive(v68);
     else
       RtlReleaseSRWLockShared(v68);
-    v69 = (_QWORD *)(a2 + 24);
-    if ( (_QWORD *)*v69 == v69
-      || ((RtlAcquireSRWLockExclusive(a2 + 16), (_QWORD *)*v69 == v69)
+    v69 = (unsigned __int64 *)&a2[3];
+    if ( (unsigned __int64 *)*v69 == v69
+      || ((RtlAcquireSRWLockExclusive(a2 + 2), (unsigned __int64 *)*v69 == v69)
         ? (v10 = 0LL)
         : (v10 = RtlpHpLfhOwnerMoveSubsegment(a2, *v69, 2LL)),
-          RtlReleaseSRWLockExclusive(a2 + 16),
+          RtlReleaseSRWLockExclusive(a2 + 2),
           !v10) )
     {
       v10 = RtlpHpLfhSubsegmentCreate(v8);
@@ -621,7 +626,7 @@ LABEL_52:
         break;
     }
     v9 = 2;
-    RtlAcquireSRWLockExclusive(a3 + 16);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a3 + 16));
     UniqueThread = *(unsigned __int16 *)(v10 + 34);
     if ( *(_WORD *)(v10 + 32) == (_WORD)UniqueThread )
     {

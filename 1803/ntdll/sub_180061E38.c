@@ -12,22 +12,22 @@ bool __fastcall sub_180061E38(__int64 a1, __int64 a2)
 {
   bool v4; // bl
   __int64 v5; // rcx
-  __int64 v6; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   unsigned __int16 v8; // ax
 
   v4 = (dword_18015D040 & 4) == 0
     && (v8 = *(_WORD *)(a1 + 172), v8 <= 0x70u)
     && *(_DWORD *)(a1 + 160) >= 16 * (unsigned int)(unsigned __int16)word_180118FE0[v8]
     && *(_WORD *)(a2 + 32) < (unsigned int)(*(_WORD *)(a2 + 40) >> 2);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v5 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
+  if ( RtlGetCurrentServiceSessionId() )
+    v5 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[5];
   else
     v5 = 2147353482LL;
   if ( *(_BYTE *)v5
-    || ((unsigned int)RtlGetCurrentServiceSessionId()
-      ? (v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 550)
-      : (v6 = 2147353472LL),
-        *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 1) != 0) )
+    || (RtlGetCurrentServiceSessionId()
+      ? (UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger)
+      : (UserModeGlobalLogger = 2147353472LL),
+        *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0) )
   {
     if ( v4 )
       sub_1800FE558(

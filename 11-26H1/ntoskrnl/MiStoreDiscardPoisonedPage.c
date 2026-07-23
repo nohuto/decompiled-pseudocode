@@ -1,32 +1,32 @@
 /*
- * XREFs of MiStoreDiscardPoisonedPage @ 0x14070A464
+ * XREFs of MiStoreDiscardPoisonedPage @ 0x14070F118
  * Callers:
- *     MiGetBadPageResources @ 0x1406F1108 (MiGetBadPageResources.c)
+ *     MiGetBadPageResources @ 0x1406F5D78 (MiGetBadPageResources.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiDecommitHandleValidPte @ 0x14029F85C (MiDecommitHandleValidPte.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiAreChargesNeededToLockPage @ 0x1402E5D80 (MiAreChargesNeededToLockPage.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiDeleteTransitionPte @ 0x14033E7F0 (MiDeleteTransitionPte.c)
- *     MiDecommitInitializePacket @ 0x140361B88 (MiDecommitInitializePacket.c)
- *     MiGetTopLevelPfn @ 0x140404690 (MiGetTopLevelPfn.c)
- *     MiIsStoreProcess @ 0x140404810 (MiIsStoreProcess.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140404850 (MiGetPageTablePfnBuddyRaw.c)
- *     MiDecommitPagesTail @ 0x14044B7AC (MiDecommitPagesTail.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiStoreLogDiscardPoisonedPage @ 0x14070A9B4 (MiStoreLogDiscardPoisonedPage.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiDecommitHandleValidPte @ 0x14029EDAC (MiDecommitHandleValidPte.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiAreChargesNeededToLockPage @ 0x1402C7DC0 (MiAreChargesNeededToLockPage.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiDeleteTransitionPte @ 0x140340870 (MiDeleteTransitionPte.c)
+ *     MiDecommitInitializePacket @ 0x140363928 (MiDecommitInitializePacket.c)
+ *     MiGetTopLevelPfn @ 0x1403FD790 (MiGetTopLevelPfn.c)
+ *     MiIsStoreProcess @ 0x1403FD910 (MiIsStoreProcess.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1403FD950 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiDecommitPagesTail @ 0x1404438DC (MiDecommitPagesTail.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiStoreLogDiscardPoisonedPage @ 0x14070F668 (MiStoreLogDiscardPoisonedPage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiStoreDiscardPoisonedPage(__int64 a1, ULONG_PTR a2, _BYTE *a3)
@@ -241,9 +241,9 @@ LABEL_54:
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 2072));
     *(_QWORD *)(a1 + 2080) = v30;
   }
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument > v13
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000002LL) )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument > v13
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000002LL) )
   {
     MiStoreLogDiscardPoisonedPage(v31, a1, v32, v7, v14, v15);
   }

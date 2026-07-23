@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDispatchCallback @ 0x1408612C0
+ * XREFs of PopDispatchCallback @ 0x140861500
  * Callers:
  *     <none>
  * Callees:
- *     ExNotifyCallback @ 0x14033BF40 (ExNotifyCallback.c)
+ *     ExNotifyCallback @ 0x14033C1D0 (ExNotifyCallback.c)
  */
 
 struct _KTHREAD *__fastcall PopDispatchCallback(PVOID Argument1)

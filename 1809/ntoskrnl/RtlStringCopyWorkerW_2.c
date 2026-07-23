@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCopyWorkerW_2 @ 0x140133504
+ * XREFs of RtlStringCopyWorkerW_2 @ 0x1401335D4
  * Callers:
- *     RtlStringCbCopyNExW @ 0x140133460 (RtlStringCbCopyNExW.c)
+ *     RtlStringCbCopyNExW @ 0x140133530 (RtlStringCbCopyNExW.c)
  * Callees:
  *     <none>
  */

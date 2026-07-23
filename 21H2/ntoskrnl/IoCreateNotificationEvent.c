@@ -1,11 +1,11 @@
 /*
- * XREFs of IoCreateNotificationEvent @ 0x14078D5F0
+ * XREFs of IoCreateNotificationEvent @ 0x14078D7B0
  * Callers:
- *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x1408963F8 (IoCaptureLiveDump.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwCreateEvent @ 0x1403FAE80 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 PKEVENT __stdcall IoCreateNotificationEvent(PUNICODE_STRING EventName, PHANDLE EventHandle)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestFindEntryById @ 0x14067C508
+ * XREFs of PopPowerRequestFindEntryById @ 0x140670048
  * Callers:
- *     PopProcessPowerRequestOverrideQueryResponse @ 0x140282C34 (PopProcessPowerRequestOverrideQueryResponse.c)
+ *     PopProcessPowerRequestOverrideQueryResponse @ 0x140270EE0 (PopProcessPowerRequestOverrideQueryResponse.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1402528A0 (RtlLookupElementGenericTableAvl.c)
  */
 
 PVOID __fastcall PopPowerRequestFindEntryById(int a1)

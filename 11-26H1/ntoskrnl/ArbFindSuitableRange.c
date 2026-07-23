@@ -1,11 +1,11 @@
 /*
- * XREFs of ArbFindSuitableRange @ 0x140788710
+ * XREFs of ArbFindSuitableRange @ 0x14078B240
  * Callers:
- *     IopMemFindSuitableRange @ 0x1407A68F0 (IopMemFindSuitableRange.c)
+ *     IopMemFindSuitableRange @ 0x1407A94A0 (IopMemFindSuitableRange.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ArbShareDriverExclusive @ 0x14078986C (ArbShareDriverExclusive.c)
- *     RtlFindRange @ 0x140AB0E90 (RtlFindRange.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ArbShareDriverExclusive @ 0x14078C39C (ArbShareDriverExclusive.c)
+ *     RtlFindRange @ 0x140AAEE80 (RtlFindRange.c)
  */
 
 char __fastcall ArbFindSuitableRange(_QWORD *a1, __int64 a2)

@@ -16,7 +16,7 @@
  *     DbgkpWakeTarget @ 0x1409384E8 (DbgkpWakeTarget.c)
  */
 
-__int64 DbgkpSetProcessDebugObject(__int64 BugCheckParameter1, PRKEVENT Event, int a3, ...)
+__int64 DbgkpSetProcessDebugObject(ULONG_PTR BugCheckParameter1, PRKEVENT Event, int a3, ...)
 {
   struct _KTHREAD *CurrentThread; // r13
   int v4; // edi
@@ -74,12 +74,7 @@ __int64 DbgkpSetProcessDebugObject(__int64 BugCheckParameter1, PRKEVENT Event, i
       ExReleaseFastMutex(&DbgkpProcessDebugPortMutex);
       v27 = 0;
       ObfDereferenceObjectWithTag(v7, 0x4F676244u);
-      v4 = DbgkpPostFakeThreadMessages(
-             (_KPROCESS *)BugCheckParameter1,
-             Event,
-             (__int64)NextProcessThread,
-             &v21,
-             (PVOID *)Objecta);
+      v4 = DbgkpPostFakeThreadMessages(BugCheckParameter1, Event, (__int64)NextProcessThread, &v21, (PVOID *)Objecta);
       if ( v4 < 0 )
       {
         v7 = 0LL;

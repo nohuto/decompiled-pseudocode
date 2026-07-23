@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpIommuUnblockDevice @ 0x1405187A0
+ * XREFs of HalpIommuUnblockDevice @ 0x140518CF0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     HalpIommuCheckDpptException @ 0x1403914F4 (HalpIommuCheckDpptException.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpIommuQueryAcpiDeviceMapping @ 0x1403B4674 (HalpIommuQueryAcpiDeviceMapping.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpIommuCheckExceptionList @ 0x14050DD80 (HalpIommuCheckExceptionList.c)
- *     HalpIommuCreateIncreaseAliasTrack @ 0x140517938 (HalpIommuCreateIncreaseAliasTrack.c)
- *     HalpIommuGetAcpiDeviceMapCount @ 0x1405181EC (HalpIommuGetAcpiDeviceMapCount.c)
- *     HalpIommuJoinDmaDomain @ 0x140518344 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuCreateDevice @ 0x140829048 (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x140933A2C (HalpIommuDeleteDevice.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     HalpIommuCheckDpptException @ 0x1403916D4 (HalpIommuCheckDpptException.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1403B4854 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpIommuCheckExceptionList @ 0x14050E2D0 (HalpIommuCheckExceptionList.c)
+ *     HalpIommuCreateIncreaseAliasTrack @ 0x140517E88 (HalpIommuCreateIncreaseAliasTrack.c)
+ *     HalpIommuGetAcpiDeviceMapCount @ 0x14051873C (HalpIommuGetAcpiDeviceMapCount.c)
+ *     HalpIommuJoinDmaDomain @ 0x140518894 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuCreateDevice @ 0x140829348 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140933C2C (HalpIommuDeleteDevice.c)
  */
 
 __int64 __fastcall HalpIommuUnblockDevice(__int128 *Src, __int64 a2, __int64 *a3)

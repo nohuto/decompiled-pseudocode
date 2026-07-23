@@ -66,10 +66,13 @@ PULONG __stdcall PoRegisterDeviceForIdleDetection(
       p_IdleList->Flink = p_IdleList;
 LABEL_4:
       KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -117,10 +120,10 @@ LABEL_35:
     qword_140C3D6A8 = v22 + 32;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v23 <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

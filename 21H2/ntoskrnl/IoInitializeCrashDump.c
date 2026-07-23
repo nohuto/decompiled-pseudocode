@@ -1,21 +1,24 @@
 /*
- * XREFs of IoInitializeCrashDump @ 0x1407B7754
+ * XREFs of IoInitializeCrashDump @ 0x1407B7C74
  * Callers:
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
- *     IopInitCrashDumpDuringSysInit @ 0x140A6CE38 (IopInitCrashDumpDuringSysInit.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140A6DE38 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     IopRemoveDumpCapsuleSupport @ 0x1403BFEE4 (IopRemoveDumpCapsuleSupport.c)
- *     IopInitDumpCapsuleSupport @ 0x1403CE35C (IopInitDumpCapsuleSupport.c)
- *     IopInitializeCrashDump @ 0x1407B77E8 (IopInitializeCrashDump.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     IopRemoveDumpCapsuleSupport @ 0x1403C0310 (IopRemoveDumpCapsuleSupport.c)
+ *     IopInitDumpCapsuleSupport @ 0x1403CE4CC (IopInitDumpCapsuleSupport.c)
+ *     IopInitializeCrashDump @ 0x1407B7D08 (IopInitializeCrashDump.c)
  */
 
 char __fastcall IoInitializeCrashDump(HANDLE Handle)
 {
   struct _KTHREAD *CurrentThread; // rbx
   char v3; // di
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // r9
 
   if ( ForceDumpDisabled )
     return 0;
@@ -32,6 +35,6 @@ char __fastcall IoInitializeCrashDump(HANDLE Handle)
     IopInitDumpCapsuleSupport();
   }
   ExReleaseResourceLite(&IopCrashDumpLock);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v4, v5, v6);
   return v3;
 }

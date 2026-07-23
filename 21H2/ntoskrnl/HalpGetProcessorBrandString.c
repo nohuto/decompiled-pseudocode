@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetProcessorBrandString @ 0x1407C7D50
+ * XREFs of HalpGetProcessorBrandString @ 0x1407C8070
  * Callers:
- *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x1409909D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpCpuID @ 0x1402D38F0 (HalpCpuID.c)
+ *     HalpCpuID @ 0x140251BF0 (HalpCpuID.c)
  */
 
 __int64 __fastcall HalpGetProcessorBrandString(unsigned int a1, __int64 a2, unsigned int *a3)

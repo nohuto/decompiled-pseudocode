@@ -1,32 +1,32 @@
 /*
- * XREFs of PopValidateWinresume @ 0x1407D0A04
+ * XREFs of PopValidateWinresume @ 0x1407D3AA4
  * Callers:
- *     PopInitializeHibernateGlobals @ 0x1407D0394 (PopInitializeHibernateGlobals.c)
- *     PopWnfHibernateRevocationCheckCallback @ 0x1407D0E70 (PopWnfHibernateRevocationCheckCallback.c)
+ *     PopInitializeHibernateGlobals @ 0x1407D3434 (PopInitializeHibernateGlobals.c)
+ *     PopWnfHibernateRevocationCheckCallback @ 0x1407D3F10 (PopWnfHibernateRevocationCheckCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     MinCrypK_ParseRevocationList @ 0x14071CA68 (MinCrypK_ParseRevocationList.c)
- *     MinCryptK_GetBootAppSvnFromRevocationList @ 0x14071CB94 (MinCryptK_GetBootAppSvnFromRevocationList.c)
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     BiOpenStoreWithHash @ 0x140773404 (BiOpenStoreWithHash.c)
- *     PopLoadFileInMemory @ 0x1407C8C88 (PopLoadFileInMemory.c)
- *     PopDiagTraceHibernateRevoked @ 0x1407D377C (PopDiagTraceHibernateRevoked.c)
- *     PopBcdGetApplicationPathFromResumeObject @ 0x1407E16B4 (PopBcdGetApplicationPathFromResumeObject.c)
- *     I_MincryptFreeChainInfo @ 0x1408A3C58 (I_MincryptFreeChainInfo.c)
- *     BcdCloseStore @ 0x1409D0088 (BcdCloseStore.c)
- *     LdrResSearchResource @ 0x140A9AF20 (LdrResSearchResource.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     MinCrypK_ParseRevocationList @ 0x1407216F8 (MinCrypK_ParseRevocationList.c)
+ *     MinCryptK_GetBootAppSvnFromRevocationList @ 0x140721824 (MinCryptK_GetBootAppSvnFromRevocationList.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     BiOpenStoreWithHash @ 0x140776404 (BiOpenStoreWithHash.c)
+ *     PopLoadFileInMemory @ 0x1407CBD28 (PopLoadFileInMemory.c)
+ *     PopDiagTraceHibernateRevoked @ 0x1407D68FC (PopDiagTraceHibernateRevoked.c)
+ *     PopBcdGetApplicationPathFromResumeObject @ 0x1407E6744 (PopBcdGetApplicationPathFromResumeObject.c)
+ *     I_MincryptFreeChainInfo @ 0x1408AA068 (I_MincryptFreeChainInfo.c)
+ *     BcdCloseStore @ 0x1409A1068 (BcdCloseStore.c)
+ *     LdrResSearchResource @ 0x1409E5F50 (LdrResSearchResource.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopValidateWinresume(_BYTE *a1)
 {
-  __int64 v2; // rsi
-  unsigned int QuantumTarget; // r14d
+  HANDLE v2; // rsi
+  unsigned int v3; // r14d
   void *v4; // r12
   void *v5; // r15
-  __int64 Pool2; // rax
+  UNICODE_STRING *Pool2; // rax
   UNICODE_STRING *v7; // r13
   int SystemInformation; // ebx
   int v9; // eax
@@ -40,7 +40,7 @@ __int64 __fastcall PopValidateWinresume(_BYTE *a1)
   unsigned int v18; // [rsp+48h] [rbp-91h]
   unsigned int *v19; // [rsp+50h] [rbp-89h] BYREF
   void *v20; // [rsp+58h] [rbp-81h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-79h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+60h] [rbp-79h] BYREF
   void *v22; // [rsp+68h] [rbp-71h] BYREF
   UNICODE_STRING Destination; // [rsp+70h] [rbp-69h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-59h] BYREF
@@ -64,10 +64,10 @@ __int64 __fastcall PopValidateWinresume(_BYTE *a1)
   v27 = 0LL;
   v2 = 0LL;
   v34 = 0;
-  QuantumTarget = 0;
+  v3 = 0;
   *(_QWORD *)&v28.Length = 0LL;
   v4 = 0LL;
-  v21 = 0LL;
+  BcdStoreHandle = 0LL;
   v5 = 0LL;
   v18 = 0;
   Destination.Buffer = 0LL;
@@ -81,11 +81,11 @@ __int64 __fastcall PopValidateWinresume(_BYTE *a1)
   v29 = 0LL;
   v30 = 0LL;
   v31 = 0LL;
-  Pool2 = ExAllocatePool2(0x100uLL);
-  v7 = (UNICODE_STRING *)Pool2;
+  Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x100uLL);
+  v7 = Pool2;
   if ( !Pool2 )
     goto LABEL_2;
-  SystemInformation = ZwQuerySystemInformation(98LL, Pool2);
+  SystemInformation = ZwQuerySystemInformation(SystemSystemPartitionInformation, Pool2, 0x218u, 0LL);
   if ( SystemInformation < 0 )
     goto LABEL_27;
   RtlInitUnicodeString(&DestinationString, L"\\EFI\\Microsoft\\Boot\\boot.stl");
@@ -107,12 +107,12 @@ LABEL_2:
   SystemInformation = MinCrypK_ParseRevocationList((int)v22, v34, v10, (__int64)&v27, (__int64)&v29, (__int64)&v26);
   if ( SystemInformation < 0 )
     goto LABEL_27;
-  v13 = BiOpenStoreWithHash(v11, 2u, v12, (__int64)&v21);
-  v2 = v21;
+  v13 = BiOpenStoreWithHash(v11, 2u, v12, (__int64)&BcdStoreHandle);
+  v2 = BcdStoreHandle;
   SystemInformation = v13;
   if ( v13 < 0 )
     goto LABEL_27;
-  SystemInformation = PopBcdGetApplicationPathFromResumeObject(v21, &v28);
+  SystemInformation = PopBcdGetApplicationPathFromResumeObject(BcdStoreHandle, &v28);
   if ( SystemInformation < 0 )
     goto LABEL_27;
   SystemInformation = PopLoadFileInMemory(&v28, &v20, &v32);
@@ -145,17 +145,17 @@ LABEL_2:
         SystemInformation = -1073700860;
         goto LABEL_11;
       }
-      if ( (__int64)stru_140F11D08.SListFaultAddress < v26 )
+      if ( (__int64)BootAppSvnInfo < v26 )
       {
         BootAppSvnFromRevocationList = MinCryptK_GetBootAppSvnFromRevocationList(v27, v14, 167772178, &v33);
-        QuantumTarget = v33;
+        v3 = v33;
         SystemInformation = BootAppSvnFromRevocationList;
         if ( BootAppSvnFromRevocationList < 0 )
           goto LABEL_27;
       }
       else
       {
-        QuantumTarget = stru_140F11D08.QuantumTarget;
+        v3 = DWORD2(BootAppSvnInfo);
       }
       *(_QWORD *)&DestinationString.Length = 10LL;
       DestinationString.Buffer = L"SECURITY_VERSION_NUMBER";
@@ -179,7 +179,7 @@ LABEL_2:
         goto LABEL_28;
       }
       v18 = *v19;
-      if ( v18 < QuantumTarget )
+      if ( v18 < v3 )
       {
         *a1 = 1;
         SystemInformation = -1073741790;
@@ -199,7 +199,7 @@ LABEL_27:
 LABEL_11:
   *a1 = 1;
 LABEL_28:
-  PopDiagTraceHibernateRevoked(QuantumTarget, v18, v35);
+  PopDiagTraceHibernateRevoked(v3, v18, v35);
 LABEL_29:
   if ( v4 )
     ExFreePoolWithTag(v4, 0x206D654Du);

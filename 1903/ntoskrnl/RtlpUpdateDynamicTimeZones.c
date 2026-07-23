@@ -71,7 +71,7 @@ char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
         memset(Buf2, 0, 0x2CuLL);
         Buf2[0] = -44;
         if ( (int)RtlpQueryRegistryValues(0x40000000u, (const WCHAR *)v6, (__int64)v12, 0LL) >= 0
-          && (int)RtlpFindRegTziForCurrentYear(Buf1, (__int64)Handle, a1) >= 0
+          && (int)RtlpFindRegTziForCurrentYear(Buf1, (const WCHAR *)Handle, a1) >= 0
           && memcmp(Buf1, Buf2, 0x2CuLL) )
         {
           RtlWriteRegistryValue(0x40000000u, (PCWSTR)v6, L"TZI", 3u, Buf1, 0x2Cu);

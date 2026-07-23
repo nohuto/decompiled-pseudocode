@@ -1,7 +1,7 @@
 /*
- * XREFs of wcsstr @ 0x180127D80
+ * XREFs of wcsstr @ 0x180125FB0
  * Callers:
- *     EtwpAddLogHeaderToLogFile @ 0x1800B3D70 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180080610 (EtwpAddLogHeaderToLogFile.c)
  * Callees:
  *     <none>
  */

@@ -11,7 +11,7 @@ char sub_1800D4F58()
   if ( (dword_18015B300 & 1) != 0 )
   {
     NtCurrentPeb()->NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag | 0x2000000;
-    *(_DWORD *)off_1801563E0 |= 1u;
+    *Value |= 1u;
   }
   else if ( (dword_18015B300 & 0x8000) != 0 )
   {

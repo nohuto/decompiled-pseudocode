@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwQueryInformationEnlistment @ 0x140C42480
+ * XREFs of VerifierZwQueryInformationEnlistment @ 0x140C48490
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierZwQueryInformationEnlistment(__int64 a1, __int64 a2)

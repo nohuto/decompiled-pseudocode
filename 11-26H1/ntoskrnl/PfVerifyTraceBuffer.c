@@ -1,9 +1,9 @@
 /*
- * XREFs of PfVerifyTraceBuffer @ 0x140AA3DC0
+ * XREFs of PfVerifyTraceBuffer @ 0x140AA6B60
  * Callers:
- *     PfSnBuildDumpFromTrace @ 0x140AA38E0 (PfSnBuildDumpFromTrace.c)
+ *     PfSnBuildDumpFromTrace @ 0x140AA6680 (PfSnBuildDumpFromTrace.c)
  * Callees:
- *     PfVerifyScenarioId @ 0x1409B6D3C (PfVerifyScenarioId.c)
+ *     PfVerifyScenarioId @ 0x140987DFC (PfVerifyScenarioId.c)
  */
 
 char __fastcall PfVerifyTraceBuffer(_DWORD *a1, unsigned int a2, int *a3)

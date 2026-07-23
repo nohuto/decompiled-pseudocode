@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpTraceLoadDumpStackFailure @ 0x140594368
+ * XREFs of IopDumpTraceLoadDumpStackFailure @ 0x14059138C
  * Callers:
- *     IoGetDumpStack @ 0x140AC06BC (IoGetDumpStack.c)
+ *     IoGetDumpStack @ 0x140ABB79C (IoGetDumpStack.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopDumpIsTracingEnabled @ 0x1404FA9C8 (IopDumpIsTracingEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopDumpIsTracingEnabled @ 0x1404F82A8 (IopDumpIsTracingEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall IopDumpTraceLoadDumpStackFailure(int a1)
@@ -57,7 +57,7 @@ char __fastcall IopDumpTraceLoadDumpStackFailure(int a1)
       v10 = 4;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140E06DC8,
-               (unsigned __int8 *)&byte_140045147,
+               (unsigned __int8 *)word_1400456A2,
                0LL,
                0LL,
                4u,

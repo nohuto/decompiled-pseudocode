@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseFaultCharges @ 0x140131954
+ * XREFs of MiReleaseFaultCharges @ 0x140131A24
  * Callers:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiFaultGetFileExtents @ 0x1402BBE04 (MiFaultGetFileExtents.c)
+ *     MiFaultGetFileExtents @ 0x1402BBFF4 (MiFaultGetFileExtents.c)
  * Callees:
- *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiCheckControlArea @ 0x140076490 (MiCheckControlArea.c)
+ *     MiDecrementSubsections @ 0x140079400 (MiDecrementSubsections.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReleaseFaultCharges(__int64 *BugCheckParameter2)
@@ -30,7 +30,7 @@ __int64 __fastcall MiReleaseFaultCharges(__int64 *BugCheckParameter2)
     v3 = MiDecrementSubsections((ULONG_PTR)BugCheckParameter2, (__int64)BugCheckParameter2, 4u);
   --*(_QWORD *)(v1 + 40);
   if ( v3 )
-    v4 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF));
+    v4 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF));
   result = MiCheckControlArea(v1, v6);
   if ( v3 )
     return MiReturnCrossPartitionSectionCharges(v4, v5, v3);

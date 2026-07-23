@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegPageRangeHandleCommit @ 0x14030AB90
+ * XREFs of RtlpHpSegPageRangeHandleCommit @ 0x1403158E0
  * Callers:
- *     RtlpHpSegPageRangeCommit @ 0x14030A2B0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeCommit @ 0x140315000 (RtlpHpSegPageRangeCommit.c)
  * Callees:
  *     <none>
  */

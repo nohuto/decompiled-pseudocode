@@ -40,13 +40,13 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-char __stdcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
+BOOLEAN __cdecl RtlCultureNameToLCID(PUNICODE_STRING String, PLCID Lcid)
 {
-  char v2; // cl
-  size_t v3; // esi
-  const void *v4; // edx
+  BOOLEAN v2; // cl
+  int Length; // esi
+  wchar_t *Buffer; // edx
   unsigned int v5; // esi
-  int v6; // edi
+  _DWORD *v6; // edi
   int v7; // ebx
   int v8; // edi
   int v9; // esi
@@ -55,31 +55,33 @@ char __stdcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
   unsigned __int16 v12; // ax
   unsigned __int16 v13; // di
   int v14; // esi
+  size_t v16; // [esp-4h] [ebp-D4h]
   wchar_t String2[90]; // [esp+18h] [ebp-B8h] BYREF
 
   v2 = 0;
-  if ( !a1 )
+  if ( !String )
     return v2;
-  if ( !a2 )
+  if ( !Lcid )
     return v2;
-  v3 = *a1;
-  if ( !(_WORD)v3 )
+  Length = String->Length;
+  if ( !(_WORD)Length )
     return v2;
-  v4 = (const void *)*((_DWORD *)a1 + 1);
-  if ( !v4 || v3 + 2 > 0x55 )
+  Buffer = String->Buffer;
+  if ( !Buffer || (unsigned int)(Length + 2) > 0x55 )
     return v2;
-  memcpy(String2, v4, v3);
-  v5 = v3 & 0xFFFFFFFE;
+  LODWORD(v16) = String->Length;
+  memcpy(String2, Buffer, v16);
+  v5 = Length & 0xFFFFFFFE;
   if ( v5 >= 0xAA )
     __report_rangecheckfailure();
   v6 = g_RegInfo;
   *(wchar_t *)((char *)String2 + v5) = 0;
   if ( !v6 )
-    return RtlLocaleNameToLcid(String2, (int)a2, 3) >= 0;
-  v7 = *(_DWORD *)(v6 + 20);
+    return RtlLocaleNameToLcid((PCWSTR)String2, Lcid, 3u) >= 0;
+  v7 = v6[5];
   if ( !v7 || !*(_DWORD *)(v7 + 12) || !String2[0] )
-    return RtlLocaleNameToLcid(String2, (int)a2, 3) >= 0;
-  v8 = *(_DWORD *)(v6 + 24);
+    return RtlLocaleNameToLcid((PCWSTR)String2, Lcid, 3u) >= 0;
+  v8 = v6[6];
   if ( !v8 )
     goto LABEL_16;
   v9 = 0;
@@ -98,17 +100,17 @@ LABEL_16:
     LOWORD(v9) = -1;
   v11 = v9;
   if ( (v9 & 0x8000u) != 0 )
-    return RtlLocaleNameToLcid(String2, (int)a2, 3) >= 0;
+    return RtlLocaleNameToLcid((PCWSTR)String2, Lcid, 3u) >= 0;
   v12 = *(_WORD *)(v7 + 6);
   v13 = 0;
   if ( !v12 )
-    return RtlLocaleNameToLcid(String2, (int)a2, 3) >= 0;
+    return RtlLocaleNameToLcid((PCWSTR)String2, Lcid, 3u) >= 0;
   v14 = *(_DWORD *)(v7 + 12);
   while ( *(_WORD *)(v14 + 28 * v13 + 6) != v11 )
   {
     if ( ++v13 >= v12 )
-      return RtlLocaleNameToLcid(String2, (int)a2, 3) >= 0;
+      return RtlLocaleNameToLcid((PCWSTR)String2, Lcid, 3u) >= 0;
   }
-  *a2 = *(unsigned __int16 *)(v14 + 28 * v13 + 4);
+  *Lcid = *(unsigned __int16 *)(v14 + 28 * v13 + 4);
   return 1;
 }

@@ -17,16 +17,16 @@
  *     _WerpFreeSid@8 @ 0x4B33B0D2 (_WerpFreeSid@8.c)
  */
 
-NTSTATUS __fastcall SendMessageToWERService(int a1, int a2)
+NTSTATUS __fastcall SendMessageToWERService(_PORT_MESSAGE *a1, _PORT_MESSAGE *a2)
 {
   char v2; // bl
   NTSTATUS started; // esi
   int v4; // eax
-  __int64 *v5; // eax
-  int v6; // eax
-  __int64 *v7; // eax
-  int v8; // ebx
-  int v9; // eax
+  LARGE_INTEGER *v5; // eax
+  NTSTATUS v6; // eax
+  LARGE_INTEGER *v7; // eax
+  PPORT_MESSAGE v8; // ebx
+  NTSTATUS v9; // eax
   int v11; // [esp-24h] [ebp-ACh]
   int v12; // [esp-20h] [ebp-A8h]
   int v13; // [esp-1Ch] [ebp-A4h]
@@ -35,26 +35,28 @@ NTSTATUS __fastcall SendMessageToWERService(int a1, int a2)
   int v16; // [esp-10h] [ebp-98h]
   int v17; // [esp-Ch] [ebp-94h]
   int v18; // [esp-8h] [ebp-90h]
-  UNICODE_STRING DestinationString; // [esp+8h] [ebp-80h] BYREF
-  _DWORD v20[6]; // [esp+10h] [ebp-78h] BYREF
+  size_t v19; // [esp-4h] [ebp-8Ch]
+  _UNICODE_STRING DestinationString; // [esp+8h] [ebp-80h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-78h] BYREF
   int SystemInformation; // [esp+28h] [ebp-60h] BYREF
-  int v22; // [esp+2Ch] [ebp-5Ch]
-  __int64 v23; // [esp+30h] [ebp-58h] BYREF
-  int v24; // [esp+3Ch] [ebp-4Ch]
-  int v25; // [esp+40h] [ebp-48h]
-  _DWORD v26[2]; // [esp+44h] [ebp-44h] BYREF
-  __int16 v27; // [esp+4Ch] [ebp-3Ch]
-  HANDLE Handle; // [esp+50h] [ebp-38h] BYREF
-  int v29; // [esp+54h] [ebp-34h] BYREF
-  _DWORD v30[11]; // [esp+58h] [ebp-30h] BYREF
+  int v23; // [esp+2Ch] [ebp-5Ch]
+  __int64 v24; // [esp+30h] [ebp-58h] BYREF
+  PPORT_MESSAGE SendMessageA; // [esp+3Ch] [ebp-4Ch]
+  PPORT_MESSAGE ReceiveMessage; // [esp+40h] [ebp-48h]
+  ULONG_PTR BufferLength; // [esp+44h] [ebp-44h] BYREF
+  __int16 v28; // [esp+4Ch] [ebp-3Ch]
+  HANDLE PortHandle; // [esp+50h] [ebp-38h] BYREF
+  PSID RequiredServerSid; // [esp+54h] [ebp-34h] BYREF
+  _BYTE v31[16]; // [esp+58h] [ebp-30h] BYREF
+  int v32; // [esp+68h] [ebp-20h]
 
   v2 = 0;
-  v25 = a2;
-  v24 = a1;
-  Handle = 0;
-  v29 = 0;
-  v26[1] = 0;
-  v27 = 1280;
+  ReceiveMessage = a2;
+  SendMessageA = a1;
+  PortHandle = 0;
+  RequiredServerSid = 0;
+  HIDWORD(BufferLength) = 0;
+  v28 = 1280;
   started = SignalStartWerSvc();
   if ( started >= 0 )
   {
@@ -66,57 +68,58 @@ NTSTATUS __fastcall SendMessageToWERService(int a1, int a2)
       if ( v4 >= 0 && v4 != 258 )
       {
         RtlInitUnicodeString(&DestinationString, L"\\WindowsErrorReportingServicePort");
-        memset(v30, 0, sizeof(v30));
-        v30[4] = 1384;
-        started = WerpAllocateAndInitializeSid(v11, v12, v13, v14, v15, v16, v17, v18, &v29);
+        LODWORD(v19) = 44;
+        memset(v31, 0, v19);
+        v32 = 1384;
+        started = WerpAllocateAndInitializeSid(v11, v12, v13, v14, v15, v16, v17, v18, &RequiredServerSid);
         if ( started >= 0 )
         {
-          v20[0] = 24;
-          memset(&v20[1], 0, 20);
-          if ( v22 == -1 )
+          ObjectAttributes.Length = 24;
+          memset(&ObjectAttributes.RootDirectory, 0, 20);
+          if ( v23 == -1 )
           {
             v2 = 1;
             v5 = 0;
           }
           else
           {
-            v23 = -10000LL * v22;
-            v5 = &v23;
+            v24 = -10000LL * v23;
+            v5 = (LARGE_INTEGER *)&v24;
           }
           v6 = ZwAlpcConnectPort(
-                 (int)&Handle,
-                 (int)&DestinationString,
-                 (int)v20,
-                 (int)v30,
-                 0x20000,
-                 v29,
+                 &PortHandle,
+                 &DestinationString,
+                 &ObjectAttributes,
+                 (PALPC_PORT_ATTRIBUTES)v31,
+                 0x20000u,
+                 RequiredServerSid,
                  0,
                  0,
                  0,
                  0,
-                 (int)v5);
+                 v5);
           started = v6;
           if ( v6 >= 0 && v6 != 258 )
           {
-            v26[0] = 1384;
-            v7 = v2 ? 0 : &v23;
-            v8 = v25;
-            v9 = NtAlpcSendWaitReceivePort((int)Handle, 0x20000, v24, 0, v25, (int)v26, 0, (int)v7);
+            LODWORD(BufferLength) = 1384;
+            v7 = v2 ? 0 : (LARGE_INTEGER *)&v24;
+            v8 = ReceiveMessage;
+            v9 = NtAlpcSendWaitReceivePort(PortHandle, 0x20000u, SendMessageA, 0, ReceiveMessage, &BufferLength, 0, v7);
             started = v9;
             if ( v9 >= 0 && v9 != 258 )
             {
-              started = *(_DWORD *)(v8 + 28);
+              started = *(&v8->CallbackId + 1);
               if ( started >= 0 )
                 started = 0;
             }
           }
         }
-        if ( v29 )
-          WerpFreeSid(v29);
+        if ( RequiredServerSid )
+          WerpFreeSid(RequiredServerSid);
       }
     }
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( PortHandle )
+    NtClose(PortHandle);
   return started;
 }

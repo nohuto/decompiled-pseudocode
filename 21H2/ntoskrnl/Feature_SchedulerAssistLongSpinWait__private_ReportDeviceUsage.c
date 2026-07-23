@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_SchedulerAssistLongSpinWait__private_ReportDeviceUsage @ 0x1403F2734
+ * XREFs of Feature_SchedulerAssistLongSpinWait__private_ReportDeviceUsage @ 0x1403F2784
  * Callers:
- *     KiInitializeVelocity @ 0x140A4C6E8 (KiInitializeVelocity.c)
+ *     KiInitializeVelocity @ 0x140A4D6E8 (KiInitializeVelocity.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x140252F20 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1403F0A5C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x140285D90 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1403F1CA0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_SchedulerAssistLongSpinWait__private_ReportDeviceUsage()

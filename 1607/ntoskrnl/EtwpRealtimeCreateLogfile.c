@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpRealtimeCreateLogfile @ 0x140490628
+ * XREFs of EtwpRealtimeCreateLogfile @ 0x1404910B8
  * Callers:
- *     EtwpLogger @ 0x14048FBA8 (EtwpLogger.c)
+ *     EtwpLogger @ 0x140490638 (EtwpLogger.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateUnicodeString @ 0x1403F75E4 (RtlCreateUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     EtwpSendSessionNotification @ 0x1404935F4 (EtwpSendSessionNotification.c)
- *     EtwpDelayCreate @ 0x140494AAC (EtwpDelayCreate.c)
- *     EtwpExpandFileName @ 0x1404EE8AC (EtwpExpandFileName.c)
- *     EtwpRealtimeZeroTruncateLogfile @ 0x14052DEC0 (EtwpRealtimeZeroTruncateLogfile.c)
- *     EtwpRealtimeRestoreState @ 0x14057A480 (EtwpRealtimeRestoreState.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x14057EACC (EtwpRealtimeUpdateReferenceTime.c)
- *     EtwpRealtimeResetReferenceTime @ 0x1406A99B8 (EtwpRealtimeResetReferenceTime.c)
+ *     RtlCreateUnicodeString @ 0x1403F64A4 (RtlCreateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     EtwpSendSessionNotification @ 0x140494084 (EtwpSendSessionNotification.c)
+ *     EtwpDelayCreate @ 0x14049553C (EtwpDelayCreate.c)
+ *     EtwpExpandFileName @ 0x1404D0974 (EtwpExpandFileName.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x14052E400 (EtwpRealtimeZeroTruncateLogfile.c)
+ *     EtwpRealtimeRestoreState @ 0x14057A9C0 (EtwpRealtimeRestoreState.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x14057EF78 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x1406A9AF0 (EtwpRealtimeResetReferenceTime.c)
  */
 
 __int64 __fastcall EtwpRealtimeCreateLogfile(__int64 a1)

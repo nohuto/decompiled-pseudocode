@@ -8,62 +8,68 @@
  *     sub_1800E71DC @ 0x1800E71DC (sub_1800E71DC.c)
  */
 
-__int64 __fastcall sub_1800E70A4(__int64 a1, char a2, int a3, __int64 a4, unsigned int a5, _DWORD *a6)
+NTSTATUS __fastcall sub_1800E70A4(HANDLE FileHandle, char a2, int a3, void *a4, unsigned int a5, _DWORD *a6)
 {
   __int64 v8; // rbx
-  __int64 result; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r15
-  int File; // ebx
-  int v13; // eax
-  __int64 v14; // rcx
-  unsigned int v15; // [rsp+50h] [rbp-20h]
-  __int64 v16; // [rsp+58h] [rbp-18h]
-  int v17; // [rsp+68h] [rbp-8h]
+  NTSTATUS result; // eax
+  __int64 Length; // rdx
+  __int64 v12; // r15
+  NTSTATUS v13; // ebx
+  NTSTATUS v14; // eax
+  __int64 v15; // rcx
+  unsigned int Buffer; // [rsp+50h] [rbp-20h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+58h] [rbp-18h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-10h] BYREF
 
+  ByteOffset.QuadPart = 0LL;
   v8 = a3;
-  result = ZwReadFile();
-  if ( (int)result >= 0 )
+  result = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 4u, &ByteOffset, 0LL);
+  if ( result >= 0 )
   {
     if ( (unsigned int)v8 >= 0x10 )
     {
-      return 3221225485LL;
+      return -1073741811;
     }
     else
     {
-      v10 = dword_180129C30[2 * v8 + 1];
-      v16 = dword_180129C30[2 * v8];
-      v11 = (unsigned int)v10;
-      if ( v10 + v16 <= (unsigned __int64)v15 )
+      ByteOffset.HighPart = 0;
+      Length = dword_180129C30[2 * v8 + 1];
+      ByteOffset.QuadPart = dword_180129C30[2 * v8];
+      v12 = (unsigned int)Length;
+      if ( Length + ByteOffset.QuadPart <= (unsigned __int64)Buffer )
       {
-        if ( a5 >= (unsigned int)v10 )
+        if ( a5 >= (unsigned int)Length )
         {
           if ( a2 )
           {
-            File = ZwReadFile();
+            v13 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a4, Length, &ByteOffset, 0LL);
           }
           else
           {
-            v13 = ZwWriteFile();
-            LOBYTE(v14) = 1;
-            File = v13;
-            sub_1800E71DC(v14, a4, v16, v11);
+            v14 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a4, Length, &ByteOffset, 0LL);
+            LOBYTE(v15) = 1;
+            v13 = v14;
+            ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))sub_1800E71DC)(
+              v15,
+              a4,
+              (LARGE_INTEGER)ByteOffset.QuadPart,
+              v12);
           }
-          if ( File >= 0 )
+          if ( v13 >= 0 )
           {
             if ( a6 )
-              *a6 = v17;
+              *a6 = IoStatusBlock.Information;
           }
-          return (unsigned int)File;
+          return v13;
         }
         else
         {
-          return 3221225507LL;
+          return -1073741789;
         }
       }
       else
       {
-        return 3221225561LL;
+        return -1073741735;
       }
     }
   }

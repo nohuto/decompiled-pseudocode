@@ -1,11 +1,11 @@
 /*
- * XREFs of PpHotSwapUpdateRemovalPolicy @ 0x1404EAC1C
+ * XREFs of PpHotSwapUpdateRemovalPolicy @ 0x14050F3A0
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
- *     PiHotSwapGetDetachableNode @ 0x1404EAD08 (PiHotSwapGetDetachableNode.c)
- *     PiHotSwapGetDefaultBusRemovalPolicy @ 0x1404EAD24 (PiHotSwapGetDefaultBusRemovalPolicy.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
+ *     PiHotSwapGetDefaultBusRemovalPolicy @ 0x1404D1EB0 (PiHotSwapGetDefaultBusRemovalPolicy.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     PiHotSwapGetDetachableNode @ 0x14050F48C (PiHotSwapGetDetachableNode.c)
  */
 
 __int64 __fastcall PpHotSwapUpdateRemovalPolicy(__int64 a1)
@@ -65,7 +65,7 @@ LABEL_10:
   *(_BYTE *)(a1 + 467) = v5;
   v6 = *(_QWORD *)(a1 + 48);
   v10 = 4;
-  result = CmGetDeviceRegProp(PiPnpRtlCtx, v6, 0, 34, (__int64)&v9, (__int64)&v8, (__int64)&v10, 0);
+  result = CmGetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, v6, 0LL, 34, (__int64)&v9, (__int64)&v8, (__int64)&v10, 0);
   if ( (int)result >= 0 )
   {
     if ( v9 != 4 )

@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbpGetManifestedMergeStubAlloc @ 0x140801460
+ * XREFs of SdbpGetManifestedMergeStubAlloc @ 0x140801BA0
  * Callers:
- *     SdbpGetMergeRedirectPathInternal @ 0x140801804 (SdbpGetMergeRedirectPathInternal.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140801F44 (SdbpGetMergeRedirectPathInternal.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     SdbpGetMergeSdbsDisabled @ 0x140801DAC (SdbpGetMergeSdbsDisabled.c)
- *     AslRegistryGetKey @ 0x140808AD4 (AslRegistryGetKey.c)
- *     AslPathToSystemPath @ 0x140809EE0 (AslPathToSystemPath.c)
- *     AslStringDuplicate @ 0x14095A750 (AslStringDuplicate.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     RtlGetNtSystemRoot @ 0x140A0B910 (RtlGetNtSystemRoot.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     SdbpGetMergeSdbsDisabled @ 0x1408024EC (SdbpGetMergeSdbsDisabled.c)
+ *     AslRegistryGetKey @ 0x140809214 (AslRegistryGetKey.c)
+ *     AslPathToSystemPath @ 0x14080A620 (AslPathToSystemPath.c)
+ *     AslStringDuplicate @ 0x140942210 (AslStringDuplicate.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     RtlGetNtSystemRoot @ 0x140A0AB50 (RtlGetNtSystemRoot.c)
  */
 
 __int64 __fastcall SdbpGetManifestedMergeStubAlloc(_QWORD *a1, const wchar_t *a2)
@@ -87,7 +87,7 @@ __int64 __fastcall SdbpGetManifestedMergeStubAlloc(_QWORD *a1, const wchar_t *a2
     goto LABEL_49;
   }
   v9 = 1;
-  v10 = (const wchar_t **)&off_140009578;
+  v10 = (const wchar_t **)&off_140009778;
   do
   {
     if ( !wcsicmp(a2, *v10) )
@@ -95,7 +95,7 @@ __int64 __fastcall SdbpGetManifestedMergeStubAlloc(_QWORD *a1, const wchar_t *a2
     ++v9;
     v10 += 4;
   }
-  while ( (__int64)v10 < (__int64)&qword_140009698 );
+  while ( (__int64)v10 < (__int64)&qword_140009898 );
   v3 = 0LL;
   v5 = 0LL;
   if ( v9 >= 10 )
@@ -163,7 +163,7 @@ LABEL_26:
       v16 = 1225;
       goto LABEL_19;
     }
-    NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v22 = NtSystemRoot;
     v23 = -1LL;
     do

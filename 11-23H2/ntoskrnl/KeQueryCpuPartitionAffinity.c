@@ -1,17 +1,17 @@
 /*
- * XREFs of KeQueryCpuPartitionAffinity @ 0x1403AE068
+ * XREFs of KeQueryCpuPartitionAffinity @ 0x1403AE248
  * Callers:
- *     KeQuerySystemCpuPartitionAffinity @ 0x1403AE040 (KeQuerySystemCpuPartitionAffinity.c)
- *     KeAssignCpuPartitionsToProcess @ 0x140574A1C (KeAssignCpuPartitionsToProcess.c)
- *     NtQueryInformationCpuPartition @ 0x1409B05D0 (NtQueryInformationCpuPartition.c)
+ *     KeQuerySystemCpuPartitionAffinity @ 0x1403AE220 (KeQuerySystemCpuPartitionAffinity.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x140574F5C (KeAssignCpuPartitionsToProcess.c)
+ *     NtQueryInformationCpuPartition @ 0x1409B07D0 (NtQueryInformationCpuPartition.c)
  * Callees:
  *     KiComputeGroupMask @ 0x140223B08 (KiComputeGroupMask.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeQueryCpuPartitionAffinity(__int64 a1, void *a2, unsigned __int16 a3, unsigned __int16 *a4)
@@ -39,10 +39,13 @@ __int64 __fastcall KeQueryCpuPartitionAffinity(__int64 a1, void *a2, unsigned __
   v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 264));
   KiCopyAffinityEx((__int64)v23, 0x20u, (unsigned __int16 *)a1);
   KxReleaseSpinLock((volatile signed __int64 *)(a1 + 264));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

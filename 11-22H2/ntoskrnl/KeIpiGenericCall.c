@@ -54,9 +54,9 @@ ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, U
   {
     v5 = KeGetCurrentIrql();
     __writecr8(0xCuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v5 == 12 )
@@ -83,7 +83,7 @@ ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, U
     KeYieldProcessorEx(&v22);
   v7 = KeGetCurrentIrql();
   __writecr8(0xEuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v7 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu )
   {
     v13 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v7 == 14 )
@@ -98,10 +98,10 @@ ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, U
   {
     if ( CurrentIrql <= 0xCu )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentPrcb = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
         {
           LOBYTE(CurrentPrcb) = CurrentPrcb - 2;
           if ( (unsigned __int8)CurrentPrcb <= 0xDu )
@@ -120,10 +120,10 @@ ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, U
     KiIpiStallOnPacketTargetsPrcb(CurrentPrcb, (__int64)KeGetCurrentPrcb());
   }
   KxReleaseSpinLock((volatile signed __int64 *)&KiReverseStallIpiLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;

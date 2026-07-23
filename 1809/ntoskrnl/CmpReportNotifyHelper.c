@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpReportNotifyHelper @ 0x1405DBEE0
+ * XREFs of CmpReportNotifyHelper @ 0x1405DCEE0
  * Callers:
- *     CmpReportNotifyForKcbStack @ 0x1405DC11C (CmpReportNotifyForKcbStack.c)
+ *     CmpReportNotifyForKcbStack @ 0x1405DD11C (CmpReportNotifyForKcbStack.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpTransIsTransActive @ 0x14026C56C (CmpTransIsTransActive.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpDelayedDerefKeys @ 0x1405DC0C4 (CmpDelayedDerefKeys.c)
- *     CmpNotifyTriggerCheck @ 0x1405DC1A8 (CmpNotifyTriggerCheck.c)
- *     CmpPostNotify @ 0x1405DC29C (CmpPostNotify.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpTransIsTransActive @ 0x14026C75C (CmpTransIsTransActive.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405D9AC0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpDelayedDerefKeys @ 0x1405DD0C4 (CmpDelayedDerefKeys.c)
+ *     CmpNotifyTriggerCheck @ 0x1405DD1A8 (CmpNotifyTriggerCheck.c)
+ *     CmpPostNotify @ 0x1405DD29C (CmpPostNotify.c)
  */
 
 __int64 __fastcall CmpReportNotifyHelper(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)

@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipSetTraceNotify @ 0x140B49CFC
+ * XREFs of WmipSetTraceNotify @ 0x140B4BA8C
  * Callers:
- *     IoWMIRegistrationControl @ 0x140ACD740 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x140ACF980 (IoWMIRegistrationControl.c)
  * Callees:
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     IoWMIDeviceObjectToProviderId @ 0x140496270 (IoWMIDeviceObjectToProviderId.c)
- *     WmipForwardWmiIrp @ 0x140A0F03C (WmipForwardWmiIrp.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     IoWMIDeviceObjectToProviderId @ 0x14048FDC0 (IoWMIDeviceObjectToProviderId.c)
+ *     WmipForwardWmiIrp @ 0x140A0E218 (WmipForwardWmiIrp.c)
  */
 
 void __fastcall WmipSetTraceNotify(PDEVICE_OBJECT DeviceObject, int a2)
@@ -47,16 +47,16 @@ LABEL_9:
 LABEL_10:
   v9 = v3;
 LABEL_11:
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
-  v4 = *(_BYTE *)(*(_QWORD *)&EtwpSecurityLock.ForegroundLossTime + 76LL) + 1;
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+  v4 = WmipServiceDeviceObject->StackSize + 1;
+  KeReleaseMutex(&WmipSMMutex, 0);
   Irp = IoAllocateIrp(v4, 0);
   v6 = Irp;
   if ( Irp )
   {
     --Irp->Tail.Overlay.CurrentStackLocation;
     --Irp->CurrentLocation;
-    Irp->Tail.Overlay.CurrentStackLocation->DeviceObject = *(PDEVICE_OBJECT *)&EtwpSecurityLock.ForegroundLossTime;
+    Irp->Tail.Overlay.CurrentStackLocation->DeviceObject = WmipServiceDeviceObject;
     v7 = IoWMIDeviceObjectToProviderId(DeviceObject);
     WmipForwardWmiIrp(v6, 0xDu, v7, 0LL, 0x10u, (__int64)&v8);
     IoFreeIrp(v6);

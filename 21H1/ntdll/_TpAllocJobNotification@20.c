@@ -15,82 +15,86 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpAllocJobNotification(int *a1, int a2, int a3, int a4, _DWORD *a5)
+int __stdcall TpAllocJobNotification(_RTL_SRWLOCK **a1, HANDLE JobHandle, unsigned int a3, int a4, _DWORD *a5)
 {
   int v5; // eax
-  int v6; // eax
-  void *Heap; // eax
-  int v8; // esi
-  _DWORD *v10; // ecx
-  int v11; // ecx
+  ULONG v6; // eax
+  _RTL_SRWLOCK *Heap; // eax
+  _RTL_SRWLOCK *v8; // esi
+  _RTL_SRWLOCK *Value; // ecx
+  unsigned int v11; // ecx
   char v12; // dl
-  int v13; // [esp+10h] [ebp-10h]
-  int v14; // [esp+10h] [ebp-10h]
-  int v15; // [esp+14h] [ebp-Ch]
-  _DWORD v16[2]; // [esp+18h] [ebp-8h] BYREF
-  _UNKNOWN *retaddr; // [esp+24h] [ebp+4h]
+  SIZE_T v13; // [esp-4h] [ebp-24h]
+  size_t v14; // [esp-4h] [ebp-24h]
+  int v15; // [esp+10h] [ebp-10h]
+  int v16; // [esp+10h] [ebp-10h]
+  int v17; // [esp+14h] [ebp-Ch]
+  _DWORD JobObjectInformation[2]; // [esp+18h] [ebp-8h] BYREF
+  unsigned int retaddr; // [esp+24h] [ebp+4h]
 
   v5 = 0;
-  v13 = 0;
+  v15 = 0;
   if ( a5 )
   {
     v5 = a5[7];
-    v13 = v5;
+    v15 = v5;
   }
-  if ( !a1 || !a3 || !a2 || (v5 & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !a1 || !a3 || !JobHandle || (v5 & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
   v6 = TppHeapTag;
   *a1 = 0;
-  Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, v6 + 3407872, 192);
-  v8 = (int)Heap;
+  LODWORD(v13) = 192;
+  Heap = (_RTL_SRWLOCK *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, v6 + 3407872, v13);
+  v8 = Heap;
   if ( !Heap )
     return -1073741801;
-  memset(Heap, 0, 0xC0u);
-  *(_DWORD *)(v8 + 156) = retaddr;
-  v14 = TppCleanupGroupMemberInitialize(v8 + 48, a4, a5, v13, (int)TppJobpCleanupGroupMemberVFuncs);
-  if ( v14 < 0 )
+  LODWORD(v14) = 192;
+  memset(Heap, 0, v14);
+  v8[39].Value = retaddr;
+  v16 = TppCleanupGroupMemberInitialize((int)&v8[12], a4, a5, v15, (int)TppJobpCleanupGroupMemberVFuncs);
+  if ( v16 < 0 )
     goto LABEL_17;
-  v10 = *(_DWORD **)(v8 + 140);
-  *(_DWORD *)(v8 + 96) = a3;
-  *(_DWORD *)(v8 + 168) = a2;
-  *(_DWORD *)(v8 + 32) = TppJobpExecuteCallback;
-  if ( v10 )
+  Value = (_RTL_SRWLOCK *)v8[35].Value;
+  v8[24].Value = a3;
+  v8[42].Value = (unsigned int)JobHandle;
+  v8[8].Value = (unsigned int)TppJobpExecuteCallback;
+  if ( Value )
   {
-    TppGetCurrentThreadNumaNode(v10, (_DWORD *)(v8 + 36), (unsigned __int8 *)(v8 + 40));
-    v11 = *(_DWORD *)(v8 + 36);
-    v12 = *(_BYTE *)(v8 + 40);
+    TppGetCurrentThreadNumaNode(Value, &v8[9].Value, (unsigned __int8 *)&v8[10]);
+    v11 = v8[9].Value;
+    v12 = (char)v8[10].0;
   }
   else
   {
-    *(_DWORD *)(v8 + 36) = 0;
+    v8[9].Value = 0;
     v11 = 0;
-    *(_BYTE *)(v8 + 40) = 0;
+    *(_BYTE *)&v8[10].0 = 0;
     v12 = 0;
   }
-  *(_DWORD *)(v8 + 20) = 0;
-  *(_DWORD *)(v8 + 28) = v8 + 24;
-  *(_DWORD *)(v8 + 24) = v8 + 24;
-  *(_DWORD *)v8 = TppDirectTaskVFuncs;
-  *(_DWORD *)(v8 + 4) = v11;
-  *(_BYTE *)(v8 + 8) = v12;
-  v15 = *(_DWORD *)(v8 + 140);
-  v16[0] = v8;
-  v16[1] = *(_DWORD *)(v15 + 40);
-  v14 = ZwSetInformationJobObject(a2, 7, (int)v16, 8);
-  if ( v14 < 0 )
+  v8[5].Value = 0;
+  v8[7].Value = (unsigned int)&v8[6];
+  v8[6].Value = (unsigned int)&v8[6];
+  v8->Value = (unsigned int)TppDirectTaskVFuncs;
+  v8[1].Value = v11;
+  *(_BYTE *)&v8[2].0 = v12;
+  v17 = v8[35].Value;
+  JobObjectInformation[0] = v8;
+  JobObjectInformation[1] = *(_DWORD *)(v17 + 40);
+  v16 = ZwSetInformationJobObject(JobHandle, JobObjectAssociateCompletionPortInformation, JobObjectInformation, 8u);
+  if ( v16 < 0 )
   {
-    TppCleanupGroupMemberDestroy((_DWORD *)(v8 + 48));
+    TppCleanupGroupMemberDestroy((int)&v8[12]);
 LABEL_17:
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, TppHeapTag + 3407872, v8);
-    return v14;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3407872, v8);
+    return v16;
   }
-  TpAdjustBindingCount(v15, 1u);
-  _InterlockedIncrement((volatile signed __int32 *)(v8 + 48));
-  *(_DWORD *)(v8 + 184) = 0;
+  TpAdjustBindingCount(v17, 1u);
+  _InterlockedIncrement((volatile signed __int32 *)&v8[12]);
+  v8[46].Value = 0;
   if ( a5 )
-    *(_DWORD *)(v8 + 64) = a5[6];
-  if ( *(_DWORD *)(v8 + 56) )
-    TppCleanupGroupAddMember((_DWORD *)(v8 + 48));
+    v8[16].0 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)a5[6];
+  if ( v8[14].Value )
+    TppCleanupGroupAddMember(v8 + 12);
   *a1 = v8;
   return 0;
 }

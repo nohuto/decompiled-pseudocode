@@ -15,32 +15,33 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-void __fastcall sub_180015A40(__int64 a1, void *SubProcessTag, __int64 a3, __int64 a4)
+void __fastcall sub_180015A40(__int64 a1, PVOID SubProcessTag, __int64 a3)
 {
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  struct _TEB *v7; // rax
-  __int64 v8; // rdi
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v10; // [rsp+0h] [rbp-100h] BYREF
-  __int64 v11; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v12; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  struct _TEB *v6; // rax
+  __int64 v7; // rdi
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 v9; // [rsp+0h] [rbp-100h] BYREF
+  __int64 ThreadInformation; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v11; // [rsp+38h] [rbp-C8h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v14[6]; // [rsp+E0h] [rbp-20h] BYREF
-  __int16 v15; // [rsp+E6h] [rbp-1Ah]
-  int v16; // [rsp+100h] [rbp+0h]
-  int v17; // [rsp+104h] [rbp+4h]
-  __int64 v18; // [rsp+108h] [rbp+8h]
+  _BYTE Fields[6]; // [rsp+E0h] [rbp-20h] BYREF
+  __int16 v14; // [rsp+E6h] [rbp-1Ah]
+  int v15; // [rsp+100h] [rbp+0h]
+  int v16; // [rsp+104h] [rbp+4h]
+  __int64 v17; // [rsp+108h] [rbp+8h]
 
   if ( a1 )
   {
-    NtCurrentTeb()->ActivityId = *(struct _GUID *)(a1 + 232);
-    v11 = 0LL;
-    v5 = (__int64)NtCurrentTeb()->SystemReserved1[53];
-    if ( v5 && (int)ZwSetInformationThread(-2LL, 44LL, &v11) >= 0 )
+    NtCurrentTeb()->ActivityId = *(GUID *)(a1 + 232);
+    ThreadInformation = 0LL;
+    v4 = *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket;
+    if ( v4
+      && ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, &ThreadInformation, 8u) >= 0 )
     {
-      v5 = (__int64)NtCurrentTeb();
-      *(_QWORD *)(v5 + 696) = v11;
+      v4 = (__int64)NtCurrentTeb();
+      *(_QWORD *)(v4 + 696) = ThreadInformation;
     }
     if ( (*(_BYTE *)(a1 + 76) & 1) != 0 && (*(_BYTE *)(a1 + 104) & 1) == 0 )
     {
@@ -49,28 +50,28 @@ void __fastcall sub_180015A40(__int64 a1, void *SubProcessTag, __int64 a3, __int
     }
     if ( *(_QWORD *)(a1 + 80) && (*(_BYTE *)(a1 + 104) & 2) == 0 )
     {
-      v7 = NtCurrentTeb();
-      v8 = 2147353488LL;
-      SubProcessTag = v7->SubProcessTag;
-      v7->SubProcessTag = 0LL;
-      HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-      if ( HotpatchInformation && *HotpatchInformation )
-        v5 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
+      v6 = NtCurrentTeb();
+      v7 = 2147353488LL;
+      SubProcessTag = v6->SubProcessTag;
+      v6->SubProcessTag = 0LL;
+      SharedData = NtCurrentPeb()->SharedData;
+      if ( SharedData && SharedData->ServiceSessionId )
+        v4 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
       else
-        v5 = 2147353488LL;
-      if ( *(_BYTE *)v5 && SubProcessTag )
+        v4 = 2147353488LL;
+      if ( *(_BYTE *)v4 && SubProcessTag )
       {
-        v16 = (int)SubProcessTag;
-        v15 = 1349;
-        v17 = 0;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId(v5, SubProcessTag, a3, a4) )
-          v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
-        ZwTraceEvent(*(unsigned __int8 *)v8, 1026LL, 8LL, v14);
+        v15 = (int)SubProcessTag;
+        v14 = 1349;
+        v16 = 0;
+        if ( RtlGetCurrentServiceSessionId() )
+          v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
+        ZwTraceEvent((HANDLE)*(unsigned __int8 *)v7, 0x402u, 8u, Fields);
       }
       *(_QWORD *)(a1 + 80) = 0LL;
     }
-    v6 = *(_QWORD *)(a1 + 128);
-    if ( v6 && (*(_BYTE *)(v6 + 436) & 1) == 0 )
+    v5 = *(_QWORD *)(a1 + 128);
+    if ( v5 && (*(_BYTE *)(v5 + 436) & 1) == 0 )
     {
       if ( NtCurrentTeb()->IsImpersonating && (*(_BYTE *)(a1 + 104) & 4) == 0 )
       {
@@ -80,14 +81,14 @@ void __fastcall sub_180015A40(__int64 a1, void *SubProcessTag, __int64 a3, __int
         ExceptionRecord.ExceptionCode = -1073740016;
         ExceptionRecord.NumberParameters = 2;
         RtlRaiseException(&ExceptionRecord);
-        v12 = 0LL;
-        ZwSetInformationThread(-2LL, 5LL, &v12);
+        v11 = 0LL;
+        ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &v11, 8u);
       }
-      if ( (*(_BYTE *)(a1 + 104) & 0x10) == 0 && (unsigned __int8)sub_18001655C(v5, SubProcessTag, a3) )
+      if ( (*(_BYTE *)(a1 + 104) & 0x10) == 0 && (unsigned __int8)sub_18001655C(v4, SubProcessTag, a3) )
       {
         DbgPrintEx(
-          84LL,
-          0LL,
+          0x54u,
+          0,
           "ThreadPool: callback %p(%p) returned with a transaction uncleared\n",
           *(const void **)(a1 + 88),
           *(const void **)(a1 + 96));
@@ -100,8 +101,8 @@ void __fastcall sub_180015A40(__int64 a1, void *SubProcessTag, __int64 a3, __int
         && NtCurrentPeb()->LoaderLock->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
       {
         DbgPrintEx(
-          84LL,
-          0LL,
+          0x54u,
+          0,
           "ThreadPool: callback %p(%p) returned with the loader lock held\n",
           *(const void **)(a1 + 88),
           *(const void **)(a1 + 96));
@@ -113,8 +114,8 @@ void __fastcall sub_180015A40(__int64 a1, void *SubProcessTag, __int64 a3, __int
       if ( (*(_BYTE *)(a1 + 104) & 0x40) == 0 && NtCurrentTeb()->PreferredLanguages )
       {
         DbgPrintEx(
-          84LL,
-          0LL,
+          0x54u,
+          0,
           "ThreadPool: callback %p(%p) returned with preferred languages set\n",
           *(const void **)(a1 + 88),
           *(const void **)(a1 + 96));
@@ -128,8 +129,8 @@ void __fastcall sub_180015A40(__int64 a1, void *SubProcessTag, __int64 a3, __int
         if ( NtCurrentTeb()->SavedPriorityState )
         {
           DbgPrintEx(
-            84LL,
-            0LL,
+            0x54u,
+            0,
             "ThreadPool: callback %p(%p) returned with background priorities set\n",
             *(const void **)(a1 + 88),
             *(const void **)(a1 + 96));
@@ -140,6 +141,6 @@ void __fastcall sub_180015A40(__int64 a1, void *SubProcessTag, __int64 a3, __int
         }
       }
     }
-    sub_180095EB0((unsigned __int64)&v10 ^ v18);
+    sub_180095EB0((unsigned __int64)&v9 ^ v17);
   }
 }

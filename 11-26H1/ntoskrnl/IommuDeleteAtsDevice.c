@@ -1,11 +1,11 @@
 /*
- * XREFs of IommuDeleteAtsDevice @ 0x14059B8A0
+ * XREFs of IommuDeleteAtsDevice @ 0x14059E020
  * Callers:
  *     <none>
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     HalpIommuDeleteDevice @ 0x140587958 (HalpIommuDeleteDevice.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     HalpIommuDeleteDevice @ 0x140589F30 (HalpIommuDeleteDevice.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuDeleteAtsDevice(__int64 a1)

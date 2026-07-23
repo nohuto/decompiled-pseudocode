@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetProcessForegroundBackgroundRequest @ 0x1407C0350
+ * XREFs of PspSetProcessForegroundBackgroundRequest @ 0x1407C0620
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     PsSetProcessPriorityByClass @ 0x1407C0320 (PsSetProcessPriorityByClass.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     PsSetProcessPriorityByClass @ 0x1407C05F0 (PsSetProcessPriorityByClass.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PspSetProcessPriorityByClass @ 0x140350138 (PspSetProcessPriorityByClass.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PspSetProcessPriorityByClass @ 0x1403502D8 (PspSetProcessPriorityByClass.c)
  */
 
 _QWORD *__fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2, char a3)

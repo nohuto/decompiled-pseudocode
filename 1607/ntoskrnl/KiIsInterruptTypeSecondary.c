@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsInterruptTypeSecondary @ 0x14012D8E0
+ * XREFs of KiIsInterruptTypeSecondary @ 0x14012DE50
  * Callers:
- *     KeDisconnectInterrupt @ 0x140123E5C (KeDisconnectInterrupt.c)
- *     KeMaskInterrupt @ 0x1401240A0 (KeMaskInterrupt.c)
- *     KeUnmaskInterrupt @ 0x1401255DC (KeUnmaskInterrupt.c)
- *     KeConnectInterrupt @ 0x14012CFC4 (KeConnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x1401243CC (KeDisconnectInterrupt.c)
+ *     KeMaskInterrupt @ 0x140124610 (KeMaskInterrupt.c)
+ *     KeUnmaskInterrupt @ 0x140125B4C (KeUnmaskInterrupt.c)
+ *     KeConnectInterrupt @ 0x14012D534 (KeConnectInterrupt.c)
  * Callees:
  *     <none>
  */

@@ -2,13 +2,13 @@
  * XREFs of ?KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFINITY_EX@@2PEAE3PEAK@Z @ 0x140200F50
  * Callers:
  *     ?KiSetProcessConcurrencyCount@@YAXPEAU_KPROCESS@@T_KI_PROCESS_CONCURRENCY_COUNT@@PEAE@Z @ 0x140200DD0 (-KiSetProcessConcurrencyCount@@YAXPEAU_KPROCESS@@T_KI_PROCESS_CONCURRENCY_COUNT@@PEAE@Z.c)
- *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x14021BA80 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
+ *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x14021D410 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
  *     KeSelectIdealProcessor @ 0x140201160 (KeSelectIdealProcessor.c)
- *     ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x140202D20 (-KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     EtwTraceIdealProcessor @ 0x1404E78D8 (EtwTraceIdealProcessor.c)
+ *     ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x140202DF8 (-KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     EtwTraceIdealProcessor @ 0x1404E0C98 (EtwTraceIdealProcessor.c)
  */
 
 void __fastcall KiAdaptThreadIdealProcessorForProcessIdealSetChange(
@@ -116,7 +116,7 @@ LABEL_21:
       v25 = KiProcessorBlock[v24];
       *v7 = (_DWORD)v24 != (_DWORD)UserIdealProcessor;
       a2 = *(_QWORD *)(v25 + 192);
-      v26 = (xmmword_140FBFC10 & 0x8000000) == 0;
+      v26 = (xmmword_140FC0C10 & 0x8000000) == 0;
       *v9 = *(_WORD *)(a2 + 138) != *(_WORD *)(*(_QWORD *)(v22 + 192) + 138LL);
       if ( !v26 )
         EtwTraceIdealProcessor(v13, 1351LL, (unsigned int)UserIdealProcessor, (unsigned int)v24);

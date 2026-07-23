@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlWow64GetCurrentCpuArea @ 0x1800764B0
+ * XREFs of RtlWow64GetCurrentCpuArea @ 0x1800764A0
  * Callers:
- *     RtlWow64GetCurrentMachine @ 0x1800762D0 (RtlWow64GetCurrentMachine.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     RtlWow64GetCurrentMachine @ 0x1800762C0 (RtlWow64GetCurrentMachine.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlWow64GetCpuAreaInfo @ 0x180076530 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x180076520 (RtlWow64GetCpuAreaInfo.c)
  */
 
 __int64 __fastcall RtlWow64GetCurrentCpuArea(_WORD *a1, _QWORD *a2, _QWORD *a3)

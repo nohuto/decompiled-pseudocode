@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipIsQuerySetGuid @ 0x140612DB8
+ * XREFs of WmipIsQuerySetGuid @ 0x140613DB8
  * Callers:
- *     WmipOpenBlock @ 0x140611928 (WmipOpenBlock.c)
+ *     WmipOpenBlock @ 0x140612928 (WmipOpenBlock.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)

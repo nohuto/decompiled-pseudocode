@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnicodeStringCopy @ 0x1800C8E70
+ * XREFs of RtlUnicodeStringCopy @ 0x1800C6630
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x180047AE0 (RtlGetFullPathName_Ustr.c)
- *     RtlpEnsureTailingSlashAndAddToList @ 0x18011D730 (RtlpEnsureTailingSlashAndAddToList.c)
+ *     RtlGetFullPathName_Ustr @ 0x180032060 (RtlGetFullPathName_Ustr.c)
+ *     RtlpEnsureTailingSlashAndAddToList @ 0x18011D4E0 (RtlpEnsureTailingSlashAndAddToList.c)
  * Callees:
  *     <none>
  */

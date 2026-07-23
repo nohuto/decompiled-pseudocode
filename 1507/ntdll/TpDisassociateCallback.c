@@ -6,30 +6,31 @@
  *     TppBarrierAdjust @ 0x18007DD84 (TppBarrierAdjust.c)
  */
 
-__int64 __fastcall TpDisassociateCallback(__int64 a1, __int64 a2, __int64 a3)
+void __cdecl TpDisassociateCallback(PTP_CALLBACK_INSTANCE Instance)
 {
-  __int64 v3; // rbx
-  char v4; // al
-  __int64 v5; // rdx
+  __int64 v1; // rdx
+  __int64 v2; // rbx
+  char v3; // al
+  __int64 v4; // rdx
 
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, a2, a3);
-  v3 = *(_QWORD *)(a1 + 184);
-  if ( !v3 )
-    return TppRaiseInvalidParameter(a1, a2, a3);
-  if ( *(_QWORD *)(a1 + 176) )
-    return TppRaiseInvalidParameter(a1, a2, a3);
-  v4 = *(_BYTE *)(a1 + 76);
-  if ( (v4 & 2) != 0 )
-    return TppRaiseInvalidParameter(a1, a2, a3);
-  *(_DWORD *)(a1 + 144) &= ~0x40u;
-  *(_BYTE *)(a1 + 76) = v4 | 2;
-  v5 = *(_QWORD *)(v3 + 16);
-  *(_QWORD *)(a1 + 176) = v5;
-  if ( v5 )
+  if ( !Instance
+    || (v2 = *((_QWORD *)Instance + 23)) == 0
+    || *((_QWORD *)Instance + 22)
+    || (v3 = *((_BYTE *)Instance + 76), (v3 & 2) != 0) )
   {
-    *(_DWORD *)(a1 + 144) |= 0x20u;
-    TppBarrierAdjust(v5 + 32, 1LL);
+    TppRaiseInvalidParameter(Instance, v1);
   }
-  return TppBarrierAdjust(v3 + 56, 0xFFFFFFFFLL);
+  else
+  {
+    *((_DWORD *)Instance + 36) &= ~0x40u;
+    *((_BYTE *)Instance + 76) = v3 | 2;
+    v4 = *(_QWORD *)(v2 + 16);
+    *((_QWORD *)Instance + 22) = v4;
+    if ( v4 )
+    {
+      *((_DWORD *)Instance + 36) |= 0x20u;
+      TppBarrierAdjust(v4 + 32, 1LL);
+    }
+    TppBarrierAdjust(v2 + 56, 0xFFFFFFFFLL);
+  }
 }

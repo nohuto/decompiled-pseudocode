@@ -1,12 +1,12 @@
 /*
- * XREFs of tan @ 0x18012D300
+ * XREFs of tan @ 0x18012D070
  * Callers:
  *     <none>
  * Callees:
- *     tan_piby4 @ 0x18012D630 (tan_piby4.c)
- *     _controlfp @ 0x180130270 (_controlfp.c)
- *     _handle_error @ 0x1801303D0 (_handle_error.c)
- *     __remainder_piby2 @ 0x180130550 (__remainder_piby2.c)
+ *     tan_piby4 @ 0x18012D3A0 (tan_piby4.c)
+ *     _controlfp @ 0x18012FFE0 (_controlfp.c)
+ *     _handle_error @ 0x180130140 (_handle_error.c)
+ *     __remainder_piby2 @ 0x1801302C0 (__remainder_piby2.c)
  */
 
 double __cdecl tan(double X)

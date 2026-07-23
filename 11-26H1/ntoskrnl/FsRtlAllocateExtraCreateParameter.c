@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameter @ 0x140A7E720
+ * XREFs of FsRtlAllocateExtraCreateParameter @ 0x140A84590
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameter(

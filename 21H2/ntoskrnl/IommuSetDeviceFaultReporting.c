@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuSetDeviceFaultReporting @ 0x1404DAAC0
+ * XREFs of IommuSetDeviceFaultReporting @ 0x1404DAD00
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

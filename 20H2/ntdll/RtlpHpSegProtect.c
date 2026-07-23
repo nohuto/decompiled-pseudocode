@@ -7,41 +7,56 @@
  *     ZwProtectVirtualMemory @ 0x18009DAB0 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpHpSegProtect(__int64 a1)
+NTSTATUS __fastcall RtlpHpSegProtect(__int64 a1, ULONG a2)
 {
-  char *v1; // rdi
+  char *v2; // rdi
   char *i; // rbx
-  char *v4; // rsi
-  __int64 result; // rax
-  __int64 v6; // [rsp+48h] [rbp-40h]
-  int v7; // [rsp+50h] [rbp-38h]
-  char *v8; // [rsp+A0h] [rbp+18h]
+  char *v6; // rdx
+  int v7; // esi
+  char *v8; // rsi
+  NTSTATUS result; // eax
+  _BYTE MemoryInformation[24]; // [rsp+30h] [rbp-58h] BYREF
+  ULONG_PTR v11; // [rsp+48h] [rbp-40h]
+  int v12; // [rsp+50h] [rbp-38h]
+  ULONG OldProtect; // [rsp+90h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+A0h] [rbp+18h] BYREF
+  ULONG_PTR RegionSize; // [rsp+A8h] [rbp+20h] BYREF
 
-  v1 = (char *)(a1 + 72);
+  v2 = (char *)(a1 + 72);
   for ( i = *(char **)(a1 + 72); ; i = *(char **)i )
   {
-    if ( i == v1 )
-      return 0LL;
-    v8 = i;
-    v4 = &i[-*(_DWORD *)a1];
-    if ( i < v4 )
+    if ( i == v2 )
+      return 0;
+    v6 = i;
+    v7 = ~*(_DWORD *)a1;
+    BaseAddress = i;
+    v8 = &i[v7 + 1];
+    if ( i < v8 )
       break;
 LABEL_7:
     ;
   }
   while ( 1 )
   {
-    result = ZwQueryVirtualMemory();
-    if ( (int)result < 0 )
+    result = ZwQueryVirtualMemory(
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               v6,
+               MemoryBasicInformation,
+               MemoryInformation,
+               0x30uLL,
+               0LL);
+    if ( result < 0 )
       return result;
-    if ( v7 == 4096 )
+    if ( v12 == 4096 )
     {
-      result = ZwProtectVirtualMemory();
-      if ( (int)result < 0 )
+      RegionSize = v11;
+      result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, a2, &OldProtect);
+      if ( result < 0 )
         return result;
     }
-    v8 += v6;
-    if ( v8 >= v4 )
+    v6 = (char *)BaseAddress + v11;
+    BaseAddress = v6;
+    if ( v6 >= v8 )
       goto LABEL_7;
   }
 }

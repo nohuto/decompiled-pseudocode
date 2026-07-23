@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpcNoReboot @ 0x1409DA7E0
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpcNoReboot @ 0x1409DB7E0
  * Callers:
  *     <none>
  * Callees:
- *     VerifierKeAcquireInStackQueuedSpinLockForDpcCommon @ 0x1409DA768 (VerifierKeAcquireInStackQueuedSpinLockForDpcCommon.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockForDpcCommon @ 0x1409DB768 (VerifierKeAcquireInStackQueuedSpinLockForDpcCommon.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockForDpcNoReboot(ULONG_PTR a1, ULONG_PTR a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MmInitializeHandBuiltProcess @ 0x14075E86C
+ * XREFs of MmInitializeHandBuiltProcess @ 0x14075FA5C
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiAllowWorkingSetExpansion @ 0x1400F3314 (MiAllowWorkingSetExpansion.c)
- *     ExInitializeAutoExpandPushLock @ 0x140119230 (ExInitializeAutoExpandPushLock.c)
- *     MiInsertNewProcess @ 0x14013CEF0 (MiInsertNewProcess.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiAllocateProcessShadow @ 0x1406D1AEC (MiAllocateProcessShadow.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiAllowWorkingSetExpansion @ 0x1400F3394 (MiAllowWorkingSetExpansion.c)
+ *     ExInitializeAutoExpandPushLock @ 0x1401192A0 (ExInitializeAutoExpandPushLock.c)
+ *     MiInsertNewProcess @ 0x14013CFF0 (MiInsertNewProcess.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     MiAllocateProcessShadow @ 0x1406D2D8C (MiAllocateProcessShadow.c)
  */
 
 __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)

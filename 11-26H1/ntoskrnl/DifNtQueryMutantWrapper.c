@@ -1,17 +1,22 @@
 /*
- * XREFs of DifNtQueryMutantWrapper @ 0x1406847F0
+ * XREFs of DifNtQueryMutantWrapper @ 0x1406883D0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtQueryMutant @ 0x140B1D3A0 (NtQueryMutant.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtQueryMutant @ 0x140B1F520 (NtQueryMutant.c)
  */
 
-__int64 __fastcall DifNtQueryMutantWrapper(void *a1, int a2, __int64 a3, int a4, __int64 a5)
+__int64 __fastcall DifNtQueryMutantWrapper(
+        void *a1,
+        MUTANT_INFORMATION_CLASS a2,
+        void *a3,
+        ULONG a4,
+        ULONG *ReturnLength)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -47,7 +52,7 @@ __int64 __fastcall DifNtQueryMutantWrapper(void *a1, int a2, __int64 a3, int a4,
     }
     v12 = 0;
     *((_QWORD *)&v20 + 1) = a1;
-    *((_QWORD *)&v18 + 1) = a5;
+    *((_QWORD *)&v18 + 1) = ReturnLength;
     LODWORD(v20) = a2;
     *((_QWORD *)&v19 + 1) = a3;
     LODWORD(v19) = a4;
@@ -63,7 +68,7 @@ __int64 __fastcall DifNtQueryMutantWrapper(void *a1, int a2, __int64 a3, int a4,
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v21) = NtQueryMutant(a1, a5);
+  LODWORD(v21) = NtQueryMutant(a1, a2, a3, a4, ReturnLength);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

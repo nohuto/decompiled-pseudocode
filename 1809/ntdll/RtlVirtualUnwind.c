@@ -3,20 +3,20 @@
  * Callers:
  *     RtlDispatchException @ 0x1800048E0 (RtlDispatchException.c)
  *     RtlUnwindEx @ 0x180005BF0 (RtlUnwindEx.c)
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x18008FF10 (__report_gsfailure.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x18008FF20 (__report_gsfailure.c)
  * Callees:
  *     RtlpSameFunction @ 0x180002E70 (RtlpSameFunction.c)
  *     RtlpPopUserShadowStack @ 0x180003738 (RtlpPopUserShadowStack.c)
  *     RtlLocateExtendedFeature2 @ 0x1800083F0 (RtlLocateExtendedFeature2.c)
- *     RtlpUnwindEpilogue @ 0x18009F434 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x18009F658 (RtlpUnwindOpSlots.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
+ *     RtlpUnwindEpilogue @ 0x18009F448 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x18009F66C (RtlpUnwindOpSlots.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
  */
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBase, ULONG64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
 {
-  EXCEPTION_ROUTINE *v8; // rsi
+  EXCEPTION_DISPOSITION (__cdecl *v8)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // rsi
   ULONG64 v9; // rbp
   ULONG64 v11; // r13
   int v13; // r12d
@@ -128,7 +128,7 @@ PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBa
         v74 = *v15 & 1;
         if ( (unsigned int)ImageBase > 0x20 )
 LABEL_163:
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
         v75 = v73 + 1;
         if ( !v74 )
           v75 = v73;
@@ -375,7 +375,7 @@ LABEL_70:
     v53 = (unsigned __int64)&v20[v51 - v11];
     if ( v53 < BeginAddress || v53 >= FunctionEntry->EndAddress )
     {
-      v79 = RtlpSameFunction((__int64)FunctionEntry, v11, (__int64)&v20[v51]);
+      v79 = RtlpSameFunction((__int64)FunctionEntry, v11, &v20[v51]);
       if ( !v79 )
         goto LABEL_66;
       v88 = v53 == *v79;

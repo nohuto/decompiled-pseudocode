@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventAddDevice @ 0x140527A18
+ * XREFs of KsepDsEventAddDevice @ 0x140527C58
  * Callers:
- *     KseDsCallbackHookAddDevice @ 0x140527270 (KseDsCallbackHookAddDevice.c)
+ *     KseDsCallbackHookAddDevice @ 0x1405274B0 (KseDsCallbackHookAddDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char KsepDsEventAddDevice(__int64 a1, int a2, ...)

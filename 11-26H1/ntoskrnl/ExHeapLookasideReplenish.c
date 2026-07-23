@@ -1,16 +1,16 @@
 /*
- * XREFs of ExHeapLookasideReplenish @ 0x1404678B0
+ * XREFs of ExHeapLookasideReplenish @ 0x140461000
  * Callers:
- *     ExAllocateHeapPool @ 0x1403987D0 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x14039A530 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlpHpVsContextMultiAlloc @ 0x140467958 (RtlpHpVsContextMultiAlloc.c)
- *     InterlockedPushListSList @ 0x140730D40 (InterlockedPushListSList.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x1404610A8 (RtlpHpVsContextMultiAlloc.c)
+ *     InterlockedPushListSList @ 0x140735910 (InterlockedPushListSList.c)
  */
 
 PSLIST_ENTRY *__fastcall ExHeapLookasideReplenish(__int64 a1, unsigned int a2, int a3, unsigned __int64 a4)
 {
   PSLIST_ENTRY *v4; // rdi
-  union _SLIST_HEADER *v6; // rbx
+  _SLIST_HEADER *v6; // rbx
   unsigned int v7; // r8d
   unsigned int Alignment_low; // edx
   unsigned int v9; // ecx
@@ -21,7 +21,7 @@ PSLIST_ENTRY *__fastcall ExHeapLookasideReplenish(__int64 a1, unsigned int a2, i
 
   v4 = 0LL;
   v14 = 0LL;
-  v6 = (union _SLIST_HEADER *)(a1 + ((a2 + 1LL) << 6));
+  v6 = (_SLIST_HEADER *)(a1 + ((a2 + 1LL) << 6));
   ListEnd[0] = 0LL;
   v7 = 0;
   Alignment_low = LOWORD(v6->Alignment);

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlCancellableWaitForSingleObject @ 0x140A8C0D0
+ * XREFs of FsRtlCancellableWaitForSingleObject @ 0x140A91340
  * Callers:
- *     FsRtlpWaitOnIrp @ 0x1404EC254 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x1404E5834 (FsRtlpWaitOnIrp.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeQueryTimeIncrement @ 0x140457230 (KeQueryTimeIncrement.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeQueryTimeIncrement @ 0x14044EAA0 (KeQueryTimeIncrement.c)
  */
 
 NTSTATUS __stdcall FsRtlCancellableWaitForSingleObject(PVOID Object, PLARGE_INTEGER Timeout, PIRP Irp)

@@ -3,17 +3,17 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     IopGetFileObjectExtension @ 0x1402A3A14 (IopGetFileObjectExtension.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
+ *     sub_1402A3A14 @ 0x1402A3A14 (sub_1402A3A14.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Signature)
 {
   __int64 v3; // rcx
-  void **FileObjectExtension; // rbx
+  void **v4; // rbx
   NTSTATUS v5; // esi
   KSPIN_LOCK *v6; // rbp
   KIRQL v7; // al
@@ -22,20 +22,20 @@ NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Sig
   void **v10; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v13; // r9
   int v14; // edx
   bool v15; // zf
   void **v17; // rax
 
-  FileObjectExtension = (void **)IopGetFileObjectExtension((__int64)FileObject, 4, 0LL);
+  v4 = (void **)sub_1402A3A14((__int64)FileObject, 4, 0LL);
   v5 = -1073741275;
-  if ( FileObjectExtension )
+  if ( v4 )
   {
     v6 = (KSPIN_LOCK *)(v3 + 184);
     v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v3 + 184));
-    v8 = (PVOID *)*FileObjectExtension;
+    v8 = (PVOID *)*v4;
     v9 = v7;
-    if ( *FileObjectExtension != FileObjectExtension )
+    if ( *v4 != v4 )
     {
       while ( 1 )
       {
@@ -43,7 +43,7 @@ NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Sig
         if ( v8[3] == Signature )
           break;
         v8 = (PVOID *)*v8;
-        if ( v10 == FileObjectExtension )
+        if ( v10 == v4 )
           goto LABEL_5;
       }
       v17 = (void **)v8[1];
@@ -55,21 +55,21 @@ NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Sig
       v5 = 0;
     }
 LABEL_5:
-    KxReleaseSpinLock(v6);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel(v6);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v13 = *((_QWORD *)CurrentPrcb + 4375);
           v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v15 = (v14 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v14;
+          v15 = (v14 & *(_DWORD *)(v13 + 20)) == 0;
+          *(_DWORD *)(v13 + 20) &= v14;
           if ( v15 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            sub_140418E4C((__int64)CurrentPrcb);
         }
       }
     }

@@ -19,10 +19,10 @@ void __fastcall HalpMceInit(__int64 a1)
   ULONG ActiveProcessorCount; // ebp
   int *v4; // rsi
   unsigned int v5; // edx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 i; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDetermineCoalescedLargePageHeatState @ 0x1403478A8
+ * XREFs of MiDetermineCoalescedLargePageHeatState @ 0x140347B38
  * Callers:
- *     MiCoalesceFreePages @ 0x1402D4970 (MiCoalesceFreePages.c)
- *     MiLargePagePromote @ 0x1402D77D0 (MiLargePagePromote.c)
+ *     MiCoalesceFreePages @ 0x1402D4C00 (MiCoalesceFreePages.c)
+ *     MiLargePagePromote @ 0x1402D7A60 (MiLargePagePromote.c)
  * Callees:
- *     MiDetermineNewPfnHeatState @ 0x1403478E8 (MiDetermineNewPfnHeatState.c)
- *     MiColdPageSizeSupported @ 0x140347930 (MiColdPageSizeSupported.c)
+ *     MiDetermineNewPfnHeatState @ 0x140347B78 (MiDetermineNewPfnHeatState.c)
+ *     MiColdPageSizeSupported @ 0x140347BC0 (MiColdPageSizeSupported.c)
  */
 
 _BOOL8 __fastcall MiDetermineCoalescedLargePageHeatState(__int64 a1)

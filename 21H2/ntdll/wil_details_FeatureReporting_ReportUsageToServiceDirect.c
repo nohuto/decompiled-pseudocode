@@ -5,8 +5,8 @@
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     wil_details_FeatureReporting_RecordUsageInCache @ 0x18009BEA0 (wil_details_FeatureReporting_RecordUsageInCache.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlNotifyFeatureUsage @ 0x180101B40 (RtlNotifyFeatureUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlNotifyFeatureUsage @ 0x180101B00 (RtlNotifyFeatureUsage.c)
  */
 
 __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(__int64 a1, __int64 a2, __int64 a3)
@@ -15,8 +15,8 @@ __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(__int
   unsigned int v5; // esi
   int *v6; // rax
   unsigned int v7; // edi
-  int v9; // [rsp+30h] [rbp-40h] BYREF
-  int v10; // [rsp+34h] [rbp-3Ch]
+  ULONG v8; // eax
+  _RTL_FEATURE_USAGE_REPORT FeatureUsageReport; // [rsp+30h] [rbp-40h] BYREF
   _BYTE v11[24]; // [rsp+38h] [rbp-38h] BYREF
   __int128 v12; // [rsp+50h] [rbp-20h] BYREF
   __int64 v13; // [rsp+60h] [rbp-10h]
@@ -35,11 +35,13 @@ __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(__int
     g_wil_details_recordFeatureUsage(*(unsigned int *)(a1 + 24), v5, 1LL, *(_QWORD *)(a1 + 8), &v12);
   if ( (v3 & 0x400) != 0 && v5 != 254 )
   {
-    v9 = *(_DWORD *)(a1 + 24);
-    v10 = (unsigned __int16)v5;
+    v8 = *(_DWORD *)(a1 + 24);
+    FeatureUsageReport.ReportingOptions = 0;
+    FeatureUsageReport.FeatureId = v8;
+    FeatureUsageReport.ReportingKind = v5;
     if ( (v3 & 0x800) != 0 )
-      HIWORD(v10) |= 1u;
-    RtlNotifyFeatureUsage(&v9);
+      FeatureUsageReport.ReportingOptions |= 1u;
+    RtlNotifyFeatureUsage(&FeatureUsageReport);
   }
   LOBYTE(v7) = (_DWORD)v13 == 0;
   return v7;

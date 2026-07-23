@@ -1,8 +1,8 @@
 /*
- * XREFs of WheapInitializeErrorRecordWrapper @ 0x1404F5C54
+ * XREFs of WheapInitializeErrorRecordWrapper @ 0x1404EF214
  * Callers:
- *     WheapAllocErrorRecord @ 0x1403DE230 (WheapAllocErrorRecord.c)
- *     WheapInitializeErrorSource @ 0x140847684 (WheapInitializeErrorSource.c)
+ *     WheapAllocErrorRecord @ 0x1403E1420 (WheapAllocErrorRecord.c)
+ *     WheapInitializeErrorSource @ 0x14084D8E4 (WheapInitializeErrorSource.c)
  * Callees:
  *     <none>
  */

@@ -15,72 +15,72 @@
  *     ExRaiseDatatypeMisalignment @ 0x14071ED60 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateEnclave(
-        ULONG_PTR a1,
-        unsigned __int64 *a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        unsigned __int64 a5,
-        int a6,
-        __int64 a7,
-        int a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtCreateEnclave(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        SIZE_T Size,
+        SIZE_T InitialCommitment,
+        ULONG EnclaveType,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
   _OWORD *v11; // rdi
   _OWORD *PoolWithTag; // r14
   char PreviousMode; // r13
   __int64 v14; // rcx
-  int v15; // ebx
+  NTSTATUS v15; // ebx
   __int64 v16; // rcx
   _OWORD *v17; // rax
   __int64 v18; // rcx
   void *Process; // rdi
-  int v21; // [rsp+48h] [rbp-D0h] BYREF
-  unsigned __int64 v22; // [rsp+50h] [rbp-C8h] BYREF
+  ULONG v21; // [rsp+48h] [rbp-D0h] BYREF
+  PVOID v22; // [rsp+50h] [rbp-C8h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+58h] [rbp-C0h] BYREF
   unsigned __int64 v24; // [rsp+60h] [rbp-B8h]
-  __int64 v25; // [rsp+68h] [rbp-B0h] BYREF
+  ULONGLONG v25; // [rsp+68h] [rbp-B0h] BYREF
   ULONG_PTR v26; // [rsp+70h] [rbp-A8h]
-  _DWORD *v27; // [rsp+78h] [rbp-A0h]
+  PULONG v27; // [rsp+78h] [rbp-A0h]
   _OWORD *v28; // [rsp+88h] [rbp-90h]
-  unsigned __int64 *v29; // [rsp+90h] [rbp-88h]
+  PVOID *v29; // [rsp+90h] [rbp-88h]
   $5BC46E0569261879018906DEC3127961 v30; // [rsp+A8h] [rbp-70h] BYREF
 
-  v24 = a4;
-  v26 = a1;
-  v29 = a2;
-  v25 = a3;
-  v11 = (_OWORD *)a7;
-  v27 = a9;
+  v24 = Size;
+  v26 = (ULONG_PTR)ProcessHandle;
+  v29 = BaseAddress;
+  v25 = ZeroBits;
+  v11 = EnclaveInformation;
+  v27 = EnclaveError;
   v22 = 0LL;
   PoolWithTag = 0LL;
   v21 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a9 && PreviousMode == 1 )
+  if ( EnclaveError && PreviousMode == 1 )
   {
-    v14 = (__int64)a9;
-    if ( (unsigned __int64)a9 >= 0x7FFFFFFF0000LL )
+    v14 = (__int64)EnclaveError;
+    if ( (unsigned __int64)EnclaveError >= 0x7FFFFFFF0000LL )
       v14 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v14 = *(_DWORD *)v14;
   }
-  if ( a6 == 1 && qword_14036C298 )
+  if ( EnclaveType == 1 && qword_14036C298 )
   {
-    if ( (int)MiValidateZeroBits((ULONGLONG *)&v25) < 0 )
+    if ( (int)MiValidateZeroBits(&v25) < 0 )
     {
       v15 = -1073741583;
       goto LABEL_32;
     }
-    if ( !a4 )
+    if ( !Size )
     {
       v15 = -1073741582;
       goto LABEL_32;
     }
-    if ( a5 > v24 )
+    if ( InitialCommitment > v24 )
     {
       v15 = -1073741581;
       goto LABEL_32;
     }
-    if ( a8 != 4096 )
+    if ( EnclaveInformationLength != 4096 )
     {
       v15 = -1073741820;
       goto LABEL_32;
@@ -94,14 +94,14 @@ __int64 __fastcall NtCreateEnclave(
     }
     if ( PreviousMode == 1 )
     {
-      v16 = (__int64)a2;
-      if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+      v16 = (__int64)BaseAddress;
+      if ( (unsigned __int64)BaseAddress >= 0x7FFFFFFF0000LL )
         v16 = 0x7FFFFFFF0000LL;
       *(_QWORD *)v16 = *(_QWORD *)v16;
-      if ( (a7 & 3) != 0 )
+      if ( ((unsigned __int8)EnclaveInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
     }
-    v22 = *a2;
+    v22 = *BaseAddress;
     v17 = PoolWithTag;
     v18 = 32LL;
     do
@@ -140,7 +140,14 @@ __int64 __fastcall NtCreateEnclave(
       Process = (void *)BugCheckParameter1;
       KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v30);
     }
-    v15 = MiCreateEnclave((__int64)Process, &v22, v25, v24, a5, (__int64)PoolWithTag, &v21);
+    v15 = MiCreateEnclave(
+            (__int64)Process,
+            (unsigned __int64 *)&v22,
+            v25,
+            v24,
+            InitialCommitment,
+            (__int64)PoolWithTag,
+            &v21);
     if ( v26 != -1LL )
     {
       KiUnstackDetachProcess(&v30, 0LL);
@@ -155,8 +162,8 @@ LABEL_32:
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0);
   if ( v15 >= 0 )
-    *a2 = v22;
-  if ( a9 )
-    *a9 = v21;
-  return (unsigned int)v15;
+    *BaseAddress = v22;
+  if ( EnclaveError )
+    *EnclaveError = v21;
+  return v15;
 }

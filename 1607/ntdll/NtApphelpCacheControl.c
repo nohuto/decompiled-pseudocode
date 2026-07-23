@@ -1,7 +1,7 @@
 /*
  * XREFs of NtApphelpCacheControl @ 0x1800A6DA0
  * Callers:
- *     CompatCachepLookupCdb @ 0x180010768 (CompatCachepLookupCdb.c)
+ *     CompatCachepLookupCdb @ 0x180010758 (CompatCachepLookupCdb.c)
  * Callees:
  *     <none>
  */

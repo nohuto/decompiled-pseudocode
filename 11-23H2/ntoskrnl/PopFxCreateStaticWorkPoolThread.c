@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxCreateStaticWorkPoolThread @ 0x14084F8E4
+ * XREFs of PopFxCreateStaticWorkPoolThread @ 0x14084FBE4
  * Callers:
- *     PopFxInitializeWorkPool @ 0x14084F82C (PopFxInitializeWorkPool.c)
+ *     PopFxInitializeWorkPool @ 0x14084FB2C (PopFxInitializeWorkPool.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall PopFxCreateStaticWorkPoolThread(__int64 a1)

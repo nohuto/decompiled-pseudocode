@@ -1,13 +1,13 @@
 /*
- * XREFs of VslFinalizeSecureImageHash @ 0x140411C60
+ * XREFs of VslFinalizeSecureImageHash @ 0x140411260
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslFinalizeSecureImageHash(__int64 a1, __int64 a2)

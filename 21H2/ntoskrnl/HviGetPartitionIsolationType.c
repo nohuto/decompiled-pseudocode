@@ -1,10 +1,10 @@
 /*
- * XREFs of HviGetPartitionIsolationType @ 0x1403F95E0
+ * XREFs of HviGetPartitionIsolationType @ 0x1403F97C0
  * Callers:
  *     <none>
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE240 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE390 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 HviGetPartitionIsolationType()

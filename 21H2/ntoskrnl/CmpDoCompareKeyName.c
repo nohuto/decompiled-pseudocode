@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpDoCompareKeyName @ 0x1405EE600
+ * XREFs of CmpDoCompareKeyName @ 0x1406DDD60
  * Callers:
- *     CmpCompareInIndex @ 0x1405EDCF0 (CmpCompareInIndex.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1405EDFE0 (CmpFindSubKeyInLeafWithStatus.c)
- *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
- *     CmpSelectLeaf @ 0x14076BC0C (CmpSelectLeaf.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x1407ACA90 (CmpFindSubKeyByHashWithStatus.c)
+ *     CmpCompareInIndex @ 0x1406DD450 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1406DD740 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpWalkOneLevel @ 0x1406E5B20 (CmpWalkOneLevel.c)
+ *     CmpSelectLeaf @ 0x14076BDCC (CmpSelectLeaf.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x1407ACC90 (CmpFindSubKeyByHashWithStatus.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
- *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
- *     CmpCompareTwoCompressedNames @ 0x140875E28 (CmpCompareTwoCompressedNames.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlCompareUnicodeString @ 0x1406DDA80 (RtlCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1406DDE80 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140875F88 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpDoCompareKeyName(__int64 a1, const UNICODE_STRING *a2, unsigned __int16 *a3, unsigned int a4)
@@ -22,14 +22,15 @@ __int64 __fastcall CmpDoCompareKeyName(__int64 a1, const UNICODE_STRING *a2, uns
   LONG v12; // eax
   int v13; // ebx
   UNICODE_STRING String2; // [rsp+20h] [rbp-18h] BYREF
-  int v15; // [rsp+40h] [rbp+8h] BYREF
-  int v16; // [rsp+44h] [rbp+Ch]
+  __int64 v15; // [rsp+30h] [rbp-8h]
+  int v16; // [rsp+40h] [rbp+8h] BYREF
+  int v17; // [rsp+44h] [rbp+Ch]
 
-  v15 = -1;
-  v16 = 0;
+  v16 = -1;
+  v17 = 0;
   v5 = *(__int64 (__fastcall **)(__int64, _QWORD, int *))(a1 + 8);
   String2 = 0LL;
-  v8 = v5(a1, a4, &v15);
+  v8 = v5(a1, a4, &v16);
   if ( !v8 )
     return 2LL;
   v10 = *(_WORD *)(v8 + 72);
@@ -37,7 +38,7 @@ __int64 __fastcall CmpDoCompareKeyName(__int64 a1, const UNICODE_STRING *a2, uns
   if ( (*(_BYTE *)(v8 + 2) & 0x20) != 0 )
   {
     if ( a3 )
-      v12 = CmpCompareTwoCompressedNames(*((_QWORD *)a3 + 1), *a3, v11, *(unsigned __int16 *)(v8 + 72));
+      v12 = CmpCompareTwoCompressedNames(*((_QWORD *)a3 + 1), *a3, v11);
     else
       v12 = CmpCompareCompressedName(
               a2,
@@ -45,7 +46,8 @@ __int64 __fastcall CmpDoCompareKeyName(__int64 a1, const UNICODE_STRING *a2, uns
               *(unsigned __int16 *)(v8 + 72),
               0LL,
               *(_QWORD *)&String2.Length,
-              String2.Buffer);
+              String2.Buffer,
+              v15);
   }
   else
   {
@@ -65,7 +67,7 @@ __int64 __fastcall CmpDoCompareKeyName(__int64 a1, const UNICODE_STRING *a2, uns
   }
   v13 = v12;
 LABEL_11:
-  (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v15);
+  (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v16);
   if ( v13 )
     return ((v13 >> 31) & 0xFFFFFFFE) + 1;
   else

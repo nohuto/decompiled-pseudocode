@@ -1,60 +1,60 @@
 /*
- * XREFs of VmpUpdatePinRangesForFirstPin @ 0x1406C1DFC
+ * XREFs of VmpUpdatePinRangesForFirstPin @ 0x1406C59DC
  * Callers:
- *     VmpPinMemoryRanges @ 0x1406C1F74 (VmpPinMemoryRanges.c)
+ *     VmpPinMemoryRanges @ 0x1406C5B54 (VmpPinMemoryRanges.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VmpUpdatePinRangesForFirstPin(
         __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        __int64 a4,
+        _RTL_BALANCED_NODE *a2,
+        _RTL_BALANCED_NODE *a3,
+        _RTL_RB_TREE *a4,
         int a5)
 {
   unsigned int v5; // edi
-  _QWORD **v8; // rax
-  _QWORD *v9; // rbx
-  bool v10; // r14
-  _QWORD *v11; // rax
-  __int64 Pool2; // rbp
-  __int64 v14; // rax
-  unsigned __int64 v15; // rcx
+  _RTL_BALANCED_NODE **p_Root; // rax
+  _RTL_BALANCED_NODE *v9; // rbx
+  BOOLEAN v10; // r14
+  _RTL_BALANCED_NODE *v11; // rax
+  _RTL_BALANCED_NODE *Pool2; // rbp
+  _RTL_BALANCED_NODE *Min; // rax
+  _RTL_BALANCED_NODE *v15; // rcx
   unsigned int v16; // esi
-  int v17; // ecx
+  int Right; // ecx
   unsigned int v18; // ecx
-  unsigned __int64 v19; // rsi
-  unsigned __int64 v21; // [rsp+68h] [rbp+10h]
-  unsigned __int64 v22; // [rsp+70h] [rbp+18h]
+  _RTL_BALANCED_NODE *v19; // rsi
+  _RTL_RB_TREE *Tree; // [rsp+68h] [rbp+10h]
+  _RTL_BALANCED_NODE *v22; // [rsp+70h] [rbp+18h]
 
   v22 = a3;
   v5 = 0;
   if ( a5 )
-    v8 = (_QWORD **)a4;
+    p_Root = &a4->Root;
   else
-    v8 = (_QWORD **)(a1 + 56);
-  v21 = (unsigned __int64)v8;
+    p_Root = (_RTL_BALANCED_NODE **)(a1 + 56);
+  Tree = (_RTL_RB_TREE *)p_Root;
   while ( 2 )
   {
-    v9 = *v8;
+    v9 = *p_Root;
     v10 = 0;
-    if ( !*v8 )
+    if ( !*p_Root )
       goto LABEL_13;
     while ( 1 )
     {
-      if ( a2 < v9[3] )
+      if ( a2 < v9[1].Children[0] )
       {
-        v11 = (_QWORD *)*v9;
-        if ( !*v9 )
+        v11 = v9->Children[0];
+        if ( !v9->Children[0] )
           goto LABEL_13;
         goto LABEL_11;
       }
-      if ( a2 <= v9[4] )
+      if ( a2 <= v9[1].Children[1] )
         goto LABEL_24;
-      v11 = (_QWORD *)v9[1];
+      v11 = v9->Children[1];
       if ( !v11 )
         break;
 LABEL_11:
@@ -64,51 +64,51 @@ LABEL_11:
 LABEL_13:
     if ( a5 )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = (_RTL_BALANCED_NODE *)ExAllocatePool2(0x40uLL);
       if ( !Pool2 )
         return (unsigned int)-1073741670;
     }
     else
     {
-      v14 = *(_QWORD *)(a4 + 8);
-      if ( (v14 & 1) != 0 )
+      Min = a4->Min;
+      if ( ((unsigned __int8)Min & 1) != 0 )
       {
-        if ( v14 == 1 )
+        if ( Min == (_RTL_BALANCED_NODE *)1 )
           Pool2 = 0LL;
         else
-          Pool2 = v14 ^ (a4 | 1);
+          Pool2 = (_RTL_BALANCED_NODE *)((unsigned __int64)Min ^ ((unsigned __int64)a4 | 1));
       }
       else
       {
-        Pool2 = *(_QWORD *)(a4 + 8);
+        Pool2 = a4->Min;
       }
       RtlRbRemoveNode(a4, Pool2);
     }
-    v15 = a2 - (a2 & (*(_QWORD *)(a1 + 80) - 1LL));
-    *(_QWORD *)(Pool2 + 24) = v15;
-    *(_QWORD *)(Pool2 + 32) = *(_QWORD *)(a1 + 80) - 1LL + v15;
-    RtlRbInsertNodeEx(v21, (unsigned __int64)v9, v10, Pool2);
+    v15 = (_RTL_BALANCED_NODE *)((char *)a2 - ((unsigned __int64)a2 & (*(_QWORD *)(a1 + 80) - 1LL)));
+    Pool2[1].Children[0] = v15;
+    Pool2[1].Children[1] = (_RTL_BALANCED_NODE *)((char *)v15 + *(_QWORD *)(a1 + 80) - 1);
+    RtlRbInsertNodeEx(Tree, v9, v10, Pool2);
     a3 = v22;
-    v9 = (_QWORD *)Pool2;
+    v9 = Pool2;
 LABEL_24:
     if ( !a5 )
     {
-      if ( a2 <= v9[3] )
+      if ( a2 <= v9[1].Children[0] )
         v16 = 0;
       else
-        v16 = a2 - *((_DWORD *)v9 + 6);
-      v17 = a3;
-      if ( a3 >= v9[4] )
-        v17 = *((_DWORD *)v9 + 8);
-      v18 = v17 - *((_DWORD *)v9 + 6);
+        v16 = (_DWORD)a2 - LODWORD(v9[1].Children[0]);
+      Right = (int)a3;
+      if ( a3 >= v9[1].Children[1] )
+        Right = (int)v9[1].Right;
+      v18 = Right - LODWORD(v9[1].Children[0]);
       while ( v16 <= v18 )
-        ++*((_BYTE *)v9 + v16++ + 40);
+        ++*((_BYTE *)&v9[1].0 + v16++);
     }
-    v19 = v9[4];
+    v19 = v9[1].Children[1];
     if ( a3 > v19 )
     {
-      v8 = (_QWORD **)v21;
-      a2 = v19 + 1;
+      p_Root = &Tree->Root;
+      a2 = (_RTL_BALANCED_NODE *)((char *)v19->Children + 1);
       continue;
     }
     return v5;

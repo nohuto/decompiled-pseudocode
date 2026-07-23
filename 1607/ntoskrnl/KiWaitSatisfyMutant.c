@@ -1,12 +1,12 @@
 /*
- * XREFs of KiWaitSatisfyMutant @ 0x140098170
+ * XREFs of KiWaitSatisfyMutant @ 0x140097970
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     KiTryUnwaitThread @ 0x140057DA0 (KiTryUnwaitThread.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     ExpWaitForResource @ 0x14005CE30 (ExpWaitForResource.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     KiWaitForAllObjects @ 0x140097D9C (KiWaitForAllObjects.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     KiTryUnwaitThread @ 0x140057920 (KiTryUnwaitThread.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     ExpWaitForResource @ 0x14005C9B0 (ExpWaitForResource.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     KiWaitForAllObjects @ 0x14009759C (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

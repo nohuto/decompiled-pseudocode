@@ -1,21 +1,21 @@
 /*
- * XREFs of KsepGetModuleInfoByName @ 0x1407BE6F8
+ * XREFs of KsepGetModuleInfoByName @ 0x1407C1758
  * Callers:
- *     KsepResolveShimHooks @ 0x1407BD5E4 (KsepResolveShimHooks.c)
+ *     KsepResolveShimHooks @ 0x1407C0644 (KsepResolveShimHooks.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     RtlCompareString @ 0x14096B960 (RtlCompareString.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     RtlCompareString @ 0x14097C2A0 (RtlCompareString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, unsigned int *a2, _QWORD *a3)
 {
   NTSTATUS v5; // ebx
   unsigned int i; // ebx
-  const char *v7; // rbp
-  STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  const CHAR *v7; // rbp
+  _STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
   UNICODE_STRING SourceStringa; // [rsp+30h] [rbp-28h] BYREF
   STRING String1; // [rsp+40h] [rbp-18h] BYREF
 
@@ -30,7 +30,7 @@ __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, unsigned int *a2
   {
     for ( i = 0; i < *a2; ++i )
     {
-      v7 = (const char *)&a2[74 * i + 2];
+      v7 = (const CHAR *)&a2[74 * i + 2];
       RtlInitAnsiString(&String1, &v7[*((unsigned __int16 *)v7 + 19) + 40]);
       if ( !RtlCompareString(&String1, &DestinationString, 1u) )
       {

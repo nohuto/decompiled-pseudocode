@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerDisable @ 0x140123F48
+ * XREFs of KiIntSteerDisable @ 0x1401244B8
  * Callers:
- *     KeDisconnectInterrupt @ 0x140123E5C (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x1401243CC (KeDisconnectInterrupt.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerLogState @ 0x14012D718 (KiIntSteerLogState.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerLogState @ 0x14012DC88 (KiIntSteerLogState.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwReadOnlyEnlistment @ 0x180161E10
+ * XREFs of ZwReadOnlyEnlistment @ 0x180161D10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwReadOnlyEnlistment()
+NTSTATUS __cdecl ZwReadOnlyEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 375LL;
+  result = 375;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

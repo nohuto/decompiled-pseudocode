@@ -1,14 +1,14 @@
 /*
- * XREFs of AnFwpDisableProgressTimer @ 0x140950440
+ * XREFs of AnFwpDisableProgressTimer @ 0x140951440
  * Callers:
- *     AnFwDisplayFade @ 0x14094EBA8 (AnFwDisplayFade.c)
- *     AnFwDisplayProgressIndicator @ 0x14095129C (AnFwDisplayProgressIndicator.c)
- *     AnFwpBackgroundUpdateTimer @ 0x140953FF0 (AnFwpBackgroundUpdateTimer.c)
+ *     AnFwDisplayFade @ 0x14094FBA8 (AnFwDisplayFade.c)
+ *     AnFwDisplayProgressIndicator @ 0x14095229C (AnFwDisplayProgressIndicator.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140954FF0 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
- *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
- *     RaspClearCache @ 0x14095054C (RaspClearCache.c)
+ *     BgpFwFreeMemory @ 0x14016EDEC (BgpFwFreeMemory.c)
+ *     BgpGxRectangleDestroy @ 0x14095021C (BgpGxRectangleDestroy.c)
+ *     RaspClearCache @ 0x14095154C (RaspClearCache.c)
  */
 
 void __fastcall AnFwpDisableProgressTimer(_BOOL8 a1)
@@ -16,14 +16,14 @@ void __fastcall AnFwpDisableProgressTimer(_BOOL8 a1)
   _UNKNOWN **v1; // rbx
   __int64 v2; // rax
 
-  if ( byte_1404C64E0 )
+  if ( byte_1404C75A0 )
   {
     LOBYTE(a1) = 0;
-    if ( (dword_140405AD0 & 0x100000) != 0 )
-      a1 = (dword_140405AD0 & 0x1000) != 0;
-    byte_1404C64E0 = 0;
-    if ( (dword_140405AD0 & 0xC00) != 0xC00 && !a1 )
-      KeCancelTimer(&stru_1404DBD50);
+    if ( (dword_140406AD0 & 0x100000) != 0 )
+      a1 = (dword_140406AD0 & 0x1000) != 0;
+    byte_1404C75A0 = 0;
+    if ( (dword_140406AD0 & 0xC00) != 0xC00 && !a1 )
+      KeCancelTimer(&stru_1404DCE10);
     v1 = (_UNKNOWN **)TxtpTextCache;
     v2 = *(_QWORD *)TxtpTextCache;
     if ( *((_UNKNOWN ***)TxtpTextCache + 1) != &TxtpTextCache )
@@ -44,7 +44,7 @@ LABEL_15:
         goto LABEL_15;
       v2 = *(_QWORD *)TxtpTextCache;
     }
-    dword_140400388 = 0;
+    dword_140401388 = 0;
     if ( RasterizerInitialized )
       RaspClearCache(a1);
   }

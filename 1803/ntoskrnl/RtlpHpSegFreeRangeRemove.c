@@ -7,13 +7,13 @@
  *     RtlRbRemoveNode @ 0x1400E9770 (RtlRbRemoveNode.c)
  */
 
-__int64 __fastcall RtlpHpSegFreeRangeRemove(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall RtlpHpSegFreeRangeRemove(__int64 a1, __int64 a2)
 {
   unsigned __int16 v4; // ax
   __int64 v5; // rcx
   __int64 result; // rax
 
-  RtlRbRemoveNode(a1 + 56, a2);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 56), (PRTL_BALANCED_NODE)a2);
   *(_QWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;

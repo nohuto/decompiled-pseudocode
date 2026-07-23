@@ -1,11 +1,11 @@
 /*
- * XREFs of IopMcCreateBufferEntry @ 0x14055ED38
+ * XREFs of IopMcCreateBufferEntry @ 0x14055F3F8
  * Callers:
- *     IopIoRingDispatchRegisterBuffers @ 0x140949590 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x140949790 (IopIoRingDispatchRegisterBuffers.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -63,10 +63,13 @@ __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, 
   *v15 = v16;
   qword_140C5D698 = v10 + 16;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5D688);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v14 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -74,7 +77,7 @@ __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, 
       v21 = (v20 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v20;
       if ( v21 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v14);

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiQueryImageInfo @ 0x14091F6D4
+ * XREFs of MiQueryImageInfo @ 0x1409235C4
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiVadMapsLargeImage @ 0x1403BC004 (MiVadMapsLargeImage.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiReadVadFlags2 @ 0x14047A070 (MiReadVadFlags2.c)
- *     MiQueryReturnResults @ 0x140920250 (MiQueryReturnResults.c)
+ *     MiVadMapsLargeImage @ 0x1403C5E74 (MiVadMapsLargeImage.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiReadVadFlags2 @ 0x1404739E0 (MiReadVadFlags2.c)
+ *     MiQueryReturnResults @ 0x140923994 (MiQueryReturnResults.c)
  */
 
 __int64 __fastcall MiQueryImageInfo(_QWORD *a1)

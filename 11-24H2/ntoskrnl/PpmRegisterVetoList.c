@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmRegisterVetoList @ 0x14074AA60
+ * XREFs of PpmRegisterVetoList @ 0x140748D90
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PpmRegisterVetoList(unsigned int *a1)
@@ -27,7 +27,7 @@ __int64 __fastcall PpmRegisterVetoList(unsigned int *a1)
   else
   {
     v3 = *a1;
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, (unsigned int)(24 * v3 + 8), 0x694D5050u);
     if ( Pool2 )
     {
       if ( (_DWORD)v3 )

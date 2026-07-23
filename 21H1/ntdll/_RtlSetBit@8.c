@@ -6,13 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlSetBit(int a1, unsigned int a2)
+void __cdecl RtlSetBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
-  _BYTE *v2; // edx
-  int result; // eax
-
-  v2 = (_BYTE *)(*(_DWORD *)(a1 + 4) + (a2 >> 3));
-  result = (char)*v2 | (1 << (a2 & 7));
-  *v2 = result;
-  return result;
+  *((_BYTE *)BitMapHeader->Buffer + (BitNumber >> 3)) |= 1 << (BitNumber & 7);
 }

@@ -36,7 +36,7 @@ PSLIST_ENTRY __fastcall MmDeleteKernelStack(unsigned __int64 a1, unsigned int a2
   __int64 v13; // rcx
   __int64 v14; // rax
   __int64 v15; // r13
-  union _SLIST_HEADER *v16; // rcx
+  _SLIST_HEADER *v16; // rcx
   __int64 v17; // r14
   int v18; // esi
   int v19; // ebp
@@ -50,7 +50,7 @@ PSLIST_ENTRY __fastcall MmDeleteKernelStack(unsigned __int64 a1, unsigned int a2
   __int64 i; // [rsp+20h] [rbp-88h]
   unsigned __int8 CurrentIrql; // [rsp+28h] [rbp-80h]
   __int64 v29; // [rsp+30h] [rbp-78h] BYREF
-  struct _SLIST_ENTRY *v30; // [rsp+38h] [rbp-70h]
+  _SLIST_ENTRY *v30; // [rsp+38h] [rbp-70h]
   __int64 v31; // [rsp+40h] [rbp-68h]
   __int64 v32; // [rsp+48h] [rbp-60h]
   PSLIST_HEADER ListHead; // [rsp+50h] [rbp-58h]
@@ -111,7 +111,7 @@ PSLIST_ENTRY __fastcall MmDeleteKernelStack(unsigned __int64 a1, unsigned int a2
       if ( LOWORD(v16->Alignment) < SLODWORD(v16[1].Alignment) )
       {
         v17 = v6 << 25 >> 16;
-        v30 = (struct _SLIST_ENTRY *)v17;
+        v30 = (_SLIST_ENTRY *)v17;
         *(_QWORD *)(v17 + 0xFE0) = v17 ^ qword_1402FF6C0;
         if ( v15 == 1 )
           return RtlpInterlockedPushEntrySList(v16, (PSLIST_ENTRY)(v17 + 4080));

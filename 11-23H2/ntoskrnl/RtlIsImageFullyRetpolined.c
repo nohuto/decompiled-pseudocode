@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlIsImageFullyRetpolined @ 0x14035FF78
+ * XREFs of RtlIsImageFullyRetpolined @ 0x140360118
  * Callers:
- *     MiLogRetpolineImageLoadEvents @ 0x1407D4430 (MiLogRetpolineImageLoadEvents.c)
- *     MiIsImageFullyRetpolined @ 0x140A34288 (MiIsImageFullyRetpolined.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x1407D4700 (MiLogRetpolineImageLoadEvents.c)
+ *     MiIsImageFullyRetpolined @ 0x140A34538 (MiIsImageFullyRetpolined.c)
  *     MiInitializeRetpoline @ 0x140B44F88 (MiInitializeRetpoline.c)
  *     MiApplyBootLoadedDriversFixups @ 0x140B45CC4 (MiApplyBootLoadedDriversFixups.c)
  *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140B47308 (MiImportOptimizationCompatibleWithDriverRelocation.c)
  *     MiIsBootImageTargetFullyRetpolined @ 0x140B999A0 (MiIsBootImageTargetFullyRetpolined.c)
  * Callees:
- *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D45C8 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D4898 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
-__int64 __fastcall RtlIsImageFullyRetpolined(__int64 a1)
+__int64 __fastcall RtlIsImageFullyRetpolined(void *a1)
 {
   _DWORD *Config; // rax
 

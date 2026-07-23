@@ -158,7 +158,7 @@ void __fastcall SepTokenDeleteMethod(__int64 a1)
           if ( *(_QWORD *)(v3 + 48) )
           {
             ExRemoveLowBoxAtomReferences();
-            RtlDereferenceAtomTable();
+            RtlDereferenceAtomTable(*(void **)(v3 + 48));
           }
           ExFreePoolWithTag((PVOID)v3, 0);
         }

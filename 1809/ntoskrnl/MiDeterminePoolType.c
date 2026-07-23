@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeterminePoolType @ 0x14007BF30
+ * XREFs of MiDeterminePoolType @ 0x14007BF20
  * Callers:
  *     ExProtectPoolEx @ 0x14000DED8 (ExProtectPoolEx.c)
  *     ExpHpIsSpecialPoolHeap @ 0x14000E5C4 (ExpHpIsSpecialPoolHeap.c)
  *     ExGetHeapFromVA @ 0x14000E644 (ExGetHeapFromVA.c)
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
- *     ExpSizeHeapPool @ 0x1401B79D4 (ExpSizeHeapPool.c)
- *     MmDeterminePoolType @ 0x1402B919C (MmDeterminePoolType.c)
- *     MiGenerateAccessViolation @ 0x1402BC020 (MiGenerateAccessViolation.c)
- *     ExAllocateHeapSpecialPool @ 0x14031E9BC (ExAllocateHeapSpecialPool.c)
- *     ExpFreeHeapSpecialPool @ 0x14031EC64 (ExpFreeHeapSpecialPool.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
+ *     ExpSizeHeapPool @ 0x1401B7B34 (ExpSizeHeapPool.c)
+ *     MmDeterminePoolType @ 0x1402B938C (MmDeterminePoolType.c)
+ *     MiGenerateAccessViolation @ 0x1402BC210 (MiGenerateAccessViolation.c)
+ *     ExAllocateHeapSpecialPool @ 0x14031EBAC (ExAllocateHeapSpecialPool.c)
+ *     ExpFreeHeapSpecialPool @ 0x14031EE54 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  */

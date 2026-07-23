@@ -1,20 +1,20 @@
 /*
- * XREFs of PopWatchdogWorker @ 0x1402E4F30
+ * XREFs of PopWatchdogWorker @ 0x1402E5120
  * Callers:
  *     <none>
  * Callees:
  *     PopUpdateWatchdogNoWorkersEvent @ 0x14000630C (PopUpdateWatchdogNoWorkersEvent.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopResolveWatchdogParam @ 0x1402E4E58 (PopResolveWatchdogParam.c)
- *     MmQuitNextSession @ 0x1406CF650 (MmQuitNextSession.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     MmGetSessionById @ 0x14007E4D0 (MmGetSessionById.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmDetachSession @ 0x14011A630 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A6C0 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopResolveWatchdogParam @ 0x1402E5048 (PopResolveWatchdogParam.c)
+ *     MmQuitNextSession @ 0x1406D08F0 (MmQuitNextSession.c)
  */
 
 __int64 __fastcall PopWatchdogWorker(__int64 a1)

@@ -34,7 +34,7 @@ __int64 __fastcall PspInitializeCpuPartitionsDefaultSd(_QWORD *a1, char a2)
   void *v15; // rdi
   char *v16; // r15
   ACL *v17; // r13
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+70h] [rbp+18h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+70h] [rbp+18h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;

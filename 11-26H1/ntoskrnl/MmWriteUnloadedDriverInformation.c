@@ -1,9 +1,9 @@
 /*
- * XREFs of MmWriteUnloadedDriverInformation @ 0x1406F6E1C
+ * XREFs of MmWriteUnloadedDriverInformation @ 0x1406FBA8C
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x1405C6994 (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x1405C9264 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall MmWriteUnloadedDriverInformation(unsigned int *a1)

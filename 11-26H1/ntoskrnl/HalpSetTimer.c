@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpSetTimer @ 0x1402086B0
+ * XREFs of HalpSetTimer @ 0x140208790
  * Callers:
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14021F300 (HalpTimerWatchdogTriggerSystemReset.c)
- *     HalpSetTimerAnyMode @ 0x1404E3060 (HalpSetTimerAnyMode.c)
- *     HalpTimerWatchdogResetCountdown @ 0x1404F5780 (HalpTimerWatchdogResetCountdown.c)
- *     HalpTimerInitializeClock @ 0x14058144C (HalpTimerInitializeClock.c)
- *     HalpTimerRestartProfileInterrupt @ 0x1405845EC (HalpTimerRestartProfileInterrupt.c)
- *     HalpTimerSetTimerBackedProfileInterval @ 0x1405846BC (HalpTimerSetTimerBackedProfileInterval.c)
- *     HalpTimerStartProfileInterrupt @ 0x140584754 (HalpTimerStartProfileInterrupt.c)
- *     HalpTimerTestHypervisorTimer @ 0x140584B0C (HalpTimerTestHypervisorTimer.c)
- *     HalpTimerWatchdogStart @ 0x140585590 (HalpTimerWatchdogStart.c)
- *     HalpWatchdogDelayExpiration @ 0x140585760 (HalpWatchdogDelayExpiration.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x140220C90 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     HalpSetTimerAnyMode @ 0x140435C08 (HalpSetTimerAnyMode.c)
+ *     HalpTimerWatchdogResetCountdown @ 0x1404EED40 (HalpTimerWatchdogResetCountdown.c)
+ *     HalpTimerInitializeClock @ 0x14058396C (HalpTimerInitializeClock.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x140586B0C (HalpTimerRestartProfileInterrupt.c)
+ *     HalpTimerSetTimerBackedProfileInterval @ 0x140586BDC (HalpTimerSetTimerBackedProfileInterval.c)
+ *     HalpTimerStartProfileInterrupt @ 0x140586C74 (HalpTimerStartProfileInterrupt.c)
+ *     HalpTimerTestHypervisorTimer @ 0x14058702C (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerWatchdogStart @ 0x140587AB0 (HalpTimerWatchdogStart.c)
+ *     HalpWatchdogDelayExpiration @ 0x140587C80 (HalpWatchdogDelayExpiration.c)
  * Callees:
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     HalpTimerSetProblemEx @ 0x1404FEB94 (HalpTimerSetProblemEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     HalpTimerSetProblemEx @ 0x1404F8144 (HalpTimerSetProblemEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpSetTimer(__int64 a1, unsigned int a2, unsigned __int64 a3, char a4, unsigned __int64 *a5)

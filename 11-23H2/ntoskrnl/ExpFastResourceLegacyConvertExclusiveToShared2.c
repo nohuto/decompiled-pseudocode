@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140415608
+ * XREFs of ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x14041599C
  * Callers:
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403CA600 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403CA7E0 (ExpFastResourceLegacyConvertExclusiveToShared.c)
  * Callees:
- *     ExpAllocateOwnerEntryForLegacyShim2 @ 0x1404152AC (ExpAllocateOwnerEntryForLegacyShim2.c)
- *     ExpConvertFastResourceExclusiveToShared2 @ 0x14041532C (ExpConvertFastResourceExclusiveToShared2.c)
- *     ExpFindFastOwnerEntryForThread2 @ 0x1404159F8 (ExpFindFastOwnerEntryForThread2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAllocateOwnerEntryForLegacyShim2 @ 0x140415640 (ExpAllocateOwnerEntryForLegacyShim2.c)
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x1404156C0 (ExpConvertFastResourceExclusiveToShared2.c)
+ *     ExpFindFastOwnerEntryForThread2 @ 0x140415D8C (ExpFindFastOwnerEntryForThread2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared2(_QWORD *BugCheckParameter2, __int64 a2, int a3)
@@ -26,7 +26,7 @@ __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared2(_QWORD *BugChe
   CurrentThread = KeGetCurrentThread();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;
@@ -37,10 +37,10 @@ __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared2(_QWORD *BugChe
   }
   if ( !ExpFindFastOwnerEntryForThread2((_DWORD)CurrentThread, (_DWORD)BugCheckParameter2, a3, 1) )
     KeBugCheckEx(0xE3u, v8, (ULONG_PTR)CurrentThread, 0LL, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;
@@ -48,7 +48,7 @@ __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared2(_QWORD *BugChe
       v13 = (v12 & v11[5]) == 0;
       v11[5] &= v12;
       if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

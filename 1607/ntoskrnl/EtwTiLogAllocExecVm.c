@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTiLogAllocExecVm @ 0x1406A5620
+ * XREFs of EtwTiLogAllocExecVm @ 0x1406A5758
  * Callers:
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1400B7664 (EtwProviderEnabled.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpTiFillProcessIdentity @ 0x14017196C (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x140171A18 (EtwpTiFillThreadIdentity.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x1400B54FC (EtwProviderEnabled.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpTiFillProcessIdentity @ 0x140171E6C (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x140171F18 (EtwpTiFillThreadIdentity.c)
  */
 
 BOOLEAN EtwTiLogAllocExecVm(__int64 a1, char a2, ...)

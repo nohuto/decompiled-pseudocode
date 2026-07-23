@@ -15,9 +15,9 @@ void __fastcall EtwpCovSampCaptureQueueDpc(
         PVOID SystemArgument2)
 {
   PSLIST_ENTRY v5; // rax
-  struct _SLIST_ENTRY *Next; // rcx
+  _SLIST_ENTRY *Next; // rcx
   ULONG v7; // r9d
-  struct _SLIST_ENTRY *i; // r8
+  _SLIST_ENTRY *i; // r8
 
   v5 = RtlpInterlockedFlushSList((PSLIST_HEADER)DeferredContext + 67);
   if ( v5 )

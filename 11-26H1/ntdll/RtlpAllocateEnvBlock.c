@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpAllocateEnvBlock @ 0x18009EFF8
+ * XREFs of RtlpAllocateEnvBlock @ 0x18009E128
  * Callers:
- *     RtlSetEnvironmentVar @ 0x18009E600 (RtlSetEnvironmentVar.c)
- *     RtlCreateEnvironmentEx @ 0x18009F070 (RtlCreateEnvironmentEx.c)
- *     RtlpInitEnvironmentBlock @ 0x1800A0498 (RtlpInitEnvironmentBlock.c)
- *     RtlSetEnvironmentStrings @ 0x1800A06D0 (RtlSetEnvironmentStrings.c)
+ *     RtlSetEnvironmentVar @ 0x18009D730 (RtlSetEnvironmentVar.c)
+ *     RtlCreateEnvironmentEx @ 0x18009E1A0 (RtlCreateEnvironmentEx.c)
+ *     RtlpInitEnvironmentBlock @ 0x18009F5C8 (RtlpInitEnvironmentBlock.c)
+ *     RtlSetEnvironmentStrings @ 0x18009F800 (RtlSetEnvironmentStrings.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpAllocateEnvBlock(unsigned __int64 a1)
+PVOID __fastcall RtlpAllocateEnvBlock(SIZE_T Size)
 {
-  if ( a1 > 0x7FFFFFFF )
+  if ( Size > 0x7FFFFFFF )
     return 0LL;
   else
-    return RtlAllocateHeap_0();
+    return RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, Size);
 }

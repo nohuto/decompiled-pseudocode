@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRemoveEntryWsle @ 0x1400E2580
+ * XREFs of MiRemoveEntryWsle @ 0x1400E0420
  * Callers:
- *     MiRotateHeadWsle @ 0x140016DF0 (MiRotateHeadWsle.c)
- *     MiAgeWorkingSet @ 0x140047090 (MiAgeWorkingSet.c)
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
- *     MiSetWsleAge @ 0x1400BDC94 (MiSetWsleAge.c)
- *     MiClearPteAccessed @ 0x1400E1EF0 (MiClearPteAccessed.c)
- *     MiReleaseWsle @ 0x1400E2430 (MiReleaseWsle.c)
- *     MiMoveValidWsle @ 0x1400FEECC (MiMoveValidWsle.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140129C50 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiRotateHeadWsle @ 0x140016970 (MiRotateHeadWsle.c)
+ *     MiAgeWorkingSet @ 0x140046C10 (MiAgeWorkingSet.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
+ *     MiSetWsleAge @ 0x1400BBB24 (MiSetWsleAge.c)
+ *     MiClearPteAccessed @ 0x1400DFD90 (MiClearPteAccessed.c)
+ *     MiReleaseWsle @ 0x1400E02D0 (MiReleaseWsle.c)
+ *     MiMoveValidWsle @ 0x1400FCC4C (MiMoveValidWsle.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x14012A1C0 (MiCaptureAndResetWorkingSetAccessBits.c)
  * Callees:
  *     <none>
  */

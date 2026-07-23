@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCopyOnWriteGetPage @ 0x14036C2DC
+ * XREFs of MiCopyOnWriteGetPage @ 0x14036E07C
  * Callers:
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
  * Callees:
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
  */
 
 __int64 __fastcall MiCopyOnWriteGetPage(__int64 a1, __int64 *a2)

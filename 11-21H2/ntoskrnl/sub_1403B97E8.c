@@ -1,0 +1,55 @@
+/*
+ * XREFs of sub_1403B97E8 @ 0x1403B97E8
+ * Callers:
+ *     sub_140A54BA0 @ 0x140A54BA0 (sub_140A54BA0.c)
+ * Callees:
+ *     PoFxActivateComponent @ 0x140357D10 (PoFxActivateComponent.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403B9A30 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     PoFxRegisterCoreDevice @ 0x140823860 (PoFxRegisterCoreDevice.c)
+ */
+
+__int64 sub_1403B97E8()
+{
+  ULONG_PTR *v0; // rdi
+  unsigned int v1; // esi
+  _DWORD v3[2]; // [rsp+28h] [rbp-19h] BYREF
+  __int64 (__fastcall *v4)(); // [rsp+30h] [rbp-11h]
+  void *v5; // [rsp+38h] [rbp-9h]
+  __int64 (__fastcall *v6)(); // [rsp+40h] [rbp-1h]
+  __int64 v7; // [rsp+48h] [rbp+7h]
+  ULONG_PTR *v8; // [rsp+50h] [rbp+Fh]
+  __int128 v9; // [rsp+58h] [rbp+17h]
+  int v10; // [rsp+68h] [rbp+27h]
+  int v11; // [rsp+6Ch] [rbp+2Bh]
+  _QWORD *v12; // [rsp+70h] [rbp+2Fh]
+  _QWORD v13[2]; // [rsp+78h] [rbp+37h] BYREF
+  int v14; // [rsp+88h] [rbp+47h]
+  int v15; // [rsp+8Ch] [rbp+4Bh]
+
+  v15 = 0;
+  v13[0] = 0LL;
+  v13[1] = 0LL;
+  v0 = (ULONG_PTR *)qword_140C4DE70;
+  v1 = 0;
+  v14 = 10;
+  while ( v0 != &qword_140C4DE70 )
+  {
+    v7 = 0LL;
+    v11 = 0;
+    v12 = v13;
+    v3[0] = 1;
+    v4 = sub_14051DFC0;
+    v3[1] = 1;
+    v5 = &sub_14051DFE0;
+    v9 = 0LL;
+    v6 = sub_14051E020;
+    v10 = 1;
+    v8 = v0;
+    v1 = PoFxRegisterCoreDevice(v0 + 42, v3, v0 + 44);
+    PoFxActivateComponent(v0[44], 0LL, 0);
+    PoFxStartDevicePowerManagement(v0[44]);
+    v0 = (ULONG_PTR *)*v0;
+  }
+  return v1;
+}

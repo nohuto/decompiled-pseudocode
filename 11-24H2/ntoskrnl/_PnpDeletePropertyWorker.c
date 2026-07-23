@@ -1,14 +1,14 @@
 /*
- * XREFs of _PnpDeletePropertyWorker @ 0x140991470
+ * XREFs of _PnpDeletePropertyWorker @ 0x14097C4B0
  * Callers:
- *     DrvDbDeleteObjectSubKey @ 0x1408215CC (DrvDbDeleteObjectSubKey.c)
- *     _PnpSetGenericStoreProperty @ 0x140991934 (_PnpSetGenericStoreProperty.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140821D0C (DrvDbDeleteObjectSubKey.c)
+ *     _PnpSetGenericStoreProperty @ 0x14097C974 (_PnpSetGenericStoreProperty.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxRegDeleteValue @ 0x14098FA7C (_PnpCtxRegDeleteValue.c)
- *     _PnpOpenPropertiesKey @ 0x1409937F0 (_PnpOpenPropertiesKey.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxRegDeleteValue @ 0x14097AAB4 (_PnpCtxRegDeleteValue.c)
+ *     _PnpOpenPropertiesKey @ 0x14097E830 (_PnpOpenPropertiesKey.c)
  */
 
 __int64 __fastcall PnpDeletePropertyWorker(int a1, int a2, const WCHAR *a3, __int64 a4, int a5, int a6, int a7)

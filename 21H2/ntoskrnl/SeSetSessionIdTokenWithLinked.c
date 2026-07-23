@@ -1,16 +1,16 @@
 /*
- * XREFs of SeSetSessionIdTokenWithLinked @ 0x14091C940
+ * XREFs of SeSetSessionIdTokenWithLinked @ 0x14091CAA0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     SepReferenceTokenByHandle @ 0x14027CA20 (SepReferenceTokenByHandle.c)
- *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     SepReferenceLogonSessionSilo @ 0x1405DC7FC (SepReferenceLogonSessionSilo.c)
- *     SeSetSessionIdToken @ 0x1406BA010 (SeSetSessionIdToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140243B50 (SepDeReferenceLogonSessionDirect.c)
+ *     SepReferenceTokenByHandle @ 0x14026A9C0 (SepReferenceTokenByHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     SeSetSessionIdToken @ 0x140619180 (SeSetSessionIdToken.c)
+ *     SepReferenceLogonSessionSilo @ 0x1406CBF7C (SepReferenceLogonSessionSilo.c)
  */
 
 __int64 __fastcall SeSetSessionIdTokenWithLinked(void *a1, ULONG a2)
@@ -21,18 +21,21 @@ __int64 __fastcall SeSetSessionIdTokenWithLinked(void *a1, ULONG a2)
   PADAPTER_OBJECT v6; // rdi
   _DMA_OPERATIONS *DmaOperations; // rdx
   void *v8; // r14
-  _QWORD *v10; // [rsp+30h] [rbp-20h] BYREF
-  _QWORD *v11; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  _QWORD *v13; // [rsp+30h] [rbp-20h] BYREF
+  _QWORD *v14; // [rsp+38h] [rbp-18h] BYREF
   void *(__fastcall *AllocateCommonBuffer)(_DMA_ADAPTER *, unsigned int, _LARGE_INTEGER *, unsigned __int8); // [rsp+40h] [rbp-10h] BYREF
-  __int64 v13; // [rsp+48h] [rbp-8h] BYREF
-  char v14; // [rsp+90h] [rbp+40h] BYREF
+  __int64 v16; // [rsp+48h] [rbp-8h] BYREF
+  char v17; // [rsp+90h] [rbp+40h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+98h] [rbp+48h] BYREF
 
   DmaAdapter = 0LL;
-  v10 = 0LL;
+  v13 = 0LL;
   v3 = 0LL;
-  v11 = 0LL;
-  v4 = SepReferenceTokenByHandle(a1, 8u, KeGetCurrentThread()->PreviousMode, &DmaAdapter, &v14, &v13);
+  v14 = 0LL;
+  v4 = SepReferenceTokenByHandle(a1, 8u, KeGetCurrentThread()->PreviousMode, &DmaAdapter, &v17, &v16);
   if ( v4 < 0 )
   {
     v6 = DmaAdapter;
@@ -51,21 +54,21 @@ __int64 __fastcall SeSetSessionIdTokenWithLinked(void *a1, ULONG a2)
     v4 = SepReferenceLogonSessionSilo(
            &v6[13].DmaOperations->PutDmaAdapter,
            (__int64)v6[13].DmaOperations->AllocateAdapterChannelEx,
-           (__int64 *)&v10);
+           (__int64 *)&v13);
     if ( v4 >= 0 )
     {
       DmaOperations = v6[13].DmaOperations;
-      v8 = (void *)v10[6];
+      v8 = (void *)v13[6];
       AllocateCommonBuffer = DmaOperations->AllocateCommonBuffer;
       if ( AllocateCommonBuffer )
       {
         v4 = SepReferenceLogonSessionSilo(
                &AllocateCommonBuffer,
                (__int64)DmaOperations->AllocateAdapterChannelEx,
-               (__int64 *)&v11);
+               (__int64 *)&v14);
         if ( v4 < 0 )
           goto LABEL_13;
-        v3 = (void *)v11[6];
+        v3 = (void *)v14[6];
       }
       if ( !v8 || (v4 = SeSetSessionIdToken(v8, a2), v4 >= 0) )
       {
@@ -78,12 +81,12 @@ LABEL_13:
   if ( v6 )
   {
     ExReleaseResourceLite(*(PERESOURCE *)&v6[3].Version);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
     HalPutDmaAdapter(DmaAdapter);
   }
-  if ( v10 )
-    SepDeReferenceLogonSessionDirect(v10);
-  if ( v11 )
-    SepDeReferenceLogonSessionDirect(v11);
+  if ( v13 )
+    SepDeReferenceLogonSessionDirect(v13);
+  if ( v14 )
+    SepDeReferenceLogonSessionDirect(v14);
   return (unsigned int)v4;
 }

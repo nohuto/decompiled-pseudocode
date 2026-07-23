@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetHeteroThreadQos @ 0x14051F328
+ * XREFs of KiGetHeteroThreadQos @ 0x14051F568
  * Callers:
- *     KiConvertDynamicHeteroPolicy @ 0x14051F1A0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x14051F3E0 (KiConvertDynamicHeteroPolicy.c)
  * Callees:
- *     KiIsThreadRankBiased @ 0x14052389C (KiIsThreadRankBiased.c)
+ *     KiIsThreadRankBiased @ 0x140523ADC (KiIsThreadRankBiased.c)
  */
 
 __int64 __fastcall KiGetHeteroThreadQos(__int64 a1, __int64 a2, int *a3)

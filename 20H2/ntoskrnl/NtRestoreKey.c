@@ -21,15 +21,15 @@
  *     CmRestoreKey @ 0x14087E5A8 (CmRestoreKey.c)
  */
 
-__int64 __fastcall NtRestoreKey(void *a1, void *a2, unsigned int a3)
+NTSTATUS __cdecl NtRestoreKey(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)
 {
   char v3; // r12
   KPROCESSOR_MODE PreviousMode; // si
   struct _KTHREAD *CurrentThread; // rax
-  signed int v9; // ebx
+  int v9; // ebx
   __int64 v10; // r8
   NTSTATUS v11; // eax
-  void *v12; // rdi
+  HANDLE v12; // rdi
   int v13; // eax
   struct _DMA_ADAPTER *DmaOperations; // rdx
   struct _KTHREAD *v15; // rax
@@ -64,7 +64,7 @@ __int64 __fastcall NtRestoreKey(void *a1, void *a2, unsigned int a3)
 LABEL_27:
       ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      return (unsigned int)v9;
+      return v9;
     }
     if ( !SeSinglePrivilegeCheck(SeRestorePrivilege, PreviousMode) )
     {
@@ -73,23 +73,29 @@ LABEL_27:
     }
     if ( PreviousMode == 1 )
     {
-      v11 = IoConvertFileHandleToKernelHandle(a2, 1, 1u, 0, &Handle);
-      v12 = *(void **)&Handle.Version;
+      v11 = IoConvertFileHandleToKernelHandle(FileHandle, 1, 1u, 0, &Handle);
+      v12 = *(HANDLE *)&Handle.Version;
       v9 = v11;
       if ( v11 < 0 )
       {
 LABEL_24:
-        if ( v12 && v12 != a2 )
+        if ( v12 && v12 != FileHandle )
           ZwClose(v12);
         goto LABEL_27;
       }
     }
     else
     {
-      v12 = a2;
-      *(_QWORD *)&Handle.Version = a2;
+      v12 = FileHandle;
+      *(_QWORD *)&Handle.Version = FileHandle;
     }
-    v13 = CmObReferenceObjectByHandle(a1, 0, v10, PreviousMode, (struct _DMA_ADAPTER **)&Handle.DmaOperations, 0LL);
+    v13 = CmObReferenceObjectByHandle(
+            KeyHandle,
+            0,
+            v10,
+            PreviousMode,
+            (struct _DMA_ADAPTER **)&Handle.DmaOperations,
+            0LL);
     DmaOperations = (struct _DMA_ADAPTER *)Handle.DmaOperations;
     v9 = v13;
     if ( v13 < 0 )
@@ -112,7 +118,7 @@ LABEL_22:
     {
       *(_QWORD *)&v23 = v16;
       *((_QWORD *)&v23 + 1) = v17;
-      LODWORD(v24) = a3;
+      LODWORD(v24) = Flags;
       v18 = CmpCallCallBacksEx(0x29u, (__int64)&v23, 0LL, 1, 0x2Au, 0LL, (__int64)v22);
       v9 = v18;
       if ( v18 < 0 )
@@ -122,19 +128,19 @@ LABEL_22:
 LABEL_21:
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         DmaOperations = (struct _DMA_ADAPTER *)Handle.DmaOperations;
-        v12 = *(void **)&Handle.Version;
+        v12 = *(HANDLE *)&Handle.Version;
         goto LABEL_22;
       }
       v3 = 1;
     }
     CmpAttachToRegistryProcess((__int64)v26);
     LOBYTE(v19) = PreviousMode;
-    v9 = CmRestoreKey(v16, v17, a3, v19);
+    v9 = CmRestoreKey(v16, v17, Flags, v19);
     KiUnstackDetachProcess((__int64)v26, 0);
     if ( v3 )
       v9 = CmPostCallbackNotificationEx(0x2Au, (__int64)v16, v9, (__int64)&v23, 0LL, v22);
     goto LABEL_21;
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)-1073741431;
+  return -1073741431;
 }

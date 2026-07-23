@@ -1,15 +1,15 @@
 /*
- * XREFs of IoWMISuggestInstanceName @ 0x140822380
+ * XREFs of IoWMISuggestInstanceName @ 0x140828590
  * Callers:
  *     <none>
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140B256D0 (IoOpenDeviceInterfaceRegistryKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x140B27930 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMISuggestInstanceName(
@@ -37,7 +37,7 @@ NTSTATUS __stdcall IoWMISuggestInstanceName(
   Length = 0;
   DeviceProperty = -1073741776;
   ValueName = 0LL;
-  if ( !*(_QWORD *)&EtwpSecurityLock.ForegroundLossTime )
+  if ( !WmipServiceDeviceObject )
     return -1073741823;
   v10 = 0;
   Pool2 = 0LL;

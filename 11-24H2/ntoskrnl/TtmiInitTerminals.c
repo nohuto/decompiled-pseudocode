@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmiInitTerminals @ 0x14076F7E0
+ * XREFs of TtmiInitTerminals @ 0x14076FA00
  * Callers:
- *     TtmInit @ 0x140769B20 (TtmInit.c)
+ *     TtmInit @ 0x140769D40 (TtmInit.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
  */
 
 __int64 TtmiInitTerminals()

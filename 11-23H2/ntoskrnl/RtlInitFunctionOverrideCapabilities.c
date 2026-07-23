@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInitFunctionOverrideCapabilities @ 0x1403A7858
+ * XREFs of RtlInitFunctionOverrideCapabilities @ 0x1403A7A38
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     RtlGetProcessorSignature @ 0x1403A7AC8 (RtlGetProcessorSignature.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlGetProcessorSignature @ 0x1403A7CA8 (RtlGetProcessorSignature.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 signed __int64 *__fastcall RtlInitFunctionOverrideCapabilities(signed __int64 *a1)

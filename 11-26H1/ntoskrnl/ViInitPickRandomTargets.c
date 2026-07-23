@@ -1,10 +1,10 @@
 /*
- * XREFs of ViInitPickRandomTargets @ 0x140CDEC58
+ * XREFs of ViInitPickRandomTargets @ 0x140CE4FF0
  * Callers:
- *     ViInitSystemPhase0 @ 0x140CDEDA4 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase0 @ 0x140CE513C (ViInitSystemPhase0.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VfRandomGetNumber @ 0x140C215A4 (VfRandomGetNumber.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VfRandomGetNumber @ 0x140C275B4 (VfRandomGetNumber.c)
  */
 
 __int64 ViInitPickRandomTargets()
@@ -32,14 +32,14 @@ __int64 ViInitPickRandomTargets()
     v2 = ViExpectedDriversCount + 2;
     if ( (unsigned int)(ViExpectedDriversCount + 2) > 0x200 )
       v2 = 512;
-    qword_140FF0078 = (__int64)&VfRandomTargetsBitMap;
+    qword_140FF1078 = (__int64)&VfRandomTargetsBitMap;
     v3 = 2 * (int)result > (unsigned int)ViExpectedDriversCount;
     memset_0(&VfRandomTargetsBitMap, 0, 0x40uLL);
     for ( i = 0; i < VfRandomVerifiedDrivers; ++i )
     {
       Number = VfRandomGetNumber(1u, v2 - 1);
       v6 = (unsigned __int64)Number >> 3;
-      if ( ((*(char *)(v6 + qword_140FF0078) >> (Number & 7)) & 1) != 0 )
+      if ( ((*(char *)(v6 + qword_140FF1078) >> (Number & 7)) & 1) != 0 )
       {
         if ( v3 )
         {
@@ -54,19 +54,19 @@ __int64 ViInitPickRandomTargets()
             if ( !v7 )
               v7 = 1;
             v8 = (unsigned __int64)v7 >> 3;
-            if ( ((*(char *)(v8 + qword_140FF0078) >> (v7 & 7)) & 1) == 0 )
+            if ( ((*(char *)(v8 + qword_140FF1078) >> (v7 & 7)) & 1) == 0 )
               break;
             if ( v7 == Number )
               goto LABEL_20;
           }
-          *(_BYTE *)(v8 + qword_140FF0078) |= 1 << (v7 & 7);
+          *(_BYTE *)(v8 + qword_140FF1078) |= 1 << (v7 & 7);
           if ( v7 == Number )
             break;
         }
       }
       else
       {
-        *(_BYTE *)(v6 + qword_140FF0078) |= 1 << (Number & 7);
+        *(_BYTE *)(v6 + qword_140FF1078) |= 1 << (Number & 7);
       }
     }
 LABEL_20:

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInsertUnusedSegment @ 0x14007B5A0
+ * XREFs of MiInsertUnusedSegment @ 0x14007B590
  * Callers:
- *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiCleanSection @ 0x14016973C (MiCleanSection.c)
- *     MiDeleteCachedSegment @ 0x1402A1864 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1402A227C (MiFlushControlArea.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x1402A27C0 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x1402A2980 (MiProcessDeleteOnClose.c)
- *     MiSetDeleteOnClose @ 0x1402A330C (MiSetDeleteOnClose.c)
+ *     MiCheckControlArea @ 0x140076490 (MiCheckControlArea.c)
+ *     MiCleanSection @ 0x14016983C (MiCleanSection.c)
+ *     MiDeleteCachedSegment @ 0x1402A1A54 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1C08 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1402A246C (MiFlushControlArea.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x1402A29B0 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x1402A2B70 (MiProcessDeleteOnClose.c)
+ *     MiSetDeleteOnClose @ 0x1402A34FC (MiSetDeleteOnClose.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     MiReleaseControlAreaCharges @ 0x140079C68 (MiReleaseControlAreaCharges.c)
- *     MiComputePagedPoolSegmentBytes @ 0x14007B69C (MiComputePagedPoolSegmentBytes.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiConvertStaticSubsections @ 0x14007BCD4 (MiConvertStaticSubsections.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseControlAreaCharges @ 0x140079C58 (MiReleaseControlAreaCharges.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x14007B68C (MiComputePagedPoolSegmentBytes.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiConvertStaticSubsections @ 0x14007BCC4 (MiConvertStaticSubsections.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 __int64 __fastcall MiInsertUnusedSegment(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall MiInsertUnusedSegment(__int64 a1)
   {
     if ( (v1 & 0x20) == 0 )
       v2 = MiConvertStaticSubsections();
-    v4 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+    v4 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v4 + 1280));
     if ( !v2 )
       v2 = MiReleaseControlAreaCharges(a1);
@@ -83,7 +83,7 @@ LABEL_10:
         *(_QWORD *)(v4 + 1632) += v10;
         v11 = v10;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 1280));
-        _InterlockedExchangeAdd64(&qword_140438BD8, v11);
+        _InterlockedExchangeAdd64(&qword_140439C98, v11);
         return v2;
       }
     }

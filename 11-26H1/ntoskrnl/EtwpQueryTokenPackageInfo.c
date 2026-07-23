@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpQueryTokenPackageInfo @ 0x14096DBF8
+ * XREFs of EtwpQueryTokenPackageInfo @ 0x1408FBFFC
  * Callers:
- *     EtwTraceAppStateChange @ 0x1409540B8 (EtwTraceAppStateChange.c)
- *     EtwpPsProvProcessEnumCallback @ 0x140954D20 (EtwpPsProvProcessEnumCallback.c)
- *     EtwpBuildProcessEvent @ 0x14096D8A8 (EtwpBuildProcessEvent.c)
- *     EtwQueryProcessTelemetryInfo @ 0x14096F92C (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpBuildProcessEvent @ 0x1408FBCAC (EtwpBuildProcessEvent.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409BA820 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwTraceAppStateChange @ 0x1409CF9F8 (EtwTraceAppStateChange.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1409D1C14 (EtwQueryProcessTelemetryInfo.c)
  * Callees:
- *     SeSecurityAttributePresent @ 0x1402B4AC0 (SeSecurityAttributePresent.c)
- *     RtlStringCchCopyNExW @ 0x1404302C0 (RtlStringCchCopyNExW.c)
- *     RtlQueryPackageIdentity @ 0x140460890 (RtlQueryPackageIdentity.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
+ *     SeSecurityAttributePresent @ 0x1402FF790 (SeSecurityAttributePresent.c)
+ *     RtlStringCchCopyNExW @ 0x14041D2F0 (RtlStringCchCopyNExW.c)
+ *     RtlQueryPackageIdentity @ 0x140459DD0 (RtlQueryPackageIdentity.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
  */
 
-int __fastcall EtwpQueryTokenPackageInfo(__int64 a1, __int64 a2, _DWORD *a3)
+int __fastcall EtwpQueryTokenPackageInfo(HANDLE TokenHandle, WCHAR *PackageSize, _DWORD *a3)
 {
-  size_t *v3; // rsi
+  PSIZE_T v3; // rsi
   char v7; // bl
   char v8; // r12
   unsigned __int64 v9; // rax
   size_t v10; // r9
-  unsigned __int64 v11; // rsi
+  ULONG_PTR v11; // rsi
   size_t v12; // r15
   size_t v13; // rdx
   NTSTRSAFE_PWSTR v14; // r11
@@ -36,74 +36,60 @@ int __fastcall EtwpQueryTokenPackageInfo(__int64 a1, __int64 a2, _DWORD *a3)
   NTSTRSAFE_PWSTR pszDest; // [rsp+88h] [rbp+48h] BYREF
   size_t cchDest; // [rsp+98h] [rbp+58h] BYREF
 
-  v3 = (size_t *)(a2 + 8);
-  *(_QWORD *)a2 = 0LL;
-  *(_QWORD *)(a2 + 8) = 0LL;
-  v7 = SeSecurityAttributePresent(a1, (const UNICODE_STRING *)&PspSysAppIdClaim);
-  v8 = SeSecurityAttributePresent(a1, (const UNICODE_STRING *)&PspPackagedAppClaim);
+  v3 = (PSIZE_T)(PackageSize + 4);
+  *(_QWORD *)PackageSize = 0LL;
+  *((_QWORD *)PackageSize + 1) = 0LL;
+  v7 = SeSecurityAttributePresent((__int64)TokenHandle, (const UNICODE_STRING *)&PspSysAppIdClaim);
+  v8 = SeSecurityAttributePresent((__int64)TokenHandle, (const UNICODE_STRING *)&PspPackagedAppClaim);
   if ( v7 )
   {
     *a3 |= 1u;
-    *(_QWORD *)a2 = 256LL;
+    *(_QWORD *)PackageSize = 256LL;
     *v3 = 130LL;
-    if ( (int)RtlQueryPackageIdentity(a1, (wchar_t *)(a2 + 24), (size_t *)a2, (wchar_t *)(a2 + 280), v3, 0LL) < 0 )
+    if ( RtlQueryPackageIdentity(TokenHandle, PackageSize + 12, (PSIZE_T)PackageSize, PackageSize + 140, v3, 0LL) < 0 )
     {
       *v3 = 0LL;
-      v3 = (size_t *)(a2 + 8);
-      *(_QWORD *)a2 = 0LL;
+      v3 = (PSIZE_T)(PackageSize + 4);
+      *(_QWORD *)PackageSize = 0LL;
     }
     if ( v8 )
       *a3 |= 8u;
   }
-  v9 = *(_QWORD *)a2;
-  if ( !*(_QWORD *)a2 )
+  v9 = *(_QWORD *)PackageSize;
+  if ( !*(_QWORD *)PackageSize )
   {
-    *(_QWORD *)a2 = 2LL;
+    *(_QWORD *)PackageSize = 2LL;
     v9 = 2LL;
-    *(_WORD *)(a2 + 24) = 0;
+    PackageSize[12] = 0;
   }
   if ( !*v3 )
   {
     *v3 = 2LL;
-    *(_WORD *)(a2 + 280) = 0;
+    PackageSize[140] = 0;
   }
-  *(_QWORD *)(a2 + 16) = 2LL;
-  *(_WORD *)(a2 + 410) = 0;
+  *((_QWORD *)PackageSize + 2) = 2LL;
+  PackageSize[205] = 0;
   if ( v9 <= 2 )
     return v9;
   if ( *v3 <= 2 )
     return v9;
-  v9 = (unsigned __int64)wcschr((const wchar_t *)(a2 + 24), 0x5Fu);
+  v9 = (unsigned __int64)wcschr(PackageSize + 12, 0x5Fu);
   if ( !v9 )
     return v9;
-  v10 = (__int64)(v9 - a2 - 22) >> 1;
-  v11 = (*(_QWORD *)a2 >> 1) - 1LL;
+  v10 = (__int64)(v9 - (_QWORD)PackageSize - 22) >> 1;
+  v11 = (*(_QWORD *)PackageSize >> 1) - 1LL;
   if ( v11 <= 0xD )
     return v9;
-  v12 = (*(_QWORD *)(a2 + 8) >> 1) - 1LL;
+  v12 = (*((_QWORD *)PackageSize + 1) >> 1) - 1LL;
   v9 = 2 * (v12 + v10) + 30;
   if ( v9 > 0x104 )
     return v9;
   pszDest = 0LL;
   cchDest = 130LL;
-  LODWORD(v9) = RtlStringCchCopyNExW(
-                  (NTSTRSAFE_PWSTR)(a2 + 410),
-                  0x82uLL,
-                  (STRSAFE_PCNZWCH)(a2 + 24),
-                  v10,
-                  &pszDest,
-                  &cchDest,
-                  0x800u);
+  LODWORD(v9) = RtlStringCchCopyNExW(PackageSize + 205, 0x82uLL, PackageSize + 12, v10, &pszDest, &cchDest, 0x800u);
   if ( (v9 & 0x80000000) != 0LL )
     goto LABEL_38;
-  LODWORD(v9) = RtlStringCchCopyNExW(
-                  pszDest,
-                  cchDest,
-                  (STRSAFE_PCNZWCH)(a2 - 2 + 2 * v11),
-                  0xDuLL,
-                  &pszDest,
-                  &cchDest,
-                  0x800u);
+  LODWORD(v9) = RtlStringCchCopyNExW(pszDest, cchDest, &PackageSize[v11 - 1], 0xDuLL, &pszDest, &cchDest, 0x800u);
   if ( (v9 & 0x80000000) != 0LL )
     goto LABEL_38;
   v13 = cchDest;
@@ -176,12 +162,12 @@ LABEL_23:
     v13 = v15;
   }
   if ( v24 < 0
-    || (LODWORD(v9) = RtlStringCchCopyNExW(v14, v13, (STRSAFE_PCNZWCH)(a2 + 280), v12, &pszDest, &cchDest, 0x800u),
+    || (LODWORD(v9) = RtlStringCchCopyNExW(v14, v13, PackageSize + 140, v12, &pszDest, &cchDest, 0x800u),
         (v9 & 0x80000000) != 0LL) )
   {
 LABEL_38:
-    *(_QWORD *)(a2 + 16) = 2LL;
-    *(_WORD *)(a2 + 410) = 0;
+    *((_QWORD *)PackageSize + 2) = 2LL;
+    PackageSize[205] = 0;
   }
   return v9;
 }

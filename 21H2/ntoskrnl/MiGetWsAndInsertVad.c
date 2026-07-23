@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetWsAndInsertVad @ 0x140316080
+ * XREFs of MiGetWsAndInsertVad @ 0x140320DD0
  * Callers:
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MiInsertProcessVads @ 0x140711718 (MiInsertProcessVads.c)
- *     MiInsertChildVads @ 0x1408D9780 (MiInsertChildVads.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiInsertProcessVads @ 0x1406BFD68 (MiInsertProcessVads.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MiInsertChildVads @ 0x1408D98E0 (MiInsertChildVads.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiInsertVad @ 0x140316330 (MiInsertVad.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiInsertVad @ 0x140321080 (MiInsertVad.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetWsAndInsertVad(__int64 a1)
@@ -39,7 +39,6 @@ __int64 __fastcall MiGetWsAndInsertVad(__int64 a1)
   __int64 v18; // rcx
   __int64 v19; // rdi
   __int64 v20; // rdx
-  __int64 v21; // rcx
 
   Process = KeGetCurrentThread()->ApcState.Process;
   result = MiInsertVad(a1, Process, 1LL);
@@ -106,7 +105,7 @@ LABEL_27:
     {
       *(_BYTE *)(v19 + 32) |= 2u;
       if ( *(__int64 *)(v19 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v19);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
       *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v19 + 25) &= ~1u;
       *(_QWORD *)(v19 + 32) = 0LL;
@@ -120,7 +119,7 @@ LABEL_27:
     KiAbThreadRemoveBoosts((ULONG_PTR)v13);
     v17 = v13->SpecialApcDisable++ == -1;
     if ( v17 && ($C459BD0D405E8E46662177FB3D0A143F *)v13->ApcState.ApcListHead[0].Flink != &v13->152 )
-      KiCheckForKernelApcDelivery(v21);
+      KiCheckForKernelApcDelivery();
     return KiLeaveGuardedRegionUnsafe(v11);
   }
   return result;

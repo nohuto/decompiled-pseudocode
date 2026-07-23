@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecommitHandleTransitionPte @ 0x14033DDD4
+ * XREFs of MiDecommitHandleTransitionPte @ 0x14033FE54
  * Callers:
- *     MiDeleteVa @ 0x140322AC0 (MiDeleteVa.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
+ *     MiDeleteVa @ 0x140324AF0 (MiDeleteVa.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
  * Callees:
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiDeleteTransitionPte @ 0x14033E7F0 (MiDeleteTransitionPte.c)
- *     MiReleasePageFileSpace @ 0x14033ECA0 (MiReleasePageFileSpace.c)
- *     MiDecommitLargePte @ 0x14033EDBC (MiDecommitLargePte.c)
- *     MiReturnPagedPoolLockCharge @ 0x14043CF44 (MiReturnPagedPoolLockCharge.c)
- *     MiIsPfnSystemCharged @ 0x14043D030 (MiIsPfnSystemCharged.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x140472790 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiDeleteTransitionPte @ 0x140340870 (MiDeleteTransitionPte.c)
+ *     MiReleasePageFileSpace @ 0x140340D20 (MiReleasePageFileSpace.c)
+ *     MiDecommitLargePte @ 0x140340E3C (MiDecommitLargePte.c)
+ *     MiReturnPagedPoolLockCharge @ 0x14042F7F4 (MiReturnPagedPoolLockCharge.c)
+ *     MiIsPfnSystemCharged @ 0x14042F8E0 (MiIsPfnSystemCharged.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14046BF10 (MI_IS_PTE_IN_WS_SWAP_SET.c)
  */
 
 __int64 __fastcall MiDecommitHandleTransitionPte(__int64 a1, __int16 a2)
@@ -82,7 +82,7 @@ __int64 __fastcall MiDecommitHandleTransitionPte(__int64 a1, __int16 a2)
             v11 = *(_QWORD *)(result + 16);
             v17 = (*(_QWORD *)(result + 40) >> 43) & 0x3FFLL;
             v20 = v11;
-            v12 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v17);
+            v12 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v17);
             if ( (v11 & 4) != 0 )
             {
               v18 = MI_IS_PTE_IN_WS_SWAP_SET(v12, &v20);
@@ -109,8 +109,8 @@ __int64 __fastcall MiDecommitHandleTransitionPte(__int64 a1, __int16 a2)
             MiReleasePageFileSpace(v12, v11, v13);
           if ( !v13 )
           {
-            if ( qword_140E2D740 && (v11 & 0x10) == 0 )
-              HIDWORD(v11) &= HIDWORD(qword_140E2D748);
+            if ( qword_140E2D8C0 && (v11 & 0x10) == 0 )
+              HIDWORD(v11) &= HIDWORD(qword_140E2D8C8);
             v15 = MiTransferSoftwarePte(
                     *(_QWORD *)(a1 + 120),
                     *(_QWORD *)(v12 + 8LL * ((unsigned __int16)v11 >> 12) + 22304),

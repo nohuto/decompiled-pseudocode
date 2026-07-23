@@ -1,32 +1,32 @@
 /*
- * XREFs of FsRtlpRequestExclusiveOplock @ 0x1403FC3F4
+ * XREFs of FsRtlpRequestExclusiveOplock @ 0x1403F8BE4
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x140AA2BF0 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x140AA46C0 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     FsRtlpOplockDequeueRH @ 0x1402C1DF8 (FsRtlpOplockDequeueRH.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1403F7FB8 (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F81F0 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpComputeShareableOplockState @ 0x1403F8764 (FsRtlpComputeShareableOplockState.c)
- *     FsRtlpOplockKeysEqual @ 0x1403FB470 (FsRtlpOplockKeysEqual.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpClearOwner @ 0x1403FCCBC (FsRtlpClearOwner.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     FsRtlpSyncWithAckTimeout @ 0x1403FE3D0 (FsRtlpSyncWithAckTimeout.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1403FE7A0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x1403FFAC0 (MmDoesFileHaveUserWritableReferences.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     FsRtlpCancelExclusiveIrp @ 0x14052A77C (FsRtlpCancelExclusiveIrp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x140A9B81C (FsRtlpOplockUpperLowerCompatible.c)
- *     FsRtlpAllocateOplock @ 0x140AAF04C (FsRtlpAllocateOplock.c)
- *     FsRtlpFillOutputBuffer @ 0x140ADD764 (FsRtlpFillOutputBuffer.c)
- *     FsRtlpOplockTryPrepForAckTimeout @ 0x140AE6EA0 (FsRtlpOplockTryPrepForAckTimeout.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlpOplockDequeueRH @ 0x14030CAB8 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1403F47AC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F49E4 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpComputeShareableOplockState @ 0x1403F4F58 (FsRtlpComputeShareableOplockState.c)
+ *     FsRtlpOplockKeysEqual @ 0x1403F7C60 (FsRtlpOplockKeysEqual.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpClearOwner @ 0x1403F94AC (FsRtlpClearOwner.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     FsRtlpSyncWithAckTimeout @ 0x1403FABC0 (FsRtlpSyncWithAckTimeout.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1403FAF90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x1404581F0 (MmDoesFileHaveUserWritableReferences.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14052CC9C (FsRtlpCancelExclusiveIrp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x140A9E410 (FsRtlpOplockUpperLowerCompatible.c)
+ *     FsRtlpAllocateOplock @ 0x140AACC9C (FsRtlpAllocateOplock.c)
+ *     FsRtlpFillOutputBuffer @ 0x140ADA4D4 (FsRtlpFillOutputBuffer.c)
+ *     FsRtlpOplockTryPrepForAckTimeout @ 0x140AE4C60 (FsRtlpOplockTryPrepForAckTimeout.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlpRequestExclusiveOplock(
@@ -201,7 +201,7 @@ LABEL_21:
           v46 = 0x1000000LL;
           v54 = &v46;
           v55 = 8LL;
-          tlgWriteAgg((int)&dword_140E06B30, (int)&dword_140046584, v26, v26 + 6, &v47);
+          tlgWriteAgg((int)&dword_140E06B30, (int)&byte_140046D10, v26, v26 + 6, &v47);
         }
         v11 = -2147483602;
         goto LABEL_51;

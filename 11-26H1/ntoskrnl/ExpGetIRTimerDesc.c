@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpGetIRTimerDesc @ 0x1404ED6B0
+ * XREFs of ExpGetIRTimerDesc @ 0x1404E6C90
  * Callers:
- *     ExpCheckIRTimerAccess @ 0x140ABD214 (ExpCheckIRTimerAccess.c)
- *     ExStopRecordingIRTimerExpiries @ 0x140B190AC (ExStopRecordingIRTimerExpiries.c)
- *     ExStartRecordingIRTimerExpiries @ 0x140B3DD04 (ExStartRecordingIRTimerExpiries.c)
+ *     ExpCheckIRTimerAccess @ 0x140ABF674 (ExpCheckIRTimerAccess.c)
+ *     ExStopRecordingIRTimerExpiries @ 0x140B1B4F4 (ExStopRecordingIRTimerExpiries.c)
+ *     ExStartRecordingIRTimerExpiries @ 0x140B3FDE4 (ExStartRecordingIRTimerExpiries.c)
  * Callees:
  *     <none>
  */

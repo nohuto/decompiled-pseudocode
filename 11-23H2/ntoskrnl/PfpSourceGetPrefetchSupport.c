@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpSourceGetPrefetchSupport @ 0x14097EE40
+ * XREFs of PfpSourceGetPrefetchSupport @ 0x14097F040
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x14097E268 (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x14097E468 (PfpPrefetchPrivatePages.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     NtOpenProcess @ 0x1406F3CD0 (NtOpenProcess.c)
- *     NtOpenSession @ 0x1407E3110 (NtOpenSession.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     NtOpenProcess @ 0x1406F3D00 (NtOpenProcess.c)
+ *     NtOpenSession @ 0x1407E33E0 (NtOpenSession.c)
  */
 
 __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
   HANDLE UniqueProcess; // r14
   int v6; // ecx
   int v8; // ecx
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   unsigned __int64 v10; // rax
   int v11; // eax
   __int64 v12; // rdx
@@ -109,7 +109,7 @@ LABEL_16:
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v9 = NtOpenSession(&ClientId, 983043, (__int64)&ObjectAttributes);
+  v9 = NtOpenSession(&ClientId.UniqueProcess, 0xF0003u, &ObjectAttributes);
   if ( v9 >= 0 )
   {
     *(_QWORD *)(a2 + 8) = ClientId.UniqueProcess;

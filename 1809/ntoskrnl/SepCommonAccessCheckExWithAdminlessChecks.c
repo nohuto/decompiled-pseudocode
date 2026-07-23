@@ -1,7 +1,7 @@
 /*
- * XREFs of SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4
+ * XREFs of SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B7C4
  * Callers:
- *     SepCommonAccessCheckEx @ 0x14015B68C (SepCommonAccessCheckEx.c)
+ *     SepCommonAccessCheckEx @ 0x14015B78C (SepCommonAccessCheckEx.c)
  * Callees:
  *     SepFreeResourceInfo @ 0x14001311C (SepFreeResourceInfo.c)
  *     SepTokenIsOwner @ 0x1400131F0 (SepTokenIsOwner.c)
@@ -10,26 +10,26 @@
  *     SepConstrainByMandatory @ 0x1400134B4 (SepConstrainByMandatory.c)
  *     SepMandatoryIntegrityCheck @ 0x140052270 (SepMandatoryIntegrityCheck.c)
  *     SepFilterCheck @ 0x140052760 (SepFilterCheck.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1400A6300 (AuthzBasepEvaluateAceCondition.c)
- *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
- *     SepTrustLevelCheck @ 0x1400AA8D8 (SepTrustLevelCheck.c)
- *     AuthzBasepSetAccessReasons @ 0x1401147B0 (AuthzBasepSetAccessReasons.c)
- *     SeLogAccessFailure @ 0x140118F00 (SeLogAccessFailure.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1401214FC (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepAccessCheckEx @ 0x14015BDD8 (SepAccessCheckEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SepBuildCapeSecurityDescriptor @ 0x1402FE95C (SepBuildCapeSecurityDescriptor.c)
- *     SepGetScopedPolicySid @ 0x1402FEAB4 (SepGetScopedPolicySid.c)
- *     SepLogLpacAccessFailure @ 0x1402FEC00 (SepLogLpacAccessFailure.c)
- *     SepRmDereferenceCapTable @ 0x1402FED44 (SepRmDereferenceCapTable.c)
- *     SepRmReferenceFindCap @ 0x140300B60 (SepRmReferenceFindCap.c)
- *     AuthzBasepMergeAccessReasons @ 0x140324F00 (AuthzBasepMergeAccessReasons.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
- *     SeUnlockSubjectContext @ 0x1405E62C0 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1405E6300 (SeLockSubjectContext.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1400A6240 (AuthzBasepEvaluateAceCondition.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A8F44 (SepLocateTokenTrustLevel.c)
+ *     SepTrustLevelCheck @ 0x1400AA818 (SepTrustLevelCheck.c)
+ *     AuthzBasepSetAccessReasons @ 0x140114820 (AuthzBasepSetAccessReasons.c)
+ *     SeLogAccessFailure @ 0x140118F70 (SeLogAccessFailure.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1401215CC (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepAccessCheckEx @ 0x14015BED8 (SepAccessCheckEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x1402FEB4C (SepBuildCapeSecurityDescriptor.c)
+ *     SepGetScopedPolicySid @ 0x1402FECA4 (SepGetScopedPolicySid.c)
+ *     SepLogLpacAccessFailure @ 0x1402FEDF0 (SepLogLpacAccessFailure.c)
+ *     SepRmDereferenceCapTable @ 0x1402FEF34 (SepRmDereferenceCapTable.c)
+ *     SepRmReferenceFindCap @ 0x140300D50 (SepRmReferenceFindCap.c)
+ *     AuthzBasepMergeAccessReasons @ 0x1403250F0 (AuthzBasepMergeAccessReasons.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1405BCA50 (SepAdtAuditThisEventWithContext.c)
+ *     SeUnlockSubjectContext @ 0x1405E72C0 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1405E7300 (SeLockSubjectContext.c)
  */
 
 char __fastcall SepCommonAccessCheckExWithAdminlessChecks(
@@ -118,7 +118,7 @@ char __fastcall SepCommonAccessCheckExWithAdminlessChecks(
   int v86; // ecx
   __int64 v87; // rcx
   __int64 v88; // rax
-  __int64 v89; // rax
+  ACL *v89; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   bool v92; // sf
@@ -483,12 +483,12 @@ LABEL_39:
   if ( !SepRmEnforceCap )
     goto LABEL_40;
   v87 = *(_QWORD *)(*(_QWORD *)(a3 + 8) + 8LL);
-  v32 = *(unsigned __int16 *)(v87 + 2);
+  LODWORD(v32) = *(unsigned __int16 *)(v87 + 2);
   if ( (v32 & 0x10) == 0 || KeGetCurrentIrql() >= 2u )
     goto LABEL_40;
   if ( (v32 & 0x8000u) == 0LL )
   {
-    v89 = *(_QWORD *)(v87 + 24);
+    v89 = *(ACL **)(v87 + 24);
   }
   else
   {
@@ -500,12 +500,12 @@ LABEL_40:
       v37 = 0;
       goto LABEL_41;
     }
-    v89 = v87 + v88;
+    v89 = (ACL *)(v87 + v88);
   }
-  v211 = v89;
+  v211 = (__int64)v89;
   if ( !v89 )
     goto LABEL_40;
-  ScopedPolicySid = (void *)SepGetScopedPolicySid(v89, v32, v23);
+  ScopedPolicySid = (void *)SepGetScopedPolicySid(v89);
   v24 = 0LL;
   if ( ScopedPolicySid )
   {

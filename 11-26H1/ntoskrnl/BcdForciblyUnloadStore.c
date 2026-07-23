@@ -1,42 +1,42 @@
 /*
- * XREFs of BcdForciblyUnloadStore @ 0x140B6A7AC
+ * XREFs of BcdForciblyUnloadStore @ 0x140B6D9BC
  * Callers:
- *     BiCleanupLoadedStores @ 0x1409D3368 (BiCleanupLoadedStores.c)
- *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
+ *     BiCleanupLoadedStores @ 0x1409A4348 (BiCleanupLoadedStores.c)
+ *     PopAllocateHiberContext @ 0x140B75B48 (PopAllocateHiberContext.c)
  * Callees:
- *     BiExportStoreAlterationsToFirmware @ 0x140892D1C (BiExportStoreAlterationsToFirmware.c)
- *     BiIsSystemStore @ 0x1409D0134 (BiIsSystemStore.c)
- *     BiUnloadHiveByHandle @ 0x1409D02C4 (BiUnloadHiveByHandle.c)
- *     BiReleaseBcdSyncMutant @ 0x1409D3F58 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x1409D415C (BiAcquireBcdSyncMutant.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x14089911C (BiExportStoreAlterationsToFirmware.c)
+ *     BiIsSystemStore @ 0x1409A1114 (BiIsSystemStore.c)
+ *     BiUnloadHiveByHandle @ 0x1409A12A4 (BiUnloadHiveByHandle.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A4F38 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A513C (BiAcquireBcdSyncMutant.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdForciblyUnloadStore(__int64 a1)
+NTSTATUS __cdecl BcdForciblyUnloadStore(HANDLE BcdStoreHandle)
 {
   char v2; // si
-  int v3; // eax
-  unsigned int v4; // r8d
-  int v6; // ebx
-  int v7; // eax
+  NTSTATUS v3; // eax
+  NTSTATUS v4; // r8d
+  NTSTATUS v6; // ebx
+  NTSTATUS v7; // eax
 
-  v2 = a1 & 1;
-  v3 = BiAcquireBcdSyncMutant(a1 & 1);
+  v2 = (unsigned __int8)BcdStoreHandle & 1;
+  v3 = BiAcquireBcdSyncMutant((unsigned __int8)BcdStoreHandle & 1);
   if ( v3 >= 0 )
   {
     v6 = 0;
-    if ( BiIsSystemStore(a1) && (a1 & 2) == 0 )
+    if ( BiIsSystemStore((__int64)BcdStoreHandle) && ((unsigned __int8)BcdStoreHandle & 2) == 0 )
     {
       BiLogMessage(2LL, L"Exporting forcible unload to firmware");
-      v6 = BiExportStoreAlterationsToFirmware(a1);
+      v6 = BiExportStoreAlterationsToFirmware(BcdStoreHandle);
     }
-    v7 = BiUnloadHiveByHandle((HANDLE)a1, 1);
+    v7 = BiUnloadHiveByHandle(BcdStoreHandle, 1);
     if ( v6 < 0 )
       BiLogMessage(4LL, L"Failed to export unload alterations to firmware. Status: %x", (unsigned int)v6);
     else
       v6 = v7;
     BiReleaseBcdSyncMutant(v2);
-    return (unsigned int)v6;
+    return v6;
   }
   else
   {

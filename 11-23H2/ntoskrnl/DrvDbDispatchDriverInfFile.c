@@ -1,16 +1,16 @@
 /*
- * XREFs of DrvDbDispatchDriverInfFile @ 0x140876020
+ * XREFs of DrvDbDispatchDriverInfFile @ 0x140876260
  * Callers:
  *     <none>
  * Callees:
- *     DrvDbGetDriverInfFileMappedProperty @ 0x140875EB0 (DrvDbGetDriverInfFileMappedProperty.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x140875FD8 (DrvDbOpenDriverInfFileRegKey.c)
- *     _PnpCtxGetObjectContext @ 0x1408764BC (_PnpCtxGetObjectContext.c)
- *     DrvDbDeleteObjectRegKey @ 0x140A6AE40 (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x140A6BD30 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
- *     DrvDbGetObjectList @ 0x140A6C330 (DrvDbGetObjectList.c)
- *     DrvDbSetDriverInfFileMappedProperty @ 0x140A6D080 (DrvDbSetDriverInfFileMappedProperty.c)
- *     DrvDbValidateDriverInfFileName @ 0x140A6D898 (DrvDbValidateDriverInfFileName.c)
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x1408760F0 (DrvDbGetDriverInfFileMappedProperty.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x140876218 (DrvDbOpenDriverInfFileRegKey.c)
+ *     _PnpCtxGetObjectContext @ 0x1408766FC (_PnpCtxGetObjectContext.c)
+ *     DrvDbDeleteObjectRegKey @ 0x140A6B0F0 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x140A6BFE0 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
+ *     DrvDbGetObjectList @ 0x140A6C5E0 (DrvDbGetObjectList.c)
+ *     DrvDbSetDriverInfFileMappedProperty @ 0x140A6D330 (DrvDbSetDriverInfFileMappedProperty.c)
+ *     DrvDbValidateDriverInfFileName @ 0x140A6DB48 (DrvDbValidateDriverInfFileName.c)
  */
 
 __int64 __fastcall DrvDbDispatchDriverInfFile(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)

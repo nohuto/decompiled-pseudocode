@@ -492,7 +492,7 @@ LONG __stdcall KeSetEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
 LABEL_3:
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -541,7 +541,7 @@ LABEL_3:
               *(_QWORD *)v12 = 0LL;
               v21 = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
               {
                 v27 = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( v21 == 2 )
@@ -638,7 +638,7 @@ LABEL_11:
           Flink->Flink = 0LL;
           v32 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v32 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu )
           {
             v41 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v32 == 2 )

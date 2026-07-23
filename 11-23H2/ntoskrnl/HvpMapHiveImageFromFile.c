@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpMapHiveImageFromFile @ 0x140A1DE78
+ * XREFs of HvpMapHiveImageFromFile @ 0x140A1E128
  * Callers:
- *     HvLoadHive @ 0x14074ED44 (HvLoadHive.c)
+ *     HvLoadHive @ 0x14074EF34 (HvLoadHive.c)
  * Callees:
- *     HvpMapHiveImage @ 0x140A1DCF4 (HvpMapHiveImage.c)
+ *     HvpMapHiveImage @ 0x140A1DFA4 (HvpMapHiveImage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmInstallNewIdleStates @ 0x14018B330
+ * XREFs of PpmInstallNewIdleStates @ 0x14018B470
  * Callers:
- *     PpmIdleInstallDefaultStates @ 0x14018B310 (PpmIdleInstallDefaultStates.c)
+ *     PpmIdleInstallDefaultStates @ 0x14018B450 (PpmIdleInstallDefaultStates.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     PpmDeepestHardwareIdleState @ 0x14018B868 (PpmDeepestHardwareIdleState.c)
- *     PpmResetIdlePolicy @ 0x14018B8A0 (PpmResetIdlePolicy.c)
- *     PpmUpdateProcessorIdleAccounting @ 0x14018BA2C (PpmUpdateProcessorIdleAccounting.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     PpmDeepestHardwareIdleState @ 0x14018B9A8 (PpmDeepestHardwareIdleState.c)
+ *     PpmResetIdlePolicy @ 0x14018B9E0 (PpmResetIdlePolicy.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x14018BB6C (PpmUpdateProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
@@ -244,7 +244,7 @@ LABEL_4:
       memset(&v45[1], 0, 0xA4uLL);
       KeAddProcessorAffinityEx(v45, *(_DWORD *)(v29 + 36));
       LOBYTE(v30) = PpmDeepestHardwareIdleState(v43);
-      ((void (__fastcall *)(__int64, _DWORD *))off_1403FE3E8[0])(v30, v45);
+      ((void (__fastcall *)(__int64, _DWORD *))off_1403FF3E8[0])(v30, v45);
       if ( *((_DWORD *)v43 + 9) != 1 && *(_BYTE *)v43 == 1 )
         PpmIdleDurationExpirationTimeout = (unsigned int)(10000 * PpmIdleDurationExpirationTimeoutMs);
       if ( v26 )

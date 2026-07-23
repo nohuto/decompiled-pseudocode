@@ -3,9 +3,9 @@
  * Callers:
  *     WbGetInitializedEncryptionSegment @ 0x1405D702C (WbGetInitializedEncryptionSegment.c)
  * Callees:
- *     sub_1403F9654 @ 0x1403F9654 (sub_1403F9654.c)
- *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     sub_1403F9834 @ 0x1403F9834 (sub_1403F9834.c)
+ *     WbAlloc @ 0x140642A24 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall sub_1405D7380(__int64 a1, unsigned int a2, _OWORD *a3, __int64 a4)
@@ -83,7 +83,7 @@ __int64 __fastcall sub_1405D7380(__int64 a1, unsigned int a2, _OWORD *a3, __int6
     }
     else
     {
-      sub_1403F9654();
+      sub_1403F9834();
       if ( v10 )
       {
 LABEL_2:

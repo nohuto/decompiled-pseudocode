@@ -1,15 +1,15 @@
 /*
- * XREFs of NtRaiseException @ 0x14015DFA0
+ * XREFs of NtRaiseException @ 0x14015E510
  * Callers:
  *     <none>
  * Callees:
- *     KiRaiseException @ 0x1401100A0 (KiRaiseException.c)
- *     KiRestoreDebugRegisterState @ 0x14015D990 (KiRestoreDebugRegisterState.c)
- *     NtRaiseException @ 0x14015DFA0 (NtRaiseException.c)
- *     KiRestoreSetContextState @ 0x14015E540 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x140162560 (KiInitiateUserApc.c)
- *     KiUmsExit @ 0x140170D40 (KiUmsExit.c)
- *     KiCopyCounters @ 0x1401D6FBC (KiCopyCounters.c)
+ *     KiRaiseException @ 0x140110604 (KiRaiseException.c)
+ *     KiRestoreDebugRegisterState @ 0x14015DF00 (KiRestoreDebugRegisterState.c)
+ *     NtRaiseException @ 0x14015E510 (NtRaiseException.c)
+ *     KiRestoreSetContextState @ 0x14015EAB0 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x140162AD0 (KiInitiateUserApc.c)
+ *     KiUmsExit @ 0x140171240 (KiUmsExit.c)
+ *     KiCopyCounters @ 0x1401D6DE8 (KiCopyCounters.c)
  */
 
 // positive sp value has been detected, the output may be wrong!
@@ -83,38 +83,38 @@ NTSTATUS __stdcall NtRaiseException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT 
     v10 = _bittestandreset16(MK_FP(__GS__, 11960LL), 5u);
     if ( v10 )
     {
-      v13[21] = 0x14015E1BBLL;
-      v13[52] = 0x14015E2D2LL;
-      v13[51] = 0x14015E2C9LL;
-      v13[50] = 0x14015E2C0LL;
-      v13[49] = 0x14015E2B7LL;
-      v13[48] = 0x14015E2AELL;
-      v13[47] = 0x14015E2A5LL;
-      v13[46] = 0x14015E29CLL;
-      v13[45] = 0x14015E293LL;
-      v13[44] = 0x14015E28ALL;
-      v13[43] = 0x14015E281LL;
-      v13[42] = 0x14015E278LL;
-      v13[41] = 0x14015E26FLL;
-      v13[40] = 0x14015E266LL;
-      v13[39] = 0x14015E25DLL;
-      v13[38] = 0x14015E254LL;
-      v13[37] = 0x14015E24BLL;
-      v13[36] = 0x14015E242LL;
-      v13[35] = 0x14015E239LL;
-      v13[34] = 0x14015E230LL;
-      v13[33] = 0x14015E227LL;
-      v13[32] = 0x14015E21ELL;
-      v13[31] = 0x14015E215LL;
-      v13[30] = 0x14015E20CLL;
-      v13[29] = 0x14015E203LL;
-      v13[28] = 0x14015E1FALL;
-      v13[27] = 0x14015E1F1LL;
-      v13[26] = 0x14015E1E8LL;
-      v13[25] = 0x14015E1DFLL;
-      v13[24] = 0x14015E1D6LL;
-      v13[23] = 0x14015E1CDLL;
-      v13[22] = 0x14015E1C4LL;
+      v13[21] = 0x14015E72BLL;
+      v13[52] = 0x14015E842LL;
+      v13[51] = 0x14015E839LL;
+      v13[50] = 0x14015E830LL;
+      v13[49] = 0x14015E827LL;
+      v13[48] = 0x14015E81ELL;
+      v13[47] = 0x14015E815LL;
+      v13[46] = 0x14015E80CLL;
+      v13[45] = 0x14015E803LL;
+      v13[44] = 0x14015E7FALL;
+      v13[43] = 0x14015E7F1LL;
+      v13[42] = 0x14015E7E8LL;
+      v13[41] = 0x14015E7DFLL;
+      v13[40] = 0x14015E7D6LL;
+      v13[39] = 0x14015E7CDLL;
+      v13[38] = 0x14015E7C4LL;
+      v13[37] = 0x14015E7BBLL;
+      v13[36] = 0x14015E7B2LL;
+      v13[35] = 0x14015E7A9LL;
+      v13[34] = 0x14015E7A0LL;
+      v13[33] = 0x14015E797LL;
+      v13[32] = 0x14015E78ELL;
+      v13[31] = 0x14015E785LL;
+      v13[30] = 0x14015E77CLL;
+      v13[29] = 0x14015E773LL;
+      v13[28] = 0x14015E76ALL;
+      v13[27] = 0x14015E761LL;
+      v13[26] = 0x14015E758LL;
+      v13[25] = 0x14015E74FLL;
+      v13[24] = 0x14015E746LL;
+      v13[23] = 0x14015E73DLL;
+      v13[22] = 0x14015E734LL;
     }
     if ( (KiKvaShadow & 1) == 0 )
     {

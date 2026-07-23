@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTallyHeteroSoftParkElectionVotes @ 0x14057E3EC
+ * XREFs of KiTallyHeteroSoftParkElectionVotes @ 0x14057E8DC
  * Callers:
- *     KiPerformHeteroSoftParkElection @ 0x14057E108 (KiPerformHeteroSoftParkElection.c)
+ *     KiPerformHeteroSoftParkElection @ 0x14057E5F8 (KiPerformHeteroSoftParkElection.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiGenerateHeteroSets @ 0x1404616A0 (KiGenerateHeteroSets.c)
- *     KiHeteroReduceToMaximallyPreferredByClass @ 0x1405772E8 (KiHeteroReduceToMaximallyPreferredByClass.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiGenerateHeteroSets @ 0x140461AA0 (KiGenerateHeteroSets.c)
+ *     KiHeteroReduceToMaximallyPreferredByClass @ 0x1405777D8 (KiHeteroReduceToMaximallyPreferredByClass.c)
  */
 
 __int64 __fastcall KiTallyHeteroSoftParkElectionVotes(

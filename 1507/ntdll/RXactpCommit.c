@@ -22,10 +22,10 @@ __int64 __fastcall RXactpCommit(__int64 *a1)
   HANDLE v7; // rcx
   __int64 result; // rax
   char v9; // bp
-  int v10; // eax
+  NTSTATUS v10; // eax
   int v11; // edi
   HANDLE v12; // rcx
-  HANDLE Handle; // [rsp+60h] [rbp+8h] BYREF
+  HANDLE KeyHandle; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = (unsigned int *)a1[3];
   v2 = 0;
@@ -42,19 +42,19 @@ __int64 __fastcall RXactpCommit(__int64 *a1)
       v12 = (HANDLE)*((_QWORD *)i + 5);
       if ( v12 == (HANDLE)-1LL || !v4 )
       {
-        result = RXactpOpenTargetKey(v3, 1LL, i + 2, &Handle);
+        result = RXactpOpenTargetKey(v3, 1LL, i + 2, &KeyHandle);
         if ( (int)result < 0 )
         {
           if ( (_DWORD)result != -1073741772 )
             return result;
           goto LABEL_11;
         }
-        v12 = Handle;
+        v12 = KeyHandle;
         v9 = 1;
       }
       else
       {
-        Handle = (HANDLE)*((_QWORD *)i + 5);
+        KeyHandle = (HANDLE)*((_QWORD *)i + 5);
         v9 = 0;
       }
       v10 = NtDeleteKey(v12);
@@ -66,22 +66,22 @@ __int64 __fastcall RXactpCommit(__int64 *a1)
       v7 = (HANDLE)*((_QWORD *)i + 5);
       if ( v7 == (HANDLE)-1LL || !v4 )
       {
-        result = RXactpOpenTargetKey(v3, 2LL, i + 2, &Handle);
+        result = RXactpOpenTargetKey(v3, 2LL, i + 2, &KeyHandle);
         if ( (int)result < 0 )
           return result;
-        v7 = Handle;
+        v7 = KeyHandle;
         v9 = 1;
       }
       else
       {
-        Handle = (HANDLE)*((_QWORD *)i + 5);
+        KeyHandle = (HANDLE)*((_QWORD *)i + 5);
         v9 = 0;
       }
-      v10 = ZwSetValueKey(v7, i + 6, 0LL, i[12], *((_QWORD *)i + 7), i[13]);
+      v10 = ZwSetValueKey(v7, (PUNICODE_STRING)(i + 6), 0, i[12], *((PVOID *)i + 7), i[13]);
     }
     v11 = v10;
     if ( v9 )
-      NtClose(Handle);
+      NtClose(KeyHandle);
     if ( v11 < 0 )
       return (unsigned int)v11;
 LABEL_11:

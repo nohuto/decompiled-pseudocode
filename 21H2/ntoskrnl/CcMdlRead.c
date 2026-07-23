@@ -1,19 +1,19 @@
 /*
- * XREFs of CcMdlRead @ 0x1406D3BB0
+ * XREFs of CcMdlRead @ 0x1406AAE90
  * Callers:
- *     FsRtlMdlReadDev @ 0x14088B050 (FsRtlMdlReadDev.c)
+ *     FsRtlMdlReadDev @ 0x14088B1B0 (FsRtlMdlReadDev.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     CcUpdateSharedCacheMapFlag @ 0x1402EE374 (CcUpdateSharedCacheMapFlag.c)
- *     CcScheduleReadAheadEx @ 0x1402F8E00 (CcScheduleReadAheadEx.c)
- *     CcUpdateReadHistory @ 0x1402F9D80 (CcUpdateReadHistory.c)
- *     CcFreeVirtualAddress @ 0x1403209F0 (CcFreeVirtualAddress.c)
- *     CcFetchDataForRead @ 0x140320A30 (CcFetchDataForRead.c)
- *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402F90C0 (CcUpdateSharedCacheMapFlag.c)
+ *     CcScheduleReadAheadEx @ 0x140303B50 (CcScheduleReadAheadEx.c)
+ *     CcUpdateReadHistory @ 0x140304AD0 (CcUpdateReadHistory.c)
+ *     CcFreeVirtualAddress @ 0x14032B740 (CcFreeVirtualAddress.c)
+ *     CcFetchDataForRead @ 0x14032B780 (CcFetchDataForRead.c)
+ *     CcGetVirtualAddress @ 0x14032BC60 (CcGetVirtualAddress.c)
  */
 
 void __stdcall CcMdlRead(
@@ -88,7 +88,7 @@ void __stdcall CcMdlRead(
     Mdl = IoAllocateMdl(VirtualAddress, v13, 0, 0, 0LL);
     v21 = Mdl;
     if ( !Mdl )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     MmProbeAndLockPages(Mdl, 0, IoReadAccess);
     CcFreeVirtualAddress((__int64)P);
     P = 0LL;

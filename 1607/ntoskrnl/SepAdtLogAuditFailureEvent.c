@@ -1,12 +1,12 @@
 /*
- * XREFs of SepAdtLogAuditFailureEvent @ 0x14068F118
+ * XREFs of SepAdtLogAuditFailureEvent @ 0x14068F1FC
  * Callers:
- *     SepAdtLogAuditRecord @ 0x140145330 (SepAdtLogAuditRecord.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     SepAdtLogAuditRecord @ 0x1401458A0 (SepAdtLogAuditRecord.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x140145330 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     SepAdtLogAuditRecord @ 0x1401458A0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall SepAdtLogAuditFailureEvent(unsigned int a1, char a2)

@@ -1,29 +1,29 @@
 /*
- * XREFs of MiAllocateFileExtents @ 0x14065A34C
+ * XREFs of MiAllocateFileExtents @ 0x14065A430
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiCreatePrototypePtes @ 0x14008FE84 (MiCreatePrototypePtes.c)
- *     MiUpdateActiveSubsection @ 0x1401EAC88 (MiUpdateActiveSubsection.c)
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
- *     MiCopyDirectMapHeader @ 0x14065A8E0 (MiCopyDirectMapHeader.c)
- *     MiInitializeImageExtents @ 0x14065ABC4 (MiInitializeImageExtents.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiCreatePrototypePtes @ 0x14008F5E4 (MiCreatePrototypePtes.c)
+ *     MiUpdateActiveSubsection @ 0x1401EAAB4 (MiUpdateActiveSubsection.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
+ *     MiCopyDirectMapHeader @ 0x14065A9C4 (MiCopyDirectMapHeader.c)
+ *     MiInitializeImageExtents @ 0x14065ACA8 (MiInitializeImageExtents.c)
  * Callees:
- *     MiEndingOffset @ 0x1400235F0 (MiEndingOffset.c)
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     MiSetSubsectionBase @ 0x1400B4BB8 (MiSetSubsectionBase.c)
- *     FsRtlGetFileExtents @ 0x1401B81B0 (FsRtlGetFileExtents.c)
- *     MiBuildFileOnlyProtos @ 0x1401ED1AC (MiBuildFileOnlyProtos.c)
- *     MiChangingSubsectionProtos @ 0x1401ED268 (MiChangingSubsectionProtos.c)
- *     MiConvertRunsToPages @ 0x1401ED50C (MiConvertRunsToPages.c)
- *     MiEliminateStaleExtents @ 0x1401ED5F8 (MiEliminateStaleExtents.c)
- *     MiSubsectionProtosCreated @ 0x1401EDCB4 (MiSubsectionProtosCreated.c)
- *     MiUnlinkSubsectionWaitBlock @ 0x1401EDD58 (MiUnlinkSubsectionWaitBlock.c)
+ *     MiEndingOffset @ 0x140023170 (MiEndingOffset.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     MiSetSubsectionBase @ 0x1400B29F0 (MiSetSubsectionBase.c)
+ *     FsRtlGetFileExtents @ 0x1401B8094 (FsRtlGetFileExtents.c)
+ *     MiBuildFileOnlyProtos @ 0x1401ECFD8 (MiBuildFileOnlyProtos.c)
+ *     MiChangingSubsectionProtos @ 0x1401ED094 (MiChangingSubsectionProtos.c)
+ *     MiConvertRunsToPages @ 0x1401ED338 (MiConvertRunsToPages.c)
+ *     MiEliminateStaleExtents @ 0x1401ED424 (MiEliminateStaleExtents.c)
+ *     MiSubsectionProtosCreated @ 0x1401EDAE0 (MiSubsectionProtosCreated.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x1401EDB84 (MiUnlinkSubsectionWaitBlock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
- *     MiAddFileOnlyPfns @ 0x14065A2DC (MiAddFileOnlyPfns.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
+ *     MiAddFileOnlyPfns @ 0x14065A3C0 (MiAddFileOnlyPfns.c)
  */
 
 __int64 __fastcall MiAllocateFileExtents(
@@ -197,7 +197,7 @@ LABEL_49:
     {
       v30 = *(v29 - 1);
       v31 = v30 + *v29;
-      if ( v31 >= qword_140327360 && v30 < qword_140327360 + 2048 || v31 >= 0xFFFFFFFFALL )
+      if ( v31 >= qword_1403273A0 && v30 < qword_1403273A0 + 2048 || v31 >= 0xFFFFFFFFALL )
       {
         ExFreePoolWithTag(v19, 0);
         if ( v22 == 1 )

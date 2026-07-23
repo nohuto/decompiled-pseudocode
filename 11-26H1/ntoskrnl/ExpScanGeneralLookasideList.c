@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpScanGeneralLookasideList @ 0x140433770
+ * XREFs of ExpScanGeneralLookasideList @ 0x140428840
  * Callers:
- *     KeBalanceSetManager @ 0x1405F79E0 (KeBalanceSetManager.c)
- *     ?ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z @ 0x140B45800 (-ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z.c)
+ *     KeBalanceSetManager @ 0x1405FA400 (KeBalanceSetManager.c)
+ *     ?ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z @ 0x140B47830 (-ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall ExpScanGeneralLookasideList(__int64 **a1, KSPIN_LOCK *a2, int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExDisableResourceBoostLite @ 0x1401118F4
+ * XREFs of ExDisableResourceBoostLite @ 0x140111E58
  * Callers:
- *     CcAllocateInitializeBcb @ 0x14006C9C4 (CcAllocateInitializeBcb.c)
+ *     CcAllocateInitializeBcb @ 0x14006C544 (CcAllocateInitializeBcb.c)
  * Callees:
- *     ExpLockResource @ 0x14005DB60 (ExpLockResource.c)
- *     ExpUnlockResource @ 0x140066CF0 (ExpUnlockResource.c)
+ *     ExpLockResource @ 0x14005D6E0 (ExpLockResource.c)
+ *     ExpUnlockResource @ 0x140066870 (ExpUnlockResource.c)
  */
 
 void __stdcall ExDisableResourceBoostLite(PERESOURCE Resource)

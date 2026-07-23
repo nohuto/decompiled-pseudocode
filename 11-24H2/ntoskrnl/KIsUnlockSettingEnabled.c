@@ -1,12 +1,12 @@
 /*
- * XREFs of KIsUnlockSettingEnabled @ 0x140A59CE4
+ * XREFs of KIsUnlockSettingEnabled @ 0x140A515A4
  * Callers:
- *     KIsDeveloperModeEnabled @ 0x140A59C94 (KIsDeveloperModeEnabled.c)
+ *     KIsDeveloperModeEnabled @ 0x140A51554 (KIsDeveloperModeEnabled.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1409CA218 (KGetAppModelStateSeparatedRegKeyPath.c)
- *     KGetUnlockSetting @ 0x140A59E50 (KGetUnlockSetting.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x1409B68D0 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     KGetUnlockSetting @ 0x140A51710 (KGetUnlockSetting.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
@@ -26,8 +26,8 @@ __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
   *(_OWORD *)v9 = 0LL;
   v4 = KGetAppModelStateSeparatedRegKeyPath(
          L"AppxPolicies",
-         (__int64)L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx",
-         (UNICODE_STRING *)v9);
+         L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx",
+         (PUNICODE_STRING)v9);
   if ( v4 >= 0 )
   {
     v4 = KGetUnlockSetting(v9, a1, a2);
@@ -39,8 +39,8 @@ __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
         {
           v4 = KGetAppModelStateSeparatedRegKeyPath(
                  L"AppModelUnlock",
-                 (__int64)L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock",
-                 (UNICODE_STRING *)P);
+                 L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock",
+                 (PUNICODE_STRING)P);
           if ( v4 >= 0 )
           {
             v4 = KGetUnlockSetting(P, a1, a2);

@@ -10,22 +10,19 @@
 
 __int64 __fastcall RtlpSetProcMergedLangList(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // r8
-
   if ( !a2 || !a1 )
     return 3221225485LL;
   if ( !*(_QWORD *)(a1 + 96) )
   {
     RtlpInitMuiCriticalSection();
-    RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     if ( !*(_QWORD *)(a1 + 96) )
     {
       *(_DWORD *)(a2 + 40) |= 0x40u;
       *(_DWORD *)a1 |= 0x200u;
       *(_QWORD *)(a1 + 96) = a2;
     }
-    RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect, v4, v5);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
   }
   return 0LL;
 }

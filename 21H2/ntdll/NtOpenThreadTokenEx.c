@@ -1,19 +1,24 @@
 /*
- * XREFs of NtOpenThreadTokenEx @ 0x18009DC20
+ * XREFs of NtOpenThreadTokenEx @ 0x18009DBE0
  * Callers:
  *     RtlCheckTokenMembershipEx @ 0x180036520 (RtlCheckTokenMembershipEx.c)
  *     RtlCheckTokenCapability @ 0x18003C650 (RtlCheckTokenCapability.c)
  *     RtlpOpenThreadToken @ 0x1800783CC (RtlpOpenThreadToken.c)
- *     RtlpIsAppContainer @ 0x1800E8AF4 (RtlpIsAppContainer.c)
+ *     RtlpIsAppContainer @ 0x1800E8AB4 (RtlpIsAppContainer.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenThreadTokenEx()
+NTSTATUS __cdecl NtOpenThreadTokenEx(
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        BOOLEAN OpenAsSelf,
+        ULONG HandleAttributes,
+        PHANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 47LL;
+  result = 47;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

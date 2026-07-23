@@ -1,21 +1,21 @@
 /*
- * XREFs of MiVadPureReserve @ 0x14021B990
+ * XREFs of MiVadPureReserve @ 0x1402C0290
  * Callers:
- *     MiProbeAndLockPrepare @ 0x14020A2F0 (MiProbeAndLockPrepare.c)
- *     MiSetReadOnlyOnSectionView @ 0x140240B90 (MiSetReadOnlyOnSectionView.c)
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
- *     MiSplitPrivatePage @ 0x14030CFB0 (MiSplitPrivatePage.c)
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     MiProbeAndLockPrepare @ 0x1402AEBF0 (MiProbeAndLockPrepare.c)
+ *     MiSetReadOnlyOnSectionView @ 0x1402E53E0 (MiSetReadOnlyOnSectionView.c)
+ *     MiInPagePageTable @ 0x140316B10 (MiInPagePageTable.c)
+ *     MiSplitPrivatePage @ 0x140317D00 (MiSplitPrivatePage.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
  *     MiDeleteEmptyPageTables @ 0x1403F4F90 (MiDeleteEmptyPageTables.c)
- *     MiCommitPageTablesForVad @ 0x1405F91A0 (MiCommitPageTablesForVad.c)
- *     MiCommitPagefileBackedSection @ 0x14069BA84 (MiCommitPagefileBackedSection.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiReturnVadQuota @ 0x1406EE790 (MiReturnVadQuota.c)
- *     MiReturnPageTablePageCommitment @ 0x1406EE990 (MiReturnPageTablePageCommitment.c)
- *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
+ *     MiCommitPagefileBackedSection @ 0x1405FAC44 (MiCommitPagefileBackedSection.c)
+ *     MiCommitPageTablesForVad @ 0x1406E8900 (MiCommitPageTablesForVad.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiReturnVadQuota @ 0x140705B70 (MiReturnVadQuota.c)
+ *     MiReturnPageTablePageCommitment @ 0x140705D70 (MiReturnPageTablePageCommitment.c)
+ *     MiAllocateChildVads @ 0x1408D8BF0 (MiAllocateChildVads.c)
  * Callees:
  *     <none>
  */

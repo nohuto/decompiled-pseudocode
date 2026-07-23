@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSelectIdealProcessor @ 0x140278068
+ * XREFs of KiSelectIdealProcessor @ 0x140266008
  * Callers:
- *     KeSelectIdealProcessor @ 0x140277F88 (KeSelectIdealProcessor.c)
+ *     KeSelectIdealProcessor @ 0x140265F28 (KeSelectIdealProcessor.c)
  * Callees:
  *     <none>
  */

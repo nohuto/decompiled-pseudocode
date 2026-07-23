@@ -1,9 +1,9 @@
 /*
- * XREFs of NtShutdownSystem @ 0x1408CDBD0
+ * XREFs of NtShutdownSystem @ 0x1408CEE90
  * Callers:
  *     <none>
  * Callees:
- *     NtSetSystemPowerState @ 0x14056DF00 (NtSetSystemPowerState.c)
+ *     NtSetSystemPowerState @ 0x14056EF00 (NtSetSystemPowerState.c)
  */
 
 NTSTATUS __stdcall NtShutdownSystem(SHUTDOWN_ACTION Action)

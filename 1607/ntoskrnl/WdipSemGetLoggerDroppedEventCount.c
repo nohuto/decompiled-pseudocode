@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemGetLoggerDroppedEventCount @ 0x1404E44E4
+ * XREFs of WdipSemGetLoggerDroppedEventCount @ 0x1404C719C
  * Callers:
- *     WdipSemWriteSemActionsEvent @ 0x1404E4274 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemWriteSemActionsEvent @ 0x1404C6F2C (WdipSemWriteSemActionsEvent.c)
  * Callees:
- *     WmiQueryTraceInformation @ 0x1404E4534 (WmiQueryTraceInformation.c)
+ *     WmiQueryTraceInformation @ 0x1404C71EC (WmiQueryTraceInformation.c)
  */
 
 NTSTATUS __fastcall WdipSemGetLoggerDroppedEventCount(int a1, _DWORD *a2)

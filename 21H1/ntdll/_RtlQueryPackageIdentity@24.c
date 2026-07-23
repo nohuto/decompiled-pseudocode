@@ -6,16 +6,22 @@
  *     _RtlQueryPackageIdentityEx@28 @ 0x4B2E4E20 (_RtlQueryPackageIdentityEx@28.c)
  */
 
-int __stdcall RtlQueryPackageIdentity(int a1, int a2, int a3, int a4, int a5, bool *a6)
+NTSTATUS __cdecl RtlQueryPackageIdentity(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PBOOLEAN Packaged)
 {
-  int result; // eax
-  __int64 v7; // [esp+8h] [ebp-8h] BYREF
+  NTSTATUS result; // eax
+  unsigned __int64 Flags; // [esp+8h] [ebp-8h] BYREF
 
-  result = RtlQueryPackageIdentityEx(a1, a2, a3, a4, a5, 0, &v7);
+  result = RtlQueryPackageIdentityEx(TokenHandle, PackageFullName, PackageSize, AppId, AppIdSize, 0, &Flags);
   if ( result >= 0 )
   {
-    if ( a6 )
-      *a6 = v7 != 0;
+    if ( Packaged )
+      *Packaged = Flags != 0;
   }
   return result;
 }

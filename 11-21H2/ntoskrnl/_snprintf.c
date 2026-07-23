@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  *     _flsbuf @ 0x1403E3D0C (_flsbuf.c)
- *     _output_l @ 0x1403E478C (_output_l.c)
+ *     sub_1403E478C @ 0x1403E478C (sub_1403E478C.c)
  */
 
 int snprintf(char *Dest, size_t Count, const char *Format, ...)
@@ -25,7 +25,7 @@ int snprintf(char *Dest, size_t Count, const char *Format, ...)
     if ( Count > 0x7FFFFFFF )
       LODWORD(Count) = 0x7FFFFFFF;
     File._cnt = Count;
-    v4 = output_l(&File, Format, 0LL, (__int64 *)va);
+    v4 = sub_1403E478C(&File, Format, 0LL, (__int64 *)va);
     if ( Dest )
     {
       if ( --File._cnt < 0 )
@@ -37,7 +37,7 @@ int snprintf(char *Dest, size_t Count, const char *Format, ...)
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return -1;
   }
 }

@@ -1,35 +1,35 @@
 /*
- * XREFs of Phase1InitializationIoReady @ 0x140A4C104
+ * XREFs of Phase1InitializationIoReady @ 0x140A4D104
  * Callers:
- *     Phase1Initialization @ 0x1407B3AA0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x1407B3C40 (Phase1Initialization.c)
  * Callees:
- *     ExNotifyCallback @ 0x1402B0640 (ExNotifyCallback.c)
- *     RtlpInitializeNonVolatileFlush @ 0x1403B46A0 (RtlpInitializeNonVolatileFlush.c)
- *     InbvSetProgressBarSubset @ 0x1403B4724 (InbvSetProgressBarSubset.c)
- *     ExLogTimeZoneInformation @ 0x1403B4A9C (ExLogTimeZoneInformation.c)
- *     FsRtlInitSystem2 @ 0x1403F08EC (FsRtlInitSystem2.c)
- *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     VfClearVerifierSettings @ 0x1405A02E0 (VfClearVerifierSettings.c)
- *     ExQueryBootEntropyInformation @ 0x14079EB94 (ExQueryBootEntropyInformation.c)
- *     ExInitLicenseData @ 0x1407AAD08 (ExInitLicenseData.c)
- *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
- *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
- *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
- *     VmInitSystem @ 0x140A47B1C (VmInitSystem.c)
- *     CmInitSystem2 @ 0x140A4B3D4 (CmInitSystem2.c)
- *     SmInitSystem @ 0x140A4B43C (SmInitSystem.c)
- *     SaveNodeDistanceInformation @ 0x140A4B6F0 (SaveNodeDistanceInformation.c)
- *     KeInitializeClock @ 0x140A4B7CC (KeInitializeClock.c)
- *     MmInitSystemDll @ 0x140A4B9EC (MmInitSystemDll.c)
- *     SeRmInitPhase1 @ 0x140A4BA3C (SeRmInitPhase1.c)
- *     StartFirstUserProcess @ 0x140A4BB74 (StartFirstUserProcess.c)
- *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
- *     MmInitSystem @ 0x140A53D6C (MmInitSystem.c)
- *     InitSafeBoot @ 0x140A8C3D0 (InitSafeBoot.c)
- *     ExInitTraceLogging @ 0x140A94604 (ExInitTraceLogging.c)
+ *     ExNotifyCallback @ 0x14022E9A0 (ExNotifyCallback.c)
+ *     RtlpInitializeNonVolatileFlush @ 0x1403B4810 (RtlpInitializeNonVolatileFlush.c)
+ *     InbvSetProgressBarSubset @ 0x1403B4894 (InbvSetProgressBarSubset.c)
+ *     ExLogTimeZoneInformation @ 0x1403B4C0C (ExLogTimeZoneInformation.c)
+ *     FsRtlInitSystem2 @ 0x1403F0A5C (FsRtlInitSystem2.c)
+ *     KeBugCheck @ 0x1403FE0B0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     VfClearVerifierSettings @ 0x1405A0510 (VfClearVerifierSettings.c)
+ *     ExQueryBootEntropyInformation @ 0x14079ED94 (ExQueryBootEntropyInformation.c)
+ *     ExInitLicenseData @ 0x1407AAF08 (ExInitLicenseData.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C7050 (VfNotifyVerifierOfEvent.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4217C (BootApplicationPersistentDataProcess.c)
+ *     EmInitSystem @ 0x140A4628C (EmInitSystem.c)
+ *     VmInitSystem @ 0x140A48B1C (VmInitSystem.c)
+ *     CmInitSystem2 @ 0x140A4C3D4 (CmInitSystem2.c)
+ *     SmInitSystem @ 0x140A4C43C (SmInitSystem.c)
+ *     SaveNodeDistanceInformation @ 0x140A4C6F0 (SaveNodeDistanceInformation.c)
+ *     KeInitializeClock @ 0x140A4C7CC (KeInitializeClock.c)
+ *     MmInitSystemDll @ 0x140A4C9EC (MmInitSystemDll.c)
+ *     SeRmInitPhase1 @ 0x140A4CA3C (SeRmInitPhase1.c)
+ *     StartFirstUserProcess @ 0x140A4CB74 (StartFirstUserProcess.c)
+ *     PsInitSystem @ 0x140A4D2F8 (PsInitSystem.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
+ *     MmInitSystem @ 0x140A54D6C (MmInitSystem.c)
+ *     InitSafeBoot @ 0x140A8D3D0 (InitSafeBoot.c)
+ *     ExInitTraceLogging @ 0x140A95604 (ExInitTraceLogging.c)
  */
 
 __int64 __fastcall Phase1InitializationIoReady(__int64 a1, char a2)
@@ -56,7 +56,7 @@ __int64 __fastcall Phase1InitializationIoReady(__int64 a1, char a2)
     KeBugCheckEx(0x32u, inited, 8uLL, 1uLL, 0LL);
   TmInitSystemPhase2();
   InbvSetProgressBarSubset();
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     LOBYTE(v7) = a2;
     InitSafeBoot(v7);

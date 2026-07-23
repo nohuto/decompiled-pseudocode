@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpWalkFrameChain @ 0x140262EB0
+ * XREFs of RtlpWalkFrameChain @ 0x140262420
  * Callers:
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x140263CC0 (RtlpGetStackLimits.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1402E96A0 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlpIsFrameInBoundsEx @ 0x14041A810 (RtlpIsFrameInBoundsEx.c)
- *     RtlpWalkWowStack @ 0x1404660B0 (RtlpWalkWowStack.c)
- *     ??0CUmaFnEnt@@QEAA@PEAU_IMAGE_RUNTIME_FUNCTION_ENTRY@@@Z @ 0x1404E245C (--0CUmaFnEnt@@QEAA@PEAU_IMAGE_RUNTIME_FUNCTION_ENTRY@@@Z.c)
- *     RtlpCaptureContextForStackWalk @ 0x140535200 (RtlpCaptureContextForStackWalk.c)
- *     ??$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT_FOR_STACKWALK@@@@YAJK_K0VCDirectFnEnt@@PEAU_CONTEXT_FOR_STACKWALK@@PEAEPEAPEAXPEA_KPEAP6A?AW4_EXCEPTION_DISPOSITION@@PEAU_EXCEPTION_RECORD@@PEAXPEAU_CONTEXT@@7@ZPEAU_AMD64_UNWIND_PARAMS@@KPEAK@Z @ 0x140621378 (--$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT_F.c)
- *     ??$RtlpxVirtualUnwind@VCUmaFnEnt@@VCUmaUnwindInfo@@VCUmaMemoryAccessors@@PEAU_CONTEXT_FOR_STACKWALK@@@@YAJK_K0VCUmaFnEnt@@PEAU_CONTEXT_FOR_STACKWALK@@PEAEPEAPEAXPEA_KPEAP6A?AW4_EXCEPTION_DISPOSITION@@PEAU_EXCEPTION_RECORD@@PEAXPEAU_CONTEXT@@7@ZPEAU_AMD64_UNWIND_PARAMS@@KPEAK@Z @ 0x140621D50 (--$RtlpxVirtualUnwind@VCUmaFnEnt@@VCUmaUnwindInfo@@VCUmaMemoryAccessors@@PEAU_CONTEXT_FOR_STACKW.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     PsWow64GetProcessMachine @ 0x1409EBB90 (PsWow64GetProcessMachine.c)
- *     RtlWow64GetCpuAreaInfo @ 0x140A64E50 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlpGetStackLimits @ 0x140263230 (RtlpGetStackLimits.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1402CB6E0 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpIsFrameInBoundsEx @ 0x140412060 (RtlpIsFrameInBoundsEx.c)
+ *     RtlpWalkWowStack @ 0x14045F210 (RtlpWalkWowStack.c)
+ *     ??0CUmaFnEnt@@QEAA@PEAU_IMAGE_RUNTIME_FUNCTION_ENTRY@@@Z @ 0x1404DBB3C (--0CUmaFnEnt@@QEAA@PEAU_IMAGE_RUNTIME_FUNCTION_ENTRY@@@Z.c)
+ *     RtlpCaptureContextForStackWalk @ 0x140537680 (RtlpCaptureContextForStackWalk.c)
+ *     ??$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT_FOR_STACKWALK@@@@YAJK_K0VCDirectFnEnt@@PEAU_CONTEXT_FOR_STACKWALK@@PEAEPEAPEAXPEA_KPEAP6A?AW4_EXCEPTION_DISPOSITION@@PEAU_EXCEPTION_RECORD@@PEAXPEAU_CONTEXT@@7@ZPEAU_AMD64_UNWIND_PARAMS@@KPEAK@Z @ 0x1406243C8 (--$RtlpxVirtualUnwind@VCDirectFnEnt@@VCDirectUnwindInfo@@VCDirectMemoryAccessors@@PEAU_CONTEXT_F.c)
+ *     ??$RtlpxVirtualUnwind@VCUmaFnEnt@@VCUmaUnwindInfo@@VCUmaMemoryAccessors@@PEAU_CONTEXT_FOR_STACKWALK@@@@YAJK_K0VCUmaFnEnt@@PEAU_CONTEXT_FOR_STACKWALK@@PEAEPEAPEAXPEA_KPEAP6A?AW4_EXCEPTION_DISPOSITION@@PEAU_EXCEPTION_RECORD@@PEAXPEAU_CONTEXT@@7@ZPEAU_AMD64_UNWIND_PARAMS@@KPEAK@Z @ 0x140624DA0 (--$RtlpxVirtualUnwind@VCUmaFnEnt@@VCUmaUnwindInfo@@VCUmaMemoryAccessors@@PEAU_CONTEXT_FOR_STACKW.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     PsWow64GetProcessMachine @ 0x1409E8360 (PsWow64GetProcessMachine.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x140A71E20 (RtlWow64GetCpuAreaInfo.c)
  */
 
 __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsigned int a4, __int64 a5)
@@ -119,7 +119,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   if ( v13 )
   {
     if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[4].ThreadListHead.Flink) & 0x4000) != 0 )
-      v12 = stru_140FC01F0.Spare35[1];
+      v12 = stru_140FC11F0.Spare35[1];
     v52 = v12;
   }
   LOBYTE(v6) = v12 != 0;
@@ -132,7 +132,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   if ( !v13 )
   {
     v39 = 0;
-    if ( (dword_140FBE204 & 1) == 0 )
+    if ( (dword_140FBF204 & 1) == 0 )
       v39 = 0x80000000;
     v47 = v39;
   }

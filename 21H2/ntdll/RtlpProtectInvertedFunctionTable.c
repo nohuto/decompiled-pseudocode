@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpProtectInvertedFunctionTable @ 0x18010B2E0
+ * XREFs of RtlpProtectInvertedFunctionTable @ 0x18010B2A0
  * Callers:
  *     RtlAddGrowableFunctionTable @ 0x180069C10 (RtlAddGrowableFunctionTable.c)
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlpProtectInvertedFunctionTable(int a1)
+void __fastcall RtlpProtectInvertedFunctionTable(int a1)
 {
-  return LdrProtectMrdata(a1);
+  LdrProtectMrdata(a1);
 }

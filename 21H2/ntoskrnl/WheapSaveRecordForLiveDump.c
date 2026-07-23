@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapSaveRecordForLiveDump @ 0x1409B3974
+ * XREFs of WheapSaveRecordForLiveDump @ 0x1409B48A4
  * Callers:
- *     WheapCreateLiveDumpFromPreviousSession @ 0x1409B38C4 (WheapCreateLiveDumpFromPreviousSession.c)
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x1409B47F4 (WheapCreateLiveDumpFromPreviousSession.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WheapSaveRecordForLiveDump(__int64 a1)

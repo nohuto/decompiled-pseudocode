@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptLineToGsi @ 0x1404BC704
+ * XREFs of HalpInterruptLineToGsi @ 0x1404BC944
  * Callers:
- *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
- *     HalpInterruptConnect @ 0x1404BB438 (HalpInterruptConnect.c)
- *     ExtEnvSetVpptTarget @ 0x1404BF7A4 (ExtEnvSetVpptTarget.c)
- *     HalpTimerUnmapInterrupt @ 0x1404C0588 (HalpTimerUnmapInterrupt.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A26D4 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptConnect @ 0x1404BB678 (HalpInterruptConnect.c)
+ *     ExtEnvSetVpptTarget @ 0x1404BF9E4 (ExtEnvSetVpptTarget.c)
+ *     HalpTimerUnmapInterrupt @ 0x1404C07C8 (HalpTimerUnmapInterrupt.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
+ *     HalpInterruptFindLines @ 0x1403787F0 (HalpInterruptFindLines.c)
  */
 
 __int64 __fastcall HalpInterruptLineToGsi(unsigned int *a1, _DWORD *a2)

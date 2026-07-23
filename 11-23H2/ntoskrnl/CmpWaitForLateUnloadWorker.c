@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpWaitForLateUnloadWorker @ 0x1402EC614
+ * XREFs of CmpWaitForLateUnloadWorker @ 0x1402EC8A4
  * Callers:
- *     CmpDeleteKeyObject @ 0x1406DB340 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x1406DB370 (CmpDeleteKeyObject.c)
  * Callees:
- *     ExBlockOnAddressPushLock @ 0x1403486A0 (ExBlockOnAddressPushLock.c)
- *     CmUnlockHive @ 0x140747F78 (CmUnlockHive.c)
- *     CmLockHive @ 0x140747FB4 (CmLockHive.c)
+ *     ExBlockOnAddressPushLock @ 0x140348930 (ExBlockOnAddressPushLock.c)
+ *     CmUnlockHive @ 0x140748168 (CmUnlockHive.c)
+ *     CmLockHive @ 0x1407481A4 (CmLockHive.c)
  */
 
 __int64 __fastcall CmpWaitForLateUnloadWorker(__int64 a1)

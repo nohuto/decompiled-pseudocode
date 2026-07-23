@@ -1,16 +1,16 @@
 /*
- * XREFs of AcquireDebugPrivilege @ 0x18015CFE0
+ * XREFs of AcquireDebugPrivilege @ 0x18015B3A0
  * Callers:
- *     GetProcessIptTrace @ 0x18015D014 (GetProcessIptTrace.c)
- *     GetProcessIptTraceSize @ 0x18015D120 (GetProcessIptTraceSize.c)
+ *     GetProcessIptTrace @ 0x18015B3D4 (GetProcessIptTrace.c)
+ *     GetProcessIptTraceSize @ 0x18015B4E0 (GetProcessIptTraceSize.c)
  * Callees:
- *     RtlAcquirePrivilege @ 0x1800E9050 (RtlAcquirePrivilege.c)
+ *     RtlAcquirePrivilege @ 0x1800E4740 (RtlAcquirePrivilege.c)
  */
 
-bool __fastcall AcquireDebugPrivilege(_QWORD *a1)
+bool __fastcall AcquireDebugPrivilege(PVOID *ReturnedState)
 {
-  unsigned int v2; // [rsp+38h] [rbp+10h] BYREF
+  ULONG Privilege; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 20;
-  return (int)RtlAcquirePrivilege(&v2, 1u, 0, a1) >= 0;
+  Privilege = 20;
+  return RtlAcquirePrivilege(&Privilege, 1u, 0, ReturnedState) >= 0;
 }

@@ -32,7 +32,7 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
   v14 = 0LL;
   --CurrentThread->SpecialApcDisable;
   v7 = (unsigned __int64 *)(a1 + 176);
-  v8 = KeAbPreAcquire(a1 + 176, 0LL, 0LL);
+  v8 = KeAbPreAcquire(a1 + 176, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v7, v8, (ULONG_PTR)v7);
   if ( v8 )

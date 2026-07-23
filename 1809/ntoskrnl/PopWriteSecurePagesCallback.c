@@ -1,9 +1,9 @@
 /*
- * XREFs of PopWriteSecurePagesCallback @ 0x1402DC164
+ * XREFs of PopWriteSecurePagesCallback @ 0x1402DC354
  * Callers:
- *     HvlIterateSecurePagesForHibernation @ 0x140276B38 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x140276D28 (HvlIterateSecurePagesForHibernation.c)
  * Callees:
- *     PopWriteHiberPages @ 0x140569C48 (PopWriteHiberPages.c)
+ *     PopWriteHiberPages @ 0x14056AC48 (PopWriteHiberPages.c)
  */
 
 __int64 __fastcall PopWriteSecurePagesCallback(__int64 a1, __int64 a2)

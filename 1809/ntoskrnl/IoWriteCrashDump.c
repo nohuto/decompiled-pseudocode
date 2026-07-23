@@ -1,25 +1,25 @@
 /*
- * XREFs of IoWriteCrashDump @ 0x1402805AC
+ * XREFs of IoWriteCrashDump @ 0x14028079C
  * Callers:
- *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291380 (KeBugCheck2.c)
  * Callees:
- *     KdCheckForDebugBreak @ 0x140144678 (KdCheckForDebugBreak.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     IoFillTriageDumpBuffer @ 0x14027F894 (IoFillTriageDumpBuffer.c)
- *     IoSaveBugCheckProgress @ 0x140280220 (IoSaveBugCheckProgress.c)
- *     IoSetBugCheckProgressAndFlag @ 0x140280264 (IoSetBugCheckProgressAndFlag.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x1402804BC (IoUpdateBugCheckProgressEnvVariable.c)
- *     IopDumpCallAddPagesCallbacks @ 0x1402811DC (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x140281334 (IopDumpCallRemovePagesCallbacks.c)
- *     IopUpdateMinidumpContext @ 0x140281C68 (IopUpdateMinidumpContext.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028227C (IopWriteCapsuleTriageDumpToFirmware.c)
- *     IopWriteTriageDumpToFirmware @ 0x1402825BC (IopWriteTriageDumpToFirmware.c)
- *     MmGetDumpRange @ 0x1402AE308 (MmGetDumpRange.c)
- *     MmSnapTriageDumpInformation @ 0x1402AE7D0 (MmSnapTriageDumpInformation.c)
- *     RtlNumberOfSetBitsEx @ 0x1402EF170 (RtlNumberOfSetBitsEx.c)
- *     VfDisableHalVerifier @ 0x14030A088 (VfDisableHalVerifier.c)
+ *     KdCheckForDebugBreak @ 0x140144778 (KdCheckForDebugBreak.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IoFillTriageDumpBuffer @ 0x14027FA84 (IoFillTriageDumpBuffer.c)
+ *     IoSaveBugCheckProgress @ 0x140280410 (IoSaveBugCheckProgress.c)
+ *     IoSetBugCheckProgressAndFlag @ 0x140280454 (IoSetBugCheckProgressAndFlag.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x1402806AC (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x1402813CC (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140281524 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopUpdateMinidumpContext @ 0x140281E58 (IopUpdateMinidumpContext.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028246C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IopWriteTriageDumpToFirmware @ 0x1402827AC (IopWriteTriageDumpToFirmware.c)
+ *     MmGetDumpRange @ 0x1402AE4F8 (MmGetDumpRange.c)
+ *     MmSnapTriageDumpInformation @ 0x1402AE9C0 (MmSnapTriageDumpInformation.c)
+ *     RtlNumberOfSetBitsEx @ 0x1402EF360 (RtlNumberOfSetBitsEx.c)
+ *     VfDisableHalVerifier @ 0x14030A278 (VfDisableHalVerifier.c)
  */
 
 char __fastcall IoWriteCrashDump(
@@ -108,10 +108,10 @@ LABEL_11:
       v35 = 3319;
       *(_QWORD *)(CrashdmpDumpBlock + 8) = 0LL;
     }
-    ((void (__fastcall *)(__int64, _QWORD, _QWORD))qword_14043C7F0)(1LL, 0LL, v10);
+    ((void (__fastcall *)(__int64, _QWORD, _QWORD))qword_14043D8B0)(1LL, 0LL, v10);
     VfDisableHalVerifier();
     LOBYTE(v16) = 1;
-    v17 = ((__int64 (__fastcall *)(__int64))qword_14043C820)(v16);
+    v17 = ((__int64 (__fastcall *)(__int64))qword_14043D8E0)(v16);
     IoSaveBugCheckProgress(0x20u);
     v18 = 9LL;
     v19 = v40;
@@ -216,7 +216,7 @@ LABEL_28:
         IoSaveBugCheckProgress(0x22u);
         v27[5] = RtlNumberOfSetBitsEx(&v32);
       }
-      v29 = ((__int64 (__fastcall *)(__int64, __int64))qword_14043C7F8)(CrashdmpDumpBlock, a8);
+      v29 = ((__int64 (__fastcall *)(__int64, __int64))qword_14043D8B8)(CrashdmpDumpBlock, a8);
       if ( v29 == -1073741267 )
       {
         if ( *(_QWORD *)(CrashdmpDumpBlock + 1328) )
@@ -245,7 +245,7 @@ LABEL_28:
                   &v37);
           if ( v29 >= 0 )
           {
-            v29 = ((__int64 (__fastcall *)(__int64, __int64))qword_14043C7F8)(CrashdmpDumpBlock, a8);
+            v29 = ((__int64 (__fastcall *)(__int64, __int64))qword_14043D8B8)(CrashdmpDumpBlock, a8);
             IoSaveBugCheckProgress(0x23u);
           }
         }
@@ -253,7 +253,7 @@ LABEL_28:
       if ( (DumpPolicyAttemptOffline & 1) != 0 && v29 < 0 || (DumpPolicyAttemptOffline & 2) != 0 && !v17 )
       {
         IoSaveBugCheckProgress(0x24u);
-        if ( ((int (__fastcall *)(_QWORD))off_1403FE618[0])(0LL) >= 0 )
+        if ( ((int (__fastcall *)(_QWORD))off_1403FF618[0])(0LL) >= 0 )
         {
           if ( CrashdmpDumpBlock )
           {

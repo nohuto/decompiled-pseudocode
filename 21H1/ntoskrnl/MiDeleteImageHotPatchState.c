@@ -21,10 +21,10 @@ void __fastcall MiDeleteImageHotPatchState(__int64 a1)
   __int64 v4; // rsi
   UNICODE_STRING *v5; // r14
   volatile signed __int64 *v6; // rbp
-  unsigned __int64 v7; // rdi
+  __int64 v7; // rdi
   int v8; // r12d
   int v9; // eax
-  unsigned __int64 v10; // rax
+  __int64 v10; // rax
   __int64 v11; // rdx
   __int64 v12; // r8
   __int64 v13; // r9
@@ -71,7 +71,7 @@ void __fastcall MiDeleteImageHotPatchState(__int64 a1)
       v6 = (volatile signed __int64 *)(v4 + 16);
       if ( v7 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v4, v7);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7);
         *(_DWORD *)(v7 + 92) |= 2u;
         v5 = (UNICODE_STRING *)v7;
         if ( (*(_DWORD *)(v7 + 92) & 1) != 0 )

@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpWnfDeliverThreadNotifications @ 0x1408AB440
+ * XREFs of ExpWnfDeliverThreadNotifications @ 0x1409016A0
  * Callers:
- *     NtGetCompleteWnfStateSubscription @ 0x1408AB260 (NtGetCompleteWnfStateSubscription.c)
+ *     NtGetCompleteWnfStateSubscription @ 0x1409014C0 (NtGetCompleteWnfStateSubscription.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ExpWnfReadStateData @ 0x1408ABA3C (ExpWnfReadStateData.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1408ADF30 (ExpWnfNotifyNameSubscribers.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExpWnfReadStateData @ 0x140901C9C (ExpWnfReadStateData.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140904190 (ExpWnfNotifyNameSubscribers.c)
  */
 
 __int64 __fastcall ExpWnfDeliverThreadNotifications(_QWORD *a1, __int64 a2, int a3)
 {
-  _QWORD *v3; // rdi
+  char *v3; // rdi
   volatile signed __int64 *v4; // r12
-  _QWORD *v5; // rax
-  _QWORD *v6; // rdi
+  char *v5; // rax
+  char *v6; // rdi
   _QWORD *v7; // rax
   _QWORD *v8; // rdi
   __int64 v9; // rsi
@@ -55,19 +55,19 @@ __int64 __fastcall ExpWnfDeliverThreadNotifications(_QWORD *a1, __int64 a2, int 
   v25 = a3 - 48;
 LABEL_2:
   v29 = (ULONG_PTR)(a1 + 10);
-  v3 = KeAbPreAcquire((__int64)(a1 + 10), 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)(a1 + 10), 0LL);
   if ( _InterlockedCompareExchange64(a1 + 10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(a1 + 10, 0, v3, (__int64)(a1 + 10));
   if ( v3 )
-    *((_BYTE *)v3 + 10) = 1;
+    v3[10] = 1;
   v4 = a1 + 13;
   BugCheckParameter2 = (ULONG_PTR)(a1 + 13);
-  v5 = KeAbPreAcquire((__int64)(a1 + 13), 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)(a1 + 13), 0LL);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1 + 26, 0LL) )
-    ExfAcquirePushLockExclusiveEx(a1 + 13, (__int64)v5, (__int64)(a1 + 13));
+    ExfAcquirePushLockExclusiveEx(a1 + 13, v5, (__int64)(a1 + 13));
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   v7 = a1 + 14;
   v24 = a1 + 14;
   v8 = (_QWORD *)a1[14];
@@ -83,7 +83,7 @@ LABEL_2:
     v26 = v9;
     if ( v9 )
     {
-      if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v9 + 8)) )
+      if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v9 + 8)) )
         v9 = 0LL;
       v26 = v9;
     }

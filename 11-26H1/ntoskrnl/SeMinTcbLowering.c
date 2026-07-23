@@ -1,16 +1,16 @@
 /*
- * XREFs of SeMinTcbLowering @ 0x140CDD07C
+ * XREFs of SeMinTcbLowering @ 0x140CE3414
  * Callers:
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
  *     <none>
  */
 
 __int64 SeMinTcbLowering()
 {
-  if ( (RtlpBootStatHandleLock.AffinityVersion & 0x400000000LL) != 0 )
+  if ( (BYTE4(RtlpBootStatHandleLock.Affinity) & 4) != 0 )
     return 1LL;
   if ( KdpBootedNodebug )
     return 0LL;
-  return (HIDWORD(RtlpBootStatHandleLock.AffinityVersion) >> 1) & 1;
+  return (HIDWORD(RtlpBootStatHandleLock.Affinity) >> 1) & 1;
 }

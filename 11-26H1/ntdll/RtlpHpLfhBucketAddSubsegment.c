@@ -1,83 +1,78 @@
 /*
- * XREFs of RtlpHpLfhBucketAddSubsegment @ 0x180094ED0
+ * XREFs of RtlpHpLfhBucketAddSubsegment @ 0x180062870
  * Callers:
- *     RtlpHpLfhOwnerCompact @ 0x180016790 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x1800944D0 (RtlpHpLfhContextSlotStandbyProcess.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x180094B78 (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhBucketGetSubsegment @ 0x180095160 (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1800B2AA0 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180061EC0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x18006251C (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x180062B00 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x1800736A0 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1800AFFC0 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpLfhSubsegmentFree @ 0x18009480C (RtlpHpLfhSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x180094FF0 (RtlpHpLfhSubsegmentReformatAsMulti.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x1800953E8 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x180062990 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x180062D88 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x180073998 (RtlpHpLfhSubsegmentFree.c)
  */
 
-char __fastcall RtlpHpLfhBucketAddSubsegment(__int64 *a1, __int64 a2, _QWORD *a3, char a4)
+void __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, _RTL_SRWLOCK *a2, _QWORD *a3, char a4)
 {
   _QWORD *v4; // r14
   char v5; // di
-  __int16 v6; // ax
-  volatile signed __int64 *v8; // rsi
-  _QWORD *v10; // r8
-  __int64 v11; // rax
-  int v12; // ebp
+  _QWORD *v9; // r8
+  __int64 v10; // rax
+  int v11; // ebp
+  _QWORD *v12; // rdx
   _QWORD *v13; // rax
 
   v4 = (_QWORD *)*a3;
   v5 = a4 & 0xC;
-  LOBYTE(v6) = 8;
   if ( (a4 & 0xC) == 0 )
     v5 = 8;
-  v8 = (volatile signed __int64 *)a2;
   if ( v4 != a3 )
   {
-    v12 = a4 & 2;
+    v11 = a4 & 2;
     do
     {
-      a2 = (__int64)v4;
+      v12 = v4;
       v4 = (_QWORD *)*v4;
-      if ( v12 || (v6 = *(_WORD *)(a2 + 34), *(_WORD *)(a2 + 32) != v6) )
+      if ( v11 || *((_WORD *)v12 + 16) != *((_WORD *)v12 + 17) )
       {
-        if ( (*(_BYTE *)(a2 + 51) & 1) != 0 )
+        if ( (*((_BYTE *)v12 + 51) & 1) != 0 )
         {
-          LOBYTE(v6) = *(_BYTE *)(a2 + 51) & 0xFE;
-          *(_BYTE *)(a2 + 51) = v6;
+          *((_BYTE *)v12 + 51) &= ~1u;
           if ( (v5 & 8) == 0 )
-            LOBYTE(v6) = RtlpHpLfhSubsegmentReformatAsMulti(a1, a2, 1LL);
+            RtlpHpLfhSubsegmentReformatAsMulti(a1, v12, 1LL);
         }
       }
       else
       {
-        if ( v4[1] != a2 || (v13 = *(_QWORD **)(a2 + 8), *v13 != a2) )
+        if ( (_QWORD *)v4[1] != v12 || (v13 = (_QWORD *)v12[1], (_QWORD *)*v13 != v12) )
 LABEL_16:
           __fastfail(3u);
         *v13 = v4;
         v4[1] = v13;
-        LOBYTE(v6) = RtlpHpLfhSubsegmentFree(a1, a2, v8);
+        RtlpHpLfhSubsegmentFree(a1, v12, a2);
       }
     }
     while ( v4 != a3 );
   }
   if ( (_QWORD *)*a3 != a3 )
   {
-    RtlAcquireSRWLockExclusive(v8 + 2, a2);
-    v10 = (_QWORD *)*a3;
+    RtlAcquireSRWLockExclusive(a2 + 2);
+    v9 = (_QWORD *)*a3;
     do
     {
-      if ( (_QWORD *)v10[1] != a3 )
+      if ( (_QWORD *)v9[1] != a3 )
         goto LABEL_16;
-      v11 = *v10;
-      if ( *(_QWORD **)(*v10 + 8LL) != v10 )
+      v10 = *v9;
+      if ( *(_QWORD **)(*v9 + 8LL) != v9 )
         goto LABEL_16;
-      *a3 = v11;
-      *(_QWORD *)(v11 + 8) = a3;
-      RtlpHpLfhOwnerMoveSubsegment((_DWORD)a1, (_DWORD)v8, (_DWORD)v10, 0, 0);
-      v10 = (_QWORD *)*a3;
+      *a3 = v10;
+      *(_QWORD *)(v10 + 8) = a3;
+      RtlpHpLfhOwnerMoveSubsegment(a1, (_DWORD)a2, (_DWORD)v9, 0, 0);
+      v9 = (_QWORD *)*a3;
     }
     while ( (_QWORD *)*a3 != a3 );
-    LOBYTE(v6) = (unsigned __int8)RtlReleaseSRWLockExclusive(v8 + 2);
+    RtlReleaseSRWLockExclusive(a2 + 2);
   }
-  return v6;
 }

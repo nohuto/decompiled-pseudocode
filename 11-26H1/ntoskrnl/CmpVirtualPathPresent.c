@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpVirtualPathPresent @ 0x1407734E0
+ * XREFs of CmpVirtualPathPresent @ 0x1407764E0
  * Callers:
- *     CmpReparseToVirtualPath @ 0x1408AF5E0 (CmpReparseToVirtualPath.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1408F3730 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1408F9CF0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpReparseToVirtualPath @ 0x140B07FA4 (CmpReparseToVirtualPath.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpUnblockTwoHiveWrites @ 0x1408B1620 (CmpUnblockTwoHiveWrites.c)
- *     CmpGetVirtualizationIDFromFullVirtualPath @ 0x1408B185C (CmpGetVirtualizationIDFromFullVirtualPath.c)
- *     CmpFindPathByNameEx @ 0x1408B1924 (CmpFindPathByNameEx.c)
- *     CmpBlockTwoHiveWrites @ 0x1408B2110 (CmpBlockTwoHiveWrites.c)
- *     CmpGetMappingHiveForString @ 0x1408D11E4 (CmpGetMappingHiveForString.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpUnblockTwoHiveWrites @ 0x1408B7C2C (CmpUnblockTwoHiveWrites.c)
+ *     CmpGetVirtualizationIDFromFullVirtualPath @ 0x1408B7E68 (CmpGetVirtualizationIDFromFullVirtualPath.c)
+ *     CmpFindPathByNameEx @ 0x1408B7F30 (CmpFindPathByNameEx.c)
+ *     CmpBlockTwoHiveWrites @ 0x1408B86EC (CmpBlockTwoHiveWrites.c)
+ *     CmpGetMappingHiveForString @ 0x1408D77A4 (CmpGetMappingHiveForString.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
  */
 
 bool __fastcall CmpVirtualPathPresent(__int64 a1)

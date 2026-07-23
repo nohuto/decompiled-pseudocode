@@ -1,17 +1,17 @@
 /*
- * XREFs of VfFaultsInjectPoolAllocationFailure @ 0x140C346E4
+ * XREFs of VfFaultsInjectPoolAllocationFailure @ 0x140C3A6F4
  * Callers:
- *     VerifierExAllocatePool @ 0x140C2F790 (VerifierExAllocatePool.c)
- *     VerifierExAllocatePool3 @ 0x140C2F8B0 (VerifierExAllocatePool3.c)
- *     VerifierExAllocatePoolWithTag @ 0x140C2FB90 (VerifierExAllocatePoolWithTag.c)
- *     VerifierExAllocatePoolWithTagPriority @ 0x140C2FCC0 (VerifierExAllocatePoolWithTagPriority.c)
- *     VerifierExAllocatePool2 @ 0x140C44E00 (VerifierExAllocatePool2.c)
+ *     VerifierExAllocatePool @ 0x140C357A0 (VerifierExAllocatePool.c)
+ *     VerifierExAllocatePool3 @ 0x140C358C0 (VerifierExAllocatePool3.c)
+ *     VerifierExAllocatePoolWithTag @ 0x140C35BA0 (VerifierExAllocatePoolWithTag.c)
+ *     VerifierExAllocatePoolWithTagPriority @ 0x140C35CD0 (VerifierExAllocatePoolWithTagPriority.c)
+ *     VerifierExAllocatePool2 @ 0x140C4AE10 (VerifierExAllocatePool2.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExCheckSingleFilter @ 0x14043AD5C (ExCheckSingleFilter.c)
- *     VfFaultsInjectResourceFailure @ 0x140C347B4 (VfFaultsInjectResourceFailure.c)
- *     ViFaultsIsTagPresentInList @ 0x140C34FA8 (ViFaultsIsTagPresentInList.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExCheckSingleFilter @ 0x14042D60C (ExCheckSingleFilter.c)
+ *     VfFaultsInjectResourceFailure @ 0x140C3A7C4 (VfFaultsInjectResourceFailure.c)
+ *     ViFaultsIsTagPresentInList @ 0x140C3AFB8 (ViFaultsIsTagPresentInList.c)
  */
 
 __int64 __fastcall VfFaultsInjectPoolAllocationFailure(unsigned int a1)
@@ -23,12 +23,12 @@ __int64 __fastcall VfFaultsInjectPoolAllocationFailure(unsigned int a1)
     return 0LL;
   if ( !ViFaultsInitialized )
   {
-    ++dword_140FF193C;
+    ++dword_140FF293C;
     return 0LL;
   }
   if ( ViFaultsDisabled )
   {
-    ++dword_140FF1964;
+    ++dword_140FF2964;
     return 0LL;
   }
   KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
@@ -44,9 +44,9 @@ __int64 __fastcall VfFaultsInjectPoolAllocationFailure(unsigned int a1)
   {
     IsTagPresentInList = ViFaultsIsTagPresentInList(a1);
     if ( IsTagPresentInList )
-      ++dword_140FF1960;
+      ++dword_140FF2960;
     else
-      ++dword_140FF195C;
+      ++dword_140FF295C;
   }
   KeReleaseSpinLock(&ViFaultInjectionLock, v3);
   if ( IsTagPresentInList )

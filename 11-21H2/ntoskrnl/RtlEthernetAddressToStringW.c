@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlEthernetAddressToStringW @ 0x1403DE770
  * Callers:
- *     AdtpBuildMacStrings @ 0x140A1B1B8 (AdtpBuildMacStrings.c)
+ *     sub_140A1B1B8 @ 0x140A1B1B8 (sub_140A1B1B8.c)
  * Callees:
  *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
  */

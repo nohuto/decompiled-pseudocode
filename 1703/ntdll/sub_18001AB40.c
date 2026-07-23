@@ -9,18 +9,14 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_18001AB40(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall sub_18001AB40(PVOID File2MappedAsFile, void *Buf1, __int64 a3, _DWORD *a4)
 {
   int v8; // ebx
-  int v10; // [rsp+38h] [rbp+10h] BYREF
-  int v11; // [rsp+3Ch] [rbp+14h]
 
-  v10 = *(_DWORD *)(a2 + 8);
-  v11 = *(_DWORD *)(a2 + 80);
-  RtlAcquireSRWLockExclusive(&qword_18015C040);
-  v8 = sub_18001BC68(a1, a2, &v10, a3);
+  RtlAcquireSRWLockExclusive(&stru_18015C040);
+  v8 = sub_18001BC68(File2MappedAsFile, Buf1);
   if ( v8 >= 0 && a4 )
     *a4 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a3 + 152LL) + 56LL);
-  RtlReleaseSRWLockExclusive(&qword_18015C040);
+  RtlReleaseSRWLockExclusive(&stru_18015C040);
   return (unsigned int)v8;
 }

@@ -1,30 +1,30 @@
 /*
- * XREFs of MmCreateProcessAddressSpace @ 0x140ABD3B0
+ * XREFs of MmCreateProcessAddressSpace @ 0x140ABF9A0
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiCheckWsLimits @ 0x1403BC800 (MiCheckWsLimits.c)
- *     PsChargeProcessQuota @ 0x1403BD2C4 (PsChargeProcessQuota.c)
- *     PsReturnProcessQuota @ 0x1403BD2FC (PsReturnProcessQuota.c)
- *     MiGetSharedVm @ 0x140449C60 (MiGetSharedVm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiDeleteProcessShadow @ 0x140483DCC (MiDeleteProcessShadow.c)
- *     MiMakePartitionActive @ 0x1404A9C80 (MiMakePartitionActive.c)
- *     MiCreateNewProcessTopLevelMappings @ 0x1404CF654 (MiCreateNewProcessTopLevelMappings.c)
- *     MiSetProcessPartitionId @ 0x1404E2A98 (MiSetProcessPartitionId.c)
- *     PsGetDefaultWsMaximum @ 0x1404E5368 (PsGetDefaultWsMaximum.c)
- *     MiCreateSlabIdentity @ 0x14070607C (MiCreateSlabIdentity.c)
- *     MiDereferenceSlabIdentity @ 0x1407069D4 (MiDereferenceSlabIdentity.c)
- *     PsJoinSession @ 0x140ABD728 (PsJoinSession.c)
- *     MiAllocateTopLevelPage @ 0x140ABD7B0 (MiAllocateTopLevelPage.c)
- *     MiAllocateProcessShadow @ 0x140ABD950 (MiAllocateProcessShadow.c)
- *     PsReserveSessionMembership @ 0x140ABDA60 (PsReserveSessionMembership.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiCheckWsLimits @ 0x1403C6670 (MiCheckWsLimits.c)
+ *     PsChargeProcessQuota @ 0x1403C7134 (PsChargeProcessQuota.c)
+ *     PsReturnProcessQuota @ 0x1403C716C (PsReturnProcessQuota.c)
+ *     MiGetSharedVm @ 0x140441D90 (MiGetSharedVm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiDeleteProcessShadow @ 0x14047D73C (MiDeleteProcessShadow.c)
+ *     MiMakePartitionActive @ 0x1404A3310 (MiMakePartitionActive.c)
+ *     MiCreateNewProcessTopLevelMappings @ 0x1404C9084 (MiCreateNewProcessTopLevelMappings.c)
+ *     MiSetProcessPartitionId @ 0x1404DC178 (MiSetProcessPartitionId.c)
+ *     PsGetDefaultWsMaximum @ 0x1404DE908 (PsGetDefaultWsMaximum.c)
+ *     MiCreateSlabIdentity @ 0x14070AD4C (MiCreateSlabIdentity.c)
+ *     MiDereferenceSlabIdentity @ 0x14070B6A4 (MiDereferenceSlabIdentity.c)
+ *     PsJoinSession @ 0x140ABFD18 (PsJoinSession.c)
+ *     MiAllocateTopLevelPage @ 0x140ABFDA0 (MiAllocateTopLevelPage.c)
+ *     MiAllocateProcessShadow @ 0x140ABFF40 (MiAllocateProcessShadow.c)
+ *     PsReserveSessionMembership @ 0x140AC0050 (PsReserveSessionMembership.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall MmCreateProcessAddressSpace(
@@ -35,7 +35,7 @@ char __fastcall MmCreateProcessAddressSpace(
         unsigned int a5,
         __int64 a6)
 {
-  struct _LIST_ENTRY *Blink; // r14
+  struct _LIST_ENTRY *Flink; // r14
   _QWORD *PoolMm; // rbp
   __int64 v8; // rbx
   char v9; // di
@@ -57,11 +57,11 @@ char __fastcall MmCreateProcessAddressSpace(
   unsigned __int64 v27; // [rsp+90h] [rbp+18h] BYREF
 
   v27 = a3;
-  Blink = PspSiloMonitorLock.SavedApcState.ApcListHead[1].Blink;
+  Flink = PspSiloMonitorLock.SavedApcState.ApcListHead[1].Flink;
   PoolMm = 0LL;
   v8 = a6;
   v9 = 0;
-  v25 = PspSiloMonitorLock.SavedApcState.ApcListHead[1].Blink;
+  v25 = PspSiloMonitorLock.SavedApcState.ApcListHead[1].Flink;
   v26 = 0LL;
   v11 = a3;
   if ( a1 )
@@ -94,9 +94,9 @@ LABEL_5:
           {
             MiCheckWsLimits(v8 + 1024, (__int64 *)&v25, &v27, a4, 1);
             v11 = v27;
-            Blink = v25;
+            Flink = v25;
           }
-          *(_QWORD *)(v8 + 1144) = Blink;
+          *(_QWORD *)(v8 + 1144) = Flink;
           *(_QWORD *)(v8 + 1152) = v11;
           CurrentProcessorColor = MmGetCurrentProcessorColor();
           PoolMm = (_QWORD *)ExAllocatePoolMm(72LL, 0x680uLL, 844130637, CurrentProcessorColor | 0x80000000);
@@ -107,7 +107,7 @@ LABEL_5:
             {
 LABEL_11:
               *SharedVm = (__int64)(PoolMm + 40);
-              if ( (int)PsChargeProcessQuota((struct _KPROCESS *)v8, v15, (__int64)Blink) >= 0 )
+              if ( (int)PsChargeProcessQuota((struct _KPROCESS *)v8, v15, (__int64)Flink) >= 0 )
               {
                 v9 |= 8u;
                 if ( (int)MiAllocateProcessShadow(v8, a5) >= 0 )
@@ -146,7 +146,7 @@ LABEL_15:
       if ( (v9 & 0x40) != 0 )
         MiDeleteProcessShadow(v8, 0LL);
       if ( (v9 & 8) != 0 )
-        PsReturnProcessQuota((struct _KPROCESS *)v8, v15, (__int64)Blink);
+        PsReturnProcessQuota((struct _KPROCESS *)v8, v15, (__int64)Flink);
       if ( (v9 & 4) != 0 )
       {
         v23 = (void *)PoolMm[5];

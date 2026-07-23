@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFcCreateAndAddFeatureFromUpdate @ 0x1409C7F7C
+ * XREFs of RtlpFcCreateAndAddFeatureFromUpdate @ 0x1409C817C
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409C815C (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x1409C835C (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     RtlpFcDoesFeatureHaveUniqueState @ 0x1409C7FE4 (RtlpFcDoesFeatureHaveUniqueState.c)
- *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x1409C801C (RtlpFcIsUpdateModifyingOrAddingFeature.c)
- *     RtlpFcUpdateFeature @ 0x1409C80BC (RtlpFcUpdateFeature.c)
+ *     RtlpFcDoesFeatureHaveUniqueState @ 0x1409C81E4 (RtlpFcDoesFeatureHaveUniqueState.c)
+ *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x1409C821C (RtlpFcIsUpdateModifyingOrAddingFeature.c)
+ *     RtlpFcUpdateFeature @ 0x1409C82BC (RtlpFcUpdateFeature.c)
  */
 
 __int64 __fastcall RtlpFcCreateAndAddFeatureFromUpdate(__int64 a1, _QWORD *a2)

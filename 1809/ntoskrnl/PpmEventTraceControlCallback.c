@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmEventTraceControlCallback @ 0x140764270
+ * XREFs of PpmEventTraceControlCallback @ 0x140765460
  * Callers:
  *     <none>
  * Callees:
@@ -8,26 +8,26 @@
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     PopExecuteOnTargetProcessors @ 0x1400A5EC8 (PopExecuteOnTargetProcessors.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     PpmEventPlatformVetoRundown @ 0x1402E5E14 (PpmEventPlatformVetoRundown.c)
- *     PpmEventProcessorVetoRundown @ 0x1402E6114 (PpmEventProcessorVetoRundown.c)
- *     PpmEventTraceLPIState @ 0x1402E68D4 (PpmEventTraceLPIState.c)
- *     PpmEventQosSupport @ 0x140719D00 (PpmEventQosSupport.c)
- *     PpmEventHeteroPolicy @ 0x14074F6C0 (PpmEventHeteroPolicy.c)
- *     PpmEventTraceProfiles @ 0x140756D68 (PpmEventTraceProfiles.c)
- *     PpmInfoTraceProfileSettings @ 0x1408758A4 (PpmInfoTraceProfileSettings.c)
- *     PpmEventStaticPolicyRundown @ 0x140877C84 (PpmEventStaticPolicyRundown.c)
- *     PpmEventTraceAccountingBucketIntervalsRundown @ 0x140877DF0 (PpmEventTraceAccountingBucketIntervalsRundown.c)
- *     PpmEventTraceCoordinatedIdleStates @ 0x140877EC8 (PpmEventTraceCoordinatedIdleStates.c)
- *     PpmEventTraceParkNodeRundown @ 0x140878120 (PpmEventTraceParkNodeRundown.c)
- *     PpmEventTracePlatformIdleAccounting @ 0x140878238 (PpmEventTracePlatformIdleAccounting.c)
- *     PpmEventTracePpmProfileStatusRundown @ 0x140878490 (PpmEventTracePpmProfileStatusRundown.c)
- *     PpmEventTraceProcessorIdle @ 0x14087851C (PpmEventTraceProcessorIdle.c)
- *     PpmEventTraceProcessorPerformance @ 0x14087874C (PpmEventTraceProcessorPerformance.c)
- *     PpmEventVetoReasonRundown @ 0x140878B28 (PpmEventVetoReasonRundown.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x1400A5E08 (PopExecuteOnTargetProcessors.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     PpmEventPlatformVetoRundown @ 0x1402E6004 (PpmEventPlatformVetoRundown.c)
+ *     PpmEventProcessorVetoRundown @ 0x1402E6304 (PpmEventProcessorVetoRundown.c)
+ *     PpmEventTraceLPIState @ 0x1402E6AC4 (PpmEventTraceLPIState.c)
+ *     PpmEventQosSupport @ 0x14071AFA0 (PpmEventQosSupport.c)
+ *     PpmEventHeteroPolicy @ 0x1407508B0 (PpmEventHeteroPolicy.c)
+ *     PpmEventTraceProfiles @ 0x140757F58 (PpmEventTraceProfiles.c)
+ *     PpmInfoTraceProfileSettings @ 0x140876B04 (PpmInfoTraceProfileSettings.c)
+ *     PpmEventStaticPolicyRundown @ 0x140878EE4 (PpmEventStaticPolicyRundown.c)
+ *     PpmEventTraceAccountingBucketIntervalsRundown @ 0x140879050 (PpmEventTraceAccountingBucketIntervalsRundown.c)
+ *     PpmEventTraceCoordinatedIdleStates @ 0x140879128 (PpmEventTraceCoordinatedIdleStates.c)
+ *     PpmEventTraceParkNodeRundown @ 0x140879380 (PpmEventTraceParkNodeRundown.c)
+ *     PpmEventTracePlatformIdleAccounting @ 0x140879498 (PpmEventTracePlatformIdleAccounting.c)
+ *     PpmEventTracePpmProfileStatusRundown @ 0x1408796F0 (PpmEventTracePpmProfileStatusRundown.c)
+ *     PpmEventTraceProcessorIdle @ 0x14087977C (PpmEventTraceProcessorIdle.c)
+ *     PpmEventTraceProcessorPerformance @ 0x1408799AC (PpmEventTraceProcessorPerformance.c)
+ *     PpmEventVetoReasonRundown @ 0x140879D88 (PpmEventVetoReasonRundown.c)
  */
 
 void __fastcall PpmEventTraceControlCallback(
@@ -69,7 +69,7 @@ void __fastcall PpmEventTraceControlCallback(
   if ( (ControlCode & 0xFFFFFFFD) == 0 )
   {
     PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-    v31 = qword_1405416A8[0];
+    v31 = qword_1405426A8[0];
     v32 = 0;
     v30 = (unsigned __int16 *)KeActiveProcessors;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v33, &v30) )
@@ -103,7 +103,7 @@ void __fastcall PpmEventTraceControlCallback(
       PpmEventTracePlatformIdleAccounting(v24, v23, v25);
       PpmEventVetoReasonRundown(v27, v26, v28);
       PpmEventPlatformVetoRundown();
-      v31 = qword_1405416A8[0];
+      v31 = qword_1405426A8[0];
       v32 = 0;
       v30 = (unsigned __int16 *)KeActiveProcessors;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v33, &v30) )

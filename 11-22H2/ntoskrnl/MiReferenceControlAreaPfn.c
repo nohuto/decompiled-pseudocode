@@ -33,7 +33,7 @@ __int64 __fastcall MiReferenceControlAreaPfn(__int64 a1, __int64 a2, unsigned in
     a2 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -54,10 +54,10 @@ __int64 __fastcall MiReferenceControlAreaPfn(__int64 a1, __int64 a2, unsigned in
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(a1 + 72, retaddr);
   else
     *(_DWORD *)(a1 + 72) = 0;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;

@@ -15,40 +15,38 @@
  *     RtlpLogHeapUnlockEvent @ 0x18010A7A0 (RtlpLogHeapUnlockEvent.c)
  */
 
-char __fastcall RtlUnlockHeap(__int64 a1)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // rcx
+  _RTL_CRITICAL_SECTION *v2; // rcx
   _DWORD *SharedData; // rcx
-  __int64 v6; // rcx
+  __int64 v4; // rcx
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    RtlpHpHeapUnlock(a1, 0LL);
+    RtlpHpHeapUnlock(HeapHandle, 0LL);
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_180166448)();
-    if ( !(unsigned __int8)RtlpCheckHeapSignature(a1, "RtlUnlockHeap") )
+    if ( !(unsigned __int8)RtlpCheckHeapSignature(HeapHandle, "RtlUnlockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      v4 = *(_QWORD *)(a1 + 352);
-      --*(_WORD *)(a1 + 416);
-      RtlLeaveCriticalSection(v4, v2, v3);
+      v2 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+      --*((_WORD *)HeapHandle + 208);
+      RtlLeaveCriticalSection(v2);
     }
   }
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    v6 = (__int64)NtCurrentPeb()->SharedData + 550;
+    v4 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
-    v6 = 2147353472LL;
-  if ( *(_BYTE *)v6 )
+    v4 = 2147353472LL;
+  if ( *(_BYTE *)v4 )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapUnlockEvent(a1);
+      RtlpLogHeapUnlockEvent(HeapHandle);
   }
   return 1;
 }

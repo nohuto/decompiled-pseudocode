@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpUpdateProcessTracingCallback @ 0x140828630
+ * XREFs of EtwpUpdateProcessTracingCallback @ 0x14082E870
  * Callers:
- *     EtwpUpdatePerProcessTracing @ 0x140A6C4E8 (EtwpUpdatePerProcessTracing.c)
- *     EtwpEnableDisableUMGL @ 0x140A6D758 (EtwpEnableDisableUMGL.c)
+ *     EtwpEnableDisableUMGL @ 0x140A99A14 (EtwpEnableDisableUMGL.c)
+ *     EtwpUpdatePerProcessTracing @ 0x140AB0700 (EtwpUpdatePerProcessTracing.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlInterlockedCompareExchange32ToUser @ 0x14077F3AC (RtlInterlockedCompareExchange32ToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     EtwpNotifyProcessTracingChange @ 0x14082848C (EtwpNotifyProcessTracingChange.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlInterlockedCompareExchange32ToUser @ 0x140781EAC (RtlInterlockedCompareExchange32ToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     EtwpNotifyProcessTracingChange @ 0x14082E6CC (EtwpNotifyProcessTracingChange.c)
  */
 
 __int64 __fastcall EtwpUpdateProcessTracingCallback(PEPROCESS Process, int *a2)

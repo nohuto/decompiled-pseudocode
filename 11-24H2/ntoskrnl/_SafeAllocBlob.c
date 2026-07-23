@@ -1,11 +1,11 @@
 /*
- * XREFs of _SafeAllocBlob @ 0x1406A2A8C
+ * XREFs of _SafeAllocBlob @ 0x1406A3ADC
  * Callers:
- *     RtlpMuiRegCreateLanguageConfigList @ 0x14082BE74 (RtlpMuiRegCreateLanguageConfigList.c)
- *     RtlpMuiRegCreateStringPool @ 0x14082BF0C (RtlpMuiRegCreateStringPool.c)
- *     _RtlpMuiRegLoadInstalled @ 0x14082DCBC (_RtlpMuiRegLoadInstalled.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x14082C6A4 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpMuiRegCreateStringPool @ 0x14082C73C (RtlpMuiRegCreateStringPool.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14082E4EC (_RtlpMuiRegLoadInstalled.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SafeAllocBlob(
@@ -38,6 +38,6 @@ __int64 __fastcall SafeAllocBlob(
   if ( a6 )
     *a6 = v9;
   if ( v9 )
-    return ExAllocatePool2(0x100uLL);
+    return ExAllocatePool2(0x100uLL, v9, 0x72746C6Du);
   return result;
 }

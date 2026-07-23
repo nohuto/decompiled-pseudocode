@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwContinue @ 0x140723C50
+ * XREFs of ZwContinue @ 0x140728820
  * Callers:
- *     RtlRestoreContext @ 0x140534CC0 (RtlRestoreContext.c)
- *     DifZwContinueWrapper @ 0x14069DD20 (DifZwContinueWrapper.c)
+ *     RtlRestoreContext @ 0x140537140 (RtlRestoreContext.c)
+ *     DifZwContinueWrapper @ 0x1406A1900 (DifZwContinueWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwContinue(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwContinue(PCONTEXT ContextRecord, BOOLEAN TestAlert)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ContextRecord);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ArbStartArbiter @ 0x140789A90
+ * XREFs of ArbStartArbiter @ 0x14078C5C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlFreeRangeList @ 0x140AE4E90 (RtlFreeRangeList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlFreeRangeList @ 0x140AE2C50 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall ArbStartArbiter(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSizeOfKThreadExtension @ 0x14051FE20
+ * XREFs of KeSizeOfKThreadExtension @ 0x1405224C4
  * Callers:
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
  * Callees:
- *     KeAbComputeThreadEntriesSize @ 0x1404BD9E4 (KeAbComputeThreadEntriesSize.c)
+ *     KeAbComputeThreadEntriesSize @ 0x1404B7230 (KeAbComputeThreadEntriesSize.c)
  */
 
 unsigned __int64 __fastcall KeSizeOfKThreadExtension(__int64 a1)

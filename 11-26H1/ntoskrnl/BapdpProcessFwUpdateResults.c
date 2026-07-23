@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdpProcessFwUpdateResults @ 0x140CE27CC
+ * XREFs of BapdpProcessFwUpdateResults @ 0x140CE8B6C
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140CE2FFC (BapdpQueryData.c)
- *     BapdpRegisterFwUpdateResults @ 0x140CE34AC (BapdpRegisterFwUpdateResults.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140CE939C (BapdpQueryData.c)
+ *     BapdpRegisterFwUpdateResults @ 0x140CE984C (BapdpRegisterFwUpdateResults.c)
  */
 
 void __fastcall BapdpProcessFwUpdateResults(__int64 a1)

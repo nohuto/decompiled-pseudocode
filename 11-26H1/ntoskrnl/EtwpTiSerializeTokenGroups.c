@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTiSerializeTokenGroups @ 0x140B19394
+ * XREFs of EtwpTiSerializeTokenGroups @ 0x140B1B7E4
  * Callers:
- *     EtwpTiQueryTokenIdentity @ 0x140B192EC (EtwpTiQueryTokenIdentity.c)
+ *     EtwpTiQueryTokenIdentity @ 0x140B1B73C (EtwpTiQueryTokenIdentity.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpTiSerializeTokenGroups(PSID *a1, unsigned int a2, _DWORD *a3, __int64 *a4)

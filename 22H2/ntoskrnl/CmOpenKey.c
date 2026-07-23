@@ -22,9 +22,8 @@
  *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall CmOpenKey(HANDLE *a1, int a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall CmOpenKey(HANDLE *a1, int a2, __int64 a3, int a4, __int64 a5)
 {
-  int v5; // r14d
   unsigned int v9; // r13d
   __int64 v10; // rcx
   unsigned __int8 v11; // si
@@ -48,7 +47,6 @@ __int64 __fastcall CmOpenKey(HANDLE *a1, int a2, __int64 a3, __int64 a4, __int64
   _OWORD v30[2]; // [rsp+C0h] [rbp-198h] BYREF
   _OWORD v31[19]; // [rsp+E0h] [rbp-178h] BYREF
 
-  v5 = a4;
   v27 = a1;
   v28 = a3;
   Handle = 0LL;
@@ -57,7 +55,7 @@ __int64 __fastcall CmOpenKey(HANDLE *a1, int a2, __int64 a3, __int64 a4, __int64
   memset(v30, 0, sizeof(v30));
   v24 = 0LL;
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v30, 0x20000LL, a3, a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v30, 0x20000u);
   memset(v31, 0, 0x128uLL);
   LODWORD(v31[6]) = -1;
   *((_QWORD *)&v31[9] + 1) = &v31[9];
@@ -71,7 +69,7 @@ __int64 __fastcall CmOpenKey(HANDLE *a1, int a2, __int64 a3, __int64 a4, __int64
   v9 = a2 & 0xFFFFFCFF;
   if ( (unsigned __int8)CmpAcquireShutdownRundown() )
   {
-    if ( (v5 & 0x1C) == v5 )
+    if ( (a4 & 0x1C) == a4 )
     {
       v11 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
       if ( v11 == 1 )
@@ -119,7 +117,7 @@ __int64 __fastcall CmOpenKey(HANDLE *a1, int a2, __int64 a3, __int64 a4, __int64
         }
       }
       *((_QWORD *)&v31[4] + 1) = a5;
-      DWORD2(v31[1]) = v5;
+      DWORD2(v31[1]) = a4;
       v17 = ObOpenObjectByName(a3, (_DWORD)CmKeyObjectType, v11, 0, v9, (__int64)v31, (__int64)&Handle);
       if ( v17 >= 0 )
         *a1 = Handle;

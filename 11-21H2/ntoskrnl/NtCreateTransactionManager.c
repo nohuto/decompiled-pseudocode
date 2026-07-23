@@ -15,7 +15,7 @@ NTSTATUS __stdcall NtCreateTransactionManager(
         ULONG CreateOptions,
         ULONG CommitStrength)
 {
-  return __imp_NtCreateTransactionManager(
+  return NtCreateTransactionManager_0(
            TmHandle,
            DesiredAccess,
            ObjectAttributes,

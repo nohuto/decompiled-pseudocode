@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaProcessWaitingETWEvents @ 0x140613100
+ * XREFs of WheaProcessWaitingETWEvents @ 0x140613650
  * Callers:
- *     KiMcheckAlternateReturn @ 0x140580390 (KiMcheckAlternateReturn.c)
+ *     KiMcheckAlternateReturn @ 0x140580880 (KiMcheckAlternateReturn.c)
  * Callees:
- *     WheaFlushETWEventsAddWorkRtn @ 0x140612F74 (WheaFlushETWEventsAddWorkRtn.c)
- *     WheapProcessWaitingETWEvents @ 0x140860F40 (WheapProcessWaitingETWEvents.c)
+ *     WheaFlushETWEventsAddWorkRtn @ 0x1406134C4 (WheaFlushETWEventsAddWorkRtn.c)
+ *     WheapProcessWaitingETWEvents @ 0x140861180 (WheapProcessWaitingETWEvents.c)
  */
 
 void WheaProcessWaitingETWEvents()

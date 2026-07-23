@@ -7,17 +7,17 @@
  *     _guard_dispatch_icall_nop @ 0x1800A0100 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 RtlRegisterThreadWithCsrss()
+NTSTATUS RtlRegisterThreadWithCsrss(void)
 {
-  unsigned int v0; // ecx
-  struct _CLIENT_ID ClientId; // xmm0
+  NTSTATUS v0; // ecx
+  CLIENT_ID ClientId; // xmm0
   _QWORD v3[6]; // [rsp+20h] [rbp-1C8h] BYREF
   int v4; // [rsp+50h] [rbp-198h]
   __int64 v5; // [rsp+60h] [rbp-188h]
-  struct _CLIENT_ID v6; // [rsp+68h] [rbp-180h]
+  CLIENT_ID v6; // [rsp+68h] [rbp-180h]
 
   v0 = 0;
-  if ( byte_180165B10 || !byte_180165B11 || !qword_180165B08 )
+  if ( byte_180165B10 || !byte_180165B11 || !ProcedureAddress )
     return v0;
   if ( !byte_180165430 )
   {
@@ -27,7 +27,7 @@ __int64 RtlRegisterThreadWithCsrss()
     v6 = ClientId;
     v3[0] = 5767216LL;
     v4 = 65561;
-    return (unsigned int)((__int64 (__fastcall *)(_QWORD *, _QWORD *))qword_180165B08)(v3, v3);
+    return ((__int64 (__fastcall *)(_QWORD *, _QWORD *))ProcedureAddress)(v3, v3);
   }
-  return 3221225659LL;
+  return -1073741637;
 }

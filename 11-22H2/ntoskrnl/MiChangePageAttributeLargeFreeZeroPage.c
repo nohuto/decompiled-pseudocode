@@ -53,10 +53,13 @@ __int64 __fastcall MiChangePageAttributeLargeFreeZeroPage(__int64 a1, int a2, un
   if ( !MiLargePfnPromoteCandidate(v7, a1, a2) )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -74,10 +77,10 @@ LABEL_18:
   if ( *(unsigned __int8 *)(a1 + 34) >> 6 == a3 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = v15->SchedulerAssist;
@@ -99,10 +102,10 @@ LABEL_18:
   ++*(_DWORD *)(v19 + *(_QWORD *)(v7 + 16) + 23004);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v20 + 23104));
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v22 - 2) <= 0xDu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v22 - 2) <= 0xDu )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;

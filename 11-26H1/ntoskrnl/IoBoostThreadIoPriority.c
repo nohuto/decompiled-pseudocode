@@ -1,35 +1,35 @@
 /*
- * XREFs of IoBoostThreadIoPriority @ 0x140205ACC
+ * XREFs of IoBoostThreadIoPriority @ 0x140205BAC
  * Callers:
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140204BFC (PspNotifyProcessEffectiveIoLimitChanged.c)
- *     FsRtlpWaitForIoAtEof @ 0x140205058 (FsRtlpWaitForIoAtEof.c)
- *     ExpBoostIoAfterAcquire @ 0x140205314 (ExpBoostIoAfterAcquire.c)
- *     ExpApplyPriorityBoost @ 0x14020570C (ExpApplyPriorityBoost.c)
- *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x14027125C (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
- *     ?KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140375A20 (-KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEX.c)
- *     ?KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140376BF0 (-KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z.c)
- *     MiModifiedWriterShouldWrite @ 0x1404066FC (MiModifiedWriterShouldWrite.c)
- *     MiModifiedWriterDeterminePriority @ 0x1404069D8 (MiModifiedWriterDeterminePriority.c)
- *     FsRtlpDoBoost @ 0x1404E2F00 (FsRtlpDoBoost.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1404F13AC (CcBoostLowPriorityWorkerThread.c)
- *     IoBoostThreadIo @ 0x1404F5410 (IoBoostThreadIo.c)
- *     MiModifiedPageWriterExit @ 0x140528408 (MiModifiedPageWriterExit.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140204CDC (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     FsRtlpWaitForIoAtEof @ 0x140205138 (FsRtlpWaitForIoAtEof.c)
+ *     ExpBoostIoAfterAcquire @ 0x1402053F4 (ExpBoostIoAfterAcquire.c)
+ *     ExpApplyPriorityBoost @ 0x1402057EC (ExpApplyPriorityBoost.c)
+ *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x1402707CC (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
+ *     ?KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x1403777D0 (-KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEX.c)
+ *     ?KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x1403789A0 (-KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z.c)
+ *     MiModifiedWriterShouldWrite @ 0x1403FF7EC (MiModifiedWriterShouldWrite.c)
+ *     MiModifiedWriterDeterminePriority @ 0x1403FFAC8 (MiModifiedWriterDeterminePriority.c)
+ *     FsRtlpDoBoost @ 0x1404DC574 (FsRtlpDoBoost.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1404EA98C (CcBoostLowPriorityWorkerThread.c)
+ *     IoBoostThreadIo @ 0x1404EE9D0 (IoBoostThreadIo.c)
+ *     MiModifiedPageWriterExit @ 0x14052AA78 (MiModifiedPageWriterExit.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1402B47E0 (KxAcquireQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402FF4B0 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
@@ -96,7 +96,7 @@ void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
   v8 = 0LL;
   do
   {
-    v9 = ExReferenceCallBackBlock((char *)&IopSessionNotificationLock.CycleTime + v8 * 8);
+    v9 = ExReferenceCallBackBlock((char *)&IopUpdatePriorityCallbackRoutine + v8 * 8);
     v41[v8] = v9;
     if ( v9 )
       v42[v8] = *(_QWORD *)(v9 + 16);
@@ -171,9 +171,9 @@ void __fastcall IoBoostThreadIoPriority(KSPIN_LOCK *a1, int a2, int a3)
                   ObfReferenceObjectWithTag(v10, 0x746C6644u);
                   ++v11;
                   if ( (*(_DWORD *)(v13 - 16) & 2) != 0 )
-                    ++HIDWORD(IopSessionNotificationLock.FirstArgument);
+                    ++IoBoostedPagingIrpCount;
                   else
-                    ++LODWORD(IopSessionNotificationLock.FirstArgument);
+                    ++IoBoostedThreadedIrpCount;
                   break;
                 }
               }
@@ -248,7 +248,7 @@ LABEL_39:
     }
     while ( v20 < 8u );
     if ( v11 )
-      ++LODWORD(IopSessionNotificationLock.TrapFrame);
+      ++IoBlanketBoostCount;
   }
   for ( k = 0; k < v11; ++k )
   {
@@ -270,7 +270,7 @@ LABEL_39:
   do
   {
     if ( v41[v30] )
-      ExDereferenceCallBackBlock((char *)&IopSessionNotificationLock.CycleTime + v30 * 8);
+      ExDereferenceCallBackBlock((char *)&IopUpdatePriorityCallbackRoutine + v30 * 8);
     ++v30;
     --v29;
   }

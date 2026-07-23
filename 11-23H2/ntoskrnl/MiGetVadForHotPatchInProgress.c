@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetVadForHotPatchInProgress @ 0x140A3730C
+ * XREFs of MiGetVadForHotPatchInProgress @ 0x140A375BC
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiVadDeleted @ 0x140275410 (MiVadDeleted.c)
- *     MiSetVadFlags @ 0x1402876B0 (MiSetVadFlags.c)
- *     MiImageVadHotPatchEligible @ 0x1407BA670 (MiImageVadHotPatchEligible.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiVadDeleted @ 0x1402756A0 (MiVadDeleted.c)
+ *     MiSetVadFlags @ 0x140287940 (MiSetVadFlags.c)
+ *     MiImageVadHotPatchEligible @ 0x1407BA950 (MiImageVadHotPatchEligible.c)
  */
 
 __int64 __fastcall MiGetVadForHotPatchInProgress(unsigned __int64 a1, int a2, __int64 *a3, int *a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiQueueSyncModifiedWriterApc @ 0x1404ACE38
+ * XREFs of MiQueueSyncModifiedWriterApc @ 0x1404A73D8
  * Callers:
- *     MiStoreDeletePartition @ 0x14068BE24 (MiStoreDeletePartition.c)
+ *     MiStoreDeletePartition @ 0x14068CF54 (MiStoreDeletePartition.c)
  * Callees:
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall MiQueueSyncModifiedWriterApc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, PVOID Object)

@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcMessageCleanupProcedure @ 0x140738780
+ * XREFs of AlpcMessageCleanupProcedure @ 0x140738970
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x14073D5D0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x14073D7C0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReleaseProcessWakeCounter @ 0x140715700 (PsReleaseProcessWakeCounter.c)
- *     AlpcpReleaseAttributes @ 0x140738834 (AlpcpReleaseAttributes.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReleaseProcessWakeCounter @ 0x140715900 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpReleaseAttributes @ 0x140738A24 (AlpcpReleaseAttributes.c)
  */
 
 __int64 __fastcall AlpcMessageCleanupProcedure(__int64 a1)

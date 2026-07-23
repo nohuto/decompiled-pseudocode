@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceTimeZoneBiasChange @ 0x140936798
+ * XREFs of EtwTraceTimeZoneBiasChange @ 0x140936968
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceTimeZoneBiasChange(int a1, int a2)
@@ -49,7 +49,7 @@ char __fastcall EtwTraceTimeZoneBiasChange(int a1, int a2)
       v17 = 4;
       LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C02BF0,
-                     (unsigned __int8 *)byte_14002CA75,
+                     (unsigned __int8 *)byte_14002D2D5,
                      0LL,
                      0LL,
                      4u,

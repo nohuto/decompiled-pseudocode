@@ -1,32 +1,32 @@
 /*
- * XREFs of NtGetMUIRegistryInfo @ 0x1406AD5C0
+ * XREFs of NtGetMUIRegistryInfo @ 0x1406AE860
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MUIBugCheck @ 0x14031F2B8 (MUIBugCheck.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x14031F2E0 (MigrateOOBELanguageToInstallationLanguage.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
- *     MUIInitializeResourceLock @ 0x14070F45C (MUIInitializeResourceLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MUIBugCheck @ 0x14031F4A8 (MUIBugCheck.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x14031F4D0 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x1407106FC (MUIInitializeResourceLock.c)
  */
 
-__int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
+NTSTATUS __cdecl NtGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
   __int64 v5; // r14
   __int64 v6; // rax
-  int v7; // ebx
+  ULONG v7; // ebx
   struct _KTHREAD *CurrentThread; // rax
   char v9; // bl
-  int v10; // esi
+  NTSTATUS v10; // esi
   int v12; // eax
   unsigned int Length; // [rsp+50h] [rbp-A8h]
   struct _KEVENT *p_Event; // [rsp+58h] [rbp-A0h] BYREF
@@ -48,9 +48,9 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   v28 = 0;
   if ( !KeGetCurrentThread()->PreviousMode || InitSafeBootMode )
     goto LABEL_46;
-  if ( !a2 )
+  if ( !DataSize )
   {
-    if ( (a1 & 0xA) == 0 )
+    if ( (Flags & 0xA) == 0 )
       goto LABEL_47;
     Length = 0;
     v5 = 0x7FFFFFFF0000LL;
@@ -58,22 +58,22 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   }
   v5 = 0x7FFFFFFF0000LL;
   v6 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v6 = (__int64)a2;
+  if ( (unsigned __int64)DataSize < 0x7FFFFFFF0000LL )
+    v6 = (__int64)DataSize;
   Length = *(_DWORD *)v6;
   if ( !*(_DWORD *)v6 )
   {
 LABEL_11:
-    if ( a3 )
+    if ( Data )
       goto LABEL_47;
     goto LABEL_12;
   }
-  if ( !a3 )
+  if ( !Data )
     goto LABEL_47;
 LABEL_12:
   v7 = 1;
-  if ( a1 )
-    v7 = a1;
+  if ( Flags )
+    v7 = Flags;
   if ( (v7 & 0xFFFFFFF4) != 0 )
     goto LABEL_47;
   if ( !MUIRegistryLock )
@@ -194,15 +194,15 @@ LABEL_19:
   }
   v10 = 0;
 LABEL_23:
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v5 = (__int64)a2;
+  if ( (unsigned __int64)DataSize < 0x7FFFFFFF0000LL )
+    v5 = (__int64)DataSize;
   *(_DWORD *)v5 = *(_DWORD *)v5;
-  *a2 = MUIRegistryInfoSize;
+  *DataSize = MUIRegistryInfoSize;
   if ( v9 )
   {
-    ProbeForWrite(a3, Length, 1u);
-    memset((void *)a3, 0, Length);
-    memmove((void *)a3, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
+    ProbeForWrite(Data, Length, 1u);
+    memset(Data, 0, Length);
+    memmove(Data, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
   }
 LABEL_27:
   if ( v28 )
@@ -210,5 +210,5 @@ LABEL_27:
     ExReleaseResourceLite(MUIRegistryLock);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v10;
+  return v10;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmOpenKeyCallout @ 0x140975120
+ * XREFs of CmOpenKeyCallout @ 0x140937130
  * Callers:
  *     <none>
  * Callees:
- *     CmOpenKey @ 0x140975160 (CmOpenKey.c)
+ *     CmOpenKey @ 0x140937170 (CmOpenKey.c)
  */
 
 void __fastcall CmOpenKeyCallout(_BYTE *Parameter)

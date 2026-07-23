@@ -1,29 +1,29 @@
 /*
- * XREFs of MiLockCloneBlockAtDpc @ 0x14023EF08
+ * XREFs of MiLockCloneBlockAtDpc @ 0x140207058
  * Callers:
- *     MiDecommitSharedPageTail @ 0x14023E140 (MiDecommitSharedPageTail.c)
- *     MiDecrementCloneBlock @ 0x1402F9160 (MiDecrementCloneBlock.c)
- *     MiReferenceCloneProto @ 0x1402F99D8 (MiReferenceCloneProto.c)
- *     MiWriteSharedDemandZeroPte @ 0x1403951B4 (MiWriteSharedDemandZeroPte.c)
+ *     MiDecommitSharedPageTail @ 0x140206290 (MiDecommitSharedPageTail.c)
+ *     MiWriteSharedDemandZeroPte @ 0x14026A080 (MiWriteSharedDemandZeroPte.c)
+ *     MiReferenceCloneProto @ 0x140294790 (MiReferenceCloneProto.c)
+ *     MiDecrementCloneBlock @ 0x140294E14 (MiDecrementCloneBlock.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
-void __fastcall MiLockCloneBlockAtDpc(__int64 a1)
+void __fastcall MiLockCloneBlockAtDpc(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v1; // ebx
+  unsigned int v4; // ebx
 
-  v1 = 0;
+  v4 = 0;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 16), 0x3FuLL) )
   {
     do
     {
-      if ( (++v1 & HvlLongSpinCountMask) == 0
+      if ( (++v4 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1) )
+        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1, a2, a3, a4) )
       {
-        HvlNotifyLongSpinWait(v1);
+        HvlNotifyLongSpinWait(v4);
       }
       else
       {

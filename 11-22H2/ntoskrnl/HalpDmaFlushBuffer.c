@@ -53,9 +53,9 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
     {
       v12 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           v14 = 4;
@@ -77,10 +77,10 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
       KeFlushIoBuffers((ULONG_PTR)v15, a5 == 0, 1, v16);
     if ( CurrentIrql < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v12 <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v12 <= 0xFu && v17 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v19 = CurrentPrcb->SchedulerAssist;

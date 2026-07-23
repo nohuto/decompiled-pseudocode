@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpDedupChangeEventsControlCallbackV2 @ 0x1405B7860
+ * XREFs of FsRtlpDedupChangeEventsControlCallbackV2 @ 0x1405BA0D0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     McTemplateK0jjtq_EtwWriteTransfer @ 0x1405B7A20 (McTemplateK0jjtq_EtwWriteTransfer.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     McTemplateK0jjtq_EtwWriteTransfer @ 0x1405BA290 (McTemplateK0jjtq_EtwWriteTransfer.c)
  */
 
 void __fastcall FsRtlpDedupChangeEventsControlCallbackV2(
@@ -25,7 +25,7 @@ void __fastcall FsRtlpDedupChangeEventsControlCallbackV2(
   int *v12; // r9
   int v13; // eax
   int v14; // edx
-  unsigned int *i; // rbx
+  void **i; // rbx
 
   if ( CallbackContext && ControlCode == 1 )
   {
@@ -50,21 +50,21 @@ void __fastcall FsRtlpDedupChangeEventsControlCallbackV2(
         v14 = v13 & ~v11;
       *v12 = v14;
     }
-    ExAcquireResourceSharedLite((PERESOURCE)&VslpReservedTransferLock.UserWaitTime, 1u);
-    for ( i = *(unsigned int **)&VslpReservedTransferLock.ReservedPreviousReadyTimeValue;
-          i != &VslpReservedTransferLock.ReservedPreviousReadyTimeValue;
-          i = *(unsigned int **)i )
+    ExAcquireResourceSharedLite((PERESOURCE)&VslpReservedTransferLock.KernelShadowStackBase, 1u);
+    for ( i = (void **)VslpReservedTransferLock.KernelShadowStack;
+          i != &VslpReservedTransferLock.KernelShadowStack;
+          i = (void **)*i )
     {
-      if ( ((__int64)VslpReservedTransferLock.AbWaitObject & 1) != 0 )
+      if ( (VslpReservedTransferLock.SchedulerAssistPriorityFloor & 1) != 0 )
         McTemplateK0jjtq_EtwWriteTransfer(
           (unsigned int)&MS_Dedup_Change_Provider_Context,
           *((unsigned __int8 *)i + 52),
           0,
           (_DWORD)i + 16,
-          (__int64)(i + 8),
+          (__int64)(i + 4),
           *((_BYTE *)i + 52),
-          i[12]);
+          *((_DWORD *)i + 12));
     }
-    ExReleaseResourceLite((PERESOURCE)&VslpReservedTransferLock.UserWaitTime);
+    ExReleaseResourceLite((PERESOURCE)&VslpReservedTransferLock.KernelShadowStackBase);
   }
 }

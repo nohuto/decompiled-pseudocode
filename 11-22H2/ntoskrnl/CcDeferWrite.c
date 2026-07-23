@@ -35,9 +35,9 @@ void __stdcall CcDeferWrite(
   _DWORD *SchedulerAssist; // r9
   int v18; // eax
   bool v19; // zf
-  struct _LIST_ENTRY *v20; // rcx
+  _LIST_ENTRY *v20; // rcx
   KSPIN_LOCK *v21; // r8
-  struct _LIST_ENTRY *v22; // rdx
+  _LIST_ENTRY *v22; // rdx
   __int64 v23; // r8
   unsigned __int64 v24; // rdi
   unsigned __int8 v25; // al
@@ -59,10 +59,13 @@ void __stdcall CcDeferWrite(
       __fastfail(0xEu);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -78,11 +81,11 @@ void __stdcall CcDeferWrite(
       __fastfail(0xEu);
     if ( PrivateVolumeCacheMapFromFileObject && _InterlockedIncrement64(PrivateVolumeCacheMapFromFileObject + 1) <= 1 )
       __fastfail(0xEu);
-    v20 = (struct _LIST_ENTRY *)(PrivateVolumeCacheMapFromFileObject + 138);
+    v20 = (_LIST_ENTRY *)(PrivateVolumeCacheMapFromFileObject + 138);
     *((_QWORD *)PoolWithTag + 5) = 0LL;
     v21 = (KSPIN_LOCK *)(PartitionFromFileObject + 1216);
     *((_QWORD *)PoolWithTag + 1) = FileObject;
-    v22 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
+    v22 = (_LIST_ENTRY *)(PoolWithTag + 24);
     *((_DWORD *)PoolWithTag + 4) = BytesToWrite;
     *((_QWORD *)PoolWithTag + 6) = PostRoutine;
     *((_QWORD *)PoolWithTag + 9) = PartitionFromFileObject;
@@ -92,7 +95,7 @@ void __stdcall CcDeferWrite(
     *((_QWORD *)PoolWithTag + 8) = Context2;
     *((_QWORD *)PoolWithTag + 12) = MEMORY[0xFFFFF78000000320];
     if ( !PrivateVolumeCacheMapFromFileObject )
-      v20 = (struct _LIST_ENTRY *)(PartitionFromFileObject + 1168);
+      v20 = (_LIST_ENTRY *)(PartitionFromFileObject + 1168);
     PoolWithTag[88] = 0;
     if ( Retrying )
       ExInterlockedInsertHeadList(v20, v22, v21);
@@ -104,10 +107,10 @@ void __stdcall CcDeferWrite(
     CcScheduleLazyWriteScan((_BYTE *)PartitionFromFileObject, (__int64)PrivateVolumeCacheMapFromFileObject, v23, 0);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v30);
     v24 = v30.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v25 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v30.OldIrql <= 0xFu && v25 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v30.OldIrql <= 0xFu && v25 >= 2u )
       {
         v26 = KeGetCurrentPrcb();
         v27 = v26->SchedulerAssist;

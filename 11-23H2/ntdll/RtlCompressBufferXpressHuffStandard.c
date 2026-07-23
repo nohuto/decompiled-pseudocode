@@ -5,7 +5,7 @@
  * Callees:
  *     XpressDoHuffmanPass @ 0x1800566A0 (XpressDoHuffmanPass.c)
  *     XpressBuildHuffmanEncodings @ 0x180056990 (XpressBuildHuffmanEncodings.c)
- *     RtlpMakeXpressCallback @ 0x180121B30 (RtlpMakeXpressCallback.c)
+ *     RtlpMakeXpressCallback @ 0x180121B00 (RtlpMakeXpressCallback.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 

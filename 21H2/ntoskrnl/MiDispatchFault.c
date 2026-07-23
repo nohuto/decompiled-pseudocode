@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDispatchFault @ 0x14020EF00
+ * XREFs of MiDispatchFault @ 0x1402B3800
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     MiInPagePageTable @ 0x140316B10 (MiInPagePageTable.c)
  * Callees:
- *     MiComputeMaximumFaultCluster @ 0x14020F650 (MiComputeMaximumFaultCluster.c)
- *     MiResolveDemandZeroFault @ 0x14020FB50 (MiResolveDemandZeroFault.c)
- *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
- *     MiResolveTransitionFault @ 0x140216790 (MiResolveTransitionFault.c)
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiCheckProtoAccess @ 0x14028D180 (MiCheckProtoAccess.c)
- *     MiAdvanceFaultList @ 0x14028E148 (MiAdvanceFaultList.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiAdjustFaultList @ 0x1402BCC88 (MiAdjustFaultList.c)
- *     MiAccessCheck @ 0x1402C1228 (MiAccessCheck.c)
- *     MiPageTableLockIsContended @ 0x140308460 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KiRspInIstStack @ 0x140518BF8 (KiRspInIstStack.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiCheckProtoAccess @ 0x14020A320 (MiCheckProtoAccess.c)
+ *     MiAdvanceFaultList @ 0x14020B2E8 (MiAdvanceFaultList.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiAdjustFaultList @ 0x14023B338 (MiAdjustFaultList.c)
+ *     MiAccessCheck @ 0x14023F6C8 (MiAccessCheck.c)
+ *     MiComputeMaximumFaultCluster @ 0x1402B3F50 (MiComputeMaximumFaultCluster.c)
+ *     MiResolveDemandZeroFault @ 0x1402B4450 (MiResolveDemandZeroFault.c)
+ *     MiResolveProtoPteFault @ 0x1402B9CD0 (MiResolveProtoPteFault.c)
+ *     MiResolveTransitionFault @ 0x1402BB090 (MiResolveTransitionFault.c)
+ *     MiPageTableLockIsContended @ 0x1403131B0 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KiRspInIstStack @ 0x140518E38 (KiRspInIstStack.c)
  */
 
 __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
   __int128 v9; // xmm1
   __int128 v10; // xmm0
   __int64 v11; // r13
-  ULONG_PTR v12; // r15
+  unsigned __int64 v12; // r15
   unsigned int v13; // esi
   unsigned __int64 v14; // r12
   unsigned __int64 v15; // rax
@@ -62,7 +62,7 @@ __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
   __int64 v41; // rdx
   __int64 v42; // rdx
   __int64 v43; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned __int64 v44; // [rsp+40h] [rbp-C8h]
+  _QWORD *v44; // [rsp+40h] [rbp-C8h]
   __int64 v45; // [rsp+48h] [rbp-C0h] BYREF
   unsigned __int64 v46; // [rsp+50h] [rbp-B8h]
   _QWORD *v47; // [rsp+58h] [rbp-B0h]
@@ -101,11 +101,11 @@ __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
   v12 = (((unsigned __int64)v2.m128i_i64[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v49 = v7;
   v13 = 0;
-  if ( (v7 & 1) == 0 || (v44 = v7 & 0xFFFFFFFFFFFFFFFEuLL, *(_BYTE *)(v7 & 0xFFFFFFFFFFFFFFFEuLL) != 5) )
+  if ( (v7 & 1) == 0 || (v44 = (_QWORD *)(v7 & 0xFFFFFFFFFFFFFFFEuLL), *(_BYTE *)(v7 & 0xFFFFFFFFFFFFFFFEuLL) != 5) )
   {
     if ( (v7 & 1) == 0
-      || (v44 = v7 & 0xFFFFFFFFFFFFFFFEuLL, *(_BYTE *)(v7 & 0xFFFFFFFFFFFFFFFEuLL) != 2)
-      && ((v7 & 1) == 0 || (v44 = v7 & 0xFFFFFFFFFFFFFFFEuLL, *(_BYTE *)(v7 & 0xFFFFFFFFFFFFFFFEuLL) != 1)) )
+      || (v44 = (_QWORD *)(v7 & 0xFFFFFFFFFFFFFFFEuLL), *(_BYTE *)(v7 & 0xFFFFFFFFFFFFFFFEuLL) != 2)
+      && ((v7 & 1) == 0 || (v44 = (_QWORD *)(v7 & 0xFFFFFFFFFFFFFFFEuLL), *(_BYTE *)(v7 & 0xFFFFFFFFFFFFFFFEuLL) != 1)) )
     {
       v44 = 0LL;
     }
@@ -128,7 +128,7 @@ __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
         && (unsigned __int64)(*(_QWORD *)(v46 + 120) + 1LL) >= *(_QWORD *)(v46 + 152)
         || (unsigned int)MiWorkingSetIsContended(v46)
         || (v51.m256i_i8[21] & 1) != 0
-        || (unsigned int)MiPageTableLockIsContended(v37)
+        || (unsigned int)MiPageTableLockIsContended(v37, ((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL)
         || KeShouldYieldProcessor() )
       {
         goto LABEL_35;
@@ -189,7 +189,7 @@ __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
       v19 = -1073741819;
       goto LABEL_27;
     }
-    v32 = MiAccessCheck(v12, v17, 0);
+    v32 = MiAccessCheck((unsigned __int64 *)v12, v11, (v52 & 0x40) != 0, v31, v17, 0);
     v17 = v49;
     v19 = v32;
     if ( !v32 )
@@ -227,7 +227,7 @@ LABEL_14:
         }
         else
         {
-          v38 = MiResolvePageFileFault(&v48, v12, 0LL, &v45);
+          v38 = MiResolvePageFileFault((unsigned __int64 *)&v48, v12, 0LL, &v45);
           v17 = v49;
           v19 = v38;
         }
@@ -265,7 +265,7 @@ LABEL_20:
             }
             v23 = &ExpInterlockedPopEntrySListFault;
             v35 = *(_QWORD *)(v17 + 360);
-            v22 = KiDynamicTraceEnabled && v35 >= qword_140CFCBD8 && v35 < qword_140CFCBE0 && KeGetCurrentIrql() == 15;
+            v22 = KiDynamicTraceEnabled && v35 >= ControlPc && v35 < qword_140CFCBE0 && KeGetCurrentIrql() == 15;
           }
           else
           {

@@ -9,7 +9,7 @@
  *     ObpReferenceSecurityDescriptor @ 0x140669330 (ObpReferenceSecurityDescriptor.c)
  */
 
-__int64 __fastcall ObQuerySecurityDescriptorInfo(__int64 a1, ULONG *a2, void *a3, ULONG *a4)
+__int64 __fastcall ObQuerySecurityDescriptorInfo(__int64 a1, DWORD *a2, void *a3, ULONG *a4)
 {
   PSECURITY_DESCRIPTOR v7; // rbp
   unsigned int v8; // ebx

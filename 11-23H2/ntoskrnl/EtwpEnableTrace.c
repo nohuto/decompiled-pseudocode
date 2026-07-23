@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpEnableTrace @ 0x140809874
+ * XREFs of EtwpEnableTrace @ 0x140809B44
  * Callers:
- *     EtwpEnableAutoLoggerProvider @ 0x1408091D4 (EtwpEnableAutoLoggerProvider.c)
- *     EtwEnableTrace @ 0x140831D00 (EtwEnableTrace.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x1408094A4 (EtwpEnableAutoLoggerProvider.c)
+ *     EtwEnableTrace @ 0x140832000 (EtwEnableTrace.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     EtwpEnableGuid @ 0x14077FD00 (EtwpEnableGuid.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     EtwpEnableGuid @ 0x14077FEF0 (EtwpEnableGuid.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

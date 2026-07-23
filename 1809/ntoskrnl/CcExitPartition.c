@@ -1,20 +1,20 @@
 /*
- * XREFs of CcExitPartition @ 0x14026B5B0
+ * XREFs of CcExitPartition @ 0x14026B7A0
  * Callers:
- *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
- *     MiDrainCrossPartitionUsage @ 0x1402D1724 (MiDrainCrossPartitionUsage.c)
+ *     MiDeletePartitionResources @ 0x1402D119C (MiDeletePartitionResources.c)
+ *     MiDrainCrossPartitionUsage @ 0x1402D1914 (MiDrainCrossPartitionUsage.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcNotifyWriteBehindInternal @ 0x14012BF3C (CcNotifyWriteBehindInternal.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     CcWaitForCurrentLazyWriterActivityInternal @ 0x140160C5C (CcWaitForCurrentLazyWriterActivityInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
- *     CcDeletePartition @ 0x14026B1A0 (CcDeletePartition.c)
- *     CcDeleteSectionsForPartition @ 0x14026B354 (CcDeleteSectionsForPartition.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcNotifyWriteBehindInternal @ 0x14012C00C (CcNotifyWriteBehindInternal.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     CcWaitForCurrentLazyWriterActivityInternal @ 0x140160D5C (CcWaitForCurrentLazyWriterActivityInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcPostDeferredWrites @ 0x140269BA0 (CcPostDeferredWrites.c)
+ *     CcDeletePartition @ 0x14026B390 (CcDeletePartition.c)
+ *     CcDeleteSectionsForPartition @ 0x14026B544 (CcDeleteSectionsForPartition.c)
  */
 
 void __fastcall CcExitPartition(struct _KEVENT **a1, int a2)

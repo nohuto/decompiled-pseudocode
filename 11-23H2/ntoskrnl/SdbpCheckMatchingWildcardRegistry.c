@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpCheckMatchingWildcardRegistry @ 0x140A50630
+ * XREFs of SdbpCheckMatchingWildcardRegistry @ 0x140A508E0
  * Callers:
  *     <none>
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A5075C (SdbpCheckMatchingWildcardRegistryEntry.c)
- *     SdbpGetRegistryMatchingAttributes @ 0x140A51094 (SdbpGetRegistryMatchingAttributes.c)
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A50A0C (SdbpCheckMatchingWildcardRegistryEntry.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140A51344 (SdbpGetRegistryMatchingAttributes.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingWildcardRegistry(_DWORD *a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6)

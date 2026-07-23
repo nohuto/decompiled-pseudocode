@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpQueryModuleInformation @ 0x140832D20
+ * XREFs of ExpQueryModuleInformation @ 0x140838F60
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     MmEnumerateSystemImagesShared @ 0x1404E5168 (MmEnumerateSystemImagesShared.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     MmEnumerateSystemImagesShared @ 0x1404DE708 (MmEnumerateSystemImagesShared.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall ExpQueryModuleInformation(int a1, _DWORD *a2, unsigned int a3, char a4, int *a5)

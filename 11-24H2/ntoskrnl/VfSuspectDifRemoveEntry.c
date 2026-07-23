@@ -1,12 +1,12 @@
 /*
- * XREFs of VfSuspectDifRemoveEntry @ 0x140B9A640
+ * XREFs of VfSuspectDifRemoveEntry @ 0x140B9C640
  * Callers:
- *     VfVolatileApplyDifVerification @ 0x140614864 (VfVolatileApplyDifVerification.c)
- *     VfDriverRemoveDifVerification @ 0x140B8A4F0 (VfDriverRemoveDifVerification.c)
- *     VfSuspectRemoveDifVolatileVerification @ 0x140B9B138 (VfSuspectRemoveDifVolatileVerification.c)
+ *     VfVolatileApplyDifVerification @ 0x140612E24 (VfVolatileApplyDifVerification.c)
+ *     VfDriverRemoveDifVerification @ 0x140B8C4F0 (VfDriverRemoveDifVerification.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140B9D138 (VfSuspectRemoveDifVolatileVerification.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViSuspectDriversLookupEntry @ 0x140B9B1A4 (ViSuspectDriversLookupEntry.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViSuspectDriversLookupEntry @ 0x140B9D1A4 (ViSuspectDriversLookupEntry.c)
  */
 
 void __fastcall VfSuspectDifRemoveEntry(const UNICODE_STRING *a1)

@@ -2,10 +2,10 @@
  * XREFs of PsChargeProcessPoolQuota @ 0x140367C40
  * Callers:
  *     PsChargePoolQuota @ 0x1402331B0 (PsChargePoolQuota.c)
- *     FsRtlCancelNotify @ 0x14024CCD0 (FsRtlCancelNotify.c)
- *     ExpAllocatePoolWithQuotaTag @ 0x140A6E9A4 (ExpAllocatePoolWithQuotaTag.c)
+ *     sub_14024CCD0 @ 0x14024CCD0 (sub_14024CCD0.c)
+ *     sub_140A6E9A4 @ 0x140A6E9A4 (sub_140A6E9A4.c)
  * Callees:
- *     PspExpandQuota @ 0x1402436C8 (PspExpandQuota.c)
+ *     sub_1402436C8 @ 0x1402436C8 (sub_1402436C8.c)
  */
 
 NTSTATUS __stdcall PsChargeProcessPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
@@ -33,8 +33,8 @@ NTSTATUS __stdcall PsChargeProcessPoolQuota(PEPROCESS Process, POOL_TYPE PoolTyp
     return 0;
   v5 = 0;
   v6 = PoolType == PagedPool;
-  v7 = (unsigned __int64 *)(Process[1].Affinity.StaticBitmap[27] + (v6 << 7));
-  v8 = PspResourceFlags[8 * v6];
+  v7 = (unsigned __int64 *)(*((_QWORD *)Process + 173) + (v6 << 7));
+  v8 = byte_140D07030[8 * v6];
   _m_prefetchw(v7);
   v9 = *v7;
   _InterlockedOr(v22, 0);
@@ -46,19 +46,19 @@ LABEL_4:
     {
       v11 = v9 + Amount;
       if ( v9 + Amount < v9 )
-        return *(_DWORD *)&PspResourceFlags[8 * v6 + 4];
+        return *(_DWORD *)&byte_140D07030[8 * v6 + 4];
       if ( v11 <= v10 )
         break;
       if ( (v8 & 1) == 0 || !v7[10] )
-        return *(_DWORD *)&PspResourceFlags[8 * v6 + 4];
+        return *(_DWORD *)&byte_140D07030[8 * v6 + 4];
       v20 = _InterlockedExchange64((volatile __int64 *)v7 + 9, 0LL);
       if ( v20 )
       {
         v10 = v20 + _InterlockedExchangeAdd64((volatile signed __int64 *)v7 + 8, v20);
         goto LABEL_4;
       }
-      if ( !PspExpandQuota(v6, (__int64)v7, v9, Amount, &i) )
-        return *(_DWORD *)&PspResourceFlags[8 * v6 + 4];
+      if ( !sub_1402436C8(v6, (__int64)v7, v9, Amount, &i) )
+        return *(_DWORD *)&byte_140D07030[8 * v6 + 4];
     }
     v13 = _InterlockedCompareExchange64((volatile signed __int64 *)v7, v11, v9);
     v12 = v9 == v13;
@@ -80,7 +80,7 @@ LABEL_4:
   }
   if ( (v8 & 4) != 0 )
   {
-    v15 = Amount + _InterlockedExchangeAdd64((volatile signed __int64 *)&Process[1].ThreadListHead.Blink + v6, Amount);
+    v15 = Amount + _InterlockedExchangeAdd64((volatile signed __int64 *)Process + v6 + 142, Amount);
     v16 = (char *)Process + 8 * v6;
     _m_prefetchw(v16 + 1152);
     v17 = *((_QWORD *)v16 + 144);

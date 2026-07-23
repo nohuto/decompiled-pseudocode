@@ -17,13 +17,13 @@
  *     _EtwpGetProcessorStreamsCount@16 @ 0x4B381783 (_EtwpGetProcessorStreamsCount@16.c)
  */
 
-int __fastcall EtwpInitLoggerContext(_DWORD *a1, int a2, unsigned int a3, int a4, int a5)
+char *__fastcall EtwpInitLoggerContext(_DWORD *a1, int a2, unsigned int a3, int a4, int a5)
 {
   _DWORD *v5; // esi
-  int Heap; // eax
+  char *Heap; // eax
   int v7; // edi
-  int v8; // ebx
-  int v9; // eax
+  char *v8; // ebx
+  PVOID v9; // eax
   unsigned int v10; // edi
   unsigned int i; // ecx
   unsigned int v12; // eax
@@ -34,64 +34,70 @@ int __fastcall EtwpInitLoggerContext(_DWORD *a1, int a2, unsigned int a3, int a4
   _DWORD *v17; // ecx
   int v18; // eax
   _DWORD *v19; // esi
-  int result; // eax
+  char *result; // eax
   unsigned __int16 v21; // di
-  int v22; // eax
+  PVOID v22; // eax
   int v23; // [esp-8h] [ebp-4Ch]
-  int v24; // [esp+10h] [ebp-34h]
-  int v25; // [esp+14h] [ebp-30h]
-  unsigned __int64 v26; // [esp+18h] [ebp-2Ch]
-  unsigned __int64 v27; // [esp+20h] [ebp-24h] BYREF
-  int v28; // [esp+2Ch] [ebp-18h] BYREF
-  int v29; // [esp+30h] [ebp-14h]
-  int v30; // [esp+34h] [ebp-10h]
-  _DWORD *v31; // [esp+38h] [ebp-Ch]
-  __int16 v32[4]; // [esp+3Ch] [ebp-8h] BYREF
+  SIZE_T v24; // [esp-4h] [ebp-48h]
+  SIZE_T v25; // [esp-4h] [ebp-48h]
+  SIZE_T v26; // [esp-4h] [ebp-48h]
+  int v27; // [esp+10h] [ebp-34h]
+  int v28; // [esp+14h] [ebp-30h]
+  LARGE_INTEGER v29; // [esp+18h] [ebp-2Ch]
+  LARGE_INTEGER PerformanceCounter; // [esp+20h] [ebp-24h] BYREF
+  int v31; // [esp+2Ch] [ebp-18h] BYREF
+  int v32; // [esp+30h] [ebp-14h]
+  int v33; // [esp+34h] [ebp-10h]
+  _DWORD *v34; // [esp+38h] [ebp-Ch]
+  __int16 v35[4]; // [esp+3Ch] [ebp-8h] BYREF
 
-  v30 = a2;
-  v31 = a1;
-  v32[0] = 1;
+  v33 = a2;
+  v34 = a1;
+  v35[0] = 1;
   if ( a4 )
-    EtwpGetProcessorStreamsCount(&a3, v32);
+    EtwpGetProcessorStreamsCount(&a3, v35);
   while ( MEMORY[0x7FFE0018] != MEMORY[0x7FFE001C] )
     _mm_pause();
-  v5 = v31;
-  v24 = MEMORY[0x7FFE0014];
-  v25 = MEMORY[0x7FFE0018];
-  if ( v31[10] == 2 )
+  v5 = v34;
+  v27 = MEMORY[0x7FFE0014];
+  v28 = MEMORY[0x7FFE0018];
+  if ( v34[10] == 2 )
   {
     while ( MEMORY[0x7FFE0018] != MEMORY[0x7FFE001C] )
       _mm_pause();
-    v5 = v31;
-    v26 = MEMORY[0x7FFE0014];
+    v5 = v34;
+    v29.QuadPart = MEMORY[0x7FFE0014];
   }
-  else if ( v31[10] == 3 )
+  else if ( v34[10] == 3 )
   {
-    v26 = __rdtsc();
+    v29.QuadPart = __rdtsc();
   }
   else
   {
-    v27 = 0LL;
-    RtlQueryPerformanceCounter(&v27);
-    v26 = v27;
+    PerformanceCounter.QuadPart = 0LL;
+    RtlQueryPerformanceCounter(&PerformanceCounter);
+    v29 = PerformanceCounter;
   }
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 4 * a3 + 392);
+  LODWORD(v24) = 4 * a3 + 392;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v24);
   v7 = a4;
   v8 = Heap;
   if ( !Heap )
     return 0;
-  v9 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 4 * a3);
-  *(_DWORD *)(v8 + 376) = v9;
+  LODWORD(v25) = 4 * a3;
+  v9 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v25);
+  *((_DWORD *)v8 + 94) = v9;
   if ( v9 )
   {
     if ( v7 )
     {
       v23 = v7;
-      v21 = v32[0];
+      v21 = v35[0];
       if ( EtwpFillProcessorStreamIndexMap(v23, a5) )
         goto LABEL_44;
-      v22 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 12 * v21);
-      *(_DWORD *)(v8 + 356) = v22;
+      LODWORD(v26) = 12 * v21;
+      v22 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v26);
+      *((_DWORD *)v8 + 89) = v22;
       if ( !v22 )
         goto LABEL_44;
       v10 = a3;
@@ -101,8 +107,8 @@ int __fastcall EtwpInitLoggerContext(_DWORD *a1, int a2, unsigned int a3, int a4
       v10 = a3;
       for ( i = 0; i < v10; ++i )
       {
-        *(_WORD *)(*(_DWORD *)(v8 + 376) + 4 * i) = 0;
-        *(_WORD *)(*(_DWORD *)(v8 + 376) + 4 * i + 2) = i;
+        *(_WORD *)(*((_DWORD *)v8 + 94) + 4 * i) = 0;
+        *(_WORD *)(*((_DWORD *)v8 + 94) + 4 * i + 2) = i;
       }
     }
     v12 = v5[12];
@@ -119,30 +125,30 @@ int __fastcall EtwpInitLoggerContext(_DWORD *a1, int a2, unsigned int a3, int a4
     {
       v13 = 4096;
     }
-    *(_DWORD *)(v8 + 140) = v13;
-    if ( RtlCreateUnicodeString(v8 + 108, (const unsigned __int16 *)v5[37])
-      && !EtwpAddInstanceIdToLogFileName(v5, v5[24], &v28) )
+    *((_DWORD *)v8 + 35) = v13;
+    if ( RtlCreateUnicodeString((PUNICODE_STRING)(v8 + 108), (PCWSTR)v5[37])
+      && !EtwpAddInstanceIdToLogFileName(v5, v5[24], &v31) )
     {
       if ( (v5[16] & 0x4000) != 0 )
       {
-        *(_DWORD *)(v8 + 284) = &EtwpGlobalSequence;
+        *((_DWORD *)v8 + 71) = &EtwpGlobalSequence;
       }
       else if ( (v5[16] & 0x8000) != 0 )
       {
-        *(_DWORD *)(v8 + 284) = v8 + 288;
+        *((_DWORD *)v8 + 71) = v8 + 288;
       }
       v14 = 2048;
-      *(_DWORD *)(v8 + 20) = v30;
-      *(_DWORD *)(v8 + 136) = v10;
-      *(_DWORD *)(v8 + 212) = 2048;
-      *(_DWORD *)(v8 + 44) = 0xFFFF;
-      *(_DWORD *)(v8 + 40) = -1072889856;
-      *(_DWORD *)(v8 + 36) = -1072562176;
+      *((_DWORD *)v8 + 5) = v33;
+      *((_DWORD *)v8 + 34) = v10;
+      *((_DWORD *)v8 + 53) = 2048;
+      *((_DWORD *)v8 + 11) = 0xFFFF;
+      *((_DWORD *)v8 + 10) = -1072889856;
+      *((_DWORD *)v8 + 9) = -1072562176;
       v15 = v5[16];
       if ( (v15 & 0x400) != 0 )
       {
         v14 = 3072;
-        *(_DWORD *)(v8 + 212) = 3072;
+        *((_DWORD *)v8 + 53) = 3072;
       }
       else
       {
@@ -155,84 +161,85 @@ int __fastcall EtwpInitLoggerContext(_DWORD *a1, int a2, unsigned int a3, int a4
           if ( (v15 & 8) != 0 )
           {
             v14 = 2056;
-            *(_DWORD *)(v8 + 212) = 2056;
-            *(_DWORD *)(v8 + 124) = v28;
-            *(_DWORD *)(v8 + 128) = v29;
+            *((_DWORD *)v8 + 53) = 2056;
+            *((_DWORD *)v8 + 31) = v31;
+            *((_DWORD *)v8 + 32) = v32;
             goto LABEL_23;
           }
           if ( (v15 & 1) == 0 )
             goto LABEL_23;
           v14 = 2049;
         }
-        *(_DWORD *)(v8 + 212) = v14;
-        *(_DWORD *)(v8 + 116) = v28;
-        *(_DWORD *)(v8 + 120) = v29;
+        *((_DWORD *)v8 + 53) = v14;
+        *((_DWORD *)v8 + 29) = v31;
+        *((_DWORD *)v8 + 30) = v32;
       }
 LABEL_23:
       v16 = v14 | v5[16] & 0x34133024;
-      v17 = v31;
-      *(_DWORD *)(v8 + 212) = v16;
+      v17 = v34;
+      *((_DWORD *)v8 + 53) = v16;
       v18 = v5[27];
       v19 = v5 + 6;
-      *(_DWORD *)(v8 + 280) = v18;
-      *(_DWORD *)(v8 + 160) = *(_DWORD *)(v8 + 156);
-      *(_DWORD *)(v8 + 48) = *v19++;
-      *(_DWORD *)(v8 + 52) = *v19++;
-      *(_DWORD *)(v8 + 56) = *v19;
-      *(_DWORD *)(v8 + 60) = v19[1];
-      *(_DWORD *)(v8 + 208) = v17[15];
-      *(_DWORD *)(v8 + 148) = v17[14];
-      *(_DWORD *)(v8 + 152) = v17[13];
-      *(_DWORD *)(v8 + 168) = v8 + 164;
-      *(_DWORD *)(v8 + 164) = v8 + 164;
-      *(_DWORD *)(v8 + 180) = 0;
-      *(_DWORD *)(v8 + 172) = v8 + 180;
-      *(_DWORD *)(v8 + 176) = v8 + 180;
-      *(_DWORD *)(v8 + 192) = 0;
-      *(_DWORD *)(v8 + 184) = v8 + 192;
-      *(_DWORD *)(v8 + 188) = v8 + 192;
-      *(_DWORD *)(v8 + 204) = 0;
-      *(_DWORD *)(v8 + 196) = v8 + 204;
-      *(_DWORD *)(v8 + 200) = v8 + 204;
-      *(_DWORD *)(v8 + 336) = v8 + 332;
-      *(_DWORD *)(v8 + 332) = v8 + 332;
-      *(_DWORD *)(v8 + 344) = v8 + 340;
-      *(_DWORD *)(v8 + 340) = v8 + 340;
-      *(_DWORD *)(v8 + 16) = v17[10];
-      *(_DWORD *)(v8 + 64) = v17[24];
-      *(_DWORD *)(v8 + 256) = v17[19];
-      if ( (int)NtCreateEvent(v8 + 96, 2031619, 0, 1, 0) >= 0 && (int)NtCreateEvent(v8 + 100, 2031619, 0, 1, 0) >= 0 )
+      *((_DWORD *)v8 + 70) = v18;
+      *((_DWORD *)v8 + 40) = *((_DWORD *)v8 + 39);
+      *((_DWORD *)v8 + 12) = *v19++;
+      *((_DWORD *)v8 + 13) = *v19++;
+      *((_DWORD *)v8 + 14) = *v19;
+      *((_DWORD *)v8 + 15) = v19[1];
+      *((_DWORD *)v8 + 52) = v17[15];
+      *((_DWORD *)v8 + 37) = v17[14];
+      *((_DWORD *)v8 + 38) = v17[13];
+      *((_DWORD *)v8 + 42) = v8 + 164;
+      *((_DWORD *)v8 + 41) = v8 + 164;
+      *((_DWORD *)v8 + 45) = 0;
+      *((_DWORD *)v8 + 43) = v8 + 180;
+      *((_DWORD *)v8 + 44) = v8 + 180;
+      *((_DWORD *)v8 + 48) = 0;
+      *((_DWORD *)v8 + 46) = v8 + 192;
+      *((_DWORD *)v8 + 47) = v8 + 192;
+      *((_DWORD *)v8 + 51) = 0;
+      *((_DWORD *)v8 + 49) = v8 + 204;
+      *((_DWORD *)v8 + 50) = v8 + 204;
+      *((_DWORD *)v8 + 84) = v8 + 332;
+      *((_DWORD *)v8 + 83) = v8 + 332;
+      *((_DWORD *)v8 + 86) = v8 + 340;
+      *((_DWORD *)v8 + 85) = v8 + 340;
+      *((_DWORD *)v8 + 4) = v17[10];
+      *((_DWORD *)v8 + 16) = v17[24];
+      *((_DWORD *)v8 + 64) = v17[19];
+      if ( NtCreateEvent((PHANDLE)v8 + 24, 0x1F0003u, 0, SynchronizationEvent, 0) >= 0
+        && NtCreateEvent((PHANDLE)v8 + 25, 0x1F0003u, 0, SynchronizationEvent, 0) >= 0 )
       {
-        RtlInitializeCriticalSectionEx((_DWORD *)(v8 + 72), 0, 0);
-        *(_DWORD *)(v8 + 68) = 0;
-        *(_DWORD *)(v8 + 216) = 1;
+        RtlInitializeCriticalSectionEx((PRTL_CRITICAL_SECTION)v8 + 3, 0, 0);
+        *((_DWORD *)v8 + 17) = 0;
+        *((_DWORD *)v8 + 54) = 1;
         result = v8;
-        *(_DWORD *)v8 = v24;
-        *(_DWORD *)(v8 + 4) = v25;
-        *(_QWORD *)(v8 + 8) = v26;
+        *(_DWORD *)v8 = v27;
+        *((_DWORD *)v8 + 1) = v28;
+        *((LARGE_INTEGER *)v8 + 1) = v29;
         return result;
       }
     }
   }
 LABEL_44:
-  if ( *(_DWORD *)(v8 + 100) )
+  if ( *((_DWORD *)v8 + 25) )
   {
-    NtClose(*(HANDLE *)(v8 + 100));
-    *(_DWORD *)(v8 + 100) = 0;
+    NtClose(*((HANDLE *)v8 + 25));
+    *((_DWORD *)v8 + 25) = 0;
   }
-  if ( *(_DWORD *)(v8 + 96) )
+  if ( *((_DWORD *)v8 + 24) )
   {
-    NtClose(*(HANDLE *)(v8 + 96));
-    *(_DWORD *)(v8 + 96) = 0;
+    NtClose(*((HANDLE *)v8 + 24));
+    *((_DWORD *)v8 + 24) = 0;
   }
-  if ( *(_DWORD *)(v8 + 356) )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v8 + 356));
-  if ( *(_DWORD *)(v8 + 376) )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v8 + 376));
-  EtwpFreeStreamIndexMap((int *)v8);
+  if ( *((_DWORD *)v8 + 89) )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)v8 + 89));
+  if ( *((_DWORD *)v8 + 94) )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)v8 + 94));
+  EtwpFreeStreamIndexMap((PVOID *)v8);
   RtlFreeAnsiString((PUNICODE_STRING)(v8 + 108));
   RtlFreeAnsiString((PUNICODE_STRING)(v8 + 116));
   RtlFreeAnsiString((PUNICODE_STRING)(v8 + 124));
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v8);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
   return 0;
 }

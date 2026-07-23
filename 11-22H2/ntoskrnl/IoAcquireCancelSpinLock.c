@@ -9,7 +9,7 @@
 
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 {
-  KIRQL CurrentIrql; // bl
+  UCHAR CurrentIrql; // bl
   void *ArbitraryUserPointer; // rcx
   volatile __int64 *v4; // r8
   __int64 v5; // rcx
@@ -19,7 +19,7 @@ void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )

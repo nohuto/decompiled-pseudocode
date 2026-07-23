@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAcquireVpbSpinLock @ 0x1404839B0
+ * XREFs of IoAcquireVpbSpinLock @ 0x14047EED0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
  */
 
 void __stdcall IoAcquireVpbSpinLock(PKIRQL Irql)

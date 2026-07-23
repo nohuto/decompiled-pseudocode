@@ -21,14 +21,14 @@
  *     RtlpLogHeapFailure @ 0x14058D990 (RtlpLogHeapFailure.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, unsigned int a3)
+unsigned __int64 __fastcall RtlpHpLargeFree(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   unsigned __int64 v3; // r14
   __int64 v4; // rbx
   char v5; // r15
-  __m128i *v6; // r12
+  __int64 v6; // r12
   unsigned __int8 v7; // al
-  unsigned __int64 *v8; // rcx
+  _RTL_RB_TREE *v8; // rcx
   unsigned __int64 v9; // r13
   unsigned __int64 v10; // rdi
   unsigned __int64 v11; // rax
@@ -45,7 +45,7 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, un
   unsigned int v23; // r8d
   bool v24; // zf
   __int64 v25; // rcx
-  unsigned __int64 v26; // r15
+  __int64 v26; // r15
   __int64 v27; // rdx
   __int64 v28; // rdx
   __int64 v29; // rcx
@@ -58,7 +58,7 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, un
   unsigned __int8 v36; // r15
   unsigned int v37; // r8d
   __int64 v38; // rcx
-  unsigned __int64 v39; // r14
+  __int64 v39; // r14
   __int64 v40; // rdx
   __int64 v41; // rdx
   __int64 v42; // rcx
@@ -87,10 +87,10 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, un
   v5 = a3;
   v6 = a1;
   v7 = RtlpHpLargeLockAcquire(a1, a3);
-  v8 = &v6[4].m128i_u64[1];
+  v8 = (_RTL_RB_TREE *)(v6 + 72);
   v9 = v7;
-  v10 = v6[4].m128i_u64[1];
-  if ( (v6[5].m128i_i8[0] & 1) != 0 )
+  v10 = *(_QWORD *)(v6 + 72);
+  if ( (*(_BYTE *)(v6 + 80) & 1) != 0 )
   {
     if ( v10 )
       v10 ^= (unsigned __int64)v8;
@@ -110,7 +110,7 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__m128i *a1, unsigned __int64 a2, un
     {
       v12 = *(_QWORD *)v10;
     }
-    if ( (v6[5].m128i_i8[0] & 1) != 0 && v12 )
+    if ( (*(_BYTE *)(v6 + 80) & 1) != 0 && v12 )
       v10 ^= v12;
     else
       v10 = v12;
@@ -120,11 +120,11 @@ LABEL_16:
   v13 = v5 & 1;
   if ( v10 )
   {
-    RtlRbRemoveNode(v8, v10);
+    RtlRbRemoveNode(v8, (PRTL_BALANCED_NODE)v10);
     if ( !v13 )
     {
-      v14 = *v6;
-      v15 = (unsigned __int64)&v6[4];
+      v14 = *(__m128i *)v6;
+      v15 = v6 + 64;
       if ( (_mm_cvtsi128_si32(v14) & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v15);
@@ -166,7 +166,7 @@ LABEL_16:
           v53[1] = v25;
           if ( v24 )
             break;
-          v26 = (unsigned __int64)&CurrentThread->LockEntries[v25];
+          v26 = (__int64)&CurrentThread->LockEntries[v25];
           v23 &= ~(1 << v25);
           if ( (*(_BYTE *)(v26 + 26) & 1) != 0
             && (*(_DWORD *)(v26 + 32) & 1) == 0
@@ -180,12 +180,12 @@ LABEL_16:
               {
                 *(_BYTE *)(v26 + 32) |= 2u;
                 if ( *(__int64 *)(v26 + 32) < 0 )
-                  KiAbEntryRemoveFromTree(v26);
+                  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
                 v54 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
                 *(_DWORD *)(v26 + 88) &= 0xFFFE0000;
                 *(_BYTE *)(v26 + 25) &= ~1u;
                 *(_QWORD *)(v26 + 32) = 0LL;
-                v27 = (__int64)(v26 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+                v27 = (signed __int64)(v26 - (unsigned __int64)CurrentThread->LockEntries) / 96;
                 if ( v22 == 1 )
                   CurrentThread->AbEntrySummary |= 1 << v27;
                 else
@@ -213,13 +213,13 @@ LABEL_41:
     }
     v16 = *(_QWORD *)(v10 + 32);
     v17 = (unsigned __int8)v16 >> 2;
-    v56 = *v6;
+    v56 = *(__m128i *)v6;
     v18 = (((v16 >> 12) + ((v16 >> 1) & 1)) << 12) - 1;
     v55 = (1LL << v17) - (((1LL << v17) - 1) & ((1LL << v17) + v18)) + v18;
     RtlpHpFreeVA(&v59, &v55, 0x8000, (__int128 *)v56.m128i_i8);
-    _InterlockedExchangeAdd64(v6[6].m128i_i64, -(*(_QWORD *)(v10 + 32) >> 12));
-    _InterlockedExchangeAdd64(&v6[5].m128i_i64[1], -(__int64)(v55 >> 12));
-    v57 = *v6;
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 96), -(*(_QWORD *)(v10 + 32) >> 12));
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 88), -(__int64)(v55 >> 12));
+    v57 = *(__m128i *)v6;
     RtlpHpMetadataFree(v10, &v57);
     return v55;
   }
@@ -227,8 +227,8 @@ LABEL_41:
   {
     if ( !v13 )
     {
-      v32 = *v6;
-      v33 = (unsigned __int64)&v6[4];
+      v32 = *(__m128i *)v6;
+      v33 = v6 + 64;
       if ( (_mm_cvtsi128_si32(v32) & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v33);
@@ -271,7 +271,7 @@ LABEL_41:
           v60 = v38;
           if ( v24 )
             goto LABEL_57;
-          v39 = (unsigned __int64)&v34->LockEntries[v38];
+          v39 = (__int64)&v34->LockEntries[v38];
           v37 &= ~(1 << v38);
           if ( (*(_BYTE *)(v39 + 26) & 1) != 0
             && (*(_DWORD *)(v39 + 32) & 1) == 0
@@ -292,12 +292,12 @@ LABEL_57:
         }
         *(_BYTE *)(v39 + 32) |= 2u;
         if ( *(__int64 *)(v39 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v39);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v39);
         v53[0] = *(_DWORD *)(v39 + 88) & 0x1FFFF;
         *(_DWORD *)(v39 + 88) &= 0xFFFE0000;
         *(_BYTE *)(v39 + 25) &= ~1u;
         *(_QWORD *)(v39 + 32) = 0LL;
-        v40 = (__int64)(v39 - (unsigned __int64)v34->LockEntries) / 96;
+        v40 = (signed __int64)(v39 - (unsigned __int64)v34->LockEntries) / 96;
         if ( v36 == 1 )
           v34->AbEntrySummary |= 1 << v40;
         else
@@ -311,9 +311,9 @@ LABEL_69:
         KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread(), v41, v43, (__int64)v44);
         LODWORD(v3) = v59;
       }
-      LODWORD(v6) = (_DWORD)a1;
+      LODWORD(v6) = a1;
     }
-    RtlpLogHeapFailure(8, (_DWORD)v6, v3, 0, 0LL, 0LL);
+    RtlpLogHeapFailure(8, v6, v3, 0, 0LL, 0LL);
   }
   return v4;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of HalReturnToFirmware @ 0x140506960
+ * XREFs of HalReturnToFirmware @ 0x140506EB0
  * Callers:
- *     HalpLegacyShutdown @ 0x140506AA0 (HalpLegacyShutdown.c)
- *     HalpShutdownReset @ 0x140506E20 (HalpShutdownReset.c)
- *     HaliAcpiSleep @ 0x140527F40 (HaliAcpiSleep.c)
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
- *     KeRebootSystemForRecovery @ 0x14057A3AC (KeRebootSystemForRecovery.c)
- *     KiDeferredBugcheckRecoveryWorker @ 0x14057ADE0 (KiDeferredBugcheckRecoveryWorker.c)
- *     KiHandleMultipleBugchecksDuringRecovery @ 0x14057B090 (KiHandleMultipleBugchecksDuringRecovery.c)
- *     PopInvokeSystemStateHandler @ 0x140AA859C (PopInvokeSystemStateHandler.c)
- *     PopShutdownSystem @ 0x140AA8F14 (PopShutdownSystem.c)
+ *     HalpLegacyShutdown @ 0x140506FF0 (HalpLegacyShutdown.c)
+ *     HalpShutdownReset @ 0x140507370 (HalpShutdownReset.c)
+ *     HaliAcpiSleep @ 0x140528490 (HaliAcpiSleep.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
+ *     KeRebootSystemForRecovery @ 0x14057A89C (KeRebootSystemForRecovery.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x14057B2D0 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiHandleMultipleBugchecksDuringRecovery @ 0x14057B580 (KiHandleMultipleBugchecksDuringRecovery.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA840C (PopInvokeSystemStateHandler.c)
+ *     PopShutdownSystem @ 0x140AA8D84 (PopShutdownSystem.c)
  *     KdpSendWaitContinue @ 0x140AB07C8 (KdpSendWaitContinue.c)
  *     HdlspBugCheckProcessing @ 0x140AE9D84 (HdlspBugCheckProcessing.c)
  * Callees:
- *     DbgPrint @ 0x14032A6F0 (DbgPrint.c)
- *     HalpAcquireCmosSpinLock @ 0x14033BC0C (HalpAcquireCmosSpinLock.c)
- *     KdPowerTransitionEx @ 0x1403AD9F0 (KdPowerTransitionEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpTimerStopAllTimers @ 0x1404FEB48 (HalpTimerStopAllTimers.c)
- *     HalpInterruptResetAllProcessors @ 0x140504D9C (HalpInterruptResetAllProcessors.c)
- *     HalpPowerWriteResetCommand @ 0x140506ABC (HalpPowerWriteResetCommand.c)
- *     HalpShutdown @ 0x140506C48 (HalpShutdown.c)
+ *     DbgPrint @ 0x14032A980 (DbgPrint.c)
+ *     HalpAcquireCmosSpinLock @ 0x14033BE9C (HalpAcquireCmosSpinLock.c)
+ *     KdPowerTransitionEx @ 0x1403ADBD0 (KdPowerTransitionEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpTimerStopAllTimers @ 0x1404FF098 (HalpTimerStopAllTimers.c)
+ *     HalpInterruptResetAllProcessors @ 0x1405052EC (HalpInterruptResetAllProcessors.c)
+ *     HalpPowerWriteResetCommand @ 0x14050700C (HalpPowerWriteResetCommand.c)
+ *     HalpShutdown @ 0x140507198 (HalpShutdown.c)
  */
 
 void __fastcall __noreturn HalReturnToFirmware(int a1)
@@ -57,5 +57,5 @@ void __fastcall __noreturn HalReturnToFirmware(int a1)
   if ( HalpResetParkDisposition )
     HalpInterruptResetAllProcessors();
   HalpPowerWriteResetCommand(0LL, 0LL);
-  JUMPOUT(0x1405069EELL);
+  JUMPOUT(0x140506F3ELL);
 }

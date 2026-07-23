@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpFreeAsid @ 0x14022F130
+ * XREFs of ExpFreeAsid @ 0x14022EF5C
  * Callers:
- *     ExFreeSvmAsid @ 0x140075598 (ExFreeSvmAsid.c)
- *     ExpAssignPasid @ 0x1406B69D0 (ExpAssignPasid.c)
+ *     ExFreeSvmAsid @ 0x140075618 (ExFreeSvmAsid.c)
+ *     ExpAssignPasid @ 0x1406B6B08 (ExpAssignPasid.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
  */
 
 void __fastcall ExpFreeAsid(unsigned int a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of EmonConfigureCounter @ 0x14055AF10
+ * XREFs of EmonConfigureCounter @ 0x140558B40
  * Callers:
- *     EmonDisableMonitoringEnhanced @ 0x14055B0C0 (EmonDisableMonitoringEnhanced.c)
- *     EmonDisableMonitoringOriginal @ 0x14055B190 (EmonDisableMonitoringOriginal.c)
- *     EmonEnableMonitoringEnhanced @ 0x14055B260 (EmonEnableMonitoringEnhanced.c)
- *     EmonEnableMonitoringOriginal @ 0x14055B3C0 (EmonEnableMonitoringOriginal.c)
- *     EmonRestartProfilingInternalEnhanced @ 0x14055E0E0 (EmonRestartProfilingInternalEnhanced.c)
- *     EmonRestartProfilingInternalOriginal @ 0x14055E1FC (EmonRestartProfilingInternalOriginal.c)
+ *     EmonDisableMonitoringEnhanced @ 0x140558CF0 (EmonDisableMonitoringEnhanced.c)
+ *     EmonDisableMonitoringOriginal @ 0x140558DC0 (EmonDisableMonitoringOriginal.c)
+ *     EmonEnableMonitoringEnhanced @ 0x140558E90 (EmonEnableMonitoringEnhanced.c)
+ *     EmonEnableMonitoringOriginal @ 0x140558FF0 (EmonEnableMonitoringOriginal.c)
+ *     EmonRestartProfilingInternalEnhanced @ 0x14055BD10 (EmonRestartProfilingInternalEnhanced.c)
+ *     EmonRestartProfilingInternalOriginal @ 0x14055BE2C (EmonRestartProfilingInternalOriginal.c)
  * Callees:
  *     <none>
  */

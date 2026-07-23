@@ -11,23 +11,23 @@
  *     _RtlRbRemoveNode@8 @ 0x4B2D9B10 (_RtlRbRemoveNode@8.c)
  */
 
-int __thiscall EtwpDereferenceUmGuidEntry(unsigned int this)
+LOGICAL __thiscall EtwpDereferenceUmGuidEntry(_RTL_SRWLOCK *BaseAddress)
 {
-  int result; // eax
+  LOGICAL result; // eax
 
-  result = _InterlockedDecrement((volatile signed __int32 *)(this + 36));
+  result = _InterlockedDecrement((volatile signed __int32 *)&BaseAddress[9]);
   if ( !result )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(this + 28));
-    *(_DWORD *)(this + 32) = NtCurrentTeb()->ClientId.UniqueThread;
+    RtlAcquireSRWLockExclusive(BaseAddress + 7);
+    BaseAddress[8].0 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)NtCurrentTeb()->ClientId.UniqueThread;
     RtlAcquireSRWLockExclusive(&EtwpProvLock);
-    RtlRbRemoveNode((int)&EtwpGuidEntryTable, this);
+    RtlRbRemoveNode(&EtwpGuidEntryTable, (PRTL_BALANCED_NODE)BaseAddress);
     RtlReleaseSRWLockExclusive(&EtwpProvLock);
-    *(_DWORD *)(this + 32) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(this + 28));
-    if ( *(_DWORD *)(this + 148) )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(this + 148));
-    return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, this);
+    BaseAddress[8].Value = 0;
+    RtlReleaseSRWLockExclusive(BaseAddress + 7);
+    if ( BaseAddress[37].Value )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress[37].Ptr);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

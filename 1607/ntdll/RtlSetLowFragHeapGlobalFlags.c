@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetLowFragHeapGlobalFlags @ 0x180089B84
+ * XREFs of RtlSetLowFragHeapGlobalFlags @ 0x180089B74
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x180093C48 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x180093C38 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     RtlpHpApplySegmentHeapConfigurations @ 0x180089C38 (RtlpHpApplySegmentHeapConfigurations.c)
+ *     RtlpHpApplySegmentHeapConfigurations @ 0x180089C28 (RtlpHpApplySegmentHeapConfigurations.c)
  */
 
 char __fastcall RtlSetLowFragHeapGlobalFlags(__int16 a1, int a2)

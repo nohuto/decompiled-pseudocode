@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetModernStandbyTransitionReason @ 0x140576500
+ * XREFs of PopGetModernStandbyTransitionReason @ 0x140576740
  * Callers:
- *     PopCalculateCsSummary @ 0x14056FEA0 (PopCalculateCsSummary.c)
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
- *     PopDiagTraceSleepStudyStart @ 0x1408EB288 (PopDiagTraceSleepStudyStart.c)
- *     PopIdleCsStateChanged @ 0x1408F5634 (PopIdleCsStateChanged.c)
+ *     PopCalculateCsSummary @ 0x1405700E0 (PopCalculateCsSummary.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
+ *     PopDiagTraceSleepStudyStart @ 0x1408EB3E8 (PopDiagTraceSleepStudyStart.c)
+ *     PopIdleCsStateChanged @ 0x1408F5794 (PopIdleCsStateChanged.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -25,13 +25,13 @@ __int64 __fastcall PopGetModernStandbyTransitionReason(char a1, __int64 *a2)
   v4 = KeAcquireSpinLockRaiseToDpc(&PopModernStandbyTransitionInfo);
   if ( a1 )
   {
-    v5 = dword_140C11774;
+    v5 = dword_140C11754;
     v6 = 0LL;
   }
   else
   {
-    v5 = dword_140C11778;
-    v6 = qword_140C11780;
+    v5 = dword_140C11758;
+    v6 = qword_140C11760;
   }
   if ( a2 )
     *a2 = v6;

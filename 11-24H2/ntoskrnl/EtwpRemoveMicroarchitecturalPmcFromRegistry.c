@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1407A91EC
+ * XREFs of EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1407A932C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140A440A4 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140A39934 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpFindMatchingPmcRegistryGroup @ 0x1407A7B6C (EtwpFindMatchingPmcRegistryGroup.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1407A8F64 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     KiGetCpuVendor @ 0x140B6D9F4 (KiGetCpuVendor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x1407A7CAC (EtwpFindMatchingPmcRegistryGroup.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1407A90A4 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     KiGetCpuVendor @ 0x140B6F294 (KiGetCpuVendor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromRegistry(wchar_t *Str1, size_t MaxCount, __int64 a3)
@@ -30,7 +30,7 @@ __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromRegistry(wchar_t *Str1, si
     ++v7;
   while ( aRegistryMachin_28[v7] );
   v9 = 2 * v7 + 514;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v9, 0x50777445u);
   v12 = Pool2;
   if ( !Pool2 )
     return 3221225495LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of PerfLogExecutiveResourceRelease @ 0x1402B9AE0
+ * XREFs of PerfLogExecutiveResourceRelease @ 0x1403047A0
  * Callers:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     SepFilterCheck @ 0x1402B7790 (SepFilterCheck.c)
- *     ExReleaseResourceAndLeaveCriticalRegion @ 0x1402B8340 (ExReleaseResourceAndLeaveCriticalRegion.c)
- *     ExpReleaseResourceForThreadLite @ 0x1402B9360 (ExpReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     SepFilterCheck @ 0x140302450 (SepFilterCheck.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140303000 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140304020 (ExpReleaseResourceForThreadLite.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 signed __int64 __fastcall PerfLogExecutiveResourceRelease(int a1, __int64 a2, int a3, unsigned int a4)
@@ -161,7 +161,7 @@ LABEL_21:
     v27[1] = 48LL;
     HIDWORD(v25) = KeGetCurrentThread()[1].CurrentRunTime;
     v27[0] = &v24;
-    result = EtwTraceKernelEvent((unsigned int)v27, 1, 537001984, 1323, 23074818);
+    result = EtwTraceKernelEvent((int)v27, 1, 0x20020000u, 1323, 23074818);
 LABEL_30:
     v13[7] = 0;
     return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreUpdatePagefileHash @ 0x140486554
+ * XREFs of MiStoreUpdatePagefileHash @ 0x140425E74
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     MiGetPagingFileOffset @ 0x1402E5A60 (MiGetPagingFileOffset.c)
- *     MiMapPageFileHash @ 0x140486688 (MiMapPageFileHash.c)
+ *     MiGetPagingFileOffset @ 0x140341C00 (MiGetPagingFileOffset.c)
+ *     MiMapPageFileHash @ 0x140425FA8 (MiMapPageFileHash.c)
  */
 
 char __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -39,8 +39,8 @@ char __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3, un
     v14 = 96LL;
     do
     {
-      LOBYTE(v4) = qword_140E37378;
-      if ( *v13 == qword_140E37378
+      LOBYTE(v4) = qword_140E374B8;
+      if ( *v13 == qword_140E374B8
         || (v15 = *(_QWORD *)(v14 + *(_QWORD *)(a2 + 72)), LOBYTE(v4) = (unsigned __int8)v15 >> 2, (v15 & 4) == 0) )
       {
         v17 = v11;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDeviceAcquireIrp @ 0x140486D58
+ * XREFs of PopDiagTraceDeviceAcquireIrp @ 0x140480728
  * Callers:
- *     PoDeviceAcquireIrp @ 0x140486D1C (PoDeviceAcquireIrp.c)
+ *     PoDeviceAcquireIrp @ 0x1404806EC (PoDeviceAcquireIrp.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDeviceAcquireIrp(__int64 a1, __int64 a2)
@@ -35,11 +35,9 @@ char __fastcall PopDiagTraceDeviceAcquireIrp(__int64 a1, __int64 a2)
   v2 = &retaddr;
   v23 = a2;
   v22 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v2) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_IRP_DRIVERACQUIRE);
+    LOBYTE(v2) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_IRP_DRIVERACQUIRE);
     if ( (_BYTE)v2 )
     {
       if ( !v23 )
@@ -87,15 +85,7 @@ LABEL_19:
       while ( v11[v12] );
       v18 = 2 * v12 + 2;
       v19 = 0;
-      LOBYTE(v2) = EtwWriteEx(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_IRP_DRIVERACQUIRE,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     3u,
-                     &UserData);
+      LOBYTE(v2) = EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRP_DRIVERACQUIRE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
   return (char)v2;

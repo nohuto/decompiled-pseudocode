@@ -45,12 +45,12 @@
  *     RtlDebugSetUserValueHeap @ 0x180107524 (RtlDebugSetUserValueHeap.c)
  *     RtlDebugSizeHeap @ 0x180107838 (RtlDebugSizeHeap.c)
  *     RtlDebugWalkHeap @ 0x180107AE8 (RtlDebugWalkHeap.c)
- *     EtwEventWriteString @ 0x180124E90 (EtwEventWriteString.c)
- *     EtwpUseDescriptorType @ 0x1801250C0 (EtwpUseDescriptorType.c)
- *     EtwTraceEventInstance @ 0x180125210 (EtwTraceEventInstance.c)
- *     EtwpBufferingModeFlush @ 0x1801253B0 (EtwpBufferingModeFlush.c)
- *     EtwpIncrementUmLoggerFile @ 0x1801258BC (EtwpIncrementUmLoggerFile.c)
- *     EtwpUpdateUmLogger @ 0x180125F74 (EtwpUpdateUmLogger.c)
+ *     EtwEventWriteString @ 0x180124E60 (EtwEventWriteString.c)
+ *     EtwpUseDescriptorType @ 0x180125090 (EtwpUseDescriptorType.c)
+ *     EtwTraceEventInstance @ 0x1801251E0 (EtwTraceEventInstance.c)
+ *     EtwpBufferingModeFlush @ 0x180125380 (EtwpBufferingModeFlush.c)
+ *     EtwpIncrementUmLoggerFile @ 0x18012588C (EtwpIncrementUmLoggerFile.c)
+ *     EtwpUpdateUmLogger @ 0x180125F44 (EtwpUpdateUmLogger.c)
  * Callees:
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
  */
@@ -80,7 +80,7 @@ ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
   if ( (Status & 0xF0000000) == 0xD0000000 )
     Status &= 0xCFFFFFFF;
   v2 = 0;
-  v3 = 324;
+  v3 = 327;
   while ( 1 )
   {
     v4 = (v3 + v2) >> 1;
@@ -101,13 +101,13 @@ LABEL_12:
       return 317;
     }
   }
-  if ( v7 >= (unsigned __int8)byte_180148354[v5] )
+  if ( v7 >= (unsigned __int8)byte_1801483C4[v5] )
   {
     v2 = v4 + 1;
     goto LABEL_12;
   }
-  v10 = (unsigned __int16)word_180148356[v5 / 2];
-  if ( byte_180148355[v5] == 1 )
+  v10 = (unsigned __int16)word_1801483C6[v5 / 2];
+  if ( byte_1801483C5[v5] == 1 )
     return (unsigned __int16)RtlpStatusTable[v7 + v10];
   return (unsigned __int16)RtlpStatusTable[2 * v7 + v10] | ((unsigned __int16)RtlpStatusTable[2 * v7 + 1 + v10] << 16);
 }

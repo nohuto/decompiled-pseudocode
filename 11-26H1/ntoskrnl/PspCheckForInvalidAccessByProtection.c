@@ -1,7 +1,7 @@
 /*
- * XREFs of PspCheckForInvalidAccessByProtection @ 0x140AAC78C
+ * XREFs of PspCheckForInvalidAccessByProtection @ 0x140AA9D3C
  * Callers:
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
  *     <none>
  */

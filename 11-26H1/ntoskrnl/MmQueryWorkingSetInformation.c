@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQueryWorkingSetInformation @ 0x140476F50
+ * XREFs of MmQueryWorkingSetInformation @ 0x1404706D0
  * Callers:
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x14063F544 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14063F848 (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     CmSiProcessTupleStartFromHandle @ 0x1406E2EA4 (CmSiProcessTupleStartFromHandle.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
- *     PspQueryQuotaLimits @ 0x140A6B5B0 (PspQueryQuotaLimits.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x140643124 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140643428 (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     CmSiProcessTupleStartFromHandle @ 0x1406E7B50 (CmSiProcessTupleStartFromHandle.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
+ *     PspQueryQuotaLimits @ 0x140A7CBE0 (PspQueryQuotaLimits.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
  */
 
 __int64 __fastcall MmQueryWorkingSetInformation(_QWORD *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5, _DWORD *a6)

@@ -1,15 +1,15 @@
 /*
- * XREFs of IoCreateSystemThread @ 0x14054CB60
+ * XREFs of IoCreateSystemThread @ 0x14054D0A0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
  */
 
 __int64 __fastcall IoCreateSystemThread(

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiZeroSectionObjectPointer @ 0x1400B5188
+ * XREFs of MiZeroSectionObjectPointer @ 0x1400B2FC0
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall MiZeroSectionObjectPointer(__int64 a1, __int64 a2, int a3)
@@ -25,9 +25,9 @@ __int64 __fastcall MiZeroSectionObjectPointer(__int64 a1, __int64 a2, int a3)
   v6 = *(_QWORD *)(a2 + 80);
   *(_QWORD *)(a2 + 80) = 0LL;
   v7 = v5;
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140326540);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140326580);
   *v3 = 0LL;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326540);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326580);
   *(_DWORD *)(a2 + 56) |= 0xC0000u;
   ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a2 + 72), v7);
   return v6;

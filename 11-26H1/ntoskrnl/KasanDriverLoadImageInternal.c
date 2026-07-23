@@ -1,21 +1,21 @@
 /*
- * XREFs of KasanDriverLoadImageInternal @ 0x140523630
+ * XREFs of KasanDriverLoadImageInternal @ 0x140525CA0
  * Callers:
- *     KasanDriverLoadImage @ 0x1404FC030 (KasanDriverLoadImage.c)
- *     KasanInitSystem @ 0x140CC7D20 (KasanInitSystem.c)
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     KasanDriverLoadImage @ 0x1404F5570 (KasanDriverLoadImage.c)
+ *     KasanInitSystem @ 0x140CCDE10 (KasanInitSystem.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     RtlLookupImageSectionByName @ 0x1404E4CB0 (RtlLookupImageSectionByName.c)
- *     KasanMarkAddressValidNoInline @ 0x140523160 (KasanMarkAddressValidNoInline.c)
- *     KasanTrackAddressNoInline @ 0x140532270 (KasanTrackAddressNoInline.c)
- *     KasanMarkAddressRedZoneNoInline @ 0x1405DD820 (KasanMarkAddressRedZoneNoInline.c)
- *     KasanUnloadInfoCompare @ 0x1405DDA20 (KasanUnloadInfoCompare.c)
- *     KasaniSendTelemetryDriver @ 0x1405DDA90 (KasaniSendTelemetryDriver.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     RtlLookupImageSectionByName @ 0x1404DE250 (RtlLookupImageSectionByName.c)
+ *     KasanMarkAddressValidNoInline @ 0x1405257D0 (KasanMarkAddressValidNoInline.c)
+ *     KasanTrackAddressNoInline @ 0x140534710 (KasanTrackAddressNoInline.c)
+ *     KasanMarkAddressRedZoneNoInline @ 0x1405E0190 (KasanMarkAddressRedZoneNoInline.c)
+ *     KasanUnloadInfoCompare @ 0x1405E0390 (KasanUnloadInfoCompare.c)
+ *     KasaniSendTelemetryDriver @ 0x1405E0400 (KasaniSendTelemetryDriver.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
@@ -38,13 +38,13 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   ULONG_PTR *v20; // r13
   ULONG_PTR *v21; // r15
   KIRQL v22; // al
-  _BOOL8 v23; // r8
-  PVOID v24; // rcx
+  __int64 v23; // r8
+  unsigned __int64 Root; // rcx
   KIRQL v25; // bp
   int v26; // edi
   unsigned __int64 v27; // rax
   int v28; // [rsp+60h] [rbp+8h]
-  PVOID P; // [rsp+70h] [rbp+18h]
+  _RTL_BALANCED_NODE *P; // [rsp+70h] [rbp+18h]
 
   v2 = *(_QWORD *)(a1 + 48);
   v5 = v2 + *(unsigned int *)(a1 + 152);
@@ -69,9 +69,9 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   v9 = v2 + *((unsigned int *)v7 + 3);
   if ( !v9 )
     return 0LL;
-  if ( !byte_140FC7BE8 || v8 < 0x40 || (v8 & 0x3F) != 0 || *(_DWORD *)v9 != 2 )
+  if ( !byte_140FC8BD8 || v8 < 0x40 || (v8 & 0x3F) != 0 || *(_DWORD *)v9 != 2 )
     return 3221225473LL;
-  **(_QWORD **)(v9 + 8) = qword_140FBE300;
+  **(_QWORD **)(v9 + 8) = qword_140FBF2F8;
   if ( a2 )
     return 0LL;
   v10 = (ULONG_PTR *)(v9 + 64);
@@ -97,7 +97,7 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   if ( !is_mul_ok(v11, 0x10uLL) || 16 * v11 + 40 < 16 * v11 )
     return 3221225621LL;
   Pool2 = ExAllocatePool2(0x40uLL);
-  P = (PVOID)Pool2;
+  P = (_RTL_BALANCED_NODE *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;
   v19 = 0LL;
@@ -107,21 +107,21 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   *(_QWORD *)(Pool2 + 32) = v11;
   while ( v19 < v11 )
   {
-    if ( byte_140FC7BE8 )
+    if ( byte_140FC8BD8 )
     {
       v28 = KasanTrackAddressNoInline(*(v21 - 2), *v21, 0LL);
       if ( v28 < 0 )
       {
         for ( ; v19; --v19 )
         {
-          if ( byte_140FC7BE8 )
+          if ( byte_140FC8BD8 )
             KasanMarkAddressValidNoInline(*v10, v10[2]);
           v10 += 8;
         }
         ExFreePoolWithTag(P, 0);
         return (unsigned int)v28;
       }
-      if ( byte_140FC7BE8 )
+      if ( byte_140FC8BD8 )
         KasanMarkAddressRedZoneNoInline(*(v21 - 2), *(v21 - 1), *v21);
     }
     ++v19;
@@ -131,15 +131,15 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
     v21 += 8;
   }
   v22 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)((char *)&KdDebuggerEnabled + 7));
-  v24 = KasanDriverUnloadInfos;
+  Root = (unsigned __int64)KasanDriverUnloadInfos.Root;
   v25 = v22;
-  if ( (qword_140E66290 & 1) == 0 )
+  if ( (*(_BYTE *)&KasanDriverUnloadInfos.0 & 1) == 0 )
   {
 LABEL_46:
     LOBYTE(v23) = 0;
-    v26 = qword_140E66290 & 1;
-    v13 = (unsigned __int64)v24;
-    if ( !v24 )
+    v26 = *(_BYTE *)&KasanDriverUnloadInfos.0 & 1;
+    v13 = Root;
+    if ( !Root )
       goto LABEL_59;
     while ( 1 )
     {
@@ -174,16 +174,16 @@ LABEL_52:
       v13 = v27;
     }
   }
-  if ( KasanDriverUnloadInfos )
+  if ( KasanDriverUnloadInfos.Root )
   {
-    v24 = (PVOID)((unsigned __int64)&KasanDriverUnloadInfos ^ (unsigned __int64)KasanDriverUnloadInfos);
+    Root = (unsigned __int64)&KasanDriverUnloadInfos ^ (unsigned __int64)KasanDriverUnloadInfos.Root;
     goto LABEL_46;
   }
 LABEL_58:
   LOBYTE(v23) = 0;
 LABEL_59:
-  RtlRbInsertNodeEx((unsigned __int64)&KasanDriverUnloadInfos, v13, v23, (unsigned __int64)P);
-  if ( byte_140FC7BE9 )
+  RtlRbInsertNodeEx(&KasanDriverUnloadInfos, (PRTL_BALANCED_NODE)v13, v23, P);
+  if ( byte_140FC8BD9 )
     KasaniSendTelemetryDriver(a1);
   KeReleaseSpinLock((PKSPIN_LOCK)((char *)&KdDebuggerEnabled + 7), v25);
   return 0LL;

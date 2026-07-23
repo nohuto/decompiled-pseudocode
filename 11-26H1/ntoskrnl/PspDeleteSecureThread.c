@@ -1,11 +1,11 @@
 /*
- * XREFs of PspDeleteSecureThread @ 0x140B41AE4
+ * XREFs of PspDeleteSecureThread @ 0x140B439D4
  * Callers:
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
  * Callees:
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     KeUnsecureThread @ 0x1404F7B80 (KeUnsecureThread.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     KeUnsecureThread @ 0x1404F1190 (KeUnsecureThread.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PspDeleteSecureThread()

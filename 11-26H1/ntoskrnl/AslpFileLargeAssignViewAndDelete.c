@@ -1,10 +1,10 @@
 /*
- * XREFs of AslpFileLargeAssignViewAndDelete @ 0x14088F6C0
+ * XREFs of AslpFileLargeAssignViewAndDelete @ 0x140895ABC
  * Callers:
- *     AslpFileLargeEnsureLargeFileMapping @ 0x14077DAD8 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x1407805D8 (AslpFileLargeEnsureLargeFileMapping.c)
  * Callees:
- *     AslpFileLargeMapDelete @ 0x14077C39C (AslpFileLargeMapDelete.c)
- *     AslpFileMappingGetFileKind @ 0x140B3EBDC (AslpFileMappingGetFileKind.c)
+ *     AslpFileLargeMapDelete @ 0x14077EE90 (AslpFileLargeMapDelete.c)
+ *     AslpFileMappingGetFileKind @ 0x140B40C0C (AslpFileMappingGetFileKind.c)
  */
 
 __int64 __fastcall AslpFileLargeAssignViewAndDelete(__int64 a1, __int64 *a2)

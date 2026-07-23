@@ -6,36 +6,39 @@
  *     RtlExpandEnvironmentStrings @ 0x1800AD3A0 (RtlExpandEnvironmentStrings.c)
  */
 
-__int64 __fastcall RtlExpandEnvironmentStrings_U(int a1, unsigned __int16 *a2, __int64 a3, _DWORD *a4)
+NTSTATUS __cdecl RtlExpandEnvironmentStrings_U(
+        PVOID Environment,
+        PUNICODE_STRING Source,
+        PUNICODE_STRING Destination,
+        PULONG ReturnedLength)
 {
-  unsigned __int64 v4; // rax
-  unsigned __int64 v6; // r8
-  __int64 v8; // rdx
-  __int64 v9; // r9
-  __int64 result; // rax
+  unsigned __int64 MaximumLength; // rax
+  unsigned __int64 Length; // r8
+  wchar_t *Buffer; // rdx
+  WCHAR *v9; // r9
+  NTSTATUS result; // eax
   int v11; // ecx
-  unsigned __int64 v12; // [rsp+48h] [rbp+10h] BYREF
+  ULONG_PTR ReturnLength; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = *(unsigned __int16 *)(a3 + 2);
-  v6 = *a2;
-  v8 = *((_QWORD *)a2 + 1);
-  v9 = *(_QWORD *)(a3 + 8);
-  v12 = 0LL;
-  LODWORD(result) = RtlExpandEnvironmentStrings(a1, v8, v6 >> 1, v9, v4 >> 1, (__int64)&v12);
-  v11 = v12;
-  if ( v12 > 0x7FFF )
+  MaximumLength = Destination->MaximumLength;
+  Length = Source->Length;
+  Buffer = Source->Buffer;
+  v9 = Destination->Buffer;
+  ReturnLength = 0LL;
+  result = RtlExpandEnvironmentStrings(Environment, Buffer, Length >> 1, v9, MaximumLength >> 1, &ReturnLength);
+  v11 = ReturnLength;
+  if ( ReturnLength > 0x7FFF )
   {
-    result = 3221225473LL;
-    if ( a4 )
-      *a4 = 0;
+    result = -1073741823;
+    if ( ReturnedLength )
+      *ReturnedLength = 0;
   }
   else
   {
-    if ( (int)result >= 0 )
-      *(_WORD *)a3 = 2 * (v12 - 1);
-    if ( a4 )
-      *a4 = 2 * v11;
-    return (unsigned int)result;
+    if ( result >= 0 )
+      Destination->Length = 2 * (ReturnLength - 1);
+    if ( ReturnedLength )
+      *ReturnedLength = 2 * v11;
   }
   return result;
 }

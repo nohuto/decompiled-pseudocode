@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x140827210
+ * XREFs of EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x14082D450
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpFindMatchingPmcRegistryGroup @ 0x140825B64 (EtwpFindMatchingPmcRegistryGroup.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x140826F90 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     KiGetCpuVendor @ 0x140C0A4F8 (KiGetCpuVendor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x14082BDA4 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x14082D1D0 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     KiGetCpuVendor @ 0x140C10708 (KiGetCpuVendor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromRegistry(wchar_t *Str1, size_t MaxCount, __int64 a3)

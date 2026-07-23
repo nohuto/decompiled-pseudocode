@@ -1,17 +1,17 @@
 /*
- * XREFs of PopIrpWatchdogBugcheck @ 0x140600A58
+ * XREFs of PopIrpWatchdogBugcheck @ 0x140603508
  * Callers:
- *     PopCompleteIrpWatchdog @ 0x1403B3FD0 (PopCompleteIrpWatchdog.c)
- *     PopDisableIrpWatchdog @ 0x1404DCE04 (PopDisableIrpWatchdog.c)
- *     PopIrpWatchdog @ 0x140600A40 (PopIrpWatchdog.c)
- *     PopBroadcastBlameBugcheckCallback @ 0x140BFD590 (PopBroadcastBlameBugcheckCallback.c)
+ *     PopCompleteIrpWatchdog @ 0x1403BDEDC (PopCompleteIrpWatchdog.c)
+ *     PopDisableIrpWatchdog @ 0x1404D64E4 (PopDisableIrpWatchdog.c)
+ *     PopIrpWatchdog @ 0x1406034F0 (PopIrpWatchdog.c)
+ *     PopBroadcastBlameBugcheckCallback @ 0x140C03590 (PopBroadcastBlameBugcheckCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopIrpWatchdogBugcheck(__int64 MaxDataSize)
@@ -38,12 +38,12 @@ NTSTATUS __fastcall PopIrpWatchdogBugcheck(__int64 MaxDataSize)
   HIDWORD(BugCheckParameter3[0]) = 0;
   v1 = MaxDataSize;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( (stru_140F10828.WaitBlockFill6[100] & 4) == 0 )
+  if ( (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 4) == 0 )
   {
-    if ( (struct _KTHREAD *)stru_140F10070.ApcState.ApcListHead[1].Flink != KeGetCurrentThread() )
+    if ( (struct _KTHREAD *)PopIrpLockThread != KeGetCurrentThread() )
     {
-      KeAcquireInStackQueuedSpinLock(qword_140F10540, &LockHandle);
-      stru_140F10070.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitListEntry.Blink, &LockHandle);
+      PopIrpLockThread = (__int64)KeGetCurrentThread();
     }
     if ( !*(_DWORD *)(v1 + 188) )
     {
@@ -62,10 +62,10 @@ NTSTATUS __fastcall PopIrpWatchdogBugcheck(__int64 MaxDataSize)
     IoAddTriageDumpDataBlock(BugCheckParameter4, (PVOID)*(unsigned __int16 *)(BugCheckParameter4 + 2));
     IoAddTriageDumpDataBlock(v1, (PVOID)0x138);
     BugCheckParameter3[0] = 163840LL;
-    BugCheckParameter3[1] = (ULONG_PTR)&qword_140F10550;
-    BugCheckParameter3[2] = (ULONG_PTR)&PopWeakChargerLock.WaitBlock[0].Object;
-    BugCheckParameter3[3] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Blink;
-    BugCheckParameter3[4] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Flink;
+    BugCheckParameter3[1] = (ULONG_PTR)&PpmIdlePolicyLock.WaitBlockList;
+    BugCheckParameter3[2] = (ULONG_PTR)&PopIrpThreadList;
+    BugCheckParameter3[3] = *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[64];
+    BugCheckParameter3[4] = (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.WaitBlock[1].WaitListEntry.Blink;
     KeBugCheckEx(0x9Fu, 3uLL, *(_QWORD *)(v1 + 24), (ULONG_PTR)BugCheckParameter3, BugCheckParameter4);
   }
   v2 = *(_QWORD *)(MaxDataSize + 24);
@@ -80,13 +80,5 @@ NTSTATUS __fastcall PopIrpWatchdogBugcheck(__int64 MaxDataSize)
   v16 = *(_QWORD *)(v2 + 48);
   v17 = 2 * (v3 >> 1);
   v18 = 0;
-  return EtwWriteEx(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_IRP_WATCHDOG_TRIGGERED,
-           0LL,
-           0,
-           0LL,
-           0LL,
-           3u,
-           &UserData);
+  return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRP_WATCHDOG_TRIGGERED, 0LL, 0, 0LL, 0LL, 3u, &UserData);
 }

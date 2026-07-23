@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpRegisterProviderWithMUP @ 0x140578344
+ * XREFs of FsRtlpRegisterProviderWithMUP @ 0x140578884
  * Callers:
- *     FsRtlpRegisterUncProvider @ 0x140578250 (FsRtlpRegisterUncProvider.c)
+ *     FsRtlpRegisterUncProvider @ 0x140578790 (FsRtlpRegisterUncProvider.c)
  * Callees:
- *     ZwWaitForSingleObject @ 0x140159D00 (ZwWaitForSingleObject.c)
- *     ZwFsControlFile @ 0x14015A3A0 (ZwFsControlFile.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ZwWaitForSingleObject @ 0x14015A270 (ZwWaitForSingleObject.c)
+ *     ZwFsControlFile @ 0x14015A910 (ZwFsControlFile.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

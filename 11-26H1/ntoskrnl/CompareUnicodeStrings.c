@@ -1,10 +1,10 @@
 /*
- * XREFs of CompareUnicodeStrings @ 0x140A17F40
+ * XREFs of CompareUnicodeStrings @ 0x140A21570
  * Callers:
- *     RtlFindUnicodePrefix @ 0x140A17AA0 (RtlFindUnicodePrefix.c)
- *     RtlInsertUnicodePrefix @ 0x140A17DC0 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x140A210D0 (RtlFindUnicodePrefix.c)
+ *     RtlInsertUnicodePrefix @ 0x140A213F0 (RtlInsertUnicodePrefix.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall CompareUnicodeStrings(__int64 a1, __int64 a2)

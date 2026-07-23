@@ -1,8 +1,8 @@
 /*
- * XREFs of KeSweepLocalCaches @ 0x1404B7D00
+ * XREFs of KeSweepLocalCaches @ 0x1404B1530
  * Callers:
- *     HalpFlushAndWait @ 0x140722F50 (HalpFlushAndWait.c)
- *     HalpDpOfflineProcessorForReplace @ 0x140BEDED0 (HalpDpOfflineProcessorForReplace.c)
+ *     HalpFlushAndWait @ 0x140727B20 (HalpFlushAndWait.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x140BF3ED0 (HalpDpOfflineProcessorForReplace.c)
  * Callees:
  *     <none>
  */

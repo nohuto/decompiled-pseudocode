@@ -1,14 +1,14 @@
 /*
- * XREFs of SleepstudyHelperDestroyBlocker @ 0x14049BA60
+ * XREFs of SleepstudyHelperDestroyBlocker @ 0x1404955B0
  * Callers:
- *     SleepstudyHelper_UnregisterComponent @ 0x1406143F0 (SleepstudyHelper_UnregisterComponent.c)
- *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1407E4560 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1407E4640 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
- *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140A88BC0 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
- *     PopPowerRequestDelete @ 0x140AD6100 (PopPowerRequestDelete.c)
- *     SleepstudyHelper_RegisterComponentEx @ 0x140B3D0C0 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_UnregisterComponent @ 0x140617250 (SleepstudyHelper_UnregisterComponent.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1407EA0D0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1407EA1A0 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     PopPowerRequestDelete @ 0x140AD30B0 (PopPowerRequestDelete.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x140B77D80 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140B77E60 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
  * Callees:
- *     SshpDereferenceBlocker @ 0x14049BA90 (SshpDereferenceBlocker.c)
+ *     SshpDereferenceBlocker @ 0x1404955E0 (SshpDereferenceBlocker.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyBlocker(KSPIN_LOCK *a1)

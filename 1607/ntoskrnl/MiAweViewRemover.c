@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAweViewRemover @ 0x14065C150
+ * XREFs of MiAweViewRemover @ 0x14065C234
  * Callers:
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140097430 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1400982A0 (ExAcquireAutoExpandPushLockExclusive.c)
- *     MiLocatePhysicalViewInTree @ 0x1401F015C (MiLocatePhysicalViewInTree.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140096C30 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140097AA0 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     MiLocatePhysicalViewInTree @ 0x1401EFF88 (MiLocatePhysicalViewInTree.c)
  */
 
 void __fastcall MiAweViewRemover(__int64 a1, __int64 a2)

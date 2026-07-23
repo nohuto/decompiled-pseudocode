@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSetSwitchingNpxState @ 0x14008A2D4
+ * XREFs of KiSetSwitchingNpxState @ 0x14008A2C4
  * Callers:
- *     KiInitializeContextThread @ 0x14008A018 (KiInitializeContextThread.c)
+ *     KiInitializeContextThread @ 0x14008A008 (KiInitializeContextThread.c)
  * Callees:
  *     <none>
  */

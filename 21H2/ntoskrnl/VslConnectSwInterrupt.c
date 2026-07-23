@@ -1,21 +1,21 @@
 /*
- * XREFs of VslConnectSwInterrupt @ 0x140A5F044
+ * XREFs of VslConnectSwInterrupt @ 0x140A60044
  * Callers:
- *     PsNotifyCoreDriversInitialized @ 0x140A5EF60 (PsNotifyCoreDriversInitialized.c)
- *     KiConnectSwInterrupt @ 0x140A918F4 (KiConnectSwInterrupt.c)
+ *     PsNotifyCoreDriversInitialized @ 0x140A5FF60 (PsNotifyCoreDriversInitialized.c)
+ *     KiConnectSwInterrupt @ 0x140A928F4 (KiConnectSwInterrupt.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140277468 (HvlQueryVsmConnection.c)
- *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvlIsCoreSharingPossible @ 0x1404F1B10 (HvlIsCoreSharingPossible.c)
- *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
- *     KiAreCodePatchesAllowed @ 0x140A73EA0 (KiAreCodePatchesAllowed.c)
+ *     HvlQueryVsmConnection @ 0x140265408 (HvlQueryVsmConnection.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403941C4 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x140394218 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvlIsCoreSharingPossible @ 0x1404F1A90 (HvlIsCoreSharingPossible.c)
+ *     ExAllocatePool2 @ 0x1409B51B0 (ExAllocatePool2.c)
+ *     KiAreCodePatchesAllowed @ 0x140A74EA0 (KiAreCodePatchesAllowed.c)
  */
 
 __int64 __fastcall VslConnectSwInterrupt(struct _MDL *BugCheckParameter2, ULONG_PTR BugCheckParameter3)

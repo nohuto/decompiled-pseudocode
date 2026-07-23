@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPoolHeapDestroy @ 0x1408466CC
+ * XREFs of ExpPoolHeapDestroy @ 0x14084C92C
  * Callers:
- *     ExpPoolCreate @ 0x14077DC90 (ExpPoolCreate.c)
- *     ExpPoolDestroy @ 0x140846574 (ExpPoolDestroy.c)
+ *     ExpPoolCreate @ 0x140780790 (ExpPoolCreate.c)
+ *     ExpPoolDestroy @ 0x14084C7D4 (ExpPoolDestroy.c)
  * Callees:
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
- *     RtlpHpHeapDestroy @ 0x1406386F4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
+ *     RtlpHpHeapDestroy @ 0x14063B6F8 (RtlpHpHeapDestroy.c)
  */
 
 __int64 __fastcall ExpPoolHeapDestroy(__int64 a1)

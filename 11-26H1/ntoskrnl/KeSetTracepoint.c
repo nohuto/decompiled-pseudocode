@@ -1,29 +1,29 @@
 /*
- * XREFs of KeSetTracepoint @ 0x1407BBB10
+ * XREFs of KeSetTracepoint @ 0x1407BEB70
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
- *     MmLockLoadedDataTableEntry @ 0x1404C3C10 (MmLockLoadedDataTableEntry.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
- *     KiTpWriteBreakpoint @ 0x1405FC6F8 (KiTpWriteBreakpoint.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KiTpIsSupportedKernelTracepointLocation @ 0x1407BC484 (KiTpIsSupportedKernelTracepointLocation.c)
- *     KiTpCompletionContextSize @ 0x1407BC558 (KiTpCompletionContextSize.c)
- *     KiTpSetupCompletion @ 0x1407BC660 (KiTpSetupCompletion.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
+ *     MmLockLoadedDataTableEntry @ 0x1404BD460 (MmLockLoadedDataTableEntry.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
+ *     KiTpWriteBreakpoint @ 0x1405FF148 (KiTpWriteBreakpoint.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KiTpIsSupportedKernelTracepointLocation @ 0x1407BF4E4 (KiTpIsSupportedKernelTracepointLocation.c)
+ *     KiTpCompletionContextSize @ 0x1407BF5B8 (KiTpCompletionContextSize.c)
+ *     KiTpSetupCompletion @ 0x1407BF6C0 (KiTpSetupCompletion.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeSetTracepoint(
-        struct _LIST_ENTRY *a1,
+        __int64 a1,
         char a2,
         unsigned __int64 a3,
         int a4,
@@ -35,14 +35,14 @@ __int64 __fastcall KeSetTracepoint(
 {
   __int64 v9; // r12
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v11; // rsi
+  void *v11; // rsi
   unsigned __int64 v13; // rbp
   int v16; // edi
   int v17; // edi
   __int64 v18; // rcx
   struct _KLOCK_ENTRIES *v19; // r9
   __int64 v20; // r8
-  struct _LIST_ENTRY *Flink; // rax
+  __int64 v21; // rax
   int v22; // edi
   __int64 v23; // rdx
   __int64 v25; // rax
@@ -53,15 +53,15 @@ __int64 __fastcall KeSetTracepoint(
   AutoBoost *v30; // rax
   char *Pool2; // rdx
   AutoBoost *v32; // rdi
-  struct _LIST_ENTRY *Blink; // rdi
+  char *SparePtr; // rdi
   int v34; // ebp
   __int64 v35; // r15
   __int64 *v36; // rcx
   __int64 v37; // rax
-  struct _LIST_ENTRY *v38; // rax
+  _BYTE *v38; // rax
   __int64 v39; // rbp
-  struct _LIST_ENTRY **v40; // r15
-  struct _LIST_ENTRY **v41; // rcx
+  __int64 *v40; // r15
+  _BYTE *v41; // rcx
   _BYTE *v42; // rcx
   char v43; // al
   __int64 v44; // rdx
@@ -76,7 +76,7 @@ __int64 __fastcall KeSetTracepoint(
   __int64 v53; // [rsp+40h] [rbp-98h]
   unsigned __int64 v54; // [rsp+48h] [rbp-90h]
   __int64 v55; // [rsp+50h] [rbp-88h]
-  struct _LIST_ENTRY *v56; // [rsp+58h] [rbp-80h]
+  __int64 v56; // [rsp+58h] [rbp-80h]
   char v57[48]; // [rsp+60h] [rbp-78h] BYREF
 
   v55 = a9;
@@ -100,8 +100,8 @@ LABEL_30:
   v20 = 1LL;
   if ( a1 )
   {
-    Flink = a1[23].Flink;
-    if ( (((unsigned __int8)Flink & 1) != 0 || ((unsigned __int64)Flink & 0xFFFFFFFFFFFFFFFCuLL) != 0) && (a2 || !v16) )
+    v21 = *(_QWORD *)(a1 + 368);
+    if ( ((v21 & 1) != 0 || (v21 & 0xFFFFFFFFFFFFFFFCuLL) != 0) && (a2 || !v16) )
       goto LABEL_4;
   }
   if ( (unsigned int)(a4 - 1) <= 1 )
@@ -146,7 +146,7 @@ LABEL_27:
       goto LABEL_30;
     goto LABEL_42;
   }
-  v19 = (struct _KLOCK_ENTRIES *)&stru_140FC01F0.PriorityFloorCounts[24];
+  v19 = (struct _KLOCK_ENTRIES *)&stru_140FC11F0.PriorityFloorCounts[24];
   if ( !a5 )
   {
     v23 = a7;
@@ -158,7 +158,7 @@ LABEL_27:
   v20 = 48LL;
   if ( a2 )
     v25 = 48LL;
-  if ( a5 != *(_QWORD *)&stru_140FC01F0.PriorityFloorCounts[v25 + 24] )
+  if ( a5 != *(_QWORD *)&stru_140FC11F0.PriorityFloorCounts[v25 + 24] )
     goto LABEL_4;
   v23 = a7;
   if ( a7 )
@@ -168,7 +168,7 @@ LABEL_36:
     v20 = 56LL;
     if ( a2 )
       v26 = 56LL;
-    if ( v23 != *(_QWORD *)&stru_140FC01F0.PriorityFloorCounts[v26 + 24] )
+    if ( v23 != *(_QWORD *)&stru_140FC11F0.PriorityFloorCounts[v26 + 24] )
       goto LABEL_4;
   }
 LABEL_42:
@@ -182,11 +182,11 @@ LABEL_4:
       v17 = -1073741790;
       goto LABEL_31;
     }
-    v11 = *(_QWORD *)(v27 + 48);
+    v11 = *(void **)(v27 + 48);
   }
   if ( !v22 && a4 )
     goto LABEL_54;
-  if ( v11 && !(unsigned int)KiTpIsSupportedKernelTracepointLocation(v11, v13, v20, v19) )
+  if ( v11 && !(unsigned int)KiTpIsSupportedKernelTracepointLocation(v11) )
   {
     v17 = -1073741637;
     goto LABEL_126;
@@ -195,13 +195,13 @@ LABEL_4:
   {
 LABEL_54:
     v29 = v9;
-    v30 = (AutoBoost *)KeAbPreAcquire((__int64)&KsepShimDbLock.WaitBlock[1].Object, 0LL, 0LL, v19);
+    v30 = (AutoBoost *)KeAbPreAcquire((__int64)&KsepShimDbLock.WaitBlock[1].Thread, 0LL, 0LL, v19);
     v32 = v30;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[80], 0LL) )
+    if ( _interlockedbittestandset64((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[72], 0LL) )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&KsepShimDbLock.WaitBlock[1].Object,
+        (unsigned __int64 *)&KsepShimDbLock.WaitBlock[1].Thread,
         v30,
-        (__int64)&KsepShimDbLock.WaitBlock[1].Object);
+        (__int64)&KsepShimDbLock.WaitBlock[1].Thread);
     if ( v32 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -209,11 +209,11 @@ LABEL_54:
       else
         *((_BYTE *)v32 + 10) = 1;
     }
-    Blink = KsepShimDbLock.WaitBlock[2].WaitListEntry.Blink;
-    if ( !KsepShimDbLock.WaitBlock[2].WaitListEntry.Blink )
+    SparePtr = (char *)KsepShimDbLock.WaitBlock[1].SparePtr;
+    if ( !KsepShimDbLock.WaitBlock[1].SparePtr )
     {
-      Blink = (struct _LIST_ENTRY *)ExAllocatePool2(0x40uLL);
-      if ( !Blink )
+      SparePtr = (char *)ExAllocatePool2(0x40uLL);
+      if ( !SparePtr )
       {
 LABEL_62:
         v17 = -1073741670;
@@ -224,7 +224,7 @@ LABEL_62:
       Pool2 = (char *)ExAllocatePool2(0x40uLL);
       if ( !Pool2 )
       {
-        ExFreePoolWithTag(Blink, 0);
+        ExFreePoolWithTag(SparePtr, 0);
         goto LABEL_62;
       }
       if ( v34 )
@@ -240,35 +240,35 @@ LABEL_62:
         while ( v35 );
       }
       v13 = v54;
-      KsepShimDbLock.WaitBlock[2].WaitListEntry.Blink = Blink;
+      KsepShimDbLock.WaitBlock[1].SparePtr = SparePtr;
     }
     v38 = 0LL;
     v39 = (v13 >> 4) & 0x3FFF;
-    v40 = &Blink->Flink + v39;
+    v40 = (__int64 *)&SparePtr[8 * v39];
     v17 = 0;
     while ( 1 )
     {
-      v41 = (struct _LIST_ENTRY **)*v40;
+      v41 = (_BYTE *)*v40;
       if ( !*v40 )
         break;
-      if ( v41[1] == (struct _LIST_ENTRY *)v54 && v41[2] == v56 )
+      if ( *((_QWORD *)v41 + 1) == v54 && *((_QWORD *)v41 + 2) == v56 )
       {
-        v38 = *v40;
-        if ( *((_BYTE *)v41 + 50) != a2 )
+        v38 = (_BYTE *)*v40;
+        if ( v41[50] != a2 )
         {
           v17 = -1073741811;
           goto LABEL_118;
         }
         break;
       }
-      v40 = (struct _LIST_ENTRY **)*v40;
+      v40 = (__int64 *)*v40;
     }
     if ( !a4 )
     {
       if ( !v38 )
       {
         LOBYTE(Pool2) = a2;
-        v17 = KiTpSetupCompletion((_DWORD)v56, (_DWORD)Pool2, v54, 0, 0, (__int64)v57);
+        v17 = KiTpSetupCompletion(v56, (_DWORD)Pool2, v54, 0, 0, (__int64)v57);
         goto LABEL_118;
       }
       v42 = (_BYTE *)v55;
@@ -277,18 +277,18 @@ LABEL_62:
 LABEL_118:
         if ( v9 )
         {
-          while ( *(_DWORD *)&KsepShimDbLock.WaitBlockFill11[112] )
+          while ( *(_DWORD *)&KsepShimDbLock.WaitBlockFill11[80] )
             _mm_pause();
           ExFreePoolWithTag((PVOID)v9, 0x70727446u);
         }
         if ( (_InterlockedExchangeAdd64(
-                (volatile signed __int64 *)&KsepShimDbLock.WaitBlock[1].Object,
+                (volatile signed __int64 *)&KsepShimDbLock.WaitBlock[1].Thread,
                 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&KsepShimDbLock.WaitBlock[1].Object);
-        KeAbPostRelease((unsigned __int64)&KsepShimDbLock.WaitBlock[1].Object);
+          ExfTryToWakePushLock((volatile signed __int64 *)&KsepShimDbLock.WaitBlock[1].Thread);
+        KeAbPostRelease((unsigned __int64)&KsepShimDbLock.WaitBlock[1].Thread);
         goto LABEL_126;
       }
-      v43 = BYTE3(v38[3].Flink);
+      v43 = v38[51];
 LABEL_117:
       *v42 = v43;
       goto LABEL_118;
@@ -298,21 +298,21 @@ LABEL_117:
       if ( !v38 )
       {
         LOBYTE(Pool2) = a2;
-        v17 = KiTpSetupCompletion((_DWORD)v56, (_DWORD)Pool2, *(_QWORD *)(v9 + 8), (int)v9 + 51, 1, v9 + 52);
+        v17 = KiTpSetupCompletion(v56, (_DWORD)Pool2, *(_QWORD *)(v9 + 8), (int)v9 + 51, 1, v9 + 52);
         if ( v17 < 0 )
           goto LABEL_118;
-        ++*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[120];
+        ++*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[40];
         v17 = 0;
-        v40 = &KsepShimDbLock.WaitBlock[2].WaitListEntry.Blink->Flink + v39;
+        v40 = (__int64 *)((char *)KsepShimDbLock.WaitBlock[1].SparePtr + 8 * v39);
         *(_QWORD *)v9 = *v40;
-        *v40 = (struct _LIST_ENTRY *)v9;
+        *v40 = v9;
         _InterlockedOr(v48, 0);
         v44 = v51;
         v45 = v49;
         v9 &= -(__int64)(v51 != 0);
         goto LABEL_92;
       }
-      if ( LOBYTE(v38[1].Blink) || BYTE1(v38[1].Blink) )
+      if ( v38[24] || v38[25] )
       {
         v17 = -1073740008;
         goto LABEL_118;
@@ -336,19 +336,19 @@ LABEL_92:
     {
       if ( !*v46 )
       {
-        if ( ++KsepShimDbLock.WaitBlock[2].SpareLong == 1 )
+        if ( ++*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[44] == 1 )
           _InterlockedOr(&KiDynamicTraceMask, 2u);
         LOBYTE(v44) = 1;
-        v17 = KiTpWriteBreakpoint(v29, v44, v53);
+        v17 = KiTpWriteBreakpoint(v29, v44);
         if ( v17 < 0 )
         {
           if ( v29 == v9 )
           {
-            *v40 = *(struct _LIST_ENTRY **)v29;
+            *v40 = *(_QWORD *)v29;
             _InterlockedOr(v48, 0);
-            --*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[120];
+            --*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[40];
           }
-          --KsepShimDbLock.WaitBlock[2].SpareLong;
+          --*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[44];
           goto LABEL_118;
         }
         *v46 = 1;
@@ -369,9 +369,9 @@ LABEL_92:
 LABEL_113:
       if ( v47 )
       {
-        *v40 = *(struct _LIST_ENTRY **)v29;
+        *v40 = *(_QWORD *)v29;
         _InterlockedOr(v48, 0);
-        --*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[120];
+        --*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[40];
         v9 = v29;
       }
       v42 = (_BYTE *)v55;
@@ -383,9 +383,9 @@ LABEL_113:
     if ( *v46 )
     {
 LABEL_106:
-      if ( (int)KiTpWriteBreakpoint(v29, 0LL, v53) >= 0 )
+      if ( (int)KiTpWriteBreakpoint(v29, 0LL) >= 0 )
       {
-        --KsepShimDbLock.WaitBlock[2].SpareLong;
+        --*(_DWORD *)&KsepShimDbLock.WaitBlockFill11[44];
         v47 = v50;
         *v46 = 0;
       }
@@ -396,7 +396,7 @@ LABEL_106:
     }
     *(_WORD *)(v29 + 24) = 0;
     _InterlockedOr(v48, 0);
-    while ( *(_DWORD *)&KsepShimDbLock.WaitBlockFill11[112] )
+    while ( *(_DWORD *)&KsepShimDbLock.WaitBlockFill11[80] )
       _mm_pause();
     *(_QWORD *)(v29 + 32) = 0LL;
     *(_QWORD *)(v29 + 40) = 0LL;

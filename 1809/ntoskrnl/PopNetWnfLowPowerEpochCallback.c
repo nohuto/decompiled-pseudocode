@@ -1,19 +1,19 @@
 /*
- * XREFs of PopNetWnfLowPowerEpochCallback @ 0x140876FF0
+ * XREFs of PopNetWnfLowPowerEpochCallback @ 0x140878250
  * Callers:
  *     <none>
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     ExQueryWnfStateData @ 0x1406C8280 (ExQueryWnfStateData.c)
- *     PopNetArmRefreshTimer @ 0x140876B60 (PopNetArmRefreshTimer.c)
- *     PopNetDisengageNetworkRefresh @ 0x140876CB0 (PopNetDisengageNetworkRefresh.c)
- *     PopNetGetNextDueRefreshTime @ 0x140876D44 (PopNetGetNextDueRefreshTime.c)
- *     PopNetIsNetworkRefreshEnabled @ 0x140876E40 (PopNetIsNetworkRefreshEnabled.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     KeCancelTimer2 @ 0x1400FAFF0 (KeCancelTimer2.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     ExQueryWnfStateData @ 0x1406C9520 (ExQueryWnfStateData.c)
+ *     PopNetArmRefreshTimer @ 0x140877DC0 (PopNetArmRefreshTimer.c)
+ *     PopNetDisengageNetworkRefresh @ 0x140877F10 (PopNetDisengageNetworkRefresh.c)
+ *     PopNetGetNextDueRefreshTime @ 0x140877FA4 (PopNetGetNextDueRefreshTime.c)
+ *     PopNetIsNetworkRefreshEnabled @ 0x1408780A0 (PopNetIsNetworkRefreshEnabled.c)
  */
 
 __int64 __fastcall PopNetWnfLowPowerEpochCallback(__int64 a1)

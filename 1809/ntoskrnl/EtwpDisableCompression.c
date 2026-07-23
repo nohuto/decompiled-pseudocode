@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpDisableCompression @ 0x1403151A8
+ * XREFs of EtwpDisableCompression @ 0x140315398
  * Callers:
  *     EtwpDequeueFreeBuffer @ 0x140015278 (EtwpDequeueFreeBuffer.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140315044 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x140315234 (EtwpDequeueBufferPendingCompression.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,10 +10,10 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     EtwpRelinquishCompressionTarget @ 0x1403157BC (EtwpRelinquishCompressionTarget.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeGetEffectiveIrql @ 0x1400CABB0 (KeGetEffectiveIrql.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     EtwpRelinquishCompressionTarget @ 0x1403159AC (EtwpRelinquishCompressionTarget.c)
  */
 
 void __fastcall EtwpDisableCompression(__int64 a1)
@@ -83,7 +83,7 @@ LABEL_17:
     }
     v10->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v10->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v9], SessionId);
+      KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v9].TreeNode, SessionId);
     v15 = 0;
     v15 = v10->BoostBitmap.AllFields & 0x1FFFF;
     v10->BoostBitmap.AllFields &= 0xFFFE0000;

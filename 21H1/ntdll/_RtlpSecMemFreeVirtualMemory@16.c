@@ -19,13 +19,14 @@
  *     _RtlFlushSecureMemoryCache@8 @ 0x4B35E4D0 (_RtlFlushSecureMemoryCache@8.c)
  */
 
-int __fastcall RtlpSecMemFreeVirtualMemory(int a1, _DWORD *a2, _DWORD *a3, int a4)
+NTSTATUS __fastcall RtlpSecMemFreeVirtualMemory(int a1, PVOID *a2, ULONG_PTR *RegionSize, ULONG FreeType)
 {
-  int v5; // ebx
+  NTSTATUS v5; // ebx
+  SIZE_T v7; // [esp-4h] [ebp-14h]
 
-  v5 = NtFreeVirtualMemory(-1, a2, a3, a4);
-  if ( v5 == -1073741755 && (unsigned __int8)RtlFlushSecureMemoryCache(*a2, *a3) )
-    return NtFreeVirtualMemory(-1, a2, a3, a4);
+  v5 = NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, a2, RegionSize, FreeType);
+  if ( v5 == -1073741755 && (LODWORD(v7) = *(_DWORD *)RegionSize, RtlFlushSecureMemoryCache(*a2, v7)) )
+    return NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, a2, RegionSize, FreeType);
   else
     return v5;
 }

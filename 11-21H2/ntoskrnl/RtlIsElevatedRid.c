@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlIsElevatedRid @ 0x14079FAF0
  * Callers:
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x1406A26A8 (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     sub_1406A26A8 @ 0x1406A26A8 (sub_1406A26A8.c)
  *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
  *     NtQueryInformationToken @ 0x1407B13E0 (NtQueryInformationToken.c)
  * Callees:
@@ -9,24 +9,24 @@
  *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
  */
 
-char __fastcall RtlIsElevatedRid(__int64 a1)
+BOOLEAN __cdecl RtlIsElevatedRid(PSID_AND_ATTRIBUTES SidAttr)
 {
-  PSID v1; // rbx
+  PSID Sid; // rbx
   int v2; // edi
   PULONG v3; // rax
   int v4; // ecx
   ULONG v5; // edx
   __int64 *i; // rax
 
-  if ( !a1 )
+  if ( !SidAttr )
     return 0;
-  if ( (*(_DWORD *)(a1 + 8) & 0x30) != 0 )
+  if ( (SidAttr->Attributes & 0x30) != 0 )
     return 0;
-  v1 = *(PSID *)a1;
-  v2 = *RtlSubAuthorityCountSid(*(PSID *)a1);
-  if ( !(_BYTE)v2 || *RtlSubAuthoritySid(v1, 0) - 80 <= 0x1F )
+  Sid = SidAttr->Sid;
+  v2 = *RtlSubAuthorityCountSid(SidAttr->Sid);
+  if ( !(_BYTE)v2 || *RtlSubAuthoritySid(Sid, 0) - 80 <= 0x1F )
     return 0;
-  v3 = RtlSubAuthoritySid(v1, v2 - 1);
+  v3 = RtlSubAuthoritySid(Sid, v2 - 1);
   v4 = 0;
   v5 = *v3;
   for ( i = qword_140018DA0; v5 != *(_DWORD *)i; i = (__int64 *)((char *)i + 4) )

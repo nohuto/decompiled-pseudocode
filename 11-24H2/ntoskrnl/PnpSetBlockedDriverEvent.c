@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpSetBlockedDriverEvent @ 0x14072DDE4
+ * XREFs of PnpSetBlockedDriverEvent @ 0x14072BDF4
  * Callers:
- *     PnpPrepareDriverLoading @ 0x1409C7848 (PnpPrepareDriverLoading.c)
+ *     PnpPrepareDriverLoading @ 0x1409B8F8C (PnpPrepareDriverLoading.c)
  * Callees:
- *     PnpCreateDeviceEventEntry @ 0x1408B3920 (PnpCreateDeviceEventEntry.c)
- *     PnpInsertEventInQueue @ 0x1408B3950 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x1408B1210 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x1408B1240 (PnpInsertEventInQueue.c)
  */
 
 __int64 __fastcall PnpSetBlockedDriverEvent(_OWORD *a1)

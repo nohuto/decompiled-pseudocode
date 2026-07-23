@@ -1,18 +1,18 @@
 /*
- * XREFs of VrpTranslatePath @ 0x1406169B8
+ * XREFs of VrpTranslatePath @ 0x140616A6C
  * Callers:
- *     VrpHandleIoctlGetComRootKey @ 0x140613584 (VrpHandleIoctlGetComRootKey.c)
- *     VrpPreOpenOrCreate @ 0x1406163E4 (VrpPreOpenOrCreate.c)
+ *     VrpHandleIoctlGetComRootKey @ 0x140613638 (VrpHandleIoctlGetComRootKey.c)
+ *     VrpPreOpenOrCreate @ 0x140616498 (VrpPreOpenOrCreate.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     VrpFindBestMatchNamespaceNode @ 0x140614C80 (VrpFindBestMatchNamespaceNode.c)
- *     VrpBuildKeyPath @ 0x140617AE4 (VrpBuildKeyPath.c)
- *     VrpGetNextToken @ 0x140617CCC (VrpGetNextToken.c)
- *     VrpStripTrailingCharacters @ 0x140617D70 (VrpStripTrailingCharacters.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x140614D34 (VrpFindBestMatchNamespaceNode.c)
+ *     VrpBuildKeyPath @ 0x140617B98 (VrpBuildKeyPath.c)
+ *     VrpGetNextToken @ 0x140617D80 (VrpGetNextToken.c)
+ *     VrpStripTrailingCharacters @ 0x140617E24 (VrpStripTrailingCharacters.c)
  */
 
 __int64 __fastcall VrpTranslatePath(__int64 a1, UNICODE_STRING *a2, __int64 a3, _QWORD *a4, int a5, int *a6)

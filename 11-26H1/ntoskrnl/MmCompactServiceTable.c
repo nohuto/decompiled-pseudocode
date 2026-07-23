@@ -1,11 +1,11 @@
 /*
- * XREFs of MmCompactServiceTable @ 0x14087B270
+ * XREFs of MmCompactServiceTable @ 0x140881670
  * Callers:
- *     PsInitializeWin32kServiceTable @ 0x140CD79A8 (PsInitializeWin32kServiceTable.c)
+ *     PsInitializeWin32kServiceTable @ 0x140CDDD28 (PsInitializeWin32kServiceTable.c)
  * Callees:
- *     MmLockLoadedDataTableEntry @ 0x1404C3C10 (MmLockLoadedDataTableEntry.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
- *     MiCompactServiceTable @ 0x14087AC6C (MiCompactServiceTable.c)
+ *     MmLockLoadedDataTableEntry @ 0x1404BD460 (MmLockLoadedDataTableEntry.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
+ *     MiCompactServiceTable @ 0x14088106C (MiCompactServiceTable.c)
  */
 
 __int64 __fastcall MmCompactServiceTable(__int64 a1)

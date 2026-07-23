@@ -44,7 +44,7 @@ __int64 __fastcall PspAllocateThread(
         unsigned __int8 a3,
         __int64 a4,
         _OWORD *a5,
-        __int64 *a6,
+        PINITIAL_TEB *a6,
         __int64 a7,
         __int64 a8,
         int *a9,
@@ -78,7 +78,7 @@ __int64 __fastcall PspAllocateThread(
   int UserStack; // edi
   __int64 v39; // r11
   char v40; // bl
-  __int64 v41; // rdi
+  PINITIAL_TEB v41; // rdi
   __int64 v42; // r9
   _OWORD *v43; // rcx
   __int16 v44; // di
@@ -89,7 +89,7 @@ __int64 __fastcall PspAllocateThread(
   char v50; // al
   __int64 v51; // rax
   __int64 v52; // rax
-  __int64 *v53; // rcx
+  PINITIAL_TEB *v53; // rcx
   struct _KTHREAD *v54; // rdx
   char *Teb; // rdi
   void *Flink; // rcx
@@ -100,10 +100,10 @@ __int64 __fastcall PspAllocateThread(
   int *v61; // rdx
   __int16 v62; // ax
   PVOID v63; // rdx
-  __int64 v64; // r13
+  PINITIAL_TEB v64; // r13
   signed __int32 v65[8]; // [rsp+0h] [rbp-298h] BYREF
-  ULONG_PTR v66; // [rsp+20h] [rbp-278h]
-  __int64 v67; // [rsp+28h] [rbp-270h]
+  ULONG_PTR ReserveAlignment; // [rsp+20h] [rbp-278h]
+  PINITIAL_TEB InitialTeb; // [rsp+28h] [rbp-270h]
   __int64 v68; // [rsp+30h] [rbp-268h]
   __int64 v69; // [rsp+38h] [rbp-260h]
   PVOID *p_Object; // [rsp+40h] [rbp-258h]
@@ -111,19 +111,19 @@ __int64 __fastcall PspAllocateThread(
   int v72; // [rsp+50h] [rbp-248h]
   unsigned int v73; // [rsp+54h] [rbp-244h]
   unsigned int v74; // [rsp+58h] [rbp-240h]
-  __int64 v75; // [rsp+60h] [rbp-238h]
+  PINITIAL_TEB v75; // [rsp+60h] [rbp-238h]
   PVOID Address; // [rsp+68h] [rbp-230h] BYREF
   PVOID Object; // [rsp+70h] [rbp-228h] BYREF
   _OWORD *v78; // [rsp+78h] [rbp-220h]
-  int v79[2]; // [rsp+80h] [rbp-218h]
+  SIZE_T PageSize; // [rsp+80h] [rbp-218h]
   _QWORD *v80; // [rsp+88h] [rbp-210h]
-  __int64 v81; // [rsp+90h] [rbp-208h]
+  PINITIAL_TEB v81; // [rsp+90h] [rbp-208h]
   __int64 v82; // [rsp+98h] [rbp-200h]
   __int64 v83; // [rsp+A0h] [rbp-1F8h]
   __int64 v84; // [rsp+A8h] [rbp-1F0h]
   ULONG_PTR v85; // [rsp+B0h] [rbp-1E8h]
   int v86; // [rsp+B8h] [rbp-1E0h]
-  __int64 *v87; // [rsp+C0h] [rbp-1D8h]
+  PINITIAL_TEB *v87; // [rsp+C0h] [rbp-1D8h]
   struct _KTHREAD *CurrentThread; // [rsp+C8h] [rbp-1D0h]
   int *v89; // [rsp+D0h] [rbp-1C8h]
   ULONG_PTR v90; // [rsp+D8h] [rbp-1C0h] BYREF
@@ -131,13 +131,13 @@ __int64 __fastcall PspAllocateThread(
   int v92; // [rsp+E8h] [rbp-1B0h]
   ULONG_PTR v93; // [rsp+F0h] [rbp-1A8h] BYREF
   ULONG_PTR RegionSize; // [rsp+F8h] [rbp-1A0h] BYREF
-  PVOID v95; // [rsp+100h] [rbp-198h] BYREF
+  PVOID StackBase; // [rsp+100h] [rbp-198h] BYREF
   ULONG_PTR v96; // [rsp+108h] [rbp-190h] BYREF
   _QWORD *v97; // [rsp+110h] [rbp-188h]
   char *v98; // [rsp+118h] [rbp-180h]
   PVOID BaseAddress; // [rsp+120h] [rbp-178h] BYREF
   int v100; // [rsp+128h] [rbp-170h]
-  PVOID v101; // [rsp+130h] [rbp-168h] BYREF
+  PVOID AllocatedStackBase; // [rsp+130h] [rbp-168h] BYREF
   int v102; // [rsp+138h] [rbp-160h]
   int v103; // [rsp+13Ch] [rbp-15Ch]
   char v104; // [rsp+140h] [rbp-158h]
@@ -174,7 +174,7 @@ __int64 __fastcall PspAllocateThread(
     v17 = 0LL;
     v18 = 0LL;
     v19 = *(_DWORD *)(a4 + 4);
-    *(_QWORD *)v79 = 4096LL;
+    PageSize = 4096LL;
     if ( (v19 & 0x1000) != 0 )
       v17 = a4 + 312;
     if ( (v19 & 0x4000) != 0 )
@@ -215,7 +215,7 @@ __int64 __fastcall PspAllocateThread(
   }
   else
   {
-    *(_QWORD *)v79 = 4096LL;
+    PageSize = 4096LL;
   }
   *(_DWORD *)(a12 + 384) = 0;
   *(_BYTE *)(a12 + 388) = v13;
@@ -259,7 +259,7 @@ LABEL_104:
   p_Object = &Object;
   LODWORD(v69) = v21;
   LODWORD(v68) = 0;
-  LODWORD(v67) = v21;
+  LODWORD(InitialTeb) = v21;
   v24 = ObCreateObjectEx(a3, (_DWORD)PsThreadType, a2, a3);
   v72 = v24;
   if ( v24 < 0 )
@@ -309,7 +309,7 @@ LABEL_104:
   *((_QWORD *)v26 + 195) = v26 + 1560;
   *((_QWORD *)v26 + 247) = -3LL;
   if ( KeQuerySystemTimeUnsafe() )
-    KeQuerySystemTimePrecise((__int64 *)v26 + 187);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)v26 + 187);
   else
     *((_QWORD *)Object + 187) = MEMORY[0xFFFFF78000000014];
   v30 = KeAbPreAcquire((ULONG_PTR)(v26 + 1704), 0LL, 0LL, v29);
@@ -456,15 +456,15 @@ LABEL_63:
       else
       {
         if ( v73 )
-          *(_QWORD *)v79 = ((unsigned __int64)v73 << 56) | 0x1000;
+          PageSize = ((unsigned __int64)v73 << 56) | 0x1000;
         KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v107);
         UserStack = RtlCreateUserStack(
                       *(_QWORD *)(a11 + 16),
                       *(_QWORD *)(a11 + 24),
                       *(_QWORD *)(a11 + 8),
-                      *(unsigned __int64 *)v79,
-                      v66,
-                      (_QWORD *)v75);
+                      PageSize,
+                      ReserveAlignment,
+                      v75);
         if ( UserStack < 0 )
           goto LABEL_114;
         if ( (*(_DWORD *)(BugCheckParameter1 + 768) & 0x20000) != 0 )
@@ -473,12 +473,12 @@ LABEL_63:
           v39 = 16 * (unsigned int)(ExGenRandom(1) & 0x7F);
         if ( *(_QWORD *)(BugCheckParameter1 + 1064) )
         {
-          UserStack = PspWow64SetupCpuArea(v75 + 16, BugCheckParameter1);
+          UserStack = PspWow64SetupCpuArea(&v75->StackBase, BugCheckParameter1);
           if ( UserStack < 0 )
           {
-            v101 = *(PVOID *)(v75 + 32);
+            AllocatedStackBase = v75->AllocatedStackBase;
             v96 = 0LL;
-            ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v101, &v96, 0x8000u);
+            ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &AllocatedStackBase, &v96, 0x8000u);
 LABEL_114:
             v49 = (struct _KTHREAD *)v107;
             goto LABEL_115;
@@ -486,7 +486,7 @@ LABEL_114:
         }
         v40 = 1;
         v41 = v75;
-        *((_QWORD *)v78 + 19) = *(_QWORD *)(v75 + 16) - v39 - 40;
+        *((_QWORD *)v78 + 19) = (char *)v75->StackBase - v39 - 40;
         KiUnstackDetachProcess((struct _KTHREAD *)v107, 0);
       }
       *(_BYTE *)a11 ^= (*(_BYTE *)a11 ^ (2 * v40)) & 2;
@@ -494,9 +494,9 @@ LABEL_114:
     }
     v104 = 0;
     if ( v73 )
-      *(_QWORD *)v79 = ((unsigned __int64)v73 << 56) | 0x1000;
+      PageSize = ((unsigned __int64)v73 << 56) | 0x1000;
     KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v108);
-    UserStack = RtlCreateUserStack(0x8000uLL, 0x40000uLL, 0LL, *(unsigned __int64 *)v79, v66, (_QWORD *)v75);
+    UserStack = RtlCreateUserStack(0x8000uLL, 0x40000uLL, 0LL, PageSize, ReserveAlignment, v75);
     if ( UserStack >= 0 )
     {
       if ( (*(_DWORD *)(BugCheckParameter1 + 768) & 0x20000) != 0 )
@@ -504,10 +504,10 @@ LABEL_114:
       else
         v48 = 16 * (unsigned int)(ExGenRandom(1) & 0x7F);
       if ( !*(_QWORD *)(BugCheckParameter1 + 1064)
-        || (UserStack = PspWow64SetupCpuArea(v75 + 16, BugCheckParameter1), UserStack >= 0) )
+        || (UserStack = PspWow64SetupCpuArea(&v75->StackBase, BugCheckParameter1), UserStack >= 0) )
       {
         v41 = v75;
-        *((_QWORD *)v35 + 19) = *(_QWORD *)(v75 + 16) - v48 - 40;
+        *((_QWORD *)v35 + 19) = (char *)v75->StackBase - v48 - 40;
         KiUnstackDetachProcess((struct _KTHREAD *)v108, 0);
         v104 = 2;
         *(_BYTE *)a11 ^= (*(_BYTE *)a11 ^ 2) & 2;
@@ -523,7 +523,7 @@ LABEL_114:
                         *(_QWORD *)(a11 + 24),
                         *(_QWORD *)(a11 + 8),
                         v73,
-                        v41);
+                        (__int64)v41);
           v49 = (struct _KTHREAD *)v106;
           if ( UserStack < 0 )
           {
@@ -547,7 +547,7 @@ LABEL_57:
         {
           v42 = v82;
         }
-        UserStack = MmCreateTeb((_KPROCESS *)BugCheckParameter1, v41, v80, v42, &Address);
+        UserStack = MmCreateTeb((_KPROCESS *)BugCheckParameter1, (__int64)v41, v80, v42, &Address);
         v72 = UserStack;
         if ( UserStack < 0
           || (v43 = v78,
@@ -563,15 +563,15 @@ LABEL_141:
             v64 = v75;
             if ( (*(_BYTE *)a11 & 2) != 0 )
             {
-              v91 = *(PVOID *)(v75 + 32);
+              v91 = v75->AllocatedStackBase;
               v90 = 0LL;
               ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v91, &v90, 0x8000u);
             }
             if ( (*(_BYTE *)a11 & 4) != 0 )
             {
-              v95 = *(PVOID *)(v64 + 56);
+              StackBase = v64[1].StackBase;
               v93 = 0LL;
-              ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v95, &v93, 0x8000u);
+              ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &StackBase, &v93, 0x8000u);
             }
             KiUnstackDetachProcess((struct _KTHREAD *)v109, 0);
           }
@@ -593,7 +593,7 @@ LABEL_141:
         }
         goto LABEL_63;
       }
-      BaseAddress = *(PVOID *)(v75 + 32);
+      BaseAddress = v75->AllocatedStackBase;
       RegionSize = 0LL;
       ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
     }

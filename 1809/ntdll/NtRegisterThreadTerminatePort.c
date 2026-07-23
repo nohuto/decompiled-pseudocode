@@ -1,16 +1,16 @@
 /*
- * XREFs of NtRegisterThreadTerminatePort @ 0x1800A2F90
+ * XREFs of NtRegisterThreadTerminatePort @ 0x1800A2FB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtRegisterThreadTerminatePort()
+NTSTATUS __cdecl NtRegisterThreadTerminatePort(HANDLE PortHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 358LL;
+  result = 358;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

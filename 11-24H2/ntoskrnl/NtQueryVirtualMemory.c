@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryVirtualMemory @ 0x1409863E0
+ * XREFs of NtQueryVirtualMemory @ 0x14096EBF0
  * Callers:
  *     <none>
  * Callees:
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtQueryVirtualMemory(

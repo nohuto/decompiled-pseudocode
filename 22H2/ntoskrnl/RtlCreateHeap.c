@@ -85,7 +85,7 @@ PVOID __stdcall RtlCreateHeap(
   __int128 v62; // [rsp+160h] [rbp-B8h] BYREF
   __int128 v63; // [rsp+170h] [rbp-A8h]
   __int128 v64; // [rsp+180h] [rbp-98h]
-  _QWORD v65[8]; // [rsp+190h] [rbp-88h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+190h] [rbp-88h] BYREF
 
   v44 = (unsigned __int64)Lock;
   v52 = (__int64)HeapBase;
@@ -100,7 +100,7 @@ PVOID __stdcall RtlCreateHeap(
   v64 = 0LL;
   v46 = 0;
   v47 = 0LL;
-  memset(v65, 0, sizeof(v65));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   v43 = 0LL;
   v10 = 0LL;
   if ( (Flags & 0x100) == 0 )
@@ -153,10 +153,10 @@ PVOID __stdcall RtlCreateHeap(
     if ( !qword_140CFA328 )
     {
       qword_140CFA330 = 0x10000LL;
-      if ( (int)ZwQuerySystemInformation(0LL, (__int64)v65) < 0 )
+      if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) < 0 )
         goto LABEL_14;
-      v24 = v65[5];
-      qword_140CFA328 = v65[5];
+      v24 = SystemInformation[5];
+      qword_140CFA328 = SystemInformation[5];
     }
     v53 = *((_QWORD *)&v61[3] + 1);
     if ( !*((_QWORD *)&v61[3] + 1) )
@@ -249,13 +249,7 @@ PVOID __stdcall RtlCreateHeap(
           if ( (v29 & 0x40000) != 0 && (BYTE4(v60) & 0x40) == 0 )
             goto LABEL_14;
           memset((void *)MemoryInformation, 0, 0x1000uLL);
-          if ( ZwQueryVirtualMemory(
-                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                 HeapBase,
-                 (MEMORY_INFORMATION_CLASS)3,
-                 &v62,
-                 0x30uLL,
-                 0LL) < 0 )
+          if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, HeapBase, MemoryRegionInformation, &v62, 0x30uLL, 0LL) < 0 )
             goto LABEL_14;
           v45 = v63;
           v47 = *((_QWORD *)&v59 + 1);

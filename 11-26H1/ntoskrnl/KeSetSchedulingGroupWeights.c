@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetSchedulingGroupWeights @ 0x14044506C
+ * XREFs of KeSetSchedulingGroupWeights @ 0x14043DB7C
  * Callers:
- *     PsSetCpuQuotaInformation @ 0x140614AB8 (PsSetCpuQuotaInformation.c)
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
+ *     PsSetCpuQuotaInformation @ 0x1406178F8 (PsSetCpuQuotaInformation.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x140445568 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
- *     ?KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x140445624 (-KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
- *     EtwTraceSchedulingGroup @ 0x1406C4E5C (EtwTraceSchedulingGroup.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x14043E070 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     ?KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x14043E128 (-KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
+ *     EtwTraceSchedulingGroup @ 0x1406C8A9C (EtwTraceSchedulingGroup.c)
  */
 
 void __fastcall KeSetSchedulingGroupWeights(unsigned int a1, _QWORD *a2, __int64 a3)
@@ -183,7 +183,7 @@ LABEL_35:
   while ( v16 != v6 );
 LABEL_18:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
-  if ( (WORD2(xmmword_140FBFC10) & 0x4000) != 0 && (_DWORD)v3 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x4000) != 0 && (_DWORD)v3 )
   {
     v31 = v3;
     do

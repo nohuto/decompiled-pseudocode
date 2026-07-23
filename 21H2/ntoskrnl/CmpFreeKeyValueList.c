@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpFreeKeyValueList @ 0x140879004
+ * XREFs of CmpFreeKeyValueList @ 0x140879164
  * Callers:
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1407292B0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140729760 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFreeValue @ 0x140660258 (CmpFreeValue.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
  */
 
 char __fastcall CmpFreeKeyValueList(ULONG_PTR BugCheckParameter2, _DWORD *a2)

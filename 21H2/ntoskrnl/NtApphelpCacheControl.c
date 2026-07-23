@@ -1,16 +1,16 @@
 /*
- * XREFs of NtApphelpCacheControl @ 0x140686430
+ * XREFs of NtApphelpCacheControl @ 0x1405E5590
  * Callers:
  *     <none>
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     ExGetPreviousMode @ 0x14029DFA0 (ExGetPreviousMode.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IoGetDeviceObjectPointer @ 0x140620E20 (IoGetDeviceObjectPointer.c)
- *     AhcCacheQueryHwId @ 0x1409800CC (AhcCacheQueryHwId.c)
+ *     ExGetPreviousMode @ 0x14021B500 (ExGetPreviousMode.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1402D09B0 (IoBuildDeviceIoControlRequest.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IoGetDeviceObjectPointer @ 0x14068AA90 (IoGetDeviceObjectPointer.c)
+ *     AhcCacheQueryHwId @ 0x1409802AC (AhcCacheQueryHwId.c)
  */
 
 __int64 __fastcall NtApphelpCacheControl(int a1, void *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiProcessClearDeviceProblem @ 0x140731768
+ * XREFs of PiProcessClearDeviceProblem @ 0x140731928
  * Callers:
- *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x140381DA0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PnpRestartDeviceNode @ 0x140731838 (PnpRestartDeviceNode.c)
- *     PipIsProblemReadonly @ 0x140731934 (PipIsProblemReadonly.c)
- *     PipClearDevNodeProblem @ 0x140739754 (PipClearDevNodeProblem.c)
- *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PnpRestartDeviceNode @ 0x1407319F8 (PnpRestartDeviceNode.c)
+ *     PipIsProblemReadonly @ 0x140731AF4 (PipIsProblemReadonly.c)
+ *     PipClearDevNodeProblem @ 0x140739914 (PipClearDevNodeProblem.c)
+ *     PipClearDevNodeFlags @ 0x140746C34 (PipClearDevNodeFlags.c)
  */
 
 __int64 __fastcall PiProcessClearDeviceProblem(__int64 a1)

@@ -39,7 +39,7 @@ __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v4 = -1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v6 = 4;
@@ -51,10 +51,10 @@ __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
   v8 = Page;
   if ( Page == -1 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v11 = CurrentPrcb->SchedulerAssist;
@@ -75,10 +75,10 @@ __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
     *(_BYTE *)(v14 + 34) = *(_BYTE *)(v14 + 34) & 0xF8 | 1;
     MiReInitializeFreeSlabPfn((_QWORD *)v14, a1);
     _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         v16 = KeGetCurrentPrcb();
         v17 = v16->SchedulerAssist;

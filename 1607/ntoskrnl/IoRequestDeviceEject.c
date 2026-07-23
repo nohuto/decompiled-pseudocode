@@ -1,8 +1,8 @@
 /*
- * XREFs of IoRequestDeviceEject @ 0x1401CCE94
+ * XREFs of IoRequestDeviceEject @ 0x1401CCCE0
  * Callers:
- *     PipProcessStartPhase2 @ 0x1404E7068 (PipProcessStartPhase2.c)
- *     PipProcessRestartPhase2 @ 0x14064DF9C (PipProcessRestartPhase2.c)
+ *     PipProcessStartPhase2 @ 0x14050CFC4 (PipProcessStartPhase2.c)
+ *     PipProcessRestartPhase2 @ 0x14064E080 (PipProcessRestartPhase2.c)
  * Callees:
  *     <none>
  */

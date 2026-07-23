@@ -1,35 +1,45 @@
 /*
- * XREFs of RtlpHeapTrkLeakCallback @ 0x180013D20
+ * XREFs of RtlpHeapTrkLeakCallback @ 0x18005F450
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHeapTrkFindStack @ 0x180012C10 (RtlpHeapTrkFindStack.c)
- *     RtlpHeapTrkReportResult @ 0x180013F2C (RtlpHeapTrkReportResult.c)
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpHeapTrkDumpOutstandingAllocs @ 0x180101878 (RtlpHeapTrkDumpOutstandingAllocs.c)
- *     RtlpHeapTrkDumpStacks @ 0x1801084B4 (RtlpHeapTrkDumpStacks.c)
- *     RtlpHeapTrkSyncWithDiagnoser @ 0x1801106B0 (RtlpHeapTrkSyncWithDiagnoser.c)
- *     ZwMapViewOfSection @ 0x18015F440 (ZwMapViewOfSection.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpHeapTrkFindStack @ 0x18005E340 (RtlpHeapTrkFindStack.c)
+ *     RtlpHeapTrkReportResult @ 0x18005F65C (RtlpHeapTrkReportResult.c)
+ *     RtlpHeapTrkDumpOutstandingAllocs @ 0x180100FC8 (RtlpHeapTrkDumpOutstandingAllocs.c)
+ *     RtlpHeapTrkDumpStacks @ 0x180107EB4 (RtlpHeapTrkDumpStacks.c)
+ *     RtlpHeapTrkSyncWithDiagnoser @ 0x180110240 (RtlpHeapTrkSyncWithDiagnoser.c)
+ *     ZwMapViewOfSection @ 0x18015F340 (ZwMapViewOfSection.c)
  */
 
 __int64 __fastcall RtlpHeapTrkLeakCallback(__int64 a1, __int64 a2, unsigned __int64 a3, const void *a4)
 {
   __int64 Stack; // rbx
-  __int64 v9; // [rsp+50h] [rbp-18h] BYREF
-  __int64 v10; // [rsp+58h] [rbp-10h] BYREF
+  ULONG_PTR ViewSize; // [rsp+50h] [rbp-18h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+58h] [rbp-10h] BYREF
   const void *Src; // [rsp+80h] [rbp+18h] BYREF
 
   Src = (const void *)a3;
-  v9 = 0x10000LL;
-  v10 = 0LL;
-  if ( !byte_1801C77C8 )
+  ViewSize = 0x10000LL;
+  SectionOffset.QuadPart = 0LL;
+  if ( !byte_1801C6808 )
   {
-    if ( !byte_1801C60D0
-      || (byte_1801C60D0 = 0,
-          _InterlockedExchange(&dword_1801C77D8, 1),
-          (int)ZwMapViewOfSection(Handle, -1LL, &TrkContext, 0LL, 0LL, &v10, &v9, 1, 0, 4) >= 0)
+    if ( !byte_1801C50D0
+      || (byte_1801C50D0 = 0,
+          _InterlockedExchange(&dword_1801C6828, 1),
+          ZwMapViewOfSection(
+            SectionHandle,
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            &TrkContext,
+            0LL,
+            0LL,
+            &SectionOffset,
+            &ViewSize,
+            ViewShare,
+            0,
+            4u) >= 0)
       && TrkContext
-      && (*(_DWORD *)(TrkContext + 48) = NtCurrentTeb()->ClientId.UniqueProcess, (unsigned __int8)RtlpHeapTrkDumpStacks()) )
+      && (*((_DWORD *)TrkContext + 12) = NtCurrentTeb()->ClientId.UniqueProcess, (unsigned __int8)RtlpHeapTrkDumpStacks()) )
     {
       if ( TrkContext )
       {
@@ -53,12 +63,12 @@ __int64 __fastcall RtlpHeapTrkLeakCallback(__int64 a1, __int64 a2, unsigned __in
         else
         {
           RtlpHeapTrkDumpOutstandingAllocs();
-          if ( *(_DWORD *)(TrkContext + 60) )
+          if ( *((_DWORD *)TrkContext + 15) )
           {
             if ( !(unsigned __int8)RtlpHeapTrkSyncWithDiagnoser() )
               return 0LL;
-            *(_DWORD *)(TrkContext + 60) = 0;
-            dword_1801C60D4 = 0;
+            *((_DWORD *)TrkContext + 15) = 0;
+            dword_1801C50D4 = 0;
           }
           RtlpHeapTrkSyncWithDiagnoser();
         }

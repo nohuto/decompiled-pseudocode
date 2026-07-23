@@ -21,18 +21,16 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlReleasePath(__int64 a1)
+void __cdecl RtlReleasePath(PWSTR Path)
 {
-  __int64 v2; // rdi
-  __int64 result; // rax
+  PWSTR v2; // rdi
 
   RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
-  --*(_QWORD *)(a1 - 32);
-  v2 = a1 - 112;
-  if ( *(_QWORD *)(a1 - 32) )
+  --*((_QWORD *)Path - 4);
+  v2 = Path - 56;
+  if ( *((_QWORD *)Path - 4) )
     v2 = 0LL;
-  result = RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   if ( v2 )
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v2);
-  return result;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
 }

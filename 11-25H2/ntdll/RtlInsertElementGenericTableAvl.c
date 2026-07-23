@@ -10,144 +10,147 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 *__fastcall RtlInsertElementGenericTableAvl(unsigned __int16 *a1, _QWORD *a2, unsigned __int64 a3, bool *a4)
+// local variable allocation has failed, the output may be wrong!
+PVOID __cdecl RtlInsertElementGenericTableAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement)
 {
-  __int64 *i; // rbx
+  _RTL_BALANCED_LINKS *i; // rbx
   size_t v5; // r13
-  __int64 **v6; // r15
-  __int64 (__fastcall *v10)(); // rax
-  int v11; // eax
-  __int64 *v12; // rsi
-  int v13; // r14d
-  __int64 (__fastcall *v15)(char *, unsigned int, unsigned __int64); // rax
-  __int64 Heap; // rax
-  __int64 *v17; // r8
-  __int64 *j; // rdx
-  bool v19; // zf
-  char v20; // al
-  __int64 v21; // rdx
-  int v22; // [rsp+20h] [rbp-38h]
+  _RTL_BALANCED_LINKS **p_RightChild; // r15
+  LONG (__cdecl *CompareRoutine)(PUNICODE_STRING, PUNICODE_STRING, BOOLEAN); // rax
+  _RTL_BALANCED_LINKS *CaseInSensitive; // r8
+  int v12; // eax
+  _RTL_BALANCED_LINKS *v13; // rsi
+  int v14; // r14d
+  void *(__fastcall *AllocateRoutine)(_RTL_AVL_TABLE *, unsigned int); // rax
+  _RTL_BALANCED_LINKS *Heap; // rax
+  _RTL_BALANCED_LINKS *v18; // r8
+  _RTL_BALANCED_LINKS *j; // rdx
+  bool v20; // zf
+  char v21; // al
+  __int64 Balance; // rdx
 
   i = 0LL;
-  v5 = (unsigned int)a3;
-  v6 = (__int64 **)(a1 + 8);
-  if ( *((_DWORD *)a1 + 11) )
+  v5 = BufferSize;
+  p_RightChild = &Table->BalancedRoot.RightChild;
+  if ( Table->NumberGenericTableElements )
   {
-    for ( i = *v6; ; i = (__int64 *)i[2] )
+    for ( i = *p_RightChild; ; i = i->RightChild )
     {
       while ( 1 )
       {
-        v10 = (__int64 (__fastcall *)())*((_QWORD *)a1 + 9);
-        if ( v10 == RtlCompareUnicodeString )
-        {
-          LOBYTE(v22) = (_BYTE)i + 32;
-          v11 = RtlCompareUnicodeStrings(
-                  *((_QWORD *)a1 + 1),
-                  (unsigned __int64)*a1 >> 1,
-                  a2[1],
-                  (unsigned __int64)*(unsigned __int16 *)a2 >> 1,
-                  v22);
-        }
-        else
-        {
-          v11 = ((__int64 (__fastcall *)(unsigned __int16 *, _QWORD *, __int64 *))v10)(a1, a2, i + 4);
-        }
-        if ( v11 )
+        CompareRoutine = (LONG (__cdecl *)(PUNICODE_STRING, PUNICODE_STRING, BOOLEAN))Table->CompareRoutine;
+        CaseInSensitive = i + 1;
+        v12 = CompareRoutine == RtlCompareUnicodeString
+            ? RtlCompareUnicodeStrings(
+                (PCWCH)Table->BalancedRoot.LeftChild,
+                (unsigned __int64)LOWORD(Table->BalancedRoot.Parent) >> 1,
+                *((PCWCH *)Buffer + 1),
+                (unsigned __int64)*(unsigned __int16 *)Buffer >> 1,
+                (BOOLEAN)CaseInSensitive)
+            : ((__int64 (__fastcall *)(PRTL_AVL_TABLE, PVOID, _RTL_BALANCED_LINKS *))CompareRoutine)(
+                Table,
+                Buffer,
+                CaseInSensitive);
+        if ( v12 )
           break;
-        if ( !i[1] )
+        if ( !i->LeftChild )
         {
-          v13 = 2;
+          v14 = 2;
           goto LABEL_16;
         }
-        i = (__int64 *)i[1];
+        i = i->LeftChild;
       }
-      if ( v11 != 1 )
+      if ( v12 != 1 )
       {
-        v12 = i;
-        v13 = 1;
+        v13 = i;
+        v14 = 1;
         goto LABEL_12;
       }
-      if ( !i[2] )
+      if ( !i->RightChild )
         break;
     }
-    v13 = 3;
+    v14 = 3;
   }
   else
   {
-    v13 = 0;
+    v14 = 0;
   }
 LABEL_16:
-  v12 = 0LL;
+  v13 = 0LL;
   if ( (int)v5 + 32 >= (unsigned int)v5 )
   {
-    v15 = (__int64 (__fastcall *)(char *, unsigned int, unsigned __int64))*((_QWORD *)a1 + 10);
-    if ( v15 == RtlAllocateHeap )
+    AllocateRoutine = Table->AllocateRoutine;
+    if ( (char *)AllocateRoutine == (char *)RtlAllocateHeap )
     {
-      Heap = RtlAllocateHeap((char *)a1, (int)v5 + 32, a3);
-      v6 = (__int64 **)(a1 + 8);
+      Heap = (_RTL_BALANCED_LINKS *)RtlAllocateHeap(Table, (int)v5 + 32, *(SIZE_T *)&BufferSize);
+      p_RightChild = &Table->BalancedRoot.RightChild;
     }
     else
     {
-      Heap = ((__int64 (__fastcall *)(unsigned __int16 *))v15)(a1);
+      Heap = (_RTL_BALANCED_LINKS *)((__int64 (__fastcall *)(PRTL_AVL_TABLE))AllocateRoutine)(Table);
     }
-    v12 = (__int64 *)Heap;
+    v13 = Heap;
   }
-  if ( v12 )
+  if ( v13 )
   {
-    *(_OWORD *)v12 = 0LL;
-    *((_OWORD *)v12 + 1) = 0LL;
-    ++*((_DWORD *)a1 + 11);
-    if ( !v13 )
+    *(_OWORD *)&v13->Parent = 0LL;
+    *(_OWORD *)&v13->RightChild = 0LL;
+    ++Table->NumberGenericTableElements;
+    if ( !v14 )
     {
-      *v6 = v12;
-      *v12 = (__int64)a1;
-      *((_DWORD *)a1 + 12) = 1;
-      memmove(v12 + 4, a2, v5);
+      *p_RightChild = v13;
+      v13->Parent = &Table->BalancedRoot;
+      Table->DepthOfTree = 1;
+      memmove(&v13[1], Buffer, v5);
       goto LABEL_12;
     }
-    v17 = v12;
-    if ( v13 == 2 )
-      i[1] = (__int64)v12;
+    v18 = v13;
+    if ( v14 == 2 )
+      i->LeftChild = v13;
     else
-      i[2] = (__int64)v12;
-    *v12 = (__int64)i;
-    *((_BYTE *)a1 + 24) = -1;
-    for ( j = (__int64 *)*v12; ; i = j )
+      i->RightChild = v13;
+    v13->Parent = i;
+    Table->BalancedRoot.Balance = -1;
+    for ( j = v13->Parent; ; i = j )
     {
-      v19 = j[1] == (_QWORD)v17;
-      v20 = -1;
-      v21 = *((unsigned __int8 *)i + 24);
-      if ( !v19 )
-        v20 = 1;
-      if ( (_BYTE)v21 )
+      v20 = j->LeftChild == v18;
+      v21 = -1;
+      Balance = (unsigned __int8)i->Balance;
+      if ( !v20 )
+        v21 = 1;
+      if ( (_BYTE)Balance )
         break;
-      j = (__int64 *)*i;
-      v17 = i;
-      *((_BYTE *)i + 24) = v20;
+      j = i->Parent;
+      v18 = i;
+      i->Balance = v21;
     }
-    if ( (_BYTE)v21 == v20 )
+    if ( (_BYTE)Balance == v21 )
     {
-      RebalanceNode(i, v21, v17, a4);
+      RebalanceNode(i, Balance, v18, NewElement);
     }
     else
     {
-      *((_BYTE *)i + 24) = 0;
-      if ( !*((_BYTE *)a1 + 24) )
+      i->Balance = 0;
+      if ( !Table->BalancedRoot.Balance )
       {
-        ++*((_DWORD *)a1 + 12);
-        memmove(v12 + 4, a2, v5);
+        ++Table->DepthOfTree;
+        memmove(&v13[1], Buffer, v5);
         goto LABEL_12;
       }
     }
-    memmove(v12 + 4, a2, v5);
+    memmove(&v13[1], Buffer, v5);
 LABEL_12:
-    if ( a4 )
-      *a4 = v13 != 1;
-    *((_DWORD *)a1 + 10) = 0;
-    *((_QWORD *)a1 + 4) = 0LL;
-    return v12 + 4;
+    if ( NewElement )
+      *NewElement = v14 != 1;
+    Table->WhichOrderedElement = 0;
+    Table->OrderedPointer = 0LL;
+    return &v13[1];
   }
-  if ( a4 )
-    *a4 = 0;
+  if ( NewElement )
+    *NewElement = 0;
   return 0LL;
 }

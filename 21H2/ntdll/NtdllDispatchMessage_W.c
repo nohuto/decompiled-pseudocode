@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDispatchMessage_W @ 0x18009D540
+ * XREFs of NtdllDispatchMessage_W @ 0x18009D500
  * Callers:
  *     <none>
  * Callees:

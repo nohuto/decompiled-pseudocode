@@ -31,15 +31,15 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
   struct _KPRCB *CurrentPrcb; // r12
   char result; // al
   int v4; // eax
-  __int64 v5; // r14
+  LARGE_INTEGER v5; // r14
   struct _KPRCB *v6; // r15
   __int64 *v7; // rcx
   unsigned __int8 CurrentIrql; // si
   __int64 v9; // rcx
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  bool v12; // r8
-  __int64 v13; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v12; // r8
+  unsigned __int64 v13; // rax
   __int64 v14; // rdx
   __int64 v15; // r8
   int v16; // eax
@@ -114,7 +114,7 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
         KiClockTimerReducePreciseTimeQueries = 1;
         KiTimeUpdateTolerance = 3000LL;
       }
-      v5 = MEMORY[0xFFFFF78000000008];
+      v5.QuadPart = MEMORY[0xFFFFF78000000008];
       v6 = KeGetCurrentPrcb();
       KeQueryPerformanceCounter(&PerformanceFrequency);
       KiClockStateUpdateTimeout = 5 * PerformanceFrequency.QuadPart;
@@ -133,33 +133,33 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
       guard_dispatch_icall_no_overrides(v10);
       KeNonHrTimeIncrement = KeMaximumIncrement;
       KePseudoHrTimeIncrement = KeMaximumIncrement;
-      KiLastPseudoHrTimerExpiration = v5;
-      KiLastNonHrTimerExpiration = v5;
+      KiLastPseudoHrTimerExpiration = v5.QuadPart;
+      KiLastNonHrTimerExpiration = v5.QuadPart;
       dword_140F20A3C = KeMaximumIncrement;
-      if ( (qword_140E66478 & 1) != 0 )
+      if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
       {
-        if ( KiClockIntervalRequests )
-          v11 = KiClockIntervalRequests ^ (unsigned __int64)&KiClockIntervalRequests;
+        if ( KiClockIntervalRequests.Root )
+          Root = (unsigned __int64)KiClockIntervalRequests.Root ^ (unsigned __int64)&KiClockIntervalRequests;
         else
-          v11 = 0LL;
+          Root = 0LL;
       }
       else
       {
-        v11 = KiClockIntervalRequests;
+        Root = (unsigned __int64)KiClockIntervalRequests.Root;
       }
       v12 = 0;
-      if ( v11 )
+      if ( Root )
       {
         while ( 1 )
         {
-          if ( (unsigned int)KeMaximumIncrement >= *(_DWORD *)(v11 + 28) )
+          if ( KeMaximumIncrement >= *(_DWORD *)(Root + 28) )
           {
-            v13 = *(_QWORD *)(v11 + 8);
-            if ( (qword_140E66478 & 1) != 0 )
+            v13 = *(_QWORD *)(Root + 8);
+            if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
             {
               if ( !v13 )
                 goto LABEL_48;
-              v13 ^= v11;
+              v13 ^= Root;
             }
             if ( !v13 )
             {
@@ -170,20 +170,20 @@ LABEL_48:
           }
           else
           {
-            v13 = *(_QWORD *)v11;
-            if ( (qword_140E66478 & 1) != 0 )
+            v13 = *(_QWORD *)Root;
+            if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
             {
               if ( !v13 )
                 break;
-              v13 ^= v11;
+              v13 ^= Root;
             }
             if ( !v13 )
               break;
           }
-          v11 = v13;
+          Root = v13;
         }
       }
-      RtlRbInsertNodeEx(&KiClockIntervalRequests, v11, v12, (unsigned __int64)&KiDefaultClockIntervalRequest);
+      RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v12, &KiDefaultClockIntervalRequest);
       byte_140F20A38 = 1;
       if ( KiClockTimerPerCpuTickScheduling )
       {
@@ -208,7 +208,7 @@ LABEL_48:
         v6->ClockTimerState.TimeIncrement = ClockTickDueTime;
         v6->ClockTimerState.LastRequestedTimeIncrement = v16;
         KiLastRequestedTimeIncrement = v16;
-        v6->ClockTimerState.NextTickDueTime = v5 + ClockTickDueTime;
+        v6->ClockTimerState.NextTickDueTime = v5.QuadPart + ClockTickDueTime;
       }
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

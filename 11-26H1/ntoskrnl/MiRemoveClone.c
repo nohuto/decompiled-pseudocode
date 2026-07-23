@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRemoveClone @ 0x1404AFC88
+ * XREFs of MiRemoveClone @ 0x1404A9318
  * Callers:
- *     MiDeleteCloneDescriptor @ 0x1404AFC48 (MiDeleteCloneDescriptor.c)
- *     MiCloneTreeUpdate @ 0x1404F4EBC (MiCloneTreeUpdate.c)
+ *     MiDeleteCloneDescriptor @ 0x1404A92D8 (MiDeleteCloneDescriptor.c)
+ *     MiCloneTreeUpdate @ 0x1404EE49C (MiCloneTreeUpdate.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
  */
 
 char __fastcall MiRemoveClone(__int64 a1, __int64 a2)

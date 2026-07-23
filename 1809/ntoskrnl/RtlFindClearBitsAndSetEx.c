@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlFindClearBitsAndSetEx @ 0x14008AB50
+ * XREFs of RtlFindClearBitsAndSetEx @ 0x14008AB40
  * Callers:
- *     MiObtainSessionVa @ 0x1400F72A4 (MiObtainSessionVa.c)
- *     RtlpHpFixedVsAllocate @ 0x140139470 (RtlpHpFixedVsAllocate.c)
- *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
- *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
- *     MiReplenishNonPagedSlists @ 0x140163EA4 (MiReplenishNonPagedSlists.c)
- *     ExpSaPageGroupAllocateMemory @ 0x140167B28 (ExpSaPageGroupAllocateMemory.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
+ *     MiObtainSessionVa @ 0x1400F7324 (MiObtainSessionVa.c)
+ *     RtlpHpFixedVsAllocate @ 0x140139570 (RtlpHpFixedVsAllocate.c)
+ *     MiAllocatePagedPoolPages @ 0x140162D70 (MiAllocatePagedPoolPages.c)
+ *     MiScanLeafNonPagedPool @ 0x1401638F0 (MiScanLeafNonPagedPool.c)
+ *     MiReplenishNonPagedSlists @ 0x140163FA4 (MiReplenishNonPagedSlists.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x140167C28 (ExpSaPageGroupAllocateMemory.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x1405F9BBC (MiAllocateFromSubAllocatedRegion.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x14008AF10 (RtlSetBitsEx.c)
  */
 
 unsigned __int64 __fastcall RtlFindClearBitsAndSetEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)

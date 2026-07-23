@@ -9,15 +9,15 @@
  *     RtlResetMemoryZone @ 0x1800E8A80 (RtlResetMemoryZone.c)
  */
 
-__int64 __fastcall RtlResetMemoryBlockLookaside(__int64 a1)
+NTSTATUS __cdecl RtlResetMemoryBlockLookaside(PVOID MemoryBlockLookaside)
 {
   unsigned int i; // ebx
-  unsigned int v3; // ebx
+  NTSTATUS v3; // ebx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1);
-  for ( i = 0; i < *(_DWORD *)(a1 + 40); ++i )
-    InitializeSListHead((PSLIST_HEADER)(32LL * i + a1 + 48));
-  v3 = RtlResetMemoryZone(*(_QWORD *)(a1 + 16));
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
+  for ( i = 0; i < *((_DWORD *)MemoryBlockLookaside + 10); ++i )
+    InitializeSListHead((PSLIST_HEADER)MemoryBlockLookaside + 2 * i + 3);
+  v3 = RtlResetMemoryZone(*((PVOID *)MemoryBlockLookaside + 2));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
   return v3;
 }

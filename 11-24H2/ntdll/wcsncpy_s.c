@@ -1,9 +1,9 @@
 /*
- * XREFs of wcsncpy_s @ 0x18012E100
+ * XREFs of wcsncpy_s @ 0x18012C330
  * Callers:
- *     _wsplitpath_s @ 0x18012D4A0 (_wsplitpath_s.c)
+ *     _wsplitpath_s @ 0x18012B6D0 (_wsplitpath_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wcsncpy_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_t *Source, rsize_t MaxCount)

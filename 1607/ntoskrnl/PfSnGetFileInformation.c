@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnGetFileInformation @ 0x140037630
+ * XREFs of PfSnGetFileInformation @ 0x1400371B0
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     PfSnLogPageFaultCommon @ 0x1400EF560 (PfSnLogPageFaultCommon.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     PfSnLogPageFaultCommon @ 0x1400ED3E0 (PfSnLogPageFaultCommon.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     RtlRbInsertNodeEx @ 0x1400ECEC0 (RtlRbInsertNodeEx.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     RtlRbInsertNodeEx @ 0x1400EAD30 (RtlRbInsertNodeEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -22,10 +22,10 @@
 __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // edi
-  unsigned __int64 v3; // rbx
+  _RTL_BALANCED_NODE *v3; // rbx
   BOOLEAN v4; // r15
   int v7; // r12d
-  _QWORD *v8; // rax
+  _RTL_BALANCED_NODE **v8; // rax
   unsigned __int64 i; // rcx
   KIRQL v10; // al
   _QWORD *v11; // r14
@@ -34,20 +34,20 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   char *PoolWithTag; // rax
   char *v16; // r14
   KIRQL v17; // al
-  __int64 v18; // r8
-  _QWORD *v19; // rcx
-  KIRQL v20; // r13
-  unsigned __int64 v21; // rdx
-  _QWORD *v22; // rdx
-  _QWORD *v23; // rax
+  _QWORD *v18; // rcx
+  KIRQL v19; // r13
+  unsigned __int64 v20; // rdx
+  BOOLEAN v21; // r8
+  _RTL_BALANCED_NODE *v22; // rdx
+  _RTL_BALANCED_NODE *v23; // rax
 
   v2 = 0;
-  v3 = a2[3];
+  v3 = (_RTL_BALANCED_NODE *)a2[3];
   v4 = 0;
   v7 = 0;
   if ( (*(_DWORD *)(a2[1] + 52LL) & 0x10) != 0 )
     return 3221225659LL;
-  v8 = (_QWORD *)(a1 + 488);
+  v8 = (_RTL_BALANCED_NODE **)(a1 + 488);
   for ( i = a1 + 520; (unsigned __int64)v8 < i; ++v8 )
   {
     if ( *v8 == v3 )
@@ -59,13 +59,13 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   while ( v11 )
   {
     v13 = v11[3];
-    if ( v13 > v3 )
+    if ( v13 > (unsigned __int64)v3 )
     {
       v11 = (_QWORD *)*v11;
     }
     else
     {
-      if ( v13 >= v3 )
+      if ( v13 >= (unsigned __int64)v3 )
         break;
       v11 = (_QWORD *)v11[1];
     }
@@ -90,20 +90,20 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   *((_QWORD *)v16 + 5) = a2;
   *((_QWORD *)v16 + 3) = v3;
   v17 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
-  v19 = *(_QWORD **)(a1 + 520);
-  v20 = v17;
-  while ( v19 )
+  v18 = *(_QWORD **)(a1 + 520);
+  v19 = v17;
+  while ( v18 )
   {
-    v21 = v19[3];
-    if ( v21 > v3 )
+    v20 = v18[3];
+    if ( v20 > (unsigned __int64)v3 )
     {
-      v19 = (_QWORD *)*v19;
+      v18 = (_QWORD *)*v18;
     }
     else
     {
-      if ( v21 >= v3 )
+      if ( v20 >= (unsigned __int64)v3 )
         goto LABEL_36;
-      v19 = (_QWORD *)v19[1];
+      v18 = (_QWORD *)v18[1];
     }
   }
   if ( !*(_QWORD *)(a1 + 568) )
@@ -113,7 +113,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
     {
       v2 = -1073741431;
 LABEL_36:
-      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576), v20);
+      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576), v19);
       ObfDereferenceObjectWithTag(*((PVOID *)v16 + 5), 0x746C6644u);
       ExFreePoolWithTag(v16, 0);
       return v2;
@@ -124,29 +124,29 @@ LABEL_36:
     *(_QWORD *)(a1 + 544) = 0LL;
   }
   *((_QWORD *)v16 + 4) = *(_QWORD *)(a1 + 536);
-  LOBYTE(v18) = 0;
+  v21 = 0;
   *(_QWORD *)(a1 + 536) = v16 + 32;
-  v22 = *(_QWORD **)(a1 + 520);
+  v22 = *(_RTL_BALANCED_NODE **)(a1 + 520);
   if ( !v22 )
     goto LABEL_32;
-  while ( v22[3] > v3 )
+  while ( v22[1].Children[0] > v3 )
   {
-    v23 = (_QWORD *)*v22;
-    if ( !*v22 )
+    v23 = v22->Children[0];
+    if ( !v22->Children[0] )
     {
-      LOBYTE(v18) = 0;
+      v21 = 0;
       goto LABEL_32;
     }
 LABEL_27:
     v22 = v23;
   }
-  v23 = (_QWORD *)v22[1];
+  v23 = v22->Children[1];
   if ( v23 )
     goto LABEL_27;
-  LOBYTE(v18) = 1;
+  v21 = 1;
 LABEL_32:
-  RtlRbInsertNodeEx(a1 + 520, v22, v18, v16);
-  ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576), v20);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 520), v22, v21, (PRTL_BALANCED_NODE)v16);
+  ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576), v19);
   if ( v7 )
   {
     v4 = 0;

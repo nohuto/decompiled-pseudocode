@@ -1,38 +1,38 @@
 /*
- * XREFs of RtlpOpenAndMapCustomCultureFile @ 0x1801157D4
+ * XREFs of RtlpOpenAndMapCustomCultureFile @ 0x180110C68
  * Callers:
- *     RtlpGetCustomCultureData @ 0x180115750 (RtlpGetCustomCultureData.c)
+ *     RtlpGetCustomCultureData @ 0x180110BE4 (RtlpGetCustomCultureData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     RtlStringCchCatW @ 0x18013F06C (RtlStringCchCatW.c)
- *     RtlpGetFileSize @ 0x18014675C (RtlpGetFileSize.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwMapViewOfSection @ 0x180162190 (ZwMapViewOfSection.c)
- *     NtOpenFile @ 0x1801622F0 (NtOpenFile.c)
- *     NtCreateSection @ 0x1801625D0 (NtCreateSection.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     RtlStringCchCatW @ 0x18013D25C (RtlStringCchCatW.c)
+ *     RtlpGetFileSize @ 0x180144B0C (RtlpGetFileSize.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x180160550 (ZwMapViewOfSection.c)
+ *     NtOpenFile @ 0x1801606B0 (NtOpenFile.c)
+ *     NtCreateSection @ 0x180160990 (NtCreateSection.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, PVOID *a2, _QWORD *a3)
 {
   __int64 v6; // r8
   WCHAR *v7; // rcx
   WCHAR v8; // ax
   WCHAR *v9; // rax
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   HANDLE v11; // rcx
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v14; // [rsp+58h] [rbp-A8h] BYREF
-  HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v16; // [rsp+68h] [rbp-98h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG_PTR ViewSize; // [rsp+68h] [rbp-98h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
   WCHAR SourceString[264]; // [rsp+C0h] [rbp-40h] BYREF
 
   FileHandle = 0LL;
-  Handle = 0LL;
-  v16 = 0LL;
+  SectionHandle = 0LL;
+  ViewSize = 0LL;
   v14 = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
@@ -77,13 +77,13 @@ __int64 __fastcall RtlpOpenAndMapCustomCultureFile(__int64 a1, _QWORD *a2, _QWOR
     else
     {
       *a3 = (unsigned int)v14;
-      v10 = NtCreateSection(&Handle, 983045LL, 0LL, 0LL);
+      v10 = NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, 2u, 0x8000000u, FileHandle);
       if ( v10 >= 0 )
       {
-        v11 = Handle;
+        v11 = SectionHandle;
         *a2 = 0LL;
-        v10 = ZwMapViewOfSection(v11, -1LL, a2, 0LL, 0LL, 0LL, &v16, 1, 0, 2);
-        NtClose(Handle);
+        v10 = ZwMapViewOfSection(v11, (HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, 0LL, 0LL, 0LL, &ViewSize, ViewShare, 0, 2u);
+        NtClose(SectionHandle);
       }
     }
     NtClose(FileHandle);

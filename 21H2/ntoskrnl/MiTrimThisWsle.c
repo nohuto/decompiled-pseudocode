@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimThisWsle @ 0x140308DA0
+ * XREFs of MiTrimThisWsle @ 0x140313AF0
  * Callers:
- *     MiTrimPte @ 0x140308900 (MiTrimPte.c)
- *     MiTrimPteWorker @ 0x14053C1E8 (MiTrimPteWorker.c)
+ *     MiTrimPte @ 0x140313650 (MiTrimPte.c)
+ *     MiTrimPteWorker @ 0x14053C428 (MiTrimPteWorker.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
- *     MiLocateCloneAddress @ 0x14023EF08 (MiLocateCloneAddress.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiGetPfnPriority @ 0x1402BCED0 (MiGetPfnPriority.c)
+ *     MiLocateCloneAddress @ 0x1402E3758 (MiLocateCloneAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 

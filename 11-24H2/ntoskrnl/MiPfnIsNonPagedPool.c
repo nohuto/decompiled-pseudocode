@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPfnIsNonPagedPool @ 0x14044C8EC
+ * XREFs of MiPfnIsNonPagedPool @ 0x1404437EC
  * Callers:
- *     MiIsPfnLocked @ 0x14044C868 (MiIsPfnLocked.c)
+ *     MiIsPfnLocked @ 0x140443768 (MiIsPfnLocked.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14022AD20 (MiGetSystemRegionType.c)
+ *     MiGetSystemRegionType @ 0x1402FDF90 (MiGetSystemRegionType.c)
  */
 
 __int64 __fastcall MiPfnIsNonPagedPool(__int64 a1)

@@ -1,19 +1,19 @@
 /*
- * XREFs of strlen @ 0x180167CE0
+ * XREFs of strlen @ 0x1801660A0
  * Callers:
- *     LdrpReportError @ 0x180005D20 (LdrpReportError.c)
- *     LdrpHandleProtectedDelayload @ 0x1800096B0 (LdrpHandleProtectedDelayload.c)
- *     LdrpGetDelayloadExportDll @ 0x180009D20 (LdrpGetDelayloadExportDll.c)
- *     LdrpGetShimEngineInterface @ 0x180009E88 (LdrpGetShimEngineInterface.c)
- *     LdrpMapAndSnapDependency @ 0x18000C8D0 (LdrpMapAndSnapDependency.c)
- *     LdrpSnapKernelBaseExtensions @ 0x180070920 (LdrpSnapKernelBaseExtensions.c)
- *     RtlGetVersion @ 0x1800AA620 (RtlGetVersion.c)
- *     LdrpLogDelayLoadTrigger @ 0x1800DCC30 (LdrpLogDelayLoadTrigger.c)
- *     RtlInitAnsiStringEx @ 0x1800E0390 (RtlInitAnsiStringEx.c)
- *     RtlInitAnsiString @ 0x1800E3C60 (RtlInitAnsiString.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x1800E8410 (RtlCreateUnicodeStringFromAsciiz.c)
- *     AVrfpDetectVerifiedExports @ 0x1800EC9CC (AVrfpDetectVerifiedExports.c)
- *     RtlAppendAsciizToString @ 0x18013C5A0 (RtlAppendAsciizToString.c)
+ *     RtlGetVersion @ 0x18000B7B0 (RtlGetVersion.c)
+ *     LdrpReportError @ 0x180032720 (LdrpReportError.c)
+ *     LdrpHandleProtectedDelayload @ 0x1800360B0 (LdrpHandleProtectedDelayload.c)
+ *     LdrpGetDelayloadExportDll @ 0x180036720 (LdrpGetDelayloadExportDll.c)
+ *     LdrpGetShimEngineInterface @ 0x180036888 (LdrpGetShimEngineInterface.c)
+ *     LdrpMapAndSnapDependency @ 0x1800392D0 (LdrpMapAndSnapDependency.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18008D200 (LdrpSnapKernelBaseExtensions.c)
+ *     LdrpLogDelayLoadTrigger @ 0x1800D7DA0 (LdrpLogDelayLoadTrigger.c)
+ *     RtlInitAnsiStringEx @ 0x1800DB490 (RtlInitAnsiStringEx.c)
+ *     RtlInitAnsiString @ 0x1800DF230 (RtlInitAnsiString.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x1800E32B0 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     AVrfpDetectVerifiedExports @ 0x1800E75FC (AVrfpDetectVerifiedExports.c)
+ *     RtlAppendAsciizToString @ 0x18013A790 (RtlAppendAsciizToString.c)
  * Callees:
  *     <none>
  */

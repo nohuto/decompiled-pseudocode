@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpLevelKeywordEnabled @ 0x1403031F0 (EtwpLevelKeywordEnabled.c)
+ *     sub_140300E50 @ 0x140300E50 (sub_140300E50.c)
+ *     sub_1403031F0 @ 0x1403031F0 (sub_1403031F0.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  */
 
@@ -58,10 +58,8 @@ NTSTATUS __stdcall EtwWriteString(
   v14 = *(_BYTE *)((RegHandle & -(__int64)(RegHandle != 0)) + 0x64);
   v26 = 2 * v13 + 2;
   v27 = 0;
-  if ( v14
-    && EtwpLevelKeywordEnabled(*(_QWORD *)((RegHandle & -(__int64)(RegHandle != 0)) + 0x20) + 96LL, Level, Keyword) )
-  {
-    v8 = EtwpEventWriteFull(
+  if ( v14 && sub_1403031F0(*(_QWORD *)((RegHandle & -(__int64)(RegHandle != 0)) + 0x20) + 96LL, Level, Keyword) )
+    v8 = sub_140300E50(
            v16,
            v15,
            0,
@@ -69,7 +67,7 @@ NTSTATUS __stdcall EtwWriteString(
            (__int64)v28,
            4,
            0,
-           (GUID *)ActivityId,
+           (__int128 *)ActivityId,
            0LL,
            1u,
            (__int64)&v25,
@@ -79,9 +77,8 @@ NTSTATUS __stdcall EtwWriteString(
            *(_WORD *)(v9 + 98),
            v12,
            &v24);
-  }
-  if ( *(_BYTE *)(v9 + 101) && EtwpLevelKeywordEnabled(*(_QWORD *)(v9 + 40) + 96LL, Level, Keyword) )
-    v8 = EtwpEventWriteFull(
+  if ( *(_BYTE *)(v9 + 101) && sub_1403031F0(*(_QWORD *)(v9 + 40) + 96LL, Level, Keyword) )
+    v8 = sub_140300E50(
            *(_QWORD *)(v9 + 32),
            v17,
            0,
@@ -89,7 +86,7 @@ NTSTATUS __stdcall EtwWriteString(
            (__int64)v28,
            4,
            0,
-           (GUID *)ActivityId,
+           (__int128 *)ActivityId,
            0LL,
            1u,
            (__int64)&v25,
@@ -105,8 +102,8 @@ NTSTATUS __stdcall EtwWriteString(
     v20 = *(_BYTE *)(v9 + 102);
     v29 = 0LL;
     v30 = 0LL;
-    if ( v20 && EtwpLevelKeywordEnabled(*(_QWORD *)(v19 + 400) + 96LL, Level, Keyword) )
-      v8 = EtwpEventWriteFull(
+    if ( v20 && sub_1403031F0(*(_QWORD *)(v19 + 400) + 96LL, Level, Keyword) )
+      v8 = sub_140300E50(
              v22,
              v21,
              0,
@@ -114,7 +111,7 @@ NTSTATUS __stdcall EtwWriteString(
              (__int64)v28,
              4,
              0,
-             (GUID *)ActivityId,
+             (__int128 *)ActivityId,
              0LL,
              1u,
              (__int64)&v25,
@@ -126,8 +123,8 @@ NTSTATUS __stdcall EtwWriteString(
              &v24);
     if ( *(_BYTE *)(v9 + 103) )
     {
-      if ( EtwpLevelKeywordEnabled(*(_QWORD *)(*(_QWORD *)(v9 + 40) + 400LL) + 96LL, Level, Keyword) )
-        return EtwpEventWriteFull(
+      if ( sub_1403031F0(*(_QWORD *)(*(_QWORD *)(v9 + 40) + 400LL) + 96LL, Level, Keyword) )
+        return sub_140300E50(
                  *(_QWORD *)(*(_QWORD *)(v9 + 32) + 400LL),
                  *(_BYTE *)(v9 + 101),
                  0,
@@ -135,7 +132,7 @@ NTSTATUS __stdcall EtwWriteString(
                  (__int64)v28,
                  4,
                  0,
-                 (GUID *)ActivityId,
+                 (__int128 *)ActivityId,
                  0LL,
                  1u,
                  (__int64)&v25,

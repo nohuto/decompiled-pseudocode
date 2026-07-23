@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpStartRMLog @ 0x140AE5884
+ * XREFs of CmpStartRMLog @ 0x140AE7164
  * Callers:
- *     CmpStartRMLogs @ 0x140A04324 (CmpStartRMLogs.c)
- *     CmpInitCmRM @ 0x140AE4D94 (CmpInitCmRM.c)
+ *     CmpStartRMLogs @ 0x140A00854 (CmpStartRMLogs.c)
+ *     CmpInitCmRM @ 0x140AE6674 (CmpInitCmRM.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline @ 0x140668394 (Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline.c)
- *     CmpRmAnalysisPhase @ 0x1407E0798 (CmpRmAnalysisPhase.c)
- *     CmpRmReDoPhase @ 0x1407E09C4 (CmpRmReDoPhase.c)
- *     CmpRmUnDoPhase @ 0x1407E0B98 (CmpRmUnDoPhase.c)
- *     CmpIsFileInSystemConfig @ 0x1407E1C10 (CmpIsFileInSystemConfig.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     CmpQueryFileSecurityDescriptor @ 0x140930A60 (CmpQueryFileSecurityDescriptor.c)
- *     CmpQueryNameString @ 0x1409839B4 (CmpQueryNameString.c)
- *     RtlStringFromGUIDEx @ 0x1409BCE20 (RtlStringFromGUIDEx.c)
- *     LockRMLog @ 0x140A05A38 (LockRMLog.c)
- *     CmpStartCLFSLog @ 0x140AE5E28 (CmpStartCLFSLog.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline @ 0x140666C84 (Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline.c)
+ *     CmpRmAnalysisPhase @ 0x1407E0CE8 (CmpRmAnalysisPhase.c)
+ *     CmpRmReDoPhase @ 0x1407E0F14 (CmpRmReDoPhase.c)
+ *     CmpRmUnDoPhase @ 0x1407E10E8 (CmpRmUnDoPhase.c)
+ *     CmpIsFileInSystemConfig @ 0x1407E2160 (CmpIsFileInSystemConfig.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x140932BA0 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpQueryNameString @ 0x14096C1C4 (CmpQueryNameString.c)
+ *     RtlStringFromGUIDEx @ 0x1409A3470 (RtlStringFromGUIDEx.c)
+ *     LockRMLog @ 0x140A01F68 (LockRMLog.c)
+ *     CmpStartCLFSLog @ 0x140AE7708 (CmpStartCLFSLog.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
@@ -50,7 +50,7 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   PVOID pvReadContext; // [rsp+68h] [rbp-61h] BYREF
   ULONG pcbReadBuffer; // [rsp+70h] [rbp-59h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-51h] BYREF
-  UNICODE_STRING v32; // [rsp+88h] [rbp-41h] BYREF
+  UNICODE_STRING GuidString; // [rsp+88h] [rbp-41h] BYREF
   ULONG pcbRestartBuffer; // [rsp+98h] [rbp-31h] BYREF
   __int64 Pool2; // [rsp+A0h] [rbp-29h]
   PCUNICODE_STRING Source; // [rsp+A8h] [rbp-21h]
@@ -71,8 +71,8 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   *(_QWORD *)&UnicodeString.Length = 0LL;
   v3 = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v32.Length = 0LL;
-  v32.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   ppvRestartBuffer = 0LL;
   pcbRestartBuffer = 0;
   plsn.ullOffset = 0LL;
@@ -86,7 +86,7 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   LockRMLog((__int64)a1);
   if ( (*((_DWORD *)a1 + 26) & 1) != 0 )
     goto LABEL_4;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x78uLL, 0x20204D43u);
   v6 = (CLFS_INFORMATION *)Pool2;
   if ( !Pool2 )
   {
@@ -103,15 +103,12 @@ LABEL_4:
   {
     Source = &CmpLogPath;
     if ( a2 )
-      *(_OWORD *)(*(_QWORD *)(qword_140E09A70 + 64) + 128LL) = *a2;
-    FileSecurityDescriptor = RtlStringFromGUIDEx(
-                               (unsigned int *)(*(_QWORD *)(qword_140E09A70 + 64) + 128LL),
-                               (__int64)&v32,
-                               1);
+      *(_OWORD *)(*(_QWORD *)(qword_140E09AE0 + 64) + 128LL) = *a2;
+    FileSecurityDescriptor = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(qword_140E09AE0 + 64) + 128LL), &GuidString, 1u);
     if ( FileSecurityDescriptor >= 0 )
     {
       *((_QWORD *)a1 + 9) = 5242880LL;
-      v10 = *(void **)(qword_140E09A70 + 1544);
+      v10 = *(void **)(qword_140E09AE0 + 1544);
       if ( (unsigned int)Feature_CLFS_Signing__private_IsEnabledDeviceUsageNoInline() )
         v44 = 1;
 LABEL_18:
@@ -126,7 +123,7 @@ LABEL_18:
       {
         FileSecurityDescriptor = CmpStartCLFSLog(
                                    Source,
-                                   &v32,
+                                   &GuidString,
                                    ppvReadContext,
                                    (__int64)(a1 + 72),
                                    v44 == 0,
@@ -136,7 +133,7 @@ LABEL_18:
         if ( FileSecurityDescriptor < 0 )
           goto LABEL_50;
         pcbInfoBuffer = 120;
-        v15 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL);
+        v15 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL, 0x78uLL, 0x20204D43u);
         v16 = v15;
         if ( v15 )
         {
@@ -268,9 +265,9 @@ LABEL_36:
       if ( a2 )
         *(_OWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL) = *a2;
       FileSecurityDescriptor = RtlStringFromGUIDEx(
-                                 (unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL),
-                                 (__int64)&v32,
-                                 1);
+                                 (PGUID)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL),
+                                 &GuidString,
+                                 1u);
       if ( FileSecurityDescriptor >= 0 )
       {
         v11 = *((_QWORD *)a1 + 10);
@@ -292,8 +289,8 @@ LABEL_56:
   KeLeaveCriticalRegion();
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-  if ( v32.Buffer )
-    RtlFreeAnsiString(&v32);
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
   ExFreePoolWithTag(v6, 0);
   if ( v3 )
     ExFreePoolWithTag(v3, 0);

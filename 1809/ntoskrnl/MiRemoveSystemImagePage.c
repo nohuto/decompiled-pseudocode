@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemoveSystemImagePage @ 0x14012C0BC
+ * XREFs of MiRemoveSystemImagePage @ 0x14012C18C
  * Callers:
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB490 (MiMakeDriverPagesPrivate.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiTerminateWsle @ 0x14007ACA0 (MiTerminateWsle.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiTerminateWsle @ 0x14007AC90 (MiTerminateWsle.c)
  */
 
 __int64 __fastcall MiRemoveSystemImagePage(__int64 a1, __int64 a2, __int64 a3)
@@ -22,13 +22,14 @@ __int64 __fastcall MiRemoveSystemImagePage(__int64 a1, __int64 a2, __int64 a3)
   _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   v4 = a2 << 25 >> 16;
   if ( PsNtosImageBase
-    && (v4 < PsNtosImageEnd && v4 >= PsNtosImageBase || v4 < PsHalImageEnd && v4 >= (unsigned __int64)PsHalImageBase) )
+    && (v4 < PsNtosImageEnd && v4 >= (unsigned __int64)PsNtosImageBase
+     || v4 < PsHalImageEnd && v4 >= (unsigned __int64)PsHalImageBase) )
   {
-    v5 = (volatile signed __int32 *)&xmmword_140438F20 + 2;
+    v5 = (volatile signed __int32 *)&xmmword_140439FE0 + 2;
   }
   else
   {
-    v5 = (volatile signed __int32 *)&xmmword_140438F20 + 3;
+    v5 = (volatile signed __int32 *)&xmmword_140439FE0 + 3;
   }
   _InterlockedDecrement(v5);
   result = MiTerminateWsle(a1, v4, 2, &v10);

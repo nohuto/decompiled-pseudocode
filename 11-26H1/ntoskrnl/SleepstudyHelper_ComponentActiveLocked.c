@@ -1,24 +1,21 @@
 /*
- * XREFs of SleepstudyHelper_ComponentActiveLocked @ 0x1402574F0
+ * XREFs of SleepstudyHelper_ComponentActiveLocked @ 0x140518130
  * Callers:
- *     SleepstudyHelper_ComponentActive @ 0x1402575F0 (SleepstudyHelper_ComponentActive.c)
+ *     SleepstudyHelper_ComponentActive @ 0x1405180D0 (SleepstudyHelper_ComponentActive.c)
  * Callees:
- *     SshpSetBlockerActive @ 0x1402566E4 (SshpSetBlockerActive.c)
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x140257660 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
+ *     SshpSetBlockerActive @ 0x140258074 (SshpSetBlockerActive.c)
  */
 
-__int64 __fastcall SleepstudyHelper_ComponentActiveLocked(__int64 a1)
+__int64 __fastcall SleepstudyHelper_ComponentActiveLocked(__int64 a1, __int64 a2)
 {
-  unsigned int v1; // ebx
-  __int64 v3; // rdx
-  int v4; // eax
+  unsigned int v2; // ebx
+  int v4; // ecx
   bool v5; // zf
 
-  v1 = 0;
+  v2 = 0;
   if ( a1 )
   {
-    if ( !(unsigned int)Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline()
-      || (unsigned __int64 *)a1 != PsAltSystemCallRegistrationLock.Spare35 )
+    if ( (_UNKNOWN *)a1 != &unk_140F0A850 )
     {
       v4 = *(_DWORD *)(a1 + 8);
       if ( (v4 & 0x10) == 0 )
@@ -27,8 +24,8 @@ __int64 __fastcall SleepstudyHelper_ComponentActiveLocked(__int64 a1)
         *(_DWORD *)(a1 + 8) = v4 | 0x10;
         if ( v5 )
         {
-          LOBYTE(v3) = 1;
-          SshpSetBlockerActive(a1, v3);
+          LOBYTE(a2) = 1;
+          SshpSetBlockerActive(a1, a2);
         }
       }
     }
@@ -37,5 +34,5 @@ __int64 __fastcall SleepstudyHelper_ComponentActiveLocked(__int64 a1)
   {
     return (unsigned int)-1073741811;
   }
-  return v1;
+  return v2;
 }

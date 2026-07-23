@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlOplockBreakToNoneEx @ 0x140580610
+ * XREFs of FsRtlOplockBreakToNoneEx @ 0x14057DA80
  * Callers:
- *     FsRtlOplockBreakToNone @ 0x1405805B0 (FsRtlOplockBreakToNone.c)
+ *     FsRtlOplockBreakToNone @ 0x14057DA20 (FsRtlOplockBreakToNone.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1404E1388 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToNone @ 0x1405813CC (FsRtlpOplockBreakToNone.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1403CF664 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToNone @ 0x14057E780 (FsRtlpOplockBreakToNone.c)
  */
 
 NTSTATUS __stdcall FsRtlOplockBreakToNoneEx(
@@ -68,7 +68,7 @@ NTSTATUS __stdcall FsRtlOplockBreakToNoneEx(
         v9 = FsRtlpOplockBreakByCacheFlags(
                (__int64)v8,
                (__int64)Irp->Tail.Overlay.CurrentStackLocation,
-               (__int64)Irp,
+               Irp,
                v10,
                v14,
                28672,

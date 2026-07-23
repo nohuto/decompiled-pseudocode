@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetResolveToHost @ 0x1800E6E14
+ * XREFs of ApiSetResolveToHost @ 0x1800E5874
  * Callers:
- *     ApiSetQueryApiSetPresence @ 0x180082670 (ApiSetQueryApiSetPresence.c)
- *     ApiSetResolveToHost2 @ 0x18013B5AC (ApiSetResolveToHost2.c)
+ *     ApiSetQueryApiSetPresence @ 0x180079A10 (ApiSetQueryApiSetPresence.c)
+ *     ApiSetResolveToHost2 @ 0x18013B31C (ApiSetResolveToHost2.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x180047120 (ApiSetpSearchForApiSet.c)
- *     ApiSetpResolveHost @ 0x180047310 (ApiSetpResolveHost.c)
- *     ApiSetpSearchForApiSetHost @ 0x180083EB0 (ApiSetpSearchForApiSetHost.c)
+ *     ApiSetpSearchForApiSet @ 0x180031690 (ApiSetpSearchForApiSet.c)
+ *     ApiSetpResolveHost @ 0x180031880 (ApiSetpResolveHost.c)
+ *     ApiSetpSearchForApiSetHost @ 0x18007B250 (ApiSetpSearchForApiSetHost.c)
  */
 
 __int64 __fastcall ApiSetResolveToHost(_DWORD *a1, unsigned __int16 *a2, __int64 a3, char *a4, __int64 a5)

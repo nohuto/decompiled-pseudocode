@@ -1,18 +1,18 @@
 /*
  * XREFs of ZwOpenDirectoryObject @ 0x14041C260
  * Callers:
- *     DifZwOpenDirectoryObjectWrapper @ 0x140621660 (DifZwOpenDirectoryObjectWrapper.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14069CEC8 (SepCleanupLUIDDeviceMapDirectory.c)
- *     IopGetLegacyVetoListDrivers @ 0x140799218 (IopGetLegacyVetoListDrivers.c)
- *     BiGetNtPartitionPath @ 0x140802BE0 (BiGetNtPartitionPath.c)
- *     PiDrvDbRegisterNode @ 0x14082666C (PiDrvDbRegisterNode.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x1408276AC (PiDrvDbEnumDriverStoreNodes.c)
- *     ObpInitializeRootNamespace @ 0x14082C020 (ObpInitializeRootNamespace.c)
- *     PiDrvDbUnregisterNode @ 0x14095E00C (PiDrvDbUnregisterNode.c)
- *     ExpFindArcName @ 0x1409FC2D0 (ExpFindArcName.c)
- *     SiGetEfiSystemDevice @ 0x140A21C40 (SiGetEfiSystemDevice.c)
- *     ObCreateSiloRootDirectory @ 0x140A34510 (ObCreateSiloRootDirectory.c)
- *     CmGetSystemDriverList @ 0x140B12C84 (CmGetSystemDriverList.c)
+ *     sub_140621660 @ 0x140621660 (sub_140621660.c)
+ *     sub_14069CEC8 @ 0x14069CEC8 (sub_14069CEC8.c)
+ *     sub_140799218 @ 0x140799218 (sub_140799218.c)
+ *     sub_140802BE0 @ 0x140802BE0 (sub_140802BE0.c)
+ *     sub_14082666C @ 0x14082666C (sub_14082666C.c)
+ *     sub_1408276AC @ 0x1408276AC (sub_1408276AC.c)
+ *     sub_14082C020 @ 0x14082C020 (sub_14082C020.c)
+ *     sub_14095E00C @ 0x14095E00C (sub_14095E00C.c)
+ *     sub_1409FC2D0 @ 0x1409FC2D0 (sub_1409FC2D0.c)
+ *     sub_140A21C40 @ 0x140A21C40 (sub_140A21C40.c)
+ *     sub_140A34510 @ 0x140A34510 (sub_140A34510.c)
+ *     sub_140B12C84 @ 0x140B12C84 (sub_140B12C84.c)
  * Callees:
  *     <none>
  */
@@ -25,5 +25,5 @@ NTSTATUS __stdcall ZwOpenDirectoryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DirectoryHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(DirectoryHandle, *(_QWORD *)&DesiredAccess);
 }

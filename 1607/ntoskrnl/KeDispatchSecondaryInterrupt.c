@@ -1,10 +1,10 @@
 /*
- * XREFs of KeDispatchSecondaryInterrupt @ 0x1401D59C4
+ * XREFs of KeDispatchSecondaryInterrupt @ 0x1401D57F0
  * Callers:
  *     <none>
  * Callees:
- *     KiInsertSecondarySignalList @ 0x1401D5D20 (KiInsertSecondarySignalList.c)
- *     KiInterruptDispatchCommon @ 0x1401D8668 (KiInterruptDispatchCommon.c)
+ *     KiInsertSecondarySignalList @ 0x1401D5B4C (KiInsertSecondarySignalList.c)
+ *     KiInterruptDispatchCommon @ 0x1401D8494 (KiInterruptDispatchCommon.c)
  */
 
 char __fastcall KeDispatchSecondaryInterrupt(int a1, unsigned int a2, __int64 a3)

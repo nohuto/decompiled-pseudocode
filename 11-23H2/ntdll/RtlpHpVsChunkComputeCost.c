@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpVsFreeChunkInsert @ 0x180069E80 (RtlpHpVsFreeChunkInsert.c)
  *     RtlpHpVsFreeChunkRemove @ 0x180069FBC (RtlpHpVsFreeChunkRemove.c)
- *     RtlpHpVsChunkDecommit @ 0x1801240DC (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsChunkDecommit @ 0x1801240AC (RtlpHpVsChunkDecommit.c)
  * Callees:
  *     <none>
  */

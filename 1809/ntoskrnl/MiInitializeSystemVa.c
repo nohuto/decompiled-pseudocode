@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSystemVa @ 0x1409D23A8
+ * XREFs of MiInitializeSystemVa @ 0x1409D33A8
  * Callers:
- *     MmInitSystem @ 0x1409BC4E4 (MmInitSystem.c)
+ *     MmInitSystem @ 0x1409BD4E4 (MmInitSystem.c)
  * Callees:
- *     MiAssignSharedUserRanges @ 0x140187950 (MiAssignSharedUserRanges.c)
- *     MiRebaseDynamicRelocationRegions @ 0x1409D241C (MiRebaseDynamicRelocationRegions.c)
- *     MiSetSystemRegionTypes @ 0x1409D298C (MiSetSystemRegionTypes.c)
- *     MiAssignTopLevelRanges @ 0x1409D2A80 (MiAssignTopLevelRanges.c)
- *     MiInitializeTopLevelBitmap @ 0x1409D2E8C (MiInitializeTopLevelBitmap.c)
+ *     MiAssignSharedUserRanges @ 0x140187A90 (MiAssignSharedUserRanges.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x1409D341C (MiRebaseDynamicRelocationRegions.c)
+ *     MiSetSystemRegionTypes @ 0x1409D398C (MiSetSystemRegionTypes.c)
+ *     MiAssignTopLevelRanges @ 0x1409D3A80 (MiAssignTopLevelRanges.c)
+ *     MiInitializeTopLevelBitmap @ 0x1409D3E8C (MiInitializeTopLevelBitmap.c)
  */
 
 __int64 __fastcall MiInitializeSystemVa(__int64 a1)

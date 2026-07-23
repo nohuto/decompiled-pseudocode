@@ -3,12 +3,12 @@
  * Callers:
  *     PpLastGoodDoBootProcessing @ 0x1407B901C (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x140159EE0 (ZwEnumerateValueKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x14015B580 (ZwDeleteKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x14015A450 (ZwEnumerateValueKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x14015BAF0 (ZwDeleteKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

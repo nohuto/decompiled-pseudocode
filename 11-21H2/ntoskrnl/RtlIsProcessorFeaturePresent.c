@@ -1,17 +1,17 @@
 /*
  * XREFs of RtlIsProcessorFeaturePresent @ 0x140250040
  * Callers:
- *     RtlHpGlobalsInitialize @ 0x1403C44EC (RtlHpGlobalsInitialize.c)
- *     DifExIsProcessorFeaturePresentWrapper @ 0x140608D90 (DifExIsProcessorFeaturePresentWrapper.c)
- *     PiIsDriverBlocked @ 0x14075E568 (PiIsDriverBlocked.c)
+ *     sub_1403C44EC @ 0x1403C44EC (sub_1403C44EC.c)
+ *     sub_140608D90 @ 0x140608D90 (sub_140608D90.c)
+ *     sub_14075E568 @ 0x14075E568 (sub_14075E568.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlIsProcessorFeaturePresent(unsigned int a1)
+BOOLEAN __cdecl RtlIsProcessorFeaturePresent(ULONG ProcessorFeature)
 {
-  if ( a1 >= 0x40 )
+  if ( ProcessorFeature >= 0x40 )
     return 0;
   else
-    return *(_BYTE *)(a1 - 0x87FFFFFFD8CLL);
+    return *(_BYTE *)(ProcessorFeature - 0x87FFFFFFD8CLL);
 }

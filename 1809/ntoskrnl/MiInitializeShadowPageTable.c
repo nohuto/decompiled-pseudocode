@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeShadowPageTable @ 0x14072A3F4
+ * XREFs of MiInitializeShadowPageTable @ 0x14072B5E4
  * Callers:
- *     MiMakeShadowPageTableRange @ 0x14072A304 (MiMakeShadowPageTableRange.c)
+ *     MiMakeShadowPageTableRange @ 0x14072B4F4 (MiMakeShadowPageTableRange.c)
  * Callees:
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x14012B2FC (MiReadWriteAnyLevelShadowPte.c)
- *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
- *     MiMarkPxeAsShadowed @ 0x14017E710 (MiMarkPxeAsShadowed.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiVaToPfn @ 0x140098F50 (MiVaToPfn.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x14012B3CC (MiReadWriteAnyLevelShadowPte.c)
+ *     MiReplicatePteChange @ 0x140175014 (MiReplicatePteChange.c)
+ *     MiMarkPxeAsShadowed @ 0x14017E850 (MiMarkPxeAsShadowed.c)
  */
 
 ULONG_PTR __fastcall MiInitializeShadowPageTable(__int64 a1, _QWORD *a2, int a3)

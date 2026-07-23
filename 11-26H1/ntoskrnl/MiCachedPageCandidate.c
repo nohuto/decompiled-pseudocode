@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCachedPageCandidate @ 0x1402A9B60
+ * XREFs of MiCachedPageCandidate @ 0x1402A8F70
  * Callers:
  *     <none>
  * Callees:
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiCachedPagesMakeHot @ 0x1406F5980 (MiCachedPagesMakeHot.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiCachedPagesMakeHot @ 0x1406FA5F0 (MiCachedPagesMakeHot.c)
  */
 
 __int64 __fastcall MiCachedPageCandidate(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -15,11 +15,11 @@ __int64 __fastcall MiCachedPageCandidate(__int64 a1, __int64 a2, unsigned __int6
   __int64 v6; // rdx
   __int64 v8; // rax
 
-  if ( qword_140E2D740 && (a3 & 0x10) == 0 )
-    a3 &= qword_140E2D748;
+  if ( qword_140E2D8C0 && (a3 & 0x10) == 0 )
+    a3 &= qword_140E2D8C8;
   v4 = (a3 >> 12) & 0xFFFFFFFFFFLL;
   v5 = 48 * v4 - 0x220000000000LL;
-  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v5 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
   {
     if ( *(_BYTE *)(a1 + 175) )
       return 3221225496LL;

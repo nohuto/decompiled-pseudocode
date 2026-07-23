@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpInitializeLegacyBusInformationTable @ 0x140A50E9C
+ * XREFs of PnpInitializeLegacyBusInformationTable @ 0x140A51E9C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>
  */
 
 __int64 PnpInitializeLegacyBusInformationTable()
 {
-  _QWORD *v0; // rax
+  __int64 *v0; // rax
 
-  v0 = &IopLegacyBusInformationTable;
+  v0 = (__int64 *)&IopLegacyBusInformationTable;
   do
   {
-    v0[1] = v0;
-    *v0 = v0;
+    v0[1] = (__int64)v0;
+    *v0 = (__int64)v0;
     v0 += 2;
   }
-  while ( (__int64)v0 < (__int64)&PiDDBLock );
+  while ( (__int64)v0 < (__int64)&IopLegacyDeviceNode );
   return 0LL;
 }

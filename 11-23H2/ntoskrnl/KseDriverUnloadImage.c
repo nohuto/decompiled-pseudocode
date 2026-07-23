@@ -4,16 +4,16 @@
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     RtlAssert @ 0x1405AA0C0 (RtlAssert.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x1405AA630 (RtlAssert.c)
  *     KsepIsModuleShimmed @ 0x1406941F4 (KsepIsModuleShimmed.c)
  *     KsepDbFreeDriverShims @ 0x140694D3C (KsepDbFreeDriverShims.c)
  */
@@ -91,7 +91,7 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
         if ( !*((_DWORD *)v12 + 6) )
         {
           v13 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C407C4[2 * v13] = -1073740768;
+          dword_140C40784[2 * v13] = -1073740768;
           KsepHistoryErrors[2 * v13] = 460180;
           if ( (KsepDebugFlag & 4) != 0 )
             RtlAssert("RegisteredShim->RefCount > 0", "minkernel\\ntos\\kshim\\kseloader.c", 0x594u, 0LL);

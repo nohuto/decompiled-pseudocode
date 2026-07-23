@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpFinalizePendingApc @ 0x140467800
+ * XREFs of EtwpFinalizePendingApc @ 0x140460F50
  * Callers:
- *     EtwpCancelPendingApcs @ 0x1404676B0 (EtwpCancelPendingApcs.c)
- *     EtwpCancelApcThunk @ 0x1406C7880 (EtwpCancelApcThunk.c)
+ *     EtwpCancelPendingApcs @ 0x140460E00 (EtwpCancelPendingApcs.c)
+ *     EtwpCancelApcThunk @ 0x1406CB580 (EtwpCancelApcThunk.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
-int __fastcall EtwpFinalizePendingApc(unsigned int **a1, struct _SLIST_ENTRY *a2)
+int __fastcall EtwpFinalizePendingApc(unsigned int **a1, _SLIST_ENTRY *a2)
 {
   __int64 v3; // r9
   signed __int64 *v4; // r8

@@ -9,26 +9,26 @@
  *     NtClose @ 0x1800A4250 (NtClose.c)
  */
 
-_BOOL8 RtlpDiskSpeedInitialize()
+_BOOL8 __fastcall RtlpDiskSpeedInitialize(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   unsigned __int16 *NtSystemRoot; // rax
-  int VolumeHandle; // ebx
-  HANDLE Handle[3]; // [rsp+20h] [rbp-18h] BYREF
-  int v4; // [rsp+58h] [rbp+20h] BYREF
+  NTSTATUS VolumeHandle; // ebx
+  HANDLE Handle; // [rsp+20h] [rbp-18h] BYREF
+  int v7; // [rsp+58h] [rbp+20h] BYREF
 
-  Handle[0] = 0LL;
-  NtSystemRoot = (unsigned __int16 *)RtlGetNtSystemRoot();
-  VolumeHandle = RtlpGetVolumeHandle(NtSystemRoot, Handle);
+  Handle = 0LL;
+  NtSystemRoot = RtlGetNtSystemRoot();
+  VolumeHandle = RtlpGetVolumeHandle(NtSystemRoot, &Handle);
   if ( VolumeHandle >= 0 )
   {
-    VolumeHandle = RtlQueryVolumeDiskSpeedPolicy(Handle[0], &v4);
+    VolumeHandle = RtlQueryVolumeDiskSpeedPolicy(Handle, &v7);
     if ( VolumeHandle >= 0 )
     {
       VolumeHandle = 0;
-      RtlpDiskSpeedPolicy = v4;
+      RtlpDiskSpeedPolicy = v7;
     }
   }
-  if ( Handle[0] )
-    NtClose(Handle[0]);
+  if ( Handle )
+    NtClose(Handle);
   return VolumeHandle >= 0;
 }

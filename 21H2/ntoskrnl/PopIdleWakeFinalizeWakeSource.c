@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleWakeFinalizeWakeSource @ 0x14057B478
+ * XREFs of PopIdleWakeFinalizeWakeSource @ 0x14057B6B8
  * Callers:
- *     PopIdleWakeNotifyWakeSource @ 0x14057BD20 (PopIdleWakeNotifyWakeSource.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x14057BF60 (PopIdleWakeNotifyWakeSource.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
  */
 
 NTSTATUS __fastcall PopIdleWakeFinalizeWakeSource(int a1, __int64 a2)

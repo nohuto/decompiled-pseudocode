@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwWriteVirtualMemory @ 0x14015A3C0
+ * XREFs of ZwWriteVirtualMemory @ 0x14015A930
  * Callers:
- *     SepAdtCopyToLsaSharedMemory @ 0x140695FB0 (SepAdtCopyToLsaSharedMemory.c)
+ *     SepAdtCopyToLsaSharedMemory @ 0x140696094 (SepAdtCopyToLsaSharedMemory.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwWriteVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, Buffer);
+  return KiServiceInternal(ProcessHandle);
 }

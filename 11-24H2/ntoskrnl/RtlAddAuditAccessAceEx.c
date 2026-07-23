@@ -1,21 +1,28 @@
 /*
- * XREFs of RtlAddAuditAccessAceEx @ 0x14077FDC0
+ * XREFs of RtlAddAuditAccessAceEx @ 0x14077FCF0
  * Callers:
- *     LocalGetAclForString @ 0x140865750 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x140869D60 (LocalGetAclForString.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
  */
 
-__int64 __fastcall RtlAddAuditAccessAceEx(int a1, int a2, int a3, int a4, void *Src, char a6, char a7)
+NTSTATUS __cdecl RtlAddAuditAccessAceEx(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PSID Sid,
+        BOOLEAN AuditSuccess,
+        BOOLEAN AuditFailure)
 {
-  int v7; // eax
+  ULONG v7; // eax
   int v8; // r8d
 
-  v7 = a3 | 0x40;
-  if ( !a6 )
-    v7 = a3;
+  v7 = AceFlags | 0x40;
+  if ( !AuditSuccess )
+    v7 = AceFlags;
   v8 = v7 | 0x80;
-  if ( !a7 )
+  if ( !AuditFailure )
     v8 = v7;
-  return RtlpAddKnownAce(a1, a2, v8, a4, Src, 2);
+  return RtlpAddKnownAce((int)Acl, AceRevision, v8, AccessMask, Sid, 2);
 }

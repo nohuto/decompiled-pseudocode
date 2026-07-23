@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwLockVirtualMemory @ 0x1406A86F0
+ * XREFs of ZwLockVirtualMemory @ 0x1406A9690
  * Callers:
- *     CmSiLockViewOfSection @ 0x140494F5C (CmSiLockViewOfSection.c)
- *     SmKmVirtualLockCtxLockMemory @ 0x14060DFFC (SmKmVirtualLockCtxLockMemory.c)
+ *     CmSiLockViewOfSection @ 0x14048F81C (CmSiLockViewOfSection.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x14060C5BC (SmKmVirtualLockCtxLockMemory.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwLockVirtualMemory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwLockVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG MapType)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

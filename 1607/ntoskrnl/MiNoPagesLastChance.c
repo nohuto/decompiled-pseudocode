@@ -1,19 +1,19 @@
 /*
- * XREFs of MiNoPagesLastChance @ 0x1401F3384
+ * XREFs of MiNoPagesLastChance @ 0x1401F31B0
  * Callers:
- *     MiWaitForFreePage @ 0x1401F41DC (MiWaitForFreePage.c)
+ *     MiWaitForFreePage @ 0x1401F4008 (MiWaitForFreePage.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 void __fastcall MiNoPagesLastChance(__int64 a1, unsigned int a2)
@@ -104,7 +104,7 @@ LABEL_11:
     v5 |= 8u;
     BugCheckParameter3 = v5;
   }
-  if ( dword_140327014 )
+  if ( dword_140327054 )
   {
     v13 = 243;
   }
@@ -190,7 +190,7 @@ LABEL_11:
               MiPfnReferenceCountIsZero(v25, (v25 + 0x58000000000LL) / 48);
               _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
               __writecr8(CurrentIrql);
-              ++dword_14032677C;
+              ++dword_1403267BC;
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
               KeAcquireInStackQueuedSpinLockAtDpcLevel(v18, &LockHandle);
@@ -217,7 +217,7 @@ LABEL_11:
       *(_QWORD *)(a1 + 4296) = MiLdwPopupWorker;
       *(_QWORD *)(a1 + 4304) = a1 + 4280;
       ExQueueWorkItem(v28, DelayedWorkQueue);
-      ++dword_140326778;
+      ++dword_1403267B8;
     }
     else
     {

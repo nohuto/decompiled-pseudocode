@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpInitializeUserList @ 0x18003A98C (RtlpInitializeUserList.c)
  *     InitializeTEBUserLangList @ 0x18003BEF8 (InitializeTEBUserLangList.c)
- *     RtlpQueryDefaultUILanguage @ 0x18007A6A0 (RtlpQueryDefaultUILanguage.c)
+ *     RtlpQueryDefaultUILanguage @ 0x18007A6B0 (RtlpQueryDefaultUILanguage.c)
  * Callees:
  *     RtlpSetProcUserMachineLangList @ 0x18003C1E4 (RtlpSetProcUserMachineLangList.c)
  *     RtlpMuiRegCreateLanguageList @ 0x18003C454 (RtlpMuiRegCreateLanguageList.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiComputeTopologyConstants @ 0x14038157C
+ * XREFs of KiComputeTopologyConstants @ 0x14038171C
  * Callers:
  *     KiSetFeatureBits @ 0x140A8D4C4 (KiSetFeatureBits.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall KiComputeTopologyConstants(

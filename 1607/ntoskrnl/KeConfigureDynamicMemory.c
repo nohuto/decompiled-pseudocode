@@ -1,11 +1,11 @@
 /*
- * XREFs of KeConfigureDynamicMemory @ 0x1401D1FBC
+ * XREFs of KeConfigureDynamicMemory @ 0x1401D1DE8
  * Callers:
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  * Callees:
- *     VslConfigureDynamicMemory @ 0x1401C2728 (VslConfigureDynamicMemory.c)
- *     HvlpAddPhysicalMemory @ 0x14023CE6C (HvlpAddPhysicalMemory.c)
+ *     VslConfigureDynamicMemory @ 0x1401C260C (VslConfigureDynamicMemory.c)
+ *     HvlpAddPhysicalMemory @ 0x14023CD50 (HvlpAddPhysicalMemory.c)
  */
 
 NTSTATUS __fastcall KeConfigureDynamicMemory(unsigned __int64 a1, unsigned __int64 a2, int a3)

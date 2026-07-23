@@ -1,13 +1,13 @@
 /*
- * XREFs of CcCompleteAsyncLazywriteWorkerThread @ 0x14053B330
+ * XREFs of CcCompleteAsyncLazywriteWorkerThread @ 0x14053B880
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     CcCompleteAsyncLazywriteWorker @ 0x14053B1A0 (CcCompleteAsyncLazywriteWorker.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcCompleteAsyncLazywriteWorker @ 0x14053B6F0 (CcCompleteAsyncLazywriteWorker.c)
  */
 
 char __fastcall CcCompleteAsyncLazywriteWorkerThread(__int64 a1)
@@ -47,10 +47,13 @@ char __fastcall CcCompleteAsyncLazywriteWorkerThread(__int64 a1)
     --*(_DWORD *)(v1 + 416);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -58,7 +61,7 @@ char __fastcall CcCompleteAsyncLazywriteWorkerThread(__int64 a1)
         v3 = (v13 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v13;
         if ( v3 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);

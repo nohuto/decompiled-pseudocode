@@ -6,7 +6,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtQueryInformationAtom(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl NtQueryInformationAtom(
+        RTL_ATOM Atom,
+        ATOM_INFORMATION_CLASS AtomInformationClass,
+        PVOID AtomInformation,
+        ULONG AtomInformationLength,
+        PULONG ReturnLength)
 {
   return Wow64SystemServiceCall();
 }

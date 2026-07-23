@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiUpdateAvailableEvents @ 0x14013C7F8 (MiUpdateAvailableEvents.c)
- *     MiSignalNonPagedPoolWatchers @ 0x14013C8B4 (MiSignalNonPagedPoolWatchers.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiUpdateAvailableEvents @ 0x14013CD68 (MiUpdateAvailableEvents.c)
+ *     MiSignalNonPagedPoolWatchers @ 0x14013CE24 (MiSignalNonPagedPoolWatchers.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     MiCreateMemoryEvent @ 0x1407A45F0 (MiCreateMemoryEvent.c)
  *     MiInitializePagedPoolEvents @ 0x1407A51FC (MiInitializePagedPoolEvents.c)
  */

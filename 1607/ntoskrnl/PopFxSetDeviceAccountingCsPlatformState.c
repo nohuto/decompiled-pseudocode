@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxSetDeviceAccountingCsPlatformState @ 0x140203BC0
+ * XREFs of PopFxSetDeviceAccountingCsPlatformState @ 0x1402039EC
  * Callers:
- *     PopFxEnablePlatformStates @ 0x140202BA4 (PopFxEnablePlatformStates.c)
+ *     PopFxEnablePlatformStates @ 0x1402029D0 (PopFxEnablePlatformStates.c)
  * Callees:
- *     PopFxActivateDevice @ 0x140008088 (PopFxActivateDevice.c)
- *     PoFxIdleDevice @ 0x14000842C (PoFxIdleDevice.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopPepGetMinimumComponentIdleState @ 0x14020614C (PopPepGetMinimumComponentIdleState.c)
- *     PopPepGetMinimumDevicePowerState @ 0x140206200 (PopPepGetMinimumDevicePowerState.c)
+ *     PopFxActivateDevice @ 0x140007BFC (PopFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x140007FA0 (PoFxIdleDevice.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopPepGetMinimumComponentIdleState @ 0x140205F78 (PopPepGetMinimumComponentIdleState.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x14020602C (PopPepGetMinimumDevicePowerState.c)
  */
 
 __int64 __fastcall PopFxSetDeviceAccountingCsPlatformState(unsigned int a1)

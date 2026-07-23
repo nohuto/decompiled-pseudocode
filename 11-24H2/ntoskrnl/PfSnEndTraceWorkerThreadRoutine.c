@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnEndTraceWorkerThreadRoutine @ 0x140971A40
+ * XREFs of PfSnEndTraceWorkerThreadRoutine @ 0x14095A250
  * Callers:
  *     <none>
  * Callees:
- *     PfSnEndTrace @ 0x140971A58 (PfSnEndTrace.c)
+ *     PfSnEndTrace @ 0x14095A268 (PfSnEndTrace.c)
  */
 
 __int64 __fastcall PfSnEndTraceWorkerThreadRoutine(void *a1)

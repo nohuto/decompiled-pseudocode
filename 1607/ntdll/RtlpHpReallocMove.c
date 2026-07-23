@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpReallocMove @ 0x1800430B0
+ * XREFs of RtlpHpReallocMove @ 0x1800430A0
  * Callers:
- *     RtlpHpSegReAlloc @ 0x180043284 (RtlpHpSegReAlloc.c)
- *     RtlpHpLargeReAlloc @ 0x180051838 (RtlpHpLargeReAlloc.c)
+ *     RtlpHpSegReAlloc @ 0x180043274 (RtlpHpSegReAlloc.c)
+ *     RtlpHpLargeReAlloc @ 0x180051828 (RtlpHpLargeReAlloc.c)
  * Callees:
- *     RtlpHpAllocateHeapInternal @ 0x1800431C8 (RtlpHpAllocateHeapInternal.c)
- *     RtlpHpFreeHeap @ 0x180047A70 (RtlpHpFreeHeap.c)
- *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCB4 (RtlSparseBitmapCtxCheckBitsInternal.c)
- *     RtlpHpExtrasSetPresent @ 0x18005173C (RtlpHpExtrasSetPresent.c)
- *     RtlpHpExtrasMove @ 0x180051B88 (RtlpHpExtrasMove.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1800431B8 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpFreeHeap @ 0x180047A60 (RtlpHpFreeHeap.c)
+ *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCA4 (RtlSparseBitmapCtxCheckBitsInternal.c)
+ *     RtlpHpExtrasSetPresent @ 0x18005172C (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasMove @ 0x180051B78 (RtlpHpExtrasMove.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-void *__fastcall RtlpHpReallocMove(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
+void *__fastcall RtlpHpReallocMove(void *a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned __int64 HeapInternal; // rax
   void *v9; // rdi
@@ -25,7 +25,7 @@ void *__fastcall RtlpHpReallocMove(__int64 a1, unsigned __int64 a2, __int64 a3, 
   signed __int32 v17[8]; // [rsp+0h] [rbp-58h] BYREF
   __int64 v18; // [rsp+70h] [rbp+18h] BYREF
 
-  HeapInternal = RtlpHpAllocateHeapInternal(a1, *(_QWORD *)(a3 + 24), *(_QWORD *)(a3 + 32), a4, (__int64)&v18);
+  HeapInternal = RtlpHpAllocateHeapInternal(a1, *(_QWORD *)(a3 + 24), (__int64)&v18);
   v9 = (void *)HeapInternal;
   if ( HeapInternal )
   {
@@ -71,7 +71,7 @@ void *__fastcall RtlpHpReallocMove(__int64 a1, unsigned __int64 a2, __int64 a3, 
       _InterlockedOr(v17, 0);
       RtlpHpExtrasSetPresent(a1, v9, a4);
     }
-    RtlpHpFreeHeap(a1, a2, a4 & 0x11000001, 0, 0LL);
+    RtlpHpFreeHeap((_DWORD)a1, a2, a4 & 0x11000001, 0, 0LL);
   }
   return v9;
 }

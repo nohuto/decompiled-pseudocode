@@ -1,35 +1,35 @@
 /*
- * XREFs of PnpDeviceActionWorker @ 0x1400AFA3C
+ * XREFs of PnpDeviceActionWorker @ 0x1400865A0
  * Callers:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
  * Callees:
- *     IoReportTargetDeviceChangeAsynchronous @ 0x140007CA8 (IoReportTargetDeviceChangeAsynchronous.c)
- *     EtwActivityIdControlKernel @ 0x140007EA8 (EtwActivityIdControlKernel.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpProcessClearProblem @ 0x1401316DC (PpProcessClearProblem.c)
- *     PnpCompleteSystemStartProcess @ 0x140145238 (PnpCompleteSystemStartProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PnpProcessRebalance @ 0x1401CE5E0 (PnpProcessRebalance.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x140086468 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     EtwActivityIdControlKernel @ 0x140086AF0 (EtwActivityIdControlKernel.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpProcessClearProblem @ 0x140131C4C (PpProcessClearProblem.c)
+ *     PnpCompleteSystemStartProcess @ 0x1401457A8 (PnpCompleteSystemStartProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PnpProcessRebalance @ 0x1401CE42C (PnpProcessRebalance.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PiProcessReenumeration @ 0x1403EEF7C (PiProcessReenumeration.c)
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
- *     PiProcessRequeryDeviceState @ 0x140545C5C (PiProcessRequeryDeviceState.c)
- *     PiQueryPowerRelations @ 0x140570A48 (PiQueryPowerRelations.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140570C34 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     PiProcessStartSystemDevices @ 0x140580CDC (PiProcessStartSystemDevices.c)
- *     PiConfigureDevice @ 0x1406496A8 (PiConfigureDevice.c)
- *     PiProcessClearDeviceProblem @ 0x14064973C (PiProcessClearDeviceProblem.c)
- *     PiProcessHaltDevice @ 0x140649834 (PiProcessHaltDevice.c)
- *     PiProcessResourceRequirementsChanged @ 0x1406498B8 (PiProcessResourceRequirementsChanged.c)
- *     PiProcessSetDeviceProblem @ 0x1406499F8 (PiProcessSetDeviceProblem.c)
- *     PiRestartDevice @ 0x140649B48 (PiRestartDevice.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
+ *     PiProcessReenumeration @ 0x140488E80 (PiProcessReenumeration.c)
+ *     PiProcessRequeryDeviceState @ 0x14054619C (PiProcessRequeryDeviceState.c)
+ *     PiQueryPowerRelations @ 0x140570F88 (PiQueryPowerRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140571174 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PiProcessStartSystemDevices @ 0x140581188 (PiProcessStartSystemDevices.c)
+ *     PiConfigureDevice @ 0x14064978C (PiConfigureDevice.c)
+ *     PiProcessClearDeviceProblem @ 0x140649820 (PiProcessClearDeviceProblem.c)
+ *     PiProcessHaltDevice @ 0x140649918 (PiProcessHaltDevice.c)
+ *     PiProcessResourceRequirementsChanged @ 0x14064999C (PiProcessResourceRequirementsChanged.c)
+ *     PiProcessSetDeviceProblem @ 0x140649ADC (PiProcessSetDeviceProblem.c)
+ *     PiRestartDevice @ 0x140649C2C (PiRestartDevice.c)
  */
 
 __int64 PnpDeviceActionWorker()
@@ -112,7 +112,7 @@ LABEL_6:
         v23 = *(_OWORD *)(v5 + 56);
         v32 = &v36;
         v36 = v23;
-        EtwActivityIdControlKernel(2, (PVOID *)&v32);
+        EtwActivityIdControlKernel(2LL, &v32);
         v31 = 1;
       }
       *((_QWORD *)v5 + 1) = v5;
@@ -288,7 +288,7 @@ LABEL_23:
       if ( v31 )
       {
         v32 = 0LL;
-        EtwActivityIdControlKernel(2, (PVOID *)&v32);
+        EtwActivityIdControlKernel(2LL, &v32);
         v2 = v29;
       }
     }

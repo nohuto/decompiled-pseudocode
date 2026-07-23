@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpAddInstanceIdToLogFileName @ 0x18005C480 (EtwpAddInstanceIdToLogFileName.c)
  *     WerEscalationLazyInit @ 0x1800E97F8 (WerEscalationLazyInit.c)
- *     SbpParseFuncName @ 0x180128644 (SbpParseFuncName.c)
+ *     SbpParseFuncName @ 0x180128614 (SbpParseFuncName.c)
  * Callees:
  *     <none>
  */

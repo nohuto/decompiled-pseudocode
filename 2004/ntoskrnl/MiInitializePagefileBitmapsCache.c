@@ -9,54 +9,54 @@
  *     memset @ 0x14040A280 (memset.c)
  */
 
-char __fastcall MiInitializePagefileBitmapsCache(__int64 a1)
+BOOLEAN __fastcall MiInitializePagefileBitmapsCache(__int64 a1)
 {
   __int64 v1; // r14
-  bool v2; // bl
+  BOOLEAN v2; // bl
   __int64 v3; // r15
-  __int64 v4; // rsi
-  _QWORD *v6; // rdi
-  _QWORD *v7; // rbp
-  _QWORD *i; // rax
-  _QWORD *v9; // rcx
+  _RTL_BALANCED_NODE *v4; // rsi
+  _RTL_BALANCED_NODE *v6; // rdi
+  _RTL_BALANCED_NODE *v7; // rbp
+  _RTL_BALANCED_NODE *i; // rax
+  _RTL_BALANCED_NODE *v9; // rcx
   unsigned __int64 v10; // rdx
-  bool v11; // r8
+  BOOLEAN v11; // r8
   unsigned __int64 v12; // rax
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // rax
-  char result; // al
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  BOOLEAN result; // al
 
   v1 = a1 + 144;
   v2 = 0;
   *(_QWORD *)(a1 + 144) = 0LL;
   v3 = a1 + 160;
   *(_QWORD *)(a1 + 152) = 0LL;
-  v4 = a1 + 176;
+  v4 = (_RTL_BALANCED_NODE *)(a1 + 176);
   *(_QWORD *)(a1 + 160) = 0LL;
   *(_QWORD *)(a1 + 168) = 0LL;
-  v6 = *(_QWORD **)(a1 + 192);
+  v6 = *(_RTL_BALANCED_NODE **)(a1 + 192);
   *(_QWORD *)(a1 + 184) = a1 + 176;
   *(_QWORD *)(a1 + 176) = a1 + 176;
-  v7 = v6 + 3577;
+  v7 = (_RTL_BALANCED_NODE *)((char *)v6 + 28616);
   memset(v6, 0, 0x7000uLL);
-  if ( v6 < v6 + 3577 )
+  if ( v6 < (_RTL_BALANCED_NODE *)&v6[1192].Right )
   {
-    for ( i = *(_QWORD **)(v4 + 8); ; i = v9 )
+    for ( i = v4->Children[1]; ; i = v9 )
     {
       v9 = v6;
-      if ( *i != v4 )
+      if ( i->Children[0] != v4 )
         __fastfail(3u);
-      *v6 = v4;
-      v6[1] = i;
-      *i = v6;
-      *(_QWORD *)(v4 + 8) = v6;
-      v6 += 7;
+      v6->Children[0] = v4;
+      v6->Children[1] = i;
+      i->Children[0] = v6;
+      v4->Children[1] = v6;
+      v6 = (_RTL_BALANCED_NODE *)((char *)v6 + 56);
       if ( v6 >= v7 )
         break;
     }
   }
-  *((_DWORD *)v6 + 13) = -1;
-  *((_DWORD *)v6 + 12) = -1;
+  HIDWORD(v6[2].Left) = -1;
+  LODWORD(v6[2].Children[0]) = -1;
   v10 = *(_QWORD *)v1;
   if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
   {
@@ -83,7 +83,7 @@ char __fastcall MiInitializePagefileBitmapsCache(__int64 a1)
     }
     v11 = 1;
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)v1, v10, v11, (unsigned __int64)v6);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)v1, (PRTL_BALANCED_NODE)v10, v11, v6);
   v13 = *(_QWORD *)v3;
   if ( (*(_BYTE *)(v3 + 8) & 1) != 0 )
   {
@@ -96,7 +96,7 @@ char __fastcall MiInitializePagefileBitmapsCache(__int64 a1)
   {
     while ( 1 )
     {
-      if ( *((_DWORD *)v6 + 12) < *(_DWORD *)(v13 + 24) )
+      if ( LODWORD(v6[2].Children[0]) < *(_DWORD *)(v13 + 24) )
       {
         v14 = *(_QWORD *)v13;
         if ( (*(_BYTE *)(v3 + 8) & 1) != 0 )
@@ -127,7 +127,7 @@ LABEL_26:
       v13 = v14;
     }
   }
-  result = RtlRbInsertNodeEx((unsigned __int64 *)v3, v13, v2, (unsigned __int64)(v6 + 3));
+  result = RtlRbInsertNodeEx((PRTL_RB_TREE)v3, (PRTL_BALANCED_NODE)v13, v2, v6 + 1);
   *(_DWORD *)(a1 + 140) = -1;
   return result;
 }

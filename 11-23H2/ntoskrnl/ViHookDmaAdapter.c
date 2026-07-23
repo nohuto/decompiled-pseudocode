@@ -1,14 +1,14 @@
 /*
- * XREFs of ViHookDmaAdapter @ 0x140AC9550
+ * XREFs of ViHookDmaAdapter @ 0x140AC9540
  * Callers:
- *     VfGetDmaAdapter @ 0x140AC6590 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x140AC6580 (VfGetDmaAdapter.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExInterlockedInsertHeadList @ 0x140351FA0 (ExInterlockedInsertHeadList.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExInterlockedInsertHeadList @ 0x140352140 (ExInterlockedInsertHeadList.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     ViAllocateContiguousMemory @ 0x140AC7A9C (ViAllocateContiguousMemory.c)
- *     ViCopyDeviceDescription @ 0x140AC87D0 (ViCopyDeviceDescription.c)
- *     ViGetAdapterSignature @ 0x140AC9040 (ViGetAdapterSignature.c)
+ *     ViAllocateContiguousMemory @ 0x140AC7A8C (ViAllocateContiguousMemory.c)
+ *     ViCopyDeviceDescription @ 0x140AC87C0 (ViCopyDeviceDescription.c)
+ *     ViGetAdapterSignature @ 0x140AC9030 (ViGetAdapterSignature.c)
  */
 
 __int64 __fastcall ViHookDmaAdapter(_WORD *Object, __int64 a2, int a3, __int64 a4, __int64 a5, char a6)
@@ -90,7 +90,7 @@ LABEL_19:
     _InterlockedIncrement((volatile signed __int32 *)(v11 + 76));
     *(_QWORD *)(v11 + 80) = a5;
     *(_QWORD *)(v11 + 64) = a4;
-    ExInterlockedInsertHeadList(&ViAdapterList, (PLIST_ENTRY)v11, &qword_140C369B0);
+    ExInterlockedInsertHeadList(&ViAdapterList, (PLIST_ENTRY)v11, &qword_140C36950);
   }
   return v11;
 }

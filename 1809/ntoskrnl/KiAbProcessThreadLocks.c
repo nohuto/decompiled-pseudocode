@@ -16,15 +16,15 @@
  *     KiAbIoBoostOwners @ 0x140025280 (KiAbIoBoostOwners.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     IoBoostThreadIoPriority @ 0x14010865C (IoBoostThreadIoPriority.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     KiAbDetermineMaxWaiterPriority @ 0x140119A4C (KiAbDetermineMaxWaiterPriority.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF8F0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     IoBoostThreadIoPriority @ 0x1401086DC (IoBoostThreadIoPriority.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     KiAbDetermineMaxWaiterPriority @ 0x140119ABC (KiAbDetermineMaxWaiterPriority.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
-void __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)
+void __fastcall KiAbProcessThreadLocks(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)
 {
   int v7; // r14d
   int v8; // r15d
@@ -45,7 +45,7 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, unsigned int a2, int a3, int 
   int v24; // edx
   int v25; // r10d
   char CpuPriorityKey; // r15
-  unsigned int v27; // eax
+  int v27; // eax
   char v28; // al
   char v29; // r9
   _DWORD *v30; // rbx
@@ -99,7 +99,7 @@ LABEL_26:
 LABEL_11:
             v16 = 0;
             v33 = 0;
-            LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v13, a2, v35);
+            LockedHeadEntry = KiAbEntryGetLockedHeadEntry((PRTL_BALANCED_NODE)v13);
             v20 = LockedHeadEntry;
             if ( LockedHeadEntry )
             {
@@ -108,7 +108,7 @@ LABEL_11:
                 if ( v8 )
                 {
                   if ( v13 != LockedHeadEntry )
-                    KiAbEntryUpdateWaiterTreePosition(v13, LockedHeadEntry);
+                    KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v13);
                   v21 = *(_QWORD *)(v20 + 56);
                   if ( v21 )
                   {
@@ -174,14 +174,14 @@ LABEL_33:
               if ( !v7 )
                 goto LABEL_33;
               if ( v13 != LockedHeadEntry )
-                KiAbEntryUpdateOwnerTreePosition(v13, LockedHeadEntry);
+                KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v13);
               KiAbDetermineMaxWaiterPriority(v20, &v36);
               if ( v36 )
               {
                 if ( (unsigned int)KiAbSetMinimumThreadPriority(v13, (unsigned int)&v36, a5, a6, a7, (__int64)&v33)
                   && v13 != v20 )
                 {
-                  KiAbEntryUpdateOwnerTreePosition(v13, v20);
+                  KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v13);
                 }
                 v16 = v33;
                 goto LABEL_33;

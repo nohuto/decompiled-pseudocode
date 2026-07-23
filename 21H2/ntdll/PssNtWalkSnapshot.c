@@ -1,13 +1,13 @@
 /*
- * XREFs of PssNtWalkSnapshot @ 0x180114A50
+ * XREFs of PssNtWalkSnapshot @ 0x180114A10
  * Callers:
  *     <none>
  * Callees:
- *     PssNtValidateDescriptor @ 0x1801148C0 (PssNtValidateDescriptor.c)
- *     PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES @ 0x180116CD4 (PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES.c)
- *     PsspWalkInfoClass_PSS_WALK_HANDLES @ 0x180116E00 (PsspWalkInfoClass_PSS_WALK_HANDLES.c)
- *     PsspWalkInfoClass_PSS_WALK_THREADS @ 0x180116F80 (PsspWalkInfoClass_PSS_WALK_THREADS.c)
- *     PsspWalkInfoClass_PSS_WALK_VA_SPACE @ 0x180117108 (PsspWalkInfoClass_PSS_WALK_VA_SPACE.c)
+ *     PssNtValidateDescriptor @ 0x180114880 (PssNtValidateDescriptor.c)
+ *     PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES @ 0x180116C94 (PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES.c)
+ *     PsspWalkInfoClass_PSS_WALK_HANDLES @ 0x180116DC0 (PsspWalkInfoClass_PSS_WALK_HANDLES.c)
+ *     PsspWalkInfoClass_PSS_WALK_THREADS @ 0x180116F40 (PsspWalkInfoClass_PSS_WALK_THREADS.c)
+ *     PsspWalkInfoClass_PSS_WALK_VA_SPACE @ 0x1801170C8 (PsspWalkInfoClass_PSS_WALK_VA_SPACE.c)
  */
 
 __int64 __fastcall PssNtWalkSnapshot(unsigned int *a1, int a2, __int64 a3, __int64 a4, int a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryValueKey @ 0x140640340
+ * XREFs of NtQueryValueKey @ 0x140641360
  * Callers:
- *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
- *     ExpWatchProductTypeWork @ 0x1406BF910 (ExpWatchProductTypeWork.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
- *     ExpWatchProductTypeInitialization @ 0x1409D5738 (ExpWatchProductTypeInitialization.c)
- *     IopProtectSystemPartition @ 0x1409DE514 (IopProtectSystemPartition.c)
- *     InitSafeBoot @ 0x1409F3348 (InitSafeBoot.c)
+ *     IopLoadDriver @ 0x140680BF4 (IopLoadDriver.c)
+ *     ExpWatchProductTypeWork @ 0x1406C0BB0 (ExpWatchProductTypeWork.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
+ *     ExpWatchProductTypeInitialization @ 0x1409D6738 (ExpWatchProductTypeInitialization.c)
+ *     IopProtectSystemPartition @ 0x1409DF514 (IopProtectSystemPartition.c)
+ *     InitSafeBoot @ 0x1409F4348 (InitSafeBoot.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
@@ -15,24 +15,24 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpIsBufferGloballyVisible @ 0x1405DF288 (CmpIsBufferGloballyVisible.c)
- *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B30F8 (CmpIsRegistryLockAcquired.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpIsBufferGloballyVisible @ 0x1405E0288 (CmpIsBufferGloballyVisible.c)
+ *     CmpCallCallBacksEx @ 0x1405E6AE0 (CmpCallCallBacksEx.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063FDD0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmQueryValueKey @ 0x1406461B0 (CmQueryValueKey.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryValueKey(
@@ -267,7 +267,7 @@ NTSTATUS __stdcall NtQueryValueKey(
   v23 = DestinationString.Length;
   DestinationString.MaximumLength = DestinationString.Length;
   v24 = DestinationString.Buffer;
-  if ( PreviousMode || qword_140437C28 && !CmpIsBufferGloballyVisible((unsigned __int64)DestinationString.Buffer) )
+  if ( PreviousMode || qword_140438CE8 && !CmpIsBufferGloballyVisible((unsigned __int64)DestinationString.Buffer) )
   {
     if ( v23 )
     {
@@ -349,11 +349,11 @@ NTSTATUS __stdcall NtQueryValueKey(
   v80 = KeyValueInformation;
   if ( Length )
   {
-    if ( qword_140437C28 && (PreviousMode || !CmpIsBufferGloballyVisible((unsigned __int64)KeyValueInformation)) )
+    if ( qword_140438CE8 && (PreviousMode || !CmpIsBufferGloballyVisible((unsigned __int64)KeyValueInformation)) )
     {
-      if ( stru_1403FFAA0.LevelPlus1 > 5
-        && (stru_1403FFAA0.KeywordAny & 4) != 0
-        && (stru_1403FFAA0.KeywordAll & 4) == stru_1403FFAA0.KeywordAll )
+      if ( stru_140400AA0.LevelPlus1 > 5
+        && (stru_140400AA0.KeywordAny & 4) != 0
+        && (stru_140400AA0.KeywordAll & 4) == stru_140400AA0.KeywordAll )
       {
         v58 = 1LL;
         v45 = 3;
@@ -376,21 +376,21 @@ NTSTATUS __stdcall NtQueryValueKey(
         v89 = 1LL;
         v90 = &v59;
         v91 = 8LL;
-        TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036C180, v28, v29, 5u, &v85);
+        TlgWriteAgg((__int64)&stru_140400AA0, (unsigned __int8 *)dword_14036D110, v28, v29, 5u, &v85);
       }
       if ( Length > 0x40uLL )
       {
         if ( Length > 0x1000uLL )
           goto LABEL_108;
-        ++dword_1404C6B14;
+        ++dword_1404C7BD4;
         v32 = RtlpInterlockedPopEntrySList(&CmpBounceBufferLookaside);
         if ( !v32 )
         {
-          ++dword_1404C6B18;
-          v32 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_1404C6B30)(
-                                (unsigned int)dword_1404C6B24,
-                                (unsigned int)dword_1404C6B2C,
-                                (unsigned int)dword_1404C6B28,
+          ++dword_1404C7BD8;
+          v32 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _SLIST_HEADER *))qword_1404C7BF0)(
+                                (unsigned int)dword_1404C7BE4,
+                                (unsigned int)dword_1404C7BEC,
+                                (unsigned int)dword_1404C7BE8,
                                 &CmpBounceBufferLookaside);
         }
         if ( v32 )
@@ -515,15 +515,15 @@ LABEL_14:
   {
     if ( (v82 & 1) != 0 )
     {
-      ++dword_1404C6B1C;
-      if ( LOWORD(CmpBounceBufferLookaside.Alignment) < (unsigned __int16)word_1404C6B10 )
+      ++dword_1404C7BDC;
+      if ( LOWORD(CmpBounceBufferLookaside.Alignment) < (unsigned __int16)word_1404C7BD0 )
       {
         RtlpInterlockedPushEntrySList(&CmpBounceBufferLookaside, (PSLIST_ENTRY)Src);
       }
       else
       {
-        ++dword_1404C6B20;
-        ((void (__fastcall *)(void *, union _SLIST_HEADER *))qword_1404C6B38)(Src, &CmpBounceBufferLookaside);
+        ++dword_1404C7BE0;
+        ((void (__fastcall *)(void *, _SLIST_HEADER *))qword_1404C7BF8)(Src, &CmpBounceBufferLookaside);
       }
     }
     else

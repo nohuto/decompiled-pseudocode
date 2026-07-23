@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpAllocatePmcCounterSetEx @ 0x140355F20
+ * XREFs of HalpAllocatePmcCounterSetEx @ 0x140357CC0
  * Callers:
- *     HalpAllocatePmcCounterSet @ 0x14057FE20 (HalpAllocatePmcCounterSet.c)
+ *     HalpAllocatePmcCounterSet @ 0x140582340 (HalpAllocatePmcCounterSet.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpRequestPmuAccess @ 0x140B5BF20 (HalpRequestPmuAccess.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpRequestPmuAccess @ 0x140B5F240 (HalpRequestPmuAccess.c)
  */
 
 __int64 __fastcall HalpAllocatePmcCounterSetEx(
@@ -58,14 +58,14 @@ __int64 __fastcall HalpAllocatePmcCounterSetEx(
   __int64 v39; // rdx
   unsigned int *v40; // rsi
   unsigned int v41; // [rsp+40h] [rbp-98h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-90h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-90h] BYREF
   unsigned int *v44; // [rsp+58h] [rbp-80h]
   __int64 v45; // [rsp+60h] [rbp-78h]
   __int64 v46; // [rsp+68h] [rbp-70h]
   __int64 v47; // [rsp+70h] [rbp-68h]
   __int64 v48; // [rsp+78h] [rbp-60h]
   _DWORD *v49; // [rsp+80h] [rbp-58h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-50h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-50h] BYREF
 
   v6 = a5;
   v45 = (__int64)a5;
@@ -80,7 +80,7 @@ __int64 __fastcall HalpAllocatePmcCounterSetEx(
   if ( v9 < 0 )
     return (unsigned int)v9;
   v10 = (unsigned int)v8;
-  v11 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v8);
+  v11 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v8);
   Affinity.Reserved[1] = 0;
   Affinity.Reserved[2] = 0;
   *(_DWORD *)&Affinity.Group = (unsigned __int16)(v11 >> 6);

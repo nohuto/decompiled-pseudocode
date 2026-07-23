@@ -1,9 +1,9 @@
 /*
- * XREFs of PerfInfoLogUnexpectedInterrupt @ 0x1406C6090
+ * XREFs of PerfInfoLogUnexpectedInterrupt @ 0x1406C9D30
  * Callers:
- *     KxIsrLinkage @ 0x14072BC20 (KxIsrLinkage.c)
+ *     KxIsrLinkage @ 0x1407307F0 (KxIsrLinkage.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
  */
 
 __int64 __fastcall PerfInfoLogUnexpectedInterrupt(int a1)

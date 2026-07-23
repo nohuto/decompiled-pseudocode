@@ -9,42 +9,39 @@
  *     RtlLockModuleSection @ 0x180048E10 (RtlLockModuleSection.c)
  */
 
-__int64 __fastcall sub_180049134(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 sub_180049134()
 {
-  int v4; // esi
-  unsigned __int64 v5; // rdx
-  unsigned __int64 *v6; // r8
-  __int64 v7; // r9
-  int v8; // eax
-  int v10; // ebx
-  __int64 *v11; // rdi
+  NTSTATUS v0; // esi
+  int v1; // eax
+  int v3; // ebx
+  PVOID *v4; // rdi
 
-  v4 = 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D2A8, a2, a3, a4);
-  v8 = dword_18015CFFC;
+  v0 = 0;
+  RtlAcquireSRWLockExclusive(&stru_18015D2A8);
+  v1 = dword_18015CFFC;
   if ( dword_18015CFFC )
   {
 LABEL_2:
-    dword_18015CFFC = v8 + 1;
+    dword_18015CFFC = v1 + 1;
   }
   else
   {
-    v10 = 0;
-    v11 = (__int64 *)&off_180110EF8;
+    v3 = 0;
+    v4 = (PVOID *)&off_180110EF8;
     while ( 1 )
     {
-      v4 = RtlLockModuleSection(*v11, v5, v6, v7);
-      if ( v4 < 0 )
+      v0 = RtlLockModuleSection(*v4);
+      if ( v0 < 0 )
         break;
-      ++v10;
-      ++v11;
-      if ( v10 )
+      ++v3;
+      ++v4;
+      if ( v3 )
       {
-        v8 = dword_18015CFFC;
+        v1 = dword_18015CFFC;
         goto LABEL_2;
       }
     }
   }
-  RtlReleaseSRWLockExclusive(&qword_18015D2A8);
-  return (unsigned int)v4;
+  RtlReleaseSRWLockExclusive(&stru_18015D2A8);
+  return (unsigned int)v0;
 }

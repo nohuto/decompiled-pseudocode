@@ -1,28 +1,28 @@
 /*
  * XREFs of MiMarkPfnVerified @ 0x140219BD0
  * Callers:
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MiRevertValidPte @ 0x140278A80 (MiRevertValidPte.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiSetSystemCodeProtection @ 0x140284310 (MiSetSystemCodeProtection.c)
- *     MiGatherMappedPages @ 0x140297D24 (MiGatherMappedPages.c)
- *     MiValidateInPage @ 0x1402DC480 (MiValidateInPage.c)
- *     MiInitializeBootLoadedDriverPfnRange @ 0x1403759B4 (MiInitializeBootLoadedDriverPfnRange.c)
- *     MiProtectDriverSectionPte @ 0x14061A4A0 (MiProtectDriverSectionPte.c)
- *     MiInitializeBootShadowStackPage @ 0x140644964 (MiInitializeBootShadowStackPage.c)
- *     MiCompleteSecureProcessFault @ 0x140645B98 (MiCompleteSecureProcessFault.c)
- *     MiValidateImagePfn @ 0x1406B0FF8 (MiValidateImagePfn.c)
- *     MiFillPerSessionProtos @ 0x140A49FAC (MiFillPerSessionProtos.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MiRevertValidPte @ 0x140278D10 (MiRevertValidPte.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiSetSystemCodeProtection @ 0x1402845A0 (MiSetSystemCodeProtection.c)
+ *     MiGatherMappedPages @ 0x140297FB4 (MiGatherMappedPages.c)
+ *     MiValidateInPage @ 0x1402DC710 (MiValidateInPage.c)
+ *     MiInitializeBootLoadedDriverPfnRange @ 0x140375B54 (MiInitializeBootLoadedDriverPfnRange.c)
+ *     MiProtectDriverSectionPte @ 0x14061A9F0 (MiProtectDriverSectionPte.c)
+ *     MiInitializeBootShadowStackPage @ 0x140644EB4 (MiInitializeBootShadowStackPage.c)
+ *     MiCompleteSecureProcessFault @ 0x1406460E8 (MiCompleteSecureProcessFault.c)
+ *     MiValidateImagePfn @ 0x1406B1028 (MiValidateImagePfn.c)
+ *     MiFillPerSessionProtos @ 0x140A4A25C (MiFillPerSessionProtos.c)
  *     MiCreateDescriptorPfns @ 0x140B42404 (MiCreateDescriptorPfns.c)
  *     MiHandleBootImage @ 0x140B46AA8 (MiHandleBootImage.c)
  *     MiValidateKernelHalLargePageRange @ 0x140B9A8D0 (MiValidateKernelHalLargePageRange.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KeSetPagePrivilege @ 0x1403D4D14 (KeSetPagePrivilege.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KeSetPagePrivilege @ 0x1403D4EF4 (KeSetPagePrivilege.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall MiMarkPfnVerified(ULONG_PTR BugCheckParameter2, char a2)
@@ -83,10 +83,10 @@ char __fastcall MiMarkPfnVerified(ULONG_PTR BugCheckParameter2, char a2)
   if ( v5 != 17 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

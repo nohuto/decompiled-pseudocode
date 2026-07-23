@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceInPageFile @ 0x140398340
+ * XREFs of MiReferenceInPageFile @ 0x140350A90
  * Callers:
- *     MiIssueHardFault @ 0x140397B2C (MiIssueHardFault.c)
- *     MiPfExecuteReadList @ 0x140956C3C (MiPfExecuteReadList.c)
+ *     MiIssueHardFault @ 0x140350280 (MiIssueHardFault.c)
+ *     MiPfExecuteReadList @ 0x14093A5EC (MiPfExecuteReadList.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiReleaseSpinLockShared @ 0x140244830 (MiReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140340450 (ObpTraceObjectReferenceIfActive.c)
- *     ObFastReferenceObjectLocked @ 0x140397714 (ObFastReferenceObjectLocked.c)
- *     MiComputeImagePteIndex @ 0x140398504 (MiComputeImagePteIndex.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiReleaseSpinLockShared @ 0x14020CFC0 (MiReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x14031F930 (ObpTraceObjectReferenceIfActive.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiComputeImagePteIndex @ 0x140350C54 (MiComputeImagePteIndex.c)
+ *     ObFastReferenceObjectLocked @ 0x1403517CC (ObFastReferenceObjectLocked.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiReferenceInPageFile(__int64 a1, unsigned int a2, int a3)
@@ -28,6 +28,8 @@ ULONG_PTR __fastcall MiReferenceInPageFile(__int64 a1, unsigned int a2, int a3)
   signed __int64 v16; // rtt
   volatile LONG *v17; // rcx
   KIRQL v18; // r15
+  __int64 v19; // r8
+  __int64 v20; // r9
 
   result = *(_QWORD *)(a1 + 208);
   if ( !result )
@@ -85,8 +87,8 @@ LABEL_22:
   {
     v18 = ExAcquireSpinLockShared(v17);
   }
-  v12 = ObFastReferenceObjectLocked((_QWORD *)(v7 + 64), 0x63536D4Du);
-  MiReleaseSpinLockShared((volatile signed __int32 *)(v7 + 72), v18);
+  v12 = ObFastReferenceObjectLocked(v7 + 64, 1666411853LL);
+  MiReleaseSpinLockShared((volatile signed __int32 *)(v7 + 72), v18, v19, v20);
 LABEL_7:
   if ( (*(_DWORD *)(v7 + 56) & 0x20) != 0 )
   {

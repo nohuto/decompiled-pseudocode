@@ -1,24 +1,24 @@
 /*
- * XREFs of PopIrpWorker @ 0x14028D350
+ * XREFs of PopIrpWorker @ 0x14028D5E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PoDeviceAcquireIrp @ 0x14028D9B8 (PoDeviceAcquireIrp.c)
- *     PopFxGetDeviceDStateReason @ 0x14028DB04 (PopFxGetDeviceDStateReason.c)
- *     PopPepDeviceDState @ 0x14028DB5C (PopPepDeviceDState.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PsTerminateSystemThread @ 0x140700DB0 (PsTerminateSystemThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PoDeviceAcquireIrp @ 0x14028DC48 (PoDeviceAcquireIrp.c)
+ *     PopFxGetDeviceDStateReason @ 0x14028DD94 (PopFxGetDeviceDStateReason.c)
+ *     PopPepDeviceDState @ 0x14028DDEC (PopPepDeviceDState.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PsTerminateSystemThread @ 0x140700FC0 (PsTerminateSystemThread.c)
  */
 
 NTSTATUS __fastcall PopIrpWorker(__int64 *Entry, __int64 a2, __int64 a3, int a4)
@@ -90,13 +90,13 @@ NTSTATUS __fastcall PopIrpWorker(__int64 *Entry, __int64 a2, __int64 a3, int a4)
   ExAcquireFastMutex(&PopIrpWorkerMutex);
   --PopIrpWorkerPendingCount;
   ++PopIrpWorkerCount;
-  if ( *(__int64 **)qword_140C3A528 != &PopIrpThreadList )
+  if ( *(__int64 **)qword_140C3A4E8 != &PopIrpThreadList )
 LABEL_43:
     __fastfail(3u);
   *(_QWORD *)&v41 = &PopIrpThreadList;
-  *((_QWORD *)&v41 + 1) = qword_140C3A528;
-  *(_QWORD *)qword_140C3A528 = &v41;
-  qword_140C3A528 = (__int64)&v41;
+  *((_QWORD *)&v41 + 1) = qword_140C3A4E8;
+  *(_QWORD *)qword_140C3A4E8 = &v41;
+  qword_140C3A4E8 = (__int64)&v41;
 LABEL_7:
   ExReleaseFastMutex(&PopIrpWorkerMutex);
   do
@@ -114,10 +114,13 @@ LABEL_7:
       *(_QWORD *)(v9 + 8) = &PopIrpWorkerList;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -177,7 +180,7 @@ LABEL_7:
       {
         v4 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v4 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v4 <= 0xFu )
         {
           v34 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v4 == 2 )
@@ -191,10 +194,10 @@ LABEL_7:
       (*(void (__fastcall **)(ULONG_PTR, ULONG_PTR))(*(_QWORD *)(v14 + 8) + 288LL))(v14, v13);
       if ( v20 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v36 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && v4 <= 0xFu && v36 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && v4 <= 0xFu && v36 >= 2u )
           {
             v37 = KeGetCurrentPrcb();
             v38 = v37->SchedulerAssist;

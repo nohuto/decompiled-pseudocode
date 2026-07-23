@@ -1,11 +1,11 @@
 /*
- * XREFs of CarCreateRuleOverrideEntry @ 0x1406497F0
+ * XREFs of CarCreateRuleOverrideEntry @ 0x14064D3D0
  * Callers:
- *     CarRegisterRuleOverride @ 0x14064A110 (CarRegisterRuleOverride.c)
- *     CarRegisterRuleOverrideAllContexts @ 0x14064A200 (CarRegisterRuleOverrideAllContexts.c)
+ *     CarRegisterRuleOverride @ 0x14064DCF0 (CarRegisterRuleOverride.c)
+ *     CarRegisterRuleOverrideAllContexts @ 0x14064DDE0 (CarRegisterRuleOverrideAllContexts.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CarCreateRuleOverrideEntry(_QWORD *a1)

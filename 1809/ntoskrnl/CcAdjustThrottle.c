@@ -1,9 +1,9 @@
 /*
- * XREFs of CcAdjustThrottle @ 0x1400D7554
+ * XREFs of CcAdjustThrottle @ 0x1400D75D4
  * Callers:
- *     CcLazyWriteScan @ 0x1400D575C (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x1400D57DC (CcLazyWriteScan.c)
  * Callees:
- *     CcAdjustCurrentThresholdWrtTop @ 0x1400D8170 (CcAdjustCurrentThresholdWrtTop.c)
+ *     CcAdjustCurrentThresholdWrtTop @ 0x1400D81F0 (CcAdjustCurrentThresholdWrtTop.c)
  */
 
 unsigned __int64 __fastcall CcAdjustThrottle(_QWORD *a1, __int64 *a2, __int64 a3, __int64 a4)
@@ -94,7 +94,7 @@ LABEL_9:
   if ( v16 > 0xFFFFFFFF )
     LODWORD(v16) = -1;
   *(_DWORD *)(a3 + 24) = v16;
-  v17 = (unsigned __int8)dword_14054019C;
+  v17 = (unsigned __int8)dword_14054119C;
   v18 = (a1[87] + a1[88]) >> 1;
   *(_QWORD *)(a3 + 8) = v18;
   result = v18 >> 2;

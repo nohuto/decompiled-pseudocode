@@ -1,13 +1,13 @@
 /*
- * XREFs of KiDoubleFaultAbort @ 0x140735A00
+ * XREFs of KiDoubleFaultAbort @ 0x14073A600
  * Callers:
- *     KiDoubleFaultAbortShadow @ 0x140C59540 (KiDoubleFaultAbortShadow.c)
+ *     KiDoubleFaultAbortShadow @ 0x140C5F540 (KiDoubleFaultAbortShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x140446060 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x140533CB0 (KiSaveDebugRegisterState.c)
- *     KiDoubleFaultAbort @ 0x140735A00 (KiDoubleFaultAbort.c)
- *     KiBugCheckDispatch @ 0x14073C4C0 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x14073CF80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14043EB60 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x140536130 (KiSaveDebugRegisterState.c)
+ *     KiDoubleFaultAbort @ 0x14073A600 (KiDoubleFaultAbort.c)
+ *     KiBugCheckDispatch @ 0x1407410C0 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140741B80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiDoubleFaultAbort(__int64 a1, __int64 _RDX, __int64 a3, __int64 a4)
@@ -94,7 +94,7 @@ void __fastcall __noreturn KiDoubleFaultAbort(__int64 a1, __int64 _RDX, __int64 
       LODWORD(_RDX) = (unsigned __int8)_RDX;
     }
     if ( (_RDX & 2) != 0 )
-      JUMPOUT(0x140735C61LL);
+      JUMPOUT(0x14073A861LL);
     if ( (_RDX & 0x80) != 0 )
     {
       _mm_lfence();

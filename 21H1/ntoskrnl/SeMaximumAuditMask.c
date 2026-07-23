@@ -37,7 +37,7 @@ unsigned __int64 __fastcall SeMaximumAuditMask(__int64 a1, int a2, __int64 a3, _
           if ( ((v10 >> 6) & (v11 != 0)) != 0 )
           {
             LOBYTE(a4) = 1;
-            if ( (unsigned __int8)SepSidInToken(a3, 0LL, v8 + 8, (__int64)a4, 0) )
+            if ( (unsigned __int8)SepSidInToken(a3, 0LL, v8 + 8, (__int64)a4, 0, 0, 0) )
               *v5 |= v11;
           }
         }

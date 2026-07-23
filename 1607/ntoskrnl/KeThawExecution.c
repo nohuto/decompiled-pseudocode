@@ -1,14 +1,14 @@
 /*
- * XREFs of KeThawExecution @ 0x1400825DC
+ * XREFs of KeThawExecution @ 0x140083258
  * Callers:
- *     ExpWaitForBootDevices @ 0x14022D3C4 (ExpWaitForBootDevices.c)
- *     KdExitDebugger @ 0x1406F2838 (KdExitDebugger.c)
+ *     ExpWaitForBootDevices @ 0x14022D1F0 (ExpWaitForBootDevices.c)
+ *     KdExitDebugger @ 0x1406F24D0 (KdExitDebugger.c)
  * Callees:
- *     KiEndDebugAccumulation @ 0x140082A84 (KiEndDebugAccumulation.c)
- *     KiSendThawExecution @ 0x14008313C (KiSendThawExecution.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     KeFlushCurrentTbImmediately @ 0x1401D60A0 (KeFlushCurrentTbImmediately.c)
+ *     KiEndDebugAccumulation @ 0x140083704 (KiEndDebugAccumulation.c)
+ *     KiSendThawExecution @ 0x140083DBC (KiSendThawExecution.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     KeFlushCurrentTbImmediately @ 0x1401D5ECC (KeFlushCurrentTbImmediately.c)
  */
 
 __int64 __fastcall KeThawExecution(char a1)

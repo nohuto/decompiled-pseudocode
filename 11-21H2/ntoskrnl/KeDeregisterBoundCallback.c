@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x1403C7678 (ExCompareExchangeCallBack.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406D9550 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ExWaitForCallBacks @ 0x1409FB4DC (ExWaitForCallBacks.c)
+ *     sub_140281870 @ 0x140281870 (sub_140281870.c)
+ *     sub_1402AD030 @ 0x1402AD030 (sub_1402AD030.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_1403C7678 @ 0x1403C7678 (sub_1403C7678.c)
+ *     sub_1406D9550 @ 0x1406D9550 (sub_1406D9550.c)
+ *     sub_1409FB4DC @ 0x1409FB4DC (sub_1409FB4DC.c)
  */
 
 __int64 __fastcall KeDeregisterBoundCallback(__int64 a1)
@@ -23,32 +23,32 @@ __int64 __fastcall KeDeregisterBoundCallback(__int64 a1)
 
   CurrentThread = KeGetCurrentThread();
   v3 = -1073741816;
-  --CurrentThread->KernelApcDisable;
-  v4 = ExReferenceCallBackBlock(&KiBoundsCallback);
+  --*((_WORD *)CurrentThread + 242);
+  v4 = sub_140281870(&qword_140C2BD40);
   v5 = v4;
   if ( v4 )
   {
     v6 = 0;
     if ( v4[1].Count == a1 )
-      v6 = ExCompareExchangeCallBack(&KiBoundsCallback, 0LL, (__int64)v4);
-    _m_prefetchw(&KiBoundsCallback);
-    v7 = KiBoundsCallback;
+      v6 = sub_1403C7678(&qword_140C2BD40, 0LL, (__int64)v4);
+    _m_prefetchw(&qword_140C2BD40);
+    v7 = qword_140C2BD40;
     while ( ((unsigned __int64)v5 ^ v7) < 0xF )
     {
       v8 = v7;
-      v7 = _InterlockedCompareExchange64(&KiBoundsCallback, v7 + 1, v7);
+      v7 = _InterlockedCompareExchange64(&qword_140C2BD40, v7 + 1, v7);
       if ( v8 == v7 )
         goto LABEL_8;
     }
-    ExReleaseRundownProtection(v5);
+    sub_1402AD030(v5);
 LABEL_8:
     if ( v6 )
     {
-      ExWaitForCallBacks(v5);
-      SC_ENV::Free(v5);
+      sub_1409FB4DC(v5);
+      sub_1406D9550(v5);
       v3 = 0;
     }
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  sub_1402F9540((__int64)KeGetCurrentThread());
   return v3;
 }

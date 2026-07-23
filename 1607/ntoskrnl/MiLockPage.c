@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockPage @ 0x1401593D8
+ * XREFs of MiLockPage @ 0x140159948
  * Callers:
- *     MiUpdatePfnPriorityByPte @ 0x14002E6B0 (MiUpdatePfnPriorityByPte.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiDecrementHugeContext @ 0x140140E7C (MiDecrementHugeContext.c)
+ *     MiUpdatePfnPriorityByPte @ 0x14002E230 (MiUpdatePfnPriorityByPte.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiDecrementHugeContext @ 0x1401413EC (MiDecrementHugeContext.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
- *     MiFillPagedPoolLockedDown @ 0x14065A01C (MiFillPagedPoolLockedDown.c)
- *     MiScanPagefileSpace @ 0x14065B124 (MiScanPagefileSpace.c)
- *     MiScrubProcesses @ 0x140664E40 (MiScrubProcesses.c)
- *     MmAreMdlPagesLocked @ 0x140701990 (MmAreMdlPagesLocked.c)
+ *     MiFillPagedPoolLockedDown @ 0x14065A100 (MiFillPagedPoolLockedDown.c)
+ *     MiScanPagefileSpace @ 0x14065B208 (MiScanPagefileSpace.c)
+ *     MiScrubProcesses @ 0x140664F24 (MiScrubProcesses.c)
+ *     MmAreMdlPagesLocked @ 0x1407019C0 (MmAreMdlPagesLocked.c)
  * Callees:
  *     <none>
  */

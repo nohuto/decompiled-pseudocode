@@ -1,15 +1,15 @@
 /*
- * XREFs of BcpDisplayProgressModernized @ 0x140699A04
+ * XREFs of BcpDisplayProgressModernized @ 0x14069AA84
  * Callers:
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x14069A194 (BgpFwDisplayBugCheckProgressUpdate.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14069A6B0 (BgpFwDisplayBugCheckScreenModernized.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14069B214 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14069B730 (BgpFwDisplayBugCheckScreenModernized.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     BcpConvertProgressToString @ 0x1406988EC (BcpConvertProgressToString.c)
- *     BcpDisplayCriticalStringCentered @ 0x140698E30 (BcpDisplayCriticalStringCentered.c)
- *     BcpPrintSpaces @ 0x140699F68 (BcpPrintSpaces.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     BcpConvertProgressToString @ 0x14069996C (BcpConvertProgressToString.c)
+ *     BcpDisplayCriticalStringCentered @ 0x140699EB0 (BcpDisplayCriticalStringCentered.c)
+ *     BcpPrintSpaces @ 0x14069AFE8 (BcpPrintSpaces.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall BcpDisplayProgressModernized(unsigned int a1, int a2)
@@ -27,25 +27,25 @@ __int64 __fastcall BcpDisplayProgressModernized(unsigned int a1, int a2)
   v10 = 0;
   v4 = 84LL * a2;
   appended = BcpPrintSpaces(
-               qword_140E3EAA0,
-               *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 16) + *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 32),
-               *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 32)
-             + *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 16)
-             + *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 24),
+               qword_140E3EBE0,
+               *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 16) + *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 32),
+               *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 32)
+             + *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 16)
+             + *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 24),
                *(&BcpCursor + 1),
-               *(_DWORD *)(*(_QWORD *)(qword_140E3EAA0 + 24) + 40LL),
+               *(_DWORD *)(*(_QWORD *)(qword_140E3EBE0 + 24) + 40LL),
                (__int64)&v10);
   if ( appended >= 0 )
   {
     *(_QWORD *)&Source.Length = 0x80000LL;
     Source.Buffer = (wchar_t *)&v13;
     BcpConvertProgressToString(a1, (__int64)&Source);
-    v6 = &stru_140E3E9E0;
+    v6 = &stru_140E3EB20;
     *(_QWORD *)&Destination.Length = 0LL;
-    Destination.MaximumLength = word_140E3EAB8;
-    Destination.Buffer = (wchar_t *)qword_140E3EAB0;
+    Destination.MaximumLength = word_140E3EBF8;
+    Destination.Buffer = (wchar_t *)qword_140E3EBF0;
     if ( a1 != 1 )
-      v6 = &stru_140E3EA00;
+      v6 = &stru_140E3EB40;
     appended = RtlAppendUnicodeStringToString(&Destination, v6);
     if ( appended >= 0 )
     {
@@ -55,12 +55,12 @@ __int64 __fastcall BcpDisplayProgressModernized(unsigned int a1, int a2)
         appended = RtlAppendUnicodeStringToString(&Destination, &Source);
         if ( appended >= 0 )
         {
-          v7 = &stru_140E3E9F0;
+          v7 = &stru_140E3EB30;
           if ( a1 != 1 )
-            v7 = &stru_140E3EA10;
+            v7 = &stru_140E3EB50;
           appended = RtlAppendUnicodeStringToString(&Destination, v7);
           if ( appended >= 0 )
-            BcpDisplayCriticalStringCentered(&Destination, *(_DWORD *)((char *)&unk_140E0EED0 + v4 + 8), v8, a2);
+            BcpDisplayCriticalStringCentered(&Destination, *(_DWORD *)((char *)&unk_140E0EFA0 + v4 + 8), v8, a2);
         }
       }
     }

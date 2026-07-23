@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLogNotificationRegister @ 0x1408554EC
+ * XREFs of CmpLogNotificationRegister @ 0x14085B884
  * Callers:
- *     CmpNotifyChangeKey @ 0x14097AF04 (CmpNotifyChangeKey.c)
+ *     CmpNotifyChangeKey @ 0x14093CF14 (CmpNotifyChangeKey.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
  */
 
 __int64 __fastcall CmpLogNotificationRegister(__int64 a1, __int64 a2, char a3, char a4, char a5)

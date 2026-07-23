@@ -1,12 +1,12 @@
 /*
- * XREFs of HviGetHypervisorVersion @ 0x140231F80
+ * XREFs of HviGetHypervisorVersion @ 0x140231DAC
  * Callers:
- *     HvlpHvIdentityInfoCallback @ 0x1401BAD80 (HvlpHvIdentityInfoCallback.c)
- *     KiIsHyperVCr3RspErrataPresent @ 0x1401D8E8C (KiIsHyperVCr3RspErrataPresent.c)
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
- *     HvlQueryDetailInfo @ 0x1406201C0 (HvlQueryDetailInfo.c)
+ *     HvlpHvIdentityInfoCallback @ 0x1401BAC64 (HvlpHvIdentityInfoCallback.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1401D8CB8 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
+ *     HvlQueryDetailInfo @ 0x140620274 (HvlQueryDetailInfo.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x14014AF54 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14014B4C4 (HviIsHypervisorMicrosoftCompatible.c)
  */
 
 char __fastcall HviGetHypervisorVersion(_DWORD *a1)

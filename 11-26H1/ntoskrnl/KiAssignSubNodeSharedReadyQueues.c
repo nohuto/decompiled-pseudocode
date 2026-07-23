@@ -1,17 +1,17 @@
 /*
- * XREFs of KiAssignSubNodeSharedReadyQueues @ 0x1405EA5A0
+ * XREFs of KiAssignSubNodeSharedReadyQueues @ 0x1405ECF10
  * Callers:
- *     KiConfigureNodeSchedulingInformation @ 0x1405EAC00 (KiConfigureNodeSchedulingInformation.c)
+ *     KiConfigureNodeSchedulingInformation @ 0x1405ED570 (KiConfigureNodeSchedulingInformation.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiFreeLocalSharedReadyQueue @ 0x1405EB21C (KiFreeLocalSharedReadyQueue.c)
- *     KiInitializePriorityState @ 0x1405F69C4 (KiInitializePriorityState.c)
- *     KiComputeSharedReadyQueueAssignments @ 0x1405FB9A0 (KiComputeSharedReadyQueueAssignments.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KeDetectHeterogeneousSets @ 0x140A9ED28 (KeDetectHeterogeneousSets.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiFreeLocalSharedReadyQueue @ 0x1405EDB8C (KiFreeLocalSharedReadyQueue.c)
+ *     KiInitializePriorityState @ 0x1405F9384 (KiInitializePriorityState.c)
+ *     KiComputeSharedReadyQueueAssignments @ 0x1405FE3F0 (KiComputeSharedReadyQueueAssignments.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KeDetectHeterogeneousSets @ 0x140B2663C (KeDetectHeterogeneousSets.c)
  */
 
 __int64 __fastcall KiAssignSubNodeSharedReadyQueues(__int64 a1)
@@ -76,8 +76,7 @@ __int64 __fastcall KiAssignSubNodeSharedReadyQueues(__int64 a1)
   while ( !(unsigned int)KeEnumerateNextProcessor(&v16, &v17) )
   {
     v5 = KiProcessorBlock[v16];
-    v6 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                          + 64 * (unsigned __int64)*(unsigned __int16 *)(a1 + 136)
+    v6 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int64)*(unsigned __int16 *)(a1 + 136)].Flink
                           + (unsigned __int8)v22[*(unsigned __int8 *)(v5 + 209)])];
     v7 = *(_QWORD *)(v6 + 36488);
     if ( v6 != v5 )

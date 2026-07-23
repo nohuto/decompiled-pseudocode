@@ -9,25 +9,25 @@
  *     <none>
  */
 
-char __fastcall RtlUpperChar(char a1)
+CHAR __cdecl RtlUpperChar(CHAR Character)
 {
-  char v1; // r9
-  char result; // al
+  CHAR v1; // r9
+  CHAR result; // al
   unsigned __int16 v3; // r9
   unsigned __int16 v4; // r10
 
-  v1 = a1;
-  if ( a1 <= 122 )
+  v1 = Character;
+  if ( Character <= 122 )
   {
-    if ( a1 >= 97 )
-      return a1 ^ 0x20;
+    if ( Character >= 97 )
+      return Character ^ 0x20;
     return v1;
   }
   if ( NlsMbCodePageTag )
   {
-    if ( word_18015ADC0[a1] )
+    if ( word_18015ADC0[Character] )
       return v1;
-    v4 = *(_WORD *)(qword_18015B210 + 2LL * (unsigned __int8)a1);
+    v4 = *(_WORD *)(qword_18015B210 + 2LL * (unsigned __int8)Character);
     if ( v4 >= 0x61u )
     {
       if ( v4 > 0x7Au )
@@ -49,7 +49,7 @@ char __fastcall RtlUpperChar(char a1)
   }
   else
   {
-    v3 = *(_WORD *)(qword_18015B210 + 2LL * (unsigned __int8)a1);
+    v3 = *(_WORD *)(qword_18015B210 + 2LL * (unsigned __int8)Character);
     if ( v3 >= 0x61u )
     {
       if ( v3 > 0x7Au )

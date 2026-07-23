@@ -1,10 +1,10 @@
 /*
- * XREFs of ExRngInitializeSystem @ 0x140C434D8
+ * XREFs of ExRngInitializeSystem @ 0x140C45628
  * Callers:
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 ExRngInitializeSystem()

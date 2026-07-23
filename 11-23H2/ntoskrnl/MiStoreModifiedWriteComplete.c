@@ -1,16 +1,16 @@
 /*
- * XREFs of MiStoreModifiedWriteComplete @ 0x14065C748
+ * XREFs of MiStoreModifiedWriteComplete @ 0x14065CC98
  * Callers:
- *     SmIoRequestComplete @ 0x1405CD48C (SmIoRequestComplete.c)
+ *     SmIoRequestComplete @ 0x1405CD9FC (SmIoRequestComplete.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiStoreFreeWriteSupport @ 0x14065C2A4 (MiStoreFreeWriteSupport.c)
- *     MiStoreLogWriteCompleteFailure @ 0x14065C374 (MiStoreLogWriteCompleteFailure.c)
- *     MiStoreModifiedWriteDereference @ 0x14065C854 (MiStoreModifiedWriteDereference.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiStoreFreeWriteSupport @ 0x14065C7F4 (MiStoreFreeWriteSupport.c)
+ *     MiStoreLogWriteCompleteFailure @ 0x14065C8C4 (MiStoreLogWriteCompleteFailure.c)
+ *     MiStoreModifiedWriteDereference @ 0x14065CDA4 (MiStoreModifiedWriteDereference.c)
  */
 
-__int64 __fastcall MiStoreModifiedWriteComplete(struct _SLIST_ENTRY *P)
+__int64 __fastcall MiStoreModifiedWriteComplete(_SLIST_ENTRY *P)
 {
   __int64 v1; // r14
   __int64 v3; // rbp
@@ -31,10 +31,13 @@ __int64 __fastcall MiStoreModifiedWriteComplete(struct _SLIST_ENTRY *P)
     v5 = (unsigned __int8)MiLockPageInline(v4);
     *(_BYTE *)(v4 + 34) |= 0x10u;
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -48,6 +51,6 @@ __int64 __fastcall MiStoreModifiedWriteComplete(struct _SLIST_ENTRY *P)
     __writecr8(v5);
     *(_DWORD *)(v3 + 1204) = 32;
   }
-  MiStoreFreeWriteSupport(P, (union _SLIST_HEADER *)v3);
+  MiStoreFreeWriteSupport(P, (_SLIST_HEADER *)v3);
   return MiStoreModifiedWriteDereference(v1);
 }

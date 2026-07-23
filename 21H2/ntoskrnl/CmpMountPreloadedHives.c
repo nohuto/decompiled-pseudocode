@@ -1,87 +1,85 @@
 /*
- * XREFs of CmpMountPreloadedHives @ 0x1407AABF4
+ * XREFs of CmpMountPreloadedHives @ 0x1407AADF4
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A74B0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     RtlAreBitsClear @ 0x140362AD0 (RtlAreBitsClear.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
- *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
- *     CmpQueryHiveRedirectionFileList @ 0x1406BAAB8 (CmpQueryHiveRedirectionFileList.c)
- *     CmRmFinalizeRecovery @ 0x1406BF8BC (CmRmFinalizeRecovery.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x140720FE0 (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     CmpInitializeActualFileSizes @ 0x140724468 (CmpInitializeActualFileSizes.c)
- *     CmpDoFileSetSizeEx @ 0x140724A00 (CmpDoFileSetSizeEx.c)
- *     HvpDropPagedBins @ 0x14079F728 (HvpDropPagedBins.c)
- *     CmpDiskFullWarning @ 0x140876BA8 (CmpDiskFullWarning.c)
- *     ExRaiseHardError @ 0x140956110 (ExRaiseHardError.c)
- *     SyspartGetSystemPartition @ 0x1409735A0 (SyspartGetSystemPartition.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlNumberOfSetBits @ 0x140274DA0 (RtlNumberOfSetBits.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     RtlAreBitsClear @ 0x1402F7CC0 (RtlAreBitsClear.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x140619CE8 (CmpQueryHiveRedirectionFileList.c)
+ *     CmRmFinalizeRecovery @ 0x14061E72C (CmRmFinalizeRecovery.c)
+ *     CmpLockRegistryExclusive @ 0x1406679BC (CmpLockRegistryExclusive.c)
+ *     CmpOpenHiveFile @ 0x1406A3938 (CmpOpenHiveFile.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     CmpInitCmRM @ 0x1406C46C8 (CmpInitCmRM.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1406F8838 (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmpInitializeActualFileSizes @ 0x1406FC494 (CmpInitializeActualFileSizes.c)
+ *     CmpDoFileSetSizeEx @ 0x1406FC9FC (CmpDoFileSetSizeEx.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     HvpDropPagedBins @ 0x14079F928 (HvpDropPagedBins.c)
+ *     CmpDiskFullWarning @ 0x140876D08 (CmpDiskFullWarning.c)
+ *     ExRaiseHardError @ 0x1409562E0 (ExRaiseHardError.c)
+ *     SyspartGetSystemPartition @ 0x140973780 (SyspartGetSystemPartition.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void CmpMountPreloadedHives()
 {
-  int v0; // edi
+  unsigned int v0; // edi
   wchar_t *v1; // rbx
   __int64 v2; // rsi
   int v3; // r13d
   int v4; // eax
   __int64 v5; // rax
   const WCHAR *v6; // rdx
-  int SystemPartition; // ebx
+  signed int SystemPartition; // ebx
   unsigned int v8; // r15d
   ULONG v9; // ebx
   unsigned int v10; // r15d
   ULONG i; // r15d
   ULONG v12; // eax
   int v13; // ebx
-  _DWORD *v14; // r9
-  PKRESOURCEMANAGER *v15; // rcx
+  PKRESOURCEMANAGER *v14; // rcx
   UNICODE_STRING Destination_8; // [rsp+58h] [rbp-B0h] BYREF
   WCHAR Source[2]; // [rsp+68h] [rbp-A0h] BYREF
-  int v18; // [rsp+6Ch] [rbp-9Ch] BYREF
-  int v19; // [rsp+70h] [rbp-98h] BYREF
-  int v20; // [rsp+74h] [rbp-94h] BYREF
-  __int64 v21; // [rsp+78h] [rbp-90h] BYREF
+  int v17[2]; // [rsp+6Ch] [rbp-9Ch] BYREF
+  int v18; // [rsp+74h] [rbp-94h] BYREF
+  __int64 v19; // [rsp+78h] [rbp-90h] BYREF
   UNICODE_STRING *p_Destination_8; // [rsp+80h] [rbp-88h] BYREF
-  int v23; // [rsp+88h] [rbp-80h] BYREF
-  int v24; // [rsp+8Ch] [rbp-7Ch] BYREF
+  int v21; // [rsp+88h] [rbp-80h] BYREF
+  int v22; // [rsp+8Ch] [rbp-7Ch] BYREF
   ULONG Length[2]; // [rsp+90h] [rbp-78h] BYREF
-  HANDLE v26; // [rsp+98h] [rbp-70h] BYREF
-  HANDLE v27; // [rsp+A0h] [rbp-68h] BYREF
-  HANDLE v28; // [rsp+A8h] [rbp-60h] BYREF
+  HANDLE v24; // [rsp+98h] [rbp-70h] BYREF
+  HANDLE v25; // [rsp+A0h] [rbp-68h] BYREF
+  HANDLE v26; // [rsp+A8h] [rbp-60h] BYREF
   wchar_t *PoolWithTag; // [rsp+B0h] [rbp-58h]
-  _QWORD v30[54]; // [rsp+B8h] [rbp-50h] BYREF
-  _OWORD v31[3]; // [rsp+268h] [rbp+160h] BYREF
+  _QWORD v28[54]; // [rsp+B8h] [rbp-50h] BYREF
+  _OWORD v29[3]; // [rsp+268h] [rbp+160h] BYREF
 
   v0 = 0;
-  v19 = 0;
-  v24 = 0;
-  v23 = 0;
+  v17[1] = 0;
+  v22 = 0;
+  v21 = 0;
   Destination_8 = 0LL;
-  memset(v30, 0, sizeof(v30));
-  v20 = 0;
-  v27 = 0LL;
-  LODWORD(v21) = 0;
-  v28 = 0LL;
+  memset(v28, 0, sizeof(v28));
   v18 = 0;
-  memset(v31, 0, sizeof(v31));
+  v25 = 0LL;
+  LODWORD(v19) = 0;
   v26 = 0LL;
+  v17[0] = 0;
+  memset(v29, 0, sizeof(v29));
+  v24 = 0LL;
   *(_DWORD *)Source = 0;
   *(_QWORD *)Length = 0LL;
   PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x62534D43u);
@@ -105,38 +103,38 @@ LABEL_17:
       *(_OWORD *)(v2 + 200) = 0LL;
       *(_WORD *)(v2 + 202) = 0;
       *(_QWORD *)(v2 + 208) = 0LL;
-      SystemPartition = CmpOpenHiveFile(&Destination_8, 0, &v26, &v18, 7u, 0LL, (__int64)Length, 0LL, 0LL);
+      SystemPartition = CmpOpenHiveFile(&Destination_8, 0, &v24, v17, 7u, 0LL, (__int64)Length, 0LL, 0LL);
       if ( SystemPartition < 0 )
       {
         v0 = 16;
 LABEL_52:
-        *(_QWORD *)(v2 - 1560) = v30;
-        v30[0] = v2 - 1616;
+        *(_QWORD *)(v2 - 1560) = v28;
+        v28[0] = v2 - 1616;
         SetFailureLocation(*(_QWORD *)(v2 - 1560), 0, 21, SystemPartition, v0);
-        BYTE6(NlsMbCodePageTag) = 1;
+        CmpPuntBoot = 1;
         p_Destination_8 = &Destination_8;
-        ExRaiseHardError(3221226008LL, 1LL, 1LL, &p_Destination_8, 1, &v24);
+        ExRaiseHardError(3221226008LL, 1LL, 1LL, &p_Destination_8, 1, &v22);
         KeBugCheckEx(0x74u, 2uLL, 1uLL, v2 - 1616, SystemPartition);
       }
       v8 = 2;
-      if ( v18 == 2 )
+      if ( v17[0] == 2 )
         v8 = 18;
-      SystemPartition = CmpOpenHiveFile(&Destination_8, 4u, &v27, &v20, v8, 0LL, 0LL, 0LL, 0LL);
+      SystemPartition = CmpOpenHiveFile(&Destination_8, 4u, &v25, &v18, v8, 0LL, 0LL, 0LL, 0LL);
       if ( SystemPartition < 0 )
       {
         v0 = 32;
         goto LABEL_52;
       }
-      SystemPartition = CmpOpenHiveFile(&Destination_8, 5u, &v28, (int *)&v21, v8, 0LL, 0LL, 0LL, 0LL);
+      SystemPartition = CmpOpenHiveFile(&Destination_8, 5u, &v26, (int *)&v19, v8, 0LL, 0LL, 0LL, 0LL);
       if ( SystemPartition < 0 )
       {
         v0 = 48;
         goto LABEL_52;
       }
       v9 = Length[0];
-      *(_QWORD *)(v2 - 80) = v26;
-      *(_QWORD *)(v2 - 48) = v27;
-      *(_QWORD *)(v2 - 40) = v28;
+      *(_QWORD *)(v2 - 80) = v24;
+      *(_QWORD *)(v2 - 48) = v25;
+      *(_QWORD *)(v2 - 40) = v26;
       *(_DWORD *)(v2 - 1456) &= ~2u;
       v10 = *(_DWORD *)(v2 - 1344) + 4096;
       *(_DWORD *)(v2 - 1432) = Length[1];
@@ -153,7 +151,7 @@ LABEL_52:
         *(_DWORD *)(v2 - 1512) = v12;
         *(_DWORD *)(v2 - 1480) = v9;
       }
-      SystemPartition = CmpInitializeActualFileSizes(v2 - 1616, &v23);
+      SystemPartition = CmpInitializeActualFileSizes(v2 - 1616, &v21);
       if ( SystemPartition < 0 )
       {
         v0 = 64;
@@ -189,14 +187,14 @@ LABEL_52:
       v13 = *(_DWORD *)(v2 - 1456);
       *(_DWORD *)(v2 - 1456) = v13 & 0xFFFFF7FF;
       CmpUnlockRegistry();
-      KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v31, v14);
+      KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v29);
       CmpInitCmRM(v2 - 1616, (v13 & 0x800) != 0);
-      KiUnstackDetachProcess((__int64)v31, 0);
-      v15 = *(PKRESOURCEMANAGER **)(v2 + 2576);
+      KiUnstackDetachProcess((__int64)v29, 0LL);
+      v14 = *(PKRESOURCEMANAGER **)(v2 + 2576);
       *(_DWORD *)(v2 + 2536) |= 8u;
-      if ( v15 )
+      if ( v14 )
       {
-        TmEnableCallbacks(v15[7], (PTM_RM_NOTIFICATION)CmKtmNotification, v15);
+        TmEnableCallbacks(v14[7], (PTM_RM_NOTIFICATION)CmKtmNotification, v14);
         CmRmFinalizeRecovery(*(_QWORD *)(v2 + 2576));
       }
       CmpLockRegistryExclusive();
@@ -222,7 +220,7 @@ LABEL_45:
     {
       if ( (v4 & 0x2000) != 0 )
       {
-        SystemPartition = SyspartGetSystemPartition(v1, 4096LL, &v19);
+        SystemPartition = SyspartGetSystemPartition(v1);
         if ( SystemPartition < 0 )
           goto LABEL_52;
         goto LABEL_16;

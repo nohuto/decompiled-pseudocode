@@ -1,28 +1,28 @@
 /*
- * XREFs of PopPowerAggregatorAllocateLogEntry @ 0x1407A96C4
+ * XREFs of PopPowerAggregatorAllocateLogEntry @ 0x1407A98B4
  * Callers:
- *     PopPowerAggregatorRecordIntent @ 0x1407A95B4 (PopPowerAggregatorRecordIntent.c)
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140877DE8 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPowerAggregatorRecordIntent @ 0x1407A97A4 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140878028 (PopPowerAggregatorSetCurrentState.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
-__int64 __fastcall PopPowerAggregatorAllocateLogEntry(__int64 a1, int a2)
+LARGE_INTEGER *__fastcall PopPowerAggregatorAllocateLogEntry(LARGE_INTEGER *a1, ULONG a2)
 {
   unsigned __int64 v4; // r9
-  __int64 v5; // rbx
-  __int64 result; // rax
-  LARGE_INTEGER v7; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER *v5; // rbx
+  LARGE_INTEGER *result; // rax
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = (unsigned __int64)*(unsigned int *)(a1 + 296) << 7;
-  *(_DWORD *)(a1 + 296) = ((unsigned __int8)*(_DWORD *)(a1 + 296) + 1) & 0x1F;
-  v5 = v4 + a1;
-  memset((void *)(v4 + a1 + 308), 0, 0x7CuLL);
-  *(_DWORD *)(v5 + 304) = a2;
-  *(_QWORD *)(v5 + 312) = RtlGetInterruptTimePrecise(&v7);
-  result = v5 + 304;
-  *(_QWORD *)(v5 + 320) = *(_QWORD *)a1;
+  v4 = (unsigned __int64)a1[37].LowPart << 7;
+  a1[37].LowPart = ((unsigned __int8)a1[37].LowPart + 1) & 0x1F;
+  v5 = (LARGE_INTEGER *)((char *)a1 + v4);
+  memset((char *)&a1[38].QuadPart + v4 + 4, 0, 0x7CuLL);
+  v5[38].LowPart = a2;
+  v5[39] = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  result = v5 + 38;
+  v5[40] = *a1;
   return result;
 }

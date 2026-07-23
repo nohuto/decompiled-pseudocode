@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateCloneChain @ 0x140663A1C
+ * XREFs of MiCreateCloneChain @ 0x140663F6C
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140A48954 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140A48C04 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140289B40 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140289DD0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

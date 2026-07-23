@@ -14,14 +14,14 @@
  *     RtlSectionTableFromVirtualAddress @ 0x1800299D0 (RtlSectionTableFromVirtualAddress.c)
  */
 
-unsigned __int64 RtlAddressInSectionTable()
+PVOID __cdecl RtlAddressInSectionTable(PIMAGE_NT_HEADERS NtHeaders, PVOID BaseOfImage, ULONG VirtualAddress)
 {
-  unsigned __int64 result; // rax
-  unsigned int v1; // r8d
-  __int64 v2; // r11
+  PVOID result; // rax
+  unsigned int v4; // r8d
+  __int64 v5; // r11
 
-  result = RtlSectionTableFromVirtualAddress();
+  result = RtlSectionTableFromVirtualAddress(NtHeaders, BaseOfImage, VirtualAddress);
   if ( result )
-    return v2 + *(unsigned int *)(result + 20) - (unsigned __int64)*(unsigned int *)(result + 12) + v1;
+    return (PVOID)(v5 + *((unsigned int *)result + 5) - (unsigned __int64)*((unsigned int *)result + 3) + v4);
   return result;
 }

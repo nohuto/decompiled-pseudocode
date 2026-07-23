@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwGetCurrentProcessorNumber()
+ULONG ZwGetCurrentProcessorNumber(void)
 {
-  __int64 result; // rax
+  ULONG result; // eax
 
-  result = 228LL;
+  result = 228;
   __asm { syscall; Low latency system call }
   return result;
 }

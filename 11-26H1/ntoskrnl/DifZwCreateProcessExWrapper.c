@@ -1,27 +1,27 @@
 /*
- * XREFs of DifZwCreateProcessExWrapper @ 0x1406A0D30
+ * XREFs of DifZwCreateProcessExWrapper @ 0x1406A4910
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCreateProcessEx @ 0x140723D90 (ZwCreateProcessEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCreateProcessEx @ 0x140728960 (ZwCreateProcessEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwCreateProcessExWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        int a9)
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        void *a4,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle,
+        ULONG Reserved)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v13; // rdx
@@ -34,15 +34,15 @@ __int64 __fastcall DifZwCreateProcessExWrapper(
   BOOLEAN v20; // di
   __int128 *j; // rbx
   PVOID v23; // [rsp+58h] [rbp-51h] BYREF
-  int v24; // [rsp+60h] [rbp-49h]
-  __int64 v25; // [rsp+68h] [rbp-41h]
-  __int64 v26; // [rsp+70h] [rbp-39h]
-  __int64 v27; // [rsp+78h] [rbp-31h]
-  int v28; // [rsp+80h] [rbp-29h]
-  __int64 v29; // [rsp+88h] [rbp-21h]
-  __int64 v30; // [rsp+90h] [rbp-19h]
-  unsigned int v31; // [rsp+98h] [rbp-11h]
-  __int64 v32; // [rsp+A0h] [rbp-9h]
+  ULONG v24; // [rsp+60h] [rbp-49h]
+  HANDLE v25; // [rsp+68h] [rbp-41h]
+  HANDLE v26; // [rsp+70h] [rbp-39h]
+  HANDLE v27; // [rsp+78h] [rbp-31h]
+  ULONG v28; // [rsp+80h] [rbp-29h]
+  void *v29; // [rsp+88h] [rbp-21h]
+  OBJECT_ATTRIBUTES *v30; // [rsp+90h] [rbp-19h]
+  ACCESS_MASK v31; // [rsp+98h] [rbp-11h]
+  HANDLE *v32; // [rsp+A0h] [rbp-9h]
   unsigned int Process; // [rsp+A8h] [rbp-1h]
   void *retaddr; // [rsp+E0h] [rbp+37h]
 
@@ -66,11 +66,11 @@ __int64 __fastcall DifZwCreateProcessExWrapper(
 LABEL_7:
   v17 = 0;
   v32 = a1;
-  v28 = a5;
-  v27 = a6;
-  v26 = a7;
-  v25 = a8;
-  v24 = a9;
+  v28 = Flags;
+  v27 = SectionHandle;
+  v26 = DebugPort;
+  v25 = TokenHandle;
+  v24 = Reserved;
   v31 = a2;
   v30 = a3;
   v29 = a4;
@@ -86,7 +86,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  Process = ZwCreateProcessEx(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+  Process = ZwCreateProcessEx(a1, a2, a3, a4, Flags, SectionHandle, DebugPort, TokenHandle, Reserved);
   if ( v14 )
   {
     if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

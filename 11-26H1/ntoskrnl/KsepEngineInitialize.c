@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepEngineInitialize @ 0x140CCCDD4
+ * XREFs of KsepEngineInitialize @ 0x140CD2F34
  * Callers:
- *     KseInitialize @ 0x140CCCEE0 (KseInitialize.c)
+ *     KseInitialize @ 0x140CD3040 (KseInitialize.c)
  * Callees:
- *     RtlAssert @ 0x140619AB0 (RtlAssert.c)
- *     KsepCacheInitialize @ 0x1407BEB6C (KsepCacheInitialize.c)
- *     KsepEngineReadFlags @ 0x140D0821C (KsepEngineReadFlags.c)
+ *     RtlAssert @ 0x14061CB00 (RtlAssert.c)
+ *     KsepCacheInitialize @ 0x1407C1BCC (KsepCacheInitialize.c)
+ *     KsepEngineReadFlags @ 0x140D0E4EC (KsepEngineReadFlags.c)
  */
 
 __int64 __fastcall KsepEngineInitialize(_QWORD *a1)
@@ -18,14 +18,12 @@ __int64 __fastcall KsepEngineInitialize(_QWORD *a1)
 
   if ( !a1 )
   {
-    v2 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v2 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v2 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v2) = 131862;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
-      RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\ksecore.c", 0x316u, 0LL);
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v2) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v2) = 131842;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
+      RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\ksecore.c", 0x302u, 0LL);
   }
   a1[3] = a1 + 2;
   a1[2] = a1 + 2;

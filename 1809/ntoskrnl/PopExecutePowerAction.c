@@ -1,28 +1,28 @@
 /*
- * XREFs of PopExecutePowerAction @ 0x1406DE0F0
+ * XREFs of PopExecutePowerAction @ 0x1406DF390
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x14018BEF4 (PopCheckAndHandleThermalConditions.c)
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopPolicySystemIdle @ 0x1405B04E0 (PopPolicySystemIdle.c)
- *     NtInitiatePowerAction @ 0x1406DDED0 (NtInitiatePowerAction.c)
- *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
- *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
- *     PopCriticalShutdown @ 0x14086BFF0 (PopCriticalShutdown.c)
- *     PdcPoSetPowerAction @ 0x14086EEC0 (PdcPoSetPowerAction.c)
- *     PopIdleAoAcDozeToS4 @ 0x140877610 (PopIdleAoAcDozeToS4.c)
+ *     PopCheckAndHandleThermalConditions @ 0x14018C034 (PopCheckAndHandleThermalConditions.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopPolicySystemIdle @ 0x1405B14E0 (PopPolicySystemIdle.c)
+ *     NtInitiatePowerAction @ 0x1406DF170 (NtInitiatePowerAction.c)
+ *     PopBatteryApplyCompositeState @ 0x14071B3E8 (PopBatteryApplyCompositeState.c)
+ *     CmCompleteRegistryInitialization @ 0x1407467A4 (CmCompleteRegistryInitialization.c)
+ *     PopCriticalShutdown @ 0x14086D250 (PopCriticalShutdown.c)
+ *     PdcPoSetPowerAction @ 0x140870120 (PdcPoSetPowerAction.c)
+ *     PopIdleAoAcDozeToS4 @ 0x140878870 (PopIdleAoAcDozeToS4.c)
  * Callees:
  *     PopSetNotificationWork @ 0x1400041F0 (PopSetNotificationWork.c)
  *     PopGetPolicyWorker @ 0x1400106A8 (PopGetPolicyWorker.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     PopSetPowerActionState @ 0x140143424 (PopSetPowerActionState.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopDiagTraceShutdownAction @ 0x1402E1DDC (PopDiagTraceShutdownAction.c)
- *     PopCompleteAction @ 0x1406DD008 (PopCompleteAction.c)
- *     PopPromoteActionFlag @ 0x1406DE454 (PopPromoteActionFlag.c)
- *     PopCompareActions @ 0x1406DE4A4 (PopCompareActions.c)
- *     PopVerifyPowerActionPolicy @ 0x1407199D8 (PopVerifyPowerActionPolicy.c)
- *     PopVerifySystemPowerState @ 0x14071B328 (PopVerifySystemPowerState.c)
- *     PopResetActionDefaults @ 0x14071EDCC (PopResetActionDefaults.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     PopSetPowerActionState @ 0x140143524 (PopSetPowerActionState.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopDiagTraceShutdownAction @ 0x1402E1FCC (PopDiagTraceShutdownAction.c)
+ *     PopCompleteAction @ 0x1406DE2A8 (PopCompleteAction.c)
+ *     PopPromoteActionFlag @ 0x1406DF6F4 (PopPromoteActionFlag.c)
+ *     PopCompareActions @ 0x1406DF744 (PopCompareActions.c)
+ *     PopVerifyPowerActionPolicy @ 0x14071AC78 (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x14071C5C8 (PopVerifySystemPowerState.c)
+ *     PopResetActionDefaults @ 0x14072006C (PopResetActionDefaults.c)
  */
 
 int __fastcall PopExecutePowerAction(__int64 a1, unsigned int a2, __int64 *a3, int a4, unsigned int a5)
@@ -75,7 +75,7 @@ int __fastcall PopExecutePowerAction(__int64 a1, unsigned int a2, __int64 *a3, i
   v9 = 0;
   v43 = v5;
   v44 = v7;
-  if ( (xmmword_140541350 & 0x8000) != 0 )
+  if ( (xmmword_140542350 & 0x8000) != 0 )
   {
     v46 = v43;
     v47 = a4;
@@ -133,7 +133,7 @@ LABEL_51:
       {
         v10 = 0;
         LODWORD(v43) = 0;
-        v9 = byte_140418104 != 0 ? 32 : 16;
+        v9 = byte_1404191C4 != 0 ? 32 : 16;
         PopShutdownButtonPressTime = KeQueryPerformanceCounter(0LL).QuadPart;
         v39 = *(_DWORD *)a1;
       }
@@ -141,7 +141,7 @@ LABEL_51:
     }
     if ( v10 - 4 <= 2 )
       PopDiagTraceShutdownAction(v10, v9, *(_DWORD *)a1);
-    if ( !byte_140417701 )
+    if ( !byte_1404187A1 )
       PopResetActionDefaults();
     if ( v10 )
     {
@@ -155,7 +155,7 @@ LABEL_51:
       if ( v10 == 4 )
         v14 = 6;
       v42 = v14;
-      if ( (int)PopCompareActions(v10, (unsigned int)qword_140417704) < 0 )
+      if ( (int)PopCompareActions(v10, (unsigned int)qword_1404187A4) < 0 )
       {
         v18 = 2;
       }
@@ -171,10 +171,10 @@ LABEL_51:
             v22 = *((_DWORD *)PopPolicy + 17);
           v42 = v22;
         }
-        if ( v22 > SHIDWORD(qword_140417704) )
+        if ( v22 > SHIDWORD(qword_1404187A4) )
         {
           v41 |= v21;
-          HIDWORD(qword_140417704) = v22;
+          HIDWORD(qword_1404187A4) = v22;
         }
       }
       LOBYTE(v16) = 1;
@@ -183,7 +183,7 @@ LABEL_51:
       PopPromoteActionFlag((unsigned int)&v41, 0, v15, v24, 0x40000000);
       PopPromoteActionFlag((unsigned int)&v41, v25, v15, v26, v25 + 8);
       PopPromoteActionFlag((unsigned int)&v41, v27, v15, v28, 32);
-      if ( (int)PopCompareActions(v10, (unsigned int)qword_140417704) <= 0 )
+      if ( (int)PopCompareActions(v10, (unsigned int)qword_1404187A4) <= 0 )
       {
         v34 = v41;
       }
@@ -192,25 +192,25 @@ LABEL_51:
         PopCompareActions(v10, (unsigned int)(v30 - 5));
         if ( !(unsigned int)PopCompareActions(v32, v31) )
           v33 |= v18;
-        LODWORD(qword_140417704) = v10;
+        LODWORD(qword_1404187A4) = v10;
         v34 = v33 | 5;
         v29 = v10;
-        dword_140417714 = *(_DWORD *)a1;
-        dword_140417718 = 0;
+        dword_1404187B4 = *(_DWORD *)a1;
+        dword_1404187B8 = 0;
         v41 = v34;
         if ( !*(_DWORD *)a1 )
-          dword_140417718 = *(_DWORD *)(a1 + 16);
+          dword_1404187B8 = *(_DWORD *)(a1 + 16);
       }
       if ( v29 == 3 )
-        LODWORD(qword_140417704) = v18;
+        LODWORD(qword_1404187A4) = v18;
       if ( v34 )
       {
         v13 = 1;
-        if ( (unsigned __int8)byte_140417701 < (unsigned __int8)v18 )
+        if ( (unsigned __int8)byte_1404187A1 < (unsigned __int8)v18 )
         {
           PopSetPowerActionState(1);
           v35 = v18;
-          dword_140417710 = 0;
+          dword_1404187B0 = 0;
         }
         else
         {
@@ -241,14 +241,14 @@ LABEL_51:
   {
     if ( v13 )
     {
-      v37 = (__int64 *)qword_140418138;
+      v37 = (__int64 *)qword_140419088;
       v36 = *(_QWORD *)(a1 + 8) + 32LL;
-      if ( *(__int64 **)qword_140418138 != &PopActionWaiters )
+      if ( *(__int64 **)qword_140419088 != &PopActionWaiters )
         __fastfail(3u);
       *(_QWORD *)v36 = &PopActionWaiters;
       *(_QWORD *)(v36 + 8) = v37;
       *v37 = v36;
-      qword_140418138 = v36;
+      qword_140419088 = v36;
       return v36;
     }
     goto LABEL_49;

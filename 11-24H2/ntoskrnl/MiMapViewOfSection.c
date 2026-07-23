@@ -1,25 +1,25 @@
 /*
- * XREFs of MiMapViewOfSection @ 0x14089A1A0
+ * XREFs of MiMapViewOfSection @ 0x1408A2840
  * Callers:
- *     AlpcpCreateView @ 0x14089328C (AlpcpCreateView.c)
- *     NtMapViewOfSection @ 0x140899970 (NtMapViewOfSection.c)
- *     MmMapViewOfSection @ 0x1409071A0 (MmMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x14099F100 (MiMapViewOfSectionExCommon.c)
- *     NtGetNlsSectionPtr @ 0x140A08EB0 (NtGetNlsSectionPtr.c)
+ *     AlpcpCreateView @ 0x140897248 (AlpcpCreateView.c)
+ *     NtMapViewOfSection @ 0x1408A2010 (NtMapViewOfSection.c)
+ *     MmMapViewOfSection @ 0x1408DE270 (MmMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x140987880 (MiMapViewOfSectionExCommon.c)
+ *     NtGetNlsSectionPtr @ 0x140A053E0 (NtGetNlsSectionPtr.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiMakeProtectionMask @ 0x1402EAF70 (MiMakeProtectionMask.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiFinalizeLagePageImageMapping @ 0x1407ED7C4 (MiFinalizeLagePageImageMapping.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     MiValidateVadMetadataFlags @ 0x1408DFDD0 (MiValidateVadMetadataFlags.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
- *     MiArbitraryCodeBlocked @ 0x140A13140 (MiArbitraryCodeBlocked.c)
- *     MiMapViewOfPhysicalSection @ 0x140A135A0 (MiMapViewOfPhysicalSection.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     MiMakeProtectionMask @ 0x14034C5B0 (MiMakeProtectionMask.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiFinalizeLagePageImageMapping @ 0x1407EDD94 (MiFinalizeLagePageImageMapping.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     MiValidateVadMetadataFlags @ 0x140916980 (MiValidateVadMetadataFlags.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiArbitraryCodeBlocked @ 0x140A0B8A0 (MiArbitraryCodeBlocked.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0BD00 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  */
 
 __int64 __fastcall MiMapViewOfSection(
@@ -62,29 +62,31 @@ __int64 __fastcall MiMapViewOfSection(
   __int64 v39; // r8
   __int64 v40; // rcx
   int v41; // edi
-  int v42; // eax
-  int v43; // eax
+  __int64 v42; // r8
+  __int64 v43; // r9
+  int v44; // eax
   int v45; // eax
-  int v46; // eax
-  unsigned __int64 v47; // rax
-  BOOLEAN v48; // al
-  void *v49; // [rsp+40h] [rbp-A8h] BYREF
+  int v47; // eax
+  int v48; // eax
+  unsigned __int64 v49; // rax
+  BOOLEAN v50; // al
+  void *v51; // [rsp+40h] [rbp-A8h] BYREF
   PRKPROCESS PROCESS; // [rsp+48h] [rbp-A0h]
-  __int64 v51; // [rsp+50h] [rbp-98h]
-  unsigned __int64 v52; // [rsp+58h] [rbp-90h]
+  __int64 v53; // [rsp+50h] [rbp-98h]
+  unsigned __int64 v54; // [rsp+58h] [rbp-90h]
   struct _KAPC_STATE ApcState; // [rsp+60h] [rbp-88h] BYREF
 
   v7 = *(struct _KPROCESS **)(a2 + 88);
   memset(&ApcState, 0, sizeof(ApcState));
-  v49 = 0LL;
+  v51 = 0LL;
   v8 = 0;
   PROCESS = v7;
-  v52 = a4;
+  v54 = a4;
   v13 = MiSectionControlArea(a1);
   v16 = v13;
   v17 = 0x10000LL;
   v18 = *(_QWORD *)v13;
-  v51 = *(_QWORD *)(a2 + 24);
+  v53 = *(_QWORD *)(a2 + 24);
   if ( !a7 )
   {
     if ( (unsigned int)(a6 - 1) > 1 )
@@ -117,17 +119,17 @@ __int64 __fastcall MiMapViewOfSection(
   {
     if ( *(_QWORD *)(a2 + 72) )
       return 3221225485LL;
-    v45 = *(_DWORD *)(a2 + 40);
-    if ( (v45 & 0x2000) != 0 )
+    v47 = *(_DWORD *)(a2 + 40);
+    if ( (v47 & 0x2000) != 0 )
       return 3221225485LL;
-    if ( (v45 & 0x20000000) != 0 )
+    if ( (v47 & 0x20000000) != 0 )
     {
       if ( *(_QWORD *)a5
         || (MiFlags & 0x20000) != 0
         || (*(_DWORD *)(v16 + 56) & 0x20000) != 0
-        || (v48 = SeSinglePrivilegeCheck(SeLockMemoryPrivilege, *(_BYTE *)(a2 + 57)), v20 = 0x2000,
+        || (v50 = SeSinglePrivilegeCheck(SeLockMemoryPrivilege, *(_BYTE *)(a2 + 57)), v20 = 0x2000,
                                                                                       v17 = 0x10000LL,
-                                                                                      !v48) )
+                                                                                      !v50) )
       {
         *(_DWORD *)(a2 + 40) &= ~0x20000000u;
       }
@@ -173,10 +175,10 @@ LABEL_12:
       *(_DWORD *)a5 = v28 & -(int)v27;
       if ( (*(_DWORD *)(v16 + 56) & 0x20) == 0 )
       {
-        v47 = *(_QWORD *)(a2 + 24);
-        if ( v47 + v29 < v47 )
+        v49 = *(_QWORD *)(a2 + 24);
+        if ( v49 + v29 < v49 )
           return 3221225503LL;
-        *(_QWORD *)(a2 + 24) = v47 + v29;
+        *(_QWORD *)(a2 + 24) = v49 + v29;
       }
     }
   }
@@ -224,7 +226,7 @@ LABEL_22:
      || (v35 & 0xFFFFDFFF) != 0
      || (*(_DWORD *)(a2 + 60) & 1) == 0
      || *a3 != (*a3 & 0xFFFFFFFFFFFFF000uLL)
-     || !v51) )
+     || !v53) )
   {
     return 3221225485LL;
   }
@@ -263,45 +265,45 @@ LABEL_22:
   v41 = MiValidateVadMetadataFlags(a2);
   if ( v41 < 0 )
     goto LABEL_44;
-  v42 = *(_DWORD *)(v16 + 56);
-  if ( (v42 & 0x400) != 0 )
+  v44 = *(_DWORD *)(v16 + 56);
+  if ( (v44 & 0x400) != 0 )
   {
-    v43 = MiMapViewOfPhysicalSection(v40, a3, a5, ProtectionMask);
+    v45 = MiMapViewOfPhysicalSection(v40, a3, a5, ProtectionMask);
   }
   else
   {
-    if ( (v42 & 0x20) != 0 )
+    if ( (v44 & 0x20) != 0 )
     {
       while ( 1 )
       {
-        v49 = (void *)*a3;
-        v41 = MiMapViewOfImageSection(v16, a2, (unsigned int)&v49, (_DWORD)a5, a1, a6, ProtectionMask, 0);
-        v46 = *(_DWORD *)(a2 + 40);
-        if ( (v46 & 0x20000000) == 0 )
+        v51 = (void *)*a3;
+        v41 = MiMapViewOfImageSection(v16, a2, (unsigned int)&v51, (_DWORD)a5, a1, a6, ProtectionMask, 0);
+        v48 = *(_DWORD *)(a2 + 40);
+        if ( (v48 & 0x20000000) == 0 )
           break;
-        *(_DWORD *)(a2 + 40) = v46 & 0xDFFFFFFF;
+        *(_DWORD *)(a2 + 40) = v48 & 0xDFFFFFFF;
         if ( v41 >= 0 )
         {
           if ( v41 != 1073741838
-            && (int)MiFinalizeLagePageImageMapping(v16, a2, v49, (int)a5, a1, a6, ProtectionMask) >= 0 )
+            && (int)MiFinalizeLagePageImageMapping(v16, a2, v51, (int)a5, a1, a6, ProtectionMask) >= 0 )
           {
             v41 = 1073741827;
             goto LABEL_73;
           }
-          MiUnmapViewOfSection(PROCESS);
+          MiUnmapViewOfSection(PROCESS, (unsigned __int64)v51, 0, 0);
         }
       }
       if ( v41 < 0 )
         goto LABEL_44;
 LABEL_73:
-      *a3 = (unsigned __int64)v49;
+      *a3 = (unsigned __int64)v51;
       goto LABEL_44;
     }
-    v43 = MiMapViewOfDataSection(v16, a2, (_DWORD)a3, (_DWORD)a5, a1, a6, ProtectionMask, v52);
+    v45 = MiMapViewOfDataSection(v16, a2, (_DWORD)a3, (_DWORD)a5, a1, a6, ProtectionMask, v54);
   }
-  v41 = v43;
+  v41 = v45;
 LABEL_44:
   if ( v8 )
-    KiUnstackDetachProcess((__int64)&ApcState, 0);
+    KiUnstackDetachProcess((__int64)&ApcState, 0, v42, v43);
   return (unsigned int)v41;
 }

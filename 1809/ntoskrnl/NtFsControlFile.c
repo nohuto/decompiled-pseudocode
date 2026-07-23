@@ -1,9 +1,9 @@
 /*
- * XREFs of NtFsControlFile @ 0x14069FD20
+ * XREFs of NtFsControlFile @ 0x1406A0FE0
  * Callers:
  *     <none>
  * Callees:
- *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x1405E9BD0 (IopXxxControlFile.c)
  */
 
 NTSTATUS __stdcall NtFsControlFile(

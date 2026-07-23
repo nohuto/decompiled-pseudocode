@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryDeviceState @ 0x140A618DC
+ * XREFs of PopBatteryDeviceState @ 0x140A5A0BC
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall PopBatteryDeviceState(_WORD *a1, __int64 a2)
@@ -55,10 +55,10 @@ LABEL_24:
       String1.Length = v10 - 8;
       String1.MaximumLength = v9 - 8;
       String1.Buffer = (wchar_t *)(v11 + 8);
-      PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+      PopAcquireRwLockShared(&PopPolicyDeviceLock);
       PopAcquireRwLockShared((volatile signed __int64 *)&PopCB);
-      v13 = (__int64 *)qword_140F0AE60;
-      if ( (__int64 *)qword_140F0AE60 == &qword_140F0AE60 )
+      v13 = (__int64 *)qword_140F0BCA0;
+      if ( (__int64 *)qword_140F0BCA0 == &qword_140F0BCA0 )
         goto LABEL_22;
       do
       {
@@ -73,7 +73,7 @@ LABEL_24:
         v13 = (__int64 *)*v13;
         v15 = 0LL;
       }
-      while ( v13 != &qword_140F0AE60 );
+      while ( v13 != &qword_140F0BCA0 );
       if ( !v15 )
       {
 LABEL_22:
@@ -93,7 +93,7 @@ LABEL_22:
         v4 = -1073741661;
       }
       PopReleaseRwLock((signed __int64 *)&PopCB);
-      PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+      PopReleaseRwLock(&PopPolicyDeviceLock);
     }
     else
     {

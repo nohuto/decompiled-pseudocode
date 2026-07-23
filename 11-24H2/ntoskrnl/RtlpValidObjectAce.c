@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidObjectAce @ 0x14099EF7C
+ * XREFs of RtlpValidObjectAce @ 0x14098353C
  * Callers:
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
- *     SeCaptureSecurityDescriptor @ 0x14091CE60 (SeCaptureSecurityDescriptor.c)
- *     SepCheckAcl @ 0x14099EC10 (SepCheckAcl.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
+ *     SeCaptureSecurityDescriptor @ 0x1409108D0 (SeCaptureSecurityDescriptor.c)
+ *     SepCheckAcl @ 0x1409838D0 (SepCheckAcl.c)
  * Callees:
  *     <none>
  */

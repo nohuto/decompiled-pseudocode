@@ -1,10 +1,10 @@
 /*
- * XREFs of _wcslwr_s @ 0x180122D30
+ * XREFs of _wcslwr_s @ 0x180120F60
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
- *     wcsnlen @ 0x180127A20 (wcsnlen.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
+ *     wcsnlen @ 0x180125C50 (wcsnlen.c)
  */
 
 errno_t __cdecl wcslwr_s(wchar_t *String, size_t SizeInWords)

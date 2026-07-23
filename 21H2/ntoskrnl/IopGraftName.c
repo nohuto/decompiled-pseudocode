@@ -1,27 +1,27 @@
 /*
- * XREFs of IopGraftName @ 0x14069E8A4
+ * XREFs of IopGraftName @ 0x1405FDA74
  * Callers:
- *     IopSymlinkProcessReparse @ 0x14069E848 (IopSymlinkProcessReparse.c)
+ *     IopSymlinkProcessReparse @ 0x1405FDA18 (IopSymlinkProcessReparse.c)
  * Callees:
- *     IopSymlinkGetMostRecentlyUsedName @ 0x1402BB470 (IopSymlinkGetMostRecentlyUsedName.c)
- *     IopSymlinkGetECP @ 0x1402BB490 (IopSymlinkGetECP.c)
- *     IopSymlinkRemoveECP @ 0x140354DDC (IopSymlinkRemoveECP.c)
- *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x140239680 (IopSymlinkGetMostRecentlyUsedName.c)
+ *     IopSymlinkGetECP @ 0x1402396A0 (IopSymlinkGetECP.c)
+ *     IopSymlinkRemoveECP @ 0x14035FB2C (IopSymlinkRemoveECP.c)
+ *     IopGetFileObjectExtension @ 0x140361530 (IopGetFileObjectExtension.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  *     IopCopyOverNewPathSecure @ 0x1405CDC80 (IopCopyOverNewPathSecure.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
- *     IopGetFileInformation @ 0x140620A14 (IopGetFileInformation.c)
- *     IoGetIrpExtraCreateParameter @ 0x140683F20 (IoGetIrpExtraCreateParameter.c)
- *     IopSymlinkUpdateECP @ 0x14069E24C (IopSymlinkUpdateECP.c)
- *     IopSymlinkRememberJunction @ 0x14069E3D4 (IopSymlinkRememberJunction.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x14069E698 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkAllocateAndAddECP @ 0x14069E77C (IopSymlinkAllocateAndAddECP.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x14069EEF4 (IopSymlinkGetRelatedMountPoint.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     IopSymlinkApplyToOpenedName @ 0x1408954C0 (IopSymlinkApplyToOpenedName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IoGetIrpExtraCreateParameter @ 0x1405DDD60 (IoGetIrpExtraCreateParameter.c)
+ *     IopSymlinkUpdateECP @ 0x1405FD41C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkRememberJunction @ 0x1405FD5A4 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x1405FD868 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1405FD94C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x1405FE0C4 (IopSymlinkGetRelatedMountPoint.c)
+ *     IopGetFileInformation @ 0x14068A684 (IopGetFileInformation.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14069C490 (FsRtlFreeExtraCreateParameter.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     IopSymlinkApplyToOpenedName @ 0x140895620 (IopSymlinkApplyToOpenedName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 IRP *__fastcall IopGraftName(IRP *a1, __int64 a2, int *a3)
@@ -40,14 +40,14 @@ IRP *__fastcall IopGraftName(IRP *a1, __int64 a2, int *a3)
   bool v15; // sf
   __int16 v16; // r10
   char *v17; // rax
-  ULONG v18; // esi
+  unsigned int v18; // esi
   unsigned int v19; // r15d
   unsigned __int16 *PoolWithTag; // rax
   const void **v21; // r12
   int NameStringMode; // eax
-  struct _FILE_OBJECT *v23; // r15
-  struct _IRP *v24; // rax
-  struct _IRP *v25; // r12
+  struct _DMA_ADAPTER *v23; // r15
+  unsigned int *v24; // rax
+  _DWORD *v25; // r12
   int FileInformation; // eax
   unsigned int v27; // ecx
   __int64 RelatedMountPoint; // rax
@@ -57,7 +57,7 @@ IRP *__fastcall IopGraftName(IRP *a1, __int64 a2, int *a3)
   unsigned int v32; // r12d
   char *v33; // rax
   __int16 v34; // r12
-  struct _IRP *v35; // rdi
+  unsigned int *v35; // rdi
   char *v36; // rbx
   char *v37; // rdi
   unsigned __int16 v38; // di
@@ -75,7 +75,7 @@ IRP *__fastcall IopGraftName(IRP *a1, __int64 a2, int *a3)
   __int64 v50; // [rsp+68h] [rbp-21h] BYREF
   struct _ECP_LIST *ExtraCreateParameter; // [rsp+70h] [rbp-19h] BYREF
   char *v52; // [rsp+78h] [rbp-11h]
-  struct _IRP *v53; // [rsp+80h] [rbp-9h]
+  unsigned int *v53; // [rsp+80h] [rbp-9h]
   PVOID v54; // [rsp+88h] [rbp-1h]
   unsigned __int16 *v55; // [rsp+90h] [rbp+7h]
   char v58; // [rsp+100h] [rbp+77h]
@@ -166,11 +166,11 @@ LABEL_32:
             if ( IrpExtraCreateParameter >= 0 )
             {
 LABEL_33:
-              v23 = (struct _FILE_OBJECT *)DmaAdapter;
+              v23 = DmaAdapter;
               v5 = *(unsigned __int16 *)v21 + *v55 - *((unsigned __int16 *)a3 + 3);
               while ( 1 )
               {
-                v24 = (struct _IRP *)ExAllocatePoolWithTag(PagedPool, v18, 0x63466F49u);
+                v24 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v18, 0x63466F49u);
                 v12 = 0;
                 v54 = v24;
                 v25 = v24;
@@ -181,14 +181,14 @@ LABEL_33:
                 }
                 v53 = v24;
                 memset(v24, 0, v18);
-                FileInformation = IopGetFileInformation(v23, v18, 9u, v25, &v50);
+                FileInformation = IopGetFileInformation(v23, (__int64)&v50);
                 v12 = 0;
                 IrpExtraCreateParameter = FileInformation;
                 if ( FileInformation >= 0 )
                   break;
                 if ( FileInformation != -2147483643 )
                   goto LABEL_40;
-                v18 = *(_DWORD *)&v25->Type + 8;
+                v18 = *v25 + 8;
                 if ( v18 >= 0xFFFF )
                 {
                   IrpExtraCreateParameter = -1073741562;
@@ -198,7 +198,7 @@ LABEL_40:
                 }
                 ExFreePoolWithTag(v25, 0);
               }
-              v27 = v5 + *(_DWORD *)&v25->Type;
+              v27 = v5 + *v25;
               if ( v27 < v5 )
               {
                 v5 = -1;
@@ -206,7 +206,7 @@ LABEL_40:
                 goto LABEL_40;
               }
               v9 = (UNICODE_STRING *)EcpContext;
-              v5 += *(_DWORD *)&v25->Type;
+              v5 += *v25;
               v7 = (const void **)P;
               v3 = DmaAdapter;
               if ( v27 >= 0xFFFF )
@@ -288,8 +288,8 @@ LABEL_69:
         memmove(v6, v7[1], *(unsigned __int16 *)v7);
         v35 = v53;
         v36 = &v6[2 * ((unsigned __int64)*(unsigned __int16 *)v7 >> 1)];
-        memmove(v36, &v53->Size + 1, *(unsigned int *)&v53->Type);
-        v37 = &v36[2 * ((unsigned __int64)*(unsigned int *)&v35->Type >> 1)];
+        memmove(v36, v53 + 1, *v53);
+        v37 = &v36[2 * ((unsigned __int64)*v35 >> 1)];
         if ( **(_WORD **)(a2 + 96) != 92 && *((_WORD *)v37 - 1) != 92 )
         {
           *(_WORD *)v37 = 92;

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInsertEnvironmentHashTableEntry @ 0x18009DE60
+ * XREFs of RtlpInsertEnvironmentHashTableEntry @ 0x18009CF90
  * Callers:
- *     RtlpScanEnvironment @ 0x18009DA10 (RtlpScanEnvironment.c)
+ *     RtlpScanEnvironment @ 0x18009CB40 (RtlpScanEnvironment.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlpAllocateEnvironmentHashTable @ 0x1800A069C (RtlpAllocateEnvironmentHashTable.c)
- *     RtlpFindEnvironmentHashEntry @ 0x1800BEE50 (RtlpFindEnvironmentHashEntry.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlpAllocateEnvironmentHashTable @ 0x18009F7CC (RtlpAllocateEnvironmentHashTable.c)
+ *     RtlpFindEnvironmentHashEntry @ 0x1800BC8B0 (RtlpFindEnvironmentHashEntry.c)
  */
 
 __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
@@ -20,7 +20,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
   __int64 *v11; // r9
   __int64 v12; // r8
   unsigned __int64 v13; // rdx
-  __int64 v14; // rcx
+  void *v14; // rcx
   unsigned int v15; // r8d
   unsigned __int64 v16; // r14
   _QWORD *v17; // rdx
@@ -32,7 +32,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
   {
     if ( (unsigned int)v5 < 4 )
       v5 = 4LL;
-    EnvironmentHashTable = (char *)RtlpAllocateEnvironmentHashTable(8LL * (unsigned int)v5, 0LL);
+    EnvironmentHashTable = (char *)RtlpAllocateEnvironmentHashTable(8LL * (unsigned int)v5);
     if ( EnvironmentHashTable )
     {
       if ( (((_DWORD)v5 - 1) & (unsigned int)v5) != 0 )
@@ -87,7 +87,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
         }
         while ( v9 < *(_DWORD *)(a1 + 4) >> 5 );
       }
-      v14 = *(_QWORD *)(a1 + 8);
+      v14 = *(void **)(a1 + 8);
       *(_QWORD *)(a1 + 8) = EnvironmentHashTable;
       *(_DWORD *)(a1 + 4) = (32 * v5) | *(_DWORD *)(a1 + 4) & 0x1F;
       if ( v14 )

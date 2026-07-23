@@ -15,22 +15,22 @@ __int64 __fastcall MiReplenishNonPagedSlists(
         unsigned __int64 a4,
         PSLIST_ENTRY ListEnd)
 {
-  union _SLIST_HEADER *v6; // r13
+  _SLIST_HEADER *v6; // r13
   unsigned int Alignment_low; // r8d
   unsigned __int64 v8; // rbp
   __int64 v9; // rdx
   __int16 v10; // bx
   __int64 v11; // rdi
   __int64 v12; // r12
-  struct _SLIST_ENTRY *v13; // r15
+  _SLIST_ENTRY *v13; // r15
   __int16 v14; // bx
   __int16 v15; // r14
   __int64 ClearBitsAndSet; // rax
   unsigned __int64 v17; // rbx
-  struct _SLIST_ENTRY *v18; // rax
-  struct _SLIST_ENTRY *v19; // rdx
+  _SLIST_ENTRY *v18; // rax
+  _SLIST_ENTRY *v19; // rdx
   __int64 v21; // [rsp+20h] [rbp-58h]
-  union _SLIST_HEADER *ListHead; // [rsp+28h] [rbp-50h]
+  _SLIST_HEADER *ListHead; // [rsp+28h] [rbp-50h]
   __int128 v23; // [rsp+30h] [rbp-48h] BYREF
   PSLIST_ENTRY ListEnda; // [rsp+A0h] [rbp+28h]
 
@@ -66,11 +66,11 @@ __int64 __fastcall MiReplenishNonPagedSlists(
       v17 = v6[20].Alignment + ((a3 + ClearBitsAndSet + v8) << 12);
       MiAllocatingNonPagedPoolVa(v6, 0LL, a3 + ClearBitsAndSet + v8, ListEnd);
       *(_QWORD *)v17 = v17 ^ qword_14036CFC0;
-      v18 = (struct _SLIST_ENTRY *)(v17 + 16);
+      v18 = (_SLIST_ENTRY *)(v17 + 16);
       *(_QWORD *)(v17 + 16) = v13;
       if ( v13 )
         v18 = ListEnda;
-      v13 = (struct _SLIST_ENTRY *)(v17 + 16);
+      v13 = (_SLIST_ENTRY *)(v17 + 16);
       v19 = v18;
       ListEnda = v18;
       a4 = (unsigned __int64)ListEnd + v21;

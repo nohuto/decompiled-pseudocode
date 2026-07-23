@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwActivityIdControl @ 0x1400A3B50
+ * XREFs of EtwActivityIdControl @ 0x1400A3A90
  * Callers:
- *     IoReuseIrp @ 0x1400DF790 (IoReuseIrp.c)
- *     IoSetActivityIdIrp @ 0x1400DF960 (IoSetActivityIdIrp.c)
- *     IopInitActivityIdIrp @ 0x14027EFE4 (IopInitActivityIdIrp.c)
- *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
- *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
- *     VrpPostEnumerateKey @ 0x14080A600 (VrpPostEnumerateKey.c)
- *     VrpPostOpenOrCreate @ 0x14080AE44 (VrpPostOpenOrCreate.c)
- *     VrpPostQueryKey @ 0x14080B240 (VrpPostQueryKey.c)
- *     VrpPostUnloadKey @ 0x14080B5F0 (VrpPostUnloadKey.c)
- *     VrpPreFlushKey @ 0x14080B690 (VrpPreFlushKey.c)
- *     VrpPreLoadKey @ 0x14080B764 (VrpPreLoadKey.c)
- *     VrpPreOpenOrCreate @ 0x14080C2E0 (VrpPreOpenOrCreate.c)
- *     VrpPreQueryKeyName @ 0x14080C7A0 (VrpPreQueryKeyName.c)
- *     IoCaptureLiveDump @ 0x14081EF84 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14081F568 (IoWriteDeferredLiveDumpData.c)
+ *     IoReuseIrp @ 0x1400DF810 (IoReuseIrp.c)
+ *     IoSetActivityIdIrp @ 0x1400DF9E0 (IoSetActivityIdIrp.c)
+ *     IopInitActivityIdIrp @ 0x14027F1D4 (IopInitActivityIdIrp.c)
+ *     VrpIoctlDeviceDispatch @ 0x140808EC0 (VrpIoctlDeviceDispatch.c)
+ *     VrpRegistryCallback @ 0x1408091F0 (VrpRegistryCallback.c)
+ *     VrpPostEnumerateKey @ 0x14080B800 (VrpPostEnumerateKey.c)
+ *     VrpPostOpenOrCreate @ 0x14080C044 (VrpPostOpenOrCreate.c)
+ *     VrpPostQueryKey @ 0x14080C440 (VrpPostQueryKey.c)
+ *     VrpPostUnloadKey @ 0x14080C7F0 (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x14080C890 (VrpPreFlushKey.c)
+ *     VrpPreLoadKey @ 0x14080C964 (VrpPreLoadKey.c)
+ *     VrpPreOpenOrCreate @ 0x14080D4E0 (VrpPreOpenOrCreate.c)
+ *     VrpPreQueryKeyName @ 0x14080D9A0 (VrpPreQueryKeyName.c)
+ *     IoCaptureLiveDump @ 0x140820184 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140820768 (IoWriteDeferredLiveDumpData.c)
  * Callees:
  *     <none>
  */

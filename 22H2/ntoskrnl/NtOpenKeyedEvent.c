@@ -7,19 +7,29 @@
  *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtOpenKeyedEvent(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // r8
-  __int64 result; // rax
-  __int64 v7; // [rsp+88h] [rbp+20h] BYREF
+  NTSTATUS result; // eax
+  void *v7; // [rsp+88h] [rbp+20h] BYREF
 
   v7 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && ((unsigned __int8)a1 & 7) != 0 )
+  if ( PreviousMode && ((unsigned __int8)KeyedEventHandle & 7) != 0 )
     ExRaiseDatatypeMisalignment();
-  *a1 = 0LL;
-  result = ObOpenObjectByName(a3, (__int64)ExpKeyedEventObjectType, PreviousMode, 0LL, a2, 0LL, (__int64)&v7);
-  if ( (int)result >= 0 )
-    *a1 = v7;
+  *KeyedEventHandle = 0LL;
+  result = ObOpenObjectByName(
+             (__int64)ObjectAttributes,
+             (__int64)ExpKeyedEventObjectType,
+             PreviousMode,
+             0LL,
+             DesiredAccess,
+             0LL,
+             (__int64)&v7);
+  if ( result >= 0 )
+    *KeyedEventHandle = v7;
   return result;
 }

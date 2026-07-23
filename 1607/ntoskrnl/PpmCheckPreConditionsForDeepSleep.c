@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmCheckPreConditionsForDeepSleep @ 0x1401FF7D0
+ * XREFs of PpmCheckPreConditionsForDeepSleep @ 0x1401FF5FC
  * Callers:
- *     PpmIdleSelectStates @ 0x14013B680 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x14013BBF0 (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */

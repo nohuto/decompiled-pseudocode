@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCollectTriageDumpData @ 0x1405C8974
+ * XREFs of IopCollectTriageDumpData @ 0x1405CB244
  * Callers:
- *     IoCapturePristineTriageDump @ 0x1405C61E8 (IoCapturePristineTriageDump.c)
- *     IoWriteCrashDump @ 0x1405C7FAC (IoWriteCrashDump.c)
+ *     IoCapturePristineTriageDump @ 0x1405C8AB8 (IoCapturePristineTriageDump.c)
+ *     IoWriteCrashDump @ 0x1405CA87C (IoWriteCrashDump.c)
  * Callees:
- *     IopUpdateMinidumpContext @ 0x140449FD8 (IopUpdateMinidumpContext.c)
- *     MmSnapTriageDumpInformation @ 0x14044A658 (MmSnapTriageDumpInformation.c)
- *     IoFillTriageDumpBuffer @ 0x1405C6994 (IoFillTriageDumpBuffer.c)
+ *     IopUpdateMinidumpContext @ 0x140442108 (IopUpdateMinidumpContext.c)
+ *     MmSnapTriageDumpInformation @ 0x140442788 (MmSnapTriageDumpInformation.c)
+ *     IoFillTriageDumpBuffer @ 0x1405C9264 (IoFillTriageDumpBuffer.c)
  */
 
 __int64 __fastcall IopCollectTriageDumpData(
@@ -29,7 +29,7 @@ __int64 __fastcall IopCollectTriageDumpData(
   _QWORD v15[5]; // [rsp+80h] [rbp-28h] BYREF
 
   a9 = 0;
-  if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) == 0 || IoPreparedTriageDumpData )
+  if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) == 0 || IoPreparedTriageDumpData )
     return 3221225473LL;
   IopUpdateMinidumpContext(a1, a2, a3, a4, a5, a6, a7, v12, 1);
   MmSnapTriageDumpInformation((__int64)a6, v15);

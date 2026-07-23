@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetPmcOwnership @ 0x1405FBFFC
+ * XREFs of EtwpGetPmcOwnership @ 0x1405FC56C
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

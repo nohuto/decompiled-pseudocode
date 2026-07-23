@@ -3,10 +3,10 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopPulseSystemIdleEvent @ 0x1407A853C (PopPulseSystemIdleEvent.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopPulseSystemIdleEvent @ 0x1407A872C (PopPulseSystemIdleEvent.c)
  */
 
 void PopInitializeSystemIdleDetection()

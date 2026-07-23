@@ -1,15 +1,15 @@
 /*
- * XREFs of CcInitializePartition @ 0x14018A5B0
+ * XREFs of CcInitializePartition @ 0x14018A6F0
  * Callers:
- *     CcCreatePartition @ 0x14018A55C (CcCreatePartition.c)
+ *     CcCreatePartition @ 0x14018A69C (CcCreatePartition.c)
  * Callees:
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     CcInitializeAsyncRead @ 0x14018AB18 (CcInitializeAsyncRead.c)
- *     CcInitializePartitionVacbs @ 0x14018AEAC (CcInitializePartitionVacbs.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
- *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1406D0C2C (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     CcInitializeAsyncRead @ 0x14018AC58 (CcInitializeAsyncRead.c)
+ *     CcInitializePartitionVacbs @ 0x14018AFEC (CcInitializePartitionVacbs.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PsCreateSystemThread @ 0x14066BC30 (PsCreateSystemThread.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1406D1ECC (MmGetNumberOfPhysicalPagesForPartitionObject.c)
  */
 
 char __fastcall CcInitializePartition(HANDLE *StartContext, _QWORD *a2)
@@ -132,7 +132,7 @@ LABEL_21:
   StartContext[69] = 0LL;
   StartContext[73] = 0LL;
   NumberOfPhysicalPagesForPartitionObject = MmGetNumberOfPhysicalPagesForPartitionObject(a2);
-  if ( (_BYTE)dword_14054019C )
+  if ( (_BYTE)dword_14054119C )
   {
     StartContext[79] = (HANDLE)(NumberOfPhysicalPagesForPartitionObject >> 1);
     v13 = (unsigned __int64)MmGetNumberOfPhysicalPagesForPartitionObject(a2) >> 3;

@@ -1,22 +1,22 @@
 /*
- * XREFs of PpmParkApplyPolicy @ 0x140392600
+ * XREFs of PpmParkApplyPolicy @ 0x1403927E0
  * Callers:
- *     PpmParkRegisterParking @ 0x1403918C0 (PpmParkRegisterParking.c)
- *     PpmParkSetLpiCap @ 0x14059D28C (PpmParkSetLpiCap.c)
- *     PpmReapplyPerfPolicy @ 0x14082C6C0 (PpmReapplyPerfPolicy.c)
- *     PpmRegisterPerfStates @ 0x14082E54C (PpmRegisterPerfStates.c)
- *     PpmParkApplyForcedMask @ 0x140999E54 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x140999F54 (PpmParkClearForcedMask.c)
+ *     PpmParkRegisterParking @ 0x140391AA0 (PpmParkRegisterParking.c)
+ *     PpmParkSetLpiCap @ 0x14059D77C (PpmParkSetLpiCap.c)
+ *     PpmReapplyPerfPolicy @ 0x14082C9C0 (PpmReapplyPerfPolicy.c)
+ *     PpmRegisterPerfStates @ 0x14082E84C (PpmRegisterPerfStates.c)
+ *     PpmParkApplyForcedMask @ 0x14099A054 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x14099A154 (PpmParkClearForcedMask.c)
  * Callees:
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PpmEventSoftParkRankListChanged @ 0x140392C94 (PpmEventSoftParkRankListChanged.c)
- *     KeUpdateSoftParkRankList @ 0x140392CEC (KeUpdateSoftParkRankList.c)
- *     PpmParkEvalualteSmtUnparkPolicy @ 0x140392E8C (PpmParkEvalualteSmtUnparkPolicy.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PpmEventParkNodeCapChange @ 0x14059AADC (PpmEventParkNodeCapChange.c)
- *     PpmEventParkNodeParkHintChanged @ 0x14059ACF8 (PpmEventParkNodeParkHintChanged.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PpmEventSoftParkRankListChanged @ 0x140392E74 (PpmEventSoftParkRankListChanged.c)
+ *     KeUpdateSoftParkRankList @ 0x140392ECC (KeUpdateSoftParkRankList.c)
+ *     PpmParkEvalualteSmtUnparkPolicy @ 0x14039306C (PpmParkEvalualteSmtUnparkPolicy.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpmEventParkNodeCapChange @ 0x14059AFCC (PpmEventParkNodeCapChange.c)
+ *     PpmEventParkNodeParkHintChanged @ 0x14059B1E8 (PpmEventParkNodeParkHintChanged.c)
  */
 
 __int64 __fastcall PpmParkApplyPolicy(__int64 a1)
@@ -117,7 +117,7 @@ __int64 __fastcall PpmParkApplyPolicy(__int64 a1)
     return result;
   }
   v3 = PpmCurrentProfile;
-  v4 = 55LL * dword_140C3D86C;
+  v4 = 55LL * dword_140C3D96C;
   v80 = PpmCurrentProfile;
   v5 = &PpmCurrentProfile[v4 + 5];
   v75 = v4 * 8;

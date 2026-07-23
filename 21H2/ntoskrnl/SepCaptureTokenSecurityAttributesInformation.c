@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCaptureTokenSecurityAttributesInformation @ 0x140675E78
+ * XREFs of SepCaptureTokenSecurityAttributesInformation @ 0x140600F9C
  * Callers:
- *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140675CFC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140600E20 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     NtCreateTokenEx @ 0x1406CC0B0 (NtCreateTokenEx.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
- *     SepCaptureUnicodeStringArray @ 0x140601510 (SepCaptureUnicodeStringArray.c)
- *     SepCaptureInt64Array @ 0x1406B825C (SepCaptureInt64Array.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     SepCaptureFqbnArray @ 0x140920BB4 (SepCaptureFqbnArray.c)
- *     SepCaptureOctetStringArray @ 0x140920DEC (SepCaptureOctetStringArray.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SepCaptureInt64Array @ 0x140601584 (SepCaptureInt64Array.c)
+ *     RtlCompareUnicodeString @ 0x1406DDA80 (RtlCompareUnicodeString.c)
+ *     SepCaptureUnicodeStringArray @ 0x1406F0C70 (SepCaptureUnicodeStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     SepCaptureFqbnArray @ 0x140920D14 (SepCaptureFqbnArray.c)
+ *     SepCaptureOctetStringArray @ 0x140920F4C (SepCaptureOctetStringArray.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(
@@ -37,7 +37,7 @@ __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(
   unsigned int v18; // ecx
   __int64 v19; // r8
   __int64 v20; // r12
-  unsigned int v21; // edx
+  __int64 v21; // rdx
   unsigned __int16 v22; // ax
   int v23; // eax
   __int64 v25; // rax
@@ -174,8 +174,8 @@ __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(
   while ( v18 < *((_DWORD *)PoolWithTag + 1) )
   {
     v20 = 5LL * v18;
-    v21 = *(_DWORD *)&v7[20 * v18 + 12];
-    if ( v21 )
+    v21 = *(unsigned int *)&v7[20 * v18 + 12];
+    if ( (_DWORD)v21 )
     {
       v22 = v7[20 * v18 + 8];
       if ( !v22 )

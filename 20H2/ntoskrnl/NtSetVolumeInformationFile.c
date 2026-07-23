@@ -45,57 +45,55 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
   __int64 v16; // rsi
   int RelatedTargetDevice; // eax
   struct _DMA_ADAPTER *v18; // rdi
-  bool v19; // r14
+  char v19; // r14
   struct _KTHREAD *v20; // rax
   __int64 v21; // rbx
   __int64 v22; // rax
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  int v25; // ebx
-  struct _DMA_ADAPTER *v26; // rcx
+  NTSTATUS v23; // ebx
+  struct _DMA_ADAPTER *v24; // rcx
   struct _KEVENT *Pool_1; // rax
-  __int64 v28; // rdx
-  IRP *v29; // rax
-  IRP *v30; // r14
-  struct _IO_STATUS_BLOCK *v31; // rax
-  __int64 v32; // rcx
-  __int64 v33; // rax
+  __int64 v26; // rdx
+  IRP *v27; // rax
+  IRP *v28; // r14
+  struct _IO_STATUS_BLOCK *v29; // rax
+  __int64 v30; // rcx
+  __int64 v31; // rax
   struct _IRP *PoolWithQuota; // rax
-  char v35; // r8
-  int v36; // eax
-  int v37; // edx
-  __int64 v38; // rcx
-  char v39; // r13
-  char v40; // [rsp+40h] [rbp-C8h] BYREF
-  char v41; // [rsp+41h] [rbp-C7h]
+  char v33; // r8
+  int v34; // eax
+  int v35; // edx
+  __int64 v36; // rcx
+  char v37; // r13
+  char v38; // [rsp+40h] [rbp-C8h] BYREF
+  char v39; // [rsp+41h] [rbp-C7h]
   _DWORD Size[3]; // [rsp+44h] [rbp-C4h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v44; // [rsp+58h] [rbp-B0h]
-  _DWORD *v45; // [rsp+60h] [rbp-A8h]
-  struct _IO_STATUS_BLOCK *v46; // [rsp+68h] [rbp-A0h]
+  __int64 v42; // [rsp+58h] [rbp-B0h]
+  _DWORD *v43; // [rsp+60h] [rbp-A8h]
+  struct _IO_STATUS_BLOCK *v44; // [rsp+68h] [rbp-A0h]
   PVOID P; // [rsp+70h] [rbp-98h]
   PDEVICE_OBJECT DeviceObject; // [rsp+78h] [rbp-90h]
   PIRP Irp; // [rsp+80h] [rbp-88h]
-  __int128 v50; // [rsp+88h] [rbp-80h] BYREF
+  __int128 v48; // [rsp+88h] [rbp-80h] BYREF
   int NotificationStructure; // [rsp+98h] [rbp-70h] BYREF
-  GUID v52; // [rsp+9Ch] [rbp-6Ch]
-  int v53; // [rsp+ACh] [rbp-5Ch]
-  __int64 v54; // [rsp+B0h] [rbp-58h]
-  int v55; // [rsp+B8h] [rbp-50h]
-  int v56; // [rsp+BCh] [rbp-4Ch]
+  GUID v50; // [rsp+9Ch] [rbp-6Ch]
+  int v51; // [rsp+ACh] [rbp-5Ch]
+  __int64 v52; // [rsp+B0h] [rbp-58h]
+  int v53; // [rsp+B8h] [rbp-50h]
+  int v54; // [rsp+BCh] [rbp-4Ch]
   __int64 retaddr; // [rsp+108h] [rbp+0h]
 
   v5 = Length;
   Size[0] = Length;
-  v46 = IoStatusBlock;
+  v44 = IoStatusBlock;
   *(_QWORD *)&Size[1] = 0LL;
   v8 = 0LL;
   P = 0LL;
   DmaAdapter = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v44 = (__int64)CurrentThread;
+  v42 = (__int64)CurrentThread;
   PreviousMode = CurrentThread->PreviousMode;
-  v41 = PreviousMode;
+  v39 = PreviousMode;
   if ( PreviousMode )
   {
     if ( (unsigned int)FsInformationClass >= FileFsMaximumInformation )
@@ -142,21 +140,19 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
     if ( RelatedTargetDevice < 0 )
       v18 = 0LL;
     DmaAdapter = v18;
-    v45 = (_DWORD *)(v16 + 80);
+    v43 = (_DWORD *)(v16 + 80);
     if ( (*(_DWORD *)(v16 + 80) & 2) != 0 )
     {
       v19 = (*(_DWORD *)(v16 + 80) & 4) != 0;
       v20 = KeGetCurrentThread();
       --v20->KernelApcDisable;
       v21 = *(_QWORD *)&Size[1];
-      v22 = KeAbPreAcquire(*(_QWORD *)&Size[1] + 128LL, 0LL, 0LL);
-      v40 = 0;
+      v22 = KeAbPreAcquire(*(_QWORD *)&Size[1] + 128LL, 0LL, 0);
+      v38 = 0;
       if ( _InterlockedExchange((volatile __int32 *)(v21 + 116), 1) )
       {
-        LOBYTE(v24) = v19;
-        LOBYTE(v23) = v41;
         v16 = *(_QWORD *)&Size[1];
-        v25 = IopWaitAndAcquireFileObjectLock(*(volatile signed __int32 **)&Size[1], v23, v24, v22, &v40);
+        v23 = IopWaitAndAcquireFileObjectLock(*(volatile signed __int32 **)&Size[1], v39, v19, v22, &v38);
       }
       else
       {
@@ -164,19 +160,19 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
           *(_BYTE *)(v22 + 26) |= 1u;
         v16 = *(_QWORD *)&Size[1];
         ObfReferenceObject(*(PVOID *)&Size[1]);
-        v25 = 0;
+        v23 = 0;
       }
-      if ( v40 )
+      if ( v38 )
       {
         HalPutDmaAdapter((PADAPTER_OBJECT)v16);
-        v26 = DmaAdapter;
+        v24 = DmaAdapter;
         if ( !DmaAdapter )
-          return v25;
+          return v23;
 LABEL_34:
-        HalPutDmaAdapter(v26);
-        return v25;
+        HalPutDmaAdapter(v24);
+        return v23;
       }
-      v40 = 1;
+      v38 = 1;
       v18 = DmaAdapter;
       v5 = Size[0];
     }
@@ -194,56 +190,56 @@ LABEL_46:
         return -1073741670;
       }
       KeInitializeEvent(Pool_1, SynchronizationEvent, 0);
-      v40 = 0;
+      v38 = 0;
     }
-    if ( (*v45 & 0x4000000) == 0 )
+    if ( (*v43 & 0x4000000) == 0 )
       KeResetEvent((PRKEVENT)(v16 + 152));
     DeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)v16);
-    LOBYTE(v28) = DeviceObject->StackSize;
-    v29 = (IRP *)IopAllocateIrpExReturn((__int64)DeviceObject, v28, 0LL, retaddr);
-    v30 = v29;
-    Irp = v29;
-    if ( !v29 )
+    LOBYTE(v26) = DeviceObject->StackSize;
+    v27 = (IRP *)IopAllocateIrpExReturn((__int64)DeviceObject, v26, 0LL, retaddr);
+    v28 = v27;
+    Irp = v27;
+    if ( !v27 )
     {
-      if ( (*v45 & 2) == 0 )
+      if ( (*v43 & 2) == 0 )
         ExFreePoolWithTag(v8, 0);
       IopAllocateIrpCleanup((PADAPTER_OBJECT)v16, 0LL);
       goto LABEL_46;
     }
-    v29->Tail.Overlay.OriginalFileObject = (PFILE_OBJECT)v16;
-    v29->Tail.Overlay.Thread = (PETHREAD)v44;
-    v29->RequestorMode = v41;
-    v50 = 0LL;
-    if ( v40 )
+    v27->Tail.Overlay.OriginalFileObject = (PFILE_OBJECT)v16;
+    v27->Tail.Overlay.Thread = (PETHREAD)v42;
+    v27->RequestorMode = v39;
+    v48 = 0LL;
+    if ( v38 )
     {
-      v31 = v46;
-      v32 = 0LL;
+      v29 = v44;
+      v30 = 0LL;
     }
     else
     {
-      v29->Flags = 4;
-      v31 = (struct _IO_STATUS_BLOCK *)&v50;
-      v32 = (__int64)v8;
+      v27->Flags = 4;
+      v29 = (struct _IO_STATUS_BLOCK *)&v48;
+      v30 = (__int64)v8;
     }
-    v30->UserEvent = (PKEVENT)v32;
-    v30->UserIosb = v31;
-    v30->Overlay.AllocationSize.QuadPart = 0LL;
-    v33 = (__int64)&v30->Tail.Overlay.CurrentStackLocation[-1];
-    v44 = v33;
-    *(_BYTE *)v33 = 11;
-    *(_QWORD *)(v33 + 48) = v16;
-    v30->AssociatedIrp.MasterIrp = 0LL;
-    v30->MdlAddress = 0LL;
-    PoolWithQuota = (struct _IRP *)IopVerifierExAllocatePoolWithQuota(v32, v5);
-    v30->AssociatedIrp.MasterIrp = PoolWithQuota;
+    v28->UserEvent = (PKEVENT)v30;
+    v28->UserIosb = v29;
+    v28->Overlay.AllocationSize.QuadPart = 0LL;
+    v31 = (__int64)&v28->Tail.Overlay.CurrentStackLocation[-1];
+    v42 = v31;
+    *(_BYTE *)v31 = 11;
+    *(_QWORD *)(v31 + 48) = v16;
+    v28->AssociatedIrp.MasterIrp = 0LL;
+    v28->MdlAddress = 0LL;
+    PoolWithQuota = (struct _IRP *)IopVerifierExAllocatePoolWithQuota(v30, v5);
+    v28->AssociatedIrp.MasterIrp = PoolWithQuota;
     memmove(PoolWithQuota, FsInformation, v5);
-    v35 = v41;
-    if ( v41 && FsInformationClass == FileFsLabelInformation )
+    v33 = v39;
+    if ( v39 && FsInformationClass == FileFsLabelInformation )
     {
-      v36 = *(_DWORD *)v30->AssociatedIrp.MasterIrp;
-      if ( v36 < 0 || (v37 = Size[0], (unsigned int)(v36 + 4) > Size[0]) )
+      v34 = *(_DWORD *)v28->AssociatedIrp.MasterIrp;
+      if ( v34 < 0 || (v35 = Size[0], (unsigned int)(v34 + 4) > Size[0]) )
       {
-        IopExceptionCleanupEx((PADAPTER_OBJECT)v16, v30, 0LL, v8, (*(_DWORD *)(v16 + 80) & 2) != 0);
+        IopExceptionCleanupEx((PADAPTER_OBJECT)v16, v28, 0LL, v8, (*(_DWORD *)(v16 + 80) & 2) != 0);
         if ( v18 )
           HalPutDmaAdapter(v18);
         return -1073741811;
@@ -251,29 +247,29 @@ LABEL_46:
     }
     else
     {
-      v37 = Size[0];
+      v35 = Size[0];
     }
-    v30->Flags |= 0x30u;
-    v38 = v44;
-    *(_DWORD *)(v44 + 8) = v37;
-    *(_DWORD *)(v38 + 16) = FsInformationClass;
-    v39 = v40;
-    v25 = IopSynchronousServiceTail(DeviceObject, v30, v16, 0, v35, v40, 2u);
-    if ( !v39 )
-      v25 = IopSynchronousApiServiceTail(v25, v8, v30, v41, (unsigned int *)&v50, v46);
+    v28->Flags |= 0x30u;
+    v36 = v42;
+    *(_DWORD *)(v42 + 8) = v35;
+    *(_DWORD *)(v36 + 16) = FsInformationClass;
+    v37 = v38;
+    v23 = IopSynchronousServiceTail(DeviceObject, v28, v16, 0, v33, v38, 2u);
+    if ( !v37 )
+      v23 = IopSynchronousApiServiceTail(v23, v8, v28, v39, (unsigned int *)&v48, v44);
     if ( !v18 )
-      return v25;
-    if ( v25 >= 0 )
+      return v23;
+    if ( v23 >= 0 )
     {
-      v53 = 0;
-      v56 = 0;
+      v51 = 0;
+      v54 = 0;
       NotificationStructure = 2359297;
-      v54 = 0LL;
-      v55 = -1;
-      v52 = GUID_IO_VOLUME_CHANGE;
+      v52 = 0LL;
+      v53 = -1;
+      v50 = GUID_IO_VOLUME_CHANGE;
       IoReportTargetDeviceChange((PDEVICE_OBJECT)v18, &NotificationStructure);
     }
-    v26 = v18;
+    v24 = v18;
     goto LABEL_34;
   }
   return result;

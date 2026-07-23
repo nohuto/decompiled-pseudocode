@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpRefreshSystemTime @ 0x1407341A0
+ * XREFs of ExpRefreshSystemTime @ 0x140735390
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
- *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
+ *     CmpFinishSystemHivesLoad @ 0x140733770 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1407467A4 (CmCompleteRegistryInitialization.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     RtlTimeFieldsToTime @ 0x140127060 (RtlTimeFieldsToTime.c)
- *     ExSystemTimeToLocalTime @ 0x14013AFA0 (ExSystemTimeToLocalTime.c)
- *     KeSetSystemTime @ 0x1401433EC (KeSetSystemTime.c)
- *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
- *     ExLocalTimeToSystemTime @ 0x140160BF0 (ExLocalTimeToSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x14017834C (PoNotifySystemTimeSet.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
- *     ExpRefreshTimeZoneInformation @ 0x140734674 (ExpRefreshTimeZoneInformation.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlTimeFieldsToTime @ 0x140127130 (RtlTimeFieldsToTime.c)
+ *     ExSystemTimeToLocalTime @ 0x14013B0A0 (ExSystemTimeToLocalTime.c)
+ *     KeSetSystemTime @ 0x1401434EC (KeSetSystemTime.c)
+ *     RtlTimeToTimeFields @ 0x14015DB20 (RtlTimeToTimeFields.c)
+ *     ExLocalTimeToSystemTime @ 0x140160CF0 (ExLocalTimeToSystemTime.c)
+ *     PoNotifySystemTimeSet @ 0x14017844C (PoNotifySystemTimeSet.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406669FC (ExAcquireTimeRefreshLock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140735864 (ExpRefreshTimeZoneInformation.c)
  */
 
 void ExpRefreshSystemTime()
@@ -27,7 +27,7 @@ void ExpRefreshSystemTime()
   LARGE_INTEGER SystemTime; // [rsp+20h] [rbp-30h] BYREF
   LARGE_INTEGER v5; // [rsp+28h] [rbp-28h] BYREF
   LARGE_INTEGER Time; // [rsp+30h] [rbp-20h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-18h] BYREF
 
   v0 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 132);
   ExAcquireTimeRefreshLock(1u);

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAdjustRequestedFileSize @ 0x1406B8A78
+ * XREFs of CmpAdjustRequestedFileSize @ 0x1406B9D18
  * Callers:
- *     CmpDoFileSetSizeEx @ 0x1406B8940 (CmpDoFileSetSizeEx.c)
+ *     CmpDoFileSetSizeEx @ 0x1406B9BE0 (CmpDoFileSetSizeEx.c)
  * Callees:
- *     HvGetEffectiveLogSizeCapForHive @ 0x1405A60DC (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1405A70DC (HvGetEffectiveLogSizeCapForHive.c)
  */
 
 unsigned __int64 __fastcall CmpAdjustRequestedFileSize(

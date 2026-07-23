@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegSuballocatorCommit @ 0x1404B8EE0
+ * XREFs of RtlpHpSegSuballocatorCommit @ 0x1404B2710
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpSegPageRangeCommit @ 0x14034E5D0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeCommit @ 0x140350650 (RtlpHpSegPageRangeCommit.c)
  */
 
 __int64 __fastcall RtlpHpSegSuballocatorCommit(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)

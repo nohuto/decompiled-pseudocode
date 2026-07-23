@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateInitialLargeLeafPfns @ 0x14043CFC8
+ * XREFs of MiCreateInitialLargeLeafPfns @ 0x140431268
  * Callers:
- *     MiCoalesceFreeSmallPages @ 0x1402238B0 (MiCoalesceFreeSmallPages.c)
- *     MiDeleteSectionCluster @ 0x1403A0124 (MiDeleteSectionCluster.c)
- *     MiInitializeNewPfns @ 0x14066BBD4 (MiInitializeNewPfns.c)
- *     MxInsertFreePages @ 0x140C52D50 (MxInsertFreePages.c)
+ *     MiDeleteSectionCluster @ 0x140216B54 (MiDeleteSectionCluster.c)
+ *     MiCoalesceFreeSmallPages @ 0x140250600 (MiCoalesceFreeSmallPages.c)
+ *     MiInitializeNewPfns @ 0x14066CDA4 (MiInitializeNewPfns.c)
+ *     MxInsertFreePages @ 0x140C54EE0 (MxInsertFreePages.c)
  * Callees:
- *     MiInitializePfnEntriesRaw @ 0x14043D140 (MiInitializePfnEntriesRaw.c)
+ *     MiInitializePfnEntriesRaw @ 0x1404313E0 (MiInitializePfnEntriesRaw.c)
  */
 
 unsigned __int64 __fastcall MiCreateInitialLargeLeafPfns(
@@ -37,7 +37,7 @@ unsigned __int64 __fastcall MiCreateInitialLargeLeafPfns(
   v10 = MiPageSizes[a3];
   do
   {
-    *(_QWORD *)((char *)&v15 + v7) = *(_QWORD *)((char *)&unk_140E2FE40 + v7);
+    *(_QWORD *)((char *)&v15 + v7) = *(_QWORD *)((char *)&unk_140E2FF80 + v7);
     v7 += 8LL;
     --v9;
   }

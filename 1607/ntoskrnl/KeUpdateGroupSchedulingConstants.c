@@ -1,12 +1,12 @@
 /*
- * XREFs of KeUpdateGroupSchedulingConstants @ 0x14014A6C8
+ * XREFs of KeUpdateGroupSchedulingConstants @ 0x14014AC38
  * Callers:
- *     KiEnableGroupScheduling @ 0x14014A608 (KiEnableGroupScheduling.c)
- *     PspReadDfssConfigurationValues @ 0x14020EBD0 (PspReadDfssConfigurationValues.c)
+ *     KiEnableGroupScheduling @ 0x14014AB78 (KiEnableGroupScheduling.c)
+ *     PspReadDfssConfigurationValues @ 0x14020E9FC (PspReadDfssConfigurationValues.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAssignSchedulingGroupWeights @ 0x1400A693C (KiAssignSchedulingGroupWeights.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAssignSchedulingGroupWeights @ 0x1400A4EB4 (KiAssignSchedulingGroupWeights.c)
  */
 
 void __fastcall KeUpdateGroupSchedulingConstants(char a1)

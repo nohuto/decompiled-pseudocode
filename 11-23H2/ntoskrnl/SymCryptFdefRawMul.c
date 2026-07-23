@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptFdefRawMul @ 0x140403B9C
+ * XREFs of SymCryptFdefRawMul @ 0x140403D7C
  * Callers:
- *     SymCryptFdefIntMulMixedSize @ 0x14040352C (SymCryptFdefIntMulMixedSize.c)
- *     SymCryptFdefModMulGeneric @ 0x1404049E0 (SymCryptFdefModMulGeneric.c)
- *     SymCryptFdefModMulMontgomery @ 0x140404AA0 (SymCryptFdefModMulMontgomery.c)
- *     SymCryptFdefModSetPostMontgomery @ 0x140404DC0 (SymCryptFdefModSetPostMontgomery.c)
+ *     SymCryptFdefIntMulMixedSize @ 0x14040370C (SymCryptFdefIntMulMixedSize.c)
+ *     SymCryptFdefModMulGeneric @ 0x140404BC0 (SymCryptFdefModMulGeneric.c)
+ *     SymCryptFdefModMulMontgomery @ 0x140404C80 (SymCryptFdefModMulMontgomery.c)
+ *     SymCryptFdefModSetPostMontgomery @ 0x140404FA0 (SymCryptFdefModSetPostMontgomery.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x14036868C (SymCryptCpuFeaturesNeverPresent.c)
- *     SymCryptFdefRawMulAsm @ 0x140405E40 (SymCryptFdefRawMulAsm.c)
- *     SymCryptFdefRawMulMulx @ 0x140409CC0 (SymCryptFdefRawMulMulx.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x14036882C (SymCryptCpuFeaturesNeverPresent.c)
+ *     SymCryptFdefRawMulAsm @ 0x140406020 (SymCryptFdefRawMulAsm.c)
+ *     SymCryptFdefRawMulMulx @ 0x140409EA0 (SymCryptFdefRawMulMulx.c)
  */
 
 __int64 __fastcall SymCryptFdefRawMul(int a1, int a2, int a3, int a4, __int64 a5)

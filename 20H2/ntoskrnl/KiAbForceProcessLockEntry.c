@@ -22,12 +22,12 @@
  *     KiSwapContext @ 0x140403E60 (KiSwapContext.c)
  */
 
-unsigned __int8 __fastcall KiAbForceProcessLockEntry(unsigned __int8 *a1)
+unsigned __int8 __fastcall KiAbForceProcessLockEntry(char *Node)
 {
   unsigned __int8 CurrentIrql; // r13
   char v3; // r14
   struct _KPRCB *CurrentPrcb; // rbx
-  unsigned __int64 LockedHeadEntry; // rax
+  char *LockedHeadEntry; // rax
   __int64 v6; // rdi
   unsigned __int8 result; // al
   _DWORD *SchedulerAssist; // r9
@@ -74,18 +74,18 @@ unsigned __int8 __fastcall KiAbForceProcessLockEntry(unsigned __int8 *a1)
   CurrentPrcb = KeGetCurrentPrcb();
   v38 = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  LockedHeadEntry = KiAbEntryGetLockedHeadEntry((unsigned __int64)a1, 1, &LockHandle);
-  v6 = LockedHeadEntry;
+  LockedHeadEntry = KiAbEntryGetLockedHeadEntry(Node, 1, &LockHandle);
+  v6 = (__int64)LockedHeadEntry;
   if ( LockedHeadEntry )
   {
-    if ( (a1[25] & 1) == 0 )
+    if ( (Node[25] & 1) == 0 )
     {
 LABEL_4:
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       goto LABEL_5;
     }
-    if ( a1 != (unsigned __int8 *)LockedHeadEntry )
-      KiAbEntryUpdateWaiterTreePosition((unsigned __int64)a1, LockedHeadEntry);
+    if ( Node != LockedHeadEntry )
+      KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)Node, (_RTL_RB_TREE *)LockedHeadEntry);
     v9 = *(_QWORD *)(v6 + 56);
     if ( v9 )
       v3 = *(_BYTE *)(v9 + 48);
@@ -96,8 +96,8 @@ LABEL_4:
       if ( v11 < v3 )
         v10 = v11;
     }
-    KiAbTryIncrementIoWaiterCounts(a1, v6);
-    CpuPriorityKey = KiAbEntryGetCpuPriorityKey(a1, v12, v13, v14);
+    KiAbTryIncrementIoWaiterCounts((unsigned __int8 *)Node, v6);
+    CpuPriorityKey = KiAbEntryGetCpuPriorityKey((unsigned __int8 *)Node, v12, v13, v14);
     if ( v10 < CpuPriorityKey )
     {
       if ( !v16 )

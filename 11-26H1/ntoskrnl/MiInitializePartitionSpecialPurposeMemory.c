@@ -1,25 +1,25 @@
 /*
- * XREFs of MiInitializePartitionSpecialPurposeMemory @ 0x140B65CA0
+ * XREFs of MiInitializePartitionSpecialPurposeMemory @ 0x140B68D40
  * Callers:
- *     MiInitializePartitionSpecialPurposeMemoryCallout @ 0x14070CC10 (MiInitializePartitionSpecialPurposeMemoryCallout.c)
- *     MiSpecialPurposeMemoryChangePrepare @ 0x140B65B80 (MiSpecialPurposeMemoryChangePrepare.c)
+ *     MiInitializePartitionSpecialPurposeMemoryCallout @ 0x1407118C0 (MiInitializePartitionSpecialPurposeMemoryCallout.c)
+ *     MiSpecialPurposeMemoryChangePrepare @ 0x140B68C20 (MiSpecialPurposeMemoryChangePrepare.c)
  * Callees:
- *     KeExpandKernelStackAndCallout @ 0x140264800 (KeExpandKernelStackAndCallout.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiFindSpecialPurposeMemoryType @ 0x140530B10 (MiFindSpecialPurposeMemoryType.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PsCreatePartition @ 0x1407FDA4C (PsCreatePartition.c)
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeExpandKernelStackAndCallout @ 0x140263D70 (KeExpandKernelStackAndCallout.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiFindSpecialPurposeMemoryType @ 0x140533010 (MiFindSpecialPurposeMemoryType.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PsCreatePartition @ 0x14080347C (PsCreatePartition.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInitializePartitionSpecialPurposeMemory(__int64 a1, _OWORD *a2)
@@ -129,7 +129,7 @@ LABEL_16:
     v14 = PsCreatePartition((__int64)v8, &Handle, 2031619, (int)v25, 0, 2);
     if ( v14 >= 0 )
     {
-      v17 = PsReferencePartitionByHandle((ULONG_PTR)Handle, 2031619LL, 0, 0x4D536D4Du, &v21);
+      v17 = PsReferencePartitionByHandle((ULONG_PTR)Handle, 2031619, 0, 0x4D536D4Du, &v21);
       v7 = (__int64)v21;
       v14 = v17;
       if ( v17 >= 0 )
@@ -141,7 +141,7 @@ LABEL_16:
         v8 = 0LL;
         *(_OWORD *)(v18 + 21416) = *a2;
         *(_OWORD *)(v18 + 21432) = a2[1];
-        *((_QWORD *)PoolMm + 2) = _InterlockedIncrement64((volatile signed __int64 *)&stru_140E2D930.Header.WaitListHead.Flink);
+        *((_QWORD *)PoolMm + 2) = _InterlockedIncrement64((volatile signed __int64 *)&stru_140E2DAB0.Header.WaitListHead.Flink);
         *(_OWORD *)(PoolMm + 24) = *a2;
         v19 = a2[1];
         *((_QWORD *)PoolMm + 8) = v18;

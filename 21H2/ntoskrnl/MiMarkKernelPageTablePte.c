@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkKernelPageTablePte @ 0x140534A00
+ * XREFs of MiMarkKernelPageTablePte @ 0x140534C40
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiMarkKernelPageTablePte(__int64 a1, unsigned __int64 a2)

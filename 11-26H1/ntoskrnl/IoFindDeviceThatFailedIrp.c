@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFindDeviceThatFailedIrp @ 0x1404D3D90
+ * XREFs of IoFindDeviceThatFailedIrp @ 0x1404CD600
  * Callers:
- *     PopDiagTraceIrpFinish @ 0x14021A300 (PopDiagTraceIrpFinish.c)
- *     PopDiagTraceIrpFinishTelemetry @ 0x14021A4A4 (PopDiagTraceIrpFinishTelemetry.c)
- *     PnpDeviceCompletionRoutine @ 0x1404937E0 (PnpDeviceCompletionRoutine.c)
- *     PnpDiagnosticCompletionRoutine @ 0x1405DD080 (PnpDiagnosticCompletionRoutine.c)
- *     PopSystemIrpCompletion @ 0x140C0DBB0 (PopSystemIrpCompletion.c)
+ *     PopDiagTraceIrpFinish @ 0x14021BC90 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceIrpFinishTelemetry @ 0x14021BE34 (PopDiagTraceIrpFinishTelemetry.c)
+ *     PnpDeviceCompletionRoutine @ 0x14048D330 (PnpDeviceCompletionRoutine.c)
+ *     PnpDiagnosticCompletionRoutine @ 0x1405DF9F0 (PnpDiagnosticCompletionRoutine.c)
+ *     PopSystemIrpCompletion @ 0x140C13DC0 (PopSystemIrpCompletion.c)
  * Callees:
  *     <none>
  */

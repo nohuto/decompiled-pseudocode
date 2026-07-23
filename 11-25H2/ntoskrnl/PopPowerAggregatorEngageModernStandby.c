@@ -28,13 +28,10 @@ struct _KTHREAD *__fastcall PopPowerAggregatorEngageModernStandby(__int64 a1)
   unsigned int v5; // ebx
   unsigned int v6; // ebp
   BOOL v7; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // rcx
-  _OWORD v13[3]; // [rsp+40h] [rbp-38h] BYREF
-  BOOL v14; // [rsp+80h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v8; // rcx
+  _OWORD v10[3]; // [rsp+40h] [rbp-38h] BYREF
+  BOOL Buffer; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+88h] [rbp+10h] BYREF
 
   MonitorReasonFromPowerEventId = PopGetMonitorReasonFromPowerEventId(*(_DWORD *)(a1 + 60));
   v3 = *(_BYTE *)(v2 + 43);
@@ -42,14 +39,14 @@ struct _KTHREAD *__fastcall PopPowerAggregatorEngageModernStandby(__int64 a1)
   v5 = MonitorReasonFromPowerEventId & 0xFFFFFF;
   v6 = *(_DWORD *)(v2 + 76);
   v7 = *(_BYTE *)(v2 + 40) && !v3;
-  v14 = v7;
-  memset(v13, 0, 32);
-  LODWORD(v13[0]) = 1;
-  PopPowerAggregatorSetCurrentState(v2, v13);
+  Buffer = v7;
+  memset(v10, 0, 32);
+  LODWORD(v10[0]) = 1;
+  PopPowerAggregatorSetCurrentState(v2, v10);
   PopReleaseRwLock(&PopPowerAggregatorLock);
   PopSleepstudyStartNextSession(2LL, v5);
-  ZwUpdateWnfStateData((__int64)&WNF_PO_STANDBY_AUDIO_POLICY, (__int64)&v14);
-  PopPowerRequestRevokeRequestsForSleep(v9, v8, v10);
+  ZwUpdateWnfStateData(&WNF_PO_STANDBY_AUDIO_POLICY, &Buffer, 4u, 0LL, 0LL, 0, 0);
+  PopPowerRequestRevokeRequestsForSleep();
   PiDmObjectManagerAcquireExclusiveLock(&PopDripsWatchdogContext);
   dword_140F06B34 = 0;
   dword_140F06B38 = PopDripsWatchdogDebounceTickInterval;
@@ -57,10 +54,10 @@ struct _KTHREAD *__fastcall PopPowerAggregatorEngageModernStandby(__int64 a1)
   PopDirectedDripsClearDisengageReason(0);
   ExReleaseResourceLite(&PopDripsWatchdogContext);
   KeLeaveCriticalRegion();
-  v15 = v4;
-  PopDirectedDripsNotify(6LL, &v15);
-  LOBYTE(v11) = v3;
-  PopPowerAggregatorEngageAggressiveStandbyActions(v11);
+  v12 = v4;
+  PopDirectedDripsNotify(6LL, &v12);
+  LOBYTE(v8) = v3;
+  PopPowerAggregatorEngageAggressiveStandbyActions(v8);
   guard_dispatch_icall_no_overrides(v6);
   return PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
 }

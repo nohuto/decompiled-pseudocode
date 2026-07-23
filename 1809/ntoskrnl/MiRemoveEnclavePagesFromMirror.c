@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveEnclavePagesFromMirror @ 0x14057C7F8
+ * XREFs of MiRemoveEnclavePagesFromMirror @ 0x14057D7F8
  * Callers:
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
  * Callees:
- *     MiMirrorOmitPagesFromCopy @ 0x140152FFC (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x1401530FC (MiMirrorOmitPagesFromCopy.c)
  */
 
 _QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
@@ -13,7 +13,7 @@ _QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
   _QWORD *v4; // rcx
   _QWORD *v5; // rcx
 
-  result = (_QWORD *)qword_14043A188;
+  result = (_QWORD *)qword_14043B248;
   v3 = 0LL;
   while ( result )
   {

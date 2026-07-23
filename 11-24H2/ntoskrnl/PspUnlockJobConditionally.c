@@ -1,11 +1,11 @@
 /*
- * XREFs of PspUnlockJobConditionally @ 0x140A36C28
+ * XREFs of PspUnlockJobConditionally @ 0x140A2BA80
  * Callers:
- *     PspJobDelete @ 0x1404EE9D0 (PspJobDelete.c)
- *     PspSetNetRateControl @ 0x140778224 (PspSetNetRateControl.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspJobDelete @ 0x1404E6110 (PspJobDelete.c)
+ *     PspSetNetRateControl @ 0x1407783E4 (PspSetNetRateControl.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
  */
 
 void __fastcall PspUnlockJobConditionally(__int64 a1, __int64 a2)

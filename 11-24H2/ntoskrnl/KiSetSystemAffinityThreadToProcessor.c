@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSetSystemAffinityThreadToProcessor @ 0x1405C30E8
+ * XREFs of KiSetSystemAffinityThreadToProcessor @ 0x1405C06B8
  * Callers:
- *     KiDeregisterNmiSxCallback @ 0x1405B0CFC (KiDeregisterNmiSxCallback.c)
- *     KiInitMachineDependent @ 0x1405C0470 (KiInitMachineDependent.c)
- *     KiExecuteDpc @ 0x1405C6F50 (KiExecuteDpc.c)
+ *     KiDeregisterNmiSxCallback @ 0x1405ADC6C (KiDeregisterNmiSxCallback.c)
+ *     KiInitMachineDependent @ 0x1405BDA44 (KiInitMachineDependent.c)
+ *     KiExecuteDpc @ 0x1405C4680 (KiExecuteDpc.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
  */
 
-void __fastcall KiSetSystemAffinityThreadToProcessor(unsigned int a1, struct _GROUP_AFFINITY *a2)
+void __fastcall KiSetSystemAffinityThreadToProcessor(unsigned int a1, _GROUP_AFFINITY *a2)
 {
   unsigned int v2; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   v2 = *((_DWORD *)KiGlobalState + a1);

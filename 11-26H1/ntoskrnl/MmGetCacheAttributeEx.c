@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetCacheAttributeEx @ 0x1406EAF30
+ * XREFs of MmGetCacheAttributeEx @ 0x1406EFBD0
  * Callers:
- *     HalCreateCommonBufferFromMdl @ 0x140589A30 (HalCreateCommonBufferFromMdl.c)
- *     MmGetCacheAttribute @ 0x1406EAF10 (MmGetCacheAttribute.c)
+ *     HalCreateCommonBufferFromMdl @ 0x14058C160 (HalCreateCommonBufferFromMdl.c)
+ *     MmGetCacheAttribute @ 0x1406EFBB0 (MmGetCacheAttribute.c)
  * Callees:
- *     MiMirrorInSingleProcessorMode @ 0x1402A2D34 (MiMirrorInSingleProcessorMode.c)
- *     MiIsPageInHugePfn @ 0x1403138E0 (MiIsPageInHugePfn.c)
- *     MiLookupIoPageNode @ 0x140367E4C (MiLookupIoPageNode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiMirrorInSingleProcessorMode @ 0x1402A2284 (MiMirrorInSingleProcessorMode.c)
+ *     MiIsPageInHugePfn @ 0x140315910 (MiIsPageInHugePfn.c)
+ *     MiLookupIoPageNode @ 0x140369BEC (MiLookupIoPageNode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmGetCacheAttributeEx(unsigned __int64 a1, int a2, _DWORD *a3)
@@ -23,7 +23,7 @@ __int64 __fastcall MmGetCacheAttributeEx(unsigned __int64 a1, int a2, _DWORD *a3
   if ( (a2 & 0xFFFFFFFE) != 0 )
     return 3221225712LL;
   v6 = a1 >> 12;
-  if ( a1 >> 12 <= qword_140E2D7A0 && (v7 = 6 * v6, ((*(_QWORD *)(48 * v6 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0) )
+  if ( a1 >> 12 <= qword_140E2D920 && (v7 = 6 * v6, ((*(_QWORD *)(48 * v6 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0) )
   {
     v8 = 0xFFFFDE0000000020uLL;
     if ( !(unsigned __int16)*(_DWORD *)(48 * v6 - 0x21FFFFFFFFE0LL) )

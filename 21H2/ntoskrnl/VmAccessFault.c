@@ -1,16 +1,16 @@
 /*
- * XREFs of VmAccessFault @ 0x14092E960
+ * XREFs of VmAccessFault @ 0x14092EAC0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VmpAccessFaultBatch @ 0x1405A2B6C (VmpAccessFaultBatch.c)
- *     VmpLogAccessFault @ 0x1405A3E0C (VmpLogAccessFault.c)
- *     VmpPrefetchForVirtualFault @ 0x14092F94C (VmpPrefetchForVirtualFault.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VmpAccessFaultBatch @ 0x1405A2D9C (VmpAccessFaultBatch.c)
+ *     VmpLogAccessFault @ 0x1405A403C (VmpLogAccessFault.c)
+ *     VmpPrefetchForVirtualFault @ 0x14092FAAC (VmpPrefetchForVirtualFault.c)
  */
 
 __int64 __fastcall VmAccessFault(
@@ -26,7 +26,7 @@ __int64 __fastcall VmAccessFault(
   unsigned __int64 *v10; // r13
   unsigned __int64 *v11; // rsi
   __int64 v12; // rdi
-  struct _SLIST_ENTRY *v13; // r15
+  _SLIST_ENTRY *v13; // r15
   unsigned __int64 *v14; // rbp
   unsigned __int64 v15; // r14
   unsigned __int64 v16; // r13
@@ -53,18 +53,18 @@ __int64 __fastcall VmAccessFault(
     VmpPrefetchForVirtualFault(a1);
   v12 = 0LL;
   v22 = 16;
-  v13 = (struct _SLIST_ENTRY *)&v26;
+  v13 = (_SLIST_ENTRY *)&v26;
   if ( a3 > 0x10 || v11[1] > 0x10 )
   {
-    ++dword_140CEEC14;
+    ++dword_140CEEC54;
     v7 = RtlpInterlockedPopEntrySList(&VmpLargeFaultBatchLookasideList);
     if ( !v7 )
     {
-      ++dword_140CEEC18;
-      v7 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_140CEEC30)(
-                           (unsigned int)dword_140CEEC24,
-                           (unsigned int)dword_140CEEC2C,
-                           (unsigned int)dword_140CEEC28,
+      ++dword_140CEEC58;
+      v7 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _SLIST_HEADER *))qword_140CEEC70)(
+                           (unsigned int)dword_140CEEC64,
+                           (unsigned int)dword_140CEEC6C,
+                           (unsigned int)dword_140CEEC68,
                            &VmpLargeFaultBatchLookasideList);
     }
     if ( v7 )
@@ -119,15 +119,15 @@ LABEL_29:
 LABEL_30:
   if ( v7 )
   {
-    ++dword_140CEEC1C;
-    if ( LOWORD(VmpLargeFaultBatchLookasideList.Alignment) < (unsigned __int16)word_140CEEC10 )
+    ++dword_140CEEC5C;
+    if ( LOWORD(VmpLargeFaultBatchLookasideList.Alignment) < (unsigned __int16)word_140CEEC50 )
     {
       RtlpInterlockedPushEntrySList(&VmpLargeFaultBatchLookasideList, v7);
     }
     else
     {
-      ++dword_140CEEC20;
-      ((void (__fastcall *)(PSLIST_ENTRY, union _SLIST_HEADER *))qword_140CEEC38)(v7, &VmpLargeFaultBatchLookasideList);
+      ++dword_140CEEC60;
+      ((void (__fastcall *)(PSLIST_ENTRY, _SLIST_HEADER *))qword_140CEEC78)(v7, &VmpLargeFaultBatchLookasideList);
     }
   }
   return (unsigned int)v20;

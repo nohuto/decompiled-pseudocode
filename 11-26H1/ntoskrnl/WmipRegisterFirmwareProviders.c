@@ -1,35 +1,35 @@
 /*
- * XREFs of WmipRegisterFirmwareProviders @ 0x140CE0368
+ * XREFs of WmipRegisterFirmwareProviders @ 0x140CE6708
  * Callers:
- *     WMIInitialize @ 0x140CDFE78 (WMIInitialize.c)
+ *     WMIInitialize @ 0x140CE6210 (WMIInitialize.c)
  * Callees:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  */
 
-__int64 WmipRegisterFirmwareProviders()
+NTSTATUS WmipRegisterFirmwareProviders()
 {
-  __int64 result; // rax
-  int v1; // [rsp+20h] [rbp-20h] BYREF
+  NTSTATUS result; // eax
+  int SystemInformation; // [rsp+20h] [rbp-20h] BYREF
   char v2; // [rsp+24h] [rbp-1Ch]
   __int16 v3; // [rsp+25h] [rbp-1Bh]
   char v4; // [rsp+27h] [rbp-19h]
   __int64 (__fastcall *v5)(_DWORD *); // [rsp+28h] [rbp-18h]
   PDRIVER_OBJECT v6; // [rsp+30h] [rbp-10h]
 
-  v1 = 1381190978;
+  SystemInformation = 1381190978;
   v3 = 0;
   v4 = 0;
   v2 = 1;
   v5 = WmipRawSMBiosTableHandler;
   v6 = PnpDriverObject;
-  result = NtSetSystemInformation(75, (__int64)&v1, 0x18u);
-  if ( *(_DWORD *)&ExpSysDbgLock.SchedulerApcFill5[64] == 1 )
+  result = NtSetSystemInformation(SystemRegisterFirmwareTableInformationHandler, &SystemInformation, 0x18u);
+  if ( LODWORD(ExpSysDbgLock.ThreadListEntry.Blink) == 1 )
   {
-    v1 = 1179210317;
+    SystemInformation = 1179210317;
     v2 = 1;
     v5 = WmipFirmwareTableHandler;
     v6 = PnpDriverObject;
-    return NtSetSystemInformation(75, (__int64)&v1, 0x18u);
+    return NtSetSystemInformation(SystemRegisterFirmwareTableInformationHandler, &SystemInformation, 0x18u);
   }
   return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpPrepareModuleForExecution @ 0x18002DA88
+ * XREFs of LdrpPrepareModuleForExecution @ 0x18002DA78
  * Callers:
- *     LdrpLoadDllInternal @ 0x180018D30 (LdrpLoadDllInternal.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrpLoadDllInternal @ 0x180018D20 (LdrpLoadDllInternal.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrpAcquireLoaderLock @ 0x18002D51C (LdrpAcquireLoaderLock.c)
- *     LdrpReleaseLoaderLock @ 0x18002D55C (LdrpReleaseLoaderLock.c)
- *     LdrpDynamicShimModule @ 0x18002D734 (LdrpDynamicShimModule.c)
- *     LdrpNotifyLoadOfGraph @ 0x18002E468 (LdrpNotifyLoadOfGraph.c)
- *     LdrpInitializeGraphRecurse @ 0x1800722B8 (LdrpInitializeGraphRecurse.c)
- *     LdrpCondenseGraph @ 0x180074624 (LdrpCondenseGraph.c)
- *     LdrpAddNodeServiceTag @ 0x18008017C (LdrpAddNodeServiceTag.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     LdrpAcquireLoaderLock @ 0x18002D50C (LdrpAcquireLoaderLock.c)
+ *     LdrpReleaseLoaderLock @ 0x18002D54C (LdrpReleaseLoaderLock.c)
+ *     LdrpDynamicShimModule @ 0x18002D724 (LdrpDynamicShimModule.c)
+ *     LdrpNotifyLoadOfGraph @ 0x18002E458 (LdrpNotifyLoadOfGraph.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800722A8 (LdrpInitializeGraphRecurse.c)
+ *     LdrpCondenseGraph @ 0x180074614 (LdrpCondenseGraph.c)
+ *     LdrpAddNodeServiceTag @ 0x18008016C (LdrpAddNodeServiceTag.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
 __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
   char v11; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0;
-  if ( (void *)qword_18014C550 == NtCurrentTeb()->ClientId.UniqueThread )
+  if ( LdrpDllNotificationLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
     return (unsigned int)v2;
   v5 = *(_QWORD *)(a1 + 152);
   switch ( *(_DWORD *)(v5 + 56) )

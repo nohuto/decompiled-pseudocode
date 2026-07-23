@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilAddressRangeRemove @ 0x140B8318C
+ * XREFs of VfUtilAddressRangeRemove @ 0x140B8518C
  * Callers:
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140B831B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     ViDeadlockRemoveResource @ 0x140B99DFC (ViDeadlockRemoveResource.c)
- *     ViDeadlockRemoveThread @ 0x140B99F9C (ViDeadlockRemoveThread.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140B851B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     ViDeadlockRemoveResource @ 0x140B9BDFC (ViDeadlockRemoveResource.c)
+ *     ViDeadlockRemoveThread @ 0x140B9BF9C (ViDeadlockRemoveThread.c)
  * Callees:
  *     <none>
  */

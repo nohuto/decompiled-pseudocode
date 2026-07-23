@@ -1,14 +1,14 @@
 /*
- * XREFs of __pctype_func @ 0x14050202C
+ * XREFs of __pctype_func @ 0x1404FF8EC
  * Callers:
- *     strtoxlX @ 0x1404FD460 (strtoxlX.c)
- *     strtoxq @ 0x1404FD728 (strtoxq.c)
- *     tolower @ 0x1404FFB60 (tolower.c)
+ *     strtoxlX @ 0x1404FAD20 (strtoxlX.c)
+ *     strtoxq @ 0x1404FAFE8 (strtoxq.c)
+ *     tolower @ 0x1404FD420 (tolower.c)
  * Callees:
  *     <none>
  */
 
-wchar_t *__fastcall _pctype_func()
+const unsigned __int16 *_pctype_func(void)
 {
   return pctype;
 }

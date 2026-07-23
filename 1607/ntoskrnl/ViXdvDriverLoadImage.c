@@ -1,14 +1,14 @@
 /*
- * XREFs of ViXdvDriverLoadImage @ 0x14070512C
+ * XREFs of ViXdvDriverLoadImage @ 0x14070515C
  * Callers:
  *     VfDriverLoadImage @ 0x1406FDD58 (VfDriverLoadImage.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
- *     strcmp @ 0x14014E770 (strcmp.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     ViXdvBindXdvDDIWrappers @ 0x140704F2C (ViXdvBindXdvDDIWrappers.c)
- *     ViXdvBindXdvDriverEntryWrappers @ 0x140705010 (ViXdvBindXdvDriverEntryWrappers.c)
- *     ViXdvGetFuncAddress @ 0x1407052CC (ViXdvGetFuncAddress.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
+ *     strcmp @ 0x14014ED30 (strcmp.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     ViXdvBindXdvDDIWrappers @ 0x140704F5C (ViXdvBindXdvDDIWrappers.c)
+ *     ViXdvBindXdvDriverEntryWrappers @ 0x140705040 (ViXdvBindXdvDriverEntryWrappers.c)
+ *     ViXdvGetFuncAddress @ 0x1407052FC (ViXdvGetFuncAddress.c)
  */
 
 char __fastcall ViXdvDriverLoadImage(__int64 a1)

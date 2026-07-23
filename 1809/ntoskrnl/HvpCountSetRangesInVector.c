@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpCountSetRangesInVector @ 0x1405DF8D4
+ * XREFs of HvpCountSetRangesInVector @ 0x1405E08D4
  * Callers:
- *     HvGetHiveLogFileStatus @ 0x1405A62C8 (HvGetHiveLogFileStatus.c)
- *     HvStoreModifiedData @ 0x1405A7438 (HvStoreModifiedData.c)
- *     HvpGenerateLogEntry @ 0x1405A7860 (HvpGenerateLogEntry.c)
- *     HvpGenerateLogMetadata @ 0x1405A83CC (HvpGenerateLogMetadata.c)
+ *     HvGetHiveLogFileStatus @ 0x1405A72C8 (HvGetHiveLogFileStatus.c)
+ *     HvStoreModifiedData @ 0x1405A8438 (HvStoreModifiedData.c)
+ *     HvpGenerateLogEntry @ 0x1405A8860 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogMetadata @ 0x1405A93CC (HvpGenerateLogMetadata.c)
  * Callees:
  *     RtlFindNextForwardRunClear @ 0x140028C00 (RtlFindNextForwardRunClear.c)
  */

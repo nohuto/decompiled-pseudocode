@@ -1,140 +1,176 @@
 /*
- * XREFs of RtlQueryAtomInAtomTable @ 0x140935920
+ * XREFs of RtlQueryAtomInAtomTable @ 0x1408F4910
  * Callers:
- *     NtQueryInformationAtom @ 0x1409356D0 (NtQueryInformationAtom.c)
+ *     NtQueryInformationAtom @ 0x1408F45F0 (NtQueryInformationAtom.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     RtlpLookupLowBox @ 0x1404320FC (RtlpLookupLowBox.c)
- *     _snwprintf_s @ 0x140503770 (_snwprintf_s.c)
- *     Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline @ 0x1405E8CD0 (Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlpLockAtomTable @ 0x140935D80 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x140935E40 (RtlpAtomMapAtomToHandleEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExGetHandlePointer @ 0x14041B770 (ExGetHandlePointer.c)
+ *     RtlpLookupLowBox @ 0x14042463C (RtlpLookupLowBox.c)
+ *     _snwprintf_s @ 0x140501030 (_snwprintf_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExpLookupHandleTableEntry @ 0x1408481F0 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140849D30 (ExpBlockOnLockedHandleEntry.c)
+ *     RtlpLockAtomTable @ 0x1408F4C90 (RtlpLockAtomTable.c)
  */
 
-__int64 __fastcall RtlQueryAtomInAtomTable(
-        __int64 a1,
-        unsigned __int16 a2,
-        _DWORD *a3,
-        _DWORD *a4,
-        void *a5,
-        unsigned int *a6)
+NTSTATUS __cdecl RtlQueryAtomInAtomTable(
+        PVOID AtomTableHandle,
+        RTL_ATOM Atom,
+        PULONG AtomUsage,
+        PULONG AtomFlags,
+        PWSTR AtomName,
+        PULONG AtomNameLength)
 {
-  int v8; // ebx
-  unsigned int v10; // r14d
-  unsigned int v12; // esi
-  unsigned int v13; // eax
-  __int64 v14; // rax
-  __int64 v15; // rsi
-  unsigned int v16; // edi
-  unsigned int v17; // eax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  unsigned int v21; // [rsp+34h] [rbp-94h]
-  wchar_t DstBuf[16]; // [rsp+60h] [rbp-68h] BYREF
+  int v8; // r15d
+  ULONG v10; // edi
+  unsigned int *v11; // rdi
+  __int64 *v12; // rbx
+  __int64 v13; // r8
+  unsigned __int64 HandlePointer; // rsi
+  __int64 v15; // rcx
+  _QWORD *v16; // rcx
+  unsigned int v17; // edi
+  unsigned int v18; // esi
+  signed __int32 v20[8]; // [rsp+0h] [rbp-E8h] BYREF
+  __int64 v21; // [rsp+20h] [rbp-C8h]
+  NTSTATUS v22; // [rsp+30h] [rbp-B8h]
+  PULONG v23; // [rsp+38h] [rbp-B0h]
+  unsigned int v24; // [rsp+40h] [rbp-A8h]
+  __int64 v25; // [rsp+48h] [rbp-A0h]
+  PULONG v26; // [rsp+50h] [rbp-98h]
+  struct _KTHREAD *v27; // [rsp+58h] [rbp-90h]
+  __int64 v28; // [rsp+60h] [rbp-88h]
+  PVOID v29; // [rsp+68h] [rbp-80h]
+  struct _KTHREAD *CurrentThread; // [rsp+70h] [rbp-78h]
+  struct _KTHREAD *v31; // [rsp+78h] [rbp-70h]
+  wchar_t DstBuf[16]; // [rsp+88h] [rbp-60h] BYREF
 
-  v8 = a2;
-  v10 = 0;
+  v27 = (struct _KTHREAD *)AtomFlags;
+  v23 = AtomUsage;
+  v8 = Atom;
+  v26 = AtomNameLength;
+  v29 = AtomTableHandle;
   if ( !(unsigned __int8)RtlpLockAtomTable() )
-    return 3221225485LL;
-  if ( (unsigned int)Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline() )
-    v10 = *a6 & 0xFFFFFFFE;
-  if ( (unsigned __int16)v8 >= 0xC000u )
+    return -1073741811;
+  v10 = *AtomNameLength & 0xFFFFFFFE;
+  v24 = v10;
+  if ( (unsigned __int16)v8 < 0xC000u )
   {
-    v21 = -1073741816;
-    v14 = RtlpAtomMapAtomToHandleEntry(a1, v8 & 0x3FFF);
-    v15 = v14;
-    if ( !v14 || *(_WORD *)(v14 + 10) != (_WORD)v8 || !RtlpLookupLowBox(a1, v14, 0) )
-      goto LABEL_42;
-    v21 = 0;
-    if ( a3 )
-      *a3 = *(unsigned __int16 *)(v15 + 36);
-    if ( a4 )
-      *a4 = *(unsigned __int16 *)(v15 + 38);
-    if ( !a5 )
-      goto LABEL_42;
-    v16 = 2 * *(unsigned __int8 *)(v15 + 40);
-    if ( (unsigned int)Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline() )
+    if ( !(_WORD)v8 )
     {
-      if ( v16 < v10 )
-        goto LABEL_39;
-      if ( v10 >= 2 )
-      {
-        v16 = v10 - 2;
-        goto LABEL_39;
-      }
-LABEL_35:
-      *a6 = v16;
+      v22 = -1073741811;
       goto LABEL_41;
     }
-    v17 = *a6;
-    if ( v16 >= *a6 )
+    v22 = 0;
+    if ( AtomUsage )
+      *AtomUsage = 1;
+    if ( AtomFlags )
+      *AtomFlags = 1;
+    if ( !AtomName )
+      goto LABEL_41;
+    LODWORD(v21) = v8;
+    v18 = 2 * snwprintf_s(DstBuf, 0x10uLL, 0xFFFFFFFFFFFFFFFFuLL, L"#%u", v21);
+    LODWORD(v23) = v18;
+    if ( v18 >= v10 )
     {
-      if ( v17 < 2 )
-        goto LABEL_35;
-      v16 = v17 - 2;
+      if ( v10 < 2 )
+        goto LABEL_38;
+      v18 = v10 - 2;
+      LODWORD(v23) = v10 - 2;
     }
-LABEL_39:
-    if ( v16 )
+    if ( v18 )
     {
-      memmove(a5, (const void *)(v15 + 42), v16);
-      *((_WORD *)a5 + ((unsigned __int64)v16 >> 1)) = 0;
-      *a6 = v16;
-      goto LABEL_42;
+      memmove(AtomName, DstBuf, v18);
+      AtomName[(unsigned __int64)v18 >> 1] = 0;
+      *v26 = v18;
+      goto LABEL_41;
     }
-LABEL_41:
-    v21 = -1073741789;
-    goto LABEL_42;
+LABEL_38:
+    v22 = -1073741789;
+    goto LABEL_41;
   }
-  if ( (_WORD)v8 )
+  v22 = -1073741816;
+  v25 = 4 * (v8 & 0x3FFFu);
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v11 = (unsigned int *)*((_QWORD *)AtomTableHandle + 2);
+  v28 = v25;
+  if ( ((4 * (v8 & 0x3FFF)) & 0x3FC) != 0 )
   {
-    v21 = 0;
-    if ( a3 )
-      *a3 = 1;
-    if ( a4 )
-      *a4 = 1;
-    if ( !a5 )
-      goto LABEL_42;
-    v12 = 2 * snwprintf_s(DstBuf, 0x10uLL, 0xFFFFFFFFFFFFFFFFuLL, L"#%u", v8);
-    if ( (unsigned int)Feature_Servicing_OutOfBoundWriteAtom__private_IsEnabledDeviceUsageNoInline() )
-    {
-      if ( v12 < v10 )
-        goto LABEL_21;
-      if ( v10 >= 2 )
-      {
-        v12 = v10 - 2;
-        goto LABEL_21;
-      }
-LABEL_17:
-      v21 = -1073741789;
-      goto LABEL_42;
-    }
-    v13 = *a6;
-    if ( v12 >= *a6 )
-    {
-      if ( v13 < 2 )
-        goto LABEL_17;
-      v12 = v13 - 2;
-    }
-LABEL_21:
+    v12 = (__int64 *)ExpLookupHandleTableEntry(v11, v25);
     if ( v12 )
     {
-      memmove(a5, DstBuf, v12);
-      *((_WORD *)a5 + ((unsigned __int64)v12 >> 1)) = 0;
-      *a6 = v12;
-      goto LABEL_42;
+      do
+      {
+        while ( 1 )
+        {
+          _m_prefetchw(v12);
+          v13 = *v12;
+          if ( (*v12 & 1) != 0 )
+            break;
+          if ( !v13 )
+            goto LABEL_25;
+          ExpBlockOnLockedHandleEntry((__int64)v11, v12, v13);
+        }
+      }
+      while ( v13 != _InterlockedCompareExchange64(v12, v13 - 1, v13) );
+      HandlePointer = ExGetHandlePointer(v12);
+      v15 = *((_QWORD *)AtomTableHandle + 2);
+      _InterlockedIncrement64(v12);
+      v16 = (_QWORD *)(v15 + 48);
+      _InterlockedOr(v20, 0);
+      if ( *v16 )
+        ExfUnblockPushLock((__int64)v16, 0LL);
+      v31 = KeGetCurrentThread();
+      KeLeaveCriticalRegionThread();
+      if ( !HandlePointer )
+        goto LABEL_41;
+      if ( *(_WORD *)(HandlePointer + 10) != (_WORD)v8 )
+        goto LABEL_41;
+      if ( !RtlpLookupLowBox((__int64)AtomTableHandle, HandlePointer, 0) )
+        goto LABEL_41;
+      v22 = 0;
+      if ( v23 )
+        *v23 = *(unsigned __int16 *)(HandlePointer + 36);
+      if ( v27 )
+        v27->Header.LockNV = *(unsigned __int16 *)(HandlePointer + 38);
+      if ( !AtomName )
+        goto LABEL_41;
+      v17 = 2 * *(unsigned __int8 *)(HandlePointer + 40);
+      LODWORD(v23) = v17;
+      if ( v17 >= v24 )
+      {
+        if ( v24 < 2 )
+        {
+          *v26 = v17;
+LABEL_27:
+          v22 = -1073741789;
+          goto LABEL_41;
+        }
+        v17 = v24 - 2;
+        LODWORD(v23) = v24 - 2;
+      }
+      if ( v17 )
+      {
+        memmove(AtomName, (const void *)(HandlePointer + 42), v17);
+        AtomName[(unsigned __int64)v17 >> 1] = 0;
+        *v26 = v17;
+        goto LABEL_41;
+      }
+      goto LABEL_27;
     }
-    goto LABEL_17;
   }
-  v21 = -1073741811;
-LABEL_42:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 8));
-  KeAbPostRelease(a1 + 8);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v18, v19, v20);
-  return v21;
+LABEL_25:
+  v27 = KeGetCurrentThread();
+  KeLeaveCriticalRegionThread();
+LABEL_41:
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)AtomTableHandle + 1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)AtomTableHandle + 1);
+  KeAbPostRelease((ULONG_PTR)AtomTableHandle + 8);
+  KeLeaveCriticalRegionThread();
+  return v22;
 }

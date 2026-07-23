@@ -7,44 +7,44 @@
  *     swprintf_s @ 0x1800A1530 (swprintf_s.c)
  */
 
-__int64 __fastcall RtlStringFromGUIDEx(unsigned int *a1, __int64 a2, char a3)
+NTSTATUS __cdecl RtlStringFromGUIDEx(PGUID Guid, PUNICODE_STRING GuidString, BOOLEAN AllocateGuidString)
 {
-  __int64 v5; // rax
-  unsigned __int64 v6; // rdx
+  WCHAR *v5; // rax
+  unsigned __int64 MaximumLength; // rdx
 
-  if ( a3 )
+  if ( AllocateGuidString )
   {
-    *(_WORD *)(a2 + 2) = 78;
-    v5 = sub_180043FE0(78LL);
-    *(_QWORD *)(a2 + 8) = v5;
+    GuidString->MaximumLength = 78;
+    v5 = (WCHAR *)sub_180043FE0(0x4EuLL);
+    GuidString->Buffer = v5;
     if ( v5 )
     {
 LABEL_3:
-      v6 = *(unsigned __int16 *)(a2 + 2);
-      *(_WORD *)a2 = 76;
+      MaximumLength = GuidString->MaximumLength;
+      GuidString->Length = 76;
       swprintf_s(
-        *(wchar_t *const *)(a2 + 8),
-        v6 >> 1,
+        GuidString->Buffer,
+        MaximumLength >> 1,
         L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-        *a1,
-        *((unsigned __int16 *)a1 + 2),
-        *((unsigned __int16 *)a1 + 3),
-        *((unsigned __int8 *)a1 + 8),
-        *((unsigned __int8 *)a1 + 9),
-        *((unsigned __int8 *)a1 + 10),
-        *((unsigned __int8 *)a1 + 11),
-        *((unsigned __int8 *)a1 + 12),
-        *((unsigned __int8 *)a1 + 13),
-        *((unsigned __int8 *)a1 + 14),
-        *((unsigned __int8 *)a1 + 15));
-      return 0LL;
+        Guid->Data1,
+        Guid->Data2,
+        Guid->Data3,
+        Guid->Data4[0],
+        Guid->Data4[1],
+        Guid->Data4[2],
+        Guid->Data4[3],
+        Guid->Data4[4],
+        Guid->Data4[5],
+        Guid->Data4[6],
+        Guid->Data4[7]);
+      return 0;
     }
-    return 3221225495LL;
+    return -1073741801;
   }
   else
   {
-    if ( *(_WORD *)(a2 + 2) >= 0x4Eu )
+    if ( GuidString->MaximumLength >= 0x4Eu )
       goto LABEL_3;
-    return 3221225507LL;
+    return -1073741789;
   }
 }

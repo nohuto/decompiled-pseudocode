@@ -1,44 +1,44 @@
 /*
- * XREFs of MiInsertInSystemSpace @ 0x1400FF2A0
+ * XREFs of MiInsertInSystemSpace @ 0x1400FD020
  * Callers:
- *     MiMapViewInSystemSpace @ 0x140525ED4 (MiMapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x140508F34 (MiMapViewInSystemSpace.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiManageSubsectionView @ 0x140013D20 (MiManageSubsectionView.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x140057DA0 (KiTryUnwaitThread.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     KxWaitForLockChainValid @ 0x1400F9530 (KxWaitForLockChainValid.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3B5C (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiManageSubsectionView @ 0x1400138A0 (MiManageSubsectionView.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x140057920 (KiTryUnwaitThread.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     KxWaitForLockChainValid @ 0x1400F7370 (KxWaitForLockChainValid.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3988 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiReferenceFileObjectForMap @ 0x14042A524 (MiReferenceFileObjectForMap.c)
- *     MiCreatePerSessionProtos @ 0x140661B60 (MiCreatePerSessionProtos.c)
- *     MiDereferencePerSessionProtos @ 0x140661CF8 (MiDereferencePerSessionProtos.c)
+ *     MiReferenceFileObjectForMap @ 0x1404293F4 (MiReferenceFileObjectForMap.c)
+ *     MiCreatePerSessionProtos @ 0x140661C44 (MiCreatePerSessionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x140661DDC (MiDereferencePerSessionProtos.c)
  */
 
 unsigned __int64 __fastcall MiInsertInSystemSpace(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4, char a5)
@@ -169,7 +169,7 @@ unsigned __int64 __fastcall MiInsertInSystemSpace(__int64 a1, unsigned int a2, _
   v11 = MiPartitionIdToPointer(WORD2(KeGetCurrentThread()->ApcState.Process[1].InstrumentationCallback));
   if ( (int *)v12 != v11 )
     v10 |= 4uLL;
-  *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x28) = &unk_1403274D8;
+  *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x28) = &unk_140327518;
   v13 = 0x7FFFF;
   v14 = *((_DWORD *)v9 + 14);
   v15 = 0LL;
@@ -195,14 +195,14 @@ unsigned __int64 __fastcall MiInsertInSystemSpace(__int64 a1, unsigned int a2, _
       goto LABEL_11;
     }
   }
-  if ( (_UNKNOWN *)a1 == &unk_140326880 )
+  if ( (_UNKNOWN *)a1 == &unk_1403268C0 )
   {
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
     *v5 = (__int64)AnyMultiplexedVm;
     if ( !(unsigned int)MiChargeWsles((ULONG_PTR)AnyMultiplexedVm, v6, 0) )
       goto LABEL_11;
     *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18) = *(_QWORD *)((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL);
-    v21 = &unk_1403274D8;
+    v21 = &unk_140327518;
     *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x48) = 0LL;
   }
   else
@@ -230,7 +230,7 @@ unsigned __int64 __fastcall MiInsertInSystemSpace(__int64 a1, unsigned int a2, _
       *(_QWORD *)(v24 + 40) = v15;
       *(_QWORD *)(v24 + 80) = v25 | 2;
       *(_DWORD *)(v24 + 92) = *(_DWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x20);
-      if ( (_UNKNOWN *)a1 == &unk_140326880 )
+      if ( (_UNKNOWN *)a1 == &unk_1403268C0 )
         *(_DWORD *)(v24 + 88) = -1;
       else
         *(_DWORD *)(v24 + 88) = *(_DWORD *)(*(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x48) + 8LL);
@@ -318,8 +318,8 @@ LABEL_11:
     MiDereferencePerSessionProtos(v9, v13);
   if ( !v15 )
     return 0LL;
-  v17 = qword_140324B80;
-  if ( qword_140324B80 )
+  v17 = qword_140324BC0[0];
+  if ( qword_140324BC0[0] )
   {
     while ( 1 )
     {
@@ -327,7 +327,7 @@ LABEL_11:
       if ( v15 > v17 )
         v18 = v17;
       v19 = v17;
-      v17 = _InterlockedCompareExchange64(&qword_140324B80, v17 - v18, v17);
+      v17 = _InterlockedCompareExchange64(qword_140324BC0, v17 - v18, v17);
       if ( v19 == v17 )
         break;
       if ( !v17 )
@@ -355,31 +355,31 @@ LABEL_60:
     }
     while ( v15 + v44 <= 0x100 );
   }
-  v45 = _InterlockedExchangeAdd64(&qword_140325168, -(__int64)v15);
-  if ( v45 >= qword_140324B60 && v45 - v15 < qword_140324B60 || v45 - v15 < qword_140324B58 && v45 >= qword_140324B58 )
+  v45 = _InterlockedExchangeAdd64(&qword_1403251A8, -(__int64)v15);
+  if ( v45 >= qword_140324BA0 && v45 - v15 < qword_140324BA0 || v45 - v15 < qword_140324B98 && v45 >= qword_140324B98 )
   {
     *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x30) = 0LL;
-    *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x38) = &qword_140324B68;
+    *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x38) = &qword_140324BA8;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     v47 = (BYTE6(PerfGlobalGroupMask) & 0x21) == 0;
     *(_BYTE *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x40) = CurrentIrql;
     if ( v47 )
     {
-      v48 = (_QWORD *)_InterlockedExchange64(&qword_140324B68, (__int64)(v5 + 6));
+      v48 = (_QWORD *)_InterlockedExchange64(&qword_140324BA8, (__int64)(v5 + 6));
       if ( v48 )
         KxWaitForLockOwnerShip((__int64)(v5 + 6), v48);
     }
     else
     {
-      KiAcquireQueuedSpinLockInstrumented(v5 + 6, &qword_140324B68);
+      KiAcquireQueuedSpinLockInstrumented(v5 + 6, &qword_140324BA8);
     }
-    if ( qword_140325168 < (unsigned __int64)qword_140324B58 )
+    if ( qword_1403251A8 < (unsigned __int64)qword_140324B98 )
     {
-      v49 = qword_140323678;
-      if ( qword_140323678->Header.SignalState )
+      v49 = qword_1403236B8;
+      if ( qword_1403236B8->Header.SignalState )
         goto LABEL_133;
-      v50 = (qword_140323678->Header.Type & 0x7F) == 0;
+      v50 = (qword_1403236B8->Header.Type & 0x7F) == 0;
       *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18) = KeGetCurrentIrql();
       __writecr8(2uLL);
       v51 = KeGetCurrentPrcb();
@@ -489,8 +489,8 @@ LABEL_132:
               0LL,
               *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18));
 LABEL_133:
-            v80 = qword_140323680;
-            if ( qword_140323680->Header.SignalState == 1 )
+            v80 = qword_1403236C0;
+            if ( qword_1403236C0->Header.SignalState == 1 )
             {
               v81 = KeGetCurrentIrql();
               __writecr8(2uLL);
@@ -498,7 +498,7 @@ LABEL_133:
               v80->Header.SignalState = 0;
               _InterlockedAnd(&v80->Header.Lock, 0xFFFFFF7F);
               __writecr8(v81);
-              v82 = qword_140323688;
+              v82 = qword_1403236C8;
               v83 = KeGetCurrentIrql();
               __writecr8(2uLL);
               KiAcquireKobjectLockSafe(&v82->Header.Lock);
@@ -591,19 +591,19 @@ LABEL_127:
         v51 = *(struct _KPRCB **)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x10);
       }
     }
-    if ( qword_140325168 < (unsigned __int64)qword_140324B60 )
+    if ( qword_1403251A8 < (unsigned __int64)qword_140324BA0 )
     {
-      if ( qword_140323680->Header.SignalState == 1 )
+      if ( qword_1403236C0->Header.SignalState == 1 )
       {
-        KeResetEvent(qword_140323680);
-        KeResetEvent(qword_140323688);
+        KeResetEvent(qword_1403236C0);
+        KeResetEvent(qword_1403236C8);
       }
       goto LABEL_201;
     }
-    v84 = qword_140323680;
-    if ( qword_140323680->Header.SignalState )
+    v84 = qword_1403236C0;
+    if ( qword_1403236C0->Header.SignalState )
       goto LABEL_197;
-    v85 = (qword_140323680->Header.Type & 0x7F) == 0;
+    v85 = (qword_1403236C0->Header.Type & 0x7F) == 0;
     *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18) = KeGetCurrentIrql();
     __writecr8(2uLL);
     v86 = KeGetCurrentPrcb();
@@ -713,11 +713,11 @@ LABEL_196:
             0LL,
             *(_QWORD *)(((unsigned __int64)&v116 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18));
 LABEL_197:
-          if ( qword_1403251E8 == qword_140324B48 )
-            KeSetEvent(qword_140323688, 0, 0);
+          if ( qword_140325228 == qword_140324B88 )
+            KeSetEvent(qword_1403236C8, 0, 0);
 LABEL_201:
-          if ( qword_140323678->Header.SignalState == 1 )
-            KeResetEvent(qword_140323678);
+          if ( qword_1403236B8->Header.SignalState == 1 )
+            KeResetEvent(qword_1403236B8);
           goto LABEL_203;
         }
         v104 = (__int64)v102;

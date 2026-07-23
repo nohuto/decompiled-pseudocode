@@ -17,7 +17,7 @@ __int64 __fastcall RtlpSetSegmentInfo(volatile signed __int64 **a1, volatile sig
   volatile signed __int64 *v9; // r9
   int v10; // r8d
   signed __int64 v11; // rcx
-  __int64 v12; // r8
+  int v12; // r8d
   signed __int64 v13; // rcx
   int v14; // eax
   __int64 v15; // rcx
@@ -59,16 +59,16 @@ __int64 __fastcall RtlpSetSegmentInfo(volatile signed __int64 **a1, volatile sig
       do
       {
         v13 = *((_QWORD *)a2 + 20);
-        LODWORD(v17) = v13 + v12;
-        if ( (_DWORD)v12 )
+        if ( v12 )
           v14 = HIDWORD(v13) + 1;
         else
           v14 = HIDWORD(v13) - 1;
         HIDWORD(v17) = v14;
+        LODWORD(v17) = v13 + v12;
       }
       while ( _InterlockedCompareExchange64(a2 + 20, v17, v13) != v13 );
       *a1 = a2;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v13, v17, v12, v9) )
+      if ( RtlGetCurrentServiceSessionId() )
         v15 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v15 = 2147353472LL;

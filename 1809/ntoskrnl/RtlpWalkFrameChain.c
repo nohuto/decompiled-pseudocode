@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpWalkFrameChain @ 0x14009EB90
+ * XREFs of RtlpWalkFrameChain @ 0x14009EAD0
  * Callers:
- *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x1400CCC50 (RtlWalkFrameChain.c)
  * Callees:
- *     MmIsSessionExecutionValid @ 0x14009DB10 (MmIsSessionExecutionValid.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0410 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlpIsFrameInBoundsEx @ 0x1400A0610 (RtlpIsFrameInBoundsEx.c)
- *     PspGetBaseTrapFrame @ 0x1400A0F18 (PspGetBaseTrapFrame.c)
- *     RtlpGetStackLimits @ 0x1400CAB20 (RtlpGetStackLimits.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     RtlpUnwindEpilogue @ 0x14013A394 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x14013A54C (RtlpUnwindOpSlots.c)
- *     RtlpSameFunction @ 0x140184F84 (RtlpSameFunction.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpCaptureContext @ 0x1401C54D0 (RtlpCaptureContext.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpWalkWowStack @ 0x1402EF9F0 (RtlpWalkWowStack.c)
- *     PsWow64GetProcessMachine @ 0x140620BA0 (PsWow64GetProcessMachine.c)
- *     RtlWow64GetCpuAreaInfo @ 0x1406A90C4 (RtlWow64GetCpuAreaInfo.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     MmIsSessionExecutionValid @ 0x14009DA50 (MmIsSessionExecutionValid.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0350 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpIsFrameInBoundsEx @ 0x1400A0550 (RtlpIsFrameInBoundsEx.c)
+ *     PspGetBaseTrapFrame @ 0x1400A0E58 (PspGetBaseTrapFrame.c)
+ *     RtlpGetStackLimits @ 0x1400CAC00 (RtlpGetStackLimits.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     RtlpUnwindEpilogue @ 0x14013A494 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x14013A64C (RtlpUnwindOpSlots.c)
+ *     RtlpSameFunction @ 0x1401850C4 (RtlpSameFunction.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpCaptureContext @ 0x1401C5630 (RtlpCaptureContext.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpWalkWowStack @ 0x1402EFBE0 (RtlpWalkWowStack.c)
+ *     PsWow64GetProcessMachine @ 0x140621BA0 (PsWow64GetProcessMachine.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1406AA364 (RtlWow64GetCpuAreaInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, int a3, int a4)
@@ -197,7 +197,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, int a3, int a
   v9 = v5 & 1;
   v90 = v9;
   v120 = v9;
-  if ( (v5 & 1) == 0 && (dword_140540174 & 1) == 0 )
+  if ( (v5 & 1) == 0 && (dword_140541174 & 1) == 0 )
     v106 = 0x80000000;
   v114 = 0LL;
   v115 = 0LL;
@@ -236,15 +236,15 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, int a3, int a
     v91 = _bittestandset((signed __int32 *)&CurrentThread->116, 5u);
   }
   memset(v135, 0, sizeof(v135));
-  v127 = *(_OWORD *)&xmmword_140558020;
-  v128 = qword_140558030;
+  v127 = *(_OWORD *)&xmmword_140559020;
+  v128 = qword_140559030;
   while ( 1 )
   {
     v10 = i;
     v125 = i;
     if ( v100 != 1
       && v146 >= 0xFFFF800000000000uLL
-      && byte_14043B950[((v146 >> 39) & 0x1FF) - 256] == 1
+      && byte_14043CA10[((v146 >> 39) & 0x1FF) - 256] == 1
       && !MmIsSessionExecutionValid((__int64)CurrentThread, (__int64)Process, v146) )
     {
       v9 = v90;

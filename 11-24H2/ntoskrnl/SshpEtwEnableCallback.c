@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpEtwEnableCallback @ 0x140A76640
+ * XREFs of SshpEtwEnableCallback @ 0x140A70760
  * Callers:
  *     <none>
  * Callees:
- *     SshpTracingRundownBlockerState @ 0x140A76664 (SshpTracingRundownBlockerState.c)
- *     SshpTracingRundownCollectionState @ 0x140A76764 (SshpTracingRundownCollectionState.c)
+ *     SshpTracingRundownBlockerState @ 0x140A70784 (SshpTracingRundownBlockerState.c)
+ *     SshpTracingRundownCollectionState @ 0x140A70884 (SshpTracingRundownCollectionState.c)
  */
 
 void __fastcall SshpEtwEnableCallback(LPCGUID SourceId, __int64 ControlCode, __int64 Level, ULONGLONG MatchAnyKeyword)

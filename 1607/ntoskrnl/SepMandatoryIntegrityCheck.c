@@ -1,16 +1,16 @@
 /*
- * XREFs of SepMandatoryIntegrityCheck @ 0x140063650
+ * XREFs of SepMandatoryIntegrityCheck @ 0x1400631D0
  * Callers:
- *     SeAccessCheckByType @ 0x14005FEF0 (SeAccessCheckByType.c)
- *     SeAccessCheckWithHint @ 0x140062B80 (SeAccessCheckWithHint.c)
- *     SepCommonAccessCheckEx @ 0x140135790 (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1404B6D30 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x14005FA70 (SeAccessCheckByType.c)
+ *     SeAccessCheckWithHint @ 0x140062700 (SeAccessCheckWithHint.c)
+ *     SepCommonAccessCheckEx @ 0x140135D00 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1404A1110 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
  */
 
 __int64 __fastcall SepMandatoryIntegrityCheck(_DWORD *a1, __int64 a2, char a3, __int64 a4, char a5, __int64 a6)

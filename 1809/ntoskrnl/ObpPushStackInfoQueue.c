@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpPushStackInfoQueue @ 0x140863540
+ * XREFs of ObpPushStackInfoQueue @ 0x1408647A0
  * Callers:
  *     <none>
  * Callees:
- *     ObpFreeWorkItemBlock @ 0x140862E00 (ObpFreeWorkItemBlock.c)
- *     ObpPushRefDerefInfo @ 0x1408633B4 (ObpPushRefDerefInfo.c)
+ *     ObpFreeWorkItemBlock @ 0x140864060 (ObpFreeWorkItemBlock.c)
+ *     ObpPushRefDerefInfo @ 0x140864614 (ObpPushRefDerefInfo.c)
  */
 
 signed __int64 ObpPushStackInfoQueue()
@@ -27,7 +27,7 @@ signed __int64 ObpPushStackInfoQueue()
         *(_DWORD *)(v0 + 20));
       v1 = v0;
       v0 = *(_QWORD *)v0;
-      ObpFreeWorkItemBlock((struct _SLIST_ENTRY *)(v1 - 16));
+      ObpFreeWorkItemBlock((_SLIST_ENTRY *)(v1 - 16));
     }
     while ( v0 > 1 );
     if ( ObpPushStackInfoList == 1 )

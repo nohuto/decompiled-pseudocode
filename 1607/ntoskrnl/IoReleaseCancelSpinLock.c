@@ -1,9 +1,9 @@
 /*
- * XREFs of IoReleaseCancelSpinLock @ 0x14009A538
+ * XREFs of IoReleaseCancelSpinLock @ 0x140099D38
  * Callers:
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B9B20 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B9874 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
  */
 
 void __stdcall IoReleaseCancelSpinLock(KIRQL Irql)

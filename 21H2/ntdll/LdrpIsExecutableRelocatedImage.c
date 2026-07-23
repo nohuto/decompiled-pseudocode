@@ -1,26 +1,32 @@
 /*
- * XREFs of LdrpIsExecutableRelocatedImage @ 0x1800CDC08
+ * XREFs of LdrpIsExecutableRelocatedImage @ 0x1800CDBC8
  * Callers:
  *     LdrpProcessMappedModule @ 0x18000F9AC (LdrpProcessMappedModule.c)
  * Callees:
  *     RtlImageNtHeaderEx @ 0x180032AD0 (RtlImageNtHeaderEx.c)
- *     ZwQueryVirtualMemory @ 0x18009DAA0 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x18009DA60 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall LdrpIsExecutableRelocatedImage(unsigned __int64 a1)
+__int64 __fastcall LdrpIsExecutableRelocatedImage(PVOID BaseAddress)
 {
   __int64 result; // rax
-  __int64 v3; // [rsp+30h] [rbp-28h]
+  PVOID MemoryInformation[2]; // [rsp+30h] [rbp-28h] BYREF
   char v4; // [rsp+40h] [rbp-18h]
-  __int64 v5; // [rsp+68h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+68h] [rbp+10h] BYREF
 
-  if ( (int)RtlImageNtHeaderEx(3, a1, 0LL, &v5) < 0 )
+  if ( RtlImageNtHeaderEx(3u, BaseAddress, 0LL, &OutHeaders) < 0 )
     return 0LL;
-  if ( *(_QWORD *)(v5 + 48) != a1 )
+  if ( (PVOID)OutHeaders->OptionalHeader.ImageBase != BaseAddress )
     return 0LL;
-  if ( (int)ZwQueryVirtualMemory() < 0 )
+  if ( ZwQueryVirtualMemory(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         BaseAddress,
+         MemoryImageInformation,
+         MemoryInformation,
+         0x18uLL,
+         0LL) < 0 )
     return 0LL;
-  if ( v3 != a1 )
+  if ( MemoryInformation[0] != BaseAddress )
     return 0LL;
   if ( (v4 & 2) != 0 )
     return 0LL;

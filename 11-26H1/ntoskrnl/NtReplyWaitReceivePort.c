@@ -1,21 +1,25 @@
 /*
- * XREFs of NtReplyWaitReceivePort @ 0x1407BFF20
+ * XREFs of NtReplyWaitReceivePort @ 0x1407C2F80
  * Callers:
- *     DifNtReplyWaitReceivePortWrapper @ 0x140689600 (DifNtReplyWaitReceivePortWrapper.c)
- *     NtListenPort @ 0x1407BFC20 (NtListenPort.c)
+ *     DifNtReplyWaitReceivePortWrapper @ 0x14068D1E0 (DifNtReplyWaitReceivePortWrapper.c)
+ *     NtListenPort @ 0x1407C2C80 (NtListenPort.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     NtReplyWaitReceivePortEx @ 0x1407BFF70 (NtReplyWaitReceivePortEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     NtReplyWaitReceivePortEx @ 0x1407C2FD0 (NtReplyWaitReceivePortEx.c)
  */
 
-__int64 __fastcall NtReplyWaitReceivePort(void *a1)
+NTSTATUS __cdecl NtReplyWaitReceivePort(
+        HANDLE PortHandle,
+        PVOID *PortContext,
+        PPORT_MESSAGE ReplyMessage,
+        PPORT_MESSAGE ReceiveMessage)
 {
   struct _KTHREAD *CurrentThread; // rax
 
-  if ( !*(_DWORD *)&AlpcpMessageLogLock.ApcStateFill[8] )
-    return NtReplyWaitReceivePortEx(a1, 0LL);
+  if ( !LODWORD(AlpcpMessageLogLock.TrapFrame) )
+    return NtReplyWaitReceivePortEx(PortHandle, PortContext, ReplyMessage, ReceiveMessage, 0LL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   KeLeaveCriticalRegion();
-  return 3221225659LL;
+  return -1073741637;
 }

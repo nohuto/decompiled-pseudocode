@@ -1,28 +1,28 @@
 /*
- * XREFs of PopDetectSimulatedHeteroProcessors @ 0x140CD3474
+ * XREFs of PopDetectSimulatedHeteroProcessors @ 0x140CD9614
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     PopReadSimulatedArchitecturalClasses @ 0x140CD39DC (PopReadSimulatedArchitecturalClasses.c)
- *     PopReadSimulatedHGSClasses @ 0x140CD3BD0 (PopReadSimulatedHGSClasses.c)
- *     PopReadSimulatedWpsContainment @ 0x140CD427C (PopReadSimulatedWpsContainment.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     PopReadSimulatedArchitecturalClasses @ 0x140CD9B7C (PopReadSimulatedArchitecturalClasses.c)
+ *     PopReadSimulatedHGSClasses @ 0x140CD9D70 (PopReadSimulatedHGSClasses.c)
+ *     PopReadSimulatedWpsContainment @ 0x140CDA41C (PopReadSimulatedWpsContainment.c)
  */
 
 void PopDetectSimulatedHeteroProcessors()
 {
   unsigned __int8 v0; // bp
   ULONG_PTR MaximumProcessorCount; // rdi
-  unsigned int v2; // r15d
+  unsigned int v2; // r12d
   unsigned int *v3; // r13
   _DWORD *Pool2; // rbx
   ULONG_PTR v5; // rsi
   void *v6; // r14
-  unsigned __int8 *v7; // r12
+  unsigned __int8 *v7; // r15
   ULONG_PTR v8; // r14
   unsigned __int8 *v9; // rdx
   ULONG_PTR v10; // r8
@@ -80,7 +80,7 @@ void PopDetectSimulatedHeteroProcessors()
                                                                                        (unsigned int)MaximumProcessorCount) & 1));
     if ( PpmHeteroSimulationStateConfig )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, (int)(4 * MaximumProcessorCount * v2 + 24), 0x704D5050u);
+      Pool2 = (_DWORD *)ExAllocatePool2(256LL, (int)(4 * MaximumProcessorCount * v2 + 48), 0x704D5050u);
       if ( Pool2 )
       {
         v5 = ExAllocatePool2(256LL, MaximumProcessorCount, 0x704D5050u);
@@ -98,8 +98,8 @@ LABEL_65:
           {
             Pool2[1] = v2;
             *Pool2 = MaximumProcessorCount;
-            *((_QWORD *)Pool2 + 1) = v5;
-            *((_QWORD *)Pool2 + 2) = v6;
+            *((_QWORD *)Pool2 + 2) = v5;
+            *((_QWORD *)Pool2 + 3) = v6;
             if ( (PpmHeteroSimulationStateConfig & 1) == 0 )
             {
               v8 = MaximumProcessorCount;
@@ -165,7 +165,7 @@ LABEL_38:
                 for ( i = 0LL; (unsigned int)i < *Pool2; i = (unsigned int)(i + 1) )
                 {
                   Prcb = KeGetPrcb(i);
-                  v30 = *(_BYTE *)(i + *((_QWORD *)Pool2 + 1));
+                  v30 = *(_BYTE *)(i + *((_QWORD *)Pool2 + 2));
                   *(_BYTE *)(Prcb + 35352) = v30;
                   if ( v30 && !PpmHeteroMultiCoreClassesEnabled )
                     *(_BYTE *)(Prcb + 35352) = 1;
@@ -176,10 +176,10 @@ LABEL_45:
                 {
                   for ( j = 0; j < (unsigned int)MaximumProcessorCount; ++j )
                   {
-                    for ( k = 0; k < v2; LOWORD(Pool2[v33 + 6]) = 257 )
+                    for ( k = 0; k < v2; LOWORD(Pool2[v33 + 12]) = 257 )
                       v33 = j * v2 + k++;
                   }
-                  PopReadSimulatedHGSClasses(Pool2 + 6, v7, (unsigned int)MaximumProcessorCount, v2);
+                  PopReadSimulatedHGSClasses(Pool2 + 12, v7, (unsigned int)MaximumProcessorCount, v2);
                 }
                 if ( (PpmHeteroSimulationStateConfig & 4) == 0 )
                   goto LABEL_60;
@@ -242,16 +242,16 @@ LABEL_64:
             v23 = 0LL;
             do
             {
-              *(_BYTE *)(v23 + *((_QWORD *)Pool2 + 1)) = *v22;
+              *(_BYTE *)(v23 + *((_QWORD *)Pool2 + 2)) = *v22;
               if ( (PpmHeteroSimulationStateConfig & 2) == 0 )
               {
                 v24 = Pool2[1];
                 for ( m = 0LL; (unsigned int)m < v24; v24 = Pool2[1] )
                 {
-                  v26 = *((_QWORD *)Pool2 + 2);
+                  v26 = *((_QWORD *)Pool2 + 3);
                   v27 = v21 * v24 + (unsigned int)m;
-                  BYTE1(Pool2[v27 + 6]) = *v22;
-                  LOBYTE(Pool2[v27 + 6]) = v12 - *v22;
+                  BYTE1(Pool2[v27 + 12]) = *v22;
+                  LOBYTE(Pool2[v27 + 12]) = v12 - *v22;
                   *(_BYTE *)(v26 + 2 * m) = v12;
                   *(_BYTE *)(v26 + 2 * m + 1) = v12;
                   m = (unsigned int)(m + 1);

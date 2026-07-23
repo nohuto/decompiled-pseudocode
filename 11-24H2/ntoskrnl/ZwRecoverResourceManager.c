@@ -1,16 +1,14 @@
 /*
- * XREFs of ZwRecoverResourceManager @ 0x1406A9330
+ * XREFs of ZwRecoverResourceManager @ 0x1406AA2D0
  * Callers:
- *     CmpInitCmRM @ 0x140AE4D94 (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x140AE6674 (CmpInitCmRM.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwRecoverResourceManager(HANDLE ResourceManagerHandle)
 {
-  __int64 v1; // rdx
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, v1);
+  return KiServiceInternal(ResourceManagerHandle);
 }

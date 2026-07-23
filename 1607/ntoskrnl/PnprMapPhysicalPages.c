@@ -3,8 +3,8 @@
  * Callers:
  *     PnprMapTargetSparePhysicalPages @ 0x1403DBFB0 (PnprMapTargetSparePhysicalPages.c)
  * Callees:
- *     MmMapLockedPagesWithReservedMapping @ 0x1401E4034 (MmMapLockedPagesWithReservedMapping.c)
- *     MmUnmapReservedMapping @ 0x1401E4198 (MmUnmapReservedMapping.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1401E3E60 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmUnmapReservedMapping @ 0x1401E3FC4 (MmUnmapReservedMapping.c)
  */
 
 __int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned __int64 *a3, _QWORD *a4)

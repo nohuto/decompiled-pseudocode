@@ -182,7 +182,7 @@ LABEL_27:
       v21 = KeGetCurrentIrql();
       __writecr8(1uLL);
       if ( !_interlockedbittestandreset((volatile signed __int32 *)v15, 0) )
-        ExpAcquireFastMutexContended((ULONG_PTR)&v13[35]);
+        ExpAcquireFastMutexContended((ULONG_PTR)&v13[35], (PRTL_BALANCED_NODE)v18);
       if ( v18 )
         *(_BYTE *)(v18 + 26) |= 1u;
       v13[36].QuadPart = (LONGLONG)KeGetCurrentThread();

@@ -1,13 +1,12 @@
 /*
- * XREFs of AlpcpTryLockForCachedReferenceBlob @ 0x140A5CAB0
+ * XREFs of AlpcpTryLockForCachedReferenceBlob @ 0x140A69A70
  * Callers:
- *     AlpcpCancelMessagesByRequestor @ 0x140A69A60 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpReceiveMessagePort @ 0x140ACC1E4 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x140ACE424 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall AlpcpTryLockForCachedReferenceBlob(

@@ -1,31 +1,31 @@
 /*
- * XREFs of CarInitializeTelemetryData @ 0x140616BA0
+ * XREFs of CarInitializeTelemetryData @ 0x140615160
  * Callers:
- *     CarReportDifPluginRuleViolation @ 0x140617240 (CarReportDifPluginRuleViolation.c)
+ *     CarReportDifPluginRuleViolation @ 0x140615800 (CarReportDifPluginRuleViolation.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
- *     wcsncpy_s @ 0x140504980 (wcsncpy_s.c)
- *     CarGetDriverInfoFromDriverName @ 0x140615E40 (CarGetDriverInfoFromDriverName.c)
- *     CarGetDriverInfoFromViolationStack @ 0x140615EC8 (CarGetDriverInfoFromViolationStack.c)
- *     AppendUlongAsHexadecimalW @ 0x1406197F4 (AppendUlongAsHexadecimalW.c)
- *     CarEtwCopyDriverName @ 0x1406198AC (CarEtwCopyDriverName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
+ *     wcsncpy_s @ 0x140502240 (wcsncpy_s.c)
+ *     CarGetDriverInfoFromDriverName @ 0x140614400 (CarGetDriverInfoFromDriverName.c)
+ *     CarGetDriverInfoFromViolationStack @ 0x140614488 (CarGetDriverInfoFromViolationStack.c)
+ *     AppendUlongAsHexadecimalW @ 0x140617DB4 (AppendUlongAsHexadecimalW.c)
+ *     CarEtwCopyDriverName @ 0x140617E6C (CarEtwCopyDriverName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CarInitializeTelemetryData(
         __int64 a1,
         unsigned int a2,
         unsigned int a3,
-        const wchar_t ***a4,
+        unsigned __int16 **a4,
         __int64 a5)
 {
   _QWORD *v10; // rsi
-  const wchar_t **v11; // rdx
+  unsigned __int16 *v11; // rdx
   __int64 v12; // rcx
   unsigned __int64 v13; // r8
   wchar_t *v14; // rcx
-  const wchar_t **v15; // rdi
+  unsigned __int16 *v15; // rdi
   wchar_t *Pool2; // rax
   wchar_t *v17; // rsi
 
@@ -66,7 +66,7 @@ __int64 __fastcall CarInitializeTelemetryData(
     }
     goto LABEL_20;
   }
-  v14 = (wchar_t *)a4[7];
+  v14 = a4[7];
   if ( v14 )
   {
     CarGetDriverInfoFromDriverName(v14, a1);
@@ -79,11 +79,11 @@ LABEL_13:
       v15 = *a4;
       if ( !v15 )
         return 3221225712LL;
-      Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, 2LL * *v15 + 2, 0x4E726143u);
       v17 = Pool2;
       if ( !Pool2 )
         return 3221225495LL;
-      wcsncpy_s(Pool2, *(unsigned __int16 *)v15 + 1LL, v15[1], 0xFFFFFFFFFFFFFFFFuLL);
+      wcsncpy_s(Pool2, *v15 + 1LL, *((const wchar_t **)v15 + 1), 0xFFFFFFFFFFFFFFFFuLL);
       CarGetDriverInfoFromDriverName(v17, a1);
       ExFreePoolWithTag(v17, 0x4E726143u);
     }

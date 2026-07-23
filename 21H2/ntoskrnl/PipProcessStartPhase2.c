@@ -1,17 +1,17 @@
 /*
- * XREFs of PipProcessStartPhase2 @ 0x14073DCFC
+ * XREFs of PipProcessStartPhase2 @ 0x14073DEBC
  * Callers:
- *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1407413C4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
- *     IoRequestDeviceEject @ 0x14050C990 (IoRequestDeviceEject.c)
- *     McTemplateK0dz_EtwWriteTransfer @ 0x14050FE88 (McTemplateK0dz_EtwWriteTransfer.c)
- *     PnpRequestDeviceRemoval @ 0x140736688 (PnpRequestDeviceRemoval.c)
- *     IopDoDeferredSetInterfaceState @ 0x14073DDB0 (IopDoDeferredSetInterfaceState.c)
- *     PnpUpdateRebootRequiredReason @ 0x1408A2104 (PnpUpdateRebootRequiredReason.c)
- *     PpProfileCancelHardwareProfileTransition @ 0x1408AB3A8 (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileCommitTransitioningDock @ 0x1408AB4DC (PpProfileCommitTransitioningDock.c)
- *     IopAllocateLegacyBootResources @ 0x140A674D8 (IopAllocateLegacyBootResources.c)
+ *     PipSetDevNodeState @ 0x14036FB98 (PipSetDevNodeState.c)
+ *     IoRequestDeviceEject @ 0x14050CBD0 (IoRequestDeviceEject.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x1405100C8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpRequestDeviceRemoval @ 0x140736848 (PnpRequestDeviceRemoval.c)
+ *     IopDoDeferredSetInterfaceState @ 0x14073DF70 (IopDoDeferredSetInterfaceState.c)
+ *     PnpUpdateRebootRequiredReason @ 0x1408A2264 (PnpUpdateRebootRequiredReason.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x1408AB508 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408AB63C (PpProfileCommitTransitioningDock.c)
+ *     IopAllocateLegacyBootResources @ 0x140A684D8 (IopAllocateLegacyBootResources.c)
  */
 
 __int64 __fastcall PipProcessStartPhase2(__int64 a1, __int64 a2, __int64 a3)

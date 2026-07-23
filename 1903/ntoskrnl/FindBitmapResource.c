@@ -12,7 +12,7 @@ PVOID __fastcall FindBitmapResource(ULONG_PTR a1, ULONG *a2)
 {
   PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry; // [rsp+20h] [rbp-38h] BYREF
   PVOID Resource; // [rsp+28h] [rbp-30h] BYREF
-  struct _LDR_RESOURCE_INFO v6; // [rsp+30h] [rbp-28h] BYREF
+  _LDR_RESOURCE_INFO v6; // [rsp+30h] [rbp-28h] BYREF
 
   v6.Language = 0LL;
   v6.Name = a1;

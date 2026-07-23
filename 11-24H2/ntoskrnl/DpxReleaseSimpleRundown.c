@@ -1,7 +1,7 @@
 /*
- * XREFs of DpxReleaseSimpleRundown @ 0x1405AF4C0
+ * XREFs of DpxReleaseSimpleRundown @ 0x1405AC430
  * Callers:
- *     DpxEndpointWrappedCall @ 0x140BBF010 (DpxEndpointWrappedCall.c)
+ *     DpxEndpointWrappedCall @ 0x140BC1010 (DpxEndpointWrappedCall.c)
  * Callees:
  *     <none>
  */

@@ -38,19 +38,19 @@ __int64 __fastcall MiCreateMemoryEventSD(PSECURITY_DESCRIPTOR SecurityDescriptor
       Acl = RtlCreateAcl(Pool, v7, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
+        Acl = RtlpAddKnownAce(v9, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0);
+          Acl = RtlpAddKnownAce(v9, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+            Acl = RtlpAddKnownAce(v9, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
             if ( Acl >= 0 )
             {
-              Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
+              Acl = RtlpAddKnownAce(v9, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
               if ( Acl >= 0 )
               {
-                Acl = RtlpAddKnownAce((__int64)v9, 2u, 0, 1179649, (unsigned __int8 *)SeAllRestrictedAppPackagesSid, 0);
+                Acl = RtlpAddKnownAce(v9, 2u, 0, 1179649, (unsigned __int8 *)SeAllRestrictedAppPackagesSid, 0);
                 if ( Acl >= 0 )
                 {
                   Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v9, 0);

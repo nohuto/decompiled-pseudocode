@@ -1,14 +1,14 @@
 /*
- * XREFs of _RegRtlEnumKey @ 0x140562664
+ * XREFs of _RegRtlEnumKey @ 0x140562BA4
  * Callers:
- *     _RegRtlDeleteTreeInternal @ 0x1405620CC (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlEnumKeyWithCallback @ 0x1405624B4 (_RegRtlEnumKeyWithCallback.c)
- *     _PnpCtxRegEnumKey @ 0x1406D70F0 (_PnpCtxRegEnumKey.c)
- *     _RegRtlCopyTreeInternal @ 0x1406E0128 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14056260C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x1405629F4 (_RegRtlEnumKeyWithCallback.c)
+ *     _PnpCtxRegEnumKey @ 0x1406D7228 (_PnpCtxRegEnumKey.c)
+ *     _RegRtlCopyTreeInternal @ 0x1406E0260 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

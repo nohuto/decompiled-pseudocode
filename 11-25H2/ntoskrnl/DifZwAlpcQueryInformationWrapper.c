@@ -12,11 +12,11 @@
  */
 
 __int64 __fastcall DifZwAlpcQueryInformationWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5)
+        void *a1,
+        ALPC_PORT_INFORMATION_CLASS a2,
+        void *a3,
+        ULONG a4,
+        ULONG *ReturnLength)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v9; // r14
@@ -50,7 +50,7 @@ __int64 __fastcall DifZwAlpcQueryInformationWrapper(
     }
     v11 = 0;
     *((_QWORD *)&v18 + 1) = a1;
-    *((_QWORD *)&v16 + 1) = a5;
+    *((_QWORD *)&v16 + 1) = ReturnLength;
     LODWORD(v18) = a2;
     *((_QWORD *)&v17 + 1) = a3;
     LODWORD(v17) = a4;
@@ -66,7 +66,7 @@ __int64 __fastcall DifZwAlpcQueryInformationWrapper(
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = ZwAlpcQueryInformation(a1, a2, a3, a4, a5);
+  LODWORD(v19) = ZwAlpcQueryInformation(a1, a2, a3, a4, ReturnLength);
   if ( v9 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

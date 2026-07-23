@@ -1,7 +1,7 @@
 /*
- * XREFs of LpcInitializeProcess @ 0x1406D6260
+ * XREFs of LpcInitializeProcess @ 0x1406AD540
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

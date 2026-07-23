@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSetEnvironmentVariableHal @ 0x1407197C0
+ * XREFs of IopSetEnvironmentVariableHal @ 0x140717350
  * Callers:
  *     <none>
  * Callees:
- *     HalSetEnvironmentVariableEx @ 0x140443B40 (HalSetEnvironmentVariableEx.c)
+ *     HalSetEnvironmentVariableEx @ 0x1404395E0 (HalSetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall IopSetEnvironmentVariableHal(

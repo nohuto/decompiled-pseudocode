@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAuditSelectRsdtOrXsdt @ 0x140C142E4
+ * XREFs of HalpAuditSelectRsdtOrXsdt @ 0x140C162E4
  * Callers:
- *     HalpAuditEnumerateRsdtsInRange @ 0x140C1404C (HalpAuditEnumerateRsdtsInRange.c)
+ *     HalpAuditEnumerateRsdtsInRange @ 0x140C1604C (HalpAuditEnumerateRsdtsInRange.c)
  * Callees:
  *     <none>
  */

@@ -12,56 +12,59 @@
  *     memmove @ 0x1800A4340 (memmove.c)
  */
 
-__int64 __fastcall RtlpGetAssemblyStorageMapRootLocation(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpGetAssemblyStorageMapRootLocation(void *a1, __int64 a2, __int64 a3)
 {
-  int ValueKey; // eax
+  NTSTATUS v4; // eax
   unsigned int v5; // ebx
-  const char *v6; // r8
+  const CHAR *v6; // r8
   unsigned int v7; // ecx
-  __int64 StringRoutine; // rax
-  int *v10; // [rsp+28h] [rbp-D8h]
+  PVOID StringRoutine; // rax
+  __int64 Length; // [rsp+20h] [rbp-E0h]
   __int64 v11; // [rsp+30h] [rbp-D0h] BYREF
-  int v12; // [rsp+38h] [rbp-C8h] BYREF
-  HANDLE Handle; // [rsp+40h] [rbp-C0h]
-  int v14; // [rsp+48h] [rbp-B8h]
-  __int64 v15; // [rsp+50h] [rbp-B0h]
-  __int64 *v16; // [rsp+58h] [rbp-A8h]
-  int v17; // [rsp+60h] [rbp-A0h]
-  __int128 v18; // [rsp+68h] [rbp-98h]
-  int v19; // [rsp+84h] [rbp-7Ch]
+  ULONG ResultLength; // [rsp+38h] [rbp-C8h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+80h] [rbp-80h] BYREF
+  int v16; // [rsp+84h] [rbp-7Ch]
   unsigned int Size; // [rsp+88h] [rbp-78h]
   size_t Size_4; // [rsp+8Ch] [rbp-74h] BYREF
 
-  Handle = 0LL;
-  v12 = 0;
+  KeyHandle = 0LL;
+  ResultLength = 0;
   v11 = a2;
   if ( a1 && a2 && a3 )
   {
-    v15 = a1;
-    v16 = &v11;
-    v14 = 48;
-    v17 = 64;
-    v18 = 0LL;
-    ValueKey = NtOpenKey();
-    v5 = ValueKey;
-    if ( ValueKey < 0 )
+    ObjectAttributes.RootDirectory = a1;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v11;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v4 = NtOpenKey(&KeyHandle, 1u, &ObjectAttributes);
+    v5 = v4;
+    if ( v4 < 0 )
     {
       v6 = "SXS: Unable to open storage root subkey %wZ; Status = 0x%08lx\n";
 LABEL_6:
-      DbgPrintEx(51, 0, v6, &v11, ValueKey, v10);
+      LODWORD(Length) = v4;
+      DbgPrintEx(0x33u, 0, v6, &v11, Length);
       goto LABEL_22;
     }
-    v10 = &v12;
-    ValueKey = NtQueryValueKey();
-    v5 = ValueKey;
-    if ( ValueKey < 0 )
+    v4 = NtQueryValueKey(
+           KeyHandle,
+           (PUNICODE_STRING)&stru_18011E548,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x218u,
+           &ResultLength);
+    v5 = v4;
+    if ( v4 < 0 )
     {
       v6 = "SXS: Unabel to query location from storage root subkey %wZ; Status = 0x%08lx\n";
       goto LABEL_6;
     }
-    if ( v19 != 1 )
+    if ( v16 != 1 )
     {
-      DbgPrintEx(51, 0, "SXS: Assembly storage root location value type is not REG_SZ\n");
+      DbgPrintEx(0x33u, 0, "SXS: Assembly storage root location value type is not REG_SZ\n");
 LABEL_11:
       v5 = -1073741766;
       goto LABEL_22;
@@ -69,20 +72,14 @@ LABEL_11:
     v7 = Size;
     if ( (Size & 1) != 0 )
     {
-      DbgPrintEx(51, 0, "SXS: Assembly storage root location value has non-even size\n");
+      DbgPrintEx(0x33u, 0, "SXS: Assembly storage root location value has non-even size\n");
       goto LABEL_11;
     }
     if ( Size > *(unsigned __int16 *)(a3 + 2) )
     {
       if ( Size > 0xFFFE )
       {
-        DbgPrintEx(
-          51,
-          0,
-          "SXS: Assembly storage root location for %wZ does not fit in a UNICODE STRING\n",
-          &v11,
-          536,
-          &v12);
+        DbgPrintEx(0x33u, 0, "SXS: Assembly storage root location for %wZ does not fit in a UNICODE STRING\n", &v11);
         v5 = -1073741562;
         goto LABEL_22;
       }
@@ -105,7 +102,7 @@ LABEL_11:
     v5 = -1073741811;
   }
 LABEL_22:
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v5;
 }

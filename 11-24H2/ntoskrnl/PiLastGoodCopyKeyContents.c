@@ -1,21 +1,21 @@
 /*
- * XREFs of PiLastGoodCopyKeyContents @ 0x140C234D4
+ * XREFs of PiLastGoodCopyKeyContents @ 0x140C25504
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x140C239B4 (PpLastGoodDoBootProcessing.c)
+ *     PpLastGoodDoBootProcessing @ 0x140C259E4 (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x1406A7F90 (ZwDeleteKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1406A8F30 (ZwDeleteKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiLastGoodCopyKeyContents(UNICODE_STRING *a1, UNICODE_STRING *a2)
 {
-  ULONG_PTR Pool2; // rbx
+  __int64 Pool2; // rbx
   NTSTATUS v6; // edi
   HANDLE v7; // rcx
   ULONG v8; // esi

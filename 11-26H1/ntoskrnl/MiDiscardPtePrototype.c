@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDiscardPtePrototype @ 0x1405248A4
+ * XREFs of MiDiscardPtePrototype @ 0x140526F14
  * Callers:
- *     MiWsleFree @ 0x140319990 (MiWsleFree.c)
- *     MiDiscardPte @ 0x1406EEED0 (MiDiscardPte.c)
+ *     MiWsleFree @ 0x14031B9C0 (MiWsleFree.c)
+ *     MiDiscardPte @ 0x1406F3B70 (MiDiscardPte.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiCopyOnWriteCombineCloneDereference @ 0x14036ACB0 (MiCopyOnWriteCombineCloneDereference.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiCopyOnWriteCombineCloneDereference @ 0x14036CA50 (MiCopyOnWriteCombineCloneDereference.c)
  */
 
 unsigned __int64 __fastcall MiDiscardPtePrototype(__int64 *a1)
@@ -30,7 +30,7 @@ unsigned __int64 __fastcall MiDiscardPtePrototype(__int64 *a1)
   MiCopyOnWriteCombineCloneDereference(
     PrototypePteDirect,
     v5 + 1,
-    *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v7 + 174)),
+    *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v7 + 174)),
     v7);
   result = MiMakeDemandZeroPte(MmMakeProtectNotWriteCopy[v6 & 0x1F]);
   *a1 = result;

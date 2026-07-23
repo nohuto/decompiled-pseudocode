@@ -48,7 +48,7 @@ __int64 __fastcall IommuSetAddressSpace(__int64 *a1, __int64 a2)
   v28 = v4;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -105,10 +105,10 @@ __int64 __fastcall IommuSetAddressSpace(__int64 *a1, __int64 a2)
     v4 = v28;
   }
   KxReleaseSpinLock((volatile signed __int64 *)(v2 + 24));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v17 = CurrentPrcb->SchedulerAssist;
@@ -121,10 +121,10 @@ __int64 __fastcall IommuSetAddressSpace(__int64 *a1, __int64 a2)
   }
   __writecr8(CurrentIrql);
   KxReleaseSpinLock((volatile signed __int64 *)&IommupPasidTableLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v4 <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v4 <= 0xFu && v20 >= 2u )
     {
       v21 = KeGetCurrentPrcb();
       v22 = v21->SchedulerAssist;

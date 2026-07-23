@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgMatchDriverConfigurationId @ 0x1401CEDA4
+ * XREFs of PiDevCfgMatchDriverConfigurationId @ 0x1401CEB38
  * Callers:
- *     PiDevCfgFindDeviceDriver @ 0x140637AD4 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgFindDeviceDriver @ 0x140637B88 (PiDevCfgFindDeviceDriver.c)
  * Callees:
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
  */
 
 bool __fastcall PiDevCfgMatchDriverConfigurationId(__int64 a1, const wchar_t *a2)

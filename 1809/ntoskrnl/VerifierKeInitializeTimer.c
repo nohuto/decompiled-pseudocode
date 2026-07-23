@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeInitializeTimer @ 0x140939B70
+ * XREFs of VerifierKeInitializeTimer @ 0x14093AB70
  * Callers:
  *     <none>
  * Callees:
- *     VerifierKeInitializeTimerEx @ 0x140939B90 (VerifierKeInitializeTimerEx.c)
+ *     VerifierKeInitializeTimerEx @ 0x14093AB90 (VerifierKeInitializeTimerEx.c)
  */
 
 __int64 __fastcall VerifierKeInitializeTimer(ULONG_PTR a1)

@@ -11,25 +11,25 @@
 
 __int64 __fastcall sub_180064F24(_QWORD *a1, __int64 a2)
 {
-  _QWORD *v3; // rbx
+  __int64 v3; // rbx
   __int64 result; // rax
   _QWORD *v6; // rax
   _QWORD *v7; // rdi
   _QWORD *v8; // rbx
 
-  v3 = (_QWORD *)(*a1 - 160LL);
-  result = v3[22];
+  v3 = *a1 - 160LL;
+  result = *(_QWORD *)(v3 + 176);
   if ( result && *(_QWORD *)(result + 40) == a2 )
   {
     while ( 1 )
     {
-      sub_180064FB8(v3[22]);
-      v6 = (_QWORD *)v3[20];
+      sub_180064FB8(*(PVOID *)(v3 + 176));
+      v6 = *(_QWORD **)(v3 + 160);
       if ( a1 == v6 )
         break;
-      v3 = v6 - 20;
+      v3 = (__int64)(v6 - 20);
     }
-    result = v3[19];
+    result = *(_QWORD *)(v3 + 152);
     v7 = *(_QWORD **)(result + 40);
     if ( v7 )
     {

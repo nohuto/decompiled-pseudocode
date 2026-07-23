@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpLoadPolicyLanguageSpec @ 0x14082B734
+ * XREFs of RtlpLoadPolicyLanguageSpec @ 0x14082BF64
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x14082B5F0 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadLanguageConfigList @ 0x14082BE20 (RtlpLoadLanguageConfigList.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     LdrpQueryValueKey @ 0x140784180 (LdrpQueryValueKey.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x14082C36C (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpMuiRegGetOrAddString @ 0x14082C9D0 (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x140A95430 (RtlCultureNameToLCID.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     LdrpQueryValueKey @ 0x1407840B0 (LdrpQueryValueKey.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x14082CB9C (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14082D200 (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x140A91BE0 (RtlCultureNameToLCID.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYTE *a3, __int16 *a4)
@@ -21,11 +21,11 @@ __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYT
   __int64 v12; // r8
   __int16 v14[2]; // [rsp+30h] [rbp-20h] BYREF
   __int64 v15; // [rsp+34h] [rbp-1Ch] BYREF
-  unsigned int v16; // [rsp+3Ch] [rbp-14h] BYREF
+  DWORD Lcid; // [rsp+3Ch] [rbp-14h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   unsigned __int16 v18; // [rsp+88h] [rbp+38h] BYREF
 
-  v16 = 0;
+  Lcid = 0;
   v18 = 0;
   v14[0] = -1;
   DestinationString = 0LL;
@@ -37,18 +37,17 @@ __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYT
   v9 = LdrpQueryValueKey(KeyHandle, &DestinationString, (_DWORD *)&v15 + 1, 0LL, (ULONG *)&v15);
   if ( !(_DWORD)v15 || v9 == -1073741772 )
     return (unsigned int)-1073741823;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v15, 0x72746C6Du);
   if ( Pool2 )
   {
     InstalledLanguageIndex = LdrpQueryValueKey(KeyHandle, &DestinationString, (_DWORD *)&v15 + 1, Pool2, (ULONG *)&v15);
     if ( InstalledLanguageIndex >= 0 )
     {
       if ( HIDWORD(v15) == 1
-        && (RtlInitUnicodeString(&DestinationString, (PCWSTR)Pool2),
-            (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v16)) )
+        && (RtlInitUnicodeString(&DestinationString, (PCWSTR)Pool2), RtlCultureNameToLCID(&DestinationString, &Lcid)) )
       {
-        v12 = v16;
-        if ( ((v16 - 4096) & 0xFFFFFBFF) != 0 )
+        v12 = Lcid;
+        if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
           goto LABEL_14;
         InstalledLanguageIndex = RtlpMuiRegGetOrAddString(a2, DestinationString.Buffer, 0LL, &v18);
         if ( InstalledLanguageIndex >= 0 )

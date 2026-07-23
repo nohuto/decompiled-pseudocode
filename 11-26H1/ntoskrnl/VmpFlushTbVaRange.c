@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpFlushTbVaRange @ 0x14025248C
+ * XREFs of VmpFlushTbVaRange @ 0x140253DEC
  * Callers:
- *     VmpFlushTb @ 0x1402519C4 (VmpFlushTb.c)
+ *     VmpFlushTb @ 0x140253324 (VmpFlushTb.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x140251D40 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpInsertInvalidateListRange @ 0x140251FD8 (VmpInsertInvalidateListRange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     VmpProcessInvalidateList @ 0x140518B00 (VmpProcessInvalidateList.c)
- *     VmpInvalidateOutstandingFaults @ 0x14052233C (VmpInvalidateOutstandingFaults.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1402536A0 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpInsertInvalidateListRange @ 0x140253938 (VmpInsertInvalidateListRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     VmpProcessInvalidateList @ 0x140512570 (VmpProcessInvalidateList.c)
+ *     VmpInvalidateOutstandingFaults @ 0x1405249A8 (VmpInvalidateOutstandingFaults.c)
  */
 
 struct _KPRCB *__fastcall VmpFlushTbVaRange(

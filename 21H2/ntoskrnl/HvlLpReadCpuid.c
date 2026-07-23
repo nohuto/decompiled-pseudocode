@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlLpReadCpuid @ 0x1404F5630
+ * XREFs of HvlLpReadCpuid @ 0x1404F55B0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlLpReadCpuid(int a1, int a2, _DWORD *a3, _DWORD *a4, _DWORD *a5, _DWORD *a6)

@@ -1,108 +1,115 @@
 /*
- * XREFs of LdrpFindLoadedDll @ 0x180051680
+ * XREFs of LdrpFindLoadedDll @ 0x18003BC00
  * Callers:
- *     LdrGetDllHandle @ 0x180050FC0 (LdrGetDllHandle.c)
- *     LdrGetDllHandleEx @ 0x1800511B0 (LdrGetDllHandleEx.c)
+ *     LdrGetDllHandle @ 0x18003B540 (LdrGetDllHandle.c)
+ *     LdrGetDllHandleEx @ 0x18003B730 (LdrGetDllHandleEx.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     LdrpPreprocessDllName @ 0x180045C10 (LdrpPreprocessDllName.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpFindLoadedDllByName @ 0x180052F40 (LdrpFindLoadedDllByName.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpResolveDllName @ 0x180084BE0 (LdrpResolveDllName.c)
- *     LdrpFindLoadedDllInternal @ 0x180085670 (LdrpFindLoadedDllInternal.c)
- *     LdrpFindLoadedDllByMappingFile @ 0x1800862EC (LdrpFindLoadedDllByMappingFile.c)
- *     LdrpDrainWorkQueue @ 0x180087180 (LdrpDrainWorkQueue.c)
- *     LdrpSearchPath @ 0x180098BBC (LdrpSearchPath.c)
- *     LdrpDropLastInProgressCount @ 0x1800E1CDC (LdrpDropLastInProgressCount.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     LdrpPreprocessDllName @ 0x180030180 (LdrpPreprocessDllName.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpFindLoadedDllByName @ 0x18003D4C0 (LdrpFindLoadedDllByName.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpResolveDllName @ 0x18007BF80 (LdrpResolveDllName.c)
+ *     LdrpFindLoadedDllInternal @ 0x18007CA10 (LdrpFindLoadedDllInternal.c)
+ *     LdrpFindLoadedDllByMappingFile @ 0x18007D68C (LdrpFindLoadedDllByMappingFile.c)
+ *     LdrpDrainWorkQueue @ 0x18007E4F0 (LdrpDrainWorkQueue.c)
+ *     LdrpSearchPath @ 0x180097CEC (LdrpSearchPath.c)
+ *     LdrpDropLastInProgressCount @ 0x1800DF57C (LdrpDropLastInProgressCount.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDll(unsigned __int16 *a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall LdrpFindLoadedDll(unsigned __int16 *a1, int a2, PVOID *a3)
 {
   int LoadedDllByName; // ebx
-  int v7; // esi
-  int v8; // eax
-  __int64 v9; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v10[2]; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v11[2]; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v12; // [rsp+88h] [rbp-80h] BYREF
-  _WORD *v13; // [rsp+90h] [rbp-78h]
-  _WORD v14[128]; // [rsp+98h] [rbp-70h] BYREF
-  char v15[4]; // [rsp+198h] [rbp+90h] BYREF
-  int v16; // [rsp+19Ch] [rbp+94h]
-  __int16 *v17; // [rsp+1A0h] [rbp+98h]
+  int v8; // esi
+  int v9; // eax
+  int v10; // [rsp+58h] [rbp-B0h] BYREF
+  int v11; // [rsp+5Ch] [rbp-ACh] BYREF
+  _UNICODE_STRING v12; // [rsp+60h] [rbp-A8h] BYREF
+  _UNICODE_STRING BaseAddress_8; // [rsp+70h] [rbp-98h] BYREF
+  int v14; // [rsp+88h] [rbp-80h] BYREF
+  PVOID v15; // [rsp+90h] [rbp-78h]
+  _WORD v16[128]; // [rsp+98h] [rbp-70h] BYREF
+  _UNICODE_STRING String1; // [rsp+198h] [rbp+90h] BYREF
   __int16 v18; // [rsp+1A8h] [rbp+A0h] BYREF
   _BYTE v19[254]; // [rsp+1AAh] [rbp+A2h] BYREF
 
-  v16 = 0;
+  *(_DWORD *)(&String1.MaximumLength + 1) = 0;
   memset_thunk_772440563353939046(v19, 0, 0xFEuLL);
-  *(_DWORD *)v15 = 0x1000000;
-  v9 = 0LL;
-  v17 = &v18;
+  *(_DWORD *)&String1.Length = 0x1000000;
+  v10 = 0;
+  String1.Buffer = (wchar_t *)&v18;
+  v11 = 0;
   *a3 = 0LL;
   v18 = 0;
-  LoadedDllByName = LdrpPreprocessDllName(a1, (unsigned __int16 *)v15, 0LL, (int *)&v9 + 1);
+  LoadedDllByName = LdrpPreprocessDllName(a1, &String1, 0LL, &v11);
   if ( LoadedDllByName >= 0 )
   {
-    *(_OWORD *)v11 = 0LL;
-    memset_thunk_772440563353939046(&v12, 0, 0x110uLL);
-    v7 = HIDWORD(v9);
+    BaseAddress_8 = 0LL;
+    memset_thunk_772440563353939046(&v14, 0, 0x110uLL);
+    v8 = v11;
     *a3 = 0LL;
-    if ( (v7 & 0x20) != 0 )
+    if ( (v8 & 0x20) != 0 )
     {
-      LoadedDllByName = LdrpFindLoadedDllByName((unsigned int)v15, 0, v7, (_DWORD)a3, (__int64)&v9);
+      LoadedDllByName = LdrpFindLoadedDllByName(&String1, 0LL, (__int64)&v10);
     }
-    else if ( (v7 & 0x200) == 0
-           || (LoadedDllByName = LdrpFindLoadedDllByName(0, (unsigned int)v15, v7, (_DWORD)a3, (__int64)&v9),
-               LoadedDllByName < 0) )
+    else if ( (v8 & 0x200) == 0
+           || (LoadedDllByName = LdrpFindLoadedDllByName(0LL, &String1, (__int64)&v10), LoadedDllByName < 0) )
     {
-      LODWORD(v12) = 0x1000000;
-      v13 = v14;
-      v14[0] = 0;
-      *(_OWORD *)v10 = 0LL;
-      if ( (v7 & 0x200) != 0 )
-        v8 = LdrpResolveDllName((char)v15, v7);
+      v14 = 0x1000000;
+      v15 = v16;
+      v16[0] = 0;
+      v12 = 0LL;
+      if ( (v8 & 0x200) != 0 )
+        v9 = LdrpResolveDllName(
+               (unsigned int)&String1,
+               (unsigned int)&v14,
+               (unsigned int)&BaseAddress_8,
+               (unsigned int)&v12,
+               v8);
       else
-        v8 = LdrpSearchPath((char)v15, (__int64)&v12, (__int64)v11, (__int64)v10, 0LL, 0LL);
-      LoadedDllByName = v8;
-      if ( v8 >= 0 )
+        v9 = LdrpSearchPath(
+               (unsigned int)&String1,
+               a2,
+               0,
+               0,
+               (__int64)&v14,
+               (__int64)&BaseAddress_8,
+               (__int64)&v12,
+               0LL,
+               0LL);
+      LoadedDllByName = v9;
+      if ( v9 >= 0 )
       {
-        LoadedDllByName = LdrpFindLoadedDllByName((unsigned int)v11, (unsigned int)v10, v7, (_DWORD)a3, (__int64)&v9);
+        LoadedDllByName = LdrpFindLoadedDllByName(&BaseAddress_8, &v12, (__int64)&v10);
         if ( LoadedDllByName == -1073741515 )
-          LoadedDllByName = LdrpFindLoadedDllByMappingFile(&v12, a3, &v9);
+          LoadedDllByName = LdrpFindLoadedDllByMappingFile(&v14, a3, &v10);
       }
-      if ( v10[1] )
-        RtlpSysVolFree(v10[1]);
-      if ( v14 != v13 )
-        RtlpSysVolFree((__int64)v13);
-      LODWORD(v12) = 0x1000000;
-      v13 = v14;
-      v14[0] = 0;
+      if ( v12.Buffer )
+        RtlpSysVolFree(v12.Buffer);
+      if ( v16 != v15 )
+        RtlpSysVolFree(v15);
+      v14 = 0x1000000;
+      v15 = v16;
+      v16[0] = 0;
     }
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrfind.c",
+      "minkernel\\ldr\\ldrfind.c",
       482,
       (__int64)"LdrpFindLoadedDllInternal",
       4,
       "Status: 0x%08lx\n",
       LoadedDllByName);
-    LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrfind.c",
-      483,
-      (__int64)"LdrpFindLoadedDllInternal",
-      6,
-      "%x\n",
-      LoadedDllByName);
-    if ( LoadedDllByName >= 0 && (int)v9 < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
+    LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 483, (__int64)"LdrpFindLoadedDllInternal", 6, "%x\n", LoadedDllByName);
+    if ( LoadedDllByName >= 0 && v10 < 6 && (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
     {
       LdrpDereferenceModule(*a3);
       *a3 = 0LL;
       LdrpDrainWorkQueue(0LL);
-      LoadedDllByName = LdrpFindLoadedDllInternal((char)v15, v7);
+      LoadedDllByName = LdrpFindLoadedDllInternal(&String1, v8);
       LdrpDropLastInProgressCount();
-      if ( LoadedDllByName >= 0 && (_DWORD)v9 != 9 )
+      if ( LoadedDllByName >= 0 && v10 != 9 )
       {
         LdrpDereferenceModule(*a3);
         *a3 = 0LL;
@@ -110,7 +117,7 @@ __int64 __fastcall LdrpFindLoadedDll(unsigned __int16 *a1, __int64 a2, _QWORD *a
       }
     }
   }
-  if ( &v18 != v17 )
-    RtlpSysVolFree((__int64)v17);
+  if ( &v18 != (__int16 *)String1.Buffer )
+    RtlpSysVolFree(String1.Buffer);
   return (unsigned int)LoadedDllByName;
 }

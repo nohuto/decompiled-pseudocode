@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInsertLargeUserMapping @ 0x14043A9B4
+ * XREFs of MiInsertLargeUserMapping @ 0x14042D264
  * Callers:
- *     MiMapUserLargePages @ 0x14030FD60 (MiMapUserLargePages.c)
- *     MiCommitVadFillPageTables @ 0x140310ED0 (MiCommitVadFillPageTables.c)
+ *     MiMapUserLargePages @ 0x1402F1DE0 (MiMapUserLargePages.c)
+ *     MiCommitVadFillPageTables @ 0x140312F04 (MiCommitVadFillPageTables.c)
  * Callees:
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiGetLargePteAddress @ 0x14043AB90 (MiGetLargePteAddress.c)
- *     MiInitializeLargeUserBasePfn @ 0x140712080 (MiInitializeLargeUserBasePfn.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiGetLargePteAddress @ 0x14042D440 (MiGetLargePteAddress.c)
+ *     MiInitializeLargeUserBasePfn @ 0x140716D78 (MiInitializeLargeUserBasePfn.c)
  */
 
 __int64 __fastcall MiInsertLargeUserMapping(

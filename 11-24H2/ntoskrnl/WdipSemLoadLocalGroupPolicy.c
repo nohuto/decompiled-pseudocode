@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemLoadLocalGroupPolicy @ 0x1407A29FC
+ * XREFs of WdipSemLoadLocalGroupPolicy @ 0x1407A2B0C
  * Callers:
- *     WdipSemLoadGroupPolicy @ 0x1407A2954 (WdipSemLoadGroupPolicy.c)
+ *     WdipSemLoadGroupPolicy @ 0x1407A2A64 (WdipSemLoadGroupPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WdipSemOpenRegistryKey @ 0x1407A2FF8 (WdipSemOpenRegistryKey.c)
- *     WdipSemQueryValueFromRegistry @ 0x1407A308C (WdipSemQueryValueFromRegistry.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WdipSemOpenRegistryKey @ 0x1407A3108 (WdipSemOpenRegistryKey.c)
+ *     WdipSemQueryValueFromRegistry @ 0x1407A319C (WdipSemQueryValueFromRegistry.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WdipSemLoadLocalGroupPolicy(HANDLE KeyHandle)
@@ -55,7 +55,7 @@ __int64 __fastcall WdipSemLoadLocalGroupPolicy(HANDLE KeyHandle)
           v5 = (GUID *)WdipSemDisabledScenarioTable;
           if ( !WdipSemDisabledScenarioTable )
           {
-            WdipSemDisabledScenarioTable = (PVOID)ExAllocatePool2(0x100uLL);
+            WdipSemDisabledScenarioTable = (PVOID)ExAllocatePool2(0x100uLL, 0x404uLL, 0x73494457u);
             v5 = (GUID *)WdipSemDisabledScenarioTable;
             if ( !WdipSemDisabledScenarioTable )
               return (unsigned int)-1073741670;

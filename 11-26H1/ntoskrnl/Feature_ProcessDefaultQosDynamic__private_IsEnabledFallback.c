@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_ProcessDefaultQosDynamic__private_IsEnabledFallback @ 0x1405F93D0
+ * XREFs of Feature_ProcessDefaultQosDynamic__private_IsEnabledFallback @ 0x1405FBDF0
  * Callers:
- *     Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline @ 0x1405F9394 (Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline @ 0x1405FBDB4 (Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_ProcessDefaultQosDynamic__private_IsEnabledFallback(__int64 a1, unsigned int a2)

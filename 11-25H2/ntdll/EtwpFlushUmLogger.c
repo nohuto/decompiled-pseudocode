@@ -27,7 +27,7 @@ __int64 __fastcall EtwpFlushUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
   v8 = *(unsigned __int16 *)(a4 + 146) + 176LL;
   *(_QWORD *)(a4 + 152) = a4 + 176;
   *(_QWORD *)(a4 + 136) = a4 + v8;
-  result = EtwpGetPrivateLoggerContext(a4, &v12);
+  result = EtwpGetPrivateLoggerContext((unsigned __int16 *)a4, &v12);
   if ( !(_DWORD)result )
   {
     v10 = v12;
@@ -38,7 +38,7 @@ __int64 __fastcall EtwpFlushUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
         v11 = 2;
         goto LABEL_6;
       }
-      v11 = (unsigned int)EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (_QWORD *)(v12 + 152));
+      v11 = (unsigned int)EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (_UNICODE_STRING *)(v12 + 152));
       if ( v11 )
         goto LABEL_6;
       v11 = EtwpBufferingModeFlush(v10);

@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmEventTraceProcessorLatencyLimitChange @ 0x140255FA8
+ * XREFs of PpmEventTraceProcessorLatencyLimitChange @ 0x140257938
  * Callers:
- *     PpmIdleUpdateProcessorLatencyLimit @ 0x14028FA08 (PpmIdleUpdateProcessorLatencyLimit.c)
+ *     PpmIdleUpdateProcessorLatencyLimit @ 0x14028EF68 (PpmIdleUpdateProcessorLatencyLimit.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140255F60 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402578F0 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceProcessorLatencyLimitChange(__int64 a1, int a2)
 {
   const GUID *ActivityId; // r10
   __int64 v3; // r9
-  struct _LIST_ENTRY *Flink; // rcx
+  __int64 v4; // rcx
   __int64 v5; // r11
   unsigned __int8 v6; // al
   __int16 v7; // [rsp+40h] [rbp-40h] BYREF
@@ -26,17 +26,13 @@ void __fastcall PpmEventTraceProcessorLatencyLimitChange(__int64 a1, int a2)
   v13 = a2;
   ActivityId = 0LL;
   v3 = a1;
-  if ( PpmEtwRegistered && PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink )
+  if ( PpmEtwRegistered && PpmEtwHandle )
   {
-    if ( (Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Flink, v5 = 2LL, LODWORD(Flink[6].Flink))
-      && ((v6 = BYTE4(Flink[6].Flink), v6 >= 5u) || !v6)
-      && ((__int64)Flink[7].Flink & 2) != 0
-      && (struct _LIST_ENTRY *)((__int64)Flink[7].Blink & 2) == Flink[7].Blink
-      || HIWORD(PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[6].Flink)
-      && EtwpLevelKeywordEnabled(
-           (__int64)&PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Blink[6],
-           5u,
-           2LL) )
+    if ( (v4 = *(_QWORD *)(PpmEtwHandle + 32), v5 = 2LL, *(_DWORD *)(v4 + 96))
+      && ((v6 = *(_BYTE *)(v4 + 100), v6 >= 5u) || !v6)
+      && (*(_BYTE *)(v4 + 112) & 2) != 0
+      && (*(_QWORD *)(v4 + 120) & 2LL) == *(_QWORD *)(v4 + 120)
+      || *(_WORD *)(PpmEtwHandle + 102) && EtwpLevelKeywordEnabled(*(_QWORD *)(PpmEtwHandle + 40) + 96LL, 5u, 2LL) )
     {
       v7 = *(unsigned __int8 *)(v3 + 208);
       UserData.Ptr = (ULONGLONG)&v7;
@@ -45,15 +41,7 @@ void __fastcall PpmEventTraceProcessorLatencyLimitChange(__int64 a1, int a2)
       v11 = &v13;
       v10 = 1LL;
       v12 = 4LL;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_PROCESSOR_LATENCY_CHANGE,
-        0LL,
-        0,
-        ActivityId,
-        ActivityId,
-        3u,
-        &UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_PROCESSOR_LATENCY_CHANGE, 0LL, 0, ActivityId, ActivityId, 3u, &UserData);
     }
   }
 }

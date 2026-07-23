@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlGetNextLargeMcbEntry @ 0x1404EEF20
+ * XREFs of FsRtlGetNextLargeMcbEntry @ 0x1404EF160
  * Callers:
- *     FsRtlGetNextMcbEntry @ 0x1404EEF90 (FsRtlGetNextMcbEntry.c)
+ *     FsRtlGetNextMcbEntry @ 0x1404EF1D0 (FsRtlGetNextMcbEntry.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     FsRtlGetNextBaseMcbEntry @ 0x1402A1B40 (FsRtlGetNextBaseMcbEntry.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     FsRtlGetNextBaseMcbEntry @ 0x14021EF80 (FsRtlGetNextBaseMcbEntry.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  */
 
 BOOLEAN __stdcall FsRtlGetNextLargeMcbEntry(

@@ -1,19 +1,19 @@
 /*
- * XREFs of KiInterruptDispatchCommon @ 0x1401D8668
+ * XREFs of KiInterruptDispatchCommon @ 0x1401D8494
  * Callers:
- *     IopPassiveInterruptWorker @ 0x1401CDB94 (IopPassiveInterruptWorker.c)
- *     KeDispatchSecondaryInterrupt @ 0x1401D59C4 (KeDispatchSecondaryInterrupt.c)
+ *     IopPassiveInterruptWorker @ 0x1401CD9E0 (IopPassiveInterruptWorker.c)
+ *     KeDispatchSecondaryInterrupt @ 0x1401D57F0 (KeDispatchSecondaryInterrupt.c)
  * Callees:
- *     KeGetCurrentProcessorNumberEx @ 0x14008C1E0 (KeGetCurrentProcessorNumberEx.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IoProcessPassiveInterrupts @ 0x1401CD954 (IoProcessPassiveInterrupts.c)
- *     KiInvokeInterruptServiceRoutine @ 0x1401D8994 (KiInvokeInterruptServiceRoutine.c)
- *     KiProcessDisconnectList @ 0x1401D8C44 (KiProcessDisconnectList.c)
- *     KiProcessPendingDisconnect @ 0x1401D8C94 (KiProcessPendingDisconnect.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x14008B940 (KeGetCurrentProcessorNumberEx.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IoProcessPassiveInterrupts @ 0x1401CD7A0 (IoProcessPassiveInterrupts.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x1401D87C0 (KiInvokeInterruptServiceRoutine.c)
+ *     KiProcessDisconnectList @ 0x1401D8A70 (KiProcessDisconnectList.c)
+ *     KiProcessPendingDisconnect @ 0x1401D8AC0 (KiProcessPendingDisconnect.c)
  */
 
 char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char a3, char *a4, unsigned int *a5)
@@ -35,7 +35,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   __int64 v20; // rsi
   char v22; // [rsp+20h] [rbp-61h]
   int v24; // [rsp+28h] [rbp-59h]
-  struct _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-49h] BYREF
+  _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+38h] [rbp-49h] BYREF
   PKSPIN_LOCK SpinLock; // [rsp+40h] [rbp-41h]
   char *v28; // [rsp+48h] [rbp-39h]
   __int64 CurrentIrql; // [rsp+50h] [rbp-31h]

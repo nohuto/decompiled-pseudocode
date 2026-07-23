@@ -1,33 +1,33 @@
 /*
- * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x1408508E0
+ * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x14084CBA0
  * Callers:
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140851390 (ObpGrantAccess.c)
- *     CmpCheckKeyBodyAccess @ 0x140851B40 (CmpCheckKeyBodyAccess.c)
- *     SeOpenObjectAuditAlarm @ 0x1408520E0 (SeOpenObjectAuditAlarm.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140852140 (CmpCheckOpenAccessOnKeyBody.c)
- *     CmpCheckCreateAccess @ 0x140867CFC (CmpCheckCreateAccess.c)
- *     ObCheckObjectAccess @ 0x14087A740 (ObCheckObjectAccess.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14084D650 (ObpGrantAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x14084DE00 (CmpCheckKeyBodyAccess.c)
+ *     SeOpenObjectAuditAlarm @ 0x14084E3A0 (SeOpenObjectAuditAlarm.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14084E400 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpCheckCreateAccess @ 0x14086BFEC (CmpCheckCreateAccess.c)
+ *     ObCheckObjectAccess @ 0x14087E5F0 (ObCheckObjectAccess.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     SepRmAcquireGlobalSaclReadLock @ 0x140462E24 (SepRmAcquireGlobalSaclReadLock.c)
- *     SeMaximumAuditMask @ 0x14049EEA8 (SeMaximumAuditMask.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140851030 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x140852C10 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x140852D20 (SepAdtAuditPrivilegeUseWithContext.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     SeExamineSacl @ 0x140889B70 (SeExamineSacl.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x14088A310 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1408F1214 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1408F1920 (SepAdtStagingEvent.c)
- *     SepQueryTypeString @ 0x1408F23FC (SepQueryTypeString.c)
- *     SepQueryNameString @ 0x1408F2B48 (SepQueryNameString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     SepRmAcquireGlobalSaclReadLock @ 0x140458434 (SepRmAcquireGlobalSaclReadLock.c)
+ *     SeMaximumAuditMask @ 0x140499CD8 (SeMaximumAuditMask.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x14084D2F0 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14084EED0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x14084EFE0 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x140862A14 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140863120 (SepAdtStagingEvent.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     SeExamineSacl @ 0x14088DA20 (SeExamineSacl.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x14088E1C0 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepQueryTypeString @ 0x140913780 (SepQueryTypeString.c)
+ *     SepQueryNameString @ 0x140914194 (SepQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall SeOpenObjectAuditAlarmWithTransaction(
@@ -320,7 +320,7 @@ LABEL_72:
           ExFreePoolWithTag(Buffer, 0);
           *(_DWORD *)&AccessState->ObjectName.Length = 0;
         }
-        Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v20->MaximumLength, 0x20206553u);
         AccessState->ObjectName.Buffer = Pool2;
         if ( Pool2 )
         {
@@ -336,7 +336,7 @@ LABEL_72:
           ExFreePoolWithTag(v41, 0);
           *(_DWORD *)&AccessState->ObjectTypeName.Length = 0;
         }
-        v42 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        v42 = (wchar_t *)ExAllocatePool2(0x100uLL, v37->MaximumLength, 0x20206553u);
         AccessState->ObjectTypeName.Buffer = v42;
         if ( v42 )
         {

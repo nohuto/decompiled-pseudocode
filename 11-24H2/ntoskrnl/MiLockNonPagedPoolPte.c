@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockNonPagedPoolPte @ 0x14043F4AC
+ * XREFs of MiLockNonPagedPoolPte @ 0x1404355DC
  * Callers:
- *     MiProbeLockFrame @ 0x140282AC0 (MiProbeLockFrame.c)
- *     MmProtectPool @ 0x1403889FC (MmProtectPool.c)
+ *     MiProbeLockFrame @ 0x140238050 (MiProbeLockFrame.c)
+ *     MmProtectPool @ 0x14038233C (MmProtectPool.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiLockNonPagedPoolPte(ULONG_PTR BugCheckParameter3)

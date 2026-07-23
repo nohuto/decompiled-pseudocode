@@ -1,14 +1,14 @@
 /*
- * XREFs of SecureDump_ConvertToRsaBlob @ 0x1405D61F4
+ * XREFs of SecureDump_ConvertToRsaBlob @ 0x1405D89E4
  * Callers:
- *     SecureDump_ValidateAmeCertChain @ 0x1405D7424 (SecureDump_ValidateAmeCertChain.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x1405D9C14 (SecureDump_ValidateAmeCertChain.c)
  * Callees:
- *     SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey @ 0x1405D60FC (SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MinAsn1ParsePublicKeyInfo @ 0x1408A351C (MinAsn1ParsePublicKeyInfo.c)
- *     MinAsn1ParseRSAPublicKey @ 0x1408A3564 (MinAsn1ParseRSAPublicKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey @ 0x1405D88EC (SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x1408A992C (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x1408A9974 (MinAsn1ParseRSAPublicKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SecureDump_ConvertToRsaBlob(__int64 a1, _QWORD *a2)

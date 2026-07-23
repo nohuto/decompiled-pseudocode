@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpInitializeSecurity @ 0x140C3E2EC
+ * XREFs of EtwpInitializeSecurity @ 0x140C4043C
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140839E78 (EtwpGetGuidSecurityDescriptor.c)
- *     RtlGetPersistedStateLocation @ 0x1409CC0E0 (RtlGetPersistedStateLocation.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x1408370F0 (EtwpGetGuidSecurityDescriptor.c)
+ *     RtlGetPersistedStateLocation @ 0x1409B4B60 (RtlGetPersistedStateLocation.c)
  */
 
 __int64 EtwpInitializeSecurity()
@@ -15,7 +15,7 @@ __int64 EtwpInitializeSecurity()
   unsigned int PersistedStateLocation; // ebx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v4; // [rsp+80h] [rbp-80h] BYREF
+  ULONG BufferLengthOut; // [rsp+80h] [rbp-80h] BYREF
   UNICODE_STRING v5; // [rsp+88h] [rbp-78h] BYREF
   WCHAR SourceString[256]; // [rsp+A0h] [rbp-60h] BYREF
 
@@ -35,10 +35,10 @@ __int64 EtwpInitializeSecurity()
                              L"ETWSecurityPath",
                              0LL,
                              0LL,
-                             0,
+                             LocationTypeRegistry,
                              SourceString,
                              0x1FEu,
-                             (unsigned int *)&v4);
+                             &BufferLengthOut);
   if ( PersistedStateLocation
     || (RtlInitUnicodeString(&DestinationString, SourceString),
         ObjectAttributes.RootDirectory = 0LL,

@@ -16,19 +16,17 @@
  *     RtlpTpETWCallbackStop @ 0x18010F42C (RtlpTpETWCallbackStop.c)
  */
 
-__int64 __fastcall TppExecuteWaitCallback(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall TppExecuteWaitCallback(PTP_CALLBACK_INSTANCE Instance, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rsi
-  __int64 v7; // rcx
-  __int64 v8; // rsi
-  __int64 v9; // rcx
-  __int64 v10; // rcx
+  __int64 v7; // rsi
+  __int64 v8; // rcx
   __int64 result; // rax
-  __int64 v12; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+10h] BYREF
 
   if ( a3 == 258 )
   {
-    result = TppWorkCallbackPrologRelease(a1, a2, 0LL);
+    result = TppWorkCallbackPrologRelease(Instance);
     if ( !(_DWORD)result )
       return result;
     goto LABEL_4;
@@ -37,39 +35,43 @@ __int64 __fastcall TppExecuteWaitCallback(__int64 a1, __int64 a2, unsigned int a
   if ( !v6 )
   {
 LABEL_3:
-    TppCleanupGroupMemberCallbackProlog(a1, a2);
+    TppCleanupGroupMemberCallbackProlog(Instance);
 LABEL_4:
-    v8 = 2147353478LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v7) )
-      v9 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v7 = 2147353478LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v9 = 2147353478LL;
-    if ( *(_BYTE *)v9 )
+      v8 = 2147353478LL;
+    if ( *(_BYTE *)v8 )
       RtlpTpETWCallbackStart(
         *(_QWORD *)(a2 + 144),
         a2 + 392,
         *(_QWORD *)(a2 + 80),
         *(_QWORD *)(a2 + 88),
         *(_QWORD *)(a2 + 104));
-    TppStartThreadData(&v12, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
-    *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 80);
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 88);
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, _QWORD))(a2 + 80))(a1, *(_QWORD *)(a2 + 88), a2, a3);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v10) )
-      v8 = (__int64)NtCurrentPeb()->SharedData + 556;
-    if ( *(_BYTE *)v8 )
+    TppStartThreadData(&v10, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
+    *((_QWORD *)Instance + 11) = *(_QWORD *)(a2 + 80);
+    *((_QWORD *)Instance + 12) = *(_QWORD *)(a2 + 88);
+    (*(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _QWORD, __int64, _QWORD))(a2 + 80))(
+      Instance,
+      *(_QWORD *)(a2 + 88),
+      a2,
+      a3);
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( *(_BYTE *)v7 )
       RtlpTpETWCallbackStop(
         *(_QWORD *)(a2 + 144),
         a2 + 392,
         *(_QWORD *)(a2 + 80),
         *(_QWORD *)(a2 + 88),
         *(_QWORD *)(a2 + 104));
-    return TppCompleteThreadData(v12);
+    return TppCompleteThreadData(v10);
   }
-  if ( (int)LdrAddRefDll(0, *(_QWORD *)(a2 + 136)) >= 0 )
+  if ( LdrAddRefDll(0, *(PVOID *)(a2 + 136)) >= 0 )
   {
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v6;
+    *((_DWORD *)Instance + 36) |= 0x100u;
+    *((_QWORD *)Instance + 21) = v6;
     goto LABEL_3;
   }
   TppBarrierAdjust(a2 + 56, 0xFFFFFFFFLL);

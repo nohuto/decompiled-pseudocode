@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpPoolMgrGetNextPoolCommon @ 0x140AC379C
+ * XREFs of ExpPoolMgrGetNextPoolCommon @ 0x140AC540C
  * Callers:
- *     ExpPoolMgrGetFirstPool @ 0x1404E62D4 (ExpPoolMgrGetFirstPool.c)
- *     ExpPoolMgrGetNextPool @ 0x1404E76F8 (ExpPoolMgrGetNextPool.c)
- *     ExpPoolMgrCompactPools @ 0x140AC36CC (ExpPoolMgrCompactPools.c)
+ *     ExpPoolMgrGetFirstPool @ 0x1404DF874 (ExpPoolMgrGetFirstPool.c)
+ *     ExpPoolMgrGetNextPool @ 0x1404E0AB4 (ExpPoolMgrGetNextPool.c)
+ *     ExpPoolMgrCompactPools @ 0x140AC533C (ExpPoolMgrCompactPools.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExpPoolMgrAcquirePoolListLockShared @ 0x1404C2094 (ExpPoolMgrAcquirePoolListLockShared.c)
- *     ExpPoolMgrReleasePoolListLockShared @ 0x1404CA9F4 (ExpPoolMgrReleasePoolListLockShared.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     ExpPoolMgrAcquirePoolListLockShared @ 0x1404BB8E4 (ExpPoolMgrAcquirePoolListLockShared.c)
+ *     ExpPoolMgrReleasePoolListLockShared @ 0x1404C4424 (ExpPoolMgrReleasePoolListLockShared.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall ExpPoolMgrGetNextPoolCommon(

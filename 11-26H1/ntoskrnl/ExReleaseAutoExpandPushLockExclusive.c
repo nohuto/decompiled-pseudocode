@@ -1,19 +1,19 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x14027CBB0
+ * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x14027C120
  * Callers:
- *     MiUnlockLoaderEntry @ 0x1404A4C7C (MiUnlockLoaderEntry.c)
- *     MiUnlockAweVadsExclusive @ 0x1405251E0 (MiUnlockAweVadsExclusive.c)
- *     MiUnlockAwePagesExclusive @ 0x140702BEC (MiUnlockAwePagesExclusive.c)
+ *     MiUnlockLoaderEntry @ 0x14049E30C (MiUnlockLoaderEntry.c)
+ *     MiUnlockAweVadsExclusive @ 0x140527850 (MiUnlockAweVadsExclusive.c)
+ *     MiUnlockAwePagesExclusive @ 0x1407078BC (MiUnlockAwePagesExclusive.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ?KiAbEntryFreeAndEnableInterrupts@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@PEAU_KTHREAD@@PEAXKPEAT_KLOCK_ENTRY_BOOST_BITMAP@@@Z @ 0x140272190 (-KiAbEntryFreeAndEnableInterrupts@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@PEAU_KTHREAD@@PEAXKPEAT_.c)
- *     ?KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x14027AAF0 (-KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     ?KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14027C800 (-KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExpReleaseFannedOutPushLockExclusive @ 0x140449868 (ExpReleaseFannedOutPushLockExclusive.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExpReleaseFannedOutPushLockExclusive @ 0x14021B298 (ExpReleaseFannedOutPushLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ?KiAbEntryFreeAndEnableInterrupts@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@PEAU_KTHREAD@@PEAXKPEAT_KLOCK_ENTRY_BOOST_BITMAP@@@Z @ 0x140271700 (-KiAbEntryFreeAndEnableInterrupts@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@PEAU_KTHREAD@@PEAXKPEAT_.c)
+ *     ?KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x14027A060 (-KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     ?KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14027BD70 (-KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall ExReleaseAutoExpandPushLockExclusive(__int64 a1, ULONG_PTR BugCheckParameter1)
@@ -84,7 +84,7 @@ void __fastcall ExReleaseAutoExpandPushLockExclusive(__int64 a1, ULONG_PTR BugCh
   if ( (*(_QWORD *)a1 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v8 = 0LL;
   if ( (v6 & 2) != 0 || (v9 = *(_QWORD *)a1, v9 != _InterlockedCompareExchange64((volatile signed __int64 *)a1, v8, v6)) )
-    ExfReleasePushLock(a1, v8);
+    ExfReleasePushLock((_QWORD *)a1);
   if ( (v3 & 2) == 0 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )

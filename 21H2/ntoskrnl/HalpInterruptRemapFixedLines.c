@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptRemapFixedLines @ 0x1403CDB6C
+ * XREFs of HalpInterruptRemapFixedLines @ 0x1403CDCDC
  * Callers:
- *     HalpInitializeInterruptsBspLate @ 0x1403CDB2C (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403CDC9C (HalpInitializeInterruptsBspLate.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403786FC (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x1404C5634 (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpIrtAllocateIndex @ 0x140865984 (HalpIrtAllocateIndex.c)
- *     HalpHvMapDeviceInterrupt @ 0x1409A7168 (HalpHvMapDeviceInterrupt.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x1404C5874 (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpIrtAllocateIndex @ 0x140865AE4 (HalpIrtAllocateIndex.c)
+ *     HalpHvMapDeviceInterrupt @ 0x1409A8098 (HalpHvMapDeviceInterrupt.c)
  */
 
 __int64 HalpInterruptRemapFixedLines()
@@ -43,7 +43,7 @@ __int64 HalpInterruptRemapFixedLines()
   v0 = 0;
   v23 = 0;
   v25 = 0LL;
-  if ( !HalpInterruptFixedLines || (*(_DWORD *)(HalpInterruptController + 220) & 0x100) == 0 && !qword_140C4A1A8 )
+  if ( !HalpInterruptFixedLines || (*(_DWORD *)(HalpInterruptController + 220) & 0x100) == 0 && !qword_140C4A1E8 )
     return (unsigned int)v0;
   v2 = (ULONG_PTR *)HalpRegisteredInterruptControllers;
   v21 = 0;
@@ -91,7 +91,7 @@ LABEL_29:
     if ( (*(_DWORD *)(HalpInterruptController + 220) & 0x100) != 0 )
       break;
 LABEL_15:
-    if ( qword_140C4A1A8 )
+    if ( qword_140C4A1E8 )
     {
       v0 = HalpHvMapDeviceInterrupt(*(unsigned int *)(v3 + 232), v6, v10, 0LL);
       if ( v0 < 0 )

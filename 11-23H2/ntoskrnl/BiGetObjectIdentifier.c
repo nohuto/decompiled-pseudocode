@@ -1,12 +1,12 @@
 /*
- * XREFs of BiGetObjectIdentifier @ 0x140805760
+ * XREFs of BiGetObjectIdentifier @ 0x140805A30
  * Callers:
- *     BcdQueryObject @ 0x140801EF8 (BcdQueryObject.c)
- *     BcdGetElementDataWithFlags @ 0x140804CBC (BcdGetElementDataWithFlags.c)
+ *     BcdQueryObject @ 0x1408021C8 (BcdQueryObject.c)
+ *     BcdGetElementDataWithFlags @ 0x140804F8C (BcdGetElementDataWithFlags.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     BiGetKeyName @ 0x1408057C4 (BiGetKeyName.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     BiGetKeyName @ 0x140805A94 (BiGetKeyName.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

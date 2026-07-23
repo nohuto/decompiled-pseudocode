@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpRestartDeviceNode @ 0x140731838
+ * XREFs of PnpRestartDeviceNode @ 0x1407319F8
  * Callers:
- *     PiProcessQueryRemoveNoFdo @ 0x1407316C4 (PiProcessQueryRemoveNoFdo.c)
- *     PiProcessClearDeviceProblem @ 0x140731768 (PiProcessClearDeviceProblem.c)
- *     PiRestartRemovalRelations @ 0x14073358C (PiRestartRemovalRelations.c)
- *     PiRestartDevice @ 0x140733C40 (PiRestartDevice.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x1408AB080 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x140731884 (PiProcessQueryRemoveNoFdo.c)
+ *     PiProcessClearDeviceProblem @ 0x140731928 (PiProcessClearDeviceProblem.c)
+ *     PiRestartRemovalRelations @ 0x14073374C (PiRestartRemovalRelations.c)
+ *     PiRestartDevice @ 0x140733E00 (PiRestartDevice.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736AD4 (PnpProcessQueryRemoveAndEject.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1408AB1E0 (PiProfileUpdateDeviceTreeCallback.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
- *     PipClearDevNodeUserFlags @ 0x140749BB4 (PipClearDevNodeUserFlags.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     PipSetDevNodeState @ 0x14036FB98 (PipSetDevNodeState.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     PipClearDevNodeFlags @ 0x140746C34 (PipClearDevNodeFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x140749D74 (PipClearDevNodeUserFlags.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRestartDeviceNode(__int64 a1)

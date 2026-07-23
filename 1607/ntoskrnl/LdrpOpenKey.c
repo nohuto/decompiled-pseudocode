@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpOpenKey @ 0x140560FA8
+ * XREFs of LdrpOpenKey @ 0x1405614E8
  * Callers:
- *     _RtlpRemovePendingDeleteLanguages @ 0x1401401D0 (_RtlpRemovePendingDeleteLanguages.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140140324 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x140140740 (_RtlpRemovePendingDeleteLanguages.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140140894 (RtlpMuiRegCreateKernelRegistryInfo.c)
  * Callees:
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall LdrpOpenKey(UNICODE_STRING *a1, void *a2, ACCESS_MASK a3, HANDLE *a4)

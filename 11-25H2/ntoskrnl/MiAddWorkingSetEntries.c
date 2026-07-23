@@ -172,7 +172,7 @@ char __fastcall MiAddWorkingSetEntries(__int64 a1, unsigned __int64 a2, unsigned
     if ( (v17 & 0xF) == 3 )
     {
       v41 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-      if ( v41 && (v6 >= v41 && v6 < PsNtosImageEnd || v6 >= PsHalImageBase && v6 < PsHalImageEnd) )
+      if ( v41 && (v6 >= v41 && v6 < PsNtosImageEnd || v6 >= (unsigned __int64)PsHalImageBase && v6 < PsHalImageEnd) )
       {
         _InterlockedAdd((volatile signed __int32 *)&xmmword_140E2D628, v5);
       }

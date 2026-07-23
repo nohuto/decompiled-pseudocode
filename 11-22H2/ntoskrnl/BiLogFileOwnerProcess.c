@@ -17,7 +17,7 @@
 void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int *v3; // rsi
-  __int64 v4; // rdi
+  _QWORD *v4; // rdi
   __int64 v5; // rcx
   UNICODE_STRING *v6; // r9
   NTSTATUS v7; // eax
@@ -25,8 +25,8 @@ void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
   NTSTATUS v9; // eax
   unsigned int v10; // r14d
   NTSTATUS v11; // eax
-  unsigned int InformationProcess; // eax
-  int v13; // eax
+  unsigned int v12; // eax
+  NTSTATUS v13; // eax
   const wchar_t *v14; // r9
   CLIENT_ID ClientId; // [rsp+30h] [rbp-49h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-39h] BYREF
@@ -89,34 +89,32 @@ LABEL_35:
               if ( v11 < 0 )
                 break;
               Length = 0;
-              InformationProcess = ZwQueryInformationProcess((__int64)ProcessHandle, 27LL);
-              if ( InformationProcess != -2147483643
-                && InformationProcess != -1073741789
-                && InformationProcess != -1073741820 )
+              v12 = ZwQueryInformationProcess(ProcessHandle, ProcessImageFileName, 0LL, 0, &Length);
+              if ( v12 != -2147483643 && v12 != -1073741789 && v12 != -1073741820 )
               {
-                BiLogMessage(4LL, L"Failed to query process information for size. Status: %x", InformationProcess);
+                BiLogMessage(4LL, L"Failed to query process information for size. Status: %x", v12);
                 goto LABEL_28;
               }
-              v4 = ExAllocatePool2(258LL, Length, 1262764866LL);
+              v4 = (_QWORD *)ExAllocatePool2(258LL, Length, 1262764866LL);
               if ( !v4 )
               {
                 BiLogMessage(4LL, L"Failed to allocate memory for space for process name.");
                 goto LABEL_29;
               }
-              v13 = ZwQueryInformationProcess((__int64)ProcessHandle, 27LL);
+              v13 = ZwQueryInformationProcess(ProcessHandle, ProcessImageFileName, v4, Length, &Length);
               if ( v13 < 0 )
               {
                 BiLogMessage(4LL, L"Failed to query process info. Status: %x", (unsigned int)v13);
                 goto LABEL_29;
               }
               if ( *(_WORD *)v4 )
-                v14 = *(const wchar_t **)(v4 + 8);
+                v14 = (const wchar_t *)v4[1];
               else
                 v14 = L"System";
-              BiLogMessage(4LL, L"Process Name [%d]: %ws", v10, v14, &Length);
+              BiLogMessage(4LL, L"Process Name [%d]: %ws", v10, v14);
               ZwClose(ProcessHandle);
               ProcessHandle = 0LL;
-              ExFreePoolWithTag((PVOID)v4, 0x4B444342u);
+              ExFreePoolWithTag(v4, 0x4B444342u);
               ++v10;
               v4 = 0LL;
               if ( v10 >= *v3 )
@@ -149,7 +147,7 @@ LABEL_29:
     if ( ProcessHandle )
       ZwClose(ProcessHandle);
     if ( v4 )
-      ExFreePoolWithTag((PVOID)v4, 0x4B444342u);
+      ExFreePoolWithTag(v4, 0x4B444342u);
     if ( !v3 )
       goto LABEL_35;
     goto LABEL_34;

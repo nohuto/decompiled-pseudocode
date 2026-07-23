@@ -1,14 +1,14 @@
 /*
- * XREFs of ViPostPoolAllocation @ 0x140C44780
+ * XREFs of ViPostPoolAllocation @ 0x140C4A790
  * Callers:
- *     VfHandlePoolAlloc @ 0x140C44300 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140C4A310 (VfHandlePoolAlloc.c)
  * Callees:
- *     ExpSizeHeapPool @ 0x14025ECFC (ExpSizeHeapPool.c)
+ *     ExpSizeHeapPool @ 0x1404FDF40 (ExpSizeHeapPool.c)
  */
 
-__int64 __fastcall ViPostPoolAllocation(__int64 *a1, char a2)
+unsigned __int64 __fastcall ViPostPoolAllocation(unsigned __int64 *a1, char a2)
 {
-  __int64 v2; // rdi
+  unsigned __int64 v2; // rdi
   __int64 v5; // rbx
   unsigned __int64 v6; // rcx
   _QWORD *v7; // rdx
@@ -21,7 +21,7 @@ __int64 __fastcall ViPostPoolAllocation(__int64 *a1, char a2)
   unsigned __int32 v14; // eax
   unsigned __int64 v15; // rax
   unsigned int v16; // eax
-  __int64 result; // rax
+  unsigned __int64 result; // rax
 
   v2 = *a1;
   v5 = *(_QWORD *)(((unsigned __int64)a1 & 0xFFFFFFFFFFFFF000uLL) + 8);
@@ -54,12 +54,12 @@ __int64 __fastcall ViPostPoolAllocation(__int64 *a1, char a2)
     v10 = _InterlockedIncrement((volatile signed __int32 *)(v5 + 112));
     if ( v10 > *(_DWORD *)(v5 + 120) )
       *(_DWORD *)(v5 + 120) = v10;
-    v11 = v6 + _InterlockedExchangeAdd64(&qword_140F086D8, v6);
-    if ( v11 > qword_140F086E8 )
-      qword_140F086E8 = v11;
-    v12 = _InterlockedIncrement(&dword_140F086C4);
-    if ( v12 > dword_140F086CC )
-      dword_140F086CC = v12;
+    v11 = v6 + _InterlockedExchangeAdd64(&qword_140F08A78, v6);
+    if ( v11 > qword_140F08A88 )
+      qword_140F08A88 = v11;
+    v12 = _InterlockedIncrement(&dword_140F08A64);
+    if ( v12 > dword_140F08A6C )
+      dword_140F08A6C = v12;
   }
   else
   {
@@ -69,12 +69,12 @@ __int64 __fastcall ViPostPoolAllocation(__int64 *a1, char a2)
     v14 = _InterlockedIncrement((volatile signed __int32 *)(v5 + 116));
     if ( v14 > *(_DWORD *)(v5 + 124) )
       *(_DWORD *)(v5 + 124) = v14;
-    v15 = v6 + _InterlockedExchangeAdd64(&qword_140F086E0, v6);
-    if ( v15 > qword_140F086F0 )
-      qword_140F086F0 = v15;
-    v16 = _InterlockedIncrement(&dword_140F086C8);
-    if ( v16 > dword_140F086D0 )
-      dword_140F086D0 = v16;
+    v15 = v6 + _InterlockedExchangeAdd64(&qword_140F08A80, v6);
+    if ( v15 > qword_140F08A90 )
+      qword_140F08A90 = v15;
+    v16 = _InterlockedIncrement(&dword_140F08A68);
+    if ( v16 > dword_140F08A70 )
+      dword_140F08A70 = v16;
   }
   result = v2;
   *v7 = a1;

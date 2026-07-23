@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAdjustTimersAfterDripsExit @ 0x1405EE258
+ * XREFs of KiAdjustTimersAfterDripsExit @ 0x1405F0BC8
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1405EDA84 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405F03F4 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAdjustTimerDueTimes @ 0x1403E52EC (KiAdjustTimerDueTimes.c)
- *     KiSelectActiveTimerTable @ 0x14046CEA0 (KiSelectActiveTimerTable.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAdjustTimerDueTimes @ 0x1403E84DC (KiAdjustTimerDueTimes.c)
+ *     KiSelectActiveTimerTable @ 0x140466620 (KiSelectActiveTimerTable.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall KiAdjustTimersAfterDripsExit(__int64 a1, __int64 a2)

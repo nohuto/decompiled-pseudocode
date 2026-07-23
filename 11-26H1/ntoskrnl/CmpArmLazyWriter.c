@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpArmLazyWriter @ 0x14046ECD0
+ * XREFs of CmpArmLazyWriter @ 0x140468450
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x14046EB90 (CmpRecheckHiveVolumePolicy.c)
- *     CmpEnableLazyFlush @ 0x14046EC80 (CmpEnableLazyFlush.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvMarkBaseBlockDirty @ 0x140AE37FC (HvMarkBaseBlockDirty.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140468310 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpEnableLazyFlush @ 0x140468400 (CmpEnableLazyFlush.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x140AE1304 (HvMarkBaseBlockDirty.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
  */
 
 void __fastcall CmpArmLazyWriter(int a1, unsigned __int64 *a2, char a3)
@@ -29,7 +29,7 @@ void __fastcall CmpArmLazyWriter(int a1, unsigned __int64 *a2, char a3)
   ULONG v14; // r9d
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  if ( !BYTE1(WheapPfaLock.TrapFrame) || CmpHoldLazyFlush )
+  if ( !WheapPfaLock.ApcStateFill[24] || CmpHoldLazyFlush )
     return;
   v4 = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0];
   v5 = 192LL * a1;
@@ -85,7 +85,7 @@ LABEL_29:
     v14,
     (PKDPC)((char *)&CmpLazyWriterData + v5 + 64));
 LABEL_8:
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     _InterlockedAnd64(v8 + 19, 0LL);
   else
     KiReleaseSpinLockInstrumented(v8 + 19, retaddr);

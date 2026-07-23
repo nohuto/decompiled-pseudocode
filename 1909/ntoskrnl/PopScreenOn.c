@@ -7,15 +7,15 @@
  *     PopControlMonitor @ 0x14072ADE0 (PopControlMonitor.c)
  */
 
-__int64 PopScreenOn()
+ULONG PopScreenOn()
 {
-  unsigned int v1; // [rsp+30h] [rbp+8h] BYREF
+  ULONG v1; // [rsp+30h] [rbp+8h] BYREF
   __int64 v2; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0LL;
   v1 = -1;
-  PopBlockSessionSwitch(1, (int *)&v1);
+  PopBlockSessionSwitch(1, &v1);
   v2 = 0x1E00000002LL;
   PopControlMonitor((unsigned int *)&v2, v1);
-  return PopBlockSessionSwitch(0, (int *)&v1);
+  return PopBlockSessionSwitch(0, &v1);
 }

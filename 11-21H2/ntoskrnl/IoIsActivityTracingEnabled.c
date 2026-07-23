@@ -8,5 +8,5 @@
 
 bool IoIsActivityTracingEnabled()
 {
-  return (IopFunctionPointerMask & 4) != 0 && (IopIrpExtensionStatus & 1) != 0;
+  return (dword_140D0110C & 4) != 0 && (dword_140D01110 & 1) != 0;
 }

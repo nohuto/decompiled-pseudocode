@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInitializeInterruptRemappingBspLate @ 0x140784334
+ * XREFs of HalpInitializeInterruptRemappingBspLate @ 0x140786E68
  * Callers:
- *     HalpInitializeInterruptsBspLate @ 0x14057D120 (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsBspLate @ 0x14057F640 (HalpInitializeInterruptsBspLate.c)
  * Callees:
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     HalpIrtAllocateDeviceAperture @ 0x1407844C4 (HalpIrtAllocateDeviceAperture.c)
- *     HalpIrtExtendRemappingRange @ 0x140784988 (HalpIrtExtendRemappingRange.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x140786FF8 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtExtendRemappingRange @ 0x1407874BC (HalpIrtExtendRemappingRange.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 HalpInitializeInterruptRemappingBspLate()
@@ -60,9 +60,9 @@ __int64 HalpInitializeInterruptRemappingBspLate()
     if ( (HalpIrtAllocationFlags & 4) == 0 )
       return (unsigned int)DeviceAperture;
     v8 = 0;
-    qword_140F896E8 = (__int64)&HalpIrtAllocatedDeviceAperturesHead;
+    qword_140F89CE8 = (__int64)&HalpIrtAllocatedDeviceAperturesHead;
     HalpIrtAllocatedDeviceAperturesHead = (__int64)&HalpIrtAllocatedDeviceAperturesHead;
-    qword_140F89918 = (__int64)&HalpIrtFreeDeviceAperturesHead;
+    qword_140F89D08 = (__int64)&HalpIrtFreeDeviceAperturesHead;
     HalpIrtFreeDeviceAperturesHead = (__int64)&HalpIrtFreeDeviceAperturesHead;
     DeviceAperture = HalpIrtAllocateDeviceAperture(-1, -1, 1, 0, (__int64)&v8);
     if ( DeviceAperture >= 0 )

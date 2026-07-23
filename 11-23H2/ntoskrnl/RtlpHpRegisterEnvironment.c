@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpRegisterEnvironment @ 0x14038944C
+ * XREFs of RtlpHpRegisterEnvironment @ 0x14038962C
  * Callers:
- *     RtlpHpHeapCreate @ 0x140388CB8 (RtlpHpHeapCreate.c)
- *     RtlpHpHeapDestroy @ 0x1405B6630 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapCreate @ 0x140388E98 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapDestroy @ 0x1405B6BA0 (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x140389524 (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B5F20 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x1405B62E0 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
- *     RtlpHpVaMgrCtxAllocatorDereference @ 0x1405B6940 (RtlpHpVaMgrCtxAllocatorDereference.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x140389704 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B6490 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x1405B6850 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpVaMgrCtxAllocatorDereference @ 0x1405B6EB0 (RtlpHpVaMgrCtxAllocatorDereference.c)
  */
 
 __int64 __fastcall RtlpHpRegisterEnvironment(__int128 *a1, int a2)

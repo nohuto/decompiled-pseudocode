@@ -1,22 +1,22 @@
 /*
- * XREFs of MiSetProtectionOnSection @ 0x140304DE0
+ * XREFs of MiSetProtectionOnSection @ 0x1402E6E60
  * Callers:
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x14095D964 (MiUnsecureVirtualMemoryAgainstWrites.c)
- *     MmProtectVirtualMemory @ 0x14095E5D8 (MmProtectVirtualMemory.c)
- *     MiMarkSharedImageCfgBits @ 0x1409C8128 (MiMarkSharedImageCfgBits.c)
- *     MiCommitPagefileBackedSection @ 0x1409C9560 (MiCommitPagefileBackedSection.c)
- *     MiCommitFileBackedSection @ 0x140A58878 (MiCommitFileBackedSection.c)
+ *     MiMarkSharedImageCfgBits @ 0x140999108 (MiMarkSharedImageCfgBits.c)
+ *     MiCommitPagefileBackedSection @ 0x14099A540 (MiCommitPagefileBackedSection.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x140A03224 (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     MmProtectVirtualMemory @ 0x140A03E98 (MmProtectVirtualMemory.c)
+ *     MiCommitFileBackedSection @ 0x140A65DF8 (MiCommitFileBackedSection.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiSectionProtectAllPtes @ 0x140303F00 (MiSectionProtectAllPtes.c)
- *     MiQueryAddressState @ 0x140305180 (MiQueryAddressState.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiSectionProtectGetCharges @ 0x1409C6FE0 (MiSectionProtectGetCharges.c)
- *     MiSectionProtectReturnCharges @ 0x140A80EE4 (MiSectionProtectReturnCharges.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiSectionProtectAllPtes @ 0x1402E5F80 (MiSectionProtectAllPtes.c)
+ *     MiQueryAddressState @ 0x1402E7200 (MiQueryAddressState.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiSectionProtectGetCharges @ 0x140997FC0 (MiSectionProtectGetCharges.c)
+ *     MiSectionProtectReturnCharges @ 0x140A86D54 (MiSectionProtectReturnCharges.c)
  */
 
 __int64 __fastcall MiSetProtectionOnSection(
@@ -72,7 +72,7 @@ __int64 __fastcall MiSetProtectionOnSection(
       KeAbPostRelease(a1 + 608);
       v19 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v19
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v18, v17);
       }

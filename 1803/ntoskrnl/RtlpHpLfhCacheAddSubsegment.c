@@ -16,8 +16,8 @@ __int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, unsigned __int64 a2, 
   unsigned int v6; // ebx
   unsigned int v7; // r15d
   unsigned int v9; // eax
-  struct _SLIST_ENTRY *v10; // rdi
-  union _SLIST_HEADER *v12; // rbp
+  _SLIST_ENTRY *v10; // rdi
+  _SLIST_HEADER *v12; // rbp
   int v13; // eax
 
   v4 = *(_BYTE *)(a3 + 45);
@@ -25,8 +25,8 @@ __int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, unsigned __int64 a2, 
   v6 = 0;
   v7 = v4 << v5;
   _BitScanForward(&v9, v7);
-  v10 = (struct _SLIST_ENTRY *)a3;
-  v12 = (union _SLIST_HEADER *)(a1 + 16LL * (v9 - 12));
+  v10 = (_SLIST_ENTRY *)a3;
+  v12 = (_SLIST_HEADER *)(a1 + 16LL * (v9 - 12));
   if ( LOWORD(v12->Alignment) )
   {
     v13 = RtlpHpLfhSubsegmentCountEmptyUnits(a3);
@@ -34,7 +34,7 @@ __int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, unsigned __int64 a2, 
       _InterlockedExchangeAdd64(
         (volatile signed __int64 *)(*(_QWORD *)(a2 + 72) + 24LL),
         -(__int64)((unsigned __int64)(unsigned int)(v13 << v5) >> 12));
-    ((void (__fastcall *)(_QWORD, struct _SLIST_ENTRY *, _QWORD, _QWORD))(a2 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a2 + 16)))(
+    ((void (__fastcall *)(_QWORD, _SLIST_ENTRY *, _QWORD, _QWORD))(a2 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a2 + 16)))(
       *(_QWORD *)a2,
       v10,
       v7,

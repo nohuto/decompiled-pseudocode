@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpGetPmcOwnership @ 0x14064C900
+ * XREFs of EtwpGetPmcOwnership @ 0x14064AF10
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpGetPmcOwnership(_DWORD *a1, unsigned int *a2)
@@ -23,9 +23,7 @@ __int64 __fastcall EtwpGetPmcOwnership(_DWORD *a1, unsigned int *a2)
   int v13; // edx
   int v14; // edx
   int v15; // edx
-  int v16; // [rsp+50h] [rbp+18h] BYREF
 
-  v16 = 0;
   if ( !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, 1) )
     return 3221225569LL;
   if ( PsIsCurrentThreadInServerSilo() )
@@ -35,12 +33,12 @@ __int64 __fastcall EtwpGetPmcOwnership(_DWORD *a1, unsigned int *a2)
   if ( *a1 > (unsigned int)KeNumberProcessors_0 )
     return 3221225485LL;
   v5 = 16 * EtwpMaxPmcCounter + 8;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, v5, 0x74777445u);
   v7 = Pool2;
   if ( Pool2 )
   {
     *Pool2 = *a1;
-    v8 = guard_dispatch_icall_no_overrides(53LL, v5, Pool2, &v16);
+    v8 = guard_dispatch_icall_no_overrides(53LL, v5);
     if ( v8 < 0 )
     {
 LABEL_29:

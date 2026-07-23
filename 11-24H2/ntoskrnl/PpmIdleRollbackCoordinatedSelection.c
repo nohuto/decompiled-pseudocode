@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleRollbackCoordinatedSelection @ 0x1405CEBB4
+ * XREFs of PpmIdleRollbackCoordinatedSelection @ 0x1405CC2D4
  * Callers:
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x1405CE03C (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1405CE3DC (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1405CB75C (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1405CBAFC (PpmIdleCheckCoordinatedStateEligibility.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReturnFreeZeroPage @ 0x1402AA690
+ * XREFs of MiReturnFreeZeroPage @ 0x1402A9A90
  * Callers:
- *     MiCoalesceFreeSmallPages @ 0x14028D060 (MiCoalesceFreeSmallPages.c)
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402AA2EC (MiLockSpecialPurposeMemoryCachedPage.c)
- *     MiDemoteSlabEntry @ 0x1402AA3B4 (MiDemoteSlabEntry.c)
- *     MiWalkImageReleasePage @ 0x1402CC6DC (MiWalkImageReleasePage.c)
- *     MiMigratePfn @ 0x1402F6990 (MiMigratePfn.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1402FA410 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiTradePageMarkedPoisoned @ 0x1405193C8 (MiTradePageMarkedPoisoned.c)
- *     MiFreeLargeInitializationCodePages @ 0x140520698 (MiFreeLargeInitializationCodePages.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14070B50C (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiCoalesceFreeSmallPages @ 0x14028C5C0 (MiCoalesceFreeSmallPages.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402A96FC (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiDemoteSlabEntry @ 0x1402A97C4 (MiDemoteSlabEntry.c)
+ *     MiWalkImageReleasePage @ 0x1402AE49C (MiWalkImageReleasePage.c)
+ *     MiMigratePfn @ 0x1402D8A10 (MiMigratePfn.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x1402DC490 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiTradePageMarkedPoisoned @ 0x140512E38 (MiTradePageMarkedPoisoned.c)
+ *     MiFreeLargeInitializationCodePages @ 0x140522D3C (MiFreeLargeInitializationCodePages.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1407101BC (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
  */
 
 __int64 __fastcall MiReturnFreeZeroPage(__int64 a1, int a2)
@@ -43,8 +43,8 @@ __int64 __fastcall MiReturnFreeZeroPage(__int64 a1, int a2)
   v8 = *(_QWORD *)(a1 + 16);
   LOBYTE(v5) = (v8 & 0x3E0) != 0;
   v9 = v5 + 1;
-  if ( qword_140E2D740 && (*(_QWORD *)(a1 + 16) & 0x10) == 0 )
-    HIDWORD(v8) &= HIDWORD(qword_140E2D748);
+  if ( qword_140E2D8C0 && (*(_QWORD *)(a1 + 16) & 0x10) == 0 )
+    HIDWORD(v8) &= HIDWORD(qword_140E2D8C8);
   v10 = v9 | 0x400;
   if ( HIDWORD(v8) != -3 )
     v10 = v9;

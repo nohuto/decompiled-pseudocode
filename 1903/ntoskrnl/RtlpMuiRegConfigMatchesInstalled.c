@@ -40,7 +40,7 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
   __int64 v24; // r8
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   __int16 v27; // [rsp+88h] [rbp+48h] BYREF
-  int v28; // [rsp+98h] [rbp+58h] BYREF
+  DWORD Lcid; // [rsp+98h] [rbp+58h] BYREF
 
   v7 = 0LL;
   *(_QWORD *)&DestinationString.Length = 0LL;
@@ -113,9 +113,9 @@ LABEL_3:
           if ( v20 )
           {
             RtlInitUnicodeString(&DestinationString, v20);
-            if ( RtlCultureNameToLCID(&DestinationString.Length, &v28) )
+            if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
             {
-              v12 = v8 == (__int16)v28;
+              v12 = v8 == (__int16)Lcid;
               goto LABEL_4;
             }
           }

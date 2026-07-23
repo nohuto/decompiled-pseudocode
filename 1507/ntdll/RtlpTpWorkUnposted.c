@@ -11,11 +11,11 @@
  *     TpUnreserveTaskPost @ 0x18007CD90 (TpUnreserveTaskPost.c)
  */
 
-__int64 __fastcall RtlpTpWorkUnposted(unsigned __int64 a1, __int64 a2)
+LOGICAL __fastcall RtlpTpWorkUnposted(__int64 a1, __int64 a2)
 {
   int v4; // ecx
-  volatile signed __int32 *v5; // rcx
-  __int64 v6; // rcx
+  _ACTIVATION_CONTEXT *v5; // rcx
+  void *v6; // rcx
   int v8; // [rsp+30h] [rbp-58h] BYREF
   __int64 v9; // [rsp+38h] [rbp-50h]
   __int64 v10; // [rsp+40h] [rbp-48h]
@@ -46,11 +46,11 @@ __int64 __fastcall RtlpTpWorkUnposted(unsigned __int64 a1, __int64 a2)
   }
   TpUnreserveTaskPost(*(_QWORD *)(a1 + 32), &v8);
   RtlpTpDeleteData(a1 + 40);
-  v5 = *(volatile signed __int32 **)(a1 + 72);
-  if ( v5 != (volatile signed __int32 *)-1LL )
+  v5 = *(_ACTIVATION_CONTEXT **)(a1 + 72);
+  if ( v5 != (_ACTIVATION_CONTEXT *)-1LL )
     RtlReleaseActivationContext(v5);
-  v6 = *(_QWORD *)(a1 + 80);
+  v6 = *(void **)(a1 + 80);
   if ( v6 )
     LdrUnloadDll(v6);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

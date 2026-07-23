@@ -11,27 +11,32 @@
  *     _RtlpUpcaseUnicodeStringPrivate@12 @ 0x4B3618DC (_RtlpUpcaseUnicodeStringPrivate@12.c)
  */
 
-char __thiscall RtlIsNameInExpression(void *this, int a2, int a3, char a4, int a5)
+BOOLEAN __cdecl RtlIsNameInExpression(
+        PUNICODE_STRING Expression,
+        PUNICODE_STRING Name,
+        BOOLEAN IgnoreCase,
+        PWCH UpcaseTable)
 {
-  int v5; // eax
-  char IsNameInExpressionPrivate; // bl
-  UNICODE_STRING UnicodeString; // [esp+10h] [ebp-24h] BYREF
-  char v9; // [esp+1Bh] [ebp-19h]
+  int v4; // ecx
+  NTSTATUS v5; // eax
+  BOOLEAN IsNameInExpressionPrivate; // bl
+  _UNICODE_STRING UnicodeString; // [esp+10h] [ebp-24h] BYREF
+  BOOLEAN v9; // [esp+1Bh] [ebp-19h]
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
   v9 = 0;
-  if ( !a4 || a5 )
+  if ( !IgnoreCase || UpcaseTable )
   {
     UnicodeString.Buffer = 0;
   }
   else
   {
-    v5 = RtlpUpcaseUnicodeStringPrivate(this);
+    v5 = RtlpUpcaseUnicodeStringPrivate(v4);
     if ( v5 < 0 )
       RtlRaiseStatus(v5);
-    a4 = 0;
+    IgnoreCase = 0;
   }
-  IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate(a4, 0, a5);
+  IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate(IgnoreCase, 0, UpcaseTable);
   v9 = IsNameInExpressionPrivate;
   ms_exc.registration.TryLevel = -2;
   if ( UnicodeString.Buffer )

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCopyLegacyContext @ 0x1400F32B4
+ * XREFs of RtlpCopyLegacyContext @ 0x1400F1104
  * Callers:
- *     RtlpCopyExtendedContext @ 0x1400F31F8 (RtlpCopyExtendedContext.c)
- *     KeCopyContextFromUmsContext @ 0x140651408 (KeCopyContextFromUmsContext.c)
- *     KeCopyContextToUmsContext @ 0x14065181C (KeCopyContextToUmsContext.c)
- *     KeUpdatePrimaryThreadContext @ 0x140651A9C (KeUpdatePrimaryThreadContext.c)
- *     RtlCopyContext @ 0x14068C174 (RtlCopyContext.c)
+ *     RtlpCopyExtendedContext @ 0x1400F1048 (RtlpCopyExtendedContext.c)
+ *     KeCopyContextFromUmsContext @ 0x1406514EC (KeCopyContextFromUmsContext.c)
+ *     KeCopyContextToUmsContext @ 0x140651900 (KeCopyContextToUmsContext.c)
+ *     KeUpdatePrimaryThreadContext @ 0x140651B80 (KeUpdatePrimaryThreadContext.c)
+ *     RtlCopyContext @ 0x14068C258 (RtlCopyContext.c)
  * Callees:
- *     RtlpCopyLegacyContextAmd64 @ 0x1400F2FF4 (RtlpCopyLegacyContextAmd64.c)
+ *     RtlpCopyLegacyContextAmd64 @ 0x1400F0E44 (RtlpCopyLegacyContextAmd64.c)
  */
 
 void __fastcall RtlpCopyLegacyContext(char a1, __int64 a2, int a3, __int64 a4)

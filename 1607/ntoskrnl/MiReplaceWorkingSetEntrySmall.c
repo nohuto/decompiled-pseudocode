@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReplaceWorkingSetEntrySmall @ 0x1401E9EEC
+ * XREFs of MiReplaceWorkingSetEntrySmall @ 0x1401E9D18
  * Callers:
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiReplaceWorkingSetEntryLarge @ 0x140100DD4 (MiReplaceWorkingSetEntryLarge.c)
- *     MiReplaceWorkingSetEntryIfNecessary @ 0x1401E9EA0 (MiReplaceWorkingSetEntryIfNecessary.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiReplaceWorkingSetEntryLarge @ 0x1400FEB54 (MiReplaceWorkingSetEntryLarge.c)
+ *     MiReplaceWorkingSetEntryIfNecessary @ 0x1401E9CCC (MiReplaceWorkingSetEntryIfNecessary.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1400BC53C (MiUpdateWorkingSetAgeDistribution.c)
- *     MiSetWsleAge @ 0x1400BDC94 (MiSetWsleAge.c)
- *     MiRemoveSingleWsle @ 0x14010133C (MiRemoveSingleWsle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1400BA3CC (MiUpdateWorkingSetAgeDistribution.c)
+ *     MiSetWsleAge @ 0x1400BBB24 (MiSetWsleAge.c)
+ *     MiRemoveSingleWsle @ 0x1400FF0BC (MiRemoveSingleWsle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  */
 
 char __fastcall MiReplaceWorkingSetEntrySmall(ULONG_PTR a1, int a2)

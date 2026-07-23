@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetHostNtSystemRoot @ 0x1407641D8
+ * XREFs of RtlGetHostNtSystemRoot @ 0x1407653C8
  * Callers:
- *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     IoConfigureCrashDump @ 0x1401885EC (IoConfigureCrashDump.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
  */
 
 char *RtlGetHostNtSystemRoot()

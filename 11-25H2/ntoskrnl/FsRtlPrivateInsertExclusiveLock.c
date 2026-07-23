@@ -9,9 +9,9 @@
 
 PRTL_SPLAY_LINKS __fastcall FsRtlPrivateInsertExclusiveLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
 {
-  RTL_SPLAY_LINKS *v3; // rbp
-  RTL_SPLAY_LINKS *v4; // rdx
-  RTL_SPLAY_LINKS *v5; // r8
+  _RTL_SPLAY_LINKS *v3; // rbp
+  _RTL_SPLAY_LINKS *v4; // rdx
+  _RTL_SPLAY_LINKS *v5; // r8
   char v6; // r9
   PRTL_SPLAY_LINKS result; // rax
   bool v9; // zf
@@ -21,7 +21,7 @@ PRTL_SPLAY_LINKS __fastcall FsRtlPrivateInsertExclusiveLock(__int64 a1, _RTL_SPL
   _RTL_SPLAY_LINKS *v13; // rcx
 
   v3 = 0LL;
-  v4 = *(RTL_SPLAY_LINKS **)(a1 + 16);
+  v4 = *(_RTL_SPLAY_LINKS **)(a1 + 16);
   v5 = 0LL;
   v6 = 0;
   result = 0LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetJobFreezeCountCallback @ 0x1400ADFD8
+ * XREFs of PspSetJobFreezeCountCallback @ 0x1400AC540
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     ExpTimerResume @ 0x1400AE190 (ExpTimerResume.c)
- *     ExpTimerPause @ 0x1400AE8DC (ExpTimerPause.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     PspComputeExecutionState @ 0x14046A53C (PspComputeExecutionState.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     ExpTimerResume @ 0x1400AC6F8 (ExpTimerResume.c)
+ *     ExpTimerPause @ 0x1400ACE44 (ExpTimerPause.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     PspComputeExecutionState @ 0x14046940C (PspComputeExecutionState.c)
  */
 
 __int64 __fastcall PspSetJobFreezeCountCallback(__int64 a1, _DWORD *a2)

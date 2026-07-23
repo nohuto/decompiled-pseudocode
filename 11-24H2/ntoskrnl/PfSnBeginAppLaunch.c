@@ -1,24 +1,24 @@
 /*
- * XREFs of PfSnBeginAppLaunch @ 0x140960934
+ * XREFs of PfSnBeginAppLaunch @ 0x1409483F4
  * Callers:
- *     PfSnAppLaunchScenarioControl @ 0x1407475F4 (PfSnAppLaunchScenarioControl.c)
- *     PfProcessCreateNotification @ 0x140960888 (PfProcessCreateNotification.c)
+ *     PfSnAppLaunchScenarioControl @ 0x1407458E4 (PfSnAppLaunchScenarioControl.c)
+ *     PfProcessCreateNotification @ 0x140948348 (PfProcessCreateNotification.c)
  * Callees:
- *     PfSnGetAppVersion @ 0x14047F9D4 (PfSnGetAppVersion.c)
- *     PfLockSharedAcquire @ 0x14047FC44 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x140482C98 (PfLockSharedRelease.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfSnCheckScenario @ 0x140960C4C (PfSnCheckScenario.c)
- *     PfSnBeginScenario @ 0x140960CB0 (PfSnBeginScenario.c)
- *     PfSnLogScenarioDecision @ 0x140960FAC (PfSnLogScenarioDecision.c)
- *     PfSnAltProfileFindByScenarioId @ 0x14096192C (PfSnAltProfileFindByScenarioId.c)
- *     PfSnScanCommandLine @ 0x140961B68 (PfSnScanCommandLine.c)
- *     PfSnIsHostingApplication @ 0x140961C24 (PfSnIsHostingApplication.c)
- *     PfSnCheckModernApp @ 0x140961CE8 (PfSnCheckModernApp.c)
- *     PfCalculateProcessHash @ 0x140962000 (PfCalculateProcessHash.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PfSnGetAppVersion @ 0x14047A764 (PfSnGetAppVersion.c)
+ *     PfLockSharedAcquire @ 0x14047A884 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x14047DE88 (PfLockSharedRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfSnCheckScenario @ 0x14094870C (PfSnCheckScenario.c)
+ *     PfSnBeginScenario @ 0x140948770 (PfSnBeginScenario.c)
+ *     PfSnLogScenarioDecision @ 0x140948A6C (PfSnLogScenarioDecision.c)
+ *     PfSnAltProfileFindByScenarioId @ 0x1409493EC (PfSnAltProfileFindByScenarioId.c)
+ *     PfSnScanCommandLine @ 0x140949628 (PfSnScanCommandLine.c)
+ *     PfSnIsHostingApplication @ 0x1409496E4 (PfSnIsHostingApplication.c)
+ *     PfSnCheckModernApp @ 0x1409497A8 (PfSnCheckModernApp.c)
+ *     PfCalculateProcessHash @ 0x140949AC0 (PfCalculateProcessHash.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBeginAppLaunch(ULONG_PTR BugCheckParameter1, unsigned __int16 *a2, int a3)
@@ -138,7 +138,7 @@ LABEL_25:
   v35 = v31;
   v36 = v32;
   v37 = v18;
-  PfLockSharedAcquire((volatile signed __int64 *)&qword_140E67138);
+  PfLockSharedAcquire((volatile signed __int64 *)&qword_140E67288);
   v19 = PfSnAltProfileFindByScenarioId(Str2);
   if ( v19 )
   {
@@ -149,9 +149,9 @@ LABEL_25:
   {
     HIDWORD(v32) += v18;
   }
-  PfLockSharedRelease((signed __int64 *)&qword_140E67138);
+  PfLockSharedRelease((signed __int64 *)&qword_140E67288);
   HIDWORD(v32) += a3;
-  if ( (dword_140E67110 & 0x20) != 0 || v25 == 2 )
+  if ( (dword_140E67260 & 0x20) != 0 || v25 == 2 )
     v7 |= 2u;
   v8 = PfSnBeginScenario(BugCheckParameter1, (unsigned int)SubStr, 0, v7, (__int64)&v28, (__int64)&v26);
   if ( v8 >= 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspValidateJobAssignmentProcessLimits @ 0x140AD6CE4
+ * XREFs of PspValidateJobAssignmentProcessLimits @ 0x140AD39F4
  * Callers:
- *     PspValidateJobChainLimits @ 0x140AD6C7C (PspValidateJobChainLimits.c)
+ *     PspValidateJobChainLimits @ 0x140AD398C (PspValidateJobChainLimits.c)
  * Callees:
- *     PspSendJobNotification @ 0x1404D0290 (PspSendJobNotification.c)
- *     PspCheckJobAccessState @ 0x140778CD8 (PspCheckJobAccessState.c)
+ *     PspSendJobNotification @ 0x1404C9CC0 (PspSendJobNotification.c)
+ *     PspCheckJobAccessState @ 0x14077BB78 (PspCheckJobAccessState.c)
  */
 
 __int64 __fastcall PspValidateJobAssignmentProcessLimits(__int64 a1, __int64 a2, int a3)

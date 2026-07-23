@@ -26,16 +26,15 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(
   __int64 SessionId; // r8
   unsigned __int8 v10; // r14
   __int64 v11; // rax
-  __int64 v12; // rdx
-  unsigned int v13; // r8d
-  __int64 v14; // rdi
-  int v15; // eax
-  unsigned int v16; // ecx
+  unsigned int v12; // r8d
+  __int64 v13; // rdi
+  int v14; // eax
+  unsigned int v15; // ecx
+  __int64 v16; // rdx
   __int64 v17; // rdx
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  int v21; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v18; // r8
+  __int64 v19; // r9
+  int v20; // [rsp+58h] [rbp+10h] BYREF
 
   v4 = BugCheckParameter1;
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
@@ -47,7 +46,7 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(
   {
     v7 = *(_QWORD *)(BugCheckParameter2 + 16);
     CurrentThread = KeGetCurrentThread();
-    v21 = 0;
+    v20 = 0;
     if ( (unsigned int)MiGetSystemRegionType(v7, BugCheckParameter1, a3, a4) == 1 )
       SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
     else
@@ -55,31 +54,31 @@ __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(
     --CurrentThread->SpecialApcDisable;
     v10 = ++CurrentThread->AbAllocationRegionCount;
     v11 = KiAbThreadClearAcquiredLockEntry(CurrentThread, v7, SessionId);
-    v14 = v11;
+    v13 = v11;
     if ( v11 )
     {
       *(_BYTE *)(v11 + 32) |= 2u;
       if ( *(__int64 *)(v11 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v11, v12);
-      v15 = *(_DWORD *)(v14 + 88) & 0x1FFFF;
-      v16 = *(_DWORD *)(v14 + 88) & 0xFFFE0000;
-      *(_BYTE *)(v14 + 25) &= ~1u;
-      v21 = v15;
-      *(_DWORD *)(v14 + 88) = v16;
-      *(_QWORD *)(v14 + 32) = 0LL;
-      v17 = (v14 - (__int64)CurrentThread - 800) / 96;
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11);
+      v14 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
+      v15 = *(_DWORD *)(v13 + 88) & 0xFFFE0000;
+      *(_BYTE *)(v13 + 25) &= ~1u;
+      v20 = v14;
+      *(_DWORD *)(v13 + 88) = v15;
+      *(_QWORD *)(v13 + 32) = 0LL;
+      v16 = (v13 - (__int64)CurrentThread - 800) / 96;
       if ( v10 == 1 )
-        CurrentThread->AbEntrySummary |= 1 << v17;
+        CurrentThread->AbEntrySummary |= 1 << v16;
       else
-        _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v17);
+        _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v16);
     }
     else if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
     {
-      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v7, v13, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v7, v12, 0LL);
     }
     --CurrentThread->AbAllocationRegionCount;
-    KiAbThreadRemoveBoosts(CurrentThread, v7, &v21);
-    return KiLeaveGuardedRegionUnsafe(CurrentThread, v18, v19, v20);
+    KiAbThreadRemoveBoosts(CurrentThread, v7, &v20);
+    return KiLeaveGuardedRegionUnsafe(CurrentThread, v17, v18, v19);
   }
   return result;
 }

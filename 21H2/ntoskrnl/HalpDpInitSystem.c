@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDpInitSystem @ 0x1409A1560
+ * XREFs of HalpDpInitSystem @ 0x1409A2490
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
- *     HalpDpInitDiscard @ 0x140A6D3F4 (HalpDpInitDiscard.c)
+ *     HalpInterruptModel @ 0x14037AEA4 (HalpInterruptModel.c)
+ *     HalpDpInitDiscard @ 0x140A6E3F4 (HalpDpInitDiscard.c)
  */
 
 __int64 HalpDpInitSystem()

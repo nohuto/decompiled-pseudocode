@@ -1,22 +1,22 @@
 /*
- * XREFs of MiZeroFault @ 0x14034EE60
+ * XREFs of MiZeroFault @ 0x140359BB0
  * Callers:
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
  * Callees:
- *     MiResolvePrivateZeroFault @ 0x140210120 (MiResolvePrivateZeroFault.c)
- *     MiCheckVadSequential @ 0x14028FAB0 (MiCheckVadSequential.c)
- *     MiAllowGuardFault @ 0x1402A2BC4 (MiAllowGuardFault.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiCheckFatalAccessViolation @ 0x1402BF5EC (MiCheckFatalAccessViolation.c)
- *     MiUpdatePageTableUseCount @ 0x1402CF7F4 (MiUpdatePageTableUseCount.c)
- *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MiResolveSharedZeroFault @ 0x14032EB70 (MiResolveSharedZeroFault.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiPrefetchJumpVad @ 0x1405394CC (MiPrefetchJumpVad.c)
+ *     MiCheckVadSequential @ 0x14020CC50 (MiCheckVadSequential.c)
+ *     MiAllowGuardFault @ 0x140220004 (MiAllowGuardFault.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiCheckFatalAccessViolation @ 0x14023DA3C (MiCheckFatalAccessViolation.c)
+ *     MiUpdatePageTableUseCount @ 0x14024DB74 (MiUpdatePageTableUseCount.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B4A20 (MiResolvePrivateZeroFault.c)
+ *     MiLocateLockedVadEvent @ 0x14030911C (MiLocateLockedVadEvent.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MiResolveSharedZeroFault @ 0x1403398C0 (MiResolveSharedZeroFault.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiPrefetchJumpVad @ 0x14053970C (MiPrefetchJumpVad.c)
  */
 
 __int64 __fastcall MiZeroFault(__int64 a1, _BYTE *a2, unsigned int *a3, __int64 *a4)
@@ -30,26 +30,26 @@ __int64 __fastcall MiZeroFault(__int64 a1, _BYTE *a2, unsigned int *a3, __int64 
   __int64 v10; // rcx
   unsigned __int64 v11; // rdi
   ULONG_PTR v12; // r13
-  _KPROCESS *v13; // rdx
-  __int64 v14; // rbx
-  __int64 v15; // rax
+  __int64 v13; // rbx
+  __int64 v14; // rax
+  _KPROCESS *v15; // rdx
   ULONG_PTR v16; // r14
   __int64 v17; // rax
   int v18; // eax
   __int64 ProtoPteAddress; // r12
   unsigned int v20; // r15d
-  __int64 v21; // rax
-  int v23; // ecx
-  char v24; // dl
+  _QWORD *v21; // rdx
+  __int64 v22; // rax
+  int v24; // ecx
+  char v25; // dl
   __int64 **LockedVadEvent; // rcx
-  __int64 v26; // rcx
-  __int64 v27; // rax
-  __int64 *p_Lock; // rdi
-  __int64 v29; // rbx
-  __int64 v30; // r8
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 *v29; // rdi
+  __int64 v30; // rbx
   __int64 v31; // [rsp+30h] [rbp-59h] BYREF
   _KPROCESS *v32; // [rsp+38h] [rbp-51h]
-  _KPROCESS *v33; // [rsp+40h] [rbp-49h]
+  __int64 *v33; // [rsp+40h] [rbp-49h]
   _QWORD v34[2]; // [rsp+50h] [rbp-39h] BYREF
   __int128 v35; // [rsp+60h] [rbp-29h]
   __int128 v36; // [rsp+70h] [rbp-19h]
@@ -82,21 +82,21 @@ __int64 __fastcall MiZeroFault(__int64 a1, _BYTE *a2, unsigned int *a3, __int64 
   v11 = v10 & 0xFFFFFFFFFFFFFFFEuLL;
   if ( (v10 & 1) != 0 )
   {
-    v24 = *(_BYTE *)v11;
+    v25 = *(_BYTE *)v11;
     if ( *(_BYTE *)v11 == 2 )
     {
       v7 |= 1u;
     }
-    else if ( v24 == 1 )
+    else if ( v25 == 1 )
     {
       v7 |= 2u;
     }
     else
     {
-      if ( v24 != 5 )
+      if ( v25 != 5 )
       {
 LABEL_67:
-        if ( v24 == 4 )
+        if ( v25 == 4 )
           goto LABEL_68;
         goto LABEL_4;
       }
@@ -128,16 +128,15 @@ LABEL_6:
   v12 = *(_QWORD *)v5;
   v38 = v11;
   v34[1] = v5;
-  v13 = (_KPROCESS *)(((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  v33 = v13;
+  v33 = (__int64 *)(((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   if ( v12 >= 0xFFFF800000000000uLL )
   {
     if ( (v7 & 2) != 0 )
       return 0LL;
     if ( v12 >= 0xFFFFF68000000000uLL && v12 <= 0xFFFFF6FFFFFFFFFFuLL && v10 )
-      KeBugCheckEx(0x50u, v12, *(_QWORD *)(v5 + 8), (ULONG_PTR)v13, 6uLL);
+      KeBugCheckEx(0x50u, v12, *(_QWORD *)(v5 + 8), ((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 6uLL);
   }
-  v14 = 0LL;
+  v13 = 0LL;
   if ( v12 > 0x7FFFFFFEFFFFLL )
   {
     if ( v12 >= 0xFFFFF68000000000uLL && v12 <= 0xFFFFF6FFFFFFFFFFuLL )
@@ -147,31 +146,31 @@ LABEL_6:
       goto LABEL_29;
     }
 LABEL_38:
-    MiCheckFatalAccessViolation(v12, v14, *(_QWORD *)(v5 + 8), (__int64)Process);
-    if ( (v7 & 2) != 0 && v14 )
-      MiPrefetchJumpVad(v11, v14, v12);
+    MiCheckFatalAccessViolation(v12, v13, *(_QWORD *)(v5 + 8), (__int64)Process);
+    if ( (v7 & 2) != 0 && v13 )
+      MiPrefetchJumpVad(v11, v13, v12);
     return 3221225477LL;
   }
   if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 1) != 0 )
     goto LABEL_11;
-  v15 = v12 & 0x7FFFFFFFF000LL;
+  v14 = v12 & 0x7FFFFFFFF000LL;
   if ( (v12 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
   {
-    ProtoPteAddress = qword_140C4DE38;
+    ProtoPteAddress = qword_140C4DE78;
     v20 = 1;
     LOBYTE(v7) = v34[0];
     goto LABEL_29;
   }
-  if ( v15 != qword_140C4DE48 || !v15 )
+  if ( v14 != qword_140C4DE88 || !v14 )
   {
 LABEL_11:
-    v13 = KeGetCurrentThread()->ApcState.Process;
-    v14 = *(_QWORD *)&v13[1].Spare2[23];
-    if ( v14 )
+    v15 = KeGetCurrentThread()->ApcState.Process;
+    v13 = *(_QWORD *)&v15[1].Spare2[23];
+    if ( v13 )
     {
       v16 = v12 >> 12;
-      if ( v12 >> 12 >= (*(unsigned int *)(v14 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 32) << 32))
-        && v16 <= (*(unsigned int *)(v14 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 33) << 32)) )
+      if ( v12 >> 12 >= (*(unsigned int *)(v13 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v13 + 32) << 32))
+        && v16 <= (*(unsigned int *)(v13 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v13 + 33) << 32)) )
       {
 LABEL_14:
         v31 = 0LL;
@@ -180,27 +179,27 @@ LABEL_14:
           v17 = v12 & 0x7FFFFFFFF000LL;
           if ( (v12 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
           {
-            ProtoPteAddress = qword_140C4DE38;
+            ProtoPteAddress = qword_140C4DE78;
             v20 = 1;
             goto LABEL_28;
           }
-          if ( v17 == qword_140C4DE48 && v17 )
+          if ( v17 == qword_140C4DE88 && v17 )
           {
-            ProtoPteAddress = qword_140C4DE40;
+            ProtoPteAddress = qword_140C4DE80;
             v20 = 1;
             goto LABEL_28;
           }
         }
-        if ( (*(_DWORD *)(v14 + 48) & 0x70) == 0x20 && (*(_DWORD *)(v14 + 64) & 0x10000000) != 0 )
+        if ( (*(_DWORD *)(v13 + 48) & 0x70) == 0x20 && (*(_DWORD *)(v13 + 64) & 0x10000000) != 0 )
         {
-          LockedVadEvent = MiLocateLockedVadEvent(v14, 32);
+          LockedVadEvent = MiLocateLockedVadEvent(v13, 32);
           if ( LockedVadEvent )
           {
             if ( LockedVadEvent[1] != (__int64 *)KeGetCurrentThread() )
               goto LABEL_90;
           }
         }
-        v18 = *(_DWORD *)(v14 + 48);
+        v18 = *(_DWORD *)(v13 + 48);
         if ( (v18 & 4) != 0 )
         {
           v20 = 24;
@@ -209,22 +208,22 @@ LABEL_14:
         }
         if ( (v18 & 0x100000) == 0 )
         {
-          if ( (*(_DWORD *)(v14 + 64) & 0x1000000) == 0 || (*(_BYTE *)(v14 + 48) & 0x70) == 0x50 )
+          if ( (*(_DWORD *)(v13 + 64) & 0x1000000) == 0 || (*(_BYTE *)(v13 + 48) & 0x70) == 0x50 )
           {
-            ProtoPteAddress = MiGetProtoPteAddress(v14, v12 >> 12, 4, &v31);
+            ProtoPteAddress = MiGetProtoPteAddress(v13, v12 >> 12, 4, &v31);
             if ( ProtoPteAddress )
             {
-              v20 = (*(_DWORD *)(v14 + 48) >> 7) & 0x1F;
-              if ( (*(_DWORD *)(v14 + 48) & 0x70) == 0x20 && v20 == 7 )
+              v20 = (*(_DWORD *)(v13 + 48) >> 7) & 0x1F;
+              if ( (*(_DWORD *)(v13 + 48) & 0x70) == 0x20 && v20 == 7 )
                 v20 = 256;
             }
             else
             {
               v20 = 24;
             }
-            v13 = *(_KPROCESS **)(v14 + 120);
-            if ( (__int64)v13 < 0
-              && v16 - (*(unsigned int *)(v14 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 32) << 32)) > (unsigned __int64)(*(_QWORD *)&v13->Header.Lock - 1LL) >> 12 )
+            v21 = *(_QWORD **)(v13 + 120);
+            if ( (__int64)v21 < 0
+              && v16 - (*(unsigned int *)(v13 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v13 + 32) << 32)) > (unsigned __int64)(*v21 - 1LL) >> 12 )
             {
               v20 = 24;
             }
@@ -242,46 +241,46 @@ LABEL_28:
             goto LABEL_29;
           goto LABEL_38;
         }
-        if ( (v23 = *(_DWORD *)(v14 + 48) & 0x70, v23 == 16)
-          || v23 == 48
+        if ( (v24 = *(_DWORD *)(v13 + 48) & 0x70, v24 == 16)
+          || v24 == 48
           || (v18 & 0x400000) != 0
           || (v18 & 0xC0000u) >= 0x80000
-          || v23 == 32 && (*(_DWORD *)(v14 + 64) & 0x1000000) != 0
-          || *(int *)(v14 + 52) >= 0 )
+          || v24 == 32 && (*(_DWORD *)(v13 + 64) & 0x1000000) != 0
+          || *(int *)(v13 + 52) >= 0 )
         {
 LABEL_90:
           v20 = 24;
         }
         else
         {
-          v20 = (*(_DWORD *)(v14 + 48) >> 7) & 0x1F;
+          v20 = (*(_DWORD *)(v13 + 48) >> 7) & 0x1F;
         }
         ProtoPteAddress = 0LL;
         goto LABEL_28;
       }
-      v14 = *(_QWORD *)&v13[1].Spare2[15];
-      while ( v14 )
+      v13 = *(_QWORD *)&v15[1].Spare2[15];
+      while ( v13 )
       {
-        if ( v16 > (*(unsigned int *)(v14 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 33) << 32)) )
+        if ( v16 > (*(unsigned int *)(v13 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v13 + 33) << 32)) )
         {
-          v14 = *(_QWORD *)(v14 + 8);
+          v13 = *(_QWORD *)(v13 + 8);
         }
         else
         {
-          if ( v16 >= (*(unsigned int *)(v14 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 32) << 32)) )
+          if ( v16 >= (*(unsigned int *)(v13 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v13 + 32) << 32)) )
           {
-            *(_QWORD *)&v13[1].Spare2[23] = v14;
+            *(_QWORD *)&v15[1].Spare2[23] = v13;
             goto LABEL_14;
           }
-          v14 = *(_QWORD *)v14;
+          v13 = *(_QWORD *)v13;
         }
       }
     }
-    v14 = 0LL;
+    v13 = 0LL;
     LOBYTE(v7) = v34[0];
     goto LABEL_38;
   }
-  ProtoPteAddress = qword_140C4DE40;
+  ProtoPteAddress = qword_140C4DE80;
   v20 = 1;
   LOBYTE(v7) = v34[0];
 LABEL_29:
@@ -292,29 +291,29 @@ LABEL_29:
       if ( MiAllowGuardFault(*(_QWORD *)(v5 + 16)) )
       {
         MiUpdatePageTableUseCount(v12, 1u);
-        v26 = v20 & 0xF;
+        v27 = v20 & 0xF;
         if ( ProtoPteAddress )
-          v26 |= 0xFFFFFFFFF8000020uLL;
-        v27 = MiSwizzleInvalidPte(32 * v26);
-        p_Lock = (__int64 *)&v33->Header.Lock;
-        v29 = v27;
+          v27 |= 0xFFFFFFFFF8000020uLL;
+        v28 = MiSwizzleInvalidPte(32 * v27);
+        v29 = v33;
+        v30 = v28;
         if ( MiPteInShadowRange((unsigned __int64)v33) )
         {
           if ( (unsigned int)MiPteHasShadow() )
           {
-            if ( !HIBYTE(word_140C4E008) && (v29 & 1) != 0 )
-              v29 |= 0x8000000000000000uLL;
-            *p_Lock = v29;
-            MiWritePteShadow((__int64)p_Lock, v29, v30);
+            if ( !HIBYTE(word_140C4E048) && (v30 & 1) != 0 )
+              v30 |= 0x8000000000000000uLL;
+            *v29 = v30;
+            MiWritePteShadow((__int64)v29, v30);
             goto LABEL_119;
           }
           if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-            && (v29 & 1) != 0 )
+            && (v30 & 1) != 0 )
           {
-            v29 |= 0x8000000000000000uLL;
+            v30 |= 0x8000000000000000uLL;
           }
         }
-        *p_Lock = v29;
+        *v29 = v30;
 LABEL_119:
         *a2 = 2;
         return 0LL;
@@ -323,27 +322,27 @@ LABEL_119:
     }
     return 0LL;
   }
-  v21 = *(_QWORD *)(v5 + 8) >> 57;
+  v22 = *(_QWORD *)(v5 + 8) >> 57;
   *(_QWORD *)&v35 = v12;
   *(_QWORD *)&v36 = v20;
-  LODWORD(v37) = v21;
+  LODWORD(v37) = v22;
   *((_QWORD *)&v35 + 1) = ProtoPteAddress;
-  v39 = v14;
+  v39 = v13;
   if ( !ProtoPteAddress )
     return MiResolvePrivateZeroFault((int *)v34);
   if ( (v7 & 2) == 0 )
   {
-    if ( v14 )
+    if ( v13 )
     {
-      if ( *(__int64 *)(v14 + 120) >= 0 )
+      if ( *(__int64 *)(v13 + 120) >= 0 )
       {
-        v4 = MiCheckVadSequential((__int64)v34, (__int64)v13, v5, Process);
+        v4 = MiCheckVadSequential((__int64)v34);
         if ( v4 == -1073741280 )
         {
-          if ( !_InterlockedIncrement((volatile signed __int32 *)(v14 + 36)) )
+          if ( !_InterlockedIncrement((volatile signed __int32 *)(v13 + 36)) )
             __fastfail(0xEu);
           *(_DWORD *)(a1 + 80) |= 1u;
-          *(_QWORD *)(a1 + 88) = v14;
+          *(_QWORD *)(a1 + 88) = v13;
         }
       }
     }

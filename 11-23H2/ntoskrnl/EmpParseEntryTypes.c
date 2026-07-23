@@ -3,11 +3,11 @@
  * Callers:
  *     EmpParseInfDatabase @ 0x140B55840 (EmpParseInfDatabase.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     EmpSearchEntryDatabase @ 0x14038B44C (EmpSearchEntryDatabase.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     EmpSearchEntryDatabase @ 0x14038B62C (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     EmpInfParseGetSectionLineCount @ 0x140B569FC (EmpInfParseGetSectionLineCount.c)
@@ -19,7 +19,7 @@ __int64 __fastcall EmpParseEntryTypes(__int64 a1)
   NTSTATUS v1; // ebx
   unsigned int v3; // esi
   unsigned int SectionLineCount; // ebp
-  const char *SectionLineIndex; // rax
+  const CHAR *SectionLineIndex; // rax
   GUID *Pool2; // rax
   GUID *v7; // rdi
   GUID *v8; // rcx
@@ -37,7 +37,7 @@ __int64 __fastcall EmpParseEntryTypes(__int64 a1)
   {
     while ( 1 )
     {
-      SectionLineIndex = (const char *)CmpGetSectionLineIndex(a1, "EntryTypeGuidDef", v3, 0LL);
+      SectionLineIndex = (const CHAR *)CmpGetSectionLineIndex(a1, "EntryTypeGuidDef", v3, 0LL);
       if ( !SectionLineIndex )
         return 0;
       RtlInitAnsiString(&DestinationString, SectionLineIndex);

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopIsSimulatedArchitecturalHeteroPresent @ 0x140B54530
+ * XREFs of PopIsSimulatedArchitecturalHeteroPresent @ 0x140B56DD0
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     PopHeteroCapabilityDeepCopy @ 0x140B1B81C (PopHeteroCapabilityDeepCopy.c)
+ *     PopHeteroCapabilityDeepCopy @ 0x140B76650 (PopHeteroCapabilityDeepCopy.c)
  */
 
 char __fastcall PopIsSimulatedArchitecturalHeteroPresent(__int64 a1)
 {
-  int *v1; // rdx
+  __int64 v1; // rdx
   char v2; // bl
   int v4; // esi
 
-  v1 = (int *)PpmHeteroCapabilitySimulation;
+  v1 = PpmHeteroCapabilitySimulation;
   v2 = 0;
   if ( PpmHeteroCapabilitySimulation && (PpmHeteroSimulationStateConfig & 1) != 0 )
   {

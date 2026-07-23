@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrpMapDllFullPath @ 0x180075388
+ * XREFs of LdrpMapDllFullPath @ 0x180091C68
  * Callers:
- *     LdrpProcessWork @ 0x180021E60 (LdrpProcessWork.c)
- *     LdrpLoadEnclaveModule @ 0x1800D9218 (LdrpLoadEnclaveModule.c)
+ *     LdrpProcessWork @ 0x18004E860 (LdrpProcessWork.c)
+ *     LdrpLoadEnclaveModule @ 0x1800D4588 (LdrpLoadEnclaveModule.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     LdrpMapDllNtFileName @ 0x180071640 (LdrpMapDllNtFileName.c)
- *     LdrpHashUnicodeString @ 0x180074360 (LdrpHashUnicodeString.c)
- *     LdrpResolveDllName @ 0x180075B50 (LdrpResolveDllName.c)
- *     LdrpAppCompatRedirect @ 0x18007653C (LdrpAppCompatRedirect.c)
- *     LdrpFindExistingModule @ 0x180076630 (LdrpFindExistingModule.c)
- *     LdrpLoadContextReplaceModule @ 0x1800D6BB8 (LdrpLoadContextReplaceModule.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     LdrpMapDllNtFileName @ 0x18008DF20 (LdrpMapDllNtFileName.c)
+ *     LdrpHashUnicodeString @ 0x180090C40 (LdrpHashUnicodeString.c)
+ *     LdrpResolveDllName @ 0x180092430 (LdrpResolveDllName.c)
+ *     LdrpAppCompatRedirect @ 0x180092E1C (LdrpAppCompatRedirect.c)
+ *     LdrpFindExistingModule @ 0x180092F10 (LdrpFindExistingModule.c)
+ *     LdrpLoadContextReplaceModule @ 0x1800D1F28 (LdrpLoadContextReplaceModule.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   int v5; // ebx
   int v6; // eax
   __int64 v8; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING v9; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING v9; // [rsp+40h] [rbp-C0h] BYREF
   _WORD v10[128]; // [rsp+50h] [rbp-B0h] BYREF
 
   memset_thunk_772440563353939046(&v9, 0, 0x110uLL);
@@ -33,7 +33,7 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   v8 = 0LL;
   *(_DWORD *)&v9.Length = 0x1000000;
   v10[0] = 0;
-  v4 = LdrpResolveDllName(a1, v3);
+  v4 = LdrpResolveDllName(a1, (unsigned int)&v9, (int)v2 + 88, (int)v2 + 72, v3);
   v5 = v4;
   if ( *(_QWORD *)(a1 + 176) )
   {
@@ -59,6 +59,6 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
     v5 = -1073741701;
 LABEL_6:
   if ( v10 != v9.Buffer )
-    RtlpSysVolFree((__int64)v9.Buffer);
+    RtlpSysVolFree(v9.Buffer);
   return (unsigned int)v5;
 }

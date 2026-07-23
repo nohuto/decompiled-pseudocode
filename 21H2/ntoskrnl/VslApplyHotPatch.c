@@ -1,12 +1,12 @@
 /*
- * XREFs of VslApplyHotPatch @ 0x1404FBFC0
+ * XREFs of VslApplyHotPatch @ 0x1404FBF40
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1408C8DB4 (MiApplyDriverHotPatch.c)
- *     MiLoadHotPatch @ 0x1408CABD0 (MiLoadHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8F14 (MiApplyDriverHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408CAD30 (MiLoadHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall VslApplyHotPatch(
@@ -33,11 +33,11 @@ NTSTATUS __fastcall VslApplyHotPatch(
   result = VslpEnterIumSecureMode(2u, 70, 0, (__int64)v13);
   if ( result < 0 )
   {
-    _InterlockedIncrement(&dword_140C47388);
+    _InterlockedIncrement(&dword_140C47468);
   }
   else
   {
-    _InterlockedIncrement(&dword_140C47384);
+    _InterlockedIncrement(&dword_140C47464);
     if ( a7 )
     {
       v12 = v13[2];

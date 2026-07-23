@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeSystemPteTracker @ 0x140D01888
+ * XREFs of MiInitializeSystemPteTracker @ 0x140D07C28
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
  */
 
 _QWORD *MiInitializeSystemPteTracker()
@@ -12,11 +12,11 @@ _QWORD *MiInitializeSystemPteTracker()
   char *v1; // rcx
   __int64 v2; // rdx
 
-  if ( ((unsigned __int8)&stru_140E349C0 & 0xF) != 0 )
+  if ( ((unsigned __int8)&stru_140E34B40 & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
-  result = &unk_140E378B0;
-  stru_140E349C0 = 0LL;
-  v1 = (char *)&unk_140E378B0;
+  result = &unk_140E37A30;
+  stru_140E34B40 = 0LL;
+  v1 = (char *)&unk_140E37A30;
   v2 = 16LL;
   do
   {

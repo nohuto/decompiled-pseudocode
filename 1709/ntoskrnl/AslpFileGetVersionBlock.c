@@ -36,7 +36,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
   __int64 v20; // rcx
   size_t Size; // [rsp+48h] [rbp-1D0h] BYREF
   _WORD *v23; // [rsp+50h] [rbp-1C8h]
-  ULONGLONG v24; // [rsp+58h] [rbp-1C0h]
+  unsigned __int64 v24; // [rsp+58h] [rbp-1C0h]
   __int64 v25; // [rsp+60h] [rbp-1B8h]
   _QWORD v26[3]; // [rsp+68h] [rbp-1B0h] BYREF
   _QWORD v27[8]; // [rsp+80h] [rbp-198h] BYREF

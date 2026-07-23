@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpRegisterEDrvHintInfo @ 0x140C3FB78
+ * XREFs of BapdpRegisterEDrvHintInfo @ 0x140C41CC8
  * Callers:
- *     BapdpProcessEDrvHintInfo @ 0x140C3EED8 (BapdpProcessEDrvHintInfo.c)
+ *     BapdpProcessEDrvHintInfo @ 0x140C41028 (BapdpProcessEDrvHintInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
  */
 
 int __fastcall BapdpRegisterEDrvHintInfo(_DWORD *a1)

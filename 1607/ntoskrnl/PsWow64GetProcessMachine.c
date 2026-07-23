@@ -1,14 +1,14 @@
 /*
- * XREFs of PsWow64GetProcessMachine @ 0x14051AA00
+ * XREFs of PsWow64GetProcessMachine @ 0x1404FDDF0
  * Callers:
- *     PsWow64GetSupportedArchitectures @ 0x1400F7170 (PsWow64GetSupportedArchitectures.c)
- *     DbgkCreateThread @ 0x140459228 (DbgkCreateThread.c)
- *     PsMapSystemDlls @ 0x14046BE08 (PsMapSystemDlls.c)
- *     PspWow64SetupCpuArea @ 0x14051A59C (PspWow64SetupCpuArea.c)
- *     PspSetupUserProcessAddressSpace @ 0x14051A604 (PspSetupUserProcessAddressSpace.c)
- *     PspPrepareSystemDllInitBlock @ 0x14051A834 (PspPrepareSystemDllInitBlock.c)
- *     PspWow64InitThread @ 0x14051AA18 (PspWow64InitThread.c)
- *     DbgkSendSystemDllMessages @ 0x140617E98 (DbgkSendSystemDllMessages.c)
+ *     PsWow64GetSupportedArchitectures @ 0x1400F4FB0 (PsWow64GetSupportedArchitectures.c)
+ *     DbgkCreateThread @ 0x1404580F8 (DbgkCreateThread.c)
+ *     PsMapSystemDlls @ 0x14046ACD8 (PsMapSystemDlls.c)
+ *     PspWow64SetupCpuArea @ 0x1404FD98C (PspWow64SetupCpuArea.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1404FD9F4 (PspSetupUserProcessAddressSpace.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1404FDC24 (PspPrepareSystemDllInitBlock.c)
+ *     PspWow64InitThread @ 0x1404FDE08 (PspWow64InitThread.c)
+ *     DbgkSendSystemDllMessages @ 0x140617F4C (DbgkSendSystemDllMessages.c)
  * Callees:
  *     <none>
  */

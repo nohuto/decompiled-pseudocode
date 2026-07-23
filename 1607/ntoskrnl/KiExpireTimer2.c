@@ -1,29 +1,29 @@
 /*
- * XREFs of KiExpireTimer2 @ 0x1400EC080
+ * XREFs of KiExpireTimer2 @ 0x1400E9EF0
  * Callers:
- *     KiTimer2Expiration @ 0x14005A0A0 (KiTimer2Expiration.c)
+ *     KiTimer2Expiration @ 0x140059C20 (KiTimer2Expiration.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140057DA0 (KiTryUnwaitThread.c)
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     KiProcessThreadWaitList @ 0x14008DCC0 (KiProcessThreadWaitList.c)
- *     EtwTraceTimedEvent @ 0x14009E50C (EtwTraceTimedEvent.c)
- *     KiFinalizeTimer2Disablement @ 0x1400A2760 (KiFinalizeTimer2Disablement.c)
- *     RtlGetInterruptTimePrecise @ 0x1400D71A0 (RtlGetInterruptTimePrecise.c)
- *     KiUpdateTimer2Flags @ 0x1400EC7B0 (KiUpdateTimer2Flags.c)
- *     KiTimer2ComputeDueTime @ 0x1400EE418 (KiTimer2ComputeDueTime.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     KiInsertTimer2 @ 0x1400EEA78 (KiInsertTimer2.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     KiTimer2TypeFlagsToEtwFlags @ 0x1401DAC10 (KiTimer2TypeFlagsToEtwFlags.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140057920 (KiTryUnwaitThread.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     KiProcessThreadWaitList @ 0x14008D420 (KiProcessThreadWaitList.c)
+ *     EtwTraceTimedEvent @ 0x14009DEB8 (EtwTraceTimedEvent.c)
+ *     KiFinalizeTimer2Disablement @ 0x1400A1088 (KiFinalizeTimer2Disablement.c)
+ *     RtlGetInterruptTimePrecise @ 0x1400D5040 (RtlGetInterruptTimePrecise.c)
+ *     KiUpdateTimer2Flags @ 0x1400EA620 (KiUpdateTimer2Flags.c)
+ *     KiTimer2ComputeDueTime @ 0x1400EC28C (KiTimer2ComputeDueTime.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     KiInsertTimer2 @ 0x1400EC8F8 (KiInsertTimer2.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     KiTimer2TypeFlagsToEtwFlags @ 0x1401DAA3C (KiTimer2TypeFlagsToEtwFlags.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  */
 
-void __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, __int64 InterruptTimePrecise, _DWORD *a4)
+void __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, LARGE_INTEGER InterruptTimePrecise, _DWORD *a4)
 {
   __int64 v5; // r11
   bool v7; // zf
@@ -83,7 +83,7 @@ void __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, __int64 Interrup
   ULONG_PTR BugCheckParameter3; // [rsp+40h] [rbp-B8h]
   _DWORD *v62; // [rsp+48h] [rbp-B0h]
   __int64 v63; // [rsp+50h] [rbp-A8h]
-  LARGE_INTEGER v64; // [rsp+58h] [rbp-A0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+58h] [rbp-A0h] BYREF
   _QWORD v65[2]; // [rsp+60h] [rbp-98h] BYREF
   __int64 v66; // [rsp+70h] [rbp-88h]
   __int64 v67; // [rsp+78h] [rbp-80h]
@@ -117,8 +117,11 @@ void __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, __int64 Interrup
   if ( !v7 && (*(_BYTE *)(a1 + 1) & 0x20) == 0 )
   {
     if ( (*(_BYTE *)(a1 + 129) & 4) != 0 )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v64);
-    v8 = KiTimer2ComputeDueTime(InterruptTimePrecise, *(_QWORD *)(a1 + 88), &v55);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v8 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))KiTimer2ComputeDueTime)(
+           (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+           *(_QWORD *)(a1 + 88),
+           &v55);
     v11 = *(_QWORD *)(a1 + 80);
     v12 = v8;
     if ( v11 != -1 )

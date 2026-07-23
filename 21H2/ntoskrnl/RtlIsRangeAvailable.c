@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIsRangeAvailable @ 0x1407604C0
+ * XREFs of RtlIsRangeAvailable @ 0x140760680
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIsRangeAvailable @ 0x14076057C (RtlpIsRangeAvailable.c)
- *     RtlGetFirstRange @ 0x140760710 (RtlGetFirstRange.c)
+ *     RtlpIsRangeAvailable @ 0x14076073C (RtlpIsRangeAvailable.c)
+ *     RtlGetFirstRange @ 0x1407608D0 (RtlGetFirstRange.c)
  */
 
 __int64 __fastcall RtlIsRangeAvailable(__int64 a1, int a2, int a3, char a4, char a5, __int64 a6, __int64 a7, _BYTE *a8)

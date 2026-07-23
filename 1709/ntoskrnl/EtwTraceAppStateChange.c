@@ -66,7 +66,7 @@ void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)
   unsigned __int64 v40; // [rsp+11Dh] [rbp+1Dh]
   unsigned __int64 v41; // [rsp+125h] [rbp+25h]
   $709EDFC2F9E0D4565D6AA3C4377BC643 v42; // [rsp+140h] [rbp+40h] BYREF
-  _BYTE v43[416]; // [rsp+170h] [rbp+70h] BYREF
+  WCHAR PackageSize[208]; // [rsp+170h] [rbp+70h] BYREF
 
   if ( TraceLoggingProviderEnabled(&stru_140354B50, a2, 0x600000000001uLL) )
   {
@@ -117,7 +117,7 @@ void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)
     }
     if ( TraceLoggingProviderEnabled(&stru_140354B50, v14, 0x400000000000uLL) )
     {
-      memset(v43, 0, 0x198uLL);
+      memset(PackageSize, 0, 0x198uLL);
       v16 = 0;
       v19 = 0;
       v17 = 1;
@@ -137,7 +137,7 @@ void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)
         }
       }
       v18 = PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
-      EtwpQueryTokenPackageInfo((__int64)v18, (__int64)v43, &v19);
+      EtwpQueryTokenPackageInfo(v18, PackageSize, &v19);
       ObFastDereferenceObject((signed __int64 *)(BugCheckParameter1 + 856), (unsigned __int64)v18);
       if ( v17 )
       {
@@ -154,7 +154,7 @@ void __fastcall EtwTraceAppStateChange(__int64 BugCheckParameter1, __int64 a2)
         BugCheckParameter1,
         (unsigned int)v36,
         (_DWORD)p_ProcessHandleCount,
-        (unsigned int)v43,
+        (unsigned int)PackageSize,
         (__int64)&v20,
         (__int64)&v21);
       if ( P )

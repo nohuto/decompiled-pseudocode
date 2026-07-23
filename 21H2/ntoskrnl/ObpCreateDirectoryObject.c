@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpCreateDirectoryObject @ 0x1406A1B60
+ * XREFs of ObpCreateDirectoryObject @ 0x140601A90
  * Callers:
- *     NtCreateDirectoryObjectEx @ 0x1406A1B20 (NtCreateDirectoryObjectEx.c)
- *     NtCreateDirectoryObject @ 0x1406A1B40 (NtCreateDirectoryObject.c)
+ *     NtCreateDirectoryObjectEx @ 0x140601A50 (NtCreateDirectoryObjectEx.c)
+ *     NtCreateDirectoryObject @ 0x140601A70 (NtCreateDirectoryObject.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     RtlIsSandboxedToken @ 0x14071C8A0 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall ObpCreateDirectoryObject(__int64 a1, __int64 a2, int a3, void *a4, int a5)

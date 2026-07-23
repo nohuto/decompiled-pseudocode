@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpSingleStringCheck @ 0x140CE4718
+ * XREFs of ExpSingleStringCheck @ 0x140CEAAB8
  * Callers:
- *     ExpStringCheck @ 0x140CE4750 (ExpStringCheck.c)
+ *     ExpStringCheck @ 0x140CEAAF0 (ExpStringCheck.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     crc32 @ 0x1404843B4 (crc32.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     crc32 @ 0x14047DD24 (crc32.c)
  */
 
 __int64 __fastcall ExpSingleStringCheck(PCWSTR SourceString)

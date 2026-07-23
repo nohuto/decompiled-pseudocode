@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDmObjectCreate @ 0x140AC3894
+ * XREFs of PiDmObjectCreate @ 0x140ABF218
  * Callers:
- *     PiDmObjectManagerPopulate @ 0x140727138 (PiDmObjectManagerPopulate.c)
- *     PiDmAddCacheReferenceForObject @ 0x1408B4924 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerPopulate @ 0x140724CC8 (PiDmObjectManagerPopulate.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1408B2214 (PiDmAddCacheReferenceForObject.c)
  * Callees:
- *     PiDmGetCachedKeyIndex @ 0x1408BA590 (PiDmGetCachedKeyIndex.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PnpAllocatePWSTR @ 0x1408D3DA4 (PnpAllocatePWSTR.c)
- *     _PnpValidateObjectName @ 0x14090A3B8 (_PnpValidateObjectName.c)
- *     RtlHashUnicodeString @ 0x1409862A0 (RtlHashUnicodeString.c)
- *     PiDmGetCacheKeys @ 0x1409ED06C (PiDmGetCacheKeys.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x140A4AE1C (_CmSetDeviceInterfacePathFormat.c)
- *     PiDmCacheDataEncode @ 0x140A50FFC (PiDmCacheDataEncode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PiDmGetCachedKeyIndex @ 0x1408B7F40 (PiDmGetCachedKeyIndex.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PnpAllocatePWSTR @ 0x1408D1794 (PnpAllocatePWSTR.c)
+ *     _PnpValidateObjectName @ 0x1408E1AD4 (_PnpValidateObjectName.c)
+ *     RtlHashUnicodeString @ 0x14096EAB0 (RtlHashUnicodeString.c)
+ *     PiDmGetCacheKeys @ 0x1409E639C (PiDmGetCacheKeys.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x140A41A9C (_CmSetDeviceInterfacePathFormat.c)
+ *     PiDmCacheDataEncode @ 0x140A483AC (PiDmCacheDataEncode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDmObjectCreate(int a1, _WORD *a2, __int64 *a3)
@@ -48,7 +48,7 @@ __int64 __fastcall PiDmObjectCreate(int a1, _WORD *a2, __int64 *a3)
   LOBYTE(v29) = 0;
   PiDmGetCacheKeys(a1, &v26, &v25);
   v6 = v25;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 24 * v25 + 112, 0x5A706E50u);
   v8 = Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741670;
@@ -152,7 +152,7 @@ LABEL_28:
     while ( v20 );
   }
   v21 = v26;
-  v22 = (__int64 *)&off_140001A88;
+  v22 = (__int64 *)&off_140001B08;
   do
   {
     if ( a1 == *((_DWORD *)v22 - 2) )

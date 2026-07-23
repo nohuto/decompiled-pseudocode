@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x140502A3C (__report_rangecheckfailure.c)
+ *     sub_140502A3C @ 0x140502A3C (sub_140502A3C.c)
  */
 
 char *__cdecl strtok_s(char *Str, const char *Delim, char **Context)
@@ -30,7 +30,7 @@ char *__cdecl strtok_s(char *Str, const char *Delim, char **Context)
     do
     {
       if ( !v7 )
-        _report_rangecheckfailure(Str, Delim, Context);
+        sub_140502A3C(Str, Delim, Context);
       v14[v6++] = 0;
       v7 = (unsigned __int64)v6 < 0x20;
     }
@@ -80,7 +80,7 @@ LABEL_20:
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return 0LL;
   }
 }

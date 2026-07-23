@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpAccessFaultBatchResolve @ 0x14030BD0C
+ * XREFs of VmpAccessFaultBatchResolve @ 0x14030BEFC
  * Callers:
- *     VmpAccessFaultBatch @ 0x14030BA78 (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x14030BC68 (VmpAccessFaultBatch.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MmVirtualAccessFault @ 0x140859074 (MmVirtualAccessFault.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MmVirtualAccessFault @ 0x14085A2D4 (MmVirtualAccessFault.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatchResolve(_QWORD *a1, unsigned int a2, char a3, char a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPageNotZero @ 0x14054F170
+ * XREFs of MiPageNotZero @ 0x14054F3B0
  * Callers:
- *     MiArePageContentsZero @ 0x14054EBC8 (MiArePageContentsZero.c)
+ *     MiArePageContentsZero @ 0x14054EE08 (MiArePageContentsZero.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140402DB0 (KeZeroPages.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x140402F90 (KeZeroPages.c)
  */
 
 __int64 __fastcall MiPageNotZero(__m128i *BugCheckParameter1, ULONG_PTR BugCheckParameter2)
@@ -21,7 +21,7 @@ __int64 __fastcall MiPageNotZero(__m128i *BugCheckParameter1, ULONG_PTR BugCheck
   ULONG v11; // ebp
   __int64 v12; // rbx
 
-  _InterlockedAdd(&dword_140C4E7D4, 1u);
+  _InterlockedAdd(&dword_140C4E814, 1u);
   v4 = 0;
   v5 = 0;
   v6 = 0;
@@ -53,7 +53,7 @@ __int64 __fastcall MiPageNotZero(__m128i *BugCheckParameter1, ULONG_PTR BugCheck
   }
 LABEL_10:
   if ( v4 == 1 )
-    _InterlockedAdd(&dword_140C4E7D0, 1u);
+    _InterlockedAdd(&dword_140C4E810, 1u);
 LABEL_12:
   v10 = 0LL;
   v11 = 299;
@@ -64,19 +64,19 @@ LABEL_12:
   }
   if ( (MmPageValidationAction & 1) != 0 )
     KeBugCheckEx(v11, (ULONG_PTR)BugCheckParameter1, BugCheckParameter2, v10, -(__int64)(v4 != 1) & 0x1000);
-  v12 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(48 * BugCheckParameter2 - 0x57FFFFFFFD8LL) >> 39) & 0x3FFLL));
+  v12 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(48 * BugCheckParameter2 - 0x57FFFFFFFD8LL) >> 39) & 0x3FFLL));
   KeSetEvent(*(PRKEVENT *)(v12 + 320), 0, 0);
   if ( (ULONG_PTR *)v12 != &MiSystemPartition )
-    KeSetEvent(qword_140C50EC0, 0, 0);
-  if ( (MiFlags & 0x30) == 0x20 && !_InterlockedCompareExchange(&dword_140C4E73C, 1, 0) )
+    KeSetEvent(qword_140C50F00, 0, 0);
+  if ( (MiFlags & 0x30) == 0x20 && !_InterlockedCompareExchange(&dword_140C4E77C, 1, 0) )
   {
-    stru_140C4E750.List.Flink = 0LL;
-    dword_140C4E740 = v6;
-    qword_140C4E748 = v5 + (BugCheckParameter2 << 12);
-    stru_140C4E750.WorkerRoutine = (void (__fastcall *)(void *))MiBadMemoryLogger;
-    stru_140C4E750.Parameter = &dword_140C4E738;
-    dword_140C4E738 = v11;
-    ExQueueWorkItem(&stru_140C4E750, DelayedWorkQueue);
+    stru_140C4E790.List.Flink = 0LL;
+    dword_140C4E780 = v6;
+    qword_140C4E788 = v5 + (BugCheckParameter2 << 12);
+    stru_140C4E790.WorkerRoutine = (void (__fastcall *)(void *))MiBadMemoryLogger;
+    stru_140C4E790.Parameter = &dword_140C4E778;
+    dword_140C4E778 = v11;
+    ExQueueWorkItem(&stru_140C4E790, DelayedWorkQueue);
   }
   return KeZeroPages(BugCheckParameter1, 0x1000uLL);
 }

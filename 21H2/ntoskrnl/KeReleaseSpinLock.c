@@ -1,24 +1,24 @@
 /*
- * XREFs of KeReleaseSpinLock @ 0x140229C10
+ * XREFs of KeReleaseSpinLock @ 0x1402CE500
  * Callers:
- *     NtCancelWaitCompletionPacket @ 0x140202A60 (NtCancelWaitCompletionPacket.c)
- *     NtAssociateWaitCompletionPacket @ 0x140229620 (NtAssociateWaitCompletionPacket.c)
- *     IopDeleteFileObjectExtension @ 0x140252C8C (IopDeleteFileObjectExtension.c)
- *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
- *     FsRtlPrivateLock @ 0x140358360 (FsRtlPrivateLock.c)
- *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
- *     HalpDmaFindAdapterByDeviceId @ 0x1403EFD14 (HalpDmaFindAdapterByDeviceId.c)
- *     IopDecrementCompletionContextUsageCount @ 0x1403F0F30 (IopDecrementCompletionContextUsageCount.c)
- *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1403F0FF8 (IopIncrementCompletionContextUsageCountAndReadData.c)
- *     IopCopyCompleteReadIrp @ 0x1403F16B0 (IopCopyCompleteReadIrp.c)
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
- *     VfPutDmaAdapter @ 0x1409CCC30 (VfPutDmaAdapter.c)
- *     ViCreateProcessCallbackInternal @ 0x1409DCAA4 (ViCreateProcessCallbackInternal.c)
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     IopDeleteFileObjectExtension @ 0x140285B3C (IopDeleteFileObjectExtension.c)
+ *     NtCancelWaitCompletionPacket @ 0x1402A73F0 (NtCancelWaitCompletionPacket.c)
+ *     NtAssociateWaitCompletionPacket @ 0x1402CDF20 (NtAssociateWaitCompletionPacket.c)
+ *     NtSetInformationFile @ 0x14035CFC0 (NtSetInformationFile.c)
+ *     FsRtlPrivateLock @ 0x1403630B0 (FsRtlPrivateLock.c)
+ *     PnpDeviceActionWorker @ 0x140381DA0 (PnpDeviceActionWorker.c)
+ *     HalpDmaFindAdapterByDeviceId @ 0x1403EFE84 (HalpDmaFindAdapterByDeviceId.c)
+ *     IopDecrementCompletionContextUsageCount @ 0x1403F0E60 (IopDecrementCompletionContextUsageCount.c)
+ *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1403F0F28 (IopIncrementCompletionContextUsageCountAndReadData.c)
+ *     IopCopyCompleteReadIrp @ 0x1403F1580 (IopCopyCompleteReadIrp.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
+ *     VfPutDmaAdapter @ 0x1409CDC30 (VfPutDmaAdapter.c)
+ *     ViCreateProcessCallbackInternal @ 0x1409DDAA4 (ViCreateProcessCallbackInternal.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516BD8 (KiReleaseSpinLockInstrumented.c)
  */
 
 void __stdcall KeReleaseSpinLock(PKSPIN_LOCK SpinLock, KIRQL NewIrql)

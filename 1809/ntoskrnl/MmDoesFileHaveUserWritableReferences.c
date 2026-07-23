@@ -1,14 +1,14 @@
 /*
- * XREFs of MmDoesFileHaveUserWritableReferences @ 0x140111F20
+ * XREFs of MmDoesFileHaveUserWritableReferences @ 0x140111F90
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockExclusive @ 0x1400BC6A0 (ExpAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDoesControlAreaHaveUserWritableReferences @ 0x140112030 (MiDoesControlAreaHaveUserWritableReferences.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400BC5E0 (ExpAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDoesControlAreaHaveUserWritableReferences @ 0x1401120A0 (MiDoesControlAreaHaveUserWritableReferences.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS SectionPointer)
@@ -30,13 +30,13 @@ ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS Se
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
       _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140438BC0, CurrentIrql);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140439C80, CurrentIrql);
     else
-      ExpAcquireSpinLockExclusive(&dword_140438BC0, CurrentIrql, v1);
+      ExpAcquireSpinLockExclusive(&dword_140439C80, CurrentIrql, v1);
     DataSectionObject = (volatile signed __int32 *)SectionPointer->DataSectionObject;
     if ( !SectionPointer->DataSectionObject )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
@@ -48,7 +48,7 @@ ULONG __stdcall MmDoesFileHaveUserWritableReferences(PSECTION_OBJECT_POINTERS Se
     }
     v6 = DataSectionObject + 18;
     v7 = ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 18);
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
     if ( v7 )
       break;
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )

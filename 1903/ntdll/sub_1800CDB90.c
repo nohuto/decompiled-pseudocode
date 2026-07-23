@@ -12,13 +12,13 @@ __int64 __fastcall sub_1800CDB90(__int64 a1)
 {
   NTSTATUS inited; // esi
   unsigned __int64 v3; // r15
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 v5; // rbp
-  unsigned int v6; // ebx
-  unsigned int i; // edi
+  DWORD v6; // ebx
+  DWORD i; // edi
   __int64 v8; // rcx
-  STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
-  unsigned int v11; // [rsp+70h] [rbp+8h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
+  DWORD v11; // [rsp+70h] [rbp+8h] BYREF
   __int64 v12; // [rsp+78h] [rbp+10h] BYREF
 
   inited = 0;

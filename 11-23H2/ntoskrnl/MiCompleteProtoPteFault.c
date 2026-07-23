@@ -1,56 +1,56 @@
 /*
- * XREFs of MiCompleteProtoPteFault @ 0x140268BE0
+ * XREFs of MiCompleteProtoPteFault @ 0x140268E70
  * Callers:
- *     MiResolveTransitionFault @ 0x1402624D0 (MiResolveTransitionFault.c)
- *     MiResolveProtoPteFault @ 0x140267ED0 (MiResolveProtoPteFault.c)
- *     MiResolveDemandZeroFault @ 0x140269D40 (MiResolveDemandZeroFault.c)
- *     MiIssueHardFault @ 0x1402A10B0 (MiIssueHardFault.c)
+ *     MiResolveTransitionFault @ 0x140262760 (MiResolveTransitionFault.c)
+ *     MiResolveProtoPteFault @ 0x140268160 (MiResolveProtoPteFault.c)
+ *     MiResolveDemandZeroFault @ 0x140269FD0 (MiResolveDemandZeroFault.c)
+ *     MiIssueHardFault @ 0x1402A1340 (MiIssueHardFault.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     ObpFastReplenishReference @ 0x1402245E4 (ObpFastReplenishReference.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiOffsetToProtos @ 0x140288540 (MiOffsetToProtos.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     MiLocateCloneAddress @ 0x140294598 (MiLocateCloneAddress.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     MiGetSubsectionDriverProtos @ 0x1402A26E4 (MiGetSubsectionDriverProtos.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     ExAcquireRundownProtectionEx @ 0x1402F5CE0 (ExAcquireRundownProtectionEx.c)
- *     PfSnTraceBufferAllocate @ 0x1402F5D0C (PfSnTraceBufferAllocate.c)
- *     PfSnGetFileInformation @ 0x1403142C0 (PfSnGetFileInformation.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     PfSnTraceGetLogEntry @ 0x1403149DC (PfSnTraceGetLogEntry.c)
- *     MiCheckAndUpdateIoAttribution @ 0x140333B00 (MiCheckAndUpdateIoAttribution.c)
- *     MiMakeTransitionPteValid @ 0x140334FD0 (MiMakeTransitionPteValid.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140339CD0 (MiEmptyDeferredWorkingSetEntries.c)
- *     MiUserPdeOrAbove @ 0x14033C630 (MiUserPdeOrAbove.c)
- *     MiSystemImageHasPrivateFixups @ 0x14033DD80 (MiSystemImageHasPrivateFixups.c)
- *     MiOkToSetPteDirtyForNotValidFault @ 0x14033F248 (MiOkToSetPteDirtyForNotValidFault.c)
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
- *     MiGetSharedProtos @ 0x140369D8C (MiGetSharedProtos.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
- *     MiIsAddressInDriverView @ 0x140633EBC (MiIsAddressInDriverView.c)
- *     MiSetFaultPacketDirectives @ 0x14064675C (MiSetFaultPacketDirectives.c)
+ *     ObpFastReplenishReference @ 0x1402246EC (ObpFastReplenishReference.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiOffsetToProtos @ 0x1402887D0 (MiOffsetToProtos.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     MiLocateCloneAddress @ 0x140294828 (MiLocateCloneAddress.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     MiGetSubsectionDriverProtos @ 0x1402A2974 (MiGetSubsectionDriverProtos.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiGetPagingFileOffset @ 0x1402F2AF4 (MiGetPagingFileOffset.c)
+ *     ExAcquireRundownProtectionEx @ 0x1402F5F70 (ExAcquireRundownProtectionEx.c)
+ *     PfSnTraceBufferAllocate @ 0x1402F5F9C (PfSnTraceBufferAllocate.c)
+ *     PfSnGetFileInformation @ 0x140314550 (PfSnGetFileInformation.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     PfSnTraceGetLogEntry @ 0x140314C6C (PfSnTraceGetLogEntry.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x140333D90 (MiCheckAndUpdateIoAttribution.c)
+ *     MiMakeTransitionPteValid @ 0x140335260 (MiMakeTransitionPteValid.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140339F60 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiUserPdeOrAbove @ 0x14033C8C0 (MiUserPdeOrAbove.c)
+ *     MiSystemImageHasPrivateFixups @ 0x14033E010 (MiSystemImageHasPrivateFixups.c)
+ *     MiOkToSetPteDirtyForNotValidFault @ 0x14033F4D8 (MiOkToSetPteDirtyForNotValidFault.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
+ *     MiGetSharedProtos @ 0x140369F2C (MiGetSharedProtos.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
+ *     MiIsAddressInDriverView @ 0x14063440C (MiIsAddressInDriverView.c)
+ *     MiSetFaultPacketDirectives @ 0x140646CAC (MiSetFaultPacketDirectives.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -402,10 +402,10 @@ LABEL_252:
             if ( v146 )
               v147 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)((*((_QWORD *)P + 192) & 0xFFFFFFFFFFFFFFF0uLL) + 360));
             KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A610);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v139 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v139 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -546,10 +546,10 @@ LABEL_276:
                             ++*(_DWORD *)(v146 + 120);
                             *(_QWORD *)(v146 + 96) = v102;
                             KxReleaseSpinLock((volatile signed __int64 *)(v146 + 128));
-                            if ( KiIrqlFlags )
+                            if ( (_DWORD)KiIrqlFlags )
                             {
                               v121 = KeGetCurrentIrql();
-                              if ( (KiIrqlFlags & 1) != 0 && v121 <= 0xFu && v141 <= 0xFu && v121 >= 2u )
+                              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v121 <= 0xFu && v141 <= 0xFu && v121 >= 2u )
                               {
                                 v122 = KeGetCurrentPrcb();
                                 v123 = v122->SchedulerAssist;
@@ -565,10 +565,10 @@ LABEL_276:
                           else
                           {
                             KxReleaseSpinLock(v164);
-                            if ( KiIrqlFlags )
+                            if ( (_DWORD)KiIrqlFlags )
                             {
                               v117 = KeGetCurrentIrql();
-                              if ( (KiIrqlFlags & 1) != 0 && v117 <= 0xFu && v141 <= 0xFu && v117 >= 2u )
+                              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v117 <= 0xFu && v141 <= 0xFu && v117 >= 2u )
                               {
                                 v118 = KeGetCurrentPrcb();
                                 v119 = v118->SchedulerAssist;
@@ -633,7 +633,7 @@ LABEL_202:
     if ( v99 )
       ObfReferenceObjectWithTag(v99, 0x63536D4Du);
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v151 + 72));
-    if ( KiIrqlFlags && (v104 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v104 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && (v104 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v104 <= 0xFu )
     {
       v100 = v140;
       if ( v140 <= 0xFu && v104 >= 2u )
@@ -864,10 +864,13 @@ LABEL_28:
               MiReleasePageFileInfo(v159, v130, 1LL);
               v81 = v148;
             }
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v135 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v135 <= 0xFu && (unsigned __int8)v132 <= 0xFu && v135 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                && v135 <= 0xFu
+                && (unsigned __int8)v132 <= 0xFu
+                && v135 >= 2u )
               {
                 v136 = KeGetCurrentPrcb();
                 v137 = v136->SchedulerAssist;

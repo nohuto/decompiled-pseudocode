@@ -6,7 +6,7 @@
  *     SbpFindMatchingContext @ 0x180070E58 (SbpFindMatchingContext.c)
  *     SbAtomicCaptureContextGuid @ 0x180070E98 (SbAtomicCaptureContextGuid.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     SbpResolveBasedOnName @ 0x1801286EC (SbpResolveBasedOnName.c)
+ *     SbpResolveBasedOnName @ 0x1801286BC (SbpResolveBasedOnName.c)
  */
 
 __int64 __fastcall SbpUpdateCache(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

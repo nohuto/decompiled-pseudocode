@@ -1,16 +1,16 @@
 /*
- * XREFs of ExPoolSetLimit @ 0x140654500
+ * XREFs of ExPoolSetLimit @ 0x140652BF8
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     RtlULongLongMult @ 0x140437830 (RtlULongLongMult.c)
- *     ExpTrackTableInsertLimit @ 0x140655330 (ExpTrackTableInsertLimit.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExSystemExceptionFilter @ 0x1407B6F80 (ExSystemExceptionFilter.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     RtlRunOnceExecuteOnce @ 0x14095F8F0 (RtlRunOnceExecuteOnce.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlULongLongMult @ 0x14042A2B0 (RtlULongLongMult.c)
+ *     ExpTrackTableInsertLimit @ 0x140653A30 (ExpTrackTableInsertLimit.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x1407B73D0 (ExSystemExceptionFilter.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     RtlRunOnceExecuteOnce @ 0x1409473B0 (RtlRunOnceExecuteOnce.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExPoolSetLimit(void *Src, size_t Size, KPROCESSOR_MODE PreviousMode)
@@ -39,7 +39,7 @@ __int64 __fastcall ExPoolSetLimit(void *Src, size_t Size, KPROCESSOR_MODE Previo
   inserted = RtlRunOnceExecuteOnce(&ExpPlInitOnceVar, ExpPlRunOnceInit, 0LL, 0LL);
   if ( inserted >= 0 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, Size, 0x6C6F6F50u);
     v5 = Pool2;
     v15 = Pool2;
     if ( Pool2 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiValidateComponentName @ 0x1405B44A4
+ * XREFs of KiValidateComponentName @ 0x1405B1424
  * Callers:
- *     IopLiveDumpAddTriageDumpData @ 0x1405980D0 (IopLiveDumpAddTriageDumpData.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405B3EF8 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     IopLiveDumpAddTriageDumpData @ 0x140595050 (IopLiveDumpAddTriageDumpData.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405B0E70 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     RtlStringCbLengthA @ 0x14055FE14 (RtlStringCbLengthA.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     RtlStringCbLengthA @ 0x14055DA44 (RtlStringCbLengthA.c)
  */
 
 char __fastcall KiValidateComponentName(__int64 psz, _DWORD *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetVadForHotPatchInProgress @ 0x1407F2B54
+ * XREFs of MiGetVadForHotPatchInProgress @ 0x1407F3124
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x1407F191C (MiApplyImageHotPatchRequest.c)
- *     MiCreatePatchSectionRequest @ 0x140AAB9A8 (MiCreatePatchSectionRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x1407F1EEC (MiApplyImageHotPatchRequest.c)
+ *     MiCreatePatchSectionRequest @ 0x140AE969C (MiCreatePatchSectionRequest.c)
  * Callees:
- *     MiSetVadFlags @ 0x1402B8D5C (MiSetVadFlags.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     MiImageVadHotPatchEligible @ 0x1407F30E4 (MiImageVadHotPatchEligible.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiSetVadFlags @ 0x14036049C (MiSetVadFlags.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     MiImageVadHotPatchEligible @ 0x1407F3718 (MiImageVadHotPatchEligible.c)
  */
 
 __int64 __fastcall MiGetVadForHotPatchInProgress(unsigned __int64 a1, int a2, __int64 *a3, int *a4)
@@ -16,18 +16,19 @@ __int64 __fastcall MiGetVadForHotPatchInProgress(unsigned __int64 a1, int a2, __
   unsigned int v4; // ebx
   __int64 v9; // rax
   __int64 v10; // rdi
-  int v11; // esi
-  bool v12; // zf
-  unsigned int v14; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v11; // r9
+  int v12; // esi
+  bool v13; // zf
+  unsigned int v15; // [rsp+50h] [rbp+18h] BYREF
 
   v4 = 0;
   *a3 = 0LL;
-  v14 = 0;
+  v15 = 0;
   *a4 = 0;
-  v9 = MiObtainReferencedVadEx(a1, 0LL, (int *)&v14);
+  v9 = MiObtainReferencedVadEx(a1, 0LL, (int *)&v15, (__int64)a4);
   v10 = v9;
   if ( !v9 )
-    return v14;
+    return v15;
   if ( (*(_DWORD *)(v9 + 48) & 0x70) != 0x20 || (unsigned int)MiVadDeleted(v9) )
     goto LABEL_3;
   if ( !(unsigned int)MiImageVadHotPatchEligible() )
@@ -37,17 +38,17 @@ __int64 __fastcall MiGetVadForHotPatchInProgress(unsigned __int64 a1, int a2, __
   }
   if ( a1 == (*(unsigned int *)(v10 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v10 + 32) << 32)) << 12 )
   {
-    v11 = (*(_DWORD *)(v10 + 48) >> 23) & 3;
-    if ( v11 == 1 )
+    v12 = (*(_DWORD *)(v10 + 48) >> 23) & 3;
+    if ( v12 == 1 )
     {
       v4 = -1073740682;
     }
     else
     {
-      if ( !v11 || (a2 ? (v12 = v11 == 3) : (v12 = v11 == 2), v12) )
+      if ( !v12 || (a2 ? (v13 = v12 == 3) : (v13 = v12 == 2), v13) )
       {
-        MiSetVadFlags(v10, 4LL, 1);
-        *a4 = v11;
+        MiSetVadFlags(v10, 4LL, 1LL, v11);
+        *a4 = v12;
         *a3 = v10;
         return v4;
       }

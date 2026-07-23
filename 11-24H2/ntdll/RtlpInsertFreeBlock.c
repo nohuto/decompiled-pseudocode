@@ -1,25 +1,24 @@
 /*
- * XREFs of RtlpInsertFreeBlock @ 0x1800315E0
+ * XREFs of RtlpInsertFreeBlock @ 0x18000FC70
  * Callers:
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlpCreateSplitBlock @ 0x18002FC50 (RtlpCreateSplitBlock.c)
- *     RtlpDeCommitFreeBlock @ 0x180042E70 (RtlpDeCommitFreeBlock.c)
- *     RtlpCoalesceHeap @ 0x180044000 (RtlpCoalesceHeap.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpExtendHeap @ 0x18009FC30 (RtlpExtendHeap.c)
- *     RtlpInitializeHeapSegment @ 0x1800A88DC (RtlpInitializeHeapSegment.c)
+ *     RtlpExtendHeap @ 0x18000CB60 (RtlpExtendHeap.c)
+ *     RtlpCreateSplitBlock @ 0x18000DD00 (RtlpCreateSplitBlock.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010840 (RtlpDeCommitFreeBlock.c)
+ *     RtlpInitializeHeapSegment @ 0x180025C40 (RtlpInitializeHeapSegment.c)
+ *     RtlpFreeHeap @ 0x18005A020 (RtlpFreeHeap.c)
+ *     RtlpCoalesceHeap @ 0x180106F80 (RtlpCoalesceHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x180031DD0 (RtlpHeapHandleError.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     RtlpHeapHandleError @ 0x180010460 (RtlpHeapHandleError.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
  */
 
-void __fastcall RtlpInsertFreeBlock(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+void __fastcall RtlpInsertFreeBlock(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx
   __int16 v5; // di
   __int64 v6; // rax
-  __int64 v7; // r13
+  unsigned __int64 v7; // r13
   char v8; // al
   unsigned __int16 v9; // si
   char v10; // cl
@@ -70,7 +69,7 @@ void __fastcall RtlpInsertFreeBlock(__int64 a1, unsigned __int64 a2, unsigned __
   unsigned __int16 v55; // [rsp+34h] [rbp-54h]
   unsigned __int64 v56; // [rsp+38h] [rbp-50h]
   __int16 v57; // [rsp+38h] [rbp-50h]
-  __int64 v58; // [rsp+40h] [rbp-48h]
+  unsigned __int64 v58; // [rsp+40h] [rbp-48h]
   unsigned __int64 v59; // [rsp+98h] [rbp+10h]
   unsigned __int64 v60; // [rsp+A0h] [rbp+18h]
   char v61; // [rsp+A8h] [rbp+20h]
@@ -194,7 +193,7 @@ LABEL_26:
               v26 = v25;
               if ( HIBYTE(v25) != ((unsigned __int8)v25 ^ (unsigned __int8)(BYTE1(v25) ^ BYTE2(v25))) )
               {
-                RtlpLogHeapFailure(3, a1, (__int64)(v24 - 2), 0LL, 0LL, 0LL);
+                RtlpLogHeapFailure(3, a1, (_DWORD)v24 - 16, 0, 0LL, 0LL);
                 LOWORD(v25) = v26;
               }
             }
@@ -208,7 +207,7 @@ LABEL_26:
                 v29 = v28;
                 if ( HIBYTE(v28) != ((unsigned __int8)v28 ^ (unsigned __int8)(BYTE1(v28) ^ BYTE2(v28))) )
                 {
-                  RtlpLogHeapFailure(3, a1, v27, 0LL, 0LL, 0LL);
+                  RtlpLogHeapFailure(3, a1, v27, 0, 0LL, 0LL);
                   LOWORD(v28) = v29;
                 }
               }
@@ -227,7 +226,7 @@ LABEL_26:
                       v53 = v52;
                       if ( HIBYTE(v52) != ((unsigned __int8)v52 ^ (unsigned __int8)(BYTE1(v52) ^ BYTE2(v52))) )
                       {
-                        RtlpLogHeapFailure(3, a1, (__int64)(i - 2), 0LL, 0LL, 0LL);
+                        RtlpLogHeapFailure(3, a1, (_DWORD)i - 16, 0, 0LL, 0LL);
                         LOWORD(v52) = v53;
                       }
                     }
@@ -337,7 +336,7 @@ LABEL_47:
       }
       else
       {
-        RtlpLogHeapFailure(13, 0LL, (__int64)v22, 0LL, *v37, 0LL);
+        RtlpLogHeapFailure(13, 0, (_DWORD)v22, 0, *v37, 0LL);
       }
       *(_QWORD *)(a1 + 192) += *(unsigned __int16 *)(v3 + 8);
       v39 = *(__int64 **)(a1 + 312);
@@ -378,7 +377,7 @@ LABEL_56:
           v57 = v50;
           if ( HIBYTE(v50) != ((unsigned __int8)v50 ^ (unsigned __int8)(BYTE1(v50) ^ BYTE2(v50))) )
           {
-            RtlpLogHeapFailure(3, a1, v46 - 16, 0LL, 0LL, 0LL);
+            RtlpLogHeapFailure(3, a1, v46 - 16, 0, 0LL, 0LL);
             LOWORD(v50) = v57;
           }
         }

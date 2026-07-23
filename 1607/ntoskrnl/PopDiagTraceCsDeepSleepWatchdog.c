@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsDeepSleepWatchdog @ 0x140207AB0
+ * XREFs of PopDiagTraceCsDeepSleepWatchdog @ 0x1402078DC
  * Callers:
- *     PopDeepSleepWatchdogTakeAction @ 0x14067513C (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x140675220 (PopDeepSleepWatchdogTakeAction.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsDeepSleepWatchdog(

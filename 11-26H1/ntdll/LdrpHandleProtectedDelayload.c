@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrpHandleProtectedDelayload @ 0x1800C5420
+ * XREFs of LdrpHandleProtectedDelayload @ 0x1800C2BE0
  * Callers:
- *     LdrResolveDelayLoadedAPI @ 0x180105E10 (LdrResolveDelayLoadedAPI.c)
+ *     LdrResolveDelayLoadedAPI @ 0x180105660 (LdrResolveDelayLoadedAPI.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlGuardCheckImageBase @ 0x18004C3D0 (RtlGuardCheckImageBase.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpGetDelayloadExportDll @ 0x1800C57B0 (LdrpGetDelayloadExportDll.c)
- *     LdrpResolveDelayloadAddress @ 0x1800C5930 (LdrpResolveDelayloadAddress.c)
- *     LdrpWriteBackProtectedDelayLoad @ 0x1800C62D4 (LdrpWriteBackProtectedDelayLoad.c)
- *     LdrpRedirectDelayloadFailure @ 0x1800C67B0 (LdrpRedirectDelayloadFailure.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlGuardCheckImageBase @ 0x180036950 (RtlGuardCheckImageBase.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpGetDelayloadExportDll @ 0x1800C2F70 (LdrpGetDelayloadExportDll.c)
+ *     LdrpResolveDelayloadAddress @ 0x1800C30F0 (LdrpResolveDelayloadAddress.c)
+ *     LdrpWriteBackProtectedDelayLoad @ 0x1800C3A94 (LdrpWriteBackProtectedDelayLoad.c)
+ *     LdrpRedirectDelayloadFailure @ 0x1800C3F70 (LdrpRedirectDelayloadFailure.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall LdrpHandleProtectedDelayload(
@@ -25,8 +25,8 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
 {
   int v7; // r15d
   __int64 v10; // r14
-  int DelayloadExportDll; // eax
-  int v12; // esi
+  NTSTATUS DelayloadExportDll; // eax
+  NTSTATUS Status; // esi
   char *v13; // rdx
   __int64 v14; // r15
   __int64 v15; // rdi
@@ -36,40 +36,40 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
   _QWORD *v19; // rax
   __int64 v20; // rcx
   __int64 v21; // rax
-  __int64 v23; // [rsp+40h] [rbp-498h] BYREF
-  int v24; // [rsp+48h] [rbp-490h] BYREF
+  PVOID v23; // [rsp+40h] [rbp-498h] BYREF
+  NTSTATUS v24; // [rsp+48h] [rbp-490h] BYREF
   __int64 v25; // [rsp+50h] [rbp-488h]
-  __int64 v26; // [rsp+58h] [rbp-480h] BYREF
+  int v26[2]; // [rsp+58h] [rbp-480h] BYREF
   __int64 *v27; // [rsp+60h] [rbp-478h]
   _BYTE *v28; // [rsp+68h] [rbp-470h]
   __int64 v29; // [rsp+70h] [rbp-468h]
   __int64 v30; // [rsp+78h] [rbp-460h]
-  char *v31; // [rsp+80h] [rbp-458h]
+  __int64 v31; // [rsp+80h] [rbp-458h]
   __int64 v32; // [rsp+88h] [rbp-450h]
-  __int64 v33; // [rsp+90h] [rbp-448h]
-  _BYTE v34[1024]; // [rsp+A0h] [rbp-438h] BYREF
+  int v33[4]; // [rsp+90h] [rbp-448h]
+  _BYTE BaseAddress[1024]; // [rsp+A0h] [rbp-438h] BYREF
 
   v32 = a4;
   v7 = a3;
-  v33 = a3;
-  v26 = a2;
-  v31 = a5;
-  memset_thunk_772440563353939046(v34, 0, 0x400uLL);
+  *(_QWORD *)v33 = a3;
+  *(_QWORD *)v26 = a2;
+  v31 = (__int64)a5;
+  memset_thunk_772440563353939046(BaseAddress, 0, 0x400uLL);
   v23 = 0LL;
   v24 = 0;
   v10 = 0LL;
   DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, &v23, a6, a5);
-  v12 = DelayloadExportDll;
+  Status = DelayloadExportDll;
   if ( DelayloadExportDll < 0 )
   {
     v10 = LdrpRedirectDelayloadFailure(a1, 0, a2, v7, a4, (__int64)a5, DelayloadExportDll);
-    v26 = v10;
-    if ( v10 && (v12 == -1073741515 || v12 == -1073740671) )
-      LdrpWriteBackProtectedDelayLoad(a1, (_DWORD)a5, (unsigned int)&v26, 1, 0);
+    *(_QWORD *)v26 = v10;
+    if ( v10 && (Status == -1073741515 || Status == -1073740671) )
+      LdrpWriteBackProtectedDelayLoad(a1, (_DWORD)a5, (unsigned int)v26, 1, 0);
   }
   else
   {
-    RtlGuardCheckImageBase(*(_QWORD *)(v23 + 48), 0);
+    RtlGuardCheckImageBase(*((PVOID *)v23 + 6), 0);
     v13 = (char *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 12));
     v25 = (__int64)v13;
     v14 = (a5 - v13) >> 3;
@@ -82,7 +82,7 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
     }
     if ( (unsigned int)v15 > 0x80 )
     {
-      Heap_0 = (_BYTE *)RtlAllocateHeap_0();
+      Heap_0 = RtlAllocateHeap_0(LdrpHeap, NtdllBaseTag + 0x40000, 8LL * (unsigned int)v15);
       v28 = Heap_0;
       if ( Heap_0 )
       {
@@ -90,8 +90,8 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
       }
       else
       {
-        Heap_0 = v34;
-        v28 = v34;
+        Heap_0 = BaseAddress;
+        v28 = BaseAddress;
         v13 = a5;
         v25 = (__int64)a5;
         LODWORD(v15) = v15 - v14;
@@ -102,8 +102,8 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
     }
     else
     {
-      Heap_0 = v34;
-      v28 = v34;
+      Heap_0 = BaseAddress;
+      v28 = BaseAddress;
     }
     if ( g_ShimsEnabled )
       v17 = __ROR8__(g_pfnSE_GetProcAddressForCaller, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330];
@@ -123,12 +123,12 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
         if ( v18 == (_DWORD)v14
           || *(_QWORD *)((char *)v19 + v20) - *(_QWORD *)(a1 + 48) < (unsigned __int64)*(unsigned int *)(a1 + 64) )
         {
-          v21 = LdrpResolveDelayloadAddress(a1, v23, v26, (unsigned int)v13 + 8 * v18, v17, (__int64)&v24);
+          v21 = LdrpResolveDelayloadAddress(a1, (_DWORD)v23, v26[0], (unsigned int)v13 + 8 * v18, v17, (__int64)&v24);
           *v27 = v21;
           LODWORD(v13) = v25;
           if ( v18 == (_DWORD)v14 )
           {
-            v12 = v24;
+            Status = v24;
             v10 = *(_QWORD *)&Heap_0[8 * (unsigned int)v14];
           }
         }
@@ -139,20 +139,20 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
       }
       while ( v18 < (unsigned int)v15 );
     }
-    if ( v12 < 0 )
+    if ( Status < 0 )
     {
-      v10 = LdrpRedirectDelayloadFailure(a1, v23, v26, v33, v32, (__int64)v31, v12);
-      v26 = v10;
+      v10 = LdrpRedirectDelayloadFailure(a1, (int)v23, v26[0], v33[0], v32, v31, Status);
+      *(_QWORD *)v26 = v10;
       if ( v10 )
       {
-        if ( (unsigned int)(v12 + 1073741512) <= 1 || v12 == -1073741702 || v12 == -1073740671 )
+        if ( (unsigned int)(Status + 1073741512) <= 1 || Status == -1073741702 || Status == -1073740671 )
           *(_QWORD *)&Heap_0[8 * (unsigned int)v14] = v10;
       }
     }
     LdrpWriteBackProtectedDelayLoad(a1, v25, (_DWORD)Heap_0, v15, v14);
-    if ( v34 != Heap_0 )
-      RtlFreeHeap_0();
-    LdrpDereferenceModule(v23);
+    if ( BaseAddress != Heap_0 )
+      RtlFreeHeap_0(LdrpHeap, 0, Heap_0);
+    LdrpDereferenceModule((char *)v23);
   }
   return v10;
 }

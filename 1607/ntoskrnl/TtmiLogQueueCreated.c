@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogQueueCreated @ 0x14067B414
+ * XREFs of TtmiLogQueueCreated @ 0x14067B4F8
  * Callers:
- *     TtmiCreateEventQueue @ 0x140679E9C (TtmiCreateEventQueue.c)
+ *     TtmiCreateEventQueue @ 0x140679F80 (TtmiCreateEventQueue.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogQueueCreated(__int64 a1)
@@ -35,7 +35,7 @@ void __fastcall TtmiLogQueueCreated(__int64 a1)
       v4 = a1;
       v7 = 4;
       v10 = 8;
-      TlgWrite(&stru_1407478B0, &unk_14027DF1B, 0LL, 0LL, 4u, &pData);
+      TlgWrite(&stru_1407478B0, &unk_14027E01B, 0LL, 0LL, 4u, &pData);
     }
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of WmiQueryTraceInformation @ 0x140716C10
+ * XREFs of WmiQueryTraceInformation @ 0x140717EB0
  * Callers:
- *     WdipSemWriteSemActionsEvent @ 0x140716958 (WdipSemWriteSemActionsEvent.c)
- *     EtwpEventTracingCounterSetCallback @ 0x1409085D0 (EtwpEventTracingCounterSetCallback.c)
+ *     WdipSemWriteSemActionsEvent @ 0x140717BF8 (WdipSemWriteSemActionsEvent.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140909890 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x14071797C (EtwQueryTraceHandleByLoggerName.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpReleaseLoggerContext @ 0x1405C6160 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C61A8 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x140718C1C (EtwQueryTraceHandleByLoggerName.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall WmiQueryTraceInformation(
@@ -160,12 +160,12 @@ NTSTATUS __stdcall WmiQueryTraceInformation(
         if ( !TraceInformation )
           return -1073741584;
         *(_OWORD *)TraceInformation = *(_OWORD *)EtwpAllNotifyRoutines;
-        *((_OWORD *)TraceInformation + 1) = *(_OWORD *)off_14090BF00;
-        *((_OWORD *)TraceInformation + 2) = *(_OWORD *)&off_14090BF10;
-        *((_OWORD *)TraceInformation + 3) = *(_OWORD *)&off_14090BF20;
-        *((_OWORD *)TraceInformation + 4) = *(_OWORD *)off_14090BF30;
-        *((_OWORD *)TraceInformation + 5) = *(_OWORD *)&off_14090BF40;
-        *((_OWORD *)TraceInformation + 6) = *(_OWORD *)off_14090BF50;
+        *((_OWORD *)TraceInformation + 1) = *(_OWORD *)off_14090D1C0;
+        *((_OWORD *)TraceInformation + 2) = *(_OWORD *)&off_14090D1D0;
+        *((_OWORD *)TraceInformation + 3) = *(_OWORD *)&off_14090D1E0;
+        *((_OWORD *)TraceInformation + 4) = *(_OWORD *)off_14090D1F0;
+        *((_OWORD *)TraceInformation + 5) = *(_OWORD *)&off_14090D200;
+        *((_OWORD *)TraceInformation + 6) = *(_OWORD *)off_14090D210;
         *((_QWORD *)TraceInformation + 14) = EtwpTraceRedirectedIo;
         return 0;
       }

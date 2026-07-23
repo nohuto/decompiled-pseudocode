@@ -1,0 +1,37 @@
+/*
+ * XREFs of sub_14077ECD0 @ 0x14077ECD0
+ * Callers:
+ *     sub_14069061C @ 0x14069061C (sub_14069061C.c)
+ *     sub_140692514 @ 0x140692514 (sub_140692514.c)
+ *     sub_14077E628 @ 0x14077E628 (sub_14077E628.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_14077ECD0(unsigned __int16 *a1)
+{
+  __int64 result; // rax
+  __int64 v2; // rdx
+  __int64 v3; // rdx
+  _WORD *v4; // r8
+
+  result = *a1 >> 1;
+  if ( (_DWORD)result )
+  {
+    v2 = (unsigned int)result;
+    result = *((_QWORD *)a1 + 1);
+    v3 = v2 - 1;
+    v4 = (_WORD *)(result + 2 * v3);
+    do
+    {
+      if ( *v4 != 92 )
+        break;
+      result = 65534LL;
+      --v4;
+      *a1 -= 2;
+      --v3;
+    }
+    while ( v3 >= 0 );
+  }
+  return result;
+}

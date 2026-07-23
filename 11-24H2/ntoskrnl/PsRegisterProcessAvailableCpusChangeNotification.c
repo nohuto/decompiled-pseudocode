@@ -1,9 +1,9 @@
 /*
- * XREFs of PsRegisterProcessAvailableCpusChangeNotification @ 0x140774570
+ * XREFs of PsRegisterProcessAvailableCpusChangeNotification @ 0x140774790
  * Callers:
  *     <none>
  * Callees:
- *     KeRegisterAvailableCpusChangeNotification @ 0x14073BB30 (KeRegisterAvailableCpusChangeNotification.c)
+ *     KeRegisterAvailableCpusChangeNotification @ 0x140739A60 (KeRegisterAvailableCpusChangeNotification.c)
  */
 
 __int64 __fastcall PsRegisterProcessAvailableCpusChangeNotification(

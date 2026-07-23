@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTryConvertSRWLockSharedToExclusiveOrRelease @ 0x1800E1320
+ * XREFs of RtlTryConvertSRWLockSharedToExclusiveOrRelease @ 0x1800E13E0
  * Callers:
  *     <none>
  * Callees:

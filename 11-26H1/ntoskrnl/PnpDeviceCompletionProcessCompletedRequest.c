@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpDeviceCompletionProcessCompletedRequest @ 0x14090D1F0
+ * XREFs of PnpDeviceCompletionProcessCompletedRequest @ 0x1409AF320
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x14090C7D8 (PnpDeviceCompletionProcessCompletedRequests.c)
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
- *     PipEnumerateDevice @ 0x14090DEA8 (PipEnumerateDevice.c)
- *     PnpStartDeviceNode @ 0x140910A7C (PnpStartDeviceNode.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1409AE908 (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
+ *     PipEnumerateDevice @ 0x1409AFFD8 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x1409B2B5C (PnpStartDeviceNode.c)
  * Callees:
- *     PnpDeviceCompletionRequestDestroy @ 0x1404939D8 (PnpDeviceCompletionRequestDestroy.c)
- *     PoFxIdleDevice @ 0x1404B2604 (PoFxIdleDevice.c)
- *     PipSetDevNodeState @ 0x1404D2858 (PipSetDevNodeState.c)
- *     PipUpdatePostStartCharacteristics @ 0x1404E3798 (PipUpdatePostStartCharacteristics.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PiSwProcessParentStartIrp @ 0x140B249AC (PiSwProcessParentStartIrp.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x14048D528 (PnpDeviceCompletionRequestDestroy.c)
+ *     PoFxIdleDevice @ 0x1404ABB10 (PoFxIdleDevice.c)
+ *     PipSetDevNodeState @ 0x1404CC0D0 (PipSetDevNodeState.c)
+ *     PipUpdatePostStartCharacteristics @ 0x1404DCD38 (PipUpdatePostStartCharacteristics.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PiSwProcessParentStartIrp @ 0x140B26E4C (PiSwProcessParentStartIrp.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionProcessCompletedRequest(PVOID Context)

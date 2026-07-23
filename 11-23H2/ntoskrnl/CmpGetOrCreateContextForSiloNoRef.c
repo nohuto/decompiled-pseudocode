@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpGetOrCreateContextForSiloNoRef @ 0x14077A73C
+ * XREFs of CmpGetOrCreateContextForSiloNoRef @ 0x14077A92C
  * Callers:
- *     CmInitSiloNamespace @ 0x14077CDC8 (CmInitSiloNamespace.c)
- *     CmInitServerSiloState @ 0x14080C634 (CmInitServerSiloState.c)
+ *     CmInitSiloNamespace @ 0x14077CFB8 (CmInitSiloNamespace.c)
+ *     CmInitServerSiloState @ 0x14080C904 (CmInitServerSiloState.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x14031C840 (PsGetPermanentSiloContext.c)
- *     CmpAllocateSiloContext @ 0x14077C974 (CmpAllocateSiloContext.c)
- *     PsInsertPermanentSiloContextEx @ 0x14077CA5C (PsInsertPermanentSiloContextEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x14031CAD0 (PsGetPermanentSiloContext.c)
+ *     CmpAllocateSiloContext @ 0x14077CB64 (CmpAllocateSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x14077CC4C (PsInsertPermanentSiloContextEx.c)
  */
 
 __int64 __fastcall CmpGetOrCreateContextForSiloNoRef(__int64 a1, _QWORD *a2)

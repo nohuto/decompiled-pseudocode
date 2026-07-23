@@ -1,34 +1,34 @@
 /*
- * XREFs of PopFxResidentTimeoutRoutine @ 0x140262990
+ * XREFs of PopFxResidentTimeoutRoutine @ 0x140283E60
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     PopFxIdleComponent @ 0x1402611F0 (PopFxIdleComponent.c)
- *     PopFxArmResidentTimer @ 0x140262ABC (PopFxArmResidentTimer.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopFxIdleComponent @ 0x1402826C0 (PopFxIdleComponent.c)
+ *     PopFxArmResidentTimer @ 0x140283F8C (PopFxArmResidentTimer.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 PopFxResidentTimeoutRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   ULONG_PTR v2; // rbx
-  __int64 v3; // rsi
+  LARGE_INTEGER v3; // rsi
   unsigned int i; // edi
   __int64 v5; // rdx
   __int64 v6; // rcx
-  LARGE_INTEGER v8; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&PopFxDeviceListLock, 0LL);
   if ( (ULONG_PTR *)PopFxDeviceList != &PopFxDeviceList )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v8);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     v2 = PopFxDeviceList;
     v3 = InterruptTimePrecise;
     while ( (ULONG_PTR *)v2 != &PopFxDeviceList )
@@ -37,7 +37,7 @@ __int64 PopFxResidentTimeoutRoutine()
       {
         v5 = *(_QWORD *)(*(_QWORD *)(v2 + 832) + 8LL * i);
         if ( *(int *)(v5 + 96) > 0
-          && v3 - *(_QWORD *)(v5 + 144) >= (unsigned __int64)(unsigned int)PopFxActiveIdleThreshold )
+          && v3.QuadPart - *(_QWORD *)(v5 + 144) >= (unsigned __int64)(unsigned int)PopFxActiveIdleThreshold )
         {
           _InterlockedAdd((volatile signed __int32 *)(v5 + 96), 0xFFFFFFFF);
           _InterlockedAdd(&PopFxResidentComponentCount, 0xFFFFFFFF);
@@ -50,7 +50,7 @@ __int64 PopFxResidentTimeoutRoutine()
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread(KeGetCurrentThread());
   LOBYTE(v6) = 1;
   return PopFxArmResidentTimer(v6);
 }

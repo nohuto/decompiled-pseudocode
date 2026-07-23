@@ -7,17 +7,22 @@
  *     AlpcpCreateConnectionPort @ 0x1406D6E78 (AlpcpCreateConnectionPort.c)
  */
 
-__int64 __fastcall NtCreatePort(HANDLE *a1, __int64 a2, __int64 a3, unsigned int a4)
+NTSTATUS __cdecl NtCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int ConnectionPort; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  NTSTATUS ConnectionPort; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ConnectionPort = AlpcpCreateConnectionPort(a1, a2, 0LL, a4, 0, 1);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
+  ConnectionPort = AlpcpCreateConnectionPort(PortHandle, (__int64)ObjectAttributes, 0LL, MaxMessageLength, 0, 1);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
   return ConnectionPort;
 }

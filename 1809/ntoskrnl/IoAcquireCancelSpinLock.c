@@ -1,18 +1,18 @@
 /*
- * XREFs of IoAcquireCancelSpinLock @ 0x140111D70
+ * XREFs of IoAcquireCancelSpinLock @ 0x140111DE0
  * Callers:
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B37D4 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 {
   __int64 v1; // r8
-  KIRQL CurrentIrql; // si
+  UCHAR CurrentIrql; // si
   void *ArbitraryUserPointer; // rbx
   volatile __int64 *v5; // rdi
   __int64 v6; // rbx

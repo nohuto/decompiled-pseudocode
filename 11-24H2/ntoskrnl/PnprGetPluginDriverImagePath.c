@@ -1,17 +1,17 @@
 /*
- * XREFs of PnprGetPluginDriverImagePath @ 0x14072F5B8
+ * XREFs of PnprGetPluginDriverImagePath @ 0x14072D5C8
  * Callers:
- *     PnprLoadPluginDriver @ 0x14072FC94 (PnprLoadPluginDriver.c)
+ *     PnprLoadPluginDriver @ 0x14072DCA4 (PnprLoadPluginDriver.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     wcsncat_s @ 0x140504870 (wcsncat_s.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     wcsncat_s @ 0x140502130 (wcsncat_s.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationString)
@@ -54,7 +54,7 @@ __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationStrin
       CachedContextBaseKey = v4;
       if ( v4 == -2147483643 || v4 == -1073741789 )
       {
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, ResultLength, 0x51706E50u);
         if ( Pool2 )
         {
           CachedContextBaseKey = ZwQueryValueKey(
@@ -73,7 +73,7 @@ __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationStrin
             else
             {
               v6 = (unsigned __int64)(v5 + 26) >> 1;
-              v7 = (wchar_t *)ExAllocatePool2(0x100uLL);
+              v7 = (wchar_t *)ExAllocatePool2(0x100uLL, 2 * v6, 0x51706E50u);
               v8 = v7;
               if ( DestinationString )
               {

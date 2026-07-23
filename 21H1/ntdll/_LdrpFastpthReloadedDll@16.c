@@ -16,19 +16,19 @@
  *     _LdrpLogEtwEvent@24 @ 0x4B330117 (_LdrpLogEtwEvent@24.c)
  */
 
-int __fastcall LdrpFastpthReloadedDll(unsigned __int16 *a1, int a2, int a3, int **a4)
+int __fastcall LdrpFastpthReloadedDll(unsigned __int16 *a1, char *a2, int a3, int **a4)
 {
   unsigned __int16 *v4; // eax
   int v5; // esi
   int v6; // ebx
   unsigned __int16 *i; // edi
   unsigned int v8; // eax
-  int *v9; // ebx
+  char **v9; // ebx
   unsigned __int16 *v10; // edi
   signed int LoadedDllByNameLockHeld; // esi
   int v12; // eax
   int v13; // edi
-  int v14; // esi
+  char *v14; // esi
   int v15; // ecx
   int v16; // eax
   unsigned __int16 *v18; // edx
@@ -37,7 +37,7 @@ int __fastcall LdrpFastpthReloadedDll(unsigned __int16 *a1, int a2, int a3, int 
   __int16 v21; // si
   _WORD v22[2]; // [esp+Ch] [ebp-18h] BYREF
   unsigned __int16 *v23; // [esp+10h] [ebp-14h]
-  int v24; // [esp+14h] [ebp-10h]
+  char *v24; // [esp+14h] [ebp-10h]
   unsigned int v25; // [esp+18h] [ebp-Ch] BYREF
   unsigned __int16 *v26; // [esp+1Ch] [ebp-8h]
   int v27; // [esp+20h] [ebp-4h] BYREF
@@ -46,7 +46,7 @@ int __fastcall LdrpFastpthReloadedDll(unsigned __int16 *a1, int a2, int a3, int 
   v4 = a1;
   v26 = a1;
   v27 = 0;
-  if ( (a2 & 0x20) != 0 )
+  if ( ((unsigned __int8)a2 & 0x20) != 0 )
   {
     if ( !a1 )
     {
@@ -104,9 +104,9 @@ LABEL_39:
 LABEL_43:
       v5 = 0x80000000;
     RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-    v9 = (int *)a4;
+    v9 = (char **)a4;
     v10 = v26;
-    LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(v26, 0, v24, a4, v5);
+    LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(v26, 0, (char)v24, a4, v5);
     if ( LoadedDllByNameLockHeld >= 0 )
       v27 = *(_DWORD *)((*a4)[20] + 32);
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
@@ -124,10 +124,10 @@ LABEL_43:
   }
   else
   {
-    if ( (a2 & 0x200) == 0 )
+    if ( ((unsigned __int16)a2 & 0x200) == 0 )
       return -1073741275;
-    v9 = (int *)a4;
-    LoadedDllByNameLockHeld = LdrpFindLoadedDllByName(a2, a4, &v27);
+    v9 = (char **)a4;
+    LoadedDllByNameLockHeld = LdrpFindLoadedDllByName((char)a2, a4, &v27);
   }
   if ( LoadedDllByNameLockHeld >= 0 )
   {
@@ -137,7 +137,7 @@ LABEL_43:
       v14 = *v9;
       v13 = 0;
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-      v15 = *(_DWORD *)(v14 + 80);
+      v15 = *((_DWORD *)v14 + 20);
       v16 = *(_DWORD *)(v15 + 12);
       if ( v16 != -1 )
       {

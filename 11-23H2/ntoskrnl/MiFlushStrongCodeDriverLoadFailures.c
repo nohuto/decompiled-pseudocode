@@ -4,11 +4,11 @@
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -75,7 +75,7 @@ _QWORD *MiFlushStrongCodeDriverLoadFailures()
       v22 = 4;
       v10 = 0x1000000LL;
       v25 = 8;
-      tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&byte_140038623, v4, 1u, v6, v7, 8u, &v11);
+      tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&byte_14003870B, v4, 1u, v6, v7, 8u, &v11);
     }
     ExFreePoolWithTag(v1, 0);
   }

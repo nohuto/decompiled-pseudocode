@@ -1,42 +1,40 @@
 /*
- * XREFs of KiIntSteerInit @ 0x140C2A074
+ * XREFs of KiIntSteerInit @ 0x140C2C194
  * Callers:
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     KiIntSteerDetermineSteeringEnabled @ 0x140C29FFC (KiIntSteerDetermineSteeringEnabled.c)
- *     IntPartGetClassAffinityGroup @ 0x140C5C9B0 (IntPartGetClassAffinityGroup.c)
- *     IntPartCreate @ 0x140C5CC98 (IntPartCreate.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     KiIntSteerDetermineSteeringEnabled @ 0x140C2C11C (KiIntSteerDetermineSteeringEnabled.c)
+ *     IntPartGetClassAffinityGroup @ 0x140C5EB40 (IntPartGetClassAffinityGroup.c)
+ *     IntPartCreate @ 0x140C5EE28 (IntPartCreate.c)
  */
 
 __int64 __fastcall KiIntSteerInit(int a1)
 {
   unsigned int v1; // ebx
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   ULONG ActiveProcessorCount; // eax
   __int64 v4; // rcx
   __int64 v5; // rcx
   unsigned int v6; // eax
-  int v8; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0;
   if ( a1 == 1 )
   {
     KiIntTrackRootCount = 0;
-    qword_140F0FC78 = (__int64)&KiIntTrackRootList;
+    qword_140F0FF38 = (__int64)&KiIntTrackRootList;
     KiIntTrackRootList = (__int64)&KiIntTrackRootList;
     KiIntTrackSpinlock = 0LL;
     KiIntSteerMask[0] = 2097153LL;
-    memset_0(qword_140F0FDC8, 0, sizeof(qword_140F0FDC8));
+    memset_0(qword_140F100E8, 0, sizeof(qword_140F100E8));
     KeAddProcessorAffinityEx((unsigned __int16 *)KiIntSteerMask, 0);
     *(_QWORD *)&KiIntSteerAffinitizedInterrupts.Count = 2097153LL;
     memset_0(&KiIntSteerAffinitizedInterrupts.8, 0, sizeof(KiIntSteerAffinitizedInterrupts.8));
-    v8 = 0;
-    guard_dispatch_icall_no_overrides(39LL, 4LL, &KiInterruptControllerInfo, &v8);
+    guard_dispatch_icall_no_overrides(39LL, 4LL);
     KiIntSteerEnabled = KiIntSteerDetermineSteeringEnabled();
     if ( KiIntSteerEnabled )
     {

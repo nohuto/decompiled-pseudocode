@@ -1,11 +1,11 @@
 /*
- * XREFs of BcpGetProgressMessages @ 0x140384C30
+ * XREFs of BcpGetProgressMessages @ 0x140384E10
  * Callers:
  *     BgpBcInitializeCriticalMode @ 0x140B9C3E8 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x14038762C (BgpFwAllocateMemory.c)
- *     wcsstr @ 0x1403DBBA0 (wcsstr.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     BgpFwAllocateMemory @ 0x14038780C (BgpFwAllocateMemory.c)
+ *     wcsstr @ 0x1403DBD80 (wcsstr.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     BcpFindMessage @ 0x140B9C35C (BcpFindMessage.c)
  */
 

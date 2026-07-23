@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxProcessorIdleVeto @ 0x140203370
+ * XREFs of PopFxProcessorIdleVeto @ 0x14020319C
  * Callers:
  *     <none>
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x14009DD7C (IoReleaseRemoveLockEx.c)
- *     IoAcquireRemoveLockEx @ 0x1400C1730 (IoAcquireRemoveLockEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     IoReleaseRemoveLockEx @ 0x14009D57C (IoReleaseRemoveLockEx.c)
+ *     IoAcquireRemoveLockEx @ 0x1400BF5C0 (IoAcquireRemoveLockEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PopFxProcessorIdleVeto(__int64 a1, int a2, int a3, char a4)

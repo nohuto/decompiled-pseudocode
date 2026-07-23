@@ -1,15 +1,15 @@
 /*
- * XREFs of IvtProcessDeviceExceptions @ 0x140BF0684
+ * XREFs of IvtProcessDeviceExceptions @ 0x140BF6684
  * Callers:
- *     IvtInitializeIommu @ 0x140BEFC90 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x140BF5C90 (IvtInitializeIommu.c)
  * Callees:
- *     IvtAllocateTranslationStructures @ 0x140509968 (IvtAllocateTranslationStructures.c)
- *     IvtUpdateTranslationStructures @ 0x140528FA8 (IvtUpdateTranslationStructures.c)
- *     HalpIommuGetExceptionList @ 0x14058BFB0 (HalpIommuGetExceptionList.c)
- *     IvtGetScalableModePasidTables @ 0x1405A69C8 (IvtGetScalableModePasidTables.c)
- *     IvtAllocateDevice @ 0x1405AF3CC (IvtAllocateDevice.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpIvtpInitializeReservedDomain @ 0x140BF130C (HalpIvtpInitializeReservedDomain.c)
+ *     IvtAllocateTranslationStructures @ 0x140503418 (IvtAllocateTranslationStructures.c)
+ *     IvtUpdateTranslationStructures @ 0x14052B598 (IvtUpdateTranslationStructures.c)
+ *     HalpIommuGetExceptionList @ 0x14058E730 (HalpIommuGetExceptionList.c)
+ *     IvtGetScalableModePasidTables @ 0x1405A91D8 (IvtGetScalableModePasidTables.c)
+ *     IvtAllocateDevice @ 0x1405B1BDC (IvtAllocateDevice.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x140BF730C (HalpIvtpInitializeReservedDomain.c)
  */
 
 __int64 __fastcall IvtProcessDeviceExceptions(__int64 a1)

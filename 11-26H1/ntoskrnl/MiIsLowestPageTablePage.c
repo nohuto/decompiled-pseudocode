@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsLowestPageTablePage @ 0x140467D50
+ * XREFs of MiIsLowestPageTablePage @ 0x1404614A0
  * Callers:
- *     MiUnlockPageTableCharges @ 0x140318F40 (MiUnlockPageTableCharges.c)
+ *     MiUnlockPageTableCharges @ 0x14031AF70 (MiUnlockPageTableCharges.c)
  * Callees:
  *     <none>
  */

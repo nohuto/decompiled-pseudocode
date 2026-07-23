@@ -1,12 +1,12 @@
 /*
- * XREFs of NtIsUILanguageComitted @ 0x1407E98A0
+ * XREFs of NtIsUILanguageComitted @ 0x1407E9B70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtIsUILanguageComitted()
+NTSTATUS NtIsUILanguageComitted(void)
 {
   return PsUILanguageComitted == 0 ? 0xC0000034 : 0;
 }

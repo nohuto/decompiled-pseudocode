@@ -1,18 +1,18 @@
 /*
- * XREFs of PiQueryPowerRelations @ 0x14086EB74
+ * XREFs of PiQueryPowerRelations @ 0x14086EDB4
  * Callers:
- *     PnpDeviceActionWorker @ 0x140359430 (PnpDeviceActionWorker.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14079C344 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpDeviceActionWorker @ 0x1403595D0 (PnpDeviceActionWorker.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14079C534 (PipProcessRebuildPowerRelationsQueue.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     PnpQueryDeviceRelations @ 0x140794F20 (PnpQueryDeviceRelations.c)
- *     PiQueryPowerDependencyRelations @ 0x14086ED78 (PiQueryPowerDependencyRelations.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14086EEDC (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     PiValidatePowerRelations @ 0x14086EF58 (PiValidatePowerRelations.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     PnpQueryDeviceRelations @ 0x140795110 (PnpQueryDeviceRelations.c)
+ *     PiQueryPowerDependencyRelations @ 0x14086EFB8 (PiQueryPowerDependencyRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14086F11C (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PiValidatePowerRelations @ 0x14086F198 (PiValidatePowerRelations.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of MmManagePartitionNodeInformation @ 0x14087D38C
+ * XREFs of MmManagePartitionNodeInformation @ 0x14088378C
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
  * Callees:
- *     MiGetPartitionNodeInformation @ 0x140258FD8 (MiGetPartitionNodeInformation.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiGetPartitionNodeInformation @ 0x14025A7B8 (MiGetPartitionNodeInformation.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmManagePartitionNodeInformation(__int64 *a1, unsigned int *a2, char a3)

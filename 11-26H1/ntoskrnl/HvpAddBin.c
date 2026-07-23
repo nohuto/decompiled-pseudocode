@@ -1,33 +1,33 @@
 /*
- * XREFs of HvpAddBin @ 0x140B7EAA0
+ * XREFs of HvpAddBin @ 0x140B87980
  * Callers:
- *     HvAllocateCell @ 0x1408DB7FC (HvAllocateCell.c)
- *     HvpDoAllocateCell @ 0x1408DBB30 (HvpDoAllocateCell.c)
+ *     HvAllocateCell @ 0x1408E1DBC (HvAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x1408E20F0 (HvpDoAllocateCell.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     HvpGrowDirtyVectors @ 0x140492E10 (HvpGrowDirtyVectors.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpViewMapShrinkStorage @ 0x14085CBD8 (HvpViewMapShrinkStorage.c)
- *     HvpShrinkMap @ 0x140860648 (HvpShrinkMap.c)
- *     HvpFreeBin @ 0x1408B78AC (HvpFreeBin.c)
- *     HvpViewMapExtendStorage @ 0x1408B8788 (HvpViewMapExtendStorage.c)
- *     HvpSetRangeProtection @ 0x1408B8E6C (HvpSetRangeProtection.c)
- *     HvpViewMapCOWAndUnsealRange @ 0x1408B9378 (HvpViewMapCOWAndUnsealRange.c)
- *     HvpProtectBinPartial @ 0x1408B955C (HvpProtectBinPartial.c)
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1408DD1F4 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpPointMapEntriesToBuffer @ 0x1408DD510 (HvpPointMapEntriesToBuffer.c)
- *     HvpAdjustHiveFreeDisplay @ 0x140A82700 (HvpAdjustHiveFreeDisplay.c)
- *     HvpAllocateBin @ 0x140A8802C (HvpAllocateBin.c)
- *     CmpClaimGlobalQuota @ 0x140A8820C (CmpClaimGlobalQuota.c)
- *     CmpDoFileSetSizeEx @ 0x140AAA978 (CmpDoFileSetSizeEx.c)
- *     HvpExpandMap @ 0x140ABA60C (HvpExpandMap.c)
- *     CmpCanGrowHive @ 0x140AE0CAC (CmpCanGrowHive.c)
- *     CmpUpdateSystemHiveHysteresis @ 0x140AFAA28 (CmpUpdateSystemHiveHysteresis.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     HvpGrowDirtyVectors @ 0x14048CC48 (HvpGrowDirtyVectors.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpViewMapShrinkStorage @ 0x140862EC8 (HvpViewMapShrinkStorage.c)
+ *     HvpShrinkMap @ 0x140866938 (HvpShrinkMap.c)
+ *     HvpFreeBin @ 0x1408BDE7C (HvpFreeBin.c)
+ *     HvpViewMapExtendStorage @ 0x1408BED58 (HvpViewMapExtendStorage.c)
+ *     HvpSetRangeProtection @ 0x1408BF43C (HvpSetRangeProtection.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x1408BF948 (HvpViewMapCOWAndUnsealRange.c)
+ *     HvpProtectBinPartial @ 0x1408BFB2C (HvpProtectBinPartial.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1408E37B4 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1408E3AD0 (HvpPointMapEntriesToBuffer.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x140A88570 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpAllocateBin @ 0x140A8F15C (HvpAllocateBin.c)
+ *     CmpClaimGlobalQuota @ 0x140A8F33C (CmpClaimGlobalQuota.c)
+ *     CmpDoFileSetSizeEx @ 0x140AA7F58 (CmpDoFileSetSizeEx.c)
+ *     HvpExpandMap @ 0x140ABBACC (HvpExpandMap.c)
+ *     CmpCanGrowHive @ 0x140ADE2DC (CmpCanGrowHive.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x140AFCC90 (CmpUpdateSystemHiveHysteresis.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, signed int a3, int *a4)
@@ -248,7 +248,7 @@ LABEL_53:
           v35 = v34;
         if ( v13 <= v35 - 4096 )
         {
-          Bin = HvpViewMapExtendStorage((__int64 *)(BugCheckParameter2 + 224), v13);
+          Bin = HvpViewMapExtendStorage(BugCheckParameter2 + 224, v13);
           if ( Bin >= 0 )
           {
             v7 = 1;

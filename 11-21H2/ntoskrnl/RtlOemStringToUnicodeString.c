@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlOemStringToUnicodeString @ 0x1407F9B70
  * Callers:
- *     DifRtlOemStringToUnicodeStringWrapper @ 0x14061B690 (DifRtlOemStringToUnicodeStringWrapper.c)
+ *     sub_14061B690 @ 0x14061B690 (sub_14061B690.c)
  * Callees:
- *     AllocateOrValidateCharStringBuffer @ 0x1402D7DE0 (AllocateOrValidateCharStringBuffer.c)
+ *     sub_1402D7DE0 @ 0x1402D7DE0 (sub_1402D7DE0.c)
  *     RtlOemToUnicodeN @ 0x1407F9C40 (RtlOemToUnicodeN.c)
  *     RtlxOemStringToUnicodeSize @ 0x1407F9CA0 (RtlxOemStringToUnicodeSize.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
@@ -28,7 +28,7 @@ NTSTATUS __stdcall RtlOemStringToUnicodeString(
     return -1073741584;
   p_MaximumLength = &DestinationString->MaximumLength;
   p_Buffer = &DestinationString->Buffer;
-  result = AllocateOrValidateCharStringBuffer(
+  result = sub_1402D7DE0(
              AllocateDestinationString,
              v6,
              (__int64 *)&DestinationString->Buffer,

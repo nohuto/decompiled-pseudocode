@@ -1,10 +1,10 @@
 /*
- * XREFs of VfClearDifWithoutReboot @ 0x140AC2BDC
+ * XREFs of VfClearDifWithoutReboot @ 0x140AC2BCC
  * Callers:
- *     VfVolatileClearDifRuleClass @ 0x140ADDAAC (VfVolatileClearDifRuleClass.c)
- *     VfVolatileSetDifRuleClass @ 0x140ADDC1C (VfVolatileSetDifRuleClass.c)
+ *     VfVolatileClearDifRuleClass @ 0x140ADDA9C (VfVolatileClearDifRuleClass.c)
+ *     VfVolatileSetDifRuleClass @ 0x140ADDC0C (VfVolatileSetDifRuleClass.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x14025A440 (MmUnlockPagableImageSection.c)
+ *     MmUnlockPagableImageSection @ 0x14025A6D0 (MmUnlockPagableImageSection.c)
  */
 
 void VfClearDifWithoutReboot()

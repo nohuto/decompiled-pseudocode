@@ -1,19 +1,19 @@
 /*
- * XREFs of VfPutScatterGatherList @ 0x140708310
+ * XREFs of VfPutScatterGatherList @ 0x140708340
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140705CB8 (DECREMENT_SCATTER_GATHER_LISTS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140705E70 (SUBTRACT_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x140705F68 (VF_ASSERT_IRQL.c)
- *     VF_UNMARK_SCATTER_GATHER_LIST @ 0x1407061C8 (VF_UNMARK_SCATTER_GATHER_LIST.c)
- *     ViFlushDoubleBuffer @ 0x1407092A8 (ViFlushDoubleBuffer.c)
- *     ViFreeMapRegisterFile @ 0x140709458 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140709708 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140705CE8 (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140705EA0 (SUBTRACT_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x140705F98 (VF_ASSERT_IRQL.c)
+ *     VF_UNMARK_SCATTER_GATHER_LIST @ 0x1407061F8 (VF_UNMARK_SCATTER_GATHER_LIST.c)
+ *     ViFlushDoubleBuffer @ 0x1407092D8 (ViFlushDoubleBuffer.c)
+ *     ViFreeMapRegisterFile @ 0x140709488 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x140709738 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 void __fastcall VfPutScatterGatherList(__int64 a1, int *a2, char a3)

@@ -23,7 +23,7 @@ __int64 __fastcall RtlpCreateWnfUserSubscription(
   __int64 result; // rax
 
   *a1 = 0LL;
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 168LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xA8uLL);
   v12 = Heap;
   if ( !Heap )
     return 3221225495LL;

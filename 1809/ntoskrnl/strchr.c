@@ -1,12 +1,12 @@
 /*
- * XREFs of strchr @ 0x140196EC0
+ * XREFs of strchr @ 0x140197000
  * Callers:
- *     MiSnapThunk @ 0x140679434 (MiSnapThunk.c)
- *     WmipSMBiosFindStringAndZero @ 0x1408B30A0 (WmipSMBiosFindStringAndZero.c)
- *     EmpParseRuleTerm @ 0x1409BE478 (EmpParseRuleTerm.c)
- *     EmpParseTargetRuleStringIndexList @ 0x1409BF22C (EmpParseTargetRuleStringIndexList.c)
- *     PipSmBiosGetString @ 0x1409C9DA0 (PipSmBiosGetString.c)
- *     CmpGetToken @ 0x1409CEE3C (CmpGetToken.c)
+ *     MiSnapThunk @ 0x14067A5F4 (MiSnapThunk.c)
+ *     WmipSMBiosFindStringAndZero @ 0x1408B4300 (WmipSMBiosFindStringAndZero.c)
+ *     EmpParseRuleTerm @ 0x1409BF478 (EmpParseRuleTerm.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x1409C022C (EmpParseTargetRuleStringIndexList.c)
+ *     PipSmBiosGetString @ 0x1409CADA0 (PipSmBiosGetString.c)
+ *     CmpGetToken @ 0x1409CFE3C (CmpGetToken.c)
  * Callees:
  *     <none>
  */

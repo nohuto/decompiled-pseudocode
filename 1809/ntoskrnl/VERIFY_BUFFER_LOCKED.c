@@ -1,16 +1,16 @@
 /*
- * XREFs of VERIFY_BUFFER_LOCKED @ 0x140929614
+ * XREFs of VERIFY_BUFFER_LOCKED @ 0x14092A614
  * Callers:
- *     VfBuildScatterGatherList @ 0x14092A430 (VfBuildScatterGatherList.c)
- *     VfBuildScatterGatherListEx @ 0x14092A770 (VfBuildScatterGatherListEx.c)
- *     VfGetScatterGatherList @ 0x14092B360 (VfGetScatterGatherList.c)
- *     VfGetScatterGatherListEx @ 0x14092B6F0 (VfGetScatterGatherListEx.c)
- *     VfMapTransfer @ 0x14092BAB0 (VfMapTransfer.c)
- *     VfMapTransferEx @ 0x14092BC70 (VfMapTransferEx.c)
+ *     VfBuildScatterGatherList @ 0x14092B430 (VfBuildScatterGatherList.c)
+ *     VfBuildScatterGatherListEx @ 0x14092B770 (VfBuildScatterGatherListEx.c)
+ *     VfGetScatterGatherList @ 0x14092C360 (VfGetScatterGatherList.c)
+ *     VfGetScatterGatherListEx @ 0x14092C6F0 (VfGetScatterGatherListEx.c)
+ *     VfMapTransfer @ 0x14092CAB0 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x14092CC70 (VfMapTransferEx.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
- *     MmAreMdlPagesLocked @ 0x140924CC8 (MmAreMdlPagesLocked.c)
- *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030B008 (VfReportIssueWithOptions.c)
+ *     MmAreMdlPagesLocked @ 0x140925CC8 (MmAreMdlPagesLocked.c)
+ *     ViHalPreprocessOptions @ 0x14092ED28 (ViHalPreprocessOptions.c)
  */
 
 void __fastcall VERIFY_BUFFER_LOCKED(ULONG_PTR a1)
@@ -20,7 +20,7 @@ void __fastcall VERIFY_BUFFER_LOCKED(ULONG_PTR a1)
   v2 = *(_WORD *)(a1 + 10) & 0x804;
   if ( !(unsigned int)MmAreMdlPagesLocked((_DWORD *)a1) && !v2 )
   {
-    ViHalPreprocessOptions(byte_140405458, "DMA Pages Not Locked! MDL %p for DMA not locked", (const void *)0xE);
-    VfReportIssueWithOptions(0xE6u, 0xEuLL, a1, 0LL, 0LL, byte_140405458);
+    ViHalPreprocessOptions(byte_140406468, "DMA Pages Not Locked! MDL %p for DMA not locked", (const void *)0xE);
+    VfReportIssueWithOptions(0xE6u, 0xEuLL, a1, 0LL, 0LL, byte_140406468);
   }
 }

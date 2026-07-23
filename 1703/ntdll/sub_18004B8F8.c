@@ -12,49 +12,49 @@
  *     ZwQueryInformationToken @ 0x1800A5720 (ZwQueryInformationToken.c)
  */
 
-__int64 __fastcall sub_18004B8F8(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall sub_18004B8F8(HANDLE TokenHandle, _QWORD *a2)
 {
-  _QWORD *v2; // rsi
-  void *ProcessHeap; // r14
-  int InformationToken; // edi
-  unsigned int v7; // ecx
+  PSID *v2; // rsi
+  PVOID ProcessHeap; // r14
+  NTSTATUS v6; // edi
+  ULONG v7; // ecx
   _QWORD *Heap; // rax
-  unsigned __int64 v9; // rbx
-  _BYTE v11[4]; // [rsp+30h] [rbp-89h] BYREF
-  int v12; // [rsp+34h] [rbp-85h]
-  int v13; // [rsp+38h] [rbp-81h]
-  _QWORD v14[10]; // [rsp+40h] [rbp-79h] BYREF
-  _QWORD v15[10]; // [rsp+90h] [rbp-29h] BYREF
+  void *v9; // rbx
+  BOOLEAN DominatesTrust[4]; // [rsp+30h] [rbp-89h] BYREF
+  ULONG ReturnLength; // [rsp+34h] [rbp-85h] BYREF
+  ULONG TokenInformationLength; // [rsp+38h] [rbp-81h] BYREF
+  PSID TokenInformation[10]; // [rsp+40h] [rbp-79h] BYREF
+  PSID Sid2[10]; // [rsp+90h] [rbp-29h] BYREF
 
-  v11[0] = 0;
-  v12 = 76;
-  v13 = 76;
-  v2 = v14;
+  DominatesTrust[0] = 0;
+  ReturnLength = 76;
+  TokenInformationLength = 76;
+  v2 = TokenInformation;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  InformationToken = ZwQueryInformationToken(-4LL, 41LL, v14);
-  if ( InformationToken < 0 )
-    return (unsigned int)InformationToken;
-  if ( !a1 )
+  v6 = ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFCLL, 0x29u, TokenInformation, 0x4Cu, &ReturnLength);
+  if ( v6 < 0 )
+    return (unsigned int)v6;
+  if ( !TokenHandle )
     goto LABEL_16;
-  InformationToken = ZwQueryInformationToken(a1, 41LL, v15);
-  if ( InformationToken < 0 )
-    return (unsigned int)InformationToken;
-  InformationToken = RtlSidDominatesForTrust(v14[0], v15[0], v11);
-  if ( InformationToken < 0 )
-    return (unsigned int)InformationToken;
-  if ( v11[0] )
+  v6 = ZwQueryInformationToken(TokenHandle, 0x29u, Sid2, TokenInformationLength, &TokenInformationLength);
+  if ( v6 < 0 )
+    return (unsigned int)v6;
+  v6 = RtlSidDominatesForTrust(TokenInformation[0], Sid2[0], DominatesTrust);
+  if ( v6 < 0 )
+    return (unsigned int)v6;
+  if ( DominatesTrust[0] )
   {
-    v7 = v13;
-    v2 = v15;
-    v12 = v13;
+    v7 = TokenInformationLength;
+    v2 = Sid2;
+    ReturnLength = TokenInformationLength;
   }
   else
   {
 LABEL_16:
-    v7 = v12;
+    v7 = ReturnLength;
   }
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)ProcessHeap, dword_18015B268 + 1310720, v7);
-  v9 = (unsigned __int64)Heap;
+  Heap = RtlAllocateHeap(ProcessHeap, dword_18015B268 + 1310720, v7);
+  v9 = Heap;
   if ( !Heap )
     return (unsigned int)-1073741801;
   if ( !*v2 )
@@ -66,11 +66,11 @@ LABEL_10:
     goto LABEL_11;
   }
   *Heap = Heap + 1;
-  InformationToken = RtlCopySid((unsigned int)(v12 - 8), Heap + 1, *v2);
-  if ( InformationToken >= 0 )
+  v6 = RtlCopySid(ReturnLength - 8, Heap + 1, *v2);
+  if ( v6 >= 0 )
     goto LABEL_10;
 LABEL_11:
   if ( v9 )
-    RtlFreeHeap((__int64)ProcessHeap, 0, v9);
-  return (unsigned int)InformationToken;
+    RtlFreeHeap(ProcessHeap, 0, v9);
+  return (unsigned int)v6;
 }

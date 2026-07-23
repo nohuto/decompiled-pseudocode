@@ -1,19 +1,19 @@
 /*
- * XREFs of Amd64AddProfileSource @ 0x1405A3000
+ * XREFs of Amd64AddProfileSource @ 0x1405A5810
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     wcsnlen @ 0x140538260 (wcsnlen.c)
- *     wcsncpy_s @ 0x14053CCA0 (wcsncpy_s.c)
- *     HalpInsertProfileSource @ 0x14058045C (HalpInsertProfileSource.c)
- *     Amd64GetEventSelectDef @ 0x1405A3E30 (Amd64GetEventSelectDef.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     wcsnlen @ 0x14053A6E0 (wcsnlen.c)
+ *     wcsncpy_s @ 0x14053F120 (wcsncpy_s.c)
+ *     HalpInsertProfileSource @ 0x14058297C (HalpInsertProfileSource.c)
+ *     Amd64GetEventSelectDef @ 0x1405A6640 (Amd64GetEventSelectDef.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
@@ -41,7 +41,7 @@ __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
   v23 = 0LL;
   v3 = *(_BYTE *)(a1 + 7);
   v5 = -1073741823;
-  if ( v3 == 1 && (dword_140F875F0 & 2) == 0 || v3 == 2 && (dword_140F875F0 & 4) == 0 || v3 >= 3u )
+  if ( v3 == 1 && (dword_140F87970 & 2) == 0 || v3 == 2 && (dword_140F87970 & 4) == 0 || v3 >= 3u )
     return 3221225659LL;
   v7 = (const wchar_t *)(a1 + 280);
   v8 = wcsnlen((const wchar_t *)(a1 + 280), 0xFEuLL) + 1;

@@ -9,9 +9,9 @@
 
 int __cdecl mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBytes)
 {
-  const char *v4; // [esp+4h] [ebp-4h] BYREF
+  PUCHAR SourceCharacter; // [esp+4h] [ebp-4h] BYREF
 
-  if ( !SrcCh || !SrcSizeInBytes )
+  if ( !SrcCh || !(_DWORD)SrcSizeInBytes )
     return 0;
   if ( !*SrcCh )
   {
@@ -19,7 +19,7 @@ int __cdecl mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBytes)
       *DstCh = 0;
     return 0;
   }
-  v4 = SrcCh;
-  *DstCh = RtlAnsiCharToUnicodeChar((unsigned __int8 **)&v4);
-  return v4 - SrcCh;
+  SourceCharacter = (PUCHAR)SrcCh;
+  *DstCh = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+  return SourceCharacter - (PUCHAR)SrcCh;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of WmiReleaseSmbiosLockExclusive @ 0x1405348AC
+ * XREFs of WmiReleaseSmbiosLockExclusive @ 0x140534DEC
  * Callers:
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  */
 
 __int64 WmiReleaseSmbiosLockExclusive()

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeEnumerateKernelStackSegments @ 0x1404107D8
+ * XREFs of KeEnumerateKernelStackSegments @ 0x14040FEF8
  * Callers:
- *     PspReaper @ 0x140410640 (PspReaper.c)
- *     MmOutPageKernelStack @ 0x140410A60 (MmOutPageKernelStack.c)
- *     DbgkpLkmdSnapKernelStack @ 0x1405B3EB0 (DbgkpLkmdSnapKernelStack.c)
- *     IoAddProcessThreadsToDump @ 0x1405D48DC (IoAddProcessThreadsToDump.c)
- *     PspThreadDelete @ 0x140AA21E0 (PspThreadDelete.c)
- *     PsDereferenceKernelStack @ 0x140B29F50 (PsDereferenceKernelStack.c)
+ *     PspReaper @ 0x14040FD60 (PspReaper.c)
+ *     MmOutPageKernelStack @ 0x140410180 (MmOutPageKernelStack.c)
+ *     DbgkpLkmdSnapKernelStack @ 0x1405B66C0 (DbgkpLkmdSnapKernelStack.c)
+ *     IoAddProcessThreadsToDump @ 0x1405D70CC (IoAddProcessThreadsToDump.c)
+ *     PspThreadDelete @ 0x140AA3CB0 (PspThreadDelete.c)
+ *     PsDereferenceKernelStack @ 0x140B2BFD0 (PsDereferenceKernelStack.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KeEnumerateKernelStackSegments(__int64 a1)

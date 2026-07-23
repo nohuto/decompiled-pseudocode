@@ -1,26 +1,26 @@
 /*
- * XREFs of LdrpFreeUnicodeString @ 0x18007625C
+ * XREFs of LdrpFreeUnicodeString @ 0x180092B3C
  * Callers:
- *     LdrGetProcedureAddressForCaller @ 0x180004FF0 (LdrGetProcedureAddressForCaller.c)
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     LdrpFindOrPrepareLoadingModule @ 0x18000FA80 (LdrpFindOrPrepareLoadingModule.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
- *     LdrpResolveProcedureAddress @ 0x180057F30 (LdrpResolveProcedureAddress.c)
- *     LdrpMapDllSearchPath @ 0x180074F30 (LdrpMapDllSearchPath.c)
- *     LdrpAppCompatRedirect @ 0x18007653C (LdrpAppCompatRedirect.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x1800F4990 (LdrpInitializeNtdllDataTableEntry.c)
- *     LdrpLoadPatchImage @ 0x18015EBFC (LdrpLoadPatchImage.c)
+ *     LdrGetProcedureAddressForCaller @ 0x1800319F0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x18003C480 (LdrpFindOrPrepareLoadingModule.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
+ *     LdrpResolveProcedureAddress @ 0x18006DB10 (LdrpResolveProcedureAddress.c)
+ *     LdrpMapDllSearchPath @ 0x180091810 (LdrpMapDllSearchPath.c)
+ *     LdrpAppCompatRedirect @ 0x180092E1C (LdrpAppCompatRedirect.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x1800EF5B0 (LdrpInitializeNtdllDataTableEntry.c)
+ *     LdrpLoadPatchImage @ 0x18015CFBC (LdrpLoadPatchImage.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
  */
 
-__int64 __fastcall LdrpFreeUnicodeString(__int64 a1)
+LOGICAL __fastcall LdrpFreeUnicodeString(__int64 a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
+  LOGICAL result; // eax
 
-  v2 = *(_QWORD *)(a1 + 8);
+  v2 = *(void **)(a1 + 8);
   if ( v2 )
   {
     result = RtlpSysVolFree(v2);

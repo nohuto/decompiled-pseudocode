@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSendHeteroRescheduleIntRequestHelper @ 0x14051FFF0
+ * XREFs of KiSendHeteroRescheduleIntRequestHelper @ 0x140520230
  * Callers:
- *     KiSendHeteroRescheduleIntRequest @ 0x14051FF30 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x140520170 (KiSendHeteroRescheduleIntRequest.c)
  * Callees:
- *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiCheckPreferredHeteroProcessor @ 0x140258C00 (KiCheckPreferredHeteroProcessor.c)
- *     KiSendSoftwareInterrupt @ 0x140293DEC (KiSendSoftwareInterrupt.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
+ *     KiSendSoftwareInterrupt @ 0x140211D5C (KiSendSoftwareInterrupt.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x14027A170 (KiCheckPreferredHeteroProcessor.c)
+ *     KiReleaseThreadStateLock @ 0x14029B7D0 (KiReleaseThreadStateLock.c)
+ *     KiAcquireThreadStateLock @ 0x1402D5790 (KiAcquireThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

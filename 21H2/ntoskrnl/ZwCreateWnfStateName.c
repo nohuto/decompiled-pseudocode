@@ -1,17 +1,24 @@
 /*
- * XREFs of ZwCreateWnfStateName @ 0x1403FBD20
+ * XREFs of ZwCreateWnfStateName @ 0x1403FBF00
  * Callers:
- *     PspAllocateAndQueryProcessNotificationChannel @ 0x140604C58 (PspAllocateAndQueryProcessNotificationChannel.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14067F620 (PspAllocateAndQueryNotificationChannel.c)
- *     PopCreateNotificationName @ 0x1406C1060 (PopCreateNotificationName.c)
- *     PiUEventInitClientRegistrationContext @ 0x1406E49AC (PiUEventInitClientRegistrationContext.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1405DA0C0 (PspAllocateAndQueryNotificationChannel.c)
+ *     PiUEventInitClientRegistrationContext @ 0x1406BBC8C (PiUEventInitClientRegistrationContext.c)
+ *     PopCreateNotificationName @ 0x1406BCCD8 (PopCreateNotificationName.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x1406F4388 (PspAllocateAndQueryProcessNotificationChannel.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateWnfStateName(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateWnfStateName(
+        PWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_LIFETIME NameLifetime,
+        WNF_DATA_SCOPE DataScope,
+        BOOLEAN PersistData,
+        PCWNF_TYPE_ID TypeId,
+        ULONG MaximumStateSize,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of IoQueryInterface @ 0x140828780
+ * XREFs of IoQueryInterface @ 0x140828A80
  * Callers:
- *     HalpIommuGetDeviceId @ 0x140390C8C (HalpIommuGetDeviceId.c)
- *     HalpDmaGetIommuInterface @ 0x1404FFDC4 (HalpDmaGetIommuInterface.c)
- *     ExInitializeDeviceAts @ 0x14060C270 (ExInitializeDeviceAts.c)
- *     ExpShareAddressSpaceWithDevice @ 0x14060DBA0 (ExpShareAddressSpaceWithDevice.c)
- *     HalpGetCacheCoherency @ 0x140827FA4 (HalpGetCacheCoherency.c)
+ *     HalpIommuGetDeviceId @ 0x140390E6C (HalpIommuGetDeviceId.c)
+ *     HalpDmaGetIommuInterface @ 0x140500314 (HalpDmaGetIommuInterface.c)
+ *     ExInitializeDeviceAts @ 0x14060C7C0 (ExInitializeDeviceAts.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x14060E0F0 (ExpShareAddressSpaceWithDevice.c)
+ *     HalpGetCacheCoherency @ 0x1408282A4 (HalpGetCacheCoherency.c)
  * Callees:
- *     PnpQueryInterface @ 0x1407FD240 (PnpQueryInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x1408287D0 (IopQueryInterfaceRecurseUp.c)
+ *     PnpQueryInterface @ 0x1407FD510 (PnpQueryInterface.c)
+ *     IopQueryInterfaceRecurseUp @ 0x140828AD0 (IopQueryInterfaceRecurseUp.c)
  */
 
 __int64 __fastcall IoQueryInterface(

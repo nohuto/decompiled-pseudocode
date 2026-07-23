@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInterlockedCompareExchange64ToUser @ 0x14077F400
+ * XREFs of RtlInterlockedCompareExchange64ToUser @ 0x140781F00
  * Callers:
- *     EtwpRealtimeInjectEtwBuffer @ 0x140A14FC8 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x140A141BC (EtwpRealtimeInjectEtwBuffer.c)
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 signed __int64 __fastcall RtlInterlockedCompareExchange64ToUser(

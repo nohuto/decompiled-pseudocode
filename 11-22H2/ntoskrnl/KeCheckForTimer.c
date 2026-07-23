@@ -63,7 +63,7 @@ ULONG __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -102,10 +102,10 @@ ULONG __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
               while ( v14 != v9 );
             }
             _InterlockedAnd64((volatile signed __int64 *)v10, 0LL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v19 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 v21 = CurrentPrcb->SchedulerAssist;

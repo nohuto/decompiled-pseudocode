@@ -1,16 +1,16 @@
 /*
- * XREFs of KiProcessPendingForegroundBoosts @ 0x1400D7CB0
+ * XREFs of KiProcessPendingForegroundBoosts @ 0x1400D7D30
  * Callers:
  *     <none>
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
- *     KiApplyForegroundBoostThread @ 0x1400D7E6C (KiApplyForegroundBoostThread.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDCA4 (KiReadyDeferredReadyList.c)
+ *     KiApplyForegroundBoostThread @ 0x1400D7EEC (KiApplyForegroundBoostThread.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiProcessPendingForegroundBoosts(
@@ -46,9 +46,9 @@ void __fastcall KiProcessPendingForegroundBoosts(
   v4 = 0LL;
   v5 = 0;
   v6 = MEMORY[0xFFFFF78000000320];
-  KxAcquireSpinLock(&qword_140421F98);
-  v7 = (__int64 *)qword_140421F88;
-  while ( v7 != &qword_140421F88 )
+  KxAcquireSpinLock(&qword_140423078);
+  v7 = (__int64 *)qword_140423068;
+  while ( v7 != &qword_140423068 )
   {
     v8 = v7;
     v7 = (__int64 *)*v7;
@@ -72,8 +72,8 @@ void __fastcall KiProcessPendingForegroundBoosts(
       _InterlockedAdd16((volatile signed __int16 *)v8 - 6, 1u);
     }
   }
-  v12 = qword_140421F88 != (_QWORD)&qword_140421F88;
-  KxReleaseSpinLock(&qword_140421F98);
+  v12 = qword_140423068 != (_QWORD)&qword_140423068;
+  KxReleaseSpinLock(&qword_140423078);
   if ( v12 )
   {
     v25[1] = -1LL;

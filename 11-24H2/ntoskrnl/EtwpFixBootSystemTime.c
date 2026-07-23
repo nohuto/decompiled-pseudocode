@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpFixBootSystemTime @ 0x140C3D028
+ * XREFs of EtwpFixBootSystemTime @ 0x140C3F178
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14034EB80 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeQueryBootTimeValues @ 0x14049462C (KeQueryBootTimeValues.c)
- *     RtlGetMultiTimePrecise @ 0x1404970A0 (RtlGetMultiTimePrecise.c)
+ *     RtlGetSystemTimePrecise @ 0x14036D060 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeQueryBootTimeValues @ 0x14048F0BC (KeQueryBootTimeValues.c)
+ *     RtlGetMultiTimePrecise @ 0x140491A30 (RtlGetMultiTimePrecise.c)
  */
 
 __int64 EtwpFixBootSystemTime()
 {
   int MultiTimePrecise; // edi
   LARGE_INTEGER PerformanceCounter; // rbx
-  __int64 SystemTimePrecise; // r8
+  LARGE_INTEGER SystemTimePrecise; // r8
   LONGLONG v3; // rbx
   unsigned __int128 v4; // rax
   __int128 v6; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v7; // [rsp+30h] [rbp-10h]
+  LARGE_INTEGER v7; // [rsp+30h] [rbp-10h]
   int v8; // [rsp+60h] [rbp+20h] BYREF
   LARGE_INTEGER v9; // [rsp+68h] [rbp+28h] BYREF
   __int64 v10; // [rsp+70h] [rbp+30h] BYREF
@@ -26,7 +26,7 @@ __int64 EtwpFixBootSystemTime()
   v10 = 0LL;
   v8 = 0;
   v6 = 0LL;
-  v7 = 0LL;
+  v7.QuadPart = 0LL;
   KeQueryBootTimeValues(&EtwpRefTimeSystem, &v9, &v10);
   EtwpBootTime = v9.QuadPart - v10;
   MultiTimePrecise = RtlGetMultiTimePrecise((LARGE_INTEGER *)&v6, 5, &v8);
@@ -52,6 +52,6 @@ LABEL_8:
   if ( MEMORY[0xFFFFF78000000369] )
     v3 <<= MEMORY[0xFFFFF78000000369];
   v4 = (unsigned __int64)v3 * (unsigned __int128)MEMORY[0xFFFFF78000000360];
-  EtwpRefTimeSystem = SystemTimePrecise - *((_QWORD *)&v4 + 1);
+  EtwpRefTimeSystem = SystemTimePrecise.QuadPart - *((_QWORD *)&v4 + 1);
   return v4;
 }

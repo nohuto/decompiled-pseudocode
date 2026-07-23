@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtUpdateRemappingDestination @ 0x1405A7CF0
+ * XREFs of IvtUpdateRemappingDestination @ 0x1405AA500
  * Callers:
  *     <none>
  * Callees:
- *     IvtInvalidateRemappingTableEntries @ 0x140427790 (IvtInvalidateRemappingTableEntries.c)
- *     IvtUpdateExtendedDestination @ 0x1405A7C5C (IvtUpdateExtendedDestination.c)
+ *     IvtInvalidateRemappingTableEntries @ 0x1404348A0 (IvtInvalidateRemappingTableEntries.c)
+ *     IvtUpdateExtendedDestination @ 0x1405AA46C (IvtUpdateExtendedDestination.c)
  */
 
 __int64 __fastcall IvtUpdateRemappingDestination(__int64 a1, char a2, int a3, int a4, int a5)

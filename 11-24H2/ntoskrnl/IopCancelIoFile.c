@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCancelIoFile @ 0x140A3573C
+ * XREFs of IopCancelIoFile @ 0x140A2974C
  * Callers:
- *     IopIoRingDispatchCancel @ 0x14071659C (IopIoRingDispatchCancel.c)
- *     NtCancelIoFileEx @ 0x140A35690 (NtCancelIoFileEx.c)
+ *     IopIoRingDispatchCancel @ 0x14071412C (IopIoRingDispatchCancel.c)
+ *     NtCancelIoFileEx @ 0x140A296A0 (NtCancelIoFileEx.c)
  * Callees:
- *     IopCancelIrpsInFileObjectList @ 0x140418C10 (IopCancelIrpsInFileObjectList.c)
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x14094A628 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelIrpsInFileObjectList @ 0x1404089C0 (IopCancelIrpsInFileObjectList.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1408EEB98 (IopCancelIrpsInThreadListForCurrentProcess.c)
  */
 
 __int64 __fastcall IopCancelIoFile(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall IopCancelIoFile(__int64 a1, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   ++CurrentThread->OtherOperationCount;
   __incgsdword(0x2EE4u);
-  v5 = IopCancelIrpsInFileObjectList(a1, (int)KeGetCurrentThread()->ApcState.Process, a2, 0, 0, 0);
+  v5 = IopCancelIrpsInFileObjectList(a1, (__int64)KeGetCurrentThread()->ApcState.Process, a2, 0LL, 0, 0);
   v6 = v5;
   if ( !a2 || !v5 )
     v6 = IopCancelIrpsInThreadListForCurrentProcess(a1, a2) | v5;

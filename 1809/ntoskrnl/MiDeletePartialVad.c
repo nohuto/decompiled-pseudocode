@@ -18,41 +18,41 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiFinishVadDeletion @ 0x140067770 (MiFinishVadDeletion.c)
- *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
- *     MiComputePageCommitment @ 0x140083950 (MiComputePageCommitment.c)
- *     PsReturnProcessPagedPoolQuota @ 0x140090290 (PsReturnProcessPagedPoolQuota.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     MiManageSubsectionView @ 0x1400ADC80 (MiManageSubsectionView.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiCountSharedPages @ 0x14010AC70 (MiCountSharedPages.c)
- *     MiInsertVad @ 0x14011016C (MiInsertVad.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiUpControlAreaRefs @ 0x1402A3450 (MiUpControlAreaRefs.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiReInsertPlaceholderVad @ 0x1402C4E90 (MiReInsertPlaceholderVad.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiReturnPageTablePageCommitment @ 0x1405EC380 (MiReturnPageTablePageCommitment.c)
- *     MiRemoveSharedCommitNode @ 0x1405F0650 (MiRemoveSharedCommitNode.c)
- *     MiInsertSharedCommitNode @ 0x1405F08A0 (MiInsertSharedCommitNode.c)
- *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
- *     MiResidentPagesForSpan @ 0x1406C3330 (MiResidentPagesForSpan.c)
- *     MiCreateRotateView @ 0x1406CA9C4 (MiCreateRotateView.c)
- *     MiFreePlaceholderStorage @ 0x1406D0BD0 (MiFreePlaceholderStorage.c)
- *     MiFreeRotateView @ 0x14084F294 (MiFreeRotateView.c)
- *     MiCreatePlaceholderStorage @ 0x14085C6B8 (MiCreatePlaceholderStorage.c)
- *     MiLockNestedVad @ 0x14085E9E0 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x14085E9FC (MiUnlockNestedVad.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiFinishVadDeletion @ 0x140067760 (MiFinishVadDeletion.c)
+ *     MiDecrementSubsections @ 0x140079400 (MiDecrementSubsections.c)
+ *     MiReturnFullProcessCharges @ 0x14007FF00 (MiReturnFullProcessCharges.c)
+ *     MiComputePageCommitment @ 0x140083940 (MiComputePageCommitment.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400901D0 (PsReturnProcessPagedPoolQuota.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     MiManageSubsectionView @ 0x1400ADBC0 (MiManageSubsectionView.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiCountSharedPages @ 0x14010ACF0 (MiCountSharedPages.c)
+ *     MiInsertVad @ 0x1401101EC (MiInsertVad.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiUpControlAreaRefs @ 0x1402A3640 (MiUpControlAreaRefs.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiReInsertPlaceholderVad @ 0x1402C5080 (MiReInsertPlaceholderVad.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiReturnPageTablePageCommitment @ 0x1405ED380 (MiReturnPageTablePageCommitment.c)
+ *     MiRemoveSharedCommitNode @ 0x1405F1650 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x1405F18A0 (MiInsertSharedCommitNode.c)
+ *     MiInsertVadCharges @ 0x1405F2E60 (MiInsertVadCharges.c)
+ *     MiResidentPagesForSpan @ 0x1406C45D0 (MiResidentPagesForSpan.c)
+ *     MiCreateRotateView @ 0x1406CBC64 (MiCreateRotateView.c)
+ *     MiFreePlaceholderStorage @ 0x1406D1E70 (MiFreePlaceholderStorage.c)
+ *     MiFreeRotateView @ 0x1408504F4 (MiFreeRotateView.c)
+ *     MiCreatePlaceholderStorage @ 0x14085D918 (MiCreatePlaceholderStorage.c)
+ *     MiLockNestedVad @ 0x14085FC40 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x14085FC5C (MiUnlockNestedVad.c)
  */
 
 __int64 __fastcall MiDeletePartialVad(
@@ -613,7 +613,7 @@ LABEL_21:
         {
           v46->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v46->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v38->LockEntries[v45], v41);
+            KiAbEntryRemoveFromTree(&v38->LockEntries[v45].TreeNode, v41);
           v111 = 0;
           v111 = v46->BoostBitmap.AllFields & 0x1FFFF;
           v46->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -655,7 +655,7 @@ LABEL_47:
   if ( v49 )
     MiReturnFullProcessCharges(Process, v49);
   if ( v50 )
-    MiReturnCommit(*(_QWORD *)(qword_14043A748 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3)), v50);
+    MiReturnCommit(*(_QWORD *)(qword_14043B808 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3)), v50);
   if ( v110 != 64 )
     PsReturnProcessPagedPoolQuota(Process, 8 * v117);
   v51 = v120;
@@ -668,7 +668,7 @@ LABEL_47:
     if ( v98 < v51 )
     {
       v99 = v51 - v98;
-      v100 = *(_QWORD *)(qword_14043A748 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3));
+      v100 = *(_QWORD *)(qword_14043B808 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3));
       if ( (ULONG_PTR *)v100 == &MiSystemPartition )
         MiReturnResidentAvailable(v99);
       else
@@ -701,7 +701,7 @@ LABEL_47:
     __writecr8(v104);
     if ( v102 )
       MiReturnCrossPartitionSectionCharges(
-        *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v101 + 60) & 0x3FF)),
+        *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v101 + 60) & 0x3FF)),
         v103,
         v102);
   }

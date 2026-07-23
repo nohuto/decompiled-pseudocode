@@ -7,40 +7,40 @@
  *     _RtlMapGenericMask@8 @ 0x4B2D83B0 (_RtlMapGenericMask@8.c)
  */
 
-void __fastcall RtlpApplyAclToObject(int a1, int a2)
+void __fastcall RtlpApplyAclToObject(int a1, GENERIC_MAPPING *a2)
 {
   unsigned int v3; // ecx
-  unsigned __int8 *v4; // esi
+  char *v4; // esi
   unsigned __int8 v5; // al
   unsigned __int8 v6; // al
-  int v7; // eax
-  int v8; // [esp+4h] [ebp-8h]
+  int GenericAll; // eax
+  GENERIC_MAPPING *v8; // [esp+4h] [ebp-8h]
   unsigned int i; // [esp+8h] [ebp-4h]
 
   v8 = a2;
   if ( a1 )
   {
     v3 = 0;
-    v4 = (unsigned __int8 *)(a1 + 8);
+    v4 = (char *)(a1 + 8);
     for ( i = 0; v3 < *(unsigned __int16 *)(a1 + 4); i = v3 )
     {
       v5 = *v4;
-      if ( (*v4 <= 8u || v5 <= 0xAu || (unsigned __int8)(v5 - 13) <= 1u) && (v4[1] & 8) == 0 )
+      if ( ((unsigned __int8)*v4 <= 8u || v5 <= 0xAu || (unsigned __int8)(v5 - 13) <= 1u) && (v4[1] & 8) == 0 )
       {
-        RtlMapGenericMask(v4 + 4, a2);
+        RtlMapGenericMask((PACCESS_MASK)v4 + 1, a2);
         v6 = *v4;
         if ( !*v4 || v6 == 1 || v6 == 4 || v6 == 5 || v6 == 6 || v6 == 9 || v6 == 10 )
         {
           a2 = v8;
-          v7 = *(_DWORD *)(v8 + 12);
+          GenericAll = v8->GenericAll;
         }
         else
         {
           a2 = v8;
-          v7 = *(_DWORD *)(v8 + 12) | 0x1000000;
+          GenericAll = v8->GenericAll | 0x1000000;
         }
         v3 = i;
-        *((_DWORD *)v4 + 1) &= v7;
+        *((_DWORD *)v4 + 1) &= GenericAll;
       }
       ++v3;
       v4 += *((unsigned __int16 *)v4 + 1);

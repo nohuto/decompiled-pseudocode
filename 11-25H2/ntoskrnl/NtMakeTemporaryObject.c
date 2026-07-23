@@ -9,7 +9,7 @@
  *     ObMakeTemporaryObject @ 0x1409AF2C0 (ObMakeTemporaryObject.c)
  */
 
-NTSTATUS __fastcall NtMakeTemporaryObject(HANDLE Handle)
+NTSTATUS __cdecl NtMakeTemporaryObject(HANDLE Handle)
 {
   NTSTATUS result; // eax
   NTSTATUS v3; // edi

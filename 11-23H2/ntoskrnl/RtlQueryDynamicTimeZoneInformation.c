@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlQueryDynamicTimeZoneInformation @ 0x1409BD750
+ * XREFs of RtlQueryDynamicTimeZoneInformation @ 0x1409BD950
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryTimeZoneInformationWorker @ 0x1407F7AA4 (RtlpQueryTimeZoneInformationWorker.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x1407F7D74 (RtlpQueryTimeZoneInformationWorker.c)
  */
 
 __int64 __fastcall RtlQueryDynamicTimeZoneInformation(char *a1)

@@ -1,24 +1,24 @@
 /*
- * XREFs of CcDeleteSharedCacheMap @ 0x1400CCD34
+ * XREFs of CcDeleteSharedCacheMap @ 0x1400CABD4
  * Callers:
- *     CcUninitializeCacheMap @ 0x1400705C0 (CcUninitializeCacheMap.c)
- *     CcWriteBehindInternal @ 0x1400E7F30 (CcWriteBehindInternal.c)
- *     CcInitializeCacheMapEx @ 0x1400E8440 (CcInitializeCacheMapEx.c)
- *     CcDeleteSectionsForPartition @ 0x1401B25F4 (CcDeleteSectionsForPartition.c)
+ *     CcUninitializeCacheMap @ 0x140070140 (CcUninitializeCacheMap.c)
+ *     CcWriteBehindInternal @ 0x1400E5DD0 (CcWriteBehindInternal.c)
+ *     CcInitializeCacheMapEx @ 0x1400E62E0 (CcInitializeCacheMapEx.c)
+ *     CcDeleteSectionsForPartition @ 0x1401B24D8 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x140017FC0 (CcUnmapVacbArray.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     CcPurgeCacheSection @ 0x140072920 (CcPurgeCacheSection.c)
- *     CcDeleteMbcb @ 0x140088410 (CcDeleteMbcb.c)
- *     ObFastReplaceObject @ 0x1400CCF54 (ObFastReplaceObject.c)
- *     CcUninitializeVolumeCacheMap @ 0x1400CCFE0 (CcUninitializeVolumeCacheMap.c)
- *     CcDereferenceSharedCacheMapFileObject @ 0x1400CFCF4 (CcDereferenceSharedCacheMapFileObject.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1400CFD4C (CcReferenceSharedCacheMapFileObject.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcDeleteBcbs @ 0x140111D74 (CcDeleteBcbs.c)
+ *     CcUnmapVacbArray @ 0x140017B40 (CcUnmapVacbArray.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     CcPurgeCacheSection @ 0x1400724A0 (CcPurgeCacheSection.c)
+ *     ObFastReplaceObject @ 0x1400CADF4 (ObFastReplaceObject.c)
+ *     CcUninitializeVolumeCacheMap @ 0x1400CAE80 (CcUninitializeVolumeCacheMap.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1400CDB94 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1400CDBEC (CcReferenceSharedCacheMapFileObject.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcDeleteMbcb @ 0x14010C600 (CcDeleteMbcb.c)
+ *     CcDeleteBcbs @ 0x1401122D8 (CcDeleteBcbs.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     FsRtlReleaseFile @ 0x14042DE60 (FsRtlReleaseFile.c)
+ *     FsRtlReleaseFile @ 0x14042CD30 (FsRtlReleaseFile.c)
  */
 
 void __fastcall CcDeleteSharedCacheMap(__int64 a1, KIRQL a2, int a3, struct _FILE_OBJECT *a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiComputeBadImageHeaderType @ 0x140944F84
+ * XREFs of MiComputeBadImageHeaderType @ 0x14098EDF4
  * Callers:
- *     MiVerifyImageHeader @ 0x1409449F8 (MiVerifyImageHeader.c)
+ *     MiVerifyImageHeader @ 0x14098E868 (MiVerifyImageHeader.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     MiCheckDosCalls @ 0x1407EBFA0 (MiCheckDosCalls.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     MiCheckDosCalls @ 0x1407EC570 (MiCheckDosCalls.c)
  */
 
 __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -23,9 +23,9 @@ __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned 
   if ( *(_WORD *)a1 != 17742 )
   {
     if ( *(_WORD *)a1 == 17740 )
-      dword_140E2D6F8 = 68;
+      dword_140E2D838 = 68;
     else
-      dword_140E2D6F8 = 69;
+      dword_140E2D838 = 69;
     return 3221225776LL;
   }
   if ( !(unsigned int)MiCheckDosCalls((unsigned __int16 *)a1, a3) )
@@ -33,14 +33,14 @@ __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned 
     v6 = *(_BYTE *)(a1 + 54);
     if ( v6 == 2 || !v6 && (((*(_WORD *)(a1 + 62) & 0xFF00) - 512) & 0xFEFF) == 0 )
     {
-      dword_140E2D6F8 = 60;
+      dword_140E2D838 = 60;
       return 3221225777LL;
     }
   }
   v8 = *(_BYTE *)(a1 + 54);
   if ( v8 == 5 || *(_WORD *)(a1 + 4) == *(_WORD *)(a1 + 42) )
   {
-    dword_140E2D6F8 = 61;
+    dword_140E2D838 = 61;
     return 3221225776LL;
   }
   if ( v8 != 1 )
@@ -63,7 +63,7 @@ LABEL_14:
     }
     if ( !v11 && ((v12 = *(_WORD *)(v10 + a2 + 56), v12 == 19280) || v12 == 20304 || v12 == 22096) )
     {
-      dword_140E2D6F8 = 63;
+      dword_140E2D838 = 63;
     }
     else
     {
@@ -79,23 +79,23 @@ LABEL_42:
           v16 = (int)(v14 - v15);
           if ( v16 + 16 >= v16 && v16 + 16 < a3 && !memcmp((const void *)(a1 + v16 + 1), "1-2-3 Preloader", 0xFuLL) )
           {
-            dword_140E2D6F8 = 66;
+            dword_140E2D838 = 66;
             return 3221225776LL;
           }
-          dword_140E2D6F8 = 67;
+          dword_140E2D838 = 67;
         }
         else
         {
-          dword_140E2D6F8 = 65;
+          dword_140E2D838 = 65;
         }
         return 3221225755LL;
       }
-      dword_140E2D6F8 = 64;
+      dword_140E2D838 = 64;
     }
   }
   else
   {
-    dword_140E2D6F8 = 62;
+    dword_140E2D838 = 62;
   }
   return 3221225776LL;
 }

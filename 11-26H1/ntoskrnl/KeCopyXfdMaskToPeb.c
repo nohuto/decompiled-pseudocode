@@ -1,11 +1,11 @@
 /*
- * XREFs of KeCopyXfdMaskToPeb @ 0x1404E8568
+ * XREFs of KeCopyXfdMaskToPeb @ 0x1404E1928
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     PspSetupUserProcessAddressSpace @ 0x140A9A3AC (PspSetupUserProcessAddressSpace.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x140B6131C (PspEnableProcessOptionalXStateFeatures.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1409E53DC (PspSetupUserProcessAddressSpace.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x140B643BC (PspEnableProcessOptionalXStateFeatures.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
  */
 
 void __fastcall KeCopyXfdMaskToPeb(_QWORD *a1)

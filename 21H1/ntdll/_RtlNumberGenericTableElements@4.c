@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlNumberGenericTableElements(int a1)
+ULONG __cdecl RtlNumberGenericTableElements(PRTL_GENERIC_TABLE Table)
 {
-  return *(_DWORD *)(a1 + 20);
+  return Table->NumberGenericTableElements;
 }

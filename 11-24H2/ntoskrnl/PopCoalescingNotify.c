@@ -1,46 +1,46 @@
 /*
- * XREFs of PopCoalescingNotify @ 0x140750FA0
+ * XREFs of PopCoalescingNotify @ 0x14074F2C0
  * Callers:
  *     <none>
  * Callees:
- *     PopCoalescingSetTimer @ 0x1402CA544 (PopCoalescingSetTimer.c)
- *     PopPrintEx @ 0x1402CB174 (PopPrintEx.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     PopDiagTraceEventNoPayload @ 0x14048C7B4 (PopDiagTraceEventNoPayload.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x1404B7970 (PopEnsureCoalescingWorkerWillRun.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     PopCoalescingSetTimer @ 0x14047F5A0 (PopCoalescingSetTimer.c)
+ *     PopPrintEx @ 0x14047F604 (PopPrintEx.c)
+ *     PopDiagTraceEventNoPayload @ 0x1404874D4 (PopDiagTraceEventNoPayload.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x1404B2150 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 /*
- * Hex-Rays decompilation failed for PopCoalescingNotify @ 0x140750FA0
- * Reason: Hex-Rays returned no pseudocode for 0x140750FA0
+ * Hex-Rays decompilation failed for PopCoalescingNotify @ 0x14074F2C0
+ * Reason: Hex-Rays returned no pseudocode for 0x14074F2C0
  * Fallback: raw IDA disassembly follows.
  *
- * 0000000140750FA0: sub     rsp, 28h
- * 0000000140750FA4: call    PopAcquirePolicyLock
- * 0000000140750FA9: test    cs:PopCoalescingState, 2
- * 0000000140750FB0: jz      short loc_140751000
- * 0000000140750FB2: lea     rcx, PopCoalescingTimer; PKTIMER
- * 0000000140750FB9: call    KeCancelTimer
- * 0000000140750FBE: or      cs:PopCoalescingState, 4
- * 0000000140750FC5: call    PopEnsureCoalescingWorkerWillRun
- * 0000000140750FCA: lea     rdx, aPopcoalescingF; "PopCoalescing: FLUSH notification sent."...
- * 0000000140750FD1: mov     ecx, 3
- * 0000000140750FD6: call    PopPrintEx
- * 0000000140750FDB: lea     rcx, POP_ETW_IO_COALESCING_FLUSH; EventDescriptor
- * 0000000140750FE2: call    PopDiagTraceEventNoPayload
- * 0000000140750FE7: mov     rax, 0FFFFF78000000008h
- * 0000000140750FF1: mov     rax, [rax]
- * 0000000140750FF4: mov     cs:PopCoalescingLastFlushTime, rax
- * 0000000140750FFB: call    PopCoalescingSetTimer
- * 0000000140751000: call    PopReleasePolicyLock
- * 0000000140751005: mov     rax, gs:188h
- * 000000014075100E: cmp     dword ptr [rax+1E4h], 0
- * 0000000140751015: jz      short loc_14075101E
- * 0000000140751017: mov     ecx, 20h ; ' '
- * 000000014075101C: int     29h; Win8: RtlFailFast(ecx)
- * 000000014075101E: xor     eax, eax
- * 0000000140751020: add     rsp, 28h
- * 0000000140751024: retn
+ * 000000014074F2C0: sub     rsp, 28h
+ * 000000014074F2C4: call    PopAcquirePolicyLock
+ * 000000014074F2C9: test    cs:PopCoalescingState, 2
+ * 000000014074F2D0: jz      short loc_14074F320
+ * 000000014074F2D2: lea     rcx, PopCoalescingTimer; PKTIMER
+ * 000000014074F2D9: call    KeCancelTimer
+ * 000000014074F2DE: or      cs:PopCoalescingState, 4
+ * 000000014074F2E5: call    PopEnsureCoalescingWorkerWillRun
+ * 000000014074F2EA: lea     rdx, aPopcoalescingF; "PopCoalescing: FLUSH notification sent."...
+ * 000000014074F2F1: mov     ecx, 3
+ * 000000014074F2F6: call    PopPrintEx
+ * 000000014074F2FB: lea     rcx, POP_ETW_IO_COALESCING_FLUSH; EventDescriptor
+ * 000000014074F302: call    PopDiagTraceEventNoPayload
+ * 000000014074F307: mov     rax, 0FFFFF78000000008h
+ * 000000014074F311: mov     rax, [rax]
+ * 000000014074F314: mov     cs:PopCoalescingLastFlushTime, rax
+ * 000000014074F31B: call    PopCoalescingSetTimer
+ * 000000014074F320: call    PopReleasePolicyLock
+ * 000000014074F325: mov     rax, gs:188h
+ * 000000014074F32E: cmp     dword ptr [rax+1E4h], 0
+ * 000000014074F335: jz      short loc_14074F33E
+ * 000000014074F337: mov     ecx, 20h ; ' '
+ * 000000014074F33C: int     29h; Win8: RtlFailFast(ecx)
+ * 000000014074F33E: xor     eax, eax
+ * 000000014074F340: add     rsp, 28h
+ * 000000014074F344: retn
  */

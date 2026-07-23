@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x140281660
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x14026F8A0
  * Callers:
- *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1402815D0 (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14026F788 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14026F810 (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140577810 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14057792C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140577A50 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x140577B6C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
  */
 
 __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
@@ -34,9 +34,9 @@ __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
   v5 = 0;
   v6 = 1 << a1;
   v7 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  v8 = dword_140C2317C;
+  v8 = dword_140C2377C;
   v9 = v7;
-  if ( (v6 & dword_140C2317C) != 0 )
+  if ( (v6 & dword_140C2377C) != 0 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
     v13 = &PopCsResiliencyStats[8 * v2];

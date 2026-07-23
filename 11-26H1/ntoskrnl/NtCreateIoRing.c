@@ -1,43 +1,43 @@
 /*
- * XREFs of NtCreateIoRing @ 0x140798AC0
+ * XREFs of NtCreateIoRing @ 0x14079B5F0
  * Callers:
- *     DifNtCreateIoRingWrapper @ 0x1406711A0 (DifNtCreateIoRingWrapper.c)
+ *     DifNtCreateIoRingWrapper @ 0x140674D80 (DifNtCreateIoRingWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PsGetProcessImageFileName @ 0x14047F3D0 (PsGetProcessImageFileName.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     IopExceptionFilter @ 0x1405CA834 (IopExceptionFilter.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     IopAllocateAndLockMdl @ 0x1407940EC (IopAllocateAndLockMdl.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     MmMapViewInSessionSpace @ 0x1409B7230 (MmMapViewInSessionSpace.c)
- *     MmCreateSection @ 0x1409B8FA0 (MmCreateSection.c)
- *     MmMapViewOfSection @ 0x1409C1F50 (MmMapViewOfSection.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PsGetProcessImageFileName @ 0x140478D40 (PsGetProcessImageFileName.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     IopExceptionFilter @ 0x1405CD104 (IopExceptionFilter.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     IopAllocateAndLockMdl @ 0x140796C1C (IopAllocateAndLockMdl.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     MmMapViewInSessionSpace @ 0x140988210 (MmMapViewInSessionSpace.c)
+ *     MmCreateSection @ 0x140989F80 (MmCreateSection.c)
+ *     MmMapViewOfSection @ 0x140992F30 (MmMapViewOfSection.c)
  */
 
-__int64 __fastcall NtCreateIoRing(
-        HANDLE *a1,
-        unsigned int a2,
-        volatile void *a3,
-        unsigned int a4,
-        volatile void *Address)
+NTSTATUS __cdecl NtCreateIoRing(
+        PHANDLE IoRingHandle,
+        ULONG CreateParametersLength,
+        PVOID CreateParameters,
+        ULONG OutputParametersLength,
+        PVOID OutputParameters)
 {
   SIZE_T v5; // r14
   KPROCESSOR_MODE v8; // si
-  int Section; // edi
+  NTSTATUS Section; // edi
   __int64 ULong64FromUser; // rax
   unsigned int v11; // edx
   int v12; // r9d
@@ -52,7 +52,7 @@ __int64 __fastcall NtCreateIoRing(
   _DWORD *v21; // r8
   PVOID Object; // [rsp+50h] [rbp-218h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+58h] [rbp-210h]
-  int v25; // [rsp+5Ch] [rbp-20Ch]
+  NTSTATUS v25; // [rsp+5Ch] [rbp-20Ch]
   unsigned __int64 v26; // [rsp+60h] [rbp-208h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-200h] BYREF
   int v28; // [rsp+70h] [rbp-1F8h] BYREF
@@ -103,34 +103,34 @@ __int64 __fastcall NtCreateIoRing(
   __int64 *v73; // [rsp+210h] [rbp-58h]
   __int64 v74; // [rsp+218h] [rbp-50h]
 
-  v5 = a4;
+  v5 = OutputParametersLength;
   v25 = 0;
   v8 = KeGetCurrentThread()->PreviousMode;
   PreviousMode = v8;
   v42 = 0LL;
   v43 = 0;
   Object = 0LL;
-  if ( a2 < 0x14 )
+  if ( CreateParametersLength < 0x14 )
   {
     Section = -1073741584;
     goto LABEL_54;
   }
-  if ( a4 < 0x30 )
+  if ( OutputParametersLength < 0x30 )
   {
     Section = -1073741789;
     goto LABEL_54;
   }
   if ( v8 )
   {
-    ProbeForRead(a3, a2, 1u);
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
-    ProbeForWrite(Address, v5, 1u);
-    RtlCopyFromUser(&v42, (void *)a3, 0x14uLL);
+    ProbeForRead(CreateParameters, CreateParametersLength, 1u);
+    ULong64FromUser = RtlReadULong64FromUser(IoRingHandle);
+    RtlWriteULong64ToUser(IoRingHandle, ULong64FromUser);
+    ProbeForWrite(OutputParameters, v5, 1u);
+    RtlCopyFromUser(&v42, CreateParameters, 0x14uLL);
   }
   else
   {
-    RtlCopyVolatileMemory(&v42, (const void *)a3, 0x14uLL);
+    RtlCopyVolatileMemory(&v42, CreateParameters, 0x14uLL);
   }
   if ( (unsigned int)(v42 - 1) > 0x18F )
   {
@@ -265,14 +265,14 @@ LABEL_12:
   if ( Section >= 0 )
   {
     if ( v8 )
-      RtlWriteULong64ToUser(a1, (__int64)Handle);
+      RtlWriteULong64ToUser(IoRingHandle, (__int64)Handle);
     else
-      *a1 = Handle;
+      *IoRingHandle = Handle;
     v18 = (char *)Object + 8;
     if ( v8 )
-      RtlCopyToUser((void *)Address, v18, 0x30uLL);
+      RtlCopyToUser(OutputParameters, v18, 0x30uLL);
     else
-      RtlCopyVolatileMemory((void *)Address, v18, 0x30uLL);
+      RtlCopyVolatileMemory(OutputParameters, v18, 0x30uLL);
   }
   else
   {
@@ -332,12 +332,12 @@ LABEL_47:
         v39 = 0x1000000LL;
         v73 = &v39;
         v74 = 8LL;
-        tlgWriteAgg((__int64)&dword_140E06D58, (unsigned __int8 *)&word_140046EAA, (__int64)v21, 0x12u, &v44);
+        tlgWriteAgg((__int64)&dword_140E06D58, (unsigned __int8 *)&word_1400474AA, (__int64)v21, 0x12u, &v44);
       }
     }
   }
 LABEL_54:
   if ( Object )
     ObfDereferenceObject(Object);
-  return (unsigned int)Section;
+  return Section;
 }

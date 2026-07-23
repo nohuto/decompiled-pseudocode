@@ -111,9 +111,9 @@ char __fastcall KiGetNextTimerExpirationDueTime(
       if ( !(unsigned int)KeIsEmptyAffinityEx(KiGroupSchedulingOverQuotaMask) )
       {
 LABEL_23:
-        if ( KiGenerationEndTick * (unsigned __int64)(unsigned int)KeMaximumIncrement < v10 )
+        if ( KiGenerationEndTick * (unsigned __int64)KeMaximumIncrement < v10 )
         {
-          v10 = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+          v10 = KiGenerationEndTick * KeMaximumIncrement;
           v28 = v10;
           v12 = 5;
         }

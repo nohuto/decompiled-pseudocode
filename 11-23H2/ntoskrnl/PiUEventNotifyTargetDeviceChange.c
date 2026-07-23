@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUEventNotifyTargetDeviceChange @ 0x140783544
+ * XREFs of PiUEventNotifyTargetDeviceChange @ 0x140783734
  * Callers:
- *     PiUEventProcessEventWorker @ 0x1407820E0 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x1407822D0 (PiUEventProcessEventWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PiUEventHashStringIntoBucket @ 0x14031CEB8 (PiUEventHashStringIntoBucket.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PiUEventApplyAdditionalFilters @ 0x14077E4E0 (PiUEventApplyAdditionalFilters.c)
- *     PiUEventNotifyClient @ 0x14077E5DC (PiUEventNotifyClient.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     PiUEventHashStringIntoBucket @ 0x14031D148 (PiUEventHashStringIntoBucket.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PiUEventApplyAdditionalFilters @ 0x14077E6D0 (PiUEventApplyAdditionalFilters.c)
+ *     PiUEventNotifyClient @ 0x14077E7CC (PiUEventNotifyClient.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -34,14 +34,15 @@ __int64 __fastcall PiUEventNotifyTargetDeviceChange(__int64 a1)
   char v16; // al
   __int64 v17; // rsi
   __int64 v19; // rdx
-  char v20; // [rsp+80h] [rbp+8h]
-  char v21; // [rsp+88h] [rbp+10h]
+  ULONG v20; // r8d
+  char v21; // [rsp+80h] [rbp+8h]
+  char v22; // [rsp+88h] [rbp+10h]
 
   Pool2 = 0LL;
   v2 = 0;
-  v20 = 0;
-  v3 = 0;
   v21 = 0;
+  v3 = 0;
+  v22 = 0;
   v4 = 0;
   v6 = *(_QWORD *)(a1 + 72) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
   if ( !v6 )
@@ -74,7 +75,7 @@ LABEL_16:
     {
       if ( v11 != 2 )
         return (unsigned int)v3;
-      v20 = 1;
+      v21 = 1;
       v12 = 128LL;
     }
     else
@@ -94,7 +95,7 @@ LABEL_16:
     v15 = *v14;
     if ( *v14 != v14 )
     {
-      v16 = v20;
+      v16 = v21;
       do
       {
         v17 = (__int64)v15;
@@ -105,17 +106,17 @@ LABEL_16:
             || !PiUEventApplyAdditionalFilters(a1, v17)
             || (v3 = PiUEventNotifyClient(a1, v17), v3 < 0) )
           {
-            v16 = v20;
+            v16 = v21;
           }
           else
           {
-            v16 = v20;
+            v16 = v21;
             if ( Pool2 )
             {
               if ( v4 >= 0x400 )
               {
                 v2 = 1;
-                v21 = 1;
+                v22 = 1;
                 continue;
               }
               v19 = v4++;
@@ -123,7 +124,7 @@ LABEL_16:
             }
           }
         }
-        v2 = v21;
+        v2 = v22;
       }
       while ( v15 != v14 );
     }
@@ -133,12 +134,14 @@ LABEL_16:
       {
         memset(Pool2 + 1, 0, 0xFFCuLL);
         *Pool2 = -1;
+        v20 = 4;
       }
       else
       {
+        v20 = 4096;
         *Pool2 = v4 - 1;
       }
-      ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)Pool2);
+      ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, Pool2, v20, 0LL, 0LL, 0, 0);
     }
     ExReleaseFastMutex(&PiUEventClientRegistrationListLock);
     if ( Pool2 )

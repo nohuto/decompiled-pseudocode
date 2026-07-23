@@ -41,7 +41,7 @@ BOOLEAN __stdcall CcZeroData(
   __int64 PartitionFromFileObject; // [rsp+40h] [rbp-78h]
   int v25; // [rsp+48h] [rbp-70h]
   int v26; // [rsp+4Ch] [rbp-6Ch]
-  __int128 v27; // [rsp+50h] [rbp-68h] BYREF
+  NTSTATUS Status[4]; // [rsp+50h] [rbp-68h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-58h] BYREF
   BOOLEAN v29; // [rsp+C0h] [rbp+8h]
   LONGLONG v30; // [rsp+C8h] [rbp+10h] BYREF
@@ -98,16 +98,16 @@ BOOLEAN __stdcall CcZeroData(
     {
       if ( (v14 & (unsigned int)v30) != 0 )
       {
-        v27 = 0LL;
+        *(_OWORD *)Status = 0LL;
         v30 += v14;
         LODWORD(v30) = ~v14 & v30;
         v21 = v30 - StartOffset->LowPart;
         LOBYTE(v12) = v32;
         if ( !(unsigned __int8)CcZeroDataInCache(FileObject, StartOffset, v21, v12) )
           goto LABEL_42;
-        CcFlushCachePriv(FileObject->SectionObjectPointer, (_DWORD)StartOffset, v21, 0, 0, (__int64)&v27);
-        if ( (int)v27 < 0 )
-          RtlRaiseStatus((unsigned int)v27);
+        CcFlushCachePriv(FileObject->SectionObjectPointer, (_DWORD)StartOffset, v21, 0, 0, (__int64)Status);
+        if ( Status[0] < 0 )
+          RtlRaiseStatus(Status[0]);
       }
 LABEL_17:
       if ( v30 < v31->QuadPart )
@@ -134,9 +134,9 @@ LABEL_17:
 LABEL_12:
         if ( v9 > 0x200000 )
         {
-          *(_QWORD *)&v27 = v30 + 0x200000 + v14;
-          LODWORD(v27) = ~v14 & (v30 + 0x200000 + v14);
-          LODWORD(v9) = v27 - v30;
+          *(_QWORD *)Status = v30 + 0x200000 + v14;
+          Status[0] = ~v14 & (v30 + 0x200000 + v14);
+          LODWORD(v9) = Status[0] - v30;
         }
         goto LABEL_14;
       }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpWatchdogTimerAllocate @ 0x140677630
+ * XREFs of PnpWatchdogTimerAllocate @ 0x14066AD70
  * Callers:
- *     PnpAllocateWatchdog @ 0x140280324 (PnpAllocateWatchdog.c)
+ *     PnpAllocateWatchdog @ 0x14026E564 (PnpAllocateWatchdog.c)
  * Callees:
- *     WdtpAllocateTimer @ 0x1406776C0 (WdtpAllocateTimer.c)
+ *     WdtpAllocateTimer @ 0x14066AE00 (WdtpAllocateTimer.c)
  */
 
 __int64 __fastcall PnpWatchdogTimerAllocate(__int64 a1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MmAllocateMappingAddressEx @ 0x140AF1F50
+ * XREFs of MmAllocateMappingAddressEx @ 0x140AF4820
  * Callers:
- *     DifMmAllocateMappingAddressExWrapper @ 0x140665AA0 (DifMmAllocateMappingAddressExWrapper.c)
- *     PnprInitializeMappingReserve @ 0x1407AF578 (PnprInitializeMappingReserve.c)
- *     EtwpSavePersistedLogger @ 0x14082E8E4 (EtwpSavePersistedLogger.c)
- *     MmAllocateMappingAddress @ 0x140AF1F30 (MmAllocateMappingAddress.c)
+ *     DifMmAllocateMappingAddressExWrapper @ 0x140669680 (DifMmAllocateMappingAddressExWrapper.c)
+ *     PnprInitializeMappingReserve @ 0x1407B25D8 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x140834B24 (EtwpSavePersistedLogger.c)
+ *     MmAllocateMappingAddress @ 0x140AF4800 (MmAllocateMappingAddress.c)
  * Callees:
- *     VfPtIsAptEnabledOnKernel @ 0x14034A8F0 (VfPtIsAptEnabledOnKernel.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiInsertMappingNode @ 0x1404D8B44 (MiInsertMappingNode.c)
- *     MiInsertPteTracker @ 0x1405033CC (MiInsertPteTracker.c)
- *     VfPtMiscPoolNotification @ 0x14050C738 (VfPtMiscPoolNotification.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     VfPtIsAptEnabledOnKernel @ 0x14034C970 (VfPtIsAptEnabledOnKernel.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiInsertMappingNode @ 0x1404D2228 (MiInsertMappingNode.c)
+ *     MiInsertPteTracker @ 0x1404FCC9C (MiInsertPteTracker.c)
+ *     VfPtMiscPoolNotification @ 0x1405061A8 (VfPtMiscPoolNotification.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a3)
@@ -47,7 +47,7 @@ __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a
   PoolMm = ExAllocatePoolMm(64LL, 0x30uLL, 1836214605, CurrentProcessorColor | 0x80000000);
   if ( !PoolMm )
     return 0LL;
-  v11 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, v6, v9, v10);
+  v11 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, v6, v9, v10);
   v12 = (_QWORD *)v11;
   if ( !v11 )
   {
@@ -66,7 +66,7 @@ __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a
     *v12++ = *(_QWORD *)&CLFS_LSN_NULL_EXT;
   }
   while ( v13 < v6 );
-  if ( (dword_140FBE20C & 1) != 0 )
+  if ( (dword_140FBF20C & 1) != 0 )
   {
     v16[0] = 0LL;
     v16[1] = 0LL;

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiReferenceCloneProto @ 0x1402F99D8
+ * XREFs of MiReferenceCloneProto @ 0x140294790
  * Callers:
- *     MiCreateCombineAnchor @ 0x1402F97FC (MiCreateCombineAnchor.c)
- *     MiIncrementCombinedPte @ 0x1402F9928 (MiIncrementCombinedPte.c)
- *     MiReferenceExistingCloneProto @ 0x1404636A8 (MiReferenceExistingCloneProto.c)
+ *     MiReferenceExistingCloneProto @ 0x14029447C (MiReferenceExistingCloneProto.c)
+ *     MiCreateCombineAnchor @ 0x1402945B4 (MiCreateCombineAnchor.c)
+ *     MiIncrementCombinedPte @ 0x1402946E0 (MiIncrementCombinedPte.c)
  * Callees:
- *     MiLockCloneBlockAtDpc @ 0x14023EF08 (MiLockCloneBlockAtDpc.c)
- *     MiChargeCrossPartitionSharedPage @ 0x14036DFA8 (MiChargeCrossPartitionSharedPage.c)
+ *     MiLockCloneBlockAtDpc @ 0x140207058 (MiLockCloneBlockAtDpc.c)
+ *     MiChargeCrossPartitionSharedPage @ 0x140269A90 (MiChargeCrossPartitionSharedPage.c)
  */
 
-__int64 __fastcall MiReferenceCloneProto(__int64 a1, __int64 a2, __int64 a3, char a4, _QWORD *a5)
+__int64 __fastcall MiReferenceCloneProto(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
 {
   unsigned int v6; // edi
-  unsigned int v7; // esi
+  int v7; // esi
 
   v6 = 1;
   v7 = a4 & 1;
-  MiLockCloneBlockAtDpc(a3);
+  MiLockCloneBlockAtDpc(a3, a2, a3, a4);
   if ( *(_QWORD *)(a3 + 24)
     && (unsigned int)MiChargeCrossPartitionSharedPage(
                        a2,
-                       *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174)),
+                       *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174)),
                        a3,
                        v7) )
   {

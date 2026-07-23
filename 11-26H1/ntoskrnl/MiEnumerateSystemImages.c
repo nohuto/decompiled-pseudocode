@@ -1,18 +1,18 @@
 /*
- * XREFs of MiEnumerateSystemImages @ 0x1404E5184
+ * XREFs of MiEnumerateSystemImages @ 0x1404DE724
  * Callers:
- *     MmEnumerateSystemImages @ 0x1404E5150 (MmEnumerateSystemImages.c)
- *     MmEnumerateSystemImagesShared @ 0x1404E5168 (MmEnumerateSystemImagesShared.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
- *     MiInitializeKernelCfg @ 0x140CFE970 (MiInitializeKernelCfg.c)
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     MmEnumerateSystemImages @ 0x1404DE6F0 (MmEnumerateSystemImages.c)
+ *     MmEnumerateSystemImagesShared @ 0x1404DE708 (MmEnumerateSystemImagesShared.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
+ *     MiInitializeKernelCfg @ 0x140D04D10 (MiInitializeKernelCfg.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MmReleaseLoadLockShared @ 0x1404A4BD8 (MmReleaseLoadLockShared.c)
- *     MiUnlockLoaderEntry @ 0x1404A4C7C (MiUnlockLoaderEntry.c)
- *     MiAcquireLoadLock @ 0x1404AB9EC (MiAcquireLoadLock.c)
- *     MiLockLoaderEntry @ 0x14051E298 (MiLockLoaderEntry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmReleaseLoadLockShared @ 0x14049E268 (MmReleaseLoadLockShared.c)
+ *     MiUnlockLoaderEntry @ 0x14049E30C (MiUnlockLoaderEntry.c)
+ *     MiAcquireLoadLock @ 0x1404A507C (MiAcquireLoadLock.c)
+ *     MiLockLoaderEntry @ 0x1405208A8 (MiLockLoaderEntry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiEnumerateSystemImages(__int64 a1, __int64 a2, unsigned int a3)
@@ -24,7 +24,7 @@ __int64 __fastcall MiEnumerateSystemImages(__int64 a1, __int64 a2, unsigned int 
   int v9; // r14d
 
   v3 = 0;
-  if ( *(struct _KTHREAD **)&stru_140E2D150.SavedApcStateFill[40] == KeGetCurrentThread() )
+  if ( *(struct _KTHREAD **)&stru_140E2D2D0.SavedApcStateFill[40] == KeGetCurrentThread() )
   {
     for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
     {

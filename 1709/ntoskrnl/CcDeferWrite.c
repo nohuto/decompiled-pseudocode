@@ -26,8 +26,8 @@ void __stdcall CcDeferWrite(
   char *PoolWithTag; // rdi
   __int64 PartitionFromFileObject; // rbx
   KSPIN_LOCK *v12; // r8
-  struct _LIST_ENTRY *v13; // rdx
-  struct _LIST_ENTRY *v14; // rcx
+  _LIST_ENTRY *v13; // rdx
+  _LIST_ENTRY *v14; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
   struct _KLOCK_QUEUE_HANDLE v16; // [rsp+38h] [rbp-30h] BYREF
 
@@ -44,8 +44,8 @@ void __stdcall CcDeferWrite(
       __fastfail(0xEu);
     *((_QWORD *)PoolWithTag + 5) = 0LL;
     v12 = (KSPIN_LOCK *)(PartitionFromFileObject + 768);
-    v13 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
-    v14 = (struct _LIST_ENTRY *)(PartitionFromFileObject + 744);
+    v13 = (_LIST_ENTRY *)(PoolWithTag + 24);
+    v14 = (_LIST_ENTRY *)(PartitionFromFileObject + 744);
     *((_QWORD *)PoolWithTag + 9) = PartitionFromFileObject;
     *(_DWORD *)PoolWithTag = 5243644;
     *((_QWORD *)PoolWithTag + 1) = FileObject;

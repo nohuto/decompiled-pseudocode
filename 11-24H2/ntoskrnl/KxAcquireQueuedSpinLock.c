@@ -1,15 +1,15 @@
 /*
- * XREFs of KxAcquireQueuedSpinLock @ 0x1402D6B90
+ * XREFs of KxAcquireQueuedSpinLock @ 0x140357E10
  * Callers:
- *     KiAbProcessPostContextSwitch @ 0x14020FA80 (KiAbProcessPostContextSwitch.c)
- *     IoBoostThreadIoPriority @ 0x140278D90 (IoBoostThreadIoPriority.c)
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
- *     WmipNotificationIrpCancel @ 0x1403DCA30 (WmipNotificationIrpCancel.c)
- *     KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1405BBFF0 (KeAcquireInStackQueuedSpinLockRaiseToSynch.c)
- *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x1405BC060 (KeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     IoBoostThreadIoPriority @ 0x14022E320 (IoBoostThreadIoPriority.c)
+ *     KiAbProcessPostContextSwitch @ 0x140338DE0 (KiAbProcessPostContextSwitch.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
+ *     WmipNotificationIrpCancel @ 0x1403CB730 (WmipNotificationIrpCancel.c)
+ *     KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1405B9620 (KeAcquireInStackQueuedSpinLockRaiseToSynch.c)
+ *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x1405B9690 (KeAcquireQueuedSpinLockRaiseToSynch.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 _QWORD *__fastcall KxAcquireQueuedSpinLock(__int64 a1, volatile __int64 *a2)

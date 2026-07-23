@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeRunTimeZeroComparisons @ 0x1403B0058
+ * XREFs of MiComputeRunTimeZeroComparisons @ 0x1403B01C8
  * Callers:
- *     MiZeroPageCalibrate @ 0x1403AFE24 (MiZeroPageCalibrate.c)
+ *     MiZeroPageCalibrate @ 0x1403AFF94 (MiZeroPageCalibrate.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
  */
 
 unsigned __int64 __fastcall MiComputeRunTimeZeroComparisons(__int64 a1)
@@ -56,7 +56,7 @@ unsigned __int64 __fastcall MiComputeRunTimeZeroComparisons(__int64 a1)
                 v12 = (*(_QWORD *)(v8 + v10 + 8) << 21) / (*((_QWORD *)v3 + 1) * (unsigned __int64)*v3 / v11);
                 if ( (_DWORD)v11 != *v3 && v7 < v12 )
                 {
-                  ++dword_140C2A258;
+                  ++dword_140C2A298;
                   v12 = v7;
                 }
                 *v9 = v12;
@@ -82,7 +82,7 @@ unsigned __int64 __fastcall MiComputeRunTimeZeroComparisons(__int64 a1)
             }
             else
             {
-              ++dword_140C2A254;
+              ++dword_140C2A294;
             }
             *((_QWORD *)v3 + 13) = v5;
           }

@@ -1,8 +1,8 @@
 /*
- * XREFs of strchr @ 0x1403DB0A0
+ * XREFs of strchr @ 0x1403DB280
  * Callers:
- *     MiSnapThunk @ 0x1406AE4E0 (MiSnapThunk.c)
- *     WmipSMBiosFindStringAndZero @ 0x1409E0088 (WmipSMBiosFindStringAndZero.c)
+ *     MiSnapThunk @ 0x1406AE510 (MiSnapThunk.c)
+ *     WmipSMBiosFindStringAndZero @ 0x1409E0288 (WmipSMBiosFindStringAndZero.c)
  *     PipSmBiosGetString @ 0x140B3BAE0 (PipSmBiosGetString.c)
  *     EmpParseRuleTerm @ 0x140B55ED8 (EmpParseRuleTerm.c)
  *     EmpParseTargetRuleStringIndexList @ 0x140B56C6C (EmpParseTargetRuleStringIndexList.c)

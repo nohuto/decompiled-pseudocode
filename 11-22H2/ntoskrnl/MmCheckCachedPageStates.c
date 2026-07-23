@@ -161,7 +161,7 @@ __int64 __fastcall MmCheckCachedPageStates(unsigned __int64 a1, __int64 a2, int 
   _DWORD *v109; // r9
   int v110; // edx
   __int64 v111; // rax
-  struct _SLIST_ENTRY *TransitionHeatBatch; // rdi
+  _SLIST_ENTRY *TransitionHeatBatch; // rdi
   int v113; // eax
   unsigned __int8 v114; // cl
   struct _KPRCB *v115; // r10
@@ -323,7 +323,7 @@ LABEL_19:
         CurrentIrql = KeGetCurrentIrql();
         v141 = CurrentIrql;
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( (_BYTE)CurrentIrql == 2 )
@@ -351,10 +351,13 @@ LABEL_19:
         _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( (_BYTE)CurrentIrql != 17 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v103 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v103 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v103 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && v103 <= 0xFu
+              && (unsigned __int8)CurrentIrql <= 0xFu
+              && v103 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v105 = CurrentPrcb->SchedulerAssist;
@@ -380,10 +383,13 @@ LABEL_245:
       v88 = (unsigned __int64 *)(((BugCheckParameter1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
       if ( (_BYTE)CurrentIrql != 17 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v99 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v99 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v99 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && v99 <= 0xFu
+            && (unsigned __int8)CurrentIrql <= 0xFu
+            && v99 >= 2u )
           {
             v100 = KeGetCurrentPrcb();
             ValidPte = -1LL << ((unsigned __int8)CurrentIrql + 1);
@@ -495,10 +501,10 @@ LABEL_41:
         do
         {
           _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v107 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v107 <= 0xFu && v93 <= 0xFu && v107 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v107 <= 0xFu && v93 <= 0xFu && v107 >= 2u )
             {
               v108 = KeGetCurrentPrcb();
               v109 = v108->SchedulerAssist;
@@ -627,7 +633,7 @@ LABEL_51:
 LABEL_102:
           v64 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v64 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v64 <= 0xFu )
           {
             v86 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v64 == 2 )
@@ -650,10 +656,10 @@ LABEL_102:
           }
           *(_QWORD *)(v13 + 24) ^= (*(_QWORD *)(v13 + 24) ^ (*(_QWORD *)(v13 + 24) + 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
           _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v114 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v114 <= 0xFu && v64 <= 0xFu && v114 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v114 <= 0xFu && v64 <= 0xFu && v114 >= 2u )
             {
               v115 = KeGetCurrentPrcb();
               v116 = v115->SchedulerAssist;
@@ -836,7 +842,7 @@ LABEL_191:
       v56 = v55 >> 3;
     if ( (v56 & 1) != 0 )
     {
-      TransitionHeatBatch = (struct _SLIST_ENTRY *)MiMakeTransitionHeatBatch(v54, 0LL, ((__int64)(v12 - v11) >> 3) + 1);
+      TransitionHeatBatch = (_SLIST_ENTRY *)MiMakeTransitionHeatBatch(v54, 0LL, ((__int64)(v12 - v11) >> 3) + 1);
       if ( !TransitionHeatBatch )
       {
         v54 = v130;
@@ -845,7 +851,7 @@ LABEL_191:
       _InterlockedAnd64((volatile signed __int64 *)(v130 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       MiUnlockProtoPoolPage(v10, v123);
       v10 = 0LL;
-      if ( TransitionHeatBatch == (struct _SLIST_ENTRY *)-1LL )
+      if ( TransitionHeatBatch == (_SLIST_ENTRY *)-1LL )
       {
         MiReplenishTransitionPageHeatList();
       }
@@ -1049,10 +1055,10 @@ LABEL_151:
   v85 = v123;
   if ( v123 != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v119 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v119 <= 0xFu && v123 <= 0xFu && v119 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v119 <= 0xFu && v123 <= 0xFu && v119 >= 2u )
       {
         v120 = KeGetCurrentPrcb();
         v121 = v120->SchedulerAssist;

@@ -1,26 +1,26 @@
 /*
- * XREFs of DifNtCreateMailslotFileWrapper @ 0x140671D50
+ * XREFs of DifNtCreateMailslotFileWrapper @ 0x140675930
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtCreateMailslotFile @ 0x140B3BE60 (NtCreateMailslotFile.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtCreateMailslotFile @ 0x140B3E0E0 (NtCreateMailslotFile.c)
  */
 
 __int64 __fastcall DifNtCreateMailslotFileWrapper(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        int a6,
-        int a7,
-        void *Src)
+        HANDLE *a1,
+        ULONG a2,
+        OBJECT_ATTRIBUTES *a3,
+        struct _IO_STATUS_BLOCK *a4,
+        ULONG CreateOptions,
+        ULONG MailslotQuota,
+        ULONG MaximumMessageSize,
+        LARGE_INTEGER *ReadTimeout)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v12; // rdx
@@ -33,13 +33,13 @@ __int64 __fastcall DifNtCreateMailslotFileWrapper(
   BOOLEAN v19; // di
   __int128 *j; // rbx
   _QWORD v22[2]; // [rsp+48h] [rbp-39h] BYREF
-  int v23; // [rsp+58h] [rbp-29h]
-  int v24; // [rsp+5Ch] [rbp-25h]
-  int v25; // [rsp+60h] [rbp-21h]
-  __int64 v26; // [rsp+68h] [rbp-19h]
-  __int64 v27; // [rsp+70h] [rbp-11h]
-  int v28; // [rsp+78h] [rbp-9h]
-  __int64 v29; // [rsp+80h] [rbp-1h]
+  ULONG v23; // [rsp+58h] [rbp-29h]
+  ULONG v24; // [rsp+5Ch] [rbp-25h]
+  ULONG v25; // [rsp+60h] [rbp-21h]
+  struct _IO_STATUS_BLOCK *v26; // [rsp+68h] [rbp-19h]
+  OBJECT_ATTRIBUTES *v27; // [rsp+70h] [rbp-11h]
+  ULONG v28; // [rsp+78h] [rbp-9h]
+  HANDLE *v29; // [rsp+80h] [rbp-1h]
   unsigned int MailslotFile; // [rsp+88h] [rbp+7h]
   void *retaddr; // [rsp+C0h] [rbp+3Fh]
 
@@ -63,10 +63,10 @@ __int64 __fastcall DifNtCreateMailslotFileWrapper(
 LABEL_7:
   v16 = 0;
   v29 = a1;
-  v25 = a5;
-  v24 = a6;
-  v23 = a7;
-  v22[1] = Src;
+  v25 = CreateOptions;
+  v24 = MailslotQuota;
+  v23 = MaximumMessageSize;
+  v22[1] = ReadTimeout;
   v28 = a2;
   v27 = a3;
   v26 = a4;
@@ -82,7 +82,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  MailslotFile = NtCreateMailslotFile(a1, a2, a3, a4, a5, a6, a7, Src);
+  MailslotFile = NtCreateMailslotFile(a1, a2, a3, a4, CreateOptions, MailslotQuota, MaximumMessageSize, ReadTimeout);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

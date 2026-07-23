@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckLostBadPageNode @ 0x140673650
+ * XREFs of MiCheckLostBadPageNode @ 0x140674820
  * Callers:
- *     MiGetListOfPendingBadPages @ 0x140673AD0 (MiGetListOfPendingBadPages.c)
+ *     MiGetListOfPendingBadPages @ 0x140674CA0 (MiGetListOfPendingBadPages.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall MiCheckLostBadPageNode(unsigned __int64 a1)
@@ -27,11 +27,11 @@ char __fastcall MiCheckLostBadPageNode(unsigned __int64 a1)
   v4 = (_QWORD *)Pool;
   if ( !Pool )
     return Pool;
-  v5 = ExAcquireSpinLockExclusive(&dword_140E2FED0);
+  v5 = ExAcquireSpinLockExclusive(&dword_140E30010);
   if ( (*(_DWORD *)(a1 + 32) & 0x40000000) == 0 )
     goto LABEL_18;
-  v6 = (_QWORD *)qword_140E2FEC0;
-  if ( qword_140E2FEC0 )
+  v6 = (_QWORD *)qword_140E30000;
+  if ( qword_140E30000 )
   {
     do
     {
@@ -52,8 +52,8 @@ char __fastcall MiCheckLostBadPageNode(unsigned __int64 a1)
   }
   v4[3] = a1;
   v7 = 0;
-  v8 = (_QWORD *)qword_140E2FEC0;
-  if ( !qword_140E2FEC0 )
+  v8 = (_QWORD *)qword_140E30000;
+  if ( !qword_140E30000 )
     goto LABEL_17;
   while ( a1 < v8[3] )
   {
@@ -68,12 +68,12 @@ LABEL_15:
     goto LABEL_15;
   v7 = 1;
 LABEL_17:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E2FEC0, (unsigned __int64)v8, v7, v4);
-  v10 = qword_140E2FED8-- == 1;
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E30000, (unsigned __int64)v8, v7, v4);
+  v10 = qword_140E30018-- == 1;
   v4 = 0LL;
   v2 = v10;
 LABEL_18:
-  MiReleaseSpinLockExclusive(&dword_140E2FED0, v5);
+  MiReleaseSpinLockExclusive(&dword_140E30010, v5);
   if ( v4 )
     ExFreePoolWithTag(v4, 0);
   LOBYTE(Pool) = v2;

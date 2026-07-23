@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetupForInstrumentationReturn @ 0x140488168
+ * XREFs of KiSetupForInstrumentationReturn @ 0x140481CA8
  * Callers:
- *     KiDispatchException @ 0x1403D3400 (KiDispatchException.c)
- *     KiRaiseException @ 0x1403D3C10 (KiRaiseException.c)
- *     KiInitializeUserApc @ 0x140446248 (KiInitializeUserApc.c)
- *     KeRaiseUserException @ 0x140529EA0 (KeRaiseUserException.c)
+ *     KiDispatchException @ 0x1403D63D0 (KiDispatchException.c)
+ *     KiRaiseException @ 0x1403D6BE0 (KiRaiseException.c)
+ *     KiInitializeUserApc @ 0x14043ED48 (KiInitializeUserApc.c)
+ *     KeRaiseUserException @ 0x14052C3C0 (KeRaiseUserException.c)
  * Callees:
  *     <none>
  */

@@ -207,28 +207,27 @@
  *     <none>
  */
 
-signed __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   __int64 v2; // r8
   __int64 v3; // rdx
   signed __int64 v4; // rtt
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 1LL);
-  if ( result != 1 )
+  v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
+  if ( v1 != 1 )
   {
     do
     {
       v2 = -1LL;
-      if ( (result & 6) == 2 )
+      if ( (v1 & 6) == 2 )
         v2 = 3LL;
-      v3 = v2 + result;
-      v4 = result;
-      result = _InterlockedCompareExchange64(a1, v2 + result, result);
+      v3 = v2 + v1;
+      v4 = v1;
+      v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v2 + v1, v1);
     }
-    while ( v4 != result );
+    while ( v4 != v1 );
     if ( v2 == 3 )
-      return RtlpWakeSRWLock(a1, v3, 0LL);
+      RtlpWakeSRWLock(SRWLock, v3, 0LL);
   }
-  return result;
 }

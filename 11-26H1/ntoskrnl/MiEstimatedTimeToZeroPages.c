@@ -1,8 +1,8 @@
 /*
- * XREFs of MiEstimatedTimeToZeroPages @ 0x1402A5BF8
+ * XREFs of MiEstimatedTimeToZeroPages @ 0x14048A0E0
  * Callers:
- *     MiPeriodicZeroingNeeded @ 0x1402A64FC (MiPeriodicZeroingNeeded.c)
- *     MiImmediateZeroingNeeded @ 0x1402DEC2C (MiImmediateZeroingNeeded.c)
+ *     MiPeriodicZeroingNeeded @ 0x1402A58F4 (MiPeriodicZeroingNeeded.c)
+ *     MiImmediateZeroingNeeded @ 0x1402C09EC (MiImmediateZeroingNeeded.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall MiEstimatedTimeToZeroPages(__int64 a1, __int64 a2)
   if ( !a2 )
     return 0LL;
   v3 = *(_QWORD *)(384LL * (unsigned int)(((int)a1 - *(_DWORD *)(*(_QWORD *)(a1 + 13896) + 16LL)) / 56320)
-                 + qword_140E2D6B8
+                 + qword_140E2D838
                  + 376);
   if ( !v3 )
     goto LABEL_6;

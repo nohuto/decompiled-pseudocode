@@ -44,7 +44,7 @@ __int64 __fastcall MiMarkSystemVaAllocated(int a1, __int64 a2, __int64 a3, int a
   unsigned int SessionId; // edx
   unsigned __int8 v24; // r15
   unsigned int v25; // r8d
-  unsigned __int64 v26; // rdi
+  __int64 v26; // rdi
   __int64 v27; // rcx
   __int64 v28; // rdx
   __int64 v29; // rcx
@@ -178,7 +178,7 @@ LABEL_33:
       v19 = !_BitScanReverse((unsigned int *)&v27, v25);
       if ( v19 )
         goto LABEL_46;
-      v26 = (unsigned __int64)&v22->LockEntries[v27];
+      v26 = (__int64)&v22->LockEntries[v27];
       v25 &= ~(1 << v27);
       if ( (*(_BYTE *)(v26 + 26) & 1) != 0
         && (*(_DWORD *)(v26 + 32) & 1) == 0
@@ -199,12 +199,12 @@ LABEL_46:
     }
     *(_BYTE *)(v26 + 32) |= 2u;
     if ( *(__int64 *)(v26 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v26);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
     v36 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
     *(_DWORD *)(v26 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v26 + 25) &= ~1u;
     *(_QWORD *)(v26 + 32) = 0LL;
-    v28 = (__int64)(v26 - (unsigned __int64)v22->LockEntries) / 96;
+    v28 = (signed __int64)(v26 - (unsigned __int64)v22->LockEntries) / 96;
     if ( v24 == 1 )
       v22->AbEntrySummary |= 1 << v28;
     else

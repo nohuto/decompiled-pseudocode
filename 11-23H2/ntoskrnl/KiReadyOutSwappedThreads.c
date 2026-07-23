@@ -1,29 +1,29 @@
 /*
- * XREFs of KiReadyOutSwappedThreads @ 0x14034D1F4
+ * XREFs of KiReadyOutSwappedThreads @ 0x14034D394
  * Callers:
- *     KiOutSwapProcesses @ 0x14034CD80 (KiOutSwapProcesses.c)
- *     KiInSwapProcesses @ 0x14034D08C (KiInSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x14034CF20 (KiOutSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x14034D22C (KiInSwapProcesses.c)
  * Callees:
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
- *     KiReadyDeferredReadyList @ 0x140249C90 (KiReadyDeferredReadyList.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiEnterDeferredReadyState @ 0x1402B9190 (KiEnterDeferredReadyState.c)
- *     KiAbPropagateBoosts @ 0x1402BBED0 (KiAbPropagateBoosts.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     KiInswapAndReadyThread @ 0x14034DA3C (KiInswapAndReadyThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSwapContext @ 0x1404282E0 (KiSwapContext.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwTraceReadyThread @ 0x14046745A (EtwTraceReadyThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
+ *     KiReadyDeferredReadyList @ 0x140249D60 (KiReadyDeferredReadyList.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiEnterDeferredReadyState @ 0x1402B9420 (KiEnterDeferredReadyState.c)
+ *     KiAbPropagateBoosts @ 0x1402BC160 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     KiInswapAndReadyThread @ 0x14034DBDC (KiInswapAndReadyThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapContext @ 0x140428670 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwTraceReadyThread @ 0x14046785A (EtwTraceReadyThread.c)
  */
 
 void __fastcall KiReadyOutSwappedThreads(_QWORD *a1, unsigned __int8 a2)
@@ -57,7 +57,7 @@ void __fastcall KiReadyOutSwappedThreads(_QWORD *a1, unsigned __int8 a2)
   struct _KPRCB *v29; // r10
   _DWORD *v30; // r9
   int v31; // eax
-  void (__fastcall *v32)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *); // rax
+  void (__fastcall *v32)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *); // rax
   __int16 v33; // r15
   unsigned int *v34; // rbx
   unsigned __int64 v35; // rdi
@@ -70,7 +70,7 @@ void __fastcall KiReadyOutSwappedThreads(_QWORD *a1, unsigned __int8 a2)
   __int64 (__fastcall *v42)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   int v43; // eax
   _DWORD v44[2]; // [rsp+40h] [rbp-328h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
   int v46; // [rsp+4Ch] [rbp-31Ch]
   __int128 v47; // [rsp+50h] [rbp-318h] BYREF
   int v48; // [rsp+60h] [rbp-308h]
@@ -191,10 +191,10 @@ void __fastcall KiReadyOutSwappedThreads(_QWORD *a1, unsigned __int8 a2)
     }
     if ( !v24 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
         {
           v26 = KeGetCurrentPrcb();
           v27 = v26->SchedulerAssist;
@@ -208,10 +208,10 @@ void __fastcall KiReadyOutSwappedThreads(_QWORD *a1, unsigned __int8 a2)
       *(_DWORD *)(v10 + 116) &= ~0x40u;
       KiDeliverApc(0, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v28 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v28 - 2) <= 0xDu )
       {
         v29 = KeGetCurrentPrcb();
         v30 = v29->SchedulerAssist;
@@ -237,12 +237,11 @@ void __fastcall KiReadyOutSwappedThreads(_QWORD *a1, unsigned __int8 a2)
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v62 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v46 = 1;
     v44[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v44[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v32 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                             + 120);
+    v32 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     _disable();
     v32(*(_QWORD *)(HalpInterruptController + 16), v44, &v62, (unsigned int)(v46 + 46), &ProcNumber);
     if ( (v67 & 0x200) != 0 )

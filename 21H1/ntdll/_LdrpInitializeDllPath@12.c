@@ -19,8 +19,10 @@ void *__fastcall LdrpInitializeDllPath(int a1, int a2, int *a3)
 {
   void *result; // eax
   bool v6; // zf
+  size_t v7; // [esp-4h] [ebp-10h]
 
-  result = memset(a3, 0, 0x50u);
+  LODWORD(v7) = 80;
+  result = memset(a3, 0, v7);
   if ( (a2 & 1) != 0 || !a2 )
   {
     a3[4] = a1;

@@ -1,14 +1,14 @@
 /*
- * XREFs of Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline @ 0x1404690D0
+ * XREFs of Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline @ 0x1404626A0
  * Callers:
- *     NtQueryValueKey @ 0x1408F2A10 (NtQueryValueKey.c)
- *     NtCreateKeyTransacted @ 0x140974390 (NtCreateKeyTransacted.c)
- *     NtOpenKey @ 0x140974540 (NtOpenKey.c)
- *     NtOpenKeyEx @ 0x140974620 (NtOpenKeyEx.c)
- *     NtEnumerateKey @ 0x140A5B7C0 (NtEnumerateKey.c)
- *     NtCreateKey @ 0x140A82AB0 (NtCreateKey.c)
+ *     NtQueryValueKey @ 0x1408F8FD0 (NtQueryValueKey.c)
+ *     NtCreateKeyTransacted @ 0x1409363A0 (NtCreateKeyTransacted.c)
+ *     NtOpenKey @ 0x140936550 (NtOpenKey.c)
+ *     NtOpenKeyEx @ 0x140936630 (NtOpenKeyEx.c)
+ *     NtEnumerateKey @ 0x140A68780 (NtEnumerateKey.c)
+ *     NtCreateKey @ 0x140A88920 (NtCreateKey.c)
  * Callees:
- *     Feature_RegistryStackExpand__private_IsEnabledFallback @ 0x140532E58 (Feature_RegistryStackExpand__private_IsEnabledFallback.c)
+ *     Feature_RegistryStackExpand__private_IsEnabledFallback @ 0x1405352F4 (Feature_RegistryStackExpand__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline()

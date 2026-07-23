@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgQueryIncludedDriverNode @ 0x14095F208
+ * XREFs of PiDevCfgQueryIncludedDriverNode @ 0x14095F408
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1408797E4 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140879A24 (PiDevCfgQueryIncludedDriverConfigurations.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1403CDE80 (PnpDuplicateUnicodeString.c)
- *     PnpValidateRegistryMultiSz @ 0x1403CE7D4 (PnpValidateRegistryMultiSz.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     PiDevCfgGetDriverConfigurationKeyScope @ 0x140561DC8 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     PnpDuplicateUnicodeString @ 0x1403CE060 (PnpDuplicateUnicodeString.c)
+ *     PnpValidateRegistryMultiSz @ 0x1403CE9B4 (PnpValidateRegistryMultiSz.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x140562488 (PiDevCfgGetDriverConfigurationKeyScope.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     _PnpOpenObjectRegKey @ 0x1406CF960 (_PnpOpenObjectRegKey.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     PiDevCfgFreeDriverNode @ 0x140879210 (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgGetDriverPackageId @ 0x14087DF10 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgOpenDriverConfiguration @ 0x14087DFE8 (PiDevCfgOpenDriverConfiguration.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CF990 (_PnpOpenObjectRegKey.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     PiDevCfgFreeDriverNode @ 0x140879450 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgGetDriverPackageId @ 0x14087E150 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgOpenDriverConfiguration @ 0x14087E228 (PiDevCfgOpenDriverConfiguration.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

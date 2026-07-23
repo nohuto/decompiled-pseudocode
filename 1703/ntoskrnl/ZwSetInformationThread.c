@@ -12,7 +12,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationThread(
         HANDLE ThreadHandle,
         THREADINFOCLASS ThreadInformationClass,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwSetInformationThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, *(_QWORD *)&ThreadInformationClass, ThreadInformation);
+  return KiServiceInternal(ThreadHandle);
 }

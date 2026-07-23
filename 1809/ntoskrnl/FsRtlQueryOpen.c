@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlQueryOpen @ 0x140814EBC
+ * XREFs of FsRtlQueryOpen @ 0x1408160BC
  * Callers:
- *     IopQueryInformation @ 0x140697F10 (IopQueryInformation.c)
+ *     IopQueryInformation @ 0x1406990D0 (IopQueryInformation.c)
  * Callees:
  *     FsFilterCtrlFree @ 0x14001C628 (FsFilterCtrlFree.c)
  *     FsFilterPerformCompletionCallbacks @ 0x14001C650 (FsFilterPerformCompletionCallbacks.c)
  *     FsFilterPerformCallbacks @ 0x14001C6E0 (FsFilterPerformCallbacks.c)
  *     FsFilterCtrlInit @ 0x14001C9B0 (FsFilterCtrlInit.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     IoGetAttachedDevice @ 0x1400B9250 (IoGetAttachedDevice.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IoGetAttachedDevice @ 0x1400B9190 (IoGetAttachedDevice.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FsRtlQueryOpen(struct _DEVICE_OBJECT *a1, __int64 a2, __int64 a3, __int64 a4, int a5)

@@ -1,63 +1,73 @@
 /*
- * XREFs of NtReplyWaitReceivePortEx @ 0x1405EAA60
+ * XREFs of NtReplyWaitReceivePortEx @ 0x1406DA1C0
  * Callers:
- *     NtReplyWaitReceivePort @ 0x1405EABC0 (NtReplyWaitReceivePort.c)
- *     NtListenPort @ 0x1407D4280 (NtListenPort.c)
+ *     NtReplyWaitReceivePort @ 0x1406DA320 (NtReplyWaitReceivePort.c)
+ *     NtListenPort @ 0x1407D43F0 (NtListenPort.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     AlpcpReceiveLegacyMessage @ 0x1405EA7A0 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpCompleteDeferSignalRequest @ 0x1405EABDC (AlpcpCompleteDeferSignalRequest.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x1405EAC18 (AlpcpProbeForWriteMessageHeader.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1406D133C (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x1406D9F00 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x1406DA33C (AlpcpCompleteDeferSignalRequest.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x1406DA378 (AlpcpProbeForWriteMessageHeader.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, _QWORD *a2, __m256i *a3, unsigned __int64 a4, __int64 *a5)
+NTSTATUS __cdecl NtReplyWaitReceivePortEx(
+        HANDLE PortHandle,
+        PVOID *PortContext,
+        PPORT_MESSAGE ReplyMessage,
+        PPORT_MESSAGE ReceiveMessage,
+        PLARGE_INTEGER Timeout)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r14
-  int v11; // ebx
-  struct _DMA_ADAPTER *v12; // rdi
-  int v14; // eax
+  __int64 v11; // rdx
+  NTSTATUS v12; // ebx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  struct _DMA_ADAPTER *v15; // rdi
+  int v17; // eax
   PVOID Object; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v16[8]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v19[8]; // [rsp+40h] [rbp-58h] BYREF
 
-  memset(v16, 0, sizeof(v16));
+  memset(v19, 0, sizeof(v19));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
-    AlpcpProbeForWriteMessageHeader(a4, 0LL);
+    AlpcpProbeForWriteMessageHeader(ReceiveMessage, 0LL);
   Object = 0LL;
-  v11 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
-  if ( v11 >= 0 )
+  v12 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  if ( v12 >= 0 )
   {
-    v12 = (struct _DMA_ADAPTER *)Object;
-    v16[0] = (__int64)Object;
-    LODWORD(v16[6]) = 0;
-    if ( a3
+    v15 = (struct _DMA_ADAPTER *)Object;
+    v19[0] = (__int64)Object;
+    LODWORD(v19[6]) = 0;
+    if ( ReplyMessage
       && ((*((_DWORD *)Object + 104) & 0x2000) == 0
-        ? (LODWORD(v16[6]) = 65541, memset(&v16[3], 0, 24), v14 = AlpcpSendMessage((__int64)v16, a3, 0LL, PreviousMode))
-        : (LODWORD(v16[6]) = 4,
-           memset(&v16[3], 0, 24),
-           v14 = AlpcpReplyLegacySynchronousRequest(v16, (unsigned __int64)a3, PreviousMode)),
-          v11 = v14,
-          v14 < 0) )
+        ? (LODWORD(v19[6]) = 65541,
+           memset(&v19[3], 0, 24),
+           v17 = AlpcpSendMessage((__int64)v19, (__m256i *)ReplyMessage, 0LL, PreviousMode))
+        : (LODWORD(v19[6]) = 4,
+           memset(&v19[3], 0, 24),
+           v17 = AlpcpReplyLegacySynchronousRequest(v19, (unsigned __int64)ReplyMessage, PreviousMode)),
+          v12 = v17,
+          v17 < 0) )
     {
-      HalPutDmaAdapter(v12);
-      if ( v11 == -1073740029 )
-        v11 = -1073741769;
+      HalPutDmaAdapter(v15);
+      if ( v12 == -1073740029 )
+        v12 = -1073741769;
     }
     else
     {
-      v11 = AlpcpReceiveLegacyMessage(v16, a4, a5, a2);
-      AlpcpCompleteDeferSignalRequest(v16);
-      HalPutDmaAdapter(v12);
+      v12 = AlpcpReceiveLegacyMessage(v19, (unsigned __int64)ReceiveMessage, Timeout, PortContext);
+      AlpcpCompleteDeferSignalRequest(v19);
+      HalPutDmaAdapter(v15);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v11;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v13, v14);
+  return v12;
 }

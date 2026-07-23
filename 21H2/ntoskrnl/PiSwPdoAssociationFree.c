@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwPdoAssociationFree @ 0x140732DDC
+ * XREFs of PiSwPdoAssociationFree @ 0x140732F9C
  * Callers:
- *     PiSwRemovePdoAssociation @ 0x140732D6C (PiSwRemovePdoAssociation.c)
- *     PiSwDeviceFree @ 0x140733F90 (PiSwDeviceFree.c)
+ *     PiSwRemovePdoAssociation @ 0x140732F2C (PiSwRemovePdoAssociation.c)
+ *     PiSwDeviceFree @ 0x140734150 (PiSwDeviceFree.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwPdoAssociationFree(PADAPTER_OBJECT *P)

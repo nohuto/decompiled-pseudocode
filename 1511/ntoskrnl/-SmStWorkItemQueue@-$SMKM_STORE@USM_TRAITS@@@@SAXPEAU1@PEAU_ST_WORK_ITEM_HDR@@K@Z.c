@@ -43,7 +43,7 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue(__int64 a1, __int64 a2,
   v4 = *(_DWORD *)a2 & 7;
   if ( v4 == 2 && (*(_BYTE *)(a1 + 4485) & 4) != 0 )
   {
-    if ( !(unsigned int)SMKM_STORE<SM_TRAITS>::SmStDirectRead((union _SLIST_HEADER *)a1, (__int128 *)a2) )
+    if ( !(unsigned int)SMKM_STORE<SM_TRAITS>::SmStDirectRead((_SLIST_HEADER *)a1, (__int128 *)a2) )
     {
       v18 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 5008));
       *(_QWORD *)a2 = *(_DWORD *)a2 & 7 | ((**(_QWORD **)(a1 + 5000) & 0xFFFFFFFFFFFFFFF8uLL) + 8);

@@ -1,90 +1,85 @@
 /*
- * XREFs of AVrfpParseVerifierDllsString @ 0x18011535C
+ * XREFs of AVrfpParseVerifierDllsString @ 0x180114B3C
  * Callers:
- *     AVrfInitializeVerifier @ 0x1801163F0 (AVrfInitializeVerifier.c)
+ *     AVrfInitializeVerifier @ 0x180115BD0 (AVrfInitializeVerifier.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 AVrfpParseVerifierDllsString()
 {
-  void *Heap_0; // rax
-  __int64 v1; // rbx
-  __int64 *v2; // rax
-  bool v3; // zf
+  void *ProcessHeap; // rbp
+  PVOID Heap_0; // rax
+  __int64 v2; // rbx
+  __int64 *v3; // rax
+  bool v4; // zf
   wchar_t *i; // rbx
-  wchar_t v5; // ax
   wchar_t v6; // ax
-  const WCHAR *v7; // rsi
-  void *v8; // rax
-  __int64 v9; // rdi
-  __int64 *v10; // rax
+  wchar_t v7; // ax
+  const WCHAR *v8; // rsi
+  PVOID v9; // rax
+  __int64 v10; // rdi
+  __int64 *v11; // rax
 
-  Heap_0 = (void *)RtlAllocateHeap_0();
-  v1 = (__int64)Heap_0;
+  ProcessHeap = NtCurrentPeb()->ProcessHeap;
+  Heap_0 = RtlAllocateHeap_0(ProcessHeap, 0, 0x48uLL);
+  v2 = (__int64)Heap_0;
   if ( !Heap_0 )
     return 3221225495LL;
   memset_thunk_772440563353939046(Heap_0, 0, 0x48uLL);
-  *(_OWORD *)(v1 + 16) = VerifierDllString;
-  v2 = (__int64 *)qword_1801CD4F8;
-  if ( *(__int64 **)qword_1801CD4F8 != &AVrfpVerifierProvidersList )
+  *(UNICODE_STRING *)(v2 + 16) = VerifierDllString;
+  v3 = (__int64 *)qword_1801CC538;
+  if ( *(__int64 **)qword_1801CC538 != &AVrfpVerifierProvidersList )
 LABEL_20:
     __fastfail(3u);
-  v3 = UseWOW64 == 0;
-  *(_QWORD *)v1 = &AVrfpVerifierProvidersList;
-  *(_QWORD *)(v1 + 8) = v2;
-  *v2 = v1;
-  qword_1801CD4F8 = v1;
-  if ( v3 )
+  v4 = UseWOW64 == 0;
+  *(_QWORD *)v2 = &AVrfpVerifierProvidersList;
+  *(_QWORD *)(v2 + 8) = v3;
+  *v3 = v2;
+  qword_1801CC538 = v2;
+  if ( v4 )
   {
     for ( i = &AVrfpVerifierDllsString; ; ++i )
     {
-      v5 = *i;
+      v6 = *i;
       if ( !*i )
         break;
-      while ( 1 )
-      {
-        if ( v5 != 32 )
-        {
-          v6 = *i;
-          if ( *i != 9 )
-            break;
-        }
-        v5 = *++i;
-      }
-      v7 = i;
-      if ( !v6 )
+      while ( v6 == 32 || v6 == 9 )
+        v6 = *++i;
+      v7 = *i;
+      v8 = i;
+      if ( !*i )
         break;
       do
       {
-        if ( v6 == 32 )
+        if ( v7 == 32 )
           break;
-        if ( v6 == 9 )
+        if ( v7 == 9 )
           break;
-        v6 = *++i;
+        v7 = *++i;
       }
       while ( *i );
-      if ( v7 == i )
+      if ( v8 == i )
         break;
       *i = 0;
-      if ( wcsicmp(v7, L"verifier.dll") )
+      if ( wcsicmp(v8, L"verifier.dll") )
       {
-        v8 = (void *)RtlAllocateHeap_0();
-        v9 = (__int64)v8;
-        if ( !v8 )
+        v9 = RtlAllocateHeap_0(ProcessHeap, 0, 0x48uLL);
+        v10 = (__int64)v9;
+        if ( !v9 )
           return 3221225495LL;
-        memset_thunk_772440563353939046(v8, 0, 0x48uLL);
-        RtlInitUnicodeString((PUNICODE_STRING)(v9 + 16), v7);
-        v10 = (__int64 *)qword_1801CD4F8;
-        if ( *(__int64 **)qword_1801CD4F8 != &AVrfpVerifierProvidersList )
+        memset_thunk_772440563353939046(v9, 0, 0x48uLL);
+        RtlInitUnicodeString((PUNICODE_STRING)(v10 + 16), v8);
+        v11 = (__int64 *)qword_1801CC538;
+        if ( *(__int64 **)qword_1801CC538 != &AVrfpVerifierProvidersList )
           goto LABEL_20;
-        *(_QWORD *)v9 = &AVrfpVerifierProvidersList;
-        *(_QWORD *)(v9 + 8) = v10;
-        *v10 = v9;
-        qword_1801CD4F8 = v9;
+        *(_QWORD *)v10 = &AVrfpVerifierProvidersList;
+        *(_QWORD *)(v10 + 8) = v11;
+        *v11 = v10;
+        qword_1801CC538 = v10;
       }
     }
   }

@@ -13,10 +13,10 @@
 
 __int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, _DWORD *a2)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   PVOID PoolWithTag; // rax
   void *v6; // rdi
-  int v7; // eax
+  NTSTATUS v7; // eax
   SIZE_T NumberOfBytes; // [rsp+50h] [rbp+18h] BYREF
   __int64 v10; // [rsp+58h] [rbp+20h] BYREF
 
@@ -30,7 +30,7 @@ __int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, _DWORD *a2)
     LODWORD(NumberOfBytes) = PoolWithTag != 0LL ? NumberOfBytes : 0;
     while ( 1 )
     {
-      v7 = ZwEnumerateBootEntries((__int64)PoolWithTag, (__int64)&NumberOfBytes);
+      v7 = ZwEnumerateBootEntries(PoolWithTag, (PULONG)&NumberOfBytes);
       v4 = v7;
       if ( v7 != -1073741789 )
         break;

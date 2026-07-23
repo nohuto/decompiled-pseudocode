@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReadFromMemoryPagefile @ 0x1405030C8
+ * XREFs of MiReadFromMemoryPagefile @ 0x1404FC998
  * Callers:
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
- *     MiReadPagefilePage @ 0x1406E4AA0 (MiReadPagefilePage.c)
- *     MiPfExecuteReadList @ 0x140A51868 (MiPfExecuteReadList.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
+ *     MiReadPagefilePage @ 0x1406E9750 (MiReadPagefilePage.c)
+ *     MiPfExecuteReadList @ 0x140A5AB58 (MiPfExecuteReadList.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiTransferMemoryPagefileData @ 0x140503118 (MiTransferMemoryPagefileData.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiTransferMemoryPagefileData @ 0x1404FC9E8 (MiTransferMemoryPagefileData.c)
  */
 
 LONG __fastcall MiReadFromMemoryPagefile(__int64 a1, __int64 a2)

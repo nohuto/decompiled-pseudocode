@@ -1,20 +1,20 @@
 /*
  * XREFs of MiSoftFaultMappedView @ 0x140217E90
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
  * Callees:
  *     MiLockLeafPage @ 0x140218410 (MiLockLeafPage.c)
  *     MiImagePageOk @ 0x14021858C (MiImagePageOk.c)
- *     MiMakeSystemAddressValid @ 0x140277430 (MiMakeSystemAddressValid.c)
- *     MiVadMapsLargeImage @ 0x14027CF40 (MiVadMapsLargeImage.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiCompleteRestrictedImageFault @ 0x1402E2E50 (MiCompleteRestrictedImageFault.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiUnlockFaultWorkingSet @ 0x140362444 (MiUnlockFaultWorkingSet.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiMakeSystemAddressValid @ 0x1402776C0 (MiMakeSystemAddressValid.c)
+ *     MiVadMapsLargeImage @ 0x14027D1D0 (MiVadMapsLargeImage.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     MiCompleteRestrictedImageFault @ 0x1402E30E0 (MiCompleteRestrictedImageFault.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiUnlockFaultWorkingSet @ 0x1403625E4 (MiUnlockFaultWorkingSet.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiSoftFaultMappedView(__int64 a1)

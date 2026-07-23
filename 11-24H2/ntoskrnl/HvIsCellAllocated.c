@@ -1,20 +1,20 @@
 /*
- * XREFs of HvIsCellAllocated @ 0x140875570
+ * XREFs of HvIsCellAllocated @ 0x1408798A0
  * Callers:
- *     CmpCheckKey @ 0x14088506C (CmpCheckKey.c)
- *     CmpCheckValueList @ 0x140887180 (CmpCheckValueList.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x1409A0BDC (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCheckLeaf @ 0x140AE363C (CmpCheckLeaf.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1408328B8 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckKey @ 0x140888F1C (CmpCheckKey.c)
+ *     CmpCheckValueList @ 0x14088B030 (CmpCheckValueList.c)
+ *     CmpCheckLeaf @ 0x140AE4F1C (CmpCheckLeaf.c)
  * Callees:
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     HvpGetCellMap @ 0x140BB9710 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140BB9770 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140BB98D0 (HvpGetBinContextInitialize.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     HvpGetCellMap @ 0x140BBB710 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140BBB770 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140BBB8D0 (HvpGetBinContextInitialize.c)
  */
 
 char __fastcall HvIsCellAllocated(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
@@ -22,7 +22,7 @@ char __fastcall HvIsCellAllocated(ULONG_PTR BugCheckParameter3, ULONG_PTR BugChe
   unsigned int v3; // edi
   unsigned int v4; // edx
   __int64 v5; // r8
-  RTL_BITMAP *v6; // r9
+  _RTL_BITMAP *v6; // r9
   unsigned int v7; // edx
   __int64 CellMap; // rax
   __int64 v9; // rsi

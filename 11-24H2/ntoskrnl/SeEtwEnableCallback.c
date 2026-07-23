@@ -1,7 +1,7 @@
 /*
- * XREFs of SeEtwEnableCallback @ 0x140608964
+ * XREFs of SeEtwEnableCallback @ 0x1406060B8
  * Callers:
- *     EtwpKernelProvEnableCallback @ 0x1407A8450 (EtwpKernelProvEnableCallback.c)
+ *     EtwpKernelProvEnableCallback @ 0x1407A8590 (EtwpKernelProvEnableCallback.c)
  * Callees:
  *     <none>
  */

@@ -14,125 +14,122 @@
  *     _ResUnmapViewOfFile @ 0x180110624 (_ResUnmapViewOfFile.c)
  */
 
-unsigned __int64 __fastcall ResCCreateMappingExclusive(
-        __int64 a1,
+void *__fastcall ResCCreateMappingExclusive(
+        const WCHAR *a1,
         const WCHAR *a2,
         __int64 a3,
         char a4,
-        __int64 a5,
+        ULONG_PTR a5,
         __int64 *a6,
         _QWORD *a7)
 {
   _QWORD *v7; // r15
   int v10; // edx
-  __int64 v11; // r8
-  __int64 *v12; // r14
-  int v13; // esi
-  int v14; // r13d
+  __int64 *v11; // r14
+  int v12; // esi
+  int v13; // r13d
   __int64 File; // rax
-  char *v16; // rdi
-  __int64 v17; // r8
-  unsigned int v18; // ebp
-  unsigned int v19; // esi
-  __int64 v20; // rax
-  int v21; // r8d
-  int v22; // r9d
-  __int64 v23; // rbx
-  __int64 v24; // rsi
+  char *v15; // rdi
+  __int64 v16; // r8
+  ULONG v17; // ebp
+  unsigned int v18; // esi
+  __int64 v19; // rax
+  int v20; // r8d
+  int v21; // r9d
+  __int64 v22; // rbx
+  void *v23; // rax
+  void *v24; // rsi
   __int64 SecureFileMapping; // rax
   int v26; // r8d
   int v27; // r9d
-  unsigned __int64 result; // rax
+  void *result; // rax
   int v29; // [rsp+80h] [rbp+18h]
 
   v7 = a7;
   a5 = 0LL;
   v10 = a4 & 1;
-  v11 = 3LL;
   v29 = 2 * !(a4 & 1) + 2;
-  if ( (a4 & 4) != 0 )
-  {
-    if ( !a7 )
-    {
-LABEL_9:
-      RtlSetLastWin32Error(0x57u);
-      return 0LL;
-    }
-    v11 = 0LL;
-  }
-  v12 = a6;
+  if ( (a4 & 4) != 0 && !a7 )
+    goto LABEL_8;
+  v11 = a6;
   if ( a6 )
     *a6 = 0LL;
-  v13 = 2 * v10;
-  v14 = (2 * v10 + 1) | 8;
+  v12 = 2 * v10;
+  v13 = (2 * v10 + 1) | 8;
   if ( !a2 )
-    v14 = 2 * v10 + 1;
+    v13 = 2 * v10 + 1;
   if ( !a1 )
-    goto LABEL_9;
-  File = ResCreateFile(a1, (unsigned int)((v10 + 2) << 30), v11);
-  v16 = (char *)File;
+  {
+LABEL_8:
+    RtlSetLastWin32Error(87);
+    return 0LL;
+  }
+  File = ResCreateFile(a1);
+  v15 = (char *)File;
   if ( File == -1 || !(unsigned int)ResGetFileSizeEx(File, &a5) )
     goto LABEL_37;
   if ( HIDWORD(a5) )
   {
-    RtlSetLastWin32Error(0x20010600u);
+    RtlSetLastWin32Error(536937984);
     goto LABEL_37;
   }
-  v18 = a5;
+  v17 = a5;
   if ( (a4 & 2) == 0 )
   {
-    SecureFileMapping = CreateSecureFileMapping((int)v16, v13 + 2, v17, 0, a2);
-    v23 = SecureFileMapping;
+    SecureFileMapping = CreateSecureFileMapping(v15, (unsigned int)(v12 + 2), v16, 0, a2);
+    v22 = SecureFileMapping;
     if ( SecureFileMapping )
     {
-      if ( SecureFileMapping == -1 || (v24 = ResMapViewOfFile(SecureFileMapping, v29, v26, v27, 0LL)) == 0 )
+      if ( SecureFileMapping == -1 || (v24 = (void *)ResMapViewOfFile(SecureFileMapping, v29, v26, v27, 0LL)) == 0LL )
       {
 LABEL_35:
-        if ( (unsigned __int64)(v23 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-          ResCloseHandle(v23);
+        if ( (unsigned __int64)(v22 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+          ResCloseHandle(v22);
         goto LABEL_37;
       }
-      goto LABEL_26;
+      goto LABEL_25;
     }
 LABEL_37:
-    if ( (unsigned __int64)(v16 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-      ResCloseHandle(v16);
+    if ( (unsigned __int64)(v15 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+      ResCloseHandle(v15);
     return 0LL;
   }
-  v19 = 0;
+  v18 = 0;
   if ( (_DWORD)a5 )
-    v19 = a5;
-  v20 = CreateSecureFileMapping(-1, 4, v17, v19, a2);
-  v23 = v20;
-  if ( !v20 )
+    v18 = a5;
+  v19 = CreateSecureFileMapping((HANDLE)0xFFFFFFFFFFFFFFFFLL, 4LL, v16, v18, a2);
+  v22 = v19;
+  if ( !v19 )
     goto LABEL_37;
-  if ( v20 == -1 )
+  if ( v19 == -1 )
     goto LABEL_35;
-  v24 = ResMapViewOfFile(v20, 2, v21, v22, v19);
-  if ( !v24 )
+  v23 = (void *)ResMapViewOfFile(v19, 2, v20, v21, v18);
+  v24 = v23;
+  if ( !v23 )
     goto LABEL_35;
-  if ( !(unsigned int)ResReadFile(v16) || v29 != v18 )
-    goto LABEL_34;
-LABEL_26:
-  if ( v12 && a2 )
+  if ( !(unsigned int)ResReadFile(v15, v23, v17) || v29 != v17 )
+    goto LABEL_33;
+LABEL_25:
+  if ( v11 && a2 )
   {
-    *v12 = v23;
+    *v11 = v22;
   }
   else
   {
-    ResCloseHandle(v23);
-    v23 = 0LL;
+    ResCloseHandle(v22);
+    v22 = 0LL;
   }
   if ( v7 )
-    *v7 = v16;
+    *v7 = v15;
   else
-    ResCloseHandle(v16);
-  v16 = 0LL;
-  result = ResCSegmentCreateAndPopulate(v24, v18, v14);
+    ResCloseHandle(v15);
+  v15 = 0LL;
+  result = ResCSegmentCreateAndPopulate((__int64)v24, v17, v13);
   if ( !result )
   {
-LABEL_34:
-    ResUnmapViewOfFile(v24);
+LABEL_33:
+    if ( v24 )
+      ResUnmapViewOfFile(v24);
     goto LABEL_35;
   }
   return result;

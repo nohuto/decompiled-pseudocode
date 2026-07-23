@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmOpenDevicePanelRegKey @ 0x14081D8A0
+ * XREFs of _CmOpenDevicePanelRegKey @ 0x14081DFE0
  * Callers:
- *     _CmCreateDevicePanelWorker @ 0x14081C920 (_CmCreateDevicePanelWorker.c)
- *     _PnpDispatchDevicePanel @ 0x14081FF10 (_PnpDispatchDevicePanel.c)
+ *     _CmCreateDevicePanelWorker @ 0x14081D060 (_CmCreateDevicePanelWorker.c)
+ *     _PnpDispatchDevicePanel @ 0x140820650 (_PnpDispatchDevicePanel.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmOpenDevicePanelRegKeyWorker @ 0x140A815F8 (_CmOpenDevicePanelRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmOpenDevicePanelRegKeyWorker @ 0x140A7C058 (_CmOpenDevicePanelRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenDevicePanelRegKey(
@@ -42,7 +42,7 @@ __int64 __fastcall CmOpenDevicePanelRegKey(
   v21 = a7;
   if ( v10 )
   {
-    v11 = guard_dispatch_icall_no_overrides(a1, a2, 6LL, 11LL);
+    v11 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v11 == -1073741822 )
     {
       v10 = 0LL;
@@ -60,7 +60,7 @@ __int64 __fastcall CmOpenDevicePanelRegKey(
   if ( v10 )
   {
     v16[0] = v12;
-    v14 = guard_dispatch_icall_no_overrides(a1, a2, 6LL, 11LL);
+    v14 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v14 != -1073741822 )
     {
       if ( v14 != -1073741536 )

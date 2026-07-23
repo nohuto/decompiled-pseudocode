@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPartitionTransferAllocateFinish @ 0x14087C7EC
+ * XREFs of MiPartitionTransferAllocateFinish @ 0x140882BEC
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x140B60228 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140B632C4 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiFreePartitionTree @ 0x140708D7C (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x14087C1C4 (MiInsertPartitionPages.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x14087CD4C (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiFreePartitionTree @ 0x14070DA30 (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x1408825C4 (MiInsertPartitionPages.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x14088314C (MiUpdatePartitionLargePfnBitMap.c)
  */
 
 __int64 __fastcall MiPartitionTransferAllocateFinish(__int64 a1, int a2)

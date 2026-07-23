@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_SuppressNotificationsNoBattery__private_IsEnabledFallback @ 0x14060C77C
+ * XREFs of Feature_SuppressNotificationsNoBattery__private_IsEnabledFallback @ 0x14060F8DC
  * Callers:
- *     Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline @ 0x14060C740 (Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline @ 0x14060F8A0 (Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_SuppressNotificationsNoBattery__private_IsEnabledFallback(__int64 a1, unsigned int a2)

@@ -21,19 +21,19 @@
  *     BiLogMessage @ 0x140A26990 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdCloseStore(__int64 a1)
+NTSTATUS __cdecl BcdCloseStore(HANDLE BcdStoreHandle)
 {
   char IsOfflineHandle; // si
-  int v3; // eax
+  NTSTATUS v3; // eax
   __int64 v4; // rdx
   __int64 v5; // r8
   unsigned int v6; // r8d
-  unsigned int v7; // ebx
-  unsigned int v9; // r8d
+  NTSTATUS v7; // ebx
+  NTSTATUS v9; // r8d
   unsigned int v10; // ebx
   char IsWinPEBoot; // al
 
-  IsOfflineHandle = BiIsOfflineHandle(a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( v3 < 0 )
   {
@@ -42,9 +42,9 @@ __int64 __fastcall BcdCloseStore(__int64 a1)
   }
   else
   {
-    if ( (unsigned __int8)BiIsSystemStore(a1, v4, (unsigned int)v3) )
+    if ( (unsigned __int8)BiIsSystemStore(BcdStoreHandle, v4, (unsigned int)v3) )
     {
-      v10 = BiIsSynchFirmwareEntries(a1) ? 4 : 0;
+      v10 = BiIsSynchFirmwareEntries((char)BcdStoreHandle) ? 4 : 0;
       IsWinPEBoot = BiIsWinPEBoot();
       v5 = v10 | 2;
       if ( !IsWinPEBoot )
@@ -55,7 +55,7 @@ __int64 __fastcall BcdCloseStore(__int64 a1)
       v5 = 2LL;
     }
     BiLogMessage(2LL, L"Closing store. Flags: 0x%x", v5);
-    v7 = BiCloseStore(a1, v6);
+    v7 = BiCloseStore(BcdStoreHandle, v6);
     BiReleaseBcdSyncMutant(IsOfflineHandle);
     return v7;
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleCheckCoordinatedStateEligibility @ 0x1405CE3DC
+ * XREFs of PpmIdleCheckCoordinatedStateEligibility @ 0x1405CBAFC
  * Callers:
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x1405CE03C (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1405CB75C (PpmIdleCheckCoordinatedDependency.c)
  * Callees:
- *     KeIsSubsetAffinityEx @ 0x1403B34F0 (KeIsSubsetAffinityEx.c)
- *     PpmCheckIdleVeto @ 0x1405CDE5C (PpmCheckIdleVeto.c)
- *     PpmIdleCheckCoordinatedDependencies @ 0x1405CDEC8 (PpmIdleCheckCoordinatedDependencies.c)
- *     PpmIdleRollbackCoordinatedSelection @ 0x1405CEBB4 (PpmIdleRollbackCoordinatedSelection.c)
- *     PpmIdleWaitForDependentTransitions @ 0x1405CEF08 (PpmIdleWaitForDependentTransitions.c)
+ *     KeIsSubsetAffinityEx @ 0x1403A1D00 (KeIsSubsetAffinityEx.c)
+ *     PpmCheckIdleVeto @ 0x1405CB57C (PpmCheckIdleVeto.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x1405CB5E8 (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x1405CC2D4 (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleWaitForDependentTransitions @ 0x1405CC628 (PpmIdleWaitForDependentTransitions.c)
  */
 
 __int64 __fastcall PpmIdleCheckCoordinatedStateEligibility(

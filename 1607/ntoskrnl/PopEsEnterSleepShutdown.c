@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsEnterSleepShutdown @ 0x140533FB8
+ * XREFs of PopEsEnterSleepShutdown @ 0x1405344F8
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  * Callees:
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     PopCurrentPowerState @ 0x14051FC88 (PopCurrentPowerState.c)
- *     PopEsSnapTelemetry @ 0x140533FF4 (PopEsSnapTelemetry.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     PopCurrentPowerState @ 0x140502CF0 (PopCurrentPowerState.c)
+ *     PopEsSnapTelemetry @ 0x140534534 (PopEsSnapTelemetry.c)
  */
 
 void PopEsEnterSleepShutdown()

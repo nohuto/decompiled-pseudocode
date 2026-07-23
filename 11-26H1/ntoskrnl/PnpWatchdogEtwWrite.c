@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpWatchdogEtwWrite @ 0x14049FA50
+ * XREFs of PnpWatchdogEtwWrite @ 0x1404995A0
  * Callers:
- *     PnpWatchdogSecondChanceCallback @ 0x1405D9DD0 (PnpWatchdogSecondChanceCallback.c)
- *     PnpWatchdogFirstChanceCallback @ 0x1407A38C0 (PnpWatchdogFirstChanceCallback.c)
- *     PnpCancelWatchdog @ 0x1409DE054 (PnpCancelWatchdog.c)
+ *     PnpWatchdogSecondChanceCallback @ 0x1405DC5D0 (PnpWatchdogSecondChanceCallback.c)
+ *     PnpWatchdogFirstChanceCallback @ 0x1407A6400 (PnpWatchdogFirstChanceCallback.c)
+ *     PnpCancelWatchdog @ 0x140A1B180 (PnpCancelWatchdog.c)
  * Callees:
- *     McTemplateK0izzx_EtwWriteTransfer @ 0x14049FDC0 (McTemplateK0izzx_EtwWriteTransfer.c)
- *     McTemplateK0izzxqjddjz_EtwWriteTransfer @ 0x14049FEB4 (McTemplateK0izzxqjddjz_EtwWriteTransfer.c)
- *     PnpTraceWatchdogViolation @ 0x14052FFD8 (PnpTraceWatchdogViolation.c)
+ *     McTemplateK0izzx_EtwWriteTransfer @ 0x140499910 (McTemplateK0izzx_EtwWriteTransfer.c)
+ *     McTemplateK0izzxqjddjz_EtwWriteTransfer @ 0x140499A04 (McTemplateK0izzxqjddjz_EtwWriteTransfer.c)
+ *     PnpTraceWatchdogViolation @ 0x1405324D8 (PnpTraceWatchdogViolation.c)
  */
 
 __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
@@ -103,7 +103,7 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
     if ( *((_DWORD *)a1 + 4) == 1 )
     {
       v19 = a1[3];
-      if ( byte_140EF3DCB < 0 )
+      if ( byte_140EF412B < 0 )
         return McTemplateK0izzxqjddjz_EtwWriteTransfer(
                  (int)v19 + 44,
                  (unsigned int)KMPnPEvt_Watchdog_EventWorker_Start,
@@ -123,7 +123,7 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
     v16 = *((_DWORD *)a1 + 4) - 2;
     if ( *((_DWORD *)a1 + 4) == 2 )
     {
-      if ( byte_140EF3DCB >= 0 )
+      if ( byte_140EF412B >= 0 )
         return result;
       v17 = KMPnPEvt_Watchdog_CompletionQueue_Start;
     }
@@ -132,7 +132,7 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
       v16 = *((_DWORD *)a1 + 4) - 3;
       if ( *((_DWORD *)a1 + 4) == 3 )
       {
-        if ( byte_140EF3DCB >= 0 )
+        if ( byte_140EF412B >= 0 )
           return result;
         v17 = KMPnPEvt_Watchdog_DelayedRemoveWorker_Start;
       }
@@ -143,14 +143,14 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
         {
           if ( *((_DWORD *)a1 + 4) == 5 )
           {
-            if ( byte_140EF3DCB >= 0 )
+            if ( byte_140EF412B >= 0 )
               return result;
             v17 = KMPnPEvt_Watchdog_DriverEntry_Start;
             return McTemplateK0izzx_EtwWriteTransfer(v16, (_DWORD)v17, v7, v15, v14[1], *((_QWORD *)v13 + 1), v7);
           }
           goto LABEL_34;
         }
-        if ( byte_140EF3DCB >= 0 )
+        if ( byte_140EF412B >= 0 )
           return result;
         v17 = KMPnPEvt_Watchdog_AddDevice_Start;
       }
@@ -162,7 +162,7 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
     if ( *((_DWORD *)a1 + 4) == 1 )
     {
       v20 = a1[3];
-      if ( (byte_140EF3DCC & 1) != 0 )
+      if ( (byte_140EF412C & 1) != 0 )
         return McTemplateK0izzxqjddjz_EtwWriteTransfer(
                  (int)v20 + 44,
                  (unsigned int)KMPnPEvt_Watchdog_EventWorker_Stop,
@@ -183,7 +183,7 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
       v16 = *((_DWORD *)a1 + 4) - 2;
       if ( *((_DWORD *)a1 + 4) == 2 )
       {
-        if ( (byte_140EF3DCC & 1) != 0 )
+        if ( (byte_140EF412C & 1) != 0 )
         {
           v17 = KMPnPEvt_Watchdog_CompletionQueue_Stop;
           return McTemplateK0izzx_EtwWriteTransfer(v16, (_DWORD)v17, v7, v15, v14[1], *((_QWORD *)v13 + 1), v7);
@@ -194,7 +194,7 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
         v16 = *((_DWORD *)a1 + 4) - 3;
         if ( *((_DWORD *)a1 + 4) == 3 )
         {
-          if ( (byte_140EF3DCC & 1) != 0 )
+          if ( (byte_140EF412C & 1) != 0 )
           {
             v17 = KMPnPEvt_Watchdog_DelayedRemoveWorker_Stop;
             return McTemplateK0izzx_EtwWriteTransfer(v16, (_DWORD)v17, v7, v15, v14[1], *((_QWORD *)v13 + 1), v7);
@@ -207,7 +207,7 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
           {
             if ( *((_DWORD *)a1 + 4) == 5 )
             {
-              if ( (byte_140EF3DCC & 1) == 0 )
+              if ( (byte_140EF412C & 1) == 0 )
                 return result;
               v17 = KMPnPEvt_Watchdog_DriverEntry_Stop;
               return McTemplateK0izzx_EtwWriteTransfer(v16, (_DWORD)v17, v7, v15, v14[1], *((_QWORD *)v13 + 1), v7);
@@ -215,7 +215,7 @@ __int64 __fastcall PnpWatchdogEtwWrite(__int64 *a1, int a2)
 LABEL_34:
             __fastfail(5u);
           }
-          if ( (byte_140EF3DCC & 1) != 0 )
+          if ( (byte_140EF412C & 1) != 0 )
           {
             v17 = KMPnPEvt_Watchdog_AddDevice_Stop;
             return McTemplateK0izzx_EtwWriteTransfer(v16, (_DWORD)v17, v7, v15, v14[1], *((_QWORD *)v13 + 1), v7);

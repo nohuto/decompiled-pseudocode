@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAllocate @ 0x140A881A0
+ * XREFs of CmpAllocate @ 0x140A8F2D0
  * Callers:
- *     CmpCreateEmptyHiveClone @ 0x14085C094 (CmpCreateEmptyHiveClone.c)
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
+ *     CmpCreateEmptyHiveClone @ 0x140862384 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
  * Callees:
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     CmpClaimGlobalQuota @ 0x140A8820C (CmpClaimGlobalQuota.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     CmpClaimGlobalQuota @ 0x140A8F33C (CmpClaimGlobalQuota.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmpAllocate(__int64 a1, char a2)

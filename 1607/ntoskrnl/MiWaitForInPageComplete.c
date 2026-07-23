@@ -1,49 +1,49 @@
 /*
- * XREFs of MiWaitForInPageComplete @ 0x1400251B0
+ * XREFs of MiWaitForInPageComplete @ 0x140024D30
  * Callers:
- *     MiPfCompleteInPageSupport @ 0x1400239B8 (MiPfCompleteInPageSupport.c)
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
+ *     MiPfCompleteInPageSupport @ 0x140023538 (MiPfCompleteInPageSupport.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MiDereferenceControlAreaProbe @ 0x140026784 (MiDereferenceControlAreaProbe.c)
- *     MiValidateInPage @ 0x1400267B0 (MiValidateInPage.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiIsRetryIoStatus @ 0x14008F178 (MiIsRetryIoStatus.c)
- *     KiWaitSatisfyOther @ 0x140098114 (KiWaitSatisfyOther.c)
- *     KiWaitSatisfyMutant @ 0x140098170 (KiWaitSatisfyMutant.c)
- *     PfHardFaultLog @ 0x14009E3F4 (PfHardFaultLog.c)
- *     MiPrefetchRestOfCluster @ 0x1400B2664 (MiPrefetchRestOfCluster.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     KiBeginThreadWait @ 0x1400D0980 (KiBeginThreadWait.c)
- *     KiCheckDueTimeExpired @ 0x1400D0AE8 (KiCheckDueTimeExpired.c)
- *     KiCheckWaitNext @ 0x1400D0B40 (KiCheckWaitNext.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiExitThreadWait @ 0x1400F28A0 (KiExitThreadWait.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiZeroPhysicalPage @ 0x14010A488 (MiZeroPhysicalPage.c)
- *     MiValidatePagefilePageHash @ 0x140114E00 (MiValidatePagefilePageHash.c)
- *     MiStoreFaultComplete @ 0x140123A70 (MiStoreFaultComplete.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     KiSatisfyThreadWait @ 0x1401DA98C (KiSatisfyThreadWait.c)
- *     MiExceptionForMappedVa @ 0x1401E13A4 (MiExceptionForMappedVa.c)
- *     MiRetardMdl @ 0x1401E2EB0 (MiRetardMdl.c)
- *     MmFlushAllFilesystemPages @ 0x1401E5DD4 (MmFlushAllFilesystemPages.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MiDereferenceControlAreaProbe @ 0x140026304 (MiDereferenceControlAreaProbe.c)
+ *     MiValidateInPage @ 0x140026330 (MiValidateInPage.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiIsRetryIoStatus @ 0x14008E8D8 (MiIsRetryIoStatus.c)
+ *     KiWaitSatisfyOther @ 0x140097914 (KiWaitSatisfyOther.c)
+ *     KiWaitSatisfyMutant @ 0x140097970 (KiWaitSatisfyMutant.c)
+ *     PfHardFaultLog @ 0x14009DDA0 (PfHardFaultLog.c)
+ *     MiPrefetchRestOfCluster @ 0x1400B05A4 (MiPrefetchRestOfCluster.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     KiBeginThreadWait @ 0x1400CE820 (KiBeginThreadWait.c)
+ *     KiCheckDueTimeExpired @ 0x1400CE988 (KiCheckDueTimeExpired.c)
+ *     KiCheckWaitNext @ 0x1400CE9E0 (KiCheckWaitNext.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiExitThreadWait @ 0x1400F06F0 (KiExitThreadWait.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiZeroPhysicalPage @ 0x140108208 (MiZeroPhysicalPage.c)
+ *     MiValidatePagefilePageHash @ 0x140115370 (MiValidatePagefilePageHash.c)
+ *     MiStoreFaultComplete @ 0x140123FE0 (MiStoreFaultComplete.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     KiSatisfyThreadWait @ 0x1401DA7B8 (KiSatisfyThreadWait.c)
+ *     MiExceptionForMappedVa @ 0x1401E11D0 (MiExceptionForMappedVa.c)
+ *     MiRetardMdl @ 0x1401E2CDC (MiRetardMdl.c)
+ *     MmFlushAllFilesystemPages @ 0x1401E5C00 (MmFlushAllFilesystemPages.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
  */
 
 __int64 __fastcall MiWaitForInPageComplete(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4, char a5, _QWORD *a6)
@@ -123,7 +123,7 @@ __int64 __fastcall MiWaitForInPageComplete(ULONG_PTR a1, __int64 a2, __int64 a3,
   if ( (*(_QWORD *)(v7 + 8) & 0x8000000000000000uLL) == 0 )
   {
     v15 = (v7 + 0x58000000000LL) / 48;
-    if ( v15 < qword_140326A90 )
+    if ( v15 < qword_140326AD0 )
     {
       v16 = *(_QWORD *)(v7 + 40) >> 40;
       LOWORD(v16) = v16 & 0x3FF;
@@ -140,7 +140,7 @@ __int64 __fastcall MiWaitForInPageComplete(ULONG_PTR a1, __int64 a2, __int64 a3,
       MiFindContiguousPages(
         v19,
         v17 + 1,
-        qword_140326A90,
+        qword_140326AD0,
         0,
         1LL,
         *(unsigned __int8 *)(v7 + 34) >> 6,
@@ -416,10 +416,10 @@ LABEL_32:
     {
       IsRetryIoStatus = MiIsRetryIoStatus((unsigned int)v42, *(unsigned int *)(v44 + 40));
       if ( IsRetryIoStatus
-        && !dword_140327664
+        && !dword_1403276A4
         && (!v43 || (*(_BYTE *)(((unsigned __int64)&v65 & 0xFFFFFFFFFFFFFFC0uLL) + 4) & 2) != 0) )
       {
-        dword_140327664 = 32;
+        dword_1403276A4 = 32;
       }
       v51 = (_DWORD *)a1;
       if ( (*(_BYTE *)(a1 + 189) & 4) != 0 )
@@ -431,7 +431,7 @@ LABEL_32:
 LABEL_103:
         v52 = *(_QWORD *)(((unsigned __int64)&v65 & 0xFFFFFFFFFFFFFFC0uLL) + 0x28);
         if ( v52 > 0x7FFFFFFEFFFFLL
-          && (!qword_140326C80 || v52 < qword_140326C80 || v52 >= qword_140326C80 + (qword_140326C60 << 21))
+          && (!qword_140326CC0 || v52 < qword_140326CC0 || v52 >= qword_140326CC0 + (qword_140326CA0 << 21))
           && !(unsigned int)MiExceptionForMappedVa(
                               *(_QWORD *)(((unsigned __int64)&v65 & 0xFFFFFFFFFFFFFFC0uLL) + 0x28),
                               v47,

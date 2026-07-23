@@ -13,21 +13,21 @@
  *     RtlReleaseSRWLockExclusive @ 0x1800123F0 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall TppCleanupGroupAddMember(__int64 a1)
+void __fastcall TppCleanupGroupAddMember(__int64 a1)
 {
-  _QWORD *v2; // rdi
-  _QWORD *v3; // rax
-  __int64 v5; // [rsp+30h] [rbp+8h]
+  _RTL_SRWLOCK *v2; // rdi
+  _RTL_SRWLOCK **Value; // rax
+  _RTL_SRWLOCK *v4; // [rsp+30h] [rbp+8h]
 
-  v5 = *(_QWORD *)(a1 + 16);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v5 + 8));
-  v2 = (_QWORD *)(a1 + 40);
-  v3 = *(_QWORD **)(v5 + 24);
-  if ( *v3 != v5 + 16 )
+  v4 = *(_RTL_SRWLOCK **)(a1 + 16);
+  RtlAcquireSRWLockExclusive(v4 + 1);
+  v2 = (_RTL_SRWLOCK *)(a1 + 40);
+  Value = (_RTL_SRWLOCK **)v4[3].Value;
+  if ( *Value != &v4[2] )
     __fastfail(3u);
-  *v2 = v5 + 16;
-  v2[1] = v3;
-  *v3 = v2;
-  *(_QWORD *)(v5 + 24) = v2;
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v5 + 8));
+  v2->Value = (unsigned __int64)&v4[2];
+  v2[1].Value = (unsigned __int64)Value;
+  *Value = v2;
+  v4[3].Value = (unsigned __int64)v2;
+  RtlReleaseSRWLockExclusive(v4 + 1);
 }

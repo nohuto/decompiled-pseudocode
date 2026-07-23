@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSortHandleList @ 0x140581B00
+ * XREFs of PspSortHandleList @ 0x140581FAC
  * Callers:
  *     <none>
  * Callees:

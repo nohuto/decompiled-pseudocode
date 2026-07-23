@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpInitializeStackTracing @ 0x1409357BC
+ * XREFs of EtwpInitializeStackTracing @ 0x14093598C
  * Callers:
- *     EtwpUpdateStackTracing @ 0x14093598C (EtwpUpdateStackTracing.c)
+ *     EtwpUpdateStackTracing @ 0x140935B5C (EtwpUpdateStackTracing.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpReferenceStackLookasideList @ 0x140935920 (EtwpReferenceStackLookasideList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpReferenceStackLookasideList @ 0x140935AF0 (EtwpReferenceStackLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpInitializeStackTracing(__int64 a1)
 {
-  union _SLIST_HEADER *v1; // rbp
+  _SLIST_HEADER *v1; // rbp
   unsigned int v3; // edi
   ULONG v4; // eax
   unsigned int v5; // ecx
@@ -28,7 +28,7 @@ __int64 __fastcall EtwpInitializeStackTracing(__int64 a1)
   __int64 v12; // rcx
   void *v13; // rcx
 
-  v1 = (union _SLIST_HEADER *)(a1 + 928);
+  v1 = (_SLIST_HEADER *)(a1 + 928);
   v3 = 0;
   InitializeSListHead((PSLIST_HEADER)(a1 + 928));
   v4 = 4 * KeQueryActiveProcessorCountEx(0xFFFFu);

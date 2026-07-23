@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReplaceStandbyLookaside @ 0x14026CCE0
+ * XREFs of MiReplaceStandbyLookaside @ 0x140222270
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiReplaceTransitionPage @ 0x140224B14 (MiReplaceTransitionPage.c)
- *     MiSwapNumaStandbyPage @ 0x14039474C (MiSwapNumaStandbyPage.c)
- *     MiLockStandbyOldestPage @ 0x1403F41B8 (MiLockStandbyOldestPage.c)
+ *     MiReplaceTransitionPage @ 0x140251EC4 (MiReplaceTransitionPage.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     MiLockStandbyOldestPage @ 0x1403E71A8 (MiLockStandbyOldestPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1403F7A6C (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiFindSuitableLookasideReplacement @ 0x14026D5D0 (MiFindSuitableLookasideReplacement.c)
- *     MiSearchChannelTable @ 0x14026F0D4 (MiSearchChannelTable.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiFindSuitableLookasideReplacement @ 0x140222B60 (MiFindSuitableLookasideReplacement.c)
+ *     MiSearchChannelTable @ 0x140224664 (MiSearchChannelTable.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3, int a4)
@@ -17,7 +17,7 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
   int v4; // r13d
   ULONG_PTR v5; // r15
   signed __int64 v6; // r10
-  unsigned __int64 v8; // r9
+  ULONG_PTR v8; // r9
   ULONG_PTR result; // rax
   __int64 v10; // rcx
   int v11; // ecx
@@ -55,7 +55,7 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
   ULONG_PTR v43; // rdx
   ULONG_PTR v44; // rdx
   unsigned __int8 v45; // cl
-  unsigned __int64 v46; // [rsp+30h] [rbp-C8h]
+  ULONG_PTR v46; // [rsp+30h] [rbp-C8h]
   __int64 v47; // [rsp+38h] [rbp-C0h]
   __int64 v48; // [rsp+50h] [rbp-A8h]
   unsigned int v49; // [rsp+68h] [rbp-90h]
@@ -69,7 +69,7 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
   v50 = 0LL;
   v8 = 48 * BugCheckParameter2 - 0x220000000000LL;
   v46 = v8;
-  if ( BugCheckParameter2 < qword_140E35B00 || BugCheckParameter2 >= qword_140E35B00 + 2048 )
+  if ( BugCheckParameter2 < qword_140E35C40 || BugCheckParameter2 >= qword_140E35C40 + 2048 )
   {
     result = 0xFFFFDE0000000010uLL;
     v10 = *(_QWORD *)(v6 - 0x21FFFFFFFFF0LL);
@@ -83,11 +83,11 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
       return result;
     }
   }
-  v48 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
-  v11 = dword_140E2DAC4;
-  if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-    || (v12 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, BugCheckParameter2 < *(_QWORD *)v12)
-    || dword_140E2DAC0 != dword_140E2DAC4 && BugCheckParameter2 >= *((_QWORD *)v12 + 2) )
+  v48 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
+  v11 = dword_140E2DC04;
+  if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+    || (v12 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, BugCheckParameter2 < *(_QWORD *)v12)
+    || dword_140E2DC00 != dword_140E2DC04 && BugCheckParameter2 >= *((_QWORD *)v12 + 2) )
   {
     for ( i = 0; ; i = v14 + 1 )
     {
@@ -96,25 +96,25 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
         if ( v11 < i )
           KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, 0LL, 0LL);
         v14 = (i + v11) >> 1;
-        v12 = (char *)qword_140E2DB20 + 16 * v14;
+        v12 = (char *)qword_140E2DC60 + 16 * v14;
         if ( BugCheckParameter2 >= *(_QWORD *)v12 )
           break;
         if ( !v14 )
-          KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, (ULONG_PTR)qword_140E2DB20, 0LL);
+          KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, (ULONG_PTR)qword_140E2DC60, 0LL);
         v11 = v14 - 1;
       }
-      if ( v14 == dword_140E2DAC4 || BugCheckParameter2 < *((_QWORD *)v12 + 2) )
+      if ( v14 == dword_140E2DC04 || BugCheckParameter2 < *((_QWORD *)v12 + 2) )
         break;
     }
-    dword_140E2DAC0 = (i + v11) >> 1;
+    dword_140E2DC00 = (i + v11) >> 1;
   }
   v49 = *((_DWORD *)v12 + 2);
   v15 = *(_DWORD *)(v8 + 32);
   v52 = HIBYTE(v15);
   if ( (v15 & 0x8000000) != 0
     && (v8 < 0xFFFFDE0000000000uLL
-     || v8 >= 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL
-     || (v44 = 0xAAAAAAAAAAAAAAABuLL * (v6 >> 4), v44 >= qword_140E35B00) && v44 < qword_140E35B00 + 2048
+     || v8 >= 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL
+     || (v44 = 0xAAAAAAAAAAAAAAABuLL * (v6 >> 4), v44 >= qword_140E35C40) && v44 < qword_140E35C40 + 2048
      || (BYTE2(v15) & 7) != 6 && (unsigned int)MiGetPfnSlabType(v8) == 9) )
   {
     v16 = 5;
@@ -123,7 +123,7 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
   {
     v16 = v52 & 7;
   }
-  if ( qword_140E2DB28 )
+  if ( qword_140E2DC68 )
   {
     v42 = MiSearchChannelTable(0xAAAAAAAAAAAAAAABuLL * (v6 >> 4));
     v8 = v46;
@@ -137,7 +137,7 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
   if ( v4 < 9 )
   {
     if ( v4 == 8 )
-      BYTE8(v50) = *(_BYTE *)(qword_140E3D140
+      BYTE8(v50) = *(_BYTE *)(qword_140E3D280
                             + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((__int64)(v8 + 0x220000000000LL) >> 4)) >> 9)
                             + 1) & 0x7F;
     else
@@ -204,7 +204,7 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
       *(_QWORD *)(v24 + 8 * v25) = v5;
       if ( v27 != -1LL )
       {
-        if ( v27 < qword_140E35B00 || (result = qword_140E35B00 + 2048, v27 >= qword_140E35B00 + 2048) )
+        if ( v27 < qword_140E35C40 || (result = qword_140E35C40 + 2048, v27 >= qword_140E35C40 + 2048) )
         {
           v28 = 48 * v27;
           v29 = *(_QWORD *)(48 * v27 - 0x21FFFFFFFFF0LL);
@@ -214,10 +214,10 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
             v30 = -134217729LL;
           v32 = v29 & v30;
           v33 = v28 - 0x220000000000LL;
-          v34 = dword_140E2DAC4;
-          if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-            || (v35 = (ULONG_PTR *)((char *)qword_140E2DB20 + 16 * dword_140E2DAC0), v27 < *v35)
-            || dword_140E2DAC0 != dword_140E2DAC4 && v27 >= v35[2] )
+          v34 = dword_140E2DC04;
+          if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+            || (v35 = (ULONG_PTR *)((char *)qword_140E2DC60 + 16 * dword_140E2DC00), v27 < *v35)
+            || dword_140E2DC00 != dword_140E2DC04 && v27 >= v35[2] )
           {
             for ( j = 0; ; j = v37 + 1 )
             {
@@ -226,26 +226,26 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
                 if ( v34 < j )
                   KeBugCheckEx(0x1Au, 0x5180uLL, v27, 0LL, 0LL);
                 v37 = (j + v34) >> 1;
-                v38 = (ULONG_PTR *)((char *)qword_140E2DB20 + 16 * v37);
+                v38 = (ULONG_PTR *)((char *)qword_140E2DC60 + 16 * v37);
                 if ( v27 >= *v38 )
                   break;
                 if ( !v37 )
                   KeBugCheckEx(0x1Au, 0x5180uLL, v27, (ULONG_PTR)v38, 0LL);
                 v34 = v37 - 1;
               }
-              if ( v37 == dword_140E2DAC4 || v27 < v38[2] )
+              if ( v37 == dword_140E2DC04 || v27 < v38[2] )
                 break;
             }
-            dword_140E2DAC0 = (j + v34) >> 1;
+            dword_140E2DC00 = (j + v34) >> 1;
           }
           v39 = *(_DWORD *)(v33 + 32);
-          if ( (v39 & 0x8000000) != 0 && v33 >= 0xFFFFDE0000000000uLL && v33 < 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL )
+          if ( (v39 & 0x8000000) != 0 && v33 >= 0xFFFFDE0000000000uLL && v33 < 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL )
           {
             v43 = 0xAAAAAAAAAAAAAAABuLL * (v28 >> 4);
-            if ( (v43 < qword_140E35B00 || v43 >= qword_140E35B00 + 2048) && (BYTE2(v39) & 7) != 6 )
+            if ( (v43 < qword_140E35C40 || v43 >= qword_140E35C40 + 2048) && (BYTE2(v39) & 7) != 6 )
               MiGetPfnSlabType(v28 - 0x220000000000LL);
           }
-          if ( qword_140E2DB28 )
+          if ( qword_140E2DC68 )
             MiSearchChannelTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v33 - v31) >> 4));
           result = 0xFFFFDE0000000010uLL;
           *(_QWORD *)(v28 - 0x21FFFFFFFFF0LL) = v32;
@@ -255,7 +255,7 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
       }
       if ( v5 != -1LL )
       {
-        if ( v5 < qword_140E35B00 || (result = qword_140E35B00 + 2048, v5 >= qword_140E35B00 + 2048) )
+        if ( v5 < qword_140E35C40 || (result = qword_140E35C40 + 2048, v5 >= qword_140E35C40 + 2048) )
         {
           v40 = *(_QWORD *)(48 * v5 - 0x21FFFFFFFFF0LL);
           v41 = 8LL;

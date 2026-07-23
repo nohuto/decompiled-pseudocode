@@ -1,63 +1,63 @@
 /*
- * XREFs of PiPnpRtlCmActionCallback @ 0x1408C7450
+ * XREFs of PiPnpRtlCmActionCallback @ 0x1408C4E80
  * Callers:
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _CmOpenCommonClassRegKey @ 0x1408C82AC (_CmOpenCommonClassRegKey.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmGetInstallerClassRegProp @ 0x14099405C (_CmGetInstallerClassRegProp.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _CmOpenCommonClassRegKey @ 0x1408C5CDC (_CmOpenCommonClassRegKey.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmGetInstallerClassRegProp @ 0x14097F09C (_CmGetInstallerClassRegProp.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710 (_CmGetMatchingFilteredDeviceInterfaceList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _CmDevicePropertyRead @ 0x14043F000 (_CmDevicePropertyRead.c)
- *     _CmClassPropertyRead @ 0x140459D24 (_CmClassPropertyRead.c)
- *     _CmDevicePropertyWrite @ 0x1404882F0 (_CmDevicePropertyWrite.c)
- *     McTemplateK0zjdd_EtwWriteTransfer @ 0x1405A6A80 (McTemplateK0zjdd_EtwWriteTransfer.c)
- *     _CmClassPropertyWrite @ 0x14069C0D0 (_CmClassPropertyWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x1406FAFD4 (PiPnpRtlFreeInstallerClassChangeInfo.c)
- *     PiDmListRemoveObject @ 0x1406FB0DC (PiDmListRemoveObject.c)
- *     PiPnpRtlFreePanelRemoveInfo @ 0x140726634 (PiPnpRtlFreePanelRemoveInfo.c)
- *     PiPnpRtlFreeDeviceDeleteInfo @ 0x140726678 (PiPnpRtlFreeDeviceDeleteInfo.c)
- *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x140726698 (PiPnpRtlFreeInterfaceDeleteInfo.c)
- *     PiPnpRtlGatherContainerRemoveInfo @ 0x1407266F8 (PiPnpRtlGatherContainerRemoveInfo.c)
- *     PiPnpRtlGatherDeviceDeleteInfo @ 0x1407267A4 (PiPnpRtlGatherDeviceDeleteInfo.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x1407268E8 (PiPnpRtlGatherInterfaceDeleteInfo.c)
- *     PiPnpRtlGatherPanelRemoveInfo @ 0x140726B98 (PiPnpRtlGatherPanelRemoveInfo.c)
- *     PiDmListRemoveList @ 0x140727014 (PiDmListRemoveList.c)
- *     PiDmListAddObject @ 0x1408B33F4 (PiDmListAddObject.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1408B4894 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x1408B4924 (PiDmAddCacheReferenceForObject.c)
- *     PiDmObjectManagerReleaseLock @ 0x1408B523C (PiDmObjectManagerReleaseLock.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x1408B52AC (PiDmObjectManagerAcquireSharedLock.c)
- *     PiDmLookupObject @ 0x1408B5470 (PiDmLookupObject.c)
- *     PnpIsValidGuidString @ 0x1408B7FF0 (PnpIsValidGuidString.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _CmIsRootEnumeratedDevice @ 0x1408B8A78 (_CmIsRootEnumeratedDevice.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BDDF0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x1408CC2D0 (PiPnpRtlCacheObjectBaseKey.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1408CF680 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
- *     PnpIsNullGuid @ 0x1408D3190 (PnpIsNullGuid.c)
- *     _CmGetInstallerClassRegProp @ 0x14099405C (_CmGetInstallerClassRegProp.c)
- *     PiDmObjectUpdateCachedCmProperty @ 0x1409D4040 (PiDmObjectUpdateCachedCmProperty.c)
- *     PiPnpRtlGetFilteredDeviceList @ 0x1409D4550 (PiPnpRtlGetFilteredDeviceList.c)
- *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1409D496C (PiPnpRtlGetFilteredDeviceInterfaceList.c)
- *     PiDmGetCmObjectListFromCache @ 0x1409D4BD8 (PiDmGetCmObjectListFromCache.c)
- *     PiDmObjectGetCachedCmProperty @ 0x1409D4C30 (PiDmObjectGetCachedCmProperty.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x1409D4E20 (_CmMapCmObjectTypeToPnpObjectType.c)
- *     PiDmListAddList @ 0x140A86260 (PiDmListAddList.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x140AB97D4 (PiPnpRtlGatherInstallerClassChangeInfo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _CmDevicePropertyRead @ 0x140434BB0 (_CmDevicePropertyRead.c)
+ *     _CmClassPropertyRead @ 0x14044F170 (_CmClassPropertyRead.c)
+ *     _CmDevicePropertyWrite @ 0x140483440 (_CmDevicePropertyWrite.c)
+ *     McTemplateK0zjdd_EtwWriteTransfer @ 0x1405A39B4 (McTemplateK0zjdd_EtwWriteTransfer.c)
+ *     _CmClassPropertyWrite @ 0x14069D150 (_CmClassPropertyWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x1406F8C14 (PiPnpRtlFreeInstallerClassChangeInfo.c)
+ *     PiDmListRemoveObject @ 0x1406F8D1C (PiDmListRemoveObject.c)
+ *     PiPnpRtlFreePanelRemoveInfo @ 0x1407241C4 (PiPnpRtlFreePanelRemoveInfo.c)
+ *     PiPnpRtlFreeDeviceDeleteInfo @ 0x140724208 (PiPnpRtlFreeDeviceDeleteInfo.c)
+ *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x140724228 (PiPnpRtlFreeInterfaceDeleteInfo.c)
+ *     PiPnpRtlGatherContainerRemoveInfo @ 0x140724288 (PiPnpRtlGatherContainerRemoveInfo.c)
+ *     PiPnpRtlGatherDeviceDeleteInfo @ 0x140724334 (PiPnpRtlGatherDeviceDeleteInfo.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140724478 (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiPnpRtlGatherPanelRemoveInfo @ 0x140724728 (PiPnpRtlGatherPanelRemoveInfo.c)
+ *     PiDmListRemoveList @ 0x140724BA4 (PiDmListRemoveList.c)
+ *     PiDmListAddObject @ 0x1408B0CE4 (PiDmListAddObject.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1408B2184 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1408B2214 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1408B2B2C (PiDmObjectManagerReleaseLock.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1408B2B9C (PiDmObjectManagerAcquireSharedLock.c)
+ *     PiDmLookupObject @ 0x1408B2D60 (PiDmLookupObject.c)
+ *     PnpIsValidGuidString @ 0x1408B5960 (PnpIsValidGuidString.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1408B63E8 (_CmIsRootEnumeratedDevice.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BB740 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1408C9D00 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1408CD070 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
+ *     PnpIsNullGuid @ 0x1408D0B80 (PnpIsNullGuid.c)
+ *     _CmGetInstallerClassRegProp @ 0x14097F09C (_CmGetInstallerClassRegProp.c)
+ *     PiDmObjectUpdateCachedCmProperty @ 0x1409C3E70 (PiDmObjectUpdateCachedCmProperty.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x1409C4380 (PiPnpRtlGetFilteredDeviceList.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1409C479C (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1409C4A08 (PiDmGetCmObjectListFromCache.c)
+ *     PiDmObjectGetCachedCmProperty @ 0x1409C4A60 (PiDmObjectGetCachedCmProperty.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1409C4C50 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     PiDmListAddList @ 0x140A80DA0 (PiDmListAddList.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x140AB4894 (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlCmActionCallback(void *a1, WCHAR *a2, __int64 a3, int a4, int a5, __int64 a6)
@@ -77,7 +77,7 @@ __int64 __fastcall PiPnpRtlCmActionCallback(void *a1, WCHAR *a2, __int64 a3, int
   ULONG_PTR *v20; // r14
   ULONG_PTR v21; // rdx
   ULONG_PTR v22; // rdx
-  int v23; // eax
+  ULONG_PTR v23; // rax
   void *Pool2; // r13
   __int64 v25; // rsi
   unsigned int v26; // eax
@@ -426,14 +426,14 @@ LABEL_121:
       *(_OWORD *)Size = 0LL;
     if ( *(int *)a6 < 0 )
     {
-      if ( (byte_140EEFD22 & 0x20) != 0 )
+      if ( (byte_140EEFF62 & 0x20) != 0 )
       {
         IsNullGuid = PnpIsNullGuid(Size);
         v51 = KMPnPEvt_DeviceDelete_Failure;
         goto LABEL_131;
       }
     }
-    else if ( (byte_140EEFD22 & 0x10) != 0 )
+    else if ( (byte_140EEFF62 & 0x10) != 0 )
     {
       IsNullGuid = PnpIsNullGuid(Size);
       v51 = KMPnPEvt_DeviceDelete_Success;
@@ -458,7 +458,7 @@ LABEL_131:
         PnpSetObjectProperty(
           (__int64)v8,
           (__int64)(v48 + 2),
-          2u,
+          2,
           0LL,
           0LL,
           (__int64)DEVPKEY_DeviceClass_LastDeleteDate,
@@ -587,10 +587,10 @@ LABEL_79:
         return v9;
       goto LABEL_53;
     }
-    v23 = *(_DWORD *)(a6 + 40);
+    v23 = *(unsigned int *)(a6 + 40);
     Pool2 = 0LL;
     v76 = 0;
-    if ( !v23 || (Pool2 = (void *)ExAllocatePool2(0x100uLL)) == 0LL )
+    if ( !(_DWORD)v23 || (Pool2 = (void *)ExAllocatePool2(0x100uLL, v23, 0x47706E50u)) == 0LL )
     {
       if ( *(_DWORD *)(a6 + 40) )
       {

@@ -1,22 +1,22 @@
 /*
- * XREFs of _PnpGetGenericStorePropertyKeys @ 0x1409920EC
+ * XREFs of _PnpGetGenericStorePropertyKeys @ 0x14097D12C
  * Callers:
- *     DrvDbDeleteObjectSubKey @ 0x1408215CC (DrvDbDeleteObjectSubKey.c)
- *     PiDqPnPGetObjectPropertyKeys @ 0x140991658 (PiDqPnPGetObjectPropertyKeys.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x140991E90 (_PnpGetObjectPropertyKeysWorker.c)
- *     PiDevCfgCopyObjectProperties @ 0x14099AE24 (PiDevCfgCopyObjectProperties.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140AA3320 (PiCreateDriverSwDeviceCallback.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140821D0C (DrvDbDeleteObjectSubKey.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x14097C698 (PiDqPnPGetObjectPropertyKeys.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x14097CED0 (_PnpGetObjectPropertyKeysWorker.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1409CD594 (PiDevCfgCopyObjectProperties.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140A9E6B0 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     _RegRtlEnumKey @ 0x140992974 (_RegRtlEnumKey.c)
- *     RtlUnicodeStringToInteger @ 0x1409933D0 (RtlUnicodeStringToInteger.c)
- *     _RegRtlEnumValue @ 0x1409935EC (_RegRtlEnumValue.c)
- *     _PnpOpenPropertiesKey @ 0x1409937F0 (_PnpOpenPropertiesKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     _RegRtlEnumKey @ 0x14097D9B4 (_RegRtlEnumKey.c)
+ *     RtlUnicodeStringToInteger @ 0x14097E410 (RtlUnicodeStringToInteger.c)
+ *     _RegRtlEnumValue @ 0x14097E62C (_RegRtlEnumValue.c)
+ *     _PnpOpenPropertiesKey @ 0x14097E830 (_PnpOpenPropertiesKey.c)
  */
 
 __int64 __fastcall PnpGetGenericStorePropertyKeys(

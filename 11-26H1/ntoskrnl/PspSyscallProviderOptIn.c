@@ -1,16 +1,16 @@
 /*
- * XREFs of PspSyscallProviderOptIn @ 0x1407EDA50
+ * XREFs of PspSyscallProviderOptIn @ 0x1407F35B0
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     PspDereferenceSyscallProvider @ 0x140614630 (PspDereferenceSyscallProvider.c)
- *     PspLookupSyscallProviderById @ 0x1406146E4 (PspLookupSyscallProviderById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PspAttachProcessToSyscallProvider @ 0x1407ED5EC (PspAttachProcessToSyscallProvider.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     PspDereferenceSyscallProvider @ 0x140617470 (PspDereferenceSyscallProvider.c)
+ *     PspLookupSyscallProviderById @ 0x140617524 (PspLookupSyscallProviderById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspAttachProcessToSyscallProvider @ 0x1407F314C (PspAttachProcessToSyscallProvider.c)
  */
 
 __int64 __fastcall PspSyscallProviderOptIn(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

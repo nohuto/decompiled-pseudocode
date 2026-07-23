@@ -1,27 +1,27 @@
 /*
- * XREFs of MiQueueLargeFreeZeroRebuild @ 0x14009D1D0
+ * XREFs of MiQueueLargeFreeZeroRebuild @ 0x14009D110
  * Callers:
- *     MiLargePageFreeToZero @ 0x14009B4E0 (MiLargePageFreeToZero.c)
- *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
+ *     MiLargePageFreeToZero @ 0x14009B420 (MiLargePageFreeToZero.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14009BA00 (MiInsertLargePageInNodeListHelper.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x140090C28 (PsReferencePartitionSafe.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103CD0 (ExfTryAcquirePushLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C494 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 void __fastcall MiQueueLargeFreeZeroRebuild(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -85,9 +85,9 @@ void __fastcall MiQueueLargeFreeZeroRebuild(__int64 a1, unsigned __int64 a2, uns
   if ( !a2 )
     return;
   SessionId = -1;
-  if ( qword_14043A060 )
+  if ( qword_14043B120 )
   {
-    if ( qword_14043A948 )
+    if ( qword_14043BA08 )
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
@@ -95,7 +95,7 @@ void __fastcall MiQueueLargeFreeZeroRebuild(__int64 a1, unsigned __int64 a2, uns
         _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
       if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
       {
-        ExpAcquireSpinLockSharedAtDpcLevelInstrumented(&dword_140438D78, CurrentIrql);
+        ExpAcquireSpinLockSharedAtDpcLevelInstrumented(&dword_140439E38, CurrentIrql);
       }
       else
       {
@@ -115,12 +115,12 @@ void __fastcall MiQueueLargeFreeZeroRebuild(__int64 a1, unsigned __int64 a2, uns
             }
           }
         }
-        _m_prefetchw(&dword_140438D78);
-        v13 = dword_140438D78 & 0x7FFFFFFF;
+        _m_prefetchw(&dword_140439E38);
+        v13 = dword_140439E38 & 0x7FFFFFFF;
         if ( v13 == _InterlockedCompareExchange(
-                      &dword_140438D78,
-                      (dword_140438D78 & 0x7FFFFFFF) + 1,
-                      dword_140438D78 & 0x7FFFFFFF) )
+                      &dword_140439E38,
+                      (dword_140439E38 & 0x7FFFFFFF) + 1,
+                      dword_140439E38 & 0x7FFFFFFF) )
           goto LABEL_8;
         v40 = CurrentPrcb->SchedulerAssist;
         if ( v40 )
@@ -133,7 +133,7 @@ void __fastcall MiQueueLargeFreeZeroRebuild(__int64 a1, unsigned __int64 a2, uns
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
-        ExpWaitForSpinLockSharedAndAcquire(&dword_140438D78, CurrentIrql);
+        ExpWaitForSpinLockSharedAndAcquire(&dword_140439E38, CurrentIrql);
       }
       v5 = a2;
       v3 = a1;
@@ -143,37 +143,37 @@ void __fastcall MiQueueLargeFreeZeroRebuild(__int64 a1, unsigned __int64 a2, uns
       CurrentIrql = 18;
     }
 LABEL_8:
-    v14 = dword_14043A044;
-    if ( v5 < *(_QWORD *)(qword_14043A060 + 16LL * (unsigned int)dword_14043A044) )
+    v14 = dword_14043B104;
+    if ( v5 < *(_QWORD *)(qword_14043B120 + 16LL * (unsigned int)dword_14043B104) )
     {
       do
         --v14;
-      while ( v5 < *(_QWORD *)(qword_14043A060 + 16LL * v14) );
+      while ( v5 < *(_QWORD *)(qword_14043B120 + 16LL * v14) );
     }
     else
     {
-      for ( i = dword_14043A044 + 1; v5 >= *(_QWORD *)(qword_14043A060 + 16LL * i); ++v14 )
+      for ( i = dword_14043B104 + 1; v5 >= *(_QWORD *)(qword_14043B120 + 16LL * i); ++v14 )
         ++i;
     }
-    dword_14043A044 = v14;
+    dword_14043B104 = v14;
     if ( CurrentIrql != 18 )
     {
       if ( CurrentIrql == 17 )
       {
-        ExReleaseSpinLockSharedFromDpcLevel(&dword_140438D78);
+        ExReleaseSpinLockSharedFromDpcLevel(&dword_140439E38);
         v3 = a1;
       }
       else
       {
         if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
         {
-          ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&dword_140438D78, retaddr);
+          ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&dword_140439E38, retaddr);
           v3 = a1;
         }
         else
         {
-          _InterlockedAnd(&dword_140438D78, 0xBFFFFFFF);
-          _InterlockedDecrement(&dword_140438D78);
+          _InterlockedAnd(&dword_140439E38, 0xBFFFFFFF);
+          _InterlockedDecrement(&dword_140439E38);
         }
         v16 = KeGetCurrentPrcb();
         v17 = v16->SchedulerAssist;
@@ -219,7 +219,7 @@ LABEL_8:
 LABEL_21:
           if ( v22 )
           {
-            if ( v18 >= 0xFFFF800000000000uLL && byte_14043B950[((v18 >> 39) & 0x1FF) - 256] == 1 )
+            if ( v18 >= 0xFFFF800000000000uLL && byte_14043CA10[((v18 >> 39) & 0x1FF) - 256] == 1 )
               SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
             v22->LockState.SessionId = SessionId;
             v23 = (signed __int64 *)BugCheckParameter2;
@@ -276,7 +276,7 @@ LABEL_26:
         if ( (*v32 & 0x20000000000000LL) == 0 )
           break;
         v33 = *(_QWORD *)(v26 + 40);
-        if ( *(_QWORD *)(qword_14043A748 + 8 * ((v33 >> 40) & 0x3FF)) != a1 )
+        if ( *(_QWORD *)(qword_14043B808 + 8 * ((v33 >> 40) & 0x3FF)) != a1 )
           break;
         if ( (*(_BYTE *)(v26 + 34) & 7u) > 1 )
           break;

@@ -1,19 +1,19 @@
 /*
- * XREFs of CcWriteBehindAsync @ 0x1402A91A8
+ * XREFs of CcWriteBehindAsync @ 0x14027B44C
  * Callers:
- *     CcAsyncLazywriteWorker @ 0x1402A8E24 (CcAsyncLazywriteWorker.c)
+ *     CcAsyncLazywriteWorker @ 0x14027B0C8 (CcAsyncLazywriteWorker.c)
  * Callees:
- *     CcFlushCacheOneRange @ 0x140240110 (CcFlushCacheOneRange.c)
- *     CcWriteBehindPreProcess @ 0x1402A8434 (CcWriteBehindPreProcess.c)
- *     CcWriteBehindPostProcess @ 0x1402A883C (CcWriteBehindPostProcess.c)
- *     CcFlushCachePostProcessOneRange @ 0x1402AACA0 (CcFlushCachePostProcessOneRange.c)
- *     CcFlushCacheAcquireRange @ 0x1402ABBD0 (CcFlushCacheAcquireRange.c)
- *     CcFlushCachePostProcess @ 0x1402ABF10 (CcFlushCachePostProcess.c)
- *     CcFlushCachePreProcess @ 0x1402AC290 (CcFlushCachePreProcess.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     CcFlushCacheOneRange @ 0x140208260 (CcFlushCacheOneRange.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcFlushCachePostProcessOneRange @ 0x140275FC0 (CcFlushCachePostProcessOneRange.c)
+ *     CcFlushCacheAcquireRange @ 0x140276EF0 (CcFlushCacheAcquireRange.c)
+ *     CcFlushCachePreProcess @ 0x140278C74 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePostProcess @ 0x1402791F0 (CcFlushCachePostProcess.c)
+ *     CcWriteBehindPreProcess @ 0x14027A224 (CcWriteBehindPreProcess.c)
+ *     CcWriteBehindPostProcess @ 0x14027A62C (CcWriteBehindPostProcess.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall CcWriteBehindAsync(__int64 a1, _DWORD *a2, _DWORD *a3)
@@ -54,7 +54,7 @@ __int64 __fastcall CcWriteBehindAsync(__int64 a1, _DWORD *a2, _DWORD *a3)
     v16 = 1;
     v15 = &CcNoDelay;
     v14 = a3;
-    if ( (unsigned __int8)CcFlushCachePreProcess(v12) )
+    if ( CcFlushCachePreProcess((__int64)v12) )
     {
       v7 = v14;
       v15 = 0LL;
@@ -69,13 +69,13 @@ __int64 __fastcall CcWriteBehindAsync(__int64 a1, _DWORD *a2, _DWORD *a3)
       {
         do
         {
-          if ( !(unsigned __int8)CcFlushCacheAcquireRange(v12) )
+          if ( !(unsigned __int8)CcFlushCacheAcquireRange((__int64)v12) )
             break;
           CcFlushCacheOneRange(v12);
           if ( !v13 )
             KeWaitForSingleObject(a3, Executive, 0, 0, 0LL);
         }
-        while ( (unsigned __int8)CcFlushCachePostProcessOneRange(v12) );
+        while ( CcFlushCachePostProcessOneRange(v12) );
         if ( v20 && v22 )
           PerformanceCounter = KeQueryPerformanceCounter(0LL);
       }

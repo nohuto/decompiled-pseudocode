@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqPropertyCallback @ 0x1406384F0
+ * XREFs of PiDqPropertyCallback @ 0x14062D300
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     PiDqPnPGetObjectProperty @ 0x140637F94 (PiDqPnPGetObjectProperty.c)
- *     PiDqGetPnpObjectType @ 0x1406386A0 (PiDqGetPnpObjectType.c)
- *     PiDqOpenObjectRegKey @ 0x1406A9838 (PiDqOpenObjectRegKey.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     PiDqOpenObjectRegKey @ 0x1406077B8 (PiDqOpenObjectRegKey.c)
+ *     PiDqPnPGetObjectProperty @ 0x14062CDA4 (PiDqPnPGetObjectProperty.c)
+ *     PiDqGetPnpObjectType @ 0x14062D4B0 (PiDqGetPnpObjectType.c)
  */
 
 __int64 __fastcall PiDqPropertyCallback(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4, _QWORD *a5)
@@ -42,7 +42,7 @@ LABEL_11:
       if ( !*(_QWORD *)a1 )
       {
         PnpObjectType = PiDqGetPnpObjectType(*(unsigned int *)(*(_QWORD *)(*(_QWORD *)(a1 + 40) + 24LL) + 16LL));
-        v9 = PiDqOpenObjectRegKey(1, *(_QWORD *)(a1 + 32), PnpObjectType, 1, 0, v22, a1);
+        v9 = PiDqOpenObjectRegKey(1, *(_QWORD *)(a1 + 32), PnpObjectType, 1, 0, v22, (_QWORD *)a1);
         if ( v9 == -1073741772 )
         {
           *(_QWORD *)a1 = -1LL;

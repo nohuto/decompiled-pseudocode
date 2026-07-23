@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPulseEvent @ 0x1401BA850
+ * XREFs of ZwPulseEvent @ 0x1401BA9B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwPulseEvent(HANDLE EventHandle, PLONG PulseCount)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EventHandle, PulseCount, v2);
+  return KiServiceInternal(EventHandle);
 }

@@ -6,9 +6,16 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetLdtEntries(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetLdtEntries(
+        ULONG Selector0,
+        ULONG Entry0Low,
+        ULONG Entry0Hi,
+        ULONG Selector1,
+        ULONG Entry1Low,
+        ULONG Entry1Hi)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&Selector0);
 }

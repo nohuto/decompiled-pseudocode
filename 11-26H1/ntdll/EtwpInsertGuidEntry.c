@@ -1,71 +1,71 @@
 /*
- * XREFs of EtwpInsertGuidEntry @ 0x180102FDC
+ * XREFs of EtwpInsertGuidEntry @ 0x18010235C
  * Callers:
- *     EtwpAllocateUmGuidEntry @ 0x180102F6C (EtwpAllocateUmGuidEntry.c)
+ *     EtwpAllocateUmGuidEntry @ 0x1801022EC (EtwpAllocateUmGuidEntry.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlRbInsertNodeEx @ 0x18006C700 (RtlRbInsertNodeEx.c)
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlRbInsertNodeEx @ 0x18008CB50 (RtlRbInsertNodeEx.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
-struct _TEB *__fastcall EtwpInsertGuidEntry(unsigned __int64 a1, __int64 a2)
+void __fastcall EtwpInsertGuidEntry(PRTL_BALANCED_NODE Node)
 {
   void *UniqueThread; // rbx
-  __int64 v4; // rbx
-  bool v5; // r8
-  int v6; // edi
-  __int64 v7; // rax
+  unsigned __int64 Root; // rbx
+  BOOLEAN v4; // r8
+  int v5; // edi
+  unsigned __int64 v6; // rax
 
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
   if ( EtwpProvLockOwner == (_DWORD)UniqueThread )
     __fastfail(0x24u);
-  RtlAcquireSRWLockExclusive(&EtwpProvLock, a2);
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
   EtwpProvLockOwner = (int)UniqueThread;
-  v4 = EtwpGuidEntryTable;
-  if ( (qword_1801CB1F8 & 1) != 0 && EtwpGuidEntryTable )
-    v4 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
-  v5 = 0;
-  v6 = qword_1801CB1F8 & 1;
-  if ( v4 )
+  Root = (unsigned __int64)EtwpGuidEntryTable.Root;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 && EtwpGuidEntryTable.Root )
+    Root = (unsigned __int64)&EtwpGuidEntryTable ^ (unsigned __int64)EtwpGuidEntryTable.Root;
+  v4 = 0;
+  v5 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( memcmp((const void *)(a1 + 24), (const void *)(v4 + 24), 0x10uLL) >= 0 )
+      if ( memcmp(&Node[1], (const void *)(Root + 24), 0x10uLL) >= 0 )
       {
-        v7 = *(_QWORD *)(v4 + 8);
-        if ( v6 )
+        v6 = *(_QWORD *)(Root + 8);
+        if ( v5 )
         {
-          if ( !v7 )
+          if ( !v6 )
           {
 LABEL_12:
-            v5 = 1;
+            v4 = 1;
             break;
           }
-          v7 ^= v4;
+          v6 ^= Root;
         }
-        if ( !v7 )
+        if ( !v6 )
           goto LABEL_12;
       }
       else
       {
-        v7 = *(_QWORD *)v4;
-        if ( v6 )
+        v6 = *(_QWORD *)Root;
+        if ( v5 )
         {
-          if ( !v7 )
+          if ( !v6 )
             goto LABEL_16;
-          v7 ^= v4;
+          v6 ^= Root;
         }
-        if ( !v7 )
+        if ( !v6 )
         {
 LABEL_16:
-          v5 = 0;
+          v4 = 0;
           break;
         }
       }
-      v4 = v7;
+      Root = v6;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&EtwpGuidEntryTable, v4, v5, a1);
+  RtlRbInsertNodeEx(&EtwpGuidEntryTable, (PRTL_BALANCED_NODE)Root, v4, Node);
   EtwpProvLockOwner = 0;
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

@@ -14,27 +14,25 @@
  *     TppWaitTimerExpiration @ 0x180082DA4 (TppWaitTimerExpiration.c)
  */
 
-__int64 __fastcall TppSingleTimerExpiration(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall TppSingleTimerExpiration(__int64 a1, _RTL_SRWLOCK *a2, char a3)
 {
   __int64 v6; // rbx
   char v7; // al
   __int64 v8; // rax
   __int64 result; // rax
   __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rcx
-  _QWORD *v14; // rbx
+  __int64 v11; // rcx
+  __int64 **v12; // rbx
 
   if ( MEMORY[0x7FFE0386] )
   {
-    v13 = a2 + 8;
+    v11 = (__int64)&a2[1];
     if ( !a3 )
-      v13 = a2 + 128;
-    TppETWTimerExpiration(v13, a1);
+      v11 = (__int64)&a2[16];
+    TppETWTimerExpiration(v11, a1);
   }
   v6 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
-  RtlAcquireSRWLockExclusive(a1 + 232);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
   v7 = *(_BYTE *)(a1 + 346) >> 2;
   *(_BYTE *)(a1 + 346) = 0;
   if ( (v7 & 1) == 0 )
@@ -58,22 +56,22 @@ __int64 __fastcall TppSingleTimerExpiration(__int64 a1, __int64 a2, char a3)
           *(_QWORD *)(a1 + 320) = v6 + 10000 * v8 - (v6 - v10) % (10000 * v8);
         _InterlockedIncrement((volatile signed __int32 *)a1);
         RtlAcquireSRWLockExclusive(a2);
-        TppEnqueueTimer(a2 + 128, a1);
-        TppUpdateSubQueueTimer(a2 + 128, 0, v11, v12);
+        TppEnqueueTimer((__int64)&a2[16], a1);
+        TppUpdateSubQueueTimer((__int64)&a2[16], 0);
         RtlReleaseSRWLockExclusive(a2);
       }
     }
     TppWorkPost(a1);
 LABEL_6:
-    RtlReleaseSRWLockExclusive(a1 + 232);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
     goto LABEL_7;
   }
   *(_DWORD *)(a1 + 340) = 0;
   *(_QWORD *)(a1 + 320) = 0LL;
-  v14 = *(_QWORD **)(a1 + 328);
+  v12 = *(__int64 ***)(a1 + 328);
   *(_QWORD *)(a1 + 328) = 0LL;
-  RtlReleaseSRWLockExclusive(a1 + 232);
-  TppIteWakeWaiters(v14);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
+  TppIteWakeWaiters(v12);
 LABEL_7:
   result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )

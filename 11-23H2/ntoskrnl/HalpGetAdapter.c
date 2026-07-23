@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpGetAdapter @ 0x140827804
+ * XREFs of HalpGetAdapter @ 0x140827B04
  * Callers:
- *     HalPnpGetDmaAdapter @ 0x1403908C0 (HalPnpGetDmaAdapter.c)
- *     HaliGetDmaAdapter @ 0x140504FC0 (HaliGetDmaAdapter.c)
- *     HalGetAdapter @ 0x1409331C0 (HalGetAdapter.c)
+ *     HalPnpGetDmaAdapter @ 0x140390AA0 (HalPnpGetDmaAdapter.c)
+ *     HaliGetDmaAdapter @ 0x140505510 (HaliGetDmaAdapter.c)
+ *     HalGetAdapter @ 0x1409333C0 (HalGetAdapter.c)
  * Callees:
- *     HalpAreDriversDmarCompatible @ 0x140390AD8 (HalpAreDriversDmarCompatible.c)
- *     HalGetAdapterV3 @ 0x140827530 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140827AC0 (HalGetAdapterV2.c)
+ *     HalpAreDriversDmarCompatible @ 0x140390CB8 (HalpAreDriversDmarCompatible.c)
+ *     HalGetAdapterV3 @ 0x140827830 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140827DC0 (HalGetAdapterV2.c)
  */
 
 _QWORD *__fastcall HalpGetAdapter(__int64 a1, struct _DEVICE_OBJECT *a2, _DWORD *a3)

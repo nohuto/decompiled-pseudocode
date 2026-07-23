@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSystemDebugControl @ 0x1401BB850
+ * XREFs of ZwSystemDebugControl @ 0x1401BB9B0
  * Callers:
  *     <none>
  * Callees:
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwSystemDebugControl(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&ControlCode, InputBuffer, *(_QWORD *)&InputBufferLength);
+  return KiServiceInternal(*(_QWORD *)&ControlCode);
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of IvtFreeScalableModePasidTables @ 0x14056E600
+ * XREFs of IvtFreeScalableModePasidTables @ 0x14056BA90
  * Callers:
- *     IvtAllocateScalableModePasidTables @ 0x14056D55C (IvtAllocateScalableModePasidTables.c)
- *     IvtAttachDeviceDomainInternal @ 0x14056DA10 (IvtAttachDeviceDomainInternal.c)
- *     IvtConfigureAts @ 0x14056DE70 (IvtConfigureAts.c)
- *     IvtLegacyAllocateScalableModePasidTables @ 0x14056F7A0 (IvtLegacyAllocateScalableModePasidTables.c)
- *     IvtLegacyGrowPasidTable @ 0x140570920 (IvtLegacyGrowPasidTable.c)
- *     IvtSetDevicePasidTable @ 0x140571150 (IvtSetDevicePasidTable.c)
- *     IvtDeleteDevice @ 0x140578BE0 (IvtDeleteDevice.c)
+ *     IvtAllocateScalableModePasidTables @ 0x14056A9EC (IvtAllocateScalableModePasidTables.c)
+ *     IvtAttachDeviceDomainInternal @ 0x14056AEA0 (IvtAttachDeviceDomainInternal.c)
+ *     IvtConfigureAts @ 0x14056B300 (IvtConfigureAts.c)
+ *     IvtLegacyAllocateScalableModePasidTables @ 0x14056CC30 (IvtLegacyAllocateScalableModePasidTables.c)
+ *     IvtLegacyGrowPasidTable @ 0x14056DDB0 (IvtLegacyGrowPasidTable.c)
+ *     IvtSetDevicePasidTable @ 0x14056E5E0 (IvtSetDevicePasidTable.c)
+ *     IvtDeleteDevice @ 0x140576070 (IvtDeleteDevice.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExtEnvFreeMemory @ 0x14055FCA0 (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x14055FCE0 (ExtEnvFreePhysicalMemory.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExtEnvFreeMemory @ 0x14055D8D0 (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14055D910 (ExtEnvFreePhysicalMemory.c)
  */
 
 void __fastcall IvtFreeScalableModePasidTables(__int64 a1, unsigned __int64 a2)

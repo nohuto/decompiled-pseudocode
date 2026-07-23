@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeNewUltraHugeContext @ 0x1403C5AE8
+ * XREFs of MiInitializeNewUltraHugeContext @ 0x1403C5CC8
  * Callers:
- *     MiGetHugePageToZero @ 0x140351160 (MiGetHugePageToZero.c)
+ *     MiGetHugePageToZero @ 0x140351300 (MiGetHugePageToZero.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiWriteLargePte @ 0x1402EC26C (MiWriteLargePte.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     MiStopPageAccessor @ 0x1403688EC (MiStopPageAccessor.c)
- *     MiLockHugePfnInternal @ 0x140621468 (MiLockHugePfnInternal.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E9534 (MiDeleteUltraThreadContext.c)
+ *     MiWriteLargePte @ 0x1402EC4FC (MiWriteLargePte.c)
+ *     MiCreateUltraThreadContext @ 0x1402EC680 (MiCreateUltraThreadContext.c)
+ *     MiStopPageAccessor @ 0x140368A8C (MiStopPageAccessor.c)
+ *     MiLockHugePfnInternal @ 0x1406219B8 (MiLockHugePfnInternal.c)
  */
 
 __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)

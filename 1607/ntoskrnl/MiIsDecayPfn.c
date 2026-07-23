@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsDecayPfn @ 0x1400A3DF8
+ * XREFs of MiIsDecayPfn @ 0x1400A2720
  * Callers:
- *     MiReplaceTransitionPage @ 0x1401074C4 (MiReplaceTransitionPage.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1401209F0 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x1401F3ACC (MiSwapNumaStandbyPage.c)
+ *     MiReplaceTransitionPage @ 0x140105244 (MiReplaceTransitionPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140120F60 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1401F38F8 (MiSwapNumaStandbyPage.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  * Callees:
  *     <none>
@@ -11,5 +11,5 @@
 
 _BOOL8 __fastcall MiIsDecayPfn(unsigned __int64 a1)
 {
-  return a1 >= qword_140327360 && a1 < qword_140327360 + 2048;
+  return a1 >= qword_1403273A0 && a1 < qword_1403273A0 + 2048;
 }

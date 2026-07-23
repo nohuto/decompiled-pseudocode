@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSelectNextConfiguration @ 0x14055557C
+ * XREFs of IopSelectNextConfiguration @ 0x140555ABC
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x140555E0C (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x14055634C (PnpFindBestConfigurationWorker.c)
  * Callees:
- *     IopAddRemoveReqDescs @ 0x140557860 (IopAddRemoveReqDescs.c)
+ *     IopAddRemoveReqDescs @ 0x140557DA0 (IopAddRemoveReqDescs.c)
  */
 
 char __fastcall IopSelectNextConfiguration(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

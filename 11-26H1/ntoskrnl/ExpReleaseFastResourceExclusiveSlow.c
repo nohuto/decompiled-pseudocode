@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpReleaseFastResourceExclusiveSlow @ 0x140270AF0
+ * XREFs of ExpReleaseFastResourceExclusiveSlow @ 0x140270060
  * Callers:
- *     ExpReleaseFastResourceExclusive @ 0x1402707E0 (ExpReleaseFastResourceExclusive.c)
- *     ExReleaseFastResource @ 0x14027B310 (ExReleaseFastResource.c)
+ *     ExpReleaseFastResourceExclusive @ 0x14026FD50 (ExpReleaseFastResourceExclusive.c)
+ *     ExReleaseFastResource @ 0x14027A880 (ExReleaseFastResource.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     ?KiAbpAcquireEntryLockRaw@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x140270780 (-KiAbpAcquireEntryLockRaw@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     ?KiAbPostReleaseEx@LegacyAutoBoost@@YAXPEAX0@Z @ 0x1402711A4 (-KiAbPostReleaseEx@LegacyAutoBoost@@YAXPEAX0@Z.c)
- *     KiTryUnwaitThread @ 0x1402735B4 (KiTryUnwaitThread.c)
- *     KeAbPreWakeupHandle @ 0x1402736A4 (KeAbPreWakeupHandle.c)
- *     KiRemoveBoostThread @ 0x1402742E0 (KiRemoveBoostThread.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     ?KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x14027AAF0 (-KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     ?KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14027C800 (-KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     ExpUpdateLockWordForRelease @ 0x140431D00 (ExpUpdateLockWordForRelease.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     ?KiAbpAcquireEntryLockRaw@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x14026FCF0 (-KiAbpAcquireEntryLockRaw@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     ?KiAbPostReleaseEx@LegacyAutoBoost@@YAXPEAX0@Z @ 0x140270714 (-KiAbPostReleaseEx@LegacyAutoBoost@@YAXPEAX0@Z.c)
+ *     KiTryUnwaitThread @ 0x140272B24 (KiTryUnwaitThread.c)
+ *     KeAbPreWakeupHandle @ 0x140272C14 (KeAbPreWakeupHandle.c)
+ *     KiRemoveBoostThread @ 0x140273850 (KiRemoveBoostThread.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     ?KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x14027A060 (-KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     ?KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14027BD70 (-KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     ExpUpdateLockWordForRelease @ 0x14041ED30 (ExpUpdateLockWordForRelease.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall ExpReleaseFastResourceExclusiveSlow(signed __int64 *BugCheckParameter2, unsigned __int8 a2)
@@ -95,7 +95,7 @@ void __fastcall ExpReleaseFastResourceExclusiveSlow(signed __int64 *BugCheckPara
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 6);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     if ( _InterlockedExchange64(BugCheckParameter2 + 6, (__int64)&LockHandle) )
       KxWaitForLockOwnerShip(&LockHandle);

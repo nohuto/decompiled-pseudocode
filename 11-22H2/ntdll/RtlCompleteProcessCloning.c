@@ -22,13 +22,13 @@ void __fastcall RtlCompleteProcessCloning(unsigned int a1)
 
   if ( a1 )
   {
-    RtlCriticalSectionLock = 1LL;
+    RtlCriticalSectionLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
     v2 = 1;
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_180183FB8 = 0LL;
-    qword_180183FB0 = (__int64)UniqueThread;
-    dword_180183FA8 = -2;
-    dword_180183FAC = 1;
+    FastPebLock.LockSemaphore = 0LL;
+    FastPebLock.OwningThread = UniqueThread;
+    FastPebLock.LockCount = -2;
+    FastPebLock.RecursionCount = 1;
   }
   else
   {
@@ -39,12 +39,12 @@ void __fastcall RtlCompleteProcessCloning(unsigned int a1)
   RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
   LdrForkMrdata(v2);
   if ( v2 == 1 )
-    RtlpProtectedPoliciesSRWLock = 1LL;
+    RtlpProtectedPoliciesSRWLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
   else
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   RtlUnlockHeapManagerForCloning(a1);
   LdrpUnlockTlsDelayedReclaimTable(a1);
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
+  RtlLeaveCriticalSection(&FastPebLock);
   RtlpFlsCloneComplete(v4, a1);
   LdrpCompleteProcessCloning(a1);
   if ( a1 )

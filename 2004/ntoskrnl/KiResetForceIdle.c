@@ -31,9 +31,9 @@ char __fastcall KiResetForceIdle(unsigned int a1, __int64 a2, __int64 a3, __int6
   _DWORD *v16; // rdx
   __int16 v18; // [rsp+30h] [rbp-8h]
   int v19; // [rsp+48h] [rbp+10h] BYREF
-  LARGE_INTEGER v20; // [rsp+50h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+18h] BYREF
 
-  v20.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v4 = 0;
   v5 = a2;
   if ( !(_BYTE)a2 )
@@ -81,7 +81,8 @@ char __fastcall KiResetForceIdle(unsigned int a1, __int64 a2, __int64 a3, __int6
     if ( a1 == 3 )
       v14 = 0LL;
     else
-      v14 = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v20);
+      v14 = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+          + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
     KiForceIdleStartTime = v14;
     if ( !KiForceIdleStopDpc.DpcData )
       KiForceIdleStopDpc.Number = KiClockTimerOwner + 1280;

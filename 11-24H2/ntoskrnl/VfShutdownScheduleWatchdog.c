@@ -1,9 +1,9 @@
 /*
- * XREFs of VfShutdownScheduleWatchdog @ 0x140613F08
+ * XREFs of VfShutdownScheduleWatchdog @ 0x1406124C8
  * Callers:
- *     PopGracefulShutdown @ 0x140B5BA88 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140B5DAF8 (PopGracefulShutdown.c)
  * Callees:
- *     ViShutdownScheduleWatchdog @ 0x140B94E00 (ViShutdownScheduleWatchdog.c)
+ *     ViShutdownScheduleWatchdog @ 0x140B96E00 (ViShutdownScheduleWatchdog.c)
  */
 
 __int64 VfShutdownScheduleWatchdog()

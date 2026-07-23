@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreDecrementOutstandingWrites @ 0x1404840B0
+ * XREFs of MiStoreDecrementOutstandingWrites @ 0x14047F648
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
- *     MiStoreRundownWritesApc @ 0x14068C7D0 (MiStoreRundownWritesApc.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
+ *     MiStoreRundownWritesApc @ 0x14068D900 (MiStoreRundownWritesApc.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 LONG __fastcall MiStoreDecrementOutstandingWrites(__int64 a1)

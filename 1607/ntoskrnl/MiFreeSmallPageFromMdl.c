@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeSmallPageFromMdl @ 0x140022AF0
+ * XREFs of MiFreeSmallPageFromMdl @ 0x140022670
  * Callers:
- *     MiFreeMdlPageRun @ 0x140022A34 (MiFreeMdlPageRun.c)
+ *     MiFreeMdlPageRun @ 0x1400225B4 (MiFreeMdlPageRun.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 __int64 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR BugCheckParameter2, int a2)

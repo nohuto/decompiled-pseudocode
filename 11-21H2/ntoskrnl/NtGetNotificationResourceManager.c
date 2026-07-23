@@ -16,7 +16,7 @@ NTSTATUS __stdcall NtGetNotificationResourceManager(
         ULONG Asynchronous,
         ULONG_PTR AsynchronousContext)
 {
-  return __imp_NtGetNotificationResourceManager(
+  return NtGetNotificationResourceManager_0(
            ResourceManagerHandle,
            TransactionNotification,
            NotificationLength,

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpClearPartitionContext @ 0x1402C7EA0
+ * XREFs of EtwpClearPartitionContext @ 0x140246700
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406B51BC (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1406146D4 (EtwpFreeLoggerContext.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
  */
 
 __int64 __fastcall EtwpClearPartitionContext(__int64 *a1)

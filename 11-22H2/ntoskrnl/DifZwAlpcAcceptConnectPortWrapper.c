@@ -10,16 +10,16 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwAlpcAcceptConnectPortWrapper(
-        __int64 a1,
-        __int64 a2,
-        int a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        char a9)
+NTSTATUS __fastcall DifZwAlpcAcceptConnectPortWrapper(
+        PHANDLE PortHandle,
+        HANDLE ConnectionPortHandle,
+        ULONG Flags,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        PALPC_MESSAGE_ATTRIBUTES ConnectionMessageAttributes,
+        BOOLEAN AcceptConnection)
 {
   __int64 v13; // rdx
   __int64 v14; // rcx
@@ -29,7 +29,7 @@ __int64 __fastcall DifZwAlpcAcceptConnectPortWrapper(
   int v18; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v22; // rdi
   _QWORD *v23; // rbx
   _QWORD v24[12]; // [rsp+58h] [rbp-51h] BYREF
@@ -63,22 +63,31 @@ LABEL_8:
   }
   v24[0] = 0LL;
 LABEL_10:
-  v24[5] = a5;
-  v24[4] = a6;
-  v24[3] = a7;
-  v24[2] = a8;
-  LOBYTE(v24[1]) = a9;
-  v24[9] = a1;
-  v24[8] = a2;
-  LODWORD(v24[7]) = a3;
-  v24[6] = a4;
+  v24[5] = PortAttributes;
+  v24[4] = PortContext;
+  v24[3] = ConnectionRequest;
+  v24[2] = ConnectionMessageAttributes;
+  LOBYTE(v24[1]) = AcceptConnection;
+  v24[9] = PortHandle;
+  v24[8] = ConnectionPortHandle;
+  LODWORD(v24[7]) = Flags;
+  v24[6] = ObjectAttributes;
   for ( i = (__int64 *)APIThunkContextById[4]; i != APIThunkContextById + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(_QWORD *))*(i - 1))(v24);
   }
 LABEL_17:
-  result = ZwAlpcAcceptConnectPort(a1, a2);
+  result = ZwAlpcAcceptConnectPort(
+             PortHandle,
+             ConnectionPortHandle,
+             Flags,
+             ObjectAttributes,
+             PortAttributes,
+             PortContext,
+             ConnectionRequest,
+             ConnectionMessageAttributes,
+             AcceptConnection);
   LODWORD(v24[10]) = result;
   if ( APIThunkContextById )
   {
@@ -93,7 +102,7 @@ LABEL_17:
         v23 = (_QWORD *)*v23;
       }
       while ( v23 != v22 );
-      return LODWORD(v24[10]);
+      return v24[10];
     }
   }
   return result;

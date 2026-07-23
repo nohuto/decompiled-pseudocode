@@ -1,11 +1,11 @@
 /*
- * XREFs of LpcExitProcess @ 0x140613E28
+ * XREFs of LpcExitProcess @ 0x14067DA88
  * Callers:
- *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
- *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     PspExitThread @ 0x14063F658 (PspExitThread.c)
+ *     PspProcessDelete @ 0x14067D320 (PspProcessDelete.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
- *     AlpcpCleanupProcessViews @ 0x140613E6C (AlpcpCleanupProcessViews.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140323160 (PsReturnProcessPagedPoolQuota.c)
+ *     AlpcpCleanupProcessViews @ 0x14067DACC (AlpcpCleanupProcessViews.c)
  */
 
 __int64 __fastcall LpcExitProcess(struct _KPROCESS *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPlCalculateDevicePowerDraw @ 0x140612524
+ * XREFs of PopPlCalculateDevicePowerDraw @ 0x140615364
  * Callers:
- *     PopPlNotifyDeviceFState @ 0x1403AE02C (PopPlNotifyDeviceFState.c)
- *     PopPlNotifyDeviceDState @ 0x1403B39DC (PopPlNotifyDeviceDState.c)
- *     PopPlUnregisterDevice @ 0x140510374 (PopPlUnregisterDevice.c)
- *     PopPlRegisterDeviceIterator @ 0x140612A00 (PopPlRegisterDeviceIterator.c)
+ *     PopPlNotifyDeviceFState @ 0x1403B7D3C (PopPlNotifyDeviceFState.c)
+ *     PopPlNotifyDeviceDState @ 0x1403BD6EC (PopPlNotifyDeviceDState.c)
+ *     PopPlUnregisterDevice @ 0x140509DE4 (PopPlUnregisterDevice.c)
+ *     PopPlRegisterDeviceIterator @ 0x140615840 (PopPlRegisterDeviceIterator.c)
  * Callees:
  *     <none>
  */

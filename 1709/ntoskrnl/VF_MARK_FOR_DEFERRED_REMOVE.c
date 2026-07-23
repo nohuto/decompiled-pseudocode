@@ -7,21 +7,21 @@
  *     KeAcquireSpinLockRaiseToDpc @ 0x1400931A0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
-__int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(__int64 a1)
+__int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(struct _LIST_ENTRY *a1)
 {
   KIRQL v2; // al
-  ULONG_PTR v3; // rdx
+  struct _LIST_ENTRY *Flink; // rdx
   KIRQL v4; // bl
   __int64 result; // rax
 
   v2 = KeAcquireSpinLockRaiseToDpc(&Lock);
-  v3 = ViAdapterList;
+  Flink = ViAdapterList.Flink;
   v4 = v2;
-  while ( &ViAdapterList != (ULONG_PTR *)v3 )
+  while ( &ViAdapterList != Flink )
   {
-    if ( *(_QWORD *)(v3 + 24) == a1 )
-      *(_BYTE *)(v3 + 32) = 1;
-    v3 = *(_QWORD *)v3;
+    if ( Flink[1].Blink == a1 )
+      LOBYTE(Flink[2].Flink) = 1;
+    Flink = Flink->Flink;
   }
   KxReleaseSpinLock(&Lock);
   result = v4;

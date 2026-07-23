@@ -1,42 +1,46 @@
 /*
- * XREFs of PpmCheckArmPeriod @ 0x1404E6260
+ * XREFs of PpmCheckArmPeriod @ 0x1404DF800
  * Callers:
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
  * Callees:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     PpmCheckResetProcessors @ 0x14042A1AC (PpmCheckResetProcessors.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     PpmCheckResetProcessors @ 0x1404FB714 (PpmCheckResetProcessors.c)
  */
 
-unsigned __int8 PpmCheckArmPeriod()
+char PpmCheckArmPeriod()
 {
   __int64 v0; // rbx
-  unsigned __int8 result; // al
+  char result; // al
   _QWORD v2[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v0 = *(__int64 *)((char *)&PopSleepstudySessionLock.116 + 4);
-  result = PopSleepstudySessionLock.WaitBlockFill6[97];
-  if ( 10000 * (unsigned __int64)HIDWORD(PpmCurrentProfile[89 * dword_140F106CC + 11]) > *(_QWORD *)((char *)&PopSleepstudySessionLock.116 + 4) )
-    v0 = 10000LL * HIDWORD(PpmCurrentProfile[89 * dword_140F106CC + 11]);
-  if ( !PopSleepstudySessionLock.WaitBlockFill6[97] )
+  v0 = PpmCheckMinimumPeriod;
+  result = PpmCheckArmed;
+  if ( 10000
+     * (unsigned __int64)*((unsigned int *)PpmCurrentProfile
+                         + 178 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next)
+                         + 23) > PpmCheckMinimumPeriod )
+    v0 = 10000LL
+       * *((unsigned int *)PpmCurrentProfile + 178 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 23);
+  if ( !PpmCheckArmed )
     goto LABEL_8;
-  if ( (void *)v0 != PopSleepstudySessionLock.FirstArgument )
+  if ( v0 != PpmCheckPeriod )
   {
-    _InterlockedExchange64((volatile __int64 *)&PopSleepstudySessionLock.TrapFrame, 0LL);
+    _InterlockedExchange64(&PpmCheckLastEffectiveExecutionTime, 0LL);
     result = 0;
-    PopSleepstudySessionLock.WaitBlockFill6[97] = 0;
+    PpmCheckArmed = 0;
   }
   if ( !result )
   {
 LABEL_8:
-    PopSleepstudySessionLock.FirstArgument = (void *)v0;
+    PpmCheckPeriod = v0;
     PpmCheckResetProcessors(0LL);
-    result = _InterlockedExchange64((volatile __int64 *)&PopSleepstudySessionLock.TrapFrame, 1LL);
-    PopSleepstudySessionLock.WaitBlockFill6[97] = 1;
-    if ( *(_DWORD *)&PopSleepstudySessionLock.AffinityPrimaryGroup )
+    result = _InterlockedExchange64(&PpmCheckLastEffectiveExecutionTime, 1LL);
+    PpmCheckArmed = 1;
+    if ( PpmCheckTimerImplementation )
     {
       v2[0] = 0LL;
       v2[1] = -1LL;
-      return KeSetTimer2((__int64)&PopSleepstudySessionLock.WaitBlock[2].Object, -v0, v0, (__int64)v2);
+      return KeSetTimer2((__int64)&PpmCheckTimer, -v0, v0, (__int64)v2);
     }
   }
   return result;

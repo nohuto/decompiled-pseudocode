@@ -1,11 +1,11 @@
 /*
- * XREFs of PopLidSwitchChangeCallback @ 0x1408E3FE0
+ * XREFs of PopLidSwitchChangeCallback @ 0x1408E4140
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopBroadcastSessionInfo @ 0x1407967A4 (PopBroadcastSessionInfo.c)
+ *     PopQueueWorkItem @ 0x140251CA4 (PopQueueWorkItem.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopBroadcastSessionInfo @ 0x1407969A4 (PopBroadcastSessionInfo.c)
  */
 
 __int64 __fastcall PopLidSwitchChangeCallback(_QWORD *a1, int *a2, int a3)

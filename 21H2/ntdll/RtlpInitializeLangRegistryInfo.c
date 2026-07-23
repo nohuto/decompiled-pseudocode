@@ -1,8 +1,8 @@
 /*
  * XREFs of RtlpInitializeLangRegistryInfo @ 0x180070000
  * Callers:
- *     RtlGetUILanguageInfo @ 0x1800EF0E0 (RtlGetUILanguageInfo.c)
- *     RtlpSetPreferredUILanguages @ 0x1800F1270 (RtlpSetPreferredUILanguages.c)
+ *     RtlGetUILanguageInfo @ 0x1800EF0A0 (RtlGetUILanguageInfo.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800F1230 (RtlpSetPreferredUILanguages.c)
  * Callees:
  *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180070080 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
  */

@@ -16,20 +16,20 @@
  *     PopValidateContextMembership @ 0x140586050 (PopValidateContextMembership.c)
  */
 
-__int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
+__int64 __fastcall PopGetSettingNotificationName(__int64 a1, _WNF_STATE_NAME *a2)
 {
   char v4; // r12
   char v5; // r15
   int v6; // edi
-  _QWORD *PowerSettingConfiguration; // rax
-  _QWORD *v8; // rdi
-  __int64 v9; // rax
-  NTSTATUS NotificationName; // ebx
+  _WNF_STATE_NAME *PowerSettingConfiguration; // rax
+  _WNF_STATE_NAME *v8; // rdi
+  _WNF_STATE_NAME v9; // rax
+  int v10; // ebx
   __int64 v12; // rax
   unsigned int ProcessSessionId; // eax
   unsigned int v14; // r14d
-  NTSTATUS v15; // eax
-  __int64 v16; // [rsp+28h] [rbp-40h] BYREF
+  int v15; // eax
+  _WNF_STATE_NAME StateName; // [rsp+28h] [rbp-40h] BYREF
 
   v4 = 0;
   ExAcquireFastMutex(&PopSettingLock);
@@ -48,22 +48,22 @@ __int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
       {
         if ( ProcessSessionId == -1 || PsIsServiceSession(ProcessSessionId) )
         {
-          NotificationName = -1073741811;
+          v10 = -1073741811;
           goto LABEL_12;
         }
         v6 = v14;
       }
       else
       {
-        NotificationName = PopValidateContextMembership(SeLocalSystemSid);
-        if ( NotificationName < 0 )
+        v10 = PopValidateContextMembership(SeLocalSystemSid);
+        if ( v10 < 0 )
         {
           if ( !PsIsServiceSession(v14) )
             goto LABEL_12;
           if ( !MmIsSessionInCurrentServerSilo(v6) )
             goto LABEL_12;
-          NotificationName = PopValidateContextMembership(SeExports->SeLocalServiceSid);
-          if ( NotificationName < 0 )
+          v10 = PopValidateContextMembership(SeExports->SeLocalServiceSid);
+          if ( v10 < 0 )
             goto LABEL_12;
         }
       }
@@ -72,51 +72,51 @@ __int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
     {
       v6 = -1;
     }
-    PowerSettingConfiguration = PopFindPowerSettingConfiguration((_QWORD *)a1, v6);
+    PowerSettingConfiguration = (_WNF_STATE_NAME *)PopFindPowerSettingConfiguration((_QWORD *)a1, v6);
     v8 = PowerSettingConfiguration;
     if ( PowerSettingConfiguration )
     {
-      if ( *((_DWORD *)PowerSettingConfiguration + 14) || *((_DWORD *)PowerSettingConfiguration + 15) )
+      if ( PowerSettingConfiguration[7].Data[0] || PowerSettingConfiguration[7].Data[1] )
       {
         v9 = PowerSettingConfiguration[7];
 LABEL_10:
-        v16 = v9;
+        StateName = v9;
 LABEL_11:
         KeReleaseGuardedMutex(&PopSettingLock);
         v5 = 0;
-        *a2 = v16;
-        NotificationName = 0;
+        *a2 = StateName;
+        v10 = 0;
         goto LABEL_12;
       }
-      NotificationName = PopCreateNotificationName((__int64)&v16);
-      if ( NotificationName >= 0 )
+      v10 = PopCreateNotificationName(&StateName);
+      if ( v10 >= 0 )
       {
         v12 = *(_QWORD *)a1 - *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1;
         if ( *(_QWORD *)a1 == *(_QWORD *)&GUID_ACDC_POWER_SOURCE.Data1 )
           v12 = *(_QWORD *)(a1 + 8) - *(_QWORD *)GUID_ACDC_POWER_SOURCE.Data4;
         if ( !v12 )
-          *((_DWORD *)v8 + 13) |= 8u;
-        v8[7] = v16;
-        *((_DWORD *)v8 + 13) |= 1u;
+          v8[6].Data[1] |= 8u;
+        v8[7] = StateName;
+        v8[6].Data[1] |= 1u;
         v4 = 1;
         goto LABEL_11;
       }
     }
     else
     {
-      NotificationName = -1073741275;
+      v10 = -1073741275;
     }
   }
   else
   {
     v9 = PopPopPowerSettingSetChangeNotification;
-    if ( PopPopPowerSettingSetChangeNotification != __PAIR64__(PopPopPowerSettingSetChangeNotification, 0) )
+    if ( PopPopPowerSettingSetChangeNotification != __PAIR64__(PopPopPowerSettingSetChangeNotification.Data[0], 0) )
       goto LABEL_10;
-    v15 = PopCreateNotificationName((__int64)&v16);
-    NotificationName = v15;
+    v15 = PopCreateNotificationName(&StateName);
+    v10 = v15;
     if ( v15 >= 0 )
     {
-      PopPopPowerSettingSetChangeNotification = v16;
+      PopPopPowerSettingSetChangeNotification = StateName;
       goto LABEL_11;
     }
   }
@@ -125,5 +125,5 @@ LABEL_12:
     KeReleaseGuardedMutex(&PopSettingLock);
   if ( v4 )
     PopSetNotificationWork(0x80u);
-  return (unsigned int)NotificationName;
+  return (unsigned int)v10;
 }

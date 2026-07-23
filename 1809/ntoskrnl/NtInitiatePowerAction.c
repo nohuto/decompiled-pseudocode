@@ -1,23 +1,23 @@
 /*
- * XREFs of NtInitiatePowerAction @ 0x1406DDED0
+ * XREFs of NtInitiatePowerAction @ 0x1406DF170
  * Callers:
- *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x14057DA10 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
- *     IopWarmEjectDevice @ 0x14083CE54 (IopWarmEjectDevice.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x14057EA10 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
+ *     IopWarmEjectDevice @ 0x14083E0B4 (IopWarmEjectDevice.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     PopDiagTracePolicyInitiatePowerActionApiCall @ 0x1406DDE10 (PopDiagTracePolicyInitiatePowerActionApiCall.c)
- *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
- *     PopWriteBsdPowerTransition @ 0x14071C468 (PopWriteBsdPowerTransition.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     PopDiagTracePolicyInitiatePowerActionApiCall @ 0x1406DF0B0 (PopDiagTracePolicyInitiatePowerActionApiCall.c)
+ *     PopExecutePowerAction @ 0x1406DF390 (PopExecutePowerAction.c)
+ *     PopWriteBsdPowerTransition @ 0x14071D708 (PopWriteBsdPowerTransition.c)
  */
 
 NTSTATUS __stdcall NtInitiatePowerAction(
@@ -94,7 +94,7 @@ NTSTATUS __stdcall NtInitiatePowerAction(
   {
     PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
     BYTE8(PopBsdPowerTransition) |= 8u;
-    LOBYTE(PopBsdPowerTransitionExtension) = dword_140417714;
+    LOBYTE(PopBsdPowerTransitionExtension) = dword_1404187B4;
     PopWriteBsdPowerTransition();
     PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
   }
@@ -107,7 +107,7 @@ NTSTATUS __stdcall NtInitiatePowerAction(
     if ( !v6[1].Header.WaitListHead.Flink )
       goto LABEL_23;
     Lock = KeWaitForSingleObject(v6, Suspended, 0, 1u, &Timeout);
-    if ( Lock == 258 && (byte_140417701 & 3) != 0 )
+    if ( Lock == 258 && (byte_1404187A1 & 3) != 0 )
       Lock = KeWaitForSingleObject(v6, Suspended, 0, 1u, 0LL);
     PopAcquirePolicyLock();
     v14 = *(struct _LIST_ENTRY **)p_WaitListHead;

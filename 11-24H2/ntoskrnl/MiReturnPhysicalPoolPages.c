@@ -1,26 +1,26 @@
 /*
- * XREFs of MiReturnPhysicalPoolPages @ 0x1402EA2D4
+ * XREFs of MiReturnPhysicalPoolPages @ 0x14034B914
  * Callers:
- *     MiClearNonPagedPtes @ 0x1402346CC (MiClearNonPagedPtes.c)
- *     MiGetPoolPages @ 0x1402E9F58 (MiGetPoolPages.c)
- *     MiReturnExcessPoolCommit @ 0x1402EA7D0 (MiReturnExcessPoolCommit.c)
- *     MiAddExpansionNonPagedPool @ 0x14067C9FC (MiAddExpansionNonPagedPool.c)
+ *     MiClearNonPagedPtes @ 0x14020E660 (MiClearNonPagedPtes.c)
+ *     MiGetPoolPages @ 0x14034B598 (MiGetPoolPages.c)
+ *     MiReturnExcessPoolCommit @ 0x14034BE10 (MiReturnExcessPoolCommit.c)
+ *     MiAddExpansionNonPagedPool @ 0x14067DBDC (MiAddExpansionNonPagedPool.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MI_NODE_FROM_PFN @ 0x1402245F0 (MI_NODE_FROM_PFN.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiUnlinkPageChainHead @ 0x1402E8490 (MiUnlinkPageChainHead.c)
- *     MiReturnPoolCharges @ 0x14045A754 (MiReturnPoolCharges.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MI_NODE_FROM_PFN @ 0x140251340 (MI_NODE_FROM_PFN.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageChainHead @ 0x140349AD0 (MiUnlinkPageChainHead.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiReturnPoolCharges @ 0x14044FBA4 (MiReturnPoolCharges.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, char a2)
+__int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
   unsigned int v4; // ebx
@@ -54,9 +54,11 @@ __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, char a2)
   __int64 v32; // [rsp+70h] [rbp+7h]
   int v34; // [rsp+D0h] [rbp+67h]
   int v35; // [rsp+D0h] [rbp+67h]
+  char v36; // [rsp+D8h] [rbp+6Fh]
   int v37; // [rsp+E0h] [rbp+77h]
   int v38; // [rsp+E8h] [rbp+7Fh]
 
+  v36 = a2;
   result = 0LL;
   v32 = 0LL;
   v29 = 0LL;
@@ -71,7 +73,7 @@ __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, char a2)
     v6 = 0LL;
     v26 = 0LL;
     v7 = 0LL;
-    DemandZeroPte = MiMakeDemandZeroPte(4);
+    DemandZeroPte = MiMakeDemandZeroPte(4LL, a2, (unsigned int)a2, 0LL);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8((unsigned int)(v11 + 2));
     if ( KiIrqlFlags != v11 )
@@ -174,7 +176,7 @@ __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, char a2)
     __writecr8(CurrentIrql);
     if ( v7 )
     {
-      v23 = qword_140E2DAF8 + 384LL * v4;
+      v23 = qword_140E2DC38 + 384LL * v4;
       v24 = (volatile LONG *)(v23 + 72);
       if ( CurrentIrql == 2 )
       {
@@ -198,7 +200,7 @@ __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, char a2)
       }
       MiReleaseSpinLockExclusive((_DWORD *)(v23 + 72), v25);
     }
-    return MiReturnPoolCharges(&v29, 2 * (a2 & 1u));
+    return MiReturnPoolCharges(&v29, 2 * (v36 & 1u));
   }
   return result;
 }

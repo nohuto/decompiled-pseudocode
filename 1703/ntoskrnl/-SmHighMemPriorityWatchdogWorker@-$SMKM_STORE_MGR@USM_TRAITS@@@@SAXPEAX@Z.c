@@ -93,7 +93,7 @@ LABEL_12:
       --v8;
     }
     while ( v8 );
-    if ( ZwQuerySystemInformation(SystemLoadGdiDriverInSystemSpaceInformation|0x80, SystemInformation, 0x38u, 0LL) >= 0 )
+    if ( ZwQuerySystemInformation(SystemMemoryUsageInformation, SystemInformation, 0x38u, 0LL) >= 0 )
     {
       v12 = SystemInformation[0] / 0x5000uLL;
       if ( SystemInformation[0] / 0x5000uLL >= 0x7D000 )

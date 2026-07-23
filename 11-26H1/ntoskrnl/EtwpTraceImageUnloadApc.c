@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceImageUnloadApc @ 0x140475FE0
+ * XREFs of EtwpTraceImageUnloadApc @ 0x14046F760
  * Callers:
  *     <none>
  * Callees:
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     EtwpTraceImageUnload @ 0x1404760E8 (EtwpTraceImageUnload.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     FsRtlReleaseFileNameInformation @ 0x1409FDA00 (FsRtlReleaseFileNameInformation.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     EtwpTraceImageUnload @ 0x14046F868 (EtwpTraceImageUnload.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     FsRtlReleaseFileNameInformation @ 0x140922600 (FsRtlReleaseFileNameInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTraceImageUnloadApc(PVOID P)

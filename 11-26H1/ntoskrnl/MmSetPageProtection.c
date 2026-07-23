@@ -1,18 +1,18 @@
 /*
- * XREFs of MmSetPageProtection @ 0x1405096F0
+ * XREFs of MmSetPageProtection @ 0x1405031A0
  * Callers:
- *     sub_1405517D0 @ 0x1405517D0 (sub_1405517D0.c)
- *     KiAllocateProcessorStacks @ 0x1405EA004 (KiAllocateProcessorStacks.c)
- *     KiFreeProcessorStacks @ 0x1405EB2E0 (KiFreeProcessorStacks.c)
- *     HvpProtectBinPartial @ 0x1408B955C (HvpProtectBinPartial.c)
- *     HvpRemapAndEnlistHiveBins @ 0x1408DBDF0 (HvpRemapAndEnlistHiveBins.c)
- *     KeWriteProtectProcessorState @ 0x140BF4178 (KeWriteProtectProcessorState.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
- *     VslpIumPhase0Initialize @ 0x140CB9CAC (VslpIumPhase0Initialize.c)
+ *     sub_140553C50 @ 0x140553C50 (sub_140553C50.c)
+ *     KiAllocateProcessorStacks @ 0x1405EC974 (KiAllocateProcessorStacks.c)
+ *     KiFreeProcessorStacks @ 0x1405EDC50 (KiFreeProcessorStacks.c)
+ *     HvpProtectBinPartial @ 0x1408BFB2C (HvpProtectBinPartial.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1408E23B0 (HvpRemapAndEnlistHiveBins.c)
+ *     KeWriteProtectProcessorState @ 0x140BFA178 (KeWriteProtectProcessorState.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
+ *     VslpIumPhase0Initialize @ 0x140CBFCEC (VslpIumPhase0Initialize.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiSetPageProtection @ 0x1404EB458 (MiSetPageProtection.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiSetPageProtection @ 0x1404E4A38 (MiSetPageProtection.c)
  */
 
 char __fastcall MmSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

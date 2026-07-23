@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCountWslesInPageTable @ 0x140317D00
+ * XREFs of MiCountWslesInPageTable @ 0x140317F90
  * Callers:
  *     MiRebuildPageTableLeafAges @ 0x1402188A0 (MiRebuildPageTableLeafAges.c)
- *     MiAddWorkingSetEntries @ 0x14026BD20 (MiAddWorkingSetEntries.c)
- *     MiSetVaAgeList @ 0x1402709E0 (MiSetVaAgeList.c)
- *     MiTerminateWsleCluster @ 0x1402791A0 (MiTerminateWsleCluster.c)
- *     MiDeleteVa @ 0x14027A5C0 (MiDeleteVa.c)
+ *     MiAddWorkingSetEntries @ 0x14026BFB0 (MiAddWorkingSetEntries.c)
+ *     MiSetVaAgeList @ 0x140270C70 (MiSetVaAgeList.c)
+ *     MiTerminateWsleCluster @ 0x140279430 (MiTerminateWsleCluster.c)
+ *     MiDeleteVa @ 0x14027A850 (MiDeleteVa.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiCountWslesInPageTable(__int64 a1, unsigned __int64 a2, _OWORD *a3)

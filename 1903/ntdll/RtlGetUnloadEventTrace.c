@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void *RtlGetUnloadEventTrace()
+PRTL_UNLOAD_EVENT_TRACE RtlGetUnloadEventTrace(void)
 {
-  return &unk_180165440;
+  return (PRTL_UNLOAD_EVENT_TRACE)&unk_180165440;
 }

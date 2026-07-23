@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelperSetBlockerVerboseDescription @ 0x1409A20C0
+ * XREFs of SleepstudyHelperSetBlockerVerboseDescription @ 0x1409A22C0
  * Callers:
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A7FE4 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A81D4 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

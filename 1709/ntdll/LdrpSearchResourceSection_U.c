@@ -27,14 +27,14 @@
  *     NtQueryDefaultLocale @ 0x1800A0360 (NtQueryDefaultLocale.c)
  */
 
-__int64 __fastcall LdrpSearchResourceSection_U(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 *a5)
+__int64 __fastcall LdrpSearchResourceSection_U(void *a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   unsigned int v5; // esi
-  unsigned int v6; // r12d
+  int v6; // r12d
   __int64 *v7; // rdi
   __int64 v8; // rbx
   unsigned int v9; // r13d
-  __int64 v10; // r15
+  PVOID v10; // r15
   int v11; // eax
   __int64 CurrentLocale_low; // rcx
   __int64 v13; // rdx
@@ -45,7 +45,7 @@ __int64 __fastcall LdrpSearchResourceSection_U(__int64 a1, __int64 a2, __int64 a
   unsigned __int16 v18; // ax
   unsigned int *v19; // r8
   unsigned int v20; // edi
-  __int64 v21; // rax
+  void *v21; // rax
   __int64 *v22; // r8
   unsigned int v23; // eax
   unsigned __int16 v24; // ax
@@ -57,7 +57,7 @@ __int64 __fastcall LdrpSearchResourceSection_U(__int64 a1, __int64 a2, __int64 a
   __int64 v30; // rax
   int ResourceFromAlternativeModule; // edi
   __int64 result; // rax
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v34; // eax
   unsigned int v35; // eax
   unsigned int v36; // eax
@@ -71,38 +71,37 @@ __int64 __fastcall LdrpSearchResourceSection_U(__int64 a1, __int64 a2, __int64 a
   _DWORD *RcConfig; // rax
   unsigned __int16 v45[2]; // [rsp+30h] [rbp-108h] BYREF
   bool v46; // [rsp+34h] [rbp-104h]
-  int v47; // [rsp+38h] [rbp-100h]
+  NTSTATUS v47; // [rsp+38h] [rbp-100h]
   unsigned __int16 v48; // [rsp+3Ch] [rbp-FCh]
   unsigned int v49; // [rsp+40h] [rbp-F8h]
   __int64 v50; // [rsp+48h] [rbp-F0h] BYREF
   unsigned int v51; // [rsp+50h] [rbp-E8h]
   unsigned int v52; // [rsp+54h] [rbp-E4h]
   unsigned int v53; // [rsp+58h] [rbp-E0h]
-  __int64 v54; // [rsp+60h] [rbp-D8h] BYREF
+  PVOID BaseOfImage; // [rsp+60h] [rbp-D8h] BYREF
   bool v55; // [rsp+68h] [rbp-D0h] BYREF
-  int v56; // [rsp+6Ch] [rbp-CCh] BYREF
-  __int64 v57; // [rsp+70h] [rbp-C8h]
-  __int64 *v58; // [rsp+78h] [rbp-C0h]
+  DWORD v56; // [rsp+6Ch] [rbp-CCh] BYREF
+  void *v57; // [rsp+70h] [rbp-C8h]
+  __int64 v58; // [rsp+78h] [rbp-C0h]
   __int64 v59; // [rsp+80h] [rbp-B8h] BYREF
   __int64 v60; // [rsp+88h] [rbp-B0h]
-  int v61; // [rsp+90h] [rbp-A8h] BYREF
-  int v62; // [rsp+94h] [rbp-A4h] BYREF
+  DWORD DefaultLocaleId; // [rsp+90h] [rbp-A8h] BYREF
+  DWORD Lcid; // [rsp+94h] [rbp-A4h] BYREF
   __int64 v63; // [rsp+98h] [rbp-A0h] BYREF
   __int64 v64; // [rsp+A0h] [rbp-98h]
-  char v65; // [rsp+A8h] [rbp-90h] BYREF
-  struct _TEB *v66; // [rsp+B0h] [rbp-88h]
-  unsigned int *v67; // [rsp+B8h] [rbp-80h]
-  __int64 *v68; // [rsp+C0h] [rbp-78h]
-  UNICODE_STRING DestinationString; // [rsp+C8h] [rbp-70h] BYREF
-  __int64 v70; // [rsp+D8h] [rbp-60h] BYREF
-  __int64 v71; // [rsp+E0h] [rbp-58h]
-  __int64 v72; // [rsp+E8h] [rbp-50h]
-  __int64 v73; // [rsp+F0h] [rbp-48h]
+  struct _TEB *v65; // [rsp+B0h] [rbp-88h]
+  unsigned int *v66; // [rsp+B8h] [rbp-80h]
+  __int64 *v67; // [rsp+C0h] [rbp-78h]
+  _UNICODE_STRING DestinationString; // [rsp+C8h] [rbp-70h] BYREF
+  __int64 v69; // [rsp+D8h] [rbp-60h]
+  __int64 v70; // [rsp+E0h] [rbp-58h]
+  __int64 v71; // [rsp+E8h] [rbp-50h]
+  __int64 v72; // [rsp+F0h] [rbp-48h]
 
   v5 = a4;
   v6 = a3;
   v7 = (__int64 *)a2;
-  v54 = a1;
+  BaseOfImage = a1;
   v49 = a4;
   v58 = a5;
   v60 = a2;
@@ -141,8 +140,8 @@ LABEL_5:
       || (v41 & 0xF3FF) != 0
       || v41 == 3072 )
     {
-      v10 = v54;
-      v5 |= LdrIsResItemExist(v54, v7, a3, v5);
+      v10 = BaseOfImage;
+      v5 |= LdrIsResItemExist(BaseOfImage, v7, a3, v5);
       v49 = v5;
       if ( (v5 & 0x40000) != 0 )
       {
@@ -150,18 +149,18 @@ LABEL_5:
         v47 = -1073741686;
         if ( (v5 & 0x20000) == 0 )
         {
-          v70 = *v7;
+          v69 = *v7;
           if ( v9 < 2 )
             v43 = 0LL;
           else
             v43 = v7[1];
-          v71 = v43;
+          v70 = v43;
           if ( v9 == 3 )
             v8 = v7[2];
-          v72 = v8;
+          v71 = v8;
           if ( v6 == 4 )
-            v73 = v7[3];
-          result = LdrpLoadResourceFromAlternativeModule(v54, (unsigned int)&v70, v6, v5, (__int64)v58);
+            v72 = v7[3];
+          result = LdrpLoadResourceFromAlternativeModule(BaseOfImage, v58);
           v47 = result;
         }
         return result;
@@ -171,10 +170,9 @@ LABEL_5:
     v5 |= 0x10u;
     v49 = v5;
   }
-  v10 = v54;
+  v10 = BaseOfImage;
 LABEL_13:
-  LOBYTE(a2) = 1;
-  v11 = RtlpImageDirectoryEntryToDataEx(v10, a2, 2, (unsigned int)&v65, (__int64)&v63);
+  v11 = RtlpImageDirectoryEntryToDataEx((int)v10, (__int64)&v63);
   CurrentLocale_low = v63;
   if ( v11 < 0 )
     CurrentLocale_low = 0LL;
@@ -182,7 +180,7 @@ LABEL_13:
   v64 = CurrentLocale_low;
   if ( !CurrentLocale_low )
     return 3221225609LL;
-  v54 = CurrentLocale_low;
+  BaseOfImage = (PVOID)CurrentLocale_low;
   v50 = 61166LL;
   v51 = 0;
   v13 = 0LL;
@@ -205,7 +203,7 @@ LABEL_13:
     {
       v21 = v57;
       if ( v9 == 3 )
-        v21 = CurrentLocale_low;
+        v21 = (void *)CurrentLocale_low;
       v57 = v21;
     }
     if ( v57 )
@@ -256,8 +254,7 @@ LABEL_81:
         {
           if ( (~v5 & 0x80000) != 0 )
           {
-            LOBYTE(v15) = 1;
-            RcConfig = (_DWORD *)LdrpGetRcConfig(v10, v13, 0LL, v15);
+            RcConfig = (_DWORD *)LdrpGetRcConfig(v10);
             if ( RcConfig )
             {
               if ( *RcConfig == -20054323 )
@@ -265,9 +262,9 @@ LABEL_81:
                 if ( RcConfig[31] )
                 {
                   RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)RcConfig + (unsigned int)RcConfig[31]));
-                  if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v62) )
+                  if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
                   {
-                    v24 = v62;
+                    v24 = Lcid;
                     goto LABEL_45;
                   }
                 }
@@ -285,8 +282,7 @@ LABEL_67:
           if ( !v36 )
           {
             v45[0] = v50;
-            LOBYTE(CurrentLocale_low) = 1;
-            v47 = NtQueryDefaultLocale(CurrentLocale_low, &v56, v22, v15);
+            v47 = NtQueryDefaultLocale(1u, &v56);
             if ( v47 < 0 )
               goto LABEL_46;
             v24 = v56;
@@ -309,11 +305,11 @@ LABEL_111:
             goto LABEL_45;
           }
           v45[0] = v50;
-          v47 = NtQueryDefaultLocale(0LL, &v61, v22, v15);
+          v47 = NtQueryDefaultLocale(0, &DefaultLocaleId);
           if ( v47 >= 0 )
           {
-            v24 = v61;
-            if ( v61 != v56 )
+            v24 = DefaultLocaleId;
+            if ( DefaultLocaleId != v56 )
               goto LABEL_45;
           }
         }
@@ -335,9 +331,9 @@ LABEL_46:
         {
           v50 = v45[0];
           v7 = &v50;
-          v68 = &v50;
-          CurrentLocale_low = v57;
-          v54 = v57;
+          v67 = &v50;
+          CurrentLocale_low = (__int64)v57;
+          BaseOfImage = v57;
           v15 = 3221225610LL;
           goto LABEL_21;
         }
@@ -360,29 +356,24 @@ LABEL_49:
         LOBYTE(CurrentLocale_low) = (v13 & 0x20000) != 0 && (v13 & 0x80000) != 0;
         if ( ((unsigned __int8)CurrentLocale_low & ((~(_BYTE)v5 & 0x10) != 0)) != 0 )
         {
-          v70 = *v22;
+          v69 = *v22;
           if ( v9 < 2 )
             v29 = 0LL;
           else
             v29 = v22[1];
-          v71 = v29;
+          v70 = v29;
           if ( v9 == 3 )
             v30 = v22[2];
           else
             v30 = 0LL;
-          v72 = v30;
+          v71 = v30;
           if ( v6 == 4 )
-            v73 = v22[3];
-          ResourceFromAlternativeModule = LdrpLoadResourceFromAlternativeModule(
-                                            v10,
-                                            (unsigned int)&v70,
-                                            v6,
-                                            v5,
-                                            (__int64)v58);
+            v72 = v22[3];
+          ResourceFromAlternativeModule = LdrpLoadResourceFromAlternativeModule(v10, v58);
           v47 = ResourceFromAlternativeModule;
           if ( ResourceFromAlternativeModule >= 0 )
           {
-            LdrpResReportResourceAccessInternal(v10, 0LL, &v70, v6);
+            LdrpResReportResourceAccessInternal(v10);
             return (unsigned int)ResourceFromAlternativeModule;
           }
         }
@@ -435,11 +426,11 @@ LABEL_45:
 LABEL_21:
     v18 = *(_WORD *)(CurrentLocale_low + 12);
     v19 = (unsigned int *)(CurrentLocale_low + 16);
-    v67 = (unsigned int *)(CurrentLocale_low + 16);
+    v66 = (unsigned int *)(CurrentLocale_low + 16);
     if ( (*v7 & 0xFFFFFFFFFFFF0000uLL) == 0 )
     {
       v19 += 2 * v18;
-      v67 = v19;
+      v66 = v19;
       v18 = *(_WORD *)(CurrentLocale_low + 14);
     }
     if ( !v18 )
@@ -466,15 +457,15 @@ LABEL_98:
 LABEL_99:
             if ( (~v5 & 0x20000) != 0 && (~v5 & 0x80000) != 0 && (~(_BYTE)v5 & 0x10) != 0 && v9 == 3 )
             {
-              v70 = *(_QWORD *)v60;
-              v71 = *(_QWORD *)(v60 + 8);
-              v72 = *(_QWORD *)(v60 + 16);
+              v69 = *(_QWORD *)v60;
+              v70 = *(_QWORD *)(v60 + 8);
+              v71 = *(_QWORD *)(v60 + 16);
               if ( v6 == 4 )
-                v73 = *(_QWORD *)(v60 + 24);
-              v14 = LdrpLoadResourceFromAlternativeModule(v10, (unsigned int)&v70, v6, v5, (__int64)v58);
+                v72 = *(_QWORD *)(v60 + 24);
+              v14 = LdrpLoadResourceFromAlternativeModule(v10, v58);
               v47 = v14;
               if ( v14 >= 0 )
-                LdrpResReportResourceAccessInternal(v10, 0LL, &v70, v6);
+                LdrpResReportResourceAccessInternal(v10);
             }
           }
           break;
@@ -483,13 +474,13 @@ LABEL_99:
     }
     if ( v57 && (v5 & 0x20) != 0 )
       break;
-    ResourceEntryBinarySearch(v18, v64, v19, *v7++, &v54, &v59);
-    v68 = v7;
-    CurrentLocale_low = v54;
+    ResourceEntryBinarySearch(v18, v64, v19, *v7++, &BaseOfImage, &v59);
+    v67 = v7;
+    CurrentLocale_low = (__int64)BaseOfImage;
     v13 = v59;
   }
   CurrentLocale_low = 0LL;
-  v54 = 0LL;
+  BaseOfImage = 0LL;
   v50 = *v19;
   v13 = v64 + v19[1];
   v59 = v13;
@@ -498,7 +489,7 @@ LABEL_28:
   {
     if ( CurrentLocale_low && (v5 & 2) != 0 )
     {
-      *v58 = CurrentLocale_low;
+      *(_QWORD *)v58 = CurrentLocale_low;
       goto LABEL_34;
     }
     switch ( v9 - v52 )
@@ -513,15 +504,15 @@ LABEL_28:
 LABEL_103:
         if ( (~v5 & 0x20000) != 0 && (~v5 & 0x80000) != 0 && (~(_BYTE)v5 & 0x10) != 0 && v9 == 3 )
         {
-          v70 = *(_QWORD *)v60;
-          v71 = *(_QWORD *)(v60 + 8);
-          v72 = *(_QWORD *)(v60 + 16);
+          v69 = *(_QWORD *)v60;
+          v70 = *(_QWORD *)(v60 + 8);
+          v71 = *(_QWORD *)(v60 + 16);
           if ( v6 == 4 )
-            v73 = *(_QWORD *)(v60 + 24);
-          v20 = LdrpLoadResourceFromAlternativeModule(v10, (unsigned int)&v70, v6, v5, (__int64)v58);
+            v72 = *(_QWORD *)(v60 + 24);
+          v20 = LdrpLoadResourceFromAlternativeModule(v10, v58);
           v47 = v20;
           if ( (v20 & 0x80000000) == 0 )
-            LdrpResReportResourceAccessInternal(v10, 0LL, &v70, v6);
+            LdrpResReportResourceAccessInternal(v10);
         }
         return v20;
       case 3u:
@@ -542,12 +533,12 @@ LABEL_103:
       return v20;
     goto LABEL_103;
   }
-  *v58 = v13;
+  *(_QWORD *)v58 = v13;
   if ( !NtCurrentTeb()->ResourceRetValue )
   {
-    v66 = NtCurrentTeb();
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 24LL);
-    v66->ResourceRetValue = (void *)Heap;
+    v65 = NtCurrentTeb();
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x18uLL);
+    v65->ResourceRetValue = Heap;
   }
   if ( NtCurrentTeb()->ResourceRetValue )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of SddlFilterSacl @ 0x140A5A4C0
+ * XREFs of SddlFilterSacl @ 0x140A51D80
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140862DB8 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1408673C8 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall SddlFilterSacl(__int64 *a1, __int64 a2, unsigned int *a3, unsigned int a4)

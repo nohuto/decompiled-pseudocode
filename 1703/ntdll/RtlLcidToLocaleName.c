@@ -19,54 +19,58 @@
  *     RtlpGetUserOrMachineUILanguage4NLS @ 0x1800F9FF0 (RtlpGetUserOrMachineUILanguage4NLS.c)
  */
 
-__int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char a4)
+NTSTATUS __cdecl RtlLcidToLocaleName(
+        LCID lcid,
+        PUNICODE_STRING LocaleName,
+        ULONG Flags,
+        BOOLEAN AllocateDestinationString)
 {
   char v5; // r14
-  unsigned int v7; // ebx
+  LCID v7; // ebx
   int v8; // eax
   __int64 v9; // r9
   __int64 v10; // rax
-  wchar_t *v11; // r10
+  WCHAR *v11; // r10
   _WORD *v12; // rax
   __int64 v13; // r8
   __int64 v14; // rcx
   unsigned int v15; // edx
   __int64 v16; // r8
-  wchar_t *Buffer; // rdx
+  PWCH Buffer; // rdx
   __int64 v19; // [rsp+20h] [rbp-A9h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-A1h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-A1h] BYREF
   _BYTE v21[176]; // [rsp+40h] [rbp-89h] BYREF
 
   v19 = 85LL;
-  v5 = a3;
-  v7 = a1;
-  if ( (a1 & 0xFFFFEFFF) != 0 )
+  v5 = Flags;
+  v7 = lcid;
+  if ( (lcid & 0xFFFFEFFF) != 0 )
   {
-    if ( !a2 )
-      return 3221225712LL;
-    if ( (a3 & 0xFFFFFFFD) != 0 )
-      return 3221225713LL;
-    if ( !a4 && !*(_QWORD *)(a2 + 8) )
-      return 3221225712LL;
-    if ( a1 == 5120 )
+    if ( !LocaleName )
+      return -1073741584;
+    if ( (Flags & 0xFFFFFFFD) != 0 )
+      return -1073741583;
+    if ( !AllocateDestinationString && !LocaleName->Buffer )
+      return -1073741584;
+    if ( lcid == 5120 )
     {
       if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1LL, v21, &v19) >= 0 )
       {
         v16 = (unsigned int)v19;
-        Buffer = (wchar_t *)v21;
+        Buffer = (PWCH)v21;
         goto LABEL_21;
       }
     }
-    else if ( ((a1 - 1024) & 0xFFFFF7FF) != 0 )
+    else if ( ((lcid - 1024) & 0xFFFFF7FF) != 0 )
     {
       if ( qword_18015C278 || (unsigned __int8)sub_180080990() )
       {
         if ( v7 == 2048 )
-          v7 = dword_180159A18;
+          v7 = DefaultLocaleId;
         v8 = sub_1800456A4(v7);
         v9 = v8;
         if ( v8 < 0 )
-          return 3221225711LL;
+          return -1073741585;
         if ( (v5 & 2) == 0 )
         {
           _mm_lfence();
@@ -74,11 +78,11 @@ __int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char
                          * *(unsigned __int16 *)(*(_QWORD *)(qword_18015C278 + 24) + 8LL * v8 + 4)
                          + *(_QWORD *)(qword_18015C278 + 16)
                          + 24LL) & 1) == 0 )
-            return 3221225711LL;
+            return -1073741585;
         }
         _mm_lfence();
         v10 = *(_QWORD *)(qword_18015C278 + 40) + 2LL;
-        v11 = (wchar_t *)(v10 + 2LL * *(unsigned __int16 *)(*(_QWORD *)(qword_18015C278 + 24) + 8 * v9 + 6));
+        v11 = (WCHAR *)(v10 + 2LL * *(unsigned __int16 *)(*(_QWORD *)(qword_18015C278 + 24) + 8 * v9 + 6));
         if ( v11 )
         {
           v12 = (_WORD *)(v10 + 2LL * *(unsigned __int16 *)(*(_QWORD *)(qword_18015C278 + 24) + 8 * v9 + 6));
@@ -104,14 +108,14 @@ __int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char
           v16 = v15;
           Buffer = v11;
 LABEL_21:
-          LOBYTE(v14) = a4;
-          return sub_180045634(v14, Buffer, v16, a2);
+          LOBYTE(v14) = AllocateDestinationString;
+          return sub_180045634(v14, Buffer, v16, LocaleName);
         }
       }
     }
     else
     {
-      DestinationString.Buffer = (wchar_t *)v21;
+      DestinationString.Buffer = (PWCH)v21;
       DestinationString.MaximumLength = 170;
       if ( (int)sub_1800F5394(&DestinationString) >= 0 )
       {
@@ -120,7 +124,7 @@ LABEL_21:
         goto LABEL_21;
       }
     }
-    return 3221225473LL;
+    return -1073741823;
   }
-  return 3221225711LL;
+  return -1073741585;
 }

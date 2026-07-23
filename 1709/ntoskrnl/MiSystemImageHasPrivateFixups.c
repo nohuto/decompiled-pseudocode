@@ -25,7 +25,8 @@ __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, _QWORD *a2
   if ( v4
     || (a1 < 0xFFFF800000000000uLL || byte_1403899D0[((a1 >> 39) & 0x1FF) - 256] != 12)
     && (!PsNtosImageBase
-     || (a1 < PsNtosImageBase || a1 >= PsNtosImageEnd) && (a1 < (unsigned __int64)PsHalImageBase || a1 >= PsHalImageEnd))
+     || (a1 < (unsigned __int64)PsNtosImageBase || a1 >= PsNtosImageEnd)
+     && (a1 < (unsigned __int64)PsHalImageBase || a1 >= PsHalImageEnd))
     && (unsigned int)MiGetSystemRegionType(a1) != 1 )
   {
     return 0LL;

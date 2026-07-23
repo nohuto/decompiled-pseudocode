@@ -1,12 +1,12 @@
 /*
- * XREFs of MincryptValidateBasicConstraints @ 0x140825E74
+ * XREFs of MincryptValidateBasicConstraints @ 0x140826644
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140824ED4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408256A0 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MinAsn1ParseSingleExtensionValue @ 0x140827360 (MinAsn1ParseSingleExtensionValue.c)
- *     MinAsn1DecodeInteger @ 0x140827F60 (MinAsn1DecodeInteger.c)
- *     MinAsn1ExtractValues @ 0x140828414 (MinAsn1ExtractValues.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x140827B30 (MinAsn1ParseSingleExtensionValue.c)
+ *     MinAsn1DecodeInteger @ 0x140828730 (MinAsn1DecodeInteger.c)
+ *     MinAsn1ExtractValues @ 0x140828BE4 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall MincryptValidateBasicConstraints(_DWORD *a1, int a2, char a3, _DWORD *a4)
@@ -31,7 +31,7 @@ __int64 __fastcall MincryptValidateBasicConstraints(_DWORD *a1, int a2, char a3,
   v9[0] = 0;
   if ( !*a1 )
     goto LABEL_14;
-  if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140B3BE28, a1, v9, &v11) <= 0 )
+  if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140B3DC08, a1, v9, &v11) <= 0 )
     goto LABEL_15;
   if ( !v9[0] )
   {
@@ -43,7 +43,7 @@ LABEL_15:
     return (unsigned int)-1073740760;
   }
   LODWORD(v10) = 3;
-  if ( (int)MinAsn1ExtractValues(DWORD2(v11), v11, (unsigned int)&v10, (unsigned int)&qword_14000D2A0, 3, (__int64)&v12) <= 0
+  if ( (int)MinAsn1ExtractValues(DWORD2(v11), v11, (unsigned int)&v10, (unsigned int)&qword_14000D4E0, 3, (__int64)&v12) <= 0
     || v12 <= 0
     || !DWORD2(v13)
     || !*(_BYTE *)v14 )

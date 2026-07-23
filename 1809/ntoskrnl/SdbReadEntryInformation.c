@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbReadEntryInformation @ 0x140722BA0
+ * XREFs of SdbReadEntryInformation @ 0x140723E40
  * Callers:
- *     PiIsDriverBlocked @ 0x14067EAF0 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14067FCB0 (PiIsDriverBlocked.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SdbGetDatabaseID @ 0x14067CB48 (SdbGetDatabaseID.c)
- *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbReadBinaryTag @ 0x1406CE3C8 (SdbReadBinaryTag.c)
- *     SdbTagRefToTagID @ 0x14072274C (SdbTagRefToTagID.c)
- *     SdbGetEntryFlags @ 0x1407232F8 (SdbGetEntryFlags.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SdbGetDatabaseID @ 0x14067DD08 (SdbGetDatabaseID.c)
+ *     SdbFindFirstTag @ 0x14067E340 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x1406CF668 (SdbReadBinaryTag.c)
+ *     SdbTagRefToTagID @ 0x1407239EC (SdbTagRefToTagID.c)
+ *     SdbGetEntryFlags @ 0x140724598 (SdbGetEntryFlags.c)
  */
 
 __int64 __fastcall SdbReadEntryInformation(__int64 a1, unsigned int a2, void *a3)

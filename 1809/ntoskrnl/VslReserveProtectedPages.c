@@ -1,12 +1,12 @@
 /*
- * XREFs of VslReserveProtectedPages @ 0x140818D5C
+ * XREFs of VslReserveProtectedPages @ 0x140819F5C
  * Callers:
- *     KeReservePrivilegedPages @ 0x14028DC0C (KeReservePrivilegedPages.c)
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
- *     MiRelocateBootImage @ 0x1409B82CC (MiRelocateBootImage.c)
+ *     KeReservePrivilegedPages @ 0x14028DDFC (KeReservePrivilegedPages.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
+ *     MiRelocateBootImage @ 0x1409B92CC (MiRelocateBootImage.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslReserveProtectedPages(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

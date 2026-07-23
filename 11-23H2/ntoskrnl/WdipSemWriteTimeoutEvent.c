@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemWriteTimeoutEvent @ 0x1409DE600
+ * XREFs of WdipSemWriteTimeoutEvent @ 0x1409DE800
  * Callers:
- *     WdipSemLogTimeoutInformation @ 0x1409DE26C (WdipSemLogTimeoutInformation.c)
+ *     WdipSemLogTimeoutInformation @ 0x1409DE46C (WdipSemLogTimeoutInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x140831E5C (WdipSemWriteEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x14083215C (WdipSemWriteEvent.c)
  */
 
 NTSTATUS __fastcall WdipSemWriteTimeoutEvent(ULONGLONG a1, __int16 a2, const GUID *a3)

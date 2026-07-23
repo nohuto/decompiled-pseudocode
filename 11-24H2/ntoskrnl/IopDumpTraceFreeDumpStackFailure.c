@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpTraceFreeDumpStackFailure @ 0x140594038
+ * XREFs of IopDumpTraceFreeDumpStackFailure @ 0x14059105C
  * Callers:
- *     PopFreeHiberContext @ 0x1406FB788 (PopFreeHiberContext.c)
+ *     PopFreeHiberContext @ 0x1406F93C8 (PopFreeHiberContext.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopDumpIsTracingEnabled @ 0x1404FA9C8 (IopDumpIsTracingEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopDumpIsTracingEnabled @ 0x1404F82A8 (IopDumpIsTracingEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall IopDumpTraceFreeDumpStackFailure(int a1)
@@ -57,7 +57,7 @@ char __fastcall IopDumpTraceFreeDumpStackFailure(int a1)
       v10 = 4;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140E06DC8,
-               (unsigned __int8 *)byte_140045413,
+               (unsigned __int8 *)byte_1400455CD,
                0LL,
                0LL,
                4u,

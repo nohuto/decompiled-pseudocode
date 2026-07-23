@@ -6,11 +6,18 @@
  *     <none>
  */
 
-__int64 NtGetNotificationResourceManager()
+NTSTATUS __cdecl NtGetNotificationResourceManager(
+        HANDLE ResourceManagerHandle,
+        PTRANSACTION_NOTIFICATION TransactionNotification,
+        ULONG NotificationLength,
+        PLARGE_INTEGER Timeout,
+        PULONG ReturnLength,
+        ULONG Asynchronous,
+        ULONG_PTR AsynchronousContext)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 235LL;
+  result = 235;
   __asm { syscall; Low latency system call }
   return result;
 }

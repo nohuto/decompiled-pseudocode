@@ -1,20 +1,20 @@
 /*
- * XREFs of ExCreateHandleTable @ 0x1407B05C8
+ * XREFs of ExCreateHandleTable @ 0x1407B07B8
  * Callers:
- *     ObInitProcess @ 0x1406B362C (ObInitProcess.c)
- *     RtlpInitializeHandleTableForAtomTable @ 0x1407B003C (RtlpInitializeHandleTableForAtomTable.c)
- *     ExDupHandleTable @ 0x1407B00DC (ExDupHandleTable.c)
- *     AlpcpInitSystem @ 0x14085A348 (AlpcpInitSystem.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x140978E2C (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ObInitProcess @ 0x1406B365C (ObInitProcess.c)
+ *     RtlpInitializeHandleTableForAtomTable @ 0x1407B022C (RtlpInitializeHandleTableForAtomTable.c)
+ *     ExDupHandleTable @ 0x1407B02CC (ExDupHandleTable.c)
+ *     AlpcpInitSystem @ 0x14085A588 (AlpcpInitSystem.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x14097902C (AlpcpAllocateMessageFromExtendedTables.c)
  *     PspInitPhase0 @ 0x140B4A894 (PspInitPhase0.c)
  *     ObInitSystem @ 0x140B4B2F8 (ObInitSystem.c)
  *     PspInitializeJobStructures @ 0x140B72E7C (PspInitializeJobStructures.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExpAllocateHandleTable @ 0x1407B069C (ExpAllocateHandleTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExpAllocateHandleTable @ 0x1407B088C (ExpAllocateHandleTable.c)
  */
 
 __int64 __fastcall ExCreateHandleTable(__int64 a1, __int64 a2)

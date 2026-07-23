@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpDeleteAllDependencyRelations @ 0x14078E45C
+ * XREFs of PnpDeleteAllDependencyRelations @ 0x14078E64C
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1403B70AC (PnpRemoveLockedDeviceNode.c)
- *     IopDeleteDevice @ 0x14078E3F0 (IopDeleteDevice.c)
+ *     PnpRemoveLockedDeviceNode @ 0x1403B728C (PnpRemoveLockedDeviceNode.c)
+ *     IopDeleteDevice @ 0x14078E5E0 (IopDeleteDevice.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9958 (PnpAcquireDependencyRelationsLock.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14079C344 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x140837EC0 (PipAddDependentsToRebuildPowerRelationsQueue.c)
- *     PipDeleteAllDependencyRelations @ 0x140954410 (PipDeleteAllDependencyRelations.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406C9988 (PnpAcquireDependencyRelationsLock.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14079C534 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1408381C0 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     PipDeleteAllDependencyRelations @ 0x140954610 (PipDeleteAllDependencyRelations.c)
  */
 
 __int64 __fastcall PnpDeleteAllDependencyRelations(__int64 a1)

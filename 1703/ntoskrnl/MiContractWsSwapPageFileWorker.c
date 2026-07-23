@@ -33,7 +33,7 @@ __int64 __fastcall MiContractWsSwapPageFileWorker(__int64 a1)
   __int64 v10; // r9
   struct _KTHREAD *v11; // rbx
   __int64 SessionId; // rdx
-  __int64 v13; // r8
+  unsigned int v13; // r8d
   int v14; // eax
   __int64 v15; // rcx
   _KLOCK_ENTRY *v16; // rdi
@@ -87,7 +87,7 @@ __int64 __fastcall MiContractWsSwapPageFileWorker(__int64 a1)
     SessionId = 0xFFFFFFFFLL;
   --v11->SpecialApcDisable;
   v24 = ++v11->AbAllocationRegionCount;
-  LODWORD(v13) = ((char)v11->AbEntrySummary | (char)v11->AbOrphanedEntrySummary) ^ 0x3F;
+  v13 = ((char)v11->AbEntrySummary | (char)v11->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v17 = !_BitScanReverse((unsigned int *)&v18, v13);
@@ -97,7 +97,7 @@ __int64 __fastcall MiContractWsSwapPageFileWorker(__int64 a1)
     v14 = 1 << v18;
     v15 = v18;
     v16 = &v11->LockEntries[v15];
-    v13 = ~v14 & (unsigned int)v13;
+    v13 &= ~v14;
     if ( (v16->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v16->LockState.0 & 1) == 0
       && (*(_QWORD *)&v16->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)v7 & 0x7FFFFFFFFFFFFFFCLL)
@@ -117,7 +117,7 @@ LABEL_15:
   }
   v16->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v16->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v11->LockEntries[v15], SessionId, v13);
+    KiAbEntryRemoveFromTree(&v11->LockEntries[v15].TreeNode, SessionId);
   v25 = 0;
   v25 = v16->BoostBitmap.AllFields & 0x1FFFF;
   v16->BoostBitmap.AllFields &= 0xFFFE0000;

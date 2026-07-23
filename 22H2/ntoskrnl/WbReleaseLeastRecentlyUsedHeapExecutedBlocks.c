@@ -42,13 +42,13 @@ void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(unsigned __int64 *a
       CurrentThread = KeGetCurrentThread();
       --v2;
       --CurrentThread->SpecialApcDisable;
-      v8 = KeAbPreAcquire((ULONG_PTR)v6, 0LL, 0LL);
+      v8 = KeAbPreAcquire((ULONG_PTR)v6, 0LL, 0);
       v9 = v8;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
         ExfAcquirePushLockExclusiveEx(v6, v8, (ULONG_PTR)v6);
       if ( v9 )
         *(_BYTE *)(v9 + 26) |= 1u;
-      v10 = KeAbPreAcquire((ULONG_PTR)v3, 0LL, 0LL);
+      v10 = KeAbPreAcquire((ULONG_PTR)v3, 0LL, 0);
       v11 = v10;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
         ExfAcquirePushLockExclusiveEx(v3, v10, (ULONG_PTR)v3);

@@ -32,7 +32,7 @@ void __fastcall TppCallbackCheckThreadBeforeCallback(__int64 a1)
           v3 |= 0x10u;
           *(_DWORD *)(a1 + 104) = v3;
         }
-        if ( RtlIsCriticalSectionLockedByThread((__int64)NtCurrentPeb()->LoaderLock) )
+        if ( RtlIsCriticalSectionLockedByThread(NtCurrentPeb()->LoaderLock) )
         {
           v3 |= 0x20u;
           *(_DWORD *)(a1 + 104) = v3;

@@ -6,16 +6,16 @@
  *     <none>
  */
 
-int __stdcall AlpcRegisterCompletionListWorkerThread(int a1)
+BOOLEAN __cdecl AlpcRegisterCompletionListWorkerThread(PVOID CompletionList)
 {
   volatile signed __int64 *v1; // edi
   unsigned int v2; // esi
   unsigned int v4; // [esp+Ch] [ebp-4h]
 
-  v1 = (volatile signed __int64 *)(a1 + 64);
-  while ( HIWORD(*(_DWORD *)(a1 + 68)) != 0xFFFF )
+  v1 = (volatile signed __int64 *)((char *)CompletionList + 64);
+  while ( HIWORD(*((_DWORD *)CompletionList + 17)) != 0xFFFF )
   {
-    v2 = *(_DWORD *)(a1 + 68);
+    v2 = *((_DWORD *)CompletionList + 17);
     v4 = *(_DWORD *)v1;
     if ( _InterlockedCompareExchange64(
            v1,

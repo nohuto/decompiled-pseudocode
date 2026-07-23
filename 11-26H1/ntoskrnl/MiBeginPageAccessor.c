@@ -1,21 +1,21 @@
 /*
- * XREFs of MiBeginPageAccessor @ 0x1403C4E34
+ * XREFs of MiBeginPageAccessor @ 0x1403CED40
  * Callers:
- *     MiSetPageZeroInProgress @ 0x1403C4C00 (MiSetPageZeroInProgress.c)
- *     MiGetSingleHugeRangeToZero @ 0x1404F2E34 (MiGetSingleHugeRangeToZero.c)
- *     MiAcquireScrubProtection @ 0x14070BC8C (MiAcquireScrubProtection.c)
+ *     MiSetPageZeroInProgress @ 0x1403CEB0C (MiSetPageZeroInProgress.c)
+ *     MiGetSingleHugeRangeToZero @ 0x1404EC414 (MiGetSingleHugeRangeToZero.c)
+ *     MiAcquireScrubProtection @ 0x14071093C (MiAcquireScrubProtection.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiFreeListPageContentsChanged @ 0x14028DB50 (MiFreeListPageContentsChanged.c)
- *     MiFreeZeroPageToColorHead @ 0x14028DDE0 (MiFreeZeroPageToColorHead.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiCanBeginHugeIoPageAccessor @ 0x14052EEFC (MiCanBeginHugeIoPageAccessor.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiFreeListPageContentsChanged @ 0x14028D0B0 (MiFreeListPageContentsChanged.c)
+ *     MiFreeZeroPageToColorHead @ 0x14028D340 (MiFreeZeroPageToColorHead.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiCanBeginHugeIoPageAccessor @ 0x14053141C (MiCanBeginHugeIoPageAccessor.c)
  */
 
 __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, unsigned int a2, __int64 a3, int a4)
@@ -55,14 +55,14 @@ __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, unsigned int a2, __i
       v9 = (a3 + 0x220000000000LL) / 48;
       v32 = v9;
       v10 = 56320LL * (unsigned int)MiPageToNode(v9)
-          + *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a3 + 40) >> 43) & 0x3FFLL)) + 16LL);
+          + *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a3 + 40) >> 43) & 0x3FFLL)) + 16LL);
       v11 = MiFreeZeroPageToColorHead(v9);
       ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v11 + 32));
       MiFreeListPageContentsChanged(v9, v11);
       v12 = *(_QWORD *)(a3 + 16);
       v13 = ((v9 & 0x3FFFFFFFFFLL) << 12) | 0x18;
-      if ( qword_140E2D740 && (v12 & 0x10) == 0 )
-        HIDWORD(v12) &= HIDWORD(qword_140E2D748);
+      if ( qword_140E2D8C0 && (v12 & 0x10) == 0 )
+        HIDWORD(v12) &= HIDWORD(qword_140E2D8C8);
       if ( HIDWORD(v12) == -3 )
         v13 |= 4uLL;
       *(_DWORD *)(a3 + 32) |= 0x80000u;
@@ -126,20 +126,20 @@ LABEL_18:
     return 1LL;
   if ( *(_BYTE *)(a1 + 70) )
   {
-    v27 = &dword_140E2EA60;
+    v27 = &dword_140E2EBE0;
   }
   else
   {
     if ( !a4 )
       return 1LL;
-    v27 = &dword_140E2EA70;
+    v27 = &dword_140E2EBF0;
   }
   ExAcquireSpinLockExclusiveAtDpcLevel(v27);
   *(_BYTE *)(a1 + 69) = 1;
   if ( *(_BYTE *)(a1 + 70) )
   {
-    v28 = (_QWORD *)qword_140E2EA68;
-    if ( qword_140E2EA68 )
+    v28 = (_QWORD *)qword_140E2EBE8;
+    if ( qword_140E2EBE8 )
     {
       while ( 1 )
       {
@@ -161,11 +161,11 @@ LABEL_18:
         v28 = v31;
       }
     }
-    v30 = &qword_140E2EA68;
+    v30 = &qword_140E2EBE8;
     goto LABEL_41;
   }
-  v28 = (_QWORD *)qword_140E2EA78;
-  if ( !qword_140E2EA78 )
+  v28 = (_QWORD *)qword_140E2EBF8;
+  if ( !qword_140E2EBF8 )
     goto LABEL_33;
   while ( a1 < (unsigned __int64)v28 )
   {
@@ -180,7 +180,7 @@ LABEL_36:
     goto LABEL_36;
   v4 = 1;
 LABEL_33:
-  v30 = &qword_140E2EA78;
+  v30 = &qword_140E2EBF8;
 LABEL_41:
   RtlAvlInsertNodeEx((unsigned __int64 *)v30, (unsigned __int64)v28, v4, (_QWORD *)a1);
   ExReleaseSpinLockExclusiveFromDpcLevel(v27);

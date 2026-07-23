@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpAddPointerToRollbackPacket @ 0x1407F861C
+ * XREFs of CmpAddPointerToRollbackPacket @ 0x1407F981C
  * Callers:
- *     CmpAddEnlistmentToRollbackPacket @ 0x1407F85C8 (CmpAddEnlistmentToRollbackPacket.c)
- *     CmpAddUoWToRollbackPacket @ 0x1407F8670 (CmpAddUoWToRollbackPacket.c)
+ *     CmpAddEnlistmentToRollbackPacket @ 0x1407F97C8 (CmpAddEnlistmentToRollbackPacket.c)
+ *     CmpAddUoWToRollbackPacket @ 0x1407F9870 (CmpAddUoWToRollbackPacket.c)
  * Callees:
  *     <none>
  */

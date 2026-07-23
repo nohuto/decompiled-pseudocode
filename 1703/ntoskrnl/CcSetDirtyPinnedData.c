@@ -126,7 +126,7 @@ LABEL_16:
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(1uLL);
       if ( !_interlockedbittestandreset((volatile signed __int32 *)v11, 0) )
-        ExpAcquireFastMutexContended((ULONG_PTR)&v9[35]);
+        ExpAcquireFastMutexContended((ULONG_PTR)&v9[35], (PRTL_BALANCED_NODE)v14);
       if ( v14 )
         *(_BYTE *)(v14 + 26) |= 1u;
       v9[36].QuadPart = (LONGLONG)KeGetCurrentThread();

@@ -1,9 +1,9 @@
 /*
- * XREFs of PdcResetEvent @ 0x1405B752C
+ * XREFs of PdcResetEvent @ 0x1405B7A9C
  * Callers:
- *     Pdcv2pActivationClientCallback @ 0x1409C8A40 (Pdcv2pActivationClientCallback.c)
+ *     Pdcv2pActivationClientCallback @ 0x1409C8C40 (Pdcv2pActivationClientCallback.c)
  * Callees:
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
  */
 
 LONG __fastcall PdcResetEvent(struct _KEVENT *a1)

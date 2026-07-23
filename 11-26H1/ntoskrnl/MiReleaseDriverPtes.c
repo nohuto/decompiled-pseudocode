@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReleaseDriverPtes @ 0x140A80038
+ * XREFs of MiReleaseDriverPtes @ 0x140A85EA8
  * Callers:
- *     MmUnmapLockedRestartPages @ 0x140864830 (MmUnmapLockedRestartPages.c)
- *     MiReturnSystemImageAddress @ 0x140A80014 (MiReturnSystemImageAddress.c)
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MmUnmapLockedRestartPages @ 0x14086AC10 (MmUnmapLockedRestartPages.c)
+ *     MiReturnSystemImageAddress @ 0x140A85E84 (MiReturnSystemImageAddress.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiDecommitSystemPageTables @ 0x1402A46B8 (MiDecommitSystemPageTables.c)
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiGetPdeAddress @ 0x14044AE60 (MiGetPdeAddress.c)
- *     RtlAreBitsSet @ 0x140476320 (RtlAreBitsSet.c)
- *     RtlAreBitsClear @ 0x140478820 (RtlAreBitsClear.c)
- *     MiLockDriverMappings @ 0x1404F45A8 (MiLockDriverMappings.c)
- *     MiUnlockDriverMappings @ 0x1404F9FA4 (MiUnlockDriverMappings.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiDecommitSystemPageTables @ 0x1402A3C08 (MiDecommitSystemPageTables.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiGetPdeAddress @ 0x140442F90 (MiGetPdeAddress.c)
+ *     RtlAreBitsSet @ 0x14046FAA0 (RtlAreBitsSet.c)
+ *     RtlAreBitsClear @ 0x140471FA0 (RtlAreBitsClear.c)
+ *     MiLockDriverMappings @ 0x1404EDB88 (MiLockDriverMappings.c)
+ *     MiUnlockDriverMappings @ 0x1404F35B4 (MiUnlockDriverMappings.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReleaseDriverPtes(unsigned __int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -48,8 +48,8 @@ void __fastcall MiReleaseDriverPtes(unsigned __int64 a1, __int64 a2, __int64 a3,
   CurrentThread = KeGetCurrentThread();
   v8 = 0LL;
   MiLockDriverMappings((__int64)CurrentThread, a2, a3, a4);
-  SystemArgument1 = (char *)stru_140E2D150.SchedulerApc.SystemArgument1;
-  if ( !stru_140E2D150.SchedulerApc.SystemArgument1 )
+  SystemArgument1 = (char *)stru_140E2D2D0.SchedulerApc.SystemArgument1;
+  if ( !stru_140E2D2D0.SchedulerApc.SystemArgument1 )
     goto LABEL_3;
   do
   {
@@ -111,7 +111,7 @@ LABEL_17:
   if ( v8 )
     *v8 = *(_QWORD *)SystemArgument1;
   else
-    stru_140E2D150.SchedulerApc.SystemArgument1 = *(PVOID *)SystemArgument1;
+    stru_140E2D2D0.SchedulerApc.SystemArgument1 = *(PVOID *)SystemArgument1;
   MiUnlockDriverMappings((__int64)CurrentThread);
   MiReturnSystemVa(v13, v13 + (unsigned int)(v23 << 16));
   ExFreePoolWithTag(SystemArgument1, 0);

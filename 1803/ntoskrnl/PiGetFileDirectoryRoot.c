@@ -11,18 +11,25 @@
  *     RtlGetPersistedStateLocation @ 0x140648E80 (RtlGetPersistedStateLocation.c)
  */
 
-__int64 __fastcall PiGetFileDirectoryRoot(PCWSTR SourceString, __int64 a2, UNICODE_STRING *a3)
+__int64 __fastcall PiGetFileDirectoryRoot(PCWSTR SourceID, PCWSTR DefaultPath, PUNICODE_STRING DestinationString)
 {
-  int PersistedStateLocation; // eax
+  NTSTATUS PersistedStateLocation; // eax
   NTSTATUS inited; // ebx
-  int v7; // ebx
-  PVOID PoolWithTag; // rdi
+  ULONG BufferLengthIn; // ebx
+  WCHAR *TargetPath; // rdi
   SIZE_T NumberOfBytes; // [rsp+70h] [rbp+18h] BYREF
 
-  if ( a3 )
+  if ( DestinationString )
   {
     LODWORD(NumberOfBytes) = 0;
-    PersistedStateLocation = RtlGetPersistedStateLocation(SourceString, 0LL, 0, (__int64)&NumberOfBytes);
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               SourceID,
+                               0LL,
+                               DefaultPath,
+                               LocationTypeFileSystem,
+                               0LL,
+                               0,
+                               (PULONG)&NumberOfBytes);
     inited = PersistedStateLocation;
     if ( PersistedStateLocation >= 0 )
     {
@@ -30,19 +37,26 @@ __int64 __fastcall PiGetFileDirectoryRoot(PCWSTR SourceString, __int64 a2, UNICO
     }
     else if ( PersistedStateLocation == -2147483643 )
     {
-      v7 = NumberOfBytes;
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6F697050u);
-      if ( PoolWithTag )
+      BufferLengthIn = NumberOfBytes;
+      TargetPath = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6F697050u);
+      if ( TargetPath )
       {
-        inited = RtlGetPersistedStateLocation(SourceString, PoolWithTag, v7, (__int64)&NumberOfBytes);
+        inited = RtlGetPersistedStateLocation(
+                   SourceID,
+                   0LL,
+                   DefaultPath,
+                   LocationTypeFileSystem,
+                   TargetPath,
+                   BufferLengthIn,
+                   (PULONG)&NumberOfBytes);
         if ( inited >= 0 )
         {
-          inited = RtlInitUnicodeStringEx(a3, (PCWSTR)PoolWithTag);
+          inited = RtlInitUnicodeStringEx(DestinationString, TargetPath);
           if ( inited >= 0 )
-            PoolWithTag = 0LL;
+            TargetPath = 0LL;
         }
-        if ( PoolWithTag )
-          ExFreePoolWithTag(PoolWithTag, 0);
+        if ( TargetPath )
+          ExFreePoolWithTag(TargetPath, 0);
       }
       else
       {

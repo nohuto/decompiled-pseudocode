@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhBucketActivate @ 0x14060626C
+ * XREFs of RtlpHpLfhBucketActivate @ 0x1406038AC
  * Callers:
- *     RtlpHpLfhBucketUpdateStats @ 0x1404C61AC (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x1404BF608 (RtlpHpLfhBucketUpdateStats.c)
  * Callees:
- *     RtlpHpLfhSlotInitialize @ 0x1404C21E4 (RtlpHpLfhSlotInitialize.c)
- *     RtlpHpLfhBucketInitialize @ 0x14060648C (RtlpHpLfhBucketInitialize.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlpHpLfhSlotInitialize @ 0x1403D7E64 (RtlpHpLfhSlotInitialize.c)
+ *     RtlpHpLfhBucketInitialize @ 0x140603ACC (RtlpHpLfhBucketInitialize.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall RtlpHpLfhBucketActivate(__int64 a1, unsigned int a2)
@@ -41,7 +41,7 @@ char __fastcall RtlpHpLfhBucketActivate(__int64 a1, unsigned int a2)
       v9 = (RtlpHpLfhPerfFlags & 0x20) != 0 ? *(unsigned __int8 *)(a1 + 64) : 1;
       v18 = (unsigned int)(((_DWORD)v7 + 1) << 6);
       v10 = v9;
-      v6 = guard_dispatch_icall_no_overrides(*(_QWORD *)a1, v8 + v18 * v9, v5, 2LL);
+      v6 = guard_dispatch_icall_no_overrides(*(_QWORD *)a1, v8 + v18 * v9);
       v11 = (unsigned __int8 *)v6;
       if ( v6 )
       {

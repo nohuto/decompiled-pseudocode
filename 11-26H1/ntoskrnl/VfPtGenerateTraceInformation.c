@@ -1,18 +1,18 @@
 /*
- * XREFs of VfPtGenerateTraceInformation @ 0x140C29C5C
+ * XREFs of VfPtGenerateTraceInformation @ 0x140C2FC6C
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     RtlEnumerateGenericTableAvl @ 0x1403B8060 (RtlEnumerateGenericTableAvl.c)
- *     RtlNumberGenericTableElementsAvl @ 0x14048DA40 (RtlNumberGenericTableElementsAvl.c)
- *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x140641CBC (ViPtAcquireTreeLockAtDpcLevelSafe.c)
- *     ViPtCleanupLockContext @ 0x140641D2C (ViPtCleanupLockContext.c)
- *     ViPtInitializeLockContext @ 0x140641D88 (ViPtInitializeLockContext.c)
- *     ViPtRaiseIrqlSafe @ 0x140641D9C (ViPtRaiseIrqlSafe.c)
- *     ViPtReleaseTreeLockFromDpcLevel @ 0x140641DF4 (ViPtReleaseTreeLockFromDpcLevel.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403C1F60 (RtlEnumerateGenericTableAvl.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x140487580 (RtlNumberGenericTableElementsAvl.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x14064589C (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x14064590C (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x140645968 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x14064597C (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x1406459D4 (ViPtReleaseTreeLockFromDpcLevel.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VfPtGenerateTraceInformation(char a1)

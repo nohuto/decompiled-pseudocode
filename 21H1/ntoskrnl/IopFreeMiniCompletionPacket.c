@@ -12,9 +12,9 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall IopFreeMiniCompletionPacket(struct _SLIST_ENTRY *P, __int64 a2, __int64 a3)
+void __fastcall IopFreeMiniCompletionPacket(_SLIST_ENTRY *P, __int64 a2, __int64 a3)
 {
-  void (__fastcall *v4)(struct _SLIST_ENTRY *, _SLIST_ENTRY *); // rax
+  void (__fastcall *v4)(_SLIST_ENTRY *, _SLIST_ENTRY *); // rax
   struct _KPRCB *CurrentPrcb; // rcx
   _GENERAL_LOOKASIDE *L; // rdi
 
@@ -48,7 +48,7 @@ LABEL_7:
     ExReturnPoolQuota((ULONG_PTR)P, a2, a3);
     goto LABEL_7;
   }
-  v4 = (void (__fastcall *)(struct _SLIST_ENTRY *, _SLIST_ENTRY *))*((_QWORD *)&P[3].Next + 1);
+  v4 = (void (__fastcall *)(_SLIST_ENTRY *, _SLIST_ENTRY *))*((_QWORD *)&P[3].Next + 1);
   if ( v4 )
   {
     v4(P, P[4].Next);

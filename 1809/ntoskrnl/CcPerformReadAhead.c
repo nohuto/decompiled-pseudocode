@@ -1,28 +1,28 @@
 /*
- * XREFs of CcPerformReadAhead @ 0x1400DDFC4
+ * XREFs of CcPerformReadAhead @ 0x1400DE044
  * Callers:
- *     CcWorkerThread @ 0x14007F2E0 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x14007F2D0 (CcWorkerThread.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MmWaitForCacheManagerPrefetch @ 0x1400DECF8 (MmWaitForCacheManagerPrefetch.c)
- *     PsSetPagePriorityThread @ 0x1400DEF00 (PsSetPagePriorityThread.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CcMapAndCopyFromCache @ 0x140638760 (CcMapAndCopyFromCache.c)
- *     MmPrefetchForCacheManager @ 0x140662638 (MmPrefetchForCacheManager.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementOpenCount @ 0x1400ACEE0 (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     PsGetPagePriorityThread @ 0x1400B5B20 (PsGetPagePriorityThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x1400DED78 (MmWaitForCacheManagerPrefetch.c)
+ *     PsSetPagePriorityThread @ 0x1400DEF80 (PsSetPagePriorityThread.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     IoDiskIoAttributionDereference @ 0x1401058D4 (IoDiskIoAttributionDereference.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CcMapAndCopyFromCache @ 0x140639780 (CcMapAndCopyFromCache.c)
+ *     MmPrefetchForCacheManager @ 0x1406637F8 (MmPrefetchForCacheManager.c)
  */
 
 __int64 __fastcall CcPerformReadAhead(__int64 a1, __int64 a2, __int64 a3)
@@ -189,7 +189,7 @@ __int64 __fastcall CcPerformReadAhead(__int64 a1, __int64 a2, __int64 a3)
           {
             v16 = v8;
           }
-          if ( (xmmword_140541350 & 0x20000) != 0 )
+          if ( (xmmword_140542350 & 0x20000) != 0 )
           {
             memset(v58, 0, sizeof(v58));
             v58[1] = v7;
@@ -211,7 +211,7 @@ LABEL_30:
               break;
             if ( v16 > v15 )
               v16 = v15;
-            if ( (xmmword_140541350 & 0x20000) != 0 )
+            if ( (xmmword_140542350 & 0x20000) != 0 )
             {
               memset(v59, 0, sizeof(v59));
               v59[1] = v7;

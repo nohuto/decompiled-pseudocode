@@ -10,9 +10,7 @@
 
 NTSTATUS __stdcall ZwResetEvent(HANDLE EventHandle, PLONG NumberOfWaitingThreads)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EventHandle, NumberOfWaitingThreads, v2);
+  return KiServiceInternal(EventHandle);
 }

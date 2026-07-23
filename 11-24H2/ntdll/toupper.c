@@ -1,30 +1,30 @@
 /*
- * XREFs of toupper @ 0x180127570
+ * XREFs of toupper @ 0x1801257A0
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1800ADB9C (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1800E3360 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1800B1970 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlAnsiCharToUnicodeChar @ 0x1800C5CE0 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x18007E210 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x1800BD8A0 (RtlAnsiCharToUnicodeChar.c)
  */
 
 int __cdecl toupper(int C)
 {
   int result; // eax
-  char *v2; // [rsp+30h] [rbp-10h] BYREF
+  PUCHAR SourceCharacter; // [rsp+30h] [rbp-10h] BYREF
   int v3; // [rsp+50h] [rbp+10h] BYREF
-  unsigned __int8 v4; // [rsp+58h] [rbp+18h] BYREF
+  CHAR MultiByteString; // [rsp+58h] [rbp+18h] BYREF
   unsigned __int8 v5; // [rsp+59h] [rbp+19h]
-  __int16 v6; // [rsp+60h] [rbp+20h] BYREF
-  unsigned int v7; // [rsp+68h] [rbp+28h] BYREF
+  WCHAR UnicodeString; // [rsp+60h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+68h] [rbp+28h] BYREF
 
   v3 = C;
-  v7 = 0;
-  v2 = (char *)&v3;
-  v6 = RtlAnsiCharToUnicodeChar(&v2);
-  if ( (int)RtlUpcaseUnicodeToMultiByteN(&v4, 2u, &v7, (char *)&v6, 2u) < 0 )
+  BytesInMultiByteString = 0;
+  SourceCharacter = (PUCHAR)&v3;
+  UnicodeString = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+  if ( RtlUpcaseUnicodeToMultiByteN(&MultiByteString, 2u, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
     return v3;
-  result = v4;
-  if ( v7 != 1 )
-    return v5 | (v4 << 8);
+  result = (unsigned __int8)MultiByteString;
+  if ( BytesInMultiByteString != 1 )
+    return v5 | ((unsigned __int8)MultiByteString << 8);
   return result;
 }

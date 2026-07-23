@@ -1,9 +1,9 @@
 /*
- * XREFs of SeIsParentOfChildAppContainer @ 0x1409C9590
+ * XREFs of SeIsParentOfChildAppContainer @ 0x1409C9790
  * Callers:
  *     <none>
  * Callees:
- *     SepIsParentOfChildAppContainer @ 0x1409D19E4 (SepIsParentOfChildAppContainer.c)
+ *     SepIsParentOfChildAppContainer @ 0x1409D1BE4 (SepIsParentOfChildAppContainer.c)
  */
 
 __int64 SeIsParentOfChildAppContainer()

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryActiveNodeCount @ 0x1405BA964
+ * XREFs of KeQueryActiveNodeCount @ 0x1405B7F94
  * Callers:
- *     PpmHeteroHgsCpuSupportedForContainment @ 0x1405D6DB0 (PpmHeteroHgsCpuSupportedForContainment.c)
+ *     PpmHeteroHgsCpuSupportedForContainment @ 0x1405D437C (PpmHeteroHgsCpuSupportedForContainment.c)
  * Callees:
- *     KeIsEmptyGroupMask @ 0x140208940 (KeIsEmptyGroupMask.c)
+ *     KeIsEmptyGroupMask @ 0x14032FF20 (KeIsEmptyGroupMask.c)
  */
 
 __int64 KeQueryActiveNodeCount()

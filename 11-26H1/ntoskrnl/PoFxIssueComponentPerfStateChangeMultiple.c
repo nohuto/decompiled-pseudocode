@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxIssueComponentPerfStateChangeMultiple @ 0x1406043F0
+ * XREFs of PoFxIssueComponentPerfStateChangeMultiple @ 0x140606EF0
  * Callers:
- *     PoFxIssueComponentPerfStateChange @ 0x1406043C0 (PoFxIssueComponentPerfStateChange.c)
+ *     PoFxIssueComponentPerfStateChange @ 0x140606EC0 (PoFxIssueComponentPerfStateChange.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x1404F97B0 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x1404F2DC0 (PopFxIssueComponentPerfStateChanges.c)
  */
 
 NTSTATUS __fastcall PoFxIssueComponentPerfStateChangeMultiple(

@@ -21,23 +21,22 @@ NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
   unsigned __int16 *v1; // r14
   int v3; // eax
   int v4; // ebx
-  __int64 v5; // r8
-  void *v6; // rdx
-  int v7; // eax
-  int v8; // esi
+  void *v5; // rdx
+  NTSTATUS v6; // eax
+  int v7; // esi
   NTSTATUS result; // eax
-  __int64 v10; // rax
+  __int64 v9; // rax
   OBJECT_ATTRIBUTES TargetKey; // [rsp+60h] [rbp-9h] BYREF
-  unsigned int v12; // [rsp+D0h] [rbp+67h] BYREF
-  int v13; // [rsp+D8h] [rbp+6Fh] BYREF
-  int v14; // [rsp+E0h] [rbp+77h] BYREF
+  unsigned int v11; // [rsp+D0h] [rbp+67h] BYREF
+  int v12; // [rsp+D8h] [rbp+6Fh] BYREF
+  int v13; // [rsp+E0h] [rbp+77h] BYREF
   HANDLE Handle; // [rsp+E8h] [rbp+7Fh] BYREF
 
   Handle = 0LL;
   v1 = (unsigned __int16 *)(a1 + 16);
-  v14 = 0;
-  v12 = 0;
-  v13 = 1;
+  v13 = 0;
+  v11 = 0;
+  v12 = 1;
   PnpDiagnosticTraceObject(&KMPnPEvt_DriverDatabaseLoad_Start, (unsigned __int16 *)(a1 + 16));
   PnpDiagnosticTraceObject(&KMPnPEvt_DriverDatabaseLoaded_Start, v1);
   v3 = PiDrvDbLoadHive(a1 + 32, a1 + 48, &Handle);
@@ -62,46 +61,46 @@ NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
                   *(_QWORD *)(a1 + 72),
                   0LL,
                   (__int64)&DEVPKEY_DriverDatabase_UnloadTimeout,
-                  (__int64)&v13,
                   (__int64)&v12,
+                  (__int64)&v11,
                   4,
-                  (__int64)&v14,
+                  (__int64)&v13,
                   0) >= 0
-        && v13 == 7
-        && v14 == 4 )
+        && v12 == 7
+        && v13 == 4 )
       {
-        v10 = v12;
+        v9 = v11;
       }
       else
       {
-        v10 = 120000LL;
-        v12 = 120000;
+        v9 = 120000LL;
+        v11 = 120000;
       }
-      if ( (_DWORD)v10 != -1 )
-        *(_QWORD *)(a1 + 480) = -10000 * v10;
+      if ( (_DWORD)v9 != -1 )
+        *(_QWORD *)(a1 + 480) = -10000 * v9;
     }
     ZwClose(Handle);
     ZwResetEvent(*(HANDLE *)(a1 + 472), 0LL);
-    v6 = *(void **)(a1 + 472);
+    v5 = *(void **)(a1 + 472);
     TargetKey.RootDirectory = 0LL;
     TargetKey.Length = 48;
     TargetKey.Attributes = 576;
     TargetKey.ObjectName = (PUNICODE_STRING)(a1 + 32);
     *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
-    if ( v6 )
-      v7 = ZwUnloadKeyEx(&TargetKey, v6);
+    if ( v5 )
+      v6 = ZwUnloadKeyEx(&TargetKey, v5);
     else
-      v7 = ZwUnloadKey2((__int64)&TargetKey, 0LL, v5);
-    v8 = v7;
-    if ( v7 == 259 )
+      v6 = ZwUnloadKey2(&TargetKey, 0);
+    v7 = v6;
+    if ( v6 == 259 )
     {
       v4 = 0;
       goto LABEL_8;
     }
     ZwSetEvent(*(HANDLE *)(a1 + 472), 0LL);
     v4 = 0;
-    if ( v8 >= 0 )
-      v4 = v8;
+    if ( v7 >= 0 )
+      v4 = v7;
   }
   if ( v4 == -1073741431 )
     v4 = -1073741077;

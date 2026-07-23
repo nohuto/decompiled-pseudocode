@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpComputeMergedAcl @ 0x140683EF8
+ * XREFs of RtlpComputeMergedAcl @ 0x140683FDC
  * Callers:
- *     RtlpNewSecurityObject @ 0x14041BF40 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x1404A56A0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14041AE00 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x14051DAA0 (RtlpSetSecurityObject.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlpComputeMergedAcl2 @ 0x140684018 (RtlpComputeMergedAcl2.c)
+ *     RtlpComputeMergedAcl2 @ 0x1406840FC (RtlpComputeMergedAcl2.c)
  */
 
 __int64 __fastcall RtlpComputeMergedAcl(

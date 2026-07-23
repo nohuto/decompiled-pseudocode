@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMemoryErrorDeferredRecovery @ 0x140519914
+ * XREFs of HalpMemoryErrorDeferredRecovery @ 0x140519E64
  * Callers:
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x14050B730 (HalpHvMceConsumedMemoryErrorRecovery.c)
- *     HalpMceRecoveryNotRequiredAmd @ 0x1405192C4 (HalpMceRecoveryNotRequiredAmd.c)
- *     HalpMceRecoveryNotRequiredIntel @ 0x140519330 (HalpMceRecoveryNotRequiredIntel.c)
- *     HalpGhesMemoryErrorHandler @ 0x1405197CC (HalpGhesMemoryErrorHandler.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x14050BC80 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMceRecoveryNotRequiredAmd @ 0x140519814 (HalpMceRecoveryNotRequiredAmd.c)
+ *     HalpMceRecoveryNotRequiredIntel @ 0x140519880 (HalpMceRecoveryNotRequiredIntel.c)
+ *     HalpGhesMemoryErrorHandler @ 0x140519D1C (HalpGhesMemoryErrorHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpHvSetMachineCheckRecoveryState @ 0x14050C0E0 (HalpHvSetMachineCheckRecoveryState.c)
- *     HalpAcquireDrsPool @ 0x14051958C (HalpAcquireDrsPool.c)
- *     HalpFreeDrsPool @ 0x140519670 (HalpFreeDrsPool.c)
- *     WheaRequestDeferredRecovery @ 0x140612CC0 (WheaRequestDeferredRecovery.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x14050C630 (HalpHvSetMachineCheckRecoveryState.c)
+ *     HalpAcquireDrsPool @ 0x140519ADC (HalpAcquireDrsPool.c)
+ *     HalpFreeDrsPool @ 0x140519BC0 (HalpFreeDrsPool.c)
+ *     WheaRequestDeferredRecovery @ 0x140613210 (WheaRequestDeferredRecovery.c)
  */
 
 __int64 __fastcall HalpMemoryErrorDeferredRecovery(

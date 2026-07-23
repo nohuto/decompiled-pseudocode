@@ -6,21 +6,21 @@
  *     ZwReadVirtualMemory @ 0x180163A00 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpQueryReadVirtualMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
+__int64 __fastcall RtlpQueryReadVirtualMemory(void *a1, void *a2, void *a3, SIZE_T a4, PSIZE_T NumberOfBytesRead)
 {
-  int VirtualMemory; // ecx
+  NTSTATUS VirtualMemory; // ecx
   __int64 result; // rax
 
-  VirtualMemory = ZwReadVirtualMemory(a1, a2, a3, a4, a5);
+  VirtualMemory = ZwReadVirtualMemory(a1, a2, a3, a4, NumberOfBytesRead);
   if ( VirtualMemory < 0 )
   {
-    *a5 = 0LL;
+    *NumberOfBytesRead = 0LL;
     return (unsigned int)VirtualMemory;
   }
   else
   {
     result = 0LL;
-    if ( *a5 != a4 )
+    if ( *NumberOfBytesRead != a4 )
       return 2147483661LL;
   }
   return result;

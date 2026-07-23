@@ -3,7 +3,7 @@
  * Callers:
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  * Callees:
- *     _vsnprintf @ 0x180091710 (_vsnprintf.c)
+ *     _vsnprintf @ 0x180091720 (_vsnprintf.c)
  */
 
 HRESULT StringCbPrintfA(STRSAFE_LPSTR pszDest, size_t cbDest, STRSAFE_LPCSTR pszFormat, ...)

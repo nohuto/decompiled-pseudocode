@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x1401C00E8
+ * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x1401BFFCC
  * Callers:
- *     HvlAddSecureHvPagesCallbackRoutine @ 0x1401C00D0 (HvlAddSecureHvPagesCallbackRoutine.c)
- *     HvlAddSecureSkPagesCallbackRoutine @ 0x1401C0244 (HvlAddSecureSkPagesCallbackRoutine.c)
+ *     HvlAddSecureHvPagesCallbackRoutine @ 0x1401BFFB4 (HvlAddSecureHvPagesCallbackRoutine.c)
+ *     HvlAddSecureSkPagesCallbackRoutine @ 0x1401C0128 (HvlAddSecureSkPagesCallbackRoutine.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlpEndSecurePageListIteration @ 0x1401C1E4C (HvlpEndSecurePageListIteration.c)
- *     HvlpGetSecurePageList @ 0x1401C1F94 (HvlpGetSecurePageList.c)
- *     HvlpStartSecurePageListIteration @ 0x1401C21B4 (HvlpStartSecurePageListIteration.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlpEndSecurePageListIteration @ 0x1401C1D30 (HvlpEndSecurePageListIteration.c)
+ *     HvlpGetSecurePageList @ 0x1401C1E78 (HvlpGetSecurePageList.c)
+ *     HvlpStartSecurePageListIteration @ 0x1401C2098 (HvlpStartSecurePageListIteration.c)
  */
 
 _QWORD *__fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, __int64 a4)
@@ -34,8 +34,8 @@ _QWORD *__fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, 
   }
   if ( HvlpCrashdumpIterationState )
   {
-    v7 = dword_140322220;
-    result = (_QWORD *)qword_140322218;
+    v7 = dword_140322240;
+    result = (_QWORD *)qword_140322238;
     do
     {
       while ( !v7 )
@@ -48,15 +48,15 @@ _QWORD *__fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, 
         }
         v7 = *(unsigned __int16 *)(v10 + 8);
         result = (_QWORD *)(v10 + 16);
-        qword_140322218 = v10 + 16;
-        dword_140322220 = v7;
+        qword_140322238 = v10 + 16;
+        dword_140322240 = v7;
       }
       *(_QWORD *)(a4 + 24) = (*result >> 40) + 1LL;
-      *(_QWORD *)(a4 + 16) = *(_QWORD *)qword_140322218 & 0xFFFFFFFFFFLL;
-      result = (_QWORD *)(qword_140322218 + 8);
-      v7 = dword_140322220 - 1;
-      qword_140322218 += 8LL;
-      --dword_140322220;
+      *(_QWORD *)(a4 + 16) = *(_QWORD *)qword_140322238 & 0xFFFFFFFFFFLL;
+      result = (_QWORD *)(qword_140322238 + 8);
+      v7 = dword_140322240 - 1;
+      qword_140322238 += 8LL;
+      --dword_140322240;
     }
     while ( !*(_QWORD *)(a4 + 24) );
     *(_DWORD *)(a4 + 8) = -2147483646;

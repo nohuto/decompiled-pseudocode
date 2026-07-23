@@ -1,10 +1,10 @@
 /*
- * XREFs of SepTokenPrivilegeCount @ 0x14000EB70
+ * XREFs of SepTokenPrivilegeCount @ 0x14000E6F0
  * Callers:
- *     NtQueryInformationToken @ 0x14040F810 (NtQueryInformationToken.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x14047CA94 (SepRemoveDisabledGroupsAndPrivileges.c)
- *     SepGetTokenAccessInformationBufferSize @ 0x1404A09D0 (SepGetTokenAccessInformationBufferSize.c)
+ *     NtQueryInformationToken @ 0x14040E6D0 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x14047B964 (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SepGetTokenAccessInformationBufferSize @ 0x140518DDC (SepGetTokenAccessInformationBufferSize.c)
  * Callees:
  *     <none>
  */

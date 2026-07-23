@@ -1,16 +1,16 @@
 /*
- * XREFs of IopBootLogToFile @ 0x140819440
+ * XREFs of IopBootLogToFile @ 0x14081A640
  * Callers:
- *     IopBootLog @ 0x1406CF234 (IopBootLog.c)
- *     IopCopyBootLogRegistryToFile @ 0x140745708 (IopCopyBootLogRegistryToFile.c)
+ *     IopBootLog @ 0x1406D04D4 (IopBootLog.c)
+ *     IopCopyBootLogRegistryToFile @ 0x1407468F8 (IopCopyBootLogRegistryToFile.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
  */
 
 __int64 __fastcall IopBootLogToFile(PVOID *a1)
@@ -26,14 +26,14 @@ __int64 __fastcall IopBootLogToFile(PVOID *a1)
   LARGE_INTEGER ByteOffset; // [rsp+E8h] [rbp+7Fh] BYREF
 
   Buffer = -257;
-  if ( !qword_14096D020 )
+  if ( !qword_14096E020 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&qword_14096D020[4], 1u);
-  v4 = qword_14096D020;
-  if ( !qword_14096D020[2].Buffer )
-    RtlInitUnicodeString(qword_14096D020 + 2, L"\\SystemRoot\\ntbtlog.txt");
+  ExAcquireResourceExclusiveLite((PERESOURCE)&qword_14096E020[4], 1u);
+  v4 = qword_14096E020;
+  if ( !qword_14096E020[2].Buffer )
+    RtlInitUnicodeString(qword_14096E020 + 2, L"\\SystemRoot\\ntbtlog.txt");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
@@ -52,7 +52,7 @@ __int64 __fastcall IopBootLogToFile(PVOID *a1)
     }
     ZwClose(FileHandle);
   }
-  ExReleaseResourceLite((PERESOURCE)&qword_14096D020[4]);
+  ExReleaseResourceLite((PERESOURCE)&qword_14096E020[4]);
   KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
   return (unsigned int)v5;
 }

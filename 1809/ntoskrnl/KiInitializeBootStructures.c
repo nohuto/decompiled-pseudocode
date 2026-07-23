@@ -1,29 +1,29 @@
 /*
- * XREFs of KiInitializeBootStructures @ 0x14056FE10
+ * XREFs of KiInitializeBootStructures @ 0x140570E10
  * Callers:
- *     KiSystemStartup @ 0x140565010 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140566010 (KiSystemStartup.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
- *     KiDetermineRetpolineEnablement @ 0x1401930DC (KiDetermineRetpolineEnablement.c)
- *     strstr @ 0x140194EC0 (strstr.c)
- *     atoi @ 0x140194F50 (atoi.c)
- *     KiDetectTsx @ 0x1401B4294 (KiDetectTsx.c)
- *     KiSaveInitialProcessorControlState @ 0x1401BBDF0 (KiSaveInitialProcessorControlState.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiGetProcessorSignature @ 0x14056F62C (KiGetProcessorSignature.c)
- *     KiSetProcessorSignature @ 0x14056F7A8 (KiSetProcessorSignature.c)
- *     ExInitPoolLookasidePointers @ 0x140570234 (ExInitPoolLookasidePointers.c)
- *     KiInitPrcb @ 0x140570414 (KiInitPrcb.c)
- *     KiSetFeatureBits @ 0x1405707EC (KiSetFeatureBits.c)
- *     KiEnableKvaShadowing @ 0x140572BD8 (KiEnableKvaShadowing.c)
- *     KiInitializeIdt @ 0x140572E58 (KiInitializeIdt.c)
- *     InitializeBuildStrings @ 0x1409AB074 (InitializeBuildStrings.c)
- *     KiInitializeNxSupportDiscard @ 0x1409AF820 (KiInitializeNxSupportDiscard.c)
- *     MmInitSystem @ 0x1409BC4E4 (MmInitSystem.c)
- *     InbvDriverInitialize @ 0x1409D6F70 (InbvDriverInitialize.c)
- *     ExRngInitializeSystem @ 0x1409D90AC (ExRngInitializeSystem.c)
- *     HvlEnableVsmCalls @ 0x1409DF548 (HvlEnableVsmCalls.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACEC0 (PoEnergyEstimationEnabled.c)
+ *     KiDetermineRetpolineEnablement @ 0x14019321C (KiDetermineRetpolineEnablement.c)
+ *     strstr @ 0x140195000 (strstr.c)
+ *     atoi @ 0x140195090 (atoi.c)
+ *     KiDetectTsx @ 0x1401B43D4 (KiDetectTsx.c)
+ *     KiSaveInitialProcessorControlState @ 0x1401BBF50 (KiSaveInitialProcessorControlState.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiGetProcessorSignature @ 0x14057062C (KiGetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x1405707A8 (KiSetProcessorSignature.c)
+ *     ExInitPoolLookasidePointers @ 0x140571234 (ExInitPoolLookasidePointers.c)
+ *     KiInitPrcb @ 0x140571414 (KiInitPrcb.c)
+ *     KiSetFeatureBits @ 0x1405717EC (KiSetFeatureBits.c)
+ *     KiEnableKvaShadowing @ 0x140573BD8 (KiEnableKvaShadowing.c)
+ *     KiInitializeIdt @ 0x140573E58 (KiInitializeIdt.c)
+ *     InitializeBuildStrings @ 0x1409AC074 (InitializeBuildStrings.c)
+ *     KiInitializeNxSupportDiscard @ 0x1409B0820 (KiInitializeNxSupportDiscard.c)
+ *     MmInitSystem @ 0x1409BD4E4 (MmInitSystem.c)
+ *     InbvDriverInitialize @ 0x1409D7F70 (InbvDriverInitialize.c)
+ *     ExRngInitializeSystem @ 0x1409DA0AC (ExRngInitializeSystem.c)
+ *     HvlEnableVsmCalls @ 0x1409E0548 (HvlEnableVsmCalls.c)
  */
 
 __int64 __fastcall KiInitializeBootStructures(__int64 a1)
@@ -180,7 +180,7 @@ __int64 __fastcall KiInitializeBootStructures(__int64 a1)
     LODWORD(KeNumberProcessors_0) = 1;
     KeNumberProcessorsGroup0[0] = 1;
     KeActiveProcessors[0] = 1310721;
-    memset(&unk_1405416A4, 0, 0xA4uLL);
+    memset(&unk_1405426A4, 0, 0xA4uLL);
     KeAddProcessorAffinityEx(KeActiveProcessors, 0);
   }
   return KiSaveInitialProcessorControlState((__int64)&CurrentPrcb->ProcessorState);

@@ -1,20 +1,20 @@
 /*
- * XREFs of KeFlushCurrentTbOnly @ 0x14038C840
+ * XREFs of KeFlushCurrentTbOnly @ 0x14038CA20
  * Callers:
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiAgeWorkingSetTail @ 0x1403343B0 (MiAgeWorkingSetTail.c)
- *     MiConvertHiberPhasePages @ 0x140AAC06C (MiConvertHiberPhasePages.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiAgeWorkingSetTail @ 0x140334640 (MiAgeWorkingSetTail.c)
+ *     MiConvertHiberPhasePages @ 0x140AABEDC (MiConvertHiberPhasePages.c)
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  *     MiZeroBootMappings @ 0x140B57D74 (MiZeroBootMappings.c)
  * Callees:
- *     KiFlushCurrentTbOnly @ 0x1403BE320 (KiFlushCurrentTbOnly.c)
- *     HvlFlushAddressSpaceTb @ 0x1403CBF98 (HvlFlushAddressSpaceTb.c)
- *     KiPrepareFlushParameters @ 0x1403CEA4C (KiPrepareFlushParameters.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiIsFlushEntire @ 0x14046059C (KiIsFlushEntire.c)
- *     KiPrepareFlushCurrentAffinity @ 0x140572114 (KiPrepareFlushCurrentAffinity.c)
+ *     KiFlushCurrentTbOnly @ 0x1403BE500 (KiFlushCurrentTbOnly.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403CC178 (HvlFlushAddressSpaceTb.c)
+ *     KiPrepareFlushParameters @ 0x1403CEC2C (KiPrepareFlushParameters.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiIsFlushEntire @ 0x14046099C (KiIsFlushEntire.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x140572654 (KiPrepareFlushCurrentAffinity.c)
  */
 
 __int64 __fastcall KeFlushCurrentTbOnly(unsigned int a1)

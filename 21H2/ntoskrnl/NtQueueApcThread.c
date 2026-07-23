@@ -1,12 +1,17 @@
 /*
- * XREFs of NtQueueApcThread @ 0x1406B9EC0
+ * XREFs of NtQueueApcThread @ 0x140619030
  * Callers:
  *     <none>
  * Callees:
  *     NtQueueApcThreadEx2 @ 0x1405CF9B0 (NtQueueApcThreadEx2.c)
  */
 
-NTSTATUS __fastcall NtQueueApcThread(void *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl NtQueueApcThread(
+        HANDLE ThreadHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  return NtQueueApcThreadEx2(a1, 0LL, 0, a2, a3, a4, a5);
+  return NtQueueApcThreadEx2(ThreadHandle, 0LL, 0, ApcRoutine, ApcArgument1, ApcArgument2, ApcArgument3);
 }

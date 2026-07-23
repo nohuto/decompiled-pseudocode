@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFindHotPatchRecord @ 0x140A36B7C
+ * XREFs of MiFindHotPatchRecord @ 0x140A36E2C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140A36D0C (MiFindProcessImageHotPatchRecord.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A36FBC (MiFindProcessImageHotPatchRecord.c)
  *     MmRegisterHotPatches @ 0x140B73D38 (MmRegisterHotPatches.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlDuplicateUnicodeString @ 0x1407B6FC0 (RtlDuplicateUnicodeString.c)
- *     MiCompareHotPatchNodes @ 0x140A36604 (MiCompareHotPatchNodes.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlDuplicateUnicodeString @ 0x1407B72A0 (RtlDuplicateUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x140A368B4 (MiCompareHotPatchNodes.c)
  */
 
 __int64 __fastcall MiFindHotPatchRecord(__int64 *a1, int a2, int a3, int a4, PUNICODE_STRING StringOut)

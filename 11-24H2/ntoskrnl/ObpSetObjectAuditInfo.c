@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpSetObjectAuditInfo @ 0x140867674
+ * XREFs of ObpSetObjectAuditInfo @ 0x14086B968
  * Callers:
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     OBJECT_HEADER_TO_AUDIT_INFO @ 0x14041B1C0 (OBJECT_HEADER_TO_AUDIT_INFO.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlLengthSecurityDescriptor @ 0x14085A2E0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140867870 (RtlValidSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     OBJECT_HEADER_TO_AUDIT_INFO @ 0x14040ED00 (OBJECT_HEADER_TO_AUDIT_INFO.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408565C0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x14086BB60 (RtlValidSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpSetObjectAuditInfo(__int64 a1, PSECURITY_DESCRIPTOR *a2, char a3)
@@ -23,8 +23,8 @@ __int64 __fastcall ObpSetObjectAuditInfo(__int64 a1, PSECURITY_DESCRIPTOR *a2, c
   PSECURITY_DESCRIPTOR v8; // rsi
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v10; // rbx
-  _QWORD *v11; // rax
-  _QWORD *v12; // rbp
+  char *v11; // rax
+  char *v12; // rbp
   signed __int64 v13; // rax
   signed __int64 v14; // rdx
   signed __int64 v15; // rtt
@@ -48,12 +48,12 @@ LABEL_6:
     CurrentThread = KeGetCurrentThread();
     v10 = (signed __int64 *)(a1 + 16);
     --CurrentThread->KernelApcDisable;
-    v11 = KeAbPreAcquire(a1 + 16, 0LL);
+    v11 = (char *)KeAbPreAcquire(a1 + 16, 0LL);
     v12 = v11;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 16), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 16), (__int64)v11, a1 + 16);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 16), v11, a1 + 16);
     if ( v12 )
-      *((_BYTE *)v12 + 10) = 1;
+      v12[10] = 1;
     if ( *v7 )
     {
       _m_prefetchw(v10);
@@ -83,7 +83,7 @@ LABEL_6:
     return 0LL;
   }
   v17 = RtlLengthSecurityDescriptor(*a2);
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, v17, 0x4941624Fu);
   v8 = Pool2;
   if ( Pool2 )
   {

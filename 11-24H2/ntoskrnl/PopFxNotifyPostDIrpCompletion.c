@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxNotifyPostDIrpCompletion @ 0x140375B78
+ * XREFs of PopFxNotifyPostDIrpCompletion @ 0x1403A6294
  * Callers:
- *     PopHandleDevicePowerIrpCompletion @ 0x140376270 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1403A65A0 (PopHandleDevicePowerIrpCompletion.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxNextParentRelationSafe @ 0x140375C20 (PopFxNextParentRelationSafe.c)
- *     PopFxIdleComponent @ 0x1403B4888 (PopFxIdleComponent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxNextParentRelationSafe @ 0x1403A6340 (PopFxNextParentRelationSafe.c)
+ *     PopFxIdleComponent @ 0x1403A8D58 (PopFxIdleComponent.c)
  */
 
 void __fastcall PopFxNotifyPostDIrpCompletion(__int64 a1, int a2)

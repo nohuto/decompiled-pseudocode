@@ -3,21 +3,21 @@
  * Callers:
  *     <none>
  * Callees:
- *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1402A4964 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     sub_1402A4964 @ 0x1402A4964 (sub_1402A4964.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepFinalizeTokenAcls @ 0x140659D50 (SepFinalizeTokenAcls.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x140695E18 (SepNewTokenAsRestrictedAsProcessToken.c)
- *     SeCaptureSecurityQos @ 0x140729B40 (SeCaptureSecurityQos.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_140659D50 @ 0x140659D50 (sub_140659D50.c)
+ *     sub_140695E18 @ 0x140695E18 (sub_140695E18.c)
+ *     sub_140729B40 @ 0x140729B40 (sub_140729B40.c)
+ *     sub_140729C30 @ 0x140729C30 (sub_140729C30.c)
  *     SeCaptureSubjectContextEx @ 0x14072A390 (SeCaptureSubjectContextEx.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
  *     RtlIsSandboxedToken @ 0x14079F1E0 (RtlIsSandboxedToken.c)
  *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
+ *     sub_1407CDED0 @ 0x1407CDED0 (sub_1407CDED0.c)
  */
 
 NTSTATUS __stdcall NtDuplicateToken(
@@ -28,13 +28,13 @@ NTSTATUS __stdcall NtDuplicateToken(
         TOKEN_TYPE TokenType,
         PHANDLE NewTokenHandle)
 {
-  unsigned __int8 PreviousMode; // di
+  unsigned __int8 v9; // di
   PHANDLE v10; // r12
   TOKEN_TYPE v11; // r13d
   NTSTATUS result; // eax
   PVOID v13; // rsi
   int v14; // ecx
-  NTSTATUS inserted; // ebx
+  NTSTATUS v15; // ebx
   __int64 v16; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   struct _KTHREAD *CurrentThread; // rax
@@ -59,8 +59,8 @@ NTSTATUS __stdcall NtDuplicateToken(
   v28.ClientToken = 0LL;
   *(_QWORD *)&v28.ImpersonationLevel = 0LL;
   v28.ProcessAuditId = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode )
+  v9 = *((_BYTE *)KeGetCurrentThread() + 562);
+  if ( v9 )
   {
     v11 = TokenType;
     if ( (unsigned int)(TokenType - 1) > 1 )
@@ -76,13 +76,10 @@ NTSTATUS __stdcall NtDuplicateToken(
     v10 = NewTokenHandle;
     v11 = TokenType;
   }
-  result = SeCaptureSecurityQos(ObjectAttributes, PreviousMode, (char *)&TokenInformation + 2, &v25);
+  result = sub_140729B40(ObjectAttributes, v9, (char *)&TokenInformation + 2, &v25);
   if ( result >= 0 )
   {
-    result = SeCaptureObjectAttributeSecurityDescriptorPresent(
-               (__int64)ObjectAttributes,
-               PreviousMode,
-               (_BYTE *)&TokenInformation + 3);
+    result = sub_1402A4964((__int64)ObjectAttributes, v9, (_BYTE *)&TokenInformation + 3);
     if ( result >= 0 )
     {
       Token = 0LL;
@@ -90,32 +87,32 @@ NTSTATUS __stdcall NtDuplicateToken(
                  ExistingTokenHandle,
                  2u,
                  (POBJECT_TYPE)SeTokenObjectType,
-                 PreviousMode,
+                 v9,
                  &Token,
                  &HandleInformation);
       if ( result >= 0 )
       {
         if ( DesiredAccess )
         {
-          SeCaptureSubjectContextEx(KeGetCurrentThread(), KeGetCurrentThread()->ApcState.Process, &SubjectContext);
+          SeCaptureSubjectContextEx(KeGetCurrentThread(), *((PEPROCESS *)KeGetCurrentThread() + 23), &SubjectContext);
           v28.PrimaryToken = SubjectContext.PrimaryToken;
           LOBYTE(TokenInformation) = 0;
-          if ( PreviousMode )
+          if ( v9 )
           {
             ClientToken = SubjectContext.ClientToken;
             if ( !SubjectContext.ClientToken )
               ClientToken = SubjectContext.PrimaryToken;
-            if ( (SeQueryInformationToken(ClientToken, MaxTokenInfoClass, &TokenInformation) < 0
+            if ( (SeQueryInformationToken(ClientToken, TokenIsSandboxed, &TokenInformation) < 0
                || (_BYTE)TokenInformation)
               && (unsigned __int8)RtlIsSandboxedToken(&v28) )
             {
               CurrentThread = KeGetCurrentThread();
-              --CurrentThread->KernelApcDisable;
+              --*((_WORD *)CurrentThread + 242);
               PrimaryToken = SubjectContext.PrimaryToken;
               ExAcquireResourceSharedLite(*((PERESOURCE *)SubjectContext.PrimaryToken + 6), 1u);
-              SepNewTokenAsRestrictedAsProcessToken(Token, PrimaryToken, (_BYTE *)&TokenInformation + 1);
+              sub_140695E18(Token, PrimaryToken, (_BYTE *)&TokenInformation + 1);
               ExReleaseResourceLite(*((PERESOURCE *)SubjectContext.PrimaryToken + 6));
-              KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+              sub_1402F9540((__int64)KeGetCurrentThread());
             }
           }
           SeReleaseSubjectContext(&SubjectContext);
@@ -135,29 +132,21 @@ NTSTATUS __stdcall NtDuplicateToken(
         else
         {
           v22 = 0LL;
-          inserted = SepDuplicateToken(
-                       (_DWORD)Token,
-                       (_DWORD)ObjectAttributes,
-                       EffectiveOnly,
-                       v11,
-                       v14,
-                       PreviousMode,
-                       0,
-                       (__int64)&v22);
-          if ( inserted >= 0 )
+          v15 = sub_1407CDED0((_DWORD)Token, (_DWORD)ObjectAttributes, EffectiveOnly, v11, v14, v9, 0, (__int64)&v22);
+          if ( v15 >= 0 )
           {
-            inserted = ObInsertObjectEx(v22, 0LL, 0, 0LL, (__int64)&v24);
-            if ( inserted >= 0 )
+            v15 = sub_140729C30(v22, 0LL, 0, 0LL, (__int64)&v24);
+            if ( v15 >= 0 )
             {
               if ( !BYTE3(TokenInformation) )
-                SepFinalizeTokenAcls(v22);
+                sub_140659D50(v22);
               ObfDereferenceObject(v22);
             }
           }
           ObfDereferenceObject(v13);
-          if ( inserted >= 0 )
+          if ( v15 >= 0 )
             *v10 = (HANDLE)v24;
-          return inserted;
+          return v15;
         }
       }
     }

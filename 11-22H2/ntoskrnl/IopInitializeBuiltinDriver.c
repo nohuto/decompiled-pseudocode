@@ -37,13 +37,13 @@ __int64 __fastcall IopInitializeBuiltinDriver(
         unsigned __int8 a5,
         char **a6)
 {
-  __int64 v6; // r12
+  void *v6; // r12
   unsigned __int16 *p_Length; // r13
   unsigned __int16 *v10; // r14
   int inserted; // edi
   char *v12; // rbx
   PVOID *v13; // rdi
-  __int64 v14; // rax
+  PIMAGE_NT_HEADERS v14; // rax
   __int64 Pool2; // rax
   unsigned __int16 v16; // cx
   __int64 v17; // rdi
@@ -272,11 +272,11 @@ LABEL_32:
 LABEL_10:
         InbvIndicateProgress();
       }
-      v6 = *(_QWORD *)(a4 + 48);
+      v6 = *(void **)(a4 + 48);
       v14 = RtlImageNtHeader(v6);
       *((_QWORD *)v12 + 3) = v6;
-      *((_DWORD *)v12 + 8) = *(_DWORD *)(v14 + 80);
-      if ( _bittest16((const signed __int16 *)(v14 + 94), 0xDu) )
+      *((_DWORD *)v12 + 8) = v14->OptionalHeader.SizeOfImage;
+      if ( _bittest16((const signed __int16 *)&v14->OptionalHeader.DllCharacteristics, 0xDu) )
         goto LABEL_14;
       goto LABEL_13;
     }

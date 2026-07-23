@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDiagnosticTraceDriverFullInfo @ 0x14037C1B8
+ * XREFs of PnpDiagnosticTraceDriverFullInfo @ 0x14037BD08
  * Callers:
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
- *     IopUnloadDriver @ 0x140769798 (IopUnloadDriver.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
+ *     IopUnloadDriver @ 0x140769958 (IopUnloadDriver.c)
  * Callees:
- *     PnpDiagnosticTrace @ 0x14037C3D8 (PnpDiagnosticTrace.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PnpDiagnosticTrace @ 0x14037BF28 (PnpDiagnosticTrace.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PnpDiagnosticTraceDriverFullInfo(

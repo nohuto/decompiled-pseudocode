@@ -1,87 +1,86 @@
 /*
- * XREFs of KeAlertThreadByThreadId @ 0x14025CA90
+ * XREFs of KeAlertThreadByThreadId @ 0x14027E000
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
- *     NtAlertThreadByThreadId @ 0x140625C60 (NtAlertThreadByThreadId.c)
- *     RtlRunOnceComplete @ 0x14068AB40 (RtlRunOnceComplete.c)
- *     VslCallEnclave @ 0x14088EBF4 (VslCallEnclave.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
+ *     RtlRunOnceComplete @ 0x1405E9FD0 (RtlRunOnceComplete.c)
+ *     NtAlertThreadByThreadId @ 0x14068F8D0 (NtAlertThreadByThreadId.c)
+ *     VslCallEnclave @ 0x14088ED54 (VslCallEnclave.c)
  * Callees:
- *     KiSignalThread @ 0x1402464A0 (KiSignalThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiSignalThread @ 0x1402EACF0 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall KeAlertThreadByThreadId(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
+char __fastcall KeAlertThreadByThreadId(__int64 a1)
 {
   char CurrentIrql; // si
   struct _KPRCB *CurrentPrcb; // rbp
-  _DWORD *v7; // rcx
-  char v8; // di
-  char v9; // al
-  _DWORD *v11; // rcx
-  int v12; // eax
-  int v13; // eax
-  int v14; // [rsp+50h] [rbp+8h] BYREF
+  _DWORD *v4; // rcx
+  char v5; // di
+  char v6; // al
+  _DWORD *v8; // rcx
+  _DWORD *SchedulerAssist; // r9
+  int v10; // eax
+  int v11; // eax
+  int v12; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    a2 = (-1LL << (CurrentIrql + 1)) & 4;
-    a3 = (unsigned int)a2 | SchedulerAssist[5];
-    SchedulerAssist[5] = a3;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v14 = 0;
+  v12 = 0;
   while ( 1 )
   {
-    v7 = CurrentPrcb->SchedulerAssist;
-    if ( v7 )
+    v4 = CurrentPrcb->SchedulerAssist;
+    if ( v4 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v12 = v7[6];
-        v7[6] = v12 + 1;
-        if ( v12 == -1 )
+        v10 = v4[6];
+        v4[6] = v10 + 1;
+        if ( v10 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
       break;
-    v11 = CurrentPrcb->SchedulerAssist;
-    if ( v11 )
+    v8 = CurrentPrcb->SchedulerAssist;
+    if ( v8 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v13 = v11[6] - 1;
-        v11[6] = v13;
-        if ( !v13 )
+        v11 = v8[6] - 1;
+        v8[6] = v11;
+        if ( !v11 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v14, a2, a3, (__int64)SchedulerAssist);
+      KeYieldProcessorEx(&v12);
     while ( *(_QWORD *)(a1 + 64) );
   }
   if ( (*(_DWORD *)(a1 + 120) & 0x10) != 0 )
   {
-    v8 = 0;
+    v5 = 0;
   }
   else
   {
-    v8 = 1;
+    v5 = 1;
     if ( *(_BYTE *)(a1 + 388) != 5
       || (unsigned __int8)((*(_BYTE *)(a1 + 112) & 7) - 3) <= 1u
       || *(_BYTE *)(a1 + 643) != 37
-      || (v9 = KiSignalThread((__int64)CurrentPrcb, a1, 257LL, 0LL), *(_BYTE *)(a1 + 112) |= 0x80u, !v9) )
+      || (v6 = KiSignalThread(CurrentPrcb, a1, 257LL, 0LL), *(_BYTE *)(a1 + 112) |= 0x80u, !v6) )
     {
       _interlockedbittestandset((volatile signed __int32 *)(a1 + 120), 4u);
     }
   }
   KiReleaseThreadLockSafe(a1);
   KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 1, CurrentIrql);
-  return v8;
+  return v5;
 }

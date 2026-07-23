@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpInitializeDeviceActions @ 0x1409C7170
+ * XREFs of PnpInitializeDeviceActions @ 0x1409C8170
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 PnpInitializeDeviceActions()
   PnpEnumerationInProgress = 0;
   PnpEnumerationLock.Header.WaitListHead.Blink = &PnpEnumerationLock.Header.WaitListHead;
   PnpEnumerationLock.Header.WaitListHead.Flink = &PnpEnumerationLock.Header.WaitListHead;
-  qword_1404335F8 = (__int64)&PnpEnumerationRequestList;
+  qword_1404346A8 = (__int64)&PnpEnumerationRequestList;
   PnpEnumerationRequestList = (__int64)&PnpEnumerationRequestList;
   result = 0LL;
   LOWORD(PnpEnumerationLock.Header.Lock) = 0;

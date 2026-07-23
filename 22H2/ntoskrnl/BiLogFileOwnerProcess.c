@@ -17,7 +17,7 @@
 unsigned int __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int *v3; // rsi
-  PVOID v4; // rdi
+  _QWORD *v4; // rdi
   unsigned int result; // eax
   __int64 v6; // rcx
   UNICODE_STRING *v7; // r9
@@ -26,8 +26,8 @@ unsigned int __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3
   NTSTATUS v10; // eax
   unsigned int v11; // r14d
   NTSTATUS v12; // eax
-  unsigned int InformationProcess; // eax
-  int v14; // eax
+  unsigned int v13; // eax
+  NTSTATUS v14; // eax
   const wchar_t *v15; // r9
   CLIENT_ID ClientId; // [rsp+30h] [rbp-49h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-39h] BYREF
@@ -101,10 +101,10 @@ LABEL_29:
       if ( v12 < 0 )
         break;
       Length = 0;
-      InformationProcess = ZwQueryInformationProcess((__int64)ProcessHandle, 27LL);
-      if ( InformationProcess != -2147483643 && InformationProcess != -1073741789 && InformationProcess != -1073741820 )
+      v13 = ZwQueryInformationProcess(ProcessHandle, ProcessImageFileName, 0LL, 0, &Length);
+      if ( v13 != -2147483643 && v13 != -1073741789 && v13 != -1073741820 )
       {
-        result = BiLogMessage(4LL, L"Failed to query process information for size. Status: %x", InformationProcess);
+        result = BiLogMessage(4LL, L"Failed to query process information for size. Status: %x", v13);
         goto LABEL_28;
       }
       v4 = ExAllocatePoolWithTag(PagedPool, Length, 0x4B444342u);
@@ -113,17 +113,17 @@ LABEL_29:
         result = BiLogMessage(4LL, L"Failed to allocate memory for space for process name.");
         goto LABEL_29;
       }
-      v14 = ZwQueryInformationProcess((__int64)ProcessHandle, 27LL);
+      v14 = ZwQueryInformationProcess(ProcessHandle, ProcessImageFileName, v4, Length, &Length);
       if ( v14 < 0 )
       {
         result = BiLogMessage(4LL, L"Failed to query process info. Status: %x", (unsigned int)v14);
         goto LABEL_29;
       }
       if ( *(_WORD *)v4 )
-        v15 = (const wchar_t *)*((_QWORD *)v4 + 1);
+        v15 = (const wchar_t *)v4[1];
       else
         v15 = L"System";
-      BiLogMessage(4LL, L"Process Name [%d]: %ws", v11, v15, &Length);
+      BiLogMessage(4LL, L"Process Name [%d]: %ws", v11, v15);
       ZwClose(ProcessHandle);
       ProcessHandle = 0LL;
       result = (unsigned int)ExFreeHeapPool((ULONG_PTR)v4);

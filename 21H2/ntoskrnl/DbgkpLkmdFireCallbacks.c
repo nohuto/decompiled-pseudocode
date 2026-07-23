@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpLkmdFireCallbacks @ 0x140888214
+ * XREFs of DbgkpLkmdFireCallbacks @ 0x140888374
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x140887E7C (DbgkCaptureLiveDump.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x14025AA10 (ExDereferenceCallBackBlock.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     ExReferenceCallBackBlock @ 0x14027BEC0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14027BF80 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
 {
   char v3; // si
   int ProcessSessionId; // ebx
-  union _RTL_RUN_ONCE *v8; // rdi
+  _RTL_RUN_ONCE *v8; // rdi
   __int64 v9; // r14
   struct _EX_RUNDOWN_REF *v10; // rbp
   int Ptr; // eax
@@ -26,7 +26,7 @@ void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
     if ( ProcessSessionId != (unsigned int)PsGetProcessSessionIdEx(a3) || ProcessSessionId == -1 )
       v3 = 0;
   }
-  v8 = &stru_140C53F30;
+  v8 = &stru_140C53F70;
   v9 = 8LL;
   do
   {

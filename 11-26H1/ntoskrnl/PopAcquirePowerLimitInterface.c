@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAcquirePowerLimitInterface @ 0x1407CA744
+ * XREFs of PopAcquirePowerLimitInterface @ 0x1407CD7E4
  * Callers:
- *     PopAssociatePowerLimitRequest @ 0x1407CA800 (PopAssociatePowerLimitRequest.c)
- *     PopPowerLimitPnpNotification @ 0x1407CB110 (PopPowerLimitPnpNotification.c)
+ *     PopAssociatePowerLimitRequest @ 0x1407CD8A0 (PopAssociatePowerLimitRequest.c)
+ *     PopPowerLimitPnpNotification @ 0x1407CE1B0 (PopPowerLimitPnpNotification.c)
  * Callees:
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     IoSynchronousCallDriver @ 0x1404B2910 (IoSynchronousCallDriver.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     IoSynchronousCallDriver @ 0x1404ABE20 (IoSynchronousCallDriver.c)
  */
 
 __int64 __fastcall PopAcquirePowerLimitInterface(__int64 a1)

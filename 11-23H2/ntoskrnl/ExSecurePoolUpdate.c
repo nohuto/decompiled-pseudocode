@@ -1,9 +1,9 @@
 /*
- * XREFs of ExSecurePoolUpdate @ 0x14060CED0
+ * XREFs of ExSecurePoolUpdate @ 0x14060D420
  * Callers:
  *     <none>
  * Callees:
- *     VslSecurePoolUpdate @ 0x14054C7B0 (VslSecurePoolUpdate.c)
+ *     VslSecurePoolUpdate @ 0x14054CE70 (VslSecurePoolUpdate.c)
  */
 
 __int64 __fastcall ExSecurePoolUpdate(

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiTrimWorkingSetBuildup @ 0x14034FDC0
+ * XREFs of MiTrimWorkingSetBuildup @ 0x14034FF60
  * Callers:
- *     MiTrimPteWorker @ 0x1402E38D8 (MiTrimPteWorker.c)
- *     MiTrimWorkingSetTail @ 0x14034FD10 (MiTrimWorkingSetTail.c)
+ *     MiTrimPteWorker @ 0x1402E3B68 (MiTrimPteWorker.c)
+ *     MiTrimWorkingSetTail @ 0x14034FEB0 (MiTrimWorkingSetTail.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     MiSetVaAgeList @ 0x1402709E0 (MiSetVaAgeList.c)
- *     MiFreeWsleList @ 0x140280C20 (MiFreeWsleList.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     MiSetVaAgeList @ 0x140270C70 (MiSetVaAgeList.c)
+ *     MiFreeWsleList @ 0x140280EB0 (MiFreeWsleList.c)
  */
 
 void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
@@ -39,7 +39,7 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
   unsigned int v28; // esi
   unsigned int v29; // edi
   unsigned int SizeOfBitMap; // eax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
   __int64 v32; // [rsp+90h] [rbp+18h]
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 0LL;

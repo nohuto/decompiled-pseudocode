@@ -76,10 +76,10 @@ __int64 __fastcall ExInitializeNPagedLookasideListInternal(
   *v14 = v15;
   qword_140C2D628 = (__int64)v15;
   result = KxReleaseSpinLock((volatile signed __int64 *)&ExNPagedLookasideLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v13 <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCaptureContext @ 0x1404FC880
+ * XREFs of RtlpCaptureContext @ 0x1404FA140
  * Callers:
- *     RtlRaiseNoncontinuableException @ 0x1404FD070 (RtlRaiseNoncontinuableException.c)
- *     PspGetSetContextInternal @ 0x1409A4CA0 (PspGetSetContextInternal.c)
+ *     RtlRaiseNoncontinuableException @ 0x1404FA930 (RtlRaiseNoncontinuableException.c)
+ *     PspGetSetContextInternal @ 0x1409882C0 (PspGetSetContextInternal.c)
  * Callees:
  *     <none>
  */
 
 void RtlpCaptureContext()
 {
-  JUMPOUT(0x1404FC8FALL);
+  JUMPOUT(0x1404FA1BALL);
 }

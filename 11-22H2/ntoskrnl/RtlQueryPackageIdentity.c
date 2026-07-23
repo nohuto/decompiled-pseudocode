@@ -10,15 +10,24 @@
  *     RtlQueryPackageIdentityEx @ 0x140226000 (RtlQueryPackageIdentityEx.c)
  */
 
-__int64 __fastcall RtlQueryPackageIdentity(int a1, int a2, int a3, int a4, __int64 a5, _BYTE *a6)
+NTSTATUS __cdecl RtlQueryPackageIdentity(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PBOOLEAN Packaged)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
+  GUID *v7; // [rsp+28h] [rbp-30h]
+  unsigned __int64 v8[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  result = RtlQueryPackageIdentityEx(a1, a2, a3, a4, a5);
-  if ( (int)result >= 0 )
+  v8[0] = 0LL;
+  result = RtlQueryPackageIdentityEx(TokenHandle, PackageFullName, PackageSize, AppId, AppIdSize, v7, v8);
+  if ( result >= 0 )
   {
-    if ( a6 )
-      *a6 = 0;
+    if ( Packaged )
+      *Packaged = v8[0] != 0;
   }
   return result;
 }

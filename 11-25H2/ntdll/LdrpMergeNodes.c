@@ -7,51 +7,52 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-_QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
+int __fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
 {
   _QWORD *v4; // rdi
   _QWORD *v5; // rsi
   __int64 v6; // rax
   _QWORD *v7; // rcx
-  _QWORD *m; // r9
-  _QWORD *v9; // rax
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rax
-  _QWORD *v12; // rcx
-  _QWORD *result; // rax
-  _QWORD *v14; // r8
-  _QWORD *v15; // rdx
+  _QWORD *v8; // rax
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rax
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rax
+  _QWORD *v13; // r8
+  _QWORD *v14; // rdx
   _QWORD *i; // rcx
-  _QWORD *v17; // rdi
-  _QWORD **v18; // rdx
-  _QWORD *v19; // rcx
-  __int64 v20; // rdx
-  _QWORD *v21; // r8
-  _QWORD *v22; // rax
-  _QWORD **v23; // r14
-  _QWORD **v24; // rsi
+  _QWORD *v16; // rdi
+  _QWORD **v17; // rdx
+  _QWORD *v18; // rcx
+  __int64 v19; // rdx
+  _QWORD *v20; // r8
+  _QWORD *v21; // rax
+  _QWORD **v22; // r14
+  _QWORD **v23; // rsi
   _QWORD *k; // rdi
-  _QWORD **v26; // rax
-  _QWORD *v27; // rdi
-  _QWORD **v28; // rcx
+  _QWORD **v25; // rax
+  _QWORD *v26; // rdi
+  _QWORD **v27; // rcx
+  _QWORD *m; // r9
   _QWORD **v29; // rax
   _QWORD *v30; // rdx
   _QWORD *v31; // rcx
   _QWORD *v32; // r8
   __int64 v33; // rdx
-  _QWORD **v34; // r8
-  _QWORD *v35; // r9
+  _QWORD *v34; // r9
+  _QWORD **v35; // r8
+  _QWORD *v36; // r9
   _QWORD *j; // r10
-  _QWORD **v37; // rax
-  _QWORD *v38; // rax
+  _QWORD **v38; // rax
+  _QWORD *v39; // rax
 
   LdrpLogInternal(
-    (__int64)"minkernel\\ldr\\ldrddag.c",
+    "minkernel\\ldr\\ldrddag.c",
     1030,
     (__int64)"LdrpMergeNodes",
     2,
     "Merging a cycle rooted at %wZ.\n",
-    *(_BYTE *)a1 - 72);
+    *(_QWORD *)a1 - 72LL);
   v4 = *a2;
   do
   {
@@ -62,178 +63,178 @@ _QWORD *__fastcall LdrpMergeNodes(__int64 a1, _QWORD **a2)
       || (*v7 = v6,
           *(_QWORD *)(v6 + 8) = v7,
           LdrpLogInternal(
-            (__int64)"minkernel\\ldr\\ldrddag.c",
+            "minkernel\\ldr\\ldrddag.c",
             1066,
             (__int64)"LdrpMergeNodes",
             2,
             "Adding cyclic module %wZ.\n",
-            (_BYTE)v5 - 72),
+            v5 - 9),
           *(v5 - 1) = a1,
-          v9 = *(_QWORD **)(a1 + 8),
-          *v9 != a1) )
+          v8 = *(_QWORD **)(a1 + 8),
+          *v8 != a1) )
     {
       __fastfail(3u);
     }
-    v5[1] = v9;
+    v5[1] = v8;
     *v5 = a1;
-    *v9 = v5;
+    *v8 = v5;
     *(_QWORD *)(a1 + 8) = v5;
     *(_DWORD *)(a1 + 24) += *((_DWORD *)v4 - 10);
-    v10 = (_QWORD *)*(v4 - 3);
+    v9 = (_QWORD *)*(v4 - 3);
     *((_DWORD *)v4 - 10) = 0;
-    v11 = v10;
+    v10 = v9;
     *((_DWORD *)v4 - 2) = -5;
     do
     {
-      v11 = (_QWORD *)*v11;
-      v11[3] = a1;
+      v10 = (_QWORD *)*v10;
+      v10[3] = a1;
     }
-    while ( v11 != v10 );
-    v12 = (_QWORD *)*(v4 - 2);
-    result = v12;
+    while ( v10 != v9 );
+    v11 = (_QWORD *)*(v4 - 2);
+    v12 = v11;
     do
     {
-      result = (_QWORD *)*result;
-      *(result - 1) = a1;
+      v12 = (_QWORD *)*v12;
+      *(v12 - 1) = a1;
     }
-    while ( result != v12 );
+    while ( v12 != v11 );
     v4 = (_QWORD *)*v4;
   }
   while ( v4 );
-  v14 = *(_QWORD **)(a1 + 40);
-  v15 = v14;
-  for ( i = (_QWORD *)*v14; ; i = (_QWORD *)*v15 )
+  v13 = *(_QWORD **)(a1 + 40);
+  v14 = v13;
+  for ( i = (_QWORD *)*v13; ; i = (_QWORD *)*v14 )
   {
     if ( i[1] == a1 )
     {
-      result = (_QWORD *)*i;
-      *v15 = *i;
+      v12 = (_QWORD *)*i;
+      *v14 = *i;
       if ( *(_QWORD **)(a1 + 40) == i )
       {
-        result = 0LL;
-        if ( v15 != i )
-          result = v15;
-        *(_QWORD *)(a1 + 40) = result;
+        v12 = 0LL;
+        if ( v14 != i )
+          v12 = v14;
+        *(_QWORD *)(a1 + 40) = v12;
       }
       *i = 0LL;
     }
     else
     {
-      v15 = i;
+      v14 = i;
     }
-    if ( i == v14 )
+    if ( i == v13 )
       break;
   }
-  v17 = *a2;
+  v16 = *a2;
   do
   {
     while ( 1 )
     {
-      v18 = (_QWORD **)*(v17 - 3);
+      v17 = (_QWORD **)*(v16 - 3);
+      if ( !v17 )
+        break;
+      v18 = *v17;
+      if ( *v17 == v17 )
+      {
+        *(v16 - 3) = 0LL;
+      }
+      else
+      {
+        v12 = (_QWORD *)*v18;
+        *v17 = (_QWORD *)*v18;
+      }
       if ( !v18 )
         break;
-      v19 = *v18;
-      if ( *v18 == v18 )
+      v19 = v18[1];
+      if ( v19 == a1 )
       {
-        *(v17 - 3) = 0LL;
+        *v18 = 0LL;
       }
       else
       {
-        result = (_QWORD *)*v19;
-        *v18 = (_QWORD *)*v19;
-      }
-      if ( !v19 )
-        break;
-      v20 = v19[1];
-      if ( v20 == a1 )
-      {
-        *v19 = 0LL;
-      }
-      else
-      {
-        v21 = *(_QWORD **)(a1 + 40);
-        if ( v21 )
+        v20 = *(_QWORD **)(a1 + 40);
+        if ( v20 )
         {
-          v22 = *(_QWORD **)(a1 + 40);
+          v21 = *(_QWORD **)(a1 + 40);
           while ( 1 )
           {
-            v22 = (_QWORD *)*v22;
-            if ( v22[1] == v20 )
+            v21 = (_QWORD *)*v21;
+            if ( v21[1] == v19 )
               break;
-            if ( v22 == v21 )
+            if ( v21 == v20 )
             {
-              result = (_QWORD *)*v21;
-              *v19 = *v21;
-              *v21 = v19;
+              v12 = (_QWORD *)*v20;
+              *v18 = *v20;
+              *v20 = v18;
               goto LABEL_16;
             }
           }
-          v34 = *(_QWORD ***)(v20 + 48);
-          v35 = v19 + 2;
-          for ( j = *v34; j != v35; j = (_QWORD *)*j )
-            v34 = (_QWORD **)j;
-          *v34 = (_QWORD *)*v35;
-          if ( *(_QWORD **)(v20 + 48) == v35 )
+          v35 = *(_QWORD ***)(v19 + 48);
+          v36 = v18 + 2;
+          for ( j = *v35; j != v36; j = (_QWORD *)*j )
+            v35 = (_QWORD **)j;
+          *v35 = (_QWORD *)*v36;
+          if ( *(_QWORD **)(v19 + 48) == v36 )
           {
-            v37 = 0LL;
-            if ( v34 != v35 )
-              v37 = v34;
-            *(_QWORD *)(v20 + 48) = v37;
+            v38 = 0LL;
+            if ( v35 != v36 )
+              v38 = v35;
+            *(_QWORD *)(v19 + 48) = v38;
           }
-          --*(_DWORD *)(v20 + 24);
-          result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (__int64)v19, (__int64)v35);
+          --*(_DWORD *)(v19 + 24);
+          LODWORD(v12) = RtlFreeHeap(LdrpHeap, 0, v18);
         }
         else
         {
-          *v19 = v19;
+          *v18 = v18;
 LABEL_16:
-          *(_QWORD *)(a1 + 40) = v19;
+          *(_QWORD *)(a1 + 40) = v18;
         }
       }
     }
-    v17 = (_QWORD *)*v17;
+    v16 = (_QWORD *)*v16;
   }
-  while ( v17 );
-  v23 = *(_QWORD ***)(a1 + 48);
-  v24 = v23;
-  for ( k = *v23; ; k = *v24 )
+  while ( v16 );
+  v22 = *(_QWORD ***)(a1 + 48);
+  v23 = v22;
+  for ( k = *v22; ; k = *v23 )
   {
     if ( k[1] == a1 )
     {
-      *v24 = (_QWORD *)*k;
+      *v23 = (_QWORD *)*k;
       if ( *(_QWORD **)(a1 + 48) == k )
       {
-        v26 = 0LL;
-        if ( v24 != k )
-          v26 = v24;
-        *(_QWORD *)(a1 + 48) = v26;
+        v25 = 0LL;
+        if ( v23 != k )
+          v25 = v23;
+        *(_QWORD *)(a1 + 48) = v25;
       }
       --*(_DWORD *)(a1 + 24);
-      result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (__int64)(k - 2), (__int64)m);
+      LODWORD(v12) = RtlFreeHeap(LdrpHeap, 0, k - 2);
     }
     else
     {
-      v24 = (_QWORD **)k;
+      v23 = (_QWORD **)k;
     }
-    if ( k == v23 )
+    if ( k == v22 )
       break;
   }
-  v27 = *a2;
+  v26 = *a2;
   do
   {
     while ( 1 )
     {
-      v30 = (_QWORD *)*(v27 - 2);
+      v30 = (_QWORD *)*(v26 - 2);
       if ( !v30 )
         break;
       v31 = (_QWORD *)*v30;
       if ( (_QWORD *)*v30 == v30 )
       {
-        *(v27 - 2) = 0LL;
+        *(v26 - 2) = 0LL;
       }
       else
       {
-        result = (_QWORD *)*v31;
+        v12 = (_QWORD *)*v31;
         *v30 = *v31;
       }
       if ( !v31 )
@@ -242,37 +243,37 @@ LABEL_16:
       v33 = v31[1];
       if ( v33 == a1 )
         goto LABEL_44;
-      m = *(_QWORD **)(a1 + 48);
-      if ( m )
+      v34 = *(_QWORD **)(a1 + 48);
+      if ( v34 )
       {
-        v38 = *(_QWORD **)(a1 + 48);
+        v39 = *(_QWORD **)(a1 + 48);
         while ( 1 )
         {
-          v38 = (_QWORD *)*v38;
-          if ( v38[1] == v33 )
+          v39 = (_QWORD *)*v39;
+          if ( v39[1] == v33 )
             break;
-          if ( v38 == m )
+          if ( v39 == v34 )
           {
-            result = (_QWORD *)*m;
-            *v31 = *m;
-            *m = v31;
+            v12 = (_QWORD *)*v34;
+            *v31 = *v34;
+            *v34 = v31;
             goto LABEL_52;
           }
         }
-        v28 = *(_QWORD ***)(v33 + 40);
-        for ( m = *v28; m != v32; m = (_QWORD *)*m )
-          v28 = (_QWORD **)m;
-        *v28 = (_QWORD *)*v32;
+        v27 = *(_QWORD ***)(v33 + 40);
+        for ( m = *v27; m != v32; m = (_QWORD *)*m )
+          v27 = (_QWORD **)m;
+        *v27 = (_QWORD *)*v32;
         if ( *(_QWORD **)(v33 + 40) == v32 )
         {
           v29 = 0LL;
-          if ( v28 != v32 )
-            v29 = v28;
+          if ( v27 != v32 )
+            v29 = v27;
           *(_QWORD *)(v33 + 40) = v29;
         }
 LABEL_44:
         --*(_DWORD *)(a1 + 24);
-        result = (_QWORD *)RtlFreeHeap(LdrpHeap, 0, (__int64)v32, (__int64)m);
+        LODWORD(v12) = RtlFreeHeap(LdrpHeap, 0, v32);
       }
       else
       {
@@ -281,8 +282,8 @@ LABEL_52:
         *(_QWORD *)(a1 + 48) = v31;
       }
     }
-    v27 = (_QWORD *)*v27;
+    v26 = (_QWORD *)*v26;
   }
-  while ( v27 );
-  return result;
+  while ( v26 );
+  return (int)v12;
 }

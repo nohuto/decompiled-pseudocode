@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegHeapRemoveSegment @ 0x140346724
+ * XREFs of RtlpHpSegHeapRemoveSegment @ 0x1403487A4
  * Callers:
- *     RtlpHpSegContextCompact @ 0x14034742C (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegContextCompact @ 0x1403494AC (RtlpHpSegContextCompact.c)
  * Callees:
  *     <none>
  */

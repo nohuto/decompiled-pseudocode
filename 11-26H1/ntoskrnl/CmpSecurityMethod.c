@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSecurityMethod @ 0x1408ED400
+ * XREFs of CmpSecurityMethod @ 0x1408F39C0
  * Callers:
  *     <none>
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpAssignKeySecurity @ 0x14085AB60 (CmpAssignKeySecurity.c)
- *     CmpSetKeySecurity @ 0x1408BE00C (CmpSetKeySecurity.c)
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
- *     CmpQueryKeySecurity @ 0x1408ED790 (CmpQueryKeySecurity.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CmpIsRegistryLockAcquired @ 0x140261E00 (CmpIsRegistryLockAcquired.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpAssignKeySecurity @ 0x140860E54 (CmpAssignKeySecurity.c)
+ *     CmpSetKeySecurity @ 0x1408C45DC (CmpSetKeySecurity.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
+ *     CmpQueryKeySecurity @ 0x1408F3D50 (CmpQueryKeySecurity.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpSecurityMethod(
@@ -30,91 +30,89 @@ __int64 __fastcall CmpSecurityMethod(
 {
   char v8; // di
   ULONG_PTR v11; // r15
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  char v15; // si
+  char v13; // si
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v17; // ecx
-  unsigned int v18; // eax
-  int v19; // eax
+  unsigned int v15; // ecx
+  unsigned int v16; // eax
+  int v17; // eax
   int KeySecurity; // ebx
-  unsigned int v21; // ecx
-  __int64 v22; // rcx
+  unsigned int v19; // ecx
+  __int64 v20; // rcx
   char BugCheckParameter4; // [rsp+20h] [rbp-E0h]
   unsigned int BugCheckParameter4a; // [rsp+20h] [rbp-E0h]
-  __int64 v26; // [rsp+28h] [rbp-D8h]
-  _QWORD v27[2]; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v28; // [rsp+50h] [rbp-B0h]
-  __int64 v29; // [rsp+58h] [rbp-A8h] BYREF
-  int v30; // [rsp+60h] [rbp-A0h]
-  int v31; // [rsp+64h] [rbp-9Ch]
-  __int128 *v32; // [rsp+68h] [rbp-98h]
-  int v33; // [rsp+70h] [rbp-90h]
-  __int128 v34; // [rsp+74h] [rbp-8Ch]
-  __int64 v35; // [rsp+84h] [rbp-7Ch]
-  int v36; // [rsp+8Ch] [rbp-74h]
-  __int64 v37; // [rsp+90h] [rbp-70h]
-  __int64 v38; // [rsp+98h] [rbp-68h]
-  __int128 v39; // [rsp+A0h] [rbp-60h] BYREF
-  __int128 v40; // [rsp+B0h] [rbp-50h]
-  __int128 v41; // [rsp+C0h] [rbp-40h]
-  __int64 v42; // [rsp+D0h] [rbp-30h]
-  __int128 v43; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 v44; // [rsp+E8h] [rbp-18h]
-  _OWORD v45[2]; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v24; // [rsp+28h] [rbp-D8h]
+  _QWORD v25[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v26; // [rsp+50h] [rbp-B0h]
+  __int64 v27; // [rsp+58h] [rbp-A8h] BYREF
+  int v28; // [rsp+60h] [rbp-A0h]
+  int v29; // [rsp+64h] [rbp-9Ch]
+  __int128 *v30; // [rsp+68h] [rbp-98h]
+  int v31; // [rsp+70h] [rbp-90h]
+  __int128 v32; // [rsp+74h] [rbp-8Ch]
+  __int64 v33; // [rsp+84h] [rbp-7Ch]
+  int v34; // [rsp+8Ch] [rbp-74h]
+  __int64 v35; // [rsp+90h] [rbp-70h]
+  __int64 v36; // [rsp+98h] [rbp-68h]
+  __int128 v37; // [rsp+A0h] [rbp-60h] BYREF
+  __int128 v38; // [rsp+B0h] [rbp-50h]
+  __int128 v39; // [rsp+C0h] [rbp-40h]
+  __int64 v40; // [rsp+D0h] [rbp-30h]
+  __int128 v41; // [rsp+D8h] [rbp-28h] BYREF
+  __int64 v42; // [rsp+E8h] [rbp-18h]
+  _OWORD v43[2]; // [rsp+F0h] [rbp-10h] BYREF
 
   v8 = 0;
-  v38 = a6;
-  v37 = a8;
+  v36 = a6;
+  v35 = a8;
   v11 = a2;
-  v43 = 0LL;
-  v44 = 0LL;
-  memset(v45, 0, sizeof(v45));
-  v28 = 0LL;
+  v41 = 0LL;
+  v42 = 0LL;
+  memset(v43, 0, sizeof(v43));
+  v26 = 0LL;
   if ( CmpTraceRoutine )
   {
-    EtwGetKernelTraceTimestamp((unsigned __int64)v45, 0x20000uLL, (__int64)a3);
+    EtwGetKernelTraceTimestamp((unsigned __int64)v43, 0x20000uLL, (__int64)a3);
     v8 = 1;
   }
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v43);
-  v27[1] = v27;
-  v15 = 0;
-  v27[0] = v27;
-  v39 = 0LL;
-  v42 = 0LL;
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v41);
+  v25[1] = v25;
+  v13 = 0;
+  v25[0] = v25;
+  v37 = 0LL;
   v40 = 0LL;
-  v41 = 0LL;
+  v38 = 0LL;
+  v39 = 0LL;
   if ( CmpTraceRoutine && a1 )
-    v28 = *(_QWORD *)(a1 + 8);
+    v26 = *(_QWORD *)(a1 + 8);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( WheapPfaLock.ExpectedRunTime && !(unsigned int)CmpIsRegistryLockAcquired() )
+  if ( HIDWORD(WheapPfaLock.StateSaveArea) && !(unsigned int)CmpIsRegistryLockAcquired() )
   {
     if ( (_DWORD)v11 == 1 )
     {
-      *((_QWORD *)&v40 + 1) = a5;
-      v17 = 36;
-      v18 = 37;
+      *((_QWORD *)&v38 + 1) = a5;
+      v15 = 36;
+      v16 = 37;
     }
     else
     {
       if ( (_DWORD)v11 )
         goto LABEL_26;
-      v17 = 38;
-      v18 = 39;
+      v15 = 38;
+      v16 = 39;
     }
-    *(_QWORD *)&v40 = a4;
-    *((_QWORD *)&v39 + 1) = a3;
-    *(_QWORD *)&v39 = a1;
-    v19 = CmpCallCallBacksEx(v17, (__int64)&v39, 0LL, 1, v18, a1, (__int64)v27);
-    if ( v19 < 0 )
+    *(_QWORD *)&v38 = a4;
+    *((_QWORD *)&v37 + 1) = a3;
+    *(_QWORD *)&v37 = a1;
+    v17 = CmpCallCallBacksEx(v15, (__int64)&v37, 0LL, 1, v16, a1, (__int64)v25);
+    if ( v17 < 0 )
     {
       KeySecurity = 0;
-      if ( v19 != -1073740541 )
-        KeySecurity = v19;
+      if ( v17 != -1073740541 )
+        KeySecurity = v17;
       goto LABEL_19;
     }
-    v15 = 1;
+    v13 = 1;
   }
   if ( (_DWORD)v11 == 1 )
   {
@@ -143,52 +141,52 @@ LABEL_28:
   }
   else
   {
-    KeySecurity = CmpSetKeySecurity(a1, a3, (__int64)a4, v38, a7, v37);
+    KeySecurity = CmpSetKeySecurity(a1, a3, (__int64)a4, v36, a7, v35);
     if ( KeySecurity >= 0 )
       goto LABEL_28;
   }
 LABEL_12:
-  if ( v15 )
+  if ( v13 )
   {
     if ( (_DWORD)v11 == 1 )
     {
-      if ( WheapPfaLock.ExpectedRunTime && !(unsigned int)CmpIsRegistryLockAcquired() && (_QWORD *)v27[0] != v27 )
+      if ( HIDWORD(WheapPfaLock.StateSaveArea) && !(unsigned int)CmpIsRegistryLockAcquired() && (_QWORD *)v25[0] != v25 )
       {
-        v21 = 37;
-        v32 = &v39;
-        v26 = a1;
+        v19 = 37;
+        v30 = &v37;
+        v24 = a1;
         BugCheckParameter4a = 37;
 LABEL_18:
-        v31 = 0;
-        v35 = 0LL;
-        v36 = 0;
-        v29 = a1;
-        v34 = 0LL;
-        v30 = KeySecurity;
-        v33 = KeySecurity;
-        CmpCallCallBacksEx(v21, (__int64)&v29, 0LL, 0, BugCheckParameter4a, v26, (__int64)v27);
-        KeySecurity = v33;
+        v29 = 0;
+        v33 = 0LL;
+        v34 = 0;
+        v27 = a1;
+        v32 = 0LL;
+        v28 = KeySecurity;
+        v31 = KeySecurity;
+        CmpCallCallBacksEx(v19, (__int64)&v27, 0LL, 0, BugCheckParameter4a, v24, (__int64)v25);
+        KeySecurity = v31;
       }
     }
     else if ( !(_DWORD)v11
-           && WheapPfaLock.ExpectedRunTime
+           && HIDWORD(WheapPfaLock.StateSaveArea)
            && !(unsigned int)CmpIsRegistryLockAcquired()
-           && (_QWORD *)v27[0] != v27 )
+           && (_QWORD *)v25[0] != v25 )
     {
-      v21 = 39;
-      v32 = &v39;
-      v26 = a1;
+      v19 = 39;
+      v30 = &v37;
+      v24 = a1;
       BugCheckParameter4a = 39;
       goto LABEL_18;
     }
   }
 LABEL_19:
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14);
-  CmCleanupThreadInfo((_KAFFINITY_EX **)&v43);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v41);
   if ( v8 && CmpTraceRoutine )
   {
-    LOBYTE(v22) = ((_DWORD)v11 != 0) + 28;
-    guard_dispatch_icall_no_overrides(v22, (__int64)v45);
+    LOBYTE(v20) = ((_DWORD)v11 != 0) + 28;
+    guard_dispatch_icall_no_overrides(v20, (__int64)v43);
   }
   return (unsigned int)KeySecurity;
 }

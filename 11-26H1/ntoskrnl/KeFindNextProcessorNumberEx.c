@@ -1,7 +1,7 @@
 /*
- * XREFs of KeFindNextProcessorNumberEx @ 0x14045EB50
+ * XREFs of KeFindNextProcessorNumberEx @ 0x14025F6C0
  * Callers:
- *     KeFindNextProcessorIndexEx @ 0x14045EADC (KeFindNextProcessorIndexEx.c)
+ *     KeFindNextProcessorIndexEx @ 0x14025F64C (KeFindNextProcessorIndexEx.c)
  * Callees:
  *     <none>
  */

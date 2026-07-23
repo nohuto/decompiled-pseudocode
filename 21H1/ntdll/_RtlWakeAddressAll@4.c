@@ -6,11 +6,10 @@
  *     @RtlpWakeByAddress@12 @ 0x4B2DF2F6 (@RtlpWakeByAddress@12.c)
  */
 
-int __thiscall RtlWakeAddressAll(void *this, int a2)
+void __cdecl RtlWakeAddressAll(PVOID Address)
 {
-  void *v3; // [esp+0h] [ebp-4h] BYREF
+  signed __int32 v1; // [esp+0h] [ebp-4h] BYREF
 
-  v3 = this;
-  _InterlockedOr((volatile signed __int32 *)&v3, 0);
-  return RtlpWakeByAddress(0);
+  _InterlockedOr(&v1, 0);
+  RtlpWakeByAddress(0);
 }

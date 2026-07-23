@@ -1,11 +1,11 @@
 /*
- * XREFs of BcpPrintSpaces @ 0x140717CB8
+ * XREFs of BcpPrintSpaces @ 0x14071C9A8
  * Callers:
- *     BcpDisplayCriticalString @ 0x14071681C (BcpDisplayCriticalString.c)
- *     BcpDisplayCriticalStringCentered @ 0x140716B84 (BcpDisplayCriticalStringCentered.c)
- *     BcpDisplayProgressModernized @ 0x14071774C (BcpDisplayProgressModernized.c)
+ *     BcpDisplayCriticalString @ 0x14071B50C (BcpDisplayCriticalString.c)
+ *     BcpDisplayCriticalStringCentered @ 0x14071B874 (BcpDisplayCriticalStringCentered.c)
+ *     BcpDisplayProgressModernized @ 0x14071C43C (BcpDisplayProgressModernized.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140715C90 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x14071A980 (BgpDisplayCharacterEx.c)
  */
 
 __int64 __fastcall BcpPrintSpaces(__int64 *a1, unsigned int a2, unsigned int a3, unsigned int a4, int a5, _DWORD *a6)

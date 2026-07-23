@@ -3,7 +3,7 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
  *     PiLastGoodCopyKeyContents @ 0x1407B90B4 (PiLastGoodCopyKeyContents.c)
  *     IopFileUtilRename @ 0x1407B9164 (IopFileUtilRename.c)
  *     CmIsLastKnownGoodBoot @ 0x1407B922C (CmIsLastKnownGoodBoot.c)

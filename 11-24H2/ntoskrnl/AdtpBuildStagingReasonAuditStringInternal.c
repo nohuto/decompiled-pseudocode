@@ -1,18 +1,18 @@
 /*
- * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x14069708C
+ * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x14069810C
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14040AF54 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140403434 (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     AdtpFormatPrefix @ 0x14040BA30 (AdtpFormatPrefix.c)
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     AdtpPermissionBitPosition @ 0x140697544 (AdtpPermissionBitPosition.c)
- *     StringCchPrintfExW @ 0x140697558 (StringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AdtpBuildAccessesString @ 0x140A729FC (AdtpBuildAccessesString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     AdtpFormatPrefix @ 0x140403F10 (AdtpFormatPrefix.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     AdtpPermissionBitPosition @ 0x1406985C4 (AdtpPermissionBitPosition.c)
+ *     StringCchPrintfExW @ 0x1406985D8 (StringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AdtpBuildAccessesString @ 0x140A6BDDC (AdtpBuildAccessesString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildStagingReasonAuditStringInternal(
@@ -159,7 +159,7 @@ LABEL_23:
         v34.Buffer = pszDest;
       }
     }
-    Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)Length + 54, 0x6B416553u);
     if ( !Destination.Buffer )
       goto LABEL_35;
     Destination.Length = 0;
@@ -172,7 +172,7 @@ LABEL_23:
     v15 = appended;
     v25 = v37 + (Destination.Length >> 1);
     v26 = v37 + (Destination.Length >> 1) + 1;
-    Pool2 = (char *)ExAllocatePool2(0x100uLL);
+    Pool2 = (char *)ExAllocatePool2(0x100uLL, 2LL * (unsigned int)(v25 + 1), 0x6B416553u);
     if ( Pool2 )
     {
       if ( LOWORD(Src[0]) )

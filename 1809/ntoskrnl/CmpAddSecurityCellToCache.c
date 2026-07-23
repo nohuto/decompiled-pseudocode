@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAddSecurityCellToCache @ 0x1405AB584
+ * XREFs of CmpAddSecurityCellToCache @ 0x1405AC584
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x1405AB0AC (CmpValidateHiveSecurityDescriptors.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
- *     CmpInsertSecurityCellList @ 0x1406CA0F4 (CmpInsertSecurityCellList.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1405AC0AC (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1405B8C5C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpInsertSecurityCellList @ 0x1406CB394 (CmpInsertSecurityCellList.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     CmpSecConvKey @ 0x1405AD0CC (CmpSecConvKey.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B3724 (CmpFindSecurityCellCacheIndexNew.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     CmpSecConvKey @ 0x1405AE0CC (CmpSecConvKey.c)
  */
 
 __int64 CmpAddSecurityCellToCache(__int64 a1, unsigned int a2, char a3, ...)

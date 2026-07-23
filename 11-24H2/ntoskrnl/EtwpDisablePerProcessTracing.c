@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpDisablePerProcessTracing @ 0x1407AA548
+ * XREFs of EtwpDisablePerProcessTracing @ 0x1407AA688
  * Callers:
- *     EtwpEnableDisableUMGL @ 0x140A15A4C (EtwpEnableDisableUMGL.c)
- *     EtwpDisableTraceProviders @ 0x140A166D4 (EtwpDisableTraceProviders.c)
+ *     EtwpEnableDisableUMGL @ 0x140A0EC2C (EtwpEnableDisableUMGL.c)
+ *     EtwpDisableTraceProviders @ 0x140A0F8B4 (EtwpDisableTraceProviders.c)
  * Callees:
- *     PsEnumProcesses @ 0x1408EE0F4 (PsEnumProcesses.c)
+ *     PsEnumProcesses @ 0x14085F924 (PsEnumProcesses.c)
  */
 
 __int64 __fastcall EtwpDisablePerProcessTracing(int a1)

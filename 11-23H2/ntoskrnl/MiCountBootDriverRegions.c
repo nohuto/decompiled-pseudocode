@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitializeDynamicVa @ 0x140B6F0BC (MiInitializeDynamicVa.c)
  * Callees:
- *     MiWalkPageTables @ 0x14025BD00 (MiWalkPageTables.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiWalkPageTables @ 0x14025BF90 (MiWalkPageTables.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 MiCountBootDriverRegions()

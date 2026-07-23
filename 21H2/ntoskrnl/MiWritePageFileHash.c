@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWritePageFileHash @ 0x140389FC4
+ * XREFs of MiWritePageFileHash @ 0x14038A114
  * Callers:
- *     MiMapPageFileHash @ 0x1402CDE38 (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x14024C338 (MiMapPageFileHash.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiComputePageHash @ 0x14038A190 (MiComputePageHash.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiComputePageHash @ 0x14038A2E0 (MiComputePageHash.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -57,7 +57,7 @@ void __fastcall MiWritePageFileHash(__int64 a1, __int64 a2, _QWORD *a3, unsigned
     if ( v11 >= a5 )
       break;
     v29[v9] = 0;
-    if ( a3 && *a3 != qword_140C4ED68 )
+    if ( a3 && *a3 != qword_140C4EDA8 )
     {
       v14 = 1;
       v15 = 48LL * *a3 - 0x58000000000LL;

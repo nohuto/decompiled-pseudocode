@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x18004E450
+ * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x180064030
  * Callers:
- *     RtlpHpLfhPrivateSlotShutdown @ 0x18004AEFC (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhBucketGetSubsegment @ 0x18004B540 (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhOwnerRunMaintenance @ 0x18004D870 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhOwnerFreeListProcess @ 0x18004E2B0 (RtlpHpLfhOwnerFreeListProcess.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x18004E6E0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerCompact @ 0x1800506A0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x180060ADC (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x180061120 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x180063450 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhOwnerFreeListProcess @ 0x180063E90 (RtlpHpLfhOwnerFreeListProcess.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x1800642C0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180066280 (RtlpHpLfhOwnerCompact.c)
  * Callees:
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpLfhOwnerMoveSubsegment(__int64 a1, char *a2, __int64 *a3, int a4, char a5)

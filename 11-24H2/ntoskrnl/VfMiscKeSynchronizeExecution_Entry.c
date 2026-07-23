@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeSynchronizeExecution_Entry @ 0x140B9DFB0
+ * XREFs of VfMiscKeSynchronizeExecution_Entry @ 0x140B9FFB0
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscCheckKeRaiseIrql @ 0x140BA801C (ViMiscCheckKeRaiseIrql.c)
+ *     ViMiscCheckKeRaiseIrql @ 0x140BAA01C (ViMiscCheckKeRaiseIrql.c)
  */
 
 __int64 __fastcall VfMiscKeSynchronizeExecution_Entry(__int64 *a1)

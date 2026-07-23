@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpShrinkMap @ 0x140860648
+ * XREFs of HvpShrinkMap @ 0x140866938
  * Callers:
- *     HvpAddBin @ 0x140B7EAA0 (HvpAddBin.c)
+ *     HvpAddBin @ 0x140B87980 (HvpAddBin.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpFreeMap @ 0x1408B79C0 (HvpFreeMap.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpFreeMap @ 0x1408BDF90 (HvpFreeMap.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, unsigned int a4)

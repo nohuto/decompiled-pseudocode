@@ -1,7 +1,7 @@
 /*
- * XREFs of PipLinkDeviceObjectAndDependencyNode @ 0x14071E8B0
+ * XREFs of PipLinkDeviceObjectAndDependencyNode @ 0x14071C440
  * Callers:
- *     IoResolveDependency @ 0x1404B9270 (IoResolveDependency.c)
+ *     IoResolveDependency @ 0x1404B4110 (IoResolveDependency.c)
  * Callees:
  *     <none>
  */

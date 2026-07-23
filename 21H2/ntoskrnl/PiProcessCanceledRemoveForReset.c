@@ -1,11 +1,11 @@
 /*
- * XREFs of PiProcessCanceledRemoveForReset @ 0x1408B8ED8
+ * XREFs of PiProcessCanceledRemoveForReset @ 0x1408B9038
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736AD4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     IopEnumerateRelations @ 0x1407384F0 (IopEnumerateRelations.c)
- *     IopQueryDeviceState @ 0x140749C2C (IopQueryDeviceState.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     IopEnumerateRelations @ 0x1407386B0 (IopEnumerateRelations.c)
+ *     IopQueryDeviceState @ 0x140749DEC (IopQueryDeviceState.c)
  */
 
 __int64 __fastcall PiProcessCanceledRemoveForReset(int a1, __int64 a2, unsigned int **a3, int *a4)

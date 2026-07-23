@@ -1,16 +1,16 @@
 /*
- * XREFs of PspTrySetProcessPebThrottlingFlags @ 0x1407F14B0
+ * XREFs of PspTrySetProcessPebThrottlingFlags @ 0x1407F7010
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlInterlockedAnd32ToUser @ 0x14077F35C (RtlInterlockedAnd32ToUser.c)
- *     RtlInterlockedOr32ToUser @ 0x14077F458 (RtlInterlockedOr32ToUser.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlInterlockedAnd32ToUser @ 0x140781E5C (RtlInterlockedAnd32ToUser.c)
+ *     RtlInterlockedOr32ToUser @ 0x140781F58 (RtlInterlockedOr32ToUser.c)
  */
 
-$7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall PspTrySetProcessPebThrottlingFlags(_KPROCESS *a1, char a2)
+$241382875694CED3D471BC5892DE3337 *__fastcall PspTrySetProcessPebThrottlingFlags(_KPROCESS *a1, char a2)
 {
   struct _LIST_ENTRY *Blink; // rcx
   __int64 v5; // rbx

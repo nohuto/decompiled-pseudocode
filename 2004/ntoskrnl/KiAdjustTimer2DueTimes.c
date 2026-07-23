@@ -144,7 +144,7 @@ LABEL_5:
     {
       v8 = (__int64)(v3 - 3);
       v3 = (_QWORD *)*v3;
-      KiInsertTimer2(v8, 1, (unsigned __int64)&v29);
+      KiInsertTimer2(v8, 1, &v29);
       if ( v29 )
         v7 = 1;
     }

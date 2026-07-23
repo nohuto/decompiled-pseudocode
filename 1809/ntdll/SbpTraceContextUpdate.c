@@ -3,35 +3,41 @@
  * Callers:
  *     SbUpdateSwitchContextBasedOnDll @ 0x1800279F0 (SbUpdateSwitchContextBasedOnDll.c)
  *     SbSelectProcedure @ 0x180027CD0 (SbSelectProcedure.c)
- *     SbObtainTraceHandle @ 0x1800826D0 (SbObtainTraceHandle.c)
+ *     SbObtainTraceHandle @ 0x1800826E0 (SbObtainTraceHandle.c)
  * Callees:
  *     EtwEventWrite @ 0x18004DC20 (EtwEventWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall SbpTraceContextUpdate(int a1, __int64 a2, __int16 a3, unsigned __int16 a4, __int64 a5)
+ULONG __fastcall SbpTraceContextUpdate(
+        REGHANDLE RegHandle,
+        unsigned __int64 a2,
+        __int16 a3,
+        unsigned __int16 a4,
+        unsigned __int64 a5)
 {
-  int v9; // r8d
+  ULONG v9; // r8d
   __int16 v11; // [rsp+28h] [rbp-61h] BYREF
-  _QWORD v12[16]; // [rsp+38h] [rbp-51h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData[8]; // [rsp+38h] [rbp-51h] BYREF
   unsigned __int16 v13; // [rsp+100h] [rbp+77h] BYREF
 
   v13 = a4;
-  memset(v12, 0, sizeof(v12));
+  memset(UserData, 0, sizeof(UserData));
   v11 = a3;
-  v12[0] = a2;
-  v12[2] = &v11;
-  v12[4] = &v13;
-  v12[1] = 16LL;
+  UserData[0].Ptr = a2;
+  UserData[1].Ptr = (unsigned __int64)&v11;
+  UserData[2].Ptr = (unsigned __int64)&v13;
+  *(_QWORD *)&UserData[0].Size = 16LL;
   v9 = 3;
-  v12[3] = 2LL;
-  v12[5] = 2LL;
+  *(_QWORD *)&UserData[1].Size = 2LL;
+  *(_QWORD *)&UserData[2].Size = 2LL;
   if ( a4 )
   {
     v9 = 4;
-    v12[6] = a5;
-    v12[7] = a4;
+    UserData[3].Ptr = a5;
+    UserData[3].Size = a4;
+    UserData[3].Reserved = 0;
   }
-  return EtwEventWrite(a1, (int)&AeSbContextUpdateEvent, v9, (__int64)v12);
+  return EtwEventWrite(RegHandle, &AeSbContextUpdateEvent, v9, UserData);
 }

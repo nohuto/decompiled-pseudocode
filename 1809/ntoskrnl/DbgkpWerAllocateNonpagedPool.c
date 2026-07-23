@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpWerAllocateNonpagedPool @ 0x14026E2B4
+ * XREFs of DbgkpWerAllocateNonpagedPool @ 0x14026E4A4
  * Callers:
- *     DbgkpWerInitializeDeferredLiveDump @ 0x140812D18 (DbgkpWerInitializeDeferredLiveDump.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x140813F18 (DbgkpWerInitializeDeferredLiveDump.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 PVOID DbgkpWerAllocateNonpagedPool()

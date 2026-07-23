@@ -240,7 +240,7 @@ LABEL_24:
     if ( (*(_BYTE *)(a1 + 192) & 7) == 4 )
     {
       if ( PsNtosImageBase
-        && (v11 >= PsNtosImageBase && v11 < PsNtosImageEnd
+        && (v11 >= (unsigned __int64)PsNtosImageBase && v11 < PsNtosImageEnd
          || v11 >= (unsigned __int64)PsHalImageBase && v11 < PsHalImageEnd) )
       {
         LODWORD(xmmword_140388420) = xmmword_140388420 + 1;

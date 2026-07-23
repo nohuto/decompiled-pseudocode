@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpMcaAMDIsMemoryError @ 0x140543768
+ * XREFs of HalpMcaAMDIsMemoryError @ 0x1405410B8
  * Callers:
- *     HalpCreateMachineCheckErrorRecord @ 0x14053EEF0 (HalpCreateMachineCheckErrorRecord.c)
- *     HalpMceRecoveryRequired @ 0x140554F3C (HalpMceRecoveryRequired.c)
+ *     HalpCreateMachineCheckErrorRecord @ 0x14053C7F0 (HalpCreateMachineCheckErrorRecord.c)
+ *     HalpMceRecoveryRequired @ 0x14055287C (HalpMceRecoveryRequired.c)
  * Callees:
  *     <none>
  */

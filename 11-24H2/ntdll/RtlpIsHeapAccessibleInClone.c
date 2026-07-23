@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpIsHeapAccessibleInClone @ 0x180113A38
+ * XREFs of RtlpIsHeapAccessibleInClone @ 0x18010ED38
  * Callers:
- *     RtlUnlockHeapManagerForCloning @ 0x180141CA0 (RtlUnlockHeapManagerForCloning.c)
+ *     RtlUnlockHeapManagerForCloning @ 0x18013FE80 (RtlUnlockHeapManagerForCloning.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1801620F0 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1801604B0 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpIsHeapAccessibleInClone(__int64 a1)
+__int64 __fastcall RtlpIsHeapAccessibleInClone(PVOID BaseAddress)
 {
   unsigned int v2; // ebx
   _BYTE v4[32]; // [rsp+38h] [rbp-40h] BYREF
@@ -15,9 +15,9 @@ __int64 __fastcall RtlpIsHeapAccessibleInClone(__int64 a1)
   memset(v4, 0, sizeof(v4));
   v5 = 0LL;
   v2 = 0;
-  if ( (int)ZwQueryVirtualMemory(-1LL, a1, 0LL, v4, 48LL, 0LL) >= 0
+  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, MemoryBasicInformation, v4, 0x30uLL, 0LL) >= 0
     && (_DWORD)v5 == 4096
-    && (*(_DWORD *)(a1 + 152) == -285217025 || *(_DWORD *)(a1 + 16) == -571548178) )
+    && (*((_DWORD *)BaseAddress + 38) == -285217025 || *((_DWORD *)BaseAddress + 4) == -571548178) )
   {
     return 1;
   }

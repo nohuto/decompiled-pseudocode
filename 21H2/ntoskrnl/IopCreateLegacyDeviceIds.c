@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCreateLegacyDeviceIds @ 0x1408B23EC
+ * XREFs of IopCreateLegacyDeviceIds @ 0x1408B254C
  * Callers:
- *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x1407AEB10 (IoReportDetectedDevice.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
- *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
- *     memset @ 0x140414200 (memset.c)
- *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfW @ 0x14026D570 (RtlStringCchPrintfW.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _CmSetDeviceRegProp @ 0x1407441D0 (_CmSetDeviceRegProp.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopCreateLegacyDeviceIds(__int64 a1, unsigned __int16 *a2, __int64 a3)
@@ -47,7 +47,7 @@ __int64 __fastcall IopCreateLegacyDeviceIds(__int64 a1, unsigned __int16 *a2, __
     v8 = -1LL;
     do
       ++v8;
-    while ( (&off_140009948)[v7][v8] );
+    while ( (&off_140009958)[v7][v8] );
     v9 = 2 * (*a2 + (_DWORD)v8) + 42;
     PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v9, 0x6F697050u);
     v4 = PoolWithTag;
@@ -62,7 +62,7 @@ __int64 __fastcall IopCreateLegacyDeviceIds(__int64 a1, unsigned __int16 *a2, __
             0,
             L"%ws%ws\\%wZ",
             L"DETECTED",
-            (&off_140009948)[v7],
+            (&off_140009958)[v7],
             a2);
     if ( v11 >= 0 )
     {

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeZeroingAttributes @ 0x1409DB1F4
+ * XREFs of MiInitializeZeroingAttributes @ 0x1409DC1F4
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 MiInitializeZeroingAttributes()
   _DWORD *v3; // rcx
 
   LODWORD(result) = 0;
-  v1 = dword_14043A118;
+  v1 = dword_14043B1D8;
   for ( i = 0; i < 3; ++i )
   {
     *v1 = i;
@@ -23,7 +23,7 @@ __int64 MiInitializeZeroingAttributes()
     v1[3] = i;
     v1 += 4;
   }
-  v3 = &unk_14043A148;
+  v3 = &unk_14043B208;
   do
   {
     *v3 = result;
@@ -31,6 +31,6 @@ __int64 MiInitializeZeroingAttributes()
     ++v3;
   }
   while ( (unsigned int)result <= 3 );
-  dword_14043A154 = 1;
+  dword_14043B214 = 1;
   return result;
 }

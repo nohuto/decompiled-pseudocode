@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlApplicationVerifierStop @ 0x1800D7E50
+ * XREFs of RtlApplicationVerifierStop @ 0x1800D7F10
  * Callers:
- *     RtlCheckHeldCriticalSections @ 0x1800824A0 (RtlCheckHeldCriticalSections.c)
+ *     RtlCheckHeldCriticalSections @ 0x180082490 (RtlCheckHeldCriticalSections.c)
  * Callees:
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSendWeakChargerNotification @ 0x1408EDE0C
+ * XREFs of PopSendWeakChargerNotification @ 0x1408EDF6C
  * Callers:
- *     PopBatteryWorker @ 0x14077F810 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14077F9D0 (PopBatteryWorker.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PopSendWeakChargerNotification(char a1)
+NTSTATUS __fastcall PopSendWeakChargerNotification(char a1)
 {
-  char v2; // [rsp+50h] [rbp+8h] BYREF
+  char Buffer; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = a1;
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_RECONCILED_WEAK_CHARGER, (__int64)&v2);
+  Buffer = a1;
+  return ZwUpdateWnfStateData(&WNF_PO_RECONCILED_WEAK_CHARGER, &Buffer, 1u, 0LL, 0LL, 0, 0);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeQueryHSTIResults @ 0x1407730D0
+ * XREFs of SeQueryHSTIResults @ 0x140773290
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall SeQueryHSTIResults(void *a1, unsigned int a2, _DWORD *a3)

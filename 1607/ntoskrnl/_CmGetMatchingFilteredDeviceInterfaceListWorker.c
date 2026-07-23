@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x140561D68
+ * XREFs of _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1405622A8
  * Callers:
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1404F64E0 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1404D946C (_CmGetMatchingFilteredDeviceInterfaceList.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     _PnpIsValidGuidString @ 0x1404F7EB8 (_PnpIsValidGuidString.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140562F74 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     _PnpIsValidGuidString @ 0x1404DAE44 (_PnpIsValidGuidString.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1405634B4 (_PnpCtxRegEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceInterfaceListWorker(

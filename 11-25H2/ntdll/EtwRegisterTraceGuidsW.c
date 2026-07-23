@@ -11,38 +11,37 @@
  */
 
 __int64 __fastcall EtwRegisterTraceGuidsW(
-        __int64 a1,
+        PETW_NOTIFICATION_CALLBACK Callback,
         int a2,
-        __int128 *a3,
+        GUID *a3,
         unsigned int a4,
         __int64 a5,
         int a6,
         int a7,
-        _QWORD *a8)
+        ULONGLONG *a8)
 {
-  __int128 v9; // xmm0
-  __int64 RegGuidsContext; // rsi
-  unsigned int LastErrorValue; // ebx
-  __int64 v12; // r9
-  unsigned __int64 v14; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v15; // [rsp+38h] [rbp-30h] BYREF
+  GUID v9; // xmm0
+  void *RegGuidsContext; // rsi
+  unsigned __int32 LastErrorValue; // ebx
+  ULONGLONG RegHandle; // [rsp+30h] [rbp-38h] BYREF
+  GUID Guid; // [rsp+38h] [rbp-30h] BYREF
 
-  v14 = 0LL;
-  if ( a1 && a8 && a3 && a4 <= 0x10000 )
+  RegHandle = 0LL;
+  if ( Callback && a8 && a3 && a4 <= 0x10000 )
   {
     v9 = *a3;
     *a8 = 0LL;
-    v15 = v9;
-    RegGuidsContext = EtwpCreateRegGuidsContext(a1, a2, (unsigned int)&v15, a4, a5);
+    Guid = v9;
+    RegGuidsContext = (void *)EtwpCreateRegGuidsContext((_DWORD)Callback, a2, (unsigned int)&Guid, a4, a5);
     if ( RegGuidsContext )
     {
-      LastErrorValue = EtwNotificationRegister(&v15, 2, a1, RegGuidsContext, &v14);
+      LastErrorValue = EtwNotificationRegister(&Guid, 2u, Callback, RegGuidsContext, &RegHandle);
       if ( !LastErrorValue )
       {
-        *a8 = v14;
+        *a8 = RegHandle;
         return LastErrorValue;
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, RegGuidsContext, v12);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, RegGuidsContext);
     }
     else
     {
@@ -53,6 +52,6 @@ __int64 __fastcall EtwRegisterTraceGuidsW(
     RtlSetLastWin32Error(LastErrorValue);
     return LastErrorValue;
   }
-  RtlSetLastWin32Error(87LL);
+  RtlSetLastWin32Error(87);
   return 87LL;
 }

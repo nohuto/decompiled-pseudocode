@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpAllocateMessageFromExtendedTables @ 0x140741C20
+ * XREFs of AlpcpAllocateMessageFromExtendedTables @ 0x14073FB50
  * Callers:
- *     AlpcpAllocateMessageFunction @ 0x14093FEE0 (AlpcpAllocateMessageFunction.c)
+ *     AlpcpAllocateMessageFunction @ 0x140894520 (AlpcpAllocateMessageFunction.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExCreateHandleEx @ 0x14084CE30 (ExCreateHandleEx.c)
- *     ExCreateHandleTable @ 0x14093BEF4 (ExCreateHandleTable.c)
- *     ExDestroyHandleTable @ 0x1409E5220 (ExDestroyHandleTable.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExCreateHandleEx @ 0x1408490F0 (ExCreateHandleEx.c)
+ *     ExCreateHandleTable @ 0x14094D1CC (ExCreateHandleTable.c)
+ *     ExDestroyHandleTable @ 0x1409DFC80 (ExDestroyHandleTable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall AlpcpAllocateMessageFromExtendedTables(int a1)
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall AlpcpAllocateMessageFromExtendedTables(int a1)
 
   if ( !AlpcpSecondaryMessageTables )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x100uLL, 0x61486C41u);
     v3 = (_QWORD *)Pool2;
     if ( !Pool2 )
       return 0LL;

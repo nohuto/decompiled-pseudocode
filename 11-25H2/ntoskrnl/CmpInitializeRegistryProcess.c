@@ -19,20 +19,20 @@
 
 __int64 CmpInitializeRegistryProcess()
 {
-  void *v0; // rdi
+  HANDLE v0; // rdi
   int RegistryThread; // ebx
   __int64 v2; // rcx
   __int64 v3; // rdx
-  HANDLE Handle[2]; // [rsp+60h] [rbp-10h] BYREF
+  HANDLE ProcessInformation[2]; // [rsp+60h] [rbp-10h] BYREF
   PVOID Object; // [rsp+90h] [rbp+20h] BYREF
-  void *v7; // [rsp+98h] [rbp+28h] BYREF
+  HANDLE ProcessHandle; // [rsp+98h] [rbp+28h] BYREF
   HANDLE v8; // [rsp+A0h] [rbp+30h] BYREF
 
   Object = 0LL;
   v0 = 0LL;
-  v7 = 0LL;
+  ProcessHandle = 0LL;
   v8 = 0LL;
-  *(_OWORD *)Handle = 0LL;
+  *(_OWORD *)ProcessInformation = 0LL;
   CmSiProcessTupleInitialize();
   RegistryThread = CmpCreateRegistryProcessToken(&Object);
   if ( RegistryThread >= 0 )
@@ -49,17 +49,24 @@ __int64 CmpInitializeRegistryProcess()
                        0LL,
                        0LL,
                        0LL,
-                       &v7);
+                       &ProcessHandle);
     if ( RegistryThread < 0
-      || (RegistryThread = ObOpenObjectByPointer(Object, 0x200u, 0LL, 1u, (POBJECT_TYPE)SeTokenObjectType, 0, Handle),
+      || (RegistryThread = ObOpenObjectByPointer(
+                             Object,
+                             0x200u,
+                             0LL,
+                             1u,
+                             (POBJECT_TYPE)SeTokenObjectType,
+                             0,
+                             ProcessInformation),
           RegistryThread < 0) )
     {
-      v0 = v7;
+      v0 = ProcessHandle;
     }
     else
     {
-      v0 = v7;
-      RegistryThread = ZwSetInformationProcess((__int64)v7, 9LL);
+      v0 = ProcessHandle;
+      RegistryThread = ZwSetInformationProcess(ProcessHandle, ProcessAccessToken, ProcessInformation, 0x10u);
       if ( RegistryThread >= 0 )
       {
         RegistryThread = CmSiProcessTupleStartFromHandle(v2, v0);
@@ -89,8 +96,8 @@ __int64 CmpInitializeRegistryProcess()
   }
   if ( Object )
     ObfDereferenceObject(Object);
-  if ( Handle[0] )
-    ZwClose(Handle[0]);
+  if ( ProcessInformation[0] )
+    ZwClose(ProcessInformation[0]);
   if ( v8 )
     ZwClose(v8);
   if ( v0 )

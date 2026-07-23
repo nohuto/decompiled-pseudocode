@@ -1,28 +1,28 @@
 /*
- * XREFs of MiStoreWriteModifiedPagePrepare @ 0x1404091C0
+ * XREFs of MiStoreWriteModifiedPagePrepare @ 0x1404022B0
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140408D88 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140401E78 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     RtlFindClearBits @ 0x140358780 (RtlFindClearBits.c)
- *     MiStoreGetWriteSupport @ 0x14039822C (MiStoreGetWriteSupport.c)
- *     MiStoreCheckCandidatePage @ 0x140404388 (MiStoreCheckCandidatePage.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14040A44C (MiDerefPageFileSpaceBitmaps.c)
- *     MiUpdatePagefilePeakUsage @ 0x14047FC40 (MiUpdatePagefilePeakUsage.c)
- *     MiRefPageFileSpaceBitmaps @ 0x1404ABE74 (MiRefPageFileSpaceBitmaps.c)
- *     MiStoreLogNotCandidate @ 0x1404C4250 (MiStoreLogNotCandidate.c)
- *     MiIsStoreVirtualPagefileFull @ 0x1404D7630 (MiIsStoreVirtualPagefileFull.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     RtlFindClearBits @ 0x14035A520 (RtlFindClearBits.c)
+ *     MiStoreGetWriteSupport @ 0x140399F8C (MiStoreGetWriteSupport.c)
+ *     MiStoreCheckCandidatePage @ 0x1403FD488 (MiStoreCheckCandidatePage.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14040353C (MiDerefPageFileSpaceBitmaps.c)
+ *     MiUpdatePagefilePeakUsage @ 0x140479588 (MiUpdatePagefilePeakUsage.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x1404A5504 (MiRefPageFileSpaceBitmaps.c)
+ *     MiStoreLogNotCandidate @ 0x1404BDB30 (MiStoreLogNotCandidate.c)
+ *     MiIsStoreVirtualPagefileFull @ 0x1404D0E00 (MiIsStoreVirtualPagefileFull.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiStoreWriteModifiedPagePrepare(__int64 *a1, __int64 a2)
@@ -79,7 +79,7 @@ LONG __fastcall MiStoreWriteModifiedPagePrepare(__int64 *a1, __int64 a2)
   v35 = v5;
   Object = 0LL;
   v8 = *(_QWORD *)(v7 + 8LL * (unsigned int)a2 + 48);
-  if ( v8 == qword_140E36038 )
+  if ( v8 == qword_140E361B8 )
   {
     ++*((_DWORD *)a1 + 25);
 LABEL_38:
@@ -149,13 +149,13 @@ LABEL_38:
   v17 = MiStoreCheckCandidatePage(v12, ClearBits, &v39, &v36, &v38);
   if ( v17 < 0 )
   {
-    if ( stru_140E36558.FirstArgument )
+    if ( stru_140E366D8.FirstArgument )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument )
       {
-        if ( (*((_QWORD *)stru_140E36558.FirstArgument + 2) & 0x400000000002LL) != 0 )
+        if ( (*((_QWORD *)stru_140E366D8.FirstArgument + 2) & 0x400000000002LL) != 0 )
         {
-          v18 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+          v18 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
           if ( (v18 & 0x400000000002LL) == v18 )
             MiStoreLogNotCandidate(v18, (unsigned int)v17, ClearBits);
         }
@@ -204,7 +204,7 @@ LABEL_46:
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
   }
-  v25 = MiStoreGetWriteSupport((union _SLIST_HEADER *)v6);
+  v25 = MiStoreGetWriteSupport((_SLIST_HEADER *)v6);
   v26 = Object;
   if ( !v25 )
   {
@@ -244,7 +244,7 @@ LABEL_46:
   MiUpdatePagefilePeakUsage(v35);
   if ( (_BYTE)v30 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       result = 0;
       *(_DWORD *)(v35 + 200) = 0;
@@ -256,7 +256,7 @@ LABEL_46:
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       result = 0;
       *(_DWORD *)(v35 + 200) = 0;

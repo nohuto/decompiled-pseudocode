@@ -1,9 +1,9 @@
 /*
- * XREFs of XmBsfOp @ 0x140468180
+ * XREFs of XmBsfOp @ 0x140460B30
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
  */
 
 __int64 __fastcall XmBsfOp(__int64 a1)

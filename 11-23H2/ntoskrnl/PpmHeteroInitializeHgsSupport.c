@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmHeteroInitializeHgsSupport @ 0x1403AC3F4
+ * XREFs of PpmHeteroInitializeHgsSupport @ 0x1403AC5D4
  * Callers:
- *     PpmHeteroHgsBackupInit @ 0x1403AC3B4 (PpmHeteroHgsBackupInit.c)
+ *     PpmHeteroHgsBackupInit @ 0x1403AC594 (PpmHeteroHgsBackupInit.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     Feature_HgsPlusSupportRequired__private_ReportDeviceUsage @ 0x14041148C (Feature_HgsPlusSupportRequired__private_ReportDeviceUsage.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402F89D0 (MmAllocatePagesForMdlEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     Feature_HgsPlusSupportRequired__private_ReportDeviceUsage @ 0x140411698 (Feature_HgsPlusSupportRequired__private_ReportDeviceUsage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,19 +1,19 @@
 /*
- * XREFs of OpenIptDevice @ 0x180118EF4
+ * XREFs of OpenIptDevice @ 0x180114034
  * Callers:
- *     GetProcessIptTrace @ 0x18015D014 (GetProcessIptTrace.c)
- *     GetProcessIptTraceSize @ 0x18015D120 (GetProcessIptTraceSize.c)
+ *     GetProcessIptTrace @ 0x18015B3D4 (GetProcessIptTrace.c)
+ *     GetProcessIptTraceSize @ 0x18015B4E0 (GetProcessIptTraceSize.c)
  * Callees:
- *     ZwCreateFile @ 0x180162730 (ZwCreateFile.c)
+ *     ZwCreateFile @ 0x180160AF0 (ZwCreateFile.c)
  */
 
 NTSTATUS __fastcall OpenIptDevice(HANDLE *a1)
 {
-  struct _IO_STATUS_BLOCK v2; // [rsp+60h] [rbp-48h] BYREF
-  OBJECT_ATTRIBUTES v3; // [rsp+70h] [rbp-38h] BYREF
+  _IO_STATUS_BLOCK v2; // [rsp+60h] [rbp-48h] BYREF
+  _OBJECT_ATTRIBUTES v3; // [rsp+70h] [rbp-38h] BYREF
 
   *(_QWORD *)&v3.Length = 48LL;
-  v3.ObjectName = (PUNICODE_STRING)&unk_1801CC748;
+  v3.ObjectName = (PUNICODE_STRING)&unk_1801CB748;
   memset(&v3.Attributes, 0, 24);
   v3.RootDirectory = 0LL;
   v2 = 0LL;

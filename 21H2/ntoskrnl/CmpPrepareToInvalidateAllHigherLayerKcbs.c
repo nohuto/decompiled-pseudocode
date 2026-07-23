@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x140876520
+ * XREFs of CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x140876680
  * Callers:
- *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
- *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F7C4 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpTransMgrFreeVolatileData @ 0x140663F6C (CmpTransMgrFreeVolatileData.c)
+ *     CmpSaveBootControlSet @ 0x140867BE0 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F924 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     CmpInitializeDelayDerefContext @ 0x1403510E8 (CmpInitializeDelayDerefContext.c)
- *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x140734AA4 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpInitializeDelayDerefContext @ 0x14035BE38 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x14035BE50 (CmpDrainDelayDerefContext.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140734C64 (CmpEnumerateAllHigherLayerKcbs.c)
  */
 
 __int64 __fastcall CmpPrepareToInvalidateAllHigherLayerKcbs(__int64 a1, int a2, __int64 a3)

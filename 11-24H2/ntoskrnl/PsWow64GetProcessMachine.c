@@ -1,21 +1,21 @@
 /*
- * XREFs of PsWow64GetProcessMachine @ 0x1408FB0E0
+ * XREFs of PsWow64GetProcessMachine @ 0x14091D9C0
  * Callers:
- *     RtlpWalkFrameChain @ 0x14027E270 (RtlpWalkFrameChain.c)
- *     KiContinuePreviousModeUser @ 0x1403E6E30 (KiContinuePreviousModeUser.c)
- *     KeVerifyContextRecord @ 0x1403E7FA0 (KeVerifyContextRecord.c)
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
- *     WbGetWowTrapFrame @ 0x140800AF0 (WbGetWowTrapFrame.c)
- *     MiCommitVadMetadataBits @ 0x1408FA9B0 (MiCommitVadMetadataBits.c)
- *     PsGetSupportedProcessorArchitectures @ 0x1408FAF40 (PsGetSupportedProcessorArchitectures.c)
- *     sub_1408FB650 @ 0x1408FB650 (sub_1408FB650.c)
- *     WbValidateHeapExecuteCallArguments @ 0x1408FBB30 (WbValidateHeapExecuteCallArguments.c)
- *     WbDisableTracing @ 0x1408FD168 (WbDisableTracing.c)
- *     WbSetWowTrapFrame @ 0x1408FE6DC (WbSetWowTrapFrame.c)
- *     PspWow64SetContextThread @ 0x140913174 (PspWow64SetContextThread.c)
- *     PspWow64GetContextThread @ 0x1409A90C0 (PspWow64GetContextThread.c)
- *     PspWow64SetupCpuArea @ 0x1409E5F70 (PspWow64SetupCpuArea.c)
- *     PspWow64InitThread @ 0x1409E600C (PspWow64InitThread.c)
+ *     RtlpWalkFrameChain @ 0x140233800 (RtlpWalkFrameChain.c)
+ *     KiContinuePreviousModeUser @ 0x1403D49D0 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextRecord @ 0x1403D5B40 (KeVerifyContextRecord.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
+ *     WbGetWowTrapFrame @ 0x140801230 (WbGetWowTrapFrame.c)
+ *     PspWow64SetContextThread @ 0x1408EA8C4 (PspWow64SetContextThread.c)
+ *     MiCommitVadMetadataBits @ 0x14091D290 (MiCommitVadMetadataBits.c)
+ *     PsGetSupportedProcessorArchitectures @ 0x14091D820 (PsGetSupportedProcessorArchitectures.c)
+ *     sub_14091DF30 @ 0x14091DF30 (sub_14091DF30.c)
+ *     WbValidateHeapExecuteCallArguments @ 0x14091E410 (WbValidateHeapExecuteCallArguments.c)
+ *     WbDisableTracing @ 0x14091FA48 (WbDisableTracing.c)
+ *     WbSetWowTrapFrame @ 0x140920FBC (WbSetWowTrapFrame.c)
+ *     PspWow64GetContextThread @ 0x140992510 (PspWow64GetContextThread.c)
+ *     PspWow64SetupCpuArea @ 0x1409E0800 (PspWow64SetupCpuArea.c)
+ *     PspWow64InitThread @ 0x1409E089C (PspWow64InitThread.c)
  * Callees:
  *     <none>
  */

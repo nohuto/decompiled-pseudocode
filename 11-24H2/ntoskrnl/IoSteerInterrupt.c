@@ -1,11 +1,11 @@
 /*
- * XREFs of IoSteerInterrupt @ 0x14071DC70
+ * XREFs of IoSteerInterrupt @ 0x14071B800
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KeIntSteerAssignCpuSet @ 0x1405C40F4 (KeIntSteerAssignCpuSet.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KeIntSteerAssignCpuSet @ 0x1405C1718 (KeIntSteerAssignCpuSet.c)
  */
 
 __int64 __fastcall IoSteerInterrupt(__int64 a1, __int64 a2)

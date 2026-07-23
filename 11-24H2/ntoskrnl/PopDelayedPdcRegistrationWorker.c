@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDelayedPdcRegistrationWorker @ 0x14075D450
+ * XREFs of PopDelayedPdcRegistrationWorker @ 0x14075C3F0
  * Callers:
  *     <none>
  * Callees:
- *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D787C (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
- *     PopAdaptiveStandbyInitializeActivator @ 0x140761B4C (PopAdaptiveStandbyInitializeActivator.c)
+ *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D4DFC (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopAdaptiveStandbyInitializeActivator @ 0x140760F10 (PopAdaptiveStandbyInitializeActivator.c)
  */
 
 __int64 PopDelayedPdcRegistrationWorker()

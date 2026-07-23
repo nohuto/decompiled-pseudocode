@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCallDriverReference @ 0x1400EBA7C
+ * XREFs of IopCallDriverReference @ 0x1400E98EC
  * Callers:
- *     NtSetInformationFile @ 0x140079360 (NtSetInformationFile.c)
- *     NtQueryInformationFile @ 0x140444D30 (NtQueryInformationFile.c)
+ *     NtSetInformationFile @ 0x1400793E0 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x140443C00 (NtQueryInformationFile.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D3F30 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     IoCallDriverWithTracing @ 0x1400EBBFC (IoCallDriverWithTracing.c)
- *     IoGetIoPriorityHint @ 0x1400EBCB0 (IoGetIoPriorityHint.c)
- *     PsGetBaseIoPriorityThread @ 0x1400EBF30 (PsGetBaseIoPriorityThread.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D1DD0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     IoCallDriverWithTracing @ 0x1400E9A6C (IoCallDriverWithTracing.c)
+ *     IoGetIoPriorityHint @ 0x1400E9B20 (IoGetIoPriorityHint.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400E9DA0 (PsGetBaseIoPriorityThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall IopCallDriverReference(__int64 a1, IRP *a2, char a3, _QWORD *a4, int a5)

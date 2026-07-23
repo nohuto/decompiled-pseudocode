@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipOpenBlock @ 0x1409CD2D0
+ * XREFs of WmipOpenBlock @ 0x1409B25B0
  * Callers:
- *     WmipIoControl @ 0x1409CCBD0 (WmipIoControl.c)
- *     IoWMIOpenBlock @ 0x1409CD120 (IoWMIOpenBlock.c)
+ *     WmipIoControl @ 0x1409B1150 (WmipIoControl.c)
+ *     IoWMIOpenBlock @ 0x1409B2400 (IoWMIOpenBlock.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WmipIsQuerySetGuid @ 0x1409CBC70 (WmipIsQuerySetGuid.c)
- *     WmipEnableCollectOrEvent @ 0x1409CCAD0 (WmipEnableCollectOrEvent.c)
- *     WmipOpenGuidObject @ 0x1409CD4EC (WmipOpenGuidObject.c)
- *     WmipFindGEByGuid @ 0x1409CD8B0 (WmipFindGEByGuid.c)
- *     WmipAllocGuidEntry @ 0x1409D0E2C (WmipAllocGuidEntry.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WmipAllocGuidEntry @ 0x1409AFDEC (WmipAllocGuidEntry.c)
+ *     WmipIsQuerySetGuid @ 0x1409B2390 (WmipIsQuerySetGuid.c)
+ *     WmipOpenGuidObject @ 0x1409B27CC (WmipOpenGuidObject.c)
+ *     WmipFindGEByGuid @ 0x1409B2884 (WmipFindGEByGuid.c)
+ *     WmipEnableCollectOrEvent @ 0x1409B465C (WmipEnableCollectOrEvent.c)
  */
 
 __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4, _QWORD *a5)
@@ -24,7 +24,7 @@ __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4
   __int64 GEByGuid; // rdi
   _QWORD *v12; // rdx
   _QWORD *v13; // rax
-  __int64 v15; // rax
+  _QWORD *v15; // rax
   __int64 *v16; // rax
   __int64 v17; // rcx
   _QWORD *v18; // rax
@@ -82,7 +82,7 @@ __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4
     {
       KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       v15 = WmipAllocGuidEntry();
-      GEByGuid = v15;
+      GEByGuid = (__int64)v15;
       if ( !v15 )
       {
         KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
@@ -92,7 +92,7 @@ LABEL_17:
           ObfDereferenceObject(v10);
         return (unsigned int)v9;
       }
-      *(_OWORD *)(v15 + 72) = *(_OWORD *)(v10 + 24);
+      *(_OWORD *)(v15 + 9) = *(_OWORD *)(v10 + 24);
       v16 = (__int64 *)WmipGEHeadPtr;
       v17 = *(_QWORD *)WmipGEHeadPtr;
       if ( *(_QWORD *)(*(_QWORD *)WmipGEHeadPtr + 8LL) != WmipGEHeadPtr
@@ -114,7 +114,7 @@ LABEL_7:
       *((_QWORD *)v10 + 7) = GEByGuid;
       KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
     }
-    v9 = WmipEnableCollectOrEvent(GEByGuid, a1, v10 + 160);
+    v9 = WmipEnableCollectOrEvent(GEByGuid);
     if ( v9 < 0 )
       goto LABEL_17;
 LABEL_22:

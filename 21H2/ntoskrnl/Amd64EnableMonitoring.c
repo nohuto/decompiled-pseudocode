@@ -1,14 +1,14 @@
 /*
- * XREFs of Amd64EnableMonitoring @ 0x1404DD920
+ * XREFs of Amd64EnableMonitoring @ 0x1404DDB60
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpGetProfileDescriptor @ 0x140378378 (HalpGetProfileDescriptor.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpGetProfileDescriptor @ 0x140377EC8 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     Amd64AllocateCounter @ 0x1404DD728 (Amd64AllocateCounter.c)
- *     Amd64ConfigureCounter @ 0x1404DD80C (Amd64ConfigureCounter.c)
+ *     Amd64AllocateCounter @ 0x1404DD968 (Amd64AllocateCounter.c)
+ *     Amd64ConfigureCounter @ 0x1404DDA4C (Amd64ConfigureCounter.c)
  */
 
 __int64 __fastcall Amd64EnableMonitoring(int a1, int a2, int *a3)

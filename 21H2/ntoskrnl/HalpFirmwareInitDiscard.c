@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpFirmwareInitDiscard @ 0x140A6EB60
+ * XREFs of HalpFirmwareInitDiscard @ 0x140A6FB60
  * Callers:
- *     HalpFirmwareInitSystem @ 0x1409A1680 (HalpFirmwareInitSystem.c)
+ *     HalpFirmwareInitSystem @ 0x1409A25B0 (HalpFirmwareInitSystem.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14039E660 (KeRegisterBugCheckReasonCallback.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039E7B0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpFirmwareInitDiscard(__int64 a1)
@@ -24,9 +24,9 @@ __int64 __fastcall HalpFirmwareInitDiscard(__int64 a1)
     v4 = *(_OWORD *)(a1 + 264);
     HalFirmwareTypeEfi = 1;
     HalFirmwareInformationBlock = v4;
-    xmmword_140C49F30 = *(_OWORD *)(a1 + 280);
-    xmmword_140C49F40 = *(_OWORD *)(a1 + 296);
-    xmmword_140C49F50 = *(_OWORD *)(a1 + 312);
+    xmmword_140C49F70 = *(_OWORD *)(a1 + 280);
+    xmmword_140C49F80 = *(_OWORD *)(a1 + 296);
+    xmmword_140C49F90 = *(_OWORD *)(a1 + 312);
     HalpEfiTimeCalls = 0;
     HalpEfiTimeWrites = 0;
     HalpEfiVariableCalls = 0;

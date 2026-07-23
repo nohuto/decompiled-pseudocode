@@ -1,14 +1,14 @@
 /*
- * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x14071CD2C
+ * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x14071DFCC
  * Callers:
- *     sub_140685840 @ 0x140685840 (sub_140685840.c)
+ *     sub_140686A00 @ 0x140686A00 (sub_140686A00.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleWaitForDisplayWindow(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -123,7 +123,7 @@ LABEL_19:
   {
     v16 = 1;
     RtlInitUnicodeString(&DestinationString, L"Security-SPP-GenuineLocalStatus");
-    v17 = ((__int64 (__fastcall *)(UNICODE_STRING *, int *, _QWORD **, __int64, char *))qword_14096D440)(
+    v17 = ((__int64 (__fastcall *)(UNICODE_STRING *, int *, _QWORD **, __int64, char *))qword_14096E440)(
             &DestinationString,
             &v61,
             &v60,
@@ -137,12 +137,12 @@ LABEL_19:
       if ( v61 != 4 || !(_DWORD)v60 )
         v16 = 0;
       if ( v16 )
-        KeResetEvent(&stru_140406440);
+        KeResetEvent(&stru_140407460);
     }
-    dword_14096D0CC = 1;
+    dword_14096E0CC = 1;
     do
     {
-      v18 = KeWaitForSingleObject(&stru_140406440, UserRequest, 1, 1u, 0LL);
+      v18 = KeWaitForSingleObject(&stru_140407460, UserRequest, 1, 1u, 0LL);
       v19 = v18;
     }
     while ( v18 == 257 );
@@ -150,12 +150,12 @@ LABEL_19:
     {
       do
       {
-        v51 = KeWaitForSingleObject(&stru_140406460, UserRequest, 1, 1u, 0LL);
+        v51 = KeWaitForSingleObject(&stru_140407480, UserRequest, 1, 1u, 0LL);
         v19 = v51;
       }
       while ( v51 == 257 );
       if ( v51 >= 0 && v51 != 192 && v51 != 258 )
-        KeReleaseMutex(&stru_140406460, 0);
+        KeReleaseMutex(&stru_140407480, 0);
     }
     v20 = *(_DWORD *)(a2 + 32);
     v21 = *(_DWORD *)(a2 + 16) + 56;
@@ -262,7 +262,7 @@ LABEL_56:
           *(_DWORD *)a4 = v31 + 1;
 LABEL_62:
           v42 = *(_QWORD *)(a4 + 8);
-          v43 = dword_14096D054;
+          v43 = dword_14096E054;
           if ( !v42 )
           {
             v55 = *(_DWORD *)(a4 + 4);

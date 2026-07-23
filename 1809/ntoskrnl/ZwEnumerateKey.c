@@ -1,45 +1,44 @@
 /*
- * XREFs of ZwEnumerateKey @ 0x1401B87D0
+ * XREFs of ZwEnumerateKey @ 0x1401B8930
  * Callers:
- *     BiZwEnumerateKey @ 0x14016E550 (BiZwEnumerateKey.c)
- *     _RtlpRemovePendingDeleteLanguages @ 0x140182700 (_RtlpRemovePendingDeleteLanguages.c)
- *     RtlpProcessIFEOKeyFilter @ 0x1406B1AC4 (RtlpProcessIFEOKeyFilter.c)
- *     NtLockProductActivationKeys @ 0x1406BC030 (NtLockProductActivationKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x1406F2CD4 (PiDevCfgCopyDeviceKey.c)
- *     _RegRtlEnumKey @ 0x1406F97C8 (_RegRtlEnumKey.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x1406F9F00 (PiDevCfgConfigureSoftwareDevices.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x1406F9FA4 (PiDevCfgConfigureDeviceInterfaces.c)
- *     pIoQueryBusDescription @ 0x140719594 (pIoQueryBusDescription.c)
- *     EtwpEnumerateKeyProviders @ 0x14072387C (EtwpEnumerateKeyProviders.c)
- *     CmpGetAcpiProfileInformation @ 0x140731594 (CmpGetAcpiProfileInformation.c)
- *     RtlpUpdateDynamicTimeZones @ 0x140734DC4 (RtlpUpdateDynamicTimeZones.c)
- *     PiDcInitUpdateProperties @ 0x14073AE84 (PiDcInitUpdateProperties.c)
- *     _RtlpMuiRegLoadInstalled @ 0x14073DF88 (_RtlpMuiRegLoadInstalled.c)
- *     EtwpLoadMicroarchitecturalPmcs @ 0x1407412E0 (EtwpLoadMicroarchitecturalPmcs.c)
- *     EtwpEnumerateAutologgerPath @ 0x140741C28 (EtwpEnumerateAutologgerPath.c)
- *     WdipSemLoadNextEndEvent @ 0x140743848 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextContextProvider @ 0x140743B40 (WdipSemLoadNextContextProvider.c)
- *     WdipSemLoadScenarioTable @ 0x140743DB8 (WdipSemLoadScenarioTable.c)
- *     WdipSemLoadNextScenario @ 0x1407441A0 (WdipSemLoadNextScenario.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x14074FDE4 (PopDetectSimulatedHeteroProcessors.c)
- *     CmDeleteKeyRecursive @ 0x1407FB204 (CmDeleteKeyRecursive.c)
- *     CmpCloneHwProfile @ 0x1407FB5DC (CmpCloneHwProfile.c)
- *     CmpMoveBiosAliasTable @ 0x1407FC000 (CmpMoveBiosAliasTable.c)
- *     VrpPostEnumerateKey @ 0x14080A600 (VrpPostEnumerateKey.c)
- *     SepReadAndInsertCaps @ 0x1408A4844 (SepReadAndInsertCaps.c)
- *     WdipSemLoadLocalGroupPolicy @ 0x1408B130C (WdipSemLoadLocalGroupPolicy.c)
- *     EtwpFindMatchingPmcRegistryGroup @ 0x1408BB254 (EtwpFindMatchingPmcRegistryGroup.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BB660 (EtwpLoadMicroarchitecturalProfileGroup.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1408BBB1C (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     ApiSetpLoadSchemaExtensions @ 0x1408DD910 (ApiSetpLoadSchemaExtensions.c)
- *     AslRegistryEnumKey @ 0x1408E96D8 (AslRegistryEnumKey.c)
- *     PipInitDeviceOverrideCache @ 0x1409CA648 (PipInitDeviceOverrideCache.c)
- *     RegistryOverwriteCentralProcessor @ 0x1409F3520 (RegistryOverwriteCentralProcessor.c)
+ *     BiZwEnumerateKey @ 0x14016E650 (BiZwEnumerateKey.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x140182840 (_RtlpRemovePendingDeleteLanguages.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x1406B2D64 (RtlpProcessIFEOKeyFilter.c)
+ *     NtLockProductActivationKeys @ 0x1406BD2D0 (NtLockProductActivationKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1406F3F74 (PiDevCfgCopyDeviceKey.c)
+ *     _RegRtlEnumKey @ 0x1406FAA68 (_RegRtlEnumKey.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x1406FB1A0 (PiDevCfgConfigureSoftwareDevices.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x1406FB244 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     pIoQueryBusDescription @ 0x14071A834 (pIoQueryBusDescription.c)
+ *     EtwpEnumerateKeyProviders @ 0x140724B1C (EtwpEnumerateKeyProviders.c)
+ *     CmpGetAcpiProfileInformation @ 0x140732784 (CmpGetAcpiProfileInformation.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x140735FB4 (RtlpUpdateDynamicTimeZones.c)
+ *     PiDcInitUpdateProperties @ 0x14073C074 (PiDcInitUpdateProperties.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14073F178 (_RtlpMuiRegLoadInstalled.c)
+ *     EtwpLoadMicroarchitecturalPmcs @ 0x1407424D0 (EtwpLoadMicroarchitecturalPmcs.c)
+ *     EtwpEnumerateAutologgerPath @ 0x140742E18 (EtwpEnumerateAutologgerPath.c)
+ *     WdipSemLoadNextEndEvent @ 0x140744A38 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextContextProvider @ 0x140744D30 (WdipSemLoadNextContextProvider.c)
+ *     WdipSemLoadScenarioTable @ 0x140744FA8 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadNextScenario @ 0x140745390 (WdipSemLoadNextScenario.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x140750FD4 (PopDetectSimulatedHeteroProcessors.c)
+ *     CmDeleteKeyRecursive @ 0x1407FC404 (CmDeleteKeyRecursive.c)
+ *     CmpCloneHwProfile @ 0x1407FC7DC (CmpCloneHwProfile.c)
+ *     CmpMoveBiosAliasTable @ 0x1407FD200 (CmpMoveBiosAliasTable.c)
+ *     VrpPostEnumerateKey @ 0x14080B800 (VrpPostEnumerateKey.c)
+ *     SepReadAndInsertCaps @ 0x1408A5AA4 (SepReadAndInsertCaps.c)
+ *     WdipSemLoadLocalGroupPolicy @ 0x1408B256C (WdipSemLoadLocalGroupPolicy.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x1408BC514 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BC920 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1408BCDDC (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     ApiSetpLoadSchemaExtensions @ 0x1408DEBD0 (ApiSetpLoadSchemaExtensions.c)
+ *     AslRegistryEnumKey @ 0x1408EA998 (AslRegistryEnumKey.c)
+ *     PipInitDeviceOverrideCache @ 0x1409CB648 (PipInitDeviceOverrideCache.c)
+ *     RegistryOverwriteCentralProcessor @ 0x1409F4520 (RegistryOverwriteCentralProcessor.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwEnumerateKey(
         HANDLE KeyHandle,
         ULONG Index,
@@ -50,5 +49,5 @@ NTSTATUS __stdcall ZwEnumerateKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&Index, *(_QWORD *)&KeyInformationClass);
+  return KiServiceInternal(KeyHandle);
 }

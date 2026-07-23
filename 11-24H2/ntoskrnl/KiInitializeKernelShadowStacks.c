@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeKernelShadowStacks @ 0x140B591E0
+ * XREFs of KiInitializeKernelShadowStacks @ 0x140B5B260
  * Callers:
- *     KiSystemStartup @ 0x140B4B3A0 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140B4D3E0 (KiSystemStartup.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x14027D7A0
+ * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x140232D30
  * Callers:
- *     KeExpandKernelStackAndCallout @ 0x14027BAB0 (KeExpandKernelStackAndCallout.c)
- *     KeExpandKernelStackAndCalloutEx @ 0x14027D770 (KeExpandKernelStackAndCalloutEx.c)
- *     EtwpExpandStackAndWalkFrameChain @ 0x1403ED390 (EtwpExpandStackAndWalkFrameChain.c)
- *     EtwpTraceStackWalk @ 0x1403EDBD0 (EtwpTraceStackWalk.c)
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiDoStackCopy @ 0x140480C40 (MiDoStackCopy.c)
+ *     KeExpandKernelStackAndCallout @ 0x140231040 (KeExpandKernelStackAndCallout.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140232D00 (KeExpandKernelStackAndCalloutEx.c)
+ *     EtwpExpandStackAndWalkFrameChain @ 0x1403DD360 (EtwpExpandStackAndWalkFrameChain.c)
+ *     EtwpTraceStackWalk @ 0x1403DDBA0 (EtwpTraceStackWalk.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiDoStackCopy @ 0x14047B710 (MiDoStackCopy.c)
  * Callees:
- *     ?SmStDirectReadCallout@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14027C730 (-SmStDirectReadCallout@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14027D900 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KiFatalFilter @ 0x1405B0EF0 (KiFatalFilter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     Callout @ 0x140A2FCE0 (Callout.c)
+ *     ?SmStDirectReadCallout@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140231CC0 (-SmStDirectReadCallout@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140232E90 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KiFatalFilter @ 0x1405ADE60 (KiFatalFilter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     Callout @ 0x140A24720 (Callout.c)
  */
 
 __int64 __fastcall KeExpandKernelStackAndCalloutInternal(
@@ -30,7 +30,7 @@ __int64 __fastcall KeExpandKernelStackAndCalloutInternal(
   __int64 v9; // r8
   __int64 v10; // r9
   unsigned __int8 CurrentIrql; // si
-  $50CD5F8336E6C2475197DB21B187EC65 *v12; // rbx
+  $337297D4DB492EF8AE6D69E6DE6EB829 *v12; // rbx
   char v13; // r15
   unsigned __int8 v14; // al
 

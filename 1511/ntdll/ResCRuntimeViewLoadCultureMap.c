@@ -13,8 +13,8 @@
 
 _BOOL8 __fastcall ResCRuntimeViewLoadCultureMap(__int64 a1)
 {
-  unsigned int LastErrorValue; // ecx
-  __int64 v3; // rcx
+  LONG LastErrorValue; // ecx
+  void *v3; // rcx
   __int64 v4; // rax
   __int64 v5; // rax
   _BYTE Src[528]; // [rsp+20h] [rbp-228h] BYREF
@@ -29,7 +29,7 @@ LABEL_11:
     }
     return 0LL;
   }
-  v3 = *(_QWORD *)(a1 + 8);
+  v3 = *(void **)(a1 + 8);
   if ( v3 )
   {
     v4 = ResCReloadCultureMap(v3);

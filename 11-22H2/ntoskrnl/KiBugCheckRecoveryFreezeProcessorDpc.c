@@ -6,7 +6,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 KiBugCheckRecoveryFreezeProcessorDpc()
+void KiBugCheckRecoveryFreezeProcessorDpc()
 {
   volatile signed __int32 *SchedulerAssist; // rcx
   unsigned __int8 CurrentIrql; // bl
@@ -17,10 +17,10 @@ __int64 KiBugCheckRecoveryFreezeProcessorDpc()
   _DWORD *v6; // r8
   int v7; // eax
   bool v8; // zf
-  __int64 result; // rax
-  struct _KPRCB *v10; // rcx
-  _DWORD *v11; // r8
-  int v12; // ett
+  struct _KPRCB *v9; // rcx
+  signed __int32 *v10; // r8
+  signed __int32 v11; // eax
+  signed __int32 v12; // ett
   __int16 v13; // [rsp+20h] [rbp-8h]
 
   _disable();
@@ -29,7 +29,7 @@ __int64 KiBugCheckRecoveryFreezeProcessorDpc()
     _InterlockedOr(SchedulerAssist, 0x200000u);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v2 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -41,10 +41,10 @@ __int64 KiBugCheckRecoveryFreezeProcessorDpc()
   _InterlockedIncrement(&KiFreezeInDpcCount);
   while ( KiFreezeInDpc )
     _mm_pause();
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v4 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v6 = CurrentPrcb->SchedulerAssist;
@@ -55,26 +55,24 @@ __int64 KiBugCheckRecoveryFreezeProcessorDpc()
         KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
-  result = CurrentIrql;
   __writecr8(CurrentIrql);
   if ( (v13 & 0x200) != 0 )
   {
-    v10 = KeGetCurrentPrcb();
-    v11 = v10->SchedulerAssist;
-    if ( v11 )
+    v9 = KeGetCurrentPrcb();
+    v10 = (signed __int32 *)v9->SchedulerAssist;
+    if ( v10 )
     {
-      _m_prefetchw(v11);
-      LODWORD(result) = *v11;
+      _m_prefetchw(v10);
+      v11 = *v10;
       do
       {
-        v12 = result;
-        result = (unsigned int)_InterlockedCompareExchange(v11, result & 0xFFDFFFFF, result);
+        v12 = v11;
+        v11 = _InterlockedCompareExchange(v10, v11 & 0xFFDFFFFF, v11);
       }
-      while ( v12 != (_DWORD)result );
-      if ( (result & 0x200000) != 0 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v10);
+      while ( v12 != v11 );
+      if ( (v11 & 0x200000) != 0 )
+        KiRemoveSystemWorkPriorityKick((__int64)v9);
     }
     _enable();
   }
-  return result;
 }

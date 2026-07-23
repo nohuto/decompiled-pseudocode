@@ -13,13 +13,13 @@
 __int64 __fastcall RtlpLookupUserFunctionTable(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx
-  __int64 v6; // rsi
+  void *v6; // rsi
   int v7; // eax
   unsigned int v8; // eax
   __int64 v9; // r8
   unsigned __int64 v10; // rax
-  __int64 v11; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD v12[6]; // [rsp+28h] [rbp-30h] BYREF
+  void *v11; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v12[6]; // [rsp+28h] [rbp-30h] BYREF
   int v13; // [rsp+70h] [rbp+18h] BYREF
   unsigned __int64 v14; // [rsp+78h] [rbp+20h] BYREF
 
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpLookupUserFunctionTable(__int64 a1, __int64 a2)
       if ( (int)MmGetImageInformation(a1, &v11, v12, &v13) >= 0 )
       {
         v6 = v11;
-        RtlCaptureImageExceptionValues(v11, (__int64 *)&v14, (_DWORD *)(a2 + 20));
+        RtlCaptureImageExceptionValues(v11, &v14, (ULONG *)(a2 + 20));
         v4 = v14;
         if ( v14 )
         {

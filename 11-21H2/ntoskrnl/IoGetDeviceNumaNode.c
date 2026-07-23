@@ -1,7 +1,7 @@
 /*
  * XREFs of IoGetDeviceNumaNode @ 0x1406EAE80
  * Callers:
- *     IopGetNumaNodeInformation @ 0x1409397B8 (IopGetNumaNodeInformation.c)
+ *     sub_1409397B8 @ 0x1409397B8 (sub_1409397B8.c)
  * Callees:
  *     KeQueryHighestNodeNumber @ 0x140263710 (KeQueryHighestNodeNumber.c)
  */

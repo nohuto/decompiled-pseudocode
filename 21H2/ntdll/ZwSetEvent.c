@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetEvent @ 0x18009D800
+ * XREFs of ZwSetEvent @ 0x18009D7C0
  * Callers:
  *     RtlpTpWaitRundown @ 0x180009AA8 (RtlpTpWaitRundown.c)
  *     RtlpTpTimerRundown @ 0x180009B48 (RtlpTpTimerRundown.c)
@@ -14,20 +14,20 @@
  *     LdrpProcessInitializationComplete @ 0x180081260 (LdrpProcessInitializationComplete.c)
  *     RtlpTpTimerQueueRundown @ 0x180084ED4 (RtlpTpTimerQueueRundown.c)
  *     RtlpWnfMetaCallbackProc @ 0x180085B40 (RtlpWnfMetaCallbackProc.c)
- *     RtlCreateProcessReflection @ 0x1800D5BB0 (RtlCreateProcessReflection.c)
- *     RtlpProcessReflectionStartup @ 0x1800D6140 (RtlpProcessReflectionStartup.c)
- *     RtlpUnWaitCriticalSection @ 0x1800E9440 (RtlpUnWaitCriticalSection.c)
- *     RtlpHeapTrkSyncWithDiagnoser @ 0x1800FE9D8 (RtlpHeapTrkSyncWithDiagnoser.c)
- *     RtlpRtlpCtSelfSubscribeCallback @ 0x180102660 (RtlpRtlpCtSelfSubscribeCallback.c)
+ *     RtlCreateProcessReflection @ 0x1800D5B70 (RtlCreateProcessReflection.c)
+ *     RtlpProcessReflectionStartup @ 0x1800D6100 (RtlpProcessReflectionStartup.c)
+ *     RtlpUnWaitCriticalSection @ 0x1800E9400 (RtlpUnWaitCriticalSection.c)
+ *     RtlpHeapTrkSyncWithDiagnoser @ 0x1800FE998 (RtlpHeapTrkSyncWithDiagnoser.c)
+ *     RtlpRtlpCtSelfSubscribeCallback @ 0x180102620 (RtlpRtlpCtSelfSubscribeCallback.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetEvent()
+NTSTATUS __cdecl ZwSetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 14LL;
+  result = 14;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

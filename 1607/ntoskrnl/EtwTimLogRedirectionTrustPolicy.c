@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x1406A0764
+ * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x1406A089C
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x1401CA1D0 (IoCheckRedirectionTrustLevel.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1401CA070 (IoCheckRedirectionTrustLevel.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlWalkFrameChain @ 0x14004F2A0 (RtlWalkFrameChain.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14015A0E0 (ZwQueryVirtualMemory.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     EtwpTiFillProcessIdentity @ 0x14017196C (EtwpTiFillProcessIdentity.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlWalkFrameChain @ 0x14004EE20 (RtlWalkFrameChain.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x14015A650 (ZwQueryVirtualMemory.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     EtwpTiFillProcessIdentity @ 0x140171E6C (EtwpTiFillProcessIdentity.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpQueryProcessCommandLine @ 0x14045DC34 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessCommandLine @ 0x14045CB04 (EtwpQueryProcessCommandLine.c)
  */
 
 void __fastcall EtwTimLogRedirectionTrustPolicy(int a1, __int64 a2, int a3, UNICODE_STRING *a4, unsigned __int8 a5)
@@ -266,7 +266,7 @@ LABEL_44:
   v20 = (wchar_t *)(v7 + 2);
   do
   {
-    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v19, MemorySectionName, v18, 0x218uLL, 0LL) < 0
+    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v19, MemoryMappedFilenameInformation, v18, 0x218uLL, 0LL) < 0
       || *(_WORD *)v18 <= 1u )
     {
       goto LABEL_40;
@@ -528,7 +528,7 @@ LABEL_75:
       v129 = 2LL;
       v131[1] = 0;
       v133 = 8LL;
-      TlgWrite(&stru_1402F3680, &unk_14027E469, 0LL, 0LL, 0x18u, &v89);
+      TlgWrite(&stru_1402F3680, &unk_14027E569, 0LL, 0LL, 0x18u, &v89);
     }
   }
   else if ( stru_1402F3680.LevelPlus1 > 5 && TlgKeywordOn(&stru_1402F3680, 0x400000000000uLL) )
@@ -550,7 +550,7 @@ LABEL_75:
     v144 = 2LL;
     v145 = v38;
     v146[1] = 0;
-    TlgWrite(&stru_1402F3680, &unk_14027E534, 0LL, 0LL, 8u, &pData);
+    TlgWrite(&stru_1402F3680, &unk_14027E634, 0LL, 0LL, 8u, &pData);
   }
   if ( v59 )
     ExFreePoolWithTag(v66.Buffer, 0);

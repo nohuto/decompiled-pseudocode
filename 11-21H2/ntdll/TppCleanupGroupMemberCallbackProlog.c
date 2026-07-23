@@ -12,44 +12,44 @@
  *     NtSetInformationThread @ 0x1800A4210 (NtSetInformationThread.c)
  */
 
-struct _TEB *__fastcall TppCleanupGroupMemberCallbackProlog(__int64 a1, __int64 a2)
+int __fastcall TppCleanupGroupMemberCallbackProlog(_DWORD *Instance, __int64 a2)
 {
-  __int64 v4; // rcx
-  struct _TEB *result; // rax
-  struct _TEB **v6; // rdi
+  void *v4; // rcx
+  struct _TEB *v5; // rax
+  _QWORD *v6; // rdi
 
   if ( (unsigned __int64)(*(_QWORD *)(a2 + 96) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    *(_QWORD *)a1 = 72LL;
-    *(_DWORD *)(a1 + 8) = 1;
-    RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 + 96));
-    *(_BYTE *)(a1 + 76) |= 1u;
+    *(_QWORD *)Instance = 72LL;
+    Instance[2] = 1;
+    RtlActivateActivationContextUnsafeFast(Instance, *(_QWORD *)(a2 + 96));
+    *((_BYTE *)Instance + 76) |= 1u;
   }
-  *(_DWORD *)(a1 + 144) |= 0x240u;
-  *(_QWORD *)(a1 + 184) = a2;
+  Instance[36] |= 0x240u;
+  *((_QWORD *)Instance + 23) = a2;
   if ( (*(_DWORD *)(a2 + 168) & 3) == 1 )
-    TpCallbackMayRunLong(a1);
-  v4 = *(_QWORD *)(a2 + 104);
+    TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
+  v4 = *(void **)(a2 + 104);
   if ( v4 )
   {
-    *(_QWORD *)(a1 + 80) = v4;
-    RtlSetThreadSubProcessTag();
+    *((_QWORD *)Instance + 10) = v4;
+    RtlSetThreadSubProcessTag(v4);
   }
-  result = NtCurrentTeb();
-  result->ActivityId = *(_GUID *)(a2 + 112);
-  v6 = (struct _TEB **)(a2 + 128);
+  v5 = NtCurrentTeb();
+  v5->ActivityId = *(_GUID *)(a2 + 112);
+  v6 = (_QWORD *)(a2 + 128);
   if ( v6 )
   {
-    result = NtCurrentTeb();
-    if ( *(struct _TEB **)result->WorkingOnBehalfTicket != *v6 )
+    v5 = NtCurrentTeb();
+    if ( *(_QWORD *)v5->WorkingOnBehalfTicket != *v6 )
     {
-      result = (struct _TEB *)NtSetInformationThread(-2LL, 44LL, v6, 8LL);
-      if ( (int)result >= 0 )
+      LODWORD(v5) = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v6, 8u);
+      if ( (int)v5 >= 0 )
       {
-        result = *v6;
+        v5 = (struct _TEB *)*v6;
         *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v6;
       }
     }
   }
-  return result;
+  return (int)v5;
 }

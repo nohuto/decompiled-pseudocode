@@ -1,13 +1,13 @@
 /*
- * XREFs of PsGetAllocatedFullProcessImageName @ 0x140962220
+ * XREFs of PsGetAllocatedFullProcessImageName @ 0x140949CE0
  * Callers:
- *     PfCalculateProcessHash @ 0x140962000 (PfCalculateProcessHash.c)
- *     PiUEventHandleVetoEvent @ 0x140A8B24C (PiUEventHandleVetoEvent.c)
- *     PnpLogVetoInformation @ 0x140A9F1B4 (PnpLogVetoInformation.c)
- *     ViCreateProcessCallbackInternal @ 0x140B968D0 (ViCreateProcessCallbackInternal.c)
+ *     PfCalculateProcessHash @ 0x140949AC0 (PfCalculateProcessHash.c)
+ *     PiUEventHandleVetoEvent @ 0x140A8758C (PiUEventHandleVetoEvent.c)
+ *     PnpLogVetoInformation @ 0x140A9A584 (PnpLogVetoInformation.c)
+ *     ViCreateProcessCallbackInternal @ 0x140B988D0 (ViCreateProcessCallbackInternal.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PsGetAllocatedFullProcessImageName(__int64 a1, __int64 *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall PsGetAllocatedFullProcessImageName(__int64 a1, __int64 *a2)
   __int64 v5; // rbx
 
   v2 = *(_QWORD *)(a1 + 848);
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, *(unsigned __int16 *)(v2 + 2) + 16LL, 0x6E497350u);
   v5 = Pool2;
   if ( !Pool2 )
     return 3221225495LL;

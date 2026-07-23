@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 __fastcall sub_18007D284(char a1)
+PVOID __fastcall sub_18007D284(char a1)
 {
-  return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned int)(16 << (a1 + 7)));
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)(16 << (a1 + 7)));
 }

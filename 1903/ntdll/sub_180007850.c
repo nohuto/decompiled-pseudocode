@@ -10,29 +10,29 @@
  *     ZwCreateEvent @ 0x18009CFE0 (ZwCreateEvent.c)
  */
 
-signed __int64 __fastcall sub_180007850(__int64 a1)
+HANDLE __fastcall sub_180007850(__int64 a1)
 {
   signed __int64 v1; // rdi
   signed __int64 v3; // rbx
-  int v5; // eax
+  NTSTATUS v5; // eax
   __int64 v6; // rcx
-  __int64 v7; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = -1LL;
-  v7 = -1LL;
+  Handle = (HANDLE)-1LL;
   if ( byte_180163EC2 )
   {
-    v5 = ZwCreateEvent(&v7, 1048579LL, 0LL, 1LL, 0);
-    v6 = v7;
+    v5 = ZwCreateEvent(&Handle, 0x100003u, 0LL, SynchronizationEvent, 0);
+    v6 = (__int64)Handle;
     if ( v5 < 0 )
       v6 = -1LL;
     v1 = v6;
-    v7 = v6;
+    Handle = (HANDLE)v6;
   }
   v3 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 24), v1, 0LL);
   if ( !v3 )
-    return v7;
-  if ( v7 != -1 )
-    ZwClose(v7);
-  return v3;
+    return Handle;
+  if ( Handle != (HANDLE)-1LL )
+    ZwClose(Handle);
+  return (HANDLE)v3;
 }

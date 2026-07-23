@@ -2,15 +2,15 @@
  * XREFs of ExpCancelTimer @ 0x14001D270
  * Callers:
  *     NtCancelTimer @ 0x14001CF40 (NtCancelTimer.c)
- *     ExTimerRundown @ 0x14008AFD0 (ExTimerRundown.c)
+ *     ExTimerRundown @ 0x14008AFC0 (ExTimerRundown.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     KiCancelTimer @ 0x14001E100 (KiCancelTimer.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
- *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeRemoveQueueApc @ 0x14012F428 (KeRemoveQueueApc.c)
+ *     KeRemoveQueueDpcEx @ 0x140132AD0 (KeRemoveQueueDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpCancelTimer(PKTIMER a1, __int64 a2)

@@ -2,20 +2,20 @@
  * XREFs of MiFreePagesFromMdl @ 0x14002A000
  * Callers:
  *     MiAllocatePagesForMdl @ 0x140011048 (MiAllocatePagesForMdl.c)
- *     MmFreePagesFromMdl @ 0x1401373D0 (MmFreePagesFromMdl.c)
- *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x140145454 (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
- *     PpmHeteroInitializeHgsSupport @ 0x140192A80 (PpmHeteroInitializeHgsSupport.c)
- *     MmFreePagesFromMdlEx @ 0x1402AA600 (MmFreePagesFromMdlEx.c)
- *     MiFreePhysicalPageChain @ 0x1402B05BC (MiFreePhysicalPageChain.c)
- *     MmFreeSecureKernelPages @ 0x1402C3134 (MmFreeSecureKernelPages.c)
- *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x1403051C4 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
- *     MiFreeCombineMdls @ 0x1406D1EAC (MiFreeCombineMdls.c)
- *     NtAllocateUserPhysicalPages @ 0x140850690 (NtAllocateUserPhysicalPages.c)
- *     NtFreeUserPhysicalPages @ 0x140850F10 (NtFreeUserPhysicalPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x14085FE64 (MiAllocatePartitionPhysicalPages.c)
- *     KiComputeNumaCosts @ 0x1409C5C3C (KiComputeNumaCosts.c)
+ *     MmFreePagesFromMdl @ 0x1401374D0 (MmFreePagesFromMdl.c)
+ *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x140145554 (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     BgpFwFreeMemory @ 0x14016EDEC (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14016F5D8 (BgpFwAllocateMemory.c)
+ *     PpmHeteroInitializeHgsSupport @ 0x140192BC0 (PpmHeteroInitializeHgsSupport.c)
+ *     MmFreePagesFromMdlEx @ 0x1402AA7F0 (MmFreePagesFromMdlEx.c)
+ *     MiFreePhysicalPageChain @ 0x1402B07AC (MiFreePhysicalPageChain.c)
+ *     MmFreeSecureKernelPages @ 0x1402C3324 (MmFreeSecureKernelPages.c)
+ *     ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x1403053B4 (-StDmLazyRegionsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z.c)
+ *     MiFreeCombineMdls @ 0x1406D314C (MiFreeCombineMdls.c)
+ *     NtAllocateUserPhysicalPages @ 0x1408518F0 (NtAllocateUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x140852170 (NtFreeUserPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408610C4 (MiAllocatePartitionPhysicalPages.c)
+ *     KiComputeNumaCosts @ 0x1409C6C3C (KiComputeNumaCosts.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
@@ -23,13 +23,13 @@
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
- *     MiRetardMdl @ 0x1402A83EC (MiRetardMdl.c)
- *     MiLogMdlRangeEvent @ 0x1402AA198 (MiLogMdlRangeEvent.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1401C0A90 (KeZeroPages.c)
+ *     MiRetardMdl @ 0x1402A85DC (MiRetardMdl.c)
+ *     MiLogMdlRangeEvent @ 0x1402AA388 (MiLogMdlRangeEvent.c)
  */
 
 ULONG_PTR *__fastcall MiFreePagesFromMdl(ULONG_PTR BugCheckParameter2, unsigned int a2)
@@ -146,12 +146,12 @@ LABEL_3:
       if ( (v16 & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL )
         KeBugCheckEx(0x1Au, 0x1236uLL, BugCheckParameter2, (ULONG_PTR)BugCheckParameter4, v13);
       v17 = (v16 >> 40) & 0x3FF;
-      v18 = *(_QWORD *)(qword_14043A748 + 8 * v17);
+      v18 = *(_QWORD *)(qword_14043B808 + 8 * v17);
       if ( v4 != v18 )
       {
         if ( v4 )
           KeBugCheckEx(0x1Au, 0x1301uLL, v4, v18, (ULONG_PTR)BugCheckParameter4);
-        v4 = *(_QWORD *)(qword_14043A748 + 8 * v17);
+        v4 = *(_QWORD *)(qword_14043B808 + 8 * v17);
       }
       if ( ((v16 >> 54) & 7) == 3 )
       {
@@ -168,13 +168,13 @@ LABEL_3:
           v15 = v40;
         }
         __writecr8(v32);
-        _InterlockedDecrement64(&qword_14043A180);
+        _InterlockedDecrement64(&qword_14043B240);
         v14 = v36;
       }
       if ( !v10 )
         break;
-      v19 = (_QWORD *)qword_14043A188;
-      if ( qword_14043A188 && ((*(_QWORD *)(v15 + 40) >> 54) & 7) == 1 )
+      v19 = (_QWORD *)qword_14043B248;
+      if ( qword_14043B248 && ((*(_QWORD *)(v15 + 40) >> 54) & 7) == 1 )
       {
         v34 = v14 / 48;
         while ( v19 )
@@ -250,7 +250,7 @@ LABEL_18:
   }
 LABEL_28:
   if ( (ULONG_PTR *)v4 == &MiSystemPartition )
-    _InterlockedExchangeAdd64(&qword_14043B018, -(__int64)v9);
+    _InterlockedExchangeAdd64(&qword_14043C0D8, -(__int64)v9);
   *(_WORD *)(BugCheckParameter2 + 10) &= ~2u;
   return result;
 }

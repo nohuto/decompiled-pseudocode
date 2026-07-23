@@ -26,7 +26,7 @@ __int64 __fastcall KiGetDeepIdleProcessors(__int64 a1, __int64 a2)
   _InterlockedOr(v14, 0);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v8) = 4;
@@ -35,10 +35,10 @@ __int64 __fastcall KiGetDeepIdleProcessors(__int64 a1, __int64 a2)
     SchedulerAssist[5] |= v8;
   }
   PoCopyDeepIdleMask(a1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

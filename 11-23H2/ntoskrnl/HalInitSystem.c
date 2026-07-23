@@ -4,7 +4,7 @@
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     HalpInitSystemPhase1 @ 0x140A8BABC (HalpInitSystemPhase1.c)
  *     __security_init_cookie @ 0x140B172E8 (__security_init_cookie.c)
  *     HalpInitSystemPhase0 @ 0x140B75E84 (HalpInitSystemPhase0.c)

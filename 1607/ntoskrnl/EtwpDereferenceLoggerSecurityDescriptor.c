@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpDereferenceLoggerSecurityDescriptor @ 0x140490254
+ * XREFs of EtwpDereferenceLoggerSecurityDescriptor @ 0x140490CE4
  * Callers:
- *     EtwpCheckLoggerControlAccess @ 0x140490208 (EtwpCheckLoggerControlAccess.c)
- *     EtwQueryPerformanceTraceInformation @ 0x1406A3258 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140490C98 (EtwpCheckLoggerControlAccess.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1406A3390 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */

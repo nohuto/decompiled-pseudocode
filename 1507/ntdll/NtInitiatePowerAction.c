@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtInitiatePowerAction()
+NTSTATUS __cdecl NtInitiatePowerAction(
+        POWER_ACTION SystemAction,
+        SYSTEM_POWER_STATE LightestSystemState,
+        ULONG Flags,
+        BOOLEAN Asynchronous)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 241LL;
+  result = 241;
   __asm { syscall; Low latency system call }
   return result;
 }

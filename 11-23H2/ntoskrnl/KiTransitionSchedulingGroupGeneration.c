@@ -1,17 +1,17 @@
 /*
- * XREFs of KiTransitionSchedulingGroupGeneration @ 0x14030860C
+ * XREFs of KiTransitionSchedulingGroupGeneration @ 0x14030889C
  * Callers:
- *     KiGroupSchedulingGenerationEnd @ 0x1403082A8 (KiGroupSchedulingGenerationEnd.c)
- *     KiParkCurrentProcessor @ 0x14057DE9C (KiParkCurrentProcessor.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140308538 (KiGroupSchedulingGenerationEnd.c)
+ *     KiParkCurrentProcessor @ 0x14057E38C (KiParkCurrentProcessor.c)
  * Callees:
- *     KiSetClockTimer @ 0x1402C2598 (KiSetClockTimer.c)
- *     KiChargeSchedulingGroupCycleTime @ 0x140308938 (KiChargeSchedulingGroupCycleTime.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x14030897C (KiMoveScbThreadsToNewReadylist.c)
- *     KiInsertNonMaxOverQuotaScb @ 0x140308AEC (KiInsertNonMaxOverQuotaScb.c)
- *     KiIsThreadRankNonZero @ 0x140308FE0 (KiIsThreadRankNonZero.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403418E0 (KeInterlockedClearProcessorAffinityEx.c)
- *     KiSetSchedulerAssistPriority @ 0x1404104A0 (KiSetSchedulerAssistPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetClockTimer @ 0x1402C2828 (KiSetClockTimer.c)
+ *     KiChargeSchedulingGroupCycleTime @ 0x140308BC8 (KiChargeSchedulingGroupCycleTime.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x140308C0C (KiMoveScbThreadsToNewReadylist.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x140308D7C (KiInsertNonMaxOverQuotaScb.c)
+ *     KiIsThreadRankNonZero @ 0x140309270 (KiIsThreadRankNonZero.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140341B70 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetSchedulerAssistPriority @ 0x140410704 (KiSetSchedulerAssistPriority.c)
  */
 
 void __fastcall KiTransitionSchedulingGroupGeneration(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
@@ -68,14 +68,14 @@ void __fastcall KiTransitionSchedulingGroupGeneration(__int64 a1, __int64 a2, un
   }
   v7 = KiGenerationEndTick;
   v8 = KeMaximumIncrement;
-  v9 = (unsigned int)KeMaximumIncrement;
+  v9 = KeMaximumIncrement;
   *(_QWORD *)(a1 + 34520) = KiGenerationEndTick;
   v10 = v7 * v9;
   if ( KiClockTimerPerCpuTickScheduling )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -85,10 +85,10 @@ void __fastcall KiTransitionSchedulingGroupGeneration(__int64 a1, __int64 a2, un
       SchedulerAssist[5] |= v33;
     }
     KiSetClockTimer(a1, v10, v8, 4, 1, 0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v34 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v36 = CurrentPrcb->SchedulerAssist;

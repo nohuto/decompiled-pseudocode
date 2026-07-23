@@ -2,11 +2,11 @@
  * XREFs of HvUnlockHiveFlusherShared @ 0x140689290
  * Callers:
  *     CmpRemoveHiveFromNamespace @ 0x140207A94 (CmpRemoveHiveFromNamespace.c)
- *     CmpCreateTombstone @ 0x140616E4C (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x14061739C (CmpCreateTombstone.c)
  *     CmpUndoDeleteKeyForTransEx @ 0x140680518 (CmpUndoDeleteKeyForTransEx.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
  */
 
 signed __int32 __fastcall HvUnlockHiveFlusherShared(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of HvMarkCellDirty @ 0x1408DB6D0
+ * XREFs of HvMarkCellDirty @ 0x1408E1C90
  * Callers:
- *     CmpKeySecurityMarkDirtyForReferenceCountDecrement @ 0x1404DD638 (CmpKeySecurityMarkDirtyForReferenceCountDecrement.c)
- *     CmpCreateTombstone @ 0x1406E2950 (CmpCreateTombstone.c)
+ *     CmpKeySecurityMarkDirtyForReferenceCountDecrement @ 0x1404D6D18 (CmpKeySecurityMarkDirtyForReferenceCountDecrement.c)
+ *     CmpCreateTombstone @ 0x1406E6C30 (CmpCreateTombstone.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvLockHiveWriter @ 0x1408DAEB0 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x1408DAF14 (HvUnlockHiveWriter.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvLockHiveWriter @ 0x1408E1470 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x1408E14D4 (HvUnlockHiveWriter.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvMarkCellDirty(

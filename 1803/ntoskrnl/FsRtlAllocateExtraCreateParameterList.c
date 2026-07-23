@@ -22,15 +22,12 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_
   }
   else
   {
-    ++FsRtlEcpListLookaside.L.TotalAllocates;
-    PoolWithQuotaTag = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside.L.ListHead);
+    ++unk_1403D1914;
+    PoolWithQuotaTag = (struct _ECP_LIST *)RtlpInterlockedPopEntrySList(&FsRtlEcpListLookaside);
     if ( !PoolWithQuotaTag )
     {
-      ++FsRtlEcpListLookaside.L.AllocateMisses;
-      PoolWithQuotaTag = (struct _ECP_LIST *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))FsRtlEcpListLookaside.L.AllocateEx)(
-                                               (unsigned int)FsRtlEcpListLookaside.L.Type,
-                                               FsRtlEcpListLookaside.L.Size,
-                                               FsRtlEcpListLookaside.L.Tag);
+      ++unk_1403D1918;
+      PoolWithQuotaTag = (struct _ECP_LIST *)unk_1403D1930(unk_1403D1924, unk_1403D192C, unk_1403D1928);
     }
     v4 = 6;
   }

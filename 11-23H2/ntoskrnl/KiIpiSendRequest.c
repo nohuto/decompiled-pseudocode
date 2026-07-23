@@ -1,20 +1,20 @@
 /*
- * XREFs of KiIpiSendRequest @ 0x140254020
+ * XREFs of KiIpiSendRequest @ 0x1402540E0
  * Callers:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     KiIpiSendPacket @ 0x1402C0330 (KiIpiSendPacket.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     KiIpiSendPacket @ 0x1402C05C0 (KiIpiSendPacket.c)
+ *     KiIpiSendRequestEx @ 0x1402EB880 (KiIpiSendRequestEx.c)
  * Callees:
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     KiIpiSetTargetAffinity @ 0x1402544F4 (KiIpiSetTargetAffinity.c)
- *     KiIpiEnlightenedGuestPriorityKick @ 0x140254640 (KiIpiEnlightenedGuestPriorityKick.c)
- *     HalRequestIpiSpecifyVector @ 0x140254690 (HalRequestIpiSpecifyVector.c)
- *     EtwGetKernelTraceTimestampSilo @ 0x1402A2FB0 (EtwGetKernelTraceTimestampSilo.c)
- *     HalRequestIpi @ 0x14035C190 (HalRequestIpi.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PerfInfoLogIpiSend @ 0x1405FEAA0 (PerfInfoLogIpiSend.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     KiIpiSetTargetAffinity @ 0x1402545B4 (KiIpiSetTargetAffinity.c)
+ *     KiIpiEnlightenedGuestPriorityKick @ 0x140254700 (KiIpiEnlightenedGuestPriorityKick.c)
+ *     HalRequestIpiSpecifyVector @ 0x140254750 (HalRequestIpiSpecifyVector.c)
+ *     EtwGetKernelTraceTimestampSilo @ 0x1402A3240 (EtwGetKernelTraceTimestampSilo.c)
+ *     HalRequestIpi @ 0x14035C330 (HalRequestIpi.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PerfInfoLogIpiSend @ 0x1405FF010 (PerfInfoLogIpiSend.c)
  */
 
 __int64 __fastcall KiIpiSendRequest(__int64 a1, int a2, int a3, _OWORD *a4, __int64 a5)

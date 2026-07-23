@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpLogExceptionHandler @ 0x1404BB260
+ * XREFs of RtlpLogExceptionHandler @ 0x1404B4A40
  * Callers:
  *     <none>
  * Callees:
@@ -9,10 +9,10 @@
 __int64 __fastcall RtlpLogExceptionHandler(__int64 a1, _OWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rdx
-  volatile unsigned int UserIdealProcessor; // r8d
+  unsigned __int32 WaitBlockList_high; // r8d
   bool i; // zf
   signed __int32 v12; // eax
-  volatile unsigned int v13; // ett
+  int v13; // ett
   signed __int32 v14; // r9d
   __int64 v15; // rdx
   _OWORD *v16; // rcx
@@ -22,24 +22,21 @@ __int64 __fastcall RtlpLogExceptionHandler(__int64 a1, _OWORD *a2, __int64 a3, _
 
   if ( !RtlpExceptionLog2 )
     return 0LL;
-  UserIdealProcessor = NormalizationListLock.UserIdealProcessor;
-  v13 = NormalizationListLock.UserIdealProcessor;
+  WaitBlockList_high = HIDWORD(NormalizationListLock.WaitBlockList);
+  v13 = HIDWORD(NormalizationListLock.WaitBlockList);
   v12 = _InterlockedCompareExchange(
-          (volatile signed __int32 *)&NormalizationListLock.UserIdealProcessor,
-          (NormalizationListLock.UserIdealProcessor + 1) % 0x32,
-          NormalizationListLock.UserIdealProcessor);
+          (_DWORD *)&NormalizationListLock.WaitBlockList + 1,
+          (HIDWORD(NormalizationListLock.WaitBlockList) + 1) % 0x32u,
+          SHIDWORD(NormalizationListLock.WaitBlockList));
   for ( i = v13 == v12; ; i = v12 == v14 )
   {
     v14 = v12;
     if ( i )
       break;
-    UserIdealProcessor = v12;
-    v12 = _InterlockedCompareExchange(
-            (volatile signed __int32 *)&NormalizationListLock.UserIdealProcessor,
-            (v12 + 1) % 0x32u,
-            v12);
+    WaitBlockList_high = v12;
+    v12 = _InterlockedCompareExchange((_DWORD *)&NormalizationListLock.WaitBlockList + 1, (v12 + 1) % 0x32u, v12);
   }
-  v15 = 1424LL * UserIdealProcessor;
+  v15 = 1424LL * WaitBlockList_high;
   i = RtlpExceptionLog2 + v15 == 0;
   v8 = RtlpExceptionLog2 + v15;
   *(_QWORD *)(v8 + 1400) = KeGetCurrentThread();

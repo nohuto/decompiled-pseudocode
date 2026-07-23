@@ -1,34 +1,34 @@
 /*
- * XREFs of MiSystemFault @ 0x140311400
+ * XREFs of MiSystemFault @ 0x14031C150
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
  * Callees:
- *     MiResolveDemandZeroFault @ 0x14020FB50 (MiResolveDemandZeroFault.c)
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
- *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
- *     MiCheckVirtualAddress @ 0x14028D510 (MiCheckVirtualAddress.c)
- *     KeInvalidAccessAllowed @ 0x1402A2C40 (KeInvalidAccessAllowed.c)
- *     MiIsWorkingSetTrimThread @ 0x1402C4D10 (MiIsWorkingSetTrimThread.c)
- *     MiCheckSystemNxFault @ 0x1402C77E8 (MiCheckSystemNxFault.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiCheckSystemPageTables @ 0x140311BC0 (MiCheckSystemPageTables.c)
- *     MiSynchronizeSystemVa @ 0x140311C40 (MiSynchronizeSystemVa.c)
- *     MiHyperSpaceSize @ 0x140311F38 (MiHyperSpaceSize.c)
- *     MiUnlockSystemVa @ 0x1403120FC (MiUnlockSystemVa.c)
- *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
- *     MiNoFaultFound @ 0x1403121C8 (MiNoFaultFound.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiUpdatePfnPriorityByPte @ 0x14032BF10 (MiUpdatePfnPriorityByPte.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiIsPrototypePteVadLookup @ 0x14020A670 (MiIsPrototypePteVadLookup.c)
+ *     MiCheckVirtualAddress @ 0x14020A6B0 (MiCheckVirtualAddress.c)
+ *     KeInvalidAccessAllowed @ 0x140220080 (KeInvalidAccessAllowed.c)
+ *     MiIsWorkingSetTrimThread @ 0x140243290 (MiIsWorkingSetTrimThread.c)
+ *     MiCheckSystemNxFault @ 0x140245F28 (MiCheckSystemNxFault.c)
+ *     MiResolveDemandZeroFault @ 0x1402B4450 (MiResolveDemandZeroFault.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     MiCopyOnWrite @ 0x1402E3B50 (MiCopyOnWrite.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiCheckSystemPageTables @ 0x14031C910 (MiCheckSystemPageTables.c)
+ *     MiSynchronizeSystemVa @ 0x14031C990 (MiSynchronizeSystemVa.c)
+ *     MiHyperSpaceSize @ 0x14031CC88 (MiHyperSpaceSize.c)
+ *     MiUnlockSystemVa @ 0x14031CE4C (MiUnlockSystemVa.c)
+ *     MiGetSessionVm @ 0x14031CEEC (MiGetSessionVm.c)
+ *     MiNoFaultFound @ 0x14031CF18 (MiNoFaultFound.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiUpdatePfnPriorityByPte @ 0x140336C60 (MiUpdatePfnPriorityByPte.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiRspInIstStack @ 0x140518BF8 (KiRspInIstStack.c)
- *     MiGenerateAccessViolation @ 0x140548560 (MiGenerateAccessViolation.c)
- *     MiTransientPageListWriter @ 0x140557C80 (MiTransientPageListWriter.c)
- *     MiCopyOnWriteCheckConditions @ 0x14055BEF8 (MiCopyOnWriteCheckConditions.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiRspInIstStack @ 0x140518E38 (KiRspInIstStack.c)
+ *     MiGenerateAccessViolation @ 0x1405487A0 (MiGenerateAccessViolation.c)
+ *     MiTransientPageListWriter @ 0x140557EC0 (MiTransientPageListWriter.c)
+ *     MiCopyOnWriteCheckConditions @ 0x14055C138 (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiSystemFault(_QWORD *a1)
@@ -88,7 +88,7 @@ __int64 __fastcall MiSystemFault(_QWORD *a1)
   _BYTE *v55; // rax
   _BYTE *v56; // rax
   int v57; // [rsp+30h] [rbp-C8h] BYREF
-  __int64 **v58; // [rsp+38h] [rbp-C0h] BYREF
+  __int64 v58; // [rsp+38h] [rbp-C0h] BYREF
   _QWORD v59[16]; // [rsp+40h] [rbp-B8h] BYREF
 
   v2 = 0LL;
@@ -108,7 +108,7 @@ __int64 __fastcall MiSystemFault(_QWORD *a1)
     if ( v5 > 0xFFFFF6FFFFFFFFFFuLL )
       break;
   }
-  if ( v4 >= 0xFFFFF68000000000uLL && v4 <= 0xFFFFF6FFFFFFFFFFuLL && v5 >= qword_140C4FB38 && v5 <= qword_140C4E368 )
+  if ( v4 >= 0xFFFFF68000000000uLL && v4 <= 0xFFFFF6FFFFFFFFFFuLL && v5 >= qword_140C4FB78 && v5 <= qword_140C4E3A8 )
     a1[1] |= 2uLL;
   v8 = 0;
   v9 = 0x100000000000000LL;
@@ -116,13 +116,13 @@ __int64 __fastcall MiSystemFault(_QWORD *a1)
   {
     if ( v4 < 0xFFFFF68000000000uLL
       || v4 > 0xFFFFF6FFFFFFFFFFuLL
-      || v5 > 0x7FFFFFFEFFFFLL && (v5 < qword_140C4FB38 || v5 > qword_140C4E368) )
+      || v5 > 0x7FFFFFFEFFFFLL && (v5 < qword_140C4FB78 || v5 > qword_140C4E3A8) )
     {
       return 3489660934LL;
     }
     return 192LL;
   }
-  if ( v5 < 0xFFFF800000000000uLL || v5 >= qword_140C4E360 && v5 < qword_140C4E360 + MiHyperSpaceSize(v4) )
+  if ( v5 < 0xFFFF800000000000uLL || v5 >= qword_140C4E3A0 && v5 < qword_140C4E3A0 + MiHyperSpaceSize(v4) )
     return 192LL;
   CurrentThread = KeGetCurrentThread();
   v11 = *((_DWORD *)&CurrentThread[1].SwapListEntry + 3);
@@ -132,12 +132,12 @@ __int64 __fastcall MiSystemFault(_QWORD *a1)
     return 3221225477LL;
   }
   v12 = *a1;
-  if ( dword_140C4E544 )
+  if ( dword_140C4E584 )
   {
-    v39 = ExAcquireSpinLockShared(&dword_140C4E540);
-    v40 = (_QWORD *)qword_140C4E548;
+    v39 = ExAcquireSpinLockShared(&dword_140C4E580);
+    v40 = (_QWORD *)qword_140C4E588;
     v41 = v39;
-    if ( qword_140C4E548 )
+    if ( qword_140C4E588 )
     {
       do
       {
@@ -156,7 +156,7 @@ __int64 __fastcall MiSystemFault(_QWORD *a1)
       if ( v40 && v40[5] != ((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
         v40 = 0LL;
     }
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4E540);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4E580);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -211,7 +211,7 @@ LABEL_20:
   }
   v9 = (__int64)&ExpInterlockedPopEntrySListFault;
   v18 = *(_QWORD *)(v13 + 360);
-  v17 = KiDynamicTraceEnabled && v18 >= qword_140CFCBD8 && v18 < qword_140CFCBE0 && KeGetCurrentIrql() == 15;
+  v17 = KiDynamicTraceEnabled && v18 >= ControlPc && v18 < qword_140CFCBE0 && KeGetCurrentIrql() == 15;
 LABEL_18:
   if ( v18 != v9 && !v17 )
     goto LABEL_20;
@@ -219,7 +219,7 @@ LABEL_79:
   v19 = 1;
 LABEL_21:
   HIDWORD(v59[0]) = 1;
-  v20 = (unsigned __int8)byte_140C4F9C8[((v5 >> 39) & 0x1FF) - 256];
+  v20 = (unsigned __int8)byte_140C4FA08[((v5 >> 39) & 0x1FF) - 256];
   if ( (a1[10] & 8) != 0 )
   {
     if ( (_DWORD)v20 == 6 )
@@ -230,11 +230,11 @@ LABEL_21:
     HIDWORD(v59[0]) = 3;
   if ( (_DWORD)v20 == 8 )
   {
-    SessionVm = (char *)&unk_140C529C0;
+    SessionVm = (char *)&unk_140C52A00;
   }
   else if ( (_DWORD)v20 == 1 )
   {
-    SessionVm = (char *)MiGetSessionVm(byte_140C4F9C8, v9, v20);
+    SessionVm = (char *)MiGetSessionVm(byte_140C4FA08, v9, v20);
     if ( !SessionVm )
       goto LABEL_152;
     v8 = 1;
@@ -244,12 +244,12 @@ LABEL_21:
     if ( (_DWORD)v20 == 6 )
     {
 LABEL_28:
-      SessionVm = (char *)&unk_140C4F280;
+      SessionVm = (char *)&unk_140C4F2C0;
       goto LABEL_29;
     }
     if ( (_DWORD)v20 == 12 )
     {
-      SessionVm = (char *)&unk_140C4F140;
+      SessionVm = (char *)&unk_140C4F180;
     }
     else
     {
@@ -463,8 +463,8 @@ LABEL_210:
     goto LABEL_71;
   }
   v28 = v26;
-  if ( qword_140C4DF40 && (v26 & 0x10) == 0 )
-    v28 = v26 & ~qword_140C4DF40;
+  if ( qword_140C4DF80 && (v26 & 0x10) == 0 )
+    v28 = v26 & ~qword_140C4DF80;
   v2 = v28 >> 16;
   if ( !v8 )
     goto LABEL_40;

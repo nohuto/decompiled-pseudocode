@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmStoreHelperStart @ 0x1402E2BCC
+ * XREFs of SmKmStoreHelperStart @ 0x140293F1C
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1402E27A8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140293AF8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
  * Callees:
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SmKmStoreHelperStart(PVOID *a1, void *a2)

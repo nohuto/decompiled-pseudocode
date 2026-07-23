@@ -1,10 +1,10 @@
 /*
- * XREFs of CompareNamesCaseSensitive @ 0x140891FA0
+ * XREFs of CompareNamesCaseSensitive @ 0x140893200
  * Callers:
- *     PfxFindPrefix @ 0x1408921B0 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x1408922B0 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x140893410 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x140893510 (PfxInsertPrefix.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall CompareNamesCaseSensitive(unsigned __int16 *a1, unsigned __int16 *a2)

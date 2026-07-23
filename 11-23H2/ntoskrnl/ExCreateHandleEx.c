@@ -1,19 +1,19 @@
 /*
- * XREFs of ExCreateHandleEx @ 0x140740464
+ * XREFs of ExCreateHandleEx @ 0x140740654
  * Callers:
  *     NtCreateJobObject @ 0x1406885D0 (NtCreateJobObject.c)
- *     RtlpInsertStringAtom @ 0x140714FB0 (RtlpInsertStringAtom.c)
- *     ExCreateHandle @ 0x14073F824 (ExCreateHandle.c)
- *     ObCompleteObjectDuplication @ 0x1407BF534 (ObCompleteObjectDuplication.c)
- *     AlpcpAllocateMessageFunction @ 0x1407CB9B0 (AlpcpAllocateMessageFunction.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x140978E2C (AlpcpAllocateMessageFromExtendedTables.c)
+ *     RtlpInsertStringAtom @ 0x1407151C0 (RtlpInsertStringAtom.c)
+ *     ExCreateHandle @ 0x14073FA14 (ExCreateHandle.c)
+ *     ObCompleteObjectDuplication @ 0x1407BF804 (ObCompleteObjectDuplication.c)
+ *     AlpcpAllocateMessageFunction @ 0x1407CBC80 (AlpcpAllocateMessageFunction.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x14097902C (AlpcpAllocateMessageFromExtendedTables.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExSetHandleAttributes @ 0x1402BF6EC (ExSetHandleAttributes.c)
- *     ExpFreeHandleTableEntry @ 0x140740398 (ExpFreeHandleTableEntry.c)
- *     ExpAllocateHandleTableEntry @ 0x140740538 (ExpAllocateHandleTableEntry.c)
- *     ExpSetHandleExtraInfo @ 0x1409F91A0 (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1409F9258 (ExpUpdateDebugInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExSetHandleAttributes @ 0x1402BF97C (ExSetHandleAttributes.c)
+ *     ExpFreeHandleTableEntry @ 0x140740588 (ExpFreeHandleTableEntry.c)
+ *     ExpAllocateHandleTableEntry @ 0x140740728 (ExpAllocateHandleTableEntry.c)
+ *     ExpSetHandleExtraInfo @ 0x1409F9430 (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1409F94E8 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ExCreateHandleEx(__int64 a1, __int64 a2, int a3, unsigned int a4, _DWORD *a5)

@@ -13,7 +13,7 @@ NTSTATUS __stdcall NtSetInformationEnlistment(
         PVOID EnlistmentInformation,
         ULONG EnlistmentInformationLength)
 {
-  return __imp_NtSetInformationEnlistment(
+  return NtSetInformationEnlistment_0(
            EnlistmentHandle,
            EnlistmentInformationClass,
            EnlistmentInformation,

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpInitializeUserList @ 0x18007D9E0
+ * XREFs of RtlpInitializeUserList @ 0x1800C87E0
  * Callers:
- *     RtlSetThreadPreferredUILanguages @ 0x18007C4E0 (RtlSetThreadPreferredUILanguages.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180011A20 (RtlSetThreadPreferredUILanguages.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpLoadLanguageConfigList @ 0x1800347C0 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x1800355A0 (RtlpUpdateTEBLanguage.c)
- *     RtlpMuiRegFreeLanguageList @ 0x180035EE0 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpMuiRegCreateLanguageList @ 0x18007E2D0 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x18007EF80 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpLoadLanguageConfigList @ 0x180014A40 (RtlpLoadLanguageConfigList.c)
+ *     RtlpUpdateTEBLanguage @ 0x180015820 (RtlpUpdateTEBLanguage.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180016160 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800C8B80 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x1800CA3B0 (RtlpMuiRegCreateLanguageList.c)
  */
 
 __int64 __fastcall RtlpInitializeUserList(__int64 a1, _QWORD *UserPrefLanguages)
@@ -25,8 +25,8 @@ __int64 __fastcall RtlpInitializeUserList(__int64 a1, _QWORD *UserPrefLanguages)
   __int64 v12; // rax
   unsigned int MuiImpersonation; // eax
   __int64 v14; // rsi
-  unsigned __int64 *Heap; // rax
-  unsigned __int64 *v16; // rbx
+  _QWORD *Heap; // rax
+  _BYTE **v16; // rbx
   struct _TEB *v17; // rdx
   int v18; // ecx
   struct _TEB *v19; // r8
@@ -114,12 +114,12 @@ LABEL_6:
     *(_DWORD *)(LanguageList + 40) |= 0x10u;
     if ( NtCurrentTeb()->UserPrefLanguages )
     {
-      v16 = (unsigned __int64 *)NtCurrentTeb()->UserPrefLanguages;
+      v16 = (_BYTE **)NtCurrentTeb()->UserPrefLanguages;
     }
     else
     {
-      Heap = (unsigned __int64 *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
-      v16 = Heap;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
+      v16 = (_BYTE **)Heap;
       if ( !Heap )
       {
 LABEL_18:
@@ -184,12 +184,12 @@ LABEL_18:
     }
     if ( *v16 )
     {
-      *(_DWORD *)(v14 + 40) = *(_DWORD *)(*v16 + 40);
+      *(_DWORD *)(v14 + 40) = *((_DWORD *)*v16 + 10);
       RtlpMuiRegFreeLanguageList(*v16);
     }
     v31 = v35;
     updated = 0;
-    *v16 = LanguageList;
+    *v16 = (_BYTE *)LanguageList;
     if ( v31 )
       updated = RtlpUpdateTEBLanguage(0LL, v31, 5);
     goto LABEL_18;

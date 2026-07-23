@@ -1,7 +1,7 @@
 /*
- * XREFs of IopVerifierExAllocatePool_1 @ 0x1400C9F18
+ * XREFs of IopVerifierExAllocatePool_1 @ 0x1400C7DB8
  * Callers:
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
  * Callees:
  *     <none>
  */

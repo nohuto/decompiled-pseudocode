@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventPnpStopDevice @ 0x1405FF2CC
+ * XREFs of KsepDsEventPnpStopDevice @ 0x140601D1C
  * Callers:
- *     KseDsCompletionHookForStopDevice @ 0x1405FE800 (KseDsCompletionHookForStopDevice.c)
+ *     KseDsCompletionHookForStopDevice @ 0x140601250 (KseDsCompletionHookForStopDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventPnpStopDevice(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -29,9 +29,9 @@ char __fastcall KsepDsEventPnpStopDevice(__int64 a1, __int64 a2, __int64 a3, int
   v16 = a3;
   v15 = a2;
   v14 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    LOBYTE(v4) = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventStopDevice);
+    LOBYTE(v4) = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventStopDevice);
     if ( (_BYTE)v4 )
     {
       *(_QWORD *)&UserData.Size = 8LL;
@@ -43,7 +43,7 @@ char __fastcall KsepDsEventPnpStopDevice(__int64 a1, __int64 a2, __int64 a3, int
       v9 = &v16;
       v11 = &v17;
       LOBYTE(v4) = EtwWriteEx(
-                     (REGHANDLE)stru_140E66B30.StackLimit,
+                     (REGHANDLE)stru_140E66D40.StackLimit,
                      &KseDsEventStopDevice,
                      0LL,
                      0,

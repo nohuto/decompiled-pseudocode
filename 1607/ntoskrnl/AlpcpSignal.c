@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpSignal @ 0x14005E350
+ * XREFs of AlpcpSignal @ 0x14005DED0
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x140449270 (NtAlpcSendWaitReceivePort.c)
- *     AlpcpCompleteDeferSignalRequest @ 0x1404B33DC (AlpcpCompleteDeferSignalRequest.c)
+ *     NtAlpcSendWaitReceivePort @ 0x140448140 (NtAlpcSendWaitReceivePort.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x14049D7BC (AlpcpCompleteDeferSignalRequest.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiSignalThread @ 0x14005E720 (KiSignalThread.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     KeReleaseSemaphoreEx @ 0x1400CF090 (KeReleaseSemaphoreEx.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiSignalThread @ 0x14005E2A0 (KiSignalThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     KeReleaseSemaphoreEx @ 0x1400CCF30 (KeReleaseSemaphoreEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  */
 
 void __fastcall AlpcpSignal(__int64 a1, BOOLEAN a2, char a3, int a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcsnset_s @ 0x14014D918
+ * XREFs of _wcsnset_s @ 0x14014DE88
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 errno_t __cdecl wcsnset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Val, size_t MaxCount)

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage @ 0x1404934C4
+ * XREFs of Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage @ 0x14048DDF4
  * Callers:
- *     IoInvalidateDeviceRelations @ 0x1404931D0 (IoInvalidateDeviceRelations.c)
+ *     IoInvalidateDeviceRelations @ 0x14048DB00 (IoInvalidateDeviceRelations.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage()

@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpGetAlternateResourceModuleHandleEx @ 0x1400FA57C
+ * XREFs of LdrpGetAlternateResourceModuleHandleEx @ 0x1400F8308
  * Callers:
- *     LdrpAccessResourceData @ 0x14051C620 (LdrpAccessResourceData.c)
+ *     LdrpAccessResourceData @ 0x1404FFA10 (LdrpAccessResourceData.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     LdrpInitMuiCrits @ 0x1400FAE3C (LdrpInitMuiCrits.c)
- *     LdrpGetMappingFromCacheEntry @ 0x140211650 (LdrpGetMappingFromCacheEntry.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     LdrpInitMuiCrits @ 0x1400F8BC8 (LdrpInitMuiCrits.c)
+ *     LdrpGetMappingFromCacheEntry @ 0x14021147C (LdrpGetMappingFromCacheEntry.c)
  */
 
 __int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

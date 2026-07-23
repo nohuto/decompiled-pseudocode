@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDereferencePartition @ 0x140001D0C
+ * XREFs of MiDereferencePartition @ 0x140001E80
  * Callers:
- *     MiGetNextPartition @ 0x140001C94 (MiGetNextPartition.c)
- *     MiMoveEccPagesToFreeList @ 0x1401E2030 (MiMoveEccPagesToFreeList.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1401E2344 (MmMarkPhysicalMemoryAsBad.c)
- *     MiRebalanceZeroFreeLists @ 0x1401F3998 (MiRebalanceZeroFreeLists.c)
- *     MiQueueLargeFreeZeroRebuild @ 0x1401FD69C (MiQueueLargeFreeZeroRebuild.c)
- *     MiRebuildLargePages @ 0x1401FDB30 (MiRebuildLargePages.c)
- *     MiRebuildLargeZeroPage @ 0x1401FDD90 (MiRebuildLargeZeroPage.c)
- *     MmDeleteProcessAddressSpace @ 0x140460678 (MmDeleteProcessAddressSpace.c)
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
- *     MmPartitionObjectDelete @ 0x140659C10 (MmPartitionObjectDelete.c)
- *     MiCreatePartition @ 0x1406601A8 (MiCreatePartition.c)
+ *     MiGetNextPartition @ 0x140001E08 (MiGetNextPartition.c)
+ *     MiMoveEccPagesToFreeList @ 0x1401E1E5C (MiMoveEccPagesToFreeList.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1401E2170 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiRebalanceZeroFreeLists @ 0x1401F37C4 (MiRebalanceZeroFreeLists.c)
+ *     MiQueueLargeFreeZeroRebuild @ 0x1401FD4C8 (MiQueueLargeFreeZeroRebuild.c)
+ *     MiRebuildLargePages @ 0x1401FD95C (MiRebuildLargePages.c)
+ *     MiRebuildLargeZeroPage @ 0x1401FDBBC (MiRebuildLargeZeroPage.c)
+ *     MmDeleteProcessAddressSpace @ 0x14045F548 (MmDeleteProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
+ *     MmPartitionObjectDelete @ 0x140659CF4 (MmPartitionObjectDelete.c)
+ *     MiCreatePartition @ 0x14066028C (MiCreatePartition.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiDereferencePartitionFinal @ 0x1401F196C (MiDereferencePartitionFinal.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDereferencePartitionFinal @ 0x1401F1798 (MiDereferencePartitionFinal.c)
  */
 
 void __fastcall MiDereferencePartition(_DWORD *P)

@@ -145,7 +145,7 @@
  *     BgkQueryBootGraphicsInformation @ 0x1409EF48C (BgkQueryBootGraphicsInformation.c)
  */
 
-int __fastcall ExpQuerySystemInformation(
+NTSTATUS __fastcall ExpQuerySystemInformation(
         unsigned int a1,
         __int64 a2,
         unsigned int a3,
@@ -205,7 +205,7 @@ int __fastcall ExpQuerySystemInformation(
   NTSTATUS v55; // edi
   __int64 v56; // r8
   __int64 v57; // r9
-  int result; // eax
+  NTSTATUS result; // eax
   __int64 v59; // rdx
   __int64 v60; // r8
   __int64 v61; // r9
@@ -268,7 +268,7 @@ int __fastcall ExpQuerySystemInformation(
   __int64 v118; // rax
   unsigned int Size; // [rsp+30h] [rbp-1C8h] BYREF
   int Size_4; // [rsp+34h] [rbp-1C4h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-1C0h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-1C0h] BYREF
   unsigned __int16 v122; // [rsp+3Ch] [rbp-1BCh]
   int v123; // [rsp+40h] [rbp-1B8h]
   int v124; // [rsp+44h] [rbp-1B4h]
@@ -277,7 +277,7 @@ int __fastcall ExpQuerySystemInformation(
   unsigned int *v127; // [rsp+58h] [rbp-1A0h]
   int v128; // [rsp+60h] [rbp-198h] BYREF
   unsigned int v129; // [rsp+64h] [rbp-194h]
-  char v130; // [rsp+68h] [rbp-190h]
+  char Data[4]; // [rsp+68h] [rbp-190h] BYREF
   unsigned __int16 v131; // [rsp+6Ch] [rbp-18Ch]
   ULONG v132; // [rsp+70h] [rbp-188h]
   int v133; // [rsp+74h] [rbp-184h]
@@ -570,15 +570,15 @@ LABEL_34:
                 goto LABEL_90;
               v124 += v41;
               PoGetIdleTimes(&ProcNumber, 0LL, (__int64)&Src);
-              *(_QWORD *)(v6 + 16) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v43[8098];
-              *(_QWORD *)(v6 + 8) = (unsigned int)KeMaximumIncrement * (unsigned __int64)DWORD1(Src);
-              *(_QWORD *)(v6 + 24) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v43[8099];
-              *(_QWORD *)(v6 + 32) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v43[8100];
-              *(_QWORD *)v6 = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)Src;
+              *(_QWORD *)(v6 + 16) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v43[8098];
+              *(_QWORD *)(v6 + 8) = KeMaximumIncrement * (unsigned __int64)DWORD1(Src);
+              *(_QWORD *)(v6 + 24) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v43[8099];
+              *(_QWORD *)(v6 + 32) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v43[8100];
+              *(_QWORD *)v6 = KeMaximumIncrement * (unsigned __int64)(unsigned int)Src;
               *(_DWORD *)(v6 + 40) = v43[8096];
               if ( v134 == 141 )
               {
-                *(_QWORD *)(v6 + 48) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v43[8107];
+                *(_QWORD *)(v6 + 48) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v43[8107];
                 *(_DWORD *)(v6 + 44) = 0;
                 *(_QWORD *)(v6 + 56) = 0LL;
                 *(_QWORD *)(v6 + 64) = 0LL;
@@ -773,7 +773,7 @@ LABEL_180:
           }
           else
           {
-            *(_DWORD *)v6 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)(unsigned int)KeMaximumIncrement / v50;
+            *(_DWORD *)v6 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)KeMaximumIncrement / v50;
             *(_DWORD *)(v6 + 4) = KeMaximumIncrement;
             *(_BYTE *)(v6 + 8) = v51;
           }
@@ -1012,9 +1012,9 @@ LABEL_289:
             *(_OWORD *)(v6 + 32) = 0LL;
             *(_OWORD *)(v6 + 48) = 0LL;
             *(_OWORD *)(v6 + 64) = 0LL;
-            *(_QWORD *)(v6 + 40) = (unsigned int)KeMaximumIncrement
+            *(_QWORD *)(v6 + 40) = KeMaximumIncrement
                                  * (unsigned __int64)(unsigned int)(*(_DWORD *)(v49 + 32388) + *(_DWORD *)(v49 + 32392));
-            *(_QWORD *)(v6 + 48) = (unsigned int)KeMaximumIncrement
+            *(_QWORD *)(v6 + 48) = KeMaximumIncrement
                                  * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(v49 + 24) + 652LL);
             if ( BYTE12(v160) )
             {
@@ -1908,7 +1908,7 @@ LABEL_637:
             if ( WORD4(ExpManufacturingInformation) )
             {
               *(_QWORD *)(v6 + 16) = v103;
-              memmove(v103, qword_140C19750, WORD5(ExpManufacturingInformation));
+              memmove(v103, ::Data, WORD5(ExpManufacturingInformation));
             }
             SystemProcessorFeaturesInformation = Size_4;
           }
@@ -2186,8 +2186,8 @@ LABEL_66:
         case 0xBAu:
           if ( !Length )
           {
-            v130 = 1;
-            return ZwFilterBootOption(1LL, 270532611LL);
+            Data[0] = 1;
+            return ZwFilterBootOption(FilterBootOptionOperationSetElement, 0x10200003u, 0x260000A0u, Data, 1u);
           }
           if ( a6 )
             *a6 = 0;

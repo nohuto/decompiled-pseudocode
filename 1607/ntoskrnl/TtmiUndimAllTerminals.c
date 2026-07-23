@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmiUndimAllTerminals @ 0x140677ED8
+ * XREFs of TtmiUndimAllTerminals @ 0x140677FBC
  * Callers:
- *     TtmNotifySessionDisplayRequiredChange @ 0x140678A30 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x140678B14 (TtmNotifySessionDisplayRequiredChange.c)
  * Callees:
- *     TtmiSetPendingOnOffRequest @ 0x140677D18 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiSetPendingOnOffRequest @ 0x140677DFC (TtmiSetPendingOnOffRequest.c)
  */
 
 __int64 __fastcall TtmiUndimAllTerminals(__int64 a1)

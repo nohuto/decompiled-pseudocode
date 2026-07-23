@@ -6,7 +6,7 @@
  *     _RtlpHpMetadataAlloc@20 @ 0x4B379349 (_RtlpHpMetadataAlloc@20.c)
  */
 
-int __stdcall RtlpHpPerHeapStackTraceInitialize(int a1, int a2, _DWORD *a3)
+int __stdcall RtlpHpPerHeapStackTraceInitialize(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   int v3; // esi
   _DWORD *v4; // ecx

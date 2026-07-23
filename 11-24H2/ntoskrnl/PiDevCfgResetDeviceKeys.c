@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgResetDeviceKeys @ 0x14072B5E4
+ * XREFs of PiDevCfgResetDeviceKeys @ 0x1407295D4
  * Callers:
- *     PiDevCfgResetDeviceDriverSettings @ 0x140A847DC (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x140A7F31C (PiDevCfgResetDeviceDriverSettings.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PiDevCfgEnumDeviceKeys @ 0x140964374 (PiDevCfgEnumDeviceKeys.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x14094C14C (PiDevCfgEnumDeviceKeys.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
  */
 
 __int64 __fastcall PiDevCfgResetDeviceKeys(int a1, int a2, __int64 a3)

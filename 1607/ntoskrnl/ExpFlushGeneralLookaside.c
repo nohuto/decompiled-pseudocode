@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpFlushGeneralLookaside @ 0x1400A878C
+ * XREFs of ExpFlushGeneralLookaside @ 0x1400A6D04
  * Callers:
- *     ExDeletePagedLookasideList @ 0x1400A8760 (ExDeletePagedLookasideList.c)
- *     ExDeleteNPagedLookasideList @ 0x140149954 (ExDeleteNPagedLookasideList.c)
+ *     ExDeletePagedLookasideList @ 0x1400A6CD8 (ExDeletePagedLookasideList.c)
+ *     ExDeleteNPagedLookasideList @ 0x140149EC4 (ExDeleteNPagedLookasideList.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
  */
 
 PSLIST_ENTRY __fastcall ExpFlushGeneralLookaside(__int64 a1, int a2)
 {
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
 
   result = RtlpInterlockedFlushSList((PSLIST_HEADER)a1);
   if ( a2 )

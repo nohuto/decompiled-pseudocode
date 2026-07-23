@@ -1,15 +1,15 @@
 /*
- * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140672F08
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140673458
  * Callers:
- *     KiBugCheckProgress @ 0x140569830 (KiBugCheckProgress.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140672F08 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KiBugCheckProgress @ 0x140569EF0 (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140673458 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     BcpConvertProgressToString @ 0x14067213C (BcpConvertProgressToString.c)
- *     BcpDisplayProgress @ 0x140672900 (BcpDisplayProgress.c)
- *     BcpGetDisplayType @ 0x140672CA0 (BcpGetDisplayType.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140672F08 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     BcpConvertProgressToString @ 0x14067268C (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x140672E50 (BcpDisplayProgress.c)
+ *     BcpGetDisplayType @ 0x1406731F0 (BcpGetDisplayType.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140673458 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_STRING **a2, char a3)

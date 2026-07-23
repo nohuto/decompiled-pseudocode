@@ -1,98 +1,99 @@
 /*
- * XREFs of ObpCreateDosDevicesDirectory @ 0x1407A0DF8
+ * XREFs of ObpCreateDosDevicesDirectory @ 0x1407A0FF8
  * Callers:
- *     ObpInitializeRootNamespace @ 0x1407A0990 (ObpInitializeRootNamespace.c)
+ *     ObpInitializeRootNamespace @ 0x1407A0B90 (ObpInitializeRootNamespace.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140252E50 (RtlGetDaclSecurityDescriptor.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateDirectoryObjectEx @ 0x1403FB8A0 (ZwCreateDirectoryObjectEx.c)
- *     ZwCreateSymbolicLinkObject @ 0x1403FBBC0 (ZwCreateSymbolicLinkObject.c)
- *     ObpSetSiloDeviceMap @ 0x1407A102C (ObpSetSiloDeviceMap.c)
- *     ObpGetDosDevicesProtection @ 0x1407A1094 (ObpGetDosDevicesProtection.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140285CC0 (RtlGetDaclSecurityDescriptor.c)
+ *     PsIsHostSilo @ 0x14035F7D0 (PsIsHostSilo.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1403FBA80 (ZwCreateDirectoryObjectEx.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1403FBDA0 (ZwCreateSymbolicLinkObject.c)
+ *     ObpSetSiloDeviceMap @ 0x1407A122C (ObpSetSiloDeviceMap.c)
+ *     ObpGetDosDevicesProtection @ 0x1407A1294 (ObpGetDosDevicesProtection.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ObpCreateDosDevicesDirectory(__int64 a1, void *a2, __int64 a3)
+__int64 __fastcall ObpCreateDosDevicesDirectory(__int64 a1, void *a2, void *a3)
 {
   __int64 result; // rax
-  int DirectoryObject; // ebx
+  NTSTATUS v7; // ebx
   BOOLEAN DaclDefaulted[8]; // [rsp+30h] [rbp-49h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-41h] BYREF
-  HANDLE v10; // [rsp+40h] [rbp-39h] BYREF
-  int v11; // [rsp+48h] [rbp-31h]
-  int v12; // [rsp+4Ch] [rbp-2Dh]
-  HANDLE v13; // [rsp+50h] [rbp-29h]
-  __int64 *v14; // [rsp+58h] [rbp-21h]
-  int v15; // [rsp+60h] [rbp-19h]
-  int v16; // [rsp+64h] [rbp-15h]
-  _OWORD *v17; // [rsp+68h] [rbp-11h]
-  __int64 v18; // [rsp+70h] [rbp-9h]
+  HANDLE LinkHandle; // [rsp+38h] [rbp-41h] BYREF
+  HANDLE DirectoryHandle; // [rsp+40h] [rbp-39h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-31h] BYREF
   PACL Dacl; // [rsp+78h] [rbp-1h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+80h] [rbp+7h] BYREF
-  __int64 v21; // [rsp+A0h] [rbp+27h]
+  __int64 v14; // [rsp+A0h] [rbp+27h]
   UNICODE_STRING DestinationString; // [rsp+A8h] [rbp+2Fh] BYREF
   BOOLEAN DaclPresent; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v10 = 0LL;
+  DirectoryHandle = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v21 = 0LL;
-  v12 = 0;
-  v16 = 0;
-  Handle = 0LL;
+  v14 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  LinkHandle = 0LL;
   DestinationString = 0LL;
   if ( PsIsHostSilo(a1) && a3 )
     return 3221225485LL;
   result = ObpGetDosDevicesProtection(SecurityDescriptor);
   if ( (int)result >= 0 )
   {
-    v11 = 48;
-    v14 = &ObpGlobalDirectoryName;
-    v13 = a2;
-    v17 = SecurityDescriptor;
-    v15 = 528;
-    v18 = 0LL;
-    DirectoryObject = ZwCreateDirectoryObjectEx((__int64)&v10, 983055LL);
-    if ( DirectoryObject < 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&ObpGlobalDirectoryName;
+    ObjectAttributes.RootDirectory = a2;
+    ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+    ObjectAttributes.Attributes = 528;
+    ObjectAttributes.SecurityQualityOfService = 0LL;
+    v7 = ZwCreateDirectoryObjectEx(&DirectoryHandle, 0xF000Fu, &ObjectAttributes, a3, 0);
+    if ( v7 < 0 )
     {
-      v10 = 0LL;
+      DirectoryHandle = 0LL;
     }
     else
     {
-      DirectoryObject = ObpSetSiloDeviceMap(a1, v10);
-      if ( DirectoryObject >= 0 )
+      v7 = ObpSetSiloDeviceMap(a1, DirectoryHandle);
+      if ( v7 >= 0 )
       {
-        RtlInitUnicodeString(&DestinationString, &word_1407D7BA0);
-        v13 = v10;
-        v11 = 48;
-        v14 = &ObpGlobalRootNameString;
-        v15 = 528;
-        v17 = SecurityDescriptor;
-        v18 = 0LL;
-        DirectoryObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-        if ( DirectoryObject >= 0 )
+        RtlInitUnicodeString(&DestinationString, &word_1407D7CE0);
+        ObjectAttributes.RootDirectory = DirectoryHandle;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.ObjectName = (PUNICODE_STRING)&ObpGlobalRootNameString;
+        ObjectAttributes.Attributes = 528;
+        ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+        ObjectAttributes.SecurityQualityOfService = 0LL;
+        v7 = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &DestinationString);
+        if ( v7 >= 0 )
         {
-          ZwClose(Handle);
-          v13 = v10;
-          v11 = 48;
-          v14 = &ObpGlobalNameString;
-          v15 = 528;
-          v17 = SecurityDescriptor;
-          v18 = 0LL;
-          DirectoryObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-          if ( DirectoryObject >= 0 )
+          ZwClose(LinkHandle);
+          ObjectAttributes.RootDirectory = DirectoryHandle;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.ObjectName = (PUNICODE_STRING)&ObpGlobalNameString;
+          ObjectAttributes.Attributes = 528;
+          ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+          ObjectAttributes.SecurityQualityOfService = 0LL;
+          v7 = ZwCreateSymbolicLinkObject(
+                 &LinkHandle,
+                 0xF0001u,
+                 &ObjectAttributes,
+                 (PUNICODE_STRING)&ObpGlobalDosDevicesShortName);
+          if ( v7 >= 0 )
           {
-            ZwClose(Handle);
-            v11 = 48;
-            v14 = &ObpDosDevicesNameString;
-            v13 = a2;
-            v17 = SecurityDescriptor;
-            v15 = 528;
-            v18 = 0LL;
-            DirectoryObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-            if ( DirectoryObject >= 0 )
-              ZwClose(Handle);
+            ZwClose(LinkHandle);
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)&ObpDosDevicesNameString;
+            ObjectAttributes.RootDirectory = a2;
+            ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+            ObjectAttributes.Attributes = 528;
+            ObjectAttributes.SecurityQualityOfService = 0LL;
+            v7 = ZwCreateSymbolicLinkObject(
+                   &LinkHandle,
+                   0xF0001u,
+                   &ObjectAttributes,
+                   (PUNICODE_STRING)&ObpDosDevicesShortNameRootString);
+            if ( v7 >= 0 )
+              ZwClose(LinkHandle);
           }
         }
       }
@@ -101,9 +102,9 @@ __int64 __fastcall ObpCreateDosDevicesDirectory(__int64 a1, void *a2, __int64 a3
     Dacl = 0LL;
     RtlGetDaclSecurityDescriptor(SecurityDescriptor, &DaclPresent, &Dacl, DaclDefaulted);
     ExFreePoolWithTag(Dacl, 0x6C636144u);
-    if ( v10 )
-      ZwClose(v10);
-    return (unsigned int)DirectoryObject;
+    if ( DirectoryHandle )
+      ZwClose(DirectoryHandle);
+    return (unsigned int)v7;
   }
   return result;
 }

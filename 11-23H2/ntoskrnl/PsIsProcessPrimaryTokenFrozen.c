@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsProcessPrimaryTokenFrozen @ 0x1408A5B50
+ * XREFs of PsIsProcessPrimaryTokenFrozen @ 0x1408A5DA0
  * Callers:
  *     <none>
  * Callees:

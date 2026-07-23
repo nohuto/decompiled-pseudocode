@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOpCheckUnhandledSecurePciAccessViolation @ 0x14057F1BC
+ * XREFs of KiOpCheckUnhandledSecurePciAccessViolation @ 0x14057F6AC
  * Callers:
- *     KiPreprocessFault @ 0x14030DF74 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x14030E204 (KiPreprocessFault.c)
  * Callees:
- *     KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x14057F3B4 (KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress.c)
+ *     KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x14057F8A4 (KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress.c)
  */
 
 void __fastcall KiOpCheckUnhandledSecurePciAccessViolation(__int64 a1, __int64 a2)

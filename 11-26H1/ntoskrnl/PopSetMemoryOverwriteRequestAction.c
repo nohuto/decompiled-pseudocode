@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSetMemoryOverwriteRequestAction @ 0x140BF90C8
+ * XREFs of PopSetMemoryOverwriteRequestAction @ 0x140BFF0C8
  * Callers:
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
- *     PopShutdownSystem @ 0x140BFDFD4 (PopShutdownSystem.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
+ *     PopShutdownSystem @ 0x140C04024 (PopShutdownSystem.c)
  * Callees:
- *     HalSetEnvironmentVariableEx @ 0x140471AF0 (HalSetEnvironmentVariableEx.c)
- *     HalGetEnvironmentVariableEx @ 0x140471D30 (HalGetEnvironmentVariableEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     HalSetEnvironmentVariableEx @ 0x14046B270 (HalSetEnvironmentVariableEx.c)
+ *     HalGetEnvironmentVariableEx @ 0x14046B4B0 (HalGetEnvironmentVariableEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PopSetMemoryOverwriteRequestAction()
@@ -21,7 +21,7 @@ void PopSetMemoryOverwriteRequestAction()
   v3[1] = 1102983892;
   v3[2] = 2139705505;
   v3[3] = 697881733;
-  if ( !PopModernStandbyStateNotify.ApcStateFill[32] )
+  if ( !PopErrataSkipMemoryOverwriteRequestControlLockAction )
   {
     v0[0] = -1;
     v1 = 1;

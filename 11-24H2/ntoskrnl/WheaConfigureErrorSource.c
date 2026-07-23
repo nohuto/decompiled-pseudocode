@@ -1,17 +1,17 @@
 /*
- * XREFs of WheaConfigureErrorSource @ 0x140B61BE0
+ * XREFs of WheaConfigureErrorSource @ 0x140B63CB0
  * Callers:
- *     WheaAddErrorSourceDeviceDriver @ 0x1407C6DE0 (WheaAddErrorSourceDeviceDriver.c)
- *     HalpWheaInitDiscard @ 0x140C0FBD4 (HalpWheaInitDiscard.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x1407C7280 (WheaAddErrorSourceDeviceDriver.c)
+ *     HalpWheaInitDiscard @ 0x140C11BD4 (HalpWheaInitDiscard.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     WheapInitializeDeferredErrorSources @ 0x14065B87C (WheapInitializeDeferredErrorSources.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     WheapInitializeDeferredErrorSources @ 0x140659F9C (WheapInitializeDeferredErrorSources.c)
  */
 
 __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
@@ -20,10 +20,10 @@ __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
   volatile signed __int32 *v4; // rdi
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v6; // r15d
-  _QWORD *v7; // r14
-  _QWORD *v8; // rax
-  _QWORD *v9; // r14
-  __int64 (__fastcall *v10)(__int64, __int64, __int64, __int64); // rax
+  char *v7; // r14
+  char *v8; // rax
+  char *v9; // r14
+  __int64 (__fastcall *v10)(__int64, __int64); // rax
   signed __int32 v12[18]; // [rsp+0h] [rbp-48h] BYREF
 
   v2 = a1;
@@ -33,20 +33,20 @@ __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   v6 = -1073741823;
   --CurrentThread->KernelApcDisable;
-  v7 = KeAbPreAcquire((__int64)&WheapConfigTableLock, 0LL);
+  v7 = (char *)KeAbPreAcquire((__int64)&WheapConfigTableLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapConfigTableLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&WheapConfigTableLock, 0, v7, (__int64)&WheapConfigTableLock);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
-  v8 = KeAbPreAcquire((__int64)&WheapSourceConfiguration + 64 * v2, 0LL);
+    v7[10] = 1;
+  v8 = (char *)KeAbPreAcquire((__int64)&WheapSourceConfiguration + 64 * v2, 0LL);
   v9 = v8;
   if ( _interlockedbittestandset64(v4, 0LL) )
     ExfAcquirePushLockExclusiveEx(
       (unsigned __int64 *)&WheapSourceConfiguration + 8 * v2,
-      (__int64)v8,
+      v8,
       (__int64)&WheapSourceConfiguration + 64 * v2);
   if ( v9 )
-    *((_BYTE *)v9 + 10) = 1;
+    v9[10] = 1;
   if ( !*((_BYTE *)v4 + 8) )
   {
     *((_DWORD *)v4 + 3) = *(_DWORD *)a2;
@@ -58,7 +58,7 @@ __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
       *((_QWORD *)v4 + 4) = *(_QWORD *)(a2 + 24);
     if ( *(_QWORD *)(a2 + 32) )
     {
-      v10 = *(__int64 (__fastcall **)(__int64, __int64, __int64, __int64))(a2 + 32);
+      v10 = *(__int64 (__fastcall **)(__int64, __int64))(a2 + 32);
     }
     else
     {

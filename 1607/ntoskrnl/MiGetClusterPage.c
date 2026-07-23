@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetClusterPage @ 0x1401F6318
+ * XREFs of MiGetClusterPage @ 0x1401F6144
  * Callers:
- *     MiCreateSharedZeroPages @ 0x1400390B0 (MiCreateSharedZeroPages.c)
- *     MiResolvePrivateZeroFault @ 0x14003B240 (MiResolvePrivateZeroFault.c)
+ *     MiCreateSharedZeroPages @ 0x140038C30 (MiCreateSharedZeroPages.c)
+ *     MiResolvePrivateZeroFault @ 0x14003ADC0 (MiResolvePrivateZeroFault.c)
  * Callees:
- *     MiGetPageChain @ 0x14003D480 (MiGetPageChain.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiComputeZeroClusterMaximum @ 0x1400B76A4 (MiComputeZeroClusterMaximum.c)
- *     MiIsPteEvaluated @ 0x1400B9738 (MiIsPteEvaluated.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BDED4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGet64KPage @ 0x1401FB7C4 (MiGet64KPage.c)
+ *     MiGetPageChain @ 0x14003D000 (MiGetPageChain.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiComputeZeroClusterMaximum @ 0x1400B553C (MiComputeZeroClusterMaximum.c)
+ *     MiIsPteEvaluated @ 0x1400B75C8 (MiIsPteEvaluated.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BBD64 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGet64KPage @ 0x1401FB5F0 (MiGet64KPage.c)
  */
 
 __int64 __fastcall MiGetClusterPage(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, _BYTE *a5)
@@ -72,7 +72,7 @@ __int64 __fastcall MiGetClusterPage(__int64 a1, unsigned __int64 a2, unsigned in
   MiInitializePageColorBase((__int64)&Process[1].IdealNode[12], (*(_DWORD *)(a1 + 48) >> 8) & 0x3F, (__int64)v41);
   v43[3] = 0LL;
   v43[4] = 0LL;
-  v11 = v42 >> byte_1403269C9;
+  v11 = v42 >> byte_140326A09;
   v26 = (*(_DWORD *)(a1 + 48) & 0x8000) == 0;
   LOWORD(v43[0]) = 2;
   v43[1] = v37;

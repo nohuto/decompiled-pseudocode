@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     PsAddProcessEnergyValues @ 0x1402C08A8 (PsAddProcessEnergyValues.c)
- *     PoEnergyEstimationEnabled @ 0x1402C0B50 (PoEnergyEstimationEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     PsAddProcessEnergyValues @ 0x1402C0B38 (PsAddProcessEnergyValues.c)
+ *     PoEnergyEstimationEnabled @ 0x1402C0DE0 (PoEnergyEstimationEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PspAddAccountingValues @ 0x1406A3EE4 (PspAddAccountingValues.c)
- *     PsQueryProcessEnergyValues @ 0x140741FD0 (PsQueryProcessEnergyValues.c)
- *     PsQueryStatisticsProcess @ 0x140742BB0 (PsQueryStatisticsProcess.c)
+ *     PsQueryProcessEnergyValues @ 0x1407421C0 (PsQueryProcessEnergyValues.c)
+ *     PsQueryStatisticsProcess @ 0x140742DA0 (PsQueryStatisticsProcess.c)
  */
 
 __int64 __fastcall PspQueryProcessAccountingInformationCallback(__int64 a1, __int64 a2)

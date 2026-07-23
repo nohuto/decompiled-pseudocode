@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCaptureImageCfgContext @ 0x140652230
+ * XREFs of MiCaptureImageCfgContext @ 0x1406533F0
  * Callers:
- *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x140651A9C (MiParseImageLoadConfig.c)
  * Callees:
- *     MiFreeImageCfgContext @ 0x1400DA48C (MiFreeImageCfgContext.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiLogRelocationRva @ 0x14064B18C (MiLogRelocationRva.c)
+ *     MiFreeImageCfgContext @ 0x1400DA50C (MiFreeImageCfgContext.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     MiLogRelocationRva @ 0x14064C34C (MiLogRelocationRva.c)
  */
 
 __int64 __fastcall MiCaptureImageCfgContext(
@@ -91,21 +91,21 @@ __int64 __fastcall MiCaptureImageCfgContext(
     v21 = (v18 >> 28) + 4;
     if ( v16 < a4 || !v17 || v17 >= 0xFFFFFFFF / v21 )
     {
-      dword_140438E30 = 4;
+      dword_140439EF0 = 4;
       goto LABEL_59;
     }
     if ( v19 && v14 )
     {
       if ( v14 < a4 || !v15 || v15 >= 0xFFFFFFFF / v21 )
       {
-        dword_140438E30 = 10;
+        dword_140439EF0 = 10;
         goto LABEL_59;
       }
       v22 = v14 - a4;
       v23 = v22 + v15 * v21;
       if ( v23 <= v22 || (v24 = a7, v23 > *(unsigned int *)(a7 + 16)) || v15 * v21 + 4 < v15 * v21 )
       {
-        dword_140438E30 = 11;
+        dword_140439EF0 = 11;
 LABEL_59:
         v13 = -1073741819;
         goto LABEL_60;
@@ -119,7 +119,7 @@ LABEL_59:
     v26 = v17 * v21;
     if ( v26 + v25 <= v25 || v26 + v25 > *(unsigned int *)(v24 + 16) || (int)v26 + 4 < (unsigned int)v26 )
     {
-      dword_140438E30 = 5;
+      dword_140439EF0 = 5;
       goto LABEL_59;
     }
     PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v26, 0x5443694Du);
@@ -127,7 +127,7 @@ LABEL_59:
     if ( !PoolWithTag )
     {
       v13 = -1073741670;
-      dword_140438E30 = 6;
+      dword_140439EF0 = 6;
       goto LABEL_60;
     }
     memmove(PoolWithTag, (const void *)(v25 + a3), v26);
@@ -143,7 +143,7 @@ LABEL_59:
           break;
         if ( v28 && (unsigned int)v29 < v12 )
         {
-          dword_140438E30 = 9;
+          dword_140439EF0 = 9;
           goto LABEL_41;
         }
         v12 = *(_DWORD *)&v34[v28];
@@ -151,7 +151,7 @@ LABEL_59:
         if ( v28 >= (unsigned int)v26 )
           goto LABEL_42;
       }
-      dword_140438E30 = 8;
+      dword_140439EF0 = 8;
 LABEL_41:
       v13 = -1073741701;
     }
@@ -163,7 +163,7 @@ LABEL_42:
       if ( v33 < a4 || v33 >= a4 + a5 )
       {
         v13 = -1073741701;
-        dword_140438E30 = 10;
+        dword_140439EF0 = 10;
         goto LABEL_60;
       }
       *(_DWORD *)(a11 + 24) = v33 - a4;

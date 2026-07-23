@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpFindTlsEntry @ 0x180004A90
+ * XREFs of LdrpFindTlsEntry @ 0x1800D7480
  * Callers:
- *     LdrpReleaseTlsEntry @ 0x1800049CC (LdrpReleaseTlsEntry.c)
- *     LdrpHandleTlsData @ 0x180008200 (LdrpHandleTlsData.c)
+ *     LdrpHandleTlsData @ 0x180034C00 (LdrpHandleTlsData.c)
+ *     LdrpReleaseTlsEntry @ 0x1800D73C8 (LdrpReleaseTlsEntry.c)
  * Callees:
  *     <none>
  */

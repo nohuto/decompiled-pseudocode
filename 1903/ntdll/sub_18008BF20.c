@@ -9,26 +9,26 @@
  *     ZwClose @ 0x18009C8C0 (ZwClose.c)
  */
 
-_BOOL8 sub_18008BF20()
+_BOOL8 __fastcall sub_18008BF20(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  __int64 NtSystemRoot; // rax
-  int v1; // ebx
-  _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF
-  int v4; // [rsp+58h] [rbp+20h] BYREF
+  PWSTR NtSystemRoot; // rax
+  int v4; // ebx
+  HANDLE Handle[3]; // [rsp+20h] [rbp-18h] BYREF
+  int v7; // [rsp+58h] [rbp+20h] BYREF
 
-  v3[0] = 0LL;
+  Handle[0] = 0LL;
   NtSystemRoot = RtlGetNtSystemRoot();
-  v1 = sub_18008C038(NtSystemRoot, v3);
-  if ( v1 >= 0 )
+  v4 = sub_18008C038(NtSystemRoot, Handle);
+  if ( v4 >= 0 )
   {
-    v1 = sub_18008BF8C(v3[0], &v4);
-    if ( v1 >= 0 )
+    v4 = sub_18008BF8C(Handle[0], &v7);
+    if ( v4 >= 0 )
     {
-      v1 = 0;
-      dword_180162718 = v4;
+      v4 = 0;
+      dword_180162718 = v7;
     }
   }
-  if ( v3[0] )
-    ZwClose(v3[0]);
-  return v1 >= 0;
+  if ( Handle[0] )
+    ZwClose(Handle[0]);
+  return v4 >= 0;
 }

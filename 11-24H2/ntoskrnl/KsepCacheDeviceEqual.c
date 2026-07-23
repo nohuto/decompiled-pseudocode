@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepCacheDeviceEqual @ 0x140740480
+ * XREFs of KsepCacheDeviceEqual @ 0x14073E3B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
  */
 
 _BOOL8 __fastcall KsepCacheDeviceEqual(__int64 a1, __int64 a2)

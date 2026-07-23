@@ -11,16 +11,16 @@
  */
 
 NTSTATUS __fastcall RtlHpHeapManagerStart(
-        union _RTL_RUN_ONCE *a1,
+        _RTL_RUN_ONCE *a1,
         unsigned int a2,
-        union _RTL_RUN_ONCE a3,
+        _RTL_RUN_ONCE a3,
         unsigned __int64 a4,
         char a5)
 {
   NTSTATUS result; // eax
   unsigned int v10; // edi
   char v11; // bl
-  __int128 Parameter; // [rsp+30h] [rbp-10h] BYREF
+  __int128 v12; // [rsp+30h] [rbp-10h] BYREF
 
   a1[1].Ptr = a3.Ptr;
   result = RtlCSparseBitmapStart(&a1[2], 2 * (a4 >> 20), a2, a2 == 1);
@@ -29,16 +29,16 @@ NTSTATUS __fastcall RtlHpHeapManagerStart(
     result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))RtlpHpVaMgrCtxStart)(
                &a1[11],
                a2,
-               (union _RTL_RUN_ONCE)a3.Value,
+               (_RTL_RUN_ONCE)a3.Value,
                a4 - 1);
     if ( result >= 0 )
     {
       if ( (a5 & 2) != 0 )
       {
-        Parameter = 0LL;
-        *(_WORD *)((char *)&Parameter + 1) = 1;
-        LOBYTE(Parameter) = (2 * (a2 & 3)) | 1;
-        RtlpHpMetadataHeapCreate(a1 + 1814, &Parameter, 0LL);
+        v12 = 0LL;
+        *(_WORD *)((char *)&v12 + 1) = 1;
+        LOBYTE(v12) = (2 * (a2 & 3)) | 1;
+        RtlpHpMetadataHeapCreate(a1 + 1814, &v12, 0LL);
       }
       if ( (a5 & 1) != 0 )
       {
@@ -46,10 +46,10 @@ NTSTATUS __fastcall RtlHpHeapManagerStart(
         v11 = 2 * (a2 & 3);
         while ( 1 )
         {
-          Parameter = 0LL;
-          *(_WORD *)((char *)&Parameter + 1) = (unsigned __int8)v10;
-          LOBYTE(Parameter) = v11 | (v10 != 0);
-          result = RtlpHpMetadataHeapStart(&a1[2 * v10 + 1811], &Parameter);
+          v12 = 0LL;
+          *(_WORD *)((char *)&v12 + 1) = (unsigned __int8)v10;
+          LOBYTE(v12) = v11 | (v10 != 0);
+          result = RtlpHpMetadataHeapStart(&a1[2 * v10 + 1811], &v12);
           if ( result < 0 )
             break;
           if ( ++v10 >= 3 )

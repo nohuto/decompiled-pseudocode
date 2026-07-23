@@ -1,35 +1,35 @@
 /*
- * XREFs of InitLoadDebuggerSymbols @ 0x140C0B7D0
+ * XREFs of InitLoadDebuggerSymbols @ 0x140C0D7D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     DbgLoadImageSymbols @ 0x1404A4130 (DbgLoadImageSymbols.c)
- *     __report_rangecheckfailure @ 0x1404F51BC (__report_rangecheckfailure.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlStringCbPrintfA @ 0x14053A038 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     DbgLoadImageSymbols @ 0x14049EEC0 (DbgLoadImageSymbols.c)
+ *     __report_rangecheckfailure @ 0x1404F2ABC (__report_rangecheckfailure.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlStringCbPrintfA @ 0x140537878 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InitLoadDebuggerSymbols(__int64 a1, __int64 *a2)
 {
   bool v2; // cc
-  char *v4; // r8
+  CHAR *v4; // r8
   unsigned int v5; // r9d
   __int64 v6; // rdx
-  char v7; // al
+  CHAR v7; // al
   __int64 v9; // rax
   unsigned __int16 *v10; // rdx
   __int64 v11; // rcx
   NTSTATUS v12; // eax
   STRING DestinationString; // [rsp+30h] [rbp-128h] BYREF
-  char SourceString[256]; // [rsp+40h] [rbp-118h] BYREF
+  CHAR SourceString[256]; // [rsp+40h] [rbp-118h] BYREF
 
   v2 = ++*((_DWORD *)a2 + 2) <= 3u;
   DestinationString = 0LL;
   if ( !v2 )
   {
-    v4 = *(char **)(a1 + 80);
+    v4 = *(CHAR **)(a1 + 80);
     if ( *(_WORD *)v4 == 92 )
     {
       v5 = *(unsigned __int16 *)(a1 + 72) >> 1;

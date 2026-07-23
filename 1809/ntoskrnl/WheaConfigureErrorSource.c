@@ -1,5 +1,5 @@
 /*
- * XREFs of WheaConfigureErrorSource @ 0x140573910
+ * XREFs of WheaConfigureErrorSource @ 0x140574910
  * Callers:
  *     <none>
  * Callees:
@@ -7,9 +7,9 @@
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     WheapInitializeDeferredErrorSources @ 0x14031FA54 (WheapInitializeDeferredErrorSources.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     WheapInitializeDeferredErrorSources @ 0x14031FC44 (WheapInitializeDeferredErrorSources.c)
  */
 
 __int64 __fastcall WheaConfigureErrorSource(unsigned int a1, __int64 a2)
@@ -17,9 +17,9 @@ __int64 __fastcall WheaConfigureErrorSource(unsigned int a1, __int64 a2)
   __int64 v2; // rbp
   volatile signed __int32 *v4; // rbx
   unsigned int v5; // r14d
-  __int64 v6; // rsi
-  __int64 v7; // rax
-  __int64 v8; // rsi
+  PRTL_BALANCED_NODE v6; // rsi
+  _RTL_BALANCED_NODE *v7; // rax
+  _RTL_BALANCED_NODE *v8; // rsi
   __int64 v9; // rax
   __int64 v10; // rax
   __int64 v11; // rax
@@ -32,14 +32,19 @@ __int64 __fastcall WheaConfigureErrorSource(unsigned int a1, __int64 a2)
     return (unsigned int)-1073741811;
   v4 = (volatile signed __int32 *)((char *)&WheapSourceConfiguration + 48 * (int)a1);
   v5 = -1073741823;
-  v6 = KeAbPreAcquire((ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData, 0LL, 0);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapDispatchPtr.Dpc.DpcData, 17LL, 0LL) )
+  v6 = KeAbPreAcquire((ULONG_PTR)&WheapDispatchPtr.DeviceLock.Header.WaitListHead, 0LL, 0);
+  if ( _InterlockedCompareExchange64(
+         (volatile signed __int64 *)&WheapDispatchPtr.DeviceLock.Header.WaitListHead.Flink,
+         17LL,
+         0LL) )
+  {
     ExfAcquirePushLockSharedEx(
-      (unsigned __int64 *)&WheapDispatchPtr.Dpc.DpcData,
+      (unsigned __int64 *)&WheapDispatchPtr.DeviceLock.Header.WaitListHead,
       v6,
-      (ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData);
+      (ULONG_PTR)&WheapDispatchPtr.DeviceLock.Header.WaitListHead);
+  }
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v7 = KeAbPreAcquire((ULONG_PTR)&WheapSourceConfiguration + 48 * v2, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64(v4, 0LL) )
@@ -48,7 +53,7 @@ __int64 __fastcall WheaConfigureErrorSource(unsigned int a1, __int64 a2)
       v7,
       (ULONG_PTR)&WheapSourceConfiguration + 48 * v2);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   if ( !*((_BYTE *)v4 + 8) )
   {
     *((_DWORD *)v4 + 3) = *(_DWORD *)a2;
@@ -79,8 +84,11 @@ LABEL_19:
   if ( (v13 & 2) != 0 && (v13 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)&WheapSourceConfiguration + 6 * v2);
   KeAbPostRelease((ULONG_PTR)&WheapSourceConfiguration + 48 * v2);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapDispatchPtr.Dpc.DpcData, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&WheapDispatchPtr.Dpc.DpcData);
-  KeAbPostRelease((ULONG_PTR)&WheapDispatchPtr.Dpc.DpcData);
+  if ( _InterlockedCompareExchange64(
+         (volatile signed __int64 *)&WheapDispatchPtr.DeviceLock.Header.WaitListHead.Flink,
+         0LL,
+         17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&WheapDispatchPtr.DeviceLock.Header.WaitListHead);
+  KeAbPostRelease((ULONG_PTR)&WheapDispatchPtr.DeviceLock.Header.WaitListHead);
   return v5;
 }

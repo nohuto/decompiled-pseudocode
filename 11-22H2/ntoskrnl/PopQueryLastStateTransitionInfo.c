@@ -12,7 +12,7 @@ __int64 __fastcall PopQueryLastStateTransitionInfo(__int64 a1)
   unsigned int v1; // ebx
   __int64 v3; // rdx
   __int128 v4; // xmm1
-  __int64 v5; // xmm0_8
+  LARGE_INTEGER v5; // xmm0_8
 
   v1 = 0;
   if ( a1 )
@@ -25,11 +25,11 @@ __int64 __fastcall PopQueryLastStateTransitionInfo(__int64 a1)
     else
     {
       v3 = 5LL * (unsigned int)dword_140C3E6C0;
-      v4 = *(_OWORD *)&PopStateTransitonBlameStack[5 * (unsigned int)dword_140C3E6C0 + 2];
-      *(_OWORD *)a1 = *(_OWORD *)&PopStateTransitonBlameStack[5 * (unsigned int)dword_140C3E6C0];
+      v4 = *(_OWORD *)&PopStateTransitonBlameStack[5 * (unsigned int)dword_140C3E6C0 + 2].LowPart;
+      *(_OWORD *)a1 = *(_OWORD *)&PopStateTransitonBlameStack[5 * (unsigned int)dword_140C3E6C0].LowPart;
       v5 = PopStateTransitonBlameStack[v3 + 4];
       *(_OWORD *)(a1 + 16) = v4;
-      *(_QWORD *)(a1 + 32) = v5;
+      *(LARGE_INTEGER *)(a1 + 32) = v5;
     }
     PopReleaseRwLock((__int64 *)&xmmword_140C3E6C8);
   }

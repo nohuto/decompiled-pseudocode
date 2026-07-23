@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpWaitForHiveLoadUnloadRundownRelease @ 0x14085EAA4
+ * XREFs of CmpWaitForHiveLoadUnloadRundownRelease @ 0x140864D94
  * Callers:
- *     CmShutdownSystem1 @ 0x1406E2270 (CmShutdownSystem1.c)
+ *     CmShutdownSystem1 @ 0x1406E64F0 (CmShutdownSystem1.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
  */
 
 __int64 CmpWaitForHiveLoadUnloadRundownRelease()

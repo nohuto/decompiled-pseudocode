@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAssignSecurityEx @ 0x1404DB0A0
+ * XREFs of SeAssignSecurityEx @ 0x1404BE6A4
  * Callers:
- *     ObpAssignSecurity @ 0x14041FA10 (ObpAssignSecurity.c)
+ *     ObpAssignSecurity @ 0x14041E8D0 (ObpAssignSecurity.c)
  * Callees:
- *     SeAssignSecurityEx2 @ 0x140012F90 (SeAssignSecurityEx2.c)
+ *     SeAssignSecurityEx2 @ 0x140012B10 (SeAssignSecurityEx2.c)
  */
 
 NTSTATUS __stdcall SeAssignSecurityEx(

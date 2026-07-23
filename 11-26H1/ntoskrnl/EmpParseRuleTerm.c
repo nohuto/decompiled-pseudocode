@@ -1,16 +1,16 @@
 /*
- * XREFs of EmpParseRuleTerm @ 0x140CB6AE8
+ * XREFs of EmpParseRuleTerm @ 0x140CBCB2C
  * Callers:
- *     EmpParseRuleExpression @ 0x140CB653C (EmpParseRuleExpression.c)
+ *     EmpParseRuleExpression @ 0x140CBC57C (EmpParseRuleExpression.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x140483480 (EmpSearchRuleDatabase.c)
- *     strchr @ 0x140537A00 (strchr.c)
- *     EmpSearchCallbackDatabase @ 0x1405B4E44 (EmpSearchCallbackDatabase.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     EmpInfParseGetGuidFromName @ 0x140CB5E44 (EmpInfParseGetGuidFromName.c)
- *     EmpParseRuleTermArgMapping @ 0x140CB6C68 (EmpParseRuleTermArgMapping.c)
+ *     EmpSearchRuleDatabase @ 0x14047D298 (EmpSearchRuleDatabase.c)
+ *     strchr @ 0x140539E80 (strchr.c)
+ *     EmpSearchCallbackDatabase @ 0x1405B7654 (EmpSearchCallbackDatabase.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetGuidFromName @ 0x140CBBE84 (EmpInfParseGetGuidFromName.c)
+ *     EmpParseRuleTermArgMapping @ 0x140CBCCAC (EmpParseRuleTermArgMapping.c)
  */
 
 __int64 __fastcall EmpParseRuleTerm(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, unsigned int *a5)
@@ -20,11 +20,11 @@ __int64 __fastcall EmpParseRuleTerm(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *
   char *v11; // rax
   char *v12; // r12
   int GuidFromName; // ebx
-  _DWORD *v14; // rax
+  unsigned __int8 *v14; // rax
   int v15; // r14d
   int v16; // ebp
   int v17; // r15d
-  _DWORD *v18; // rax
+  struct _LIST_ENTRY **v18; // rax
   unsigned int v19; // esi
   GUID v21; // [rsp+38h] [rbp-60h] BYREF
 
@@ -45,9 +45,9 @@ __int64 __fastcall EmpParseRuleTerm(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *
       if ( !v14 )
         return (unsigned int)-1073741275;
       *a3 = v14;
-      v15 = v14[14];
-      v16 = v14[15];
-      v17 = v14[16];
+      v15 = *((_DWORD *)v14 + 14);
+      v16 = *((_DWORD *)v14 + 15);
+      v17 = *((_DWORD *)v14 + 16);
     }
     else
     {
@@ -58,9 +58,9 @@ __int64 __fastcall EmpParseRuleTerm(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *
       if ( !v18 )
         return (unsigned int)-1073741275;
       *a3 = v18;
-      v15 = v18[10];
-      v16 = v18[11];
-      v17 = v18[12];
+      v15 = *((_DWORD *)v18 + 10);
+      v16 = *((_DWORD *)v18 + 11);
+      v17 = *((_DWORD *)v18 + 12);
     }
     *v12 = 40;
     v19 = v17 + v15 + v16;

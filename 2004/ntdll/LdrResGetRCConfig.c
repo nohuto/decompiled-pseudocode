@@ -16,13 +16,13 @@
  *     LdrpTraceLoadMUIDll @ 0x1800E163C (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4, char a5)
+__int64 __fastcall LdrResGetRCConfig(void *a1, __int64 a2, _QWORD *a3, int a4, char a5)
 {
   int v7; // edi
   __int64 v8; // r15
   __int64 v9; // rcx
   __int64 v10; // rsi
-  __int64 v11; // rcx
+  PVOID v11; // rcx
   _DWORD *v12; // rax
   unsigned int v13; // edi
   __int64 result; // rax
@@ -53,7 +53,7 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4,
   __int64 v39; // rcx
   int v40; // [rsp+50h] [rbp-B8h]
   _DWORD *v41; // [rsp+58h] [rbp-B0h] BYREF
-  unsigned __int64 v42; // [rsp+60h] [rbp-A8h]
+  PVOID DllHandle; // [rsp+60h] [rbp-A8h]
   __int64 v43; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD *v44; // [rsp+70h] [rbp-98h]
   __int64 v45[2]; // [rsp+78h] [rbp-90h] BYREF
@@ -64,8 +64,8 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4,
   _QWORD v50[3]; // [rsp+A8h] [rbp-60h] BYREF
 
   v44 = a3;
-  v42 = a1;
-  v45[1] = a1;
+  DllHandle = a1;
+  v45[1] = (__int64)a1;
   v50[0] = L"MUI";
   v50[1] = 1LL;
   v50[2] = 0LL;
@@ -77,14 +77,14 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4,
   v49 = L"LdrResGetRCConfig Exit";
   v7 = a4 & 0x2000;
   v8 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v9 = 2147353477LL;
   if ( (*(_BYTE *)v9 & 1) != 0 )
   {
     v10 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v39 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v39 = 2147353476LL;
@@ -94,8 +94,8 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4,
   {
     v10 = 2147353476LL;
   }
-  v11 = v42;
-  if ( !v42 )
+  v11 = DllHandle;
+  if ( !DllHandle )
   {
     v13 = -1073741811;
     goto LABEL_9;
@@ -105,13 +105,13 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, _QWORD *a3, int a4,
 LABEL_18:
     if ( !a2 && !v7 )
     {
-      result = LdrpResGetMappingSize(v11, (unsigned __int64 *)&v43, a4, 0);
+      result = LdrpResGetMappingSize((__int64)v11, (unsigned __int64 *)&v43, a4, 0);
       if ( (int)result < 0 )
         return result;
     }
-    v15 = v42;
+    v15 = (__int64)DllHandle;
     v16 = LdrpResSearchResourceMappedFile(
-            v42,
+            DllHandle,
             v43,
             (v7 != 0 ? 0x2000 : 4096) | 0x200030u,
             (__int64)v50,
@@ -233,7 +233,7 @@ LABEL_24:
     v40 = 0;
     goto LABEL_24;
   }
-  v12 = LdrpGetFromMUIMemCache(v42, 0, 0LL, 8);
+  v12 = LdrpGetFromMUIMemCache((unsigned __int64)DllHandle, 0, 0LL, 8);
   v41 = v12;
   if ( v12 != (_DWORD *)-1LL )
   {
@@ -245,21 +245,21 @@ LABEL_24:
         *v44 = v12;
       goto LABEL_10;
     }
-    v11 = v42;
+    v11 = DllHandle;
     goto LABEL_18;
   }
   v13 = -1073741686;
 LABEL_9:
   v40 = v13;
 LABEL_10:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
     v8 = (__int64)NtCurrentPeb()->SharedData + 555;
     v13 = v40;
   }
   if ( (*(_BYTE *)v8 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
       v10 = (__int64)NtCurrentPeb()->SharedData + 554;
       v13 = v40;

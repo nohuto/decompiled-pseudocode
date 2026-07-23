@@ -1,13 +1,13 @@
 /*
- * XREFs of HalHandleNMI @ 0x1405062D0
+ * XREFs of HalHandleNMI @ 0x140506820
  * Callers:
  *     KiProcessNMI @ 0x14020EA60 (KiProcessNMI.c)
  * Callees:
- *     HalpCheckAndReportGhes @ 0x1403354CC (HalpCheckAndReportGhes.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WheaReportHwError @ 0x140610630 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x140610E98 (WheapGetErrorSource.c)
+ *     HalpCheckAndReportGhes @ 0x14033575C (HalpCheckAndReportGhes.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WheaReportHwError @ 0x140610B80 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x1406113E8 (WheapGetErrorSource.c)
  */
 
 char HalHandleNMI()

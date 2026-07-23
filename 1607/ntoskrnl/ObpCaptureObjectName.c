@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpCaptureObjectName @ 0x1404199F0
+ * XREFs of ObpCaptureObjectName @ 0x1404188B0
  * Callers:
- *     ObReferenceObjectByName @ 0x140405BE0 (ObReferenceObjectByName.c)
- *     ObpCaptureObjectCreateInformation @ 0x140419770 (ObpCaptureObjectCreateInformation.c)
+ *     ObReferenceObjectByName @ 0x140404AA0 (ObReferenceObjectByName.c)
+ *     ObpCaptureObjectCreateInformation @ 0x140418630 (ObpCaptureObjectCreateInformation.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ObpCaptureObjectName(char a1, unsigned __int64 a2, __int64 a3, int a4)

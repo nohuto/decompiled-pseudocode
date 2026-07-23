@@ -21,15 +21,15 @@ struct _TEB *__fastcall RtlpHpHeapLock(__int64 a1)
     }
     else
     {
-      RtlAcquireSRWLockExclusive(a1 + 320);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 320));
       if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
       {
-        RtlAcquireSRWLockExclusive(a1 + 168);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 168));
         if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
         {
-          RtlAcquireSRWLockExclusive(a1 + 88);
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 88));
           if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-            RtlAcquireSRWLockExclusive(a1 + 48);
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 48));
         }
       }
       result = NtCurrentTeb();

@@ -1,27 +1,27 @@
 /*
- * XREFs of ExpSetTimerObject @ 0x14032E824
+ * XREFs of ExpSetTimerObject @ 0x14032EAB4
  * Callers:
- *     ExpSetTimer @ 0x14032E728 (ExpSetTimer.c)
+ *     ExpSetTimer @ 0x14032E9B8 (ExpSetTimer.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ObDereferenceObjectExWithTag @ 0x1402A2574 (ObDereferenceObjectExWithTag.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140317E40 (KiAbThreadRemoveBoostsSlow.c)
- *     PoDestroyReasonContext @ 0x14032D2CC (PoDestroyReasonContext.c)
- *     ExpCancelTimer @ 0x14032EDB0 (ExpCancelTimer.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     PsInsertVirtualizedTimer @ 0x140356660 (PsInsertVirtualizedTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpCheckWakeTimerAccess @ 0x1407EB8C8 (ExpCheckWakeTimerAccess.c)
- *     ExpCheckTestsigningEnabled @ 0x1409FBA68 (ExpCheckTestsigningEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ObDereferenceObjectExWithTag @ 0x1402A2804 (ObDereferenceObjectExWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1403180D0 (KiAbThreadRemoveBoostsSlow.c)
+ *     PoDestroyReasonContext @ 0x14032D55C (PoDestroyReasonContext.c)
+ *     ExpCancelTimer @ 0x14032F040 (ExpCancelTimer.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     PsInsertVirtualizedTimer @ 0x140356800 (PsInsertVirtualizedTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpCheckWakeTimerAccess @ 0x1407EBB98 (ExpCheckWakeTimerAccess.c)
+ *     ExpCheckTestsigningEnabled @ 0x1409FBCF8 (ExpCheckTestsigningEnabled.c)
  */
 
 __int64 __fastcall ExpSetTimerObject(
@@ -131,7 +131,7 @@ __int64 __fastcall ExpSetTimerObject(
         }
       }
     }
-    if ( (int)qword_140C3DA60 >= 2 || byte_140C3DA33 )
+    if ( (int)qword_140C3DA40 >= 2 || byte_140C3DA13 )
     {
       v74 = 1;
       CurrentThread = KeGetCurrentThread();
@@ -187,7 +187,7 @@ __int64 __fastcall ExpSetTimerObject(
   v87 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v23 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -207,10 +207,13 @@ __int64 __fastcall ExpSetTimerObject(
     KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter2 + 64));
     if ( v87 )
       KxReleaseSpinLock((volatile signed __int64 *)&Process[2].Affinity.StaticBitmap[24]);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v45 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v45 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v45 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && (unsigned __int8)v45 <= 0xFu
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v45 >= 2u )
       {
         v46 = KeGetCurrentPrcb();
         v47 = v46->SchedulerAssist;
@@ -266,7 +269,7 @@ __int64 __fastcall ExpSetTimerObject(
       *(_BYTE *)(v51 + 18) = 1;
     v59 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v59 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v59 <= 0xFu )
     {
       v60 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v59 == 2 )
@@ -389,10 +392,10 @@ LABEL_10:
   KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter2 + 64));
   if ( v87 )
     KxReleaseSpinLock((volatile signed __int64 *)Object + 305);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v66 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v66 <= 0xFu && CurrentIrql <= 0xFu && v66 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v66 <= 0xFu && CurrentIrql <= 0xFu && v66 >= 2u )
     {
       v67 = KeGetCurrentPrcb();
       v68 = v67->SchedulerAssist;
@@ -411,13 +414,13 @@ LABEL_10:
     if ( !v20 )
       goto LABEL_49;
     v39 = (_QWORD *)(BugCheckParameter2 + 264);
-    v40 = (_QWORD *)qword_140C2D628;
-    if ( *(__int64 **)qword_140C2D628 == &ExpWakeTimerList )
+    v40 = (_QWORD *)qword_140C2D5C8;
+    if ( *(__int64 **)qword_140C2D5C8 == &ExpWakeTimerList )
     {
       *v39 = &ExpWakeTimerList;
       *(_QWORD *)(BugCheckParameter2 + 272) = v40;
       *v40 = v39;
-      qword_140C2D628 = BugCheckParameter2 + 264;
+      qword_140C2D5C8 = BugCheckParameter2 + 264;
       goto LABEL_49;
     }
 LABEL_128:

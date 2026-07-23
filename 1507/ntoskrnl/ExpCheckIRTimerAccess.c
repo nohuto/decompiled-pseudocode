@@ -42,7 +42,7 @@ __int64 __fastcall ExpCheckIRTimerAccess(char a1)
       (__int64)&ExTimerObjectType->TypeInfo.GenericMapping,
       1,
       &v7,
-      (int *)&v6);
+      (NTSTATUS *)&v6);
     v3 = v6;
   }
   SeReleaseSubjectContext(&SubjectContext);

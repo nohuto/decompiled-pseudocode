@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlStartRXact @ 0x180084900
+ * XREFs of RtlStartRXact @ 0x180084910
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ __int64 __fastcall RtlStartRXact(__int64 a1)
 
   if ( *(_QWORD *)(a1 + 24) )
     return 3221225756LL;
-  Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0x4000LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x4000uLL);
   if ( !Heap )
     return 3221225495LL;
   *Heap = 0;

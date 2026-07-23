@@ -1,10 +1,10 @@
 /*
  * XREFs of PsTlsFree @ 0x1409B2FC0
  * Callers:
- *     PspTlsAlloc @ 0x140852FB4 (PspTlsAlloc.c)
+ *     sub_140852FB4 @ 0x140852FB4 (sub_140852FB4.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     RtlpFlsFree @ 0x1409C0960 (RtlpFlsFree.c)
+ *     sub_1409C0960 @ 0x1409C0960 (sub_1409C0960.c)
  */
 
 char __fastcall PsTlsFree(__int64 a1)
@@ -15,14 +15,14 @@ char __fastcall PsTlsFree(__int64 a1)
 
   CurrentThread = KeGetCurrentThread();
   v5 = 0LL;
-  --CurrentThread->SpecialApcDisable;
-  if ( (int)RtlpFlsFree(a1, (unsigned int)a1, &v5) < 0 )
+  --*((_WORD *)CurrentThread + 243);
+  if ( (int)sub_1409C0960(a1, (unsigned int)a1, &v5) < 0 )
     __fastfail(0x46u);
   v2 = KeGetCurrentThread();
-  if ( v2->SpecialApcDisable++ == -1 )
+  if ( (*((_WORD *)v2 + 243))++ == 0xFFFF )
   {
     v2 = (struct _KTHREAD *)((char *)v2 + 152);
-    if ( *(struct _KTHREAD **)&v2->Header.Lock != v2 )
+    if ( *(struct _KTHREAD **)v2 != v2 )
       LOBYTE(v2) = KiCheckForKernelApcDelivery();
   }
   return (char)v2;

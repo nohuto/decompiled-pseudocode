@@ -2,15 +2,15 @@
  * XREFs of SmpKeyedStoreEntryGet @ 0x140011FDC
  * Callers:
  *     SmStoreExistsForProcess @ 0x140011FA4 (SmStoreExistsForProcess.c)
- *     SmpKeyedStoreSetVaRanges @ 0x1400E4B74 (SmpKeyedStoreSetVaRanges.c)
- *     SmpKeyedStoreReference @ 0x14014F694 (SmpKeyedStoreReference.c)
- *     SmpProcessQueryStoreStats @ 0x140306588 (SmpProcessQueryStoreStats.c)
- *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     SmpKeyedStoreCreate @ 0x14066B5F8 (SmpKeyedStoreCreate.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x1406CBCE0 (SmProcessStoreMemoryPriorityRequest.c)
- *     SmSwapStore @ 0x1406D1030 (SmSwapStore.c)
- *     SmStoreCompressionStart @ 0x1408AB700 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x1408AB77C (SmStoreCompressionStop.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x1400E4BF4 (SmpKeyedStoreSetVaRanges.c)
+ *     SmpKeyedStoreReference @ 0x14014F794 (SmpKeyedStoreReference.c)
+ *     SmpProcessQueryStoreStats @ 0x140306778 (SmpProcessQueryStoreStats.c)
+ *     PspProcessDelete @ 0x140608590 (PspProcessDelete.c)
+ *     SmpKeyedStoreCreate @ 0x14066C7B8 (SmpKeyedStoreCreate.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x1406CCF80 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmSwapStore @ 0x1406D22D0 (SmSwapStore.c)
+ *     SmStoreCompressionStart @ 0x1408AC960 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1408AC9DC (SmStoreCompressionStop.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -22,10 +22,10 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x14013BA80 (-SmAllocWrapper@@YAPEAX_KPEAX@Z.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x14013BB80 (-SmAllocWrapper@@YAPEAX_KPEAX@Z.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall SmpKeyedStoreEntryGet(ULONG_PTR BugCheckParameter2, unsigned __int64 *a2, int a3, int a4)
@@ -322,7 +322,7 @@ LABEL_19:
             {
               v22->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v22->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&v15->LockEntries[v21], v17);
+                KiAbEntryRemoveFromTree(&v15->LockEntries[v21].TreeNode, v17);
               v42 = 0;
               v42 = v22->BoostBitmap.AllFields & 0x1FFFF;
               v22->BoostBitmap.AllFields &= 0xFFFE0000;

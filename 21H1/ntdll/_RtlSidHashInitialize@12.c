@@ -6,45 +6,52 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlSidHashInitialize(unsigned int a1, unsigned int a2, unsigned int *a3)
+NTSTATUS __cdecl RtlSidHashInitialize(
+        PSID_AND_ATTRIBUTES SidAttr,
+        ULONG SidCount,
+        PSID_AND_ATTRIBUTES_HASH SidAttrHash)
 {
-  unsigned int v4; // esi
-  int v5; // eax
-  unsigned int v6; // ebx
-  int v7; // edx
-  int v8; // ecx
-  int v9; // eax
-  unsigned int v10; // [esp+4h] [ebp-4h]
+  int v3; // esi
+  ULONG v5; // esi
+  PSID_AND_ATTRIBUTES v6; // eax
+  ULONG v7; // ebx
+  _BYTE *Sid; // edx
+  int v9; // ecx
+  int v10; // eax
+  size_t v11; // [esp-8h] [ebp-10h]
+  ULONG v12; // [esp+4h] [ebp-4h]
 
-  if ( !a3 )
+  if ( !SidAttrHash )
     return -1073741811;
-  v4 = 0;
-  v10 = 0;
-  memset(a3, 0, 0x88u);
-  v5 = a1;
-  if ( a1 )
+  HIDWORD(v11) = v3;
+  LODWORD(v11) = 136;
+  v5 = 0;
+  v12 = 0;
+  memset(SidAttrHash, 0, v11);
+  v6 = SidAttr;
+  if ( SidAttr )
   {
-    v6 = a2;
-    if ( a2 )
+    v7 = SidCount;
+    if ( SidCount )
     {
-      a3[1] = a1;
-      *a3 = a2;
-      if ( a2 > 0x20 )
-        v6 = 32;
-      if ( v6 )
+      SidAttrHash->SidAttr = SidAttr;
+      SidAttrHash->SidCount = SidCount;
+      if ( SidCount > 0x20 )
+        v7 = 32;
+      if ( v7 )
       {
         do
         {
-          v7 = *(_DWORD *)(v5 + 8 * v4);
-          v8 = *(unsigned __int8 *)(v7 + 4 * *(unsigned __int8 *)(v7 + 1) + 4) >> 4;
-          v9 = *(_BYTE *)(v7 + 4 * *(unsigned __int8 *)(v7 + 1) + 4) & 0xF;
-          a3[v9 + 2] |= 1 << v10;
-          a3[v8 + 18] |= 1 << v10;
-          v5 = a1;
-          v4 = v10 + 1;
-          v10 = v4;
+          Sid = v6[v5].Sid;
+          v9 = (unsigned __int8)Sid[4 * (unsigned __int8)Sid[1] + 4] >> 4;
+          v10 = Sid[4 * (unsigned __int8)Sid[1] + 4] & 0xF;
+          *((_DWORD *)SidAttrHash->Hash + v10) |= 1 << v12;
+          *((_DWORD *)&SidAttrHash->Hash[8] + v9) |= 1 << v12;
+          v6 = SidAttr;
+          v5 = v12 + 1;
+          v12 = v5;
         }
-        while ( v4 < v6 );
+        while ( v5 < v7 );
       }
     }
   }

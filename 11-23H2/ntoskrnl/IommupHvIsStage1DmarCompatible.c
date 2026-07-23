@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvIsStage1DmarCompatible @ 0x140525054
+ * XREFs of IommupHvIsStage1DmarCompatible @ 0x1405255A4
  * Callers:
- *     IommupDeviceEnablePasidTaggedDma @ 0x140829364 (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x140829664 (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall IommupHvIsStage1DmarCompatible(_DWORD *a1, char a2)

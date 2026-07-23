@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpConvertFunctionEntry @ 0x14040E640
+ * XREFs of RtlpConvertFunctionEntry @ 0x140406840
  * Callers:
- *     KiLockExtendedServiceTable @ 0x140508278 (KiLockExtendedServiceTable.c)
- *     RtlIsSpecialUnwind @ 0x1405F0978 (RtlIsSpecialUnwind.c)
- *     KiLockServiceTable @ 0x1406953D8 (KiLockServiceTable.c)
- *     RtlMarkExceptionHandlingPages @ 0x140A201BC (RtlMarkExceptionHandlingPages.c)
- *     CcInitializeBcbProfiler @ 0x140BDEC74 (CcInitializeBcbProfiler.c)
- *     sub_140BE10B0 @ 0x140BE10B0 (sub_140BE10B0.c)
+ *     KiLockExtendedServiceTable @ 0x140505B38 (KiLockExtendedServiceTable.c)
+ *     RtlIsSpecialUnwind @ 0x1405EDF58 (RtlIsSpecialUnwind.c)
+ *     KiLockServiceTable @ 0x1406964A8 (KiLockServiceTable.c)
+ *     RtlMarkExceptionHandlingPages @ 0x140A152BC (RtlMarkExceptionHandlingPages.c)
+ *     CcInitializeBcbProfiler @ 0x140BE0C74 (CcInitializeBcbProfiler.c)
+ *     sub_140BE30B0 @ 0x140BE30B0 (sub_140BE30B0.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 unsigned __int64 __fastcall RtlpConvertFunctionEntry(unsigned __int64 a1, unsigned __int64 a2)

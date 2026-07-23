@@ -1,13 +1,13 @@
 /*
- * XREFs of IopReleaseFilteredBootResources @ 0x14072D988
+ * XREFs of IopReleaseFilteredBootResources @ 0x14072EB78
  * Callers:
- *     PnpAllocateResources @ 0x1406FADBC (PnpAllocateResources.c)
+ *     PnpAllocateResources @ 0x1406FC05C (PnpAllocateResources.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14015F004 (PnpRequestDeviceAction.c)
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x140180A78 (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PipClearDevNodeFlags @ 0x1406E64E0 (PipClearDevNodeFlags.c)
- *     PnpNeedToReleaseBootResources @ 0x14072DAA0 (PnpNeedToReleaseBootResources.c)
+ *     PnpRequestDeviceAction @ 0x14015F104 (PnpRequestDeviceAction.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x140180BB8 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PipClearDevNodeFlags @ 0x1406E7780 (PipClearDevNodeFlags.c)
+ *     PnpNeedToReleaseBootResources @ 0x14072EC90 (PnpNeedToReleaseBootResources.c)
  */
 
 void __fastcall IopReleaseFilteredBootResources(unsigned __int64 a1, unsigned __int64 a2)

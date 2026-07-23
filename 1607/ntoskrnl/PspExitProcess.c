@@ -1,23 +1,23 @@
 /*
- * XREFs of PspExitProcess @ 0x140460564
+ * XREFs of PspExitProcess @ 0x14045F434
  * Callers:
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     PfpLogApplicationEvent @ 0x140006504 (PfpLogApplicationEvent.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExCleanTimerResolutionRequest @ 0x1400A4C58 (ExCleanTimerResolutionRequest.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     DbgkpDereferenceErrorPort @ 0x1401B75A4 (DbgkpDereferenceErrorPort.c)
- *     PfSnEndProcessTrace @ 0x1403E8EC4 (PfSnEndProcessTrace.c)
- *     PspCallProcessNotifyRoutines @ 0x140428E24 (PspCallProcessNotifyRoutines.c)
- *     EtwTraceProcess @ 0x14045D50C (EtwTraceProcess.c)
- *     PsSetProcessTelemetryAppState @ 0x1404A33DC (PsSetProcessTelemetryAppState.c)
- *     DbgkpRemoveErrorPort @ 0x14061A210 (DbgkpRemoveErrorPort.c)
+ *     PfpLogApplicationEvent @ 0x140006674 (PfpLogApplicationEvent.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExCleanTimerResolutionRequest @ 0x1400A31D0 (ExCleanTimerResolutionRequest.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     DbgkpDereferenceErrorPort @ 0x1401B7488 (DbgkpDereferenceErrorPort.c)
+ *     PfSnEndProcessTrace @ 0x1403EA4F4 (PfSnEndProcessTrace.c)
+ *     PspCallProcessNotifyRoutines @ 0x140427CF4 (PspCallProcessNotifyRoutines.c)
+ *     EtwTraceProcess @ 0x14045C3DC (EtwTraceProcess.c)
+ *     PsSetProcessTelemetryAppState @ 0x14051B7DC (PsSetProcessTelemetryAppState.c)
+ *     DbgkpRemoveErrorPort @ 0x14061A2C4 (DbgkpRemoveErrorPort.c)
  */
 
 void __fastcall PspExitProcess(char a1, ULONG_PTR a2)

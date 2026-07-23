@@ -1,28 +1,28 @@
 /*
- * XREFs of CcScheduleReadAheadEx @ 0x14008DFD0
+ * XREFs of CcScheduleReadAheadEx @ 0x14008DEF0
  * Callers:
- *     CcCopyReadEx @ 0x1400AF430 (CcCopyReadEx.c)
- *     CcAsyncReadPrefetch @ 0x1400DFACC (CcAsyncReadPrefetch.c)
- *     CcAsyncCopyRead @ 0x1400DFEC0 (CcAsyncCopyRead.c)
- *     CcScheduleReadAhead @ 0x140269D60 (CcScheduleReadAhead.c)
- *     CcMdlRead @ 0x140662B90 (CcMdlRead.c)
+ *     CcCopyReadEx @ 0x1400AF370 (CcCopyReadEx.c)
+ *     CcAsyncReadPrefetch @ 0x1400DFB4C (CcAsyncReadPrefetch.c)
+ *     CcAsyncCopyRead @ 0x1400DFF40 (CcAsyncCopyRead.c)
+ *     CcScheduleReadAhead @ 0x140269F50 (CcScheduleReadAhead.c)
+ *     CcMdlRead @ 0x140663D50 (CcMdlRead.c)
  * Callees:
  *     CcCanIWriteStream @ 0x1400213FC (CcCanIWriteStream.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDetermineReadPattern @ 0x14008E434 (CcDetermineReadPattern.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x1400D5FF8 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x1400D632C (CcAllocateWorkQueueEntry.c)
- *     IoReferenceIoAttributionFromThread @ 0x1400DF1DC (IoReferenceIoAttributionFromThread.c)
- *     CcChargeThreadForReadAhead @ 0x140129964 (CcChargeThreadForReadAhead.c)
- *     CcPerfLogScheduleReadAhead @ 0x140185B00 (CcPerfLogScheduleReadAhead.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDetermineReadPattern @ 0x14008E354 (CcDetermineReadPattern.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     PsGetPagePriorityThread @ 0x1400B5B20 (PsGetPagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcPostWorkQueue @ 0x1400D6078 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x1400D63AC (CcAllocateWorkQueueEntry.c)
+ *     IoReferenceIoAttributionFromThread @ 0x1400DF25C (IoReferenceIoAttributionFromThread.c)
+ *     CcChargeThreadForReadAhead @ 0x140129A34 (CcChargeThreadForReadAhead.c)
+ *     CcPerfLogScheduleReadAhead @ 0x140185C40 (CcPerfLogScheduleReadAhead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall CcScheduleReadAheadEx(_QWORD *Object, _QWORD *a2, unsigned int a3, struct _KTHREAD *CurrentThread)
@@ -137,7 +137,7 @@ LABEL_28:
                             if ( (int)CcAllocateWorkQueueEntry(Partition, &v44) >= 0 )
                             {
                               v30 = v44;
-                              if ( (xmmword_140541350 & 0x20000) != 0 )
+                              if ( (xmmword_140542350 & 0x20000) != 0 )
                                 CcPerfLogScheduleReadAhead(v44, (_DWORD)Object, (_DWORD)a2, v49, v15, v18, 1);
                               if ( (v11[38] & 0x10000000) != 0 )
                                 CcChargeThreadForReadAhead((_DWORD)Object, v28, v29, v18, (__int64)CurrentThread);
@@ -199,7 +199,7 @@ LABEL_72:
                         v32 = 1;
                       }
 LABEL_37:
-                      if ( (xmmword_140541350 & 0x20000) != 0 )
+                      if ( (xmmword_140542350 & 0x20000) != 0 )
                         CcPerfLogScheduleReadAhead(0, (_DWORD)Object, (_DWORD)v17, v49, v15, v18, v32);
                       KxReleaseSpinLock(SpinLock);
                       v33 = v47;

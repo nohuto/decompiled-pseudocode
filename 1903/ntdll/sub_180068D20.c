@@ -32,7 +32,7 @@ __int64 __fastcall sub_180068D20(_QWORD **a1)
     if ( !*a1 )
     {
       v4 = 1 << v2;
-      Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned int)(16 * (1 << v2) + 8));
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)(16 * (1 << v2) + 8));
       if ( Heap )
       {
         *Heap = 0LL;

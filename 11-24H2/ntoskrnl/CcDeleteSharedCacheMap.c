@@ -1,30 +1,30 @@
 /*
- * XREFs of CcDeleteSharedCacheMap @ 0x1402CCE98
+ * XREFs of CcDeleteSharedCacheMap @ 0x1402E5B98
  * Callers:
- *     CcWriteBehindPostProcess @ 0x1402A883C (CcWriteBehindPostProcess.c)
- *     CcInitializeCacheMapInternal @ 0x14045D6F0 (CcInitializeCacheMapInternal.c)
- *     CcUninitializeCacheMap @ 0x1404DA4B0 (CcUninitializeCacheMap.c)
- *     CcDeleteSectionsForPartition @ 0x14057C948 (CcDeleteSectionsForPartition.c)
+ *     CcWriteBehindPostProcess @ 0x14027A62C (CcWriteBehindPostProcess.c)
+ *     CcInitializeCacheMapInternal @ 0x1404527B0 (CcInitializeCacheMapInternal.c)
+ *     CcUninitializeCacheMap @ 0x1404D3ED0 (CcUninitializeCacheMap.c)
+ *     CcDeleteSectionsForPartition @ 0x140579DD8 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     CcUnmapAndPurge @ 0x14023F5D8 (CcUnmapAndPurge.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     CcFreeSharedCacheMapIgnoreNull @ 0x1402CD320 (CcFreeSharedCacheMapIgnoreNull.c)
- *     CcDecrementVolumeUseCountWithDelete @ 0x1402CD480 (CcDecrementVolumeUseCountWithDelete.c)
- *     CcGetPrivateVolumeCacheMap @ 0x1402CD530 (CcGetPrivateVolumeCacheMap.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD54C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD5E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcDeleteMbcb @ 0x1402CD624 (CcDeleteMbcb.c)
- *     CcDeleteBcbs @ 0x1402CE42C (CcDeleteBcbs.c)
- *     CcDecrementPrivateVolumeUseCount @ 0x1402CEAC4 (CcDecrementPrivateVolumeUseCount.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     CcPostPVCMForDeleteToPartition @ 0x1404B8134 (CcPostPVCMForDeleteToPartition.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     FsRtlReleaseFile @ 0x140943180 (FsRtlReleaseFile.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CcUnmapAndPurge @ 0x140207728 (CcUnmapAndPurge.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDecrementPrivateVolumeUseCount @ 0x1402639F8 (CcDecrementPrivateVolumeUseCount.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     CcDeleteMbcb @ 0x1402E5278 (CcDeleteMbcb.c)
+ *     CcFreeSharedCacheMapIgnoreNull @ 0x1402E6020 (CcFreeSharedCacheMapIgnoreNull.c)
+ *     CcDecrementVolumeUseCountWithDelete @ 0x1402E6180 (CcDecrementVolumeUseCountWithDelete.c)
+ *     CcGetPrivateVolumeCacheMap @ 0x1402E6230 (CcGetPrivateVolumeCacheMap.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402E624C (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402E62E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDeleteBcbs @ 0x1404B21D4 (CcDeleteBcbs.c)
+ *     CcPostPVCMForDeleteToPartition @ 0x1404B2A84 (CcPostPVCMForDeleteToPartition.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     FsRtlReleaseFile @ 0x14098D3F0 (FsRtlReleaseFile.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcDeleteSharedCacheMap(
@@ -167,7 +167,7 @@ LABEL_3:
     Entry[22] = 0LL;
   }
   if ( Entry[21] )
-    CcDeleteMbcb(Entry);
+    CcDeleteMbcb((__int64)Entry);
   CcDecrementVolumeUseCountWithDelete(Entry[64]);
   v26 = _InterlockedExchange64(Entry + 12, 0LL);
   v27 = (volatile signed __int64 *)(v26 & 0xFFFFFFFFFFFFFFF0uLL);

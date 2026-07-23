@@ -1,7 +1,7 @@
 /*
- * XREFs of crc_word @ 0x140484714
+ * XREFs of crc_word @ 0x14047E084
  * Callers:
- *     crc32_z @ 0x140484400 (crc32_z.c)
+ *     crc32_z @ 0x14047DD70 (crc32_z.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall crc_word(unsigned int a1)
   v1 = 4LL;
   do
   {
-    a1 = dword_14001A6E0[(unsigned __int8)a1] ^ (a1 >> 8);
+    a1 = dword_140019F00[(unsigned __int8)a1] ^ (a1 >> 8);
     --v1;
   }
   while ( v1 );

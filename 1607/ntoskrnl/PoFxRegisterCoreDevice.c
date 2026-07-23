@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxRegisterCoreDevice @ 0x14056693C
+ * XREFs of PoFxRegisterCoreDevice @ 0x140566E7C
  * Callers:
  *     PoFxRegisterDebugger @ 0x1407B21AC (PoFxRegisterDebugger.c)
  * Callees:
- *     PopFxInsertDevice @ 0x140141DD4 (PopFxInsertDevice.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PopFxInsertDevice @ 0x140142344 (PopFxInsertDevice.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PopFxRegisterDeviceWorker @ 0x140566D28 (PopFxRegisterDeviceWorker.c)
- *     PopFxConvertV1Components @ 0x140567808 (PopFxConvertV1Components.c)
+ *     PopFxRegisterDeviceWorker @ 0x140567268 (PopFxRegisterDeviceWorker.c)
+ *     PopFxConvertV1Components @ 0x140567D48 (PopFxConvertV1Components.c)
  */
 
 __int64 __fastcall PoFxRegisterCoreDevice(__int64 a1, __int64 a2, _QWORD *a3)

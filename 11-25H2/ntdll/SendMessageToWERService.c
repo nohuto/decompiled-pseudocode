@@ -17,52 +17,45 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall SendMessageToWERService(__int64 a1, __int64 a2)
+__int64 __fastcall SendMessageToWERService(PPORT_MESSAGE SendMessageA, PPORT_MESSAGE ReceiveMessage)
 {
-  NTSTATUS started; // ebx
-  int v6; // eax
+  int started; // ebx
+  NTSTATUS v6; // eax
   size_t v7; // rax
   __int64 v8; // rdx
   __int64 v9; // r8
   __int64 v10; // r9
   int v11; // eax
-  void *v12; // rdi
+  PSID v12; // rdi
   char v13; // dl
-  __int64 *v14; // rsi
-  int v15; // eax
-  int v16; // eax
-  int v17; // [rsp+20h] [rbp-E0h]
-  int v18; // [rsp+28h] [rbp-D8h]
-  int v19; // [rsp+30h] [rbp-D0h]
-  int v20; // [rsp+38h] [rbp-C8h]
-  int v21; // [rsp+40h] [rbp-C0h]
-  int v22; // [rsp+48h] [rbp-B8h]
-  int v23; // [rsp+60h] [rbp-A0h] BYREF
-  __int16 v24; // [rsp+64h] [rbp-9Ch]
+  LARGE_INTEGER *Timeout; // rsi
+  NTSTATUS v15; // eax
+  NTSTATUS v16; // eax
+  int Flags; // [rsp+20h] [rbp-E0h]
+  int RequiredServerSid; // [rsp+28h] [rbp-D8h]
+  int ConnectionMessage; // [rsp+30h] [rbp-D0h]
+  int BufferLength; // [rsp+38h] [rbp-C8h]
+  int OutMessageAttributes; // [rsp+40h] [rbp-C0h]
+  int InMessageAttributes; // [rsp+48h] [rbp-B8h]
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+60h] [rbp-A0h] BYREF
   __int64 SystemInformation; // [rsp+68h] [rbp-98h] BYREF
-  HANDLE Handle; // [rsp+70h] [rbp-90h] BYREF
-  void *v27; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v28; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v29; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v30; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v31; // [rsp+A0h] [rbp-60h] BYREF
-  __int128 v32; // [rsp+B0h] [rbp-50h]
-  __int128 v33; // [rsp+C0h] [rbp-40h]
-  _BYTE v34[16]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v35; // [rsp+E0h] [rbp-20h]
+  HANDLE PortHandle; // [rsp+70h] [rbp-90h] BYREF
+  PSID v26; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v27; // [rsp+80h] [rbp-80h] BYREF
+  ULONG_PTR v28; // [rsp+88h] [rbp-78h] BYREF
+  _UNICODE_STRING PortName; // [rsp+90h] [rbp-70h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-60h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+D0h] [rbp-30h] BYREF
 
-  Handle = 0LL;
-  v29 = 0LL;
-  *(_QWORD *)&v33 = 0LL;
-  DWORD2(v33) = 0;
-  v30 = 0LL;
-  v31 = 0LL;
-  v32 = 0LL;
-  memset_thunk_772440563353939046(v34, 0, 0x48uLL);
-  v27 = 0LL;
-  v23 = 0;
-  v24 = 1280;
+  PortHandle = 0LL;
   v28 = 0LL;
+  PortName = 0LL;
+  memset(&ObjectAttributes, 0, 44);
+  memset_thunk_772440563353939046(&PortAttributes, 0, 0x48uLL);
+  v26 = 0LL;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+  v27 = 0LL;
   SystemInformation = 0LL;
   started = SignalStartWerSvc();
   if ( started >= 0 )
@@ -74,24 +67,33 @@ __int64 __fastcall SendMessageToWERService(__int64 a1, __int64 a2)
       started = v6;
       if ( v6 >= 0 && v6 != 258 )
       {
-        DWORD1(v30) = 0;
-        *((_QWORD *)&v30 + 1) = L"\\WindowsErrorReportingServicePort";
+        *(_DWORD *)(&PortName.MaximumLength + 1) = 0;
+        PortName.Buffer = (wchar_t *)L"\\WindowsErrorReportingServicePort";
         v7 = 2 * wcslen(L"\\WindowsErrorReportingServicePort");
-        v35 = 1400LL;
+        PortAttributes.MaxMessageLength = 1400LL;
         if ( v7 >= 0xFFFE )
           LOWORD(v7) = -4;
-        LOWORD(v30) = v7;
-        WORD1(v30) = v7 + 2;
-        v11 = WerpAllocateAndInitializeSid((__int64)&v23, v8, v9, v10, v17, v18, v19, v20, v21, v22, &v27);
-        v12 = v27;
+        PortName.Length = v7;
+        PortName.MaximumLength = v7 + 2;
+        v11 = WerpAllocateAndInitializeSid(
+                &IdentifierAuthority,
+                v8,
+                v9,
+                v10,
+                Flags,
+                RequiredServerSid,
+                ConnectionMessage,
+                BufferLength,
+                OutMessageAttributes,
+                InMessageAttributes,
+                &v26);
+        v12 = v26;
         started = v11;
         if ( v11 >= 0 )
         {
-          v33 = 0LL;
-          LODWORD(v31) = 48;
-          *((_QWORD *)&v31 + 1) = 0LL;
-          DWORD2(v32) = 0;
-          *(_QWORD *)&v32 = 0LL;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          ObjectAttributes.Length = 48;
+          memset(&ObjectAttributes.RootDirectory, 0, 20);
           if ( HIDWORD(SystemInformation) == -1 )
           {
             v13 = 1;
@@ -99,23 +101,34 @@ __int64 __fastcall SendMessageToWERService(__int64 a1, __int64 a2)
           else
           {
             v13 = 0;
-            v28 = -10000LL * SHIDWORD(SystemInformation);
+            v27 = -10000LL * SHIDWORD(SystemInformation);
           }
-          v14 = &v28;
+          Timeout = (LARGE_INTEGER *)&v27;
           if ( v13 )
-            v14 = 0LL;
-          v15 = NtAlpcConnectPort(&Handle, &v30, &v31, v34, 0x20000, v27, 0LL, 0LL);
+            Timeout = 0LL;
+          v15 = NtAlpcConnectPort(
+                  &PortHandle,
+                  &PortName,
+                  &ObjectAttributes,
+                  &PortAttributes,
+                  0x20000u,
+                  v26,
+                  0LL,
+                  0LL,
+                  0LL,
+                  0LL,
+                  Timeout);
           started = v15;
           if ( v15 >= 0 && v15 != 258 )
           {
-            v29 = 1400LL;
-            v16 = ZwAlpcSendWaitReceivePort(Handle, 0x20000LL, a1, 0LL, a2, &v29, 0LL, v14, 0LL);
+            v28 = 1400LL;
+            v16 = ZwAlpcSendWaitReceivePort(PortHandle, 0x20000u, SendMessageA, 0LL, ReceiveMessage, &v28, 0LL, Timeout);
             started = v16;
             if ( v16 >= 0 && v16 != 258 )
             {
               started = 0;
-              if ( *(int *)(a2 + 44) < 0 )
-                started = *(_DWORD *)(a2 + 44);
+              if ( (ReceiveMessage[1].u2.ZeroInit & 0x80000000) != 0 )
+                started = ReceiveMessage[1].u2.ZeroInit;
             }
           }
         }
@@ -124,7 +137,7 @@ __int64 __fastcall SendMessageToWERService(__int64 a1, __int64 a2)
       }
     }
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( PortHandle )
+    NtClose(PortHandle);
   return (unsigned int)started;
 }

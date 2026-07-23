@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateImageMapSectionHeaders @ 0x140A55B2C
+ * XREFs of MiCreateImageMapSectionHeaders @ 0x140A630B4
  * Callers:
- *     MiCreateNewSection @ 0x140A562D8 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140A63860 (MiCreateNewSection.c)
  * Callees:
- *     MiAllocateEntireImageFileExtents @ 0x14086CD18 (MiAllocateEntireImageFileExtents.c)
- *     MiCreateMdl @ 0x140A560A8 (MiCreateMdl.c)
- *     MiReadImageHeaders @ 0x140A577D8 (MiReadImageHeaders.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408730F8 (MiAllocateEntireImageFileExtents.c)
+ *     MiCreateMdl @ 0x140A63630 (MiCreateMdl.c)
+ *     MiReadImageHeaders @ 0x140A64D58 (MiReadImageHeaders.c)
  */
 
 __int64 __fastcall MiCreateImageMapSectionHeaders(_QWORD *a1)
@@ -35,7 +35,7 @@ __int64 __fastcall MiCreateImageMapSectionHeaders(_QWORD *a1)
   v20 = 0LL;
   if ( !((*(_DWORD *)(v1 + 16) >> 12) + ((*(_DWORD *)(v1 + 16) & 0xFFF) != 0)) )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 49;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 49;
     return 3221225595LL;
   }
   v3 = a1[15];
@@ -47,7 +47,7 @@ __int64 __fastcall MiCreateImageMapSectionHeaders(_QWORD *a1)
   v7 = (unsigned __int16)v4 + 24;
   if ( v7 + v6 + 40 * (_DWORD)v5 <= v6 )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 50;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 50;
     return 3221225595LL;
   }
   v8 = *(unsigned int *)(v1 + 24);
@@ -61,7 +61,7 @@ __int64 __fastcall MiCreateImageMapSectionHeaders(_QWORD *a1)
   }
   if ( (unsigned int)v8 > *(_DWORD *)(v1 + 16) )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 48;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 48;
     return 3221225595LL;
   }
   if ( v10 <= a1[4] )
@@ -74,14 +74,14 @@ LABEL_8:
   v13 = (((unsigned int)v3 + v7) & 0xFFFLL) + 8 * v9;
   if ( !v13 || (v14 = (v13 + 4095) & 0xFFFFFFFFFFFFF000uLL, v13 > v14) )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 51;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 51;
     return 3221225595LL;
   }
   Mdl = (_QWORD *)MiCreateMdl(a1[2], *((unsigned int *)a1 + 6), (v13 + 4095) & 0xFFFFFFFFFFFFF000uLL, 1LL, v20);
   v16 = Mdl;
   if ( !Mdl )
   {
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 52;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 52;
     return 3221225626LL;
   }
   Mdl[2] = (unsigned __int64)(v7 + v6) >> 12;
@@ -97,7 +97,7 @@ LABEL_8:
     result = MiAllocateEntireImageFileExtents(v19, (v13 + 4095) & 0xFFFFFFFFFFFFF000uLL, v18, &v21);
     if ( (int)result < 0 )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 129;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 129;
       return result;
     }
     a1[8] = v21;
@@ -110,9 +110,9 @@ LABEL_8:
       v11 = v16[3] + ((v7 + v6) & 0xFFFLL);
       goto LABEL_8;
     }
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 54;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 54;
     return 3221225595LL;
   }
-  *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 53;
+  *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 53;
   return result;
 }

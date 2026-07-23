@@ -1,17 +1,17 @@
 /*
- * XREFs of KeTransitionProcessorParkState @ 0x14057D86C
+ * XREFs of KeTransitionProcessorParkState @ 0x14057DD5C
  * Callers:
- *     PpmParkReportUnparkedCore @ 0x1404637CC (PpmParkReportUnparkedCore.c)
- *     KiForceIdleParkUnparkProcessor @ 0x14057CD98 (KiForceIdleParkUnparkProcessor.c)
- *     PpmParkReportParkedCore @ 0x14059D0FC (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x14059D20C (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportUnparkedCore @ 0x140463BCC (PpmParkReportUnparkedCore.c)
+ *     KiForceIdleParkUnparkProcessor @ 0x14057D288 (KiForceIdleParkUnparkProcessor.c)
+ *     PpmParkReportParkedCore @ 0x14059D5EC (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x14059D6FC (PpmParkReportSoftParkChange.c)
  * Callees:
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiParkCurrentProcessor @ 0x14057DE9C (KiParkCurrentProcessor.c)
- *     KiUnparkCurrentProcessor @ 0x14057E654 (KiUnparkCurrentProcessor.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiParkCurrentProcessor @ 0x14057E38C (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x14057EB44 (KiUnparkCurrentProcessor.c)
  */
 
 void __fastcall KeTransitionProcessorParkState(__int64 a1, int a2)

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmVerifyCallbackFunctionCheckFlags @ 0x1403C773C (MmVerifyCallbackFunctionCheckFlags.c)
- *     PspSetCreateThreadNotifyRoutine @ 0x140832884 (PspSetCreateThreadNotifyRoutine.c)
+ *     sub_1403C773C @ 0x1403C773C (sub_1403C773C.c)
+ *     sub_140832884 @ 0x140832884 (sub_140832884.c)
  */
 
 __int64 __fastcall PsSetCreateThreadNotifyRoutineEx(int a1, unsigned __int64 a2)
@@ -21,8 +21,8 @@ __int64 __fastcall PsSetCreateThreadNotifyRoutineEx(int a1, unsigned __int64 a2)
   {
     v3 = 1;
   }
-  if ( (unsigned int)MmVerifyCallbackFunctionCheckFlags(a2, 32) )
-    return PspSetCreateThreadNotifyRoutine(a2, v3);
+  if ( (unsigned int)sub_1403C773C(a2, 32) )
+    return sub_140832884(a2, v3);
   else
     return 3221225506LL;
 }

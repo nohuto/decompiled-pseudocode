@@ -1,14 +1,14 @@
 /*
- * XREFs of MiBuildImportsForBootDrivers @ 0x140C5A924
+ * XREFs of MiBuildImportsForBootDrivers @ 0x140C5CAB4
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140C5B318 (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140C5D4A8 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiAcquireLoadLock @ 0x1402C6F98 (MiAcquireLoadLock.c)
- *     MmFindDataTableEntryByAddress @ 0x1402C724C (MmFindDataTableEntryByAddress.c)
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiAcquireLoadLock @ 0x1402BBB18 (MiAcquireLoadLock.c)
+ *     MmFindDataTableEntryByAddress @ 0x1402BBDCC (MmFindDataTableEntryByAddress.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 MiBuildImportsForBootDrivers()
@@ -23,10 +23,10 @@ __int64 MiBuildImportsForBootDrivers()
   __int64 *k; // rbx
   unsigned __int64 *v8; // r14
   unsigned int v9; // r13d
-  unsigned int v10; // ebp
+  ULONG v10; // ebp
   unsigned __int64 v11; // rsi
   __int64 *v12; // rcx
-  unsigned int m; // r15d
+  ULONG m; // r15d
   unsigned __int64 v14; // r8
   __int64 *DataTableEntryByAddress; // rax
   __int64 v16; // r11
@@ -35,11 +35,11 @@ __int64 MiBuildImportsForBootDrivers()
   __int64 v19; // rdx
   __int64 *v20; // r8
   PVOID v21; // rcx
-  unsigned int v23; // [rsp+60h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+60h] [rbp+8h] BYREF
   struct _KTHREAD *v24; // [rsp+68h] [rbp+10h]
   __int64 *v25; // [rsp+70h] [rbp+18h]
 
-  v23 = 0;
+  Size = 0;
   v0 = 0;
   v25 = 0LL;
   v1 = 0;
@@ -66,13 +66,13 @@ LABEL_11:
       goto LABEL_59;
     }
     v5 = i[6];
-    if ( (PVOID)PsNtosImageBase == v5 )
+    if ( PsNtosImageBase == v5 )
     {
       v2 = (__int64 *)i;
     }
     else
     {
-      if ( (PVOID)PsHalImageBase != v5 )
+      if ( PsHalImageBase != v5 )
         goto LABEL_7;
       v25 = (__int64 *)i;
     }
@@ -83,14 +83,14 @@ LABEL_7:
   }
   for ( k = (__int64 *)PsLoadedModuleList; k != (__int64 *)&PsLoadedModuleList; k = (__int64 *)*k )
   {
-    v8 = (unsigned __int64 *)RtlImageDirectoryEntryToData(k[6], 1, 0xCu, &v23);
+    v8 = (unsigned __int64 *)RtlImageDirectoryEntryToData((PVOID)k[6], 1u, 0xCu, &Size);
     if ( v8 )
     {
       v9 = 0;
-      v10 = v23 >> 3;
+      v10 = Size >> 3;
       v11 = 0LL;
       v12 = 0LL;
-      v23 >>= 3;
+      Size >>= 3;
       for ( m = 0; m < v10; ++m )
       {
         if ( !v12 || (v14 = v12[6], *v8 < v14) || *v8 >= v14 + *((unsigned int *)v12 + 16) )

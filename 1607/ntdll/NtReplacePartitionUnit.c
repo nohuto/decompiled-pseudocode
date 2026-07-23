@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 NtReplacePartitionUnit()
+NTSTATUS __cdecl NtReplacePartitionUnit(
+        PUNICODE_STRING TargetInstancePath,
+        PUNICODE_STRING SpareInstancePath,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 354LL;
+  result = 354;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

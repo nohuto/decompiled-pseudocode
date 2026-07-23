@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMmReservePageTablePages @ 0x14037E56C
+ * XREFs of HalpMmReservePageTablePages @ 0x14037E70C
  * Callers:
- *     HalpMmInitSystem @ 0x140A90A90 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x140A90910 (HalpMmInitSystem.c)
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
- *     HalpMmGetPteAddressSafe @ 0x14037E3EC (HalpMmGetPteAddressSafe.c)
- *     HalQueryMaximumProcessorCount @ 0x14037F8A0 (HalQueryMaximumProcessorCount.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
+ *     HalpMmGetPteAddressSafe @ 0x14037E58C (HalpMmGetPteAddressSafe.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037FA40 (HalQueryMaximumProcessorCount.c)
  */
 
 __int64 HalpMmReservePageTablePages()

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiHotAddBootDeferredDescriptorsDiscardable @ 0x140CF4BBC
+ * XREFs of MiHotAddBootDeferredDescriptorsDiscardable @ 0x140CFAF3C
  * Callers:
- *     MiHotAddBootDeferredDescriptors @ 0x1406E73C0 (MiHotAddBootDeferredDescriptors.c)
+ *     MiHotAddBootDeferredDescriptors @ 0x1406EC070 (MiHotAddBootDeferredDescriptors.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiHotAddBootDescriptor @ 0x140CF4E60 (MiHotAddBootDescriptor.c)
- *     MxExtractUnusedRegions @ 0x140CF6818 (MxExtractUnusedRegions.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiHotAddBootDescriptor @ 0x140CFB1E0 (MiHotAddBootDescriptor.c)
+ *     MxExtractUnusedRegions @ 0x140CFCB98 (MxExtractUnusedRegions.c)
  */
 
 LARGE_INTEGER MiHotAddBootDeferredDescriptorsDiscardable()
@@ -39,13 +39,13 @@ LARGE_INTEGER MiHotAddBootDeferredDescriptorsDiscardable()
   __int64 LowPart; // [rsp+50h] [rbp-B8h]
   _DWORD v24[100]; // [rsp+58h] [rbp-B0h] BYREF
 
-  KeWaitForSingleObject(&unk_140E3C080, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&unk_140E3C200, Executive, 0, 0, 0LL);
   result.LowPart = 64;
   if ( (unsigned __int16)KeNumberNodes > 0x40u || (result.QuadPart = (unsigned __int16)KeNumberNodes, KeNumberNodes) )
   {
     v21 = 0LL;
     v22 = &MxDescriptorTimings;
-    v1 = qword_140FFF800;
+    v1 = qword_141000800;
     LowPart = result.LowPart;
     while ( 1 )
     {
@@ -97,7 +97,7 @@ LABEL_23:
       if ( PerformanceFrequency.QuadPart != 10000000 )
         result.QuadPart = 10000000 * result.QuadPart / PerformanceFrequency.QuadPart;
       v15 = v22;
-      v16 = *(_QWORD *)(v21 + qword_140E2D6B8 + 376);
+      v16 = *(_QWORD *)(v21 + qword_140E2D838 + 376);
       v17 = v4;
       if ( result.QuadPart >= (unsigned __int64)v4.QuadPart )
         v17 = result;

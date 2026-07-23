@@ -12,15 +12,15 @@
  *     RtlpMuiRegValidateConfigNode @ 0x1800FD860 (RtlpMuiRegValidateConfigNode.c)
  */
 
-__int64 __fastcall RtlpPopulateLanguageConfigList(__int64 a1, __int64 *a2, __int64 a3)
+__int64 __fastcall RtlpPopulateLanguageConfigList(HANDLE KeyHandle, __int64 *a2, __int64 a3)
 {
   unsigned __int8 *v3; // rbp
   int v4; // r11d
   __int64 v6; // r15
-  __int64 v7; // rax
+  HANDLE v7; // rax
   __int64 v8; // rdi
-  unsigned int v9; // r12d
-  int v10; // eax
+  ULONG v9; // r12d
+  NTSTATUS v10; // eax
   __int64 v11; // r9
   int v12; // ebx
   __int64 v13; // rax
@@ -45,11 +45,11 @@ __int64 __fastcall RtlpPopulateLanguageConfigList(__int64 a1, __int64 *a2, __int
   v3 = (unsigned __int8 *)((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL);
   LOWORD(v4) = 0;
   *((_QWORD *)v3 + 4) = a3;
-  *((_QWORD *)v3 + 7) = a1;
+  *((_QWORD *)v3 + 7) = KeyHandle;
   v6 = a3;
-  v7 = a1;
+  v7 = KeyHandle;
   v8 = 0LL;
-  if ( a1 && a2 && a3 )
+  if ( KeyHandle && a2 && a3 )
   {
     v8 = *a2;
     v9 = 0;
@@ -57,7 +57,7 @@ __int64 __fastcall RtlpPopulateLanguageConfigList(__int64 a1, __int64 *a2, __int
     *(_DWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = 0;
     while ( 1 )
     {
-      v10 = ZwEnumerateValueKey(v7, v9, 1LL, v3 + 96, 512, v3 + 40);
+      v10 = ZwEnumerateValueKey(v7, v9, KeyValueFullInformation, v3 + 96, 0x200u, (PULONG)v3 + 10);
       v4 = 0;
       v12 = v10;
       if ( v10 < 0 )
@@ -170,7 +170,7 @@ LABEL_8:
         v12 = v4;
         goto LABEL_10;
       }
-      v7 = *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38);
+      v7 = *(HANDLE *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38);
     }
     if ( v10 != -2147483622 )
       goto LABEL_10;

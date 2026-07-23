@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpProcIsSmtDisabled @ 0x140CAF4C8
+ * XREFs of HalpProcIsSmtDisabled @ 0x140CB5508
  * Callers:
- *     HalpMiscGetParameters @ 0x140CAF604 (HalpMiscGetParameters.c)
+ *     HalpMiscGetParameters @ 0x140CB5644 (HalpMiscGetParameters.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x1404C55D0 (HalpGetCpuInfo.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     HalpIsPartitionCpuManager @ 0x140585200 (HalpIsPartitionCpuManager.c)
+ *     HalpGetCpuInfo @ 0x1404BEF80 (HalpGetCpuInfo.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     HalpIsPartitionCpuManager @ 0x140587720 (HalpIsPartitionCpuManager.c)
  */
 
 bool __fastcall HalpProcIsSmtDisabled(__int64 a1)

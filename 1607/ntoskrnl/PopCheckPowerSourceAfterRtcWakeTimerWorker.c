@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     PopFindPowerSettingConfiguration @ 0x1403F853C (PopFindPowerSettingConfiguration.c)
- *     NtInitiatePowerAction @ 0x140530B04 (NtInitiatePowerAction.c)
- *     PopCurrentPowerStatePrecise @ 0x140547C2C (PopCurrentPowerStatePrecise.c)
- *     PopOkayToQueueNextWorkItem @ 0x140581AC8 (PopOkayToQueueNextWorkItem.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     PopFindPowerSettingConfiguration @ 0x1403F73FC (PopFindPowerSettingConfiguration.c)
+ *     NtInitiatePowerAction @ 0x140531044 (NtInitiatePowerAction.c)
+ *     PopCurrentPowerStatePrecise @ 0x14054816C (PopCurrentPowerStatePrecise.c)
+ *     PopOkayToQueueNextWorkItem @ 0x140581F78 (PopOkayToQueueNextWorkItem.c)
  */
 
 LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
@@ -40,6 +40,6 @@ LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
         NtInitiatePowerAction(SystemAction, MinSystemState, 0x80000000, 1u);
     }
   }
-  PopOkayToQueueNextWorkItem(&unk_140302C68);
+  PopOkayToQueueNextWorkItem(&unk_140302CC8);
   return KeSetEvent(&PopCheckPowerSourceAfterRtcWakeCompleted, 0, 0);
 }

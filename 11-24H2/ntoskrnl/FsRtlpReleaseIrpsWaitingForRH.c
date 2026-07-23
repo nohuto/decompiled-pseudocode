@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x140330618
+ * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x1402B8E90
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1403DA5B0 (FsRtlCheckOplockEx2.c)
- *     FsRtlpCancelOplockRHIrp @ 0x1404190F0 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404E0638 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1404E1388 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockCleanup @ 0x1404E3BFC (FsRtlpOplockCleanup.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140A20DD0 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockCleanup @ 0x1403CDA80 (FsRtlpOplockCleanup.c)
+ *     FsRtlCheckOplockEx2 @ 0x1403CE7F0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1403CF664 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x140408EA0 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404D9C50 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1409E0F60 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14033091C (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpOplockKeysEqual @ 0x1403DA0A0 (FsRtlpOplockKeysEqual.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402B9194 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpOplockKeysEqual @ 0x1403CE290 (FsRtlpOplockKeysEqual.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)
@@ -69,8 +69,8 @@ NTSTATUS __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)
     v27 = 4LL;
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     EventDescriptor.Keyword = 0LL;
-    UserData.Size = *(unsigned __int16 *)off_140E06C38;
-    v21 = (__int16 *)byte_140043CDB;
+    UserData.Size = (unsigned __int16)*off_140E06C38;
+    v21 = word_140043F12;
     UserData.Reserved = 2;
     v22 = 65;
     v23 = 1;
@@ -160,8 +160,8 @@ LABEL_4:
     v33 = 8LL;
     v35 = 4LL;
     *(_DWORD *)&v19.Id = 184549376;
-    UserData.Size = *(unsigned __int16 *)off_140E06C38;
-    v21 = &word_1400439AE;
+    UserData.Size = (unsigned __int16)*off_140E06C38;
+    v21 = &word_140043DAE;
     UserData.Reserved = 2;
     v22 = 146;
     v23 = 1;

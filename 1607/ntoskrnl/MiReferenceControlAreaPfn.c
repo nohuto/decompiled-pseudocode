@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReferenceControlAreaPfn @ 0x1400236E4
+ * XREFs of MiReferenceControlAreaPfn @ 0x140023264
  * Callers:
- *     MiFinishMdlForMappedFileFault @ 0x1400232A0 (MiFinishMdlForMappedFileFault.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MiSectionCreated @ 0x1400FD2C8 (MiSectionCreated.c)
- *     MiInitializeImageProtos @ 0x1400FD83C (MiInitializeImageProtos.c)
- *     MiInitializeFileOnlyPfn @ 0x1401ED8E4 (MiInitializeFileOnlyPfn.c)
+ *     MiFinishMdlForMappedFileFault @ 0x140022E20 (MiFinishMdlForMappedFileFault.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MiSectionCreated @ 0x1400FB048 (MiSectionCreated.c)
+ *     MiInitializeImageProtos @ 0x1400FB5BC (MiInitializeImageProtos.c)
+ *     MiInitializeFileOnlyPfn @ 0x1401ED710 (MiInitializeFileOnlyPfn.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiReferenceControlAreaPfn(__int64 a1, __int64 a2, unsigned int a3)

@@ -20,8 +20,8 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
   __int64 v9; // rdi
   KIRQL CurrentIrql; // r14
   volatile signed __int32 *j; // r8
-  struct _SLIST_ENTRY **v12; // r14
-  struct _SLIST_ENTRY *v13; // rbx
+  _SLIST_ENTRY **v12; // r14
+  _SLIST_ENTRY *v13; // rbx
   __int128 v14; // [rsp+20h] [rbp-68h] BYREF
   __int128 i; // [rsp+30h] [rbp-58h]
 
@@ -51,7 +51,7 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
       KeReleaseSpinLock((PKSPIN_LOCK)v8 + 2, CurrentIrql);
       if ( (_DWORD)v9 )
       {
-        v12 = (struct _SLIST_ENTRY **)&v14;
+        v12 = (_SLIST_ENTRY **)&v14;
         do
         {
           v13 = *v12;

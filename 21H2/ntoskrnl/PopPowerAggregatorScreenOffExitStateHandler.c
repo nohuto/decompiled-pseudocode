@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x1408EE9A0
+ * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x1408EEB00
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x1407761A8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140776368 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
- *     PdcPoPerfOverride @ 0x1408EF908 (PdcPoPerfOverride.c)
- *     PopPdcAreAllPhasesDisengaged @ 0x1408EFDD8 (PopPdcAreAllPhasesDisengaged.c)
- *     PopPdcDisengagePhases @ 0x1408F0020 (PopPdcDisengagePhases.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776208 (PopPowerAggregatorSetCurrentState.c)
+ *     PdcPoPerfOverride @ 0x1408EFA68 (PdcPoPerfOverride.c)
+ *     PopPdcAreAllPhasesDisengaged @ 0x1408EFF38 (PopPdcAreAllPhasesDisengaged.c)
+ *     PopPdcDisengagePhases @ 0x1408F0180 (PopPdcDisengagePhases.c)
  */
 
 __int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)

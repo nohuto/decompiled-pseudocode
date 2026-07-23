@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipBuildTraceDeviceList @ 0x14009D2C4
+ * XREFs of WmipBuildTraceDeviceList @ 0x14009CAC4
  * Callers:
- *     WmiTraceRundownNotify @ 0x1404C0B3C (WmiTraceRundownNotify.c)
- *     WmiSetNetworkNotify @ 0x14069EF1C (WmiSetNetworkNotify.c)
+ *     WmiTraceRundownNotify @ 0x1404AC86C (WmiTraceRundownNotify.c)
+ *     WmiSetNetworkNotify @ 0x14069F054 (WmiSetNetworkNotify.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     WmipFreeTraceDeviceList @ 0x1404C0BE8 (WmipFreeTraceDeviceList.c)
+ *     WmipFreeTraceDeviceList @ 0x1404AC918 (WmipFreeTraceDeviceList.c)
  */
 
 __int64 __fastcall WmipBuildTraceDeviceList(int a1, _QWORD *a2, unsigned int *a3)

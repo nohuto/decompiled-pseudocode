@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLogUnexpectedCodepath @ 0x1405EFCD0
+ * XREFs of RtlLogUnexpectedCodepath @ 0x1405ED2B0
  * Callers:
  *     <none>
  * Callees:
- *     UcOnUnexpectedCodePath @ 0x14069466C (UcOnUnexpectedCodePath.c)
+ *     UcOnUnexpectedCodePath @ 0x14069573C (UcOnUnexpectedCodePath.c)
  */
 
 __int64 RtlLogUnexpectedCodepath()

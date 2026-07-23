@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIommuInitDiscard @ 0x140A39AE8
+ * XREFs of HalpIommuInitDiscard @ 0x140A3AAE8
  * Callers:
- *     HalpIommuInitSystem @ 0x14099B9D0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x14099C9D0 (HalpIommuInitSystem.c)
  * Callees:
- *     HalpIommuRegisterBuiltinPlugins @ 0x1403A94B8 (HalpIommuRegisterBuiltinPlugins.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x1405BEF70 (HviGetHardwareFeatures.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x1403AA248 (HalpIommuRegisterBuiltinPlugins.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x1405BF1A0 (HviGetHardwareFeatures.c)
  */
 
 __int64 __fastcall HalpIommuInitDiscard(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -23,11 +23,11 @@ __int64 __fastcall HalpIommuInitDiscard(__int64 a1, __int64 a2, __int64 a3, __in
   HalpIommuDeviceCreatedListPushLock = 0LL;
   v5 = HalpHvCpuManager == 0;
   v6 = (_QWORD *)HalIommuDispatch;
-  qword_140C48CE8 = (__int64)&HalpIommuParaVirtDeviceCache;
+  qword_140C48D28 = (__int64)&HalpIommuParaVirtDeviceCache;
   HalpIommuParaVirtDeviceCache = (__int64)&HalpIommuParaVirtDeviceCache;
-  qword_140C49E18 = (__int64)&HalpIommuDeviceCreatedList;
+  qword_140C49E58 = (__int64)&HalpIommuDeviceCreatedList;
   HalpIommuDeviceCreatedList = (__int64)&HalpIommuDeviceCreatedList;
-  qword_140C49E68 = (__int64)&HalpRidAliasList;
+  qword_140C49EA8 = (__int64)&HalpRidAliasList;
   HalpRidAliasList = (__int64)&HalpRidAliasList;
   *(_QWORD *)(HalIommuDispatch + 8) = IommuGetConfiguration;
   v6[2] = IommuGetLibraryContext;

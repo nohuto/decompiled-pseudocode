@@ -1,12 +1,12 @@
 /*
- * XREFs of SeTokenFromAccessInformation @ 0x1402CEAF0
+ * XREFs of SeTokenFromAccessInformation @ 0x14024CFF0
  * Callers:
  *     <none>
  * Callees:
- *     SepTokenFromAccessInformation @ 0x1402665D4 (SepTokenFromAccessInformation.c)
+ *     SepTokenFromAccessInformation @ 0x140254574 (SepTokenFromAccessInformation.c)
  */
 
-__int64 __fastcall SeTokenFromAccessInformation(unsigned int **a1, __int64 a2, unsigned int a3, _DWORD *a4)
+__int64 __fastcall SeTokenFromAccessInformation(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   if ( a3 < 0x498 )
   {
@@ -15,7 +15,7 @@ __int64 __fastcall SeTokenFromAccessInformation(unsigned int **a1, __int64 a2, u
   }
   else
   {
-    SepTokenFromAccessInformation(a1, a2);
+    SepTokenFromAccessInformation();
     return 0LL;
   }
 }

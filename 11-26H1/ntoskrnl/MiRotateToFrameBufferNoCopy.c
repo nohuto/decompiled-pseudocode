@@ -1,20 +1,20 @@
 /*
- * XREFs of MiRotateToFrameBufferNoCopy @ 0x140AEC50C
+ * XREFs of MiRotateToFrameBufferNoCopy @ 0x140AEF51C
  * Callers:
- *     MmRotatePhysicalView @ 0x140AEC270 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x140AEF280 (MmRotatePhysicalView.c)
  * Callees:
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F09B0 (MiLegitimatePageForDriversToMap.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14036672C (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiIsPfn @ 0x14042D9E0 (MiIsPfn.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiSanitizePage @ 0x1404A096C (MiSanitizePage.c)
- *     MiObtainRotateProtectionRanges @ 0x1404D7300 (MiObtainRotateProtectionRanges.c)
- *     MiDeleteRotateAndStopFaults @ 0x1404DED80 (MiDeleteRotateAndStopFaults.c)
- *     MiGetVadCacheAttribute @ 0x1404E25CC (MiGetVadCacheAttribute.c)
- *     MiRotateComplete @ 0x1404E2824 (MiRotateComplete.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402D2A30 (MiLegitimatePageForDriversToMap.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1403684CC (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiIsPfn @ 0x14041A8F0 (MiIsPfn.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiSanitizePage @ 0x14049A4BC (MiSanitizePage.c)
+ *     MiObtainRotateProtectionRanges @ 0x1404D0AD0 (MiObtainRotateProtectionRanges.c)
+ *     MiDeleteRotateAndStopFaults @ 0x1404D8460 (MiDeleteRotateAndStopFaults.c)
+ *     MiGetVadCacheAttribute @ 0x1404DBCAC (MiGetVadCacheAttribute.c)
+ *     MiRotateComplete @ 0x1404DBF04 (MiRotateComplete.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiRotateToFrameBufferNoCopy(ULONG_PTR a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)

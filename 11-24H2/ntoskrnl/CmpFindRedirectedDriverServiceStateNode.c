@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpFindRedirectedDriverServiceStateNode @ 0x140C4B990
+ * XREFs of CmpFindRedirectedDriverServiceStateNode @ 0x140C4DB2C
  * Callers:
- *     CmpFindDrivers @ 0x140C4B4CC (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140C4D668 (CmpFindDrivers.c)
  * Callees:
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpGetKnownHivePathNode @ 0x140C4BD6C (CmpGetKnownHivePathNode.c)
- *     CmpGetStateSepKeysRedirectionPathValue @ 0x140C4BF4C (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpGetKnownHivePathNode @ 0x140C4DF08 (CmpGetKnownHivePathNode.c)
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140C4E0E8 (CmpGetStateSepKeysRedirectionPathValue.c)
  */
 
 char __fastcall CmpFindRedirectedDriverServiceStateNode(

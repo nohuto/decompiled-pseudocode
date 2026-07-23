@@ -1,22 +1,22 @@
 /*
- * XREFs of ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x140395420
+ * XREFs of ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1403971A0
  * Callers:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PopFxIdleComponent @ 0x140395020 (PopFxIdleComponent.c)
- *     KeDisconnectInterrupt @ 0x140423CA0 (KeDisconnectInterrupt.c)
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
- *     PpmTryAcquireLock @ 0x1404C8FF4 (PpmTryAcquireLock.c)
- *     MiDemoteSlabEntries @ 0x140506A84 (MiDemoteSlabEntries.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PopFxIdleComponent @ 0x140396DA0 (PopFxIdleComponent.c)
+ *     KeDisconnectInterrupt @ 0x140430D90 (KeDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
+ *     PpmTryAcquireLock @ 0x1404C2A18 (PpmTryAcquireLock.c)
+ *     MiDemoteSlabEntries @ 0x140500334 (MiDemoteSlabEntries.c)
  * Callees:
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KiSetSystemPriorityThread(ULONG_PTR BugCheckParameter1, int a2)

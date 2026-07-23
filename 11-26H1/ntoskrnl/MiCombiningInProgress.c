@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCombiningInProgress @ 0x1407047F0
+ * XREFs of MiCombiningInProgress @ 0x1407094C0
  * Callers:
- *     MiCombineIdenticalPages @ 0x140B49E94 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x140B4BC24 (MiCombineIdenticalPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiCombiningInProgress(__int64 *a1, _QWORD *a2, int a3)
@@ -27,15 +27,15 @@ void __fastcall MiCombiningInProgress(__int64 *a1, _QWORD *a2, int a3)
 
   v3 = *a1;
   v7 = 0;
-  v8 = ExAcquireSpinLockExclusive(&dword_140E2EA40);
+  v8 = ExAcquireSpinLockExclusive(&dword_140E2EBC0);
   if ( a3 )
   {
     ++*((_DWORD *)a1 + 16);
-    ++dword_140E2EA44;
-    if ( !dword_140E2EA58 )
+    ++dword_140E2EBC4;
+    if ( !dword_140E2EBD8 )
     {
-      dword_140E2EA58 = 1;
-      qword_140E2EA50 = _InterlockedIncrement64(&PsNextSecurityDomain);
+      dword_140E2EBD8 = 1;
+      qword_140E2EBD0 = _InterlockedIncrement64(&PsNextSecurityDomain);
     }
     CurrentThread = KeGetCurrentThread();
     memset_0(a2, 0, 0x50uLL);
@@ -48,8 +48,8 @@ void __fastcall MiCombiningInProgress(__int64 *a1, _QWORD *a2, int a3)
     a2[1] = v10;
     *(_QWORD *)(v11 + 8) = a2;
     *v10 = a2;
-    v12 = (_QWORD *)qword_140E2EA48;
-    if ( qword_140E2EA48 )
+    v12 = (_QWORD *)qword_140E2EBC8;
+    if ( qword_140E2EBC8 )
     {
       while ( 1 )
       {
@@ -71,7 +71,7 @@ void __fastcall MiCombiningInProgress(__int64 *a1, _QWORD *a2, int a3)
         v12 = v13;
       }
     }
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E2EA48, (unsigned __int64)v12, v7, a2 + 2);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140E2EBC8, (unsigned __int64)v12, v7, a2 + 2);
   }
   else
   {
@@ -80,14 +80,14 @@ void __fastcall MiCombiningInProgress(__int64 *a1, _QWORD *a2, int a3)
       __fastfail(3u);
     *v15 = v14;
     *(_QWORD *)(v14 + 8) = v15;
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140E2EA48, (__int64)(a2 + 2));
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140E2EBC8, (__int64)(a2 + 2));
     --*((_DWORD *)a1 + 16);
-    if ( dword_140E2EA44 == 1 )
+    if ( dword_140E2EBC4 == 1 )
       MiFlushEntireTbDueToAttributeChange();
-    --dword_140E2EA44;
+    --dword_140E2EBC4;
   }
   if ( v8 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EA40);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EBC0);
   else
-    ExReleaseSpinLockExclusive(&dword_140E2EA40, v8);
+    ExReleaseSpinLockExclusive(&dword_140E2EBC0, v8);
 }

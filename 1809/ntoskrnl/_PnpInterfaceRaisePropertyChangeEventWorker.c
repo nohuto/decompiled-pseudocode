@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpInterfaceRaisePropertyChangeEventWorker @ 0x1406E5160
+ * XREFs of _PnpInterfaceRaisePropertyChangeEventWorker @ 0x1406E6400
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5AE4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E6D84 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpInterfaceRaisePropertyChangeEventWorker(
@@ -26,7 +26,7 @@ __int64 __fastcall PnpInterfaceRaisePropertyChangeEventWorker(
   v13[0] = a3;
   v14 = a5;
   a6(a1, a2, 3LL);
-  v8 = &unk_14034F480;
+  v8 = &unk_140350480;
   v9 = 2LL;
   do
   {

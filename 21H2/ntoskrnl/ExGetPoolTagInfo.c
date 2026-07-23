@@ -1,12 +1,12 @@
 /*
- * XREFs of ExGetPoolTagInfo @ 0x1406DD4D8
+ * XREFs of ExGetPoolTagInfo @ 0x1406B47B8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     EtwpPoolRunDown @ 0x14093E300 (EtwpPoolRunDown.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x14093E4D0 (EtwpPoolRunDown.c)
  * Callees:
- *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeGenericCallDpc @ 0x14029E250 (KeGenericCallDpc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetPoolTagInfo(_DWORD *a1, unsigned int a2, int *a3)

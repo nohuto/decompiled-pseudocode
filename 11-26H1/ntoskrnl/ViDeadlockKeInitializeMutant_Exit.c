@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockKeInitializeMutant_Exit @ 0x140C379A0
+ * XREFs of ViDeadlockKeInitializeMutant_Exit @ 0x140C3D9B0
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockInitializeResource @ 0x140C36320 (VfDeadlockInitializeResource.c)
- *     VfDeadlockAcquireResource @ 0x140C47314 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockInitializeResource @ 0x140C3C330 (VfDeadlockInitializeResource.c)
+ *     VfDeadlockAcquireResource @ 0x140C4D324 (VfDeadlockAcquireResource.c)
  */
 
 __int64 __fastcall ViDeadlockKeInitializeMutant_Exit(__int64 a1, __int64 a2)

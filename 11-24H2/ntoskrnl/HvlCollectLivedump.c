@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlCollectLivedump @ 0x14058A1C0
+ * XREFs of HvlCollectLivedump @ 0x1405874B0
  * Callers:
- *     IopLiveDumpCollectPages @ 0x14059A264 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405971E8 (IopLiveDumpCollectPages.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     HvlpSnapshotCrashArea @ 0x14058AE10 (HvlpSnapshotCrashArea.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     HvlpSnapshotCrashArea @ 0x140588100 (HvlpSnapshotCrashArea.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
@@ -39,7 +39,7 @@ __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int6
   {
     memset_0(v19, 0, 0x68uLL);
     v20 = (-(__int64)((a1 & 2) != 0) & 0xFFFFFFFFFFFFFFEBuLL) + 24;
-    result = VslpEnterIumSecureMode(2u, 253LL, 0, (__int64)v19);
+    result = VslpEnterIumSecureMode(2u, 0xFDu, 0, (__int64)v19);
     if ( (int)result >= 0 )
     {
       *(_OWORD *)(a4 + 16) = HvlSkCrashdumpGuid;
@@ -68,7 +68,7 @@ __int64 __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int6
     if ( v12 >= 0 )
     {
       v13 = *(void **)(a4 + 32);
-      v14 = dword_140F8DFD8 << 12;
+      v14 = dword_140F8E1B8 << 12;
       if ( v13 == *(void **)a4 && *(_DWORD *)(a4 + 8) >= v14 )
         memmove(v13, Address, v14);
       else

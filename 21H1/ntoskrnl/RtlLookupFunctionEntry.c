@@ -15,19 +15,22 @@
  *     RtlpConvertFunctionEntry @ 0x14032E9A0 (RtlpConvertFunctionEntry.c)
  */
 
-unsigned int *__fastcall RtlLookupFunctionEntry(unsigned __int64 a1, _QWORD *a2, unsigned int *a3)
+PRUNTIME_FUNCTION __cdecl RtlLookupFunctionEntry(
+        DWORD64 ControlPc,
+        PDWORD64 ImageBase,
+        PUNWIND_HISTORY_TABLE HistoryTable)
 {
-  unsigned int v6; // edx
+  unsigned int GlobalHint; // edx
   unsigned int v7; // ecx
   unsigned int *v8; // r10
-  __int64 v9; // r9
-  unsigned int *result; // rax
-  unsigned int v11; // edx
-  unsigned int v12; // r9d
-  __int64 v13; // r8
-  unsigned int *v14; // rcx
-  unsigned int *v15; // rbp
-  __int64 v16; // rcx
+  unsigned __int64 v9; // r9
+  PRUNTIME_FUNCTION result; // rax
+  DWORD LocalHint; // edx
+  DWORD v12; // r9d
+  ULONG_PTR v13; // r8
+  PRUNTIME_FUNCTION FunctionEntry; // rcx
+  _IMAGE_RUNTIME_FUNCTION_ENTRY *v15; // rbp
+  __int64 Count; // rcx
   unsigned __int64 v17; // rdx
   unsigned __int64 v18; // rcx
   unsigned int *v19; // rsi
@@ -36,63 +39,63 @@ unsigned int *__fastcall RtlLookupFunctionEntry(unsigned __int64 a1, _QWORD *a2,
   __int64 v22; // rdx
   unsigned __int64 v23; // rbx
   unsigned __int64 v24; // r11
-  unsigned int *v25; // r10
+  _IMAGE_RUNTIME_FUNCTION_ENTRY *v25; // r10
   int v26; // r8d
   int i; // r9d
   int v28; // eax
-  __int64 v29; // rdx
+  unsigned __int64 v29; // rdx
   __int128 v30; // [rsp+20h] [rbp-28h] BYREF
   __int64 v31; // [rsp+30h] [rbp-18h]
 
-  if ( !a3 )
+  if ( !HistoryTable )
     goto LABEL_29;
-  if ( *((_BYTE *)a3 + 7) )
+  if ( HistoryTable->Once )
   {
-    *((_BYTE *)a3 + 7) = 0;
-    result = *(unsigned int **)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_140E01945 + 8];
+    HistoryTable->Once = 0;
+    result = *(PRUNTIME_FUNCTION *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_140E01945 + 8];
     if ( result )
     {
       v29 = *(_QWORD *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_140E01945 + 6];
-      if ( a1 >= v29 + (unsigned __int64)*result && a1 < v29 + (unsigned __int64)result[1] )
+      if ( ControlPc >= v29 + result->BeginAddress && ControlPc < v29 + result->EndAddress )
       {
-        *a2 = v29;
+        *ImageBase = v29;
         return result;
       }
     }
   }
-  if ( !*((_BYTE *)a3 + 6) )
+  if ( !HistoryTable->Search )
     goto LABEL_29;
-  if ( a1 >= qword_140E01950
-    || a1 < qword_140E01948
-    || (v6 = *((unsigned __int8 *)a3 + 5), v7 = v6, v6 >= RtlpUnwindHistoryTable[0]) )
+  if ( ControlPc >= qword_140E01950
+    || ControlPc < qword_140E01948
+    || (GlobalHint = HistoryTable->GlobalHint, v7 = GlobalHint, GlobalHint >= RtlpUnwindHistoryTable[0]) )
   {
 LABEL_11:
-    if ( a1 >= *((_QWORD *)a3 + 1) && a1 < *((_QWORD *)a3 + 2) )
+    if ( ControlPc >= HistoryTable->LowAddress && ControlPc < HistoryTable->HighAddress )
     {
-      v11 = *((unsigned __int8 *)a3 + 4);
-      v12 = v11;
-      if ( v11 < *a3 )
+      LocalHint = HistoryTable->LocalHint;
+      v12 = LocalHint;
+      if ( LocalHint < HistoryTable->Count )
       {
         while ( 1 )
         {
-          v13 = *(_QWORD *)&a3[4 * v12 + 6];
-          v14 = *(unsigned int **)&a3[4 * v12 + 8];
-          if ( a1 >= v13 + (unsigned __int64)*v14 && a1 < v13 + (unsigned __int64)v14[1] )
+          v13 = HistoryTable->Entry[v12].ImageBase;
+          FunctionEntry = HistoryTable->Entry[v12].FunctionEntry;
+          if ( ControlPc >= v13 + FunctionEntry->BeginAddress && ControlPc < v13 + FunctionEntry->EndAddress )
             break;
-          if ( ++v12 >= *a3 )
+          if ( ++v12 >= HistoryTable->Count )
             goto LABEL_29;
         }
-        *((_BYTE *)a3 + 4) = v11 + 1;
-        *a2 = v13;
-        return (unsigned int *)RtlpConvertFunctionEntry(v14, v13);
+        HistoryTable->LocalHint = LocalHint + 1;
+        *ImageBase = v13;
+        return (PRUNTIME_FUNCTION)RtlpConvertFunctionEntry(FunctionEntry, v13);
       }
     }
 LABEL_29:
     v31 = 0LL;
     v30 = 0LL;
-    if ( a1 < *(&xmmword_140E00020 + 1) || a1 >= *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
+    if ( ControlPc < *(&xmmword_140E00020 + 1) || ControlPc >= *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
     {
-      v19 = (unsigned int *)RtlpxLookupFunctionTable(a1, (__int64)&v30);
+      v19 = (unsigned int *)RtlpxLookupFunctionTable(ControlPc, (__int64)&v30);
     }
     else
     {
@@ -105,72 +108,72 @@ LABEL_29:
     {
       v20 = *((_QWORD *)&v30 + 1);
       v21 = HIDWORD(v31) * (unsigned __int128)0xAAAAAAAAAAAAAAABuLL;
-      *a2 = *((_QWORD *)&v30 + 1);
+      *ImageBase = *((_QWORD *)&v30 + 1);
       v22 = *((_QWORD *)&v21 + 1) >> 3;
       if ( (_DWORD)v22 )
       {
-        v23 = a1 - v20;
+        v23 = ControlPc - v20;
         v24 = v19[3 * (unsigned int)(v22 - 1)];
-        v25 = &v19[3 * (unsigned int)(v22 - 1)];
+        v25 = (_IMAGE_RUNTIME_FUNCTION_ENTRY *)&v19[3 * (unsigned int)(v22 - 1)];
         if ( v23 < v24 )
         {
           v26 = v22 - 2;
-          for ( i = 0; v26 >= i; LODWORD(v24) = *v25 )
+          for ( i = 0; v26 >= i; LODWORD(v24) = v25->BeginAddress )
           {
             v28 = (i + v26) >> 1;
-            v25 = &v19[3 * v28];
-            if ( v23 < *v25 )
+            v25 = (_IMAGE_RUNTIME_FUNCTION_ENTRY *)&v19[3 * v28];
+            if ( v23 < v25->BeginAddress )
             {
               v26 = v28 - 1;
             }
             else
             {
-              LODWORD(v24) = *v25;
-              if ( v23 < v25[3] )
+              LODWORD(v24) = v25->BeginAddress;
+              if ( v23 < v25[1].BeginAddress )
                 break;
               i = v28 + 1;
             }
           }
         }
-        if ( v23 >= (unsigned int)v24 && v23 < v25[1] )
+        if ( v23 >= (unsigned int)v24 && v23 < v25->EndAddress )
           v15 = v25;
       }
       if ( v15 )
       {
-        if ( a3 )
+        if ( HistoryTable )
         {
-          if ( !*((_BYTE *)a3 + 6) )
+          if ( !HistoryTable->Search )
           {
-            v16 = *a3;
-            if ( (unsigned int)v16 < 0xC )
+            Count = HistoryTable->Count;
+            if ( (unsigned int)Count < 0xC )
             {
-              *a3 = v16 + 1;
-              *(_QWORD *)&a3[4 * v16 + 6] = *a2;
-              *(_QWORD *)&a3[4 * (unsigned int)v16 + 8] = v15;
-              v17 = *a2 + *v15;
-              v18 = *a2 + v15[1];
-              if ( v17 < *((_QWORD *)a3 + 1) )
-                *((_QWORD *)a3 + 1) = v17;
-              if ( v18 > *((_QWORD *)a3 + 2) )
-                *((_QWORD *)a3 + 2) = v18;
+              HistoryTable->Count = Count + 1;
+              HistoryTable->Entry[Count].ImageBase = *ImageBase;
+              HistoryTable->Entry[(unsigned int)Count].FunctionEntry = v15;
+              v17 = *ImageBase + v15->BeginAddress;
+              v18 = *ImageBase + v15->EndAddress;
+              if ( v17 < HistoryTable->LowAddress )
+                HistoryTable->LowAddress = v17;
+              if ( v18 > HistoryTable->HighAddress )
+                HistoryTable->HighAddress = v18;
             }
           }
         }
       }
     }
-    return (unsigned int *)RtlpConvertFunctionEntry(v15, *a2);
+    return (PRUNTIME_FUNCTION)RtlpConvertFunctionEntry(v15, *ImageBase);
   }
   while ( 1 )
   {
     v8 = *(unsigned int **)&RtlpUnwindHistoryTable[4 * v7 + 8];
     v9 = *(_QWORD *)&RtlpUnwindHistoryTable[4 * v7 + 6];
-    if ( a1 >= v9 + (unsigned __int64)*v8 && a1 < v9 + (unsigned __int64)v8[1] )
+    if ( ControlPc >= v9 + *v8 && ControlPc < v9 + v8[1] )
       break;
     if ( ++v7 >= RtlpUnwindHistoryTable[0] )
       goto LABEL_11;
   }
-  result = *(unsigned int **)&RtlpUnwindHistoryTable[4 * v7 + 8];
-  *((_BYTE *)a3 + 5) = v6 + 1;
-  *a2 = v9;
+  result = *(PRUNTIME_FUNCTION *)&RtlpUnwindHistoryTable[4 * v7 + 8];
+  HistoryTable->GlobalHint = GlobalHint + 1;
+  *ImageBase = v9;
   return result;
 }

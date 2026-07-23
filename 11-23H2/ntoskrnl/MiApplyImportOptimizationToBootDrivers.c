@@ -3,11 +3,11 @@
  * Callers:
  *     MiApplyBootLoadedDriversFixups @ 0x140B45CC4 (MiApplyBootLoadedDriversFixups.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     RtlUpdateImportRelocationsInImage @ 0x140375C24 (RtlUpdateImportRelocationsInImage.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x140375DC4 (RtlUpdateImportRelocationsInImage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
   __int64 *v2; // rsi
   __int64 *v3; // rbx
   unsigned int (*v4)(void); // r14
-  unsigned __int64 v5; // rdi
+  char *v5; // rdi
   __int64 v6; // rcx
   int updated; // eax
   _QWORD v9[14]; // [rsp+40h] [rbp-98h] BYREF
@@ -29,7 +29,7 @@ __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
     v4 = (unsigned int (*)(void))((unsigned __int64)MiIsTargetFullyRetpolined & -(__int64)((KiSpeculationFeatures & 0x20000000000LL) != 0));
     while ( v3 != v2 )
     {
-      v5 = v3[6];
+      v5 = (char *)v3[6];
       if ( v5 != PsNtosImageBase
         && v5 != PsHalImageBase
         && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3[6])
@@ -49,7 +49,7 @@ __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
         {
           updated = RtlUpdateImportRelocationsInImage(
                       v5,
-                      v5,
+                      (__int64)v5,
                       *((_DWORD *)v3 + 16),
                       v4,
                       v6,

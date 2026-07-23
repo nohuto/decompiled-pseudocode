@@ -1,13 +1,13 @@
 /*
- * XREFs of PsDereferenceVsmEnclave @ 0x1408A5CC4
+ * XREFs of PsDereferenceVsmEnclave @ 0x1408A5F14
  * Callers:
- *     MiCanDeleteEnclave @ 0x140647148 (MiCanDeleteEnclave.c)
- *     PsCallEnclave @ 0x1409B6800 (PsCallEnclave.c)
- *     PsDeleteVsmEnclave @ 0x1409B7408 (PsDeleteVsmEnclave.c)
- *     MiInitializeVsmEnclave @ 0x140A3DFA0 (MiInitializeVsmEnclave.c)
- *     MiTerminateEnclave @ 0x140A3E8F0 (MiTerminateEnclave.c)
+ *     MiCanDeleteEnclave @ 0x140647698 (MiCanDeleteEnclave.c)
+ *     PsCallEnclave @ 0x1409B6A00 (PsCallEnclave.c)
+ *     PsDeleteVsmEnclave @ 0x1409B7608 (PsDeleteVsmEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x140A3E250 (MiInitializeVsmEnclave.c)
+ *     MiTerminateEnclave @ 0x140A3EBA0 (MiTerminateEnclave.c)
  * Callees:
- *     VslCloseSecureHandle @ 0x14054D8D0 (VslCloseSecureHandle.c)
+ *     VslCloseSecureHandle @ 0x14054DF90 (VslCloseSecureHandle.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

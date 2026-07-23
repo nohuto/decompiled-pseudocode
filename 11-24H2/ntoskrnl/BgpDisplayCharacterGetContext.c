@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpDisplayCharacterGetContext @ 0x140BB0860
+ * XREFs of BgpDisplayCharacterGetContext @ 0x140BB2860
  * Callers:
- *     BgpConsoleInitialize @ 0x140BB10B0 (BgpConsoleInitialize.c)
- *     BgpBcInitializeCriticalMode @ 0x140C70D44 (BgpBcInitializeCriticalMode.c)
+ *     BgpConsoleInitialize @ 0x140BB30B0 (BgpConsoleInitialize.c)
+ *     BgpBcInitializeCriticalMode @ 0x140C72EA4 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14037DE10 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140467320 (BgpFwAllocateMemory.c)
- *     BgpTxtCreateRegion @ 0x140BB2908 (BgpTxtCreateRegion.c)
- *     BgpTxtDestroyRegion @ 0x140BB2B5C (BgpTxtDestroyRegion.c)
+ *     BgpFwFreeMemory @ 0x14045EC7C (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14045ED38 (BgpFwAllocateMemory.c)
+ *     BgpTxtCreateRegion @ 0x140BB4908 (BgpTxtCreateRegion.c)
+ *     BgpTxtDestroyRegion @ 0x140BB4B5C (BgpTxtDestroyRegion.c)
  */
 
 __int64 __fastcall BgpDisplayCharacterGetContext(__int64 a1, int *a2, char a3)

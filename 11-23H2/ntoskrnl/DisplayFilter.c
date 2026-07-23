@@ -1,9 +1,9 @@
 /*
- * XREFs of DisplayFilter @ 0x1404FDCE0
+ * XREFs of DisplayFilter @ 0x1404FE230
  * Callers:
  *     <none>
  * Callees:
- *     DisplayBootBitmap @ 0x1403AA048 (DisplayBootBitmap.c)
+ *     DisplayBootBitmap @ 0x1403AA228 (DisplayBootBitmap.c)
  */
 
 int __fastcall DisplayFilter(unsigned __int8 **a1)
@@ -25,8 +25,8 @@ LABEL_6:
   }
   else
   {
-    v2 = &qword_14003BB80;
-    *a1 = (unsigned __int8 *)&qword_14003BB80;
+    v2 = &qword_14003BC70;
+    *a1 = (unsigned __int8 *)&qword_14003BC70;
   }
   return (int)v2;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEstimateIdleDuration @ 0x140180480
+ * XREFs of PpmEstimateIdleDuration @ 0x1401805C0
  * Callers:
- *     PpmIdleSelectStates @ 0x140180090 (PpmIdleSelectStates.c)
- *     PpmComputeIdleDurationHint @ 0x1401803DC (PpmComputeIdleDurationHint.c)
+ *     PpmIdleSelectStates @ 0x1401801D0 (PpmIdleSelectStates.c)
+ *     PpmComputeIdleDurationHint @ 0x14018051C (PpmComputeIdleDurationHint.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     KeEstimateClockTickDuration @ 0x1401805F0 (KeEstimateClockTickDuration.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PpmGetIdleConstrainedMask @ 0x1402D3F3C (PpmGetIdleConstrainedMask.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     KeEstimateClockTickDuration @ 0x140180730 (KeEstimateClockTickDuration.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PpmGetIdleConstrainedMask @ 0x1402D412C (PpmGetIdleConstrainedMask.c)
  */
 
 unsigned __int64 *__fastcall PpmEstimateIdleDuration(

@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpSwitchBuffer @ 0x14024CDA0
+ * XREFs of EtwpSwitchBuffer @ 0x14027D3B0
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x140327DF0 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0980 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     EtwpAllocateFreeBuffers @ 0x14024C2BC (EtwpAllocateFreeBuffers.c)
- *     EtwpIsSingleStreamLogger @ 0x14024D038 (EtwpIsSingleStreamLogger.c)
- *     EtwpEnqueueOverflowBuffer @ 0x14024D048 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpRequestFlushTimer @ 0x14024D0B4 (EtwpRequestFlushTimer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x14024D1E0 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpBuffersFlushRequired @ 0x14024D3B4 (EtwpBuffersFlushRequired.c)
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     EtwpGetLoggerTimeStamp @ 0x14034F8C0 (EtwpGetLoggerTimeStamp.c)
- *     EtwpDequeueFreeBuffer @ 0x1404EF438 (EtwpDequeueFreeBuffer.c)
- *     EtwpCompressionDpc @ 0x140651160 (EtwpCompressionDpc.c)
- *     EtwpReenableCompression @ 0x14065159C (EtwpReenableCompression.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     EtwpAllocateFreeBuffers @ 0x14027C8CC (EtwpAllocateFreeBuffers.c)
+ *     EtwpIsSingleStreamLogger @ 0x14027D648 (EtwpIsSingleStreamLogger.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x14027D658 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpRequestFlushTimer @ 0x14027D6C4 (EtwpRequestFlushTimer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x14027D7F0 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpBuffersFlushRequired @ 0x14027D9C4 (EtwpBuffersFlushRequired.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14036DDA0 (EtwpGetLoggerTimeStamp.c)
+ *     EtwpDequeueFreeBuffer @ 0x1404EC950 (EtwpDequeueFreeBuffer.c)
+ *     EtwpCompressionDpc @ 0x14064F860 (EtwpCompressionDpc.c)
+ *     EtwpReenableCompression @ 0x14064FC9C (EtwpReenableCompression.c)
  */
 
 __int64 __fastcall EtwpSwitchBuffer(ULONG_PTR a1, __int64 a2, signed __int64 *a3, __int16 a4, __int16 a5)

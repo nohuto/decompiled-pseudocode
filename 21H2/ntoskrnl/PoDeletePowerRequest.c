@@ -1,10 +1,10 @@
 /*
- * XREFs of PoDeletePowerRequest @ 0x14067D5C0
+ * XREFs of PoDeletePowerRequest @ 0x140671380
  * Callers:
- *     PoUnregisterSystemState @ 0x14056F040 (PoUnregisterSystemState.c)
+ *     PoUnregisterSystemState @ 0x14056F280 (PoUnregisterSystemState.c)
  * Callees:
- *     PopPowerRequestCleanUp @ 0x14028278C (PopPowerRequestCleanUp.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PopPowerRequestCleanUp @ 0x140270A38 (PopPowerRequestCleanUp.c)
  */
 
 void __stdcall PoDeletePowerRequest(PVOID PowerRequest)

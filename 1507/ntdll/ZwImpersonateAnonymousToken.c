@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwImpersonateAnonymousToken()
+NTSTATUS __cdecl ZwImpersonateAnonymousToken(HANDLE ThreadHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 237LL;
+  result = 237;
   __asm { syscall; Low latency system call }
   return result;
 }

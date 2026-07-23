@@ -13,44 +13,36 @@
  *     RtlpTpETWCallbackStop @ 0x1801246BC (RtlpTpETWCallbackStop.c)
  */
 
-__int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall TppIopExecuteCallback(_QWORD *Instance, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // r13d
   __int64 v6; // rbx
-  __int64 v7; // r15
+  void *v7; // r15
   int v8; // esi
   signed __int32 v9; // ecx
   bool v10; // zf
   signed __int32 v11; // eax
   int v12; // edi
-  __int64 v13; // rdx
+  __int64 v13; // rdi
   __int64 v14; // rcx
   __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rdi
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r10
-  __int64 v21; // rdx
+  __int64 v16; // r10
+  __int64 v17; // rdx
   _QWORD *ThreadPoolData; // rcx
-  unsigned int v23; // eax
-  __int64 v24; // r9
-  _QWORD *v25; // rsi
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 result; // rax
-  _QWORD v31[8]; // [rsp+38h] [rbp-40h] BYREF
+  unsigned int v19; // eax
+  __int64 v20; // r9
+  _QWORD *v21; // rsi
+  struct _PEB *v22; // rax
+  PVOID Cookie; // [rsp+38h] [rbp-40h] BYREF
 
   v4 = a2;
-  v31[0] = 0LL;
+  Cookie = 0LL;
   v6 = a2 - 200;
-  v7 = *(_QWORD *)(a2 - 200 + 136);
+  v7 = *(void **)(a2 - 200 + 136);
   if ( v7 )
   {
     v8 = 1;
-    LdrLockLoaderLock(0LL, 0LL, v31);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   }
   else
   {
@@ -73,10 +65,10 @@ __int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __i
 LABEL_7:
   if ( v8 && v12 )
   {
-    if ( (int)LdrAddRefDll(0LL, v7) >= 0 )
+    if ( LdrAddRefDll(0, v7) >= 0 )
     {
-      *(_QWORD *)(a1 + 168) = v7;
-      *(_DWORD *)(a1 + 144) |= 0x100u;
+      Instance[21] = v7;
+      *((_DWORD *)Instance + 36) |= 0x100u;
     }
     else
     {
@@ -84,74 +76,79 @@ LABEL_7:
     }
   }
   if ( v8 )
-    LdrUnlockLoaderLock(0LL, v31[0]);
+    LdrUnlockLoaderLock(0, Cookie);
   if ( v12 )
   {
-    TppCleanupGroupMemberCallbackProlog(a1, v6);
-    v17 = 2147353478LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v14, v13, v15, v16) )
-      v18 = (__int64)NtCurrentPeb()->SharedData + 556;
+    TppCleanupGroupMemberCallbackProlog(Instance, v6);
+    v13 = 2147353478LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v14 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v18 = 2147353478LL;
-    if ( *(_BYTE *)v18 )
+      v14 = 2147353478LL;
+    if ( *(_BYTE *)v14 )
       RtlpTpETWCallbackStart(
         *(_QWORD *)(v6 + 144),
         v4,
         *(_QWORD *)(v6 + 80),
         *(_QWORD *)(v6 + 88),
         *(_QWORD *)(v6 + 104));
-    v19 = *(_QWORD *)(v6 + 104);
-    v20 = *(_QWORD *)(v6 + 88);
-    v21 = *(_QWORD *)(v6 + 80);
+    v15 = *(_QWORD *)(v6 + 104);
+    v16 = *(_QWORD *)(v6 + 88);
+    v17 = *(_QWORD *)(v6 + 80);
     ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
     if ( ThreadPoolData )
     {
       ++ThreadPoolData[2];
-      v23 = ((unsigned __int8)*((_DWORD *)ThreadPoolData + 3) - 1) & 1;
-      *((_DWORD *)ThreadPoolData + 3) = v23;
-      v24 = 4LL * v23;
-      v25 = &ThreadPoolData[v24 + 4];
-      *v25 = v21;
-      ThreadPoolData[v24 + 5] = v20;
-      ThreadPoolData[v24 + 6] = v19;
-      ThreadPoolData[v24 + 7] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
-      v21 = *(_QWORD *)(v6 + 80);
+      v19 = ((unsigned __int8)*((_DWORD *)ThreadPoolData + 3) - 1) & 1;
+      *((_DWORD *)ThreadPoolData + 3) = v19;
+      v20 = 4LL * v19;
+      v21 = &ThreadPoolData[v20 + 4];
+      *v21 = v17;
+      ThreadPoolData[v20 + 5] = v16;
+      ThreadPoolData[v20 + 6] = v15;
+      ThreadPoolData[v20 + 7] = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
+      v17 = *(_QWORD *)(v6 + 80);
     }
     else
     {
-      v25 = 0LL;
+      v21 = 0LL;
     }
-    *(_QWORD *)(a1 + 88) = v21;
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(v6 + 88);
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64, __int64))(v6 + 80))(a1, *(_QWORD *)(v6 + 88), a3, a4, v6);
-    result = RtlGetCurrentServiceSessionId(v27, v26, v28, v29);
-    if ( (_DWORD)result )
+    Instance[11] = v17;
+    Instance[12] = *(_QWORD *)(v6 + 88);
+    (*(void (__fastcall **)(_QWORD *, _QWORD, __int64, __int64, __int64))(v6 + 80))(
+      Instance,
+      *(_QWORD *)(v6 + 88),
+      a3,
+      a4,
+      v6);
+    LODWORD(v22) = RtlGetCurrentServiceSessionId();
+    if ( (_DWORD)v22 )
     {
-      result = (__int64)NtCurrentPeb();
-      v17 = *(_QWORD *)(result + 144) + 556LL;
+      v22 = NtCurrentPeb();
+      v13 = (__int64)v22->SharedData + 556;
     }
-    if ( *(_BYTE *)v17 )
-      result = RtlpTpETWCallbackStop(
-                 *(_QWORD *)(v6 + 144),
-                 v4,
-                 *(_QWORD *)(v6 + 80),
-                 *(_QWORD *)(v6 + 88),
-                 *(_QWORD *)(v6 + 104));
-    if ( v25 )
+    if ( *(_BYTE *)v13 )
+      LODWORD(v22) = RtlpTpETWCallbackStop(
+                       *(_QWORD *)(v6 + 144),
+                       v4,
+                       *(_QWORD *)(v6 + 80),
+                       *(_QWORD *)(v6 + 88),
+                       *(_QWORD *)(v6 + 104));
+    if ( v21 )
     {
-      result = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0];
-      if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v25[3] )
+      v22 = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
+      if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v21[3] )
       {
-        result -= v25[3];
-        v25[3] = result;
+        v22 = (struct _PEB *)((char *)v22 - v21[3]);
+        v21[3] = v22;
       }
     }
   }
   else
   {
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v6, 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
-      return (**(__int64 (__fastcall ***)(__int64))(v6 + 8))(v6);
+    LODWORD(v22) = _InterlockedExchangeAdd((volatile signed __int32 *)v6, 0xFFFFFFFF);
+    if ( (_DWORD)v22 == 1 )
+      LODWORD(v22) = (**(__int64 (__fastcall ***)(__int64))(v6 + 8))(v6);
   }
-  return result;
+  return (int)v22;
 }

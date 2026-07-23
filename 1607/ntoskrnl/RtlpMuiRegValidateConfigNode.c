@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegValidateConfigNode @ 0x14023E914
+ * XREFs of RtlpMuiRegValidateConfigNode @ 0x14023E7F8
  * Callers:
- *     RtlpPopulateLanguageConfigList @ 0x1405605D4 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x140560B14 (RtlpPopulateLanguageConfigList.c)
  * Callees:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1406E688C (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1406E6DD0 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1406E69C4 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1406E6F08 (RtlpMuiRegGetInstalledLanguageIndex.c)
  */
 
 __int64 __fastcall RtlpMuiRegValidateConfigNode(__int64 a1, unsigned __int16 *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of BgpGxRectangleSize @ 0x1401297C4
+ * XREFs of BgpGxRectangleSize @ 0x140129D34
  * Callers:
  *     AnFwDisplayFade @ 0x14072664C (AnFwDisplayFade.c)
  *     BgpGxReservePoolRectangleSize @ 0x140727904 (BgpGxReservePoolRectangleSize.c)

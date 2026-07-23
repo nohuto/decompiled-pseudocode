@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAdjustCachedStacks @ 0x140272538
+ * XREFs of MiAdjustCachedStacks @ 0x1402604D8
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     MiDeleteCachedKernelStack @ 0x1402726DC (MiDeleteCachedKernelStack.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     MiDeleteCachedKernelStack @ 0x14026067C (MiDeleteCachedKernelStack.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 MiAdjustCachedStacks()
@@ -16,7 +16,7 @@ __int64 MiAdjustCachedStacks()
   unsigned int v3; // ebx
   __int64 v4; // r14
   __int64 v5; // r15
-  union _SLIST_HEADER *v6; // rbp
+  _SLIST_HEADER *v6; // rbp
   __int64 result; // rax
   int Alignment; // ecx
   unsigned int v9; // eax

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxIdleDevicesFromSx @ 0x14038C234
+ * XREFs of PopFxIdleDevicesFromSx @ 0x14038C384
  * Callers:
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     PoFxIdleDevice @ 0x14036FCE4 (PoFxIdleDevice.c)
  */
 
 _QWORD *PopFxIdleDevicesFromSx()
@@ -15,6 +15,9 @@ _QWORD *PopFxIdleDevicesFromSx()
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR i; // rbx
   __int64 v2; // rdi
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -31,5 +34,5 @@ _QWORD *PopFxIdleDevicesFromSx()
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v3, v4, v5);
 }

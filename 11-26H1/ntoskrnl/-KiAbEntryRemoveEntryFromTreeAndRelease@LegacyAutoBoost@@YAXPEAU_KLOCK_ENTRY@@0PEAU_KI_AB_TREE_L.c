@@ -1,15 +1,15 @@
 /*
- * XREFs of ?KiAbEntryRemoveEntryFromTreeAndRelease@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0PEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z @ 0x140450ADC
+ * XREFs of ?KiAbEntryRemoveEntryFromTreeAndRelease@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0PEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z @ 0x140448C0C
  * Callers:
- *     ?KiAbpProcessPostContextSwitch@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x14023BC20 (-KiAbpProcessPostContextSwitch@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
+ *     ?KiAbpProcessPostContextSwitch@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x14023D580 (-KiAbpProcessPostContextSwitch@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     ?KiAbReleaseLocksForEntry@LegacyAutoBoost@@YAXPEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z @ 0x140450CA0 (-KiAbReleaseLocksForEntry@LegacyAutoBoost@@YAXPEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z.c)
- *     ?KiAbReleaseTeeLockForEntry@LegacyAutoBoost@@YAXPEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z @ 0x140450CF8 (-KiAbReleaseTeeLockForEntry@LegacyAutoBoost@@YAXPEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z.c)
- *     ?KiAbTryDecrementIoWaiterCounts@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z @ 0x140450D34 (-KiAbTryDecrementIoWaiterCounts@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z.c)
- *     RtlRbReplaceNode @ 0x140450D80 (RtlRbReplaceNode.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     ?KiAbReleaseLocksForEntry@LegacyAutoBoost@@YAXPEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z @ 0x140448DD0 (-KiAbReleaseLocksForEntry@LegacyAutoBoost@@YAXPEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z.c)
+ *     ?KiAbReleaseTeeLockForEntry@LegacyAutoBoost@@YAXPEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z @ 0x140448E28 (-KiAbReleaseTeeLockForEntry@LegacyAutoBoost@@YAXPEAU_KI_AB_TREE_LOCK_HANDLE@1@@Z.c)
+ *     ?KiAbTryDecrementIoWaiterCounts@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z @ 0x140448E64 (-KiAbTryDecrementIoWaiterCounts@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z.c)
+ *     RtlRbReplaceNode @ 0x140448EB0 (RtlRbReplaceNode.c)
  */
 
 void __fastcall LegacyAutoBoost::KiAbEntryRemoveEntryFromTreeAndRelease(
@@ -18,12 +18,12 @@ void __fastcall LegacyAutoBoost::KiAbEntryRemoveEntryFromTreeAndRelease(
         struct _KLOCK_ENTRY *a3,
         struct LegacyAutoBoost::_KI_AB_TREE_LOCK_HANDLE *a4)
 {
-  __int64 *p_WaiterTree; // rcx
+  $30B4444BD3490E7581D76DDB996291EC *p_WaiterTree; // rcx
   _RTL_BALANCED_NODE *p_TreeNode; // rbp
   struct LegacyAutoBoost::_KI_AB_TREE_LOCK_HANDLE *v9; // rdx
   struct LegacyAutoBoost::_KI_AB_TREE_LOCK_HANDLE *v10; // rdx
   __int64 v11; // rax
-  __int64 v12; // rbx
+  _RTL_BALANCED_NODE *Root; // rbx
   struct LegacyAutoBoost::_KI_AB_TREE_LOCK_HANDLE *v13; // rdx
   struct _KLOCK_ENTRY *v14; // r8
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
@@ -31,23 +31,26 @@ void __fastcall LegacyAutoBoost::KiAbEntryRemoveEntryFromTreeAndRelease(
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a2 == this )
   {
-    p_WaiterTree = (__int64 *)&a2->WaiterTree;
-    if ( a2->WaiterTree.Root || (p_WaiterTree = (__int64 *)&a2->40, a2->OwnerTree.Root) )
+    p_WaiterTree = ($30B4444BD3490E7581D76DDB996291EC *)&a2->WaiterTree;
+    if ( a2->WaiterTree.Root || (p_WaiterTree = &a2->40, a2->OwnerTree.Root) )
     {
       p_TreeNode = &this->TreeNode;
       if ( p_WaiterTree )
       {
-        v12 = *p_WaiterTree;
-        RtlRbRemoveNode((__int64)p_WaiterTree, *p_WaiterTree);
-        RtlRbReplaceNode(*(_QWORD *)&a3->LockState.0, &this->TreeNode, v12);
-        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v12 + 56), &LockHandle);
+        Root = p_WaiterTree->OwnerTree.Root;
+        RtlRbRemoveNode(&p_WaiterTree->OwnerTree, p_WaiterTree->OwnerTree.Root);
+        RtlRbReplaceNode(*(_QWORD *)&a3->LockState.0, &this->TreeNode, Root);
+        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)&Root[2].Children[1], &LockHandle);
         LegacyAutoBoost::KiAbReleaseTeeLockForEntry((LegacyAutoBoost *)a3, v13);
-        *($07BAD7E6BFE160503A0B2CC15B90D4A7 *)(v12 + 24) = this->40;
-        *(_RTL_RB_TREE *)(v12 + 40) = this->WaiterTree;
-        *(_BYTE *)(v12 + 68) = *((_BYTE *)&this->BoostBitmap.2 + 4);
-        *(_DWORD *)(v12 + 68) ^= (this->BoostBitmap.WaiterCounts ^ *(_DWORD *)(v12 + 68)) & 0x7F00;
-        LegacyAutoBoost::KiAbTryDecrementIoWaiterCounts((LegacyAutoBoost *)this, (struct _KLOCK_ENTRY *)(v12 - 16), v14);
-        *(_BYTE *)(v12 - 5) |= 1u;
+        Root[1].0 = ($759577327DFD5B4689535A406FDFE094)this->40;
+        *(_RTL_RB_TREE *)&Root[1].0 = this->WaiterTree;
+        BYTE4(Root[2].ParentValue) = *((_BYTE *)&this->BoostBitmap.2 + 4);
+        HIDWORD(Root[2].ParentValue) ^= (this->BoostBitmap.WaiterCounts ^ HIDWORD(Root[2].ParentValue)) & 0x7F00;
+        LegacyAutoBoost::KiAbTryDecrementIoWaiterCounts(
+          (LegacyAutoBoost *)this,
+          (struct _KLOCK_ENTRY *)&Root[-1].Right,
+          v14);
+        BYTE3(Root[-1].ParentValue) |= 1u;
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
 LABEL_10:
         this->InTreeByte &= ~0x80u;
@@ -59,7 +62,7 @@ LABEL_10:
     {
       p_TreeNode = &this->TreeNode;
     }
-    RtlRbRemoveNode((__int64)a3->LockState.LockState, (__int64)p_TreeNode);
+    RtlRbRemoveNode((PRTL_RB_TREE)a3->LockState.LockState, p_TreeNode);
     LegacyAutoBoost::KiAbReleaseTeeLockForEntry((LegacyAutoBoost *)a3, v9);
     v10 = (struct LegacyAutoBoost::_KI_AB_TREE_LOCK_HANDLE *)((char *)&a2->BoostBitmap.2 + 4);
     if ( (a2->CrossThreadFlags & 2) != 0 )
@@ -85,7 +88,7 @@ LABEL_10:
   {
     v11 = 40LL;
   }
-  RtlRbRemoveNode((__int64)a2 + v11, (__int64)&this->TreeNode);
+  RtlRbRemoveNode((PRTL_RB_TREE)((char *)a2 + v11), &this->TreeNode);
 LABEL_11:
   LegacyAutoBoost::KiAbReleaseLocksForEntry((LegacyAutoBoost *)a3, v10);
   _InterlockedDecrement8((volatile signed __int8 *)(this[-(this->StaticByte & 0x3F) - 1].EntryLock

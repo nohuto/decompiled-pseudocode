@@ -1,41 +1,41 @@
 /*
  * XREFs of CmpGetSymbolicLinkTarget @ 0x14068FC80
  * Callers:
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     RtlUnicodeStringCat @ 0x140208C9C (RtlUnicodeStringCat.c)
  *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     CmpValidateComponents @ 0x14068FC38 (CmpValidateComponents.c)
  *     CmpGetComponentNameAtIndex @ 0x140690A1C (CmpGetComponentNameAtIndex.c)
  *     CmpCompareUnicodeString @ 0x140690A4C (CmpCompareUnicodeString.c)
  *     CmpComputeComponentHashes @ 0x140690B10 (CmpComputeComponentHashes.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x1406D0F00 (CmpCleanUpKcbCachedSymlink.c)
- *     CmpFindNameInListWithStatus @ 0x1406D2774 (CmpFindNameInListWithStatus.c)
- *     CmpIsKeyStackDeleted @ 0x1406D3EAC (CmpIsKeyStackDeleted.c)
- *     CmpUnlockKcbStack @ 0x1406D5368 (CmpUnlockKcbStack.c)
- *     CmpLockKcbStackShared @ 0x1406D5638 (CmpLockKcbStackShared.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D57A0 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B6C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D92C8 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpGetValueData @ 0x1406DC820 (CmpGetValueData.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7E90 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x14070FB48 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     CmEqualTrans @ 0x1407691C0 (CmEqualTrans.c)
- *     CmpUnlockHashEntryByKcb @ 0x14076A7B0 (CmpUnlockHashEntryByKcb.c)
- *     CmpDereferenceKeyControlBlock @ 0x14076AB10 (CmpDereferenceKeyControlBlock.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     CmpConstructAndCacheName @ 0x1407E1A40 (CmpConstructAndCacheName.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1406D0F30 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpFindNameInListWithStatus @ 0x1406D27A4 (CmpFindNameInListWithStatus.c)
+ *     CmpIsKeyStackDeleted @ 0x1406D3EDC (CmpIsKeyStackDeleted.c)
+ *     CmpUnlockKcbStack @ 0x1406D5398 (CmpUnlockKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x1406D5668 (CmpLockKcbStackShared.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406D57D0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B9C (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D92F8 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpGetValueData @ 0x1406DC850 (CmpGetValueData.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7EC0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x14070FD58 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmEqualTrans @ 0x1407693B0 (CmEqualTrans.c)
+ *     CmpUnlockHashEntryByKcb @ 0x14076A9A0 (CmpUnlockHashEntryByKcb.c)
+ *     CmpDereferenceKeyControlBlock @ 0x14076AD00 (CmpDereferenceKeyControlBlock.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     CmpConstructAndCacheName @ 0x1407E1D10 (CmpConstructAndCacheName.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
@@ -144,7 +144,7 @@ __int64 __fastcall CmpGetSymbolicLinkTarget(
   const UNICODE_STRING *v96; // rax
   UNICODE_STRING *v97; // rbx
   void *v98; // rcx
-  struct _SLIST_ENTRY *v99; // rdx
+  _SLIST_ENTRY *v99; // rdx
   struct _KPRCB *CurrentPrcb; // r8
   _GENERAL_LOOKASIDE *L; // rcx
   char v103; // [rsp+40h] [rbp-C0h]
@@ -783,7 +783,7 @@ LABEL_193:
     else
     {
       ++L->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))L->FreeEx)(v99);
+      ((void (__fastcall *)(_SLIST_ENTRY *))L->FreeEx)(v99);
     }
   }
   return (unsigned int)NameInListWithStatus;

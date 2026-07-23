@@ -6,43 +6,45 @@
  *     RtlpGetChainHead @ 0x180065834 (RtlpGetChainHead.c)
  */
 
-_QWORD *__fastcall RtlStronglyEnumerateEntryHashTable(__int64 a1, __int64 a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlStronglyEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  __int64 v2; // r9
-  __int64 v3; // r10
-  unsigned int v4; // edx
-  _QWORD *result; // rax
-  _QWORD *v6; // rcx
+  PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v2; // r9
+  PRTL_DYNAMIC_HASH_TABLE v3; // r10
+  unsigned int BucketIndex; // edx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY ChainHead; // rcx
 
-  v2 = a2;
-  v3 = a1;
-  v4 = *(_DWORD *)(a2 + 32);
-  if ( v4 < *(_DWORD *)(a1 + 8) )
+  v2 = Enumerator;
+  v3 = HashTable;
+  BucketIndex = Enumerator->BucketIndex;
+  if ( BucketIndex < HashTable->TableSize )
   {
     while ( 2 )
     {
-      if ( v4 == *(_DWORD *)(v2 + 32) )
+      if ( BucketIndex == v2->BucketIndex )
       {
-        result = *(_QWORD **)v2;
-        v6 = *(_QWORD **)(v2 + 24);
+        result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v2->HashEntry.Linkage.Flink;
+        ChainHead = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v2->ChainHead;
       }
       else
       {
-        result = (_QWORD *)RtlpGetChainHead(v3, v4);
-        v6 = result;
+        result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)RtlpGetChainHead((__int64)v3, BucketIndex);
+        ChainHead = result;
       }
-      while ( (_QWORD *)*result != v6 )
+      while ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)result->Linkage.Flink != ChainHead )
       {
-        result = (_QWORD *)*result;
-        if ( result[2] )
+        result = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)result->Linkage.Flink;
+        if ( result->Signature )
         {
-          *(_DWORD *)(v2 + 32) = v4;
-          *(_QWORD *)(v2 + 24) = v6;
-          *(_QWORD *)v2 = result;
+          v2->BucketIndex = BucketIndex;
+          v2->ChainHead = &ChainHead->Linkage;
+          v2->HashEntry.Linkage.Flink = &result->Linkage;
           return result;
         }
       }
-      if ( ++v4 < *(_DWORD *)(v3 + 8) )
+      if ( ++BucketIndex < v3->TableSize )
         continue;
       break;
     }

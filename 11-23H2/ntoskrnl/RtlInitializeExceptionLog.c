@@ -3,7 +3,7 @@
  * Callers:
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

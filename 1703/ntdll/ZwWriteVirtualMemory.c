@@ -10,11 +10,16 @@
  *     <none>
  */
 
-__int64 ZwWriteVirtualMemory()
+NTSTATUS __cdecl ZwWriteVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 58LL;
+  result = 58;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

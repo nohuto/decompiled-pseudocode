@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnCheckActionsNeeded @ 0x140961228
+ * XREFs of PfSnCheckActionsNeeded @ 0x140948CE8
  * Callers:
- *     PfSnBeginScenario @ 0x140960CB0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140948770 (PfSnBeginScenario.c)
  * Callees:
- *     PsGetPagePriorityThread @ 0x140208FD0 (PsGetPagePriorityThread.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     MmQueryMemoryListInformation @ 0x1403D447C (MmQueryMemoryListInformation.c)
- *     MmGetDefaultPagePriority @ 0x14047E830 (MmGetDefaultPagePriority.c)
- *     MmQueryTransitionPagesMadeColdCount @ 0x1404917D0 (MmQueryTransitionPagesMadeColdCount.c)
- *     PfResourceExclusiveAcquire @ 0x14049EF58 (PfResourceExclusiveAcquire.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfSnPrefetchCacheEntryGet @ 0x140961580 (PfSnPrefetchCacheEntryGet.c)
+ *     MmQueryMemoryListInformation @ 0x1402623FC (MmQueryMemoryListInformation.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PsGetPagePriorityThread @ 0x1403305B0 (PsGetPagePriorityThread.c)
+ *     MmGetDefaultPagePriority @ 0x140479730 (MmGetDefaultPagePriority.c)
+ *     MmQueryTransitionPagesMadeColdCount @ 0x14048C490 (MmQueryTransitionPagesMadeColdCount.c)
+ *     PfResourceExclusiveAcquire @ 0x140499D88 (PfResourceExclusiveAcquire.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x140949040 (PfSnPrefetchCacheEntryGet.c)
  */
 
 __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a3, int *a4, int *a5)
@@ -71,7 +71,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
   v8 = 3;
   v9 = 23;
   v10 = 3;
-  if ( (dword_140E66E50 & 8) != 0 )
+  if ( (dword_140E66FA0 & 8) != 0 )
   {
     v9 = 22;
     v8 = 22;
@@ -89,7 +89,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
     }
     else
     {
-      if ( (dword_140E67110 & 0x10) != 0 && !a2 )
+      if ( (dword_140E67260 & 0x10) != 0 && !a2 )
       {
         v10 = 1;
         v9 = 14;
@@ -149,8 +149,8 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
       }
       v33 = (unsigned __int64)(v30 << 12) >> 18;
       v34 = MmQueryTransitionPagesMadeColdCount(&v43);
-      PfResourceExclusiveAcquire(&stru_140E670A0);
-      v35 = PfSnPrefetchCacheEntryGet(&unk_140E67078, v47, v46, &v42);
+      PfResourceExclusiveAcquire(&stru_140E671F0);
+      v35 = PfSnPrefetchCacheEntryGet(&unk_140E671C8, v47, v46, &v42);
       v36 = (_DWORD *)v35;
       if ( v35 )
       {
@@ -174,7 +174,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
           if ( v10 >= 2 )
           {
             v9 = 4;
-            if ( (dword_140E66E50 & 2) == 0 )
+            if ( (dword_140E66FA0 & 2) == 0 )
             {
               if ( v38 >= 0x1B7740 )
               {
@@ -205,7 +205,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
       {
         v9 = 3;
       }
-      ExReleaseResourceLite(&stru_140E670A0);
+      ExReleaseResourceLite(&stru_140E671F0);
       KeLeaveCriticalRegion();
     }
   }

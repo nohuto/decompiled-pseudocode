@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcCreateSecurityContext @ 0x1408C22C0
+ * XREFs of AlpcCreateSecurityContext @ 0x1408C2420
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpCreateSecurityContext @ 0x14065540C (AlpcpCreateSecurityContext.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall AlpcCreateSecurityContext(void *a1, struct _KTHREAD *a2, int a3, __int64 a4)
+__int64 __fastcall AlpcCreateSecurityContext(void *a1, struct _KTHREAD *a2, __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   int SecurityContext; // ebx
@@ -23,7 +23,7 @@ __int64 __fastcall AlpcCreateSecurityContext(void *a1, struct _KTHREAD *a2, int 
   BugCheckParameter2[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a3 )
+  if ( (_DWORD)a3 )
   {
     SecurityContext = -1073741811;
   }
@@ -46,6 +46,6 @@ __int64 __fastcall AlpcCreateSecurityContext(void *a1, struct _KTHREAD *a2, int 
       HalPutDmaAdapter(v8);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), (__int64)a2, a3, a4);
   return (unsigned int)SecurityContext;
 }

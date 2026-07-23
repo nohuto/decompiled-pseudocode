@@ -1,7 +1,7 @@
 /*
- * XREFs of CheckOneBitValidFlag @ 0x1402ED968
+ * XREFs of CheckOneBitValidFlag @ 0x1402EDB58
  * Callers:
- *     LdrResGetRCConfig @ 0x14071B184 (LdrResGetRCConfig.c)
+ *     LdrResGetRCConfig @ 0x14071C424 (LdrResGetRCConfig.c)
  * Callees:
  *     <none>
  */

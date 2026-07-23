@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFanSxExit @ 0x1404D1444
+ * XREFs of PopFanSxExit @ 0x1404CA484
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 PopFanSxExit()
 {
   __int64 i; // rbx
 
-  PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+  PopAcquireRwLockShared(&PopPolicyDeviceLock);
   for ( i = PopFans; (__int64 *)i != &PopFans; i = *(_QWORD *)i )
   {
     PopAcquireRwLockExclusive((unsigned __int64 *)(i + 400));
@@ -23,5 +23,5 @@ __int64 PopFanSxExit()
     }
     PopReleaseRwLock((signed __int64 *)(i + 400));
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+  return PopReleaseRwLock(&PopPolicyDeviceLock);
 }

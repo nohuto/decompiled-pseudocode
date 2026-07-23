@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsKernelCfgActive @ 0x140CC8184
+ * XREFs of KiIsKernelCfgActive @ 0x140CCE274
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14041D934 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140415184 (VslGetNestedPageProtectionFlags.c)
  */
 
 __int64 KiIsKernelCfgActive()

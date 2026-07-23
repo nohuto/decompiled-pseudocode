@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpSetOwedBreakpoints @ 0x140AB5B80
  * Callers:
- *     KdSetOwedBreakpoints @ 0x140568030 (KdSetOwedBreakpoints.c)
+ *     KdSetOwedBreakpoints @ 0x1405686F0 (KdSetOwedBreakpoints.c)
  * Callees:
  *     KdExitDebugger @ 0x140AB0008 (KdExitDebugger.c)
  *     KdEnterDebugger @ 0x140AB0144 (KdEnterDebugger.c)

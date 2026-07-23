@@ -6,37 +6,37 @@
  *     <none>
  */
 
-unsigned __int8 __stdcall RtlAreBitsSet(int a1, unsigned int a2, unsigned int a3)
+BOOLEAN __cdecl RtlAreBitsSet(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
-  int v4; // ecx
-  int *v5; // edx
-  int v6; // ebx
-  int *v8; // [esp+8h] [ebp-4h]
+  unsigned int *Buffer; // ecx
+  unsigned int *v5; // edx
+  unsigned int v6; // ebx
+  unsigned int *v8; // [esp+8h] [ebp-4h]
 
-  if ( a2 >= *(_DWORD *)a1 )
+  if ( StartingIndex >= BitMapHeader->SizeOfBitMap )
     return 0;
-  if ( a3 <= 1 )
+  if ( Length <= 1 )
   {
-    if ( a3 == 1 )
-      return _bittest(*(const signed __int32 **)(a1 + 4), a2);
+    if ( Length == 1 )
+      return _bittest((const signed __int32 *)BitMapHeader->Buffer, StartingIndex);
     return 0;
   }
-  if ( *(_DWORD *)a1 - a2 < a3 )
+  if ( BitMapHeader->SizeOfBitMap - StartingIndex < Length )
     return 0;
-  v4 = *(_DWORD *)(a1 + 4);
-  v5 = (int *)(v4 + 4 * (a2 >> 5));
+  Buffer = BitMapHeader->Buffer;
+  v5 = &Buffer[StartingIndex >> 5];
   v6 = *v5;
-  v8 = (int *)(v4 + 4 * ((a2 + a3 - 1) >> 5));
+  v8 = &Buffer[(StartingIndex + Length - 1) >> 5];
   if ( v5 == v8 )
-    return ((0xFFFFFFFF >> (32 - a3) << a2) & v6) == 0xFFFFFFFF >> (32 - a3) << a2;
-  if ( ((-1 << a2) & v6) == -1 << a2 )
+    return ((0xFFFFFFFF >> (32 - Length) << StartingIndex) & v6) == 0xFFFFFFFF >> (32 - Length) << StartingIndex;
+  if ( ((-1 << StartingIndex) & v6) == -1 << StartingIndex )
   {
     while ( ++v5 != v8 )
     {
       if ( *v5 != -1 )
         return 0;
     }
-    return ((0xFFFFFFFF >> ~(a2 + a3 - 1)) & *v5) == 0xFFFFFFFF >> ~(a2 + a3 - 1);
+    return ((0xFFFFFFFF >> ~(StartingIndex + Length - 1)) & *v5) == 0xFFFFFFFF >> ~(StartingIndex + Length - 1);
   }
   return 0;
 }

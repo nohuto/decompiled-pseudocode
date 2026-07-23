@@ -1,23 +1,23 @@
 /*
- * XREFs of KiComputeThreadAffinity @ 0x140229B90
+ * XREFs of KiComputeThreadAffinity @ 0x14022B520
  * Callers:
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
- *     KiSetUserAffinityThread @ 0x14022A784 (KiSetUserAffinityThread.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140237654 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x1404631C0 (KiUpdateThreadCpuSets.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
+ *     KiSetUserAffinityThread @ 0x14022C114 (KiSetUserAffinityThread.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140238FB4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
+ *     KiUpdateThreadCpuSets @ 0x14045C180 (KiUpdateThreadCpuSets.c)
  * Callees:
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402043F0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiReselectIdealProcessorAfterAffinityChange @ 0x140229950 (KiReselectIdealProcessorAfterAffinityChange.c)
- *     KiComputeCpuSetAffinity @ 0x140229FB8 (KiComputeCpuSetAffinity.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x14022A330 (KiUpdateNodeAffinitizedFlag.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402044D0 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiReselectIdealProcessorAfterAffinityChange @ 0x14022B2E0 (KiReselectIdealProcessorAfterAffinityChange.c)
+ *     KiComputeCpuSetAffinity @ 0x14022B948 (KiComputeCpuSetAffinity.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x14022BCC0 (KiUpdateNodeAffinitizedFlag.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiComputeThreadAffinity(__int64 a1)

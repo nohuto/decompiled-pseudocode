@@ -363,10 +363,10 @@ LABEL_42:
   }
   if ( a3 )
     SepMakeTokenEffectiveOnly(0LL);
-  RtlSidHashInitialize(MEMORY[0x98], MEMORY[0x7C], (_QWORD *)0xE8);
-  RtlSidHashInitialize(MEMORY[0xA0], MEMORY[0x80], (_QWORD *)0x1F8);
+  RtlSidHashInitialize(MEMORY[0x98], MEMORY[0x7C], (PSID_AND_ATTRIBUTES_HASH)0xE8);
+  RtlSidHashInitialize(MEMORY[0xA0], MEMORY[0x80], (PSID_AND_ATTRIBUTES_HASH)0x1F8);
   if ( MEMORY[0x318] )
-    RtlSidHashInitialize(MEMORY[0x318], MEMORY[0x320], (_QWORD *)0x328);
+    RtlSidHashInitialize(MEMORY[0x318], MEMORY[0x320], (PSID_AND_ATTRIBUTES_HASH)0x328);
   if ( SeTokenLeakTracking )
   {
     if ( SepTokenLeakMethodWatch == 13

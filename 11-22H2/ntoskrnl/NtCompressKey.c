@@ -23,9 +23,10 @@
  *     HvLockHiveFlusherExclusive @ 0x140AF6670 (HvLockHiveFlusherExclusive.c)
  */
 
-__int64 __fastcall NtCompressKey(int a1)
+NTSTATUS __cdecl NtCompressKey(HANDLE KeyHandle)
 {
-  int v2; // ebx
+  int v1; // edi
+  NTSTATUS v2; // ebx
   KPROCESSOR_MODE PreviousMode; // bl
   int v4; // r8d
   int v5; // r9d
@@ -48,6 +49,7 @@ __int64 __fastcall NtCompressKey(int a1)
   _OWORD v23[3]; // [rsp+48h] [rbp-40h] BYREF
 
   Object = 0LL;
+  v1 = (int)KeyHandle;
   v22 = 0LL;
   memset(v23, 0, sizeof(v23));
   CmpInitializeThreadInfo((__int64)&v22);
@@ -58,8 +60,8 @@ __int64 __fastcall NtCompressKey(int a1)
     if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
     {
       LOBYTE(v5) = PreviousMode;
-      v6 = a1 & 3;
-      v7 = CmObReferenceObjectByHandle(a1, 131078, v4, v5, (__int64)&Object, 0LL);
+      v6 = v1 & 3;
+      v7 = CmObReferenceObjectByHandle(v1, 131078, v4, v5, (__int64)&Object, 0LL);
       v11 = Object;
       v2 = v7;
       if ( v7 >= 0 )
@@ -112,5 +114,5 @@ __int64 __fastcall NtCompressKey(int a1)
     }
   }
   CmCleanupThreadInfo((__int64 *)&v22);
-  return (unsigned int)v2;
+  return v2;
 }

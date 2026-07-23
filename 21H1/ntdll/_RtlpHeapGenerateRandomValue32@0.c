@@ -16,11 +16,12 @@
  *     _ZwQueryInformationProcess@20 @ 0x4B2F2AF0 (_ZwQueryInformationProcess@20.c)
  */
 
-unsigned int __stdcall RtlpHeapGenerateRandomValue32()
+ULONG __stdcall RtlpHeapGenerateRandomValue32()
 {
-  int v1; // eax
+  ULONG v1; // eax
 
-  if ( !dword_4B3A6634 && (int)ZwQueryInformationProcess(-1, 36, &dword_4B3A6634, 4, 0) < 0 )
+  if ( !ProcessInformation
+    && ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0) < 0 )
   {
     if ( MEMORY[0x7FFE0004] < 0x1000000u )
     {
@@ -33,7 +34,7 @@ unsigned int __stdcall RtlpHeapGenerateRandomValue32()
     {
       v1 = (MEMORY[0x7FFE0004] * (unsigned __int64)MEMORY[0x7FFE0320]) >> 24;
     }
-    dword_4B3A6634 = v1;
+    ProcessInformation = v1;
   }
-  return RtlRandomEx(&dword_4B3A6634);
+  return RtlRandomEx(&ProcessInformation);
 }

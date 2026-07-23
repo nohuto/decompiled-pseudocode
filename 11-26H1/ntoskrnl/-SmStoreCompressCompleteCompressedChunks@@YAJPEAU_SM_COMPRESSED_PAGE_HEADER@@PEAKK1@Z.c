@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z @ 0x14063ED3C
+ * XREFs of ?SmStoreCompressCompleteCompressedChunks@@YAJPEAU_SM_COMPRESSED_PAGE_HEADER@@PEAKK1@Z @ 0x14064291C
  * Callers:
- *     SmStoreCompressBuffer @ 0x14024B590 (SmStoreCompressBuffer.c)
- *     SmStoreCompletePendingCompress @ 0x14063F294 (SmStoreCompletePendingCompress.c)
+ *     SmStoreCompressBuffer @ 0x14024CEF0 (SmStoreCompressBuffer.c)
+ *     SmStoreCompletePendingCompress @ 0x140642E74 (SmStoreCompletePendingCompress.c)
  * Callees:
  *     <none>
  */

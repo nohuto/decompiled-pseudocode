@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeChannelRangesPermanent @ 0x140CFC9E0
+ * XREFs of MiInitializeChannelRangesPermanent @ 0x140D02D60
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void MiInitializeChannelRangesPermanent()
@@ -13,9 +13,9 @@ void MiInitializeChannelRangesPermanent()
   void *PoolMm; // rax
   void *v2; // rbx
 
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
   {
-    v0 = 16 * ((unsigned __int8)byte_140E2D68B + 2);
+    v0 = 16 * ((unsigned __int8)byte_140E2D80B + 2);
     PoolMm = (void *)ExAllocatePoolMm(
                        64LL,
                        v0,
@@ -24,8 +24,8 @@ void MiInitializeChannelRangesPermanent()
     v2 = PoolMm;
     if ( PoolMm )
     {
-      memmove(PoolMm, qword_140E2D6E8, v0);
-      qword_140E2D6E8 = v2;
+      memmove(PoolMm, qword_140E2D868, v0);
+      qword_140E2D868 = v2;
     }
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpPowerActionSleepSystemPhaseCallback @ 0x140B5AE30
+ * XREFs of PfpPowerActionSleepSystemPhaseCallback @ 0x140B5CEA0
  * Callers:
  *     <none>
  * Callees:
- *     PfpPartitionToParent @ 0x1404BCA40 (PfpPartitionToParent.c)
- *     PfTSetTraceWorkerPriority @ 0x1405CC6E0 (PfTSetTraceWorkerPriority.c)
- *     PfGenerateTrace @ 0x14074637C (PfGenerateTrace.c)
- *     MmPerformMemoryListCommand @ 0x140B6DB74 (MmPerformMemoryListCommand.c)
+ *     PfpPartitionToParent @ 0x1404B7BB0 (PfpPartitionToParent.c)
+ *     PfTSetTraceWorkerPriority @ 0x1405C9E50 (PfTSetTraceWorkerPriority.c)
+ *     PfGenerateTrace @ 0x14074466C (PfGenerateTrace.c)
+ *     MmPerformMemoryListCommand @ 0x140B6F414 (MmPerformMemoryListCommand.c)
  */
 
 __int64 __fastcall PfpPowerActionSleepSystemPhaseCallback(__int64 a1, _DWORD *a2)

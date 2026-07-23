@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpRemoveSubKeyFromList @ 0x140A1EEA8
+ * XREFs of CmpRemoveSubKeyFromList @ 0x140A13FA8
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A1EC80 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpRemoveSubKey @ 0x140A1EDFC (CmpRemoveSubKey.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A13D80 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpRemoveSubKey @ 0x140A13EFC (CmpRemoveSubKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpFindSubKeyInRoot @ 0x140842980 (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1408734B0 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     HvpGetCellContextMove @ 0x140882E60 (HvpGetCellContextMove.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpFindSubKeyInRoot @ 0x14083EC40 (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1408777E0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     HvpGetCellContextMove @ 0x140886D10 (HvpGetCellContextMove.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
  */
 
 char __fastcall CmpRemoveSubKeyFromList(ULONG_PTR BugCheckParameter3, unsigned int *a2, unsigned int a3)

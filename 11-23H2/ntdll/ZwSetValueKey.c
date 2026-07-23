@@ -10,16 +10,22 @@
  *     RtlApplyRXact @ 0x1800F2180 (RtlApplyRXact.c)
  *     RtlpSetMachineUILanguagesImmediate @ 0x1800FD398 (RtlpSetMachineUILanguagesImmediate.c)
  *     RtlpSetPreferredUILanguages @ 0x1800FD570 (RtlpSetPreferredUILanguages.c)
- *     RtlpNtSetValueKey @ 0x1801162F0 (RtlpNtSetValueKey.c)
+ *     RtlpNtSetValueKey @ 0x1801162C0 (RtlpNtSetValueKey.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetValueKey()
+NTSTATUS __cdecl ZwSetValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        ULONG TitleIndex,
+        ULONG Type,
+        PVOID Data,
+        ULONG DataSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 96LL;
+  result = 96;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

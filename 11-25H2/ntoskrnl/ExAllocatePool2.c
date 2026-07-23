@@ -2081,7 +2081,7 @@ ULONG_PTR __fastcall ExAllocatePool2(ULONG_PTR BugCheckParameter3, ULONG_PTR a2,
   __int64 PoolWithTagFromNode; // rsi
   ULONG v4; // edi
   ULONG_PTR v5; // rbx
-  int v6; // ecx
+  NTSTATUS v6; // ecx
   int v7; // r9d
   ULONG_PTR v9; // r14
   _KPROCESS *Process; // r15

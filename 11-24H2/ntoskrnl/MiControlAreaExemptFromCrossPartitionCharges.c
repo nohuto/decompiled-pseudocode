@@ -1,8 +1,8 @@
 /*
- * XREFs of MiControlAreaExemptFromCrossPartitionCharges @ 0x140371780
+ * XREFs of MiControlAreaExemptFromCrossPartitionCharges @ 0x140259B40
  * Callers:
- *     MiFlushRelease @ 0x1403710F0 (MiFlushRelease.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x140371504 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiFlushRelease @ 0x1402594B0 (MiFlushRelease.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x1402598C4 (MiRemoveViewsFromSectionWithPfn.c)
  * Callees:
  *     <none>
  */

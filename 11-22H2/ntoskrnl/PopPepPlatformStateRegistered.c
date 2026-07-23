@@ -20,9 +20,9 @@
  *     PopPepInitializeVetoMasks @ 0x14059F354 (PopPepInitializeVetoMasks.c)
  */
 
-__int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1)
+int __fastcall PopPepPlatformStateRegistered(unsigned int a1)
 {
-  __int64 result; // rax
+  signed __int64 v2; // rax
   struct _KTHREAD *CurrentThread; // rax
   _DWORD *v4; // rax
   __int64 v5; // rcx
@@ -36,10 +36,10 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1)
   int v13; // eax
   bool v14; // zf
   __int64 v15; // rbx
-  char v16; // [rsp+78h] [rbp+10h] BYREF
+  char Buffer; // [rsp+78h] [rbp+10h] BYREF
 
-  result = _InterlockedCompareExchange64(&PopPepPlatformState, PpmPlatformStates + 64, 0LL);
-  if ( !result )
+  v2 = _InterlockedCompareExchange64(&PopPepPlatformState, PpmPlatformStates + 64, 0LL);
+  if ( !v2 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -62,10 +62,13 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1)
       v8 = *(_DWORD *)(i + 172);
       v9 = v7;
       ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(i + 64));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -106,8 +109,8 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1)
     KeAbPostRelease((ULONG_PTR)&PopPepDeviceListLock);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     PopPepUpdateIdleStateRefCount((1 << a1) - 1, 0, 0, 0LL);
-    v16 = 1;
-    return ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, (__int64)&v16);
+    Buffer = 1;
+    LODWORD(v2) = ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, &Buffer, 1u, 0LL, 0LL, 0, 0);
   }
-  return result;
+  return v2;
 }

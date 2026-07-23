@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPageNotZero @ 0x140515068
+ * XREFs of MiPageNotZero @ 0x14050EAD8
  * Callers:
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
  */
 
 __int64 __fastcall MiPageNotZero(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2)
@@ -21,7 +21,7 @@ __int64 __fastcall MiPageNotZero(ULONG_PTR BugCheckParameter1, ULONG_PTR BugChec
   ULONG_PTR BugCheckParameter4; // rcx
   __int64 v12; // rbx
 
-  _InterlockedAdd((volatile signed __int32 *)&stru_140E2EB88.SchedulerApc.Type, 1u);
+  _InterlockedAdd((volatile signed __int32 *)&stru_140E2ED08.SchedulerApc.Type, 1u);
   v4 = 0;
   v5 = 0;
   v6 = 4096LL;
@@ -47,7 +47,7 @@ __int64 __fastcall MiPageNotZero(ULONG_PTR BugCheckParameter1, ULONG_PTR BugChec
   {
     v10 = 299;
     v6 = 0LL;
-    _InterlockedAdd((volatile signed __int32 *)&stru_140E2EB88.SuspendCount, 1u);
+    _InterlockedAdd((volatile signed __int32 *)&stru_140E2ED08.SuspendCount, 1u);
     BugCheckParameter4 = 0LL;
     goto LABEL_12;
   }
@@ -57,20 +57,20 @@ LABEL_11:
 LABEL_12:
   if ( (MmPageValidationAction & 1) != 0 )
     KeBugCheckEx(v10, BugCheckParameter1, BugCheckParameter2, v6, BugCheckParameter4);
-  v12 = *(_QWORD *)(stru_140E2EB88.ThreadLock
+  v12 = *(_QWORD *)(stru_140E2ED08.ThreadLock
                   + 8 * ((*(_QWORD *)(48 * BugCheckParameter2 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
   KeSetEvent(*(PRKEVENT *)(v12 + 392), 0, 0);
   if ( (ULONG *)v12 != &MiSystemPartition )
-    KeSetEvent(*(PRKEVENT *)&stru_140E37DC8.SystemCallNumber, 0, 0);
+    KeSetEvent(*(PRKEVENT *)&stru_140E37F48.SystemCallNumber, 0, 0);
   if ( (MiFlags & 0x30) == 0x20
-    && !_InterlockedCompareExchange((volatile signed __int32 *)&stru_140E2EB88.WaitBlockFill11[132], 1, 0) )
+    && !_InterlockedCompareExchange((volatile signed __int32 *)&stru_140E2ED08.WaitBlockFill11[132], 1, 0) )
   {
-    *(_DWORD *)&stru_140E2EB88.WaitBlockFill11[136] = v7;
-    stru_140E2EB88.WaitBlock[3].Thread = (struct _KTHREAD *)MiBadMemoryLogger;
-    stru_140E2EB88.Spare18 = (unsigned __int64)&stru_140E2EB88.WaitBlock[2].Object;
-    *(_DWORD *)&stru_140E2EB88.WaitBlockFill11[128] = v10;
-    *(_OWORD *)&stru_140E2EB88.WaitBlockFill11[144] = v5 + (BugCheckParameter2 << 12);
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140E2EB88.WaitBlockFill11[152], DelayedWorkQueue);
+    *(_DWORD *)&stru_140E2ED08.WaitBlockFill11[136] = v7;
+    stru_140E2ED08.WaitBlock[3].Thread = (struct _KTHREAD *)MiBadMemoryLogger;
+    stru_140E2ED08.Spare18 = (unsigned __int64)&stru_140E2ED08.WaitBlock[2].Object;
+    *(_DWORD *)&stru_140E2ED08.WaitBlockFill11[128] = v10;
+    *(_OWORD *)&stru_140E2ED08.WaitBlockFill11[144] = v5 + (BugCheckParameter2 << 12);
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140E2ED08.WaitBlockFill11[152], DelayedWorkQueue);
   }
   return KeZeroPages(BugCheckParameter1, 4096LL);
 }

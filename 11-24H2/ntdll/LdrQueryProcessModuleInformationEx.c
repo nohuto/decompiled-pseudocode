@@ -1,24 +1,29 @@
 /*
- * XREFs of LdrQueryProcessModuleInformationEx @ 0x1800B0720
+ * XREFs of LdrQueryProcessModuleInformationEx @ 0x18007CFC0
  * Callers:
- *     RtlQueryProcessModuleInformation @ 0x180046274 (RtlQueryProcessModuleInformation.c)
- *     LdrQueryProcessModuleInformation @ 0x180112670 (LdrQueryProcessModuleInformation.c)
+ *     RtlQueryProcessModuleInformation @ 0x18002A204 (RtlQueryProcessModuleInformation.c)
+ *     LdrQueryProcessModuleInformation @ 0x18010D950 (LdrQueryProcessModuleInformation.c)
  * Callees:
- *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800AF850 (LdrQueryModuleInfoFromLdrEntry32.c)
- *     LdrQueryNextListEntry32 @ 0x1800AF970 (LdrQueryNextListEntry32.c)
- *     LdrQueryNextListEntry @ 0x1800B0B00 (LdrQueryNextListEntry.c)
- *     LdrQueryModuleInfoFromLdrEntry @ 0x1800B0C40 (LdrQueryModuleInfoFromLdrEntry.c)
- *     LdrQueryInLoadOrderModuleList @ 0x1800B12F0 (LdrQueryInLoadOrderModuleList.c)
- *     LdrQueryInLoadOrderModuleList32 @ 0x1800B1410 (LdrQueryInLoadOrderModuleList32.c)
- *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x1800B2410 (LdrQueryModuleInfoLocalLoaderUnlock.c)
- *     LdrQueryModuleInfoLocalLoaderLock @ 0x1800B25B0 (LdrQueryModuleInfoLocalLoaderLock.c)
- *     RtlEndStrongEnumerationHashTable @ 0x1800FAB80 (RtlEndStrongEnumerationHashTable.c)
- *     ExecuteHotpatchTestRuntimeFunction @ 0x180131658 (ExecuteHotpatchTestRuntimeFunction.c)
- *     GetHotpatchTestRuntimeFunctionState @ 0x180131684 (GetHotpatchTestRuntimeFunctionState.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrQueryModuleInfoFromLdrEntry32 @ 0x18007C0F0 (LdrQueryModuleInfoFromLdrEntry32.c)
+ *     LdrQueryNextListEntry32 @ 0x18007C210 (LdrQueryNextListEntry32.c)
+ *     LdrQueryNextListEntry @ 0x18007D3A0 (LdrQueryNextListEntry.c)
+ *     LdrQueryModuleInfoFromLdrEntry @ 0x18007D4E0 (LdrQueryModuleInfoFromLdrEntry.c)
+ *     LdrQueryInLoadOrderModuleList @ 0x18007DB90 (LdrQueryInLoadOrderModuleList.c)
+ *     LdrQueryInLoadOrderModuleList32 @ 0x18007DCB0 (LdrQueryInLoadOrderModuleList32.c)
+ *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x18007ECB0 (LdrQueryModuleInfoLocalLoaderUnlock.c)
+ *     LdrQueryModuleInfoLocalLoaderLock @ 0x18007EE50 (LdrQueryModuleInfoLocalLoaderLock.c)
+ *     RtlEndStrongEnumerationHashTable @ 0x1800F58E0 (RtlEndStrongEnumerationHashTable.c)
+ *     ExecuteHotpatchTestRuntimeFunction @ 0x18012F888 (ExecuteHotpatchTestRuntimeFunction.c)
+ *     GetHotpatchTestRuntimeFunctionState @ 0x18012F8B4 (GetHotpatchTestRuntimeFunctionState.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD *a3, unsigned int a4, unsigned int *a5)
+__int64 __fastcall LdrQueryProcessModuleInformationEx(
+        void *a1,
+        __int64 a2,
+        _DWORD *a3,
+        unsigned int a4,
+        unsigned int *a5)
 {
   unsigned int v6; // esi
   __int64 v7; // r14
@@ -32,7 +37,7 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD 
   __int64 (__fastcall *v15)(void *, __int64, __int64 *); // rax
   __int64 v16; // rdx
   unsigned int v17; // ecx
-  __int64 (__fastcall *v18)(void *, _DWORD *, __int64, __int64); // rax
+  __int64 (__fastcall *v18)(void *, _DWORD *, __int64, __int64, __int64); // rax
   int ModuleInfoFromLdrEntry; // eax
   _DWORD *v20; // rdx
   __int64 v21; // rcx
@@ -96,21 +101,21 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD 
       v33 = v11;
       if ( v11 )
       {
-        v12 = funcs_1800AFFA3[5 * i];
+        v12 = funcs_18007C843[5 * i];
         if ( (char *)v12 == (char *)LdrQueryModuleInfoLocalLoaderLock )
           LdrQueryModuleInfoLocalLoaderLock(
-            funcs_1800AFFD2,
+            funcs_18007C872,
             LdrQueryModuleInfoLocalLoaderLock,
             LdrQueryInLoadOrderModuleList,
             LdrQueryInLoadOrderModuleList32);
         else
           ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))v12)(
-            funcs_1800AFFD2,
+            funcs_18007C872,
             LdrQueryModuleInfoLocalLoaderLock,
             LdrQueryInLoadOrderModuleList,
             LdrQueryInLoadOrderModuleList32);
       }
-      v13 = funcs_1800AFFD2[5 * i];
+      v13 = funcs_18007C872[5 * i];
       if ( (char *)v13 == (char *)LdrQueryInLoadOrderModuleList )
         v14 = LdrQueryInLoadOrderModuleList(v37, &v29, &v30, LdrQueryInLoadOrderModuleList32);
       else
@@ -125,7 +130,7 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD 
         break;
       if ( v29 )
       {
-        v15 = (__int64 (__fastcall *)(void *, __int64, __int64 *))*(&funcs_1800B0004 + 5 * i);
+        v15 = (__int64 (__fastcall *)(void *, __int64, __int64 *))*(&funcs_18007C8A4 + 5 * i);
         if ( (char *)v15 == (char *)LdrQueryNextListEntry )
           v14 = LdrQueryNextListEntry(v37, v29, &v28);
         else
@@ -154,11 +159,11 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD 
           }
           else
           {
-            v18 = (__int64 (__fastcall *)(void *, _DWORD *, __int64, __int64))*(&funcs_1800B009C + 5 * i);
+            v18 = (__int64 (__fastcall *)(void *, _DWORD *, __int64, __int64, __int64))*(&funcs_18007C93C + 5 * i);
             if ( (char *)v18 == (char *)LdrQueryModuleInfoFromLdrEntry )
-              ModuleInfoFromLdrEntry = LdrQueryModuleInfoFromLdrEntry((_DWORD)v37, (_DWORD)v31, v28, v30, a2);
+              ModuleInfoFromLdrEntry = LdrQueryModuleInfoFromLdrEntry(v37, v31, v28, v30, a2);
             else
-              ModuleInfoFromLdrEntry = v18(v37, v31, v28, v30);
+              ModuleInfoFromLdrEntry = v18(v37, v31, v28, v30, a2);
             if ( ModuleInfoFromLdrEntry < 0 )
             {
               v27 = ModuleInfoFromLdrEntry;
@@ -176,7 +181,7 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD 
           }
           if ( a3 && v17 >= 0x130 )
             *a3 += v10;
-          v22 = (__int64 (__fastcall *)(void *, __int64, __int64 *))*(&funcs_1800B0004 + 5 * i);
+          v22 = (__int64 (__fastcall *)(void *, __int64, __int64 *))*(&funcs_18007C8A4 + 5 * i);
           if ( (char *)v22 == (char *)LdrQueryNextListEntry )
             v23 = LdrQueryNextListEntry(v37, v16, &v28);
           else
@@ -193,7 +198,7 @@ LABEL_37:
 LABEL_48:
       if ( v33 )
       {
-        v24 = (void (*)(void))funcs_1800B05F0[5 * i];
+        v24 = (void (*)(void))funcs_18007CE90[5 * i];
         if ( (char *)v24 == (char *)LdrQueryModuleInfoLocalLoaderUnlock )
           LdrQueryModuleInfoLocalLoaderUnlock();
         else

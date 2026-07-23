@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpFindNextNamedTag @ 0x1406C3E38
+ * XREFs of SdbpFindNextNamedTag @ 0x1406C3F70
  * Callers:
- *     SdbpSearchDB @ 0x140484F3C (SdbpSearchDB.c)
+ *     SdbpSearchDB @ 0x1405142C4 (SdbpSearchDB.c)
  * Callees:
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     SdbGetTagFromTagID @ 0x140501250 (SdbGetTagFromTagID.c)
- *     SdbGetNextChild @ 0x140504604 (SdbGetNextChild.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     SdbGetStringTagPtr @ 0x140573D10 (SdbGetStringTagPtr.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     SdbGetTagFromTagID @ 0x1404E41E0 (SdbGetTagFromTagID.c)
+ *     SdbGetNextChild @ 0x1404E7594 (SdbGetNextChild.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbGetStringTagPtr @ 0x140574250 (SdbGetStringTagPtr.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned int a3, __int16 a4, wchar_t *Str1)
@@ -17,7 +17,6 @@ __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned in
   unsigned int v9; // ebx
   __int16 TagFromTagID; // r15
   unsigned int FirstTag; // eax
-  unsigned int v13; // ebp
   const wchar_t *StringTagPtr; // rax
   unsigned int NextChild; // eax
 
@@ -35,7 +34,6 @@ __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned in
       if ( (unsigned __int16)SdbGetTagFromTagID(a1, NextChild) == TagFromTagID )
       {
         FirstTag = SdbFindFirstTag(a1, v7, a4);
-        v13 = FirstTag;
         if ( FirstTag )
         {
           StringTagPtr = (const wchar_t *)SdbGetStringTagPtr(a1, FirstTag);
@@ -45,8 +43,7 @@ __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned in
               1,
               (unsigned int)"SdbpFindNextNamedTag",
               215,
-              (unsigned int)"Can't get the name string tagid 0x%lx",
-              v13);
+              (unsigned int)"Can't get the name string tagid 0x%lx");
             return v9;
           }
           if ( !wcsicmp(Str1, StringTagPtr) )
@@ -58,7 +55,7 @@ __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned in
   }
   else
   {
-    AslLogCallPrintf(1, (unsigned int)"SdbpFindNextNamedTag", 198, (unsigned int)"Invalid tagid 0x%lx", v7);
+    AslLogCallPrintf(1, (unsigned int)"SdbpFindNextNamedTag", 198, (unsigned int)"Invalid tagid 0x%lx");
     return 0LL;
   }
 }

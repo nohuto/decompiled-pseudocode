@@ -1,26 +1,26 @@
 /*
  * XREFs of PsChargeProcessNonPagedPoolQuota @ 0x14030B700
  * Callers:
- *     MiFreeVadRange @ 0x1402ECEB0 (MiFreeVadRange.c)
- *     MiCloneVads @ 0x1405B99AC (MiCloneVads.c)
- *     MiCreateCloneChain @ 0x1405BA158 (MiCreateCloneChain.c)
- *     MiCreateVadEventBitmap @ 0x1406BFC4C (MiCreateVadEventBitmap.c)
- *     MiCreateRotateView @ 0x1406E97B4 (MiCreateRotateView.c)
- *     MiInsertVadCharges @ 0x1407B88C0 (MiInsertVadCharges.c)
+ *     sub_1402ECEB0 @ 0x1402ECEB0 (sub_1402ECEB0.c)
+ *     sub_1405B99AC @ 0x1405B99AC (sub_1405B99AC.c)
+ *     sub_1405BA158 @ 0x1405BA158 (sub_1405BA158.c)
+ *     sub_1406BFC4C @ 0x1406BFC4C (sub_1406BFC4C.c)
+ *     sub_1406E97B4 @ 0x1406E97B4 (sub_1406E97B4.c)
+ *     sub_1407B88C0 @ 0x1407B88C0 (sub_1407B88C0.c)
  *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
- *     MiCreateAweInfoBitMap @ 0x14097CAE8 (MiCreateAweInfoBitMap.c)
- *     MiCreatePlaceholderStorage @ 0x14097EE60 (MiCreatePlaceholderStorage.c)
- *     MiBuildNewCloneDescriptor @ 0x14098056C (MiBuildNewCloneDescriptor.c)
- *     ExEnableHandleTracing @ 0x1409F8DD8 (ExEnableHandleTracing.c)
- *     ViIrpAllocateLockedPacket @ 0x140A8D338 (ViIrpAllocateLockedPacket.c)
+ *     sub_14097CAE8 @ 0x14097CAE8 (sub_14097CAE8.c)
+ *     sub_14097EE60 @ 0x14097EE60 (sub_14097EE60.c)
+ *     sub_14098056C @ 0x14098056C (sub_14098056C.c)
+ *     sub_1409F8DD8 @ 0x1409F8DD8 (sub_1409F8DD8.c)
+ *     sub_140A8D338 @ 0x140A8D338 (sub_140A8D338.c)
  * Callees:
- *     PspChargeQuota @ 0x1402AC010 (PspChargeQuota.c)
+ *     sub_1402AC010 @ 0x1402AC010 (sub_1402AC010.c)
  */
 
-__int64 __fastcall PsChargeProcessNonPagedPoolQuota(struct _KPROCESS *a1, unsigned __int64 a2)
+__int64 __fastcall PsChargeProcessNonPagedPoolQuota(__int64 a1, unsigned __int64 a2)
 {
-  if ( a1 == PsInitialSystemProcess )
+  if ( (PEPROCESS)a1 == PsInitialSystemProcess )
     return 0LL;
   else
-    return PspChargeQuota(a1[1].Affinity.StaticBitmap[27], (__int64)a1, 0, a2);
+    return sub_1402AC010(*(_QWORD *)(a1 + 1384), a1, 0, a2);
 }

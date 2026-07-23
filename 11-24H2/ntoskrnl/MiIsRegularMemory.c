@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsRegularMemory @ 0x140C51A28
+ * XREFs of MiIsRegularMemory @ 0x140C53BB8
  * Callers:
- *     MxMarkValidMappings @ 0x140C50440 (MxMarkValidMappings.c)
- *     MxCreatePfnsForPtes @ 0x140C52830 (MxCreatePfnsForPtes.c)
+ *     MxMarkValidMappings @ 0x140C525D0 (MxMarkValidMappings.c)
+ *     MxCreatePfnsForPtes @ 0x140C549C0 (MxCreatePfnsForPtes.c)
  * Callees:
- *     MiFindDescriptorByPfn @ 0x140C4F100 (MiFindDescriptorByPfn.c)
+ *     MiFindDescriptorByPfn @ 0x140C51290 (MiFindDescriptorByPfn.c)
  */
 
 __int64 __fastcall MiIsRegularMemory(__int64 a1, unsigned __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibAddSelRecord @ 0x140677EB8
+ * XREFs of IpmiLibAddSelRecord @ 0x140678408
  * Callers:
- *     IpmiLibAddSelBugcheckRecord @ 0x140677CF4 (IpmiLibAddSelBugcheckRecord.c)
- *     IpmiLibAddSelCheckpointRecord @ 0x140677E48 (IpmiLibAddSelCheckpointRecord.c)
- *     IpmiLibpAddSelRawData @ 0x140677F60 (IpmiLibpAddSelRawData.c)
+ *     IpmiLibAddSelBugcheckRecord @ 0x140678244 (IpmiLibAddSelBugcheckRecord.c)
+ *     IpmiLibAddSelCheckpointRecord @ 0x140678398 (IpmiLibAddSelCheckpointRecord.c)
+ *     IpmiLibpAddSelRawData @ 0x1406784B0 (IpmiLibpAddSelRawData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IpmiLibpKcsRequestAndReceive @ 0x1406783E0 (IpmiLibpKcsRequestAndReceive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IpmiLibpKcsRequestAndReceive @ 0x140678930 (IpmiLibpKcsRequestAndReceive.c)
  */
 
 __int64 __fastcall IpmiLibAddSelRecord(__int64 a1, __int128 *a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall IpmiLibAddSelRecord(__int64 a1, __int128 *a2, __int64 a3)
 
   v4 = *a2;
   *(_DWORD *)&v8[1] = 0;
-  v9 = BYTE9(xmmword_140C2CC30);
+  v9 = BYTE9(xmmword_140C2CBF0);
   v7 = 7;
   v10 = 1143472144;
   v8[0] = -1;

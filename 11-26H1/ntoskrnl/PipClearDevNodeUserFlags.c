@@ -1,19 +1,19 @@
 /*
- * XREFs of PipClearDevNodeUserFlags @ 0x14090F028
+ * XREFs of PipClearDevNodeUserFlags @ 0x1409B1158
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1404D23F4 (PnpRemoveLockedDeviceNode.c)
- *     PnpCancelRemoveLockedDeviceNode @ 0x1407A4CEC (PnpCancelRemoveLockedDeviceNode.c)
- *     PnpProcessAssignResources @ 0x14090B6F8 (PnpProcessAssignResources.c)
- *     PiProcessQueryDeviceState @ 0x14090E340 (PiProcessQueryDeviceState.c)
- *     IopRemoveDevice @ 0x14090FCA8 (IopRemoveDevice.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
- *     PiDevCfgProcessDevice @ 0x140AD089C (PiDevCfgProcessDevice.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x140AE3ECC (PnpQueryRemoveLockedDeviceNode.c)
- *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
- *     PnpTrackQueryRemoveDevices @ 0x140B56148 (PnpTrackQueryRemoveDevices.c)
+ *     PnpRemoveLockedDeviceNode @ 0x1404CBC6C (PnpRemoveLockedDeviceNode.c)
+ *     PnpCancelRemoveLockedDeviceNode @ 0x1407A782C (PnpCancelRemoveLockedDeviceNode.c)
+ *     PnpProcessAssignResources @ 0x1409AD81C (PnpProcessAssignResources.c)
+ *     PiProcessQueryDeviceState @ 0x1409B0470 (PiProcessQueryDeviceState.c)
+ *     IopRemoveDevice @ 0x1409B1DD8 (IopRemoveDevice.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x140AE19D4 (PnpQueryRemoveLockedDeviceNode.c)
+ *     PiDevCfgProcessDevice @ 0x140AE7A3C (PiDevCfgProcessDevice.c)
+ *     PnpRestartDeviceNode @ 0x140B23CFC (PnpRestartDeviceNode.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140B58E48 (PnpTrackQueryRemoveDevices.c)
  * Callees:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x14090D4E8 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1409AF618 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PipClearDevNodeUserFlags(__int64 a1, int a2)

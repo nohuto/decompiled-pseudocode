@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpVerifyCallbackResult @ 0x1407C0A60
+ * XREFs of ExpVerifyCallbackResult @ 0x1407C0EB0
  * Callers:
- *     ExRegisterExtension @ 0x1407C0470 (ExRegisterExtension.c)
- *     ExUnregisterExtension @ 0x1407C08C0 (ExUnregisterExtension.c)
+ *     ExRegisterExtension @ 0x1407C08C0 (ExRegisterExtension.c)
+ *     ExUnregisterExtension @ 0x1407C0D10 (ExUnregisterExtension.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall ExpVerifyCallbackResult(int a1, int a2)

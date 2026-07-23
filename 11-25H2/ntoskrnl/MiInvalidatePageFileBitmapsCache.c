@@ -12,7 +12,7 @@
 
 void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, __int64 a4)
 {
-  bool v5; // bl
+  BOOLEAN v5; // bl
   __int64 v9; // rcx
   __int64 v10; // rdx
   int v11; // r8d
@@ -27,17 +27,17 @@ void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
   int v20; // r11d
   int v21; // ecx
   _QWORD *v22; // rax
-  unsigned __int64 v23; // r14
+  __int64 *v23; // r14
   unsigned int v24; // ecx
   unsigned int v25; // r9d
   __int64 v26; // r8
-  __int64 *v27; // rcx
+  _RTL_RB_TREE *v27; // rcx
   unsigned __int64 v28; // rdx
-  bool v29; // r8
+  BOOLEAN v29; // r8
   unsigned __int64 v30; // rax
-  __int64 *v31; // rcx
-  unsigned __int64 v32; // rdx
-  unsigned __int64 v33; // rax
+  _RTL_RB_TREE *v31; // rcx
+  __int64 v32; // rdx
+  __int64 v33; // rax
   unsigned int v34; // eax
   bool v35; // cc
 
@@ -56,8 +56,8 @@ LABEL_15:
       v17 = a4;
       if ( !v16 )
       {
-        RtlRbRemoveNode(a1 + 112, (unsigned __int64 *)a4);
-        RtlRbRemoveNode(a1 + 128, (unsigned __int64 *)(a4 + 24));
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 112), (PRTL_BALANCED_NODE)a4);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 128), (PRTL_BALANCED_NODE)(a4 + 24));
         v18 = a1 + 144;
         v19 = *(_QWORD **)(v18 + 8);
         if ( *v19 == v18 )
@@ -74,23 +74,23 @@ LABEL_15:
     else
     {
       v22 = (_QWORD *)(a1 + 144);
-      v23 = *(_QWORD *)(a1 + 144);
+      v23 = *(__int64 **)(a1 + 144);
       v24 = v21 - a2 - a3;
       v25 = a2 - v14;
-      if ( v23 != a1 + 144 )
+      if ( v23 != (__int64 *)(a1 + 144) )
       {
-        if ( *(_QWORD **)(v23 + 8) == v22 )
+        if ( (_QWORD *)v23[1] == v22 )
         {
-          v26 = *(_QWORD *)v23;
-          if ( *(_QWORD *)(*(_QWORD *)v23 + 8LL) == v23 )
+          v26 = *v23;
+          if ( *(__int64 **)(*v23 + 8) == v23 )
           {
             *v22 = v26;
             *(_QWORD *)(v26 + 8) = v22;
-            *(_DWORD *)(v23 + 52) = v24;
-            *(_DWORD *)(v23 + 48) = v20;
+            *((_DWORD *)v23 + 13) = v24;
+            *((_DWORD *)v23 + 12) = v20;
             *v15 = v25;
             MiBitmapsCachedEntryLengthChanged(a1, a4, 0LL);
-            v27 = (__int64 *)(a1 + 112);
+            v27 = (_RTL_RB_TREE *)(a1 + 112);
             v28 = *(_QWORD *)(a1 + 112);
             if ( (*(_BYTE *)(a1 + 120) & 1) != 0 && v28 )
               v28 ^= (unsigned __int64)v27;
@@ -99,7 +99,7 @@ LABEL_15:
             {
               while ( 1 )
               {
-                if ( *(_QWORD *)(v23 + 48) >= *(_QWORD *)(v28 + 48) )
+                if ( (unsigned __int64)v23[6] >= *(_QWORD *)(v28 + 48) )
                 {
                   v30 = *(_QWORD *)(v28 + 8);
                   if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
@@ -134,8 +134,8 @@ LABEL_62:
                 v28 = v30;
               }
             }
-            RtlRbInsertNodeEx(v27, v28, v29, v23);
-            v31 = (__int64 *)(a1 + 128);
+            RtlRbInsertNodeEx(v27, (PRTL_BALANCED_NODE)v28, v29, (PRTL_BALANCED_NODE)v23);
+            v31 = (_RTL_RB_TREE *)(a1 + 128);
             v32 = *(_QWORD *)(a1 + 128);
             if ( (*(_BYTE *)(a1 + 136) & 1) != 0 && v32 )
               v32 ^= (unsigned __int64)v31;
@@ -143,7 +143,7 @@ LABEL_62:
             {
               while ( 1 )
               {
-                if ( *(_DWORD *)(v23 + 48) < *(_DWORD *)(v32 + 24) )
+                if ( *((_DWORD *)v23 + 12) < *(_DWORD *)(v32 + 24) )
                 {
                   v33 = *(_QWORD *)v32;
                   if ( (*(_BYTE *)(a1 + 136) & 1) != 0 )
@@ -174,7 +174,7 @@ LABEL_42:
                 v32 = v33;
               }
             }
-            RtlRbInsertNodeEx(v31, v32, v5, v23 + 24);
+            RtlRbInsertNodeEx(v31, (PRTL_BALANCED_NODE)v32, v5, (PRTL_BALANCED_NODE)v23 + 1);
             return;
           }
         }

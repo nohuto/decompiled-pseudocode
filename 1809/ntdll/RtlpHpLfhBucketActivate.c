@@ -6,7 +6,7 @@
  * Callees:
  *     RtlpHpLfhBucketInitialize @ 0x180062014 (RtlpHpLfhBucketInitialize.c)
  *     RtlpHpLfhOwnerInitialize @ 0x1800625C8 (RtlpHpLfhOwnerInitialize.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 

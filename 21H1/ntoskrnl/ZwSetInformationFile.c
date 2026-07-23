@@ -36,5 +36,5 @@ NTSTATUS __stdcall ZwSetInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

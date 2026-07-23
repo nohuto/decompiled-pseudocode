@@ -1,25 +1,25 @@
 /*
- * XREFs of SepDeleteLogonSessionTrack @ 0x140AFE360
+ * XREFs of SepDeleteLogonSessionTrack @ 0x140B003D0
  * Callers:
- *     SeInitServerSilo @ 0x1408100DC (SeInitServerSilo.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1408154F4 (SepDeleteUnreferencedLogonSessionsInSilo.c)
- *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x140815A20 (SepRmInteractiveLogoffLogonSessionWrkr.c)
- *     SepRmDeleteLogonSessionWrkr @ 0x140AFE330 (SepRmDeleteLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x140815B6C (SeInitServerSilo.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x14081B6A4 (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x14081BBD0 (SepRmInteractiveLogoffLogonSessionWrkr.c)
+ *     SepRmDeleteLogonSessionWrkr @ 0x140B003A0 (SepRmDeleteLogonSessionWrkr.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     SepDeleteSessionLowboxEntries @ 0x1404B8718 (SepDeleteSessionLowboxEntries.c)
- *     ObRevokeHandles @ 0x1407C339C (ObRevokeHandles.c)
- *     SepDeleteLogonSessionSidValues @ 0x1408150DC (SepDeleteLogonSessionSidValues.c)
- *     ObDereferenceDeviceMap @ 0x1409007F4 (ObDereferenceDeviceMap.c)
- *     ObDestroyHandleRevocationBlock @ 0x140AFE560 (ObDestroyHandleRevocationBlock.c)
- *     SepDeleteCachedHandlesTable @ 0x140AFE698 (SepDeleteCachedHandlesTable.c)
- *     SepDeleteLogonSessionClaims @ 0x140AFE77C (SepDeleteLogonSessionClaims.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x140B231E0 (SepCleanupLUIDDeviceMapDirectory.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SepDeleteSessionLowboxEntries @ 0x1404B1F48 (SepDeleteSessionLowboxEntries.c)
+ *     ObRevokeHandles @ 0x1407C63FC (ObRevokeHandles.c)
+ *     SepDeleteLogonSessionSidValues @ 0x14081B290 (SepDeleteLogonSessionSidValues.c)
+ *     ObDereferenceDeviceMap @ 0x140930784 (ObDereferenceDeviceMap.c)
+ *     ObDestroyHandleRevocationBlock @ 0x140B005D0 (ObDestroyHandleRevocationBlock.c)
+ *     SepDeleteCachedHandlesTable @ 0x140B00708 (SepDeleteCachedHandlesTable.c)
+ *     SepDeleteLogonSessionClaims @ 0x140B007EC (SepDeleteLogonSessionClaims.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x140B255E0 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
@@ -47,7 +47,7 @@ __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
   v6 = (__int64 *)(SepLogonSessions + 8 * v5);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v8 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v5 & 3));
+  v8 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v5 & 3));
   ExAcquireResourceExclusiveLite(v8, 1u);
   for ( i = *v6; i; i = *(_QWORD *)i )
   {
@@ -88,7 +88,7 @@ __int64 __fastcall SepDeleteLogonSessionTrack(_DWORD *a1, char a2)
         if ( v15 )
           ExFreePoolWithTag(v15, 0);
         SepDeleteLogonSessionClaims(i);
-        if ( RtlpBootStatHandleLock.WaitBlockFill7[128] )
+        if ( LOBYTE(RtlpBootStatHandleLock.Queue) )
           SepDeleteLogonSessionSidValues(i);
         ObDestroyHandleRevocationBlock(i + 136);
         SepDeleteCachedHandlesTable((struct _KTHREAD *)(i + 96));

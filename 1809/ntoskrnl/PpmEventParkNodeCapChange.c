@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventParkNodeCapChange @ 0x1402E592C
+ * XREFs of PpmEventParkNodeCapChange @ 0x1402E5B1C
  * Callers:
- *     PpmParkApplyPolicy @ 0x140189E70 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicy @ 0x140189FB0 (PpmParkApplyPolicy.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkNodeCapChange(__int16 a1, __int64 a2, char a3, char a4)

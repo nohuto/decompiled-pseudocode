@@ -1,13 +1,13 @@
 /*
- * XREFs of MmEnumerateBadPages @ 0x1402CFDD0
+ * XREFs of MmEnumerateBadPages @ 0x1402CFFC0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmEnumerateBadPages(_QWORD *a1)
@@ -26,19 +26,19 @@ __int64 __fastcall MmEnumerateBadPages(_QWORD *a1)
   *a1 = 0LL;
   while ( 1 )
   {
-    if ( !qword_14043D900 )
+    if ( !qword_14043E9C0 )
       return 0LL;
-    v2 = qword_14043D900 + 16;
-    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8 * (qword_14043D900 + 16), 0x61426D4Du);
+    v2 = qword_14043E9C0 + 16;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8 * (qword_14043E9C0 + 16), 0x61426D4Du);
     v4 = PoolWithTag;
     if ( !PoolWithTag )
       break;
     v5 = PoolWithTag;
-    KeAcquireInStackQueuedSpinLock(qword_14043D920, &LockHandle);
-    if ( qword_14043D900 < v2 && qword_14043D900 )
+    KeAcquireInStackQueuedSpinLock(qword_14043E9E0, &LockHandle);
+    if ( qword_14043E9C0 < v2 && qword_14043E9C0 )
     {
-      *v4 = qword_14043D900;
-      for ( i = qword_14043D910; i != 0xFFFFFFFFFLL; i = *(_QWORD *)(48 * i - 0x58000000000LL) & 0xFFFFFFFFFLL )
+      *v4 = qword_14043E9C0;
+      for ( i = qword_14043E9D0; i != 0xFFFFFFFFFLL; i = *(_QWORD *)(48 * i - 0x58000000000LL) & 0xFFFFFFFFFLL )
         *++v5 = i;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;

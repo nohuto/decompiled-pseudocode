@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaPageOfflineAndPersist @ 0x1408482FC
+ * XREFs of WheaPageOfflineAndPersist @ 0x14084E5CC
  * Callers:
- *     WheapWmiExecuteMethod @ 0x1406D8758 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x1406DC8E8 (WheapWmiExecuteMethod.c)
  * Callees:
- *     WheaAttemptRowOffline @ 0x1406D5AE0 (WheaAttemptRowOffline.c)
- *     WheaGetNotifyAllOfflinesPolicy @ 0x1406D5D90 (WheaGetNotifyAllOfflinesPolicy.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408487D0 (WheapAttemptPhysicalPageOffline.c)
- *     WheapOfflinePage @ 0x140848DE4 (WheapOfflinePage.c)
- *     WheapOfflineRow @ 0x140848F3C (WheapOfflineRow.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WheaAttemptRowOffline @ 0x1406D9BC0 (WheaAttemptRowOffline.c)
+ *     WheaGetNotifyAllOfflinesPolicy @ 0x1406D9E70 (WheaGetNotifyAllOfflinesPolicy.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14084EAA0 (WheapAttemptPhysicalPageOffline.c)
+ *     WheapOfflinePage @ 0x14084F0B4 (WheapOfflinePage.c)
+ *     WheapOfflineRow @ 0x14084F20C (WheapOfflineRow.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheaPageOfflineAndPersist(__int64 a1)

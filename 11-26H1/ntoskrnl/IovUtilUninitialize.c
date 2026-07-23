@@ -1,7 +1,7 @@
 /*
- * XREFs of IovUtilUninitialize @ 0x140C311F8
+ * XREFs of IovUtilUninitialize @ 0x140C37208
  * Callers:
- *     ViIovPluginUnload @ 0x1406429A0 (ViIovPluginUnload.c)
+ *     ViIovPluginUnload @ 0x140646580 (ViIovPluginUnload.c)
  * Callees:
  *     <none>
  */

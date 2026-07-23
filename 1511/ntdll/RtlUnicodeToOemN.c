@@ -7,20 +7,20 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUnicodeToOemN(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int *a3,
-        unsigned __int16 *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v6; // r11d
-  unsigned int v7; // ebx
-  unsigned int v8; // edi
+  ULONG v6; // r11d
+  ULONG v7; // ebx
+  ULONG v8; // edi
   __int64 v9; // r9
   __int64 v10; // r10
-  _BYTE *v11; // rdx
-  unsigned __int16 *v12; // r8
+  CHAR *v11; // rdx
+  const WCHAR *v12; // r8
   __int64 v13; // rax
   int v15; // r9d
   __int64 v16; // rdi
@@ -28,19 +28,19 @@ __int64 __fastcall RtlUnicodeToOemN(
   __int16 v18; // r10
   unsigned int v19; // eax
 
-  v6 = a5 >> 1;
-  v7 = a2;
+  v6 = BytesInUnicodeString >> 1;
+  v7 = MaxBytesInOemString;
   if ( !NlsMbOemCodePageTag )
   {
-    v8 = a2;
-    if ( v6 < a2 )
-      v8 = a5 >> 1;
-    if ( a3 )
-      *a3 = v8;
+    v8 = MaxBytesInOemString;
+    if ( v6 < MaxBytesInOemString )
+      v8 = BytesInUnicodeString >> 1;
+    if ( BytesInOemString )
+      *BytesInOemString = v8;
     v9 = NlsUnicodeToOemData;
     v10 = v8 & 0xF;
-    v11 = &a1[v10 - 15];
-    v12 = &a4[v10 - 15];
+    v11 = &OemString[v10 - 15];
+    v12 = &UnicodeString[v10 - 15];
     while ( (unsigned int)v10 <= 8 )
     {
       if ( (_DWORD)v10 == 8 )
@@ -117,7 +117,7 @@ LABEL_25:
     v11[9] = *(_BYTE *)(v12[9] + v9);
     goto LABEL_26;
   }
-  v15 = (int)a1;
+  v15 = (int)OemString;
   if ( v6 )
   {
     v16 = NlsUnicodeToMbOemData;
@@ -125,23 +125,23 @@ LABEL_25:
     {
       if ( !v7 )
         break;
-      v17 = *a4++;
+      v17 = *UnicodeString++;
       v18 = *(_WORD *)(v16 + 2 * v17);
       if ( HIBYTE(v18) )
       {
         v19 = v7--;
         if ( v19 < 2 )
           break;
-        *a1++ = HIBYTE(v18);
+        *OemString++ = HIBYTE(v18);
       }
-      *a1 = v18;
+      *OemString = v18;
       --v7;
-      ++a1;
+      ++OemString;
       --v6;
     }
     while ( v6 );
   }
-  if ( a3 )
-    *a3 = (_DWORD)a1 - v15;
+  if ( BytesInOemString )
+    *BytesInOemString = (_DWORD)OemString - v15;
   return v7 < v6 ? 0x80000005 : 0;
 }

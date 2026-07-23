@@ -11,11 +11,11 @@
 
 wchar_t *__fastcall CmpInitializeLoadOptions(ULONG_PTR BugCheckParameter3)
 {
-  const char *v1; // rdx
+  const CHAR *v1; // rdx
   wchar_t *result; // rax
-  STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
 
-  v1 = *(const char **)(BugCheckParameter3 + 216);
+  v1 = *(const CHAR **)(BugCheckParameter3 + 216);
   *(_QWORD *)&SourceString.Length = 0LL;
   SourceString.Buffer = 0LL;
   RtlInitAnsiString(&SourceString, v1);

@@ -1,7 +1,7 @@
 /*
- * XREFs of IoGetIoPriorityHint @ 0x14043C8B0
+ * XREFs of IoGetIoPriorityHint @ 0x14042F160
  * Callers:
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
  * Callees:
  *     <none>
  */

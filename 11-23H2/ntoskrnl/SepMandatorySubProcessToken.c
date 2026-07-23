@@ -1,17 +1,17 @@
 /*
- * XREFs of SepMandatorySubProcessToken @ 0x140225BB0
+ * XREFs of SepMandatorySubProcessToken @ 0x140225CC0
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x1406B722C (SeSubProcessToken.c)
  * Callees:
- *     RtlSidDominates @ 0x140226A30 (RtlSidDominates.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     RtlFindAceByType @ 0x1402AD1F0 (RtlFindAceByType.c)
- *     SepLocateTokenIntegrity @ 0x140370C78 (SepLocateTokenIntegrity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlSidDominates @ 0x140226B40 (RtlSidDominates.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     RtlFindAceByType @ 0x1402AD480 (RtlFindAceByType.c)
+ *     SepLocateTokenIntegrity @ 0x140370E18 (SepLocateTokenIntegrity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     PsReferenceProcessFilePointer @ 0x14069A0A0 (PsReferenceProcessFilePointer.c)
  *     ObQuerySecurityObject @ 0x14069C84C (ObQuerySecurityObject.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     SeTokenIsAdmin @ 0x1407D04A0 (SeTokenIsAdmin.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     SeTokenIsAdmin @ 0x1407D0770 (SeTokenIsAdmin.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -26,57 +26,67 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   _BYTE *v11; // rdi
   __int16 v12; // ax
   __int64 v13; // rax
-  _BYTE *v14; // rcx
-  __int64 AceByType; // rax
+  ACL *v14; // rcx
+  char *AceByType; // rax
   _BYTE *Pool2; // rax
-  void *v18; // r14
-  void **TokenIntegrity; // rax
-  __int64 v20; // rax
-  _QWORD *v21; // r8
-  __int64 v22; // rcx
-  __int64 v23; // rdx
+  unsigned __int8 *v18; // r14
+  PSID *TokenIntegrity; // rax
+  PSID *v20; // r15
+  int v21; // eax
+  int v22; // ecx
+  PSID v23; // rax
   int v24; // eax
-  __int64 *v25; // r8
-  __int64 v26; // r11
-  __int64 v27; // r9
-  int v28; // ecx
-  __int64 v29; // r10
-  int v30; // edx
-  __int64 v31; // rcx
-  unsigned int v32; // eax
-  int v33; // eax
-  int v34; // eax
-  unsigned int v35; // ecx
-  int v36; // eax
-  unsigned int v37; // eax
-  unsigned int v38; // [rsp+34h] [rbp-95h] BYREF
-  void *v39; // [rsp+38h] [rbp-91h] BYREF
-  _QWORD *v40; // [rsp+40h] [rbp-89h]
+  unsigned int v25; // ecx
+  int v26; // eax
+  unsigned int v27; // eax
+  __int64 v28; // rax
+  _QWORD *v29; // r8
+  __int64 v30; // rcx
+  __int64 v31; // rdx
+  int v32; // eax
+  __int64 *v33; // r8
+  __int64 v34; // r11
+  __int64 v35; // r9
+  int v36; // ecx
+  __int64 v37; // r10
+  int v38; // edx
+  __int64 v39; // rcx
+  unsigned int v40; // eax
+  int v41; // eax
+  int v42; // eax
+  unsigned int v43; // ecx
+  int v44; // eax
+  unsigned int v45; // eax
+  BOOLEAN Dominates[4]; // [rsp+30h] [rbp-99h] BYREF
+  unsigned int v47; // [rsp+34h] [rbp-95h] BYREF
+  void *v48; // [rsp+38h] [rbp-91h] BYREF
+  _QWORD *v49; // [rsp+40h] [rbp-89h]
   _BYTE SecurityDescriptor[128]; // [rsp+50h] [rbp-79h] BYREF
 
   v4 = 0;
-  v40 = a4;
+  v49 = a4;
   *a4 = 0LL;
   v5 = a4;
   v6 = *(_DWORD *)(a3 + 2172);
-  v39 = 0LL;
+  v48 = 0LL;
+  Dominates[0] = 0;
   SecurityObject = 0;
   v10 = 0LL;
   v11 = 0LL;
   if ( (v6 & 1) != 0 || (*(_DWORD *)(a2 + 212) & 2) == 0 )
     goto LABEL_13;
-  SecurityObject = PsReferenceProcessFilePointer(a3, &v39);
+  SecurityObject = PsReferenceProcessFilePointer(a3, &v48);
   if ( SecurityObject < 0
-    || (v38 = 128,
+    || (v47 = 128,
         v11 = SecurityDescriptor,
         SecurityObject = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u),
         SecurityObject < 0) )
   {
-    v10 = v39;
+    v10 = v48;
     goto LABEL_14;
   }
-  v10 = v39;
-  SecurityObject = ObQuerySecurityObject((_DWORD)v39, 16, (unsigned int)SecurityDescriptor, 128, (__int64)&v38);
+  v10 = v48;
+  SecurityObject = ObQuerySecurityObject((_DWORD)v48, 16, (unsigned int)SecurityDescriptor, 128, (__int64)&v47);
   if ( SecurityObject != -1073741789 )
   {
 LABEL_6:
@@ -87,28 +97,61 @@ LABEL_6:
       {
         if ( v12 >= 0 )
         {
-          v14 = (_BYTE *)*((_QWORD *)v11 + 3);
+          v14 = (ACL *)*((_QWORD *)v11 + 3);
 LABEL_12:
-          AceByType = RtlFindAceByType(v14, 17LL, 0LL);
+          AceByType = (char *)RtlFindAceByType(v14, 0x11u, 0LL);
           if ( AceByType )
           {
-            v18 = (void *)(AceByType + 8);
-            TokenIntegrity = (void **)SepLocateTokenIntegrity(a2);
-            if ( TokenIntegrity )
+            v18 = (unsigned __int8 *)(AceByType + 8);
+            TokenIntegrity = (PSID *)SepLocateTokenIntegrity(a2);
+            v20 = TokenIntegrity;
+            if ( !TokenIntegrity )
+              goto LABEL_43;
+            SecurityObject = RtlSidDominates(*TokenIntegrity, v18, Dominates);
+            if ( SecurityObject < 0 )
+              goto LABEL_14;
+            if ( Dominates[0] )
             {
-              SecurityObject = RtlSidDominates(*TokenIntegrity, v18);
-              if ( SecurityObject < 0 )
-                goto LABEL_14;
+              v21 = v18[1];
+              if ( (_BYTE)v21 )
+                v22 = *(_DWORD *)&v18[4 * (v21 - 1) + 8];
+              else
+                v22 = 0;
+              *((_DWORD *)*v20 + 2) = v22;
+              v23 = *v20;
+              v5 = v49;
+              *v49 = v23;
+              v24 = v18[1];
+              if ( (_BYTE)v24 )
+              {
+                v25 = *(_DWORD *)&v18[4 * (v24 - 1) + 8];
+                v4 = 0;
+              }
+              else
+              {
+                v4 = 0;
+                v25 = 0;
+              }
+              v26 = *(_DWORD *)(a2 + 200);
+              if ( v25 >= 0x2000 )
+                v27 = v26 | 0x2000;
+              else
+                v27 = v26 & 0xFFFFDFFF;
+              *(_DWORD *)(a2 + 200) = v27;
             }
-            v5 = v40;
-            v4 = 0;
+            else
+            {
+LABEL_43:
+              v5 = v49;
+              v4 = 0;
+            }
           }
           goto LABEL_13;
         }
         v13 = *((unsigned int *)v11 + 3);
         if ( (_DWORD)v13 )
         {
-          v14 = &v11[v13];
+          v14 = (ACL *)&v11[v13];
           goto LABEL_12;
         }
       }
@@ -122,56 +165,56 @@ LABEL_13:
       if ( (Token[50] & 0x1000) != 0 && !SeTokenIsAdmin(Token) )
       {
         *(_DWORD *)(a2 + 200) &= ~0x1000u;
-        v20 = SepLocateTokenIntegrity(a2);
-        v21 = (_QWORD *)v20;
-        if ( v20 )
+        v28 = SepLocateTokenIntegrity(a2);
+        v29 = (_QWORD *)v28;
+        if ( v28 )
         {
-          v22 = *(_QWORD *)(*(_QWORD *)(a2 + 216) + 48LL);
-          if ( v22 )
+          v30 = *(_QWORD *)(*(_QWORD *)(a2 + 216) + 48LL);
+          if ( v30 )
           {
-            v26 = SepLocateTokenIntegrity(v22);
-            if ( v26 )
+            v34 = SepLocateTokenIntegrity(v30);
+            if ( v34 )
             {
-              v27 = *v25;
-              v28 = *(unsigned __int8 *)(*v25 + 1);
-              if ( (_BYTE)v28 )
-                v4 = *(_DWORD *)(v27 + 4LL * (unsigned int)(v28 - 1) + 8);
-              v29 = *(_QWORD *)v26;
-              v30 = *(unsigned __int8 *)(*(_QWORD *)v26 + 1LL);
-              v31 = (unsigned int)(v30 - 1);
-              if ( (_BYTE)v30 )
-                v32 = *(_DWORD *)(v29 + 4 * v31 + 8);
+              v35 = *v33;
+              v36 = *(unsigned __int8 *)(*v33 + 1);
+              if ( (_BYTE)v36 )
+                v4 = *(_DWORD *)(v35 + 4LL * (unsigned int)(v36 - 1) + 8);
+              v37 = *(_QWORD *)v34;
+              v38 = *(unsigned __int8 *)(*(_QWORD *)v34 + 1LL);
+              v39 = (unsigned int)(v38 - 1);
+              if ( (_BYTE)v38 )
+                v40 = *(_DWORD *)(v37 + 4 * v39 + 8);
               else
-                v32 = 0;
-              if ( v4 > v32 )
+                v40 = 0;
+              if ( v4 > v40 )
               {
-                v33 = 0;
-                if ( (_BYTE)v30 )
-                  v33 = *(_DWORD *)(v29 + 4 * v31 + 8);
-                *(_DWORD *)(v27 + 8) = v33;
-                *v5 = *v25;
-                v34 = *(unsigned __int8 *)(*(_QWORD *)v26 + 1LL);
-                if ( (_BYTE)v34 )
-                  v35 = *(_DWORD *)(*(_QWORD *)v26 + 4LL * (unsigned int)(v34 - 1) + 8);
+                v41 = 0;
+                if ( (_BYTE)v38 )
+                  v41 = *(_DWORD *)(v37 + 4 * v39 + 8);
+                *(_DWORD *)(v35 + 8) = v41;
+                *v5 = *v33;
+                v42 = *(unsigned __int8 *)(*(_QWORD *)v34 + 1LL);
+                if ( (_BYTE)v42 )
+                  v43 = *(_DWORD *)(*(_QWORD *)v34 + 4LL * (unsigned int)(v42 - 1) + 8);
                 else
-                  v35 = 0;
-                v36 = *(_DWORD *)(a2 + 200);
-                if ( v35 >= 0x2000 )
-                  v37 = v36 | 0x2000;
+                  v43 = 0;
+                v44 = *(_DWORD *)(a2 + 200);
+                if ( v43 >= 0x2000 )
+                  v45 = v44 | 0x2000;
                 else
-                  v37 = v36 & 0xFFFFDFFF;
-                *(_DWORD *)(a2 + 200) = v37;
+                  v45 = v44 & 0xFFFFDFFF;
+                *(_DWORD *)(a2 + 200) = v45;
               }
             }
           }
           else
           {
-            v23 = *(_QWORD *)v20;
-            v24 = *(unsigned __int8 *)(*(_QWORD *)v20 + 1LL);
-            if ( (_BYTE)v24 && *(_DWORD *)(v23 + 4LL * (unsigned int)(v24 - 1) + 8) > 0x2000u )
+            v31 = *(_QWORD *)v28;
+            v32 = *(unsigned __int8 *)(*(_QWORD *)v28 + 1LL);
+            if ( (_BYTE)v32 && *(_DWORD *)(v31 + 4LL * (unsigned int)(v32 - 1) + 8) > 0x2000u )
             {
-              *(_DWORD *)(v23 + 8) = 0x2000;
-              *v5 = *v21;
+              *(_DWORD *)(v31 + 8) = 0x2000;
+              *v5 = *v29;
             }
           }
         }
@@ -179,7 +222,7 @@ LABEL_13:
     }
     goto LABEL_14;
   }
-  Pool2 = (_BYTE *)ExAllocatePool2(256LL, v38, 538994003LL);
+  Pool2 = (_BYTE *)ExAllocatePool2(256LL, v47, 538994003LL);
   v11 = Pool2;
   if ( !Pool2 )
   {
@@ -189,7 +232,7 @@ LABEL_13:
   SecurityObject = RtlCreateSecurityDescriptor(Pool2, 1u);
   if ( SecurityObject >= 0 )
   {
-    SecurityObject = ObQuerySecurityObject((_DWORD)v10, 16, (_DWORD)v11, v38, (__int64)&v38);
+    SecurityObject = ObQuerySecurityObject((_DWORD)v10, 16, (_DWORD)v11, v47, (__int64)&v47);
     goto LABEL_6;
   }
 LABEL_14:

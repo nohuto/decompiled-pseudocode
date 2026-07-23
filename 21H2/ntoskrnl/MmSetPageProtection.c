@@ -1,23 +1,23 @@
 /*
- * XREFs of MmSetPageProtection @ 0x140379C80
+ * XREFs of MmSetPageProtection @ 0x1403797D0
  * Callers:
- *     sub_1403EA370 @ 0x1403EA370 (sub_1403EA370.c)
- *     MmAllocateIsrStack @ 0x14079F938 (MmAllocateIsrStack.c)
- *     KeWriteProtectProcessorState @ 0x14099F128 (KeWriteProtectProcessorState.c)
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
- *     VslpIumPhase0Initialize @ 0x140A8F5C8 (VslpIumPhase0Initialize.c)
+ *     sub_1403EA4E0 @ 0x1403EA4E0 (sub_1403EA4E0.c)
+ *     MmAllocateIsrStack @ 0x14079FB38 (MmAllocateIsrStack.c)
+ *     KeWriteProtectProcessorState @ 0x1409A0058 (KeWriteProtectProcessorState.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
+ *     VslpIumPhase0Initialize @ 0x140A905C8 (VslpIumPhase0Initialize.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     MiLockPageAndSetDirty @ 0x14030FA6C (MiLockPageAndSetDirty.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiMakeProtectionMask @ 0x1402BF320 (MiMakeProtectionMask.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageAndSetDirty @ 0x14031A7BC (MiLockPageAndSetDirty.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall MmSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

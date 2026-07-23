@@ -1,11 +1,11 @@
 /*
- * XREFs of PspRemoveCpuRateControl @ 0x14067F4BC
+ * XREFs of PspRemoveCpuRateControl @ 0x1405D9F5C
  * Callers:
- *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
+ *     PspJobDelete @ 0x1402046D0 (PspJobDelete.c)
  * Callees:
- *     KeRemoveSchedulingGroup @ 0x140287B64 (KeRemoveSchedulingGroup.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspFreeRateControl @ 0x14067F51C (PspFreeRateControl.c)
+ *     KeRemoveSchedulingGroup @ 0x140204D04 (KeRemoveSchedulingGroup.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspFreeRateControl @ 0x1405D9FBC (PspFreeRateControl.c)
  */
 
 LONG_PTR __fastcall PspRemoveCpuRateControl(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SepDuplicateSid @ 0x140A806F4
+ * XREFs of SepDuplicateSid @ 0x140A86564
  * Callers:
- *     SepSetTokenUserAndGroups @ 0x140A802F4 (SepSetTokenUserAndGroups.c)
- *     SepDuplicateTokenUserAndGroups @ 0x140A805F8 (SepDuplicateTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x140A86164 (SepSetTokenUserAndGroups.c)
+ *     SepDuplicateTokenUserAndGroups @ 0x140A86468 (SepDuplicateTokenUserAndGroups.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepDuplicateSid(unsigned __int8 *Src, _QWORD *a2)

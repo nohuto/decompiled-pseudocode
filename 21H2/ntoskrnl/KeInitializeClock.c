@@ -1,21 +1,21 @@
 /*
- * XREFs of KeInitializeClock @ 0x140A4B7CC
+ * XREFs of KeInitializeClock @ 0x140A4C7CC
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140A4D104 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KiSetPendingTick @ 0x1402937FC (KiSetPendingTick.c)
- *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
- *     KiSetupTimeIncrement @ 0x1403B4944 (KiSetupTimeIncrement.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     strstr @ 0x1403D1880 (strstr.c)
+ *     KiSetPendingTick @ 0x14021176C (KiSetPendingTick.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     RtlRbInsertNodeEx @ 0x14034B1D0 (RtlRbInsertNodeEx.c)
+ *     KiSetupTimeIncrement @ 0x1403B4AB4 (KiSetupTimeIncrement.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PoTraceDynamicTickDisabled @ 0x14056FC24 (PoTraceDynamicTickDisabled.c)
- *     EmClientQueryRuleState @ 0x14098F620 (EmClientQueryRuleState.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PoTraceDynamicTickDisabled @ 0x14056FE64 (PoTraceDynamicTickDisabled.c)
+ *     EmClientQueryRuleState @ 0x1409910E0 (EmClientQueryRuleState.c)
  */
 
 char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -23,9 +23,9 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
   char result; // al
   unsigned __int8 CurrentIrql; // di
   const char *v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  bool v7; // r8
+  unsigned __int64 v5; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v7; // r8
   _DWORD *SchedulerAssist; // r9
   __int64 v9; // rcx
   unsigned __int8 v10; // al
@@ -64,37 +64,37 @@ char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
       off_140C00880[0]();
       LOBYTE(v9) = 1;
       ((void (__fastcall *)(__int64))off_140C00878[0])(v9);
-      ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))off_140C00890[0])(0LL, (unsigned int)KeMaximumIncrement, &v18);
+      ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))off_140C00890[0])(0LL, KeMaximumIncrement, &v18);
       KiSetPendingTick(1);
-      v6 = KiClockIntervalRequests;
+      Root = (unsigned __int64)KiClockIntervalRequests.Root;
       KeTimeIncrement = v18;
       KiLastRequestedTimeIncrement = KeMaximumIncrement;
       KeNonHrTimeIncrement = v18;
       KePseudoHrTimeIncrement = v18;
-      dword_140C317DC = KeMaximumIncrement;
-      if ( (qword_140CEC388 & 1) != 0 && KiClockIntervalRequests )
-        v6 = (unsigned __int64)&KiClockIntervalRequests ^ KiClockIntervalRequests;
+      dword_140C31B5C = KeMaximumIncrement;
+      if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 && KiClockIntervalRequests.Root )
+        Root = (unsigned __int64)&KiClockIntervalRequests ^ (unsigned __int64)KiClockIntervalRequests.Root;
       v7 = 0;
-      if ( v6 )
+      if ( Root )
       {
         while ( 1 )
         {
-          if ( (unsigned int)KeMaximumIncrement < *(_DWORD *)(v6 + 28) )
+          if ( KeMaximumIncrement < *(_DWORD *)(Root + 28) )
           {
-            v5 = *(_QWORD *)v6;
-            if ( (qword_140CEC388 & 1) != 0 )
+            v5 = *(_QWORD *)Root;
+            if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
             {
               if ( !v5 )
                 break;
-              v5 ^= v6;
+              v5 ^= Root;
             }
             if ( !v5 )
               break;
           }
           else
           {
-            v5 = *(_QWORD *)(v6 + 8);
-            if ( (qword_140CEC388 & 1) != 0 )
+            v5 = *(_QWORD *)(Root + 8);
+            if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
             {
               if ( !v5 )
               {
@@ -102,20 +102,16 @@ LABEL_33:
                 v7 = 1;
                 break;
               }
-              v5 ^= v6;
+              v5 ^= Root;
             }
             if ( !v5 )
               goto LABEL_33;
           }
-          v6 = v5;
+          Root = v5;
         }
       }
-      RtlRbInsertNodeEx(
-        (unsigned __int64 *)&KiClockIntervalRequests,
-        v6,
-        v7,
-        (unsigned __int64)&KiDefaultClockIntervalRequest);
-      byte_140C317D8 = 1;
+      RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v7, &KiDefaultClockIntervalRequest);
+      byte_140C31B58 = 1;
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -160,7 +156,7 @@ LABEL_37:
         KiForceIdleDisabled = 1;
       }
       _InterlockedOr(v15, 0);
-      KeNumberProcessorsGroup0[1] = 1;
+      KiDynamicTickInitialized = 1;
     }
   }
   else

@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpHpVsSlotAllocate @ 0x14024A580
+ * XREFs of RtlpHpVsSlotAllocate @ 0x14024BEE0
  * Callers:
- *     RtlpHpVsContextMultiAlloc @ 0x140467958 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x1404610A8 (RtlpHpVsContextMultiAlloc.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlpHpVsFreeChunkInsert @ 0x14024AA50 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsSubsegmentCreate @ 0x14024ACAC (RtlpHpVsSubsegmentCreate.c)
- *     RtlpHpVsChunkAlignSplit @ 0x14024AFA0 (RtlpHpVsChunkAlignSplit.c)
- *     RtlpHpVsChunkSplit @ 0x14024B9E0 (RtlpHpVsChunkSplit.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14027D330 (RtlpHpReleaseQueuedLockExclusive.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14024C3B0 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x14024C60C (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x14024C900 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsChunkSplit @ 0x14024D340 (RtlpHpVsChunkSplit.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x14027C8A0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
  */
 
 _QWORD *__fastcall RtlpHpVsSlotAllocate(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, __int64 a5)
@@ -147,7 +147,7 @@ LABEL_14:
       if ( *(_BYTE *)(a1 + 3) )
       {
         v33 = *(unsigned __int8 *)(a5 + 16);
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           v21->Header.LockNV = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v21, retaddr);
@@ -163,7 +163,7 @@ LABEL_14:
         CurrentThread = KeGetCurrentThread();
         v25 = CurrentThread->SpecialApcDisable++ == -1;
         if ( v25
-          && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+          && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
         {
           KiCheckForKernelApcDelivery(CurrentThread, v22, v13, v23, v36, v37);
         }

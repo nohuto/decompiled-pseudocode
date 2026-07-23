@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertClone @ 0x14066510C
+ * XREFs of MiInsertClone @ 0x14066565C
  * Callers:
- *     MiCloneVads @ 0x140663278 (MiCloneVads.c)
- *     MiCloneProcessAddressSpace @ 0x140A48954 (MiCloneProcessAddressSpace.c)
+ *     MiCloneVads @ 0x1406637C8 (MiCloneVads.c)
+ *     MiCloneProcessAddressSpace @ 0x140A48C04 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     MiDeleteCloneZombies @ 0x140367684 (MiDeleteCloneZombies.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     MiDeleteCloneZombies @ 0x140367824 (MiDeleteCloneZombies.c)
  */
 
 char __fastcall MiInsertClone(__int64 a1, unsigned __int64 a2, int a3)

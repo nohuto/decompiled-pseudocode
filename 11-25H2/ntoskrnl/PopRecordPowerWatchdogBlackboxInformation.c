@@ -26,7 +26,7 @@ void PopRecordPowerWatchdogBlackboxInformation()
   __int64 i; // rsi
   __int128 InputBuffer; // [rsp+30h] [rbp-38h] BYREF
   __int128 v12; // [rsp+40h] [rbp-28h]
-  unsigned __int64 v13; // [rsp+70h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp+8h] BYREF
 
   InputBuffer = 0LL;
   v12 = 0LL;
@@ -69,7 +69,8 @@ LABEL_13:
         {
           *v9 = *(_DWORD *)(i + 16);
           *((_QWORD *)v9 + 9) = *(_QWORD *)(i + 288);
-          v9[1] = (RtlGetInterruptTimePrecise(&v13) - *(_QWORD *)(i + 296)) / 0x2710uLL;
+          v9[1] = (unsigned __int64)(*(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) - *(_QWORD *)(i + 296))
+                / 0x2710;
           v9[2] = *(_DWORD *)(i + 216);
           v9[3] = *(_DWORD *)(i + 224);
           *((_QWORD *)v9 + 2) = *(_QWORD *)(i + 232);

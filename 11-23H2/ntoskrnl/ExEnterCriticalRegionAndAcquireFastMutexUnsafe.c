@@ -1,9 +1,9 @@
 /*
- * XREFs of ExEnterCriticalRegionAndAcquireFastMutexUnsafe @ 0x140302630
+ * XREFs of ExEnterCriticalRegionAndAcquireFastMutexUnsafe @ 0x1403028C0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
  */
 
 void __fastcall ExEnterCriticalRegionAndAcquireFastMutexUnsafe(struct _FAST_MUTEX *a1)

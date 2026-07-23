@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAddSecureEntry @ 0x14095D9B8
+ * XREFs of MiAddSecureEntry @ 0x140A03278
  * Callers:
- *     MiReserveUserMemoryFinishVad @ 0x14095C5E0 (MiReserveUserMemoryFinishVad.c)
- *     MiMapLockedPagesInUserSpace @ 0x14095D148 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateVad @ 0x14095D5C0 (MiAllocateVad.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14095D738 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiCloneNoChange @ 0x140961FAC (MiCloneNoChange.c)
- *     MiHandleInsertedImageVad @ 0x1409CDFA4 (MiHandleInsertedImageVad.c)
- *     MiSecureVad @ 0x140B4F310 (MiSecureVad.c)
+ *     MiHandleInsertedImageVad @ 0x14099EF84 (MiHandleInsertedImageVad.c)
+ *     MiReserveUserMemoryFinishVad @ 0x140A01EA0 (MiReserveUserMemoryFinishVad.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140A02A08 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateVad @ 0x140A02E80 (MiAllocateVad.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140A02FF8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiCloneNoChange @ 0x140A07CA0 (MiCloneNoChange.c)
+ *     MiSecureVad @ 0x140B51BA0 (MiSecureVad.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiInsertVadEvent @ 0x14049B0F8 (MiInsertVadEvent.c)
- *     MiLocateExclusiveSecure @ 0x1404B8DBC (MiLocateExclusiveSecure.c)
- *     MiWriteSecureFlags @ 0x1404CD974 (MiWriteSecureFlags.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiInsertVadEvent @ 0x140494C48 (MiInsertVadEvent.c)
+ *     MiLocateExclusiveSecure @ 0x1404B25EC (MiLocateExclusiveSecure.c)
+ *     MiWriteSecureFlags @ 0x1404C73A4 (MiWriteSecureFlags.c)
  */
 
 __int64 __fastcall MiAddSecureEntry(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)

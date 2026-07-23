@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAdjustObjectAppContainerSecurity @ 0x14069479C
+ * XREFs of SeAdjustObjectAppContainerSecurity @ 0x140694880
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x1403FCD98 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1403FBC58 (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepAppContainerAceProtectionApplies @ 0x1406948B8 (SepAppContainerAceProtectionApplies.c)
- *     SepBuildObjectSecurityDescriptor @ 0x140694AD0 (SepBuildObjectSecurityDescriptor.c)
- *     SepCheckForAllAppPackagesAceRemoval @ 0x140694CA8 (SepCheckForAllAppPackagesAceRemoval.c)
- *     SepSqmInformation @ 0x140695354 (SepSqmInformation.c)
+ *     SepAppContainerAceProtectionApplies @ 0x14069499C (SepAppContainerAceProtectionApplies.c)
+ *     SepBuildObjectSecurityDescriptor @ 0x140694BB4 (SepBuildObjectSecurityDescriptor.c)
+ *     SepCheckForAllAppPackagesAceRemoval @ 0x140694D8C (SepCheckForAllAppPackagesAceRemoval.c)
+ *     SepSqmInformation @ 0x140695438 (SepSqmInformation.c)
  */
 
 __int64 __fastcall SeAdjustObjectAppContainerSecurity(const void **a1, void *a2, void *a3, _QWORD *a4, _BYTE *a5)

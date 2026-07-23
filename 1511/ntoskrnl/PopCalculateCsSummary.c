@@ -16,7 +16,7 @@ char __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rbp
   char v4; // di
-  __int64 InterruptTimePrecise; // r12
+  LARGE_INTEGER InterruptTimePrecise; // r12
   unsigned __int64 v6; // kr00_8
   unsigned __int64 v7; // r15
   int v8; // eax
@@ -33,7 +33,7 @@ char __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   unsigned __int64 v19; // rcx
   unsigned __int64 v20; // rdx
   unsigned __int64 v21; // rcx
-  __int64 v22; // r12
+  LONGLONG v22; // r12
   unsigned __int64 v23; // r12
   unsigned __int64 v24; // rax
   unsigned __int64 v25; // rcx
@@ -51,14 +51,15 @@ char __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   v2 = (unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFC0uLL;
   v4 = 0;
   PopCalculateIdleInformation(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFC0uLL) + 80);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise((LARGE_INTEGER *)(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFC0uLL)
-                                                                    + 104));
-  v6 = InterruptTimePrecise - qword_140305A08;
-  v7 = (InterruptTimePrecise - qword_140305A08) / 0xAuLL;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise((PLARGE_INTEGER)(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFC0uLL)
+                                                                   + 104));
+  v6 = InterruptTimePrecise.QuadPart - qword_140305A08;
+  v7 = (InterruptTimePrecise.QuadPart - qword_140305A08) / 0xAuLL;
   if ( PopPdcLastCsExitTime <= (unsigned __int64)qword_140305A08 )
     *(_QWORD *)(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFC0uLL) + 0x30) = 0LL;
   else
-    *(_QWORD *)(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFC0uLL) + 0x30) = (InterruptTimePrecise - PopPdcLastCsExitTime)
+    *(_QWORD *)(((unsigned __int64)&v35 & 0xFFFFFFFFFFFFFFC0uLL) + 0x30) = (InterruptTimePrecise.QuadPart
+                                                                          - PopPdcLastCsExitTime)
                                                                          / 0xAuLL;
   v8 = DWORD1(xmmword_1402DE400);
   v9 = 0x40000000;
@@ -118,9 +119,9 @@ char __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   if ( qword_140305A58 )
   {
     if ( qword_140305A08 <= (unsigned __int64)qword_140305A58 )
-      v22 = InterruptTimePrecise - qword_140305A58;
+      v22 = InterruptTimePrecise.QuadPart - qword_140305A58;
     else
-      v22 = InterruptTimePrecise - qword_140305A08;
+      v22 = InterruptTimePrecise.QuadPart - qword_140305A08;
     v21 = v22 + qword_140305A60;
   }
   v23 = v21 / 0xA;

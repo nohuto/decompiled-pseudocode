@@ -1,9 +1,9 @@
 /*
- * XREFs of ExfReleaseRundownProtection @ 0x14029AFF0
+ * XREFs of ExfReleaseRundownProtection @ 0x140212980
  * Callers:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 void __stdcall ExfReleaseRundownProtection(PEX_RUNDOWN_REF RunRef)

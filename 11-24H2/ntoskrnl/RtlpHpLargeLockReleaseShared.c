@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLargeLockReleaseShared @ 0x1404FA96C
+ * XREFs of RtlpHpLargeLockReleaseShared @ 0x1404F824C
  * Callers:
- *     RtlpHpExtrasSetPresent @ 0x140604A24 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x140602064 (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     RtlpHpReleaseLockShared @ 0x140246CF4 (RtlpHpReleaseLockShared.c)
+ *     RtlpHpReleaseLockShared @ 0x140219598 (RtlpHpReleaseLockShared.c)
  */
 
 void __fastcall RtlpHpLargeLockReleaseShared(__int64 a1, KIRQL a2)

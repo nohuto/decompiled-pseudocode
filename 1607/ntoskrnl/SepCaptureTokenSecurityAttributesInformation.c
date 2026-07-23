@@ -1,17 +1,17 @@
 /*
- * XREFs of SepCaptureTokenSecurityAttributesInformation @ 0x14047C454
+ * XREFs of SepCaptureTokenSecurityAttributesInformation @ 0x14047B324
  * Callers:
- *     NtCreateTokenEx @ 0x140477BDC (NtCreateTokenEx.c)
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14047C310 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     NtCreateTokenEx @ 0x140476AAC (NtCreateTokenEx.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14047B1E0 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepCaptureUnicodeStringArray @ 0x140411D10 (SepCaptureUnicodeStringArray.c)
- *     SepCaptureInt64Array @ 0x14047C8BC (SepCaptureInt64Array.c)
- *     SepCaptureFqbnArray @ 0x140690C38 (SepCaptureFqbnArray.c)
- *     SepCaptureOctetStringArray @ 0x140690E7C (SepCaptureOctetStringArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SepCaptureUnicodeStringArray @ 0x140410BD0 (SepCaptureUnicodeStringArray.c)
+ *     SepCaptureInt64Array @ 0x14047B78C (SepCaptureInt64Array.c)
+ *     SepCaptureFqbnArray @ 0x140690D1C (SepCaptureFqbnArray.c)
+ *     SepCaptureOctetStringArray @ 0x140690F60 (SepCaptureOctetStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(

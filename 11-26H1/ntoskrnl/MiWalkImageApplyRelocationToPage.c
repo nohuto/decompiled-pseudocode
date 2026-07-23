@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWalkImageApplyRelocationToPage @ 0x1409CE970
+ * XREFs of MiWalkImageApplyRelocationToPage @ 0x14099F950
  * Callers:
  *     <none>
  * Callees:
- *     VslApplySecureImageFixups @ 0x1404B8C00 (VslApplySecureImageFixups.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiRelocateImagePfn @ 0x1409CEA4C (MiRelocateImagePfn.c)
+ *     VslApplySecureImageFixups @ 0x1404B2430 (VslApplySecureImageFixups.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiRelocateImagePfn @ 0x14099FA2C (MiRelocateImagePfn.c)
  */
 
 __int64 __fastcall MiWalkImageApplyRelocationToPage(__int64 a1)

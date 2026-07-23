@@ -13,23 +13,25 @@
  *     _LdrpTraceLoadMUIDll@8 @ 0x4B33FAF1 (_LdrpTraceLoadMUIDll@8.c)
  */
 
-int __stdcall LdrpAccessResourceData(int a1, unsigned int a2, int a3, int a4)
+int __stdcall LdrpAccessResourceData(unsigned int BaseOfImage, unsigned int a2, int a3, int a4)
 {
   _DWORD *SharedData; // eax
   int v5; // eax
   int v6; // ebx
-  int v7; // esi
-  _DWORD *v8; // eax
-  int v9; // eax
-  int v11; // eax
-  unsigned int v12; // eax
-  int v13; // [esp+10h] [ebp-10h] BYREF
-  unsigned int v14; // [esp+14h] [ebp-Ch]
-  int v15; // [esp+18h] [ebp-8h] BYREF
-  int ImageSize; // [esp+1Ch] [ebp-4h] BYREF
+  PVOID v7; // esi
+  int v8; // esi
+  _DWORD *v9; // eax
+  int v10; // eax
+  int v12; // eax
+  PVOID v13; // eax
+  void *AlternateResourceModuleHandle; // eax
+  int v15; // [esp+10h] [ebp-10h] BYREF
+  unsigned int v16; // [esp+14h] [ebp-Ch]
+  int v17; // [esp+18h] [ebp-8h] BYREF
+  ULONG Size; // [esp+1Ch] [ebp-4h] BYREF
 
+  v17 = 0;
   v15 = 0;
-  v13 = 0;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
     v5 = (int)NtCurrentPeb()->SharedData + 555;
@@ -39,53 +41,57 @@ int __stdcall LdrpAccessResourceData(int a1, unsigned int a2, int a3, int a4)
   if ( (*(_BYTE *)v5 & 1) != 0 )
   {
     if ( RtlGetCurrentServiceSessionId() )
-      v11 = (int)NtCurrentPeb()->SharedData + 554;
+      v12 = (int)NtCurrentPeb()->SharedData + 554;
     else
-      v11 = 2147353476;
-    LdrpTraceLoadMUIDll(&dword_4B281BF0, *(unsigned __int8 *)v11);
+      v12 = 2147353476;
+    LdrpTraceLoadMUIDll(&dword_4B281BF0, *(unsigned __int8 *)v12);
   }
-  if ( !a1 || !a2 )
+  v7 = (PVOID)BaseOfImage;
+  if ( !BaseOfImage || !a2 )
     return -1073741811;
   if ( NtCurrentTeb()->ResourceRetValue
-    && *(_DWORD *)NtCurrentTeb()->ResourceRetValue == a1
+    && *(_DWORD *)NtCurrentTeb()->ResourceRetValue == BaseOfImage
     && *((_DWORD *)NtCurrentTeb()->ResourceRetValue + 1) == a2 )
   {
-    goto LABEL_9;
-  }
-  v14 = a1 & 0xFFFFFFFC;
-  v12 = RtlImageDirectoryEntryToData(a1, 1, 2, &ImageSize);
-  if ( !v12 )
-  {
-    v7 = -1073741687;
-    goto LABEL_10;
-  }
-  if ( a2 < v12 )
-  {
-LABEL_27:
-    LdrpGetAlternateResourceModuleHandleEx(a2, &v15);
-LABEL_9:
-    v7 = LdrpAccessResourceDataNoMultipleLanguage(a3, a4);
-    goto LABEL_10;
-  }
-  ImageSize = LdrpGetImageSize(a1, &v13);
-  if ( ImageSize != -1073741701 )
-  {
-    if ( !v13 || a2 >= v14 && a2 < v13 + v14 )
-      goto LABEL_9;
-    goto LABEL_27;
-  }
-  v7 = -1073741701;
+    v7 = (PVOID)*((_DWORD *)NtCurrentTeb()->ResourceRetValue + 2);
 LABEL_10:
-  v8 = NtCurrentPeb()->SharedData;
-  if ( v8 && *v8 )
-    v9 = (int)NtCurrentPeb()->SharedData + 555;
+    v8 = LdrpAccessResourceDataNoMultipleLanguage(v7, a3, a4);
+    goto LABEL_11;
+  }
+  v16 = BaseOfImage & 0xFFFFFFFC;
+  v13 = RtlImageDirectoryEntryToData((PVOID)BaseOfImage, 1u, 2u, &Size);
+  if ( !v13 )
+  {
+    v8 = -1073741687;
+    goto LABEL_11;
+  }
+  if ( a2 < (unsigned int)v13 )
+  {
+LABEL_28:
+    AlternateResourceModuleHandle = (void *)LdrpGetAlternateResourceModuleHandleEx(a2, &v17);
+    if ( AlternateResourceModuleHandle && AlternateResourceModuleHandle != (void *)-1 )
+      v7 = AlternateResourceModuleHandle;
+    goto LABEL_10;
+  }
+  Size = LdrpGetImageSize(BaseOfImage, &v15);
+  if ( Size != -1073741701 )
+  {
+    if ( !v15 || a2 >= v16 && a2 < v15 + v16 )
+      goto LABEL_10;
+    goto LABEL_28;
+  }
+  v8 = -1073741701;
+LABEL_11:
+  v9 = NtCurrentPeb()->SharedData;
+  if ( v9 && *v9 )
+    v10 = (int)NtCurrentPeb()->SharedData + 555;
   else
-    v9 = 2147353477;
-  if ( (*(_BYTE *)v9 & 1) != 0 )
+    v10 = 2147353477;
+  if ( (*(_BYTE *)v10 & 1) != 0 )
   {
     if ( RtlGetCurrentServiceSessionId() )
       v6 = (int)NtCurrentPeb()->SharedData + 554;
     LdrpTraceLoadMUIDll(&dword_4B281C00, *(unsigned __int8 *)v6);
   }
-  return v7;
+  return v8;
 }

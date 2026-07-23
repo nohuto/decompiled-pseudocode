@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkInitializePageTables @ 0x140C12F28
+ * XREFs of HalpBlkInitializePageTables @ 0x140C14F28
  * Callers:
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140C12FAC (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140C14FAC (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpMap @ 0x140478C5C (HalpMap.c)
- *     HalpBlkAllocatePageTablePage @ 0x140C12D30 (HalpBlkAllocatePageTablePage.c)
+ *     HalpMap @ 0x140460358 (HalpMap.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140C14D30 (HalpBlkAllocatePageTablePage.c)
  */
 
 __int64 HalpBlkInitializePageTables()

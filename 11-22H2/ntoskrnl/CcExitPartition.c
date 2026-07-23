@@ -56,10 +56,13 @@ void __fastcall CcExitPartition(_QWORD *a1, int a2)
       v15 = KeAcquireSpinLockRaiseToDpc(&CcGlobalPartitionLock);
       *(_BYTE *)(v2 + 1294) = 2;
       KxReleaseSpinLock((volatile signed __int64 *)&CcGlobalPartitionLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v15 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -73,10 +76,10 @@ void __fastcall CcExitPartition(_QWORD *a1, int a2)
       __writecr8(v15);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && LockHandle.OldIrql <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && LockHandle.OldIrql <= 0xFu && v21 >= 2u )
         {
           v22 = KeGetCurrentPrcb();
           v23 = v22->SchedulerAssist;
@@ -117,10 +120,10 @@ void __fastcall CcExitPartition(_QWORD *a1, int a2)
       v4 = KeAcquireSpinLockRaiseToDpc(&CcGlobalPartitionLock);
       *(_BYTE *)(v2 + 1294) = 1;
       KxReleaseSpinLock((volatile signed __int64 *)&CcGlobalPartitionLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v5 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v5 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v5 >= 2u )
         {
           v6 = KeGetCurrentPrcb();
           v7 = v6->SchedulerAssist;
@@ -134,10 +137,10 @@ void __fastcall CcExitPartition(_QWORD *a1, int a2)
       __writecr8(v4);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v10 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v11 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && LockHandle.OldIrql <= 0xFu && v11 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && LockHandle.OldIrql <= 0xFu && v11 >= 2u )
         {
           v12 = KeGetCurrentPrcb();
           v13 = v12->SchedulerAssist;

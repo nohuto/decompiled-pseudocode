@@ -12,7 +12,7 @@
 
 __int64 RtlpHpStackTraceEnable()
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpHpStackTrackingContext);
+  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
   if ( (dword_1801D0918 & 1) == 0 )
   {
     memset_thunk_772440563353939046(&qword_1801D0920, 0, 0x48uLL);

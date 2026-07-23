@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReduceShareCount @ 0x14023EDC0
+ * XREFs of MiReduceShareCount @ 0x140206F10
  * Callers:
- *     MiDeleteNonPagedPoolTail @ 0x140235020 (MiDeleteNonPagedPoolTail.c)
- *     MiDeleteRotateVa @ 0x1403CDA5C (MiDeleteRotateVa.c)
- *     MiZeroAndFlushGoodCitizen @ 0x1404C6618 (MiZeroAndFlushGoodCitizen.c)
+ *     MiDeleteNonPagedPoolTail @ 0x14020EFE0 (MiDeleteNonPagedPoolTail.c)
+ *     MiDeleteRotateVa @ 0x14038DD68 (MiDeleteRotateVa.c)
+ *     MiZeroAndFlushGoodCitizen @ 0x1404BFA78 (MiZeroAndFlushGoodCitizen.c)
  * Callees:
- *     MiPfnShareCountIsZero @ 0x1402209B0 (MiPfnShareCountIsZero.c)
- *     MiBadShareCount @ 0x14023EE28 (MiBadShareCount.c)
+ *     MiBadShareCount @ 0x140206F78 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x14024D700 (MiPfnShareCountIsZero.c)
  */
 
-__int64 __fastcall MiReduceShareCount(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall MiReduceShareCount(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx
 
@@ -20,5 +20,5 @@ __int64 __fastcall MiReduceShareCount(unsigned __int64 a1, __int64 a2)
   if ( v2 )
     return 2LL;
   else
-    return MiPfnShareCountIsZero(a1, 0LL);
+    return MiPfnShareCountIsZero();
 }

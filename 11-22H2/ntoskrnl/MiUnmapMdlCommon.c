@@ -235,10 +235,13 @@ LABEL_42:
     qword_140C685D0 = *v27;
     *v27 = 0LL;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C685C0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v28 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v28 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = (__int64)CurrentPrcb->SchedulerAssist;
@@ -278,10 +281,10 @@ LABEL_73:
         v40 = v39;
         *(_QWORD *)(v38 + 8) = v34;
         _InterlockedAnd64((volatile signed __int64 *)(v38 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v41 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && v39 <= 0xFu && v41 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && v39 <= 0xFu && v41 >= 2u )
           {
             v42 = KeGetCurrentPrcb();
             v43 = v42->SchedulerAssist;

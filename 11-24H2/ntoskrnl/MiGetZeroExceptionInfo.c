@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetZeroExceptionInfo @ 0x14042DBA8
+ * XREFs of MiGetZeroExceptionInfo @ 0x14041F8D8
  * Callers:
- *     MiTryZeroMemory @ 0x14020BD20 (MiTryZeroMemory.c)
+ *     MiTryZeroMemory @ 0x140331A60 (MiTryZeroMemory.c)
  * Callees:
- *     MiZeroVaToActiveEntry @ 0x14042DC28 (MiZeroVaToActiveEntry.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiZeroVaToActiveEntry @ 0x14041F958 (MiZeroVaToActiveEntry.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetZeroExceptionInfo(int **a1, ULONG_PTR a2, int *a3, _QWORD *a4)
@@ -20,6 +20,6 @@ __int64 __fastcall MiGetZeroExceptionInfo(int **a1, ULONG_PTR a2, int *a3, _QWOR
   {
     KeBugCheckEx(0x1Au, 0x6101uLL, a2, *a3, (ULONG_PTR)BugCheckParameter4);
   }
-  ++dword_140EF4CF8;
+  ++dword_140EF4F18;
   return 1LL;
 }

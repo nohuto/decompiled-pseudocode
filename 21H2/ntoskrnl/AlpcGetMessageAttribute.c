@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcGetMessageAttribute @ 0x140281330
+ * XREFs of AlpcGetMessageAttribute @ 0x14026F570
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
- *     PopUmpoProcessMessages @ 0x14067A3E4 (PopUmpoProcessMessages.c)
- *     DbgkpSendErrorMessage @ 0x140887370 (DbgkpSendErrorMessage.c)
+ *     PopUmpoSendPowerMessage @ 0x140270CF4 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessages @ 0x14066DB24 (PopUmpoProcessMessages.c)
+ *     DbgkpSendErrorMessage @ 0x1408874D0 (DbgkpSendErrorMessage.c)
  * Callees:
- *     AlpcGetHeaderSize @ 0x1402813D0 (AlpcGetHeaderSize.c)
+ *     AlpcGetHeaderSize @ 0x14026F610 (AlpcGetHeaderSize.c)
  */
 
-char *__fastcall AlpcGetMessageAttribute(_DWORD *a1, int a2)
+PVOID __cdecl AlpcGetMessageAttribute(PALPC_MESSAGE_ATTRIBUTES Buffer, ULONG AttributeFlag)
 {
-  if ( (*a1 & a2) == 0 || ((a2 - 1) & a2) != 0 )
+  if ( (Buffer->AllocatedAttributes & AttributeFlag) == 0 || ((AttributeFlag - 1) & AttributeFlag) != 0 )
     return 0LL;
   else
-    return (char *)a1 + (unsigned int)AlpcGetHeaderSize(*a1 & (unsigned int)(-2 * a2));
+    return (char *)Buffer + AlpcGetHeaderSize(Buffer->AllocatedAttributes & (-2 * AttributeFlag));
 }

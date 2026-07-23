@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpTraceObjectReferenceIfActive @ 0x14025A26C
+ * XREFs of ObpTraceObjectReferenceIfActive @ 0x14025A4FC
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A91B0 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A9440 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall ObpTraceObjectReferenceIfActive(int a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140983964
+ * XREFs of PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140983B64
  * Callers:
- *     PopIssueDirectedPowerTransition @ 0x14098BCE0 (PopIssueDirectedPowerTransition.c)
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FB50 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopIssueDirectedPowerTransition @ 0x14098BEE0 (PopIssueDirectedPowerTransition.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FD50 (PopDirectedDripsBuildBroadcastTreeFull.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140302C00 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140302E90 (IoGetAttachedDeviceReferenceWithTag.c)
  */
 
 bool __fastcall PopDirectedDripsIsPnpSoftwareDeviceNode(__int64 a1)

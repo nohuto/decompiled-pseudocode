@@ -1,10 +1,10 @@
 /*
- * XREFs of SmSetThreadSystemPagePriority @ 0x1402DE4EC
+ * XREFs of SmSetThreadSystemPagePriority @ 0x14028F83C
  * Callers:
- *     ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_IO_PARAMS@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x1402DE2C8 (-StDmpSinglePageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1.c)
+ *     ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_IO_PARAMS@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x14028F618 (-StDmpSinglePageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1.c)
  * Callees:
- *     PsSetSystemPagePriorityThread @ 0x1402DE530 (PsSetSystemPagePriorityThread.c)
- *     PsRevertToUserPagePriorityThread @ 0x1402DE588 (PsRevertToUserPagePriorityThread.c)
+ *     PsSetSystemPagePriorityThread @ 0x14028F880 (PsSetSystemPagePriorityThread.c)
+ *     PsRevertToUserPagePriorityThread @ 0x14028F8D8 (PsRevertToUserPagePriorityThread.c)
  */
 
 __int64 __fastcall SmSetThreadSystemPagePriority(_QWORD *a1, __int64 a2, int a3)

@@ -43,12 +43,12 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   __int64 v20; // rdx
   __int64 v21; // rax
   __int64 v22; // rax
-  struct _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
+  _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
   int *v24; // r15
   unsigned __int16 v25; // r14
   PDEVICE_OBJECT v26; // r14
   NTSTATUS v27; // r15d
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
   __int64 v29; // rax
   int v30; // ecx
   __int64 v31; // rax
@@ -75,7 +75,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   __int64 v52; // [rsp+D0h] [rbp-30h]
   int v53; // [rsp+D8h] [rbp-28h]
   int v54; // [rsp+DCh] [rbp-24h]
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+E0h] [rbp-20h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+E0h] [rbp-20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 312);
   v38 = a2;
@@ -185,7 +185,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
           v27 = ObQueryNameString(DiskDeviceObject, &ObjectNameInfo, Length, &Length);
           if ( v27 == -1073741820 )
           {
-            PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, Length, 0x6E4F6F49u);
+            PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, Length, 0x6E4F6F49u);
             p_ObjectNameInfo = PoolWithTag;
             if ( PoolWithTag )
               v27 = ObQueryNameString(v26, PoolWithTag, Length, &Length);

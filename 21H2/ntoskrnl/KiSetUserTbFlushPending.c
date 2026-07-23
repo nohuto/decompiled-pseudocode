@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSetUserTbFlushPending @ 0x1403FF4F0
+ * XREFs of KiSetUserTbFlushPending @ 0x1403FF6D0
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     KiFlushRangeWorker @ 0x140290C30 (KiFlushRangeWorker.c)
- *     KiIpiProcessRequests @ 0x140291D70 (KiIpiProcessRequests.c)
- *     KiFlushCurrentTbWorker @ 0x1402A7E60 (KiFlushCurrentTbWorker.c)
- *     KiFlushSingleTbWorker @ 0x1402C21B0 (KiFlushSingleTbWorker.c)
- *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
- *     KiFlushCurrentTbOnly @ 0x14039747C (KiFlushCurrentTbOnly.c)
- *     KiFlushRangeTb @ 0x1403C9600 (KiFlushRangeTb.c)
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
- *     KeWriteProtectPAT @ 0x1409AFB60 (KeWriteProtectPAT.c)
+ *     KiFlushRangeWorker @ 0x14020EBA0 (KiFlushRangeWorker.c)
+ *     KiIpiProcessRequests @ 0x14020FCE0 (KiIpiProcessRequests.c)
+ *     KiFlushCurrentTbWorker @ 0x140225FA0 (KiFlushCurrentTbWorker.c)
+ *     KiFlushSingleTbWorker @ 0x140240650 (KiFlushSingleTbWorker.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     KeFlushSingleCurrentTb @ 0x14038A028 (KeFlushSingleCurrentTb.c)
+ *     KiFlushCurrentTbOnly @ 0x1403975CC (KiFlushCurrentTbOnly.c)
+ *     KiFlushRangeTb @ 0x1403C97A0 (KiFlushRangeTb.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
+ *     KeWriteProtectPAT @ 0x1409B0A90 (KeWriteProtectPAT.c)
  * Callees:
  *     <none>
  */

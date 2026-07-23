@@ -1,18 +1,18 @@
 /*
- * XREFs of IoAcquireRemoveLockEx @ 0x1404578E0
+ * XREFs of IoAcquireRemoveLockEx @ 0x14044F150
  * Callers:
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1404FA998 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopFxAcpiForwardNotification @ 0x140612104 (PopFxAcpiForwardNotification.c)
- *     PopFxAcpiUnregisterDevice @ 0x14061241C (PopFxAcpiUnregisterDevice.c)
- *     DifIoAcquireRemoveLockExWrapper @ 0x140658C00 (DifIoAcquireRemoveLockExWrapper.c)
- *     ViFilterDispatchGeneric @ 0x140C3BFD0 (ViFilterDispatchGeneric.c)
- *     ViFilterDispatchPnp @ 0x140C3C0A0 (ViFilterDispatchPnp.c)
- *     ViFilterDispatchPower @ 0x140C3C260 (ViFilterDispatchPower.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x1404F3FA8 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopFxAcpiForwardNotification @ 0x140614F44 (PopFxAcpiForwardNotification.c)
+ *     PopFxAcpiUnregisterDevice @ 0x14061525C (PopFxAcpiUnregisterDevice.c)
+ *     DifIoAcquireRemoveLockExWrapper @ 0x14065C7E0 (DifIoAcquireRemoveLockExWrapper.c)
+ *     ViFilterDispatchGeneric @ 0x140C41FE0 (ViFilterDispatchGeneric.c)
+ *     ViFilterDispatchPnp @ 0x140C420B0 (ViFilterDispatchPnp.c)
+ *     ViFilterDispatchPower @ 0x140C42270 (ViFilterDispatchPower.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoAcquireRemoveLockEx(

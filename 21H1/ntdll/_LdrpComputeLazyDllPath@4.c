@@ -9,7 +9,7 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-int __thiscall LdrpComputeLazyDllPath(int *this)
+int __thiscall LdrpComputeLazyDllPath(PCWSTR *this)
 {
   int v2; // edi
   int DllPath; // eax
@@ -24,7 +24,7 @@ int __thiscall LdrpComputeLazyDllPath(int *this)
   RtlAcquireSRWLockExclusive(&LdrpPathLock);
   if ( !*this )
   {
-    DllPath = LdrpGetDllPath(&v10, &v9, this + 18, this + 5, &v8);
+    DllPath = LdrpGetDllPath(this[4], (int)&v10, (int)&v9, (int)(this + 18), (int)(this + 5), (int)&v8);
     v2 = DllPath;
     if ( DllPath < 0 )
     {
@@ -46,11 +46,11 @@ int __thiscall LdrpComputeLazyDllPath(int *this)
     else
     {
       v4 = v10;
-      this[1] = v9;
+      this[1] = (PCWSTR)v9;
       v5 = v8;
       *((_BYTE *)this + 76) = 1;
-      *this = v4;
-      this[2] = v5;
+      *this = (PCWSTR)v4;
+      this[2] = (PCWSTR)v5;
       if ( v5 )
       {
         if ( (ShowSnaps & 5) != 0 )

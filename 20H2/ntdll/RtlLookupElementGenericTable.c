@@ -7,14 +7,14 @@
  *     RtlSplay @ 0x180065400 (RtlSplay.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTable(_QWORD *a1, __int64 a2)
+PVOID __cdecl RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
-  __int64 v3; // rbx
-  __int64 v5; // [rsp+40h] [rbp+18h] BYREF
+  PRTL_SPLAY_LINKS v3; // rbx
+  PRTL_SPLAY_LINKS Links; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( (unsigned int)FindNodeOrParent_0(a1, a2, &v5) != 1 )
+  if ( (unsigned int)FindNodeOrParent_0(Table, Buffer, &Links) != 1 )
     return 0LL;
-  v3 = v5;
-  *a1 = RtlSplay(v5);
-  return v3 + 40;
+  v3 = Links;
+  Table->TableRoot = RtlSplay(Links);
+  return &v3[1].RightChild;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlSkBugCheckCallbackRoutine @ 0x14058A590
+ * XREFs of HvlSkBugCheckCallbackRoutine @ 0x140587880
  * Callers:
  *     <none>
  * Callees:
@@ -16,6 +16,6 @@ void __fastcall HvlSkBugCheckCallbackRoutine(
   {
     ReasonSpecificData[1] = HvlSkCrashdumpGuid;
     *((_QWORD *)ReasonSpecificData + 4) = Address;
-    *((_DWORD *)ReasonSpecificData + 10) = dword_140F8DFD8 << 12;
+    *((_DWORD *)ReasonSpecificData + 10) = dword_140F8E1B8 << 12;
   }
 }

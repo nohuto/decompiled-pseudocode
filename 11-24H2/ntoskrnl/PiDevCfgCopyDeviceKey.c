@@ -1,36 +1,36 @@
 /*
- * XREFs of PiDevCfgCopyDeviceKey @ 0x14099BA04
+ * XREFs of PiDevCfgCopyDeviceKey @ 0x1409CE174
  * Callers:
- *     PiDevCfgCopyDeviceProperties @ 0x1406FAF60 (PiDevCfgCopyDeviceProperties.c)
- *     PiDevCfgCopyDeviceKeys @ 0x14099B878 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceProperties @ 0x1406F8BA0 (PiDevCfgCopyDeviceProperties.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x1409CDFE8 (PiDevCfgCopyDeviceKeys.c)
  * Callees:
- *     PiDevCfgParseVariableName @ 0x1404240F0 (PiDevCfgParseVariableName.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     PiDevCfgPushCopyKeyEntry @ 0x1404A58D4 (PiDevCfgPushCopyKeyEntry.c)
- *     PnpValidateStringData @ 0x1404ACF1C (PnpValidateStringData.c)
- *     PiDevCfgParsePropertyKeyName @ 0x1405A6D10 (PiDevCfgParsePropertyKeyName.c)
- *     PnpRegistryValueExists @ 0x1405A7040 (PnpRegistryValueExists.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     ZwSetSecurityObject @ 0x1406A9B30 (ZwSetSecurityObject.c)
- *     PiDevCfgConvertPropertyFromValue @ 0x1407290F0 (PiDevCfgConvertPropertyFromValue.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     IopGetRegistryKeyInformation @ 0x14099C54C (IopGetRegistryKeyInformation.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14099C6D0 (PiDevCfgGetKeySecurityDescriptor.c)
- *     PiDevCfgResolveMultiSzValue @ 0x14099CA94 (PiDevCfgResolveMultiSzValue.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x140A6A668 (PiDevCfgResolveVariable.c)
- *     PiDevCfgSetObjectProperty @ 0x140A7620C (PiDevCfgSetObjectProperty.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PiDevCfgParseVariableName @ 0x140417FA0 (PiDevCfgParseVariableName.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     PiDevCfgPushCopyKeyEntry @ 0x1404A0664 (PiDevCfgPushCopyKeyEntry.c)
+ *     PnpValidateStringData @ 0x1404A7600 (PnpValidateStringData.c)
+ *     PiDevCfgParsePropertyKeyName @ 0x1405A3D00 (PiDevCfgParsePropertyKeyName.c)
+ *     PnpRegistryValueExists @ 0x1405A4030 (PnpRegistryValueExists.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     ZwSetSecurityObject @ 0x1406AAAD0 (ZwSetSecurityObject.c)
+ *     PiDevCfgConvertPropertyFromValue @ 0x140726CF0 (PiDevCfgConvertPropertyFromValue.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopGetRegistryKeyInformation @ 0x1409CECBC (IopGetRegistryKeyInformation.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x1409CEE40 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x1409CF204 (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgResolveVariable @ 0x140A63A18 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgSetObjectProperty @ 0x140A70328 (PiDevCfgSetObjectProperty.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgCopyDeviceKey(
@@ -55,7 +55,7 @@ __int64 __fastcall PiDevCfgCopyDeviceKey(
   NTSTATUS v17; // eax
   int v18; // edi
   __int64 v19; // rbx
-  _WORD *v20; // xmm0_8
+  WCHAR *v20; // xmm0_8
   unsigned int v21; // ebx
   int v22; // ebx
   wchar_t *v23; // r12
@@ -100,7 +100,7 @@ __int64 __fastcall PiDevCfgCopyDeviceKey(
   int v63; // [rsp+74h] [rbp-8Ch] BYREF
   HANDLE v64; // [rsp+78h] [rbp-88h] BYREF
   HANDLE Handle; // [rsp+80h] [rbp-80h] BYREF
-  PVOID v66; // [rsp+88h] [rbp-78h]
+  PVOID v66; // [rsp+88h] [rbp-78h] BYREF
   PVOID v67; // [rsp+90h] [rbp-70h]
   ULONG v68[2]; // [rsp+98h] [rbp-68h]
   HANDLE v69; // [rsp+A0h] [rbp-60h]
@@ -161,7 +161,7 @@ __int64 __fastcall PiDevCfgCopyDeviceKey(
     v12 = v11;
     *(_QWORD *)v68 = v11;
     ExFreePoolWithTag(P, 0);
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v12, 0x63647050u);
     v14 = Pool2;
     if ( Pool2 )
     {
@@ -180,7 +180,7 @@ __int64 __fastcall PiDevCfgCopyDeviceKey(
           v18 = 0;
           v19 = v81;
           ValueName = DestinationString;
-          v20 = (_WORD *)_mm_srli_si128((__m128i)DestinationString, 8).m128i_u64[0];
+          v20 = (WCHAR *)_mm_srli_si128((__m128i)DestinationString, 8).m128i_u64[0];
           v63 = 0;
           if ( v81 )
           {
@@ -241,7 +241,7 @@ LABEL_12:
             v66 = 0LL;
             v23 = 0LL;
             P = 0LL;
-            RegistryKeyInformation = IopGetRegistryValue(v69);
+            RegistryKeyInformation = IopGetRegistryValue(v69, v20, 0, &v66);
             if ( RegistryKeyInformation < 0 )
               goto LABEL_30;
             v24 = *((_DWORD *)v66 + 1) & 0xFFFF0000;
@@ -448,7 +448,7 @@ LABEL_44:
         ExFreePoolWithTag((PVOID)v14, 0);
         v12 = v62;
         *(_QWORD *)v68 = v62;
-        v34 = ExAllocatePool2(0x100uLL);
+        v34 = ExAllocatePool2(0x100uLL, v62, 0x63647050u);
         v14 = v34;
         if ( !v34 )
         {
@@ -641,7 +641,7 @@ LABEL_80:
               goto LABEL_31;
             ExFreePoolWithTag((PVOID)v14, 0);
             v36 = v62;
-            v14 = ExAllocatePool2(0x100uLL);
+            v14 = ExAllocatePool2(0x100uLL, v62, 0x63647050u);
             if ( !v14 )
             {
               RegistryKeyInformation = -1073741670;

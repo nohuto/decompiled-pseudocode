@@ -1,14 +1,14 @@
 /*
- * XREFs of KeInitializeInterrupt @ 0x1405BD170
+ * XREFs of KeInitializeInterrupt @ 0x1405BA7A0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeInterruptEx @ 0x14047E278 (KeInitializeInterruptEx.c)
+ *     KeInitializeInterruptEx @ 0x140479468 (KeInitializeInterruptEx.c)
  */
 
 __int64 __fastcall KeInitializeInterrupt(
         _DWORD *a1,
-        __int64 (__fastcall *a2)(struct _KINTERRUPT *a1, void *a2, __int64 a3, __int64 a4),
+        __int64 (__fastcall *a2)(struct _KINTERRUPT *a1, void *a2),
         __int64 a3,
         __int64 a4,
         int a5,

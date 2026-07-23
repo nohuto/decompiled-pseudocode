@@ -1,13 +1,13 @@
 /*
- * XREFs of MiProtectNonPagedPool @ 0x14024F130
+ * XREFs of MiProtectNonPagedPool @ 0x140250A90
  * Callers:
- *     MmProtectPool @ 0x14024E084 (MmProtectPool.c)
+ *     MmProtectPool @ 0x14024F9E4 (MmProtectPool.c)
  * Callees:
- *     MiAddVaToProtectFlushList @ 0x14024F3A4 (MiAddVaToProtectFlushList.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
+ *     MiAddVaToProtectFlushList @ 0x140250D04 (MiAddVaToProtectFlushList.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
  */
 
 void __fastcall MiProtectNonPagedPool(volatile __int64 *a1, unsigned int a2, __int64 a3)
@@ -91,18 +91,13 @@ void __fastcall MiProtectNonPagedPool(volatile __int64 *a1, unsigned int a2, __i
       || ValidPte < 0 && (v3 & 0x8000000000000000uLL) == 0LL )
     {
 LABEL_18:
-      MiAddVaToProtectFlushList(&unk_140E37440, a1, a3);
+      MiAddVaToProtectFlushList(&unk_140E375C0, a1, a3);
     }
   }
   else if ( a2 != 24 )
   {
-    if ( qword_140E2D740 )
-    {
-      if ( (v3 & 0x10) != 0 )
-        v3 &= ~0x10uLL;
-      else
-        v3 &= qword_140E2D748;
-    }
+    if ( qword_140E2D8C0 && (v3 & 0x10) == 0 )
+      v3 &= qword_140E2D8C8;
     v18 = (v3 >> 12) & 0xFFFFFFFFFFLL;
     v19 = 48 * v18;
     v20 = a2;

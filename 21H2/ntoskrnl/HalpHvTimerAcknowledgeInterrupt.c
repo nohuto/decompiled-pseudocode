@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpHvTimerAcknowledgeInterrupt @ 0x140390C00
+ * XREFs of HalpHvTimerAcknowledgeInterrupt @ 0x140390D50
  * Callers:
- *     HalpHvTimerInitialize @ 0x140390BC0 (HalpHvTimerInitialize.c)
+ *     HalpHvTimerInitialize @ 0x140390D10 (HalpHvTimerInitialize.c)
  * Callees:
  *     <none>
  */

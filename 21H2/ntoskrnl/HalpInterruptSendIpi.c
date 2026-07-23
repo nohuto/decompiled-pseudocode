@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptSendIpi @ 0x140220210
+ * XREFs of HalpInterruptSendIpi @ 0x1402C4B10
  * Callers:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
- *     KiForwardTick @ 0x140227FD0 (KiForwardTick.c)
- *     HalRequestIpiSpecifyVector @ 0x14027B3E0 (HalRequestIpiSpecifyVector.c)
- *     HalSendSoftwareInterrupt @ 0x140293E10 (HalSendSoftwareInterrupt.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
- *     HalRequestDeferredRecoveryServiceInterrupt @ 0x1404BDD30 (HalRequestDeferredRecoveryServiceInterrupt.c)
+ *     HalSendSoftwareInterrupt @ 0x140211D80 (HalSendSoftwareInterrupt.c)
+ *     HalRequestIpiSpecifyVector @ 0x140269380 (HalRequestIpiSpecifyVector.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
+ *     KiForwardTick @ 0x1402CC8D0 (KiForwardTick.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
+ *     HalRequestDeferredRecoveryServiceInterrupt @ 0x1404BDF70 (HalRequestDeferredRecoveryServiceInterrupt.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
- *     KeAndGroupAffinityEx @ 0x1403746A0 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403461F0 (KeRemoveProcessorAffinityEx.c)
+ *     KeAndGroupAffinityEx @ 0x1403741F0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpInterruptSendIpi(_DWORD *a1, unsigned int a2)
@@ -52,7 +52,7 @@ __int64 __fastcall HalpInterruptSendIpi(_DWORD *a1, unsigned int a2)
   unsigned __int64 v33; // rdx
   __int64 (__fastcall *v34)(_QWORD, _DWORD *, __int128 *, _QWORD, _DWORD *); // rax
   int v35; // eax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-238h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-238h] BYREF
   __int128 v37; // [rsp+38h] [rbp-230h] BYREF
   __int64 v38; // [rsp+48h] [rbp-220h]
   _DWORD v39[2]; // [rsp+50h] [rbp-218h] BYREF
@@ -101,7 +101,7 @@ __int64 __fastcall HalpInterruptSendIpi(_DWORD *a1, unsigned int a2)
     case 3:
       if ( (*(_DWORD *)(HalpInterruptController + 220) & 0x10) == 0 || HalpInterruptNoShorthand )
       {
-        KeCopyAffinityEx(v50, &KeActiveProcessors);
+        KeCopyAffinityEx(v50, KeActiveProcessors);
         goto LABEL_7;
       }
       LODWORD(v47) = 1;
@@ -112,7 +112,7 @@ __int64 __fastcall HalpInterruptSendIpi(_DWORD *a1, unsigned int a2)
         LODWORD(v47) = 2;
         break;
       }
-      KeCopyAffinityEx(v50, &KeActiveProcessors);
+      KeCopyAffinityEx(v50, KeActiveProcessors);
       LODWORD(v30) = KeGetPcr()->Prcb.Number;
       KeRemoveProcessorAffinityEx(v50, v30);
 LABEL_7:
@@ -122,9 +122,9 @@ LABEL_7:
       v38 = 0LL;
       v10 = 0;
       v37 = 0LL;
-      if ( qword_140C4A228 )
+      if ( qword_140C4A268 )
       {
-        return (unsigned int)qword_140C4A228(v5, a2);
+        return (unsigned int)qword_140C4A268(v5, a2);
       }
       else
       {
@@ -132,7 +132,7 @@ LABEL_7:
         if ( (unsigned __int16)HalpInterruptPhysicalTargets >= *(_WORD *)v5 )
           v11 = *(_WORD *)v5;
         v51 = v11;
-        for ( i = 0; i < v51; *(_QWORD *)&v52[4 * v13 + 3] = qword_140C4BA48[v13] & v5[v13 + 1] )
+        for ( i = 0; i < v51; *(_QWORD *)&v52[4 * v13 + 3] = qword_140C4BA88[v13] & v5[v13 + 1] )
           v13 = i++;
         v52[0] = 20;
         *(_DWORD *)&v52[1] = 0;

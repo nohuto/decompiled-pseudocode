@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpRegisterPrivateNamespace @ 0x1406545AC
+ * XREFs of ObpRegisterPrivateNamespace @ 0x14065576C
  * Callers:
- *     NtCreatePrivateNamespace @ 0x140654360 (NtCreatePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x140655520 (NtCreatePrivateNamespace.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     ObpLookupNamespaceEntry @ 0x140654668 (ObpLookupNamespaceEntry.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     ObpLookupNamespaceEntry @ 0x140655828 (ObpLookupNamespaceEntry.c)
  */
 
 __int64 __fastcall ObpRegisterPrivateNamespace(__int64 a1)

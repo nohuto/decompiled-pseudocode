@@ -1,25 +1,25 @@
 /*
- * XREFs of MiDereferencePageRuns @ 0x1403C9634
+ * XREFs of MiDereferencePageRuns @ 0x1403D34E4
  * Callers:
- *     MiRebuildLargePage @ 0x14028FF24 (MiRebuildLargePage.c)
- *     MiProcessLargeCoalesceCandidates @ 0x1403C8674 (MiProcessLargeCoalesceCandidates.c)
- *     MiFindContiguousPagesFinish @ 0x1404F702C (MiFindContiguousPagesFinish.c)
- *     MiGetListOfPendingBadPages @ 0x14052AB58 (MiGetListOfPendingBadPages.c)
- *     MiComputeNodeMemory @ 0x1406E7EF4 (MiComputeNodeMemory.c)
- *     MiUpdatePartitionMemory @ 0x140709F1C (MiUpdatePartitionMemory.c)
- *     MiGetPhysicalMemoryRanges @ 0x1408663A4 (MiGetPhysicalMemoryRanges.c)
- *     MmIdentifyPhysicalMemory @ 0x140868394 (MmIdentifyPhysicalMemory.c)
- *     MiScanPagefileSpace @ 0x14086C170 (MiScanPagefileSpace.c)
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
- *     MiMakePartitionMemoryBlock @ 0x14087C5D4 (MiMakePartitionMemoryBlock.c)
- *     MmScrubMemory @ 0x14087DFD4 (MmScrubMemory.c)
- *     MmGetNodeChannelRanges @ 0x140B1FB9C (MmGetNodeChannelRanges.c)
+ *     MiRebuildLargePage @ 0x14028F484 (MiRebuildLargePage.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x1403D2564 (MiProcessLargeCoalesceCandidates.c)
+ *     MiFindContiguousPagesFinish @ 0x1404F063C (MiFindContiguousPagesFinish.c)
+ *     MiGetListOfPendingBadPages @ 0x14052D078 (MiGetListOfPendingBadPages.c)
+ *     MiComputeNodeMemory @ 0x1406ECB90 (MiComputeNodeMemory.c)
+ *     MiUpdatePartitionMemory @ 0x14070EBD0 (MiUpdatePartitionMemory.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14086C784 (MiGetPhysicalMemoryRanges.c)
+ *     MmIdentifyPhysicalMemory @ 0x14086E774 (MmIdentifyPhysicalMemory.c)
+ *     MiScanPagefileSpace @ 0x140872550 (MiScanPagefileSpace.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408829D4 (MiMakePartitionMemoryBlock.c)
+ *     MmScrubMemory @ 0x1408843D4 (MmScrubMemory.c)
+ *     MmGetNodeChannelRanges @ 0x140B21FB8 (MmGetNodeChannelRanges.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall MiDereferencePageRuns(__int64 a1)
@@ -46,5 +46,5 @@ void __fastcall MiDereferencePageRuns(__int64 a1)
   else
     ExReleaseSpinLockExclusive(v2, v3);
   if ( v1 )
-    RtlpInterlockedPushEntrySList((PSLIST_HEADER)&stru_140E2D930.QuantumTarget, (PSLIST_ENTRY)v1);
+    RtlpInterlockedPushEntrySList((PSLIST_HEADER)&stru_140E2DAB0.QuantumTarget, (PSLIST_ENTRY)v1);
 }

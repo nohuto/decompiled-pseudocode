@@ -1,20 +1,20 @@
 /*
- * XREFs of NtGetDevicePowerState @ 0x1408F0370
+ * XREFs of NtGetDevicePowerState @ 0x1408F04D0
  * Callers:
- *     PfpVolumeOpenAndVerify @ 0x1406C5DFC (PfpVolumeOpenAndVerify.c)
+ *     PfpVolumeOpenAndVerify @ 0x1406746EC (PfpVolumeOpenAndVerify.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PopLockGetDoDevicePowerState @ 0x14056F4EC (PopLockGetDoDevicePowerState.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     IoGetRelatedTargetDevice @ 0x14071C4DC (IoGetRelatedTargetDevice.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PopLockGetDoDevicePowerState @ 0x14056F72C (PopLockGetDoDevicePowerState.c)
+ *     IoGetRelatedTargetDevice @ 0x1406FCB4C (IoGetRelatedTargetDevice.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtGetDevicePowerState(void *a1, _DWORD *a2)
+NTSTATUS __cdecl NtGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE State)
 {
   __int64 v3; // rdx
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
-  int RelatedTargetDevice; // ebx
+  NTSTATUS RelatedTargetDevice; // ebx
   struct _DMA_ADAPTER *v7; // rdi
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp+20h] BYREF
@@ -23,13 +23,13 @@ NTSTATUS __fastcall NtGetDevicePowerState(void *a1, _DWORD *a2)
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v3 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v3 = (__int64)a2;
+    if ( (unsigned __int64)State < 0x7FFFFFFF0000LL )
+      v3 = (__int64)State;
     *(_DWORD *)v3 = *(_DWORD *)v3;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(Device, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     RelatedTargetDevice = IoGetRelatedTargetDevice((struct _FILE_OBJECT *)Object, &DmaAdapter);
@@ -37,7 +37,7 @@ NTSTATUS __fastcall NtGetDevicePowerState(void *a1, _DWORD *a2)
     if ( RelatedTargetDevice >= 0 )
     {
       v7 = DmaAdapter;
-      *a2 = PopLockGetDoDevicePowerState((__int64)DmaAdapter[19].DmaOperations);
+      *State = PopLockGetDoDevicePowerState((__int64)DmaAdapter[19].DmaOperations);
       HalPutDmaAdapter(v7);
     }
     return RelatedTargetDevice;

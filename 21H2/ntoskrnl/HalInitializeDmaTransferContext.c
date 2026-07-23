@@ -1,9 +1,9 @@
 /*
- * XREFs of HalInitializeDmaTransferContext @ 0x1403650F0
+ * XREFs of HalInitializeDmaTransferContext @ 0x1403652A0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalInitializeDmaTransferContext(__int64 a1, _DWORD *a2)

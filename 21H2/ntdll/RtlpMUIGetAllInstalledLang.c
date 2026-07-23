@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMUIGetAllInstalledLang @ 0x1800F0A64
+ * XREFs of RtlpMUIGetAllInstalledLang @ 0x1800F0A24
  * Callers:
  *     RtlGetFileMUIPath @ 0x1800468F0 (RtlGetFileMUIPath.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
- *     RtlpAddLanguagesToMultiSZ @ 0x1800EF824 (RtlpAddLanguagesToMultiSZ.c)
+ *     RtlpAddLanguagesToMultiSZ @ 0x1800EF7E4 (RtlpAddLanguagesToMultiSZ.c)
  */
 
 char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -22,7 +22,7 @@ char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, _QWORD *a2, _QWORD *a3)
 
   v13 = 520;
   v6 = 0;
-  Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
   v7 = Heap;
   if ( Heap )
   {

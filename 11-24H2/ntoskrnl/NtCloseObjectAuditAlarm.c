@@ -1,15 +1,15 @@
 /*
- * XREFs of NtCloseObjectAuditAlarm @ 0x140A152C0
+ * XREFs of NtCloseObjectAuditAlarm @ 0x140A0E0E0
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtCloseObjectAuditAlarm @ 0x14084D5BC (SepAdtCloseObjectAuditAlarm.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     SepProbeAndCaptureString_U @ 0x14091F8F0 (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x14091FC2C (SeCheckAuditPrivilege.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x14084987C (SepAdtCloseObjectAuditAlarm.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     SeCheckAuditPrivilege @ 0x140912648 (SeCheckAuditPrivilege.c)
+ *     SepProbeAndCaptureString_U @ 0x140912BA0 (SepProbeAndCaptureString_U.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtCloseObjectAuditAlarm(PUNICODE_STRING SubsystemName, PVOID HandleId, BOOLEAN GenerateOnClose)

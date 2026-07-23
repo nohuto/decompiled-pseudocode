@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlPrivateRemoveLock @ 0x1404D8BCC
+ * XREFs of FsRtlPrivateRemoveLock @ 0x1404D201C
  * Callers:
- *     FsRtlPrivateLock @ 0x140248460 (FsRtlPrivateLock.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14024ACAC (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x1402E26A0 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402E4EEC (FsRtlPrivateCheckWaitingLocks.c)
  * Callees:
- *     FsRtlFastUnlockSingleExclusive @ 0x1402498C0 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x14024A1C0 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402E3B00 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1402E4400 (FsRtlFastUnlockSingleShared.c)
  */
 
 __int64 __fastcall FsRtlPrivateRemoveLock(_QWORD *a1, __int64 a2, char a3)

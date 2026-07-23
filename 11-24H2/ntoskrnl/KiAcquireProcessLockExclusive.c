@@ -1,18 +1,18 @@
 /*
- * XREFs of KiAcquireProcessLockExclusive @ 0x1403B3B60
+ * XREFs of KiAcquireProcessLockExclusive @ 0x1403A2370
  * Callers:
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
- *     KeSetDisableQuantumProcess @ 0x1403B4014 (KeSetDisableQuantumProcess.c)
- *     KeSetQuantumProcess @ 0x1404526D8 (KeSetQuantumProcess.c)
- *     KeSetProcessPpmPolicy @ 0x140479E80 (KeSetProcessPpmPolicy.c)
- *     KeSetExecuteOptions @ 0x140491328 (KeSetExecuteOptions.c)
- *     KeAdjustTimerDelayProcess @ 0x1405B8208 (KeAdjustTimerDelayProcess.c)
- *     KeRecomputeCpuSetAffinityProcess @ 0x1405BFCA8 (KeRecomputeCpuSetAffinityProcess.c)
- *     KeSetCpuSetsProcess @ 0x1405BFD04 (KeSetCpuSetsProcess.c)
- *     KeSetExpectedConcurrencyCountProcess @ 0x1405C06B0 (KeSetExpectedConcurrencyCountProcess.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
+ *     KeSetDisableQuantumProcess @ 0x1403A2824 (KeSetDisableQuantumProcess.c)
+ *     KeSetQuantumProcess @ 0x140447788 (KeSetQuantumProcess.c)
+ *     KeSetProcessPpmPolicy @ 0x140475710 (KeSetProcessPpmPolicy.c)
+ *     KeSetExecuteOptions @ 0x14048BE20 (KeSetExecuteOptions.c)
+ *     KeAdjustTimerDelayProcess @ 0x1405B57E8 (KeAdjustTimerDelayProcess.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x1405BD2D8 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetCpuSetsProcess @ 0x1405BD334 (KeSetCpuSetsProcess.c)
+ *     KeSetExpectedConcurrencyCountProcess @ 0x1405BDC84 (KeSetExpectedConcurrencyCountProcess.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall KiAcquireProcessLockExclusive(__int64 a1, unsigned __int8 *a2)

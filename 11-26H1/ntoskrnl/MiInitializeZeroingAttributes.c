@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeZeroingAttributes @ 0x140CFDAC8
+ * XREFs of MiInitializeZeroingAttributes @ 0x140D03E70
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
  *     <none>
  */
@@ -16,16 +16,16 @@ void MiInitializeZeroingAttributes()
   unsigned int v5; // ecx
   _DWORD *v6; // rdx
 
-  byte_140E2D798 = 0;
+  byte_140E2D918 = 0;
   if ( KeNumberNodes )
   {
     v0 = 0LL;
     v1 = (unsigned __int16)KeNumberNodes;
     do
     {
-      v2 = qword_140E2D6B8;
+      v2 = qword_140E2D838;
       v3 = 0;
-      v4 = (unsigned int *)(v0 + qword_140E2D6B8 + 120);
+      v4 = (unsigned int *)(v0 + qword_140E2D838 + 120);
       do
       {
         *v4 = v3;

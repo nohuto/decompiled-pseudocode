@@ -1,12 +1,12 @@
 /*
- * XREFs of MmOutPageKernelStack @ 0x140410A60
+ * XREFs of MmOutPageKernelStack @ 0x140410180
  * Callers:
- *     KiOutSwapKernelStacks @ 0x1404102F4 (KiOutSwapKernelStacks.c)
+ *     KiOutSwapKernelStacks @ 0x14040FA14 (KiOutSwapKernelStacks.c)
  * Callees:
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     KeEnumerateKernelStackSegments @ 0x1404107D8 (KeEnumerateKernelStackSegments.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     KeEnumerateKernelStackSegments @ 0x14040FEF8 (KeEnumerateKernelStackSegments.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MmOutPageKernelStack(__int64 a1)
@@ -28,15 +28,15 @@ void __fastcall MmOutPageKernelStack(__int64 a1)
   if ( (MiFlags & 0x40) != 0 )
   {
     v6 = 20;
-    v9 = (dword_140E373B8 & 0x40) != 0;
+    v9 = (dword_140E37538 & 0x40) != 0;
     v7 = 8;
     v8 = 1;
-    v4 = &unk_140E37300;
-    if ( (dword_140E373B8 & 0xF) != 0
-      || &unk_140E37300 == (_UNKNOWN *)&KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
+    v4 = &unk_140E37480;
+    if ( (dword_140E37538 & 0xF) != 0
+      || &unk_140E37480 == (_UNKNOWN *)&KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
     {
       v2 = v7;
-      v3 = (dword_140E373B8 & 0xF) == 0;
+      v3 = (dword_140E37538 & 0xF) == 0;
     }
     else
     {

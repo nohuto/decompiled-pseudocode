@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEnableNewPfns @ 0x14061A960
+ * XREFs of MiEnableNewPfns @ 0x14061AEB0
  * Callers:
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiDetermineNewPfnHeatState @ 0x1403478E8 (MiDetermineNewPfnHeatState.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiDetermineNewPfnHeatState @ 0x140347B78 (MiDetermineNewPfnHeatState.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiEnableNewPfns(volatile signed __int64 *a1, ULONG_PTR a2, unsigned __int64 a3, unsigned int a4)
@@ -100,10 +100,13 @@ void __fastcall MiEnableNewPfns(volatile signed __int64 *a1, ULONG_PTR a2, unsig
         a3 = v21;
       MiInsertPageInFreeOrZeroedList(a2, v18);
       _InterlockedAnd64((volatile signed __int64 *)(v19 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v22 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v22 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

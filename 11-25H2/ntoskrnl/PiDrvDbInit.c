@@ -16,7 +16,7 @@ __int64 __fastcall PiDrvDbInit(int a1)
   int v1; // edx
   int v2; // edi
   __int64 *i; // rbx
-  int v4; // ecx
+  __int64 v4; // rcx
   __int64 v5; // rcx
   int v6; // eax
   int v8; // eax
@@ -42,8 +42,8 @@ __int64 __fastcall PiDrvDbInit(int a1)
       v2 = 0;
       for ( i = &qword_140009F18; ; i += 4 )
       {
-        v4 = *((_DWORD *)i - 4);
-        if ( ((v4 & 4) == 0 || !CmIsStateSeparationEnabled()) && ((v4 & 0x80u) == 0 || CmIsStateSeparationEnabled()) )
+        LODWORD(v4) = *((_DWORD *)i - 4);
+        if ( ((v4 & 4) == 0 || !CmIsStateSeparationEnabled()) && ((v4 & 0x80u) == 0LL || CmIsStateSeparationEnabled()) )
         {
           v1 = PiDrvDbRegisterNode((PCWSTR)*(i - 3), *i);
           if ( v1 < 0 )
@@ -53,7 +53,7 @@ __int64 __fastcall PiDrvDbInit(int a1)
         {
           if ( v1 >= 0 )
           {
-            v1 = PiDrvDbEnumDriverStoreNodes();
+            v1 = PiDrvDbEnumDriverStoreNodes(v4);
             if ( v1 >= 0 )
             {
               LOBYTE(v5) = 1;

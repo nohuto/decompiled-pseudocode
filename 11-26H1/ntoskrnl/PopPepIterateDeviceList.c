@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPepIterateDeviceList @ 0x140611714
+ * XREFs of PopPepIterateDeviceList @ 0x140614554
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x14050E2BC (PopPlRegisterPowerPlane.c)
+ *     PopPlRegisterPowerPlane @ 0x140507D2C (PopPlRegisterPowerPlane.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PopPepIterateDeviceList(
@@ -33,13 +33,18 @@ char __fastcall PopPepIterateDeviceList(
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v11 = (_BYTE *)KeAbPreAcquire((__int64)&qword_140F0AFD0, 0LL, 0LL, a4);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F0AFD0, 17LL, 0LL) )
+    v11 = (_BYTE *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock.PriorityFloorSummary, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64(
+           (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+           17LL,
+           0LL) )
+    {
       ExfAcquirePushLockSharedEx(
-        (signed __int64 *)&qword_140F0AFD0.Header.Lock,
+        (signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
         0,
         (LegacyAutoBoost *)v11,
-        &qword_140F0AFD0);
+        (struct _KTHREAD *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+    }
     if ( v11 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -55,8 +60,8 @@ char __fastcall PopPepIterateDeviceList(
   }
   if ( v9 )
     guard_dispatch_icall_no_overrides(a7, a2);
-  for ( i = (struct _KTHREAD *)PopDirectedDripsUmLock.Padding[3];
-        i != (struct _KTHREAD *)&PopDirectedDripsUmLock.Padding[3];
+  for ( i = *(struct _KTHREAD **)&PopDirectedDripsDiagLock.ForegroundLossTime;
+        i != (struct _KTHREAD *)&PopDirectedDripsDiagLock.ForegroundLossTime;
         i = *(struct _KTHREAD **)&i->Header.Lock )
   {
     if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(i, a7) )
@@ -72,9 +77,12 @@ char __fastcall PopPepIterateDeviceList(
   }
   if ( a6 )
   {
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F0AFD0, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&qword_140F0AFD0.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&qword_140F0AFD0);
+    if ( _InterlockedCompareExchange64(
+           (volatile signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary,
+           0LL,
+           17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&PopDirectedDripsDiagLock.PriorityFloorSummary);
+    KeAbPostRelease((unsigned __int64)&PopDirectedDripsDiagLock.PriorityFloorSummary);
     KeLeaveCriticalRegion();
   }
   return v7;

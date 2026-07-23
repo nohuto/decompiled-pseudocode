@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpAllocateIptBuffers @ 0x1405CDC6C
+ * XREFs of IopLiveDumpAllocateIptBuffers @ 0x1405D047C
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1405CC998 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1405CF1A8 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14024E9A0 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x1404E4788 (IopLiveDumpIsUnderMemoryPressure.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmAllocateIndependentPages @ 0x140B3D7A0 (MmAllocateIndependentPages.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x140250300 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1404DDD28 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmAllocateIndependentPages @ 0x140B3F870 (MmAllocateIndependentPages.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateIptBuffers(__int64 a1)

@@ -1,31 +1,37 @@
 /*
- * XREFs of NtTraceControl @ 0x180165740
+ * XREFs of NtTraceControl @ 0x180163B00
  * Callers:
- *     EtwEventActivityIdControl @ 0x18001C4A0 (EtwEventActivityIdControl.c)
- *     EtwpRegisterProvider @ 0x18001DD30 (EtwpRegisterProvider.c)
- *     EtwpNotificationThread @ 0x18001DFF0 (EtwpNotificationThread.c)
- *     EtwpDemuxUmTraceHandle @ 0x18003D4D0 (EtwpDemuxUmTraceHandle.c)
- *     EtwpStartUmLogger @ 0x18008CCDC (EtwpStartUmLogger.c)
- *     EtwpRegisterTpNotificationOnce @ 0x180095B08 (EtwpRegisterTpNotificationOnce.c)
- *     EtwEventWriteEndScenario @ 0x1800CF420 (EtwEventWriteEndScenario.c)
- *     EtwEventWriteStartScenario @ 0x1800CF560 (EtwEventWriteStartScenario.c)
- *     EtwpSetProviderTraits @ 0x1800E8690 (EtwpSetProviderTraits.c)
- *     EtwSendNotification @ 0x1800EE760 (EtwSendNotification.c)
- *     EtwpReceiveReplyDataBlock @ 0x1800EE9F8 (EtwpReceiveReplyDataBlock.c)
- *     EtwpGetMaxLogger @ 0x1800F1C98 (EtwpGetMaxLogger.c)
- *     EtwReplyNotification @ 0x18010ED10 (EtwReplyNotification.c)
- *     EtwpTrackProviderBinary @ 0x18011A13C (EtwpTrackProviderBinary.c)
- *     EtwRegisterSecurityProvider @ 0x18015BE30 (EtwRegisterSecurityProvider.c)
- *     EtwpUseDescriptorType @ 0x18015BE88 (EtwpUseDescriptorType.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18001D750 (EtwpDemuxUmTraceHandle.c)
+ *     EtwEventActivityIdControl @ 0x180048EA0 (EtwEventActivityIdControl.c)
+ *     EtwpRegisterProvider @ 0x18004A730 (EtwpRegisterProvider.c)
+ *     EtwpNotificationThread @ 0x18004A9F0 (EtwpNotificationThread.c)
+ *     EtwpStartUmLogger @ 0x1800A879C (EtwpStartUmLogger.c)
+ *     EtwEventWriteEndScenario @ 0x1800CC990 (EtwEventWriteEndScenario.c)
+ *     EtwEventWriteStartScenario @ 0x1800CCAD0 (EtwEventWriteStartScenario.c)
+ *     EtwpSetProviderTraits @ 0x1800E3D80 (EtwpSetProviderTraits.c)
+ *     EtwpRegisterTpNotificationOnce @ 0x1800E54C4 (EtwpRegisterTpNotificationOnce.c)
+ *     EtwSendNotification @ 0x1800E9940 (EtwSendNotification.c)
+ *     EtwpReceiveReplyDataBlock @ 0x1800E9BD8 (EtwpReceiveReplyDataBlock.c)
+ *     EtwpGetMaxLogger @ 0x1800EC918 (EtwpGetMaxLogger.c)
+ *     EtwReplyNotification @ 0x180109CF0 (EtwReplyNotification.c)
+ *     EtwpTrackProviderBinary @ 0x18011836C (EtwpTrackProviderBinary.c)
+ *     EtwRegisterSecurityProvider @ 0x18015A1F0 (EtwRegisterSecurityProvider.c)
+ *     EtwpUseDescriptorType @ 0x18015A248 (EtwpUseDescriptorType.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtTraceControl()
+NTSTATUS __cdecl NtTraceControl(
+        ETWTRACECONTROLCODE FunctionCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 470LL;
+  result = 470;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

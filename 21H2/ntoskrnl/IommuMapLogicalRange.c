@@ -1,12 +1,12 @@
 /*
- * XREFs of IommuMapLogicalRange @ 0x1404DA990
+ * XREFs of IommuMapLogicalRange @ 0x1404DABD0
  * Callers:
  *     <none>
  * Callees:
- *     IommupHvMapDeviceLogical @ 0x1404DA230 (IommupHvMapDeviceLogical.c)
- *     IommuUnmapLogicalRange @ 0x1404DADA0 (IommuUnmapLogicalRange.c)
- *     IommupValidateMdl @ 0x1404DADE4 (IommupValidateMdl.c)
- *     HalpIommuMapLogicalRange @ 0x1404DC20C (HalpIommuMapLogicalRange.c)
+ *     IommupHvMapDeviceLogical @ 0x1404DA470 (IommupHvMapDeviceLogical.c)
+ *     IommuUnmapLogicalRange @ 0x1404DAFE0 (IommuUnmapLogicalRange.c)
+ *     IommupValidateMdl @ 0x1404DB024 (IommupValidateMdl.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC44C (HalpIommuMapLogicalRange.c)
  */
 
 __int64 __fastcall IommuMapLogicalRange(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

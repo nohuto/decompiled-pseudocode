@@ -1,42 +1,42 @@
 /*
- * XREFs of MiMigratePfn @ 0x1402630E0
+ * XREFs of MiMigratePfn @ 0x140263370
  * Callers:
- *     MiHandleTransitionFault @ 0x140262E50 (MiHandleTransitionFault.c)
+ *     MiHandleTransitionFault @ 0x1402630E0 (MiHandleTransitionFault.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
  *     MiCopyPfnEntryEx @ 0x140219D60 (MiCopyPfnEntryEx.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiNodeFromFaultPacket @ 0x140261160 (MiNodeFromFaultPacket.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiObtainFaultCharges @ 0x140274BB0 (MiObtainFaultCharges.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiIsPfnCommitNotCharged @ 0x1402DC180 (MiIsPfnCommitNotCharged.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiGetInPageSupportBlock @ 0x1402E12E4 (MiGetInPageSupportBlock.c)
- *     MiFinalizePageAttribute @ 0x1402E15E4 (MiFinalizePageAttribute.c)
- *     MiReturnFreeZeroPage @ 0x1402E7F74 (MiReturnFreeZeroPage.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiUpdateTransitionPteFrame @ 0x140330BBC (MiUpdateTransitionPteFrame.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiReturnFaultCharges @ 0x14035FEC0 (MiReturnFaultCharges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiNodeFromFaultPacket @ 0x1402613F0 (MiNodeFromFaultPacket.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiObtainFaultCharges @ 0x140274E40 (MiObtainFaultCharges.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiRemoveLockedPageCharge @ 0x1402DBDB0 (MiRemoveLockedPageCharge.c)
+ *     MiIsPfnCommitNotCharged @ 0x1402DC410 (MiIsPfnCommitNotCharged.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     MiGetInPageSupportBlock @ 0x1402E1574 (MiGetInPageSupportBlock.c)
+ *     MiFinalizePageAttribute @ 0x1402E1874 (MiFinalizePageAttribute.c)
+ *     MiReturnFreeZeroPage @ 0x1402E8204 (MiReturnFreeZeroPage.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiUpdateTransitionPteFrame @ 0x140330E4C (MiUpdateTransitionPteFrame.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiReturnFaultCharges @ 0x140360060 (MiReturnFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMigratePfn(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -338,10 +338,10 @@ LABEL_83:
   else
   {
     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
       {
         v60 = KeGetCurrentPrcb();
         SchedulerAssist = v60->SchedulerAssist;

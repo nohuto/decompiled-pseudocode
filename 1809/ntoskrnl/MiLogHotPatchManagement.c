@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogHotPatchManagement @ 0x140855FA4
+ * XREFs of MiLogHotPatchManagement @ 0x140857204
  * Callers:
- *     NtManageHotPatch @ 0x140858450 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1408596B0 (NtManageHotPatch.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgCreateSid @ 0x140012F98 (_TlgCreateSid.c)
- *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PsGetProcessId @ 0x1400A5650 (PsGetProcessId.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3, int a4)
@@ -113,7 +113,7 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
           v57 = 2LL;
           v59[1] = 0;
           TlgCreateSid(&pDesc, (const SID *)(a2 + 24));
-          TlgWriteEx(v4, &unk_14036E3FD, v10, v11, v16, v17, 9u, &v47);
+          TlgWriteEx(v4, &unk_14036F332, v10, v11, v16, v17, 9u, &v47);
         }
       }
       else if ( a1 == 1 )
@@ -132,7 +132,7 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
           v65 = 4LL;
           v67 = 4LL;
           v69 = 4LL;
-          TlgWriteEx(v4, &unk_14036E3AB, v12, v13, v16, v17, 6u, &v61);
+          TlgWriteEx(v4, &unk_14036F1C5, v12, v13, v16, v17, 6u, &v61);
         }
       }
       else if ( a1 == 4 && hProvider->LevelPlus1 > 5 && TlgKeywordOn(hProvider, 0x20uLL) )
@@ -150,7 +150,7 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
         v76 = 4LL;
         v78 = 4LL;
         TlgCreateSid(&v79, (const SID *)(a2 + 12));
-        TlgWriteEx(v4, &unk_14036E1D3, v14, v15, v16, v17, 7u, &v70);
+        TlgWriteEx(v4, &unk_14036F163, v14, v15, v16, v17, 7u, &v70);
       }
     }
     else if ( hProvider->LevelPlus1 > 5 )
@@ -174,7 +174,7 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
         v42 = 4LL;
         v44 = 2LL;
         v46[1] = 0;
-        TlgWriteEx(v4, &unk_14036E235, v8, v9, v16, v17, 8u, &pData);
+        TlgWriteEx(v4, &unk_14036F39D, v8, v9, v16, v17, 8u, &pData);
       }
     }
   }

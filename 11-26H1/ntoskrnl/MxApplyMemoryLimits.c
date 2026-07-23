@@ -1,9 +1,9 @@
 /*
- * XREFs of MxApplyMemoryLimits @ 0x140CF4FC8
+ * XREFs of MxApplyMemoryLimits @ 0x140CFB348
  * Callers:
- *     MxConstructLoaderMemoryTree @ 0x140CF53CC (MxConstructLoaderMemoryTree.c)
+ *     MxConstructLoaderMemoryTree @ 0x140CFB74C (MxConstructLoaderMemoryTree.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MxApplyMemoryLimits(__int64 a1)
@@ -35,13 +35,13 @@ __int64 __fastcall MxApplyMemoryLimits(__int64 a1)
 
   v1 = (__int64 *)(a1 + 32);
   result = 0x2000000000LL;
-  v3 = qword_140E2D720;
+  v3 = qword_140E2D8A0;
   v4 = KeFeatureBits & 0x2000000000LL;
   v5 = *(__int64 **)(a1 + 32);
   v6 = 0LL;
   v7 = 0LL;
   v8 = 0LL;
-  v9 = qword_140E2D7A0 + 1;
+  v9 = qword_140E2D920 + 1;
   while ( v5 != v1 )
   {
     v10 = (__int64 *)*v5;
@@ -144,8 +144,8 @@ LABEL_22:
     v6 -= v16;
     v7 -= v16;
   }
-  qword_14101EBF8 = v7;
-  qword_14101EC00 = v6;
-  qword_140E3D3D0 = v6;
+  qword_14101FBF8 = v7;
+  qword_14101FC00 = v6;
+  qword_140E3D550 = v6;
   return result;
 }

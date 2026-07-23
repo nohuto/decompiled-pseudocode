@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCfgEliminateZeroPages @ 0x1404B8B60
+ * XREFs of MiCfgEliminateZeroPages @ 0x1404A2F40
  * Callers:
- *     MiCopyToCfgBitMap @ 0x14042F1E0 (MiCopyToCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x14042F650 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiCopyToCfgBitMap @ 0x14042E0B0 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14042E520 (MiUpdateCfgSystemWideBitmapWorker.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiConvertAndFlushWsleVas @ 0x1400907F8 (MiConvertAndFlushWsleVas.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiConvertAndFlushWsleVas @ 0x14008FF58 (MiConvertAndFlushWsleVas.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCfgEliminateZeroPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

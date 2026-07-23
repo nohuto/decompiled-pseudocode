@@ -1,11 +1,11 @@
 /*
  * XREFs of MiApplyRequiredSessionDriverHotPatches @ 0x140696FEC
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  * Callees:
  *     MiSessionLookupImage @ 0x14020AB68 (MiSessionLookupImage.c)
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     MiEnumerateBasePatches @ 0x1406971E4 (MiEnumerateBasePatches.c)
  */
 

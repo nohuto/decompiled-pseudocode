@@ -116,7 +116,7 @@ void PopThermalHandlePreviousShutdown()
             ZwSetValueKey(v6, &v14, 0, 0xBu, &v11, 8u);
           ZwClose(v6);
         }
-        ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL);
+        ZwUpdateWnfStateData(&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
         if ( (unsigned int)dword_140C064D0 > 5 && tlgKeywordOn((__int64)&dword_140C064D0, 0x800000000000LL) )
         {
           tlgCreate1Sz_wchar_t((__int64)v19, (const size_t *)v4);

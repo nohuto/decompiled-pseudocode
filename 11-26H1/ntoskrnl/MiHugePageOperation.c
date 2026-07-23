@@ -1,21 +1,21 @@
 /*
- * XREFs of MiHugePageOperation @ 0x140705138
+ * XREFs of MiHugePageOperation @ 0x140709E08
  * Callers:
- *     MiGetHugeRange @ 0x1406EB880 (MiGetHugeRange.c)
- *     MiPartitionTransferAllocateLargePages @ 0x14087CA30 (MiPartitionTransferAllocateLargePages.c)
+ *     MiGetHugeRange @ 0x1406F0520 (MiGetHugeRange.c)
+ *     MiPartitionTransferAllocateLargePages @ 0x140882E30 (MiPartitionTransferAllocateLargePages.c)
  * Callees:
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiUpdateProtectionMask @ 0x140303850 (MiUpdateProtectionMask.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiGroupZeroHugeRange @ 0x140705024 (MiGroupZeroHugeRange.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiUpdateProtectionMask @ 0x1402E58D0 (MiUpdateProtectionMask.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiGroupZeroHugeRange @ 0x140709CF4 (MiGroupZeroHugeRange.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiHugePageOperation(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -39,7 +39,7 @@ void __fastcall MiHugePageOperation(__int64 a1, unsigned __int64 a2, __int64 a3,
     v7 + 1,
     (__int64)&v14);
   UltraMapping = 0LL;
-  if ( a2 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+  if ( a2 <= qword_140E2D920 && ((*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
     v9 = (*(_DWORD *)(48 * a2 - 0x21FFFFFFFFE0LL) >> 22) & 3;
   else
     v9 = 1;

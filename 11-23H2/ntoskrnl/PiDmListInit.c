@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDmListInit @ 0x140839680
+ * XREFs of PiDmListInit @ 0x140839980
  * Callers:
  *     PiDmInit @ 0x140B5DE60 (PiDmInit.c)
  * Callees:
- *     PiDmEnumObjectsWithCallback @ 0x1407FB440 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1407FB710 (PiDmEnumObjectsWithCallback.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

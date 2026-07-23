@@ -1,16 +1,16 @@
 /*
- * XREFs of inflate @ 0x180151674
+ * XREFs of inflate @ 0x18014FA34
  * Callers:
- *     RtlDecompressBufferDeflateInternal @ 0x18014CF88 (RtlDecompressBufferDeflateInternal.c)
+ *     RtlDecompressBufferDeflateInternal @ 0x18014B348 (RtlDecompressBufferDeflateInternal.c)
  * Callees:
- *     chunkcopy_core @ 0x1801514DC (chunkcopy_core.c)
- *     chunkset_core @ 0x180151520 (chunkset_core.c)
- *     inflateStateCheck @ 0x18015286C (inflateStateCheck.c)
- *     updatewindow @ 0x1801528AC (updatewindow.c)
- *     inflate_fast_chunk_ @ 0x180154DF4 (inflate_fast_chunk_.c)
- *     adler32_z @ 0x180155314 (adler32_z.c)
- *     inflate_table @ 0x180155624 (inflate_table.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     chunkcopy_core @ 0x18014F89C (chunkcopy_core.c)
+ *     chunkset_core @ 0x18014F8E0 (chunkset_core.c)
+ *     inflateStateCheck @ 0x180150C2C (inflateStateCheck.c)
+ *     updatewindow @ 0x180150C6C (updatewindow.c)
+ *     inflate_fast_chunk_ @ 0x1801531B4 (inflate_fast_chunk_.c)
+ *     adler32_z @ 0x1801536D4 (adler32_z.c)
+ *     inflate_table @ 0x1801539E4 (inflate_table.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall inflate(unsigned __int8 **a1)
@@ -363,12 +363,12 @@ LABEL_84:
                 }
                 v41 = v11 & 7;
                 v11 >>= 3;
-                *(_WORD *)&v5[2 * word_1801997F0[(*((_DWORD *)v5 + 33))++] + 144] = v41;
+                *(_WORD *)&v5[2 * word_180198920[(*((_DWORD *)v5 + 33))++] + 144] = v41;
                 v12 -= 3;
               }
               while ( (unsigned int)v40 < 0x13 )
               {
-                *(_WORD *)&v5[2 * word_1801997F0[v40] + 144] = 0;
+                *(_WORD *)&v5[2 * word_180198920[v40] + 144] = 0;
                 v40 = (unsigned int)(*((_DWORD *)v5 + 33) + 1);
                 *((_DWORD *)v5 + 33) = v40;
               }
@@ -529,7 +529,7 @@ LABEL_26:
                 case 1u:
                   *v14 = 9;
                   *((_QWORD *)v5 + 12) = "`\a";
-                  *((_QWORD *)v5 + 13) = &unk_180199770;
+                  *((_QWORD *)v5 + 13) = &unk_1801988A0;
                   *v13 = 5;
                   *((_DWORD *)v5 + 2) = 16199;
                   break;

@@ -6,14 +6,14 @@
  *     RtlCheckTokenMembership @ 0x1400674A0 (RtlCheckTokenMembership.c)
  */
 
-__int64 __fastcall PopValidateContextMembership(void *a1)
+NTSTATUS __fastcall PopValidateContextMembership(PSID SidToCheck)
 {
-  __int64 result; // rax
-  char v2; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  BOOLEAN IsMember; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 0;
-  result = RtlCheckTokenMembership(0LL, a1, &v2);
-  if ( (int)result < 0 || !v2 )
-    return 3221225506LL;
+  IsMember = 0;
+  result = RtlCheckTokenMembership(0LL, SidToCheck, &IsMember);
+  if ( result < 0 || !IsMember )
+    return -1073741790;
   return result;
 }

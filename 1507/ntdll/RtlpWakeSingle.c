@@ -10,7 +10,7 @@
 bool __fastcall RtlpWakeSingle(volatile signed __int64 *a1, __int64 a2)
 {
   signed __int64 v2; // rax
-  signed __int64 v5; // rdx
+  unsigned __int64 v5; // rdx
   signed __int64 v6; // rtt
   unsigned __int64 v7; // rcx
   signed __int64 v8; // rax

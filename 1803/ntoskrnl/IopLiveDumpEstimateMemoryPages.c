@@ -17,7 +17,7 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
 {
   __int64 v2; // rdi
   int v3; // ebp
-  __int64 v4; // rsi
+  _RTL_BITMAP_EX *v4; // rsi
   unsigned __int64 v5; // rax
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rcx
@@ -39,13 +39,13 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     if ( (*(_DWORD *)(a1 + 248) & 1) != 0 )
       IopLiveDumpUncorralProcessors(a1 + 240);
     *(_QWORD *)(a1 + 96) = 0LL;
-    v4 = a1 + 368;
+    v4 = (_RTL_BITMAP_EX *)(a1 + 368);
     *(_QWORD *)(a1 + 112) = 0LL;
     *(_QWORD *)(a1 + 120) = 0LL;
   }
   else
   {
-    v4 = a1 + 368;
+    v4 = (_RTL_BITMAP_EX *)(a1 + 368);
     v5 = RtlNumberOfSetBitsEx((_QWORD *)(a1 + 368));
     v6 = v5 + (v5 >> 4);
     LODWORD(v5) = *(_DWORD *)(a1 + 44);
@@ -65,8 +65,8 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     IopLiveDumpTraceBufferEstimation();
   }
   RtlClearAllBitsEx(v4);
-  RtlClearAllBitsEx(a1 + 424);
-  RtlClearAllBitsEx(a1 + 464);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 424));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 464));
   *(_DWORD *)(a1 + 80) &= ~1u;
   return (unsigned int)v3;
 }

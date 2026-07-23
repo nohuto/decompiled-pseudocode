@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRemoveHugeRangeAnyColor @ 0x140671978
+ * XREFs of MiRemoveHugeRangeAnyColor @ 0x140672B48
  * Callers:
- *     MiGetBestHugeRangeFromNode @ 0x14066FE80 (MiGetBestHugeRangeFromNode.c)
+ *     MiGetBestHugeRangeFromNode @ 0x140671050 (MiGetBestHugeRangeFromNode.c)
  * Callees:
- *     MiGetColorHeadHugeRangeBase @ 0x1404B219C (MiGetColorHeadHugeRangeBase.c)
- *     MiGetPerfectColorHeadHugeRange @ 0x140670378 (MiGetPerfectColorHeadHugeRange.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404ACA2C (MiGetColorHeadHugeRangeBase.c)
+ *     MiGetPerfectColorHeadHugeRange @ 0x140671548 (MiGetPerfectColorHeadHugeRange.c)
  */
 
 __int64 *__fastcall MiRemoveHugeRangeAnyColor(__int64 a1, __int64 a2, int a3)
@@ -50,7 +50,7 @@ __int64 *__fastcall MiRemoveHugeRangeAnyColor(__int64 a1, __int64 a2, int a3)
   v33 = 0;
   v5 = a3;
   v34 = 0LL;
-  v6 = MiZeroThenZero;
+  v6 = &MiZeroThenZero;
   if ( (a3 & 0x10) == 0 )
     v6 = &MiFreeThenFree;
   v29[2] = v6;

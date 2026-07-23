@@ -1,17 +1,17 @@
 /*
  * XREFs of IoReleaseRemoveLockEx @ 0x1402332A0
  * Callers:
- *     DifIoReleaseRemoveLockExWrapper @ 0x140610A00 (DifIoReleaseRemoveLockExWrapper.c)
- *     ViFilterDeviceUsageNotificationCompletion @ 0x140A9E300 (ViFilterDeviceUsageNotificationCompletion.c)
- *     ViFilterGenericCompletionRoutine @ 0x140A9E8F0 (ViFilterGenericCompletionRoutine.c)
- *     ViFilterStartCompletionRoutine @ 0x140A9E960 (ViFilterStartCompletionRoutine.c)
+ *     sub_140610A00 @ 0x140610A00 (sub_140610A00.c)
+ *     sub_140A9E300 @ 0x140A9E300 (sub_140A9E300.c)
+ *     sub_140A9E8F0 @ 0x140A9E8F0 (sub_140A9E8F0.c)
+ *     sub_140A9E960 @ 0x140A9E960 (sub_140A9E960.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     VfRemLockReportBadReleaseTag @ 0x140A91EAC (VfRemLockReportBadReleaseTag.c)
+ *     sub_140A91EAC @ 0x140A91EAC (sub_140A91EAC.c)
  */
 
 void __stdcall IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)
@@ -25,7 +25,7 @@ void __stdcall IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULON
   PVOID **v11; // r14
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v14; // r9
   int v15; // eax
   bool v16; // zf
 
@@ -65,29 +65,28 @@ void __stdcall IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULON
       }
       while ( p_Flink );
     }
-    KxReleaseSpinLock((PKSPIN_LOCK)&RemoveLock[2].Common.RemoveEvent);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)&RemoveLock[2].Common.RemoveEvent);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = *((_QWORD *)CurrentPrcb + 4375);
           v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-          v16 = (v15 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v15;
+          v16 = (v15 & *(_DWORD *)(v14 + 20)) == 0;
+          *(_DWORD *)(v14 + 20) &= v15;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            sub_140418E4C(CurrentPrcb);
         }
       }
     }
     __writecr8(v7);
     if ( !v5
       && _InterlockedDecrement((volatile signed __int32 *)&RemoveLock[2].Common.RemoveEvent.Header.WaitListHead) < 0
-      && ((MmVerifierData & 0x800) == 0
-       || !(unsigned int)VfRemLockReportBadReleaseTag((ULONG_PTR)RemoveLock, (ULONG_PTR)Tag)) )
+      && ((dword_140C29FC0 & 0x800) == 0 || !(unsigned int)sub_140A91EAC((ULONG_PTR)RemoveLock, (ULONG_PTR)Tag)) )
     {
       _InterlockedIncrement((volatile signed __int32 *)&RemoveLock[2].Common.RemoveEvent.Header.WaitListHead);
     }

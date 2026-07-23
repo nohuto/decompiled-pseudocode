@@ -1,10 +1,10 @@
 /*
- * XREFs of _guard_dispatch_icall_nop @ 0x1401B7E90
+ * XREFs of _guard_dispatch_icall_nop @ 0x1401B7FF0
  * Callers:
- *     SymCryptParallelHashProcess @ 0x1401B2618 (SymCryptParallelHashProcess.c)
- *     SymCryptParallelHashProcess_serial @ 0x1401B28C4 (SymCryptParallelHashProcess_serial.c)
- *     SymCryptParallelHashSetNextWork @ 0x1401B2A7C (SymCryptParallelHashSetNextWork.c)
- *     KeGuardDispatchICall @ 0x14034AB40 (KeGuardDispatchICall.c)
+ *     SymCryptParallelHashProcess @ 0x1401B2758 (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess_serial @ 0x1401B2A04 (SymCryptParallelHashProcess_serial.c)
+ *     SymCryptParallelHashSetNextWork @ 0x1401B2BBC (SymCryptParallelHashSetNextWork.c)
+ *     KeGuardDispatchICall @ 0x14034BB40 (KeGuardDispatchICall.c)
  * Callees:
  *     <none>
  */

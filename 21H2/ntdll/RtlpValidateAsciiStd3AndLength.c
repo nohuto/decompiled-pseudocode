@@ -4,7 +4,7 @@
  *     RtlpNameprepAsciiRealWorker @ 0x18000D1EC (RtlpNameprepAsciiRealWorker.c)
  * Callees:
  *     ValidateStd3Range @ 0x1800013F4 (ValidateStd3Range.c)
- *     FindEmailAt @ 0x1800FEF30 (FindEmailAt.c)
+ *     FindEmailAt @ 0x1800FEEF0 (FindEmailAt.c)
  */
 
 char __fastcall RtlpValidateAsciiStd3AndLength(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 a4)

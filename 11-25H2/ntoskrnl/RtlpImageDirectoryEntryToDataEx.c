@@ -9,65 +9,70 @@
  */
 
 __int64 __fastcall RtlpImageDirectoryEntryToDataEx(
-        unsigned __int64 a1,
-        unsigned __int8 a2,
+        unsigned __int64 BaseOfImage,
+        char a2,
         unsigned __int16 a3,
-        _DWORD *a4,
-        __int64 *a5)
+        unsigned int *a4,
+        _QWORD *a5)
 {
   unsigned int v5; // ebx
-  unsigned __int8 v6; // r10
+  char v6; // r10
   unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r9
-  __int16 v11; // ax
+  _IMAGE_NT_HEADERS64 *NtHeaders; // r9
+  unsigned __int16 Magic; // ax
   __int64 v12; // rax
-  __int64 v13; // r8
-  __int64 v15; // rax
-  unsigned __int64 v16; // rsi
+  __int64 VirtualAddress; // r8
+  PVOID v15; // rax
+  char *v16; // rsi
 
   v5 = 0;
   v6 = a2;
   *a5 = 0LL;
-  if ( (a1 & 3) != 0 )
+  if ( (BaseOfImage & 3) != 0 )
   {
     v6 = 0;
-    v9 = a1 & 1;
-    a1 &= 0xFFFFFFFFFFFFFFFCuLL;
+    v9 = BaseOfImage & 1;
+    BaseOfImage &= 0xFFFFFFFFFFFFFFFCuLL;
     if ( !v9 )
       v6 = a2;
   }
-  if ( a1 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
+  if ( BaseOfImage - 1 > 0xFFFFFFFFFFFFFFFDuLL )
     return (unsigned int)-1073741811;
-  if ( *(_WORD *)a1 != 23117 )
+  if ( *(_WORD *)BaseOfImage != 23117 )
     return (unsigned int)-1073741701;
-  v10 = a1 + *(unsigned int *)(a1 + 60);
-  if ( v10 < a1 || a1 <= 0x7FFFFFFEFFFFLL && (v10 + 263 < v10 || v10 + 263 > 0x7FFFFFFEFFFFLL) )
+  NtHeaders = (_IMAGE_NT_HEADERS64 *)(BaseOfImage + *(unsigned int *)(BaseOfImage + 60));
+  if ( (unsigned __int64)NtHeaders < BaseOfImage
+    || BaseOfImage <= 0x7FFFFFFEFFFFLL
+    && ((_IMAGE_NT_HEADERS64 *)((char *)&NtHeaders->OptionalHeader.DataDirectory[15].Size + 3) < NtHeaders
+     || (unsigned __int64)&NtHeaders->OptionalHeader.DataDirectory[15].Size + 3 > 0x7FFFFFFEFFFFLL) )
+  {
     return (unsigned int)-1073741701;
-  if ( *(_DWORD *)v10 != 17744 )
+  }
+  if ( NtHeaders->Signature != 17744 )
     return (unsigned int)-1073741701;
-  v11 = *(_WORD *)(v10 + 24);
-  if ( v11 == 267 )
-    return (unsigned int)RtlpImageDirectoryEntryToData32(a1, v6, a3, (_DWORD)a4, v10, (__int64)a5);
-  if ( v11 != 523 || (unsigned int)a3 >= *(_DWORD *)(v10 + 132) )
+  Magic = NtHeaders->OptionalHeader.Magic;
+  if ( Magic == 267 )
+    return (unsigned int)RtlpImageDirectoryEntryToData32((PVOID)BaseOfImage, NtHeaders, (__int64)a5);
+  if ( Magic != 523 || a3 >= NtHeaders->OptionalHeader.NumberOfRvaAndSizes )
     return (unsigned int)-1073741811;
   v12 = a3;
-  v13 = *(unsigned int *)(v10 + 8LL * a3 + 136);
-  if ( (_DWORD)v13 )
+  VirtualAddress = NtHeaders->OptionalHeader.DataDirectory[a3].VirtualAddress;
+  if ( (_DWORD)VirtualAddress )
   {
-    if ( a1 <= 0x7FFFFFFEFFFFLL )
+    if ( BaseOfImage <= 0x7FFFFFFEFFFFLL )
     {
-      v16 = a1 + v13 - 1;
-      if ( v16 > 0x7FFFFFFEFFFFLL || v16 < a1 )
+      v16 = (char *)(BaseOfImage + VirtualAddress - 1);
+      if ( (unsigned __int64)v16 > 0x7FFFFFFEFFFFLL || (unsigned __int64)v16 < BaseOfImage )
         return (unsigned int)-1073741811;
     }
-    *a4 = *(_DWORD *)(v10 + 8 * v12 + 140);
-    if ( v6 || (unsigned int)v13 < *(_DWORD *)(v10 + 84) )
+    *a4 = NtHeaders->OptionalHeader.DataDirectory[v12].Size;
+    if ( v6 || (unsigned int)VirtualAddress < NtHeaders->OptionalHeader.SizeOfHeaders )
     {
-      *a5 = v13 + a1;
+      *a5 = VirtualAddress + BaseOfImage;
     }
     else
     {
-      v15 = RtlAddressInSectionTable(v10, a1);
+      v15 = RtlAddressInSectionTable(NtHeaders, (PVOID)BaseOfImage, VirtualAddress);
       *a5 = v15;
       if ( !v15 )
         return (unsigned int)-1073741811;

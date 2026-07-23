@@ -9,22 +9,22 @@
  *     NtNotifyChangeMultipleKeys @ 0x140937870 (NtNotifyChangeMultipleKeys.c)
  */
 
-__int64 SepAdtRegNotificationCallback()
+NTSTATUS SepAdtRegNotificationCallback()
 {
   SepAdtInitializeCrashOnFail();
   SepAdtInitializePrivilegeAuditing();
   SepAdtInitializeBounds();
   return NtNotifyChangeMultipleKeys(
-           (_DWORD)SepAdtRegNotifyHandle,
+           SepAdtRegNotifyHandle,
            0,
-           0,
-           0,
-           (__int64)&SepAdtLsaRegWatchWorkItem,
-           1LL,
-           (__int64)&SepAdtIoStatusBlock,
-           5,
+           0LL,
+           0LL,
+           (PIO_APC_ROUTINE)SepAdtLsaRegWatchWorkItem,
+           (PVOID)1,
+           &SepAdtIoStatusBlock,
+           5u,
            0,
            0LL,
            0,
-           1);
+           1u);
 }

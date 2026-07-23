@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCopyLegacyContext @ 0x1800DDE84
+ * XREFs of RtlpCopyLegacyContext @ 0x1800D8FF4
  * Callers:
- *     RtlpCopyExtendedContext @ 0x180143A40 (RtlpCopyExtendedContext.c)
+ *     RtlpCopyExtendedContext @ 0x180141DF0 (RtlpCopyExtendedContext.c)
  * Callees:
- *     RtlpCopyLegacyContextX86 @ 0x1800DDED0 (RtlpCopyLegacyContextX86.c)
+ *     RtlpCopyLegacyContextX86 @ 0x1800D9040 (RtlpCopyLegacyContextX86.c)
  */
 
 __int64 __fastcall RtlpCopyLegacyContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

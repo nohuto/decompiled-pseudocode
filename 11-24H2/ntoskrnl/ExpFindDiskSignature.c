@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpFindDiskSignature @ 0x140A63F20
+ * XREFs of ExpFindDiskSignature @ 0x140A5C820
  * Callers:
- *     ExpConvertSignatureName @ 0x1407BB6C8 (ExpConvertSignatureName.c)
- *     ExpTranslateEfiPath @ 0x140A6389C (ExpTranslateEfiPath.c)
- *     ExpCreateOutputEFI @ 0x140A64A94 (ExpCreateOutputEFI.c)
+ *     ExpConvertSignatureName @ 0x1407BBB18 (ExpConvertSignatureName.c)
+ *     ExpTranslateEfiPath @ 0x140A5C19C (ExpTranslateEfiPath.c)
+ *     ExpCreateOutputEFI @ 0x140A5D394 (ExpCreateOutputEFI.c)
  * Callees:
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1406A6AD0 (ZwQuerySystemInformation.c)
- *     ExpGetPartitionTableInfo @ 0x140A640EC (ExpGetPartitionTableInfo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1406A7A70 (ZwQuerySystemInformation.c)
+ *     ExpGetPartitionTableInfo @ 0x140A5C9EC (ExpGetPartitionTableInfo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6)
+NTSTATUS __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   wchar_t *Pool2; // rbp
   unsigned int v8; // esi
   int PartitionTableInfo; // ebx
@@ -24,20 +24,20 @@ __int64 __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3
   bool v12; // zf
   __int64 v13; // rcx
   _DWORD *P; // [rsp+20h] [rbp-88h]
-  __int128 v19; // [rsp+48h] [rbp-60h] BYREF
+  __int128 SystemInformation; // [rsp+48h] [rbp-60h] BYREF
   __int64 v20; // [rsp+58h] [rbp-50h]
 
   P = 0LL;
   v20 = 0LL;
-  v19 = 0LL;
-  result = ZwQuerySystemInformation(7LL, (__int64)&v19);
-  if ( (int)result >= 0 )
+  SystemInformation = 0LL;
+  result = ZwQuerySystemInformation(SystemDeviceInformation, &SystemInformation, 0x18u, 0LL);
+  if ( result >= 0 )
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, 0x4CuLL, 0x72766E45u);
     if ( Pool2 )
     {
       v8 = 0;
-      if ( !(_DWORD)v19 )
+      if ( !(_DWORD)SystemInformation )
         goto LABEL_21;
       do
       {
@@ -78,17 +78,17 @@ __int64 __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3
         }
         ++v8;
       }
-      while ( v8 < (unsigned int)v19 );
+      while ( v8 < (unsigned int)SystemInformation );
       if ( PartitionTableInfo >= 0 )
 LABEL_21:
         PartitionTableInfo = -1073741766;
 LABEL_22:
       ExFreePoolWithTag(Pool2, 0);
-      return (unsigned int)PartitionTableInfo;
+      return PartitionTableInfo;
     }
     else
     {
-      return 3221225626LL;
+      return -1073741670;
     }
   }
   return result;

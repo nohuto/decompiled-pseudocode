@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeVadEventBitmap @ 0x140659D2C
+ * XREFs of MiFreeVadEventBitmap @ 0x140659E10
  * Callers:
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiDeletePartialCloneVad @ 0x14066313C (MiDeletePartialCloneVad.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiDeletePartialCloneVad @ 0x140663220 (MiDeletePartialCloneVad.c)
  * Callees:
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiGetVadWakeList @ 0x140029A00 (MiGetVadWakeList.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiGetVadWakeList @ 0x140029580 (MiGetVadWakeList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

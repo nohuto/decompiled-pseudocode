@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSplitReducedCommitClonePage @ 0x1401E2F58
+ * XREFs of MiSplitReducedCommitClonePage @ 0x1401E2D84
  * Callers:
- *     MiProbeLeafFrame @ 0x14002FDC0 (MiProbeLeafFrame.c)
+ *     MiProbeLeafFrame @ 0x14002F940 (MiProbeLeafFrame.c)
  * Callees:
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140029D40 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiUnlockProbePacketWorkingSet @ 0x14009A79C (MiUnlockProbePacketWorkingSet.c)
- *     MiLockProbePacketWorkingSet @ 0x14009AAA8 (MiLockProbePacketWorkingSet.c)
- *     MiLocateCloneAddress @ 0x1400BDB00 (MiLocateCloneAddress.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiChargeFullProcessCommitment @ 0x140430960 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x1404BCCE8 (MiReturnFullProcessCommitment.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400298C0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x140099F9C (MiUnlockProbePacketWorkingSet.c)
+ *     MiLockProbePacketWorkingSet @ 0x14009A2A8 (MiLockProbePacketWorkingSet.c)
+ *     MiLocateCloneAddress @ 0x1400BB990 (MiLocateCloneAddress.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiChargeFullProcessCommitment @ 0x14042F830 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x1404A8A18 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiSplitReducedCommitClonePage(__int64 a1, __int64 **a2)
@@ -60,7 +60,7 @@ __int64 __fastcall MiSplitReducedCommitClonePage(__int64 a1, __int64 **a2)
               CloneAddress = MiLocateCloneAddress(*(_QWORD *)(a1 + 72), v12 | 0x8000000000000000uLL);
               if ( CloneAddress )
               {
-                if ( *(_QWORD *)(qword_140327F90 + 276840632) > CloneAddress[9]
+                if ( *(_QWORD *)(qword_140327FD0 + 276840632) > CloneAddress[9]
                   && (unsigned int)MiCopyOnWriteEx(*(_QWORD *)a1, v14, -1LL, *(_BYTE *)(a1 + 80), 0) )
                 {
                   v7 = 0;

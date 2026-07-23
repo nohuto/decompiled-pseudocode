@@ -1,13 +1,13 @@
 /*
- * XREFs of AVrfpDllLoadNotificationInternal @ 0x1800EC8F0
+ * XREFs of AVrfpDllLoadNotificationInternal @ 0x1800E7520
  * Callers:
- *     AVrfDllLoadNotification @ 0x1800EC804 (AVrfDllLoadNotification.c)
- *     AVrfpSnapAlreadyLoadedDlls @ 0x180115C90 (AVrfpSnapAlreadyLoadedDlls.c)
+ *     AVrfDllLoadNotification @ 0x1800E7434 (AVrfDllLoadNotification.c)
+ *     AVrfpSnapAlreadyLoadedDlls @ 0x180111124 (AVrfpSnapAlreadyLoadedDlls.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     AVrfpDetectVerifiedExports @ 0x1800EC9CC (AVrfpDetectVerifiedExports.c)
- *     AVrfpSnapDllImports @ 0x1800ECAF4 (AVrfpSnapDllImports.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     AVrfpDetectVerifiedExports @ 0x1800E75FC (AVrfpDetectVerifiedExports.c)
+ *     AVrfpSnapDllImports @ 0x1800E7724 (AVrfpSnapDllImports.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
  */
 
 __int64 __fastcall AVrfpDllLoadNotificationInternal(__int64 a1)

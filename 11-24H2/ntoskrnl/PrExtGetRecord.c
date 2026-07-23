@@ -1,10 +1,10 @@
 /*
- * XREFs of PrExtGetRecord @ 0x140664168
+ * XREFs of PrExtGetRecord @ 0x140662A58
  * Callers:
- *     HalpGetMicrocodePatchRecord @ 0x14055940C (HalpGetMicrocodePatchRecord.c)
+ *     HalpGetMicrocodePatchRecord @ 0x14055703C (HalpGetMicrocodePatchRecord.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     MicrocodeGetRecord @ 0x1406644E0 (MicrocodeGetRecord.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     MicrocodeGetRecord @ 0x140662DD0 (MicrocodeGetRecord.c)
  */
 
 __int64 __fastcall PrExtGetRecord(int a1, int a2, __int64 a3, int a4, __int64 a5, __int64 a6)

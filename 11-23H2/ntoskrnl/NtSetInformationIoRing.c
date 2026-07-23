@@ -1,56 +1,60 @@
 /*
- * XREFs of NtSetInformationIoRing @ 0x14094A920
+ * XREFs of NtSetInformationIoRing @ 0x14094AB20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopExceptionFilter @ 0x1405554E8 (IopExceptionFilter.c)
- *     IopIoRingUpdateCompletionUserEvent @ 0x1405597C0 (IopIoRingUpdateCompletionUserEvent.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopExceptionFilter @ 0x140555BA8 (IopExceptionFilter.c)
+ *     IopIoRingUpdateCompletionUserEvent @ 0x140559E80 (IopIoRingUpdateCompletionUserEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetInformationIoRing(HANDLE Handle, int a2, unsigned int a3, void **a4)
+NTSTATUS __cdecl NtSetInformationIoRing(
+        HANDLE IoRingHandle,
+        ULONG IoRingInformationClass,
+        ULONG IoRingInformationLength,
+        PVOID IoRingInformation)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   PVOID v8; // rdi
-  unsigned int v9; // ecx
-  NTSTATUS v10; // ebx
-  unsigned __int64 v11; // rcx
+  ULONG v9; // ecx
+  int v10; // ebx
+  char *v11; // rcx
   NTSTATUS updated; // eax
   PVOID Object; // [rsp+40h] [rbp-18h] BYREF
   void *v15; // [rsp+48h] [rbp-10h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v8 = 0LL;
-  if ( a2 < 0 )
+  if ( (IoRingInformationClass & 0x80000000) != 0 )
     goto LABEL_16;
-  if ( (unsigned __int64)a2 >= 2 )
+  if ( (unsigned __int64)(int)IoRingInformationClass >= 2 )
     goto LABEL_16;
-  v9 = *((_DWORD *)&IopIoRingSetOperationLength + a2);
+  v9 = *((_DWORD *)&IopIoRingSetOperationLength + (int)IoRingInformationClass);
   if ( !v9 )
     goto LABEL_16;
-  if ( a3 < v9 )
+  if ( IoRingInformationLength < v9 )
   {
     v10 = -1073741820;
     goto LABEL_17;
   }
   if ( PreviousMode )
   {
-    if ( a3 )
+    if ( IoRingInformationLength )
     {
-      v11 = (unsigned __int64)a4 + a3;
-      if ( v11 > 0x7FFFFFFF0000LL || v11 < (unsigned __int64)a4 )
+      v11 = (char *)IoRingInformation + IoRingInformationLength;
+      if ( (unsigned __int64)v11 > 0x7FFFFFFF0000LL || v11 < IoRingInformation )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
   Object = 0LL;
-  v10 = ObReferenceObjectByHandle(Handle, 0, IoRingObjectType, PreviousMode, &Object, 0LL);
+  v10 = ObReferenceObjectByHandle(IoRingHandle, 0, IoRingObjectType, PreviousMode, &Object, 0LL);
   v8 = Object;
   if ( v10 >= 0 )
   {
-    if ( a2 == 1 )
+    if ( IoRingInformationClass == 1 )
     {
-      v15 = *a4;
+      v15 = *(void **)IoRingInformation;
       updated = IopIoRingUpdateCompletionUserEvent((__int64)Object, &v15, PreviousMode);
       v10 = updated;
       if ( updated == -1073741816 || updated == -1073741788 )
@@ -63,5 +67,5 @@ LABEL_16:
 LABEL_17:
   if ( v8 )
     ObfDereferenceObject(v8);
-  return (unsigned int)v10;
+  return v10;
 }

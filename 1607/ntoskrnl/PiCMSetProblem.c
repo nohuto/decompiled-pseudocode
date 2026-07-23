@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCMSetProblem @ 0x14064879C
+ * XREFs of PiCMSetProblem @ 0x140648880
  * Callers:
- *     PiCMDeviceAction @ 0x140647364 (PiCMDeviceAction.c)
- *     PiCMSetDeviceProblem @ 0x1406486BC (PiCMSetDeviceProblem.c)
+ *     PiCMDeviceAction @ 0x140647448 (PiCMDeviceAction.c)
+ *     PiCMSetDeviceProblem @ 0x1406487A0 (PiCMSetDeviceProblem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x14015C0E0 (ZwPlugPlayControl.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _CmGetDeviceStatus @ 0x1404F78AC (_CmGetDeviceStatus.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x14015C650 (ZwPlugPlayControl.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _CmGetDeviceStatus @ 0x1404DA838 (_CmGetDeviceStatus.c)
  */
 
 NTSTATUS __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)

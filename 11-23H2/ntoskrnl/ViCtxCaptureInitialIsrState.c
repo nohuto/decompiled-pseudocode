@@ -1,8 +1,8 @@
 /*
- * XREFs of ViCtxCaptureInitialIsrState @ 0x140AE4AE8
+ * XREFs of ViCtxCaptureInitialIsrState @ 0x140AE4AD8
  * Callers:
- *     ViCtxIsr @ 0x140AE4DD0 (ViCtxIsr.c)
- *     ViCtxIsrMessageBased @ 0x140AE4E30 (ViCtxIsrMessageBased.c)
+ *     ViCtxIsr @ 0x140AE4DC0 (ViCtxIsr.c)
+ *     ViCtxIsrMessageBased @ 0x140AE4E20 (ViCtxIsrMessageBased.c)
  * Callees:
  *     RtlXSave @ 0x14020DFB0 (RtlXSave.c)
  */

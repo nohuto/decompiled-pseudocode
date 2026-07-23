@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaControllerFlushChannel @ 0x1405165F4
+ * XREFs of HalpDmaControllerFlushChannel @ 0x140516B44
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x1405143E0 (HalFlushAdapterBuffersEx.c)
- *     IoFlushAdapterBuffersV3 @ 0x140515220 (IoFlushAdapterBuffersV3.c)
+ *     HalFlushAdapterBuffersEx @ 0x140514930 (HalFlushAdapterBuffersEx.c)
+ *     IoFlushAdapterBuffersV3 @ 0x140515770 (IoFlushAdapterBuffersV3.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpDmaControllerFlushChannel(__int64 a1, unsigned int a2)
@@ -40,7 +40,10 @@ __int64 __fastcall HalpDmaControllerFlushChannel(__int64 a1, unsigned int a2)
     v6 = *(unsigned __int8 *)(a1 + 176);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(v6);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v6 - 2) <= 0xDu )
+    if ( (_DWORD)KiIrqlFlags
+      && ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)(v6 - 2) <= 0xDu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == (_BYTE)v6 )
@@ -65,10 +68,10 @@ __int64 __fastcall HalpDmaControllerFlushChannel(__int64 a1, unsigned int a2)
   if ( v5 )
   {
     KxReleaseSpinLock(v9);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v14 = CurrentPrcb->SchedulerAssist;
@@ -76,7 +79,7 @@ __int64 __fastcall HalpDmaControllerFlushChannel(__int64 a1, unsigned int a2)
         v16 = (v15 & v14[5]) == 0;
         v14[5] &= v15;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     result = CurrentIrql;

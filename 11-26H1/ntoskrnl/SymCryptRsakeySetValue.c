@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptRsakeySetValue @ 0x14055A3A8
+ * XREFs of SymCryptRsakeySetValue @ 0x14055C8C0
  * Callers:
- *     SymCryptRsaSelftest @ 0x1405632FC (SymCryptRsaSelftest.c)
- *     HashpVerifyPkcs1Signature @ 0x1408ABEDC (HashpVerifyPkcs1Signature.c)
+ *     SymCryptRsaSelftest @ 0x14056580C (SymCryptRsaSelftest.c)
+ *     HashpVerifyPkcs1Signature @ 0x1408B2320 (HashpVerifyPkcs1Signature.c)
  * Callees:
- *     SymCryptRsakeySetValueInternal @ 0x14055A418 (SymCryptRsakeySetValueInternal.c)
+ *     SymCryptRsakeySetValueInternal @ 0x14055C930 (SymCryptRsakeySetValueInternal.c)
  */
 
 __int64 __fastcall SymCryptRsakeySetValue(

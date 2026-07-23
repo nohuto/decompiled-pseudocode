@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtCompressKey()
+NTSTATUS __cdecl NtCompressKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 152LL;
+  result = 152;
   __asm { syscall; Low latency system call }
   return result;
 }

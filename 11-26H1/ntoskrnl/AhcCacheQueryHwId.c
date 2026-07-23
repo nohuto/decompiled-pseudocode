@@ -1,17 +1,17 @@
 /*
- * XREFs of AhcCacheQueryHwId @ 0x140776338
+ * XREFs of AhcCacheQueryHwId @ 0x1407791E0
  * Callers:
- *     NtApphelpCacheControl @ 0x140908630 (NtApphelpCacheControl.c)
+ *     NtApphelpCacheControl @ 0x140A30790 (NtApphelpCacheControl.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     ExGetPreviousMode @ 0x140470680 (ExGetPreviousMode.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     KseLookupHardwareId @ 0x1407BE31C (KseLookupHardwareId.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     ExGetPreviousMode @ 0x140469E00 (ExGetPreviousMode.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     KseLookupHardwareId @ 0x1407C137C (KseLookupHardwareId.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AhcCacheQueryHwId(char *Src)

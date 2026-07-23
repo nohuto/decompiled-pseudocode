@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpCancelTimer @ 0x1406CECB0
+ * XREFs of ExpCancelTimer @ 0x1406D2CE0
  * Callers:
- *     ExTimerRundown @ 0x14051A404 (ExTimerRundown.c)
- *     ExpSetTimerObject @ 0x1406CEDA8 (ExpSetTimerObject.c)
- *     NtCancelTimer @ 0x1406CF780 (NtCancelTimer.c)
+ *     ExTimerRundown @ 0x140513E74 (ExTimerRundown.c)
+ *     ExpSetTimerObject @ 0x1406D2DD8 (ExpSetTimerObject.c)
+ *     NtCancelTimer @ 0x1406D37B0 (NtCancelTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     KeRemoveQueueDpcEx @ 0x140423370 (KeRemoveQueueDpcEx.c)
- *     KeRemoveQueueApc @ 0x140467790 (KeRemoveQueueApc.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     KeRemoveQueueDpcEx @ 0x140430460 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueApc @ 0x140460EE0 (KeRemoveQueueApc.c)
  */
 
 char __fastcall ExpCancelTimer(PKTIMER a1, _WORD *a2, _DWORD *a3)

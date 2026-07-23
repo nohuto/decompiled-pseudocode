@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLockUnlockVmCleanup @ 0x140960AFC
+ * XREFs of MiLockUnlockVmCleanup @ 0x140A063BC
  * Callers:
- *     NtLockVirtualMemory @ 0x140318600 (NtLockVirtualMemory.c)
- *     NtUnlockVirtualMemory @ 0x140960970 (NtUnlockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x14031A630 (NtLockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x140A06230 (NtUnlockVirtualMemory.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404057B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403FE8A4 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiLockUnlockVmCleanup(__int64 a1)

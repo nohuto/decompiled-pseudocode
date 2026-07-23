@@ -1,5 +1,5 @@
 /*
- * XREFs of MiExpandSharedZeroCluster @ 0x14010F710
+ * XREFs of MiExpandSharedZeroCluster @ 0x14010F790
  * Callers:
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
  * Callees:
@@ -7,12 +7,12 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
- *     MiIsPteEvaluated @ 0x14010F9D4 (MiIsPteEvaluated.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiComputeZeroClusterMaximum @ 0x14010FA84 (MiComputeZeroClusterMaximum.c)
- *     MiUpdatePageTableUseCount @ 0x14010FBF8 (MiUpdatePageTableUseCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiIsPteEvaluated @ 0x14010FA54 (MiIsPteEvaluated.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiComputeZeroClusterMaximum @ 0x14010FB04 (MiComputeZeroClusterMaximum.c)
+ *     MiUpdatePageTableUseCount @ 0x14010FC78 (MiUpdatePageTableUseCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiExpandSharedZeroCluster(__int64 a1)
@@ -137,7 +137,7 @@ __int64 __fastcall MiExpandSharedZeroCluster(__int64 a1)
       {
         if ( (unsigned int)MiPteHasShadow(v25, v24) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v28 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v28 & 1) != 0 )
             v24 |= 0x8000000000000000uLL;
           *v26 = v24;
           MiWritePteShadow(v26);

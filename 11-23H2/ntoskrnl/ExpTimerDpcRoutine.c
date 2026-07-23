@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpTimerDpcRoutine @ 0x140369EC0
+ * XREFs of ExpTimerDpcRoutine @ 0x14036A060
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     _local_unwind @ 0x1403D9510 (_local_unwind.c)
- *     RtlpComputeEpilogueOffset @ 0x1403F3228 (RtlpComputeEpilogueOffset.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine0 @ 0x14042B790 (KiCustomAccessRoutine0.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     _local_unwind @ 0x1403D96F0 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403F3408 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine0 @ 0x14042BB20 (KiCustomAccessRoutine0.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall ExpTimerDpcRoutine(

@@ -3,9 +3,9 @@
  * Callers:
  *     PipCallDriverAddDeviceQueryRoutine @ 0x14068C35C (PipCallDriverAddDeviceQueryRoutine.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PnpGetServiceStartType(int a1, void *a2, _DWORD *a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of InbvEnableDisplayString @ 0x1404FB1E0
+ * XREFs of InbvEnableDisplayString @ 0x1404F8AC0
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ char __fastcall InbvEnableDisplayString(char a1)
 {
   char result; // al
 
-  result = byte_140E65D3C;
-  byte_140E65D3C = a1;
+  result = byte_140E65E78;
+  byte_140E65E78 = a1;
   return result;
 }

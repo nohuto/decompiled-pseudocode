@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerTransitionTimesInMs @ 0x140382984
+ * XREFs of PopPowerTransitionTimesInMs @ 0x140382B34
  * Callers:
- *     PopDiagTracePowerTransitionTime @ 0x1407741C4 (PopDiagTracePowerTransitionTime.c)
- *     PopCalculateWakeTimeAdjustment @ 0x1408E693C (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTracePowerTransitionTime @ 0x140774384 (PopDiagTracePowerTransitionTime.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x1408E6A9C (PopCalculateWakeTimeAdjustment.c)
  * Callees:
- *     PopQpcTimeInMs @ 0x140990634 (PopQpcTimeInMs.c)
+ *     PopQpcTimeInMs @ 0x140991634 (PopQpcTimeInMs.c)
  */
 
 unsigned __int64 __fastcall PopPowerTransitionTimesInMs(
@@ -24,40 +24,40 @@ unsigned __int64 __fastcall PopPowerTransitionTimesInMs(
   v11 = 1000LL * *(unsigned int *)(result + 68);
   if ( a1 )
   {
-    result = PopQpcTimeInMs(&qword_140C23928, &qword_140C23930);
+    result = PopQpcTimeInMs(&qword_140C23F48, &qword_140C23F50);
     *a1 = result;
   }
   if ( a2 )
   {
-    result = PopQpcTimeInMs(&qword_140C23948, &qword_140C23950);
+    result = PopQpcTimeInMs(&qword_140C23F68, &qword_140C23F70);
     *a2 = result;
   }
   v12 = a5;
   if ( a5 )
   {
     v13 = 0LL;
-    result = PopQpcTimeInMs(&v13, &qword_140C23968);
+    result = PopQpcTimeInMs(&v13, &qword_140C23F88);
     *v12 = result;
-    if ( dword_140C23B70 )
+    if ( dword_140C24190 )
     {
-      result = (unsigned int)(qword_140C239E8 + result);
+      result = (unsigned int)(qword_140C24008 + result);
       *v12 = result;
     }
   }
   if ( a3 )
   {
-    result = qword_140C239B0 / v11;
-    *a3 = qword_140C239B0 / v11;
+    result = qword_140C23FD0 / v11;
+    *a3 = qword_140C23FD0 / v11;
   }
   if ( a4 )
   {
-    result = (qword_140C23AE8 + qword_140C23A20) / v11;
+    result = (qword_140C24108 + qword_140C24040) / v11;
     *a4 = result;
   }
   if ( a6 )
   {
-    result = qword_140C23990 / v11;
-    *a6 = qword_140C23990 / v11;
+    result = qword_140C23FB0 / v11;
+    *a6 = qword_140C23FB0 / v11;
   }
   return result;
 }

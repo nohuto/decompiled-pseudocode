@@ -1,10 +1,10 @@
 /*
- * XREFs of ViSettingsEnableKernelHandleChecking @ 0x14093E018
+ * XREFs of ViSettingsEnableKernelHandleChecking @ 0x14093F018
  * Callers:
- *     VfSettingsCheckForChanges @ 0x14093DEE8 (VfSettingsCheckForChanges.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x14093DFEC (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     VfSettingsCheckForChanges @ 0x14093EEE8 (VfSettingsCheckForChanges.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x14093EFEC (VfSettingsMiscellaneousChecksInitPhase1.c)
  * Callees:
- *     PsSetProcessHandleTracingInformation @ 0x140888754 (PsSetProcessHandleTracingInformation.c)
+ *     PsSetProcessHandleTracingInformation @ 0x1408899B4 (PsSetProcessHandleTracingInformation.c)
  */
 
 __int64 __fastcall ViSettingsEnableKernelHandleChecking(int a1)

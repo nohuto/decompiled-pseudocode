@@ -1,8 +1,8 @@
 /*
- * XREFs of IopFreeReqAlternative @ 0x140818780
+ * XREFs of IopFreeReqAlternative @ 0x140818A50
  * Callers:
- *     IopResourceRequirementsListToReqList @ 0x140817A68 (IopResourceRequirementsListToReqList.c)
- *     IopFreeReqList @ 0x140818728 (IopFreeReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140817D38 (IopResourceRequirementsListToReqList.c)
+ *     IopFreeReqList @ 0x1408189F8 (IopFreeReqList.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

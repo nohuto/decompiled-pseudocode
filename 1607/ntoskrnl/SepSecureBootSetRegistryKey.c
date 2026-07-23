@@ -3,11 +3,11 @@
  * Callers:
  *     SeSecureBootRegisterPolicy @ 0x1407B9CA8 (SeSecureBootRegisterPolicy.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x1404EE054 (RtlStringFromGUID.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x1404D011C (RtlStringFromGUID.c)
  */
 
 __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
   KeyHandle = 0LL;
   Handle = 0LL;
   UnicodeString.Length = 0;
-  if ( (dword_140329804 & 8) == 0 && !a1 )
+  if ( (dword_14032983C & 8) == 0 && !a1 )
   {
     v2 = 0;
     goto LABEL_4;
@@ -46,9 +46,9 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
     v2 = ZwCreateKey(&Handle, 0x20006u, &ObjectAttributes, 0, 0LL, 1u, 0LL);
     if ( v2 >= 0 )
     {
-      if ( (dword_140329804 & 8) != 0 )
+      if ( (dword_14032983C & 8) != 0 )
       {
-        Data = dword_140329804 & 1;
+        Data = dword_14032983C & 1;
         v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14025D2B0, 0, 4u, &Data, 4u);
         if ( v2 < 0 )
           goto LABEL_4;

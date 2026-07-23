@@ -1,7 +1,7 @@
 /*
- * XREFs of inflate_fast @ 0x180156558
+ * XREFs of inflate_fast @ 0x180156428
  * Callers:
- *     inflate @ 0x1801531E0 (inflate.c)
+ *     inflate @ 0x1801530B0 (inflate.c)
  * Callees:
  *     <none>
  */

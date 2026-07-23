@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaSelLogCheckPoint @ 0x140A077D4
+ * XREFs of WheaSelLogCheckPoint @ 0x140A07A64
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  *     WheaSelLogInitialize @ 0x140B5320C (WheaSelLogInitialize.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     IpmiHwContextInitialized @ 0x14067778C (IpmiHwContextInitialized.c)
- *     IpmiLibAddSelCheckpointRecord @ 0x140677E48 (IpmiLibAddSelCheckpointRecord.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     IpmiHwContextInitialized @ 0x140677CDC (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelCheckpointRecord @ 0x140678398 (IpmiLibAddSelCheckpointRecord.c)
  */
 
 __int64 WheaSelLogCheckPoint()

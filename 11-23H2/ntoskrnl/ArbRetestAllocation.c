@@ -1,15 +1,15 @@
 /*
- * XREFs of ArbRetestAllocation @ 0x1409366C0
+ * XREFs of ArbRetestAllocation @ 0x1409368C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlCopyRangeList @ 0x140814E80 (RtlCopyRangeList.c)
- *     ArbpBuildAlternative @ 0x140815320 (ArbpBuildAlternative.c)
- *     RtlDeleteOwnersRanges @ 0x140815520 (RtlDeleteOwnersRanges.c)
- *     RtlFreeRangeList @ 0x140815600 (RtlFreeRangeList.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlCopyRangeList @ 0x140815150 (RtlCopyRangeList.c)
+ *     ArbpBuildAlternative @ 0x1408155F0 (ArbpBuildAlternative.c)
+ *     RtlDeleteOwnersRanges @ 0x1408157F0 (RtlDeleteOwnersRanges.c)
+ *     RtlFreeRangeList @ 0x1408158D0 (RtlFreeRangeList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

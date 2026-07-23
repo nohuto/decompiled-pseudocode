@@ -1,10 +1,10 @@
 /*
- * XREFs of PrExtExportRecordData @ 0x140664014
+ * XREFs of PrExtExportRecordData @ 0x140662904
  * Callers:
- *     HalpLoadMicrocode @ 0x140701A80 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x1406FF6C0 (HalpLoadMicrocode.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     GetMicrocodePatchData @ 0x1406642C8 (GetMicrocodePatchData.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     GetMicrocodePatchData @ 0x140662BB8 (GetMicrocodePatchData.c)
  */
 
 __int64 __fastcall PrExtExportRecordData(int *a1, __int64 a2, __int64 a3, __int64 a4)

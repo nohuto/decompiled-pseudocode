@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWow64GetCpuAreaEnabledFeatures @ 0x1800CCFE0
+ * XREFs of RtlWow64GetCpuAreaEnabledFeatures @ 0x1800CA750
  * Callers:
  *     <none>
  * Callees:

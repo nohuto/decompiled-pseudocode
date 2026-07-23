@@ -9,15 +9,15 @@
  *     __wcsicmp @ 0x4B2F7990 (__wcsicmp.c)
  */
 
-int __stdcall AVrfpVerifierStopInitialize()
+NTSTATUS __stdcall AVrfpVerifierStopInitialize()
 {
   int i; // esi
-  int result; // eax
-  unsigned int v2; // esi
-  int v3; // esi
-  int v4; // [esp+Ch] [ebp-Ch] BYREF
-  STRING DestinationString; // [esp+10h] [ebp-8h] BYREF
-  int retaddr; // [esp+1Ch] [ebp+4h]
+  NTSTATUS result; // eax
+  void *v2; // esi
+  NTSTATUS v3; // esi
+  PVOID ProcedureAddress; // [esp+Ch] [ebp-Ch] BYREF
+  _STRING DestinationString; // [esp+10h] [ebp-8h] BYREF
+  PVOID *retaddr; // [esp+1Ch] [ebp+4h]
 
   for ( i = AVrfpVerifierProvidersList; ; i = *(_DWORD *)i )
   {
@@ -26,7 +26,7 @@ int __stdcall AVrfpVerifierStopInitialize()
     if ( !_wcsicmp(*(const wchar_t **)(i + 12), L"verifier.dll") )
       break;
   }
-  v2 = *(_DWORD *)(*(_DWORD *)(i + 16) + 24);
+  v2 = *(void **)(*(_DWORD *)(i + 16) + 24);
   if ( !v2 )
   {
 LABEL_5:
@@ -34,11 +34,11 @@ LABEL_5:
     return -1073741823;
   }
   RtlInitAnsiString(&DestinationString, "VerifierStopMessage");
-  result = LdrGetProcedureAddressForCaller(v2, (const void **)&DestinationString, 0, &v4, 0, retaddr);
+  result = LdrGetProcedureAddressForCaller(v2, &DestinationString, 0, &ProcedureAddress, 0, retaddr);
   v3 = result;
   if ( result >= 0 )
   {
-    AVrfpVerifierStopMessageFunction = v4;
+    AVrfpVerifierStopMessageFunction = (int)ProcedureAddress;
   }
   else
   {

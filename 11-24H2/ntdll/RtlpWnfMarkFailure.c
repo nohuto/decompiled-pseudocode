@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpWnfMarkFailure @ 0x18011D448
+ * XREFs of RtlpWnfMarkFailure @ 0x18011B678
  * Callers:
- *     RtlpWnfWalkUserSubscriptionList @ 0x180021030 (RtlpWnfWalkUserSubscriptionList.c)
+ *     RtlpWnfWalkUserSubscriptionList @ 0x18004DA30 (RtlpWnfWalkUserSubscriptionList.c)
  * Callees:
  *     <none>
  */
@@ -32,10 +32,10 @@ __int64 __fastcall RtlpWnfMarkFailure(__int64 a1, int a2, unsigned int a3)
   if ( a2 == -1073741801 )
   {
     v6 = v4 == 0;
-    v7 = qword_1801CE200;
+    v7 = qword_1801CD200;
     if ( v6 )
     {
-      v5 = *(_DWORD *)(qword_1801CE200 + 56);
+      v5 = *(_DWORD *)(qword_1801CD200 + 56);
       goto LABEL_9;
     }
     v8 = 2 * *(_DWORD *)(a1 + 128);
@@ -46,7 +46,7 @@ __int64 __fastcall RtlpWnfMarkFailure(__int64 a1, int a2, unsigned int a3)
   }
   else if ( a2 == -1073741267 )
   {
-    v5 = *(_DWORD *)(qword_1801CE200 + 60);
+    v5 = *(_DWORD *)(qword_1801CD200 + 60);
 LABEL_9:
     *(_DWORD *)(a1 + 128) = v5;
   }

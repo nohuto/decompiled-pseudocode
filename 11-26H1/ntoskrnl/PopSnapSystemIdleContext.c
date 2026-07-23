@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSnapSystemIdleContext @ 0x140A3982C
+ * XREFs of PopSnapSystemIdleContext @ 0x1409F5434
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1404EF560 (PopIdlePhaseWatchdogCallback.c)
- *     PopArmIdlePhaseWatchdog @ 0x140A396D0 (PopArmIdlePhaseWatchdog.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x1404E8B40 (PopIdlePhaseWatchdogCallback.c)
+ *     PopArmIdlePhaseWatchdog @ 0x1409F52D8 (PopArmIdlePhaseWatchdog.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -20,7 +20,7 @@ __int64 __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2, __int
   __int64 v13; // r8
   unsigned int v14; // ecx
 
-  PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock.SuspendEvent, (__int64)a2, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemIdleLock, (__int64)a2, a3, a4);
   Pool2 = ExAllocatePool2(0x100uLL);
   v7 = 2LL;
   *a1 = Pool2;
@@ -48,9 +48,9 @@ __int64 __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2, __int
   v8[3] = *((_OWORD *)v9 + 3);
   *((_QWORD *)v8 + 8) = *((_QWORD *)v9 + 8);
   *a2 = 0;
-  if ( dword_140E0B864 )
+  if ( dword_140E0B874 )
   {
-    v12 = &unk_140E0B78C;
+    v12 = &unk_140E0B79C;
     v13 = 4LL;
     do
     {
@@ -75,5 +75,5 @@ __int64 __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2, __int
     }
     while ( v13 );
   }
-  return PopReleaseRwLock((struct _KTHREAD *)&PopWeakChargerLock.SuspendEvent);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopSystemIdleLock);
 }

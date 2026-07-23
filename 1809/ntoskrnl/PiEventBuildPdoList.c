@@ -1,11 +1,11 @@
 /*
- * XREFs of PiEventBuildPdoList @ 0x1406EDA28
+ * XREFs of PiEventBuildPdoList @ 0x1406EECC8
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     IopEnumerateRelations @ 0x1406EE0B4 (IopEnumerateRelations.c)
- *     PnpAllocateCriticalMemory @ 0x1406EEB64 (PnpAllocateCriticalMemory.c)
- *     PnpFinalizeVetoedRemove @ 0x140832F9C (PnpFinalizeVetoedRemove.c)
+ *     IopEnumerateRelations @ 0x1406EF354 (IopEnumerateRelations.c)
+ *     PnpAllocateCriticalMemory @ 0x1406EFE04 (PnpAllocateCriticalMemory.c)
+ *     PnpFinalizeVetoedRemove @ 0x1408341FC (PnpFinalizeVetoedRemove.c)
  */
 
 __int64 __fastcall PiEventBuildPdoList(

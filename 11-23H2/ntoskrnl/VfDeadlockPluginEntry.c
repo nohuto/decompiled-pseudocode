@@ -1,12 +1,12 @@
 /*
- * XREFs of VfDeadlockPluginEntry @ 0x140AD78F8
+ * XREFs of VfDeadlockPluginEntry @ 0x140AD78E8
  * Callers:
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
- *     VfDeadlockInitialize @ 0x140AD74AC (VfDeadlockInitialize.c)
- *     ViDeadlockDetectionApplySettings @ 0x140AD8DBC (ViDeadlockDetectionApplySettings.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
+ *     VfDeadlockInitialize @ 0x140AD749C (VfDeadlockInitialize.c)
+ *     ViDeadlockDetectionApplySettings @ 0x140AD8DAC (ViDeadlockDetectionApplySettings.c)
  */
 
 __int64 VfDeadlockPluginEntry()
@@ -151,7 +151,7 @@ __int64 VfDeadlockPluginEntry()
 
   v3 = 74;
   v4 = 0LL;
-  qword_140C36A18 = (__int64)ViDeadlockPluginUnload;
+  qword_140C369C8 = (__int64)ViDeadlockPluginUnload;
   v7 = 11;
   v2 = "ExTryToAcquireFastMutex";
   v8 = 0LL;

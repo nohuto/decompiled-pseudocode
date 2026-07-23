@@ -1,7 +1,7 @@
 /*
- * XREFs of IoIsWdmVersionAvailable @ 0x140B0A4D0
+ * XREFs of IoIsWdmVersionAvailable @ 0x140B0C290
  * Callers:
- *     DifIoIsWdmVersionAvailableWrapper @ 0x14065D160 (DifIoIsWdmVersionAvailableWrapper.c)
+ *     DifIoIsWdmVersionAvailableWrapper @ 0x140660D40 (DifIoIsWdmVersionAvailableWrapper.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of SmProcessStatsRequest @ 0x1409D7378
+ * XREFs of SmProcessStatsRequest @ 0x1409D7578
  * Callers:
- *     SmQueryStoreInformation @ 0x14084104C (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x14084134C (SmQueryStoreInformation.c)
  * Callees:
  *     MmSizeOfMdl @ 0x140206EA0 (MmSizeOfMdl.c)
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D354 (SSHSupportAllocateNonPaged.c)
- *     SmpGetProcessPartition @ 0x140344A80 (SmpGetProcessPartition.c)
- *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1405C2BF4 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     PsReferencePartitionByHandle @ 0x14076003C (PsReferencePartitionByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     SSHSupportAllocateNonPaged @ 0x14032D5E4 (SSHSupportAllocateNonPaged.c)
+ *     SmpGetProcessPartition @ 0x140344D10 (SmpGetProcessPartition.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1405C3164 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     PsReferencePartitionByHandle @ 0x14076022C (PsReferencePartitionByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessStatsRequest(__int64 a1, int a2, _DWORD *a3, char a4)

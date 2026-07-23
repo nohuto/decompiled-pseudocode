@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroInitializeAmdWpsSupport @ 0x140C33FDC
+ * XREFs of PpmHeteroInitializeAmdWpsSupport @ 0x140C3611C
  * Callers:
- *     PoInitHeteroDetection @ 0x140C2D09C (PoInitHeteroDetection.c)
+ *     PoInitHeteroDetection @ 0x140C2F1BC (PoInitHeteroDetection.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PoGetWorkloadClassCount @ 0x140B5FDBC (PoGetWorkloadClassCount.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PoGetWorkloadClassCount @ 0x140B61E88 (PoGetWorkloadClassCount.c)
  */
 
 __int64 PpmHeteroInitializeAmdWpsSupport()

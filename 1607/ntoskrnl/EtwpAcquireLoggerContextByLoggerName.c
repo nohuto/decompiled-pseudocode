@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x14048FAF0
+ * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x140490580
  * Callers:
- *     EtwpAcquireLoggerContext @ 0x14048DE30 (EtwpAcquireLoggerContext.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x1404E4110 (EtwQueryTraceHandleByLoggerName.c)
+ *     EtwpAcquireLoggerContext @ 0x14048E8C0 (EtwpAcquireLoggerContext.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x1404C6DC8 (EtwQueryTraceHandleByLoggerName.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
  */
 
 __int64 __fastcall EtwpAcquireLoggerContextByLoggerName(__int64 a1, const UNICODE_STRING *a2, char a3)

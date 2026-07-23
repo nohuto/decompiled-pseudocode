@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 NtCreateProcess()
+NTSTATUS __cdecl NtCreateProcess(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ParentProcess,
+        BOOLEAN InheritObjectTable,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 185LL;
+  result = 185;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

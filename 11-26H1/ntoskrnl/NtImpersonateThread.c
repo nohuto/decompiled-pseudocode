@@ -1,25 +1,28 @@
 /*
- * XREFs of NtImpersonateThread @ 0x140AE31F0
+ * XREFs of NtImpersonateThread @ 0x140AE0D70
  * Callers:
- *     DifNtImpersonateThreadWrapper @ 0x140679CC0 (DifNtImpersonateThreadWrapper.c)
+ *     DifNtImpersonateThreadWrapper @ 0x14067D8A0 (DifNtImpersonateThreadWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SeImpersonateClientEx @ 0x1409286E0 (SeImpersonateClientEx.c)
- *     SeCreateClientSecurity @ 0x140929880 (SeCreateClientSecurity.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     SeImpersonateClientEx @ 0x1409041F0 (SeImpersonateClientEx.c)
+ *     SeCreateClientSecurity @ 0x140905390 (SeCreateClientSecurity.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, void *Src)
+NTSTATUS __cdecl NtImpersonateThread(
+        HANDLE ServerThreadHandle,
+        HANDLE ClientThreadHandle,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   NTSTATUS result; // eax
-  NTSTATUS v8; // edi
+  int v8; // edi
   PVOID v9; // rbx
   PVOID v10; // [rsp+38h] [rbp-A0h] BYREF
   PVOID Object; // [rsp+48h] [rbp-90h] BYREF
@@ -33,20 +36,20 @@ NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, void *Src)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)Src & 3) != 0 )
+    if ( ((unsigned __int8)SecurityQos & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    RtlCopyFromUser(&ClientSecurityQos, Src, 0xCuLL);
+    RtlCopyFromUser(&ClientSecurityQos, SecurityQos, 0xCuLL);
   }
   else
   {
-    RtlCopyVolatileMemory(&ClientSecurityQos, Src, 0xCuLL);
+    RtlCopyVolatileMemory(&ClientSecurityQos, SecurityQos, 0xCuLL);
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a2, 0x200u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ClientThreadHandle, 0x200u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v10 = 0LL;
-    v8 = ObReferenceObjectByHandle(Handle, 0x100u, (POBJECT_TYPE)PsThreadType, PreviousMode, &v10, 0LL);
+    v8 = ObReferenceObjectByHandle(ServerThreadHandle, 0x100u, (POBJECT_TYPE)PsThreadType, PreviousMode, &v10, 0LL);
     v9 = Object;
     if ( v8 >= 0 )
     {

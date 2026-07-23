@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSetSecurityDescriptorInfo @ 0x140858860
+ * XREFs of SeSetSecurityDescriptorInfo @ 0x140854B40
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetSecurityObject @ 0x140858F70 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x140855250 (RtlpSetSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeSetSecurityDescriptorInfo(

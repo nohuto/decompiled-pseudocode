@@ -32,7 +32,7 @@ void __stdcall RtlFreeAnsiString(PUNICODE_STRING UnicodeString)
   Buffer = UnicodeString->Buffer;
   if ( Buffer )
   {
-    RtlpSysVolFree((__int64)Buffer);
+    RtlpSysVolFree(Buffer);
     *UnicodeString = 0LL;
   }
 }

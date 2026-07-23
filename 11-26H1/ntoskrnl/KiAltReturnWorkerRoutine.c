@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAltReturnWorkerRoutine @ 0x1405FCD20
+ * XREFs of KiAltReturnWorkerRoutine @ 0x1405FF770
  * Callers:
  *     <none>
  * Callees:
- *     ExInterlockedRemoveHeadList @ 0x14045D770 (ExInterlockedRemoveHeadList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExInterlockedRemoveHeadList @ 0x140457310 (ExInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PLIST_ENTRY __fastcall KiAltReturnWorkerRoutine(PLIST_ENTRY ListHead)
 {
-  struct _LIST_ENTRY *v1; // rbx
+  _LIST_ENTRY *v1; // rbx
   KSPIN_LOCK *v2; // rdx
   PLIST_ENTRY result; // rax
 

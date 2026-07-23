@@ -1,33 +1,33 @@
 /*
- * XREFs of MiZeroHugeRangeCore @ 0x140A2DEFC
+ * XREFs of MiZeroHugeRangeCore @ 0x140A2E1AC
  * Callers:
- *     MiHugePageOperation @ 0x1406205A0 (MiHugePageOperation.c)
+ *     MiHugePageOperation @ 0x140620AF0 (MiHugePageOperation.c)
  * Callees:
  *     MiAllocateAcceleratorDescriptor @ 0x1402220E0 (MiAllocateAcceleratorDescriptor.c)
  *     MiInitializeAffinityWalker @ 0x140223104 (MiInitializeAffinityWalker.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeInitializeGate @ 0x140293234 (KeInitializeGate.c)
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     MiSelectEngine @ 0x14035B84C (MiSelectEngine.c)
- *     MiInitializeZeroGroup @ 0x1403607A0 (MiInitializeZeroGroup.c)
- *     MiGetNextAffinityWalker @ 0x1403BF8C8 (MiGetNextAffinityWalker.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeClearSystemPriorityThread @ 0x140576C7C (KeClearSystemPriorityThread.c)
- *     KeSetSystemPriorityThread @ 0x140576CB0 (KeSetSystemPriorityThread.c)
- *     MiFreeNextAffinityWalker @ 0x1405B79BC (MiFreeNextAffinityWalker.c)
- *     MiPageToNode @ 0x1406177F0 (MiPageToNode.c)
- *     MiDereferenceHugeIoRange @ 0x14061F964 (MiDereferenceHugeIoRange.c)
- *     MiReturnUnusedHugeDescriptors @ 0x140622710 (MiReturnUnusedHugeDescriptors.c)
- *     MiZeroHugeRangeWorker @ 0x140622DD0 (MiZeroHugeRangeWorker.c)
- *     MiRestoreIdealProcessorThread @ 0x140667044 (MiRestoreIdealProcessorThread.c)
- *     MiSetIdealProcessorThread @ 0x14066706C (MiSetIdealProcessorThread.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeInitializeGate @ 0x1402934C4 (KeInitializeGate.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     KeQueryPriorityThread @ 0x140304E00 (KeQueryPriorityThread.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     MiSelectEngine @ 0x14035B9EC (MiSelectEngine.c)
+ *     MiInitializeZeroGroup @ 0x140360940 (MiInitializeZeroGroup.c)
+ *     MiGetNextAffinityWalker @ 0x1403BFAA8 (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeClearSystemPriorityThread @ 0x14057716C (KeClearSystemPriorityThread.c)
+ *     KeSetSystemPriorityThread @ 0x1405771A0 (KeSetSystemPriorityThread.c)
+ *     MiFreeNextAffinityWalker @ 0x1405B7F2C (MiFreeNextAffinityWalker.c)
+ *     MiPageToNode @ 0x140617D40 (MiPageToNode.c)
+ *     MiDereferenceHugeIoRange @ 0x14061FEB4 (MiDereferenceHugeIoRange.c)
+ *     MiReturnUnusedHugeDescriptors @ 0x140622C60 (MiReturnUnusedHugeDescriptors.c)
+ *     MiZeroHugeRangeWorker @ 0x140623320 (MiZeroHugeRangeWorker.c)
+ *     MiRestoreIdealProcessorThread @ 0x140667594 (MiRestoreIdealProcessorThread.c)
+ *     MiSetIdealProcessorThread @ 0x1406675BC (MiSetIdealProcessorThread.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -59,7 +59,7 @@ __int64 __fastcall MiZeroHugeRangeCore(__int64 a1, __int64 a2, int a3, int a4)
   ULONG_PTR v29; // [rsp+78h] [rbp-41h]
   PVOID Object; // [rsp+80h] [rbp-39h] BYREF
   __int64 v31; // [rsp+88h] [rbp-31h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+90h] [rbp-29h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+90h] [rbp-29h] BYREF
   _OWORD v33[3]; // [rsp+A0h] [rbp-19h] BYREF
 
   v29 = a1;
@@ -166,7 +166,7 @@ LABEL_34:
     v21 = -1;
     if ( HIBYTE(v22) && (int)MiGetNextAffinityWalker((__int64)v18, v33) >= 0 )
     {
-      Affinity = *(struct _GROUP_AFFINITY *)((char *)v33 + 8);
+      Affinity = *(_GROUP_AFFINITY *)((char *)v33 + 8);
       v21 = MiSetIdealProcessorThread(&Affinity);
     }
     if ( v16 && _InterlockedIncrement64((volatile signed __int64 *)(v16 + 32)) <= 1 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpStackDbEntryCleanup @ 0x18012DE68
+ * XREFs of RtlpStackDbEntryCleanup @ 0x18012DE94
  * Callers:
- *     RtlStackDbStackAdd @ 0x18012D728 (RtlStackDbStackAdd.c)
- *     RtlStackDbStackRemove @ 0x18012DCF4 (RtlStackDbStackRemove.c)
- *     RtlpStackDbEntryCreate @ 0x18012DEF4 (RtlpStackDbEntryCreate.c)
+ *     RtlStackDbStackAdd @ 0x18012D754 (RtlStackDbStackAdd.c)
+ *     RtlStackDbStackRemove @ 0x18012DD20 (RtlStackDbStackRemove.c)
+ *     RtlpStackDbEntryCreate @ 0x18012DF20 (RtlpStackDbEntryCreate.c)
  * Callees:
- *     RtlpStackDbSegmentRemoveRef @ 0x18012E784 (RtlpStackDbSegmentRemoveRef.c)
+ *     RtlpStackDbSegmentRemoveRef @ 0x18012E7B0 (RtlpStackDbSegmentRemoveRef.c)
  */
 
 __int64 __fastcall RtlpStackDbEntryCleanup(__int64 a1, __int64 a2)

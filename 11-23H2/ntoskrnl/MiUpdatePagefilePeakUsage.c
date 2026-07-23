@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdatePagefilePeakUsage @ 0x14063BB6C
+ * XREFs of MiUpdatePagefilePeakUsage @ 0x14063C0BC
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14046DAAA (MiStoreWriteModifiedPages.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiStoreWriteModifiedPages @ 0x14046DEAA (MiStoreWriteModifiedPages.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
  *     <none>
  */

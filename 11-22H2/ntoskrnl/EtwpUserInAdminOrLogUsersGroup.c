@@ -10,26 +10,25 @@
 
 bool EtwpUserInAdminOrLogUsersGroup()
 {
-  __int64 v0; // rdx
+  UCHAR v0; // dl
   bool result; // al
-  int v2; // ebx
-  char v3; // [rsp+40h] [rbp+18h] BYREF
-  int v4; // [rsp+48h] [rbp+20h] BYREF
-  __int16 v5; // [rsp+4Ch] [rbp+24h]
-  PVOID P; // [rsp+50h] [rbp+28h] BYREF
-  int v7; // [rsp+58h] [rbp+30h] BYREF
-  int v8; // [rsp+5Ch] [rbp+34h]
+  NTSTATUS v2; // ebx
+  BOOLEAN IsMember; // [rsp+40h] [rbp+18h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+48h] [rbp+20h] BYREF
+  PSID Sid; // [rsp+50h] [rbp+28h] BYREF
+  ULONG SubAuthorities; // [rsp+58h] [rbp+30h] BYREF
+  int v7; // [rsp+5Ch] [rbp+34h]
 
-  v4 = 0;
-  P = 0LL;
-  v3 = 0;
-  v5 = 1280;
-  if ( (int)RtlCheckTokenMembership(0LL, SeAliasAdminsSid, &v3) >= 0 && v3 )
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  Sid = 0LL;
+  IsMember = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+  if ( RtlCheckTokenMembership(0LL, SeAliasAdminsSid, &IsMember) >= 0 && IsMember )
     return 1;
-  v7 = 32;
-  v8 = 558;
-  result = (int)RtlAllocateAndInitializeSidEx((__int64)&v4, v0, &v7, (__int64 *)&P) >= 0
-        && (v2 = RtlCheckTokenMembership(0LL, P, &v3), ExFreePoolWithTag(P, 0), v2 >= 0)
-        && v3 != 0;
+  SubAuthorities = 32;
+  v7 = 558;
+  result = RtlAllocateAndInitializeSidEx(&IdentifierAuthority, v0, &SubAuthorities, &Sid) >= 0
+        && (v2 = RtlCheckTokenMembership(0LL, Sid, &IsMember), ExFreePoolWithTag(Sid, 0), v2 >= 0)
+        && IsMember != 0;
   return result;
 }

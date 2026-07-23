@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDeleteAtomFromAtomTable @ 0x1404A3568
+ * XREFs of RtlDeleteAtomFromAtomTable @ 0x14051B968
  * Callers:
- *     NtDeleteAtom @ 0x1404A3520 (NtDeleteAtom.c)
+ *     NtDeleteAtom @ 0x14051B920 (NtDeleteAtom.c)
  * Callees:
- *     RtlpLookupLowBox @ 0x140013E94 (RtlpLookupLowBox.c)
- *     RtlpDereferenceAtom @ 0x140088DC4 (RtlpDereferenceAtom.c)
- *     RtlpLockAtomTable @ 0x140421FD0 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x140425940 (RtlpAtomMapAtomToHandleEntry.c)
- *     RtlpUnlockAtomTable @ 0x14042B3F0 (RtlpUnlockAtomTable.c)
+ *     RtlpLookupLowBox @ 0x140013A14 (RtlpLookupLowBox.c)
+ *     RtlpDereferenceAtom @ 0x14010CFB4 (RtlpDereferenceAtom.c)
+ *     RtlpLockAtomTable @ 0x140420E90 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x140424810 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpUnlockAtomTable @ 0x14042A2C0 (RtlpUnlockAtomTable.c)
  */
 
 NTSTATUS __stdcall RtlDeleteAtomFromAtomTable(PRTL_ATOM_TABLE AtomTable, RTL_ATOM Atom)

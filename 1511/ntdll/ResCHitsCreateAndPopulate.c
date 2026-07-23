@@ -8,17 +8,17 @@
  *     RtlSetLastWin32Error @ 0x180048BE0 (RtlSetLastWin32Error.c)
  */
 
-unsigned __int64 __fastcall ResCHitsCreateAndPopulate(__int64 a1, unsigned int a2, int a3)
+_QWORD *__fastcall ResCHitsCreateAndPopulate(__int64 a1, unsigned int a2, int a3)
 {
   _DWORD *Heap; // rax
-  unsigned __int64 v7; // rdi
+  _QWORD *v7; // rdi
   int v8; // eax
-  unsigned int v9; // ecx
+  LONG v9; // ecx
 
   if ( a1 )
   {
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 40LL);
-    v7 = (unsigned __int64)Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x28uLL);
+    v7 = Heap;
     if ( Heap )
     {
       *Heap = a3 & 0xFFFFFFFB;
@@ -29,8 +29,8 @@ unsigned __int64 __fastcall ResCHitsCreateAndPopulate(__int64 a1, unsigned int a
       {
         if ( !a2 || a2 >= 8 * v8 + 40 )
         {
-          *(_QWORD *)(v7 + 24) = a1;
-          *(_QWORD *)(v7 + 32) = a1 + 40;
+          v7[3] = a1;
+          v7[4] = a1 + 40;
           return v7;
         }
         v9 = 24;
@@ -40,12 +40,12 @@ unsigned __int64 __fastcall ResCHitsCreateAndPopulate(__int64 a1, unsigned int a
         v9 = 13;
       }
       RtlSetLastWin32Error(v9);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     }
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
   }
   return 0LL;
 }

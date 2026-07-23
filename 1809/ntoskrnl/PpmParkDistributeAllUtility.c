@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmParkDistributeAllUtility @ 0x140103690
+ * XREFs of PpmParkDistributeAllUtility @ 0x140103710
  * Callers:
  *     <none>
  * Callees:
- *     PpmParkDistributeUtility @ 0x140103720 (PpmParkDistributeUtility.c)
+ *     PpmParkDistributeUtility @ 0x1401037A0 (PpmParkDistributeUtility.c)
  */
 
 char PpmParkDistributeAllUtility()
@@ -11,7 +11,7 @@ char PpmParkDistributeAllUtility()
   char v0; // di
   unsigned int i; // ebx
 
-  v0 = BYTE3(PpmCurrentProfile[341 * dword_1404180CC + 20]) != 0;
+  v0 = BYTE3(PpmCurrentProfile[341 * dword_14041918C + 20]) != 0;
   for ( i = 0; i < PpmParkNumNodes; ++i )
     PpmParkDistributeUtility(
       *(_QWORD *)(PpmParkNodes + 264LL * i + 8),

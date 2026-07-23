@@ -1,43 +1,43 @@
 /*
- * XREFs of MmLoadSystemImage @ 0x140482B2C
+ * XREFs of MmLoadSystemImage @ 0x140481880
  * Callers:
- *     IopLoadCrashdumpDriver @ 0x140131B48 (IopLoadCrashdumpDriver.c)
- *     IoLoadCrashDumpDriver @ 0x1401C61E4 (IoLoadCrashDumpDriver.c)
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
- *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
- *     MiLoadImportDll @ 0x140544204 (MiLoadImportDll.c)
- *     PnprLoadPluginDriver @ 0x140644B80 (PnprLoadPluginDriver.c)
+ *     IopLoadCrashdumpDriver @ 0x1401320B8 (IopLoadCrashdumpDriver.c)
+ *     IoLoadCrashDumpDriver @ 0x1401C6084 (IoLoadCrashDumpDriver.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
+ *     IopLoadDriver @ 0x140516794 (IopLoadDriver.c)
+ *     MiLoadImportDll @ 0x140544744 (MiLoadImportDll.c)
+ *     PnprLoadPluginDriver @ 0x140644C64 (PnprLoadPluginDriver.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiCheckPurgeAndUpMapCount @ 0x14002C920 (MiCheckPurgeAndUpMapCount.c)
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
- *     MiSetImageProtection @ 0x140084C58 (MiSetImageProtection.c)
- *     MiSessionLookupImage @ 0x1400865D4 (MiSessionLookupImage.c)
- *     MiSessionInsertImage @ 0x14012FB6C (MiSessionInsertImage.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiValidateStrongCodeDriverImage @ 0x1401E5F18 (MiValidateStrongCodeDriverImage.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14002C4A0 (MiCheckPurgeAndUpMapCount.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
+ *     MiSetImageProtection @ 0x140082DB8 (MiSetImageProtection.c)
+ *     MiSessionLookupImage @ 0x140087EC4 (MiSessionLookupImage.c)
+ *     MiSessionInsertImage @ 0x1401300DC (MiSessionInsertImage.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiValidateStrongCodeDriverImage @ 0x1401E5D44 (MiValidateStrongCodeDriverImage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiResolveImageReferences @ 0x14046C67C (MiResolveImageReferences.c)
- *     MiHandleDriverNonPagedSections @ 0x14047EAEC (MiHandleDriverNonPagedSections.c)
- *     MiConstructLoaderEntry @ 0x140482408 (MiConstructLoaderEntry.c)
- *     MmReleaseLoadLock @ 0x140483400 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x14048342C (MmAcquireLoadLock.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
- *     MiObtainSectionForDriver @ 0x140483D4C (MiObtainSectionForDriver.c)
- *     MiGenerateSystemImageNames @ 0x140483EFC (MiGenerateSystemImageNames.c)
- *     MiDriverLoadSucceeded @ 0x140484174 (MiDriverLoadSucceeded.c)
- *     MiProcessLoadConfigForDriver @ 0x140484394 (MiProcessLoadConfigForDriver.c)
- *     MiMapSystemImage @ 0x140484528 (MiMapSystemImage.c)
- *     KseDriverLoadImage @ 0x1404859F4 (KseDriverLoadImage.c)
- *     MiGetSystemAddressForImage @ 0x1404CCEDC (MiGetSystemAddressForImage.c)
- *     MiUseLargeDriverPage @ 0x1404ED9A4 (MiUseLargeDriverPage.c)
- *     MiRelocateAmount @ 0x14052762C (MiRelocateAmount.c)
- *     MiCompactServiceTable @ 0x14053A248 (MiCompactServiceTable.c)
- *     MiBackSingleImageWithPagefile @ 0x1405473D8 (MiBackSingleImageWithPagefile.c)
- *     MiLogFailedDriverLoad @ 0x1406593A0 (MiLogFailedDriverLoad.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x1406595C0 (MiLogStrongCodeDriverLoadFailure.c)
+ *     MiResolveImageReferences @ 0x14046B54C (MiResolveImageReferences.c)
+ *     MiHandleDriverNonPagedSections @ 0x14047D840 (MiHandleDriverNonPagedSections.c)
+ *     MiConstructLoaderEntry @ 0x14048115C (MiConstructLoaderEntry.c)
+ *     MmReleaseLoadLock @ 0x140482154 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140482180 (MmAcquireLoadLock.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
+ *     MiObtainSectionForDriver @ 0x140482AA0 (MiObtainSectionForDriver.c)
+ *     MiGenerateSystemImageNames @ 0x140482C50 (MiGenerateSystemImageNames.c)
+ *     MiDriverLoadSucceeded @ 0x140482EC8 (MiDriverLoadSucceeded.c)
+ *     MiProcessLoadConfigForDriver @ 0x1404830E8 (MiProcessLoadConfigForDriver.c)
+ *     MiMapSystemImage @ 0x14048327C (MiMapSystemImage.c)
+ *     MiGetSystemAddressForImage @ 0x1404B2908 (MiGetSystemAddressForImage.c)
+ *     MiUseLargeDriverPage @ 0x1404CFA5C (MiUseLargeDriverPage.c)
+ *     MiRelocateAmount @ 0x14050A68C (MiRelocateAmount.c)
+ *     KseDriverLoadImage @ 0x140514D7C (KseDriverLoadImage.c)
+ *     MiCompactServiceTable @ 0x14053A788 (MiCompactServiceTable.c)
+ *     MiBackSingleImageWithPagefile @ 0x140547918 (MiBackSingleImageWithPagefile.c)
+ *     MiLogFailedDriverLoad @ 0x140659484 (MiLogFailedDriverLoad.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x1406596A4 (MiLogStrongCodeDriverLoadFailure.c)
  *     VfDriverLoadImage @ 0x1406FDD58 (VfDriverLoadImage.c)
  */
 
@@ -162,7 +162,7 @@ LABEL_9:
         v15 = v16;
         if ( v16 )
         {
-          _InterlockedExchangeAdd((_DWORD *)&xmmword_140326868 + 3, -v7);
+          _InterlockedExchangeAdd((_DWORD *)&xmmword_1403268A8 + 3, -v7);
           v11 = (PVOID *)P;
           SystemAddressForImage = (char *)v16;
           MEMORY[0x30] = v16;
@@ -234,7 +234,7 @@ LABEL_55:
           v30 = "UnwritableIAT";
 LABEL_78:
           MiLogStrongCodeDriverLoadFailure(v30);
-          dword_140326780 = 192;
+          dword_1403267C0 = 192;
           ConfigForDriver = -1073741701;
           goto LABEL_54;
         }

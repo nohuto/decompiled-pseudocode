@@ -6,7 +6,7 @@
  *     _RtlpSystemBootStatusRequest@16 @ 0x4B350FCD (_RtlpSystemBootStatusRequest@16.c)
  */
 
-int __stdcall RtlSetSystemBootStatusEx(int a1, int a2, int a3)
+int __stdcall RtlSetSystemBootStatusEx(int a1, int a2, PVOID OutputBuffer)
 {
-  return RtlpSystemBootStatusRequest(a2, a3);
+  return RtlpSystemBootStatusRequest(a2, OutputBuffer);
 }

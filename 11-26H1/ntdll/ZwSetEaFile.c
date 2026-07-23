@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetEaFile @ 0x180162350
+ * XREFs of ZwSetEaFile @ 0x180162250
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetEaFile()
+NTSTATUS __cdecl ZwSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock, PVOID Buffer, ULONG Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 417LL;
+  result = 417;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

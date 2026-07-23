@@ -1,45 +1,49 @@
 /*
- * XREFs of PiCreateDriverDataDirectoryRoot @ 0x140CC3BBC
+ * XREFs of PiCreateDriverDataDirectoryRoot @ 0x140CC9C90
  * Callers:
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     ZwCreateSymbolicLinkObject @ 0x140724CF0 (ZwCreateSymbolicLinkObject.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     PiGetStateRootPath @ 0x140A11C48 (PiGetStateRootPath.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     PiAuGetDriverDataDirectorySecurityObject @ 0x140CC6174 (PiAuGetDriverDataDirectorySecurityObject.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1407298C0 (ZwCreateSymbolicLinkObject.c)
+ *     PiGetStateRootPath @ 0x140A10E38 (PiGetStateRootPath.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     PiAuGetDriverDataDirectorySecurityObject @ 0x140CCC254 (PiAuGetDriverDataDirectorySecurityObject.c)
  */
 
 __int64 PiCreateDriverDataDirectoryRoot()
 {
   void *v0; // rdi
-  int StateRootPath; // ebx
+  NTSTATUS StateRootPath; // ebx
   unsigned int v2; // esi
   NTSTATUS v3; // eax
-  UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-29h] BYREF
+  UNICODE_STRING LinkTarget; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-19h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+80h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp+7h] BYREF
   void *v9; // [rsp+F0h] [rbp+67h] BYREF
   HANDLE FileHandle; // [rsp+F8h] [rbp+6Fh] BYREF
-  HANDLE Handle; // [rsp+100h] [rbp+77h] BYREF
+  HANDLE LinkHandle; // [rsp+100h] [rbp+77h] BYREF
   LARGE_INTEGER Interval; // [rsp+108h] [rbp+7Fh] BYREF
 
   Interval.QuadPart = -1000000LL;
   v0 = 0LL;
   FileHandle = 0LL;
-  Handle = 0LL;
+  LinkHandle = 0LL;
   v9 = 0LL;
-  *(_QWORD *)&UnicodeString.Length = 0LL;
-  UnicodeString.Buffer = 0LL;
+  *(_QWORD *)&LinkTarget.Length = 0LL;
+  LinkTarget.Buffer = 0LL;
   IoStatusBlock = 0LL;
   DestinationString = 0LL;
   memset(&ObjectAttributes, 0, 44);
-  StateRootPath = PiGetStateRootPath(L"DriverData", L"\\SystemRoot\\System32\\Drivers\\DriverData", 1u, &UnicodeString);
+  StateRootPath = PiGetStateRootPath(
+                    L"DriverData",
+                    L"\\SystemRoot\\System32\\Drivers\\DriverData",
+                    LocationTypeFileSystem,
+                    &LinkTarget);
   if ( StateRootPath >= 0 )
   {
     StateRootPath = PiAuGetDriverDataDirectorySecurityObject(&v9);
@@ -55,7 +59,7 @@ __int64 PiCreateDriverDataDirectoryRoot()
       ObjectAttributes.SecurityDescriptor = v9;
       ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
-      ObjectAttributes.ObjectName = &UnicodeString;
+      ObjectAttributes.ObjectName = &LinkTarget;
       ObjectAttributes.SecurityQualityOfService = 0LL;
       do
       {
@@ -76,15 +80,15 @@ __int64 PiCreateDriverDataDirectoryRoot()
         ObjectAttributes.RootDirectory = 0LL;
         ObjectAttributes.Attributes = 80;
         ObjectAttributes.SecurityQualityOfService = 0LL;
-        StateRootPath = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
+        StateRootPath = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &LinkTarget);
       }
     }
   }
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&LinkTarget);
   if ( FileHandle )
     ZwClose(FileHandle);
-  if ( Handle )
-    ZwClose(Handle);
+  if ( LinkHandle )
+    ZwClose(LinkHandle);
   if ( v0 )
     ExFreePoolWithTag(v0, 0);
   return (unsigned int)StateRootPath;

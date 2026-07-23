@@ -1,12 +1,12 @@
 /*
- * XREFs of PipVisitDeviceObjectListEntry @ 0x140910DA0
+ * XREFs of PipVisitDeviceObjectListEntry @ 0x1409B2E80
  * Callers:
- *     PipSortDeviceObjectList @ 0x140910CF8 (PipSortDeviceObjectList.c)
- *     PipVisitDeviceObjectListEntry @ 0x140910DA0 (PipVisitDeviceObjectListEntry.c)
+ *     PipSortDeviceObjectList @ 0x1409B2DD8 (PipSortDeviceObjectList.c)
+ *     PipVisitDeviceObjectListEntry @ 0x1409B2E80 (PipVisitDeviceObjectListEntry.c)
  * Callees:
- *     PiEnumerateDependentListEntry @ 0x140776DD8 (PiEnumerateDependentListEntry.c)
- *     PipIsDeviceInDeviceObjectList @ 0x140910838 (PipIsDeviceInDeviceObjectList.c)
- *     PipVisitDeviceObjectListEntry @ 0x140910DA0 (PipVisitDeviceObjectListEntry.c)
+ *     PiEnumerateDependentListEntry @ 0x140779C80 (PiEnumerateDependentListEntry.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1409B2918 (PipIsDeviceInDeviceObjectList.c)
+ *     PipVisitDeviceObjectListEntry @ 0x1409B2E80 (PipVisitDeviceObjectListEntry.c)
  */
 
 __int64 __fastcall PipVisitDeviceObjectListEntry(_DWORD *a1, _DWORD *a2, int *a3)

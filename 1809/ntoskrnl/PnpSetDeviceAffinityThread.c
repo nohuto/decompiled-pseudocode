@@ -2,12 +2,12 @@
  * XREFs of PnpSetDeviceAffinityThread @ 0x14000EA6C
  * Callers:
  *     PnpSendIrp @ 0x14000E9CC (PnpSendIrp.c)
- *     PnpCallAddDevice @ 0x14070CC10 (PnpCallAddDevice.c)
+ *     PnpCallAddDevice @ 0x14070DEB0 (PnpCallAddDevice.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     KeAndGroupAffinityEx @ 0x14016A2D0 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     KeAndGroupAffinityEx @ 0x14016A3D0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PnpSetDeviceAffinityThread(__int64 a1, struct _GROUP_AFFINITY *a2)

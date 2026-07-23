@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuAddDebuggerException @ 0x1404D0E50
+ * XREFs of HalpIommuAddDebuggerException @ 0x1404C9E90
  * Callers:
- *     HalpIommuPopulateExceptionList @ 0x1404D0E30 (HalpIommuPopulateExceptionList.c)
+ *     HalpIommuPopulateExceptionList @ 0x1404C9E70 (HalpIommuPopulateExceptionList.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
  */
 
 __int64 HalpIommuAddDebuggerException()
@@ -31,13 +31,13 @@ __int64 HalpIommuAddDebuggerException()
     v5 = v4 | (8LL * (v0[1] & 0x1F));
     v2[3] = v5;
     v2[3] = v5 | (v0[1] >> 5) & 7;
-    v6 = (_QWORD *)qword_140FC0938;
-    if ( *(__int64 **)qword_140FC0938 != &HalpIommuExceptionList )
+    v6 = (_QWORD *)qword_140FC0B98;
+    if ( *(__int64 **)qword_140FC0B98 != &HalpIommuExceptionList )
       __fastfail(3u);
     *v2 = &HalpIommuExceptionList;
     v2[1] = v6;
     *v6 = v2;
-    qword_140FC0938 = (__int64)v2;
+    qword_140FC0B98 = (__int64)v2;
   }
   return 0LL;
 }

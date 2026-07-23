@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIsDozeSupported @ 0x1405B0814
+ * XREFs of PopIsDozeSupported @ 0x1405B1814
  * Callers:
- *     PopIdleArmAoAcDozeS4Timer @ 0x1402E4C2C (PopIdleArmAoAcDozeS4Timer.c)
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopPolicySystemIdle @ 0x1405B04E0 (PopPolicySystemIdle.c)
- *     PopInitSIdle @ 0x14071C5BC (PopInitSIdle.c)
- *     PopDeferDoze @ 0x14086F710 (PopDeferDoze.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x1402E4E1C (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopPolicySystemIdle @ 0x1405B14E0 (PopPolicySystemIdle.c)
+ *     PopInitSIdle @ 0x14071D85C (PopInitSIdle.c)
+ *     PopDeferDoze @ 0x140870970 (PopDeferDoze.c)
  * Callees:
- *     PopIsHibernateSupported @ 0x1405B0850 (PopIsHibernateSupported.c)
+ *     PopIsHibernateSupported @ 0x1405B1850 (PopIsHibernateSupported.c)
  */
 
 char __fastcall PopIsDozeSupported(__int64 a1)

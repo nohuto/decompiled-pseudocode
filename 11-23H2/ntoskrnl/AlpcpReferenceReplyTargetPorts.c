@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpReferenceReplyTargetPorts @ 0x14071B460
+ * XREFs of AlpcpReferenceReplyTargetPorts @ 0x14071B660
  * Callers:
- *     AlpcpDispatchReplyToPort @ 0x14071B1EC (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchReplyToPort @ 0x14071B3EC (AlpcpDispatchReplyToPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectSafe @ 0x140337710 (ObReferenceObjectSafe.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1403379A0 (ObReferenceObjectSafe.c)
  */
 
 __int64 __fastcall AlpcpReferenceReplyTargetPorts(__int64 Object, signed __int64 a2)

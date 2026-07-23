@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpQueryVA @ 0x180093EA8
+ * XREFs of RtlpHpQueryVA @ 0x18009EF08
  * Callers:
- *     RtlpHpSegMgrRelease @ 0x18005589C (RtlpHpSegMgrRelease.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x180158240 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x180158390 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrRelease @ 0x18006B47C (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x180156600 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x180156750 (RtlpHpSegMgrVaCtxInsert.c)
  * Callees:
- *     RtlpHpVaMgrCtxQuery @ 0x1800937AC (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x18009E33C (RtlpHpVaMgrCtxQuery.c)
  */
 
 __int64 __fastcall RtlpHpQueryVA(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpHpQueryVA(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
 
   v7 = 0LL;
   v8 = 0LL;
-  RtlpHpVaMgrCtxQuery((__int64)&unk_1801CE978, a1, (__int64)&v7);
+  RtlpHpVaMgrCtxQuery((__int64)&unk_1801CD968, a1, (__int64)&v7);
   if ( a3 )
     *a3 = v8;
   if ( a4 )

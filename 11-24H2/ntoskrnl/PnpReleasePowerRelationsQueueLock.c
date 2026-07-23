@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpReleasePowerRelationsQueueLock @ 0x1404B4398
+ * XREFs of PnpReleasePowerRelationsQueueLock @ 0x1404AEBE4
  * Callers:
- *     PipProcessRebuildPowerRelationsQueue @ 0x140A0F244 (PipProcessRebuildPowerRelationsQueue.c)
- *     PiQueryPowerRelations @ 0x140A8C2C8 (PiQueryPowerRelations.c)
- *     PiQueryPowerDependencyRelations @ 0x140A8C850 (PiQueryPowerDependencyRelations.c)
- *     PiValidatePowerRelations @ 0x140A8CA94 (PiValidatePowerRelations.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1409BD654 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PiQueryPowerRelations @ 0x140A887F8 (PiQueryPowerRelations.c)
+ *     PiQueryPowerDependencyRelations @ 0x140A88D80 (PiQueryPowerDependencyRelations.c)
+ *     PiValidatePowerRelations @ 0x140A88FC4 (PiValidatePowerRelations.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
  */
 
 void PnpReleasePowerRelationsQueueLock()

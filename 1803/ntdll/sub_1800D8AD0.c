@@ -2,48 +2,45 @@
  * XREFs of sub_1800D8AD0 @ 0x1800D8AD0
  * Callers:
  *     sub_180049F90 @ 0x180049F90 (sub_180049F90.c)
- *     sub_1800D8F60 @ 0x1800D8F60 (sub_1800D8F60.c)
+ *     Callback @ 0x1800D8F60 (Callback.c)
  * Callees:
  *     RtlReleaseSRWLockShared @ 0x180010990 (RtlReleaseSRWLockShared.c)
  *     RtlAcquireSRWLockShared @ 0x180010A60 (RtlAcquireSRWLockShared.c)
  *     sub_1800D90E8 @ 0x1800D90E8 (sub_1800D90E8.c)
  */
 
-signed __int64 __fastcall sub_1800D8AD0(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void sub_1800D8AD0()
 {
-  unsigned __int64 v4; // rdi
-  int v5; // esi
-  char *v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
-  __int64 *v10; // rbx
+  unsigned __int64 Ptr; // rdi
+  int v1; // esi
+  _RTL_SRWLOCK *v2; // rcx
+  _RTL_SRWLOCK *v3; // rbx
 
-  v4 = 0LL;
-  v5 = 0;
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_18015D058 + 8), a2, a3, a4);
-  v9 = qword_18015D058;
-  v10 = *(__int64 **)(qword_18015D058 + 16);
-  if ( v10 != (__int64 *)(qword_18015D058 + 16) )
+  Ptr = 0LL;
+  v1 = 0;
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_18015D058 + 8));
+  v2 = (_RTL_SRWLOCK *)qword_18015D058;
+  v3 = *(_RTL_SRWLOCK **)(qword_18015D058 + 16);
+  if ( v3 != (_RTL_SRWLOCK *)(qword_18015D058 + 16) )
   {
     do
     {
-      RtlAcquireSRWLockShared(v10 + 3, v6, v7, v8);
-      if ( *((_DWORD *)v10 + 24) == 2 && (!v4 || v10[13] < v4) )
+      RtlAcquireSRWLockShared(v3 + 3);
+      if ( LODWORD(v3[12].Ptr) == 2 && (!Ptr || v3[13].Ptr < (PVOID)Ptr) )
       {
-        v4 = v10[13];
-        v5 = 1;
+        Ptr = (unsigned __int64)v3[13].Ptr;
+        v1 = 1;
       }
-      RtlReleaseSRWLockShared(v10 + 3);
-      v9 = qword_18015D058;
-      v10 = (__int64 *)*v10;
+      RtlReleaseSRWLockShared(v3 + 3);
+      v2 = (_RTL_SRWLOCK *)qword_18015D058;
+      v3 = (_RTL_SRWLOCK *)v3->Ptr;
     }
-    while ( v10 != (__int64 *)(qword_18015D058 + 16) );
-    if ( v5 )
+    while ( v3 != (_RTL_SRWLOCK *)(qword_18015D058 + 16) );
+    if ( v1 )
     {
-      sub_1800D90E8(v4);
-      v9 = qword_18015D058;
+      sub_1800D90E8(Ptr);
+      v2 = (_RTL_SRWLOCK *)qword_18015D058;
     }
   }
-  return RtlReleaseSRWLockShared((volatile signed __int64 *)(v9 + 8));
+  RtlReleaseSRWLockShared(v2 + 1);
 }

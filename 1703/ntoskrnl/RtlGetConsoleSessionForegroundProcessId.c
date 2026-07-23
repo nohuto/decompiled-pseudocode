@@ -7,7 +7,7 @@
  *     PsIsCurrentThreadInServerSilo @ 0x1400F0FA0 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetConsoleSessionForegroundProcessId()
+ULONGLONG RtlGetConsoleSessionForegroundProcessId(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 134) + 8LL);

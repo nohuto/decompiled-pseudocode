@@ -1,10 +1,10 @@
 /*
- * XREFs of MmCanFileBeTruncated @ 0x1404ABD90
+ * XREFs of MmCanFileBeTruncated @ 0x1404A5420
  * Callers:
- *     CcPurgeCacheSection @ 0x14039B300 (CcPurgeCacheSection.c)
+ *     CcPurgeCacheSection @ 0x14039D060 (CcPurgeCacheSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     MiCanFileBeTruncatedInternal @ 0x1404ABAD4 (MiCanFileBeTruncatedInternal.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     MiCanFileBeTruncatedInternal @ 0x1404A5164 (MiCanFileBeTruncatedInternal.c)
  */
 
 BOOLEAN __stdcall MmCanFileBeTruncated(PSECTION_OBJECT_POINTERS SectionPointer, PLARGE_INTEGER NewFileSize)

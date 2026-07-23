@@ -1,10 +1,10 @@
 /*
- * XREFs of PsAltSystemCallDispatch @ 0x140582B30
+ * XREFs of PsAltSystemCallDispatch @ 0x140582D60
  * Callers:
- *     KiSystemCall64 @ 0x140411A00 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x140411B00 (KiSystemCall64.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 PsAltSystemCallDispatch()

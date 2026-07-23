@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkUnusedControlArea @ 0x1401DF460
+ * XREFs of MiUnlinkUnusedControlArea @ 0x1401DF28C
  * Callers:
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiDeleteCachedSegment @ 0x1401DE4D8 (MiDeleteCachedSegment.c)
- *     MiProcessDeleteOnClose @ 0x1401DEEB8 (MiProcessDeleteOnClose.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiDeleteCachedSegment @ 0x1401DE304 (MiDeleteCachedSegment.c)
+ *     MiProcessDeleteOnClose @ 0x1401DECE4 (MiProcessDeleteOnClose.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiComputePagedPoolSegmentBytes @ 0x1401DE460 (MiComputePagedPoolSegmentBytes.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x1401DE28C (MiComputePagedPoolSegmentBytes.c)
  */
 
 signed __int64 __fastcall MiUnlinkUnusedControlArea(__int64 a1)
@@ -34,5 +34,5 @@ signed __int64 __fastcall MiUnlinkUnusedControlArea(__int64 a1)
   *(_QWORD *)(v4 + 16) = v4 + 8;
   *v5 = v5;
   *(_QWORD *)(v3 + 1536) -= v2;
-  return _InterlockedExchangeAdd64(&qword_140326568, -v2);
+  return _InterlockedExchangeAdd64(&qword_1403265A8, -v2);
 }

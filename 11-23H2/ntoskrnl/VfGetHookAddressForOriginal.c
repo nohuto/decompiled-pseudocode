@@ -1,9 +1,9 @@
 /*
- * XREFs of VfGetHookAddressForOriginal @ 0x140ACA8BC
+ * XREFs of VfGetHookAddressForOriginal @ 0x140ACA8AC
  * Callers:
- *     KsepPatchDriverImportsTable @ 0x14085E744 (KsepPatchDriverImportsTable.c)
+ *     KsepPatchDriverImportsTable @ 0x14085E984 (KsepPatchDriverImportsTable.c)
  * Callees:
- *     ViLookupThunkArray @ 0x140ACAA0C (ViLookupThunkArray.c)
+ *     ViLookupThunkArray @ 0x140ACA9FC (ViLookupThunkArray.c)
  */
 
 __int64 __fastcall VfGetHookAddressForOriginal(__int64 a1, __int64 a2)

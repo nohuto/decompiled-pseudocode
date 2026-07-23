@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckLargePageSystemImage @ 0x140C55D44
+ * XREFs of MiCheckLargePageSystemImage @ 0x140C57ED4
  * Callers:
- *     MiCheckLargePageOk @ 0x140C55B84 (MiCheckLargePageOk.c)
+ *     MiCheckLargePageOk @ 0x140C57D14 (MiCheckLargePageOk.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiFindDescriptorByPfn @ 0x140C4F100 (MiFindDescriptorByPfn.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiFindDescriptorByPfn @ 0x140C51290 (MiFindDescriptorByPfn.c)
  */
 
 ULONG_PTR __fastcall MiCheckLargePageSystemImage(ULONG_PTR BugCheckParameter2, __int64 a2)

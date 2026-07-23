@@ -11,55 +11,55 @@
 __int64 __fastcall RtlpIsQualifiedLanguage(__int64 a1, __int16 *a2, char a3)
 {
   int v5; // esi
-  __int64 v6; // rdi
+  char *v6; // rdi
   int v7; // eax
   unsigned int v8; // ebx
   bool v9; // zf
   __int16 v10; // ax
-  __int64 v12; // rcx
+  char *v12; // rcx
   __int64 v13; // r9
   __int16 *v14; // r10
   __int16 v15; // r8
-  __int64 v16; // [rsp+60h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp+8h] BYREF
 
-  v16 = 0LL;
+  BaseAddress = 0LL;
   v5 = a1;
   v6 = 0LL;
   if ( a1 && a2 )
   {
-    v7 = sub_18004F96C(&v16);
-    v6 = v16;
+    v7 = sub_18004F96C(&BaseAddress);
+    v6 = (char *)BaseAddress;
     v8 = v7;
     if ( v7 >= 0 )
     {
-      v9 = (unsigned __int8)sub_18004F8DC((_DWORD)a2, v16, v5, 0, 0, 42) == 0;
+      v9 = (unsigned __int8)sub_18004F8DC((_DWORD)a2, (_DWORD)BaseAddress, v5, 0, 0, 42) == 0;
       v10 = 0;
       if ( v9 )
         v8 = -1073741823;
       do
       {
-        if ( v10 && *(_DWORD *)(v6 + 8LL * v10 + 4) && v10 > 0 )
+        if ( v10 && *(_DWORD *)&v6[8 * v10 + 4] && v10 > 0 )
         {
           v12 = v6 + 2;
           v13 = (unsigned __int16)v10;
-          v14 = (__int16 *)(v6 + 2 + 8LL * v10);
+          v14 = (__int16 *)&v6[8 * v10 + 2];
           do
           {
             if ( *(_DWORD *)(v12 + 2) )
             {
-              if ( *(_WORD *)(v12 - 2) )
+              if ( *((_WORD *)v12 - 1) )
               {
-                v15 = *(_WORD *)(v6 + 8LL * v10);
+                v15 = *(_WORD *)&v6[8 * v10];
                 if ( v15 )
                 {
-                  if ( *(_WORD *)(v12 - 2) == v15 )
+                  if ( *((_WORD *)v12 - 1) == v15 )
                     v8 = -1073741823;
                 }
               }
               if ( *(__int16 *)v12 > 0 && *v14 > 0 && *(_WORD *)v12 == *v14 )
                 v8 = -1073741823;
             }
-            v12 += 8LL;
+            v12 += 8;
             --v13;
           }
           while ( v13 );

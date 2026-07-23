@@ -1,12 +1,12 @@
 /*
- * XREFs of ExSetFirmwareEnvironmentVariable @ 0x1409FB9A0
+ * XREFs of ExSetFirmwareEnvironmentVariable @ 0x1409FBC30
  * Callers:
- *     PopClearSystemSleepCheckpoint @ 0x140996D7C (PopClearSystemSleepCheckpoint.c)
- *     NtSetSystemEnvironmentValueEx @ 0x140A002B0 (NtSetSystemEnvironmentValueEx.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140AAA5F4 (PopCheckpointSystemSleepUnsafe.c)
+ *     PopClearSystemSleepCheckpoint @ 0x140996F7C (PopClearSystemSleepCheckpoint.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x140A00540 (NtSetSystemEnvironmentValueEx.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140AAA464 (PopCheckpointSystemSleepUnsafe.c)
  * Callees:
  *     ExpUnicodeStringToNonpagedWStr @ 0x14068755C (ExpUnicodeStringToNonpagedWStr.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1409FDEF4 (ExpSetFirmwareEnvironmentVariable.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x1409FE184 (ExpSetFirmwareEnvironmentVariable.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -15,7 +15,7 @@ __int64 __fastcall ExSetFirmwareEnvironmentVariable(const void **a1, int a2, __i
   _WORD *v9; // rdi
   unsigned int v10; // ebx
 
-  if ( dword_140C31B10 != 2 )
+  if ( dword_140C31AB0 != 2 )
     return 3221225474LL;
   v9 = ExpUnicodeStringToNonpagedWStr(a1);
   if ( !v9 )

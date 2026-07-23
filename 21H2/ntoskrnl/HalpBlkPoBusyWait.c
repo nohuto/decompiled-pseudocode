@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpBlkPoBusyWait @ 0x1404DE838
+ * XREFs of HalpBlkPoBusyWait @ 0x1404DEA78
  * Callers:
- *     HalpBlkPoReadPerfIoPort @ 0x1404DE950 (HalpBlkPoReadPerfIoPort.c)
- *     HalpBlkPoReadPerfMsr @ 0x1404DEB40 (HalpBlkPoReadPerfMsr.c)
- *     HalpBlkPoRegisterIdleState @ 0x1404DED10 (HalpBlkPoRegisterIdleState.c)
- *     HalpBlkPoWritePerfIoPort @ 0x1404DEEC0 (HalpBlkPoWritePerfIoPort.c)
- *     HalpBlkPoWritePerfMsr @ 0x1404DF090 (HalpBlkPoWritePerfMsr.c)
+ *     HalpBlkPoReadPerfIoPort @ 0x1404DEB90 (HalpBlkPoReadPerfIoPort.c)
+ *     HalpBlkPoReadPerfMsr @ 0x1404DED80 (HalpBlkPoReadPerfMsr.c)
+ *     HalpBlkPoRegisterIdleState @ 0x1404DEF50 (HalpBlkPoRegisterIdleState.c)
+ *     HalpBlkPoWritePerfIoPort @ 0x1404DF100 (HalpBlkPoWritePerfIoPort.c)
+ *     HalpBlkPoWritePerfMsr @ 0x1404DF2D0 (HalpBlkPoWritePerfMsr.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpBlkWdFatalExceptionCheck @ 0x1404DF240 (HalpBlkWdFatalExceptionCheck.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpBlkWdFatalExceptionCheck @ 0x1404DF480 (HalpBlkWdFatalExceptionCheck.c)
  */
 
 __int64 __fastcall HalpBlkPoBusyWait(ULONG_PTR BugCheckParameter2, unsigned int a2, ULONG_PTR BugCheckParameter4)

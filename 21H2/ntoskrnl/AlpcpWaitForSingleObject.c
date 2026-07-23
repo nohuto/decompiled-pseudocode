@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpWaitForSingleObject @ 0x1402B6BF8
+ * XREFs of AlpcpWaitForSingleObject @ 0x140234DD8
  * Callers:
- *     AlpcpReceiveSynchronousReply @ 0x1405E7560 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
- *     AlpcpCompleteDeferSignalRequestAndWait @ 0x14069989C (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpCompleteDeferSignalRequestAndWait @ 0x1405F8A60 (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1406D6CC0 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReceiveMessagePort @ 0x1406D8320 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     AlpcpLogUnwait @ 0x1408C3E70 (AlpcpLogUnwait.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     AlpcpLogUnwait @ 0x1408C3FD0 (AlpcpLogUnwait.c)
  */
 
 __int64 __fastcall AlpcpWaitForSingleObject(

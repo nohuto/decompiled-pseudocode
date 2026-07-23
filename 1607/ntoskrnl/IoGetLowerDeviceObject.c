@@ -1,12 +1,12 @@
 /*
- * XREFs of IoGetLowerDeviceObject @ 0x1400B3EB8
+ * XREFs of IoGetLowerDeviceObject @ 0x1400B1D38
  * Callers:
- *     IopSynchronousCall @ 0x140505B9C (IopSynchronousCall.c)
- *     PiControlGetDeviceStack @ 0x14064A43C (PiControlGetDeviceStack.c)
+ *     IopSynchronousCall @ 0x1404E8B2C (IopSynchronousCall.c)
+ *     PiControlGetDeviceStack @ 0x14064A520 (PiControlGetDeviceStack.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 PDEVICE_OBJECT __stdcall IoGetLowerDeviceObject(PDEVICE_OBJECT DeviceObject)

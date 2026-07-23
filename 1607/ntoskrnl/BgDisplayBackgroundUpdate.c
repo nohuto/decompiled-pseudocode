@@ -4,8 +4,8 @@
  *     BgkDestroy @ 0x140728724 (BgkDestroy.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
  *     AnFwDisplayBackgroundUpdate @ 0x140728B84 (AnFwDisplayBackgroundUpdate.c)
  */
 

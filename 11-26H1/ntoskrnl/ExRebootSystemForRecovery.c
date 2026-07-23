@@ -1,16 +1,16 @@
 /*
- * XREFs of ExRebootSystemForRecovery @ 0x1406CB54C
+ * XREFs of ExRebootSystemForRecovery @ 0x1406CF57C
  * Callers:
- *     KiDeferredBugcheckRecoveryWorker @ 0x1405F9FE0 (KiDeferredBugcheckRecoveryWorker.c)
- *     NtShutdownSystem @ 0x1406CB7A0 (NtShutdownSystem.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x1405FCA00 (KiDeferredBugcheckRecoveryWorker.c)
+ *     NtShutdownSystem @ 0x1406CF7D0 (NtShutdownSystem.c)
  * Callees:
- *     ExNotifyWithProcessing @ 0x140439330 (ExNotifyWithProcessing.c)
- *     KiSendThawExecution @ 0x1405023B0 (KiSendThawExecution.c)
- *     HalReturnToFirmware @ 0x14057F640 (HalReturnToFirmware.c)
- *     VslNotifyShutdown @ 0x1405C36C0 (VslNotifyShutdown.c)
- *     KiBugcheckUnloadDebugSymbols @ 0x1405E797C (KiBugcheckUnloadDebugSymbols.c)
- *     CmShutdownSystem @ 0x140854284 (CmShutdownSystem.c)
- *     MiDeleteAllHardwareEnclaves @ 0x140C01874 (MiDeleteAllHardwareEnclaves.c)
+ *     ExNotifyWithProcessing @ 0x140427F90 (ExNotifyWithProcessing.c)
+ *     KiSendThawExecution @ 0x1404FBC80 (KiSendThawExecution.c)
+ *     HalReturnToFirmware @ 0x140581B60 (HalReturnToFirmware.c)
+ *     VslNotifyShutdown @ 0x1405C5F30 (VslNotifyShutdown.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x1405EA2EC (KiBugcheckUnloadDebugSymbols.c)
+ *     CmShutdownSystem @ 0x14085A594 (CmShutdownSystem.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140C07A84 (MiDeleteAllHardwareEnclaves.c)
  */
 
 void ExRebootSystemForRecovery()

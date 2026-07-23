@@ -1,10 +1,10 @@
 /*
- * XREFs of ViMiscCheckKeRaiseIrql @ 0x140AE13DC
+ * XREFs of ViMiscCheckKeRaiseIrql @ 0x140AE13CC
  * Callers:
- *     VfMiscKeAcquireSpinLockRaiseToDpc_Entry @ 0x140AC0850 (VfMiscKeAcquireSpinLockRaiseToDpc_Entry.c)
- *     VfMiscKeSynchronizeExecution_Entry @ 0x140AE00F0 (VfMiscKeSynchronizeExecution_Entry.c)
+ *     VfMiscKeAcquireSpinLockRaiseToDpc_Entry @ 0x140AC0840 (VfMiscKeAcquireSpinLockRaiseToDpc_Entry.c)
+ *     VfMiscKeSynchronizeExecution_Entry @ 0x140AE00E0 (VfMiscKeSynchronizeExecution_Entry.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ViMiscCheckKeRaiseIrql(unsigned __int8 a1)

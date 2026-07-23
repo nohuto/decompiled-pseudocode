@@ -29,5 +29,5 @@ _BOOL8 ExpTimeRefreshWork()
   while ( _InterlockedExchangeAdd(&ExpOkToTimeRefresh, 0xFFFFFFFF) != 1 );
   v2[0] = 0LL;
   v2[1] = -1LL;
-  return KeSetTimer2((__int64)&ExpTimeRefreshTimer, ExpTimeRefreshInterval, 0LL, v2);
+  return KeSetTimer2((__int64)&ExpTimeRefreshTimer, ExpTimeRefreshInterval, 0LL, (__int64)v2);
 }

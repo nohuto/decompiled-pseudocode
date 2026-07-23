@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140708814
+ * XREFs of HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140709AB4
  * Callers:
- *     HvHiveConvertLockedPagesToCowByPolicy @ 0x14070875C (HvHiveConvertLockedPagesToCowByPolicy.c)
+ *     HvHiveConvertLockedPagesToCowByPolicy @ 0x1407099FC (HvHiveConvertLockedPagesToCowByPolicy.c)
  * Callees:
- *     HvpViewMapFindViewForFileOffset @ 0x1405F9CD0 (HvpViewMapFindViewForFileOffset.c)
- *     HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x14070886C (HvpMappedViewConvertLockedPagesToCOWByPolicy.c)
+ *     HvpViewMapFindViewForFileOffset @ 0x1405FACD0 (HvpViewMapFindViewForFileOffset.c)
+ *     HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x140709B0C (HvpMappedViewConvertLockedPagesToCOWByPolicy.c)
  */
 
 __int64 __fastcall HvpViewMapConvertLockedPagesToCOWByPolicy(__int64 a1)

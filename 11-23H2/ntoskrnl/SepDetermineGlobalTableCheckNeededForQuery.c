@@ -1,10 +1,10 @@
 /*
- * XREFs of SepDetermineGlobalTableCheckNeededForQuery @ 0x14022CAD0
+ * XREFs of SepDetermineGlobalTableCheckNeededForQuery @ 0x14022CBE0
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C928 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022CA38 (SepInternalQuerySecurityAttributesTokenEx.c)
  * Callees:
- *     SepPotentialGlobalTableAttribute @ 0x14022CE54 (SepPotentialGlobalTableAttribute.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0C0 (AuthzBasepFindSecurityAttribute.c)
+ *     SepPotentialGlobalTableAttribute @ 0x14022CF64 (SepPotentialGlobalTableAttribute.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14022D1D0 (AuthzBasepFindSecurityAttribute.c)
  */
 
 char __fastcall SepDetermineGlobalTableCheckNeededForQuery(__int64 a1, __int64 a2, unsigned int a3)

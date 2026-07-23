@@ -3,19 +3,19 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ClipInitHandles @ 0x140147F98 (ClipInitHandles.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ExUpdateLicenseDataInternal @ 0x140496474 (ExUpdateLicenseDataInternal.c)
- *     ExpSetKernelDataProtection @ 0x140497230 (ExpSetKernelDataProtection.c)
- *     ExpCheckPortableOperatingSystem @ 0x1404ED840 (ExpCheckPortableOperatingSystem.c)
- *     sub_1405758A4 @ 0x1405758A4 (sub_1405758A4.c)
- *     sub_1406AEF88 @ 0x1406AEF88 (sub_1406AEF88.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ClipInitHandles @ 0x140148508 (ClipInitHandles.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ExUpdateLicenseDataInternal @ 0x140496F04 (ExUpdateLicenseDataInternal.c)
+ *     ExpSetKernelDataProtection @ 0x140497CC0 (ExpSetKernelDataProtection.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1404CF8F8 (ExpCheckPortableOperatingSystem.c)
+ *     sub_140575DE4 @ 0x140575DE4 (sub_140575DE4.c)
+ *     sub_1406AF0C0 @ 0x1406AF0C0 (sub_1406AF0C0.c)
  *     ExpInitFastCache @ 0x1407B5348 (ExpInitFastCache.c)
  *     sub_1407B5678 @ 0x1407B5678 (sub_1407B5678.c)
  */
@@ -121,7 +121,7 @@ __int64 ExInitLicenseData()
       ExfAcquirePushLockExclusiveEx(&qword_140747B20, v9, (ULONG_PTR)&qword_140747B20);
     if ( v10 )
       v10[26] |= 1u;
-    v11 = sub_1405758A4();
+    v11 = sub_140575DE4();
     if ( v11 == -1073741762 )
     {
       v12 = 1;
@@ -136,7 +136,7 @@ __int64 ExInitLicenseData()
     KeAbPostRelease((ULONG_PTR)&qword_140747B20);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v13, v14, v15);
     if ( !v0 && v12 )
-      sub_1406AEF88(&KernelLicensingCacheCorrupt);
+      sub_1406AF0C0(&KernelLicensingCacheCorrupt);
     if ( v11 >= 0 && !v12 )
       ExUpdateLicenseDataInternal(dword_140760124, (unsigned int *)off_140747028);
     v16 = &v45;

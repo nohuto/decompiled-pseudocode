@@ -61,10 +61,13 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmAsyncReadQueueWorker(__int64 a1)
   ++*(_DWORD *)(v7 + 20);
   v9 = v8;
   KxReleaseSpinLock(v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -110,10 +113,10 @@ LABEL_12:
         }
       }
       KxReleaseSpinLock(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v27 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v27 >= 2u )
         {
           v28 = KeGetCurrentPrcb();
           v29 = v28->SchedulerAssist;
@@ -130,10 +133,10 @@ LABEL_12:
     if ( i )
       break;
     KxReleaseSpinLock(v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v22 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v22 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v22 >= 2u )
       {
         v23 = KeGetCurrentPrcb();
         v24 = v23->SchedulerAssist;
@@ -164,10 +167,10 @@ LABEL_12:
   }
   --*(_DWORD *)(v7 + 20);
   result = KxReleaseSpinLock(v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v21 <= 0xFu
       && (unsigned __int8)result >= 2u )

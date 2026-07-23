@@ -1,12 +1,12 @@
 /*
- * XREFs of PipAttemptDependentsStart @ 0x1404C4D08
+ * XREFs of PipAttemptDependentsStart @ 0x14048890C
  * Callers:
- *     IoResolveDependency @ 0x1401428E4 (IoResolveDependency.c)
- *     PnpStartedDeviceNodeDependencyCheck @ 0x1404C4CE4 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     IoResolveDependency @ 0x140142E54 (IoResolveDependency.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x1404888E8 (PnpStartedDeviceNodeDependencyCheck.c)
  * Callees:
- *     PiGetDependentList @ 0x1404C4D38 (PiGetDependentList.c)
- *     PiEnumerateDependentListEntry @ 0x14062AD1C (PiEnumerateDependentListEntry.c)
- *     PipAttemptDependentStart @ 0x14062AEC8 (PipAttemptDependentStart.c)
+ *     PiGetDependentList @ 0x14048893C (PiGetDependentList.c)
+ *     PiEnumerateDependentListEntry @ 0x14062ADD0 (PiEnumerateDependentListEntry.c)
+ *     PipAttemptDependentStart @ 0x14062AF7C (PipAttemptDependentStart.c)
  */
 
 _QWORD **__fastcall PipAttemptDependentsStart(__int64 a1)

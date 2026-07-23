@@ -7,9 +7,9 @@
  *     RtlpImageDirectoryEntryToDataEx @ 0x1800219BC (RtlpImageDirectoryEntryToDataEx.c)
  */
 
-__int64 __fastcall RtlCaptureImageExceptionValues(unsigned __int64 a1, __int64 *a2, _DWORD *a3)
+__int64 __fastcall RtlCaptureImageExceptionValues(unsigned __int64 a1, __int64 *a2, unsigned int *a3)
 {
-  int v5; // eax
+  NTSTATUS v5; // eax
   __int64 v6; // rcx
   __int64 v8; // [rsp+48h] [rbp+10h] BYREF
 

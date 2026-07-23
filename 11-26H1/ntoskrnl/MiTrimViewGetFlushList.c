@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimViewGetFlushList @ 0x1403A7AF8
+ * XREFs of MiTrimViewGetFlushList @ 0x1403A9858
  * Callers:
- *     MiTrimViewLockSystemPte @ 0x1403A6720 (MiTrimViewLockSystemPte.c)
- *     MiTrimViewLockProcessPte @ 0x14046C720 (MiTrimViewLockProcessPte.c)
+ *     MiTrimViewLockSystemPte @ 0x1403A8480 (MiTrimViewLockSystemPte.c)
+ *     MiTrimViewLockProcessPte @ 0x140465EA0 (MiTrimViewLockProcessPte.c)
  * Callees:
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
  */
 
 void __fastcall MiTrimViewGetFlushList(__int64 *a1, int a2)

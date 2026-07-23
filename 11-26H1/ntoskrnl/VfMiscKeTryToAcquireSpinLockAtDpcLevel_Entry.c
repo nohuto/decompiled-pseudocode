@@ -1,11 +1,11 @@
 /*
- * XREFs of VfMiscKeTryToAcquireSpinLockAtDpcLevel_Entry @ 0x140C3CFE0
+ * XREFs of VfMiscKeTryToAcquireSpinLockAtDpcLevel_Entry @ 0x140C42FF0
  * Callers:
  *     <none>
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
- *     VfMiscCheckKernelAddress @ 0x1404FD268 (VfMiscCheckKernelAddress.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
+ *     VfMiscCheckKernelAddress @ 0x1404F67A8 (VfMiscCheckKernelAddress.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 char __fastcall VfMiscKeTryToAcquireSpinLockAtDpcLevel_Entry(__int64 a1)

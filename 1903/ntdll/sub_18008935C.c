@@ -21,19 +21,24 @@
  *     EtwEventWriteTransfer @ 0x180052CF0 (EtwEventWriteTransfer.c)
  */
 
-__int64 __fastcall sub_18008935C(__int64 a1, unsigned __int8 *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
+ULONG __fastcall sub_18008935C(
+        __int64 a1,
+        unsigned __int8 *a2,
+        __int64 a3,
+        __int64 a4,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  _DWORD v7[2]; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-10h]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+30h] [rbp-18h] BYREF
 
-  v7[0] = *a2 << 24;
-  v7[1] = *(unsigned __int16 *)(a2 + 1);
-  v8 = *(_QWORD *)(a2 + 3);
-  *(_QWORD *)a6 = *(_QWORD *)(a1 + 8);
-  *(_DWORD *)(a6 + 8) = **(unsigned __int16 **)(a1 + 8);
-  *(_QWORD *)(a6 + 16) = a2 + 11;
-  *(_DWORD *)(a6 + 12) = 2;
-  *(_DWORD *)(a6 + 24) = *(unsigned __int16 *)(a2 + 11);
-  *(_DWORD *)(a6 + 28) = 1;
-  return EtwEventWriteTransfer(*(_QWORD *)(a1 + 32), (int)v7, 0LL, 0LL, a5, a6);
+  *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
+  EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
+  *(_QWORD *)UserData = *(_QWORD *)(a1 + 8);
+  *((_DWORD *)UserData + 2) = **(unsigned __int16 **)(a1 + 8);
+  *((_QWORD *)UserData + 2) = a2 + 11;
+  *((_DWORD *)UserData + 3) = 2;
+  *((_DWORD *)UserData + 6) = *(unsigned __int16 *)(a2 + 11);
+  *((_DWORD *)UserData + 7) = 1;
+  return EtwEventWriteTransfer(*(_QWORD *)(a1 + 32), &EventDescriptor, 0LL, 0LL, UserDataCount, UserData);
 }

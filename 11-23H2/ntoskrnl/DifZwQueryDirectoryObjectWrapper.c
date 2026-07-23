@@ -1,22 +1,22 @@
 /*
- * XREFs of DifZwQueryDirectoryObjectWrapper @ 0x1405F3E70
+ * XREFs of DifZwQueryDirectoryObjectWrapper @ 0x1405F43E0
  * Callers:
  *     <none>
  * Callees:
- *     ZwQueryDirectoryObject @ 0x14041D6E0 (ZwQueryDirectoryObject.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwQueryDirectoryObject @ 0x14041DA70 (ZwQueryDirectoryObject.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwQueryDirectoryObjectWrapper(
-        __int64 a1,
-        __int64 a2,
-        int a3,
-        char a4,
-        char a5,
-        __int64 a6,
-        __int64 a7)
+NTSTATUS __fastcall DifZwQueryDirectoryObjectWrapper(
+        HANDLE DirectoryHandle,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        BOOLEAN RestartScan,
+        PULONG Context,
+        PULONG ReturnLength)
 {
   __int64 v11; // rdx
   __int64 v12; // rcx
@@ -26,7 +26,7 @@ __int64 __fastcall DifZwQueryDirectoryObjectWrapper(
   int v16; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v20; // rdi
   _QWORD *v21; // rbx
   __int128 v22; // [rsp+40h] [rbp-40h] BYREF
@@ -66,20 +66,27 @@ LABEL_8:
   }
   *(_QWORD *)&v22 = 0LL;
 LABEL_10:
-  BYTE8(v23) = a5;
-  *(_QWORD *)&v23 = a6;
-  *((_QWORD *)&v22 + 1) = a7;
-  *((_QWORD *)&v24 + 1) = a1;
-  *(_QWORD *)&v24 = a2;
-  HIDWORD(v23) = a3;
-  BYTE9(v23) = a4;
+  BYTE8(v23) = RestartScan;
+  *(_QWORD *)&v23 = Context;
+  *((_QWORD *)&v22 + 1) = ReturnLength;
+  *((_QWORD *)&v24 + 1) = DirectoryHandle;
+  *(_QWORD *)&v24 = Buffer;
+  HIDWORD(v23) = Length;
+  BYTE9(v23) = ReturnSingleEntry;
   for ( i = (__int64 *)APIThunkContextById[4]; i != APIThunkContextById + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v22);
   }
 LABEL_17:
-  result = ZwQueryDirectoryObject(a1, a2);
+  result = ZwQueryDirectoryObject(
+             DirectoryHandle,
+             Buffer,
+             Length,
+             ReturnSingleEntry,
+             RestartScan,
+             Context,
+             ReturnLength);
   LODWORD(v25) = result;
   if ( APIThunkContextById )
   {
@@ -94,7 +101,7 @@ LABEL_17:
         v21 = (_QWORD *)*v21;
       }
       while ( v21 != v20 );
-      return (unsigned int)v25;
+      return v25;
     }
   }
   return result;

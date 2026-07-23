@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDestroyActiveConnectBlock @ 0x140762650
+ * XREFs of IopDestroyActiveConnectBlock @ 0x140762810
  * Callers:
- *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140761BD0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14076238C (IopConnectInterrupt.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopAcquireReleaseConnectLockInternal @ 0x1407C4720 (IopAcquireReleaseConnectLockInternal.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x1407C4C40 (IopAcquireReleaseConnectLockInternal.c)
  */
 
 _QWORD *__fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
@@ -22,6 +22,9 @@ _QWORD *__fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
   signed __int32 v8; // eax
   __int64 v9; // rax
   volatile signed __int32 **v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
   struct _KTHREAD *CurrentThread; // rax
   struct _KEVENT Event; // [rsp+30h] [rbp-38h] BYREF
 
@@ -70,7 +73,7 @@ _QWORD *__fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
     {
       KeSetEvent(v5, 0, 0);
     }
-    return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v12, v13);
   }
   return result;
 }

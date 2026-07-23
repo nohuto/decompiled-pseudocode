@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDispatchFullWake @ 0x14077A190
+ * XREFs of PopDispatchFullWake @ 0x14077A350
  * Callers:
  *     <none>
  * Callees:
- *     PopEventCalloutDispatch @ 0x1403A777C (PopEventCalloutDispatch.c)
- *     PopNotifyConsoleUserPresent @ 0x140773100 (PopNotifyConsoleUserPresent.c)
- *     PopInitSIdle @ 0x14078CAA8 (PopInitSIdle.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopEventCalloutDispatch @ 0x1403A78CC (PopEventCalloutDispatch.c)
+ *     PopNotifyConsoleUserPresent @ 0x1407732C0 (PopNotifyConsoleUserPresent.c)
+ *     PopInitSIdle @ 0x14078CC68 (PopInitSIdle.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 struct _KTHREAD *__fastcall PopDispatchFullWake(__int64 a1, char a2)
@@ -17,7 +17,7 @@ struct _KTHREAD *__fastcall PopDispatchFullWake(__int64 a1, char a2)
   __int64 v4; // rcx
   struct _KTHREAD *result; // rax
 
-  if ( byte_140C23441 != 3 )
+  if ( byte_140C23A61 != 3 )
   {
     PopNotifyConsoleUserPresent(0, a2, 9u);
     if ( (PopFullWake & 3) == 2 )

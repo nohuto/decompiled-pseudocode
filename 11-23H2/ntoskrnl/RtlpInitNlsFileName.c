@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpInitNlsFileName @ 0x1407A5288
+ * XREFs of RtlpInitNlsFileName @ 0x1407A5478
  * Callers:
- *     NtGetNlsSectionPtr @ 0x1407A1EA0 (NtGetNlsSectionPtr.c)
+ *     NtGetNlsSectionPtr @ 0x1407A2090 (NtGetNlsSectionPtr.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     RtlIntegerToUnicodeString @ 0x1407CF100 (RtlIntegerToUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     RtlIntegerToUnicodeString @ 0x1407CF3D0 (RtlIntegerToUnicodeString.c)
  */
 
 NTSTATUS __fastcall RtlpInitNlsFileName(int a1, ULONG a2, wchar_t *a3, __int64 a4, UNICODE_STRING *DestinationString)

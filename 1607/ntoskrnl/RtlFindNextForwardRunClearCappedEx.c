@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFindNextForwardRunClearCappedEx @ 0x14001AC80
+ * XREFs of RtlFindNextForwardRunClearCappedEx @ 0x14001A800
  * Callers:
- *     MiScanNonPagedPoolVa @ 0x14001AA60 (MiScanNonPagedPoolVa.c)
- *     MiScanLeafNonPagedPool @ 0x14001ADE0 (MiScanLeafNonPagedPool.c)
- *     MiCheckPoolForContiguousPages @ 0x14009C8C8 (MiCheckPoolForContiguousPages.c)
- *     RtlFindNextForwardRunClearEx @ 0x1401129E8 (RtlFindNextForwardRunClearEx.c)
- *     IopAddPageToPageMap @ 0x1401C6E18 (IopAddPageToPageMap.c)
- *     MiActOnPartitionNodePages @ 0x1401F07A4 (MiActOnPartitionNodePages.c)
+ *     MiScanNonPagedPoolVa @ 0x14001A5E0 (MiScanNonPagedPoolVa.c)
+ *     MiScanLeafNonPagedPool @ 0x14001A960 (MiScanLeafNonPagedPool.c)
+ *     MiCheckPoolForContiguousPages @ 0x14009C0C8 (MiCheckPoolForContiguousPages.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140112F58 (RtlFindNextForwardRunClearEx.c)
+ *     IopAddPageToPageMap @ 0x1401C6CB8 (IopAddPageToPageMap.c)
+ *     MiActOnPartitionNodePages @ 0x1401F05D0 (MiActOnPartitionNodePages.c)
  * Callees:
  *     <none>
  */
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall RtlFindNextForwardRunClearCappedEx(
     if ( v9 != v8 )
     {
       v10 = a2 & 0x1F;
-      if ( (*v9 | dword_14026D370[v10]) == -1 )
+      if ( (*v9 | dword_14026D390[v10]) == -1 )
       {
         ++v9;
         for ( i = a2 - v10 + 32; v9 < v8; i += 32LL )
@@ -59,7 +59,7 @@ unsigned __int64 __fastcall RtlFindNextForwardRunClearCappedEx(
     if ( v9 != v8 )
     {
       v12 = i & 0x1F;
-      if ( (~dword_14026D370[v12] & *v9) == 0 )
+      if ( (~dword_14026D390[v12] & *v9) == 0 )
       {
         v11 = 32 - v12;
         if ( v12 == 33 )

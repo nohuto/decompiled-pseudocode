@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSetAwayModeStatus @ 0x1407D130C
+ * XREFs of PopSetAwayModeStatus @ 0x1407D43AC
  * Callers:
- *     PopSetSystemAwayMode @ 0x1407D1390 (PopSetSystemAwayMode.c)
+ *     PopSetSystemAwayMode @ 0x1407D4430 (PopSetSystemAwayMode.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopSetPowerSettingValueAcDc @ 0x140A3E450 (PopSetPowerSettingValueAcDc.c)
- *     PopBroadcastSessionInfo @ 0x140ABC7F4 (PopBroadcastSessionInfo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1409F9E70 (PopSetPowerSettingValueAcDc.c)
+ *     PopBroadcastSessionInfo @ 0x140ABE614 (PopBroadcastSessionInfo.c)
  */
 
 __int64 __fastcall PopSetAwayModeStatus(char a1)
@@ -20,6 +20,6 @@ __int64 __fastcall PopSetAwayModeStatus(char a1)
   v4 = GUID_SYSTEM_AWAYMODE;
   PopBroadcastSessionInfo(0LL, 20LL, &v4);
   result = PopSetPowerSettingValueAcDc(&GUID_SYSTEM_AWAYMODE, 4LL, &v3);
-  byte_140F106D1 = a1;
+  BYTE1(PpmIdlePolicyLock.IoSelfBoostsEntry.Next) = a1;
   return result;
 }

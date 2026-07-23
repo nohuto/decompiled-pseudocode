@@ -1,13 +1,13 @@
 /*
- * XREFs of PoCreateThermalRequest @ 0x1407CB550
+ * XREFs of PoCreateThermalRequest @ 0x1407CE5F0
  * Callers:
  *     <none>
  * Callees:
- *     PoCaptureReasonContext @ 0x140436EC8 (PoCaptureReasonContext.c)
- *     PoDestroyReasonContext @ 0x14050A3C0 (PoDestroyReasonContext.c)
- *     PopAssociateThermalRequest @ 0x1407CB7EC (PopAssociateThermalRequest.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PoCaptureReasonContext @ 0x140425E58 (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x140503E30 (PoDestroyReasonContext.c)
+ *     PopAssociateThermalRequest @ 0x1407CE88C (PopAssociateThermalRequest.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoCreateThermalRequest(_QWORD *a1, __int64 a2, __int64 a3, _OWORD *a4, int a5)

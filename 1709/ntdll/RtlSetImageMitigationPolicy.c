@@ -14,19 +14,24 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-__int64 __fastcall RtlSetImageMitigationPolicy(__int64 a1, int a2, char a3, _QWORD *a4, int a5)
+NTSTATUS __cdecl RtlSetImageMitigationPolicy(
+        PWSTR ImagePath,
+        IMAGE_MITIGATION_POLICY Policy,
+        ULONG Flags,
+        PVOID Buffer,
+        ULONG BufferSize)
 {
-  int v5; // r13d
+  ULONG v5; // r13d
   char v6; // si
-  const wchar_t *v10; // rdx
+  const WCHAR *v10; // rdx
   int inited; // ebx
   int v12; // eax
-  int v13; // eax
-  int ValueKey; // eax
-  int v15; // edi
-  int v16; // edi
-  int v17; // edi
-  int v18; // edi
+  NTSTATUS v13; // eax
+  NTSTATUS v14; // eax
+  __int32 v15; // edi
+  __int32 v16; // edi
+  __int32 v17; // edi
+  __int32 v18; // edi
   int v19; // edi
   __int64 v20; // r9
   __int64 v21; // rdx
@@ -80,10 +85,10 @@ __int64 __fastcall RtlSetImageMitigationPolicy(__int64 a1, int a2, char a3, _QWO
   unsigned __int64 v69; // rdx
   __int64 v70; // rcx
   __int64 v71; // rax
-  int v72; // edi
-  int v73; // edi
-  int v74; // edi
-  int v75; // edi
+  __int32 v72; // edi
+  __int32 v73; // edi
+  __int32 v74; // edi
+  __int32 v75; // edi
   int v76; // edi
   __int64 v77; // rax
   __int64 v78; // rax
@@ -120,79 +125,83 @@ __int64 __fastcall RtlSetImageMitigationPolicy(__int64 a1, int a2, char a3, _QWO
   __int64 v109; // rax
   __int64 v110; // rax
   __int64 v111; // rcx
-  HANDLE Handle; // [rsp+38h] [rbp-71h] BYREF
-  char v114[16]; // [rsp+40h] [rbp-69h] BYREF
-  unsigned __int16 v115[8]; // [rsp+58h] [rbp-51h] BYREF
-  int v116; // [rsp+68h] [rbp-41h]
-  __int64 v117; // [rsp+70h] [rbp-39h]
-  void *v118; // [rsp+78h] [rbp-31h]
-  int v119; // [rsp+80h] [rbp-29h]
-  __int128 v120; // [rsp+88h] [rbp-21h]
-  unsigned __int64 v121; // [rsp+98h] [rbp-11h] BYREF
-  unsigned __int64 v122; // [rsp+A0h] [rbp-9h]
+  HANDLE KeyHandle; // [rsp+38h] [rbp-71h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-69h] BYREF
+  ULONG ResultLength; // [rsp+50h] [rbp-59h] BYREF
+  _UNICODE_STRING v116; // [rsp+58h] [rbp-51h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-41h] BYREF
+  unsigned __int64 Data; // [rsp+98h] [rbp-11h] BYREF
+  unsigned __int64 v119; // [rsp+A0h] [rbp-9h]
+  char KeyValueInformation[8]; // [rsp+A8h] [rbp-1h] BYREF
   unsigned int Size; // [rsp+B0h] [rbp+7h]
   size_t Size_4; // [rsp+B4h] [rbp+Bh] BYREF
 
-  Handle = 0LL;
-  v121 = 0LL;
-  v122 = 0LL;
-  v5 = a3 & 2;
-  v6 = a3 & 1;
+  KeyHandle = 0LL;
+  Data = 0LL;
+  v119 = 0LL;
+  v5 = Flags & 2;
+  v6 = Flags & 1;
   v10 = L"MitigationOptions";
-  if ( (a3 & 8) != 0 )
+  if ( (Flags & 8) != 0 )
     v10 = L"MitigationAuditOptions";
-  inited = RtlInitUnicodeStringEx((__int64)v114, (__int64)v10);
+  inited = RtlInitUnicodeStringEx(&DestinationString, v10);
   if ( inited >= 0 )
   {
-    if ( v6 && (a5 || a4) )
+    if ( v6 && (BufferSize || Buffer) )
       goto LABEL_113;
-    if ( a1 )
+    if ( ImagePath )
     {
-      inited = RtlInitUnicodeStringEx((__int64)v115, a1);
+      inited = RtlInitUnicodeStringEx(&v116, ImagePath);
       if ( inited < 0 )
         goto LABEL_252;
-      v12 = RtlpOpenImageFileOptionsKeyEx(v115, 131087LL, v5 == 0, &Handle);
+      v12 = RtlpOpenImageFileOptionsKeyEx(&v116.Length, 131087LL, v5 == 0, &KeyHandle);
     }
     else
     {
-      v117 = 0LL;
-      v118 = &unk_180113AD8;
-      v116 = 48;
-      v119 = 576;
-      v120 = 0LL;
-      v12 = NtOpenKey();
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_180113AD8;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 576;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v12 = NtOpenKey(&KeyHandle, 0x2000Fu, &ObjectAttributes);
     }
     inited = v12;
     if ( v12 < 0 )
       goto LABEL_250;
     if ( v5 )
     {
-      v13 = ZwDeleteValueKey();
+      v13 = ZwDeleteValueKey(KeyHandle, &DestinationString);
 LABEL_249:
       inited = v13;
 LABEL_250:
-      if ( Handle )
-        NtClose(Handle);
+      if ( KeyHandle )
+        NtClose(KeyHandle);
       goto LABEL_252;
     }
-    ValueKey = NtQueryValueKey();
-    inited = ValueKey;
-    if ( ValueKey >= 0 )
+    v14 = NtQueryValueKey(
+            KeyHandle,
+            &DestinationString,
+            KeyValuePartialInformation,
+            KeyValueInformation,
+            0x20u,
+            &ResultLength);
+    inited = v14;
+    if ( v14 >= 0 )
     {
       if ( Size > 0x10 )
       {
         inited = -1073741788;
         goto LABEL_250;
       }
-      memmove(&v121, &Size_4, Size);
+      memmove(&Data, &Size_4, Size);
     }
-    else if ( ValueKey != -1073741772 )
+    else if ( v14 != -1073741772 )
     {
       goto LABEL_250;
     }
-    if ( a2 > 8 )
+    if ( Policy > ImageSignaturePolicy )
     {
-      v72 = a2 - 9;
+      v72 = Policy - 9;
       if ( !v72 )
       {
         if ( v6 )
@@ -200,16 +209,16 @@ LABEL_250:
           v32 = 0xFFF0FFFFFFFFFFFFuLL;
           goto LABEL_235;
         }
-        if ( a5 != 8 )
+        if ( BufferSize != 8 )
           goto LABEL_113;
-        v110 = *a4 & 4LL;
-        if ( (*a4 & 3) != 0 )
+        v110 = *(_QWORD *)Buffer & 4LL;
+        if ( (*(_QWORD *)Buffer & 3) != 0 )
         {
-          if ( (*a4 & 3LL) == 2 )
+          if ( (*(_QWORD *)Buffer & 3LL) == 2 )
           {
             v111 = v110 != 0 ? 6LL : 2LL;
           }
-          else if ( (*(_BYTE *)a4 & 8) != 0 )
+          else if ( (*(_BYTE *)Buffer & 8) != 0 )
           {
             v111 = v110 != 0 ? 7LL : 3LL;
           }
@@ -231,19 +240,19 @@ LABEL_250:
       {
         if ( v6 )
         {
-          v121 &= 0xFFFFFFFFFFFFFuLL;
+          Data &= 0xFFFFFFFFFFFFFuLL;
           goto LABEL_248;
         }
-        if ( a5 != 24 )
+        if ( BufferSize != 24 )
           goto LABEL_113;
-        v98 = a4[1];
-        v99 = a4[2];
-        v100 = *a4 & 4LL;
+        v98 = *((_QWORD *)Buffer + 1);
+        v99 = *((_QWORD *)Buffer + 2);
+        v100 = *(_QWORD *)Buffer & 4LL;
         v101 = v98 & 4;
         v102 = v99 & 4;
-        if ( (*a4 & 3) != 0 )
+        if ( (*(_QWORD *)Buffer & 3) != 0 )
         {
-          if ( (*a4 & 3LL) == 2 )
+          if ( (*(_QWORD *)Buffer & 3LL) == 2 )
             v103 = v100 != 0 ? 6LL : 2LL;
           else
             v103 = v100 != 0 ? 5LL : 1LL;
@@ -252,7 +261,7 @@ LABEL_250:
         {
           v103 = v100 != 0 ? 4 : 0;
         }
-        v104 = v121 & 0xFF0FFFFFFFFFFFFFuLL | (v103 << 52);
+        v104 = Data & 0xFF0FFFFFFFFFFFFFuLL | (v103 << 52);
         v105 = v98 & 3;
         if ( v105 )
         {
@@ -280,7 +289,7 @@ LABEL_250:
         v56 = v109 << 60;
         v57 = v107 & 0xFFFFFFFFFFFFFFFLL;
 LABEL_109:
-        v121 = v57 | v56;
+        Data = v57 | v56;
         goto LABEL_248;
       }
       v74 = v73 - 1;
@@ -288,15 +297,15 @@ LABEL_109:
       {
         if ( v6 )
         {
-          v122 &= 0xFFFFF0F00000FFFFuLL;
+          v119 &= 0xFFFFF0F00000FFFFuLL;
           goto LABEL_248;
         }
-        if ( a5 != 48 )
+        if ( BufferSize != 48 )
           goto LABEL_113;
-        v82 = a4[3] & 4LL;
-        if ( (a4[3] & 3) != 0 )
+        v82 = *((_QWORD *)Buffer + 3) & 4LL;
+        if ( (*((_QWORD *)Buffer + 3) & 3) != 0 )
         {
-          if ( (a4[3] & 3LL) == 2 )
+          if ( (*((_QWORD *)Buffer + 3) & 3LL) == 2 )
             v83 = v82 != 0 ? 6LL : 2LL;
           else
             v83 = v82 != 0 ? 5LL : 1LL;
@@ -305,11 +314,11 @@ LABEL_109:
         {
           v83 = v82 != 0 ? 4 : 0;
         }
-        v84 = v122 & 0xFFFFFFFFFFF0FFFFuLL | (v83 << 16);
-        v85 = a4[4] & 4LL;
-        if ( (a4[4] & 3) != 0 )
+        v84 = v119 & 0xFFFFFFFFFFF0FFFFuLL | (v83 << 16);
+        v85 = *((_QWORD *)Buffer + 4) & 4LL;
+        if ( (*((_QWORD *)Buffer + 4) & 3) != 0 )
         {
-          if ( (a4[4] & 3LL) == 2 )
+          if ( (*((_QWORD *)Buffer + 4) & 3LL) == 2 )
             v86 = (((unsigned __int128)-(__int128)(unsigned __int64)v85 >> 64) & 4) + 2;
           else
             v86 = (((unsigned __int128)-(__int128)(unsigned __int64)v85 >> 64) & 4) + 1;
@@ -319,10 +328,10 @@ LABEL_109:
           v86 = v85 != 0 ? 4 : 0;
         }
         v87 = v84 & 0xFFFFFFFFFF0FFFFFuLL | (v86 << 20);
-        v88 = a4[5] & 4LL;
-        if ( (a4[5] & 3) != 0 )
+        v88 = *((_QWORD *)Buffer + 5) & 4LL;
+        if ( (*((_QWORD *)Buffer + 5) & 3) != 0 )
         {
-          if ( (a4[5] & 3LL) == 2 )
+          if ( (*((_QWORD *)Buffer + 5) & 3LL) == 2 )
             v89 = v88 != 0 ? 6LL : 2LL;
           else
             v89 = v88 != 0 ? 5LL : 1LL;
@@ -332,10 +341,10 @@ LABEL_109:
           v89 = v88 != 0 ? 4 : 0;
         }
         v90 = v87 & 0xFFFFFFFFF0FFFFFFuLL | (v89 << 24);
-        v91 = *a4 & 4LL;
-        if ( (*a4 & 3) != 0 )
+        v91 = *(_QWORD *)Buffer & 4LL;
+        if ( (*(_QWORD *)Buffer & 3) != 0 )
         {
-          if ( (*a4 & 3LL) == 2 )
+          if ( (*(_QWORD *)Buffer & 3LL) == 2 )
             v92 = v91 != 0 ? 6LL : 2LL;
           else
             v92 = v91 != 0 ? 5LL : 1LL;
@@ -345,10 +354,10 @@ LABEL_109:
           v92 = v91 != 0 ? 4 : 0;
         }
         v93 = v90 & 0xFFFFFFFF0FFFFFFFuLL | (v92 << 28);
-        v94 = a4[1] & 4LL;
-        if ( (a4[1] & 3) != 0 )
+        v94 = *((_QWORD *)Buffer + 1) & 4LL;
+        if ( (*((_QWORD *)Buffer + 1) & 3) != 0 )
         {
-          if ( (a4[1] & 3LL) == 2 )
+          if ( (*((_QWORD *)Buffer + 1) & 3LL) == 2 )
             v95 = (((unsigned __int128)-(__int128)(unsigned __int64)v94 >> 64) & 4) + 2;
           else
             v95 = (((unsigned __int128)-(__int128)(unsigned __int64)v94 >> 64) & 4) + 1;
@@ -358,22 +367,22 @@ LABEL_109:
           v95 = v94 != 0 ? 4 : 0;
         }
         v65 = v93 & 0xFFFFFFF0FFFFFFFFuLL | (v95 << 32);
-        v96 = a4[2] & 4LL;
+        v96 = *((_QWORD *)Buffer + 2) & 4LL;
         v63 = 0xFFFFF0FFFFFFFFFFuLL;
-        if ( (a4[2] & 3) != 0 )
+        if ( (*((_QWORD *)Buffer + 2) & 3) != 0 )
         {
-          if ( (a4[2] & 3LL) == 2 )
+          if ( (*((_QWORD *)Buffer + 2) & 3LL) == 2 )
             v97 = v96 != 0 ? 6LL : 2LL;
           else
             v97 = v96 != 0 ? 5LL : 1LL;
-          v122 = v65 & 0xFFFFF0FFFFFFFFFFuLL | (v97 << 40);
+          v119 = v65 & 0xFFFFF0FFFFFFFFFFuLL | (v97 << 40);
           goto LABEL_248;
         }
         v66 = (unsigned __int64)(v96 != 0 ? 4 : 0) << 40;
 LABEL_134:
         v67 = v63 & v65 | v66;
 LABEL_141:
-        v122 = v67;
+        v119 = v67;
         goto LABEL_248;
       }
       v75 = v74 - 1;
@@ -386,15 +395,15 @@ LABEL_141:
             goto LABEL_250;
           if ( v6 )
           {
-            v121 &= 0xFFFFFFFFFFFF0FFFuLL;
+            Data &= 0xFFFFFFFFFFFF0FFFuLL;
             goto LABEL_248;
           }
-          if ( a5 != 8 )
+          if ( BufferSize != 8 )
             goto LABEL_113;
-          v77 = *a4 & 4LL;
-          if ( (*a4 & 3) != 0 )
+          v77 = *(_QWORD *)Buffer & 4LL;
+          if ( (*(_QWORD *)Buffer & 3) != 0 )
           {
-            if ( (*a4 & 3LL) == 2 )
+            if ( (*(_QWORD *)Buffer & 3LL) == 2 )
               v30 = v77 != 0 ? 24576LL : 0x2000LL;
             else
               v30 = v77 != 0 ? 20480LL : 4096LL;
@@ -403,25 +412,25 @@ LABEL_141:
           {
             v30 = (unsigned __int64)(v77 != 0 ? 4 : 0) << 12;
           }
-          v31 = v121 & 0xFFFFFFFFFFFF0FFFuLL;
+          v31 = Data & 0xFFFFFFFFFFFF0FFFuLL;
         }
         else
         {
           if ( v6 )
           {
-            v121 &= 0xFFFFFFFFFFFFFF0FuLL;
+            Data &= 0xFFFFFFFFFFFFFF0FuLL;
             goto LABEL_248;
           }
-          if ( a5 != 8 )
+          if ( BufferSize != 8 )
             goto LABEL_113;
-          v78 = *a4 & 4LL;
-          if ( (*a4 & 3) != 0 )
+          v78 = *(_QWORD *)Buffer & 4LL;
+          if ( (*(_QWORD *)Buffer & 3) != 0 )
           {
-            if ( (*a4 & 3LL) == 2 )
+            if ( (*(_QWORD *)Buffer & 3LL) == 2 )
             {
               v30 = v78 != 0 ? 96LL : 32LL;
             }
-            else if ( (*(_BYTE *)a4 & 8) != 0 )
+            else if ( (*(_BYTE *)Buffer & 8) != 0 )
             {
               v30 = v78 != 0 ? 112LL : 48LL;
             }
@@ -434,24 +443,24 @@ LABEL_141:
           {
             v30 = 16LL * (v78 != 0 ? 4 : 0);
           }
-          v31 = v121 & 0xFFFFFFFFFFFFFF0FuLL;
+          v31 = Data & 0xFFFFFFFFFFFFFF0FuLL;
         }
         goto LABEL_246;
       }
       if ( v6 )
       {
-        v122 &= 0xFFFFFF0FFFFFFFFFuLL;
+        v119 &= 0xFFFFFF0FFFFFFFFFuLL;
         goto LABEL_248;
       }
-      if ( a5 != 8 )
+      if ( BufferSize != 8 )
         goto LABEL_113;
-      v79 = *a4 & 4LL;
-      if ( (*a4 & 3) != 0 )
+      v79 = *(_QWORD *)Buffer & 4LL;
+      if ( (*(_QWORD *)Buffer & 3) != 0 )
       {
-        if ( (*a4 & 3LL) != 2 )
+        if ( (*(_QWORD *)Buffer & 3LL) != 2 )
         {
           v69 = 0xFFFFFF0FFFFFFFFFuLL;
-          if ( (*(_BYTE *)a4 & 8) != 0 )
+          if ( (*(_BYTE *)Buffer & 8) != 0 )
             v81 = v79 != 0 ? 7LL : 3LL;
           else
             v81 = v79 != 0 ? 5LL : 1LL;
@@ -469,25 +478,25 @@ LABEL_141:
     }
     else
     {
-      if ( a2 != 8 )
+      if ( Policy != ImageSignaturePolicy )
       {
-        if ( !a2 )
+        if ( Policy == ImageDepPolicy )
         {
           if ( v6 )
           {
-            v121 &= 0xFFFFFFFFFFFFFFF0uLL;
+            Data &= 0xFFFFFFFFFFFFFFF0uLL;
             goto LABEL_248;
           }
-          if ( a5 != 8 )
+          if ( BufferSize != 8 )
             goto LABEL_113;
-          v58 = *a4 & 4LL;
-          if ( (*a4 & 3) != 0 )
+          v58 = *(_QWORD *)Buffer & 4LL;
+          if ( (*(_QWORD *)Buffer & 3) != 0 )
           {
-            if ( (*a4 & 3LL) == 2 )
+            if ( (*(_QWORD *)Buffer & 3LL) == 2 )
             {
               v30 = v58 != 0 ? 6LL : 2LL;
             }
-            else if ( (*(_BYTE *)a4 & 8) != 0 )
+            else if ( (*(_BYTE *)Buffer & 8) != 0 )
             {
               v30 = v58 != 0 ? 7LL : 3LL;
             }
@@ -495,16 +504,16 @@ LABEL_141:
             {
               v30 = v58 != 0 ? 5LL : 1LL;
             }
-            v31 = v121 & 0xFFFFFFFFFFFFFFF0uLL;
+            v31 = Data & 0xFFFFFFFFFFFFFFF0uLL;
           }
           else
           {
-            v30 = v121 & 0xFFFFFFFFFFFFFFF0uLL;
+            v30 = Data & 0xFFFFFFFFFFFFFFF0uLL;
             v31 = v58 != 0 ? 4 : 0;
           }
           goto LABEL_246;
         }
-        v15 = a2 - 1;
+        v15 = Policy - 1;
         if ( v15 )
         {
           v16 = v15 - 1;
@@ -515,15 +524,15 @@ LABEL_141:
             {
               if ( v6 )
               {
-                v121 &= 0xFFFFFFFFF0FFFFFFuLL;
+                Data &= 0xFFFFFFFFF0FFFFFFuLL;
                 goto LABEL_248;
               }
-              if ( a5 != 8 )
+              if ( BufferSize != 8 )
                 goto LABEL_113;
-              v36 = *a4 & 4LL;
-              if ( (*a4 & 3) != 0 )
+              v36 = *(_QWORD *)Buffer & 4LL;
+              if ( (*(_QWORD *)Buffer & 3) != 0 )
               {
-                if ( (*a4 & 3LL) == 2 )
+                if ( (*(_QWORD *)Buffer & 3LL) == 2 )
                   v37 = v36 != 0 ? 6LL : 2LL;
                 else
                   v37 = v36 != 0 ? 5LL : 1LL;
@@ -533,7 +542,7 @@ LABEL_141:
                 v37 = v36 != 0 ? 4 : 0;
               }
               v30 = v37 << 24;
-              v31 = v121 & 0xFFFFFFFFF0FFFFFFuLL;
+              v31 = Data & 0xFFFFFFFFF0FFFFFFuLL;
               goto LABEL_246;
             }
             v18 = v17 - 1;
@@ -546,41 +555,41 @@ LABEL_141:
                   goto LABEL_250;
                 if ( v6 )
                 {
-                  v121 &= 0xFFFFF0FFFFFFFFFFuLL;
-                  v122 &= 0xFFFFFFFFFFFFF0FFuLL;
+                  Data &= 0xFFFFF0FFFFFFFFFFuLL;
+                  v119 &= 0xFFFFFFFFFFFFF0FFuLL;
 LABEL_248:
-                  v13 = ZwSetValueKey();
+                  v13 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, &Data, 0x10u);
                   goto LABEL_249;
                 }
-                if ( a5 == 16 )
+                if ( BufferSize == 16 )
                 {
-                  v20 = a4[1];
+                  v20 = *((_QWORD *)Buffer + 1);
                   v21 = v20 & 4;
-                  v22 = *a4 & 4LL;
-                  if ( (*a4 & 3) != 0 )
+                  v22 = *(_QWORD *)Buffer & 4LL;
+                  if ( (*(_QWORD *)Buffer & 3) != 0 )
                   {
-                    if ( (*a4 & 3LL) == 2 )
+                    if ( (*(_QWORD *)Buffer & 3LL) == 2 )
                     {
-                      v121 = v121 & 0xFFFFF0FFFFFFFFFFuLL | ((v22 != 0 ? 6LL : 2LL) << 40);
+                      Data = Data & 0xFFFFF0FFFFFFFFFFuLL | ((v22 != 0 ? 6LL : 2LL) << 40);
 LABEL_37:
                       v23 = v21 != 0 ? 1536LL : 512LL;
 LABEL_43:
-                      v26 = v122;
+                      v26 = v119;
 LABEL_47:
                       v27 = v26 & 0xFFFFFFFFFFFFF0FFuLL;
 LABEL_140:
                       v67 = v27 | v23;
                       goto LABEL_141;
                     }
-                    if ( (*(_BYTE *)a4 & 8) != 0 )
+                    if ( (*(_BYTE *)Buffer & 8) != 0 )
                       v24 = v22 != 0 ? 7LL : 3LL;
                     else
                       v24 = v22 != 0 ? 5LL : 1LL;
-                    v121 = v121 & 0xFFFFF0FFFFFFFFFFuLL | (v24 << 40);
+                    Data = Data & 0xFFFFF0FFFFFFFFFFuLL | (v24 << 40);
                     v25 = v20 & 3;
                     if ( v25 )
                     {
-                      v26 = v122;
+                      v26 = v119;
                       if ( v25 == 2LL )
                         v23 = v21 != 0 ? 1536LL : 512LL;
                       else
@@ -590,7 +599,7 @@ LABEL_140:
                   }
                   else
                   {
-                    v121 = v121 & 0xFFFFF0FFFFFFFFFFuLL | ((unsigned __int64)(v22 != 0 ? 4 : 0) << 40);
+                    Data = Data & 0xFFFFF0FFFFFFFFFFuLL | ((unsigned __int64)(v22 != 0 ? 4 : 0) << 40);
                     if ( (v20 & 3) == 2 )
                       goto LABEL_37;
                   }
@@ -603,15 +612,15 @@ LABEL_113:
               }
               if ( v6 )
               {
-                v121 &= 0xFFFFFFF0FFFFFFFFuLL;
+                Data &= 0xFFFFFFF0FFFFFFFFuLL;
                 goto LABEL_248;
               }
-              if ( a5 != 8 )
+              if ( BufferSize != 8 )
                 goto LABEL_113;
-              v28 = *a4 & 4LL;
-              if ( (*a4 & 3) != 0 )
+              v28 = *(_QWORD *)Buffer & 4LL;
+              if ( (*(_QWORD *)Buffer & 3) != 0 )
               {
-                if ( (*a4 & 3LL) == 2 )
+                if ( (*(_QWORD *)Buffer & 3LL) == 2 )
                   v29 = v28 != 0 ? 6LL : 2LL;
                 else
                   v29 = v28 != 0 ? 5LL : 1LL;
@@ -621,23 +630,23 @@ LABEL_113:
                 v29 = v28 != 0 ? 4 : 0;
               }
               v30 = v29 << 32;
-              v31 = v121 & 0xFFFFFFF0FFFFFFFFuLL;
+              v31 = Data & 0xFFFFFFF0FFFFFFFFuLL;
               goto LABEL_246;
             }
             if ( v6 )
             {
               v32 = 0xFFFFFFFF0FFFFFFFuLL;
 LABEL_235:
-              v121 &= v32;
+              Data &= v32;
               goto LABEL_248;
             }
-            if ( a5 != 8 )
+            if ( BufferSize != 8 )
               goto LABEL_113;
             v33 = 0xFFFFFFFF0FFFFFFFuLL;
-            v34 = *a4 & 4LL;
-            if ( (*a4 & 3) != 0 )
+            v34 = *(_QWORD *)Buffer & 4LL;
+            if ( (*(_QWORD *)Buffer & 3) != 0 )
             {
-              if ( (*a4 & 3LL) == 2 )
+              if ( (*(_QWORD *)Buffer & 3LL) == 2 )
                 v35 = v34 != 0 ? 6LL : 2LL;
               else
                 v35 = v34 != 0 ? 5LL : 1LL;
@@ -654,15 +663,15 @@ LABEL_235:
             v32 = 0xFFFFFF0FFFFFFFFFuLL;
             goto LABEL_235;
           }
-          if ( a5 != 8 )
+          if ( BufferSize != 8 )
             goto LABEL_113;
-          v38 = *a4 & 4LL;
-          if ( (*a4 & 3) != 0 )
+          v38 = *(_QWORD *)Buffer & 4LL;
+          if ( (*(_QWORD *)Buffer & 3) != 0 )
           {
-            if ( (*a4 & 3LL) != 2 )
+            if ( (*(_QWORD *)Buffer & 3LL) != 2 )
             {
               v33 = 0xFFFFFF0FFFFFFFFFuLL;
-              if ( (*(_BYTE *)a4 & 8) != 0 )
+              if ( (*(_BYTE *)Buffer & 8) != 0 )
                 v40 = v38 != 0 ? 7LL : 3LL;
               else
                 v40 = v38 != 0 ? 5LL : 1LL;
@@ -678,30 +687,30 @@ LABEL_235:
           v30 = v39 << 36;
           v33 = 0xFFFFFF0FFFFFFFFFuLL;
 LABEL_245:
-          v31 = v33 & v121;
+          v31 = v33 & Data;
 LABEL_246:
           v54 = v31 | v30;
           goto LABEL_247;
         }
         if ( v6 )
         {
-          v121 &= 0xFFFFFFFFFF00F0FFuLL;
+          Data &= 0xFFFFFFFFFF00F0FFuLL;
           goto LABEL_248;
         }
-        if ( a5 != 24 )
+        if ( BufferSize != 24 )
           goto LABEL_113;
-        v41 = a4[1];
-        v42 = a4[2];
+        v41 = *((_QWORD *)Buffer + 1);
+        v42 = *((_QWORD *)Buffer + 2);
         v43 = v41 & 4;
         v44 = v42 & 4;
-        v45 = *a4 & 4LL;
-        if ( (*a4 & 3) != 0 )
+        v45 = *(_QWORD *)Buffer & 4LL;
+        if ( (*(_QWORD *)Buffer & 3) != 0 )
         {
-          if ( (*a4 & 3LL) == 2 )
+          if ( (*(_QWORD *)Buffer & 3LL) == 2 )
           {
             v46 = v45 != 0 ? 1536LL : 512LL;
           }
-          else if ( (*(_BYTE *)a4 & 8) != 0 )
+          else if ( (*(_BYTE *)Buffer & 8) != 0 )
           {
             v46 = v45 != 0 ? 1792LL : 768LL;
           }
@@ -714,7 +723,7 @@ LABEL_246:
         {
           v46 = (unsigned __int64)(v45 != 0 ? 4 : 0) << 8;
         }
-        v47 = v121 & 0xFFFFFFFFFFFFF0FFuLL | v46;
+        v47 = Data & 0xFFFFFFFFFFFFF0FFuLL | v46;
         v48 = v41 & 3;
         if ( v48 )
         {
@@ -736,7 +745,7 @@ LABEL_246:
 LABEL_104:
           v54 = v53 | v52;
 LABEL_247:
-          v121 = v54;
+          Data = v54;
           goto LABEL_248;
         }
         if ( v51 == 2LL )
@@ -749,21 +758,21 @@ LABEL_247:
       }
       if ( v6 )
       {
-        v121 &= 0xFFFF0FFFFFFFFFFFuLL;
+        Data &= 0xFFFF0FFFFFFFFFFFuLL;
         goto LABEL_248;
       }
-      if ( a5 != 16 )
+      if ( BufferSize != 16 )
         goto LABEL_113;
-      v59 = a4[1];
+      v59 = *((_QWORD *)Buffer + 1);
       v60 = v59 & 4;
-      v61 = *a4 & 4LL;
-      if ( (*a4 & 3) != 0 )
+      v61 = *(_QWORD *)Buffer & 4LL;
+      if ( (*(_QWORD *)Buffer & 3) != 0 )
       {
-        if ( (*a4 & 3LL) == 2 )
+        if ( (*(_QWORD *)Buffer & 3LL) == 2 )
         {
           v62 = v61 != 0 ? 6LL : 2LL;
         }
-        else if ( (*(_BYTE *)a4 & 8) != 0 )
+        else if ( (*(_BYTE *)Buffer & 8) != 0 )
         {
           v62 = v61 != 0 ? 7LL : 3LL;
         }
@@ -777,11 +786,11 @@ LABEL_247:
         v62 = v61 != 0 ? 4 : 0;
       }
       v63 = 0xFFFF0FFFFFFFFFFFuLL;
-      v121 = v121 & 0xFFFF0FFFFFFFFFFFuLL | (v62 << 44);
+      Data = Data & 0xFFFF0FFFFFFFFFFFuLL | (v62 << 44);
       v64 = v59 & 3;
       if ( !v64 )
       {
-        v65 = v122 & 0xFFFFFFFFFFFFFF0FuLL | (16LL * (v60 != 0 ? 4 : 0));
+        v65 = v119 & 0xFFFFFFFFFFFFFF0FuLL | (16LL * (v60 != 0 ? 4 : 0));
         v66 = (unsigned __int64)(v60 != 0 ? 4 : 0) << 44;
         goto LABEL_134;
       }
@@ -800,11 +809,11 @@ LABEL_247:
       v23 = v71 & 0xFFFF0FFFFFFFFFFFuLL | v70;
     }
 LABEL_139:
-    v27 = v69 & v122;
+    v27 = v69 & v119;
     goto LABEL_140;
   }
 LABEL_252:
   if ( inited == -1073741772 && v5 )
     return 0;
-  return (unsigned int)inited;
+  return inited;
 }

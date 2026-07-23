@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCreateHardwareProfiles @ 0x1409C172C
+ * XREFs of CmpCreateHardwareProfiles @ 0x1409C272C
  * Callers:
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x14015D71C (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     CmSetAcpiHwProfile @ 0x140730ED0 (CmSetAcpiHwProfile.c)
- *     CmpOpenDevicesControlSet @ 0x140731CB4 (CmpOpenDevicesControlSet.c)
- *     CmpCloneHwProfile @ 0x1407FB5DC (CmpCloneHwProfile.c)
- *     CmpAddDockingInfo @ 0x1409C1B6C (CmpAddDockingInfo.c)
- *     CmpAddAliasEntry @ 0x1409F3730 (CmpAddAliasEntry.c)
+ *     RtlUnicodeStringPrintf @ 0x14015D81C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     CmSetAcpiHwProfile @ 0x1407320C0 (CmSetAcpiHwProfile.c)
+ *     CmpOpenDevicesControlSet @ 0x140732EA4 (CmpOpenDevicesControlSet.c)
+ *     CmpCloneHwProfile @ 0x1407FC7DC (CmpCloneHwProfile.c)
+ *     CmpAddDockingInfo @ 0x1409C2B6C (CmpAddDockingInfo.c)
+ *     CmpAddAliasEntry @ 0x1409F4730 (CmpAddAliasEntry.c)
  */
 
 __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)

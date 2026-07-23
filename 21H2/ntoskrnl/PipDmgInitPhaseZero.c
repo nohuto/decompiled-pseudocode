@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDmgInitPhaseZero @ 0x140A53178
+ * XREFs of PipDmgInitPhaseZero @ 0x140A54178
  * Callers:
- *     PiDmaGuardInitialize @ 0x1403B7328 (PiDmaGuardInitialize.c)
+ *     PiDmaGuardInitialize @ 0x1403B7498 (PiDmaGuardInitialize.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 PipDmgInitPhaseZero()
@@ -24,8 +24,8 @@ __int64 PipDmgInitPhaseZero()
   {
     PipDmaGuardPolicy = 3;
     ExInitializeResourceLite(&PipDgqListLock);
-    qword_140C430C8 = (__int64)&KdDebuggerNotPresent + 7;
-    *(PBOOLEAN *)((char *)&KdDebuggerNotPresent + 7) = (PBOOLEAN)&KdDebuggerNotPresent + 7;
+    qword_140C430F8 = (__int64)&PipDgqListHead;
+    PipDgqListHead = &PipDgqListHead;
   }
   else
   {

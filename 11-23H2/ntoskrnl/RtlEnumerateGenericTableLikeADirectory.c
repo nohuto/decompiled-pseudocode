@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1403717B0
+ * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x140371950
  * Callers:
- *     PiDmEnumObjectsWithCallback @ 0x1407FB440 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1407FB710 (PiDmEnumObjectsWithCallback.c)
  * Callees:
- *     RealSuccessor @ 0x1403718BC (RealSuccessor.c)
- *     FindNodeOrParent_0 @ 0x140371900 (FindNodeOrParent_0.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RealSuccessor @ 0x140371A5C (RealSuccessor.c)
+ *     FindNodeOrParent_0 @ 0x140371AA0 (FindNodeOrParent_0.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

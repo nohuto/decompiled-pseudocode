@@ -1,30 +1,30 @@
 /*
- * XREFs of NtUnlockVirtualMemory @ 0x1400BA2E0
+ * XREFs of NtUnlockVirtualMemory @ 0x1400B8170
  * Callers:
  *     <none>
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiLockWorkingSetExclusive @ 0x14002EA00 (MiLockWorkingSetExclusive.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiUnlockVa @ 0x1400BAA10 (MiUnlockVa.c)
- *     MiRotatedToFrameBuffer @ 0x1400BDE00 (MiRotatedToFrameBuffer.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402261BC (EtwTraceShouldYieldProcessor.c)
- *     MiUnlockVadRange @ 0x1404F37E8 (MiUnlockVadRange.c)
- *     MiLockVadRange @ 0x1404F38DC (MiLockVadRange.c)
- *     MiLockUnlockCommon @ 0x1404F3B48 (MiLockUnlockCommon.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14002E580 (MiLockWorkingSetExclusive.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiUnlockVa @ 0x1400B88A0 (MiUnlockVa.c)
+ *     MiRotatedToFrameBuffer @ 0x1400BBC90 (MiRotatedToFrameBuffer.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140225FE8 (EtwTraceShouldYieldProcessor.c)
+ *     MiUnlockVadRange @ 0x1404D6774 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1404D6868 (MiLockVadRange.c)
+ *     MiLockUnlockCommon @ 0x1404D6AD4 (MiLockUnlockCommon.c)
  */
 
 NTSTATUS __stdcall NtUnlockVirtualMemory(
@@ -287,7 +287,7 @@ LABEL_59:
             MiDemoteCombinedPte(v45, v33, v35 | 0x8000000000000000uLL);
           v10 = BugCheckParameter2;
           Wsle = MiLocateWsle(BugCheckParameter2, v45, *v34);
-          if ( Wsle >= *(_QWORD *)(qword_140327F90 + 276841240) )
+          if ( Wsle >= *(_QWORD *)(qword_140327FD0 + 276841240) )
           {
             *(_QWORD *)&v57[2 * v12 + 2] = Wsle;
             v12 = v57[0] + 1;

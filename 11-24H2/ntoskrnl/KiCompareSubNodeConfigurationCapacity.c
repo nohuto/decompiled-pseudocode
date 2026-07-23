@@ -1,5 +1,5 @@
 /*
- * XREFs of KiCompareSubNodeConfigurationCapacity @ 0x1405BB370
+ * XREFs of KiCompareSubNodeConfigurationCapacity @ 0x1405B89A0
  * Callers:
  *     <none>
  * Callees:

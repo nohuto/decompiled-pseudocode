@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDripsWatchdogStartWatchdog @ 0x14099C718
+ * XREFs of PopDripsWatchdogStartWatchdog @ 0x14099C918
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x14099807C (PopPdcIdleResiliencyCallback.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099827C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PopCalculateIdleInformation @ 0x1403C7D40 (PopCalculateIdleInformation.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x14099C6A8 (PopDripsWatchdogScheduleNextTimer.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PopCalculateIdleInformation @ 0x1403C7F20 (PopCalculateIdleInformation.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x14099C8A8 (PopDripsWatchdogScheduleNextTimer.c)
  */
 
 _QWORD *PopDripsWatchdogStartWatchdog()
@@ -26,7 +26,7 @@ _QWORD *PopDripsWatchdogStartWatchdog()
   --CurrentThread->KernelApcDisable;
   v7 = 0LL;
   ExAcquireResourceExclusiveLite(&PopDripsWatchdogContext, 1u);
-  if ( (dword_140C39968 & 2) != 0 )
+  if ( (dword_140C398E8 & 2) != 0 )
   {
     _m_prefetchw(&PopDirectedDripsUmTestDeviceCount);
     v1 = PopDirectedDripsUmTestDeviceCount;
@@ -41,28 +41,28 @@ _QWORD *PopDripsWatchdogStartWatchdog()
       v3 = MEMORY[0xFFFFF78000000008];
       PopCalculateIdleInformation((__int64)&v6);
       v4 = PopWdiCurrentScenarioInstanceId;
-      if ( (dword_140C39A24 & 1) != 0 )
+      if ( (dword_140C399A4 & 1) != 0 )
       {
-        dword_140C39A34 = 0;
-        qword_140C39A28 = 0LL;
-        xmmword_140C39A58 = v6;
-        dword_140C39A38 = PopDripsWatchdogDebounceTickInterval;
-        qword_140C39A40 = v3;
-        qword_140C39A48 = v3;
-        xmmword_140C39A68 = v7;
-        PopDripsWatchdogScheduleNextTimer((__int64)&unk_140C39970);
+        dword_140C399B4 = 0;
+        qword_140C399A8 = 0LL;
+        xmmword_140C399D8 = v6;
+        dword_140C399B8 = PopDripsWatchdogDebounceTickInterval;
+        qword_140C399C0 = v3;
+        qword_140C399C8 = v3;
+        xmmword_140C399E8 = v7;
+        PopDripsWatchdogScheduleNextTimer((__int64)&unk_140C398F0);
       }
-      if ( (dword_140C39B2C & 1) != 0 )
+      if ( (dword_140C39AAC & 1) != 0 )
       {
-        memset(&unk_140C39B30, 0, 0x50uLL);
-        dword_140C39B54 = dword_140C3CEE4;
-        xmmword_140C39B60 = v6;
-        qword_140C39B58 = qword_140CF7C68;
-        xmmword_140C39B70 = v7;
-        PopDripsWatchdogScheduleNextTimer((__int64)&unk_140C39A78);
+        memset(&unk_140C39AB0, 0, 0x50uLL);
+        dword_140C39AD4 = dword_140C3D084;
+        xmmword_140C39AE0 = v6;
+        qword_140C39AD8 = qword_140CF7C68;
+        xmmword_140C39AF0 = v7;
+        PopDripsWatchdogScheduleNextTimer((__int64)&unk_140C399F8);
       }
-      dword_140C39968 |= 4u;
-      qword_140C39B88 = v4;
+      dword_140C398E8 |= 4u;
+      qword_140C39B08 = v4;
     }
   }
   ExReleaseResourceLite(&PopDripsWatchdogContext);

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExAllocateContiguousHeapPool @ 0x1400E7418
+ * XREFs of ExAllocateContiguousHeapPool @ 0x1400E7498
  * Callers:
- *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1400E659C (MiAllocateContiguousMemory.c)
  * Callees:
  *     RtlpHpFreeHeap @ 0x140007BC0 (RtlpHpFreeHeap.c)
  *     RtlpHpSegAlloc @ 0x14000B118 (RtlpHpSegAlloc.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpAddTagForBigPages @ 0x1400E7110 (ExpAddTagForBigPages.c)
- *     ExGetHeapFromType @ 0x1400E7638 (ExGetHeapFromType.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1401042B0 (ExpInsertPoolTrackerExpansion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpAddTagForBigPages @ 0x1400E7190 (ExpAddTagForBigPages.c)
+ *     ExGetHeapFromType @ 0x1400E76B8 (ExGetHeapFromType.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140104330 (ExpInsertPoolTrackerExpansion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1401B7350 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExAllocateContiguousHeapPool(
@@ -46,8 +46,8 @@ __int64 __fastcall ExAllocateContiguousHeapPool(
   v6 = 0LL;
   v8 = 0LL;
   HeapFromType = ExGetHeapFromType(512LL, a5, 0LL);
-  if ( v11 > *(_QWORD *)(*(_QWORD *)qword_14043A748 + 7104LL)
-    || a2 < *(_QWORD *)(*(_QWORD *)qword_14043A748 + 7112LL)
+  if ( v11 > *(_QWORD *)(*(_QWORD *)qword_14043B808 + 7104LL)
+    || a2 < *(_QWORD *)(*(_QWORD *)qword_14043B808 + 7112LL)
     || (unsigned __int64)(v10 - 1) <= 0x1FE )
   {
     goto LABEL_3;

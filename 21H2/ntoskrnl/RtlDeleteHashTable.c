@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDeleteHashTable @ 0x1403793B0
+ * XREFs of RtlDeleteHashTable @ 0x140378F00
  * Callers:
- *     SepDeleteSessionLowboxEntries @ 0x1402BDDF4 (SepDeleteSessionLowboxEntries.c)
- *     RtlpCreateHashTable @ 0x1403767E0 (RtlpCreateHashTable.c)
- *     SepInitializeLowBoxNumberTable @ 0x14078E558 (SepInitializeLowBoxNumberTable.c)
- *     SepRmDestroyCapTable @ 0x140926038 (SepRmDestroyCapTable.c)
+ *     SepDeleteSessionLowboxEntries @ 0x14023C434 (SepDeleteSessionLowboxEntries.c)
+ *     RtlpCreateHashTable @ 0x140376330 (RtlpCreateHashTable.c)
+ *     SepInitializeLowBoxNumberTable @ 0x14078E718 (SepInitializeLowBoxNumberTable.c)
+ *     SepRmDestroyCapTable @ 0x140926198 (SepRmDestroyCapTable.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall RtlDeleteHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)

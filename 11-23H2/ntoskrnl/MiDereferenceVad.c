@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDereferenceVad @ 0x14028A890
+ * XREFs of MiDereferenceVad @ 0x14028AB20
  * Callers:
- *     MiFinishVadDeletion @ 0x140289D10 (MiFinishVadDeletion.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x140660C1C (MiUnlockAndDereferenceNestedVad.c)
- *     NtAreMappedFilesTheSame @ 0x140871690 (NtAreMappedFilesTheSame.c)
+ *     MiFinishVadDeletion @ 0x140289FA0 (MiFinishVadDeletion.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x14066116C (MiUnlockAndDereferenceNestedVad.c)
+ *     NtAreMappedFilesTheSame @ 0x1408718D0 (NtAreMappedFilesTheSame.c)
  * Callees:
  *     <none>
  */

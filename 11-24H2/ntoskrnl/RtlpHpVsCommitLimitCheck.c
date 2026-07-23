@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsCommitLimitCheck @ 0x1402BF0FC
+ * XREFs of RtlpHpVsCommitLimitCheck @ 0x14036683C
  * Callers:
- *     RtlpHpVsChunkFree @ 0x1402BCE90 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsChunkSplit @ 0x1402BF1C0 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsChunkFree @ 0x1403645D0 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkSplit @ 0x140366900 (RtlpHpVsChunkSplit.c)
  * Callees:
- *     RtlpHpEnvCompactionSchedule @ 0x1402B389C (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14035ED20 (RtlpHpEnvCompactionSchedule.c)
  */
 
 __int64 __fastcall RtlpHpVsCommitLimitCheck(__int64 a1, __int64 a2, unsigned int a3)

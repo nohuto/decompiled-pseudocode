@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPowerInitSystem @ 0x140BEA950
+ * XREFs of HalpPowerInitSystem @ 0x140BF0950
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     MmLockPagableDataSection @ 0x140ABB180 (MmLockPagableDataSection.c)
- *     HalpPowerInitDiscard @ 0x140CAE400 (HalpPowerInitDiscard.c)
- *     HalpPowerInitFwPerformanceTableMappings @ 0x140CAE4F8 (HalpPowerInitFwPerformanceTableMappings.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     MmLockPagableDataSection @ 0x140ABC640 (MmLockPagableDataSection.c)
+ *     HalpPowerInitDiscard @ 0x140CB4440 (HalpPowerInitDiscard.c)
+ *     HalpPowerInitFwPerformanceTableMappings @ 0x140CB4538 (HalpPowerInitFwPerformanceTableMappings.c)
  */
 
 __int64 __fastcall HalpPowerInitSystem(int a1, __int64 a2, __int64 a3)
@@ -17,7 +17,7 @@ __int64 __fastcall HalpPowerInitSystem(int a1, __int64 a2, __int64 a3)
   }
   else if ( a1 == 17 )
   {
-    if ( LOBYTE(HalpDeviceBlockUnblockPushLock.UserAffinity) >= 5u )
+    if ( LOBYTE(HalpDeviceBlockUnblockPushLock.QueueListEntry.Flink) >= 5u )
       HalpPowerInitFwPerformanceTableMappings();
     HalpSleepPageLock = MmLockPagableDataSection(HalpSaveDmaControllerState);
     MmUnlockPagableImageSection(HalpSleepPageLock);

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlNumberOfSetBitsEx @ 0x140587EB0
+ * XREFs of RtlNumberOfSetBitsEx @ 0x1405880E0
  * Callers:
- *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
- *     MiInsertPartitionPages @ 0x140562540 (MiInsertPartitionPages.c)
- *     RtlNumberOfClearBitsEx @ 0x140587E50 (RtlNumberOfClearBitsEx.c)
- *     IopLiveDumpWriteDumpFile @ 0x140898B80 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EA0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x1409AC28C (IopLiveDumpEstimateMemoryPages.c)
+ *     IoWriteCrashDump @ 0x140502C50 (IoWriteCrashDump.c)
+ *     MiInsertPartitionPages @ 0x140562780 (MiInsertPartitionPages.c)
+ *     RtlNumberOfClearBitsEx @ 0x140588080 (RtlNumberOfClearBitsEx.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140898CE0 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140899000 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ACE10 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AD1BC (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
  *     <none>
  */
@@ -57,7 +57,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(_QWORD *a1)
   {
     v12 = *v1++;
     if ( i == v6 - 1 && v3 )
-      v12 &= byte_14001E8E0[v3];
+      v12 &= byte_14001E890[v3];
     ++i;
     v4 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v12);
   }
@@ -86,7 +86,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(_QWORD *a1)
     {
       v17 = *v1++;
       if ( i == v16 && v3 )
-        v17 &= byte_14001E8E0[v3];
+        v17 &= byte_14001E890[v3];
       ++i;
       v4 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v17);
       --v9;

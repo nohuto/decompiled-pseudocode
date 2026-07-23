@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeprioritizeVad @ 0x1403FD204
+ * XREFs of MiDeprioritizeVad @ 0x1403DAB20
  * Callers:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402440D0 (MiReferenceControlAreaFileWithTag.c)
- *     MiDereferenceVad @ 0x140260450 (MiDereferenceVad.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     MiTryLockVad @ 0x1403FD34C (MiTryLockVad.c)
- *     MiClearVadTrimBehind @ 0x1403FD3E0 (MiClearVadTrimBehind.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1403FD5B4 (MiDeprioritizeVirtualAddresses.c)
- *     PfCheckDeprioritizeFile @ 0x1408E5C40 (PfCheckDeprioritizeFile.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x14020C860 (MiReferenceControlAreaFileWithTag.c)
+ *     MiDereferenceVad @ 0x140290A60 (MiDereferenceVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiTryLockVad @ 0x1403DAC68 (MiTryLockVad.c)
+ *     MiClearVadTrimBehind @ 0x1403DAD00 (MiClearVadTrimBehind.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1403DB1C8 (MiDeprioritizeVirtualAddresses.c)
+ *     PfCheckDeprioritizeFile @ 0x1409DCA6C (PfCheckDeprioritizeFile.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeprioritizeVad(unsigned int *P, unsigned __int64 a2)
@@ -25,9 +25,7 @@ void __fastcall MiDeprioritizeVad(unsigned int *P, unsigned __int64 a2)
   ULONG_PTR v9; // rax
   __int64 v10; // r15
   unsigned __int64 v11; // rbp
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  bool v14; // zf
+  bool v12; // zf
 
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
@@ -62,8 +60,8 @@ void __fastcall MiDeprioritizeVad(unsigned int *P, unsigned __int64 a2)
   {
     if ( MiDereferenceVad((__int64)P) )
       ExFreePoolWithTag(P, 0);
-    v14 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v14 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v13, v12);
+    v12 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v12 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
   }
 }

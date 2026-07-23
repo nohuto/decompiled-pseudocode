@@ -17,8 +17,8 @@ __int64 ViIsBTSSupported()
   unsigned __int64 FeatureBits; // rcx
   char CpuType; // al
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
   v1 = 0LL;

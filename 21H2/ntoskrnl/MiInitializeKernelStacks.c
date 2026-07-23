@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeKernelStacks @ 0x140A4D410
+ * XREFs of MiInitializeKernelStacks @ 0x140A4E410
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     MiSystemVaToDynamicBitmap @ 0x1402B407C (MiSystemVaToDynamicBitmap.c)
- *     MiBuildDynamicRegion @ 0x1403B5F84 (MiBuildDynamicRegion.c)
- *     MiMarkBootGuardPage @ 0x14079F9BC (MiMarkBootGuardPage.c)
- *     MiMarkBootKernelStack @ 0x140A4DC44 (MiMarkBootKernelStack.c)
- *     MiInitializePteInfo @ 0x140A4E918 (MiInitializePteInfo.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14023222C (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x1403B60F4 (MiBuildDynamicRegion.c)
+ *     MiMarkBootGuardPage @ 0x14079FBBC (MiMarkBootGuardPage.c)
+ *     MiMarkBootKernelStack @ 0x140A4EC44 (MiMarkBootKernelStack.c)
+ *     MiInitializePteInfo @ 0x140A4F918 (MiInitializePteInfo.c)
  */
 
 __int64 MiInitializeKernelStacks()
@@ -28,16 +28,16 @@ __int64 MiInitializeKernelStacks()
   MiMarkBootKernelStack(v3, (((unsigned __int64)CurrentThread->StackBase >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   MiMarkBootGuardPage(v3 - 8);
   MiMarkBootGuardPage(v2 - 8);
-  v4 = qword_140C4FB48;
-  byte_140C4EBBC = (unsigned int)KeKernelStackSize >> 12;
+  v4 = qword_140C4FB88;
+  byte_140C4EBFC = (unsigned int)KeKernelStackSize >> 12;
   v5 = MiSystemVaToDynamicBitmap(14);
   if ( !(unsigned int)MiBuildDynamicRegion(v5, v4, 0x10000000000uLL)
-    || !(unsigned int)MiInitializePteInfo((unsigned int)&unk_140C4EB58, 14, 0, 11, v4, 0x10000000000LL, 1) )
+    || !(unsigned int)MiInitializePteInfo((unsigned int)&unk_140C4EB98, 14, 0, 11, v4, 0x10000000000LL, 1) )
   {
     return 0LL;
   }
   result = 1LL;
-  dword_140C4EB70 |= 1u;
-  qword_140C4EBA8 = qword_140C4EAF0;
+  dword_140C4EBB0 |= 1u;
+  qword_140C4EBE8 = qword_140C4EB30;
   return result;
 }

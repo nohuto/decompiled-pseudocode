@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDmaInit @ 0x140ADD538
+ * XREFs of ViDmaInit @ 0x140ADD528
  * Callers:
- *     VfDmaPluginEntry @ 0x1405D1F90 (VfDmaPluginEntry.c)
+ *     VfDmaPluginEntry @ 0x1405D2500 (VfDmaPluginEntry.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x1403C32D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403C34B0 (ExInitializeNPagedLookasideListInternal.c)
  */
 
 __int64 *ViDmaInit()
@@ -13,7 +13,7 @@ __int64 *ViDmaInit()
   if ( !ViAdapterListInitialized )
   {
     result = (__int64 *)&ViAdapterList;
-    qword_140C369B0 = 0LL;
+    qword_140C36950 = 0LL;
     ViAdapterList.Blink = &ViAdapterList;
     ViAdapterList.Flink = &ViAdapterList;
     ViAdapterListInitialized = 1;
@@ -21,8 +21,8 @@ __int64 *ViDmaInit()
   if ( !ViDomainCommonBufferListInitialized )
   {
     result = &ViDomainCommonBufferList;
-    qword_140C369F0 = 0LL;
-    qword_140C369E8 = (__int64)&ViDomainCommonBufferList;
+    qword_140C36990 = 0LL;
+    qword_140C36988 = (__int64)&ViDomainCommonBufferList;
     ViDomainCommonBufferList = (__int64)&ViDomainCommonBufferList;
     ViDomainCommonBufferListInitialized = 1;
   }

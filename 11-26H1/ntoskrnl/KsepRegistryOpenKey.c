@@ -1,18 +1,18 @@
 /*
- * XREFs of KsepRegistryOpenKey @ 0x1409E5254
+ * XREFs of KsepRegistryOpenKey @ 0x1409D7988
  * Callers:
- *     KsepDbQueryRegistryDeviceDataList @ 0x1407BCC58 (KsepDbQueryRegistryDeviceDataList.c)
- *     KsepMatchInitBiosInfo @ 0x140CCD5F0 (KsepMatchInitBiosInfo.c)
- *     KsepEngineReadFlags @ 0x140D0821C (KsepEngineReadFlags.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x1407BFCB8 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepMatchInitBiosInfo @ 0x140CD3750 (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x140D0E4EC (KsepEngineReadFlags.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     RtlAssert @ 0x140619AB0 (RtlAssert.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     KsepStringConcatenate @ 0x1409E5358 (KsepStringConcatenate.c)
- *     KsepStringDuplicate @ 0x1409E5E2C (KsepStringDuplicate.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     RtlAssert @ 0x14061CB00 (RtlAssert.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     KsepStringDuplicate @ 0x1409D73AC (KsepStringDuplicate.c)
+ *     KsepStringConcatenate @ 0x1409D7A8C (KsepStringConcatenate.c)
  */
 
-__int64 __fastcall KsepRegistryOpenKey(__int64 a1, __int64 a2, HANDLE *a3)
+__int64 __fastcall KsepRegistryOpenKey(_WORD *a1, __int64 a2, HANDLE *a3)
 {
   int v6; // eax
   NTSTATUS v7; // ebx
@@ -29,30 +29,28 @@ __int64 __fastcall KsepRegistryOpenKey(__int64 a1, __int64 a2, HANDLE *a3)
   memset(&ObjectAttributes, 0, 44);
   if ( !a1 )
   {
-    v9 = ((unsigned __int8)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                             1u)
+    v9 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
         + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v9 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v9) = 262564;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v9) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v9) = 262564;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       RtlAssert("EnginePath != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x1A4u, 0LL);
   }
   if ( !a3 )
   {
     v10 = ((unsigned __int8)_InterlockedExchangeAdd(
-                              (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                              (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                               1u)
          + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v10 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v10) = 262565;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v10) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v10) = 262565;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       RtlAssert("Handle != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x1A5u, 0LL);
   }
   if ( a2 )
     v6 = KsepStringConcatenate(&v11, a1, a2, 1LL);
   else
-    v6 = KsepStringDuplicate(&v11, a1);
+    v6 = KsepStringDuplicate((__int64)&v11, a1);
   v7 = v6;
   if ( v6 >= 0 )
   {
@@ -65,7 +63,7 @@ __int64 __fastcall KsepRegistryOpenKey(__int64 a1, __int64 a2, HANDLE *a3)
     if ( v7 >= 0 )
     {
       *a3 = KeyHandle;
-      _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.RelativeTimerBias);
+      _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.WaitBlockList);
     }
   }
   if ( v12 )

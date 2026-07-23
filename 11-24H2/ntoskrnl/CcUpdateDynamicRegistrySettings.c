@@ -1,12 +1,12 @@
 /*
- * XREFs of CcUpdateDynamicRegistrySettings @ 0x14057B8A0
+ * XREFs of CcUpdateDynamicRegistrySettings @ 0x140578D30
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     CcQueryRegKeyValue @ 0x14057B3AC (CcQueryRegKeyValue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcQueryRegKeyValue @ 0x14057883C (CcQueryRegKeyValue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcUpdateDynamicRegistrySettings(__int64 a1)
@@ -285,11 +285,11 @@ void __fastcall CcUpdateDynamicRegistrySettings(__int64 a1)
   if ( v32 && (_DWORD)v20 )
     DueTime.QuadPart = -10000000 * v20;
   if ( v41 && v50 )
-    unk_140F8E4E8 = 10000000LL * v50;
+    unk_140F8E6C8 = 10000000LL * v50;
   if ( v33 && v45 )
-    qword_140F8E4F0 = 10000000LL * v45;
+    qword_140F8E6D0 = 10000000LL * v45;
   if ( v34 )
-    byte_140F8E501 = v46 != 0;
+    byte_140F8E6E1 = v46 != 0;
   if ( v35 )
   {
     if ( v4 > 1 )

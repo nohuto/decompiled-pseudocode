@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlLookupFunctionEntry @ 0x1400F6220
+ * XREFs of RtlLookupFunctionEntry @ 0x1400F4070
  * Callers:
- *     RtlDispatchException @ 0x1400F4D00 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1400F5660 (RtlUnwindEx.c)
- *     RtlpSameFunction @ 0x1401593E8 (RtlpSameFunction.c)
- *     RtlRaiseException @ 0x140211E04 (RtlRaiseException.c)
+ *     RtlDispatchException @ 0x1400F2B50 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1400F34B0 (RtlUnwindEx.c)
+ *     RtlpSameFunction @ 0x140159958 (RtlpSameFunction.c)
+ *     RtlRaiseException @ 0x140211C30 (RtlRaiseException.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  *     RtlInitializeHistoryTable @ 0x1407B82C0 (RtlInitializeHistoryTable.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x140051540 (RtlpxLookupFunctionTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpxLookupFunctionTable @ 0x1400510C0 (RtlpxLookupFunctionTable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(

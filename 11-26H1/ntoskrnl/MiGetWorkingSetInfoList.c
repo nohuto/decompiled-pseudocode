@@ -1,28 +1,28 @@
 /*
- * XREFs of MiGetWorkingSetInfoList @ 0x1402D28A0
+ * XREFs of MiGetWorkingSetInfoList @ 0x1402B4660
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiQueryPteLarge @ 0x1402D1850 (MiQueryPteLarge.c)
- *     MiQueryPteAttributes @ 0x1402D2E80 (MiQueryPteAttributes.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiWorkingSetInfoCheckPageTable @ 0x1403146B0 (MiWorkingSetInfoCheckPageTable.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiQueryPteCleanup @ 0x1404101DC (MiQueryPteCleanup.c)
- *     MiPureAweVad @ 0x140465930 (MiPureAweVad.c)
- *     MiQueryPteFaultLargeVa @ 0x1405264C4 (MiQueryPteFaultLargeVa.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiQueryPtePrepare @ 0x140A90EB4 (MiQueryPtePrepare.c)
- *     MiGetAweVadPageSize @ 0x140B4ACB4 (MiGetAweVadPageSize.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiQueryPteLarge @ 0x1402B3610 (MiQueryPteLarge.c)
+ *     MiQueryPteAttributes @ 0x1402B4C40 (MiQueryPteAttributes.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiWorkingSetInfoCheckPageTable @ 0x1403166E0 (MiWorkingSetInfoCheckPageTable.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiQueryPteCleanup @ 0x14040F8FC (MiQueryPteCleanup.c)
+ *     MiPureAweVad @ 0x14045E8F0 (MiPureAweVad.c)
+ *     MiQueryPteFaultLargeVa @ 0x140528B34 (MiQueryPteFaultLargeVa.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiQueryPtePrepare @ 0x140A95A04 (MiQueryPtePrepare.c)
+ *     MiGetAweVadPageSize @ 0x140B4CA44 (MiGetAweVadPageSize.c)
  */
 
 __int64 __fastcall MiGetWorkingSetInfoList(__int64 a1, unsigned int a2)
@@ -165,7 +165,7 @@ LABEL_26:
     }
     P = v11;
     if ( (v8 & 0xFFFFFFFFFFFFF000uLL) != 0x7FFE0000
-      && ((v8 & 0xFFFFFFFFFFFFF000uLL) != qword_140E2D638 || !qword_140E2D638)
+      && ((v8 & 0xFFFFFFFFFFFFF000uLL) != qword_140E2D7B8 || !qword_140E2D7B8)
       || (v25 = *(_QWORD *)(v3 + 80), LOBYTE(v33) = 1, (*(_DWORD *)(v25 + 1532) & 1) != 0) )
     {
       LOBYTE(v33) = 0;

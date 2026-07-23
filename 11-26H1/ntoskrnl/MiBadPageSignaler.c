@@ -1,23 +1,23 @@
 /*
- * XREFs of MiBadPageSignaler @ 0x1406F0C70
+ * XREFs of MiBadPageSignaler @ 0x1406F58E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
-__int64 MiBadPageSignaler()
+NTSTATUS MiBadPageSignaler()
 {
   KIRQL v0; // al
 
-  v0 = ExAcquireSpinLockExclusive(&dword_140E399E0);
-  HIBYTE(stru_140E2EB88.AffinityPrimaryGroup) = 0;
+  v0 = ExAcquireSpinLockExclusive(&dword_140E39B60);
+  HIBYTE(stru_140E2ED08.AffinityPrimaryGroup) = 0;
   if ( v0 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E399E0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E39B60);
   else
-    ExReleaseSpinLockExclusive(&dword_140E399E0, v0);
-  return ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_QUARANTINED, 0LL, 0LL, 0LL, 0LL, 0, 0);
+    ExReleaseSpinLockExclusive(&dword_140E39B60, v0);
+  return ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_QUARANTINED, 0LL, 0, 0LL, 0LL, 0, 0);
 }

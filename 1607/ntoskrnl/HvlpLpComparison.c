@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlpLpComparison @ 0x1401BBB3C
+ * XREFs of HvlpLpComparison @ 0x1401BBA20
  * Callers:
- *     HvlpSelectLpSet @ 0x1401BBDC8 (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x1401BC21C (HvlpSelectVpSet.c)
+ *     HvlpSelectLpSet @ 0x1401BBCAC (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x1401BC100 (HvlpSelectVpSet.c)
  * Callees:
  *     <none>
  */

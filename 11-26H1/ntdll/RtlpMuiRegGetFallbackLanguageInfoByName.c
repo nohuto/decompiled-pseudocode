@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010EB40
+ * XREFs of RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010E690
  * Callers:
- *     RtlGetUILanguageInfo @ 0x18000A1D0 (RtlGetUILanguageInfo.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x18010AC8C (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
- *     RtlpAutoCompleteLanguageFallback @ 0x180141F20 (RtlpAutoCompleteLanguageFallback.c)
+ *     RtlGetUILanguageInfo @ 0x180055900 (RtlGetUILanguageInfo.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x18010A5FC (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
+ *     RtlpAutoCompleteLanguageFallback @ 0x180141E20 (RtlpAutoCompleteLanguageFallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlpMuiRegGetOrAddString @ 0x180002080 (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x18010AC8C (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x18004D7B0 (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x18010A5FC (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByName(
         __int64 a1,
         __int64 a2,
-        const WCHAR *a3,
+        const wchar_t *a3,
         char a4,
         __int64 a5)
 {
@@ -27,11 +27,11 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByName(
   __int64 v15; // rcx
   __int64 v16; // rax
   __int64 result; // rax
-  int v18; // [rsp+30h] [rbp-38h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
+  DWORD Lcid; // [rsp+30h] [rbp-38h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
   __int16 v20; // [rsp+70h] [rbp+8h] BYREF
 
-  v18 = 0;
+  Lcid = 0;
   v20 = 0;
   DestinationString = 0LL;
   if ( !a1 )
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByName(
   v9 = a5;
   if ( !a5 )
     return 3221225485LL;
-  if ( (int)RtlpMuiRegGetOrAddString(a1, (__int64)a3, 0, &v20) >= 0 )
+  if ( (int)RtlpMuiRegGetOrAddString(a1, a3, 0, &v20) >= 0 )
   {
     v10 = v20;
     v11 = 0;
@@ -76,10 +76,10 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByName(
     }
   }
   if ( a4
-    && (RtlInitUnicodeString(&DestinationString, a3), RtlCultureNameToLCID(&DestinationString.Length, &v18))
-    && v18 != 4096 )
+    && (RtlInitUnicodeString(&DestinationString, a3), RtlCultureNameToLCID(&DestinationString, &Lcid))
+    && Lcid != 4096 )
   {
-    return RtlpMuiRegGetFallbackLanguageInfoByLangId(a1, a2, v18, 0, v9);
+    return RtlpMuiRegGetFallbackLanguageInfoByLangId(a1, a2, Lcid, 0, v9);
   }
   else
   {

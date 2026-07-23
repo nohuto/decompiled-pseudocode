@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCopySyncTree2 @ 0x140878590
+ * XREFs of CmpCopySyncTree2 @ 0x1408786F0
  * Callers:
- *     CmpCopySyncTree @ 0x1408784E4 (CmpCopySyncTree.c)
+ *     CmpCopySyncTree @ 0x140878644 (CmpCopySyncTree.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
- *     CmpAddSubKeyEx @ 0x140668BE4 (CmpAddSubKeyEx.c)
- *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
- *     CmpCopyKeyPartial @ 0x14076F88C (CmpCopyKeyPartial.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1407AC8F8 (CmpFindSubKeyByNameWithStatus.c)
- *     CmpInitializeKeyNameString @ 0x140879188 (CmpInitializeKeyNameString.c)
- *     CmpMarkKeyParentDirty @ 0x140879204 (CmpMarkKeyParentDirty.c)
- *     CmpMergeKeyValues @ 0x140879480 (CmpMergeKeyValues.c)
- *     CmpSyncKeyValues @ 0x140879E2C (CmpSyncKeyValues.c)
- *     CmpSyncSubKeysAfterDelete @ 0x14087A268 (CmpSyncSubKeysAfterDelete.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpAddSubKeyEx @ 0x14065DA04 (CmpAddSubKeyEx.c)
+ *     CmpFindSubKeyByNumber @ 0x1406E2C40 (CmpFindSubKeyByNumber.c)
+ *     HvpMarkCellDirty @ 0x14071F800 (HvpMarkCellDirty.c)
+ *     CmpCopyKeyPartial @ 0x14076FA4C (CmpCopyKeyPartial.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407ACAF8 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpInitializeKeyNameString @ 0x1408792E8 (CmpInitializeKeyNameString.c)
+ *     CmpMarkKeyParentDirty @ 0x140879364 (CmpMarkKeyParentDirty.c)
+ *     CmpMergeKeyValues @ 0x1408795E0 (CmpMergeKeyValues.c)
+ *     CmpSyncKeyValues @ 0x140879F8C (CmpSyncKeyValues.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x14087A3C8 (CmpSyncSubKeysAfterDelete.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpCopySyncTree2(

@@ -20,7 +20,7 @@ PVOID __stdcall RtlLookupElementGenericTableFullAvl(
         TABLE_SEARCH_RESULT *SearchResult)
 {
   _RTL_BALANCED_LINKS *i; // rbx
-  _RTL_GENERIC_COMPARE_RESULTS (__fastcall *CompareRoutine)(_RTL_AVL_TABLE *, void *, void *); // rax
+  RTL_GENERIC_COMPARE_RESULTS (__cdecl *CompareRoutine)(_RTL_AVL_TABLE *, PVOID, PVOID); // rax
   _RTL_BALANCED_LINKS *v10; // r8
   RTL_GENERIC_COMPARE_RESULTS v11; // eax
 
@@ -30,9 +30,9 @@ PVOID __stdcall RtlLookupElementGenericTableFullAvl(
     {
       while ( 1 )
       {
-        CompareRoutine = Table->CompareRoutine;
+        CompareRoutine = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))Table->CompareRoutine;
         v10 = i + 1;
-        if ( (char *)CompareRoutine == (char *)PiDmCompareObjects )
+        if ( CompareRoutine == PiDmCompareObjects )
         {
           v11 = PiDmCompareObjects(Table, Buffer, v10);
         }
@@ -42,7 +42,7 @@ PVOID __stdcall RtlLookupElementGenericTableFullAvl(
         }
         else
         {
-          v11 = (char *)CompareRoutine == (char *)PiPnpRtlObjectEventCompareObjects
+          v11 = CompareRoutine == PiPnpRtlObjectEventCompareObjects
               ? PiPnpRtlObjectEventCompareObjects(Table, Buffer, v10)
               : (unsigned int)guard_dispatch_icall_no_overrides(Table, Buffer);
         }

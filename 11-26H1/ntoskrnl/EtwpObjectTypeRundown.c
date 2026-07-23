@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpObjectTypeRundown @ 0x14082F85C
+ * XREFs of EtwpObjectTypeRundown @ 0x140835A9C
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A70518 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A99DCC (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryObject @ 0x1407235F0 (ZwQueryObject.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryObject @ 0x1407281C0 (ZwQueryObject.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpObjectTypeRundown(__int64 a1, char a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceSchedulingGroupRundown @ 0x14064DF8C
+ * XREFs of EtwTraceSchedulingGroupRundown @ 0x14064C59C
  * Callers:
- *     ?KiLogSingleSchedulingGroupRundown@@YAXPEAU_ETW_SILODRIVERSTATE@@KPEAU_KSCHEDULING_GROUP@@@Z @ 0x1405C7634 (-KiLogSingleSchedulingGroupRundown@@YAXPEAU_ETW_SILODRIVERSTATE@@KPEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     ?KiLogSingleSchedulingGroupRundown@@YAXPEAU_ETW_SILODRIVERSTATE@@KPEAU_KSCHEDULING_GROUP@@@Z @ 0x1405C4D64 (-KiLogSingleSchedulingGroupRundown@@YAXPEAU_ETW_SILODRIVERSTATE@@KPEAU_KSCHEDULING_GROUP@@@Z.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     EtwpConstructSchedulingGroupEvent @ 0x14064E498 (EtwpConstructSchedulingGroupEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     EtwpConstructSchedulingGroupEvent @ 0x14064CAA8 (EtwpConstructSchedulingGroupEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall EtwTraceSchedulingGroupRundown(__int64 a1, __int64 a2, __int64 a3)

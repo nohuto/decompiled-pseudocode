@@ -1,49 +1,49 @@
 /*
- * XREFs of PiCMHandleIoctl @ 0x1408C3A00
+ * XREFs of PiCMHandleIoctl @ 0x1408C13C0
  * Callers:
- *     PiCMFastIoDeviceDispatch @ 0x1408C3290 (PiCMFastIoDeviceDispatch.c)
+ *     PiCMFastIoDeviceDispatch @ 0x1408C0C50 (PiCMFastIoDeviceDispatch.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiCMDeleteDeviceInterfaceKey @ 0x1406F82B8 (PiCMDeleteDeviceInterfaceKey.c)
- *     PiCMCreateObject @ 0x1406F83C0 (PiCMCreateObject.c)
- *     PiCMDeleteDevice @ 0x1406F8578 (PiCMDeleteDevice.c)
- *     PiCMGetDeviceInterfaceAlias @ 0x1408B58C0 (PiCMGetDeviceInterfaceAlias.c)
- *     PiCMGetDeviceStatus @ 0x1408BD37C (PiCMGetDeviceStatus.c)
- *     PiCMGetObjectList @ 0x1408BE080 (PiCMGetObjectList.c)
- *     PiCMValidateDeviceInstance @ 0x1408BE2FC (PiCMValidateDeviceInstance.c)
- *     PiCMGetRelatedDeviceInstance @ 0x1408BE750 (PiCMGetRelatedDeviceInstance.c)
- *     PiCMCapturePropertyInputData @ 0x1408C5220 (PiCMCapturePropertyInputData.c)
- *     PiCMReturnBufferResultData @ 0x1408C5620 (PiCMReturnBufferResultData.c)
- *     PiCMCaptureRegistryPropertyInputData @ 0x1408C5760 (PiCMCaptureRegistryPropertyInputData.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectPropertyWorker @ 0x1408CD660 (_PnpGetObjectPropertyWorker.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiCMOpenClassKey @ 0x140963498 (PiCMOpenClassKey.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x14096372C (PiCMOpenDeviceInterfaceKey.c)
- *     PiCMOpenDeviceKey @ 0x1409638F0 (PiCMOpenDeviceKey.c)
- *     PiCMOpenObjectKey @ 0x140963AF8 (PiCMOpenObjectKey.c)
- *     PiCMEnumerateSubKeys @ 0x14099245C (PiCMEnumerateSubKeys.c)
- *     _CmGetInstallerClassRegProp @ 0x14099405C (_CmGetInstallerClassRegProp.c)
- *     PiCMSetRegistryProperty @ 0x14099B0D8 (PiCMSetRegistryProperty.c)
- *     PiCMSetObjectProperty @ 0x1409F75AC (PiCMSetObjectProperty.c)
- *     PiCMGetDeviceInterfaceList @ 0x1409FE7EC (PiCMGetDeviceInterfaceList.c)
- *     PiCMGetDeviceIdList @ 0x140A19E98 (PiCMGetDeviceIdList.c)
- *     PiCMGetObjectPropertyKeys @ 0x140A65294 (PiCMGetObjectPropertyKeys.c)
- *     PiCMRegisterDeviceInterface @ 0x140A6E630 (PiCMRegisterDeviceInterface.c)
- *     PiCMGetDeviceDepth @ 0x140A7FAEC (PiCMGetDeviceDepth.c)
- *     PiCMDeviceAction @ 0x140A85618 (PiCMDeviceAction.c)
- *     PiCMCreateDevice @ 0x140AB4970 (PiCMCreateDevice.c)
- *     PiCMQueryRemove @ 0x140ABB70C (PiCMQueryRemove.c)
- *     PiCMDeleteDeviceKey @ 0x140ABCF28 (PiCMDeleteDeviceKey.c)
- *     PiCMUnregisterDeviceInterface @ 0x140AC00A8 (PiCMUnregisterDeviceInterface.c)
- *     PiCMDeleteClassKey @ 0x140AC0780 (PiCMDeleteClassKey.c)
- *     PiCMDeleteObject @ 0x140AC08B0 (PiCMDeleteObject.c)
- *     PiCMSetDeviceProblem @ 0x140AC10B0 (PiCMSetDeviceProblem.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiCMDeleteDeviceInterfaceKey @ 0x1406F62B8 (PiCMDeleteDeviceInterfaceKey.c)
+ *     PiCMCreateObject @ 0x1406F63C0 (PiCMCreateObject.c)
+ *     PiCMDeleteDevice @ 0x1406F6578 (PiCMDeleteDevice.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x1408B31B0 (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetDeviceStatus @ 0x1408BACCC (PiCMGetDeviceStatus.c)
+ *     PiCMGetObjectList @ 0x1408BB9D0 (PiCMGetObjectList.c)
+ *     PiCMValidateDeviceInstance @ 0x1408BBC4C (PiCMValidateDeviceInstance.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1408BC0A0 (PiCMGetRelatedDeviceInstance.c)
+ *     PiCMCapturePropertyInputData @ 0x1408C2BE0 (PiCMCapturePropertyInputData.c)
+ *     PiCMReturnBufferResultData @ 0x1408C3020 (PiCMReturnBufferResultData.c)
+ *     PiCMCaptureRegistryPropertyInputData @ 0x1408C3160 (PiCMCaptureRegistryPropertyInputData.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1408CB050 (_PnpGetObjectPropertyWorker.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiCMOpenClassKey @ 0x14094AF58 (PiCMOpenClassKey.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x14094B1EC (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceKey @ 0x14094B3B0 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenObjectKey @ 0x14094B5B8 (PiCMOpenObjectKey.c)
+ *     PiCMEnumerateSubKeys @ 0x14097D49C (PiCMEnumerateSubKeys.c)
+ *     _CmGetInstallerClassRegProp @ 0x14097F09C (_CmGetInstallerClassRegProp.c)
+ *     PiCMSetRegistryProperty @ 0x1409CD848 (PiCMSetRegistryProperty.c)
+ *     PiCMSetObjectProperty @ 0x1409EFF1C (PiCMSetObjectProperty.c)
+ *     PiCMGetDeviceInterfaceList @ 0x1409FF400 (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetDeviceIdList @ 0x140A15D5C (PiCMGetDeviceIdList.c)
+ *     PiCMGetObjectPropertyKeys @ 0x140A5DA64 (PiCMGetObjectPropertyKeys.c)
+ *     PiCMRegisterDeviceInterface @ 0x140A79094 (PiCMRegisterDeviceInterface.c)
+ *     PiCMGetDeviceDepth @ 0x140A7A54C (PiCMGetDeviceDepth.c)
+ *     PiCMDeviceAction @ 0x140A80158 (PiCMDeviceAction.c)
+ *     PiCMCreateDevice @ 0x140AB39A4 (PiCMCreateDevice.c)
+ *     PiCMQueryRemove @ 0x140AB672C (PiCMQueryRemove.c)
+ *     PiCMDeleteDeviceKey @ 0x140AB7F94 (PiCMDeleteDeviceKey.c)
+ *     PiCMUnregisterDeviceInterface @ 0x140ABB188 (PiCMUnregisterDeviceInterface.c)
+ *     PiCMDeleteClassKey @ 0x140ABB8E4 (PiCMDeleteClassKey.c)
+ *     PiCMDeleteObject @ 0x140ABBA14 (PiCMDeleteObject.c)
+ *     PiCMSetDeviceProblem @ 0x140ABC210 (PiCMSetDeviceProblem.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMHandleIoctl(
@@ -215,7 +215,7 @@ __int64 __fastcall PiCMHandleIoctl(
     {
       if ( a4 != 20 )
       {
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, a4 - 20, 0x34706E50u);
         if ( !Pool2 )
         {
           v20 = -1073741670;
@@ -468,7 +468,7 @@ LABEL_18:
 LABEL_50:
     if ( a4 != 20 )
     {
-      v12 = (void *)ExAllocatePool2(0x100uLL);
+      v12 = (void *)ExAllocatePool2(0x100uLL, a4 - 20, 0x34706E50u);
       if ( !v12 )
       {
         v15 = -1073741670;
@@ -495,7 +495,7 @@ LABEL_50:
       if ( v25 == PiPnpRtlObjectActionCallback )
         v26 = PiPnpRtlObjectActionCallback(*(_QWORD *)&PiPnpRtlCtx, v13, v14, 8LL, 1, v37);
       else
-        v26 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, v13, v14, 8LL);
+        v26 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, v13);
       if ( v26 == -1073741822 )
       {
         v24 = v35;
@@ -541,7 +541,7 @@ LABEL_119:
     LODWORD(v37[0]) = ObjectPropertyWorker;
     v29 = v27 == PiPnpRtlObjectActionCallback
         ? PiPnpRtlObjectActionCallback(v35, v34, v14, 8LL, 2, v37)
-        : guard_dispatch_icall_no_overrides(v35, v34, v14, 8LL);
+        : guard_dispatch_icall_no_overrides(v35, v34);
     switch ( v29 )
     {
       case -1073741822:

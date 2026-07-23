@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLoadFileSystemDriver @ 0x140706E1C
+ * XREFs of IopLoadFileSystemDriver @ 0x1407080BC
  * Callers:
- *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
+ *     IopMountVolume @ 0x1405A3E64 (IopMountVolume.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IopDecrementDeviceObjectRef @ 0x1400B8C20 (IopDecrementDeviceObjectRef.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
+ *     IopDecrementDeviceObjectRef @ 0x1400B8B60 (IopDecrementDeviceObjectRef.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDD10 (IoBuildDeviceIoControlRequest.c)
  */
 
 __int64 __fastcall IopLoadFileSystemDriver(struct _DEVICE_OBJECT *BugCheckParameter2)

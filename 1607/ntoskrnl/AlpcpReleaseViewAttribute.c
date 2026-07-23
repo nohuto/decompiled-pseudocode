@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpReleaseViewAttribute @ 0x1404B5BFC
+ * XREFs of AlpcpReleaseViewAttribute @ 0x14049FFDC
  * Callers:
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x140409294 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcMessageDestroyProcedure @ 0x140448980 (AlpcMessageDestroyProcedure.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     AlpcpReleaseAttributes @ 0x1404B55C8 (AlpcpReleaseAttributes.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x140408154 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcMessageDestroyProcedure @ 0x140447850 (AlpcMessageDestroyProcedure.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     AlpcpReleaseAttributes @ 0x14049F9A8 (AlpcpReleaseAttributes.c)
  * Callees:
- *     AlpcpLockForCachedReferenceBlob @ 0x14040B470 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14050E530 (AlpcpUnlockBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14040A330 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1404F14C0 (AlpcpUnlockBlob.c)
  */
 
 unsigned __int64 __fastcall AlpcpReleaseViewAttribute(ULONG_PTR BugCheckParameter2)

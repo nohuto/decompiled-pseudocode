@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpDmaZeroMapBuffers @ 0x14054F91C
+ * XREFs of HalpDmaZeroMapBuffers @ 0x14054D25C
  * Callers:
- *     IopMapTransfer @ 0x14038DCD0 (IopMapTransfer.c)
- *     HalpAllocateAdapterCallbackV2 @ 0x14038ED80 (HalpAllocateAdapterCallbackV2.c)
- *     IoMapTransferInternal @ 0x140390384 (IoMapTransferInternal.c)
- *     HalpMapTransferV3 @ 0x140493590 (HalpMapTransferV3.c)
+ *     IopMapTransfer @ 0x140387610 (IopMapTransfer.c)
+ *     HalpAllocateAdapterCallbackV2 @ 0x1403886C0 (HalpAllocateAdapterCallbackV2.c)
+ *     IoMapTransferInternal @ 0x140389CC4 (IoMapTransferInternal.c)
+ *     HalpMapTransferV3 @ 0x14048DEC0 (HalpMapTransferV3.c)
  * Callees:
- *     HalpDmaAcquireBufferMappings @ 0x1403902DC (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaReleaseBufferMappings @ 0x14045A854 (HalpDmaReleaseBufferMappings.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpDmaAcquireBufferMappings @ 0x140389C1C (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x14044FCA4 (HalpDmaReleaseBufferMappings.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall HalpDmaZeroMapBuffers(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

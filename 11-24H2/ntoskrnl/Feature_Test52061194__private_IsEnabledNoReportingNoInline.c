@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_Test52061194__private_IsEnabledNoReportingNoInline @ 0x140441B90
+ * XREFs of Feature_Test52061194__private_IsEnabledNoReportingNoInline @ 0x140435A90
  * Callers:
- *     HalpScanForProfilingCorruptionInternal @ 0x1404419E4 (HalpScanForProfilingCorruptionInternal.c)
- *     HalpPerfInterrupt @ 0x140441AF0 (HalpPerfInterrupt.c)
- *     HalpCollectProfileOwnershipStatusInternal @ 0x14054574C (HalpCollectProfileOwnershipStatusInternal.c)
- *     HalpCollectSamplingProfileCorruptionStatusInternal @ 0x140545A2C (HalpCollectSamplingProfileCorruptionStatusInternal.c)
+ *     HalpScanForProfilingCorruptionInternal @ 0x1404358DC (HalpScanForProfilingCorruptionInternal.c)
+ *     HalpPerfInterrupt @ 0x1404359F0 (HalpPerfInterrupt.c)
+ *     HalpCollectProfileOwnershipStatusInternal @ 0x14054300C (HalpCollectProfileOwnershipStatusInternal.c)
+ *     HalpCollectSamplingProfileCorruptionStatusInternal @ 0x1405432EC (HalpCollectSamplingProfileCorruptionStatusInternal.c)
  * Callees:
- *     Feature_Test52061194__private_IsEnabledFallback @ 0x1404F668C (Feature_Test52061194__private_IsEnabledFallback.c)
+ *     Feature_Test52061194__private_IsEnabledFallback @ 0x1404F3F70 (Feature_Test52061194__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Test52061194__private_IsEnabledNoReportingNoInline()

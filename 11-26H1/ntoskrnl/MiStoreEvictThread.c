@@ -1,23 +1,23 @@
 /*
- * XREFs of MiStoreEvictThread @ 0x1404B0390
+ * XREFs of MiStoreEvictThread @ 0x1404A9A20
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KeDisableTimer2 @ 0x1403AA104 (KeDisableTimer2.c)
- *     MiStoreEvictPageFile @ 0x14040B5E0 (MiStoreEvictPageFile.c)
- *     KiInitializeTimer2 @ 0x140456EEC (KiInitializeTimer2.c)
- *     MiStoreAttemptContractPageFile @ 0x1404E5434 (MiStoreAttemptContractPageFile.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KeDisableTimer2 @ 0x1403B3D14 (KeDisableTimer2.c)
+ *     MiStoreEvictPageFile @ 0x140404A30 (MiStoreEvictPageFile.c)
+ *     KiInitializeTimer2 @ 0x14044E75C (KiInitializeTimer2.c)
+ *     MiStoreAttemptContractPageFile @ 0x1404DE9D4 (MiStoreAttemptContractPageFile.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiStoreEvictThread(_DWORD *P)

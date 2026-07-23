@@ -9,25 +9,32 @@
  *     RtlpGuardIsSuppressedImageRva @ 0x1800E588C (RtlpGuardIsSuppressedImageRva.c)
  */
 
-char __fastcall RtlpGuardIsSuppressedAddress(unsigned __int64 a1)
+char __fastcall RtlpGuardIsSuppressedAddress(PVOID BaseAddress)
 {
-  unsigned int *v2; // rax
-  unsigned int *v3; // rcx
-  unsigned int v4; // eax
-  unsigned __int64 v6; // [rsp+30h] [rbp-28h]
-  char v7; // [rsp+40h] [rbp-18h]
-  int v8; // [rsp+68h] [rbp+10h] BYREF
+  int v2; // ebx
+  unsigned int *v3; // rax
+  unsigned int *v4; // rcx
+  unsigned int v5; // eax
+  PVOID BaseOfImage[2]; // [rsp+30h] [rbp-28h] BYREF
+  char v8; // [rsp+40h] [rbp-18h]
+  ULONG Size; // [rsp+68h] [rbp+10h] BYREF
 
-  if ( (int)ZwQueryVirtualMemory() >= 0
-    && v6
-    && (v7 & 2) == 0
-    && (v7 & 1) == 0
-    && a1 >= v6
-    && (v2 = (unsigned int *)RtlImageDirectoryEntryToData(v6, 1, 0xAu, &v8), (v3 = v2) != 0LL)
-    && (v4 = *v2, v8 == v4)
-    && v4 >= 0x94 )
+  if ( ZwQueryVirtualMemory(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         BaseAddress,
+         MemoryImageInformation,
+         BaseOfImage,
+         0x18uLL,
+         0LL) >= 0
+    && (v2 = (int)BaseOfImage[0], BaseOfImage[0])
+    && (v8 & 2) == 0
+    && (v8 & 1) == 0
+    && BaseAddress >= BaseOfImage[0]
+    && (v3 = (unsigned int *)RtlImageDirectoryEntryToData(BaseOfImage[0], 1u, 0xAu, &Size), (v4 = v3) != 0LL)
+    && (v5 = *v3, Size == v5)
+    && v5 >= 0x94 )
   {
-    return RtlpGuardIsSuppressedImageRva(v3, (unsigned int)(a1 - v6));
+    return RtlpGuardIsSuppressedImageRva(v4, (unsigned int)((_DWORD)BaseAddress - v2));
   }
   else
   {

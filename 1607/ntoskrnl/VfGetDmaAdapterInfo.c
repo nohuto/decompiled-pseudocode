@@ -1,9 +1,9 @@
 /*
- * XREFs of VfGetDmaAdapterInfo @ 0x140707540
+ * XREFs of VfGetDmaAdapterInfo @ 0x140707570
  * Callers:
  *     <none>
  * Callees:
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfGetDmaAdapterInfo(__int64 a1, __int64 a2)

@@ -1,28 +1,30 @@
 /*
- * XREFs of AlpcInitializeMessageAttribute @ 0x14032BA50
+ * XREFs of AlpcInitializeMessageAttribute @ 0x14032BCE0
  * Callers:
- *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x140419F14 (CmFcpSendFeatureUsageReportAlpcMessage.c)
- *     PopUmpoProcessMessages @ 0x1407A6948 (PopUmpoProcessMessages.c)
- *     SshpAlpcMessageCallback @ 0x14084C440 (SshpAlpcMessageCallback.c)
- *     DbgkpSendErrorMessage @ 0x14093A27C (DbgkpSendErrorMessage.c)
+ *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x14041A2A4 (CmFcpSendFeatureUsageReportAlpcMessage.c)
+ *     PopUmpoProcessMessages @ 0x1407A6B38 (PopUmpoProcessMessages.c)
+ *     SshpAlpcMessageCallback @ 0x14084C740 (SshpAlpcMessageCallback.c)
+ *     DbgkpSendErrorMessage @ 0x14093A47C (DbgkpSendErrorMessage.c)
  * Callees:
- *     AlpcGetHeaderSize @ 0x14032BAB0 (AlpcGetHeaderSize.c)
+ *     AlpcGetHeaderSize @ 0x14032BD40 (AlpcGetHeaderSize.c)
  */
 
-__int64 __fastcall AlpcInitializeMessageAttribute(__int64 a1, _DWORD *a2, unsigned __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl AlpcInitializeMessageAttribute(
+        ULONG AttributeFlags,
+        PALPC_MESSAGE_ATTRIBUTES Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T RequiredBufferSize)
 {
-  int v7; // ebp
-  unsigned int HeaderSize; // eax
+  ULONG HeaderSize; // eax
 
-  v7 = a1;
-  HeaderSize = AlpcGetHeaderSize(a1);
-  *a4 = HeaderSize;
-  if ( HeaderSize > a3 )
-    return 3221225507LL;
-  if ( a2 )
+  HeaderSize = AlpcGetHeaderSize(AttributeFlags);
+  *RequiredBufferSize = HeaderSize;
+  if ( HeaderSize > BufferSize )
+    return -1073741789;
+  if ( Buffer )
   {
-    a2[1] = 0;
-    *a2 = v7;
+    Buffer->ValidAttributes = 0;
+    Buffer->AllocatedAttributes = AttributeFlags;
   }
-  return 0LL;
+  return 0;
 }

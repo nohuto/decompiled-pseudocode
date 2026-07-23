@@ -1,27 +1,25 @@
 /*
- * XREFs of AslFileMappingEnsure @ 0x1406C582C
+ * XREFs of AslFileMappingEnsure @ 0x1406C5964
  * Callers:
- *     AslFileMappingGetFileKindDetail @ 0x1406C59F0 (AslFileMappingGetFileKindDetail.c)
- *     AslFileMappingGetImageTypeEx @ 0x1406C5BB4 (AslFileMappingGetImageTypeEx.c)
- *     AslFileAllocAndGetAttributes @ 0x1406C6A84 (AslFileAllocAndGetAttributes.c)
- *     AslpFileGetClrVersionAttribute @ 0x1406C747C (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x1406C7980 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetHeaderAttributesPE @ 0x1406C7B18 (AslpFileGetHeaderAttributesPE.c)
- *     AslpFileGetPeExportNameExeWrapper @ 0x1406C7F0C (AslpFileGetPeExportNameExeWrapper.c)
- *     AslpFileGetVersionBlock @ 0x1406C80D4 (AslpFileGetVersionBlock.c)
+ *     AslFileMappingGetFileKindDetail @ 0x1406C5B28 (AslFileMappingGetFileKindDetail.c)
+ *     AslFileMappingGetImageTypeEx @ 0x1406C5CEC (AslFileMappingGetImageTypeEx.c)
+ *     AslFileAllocAndGetAttributes @ 0x1406C6BBC (AslFileAllocAndGetAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x1406C75B4 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x1406C7AB8 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x1406C7C50 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x1406C8044 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileGetVersionBlock @ 0x1406C820C (AslpFileGetVersionBlock.c)
  * Callees:
- *     RtlFileMapMapView @ 0x140233920 (RtlFileMapMapView.c)
- *     AslpFileMappingGetFileKind @ 0x140571414 (AslpFileMappingGetFileKind.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     RtlFileMapMapView @ 0x14023374C (RtlFileMapMapView.c)
+ *     AslpFileMappingGetFileKind @ 0x140571954 (AslpFileMappingGetFileKind.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslFileMappingEnsure(__int64 a1)
 {
-  int v3; // edi
+  int FileKind; // edi
   int *v4; // rsi
   _QWORD *v5; // rbp
-  int FileKind; // eax
-  int v7; // [rsp+28h] [rbp-10h]
 
   if ( *(_DWORD *)(a1 + 592) )
   {
@@ -41,8 +39,8 @@ __int64 __fastcall AslFileMappingEnsure(__int64 a1)
       if ( *(_DWORD *)(a1 + 576) == 1 )
         return 3221225758LL;
       v5 = (_QWORD *)(a1 + 520);
-      v3 = RtlFileMapMapView(a1 + 520, 0);
-      if ( v3 >= 0 )
+      FileKind = RtlFileMapMapView(a1 + 520, 0);
+      if ( FileKind >= 0 )
       {
         if ( *(_BYTE *)(a1 + 571) )
         {
@@ -51,22 +49,14 @@ __int64 __fastcall AslFileMappingEnsure(__int64 a1)
         else
         {
           FileKind = AslpFileMappingGetFileKind(v5, v4);
-          v3 = FileKind;
           if ( FileKind < 0 )
           {
-            v7 = FileKind;
-            AslLogCallPrintf(
-              1LL,
-              (unsigned int)"AslFileMappingEnsure",
-              591,
-              (unsigned int)"AslpFileMappingGetFileKind failed %S [%x]",
-              a1,
-              v7);
+            AslLogCallPrintf(1LL);
             *v4 = 3;
           }
         }
       }
     }
-    return (unsigned int)v3;
+    return (unsigned int)FileKind;
   }
 }

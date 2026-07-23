@@ -266,7 +266,7 @@ LABEL_44:
   v20 = (wchar_t *)(v7 + 2);
   do
   {
-    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v19, MemorySectionName, v18, 0x218uLL, 0LL) < 0
+    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v19, MemoryMappedFilenameInformation, v18, 0x218uLL, 0LL) < 0
       || *(_WORD *)v18 <= 1u )
     {
       goto LABEL_40;

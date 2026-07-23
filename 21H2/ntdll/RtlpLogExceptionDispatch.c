@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpLogExceptionDispatch @ 0x180100D58
+ * XREFs of RtlpLogExceptionDispatch @ 0x180100D18
  * Callers:
  *     RtlDispatchException @ 0x180052310 (RtlDispatchException.c)
  * Callees:

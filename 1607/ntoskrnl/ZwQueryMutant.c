@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryMutant @ 0x14015C4C0
+ * XREFs of ZwQueryMutant @ 0x14015CA30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryMutant(
         HANDLE MutantHandle,
         MUTANT_INFORMATION_CLASS MutantInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryMutant(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(MutantHandle, *(_QWORD *)&MutantInformationClass, MutantInformation);
+  return KiServiceInternal(MutantHandle);
 }

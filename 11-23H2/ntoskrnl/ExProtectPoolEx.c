@@ -1,15 +1,15 @@
 /*
- * XREFs of ExProtectPoolEx @ 0x140296E5C
+ * XREFs of ExProtectPoolEx @ 0x1402970EC
  * Callers:
- *     CmpProtectPoolEx @ 0x140296E44 (CmpProtectPoolEx.c)
- *     CmpProtectPool @ 0x14036DE34 (CmpProtectPool.c)
- *     SmHpBufferProtectEx @ 0x1405CA2B4 (SmHpBufferProtectEx.c)
- *     ExProtectPool @ 0x1406078AC (ExProtectPool.c)
+ *     CmpProtectPoolEx @ 0x1402970D4 (CmpProtectPoolEx.c)
+ *     CmpProtectPool @ 0x14036DFD4 (CmpProtectPool.c)
+ *     SmHpBufferProtectEx @ 0x1405CA824 (SmHpBufferProtectEx.c)
+ *     ExProtectPool @ 0x140607DFC (ExProtectPool.c)
  * Callees:
- *     MmProtectPool @ 0x140296FC0 (MmProtectPool.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmProtectPool @ 0x140297250 (MmProtectPool.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
@@ -47,10 +47,13 @@ __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __i
   if ( !PoolBigPageTable )
   {
     ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -101,10 +104,10 @@ __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __i
   v18 = 0LL;
 LABEL_9:
   ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

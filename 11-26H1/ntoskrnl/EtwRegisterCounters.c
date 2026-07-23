@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwRegisterCounters @ 0x1408AB5A4
+ * XREFs of EtwRegisterCounters @ 0x1408B19E8
  * Callers:
- *     ExpPcwHostCallback @ 0x140841950 (ExpPcwHostCallback.c)
+ *     ExpPcwHostCallback @ 0x140847B90 (ExpPcwHostCallback.c)
  * Callees:
- *     ExpRegisterCounterSet @ 0x140841C2C (ExpRegisterCounterSet.c)
+ *     ExpRegisterCounterSet @ 0x140847E6C (ExpRegisterCounterSet.c)
  */
 
 NTSTATUS EtwRegisterCounters()

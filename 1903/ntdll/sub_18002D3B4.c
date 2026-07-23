@@ -22,77 +22,72 @@
  *     sub_1800CFA48 @ 0x1800CFA48 (sub_1800CFA48.c)
  */
 
-__int64 __fastcall sub_18002D3B4(__int64 a1, __int64 a2)
+__int64 __fastcall sub_18002D3B4(__int64 a1, _UNICODE_STRING *a2)
 {
   __int64 v3; // rbx
-  __int64 v5; // r12
-  int v6; // eax
+  unsigned __int64 v5; // r12
+  ULONG v6; // eax
   __int64 v7; // r15
   __int64 v8; // rcx
   __int64 v9; // r14
   int i; // esi
-  int v11; // eax
-  int v12; // r9d
+  NTSTATUS v11; // eax
+  __int64 v12; // r9
   int v13; // ebx
-  int v14; // eax
-  __int64 v15; // rcx
-  __int64 v16; // rcx
-  int v18; // r8d
-  int v19; // r9d
-  char *v20; // rcx
-  int v21; // r8d
-  int v22; // r9d
-  __int64 v23; // [rsp+40h] [rbp-59h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-51h] BYREF
-  __int64 v25; // [rsp+50h] [rbp-49h]
-  _QWORD v26[2]; // [rsp+58h] [rbp-41h] BYREF
-  _BYTE v27[16]; // [rsp+68h] [rbp-31h] BYREF
-  int v28; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v29; // [rsp+80h] [rbp-19h]
-  __int64 v30; // [rsp+88h] [rbp-11h]
-  int v31; // [rsp+90h] [rbp-9h]
-  __int128 v32; // [rsp+98h] [rbp-1h]
-  char v33; // [rsp+100h] [rbp+67h] BYREF
-  __int64 v34; // [rsp+108h] [rbp+6Fh]
-  char v35; // [rsp+110h] [rbp+77h] BYREF
-  char v36; // [rsp+118h] [rbp+7Fh] BYREF
+  ULONG v14; // esi
+  NTSTATUS v15; // eax
+  int v17; // r8d
+  int v18; // r9d
+  USHORT *v19; // rcx
+  int v20; // r8d
+  int v21; // r9d
+  HANDLE FileHandle; // [rsp+40h] [rbp-59h] BYREF
+  HANDLE SectionHandle; // [rsp+48h] [rbp-51h] BYREF
+  __int64 v24; // [rsp+50h] [rbp-49h]
+  unsigned __int64 Parameters[2]; // [rsp+58h] [rbp-41h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-31h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-21h] BYREF
+  char v28; // [rsp+100h] [rbp+67h] BYREF
+  _UNICODE_STRING *v29; // [rsp+108h] [rbp+6Fh]
+  char v30; // [rsp+110h] [rbp+77h] BYREF
+  ULONG Response; // [rsp+118h] [rbp+7Fh] BYREF
 
-  v34 = a2;
+  v29 = a2;
   v3 = *(_QWORD *)(a1 + 56);
-  v25 = *(_QWORD *)(a1 + 168);
+  v24 = *(_QWORD *)(a1 + 168);
   if ( !(unsigned __int8)sub_18002D594(a1, 0LL) )
   {
     v5 = v3 + 72;
     sub_1800255A8(*(_QWORD *)(v3 + 48), v3 + 72, 0x14A5u);
-    v28 = 48;
-    v29 = 0LL;
-    v30 = a2;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = a2;
     v6 = 64;
     if ( !byte_180165380 )
       v6 = 2112;
-    v31 = v6;
-    v32 = 0LL;
+    ObjectAttributes.Attributes = v6;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v7 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(2112LL) )
-      v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
       v8 = 2147353476LL;
     v9 = 2147353477LL;
     if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v20 = (unsigned int)RtlGetCurrentServiceSessionId(v8)
-          ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-          : (char *)2147353477;
-      if ( (*v20 & 0x20) != 0 )
+      v19 = RtlGetCurrentServiceSessionId()
+          ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+          : (USHORT *)2147353477;
+      if ( (*(_BYTE *)v19 & 0x20) != 0 )
       {
-        LOBYTE(v19) = -1;
         LOBYTE(v18) = -1;
-        sub_1800CFA48(5253, -1, v18, v19, 0LL, 0LL);
+        LOBYTE(v17) = -1;
+        sub_1800CFA48(5253, -1, v17, v18, 0LL, 0LL);
       }
     }
     for ( i = 0; ; i = 1 )
     {
-      v11 = ZwOpenFile(&v23, 1048609LL, &v28, v27, 5, 96);
+      v11 = ZwOpenFile(&FileHandle, 0x100021u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
       v13 = v11;
       if ( v11 >= 0 )
         break;
@@ -110,78 +105,83 @@ __int64 __fastcall sub_18002D3B4(__int64 a1, __int64 a2)
       return (unsigned int)v13;
     if ( byte_180165358 )
     {
-      v13 = sub_180082D20(a1, v23);
+      v13 = sub_180082D20(a1, FileHandle);
       if ( v13 < 0 )
       {
         if ( byte_180165310 )
-          goto LABEL_21;
+          goto LABEL_22;
       }
     }
+    v14 = 0x1000000;
     if ( (*(_DWORD *)(a1 + 32) & 0x1000000) != 0 && (NtCurrentPeb()->BitField & 0x10) == 0 )
     {
       LOBYTE(v12) = 8;
-      v13 = sub_18008BAD0(v23, *(_QWORD *)(a1 + 56), (unsigned int)&v35, v12, (__int64)&v33);
+      v13 = sub_18008BAD0(FileHandle, *(_QWORD *)(a1 + 56), &v30, v12, &v28);
       if ( v13 < 0 )
-        goto LABEL_21;
+        goto LABEL_22;
     }
-    v14 = ZwCreateSection(&v24, 13LL, 0LL);
-    v13 = v14;
-    if ( v14 < 0 )
+    if ( dword_180165428 && (*(_DWORD *)(a1 + 32) & 0x800) == 0 )
+      v14 = 17825792;
+    v15 = ZwCreateSection(&SectionHandle, 0xDu, 0LL, 0LL, 0x10u, v14, FileHandle);
+    v13 = v15;
+    if ( v15 < 0 )
     {
-      if ( v14 == -1073740702 || (unsigned int)(v14 + 1073740674) <= 1 )
+      if ( v15 == -1073740702 || (unsigned int)(v15 + 1073740674) <= 1 )
       {
-        v13 = LdrAppxHandleIntegrityFailure((unsigned int)v14);
+        v13 = LdrAppxHandleIntegrityFailure((unsigned int)v15);
       }
-      else if ( v14 != -1073741801 && v14 != -1073741670 && v14 != -1073741523 )
+      else if ( v15 != -1073741801 && v15 != -1073741670 && v15 != -1073741523 )
       {
-        v26[0] = v5;
-        v26[1] = v14;
-        if ( (int)ZwRaiseHardError(3221225595LL, 2LL, 1LL, v26, 1, &v36) >= 0 && dword_1801664E0 != 3 )
+        Parameters[0] = v5;
+        Parameters[1] = v15;
+        if ( ZwRaiseHardError(-1073741701, 2u, 1u, Parameters, 1u, &Response) >= 0 && dword_1801664E0 != 3 )
           ++dword_180164F28;
       }
       sub_18007E384((unsigned int)v13, 5253LL, 0LL, v5);
-      goto LABEL_21;
+      goto LABEL_22;
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v15) )
-      v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v16) )
-        v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+      if ( RtlGetCurrentServiceSessionId() )
+        v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
       if ( (*(_BYTE *)v9 & 0x20) != 0 )
       {
-        LOBYTE(v22) = -1;
         LOBYTE(v21) = -1;
-        sub_1800CFA48(5254, -1, v21, v22, 0LL, 0LL);
+        LOBYTE(v20) = -1;
+        sub_1800CFA48(5254, -1, v20, v21, 0LL, 0LL);
       }
     }
     if ( !dword_180165428 && (*(_DWORD *)(a1 + 32) & 0x100) == 0 )
     {
       if ( !qword_1801664F0 )
-        goto LABEL_19;
-      v13 = ((__int64 (__fastcall *)(__int64, __int64))(__ROR8__(qword_180165028, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
-              v23,
-              v34);
+        goto LABEL_20;
+      v13 = ((__int64 (__fastcall *)(HANDLE, _UNICODE_STRING *))(__ROR8__(
+                                                                   qword_180165028,
+                                                                   64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+              FileHandle,
+              v29);
       if ( v13 == -1073741275 )
         v13 = 0;
     }
     if ( v13 < 0 )
     {
-LABEL_20:
-      ZwClose(v24);
 LABEL_21:
-      ZwClose(v23);
+      ZwClose(SectionHandle);
+LABEL_22:
+      ZwClose(FileHandle);
       return (unsigned int)v13;
     }
-LABEL_19:
+LABEL_20:
     v13 = sub_180029EFC(a1);
-    if ( v25 && v13 >= 0 )
+    if ( v24 && v13 >= 0 )
     {
-      *(_QWORD *)(a1 + 176) = v23;
-      *(_QWORD *)(a1 + 24) = v24;
+      *(_QWORD *)(a1 + 176) = FileHandle;
+      *(_QWORD *)(a1 + 24) = SectionHandle;
       return (unsigned int)v13;
     }
-    goto LABEL_20;
+    goto LABEL_21;
   }
   return 3221226029LL;
 }

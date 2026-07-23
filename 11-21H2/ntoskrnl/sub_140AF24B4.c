@@ -6,7 +6,7 @@
  *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
  *     NtClose @ 0x140731D50 (NtClose.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     KeGuardDispatchICall @ 0x140AD23B0 (KeGuardDispatchICall.c)
+ *     j__guard_dispatch_icall_nop @ 0x140AD23B0 (j__guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall sub_140AF24B4(__int64 a1)

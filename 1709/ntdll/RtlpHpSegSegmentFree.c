@@ -11,31 +11,31 @@
  *     RtlpHpTlLogVAChange @ 0x180106054 (RtlpHpTlLogVAChange.c)
  */
 
-unsigned int *__fastcall RtlpHpSegSegmentFree(_DWORD *a1, unsigned __int64 a2, int a3)
+int __fastcall RtlpHpSegSegmentFree(_DWORD *a1, unsigned __int64 a2, int a3)
 {
-  unsigned int *result; // rax
+  struct _PEB *v4; // rax
   __int64 v5; // rcx
-  unsigned __int64 v6; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v7; // [rsp+48h] [rbp+20h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+20h] BYREF
 
-  v6 = a2;
+  BaseAddress = (PVOID)a2;
   if ( a3 )
     RtlCSparseBitmapBitsClear(a1, 2 * (a2 >> 20), 2 * ((unsigned __int64)(unsigned int)-*a1 >> 20));
-  v7 = 0LL;
-  ZwFreeVirtualMemory(-1LL, &v6, &v7, 0x8000LL);
+  RegionSize = 0LL;
+  ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(0x8000LL, v7, v6);
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+    RtlpHpTlLogVAChange(0x8000LL, RegionSize, BaseAddress);
+  LODWORD(v4) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v4 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v5 = *((_QWORD *)result + 18) + 558LL;
+    v4 = NtCurrentPeb();
+    v5 = (__int64)v4->SharedData + 558;
   }
   else
   {
     v5 = 2147353480LL;
   }
   if ( *(_BYTE *)v5 )
-    return (unsigned int *)RtlpHeapLogRangeRelease(a1, v6, v7);
-  return result;
+    LODWORD(v4) = RtlpHeapLogRangeRelease(a1, BaseAddress, RegionSize);
+  return (int)v4;
 }

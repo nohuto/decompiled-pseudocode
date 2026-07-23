@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIssueSynchronousFlush @ 0x1400A1798
+ * XREFs of MiIssueSynchronousFlush @ 0x1400A00C0
  * Callers:
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoSynchronousPageWriteEx @ 0x14008E368 (IoSynchronousPageWriteEx.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoSynchronousPageWriteEx @ 0x14008DAC8 (IoSynchronousPageWriteEx.c)
  */
 
 int __fastcall MiIssueSynchronousFlush(

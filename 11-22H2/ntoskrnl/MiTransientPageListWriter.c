@@ -40,10 +40,13 @@ __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int
   if ( v5 && (!v5[4] || a2 < v5[5] || a2 > v5[6]) )
     v5 = 0LL;
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67360);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

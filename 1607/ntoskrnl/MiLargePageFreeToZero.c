@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLargePageFreeToZero @ 0x14008B560
+ * XREFs of MiLargePageFreeToZero @ 0x14008AC60
  * Callers:
- *     MiZeroLargePage @ 0x14008B1C0 (MiZeroLargePage.c)
+ *     MiZeroLargePage @ 0x14008A8C0 (MiZeroLargePage.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiRemoveFaultNode @ 0x14008B878 (MiRemoveFaultNode.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiQueueLargeFreeZeroRebuild @ 0x1401FD69C (MiQueueLargeFreeZeroRebuild.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiRemoveFaultNode @ 0x14008AF78 (MiRemoveFaultNode.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiQueueLargeFreeZeroRebuild @ 0x1401FD4C8 (MiQueueLargeFreeZeroRebuild.c)
  */
 
 __int64 __fastcall MiLargePageFreeToZero(unsigned __int64 a1, unsigned int a2)
@@ -85,11 +85,11 @@ __int64 __fastcall MiLargePageFreeToZero(unsigned __int64 a1, unsigned int a2)
   --*(_QWORD *)(v9 + 8 * v21 + 848);
   _InterlockedExchangeAdd64((volatile signed __int64 *)v7 + 232, -(__int64)v5);
   v22 = 1;
-  if ( dword_140327060 == 1 )
+  if ( dword_1403270A0 == 1 )
   {
     v23 = a1 & 0x1F;
     v24 = v5;
-    v25 = (volatile signed __int32 *)(qword_140327080 + 4 * (a1 >> 5));
+    v25 = (volatile signed __int32 *)stru_1403270B8.Buffer + (a1 >> 5);
     if ( v23 + v5 > 0x20 )
     {
       if ( (a1 & 0x1F) != 0 )

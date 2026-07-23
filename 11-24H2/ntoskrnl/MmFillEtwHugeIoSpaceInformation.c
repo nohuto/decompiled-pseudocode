@@ -1,9 +1,9 @@
 /*
- * XREFs of MmFillEtwHugeIoSpaceInformation @ 0x14066905C
+ * XREFs of MmFillEtwHugeIoSpaceInformation @ 0x14066A234
  * Callers:
- *     EtwpLogMemNodeInfo @ 0x1403D3EBC (EtwpLogMemNodeInfo.c)
+ *     EtwpLogMemNodeInfo @ 0x140261E3C (EtwpLogMemNodeInfo.c)
  * Callees:
- *     MiGetNodeHugeRangeCounts @ 0x1404F9BA4 (MiGetNodeHugeRangeCounts.c)
+ *     MiGetNodeHugeRangeCounts @ 0x1404F7484 (MiGetNodeHugeRangeCounts.c)
  */
 
 __int64 __fastcall MmFillEtwHugeIoSpaceInformation(

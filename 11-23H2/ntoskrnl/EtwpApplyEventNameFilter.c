@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpApplyEventNameFilter @ 0x14046A7B6
+ * XREFs of EtwpApplyEventNameFilter @ 0x14046ABB6
  * Callers:
- *     EtwpEventWriteFull @ 0x140258570 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406F4140 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140258630 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406F4170 (EtwpWriteUserEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140429B10 (_alloca_probe.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     EtwpEventNameFilterSearch @ 0x14046AD2E (EtwpEventNameFilterSearch.c)
- *     EtwpGetEventNameFromEventMetadata @ 0x14046AFF6 (EtwpGetEventNameFromEventMetadata.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _alloca_probe @ 0x140429EA0 (_alloca_probe.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     EtwpEventNameFilterSearch @ 0x14046B12E (EtwpEventNameFilterSearch.c)
+ *     EtwpGetEventNameFromEventMetadata @ 0x14046B3F6 (EtwpGetEventNameFromEventMetadata.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -152,9 +152,9 @@ char __fastcall EtwpApplyEventNameFilter(
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         LODWORD(v22) = 4;
@@ -196,10 +196,10 @@ char __fastcall EtwpApplyEventNameFilter(
             {
               if ( a6 < 2u )
               {
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v31 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
                   {
                     CurrentPrcb = KeGetCurrentPrcb();
                     v33 = CurrentPrcb->SchedulerAssist;
@@ -207,7 +207,7 @@ char __fastcall EtwpApplyEventNameFilter(
                     v35 = (v34 & v33[5]) == 0;
                     v33[5] &= v34;
                     if ( v35 )
-                      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                      KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
                   }
                 }
                 __writecr8(CurrentIrql);
@@ -228,10 +228,10 @@ LABEL_66:
   }
   if ( a6 < 2u )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v36 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
       {
         v37 = KeGetCurrentPrcb();
         v38 = v37->SchedulerAssist;
@@ -239,7 +239,7 @@ LABEL_66:
         v35 = (v39 & v38[5]) == 0;
         v38[5] &= v39;
         if ( v35 )
-          KiRemoveSystemWorkPriorityKick(v37);
+          KiRemoveSystemWorkPriorityKick((__int64)v37);
       }
     }
     __writecr8(CurrentIrql);

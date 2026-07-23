@@ -3,7 +3,7 @@
  * Callers:
  *     RtlValidateCorrelationVector @ 0x1800F8180 (RtlValidateCorrelationVector.c)
  * Callees:
- *     RtlpGetCorrelationVectorBufferLength @ 0x180087F20 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x180087F30 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
 __int64 __fastcall RtlpGetLastContiguosBase64Position(_BYTE *a1)

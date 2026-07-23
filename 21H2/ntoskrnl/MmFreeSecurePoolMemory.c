@@ -1,15 +1,15 @@
 /*
- * XREFs of MmFreeSecurePoolMemory @ 0x140544F08
+ * XREFs of MmFreeSecurePoolMemory @ 0x140545148
  * Callers:
- *     MmAllocateSecurePoolMemory @ 0x140544DC0 (MmAllocateSecurePoolMemory.c)
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     MmAllocateSecurePoolMemory @ 0x140545000 (MmAllocateSecurePoolMemory.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     MiClearNonPagedPtes @ 0x140296238 (MiClearNonPagedPtes.c)
- *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
- *     MiCountSystemPool @ 0x14030B920 (MiCountSystemPool.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiIsSystemVaAllocated @ 0x14053D914 (MiIsSystemVaAllocated.c)
+ *     MiClearNonPagedPtes @ 0x14021AB20 (MiClearNonPagedPtes.c)
+ *     MiReturnSystemVa @ 0x140305338 (MiReturnSystemVa.c)
+ *     MiCountSystemPool @ 0x140316670 (MiCountSystemPool.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiIsSystemVaAllocated @ 0x14053DB54 (MiIsSystemVaAllocated.c)
  */
 
 __int64 __fastcall MmFreeSecurePoolMemory(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, unsigned int a3)

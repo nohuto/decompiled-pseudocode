@@ -1,16 +1,16 @@
 /*
- * XREFs of KeConfigureHeteroProcessors @ 0x1409728E8
+ * XREFs of KeConfigureHeteroProcessors @ 0x140972AE8
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeIsMultiCoreClassesEnabled @ 0x140255F40 (KeIsMultiCoreClassesEnabled.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiConfigureCpuSetSchedulingInformation @ 0x140382B90 (KiConfigureCpuSetSchedulingInformation.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140393770 (KeQueryActiveProcessorAffinity2.c)
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiComputeHgsScore @ 0x140576F50 (KiComputeHgsScore.c)
- *     KiConfigureHeteroMultiCoreProcessors @ 0x140972FC4 (KiConfigureHeteroMultiCoreProcessors.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x140256000 (KeIsMultiCoreClassesEnabled.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x140382D30 (KiConfigureCpuSetSchedulingInformation.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x140393950 (KeQueryActiveProcessorAffinity2.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiComputeHgsScore @ 0x140577440 (KiComputeHgsScore.c)
+ *     KiConfigureHeteroMultiCoreProcessors @ 0x1409731C4 (KiConfigureHeteroMultiCoreProcessors.c)
  */
 
 __int64 __fastcall KeConfigureHeteroProcessors(__int64 a1, int a2, _DWORD *a3)

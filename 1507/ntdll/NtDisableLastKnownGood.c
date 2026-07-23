@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDisableLastKnownGood()
+NTSTATUS NtDisableLastKnownGood(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 203LL;
+  result = 203;
   __asm { syscall; Low latency system call }
   return result;
 }

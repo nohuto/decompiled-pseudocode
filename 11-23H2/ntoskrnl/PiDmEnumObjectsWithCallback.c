@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDmEnumObjectsWithCallback @ 0x1407FB440
+ * XREFs of PiDmEnumObjectsWithCallback @ 0x1407FB710
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407F9F68 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmGetObjectList @ 0x1407FC058 (PiDmGetObjectList.c)
- *     PiDmListInit @ 0x140839680 (PiDmListInit.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA238 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDmGetObjectList @ 0x1407FC328 (PiDmGetObjectList.c)
+ *     PiDmListInit @ 0x140839980 (PiDmListInit.c)
  *     PpDevCfgInit @ 0x140B3FC30 (PpDevCfgInit.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1403717B0 (RtlEnumerateGenericTableLikeADirectory.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PiDmObjectRelease @ 0x1406D6B68 (PiDmObjectRelease.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1406D820C (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectIsEnumerable @ 0x1407FB5FC (PiDmObjectIsEnumerable.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x140371950 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PiDmObjectRelease @ 0x1406D6B98 (PiDmObjectRelease.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1406D823C (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectIsEnumerable @ 0x1407FB8CC (PiDmObjectIsEnumerable.c)
  */
 
 __int64 __fastcall PiDmEnumObjectsWithCallback(int a1, __int64 (__fastcall *a2)(char *, __int64, _BYTE *), __int64 a3)
@@ -47,7 +47,7 @@ __int64 __fastcall PiDmEnumObjectsWithCallback(int a1, __int64 (__fastcall *a2)(
   HIDWORD(v20[3]) = a1;
   v9 = L"\\\\?\\";
   if ( a1 != 3 )
-    v9 = &word_140887DD0;
+    v9 = &word_140888010;
   v20[2] = v9;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

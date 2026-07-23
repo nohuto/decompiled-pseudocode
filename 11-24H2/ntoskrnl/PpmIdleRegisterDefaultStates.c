@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmIdleRegisterDefaultStates @ 0x14074A2C0
+ * XREFs of PpmIdleRegisterDefaultStates @ 0x1407485F0
  * Callers:
- *     PopNewProcessorCallback @ 0x140748CF0 (PopNewProcessorCallback.c)
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PopNewProcessorCallback @ 0x140746FE0 (PopNewProcessorCallback.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x1403529A4 (PopExecuteOnTargetProcessors.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PpmHvUseNativeAlgorithms @ 0x1404B3B14 (PpmHvUseNativeAlgorithms.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x140370234 (PopExecuteOnTargetProcessors.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PpmHvUseNativeAlgorithms @ 0x1404AE364 (PpmHvUseNativeAlgorithms.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PpmIdleRegisterDefaultStates()
@@ -25,7 +25,7 @@ __int64 PpmIdleRegisterDefaultStates()
   v1 = 1LL;
   if ( !PpmHvUseNativeAlgorithms() && (HvlEnlightenments & 0x10000000) == 0 )
     v0 = (HvlEnlightenments & 0x200) != 0;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 32 * ((unsigned int)v0 + 1) + 104, 0x694D5050u);
   v3 = Pool2;
   if ( Pool2 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiLibpHandleSendInterrupt @ 0x140678940
+ * XREFs of IpmiLibpHandleSendInterrupt @ 0x140678E90
  * Callers:
- *     IpmiLibpKcsSendRequestToBMC @ 0x1406784D8 (IpmiLibpKcsSendRequestToBMC.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x140678A28 (IpmiLibpKcsSendRequestToBMC.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IpmiLibpHandleSendInterrupt(__int64 a1, __int64 a2)
@@ -13,9 +13,9 @@ __int64 __fastcall IpmiLibpHandleSendInterrupt(__int64 a1, __int64 a2)
 
   v3 = a1;
   LOBYTE(v3) = 0;
-  if ( !qword_140C2CC50 )
+  if ( !qword_140C2CC10 )
     return 3221225485LL;
-  result = qword_140C2CC50(qword_140C2CC58, &WheaIpmiContext, a2, &v3, 0LL, 0);
+  result = qword_140C2CC10(qword_140C2CC18, &WheaIpmiContext, a2, &v3, 0LL, 0);
   if ( (int)result >= 0 )
   {
     result = 3221225534LL;

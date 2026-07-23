@@ -3,8 +3,8 @@
  * Callers:
  *     BgGetContext @ 0x1407251F0 (BgGetContext.c)
  * Callees:
- *     MmAllocatePagesForMdlEx @ 0x1400AA410 (MmAllocatePagesForMdlEx.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocatePagesForMdlEx @ 0x1400A8990 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
  */
 
 __int64 __fastcall ResFwGetContext(__int64 *a1)

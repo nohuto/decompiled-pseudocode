@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpQueueReply @ 0x140A86C10
+ * XREFs of EtwpQueueReply @ 0x140A8BB90
  * Callers:
- *     EtwpSendNoReplyReply @ 0x1408288A4 (EtwpSendNoReplyReply.c)
- *     EtwpSendReplyDataBlock @ 0x140A86AC0 (EtwpSendReplyDataBlock.c)
+ *     EtwpSendNoReplyReply @ 0x14082EAE4 (EtwpSendNoReplyReply.c)
+ *     EtwpSendReplyDataBlock @ 0x140A8BA40 (EtwpSendReplyDataBlock.c)
  * Callees:
- *     KiInsertQueue @ 0x140267CA0 (KiInsertQueue.c)
- *     EtwpUnreferenceDataBlock @ 0x140939064 (EtwpUnreferenceDataBlock.c)
- *     EtwpAllocDataBlock @ 0x140939088 (EtwpAllocDataBlock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KiInsertQueue @ 0x140267210 (KiInsertQueue.c)
+ *     EtwpUnreferenceDataBlock @ 0x140914C04 (EtwpUnreferenceDataBlock.c)
+ *     EtwpAllocDataBlock @ 0x140914C28 (EtwpAllocDataBlock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpQueueReply(__int64 a1, unsigned int *a2)

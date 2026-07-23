@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIoRangeIsConstant @ 0x1404C8654
+ * XREFs of MiIoRangeIsConstant @ 0x1404C2394
  * Callers:
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
  * Callees:
- *     MiIoSpaceGetBounds @ 0x140313748 (MiIoSpaceGetBounds.c)
+ *     MiIoSpaceGetBounds @ 0x140315778 (MiIoSpaceGetBounds.c)
  */
 
 __int64 __fastcall MiIoRangeIsConstant(__int64 a1)

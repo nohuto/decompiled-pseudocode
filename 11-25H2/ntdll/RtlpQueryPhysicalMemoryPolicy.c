@@ -11,10 +11,10 @@ __int64 __fastcall RtlpQueryPhysicalMemoryPolicy(int *a1)
   unsigned __int64 v2; // rax
   bool v3; // cc
   int v4; // eax
-  int v6; // [rsp+38h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = 0;
-  if ( !RtlGetNtProductType(&v6) || v6 != 1 )
+  NtProductType = 0;
+  if ( !RtlGetNtProductType(&NtProductType) || NtProductType != NtProductWinNt )
     goto LABEL_6;
   v2 = MEMORY[0x7FFE0310];
   if ( !MEMORY[0x7FFE0310] )

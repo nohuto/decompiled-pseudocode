@@ -1,14 +1,14 @@
 /*
- * XREFs of PspEstablishDfssHierarchy @ 0x1407F8254
+ * XREFs of PspEstablishDfssHierarchy @ 0x1407FDD54
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1407F836C (PspEstablishJobHierarchy.c)
+ *     PspEstablishJobHierarchy @ 0x1407FDE6C (PspEstablishJobHierarchy.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeInsertSchedulingGroup @ 0x140444BD0 (KeInsertSchedulingGroup.c)
- *     KeRemoveSchedulingGroup @ 0x1404C61B4 (KeRemoveSchedulingGroup.c)
- *     PspGetSessionObjectByProcess @ 0x140616E28 (PspGetSessionObjectByProcess.c)
- *     PsGetSessionSchedulingGroupByProcess @ 0x140966CF4 (PsGetSessionSchedulingGroupByProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeInsertSchedulingGroup @ 0x14043D6E0 (KeInsertSchedulingGroup.c)
+ *     KeRemoveSchedulingGroup @ 0x1404BFB64 (KeRemoveSchedulingGroup.c)
+ *     PspGetSessionObjectByProcess @ 0x140619E18 (PspGetSessionObjectByProcess.c)
+ *     PsGetSessionSchedulingGroupByProcess @ 0x140AF6E00 (PsGetSessionSchedulingGroupByProcess.c)
  */
 
 LONG_PTR __fastcall PspEstablishDfssHierarchy(__int64 a1, __int64 a2, int a3)

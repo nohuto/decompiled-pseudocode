@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlDelete @ 0x14024A8A0
+ * XREFs of RtlDelete @ 0x1402E4AE0
  * Callers:
- *     FsRtlFastUnlockSingleExclusive @ 0x1402498C0 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingle @ 0x140249B60 (FsRtlFastUnlockSingle.c)
- *     FsRtlFastUnlockSingleShared @ 0x14024A1C0 (FsRtlFastUnlockSingleShared.c)
- *     RtlDeleteElementGenericTable @ 0x14024AF70 (RtlDeleteElementGenericTable.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14024D62C (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x1403DF5B8 (FsRtlRemoveNodeFromTunnel.c)
- *     PfxRemovePrefix @ 0x14077F830 (PfxRemovePrefix.c)
- *     FsRtlPruneTunnelCache @ 0x1409323F0 (FsRtlPruneTunnelCache.c)
- *     RtlRemoveUnicodePrefix @ 0x140A34440 (RtlRemoveUnicodePrefix.c)
- *     FsRtlDeleteKeyFromTunnelCache @ 0x140A43B50 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14027DC3C (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402E3B00 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingle @ 0x1402E3DA0 (FsRtlFastUnlockSingle.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1402E4400 (FsRtlFastUnlockSingleShared.c)
+ *     RtlDeleteElementGenericTable @ 0x1402E51B0 (RtlDeleteElementGenericTable.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x1403BF2A8 (FsRtlRemoveNodeFromTunnel.c)
+ *     PfxRemovePrefix @ 0x14077F760 (PfxRemovePrefix.c)
+ *     FsRtlPruneTunnelCache @ 0x140934530 (FsRtlPruneTunnelCache.c)
+ *     RtlRemoveUnicodePrefix @ 0x140A28450 (RtlRemoveUnicodePrefix.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x140A393E0 (FsRtlDeleteKeyFromTunnelCache.c)
  * Callees:
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
- *     RtlSubtreePredecessor @ 0x14024AB10 (RtlSubtreePredecessor.c)
- *     SwapSplayLinks @ 0x14024AB38 (SwapSplayLinks.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
+ *     RtlSubtreePredecessor @ 0x1402E4D50 (RtlSubtreePredecessor.c)
+ *     SwapSplayLinks @ 0x1402E4D78 (SwapSplayLinks.c)
  */
 
 PRTL_SPLAY_LINKS __stdcall RtlDelete(PRTL_SPLAY_LINKS Links)

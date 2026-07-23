@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAssemblePfnList @ 0x1404711DC
+ * XREFs of MiAssemblePfnList @ 0x140270A88
  * Callers:
- *     MiProcessPageGroupInfo @ 0x1403A2E30 (MiProcessPageGroupInfo.c)
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
+ *     MiProcessPageGroupInfo @ 0x1402709E8 (MiProcessPageGroupInfo.c)
  * Callees:
  *     <none>
  */

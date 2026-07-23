@@ -1,7 +1,7 @@
 /*
- * XREFs of VmpPrefetchForVirtualFault @ 0x1409DD59C
+ * XREFs of VmpPrefetchForVirtualFault @ 0x1409DD79C
  * Callers:
- *     VmAccessFault @ 0x1409DBFF0 (VmAccessFault.c)
+ *     VmAccessFault @ 0x1409DC1F0 (VmAccessFault.c)
  * Callees:
  *     MmPrefetchVirtualAddresses @ 0x1406819E0 (MmPrefetchVirtualAddresses.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)

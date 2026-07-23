@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpErrorDeferredHandler @ 0x1404CFCC0
+ * XREFs of HalpErrorDeferredHandler @ 0x1404CFF00
  * Callers:
  *     <none>
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     HalpMemoryErrorDeferredHandler @ 0x1404CFEAC (HalpMemoryErrorDeferredHandler.c)
- *     HalpPmemErrorDeferredHandler @ 0x1404D004C (HalpPmemErrorDeferredHandler.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x1404D00EC (HalpMemoryErrorDeferredHandler.c)
+ *     HalpPmemErrorDeferredHandler @ 0x1404D028C (HalpPmemErrorDeferredHandler.c)
  */
 
 PSLIST_ENTRY __fastcall HalpErrorDeferredHandler(__int64 a1, __int128 *a2)

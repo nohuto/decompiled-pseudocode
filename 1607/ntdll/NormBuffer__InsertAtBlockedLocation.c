@@ -1,10 +1,10 @@
 /*
  * XREFs of NormBuffer__InsertAtBlockedLocation @ 0x1800F1288
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180058890 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180058880 (Normalization__NormalizeCharacter.c)
  *     NormBuffer__AppendAndSortDecomposed @ 0x1800F1038 (NormBuffer__AppendAndSortDecomposed.c)
  * Callees:
- *     NormBuffer__AppendEx @ 0x180059054 (NormBuffer__AppendEx.c)
+ *     NormBuffer__AppendEx @ 0x180059044 (NormBuffer__AppendEx.c)
  */
 
 char __fastcall NormBuffer__InsertAtBlockedLocation(_QWORD *a1, int a2, char a3)

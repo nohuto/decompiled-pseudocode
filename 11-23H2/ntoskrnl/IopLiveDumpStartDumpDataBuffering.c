@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpStartDumpDataBuffering @ 0x140A9C538
+ * XREFs of IopLiveDumpStartDumpDataBuffering @ 0x140A9C3A8
  * Callers:
- *     IopLiveDumpCollectPages @ 0x140A9AB04 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x140A9A974 (IopLiveDumpCollectPages.c)
  * Callees:
- *     IopLiveDumpTrace @ 0x14055A08C (IopLiveDumpTrace.c)
- *     KdDecodeDataBlock @ 0x1405671A0 (KdDecodeDataBlock.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x140A9B824 (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpTrace @ 0x14055A74C (IopLiveDumpTrace.c)
+ *     KdDecodeDataBlock @ 0x140567860 (KdDecodeDataBlock.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140A9B694 (IopLiveDumpInitiateCorralStateChange.c)
  */
 
 __int64 __fastcall IopLiveDumpStartDumpDataBuffering(__int64 a1)

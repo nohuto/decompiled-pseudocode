@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDecompressBufferXpressHuffProgress @ 0x1405B3644
+ * XREFs of RtlDecompressBufferXpressHuffProgress @ 0x1405B3BB4
  * Callers:
- *     RtlDecompressBufferProgress @ 0x1405B3574 (RtlDecompressBufferProgress.c)
+ *     RtlDecompressBufferProgress @ 0x1405B3AE4 (RtlDecompressBufferProgress.c)
  * Callees:
- *     XpressBuildHuffmanDecodingTable @ 0x14031BDD0 (XpressBuildHuffmanDecodingTable.c)
- *     RtlpMakeXpressCallback @ 0x1405B4938 (RtlpMakeXpressCallback.c)
+ *     XpressBuildHuffmanDecodingTable @ 0x14031C060 (XpressBuildHuffmanDecodingTable.c)
+ *     RtlpMakeXpressCallback @ 0x1405B4EA8 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlDecompressBufferXpressHuffProgress(

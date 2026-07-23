@@ -1,31 +1,31 @@
 /*
- * XREFs of BiReleaseBcdSyncMutant @ 0x1409BE32C
+ * XREFs of BiReleaseBcdSyncMutant @ 0x1409A497C
  * Callers:
- *     BcdFlushStore @ 0x140811C1C (BcdFlushStore.c)
- *     BcdForciblyUnloadStore @ 0x140811C84 (BcdForciblyUnloadStore.c)
- *     BcdMarkAsSystemStore @ 0x140811D3C (BcdMarkAsSystemStore.c)
- *     BcdOpenSystemStore @ 0x140811DB0 (BcdOpenSystemStore.c)
- *     BcdEnumerateObjects @ 0x140811F1C (BcdEnumerateObjects.c)
- *     BcdQueryObject @ 0x1408121E4 (BcdQueryObject.c)
- *     BcdCreateObject @ 0x14085E224 (BcdCreateObject.c)
- *     BcdCloseStore @ 0x14085EED8 (BcdCloseStore.c)
- *     BcdOpenObject @ 0x1409BE0D4 (BcdOpenObject.c)
- *     BcdGetElementDataWithFlags @ 0x1409BE80C (BcdGetElementDataWithFlags.c)
- *     BcdSetElementDataWithFlags @ 0x1409BEB2C (BcdSetElementDataWithFlags.c)
- *     BcdCloseObject @ 0x1409BF5DC (BcdCloseObject.c)
- *     BiDeleteElement @ 0x1409BF8D0 (BiDeleteElement.c)
- *     BiBindEfiBootManager @ 0x1409C0574 (BiBindEfiBootManager.c)
- *     BcdOpenStore @ 0x1409C2038 (BcdOpenStore.c)
- *     BcdDeleteObject @ 0x1409C2520 (BcdDeleteObject.c)
+ *     BcdFlushStore @ 0x14081235C (BcdFlushStore.c)
+ *     BcdForciblyUnloadStore @ 0x1408123C4 (BcdForciblyUnloadStore.c)
+ *     BcdMarkAsSystemStore @ 0x14081247C (BcdMarkAsSystemStore.c)
+ *     BcdOpenSystemStore @ 0x1408124F0 (BcdOpenSystemStore.c)
+ *     BcdEnumerateObjects @ 0x14081265C (BcdEnumerateObjects.c)
+ *     BcdQueryObject @ 0x140812924 (BcdQueryObject.c)
+ *     BcdCreateObject @ 0x140859F94 (BcdCreateObject.c)
+ *     BcdOpenObject @ 0x1409A4724 (BcdOpenObject.c)
+ *     BcdGetElementDataWithFlags @ 0x1409A4E5C (BcdGetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A517C (BcdSetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x1409A5C2C (BcdCloseObject.c)
+ *     BiDeleteElement @ 0x1409A5F20 (BiDeleteElement.c)
+ *     BiBindEfiBootManager @ 0x1409A6BC4 (BiBindEfiBootManager.c)
+ *     BcdOpenStore @ 0x1409A8688 (BcdOpenStore.c)
+ *     BcdDeleteObject @ 0x1409A8B70 (BcdDeleteObject.c)
+ *     BcdCloseStore @ 0x140A81A08 (BcdCloseStore.c)
  * Callees:
- *     ZwReleaseMutant @ 0x1406A6810 (ZwReleaseMutant.c)
+ *     ZwReleaseMutant @ 0x1406A77B0 (ZwReleaseMutant.c)
  */
 
-__int64 __fastcall BiReleaseBcdSyncMutant(char a1)
+NTSTATUS __fastcall BiReleaseBcdSyncMutant(char a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !a1 && BcdMutantHandle != (HANDLE)-1LL )
-    return ZwReleaseMutant((__int64)BcdMutantHandle, 0LL);
+    return ZwReleaseMutant(BcdMutantHandle, 0LL);
   return result;
 }

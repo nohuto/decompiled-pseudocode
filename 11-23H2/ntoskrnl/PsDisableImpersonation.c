@@ -1,15 +1,15 @@
 /*
- * XREFs of PsDisableImpersonation @ 0x14071E3F0
+ * XREFs of PsDisableImpersonation @ 0x14071E5F0
  * Callers:
- *     NtOpenThreadTokenEx @ 0x14071DF00 (NtOpenThreadTokenEx.c)
- *     CmpStartCLFSLog @ 0x140873038 (CmpStartCLFSLog.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x140873344 (CmpAddRemoveContainerToCLFSLog.c)
+ *     NtOpenThreadTokenEx @ 0x14071E100 (NtOpenThreadTokenEx.c)
+ *     CmpStartCLFSLog @ 0x140873278 (CmpStartCLFSLog.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140873584 (CmpAddRemoveContainerToCLFSLog.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)

@@ -41,7 +41,7 @@ __int64 __fastcall sub_180104F6C(__int64 a1, __int64 a2, int a3)
       v11 = v7;
     v7 = v11;
   }
-  Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v7);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v7);
   if ( Heap )
   {
     v13 = (__int64 *)*v3;
@@ -62,7 +62,7 @@ __int64 __fastcall sub_180104F6C(__int64 a1, __int64 a2, int a3)
       v13 = (__int64 *)*v13;
       v4 -= (v18 + 7) & 0xFFFFFFF8;
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
   else
   {

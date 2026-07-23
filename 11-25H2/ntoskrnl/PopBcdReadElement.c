@@ -11,21 +11,21 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PopBcdReadElement(__int64 a1, unsigned int a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall PopBcdReadElement(HANDLE BcdObjectHandle, ULONG BcdElement, _QWORD *a3, _DWORD *a4)
 {
-  int ElementData; // ebx
-  __int64 Pool2; // rax
+  NTSTATUS ElementData; // ebx
+  void *Pool2; // rax
   void *v10; // rdi
-  _DWORD v12[6]; // [rsp+20h] [rbp-18h] BYREF
+  ULONG BufferSize[6]; // [rsp+20h] [rbp-18h] BYREF
 
-  v12[0] = 0;
-  if ( (unsigned int)BcdGetElementData(a1, a2, 0LL, v12) == -1073741789 )
+  BufferSize[0] = 0;
+  if ( BcdGetElementData(BcdObjectHandle, BcdElement, 0LL, BufferSize) == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
-    v10 = (void *)Pool2;
+    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    v10 = Pool2;
     if ( Pool2 )
     {
-      ElementData = BcdGetElementData(a1, a2, Pool2, v12);
+      ElementData = BcdGetElementData(BcdObjectHandle, BcdElement, Pool2, BufferSize);
       if ( ElementData < 0 )
       {
         ExFreePoolWithTag(v10, 0);
@@ -33,7 +33,7 @@ __int64 __fastcall PopBcdReadElement(__int64 a1, unsigned int a2, _QWORD *a3, _D
       else
       {
         ElementData = 0;
-        *a4 = v12[0];
+        *a4 = BufferSize[0];
         *a3 = v10;
       }
     }

@@ -10,12 +10,12 @@
 
 __int64 LdrpResetAppPackagesPath()
 {
-  __int64 v0; // rbx
+  void *v0; // rbx
 
   RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
   if ( (_WORD)LdrpAppPackagesPath )
   {
-    v0 = *((_QWORD *)&LdrpAppPackagesPath + 1);
+    v0 = (void *)*((_QWORD *)&LdrpAppPackagesPath + 1);
     ++LdrpAppPackagesPathVersion;
     *((_QWORD *)&LdrpAppPackagesPath + 1) = 0LL;
     LODWORD(LdrpAppPackagesPath) = 0;

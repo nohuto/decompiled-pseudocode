@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x140A7A138
+ * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x140A82078
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x1408F7730 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveMessage @ 0x1408F806C (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1409276C0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x140927FFC (AlpcpReceiveMessage.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x1409C0E68 (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpInsertMessageLargeMessageQueue @ 0x140A7A27C (AlpcpInsertMessageLargeMessageQueue.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x140A7A3A0 (AlpcpInsertMessageCanceledQueue.c)
- *     AlpcpExposeContextAttribute @ 0x140A7A4A0 (AlpcpExposeContextAttribute.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x140991E48 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpInsertMessageLargeMessageQueue @ 0x140A821BC (AlpcpInsertMessageLargeMessageQueue.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x140A822E0 (AlpcpInsertMessageCanceledQueue.c)
+ *     AlpcpExposeContextAttribute @ 0x140A823E0 (AlpcpExposeContextAttribute.c)
  */
 
 __int64 __fastcall AlpcpReturnMessageOnInsufficientBuffer(

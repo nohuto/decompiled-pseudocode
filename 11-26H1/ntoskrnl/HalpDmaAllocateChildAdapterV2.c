@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpDmaAllocateChildAdapterV2 @ 0x140783D5C
+ * XREFs of HalpDmaAllocateChildAdapterV2 @ 0x140786890
  * Callers:
- *     HalGetAdapterV2 @ 0x140783920 (HalGetAdapterV2.c)
+ *     HalGetAdapterV2 @ 0x140786454 (HalGetAdapterV2.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObReferenceObjectByPointer @ 0x14045F750 (ObReferenceObjectByPointer.c)
- *     KeInitializeDeviceQueue @ 0x1404ED660 (KeInitializeDeviceQueue.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x1407829AC (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x140782CB0 (HalpDmaAllocateLocalScatterPool.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByPointer @ 0x140458E50 (ObReferenceObjectByPointer.c)
+ *     KeInitializeDeviceQueue @ 0x1404E6C40 (KeInitializeDeviceQueue.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x1407854E0 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1407857E4 (HalpDmaAllocateLocalScatterPool.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
 __int64 __fastcall HalpDmaAllocateChildAdapterV2(

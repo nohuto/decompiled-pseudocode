@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtFreezeRegistry()
+NTSTATUS __cdecl NtFreezeRegistry(ULONG TimeOutInSeconds)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 223LL;
+  result = 223;
   __asm { syscall; Low latency system call }
   return result;
 }

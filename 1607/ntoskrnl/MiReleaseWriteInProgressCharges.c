@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseWriteInProgressCharges @ 0x14008EF9C
+ * XREFs of MiReleaseWriteInProgressCharges @ 0x14008E6FC
  * Callers:
- *     MiBuildMappedCluster @ 0x14001F5C0 (MiBuildMappedCluster.c)
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
- *     MiFreeModWriterEntry @ 0x14008EF68 (MiFreeModWriterEntry.c)
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiBuildMappedCluster @ 0x14001F140 (MiBuildMappedCluster.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
+ *     MiFreeModWriterEntry @ 0x14008E6C8 (MiFreeModWriterEntry.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
  */
 
 void __fastcall MiReleaseWriteInProgressCharges(__int64 a1, unsigned __int64 a2, int a3)

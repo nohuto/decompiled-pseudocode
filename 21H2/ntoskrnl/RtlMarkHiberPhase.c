@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlMarkHiberPhase @ 0x140592CE4
+ * XREFs of RtlMarkHiberPhase @ 0x140592F14
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x1409991F0 (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x14099A1F0 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MiGetPhysicalAddress @ 0x1402A8734 (MiGetPhysicalAddress.c)
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
- *     KeAddTriageDumpDataBlock @ 0x1403CA0D0 (KeAddTriageDumpDataBlock.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PopSetBootPhaseRange @ 0x1409969B8 (PopSetBootPhaseRange.c)
+ *     MiGetPhysicalAddress @ 0x140226874 (MiGetPhysicalAddress.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
+ *     KeAddTriageDumpDataBlock @ 0x1403CA270 (KeAddTriageDumpDataBlock.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PopSetBootPhaseRange @ 0x1409979B8 (PopSetBootPhaseRange.c)
  */
 
 void RtlMarkHiberPhase()
@@ -39,7 +39,7 @@ void RtlMarkHiberPhase()
   __int64 v22; // rbp
   unsigned __int64 v23; // rbx
   unsigned __int64 v24; // rdi
-  void *v25; // rcx
+  char *v25; // rcx
   int v26; // r10d
   unsigned int *v27; // rax
   unsigned int v28; // ebx
@@ -70,15 +70,15 @@ void RtlMarkHiberPhase()
 
   if ( (KiBugCheckActive & 3) == 0 )
   {
-    v0 = qword_140C23480;
-    v42 = qword_140C23480;
-    if ( !qword_140C23480 )
+    v0 = qword_140C23AA0;
+    v42 = qword_140C23AA0;
+    if ( !qword_140C23AA0 )
       KeBugCheckEx(0xA0u, 0x10BuLL, 0xAuLL, 0LL, 0LL);
-    v1 = *(_DWORD *)(qword_140C23480 + 184);
+    v1 = *(_DWORD *)(qword_140C23AA0 + 184);
     if ( v1 == 8 )
     {
       v2 = (unsigned __int64)XpressHashFunction >> 12;
-      for ( i = (unsigned __int64)"%ws" >> 12; v2 < i; v2 += v7 )
+      for ( i = (unsigned __int64)" the database offset 0x%lx size 0x%lx (0x%lx)" >> 12; v2 < i; v2 += v7 )
       {
         v49 = 0;
         v51 = 0LL;
@@ -189,7 +189,7 @@ LABEL_36:
           {
 LABEL_42:
             m = &PopAction;
-            v25 = &unk_140C23608;
+            v25 = &PopShutdownPowerOffPolicy;
             v26 = 0;
             v27 = v45;
             do
@@ -203,7 +203,7 @@ LABEL_42:
                   if ( (unsigned __int64)m < *(_QWORD *)k )
                   {
                     if ( (unsigned __int64)v25 <= v30 )
-                      v25 = *(void **)k;
+                      v25 = *(char **)k;
                   }
                   else
                   {
@@ -230,10 +230,10 @@ LABEL_55:
           IopNumTriageDumpDataBlocks = v22;
           if ( IopTriageDumpDataArray )
             KeAddTriageDumpDataBlock(IopTriageDumpDataArray, (ULONG)&PopAction, (PVOID)0x1C8, (SIZE_T)m);
-          if ( *(_QWORD *)&qword_140C23478 )
-            IoAddTriageDumpDataBlock(qword_140C23478, (PVOID)0x1D8);
-          if ( qword_140C23480 )
-            IoAddTriageDumpDataBlock(qword_140C23480, (PVOID)0x1C8);
+          if ( *(_QWORD *)&qword_140C23A98 )
+            IoAddTriageDumpDataBlock(qword_140C23A98, (PVOID)0x1D8);
+          if ( qword_140C23AA0 )
+            IoAddTriageDumpDataBlock(qword_140C23AA0, (PVOID)0x1C8);
           v32 = (unsigned int)IopNumTriageDumpDataBlocks;
           v47[0] = IopNumTriageDumpDataBlocks;
           v47[1] = 256;
@@ -253,7 +253,7 @@ LABEL_55:
           {
 LABEL_65:
             v35 = &PopCB;
-            v36 = &unk_140C23830;
+            v36 = &unk_140C23E50;
             v37 = 0;
             v38 = v47;
             do

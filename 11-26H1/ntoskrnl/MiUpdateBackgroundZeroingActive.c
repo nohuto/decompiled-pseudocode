@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateBackgroundZeroingActive @ 0x14051FD0C
+ * XREFs of MiUpdateBackgroundZeroingActive @ 0x1405223B0
  * Callers:
- *     MiDecrementZeroEngineThread @ 0x1403E8DCC (MiDecrementZeroEngineThread.c)
- *     MiIncrementZeroEngineThread @ 0x1405017CC (MiIncrementZeroEngineThread.c)
- *     MiResumeBackgroundZeroing @ 0x14051F69C (MiResumeBackgroundZeroing.c)
- *     MiFindOptimalEngineToAddThread @ 0x14051F998 (MiFindOptimalEngineToAddThread.c)
+ *     MiDecrementZeroEngineThread @ 0x1402F5CAC (MiDecrementZeroEngineThread.c)
+ *     MiIncrementZeroEngineThread @ 0x1404FAFBC (MiIncrementZeroEngineThread.c)
+ *     MiResumeBackgroundZeroing @ 0x140521D40 (MiResumeBackgroundZeroing.c)
+ *     MiFindOptimalEngineToAddThread @ 0x14052203C (MiFindOptimalEngineToAddThread.c)
  * Callees:
  *     <none>
  */

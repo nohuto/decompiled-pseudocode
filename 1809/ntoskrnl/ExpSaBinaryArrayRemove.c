@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpSaBinaryArrayRemove @ 0x14031F574
+ * XREFs of ExpSaBinaryArrayRemove @ 0x14031F764
  * Callers:
- *     ExpSaPageGroupDescriptorAllocate @ 0x140167DA0 (ExpSaPageGroupDescriptorAllocate.c)
- *     ExpSaPageGroupDescriptorFree @ 0x14031F5BC (ExpSaPageGroupDescriptorFree.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x140167EA0 (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x14031F7AC (ExpSaPageGroupDescriptorFree.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpSaBinaryArrayRemove(__int64 a1, unsigned int a2)

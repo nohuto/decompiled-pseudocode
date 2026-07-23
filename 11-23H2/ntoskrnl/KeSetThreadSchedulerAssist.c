@@ -1,29 +1,29 @@
 /*
- * XREFs of KeSetThreadSchedulerAssist @ 0x14056D21C
+ * XREFs of KeSetThreadSchedulerAssist @ 0x14056D8DC
  * Callers:
- *     VmSetThreadSchedulerAssist @ 0x140466530 (VmSetThreadSchedulerAssist.c)
+ *     VmSetThreadSchedulerAssist @ 0x140466930 (VmSetThreadSchedulerAssist.c)
  * Callees:
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiEndThreadCycleAccumulation @ 0x1402B2C90 (KiEndThreadCycleAccumulation.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     KiAbProcessContextSwitch @ 0x1402BBE18 (KiAbProcessContextSwitch.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     KiRequestSoftwareInterrupt @ 0x140318968 (KiRequestSoftwareInterrupt.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiSwapContext @ 0x1404282E0 (KiSwapContext.c)
- *     KeCheckAndApplyBamQos @ 0x140461370 (KeCheckAndApplyBamQos.c)
- *     KiSetThreadQosLevelUnsafe @ 0x140462658 (KiSetThreadQosLevelUnsafe.c)
- *     KiCheckAssistDataForBamQosLevelOverride @ 0x14056DE7C (KiCheckAssistDataForBamQosLevelOverride.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056E69C (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
- *     EtwTraceXSchedulerPriorityKickReceive @ 0x1405FD7F4 (EtwTraceXSchedulerPriorityKickReceive.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiEndThreadCycleAccumulation @ 0x1402B2F20 (KiEndThreadCycleAccumulation.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     KiAbProcessContextSwitch @ 0x1402BC0A8 (KiAbProcessContextSwitch.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     KiRequestSoftwareInterrupt @ 0x140318BF8 (KiRequestSoftwareInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiSwapContext @ 0x140428670 (KiSwapContext.c)
+ *     KeCheckAndApplyBamQos @ 0x140461770 (KeCheckAndApplyBamQos.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x140462A58 (KiSetThreadQosLevelUnsafe.c)
+ *     KiCheckAssistDataForBamQosLevelOverride @ 0x14056E53C (KiCheckAssistDataForBamQosLevelOverride.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056EBDC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     EtwTraceXSchedulerPriorityKickReceive @ 0x1405FDD64 (EtwTraceXSchedulerPriorityKickReceive.c)
  */
 
 void __fastcall KeSetThreadSchedulerAssist(ULONG_PTR BugCheckParameter1, __int64 a2, unsigned int a3)
@@ -141,7 +141,7 @@ void __fastcall KeSetThreadSchedulerAssist(ULONG_PTR BugCheckParameter1, __int64
           EtwTraceXSchedulerPriorityKickReceive(BugCheckParameter1, a3);
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           v29 = 4;
@@ -202,7 +202,7 @@ void __fastcall KeSetThreadSchedulerAssist(ULONG_PTR BugCheckParameter1, __int64
               }
               while ( v35 != v34 );
               if ( (v34 & 0x200000) != 0 )
-                KiRemoveSystemWorkPriorityKick(v32);
+                KiRemoveSystemWorkPriorityKick((__int64)v32);
             }
             _enable();
             CurrentPrcb->CurrentThread = (_KTHREAD *)NextThread;
@@ -224,7 +224,7 @@ LABEL_38:
           return;
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           v5 = KeGetCurrentPrcb()->SchedulerAssist;
           v6 = 4;
@@ -291,7 +291,7 @@ LABEL_38:
               }
               while ( v16 != v15 );
               if ( (v15 & 0x200000) != 0 )
-                KiRemoveSystemWorkPriorityKick(v13);
+                KiRemoveSystemWorkPriorityKick((__int64)v13);
             }
             _enable();
             CurrentPrcb->CurrentThread = (_KTHREAD *)NextThread;
@@ -310,27 +310,27 @@ LABEL_37:
 LABEL_39:
             if ( !v19 )
             {
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v20 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v20 - 2) <= 0xDu )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v20 - 2) <= 0xDu )
                 {
                   v21 = KeGetCurrentPrcb();
                   v22 = v21->SchedulerAssist;
                   v19 = (v22[5] & 0xFFFF0003) == 0;
                   v22[5] &= 0xFFFF0003;
                   if ( v19 )
-                    KiRemoveSystemWorkPriorityKick(v21);
+                    KiRemoveSystemWorkPriorityKick((__int64)v21);
                 }
               }
               __writecr8(1uLL);
               *(_DWORD *)(CurrentThread + 116) &= ~0x40u;
               KiDeliverApc(0, 0LL, 0LL);
             }
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v23 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
               {
                 v24 = KeGetCurrentPrcb();
                 v25 = v24->SchedulerAssist;
@@ -338,7 +338,7 @@ LABEL_39:
                 v19 = (v26 & v25[5]) == 0;
                 v25[5] &= v26;
                 if ( v19 )
-                  KiRemoveSystemWorkPriorityKick(v24);
+                  KiRemoveSystemWorkPriorityKick((__int64)v24);
               }
             }
             v27 = CurrentIrql;
@@ -358,7 +358,7 @@ LABEL_115:
       return;
     v37 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v37 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu )
     {
       v38 = KeGetCurrentPrcb()->SchedulerAssist;
       v39 = 4;
@@ -384,10 +384,10 @@ LABEL_115:
 LABEL_107:
       *(_QWORD *)(BugCheckParameter1 + 64) = 0LL;
       KeCheckAndApplyBamQos((__int64)v40, BugCheckParameter1);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v47 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v37 <= 0xFu && v47 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v37 <= 0xFu && v47 >= 2u )
         {
           v48 = KeGetCurrentPrcb();
           v49 = v48->SchedulerAssist;
@@ -395,7 +395,7 @@ LABEL_107:
           v19 = (v50 & v49[5]) == 0;
           v49[5] &= v50;
           if ( v19 )
-            KiRemoveSystemWorkPriorityKick(v48);
+            KiRemoveSystemWorkPriorityKick((__int64)v48);
         }
       }
       v27 = v37;
@@ -447,7 +447,7 @@ LABEL_102:
     v51 = KeGetCurrentIrql();
     v102 = v51;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v51 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v51 <= 0xFu )
     {
       v52 = KeGetCurrentPrcb()->SchedulerAssist;
       v53 = 4;
@@ -580,7 +580,7 @@ LABEL_162:
                   }
                   while ( v77 != v76 );
                   if ( (v76 & 0x200000) != 0 )
-                    KiRemoveSystemWorkPriorityKick(v74);
+                    KiRemoveSystemWorkPriorityKick((__int64)v74);
                 }
                 _enable();
                 v70->CurrentThread = (_KTHREAD *)v73;
@@ -595,17 +595,17 @@ LABEL_162:
                 LOBYTE(v80) = v102;
                 if ( (unsigned __int8)KiSwapContext(v72, v73, v80) )
                 {
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v81 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v81 - 2) <= 0xDu )
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v81 - 2) <= 0xDu )
                     {
                       v82 = KeGetCurrentPrcb();
                       v83 = v82->SchedulerAssist;
                       v19 = (v83[5] & 0xFFFF0003) == 0;
                       v83[5] &= 0xFFFF0003;
                       if ( v19 )
-                        KiRemoveSystemWorkPriorityKick(v82);
+                        KiRemoveSystemWorkPriorityKick((__int64)v82);
                     }
                   }
                   __writecr8(1uLL);
@@ -617,17 +617,17 @@ LABEL_162:
               {
                 if ( (*(_DWORD *)(v72 + 116) & 0x40) != 0 )
                 {
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v84 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v84 - 2) <= 0xDu )
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v84 - 2) <= 0xDu )
                     {
                       v85 = KeGetCurrentPrcb();
                       v86 = v85->SchedulerAssist;
                       v19 = (v86[5] & 0xFFFF0003) == 0;
                       v86[5] &= 0xFFFF0003;
                       if ( v19 )
-                        KiRemoveSystemWorkPriorityKick(v85);
+                        KiRemoveSystemWorkPriorityKick((__int64)v85);
                     }
                   }
                   __writecr8(1uLL);
@@ -636,10 +636,10 @@ LABEL_162:
                 }
                 v79 = v102;
               }
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v87 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v87 - 2) <= 0xDu )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v87 - 2) <= 0xDu )
                 {
                   v88 = KeGetCurrentPrcb();
                   v89 = v88->SchedulerAssist;
@@ -647,7 +647,7 @@ LABEL_162:
                   v19 = (v90 & v89[5]) == 0;
                   v89[5] &= v90;
                   if ( v19 )
-                    KiRemoveSystemWorkPriorityKick(v88);
+                    KiRemoveSystemWorkPriorityKick((__int64)v88);
                 }
               }
               __writecr8(v79);

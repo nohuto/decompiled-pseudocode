@@ -43,6 +43,6 @@ __int64 __fastcall RtlpHpSegMgrAllocate(__int64 a1, int a2, int a3)
     }
   }
   if ( v7 )
-    RtlpHpSegMgrRelease(a1, v7, 0LL);
+    RtlpHpSegMgrRelease(a1);
   return v8;
 }

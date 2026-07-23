@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlFastCheckLockForRead @ 0x14010DE90
+ * XREFs of FsRtlFastCheckLockForRead @ 0x14010DF10
  * Callers:
- *     FsRtlCheckLockForReadAccess @ 0x14010DE00 (FsRtlCheckLockForReadAccess.c)
+ *     FsRtlCheckLockForReadAccess @ 0x14010DE80 (FsRtlCheckLockForReadAccess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x14026EF3C (FsRtlCheckNoExclusiveConflict.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x14026F12C (FsRtlCheckNoExclusiveConflict.c)
  */
 
 BOOLEAN __stdcall FsRtlFastCheckLockForRead(

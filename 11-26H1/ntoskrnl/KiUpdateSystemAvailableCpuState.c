@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateSystemAvailableCpuState @ 0x1405E5CF4
+ * XREFs of KiUpdateSystemAvailableCpuState @ 0x1405E8664
  * Callers:
- *     KeTransitionProcessorParkState @ 0x14042C1D0 (KeTransitionProcessorParkState.c)
- *     KeCpuPartitionMoveCpus @ 0x1405F3880 (KeCpuPartitionMoveCpus.c)
+ *     KeTransitionProcessorParkState @ 0x1404208A0 (KeTransitionProcessorParkState.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405F6240 (KeCpuPartitionMoveCpus.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRemoveForceParkedProcessorsFromAffinity @ 0x1403EE15C (KiRemoveForceParkedProcessorsFromAffinity.c)
- *     KeIsForceParkingEnabled @ 0x14043DBE0 (KeIsForceParkingEnabled.c)
- *     RtlWriteAcquireTickLock @ 0x14046AC24 (RtlWriteAcquireTickLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeQueryCpuPartitionAffinityEx @ 0x14052B518 (KeQueryCpuPartitionAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeIsForceParkingEnabled @ 0x1404366F0 (KeIsForceParkingEnabled.c)
+ *     KiRemoveForceParkedProcessorsFromAffinity @ 0x140452C8C (KiRemoveForceParkedProcessorsFromAffinity.c)
+ *     RtlWriteAcquireTickLock @ 0x1404643A4 (RtlWriteAcquireTickLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeQueryCpuPartitionAffinityEx @ 0x14052DA38 (KeQueryCpuPartitionAffinityEx.c)
  */
 
 __int64 KiUpdateSystemAvailableCpuState()
@@ -22,13 +22,13 @@ __int64 KiUpdateSystemAvailableCpuState()
     __writecr8(2uLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
-  RtlWriteAcquireTickLock((signed __int64 *)&KiSupervisorXStateFeaturesLock.CycleTime);
+  RtlWriteAcquireTickLock((signed __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[1].WaitListEntry.Blink);
   KeQueryCpuPartitionAffinityEx(
     (struct _KAFFINITY_EX **)KiSystemCpuPartition,
-    (struct _KAFFINITY_EX *)&KiSupervisorXStateFeaturesLock.CurrentRunTime);
+    (struct _KAFFINITY_EX *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[64]);
   if ( KeIsForceParkingEnabled() )
-    KiRemoveForceParkedProcessorsFromAffinity(&KiSupervisorXStateFeaturesLock.CurrentRunTime);
-  ++KiSupervisorXStateFeaturesLock.CycleTime;
+    KiRemoveForceParkedProcessorsFromAffinity(&KiSupervisorXStateFeaturesLock.WaitBlockFill11[64]);
+  ++KiSupervisorXStateFeaturesLock.WaitBlock[1].WaitListEntry.Blink;
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   result = CurrentIrql;

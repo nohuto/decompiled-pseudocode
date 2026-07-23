@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_wrap_strcat @ 0x1405AD730
+ * XREFs of __asan_wrap_strcat @ 0x1405AA6A0
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 ULONG_PTR __fastcall _asan_wrap_strcat(ULONG_PTR BugCheckParameter1, const char *a2)
@@ -33,7 +33,7 @@ ULONG_PTR __fastcall _asan_wrap_strcat(ULONG_PTR BugCheckParameter1, const char 
   {
     if ( v3 == -1 )
       break;
-    if ( byte_140FCDC2A && v7 >= 0xFFFF800000000000uLL )
+    if ( byte_140FCECAA && v7 >= 0xFFFF800000000000uLL )
     {
       v8 = *(_BYTE *)(((v4 + v3) >> 3) + KasaniShadow);
       if ( v8 && v8 < 8 && (char)((v7 & 7) + 1) > v8 )
@@ -51,7 +51,7 @@ ULONG_PTR __fastcall _asan_wrap_strcat(ULONG_PTR BugCheckParameter1, const char 
   {
     if ( v2 == -1 )
       break;
-    if ( byte_140FCDC2A && v10 >= 0xFFFF800000000000uLL )
+    if ( byte_140FCECAA && v10 >= 0xFFFF800000000000uLL )
     {
       v11 = *(_BYTE *)(((unsigned __int64)&a2[v2 + 0x800000000000LL] >> 3) + KasaniShadow);
       if ( v11 && v11 < 8 && (char)((v10 & 7) + 1) > v11 )
@@ -66,7 +66,7 @@ ULONG_PTR __fastcall _asan_wrap_strcat(ULONG_PTR BugCheckParameter1, const char 
   while ( v12 );
   v13 = v3 + BugCheckParameter1;
   v14 = v2 - 1;
-  if ( byte_140FCDC2A && v13 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && v13 >= 0xFFFF800000000000uLL )
   {
     if ( v14 )
     {

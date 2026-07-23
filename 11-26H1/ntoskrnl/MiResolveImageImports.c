@@ -1,15 +1,15 @@
 /*
- * XREFs of MiResolveImageImports @ 0x1408753A8
+ * XREFs of MiResolveImageImports @ 0x14087B78C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiSetImageProtection @ 0x14038B930 (MiSetImageProtection.c)
- *     MiResolveImageReferences @ 0x140ADCF50 (MiResolveImageReferences.c)
- *     MiSetImportTableProtection @ 0x140B53544 (MiSetImportTableProtection.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiSetImageProtection @ 0x14038D6E0 (MiSetImageProtection.c)
+ *     MiResolveImageReferences @ 0x14097E950 (MiResolveImageReferences.c)
+ *     MiSetImportTableProtection @ 0x140B55DE4 (MiSetImportTableProtection.c)
  */
 
-__int64 __fastcall MiResolveImageImports(__int64 a1, int a2, int a3, int a4, int a5, _BYTE *a6)
+__int64 __fastcall MiResolveImageImports(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _BYTE *a6)
 {
   __int64 result; // rax
   int v11; // esi

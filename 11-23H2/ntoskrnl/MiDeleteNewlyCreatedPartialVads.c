@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteNewlyCreatedPartialVads @ 0x140A47A98
+ * XREFs of MiDeleteNewlyCreatedPartialVads @ 0x140A47D48
  * Callers:
- *     MiAllocateSplitVads @ 0x14076D5F4 (MiAllocateSplitVads.c)
+ *     MiAllocateSplitVads @ 0x14076D7E4 (MiAllocateSplitVads.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     MiComputeVadCharges @ 0x140289A38 (MiComputeVadCharges.c)
- *     MiUpControlAreaRefs @ 0x140625EFC (MiUpControlAreaRefs.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     MiComputeVadCharges @ 0x140289CC8 (MiComputeVadCharges.c)
+ *     MiUpControlAreaRefs @ 0x14062644C (MiUpControlAreaRefs.c)
  *     MiFreePlaceholderStorage @ 0x1406834D8 (MiFreePlaceholderStorage.c)
- *     MiRemoveSharedCommitNode @ 0x1407223A0 (MiRemoveSharedCommitNode.c)
- *     MiFreeRotateView @ 0x140A312F8 (MiFreeRotateView.c)
- *     MiReturnVadCharges @ 0x140A3C4A4 (MiReturnVadCharges.c)
+ *     MiRemoveSharedCommitNode @ 0x1407225A0 (MiRemoveSharedCommitNode.c)
+ *     MiFreeRotateView @ 0x140A315A8 (MiFreeRotateView.c)
+ *     MiReturnVadCharges @ 0x140A3C754 (MiReturnVadCharges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

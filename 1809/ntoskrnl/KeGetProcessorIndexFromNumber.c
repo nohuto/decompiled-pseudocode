@@ -1,22 +1,22 @@
 /*
- * XREFs of KeGetProcessorIndexFromNumber @ 0x1400A7470
+ * XREFs of KeGetProcessorIndexFromNumber @ 0x1400A73B0
  * Callers:
- *     PoGetIdleTimes @ 0x1400A7320 (PoGetIdleTimes.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1400DBFB0 (KeQueryLogicalProcessorRelationship.c)
- *     PoGetPerfStateAndParkingInfo @ 0x140131CA4 (PoGetPerfStateAndParkingInfo.c)
- *     KeSetTargetProcessorDpcEx @ 0x14013A0B0 (KeSetTargetProcessorDpcEx.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x14015CDD0 (KeSetIdealProcessorThreadByNumber.c)
- *     PpmClearSimulatedIdle @ 0x1402D3D04 (PpmClearSimulatedIdle.c)
- *     PpmSetSimulatedIdle @ 0x1402D5A98 (PpmSetSimulatedIdle.c)
- *     PpmUpdateProcessorIdleVeto @ 0x1402D6710 (PpmUpdateProcessorIdleVeto.c)
- *     PpmClearSimulatedLoad @ 0x1402DB1AC (PpmClearSimulatedLoad.c)
- *     PpmSetSimulatedLoad @ 0x1402DB5B4 (PpmSetSimulatedLoad.c)
- *     PspBuildCreateProcessContext @ 0x140622378 (PspBuildCreateProcessContext.c)
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
- *     PpmUpdateIdleStates @ 0x140729630 (PpmUpdateIdleStates.c)
- *     PpmInstallPlatformIdleStates @ 0x140866CF0 (PpmInstallPlatformIdleStates.c)
- *     PpmPerfGetBrandedFrequency @ 0x14086B0EC (PpmPerfGetBrandedFrequency.c)
+ *     PoGetIdleTimes @ 0x1400A7260 (PoGetIdleTimes.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1400DC030 (KeQueryLogicalProcessorRelationship.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x140131D74 (PoGetPerfStateAndParkingInfo.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14013A1B0 (KeSetTargetProcessorDpcEx.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14015CED0 (KeSetIdealProcessorThreadByNumber.c)
+ *     PpmClearSimulatedIdle @ 0x1402D3EF4 (PpmClearSimulatedIdle.c)
+ *     PpmSetSimulatedIdle @ 0x1402D5C88 (PpmSetSimulatedIdle.c)
+ *     PpmUpdateProcessorIdleVeto @ 0x1402D6900 (PpmUpdateProcessorIdleVeto.c)
+ *     PpmClearSimulatedLoad @ 0x1402DB39C (PpmClearSimulatedLoad.c)
+ *     PpmSetSimulatedLoad @ 0x1402DB7A4 (PpmSetSimulatedLoad.c)
+ *     PspBuildCreateProcessContext @ 0x140623378 (PspBuildCreateProcessContext.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     IopConnectInterrupt @ 0x1407119EC (IopConnectInterrupt.c)
+ *     PpmUpdateIdleStates @ 0x14072A820 (PpmUpdateIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x140867F50 (PpmInstallPlatformIdleStates.c)
+ *     PpmPerfGetBrandedFrequency @ 0x14086C34C (PpmPerfGetBrandedFrequency.c)
  * Callees:
  *     <none>
  */

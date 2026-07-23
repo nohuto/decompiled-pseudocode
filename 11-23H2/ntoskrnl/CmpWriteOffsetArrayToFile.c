@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpWriteOffsetArrayToFile @ 0x140A1AF6C
+ * XREFs of CmpWriteOffsetArrayToFile @ 0x140A1B21C
  * Callers:
- *     CmDumpKeyToFile @ 0x140A0AAA4 (CmDumpKeyToFile.c)
- *     CmpFlushBackupHive @ 0x140A1A8E8 (CmpFlushBackupHive.c)
+ *     CmDumpKeyToFile @ 0x140A0AD54 (CmDumpKeyToFile.c)
+ *     CmpFlushBackupHive @ 0x140A1AB98 (CmpFlushBackupHive.c)
  * Callees:
- *     ZwSetInformationFile @ 0x14041B240 (ZwSetInformationFile.c)
- *     ZwFlushBuffersFile @ 0x14041B6C0 (ZwFlushBuffersFile.c)
+ *     ZwSetInformationFile @ 0x14041B5D0 (ZwSetInformationFile.c)
+ *     ZwFlushBuffersFile @ 0x14041BA50 (ZwFlushBuffersFile.c)
  *     CmpDoFileWrite @ 0x1406895CC (CmpDoFileWrite.c)
  */
 

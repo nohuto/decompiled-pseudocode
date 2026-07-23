@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnPteMappingPair @ 0x1402CE208
+ * XREFs of MiReturnPteMappingPair @ 0x1402CE3F8
  * Callers:
- *     MiSlowRotateCopy @ 0x1402AF538 (MiSlowRotateCopy.c)
- *     MiCopyDirectMapHeader @ 0x140852BA4 (MiCopyDirectMapHeader.c)
+ *     MiSlowRotateCopy @ 0x1402AF728 (MiSlowRotateCopy.c)
+ *     MiCopyDirectMapHeader @ 0x140853E04 (MiCopyDirectMapHeader.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReturnPteMappingPair(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall MiReturnPteMappingPair(__int64 a1)
 
   v1 = *(_BYTE *)(a1 + 8);
   if ( v1 == 17 )
-    return MiReleasePtes((__int64)&qword_14043AFA0, *(_QWORD *)(a1 + 16), 2u);
+    return MiReleasePtes((__int64)&qword_14043C060, *(_QWORD *)(a1 + 16), 2u);
   MmInternal = KeGetCurrentPrcb()->MmInternal;
   if ( MmInternal )
   {

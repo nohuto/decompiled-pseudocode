@@ -1,21 +1,21 @@
 /*
- * XREFs of KiComputeHeteroThreadQos @ 0x1402B0DF0
+ * XREFs of KiComputeHeteroThreadQos @ 0x1402B1080
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiSearchForNewThreadOnProcessor @ 0x140240C90 (KiSearchForNewThreadOnProcessor.c)
- *     KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry @ 0x1402438B0 (KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiComputeEffectivePriority @ 0x1402B2790 (KiComputeEffectivePriority.c)
- *     KiRemoveBoostThread @ 0x1402BB250 (KiRemoveBoostThread.c)
- *     KiInitializeForegroundBoostThread @ 0x1402BDE58 (KiInitializeForegroundBoostThread.c)
- *     KiApplyForegroundBoostThread @ 0x1403504D8 (KiApplyForegroundBoostThread.c)
- *     KeSetProcessPpmPolicy @ 0x1403570B0 (KeSetProcessPpmPolicy.c)
- *     KeSetThreadPpmPolicy @ 0x140359D7C (KeSetThreadPpmPolicy.c)
- *     KeUpdateThreadTag @ 0x140366BD0 (KeUpdateThreadTag.c)
- *     KiConvertDynamicHeteroPolicy @ 0x140461648 (KiConvertDynamicHeteroPolicy.c)
- *     KiHeteroComputeThreadWorkloadProperties @ 0x140461C9C (KiHeteroComputeThreadWorkloadProperties.c)
- *     KzHeteroRefreshWorkloadProperties @ 0x1404627C0 (KzHeteroRefreshWorkloadProperties.c)
- *     KiSetHeteroPolicyThread @ 0x140577A0C (KiSetHeteroPolicyThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x140240D60 (KiSearchForNewThreadOnProcessor.c)
+ *     KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry @ 0x140243980 (KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiComputeEffectivePriority @ 0x1402B2A20 (KiComputeEffectivePriority.c)
+ *     KiRemoveBoostThread @ 0x1402BB4E0 (KiRemoveBoostThread.c)
+ *     KiInitializeForegroundBoostThread @ 0x1402BE0E8 (KiInitializeForegroundBoostThread.c)
+ *     KiApplyForegroundBoostThread @ 0x140350678 (KiApplyForegroundBoostThread.c)
+ *     KeSetProcessPpmPolicy @ 0x140357250 (KeSetProcessPpmPolicy.c)
+ *     KeSetThreadPpmPolicy @ 0x140359F1C (KeSetThreadPpmPolicy.c)
+ *     KeUpdateThreadTag @ 0x140366D70 (KeUpdateThreadTag.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x140461A48 (KiConvertDynamicHeteroPolicy.c)
+ *     KiHeteroComputeThreadWorkloadProperties @ 0x14046209C (KiHeteroComputeThreadWorkloadProperties.c)
+ *     KzHeteroRefreshWorkloadProperties @ 0x140462BC0 (KzHeteroRefreshWorkloadProperties.c)
+ *     KiSetHeteroPolicyThread @ 0x140577EFC (KiSetHeteroPolicyThread.c)
  * Callees:
  *     <none>
  */

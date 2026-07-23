@@ -107,7 +107,7 @@ NTSTATUS __stdcall NtDuplicateToken(
           ClientToken = SubjectContext.ClientToken;
           if ( !SubjectContext.ClientToken )
             ClientToken = SubjectContext.PrimaryToken;
-          if ( SeQueryInformationToken(ClientToken, MaxTokenInfoClass, &TokenInformation) >= 0 )
+          if ( SeQueryInformationToken(ClientToken, TokenIsSandboxed, &TokenInformation) >= 0 )
             v13 = (_BYTE)TokenInformation == 0;
           if ( !v13 && RtlIsSandboxedToken(&v31, PreviousMode) )
           {

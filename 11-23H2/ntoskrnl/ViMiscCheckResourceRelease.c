@@ -1,10 +1,10 @@
 /*
- * XREFs of ViMiscCheckResourceRelease @ 0x140AE14EC
+ * XREFs of ViMiscCheckResourceRelease @ 0x140AE14DC
  * Callers:
- *     VfMiscExReleaseResourceLite_Entry @ 0x140AC0830 (VfMiscExReleaseResourceLite_Entry.c)
- *     VfMiscExReleaseResourceForThreadLite_Entry @ 0x140ADFC80 (VfMiscExReleaseResourceForThreadLite_Entry.c)
+ *     VfMiscExReleaseResourceLite_Entry @ 0x140AC0820 (VfMiscExReleaseResourceLite_Entry.c)
+ *     VfMiscExReleaseResourceForThreadLite_Entry @ 0x140ADFC70 (VfMiscExReleaseResourceForThreadLite_Entry.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 struct _KTHREAD *__fastcall ViMiscCheckResourceRelease(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInsertPoolTag @ 0x1402955CC
+ * XREFs of ExInsertPoolTag @ 0x14021728C
  * Callers:
- *     MiAllocateContiguousMemory @ 0x140294F3C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x140216BFC (MiAllocateContiguousMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     ExpAddTagForBigPages @ 0x14033BDC0 (ExpAddTagForBigPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpAddTagForBigPages @ 0x140346B10 (ExpAddTagForBigPages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExInsertPoolTag(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4, char a5)

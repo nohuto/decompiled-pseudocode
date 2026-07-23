@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 ZwReadFileScatter()
+NTSTATUS __cdecl ZwReadFileScatter(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PFILE_SEGMENT_ELEMENT SegmentArray,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 46LL;
+  result = 46;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

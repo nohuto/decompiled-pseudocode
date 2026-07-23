@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMceRecovery @ 0x14058E590
+ * XREFs of HalpMceRecovery @ 0x140590D10
  * Callers:
  *     <none>
  * Callees:
- *     HalpMceRecoveryNotRequiredIntel @ 0x14058EACC (HalpMceRecoveryNotRequiredIntel.c)
- *     HalpMceRecoveryRequired @ 0x14058EBAC (HalpMceRecoveryRequired.c)
- *     HalpShouldRecoveryBeAttempted @ 0x14058EC80 (HalpShouldRecoveryBeAttempted.c)
- *     WheaGetErrPacketFromErrRecord @ 0x14058ECC4 (WheaGetErrPacketFromErrRecord.c)
- *     HalpMemoryErrorDeferredRecovery @ 0x14058F17C (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpMceRecoveryNotRequiredIntel @ 0x14059124C (HalpMceRecoveryNotRequiredIntel.c)
+ *     HalpMceRecoveryRequired @ 0x14059132C (HalpMceRecoveryRequired.c)
+ *     HalpShouldRecoveryBeAttempted @ 0x140591400 (HalpShouldRecoveryBeAttempted.c)
+ *     WheaGetErrPacketFromErrRecord @ 0x140591444 (WheaGetErrPacketFromErrRecord.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1405918FC (HalpMemoryErrorDeferredRecovery.c)
  */
 
 __int64 __fastcall HalpMceRecovery(struct _WHEA_ERROR_RECORD *a1, _DWORD *a2)

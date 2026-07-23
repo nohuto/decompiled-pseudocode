@@ -7,8 +7,8 @@
  *     sub_1800142F8 @ 0x1800142F8 (sub_1800142F8.c)
  */
 
-void __fastcall sub_180019398(__int64 a1)
+void __fastcall sub_180019398(_QWORD *a1)
 {
-  sub_1800142F8(*(_QWORD *)(a1 + 144), 0xFFFFFFFF);
+  sub_1800142F8(a1[18], 0xFFFFFFFF);
   sub_1800186FC(a1);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPsProvTracePriority @ 0x1405A92EC
+ * XREFs of EtwpPsProvTracePriority @ 0x1405A951C
  * Callers:
- *     EtwTracePriority @ 0x1405A7EA4 (EtwTracePriority.c)
+ *     EtwTracePriority @ 0x1405A80D4 (EtwTracePriority.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTracePriority(__int64 a1, int a2, int a3, int a4)

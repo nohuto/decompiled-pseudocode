@@ -42,7 +42,7 @@ char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)
     return 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v11) = 4;
@@ -89,10 +89,10 @@ char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)
     _interlockedbittestandreset((volatile signed __int32 *)(a1 + 120), 9u);
   }
   _InterlockedAnd64((volatile signed __int64 *)&CurrentPrcb->PrcbLock, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
     {
       v15 = KeGetCurrentPrcb();
       v16 = v15->SchedulerAssist;

@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwAlpcOpenSenderProcess @ 0x1403FB480
+ * XREFs of ZwAlpcOpenSenderProcess @ 0x1403FB660
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcOpenSenderProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcOpenSenderProcess(
+        PHANDLE ProcessHandle,
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ULONG Flags,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

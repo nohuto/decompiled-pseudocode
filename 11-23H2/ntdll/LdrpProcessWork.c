@@ -26,6 +26,7 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
   int v5; // eax
   int v6; // eax
   char v7; // bl
+  int v8; // [rsp+20h] [rbp-28h]
 
   if ( **(int **)(a1 + 40) < 0 )
     goto LABEL_16;
@@ -63,14 +64,15 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
     {
       LdrpLogError(3221225781LL, 25LL, 0LL, a1);
       LdrpLogDeprecatedDllEtwEvent(a1);
+      LOBYTE(v8) = 0;
       LdrpLogLoadFailureEtwEvent(
         a1,
-        (*(_DWORD *)(a1 + 48) + 72) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
-        -1073741515,
-        (unsigned int)&LoadFailure,
-        0);
+        (*(_QWORD *)(a1 + 48) + 72LL) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
+        3221225781LL,
+        &LoadFailure,
+        v8);
       if ( (*(_BYTE *)(*(_QWORD *)(a1 + 56) + 104LL) & 0x20) != 0 )
-        LdrpReportError((UNICODE_STRING *)a1, 0LL, -1073741515);
+        LdrpReportError((_UNICODE_STRING *)a1, 0LL, -1073741515);
     }
   }
   if ( v4 < 0 )

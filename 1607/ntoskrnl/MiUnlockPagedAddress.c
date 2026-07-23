@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockPagedAddress @ 0x1400B4854
+ * XREFs of MiUnlockPagedAddress @ 0x1400B26D4
  * Callers:
- *     MiFreeClonePool @ 0x1400B47F4 (MiFreeClonePool.c)
- *     MiFreeCombinePool @ 0x1401F9DBC (MiFreeCombinePool.c)
- *     MiInsertNewCombineBlocks @ 0x1401F9E44 (MiInsertNewCombineBlocks.c)
- *     MiBuildNewCloneDescriptor @ 0x140527744 (MiBuildNewCloneDescriptor.c)
- *     MiFreeCloneDescriptor @ 0x14066323C (MiFreeCloneDescriptor.c)
+ *     MiFreeClonePool @ 0x1400B2674 (MiFreeClonePool.c)
+ *     MiFreeCombinePool @ 0x1401F9BE8 (MiFreeCombinePool.c)
+ *     MiInsertNewCombineBlocks @ 0x1401F9C70 (MiInsertNewCombineBlocks.c)
+ *     MiBuildNewCloneDescriptor @ 0x14050A7A4 (MiBuildNewCloneDescriptor.c)
+ *     MiFreeCloneDescriptor @ 0x140663320 (MiFreeCloneDescriptor.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiUnlockPagedAddress(unsigned __int64 a1)

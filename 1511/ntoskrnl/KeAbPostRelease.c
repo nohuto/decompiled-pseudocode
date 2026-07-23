@@ -820,7 +820,7 @@ LABEL_28:
   }
   *(_BYTE *)(v9 + 32) |= 2u;
   if ( *(__int64 *)(v9 + 32) < 0 )
-    KiAbEntryRemoveFromTree((__int64)CurrentThread->LockEntries + v7, v4, v1);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)((char *)&CurrentThread->LockEntries[0].TreeNode + v7), v4, v1);
   v10 = *(_WORD *)(v9 + 88);
   if ( v10 )
   {

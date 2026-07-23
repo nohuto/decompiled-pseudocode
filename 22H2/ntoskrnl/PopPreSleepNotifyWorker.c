@@ -10,6 +10,6 @@
 __int64 PopPreSleepNotifyWorker()
 {
   ++PopPreSleepWnfPayload;
-  ZwUpdateWnfStateData((__int64)&WNF_PO_PRESLEEP_NOTIFICATION, (__int64)&PopPreSleepWnfPayload);
+  ZwUpdateWnfStateData(&WNF_PO_PRESLEEP_NOTIFICATION, &PopPreSleepWnfPayload, 8u, 0LL, 0LL, 0, 0);
   return PopOkayToQueueNextWorkItem((__int64)&PopPreSleepNotifyWorkItem);
 }

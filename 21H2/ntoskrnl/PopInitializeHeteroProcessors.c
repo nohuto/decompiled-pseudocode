@@ -1,25 +1,25 @@
 /*
- * XREFs of PopInitializeHeteroProcessors @ 0x1407BAC0C
+ * XREFs of PopInitializeHeteroProcessors @ 0x1407BB39C
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAE90 (PpmReapplyPerfPolicy.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     PpmHeteroDetectHgsCores @ 0x1403C2138 (PpmHeteroDetectHgsCores.c)
- *     PpmHeteroUpdateHgsConfiguration @ 0x1403C2194 (PpmHeteroUpdateHgsConfiguration.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PpmIdleEnableIdleDurationExpirationTimeout @ 0x1405669F8 (PpmIdleEnableIdleDurationExpirationTimeout.c)
- *     PsEnumProcesses @ 0x1406CE06C (PsEnumProcesses.c)
- *     PpmEventHeteroPolicy @ 0x1407BB078 (PpmEventHeteroPolicy.c)
- *     PopConfigureHeteroPolicies @ 0x1407BB0FC (PopConfigureHeteroPolicies.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x1407BB808 (PopDetectSimulatedHeteroProcessors.c)
- *     PpmHeteroComputeRelativePerformance @ 0x1407BB938 (PpmHeteroComputeRelativePerformance.c)
- *     KeConfigureHeteroProcessors @ 0x1408BA358 (KeConfigureHeteroProcessors.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     PpmHeteroDetectHgsCores @ 0x1403C2568 (PpmHeteroDetectHgsCores.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1403C25C4 (PpmHeteroUpdateHgsConfiguration.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PpmIdleEnableIdleDurationExpirationTimeout @ 0x140566C38 (PpmIdleEnableIdleDurationExpirationTimeout.c)
+ *     PsEnumProcesses @ 0x1406A5350 (PsEnumProcesses.c)
+ *     PpmEventHeteroPolicy @ 0x1407BB808 (PpmEventHeteroPolicy.c)
+ *     PopConfigureHeteroPolicies @ 0x1407BB88C (PopConfigureHeteroPolicies.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x1407BBF98 (PopDetectSimulatedHeteroProcessors.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x1407BC0C8 (PpmHeteroComputeRelativePerformance.c)
+ *     KeConfigureHeteroProcessors @ 0x1408BA4B8 (KeConfigureHeteroProcessors.c)
  */
 
 char __fastcall PopInitializeHeteroProcessors(__int64 a1, signed __int64 a2)
@@ -119,7 +119,7 @@ char __fastcall PopInitializeHeteroProcessors(__int64 a1, signed __int64 a2)
         if ( (unsigned __int8)PpmHeteroNominalPerformanceClasses > 1u
           || (unsigned __int8)PpmHeteroHighestPerformanceClasses > 1u )
         {
-          v30[1] = (unsigned __int16 *)qword_140C116C8;
+          v30[1] = (unsigned __int16 *)qword_140C116A8;
           v31 = 0;
           v30[0] = (unsigned __int16 *)&PpmPerfStatesRegistered;
           if ( !(unsigned int)KeEnumerateNextProcessor(&v28, v30) )
@@ -228,7 +228,7 @@ LABEL_56:
   v29 = 0;
   if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_CLASS_UPDATE) )
   {
-    v34[1] = (unsigned __int16 *)qword_140C113E8[0];
+    v34[1] = (unsigned __int16 *)qword_140C113C8[0];
     v34[0] = (unsigned __int16 *)PpmCheckRegistered;
     v35 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v29, v34) )

@@ -6,8 +6,8 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetNonVolatileToken(__int64 a1, __int64 a2, _QWORD *a3)
+DWORD __cdecl RtlGetNonVolatileToken(PVOID NvBuffer, SIZE_T Size, PVOID *NvToken)
 {
-  *a3 = 3LL;
-  return 0LL;
+  *NvToken = (PVOID)3;
+  return 0;
 }

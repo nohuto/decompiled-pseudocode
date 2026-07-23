@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpLbrInitialize @ 0x14099B704
+ * XREFs of HalpLbrInitialize @ 0x14099C704
  * Callers:
- *     HalpInitializeProfiling @ 0x14099B5DC (HalpInitializeProfiling.c)
+ *     HalpInitializeProfiling @ 0x14099C5DC (HalpInitializeProfiling.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
- *     HalpIsHvPresent @ 0x1403A1FD8 (HalpIsHvPresent.c)
- *     HviGetHypervisorFeatures @ 0x1403AE200 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpGetCpuInfo @ 0x1403A10C0 (HalpGetCpuInfo.c)
+ *     HalpIsHvPresent @ 0x1403A2128 (HalpIsHvPresent.c)
+ *     HviGetHypervisorFeatures @ 0x1403AE350 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char HalpLbrInitialize()

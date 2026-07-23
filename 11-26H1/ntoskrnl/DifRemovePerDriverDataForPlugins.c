@@ -1,10 +1,10 @@
 /*
- * XREFs of DifRemovePerDriverDataForPlugins @ 0x14064ACD0
+ * XREFs of DifRemovePerDriverDataForPlugins @ 0x14064E8B0
  * Callers:
- *     VfTargetDriversRemove @ 0x1403B7C48 (VfTargetDriversRemove.c)
- *     VfTargetDriversDisableVerifier @ 0x140C28F0C (VfTargetDriversDisableVerifier.c)
+ *     VfTargetDriversRemove @ 0x1403C1B48 (VfTargetDriversRemove.c)
+ *     VfTargetDriversDisableVerifier @ 0x140C2EF1C (VfTargetDriversDisableVerifier.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall DifRemovePerDriverDataForPlugins(_QWORD **a1)

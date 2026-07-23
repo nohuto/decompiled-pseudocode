@@ -1,13 +1,13 @@
 /*
- * XREFs of EmonOverflowHandlerInternalV1 @ 0x1404B75BC
+ * XREFs of EmonOverflowHandlerInternalV1 @ 0x1404B0DEC
  * Callers:
- *     EmonOverflowHandler @ 0x1404B70D0 (EmonOverflowHandler.c)
+ *     EmonOverflowHandler @ 0x1404B0900 (EmonOverflowHandler.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     EmonIsModifiedByBadActorInternal @ 0x1404B7ABC (EmonIsModifiedByBadActorInternal.c)
- *     KeProfileInterruptWithSource @ 0x1404B7BF0 (KeProfileInterruptWithSource.c)
- *     PoGetProcessorIdleAccounting @ 0x14052F9F0 (PoGetProcessorIdleAccounting.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     EmonIsModifiedByBadActorInternal @ 0x1404B12EC (EmonIsModifiedByBadActorInternal.c)
+ *     KeProfileInterruptWithSource @ 0x1404B1420 (KeProfileInterruptWithSource.c)
+ *     PoGetProcessorIdleAccounting @ 0x140531EF0 (PoGetProcessorIdleAccounting.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall EmonOverflowHandlerInternalV1(__int64 a1, int *a2)

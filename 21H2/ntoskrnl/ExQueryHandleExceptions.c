@@ -1,7 +1,7 @@
 /*
- * XREFs of ExQueryHandleExceptions @ 0x14094C894
+ * XREFs of ExQueryHandleExceptions @ 0x14094CA64
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

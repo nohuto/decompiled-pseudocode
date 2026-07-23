@@ -123,8 +123,8 @@ NTSTATUS __stdcall NtQueryInformationToken(
   unsigned int v85; // r12d
   unsigned int v86; // r13d
   unsigned int v87; // ecx
-  struct _SID_AND_ATTRIBUTES *v88; // r9
-  struct _SID_AND_ATTRIBUTES *v89; // rdi
+  _SID_AND_ATTRIBUTES *v88; // r9
+  _SID_AND_ATTRIBUTES *v89; // rdi
   __int64 v90; // rbx
   struct _KTHREAD *v91; // rax
   unsigned int v92; // eax
@@ -198,7 +198,7 @@ NTSTATUS __stdcall NtQueryInformationToken(
   PSID_AND_ATTRIBUTES Dest; // [rsp+120h] [rbp-88h]
   _QWORD *v161; // [rsp+128h] [rbp-80h] BYREF
   char *v162; // [rsp+130h] [rbp-78h]
-  struct _SID_AND_ATTRIBUTES Src; // [rsp+138h] [rbp-70h] BYREF
+  _SID_AND_ATTRIBUTES Src; // [rsp+138h] [rbp-70h] BYREF
   int v164; // [rsp+148h] [rbp-60h] BYREF
   __int64 v165; // [rsp+150h] [rbp-58h]
   __int64 v166; // [rsp+158h] [rbp-50h]
@@ -554,13 +554,13 @@ NTSTATUS __stdcall NtQueryInformationToken(
             *((_QWORD *)TokenInformation + 6) = *((_QWORD *)v47 + 3);
             *((_DWORD *)TokenInformation + 1) = v82;
             *(_DWORD *)TokenInformation = v47[31];
-            v88 = (struct _SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
+            v88 = (_SID_AND_ATTRIBUTES *)((char *)TokenInformation + 56);
             *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
             *((_DWORD *)TokenInformation + 5) = v86;
             *((_DWORD *)TokenInformation + 4) = v47[32];
             if ( v47[32] )
             {
-              v89 = (struct _SID_AND_ATTRIBUTES *)((char *)v88 + ((v82 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
+              v89 = (_SID_AND_ATTRIBUTES *)((char *)v88 + ((v82 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL));
               *((_QWORD *)TokenInformation + 3) = v89;
             }
             else
@@ -726,7 +726,7 @@ LABEL_189:
           {
             if ( IsElevatedRid )
               break;
-            IsElevatedRid = RtlIsElevatedRid(*((_QWORD *)v66 + 19) + 16LL * (unsigned int)v9);
+            IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(*((_QWORD *)v66 + 19) + 16LL * (unsigned int)v9));
             LODWORD(v9) = v9 + 1;
           }
           while ( (unsigned int)v9 < v68 );

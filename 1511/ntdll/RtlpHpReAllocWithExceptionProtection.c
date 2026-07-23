@@ -9,7 +9,7 @@
  */
 
 __int64 __fastcall RtlpHpReAllocWithExceptionProtection(
-        __int64 a1,
+        unsigned __int16 *a1,
         unsigned int a2,
         unsigned __int64 a3,
         unsigned __int64 a4)

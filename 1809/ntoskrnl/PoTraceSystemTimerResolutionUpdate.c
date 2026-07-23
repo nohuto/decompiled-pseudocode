@@ -1,11 +1,11 @@
 /*
- * XREFs of PoTraceSystemTimerResolutionUpdate @ 0x1400E1E68
+ * XREFs of PoTraceSystemTimerResolutionUpdate @ 0x1400E1EE8
  * Callers:
- *     ExpUpdateTimerResolution @ 0x1400E1EC8 (ExpUpdateTimerResolution.c)
+ *     ExpUpdateTimerResolution @ 0x1400E1F48 (ExpUpdateTimerResolution.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN PoTraceSystemTimerResolutionUpdate()

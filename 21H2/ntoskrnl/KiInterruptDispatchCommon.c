@@ -1,20 +1,20 @@
 /*
- * XREFs of KiInterruptDispatchCommon @ 0x140521428
+ * XREFs of KiInterruptDispatchCommon @ 0x140521668
  * Callers:
- *     IopPassiveInterruptWorker @ 0x14050D5B0 (IopPassiveInterruptWorker.c)
- *     KeDispatchSecondaryInterrupt @ 0x140518EB0 (KeDispatchSecondaryInterrupt.c)
+ *     IopPassiveInterruptWorker @ 0x14050D7F0 (IopPassiveInterruptWorker.c)
+ *     KeDispatchSecondaryInterrupt @ 0x1405190F0 (KeDispatchSecondaryInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeGetCurrentProcessorNumberEx @ 0x140260D70 (KeGetCurrentProcessorNumberEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140282240 (KeGetCurrentProcessorNumberEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     IoProcessPassiveInterrupts @ 0x14050D054 (IoProcessPassiveInterrupts.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x140518F2C (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiInvokeInterruptServiceRoutine @ 0x14052196C (KiInvokeInterruptServiceRoutine.c)
- *     KiProcessDisconnectList @ 0x140521CEC (KiProcessDisconnectList.c)
- *     KiProcessPendingDisconnect @ 0x140521D44 (KiProcessPendingDisconnect.c)
+ *     IoProcessPassiveInterrupts @ 0x14050D294 (IoProcessPassiveInterrupts.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14051916C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x140521BAC (KiInvokeInterruptServiceRoutine.c)
+ *     KiProcessDisconnectList @ 0x140521F2C (KiProcessDisconnectList.c)
+ *     KiProcessPendingDisconnect @ 0x140521F84 (KiProcessPendingDisconnect.c)
  */
 
 char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char a3, __int128 *a4, int *a5)
@@ -57,7 +57,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   char v42; // [rsp+21h] [rbp-60h]
   unsigned int v43; // [rsp+24h] [rbp-5Dh]
   int v44; // [rsp+28h] [rbp-59h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+2Ch] [rbp-55h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+2Ch] [rbp-55h] BYREF
   unsigned int v46; // [rsp+30h] [rbp-51h]
   int v47; // [rsp+34h] [rbp-4Dh]
   PKSPIN_LOCK SpinLock; // [rsp+38h] [rbp-49h]
@@ -65,9 +65,9 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   __int128 *v50; // [rsp+48h] [rbp-39h]
   __int64 CurrentIrql; // [rsp+50h] [rbp-31h]
   int *v52; // [rsp+58h] [rbp-29h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+60h] [rbp-21h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+60h] [rbp-21h] BYREF
   __int128 v54; // [rsp+70h] [rbp-11h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp-1h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp-1h] BYREF
 
   v46 = a2;
   v43 = a1;

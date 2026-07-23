@@ -1,13 +1,13 @@
 /*
- * XREFs of ViGetMdlBufferSa @ 0x140AC9074
+ * XREFs of ViGetMdlBufferSa @ 0x140AC9064
  * Callers:
- *     ViCopyBackModifiedBuffer @ 0x140AC8694 (ViCopyBackModifiedBuffer.c)
- *     ViFlushDoubleBuffer @ 0x140AC8904 (ViFlushDoubleBuffer.c)
- *     ViSwap @ 0x140ACA134 (ViSwap.c)
+ *     ViCopyBackModifiedBuffer @ 0x140AC8684 (ViCopyBackModifiedBuffer.c)
+ *     ViFlushDoubleBuffer @ 0x140AC88F4 (ViFlushDoubleBuffer.c)
+ *     ViSwap @ 0x140ACA124 (ViSwap.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140AC9324 (ViHalPreprocessOptions.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC9314 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall ViGetMdlBufferSa(ULONG_PTR a1, const void *a2)
@@ -20,8 +20,8 @@ __int64 __fastcall ViGetMdlBufferSa(ULONG_PTR a1, const void *a2)
   v5 = *(_QWORD *)(a1 + 32);
   if ( (unsigned __int64)a2 < v5 + v4 || (unsigned __int64)a2 >= v4 + v5 + (unsigned __int64)*(unsigned int *)(a1 + 40) )
   {
-    ViHalPreprocessOptions(byte_140C0DDF8, "Virtual address %p out of bounds of MDL %p", (const void *)0x1B, a2);
-    VfReportIssueWithOptions(0xE6u, 0x1BuLL, (ULONG_PTR)a2, a1, 0LL, byte_140C0DDF8);
+    ViHalPreprocessOptions(byte_140C0DDE8, "Virtual address %p out of bounds of MDL %p", (const void *)0x1B, a2);
+    VfReportIssueWithOptions(0xE6u, 0x1BuLL, (ULONG_PTR)a2, a1, 0LL, byte_140C0DDE8);
   }
   else
   {
@@ -31,8 +31,8 @@ __int64 __fastcall ViGetMdlBufferSa(ULONG_PTR a1, const void *a2)
       v6 = MmMapLockedPagesSpecifyCache((PMDL)a1, 0, MmCached, 0LL, 0, 0x40000010u);
     if ( v6 )
       return (__int64)v6 + (_QWORD)a2 - *(_QWORD *)(a1 + 32) - *(unsigned int *)(a1 + 44);
-    ViHalPreprocessOptions(&dword_140C0DDD4, "Dma MDL %p not mapped in system VA.", (const void *)0x22);
-    VfReportIssueWithOptions(0xE6u, 0x22uLL, a1, 0LL, 0LL, &dword_140C0DDD4);
+    ViHalPreprocessOptions(&dword_140C0DDEC, "Dma MDL %p not mapped in system VA.", (const void *)0x22);
+    VfReportIssueWithOptions(0xE6u, 0x22uLL, a1, 0LL, 0LL, &dword_140C0DDEC);
   }
   return 0LL;
 }

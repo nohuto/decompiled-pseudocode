@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAddAtomToAtomTable @ 0x180073190
+ * XREFs of RtlAddAtomToAtomTable @ 0x1800731A0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlAddAtomToAtomTable()
+NTSTATUS __cdecl RtlAddAtomToAtomTable(PVOID AtomTableHandle, PWSTR AtomName, PRTL_ATOM Atom)
 {
-  return RtlAddAtomToAtomTableEx();
+  return RtlAddAtomToAtomTableEx(AtomTableHandle, AtomName, Atom);
 }

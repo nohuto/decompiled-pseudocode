@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpApplyLogEntryDataToFileBackedHive @ 0x140B0EF68
+ * XREFs of HvpApplyLogEntryDataToFileBackedHive @ 0x140B10798
  * Callers:
- *     HvpApplyLegacyLogFile @ 0x140862838 (HvpApplyLegacyLogFile.c)
- *     HvpApplyIncrementalLogFile @ 0x140AE00FC (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x140868C18 (HvpApplyLegacyLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140ADD93C (HvpApplyIncrementalLogFile.c)
  * Callees:
- *     HvpSetRangeProtection @ 0x1408B8E6C (HvpSetRangeProtection.c)
- *     HvpCopyModifiedData @ 0x140B0F018 (HvpCopyModifiedData.c)
+ *     HvpSetRangeProtection @ 0x1408BF43C (HvpSetRangeProtection.c)
+ *     HvpCopyModifiedData @ 0x140B10848 (HvpCopyModifiedData.c)
  */
 
 __int64 __fastcall HvpApplyLogEntryDataToFileBackedHive(

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoPropagateActivityIdToThread @ 0x1404395D0
+ * XREFs of IoPropagateActivityIdToThread @ 0x14042BE80
  * Callers:
  *     <none>
  * Callees:
- *     IoGetActivityIdIrp @ 0x140439640 (IoGetActivityIdIrp.c)
+ *     IoGetActivityIdIrp @ 0x14042BEF0 (IoGetActivityIdIrp.c)
  */
 
 __int64 __fastcall IoPropagateActivityIdToThread(__int64 a1, struct _LIST_ENTRY *a2, struct _LIST_ENTRY **a3)

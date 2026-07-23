@@ -1,10 +1,10 @@
 /*
- * XREFs of KiProcessDisconnectList @ 0x1403A3268
+ * XREFs of KiProcessDisconnectList @ 0x1403A3448
  * Callers:
- *     KiInterruptDispatchCommon @ 0x1403A2F44 (KiInterruptDispatchCommon.c)
- *     KiProcessSecondarySignalList @ 0x140571DB0 (KiProcessSecondarySignalList.c)
+ *     KiInterruptDispatchCommon @ 0x1403A3124 (KiInterruptDispatchCommon.c)
+ *     KiProcessSecondarySignalList @ 0x1405722F0 (KiProcessSecondarySignalList.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  */
 
 _QWORD *__fastcall KiProcessDisconnectList(_QWORD *a1)

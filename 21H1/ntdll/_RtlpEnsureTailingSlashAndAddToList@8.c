@@ -10,7 +10,7 @@
 
 int __fastcall RtlpEnsureTailingSlashAndAddToList(int a1, int a2)
 {
-  int DirPrefixBlock; // eax
+  _WORD *DirPrefixBlock; // eax
   _DWORD *v5; // esi
   _DWORD *v7; // eax
 
@@ -18,10 +18,10 @@ int __fastcall RtlpEnsureTailingSlashAndAddToList(int a1, int a2)
     || RtlUnicodeStringCatString((unsigned __int16 *)a2) >= 0 )
   {
     DirPrefixBlock = RtlpAllocateDirPrefixBlock(*(_WORD *)a2 + 2);
-    v5 = (_DWORD *)DirPrefixBlock;
+    v5 = DirPrefixBlock;
     if ( !DirPrefixBlock )
       return -1073741801;
-    RtlUnicodeStringCopy((_WORD *)(DirPrefixBlock + 8));
+    RtlUnicodeStringCopy(DirPrefixBlock + 4);
     v7 = *(_DWORD **)(a1 + 4);
     if ( *v7 != a1 )
       __fastfail(3u);

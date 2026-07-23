@@ -1,18 +1,18 @@
 /*
- * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1400A8E10
+ * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1400A8D50
  * Callers:
- *     SepReferenceTokenByHandle @ 0x1400A8D80 (SepReferenceTokenByHandle.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepReferenceTokenByHandle @ 0x1400A8CC0 (SepReferenceTokenByHandle.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A93B0 (SeAccessCheckByTypeWithAdminlessChecks.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     SepSidFromProcessProtection @ 0x1400ABAEC (SepSidFromProcessProtection.c)
- *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     PsReferenceImpersonationTokenEx @ 0x140631BA0 (PsReferenceImpersonationTokenEx.c)
- *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
+ *     SepSidFromProcessProtection @ 0x1400ABA2C (SepSidFromProcessProtection.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD0E0 (RtlSidDominatesForTrust.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140632BC0 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferenceEffectiveToken @ 0x14064A470 (PsReferenceEffectiveToken.c)
  */
 
-__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, __int64 *a4)
+__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v8; // rax
@@ -20,13 +20,13 @@ __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN 
   __int64 v10; // r8
   _QWORD *v11; // r11
   __int64 v12; // r9
-  __int64 v13; // rbp
-  __int64 v14; // r9
+  void *v13; // rbp
+  PSID v14; // r9
   void *v15; // r11
   int v17; // [rsp+30h] [rbp-38h] BYREF
   int v18; // [rsp+34h] [rbp-34h] BYREF
   char v19; // [rsp+70h] [rbp+8h] BYREF
-  char v20; // [rsp+78h] [rbp+10h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+78h] [rbp+10h] BYREF
   char v21; // [rsp+80h] [rbp+18h] BYREF
   char v22; // [rsp+88h] [rbp+20h] BYREF
 
@@ -72,10 +72,10 @@ LABEL_8:
   v12 = v11[138];
   *a3 = 0;
   *a4 = 0LL;
-  v20 = 0;
-  v13 = SepSidFromProcessProtection(&v19, v9, v10, v12);
-  RtlSidDominatesForTrust(v13, v14, &v20);
-  if ( !v20 )
+  DominatesTrust = 0;
+  v13 = (void *)SepSidFromProcessProtection(&v19, v9, v10, v12);
+  RtlSidDominatesForTrust(v13, v14, &DominatesTrust);
+  if ( !DominatesTrust )
   {
     *a3 = 1;
     *a4 = v13;

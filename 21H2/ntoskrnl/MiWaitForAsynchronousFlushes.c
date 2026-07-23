@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWaitForAsynchronousFlushes @ 0x14053D5E0
+ * XREFs of MiWaitForAsynchronousFlushes @ 0x14053D820
  * Callers:
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,21 +1,21 @@
 /*
- * XREFs of PopCalculateCsSummary @ 0x14042A4C8
+ * XREFs of PopCalculateCsSummary @ 0x140422F4C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmConvertTimeTo @ 0x140429470 (PpmConvertTimeTo.c)
- *     PopBatteryGetEnergyDrainFromDischage @ 0x14042AB2C (PopBatteryGetEnergyDrainFromDischage.c)
- *     PopCalculateIdleInformation @ 0x140434E0C (PopCalculateIdleInformation.c)
- *     PopBatteryCapacityToRate @ 0x1405166D4 (PopBatteryCapacityToRate.c)
- *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140526BA0 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
- *     PopCalculateTotalHwDripsResidencyV0 @ 0x140532FFC (PopCalculateTotalHwDripsResidencyV0.c)
- *     PopCurrentPowerState @ 0x140AB1350 (PopCurrentPowerState.c)
- *     PopMeasureEnergyChange @ 0x140B21570 (PopMeasureEnergyChange.c)
- *     PopQueryInputSuppressionCount @ 0x140B46548 (PopQueryInputSuppressionCount.c)
- *     PopQueryPowerButtonSuppressionCount @ 0x140B49970 (PopQueryPowerButtonSuppressionCount.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmConvertTimeTo @ 0x1404239FC (PpmConvertTimeTo.c)
+ *     PopBatteryGetEnergyDrainFromDischage @ 0x140423CBC (PopBatteryGetEnergyDrainFromDischage.c)
+ *     PopCalculateIdleInformation @ 0x140423CE4 (PopCalculateIdleInformation.c)
+ *     PopBatteryCapacityToRate @ 0x140510144 (PopBatteryCapacityToRate.c)
+ *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140529210 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopCalculateTotalHwDripsResidencyV0 @ 0x14053547C (PopCalculateTotalHwDripsResidencyV0.c)
+ *     PopCurrentPowerState @ 0x140AAF340 (PopCurrentPowerState.c)
+ *     PopMeasureEnergyChange @ 0x140B23970 (PopMeasureEnergyChange.c)
+ *     PopQueryInputSuppressionCount @ 0x140B48578 (PopQueryInputSuppressionCount.c)
+ *     PopQueryPowerButtonSuppressionCount @ 0x140B4B700 (PopQueryPowerButtonSuppressionCount.c)
  */
 
 __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   int v4; // r12d
   int v5; // eax
   int v6; // ecx
-  __int64 InterruptTimePrecise; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rbx
   unsigned __int64 v8; // rsi
   unsigned int EnergyDrainFromDischage; // eax
   __int64 v10; // rax
@@ -36,268 +36,253 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
   int v17; // eax
   unsigned __int128 v18; // rax
   unsigned __int64 v19; // r15
-  ULONGLONG v20; // rax
+  __int64 v20; // rax
   __int64 v21; // rdx
   __int64 v22; // rcx
   unsigned __int64 v23; // rax
   unsigned __int64 v24; // rcx
-  __int64 v25; // rbx
+  LONGLONG v25; // rbx
   KIRQL v26; // al
   int v27; // ebx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 v30; // rax
-  __int64 v31; // rcx
-  __int64 v32; // rdx
-  char v33; // r10
-  int v34; // ecx
-  __int128 v35; // xmm0
-  char v36; // al
-  __int64 v37; // r8
-  __int64 v38; // r9
-  int v39; // eax
-  int v40; // edx
-  KIRQL v41; // al
-  __int64 v42; // rdx
-  __int64 v43; // rcx
+  char v28; // r10
+  int v29; // ecx
+  __int128 v30; // xmm0
+  char v31; // al
+  __int64 v32; // r8
+  __int64 v33; // r9
+  int v34; // eax
+  int v35; // edx
+  KIRQL v36; // al
+  __int64 v37; // rdx
+  __int64 v38; // rcx
   __int64 result; // rax
-  ULONGLONG v45; // [rsp+20h] [rbp-A9h]
-  unsigned __int64 v46; // [rsp+20h] [rbp-A9h]
-  ULONGLONG v47; // [rsp+28h] [rbp-A1h]
-  __int64 v48; // [rsp+30h] [rbp-99h]
-  int v49; // [rsp+38h] [rbp-91h]
-  int v50; // [rsp+3Ch] [rbp-8Dh]
-  int v51; // [rsp+40h] [rbp-89h]
-  unsigned __int64 v52; // [rsp+48h] [rbp-81h] BYREF
-  __int128 v53; // [rsp+50h] [rbp-79h] BYREF
-  __int128 v54; // [rsp+60h] [rbp-69h] BYREF
-  __int128 v55; // [rsp+70h] [rbp-59h]
-  __int64 v56; // [rsp+80h] [rbp-49h]
-  unsigned __int64 v57; // [rsp+88h] [rbp-41h]
-  unsigned __int64 v58; // [rsp+90h] [rbp-39h]
-  ULONGLONG v59; // [rsp+98h] [rbp-31h]
-  ULONGLONG v60; // [rsp+A0h] [rbp-29h]
-  ULONGLONG v61; // [rsp+A8h] [rbp-21h]
-  __int64 v62; // [rsp+B0h] [rbp-19h]
-  __int128 v63; // [rsp+B8h] [rbp-11h] BYREF
-  int v64; // [rsp+130h] [rbp+67h]
-  int v65; // [rsp+138h] [rbp+6Fh] BYREF
-  int v66; // [rsp+140h] [rbp+77h]
-  int v67; // [rsp+148h] [rbp+7Fh]
+  __int64 v40; // [rsp+20h] [rbp-A9h]
+  unsigned __int64 v41; // [rsp+20h] [rbp-A9h]
+  __int64 v42; // [rsp+28h] [rbp-A1h]
+  __int64 v43; // [rsp+30h] [rbp-99h]
+  int v44; // [rsp+38h] [rbp-91h]
+  int v45; // [rsp+3Ch] [rbp-8Dh]
+  int v46; // [rsp+40h] [rbp-89h]
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-81h] BYREF
+  __int128 v48; // [rsp+50h] [rbp-79h] BYREF
+  __int128 v49; // [rsp+60h] [rbp-69h] BYREF
+  __int128 v50; // [rsp+70h] [rbp-59h]
+  __int64 v51; // [rsp+80h] [rbp-49h]
+  unsigned __int64 v52; // [rsp+88h] [rbp-41h]
+  unsigned __int64 v53; // [rsp+90h] [rbp-39h]
+  __int64 v54; // [rsp+98h] [rbp-31h]
+  __int64 v55; // [rsp+A0h] [rbp-29h]
+  __int64 v56; // [rsp+A8h] [rbp-21h]
+  __int64 v57; // [rsp+B0h] [rbp-19h]
+  __int128 v58; // [rsp+B8h] [rbp-11h] BYREF
+  int v59; // [rsp+130h] [rbp+67h]
+  int v60; // [rsp+138h] [rbp+6Fh] BYREF
+  int v61; // [rsp+140h] [rbp+77h]
+  int v62; // [rsp+148h] [rbp+7Fh]
 
-  DWORD2(v53) = 0;
-  *(_QWORD *)&v53 = 0LL;
-  v56 = 0LL;
-  v52 = 0LL;
-  v63 = 0LL;
+  DWORD2(v48) = 0;
+  *(_QWORD *)&v48 = 0LL;
+  v51 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
+  v58 = 0LL;
   v4 = 0;
-  v45 = 0LL;
-  v54 = 0LL;
-  v55 = 0LL;
-  PopCalculateIdleInformation(&v54);
+  v40 = 0LL;
+  v49 = 0LL;
+  v50 = 0LL;
+  PopCalculateIdleInformation(&v49);
   v5 = ((__int64 (*)(void))Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline)();
   v6 = 0;
   if ( v5 )
-    v6 = v56;
-  v51 = v6;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v52);
-  v8 = (InterruptTimePrecise - qword_140E26F48) / 0xAuLL;
-  PopCurrentPowerState(&v63);
+    v6 = v51;
+  v46 = v6;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v8 = (InterruptTimePrecise.QuadPart - qword_140E27088) / 0xAuLL;
+  PopCurrentPowerState(&v58);
   if ( v8 )
   {
-    EnergyDrainFromDischage = PopBatteryGetEnergyDrainFromDischage((unsigned int)PopCsConsumption, HIDWORD(v63));
-    v64 = PopBatteryCapacityToRate(EnergyDrainFromDischage, v8);
+    EnergyDrainFromDischage = PopBatteryGetEnergyDrainFromDischage((unsigned int)PopCsConsumption, HIDWORD(v58));
+    v59 = PopBatteryCapacityToRate(EnergyDrainFromDischage, v8);
   }
   else
   {
-    v64 = 0;
+    v59 = 0;
   }
-  v10 = PopMeasureEnergyChange(&v53, &unk_140F0F5E0);
-  v67 = HIDWORD(xmmword_140F0FEC8);
-  if ( HIDWORD(xmmword_140F0FEC8) )
+  v10 = PopMeasureEnergyChange(&v48, &CsSessionEnergyCounter);
+  v62 = HIDWORD(xmmword_140F10688);
+  if ( HIDWORD(xmmword_140F10688) )
   {
-    v11 = (unsigned int)(100 * xmmword_140F0FED8) % HIDWORD(xmmword_140F0FEC8);
-    LODWORD(v10) = (unsigned int)(100 * xmmword_140F0FED8) / HIDWORD(xmmword_140F0FEC8);
+    v11 = (unsigned int)(100 * xmmword_140F10698) % HIDWORD(xmmword_140F10688);
+    LODWORD(v10) = (unsigned int)(100 * xmmword_140F10698) / HIDWORD(xmmword_140F10688);
   }
   else
   {
     LOBYTE(v10) = 0;
   }
   v12 = 0LL;
-  v66 = v10;
-  if ( (xmmword_140F0FEC8 & 0x40000000) == 0 )
-    v12 = (unsigned int)xmmword_140F0FED8;
-  v49 = v12;
+  v61 = v10;
+  if ( (xmmword_140F10688 & 0x40000000) == 0 )
+    v12 = (unsigned int)xmmword_140F10698;
+  v44 = v12;
   if ( (unsigned int)Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline(v12, v11) )
   {
-    v14 = qword_140E26F50;
-    if ( *((_QWORD *)&v54 + 1) < (unsigned __int64)qword_140E26F50 )
+    v14 = qword_140E27090;
+    if ( *((_QWORD *)&v49 + 1) < (unsigned __int64)qword_140E27090 )
     {
       v15 = 0LL;
       v4 = 4;
     }
     else
     {
-      v15 = *((_QWORD *)&v54 + 1) - qword_140E26F50;
-      v4 = (v8 < *((_QWORD *)&v54 + 1) - qword_140E26F50) + 1;
+      v15 = *((_QWORD *)&v49 + 1) - qword_140E27090;
+      v4 = (v8 < *((_QWORD *)&v49 + 1) - qword_140E27090) + 1;
     }
   }
   else
   {
-    v15 = *((_QWORD *)&v54 + 1) - qword_140E26F50;
+    v15 = *((_QWORD *)&v49 + 1) - qword_140E27090;
   }
-  v50 = DWORD2(v55) - dword_140E26F60;
+  v45 = DWORD2(v50) - dword_140E270A0;
   if ( (unsigned int)Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline(v14, v13) )
   {
-    v48 = -1LL;
-    if ( qword_140E26FE8 == -1 || (_QWORD)v55 == -1LL )
+    v43 = -1LL;
+    if ( qword_140E27128 == -1 || (_QWORD)v50 == -1LL )
     {
       v17 = 128;
     }
-    else if ( (unsigned __int64)v55 < qword_140E26FE8 )
+    else if ( (unsigned __int64)v50 < qword_140E27128 )
     {
-      v48 = 0LL;
+      v43 = 0LL;
       v17 = 64;
     }
     else
     {
       v16 = v8;
-      v17 = v8 < (__int64)v55 - qword_140E26FE8 ? 32 : 16;
-      if ( (__int64)v55 - qword_140E26FE8 <= v8 )
-        v16 = v55 - qword_140E26FE8;
-      v48 = v16;
+      v17 = v8 < (__int64)v50 - qword_140E27128 ? 32 : 16;
+      if ( (__int64)v50 - qword_140E27128 <= v8 )
+        v16 = v50 - qword_140E27128;
+      v43 = v16;
     }
     v4 |= v17;
   }
   else
   {
-    v48 = PopCalculateTotalHwDripsResidencyV0(qword_140E26FE8, v55, v8);
+    v43 = PopCalculateTotalHwDripsResidencyV0(qword_140E27128, v50, v8);
   }
-  *((_QWORD *)&v18 + 1) = (KiAccumulatedDeepSleepTimerRebasing - qword_140E26F68) / 0xAuLL;
-  v62 = *((_QWORD *)&v18 + 1);
-  v57 = v8 + qword_140E26F58 - v54;
-  v19 = _InterlockedExchangeAdd64(&qword_140E270C0, 0LL);
+  *((_QWORD *)&v18 + 1) = (KiAccumulatedDeepSleepTimerRebasing - qword_140E270A8) / 0xAuLL;
+  v57 = *((_QWORD *)&v18 + 1);
+  v52 = v8 + qword_140E27098 - v49;
+  v19 = _InterlockedExchangeAdd64(&qword_140E27200, 0LL);
   if ( v19 )
   {
-    v18 = (v19 - qword_140E26F48) * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL;
-    v19 = (v19 - qword_140E26F48) / 0xA;
+    v18 = (v19 - qword_140E27088) * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL;
+    v19 = (v19 - qword_140E27088) / 0xA;
   }
   if ( (unsigned int)Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline(
-                       KiAccumulatedDeepSleepTimerRebasing - qword_140E26F68,
+                       KiAccumulatedDeepSleepTimerRebasing - qword_140E270A8,
                        *((_QWORD *)&v18 + 1)) )
   {
-    v20 = PpmConvertTimeTo(qword_140E26F88, 0xF4240uLL);
-    v45 = v20;
+    v20 = PpmConvertTimeTo(qword_140E270C8, 1000000LL);
+    v40 = v20;
   }
   else
   {
-    v20 = qword_140E26F88;
+    v20 = qword_140E270C8;
   }
-  v47 = v20 - PpmConvertTimeTo(qword_140E26F78, 0xF4240uLL);
+  v42 = v20 - PpmConvertTimeTo(qword_140E270B8, 1000000LL);
   if ( (unsigned int)Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline(v22, v21) )
-    v23 = v8 - v45;
+    v23 = v8 - v40;
   else
-    v23 = v8 - qword_140E26F88;
-  v24 = qword_140E26F98;
-  v46 = v23;
-  if ( qword_140E26F90 )
+    v23 = v8 - qword_140E270C8;
+  v24 = qword_140E270D8;
+  v41 = v23;
+  if ( qword_140E270D0 )
   {
-    if ( qword_140E26F48 <= (unsigned __int64)qword_140E26F90 )
-      v25 = InterruptTimePrecise - qword_140E26F90;
+    if ( qword_140E27088 <= (unsigned __int64)qword_140E270D0 )
+      v25 = InterruptTimePrecise.QuadPart - qword_140E270D0;
     else
-      v25 = InterruptTimePrecise - qword_140E26F48;
-    v24 = v25 + qword_140E26F98;
+      v25 = InterruptTimePrecise.QuadPart - qword_140E27088;
+    v24 = v25 + qword_140E270D8;
   }
-  v58 = v24 / 0xA;
-  v59 = PpmConvertTimeTo(qword_140E26FA8, 0xF4240uLL);
-  v60 = PpmConvertTimeTo(qword_140E26FB8, 0xF4240uLL);
-  v61 = PpmConvertTimeTo(qword_140E26FD0, 0xF4240uLL);
+  v53 = v24 / 0xA;
+  v54 = PpmConvertTimeTo(qword_140E270E8, 1000000LL);
+  v55 = PpmConvertTimeTo(qword_140E270F8, 1000000LL);
+  v56 = PpmConvertTimeTo(qword_140E27110, 1000000LL);
   v26 = KeAcquireSpinLockRaiseToDpc(&PopModernStandbyTransitionInfo);
-  v27 = dword_140E0B8D0;
+  v27 = dword_140E0B8E0;
   KeReleaseSpinLock(&PopModernStandbyTransitionInfo, v26);
-  v28 = 0LL;
-  v29 = 0LL;
-  if ( PpmPlatformStates && (unsigned int)dword_140E27100 < *(_DWORD *)PpmPlatformStates )
-  {
-    v30 = *(_QWORD *)(PpmPlatformStates + 48);
-    v31 = 1032LL * (unsigned int)dword_140E27100;
-    v28 = *(_QWORD *)(v31 + v30 + 104);
-    v29 = *(_QWORD *)(v31 + v30 + 96);
-  }
-  v65 = 0;
-  PopQueryInputSuppressionCount(&v65, PpmPlatformStates, v28 - qword_140E26FF0, v29 - qword_140E26FF8);
-  v32 = (unsigned int)(v65 - dword_140E27050);
-  v65 = 0;
-  PopQueryPowerButtonSuppressionCount(&v65, v32);
-  v34 = v65 - dword_140E27054;
-  v35 = v53;
-  *(_DWORD *)a1 = v64;
-  *(_DWORD *)(a1 + 24) = v67;
-  *(_DWORD *)(a1 + 28) = v49;
-  *(_QWORD *)(a1 + 48) = v57;
-  *(_DWORD *)(a1 + 56) = v50;
-  *(_QWORD *)(a1 + 72) = v47;
-  *(_QWORD *)(a1 + 88) = v58;
-  *(_QWORD *)(a1 + 96) = v59;
-  *(_QWORD *)(a1 + 104) = v60;
-  *(_QWORD *)(a1 + 392) = v61;
-  *(_QWORD *)(a1 + 80) = v46;
-  *(_QWORD *)(a1 + 144) = v48;
-  *(_OWORD *)(a1 + 8) = v35;
+  v60 = 0;
+  PopQueryInputSuppressionCount(&v60);
+  v60 = 0;
+  PopQueryPowerButtonSuppressionCount(&v60);
+  v29 = v60 - dword_140E27194;
+  v30 = v48;
+  *(_DWORD *)a1 = v59;
+  *(_DWORD *)(a1 + 24) = v62;
+  *(_DWORD *)(a1 + 28) = v44;
+  *(_QWORD *)(a1 + 48) = v52;
+  *(_DWORD *)(a1 + 56) = v45;
+  *(_QWORD *)(a1 + 72) = v42;
+  *(_QWORD *)(a1 + 88) = v53;
+  *(_QWORD *)(a1 + 96) = v54;
+  *(_QWORD *)(a1 + 104) = v55;
+  *(_QWORD *)(a1 + 392) = v56;
+  *(_QWORD *)(a1 + 80) = v41;
+  *(_QWORD *)(a1 + 144) = v43;
+  *(_OWORD *)(a1 + 8) = v30;
   *(_QWORD *)(a1 + 32) = v8;
   *(_QWORD *)(a1 + 40) = v15;
   *(_QWORD *)(a1 + 64) = v19;
   *(_DWORD *)(a1 + 128) = v27;
   *(_DWORD *)(a1 + 132) = a2;
-  *(_DWORD *)(a1 + 120) = dword_140E26F64;
-  *(_QWORD *)(a1 + 112) = v62;
-  v36 = 2 * v66;
-  *(_QWORD *)(a1 + 152) = v37;
-  *(_QWORD *)(a1 + 160) = v38;
-  *(_BYTE *)(a1 + 136) = v36 | v33 & 1;
-  *(_BYTE *)(a1 + 137) = HIBYTE(word_140E27018);
-  *(_DWORD *)(a1 + 176) = dword_140E27000;
-  *(_DWORD *)(a1 + 180) = dword_140E27004;
-  *(_BYTE *)(a1 + 184) = byte_140E27008;
-  *(_DWORD *)(a1 + 188) = dword_140E2700C;
-  *(_DWORD *)(a1 + 192) = dword_140E27010;
-  *(_DWORD *)(a1 + 196) = dword_140E27014;
-  *(_DWORD *)(a1 + 200) = dword_140E2701C;
-  *(_DWORD *)(a1 + 204) = dword_140E27020;
-  *(_BYTE *)(a1 + 208) = byte_140E27024;
-  *(_DWORD *)(a1 + 212) = HIDWORD(v63);
-  *(_DWORD *)(a1 + 216) = DWORD2(v63);
-  *(_BYTE *)(a1 + 224) = byte_140E2702C;
-  *(_BYTE *)(a1 + 225) = byte_140E2702D;
-  *(_DWORD *)(a1 + 228) = dword_140E27030;
-  v39 = dword_140E27034;
-  *(_DWORD *)(a1 + 344) = v34;
-  *(_DWORD *)(a1 + 232) = v39;
-  *(_DWORD *)(a1 + 240) = v40;
-  *(_QWORD *)(a1 + 248) = qword_140E26FD8;
-  *(_QWORD *)(a1 + 256) = qword_140E26FE0;
-  *(_DWORD *)(a1 + 236) = dword_140E27058;
-  *(_DWORD *)(a1 + 348) = dword_140E2705C;
-  *(_DWORD *)(a1 + 352) = dword_140E27060;
-  *(_QWORD *)(a1 + 360) = qword_140E27068;
-  *(_DWORD *)(a1 + 368) = dword_140E27070;
-  *(_QWORD *)(a1 + 376) = qword_140E27078;
-  *(_DWORD *)(a1 + 384) = dword_140E27080;
-  v41 = KeAcquireSpinLockRaiseToDpc(&unk_140F10EF8);
-  *(_QWORD *)(a1 + 272) = unk_140F10EE8;
-  *(_QWORD *)(a1 + 264) = unk_140F10EF0;
-  *(_QWORD *)(a1 + 280) = unk_140F10EE0;
-  KeReleaseSpinLock(&unk_140F10EF8, v41);
-  result = Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline(v43, v42);
+  *(_DWORD *)(a1 + 120) = dword_140E270A4;
+  *(_QWORD *)(a1 + 112) = v57;
+  v31 = 2 * v61;
+  *(_QWORD *)(a1 + 152) = v32;
+  *(_QWORD *)(a1 + 160) = v33;
+  *(_BYTE *)(a1 + 136) = v31 | v28 & 1;
+  *(_BYTE *)(a1 + 137) = HIBYTE(word_140E27158);
+  *(_DWORD *)(a1 + 176) = dword_140E27140;
+  *(_DWORD *)(a1 + 180) = dword_140E27144;
+  *(_BYTE *)(a1 + 184) = byte_140E27148;
+  *(_DWORD *)(a1 + 188) = dword_140E2714C;
+  *(_DWORD *)(a1 + 192) = dword_140E27150;
+  *(_DWORD *)(a1 + 196) = dword_140E27154;
+  *(_DWORD *)(a1 + 200) = dword_140E2715C;
+  *(_DWORD *)(a1 + 204) = dword_140E27160;
+  *(_BYTE *)(a1 + 208) = byte_140E27164;
+  *(_DWORD *)(a1 + 212) = HIDWORD(v58);
+  *(_DWORD *)(a1 + 216) = DWORD2(v58);
+  *(_BYTE *)(a1 + 224) = byte_140E2716C;
+  *(_BYTE *)(a1 + 225) = byte_140E2716D;
+  *(_DWORD *)(a1 + 228) = dword_140E27170;
+  v34 = dword_140E27174;
+  *(_DWORD *)(a1 + 344) = v29;
+  *(_DWORD *)(a1 + 232) = v34;
+  *(_DWORD *)(a1 + 240) = v35;
+  *(_QWORD *)(a1 + 248) = qword_140E27118;
+  *(_QWORD *)(a1 + 256) = qword_140E27120;
+  *(_DWORD *)(a1 + 236) = dword_140E27198;
+  *(_DWORD *)(a1 + 348) = dword_140E2719C;
+  *(_DWORD *)(a1 + 352) = dword_140E271A0;
+  *(_QWORD *)(a1 + 360) = qword_140E271A8;
+  *(_DWORD *)(a1 + 368) = dword_140E271B0;
+  *(_QWORD *)(a1 + 376) = qword_140E271B8;
+  *(_DWORD *)(a1 + 384) = dword_140E271C0;
+  v36 = KeAcquireSpinLockRaiseToDpc(&qword_140F10278);
+  *(_QWORD *)(a1 + 272) = qword_140F10268;
+  *(_QWORD *)(a1 + 264) = qword_140F10270;
+  *(_QWORD *)(a1 + 280) = PopDisplayOnPerformance;
+  KeReleaseSpinLock(&qword_140F10278, v36);
+  result = Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline(v38, v37);
   if ( (_DWORD)result )
   {
-    *(_DWORD *)(a1 + 488) = v51 - dword_140E27090;
-    *(_QWORD *)(a1 + 472) = qword_140E27088;
-    *(_QWORD *)(a1 + 480) = v52;
+    *(_DWORD *)(a1 + 488) = v46 - dword_140E271D0;
+    *(_QWORD *)(a1 + 472) = qword_140E271C8;
+    *(LARGE_INTEGER *)(a1 + 480) = PerformanceCounter;
     *(_DWORD *)(a1 + 448) = v4;
-    *(_QWORD *)(a1 + 456) = qword_140E26F50;
-    result = *((_QWORD *)&v54 + 1);
-    *(_QWORD *)(a1 + 464) = *((_QWORD *)&v54 + 1);
+    *(_QWORD *)(a1 + 456) = qword_140E27090;
+    result = *((_QWORD *)&v49 + 1);
+    *(_QWORD *)(a1 + 464) = *((_QWORD *)&v49 + 1);
   }
   return result;
 }

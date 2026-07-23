@@ -1,9 +1,9 @@
 /*
- * XREFs of UmapInterlockedCompareExchange64ToUser @ 0x14077FDC0
+ * XREFs of UmapInterlockedCompareExchange64ToUser @ 0x1407828C0
  * Callers:
  *     <none>
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 signed __int64 __fastcall UmapInterlockedCompareExchange64ToUser(

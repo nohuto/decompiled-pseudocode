@@ -61,7 +61,7 @@ NTSTATUS __stdcall NtDeleteKey(HANDLE KeyHandle)
   v3 = 0LL;
   memset(v26, 0, sizeof(v26));
   if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp(v26, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v26, 0x20000u);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v6 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);

@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntSubSameSize @ 0x140568A78
+ * XREFs of SymCryptFdefIntSubSameSize @ 0x140567C58
  * Callers:
- *     SymCryptIntSubSameSize @ 0x14055C42C (SymCryptIntSubSameSize.c)
+ *     SymCryptIntSubSameSize @ 0x14055E914 (SymCryptIntSubSameSize.c)
  * Callees:
- *     SymCryptFdefRawSubAsm @ 0x140571560 (SymCryptFdefRawSubAsm.c)
+ *     SymCryptFdefRawSubAsm @ 0x140570740 (SymCryptFdefRawSubAsm.c)
  */
 
 __int64 __fastcall SymCryptFdefIntSubSameSize(__int64 a1, __int64 a2, __int64 a3)

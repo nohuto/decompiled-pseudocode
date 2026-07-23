@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAddSecureEntry @ 0x14042AB30
+ * XREFs of MiAddSecureEntry @ 0x140429A00
  * Callers:
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14040C688 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiSecureVad @ 0x14042AA80 (MiSecureVad.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiAllocateVad @ 0x14046D108 (MiAllocateVad.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiCloneNoChange @ 0x140527F0C (MiCloneNoChange.c)
- *     MmStoreAllocateVirtualMemory @ 0x1405320CC (MmStoreAllocateVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x14040B548 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiSecureVad @ 0x140429950 (MiSecureVad.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiAllocateVad @ 0x14046BFD8 (MiAllocateVad.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiCloneNoChange @ 0x14050AF6C (MiCloneNoChange.c)
+ *     MmStoreAllocateVirtualMemory @ 0x14053260C (MmStoreAllocateVirtualMemory.c)
  * Callees:
- *     MiInsertVadEvent @ 0x140014510 (MiInsertVadEvent.c)
- *     MiLocateExclusiveSecure @ 0x140014B08 (MiLocateExclusiveSecure.c)
+ *     MiInsertVadEvent @ 0x140014090 (MiInsertVadEvent.c)
+ *     MiLocateExclusiveSecure @ 0x140014688 (MiLocateExclusiveSecure.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

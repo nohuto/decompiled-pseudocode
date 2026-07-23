@@ -41,11 +41,11 @@
  *     <none>
  */
 
-__int64 NtUnmapViewOfSection()
+NTSTATUS __cdecl NtUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 42LL;
+  result = 42;
   __asm { syscall; Low latency system call }
   return result;
 }

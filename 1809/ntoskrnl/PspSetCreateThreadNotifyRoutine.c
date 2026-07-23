@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetCreateThreadNotifyRoutine @ 0x140748190
+ * XREFs of PspSetCreateThreadNotifyRoutine @ 0x140749380
  * Callers:
- *     PsSetCreateThreadNotifyRoutine @ 0x140748120 (PsSetCreateThreadNotifyRoutine.c)
- *     PsSetCreateThreadNotifyRoutineEx @ 0x14088C9F0 (PsSetCreateThreadNotifyRoutineEx.c)
+ *     PsSetCreateThreadNotifyRoutine @ 0x140749310 (PsSetCreateThreadNotifyRoutine.c)
+ *     PsSetCreateThreadNotifyRoutineEx @ 0x14088DC50 (PsSetCreateThreadNotifyRoutineEx.c)
  * Callees:
- *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExAllocateCallBack @ 0x140748558 (ExAllocateCallBack.c)
+ *     ExCompareExchangeCallBack @ 0x1401867BC (ExCompareExchangeCallBack.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExAllocateCallBack @ 0x140749748 (ExAllocateCallBack.c)
  */
 
 __int64 __fastcall PspSetCreateThreadNotifyRoutine(__int64 a1, unsigned int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeTrackEnclaveTbFlush @ 0x1405706DC
+ * XREFs of KeTrackEnclaveTbFlush @ 0x140570C1C
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x1406474E0 (MiDecommitHardwareEnclavePages.c)
- *     MiProtectEnclavePages @ 0x140648248 (MiProtectEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140647A30 (MiDecommitHardwareEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x140648798 (MiProtectEnclavePages.c)
  * Callees:
- *     KiEncls @ 0x14041FC80 (KiEncls.c)
- *     KiEnclsStatus @ 0x140570718 (KiEnclsStatus.c)
+ *     KiEncls @ 0x140420010 (KiEncls.c)
+ *     KiEnclsStatus @ 0x140570C58 (KiEnclsStatus.c)
  */
 
 __int64 KeTrackEnclaveTbFlush()

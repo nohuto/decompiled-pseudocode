@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSystemImageHasPrivateFixups @ 0x140119BF8
+ * XREFs of MiSystemImageHasPrivateFixups @ 0x140119C68
  * Callers:
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
@@ -22,16 +22,16 @@ unsigned __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, _
 
   *a3 = 0;
   *a2 = 0LL;
-  if ( (__int64 *)qword_140438E80 == &qword_140438E80 )
+  if ( (__int64 *)qword_140439F40 == &qword_140439F40 )
     return 0LL;
   SystemRegionType = MiGetSystemRegionType(a1);
   if ( SystemRegionType != 12 && SystemRegionType != 1 )
     return 0LL;
   v7 = 0LL;
-  v8 = ExAcquireSpinLockShared(&dword_140438EC8);
-  v9 = (__int64 *)qword_140438E80;
+  v8 = ExAcquireSpinLockShared(&dword_140439F88);
+  v9 = (__int64 *)qword_140439F40;
   v10 = v8;
-  while ( v9 != &qword_140438E80 )
+  while ( v9 != &qword_140439F40 )
   {
     v11 = v9[2];
     if ( a1 >= v11 && a1 <= v9[3] )
@@ -47,7 +47,7 @@ unsigned __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, _
     }
     v9 = (__int64 *)*v9;
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140438EC8);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140439F88);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v10 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRundownProcess @ 0x1409EB058
+ * XREFs of PspRundownProcess @ 0x1409E5948
  * Callers:
- *     PspProcessClose @ 0x1409EAF60 (PspProcessClose.c)
+ *     PspProcessClose @ 0x1409E5850 (PspProcessClose.c)
  * Callees:
- *     ExAcquireRundownProtectionEx @ 0x1402C9E60 (ExAcquireRundownProtectionEx.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireRundownProtectionEx @ 0x14040EC70 (ExAcquireRundownProtectionEx.c)
  */
 
 void __fastcall PspRundownProcess(signed __int64 Object)

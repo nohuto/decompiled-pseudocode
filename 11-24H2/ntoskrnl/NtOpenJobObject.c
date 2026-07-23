@@ -1,37 +1,41 @@
 /*
- * XREFs of NtOpenJobObject @ 0x1408EA5D0
+ * XREFs of NtOpenJobObject @ 0x14085BE00
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     EtwTraceJob @ 0x1408EAEF8 (EtwTraceJob.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     EtwTraceJob @ 0x14085C728 (EtwTraceJob.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtOpenJobObject(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
+  int v3; // r14d
   char PreviousMode; // si
   __int64 v7; // rdx
-  POBJECT_TYPE *v8; // rbx
+  int v8; // ebx
   struct _LIST_ENTRY *CurrentSilo; // rax
-  int v10; // ebx
-  __int64 v12; // [rsp+88h] [rbp+20h] BYREF
+  int v10; // r8d
+  NTSTATUS v11; // ebx
+  void *v13; // [rsp+88h] [rbp+20h] BYREF
 
-  v12 = 0LL;
+  v3 = (int)ObjectAttributes;
+  v13 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)JobHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)JobHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  v8 = PsJobType;
+  v8 = (int)PsJobType;
   CurrentSilo = PsGetCurrentSilo();
-  v10 = ObOpenObjectByNameEx(a3, (__int64)v8, PreviousMode, 0LL, a2, 0LL, (__int64)CurrentSilo, &v12);
-  if ( v10 >= 0 )
-    *a1 = v12;
+  LOBYTE(v10) = PreviousMode;
+  v11 = ObOpenObjectByNameEx(v3, v8, v10, 0, DesiredAccess, 0LL, (__int64)CurrentSilo, (__int64)&v13);
+  if ( v11 >= 0 )
+    *JobHandle = v13;
   if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-    EtwTraceJob(0LL, 0LL, (unsigned int)v10, 1826LL);
-  return (unsigned int)v10;
+    EtwTraceJob(0LL, 0LL, (unsigned int)v11, 1826LL);
+  return v11;
 }

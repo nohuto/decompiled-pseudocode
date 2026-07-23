@@ -1,7 +1,7 @@
 /*
- * XREFs of bi_flush @ 0x180156D78
+ * XREFs of bi_flush @ 0x180156C48
  * Callers:
- *     flush_pending @ 0x1801557E4 (flush_pending.c)
+ *     flush_pending @ 0x1801556B4 (flush_pending.c)
  * Callees:
  *     <none>
  */

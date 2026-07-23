@@ -1,31 +1,31 @@
 /*
- * XREFs of SepAdtAuditThisEventWithContext @ 0x140932EA0
+ * XREFs of SepAdtAuditThisEventWithContext @ 0x14090EA50
  * Callers:
- *     SeReportSecurityEventWithSubCategory @ 0x140215140 (SeReportSecurityEventWithSubCategory.c)
- *     SepCommonAccessCheckEx @ 0x1402AD130 (SepCommonAccessCheckEx.c)
- *     SeAuditingAnyFileEventsWithContextEx @ 0x140451070 (SeAuditingAnyFileEventsWithContextEx.c)
- *     SeAuditingFileEventsWithContextEx @ 0x1404AA390 (SeAuditingFileEventsWithContextEx.c)
- *     SeAuditingFileOrGlobalEvents @ 0x1408134E0 (SeAuditingFileOrGlobalEvents.c)
- *     ObpCheckObjectReference @ 0x1408EE834 (ObpCheckObjectReference.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x14092FDE0 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140932AB0 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x140932DB0 (SepAdtAuditPrivilegeUseWithContext.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1409F8EF4 (SeTokenDefaultDaclChangedAuditAlarm.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409F9204 (SepAdtCloseObjectAuditAlarm.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1409F966C (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409FAF0C (SepAdtOpenObjectAuditAlarm.c)
- *     SeAuditingHardLinkEventsWithContext @ 0x140AF7650 (SeAuditingHardLinkEventsWithContext.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140B09DB0 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeReportSecurityEventWithSubCategory @ 0x140215470 (SeReportSecurityEventWithSubCategory.c)
+ *     SepCommonAccessCheckEx @ 0x1403AD570 (SepCommonAccessCheckEx.c)
+ *     SeAuditingAnyFileEventsWithContextEx @ 0x1404491A0 (SeAuditingAnyFileEventsWithContextEx.c)
+ *     SeAuditingFileEventsWithContextEx @ 0x1404A3A20 (SeAuditingFileEventsWithContextEx.c)
+ *     SeAuditingFileOrGlobalEvents @ 0x140819340 (SeAuditingFileOrGlobalEvents.c)
+ *     ObpCheckObjectReference @ 0x1408F4DF4 (ObpCheckObjectReference.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x14090B910 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14090E660 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x14090E960 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091FB0C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140A6173C (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x140A9EE24 (SepAdtCloseObjectAuditAlarm.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x140AE2774 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SeAuditingHardLinkEventsWithContext @ 0x140AF9CF0 (SeAuditingHardLinkEventsWithContext.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140B0BB70 (SeOpenObjectAuditAlarmForNonObObject.c)
  * Callees:
- *     SepAuditingEnabledForSubcategory @ 0x1404703B0 (SepAuditingEnabledForSubcategory.c)
- *     SepAdtIncorporatePerUserPolicy @ 0x140813628 (SepAdtIncorporatePerUserPolicy.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SepAdtAuditThisEventByCategoryWithContext @ 0x140A651E0 (SepAdtAuditThisEventByCategoryWithContext.c)
+ *     SepAuditingEnabledForSubcategory @ 0x140469B30 (SepAuditingEnabledForSubcategory.c)
+ *     SepAdtIncorporatePerUserPolicy @ 0x140819488 (SepAdtIncorporatePerUserPolicy.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     SepAdtAuditThisEventByCategoryWithContext @ 0x140A721B0 (SepAdtAuditThisEventByCategoryWithContext.c)
  */
 
 char __fastcall SepAdtAuditThisEventWithContext(__int64 a1, char a2, char a3, struct _SECURITY_SUBJECT_CONTEXT *a4)
@@ -57,7 +57,7 @@ char __fastcall SepAdtAuditThisEventWithContext(__int64 a1, char a2, char a3, st
     v9 = (unsigned int)(v7 - 100);
     v16 = result;
     v10 = result;
-    if ( *((_DWORD *)&SepRmCapTableLock.RelativeTimerBias + v9) )
+    if ( *(&SepRmCapTableLock.Timer.DueTime.LowPart + v9) )
     {
       if ( a4 )
       {

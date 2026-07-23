@@ -1,9 +1,9 @@
 /*
- * XREFs of AslpImageRvaToVa @ 0x1408EDABC
+ * XREFs of AslpImageRvaToVa @ 0x1408EED7C
  * Callers:
- *     AslFileMappingGetImageTypeEx @ 0x1408E9C1C (AslFileMappingGetImageTypeEx.c)
- *     AslpFileGetClrVersion @ 0x1408EC694 (AslpFileGetClrVersion.c)
- *     AslpFileQueryExportName @ 0x1408ED874 (AslpFileQueryExportName.c)
+ *     AslFileMappingGetImageTypeEx @ 0x1408EAEDC (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersion @ 0x1408ED954 (AslpFileGetClrVersion.c)
+ *     AslpFileQueryExportName @ 0x1408EEB34 (AslpFileQueryExportName.c)
  * Callees:
  *     <none>
  */

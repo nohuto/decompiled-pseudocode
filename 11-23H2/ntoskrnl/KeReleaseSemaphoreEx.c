@@ -1,42 +1,42 @@
 /*
- * XREFs of KeReleaseSemaphoreEx @ 0x1402B71A0
+ * XREFs of KeReleaseSemaphoreEx @ 0x1402B7430
  * Callers:
- *     PopFxQueueWorkItem @ 0x14028C22C (PopFxQueueWorkItem.c)
- *     PopIrpWorker @ 0x14028D350 (PopIrpWorker.c)
- *     PopDispatchQuerySetIrp @ 0x14028DA74 (PopDispatchQuerySetIrp.c)
- *     AlpcpSignal @ 0x1402B6C70 (AlpcpSignal.c)
- *     PopFxRequestWorkerInternal @ 0x140314F74 (PopFxRequestWorkerInternal.c)
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140322AB4 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     MiCheckForControlAreaDeletion @ 0x140339C78 (MiCheckForControlAreaDeletion.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     IoRaiseInformationalHardError @ 0x140556D60 (IoRaiseInformationalHardError.c)
- *     PnpProcessRebalance @ 0x140564EF4 (PnpProcessRebalance.c)
- *     NtSignalAndWaitForSingleObject @ 0x1405827D0 (NtSignalAndWaitForSingleObject.c)
- *     PopCompleteDirectedPowerTransitionCallback @ 0x140590414 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopCompleteNotifyTransitionCommon @ 0x14059049C (PopCompleteNotifyTransitionCommon.c)
- *     MiQueuePageFileExtension @ 0x14063B2DC (MiQueuePageFileExtension.c)
- *     AlpcpDoPortCleanup @ 0x140718D20 (AlpcpDoPortCleanup.c)
- *     AlpcpCancelMessagesByRequestor @ 0x1407191F4 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x14071B5F8 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpDispatchReplyToWaitingThread @ 0x140737FD0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x140739E80 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
- *     AlpcpSignalPortAndUnlock @ 0x140779CB0 (AlpcpSignalPortAndUnlock.c)
- *     NtReleaseSemaphore @ 0x140790990 (NtReleaseSemaphore.c)
+ *     PopFxQueueWorkItem @ 0x14028C4BC (PopFxQueueWorkItem.c)
+ *     PopIrpWorker @ 0x14028D5E0 (PopIrpWorker.c)
+ *     PopDispatchQuerySetIrp @ 0x14028DD04 (PopDispatchQuerySetIrp.c)
+ *     AlpcpSignal @ 0x1402B6F00 (AlpcpSignal.c)
+ *     PopFxRequestWorkerInternal @ 0x140315204 (PopFxRequestWorkerInternal.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140322D44 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     MiCheckForControlAreaDeletion @ 0x140339F08 (MiCheckForControlAreaDeletion.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     IoRaiseInformationalHardError @ 0x140557420 (IoRaiseInformationalHardError.c)
+ *     PnpProcessRebalance @ 0x1405655B4 (PnpProcessRebalance.c)
+ *     NtSignalAndWaitForSingleObject @ 0x140582CC0 (NtSignalAndWaitForSingleObject.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x140590904 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x14059098C (PopCompleteNotifyTransitionCommon.c)
+ *     MiQueuePageFileExtension @ 0x14063B82C (MiQueuePageFileExtension.c)
+ *     AlpcpDoPortCleanup @ 0x140718F20 (AlpcpDoPortCleanup.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1407193F4 (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x14071B7F8 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1407381C0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14073A070 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
+ *     AlpcpSignalPortAndUnlock @ 0x140779EA0 (AlpcpSignalPortAndUnlock.c)
+ *     NtReleaseSemaphore @ 0x140790B80 (NtReleaseSemaphore.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiSignalThread @ 0x1402B85D0 (KiSignalThread.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiCompleteDirectSwitchThread @ 0x1402B9BA8 (KiCompleteDirectSwitchThread.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiSignalThread @ 0x1402B8860 (KiSignalThread.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiCompleteDirectSwitchThread @ 0x1402B9E38 (KiCompleteDirectSwitchThread.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 __int64 KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, ...)
@@ -92,7 +92,7 @@ __int64 KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, ...)
   CurrentIrql = KeGetCurrentIrql();
   v37 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -115,10 +115,10 @@ __int64 KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, ...)
   if ( v10 + a3 > *(_DWORD *)(a1 + 24) || v11 < v10 )
   {
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v33 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
       {
         v34 = KeGetCurrentPrcb();
         v35 = v34->SchedulerAssist;
@@ -131,7 +131,7 @@ __int64 KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, ...)
     }
     __writecr8(CurrentIrql);
     if ( (v43 & 8) != 0 )
-      RtlRaiseStatus(3221225543LL);
+      RtlRaiseStatus(-1073741753);
     return 3221225543LL;
   }
   else
@@ -185,7 +185,7 @@ LABEL_57:
               v23 = (_QWORD *)(v22 + 8);
               v24 = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
               {
                 v25 = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( v24 == 2 )
@@ -262,7 +262,7 @@ LABEL_27:
       if ( (v43 & 2) != 0 )
         KiCompleteDirectSwitchThread(CurrentPrcb, CurrentPrcb->CurrentThread);
     }
-    KiExitDispatcher((__int64)CurrentPrcb, v21, (struct _PROCESSOR_NUMBER)1, v4, CurrentIrql);
+    KiExitDispatcher((__int64)CurrentPrcb, v21, (_PROCESSOR_NUMBER)1, v4, CurrentIrql);
     if ( v44 )
       *v44 = v10;
     return 0LL;

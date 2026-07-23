@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipLegacyEtwCallback @ 0x140A7C2F0
+ * XREFs of WmipLegacyEtwCallback @ 0x140A765F0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall WmipLegacyEtwCallback(__int64 a1, unsigned __int8 a2, _QWORD *a3, ULONG_PTR a4)
@@ -54,7 +54,7 @@ void __fastcall WmipLegacyEtwCallback(__int64 a1, unsigned __int8 a2, _QWORD *a3
         while ( v10 != v9 );
         if ( v7 )
         {
-          Pool2 = ExAllocatePool2(0x100uLL);
+          Pool2 = ExAllocatePool2(0x100uLL, 8 * v7 + 40, 0x70696D57u);
           v22 = (_QWORD *)Pool2;
           if ( Pool2 )
           {

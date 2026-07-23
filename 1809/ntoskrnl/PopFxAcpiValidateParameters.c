@@ -1,7 +1,7 @@
 /*
- * XREFs of PopFxAcpiValidateParameters @ 0x1402E8874
+ * XREFs of PopFxAcpiValidateParameters @ 0x1402E8A64
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x1402E8230 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x1402E8420 (PopFxAcpiDispatchNotification.c)
  * Callees:
  *     <none>
  */

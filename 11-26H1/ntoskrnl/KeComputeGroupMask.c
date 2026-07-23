@@ -2,9 +2,9 @@
  * XREFs of KeComputeGroupMask @ 0x140200A08
  * Callers:
  *     KeStartThread @ 0x140201AAC (KeStartThread.c)
- *     KeQueryCpuPartitionAffinity @ 0x1405F3D38 (KeQueryCpuPartitionAffinity.c)
- *     KiExtendProcessAffinity @ 0x1405F9488 (KiExtendProcessAffinity.c)
- *     EtwpExtractCompactedAffinity @ 0x1406C5550 (EtwpExtractCompactedAffinity.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1405F66F8 (KeQueryCpuPartitionAffinity.c)
+ *     KiExtendProcessAffinity @ 0x1405FBEA8 (KiExtendProcessAffinity.c)
+ *     EtwpExtractCompactedAffinity @ 0x1406C9190 (EtwpExtractCompactedAffinity.c)
  * Callees:
  *     <none>
  */

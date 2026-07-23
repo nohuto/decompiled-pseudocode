@@ -1,31 +1,31 @@
 /*
- * XREFs of KiHaltOnAddress @ 0x1403E57E8
+ * XREFs of KiHaltOnAddress @ 0x1403E89D8
  * Callers:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KxWaitForLockOwnerShipWithIrql @ 0x1402B4950 (KxWaitForLockOwnerShipWithIrql.c)
- *     KeSignalCallDpcSynchronize @ 0x1402BCAD0 (KeSignalCallDpcSynchronize.c)
- *     ExpGetPoolTagInfoTarget @ 0x1402BCDA0 (ExpGetPoolTagInfoTarget.c)
- *     KiSwapDirectoryTableBaseTarget @ 0x1402BD0A0 (KiSwapDirectoryTableBaseTarget.c)
- *     MiDemoteSlabEntriesDpc @ 0x1402BDB50 (MiDemoteSlabEntriesDpc.c)
- *     MiUpdatePageThresholdsDpc @ 0x1403E4820 (MiUpdatePageThresholdsDpc.c)
- *     MiJumpStackTarget @ 0x1403E4C40 (MiJumpStackTarget.c)
- *     KiSetSystemTimeDpc @ 0x1403E4EA0 (KiSetSystemTimeDpc.c)
- *     KeHaltOnAddress @ 0x1403E57D0 (KeHaltOnAddress.c)
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     ExpLimitInsertDpc @ 0x1406CC4E0 (ExpLimitInsertDpc.c)
- *     ExpAeThresholdInitWorker @ 0x1406D40D0 (ExpAeThresholdInitWorker.c)
- *     MiAddMemoryDpcTarget @ 0x1406E7B40 (MiAddMemoryDpcTarget.c)
- *     MiFreeUnusedPfnPagesDpc @ 0x1406E8960 (MiFreeUnusedPfnPagesDpc.c)
- *     MiWritePteHighLevelIsr @ 0x1406F2D80 (MiWritePteHighLevelIsr.c)
- *     MiMakeIoRangePermanentDpc @ 0x1406F4A20 (MiMakeIoRangePermanentDpc.c)
- *     MiReapplyImportOptimizationIsr @ 0x1406FB670 (MiReapplyImportOptimizationIsr.c)
- *     MiDbgCopyMemoryTarget @ 0x1406FDA80 (MiDbgCopyMemoryTarget.c)
- *     MiChangeSlabIdentitiesDpc @ 0x140705CE0 (MiChangeSlabIdentitiesDpc.c)
- *     MiSpecialPurposeMemoryCacheUpdateDpc @ 0x14070CDD0 (MiSpecialPurposeMemoryCacheUpdateDpc.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KxWaitForLockOwnerShipWithIrql @ 0x1402FF620 (KxWaitForLockOwnerShipWithIrql.c)
+ *     KeSignalCallDpcSynchronize @ 0x140307790 (KeSignalCallDpcSynchronize.c)
+ *     ExpGetPoolTagInfoTarget @ 0x140307A60 (ExpGetPoolTagInfoTarget.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x140307D60 (KiSwapDirectoryTableBaseTarget.c)
+ *     MiDemoteSlabEntriesDpc @ 0x140308810 (MiDemoteSlabEntriesDpc.c)
+ *     MiUpdatePageThresholdsDpc @ 0x1403E7A10 (MiUpdatePageThresholdsDpc.c)
+ *     MiJumpStackTarget @ 0x1403E7E30 (MiJumpStackTarget.c)
+ *     KiSetSystemTimeDpc @ 0x1403E8090 (KiSetSystemTimeDpc.c)
+ *     KeHaltOnAddress @ 0x1403E89C0 (KeHaltOnAddress.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     ExpLimitInsertDpc @ 0x1406D0510 (ExpLimitInsertDpc.c)
+ *     ExpAeThresholdInitWorker @ 0x1406D8150 (ExpAeThresholdInitWorker.c)
+ *     MiAddMemoryDpcTarget @ 0x1406EC7F0 (MiAddMemoryDpcTarget.c)
+ *     MiFreeUnusedPfnPagesDpc @ 0x1406ED600 (MiFreeUnusedPfnPagesDpc.c)
+ *     MiWritePteHighLevelIsr @ 0x1406F79F0 (MiWritePteHighLevelIsr.c)
+ *     MiMakeIoRangePermanentDpc @ 0x1406F9690 (MiMakeIoRangePermanentDpc.c)
+ *     MiReapplyImportOptimizationIsr @ 0x140700340 (MiReapplyImportOptimizationIsr.c)
+ *     MiDbgCopyMemoryTarget @ 0x140702750 (MiDbgCopyMemoryTarget.c)
+ *     MiChangeSlabIdentitiesDpc @ 0x14070A9B0 (MiChangeSlabIdentitiesDpc.c)
+ *     MiSpecialPurposeMemoryCacheUpdateDpc @ 0x140711A80 (MiSpecialPurposeMemoryCacheUpdateDpc.c)
  * Callees:
- *     KiWakeAddressAll @ 0x1402BA5A8 (KiWakeAddressAll.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     HalProcessorIdle @ 0x140722A90 (HalProcessorIdle.c)
+ *     KiWakeAddressAll @ 0x140305268 (KiWakeAddressAll.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalProcessorIdle @ 0x140727660 (HalProcessorIdle.c)
  */
 
 __int64 __fastcall KiHaltOnAddress(unsigned __int64 a1, _QWORD *a2, __int64 a3)
@@ -34,9 +34,9 @@ __int64 __fastcall KiHaltOnAddress(unsigned __int64 a1, _QWORD *a2, __int64 a3)
   __int64 v4; // r11
   signed __int64 *v5; // roff
   signed __int64 v6; // rax
-  signed __int64 v7; // rax
-  signed __int64 v8; // rtt
-  signed __int64 v9; // rcx
+  _QWORD *v7; // rcx
+  signed __int64 v8; // rax
+  signed __int64 v9; // rtt
   __int64 v10; // r8
   __int64 v11; // r8
   __int64 v12; // r8
@@ -63,17 +63,18 @@ __int64 __fastcall KiHaltOnAddress(unsigned __int64 a1, _QWORD *a2, __int64 a3)
   _m_prefetchw(v5);
   v6 = *v5;
   v21 = *v5 & 0xFFFFFFFFFFFFFFFCuLL;
-  v8 = v6;
-  v7 = _InterlockedCompareExchange64(v5, (signed __int64)v20, v6);
-  if ( v8 != v7 )
+  v7 = v20;
+  v9 = v6;
+  v8 = _InterlockedCompareExchange64(v5, (signed __int64)v20, v6);
+  if ( v9 != v8 )
   {
     do
     {
-      v9 = v7;
-      v21 = v7 & 0xFFFFFFFFFFFFFFFCuLL;
-      v7 = _InterlockedCompareExchange64(&KiHaltOnAddressHashTable[v4], (signed __int64)v20, v7);
+      v7 = (_QWORD *)v8;
+      v21 = v8 & 0xFFFFFFFFFFFFFFFCuLL;
+      v8 = _InterlockedCompareExchange64(&KiHaltOnAddressHashTable[v4], (signed __int64)v20, v8);
     }
-    while ( v7 != v9 );
+    while ( (_QWORD *)v8 != v7 );
   }
   v10 = a3 - 1;
   if ( v10 )
@@ -114,7 +115,7 @@ LABEL_13:
     _disable();
     if ( v22 == 1 )
       break;
-    HalProcessorIdle();
+    HalProcessorIdle(v7);
   }
   CurrentPrcb = KeGetCurrentPrcb();
   SchedulerAssist = (unsigned __int32 *)CurrentPrcb->SchedulerAssist;

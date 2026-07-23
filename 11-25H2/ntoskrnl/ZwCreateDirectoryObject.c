@@ -13,7 +13,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateDirectoryObject(
         PHANDLE DirectoryHandle,
         ACCESS_MASK DesiredAccess,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwCreateDirectoryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(DirectoryHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(DirectoryHandle);
 }

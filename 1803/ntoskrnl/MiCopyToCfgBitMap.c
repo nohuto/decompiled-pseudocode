@@ -81,7 +81,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   size_t v61; // [rsp+120h] [rbp+20h]
   unsigned __int64 v62; // [rsp+128h] [rbp+28h]
   char *v63; // [rsp+130h] [rbp+30h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+138h] [rbp+38h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+138h] [rbp+38h] BYREF
   __int64 v65; // [rsp+148h] [rbp+48h]
   __int64 v66; // [rsp+150h] [rbp+50h]
   ULONG_PTR v67; // [rsp+158h] [rbp+58h]

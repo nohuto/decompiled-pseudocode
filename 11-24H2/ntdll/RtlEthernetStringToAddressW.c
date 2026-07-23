@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlEthernetStringToAddressW @ 0x180113FE0
+ * XREFs of RtlEthernetStringToAddressW @ 0x18010F2E0
  * Callers:
  *     <none>
  * Callees:
- *     iswctype @ 0x180124B20 (iswctype.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     iswctype @ 0x180122D50 (iswctype.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 LONG __stdcall RtlEthernetStringToAddressW(PCWSTR S, LPCWSTR *Terminator, DL_EUI48 *Addr)

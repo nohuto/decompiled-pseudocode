@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAccountBatteryEnergyChange @ 0x14086C85C
+ * XREFs of PopAccountBatteryEnergyChange @ 0x14086DABC
  * Callers:
- *     PopBatteryWorker @ 0x140719D80 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14071B020 (PopBatteryWorker.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
@@ -144,7 +144,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
       v12 = "Energy Counter Unavailable";
       if ( (v11 & 1) == 0 )
         v12 = "-";
-      v29 = dword_140417914;
+      v29 = dword_1404189B4;
       v13 = *(_DWORD *)(a1 + 148);
       v14 = "Relative Capacity Unit";
       v37 = v7;
@@ -224,7 +224,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
       v71 = 4LL;
       v73 = 4LL;
       v75 = 4LL;
-      LODWORD(v1) = TlgWrite(&pCallbackContext, &unk_14036EE7E, 0LL, v24, 0x19u, &pData);
+      LODWORD(v1) = TlgWrite(&pCallbackContext, &unk_14036FCAD, 0LL, v24, 0x19u, &pData);
     }
   }
   return (int)v1;

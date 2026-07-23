@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetMdlPagesAllocated @ 0x14049CF60
+ * XREFs of MmGetMdlPagesAllocated @ 0x140497CB0
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140AE0850 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140AE2138 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */
 
 __int64 MmGetMdlPagesAllocated()
 {
-  return qword_140E3D8C0;
+  return qword_140E3DA00;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetContextThread @ 0x1401BB210
+ * XREFs of ZwSetContextThread @ 0x1401BB370
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwSetContextThread(HANDLE ThreadHandle, PCONTEXT Context)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, Context, v2);
+  return KiServiceInternal(ThreadHandle);
 }

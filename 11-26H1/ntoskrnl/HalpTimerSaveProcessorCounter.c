@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerSaveProcessorCounter @ 0x14050C030
+ * XREFs of HalpTimerSaveProcessorCounter @ 0x140505AA0
  * Callers:
- *     HaliAcpiSleep @ 0x1405A2710 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x1405A4F20 (HaliAcpiSleep.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpTimerSaveProcessorCounter(__int64 a1, __int64 a2, __int64 a3)
@@ -16,8 +16,8 @@ __int64 __fastcall HalpTimerSaveProcessorCounter(__int64 a1, __int64 a2, __int64
   v3 = __rdtsc();
   v4 = (unsigned __int64)HIDWORD(v3) << 32;
   *(_QWORD *)(HalpTimerSavedProcessorCounter + 8 * a3) = v4 | (unsigned int)v3;
-  result = qword_140FBB048;
-  if ( qword_140FBB048 )
+  result = qword_140FBB3E8;
+  if ( qword_140FBB3E8 )
   {
     if ( !(_DWORD)a3 )
     {

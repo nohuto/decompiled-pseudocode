@@ -4,14 +4,14 @@
  *     NtQueryInformationThread @ 0x1407BF670 (NtQueryInformationThread.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsGetWorkOnBehalfThread @ 0x1402F6220 (PsGetWorkOnBehalfThread.c)
+ *     sub_1402F6220 @ 0x1402F6220 (sub_1402F6220.c)
  */
 
-__int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int64 a3)
+__int64 __fastcall PsGetEffectiveContainerId(int a1, __int64 a2, __int64 a3)
 {
-  __int64 WorkOnBehalfThread; // rax
+  __int64 v7; // rax
   void *v8; // r8
-  unsigned __int64 v9; // rdx
+  __int64 v9; // rdx
   int v10; // ebx
   __int64 v11; // rax
   int v12; // ebx
@@ -25,18 +25,18 @@ __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int6
   {
     *(_OWORD *)a3 = 0LL;
     *(_DWORD *)(a3 + 16) = 0;
-    if ( (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 && a2 == KeGetCurrentThread() )
+    if ( (KeGetPcr()[36].Unused0[2] & 0x10001) != 0 && (struct _KTHREAD *)a2 == KeGetCurrentThread() )
       return 0LL;
-    WorkOnBehalfThread = PsGetWorkOnBehalfThread(a2, &v14);
-    v8 = (void *)WorkOnBehalfThread;
-    if ( WorkOnBehalfThread )
+    v7 = sub_1402F6220(a2, &v14);
+    v8 = (void *)v7;
+    if ( v7 )
     {
-      v9 = *(_QWORD *)(*(_QWORD *)(WorkOnBehalfThread + 544) + 1296LL);
+      v9 = *(_QWORD *)(*(_QWORD *)(v7 + 544) + 1296LL);
       *(_DWORD *)(a3 + 16) |= 1u;
     }
     else
     {
-      v9 = a2->Process[1].Affinity.StaticBitmap[16];
+      v9 = *(_QWORD *)(*(_QWORD *)(a2 + 544) + 1296LL);
     }
     if ( !v9 )
     {

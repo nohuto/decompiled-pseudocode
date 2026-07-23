@@ -1,7 +1,7 @@
 /*
  * XREFs of NormBuffer__IsBlocked @ 0x1800F12B8
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180058890 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180058880 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     NormBuffer__GetCurrentOutputChar @ 0x1800F10C0 (NormBuffer__GetCurrentOutputChar.c)
  */

@@ -3,10 +3,10 @@
  * Callers:
  *     MiInitializeDriverImages @ 0x140B460A0 (MiInitializeDriverImages.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiInitializeBootLoadedDriverPfnRange @ 0x1403759B4 (MiInitializeBootLoadedDriverPfnRange.c)
- *     MiActOnLargeKernelHalPages @ 0x14081C178 (MiActOnLargeKernelHalPages.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiInitializeBootLoadedDriverPfnRange @ 0x140375B54 (MiInitializeBootLoadedDriverPfnRange.c)
+ *     MiActOnLargeKernelHalPages @ 0x14081C448 (MiActOnLargeKernelHalPages.c)
  */
 
 __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
@@ -37,9 +37,7 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
     if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3) )
       break;
     if ( (MiFlags & 0x8000) != 0 )
-      MiActOnLargeKernelHalPages(
-        v3,
-        (__int64 (__fastcall *)(unsigned __int64, __int64))MiValidateKernelHalLargePageRange);
+      MiActOnLargeKernelHalPages((char *)v3, (__int64 (__fastcall *)(char *, char *))MiValidateKernelHalLargePageRange);
     if ( (unsigned int)dword_140C6987C >> 12 )
       MiInitializeBootLoadedDriverPfnRange(
         v4 + 8LL * (((_DWORD)v5 + 511) & 0xFFFFFE00),
@@ -58,7 +56,7 @@ LABEL_14:
     MiInitializeBootLoadedDriverPfnRange(v7, v8, 1);
     v7 += 8 * v10;
   }
-  if ( v3 != PsHalImageBase && v3 != PsNtosImageBase && dword_140C65844 )
+  if ( (PVOID)v3 != PsHalImageBase && (PVOID)v3 != PsNtosImageBase && dword_140C65844 )
   {
     LODWORD(v5) = dword_140C65844 + v5;
     MiInitializeBootLoadedDriverPfnRange(v7, (unsigned int)dword_140C65844, 0);
@@ -66,7 +64,7 @@ LABEL_14:
   if ( !v6 )
   {
 LABEL_11:
-    if ( v3 != PsHalImageBase && v3 != PsNtosImageBase )
+    if ( (PVOID)v3 != PsHalImageBase && (PVOID)v3 != PsNtosImageBase )
     {
       _InterlockedExchangeAdd(&dword_140C699D0, v5);
       qword_140C699A8 -= (unsigned int)v5;

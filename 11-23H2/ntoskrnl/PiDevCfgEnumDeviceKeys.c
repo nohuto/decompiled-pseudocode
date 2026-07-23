@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgEnumDeviceKeys @ 0x14087D024
+ * XREFs of PiDevCfgEnumDeviceKeys @ 0x14087D264
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CAA4 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgResetDeviceKeys @ 0x14095FF94 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14087CCE4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgResetDeviceKeys @ 0x140960194 (PiDevCfgResetDeviceKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x140367778 (CmIsStateSeparationEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxOpenContextBaseKey @ 0x14087D320 (_PnpCtxOpenContextBaseKey.c)
- *     _PnpCtxOpenContextNodeBaseKey @ 0x140A60A00 (_PnpCtxOpenContextNodeBaseKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     CmIsStateSeparationEnabled @ 0x140367918 (CmIsStateSeparationEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14087D560 (_PnpCtxOpenContextBaseKey.c)
+ *     _PnpCtxOpenContextNodeBaseKey @ 0x140A60CB0 (_PnpCtxOpenContextNodeBaseKey.c)
  */
 
 __int64 __fastcall PiDevCfgEnumDeviceKeys(
@@ -51,7 +51,7 @@ __int64 __fastcall PiDevCfgEnumDeviceKeys(
   __int64 (__fastcall *v33)(__int64, __int64, int *, HANDLE); // [rsp+B8h] [rbp-48h]
   WCHAR SourceString[40]; // [rsp+C0h] [rbp-40h] BYREF
 
-  v7 = &dword_140A7A3BC;
+  v7 = &dword_140A7A66C;
   v33 = a6;
   v31 = a7;
   v30 = a3;

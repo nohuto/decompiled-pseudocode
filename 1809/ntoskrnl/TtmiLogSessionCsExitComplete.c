@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionCsExitComplete @ 0x140884ACC
+ * XREFs of TtmiLogSessionCsExitComplete @ 0x140885D2C
  * Callers:
- *     TtmNotifyCsStateExited @ 0x14087FBA0 (TtmNotifyCsStateExited.c)
+ *     TtmNotifyCsStateExited @ 0x140880E00 (TtmNotifyCsStateExited.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionCsExitComplete()
@@ -17,15 +17,15 @@ void TtmiLogSessionCsExitComplete()
   int v4; // [rsp+60h] [rbp-18h]
   int v5; // [rsp+64h] [rbp-14h]
 
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    if ( TlgKeywordOn(&stru_14096E820, 1uLL) )
     {
       v5 = 0;
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      TlgWrite(&stru_14096D820, &unk_140371D09, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&stru_14096E820, &unk_140372B5C, 0LL, 0LL, 3u, &pData);
     }
   }
 }

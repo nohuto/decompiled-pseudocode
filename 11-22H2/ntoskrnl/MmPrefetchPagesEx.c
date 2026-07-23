@@ -49,8 +49,8 @@ __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, _QWORD *a3)
   __int64 *v24; // r14
   __int64 v25; // rax
   unsigned int *v26; // rax
-  struct _SLIST_ENTRY **v27; // rax
-  struct _SLIST_ENTRY *v28; // rcx
+  _SLIST_ENTRY **v27; // rax
+  _SLIST_ENTRY *v28; // rcx
   _SLIST_ENTRY *Next; // rdx
   __int64 v30; // [rsp+30h] [rbp-68h]
   __int64 *Pool; // [rsp+38h] [rbp-60h]
@@ -180,11 +180,11 @@ LABEL_41:
     {
       while ( 1 )
       {
-        v27 = (struct _SLIST_ENTRY **)(v7[v20] + 120);
+        v27 = (_SLIST_ENTRY **)(v7[v20] + 120);
         v28 = *v27;
-        if ( *v27 == (struct _SLIST_ENTRY *)v27 )
+        if ( *v27 == (_SLIST_ENTRY *)v27 )
           break;
-        if ( *((struct _SLIST_ENTRY ***)&v28->Next + 1) != v27 || (Next = v28->Next, *(&v28->Next->Next + 1) != v28) )
+        if ( *((_SLIST_ENTRY ***)&v28->Next + 1) != v27 || (Next = v28->Next, *(&v28->Next->Next + 1) != v28) )
           __fastfail(3u);
         *v27 = Next;
         *((_QWORD *)&Next->Next + 1) = v27;

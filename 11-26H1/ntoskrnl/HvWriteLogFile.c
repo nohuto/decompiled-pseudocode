@@ -1,14 +1,14 @@
 /*
- * XREFs of HvWriteLogFile @ 0x140AAA7F4
+ * XREFs of HvWriteLogFile @ 0x140AA7DD4
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpDoFileSetSizeEx @ 0x140AAA978 (CmpDoFileSetSizeEx.c)
- *     CmpFileFlushAndPurge @ 0x140AAAF1C (CmpFileFlushAndPurge.c)
- *     HvpGenerateLogEntryChecksums @ 0x140AAB0D4 (HvpGenerateLogEntryChecksums.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140AAB46C (HvpLogTypeToLogArrayIndex.c)
- *     CmpTraceHiveFlushWroteLogFile @ 0x140AAB770 (CmpTraceHiveFlushWroteLogFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpDoFileSetSizeEx @ 0x140AA7F58 (CmpDoFileSetSizeEx.c)
+ *     CmpFileFlushAndPurge @ 0x140AA84FC (CmpFileFlushAndPurge.c)
+ *     HvpGenerateLogEntryChecksums @ 0x140AA86B4 (HvpGenerateLogEntryChecksums.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140AA8A4C (HvpLogTypeToLogArrayIndex.c)
+ *     CmpTraceHiveFlushWroteLogFile @ 0x140AA8D1C (CmpTraceHiveFlushWroteLogFile.c)
  */
 
 __int64 __fastcall HvWriteLogFile(__int64 a1, __int64 a2, _DWORD *a3)

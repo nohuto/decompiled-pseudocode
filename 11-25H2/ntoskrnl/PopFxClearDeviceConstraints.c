@@ -68,7 +68,7 @@ __int64 __fastcall PopFxClearDeviceConstraints(ULONG_PTR BugCheckParameter2)
     }
     PopFxDereferenceDevice(BugCheckParameter2, 2LL);
     if ( !v2 )
-      ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0LL, 0LL, 0LL, 0, 0);
+      ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v2;
 }

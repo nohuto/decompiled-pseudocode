@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdatePfnPriority @ 0x1402E23B0
+ * XREFs of MiUpdatePfnPriority @ 0x1402E2640
  * Callers:
  *     MiCombineWithExisting @ 0x1402179B4 (MiCombineWithExisting.c)
- *     MiResolveTransitionFault @ 0x1402624D0 (MiResolveTransitionFault.c)
- *     MiActOnPte @ 0x1402940D4 (MiActOnPte.c)
- *     NtLockVirtualMemory @ 0x1402A3120 (NtLockVirtualMemory.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiUpdatePrefetchPriority @ 0x1403339DC (MiUpdatePrefetchPriority.c)
- *     MiCombineWithStandbyExisting @ 0x14035A17C (MiCombineWithStandbyExisting.c)
- *     MiDeprioritizeVirtualAddresses @ 0x14062D6CC (MiDeprioritizeVirtualAddresses.c)
+ *     MiResolveTransitionFault @ 0x140262760 (MiResolveTransitionFault.c)
+ *     MiActOnPte @ 0x140294364 (MiActOnPte.c)
+ *     NtLockVirtualMemory @ 0x1402A33B0 (NtLockVirtualMemory.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiUpdatePrefetchPriority @ 0x140333C6C (MiUpdatePrefetchPriority.c)
+ *     MiCombineWithStandbyExisting @ 0x14035A31C (MiCombineWithStandbyExisting.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14062DC1C (MiDeprioritizeVirtualAddresses.c)
  * Callees:
- *     MiRelinkStandbyPage @ 0x14025A760 (MiRelinkStandbyPage.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
+ *     MiRelinkStandbyPage @ 0x14025A9F0 (MiRelinkStandbyPage.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
  */
 
 char __fastcall MiUpdatePfnPriority(__int64 a1)

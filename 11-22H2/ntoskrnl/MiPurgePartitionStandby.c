@@ -37,7 +37,7 @@ __int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -62,10 +62,10 @@ __int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2)
     IsFreeZeroPfnCold = MiIsFreeZeroPfnCold(v9);
     MiInsertPageInFreeOrZeroedList(v8, IsFreeZeroPfnCold ? 1026 : 2);
     _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v13 = CurrentPrcb->SchedulerAssist;
@@ -78,10 +78,10 @@ __int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2)
     }
     __writecr8(CurrentIrql);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViTargetRemovingCheckEtwWmi @ 0x140B8BB44
+ * XREFs of ViTargetRemovingCheckEtwWmi @ 0x140B8DB44
  * Callers:
- *     VfTargetDriversRemove @ 0x1403F0E5C (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x1403E4B7C (VfTargetDriversRemove.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall ViTargetRemovingCheckEtwWmi(__int64 a1, ULONG_PTR a2)

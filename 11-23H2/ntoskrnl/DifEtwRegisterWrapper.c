@@ -1,12 +1,12 @@
 /*
- * XREFs of DifEtwRegisterWrapper @ 0x1405D6C60
+ * XREFs of DifEtwRegisterWrapper @ 0x1405D71D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
  */
 
 NTSTATUS __fastcall DifEtwRegisterWrapper(

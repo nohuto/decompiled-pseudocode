@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlUnicodeStringPrintf @ 0x14013BF80
+ * XREFs of RtlUnicodeStringPrintf @ 0x14013C4F0
  * Callers:
- *     PiDevCfgBuildDriverConfigurationId @ 0x1406325E4 (PiDevCfgBuildDriverConfigurationId.c)
- *     PiDevCfgBuildDriverNodeStrongName @ 0x140632704 (PiDevCfgBuildDriverNodeStrongName.c)
- *     PiDevCfgBuildIndirectString @ 0x14063287C (PiDevCfgBuildIndirectString.c)
- *     PiDevCfgConfigureDevice @ 0x140633214 (PiDevCfgConfigureDevice.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14064D464 (PiCreateDriverSwDeviceCallback.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140632698 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x1406327B8 (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PiDevCfgBuildIndirectString @ 0x140632930 (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgConfigureDevice @ 0x1406332C8 (PiDevCfgConfigureDevice.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x14064D548 (PiCreateDriverSwDeviceCallback.c)
  *     PipHardwareConfigInit @ 0x14079930C (PipHardwareConfigInit.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x14013C14C (RtlUnicodeStringValidateDestWorker.c)
- *     _vsnwprintf @ 0x14014CCB4 (_vsnwprintf.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x14013C6BC (RtlUnicodeStringValidateDestWorker.c)
+ *     _vsnwprintf @ 0x14014D224 (_vsnwprintf.c)
  */
 
 NTSTATUS RtlUnicodeStringPrintf(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszFormat, ...)

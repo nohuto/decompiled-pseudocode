@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCloneImageVad @ 0x14066317C
+ * XREFs of MiCloneImageVad @ 0x1406636CC
  * Callers:
- *     MiAllocateChildVads @ 0x140A4837C (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x140A4862C (MiAllocateChildVads.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     MiCreatePerSessionProtos @ 0x1407B5D00 (MiCreatePerSessionProtos.c)
- *     MiCopyForkedFixupVad @ 0x140A48000 (MiCopyForkedFixupVad.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     MiCreatePerSessionProtos @ 0x1407B5FE0 (MiCreatePerSessionProtos.c)
+ *     MiCopyForkedFixupVad @ 0x140A482B0 (MiCopyForkedFixupVad.c)
  */
 
 __int64 __fastcall MiCloneImageVad(__int64 a1, __int64 a2, __int64 a3)

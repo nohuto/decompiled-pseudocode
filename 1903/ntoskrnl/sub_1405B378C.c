@@ -23,8 +23,8 @@ __int64 __fastcall sub_1405B378C(__int64 a1, __int64 a2, unsigned int a3, _QWORD
   int WarbirdEncryptionSegment; // esi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v11; // r14
-  __int64 v12; // rax
-  __int64 v13; // r15
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // r15
   __int64 v14; // [rsp+20h] [rbp-50h] BYREF
   __int128 v15; // [rsp+30h] [rbp-40h] BYREF
   __int128 v16; // [rsp+40h] [rbp-30h] BYREF
@@ -52,7 +52,7 @@ __int64 __fastcall sub_1405B378C(__int64 a1, __int64 a2, unsigned int a3, _QWORD
     if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
       ExfAcquirePushLockExclusiveEx(v11, v12, (ULONG_PTR)v11);
     if ( v13 )
-      *(_BYTE *)(v13 + 26) |= 1u;
+      BYTE2(v13[1].Left) |= 1u;
     if ( !*(_DWORD *)(v7 + 16) )
     {
       v16 = v15;

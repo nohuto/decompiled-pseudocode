@@ -1,7 +1,7 @@
 /*
- * XREFs of PspQueryLastCallThread @ 0x140888A64
+ * XREFs of PspQueryLastCallThread @ 0x140889CC4
  * Callers:
- *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14064B720 (NtQueryInformationThread.c)
  * Callees:
  *     <none>
  */

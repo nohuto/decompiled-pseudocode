@@ -1,8 +1,8 @@
 /*
- * XREFs of IovIsDisabledWithoutReboot @ 0x14055F588
+ * XREFs of IovIsDisabledWithoutReboot @ 0x14055FC48
  * Callers:
- *     VfPacketCreateAndLock @ 0x140ADD03C (VfPacketCreateAndLock.c)
- *     VfPacketFree @ 0x140ADD134 (VfPacketFree.c)
+ *     VfPacketCreateAndLock @ 0x140ADD02C (VfPacketCreateAndLock.c)
+ *     VfPacketFree @ 0x140ADD124 (VfPacketFree.c)
  * Callees:
  *     <none>
  */

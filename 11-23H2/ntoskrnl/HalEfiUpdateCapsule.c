@@ -1,12 +1,12 @@
 /*
- * XREFs of HalEfiUpdateCapsule @ 0x14050D51C
+ * XREFs of HalEfiUpdateCapsule @ 0x14050DA6C
  * Callers:
- *     HalpUpdateCapsule @ 0x1405213A0 (HalpUpdateCapsule.c)
+ *     HalpUpdateCapsule @ 0x1405218F0 (HalpUpdateCapsule.c)
  * Callees:
- *     HalpEfiDecrementEfiCall @ 0x14035EB04 (HalpEfiDecrementEfiCall.c)
- *     HalpConvertEfiToNtStatus @ 0x14035EB2C (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14035EB60 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiStartRuntimeCode @ 0x14035EB88 (HalpEfiStartRuntimeCode.c)
+ *     HalpEfiDecrementEfiCall @ 0x14035ECA4 (HalpEfiDecrementEfiCall.c)
+ *     HalpConvertEfiToNtStatus @ 0x14035ECCC (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x14035ED00 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x14035ED28 (HalpEfiStartRuntimeCode.c)
  */
 
 __int64 HalEfiUpdateCapsule()

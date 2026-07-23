@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCopyKeyPartial @ 0x1406FF8C0
+ * XREFs of CmpCopyKeyPartial @ 0x140700B60
  * Callers:
- *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
- *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
- *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x1408028F8 (CmpLoadHiveVolatile.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140804004 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpReorganizeHive @ 0x1405A7F70 (CmpReorganizeHive.c)
+ *     CmpCopySyncTree2 @ 0x1407FDE04 (CmpCopySyncTree2.c)
+ *     CmRestoreKey @ 0x1408025AC (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x1408034FC (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x140803AF8 (CmpLoadHiveVolatile.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140805204 (CmpLightWeightPrepareAddKeyUoW.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpAddValueToListEx @ 0x1405AD8B0 (CmpAddValueToListEx.c)
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
- *     CmpCopyCell @ 0x140695718 (CmpCopyCell.c)
- *     CmpUnlockTwoSecurityCaches @ 0x1406FFD04 (CmpUnlockTwoSecurityCaches.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1406FFD34 (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B3724 (CmpFindSecurityCellCacheIndexNew.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x140581AB8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpAddValueToListEx @ 0x1405AE8B0 (CmpAddValueToListEx.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
+ *     CmpCopyCell @ 0x1406968D8 (CmpCopyCell.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x140700FA4 (CmpUnlockTwoSecurityCaches.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x140700FD4 (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmpCopyValue @ 0x1407FE584 (CmpCopyValue.c)
  */
 
 __int64 __fastcall CmpCopyKeyPartial(

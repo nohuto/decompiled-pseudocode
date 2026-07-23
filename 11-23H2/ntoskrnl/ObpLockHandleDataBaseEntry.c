@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpLockHandleDataBaseEntry @ 0x1407AD150
+ * XREFs of ObpLockHandleDataBaseEntry @ 0x1407AD340
  * Callers:
- *     ObpIncrementHandleCountEx @ 0x1406E7060 (ObpIncrementHandleCountEx.c)
+ *     ObpIncrementHandleCountEx @ 0x1406E7090 (ObpIncrementHandleCountEx.c)
  * Callees:
- *     ObpInsertHandleCount @ 0x1407AD2C8 (ObpInsertHandleCount.c)
+ *     ObpInsertHandleCount @ 0x1407AD4B8 (ObpInsertHandleCount.c)
  */
 
 __int64 __fastcall ObpLockHandleDataBaseEntry(__int64 a1, int *a2, unsigned int *a3)

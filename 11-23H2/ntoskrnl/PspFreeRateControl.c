@@ -4,8 +4,8 @@
  *     PspAddSchedulingGroupToJobChain @ 0x140683BA8 (PspAddSchedulingGroupToJobChain.c)
  *     PspRemoveCpuRateControl @ 0x140684E4C (PspRemoveCpuRateControl.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspRemoveRateControl @ 0x1409B285C (PspRemoveRateControl.c)
- *     PspSetJobRateControl @ 0x1409B2DDC (PspSetJobRateControl.c)
+ *     PspRemoveRateControl @ 0x1409B2A5C (PspRemoveRateControl.c)
+ *     PspSetJobRateControl @ 0x1409B2FDC (PspSetJobRateControl.c)
  * Callees:
  *     PspGetRateControlSize @ 0x140684F74 (PspGetRateControlSize.c)
  *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)

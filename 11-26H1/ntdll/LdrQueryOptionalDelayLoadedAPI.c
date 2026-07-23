@@ -1,42 +1,46 @@
 /*
- * XREFs of LdrQueryOptionalDelayLoadedAPI @ 0x1801150A0
+ * XREFs of LdrQueryOptionalDelayLoadedAPI @ 0x180114880
  * Callers:
  *     <none>
  * Callees:
- *     LdrResolveDelayLoadedAPI @ 0x180105E10 (LdrResolveDelayLoadedAPI.c)
- *     LdrpFindDelayloadedMethod @ 0x18015C318 (LdrpFindDelayloadedMethod.c)
- *     LdrpFindDelayloadedMethodInDescriptor @ 0x18015C3BC (LdrpFindDelayloadedMethodInDescriptor.c)
- *     LdrpGetDelayloadDescriptor @ 0x18015C44C (LdrpGetDelayloadDescriptor.c)
+ *     LdrResolveDelayLoadedAPI @ 0x180105660 (LdrResolveDelayLoadedAPI.c)
+ *     LdrpFindDelayloadedMethod @ 0x18015C1D8 (LdrpFindDelayloadedMethod.c)
+ *     LdrpFindDelayloadedMethodInDescriptor @ 0x18015C27C (LdrpFindDelayloadedMethodInDescriptor.c)
+ *     LdrpGetDelayloadDescriptor @ 0x18015C30C (LdrpGetDelayloadDescriptor.c)
  */
 
-__int64 __fastcall LdrQueryOptionalDelayLoadedAPI(const void *ArgList, unsigned __int8 *a2, __int64 a3, int a4)
+NTSTATUS __cdecl LdrQueryOptionalDelayLoadedAPI(
+        PVOID ParentModuleBase,
+        PCSTR DllName,
+        PCSTR ProcedureName,
+        ULONG Flags)
 {
   int v7; // ecx
-  char *DelayloadedMethodInDescriptor; // rax
-  _BYTE *v9; // rbx
-  __int64 DelayloadDescriptor; // rax
-  _BYTE *v11; // [rsp+30h] [rbp-18h] BYREF
+  IMAGE_THUNK_DATA64 *ThunkAddress; // rax
+  const IMAGE_DELAYLOAD_DESCRIPTOR *v9; // rbx
+  __int64 v10; // rax
+  PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v11 = 0LL;
-  if ( a4 )
-    return 3221225485LL;
-  v7 = *a2 - 42;
-  if ( *a2 == 42 )
-    v7 = a2[1];
+  DelayloadDescriptor[0] = 0LL;
+  if ( Flags )
+    return -1073741811;
+  v7 = *(unsigned __int8 *)DllName - 42;
+  if ( *DllName == 42 )
+    v7 = *((unsigned __int8 *)DllName + 1);
   if ( v7 )
   {
-    DelayloadDescriptor = LdrpGetDelayloadDescriptor(ArgList);
-    v9 = (_BYTE *)DelayloadDescriptor;
-    if ( !DelayloadDescriptor )
-      return 3221225781LL;
-    DelayloadedMethodInDescriptor = (char *)LdrpFindDelayloadedMethodInDescriptor(ArgList, DelayloadDescriptor, a3);
+    v10 = LdrpGetDelayloadDescriptor(ParentModuleBase);
+    v9 = (const IMAGE_DELAYLOAD_DESCRIPTOR *)v10;
+    if ( !v10 )
+      return -1073741515;
+    ThunkAddress = (IMAGE_THUNK_DATA64 *)LdrpFindDelayloadedMethodInDescriptor(ParentModuleBase, v10, ProcedureName);
   }
   else
   {
-    DelayloadedMethodInDescriptor = (char *)LdrpFindDelayloadedMethod(ArgList, a3, &v11);
-    v9 = v11;
+    ThunkAddress = (IMAGE_THUNK_DATA64 *)LdrpFindDelayloadedMethod(ParentModuleBase, ProcedureName, DelayloadDescriptor);
+    v9 = DelayloadDescriptor[0];
   }
-  if ( DelayloadedMethodInDescriptor )
-    return LdrResolveDelayLoadedAPI(ArgList, v9, 0LL, 0LL, DelayloadedMethodInDescriptor, 0) == 0 ? 0xC0000139 : 0;
-  return 3221225781LL;
+  if ( ThunkAddress )
+    return LdrResolveDelayLoadedAPI(ParentModuleBase, v9, 0LL, 0LL, ThunkAddress, 0) == 0LL ? 0xC0000139 : 0;
+  return -1073741515;
 }

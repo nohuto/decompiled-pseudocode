@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializePoolCommitPacket @ 0x140364164
+ * XREFs of MiInitializePoolCommitPacket @ 0x140365F04
  * Callers:
- *     MmAllocateSecurePoolMemory @ 0x1406FBC98 (MmAllocateSecurePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140700968 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiInitializePoolCommitPacket(
@@ -58,14 +58,14 @@ __int64 __fastcall MiInitializePoolCommitPacket(
     *(_WORD *)(v17 + 100) = v19 | 0x200;
   *(_OWORD *)(v17 + 16) = 0LL;
   *(_QWORD *)(v17 + 32) = 0LL;
-  result = (__int64)&unk_140E37440;
+  result = (__int64)&unk_140E375C0;
   *(_QWORD *)(v17 + 64) = 4LL;
-  *(_QWORD *)(v17 + 72) = &unk_140E37440;
+  *(_QWORD *)(v17 + 72) = &unk_140E375C0;
   if ( (a5 & 0x100) != 0 )
   {
     *(_WORD *)(v17 + 100) |= 2u;
-    result = (__int64)&unk_140E37080;
-    *(_QWORD *)(v17 + 72) = &unk_140E37080;
+    result = (__int64)&unk_140E37200;
+    *(_QWORD *)(v17 + 72) = &unk_140E37200;
     *(_DWORD *)(v17 + 64) = 5;
   }
   else if ( (v15 & 0x20000000) != 0 )

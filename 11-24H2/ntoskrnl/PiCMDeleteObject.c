@@ -1,15 +1,15 @@
 /*
- * XREFs of PiCMDeleteObject @ 0x140AC08B0
+ * XREFs of PiCMDeleteObject @ 0x140ABBA14
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     _PnpDeleteObject @ 0x14081ABD4 (_PnpDeleteObject.c)
- *     PiAuDoesClientHaveAccess @ 0x1408BC6A8 (PiAuDoesClientHaveAccess.c)
- *     PiCMCaptureObjectInputData @ 0x1408BEB90 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x1408BF0D4 (PiCMReturnBasicResultData.c)
- *     PiPnpRtlBeginOperation @ 0x1408CBF78 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1408CC158 (PiPnpRtlEndOperation.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     _PnpDeleteObject @ 0x14081B314 (_PnpDeleteObject.c)
+ *     PiAuDoesClientHaveAccess @ 0x1408B9FF8 (PiAuDoesClientHaveAccess.c)
+ *     PiCMCaptureObjectInputData @ 0x1408BC4E0 (PiCMCaptureObjectInputData.c)
+ *     PiCMReturnBasicResultData @ 0x1408BCA94 (PiCMReturnBasicResultData.c)
+ *     PiPnpRtlBeginOperation @ 0x1408C99A8 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1408C9B88 (PiPnpRtlEndOperation.c)
  */
 
 __int64 __fastcall PiCMDeleteObject(

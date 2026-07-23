@@ -1,11 +1,11 @@
 /*
- * XREFs of VslMapKernelScpPages @ 0x1404BC864
+ * XREFs of VslMapKernelScpPages @ 0x1404B79D4
  * Callers:
- *     MiMapKernelScp @ 0x1404F25A8 (MiMapKernelScp.c)
+ *     MiMapKernelScp @ 0x1404F0048 (MiMapKernelScp.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslMapKernelScpPages(__int64 a1)
@@ -15,5 +15,5 @@ __int64 __fastcall VslMapKernelScpPages(__int64 a1)
 
   memset_0(v3, 0, 0x68uLL);
   v4 = a1;
-  return VslpEnterIumSecureMode(2u, 219LL, 0, (__int64)v3);
+  return VslpEnterIumSecureMode(2u, 0xDBu, 0, (__int64)v3);
 }

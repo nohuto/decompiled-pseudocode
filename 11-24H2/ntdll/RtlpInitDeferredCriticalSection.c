@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitDeferredCriticalSection @ 0x1800F8020
+ * XREFs of RtlpInitDeferredCriticalSection @ 0x1800F2B90
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     InterlockedPushListSList @ 0x180165AB0 (InterlockedPushListSList.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     InterlockedPushListSList @ 0x180163E70 (InterlockedPushListSList.c)
  */
 
 __int64 RtlpInitDeferredCriticalSection()
@@ -23,8 +23,8 @@ __int64 RtlpInitDeferredCriticalSection()
     *v1 = v1 + 6;
     v1 = v0;
   }
-  while ( v0 <= qword_1801D4180 );
+  while ( v0 <= qword_1801D3180 );
   *v0 = 0LL;
-  InterlockedPushListSList(&RtlCriticalSectionDebugSList, &RtlpStaticDebugInfo, &unk_1801D41B0, 8LL);
+  InterlockedPushListSList(&RtlCriticalSectionDebugSList, &RtlpStaticDebugInfo, &unk_1801D31B0, 8LL);
   return 0LL;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiQuerySpecialPurposeMemoryInformation @ 0x140857484
+ * XREFs of MiQuerySpecialPurposeMemoryInformation @ 0x1408576C4
  * Callers:
- *     NtManagePartition @ 0x14075FD70 (NtManagePartition.c)
+ *     NtManagePartition @ 0x14075FF60 (NtManagePartition.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

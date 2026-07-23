@@ -3,13 +3,23 @@
  * Callers:
  *     <none>
  * Callees:
- *     PsOpenThread @ 0x1406634A0 (PsOpenThread.c)
+ *     sub_1406634A0 @ 0x1406634A0 (sub_1406634A0.c)
  */
 
-__int64 __fastcall NtOpenThread(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl NtOpenThread(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PCLIENT_ID ClientId)
 {
   char PreviousMode; // [rsp+20h] [rbp-18h]
 
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  return PsOpenThread(a1, a2, a3, a4, PreviousMode, PreviousMode);
+  PreviousMode = *((_BYTE *)KeGetCurrentThread() + 562);
+  return sub_1406634A0(
+           (int)ThreadHandle,
+           DesiredAccess,
+           (int)ObjectAttributes,
+           (int)ClientId,
+           PreviousMode,
+           PreviousMode);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogPrefetchSectionsStart @ 0x140A50094
+ * XREFs of PfSnLogPrefetchSectionsStart @ 0x140A59384
  * Callers:
- *     PfSnPrefetchSections @ 0x140A4FBD4 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchSections @ 0x140A58EC4 (PfSnPrefetchSections.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogPrefetchSectionsStart(__int64 a1, int a2, int a3)
@@ -35,9 +35,9 @@ void __fastcall PfSnLogPrefetchSectionsStart(__int64 a1, int a2, int a3)
     v22 = a3;
     v21 = a2;
     v5 = 0;
-    if ( stru_140E66FF0.WaitBlock[0].Thread )
+    if ( stru_140E67200.WaitBlock[0].Thread )
     {
-      if ( EtwEventEnabled((REGHANDLE)stru_140E66FF0.WaitBlock[0].Thread, &PfSnEvt_PrefetchSections_Start) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140E67200.WaitBlock[0].Thread, &PfSnEvt_PrefetchSections_Start) )
       {
         v4 = -1LL;
         do
@@ -59,7 +59,7 @@ void __fastcall PfSnLogPrefetchSectionsStart(__int64 a1, int a2, int a3)
         v16 = 4LL;
         v18 = 4LL;
         v20 = 1LL;
-        EtwWrite((REGHANDLE)stru_140E66FF0.WaitBlock[0].Thread, &PfSnEvt_PrefetchSections_Start, 0LL, 7u, &UserData);
+        EtwWrite((REGHANDLE)stru_140E67200.WaitBlock[0].Thread, &PfSnEvt_PrefetchSections_Start, 0LL, 7u, &UserData);
       }
     }
   }

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1405A04EC
+ * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x1405A09DC
  * Callers:
- *     PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x1405A0448 (PopDirectedDripsDiagPnpActionQueueAccountingUpdate.c)
- *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x1405A05B0 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x1405A0938 (PopDirectedDripsDiagPnpActionQueueAccountingUpdate.c)
+ *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x1405A0AA0 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
  * Callees:
  *     <none>
  */
@@ -19,11 +19,11 @@ __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(__in
   v3 = 28LL;
   if ( a2 )
   {
-    if ( dword_140C38EDC != 28 )
-      qword_140C38F68 = MEMORY[0xFFFFF78000000008];
-    if ( dword_140C38ED8 )
-      qword_140C38F60 = MEMORY[0xFFFFF78000000008];
-    v6 = &xmmword_140C39050;
+    if ( dword_140C38FFC != 28 )
+      qword_140C39088 = MEMORY[0xFFFFF78000000008];
+    if ( dword_140C38FF8 )
+      qword_140C39080 = MEMORY[0xFFFFF78000000008];
+    v6 = &xmmword_140C39170;
     do
     {
       result = *((unsigned int *)v6 - 92);
@@ -35,17 +35,17 @@ __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(__in
   }
   else
   {
-    if ( dword_140C38EDC != 28 )
+    if ( dword_140C38FFC != 28 )
     {
-      qword_140C38F70[dword_140C38EDC] += MEMORY[0xFFFFF78000000008] - qword_140C38F68;
-      qword_140C38F68 = 0LL;
+      qword_140C39090[dword_140C38FFC] += MEMORY[0xFFFFF78000000008] - qword_140C39088;
+      qword_140C39088 = 0LL;
     }
-    if ( dword_140C38ED8 )
+    if ( dword_140C38FF8 )
     {
-      qword_140C38F58 += v2 - qword_140C38F60;
-      qword_140C38F60 = 0LL;
+      qword_140C39078 += v2 - qword_140C39080;
+      qword_140C39080 = 0LL;
     }
-    v4 = &xmmword_140C39050;
+    v4 = &xmmword_140C39170;
     do
     {
       result = *((unsigned int *)v4 - 92);
@@ -55,6 +55,6 @@ __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(__in
     }
     while ( v3 );
   }
-  byte_140C38F50 = a2;
+  byte_140C39070 = a2;
   return result;
 }

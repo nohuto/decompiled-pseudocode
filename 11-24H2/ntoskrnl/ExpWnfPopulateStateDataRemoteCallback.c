@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfPopulateStateDataRemoteCallback @ 0x1407C66A0
+ * XREFs of ExpWnfPopulateStateDataRemoteCallback @ 0x1407C6B00
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExpWnfPopulateStateDataRemoteCallback(
@@ -24,7 +24,7 @@ __int64 __fastcall ExpWnfPopulateStateDataRemoteCallback(
     if ( (_DWORD)Size )
     {
       v8 = *(_DWORD *)(a2 + 56);
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (unsigned int)(v8 + 16), 0x20666E57u);
       v10 = Pool2;
       if ( !Pool2 )
         return 3221225626LL;

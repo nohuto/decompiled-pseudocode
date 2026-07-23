@@ -1,18 +1,18 @@
 /*
- * XREFs of MiBuildForkPageTable @ 0x1402C790C
+ * XREFs of MiBuildForkPageTable @ 0x1402C7AFC
  * Callers:
- *     MiUpdateForkMaps @ 0x1402CAC08 (MiUpdateForkMaps.c)
+ *     MiUpdateForkMaps @ 0x1402CADF8 (MiUpdateForkMaps.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiAddLockedPageCharge @ 0x14002DFAC (MiAddLockedPageCharge.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiBuildForkPageTable(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 *a4, __int64 a5, int a6)
@@ -81,7 +81,7 @@ char __fastcall MiBuildForkPageTable(__int64 a1, __int64 a2, unsigned __int64 a3
     if ( (_DWORD)CurrentThread )
     {
       v23 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_31;
     }
     else
@@ -109,7 +109,7 @@ LABEL_30:
       if ( (_DWORD)CurrentThread )
       {
         v23 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_31;
       }
       else

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlPruneTunnelCache @ 0x14079F150
+ * XREFs of FsRtlPruneTunnelCache @ 0x14079F340
  * Callers:
- *     FsRtlAddToTunnelCacheEx @ 0x14079ECC0 (FsRtlAddToTunnelCacheEx.c)
- *     FsRtlFindInTunnelCacheEx @ 0x14079EFF0 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x14079EEB0 (FsRtlAddToTunnelCacheEx.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x14079F1E0 (FsRtlFindInTunnelCacheEx.c)
  * Callees:
- *     FsRtlRemoveNodeFromTunnel @ 0x140326D8C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x14032701C (FsRtlRemoveNodeFromTunnel.c)
  */
 
 __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 a2)
@@ -13,7 +13,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 a2)
   __int64 v5; // rdi
   __int64 v6; // rbx
   _QWORD *v7; // rax
-  RTL_SPLAY_LINKS *v8; // rdx
+  _RTL_SPLAY_LINKS *v8; // rdx
   __int64 v9; // rax
   __int64 result; // rax
   char v11; // [rsp+40h] [rbp+8h] BYREF
@@ -27,7 +27,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 a2)
     v7 = (_QWORD *)*v3;
     if ( (_QWORD *)*v3 == v3 )
       break;
-    v8 = (RTL_SPLAY_LINKS *)(v7 - 3);
+    v8 = (_RTL_SPLAY_LINKS *)(v7 - 3);
     v9 = v7[2];
     if ( v9 >= v6 && v9 <= v5 )
       break;
@@ -38,7 +38,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 a2)
     result = *(unsigned __int16 *)(a1 + 80);
     if ( (unsigned int)result <= *(_DWORD *)((char *)&NlsMbCodePageTag + 2) )
       break;
-    FsRtlRemoveNodeFromTunnel(a1, (RTL_SPLAY_LINKS *)(*v3 - 24LL), a2, &v11);
+    FsRtlRemoveNodeFromTunnel(a1, (_RTL_SPLAY_LINKS *)(*v3 - 24LL), a2, &v11);
   }
   return result;
 }

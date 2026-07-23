@@ -1,48 +1,48 @@
 /*
- * XREFs of RtlUnicodeStringToInteger @ 0x1800068F0
+ * XREFs of RtlUnicodeStringToInteger @ 0x180052020
  * Callers:
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800052F0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlLookupAtomInAtomTable @ 0x180006500 (RtlLookupAtomInAtomTable.c)
- *     RtlGetUILanguageInfo @ 0x18000A1D0 (RtlGetUILanguageInfo.c)
- *     RtlGetFileMUIPath @ 0x180035550 (RtlGetFileMUIPath.c)
- *     RtlAddAtomToAtomTableEx @ 0x1800375D0 (RtlAddAtomToAtomTableEx.c)
- *     RtlQueryImageFileKeyOption @ 0x1800D3070 (RtlQueryImageFileKeyOption.c)
- *     RtlpQueryNlsSystemCodePages @ 0x1800D594C (RtlpQueryNlsSystemCodePages.c)
- *     RtlGetIntegerAtom @ 0x1800D7850 (RtlGetIntegerAtom.c)
- *     RtlUnicodeStringToLcid @ 0x1801148C4 (RtlUnicodeStringToLcid.c)
- *     LdrpInitializeExecutionOptions @ 0x180118558 (LdrpInitializeExecutionOptions.c)
- *     RtlpMuiRegAddAlternateCodePage @ 0x18012487C (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlpSetPreferredUILanguages @ 0x1801431B0 (RtlpSetPreferredUILanguages.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1800012A0 (RtlAddAtomToAtomTableEx.c)
+ *     RtlGetFileMUIPath @ 0x1800206B0 (RtlGetFileMUIPath.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180050A20 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlLookupAtomInAtomTable @ 0x180051C30 (RtlLookupAtomInAtomTable.c)
+ *     RtlGetUILanguageInfo @ 0x180055900 (RtlGetUILanguageInfo.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800D1480 (RtlQueryImageFileKeyOption.c)
+ *     RtlGetIntegerAtom @ 0x1800D4810 (RtlGetIntegerAtom.c)
+ *     RtlpQueryNlsSystemCodePages @ 0x1800DD69C (RtlpQueryNlsSystemCodePages.c)
+ *     RtlUnicodeStringToLcid @ 0x1801140C0 (RtlUnicodeStringToLcid.c)
+ *     LdrpInitializeExecutionOptions @ 0x180118308 (LdrpInitializeExecutionOptions.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1801245EC (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlpSetPreferredUILanguages @ 0x1801430B0 (RtlpSetPreferredUILanguages.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlUnicodeStringToInteger(unsigned __int16 *a1, unsigned int a2, int *a3)
+NTSTATUS __cdecl RtlUnicodeStringToInteger(PUNICODE_STRING String, ULONG Base, PULONG Value)
 {
-  int v5; // eax
-  unsigned int v6; // esi
-  unsigned int v7; // edx
-  unsigned __int16 *v8; // r10
+  ULONG v5; // eax
+  NTSTATUS v6; // esi
+  unsigned int Length; // edx
+  wchar_t *Buffer; // r10
   unsigned int v9; // r8d
   unsigned __int16 v10; // di
   unsigned __int16 v12; // dx
-  unsigned __int16 *v13; // rcx
+  wchar_t *v13; // rcx
   unsigned int v14; // ebx
   int v15; // r11d
-  unsigned int v16; // edx
+  ULONG v16; // edx
   __int16 v18; // dx
 
   v5 = 0;
   v6 = 0;
-  v7 = *a1;
-  if ( !(_WORD)v7 || (v7 & 1) != 0 )
+  Length = String->Length;
+  if ( !(_WORD)Length || (Length & 1) != 0 )
     goto LABEL_22;
-  v8 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  v9 = v7 >> 1;
+  Buffer = String->Buffer;
+  v9 = Length >> 1;
   v10 = 0;
   while ( v9-- )
   {
-    v10 = *v8++;
+    v10 = *Buffer++;
     if ( v10 > 0x20u )
       break;
     if ( !v9 )
@@ -57,48 +57,48 @@ __int64 __fastcall RtlUnicodeStringToInteger(unsigned __int16 *a1, unsigned int 
     if ( v9 )
     {
       --v9;
-      v12 = *v8++;
+      v12 = *Buffer++;
     }
     else
     {
       v12 = 0;
     }
   }
-  v13 = v8;
+  v13 = Buffer;
   v14 = v9;
-  if ( !a2 )
+  if ( !Base )
   {
-    a2 = 10;
+    Base = 10;
     v15 = 0;
     if ( v12 == 48 )
     {
       if ( !v9 )
         goto LABEL_29;
       --v9;
-      v18 = *v8++;
+      v18 = *Buffer++;
       switch ( v18 )
       {
         case 'x':
-          a2 = 16;
+          Base = 16;
           v15 = 4;
           break;
         case 'o':
-          a2 = 8;
+          Base = 8;
           v15 = 3;
           break;
         case 'b':
-          a2 = 2;
+          Base = 2;
           v15 = 1;
           break;
         default:
           v9 = v14;
-          v8 = v13;
+          Buffer = v13;
           break;
       }
       if ( v9 )
       {
         --v9;
-        v12 = *v8++;
+        v12 = *Buffer++;
       }
       else
       {
@@ -108,9 +108,9 @@ LABEL_29:
     }
     goto LABEL_10;
   }
-  if ( a2 != 10 )
+  if ( Base != 10 )
   {
-    switch ( a2 )
+    switch ( Base )
     {
       case 2u:
         v15 = 1;
@@ -147,17 +147,17 @@ LABEL_10:
     {
       v16 = v12 - 48;
     }
-    if ( v16 >= a2 )
+    if ( v16 >= Base )
       break;
-    v5 = v15 ? v16 | (v5 << v15) : v16 + a2 * v5;
+    v5 = v15 ? v16 | (v5 << v15) : v16 + Base * v5;
     if ( !v9 )
       break;
     --v9;
-    v12 = *v8++;
+    v12 = *Buffer++;
   }
   if ( v10 == 45 )
     v5 = -v5;
 LABEL_20:
-  *a3 = v5;
+  *Value = v5;
   return v6;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of KiCheckForPendingQosUpdate @ 0x140330CB0
+ * XREFs of KiCheckForPendingQosUpdate @ 0x140332CE0
  * Callers:
- *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
+ *     KiUpdateRunTime @ 0x140220DB0 (KiUpdateRunTime.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     PoSetProcessorQos @ 0x14032FA60 (PoSetProcessorQos.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14032FC60 (PpmPerfArbitratorApplyProcessorState.c)
- *     KeUpdatePendingQosRequest @ 0x140330628 (KeUpdatePendingQosRequest.c)
- *     PpmEventVpQosChange @ 0x140529810 (PpmEventVpQosChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmHvSetVirtualProcessorQos @ 0x140532BF8 (PpmHvSetVirtualProcessorQos.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     PoSetProcessorQos @ 0x140331A90 (PoSetProcessorQos.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x140331C90 (PpmPerfArbitratorApplyProcessorState.c)
+ *     KeUpdatePendingQosRequest @ 0x140332658 (KeUpdatePendingQosRequest.c)
+ *     PpmEventVpQosChange @ 0x14052BCA4 (PpmEventVpQosChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x140535098 (PpmHvSetVirtualProcessorQos.c)
  */
 
 char __fastcall KiCheckForPendingQosUpdate(__int64 a1)
@@ -144,7 +144,7 @@ LABEL_24:
       v13 = KeDisableInterrupts();
       p_QosUpdateLock = (volatile signed __int32 *)&Constraint->QosUpdateLock;
       v11 = v13;
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         if ( _interlockedbittestandset64(p_QosUpdateLock, 0LL) )
           KxWaitForSpinLockAndAcquire(p_QosUpdateLock);
@@ -170,7 +170,7 @@ LABEL_24:
 LABEL_16:
         if ( v10 )
         {
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
             _InterlockedAnd64((volatile signed __int64 *)&Constraint->QosUpdateLock, 0LL);
           else
             KiReleaseSpinLockInstrumented((volatile signed __int64 *)&Constraint->QosUpdateLock, retaddr);

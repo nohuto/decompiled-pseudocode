@@ -1,13 +1,13 @@
 /*
- * XREFs of PipGetDriverTagPriority @ 0x140A5D9BC
+ * XREFs of PipGetDriverTagPriority @ 0x140A5E9BC
  * Callers:
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PnpRegSzToString @ 0x14074002C (PnpRegSzToString.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     IopOpenRegistryKeyEx @ 0x1407AC650 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PnpRegSzToString @ 0x1407401EC (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x1407AC850 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipGetDriverTagPriority(HANDLE KeyHandle)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPersistMdl @ 0x1404C7C68
+ * XREFs of MiPersistMdl @ 0x1404C10C8
  * Callers:
- *     MiFlushFileOnlyMdl @ 0x1404C7B90 (MiFlushFileOnlyMdl.c)
+ *     MiFlushFileOnlyMdl @ 0x1404C0FF0 (MiFlushFileOnlyMdl.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140266854 (MiUnmapPageInHyperSpaceWorker.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MiPersistMemory @ 0x14067B8F0 (MiPersistMemory.c)
- *     MiPersistVa @ 0x14067B968 (MiPersistVa.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402EEA94 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiPersistMemory @ 0x14067CAD0 (MiPersistMemory.c)
+ *     MiPersistVa @ 0x14067CB48 (MiPersistVa.c)
  */
 
 void __fastcall MiPersistMdl(PMDL MemoryDescriptorList)
@@ -20,7 +20,7 @@ void __fastcall MiPersistMdl(PMDL MemoryDescriptorList)
   unsigned __int8 v6; // [rsp+48h] [rbp+10h] BYREF
 
   v6 = 0;
-  if ( !byte_140E2DB40 )
+  if ( !byte_140E2DC80 )
   {
     v2 = (((LODWORD(MemoryDescriptorList->StartVa) + MemoryDescriptorList->ByteOffset) & 0xFFF)
         + (unsigned __int64)MemoryDescriptorList->ByteCount
@@ -38,7 +38,7 @@ void __fastcall MiPersistMdl(PMDL MemoryDescriptorList)
     {
       for ( i = (__int64 *)&MemoryDescriptorList[1]; v2; --v2 )
       {
-        v5 = MiMapPageInHyperSpaceWorker(*i, &v6, 0x20000000LL);
+        v5 = MiMapPageInHyperSpaceWorker(*i, &v6, 0x20000000);
         MiPersistVa(v5);
         MiUnmapPageInHyperSpaceWorker(v5, v6, 0x80000000);
         ++i;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDevicesLevel @ 0x140568874
+ * XREFs of PopDiagTraceDevicesLevel @ 0x140569874
  * Callers:
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDevicesLevel(int a1, int a2, char a3, char a4)

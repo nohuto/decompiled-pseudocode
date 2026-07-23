@@ -48,7 +48,7 @@ __int64 __fastcall sub_1403DA850(__int64 a1, __int64 a2)
   int v9; // ebx
   unsigned __int8 v10; // al
   SIZE_T v11; // rbx
-  struct _SLIST_ENTRY *PoolWithTag; // rax
+  _SLIST_ENTRY *PoolWithTag; // rax
   PSLIST_ENTRY v13; // r13
   PSLIST_ENTRY v14; // r15
   __int64 v15; // rdx
@@ -1597,7 +1597,7 @@ __int64 __fastcall sub_1403DA850(__int64 a1, __int64 a2)
   __int64 v1558; // [rsp+28h] [rbp-D8h]
   __int64 *v1559; // [rsp+38h] [rbp-C8h]
   char *v1560; // [rsp+50h] [rbp-B0h]
-  struct _SLIST_ENTRY *v1561; // [rsp+58h] [rbp-A8h]
+  _SLIST_ENTRY *v1561; // [rsp+58h] [rbp-A8h]
   __int64 v1562; // [rsp+60h] [rbp-A0h]
   unsigned int v1563; // [rsp+68h] [rbp-98h]
   __int64 v1564; // [rsp+70h] [rbp-90h]
@@ -1918,14 +1918,14 @@ LABEL_34:
     if ( v1586 )
       goto LABEL_40;
     ++dword_140C12F58;
-    PoolWithTag = (struct _SLIST_ENTRY *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C12F70)(
-                                           (unsigned int)dword_140C12F64,
-                                           (unsigned int)dword_140C12F6C,
-                                           (unsigned int)dword_140C12F68);
+    PoolWithTag = (_SLIST_ENTRY *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C12F70)(
+                                    (unsigned int)dword_140C12F64,
+                                    (unsigned int)dword_140C12F6C,
+                                    (unsigned int)dword_140C12F68);
   }
   else
   {
-    PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x746E494Bu);
+    PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x746E494Bu);
   }
   v1586 = PoolWithTag;
   v13 = PoolWithTag;
@@ -7419,7 +7419,7 @@ LABEL_1058:
             {
               *(_DWORD *)(v17 + 2084) = 0;
 LABEL_1088:
-              v1561 = (struct _SLIST_ENTRY *)v17;
+              v1561 = (_SLIST_ENTRY *)v17;
               goto LABEL_236;
             }
             v333 = v56;
@@ -7789,7 +7789,7 @@ LABEL_657:
         v355 = v1590;
         v367 = v386;
 LABEL_1038:
-        v1561 = (struct _SLIST_ENTRY *)v355;
+        v1561 = (_SLIST_ENTRY *)v355;
         v644 = &v355[-v17];
         v17 = (unsigned __int64)v355;
         v645 = &v1560[(_QWORD)v644];

@@ -1,18 +1,18 @@
 /*
- * XREFs of CcInitializePartition @ 0x14057CD28
+ * XREFs of CcInitializePartition @ 0x14057A1B8
  * Callers:
- *     CcCreatePartition @ 0x14057C660 (CcCreatePartition.c)
+ *     CcCreatePartition @ 0x140579AF0 (CcCreatePartition.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     ExAllocatePoolWithTagFromNode @ 0x1402AC224 (ExAllocatePoolWithTagFromNode.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     CcForEachNumaNode @ 0x1402CBE88 (CcForEachNumaNode.c)
- *     CcInitializePartitionVacbs @ 0x14057D3B0 (CcInitializePartitionVacbs.c)
- *     CcInitializeNumaNode @ 0x14057DAFC (CcInitializeNumaNode.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsCreateSystemThread @ 0x140A22450 (PsCreateSystemThread.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140277180 (ExAllocatePoolWithTagFromNode.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     CcForEachNumaNode @ 0x1404310C4 (CcForEachNumaNode.c)
+ *     CcInitializePartitionVacbs @ 0x14057A840 (CcInitializePartitionVacbs.c)
+ *     CcInitializeNumaNode @ 0x14057AF8C (CcInitializeNumaNode.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsCreateSystemThread @ 0x1408F8C00 (PsCreateSystemThread.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
@@ -40,7 +40,6 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
   __int64 PoolWithTagFromNode; // rax
   __int64 *v25; // rcx
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  char v28; // [rsp+A0h] [rbp+30h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
@@ -73,7 +72,7 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
   *((_DWORD *)StartContext + 172) = 2048;
   v8 = (PVOID *)*((_QWORD *)StartContext + 85);
   if ( *v8 != StartContext + 672 )
-    goto LABEL_32;
+    goto LABEL_31;
   *v7 = StartContext + 672;
   *((_QWORD *)StartContext + 88) = v8;
   *v8 = v7;
@@ -137,8 +136,8 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
   *((_WORD *)StartContext + 520) = 0;
   v11 = (unsigned __int16 **)*((_QWORD *)StartContext + 1);
   StartContext[1048] = 1;
-  v12 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + **v11) + 18512LL);
-  if ( (_BYTE)dword_140FC421C )
+  v12 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + **v11) + 18512LL);
+  if ( (_BYTE)dword_140FC521C )
   {
     v13 = v12 >> 1;
     v10 = StartContext;
@@ -228,7 +227,7 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
     for ( i = 0; i < CcNumberNumaNodes; ++i )
     {
       if ( !(unsigned __int8)CcInitializeNumaNode(StartContext, &v20[400 * i], v9, i) )
-        goto LABEL_29;
+        goto LABEL_28;
       v4 = 0LL;
     }
   }
@@ -242,16 +241,13 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
       if ( v17 )
       {
         *((_QWORD *)StartContext + 153) = 0LL;
-        v28 = 1;
-        CcForEachNumaNode((__int64)CcInitializeAsyncReadForNodeHelper, (__int64)StartContext, 0LL, (__int64)&v28);
-        if ( !v28 )
-          goto LABEL_29;
+        CcForEachNumaNode((__int64)CcInitializeAsyncReadForNodeHelper, (__int64)StartContext, 0LL);
         if ( !CcEnablePerVolumeLazyWriter )
-          goto LABEL_28;
+          goto LABEL_27;
       }
       PoolWithTagFromNode = ExAllocatePoolWithTagFromNode(v23, 0x50uLL, 0x71576343uLL, 0x80000000uLL);
       if ( !PoolWithTagFromNode )
-        goto LABEL_29;
+        goto LABEL_28;
       *(_DWORD *)(PoolWithTagFromNode + 36) = -1;
       *(_DWORD *)(PoolWithTagFromNode + 32) = 9;
       *(_QWORD *)(PoolWithTagFromNode + 56) = StartContext;
@@ -268,7 +264,7 @@ char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
         *(_QWORD *)(PoolWithTagFromNode + 8) = v25;
         *v25 = PoolWithTagFromNode;
         *((_QWORD *)StartContext + 13) = PoolWithTagFromNode;
-LABEL_28:
+LABEL_27:
         v3 = 1;
         StartContext[1364] = 1;
         DbgPrintEx(
@@ -277,13 +273,13 @@ LABEL_28:
           "CcInitializePartition: Initialized Partition=%p, PartitionObject=%p \n",
           StartContext,
           a2);
-        goto LABEL_29;
+        goto LABEL_28;
       }
-LABEL_32:
+LABEL_31:
       __fastfail(3u);
     }
   }
-LABEL_29:
+LABEL_28:
   if ( v4 )
     ExFreePoolWithTag(v4, 0x754E6343u);
   return v3;

@@ -29,12 +29,12 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
   unsigned int v5; // eax
   unsigned int v6; // eax
   __int64 v7; // rcx
-  __int64 v8; // r14
+  _RTL_SRWLOCK *v8; // r14
   char v9; // r15
-  signed __int64 v10; // rbx
+  signed __int64 Value; // rbx
   unsigned __int64 v11; // rdi
   signed __int64 v12; // rbx
-  __int64 v13; // rbx
+  unsigned __int64 v13; // rbx
   unsigned int v14; // eax
   unsigned int v15; // eax
   unsigned int v16; // eax
@@ -44,19 +44,19 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
   __int64 v20; // r8
   signed __int64 v21; // rax
   signed __int64 v22; // rtt
-  __int64 v23; // rcx
+  void *v23; // rcx
   signed __int64 v24; // rax
   signed __int64 v25; // rtt
-  int v26; // eax
+  NTSTATUS v26; // eax
   unsigned __int64 v27; // rbx
-  int v28; // eax
-  int v29; // eax
+  NTSTATUS v28; // eax
+  NTSTATUS v29; // eax
   unsigned __int64 v30; // rbx
-  int v31; // eax
+  NTSTATUS v31; // eax
   unsigned __int64 v32; // rax
   signed __int64 v33; // [rsp+20h] [rbp-89h]
   signed __int64 v34; // [rsp+20h] [rbp-89h]
-  _DWORD v35[2]; // [rsp+28h] [rbp-81h] BYREF
+  _DWORD WorkerFactoryInformation[2]; // [rsp+28h] [rbp-81h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-79h] BYREF
 
   TppCallbackCheckThreadAfterCallback(a1);
@@ -75,7 +75,7 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
             return;
           }
           _BitScanForward(&v3, v2);
-          v35[1] = v3;
+          WorkerFactoryInformation[1] = v3;
           a1[36] = v2 ^ (1 << v3);
           if ( v3 > 5 )
             break;
@@ -115,7 +115,7 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
                         v34 = v24;
                       }
                       while ( v25 != v24 );
-                      v23 = *(_QWORD *)(v17 + 56);
+                      v23 = *(void **)(v17 + 56);
                     }
                     else
                     {
@@ -133,18 +133,18 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
                         v33 = v21;
                       }
                       while ( v22 != v21 );
-                      v23 = *(_QWORD *)(*(_QWORD *)(v19 + 144) + 56LL);
+                      v23 = *(void **)(*(_QWORD *)(v19 + 144) + 56LL);
                     }
                     if ( v18 == 2 )
                     {
-                      v35[0] = 0;
-                      NtSetInformationWorkerFactory(v23, 9LL, v35);
+                      WorkerFactoryInformation[0] = 0;
+                      NtSetInformationWorkerFactory(v23, WorkerFactoryCallbackType, WorkerFactoryInformation, 4u);
                     }
                   }
                 }
                 else
                 {
-                  v29 = ZwReleaseSemaphore(a1[39], a1[40], 0LL);
+                  v29 = ZwReleaseSemaphore((HANDLE)a1[39], a1[40], 0LL);
                   v30 = v29;
                   if ( v29 < 0 )
                   {
@@ -162,7 +162,7 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
               }
               else
               {
-                v28 = ZwSetEvent(a1[37], 0LL);
+                v28 = ZwSetEvent((HANDLE)a1[37], 0LL);
                 v27 = v28;
                 if ( v28 < 0 )
                 {
@@ -176,7 +176,7 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
             }
             else
             {
-              v31 = ZwReleaseMutant(a1[38], 0LL);
+              v31 = ZwReleaseMutant((HANDLE)a1[38], 0LL);
               v27 = v31;
               if ( v31 < 0 )
               {
@@ -190,40 +190,40 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
           }
           else
           {
-            RtlLeaveCriticalSection(*((_QWORD *)a1 + 24));
+            RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)a1 + 24));
             *((_QWORD *)a1 + 24) = 0LL;
           }
         }
         v4 = v3 - 6;
         if ( v4 )
           break;
-        v8 = *((_QWORD *)a1 + 23);
+        v8 = (_RTL_SRWLOCK *)*((_QWORD *)a1 + 23);
         v9 = 0;
-        _m_prefetchw((const void *)(v8 + 56));
-        v10 = *(_QWORD *)(v8 + 56);
+        _m_prefetchw(&v8[7]);
+        Value = v8[7].Value;
         do
         {
           if ( v9 )
           {
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v8 + 64));
+            RtlReleaseSRWLockExclusive(v8 + 8);
             v9 = 0;
           }
-          v11 = v10;
-          v12 = (v10 ^ (v10 - 1)) & 0xFFFFFFFFFFFFFFFLL ^ v10;
+          v11 = Value;
+          v12 = (Value ^ (Value - 1)) & 0xFFFFFFFFFFFFFFFLL ^ Value;
           if ( (v12 & 0xFFFFFFFFFFFFFFFLL) == 0 && ((v11 >> 60) & 8) != 0 )
           {
             v12 &= ~0x8000000000000000uLL;
             v9 = 1;
-            RtlAcquireSRWLockExclusive(v8 + 64);
+            RtlAcquireSRWLockExclusive(v8 + 8);
           }
-          v10 = _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 56), v12, v11);
+          Value = _InterlockedCompareExchange64((volatile signed __int64 *)&v8[7], v12, v11);
         }
-        while ( v11 != v10 );
+        while ( v11 != Value );
         if ( v9 )
         {
-          v13 = *(_QWORD *)(v8 + 72);
-          *(_QWORD *)(v8 + 72) = 0LL;
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v8 + 64));
+          v13 = v8[9].Value;
+          v8[9].Value = 0LL;
+          RtlReleaseSRWLockExclusive(v8 + 8);
           TppIteWakeWaiters(v13);
         }
       }
@@ -242,11 +242,11 @@ void __fastcall TppCallbackEpilog(unsigned int *a1)
       }
       else
       {
-        LdrUnloadDll(*((_QWORD *)a1 + 21));
+        LdrUnloadDll(*((PVOID *)a1 + 21));
         *((_QWORD *)a1 + 21) = 0LL;
       }
     }
-    v26 = LdrUnloadDll(*((_QWORD *)a1 + 25));
+    v26 = LdrUnloadDll(*((PVOID *)a1 + 25));
     v27 = v26;
     if ( v26 < 0 )
       break;

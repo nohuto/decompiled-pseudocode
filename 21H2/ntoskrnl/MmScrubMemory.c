@@ -1,16 +1,16 @@
 /*
- * XREFs of MmScrubMemory @ 0x1408DC11C
+ * XREFs of MmScrubMemory @ 0x1408DC27C
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeInitializeGate @ 0x1402D2C10 (KeInitializeGate.c)
- *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     MiScrubProcesses @ 0x1408DC010 (MiScrubProcesses.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeInitializeGate @ 0x140251190 (KeInitializeGate.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExQueueWorkItemToPartition @ 0x1403025FC (ExQueueWorkItemToPartition.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     MiScrubProcesses @ 0x1408DC170 (MiScrubProcesses.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
@@ -63,7 +63,7 @@ NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
           *(v12 - 3) = 0LL;
           *(v12 - 1) = MiScrubMemoryWorker;
           *v12 = v9;
-          ExQueueWorkItemToPartition(v12 - 3, 4, v10++, qword_140C50E30);
+          ExQueueWorkItemToPartition(v12 - 3, 4, v10++, qword_140C50E70);
           v9 += 28;
           v12 += 28;
         }
@@ -91,7 +91,7 @@ LABEL_13:
       if ( *(_DWORD *)(&DmaAdapter->Size + 1) || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0 )
         v8 = -1073741248;
       else
-        _InterlockedIncrement(&dword_140C4E7D8);
+        _InterlockedIncrement(&dword_140C4E818);
     }
     else
     {

@@ -6,7 +6,7 @@
  *     _RtlEqualSid@8 @ 0x4B2D85D0 (_RtlEqualSid@8.c)
  */
 
-char *__fastcall RtlFindAceBySid(int a1, _WORD *a2, unsigned int *a3)
+char *__fastcall RtlFindAceBySid(int a1, void *a2, unsigned int *a3)
 {
   char *v3; // esi
   unsigned int v4; // edi
@@ -14,7 +14,7 @@ char *__fastcall RtlFindAceBySid(int a1, _WORD *a2, unsigned int *a3)
   int v6; // ecx
   int v8; // [esp-4h] [ebp-18h]
   unsigned int v9; // [esp+Ch] [ebp-8h]
-  _WORD *v10; // [esp+10h] [ebp-4h]
+  void *v10; // [esp+10h] [ebp-4h]
 
   v10 = a2;
   if ( !a1 )
@@ -54,7 +54,7 @@ LABEL_23:
     {
       if ( !a3 )
       {
-        if ( RtlEqualSid((unsigned __int8 *)&v3[v6], a2) )
+        if ( RtlEqualSid(&v3[v6], a2) )
           return v3;
         goto LABEL_29;
       }
@@ -67,7 +67,7 @@ LABEL_30:
     if ( v4 >= v9 )
       return 0;
   }
-  if ( !RtlEqualSid((unsigned __int8 *)&v3[v6], a2) )
+  if ( !RtlEqualSid(&v3[v6], a2) )
   {
 LABEL_29:
     a2 = v10;

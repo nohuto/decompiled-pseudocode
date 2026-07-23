@@ -1,24 +1,24 @@
 /*
- * XREFs of DbgkMapViewOfSection @ 0x1407A3DBC
+ * XREFs of DbgkMapViewOfSection @ 0x1407A3FAC
  * Callers:
- *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
- *     NtMapViewOfSection @ 0x140720E50 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x1407A34F0 (MiMapViewOfSectionExCommon.c)
- *     NtLoadEnclaveData @ 0x140A3F270 (NtLoadEnclaveData.c)
+ *     PsDispatchIumService @ 0x1405A53D4 (PsDispatchIumService.c)
+ *     NtMapViewOfSection @ 0x140721050 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407A36E0 (MiMapViewOfSectionExCommon.c)
+ *     NtLoadEnclaveData @ 0x140A3F520 (NtLoadEnclaveData.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     DbgkpSectionToFileHandle @ 0x1409393C8 (DbgkpSectionToFileHandle.c)
- *     DbgkpSuppressDbgMsg @ 0x14093947C (DbgkpSuppressDbgMsg.c)
- *     DbgkpSendApiMessage @ 0x14093A050 (DbgkpSendApiMessage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     DbgkpSectionToFileHandle @ 0x1409395C8 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSuppressDbgMsg @ 0x14093967C (DbgkpSuppressDbgMsg.c)
+ *     DbgkpSendApiMessage @ 0x14093A250 (DbgkpSendApiMessage.c)
  */
 
 int __fastcall DbgkMapViewOfSection(
         _KPROCESS *Object,
         __int64 a2,
-        __int64 a3,
+        void *a3,
         __int64 a4,
         __int64 a5,
         unsigned int a6,
@@ -28,7 +28,7 @@ int __fastcall DbgkMapViewOfSection(
   struct _KTHREAD *v11; // rcx
   struct _KTHREAD *v12; // rbx
   char *Teb; // rbx
-  __int64 v14; // rcx
+  PIMAGE_NT_HEADERS v14; // rcx
   _QWORD v16[34]; // [rsp+30h] [rbp-138h] BYREF
 
   memset(v16, 0, sizeof(v16));
@@ -64,7 +64,7 @@ int __fastcall DbgkMapViewOfSection(
         else
           v14 = 0LL;
         if ( v14 )
-          v16[8] = *(_QWORD *)(v14 + 12);
+          v16[8] = *(_QWORD *)&v14->FileHeader.PointerToSymbolTable;
         v16[0] = 0x800500028LL;
         LODWORD(v16[5]) = 5;
         LODWORD(CurrentThread) = DbgkpSendApiMessage(Object);

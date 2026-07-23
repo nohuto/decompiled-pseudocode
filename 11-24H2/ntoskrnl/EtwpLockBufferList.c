@@ -1,62 +1,64 @@
 /*
- * XREFs of EtwpLockBufferList @ 0x1403EEC80
+ * XREFs of EtwpLockBufferList @ 0x1403E1714
  * Callers:
- *     EtwpAllocateFreeBuffers @ 0x14024C2BC (EtwpAllocateFreeBuffers.c)
- *     EtwpEnqueueOverflowBuffer @ 0x14024D048 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpReserveTraceBuffer @ 0x140327DF0 (EtwpReserveTraceBuffer.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x14048EBF0 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpDequeueFreeBuffer @ 0x1404EF438 (EtwpDequeueFreeBuffer.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140651298 (EtwpDequeueBufferPendingCompression.c)
- *     EtwpReenableCompression @ 0x14065159C (EtwpReenableCompression.c)
+ *     EtwpAllocateFreeBuffers @ 0x14027C8CC (EtwpAllocateFreeBuffers.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x14027D658 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0980 (EtwpReserveTraceBuffer.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140489020 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpDequeueFreeBuffer @ 0x1404EC950 (EtwpDequeueFreeBuffer.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x14064F998 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpReenableCompression @ 0x14064FC9C (EtwpReenableCompression.c)
  * Callees:
- *     KiAcquireSpinLockInstrumented @ 0x140254BA0 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x140254C70 (KxWaitForSpinLockAndAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1402851B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140285280 (KxWaitForSpinLockAndAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-void __fastcall EtwpLockBufferList(__int64 a1, unsigned __int8 *a2)
+void __fastcall EtwpLockBufferList(__int64 a1, unsigned __int8 *a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rdi
+  __int64 v5; // rdi
   unsigned __int8 CurrentIrql; // bl
-  bool v5; // zf
-  volatile signed __int32 *v6; // rcx
-  unsigned __int64 *v7; // rdi
-  _QWORD *v8; // rax
-  _QWORD *v9; // rbx
+  __int64 v7; // rdx
+  bool v8; // zf
+  volatile signed __int32 *v9; // rcx
+  unsigned __int64 *v10; // rdi
+  char *v11; // rax
+  char *v12; // rbx
 
-  v3 = a1;
+  v5 = a1;
   if ( *(_DWORD *)(a1 + 300) == 1 )
   {
-    v7 = (unsigned __int64 *)(a1 + 696);
-    v8 = KeAbPreAcquire(a1 + 696, 0LL);
-    v9 = v8;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v7, (__int64)v8, (__int64)v7);
-    if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+    v10 = (unsigned __int64 *)(a1 + 696);
+    v11 = (char *)KeAbPreAcquire(a1 + 696, 0LL);
+    v12 = v11;
+    if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
+      ExfAcquirePushLockExclusiveEx(v10, v11, (__int64)v10);
+    if ( v12 )
+      v12[10] = 1;
   }
   else
   {
     CurrentIrql = KeGetCurrentIrql();
+    v7 = 15LL;
     __writecr8(0xFuLL);
     if ( KiIrqlFlags )
     {
       LOBYTE(a1) = CurrentIrql;
       KiRaiseIrqlProcessIrqlFlags(a1, 15LL);
     }
-    v5 = (BYTE6(PerfGlobalGroupMask) & 0x21) == 0;
-    v6 = (volatile signed __int32 *)(v3 + 696);
+    v8 = (BYTE6(PerfGlobalGroupMask) & 0x21) == 0;
+    v9 = (volatile signed __int32 *)(v5 + 696);
     *a2 = CurrentIrql;
-    if ( v5 || PopHibernateInProgress )
+    if ( v8 || PopHibernateInProgress )
     {
-      if ( _interlockedbittestandset64(v6, 0LL) )
-        KxWaitForSpinLockAndAcquire(v6);
+      if ( _interlockedbittestandset64(v9, 0LL) )
+        KxWaitForSpinLockAndAcquire(v9, v7, a3, a4);
     }
     else
     {
-      KiAcquireSpinLockInstrumented(v6);
+      KiAcquireSpinLockInstrumented(v9);
     }
   }
 }

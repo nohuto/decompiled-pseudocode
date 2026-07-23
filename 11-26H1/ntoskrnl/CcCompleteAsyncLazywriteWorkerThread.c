@@ -1,12 +1,12 @@
 /*
- * XREFs of CcCompleteAsyncLazywriteWorkerThread @ 0x1405B3730
+ * XREFs of CcCompleteAsyncLazywriteWorkerThread @ 0x1405B5F40
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039C160 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcCompleteAsyncLazywriteWorker @ 0x1405B3668 (CcCompleteAsyncLazywriteWorker.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039DEC0 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcCompleteAsyncLazywriteWorker @ 0x1405B5E78 (CcCompleteAsyncLazywriteWorker.c)
  */
 
 char __fastcall CcCompleteAsyncLazywriteWorkerThread(__int64 a1)

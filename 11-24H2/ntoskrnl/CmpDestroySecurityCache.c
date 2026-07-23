@@ -1,45 +1,40 @@
 /*
- * XREFs of CmpDestroySecurityCache @ 0x14097CE70
+ * XREFs of CmpDestroySecurityCache @ 0x140965680
  * Callers:
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     CmpCompleteUnloadKey @ 0x14097CB58 (CmpCompleteUnloadKey.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x1409A0BDC (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1408328B8 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     CmpCompleteUnloadKey @ 0x140965368 (CmpCompleteUnloadKey.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall CmpDestroySecurityCache(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CmpDestroySecurityCache(__int64 a1)
 {
   __int64 result; // rax
-  unsigned int v5; // edi
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  _QWORD *v9; // rdx
-  __int64 v10; // r8
+  unsigned int v2; // edi
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  _QWORD *v6; // rdx
 
   result = *(unsigned int *)(a1 + 1872);
-  v5 = 0;
+  v2 = 0;
   if ( (_DWORD)result )
   {
     do
     {
-      v7 = *(_QWORD *)(*(_QWORD *)(a1 + 1888) + 16LL * v5 + 8);
-      v8 = *(_QWORD *)(v7 + 8);
-      if ( *(_QWORD *)(v8 + 8) != v7 + 8 || (v9 = *(_QWORD **)(v7 + 16), *v9 != v7 + 8) )
+      v4 = *(_QWORD *)(*(_QWORD *)(a1 + 1888) + 16LL * v2 + 8);
+      v5 = *(_QWORD *)(v4 + 8);
+      if ( *(_QWORD *)(v5 + 8) != v4 + 8 || (v6 = *(_QWORD **)(v4 + 16), *v6 != v4 + 8) )
         __fastfail(3u);
-      *v9 = v8;
-      *(_QWORD *)(v8 + 8) = v9;
-      guard_dispatch_icall_no_overrides(v7, (unsigned int)(*(_DWORD *)(v7 + 24) + 32), v8, a4);
+      *v6 = v5;
+      *(_QWORD *)(v5 + 8) = v6;
+      guard_dispatch_icall_no_overrides(v4, (unsigned int)(*(_DWORD *)(v4 + 24) + 32));
       result = *(unsigned int *)(a1 + 1872);
-      ++v5;
+      ++v2;
     }
-    while ( v5 < (unsigned int)result );
+    while ( v2 < (unsigned int)result );
     if ( (_DWORD)result )
-      result = guard_dispatch_icall_no_overrides(
-                 *(_QWORD *)(a1 + 1888),
-                 (unsigned int)(16 * *(_DWORD *)(a1 + 1876)),
-                 v10,
-                 a4);
+      result = guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 1888), (unsigned int)(16 * *(_DWORD *)(a1 + 1876)));
   }
   *(_QWORD *)(a1 + 1888) = 0LL;
   *(_DWORD *)(a1 + 1872) = 0;

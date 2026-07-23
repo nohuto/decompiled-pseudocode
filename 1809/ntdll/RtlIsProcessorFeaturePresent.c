@@ -6,10 +6,10 @@
  *     <none>
  */
 
-char __fastcall RtlIsProcessorFeaturePresent(unsigned int a1)
+BOOLEAN __cdecl RtlIsProcessorFeaturePresent(ULONG ProcessorFeature)
 {
-  if ( a1 >= 0x40 )
+  if ( ProcessorFeature >= 0x40 )
     return 0;
   else
-    return *(_BYTE *)(a1 + 0x7FFE0274LL);
+    return *(_BYTE *)(ProcessorFeature + 0x7FFE0274LL);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateControlAreaCommitCount @ 0x1404853D8
+ * XREFs of MiUpdateControlAreaCommitCount @ 0x14047ED48
  * Callers:
- *     MiSetPagesModified @ 0x14045BE6C (MiSetPagesModified.c)
- *     MiCreatePagingFileFinish @ 0x1409B7E0C (MiCreatePagingFileFinish.c)
- *     MiChargeSegmentCommit @ 0x1409C9BB0 (MiChargeSegmentCommit.c)
+ *     MiSetPagesModified @ 0x140455A14 (MiSetPagesModified.c)
+ *     MiCreatePagingFileFinish @ 0x140988DEC (MiCreatePagingFileFinish.c)
+ *     MiChargeSegmentCommit @ 0x14099AB90 (MiChargeSegmentCommit.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 __int64 __fastcall MiUpdateControlAreaCommitCount(__int64 a1, unsigned __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall MiUpdateControlAreaCommitCount(__int64 a1, unsigned __int64 a
   __int64 v8; // rbx
 
   _InterlockedAdd64(
-    (volatile signed __int64 *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF)) + 23480LL),
+    (volatile signed __int64 *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF)) + 23480LL),
     a2);
   if ( *(_QWORD *)(a1 + 64) )
   {

@@ -10,9 +10,9 @@
  *     KiLowerIrqlProcessIrqlFlags @ 0x1404F1088 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 *a2, unsigned int a3)
+__int64 __fastcall VmpFaultEntryRemove(__int64 a1, _RTL_BALANCED_NODE *a2, unsigned int a3)
 {
-  unsigned __int64 *v3; // rbx
+  _RTL_BALANCED_NODE *v3; // rbx
   __int64 v4; // r14
   unsigned __int64 v5; // rsi
   unsigned __int8 CurrentIrql; // di
@@ -21,7 +21,7 @@ __int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 *a2, unsigne
 
   v3 = a2;
   v4 = a1;
-  v5 = (unsigned __int64)&a2[6 * a3];
+  v5 = (unsigned __int64)&a2[2 * a3];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags )
@@ -32,8 +32,8 @@ __int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 *a2, unsigne
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v4 + 96));
   while ( (unsigned __int64)v3 < v5 )
   {
-    RtlRbRemoveNode(v4 + 80, v3);
-    v3 += 6;
+    RtlRbRemoveNode((PRTL_RB_TREE)(v4 + 80), v3);
+    v3 += 2;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 96));
   if ( KiIrqlFlags )

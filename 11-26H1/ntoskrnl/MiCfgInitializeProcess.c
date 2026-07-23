@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCfgInitializeProcess @ 0x14077898C
+ * XREFs of MiCfgInitializeProcess @ 0x14077B82C
  * Callers:
- *     MiMapProcessExecutable @ 0x140962988 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x140A08810 (MiMapProcessExecutable.c)
  * Callees:
- *     MiMapSecurePureReserveView @ 0x140AC4500 (MiMapSecurePureReserveView.c)
- *     MiReferenceCfgVad @ 0x140AF0820 (MiReferenceCfgVad.c)
+ *     MiMapSecurePureReserveView @ 0x140AC6170 (MiMapSecurePureReserveView.c)
+ *     MiReferenceCfgVad @ 0x140AF33F0 (MiReferenceCfgVad.c)
  */
 
 __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
@@ -30,18 +30,18 @@ __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
     if ( v2 != 332 && v2 != 452 )
       return 3221225595LL;
   }
-  v4 = *(_DWORD *)&stru_140E2D150.WaitBlockFill11[16];
-  v10 = qword_140E2D648;
+  v4 = *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[16];
+  v10 = qword_140E2D7C8;
   v11 = 0LL;
   v5 = MiMapSecurePureReserveView(
          a1,
-         *(_DWORD *)&stru_140E2D150.WaitBlockFill11[16],
+         *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[16],
          (unsigned int)&v10,
          (unsigned int)&v11,
          0LL);
   if ( (v5 & 0x80000000) != 0 )
   {
-    if ( !qword_140E2D648 )
+    if ( !qword_140E2D7C8 )
       return v5;
     v10 = 0LL;
     v11 = 0LL;
@@ -61,7 +61,7 @@ __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
   {
     if ( v7 == MiWowSubsystems6432[i] )
     {
-      Queue = (int)stru_140E2D150.Queue;
+      Queue = (int)stru_140E2D2D0.Queue;
       break;
     }
   }

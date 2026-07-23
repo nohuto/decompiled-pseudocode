@@ -1,10 +1,10 @@
 /*
- * XREFs of CarRegisterRuleClassConfiguration @ 0x1405D40A0
+ * XREFs of CarRegisterRuleClassConfiguration @ 0x1405D4610
  * Callers:
- *     CarRegisterDefaultRuleClassConfiguration @ 0x1405D4040 (CarRegisterDefaultRuleClassConfiguration.c)
+ *     CarRegisterDefaultRuleClassConfiguration @ 0x1405D45B0 (CarRegisterDefaultRuleClassConfiguration.c)
  * Callees:
- *     CarCreateRuleClassConfigurationEntry @ 0x1405D3904 (CarCreateRuleClassConfigurationEntry.c)
- *     CarDeregisterRuleClassConfiguration @ 0x1405D3B80 (CarDeregisterRuleClassConfiguration.c)
+ *     CarCreateRuleClassConfigurationEntry @ 0x1405D3E74 (CarCreateRuleClassConfigurationEntry.c)
+ *     CarDeregisterRuleClassConfiguration @ 0x1405D40F0 (CarDeregisterRuleClassConfiguration.c)
  */
 
 __int64 __fastcall CarRegisterRuleClassConfiguration(__int64 a1)
@@ -34,13 +34,13 @@ __int64 __fastcall CarRegisterRuleClassConfiguration(__int64 a1)
       *((_QWORD *)v3 + 10) = (char *)v3 + 72;
       v5 = (_QWORD *)v3 + 11;
       *v4 = v4;
-      v6 = (_QWORD *)qword_140C36948;
-      if ( *(__int64 **)qword_140C36948 != &CarConfigurationEntries )
+      v6 = (_QWORD *)qword_140C368D8;
+      if ( *(__int64 **)qword_140C368D8 != &CarConfigurationEntries )
         __fastfail(3u);
       *v5 = &CarConfigurationEntries;
       v5[1] = v6;
       *v6 = v5;
-      qword_140C36948 = (__int64)v5;
+      qword_140C368D8 = (__int64)v5;
     }
   }
   else

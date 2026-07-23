@@ -1,9 +1,9 @@
 /*
- * XREFs of PidNodeCompare @ 0x1407ADA10
+ * XREFs of PidNodeCompare @ 0x1407ADE60
  * Callers:
- *     EtwpGetPrivateSessionTraceHandle @ 0x1407AD0A8 (EtwpGetPrivateSessionTraceHandle.c)
- *     EtwpRegisterPrivateSession @ 0x1407AD42C (EtwpRegisterPrivateSession.c)
- *     EtwpDemuxPrivateTraceHandle @ 0x140AB5A1C (EtwpDemuxPrivateTraceHandle.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x1407AD578 (EtwpGetPrivateSessionTraceHandle.c)
+ *     EtwpRegisterPrivateSession @ 0x1407AD880 (EtwpRegisterPrivateSession.c)
+ *     EtwpDemuxPrivateTraceHandle @ 0x140832DA0 (EtwpDemuxPrivateTraceHandle.c)
  * Callees:
  *     <none>
  */

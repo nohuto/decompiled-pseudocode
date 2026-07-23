@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxAcpiRegisterDevice @ 0x1402E86B8
+ * XREFs of PopFxAcpiRegisterDevice @ 0x1402E88A8
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x1402E8230 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x1402E8420 (PopFxAcpiDispatchNotification.c)
  * Callees:
- *     PopFxCreateDeviceCommon @ 0x140179958 (PopFxCreateDeviceCommon.c)
- *     PopFxDestroyDeviceCommon @ 0x1402D7D00 (PopFxDestroyDeviceCommon.c)
- *     PopFxInsertAcpiDevice @ 0x1402D8224 (PopFxInsertAcpiDevice.c)
- *     PopPluginAcpiNotificationStrict @ 0x1402E9314 (PopPluginAcpiNotificationStrict.c)
+ *     PopFxCreateDeviceCommon @ 0x140179A58 (PopFxCreateDeviceCommon.c)
+ *     PopFxDestroyDeviceCommon @ 0x1402D7EF0 (PopFxDestroyDeviceCommon.c)
+ *     PopFxInsertAcpiDevice @ 0x1402D8414 (PopFxInsertAcpiDevice.c)
+ *     PopPluginAcpiNotificationStrict @ 0x1402E9504 (PopPluginAcpiNotificationStrict.c)
  */
 
 __int64 __fastcall PopFxAcpiRegisterDevice(__int64 a1, ULONG_PTR a2, __int64 a3, PVOID **a4, _QWORD *a5)

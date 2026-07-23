@@ -15,7 +15,7 @@ _QWORD *__fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
   int v5; // r12d
   unsigned int v7; // ebx
   int i; // esi
-  union _SLIST_HEADER *v9; // rcx
+  _SLIST_HEADER *v9; // rcx
   PSLIST_ENTRY v10; // rax
   _QWORD *p_Next; // r8
   __int64 v13; // [rsp+50h] [rbp+8h]
@@ -34,7 +34,7 @@ _QWORD *__fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
   {
     for ( i = *(_DWORD *)v4; ; i = *((_DWORD *)v4 + 1) )
     {
-      v9 = (union _SLIST_HEADER *)(16LL * v7 + *(_QWORD *)(a1 + 8LL * i + 6808));
+      v9 = (_SLIST_HEADER *)(16LL * v7 + *(_QWORD *)(a1 + 8LL * i + 6808));
       if ( LOWORD(v9->Alignment) )
       {
         v10 = RtlpInterlockedPopEntrySList(v9);

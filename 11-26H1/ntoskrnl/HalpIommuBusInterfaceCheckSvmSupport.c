@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuBusInterfaceCheckSvmSupport @ 0x14058BBAC
+ * XREFs of HalpIommuBusInterfaceCheckSvmSupport @ 0x14058E32C
  * Callers:
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
  *     <none>
  */

@@ -12,7 +12,7 @@
  *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18004CFD0 (RtlpWaitOnAddressRemoveWaitBlock.c)
  */
 
-__int64 __fastcall RtlpWaitOnAddress(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall RtlpWaitOnAddress(_QWORD *a1, _QWORD *a2, __int64 a3, LARGE_INTEGER *a4, unsigned int a5)
 {
   int v6; // ebx
   unsigned int v9; // ebp
@@ -61,7 +61,7 @@ __int64 __fastcall RtlpWaitOnAddress(_QWORD *a1, _QWORD *a2, __int64 a3, __int64
       if ( !v15 )
       {
 LABEL_8:
-        RtlpWaitOnAddressRemoveWaitBlock(WaitOnAddressHashTable, (volatile signed __int32 *)v17);
+        RtlpWaitOnAddressRemoveWaitBlock(WaitOnAddressHashTable, (__int64)v17);
         return v9;
       }
     }
@@ -69,7 +69,7 @@ LABEL_8:
     {
       goto LABEL_8;
     }
-    return (unsigned int)RtlpWaitOnAddressWithTimeout(WaitOnAddressHashTable, (volatile signed __int32 *)v17, a4, a5);
+    return (unsigned int)RtlpWaitOnAddressWithTimeout(WaitOnAddressHashTable, (__int64)v17, a4, a5);
   }
   return 3221225485LL;
 }

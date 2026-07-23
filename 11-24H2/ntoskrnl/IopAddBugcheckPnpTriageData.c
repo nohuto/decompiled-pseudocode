@@ -1,15 +1,14 @@
 /*
- * XREFs of IopAddBugcheckPnpTriageData @ 0x14059F59C
+ * XREFs of IopAddBugcheckPnpTriageData @ 0x14059C4C8
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x140592F50 (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14058FF74 (IopAddBugcheckTriageDataFromParameters.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     IopIsAddressRangeValid @ 0x1404ACD58 (IopIsAddressRangeValid.c)
- *     Feature_9F_PnpDumpFixes__private_IsEnabledDeviceUsageNoInline @ 0x14059F458 (Feature_9F_PnpDumpFixes__private_IsEnabledDeviceUsageNoInline.c)
- *     IopAddBugcheckTriageCompletionQueue @ 0x14059F76C (IopAddBugcheckTriageCompletionQueue.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x14059F930 (IopAddBugcheckTriageDeviceNode.c)
- *     IopAddBugcheckTriageThread @ 0x14059FD0C (IopAddBugcheckTriageThread.c)
- *     IopAddBugcheckTriageWorkQueue @ 0x14059FE9C (IopAddBugcheckTriageWorkQueue.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     IopIsAddressRangeValid @ 0x1404A6F64 (IopIsAddressRangeValid.c)
+ *     IopAddBugcheckTriageCompletionQueue @ 0x14059C690 (IopAddBugcheckTriageCompletionQueue.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14059C854 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageThread @ 0x14059CC30 (IopAddBugcheckTriageThread.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x14059CDC0 (IopAddBugcheckTriageWorkQueue.c)
  */
 
 __int64 __fastcall IopAddBugcheckPnpTriageData(ULONG a1, __int64 a2)
@@ -24,12 +23,9 @@ __int64 __fastcall IopAddBugcheckPnpTriageData(ULONG a1, __int64 a2)
     IoAddTriageDumpDataBlock(a2, (PVOID)0x28);
     IopAddBugcheckTriageCompletionQueue(*(_QWORD *)(a2 + 8));
     IopAddBugcheckTriageWorkQueue(*(_QWORD *)(a2 + 16));
-    if ( (unsigned int)Feature_9F_PnpDumpFixes__private_IsEnabledDeviceUsageNoInline() )
-    {
-      v4 = *(_QWORD *)(a2 + 32);
-      if ( v4 )
-        IopAddBugcheckTriageDeviceNode(v4);
-    }
+    v4 = *(_QWORD *)(a2 + 32);
+    if ( v4 )
+      IopAddBugcheckTriageDeviceNode(v4);
   }
   else
   {

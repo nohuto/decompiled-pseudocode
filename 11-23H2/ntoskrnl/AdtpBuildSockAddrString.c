@@ -1,35 +1,30 @@
 /*
- * XREFs of AdtpBuildSockAddrString @ 0x140A5B3C0
+ * XREFs of AdtpBuildSockAddrString @ 0x140A5B670
  * Callers:
- *     AdtpPackageParameters @ 0x140399604 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403997E4 (AdtpPackageParameters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     AdtpBuildIPv4Strings @ 0x140A5A65C (AdtpBuildIPv4Strings.c)
- *     AdtpBuildIPv6Strings @ 0x140A5A7C4 (AdtpBuildIPv6Strings.c)
- *     AdtpBuildMacStrings @ 0x140A5A92C (AdtpBuildMacStrings.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     AdtpBuildIPv4Strings @ 0x140A5A90C (AdtpBuildIPv4Strings.c)
+ *     AdtpBuildIPv6Strings @ 0x140A5AA74 (AdtpBuildIPv6Strings.c)
+ *     AdtpBuildMacStrings @ 0x140A5ABDC (AdtpBuildMacStrings.c)
  */
 
-__int64 __fastcall AdtpBuildSockAddrString(
-        const struct in_addr *a1,
-        UNICODE_STRING *a2,
-        _BYTE *a3,
-        UNICODE_STRING *a4,
-        _BYTE *a5)
+__int64 __fastcall AdtpBuildSockAddrString(__int16 *a1, UNICODE_STRING *a2, _BYTE *a3, UNICODE_STRING *a4, _BYTE *a5)
 {
   unsigned int v5; // ebx
-  USHORT s_w1; // ax
+  __int16 v8; // ax
 
   v5 = 0;
   if ( a3 )
     *a3 = 0;
   if ( a5 )
     *a5 = 0;
-  s_w1 = a1->S_un.S_un_w.s_w1;
-  if ( a1->S_un.S_un_w.s_w1 == 2 )
+  v8 = *a1;
+  if ( *a1 == 2 )
     return (unsigned int)AdtpBuildIPv4Strings(a1, (__int64)a2, a3, (__int64)a4, a5);
-  if ( s_w1 == 23 )
-    return (unsigned int)AdtpBuildIPv6Strings((__int64)a1, (__int64)a2, a3, (__int64)a4, a5);
-  if ( s_w1 == 33 )
+  if ( v8 == 23 )
+    return (unsigned int)AdtpBuildIPv6Strings(a1, (__int64)a2, a3, (__int64)a4, a5);
+  if ( v8 == 33 )
     return (unsigned int)AdtpBuildMacStrings((__int64)a1, (__int64)a2, a3);
   if ( a2 && a3 )
   {

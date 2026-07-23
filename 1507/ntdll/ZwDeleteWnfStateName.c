@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwDeleteWnfStateName()
+NTSTATUS __cdecl ZwDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 202LL;
+  result = 202;
   __asm { syscall; Low latency system call }
   return result;
 }

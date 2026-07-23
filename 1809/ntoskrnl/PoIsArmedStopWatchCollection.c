@@ -1,8 +1,8 @@
 /*
- * XREFs of PoIsArmedStopWatchCollection @ 0x1402E9220
+ * XREFs of PoIsArmedStopWatchCollection @ 0x1402E9410
  * Callers:
- *     PopStatsNotifyPowerRequestDamPhase @ 0x14087B1F0 (PopStatsNotifyPowerRequestDamPhase.c)
- *     PopStatsNotifyPowerRequestLpePhase @ 0x14087B26C (PopStatsNotifyPowerRequestLpePhase.c)
+ *     PopStatsNotifyPowerRequestDamPhase @ 0x14087C450 (PopStatsNotifyPowerRequestDamPhase.c)
+ *     PopStatsNotifyPowerRequestLpePhase @ 0x14087C4CC (PopStatsNotifyPowerRequestLpePhase.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDrvDbGetNodeSystemRoot @ 0x140736F54
+ * XREFs of PiDrvDbGetNodeSystemRoot @ 0x140734E84
  * Callers:
- *     PiDrvDbQuerySystemPathWin32 @ 0x140737FA4 (PiDrvDbQuerySystemPathWin32.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14073901C (PiDrvDbResolveKeyFilePaths.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x140739154 (PiDrvDbResolveNodeFilePaths.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x140735ED4 (PiDrvDbQuerySystemPathWin32.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x140736F4C (PiDrvDbResolveKeyFilePaths.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x140737084 (PiDrvDbResolveNodeFilePaths.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDrvDbGetNodeSystemRoot(__int64 a1, _QWORD *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall PiDrvDbGetNodeSystemRoot(__int64 a1, _QWORD *a2)
   if ( !*(_QWORD *)(a1 + 512) )
   {
     *(_DWORD *)(a1 + 504) = 34078720;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x208uLL, 0x67727453u);
     *(_QWORD *)(a1 + 512) = Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741670;

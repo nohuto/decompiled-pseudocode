@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1404C9728
+ * XREFs of AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1404AF4A8
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepRestartOperandValueEnumeration @ 0x14023587C (AuthzBasepRestartOperandValueEnumeration.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepRestartOperandValueEnumeration @ 0x1402356A8 (AuthzBasepRestartOperandValueEnumeration.c)
  * Callees:
- *     AuthzBasepFindSystemSecurityAttribute @ 0x1404C9794 (AuthzBasepFindSystemSecurityAttribute.c)
+ *     AuthzBasepFindSystemSecurityAttribute @ 0x1404AF514 (AuthzBasepFindSystemSecurityAttribute.c)
  */
 
 __int64 __fastcall AuthzBasepQuerySystemSecurityAttributeAndValues(__int64 a1)

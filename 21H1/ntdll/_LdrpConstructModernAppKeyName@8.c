@@ -9,21 +9,30 @@
  *     _RtlStringCbPrintfExW @ 0x4B32DF38 (_RtlStringCbPrintfExW.c)
  */
 
-int __thiscall LdrpConstructModernAppKeyName(wchar_t *Buffer)
+NTSTATUS __thiscall LdrpConstructModernAppKeyName(wchar_t *Buffer)
 {
-  int result; // eax
-  int v3; // [esp+10h] [ebp-1A0h] BYREF
-  int v4; // [esp+18h] [ebp-198h] BYREF
-  int v5; // [esp+1Ch] [ebp-194h] BYREF
-  char Args[256]; // [esp+20h] [ebp-190h] BYREF
-  _BYTE v7[140]; // [esp+120h] [ebp-90h] BYREF
+  NTSTATUS result; // eax
+  size_t v3; // [esp-4h] [ebp-1B4h]
+  size_t v4; // [esp-4h] [ebp-1B4h]
+  unsigned __int64 Flags; // [esp+10h] [ebp-1A0h] BYREF
+  ULONG_PTR PackageSize; // [esp+18h] [ebp-198h] BYREF
+  WCHAR PackageFullName[128]; // [esp+20h] [ebp-190h] BYREF
+  WCHAR AppId[70]; // [esp+120h] [ebp-90h] BYREF
 
-  v4 = 256;
-  v5 = 132;
-  memset(Args, 0, sizeof(Args));
-  memset(v7, 0, 0x84u);
-  result = RtlQueryPackageIdentityEx(-4, (int)Args, (int)&v4, (int)v7, (int)&v5, 0, &v3);
+  LODWORD(v3) = 256;
+  PackageSize = 0x8400000100LL;
+  memset(PackageFullName, 0, v3);
+  LODWORD(v4) = 132;
+  memset(AppId, 0, v4);
+  result = RtlQueryPackageIdentityEx(
+             (HANDLE)0xFFFFFFFC,
+             PackageFullName,
+             &PackageSize,
+             AppId,
+             (ULONG_PTR *)((char *)&PackageSize + 4),
+             0,
+             &Flags);
   if ( result >= 0 )
-    return RtlStringCbPrintfExW(Buffer, 0x184u, 0, 0, 0, (wchar_t *)L"%s!%s", Args, v7);
+    return RtlStringCbPrintfExW(Buffer, 0x184u, 0, 0, 0, (int *)L"%s!%s", (wchar_t)PackageFullName);
   return result;
 }

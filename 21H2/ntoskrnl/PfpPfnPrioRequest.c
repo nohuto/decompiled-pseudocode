@@ -1,22 +1,22 @@
 /*
- * XREFs of PfpPfnPrioRequest @ 0x1406F2BB0
+ * XREFs of PfpPfnPrioRequest @ 0x140709F90
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
- *     PfSetSuperfetchInformation @ 0x1406DBD54 (PfSetSuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x140649630 (PfQuerySuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1406B3034 (PfSetSuperfetchInformation.c)
  * Callees:
- *     MiUnlockDynamicMemoryShared @ 0x14029BEF0 (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1402A72BC (MiLockDynamicMemoryShared.c)
- *     MmQueryMemoryListInformation @ 0x1402D4240 (MmQueryMemoryListInformation.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     MiIdentifyPfnWrapper @ 0x140349190 (MiIdentifyPfnWrapper.c)
- *     MmSetPfnListInfo @ 0x140372BE4 (MmSetPfnListInfo.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     PfpCopyUserPfnPrioRequest @ 0x140700D20 (PfpCopyUserPfnPrioRequest.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     MmRelocatePfnList @ 0x1408D1ADC (MmRelocatePfnList.c)
- *     ExRaiseAccessViolation @ 0x1409560F0 (ExRaiseAccessViolation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402138C0 (MiUnlockDynamicMemoryShared.c)
+ *     MiLockDynamicMemoryShared @ 0x1402253FC (MiLockDynamicMemoryShared.c)
+ *     MmQueryMemoryListInformation @ 0x140272F20 (MmQueryMemoryListInformation.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     MiIdentifyPfnWrapper @ 0x140353EE0 (MiIdentifyPfnWrapper.c)
+ *     MmSetPfnListInfo @ 0x140372734 (MmSetPfnListInfo.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     PfpCopyUserPfnPrioRequest @ 0x140718100 (PfpCopyUserPfnPrioRequest.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     MmRelocatePfnList @ 0x1408D1C3C (MmRelocatePfnList.c)
+ *     ExRaiseAccessViolation @ 0x1409562C0 (ExRaiseAccessViolation.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpPfnPrioRequest(__int64 a1, char a2, unsigned int *a3)

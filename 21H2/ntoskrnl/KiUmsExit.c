@@ -1,24 +1,24 @@
 /*
- * XREFs of KiUmsExit @ 0x140413A00
+ * XREFs of KiUmsExit @ 0x140413B00
  * Callers:
- *     NtContinueEx @ 0x1403FE630 (NtContinueEx.c)
- *     NtRaiseException @ 0x1403FEA60 (NtRaiseException.c)
- *     KiRestoreSetContextState @ 0x1403FF120 (KiRestoreSetContextState.c)
- *     KiApcInterrupt @ 0x140402EF0 (KiApcInterrupt.c)
- *     KxStartUserThread @ 0x1404071F0 (KxStartUserThread.c)
- *     NtCallEnclave @ 0x140408680 (NtCallEnclave.c)
- *     KiBoundFault @ 0x14040B9C0 (KiBoundFault.c)
- *     KiInvalidOpcodeFault @ 0x14040C040 (KiInvalidOpcodeFault.c)
- *     KiPageFault @ 0x14040DD00 (KiPageFault.c)
- *     KxMcheckAlternateReturn @ 0x14040F200 (KxMcheckAlternateReturn.c)
- *     KiVirtualizationException @ 0x14040FC00 (KiVirtualizationException.c)
- *     KiControlProtectionFault @ 0x140410280 (KiControlProtectionFault.c)
- *     KiSystemCall64 @ 0x140411A00 (KiSystemCall64.c)
- *     KiExceptionDispatch @ 0x1404127C0 (KiExceptionDispatch.c)
- *     KiFastFailDispatch @ 0x140412C80 (KiFastFailDispatch.c)
- *     KiUmsFastReturnToUser @ 0x140413100 (KiUmsFastReturnToUser.c)
+ *     NtContinueEx @ 0x1403FE810 (NtContinueEx.c)
+ *     NtRaiseException @ 0x1403FEC40 (NtRaiseException.c)
+ *     KiRestoreSetContextState @ 0x1403FF300 (KiRestoreSetContextState.c)
+ *     KiApcInterrupt @ 0x1404030D0 (KiApcInterrupt.c)
+ *     KxStartUserThread @ 0x1404073D0 (KxStartUserThread.c)
+ *     NtCallEnclave @ 0x140408860 (NtCallEnclave.c)
+ *     KiBoundFault @ 0x14040BAC0 (KiBoundFault.c)
+ *     KiInvalidOpcodeFault @ 0x14040C140 (KiInvalidOpcodeFault.c)
+ *     KiPageFault @ 0x14040DE00 (KiPageFault.c)
+ *     KxMcheckAlternateReturn @ 0x14040F300 (KxMcheckAlternateReturn.c)
+ *     KiVirtualizationException @ 0x14040FD00 (KiVirtualizationException.c)
+ *     KiControlProtectionFault @ 0x140410380 (KiControlProtectionFault.c)
+ *     KiSystemCall64 @ 0x140411B00 (KiSystemCall64.c)
+ *     KiExceptionDispatch @ 0x1404128C0 (KiExceptionDispatch.c)
+ *     KiFastFailDispatch @ 0x140412D80 (KiFastFailDispatch.c)
+ *     KiUmsFastReturnToUser @ 0x140413200 (KiUmsFastReturnToUser.c)
  * Callees:
- *     KiParkUmsThread @ 0x140525F20 (KiParkUmsThread.c)
+ *     KiParkUmsThread @ 0x140526160 (KiParkUmsThread.c)
  */
 
 __int64 __fastcall KiUmsExit(char a1)

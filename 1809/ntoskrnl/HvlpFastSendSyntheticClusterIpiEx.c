@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpFastSendSyntheticClusterIpiEx @ 0x140276440
+ * XREFs of HvlpFastSendSyntheticClusterIpiEx @ 0x140276630
  * Callers:
- *     HvlSendSyntheticClusterIpi @ 0x1402752A0 (HvlSendSyntheticClusterIpi.c)
+ *     HvlSendSyntheticClusterIpi @ 0x140275490 (HvlSendSyntheticClusterIpi.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
- *     HvlpAffinityToHvProcessorSet @ 0x140279390 (HvlpAffinityToHvProcessorSet.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C73F0 (HvcallpExtendedFastHypercall.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x140279580 (HvlpAffinityToHvProcessorSet.c)
  */
 
 __int64 __fastcall HvlpFastSendSyntheticClusterIpiEx(__int64 a1, unsigned int a2)

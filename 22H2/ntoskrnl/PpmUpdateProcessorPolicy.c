@@ -50,10 +50,10 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
   if ( LOWORD(v14[0]) )
   {
     v6 = (unsigned int)(10000 * *((_DWORD *)v5 + 15));
-    if ( v6 <= (unsigned int)KeMaximumIncrement )
+    if ( v6 <= KeMaximumIncrement )
       LODWORD(v7) = 0;
     else
-      v7 = (v6 - (unsigned int)KeMaximumIncrement) / 0x2710;
+      v7 = (v6 - KeMaximumIncrement) / 0x2710;
     PpmPerfTimeWindow = v7;
     if ( !PpmPerfControlStartPolicyUpdate || (started = PpmPerfControlStartPolicyUpdate(), started >= 0) )
     {

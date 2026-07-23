@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProcessSuitableForCombining @ 0x1404042DC
+ * XREFs of MiProcessSuitableForCombining @ 0x1403FD3DC
  * Callers:
- *     MiSharePagePrepare @ 0x140307910 (MiSharePagePrepare.c)
- *     MiCapturePfnVm @ 0x1405136D0 (MiCapturePfnVm.c)
- *     MiCombinePte @ 0x140704430 (MiCombinePte.c)
- *     MiCombineWorkingSet @ 0x140704578 (MiCombineWorkingSet.c)
+ *     MiSharePagePrepare @ 0x1402E9990 (MiSharePagePrepare.c)
+ *     MiCapturePfnVm @ 0x14050D140 (MiCapturePfnVm.c)
+ *     MiCombinePte @ 0x140709100 (MiCombinePte.c)
+ *     MiCombineWorkingSet @ 0x140709248 (MiCombineWorkingSet.c)
  * Callees:
- *     MiIsStoreProcess @ 0x140404810 (MiIsStoreProcess.c)
+ *     MiIsStoreProcess @ 0x1403FD910 (MiIsStoreProcess.c)
  */
 
 __int64 __fastcall MiProcessSuitableForCombining(__int64 a1)

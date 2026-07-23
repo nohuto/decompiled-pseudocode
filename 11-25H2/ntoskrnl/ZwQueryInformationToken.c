@@ -11,7 +11,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationToken(
         HANDLE TokenHandle,
         TOKEN_INFORMATION_CLASS TokenInformationClass,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwQueryInformationToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, *(_QWORD *)&TokenInformationClass);
+  return KiServiceInternal(TokenHandle);
 }

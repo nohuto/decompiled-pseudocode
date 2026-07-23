@@ -13,9 +13,9 @@
 NTSTATUS __stdcall NtSetContextThread(HANDLE ThreadHandle, PCONTEXT Context)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  NTSTATUS v4; // ebx
+  int v4; // ebx
   PVOID v5; // rdi
-  NTSTATUS v7; // [rsp+30h] [rbp-48h] BYREF
+  int v7; // [rsp+30h] [rbp-48h] BYREF
   PVOID Object; // [rsp+38h] [rbp-40h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-38h] BYREF
 
@@ -27,7 +27,7 @@ NTSTATUS __stdcall NtSetContextThread(HANDLE ThreadHandle, PCONTEXT Context)
     if ( (*((_DWORD *)Object + 29) & 0x400) != 0 )
       v4 = -1073741816;
     else
-      v4 = PspSetContextThreadInternal((__int64)Object, (__int64)Context, PreviousMode, PreviousMode, 1);
+      v4 = PspSetContextThreadInternal((__int64)Object, Context, PreviousMode, PreviousMode, 1);
     ObfDereferenceObject(v5);
   }
   UserData.Reserved = 0;

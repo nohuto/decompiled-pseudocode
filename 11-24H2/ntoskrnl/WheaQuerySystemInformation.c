@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaQuerySystemInformation @ 0x1407C6750
+ * XREFs of WheaQuerySystemInformation @ 0x1407C6BB0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x14069F66C (IpmiHwContextInitialized.c)
+ *     IpmiHwContextInitialized @ 0x1406A0770 (IpmiHwContextInitialized.c)
  */
 
 __int64 WheaQuerySystemInformation()
@@ -20,7 +20,7 @@ __int64 WheaQuerySystemInformation()
     if ( v2 >= 0x20 )
     {
       *v1 = WheaIpmiContext;
-      v1[1] = xmmword_140EF9C10;
+      v1[1] = xmmword_140EF9F10;
     }
     else
     {

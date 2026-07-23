@@ -1,15 +1,15 @@
 /*
- * XREFs of PoSetProcessorQoS @ 0x140462E60
+ * XREFs of PoSetProcessorQoS @ 0x140463260
  * Callers:
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
- *     KiUpdateRunTime @ 0x1402C74E0 (KiUpdateRunTime.c)
- *     KeCheckAndApplyBamQos @ 0x140461370 (KeCheckAndApplyBamQos.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
+ *     KiUpdateRunTime @ 0x1402C7770 (KiUpdateRunTime.c)
+ *     KeCheckAndApplyBamQos @ 0x140461770 (KeCheckAndApplyBamQos.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14034F190 (PpmPerfArbitratorApplyProcessorState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmHvSetVirtualProcessorQos @ 0x1405A00B4 (PpmHvSetVirtualProcessorQos.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x14034F330 (PpmPerfArbitratorApplyProcessorState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x1405A05A4 (PpmHvSetVirtualProcessorQos.c)
  */
 
 char __fastcall PoSetProcessorQoS(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -88,7 +88,7 @@ LABEL_17:
         }
         while ( v19 != v18 );
         if ( (v18 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
       _enable();
     }

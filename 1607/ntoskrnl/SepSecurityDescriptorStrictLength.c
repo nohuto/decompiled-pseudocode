@@ -1,11 +1,11 @@
 /*
- * XREFs of SepSecurityDescriptorStrictLength @ 0x1406957B4
+ * XREFs of SepSecurityDescriptorStrictLength @ 0x140695898
  * Callers:
- *     RtlLengthSecurityDescriptorStrict @ 0x140210E84 (RtlLengthSecurityDescriptorStrict.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x14021A130 (SepCheckAndCopySelfRelativeSD.c)
- *     SeOperationAuditAlarm @ 0x14068E8E8 (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14068F52C (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14069000C (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x140210CB0 (RtlLengthSecurityDescriptorStrict.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x140219F5C (SepCheckAndCopySelfRelativeSD.c)
+ *     SeOperationAuditAlarm @ 0x14068E9CC (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14068F610 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1406900F0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
  * Callees:
  *     <none>
  */

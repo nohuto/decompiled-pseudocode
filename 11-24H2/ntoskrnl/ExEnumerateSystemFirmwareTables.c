@@ -1,12 +1,12 @@
 /*
- * XREFs of ExEnumerateSystemFirmwareTables @ 0x1407B4010
+ * XREFs of ExEnumerateSystemFirmwareTables @ 0x1407B4460
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14085D348 (ExpGetSystemFirmwareTableInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1408590B8 (ExpGetSystemFirmwareTableInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExEnumerateSystemFirmwareTables(int a1, void *a2, int a3, _DWORD *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall ExEnumerateSystemFirmwareTables(int a1, void *a2, int a3, _DW
 
   if ( !a2 && a3 )
     return 3221225485LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (unsigned int)(a3 + 16), 0x54465241u);
   v10 = Pool2;
   if ( Pool2 )
   {

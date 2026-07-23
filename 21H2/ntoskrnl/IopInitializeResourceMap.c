@@ -1,19 +1,19 @@
 /*
- * XREFs of IopInitializeResourceMap @ 0x140A3A34C
+ * XREFs of IopInitializeResourceMap @ 0x140A3B34C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlCmEncodeMemIoResource @ 0x1403AD4E0 (RtlCmEncodeMemIoResource.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memset @ 0x140414200 (memset.c)
- *     __report_rangecheckfailure @ 0x1404B646C (__report_rangecheckfailure.c)
- *     IopCreateRegistryKeyEx @ 0x14073FD44 (IopCreateRegistryKeyEx.c)
- *     IopWriteResourceList @ 0x14075256C (IopWriteResourceList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     MmInitializeMemoryLimits @ 0x140A3A6AC (MmInitializeMemoryLimits.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlCmEncodeMemIoResource @ 0x1403AD630 (RtlCmEncodeMemIoResource.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404B66AC (__report_rangecheckfailure.c)
+ *     IopCreateRegistryKeyEx @ 0x14073FF04 (IopCreateRegistryKeyEx.c)
+ *     IopWriteResourceList @ 0x14075272C (IopWriteResourceList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     MmInitializeMemoryLimits @ 0x140A3B6AC (MmInitializeMemoryLimits.c)
  */
 
 void __fastcall IopInitializeResourceMap(__int64 a1)

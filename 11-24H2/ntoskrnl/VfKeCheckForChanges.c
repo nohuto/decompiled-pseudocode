@@ -1,11 +1,11 @@
 /*
- * XREFs of VfKeCheckForChanges @ 0x140B95FFC
+ * XREFs of VfKeCheckForChanges @ 0x140B97FFC
  * Callers:
- *     VfInitVerifierComponents @ 0x140B83AD0 (VfInitVerifierComponents.c)
- *     VfSettingsCheckForChanges @ 0x140B9B260 (VfSettingsCheckForChanges.c)
+ *     VfInitVerifierComponents @ 0x140B85AD0 (VfInitVerifierComponents.c)
+ *     VfSettingsCheckForChanges @ 0x140B9D260 (VfSettingsCheckForChanges.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 void __fastcall VfKeCheckForChanges(char a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PoFxRegisterDevice @ 0x1407B5540
+ * XREFs of PoFxRegisterDevice @ 0x1407B4C90
  * Callers:
  *     <none>
  * Callees:
- *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
- *     PopFxRegisterDevice @ 0x1407B578C (PopFxRegisterDevice.c)
- *     PopFxConvertV1Components @ 0x1407B61E0 (PopFxConvertV1Components.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PopPrintEx @ 0x140272730 (PopPrintEx.c)
+ *     PopFxRegisterDevice @ 0x1407B4EDC (PopFxRegisterDevice.c)
+ *     PopFxConvertV1Components @ 0x1407B5C9C (PopFxConvertV1Components.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoFxRegisterDevice(PDEVICE_OBJECT DeviceObject, int *a2, __int64 a3)
@@ -41,9 +41,9 @@ __int64 __fastcall PoFxRegisterDevice(PDEVICE_OBJECT DeviceObject, int *a2, __in
   v9 = 0LL;
   if ( *a2 == 1 )
   {
-    PopPrintEx(1LL, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", DeviceObject);
-    PopPrintEx(1LL, (__int64)" - Driver: \"%wZ\"", &DeviceObject->DriverObject->DriverName);
-    PopPrintEx(1LL, (__int64)"\n");
+    PopPrintEx(1u, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", DeviceObject);
+    PopPrintEx(1u, (__int64)" - Driver: \"%wZ\"", &DeviceObject->DriverObject->DriverName);
+    PopPrintEx(1u, (__int64)"\n");
     v24 = *((_QWORD *)a2 + 7);
     v18 = *((_QWORD *)a2 + 1);
     v19 = *((_QWORD *)a2 + 2);

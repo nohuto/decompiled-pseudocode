@@ -13,7 +13,7 @@ KIRQL __fastcall AcquireAggregateSessionLockForFlush(__int64 a1)
   __int64 v3; // rbx
 
   v1 = (volatile signed __int32 *)(a1 + 328);
-  v3 = KeAbPreAcquire(a1 + 328);
+  v3 = KeAbPreAcquire(a1 + 328, 0LL);
   if ( _interlockedbittestandset64(v1, 0LL) )
     ExfAcquirePushLockExclusiveEx(v1);
   if ( v3 )

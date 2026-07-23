@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmParkReportUnparkedCores @ 0x14025B3A0
+ * XREFs of PpmParkReportUnparkedCores @ 0x14025CB80
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckQueuePhaseActions @ 0x140252698 (PpmCheckQueuePhaseActions.c)
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
+ *     PpmCheckQueuePhaseActions @ 0x140253FF8 (PpmCheckQueuePhaseActions.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
  */
 
 void PpmParkReportUnparkedCores()
 {
-  if ( PopModernStandbyStateNotify.ReadyTime )
+  if ( PpmIsParkingEnabled )
   {
     if ( (unsigned int)RtlSubtractAffinityEx(
                          &PpmPerfChangedCoreParkingMask,

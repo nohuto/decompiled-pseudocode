@@ -119,10 +119,13 @@ void __fastcall PopPlUnregisterDevice(__int64 a1)
     *(_QWORD *)(a1 + 1184) = 0LL;
     v13 = *(unsigned __int8 *)(v3 + 24);
     KxReleaseSpinLock((volatile signed __int64 *)(v3 + 16));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v13 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

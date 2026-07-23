@@ -75,5 +75,5 @@ int DbgPrint(const char *a1, ...)
   va_list va; // [esp+Ch] [ebp+Ch] BYREF
 
   va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal(3, a1, va, 1);
+  return vDbgPrintExWithPrefixInternal(3u, (int)a1, (int)va, 1);
 }

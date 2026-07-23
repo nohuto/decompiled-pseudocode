@@ -1,10 +1,10 @@
 /*
- * XREFs of XmDivOp @ 0x1403C9420
+ * XREFs of XmDivOp @ 0x1403C95C0
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
- *     longjmp @ 0x1403D0670 (longjmp.c)
+ *     XmStoreResult @ 0x140396F10 (XmStoreResult.c)
+ *     longjmp @ 0x1403D07E0 (longjmp.c)
  */
 
 _WORD *__fastcall XmDivOp(__int64 a1)

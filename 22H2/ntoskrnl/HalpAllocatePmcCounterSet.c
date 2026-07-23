@@ -42,8 +42,8 @@ __int64 __fastcall HalpAllocatePmcCounterSet(unsigned int a1, unsigned int *a2, 
   int v29; // eax
   bool v30; // zf
   __int64 v34; // [rsp+30h] [rbp-68h]
-  struct _GROUP_AFFINITY v35; // [rsp+38h] [rbp-60h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-50h] BYREF
+  _GROUP_AFFINITY v35; // [rsp+38h] [rbp-60h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-50h] BYREF
 
   v4 = a1;
   v5 = a1;

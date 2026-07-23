@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwFlushProcessWriteBuffers @ 0x18009F390
+ * XREFs of ZwFlushProcessWriteBuffers @ 0x18009F350
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwFlushProcessWriteBuffers()
+NTSTATUS ZwFlushProcessWriteBuffers(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 235LL;
+  result = 235;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

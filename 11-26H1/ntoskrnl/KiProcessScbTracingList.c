@@ -1,13 +1,13 @@
 /*
- * XREFs of KiProcessScbTracingList @ 0x14045BDA0
+ * XREFs of KiProcessScbTracingList @ 0x1404555D0
  * Callers:
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x140332850 (KiGroupSchedulingQuantumEnd.c)
- *     KiGroupSchedulingGenerationEnd @ 0x140333210 (KiGroupSchedulingGenerationEnd.c)
- *     KiParkCurrentProcessor @ 0x1403346DC (KiParkCurrentProcessor.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140334880 (KiGroupSchedulingQuantumEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140335240 (KiGroupSchedulingGenerationEnd.c)
+ *     KiParkCurrentProcessor @ 0x14033670C (KiParkCurrentProcessor.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     EtwTraceScbRankChange @ 0x1406C4D3C (EtwTraceScbRankChange.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     EtwTraceScbRankChange @ 0x1406C897C (EtwTraceScbRankChange.c)
  */
 
 void __fastcall KiProcessScbTracingList(__int64 a1, _QWORD **a2)

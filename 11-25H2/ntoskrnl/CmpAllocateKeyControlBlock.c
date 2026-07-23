@@ -13,7 +13,7 @@ PVOID CmpAllocateKeyControlBlock()
   PVOID v1; // rbx
 
   _InterlockedIncrement64(&CmPerfCounters);
-  result = ExAllocateFromLookasideListEx(&CmpKcbLookaside);
+  result = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside);
   v1 = result;
   if ( result )
   {

@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetProcessExitProcessCalled @ 0x14046C5B0
+ * XREFs of PsGetProcessExitProcessCalled @ 0x140467150
  * Callers:
- *     VfMiscMmUnmapLockedPages_Entry @ 0x140B9E1E0 (VfMiscMmUnmapLockedPages_Entry.c)
+ *     VfMiscMmUnmapLockedPages_Entry @ 0x140BA01E0 (VfMiscMmUnmapLockedPages_Entry.c)
  * Callees:
  *     <none>
  */

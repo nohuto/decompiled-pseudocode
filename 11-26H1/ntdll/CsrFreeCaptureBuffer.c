@@ -1,16 +1,16 @@
 /*
- * XREFs of CsrFreeCaptureBuffer @ 0x1800CAAC0
+ * XREFs of CsrFreeCaptureBuffer @ 0x1800C8230
  * Callers:
- *     CsrpClientConnectToServer @ 0x1800CA6BC (CsrpClientConnectToServer.c)
+ *     CsrpClientConnectToServer @ 0x1800C7E2C (CsrpClientConnectToServer.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
  */
 
-__int64 CsrFreeCaptureBuffer()
+LOGICAL __fastcall CsrFreeCaptureBuffer(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
   if ( !LdrpIsSecureProcess )
-    return RtlFreeHeap_0();
+    return RtlFreeHeap_0(CsrPortHeap, 0, BaseAddress);
   return result;
 }

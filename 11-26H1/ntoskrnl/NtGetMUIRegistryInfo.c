@@ -1,30 +1,30 @@
 /*
- * XREFs of NtGetMUIRegistryInfo @ 0x140AE5010
+ * XREFs of NtGetMUIRegistryInfo @ 0x140AE2DD0
  * Callers:
- *     DifNtGetMUIRegistryInfoWrapper @ 0x140679140 (DifNtGetMUIRegistryInfoWrapper.c)
+ *     DifNtGetMUIRegistryInfoWrapper @ 0x14067CD20 (DifNtGetMUIRegistryInfoWrapper.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     MUIBugCheck @ 0x1406D3894 (MUIBugCheck.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x1406D38BC (MigrateOOBELanguageToInstallationLanguage.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
- *     MUIInitializeResourceLock @ 0x140AE5278 (MUIInitializeResourceLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     MUIBugCheck @ 0x1406D78C4 (MUIBugCheck.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x1406D78EC (MigrateOOBELanguageToInstallationLanguage.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x140AE3038 (MUIInitializeResourceLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtGetMUIRegistryInfo(int a1, unsigned int *a2, void *a3)
+NTSTATUS __cdecl NtGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
   unsigned int ULongFromUser; // r14d
-  int v7; // edi
-  int v8; // esi
+  NTSTATUS v7; // edi
+  ULONG v8; // esi
   struct _KTHREAD *CurrentThread; // rax
   char v10; // si
   __int128 v12; // [rsp+60h] [rbp-98h] BYREF
@@ -47,25 +47,25 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, unsigned int *a2, void *a3)
   v13 = 0LL;
   v14 = 0LL;
   v22 = 0;
-  if ( !KeGetCurrentThread()->PreviousMode || (_DWORD)InitSafeBootMode )
+  if ( !KeGetCurrentThread()->PreviousMode || InitSafeBootMode )
     goto LABEL_23;
-  if ( a2 )
+  if ( DataSize )
   {
-    ULongFromUser = RtlReadULongFromUser(a2);
+    ULongFromUser = RtlReadULongFromUser(DataSize);
     if ( ULongFromUser )
     {
-      if ( !a3 )
+      if ( !Data )
         goto LABEL_6;
       goto LABEL_8;
     }
   }
   else
   {
-    if ( (a1 & 0xA) == 0 )
+    if ( (Flags & 0xA) == 0 )
       goto LABEL_6;
     ULongFromUser = 0;
   }
-  if ( a3 )
+  if ( Data )
   {
 LABEL_6:
     v7 = -1073741811;
@@ -73,8 +73,8 @@ LABEL_6:
   }
 LABEL_8:
   v8 = 1;
-  if ( a1 )
-    v8 = a1;
+  if ( Flags )
+    v8 = Flags;
   if ( (v8 & 0xFFFFFFF4) != 0 )
     goto LABEL_6;
   if ( MUIRegistryLock || (v7 = MUIInitializeResourceLock(&MUIRegistryLock), (v7 & 0xC0000000) != 0xC0000000) )
@@ -104,7 +104,7 @@ LABEL_8:
         v21 = 0LL;
         v7 = PsCreateSystemThreadEx(
                (__int64)&Handle,
-               0x1FFFFF,
+               0x1FFFFFu,
                &v17,
                0LL,
                0LL,
@@ -127,7 +127,7 @@ LABEL_8:
               MUIBugCheck(32770);
             if ( !HIDWORD(v13) )
             {
-              if ( HIDWORD(PspSiloMonitorLock.CycleTime) )
+              if ( PspSiloMonitorLock.CurrentRunTime )
                 MUIBugCheck(32769);
               MigrateOOBELanguageToInstallationLanguage();
             }
@@ -144,11 +144,11 @@ LABEL_15:
             {
               v7 = -1073741789;
 LABEL_17:
-              RtlWriteULongToUser(a2, MUIRegistryInfoSize);
+              RtlWriteULongToUser(DataSize, MUIRegistryInfoSize);
               if ( v10 )
               {
-                RtlSetUserMemory(a3, 0, ULongFromUser);
-                RtlCopyToUser(a3, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
+                RtlSetUserMemory(Data, 0, ULongFromUser);
+                RtlCopyToUser(Data, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
               }
               goto LABEL_19;
             }
@@ -200,5 +200,5 @@ LABEL_19:
     ExReleaseResourceLite(MUIRegistryLock);
     KeLeaveCriticalRegion();
   }
-  return (unsigned int)v7;
+  return v7;
 }

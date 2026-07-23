@@ -1,13 +1,13 @@
 /*
- * XREFs of IopQueryInformation @ 0x140697F10
+ * XREFs of IopQueryInformation @ 0x1406990D0
  * Callers:
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
  * Callees:
- *     FsRtlGetSupportedFeatures @ 0x14013AE40 (FsRtlGetSupportedFeatures.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     FsRtlQueryOpen @ 0x140814EBC (FsRtlQueryOpen.c)
- *     VfFastIoCheckState @ 0x140928F74 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x14092904C (VfFastIoSnapState.c)
+ *     FsRtlGetSupportedFeatures @ 0x14013AF40 (FsRtlGetSupportedFeatures.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     FsRtlQueryOpen @ 0x1408160BC (FsRtlQueryOpen.c)
+ *     VfFastIoCheckState @ 0x140929F74 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x14092A04C (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopQueryInformation(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)

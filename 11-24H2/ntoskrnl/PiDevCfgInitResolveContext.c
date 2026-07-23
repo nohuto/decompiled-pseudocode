@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgInitResolveContext @ 0x140964944
+ * XREFs of PiDevCfgInitResolveContext @ 0x14094C71C
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x140964604 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgVerifyDeviceAllowed @ 0x140964C64 (PiDevCfgVerifyDeviceAllowed.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14094C3DC (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14094CA3C (PiDevCfgVerifyDeviceAllowed.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14073901C (PiDrvDbResolveKeyFilePaths.c)
- *     PiDevCfgFreeResolveContext @ 0x14096485C (PiDevCfgFreeResolveContext.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x140736F4C (PiDrvDbResolveKeyFilePaths.c)
+ *     PiDevCfgFreeResolveContext @ 0x14094C634 (PiDevCfgFreeResolveContext.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDevCfgInitResolveContext(__int64 a1, void *a2, __int64 a3)
@@ -47,7 +47,7 @@ __int64 __fastcall PiDevCfgInitResolveContext(__int64 a1, void *a2, __int64 a3)
   {
     if ( v5 < 0 )
       goto LABEL_13;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x7F0uLL, 0x63647050u);
     *(_QWORD *)(a3 + 24) = Pool2;
     if ( !Pool2 )
     {

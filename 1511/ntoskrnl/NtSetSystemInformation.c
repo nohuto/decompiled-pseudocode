@@ -216,7 +216,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
   updated = 0;
   if ( v5 > SystemSpecialPoolInformation )
   {
-    if ( v5 > (SystemPoolTagInformation|0x80) )
+    if ( v5 > SystemBootMetadataInformation )
     {
       v33 = v5 - 151;
       if ( !v33 )
@@ -310,7 +310,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
         return ExpQueryElamCertInfo(*(_QWORD *)SystemInformation, 4LL, SystemInformationLength, 1LL);
       return -1073741811;
     }
-    if ( v5 == (SystemPoolTagInformation|0x80) )
+    if ( v5 == SystemBootMetadataInformation )
     {
       if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
         return -1073741727;
@@ -322,7 +322,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
       }
       return -1073741820;
     }
-    if ( v5 > (SystemVerifierFaultsInformation|SystemLocksInformation) )
+    if ( v5 > SystemStoreInformation )
     {
       v23 = v5 - 110;
       if ( !v23 )
@@ -431,7 +431,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
       MEMORY[0xFFFFF78000000248] = *(_DWORD *)SystemInformation;
       return 0;
     }
-    if ( v5 == (SystemVerifierFaultsInformation|SystemLocksInformation) )
+    if ( v5 == SystemStoreInformation )
       return SmSetStoreInformation(
                *(__int64 *)&SystemInformationClass,
                (__int128 *)SystemInformation,
@@ -468,9 +468,9 @@ NTSTATUS __stdcall NtSetSystemInformation(
         v59 = (char *)SystemInformation + 24;
         goto LABEL_202;
       }
-      if ( v5 != (MaxSystemInfoClass|SystemPathInformation) )
+      if ( v5 != SystemDynamicTimeZoneInformation )
       {
-        if ( v5 == (SystemPrefetchPathInformation|SystemProcessorPerformanceInformation) )
+        if ( v5 == SystemProcessorMicrocodeUpdateInformation )
         {
           LOBYTE(SystemInformationLength) = PreviousMode;
           return ExpSetProcessorMicrocodeUpdateInformation(SystemInformation, v3, SystemInformationLength, 1LL);
@@ -571,7 +571,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
   }
   if ( v5 > SystemSessionDetach )
   {
-    if ( v5 > SystemWatchDogTimerInformation )
+    if ( v5 > SystemWatchdogTimerInformation )
     {
       if ( v5 != SystemWow64SharedInformationObsolete )
       {
@@ -635,7 +635,7 @@ NTSTATUS __stdcall NtSetSystemInformation(
       }
       return -1073741822;
     }
-    if ( v5 != SystemWatchDogTimerInformation )
+    if ( v5 != SystemWatchdogTimerInformation )
     {
       v13 = v5 - 51;
       if ( v13 )
@@ -973,7 +973,7 @@ LABEL_211:
   }
   if ( v5 <= SystemPrioritySeperation )
     return -1073741821;
-  if ( v5 > SystemDockInformation )
+  if ( v5 > SystemVerifierRemoveDriverInformation )
   {
     if ( v5 == SystemTimeSlipNotification )
     {

@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlFastCheckLockForWrite @ 0x14010DCE0
+ * XREFs of FsRtlFastCheckLockForWrite @ 0x14010DD60
  * Callers:
- *     FsRtlCheckLockForWriteAccess @ 0x14010DC40 (FsRtlCheckLockForWriteAccess.c)
+ *     FsRtlCheckLockForWriteAccess @ 0x14010DCC0 (FsRtlCheckLockForWriteAccess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x14026EF3C (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlCheckNoSharedConflict @ 0x14026EFF8 (FsRtlCheckNoSharedConflict.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x14026F12C (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlCheckNoSharedConflict @ 0x14026F1E8 (FsRtlCheckNoSharedConflict.c)
  */
 
 BOOLEAN __stdcall FsRtlFastCheckLockForWrite(

@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitializeCriticalSectionEx @ 0x18002B290 (RtlInitializeCriticalSectionEx.c)
+ *     RtlInitializeCriticalSectionEx @ 0x18002B280 (RtlInitializeCriticalSectionEx.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  *     RtlpTraceDatabaseAllocate @ 0x1800F3644 (RtlpTraceDatabaseAllocate.c)
  */
@@ -39,7 +39,7 @@ __int64 __fastcall RtlTraceDatabaseCreate(
   *(_QWORD *)(v10 + 24) = a2;
   *(_QWORD *)(v10 + 32) = 0x10000LL;
   memset((void *)(v10 + 128), 0, 0x40uLL);
-  RtlInitializeCriticalSectionEx(v11 + 48, 0, 0);
+  RtlInitializeCriticalSectionEx((PRTL_CRITICAL_SECTION)(v11 + 48), 0, 0);
   v13 = a5;
   *(_DWORD *)(v11 + 88) = a1;
   if ( !a5 )

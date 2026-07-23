@@ -15,13 +15,13 @@ void __fastcall BgpFwReservePoolSwap(int a1, __int64 a2, unsigned int a3, unsign
     {
       qword_140C70E10 = qword_140D1B188;
       dword_140C70E30 = dword_140D1B184;
-      HintIndex = dword_140D1B180;
-      stru_140C70E20 = (RTL_BITMAP)xmmword_140D1B190;
+      dword_140C70E18 = dword_140D1B180;
+      stru_140C70E20 = (_RTL_BITMAP)xmmword_140D1B190;
     }
   }
   else
   {
-    dword_140D1B180 = HintIndex;
+    dword_140D1B180 = dword_140C70E18;
     qword_140D1B188 = qword_140C70E10;
     dword_140D1B184 = dword_140C70E30;
     xmmword_140D1B190 = (__int128)stru_140C70E20;

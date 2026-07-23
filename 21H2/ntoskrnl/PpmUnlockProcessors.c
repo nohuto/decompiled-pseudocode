@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmUnlockProcessors @ 0x140567CF8
+ * XREFs of PpmUnlockProcessors @ 0x140567F38
  * Callers:
- *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x1403956D0 (PpmIdleSelectStates.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     HalRequestIpi @ 0x14027AEA0 (HalRequestIpi.c)
- *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalRequestIpi @ 0x140268E40 (HalRequestIpi.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403461F0 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall PpmUnlockProcessors(unsigned __int16 *a1, __int64 a2)

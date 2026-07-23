@@ -28,7 +28,7 @@ __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, cha
   __int64 v23; // rax
   unsigned __int64 v24; // r8
   __int64 result; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+28h] [rbp-61h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+28h] [rbp-61h] BYREF
   __int128 v27; // [rsp+30h] [rbp-59h] BYREF
   __int128 v28; // [rsp+40h] [rbp-49h]
   __int128 v29; // [rsp+50h] [rbp-39h] BYREF
@@ -57,9 +57,9 @@ __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, cha
     v14 = DWORD2(v34);
     v15 = DWORD1(v29);
     *(_QWORD *)(a5 + 120) = *((_QWORD *)&v29 + 1);
-    v16 = (unsigned int)KeMaximumIncrement;
-    v17 = (unsigned int)KeMaximumIncrement * v8;
-    v18 = (unsigned int)KeMaximumIncrement * v15;
+    v16 = KeMaximumIncrement;
+    v17 = KeMaximumIncrement * v8;
+    v18 = KeMaximumIncrement * v15;
     *(_QWORD *)a5 = v17;
     *(_QWORD *)(a5 + 72) = v9;
     *(_QWORD *)(a5 + 96) = v10;
@@ -91,8 +91,8 @@ __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, cha
   }
   *(_QWORD *)(a5 + 8) = v20;
   *(_QWORD *)(a5 + 24) = v19;
-  v21 = (unsigned int)KeMaximumIncrement;
-  v22 = (unsigned int)KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(a1 + 34376);
+  v21 = KeMaximumIncrement;
+  v22 = KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(a1 + 34376);
   v27 = 0LL;
   v28 = 0LL;
   v30 = 0LL;

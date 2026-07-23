@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRemoveEntryTimer @ 0x1403E5540
+ * XREFs of KiRemoveEntryTimer @ 0x1403E8730
  * Callers:
- *     KiInsertTimerTable @ 0x1403ACC88 (KiInsertTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x1403E52EC (KiAdjustTimerDueTimes.c)
+ *     KiInsertTimerTable @ 0x1403B6998 (KiInsertTimerTable.c)
+ *     KiAdjustTimerDueTimes @ 0x1403E84DC (KiAdjustTimerDueTimes.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 signed __int64 __fastcall KiRemoveEntryTimer(__int64 a1, __int64 a2, unsigned int a3, volatile signed __int64 **a4)
@@ -64,7 +64,7 @@ LABEL_15:
           }
           result = v15;
           _interlockedbittestandreset64(
-            (volatile signed __int32 *)(qword_140FC1698[2 * *(unsigned __int8 *)(a1 - 16432)] + v16),
+            (volatile signed __int32 *)(qword_140FC2698[2 * *(unsigned __int8 *)(a1 - 16432)] + v16),
             v15);
         }
         _InterlockedAnd64(v13, 0LL);

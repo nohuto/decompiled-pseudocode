@@ -1,29 +1,29 @@
 /*
- * XREFs of HalpLoadMicrocode @ 0x140701A80
+ * XREFs of HalpLoadMicrocode @ 0x1406FF6C0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x1404677F0 (KeIpiGenericCall.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A57AC (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpMcUpdateUnlock @ 0x1404AE2F8 (HalpMcUpdateUnlock.c)
- *     HalpMcUpdateLock @ 0x1404BAD8C (HalpMcUpdateLock.c)
- *     HalpMcUpdatePostUpdate @ 0x1404D9190 (HalpMcUpdatePostUpdate.c)
- *     HalpGetMicrocodePatchRecord @ 0x14055940C (HalpGetMicrocodePatchRecord.c)
- *     HalpMcGetLoadConfiguration @ 0x1405598B4 (HalpMcGetLoadConfiguration.c)
- *     HalpMcGetRollbackRequest @ 0x14055996C (HalpMcGetRollbackRequest.c)
- *     HalpMcParallelLoadSupported @ 0x140559ACC (HalpMcParallelLoadSupported.c)
- *     HalpMcPatchConfiguration @ 0x140559B04 (HalpMcPatchConfiguration.c)
- *     PrExtControlOperations @ 0x140663EEC (PrExtControlOperations.c)
- *     PrExtExportRecordData @ 0x140664014 (PrExtExportRecordData.c)
- *     PrExtGetRecordDataLength @ 0x140664210 (PrExtGetRecordDataLength.c)
- *     PrExtLogLatencyTime @ 0x140664234 (PrExtLogLatencyTime.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpLoadMicrocodeSerialized @ 0x140701CD0 (HalpLoadMicrocodeSerialized.c)
- *     HalpMcExportAndChargeNeededData @ 0x140701DA4 (HalpMcExportAndChargeNeededData.c)
- *     PoDisableSleepStates @ 0x14074CC70 (PoDisableSleepStates.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x14045F290 (KeIpiGenericCall.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A053C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpMcUpdateUnlock @ 0x1404A8C08 (HalpMcUpdateUnlock.c)
+ *     HalpMcUpdateLock @ 0x1404B5C2C (HalpMcUpdateLock.c)
+ *     HalpMcUpdatePostUpdate @ 0x1404D25E0 (HalpMcUpdatePostUpdate.c)
+ *     HalpGetMicrocodePatchRecord @ 0x14055703C (HalpGetMicrocodePatchRecord.c)
+ *     HalpMcGetLoadConfiguration @ 0x1405574E4 (HalpMcGetLoadConfiguration.c)
+ *     HalpMcGetRollbackRequest @ 0x14055759C (HalpMcGetRollbackRequest.c)
+ *     HalpMcParallelLoadSupported @ 0x1405576FC (HalpMcParallelLoadSupported.c)
+ *     HalpMcPatchConfiguration @ 0x140557734 (HalpMcPatchConfiguration.c)
+ *     PrExtControlOperations @ 0x1406627DC (PrExtControlOperations.c)
+ *     PrExtExportRecordData @ 0x140662904 (PrExtExportRecordData.c)
+ *     PrExtGetRecordDataLength @ 0x140662B00 (PrExtGetRecordDataLength.c)
+ *     PrExtLogLatencyTime @ 0x140662B24 (PrExtLogLatencyTime.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpLoadMicrocodeSerialized @ 0x1406FF910 (HalpLoadMicrocodeSerialized.c)
+ *     HalpMcExportAndChargeNeededData @ 0x1406FF9E4 (HalpMcExportAndChargeNeededData.c)
+ *     PoDisableSleepStates @ 0x14074AFA0 (PoDisableSleepStates.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpLoadMicrocode(__int64 a1)
@@ -32,26 +32,22 @@ __int64 __fastcall HalpLoadMicrocode(__int64 a1)
   bool IsMicrosoftCompatibleHvLoaded; // si
   int MicrocodePatchRecord; // ebx
   char Supported; // di
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  __int64 v6; // rdx
   size_t Size; // [rsp+30h] [rbp-20h] BYREF
   void *Src; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v15; // [rsp+48h] [rbp-8h] BYREF
+  __int64 v10; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v11; // [rsp+48h] [rbp-8h] BYREF
   PVOID P; // [rsp+88h] [rbp+38h] BYREF
-  unsigned int v17; // [rsp+90h] [rbp+40h] BYREF
-  __int64 v18; // [rsp+98h] [rbp+48h] BYREF
+  unsigned int v13; // [rsp+90h] [rbp+40h] BYREF
+  ULONG_PTR v14; // [rsp+98h] [rbp+48h] BYREF
 
-  v14 = 0LL;
+  v10 = 0LL;
   v1 = 0;
   Src = 0LL;
   Size = 0LL;
-  v17 = 0;
-  v18 = 0LL;
-  v15 = 0LL;
+  v13 = 0;
+  v14 = 0LL;
+  v11 = 0LL;
   LOBYTE(P) = 0;
   IsMicrosoftCompatibleHvLoaded = HalpIsMicrosoftCompatibleHvLoaded();
   MicrocodePatchRecord = HalpMcPatchConfiguration();
@@ -74,7 +70,7 @@ LABEL_22:
       return (unsigned int)MicrocodePatchRecord;
     goto LABEL_23;
   }
-  if ( !IsMicrosoftCompatibleHvLoaded || !qword_140FC1090 )
+  if ( !IsMicrosoftCompatibleHvLoaded || !qword_140FC12F0 )
   {
     MicrocodePatchRecord = HalpMcExportAndChargeNeededData(Src, (unsigned int)Size);
     if ( MicrocodePatchRecord < 0 )
@@ -95,29 +91,28 @@ LABEL_22:
     }
     goto LABEL_20;
   }
-  MicrocodePatchRecord = PrExtGetRecordDataLength((__int64)Src, Size, &v18);
+  MicrocodePatchRecord = PrExtGetRecordDataLength((__int64)Src, Size, &v14);
   if ( MicrocodePatchRecord != -1073741762 )
   {
-    P = (PVOID)ExAllocatePool2(0x40uLL);
+    P = (PVOID)ExAllocatePool2(0x40uLL, v14, 0x636C6148u);
     if ( !P )
     {
       MicrocodePatchRecord = -1073741664;
       goto LABEL_23;
     }
-    MicrocodePatchRecord = PrExtExportRecordData((int *)Src, Size, v18, (__int64)&P);
+    MicrocodePatchRecord = PrExtExportRecordData((int *)Src, Size, v14, (__int64)&P);
     if ( MicrocodePatchRecord >= 0 )
     {
-      LOBYTE(v6) = Supported;
-      MicrocodePatchRecord = guard_dispatch_icall_no_overrides(P, (unsigned int)v18, v6, v7);
+      MicrocodePatchRecord = guard_dispatch_icall_no_overrides(P, (unsigned int)v14);
       if ( MicrocodePatchRecord >= 0 )
       {
         ExFreePoolWithTag(P, 0x636C6148u);
-        v17 = 3;
-        PrExtControlOperations(10, &v17, 4);
-        if ( qword_140FC1098 )
+        v13 = 3;
+        PrExtControlOperations(10, &v13, 4);
+        if ( qword_140FC12F8 )
         {
-          guard_dispatch_icall_no_overrides(&v14, v8, v9, v10);
-          PrExtLogLatencyTime(v14);
+          guard_dispatch_icall_no_overrides(&v10, v6);
+          PrExtLogLatencyTime(v10);
         }
 LABEL_20:
         HalpMcUpdatePostUpdate();
@@ -131,7 +126,7 @@ LABEL_20:
 LABEL_23:
   if ( !HalMcSleepDisabled )
   {
-    MicrocodePatchRecord = PoDisableSleepStates(1LL, 14LL, &v15);
+    MicrocodePatchRecord = PoDisableSleepStates(1LL, 14LL, &v11);
     if ( MicrocodePatchRecord >= 0 )
       HalMcSleepDisabled = 1;
   }

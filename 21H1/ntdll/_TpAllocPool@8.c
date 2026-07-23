@@ -7,9 +7,9 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpAllocPool(int a1, int a2)
+NTSTATUS __cdecl TpAllocPool(PTP_POOL *PoolReturn, PVOID Reserved)
 {
-  if ( !a1 || a2 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !PoolReturn || Reserved || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
-  return TpAllocPoolInternal(a1, 0);
+  return TpAllocPoolInternal(PoolReturn, 0);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopInitializeSessionNotifications @ 0x140CBEDFC
+ * XREFs of IopInitializeSessionNotifications @ 0x140CC4ECC
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
  */
 
 NTSTATUS IopInitializeSessionNotifications()
@@ -13,11 +13,11 @@ NTSTATUS IopInitializeSessionNotifications()
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  IopSessionNotificationLock.Header.WaitListHead.Blink = &IopSessionNotificationLock.Header.WaitListHead;
-  IopSessionNotificationLock.Header.WaitListHead.Flink = &IopSessionNotificationLock.Header.WaitListHead;
+  IopPerfIoTrackingLock.Padding[2] = (unsigned __int64)&IopPerfIoTrackingLock.Padding[1];
+  IopPerfIoTrackingLock.Padding[1] = (unsigned __int64)&IopPerfIoTrackingLock.Padding[1];
   *(_QWORD *)&ObjectAttributes.Attributes = 80LL;
   DestinationString = 0LL;
-  *(_QWORD *)&IopSessionNotificationLock.Header.Lock = 0LL;
+  IopPerfIoTrackingLock.Padding[3] = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Callback\\IoSessionNotifications");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;

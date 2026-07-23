@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDoneWithThisPageGetAnother @ 0x140663F84
+ * XREFs of MiDoneWithThisPageGetAnother @ 0x1406644D4
  * Callers:
- *     MiUpdateForkMaps @ 0x140665430 (MiUpdateForkMaps.c)
+ *     MiUpdateForkMaps @ 0x140665980 (MiUpdateForkMaps.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
- *     MiFinishLastForkPageTable @ 0x1406644FC (MiFinishLastForkPageTable.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
+ *     MiFinishLastForkPageTable @ 0x140664A4C (MiFinishLastForkPageTable.c)
  */
 
 _QWORD *__fastcall MiDoneWithThisPageGetAnother(__int64 *a1, __int64 a2, __int64 a3, unsigned __int8 a4)

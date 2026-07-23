@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpStartUmLogger @ 0x180076EBC
+ * XREFs of EtwpStartUmLogger @ 0x1800656DC
  * Callers:
- *     EtwProcessPrivateLoggerRequest @ 0x180076830 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x180065050 (EtwProcessPrivateLoggerRequest.c)
  * Callees:
- *     EtwpAddLogHeaderToLogFile @ 0x180055750 (EtwpAddLogHeaderToLogFile.c)
- *     RtlNtStatusToDosError @ 0x180056660 (RtlNtStatusToDosError.c)
- *     EtwpInitializeCompression @ 0x180075FD0 (EtwpInitializeCompression.c)
- *     EtwpSendSessionNotification @ 0x180076070 (EtwpSendSessionNotification.c)
- *     EtwpCreateEtwThread @ 0x180076130 (EtwpCreateEtwThread.c)
- *     EtwpGetUmLoggerInfoFromContext @ 0x180076484 (EtwpGetUmLoggerInfoFromContext.c)
- *     EtwpGetPrivateLoggerContextByName @ 0x180077320 (EtwpGetPrivateLoggerContextByName.c)
- *     EtwpGetNextAvailableLoggerId @ 0x1800773FC (EtwpGetNextAvailableLoggerId.c)
- *     EtwpInitLoggerContext @ 0x180077550 (EtwpInitLoggerContext.c)
- *     EtwpAllocateTraceBufferPool @ 0x1800790B4 (EtwpAllocateTraceBufferPool.c)
- *     EtwpFreeLoggerContext @ 0x180079258 (EtwpFreeLoggerContext.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtQuerySystemInformation @ 0x18015F600 (NtQuerySystemInformation.c)
- *     NtTraceControl @ 0x180162A10 (NtTraceControl.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x18003FCD0 (EtwpAddLogHeaderToLogFile.c)
+ *     RtlNtStatusToDosError @ 0x180040BE0 (RtlNtStatusToDosError.c)
+ *     EtwpInitializeCompression @ 0x1800647F0 (EtwpInitializeCompression.c)
+ *     EtwpSendSessionNotification @ 0x180064890 (EtwpSendSessionNotification.c)
+ *     EtwpCreateEtwThread @ 0x180064950 (EtwpCreateEtwThread.c)
+ *     EtwpGetUmLoggerInfoFromContext @ 0x180064CA4 (EtwpGetUmLoggerInfoFromContext.c)
+ *     EtwpGetPrivateLoggerContextByName @ 0x180065B40 (EtwpGetPrivateLoggerContextByName.c)
+ *     EtwpGetNextAvailableLoggerId @ 0x180065C1C (EtwpGetNextAvailableLoggerId.c)
+ *     EtwpInitLoggerContext @ 0x180065D70 (EtwpInitLoggerContext.c)
+ *     EtwpAllocateTraceBufferPool @ 0x1800678D4 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpFreeLoggerContext @ 0x180067A78 (EtwpFreeLoggerContext.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtQuerySystemInformation @ 0x18015F500 (NtQuerySystemInformation.c)
+ *     NtTraceControl @ 0x180162910 (NtTraceControl.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
@@ -36,23 +36,23 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
   int v16; // eax
   NTSTATUS v17; // eax
   int v18; // ecx
-  ULONG TraceBufferPool; // esi
+  unsigned __int32 TraceBufferPool; // esi
   __int64 v20; // r14
-  __int64 EtwThread; // rax
+  HANDLE EtwThread; // rax
   _DWORD *v22; // rcx
   void *v23; // rcx
   NTSTATUS v24; // eax
-  unsigned __int16 v25; // [rsp+30h] [rbp-49h] BYREF
-  unsigned int v26; // [rsp+38h] [rbp-41h] BYREF
-  __int64 v27; // [rsp+40h] [rbp-39h] BYREF
+  unsigned __int16 InputBuffer; // [rsp+30h] [rbp-49h] BYREF
+  ULONG ReturnLength; // [rsp+38h] [rbp-41h] BYREF
+  __int64 OutputBuffer; // [rsp+40h] [rbp-39h] BYREF
   _DWORD *v28; // [rsp+48h] [rbp-31h]
   char SystemInformation[8]; // [rsp+50h] [rbp-29h] BYREF
   int v30; // [rsp+58h] [rbp-21h]
 
   v28 = a3;
-  v27 = 0LL;
-  v26 = 0;
-  v25 = 0;
+  OutputBuffer = 0LL;
+  ReturnLength = 0;
+  InputBuffer = 0;
   v6 = 0LL;
   v7 = 0;
   memset_thunk_772440563353939046(SystemInformation, 0, 0x40uLL);
@@ -88,12 +88,12 @@ LABEL_4:
   {
     return 87;
   }
-  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName(a4 + 144, &v27) )
+  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName((PUNICODE_STRING)(a4 + 144)) )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(16LL * *(unsigned int *)(v27 + 20) + EtwpLoggerArray + 8));
+    _InterlockedDecrement((volatile signed __int32 *)(16LL * *(unsigned int *)(OutputBuffer + 20) + EtwpLoggerArray + 8));
     return 183;
   }
-  result = EtwpGetNextAvailableLoggerId(a4, &v26);
+  result = EtwpGetNextAvailableLoggerId(a4, &ReturnLength);
   if ( !result )
   {
     if ( (*(_DWORD *)(a4 + 64) & 0x10000) != 0 )
@@ -111,8 +111,8 @@ LABEL_4:
     {
       NumberOfProcessors = NtCurrentPeb()->NumberOfProcessors;
     }
-    v14 = v26;
-    inited = EtwpInitLoggerContext(a4, v26, NumberOfProcessors, (_DWORD)v6, v7);
+    v14 = ReturnLength;
+    inited = EtwpInitLoggerContext(a4, ReturnLength, NumberOfProcessors, (_DWORD)v6, v7);
     if ( !inited )
     {
       _InterlockedDecrement((volatile signed __int32 *)(16 * v14 + EtwpLoggerArray + 8));
@@ -151,20 +151,20 @@ LABEL_4:
       goto LABEL_45;
     if ( (*(_DWORD *)(inited + 308) & 0x20000) == 0 )
     {
-      v25 = *(_WORD *)(inited + 20);
-      v27 = 0LL;
-      v26 = 0;
-      TraceBufferPool = NtTraceControl(39LL, &v25, 2LL, &v27, 8, &v26);
+      InputBuffer = *(_WORD *)(inited + 20);
+      OutputBuffer = 0LL;
+      ReturnLength = 0;
+      TraceBufferPool = NtTraceControl(EtwRegisterPrivateSession, &InputBuffer, 2u, &OutputBuffer, 8u, &ReturnLength);
       if ( TraceBufferPool )
         goto LABEL_45;
-      v25 = WORD2(v27);
-      *(_QWORD *)(inited + 544) = (unsigned int)v27;
+      InputBuffer = WORD2(OutputBuffer);
+      *(_QWORD *)(inited + 544) = (unsigned int)OutputBuffer;
     }
     v20 = 16 * v14;
     _InterlockedIncrement((volatile signed __int32 *)(v20 + EtwpLoggerArray + 8));
     if ( (*(_DWORD *)(inited + 308) & 0x400) == 0 )
     {
-      EtwThread = EtwpCreateEtwThread();
+      EtwThread = EtwpCreateEtwThread((NTSTATUS (__cdecl *)(PVOID))EtwpLogger, (void *)inited);
       if ( !EtwThread )
       {
         TraceBufferPool = NtCurrentTeb()->LastErrorValue;
@@ -172,7 +172,7 @@ LABEL_4:
       }
       *(_QWORD *)(inited + 32) = EtwThread;
     }
-    EtwpGetUmLoggerInfoFromContext(a4, inited, &v25);
+    EtwpGetUmLoggerInfoFromContext(a4, inited, &InputBuffer);
     _InterlockedExchange64((volatile __int64 *)(v20 + EtwpLoggerArray), inited);
     EtwpSendSessionNotification(inited, 5, 0);
 LABEL_34:
@@ -191,7 +191,7 @@ LABEL_45:
       NtClose(v23);
       *(_QWORD *)(inited + 128) = 0LL;
     }
-    EtwpFreeLoggerContext(inited);
+    EtwpFreeLoggerContext((PVOID)inited);
     return TraceBufferPool;
   }
   return result;

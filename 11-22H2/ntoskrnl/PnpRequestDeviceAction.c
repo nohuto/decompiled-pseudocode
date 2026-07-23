@@ -142,10 +142,13 @@ LABEL_18:
   if ( ++dword_140C3F3F0 == 1 )
     PopDirectedDripsSetDisengageReason(4LL);
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F3E8);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v15 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -168,10 +171,10 @@ LABEL_18:
       qword_140C38F80 = v17;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38EF0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;
@@ -201,10 +204,10 @@ LABEL_18:
     PnpEnumerationInProgress = 1;
     KeResetEvent(&PnpEnumerationLock);
     KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v38 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v38 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v38 >= 2u )
       {
         v39 = KeGetCurrentPrcb();
         v40 = v39->SchedulerAssist;
@@ -221,10 +224,10 @@ LABEL_18:
   else if ( PnpEnumerationInProgress || !PnPBootDriversLoaded )
   {
     KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v34 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v34 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v34 >= 2u )
       {
         v35 = KeGetCurrentPrcb();
         v36 = v35->SchedulerAssist;
@@ -242,10 +245,10 @@ LABEL_18:
     PnpEnumerationInProgress = 1;
     KeResetEvent(&PnpEnumerationLock);
     KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;

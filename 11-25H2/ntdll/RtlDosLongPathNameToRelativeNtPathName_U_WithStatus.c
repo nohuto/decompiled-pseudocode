@@ -6,11 +6,11 @@
  *     RtlpDosPathNameToRelativeNtPathName_U @ 0x1800DB3A0 (RtlpDosPathNameToRelativeNtPathName_U.c)
  */
 
-__int64 __fastcall RtlDosLongPathNameToRelativeNtPathName_U_WithStatus(
-        const wchar_t *a1,
-        unsigned __int16 *a2,
-        _QWORD *a3,
-        __int64 a4)
+NTSTATUS __cdecl RtlDosLongPathNameToRelativeNtPathName_U_WithStatus(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
-  return RtlpDosPathNameToRelativeNtPathName_U(6, a1, a2, a3, a4);
+  return RtlpDosPathNameToRelativeNtPathName_U(6, DosFileName, &NtFileName->Length, FilePart, (__int64)RelativeName);
 }

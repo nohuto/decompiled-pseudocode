@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetDeviceParent @ 0x1404CFAC4
+ * XREFs of _CmGetDeviceParent @ 0x14050CB90
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1404CE780 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1404CF88C (_CmIsDeviceSafeRemovalRequired.c)
- *     PiCMGetRelatedDeviceInstance @ 0x14052C468 (PiCMGetRelatedDeviceInstance.c)
- *     _CmGetDeviceSiblings @ 0x1406DD82C (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14050B84C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14050C958 (_CmIsDeviceSafeRemovalRequired.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x14052C9A8 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmGetDeviceSiblings @ 0x1406DD964 (_CmGetDeviceSiblings.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _CmIsRootDevice @ 0x1404CFC28 (_CmIsRootDevice.c)
- *     _NtPlugPlayGetDeviceRelatedDevice @ 0x1404CFC5C (_NtPlugPlayGetDeviceRelatedDevice.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     _CmIsRootDevice @ 0x14050CCF4 (_CmIsRootDevice.c)
+ *     _NtPlugPlayGetDeviceRelatedDevice @ 0x14050CD28 (_NtPlugPlayGetDeviceRelatedDevice.c)
  */
 
-int __fastcall CmGetDeviceParent(int a1, const WCHAR *a2, wchar_t *a3, unsigned int *a4)
+int __fastcall CmGetDeviceParent(__int64 a1, const WCHAR *a2, wchar_t *a3, unsigned int *a4)
 {
   size_t v4; // rdi
   int result; // eax
@@ -38,9 +38,9 @@ int __fastcall CmGetDeviceParent(int a1, const WCHAR *a2, wchar_t *a3, unsigned 
     {
       result = PnpGetObjectProperty(
                  a1,
-                 (_DWORD)a2,
-                 1,
-                 0,
+                 (__int64)a2,
+                 1u,
+                 0LL,
                  0LL,
                  (__int64)&DEVPKEY_Device_LastKnownParent,
                  (__int64)&v13,

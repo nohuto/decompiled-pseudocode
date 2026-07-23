@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryIoCompletion @ 0x14041D8E0
+ * XREFs of ZwQueryIoCompletion @ 0x14041DC70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryIoCompletion(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryIoCompletion(
+        HANDLE IoCompletionHandle,
+        IO_COMPLETION_INFORMATION_CLASS IoCompletionInformationClass,
+        PVOID IoCompletionInformation,
+        ULONG IoCompletionInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoCompletionHandle);
 }

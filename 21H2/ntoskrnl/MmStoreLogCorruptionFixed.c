@@ -1,12 +1,12 @@
 /*
- * XREFs of MmStoreLogCorruptionFixed @ 0x140554B00
+ * XREFs of MmStoreLogCorruptionFixed @ 0x140554D40
  * Callers:
- *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14059B8D4 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
+ *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14059BB04 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall MmStoreLogCorruptionFixed(char *a1, unsigned int a2, int a3)
@@ -45,14 +45,14 @@ void __fastcall MmStoreLogCorruptionFixed(char *a1, unsigned int a2, int a3)
   int v36; // [rsp+ECh] [rbp+23h]
 
   v4 = a2;
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
     v6.QuadPart = MmGetPhysicalAddress(a1).QuadPart / 4096;
     if ( ((v4 + 4095 + ((unsigned __int16)a1 & 0xFFF)) & 0xFFFFFFFFFFFFF000uLL) != 0x1000 )
       MmGetPhysicalAddress(&a1[(unsigned int)(v4 - 1)]);
-    if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
+    if ( **(_DWORD **)&qword_140C4EF20 > 5u )
     {
-      if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000002LL) )
+      if ( tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 0x400000000002LL) )
       {
         v21 = 0;
         v24 = 0;
@@ -78,7 +78,7 @@ void __fastcall MmStoreLogCorruptionFixed(char *a1, unsigned int a2, int a3)
         v13 = a3;
         v15 = v6;
         v17 = 0x1000000LL;
-        tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&word_140026A7E, v7, 1u, v10, v11, 8u, &v18);
+        tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_140026D29, v7, 1u, v10, v11, 8u, &v18);
       }
     }
   }

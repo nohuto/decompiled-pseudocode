@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmPerfResizeHistory @ 0x14086B19C
+ * XREFs of PpmPerfResizeHistory @ 0x14086C3FC
  * Callers:
- *     PpmPerfResizeHistoryAll @ 0x14086B27C (PpmPerfResizeHistoryAll.c)
+ *     PpmPerfResizeHistoryAll @ 0x14086C4DC (PpmPerfResizeHistoryAll.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x1401130C8 (PpmGetPerfPolicyClass.c)
- *     PpmPerfResetHistory @ 0x14018A368 (PpmPerfResetHistory.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     PpmGetPerfPolicyClass @ 0x140113138 (PpmGetPerfPolicyClass.c)
+ *     PpmPerfResetHistory @ 0x14018A4A8 (PpmPerfResetHistory.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmPerfResizeHistory(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall PpmPerfResizeHistory(__int64 a1)
   v2 = 0;
   PerfPolicyClass = PpmGetPerfPolicyClass(a1);
   v4 = *(_DWORD **)(a1 + 24216);
-  v5 = *((unsigned __int8 *)&PpmCurrentProfile[341 * dword_1404180CC + 8] + PerfPolicyClass);
+  v5 = *((unsigned __int8 *)&PpmCurrentProfile[341 * dword_14041918C + 8] + PerfPolicyClass);
   v6 = v5;
   if ( v4 )
   {

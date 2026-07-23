@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceLpacAccessFailure @ 0x140B21EFC
+ * XREFs of EtwTraceLpacAccessFailure @ 0x140B242FC
  * Callers:
- *     SepLogLpacAccessFailure @ 0x1404F654C (SepLogLpacAccessFailure.c)
+ *     SepLogLpacAccessFailure @ 0x1404EFB5C (SepLogLpacAccessFailure.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KeQuerySystemTimePrecise @ 0x14021B070 (KeQuerySystemTimePrecise.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     KeQuerySystemTimePrecise @ 0x14021CA00 (KeQuerySystemTimePrecise.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceLpacAccessFailure(int a1)
@@ -19,14 +19,14 @@ NTSTATUS __fastcall EtwTraceLpacAccessFailure(int a1)
 
   v6 = a1;
   v2 = 0LL;
-  if ( EtwLpacProvRegHandle )
+  if ( stru_140F03830.SavedApcState.Process )
   {
     KeQuerySystemTimePrecise(&v2);
     UserData.Ptr = (ULONGLONG)&v2;
     *(_QWORD *)&UserData.Size = 8LL;
     v4 = &v6;
     v5 = 4LL;
-    return EtwWrite(EtwLpacProvRegHandle, &LpacAccessFailureLog, 0LL, 2u, &UserData);
+    return EtwWrite((REGHANDLE)stru_140F03830.SavedApcState.Process, &LpacAccessFailureLog, 0LL, 2u, &UserData);
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCheckJobAccessState @ 0x140908BEC
+ * XREFs of PspCheckJobAccessState @ 0x140908D4C
  * Callers:
- *     PspValidateJobAffinityState @ 0x1406B693C (PspValidateJobAffinityState.c)
- *     PspValidateJobAssignmentProcessLimits @ 0x14071FF2C (PspValidateJobAssignmentProcessLimits.c)
- *     PspSetAffinityLimitCallback @ 0x1409093C0 (PspSetAffinityLimitCallback.c)
+ *     PspValidateJobAffinityState @ 0x140615DFC (PspValidateJobAffinityState.c)
+ *     PspValidateJobAssignmentProcessLimits @ 0x1406F5EB8 (PspValidateJobAssignmentProcessLimits.c)
+ *     PspSetAffinityLimitCallback @ 0x140909520 (PspSetAffinityLimitCallback.c)
  * Callees:
- *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
- *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
- *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
+ *     SeAccessCheck @ 0x1402AB090 (SeAccessCheck.c)
+ *     ObReleaseObjectSecurity @ 0x140654230 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x140654620 (ObpGetObjectSecurity.c)
  */
 
 __int64 __fastcall PspCheckJobAccessState(__int64 a1, __int64 a2)

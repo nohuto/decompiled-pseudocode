@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlWideCharArrayCopyWorker @ 0x1405EC870
+ * XREFs of RtlWideCharArrayCopyWorker @ 0x1405EF1E0
  * Callers:
- *     RtlUnicodeStringCopy @ 0x14043D5D0 (RtlUnicodeStringCopy.c)
- *     CmpDoWritethroughReparse @ 0x1408C11D0 (CmpDoWritethroughReparse.c)
+ *     RtlUnicodeStringCopy @ 0x14042FE80 (RtlUnicodeStringCopy.c)
+ *     CmpDoWritethroughReparse @ 0x1408C77A0 (CmpDoWritethroughReparse.c)
  * Callees:
  *     <none>
  */

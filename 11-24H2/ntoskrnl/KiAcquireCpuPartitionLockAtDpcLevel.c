@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAcquireCpuPartitionLockAtDpcLevel @ 0x1405BFEF0
+ * XREFs of KiAcquireCpuPartitionLockAtDpcLevel @ 0x1405BD520
  * Callers:
- *     KiAddCpuToSystemCpuPartition @ 0x140B57C80 (KiAddCpuToSystemCpuPartition.c)
+ *     KiAddCpuToSystemCpuPartition @ 0x140B59D00 (KiAddCpuToSystemCpuPartition.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
  */
 
 void __fastcall KiAcquireCpuPartitionLockAtDpcLevel(__int64 a1)

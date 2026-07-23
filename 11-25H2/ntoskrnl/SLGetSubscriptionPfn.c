@@ -57,7 +57,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
       if ( !Pool2 )
       {
         v14 = -1073741595;
-        local_unwind((ULONG_PTR)v17, (__int64)&loc_1407AA326);
+        local_unwind(v17, &loc_1407AA326);
       }
       *Pool2 = *(_OWORD *)(a1 + 46858);
       Pool2[1] = *(_OWORD *)(a1 + 46874);

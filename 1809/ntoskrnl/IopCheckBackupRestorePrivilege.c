@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckBackupRestorePrivilege @ 0x14063CB10
+ * XREFs of IopCheckBackupRestorePrivilege @ 0x14063DB30
  * Callers:
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x1400A7D50 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SePrivilegeCheck @ 0x14062A1D0 (SePrivilegeCheck.c)
- *     SeAppendPrivileges @ 0x140699A20 (SeAppendPrivileges.c)
+ *     SepPrivilegeCheck @ 0x1400A7C90 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SePrivilegeCheck @ 0x14062B1F0 (SePrivilegeCheck.c)
+ *     SeAppendPrivileges @ 0x14069ABE0 (SeAppendPrivileges.c)
  */
 
 void __fastcall IopCheckBackupRestorePrivilege(PACCESS_STATE AccessState, _DWORD *a2, char a3, int a4)

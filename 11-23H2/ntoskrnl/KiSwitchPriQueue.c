@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSwitchPriQueue @ 0x1403677E8
+ * XREFs of KiSwitchPriQueue @ 0x140367988
  * Callers:
- *     KeRemovePriQueue @ 0x1402BF0B0 (KeRemovePriQueue.c)
+ *     KeRemovePriQueue @ 0x1402BF340 (KeRemovePriQueue.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x14030B448 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14030B6D8 (KiActivateWaiterQueueWithNoLocks.c)
  */
 
 __int64 __fastcall KiSwitchPriQueue(__int64 a1, __int64 a2, unsigned __int64 a3)

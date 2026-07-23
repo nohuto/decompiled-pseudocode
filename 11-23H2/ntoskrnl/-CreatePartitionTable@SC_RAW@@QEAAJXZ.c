@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CreatePartitionTable@SC_RAW@@QEAAJXZ @ 0x140676C7C
+ * XREFs of ?CreatePartitionTable@SC_RAW@@QEAAJXZ @ 0x1406771CC
  * Callers:
- *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1406755C8 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140675B18 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140675EBC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14067640C (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
  */
 
 __int64 __fastcall SC_RAW::CreatePartitionTable(SC_DISK **this)

@@ -1,7 +1,7 @@
 /*
- * XREFs of PiIommuIsPassthroughAllowedWhileConsoleLocked @ 0x140736004
+ * XREFs of PiIommuIsPassthroughAllowedWhileConsoleLocked @ 0x140733F34
  * Callers:
- *     PipDmgEnforceEnumerationPolicy @ 0x140731B84 (PipDmgEnforceEnumerationPolicy.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x14072FB94 (PipDmgEnforceEnumerationPolicy.c)
  * Callees:
  *     <none>
  */

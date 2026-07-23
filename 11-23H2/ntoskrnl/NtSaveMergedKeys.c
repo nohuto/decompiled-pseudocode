@@ -1,21 +1,21 @@
 /*
- * XREFs of NtSaveMergedKeys @ 0x140A0EE60
+ * XREFs of NtSaveMergedKeys @ 0x140A0F110
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     CmpIsRegistryLockAcquired @ 0x14022FC60 (CmpIsRegistryLockAcquired.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     CmCheckNoTxContext @ 0x140691C88 (CmCheckNoTxContext.c)
  *     CmPostCallbackNotificationEx @ 0x140691E30 (CmPostCallbackNotificationEx.c)
- *     CmpCallCallBacksEx @ 0x1406E85F0 (CmpCallCallBacksEx.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140946FA0 (IoConvertFileHandleToKernelHandle.c)
- *     CmSaveMergedKeys @ 0x140A0BD84 (CmSaveMergedKeys.c)
+ *     CmpCallCallBacksEx @ 0x1406E8620 (CmpCallCallBacksEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x1409471A0 (IoConvertFileHandleToKernelHandle.c)
+ *     CmSaveMergedKeys @ 0x140A0C034 (CmSaveMergedKeys.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
  *     CmpAcquireShutdownRundown @ 0x140AF5380 (CmpAcquireShutdownRundown.c)
@@ -23,13 +23,15 @@
  *     CmpReleaseShutdownRundown @ 0x140AF5470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtSaveMergedKeys(int a1, int a2, void *a3)
+NTSTATUS __cdecl NtSaveMergedKeys(HANDLE HighPrecedenceKeyHandle, HANDLE LowPrecedenceKeyHandle, HANDLE FileHandle)
 {
-  void *v4; // rdi
+  int v3; // r14d
+  HANDLE v4; // rdi
+  int v6; // r15d
   char v7; // r13
   __int64 v8; // rdx
   __int64 v9; // r8
-  signed int v10; // ebx
+  int v10; // ebx
   __int64 v11; // rdx
   __int64 v12; // rcx
   KPROCESSOR_MODE PreviousMode; // di
@@ -42,7 +44,7 @@ __int64 __fastcall NtSaveMergedKeys(int a1, int a2, void *a3)
   PVOID v20; // r15
   __int64 v21; // r12
   int v22; // eax
-  void *v24; // [rsp+40h] [rbp-89h] BYREF
+  HANDLE v24; // [rsp+40h] [rbp-89h] BYREF
   PVOID Object; // [rsp+48h] [rbp-81h] BYREF
   PVOID v26; // [rsp+50h] [rbp-79h] BYREF
   _QWORD v27[2]; // [rsp+58h] [rbp-71h] BYREF
@@ -55,10 +57,12 @@ __int64 __fastcall NtSaveMergedKeys(int a1, int a2, void *a3)
 
   v26 = 0LL;
   Object = 0LL;
+  v3 = (int)HighPrecedenceKeyHandle;
   v4 = 0LL;
   v32 = 0LL;
   v24 = 0LL;
   v28 = 0LL;
+  v6 = (int)LowPrecedenceKeyHandle;
   memset(v33, 0, sizeof(v33));
   v7 = 0;
   v29 = 0LL;
@@ -84,22 +88,22 @@ LABEL_21:
       goto LABEL_22;
     }
     LOBYTE(v15) = PreviousMode;
-    v10 = CmObReferenceObjectByHandle(a1, 0, v14, v15, (__int64)&v26, 0LL);
+    v10 = CmObReferenceObjectByHandle(v3, 0, v14, v15, (__int64)&v26, 0LL);
     if ( v10 < 0 )
       goto LABEL_21;
     LOBYTE(v17) = PreviousMode;
-    v10 = CmObReferenceObjectByHandle(a2, 0, v16, v17, (__int64)&Object, 0LL);
+    v10 = CmObReferenceObjectByHandle(v6, 0, v16, v17, (__int64)&Object, 0LL);
     if ( v10 < 0 )
       goto LABEL_21;
     if ( PreviousMode == 1 )
     {
-      v10 = IoConvertFileHandleToKernelHandle(a3, 1, 2, 0, &v24);
+      v10 = IoConvertFileHandleToKernelHandle(FileHandle, 1, 2, 0, &v24);
       if ( v10 < 0 )
         goto LABEL_21;
     }
     else
     {
-      v24 = a3;
+      v24 = FileHandle;
     }
     CurrentThread = KeGetCurrentThread();
     v19 = v26;
@@ -136,9 +140,9 @@ LABEL_22:
     ObfDereferenceObject(Object);
   if ( v26 )
     ObfDereferenceObject(v26);
-  if ( v4 && v4 != a3 )
+  if ( v4 && v4 != FileHandle )
     ZwClose(v4);
 LABEL_29:
   CmCleanupThreadInfo((__int64 *)&v28);
-  return (unsigned int)v10;
+  return v10;
 }

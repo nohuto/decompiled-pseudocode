@@ -34,7 +34,7 @@ int __fastcall RtlpSetProcUserMachineLangList(_DWORD *a1, unsigned int a2)
   if ( a2 == 1 && a1[10] || a1[9] && !a2 )
     return 0;
   RtlpInitMuiCriticalSection();
-  RtlEnterCriticalSection((int)&RegistryInfoCritSect);
+  RtlEnterCriticalSection(&RegistryInfoCritSect);
   ms_exc.registration.TryLevel = 0;
   if ( (!a1[10] || a2 != 1) && (!a1[9] || a2) )
   {
@@ -78,6 +78,6 @@ int __fastcall RtlpSetProcUserMachineLangList(_DWORD *a1, unsigned int a2)
     }
   }
   ms_exc.registration.TryLevel = -2;
-  RtlLeaveCriticalSection((int)&RegistryInfoCritSect);
+  RtlLeaveCriticalSection(&RegistryInfoCritSect);
   return v4;
 }

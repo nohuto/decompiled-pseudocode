@@ -1,28 +1,25 @@
 /*
- * XREFs of DbgkUnMapViewOfSection @ 0x1409C4448
+ * XREFs of DbgkUnMapViewOfSection @ 0x140995428
  * Callers:
- *     MiFreeEnclaveModules @ 0x140773CE8 (MiFreeEnclaveModules.c)
- *     MmFreeVirtualMemory @ 0x14095F3F0 (MmFreeVirtualMemory.c)
- *     NtUnmapViewOfSectionEx @ 0x1409C38B0 (NtUnmapViewOfSectionEx.c)
- *     NtUnmapViewOfSection @ 0x1409C3E60 (NtUnmapViewOfSection.c)
+ *     MiFreeEnclaveModules @ 0x140776CE8 (MiFreeEnclaveModules.c)
+ *     NtUnmapViewOfSectionEx @ 0x140994890 (NtUnmapViewOfSectionEx.c)
+ *     NtUnmapViewOfSection @ 0x140994E40 (NtUnmapViewOfSection.c)
+ *     MmFreeVirtualMemory @ 0x140A04CB0 (MmFreeVirtualMemory.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     DbgkpSuppressDbgMsg @ 0x14078A930 (DbgkpSuppressDbgMsg.c)
- *     DbgkpSendApiMessage @ 0x1409534DC (DbgkpSendApiMessage.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     DbgkpSuppressDbgMsg @ 0x14078D460 (DbgkpSuppressDbgMsg.c)
+ *     DbgkpSendApiMessage @ 0x1409CEE1C (DbgkpSendApiMessage.c)
  */
 
-__int64 __fastcall DbgkUnMapViewOfSection(_KPROCESS *a1, __int64 a2)
+__int64 __fastcall DbgkUnMapViewOfSection(_KPROCESS *a1)
 {
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rdx
-  struct _KTHREAD *v6; // rcx
+  struct _KTHREAD *v4; // rcx
   __int64 Teb; // rcx
-  _OWORD v8[2]; // [rsp+20h] [rbp-118h] BYREF
-  __int128 v9; // [rsp+40h] [rbp-F8h]
-  __int64 v10; // [rsp+50h] [rbp-E8h]
-  _BYTE v11[224]; // [rsp+58h] [rbp-E0h] BYREF
+  _BYTE v6[224]; // [rsp+58h] [rbp-E0h] BYREF
 
-  memset_0(v11, 0, 0xD8uLL);
+  memset_0(v6, 0, 0xD8uLL);
   result = (__int64)KeGetCurrentThread();
   if ( *(_BYTE *)(result + 562) )
   {
@@ -32,20 +29,19 @@ __int64 __fastcall DbgkUnMapViewOfSection(_KPROCESS *a1, __int64 a2)
     {
       if ( a1[1].UserTime )
       {
-        v6 = KeGetCurrentThread();
-        if ( (v6->MiscFlags & 0x400) != 0
-          || v6->ApcStateIndex == 1
-          || (Teb = (__int64)v6->Teb) == 0
-          || a1 != CurrentThread->Process
-          || (result = DbgkpSuppressDbgMsg(Teb), !(_DWORD)result) )
-        {
-          v10 = a2;
-          v9 = 0LL;
-          v8[0] = 0x800380010uLL;
-          DWORD2(v9) = 6;
-          v8[1] = 0LL;
-          return DbgkpSendApiMessage(a1, 1, (__int64)v8);
-        }
+        v4 = KeGetCurrentThread();
+        if ( (v4->MiscFlags & 0x400) != 0 )
+          return DbgkpSendApiMessage(a1);
+        if ( v4->ApcStateIndex == 1 )
+          return DbgkpSendApiMessage(a1);
+        Teb = (__int64)v4->Teb;
+        if ( !Teb )
+          return DbgkpSendApiMessage(a1);
+        if ( a1 != CurrentThread->Process )
+          return DbgkpSendApiMessage(a1);
+        result = DbgkpSuppressDbgMsg(Teb);
+        if ( !(_DWORD)result )
+          return DbgkpSendApiMessage(a1);
       }
     }
   }

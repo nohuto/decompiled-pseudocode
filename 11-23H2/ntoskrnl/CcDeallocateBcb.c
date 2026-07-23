@@ -1,10 +1,10 @@
 /*
- * XREFs of CcDeallocateBcb @ 0x1402F3F50
+ * XREFs of CcDeallocateBcb @ 0x1402F41E0
  * Callers:
- *     CcDeleteMbcb @ 0x1402F3E04 (CcDeleteMbcb.c)
- *     CcDeleteBcbs @ 0x1403C6668 (CcDeleteBcbs.c)
+ *     CcDeleteMbcb @ 0x1402F4094 (CcDeleteMbcb.c)
+ *     CcDeleteBcbs @ 0x1403C6848 (CcDeleteBcbs.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

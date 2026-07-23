@@ -1,28 +1,28 @@
 /*
- * XREFs of _PnpGetGenericStorePropertyKeys @ 0x1406DC208
+ * XREFs of _PnpGetGenericStorePropertyKeys @ 0x1406DC340
  * Callers:
- *     PiDqPnPGetObjectPropertyKeys @ 0x14063209C (PiDqPnPGetObjectPropertyKeys.c)
- *     PiDevCfgCopyObjectProperties @ 0x140636F9C (PiDevCfgCopyObjectProperties.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14064D464 (PiCreateDriverSwDeviceCallback.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x1406DB360 (_PnpGetObjectPropertyKeysWorker.c)
- *     DrvDbDeleteObjectSubKey @ 0x1406E0C4C (DrvDbDeleteObjectSubKey.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x140632150 (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140637050 (PiDevCfgCopyObjectProperties.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x14064D548 (PiCreateDriverSwDeviceCallback.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x1406DB498 (_PnpGetObjectPropertyKeysWorker.c)
+ *     DrvDbDeleteObjectSubKey @ 0x1406E0D84 (DrvDbDeleteObjectSubKey.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1400C38D0 (RtlUnalignedStringCchLengthW.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     RtlUnicodeStringToInteger @ 0x1404B8E10 (RtlUnicodeStringToInteger.c)
- *     _PnpCtxRegEnumValue @ 0x1404D5ABC (_PnpCtxRegEnumValue.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegQueryValue @ 0x140504098 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegEnumKey @ 0x1406D70F0 (_PnpCtxRegEnumKey.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1400C1760 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     RtlUnicodeStringToInteger @ 0x1404A31F0 (RtlUnicodeStringToInteger.c)
+ *     _PnpCtxRegEnumValue @ 0x1404B90C0 (_PnpCtxRegEnumValue.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1404E7028 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegEnumKey @ 0x1406D7228 (_PnpCtxRegEnumKey.c)
  */
 
 signed int __fastcall PnpGetGenericStorePropertyKeys(
         __int64 *a1,
-        __int64 a2,
+        int a2,
         const wchar_t *a3,
         char a4,
         __int64 a5,
@@ -30,7 +30,7 @@ signed int __fastcall PnpGetGenericStorePropertyKeys(
         unsigned int *a7)
 {
   const WCHAR *v7; // rdi
-  __int64 v8; // r11
+  int v8; // r11d
   signed int result; // eax
   __int64 v11; // rcx
   ULONG i; // r13d
@@ -69,7 +69,7 @@ signed int __fastcall PnpGetGenericStorePropertyKeys(
   v35 = a5;
   if ( !a3 || (result = RtlUnalignedStringCchLengthW(a3, 0x55uLL, &pcchLength), result >= 0) )
   {
-    result = PnpOpenPropertiesKey(a1, v8, 0LL, 9u, 0, v25, &v32);
+    result = PnpOpenPropertiesKey(a1, v8, 0LL, 9, 0, v25, &v32);
     if ( result == -1073741772 )
       return 0;
     if ( result >= 0 )

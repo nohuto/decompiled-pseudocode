@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlAddressInSectionTable @ 0x1400FA4C4
+ * XREFs of RtlAddressInSectionTable @ 0x1400F8250
  * Callers:
- *     RtlpImageDirectoryEntryToData64 @ 0x14007BBEC (RtlpImageDirectoryEntryToData64.c)
- *     RtlpImageDirectoryEntryToData32 @ 0x1400FA42C (RtlpImageDirectoryEntryToData32.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14051C6F4 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     RtlpImageDirectoryEntryToData64 @ 0x14007BC6C (RtlpImageDirectoryEntryToData64.c)
+ *     RtlpImageDirectoryEntryToData32 @ 0x1400F81B8 (RtlpImageDirectoryEntryToData32.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1404FFAE4 (LdrpAccessResourceDataNoMultipleLanguage.c)
  * Callees:
- *     RtlSectionTableFromVirtualAddress @ 0x1400FA514 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F82A0 (RtlSectionTableFromVirtualAddress.c)
  */
 
-__int64 __fastcall RtlAddressInSectionTable(__int64 a1, unsigned __int64 a2, unsigned int a3)
+PVOID __cdecl RtlAddressInSectionTable(PIMAGE_NT_HEADERS NtHeaders, PVOID BaseOfImage, ULONG VirtualAddress)
 {
   __int64 v3; // rdi
-  __int64 v5; // rax
+  PIMAGE_SECTION_HEADER v5; // rax
 
-  v3 = a3;
-  v5 = RtlSectionTableFromVirtualAddress();
+  v3 = VirtualAddress;
+  v5 = RtlSectionTableFromVirtualAddress(NtHeaders, BaseOfImage, VirtualAddress);
   if ( v5
-    && (a2 >= 0x7FFFFFFEFFFFLL
-     || v3 + a2 + *(unsigned int *)(v5 + 20) - (unsigned __int64)*(unsigned int *)(v5 + 12) < 0x7FFFFFFEFFFFLL) )
+    && ((unsigned __int64)BaseOfImage >= 0x7FFFFFFEFFFFLL
+     || (unsigned __int64)BaseOfImage + v5->PointerToRawData - (unsigned __int64)v5->VirtualAddress + v3 < 0x7FFFFFFEFFFFLL) )
   {
-    return v3 + a2 + *(unsigned int *)(v5 + 20) - (unsigned __int64)*(unsigned int *)(v5 + 12);
+    return (char *)BaseOfImage + v5->PointerToRawData - (unsigned __int64)v5->VirtualAddress + v3;
   }
   else
   {

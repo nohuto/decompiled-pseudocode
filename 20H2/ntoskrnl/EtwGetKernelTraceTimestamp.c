@@ -39,7 +39,7 @@
  *     _guard_dispatch_icall @ 0x140405F40 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
+LARGE_INTEGER __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
 {
   int v3; // ebx
   unsigned int v4; // r9d
@@ -48,8 +48,8 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2
   __int64 v7; // r10
   __int64 v8; // rcx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 result; // rax
-  __int64 v11; // [rsp+48h] [rbp+20h] BYREF
+  LARGE_INTEGER result; // rax
+  LARGE_INTEGER v11; // [rsp+48h] [rbp+20h] BYREF
 
   v3 = 0;
   if ( qword_140D248A0 )
@@ -76,12 +76,12 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2
   if ( (v3 & 4) != 0 )
     result = RtlGetSystemTimePrecise();
   else
-    result = 0LL;
-  a1[1].QuadPart = result;
+    result.QuadPart = 0LL;
+  a1[1] = result;
   if ( (v3 & 8) != 0 )
   {
-    result = __rdtsc();
-    a1[2].QuadPart = result;
+    result.QuadPart = __rdtsc();
+    a1[2] = result;
   }
   else
   {
@@ -89,10 +89,10 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2
   }
   if ( (v3 & 0x10) != 0 )
   {
-    v11 = 0LL;
-    ((void (__fastcall *)(__int64 *))off_140C009E0[0])(&v11);
+    v11.QuadPart = 0LL;
+    ((void (__fastcall *)(LARGE_INTEGER *))off_140C009E0[0])(&v11);
     result = v11;
-    a1[3].QuadPart = v11;
+    a1[3] = v11;
   }
   else
   {

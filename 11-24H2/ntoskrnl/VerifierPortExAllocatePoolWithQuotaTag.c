@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierPortExAllocatePoolWithQuotaTag @ 0x140B9BE90
+ * XREFs of VerifierPortExAllocatePoolWithQuotaTag @ 0x140B9DE90
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x14048CAC0 (ExAllocatePoolWithQuotaTag.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1404877E0 (ExAllocatePoolWithQuotaTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 PVOID __fastcall VerifierPortExAllocatePoolWithQuotaTag(
@@ -29,5 +29,5 @@ PVOID __fastcall VerifierPortExAllocatePoolWithQuotaTag(
   if ( (VfRuleClasses & 0x400000) != 0 && (MmVerifierData & 1) == 0 )
     return ExAllocatePoolWithQuotaTag((POOL_TYPE)v8, NumberOfBytes, Tag);
   LODWORD(v8) = v8 | 0x80;
-  return (PVOID)guard_dispatch_icall_no_overrides(v8, 0LL, NumberOfBytes, Tag);
+  return (PVOID)guard_dispatch_icall_no_overrides(v8, 0LL);
 }

@@ -6,9 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationWorkerFactory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WorkerFactoryHandle);
 }

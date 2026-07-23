@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuUpdatePageTableLevel @ 0x1405876F4
+ * XREFs of HalpIommuUpdatePageTableLevel @ 0x140589C14
  * Callers:
- *     HalpIommuInitializeAll @ 0x140C0D57C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x140C1378C (HalpIommuInitializeAll.c)
  * Callees:
  *     <none>
  */
@@ -15,28 +15,26 @@ __int64 HalpIommuUpdatePageTableLevel()
 
   v0 = HalpIommuList;
   result = 0xFFFFFFFFLL;
-  HIDWORD(HalpDeviceBlockUnblockPushLock.StackLimit) = 0;
-  HIDWORD(HalpDeviceBlockUnblockPushLock.StackBase) = -1;
-  LODWORD(HalpDeviceBlockUnblockPushLock.StateSaveArea) = -1;
-  HIDWORD(HalpDeviceBlockUnblockPushLock.ThreadLock) = 0;
+  HalpDeviceBlockUnblockPushLock.StackBase = (void *)0xFFFFFFFFLL;
+  HalpDeviceBlockUnblockPushLock.StateSaveArea = (_XSAVE_FORMAT *)0xFFFFFFFF00000000LL;
   while ( (ULONG_PTR *)v0 != &HalpIommuList )
   {
     v2 = *(_DWORD *)(v0 + 464);
     if ( (v2 & 0x100) != 0 )
     {
       result = (unsigned int)((unsigned __int16)v2 >> 13) + 1;
-      if ( (unsigned int)result > HIDWORD(HalpDeviceBlockUnblockPushLock.StackLimit) )
-        HIDWORD(HalpDeviceBlockUnblockPushLock.StackLimit) = ((unsigned __int16)v2 >> 13) + 1;
-      if ( (unsigned int)result < HIDWORD(HalpDeviceBlockUnblockPushLock.StackBase) )
+      if ( (unsigned int)result > HIDWORD(HalpDeviceBlockUnblockPushLock.StackBase) )
         HIDWORD(HalpDeviceBlockUnblockPushLock.StackBase) = ((unsigned __int16)v2 >> 13) + 1;
+      if ( (unsigned int)result < LODWORD(HalpDeviceBlockUnblockPushLock.StackBase) )
+        LODWORD(HalpDeviceBlockUnblockPushLock.StackBase) = ((unsigned __int16)v2 >> 13) + 1;
     }
     if ( (v2 & 0x80u) != 0 )
     {
       v3 = ((v2 >> 27) & 7) + 3;
-      if ( v3 > HIDWORD(HalpDeviceBlockUnblockPushLock.ThreadLock) )
-        HIDWORD(HalpDeviceBlockUnblockPushLock.ThreadLock) = v3;
-      if ( v3 < LODWORD(HalpDeviceBlockUnblockPushLock.StateSaveArea) )
+      if ( v3 > LODWORD(HalpDeviceBlockUnblockPushLock.StateSaveArea) )
         LODWORD(HalpDeviceBlockUnblockPushLock.StateSaveArea) = v3;
+      if ( v3 < HIDWORD(HalpDeviceBlockUnblockPushLock.StateSaveArea) )
+        HIDWORD(HalpDeviceBlockUnblockPushLock.StateSaveArea) = v3;
     }
     v0 = *(_QWORD *)v0;
   }

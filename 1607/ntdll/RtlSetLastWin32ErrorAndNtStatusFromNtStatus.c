@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlSetLastWin32ErrorAndNtStatusFromNtStatus @ 0x18005A450
+ * XREFs of RtlSetLastWin32ErrorAndNtStatusFromNtStatus @ 0x18005A440
  * Callers:
  *     <none>
  * Callees:
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
  */
 
-__int64 __fastcall RtlSetLastWin32ErrorAndNtStatusFromNtStatus(NTSTATUS a1)
+void __cdecl RtlSetLastWin32ErrorAndNtStatusFromNtStatus(NTSTATUS Status)
 {
-  ULONG v1; // eax
+  LONG v1; // eax
 
-  v1 = RtlNtStatusToDosError(a1);
-  return RtlSetLastWin32Error(v1);
+  v1 = RtlNtStatusToDosError(Status);
+  RtlSetLastWin32Error(v1);
 }

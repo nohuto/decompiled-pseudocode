@@ -32,7 +32,7 @@ NTSTATUS __fastcall PspLocateSystemDll(__int64 *a1, int a2)
   int v14; // eax
   __int64 v15; // [rsp+30h] [rbp-79h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-71h] BYREF
-  __int128 v17; // [rsp+68h] [rbp-41h] BYREF
+  __int128 InputBuffer; // [rsp+68h] [rbp-41h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-31h] BYREF
   _BYTE v19[64]; // [rsp+90h] [rbp-19h] BYREF
   int v20; // [rsp+D0h] [rbp+27h]
@@ -46,12 +46,12 @@ NTSTATUS __fastcall PspLocateSystemDll(__int64 *a1, int a2)
   *(&ObjectAttributes.Attributes + 1) = 0;
   Handle = 0LL;
   IoStatusBlock = 0LL;
-  v17 = 0LL;
+  InputBuffer = 0LL;
   memset_0(v19, 0, 0x48uLL);
   if ( (NtGlobalFlag & 0x40000) != 0 )
   {
-    v17 = *((_OWORD *)a1 + 1);
-    ZwSystemDebugControl(38LL, (__int64)&v17);
+    InputBuffer = *((_OWORD *)a1 + 1);
+    ZwSystemDebugControl(SysDbgKdPullRemoteFile, &InputBuffer, 0x10u, 0LL, 0, 0LL);
   }
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;

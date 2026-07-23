@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_SrtmAntiRollback__private_IsEnabledDeviceUsageNoInline @ 0x140607130
+ * XREFs of Feature_SrtmAntiRollback__private_IsEnabledDeviceUsageNoInline @ 0x140609C8C
  * Callers:
- *     BapdpProcessVsmKeyBlobs @ 0x140CE2A38 (BapdpProcessVsmKeyBlobs.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140CE8DD8 (BapdpProcessVsmKeyBlobs.c)
  * Callees:
- *     Feature_SrtmAntiRollback__private_IsEnabledFallback @ 0x14060716C (Feature_SrtmAntiRollback__private_IsEnabledFallback.c)
+ *     Feature_SrtmAntiRollback__private_IsEnabledFallback @ 0x140609CC8 (Feature_SrtmAntiRollback__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_SrtmAntiRollback__private_IsEnabledDeviceUsageNoInline()

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMakeVaRangeNoAccess @ 0x140498B94
+ * XREFs of MiMakeVaRangeNoAccess @ 0x14049351C
  * Callers:
- *     MiProtectPrivateMemory @ 0x140237480 (MiProtectPrivateMemory.c)
+ *     MiProtectPrivateMemory @ 0x140211610 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiUpdatePfnProtection @ 0x140238918 (MiUpdatePfnProtection.c)
- *     MiRotatedToFrameBuffer @ 0x140238E74 (MiRotatedToFrameBuffer.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiFreeWsleList @ 0x140287894 (MiFreeWsleList.c)
- *     MiUnlockVa @ 0x1402C7B34 (MiUnlockVa.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiGetWsleContents @ 0x1402E5390 (MiGetWsleContents.c)
- *     MiMakeTransitionPte @ 0x1402E67B0 (MiMakeTransitionPte.c)
- *     MiInsertLargeTbFlushEntry @ 0x1403A4A2C (MiInsertLargeTbFlushEntry.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1404F31F8 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x140202774 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiUpdatePfnProtection @ 0x140212AA8 (MiUpdatePfnProtection.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiRotatedToFrameBuffer @ 0x140213AD4 (MiRotatedToFrameBuffer.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14021C25C (MiInsertLargeTbFlushEntry.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiFreeWsleList @ 0x140297494 (MiFreeWsleList.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
+ *     MiGetWsleContents @ 0x140344BE0 (MiGetWsleContents.c)
+ *     MiMakeTransitionPte @ 0x140347DF0 (MiMakeTransitionPte.c)
+ *     MiUnlockVa @ 0x1403DB604 (MiUnlockVa.c)
  */
 
 __int64 __fastcall MiMakeVaRangeNoAccess(__int64 a1, ULONG_PTR *a2, unsigned __int64 a3, __int64 a4, _DWORD *a5)
@@ -36,8 +36,9 @@ __int64 __fastcall MiMakeVaRangeNoAccess(__int64 a1, ULONG_PTR *a2, unsigned __i
   unsigned __int64 i; // r15
   unsigned __int64 LeafVa; // rax
   ULONG_PTR TransitionPte; // rax
-  BOOL v25; // [rsp+30h] [rbp-48h]
-  __int64 v26; // [rsp+38h] [rbp-40h]
+  __int64 v25; // r9
+  BOOL v26; // [rsp+30h] [rbp-48h]
+  __int64 v27; // [rsp+38h] [rbp-40h]
 
   v6 = *(unsigned int *)(a1 + 48);
   p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
@@ -89,7 +90,7 @@ LABEL_18:
     goto LABEL_13;
   }
   v17 = 16LL;
-  v25 = (v6 & 0x600000) == 6291456;
+  v26 = (v6 & 0x600000) == 6291456;
   v18 = MiVadPageIndices[v15];
   if ( v16 != 16 )
     v17 = 1LL;
@@ -104,14 +105,14 @@ LABEL_18:
     MiInsertLargeTbFlushEntry(a4, 2 - v18, (unsigned __int64)a2);
   }
   v20 = (*a2 >> 12) & 0xFFFFFFFFFFLL;
-  v21 = v25;
-  v26 = 48 * v20 - 0x220000000000LL;
+  v21 = v26;
+  v27 = 48 * v20 - 0x220000000000LL;
   for ( i = 0LL; i < v17; ++i )
   {
     if ( v21 && (*a2 & 0x42) != 0 )
     {
       LeafVa = MiGetLeafVa((unsigned __int64)a2);
-      MiCaptureWriteWatchDirtyBit(KeGetCurrentThread()->ApcState.Process, LeafVa, a1);
+      MiCaptureWriteWatchDirtyBit((__int64)KeGetCurrentThread()->ApcState.Process, LeafVa, a1);
       v21 = 0;
     }
     TransitionPte = MiMakeTransitionPte(v20, 24);
@@ -123,6 +124,6 @@ LABEL_18:
     ++v20;
   }
   *(_DWORD *)(a4 + 20) |= 1u;
-  MiUpdatePfnProtection(a1, v26, 0x18u);
+  MiUpdatePfnProtection(a1, v27, 24LL, v25);
   return 1LL;
 }

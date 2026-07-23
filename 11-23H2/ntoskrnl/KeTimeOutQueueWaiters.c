@@ -1,12 +1,12 @@
 /*
- * XREFs of KeTimeOutQueueWaiters @ 0x14034EB4C
+ * XREFs of KeTimeOutQueueWaiters @ 0x14034ECEC
  * Callers:
- *     ExpWorkerFactoryManagerThread @ 0x14038EA40 (ExpWorkerFactoryManagerThread.c)
- *     ExpWorkQueueManagerThread @ 0x140838DC0 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14038EC20 (ExpWorkerFactoryManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x1408390C0 (ExpWorkQueueManagerThread.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KeTimeOutQueueWaiters(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall KeTimeOutQueueWaiters(__int64 a1, unsigned __int64 a2, unsign
   v8 = (unsigned __int64)((a2 * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v7;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v15) = 4;
@@ -56,6 +56,6 @@ __int64 __fastcall KeTimeOutQueueWaiters(__int64 a1, unsigned __int64 a2, unsign
     }
   }
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v4;
 }

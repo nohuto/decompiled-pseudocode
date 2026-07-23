@@ -6,30 +6,30 @@
  *     TppBarrierAdjust @ 0x1800042B4 (TppBarrierAdjust.c)
  */
 
-__int64 __fastcall TpDisassociateCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl TpDisassociateCallback(PTP_CALLBACK_INSTANCE Instance)
 {
-  __int64 v4; // rbx
-  char v5; // al
-  __int64 v6; // rdx
+  _RTL_SRWLOCK *v1; // rbx
+  char v2; // al
+  _RTL_SRWLOCK *Value; // rdx
 
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  v4 = *(_QWORD *)(a1 + 184);
-  if ( !v4 )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  if ( *(_QWORD *)(a1 + 176) )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  v5 = *(_BYTE *)(a1 + 76);
-  if ( (v5 & 2) != 0 )
-    return TppRaiseInvalidParameter(a1, a2, a3, a4);
-  *(_DWORD *)(a1 + 144) &= ~0x40u;
-  *(_BYTE *)(a1 + 76) = v5 | 2;
-  v6 = *(_QWORD *)(v4 + 16);
-  *(_QWORD *)(a1 + 176) = v6;
-  if ( v6 )
+  if ( !Instance
+    || (v1 = (_RTL_SRWLOCK *)*((_QWORD *)Instance + 23)) == 0LL
+    || *((_QWORD *)Instance + 22)
+    || (v2 = *((_BYTE *)Instance + 76), (v2 & 2) != 0) )
   {
-    *(_DWORD *)(a1 + 144) |= 0x20u;
-    TppBarrierAdjust((unsigned __int64 *)(v6 + 32), 1, 0);
+    TppRaiseInvalidParameter(Instance);
   }
-  return TppBarrierAdjust((unsigned __int64 *)(v4 + 56), -1, 0);
+  else
+  {
+    *((_DWORD *)Instance + 36) &= ~0x40u;
+    *((_BYTE *)Instance + 76) = v2 | 2;
+    Value = (_RTL_SRWLOCK *)v1[2].Value;
+    *((_QWORD *)Instance + 22) = Value;
+    if ( Value )
+    {
+      *((_DWORD *)Instance + 36) |= 0x20u;
+      TppBarrierAdjust(Value + 4, 1, 0);
+    }
+    TppBarrierAdjust(v1 + 7, -1, 0);
+  }
 }

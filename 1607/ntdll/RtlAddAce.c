@@ -1,102 +1,102 @@
 /*
- * XREFs of RtlAddAce @ 0x180073C10
+ * XREFs of RtlAddAce @ 0x180073C00
  * Callers:
- *     RtlCreateAndSetSD @ 0x18008C800 (RtlCreateAndSetSD.c)
+ *     RtlCreateAndSetSD @ 0x18008C7F0 (RtlCreateAndSetSD.c)
  * Callees:
- *     RtlFirstFreeAce @ 0x180014E20 (RtlFirstFreeAce.c)
- *     RtlValidAcl @ 0x180014FC0 (RtlValidAcl.c)
+ *     RtlFirstFreeAce @ 0x180014E10 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x180014FB0 (RtlValidAcl.c)
  */
 
-__int64 __fastcall RtlAddAce(__int64 a1, unsigned int a2, unsigned int a3, char *a4, unsigned int a5)
+NTSTATUS __cdecl RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex, PVOID AceList, ULONG AceListLength)
 {
-  char v9; // r15
-  unsigned __int8 *v10; // rcx
+  unsigned __int8 AclRevision; // r15
+  char *v10; // rcx
   __int64 v11; // r11
   __int16 v12; // r12
-  unsigned __int64 v13; // rdx
+  char *v13; // rdx
   unsigned __int8 v14; // al
-  unsigned int v15; // ecx
-  __int64 i; // rdx
+  ULONG v15; // ecx
+  PACL i; // rdx
   int v17; // r8d
   __int64 v18; // r10
   char *v19; // rsi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   bool v21; // cf
   __int64 v22; // r9
-  _QWORD v23[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( !RtlValidAcl(a1) || !RtlFirstFreeAce(a1, v23) )
-    return 3221225485LL;
-  v9 = *(_BYTE *)a1;
-  v10 = (unsigned __int8 *)a4;
-  v11 = a5;
-  if ( (unsigned __int8)a2 > *(_BYTE *)a1 )
-    v9 = a2;
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
+    return -1073741811;
+  AclRevision = Acl->AclRevision;
+  v10 = (char *)AceList;
+  v11 = AceListLength;
+  if ( (unsigned __int8)AceRevision > Acl->AclRevision )
+    AclRevision = AceRevision;
   v12 = 0;
-  v13 = (unsigned __int64)&a4[a5];
-  if ( (unsigned __int64)a4 < v13 )
+  v13 = (char *)AceList + AceListLength;
+  if ( AceList < v13 )
   {
     do
     {
       v14 = *v10;
-      if ( *v10 > 3u )
+      if ( (unsigned __int8)*v10 > 3u )
       {
         if ( v14 <= 4u )
         {
-          v21 = a2 < 3;
+          v21 = AceRevision < 3;
         }
         else
         {
           if ( v14 > 8u )
             goto LABEL_7;
-          v21 = a2 < 4;
+          v21 = AceRevision < 4;
         }
         if ( v21 )
-          return 3221225485LL;
+          return -1073741811;
       }
 LABEL_7:
       ++v12;
       v10 += *((unsigned __int16 *)v10 + 1);
     }
-    while ( (unsigned __int64)v10 < v13 );
+    while ( v10 < v13 );
   }
-  if ( (unsigned __int64)v10 > v13 )
-    return 3221225485LL;
-  if ( !v23[0] || (unsigned __int64)a5 + v23[0] > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
-    return 3221225507LL;
+  if ( v10 > v13 )
+    return -1073741811;
+  if ( !FirstFree || (char *)FirstFree + AceListLength > (char *)Acl + Acl->AclSize )
+    return -1073741789;
   v15 = 0;
-  for ( i = a1 + 8; v15 < a3; i += *(unsigned __int16 *)(i + 2) )
+  for ( i = Acl + 1; v15 < StartingAceIndex; i = (PACL)((char *)i + i->AclSize) )
   {
-    if ( v15 >= *(unsigned __int16 *)(a1 + 4) )
+    if ( v15 >= Acl->AceCount )
       break;
     ++v15;
   }
-  v17 = LODWORD(v23[0]) - i - 1;
+  v17 = (_DWORD)FirstFree - (_DWORD)i - 1;
   v18 = v17;
   if ( v17 >= 0 )
   {
-    v22 = v17 + a5;
+    v22 = v17 + AceListLength;
     do
     {
-      *(_BYTE *)(v22 + i) = *(_BYTE *)(v18 + i);
+      *(&i->AclRevision + v22) = *(&i->AclRevision + v18);
       v22 = (unsigned int)(v22 - 1);
       --v18;
     }
     while ( v18 >= 0 );
   }
-  if ( a5 )
+  if ( AceListLength )
   {
-    v19 = &a4[-i];
+    v19 = (char *)((_BYTE *)AceList - (_BYTE *)i);
     do
     {
-      *(_BYTE *)i = v19[i];
-      ++i;
+      i->AclRevision = *(&i->AclRevision + (_QWORD)v19);
+      i = (PACL)((char *)i + 1);
       --v11;
     }
     while ( v11 );
   }
-  *(_WORD *)(a1 + 4) += v12;
-  result = 0LL;
-  *(_BYTE *)a1 = v9;
+  Acl->AceCount += v12;
+  result = 0;
+  Acl->AclRevision = AclRevision;
   return result;
 }

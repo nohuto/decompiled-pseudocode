@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdatePhysicalPages @ 0x14068BA5C
+ * XREFs of MiUpdatePhysicalPages @ 0x14068CB8C
  * Callers:
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MiPerformMemoryChange @ 0x14066E094 (MiPerformMemoryChange.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MiPerformMemoryChange @ 0x14066F268 (MiPerformMemoryChange.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 KIRQL __fastcall MiUpdatePhysicalPages(__int64 a1, __int64 a2, int a3)

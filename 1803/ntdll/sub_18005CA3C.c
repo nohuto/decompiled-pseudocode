@@ -19,65 +19,75 @@
  *     sub_1800FE318 @ 0x1800FE318 (sub_1800FE318.c)
  */
 
-char __fastcall sub_18005CA3C(__int64 a1, __int64 a2)
+char __fastcall sub_18005CA3C(PVOID BaseAddress, __int64 a2)
 {
-  int v4; // eax
-  int v5; // ebx
+  ULONG Protect; // eax
+  NTSTATUS v5; // ebx
   __int64 v6; // rbx
-  __int64 v7; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   __int64 v8; // rcx
   __int64 v9; // rbx
   __int64 v10; // rcx
   char *v12; // r8
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // [rsp+50h] [rbp+20h] BYREF
-  char *v15; // [rsp+60h] [rbp+30h] BYREF
+  ULONG_PTR v13; // rdx
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+20h] BYREF
+  PVOID BaseAddressa; // [rsp+60h] [rbp+30h] BYREF
 
-  sub_18005CD40(a1, a2, &v15, &v14);
-  v4 = sub_180011A6C(a1, (*(_DWORD *)(a1 + 112) & 0x40000) != 0 ? 64 : 4);
-  v5 = ZwAllocateVirtualMemory(-1LL, &v15, 0LL, &v14, 4096, v4);
+  sub_18005CD40(BaseAddress, a2, &BaseAddressa, &RegionSize);
+  Protect = sub_180011A6C(BaseAddress, (*((_DWORD *)BaseAddress + 28) & 0x40000) != 0 ? 64 : 4);
+  v5 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, Protect);
   if ( v5 >= 0 )
   {
     v6 = 2147353472LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    if ( RtlGetCurrentServiceSessionId() )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v7 = 2147353472LL;
-    if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_1800FE0A4(a1, v15, v14, 8LL);
-    *(_QWORD *)(a1 + 632) -= v14;
-    --*(_DWORD *)(a1 + 628);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      sub_1800FE0A4(BaseAddress, BaseAddressa, RegionSize, 8LL);
+    *((_QWORD *)BaseAddress + 79) -= RegionSize;
+    --*((_DWORD *)BaseAddress + 157);
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
       v8 = 2147353472LL;
     if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-      sub_1800FE318(a1, (_DWORD)v15, v14, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v6);
+      if ( RtlGetCurrentServiceSessionId() )
+        v6 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+      sub_1800FE318(
+        (int)BaseAddress,
+        (int)BaseAddressa,
+        RegionSize,
+        16 * *((_QWORD *)BaseAddress + 24),
+        (HANDLE)*(unsigned __int8 *)v6);
     }
     v9 = 2147353482LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
+    if ( RtlGetCurrentServiceSessionId() )
+      v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[5];
     else
       v10 = 2147353482LL;
     if ( *(_BYTE *)v10 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
-      sub_1800FE318(a1, (_DWORD)v15, v14, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v9);
+      if ( RtlGetCurrentServiceSessionId() )
+        v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[5];
+      sub_1800FE318(
+        (int)BaseAddress,
+        (int)BaseAddressa,
+        RegionSize,
+        16 * *((_QWORD *)BaseAddress + 24),
+        (HANDLE)*(unsigned __int8 *)v9);
     }
-    ++*(_DWORD *)(a1 + 592);
+    ++*((_DWORD *)BaseAddress + 148);
     if ( (*(_BYTE *)(a2 + 10) & 4) == 0 )
       goto LABEL_12;
-    v12 = v15;
-    v13 = v14 >> 2;
-    if ( !(v14 >> 2) )
+    v12 = (char *)BaseAddressa;
+    v13 = RegionSize >> 2;
+    if ( !(RegionSize >> 2) )
       goto LABEL_12;
-    if ( ((unsigned __int8)v15 & 4) != 0 )
+    if ( ((unsigned __int8)BaseAddressa & 4) != 0 )
     {
-      *(_DWORD *)v15 = -17891602;
+      *(_DWORD *)BaseAddressa = -17891602;
       if ( !--v13 )
       {
 LABEL_12:
@@ -91,11 +101,16 @@ LABEL_12:
       *(_DWORD *)&v12[4 * v13 - 4] = -17891602;
     goto LABEL_12;
   }
-  ++*(_DWORD *)(a1 + 604);
+  ++*((_DWORD *)BaseAddress + 151);
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else
     DbgPrint("HEAP: ");
-  DbgPrint("ZwAllocateVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n", v5, (const void *)a1, v15, v14);
+  DbgPrint(
+    "ZwAllocateVirtualMemory failed %lx for heap %p (base %p, size %Ix)\n",
+    v5,
+    BaseAddress,
+    BaseAddressa,
+    RegionSize);
   return 0;
 }

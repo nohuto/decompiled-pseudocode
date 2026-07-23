@@ -1,10 +1,10 @@
 /*
- * XREFs of HalGetDmaTransferInfoInternal @ 0x140440890
+ * XREFs of HalGetDmaTransferInfoInternal @ 0x1404393A0
  * Callers:
- *     HalpBuildScatterGatherList @ 0x14044050C (HalpBuildScatterGatherList.c)
- *     HalGetDmaTransferInfo @ 0x140440850 (HalGetDmaTransferInfo.c)
+ *     HalpBuildScatterGatherList @ 0x14043901C (HalpBuildScatterGatherList.c)
+ *     HalGetDmaTransferInfo @ 0x140439360 (HalGetDmaTransferInfo.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x140440B80 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140439690 (HalpDmaGetAdapterCacheAlignment.c)
  */
 
 __int64 __fastcall HalGetDmaTransferInfoInternal(

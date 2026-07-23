@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPrepareNewAtsDevice @ 0x14060C758
+ * XREFs of ExpPrepareNewAtsDevice @ 0x14060CCA8
  * Callers:
- *     ExInitializeDeviceAts @ 0x14060C270 (ExInitializeDeviceAts.c)
+ *     ExInitializeDeviceAts @ 0x14060C7C0 (ExInitializeDeviceAts.c)
  * Callees:
- *     ExpAtsConfigureSecureDevice @ 0x140412830 (ExpAtsConfigureSecureDevice.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExpAtsConfigureSecureDevice @ 0x140412B70 (ExpAtsConfigureSecureDevice.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

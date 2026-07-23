@@ -29,10 +29,10 @@
  *     RtlpCallInterceptRoutine @ 0x1800B085E (RtlpCallInterceptRoutine.c)
  *     RtlpGetReservedBlockSize @ 0x1800B114E (RtlpGetReservedBlockSize.c)
  *     RtlpValidateLFHBlock @ 0x1800B12B6 (RtlpValidateLFHBlock.c)
- *     RtlpHpStackTraceRemoveStack @ 0x180117AD0 (RtlpHpStackTraceRemoveStack.c)
- *     RtlpLogHeapFreeEvent @ 0x1801187B0 (RtlpLogHeapFreeEvent.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
- *     RtlpHpSegGetDescriptorValidateSafe @ 0x1801236BC (RtlpHpSegGetDescriptorValidateSafe.c)
+ *     RtlpHpStackTraceRemoveStack @ 0x180117AA0 (RtlpHpStackTraceRemoveStack.c)
+ *     RtlpLogHeapFreeEvent @ 0x180118780 (RtlpLogHeapFreeEvent.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
+ *     RtlpHpSegGetDescriptorValidateSafe @ 0x18012368C (RtlpHpSegGetDescriptorValidateSafe.c)
  */
 
 __int64 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, int a3, __int64 *a4, _WORD *a5)
@@ -108,7 +108,7 @@ __int64 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, int a3,
   unsigned __int16 v77; // ax
   __int64 v78; // rcx
   struct _TEB *v79; // rbx
-  __int64 v80; // rcx
+  ULONG *v80; // rcx
   int v81; // ecx
   signed __int32 *v82; // rbx
   unsigned int v83; // edx
@@ -137,7 +137,7 @@ __int64 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, int a3,
   __int64 v106; // rbp
   unsigned __int16 ReservedBlockSize; // ax
   __int64 v108; // rcx
-  unsigned int HeapProtection; // eax
+  ULONG HeapProtection; // eax
   int v110; // r9d
   signed __int64 v111; // rtt
   __int64 v112; // rcx
@@ -152,16 +152,16 @@ __int64 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, int a3,
   unsigned __int16 *v121; // rcx
   __int64 v122; // rcx
   signed __int32 v123[8]; // [rsp+0h] [rbp-B8h] BYREF
-  __int64 v124; // [rsp+20h] [rbp-98h]
+  PULONG OldProtect; // [rsp+20h] [rbp-98h]
   unsigned __int64 v125; // [rsp+30h] [rbp-88h]
   unsigned int v126; // [rsp+38h] [rbp-80h]
   signed __int32 *v127; // [rsp+48h] [rbp-70h]
   __int64 v128; // [rsp+50h] [rbp-68h]
   int v129; // [rsp+58h] [rbp-60h]
   unsigned int v130; // [rsp+60h] [rbp-58h] BYREF
-  char v131[4]; // [rsp+64h] [rbp-54h] BYREF
-  unsigned __int64 v132; // [rsp+68h] [rbp-50h] BYREF
-  unsigned __int64 v133; // [rsp+70h] [rbp-48h] BYREF
+  ULONG v131; // [rsp+64h] [rbp-54h] BYREF
+  ULONG_PTR RegionSize; // [rsp+68h] [rbp-50h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp-48h] BYREF
   __int128 v134; // [rsp+80h] [rbp-38h] BYREF
   unsigned __int64 v135; // [rsp+C0h] [rbp+8h] BYREF
 
@@ -239,12 +239,12 @@ LABEL_159:
       }
       else
       {
-        v62 = RtlCSparseBitmapBitmaskRead(&unk_180188A90, 2 * ((v8 - qword_180188A88) >> 20));
+        v62 = RtlCSparseBitmapBitmaskRead(&::BaseAddress, 2 * ((v8 - qword_180188A88) >> 20));
         if ( !v62 || (v43 = v62 - 1, v43 == 2) )
         {
           v52 = RtlpHpLargeFree(a1, v8, v13) != 0;
           LODWORD(v135) = v52;
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v63 = (__int64)NtCurrentPeb()->SharedData + 550;
           else
             v63 = 2147353472LL;
@@ -310,7 +310,7 @@ LABEL_56:
               {
                 RtlpHpSegPageRangeShrink(v45, DescriptorValidateSafe, 0, v13);
                 v52 = 1;
-                if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+                if ( RtlGetCurrentServiceSessionId() )
                   v66 = (__int64)NtCurrentPeb()->SharedData + 550;
                 else
                   v66 = 2147353472LL;
@@ -325,7 +325,7 @@ LABEL_56:
                 }
                 else
                 {
-                  v52 = RtlpHpVsContextFree(*(_QWORD *)(v45 + 32), v50, v8, v13, &v130);
+                  v52 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(v45 + 32), v50, v8, v13, &v130);
                   v5 = 1;
                   if ( v52 )
                   {
@@ -389,7 +389,7 @@ LABEL_56:
     }
     else
     {
-      v61 = RtlCSparseBitmapBitmaskRead(&unk_180188A90, 2 * ((v8 - qword_180188A88) >> 20));
+      v61 = RtlCSparseBitmapBitmaskRead(&::BaseAddress, 2 * ((v8 - qword_180188A88) >> 20));
       if ( !v61 || (v16 = v61 - 1, v16 == 2) )
       {
         v40 = RtlpHpLargeAllocSize(a1, v8, v13, &v135);
@@ -646,11 +646,11 @@ LABEL_183:
         goto LABEL_202;
       if ( (a3 & 0x3C000102) != 0 )
         goto LABEL_126;
-      v80 = *(_BYTE *)(v8 - 1) == 5 ? v8 - 16LL * *(unsigned __int8 *)(v8 - 16 + 14) : 0LL;
-      v124 = v80;
+      v80 = *(_BYTE *)(v8 - 1) == 5 ? (ULONG *)(v8 - 16LL * *(unsigned __int8 *)(v8 - 16 + 14)) : 0LL;
+      OldProtect = v80;
       v81 = *(_DWORD *)(v8 - 8);
       v125 = v10 + 15;
-      if ( (int)RtlpCallInterceptRoutine(v81, a1, v8, 3, v124) >= 0 )
+      if ( (int)RtlpCallInterceptRoutine(v81, a1, v8, 3, (__int64)OldProtect) >= 0 )
         goto LABEL_126;
 LABEL_203:
       NtCurrentTeb()->LastStatusValue = -1073741811;
@@ -687,7 +687,7 @@ LABEL_278:
     RtlpLogHeapFailure(3, v86, v10, 0, 0LL, 0LL);
     goto LABEL_279;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v87 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v87 = 2147353472LL;
@@ -867,12 +867,12 @@ LABEL_244:
   v128 = *(_QWORD *)v98;
   if ( !v67 )
   {
-    v133 = (*((_QWORD *)v98 + 1) + 4151LL) & 0xFFFFFFFFFFFFF000uLL;
+    BaseAddress = (PVOID)((*((_QWORD *)v98 + 1) + 4151LL) & 0xFFFFFFFFFFFFF000uLL);
     ReservedBlockSize = RtlpGetReservedBlockSize(v98, v102, v100, v101);
     v108 = *(_QWORD *)(v106 + 24);
-    v132 = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v98 + 20);
+    RegionSize = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v98 + 20);
     HeapProtection = RtlpGetHeapProtection(v108, 1LL);
-    ZwProtectVirtualMemory(-1LL, &v133, &v132, HeapProtection, v131);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, HeapProtection, &v131);
   }
   *(_DWORD *)(*((_QWORD *)v98 + 1) + 20LL) = 0;
   RtlpFreeUserBlock(v106, *((_QWORD *)v98 + 1), v100, v101);

@@ -1,8 +1,8 @@
 /*
- * XREFs of PsChargeProcessQuota @ 0x14013DA78
+ * XREFs of PsChargeProcessQuota @ 0x14013DB78
  * Callers:
- *     MmAdjustWorkingSetSizeEx @ 0x14013C064 (MmAdjustWorkingSetSizeEx.c)
- *     MmCreateProcessAddressSpace @ 0x1406D1898 (MmCreateProcessAddressSpace.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14013C164 (MmAdjustWorkingSetSizeEx.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D2B38 (MmCreateProcessAddressSpace.c)
  * Callees:
  *     PspChargeQuota @ 0x14004D3A0 (PspChargeQuota.c)
  */

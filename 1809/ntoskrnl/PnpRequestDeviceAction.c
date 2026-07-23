@@ -1,41 +1,41 @@
 /*
- * XREFs of PnpRequestDeviceAction @ 0x14015F004
+ * XREFs of PnpRequestDeviceAction @ 0x14015F104
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x140132740 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoInvalidateDeviceRelations @ 0x14015EF50 (IoInvalidateDeviceRelations.c)
- *     IoInvalidateDeviceState @ 0x140176330 (IoInvalidateDeviceState.c)
- *     PnpInitializeProcessor @ 0x140287718 (PnpInitializeProcessor.c)
- *     PiControlGetSetDeviceStatus @ 0x14059BD40 (PiControlGetSetDeviceStatus.c)
- *     PiProcessQueryDeviceState @ 0x1406E9C44 (PiProcessQueryDeviceState.c)
- *     IopReleaseDeviceResources @ 0x1406ED684 (IopReleaseDeviceResources.c)
- *     PnpInvalidateRelationsInList @ 0x1406EDCB0 (PnpInvalidateRelationsInList.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
- *     PiResetProblemDevicesWorker @ 0x14070CBD0 (PiResetProblemDevicesWorker.c)
- *     IopDeleteDriver @ 0x14070EDD0 (IopDeleteDriver.c)
- *     IopReleaseFilteredBootResources @ 0x14072D988 (IopReleaseFilteredBootResources.c)
- *     PnpBootPhaseComplete @ 0x14073A3D0 (PnpBootPhaseComplete.c)
- *     PpDevCfgProcessDevices @ 0x14073A48C (PpDevCfgProcessDevices.c)
- *     PiDevCfgProcessDeviceCallback @ 0x140750BC0 (PiDevCfgProcessDeviceCallback.c)
- *     IoReportRootDevice @ 0x140758BF0 (IoReportRootDevice.c)
- *     PipAttemptDependentStart @ 0x140823CD4 (PipAttemptDependentStart.c)
- *     PpSystemHiveLimitCallback @ 0x1408278F0 (PpSystemHiveLimitCallback.c)
- *     PipDmgRequestRestartOnBlockedDevice @ 0x1408394A0 (PipDmgRequestRestartOnBlockedDevice.c)
- *     PiQueueDeviceRequest @ 0x14083C7E8 (PiQueueDeviceRequest.c)
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
- *     PipInitializeCoreDriversByGroup @ 0x1409CA988 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeSystemDrivers @ 0x1409CACC4 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x140132810 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoInvalidateDeviceRelations @ 0x14015F050 (IoInvalidateDeviceRelations.c)
+ *     IoInvalidateDeviceState @ 0x140176430 (IoInvalidateDeviceState.c)
+ *     PnpInitializeProcessor @ 0x140287908 (PnpInitializeProcessor.c)
+ *     PiControlGetSetDeviceStatus @ 0x14059CD40 (PiControlGetSetDeviceStatus.c)
+ *     PiProcessQueryDeviceState @ 0x1406EAEE4 (PiProcessQueryDeviceState.c)
+ *     IopReleaseDeviceResources @ 0x1406EE924 (IopReleaseDeviceResources.c)
+ *     PnpInvalidateRelationsInList @ 0x1406EEF50 (PnpInvalidateRelationsInList.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
+ *     PiResetProblemDevicesWorker @ 0x14070DE70 (PiResetProblemDevicesWorker.c)
+ *     IopDeleteDriver @ 0x140710070 (IopDeleteDriver.c)
+ *     IopReleaseFilteredBootResources @ 0x14072EB78 (IopReleaseFilteredBootResources.c)
+ *     PnpBootPhaseComplete @ 0x14073B5C0 (PnpBootPhaseComplete.c)
+ *     PpDevCfgProcessDevices @ 0x14073B67C (PpDevCfgProcessDevices.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x140751DB0 (PiDevCfgProcessDeviceCallback.c)
+ *     IoReportRootDevice @ 0x140759DE0 (IoReportRootDevice.c)
+ *     PipAttemptDependentStart @ 0x140824ED4 (PipAttemptDependentStart.c)
+ *     PpSystemHiveLimitCallback @ 0x140828AF0 (PpSystemHiveLimitCallback.c)
+ *     PipDmgRequestRestartOnBlockedDevice @ 0x14083A700 (PipDmgRequestRestartOnBlockedDevice.c)
+ *     PiQueueDeviceRequest @ 0x14083DA48 (PiQueueDeviceRequest.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
+ *     PipInitializeCoreDriversByGroup @ 0x1409CB988 (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeSystemDrivers @ 0x1409CBCC4 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     PnpIsSafeToExamineUserModeTeb @ 0x1400065D8 (PnpIsSafeToExamineUserModeTeb.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     PnpDeviceActionWorker @ 0x14015F300 (PnpDeviceActionWorker.c)
- *     PnpLogActionQueueEvent @ 0x14015F76C (PnpLogActionQueueEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     PnpDeviceActionWorker @ 0x14015F400 (PnpDeviceActionWorker.c)
+ *     PnpLogActionQueueEvent @ 0x14015F86C (PnpLogActionQueueEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRequestDeviceAction(
@@ -118,13 +118,13 @@ LABEL_12:
     v15 = 0LL;
   PnpLogActionQueueEvent(v15, (unsigned int)a2, 0LL, 0LL, 0, PoolWithTag);
   v16 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
-  v17 = (_QWORD *)qword_1404335F8;
-  if ( *(__int64 **)qword_1404335F8 != &PnpEnumerationRequestList )
+  v17 = (_QWORD *)qword_1404346A8;
+  if ( *(__int64 **)qword_1404346A8 != &PnpEnumerationRequestList )
     __fastfail(3u);
   *(_QWORD *)PoolWithTag = &PnpEnumerationRequestList;
   *((_QWORD *)PoolWithTag + 1) = v17;
   *v17 = PoolWithTag;
-  qword_1404335F8 = (__int64)PoolWithTag;
+  qword_1404346A8 = (__int64)PoolWithTag;
   if ( a7 )
   {
     ++*((_DWORD *)PoolWithTag + 18);

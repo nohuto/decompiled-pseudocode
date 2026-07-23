@@ -1,15 +1,15 @@
 /*
- * XREFs of MmSetGraphicsPtes @ 0x1407EB910
+ * XREFs of MmSetGraphicsPtes @ 0x1407EBEE0
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiGetVadPageSize @ 0x1404272B0 (MiGetVadPageSize.c)
- *     MiUnlockAweVadsExclusive @ 0x1404B3C74 (MiUnlockAweVadsExclusive.c)
- *     MiLockAweVadsExclusive @ 0x1404B3CC4 (MiLockAweVadsExclusive.c)
- *     MiSetGraphicsPtes @ 0x140672698 (MiSetGraphicsPtes.c)
- *     MiGetAwePageSizeFromVa @ 0x140682524 (MiGetAwePageSizeFromVa.c)
+ *     MiUnlockAweVadsExclusive @ 0x14026783C (MiUnlockAweVadsExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x14026788C (MiLockAweVadsExclusive.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiGetVadPageSize @ 0x14041B130 (MiGetVadPageSize.c)
+ *     MiSetGraphicsPtes @ 0x140673868 (MiSetGraphicsPtes.c)
+ *     MiGetAwePageSizeFromVa @ 0x140683714 (MiGetAwePageSizeFromVa.c)
  */
 
 __int64 __fastcall MmSetGraphicsPtes(
@@ -52,7 +52,7 @@ __int64 __fastcall MmSetGraphicsPtes(
     {
       v26 = 0;
       v14 = 0;
-      v15 = MiObtainReferencedVadEx(a1, 0LL, (int *)&v26);
+      v15 = MiObtainReferencedVadEx(a1, 0LL, (int *)&v26, a4);
       v16 = (void *)v15;
       if ( !v15 )
         return v26;

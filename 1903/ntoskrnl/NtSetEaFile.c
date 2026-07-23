@@ -49,7 +49,7 @@ NTSTATUS __stdcall NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r13
   ULONG Flags; // eax
   ULONG v25; // ebx
-  struct _FILE_FULL_EA_INFORMATION *PoolWithQuota_0; // rdi
+  _FILE_FULL_EA_INFORMATION *PoolWithQuota_0; // rdi
   int v27; // eax
   PMDL Mdl; // rcx
   char v29; // bl
@@ -174,7 +174,7 @@ LABEL_23:
             goto LABEL_43;
           }
           v32 = 0;
-          PoolWithQuota_0 = (struct _FILE_FULL_EA_INFORMATION *)IopVerifierExAllocatePoolWithQuota_0(0LL, EaBufferSize);
+          PoolWithQuota_0 = (_FILE_FULL_EA_INFORMATION *)IopVerifierExAllocatePoolWithQuota_0(0LL, EaBufferSize);
           Irp->AssociatedIrp.MasterIrp = (struct _IRP *)PoolWithQuota_0;
           memmove(PoolWithQuota_0, EaBuffer, EaBufferSize);
           v27 = IoCheckEaBufferValidity(PoolWithQuota_0, EaBufferSize, &ErrorOffset);

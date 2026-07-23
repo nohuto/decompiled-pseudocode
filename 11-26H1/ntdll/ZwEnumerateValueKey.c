@@ -1,21 +1,27 @@
 /*
- * XREFs of ZwEnumerateValueKey @ 0x18015F1A0
+ * XREFs of ZwEnumerateValueKey @ 0x18015F0A0
  * Callers:
- *     RtlpPopulateLanguageConfigList @ 0x18000D360 (RtlpPopulateLanguageConfigList.c)
- *     RtlpQueryRegistryValues @ 0x180059B20 (RtlpQueryRegistryValues.c)
- *     RtlpLookupSafeCurDirList @ 0x180106064 (RtlpLookupSafeCurDirList.c)
- *     RtlpIsEmptyImageFileOptionsKey @ 0x180125AF4 (RtlpIsEmptyImageFileOptionsKey.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x18014E0C8 (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x18014E314 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     RtlpQueryRegistryValues @ 0x1800440A0 (RtlpQueryRegistryValues.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180058A90 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpLookupSafeCurDirList @ 0x180105A64 (RtlpLookupSafeCurDirList.c)
+ *     RtlpIsEmptyImageFileOptionsKey @ 0x180125864 (RtlpIsEmptyImageFileOptionsKey.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x18014DF78 (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x18014E1C4 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwEnumerateValueKey()
+NTSTATUS __cdecl ZwEnumerateValueKey(
+        HANDLE KeyHandle,
+        ULONG Index,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 19LL;
+  result = 19;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

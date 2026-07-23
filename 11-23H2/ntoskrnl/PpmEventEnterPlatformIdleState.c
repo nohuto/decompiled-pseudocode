@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmEventEnterPlatformIdleState @ 0x14059A060
+ * XREFs of PpmEventEnterPlatformIdleState @ 0x14059A550
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmEventEnterPlatformIdleState(int a1)

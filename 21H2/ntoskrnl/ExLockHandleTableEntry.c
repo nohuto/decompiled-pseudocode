@@ -1,17 +1,17 @@
 /*
- * XREFs of ExLockHandleTableEntry @ 0x140348860
+ * XREFs of ExLockHandleTableEntry @ 0x1403535B0
  * Callers:
- *     ObWaitForMultipleObjects @ 0x1405FCDC0 (ObWaitForMultipleObjects.c)
- *     ExDupHandleTable @ 0x140606160 (ExDupHandleTable.c)
- *     PspReferenceCidTableEntry @ 0x140625A50 (PspReferenceCidTableEntry.c)
- *     ObReferenceFileObjectForWrite @ 0x140650510 (ObReferenceFileObjectForWrite.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1406855C0 (ObpReferenceProcessObjectByHandle.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     ObpAuditObjectAccess @ 0x1408DCAC4 (ObpAuditObjectAccess.c)
- *     ExQueryProcessHandleInformation @ 0x14094C8A4 (ExQueryProcessHandleInformation.c)
- *     ExpSnapShotHandleTables @ 0x14094CC30 (ExpSnapShotHandleTables.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x1405E27D0 (ObpReferenceProcessObjectByHandle.c)
+ *     ObReferenceFileObjectForWrite @ 0x140645330 (ObReferenceFileObjectForWrite.c)
+ *     PspReferenceCidTableEntry @ 0x14068F6C0 (PspReferenceCidTableEntry.c)
+ *     ExDupHandleTable @ 0x140695BF0 (ExDupHandleTable.c)
+ *     ObWaitForMultipleObjects @ 0x1406EC520 (ObWaitForMultipleObjects.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ObpAuditObjectAccess @ 0x1408DCC24 (ObpAuditObjectAccess.c)
+ *     ExQueryProcessHandleInformation @ 0x14094CA74 (ExQueryProcessHandleInformation.c)
+ *     ExpSnapShotHandleTables @ 0x14094CE00 (ExpSnapShotHandleTables.c)
  * Callees:
- *     ExpBlockOnLockedHandleEntry @ 0x140685788 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1405E2998 (ExpBlockOnLockedHandleEntry.c)
  */
 
 char __fastcall ExLockHandleTableEntry(__int64 a1, signed __int64 *a2)

@@ -74,9 +74,9 @@ LABEL_21:
           if ( v10 )
           {
             if ( a3 != -2 )
-              RtlReleaseSRWLockExclusive(a2 + 24);
+              RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
             if ( (a5 & 1) == 0 )
-              RtlReleaseSRWLockShared(a1 + 48);
+              RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 48));
           }
           return;
         }
@@ -105,10 +105,10 @@ LABEL_21:
         if ( !v10 )
         {
           if ( (a5 & 1) == 0 )
-            RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 48));
+            RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 48));
           v10 = 2;
           if ( v9 != -2 )
-            RtlAcquireSRWLockExclusive(a2 + 24);
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
           goto LABEL_18;
         }
         v17 = *(_BYTE *)(a2 + 44);

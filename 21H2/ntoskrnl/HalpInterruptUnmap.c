@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptUnmap @ 0x140761838
+ * XREFs of HalpInterruptUnmap @ 0x1407619F8
  * Callers:
- *     HalpTimerUnmapInterrupt @ 0x1404C0588 (HalpTimerUnmapInterrupt.c)
- *     HaliRemoveInterruptRemapping @ 0x140761810 (HaliRemoveInterruptRemapping.c)
+ *     HalpTimerUnmapInterrupt @ 0x1404C07C8 (HalpTimerUnmapInterrupt.c)
+ *     HaliRemoveInterruptRemapping @ 0x1407619D0 (HaliRemoveInterruptRemapping.c)
  * Callees:
- *     HalpInterruptIsHvLineBasedIntRemappingSupported @ 0x14036D770 (HalpInterruptIsHvLineBasedIntRemappingSupported.c)
- *     xHalUnmaskInterrupt @ 0x14036D790 (xHalUnmaskInterrupt.c)
- *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
- *     HalpInterruptIsRemappingRequired @ 0x14037903C (HalpInterruptIsRemappingRequired.c)
- *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
- *     HalpSetIrtEntry @ 0x1404D1578 (HalpSetIrtEntry.c)
- *     HalpInterruptSetProblemEx @ 0x1404D1A88 (HalpInterruptSetProblemEx.c)
- *     HalpIrtFreeIndex @ 0x140865E18 (HalpIrtFreeIndex.c)
- *     HalpHvUnmapDeviceInterrupt @ 0x1409A7334 (HalpHvUnmapDeviceInterrupt.c)
- *     HalpHvUnmapDeviceMsiRange @ 0x1409A73A0 (HalpHvUnmapDeviceMsiRange.c)
+ *     HalpInterruptIsHvLineBasedIntRemappingSupported @ 0x14036D920 (HalpInterruptIsHvLineBasedIntRemappingSupported.c)
+ *     xHalUnmaskInterrupt @ 0x14036D940 (xHalUnmaskInterrupt.c)
+ *     HalpInterruptFindLines @ 0x1403787F0 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140378850 (HalpInterruptLookupController.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
+ *     HalpInterruptIsRemappingRequired @ 0x140378B8C (HalpInterruptIsRemappingRequired.c)
+ *     HalpInterruptModel @ 0x14037AEA4 (HalpInterruptModel.c)
+ *     HalpSetIrtEntry @ 0x1404D17B8 (HalpSetIrtEntry.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D1CC8 (HalpInterruptSetProblemEx.c)
+ *     HalpIrtFreeIndex @ 0x140865F78 (HalpIrtFreeIndex.c)
+ *     HalpHvUnmapDeviceInterrupt @ 0x1409A8264 (HalpHvUnmapDeviceInterrupt.c)
+ *     HalpHvUnmapDeviceMsiRange @ 0x1409A82D0 (HalpHvUnmapDeviceMsiRange.c)
  */
 
 __int64 __fastcall HalpInterruptUnmap(
@@ -136,7 +136,7 @@ LABEL_24:
     v21 = 18;
     return HalpInterruptSetProblemEx(v27, v21, v22, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", v29);
   }
-  if ( qword_140C4A1A8 )
+  if ( qword_140C4A1E8 )
   {
     *(_DWORD *)(Lines[5] + 12LL) |= 0x10u;
     HalpHvUnmapDeviceInterrupt(*((unsigned int *)v17 + 58), v19, Lines[5]);

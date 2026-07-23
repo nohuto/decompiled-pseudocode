@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTrackSystemCallEntry @ 0x140844C80
+ * XREFs of KiTrackSystemCallEntry @ 0x140845EE0
  * Callers:
- *     KiSystemCall64 @ 0x1401CF100 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x1401CF200 (KiSystemCall64.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PerfInfoLogSysCallEntry @ 0x140312320 (PerfInfoLogSysCallEntry.c)
- *     KiSystemServiceTraceTableCompareFunction @ 0x140844C64 (KiSystemServiceTraceTableCompareFunction.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PerfInfoLogSysCallEntry @ 0x140312510 (PerfInfoLogSysCallEntry.c)
+ *     KiSystemServiceTraceTableCompareFunction @ 0x140845EC4 (KiSystemServiceTraceTableCompareFunction.c)
  */
 
 __int64 __fastcall KiTrackSystemCallEntry(unsigned __int64 a1, __int64 a2, int a3, __int64 a4)

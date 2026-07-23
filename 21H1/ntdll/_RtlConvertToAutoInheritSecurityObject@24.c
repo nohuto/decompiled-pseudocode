@@ -6,7 +6,19 @@
  *     _RtlpConvertToAutoInheritSecurityObject@24 @ 0x4B348358 (_RtlpConvertToAutoInheritSecurityObject@24.c)
  */
 
-int __stdcall RtlConvertToAutoInheritSecurityObject(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl RtlConvertToAutoInheritSecurityObject(
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CurrentSecurityDescriptor,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor,
+        GUID *ObjectType,
+        BOOLEAN IsDirectoryObject,
+        PGENERIC_MAPPING GenericMapping)
 {
-  return RtlpConvertToAutoInheritSecurityObject(a3, a4, a5, a6);
+  return RtlpConvertToAutoInheritSecurityObject(
+           ParentDescriptor,
+           CurrentSecurityDescriptor,
+           NewSecurityDescriptor,
+           ObjectType,
+           IsDirectoryObject,
+           GenericMapping);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpPreQueryKeyName @ 0x140883EF0
+ * XREFs of VrpPreQueryKeyName @ 0x140884050
  * Callers:
  *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwActivityIdControl @ 0x140272110 (EtwActivityIdControl.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
@@ -55,7 +55,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     v20 = 0;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02168,
-      (unsigned __int8 *)qword_140024450,
+      (unsigned __int8 *)&word_14002439E,
       &ActivityId,
       0LL,
       4u,
@@ -96,7 +96,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     v22 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02168,
-      (unsigned __int8 *)&dword_1400241FC,
+      (unsigned __int8 *)&dword_140024254,
       &ActivityId,
       0LL,
       5u,

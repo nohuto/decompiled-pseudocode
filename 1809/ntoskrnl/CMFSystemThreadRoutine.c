@@ -1,28 +1,28 @@
 /*
- * XREFs of CMFSystemThreadRoutine @ 0x1408D94A0
+ * XREFs of CMFSystemThreadRoutine @ 0x1408DA760
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
- *     ZwReadFile @ 0x1401B8250 (ZwReadFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1401B8690 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1401B86D0 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CMFCreateSecurityDescriptor @ 0x1408D8610 (CMFCreateSecurityDescriptor.c)
- *     CMFGetFileSizeEx @ 0x1408D8ED4 (CMFGetFileSizeEx.c)
- *     CMFGetLargePageSectionSize @ 0x1408D8F3C (CMFGetLargePageSectionSize.c)
- *     CMFReadCompressedSegment @ 0x1408D8FFC (CMFReadCompressedSegment.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1401B8370 (ZwWaitForSingleObject.c)
+ *     ZwReadFile @ 0x1401B83B0 (ZwReadFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1401B87F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1401B8830 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ZwCreateEvent @ 0x1401B8BF0 (ZwCreateEvent.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     CMFCreateSecurityDescriptor @ 0x1408D98D0 (CMFCreateSecurityDescriptor.c)
+ *     CMFGetFileSizeEx @ 0x1408DA194 (CMFGetFileSizeEx.c)
+ *     CMFGetLargePageSectionSize @ 0x1408DA1FC (CMFGetLargePageSectionSize.c)
+ *     CMFReadCompressedSegment @ 0x1408DA2BC (CMFReadCompressedSegment.c)
  */
 
 void __fastcall CMFSystemThreadRoutine(__int64 a1)

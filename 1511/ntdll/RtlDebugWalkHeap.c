@@ -9,12 +9,12 @@
  *     RtlpHeapExceptionFilter @ 0x1800E3178 (RtlpHeapExceptionFilter.c)
  */
 
-char __fastcall RtlDebugWalkHeap(_DWORD *a1)
+char __fastcall RtlDebugWalkHeap(PVOID *BaseAddress)
 {
   char v2; // bl
 
   v2 = 0;
-  if ( RtlpCheckHeapSignature(a1, "RtlWalkHeap") )
-    return RtlpValidateHeap((__int64)a1, 0);
+  if ( RtlpCheckHeapSignature(BaseAddress, "RtlWalkHeap") )
+    return RtlpValidateHeap(BaseAddress, 0);
   return v2;
 }

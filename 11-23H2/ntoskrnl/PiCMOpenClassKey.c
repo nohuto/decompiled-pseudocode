@@ -1,22 +1,22 @@
 /*
- * XREFs of PiCMOpenClassKey @ 0x140860608
+ * XREFs of PiCMOpenClassKey @ 0x140860848
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0760 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406D0790 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     RtlUpcaseUnicodeString @ 0x140773AF0 (RtlUpcaseUnicodeString.c)
- *     _CmOpenInstallerClassRegKey @ 0x140787834 (_CmOpenInstallerClassRegKey.c)
- *     _CmOpenInterfaceClassRegKey @ 0x1407878A0 (_CmOpenInterfaceClassRegKey.c)
- *     PiCMReleaseObjectInputData @ 0x14079A0D8 (PiCMReleaseObjectInputData.c)
- *     PiAuDoesClientHaveAccess @ 0x14079A888 (PiAuDoesClientHaveAccess.c)
- *     PiCMReturnHandleResultData @ 0x1407BEAC4 (PiCMReturnHandleResultData.c)
- *     PiCMCaptureRegistryInputData @ 0x1407BEB5C (PiCMCaptureRegistryInputData.c)
- *     PiCMDuplicateRegistryHandle @ 0x1407BECFC (PiCMDuplicateRegistryHandle.c)
- *     _PnpCtxOpenContextBaseKey @ 0x14087D320 (_PnpCtxOpenContextBaseKey.c)
- *     _CmCreateInterfaceClass @ 0x140880398 (_CmCreateInterfaceClass.c)
- *     _CmCreateInstallerClass @ 0x140A60DD4 (_CmCreateInstallerClass.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     RtlUpcaseUnicodeString @ 0x140773CE0 (RtlUpcaseUnicodeString.c)
+ *     _CmOpenInstallerClassRegKey @ 0x140787A24 (_CmOpenInstallerClassRegKey.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x140787A90 (_CmOpenInterfaceClassRegKey.c)
+ *     PiCMReleaseObjectInputData @ 0x14079A2C8 (PiCMReleaseObjectInputData.c)
+ *     PiAuDoesClientHaveAccess @ 0x14079AA78 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnHandleResultData @ 0x1407BED94 (PiCMReturnHandleResultData.c)
+ *     PiCMCaptureRegistryInputData @ 0x1407BEE2C (PiCMCaptureRegistryInputData.c)
+ *     PiCMDuplicateRegistryHandle @ 0x1407BEFCC (PiCMDuplicateRegistryHandle.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14087D560 (_PnpCtxOpenContextBaseKey.c)
+ *     _CmCreateInterfaceClass @ 0x1408805D8 (_CmCreateInterfaceClass.c)
+ *     _CmCreateInstallerClass @ 0x140A61084 (_CmCreateInstallerClass.c)
  */
 
 __int64 __fastcall PiCMOpenClassKey(_DWORD *a1, unsigned int a2, _DWORD *a3, unsigned int a4, int a5, _DWORD *Handle)

@@ -1,9 +1,9 @@
 /*
- * XREFs of strcat_s @ 0x14053C5C0
+ * XREFs of strcat_s @ 0x14053EA40
  * Callers:
- *     ExpSystemErrorHandler2 @ 0x140BFF4E0 (ExpSystemErrorHandler2.c)
+ *     ExpSystemErrorHandler2 @ 0x140C056F0 (ExpSystemErrorHandler2.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strcat_s(char *a1, rsize_t SizeInBytes, const char *Src)

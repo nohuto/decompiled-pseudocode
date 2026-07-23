@@ -248,15 +248,15 @@ NTSTATUS __stdcall NtSetSystemInformation(
   updated = 0;
   if ( v5 > SystemVerifierInformationEx )
   {
-    if ( v5 > (MaxSystemInfoClass|SystemSummaryMemoryInformation) )
+    if ( v5 > SystemScrubPhysicalMemoryInformation )
     {
-      if ( v5 <= (SystemPerformanceTraceInformation|0x80) )
+      if ( v5 <= SystemHypervisorDetailInformation )
       {
-        if ( v5 != (SystemPerformanceTraceInformation|0x80) )
+        if ( v5 != SystemHypervisorDetailInformation )
         {
-          if ( v5 <= (SystemPagedPoolInformation|0x80) )
+          if ( v5 <= SystemCriticalProcessErrorLogInformation )
           {
-            if ( v5 != (SystemPagedPoolInformation|0x80) )
+            if ( v5 != SystemCriticalProcessErrorLogInformation )
             {
               v22 = v5 - 129;
               if ( !v22 )
@@ -412,9 +412,9 @@ NTSTATUS __stdcall NtSetSystemInformation(
         }
         return -1073741637;
       }
-      if ( v5 > (SystemSessionInformation|0x80) )
+      if ( v5 > SystemWin32WerStartCallout )
       {
-        if ( v5 == (SystemComPlusPackage|0x80) )
+        if ( v5 == SystemActivityModerationExeState )
         {
           if ( (_DWORD)v3 != 24 )
             return -1073741820;
@@ -429,10 +429,10 @@ LABEL_299:
           VfFreeCapturedUnicodeString(v64);
           return updated;
         }
-        if ( v5 != (SystemEmulationBasicInformation|0x80) )
+        if ( v5 != SystemCodeIntegrityUnlockInformation )
         {
           v94 = (unsigned int)(v5 - 191);
-          if ( v5 == (SystemEmulationProcessorInformation|0x80) )
+          if ( v5 == SystemIntegrityQuotaInformation )
           {
             if ( !(_DWORD)v3 )
             {
@@ -443,7 +443,7 @@ LABEL_299:
           }
           else
           {
-            if ( v5 != (SystemBigPoolInformation|0x80) )
+            if ( v5 != SystemSecureDumpEncryptionInformation )
               return -1073741821;
             if ( !(_DWORD)v3 )
             {
@@ -457,13 +457,13 @@ LABEL_299:
       }
       else
       {
-        if ( v5 == (SystemSessionInformation|0x80) )
+        if ( v5 == SystemWin32WerStartCallout )
         {
           if ( (unsigned int)MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process) != -1 )
             return PsInvokeWin32Callout(32LL, 0LL, 1LL);
           return 0;
         }
-        if ( v5 == (SystemExceptionInformation|0x80) )
+        if ( v5 == SystemVmGenerationCountInformation )
         {
           if ( PreviousMode )
             return -1073741790;
@@ -471,9 +471,9 @@ LABEL_299:
             return -1073741820;
           return KdInitialize(3LL, SystemInformation, &KdpContext);
         }
-        if ( v5 != (SystemContextSwitchInformation|0x80) )
+        if ( v5 != SystemCodeIntegrityPolicyInformation )
         {
-          if ( v5 == (SystemPlugPlayBusInformation|0x80) )
+          if ( v5 == SystemAllowedCpuSetsInformation )
           {
             if ( (v3 & 7) != 0 || (unsigned int)v3 > 0xA0 )
               return -1073741820;
@@ -483,7 +483,7 @@ LABEL_299:
               return result;
             return KeSetSystemAllowedCpuSets((unsigned int)v3 >> 3, v132);
           }
-          if ( v5 == (SystemPowerInformationNative|0x80) )
+          if ( v5 == SystemInterruptCpuSetsInformation )
           {
             if ( (_DWORD)v3 != 16 )
               return -1073741820;
@@ -491,7 +491,7 @@ LABEL_299:
               return -1073741727;
             return KeIntSteerAssignCpuSetForGsiv(*(_OWORD *)v4, WORD2(*(_QWORD *)v4), *(_QWORD *)(v4 + 8));
           }
-          if ( v5 != (SystemSessionDetach|0x80) )
+          if ( v5 != SystemCpuSetTagInformation )
             return -1073741821;
           if ( (unsigned int)v3 < 8 )
             return -1073741820;
@@ -511,9 +511,9 @@ LABEL_299:
         return qword_1403626C8((unsigned int)v5, SystemInformation, (unsigned int)v3, 3LL);
       return -1073741637;
     }
-    if ( v5 != (MaxSystemInfoClass|SystemSummaryMemoryInformation) )
+    if ( v5 != SystemScrubPhysicalMemoryInformation )
     {
-      if ( v5 > (SystemPrefetchPathInformation|SystemProcessorPerformanceInformation) )
+      if ( v5 > SystemProcessorMicrocodeUpdateInformation )
       {
         v25 = v5 - 106;
         if ( !v25 )
@@ -541,7 +541,7 @@ LABEL_299:
         LOBYTE(v10) = PreviousMode;
         return SmSetStoreInformation(*(_QWORD *)&SystemInformationClass, SystemInformation, (unsigned int)v3, v10);
       }
-      if ( v5 == (SystemPrefetchPathInformation|SystemProcessorPerformanceInformation) )
+      if ( v5 == SystemProcessorMicrocodeUpdateInformation )
       {
         LOBYTE(v7) = PreviousMode;
         return ExpSetProcessorMicrocodeUpdateInformation(SystemInformation, (unsigned int)v3, v7, 3LL);
@@ -637,7 +637,7 @@ LABEL_299:
       return -1073741820;
     return VfSetVerifierInformationEx(v4);
   }
-  if ( v5 > SystemAddVerifier )
+  if ( v5 > SystemVerifierThunkExtend )
   {
     if ( v5 == SystemSuperfetchInformation )
       return PfSetSuperfetchInformation(*(__int64 *)&SystemInformationClass, SystemInformation, v3, PreviousMode);
@@ -812,7 +812,7 @@ LABEL_299:
     }
     return -1073741820;
   }
-  if ( v5 == SystemAddVerifier )
+  if ( v5 == SystemVerifierThunkExtend )
   {
     if ( PreviousMode )
       return -1073741727;
@@ -1033,7 +1033,7 @@ LABEL_194:
     }
     if ( v5 <= SystemPrioritySeperation )
       return -1073741821;
-    if ( v5 > SystemDockInformation )
+    if ( v5 > SystemVerifierRemoveDriverInformation )
     {
       if ( v5 == SystemTimeSlipNotification )
       {

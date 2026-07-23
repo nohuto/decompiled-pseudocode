@@ -55,9 +55,9 @@ __int64 __fastcall PopBootStatGet(__int64 a1, __int64 a2)
   unsigned int Size; // [rsp+34h] [rbp-1C4h] BYREF
   unsigned int Size_4; // [rsp+38h] [rbp-1C0h]
   char v30; // [rsp+3Ch] [rbp-1BCh]
-  HANDLE Handle; // [rsp+40h] [rbp-1B8h]
+  HANDLE FileHandle; // [rsp+40h] [rbp-1B8h]
   unsigned int v32; // [rsp+48h] [rbp-1B0h]
-  HANDLE FileHandle; // [rsp+50h] [rbp-1A8h] BYREF
+  HANDLE v33; // [rsp+50h] [rbp-1A8h] BYREF
   char *v34; // [rsp+58h] [rbp-1A0h]
   PCWSTR SourceString; // [rsp+60h] [rbp-198h] BYREF
   volatile void **v36; // [rsp+68h] [rbp-190h]
@@ -76,7 +76,7 @@ __int64 __fastcall PopBootStatGet(__int64 a1, __int64 a2)
   Size = 0;
   v32 = 0;
   Pool2 = 0LL;
-  Handle = 0LL;
+  FileHandle = 0LL;
   v27 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v26 = PreviousMode;
@@ -136,7 +136,7 @@ __int64 __fastcall PopBootStatGet(__int64 a1, __int64 a2)
     *((_BYTE *)v11 + 10) = 1;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
-  FileHandle = 0LL;
+  v33 = 0LL;
   IoStatusBlock = 0LL;
   v12 = 0LL;
   SourceString = 0LL;
@@ -148,7 +148,7 @@ __int64 __fastcall PopBootStatGet(__int64 a1, __int64 a2)
   {
     v13 = BootStatFileHandle;
 LABEL_19:
-    Handle = v13;
+    FileHandle = v13;
     goto LABEL_20;
   }
   RtlpGetBootStatusPath(&SourceString, v25);
@@ -159,19 +159,19 @@ LABEL_19:
   ObjectAttributes.Attributes = 704;
   ObjectAttributes.ObjectName = &DestinationString;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  SetBootStatusData = ZwOpenFile(&FileHandle, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 1u, 0x20u);
+  SetBootStatusData = ZwOpenFile(&v33, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 1u, 0x20u);
   if ( SetBootStatusData >= 0 )
   {
-    BootStatFileHandle = FileHandle;
+    BootStatFileHandle = v33;
     BootStatFileHandleAcquired = 1;
     RtlInitializeBootStatDataCache();
-    v13 = FileHandle;
+    v13 = v33;
     goto LABEL_19;
   }
   BootStatFileHandle = 0LL;
   BootStatFileHandleAcquired = 0;
   BootStatReferenceCount = 0;
-  Handle = 0LL;
+  FileHandle = 0LL;
 LABEL_20:
   RtlpReleaseBootStatusLock();
   if ( v25[0] )
@@ -180,7 +180,7 @@ LABEL_20:
   {
     if ( !PreviousMode
       || (LOBYTE(v14) = PreviousMode,
-          SetBootStatusData = PopBootStatAccessCheck(Handle, v14, 1LL),
+          SetBootStatusData = PopBootStatAccessCheck(FileHandle, v14, 1LL),
           SetBootStatusData >= 0) )
     {
       v15 = 0;
@@ -216,7 +216,7 @@ LABEL_20:
         v30 = 0;
         v38 = 0;
         memset_0(v45, 0, 0xC8uLL);
-        SetBootStatusData = RtlpGetSetBootStatusData(Handle, v21, (__int64)&Size);
+        SetBootStatusData = RtlpGetSetBootStatusData(FileHandle, v21, (__int64)&Size);
         if ( SetBootStatusData >= 0 && Size )
           memmove(v18[1], Src, Size);
         if ( v41 )
@@ -229,8 +229,8 @@ LABEL_20:
     }
   }
 LABEL_5:
-  if ( Handle )
-    RtlUnlockBootStatusData(Handle);
+  if ( FileHandle )
+    RtlUnlockBootStatusData(FileHandle);
   if ( v27 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopBootStatLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

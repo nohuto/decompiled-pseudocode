@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressFragment @ 0x14077E120
+ * XREFs of RtlDecompressFragment @ 0x14077E050
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall RtlDecompressFragment(
@@ -19,10 +19,6 @@ NTSTATUS __stdcall RtlDecompressFragment(
   if ( (unsigned __int8)CompressionFormat < 2u )
     return -1073741811;
   if ( (unsigned __int8)CompressionFormat <= 8u )
-    return guard_dispatch_icall_no_overrides(
-             UncompressedFragment,
-             UncompressedFragmentSize,
-             CompressedBuffer,
-             CompressedBufferSize);
+    return guard_dispatch_icall_no_overrides(UncompressedFragment, UncompressedFragmentSize);
   return -1073741217;
 }

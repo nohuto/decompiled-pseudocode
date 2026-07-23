@@ -1,18 +1,18 @@
 /*
- * XREFs of MmEnumerateBadPages @ 0x140A2FBE4
+ * XREFs of MmEnumerateBadPages @ 0x140A2FE94
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MiIterateOverPartitions @ 0x14062940C (MiIterateOverPartitions.c)
- *     MiEnumerateQuarantinedBadHugeRangePages @ 0x140629E08 (MiEnumerateQuarantinedBadHugeRangePages.c)
- *     MiSortPageFramesRemoveDuplicates @ 0x14062ACA4 (MiSortPageFramesRemoveDuplicates.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiIterateOverPartitions @ 0x14062995C (MiIterateOverPartitions.c)
+ *     MiEnumerateQuarantinedBadHugeRangePages @ 0x14062A358 (MiEnumerateQuarantinedBadHugeRangePages.c)
+ *     MiSortPageFramesRemoveDuplicates @ 0x14062B1F4 (MiSortPageFramesRemoveDuplicates.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

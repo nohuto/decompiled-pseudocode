@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStdReleaseStackTrace @ 0x1402ED110
+ * XREFs of RtlStdReleaseStackTrace @ 0x1402ED300
  * Callers:
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     ExpInitializeResource @ 0x14016BCB0 (ExpInitializeResource.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     ExpInitializeResource @ 0x14016BDB0 (ExpInitializeResource.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)

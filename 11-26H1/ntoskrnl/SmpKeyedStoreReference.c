@@ -1,15 +1,15 @@
 /*
- * XREFs of SmpKeyedStoreReference @ 0x140409CFC
+ * XREFs of SmpKeyedStoreReference @ 0x140402DEC
  * Callers:
- *     SmPageWrite @ 0x140409AE4 (SmPageWrite.c)
+ *     SmPageWrite @ 0x140402BD4 (SmPageWrite.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     SmKmStoreReference @ 0x1402F04A0 (SmKmStoreReference.c)
- *     SmpKeyedStoreEntryGet @ 0x140409DF0 (SmpKeyedStoreEntryGet.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     SmKmStoreReference @ 0x1402D2520 (SmKmStoreReference.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     SmpKeyedStoreEntryGet @ 0x140402EE0 (SmpKeyedStoreEntryGet.c)
  */
 
 __int64 __fastcall SmpKeyedStoreReference(struct _KTHREAD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -19,8 +19,6 @@ __int64 __fastcall SmpKeyedStoreReference(struct _KTHREAD *a1, __int64 a2, __int
   LegacyAutoBoost *v8; // rdi
   __int64 v9; // rax
   __int64 v10; // rdi
-  __int64 v11; // rdx
-  __int64 v12; // r8
 
   CurrentThread = KeGetCurrentThread();
   v7 = -1;
@@ -45,6 +43,6 @@ __int64 __fastcall SmpKeyedStoreReference(struct _KTHREAD *a1, __int64 a2, __int
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&a1->Header.Lock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&a1->Header.Lock);
   KeAbPostRelease((unsigned __int64)a1);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v12);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v7;
 }

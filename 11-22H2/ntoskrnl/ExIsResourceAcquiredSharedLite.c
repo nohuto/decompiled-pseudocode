@@ -80,7 +80,7 @@ LABEL_11:
     *(_QWORD *)&v23 = 0LL;
     v10 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v10 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v10 == 2 )
@@ -120,10 +120,10 @@ LABEL_11:
 LABEL_33:
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v23);
     v18 = (unsigned __int8)v24;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v24 <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v24 <= 0xFu && v19 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v21 = CurrentPrcb->SchedulerAssist;

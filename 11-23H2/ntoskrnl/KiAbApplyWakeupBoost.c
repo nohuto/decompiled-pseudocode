@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAbApplyWakeupBoost @ 0x1402BC8A0
+ * XREFs of KiAbApplyWakeupBoost @ 0x1402BCB30
  * Callers:
- *     KeAbPreWakeupThread @ 0x1402BC1BC (KeAbPreWakeupThread.c)
- *     KeAbPreWakeupHandle @ 0x1402BDD98 (KeAbPreWakeupHandle.c)
+ *     KeAbPreWakeupThread @ 0x1402BC44C (KeAbPreWakeupThread.c)
+ *     KeAbPreWakeupHandle @ 0x1402BE028 (KeAbPreWakeupHandle.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiReadyDeferredReadyList @ 0x140249C90 (KiReadyDeferredReadyList.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x1402B0E70 (KiProcessDeferredReadyList.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostSetFloor @ 0x1404670FE (EtwTraceAutoBoostSetFloor.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiReadyDeferredReadyList @ 0x140249D60 (KiReadyDeferredReadyList.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402B1100 (KiProcessDeferredReadyList.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x1404674FE (EtwTraceAutoBoostSetFloor.c)
  */
 
 void __fastcall KiAbApplyWakeupBoost(char a1, __int64 a2, int a3)
@@ -36,7 +36,7 @@ void __fastcall KiAbApplyWakeupBoost(char a1, __int64 a2, int a3)
     v8 = a2 - 96 * v6 - 1696;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v13) = 4;

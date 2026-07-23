@@ -1,27 +1,27 @@
 /*
- * XREFs of MiUpControlAreaRefs @ 0x140625EFC
+ * XREFs of MiUpControlAreaRefs @ 0x14062644C
  * Callers:
- *     MiAllocateSplitVads @ 0x14076D5F4 (MiAllocateSplitVads.c)
- *     MiDeleteNewlyCreatedPartialVads @ 0x140A47A98 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiInsertChildVads @ 0x140A4908C (MiInsertChildVads.c)
+ *     MiAllocateSplitVads @ 0x14076D7E4 (MiAllocateSplitVads.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x140A47D48 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInsertChildVads @ 0x140A4933C (MiInsertChildVads.c)
  * Callees:
  *     MiControlAreaRequiresCharge @ 0x140214CC4 (MiControlAreaRequiresCharge.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiReferenceActiveSubsection @ 0x140288DA0 (MiReferenceActiveSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsections @ 0x14029FA30 (MiDecrementSubsections.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiLockNestedVad @ 0x140A47BA8 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x140A47BF8 (MiUnlockNestedVad.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiReferenceActiveSubsection @ 0x140289030 (MiReferenceActiveSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsections @ 0x14029FCC0 (MiDecrementSubsections.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiLockNestedVad @ 0x140A47E58 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x140A47EA8 (MiUnlockNestedVad.c)
  */
 
 __int64 __fastcall MiUpControlAreaRefs(__int64 a1, int a2)
@@ -247,10 +247,13 @@ LABEL_55:
   v32 = v46;
 LABEL_59:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v25 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v25 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       v35 = KeGetCurrentPrcb();
       v36 = v35->SchedulerAssist;

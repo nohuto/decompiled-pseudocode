@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVerifyImageHeader @ 0x1409449F8
+ * XREFs of MiVerifyImageHeader @ 0x14098E868
  * Callers:
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
  * Callees:
- *     MiLegacyImageArchitecture @ 0x140488598 (MiLegacyImageArchitecture.c)
- *     MiComputeBadImageHeaderType @ 0x140944F84 (MiComputeBadImageHeaderType.c)
+ *     MiLegacyImageArchitecture @ 0x1404836E8 (MiLegacyImageArchitecture.c)
+ *     MiComputeBadImageHeaderType @ 0x14098EDF4 (MiComputeBadImageHeaderType.c)
  */
 
 __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -32,12 +32,12 @@ __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, __int
       return MiComputeBadImageHeaderType(a2, a3, a4);
     if ( !*(_WORD *)(a2 + 4) && !*(_WORD *)(a2 + 20) )
     {
-      dword_140E2D6F8 = 70;
+      dword_140E2D838 = 70;
       return 3221225776LL;
     }
     if ( (*(_BYTE *)(a2 + 22) & 2) == 0 )
     {
-      dword_140E2D6F8 = 71;
+      dword_140E2D838 = 71;
       return 3221225595LL;
     }
     v6 = *(_WORD *)(a2 + 24);
@@ -105,45 +105,45 @@ __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, __int
         v10 = *(_DWORD *)(a2 + 220);
 LABEL_17:
         *(_DWORD *)(a1 + 100) = v10;
-        if ( dword_140E2D778 && dword_140E2D77C == *(_DWORD *)(a1 + 64) && dword_140E2D780 == *(_DWORD *)(a1 + 16) )
+        if ( dword_140E2D8B8 && dword_140E2D8BC == *(_DWORD *)(a1 + 64) && dword_140E2D8C0 == *(_DWORD *)(a1 + 16) )
           __debugbreak();
         v11 = *(_WORD *)(a1 + 48);
         if ( ((v11 - 267) & 0xFEFF) != 0 )
         {
-          dword_140E2D6F8 = 73;
+          dword_140E2D838 = 73;
           return 3221225595LL;
         }
         v12 = *(_DWORD *)(a1 + 8);
         if ( (v12 & 0x1FF) != 0 && v12 != *(_DWORD *)(a1 + 12) )
         {
-          dword_140E2D6F8 = 76;
+          dword_140E2D838 = 76;
           return 3221225595LL;
         }
         if ( !v12 )
         {
-          dword_140E2D6F8 = 77;
+          dword_140E2D838 = 77;
           return 3221225595LL;
         }
         v13 = *(_DWORD *)(a1 + 12);
         if ( ((v13 - 1) & v13) != 0 )
         {
-          dword_140E2D6F8 = 78;
+          dword_140E2D838 = 78;
           return 3221225595LL;
         }
         if ( ((v12 - 1) & v12) != 0 )
         {
-          dword_140E2D6F8 = 79;
+          dword_140E2D838 = 79;
           return 3221225595LL;
         }
         if ( v13 < v12 )
         {
-          dword_140E2D6F8 = 80;
+          dword_140E2D838 = 80;
           return 3221225595LL;
         }
         v14 = *(_DWORD *)(a1 + 16);
         if ( v14 > 0x77000000 )
         {
-          dword_140E2D6F8 = 81;
+          dword_140E2D838 = 81;
           return 3221225595LL;
         }
         if ( v11 == 267 )
@@ -151,7 +151,7 @@ LABEL_17:
           v22 = *(_WORD *)(a2 + 4);
           if ( v22 != 332 && v22 != 452 )
           {
-            dword_140E2D6F8 = 82;
+            dword_140E2D838 = 82;
             return 3221225595LL;
           }
         }
@@ -160,17 +160,17 @@ LABEL_17:
           v15 = *(_WORD *)(a2 + 4);
           if ( v15 != -31132 && v15 != -21916 )
           {
-            dword_140E2D6F8 = 83;
+            dword_140E2D838 = 83;
             return 3221225595LL;
           }
         }
         if ( *(_DWORD *)(a1 + 24) >= v14 )
         {
-          dword_140E2D6F8 = 84;
+          dword_140E2D838 = 84;
         }
         else if ( *(_WORD *)a1 )
         {
-          dword_140E2D6F8 = 85;
+          dword_140E2D838 = 85;
         }
         else
         {
@@ -180,7 +180,7 @@ LABEL_17:
             {
               if ( v16 && _bittest16((const signed __int16 *)(v17 + 60), 0xCu) )
               {
-                dword_140E2D6F8 = 87;
+                dword_140E2D838 = 87;
                 return 3221225595LL;
               }
             }
@@ -188,18 +188,18 @@ LABEL_17:
             {
               if ( v16 )
               {
-                dword_140E2D6F8 = 88;
+                dword_140E2D838 = 88;
                 return 3221225595LL;
               }
               if ( (*(_WORD *)(v17 + 60) & 0x140) != 0x140 )
               {
-                dword_140E2D6F8 = 89;
+                dword_140E2D838 = 89;
                 return 3221225595LL;
               }
             }
             return 0LL;
           }
-          dword_140E2D6F8 = 86;
+          dword_140E2D838 = 86;
         }
         return 3221225595LL;
       }
@@ -269,6 +269,6 @@ LABEL_17:
     v10 = 0;
     goto LABEL_17;
   }
-  dword_140E2D6F8 = 59;
+  dword_140E2D838 = 59;
   return 3221225776LL;
 }

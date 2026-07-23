@@ -17,41 +17,43 @@ __int64 __fastcall sub_180088788(
         __int64 a6,
         __int64 a7,
         int a8,
-        __int64 *a9,
+        PVOID *a9,
         __int64 a10)
 {
   int v14; // ebp
-  void *ProcessHeap; // rsi
+  PVOID ProcessHeap; // rsi
   unsigned int v16; // eax
-  __int64 Heap; // rax
+  ACL *Acl; // rax
   unsigned int v18; // edi
-  int v20[4]; // [rsp+60h] [rbp-38h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-38h] BYREF
 
   v14 = 0;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   v16 = 1024;
-  for ( v20[0] = 1024; ; v16 = v20[0] )
+  LODWORD(v20) = 1024;
+  while ( 1 )
   {
-    Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, v16);
-    *a9 = Heap;
-    if ( !Heap )
+    Acl = (ACL *)RtlAllocateHeap(ProcessHeap, 0, v16);
+    *a9 = Acl;
+    if ( !Acl )
       break;
-    v18 = sub_1800888A8(a1, a2, a3, a4, a5, a6, a7, a8, (__int64)v20, Heap, a10);
+    v18 = sub_1800888A8(a1, a2, a3, a4, a5, a6, a7, a8, (__int64)&v20, Acl, a10);
     if ( (v18 & 0x80000000) == 0 )
     {
-      if ( !v20[0] )
+      if ( !(_DWORD)v20 )
       {
-        RtlFreeHeap((__int64)ProcessHeap, 0, *a9);
+        RtlFreeHeap(ProcessHeap, 0, *a9);
         *a9 = 0LL;
       }
       return v18;
     }
-    RtlFreeHeap((__int64)ProcessHeap, 0, *a9);
+    RtlFreeHeap(ProcessHeap, 0, *a9);
     *a9 = 0LL;
     if ( v18 != -1073741789 )
       return v18;
     if ( (unsigned int)++v14 >= 2 )
       return v18;
+    v16 = v20;
   }
   return 3221225495LL;
 }

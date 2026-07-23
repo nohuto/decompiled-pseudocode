@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmUpdateTimeAccumulation @ 0x140255404
+ * XREFs of PpmUpdateTimeAccumulation @ 0x1402554C4
  * Callers:
- *     PpmSnapPerformanceAccumulation @ 0x1402562D0 (PpmSnapPerformanceAccumulation.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14034F15C (PpmContinueActiveTimeAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x140256390 (PpmSnapPerformanceAccumulation.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14034F2FC (PpmContinueActiveTimeAccumulation.c)
  * Callees:
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
  */
 
 __int64 __fastcall PpmUpdateTimeAccumulation(__int64 a1, __int64 a2, char a3)

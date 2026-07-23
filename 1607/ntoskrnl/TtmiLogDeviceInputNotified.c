@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceInputNotified @ 0x14067AA88
+ * XREFs of TtmiLogDeviceInputNotified @ 0x14067AB6C
  * Callers:
- *     TtmNotifyDeviceInput @ 0x140676DD4 (TtmNotifyDeviceInput.c)
+ *     TtmNotifyDeviceInput @ 0x140676EB8 (TtmNotifyDeviceInput.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceInputNotified(int a1, __int64 a2, int a3, char a4, char a5)
@@ -71,7 +71,7 @@ char __fastcall TtmiLogDeviceInputNotified(int a1, __int64 a2, int a3, char a4, 
       v29 = 4;
       v32 = 1;
       v35 = 1;
-      LOBYTE(v5) = TlgWrite(&stru_1407478B0, &unk_14027E1C6, 0LL, 0LL, 8u, &pData);
+      LOBYTE(v5) = TlgWrite(&stru_1407478B0, &unk_14027E2C6, 0LL, 0LL, 8u, &pData);
     }
   }
   return (char)v5;

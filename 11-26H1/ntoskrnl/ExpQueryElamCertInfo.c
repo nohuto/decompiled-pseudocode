@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpQueryElamCertInfo @ 0x140A77E5C
+ * XREFs of ExpQueryElamCertInfo @ 0x140A80900
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1407238F0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x140723930 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x140723D30 (ZwCreateSection.c)
- *     SeRegisterElamCertResources @ 0x14080FC30 (SeRegisterElamCertResources.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     FsRtlGetFileSize @ 0x140A56DE0 (FsRtlGetFileSize.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140A77400 (IoConvertFileHandleToKernelHandle.c)
- *     SeValidateFileAsImageType @ 0x140B5EF54 (SeValidateFileAsImageType.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1407284C0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140728500 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x140728900 (ZwCreateSection.c)
+ *     SeRegisterElamCertResources @ 0x1408156C0 (SeRegisterElamCertResources.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x140A64360 (FsRtlGetFileSize.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140A80120 (IoConvertFileHandleToKernelHandle.c)
+ *     SeValidateFileAsImageType @ 0x140B620D4 (SeValidateFileAsImageType.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryElamCertInfo(void *a1)

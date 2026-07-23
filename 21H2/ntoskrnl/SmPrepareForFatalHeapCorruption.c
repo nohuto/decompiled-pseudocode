@@ -1,13 +1,13 @@
 /*
- * XREFs of SmPrepareForFatalHeapCorruption @ 0x14059FCA0
+ * XREFs of SmPrepareForFatalHeapCorruption @ 0x14059FED0
  * Callers:
- *     SmHpBufferProtectEx @ 0x140253F00 (SmHpBufferProtectEx.c)
+ *     SmHpBufferProtectEx @ 0x140275470 (SmHpBufferProtectEx.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     KeRegisterBugCheckReasonCallback @ 0x14039E660 (KeRegisterBugCheckReasonCallback.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039E7B0 (KeRegisterBugCheckReasonCallback.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SmPrepareForFatalHeapCorruption(

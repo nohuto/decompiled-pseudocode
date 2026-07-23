@@ -8,10 +8,10 @@
  *     KiReleaseSpinLockInstrumented @ 0x1402010EC (KiReleaseSpinLockInstrumented.c)
  */
 
-__int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(__int64 a1)
+__int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(struct _LIST_ENTRY *a1)
 {
   unsigned __int8 CurrentIrql; // bl
-  ULONG_PTR i; // rax
+  struct _LIST_ENTRY *i; // rax
   __int64 result; // rax
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
@@ -25,10 +25,10 @@ __int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(__int64 a1)
   {
     KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&Lock);
   }
-  for ( i = ViAdapterList; &ViAdapterList != (ULONG_PTR *)i; i = *(_QWORD *)i )
+  for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
-    if ( *(_QWORD *)(i + 24) == a1 )
-      *(_BYTE *)(i + 32) = 1;
+    if ( i[1].Blink == a1 )
+      LOBYTE(i[2].Flink) = 1;
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     KiReleaseSpinLockInstrumented((volatile signed __int64 *)&Lock, retaddr);

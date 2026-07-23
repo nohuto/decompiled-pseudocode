@@ -1,21 +1,21 @@
 /*
- * XREFs of TlgRegisterAggregateProviderEx @ 0x140B6E47C
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x140B7192C
  * Callers:
- *     CmpRegisterTraceLoggingProvider @ 0x14077B3DC (CmpRegisterTraceLoggingProvider.c)
- *     TlgRegisterAggregateProvider @ 0x14077B9B0 (TlgRegisterAggregateProvider.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
- *     KiRegisterTraceLoggingProvider @ 0x140CCA354 (KiRegisterTraceLoggingProvider.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x14077E01C (CmpRegisterTraceLoggingProvider.c)
+ *     TlgRegisterAggregateProvider @ 0x14077E5F0 (TlgRegisterAggregateProvider.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
+ *     KiRegisterTraceLoggingProvider @ 0x140CD0434 (KiRegisterTraceLoggingProvider.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ComputeFlushPeriod @ 0x1408A017C (ComputeFlushPeriod.c)
- *     CreateTlgAggregateSession @ 0x1408A020C (CreateTlgAggregateSession.c)
- *     DestroyAggregateSession @ 0x1408A0348 (DestroyAggregateSession.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ComputeFlushPeriod @ 0x1408A658C (ComputeFlushPeriod.c)
+ *     CreateTlgAggregateSession @ 0x1408A661C (CreateTlgAggregateSession.c)
+ *     DestroyAggregateSession @ 0x1408A6758 (DestroyAggregateSession.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2, __int64 a3)
@@ -29,8 +29,8 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2, __int6
   void *v13; // rdx
   signed __int8 v14; // cf
   AutoBoost *v15; // rdi
-  __int64 *i; // rax
-  __int64 v17; // rcx
+  struct _LIST_ENTRY **i; // rax
+  struct _LIST_ENTRY *v17; // rcx
 
   TlgAggregateSession = CreateTlgAggregateSession(0, 1);
   v8 = TlgAggregateSession;
@@ -53,14 +53,11 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2, __int6
   }
   else
   {
-    v12 = (AutoBoost *)KeAbPreAcquire((__int64)&WheapPfaLock.ReadTransferCount, 0LL, 0LL, v11);
-    v14 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock.ReadTransferCount, 0LL);
+    v12 = (AutoBoost *)KeAbPreAcquire((__int64)&WheapPfaLock.1008, 0LL, 0LL, v11);
+    v14 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock.1008, 0LL);
     v15 = v12;
     if ( v14 )
-      ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&WheapPfaLock.ReadTransferCount,
-        v12,
-        (__int64)&WheapPfaLock.ReadTransferCount);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&WheapPfaLock.1008, v12, (__int64)&WheapPfaLock.1008);
     if ( v15 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -68,24 +65,26 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2, __int6
       else
         *((_BYTE *)v15 + 10) = 1;
     }
-    if ( !WheapPfaLock.WriteTransferCount )
+    if ( !WheapPfaLock.InGlobalUpdateVpThreadPriorityList )
       TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
         (__int64)&dword_140E0A510,
         (__int64)TlgAggregateInternalProviderCallback,
         0LL);
-    for ( i = &WheapPfaLock.WriteTransferCount; ; i = (__int64 *)(v17 + 352) )
+    for ( i = &WheapPfaLock.GlobalUpdateVpThreadPriorityListEntry.Blink; ; i = &v17[22].Flink )
     {
       v17 = *i;
       if ( !*i )
         break;
-      if ( *(_QWORD *)(v17 + 344) == a1 )
+      if ( v17[21].Blink == (struct _LIST_ENTRY *)a1 )
         goto LABEL_17;
     }
-    *i = (__int64)v8;
+    *i = (struct _LIST_ENTRY *)v8;
 LABEL_17:
-    if ( (_InterlockedExchangeAdd64(&WheapPfaLock.ReadTransferCount, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&WheapPfaLock.ReadTransferCount);
-    KeAbPostRelease((unsigned __int64)&WheapPfaLock.ReadTransferCount);
+    if ( (_InterlockedExchangeAdd64(
+            (volatile signed __int64 *)&WheapPfaLock.GlobalUpdateVpThreadPriorityListEntry.Flink,
+            0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&WheapPfaLock.1008);
+    KeAbPostRelease((unsigned __int64)&WheapPfaLock.1008);
     return 0LL;
   }
 }

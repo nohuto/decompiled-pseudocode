@@ -15,8 +15,8 @@ __int64 __fastcall ResCDirectoryValidateEntries(_QWORD *a1, unsigned int a2, __i
   unsigned int v4; // ebx
   int v7; // r12d
   __int64 v8; // rax
-  unsigned __int64 Heap; // rdi
-  __int64 v10; // rax
+  _QWORD *Heap; // rdi
+  PVOID v10; // rax
   __int64 v12; // rcx
   __int64 v13; // rax
   __int64 v14; // rsi
@@ -40,20 +40,20 @@ __int64 __fastcall ResCDirectoryValidateEntries(_QWORD *a1, unsigned int a2, __i
       {
         if ( a4 )
           *a4 = 0;
-        Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 16LL);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
         if ( Heap )
         {
-          v10 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 40LL);
-          *(_QWORD *)(Heap + 8) = v10;
+          v10 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x28uLL);
+          Heap[1] = v10;
           if ( v10 )
           {
             *(_DWORD *)Heap = 0;
-            *(_DWORD *)(Heap + 4) = 10;
+            *((_DWORD *)Heap + 1) = 10;
             if ( (unsigned int)StackPush<unsigned int>(a2, (unsigned int *)Heap) )
             {
               while ( 1 )
               {
-                v12 = *(_QWORD *)(Heap + 8);
+                v12 = Heap[1];
                 if ( !v12 || !*(_DWORD *)Heap )
                   break;
                 v13 = (unsigned int)(*(_DWORD *)Heap - 1);
@@ -90,7 +90,7 @@ __int64 __fastcall ResCDirectoryValidateEntries(_QWORD *a1, unsigned int a2, __i
             }
             goto LABEL_10;
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         }
         Heap = 0LL;
 LABEL_10:
@@ -99,6 +99,6 @@ LABEL_10:
       }
     }
   }
-  RtlSetLastWin32Error(0x57u);
+  RtlSetLastWin32Error(87);
   return 0LL;
 }

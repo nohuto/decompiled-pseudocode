@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpPrivSourceEnum @ 0x1405B1B60
+ * XREFs of PfpPrivSourceEnum @ 0x1405B2B60
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14062AAF0 (PfQuerySuperfetchInformation.c)
  * Callees:
  *     MmQuerySystemMemoryInformation @ 0x14000FE54 (MmQuerySystemMemoryInformation.c)
  *     RtlStringCbCopyA @ 0x140011EF8 (RtlStringCbCopyA.c)
@@ -11,19 +11,19 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiFillSessionWorkingSetEntry @ 0x140134624 (MiFillSessionWorkingSetEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x140588B1C (SeIsAppContainerOrIdentifyLevelContext.c)
- *     MmGetSessionGlobalVA @ 0x1405B12A8 (MmGetSessionGlobalVA.c)
- *     ExGetNextProcess @ 0x1405B2188 (ExGetNextProcess.c)
- *     PfpPrivSourceAdd @ 0x1405B22CC (PfpPrivSourceAdd.c)
- *     PsGetProcessDeepFreezeStats @ 0x1405B2334 (PsGetProcessDeepFreezeStats.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     PsQueryProcessAttributes @ 0x1406258FC (PsQueryProcessAttributes.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     SmProcessQueryStoreStats @ 0x1408AB234 (SmProcessQueryStoreStats.c)
+ *     MiFillSessionWorkingSetEntry @ 0x1401346F4 (MiFillSessionWorkingSetEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x140589B1C (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     MmGetSessionGlobalVA @ 0x1405B22A8 (MmGetSessionGlobalVA.c)
+ *     ExGetNextProcess @ 0x1405B3188 (ExGetNextProcess.c)
+ *     PfpPrivSourceAdd @ 0x1405B32CC (PfpPrivSourceAdd.c)
+ *     PsGetProcessDeepFreezeStats @ 0x1405B3334 (PsGetProcessDeepFreezeStats.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     PsQueryProcessAttributes @ 0x14062691C (PsQueryProcessAttributes.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     SmProcessQueryStoreStats @ 0x1408AC494 (SmProcessQueryStoreStats.c)
  */
 
 __int64 __fastcall PfpPrivSourceEnum(unsigned __int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
@@ -160,7 +160,7 @@ __int64 __fastcall PfpPrivSourceEnum(unsigned __int64 a1, KPROCESSOR_MODE a2, _D
     memset(v35, 0, sizeof(v35));
     LODWORD(v35[0]) = 0;
     RtlStringCbCopyA((NTSTRSAFE_PSTR)&v35[6] + 4, 0x10uLL, "KernelSpace");
-    v9 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemFileCacheInformation, SystemInformation, 0x40u, 0LL);
+    v9 = ZwQuerySystemInformation(SystemPagedPoolInformationEx, SystemInformation, 0x40u, 0LL);
     if ( v9 < 0 )
       goto LABEL_63;
     v9 = MmQuerySystemMemoryInformation(&v47);

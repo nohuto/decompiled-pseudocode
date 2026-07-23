@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdatePfnOnSlabStandbyList @ 0x140331668
+ * XREFs of MiUpdatePfnOnSlabStandbyList @ 0x1403318F8
  * Callers:
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiReplaceTransitionPage @ 0x140330670 (MiReplaceTransitionPage.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiReplaceTransitionPage @ 0x140330900 (MiReplaceTransitionPage.c)
  * Callees:
- *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1402DD180 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
- *     MiSetPfnNodeBlinkLow @ 0x14034A2A0 (MiSetPfnNodeBlinkLow.c)
+ *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1402DD410 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
+ *     MiSetPfnNodeBlinkLow @ 0x14034A438 (MiSetPfnNodeBlinkLow.c)
  */
 
 signed __int64 __fastcall MiUpdatePfnOnSlabStandbyList(__int64 a1, int a2)

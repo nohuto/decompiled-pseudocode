@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCreateRegistryProcessToken @ 0x1407D8038
+ * XREFs of CmpCreateRegistryProcessToken @ 0x1407D858C
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x1407D8250 (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x1407D87A0 (CmpInitializeRegistryProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeFilterToken @ 0x14078F660 (SeFilterToken.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeFilterToken @ 0x14078F630 (SeFilterToken.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
@@ -36,7 +36,7 @@ __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
     v5 = SeQueryInformationToken(v4, TokenGroups, &P);
     if ( v5 >= 0 )
     {
-      Pool = CmpAllocatePool(0x100uLL);
+      Pool = CmpAllocatePool(0x100uLL, 16LL * (unsigned int)(*(_DWORD *)P + 1) + 8, 0x34384D43u);
       v3 = (struct _TOKEN_GROUPS *)Pool;
       if ( Pool )
       {

@@ -6,10 +6,10 @@
  *     vDbgPrintExWithPrefixInternal @ 0x1800EC740 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrintReturnControlC(int a1, ...)
+__int64 DbgPrintReturnControlC(__int64 a1, ...)
 {
   va_list va; // [rsp+58h] [rbp+10h] BYREF
 
   va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal((int)&unk_18017BF30, 101, 0, a1, (__int64)va, 0);
+  return vDbgPrintExWithPrefixInternal((__int64)&Flags, 0x65u, 0, a1, (__int64)va, 0);
 }

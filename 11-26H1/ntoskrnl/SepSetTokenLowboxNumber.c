@@ -1,23 +1,24 @@
 /*
- * XREFs of SepSetTokenLowboxNumber @ 0x140A2C4A4
+ * XREFs of SepSetTokenLowboxNumber @ 0x140A3E100
  * Callers:
- *     SepGetAnonymousToken @ 0x1403C9F7C (SepGetAnonymousToken.c)
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
- *     SeExchangePrimaryToken @ 0x140814B78 (SeExchangePrimaryToken.c)
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
- *     SeSetSessionIdToken @ 0x140AE7F2C (SeSetSessionIdToken.c)
+ *     SepGetAnonymousToken @ 0x1403B321C (SepGetAnonymousToken.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
+ *     SeExchangePrimaryToken @ 0x14081AC68 (SeExchangePrimaryToken.c)
+ *     SeSetSessionIdToken @ 0x140AE5DDC (SeSetSessionIdToken.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     SepGetTokenSessionMapEntry @ 0x1404B8110 (SepGetTokenSessionMapEntry.c)
- *     SepInitializeLowBoxNumberTable @ 0x140816AD0 (SepInitializeLowBoxNumberTable.c)
- *     SepGetLowBoxNumberEntry @ 0x140A2C7B8 (SepGetLowBoxNumberEntry.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SepGetTokenSessionMapEntry @ 0x1404B1940 (SepGetTokenSessionMapEntry.c)
+ *     SepInitializeLowBoxNumberTable @ 0x14081CCE0 (SepInitializeLowBoxNumberTable.c)
+ *     SepGetLowBoxNumberEntry @ 0x140A3E414 (SepGetLowBoxNumberEntry.c)
  */
 
 __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -58,13 +59,13 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2, __int64 a3, s
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v18 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&SepRmCapTableLock.ThreadListEntry.Blink, 0LL, 0LL, a4);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink, 17LL, 0LL) )
+    v18 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&SepRmCapTableLock.Affinity, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.Affinity, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(
-        (signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink,
+        (signed __int64 *)&SepRmCapTableLock.Affinity,
         0,
         v18,
-        (struct _KTHREAD *)&SepRmCapTableLock.ThreadListEntry.Blink);
+        (struct _KTHREAD *)&SepRmCapTableLock.Affinity);
     if ( v18 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -79,20 +80,20 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2, __int64 a3, s
     {
       if ( TokenSessionMapEntry != -1073741275 )
         goto LABEL_17;
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink);
-      KeAbPostRelease((unsigned __int64)&SepRmCapTableLock.ThreadListEntry.Blink);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.Affinity, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)&SepRmCapTableLock.Affinity);
+      KeAbPostRelease((unsigned __int64)&SepRmCapTableLock.Affinity);
       KeLeaveCriticalRegion();
       v20 = KeGetCurrentThread();
       --v20->KernelApcDisable;
-      v22 = (AutoBoost *)KeAbPreAcquire((__int64)&SepRmCapTableLock.ThreadListEntry.Blink, 0LL, 0LL, v21);
-      v24 = _interlockedbittestandset64((volatile signed __int32 *)&SepRmCapTableLock.ThreadListEntry.Blink, 0LL);
+      v22 = (AutoBoost *)KeAbPreAcquire((__int64)&SepRmCapTableLock.Affinity, 0LL, 0LL, v21);
+      v24 = _interlockedbittestandset64((volatile signed __int32 *)&SepRmCapTableLock.Affinity, 0LL);
       v25 = v22;
       if ( v24 )
         ExfAcquirePushLockExclusiveEx(
-          (unsigned __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink,
+          (unsigned __int64 *)&SepRmCapTableLock.Affinity,
           v22,
-          (__int64)&SepRmCapTableLock.ThreadListEntry.Blink);
+          (__int64)&SepRmCapTableLock.Affinity);
       if ( v25 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -110,7 +111,7 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2, __int64 a3, s
   }
   else
   {
-    v10 = &SepRmCapTableLock.AffinityVersion + 5 * v4;
+    v10 = (unsigned __int64 *)((char *)&SepRmCapTableLock.600 + 40 * v4);
   }
   if ( !*((_BYTE *)v10 + 32) )
   {
@@ -161,19 +162,17 @@ __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2, __int64 a3, s
 LABEL_15:
   if ( v8 )
   {
-    if ( (_InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink,
-            0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&SepRmCapTableLock.Affinity, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&SepRmCapTableLock.Affinity);
     goto LABEL_21;
   }
   if ( v7 )
   {
 LABEL_17:
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.Affinity, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&SepRmCapTableLock.Affinity);
 LABEL_21:
-    KeAbPostRelease((unsigned __int64)&SepRmCapTableLock.ThreadListEntry.Blink);
+    KeAbPostRelease((unsigned __int64)&SepRmCapTableLock.Affinity);
     KeLeaveCriticalRegion();
   }
   return (unsigned int)LowBoxNumberEntry;

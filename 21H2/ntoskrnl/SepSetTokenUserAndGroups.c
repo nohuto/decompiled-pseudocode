@@ -1,17 +1,17 @@
 /*
- * XREFs of SepSetTokenUserAndGroups @ 0x1409231BC
+ * XREFs of SepSetTokenUserAndGroups @ 0x14092331C
  * Callers:
- *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x1402A6428 (SepCreateTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     SepDuplicateSid @ 0x140706DA0 (SepDuplicateSid.c)
- *     SepLogTokenSidManagement @ 0x14091CE74 (SepLogTokenSidManagement.c)
- *     SepCompareSidValuesBlocks @ 0x140922D88 (SepCompareSidValuesBlocks.c)
- *     SepCreateSidValuesBlock @ 0x140922E30 (SepCreateSidValuesBlock.c)
- *     SepDereferenceSidValuesBlock @ 0x140923060 (SepDereferenceSidValuesBlock.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     SepDuplicateSid @ 0x14071E180 (SepDuplicateSid.c)
+ *     SepLogTokenSidManagement @ 0x14091CFD4 (SepLogTokenSidManagement.c)
+ *     SepCompareSidValuesBlocks @ 0x140922EE8 (SepCompareSidValuesBlocks.c)
+ *     SepCreateSidValuesBlock @ 0x140922F90 (SepCreateSidValuesBlock.c)
+ *     SepDereferenceSidValuesBlock @ 0x1409231C0 (SepDereferenceSidValuesBlock.c)
  */
 
 __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, unsigned int a3, __int64 a4, int a5)
@@ -25,34 +25,37 @@ __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, un
   __int64 v15; // rsi
   struct _KTHREAD *CurrentThread; // rax
   __int64 v17; // rsi
-  PVOID v18; // rbx
+  __int64 v18; // rdx
   __int64 v19; // r8
-  int v20; // ecx
-  __int64 v21; // r9
-  __int64 v22; // r9
-  unsigned int v23; // edx
-  unsigned __int8 **v24; // r11
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  int v27; // eax
-  __int64 v28[9]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v20; // r9
+  PVOID v21; // rbx
+  __int64 v22; // r8
+  int v23; // ecx
+  __int64 v24; // r9
+  __int64 v25; // r9
+  unsigned int v26; // edx
+  unsigned __int8 **v27; // r11
+  __int64 v28; // rcx
+  __int64 v29; // r8
+  int v30; // eax
+  __int64 v31[9]; // [rsp+30h] [rbp-48h] BYREF
   PVOID P; // [rsp+80h] [rbp+8h] BYREF
-  unsigned __int8 **v30; // [rsp+88h] [rbp+10h]
+  unsigned __int8 **v33; // [rsp+88h] [rbp+10h]
 
-  v30 = a2;
+  v33 = a2;
   P = 0LL;
   v5 = 0;
-  v28[0] = 0LL;
+  v31[0] = 0LL;
   v6 = 0;
   v7 = *(_DWORD *)(a1 + 208);
   v8 = -1;
   if ( v7 != -1 )
   {
     v8 = v7 - 1;
-    result = SepDuplicateSid(*(unsigned __int8 **)(a4 + 16LL * (unsigned int)(v7 - 1)), v28);
+    result = SepDuplicateSid(*(unsigned __int8 **)(a4 + 16LL * (unsigned int)(v7 - 1)), v31);
     if ( (int)result < 0 )
       return result;
-    *(_QWORD *)(a1 + 1120) = v28[0];
+    *(_QWORD *)(a1 + 1120) = v31[0];
   }
   v14 = SepCreateSidValuesBlock(&P, a2, a3, a4, a5, v8);
   if ( v14 >= 0 )
@@ -75,68 +78,68 @@ __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, un
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v17 + 104), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v17 + 104);
     KeAbPostRelease(v17 + 104);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
     v15 = *(_QWORD *)(a1 + 216);
     if ( !v5 )
     {
 LABEL_14:
-      v18 = P;
+      v21 = P;
       v6 = SepCompareSidValuesBlocks((__int64)P, *(_QWORD *)(v15 + 120));
     }
     else
     {
-      v18 = P;
+      v21 = P;
     }
-    v19 = *(_QWORD *)(v15 + 120);
+    v22 = *(_QWORD *)(v15 + 120);
     if ( v5 )
     {
-      v20 = 0;
+      v23 = 0;
     }
     else
     {
       if ( v6 )
       {
-        SepLogTokenSidManagement(2, (__int64)v18, v19, a1);
+        SepLogTokenSidManagement(2, (__int64)v21, v22, a1);
         if ( _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(a1 + 216) + 120LL) + 8LL)) <= 1 )
           __fastfail(0xEu);
         *(_QWORD *)(a1 + 1128) = *(_QWORD *)(*(_QWORD *)(a1 + 216) + 120LL);
         SepDereferenceSidValuesBlock((volatile signed __int64 *)P, a1);
         goto LABEL_23;
       }
-      v20 = 1;
+      v23 = 1;
     }
-    SepLogTokenSidManagement(v20, (__int64)v18, v19, a1);
-    *(_QWORD *)(a1 + 1128) = v18;
+    SepLogTokenSidManagement(v23, (__int64)v21, v22, a1);
+    *(_QWORD *)(a1 + 1128) = v21;
 LABEL_23:
-    v21 = *(_QWORD *)(a1 + 1128);
+    v24 = *(_QWORD *)(a1 + 1128);
     *(_QWORD *)(a1 + 152) = a1 + 1168;
-    v22 = v21 + 24;
-    v23 = 0;
+    v25 = v24 + 24;
+    v26 = 0;
     *(_DWORD *)(a1 + 124) = a3 + 1;
     if ( a3 != -1 )
     {
-      v24 = v30;
+      v27 = v33;
       do
       {
-        v25 = *(_QWORD *)(a1 + 152);
-        v26 = 2LL * v23;
-        if ( v23 == *(_DWORD *)(a1 + 208) )
+        v28 = *(_QWORD *)(a1 + 152);
+        v29 = 2LL * v26;
+        if ( v26 == *(_DWORD *)(a1 + 208) )
         {
-          *(_QWORD *)(v25 + 16LL * v23) = *(_QWORD *)(a1 + 1120);
+          *(_QWORD *)(v28 + 16LL * v26) = *(_QWORD *)(a1 + 1120);
         }
         else
         {
-          *(_QWORD *)(v25 + 16LL * v23) = v22;
-          v22 += (4LL * *(unsigned __int8 *)(v22 + 1) + 11) & 0xFFFFFFFCLL;
+          *(_QWORD *)(v28 + 16LL * v26) = v25;
+          v25 += (4LL * *(unsigned __int8 *)(v25 + 1) + 11) & 0xFFFFFFFCLL;
         }
-        if ( v23 )
-          v27 = *(_DWORD *)(a4 + 16LL * (v23 - 1) + 8);
+        if ( v26 )
+          v30 = *(_DWORD *)(a4 + 16LL * (v26 - 1) + 8);
         else
-          v27 = *((_DWORD *)v24 + 2);
-        ++v23;
-        *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v26 + 8) = v27;
+          v30 = *((_DWORD *)v27 + 2);
+        ++v26;
+        *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v29 + 8) = v30;
       }
-      while ( v23 < *(_DWORD *)(a1 + 124) );
+      while ( v26 < *(_DWORD *)(a1 + 124) );
     }
   }
   return (unsigned int)v14;

@@ -27,29 +27,37 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   void *v5; // rsp
   NTSTATUS v6; // esi
   struct _RUNTIME_FUNCTION *v7; // rax
-  unsigned __int64 ImageBase; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength[2]; // [rsp+40h] [rbp+0h] BYREF
   unsigned __int64 EstablisherFrame; // [rsp+48h] [rbp+8h] BYREF
   PVOID HandlerData; // [rsp+50h] [rbp+10h] BYREF
   void *v11; // [rsp+138h] [rbp+F8h]
 
-  RtlGetExtendedContextLength2(1048587LL, &ImageBase);
-  v2 = (unsigned int)ImageBase + 15LL;
-  if ( v2 <= (unsigned int)ImageBase )
+  RtlGetExtendedContextLength2(0x10000Bu, ContextLength, 0LL);
+  v2 = ContextLength[0] + 15LL;
+  if ( v2 <= ContextLength[0] )
     v2 = 0xFFFFFFFFFFFFFF0LL;
   v3 = v2 & 0xFFFFFFFFFFFFFFF0uLL;
   v4 = alloca(v3);
   v5 = alloca(v3);
-  v6 = RtlInitializeExtendedContext2((__int64)&ImageBase, 0x10000Bu, &ImageBase, 0LL);
+  v6 = RtlInitializeExtendedContext2((PCONTEXT)ContextLength, 0x10000Bu, (PCONTEXT_EX *)ContextLength, 0LL);
   RtlpCaptureContext2();
-  v7 = RtlLookupFunctionEntry((DWORD64)v11, &ImageBase, 0LL);
+  v7 = RtlLookupFunctionEntry((DWORD64)v11, (PDWORD64)ContextLength, 0LL);
   if ( !v7 )
 LABEL_6:
     RtlRaiseStatus(v6);
-  RtlVirtualUnwind(0, ImageBase, (DWORD64)v11, v7, (struct _CONTEXT *)&ImageBase, &HandlerData, &EstablisherFrame, 0LL);
+  RtlVirtualUnwind(
+    0,
+    *(DWORD64 *)ContextLength,
+    (DWORD64)v11,
+    v7,
+    (struct _CONTEXT *)ContextLength,
+    &HandlerData,
+    &EstablisherFrame,
+    0LL);
   ExceptionRecord->ExceptionAddress = v11;
-  if ( !RtlDispatchException(ExceptionRecord, (PCONTEXT)&ImageBase) )
+  if ( !RtlDispatchException(ExceptionRecord, (PCONTEXT)ContextLength) )
   {
-    v6 = ZwRaiseException(ExceptionRecord, (PCONTEXT)&ImageBase, 0);
+    v6 = ZwRaiseException(ExceptionRecord, (PCONTEXT)ContextLength, 0);
     goto LABEL_6;
   }
 }

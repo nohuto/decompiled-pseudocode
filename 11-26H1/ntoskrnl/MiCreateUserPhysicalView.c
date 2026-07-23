@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCreateUserPhysicalView @ 0x140878ADC
+ * XREFs of MiCreateUserPhysicalView @ 0x14087EEBC
  * Callers:
- *     MiReserveUserMemoryPrepare @ 0x14095B7EC (MiReserveUserMemoryPrepare.c)
+ *     MiReserveUserMemoryPrepare @ 0x140A010AC (MiReserveUserMemoryPrepare.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiGetAweInfoPartition @ 0x1403BC1DC (MiGetAweInfoPartition.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
- *     MiReferenceAweHandle @ 0x140513A44 (MiReferenceAweHandle.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiCreateProcessDefaultAweInfo @ 0x1408789FC (MiCreateProcessDefaultAweInfo.c)
- *     MiCreateVadEvent @ 0x1409CE5DC (MiCreateVadEvent.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiGetAweInfoPartition @ 0x1403C604C (MiGetAweInfoPartition.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
+ *     MiReferenceAweHandle @ 0x14050D4B4 (MiReferenceAweHandle.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x14087EDDC (MiCreateProcessDefaultAweInfo.c)
+ *     MiCreateVadEvent @ 0x14099F5BC (MiCreateVadEvent.c)
  */
 
 NTSTATUS __fastcall MiCreateUserPhysicalView(_KPROCESS *a1, __int64 a2, int a3, _QWORD *a4, _WORD *a5)

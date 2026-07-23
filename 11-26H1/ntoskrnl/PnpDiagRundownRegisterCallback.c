@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpDiagRundownRegisterCallback @ 0x140AC6A00
+ * XREFs of PnpDiagRundownRegisterCallback @ 0x140AC85F0
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PpDevNodeLockTree @ 0x140A88424 (PpDevNodeLockTree.c)
- *     PpDevNodeUnlockTree @ 0x140A921A4 (PpDevNodeUnlockTree.c)
- *     PipForDeviceNodeSubtree @ 0x140AC6C80 (PipForDeviceNodeSubtree.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PpDevNodeLockTree @ 0x140A8F554 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x140A96CF4 (PpDevNodeUnlockTree.c)
+ *     PipForDeviceNodeSubtree @ 0x140AC8870 (PipForDeviceNodeSubtree.c)
  */
 
 void __fastcall PnpDiagRundownRegisterCallback(
@@ -21,8 +21,6 @@ void __fastcall PnpDiagRundownRegisterCallback(
   struct _KTHREAD *v4; // rax
   struct _KTHREAD *v5; // rax
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
 
   if ( ControlCode == 2 )
   {
@@ -57,7 +55,7 @@ void __fastcall PnpDiagRundownRegisterCallback(
     {
       PpDevNodeLockTree(0);
       PipForDeviceNodeSubtree(IopRootDeviceNode, PnpDiagRundownInterruptResourceForEachDevice, 0LL);
-      PpDevNodeUnlockTree(0, v7, v8);
+      PpDevNodeUnlockTree(0);
     }
   }
 }

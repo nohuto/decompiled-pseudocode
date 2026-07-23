@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInsertProtectedStandbyPage @ 0x140335030
+ * XREFs of MiInsertProtectedStandbyPage @ 0x1403352C0
  * Callers:
- *     MiPfnShareCountIsZero @ 0x1402818C0 (MiPfnShareCountIsZero.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiHardFaultPageRelease @ 0x140334DA8 (MiHardFaultPageRelease.c)
+ *     MiPfnShareCountIsZero @ 0x140281B50 (MiPfnShareCountIsZero.c)
+ *     MiDeletePteRun @ 0x1402D5380 (MiDeletePteRun.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiHardFaultPageRelease @ 0x140335038 (MiHardFaultPageRelease.c)
  * Callees:
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiAddPageToInsertList @ 0x1402D99D0 (MiAddPageToInsertList.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiIsPageEligibleForProtectedStandby @ 0x1403350F0 (MiIsPageEligibleForProtectedStandby.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiAddPageToInsertList @ 0x1402D9C60 (MiAddPageToInsertList.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
+ *     MiIsPageEligibleForProtectedStandby @ 0x140335380 (MiIsPageEligibleForProtectedStandby.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall MiInsertProtectedStandbyPage(__int64 a1, __int64 a2)

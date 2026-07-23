@@ -1,25 +1,25 @@
 /*
- * XREFs of KdEnterDebugger @ 0x140C17858
+ * XREFs of KdEnterDebugger @ 0x140C1D858
  * Callers:
- *     KdRefreshDebuggerNotPresent @ 0x1404F06C0 (KdRefreshDebuggerNotPresent.c)
- *     KdpReport @ 0x140508AB4 (KdpReport.c)
- *     KiTpWriteMemory @ 0x1405FC774 (KiTpWriteMemory.c)
- *     KdpCloseRemoteFile @ 0x140C13480 (KdpCloseRemoteFile.c)
- *     KdpCreateRemoteFile @ 0x140C136D0 (KdpCreateRemoteFile.c)
- *     KdpReadRemoteFile @ 0x140C13AD0 (KdpReadRemoteFile.c)
- *     KdSendTraceData @ 0x140C13D0C (KdSendTraceData.c)
- *     KdpCommandString @ 0x140C15C54 (KdpCommandString.c)
- *     KdpPrint @ 0x140C15D30 (KdpPrint.c)
- *     KdpPrompt @ 0x140C15EBC (KdpPrompt.c)
- *     KdpSymbol @ 0x140C16018 (KdpSymbol.c)
- *     KdpSetOwedBreakpoints @ 0x140C175F0 (KdpSetOwedBreakpoints.c)
+ *     KdRefreshDebuggerNotPresent @ 0x1404E9CA0 (KdRefreshDebuggerNotPresent.c)
+ *     KdpReport @ 0x14050255C (KdpReport.c)
+ *     KiTpWriteMemory @ 0x1405FF1C4 (KiTpWriteMemory.c)
+ *     KdpCloseRemoteFile @ 0x140C19480 (KdpCloseRemoteFile.c)
+ *     KdpCreateRemoteFile @ 0x140C196D0 (KdpCreateRemoteFile.c)
+ *     KdpReadRemoteFile @ 0x140C19AD0 (KdpReadRemoteFile.c)
+ *     KdSendTraceData @ 0x140C19D0C (KdSendTraceData.c)
+ *     KdpCommandString @ 0x140C1BC54 (KdpCommandString.c)
+ *     KdpPrint @ 0x140C1BD30 (KdpPrint.c)
+ *     KdpPrompt @ 0x140C1BEBC (KdpPrompt.c)
+ *     KdpSymbol @ 0x140C1C018 (KdpSymbol.c)
+ *     KdpSetOwedBreakpoints @ 0x140C1D5F0 (KdpSetOwedBreakpoints.c)
  * Callees:
- *     KdReadEntryCount @ 0x1404BB460 (KdReadEntryCount.c)
- *     VfIsVerifierEnabled @ 0x1404FC020 (VfIsVerifierEnabled.c)
- *     KeFreezeExecution @ 0x140508FA0 (KeFreezeExecution.c)
- *     KeSaveSupervisorState @ 0x1405ECAD4 (KeSaveSupervisorState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     VfNotifyVerifierOfEvent @ 0x140C21340 (VfNotifyVerifierOfEvent.c)
+ *     KdReadEntryCount @ 0x1404B4C40 (KdReadEntryCount.c)
+ *     VfIsVerifierEnabled @ 0x1404F5560 (VfIsVerifierEnabled.c)
+ *     KeFreezeExecution @ 0x140502A50 (KeFreezeExecution.c)
+ *     KeSaveSupervisorState @ 0x1405EF444 (KeSaveSupervisorState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     VfNotifyVerifierOfEvent @ 0x140C27350 (VfNotifyVerifierOfEvent.c)
  */
 
 bool __fastcall KdEnterDebugger(__int64 a1)
@@ -54,16 +54,16 @@ bool __fastcall KdEnterDebugger(__int64 a1)
   guard_dispatch_icall_no_overrides(v6, v5);
   CurrentPrcb = KeGetCurrentPrcb();
   Number = CurrentPrcb->Number;
-  if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) == 0 && !LOBYTE(stru_140F10828.WriteOperationCount) )
+  if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) == 0 && !PoAllProcIntrDisabled )
   {
     ExtendedSupervisorState = (__int64)CurrentPrcb->ExtendedSupervisorState;
-    stru_140E3E928.TracingPrivate[0] = ~KdIgnoredSavingSupervisorXStateFeatures & (KeEnabledSupervisorXStateFeatures | 0x100);
+    qword_140E5EE80 = ~KdIgnoredSavingSupervisorXStateFeatures & (KeEnabledSupervisorXStateFeatures | 0x100);
     KeSaveSupervisorState(
       ExtendedSupervisorState,
       ~KdIgnoredSavingSupervisorXStateFeatures & (KeEnabledSupervisorXStateFeatures | 0x100));
   }
-  if ( ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) == 0
-    || LODWORD(KiDpcWatchdogConfigurationLock.StackLimit) >> 4 != (_DWORD)Number )
+  if ( ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) == 0
+    || LODWORD(KiDpcWatchdogConfigurationLock.InitialStack) >> 4 != (_DWORD)Number )
   {
     CurrentPrcb->DebuggerSavedIRQL = CurrentIrql;
   }

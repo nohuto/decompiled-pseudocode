@@ -1,16 +1,16 @@
 /*
- * XREFs of IopQueryConflictListInternal @ 0x1408B98EC
+ * XREFs of IopQueryConflictListInternal @ 0x1408B9A4C
  * Callers:
- *     IopQueryConflictList @ 0x1408B9854 (IopQueryConflictList.c)
+ *     IopQueryConflictList @ 0x1408B99B4 (IopQueryConflictList.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopResourceRequirementsListToReqList @ 0x140751854 (IopResourceRequirementsListToReqList.c)
- *     IopCallArbiter @ 0x1407522E4 (IopCallArbiter.c)
- *     IopFreeReqList @ 0x140753068 (IopFreeReqList.c)
- *     PnpCmResourcesToIoResources @ 0x1407B48F0 (PnpCmResourcesToIoResources.c)
- *     IopQueryConflictFillConflicts @ 0x1408B930C (IopQueryConflictFillConflicts.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751A14 (IopResourceRequirementsListToReqList.c)
+ *     IopCallArbiter @ 0x1407524A4 (IopCallArbiter.c)
+ *     IopFreeReqList @ 0x140753228 (IopFreeReqList.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B6210 (PnpCmResourcesToIoResources.c)
+ *     IopQueryConflictFillConflicts @ 0x1408B946C (IopQueryConflictFillConflicts.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryConflictListInternal(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, int a5)

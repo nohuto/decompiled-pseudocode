@@ -1,15 +1,15 @@
 /*
- * XREFs of PspStorageGetObject @ 0x1407D92F0
+ * XREFs of PspStorageGetObject @ 0x1407D95C0
  * Callers:
- *     PsGetSiloContext @ 0x1403631E0 (PsGetSiloContext.c)
- *     PsFreeSiloContextSlot @ 0x1409AC590 (PsFreeSiloContextSlot.c)
+ *     PsGetSiloContext @ 0x140363380 (PsGetSiloContext.c)
+ *     PsFreeSiloContextSlot @ 0x1409AC790 (PsFreeSiloContextSlot.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PspGetStorageArrayIfPossible @ 0x1402F8654 (PspGetStorageArrayIfPossible.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PspGetStorageArrayIfPossible @ 0x1402F88E4 (PspGetStorageArrayIfPossible.c)
  */
 
 __int64 __fastcall PspStorageGetObject(__int64 a1, unsigned int a2, unsigned __int64 *a3)

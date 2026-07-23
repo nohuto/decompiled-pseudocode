@@ -1,11 +1,11 @@
 /*
- * XREFs of wil_details_FeaturePropertyCache_ReportUsageToServiceDirect @ 0x1400F2A88
+ * XREFs of wil_details_FeaturePropertyCache_ReportUsageToServiceDirect @ 0x1400F2B08
  * Callers:
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A84 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
  * Callees:
- *     wil_details_RecordUsageInPropertyCache @ 0x1400F2B04 (wil_details_RecordUsageInPropertyCache.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     wil_details_RecordUsageInPropertyCache @ 0x1400F2B84 (wil_details_RecordUsageInPropertyCache.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall wil_details_FeaturePropertyCache_ReportUsageToServiceDirect(

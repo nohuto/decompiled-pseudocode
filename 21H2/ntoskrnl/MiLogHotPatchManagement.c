@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogHotPatchManagement @ 0x1408CB2C0
+ * XREFs of MiLogHotPatchManagement @ 0x1408CB420
  * Callers:
- *     NtManageHotPatch @ 0x1408CED40 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1408CEEA0 (NtManageHotPatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     PsGetProcessId @ 0x140269640 (PsGetProcessId.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3, int a4)
@@ -87,14 +87,14 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
   int *v80; // [rsp+250h] [rbp-38h]
   __int64 v81; // [rsp+258h] [rbp-30h]
 
-  v4 = *(_QWORD *)&qword_140C4EEE0;
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  v4 = *(_QWORD *)&qword_140C4EF20;
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
     if ( a1 )
     {
       if ( a1 == 3 )
       {
-        if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
+        if ( **(_DWORD **)&qword_140C4EF20 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 32LL) )
         {
           ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
           v34 = 4LL;
@@ -117,12 +117,12 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
           v42 = 2LL;
           v44[1] = 0;
           v47 = 0;
-          tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)byte_14002621B, v10, 1u, v14, v15, 9u, &v32);
+          tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&dword_140026284, v10, 1u, v14, v15, 9u, &v32);
         }
       }
       else if ( a1 == 1 )
       {
-        if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
+        if ( **(_DWORD **)&qword_140C4EF20 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 32LL) )
         {
           v24 = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
           v75 = 4LL;
@@ -136,10 +136,10 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
           v77 = 4LL;
           v79 = 4LL;
           v81 = 4LL;
-          tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)byte_1400261C9, v11, 1u, v14, v15, 6u, &v73);
+          tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&word_140026596, v11, 1u, v14, v15, 6u, &v73);
         }
       }
-      else if ( a1 == 4 && **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
+      else if ( a1 == 4 && **(_DWORD **)&qword_140C4EF20 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 32LL) )
       {
         v28 = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
         v63 = 4LL;
@@ -157,12 +157,12 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
         v69 = 4LL;
         v71 = 4 * v12 + 8;
         v72 = 0;
-        tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&byte_1400264BB, v13, 1u, v14, v15, 7u, &v61);
+        tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&dword_140026534, v13, 1u, v14, v15, 7u, &v61);
       }
     }
-    else if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
+    else if ( **(_DWORD **)&qword_140C4EF20 > 5u )
     {
-      if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
+      if ( tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 32LL) )
       {
         v16 = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
         v50 = 4LL;
@@ -181,7 +181,7 @@ void __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
         v56 = 4LL;
         v58 = 2LL;
         v60[1] = 0;
-        tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&word_140026286, v8, 1u, v14, v15, 8u, &v48);
+        tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)byte_1400262EF, v8, 1u, v14, v15, 8u, &v48);
       }
     }
   }

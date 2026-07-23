@@ -1,14 +1,14 @@
 /*
- * XREFs of SepGetLogonSessionAccountInfo @ 0x140A466DC
+ * XREFs of SepGetLogonSessionAccountInfo @ 0x140A3C49C
  * Callers:
- *     AdtpBuildLogonIdStrings @ 0x140A4658C (AdtpBuildLogonIdStrings.c)
+ *     AdtpBuildLogonIdStrings @ 0x140A3C34C (AdtpBuildLogonIdStrings.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -49,13 +49,14 @@ __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64
   *(_OWORD *)a3 = *((_OWORD *)i + 5);
   *(_QWORD *)(a2 + 8) = 0LL;
   *(_QWORD *)(a3 + 8) = 0LL;
-  if ( i[9] && (v15 = ExAllocatePool2(0x100uLL), (*(_QWORD *)(a2 + 8) = v15) == 0LL) )
+  if ( i[9]
+    && (v15 = ExAllocatePool2(0x100uLL, *((unsigned __int16 *)i + 33), 0x6B416553u), (*(_QWORD *)(a2 + 8) = v15) == 0LL) )
   {
     v10 = -1073741670;
   }
   else if ( i[11] )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, *((unsigned __int16 *)i + 41), 0x6B416553u);
     *(_QWORD *)(a3 + 8) = Pool2;
     if ( !Pool2 )
       v10 = -1073741670;
@@ -67,7 +68,10 @@ __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64
   {
     if ( v17 )
     {
-      v14 = (void *)ExAllocatePool2(0x100uLL);
+      v14 = (void *)ExAllocatePool2(
+                      0x100uLL,
+                      4LL * *(unsigned __int8 *)(**(_QWORD **)(v17 + 152) + 1LL) + 8,
+                      0x69536553u);
       if ( !v14 )
       {
         v10 = -1073741670;

@@ -1,13 +1,13 @@
 /*
- * XREFs of SePrivilegeCheck @ 0x140A48B30
+ * XREFs of SePrivilegeCheck @ 0x140A51E20
  * Callers:
- *     MiLockVirtualMemoryCheckPrivilege @ 0x140317300 (MiLockVirtualMemoryCheckPrivilege.c)
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     CMFCheckAccess @ 0x140842C28 (CMFCheckAccess.c)
- *     RtlpNewSecurityObject @ 0x1408E0FD0 (RtlpNewSecurityObject.c)
- *     PspSinglePrivCheck @ 0x140A48A88 (PspSinglePrivCheck.c)
+ *     MiLockVirtualMemoryCheckPrivilege @ 0x140319330 (MiLockVirtualMemoryCheckPrivilege.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     CMFCheckAccess @ 0x1408480B8 (CMFCheckAccess.c)
+ *     RtlpNewSecurityObject @ 0x1408E7590 (RtlpNewSecurityObject.c)
+ *     PspSinglePrivCheck @ 0x140A51D78 (PspSinglePrivCheck.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x14042F0A0 (SepPrivilegeCheck.c)
+ *     SepPrivilegeCheck @ 0x14041BFB0 (SepPrivilegeCheck.c)
  */
 
 BOOLEAN __stdcall SePrivilegeCheck(

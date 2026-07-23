@@ -9,21 +9,21 @@
  *     _AVrfCallAPILookupCallback@20 @ 0x4B338404 (_AVrfCallAPILookupCallback@20.c)
  */
 
-unsigned int __fastcall LdrpResolveDelayloadAddress(
+char *__fastcall LdrpResolveDelayloadAddress(
         int a1,
-        int a2,
+        char **a2,
         int a3,
         int a4,
-        void (__thiscall *a5)(_DWORD, int *, int, unsigned int, int, _DWORD),
+        void (__thiscall *a5)(_DWORD, int *, char **, char *, int, _DWORD),
         int *a6)
 {
   int v8; // eax
-  unsigned int v9; // esi
+  char *v9; // esi
   int v11; // [esp-8h] [ebp-20h]
   int v12; // [esp+8h] [ebp-10h] BYREF
-  ULONG v13; // [esp+Ch] [ebp-Ch] BYREF
+  int v13; // [esp+Ch] [ebp-Ch] BYREF
   int v14; // [esp+10h] [ebp-8h] BYREF
-  unsigned int v15; // [esp+14h] [ebp-4h] BYREF
+  char *v15; // [esp+14h] [ebp-4h] BYREF
 
   v15 = 0;
   LdrpGetDelayloadAPIInfo(a1, a3, a4, &v12, &v13);
@@ -40,6 +40,6 @@ unsigned int __fastcall LdrpResolveDelayloadAddress(
   v9 = v15;
   a5(a5, &v14, a2, v15, v11, 0);
   if ( v14 )
-    return v14;
+    return (char *)v14;
   return v9;
 }

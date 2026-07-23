@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwRecoverResourceManager @ 0x180161E70
+ * XREFs of ZwRecoverResourceManager @ 0x180161D70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwRecoverResourceManager()
+NTSTATUS __cdecl ZwRecoverResourceManager(HANDLE ResourceManagerHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 378LL;
+  result = 378;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

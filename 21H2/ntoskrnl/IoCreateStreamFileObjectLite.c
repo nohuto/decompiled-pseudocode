@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCreateStreamFileObjectLite @ 0x14071BEC0
+ * XREFs of IoCreateStreamFileObjectLite @ 0x1406C9310
  * Callers:
- *     RawMountVolume @ 0x14071C1B0 (RawMountVolume.c)
- *     IopInvalidateVolumesForDevice @ 0x14077B820 (IopInvalidateVolumesForDevice.c)
+ *     RawMountVolume @ 0x1406C90C8 (RawMountVolume.c)
+ *     IopInvalidateVolumesForDevice @ 0x14077B9E0 (IopInvalidateVolumesForDevice.c)
  * Callees:
- *     IoCreateStreamFileObjectEx2 @ 0x14071BF10 (IoCreateStreamFileObjectEx2.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1406C9360 (IoCreateStreamFileObjectEx2.c)
  */
 
 PFILE_OBJECT __stdcall IoCreateStreamFileObjectLite(PFILE_OBJECT FileObject, PDEVICE_OBJECT DeviceObject)

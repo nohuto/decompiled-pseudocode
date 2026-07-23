@@ -1,18 +1,18 @@
 /*
- * XREFs of KeStartProfile @ 0x140295C2C
+ * XREFs of KeStartProfile @ 0x140295E1C
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
- *     EtwpCoverageSamplerStart @ 0x1408C8B50 (EtwpCoverageSamplerStart.c)
- *     NtStartProfile @ 0x1408DA3E0 (NtStartProfile.c)
- *     KiInitializeCacheErrataSupport @ 0x1409F6D94 (KiInitializeCacheErrataSupport.c)
+ *     EtwpEnableKernelTrace @ 0x1406C6A30 (EtwpEnableKernelTrace.c)
+ *     EtwpCoverageSamplerStart @ 0x1408C9E10 (EtwpCoverageSamplerStart.c)
+ *     NtStartProfile @ 0x1408DB6A0 (NtStartProfile.c)
+ *     KiInitializeCacheErrataSupport @ 0x1409F7D94 (KiInitializeCacheErrataSupport.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x140175930 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiStartProfileTarget @ 0x1402960B0 (KiStartProfileTarget.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x140175A30 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiStartProfileTarget @ 0x1402962A0 (KiStartProfileTarget.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall KeStartProfile(ULONG_PTR a1)

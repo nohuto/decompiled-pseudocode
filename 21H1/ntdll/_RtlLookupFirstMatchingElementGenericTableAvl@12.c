@@ -8,14 +8,14 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-_DWORD *__stdcall RtlLookupFirstMatchingElementGenericTableAvl(int a1, int a2, _DWORD *a3)
+PVOID __cdecl RtlLookupFirstMatchingElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer, PVOID *RestartKey)
 {
   _DWORD *v4; // edi
   _DWORD *v5; // [esp+4h] [ebp-8h]
   _DWORD *v6; // [esp+8h] [ebp-4h] BYREF
 
-  *a3 = 0;
-  if ( FindNodeOrParent(a1, a2, &v6) != 1 )
+  *RestartKey = 0;
+  if ( FindNodeOrParent((int)Table, (int)Buffer, &v6) != 1 )
     return 0;
   v4 = v6;
   do
@@ -24,7 +24,12 @@ _DWORD *__stdcall RtlLookupFirstMatchingElementGenericTableAvl(int a1, int a2, _
     v6 = v4;
     v4 = RealPredecessor(v4);
   }
-  while ( v4 && (*(int (__thiscall **)(_DWORD, int, int, _DWORD *))(a1 + 40))(*(_DWORD *)(a1 + 40), a1, a2, v4 + 4) == 2 );
-  *a3 = v6;
+  while ( v4
+       && ((int (__thiscall *)(_RTL_GENERIC_COMPARE_RESULTS (__stdcall *)(_RTL_AVL_TABLE *, void *, void *), PRTL_AVL_TABLE, PVOID, _DWORD *))Table->CompareRoutine)(
+            Table->CompareRoutine,
+            Table,
+            Buffer,
+            v4 + 4) == 2 );
+  *RestartKey = v6;
   return v5 + 4;
 }

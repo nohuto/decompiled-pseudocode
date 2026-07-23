@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ExpScanSystemLookasideLists@@YAXK@Z @ 0x140B7E73C
+ * XREFs of ?ExpScanSystemLookasideLists@@YAXK@Z @ 0x140B8761C
  * Callers:
- *     ?ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z @ 0x140B45800 (-ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z.c)
+ *     ?ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z @ 0x140B47830 (-ExpLookasideMgrGeneralWorkerRoutine@@YAXPEAU_EXP_LOOKASIDE_MGR_WORKER@@@Z.c)
  * Callees:
- *     ExpComputeLookasideDepth @ 0x140433960 (ExpComputeLookasideDepth.c)
+ *     ExpComputeLookasideDepth @ 0x140428A30 (ExpComputeLookasideDepth.c)
  */
 
 void __fastcall ExpScanSystemLookasideLists(int a1)

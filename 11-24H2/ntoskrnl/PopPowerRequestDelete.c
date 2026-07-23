@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPowerRequestDelete @ 0x1409BAA40
+ * XREFs of PopPowerRequestDelete @ 0x1409A1090
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PopUmpoSendPowerMessage @ 0x140331990 (PopUmpoSendPowerMessage.c)
- *     PoDestroyReasonContext @ 0x140331BA4 (PoDestroyReasonContext.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     SleepstudyHelperDestroyBlocker @ 0x14047C6C0 (SleepstudyHelperDestroyBlocker.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     TtmNotifySessionPowerRequestDeleted @ 0x140769BB0 (TtmNotifySessionPowerRequestDeleted.c)
- *     PsReleaseProcessWakeCounter @ 0x14088E750 (PsReleaseProcessWakeCounter.c)
- *     PopPowerRequestTableDeleteEntry @ 0x1409BAB80 (PopPowerRequestTableDeleteEntry.c)
- *     PopDiagTracePowerRequestClose @ 0x1409BABB0 (PopDiagTracePowerRequestClose.c)
- *     PopUmpoSendPowerRequestOverrideCleanup @ 0x1409BAC40 (PopUmpoSendPowerRequestOverrideCleanup.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerMessage @ 0x1402BB090 (PopUmpoSendPowerMessage.c)
+ *     PoDestroyReasonContext @ 0x1402BC528 (PoDestroyReasonContext.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x1404778D0 (SleepstudyHelperDestroyBlocker.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     TtmNotifySessionPowerRequestDeleted @ 0x140769DD0 (TtmNotifySessionPowerRequestDeleted.c)
+ *     PsReleaseProcessWakeCounter @ 0x140898050 (PsReleaseProcessWakeCounter.c)
+ *     PopPowerRequestTableDeleteEntry @ 0x1409A11D0 (PopPowerRequestTableDeleteEntry.c)
+ *     PopDiagTracePowerRequestClose @ 0x1409A1200 (PopDiagTracePowerRequestClose.c)
+ *     PopUmpoSendPowerRequestOverrideCleanup @ 0x1409A1290 (PopUmpoSendPowerRequestOverrideCleanup.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
  */
 
 void __fastcall PopPowerRequestDelete(unsigned int *a1)
@@ -30,7 +30,7 @@ void __fastcall PopPowerRequestDelete(unsigned int *a1)
   _DWORD Src[22]; // [rsp+20h] [rbp-58h] BYREF
 
   v2 = 0LL;
-  PopAcquireRwLockExclusive(&PopPowerRequestLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
   v3 = *(__int64 **)a1;
   if ( *(unsigned int **)(*(_QWORD *)a1 + 8LL) != a1 || (v4 = (__int64 **)*((_QWORD *)a1 + 1), *v4 != (__int64 *)a1) )
     __fastfail(3u);
@@ -51,7 +51,7 @@ void __fastcall PopPowerRequestDelete(unsigned int *a1)
   v7 = a1[9];
   --PopPowerRequestObjectCount;
   PopPowerRequestTableDeleteEntry(v7);
-  PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  PopReleaseRwLock(&PopPowerRequestLock);
   if ( v2 )
     PsReleaseProcessWakeCounter(v2);
   PoDestroyReasonContext(*((_QWORD **)a1 + 12));
@@ -68,7 +68,7 @@ void __fastcall PopPowerRequestDelete(unsigned int *a1)
       memset_0(Src, 0, 0x48uLL);
       Src[2] = a1[9];
       Src[0] = 17;
-      PopUmpoSendPowerMessage(Src, 0x48uLL, 0, 0LL);
+      PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
     }
   }
   if ( !*((_BYTE *)a1 + 152) )

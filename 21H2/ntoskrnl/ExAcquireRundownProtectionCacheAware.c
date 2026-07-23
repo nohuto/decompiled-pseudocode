@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAcquireRundownProtectionCacheAware @ 0x1402906E0
+ * XREFs of ExAcquireRundownProtectionCacheAware @ 0x14020E650
  * Callers:
- *     MiProbeLockFrame @ 0x14020ACD0 (MiProbeLockFrame.c)
- *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
+ *     MiProbeLockFrame @ 0x1402AF5D0 (MiProbeLockFrame.c)
+ *     MiSwitchToTransition @ 0x14053A154 (MiSwitchToTransition.c)
  * Callees:
- *     ExfAcquireRundownProtection @ 0x140290730 (ExfAcquireRundownProtection.c)
+ *     ExfAcquireRundownProtection @ 0x14020E6A0 (ExfAcquireRundownProtection.c)
  */
 
 BOOLEAN __stdcall ExAcquireRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)

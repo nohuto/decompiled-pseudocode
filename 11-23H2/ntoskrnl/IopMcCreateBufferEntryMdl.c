@@ -1,12 +1,12 @@
 /*
- * XREFs of IopMcCreateBufferEntryMdl @ 0x140951640
+ * XREFs of IopMcCreateBufferEntryMdl @ 0x140951840
  * Callers:
- *     IopMcGetBuffer @ 0x140951780 (IopMcGetBuffer.c)
+ *     IopMcGetBuffer @ 0x140951980 (IopMcGetBuffer.c)
  * Callees:
- *     IopUnlockAndFreeMdl @ 0x14028CF2C (IopUnlockAndFreeMdl.c)
- *     IopMcAddMdlPagesToTable @ 0x14055EB30 (IopMcAddMdlPagesToTable.c)
- *     IopMcRemoveMdlPagesFromTable @ 0x14055F220 (IopMcRemoveMdlPagesFromTable.c)
- *     IopAllocateAndLockMdl @ 0x14094405C (IopAllocateAndLockMdl.c)
+ *     IopUnlockAndFreeMdl @ 0x14028D1BC (IopUnlockAndFreeMdl.c)
+ *     IopMcAddMdlPagesToTable @ 0x14055F1F0 (IopMcAddMdlPagesToTable.c)
+ *     IopMcRemoveMdlPagesFromTable @ 0x14055F8E0 (IopMcRemoveMdlPagesFromTable.c)
+ *     IopAllocateAndLockMdl @ 0x14094425C (IopAllocateAndLockMdl.c)
  */
 
 void __fastcall IopMcCreateBufferEntryMdl(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MdlInvariantPostProcessing1 @ 0x140222F80
+ * XREFs of MdlInvariantPostProcessing1 @ 0x140222DAC
  * Callers:
- *     IovpCompleteRequest2 @ 0x14070B1D8 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x14070B208 (IovpCompleteRequest2.c)
  * Callees:
- *     MmMdlPageContentsState @ 0x1400A5E44 (MmMdlPageContentsState.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     RtlpComputeCrcInternal @ 0x14010FB0C (RtlpComputeCrcInternal.c)
- *     MdlInvariantFindMdlInfo @ 0x140222E00 (MdlInvariantFindMdlInfo.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     MmMdlPageContentsState @ 0x1400A43BC (MmMdlPageContentsState.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     RtlpComputeCrcInternal @ 0x140110070 (RtlpComputeCrcInternal.c)
+ *     MdlInvariantFindMdlInfo @ 0x140222C2C (MdlInvariantFindMdlInfo.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall MdlInvariantPostProcessing1(__int64 a1, __int64 a2, __int64 a3)

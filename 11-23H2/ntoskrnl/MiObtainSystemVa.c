@@ -2,9 +2,9 @@
  * XREFs of MiObtainSystemVa @ 0x140210F9C
  * Callers:
  *     MiExpandPtes @ 0x140210C78 (MiExpandPtes.c)
- *     MiExpandSystemCache @ 0x140355838 (MiExpandSystemCache.c)
- *     MiReservePoolMemory @ 0x14035AD90 (MiReservePoolMemory.c)
- *     MiGetPageTablesForLargeMap @ 0x14038E5F8 (MiGetPageTablesForLargeMap.c)
+ *     MiExpandSystemCache @ 0x1403559D8 (MiExpandSystemCache.c)
+ *     MiReservePoolMemory @ 0x14035AF30 (MiReservePoolMemory.c)
+ *     MiGetPageTablesForLargeMap @ 0x14038E7D8 (MiGetPageTablesForLargeMap.c)
  *     MiReserveDriverPtes @ 0x140696DF0 (MiReserveDriverPtes.c)
  *     MiInitializeSystemPtes @ 0x140B4420C (MiInitializeSystemPtes.c)
  * Callees:

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpValidFilterAclSubjectContext @ 0x18005E5B4
+ * XREFs of RtlpValidFilterAclSubjectContext @ 0x180048B34
  * Callers:
- *     RtlpSetSecurityObject @ 0x18005BF70 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x18005E6A0 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1800464F0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x180048C20 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x18005D530 (RtlSidDominatesForTrust.c)
+ *     RtlSidDominatesForTrust @ 0x180047AB0 (RtlSidDominatesForTrust.c)
  */
 
-__int64 __fastcall RtlpValidFilterAclSubjectContext(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpValidFilterAclSubjectContext(__int64 a1, void *a2)
 {
-  unsigned int v2; // r8d
+  unsigned __int32 v2; // r8d
   unsigned int v3; // ebx
   __int64 v5; // rdi
   unsigned int i; // edx
   unsigned int v8; // ebx
   int v9; // edx
-  bool v10; // [rsp+30h] [rbp+8h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+30h] [rbp+8h] BYREF
   int v11; // [rsp+40h] [rbp+18h]
   unsigned __int16 v12; // [rsp+44h] [rbp+1Ch]
 
@@ -43,15 +43,15 @@ __int64 __fastcall RtlpValidFilterAclSubjectContext(__int64 a1, __int64 a2)
         if ( !a1 )
           goto LABEL_9;
         if ( (*(_DWORD *)(a1 + 4) & 0xFF000000) != 0 )
-          return (unsigned int)-1073741811;
+          return (unsigned __int32)-1073741811;
         if ( (*(_BYTE *)(a1 + 1) & 0x40) == 0 )
           break;
-        v10 = 0;
+        DominatesTrust = 0;
         if ( !a2 )
-          return (unsigned int)-1073741790;
-        v2 = RtlSidDominatesForTrust(a2, a1 + 8, &v10);
-        if ( !v10 )
-          return (unsigned int)-1073741790;
+          return (unsigned __int32)-1073741790;
+        v2 = RtlSidDominatesForTrust(a2, (PSID)(a1 + 8), &DominatesTrust);
+        if ( !DominatesTrust )
+          return (unsigned __int32)-1073741790;
         v3 = v8 + 1;
       }
       v9 = *(_DWORD *)(a1 + 10) - v11;
@@ -63,7 +63,7 @@ LABEL_9:
         v3 = v8 + 1;
         continue;
       }
-      return (unsigned int)-1073741811;
+      return (unsigned __int32)-1073741811;
     }
     return v2;
   }

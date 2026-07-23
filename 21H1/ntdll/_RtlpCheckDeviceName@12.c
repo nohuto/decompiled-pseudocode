@@ -9,30 +9,35 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall RtlpCheckDeviceName(const void **a1, unsigned int a2, bool *a3)
+int __userpurge RtlpCheckDeviceName@<eax>(unsigned int a1@<edx>, const void **a2@<ecx>, int a3@<esi>, bool *a4)
 {
-  int v3; // ebx
-  _WORD *Heap; // edi
-  unsigned int v5; // eax
-  void *ProcessHeap; // [esp+8h] [ebp-Ch]
+  int v4; // ebx
+  PVOID Heap; // edi
+  unsigned int v6; // eax
+  size_t v8; // [esp-8h] [ebp-1Ch]
+  SIZE_T v9; // [esp-4h] [ebp-18h]
+  PVOID HeapHandle; // [esp+8h] [ebp-Ch]
 
-  v3 = 0;
-  ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  Heap = (_WORD *)RtlAllocateHeap((int)ProcessHeap, 0, *(unsigned __int16 *)a1);
+  v4 = 0;
+  LODWORD(v9) = *(unsigned __int16 *)a2;
+  HeapHandle = NtCurrentPeb()->ProcessHeap;
+  Heap = RtlAllocateHeap(HeapHandle, 0, v9);
   if ( Heap )
   {
-    *a3 = 1;
-    memcpy(Heap, a1[1], *(unsigned __int16 *)a1);
-    v5 = a2 >> 1;
-    Heap[v5] = 46;
-    Heap[v5 + 1] = 0;
-    *a3 = RtlDoesFileExists_UEx(Heap, 1) == 0;
-    RtlFreeHeap((int)ProcessHeap, 0, (int)Heap);
+    HIDWORD(v8) = a3;
+    *a4 = 1;
+    LODWORD(v8) = *(unsigned __int16 *)a2;
+    memcpy(Heap, a2[1], v8);
+    v6 = a1 >> 1;
+    *((_WORD *)Heap + v6) = 46;
+    *((_WORD *)Heap + v6 + 1) = 0;
+    *a4 = RtlDoesFileExists_UEx((PCWSTR)Heap, 1) == 0;
+    RtlFreeHeap(HeapHandle, 0, Heap);
   }
   else
   {
-    *a3 = 0;
+    *a4 = 0;
     return -1073741801;
   }
-  return v3;
+  return v4;
 }

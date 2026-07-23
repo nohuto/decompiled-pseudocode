@@ -1,13 +1,13 @@
 /*
- * XREFs of MmFreeSecureKernelPages @ 0x14040F5A8
+ * XREFs of MmFreeSecureKernelPages @ 0x1404331CC
  * Callers:
- *     PspIumFreePhysicalPages @ 0x14040F384 (PspIumFreePhysicalPages.c)
- *     PspIumAllocatePhysicalPages @ 0x1405E63B4 (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePhysicalPages @ 0x140432FA8 (PspIumFreePhysicalPages.c)
+ *     PspIumAllocatePhysicalPages @ 0x1405E39B4 (PspIumAllocatePhysicalPages.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
- *     MiFreeSecureKernelPage @ 0x140410B08 (MiFreeSecureKernelPage.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MiFreeSecureKernelPage @ 0x140433D48 (MiFreeSecureKernelPage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall MmFreeSecureKernelPages(__int64 a1, unsigned int a2)
@@ -27,7 +27,7 @@ char __fastcall MmFreeSecureKernelPages(__int64 a1, unsigned int a2)
   memset_0(&BugCheckParameter2, 0, 0xB0uLL);
   v4 = (_QWORD *)(a1 + 48);
   v5 = a1 + 48 + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 40) >> 12);
-  v6 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(48LL * *(_QWORD *)(a1 + 48) - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
+  v6 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(48LL * *(_QWORD *)(a1 + 48) - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
   result = KeGetCurrentIrql();
   v8[0] = 0;
   if ( a1 + 48 < v5 )

@@ -1,31 +1,31 @@
 /*
- * XREFs of SshpSessionManagerFlushControlEventBufferWorker @ 0x140A5F4A0
+ * XREFs of SshpSessionManagerFlushControlEventBufferWorker @ 0x140A579F0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14048939C (SSHSupportReleasePushLockExclusive.c)
- *     SshpWorkItemTryAllowNextWorker @ 0x1404B1C48 (SshpWorkItemTryAllowNextWorker.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1406A6510 (ZwWriteFile.c)
- *     ZwFlushBuffersFile @ 0x1406A6D70 (ZwFlushBuffersFile.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SshpSessionManagerWriteBytes @ 0x140A5F88C (SshpSessionManagerWriteBytes.c)
- *     SshpSessionManagerNormalizeLogHeader @ 0x140AA5974 (SshpSessionManagerNormalizeLogHeader.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404843BC (SSHSupportReleasePushLockExclusive.c)
+ *     SshpWorkItemTryAllowNextWorker @ 0x1404AC4D8 (SshpWorkItemTryAllowNextWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1406A74B0 (ZwWriteFile.c)
+ *     ZwFlushBuffersFile @ 0x1406A7D10 (ZwFlushBuffersFile.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SshpSessionManagerWriteBytes @ 0x140A57DDC (SshpSessionManagerWriteBytes.c)
+ *     SshpSessionManagerNormalizeLogHeader @ 0x140AA09E4 (SshpSessionManagerNormalizeLogHeader.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char SshpSessionManagerFlushControlEventBufferWorker()
 {
   char *Pool2; // r12
-  _QWORD *v1; // rax
+  char *v1; // rax
   signed __int8 v2; // cf
-  _QWORD *v3; // rbx
+  char *v3; // rbx
   int v4; // r14d
   int v5; // r15d
   __int64 v6; // rdi
@@ -38,8 +38,8 @@ char SshpSessionManagerFlushControlEventBufferWorker()
   unsigned int v13; // r10d
   unsigned int v14; // r14d
   unsigned int v15; // ebx
-  _QWORD *v16; // rax
-  _QWORD *v17; // rbx
+  char *v16; // rax
+  char *v17; // rbx
   char result; // al
   int v19; // esi
   int v20; // edx
@@ -76,45 +76,45 @@ char SshpSessionManagerFlushControlEventBufferWorker()
   v36 = 0LL;
   Buffer = 0LL;
   IoStatusBlock = 0LL;
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
-  v1 = KeAbPreAcquire((__int64)&SshpSessionManagerLock, 0LL);
+  Pool2 = (char *)ExAllocatePool2(0x100uLL, 0x400uLL, 0x5250535Fu);
+  v1 = (char *)KeAbPreAcquire((__int64)&SshpSessionManagerLock, 0LL);
   v2 = _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, (__int64)v1, (__int64)&SshpSessionManagerLock);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpSessionManagerLock, v1, (__int64)&SshpSessionManagerLock);
   if ( v3 )
-    *((_BYTE *)v3 + 10) = 1;
+    v3[10] = 1;
   v4 = 0;
   v24 = 0;
   v23 = 0;
   v5 = 0;
   v6 = 0LL;
   v7 = 0;
-  if ( !SshpWorkItemTryAllowNextWorker((__int64)&qword_140F05D90) )
+  if ( !SshpWorkItemTryAllowNextWorker((__int64)&qword_140F06070) )
   {
     while ( 1 )
     {
-      v9 = (unsigned int)dword_140F05DE8;
+      v9 = (unsigned int)dword_140F060C8;
       v10 = 0;
-      LODWORD(dword_140F05DE8) = 0;
+      LODWORD(dword_140F060C8) = 0;
       if ( (_DWORD)v9 )
         break;
 LABEL_20:
-      if ( SshpWorkItemTryAllowNextWorker((__int64)&qword_140F05D90) )
+      if ( SshpWorkItemTryAllowNextWorker((__int64)&qword_140F06070) )
         goto LABEL_21;
     }
     v24 = v8 + 1;
-    v36 = qword_140F05DC8;
-    Buffer = xmmword_140F05DB8;
+    v36 = qword_140F060A8;
+    Buffer = xmmword_140F06098;
     if ( Pool2 )
     {
-      memmove(Pool2, &unk_140F05DEC, v9);
+      memmove(Pool2, &unk_140F060CC, v9);
       v25 = Pool2;
       SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&SshpSessionManagerLock);
     }
     else
     {
-      v25 = (char *)&unk_140F05DEC;
+      v25 = (char *)&unk_140F060CC;
     }
     v11 = HIDWORD(Buffer);
     v12 = v36;
@@ -169,16 +169,19 @@ LABEL_14:
         ZwFlushBuffersFile(FileHandle, &IoStatusBlock);
         if ( v25 == Pool2 )
         {
-          v16 = KeAbPreAcquire((__int64)&SshpSessionManagerLock, 0LL);
+          v16 = (char *)KeAbPreAcquire((__int64)&SshpSessionManagerLock, 0LL);
           v2 = _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL);
           v17 = v16;
           if ( v2 )
-            ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, (__int64)v16, (__int64)&SshpSessionManagerLock);
+            ExfAcquirePushLockExclusiveEx(
+              (unsigned __int64 *)&SshpSessionManagerLock,
+              v16,
+              (__int64)&SshpSessionManagerLock);
           if ( v17 )
-            *((_BYTE *)v17 + 10) = 1;
+            v17[10] = 1;
         }
-        xmmword_140F05DB8 = Buffer;
-        qword_140F05DC8 = v36;
+        xmmword_140F06098 = Buffer;
+        qword_140F060A8 = v36;
         goto LABEL_20;
       }
     }
@@ -231,14 +234,14 @@ LABEL_14:
     goto LABEL_14;
   }
 LABEL_21:
-  KeSetEvent(&stru_140F05DD0, 0, 0);
+  KeSetEvent(&stru_140F060B0, 0, 0);
   SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&SshpSessionManagerLock);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x5250535Fu);
   result = SshpTelemetryHandleRegistered;
-  if ( SshpTelemetryHandleRegistered && (unsigned int)dword_140E084F0 > 5 )
+  if ( SshpTelemetryHandleRegistered && (unsigned int)dword_140E08560 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E084F0, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E08560, 0x400000000000LL);
     if ( result )
     {
       v31 = v6;
@@ -260,8 +263,8 @@ LABEL_21:
       v47 = 4LL;
       v32 = 0x1000000LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E084F0,
-               (unsigned __int8 *)byte_14004F78B,
+               (__int64)&dword_140E08560,
+               (unsigned __int8 *)byte_140050285,
                0LL,
                0LL,
                8u,

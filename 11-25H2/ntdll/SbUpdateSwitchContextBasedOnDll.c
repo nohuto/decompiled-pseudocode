@@ -18,7 +18,7 @@ __int64 __fastcall SbUpdateSwitchContextBasedOnDll(__int64 a1, __int64 a2)
   __int64 v3; // rbx
   __int64 CurrentSwitchContext; // rax
   __int64 v5; // rcx
-  __int64 v6; // r8
+  int v6; // r8d
   __int64 v7; // rbp
   _DWORD *v8; // r15
   _DWORD *v9; // r9
@@ -43,7 +43,7 @@ __int64 __fastcall SbUpdateSwitchContextBasedOnDll(__int64 a1, __int64 a2)
   __int128 v28; // xmm0
   _QWORD v29[2]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v30; // [rsp+78h] [rbp+10h] BYREF
-  char *v31; // [rsp+88h] [rbp+20h] BYREF
+  char *v31; // [rsp+88h] [rbp+20h]
 
   v30 = a2;
   v3 = 0LL;
@@ -73,9 +73,9 @@ __int64 __fastcall SbUpdateSwitchContextBasedOnDll(__int64 a1, __int64 a2)
       }
     }
   }
-  if ( (_DWORD)v6 )
+  if ( v6 )
   {
-    if ( (_DWORD)v6 != 1 )
+    if ( v6 != 1 )
       return 1LL;
     v19 = *(_QWORD **)(a1 + 192);
     if ( !v19 )
@@ -107,7 +107,7 @@ __int64 __fastcall SbUpdateSwitchContextBasedOnDll(__int64 a1, __int64 a2)
     }
     if ( v8 != v9 )
       return 1LL;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&SbpContextLock);
+    RtlAcquireSRWLockExclusive(&SbpContextLock);
     v27 = dword_1801CF804;
     v30 = 0LL;
     do
@@ -134,7 +134,7 @@ LABEL_50:
     v26 = (int)v11;
     goto LABEL_43;
   }
-  result = SbpDetermineDllContext(*(_QWORD *)(a1 + 48), &v31, v6, 0LL);
+  result = SbpDetermineDllContext(*(PACTIVATION_CONTEXT *)(a1 + 48));
   if ( !(_DWORD)result )
     return result;
   v15 = v31;
@@ -159,7 +159,7 @@ LABEL_50:
     && *(_DWORD *)v15 < *v8
     && (*((unsigned __int16 *)v15 + 11) | ((unsigned __int64)*((unsigned __int16 *)v15 + 10) << 16)) >= *(_QWORD *)(v7 + 40) )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&SbpContextLock);
+    RtlAcquireSRWLockExclusive(&SbpContextLock);
     ++*(_QWORD *)v7;
     *(_OWORD *)v11 = *(_OWORD *)v17;
     if ( !(unsigned int)SbObtainTraceHandle(v29) )

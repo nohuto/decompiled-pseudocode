@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlAllocateHeapFull @ 0x18013FEB0
+ * XREFs of RtlAllocateHeapFull @ 0x18013FDB0
  * Callers:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlAllocateHeapExport @ 0x18013FD50 (RtlAllocateHeapExport.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlAllocateHeapExport @ 0x18013FC50 (RtlAllocateHeapExport.c)
  * Callees:
- *     RtlNtStatusToDosErrorNoTeb @ 0x180019AA0 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlpAllocateNTHeapInternal @ 0x18001C810 (RtlpAllocateNTHeapInternal.c)
- *     RtlpHpAllocateHeap @ 0x180071440 (RtlpHpAllocateHeap.c)
- *     RtlpHpTagAllocateHeap @ 0x180097930 (RtlpHpTagAllocateHeap.c)
- *     RtlpAllocateHeapRaiseException @ 0x180113150 (RtlpAllocateHeapRaiseException.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
- *     RtlpHeapFatalExceptionFilter @ 0x180140418 (RtlpHeapFatalExceptionFilter.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180004B80 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlpAllocateNTHeapInternal @ 0x1800078E0 (RtlpAllocateNTHeapInternal.c)
+ *     RtlpHpAllocateHeap @ 0x180091890 (RtlpHpAllocateHeap.c)
+ *     RtlpHpTagAllocateHeap @ 0x180096A80 (RtlpHpTagAllocateHeap.c)
+ *     RtlpAllocateHeapRaiseException @ 0x180112C00 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x180140318 (RtlpHeapFatalExceptionFilter.c)
  */
 
-unsigned __int64 __fastcall RtlAllocateHeapFull(_DWORD *a1, unsigned int a2, unsigned __int64 a3)
+_WORD *__fastcall RtlAllocateHeapFull(char *BaseAddress, unsigned int a2, unsigned __int64 a3)
 {
   __int64 Heap; // rdi
   unsigned int v7; // r9d
@@ -28,13 +28,13 @@ unsigned __int64 __fastcall RtlAllocateHeapFull(_DWORD *a1, unsigned int a2, uns
   int v16; // r14d
   struct _TEB *v17; // rbx
 
-  if ( !a1 )
+  if ( !BaseAddress )
     RtlpLogHeapFailure(19, 0LL, 0LL, 0LL, 0LL, 0LL);
-  if ( a1[4] == -571548178 )
+  if ( *((_DWORD *)BaseAddress + 4) == -571548178 )
   {
     if ( (RtlpHpHeapFeatures & 4) != 0 )
     {
-      return RtlpHpTagAllocateHeap(a1, a3, a2);
+      return (_WORD *)RtlpHpTagAllocateHeap(BaseAddress, a3, a2);
     }
     else
     {
@@ -87,24 +87,24 @@ unsigned __int64 __fastcall RtlAllocateHeapFull(_DWORD *a1, unsigned int a2, uns
         v15 = 0;
       }
       v16 = v7 | v15;
-      Heap = RtlpHpAllocateHeap((__int64)a1, a3, (unsigned int)v16);
+      Heap = RtlpHpAllocateHeap(BaseAddress, a3, (unsigned int)v16);
       if ( !Heap )
       {
         v17 = NtCurrentTeb();
         v17->LastStatusValue = -1073741801;
-        v17->LastErrorValue = RtlNtStatusToDosErrorNoTeb(0xC0000017);
-        if ( v16 < 0 || (int)a1[5] < 0 )
+        v17->LastErrorValue = RtlNtStatusToDosErrorNoTeb(-1073741801);
+        if ( v16 < 0 || *((int *)BaseAddress + 5) < 0 )
           RtlpAllocateHeapRaiseException(a3);
       }
     }
   }
   else if ( (RtlpHpHeapFeatures & 4) != 0 )
   {
-    return RtlpHpTagAllocateHeap(a1, a3, a2);
+    return (_WORD *)RtlpHpTagAllocateHeap(BaseAddress, a3, a2);
   }
   else
   {
-    return RtlpAllocateNTHeapInternal(a1, a3, a2);
+    return RtlpAllocateNTHeapInternal((__int64)BaseAddress, a3, a2);
   }
-  return Heap;
+  return (_WORD *)Heap;
 }

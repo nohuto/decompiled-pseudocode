@@ -31,13 +31,12 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
   unsigned __int8 v12; // di
   _DWORD *SchedulerAssist; // r9
   struct _MDL *v14; // r15
-  __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned __int8 v17; // al
+  __int64 v15; // r9
+  unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v19; // r8
-  int v20; // eax
-  bool v21; // zf
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
 
   v6 = a4;
   CurrentIrql = KeGetCurrentIrql();
@@ -71,25 +70,22 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
     v14->ByteCount = v6;
     IoBuildPartialMdl((PMDL)a2, v14, (PVOID)a3, v6);
     if ( !a6 )
-    {
-      LOBYTE(v15) = 1;
-      KeFlushIoBuffers((ULONG_PTR)v14, a5 == 0, v15, v16);
-    }
+      KeFlushIoBuffers((ULONG_PTR)v14, a5 == 0, 1, v15);
     if ( CurrentIrql < 2u )
     {
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v17 = KeGetCurrentIrql();
-          if ( v17 <= 0xFu && v12 <= 0xFu && v17 >= 2u )
+          v16 = KeGetCurrentIrql();
+          if ( v16 <= 0xFu && v12 <= 0xFu && v16 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            v19 = CurrentPrcb->SchedulerAssist;
-            v20 = ~(unsigned __int16)(-1LL << (v12 + 1));
-            v21 = (v20 & v19[5]) == 0;
-            v19[5] &= v20;
-            if ( v21 )
+            v18 = CurrentPrcb->SchedulerAssist;
+            v19 = ~(unsigned __int16)(-1LL << (v12 + 1));
+            v20 = (v19 & v18[5]) == 0;
+            v18[5] &= v19;
+            if ( v20 )
               KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }

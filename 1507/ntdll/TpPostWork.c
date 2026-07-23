@@ -10,49 +10,48 @@
  *     TppRaiseInvalidParameter @ 0x1800F5C58 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpPostWork(__int64 a1)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
   int v2; // eax
   signed __int32 v3; // edx
   int v4; // r8d
   bool v5; // zf
-  __int64 result; // rax
+  signed __int32 v6; // eax
 
-  if ( !a1 )
-    return TppRaiseInvalidParameter();
-  v2 = *(_DWORD *)(a1 + 160);
-  if ( (v2 & 0x10000) != 0
+  if ( !Work
+    || (v2 = *((_DWORD *)Work + 40), (v2 & 0x10000) != 0)
     || (v2 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWorkpCleanupGroupMemberVFuncs
+    || *((__int64 (__fastcall ***)(PVOID))Work + 1) != &TppWorkpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    return TppRaiseInvalidParameter();
+    TppRaiseInvalidParameter();
   }
-  TppBarrierAdjust(a1 + 56, 1LL);
-  _m_prefetchw((const void *)(a1 + 224));
-  v3 = *(_DWORD *)(a1 + 224);
-  do
+  else
   {
-    v4 = v3 & 1;
-    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 224), (v3 & 0xFFFFFFFE) + 2, v3);
-    v5 = v3 == (_DWORD)result;
-    v3 = result;
+    TppBarrierAdjust((char *)Work + 56, 1LL);
+    _m_prefetchw((char *)Work + 224);
+    v3 = *((_DWORD *)Work + 56);
+    do
+    {
+      v4 = v3 & 1;
+      v6 = _InterlockedCompareExchange((volatile signed __int32 *)Work + 56, (v3 & 0xFFFFFFFE) + 2, v3);
+      v5 = v3 == v6;
+      v3 = v6;
+    }
+    while ( !v5 );
+    if ( v4 )
+    {
+      _InterlockedExchangeAdd((volatile signed __int32 *)Work, 2u);
+      if ( MEMORY[0x7FFE0386] )
+        RtlpTpETWCallbackEnqueue(
+          *((_QWORD *)Work + 17),
+          (__int64)Work + 192,
+          *((_QWORD *)Work + 10),
+          *((_QWORD *)Work + 11),
+          *((_QWORD *)Work + 13));
+      TpPostTask((char *)Work + 192, *((_QWORD *)Work + 17), *((unsigned int *)Work + 46));
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Work, 0xFFFFFFFF) == 1 )
+        (**((void (__fastcall ***)(PTP_WORK))Work + 1))(Work);
+    }
   }
-  while ( !v5 );
-  if ( v4 )
-  {
-    _InterlockedExchangeAdd((volatile signed __int32 *)a1, 2u);
-    if ( MEMORY[0x7FFE0386] )
-      RtlpTpETWCallbackEnqueue(
-        *(_QWORD *)(a1 + 136),
-        a1 + 192,
-        *(_QWORD *)(a1 + 80),
-        *(_QWORD *)(a1 + 88),
-        *(_QWORD *)(a1 + 104));
-    TpPostTask(a1 + 192, *(_QWORD *)(a1 + 136), *(unsigned int *)(a1 + 184));
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
-      return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
-  }
-  return result;
 }

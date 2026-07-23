@@ -3,10 +3,10 @@
  * Callers:
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeInitializeSemaphore @ 0x1400F2030 (KeInitializeSemaphore.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeInitializeSemaphore @ 0x1400EFE80 (KeInitializeSemaphore.c)
  *     PopNotifyDevice @ 0x1403CF498 (PopNotifyDevice.c)
  */
 
@@ -45,7 +45,7 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
     do
     {
       KeWaitForSingleObject(&Semaphore, Executive, 0, 0, 0LL);
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_1403033F0 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140303330 + 1, &LockHandle);
       v9 = *v2;
       v10 = **v2;
       if ( (__int64 **)(*v2)[1] != v2 || *(__int64 **)(v10 + 8) != v9 )

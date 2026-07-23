@@ -1,14 +1,14 @@
 /*
- * XREFs of PopIsRemoteDesktopEnabled @ 0x140ABD614
+ * XREFs of PopIsRemoteDesktopEnabled @ 0x140AB8684
  * Callers:
- *     PopDiagTraceCsResiliencyEnter @ 0x1404EBA2C (PopDiagTraceCsResiliencyEnter.c)
- *     PopPowerAggregatorEngageAggressiveStandbyActions @ 0x14075939C (PopPowerAggregatorEngageAggressiveStandbyActions.c)
+ *     PopDiagTraceCsResiliencyEnter @ 0x1404E296C (PopDiagTraceCsResiliencyEnter.c)
+ *     PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1407577FC (PopPowerAggregatorEngageAggressiveStandbyActions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
  */
 
 char PopIsRemoteDesktopEnabled()

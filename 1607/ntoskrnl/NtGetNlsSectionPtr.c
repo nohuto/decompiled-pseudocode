@@ -1,23 +1,28 @@
 /*
- * XREFs of NtGetNlsSectionPtr @ 0x14047557C
+ * XREFs of NtGetNlsSectionPtr @ 0x14047444C
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     ZwOpenSection @ 0x14015A360 (ZwOpenSection.c)
- *     ZwCreateSection @ 0x14015A5C0 (ZwCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     MmMapViewOfSection @ 0x14046BFE8 (MmMapViewOfSection.c)
- *     RtlpInitNlsSectionName @ 0x1404758D0 (RtlpInitNlsSectionName.c)
- *     MmMapViewInSystemSpace @ 0x14049552C (MmMapViewInSystemSpace.c)
- *     RtlpInitNlsFileName @ 0x1404F02F4 (RtlpInitNlsFileName.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     ZwOpenSection @ 0x14015A8D0 (ZwOpenSection.c)
+ *     ZwCreateSection @ 0x14015AB30 (ZwCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     MmMapViewOfSection @ 0x14046AEB8 (MmMapViewOfSection.c)
+ *     RtlpInitNlsSectionName @ 0x1404747A0 (RtlpInitNlsSectionName.c)
+ *     MmMapViewInSystemSpace @ 0x140495FBC (MmMapViewInSystemSpace.c)
+ *     RtlpInitNlsFileName @ 0x1404D23E8 (RtlpInitNlsFileName.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigned __int64 a3, PVOID *a4, ULONG_PTR *a5)
+NTSTATUS __cdecl NtGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
   char PreviousMode; // dl
   bool v9; // zf
@@ -25,9 +30,9 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
   __int64 v11; // rcx
   bool v12; // r15
   NTSTATUS result; // eax
-  NTSTATUS v14; // ebx
+  int v14; // ebx
   PVOID v15; // rdi
-  NTSTATUS v16; // eax
+  int v16; // eax
   HANDLE SectionHandle; // [rsp+58h] [rbp-210h] BYREF
   HANDLE FileHandle; // [rsp+60h] [rbp-208h] BYREF
   PVOID MappedBase; // [rsp+68h] [rbp-200h] BYREF
@@ -48,33 +53,33 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
   v23 = 0LL;
   MappedBase = 0LL;
   ViewSize = 0LL;
-  if ( !a4 )
+  if ( !SectionPointer )
     return -1073741582;
-  if ( !a5 )
+  if ( !SectionSize )
     return -1073741581;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v9 = PreviousMode == 0;
   if ( PreviousMode )
   {
-    v10 = (__int64)a4;
-    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v10 = (__int64)SectionPointer;
+    if ( (unsigned __int64)SectionPointer >= 0x7FFFFFFF0000LL )
       v10 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v10 = *(_QWORD *)v10;
-    v11 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v11 = (__int64)SectionSize;
+    if ( (unsigned __int64)SectionSize >= 0x7FFFFFFF0000LL )
       v11 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v11 = *(_QWORD *)v11;
-    if ( a3 )
+    if ( ContextData )
     {
-      if ( (a3 & 3) != 0 )
+      if ( ((unsigned __int8)ContextData & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+      if ( (unsigned __int64)ContextData + 4 > 0x7FFFFFFF0000LL || (char *)ContextData + 4 < ContextData )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     v9 = PreviousMode == 0;
   }
   v12 = v9;
-  result = RtlpInitNlsSectionName(a1, a2, v29);
+  result = RtlpInitNlsSectionName(SectionType, SectionData, v29);
   if ( result >= 0 )
   {
     ObjectAttributes.Length = 48;
@@ -82,7 +87,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
     ObjectAttributes.Attributes = 720;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&v25;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( a1 - 11 > 1 )
+    if ( SectionType - 11 > 1 )
     {
       v14 = -1073741823;
     }
@@ -91,7 +96,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
       v14 = ZwOpenSection(&SectionHandle, 4u, &ObjectAttributes);
       if ( v14 < 0 )
       {
-        result = RtlpInitNlsFileName(a1, a2, v30);
+        result = RtlpInitNlsFileName(SectionType, SectionData, v30);
         if ( result < 0 )
           return result;
         v27.Length = 48;
@@ -138,8 +143,8 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, unsigne
         ObfDereferenceObject(v15);
         if ( v14 >= 0 )
         {
-          *a4 = MappedBase;
-          *a5 = ViewSize;
+          *SectionPointer = MappedBase;
+          *(_QWORD *)SectionSize = ViewSize;
         }
       }
     }

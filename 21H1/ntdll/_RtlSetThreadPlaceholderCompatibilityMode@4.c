@@ -6,17 +6,17 @@
  *     <none>
  */
 
-char __stdcall RtlSetThreadPlaceholderCompatibilityMode(unsigned __int8 a1)
+CHAR __cdecl RtlSetThreadPlaceholderCompatibilityMode(CHAR Mode)
 {
   struct _TEB *v1; // ecx
-  char result; // al
+  CHAR result; // al
 
-  if ( a1 > 3u )
+  if ( (unsigned __int8)Mode > 3u )
     return -1;
   v1 = NtCurrentTeb();
   if ( !v1 )
     return -2;
   result = v1->PlaceholderCompatibilityMode;
-  v1->PlaceholderCompatibilityMode = a1;
+  v1->PlaceholderCompatibilityMode = Mode;
   return result;
 }

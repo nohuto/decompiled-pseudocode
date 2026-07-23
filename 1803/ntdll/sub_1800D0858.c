@@ -11,29 +11,31 @@
  *     ZwTerminateProcess @ 0x18009B040 (ZwTerminateProcess.c)
  */
 
-__int64 __fastcall sub_1800D0858(int a1)
+NTSTATUS __fastcall sub_1800D0858(int a1)
 {
   HANDLE UniqueThread; // rcx
   HANDLE v2; // rcx
-  __int64 v3; // rcx
+  NTSTATUS v3; // eax
+  __int64 v4; // rcx
 
   if ( a1 )
   {
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_18015C258 = 0LL;
-    qword_18015C250 = (__int64)UniqueThread;
-    dword_18015C24C = 1;
-    dword_18015C248 = -2;
+    stru_18015C240.LockSemaphore = 0LL;
+    stru_18015C240.OwningThread = UniqueThread;
+    stru_18015C240.RecursionCount = 1;
+    stru_18015C240.LockCount = -2;
     v2 = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_1801565C8 = 0LL;
-    qword_1801565C0 = (__int64)v2;
-    dword_1801565B8 = -2;
-    dword_1801565BC = 1;
-    if ( (int)sub_18005CE48() < 0 )
-      ZwTerminateProcess();
-    qword_18015C1F0 = 0LL;
+    stru_1801565B0.LockSemaphore = 0LL;
+    stru_1801565B0.OwningThread = v2;
+    stru_1801565B0.LockCount = -2;
+    stru_1801565B0.RecursionCount = 1;
+    v3 = sub_18005CE48();
+    if ( v3 < 0 )
+      ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3);
+    Work = 0LL;
   }
-  RtlLeaveCriticalSection((__int64)&unk_18015C240);
-  sub_180046F60(v3, 13, 0);
+  RtlLeaveCriticalSection(&stru_18015C240);
+  sub_180046F60(v4, 13, 0);
   return sub_180047B2C();
 }

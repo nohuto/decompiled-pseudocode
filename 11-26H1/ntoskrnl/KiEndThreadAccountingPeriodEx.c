@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEndThreadAccountingPeriodEx @ 0x140225DC0
+ * XREFs of KiEndThreadAccountingPeriodEx @ 0x140227750
  * Callers:
- *     KiEndThreadAccountingPeriod @ 0x1405F65F0 (KiEndThreadAccountingPeriod.c)
+ *     KiEndThreadAccountingPeriod @ 0x1405F8FB0 (KiEndThreadAccountingPeriod.c)
  * Callees:
- *     KiUpdateThreadHgsFeedback @ 0x140226C00 (KiUpdateThreadHgsFeedback.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140228590 (KiUpdateThreadHgsFeedback.c)
  */
 
 void __fastcall KiEndThreadAccountingPeriodEx(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int8 a4)
@@ -27,7 +27,7 @@ void __fastcall KiEndThreadAccountingPeriodEx(__int64 a1, __int64 a2, unsigned _
   __int64 v24; // rax
   __int64 v25; // rcx
   _QWORD *v26; // rdx
-  unsigned int v27; // eax
+  unsigned int UserWaitTime_high; // eax
   unsigned int v28; // ecx
   unsigned int v29; // ecx
   int v30; // ecx
@@ -87,7 +87,7 @@ void __fastcall KiEndThreadAccountingPeriodEx(__int64 a1, __int64 a2, unsigned _
         v20 = 100;
       }
       v21 = 0;
-      v22 = (unsigned __int16 *)(a1 + 35464);
+      v22 = (unsigned __int16 *)(a1 + 35468);
       do
       {
         if ( v20 <= *v22 )
@@ -100,21 +100,21 @@ void __fastcall KiEndThreadAccountingPeriodEx(__int64 a1, __int64 a2, unsigned _
       v24 = v23 + 2LL * v21;
       v25 = *(_QWORD *)(v17 + 8 * v24);
       v26 = (_QWORD *)(v17 + 8 * v24);
-      v27 = *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1);
+      UserWaitTime_high = HIDWORD(KsepShimDbLock.UserWaitTime);
       *v26 = a3 + v25;
       v28 = *(_DWORD *)(v17 + 192);
-      if ( v27 > v28 )
+      if ( UserWaitTime_high > v28 )
       {
-        LODWORD(v42) = v27;
-        if ( v27 - v28 >= 0x20 )
+        LODWORD(v42) = UserWaitTime_high;
+        if ( UserWaitTime_high - v28 >= 0x20 )
           HIDWORD(v42) = 1;
         else
-          HIDWORD(v42) = (*(_DWORD *)(v17 + 196) << (v27 - v28)) | 1;
+          HIDWORD(v42) = (*(_DWORD *)(v17 + 196) << (UserWaitTime_high - v28)) | 1;
         *(_QWORD *)(v17 + 192) = v42;
       }
       else
       {
-        v29 = v28 - v27;
+        v29 = v28 - UserWaitTime_high;
         if ( v29 < 0x20 )
           *(_DWORD *)(v17 + 196) |= 1 << v29;
       }
@@ -142,7 +142,7 @@ void __fastcall KiEndThreadAccountingPeriodEx(__int64 a1, __int64 a2, unsigned _
   }
   if ( KiHgsPlusEnabled )
     KiUpdateThreadHgsFeedback(a1, a2, a3, a4);
-  if ( *(_QWORD *)(a1 + 34480) && *(_UNKNOWN **)(a2 + 544) != &unk_140FC8F40 && *(unsigned __int8 *)(a2 + 516) < 7u )
+  if ( *(_QWORD *)(a1 + 34480) && *(_UNKNOWN **)(a2 + 544) != &unk_140FC9F40 && *(unsigned __int8 *)(a2 + 516) < 7u )
   {
     v32 = *(_DWORD *)(a2 + 80);
     if ( v32 <= *(_DWORD *)(a2 + 84) )
@@ -161,7 +161,7 @@ void __fastcall KiEndThreadAccountingPeriodEx(__int64 a1, __int64 a2, unsigned _
         *i += a3;
     }
     if ( (*(_BYTE *)(a2 + 2) & 8) != 0
-      && *(_UNKNOWN **)(a2 + 544) != &unk_140FC8F40
+      && *(_UNKNOWN **)(a2 + 544) != &unk_140FC9F40
       && (*(_QWORD *)(*(_QWORD *)(a2 + 576) + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 136LL) + 8) & *(_QWORD *)(*(_QWORD *)(a1 + 192) + 128LL)) != *(_QWORD *)(*(_QWORD *)(a1 + 192) + 128LL) )
     {
       *(_QWORD *)(a1 + 34472) += a3;

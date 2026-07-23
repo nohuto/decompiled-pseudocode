@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceRtcWakeInfo @ 0x1405945BC
+ * XREFs of PopDiagTraceRtcWakeInfo @ 0x140594AAC
  * Callers:
- *     PopValidateRTCWake @ 0x140AA14D4 (PopValidateRTCWake.c)
+ *     PopValidateRTCWake @ 0x140AA1344 (PopValidateRTCWake.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     PopDiagInterruptTimeToSystemTime @ 0x140A88B40 (PopDiagInterruptTimeToSystemTime.c)
  */
 
@@ -107,9 +107,9 @@ char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int 
   v13 = ((unsigned int)PopFixedWakeSourceMask >> 3) & 1;
   v15 = ((unsigned int)PopFixedWakeSourceMask >> 2) & 1;
   v14 = ((unsigned int)PopFixedWakeSourceMask >> 4) & 1;
-  PopDiagInterruptTimeToSystemTime(qword_140C3D130, &v26);
-  PopDiagInterruptTimeToSystemTime(qword_140C3D148, &v27);
-  PopDiagInterruptTimeToSystemTime(qword_140C3D108, &v28);
+  PopDiagInterruptTimeToSystemTime(qword_140C3CDF0, &v26);
+  PopDiagInterruptTimeToSystemTime(qword_140C3CE08, &v27);
+  PopDiagInterruptTimeToSystemTime(qword_140C3CDC8, &v28);
   result = PopDiagInterruptTimeToSystemTime(a7, v29);
   v25 = PopPendingUserPresenceDuringSystemSleep != 0;
   if ( (unsigned int)dword_140C03950 > 5 )
@@ -157,7 +157,7 @@ char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int 
       v85 = 4LL;
       result = tlgWriteTransfer_EtwWriteTransfer(
                  (__int64)&dword_140C03950,
-                 (unsigned __int8 *)byte_14002E4F0,
+                 (unsigned __int8 *)byte_14002E261,
                  0LL,
                  0LL,
                  0x10u,

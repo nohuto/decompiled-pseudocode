@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpDisableCompression @ 0x140602878
+ * XREFs of EtwpDisableCompression @ 0x140602DC8
  * Callers:
- *     EtwpDequeueFreeBuffer @ 0x140227DF0 (EtwpDequeueFreeBuffer.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140602708 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpDequeueFreeBuffer @ 0x140227F00 (EtwpDequeueFreeBuffer.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x140602C58 (EtwpDequeueBufferPendingCompression.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     EtwpRelinquishCompressionTarget @ 0x140602A68 (EtwpRelinquishCompressionTarget.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     EtwpRelinquishCompressionTarget @ 0x140602FB8 (EtwpRelinquishCompressionTarget.c)
  */
 
 void __fastcall EtwpDisableCompression(__int64 a1)

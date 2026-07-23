@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAllocatePagedPoolPages @ 0x140162C70
+ * XREFs of MiAllocatePagedPoolPages @ 0x140162D70
  * Callers:
- *     MiAllocatePoolPages @ 0x140162B10 (MiAllocatePoolPages.c)
+ *     MiAllocatePoolPages @ 0x140162C10 (MiAllocatePoolPages.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,16 +10,16 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiFreePagedPoolPages @ 0x140161A50 (MiFreePagedPoolPages.c)
- *     MiExpandPagedPool @ 0x1401641EC (MiExpandPagedPool.c)
- *     MiFreeExcessSegments @ 0x1401643D4 (MiFreeExcessSegments.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlFindClearBitsAndSetEx @ 0x14008AB40 (RtlFindClearBitsAndSetEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiFreePagedPoolPages @ 0x140161B50 (MiFreePagedPoolPages.c)
+ *     MiExpandPagedPool @ 0x1401642EC (MiExpandPagedPool.c)
+ *     MiFreeExcessSegments @ 0x1401644D4 (MiFreeExcessSegments.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
  */
 
 ULONG_PTR __fastcall MiAllocatePagedPoolPages(int a1, unsigned __int64 a2)
@@ -28,7 +28,7 @@ ULONG_PTR __fastcall MiAllocatePagedPoolPages(int a1, unsigned __int64 a2)
   unsigned __int64 v3; // r14
   __int64 v4; // rax
   __int64 v5; // rcx
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_HEADER *v6; // rcx
   ULONG_PTR v7; // r15
   unsigned __int16 *v8; // rax
   struct _KTHREAD *CurrentThread; // r9
@@ -133,36 +133,36 @@ ULONG_PTR __fastcall MiAllocatePagedPoolPages(int a1, unsigned __int64 a2)
   }
   else
   {
-    if ( (unsigned __int64)(qword_14043AF98 - qword_14043AF88) < 0x500 )
+    if ( (unsigned __int64)(qword_14043C058 - qword_14043C048) < 0x500 )
     {
-      ++dword_140438AD8;
+      ++dword_140439B98;
       MiFreeExcessSegments(v5);
       v2 = a1;
       LODWORD(v5) = v97;
     }
     if ( v3 == 1 && v2 >= 0 )
     {
-      v6 = &qword_14043A058[25 * (unsigned int)v5];
+      v6 = &qword_14043B118[25 * (unsigned int)v5];
       if ( LOWORD(v6->Alignment) )
       {
         v65 = RtlpInterlockedPopEntrySList(v6);
         if ( v65 )
         {
           result = (ULONG_PTR)&v65[-1];
-          if ( *(_QWORD *)result != (result ^ qword_14043AEC0) )
-            KeBugCheckEx(0x1Au, 0x5300uLL, result, *(_QWORD *)result, result ^ qword_14043AEC0);
+          if ( *(_QWORD *)result != (result ^ qword_14043BF80) )
+            KeBugCheckEx(0x1Au, 0x5300uLL, result, *(_QWORD *)result, result ^ qword_14043BF80);
           return result;
         }
       }
     }
     v83 = 0LL;
-    v7 = (ULONG_PTR)&qword_14043AF58;
-    v8 = (unsigned __int16 *)&unk_14043B34E;
+    v7 = (ULONG_PTR)&qword_14043C018;
+    v8 = (unsigned __int16 *)&unk_14043C40E;
   }
   CurrentThread = KeGetCurrentThread();
   v10 = *(_QWORD *)(v7 + 40);
   v11 = v10;
-  v12 = *(_QWORD *)(qword_14043A748 + 8LL * *v8);
+  v12 = *(_QWORD *)(qword_14043B808 + 8LL * *v8);
   v13 = *(_QWORD *)(v7 + 8);
   v14 = *(_QWORD *)(v7 + 16);
   if ( v10 >= v13 )
@@ -424,13 +424,13 @@ LABEL_24:
       }
       else
       {
-        v29 = qword_14043AF98 - qword_14043AF88;
-        if ( qword_14043AF98 - qword_14043AF88 < (unsigned __int64)qword_140438AC8 )
+        v29 = qword_14043C058 - qword_14043C048;
+        if ( qword_14043C058 - qword_14043C048 < (unsigned __int64)qword_140439B88 )
         {
           v78 = *(struct _KEVENT **)(v92 + 248);
           if ( v78->Header.SignalState )
             KeResetEvent(v78);
-          if ( v29 <= qword_140438AC0 )
+          if ( v29 <= qword_140439B80 )
           {
             v79 = *(struct _KEVENT **)(v92 + 240);
             if ( !v79->Header.SignalState )
@@ -490,7 +490,7 @@ LABEL_85:
         v39->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v39->LockState.LockState < 0 )
         {
-          KiAbEntryRemoveFromTree((__int64)&v30->LockEntries[v38], v34);
+          KiAbEntryRemoveFromTree(&v30->LockEntries[v38].TreeNode, v34);
           BugCheckParameter4 = 0LL;
         }
         v96 = BugCheckParameter4;
@@ -576,7 +576,7 @@ LABEL_161:
   {
     v73->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v73->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v66->LockEntries[v72], v69);
+      KiAbEntryRemoveFromTree(&v66->LockEntries[v72].TreeNode, v69);
     v95 = 0;
     v95 = v73->BoostBitmap.AllFields & 0x1FFFF;
     v73->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -601,14 +601,14 @@ LABEL_172:
   {
     if ( v83 )
     {
-      ++dword_140438A88;
-      ++dword_140438AB4;
+      ++dword_140439B48;
+      ++dword_140439B74;
       ++*(_DWORD *)(v83 + 100);
     }
     else
     {
-      ++dword_140438A7C;
-      ++dword_140438AB0;
+      ++dword_140439B3C;
+      ++dword_140439B70;
     }
   }
   return 0LL;

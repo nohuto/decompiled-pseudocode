@@ -1,11 +1,11 @@
 /*
- * XREFs of PsInsertVirtualizedTimer @ 0x14007E534
+ * XREFs of PsInsertVirtualizedTimer @ 0x14007E5B4
  * Callers:
- *     NtCreateTimer @ 0x14047169C (NtCreateTimer.c)
+ *     NtCreateTimer @ 0x14047056C (NtCreateTimer.c)
  * Callees:
- *     ExpTimerPause @ 0x1400AE8DC (ExpTimerPause.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpTimerPause @ 0x1400ACE44 (ExpTimerPause.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PsInsertVirtualizedTimer(__int64 a1, _QWORD *a2, _QWORD *a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetVpThreadSpinLockCount @ 0x14034B590
+ * XREFs of KiSetVpThreadSpinLockCount @ 0x1403562E0
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
- *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
- *     KxDispatchInterrupt @ 0x1404065E0 (KxDispatchInterrupt.c)
+ *     KiQuantumEnd @ 0x140279260 (KiQuantumEnd.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
+ *     KiDirectSwitchThread @ 0x1402F1090 (KiDirectSwitchThread.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
+ *     KxDispatchInterrupt @ 0x1404067C0 (KxDispatchInterrupt.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */

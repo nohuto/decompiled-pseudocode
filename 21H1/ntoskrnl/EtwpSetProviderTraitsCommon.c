@@ -23,35 +23,35 @@ __int64 __fastcall EtwpSetProviderTraitsCommon(
         int a2,
         __int64 a3,
         __int64 a4,
-        unsigned __int64 a5,
+        PRTL_BALANCED_NODE Node,
         unsigned int a6,
         PFAST_MUTEX FastMutex,
-        __int64 a8)
+        PRTL_RB_TREE Tree)
 {
-  unsigned __int64 v8; // rdi
+  PRTL_BALANCED_NODE v8; // rdi
   __int16 v10; // r13
   __int64 v11; // rdx
   bool v12; // zf
-  _DWORD *v13; // r14
-  __int64 v14; // rax
-  unsigned __int64 v15; // rbx
-  bool v16; // bp
+  PRTL_BALANCED_NODE v13; // r14
+  unsigned __int64 v14; // rax
+  _RTL_BALANCED_NODE *Root; // rbx
+  BOOLEAN v16; // bp
   char v17; // r15
   int v18; // eax
-  unsigned __int64 v19; // rax
+  _RTL_BALANCED_NODE *v19; // rax
   unsigned int v20; // ebx
   __int128 *ProviderGroupFromTraits; // rax
-  PVOID P; // [rsp+38h] [rbp-80h]
+  PRTL_BALANCED_NODE P; // [rsp+38h] [rbp-80h]
   __int128 v28; // [rsp+58h] [rbp-60h] BYREF
 
-  v8 = a5;
+  v8 = Node;
   v10 = 0;
-  P = (PVOID)a5;
+  P = Node;
   if ( a6 < 3 )
     goto LABEL_39;
-  if ( *(unsigned __int16 *)(a5 + 28) != a6 )
+  if ( WORD2(Node[1].Left) != a6 )
     goto LABEL_39;
-  v11 = (unsigned int)strnlen((const char *)(a5 + 30), a6 - 2) + 3;
+  v11 = (unsigned int)strnlen((const char *)&Node[1].Left + 6, a6 - 2) + 3;
   v12 = (_DWORD)v11 == a6;
   if ( (unsigned int)v11 > a6 )
     goto LABEL_39;
@@ -59,7 +59,7 @@ __int64 __fastcall EtwpSetProviderTraitsCommon(
   {
     while ( (int)v11 + 2 <= a6 )
     {
-      LODWORD(v11) = *(unsigned __int16 *)(v11 + a5 + 28) + (_DWORD)v11;
+      LODWORD(v11) = *(unsigned __int16 *)((char *)&Node[1].Left + v11 + 4) + (_DWORD)v11;
       v12 = (_DWORD)v11 == a6;
       if ( (unsigned int)v11 >= a6 )
         goto LABEL_7;
@@ -71,46 +71,46 @@ LABEL_39:
 LABEL_7:
   if ( !v12 )
     goto LABEL_39;
-  v13 = (_DWORD *)(a5 + 24);
-  *(_OWORD *)a5 = 0LL;
-  *(_QWORD *)(a5 + 16) = 0LL;
-  *(_DWORD *)(a5 + 24) = 1;
+  v13 = Node + 1;
+  Node->0 = 0LL;
+  Node->ParentValue = 0LL;
+  LODWORD(Node[1].Children[0]) = 1;
   ExAcquireFastMutex(FastMutex);
-  if ( (*(_BYTE *)(a8 + 8) & 1) != 0 )
+  if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
   {
-    v15 = *(_QWORD *)a8;
-    if ( !*(_QWORD *)a8 )
+    Root = Tree->Root;
+    if ( !Tree->Root )
       goto LABEL_33;
-    v14 = a8 ^ v15;
+    v14 = (unsigned __int64)Tree ^ (unsigned __int64)Root;
   }
   else
   {
-    v14 = *(_QWORD *)a8;
-    v15 = *(_QWORD *)a8;
+    v14 = (unsigned __int64)Tree->Root;
+    Root = Tree->Root;
   }
   if ( !v14 )
   {
 LABEL_33:
-    v15 = 0LL;
+    Root = 0LL;
     v16 = 0;
     v17 = 0;
     goto LABEL_34;
   }
   v16 = 0;
   v17 = 0;
-  if ( !v15 )
+  if ( !Root )
   {
 LABEL_19:
     if ( !v17 )
       goto LABEL_34;
-    v13 = (_DWORD *)(v15 + 24);
-    v8 = v15;
-    ++*(_DWORD *)(v15 + 24);
+    v13 = Root + 1;
+    v8 = Root;
+    ++LODWORD(Root[1].Children[0]);
     goto LABEL_21;
   }
   while ( 1 )
   {
-    v18 = TraitsCompare(a5, v15);
+    v18 = TraitsCompare(Node, Root);
     if ( v18 > 0 )
       break;
     if ( v18 >= 0 )
@@ -118,33 +118,33 @@ LABEL_19:
       v17 = 1;
       goto LABEL_19;
     }
-    v19 = *(_QWORD *)v15;
-    if ( !*(_QWORD *)v15 )
+    v19 = Root->Children[0];
+    if ( !Root->Children[0] )
     {
       v16 = 0;
       goto LABEL_34;
     }
 LABEL_14:
-    v15 = v19;
+    Root = v19;
   }
-  v19 = *(_QWORD *)(v15 + 8);
+  v19 = Root->Children[1];
   if ( v19 )
     goto LABEL_14;
   v16 = 1;
 LABEL_34:
-  RtlRbInsertNodeEx((unsigned __int64 *)a8, v15, v16, a5);
+  RtlRbInsertNodeEx(Tree, Root, v16, Node);
   P = 0LL;
 LABEL_21:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a4 + 104), v8, 0LL) )
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a4 + 104), (signed __int64)v8, 0LL) )
   {
     if ( v17 )
     {
-      --*v13;
+      --LODWORD(v13->Children[0]);
     }
     else
     {
-      RtlRbRemoveNode((unsigned __int64 *)a8, v8);
-      P = (PVOID)v8;
+      RtlRbRemoveNode(Tree, v8);
+      P = v8;
     }
     v20 = -1073741823;
   }
@@ -155,7 +155,7 @@ LABEL_21:
   KeReleaseGuardedMutex(FastMutex);
   if ( !v20 )
   {
-    if ( *(_WORD *)(v8 + 28) == 22 && *(_DWORD *)(v8 + 30) == 33559296 )
+    if ( WORD2(v8[1].Left) == 22 && *(_DWORD *)((char *)&v8[1].Left + 6) == 33559296 )
     {
       if ( (unsigned __int8)AddDecodeGuidToSessions(a4) )
         v10 = 1024;

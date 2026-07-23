@@ -11,7 +11,7 @@ NTSTATUS __fastcall RtlpQueryDiskWriteConstraintPolicyByHandle(void *a1, int *a2
 {
   NTSTATUS result; // eax
   int v4; // eax
-  struct _IO_STATUS_BLOCK v5; // [rsp+50h] [rbp-38h] BYREF
+  _IO_STATUS_BLOCK v5; // [rsp+50h] [rbp-38h] BYREF
   __int128 v6; // [rsp+60h] [rbp-28h] BYREF
 
   v5 = 0LL;

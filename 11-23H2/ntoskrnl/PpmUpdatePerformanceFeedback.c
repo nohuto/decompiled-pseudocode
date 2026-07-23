@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmUpdatePerformanceFeedback @ 0x1402C6D40
+ * XREFs of PpmUpdatePerformanceFeedback @ 0x1402C6FD0
  * Callers:
- *     PpmSnapPerformanceAccumulation @ 0x1402562D0 (PpmSnapPerformanceAccumulation.c)
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
- *     PpmPerfApplyProcessorState @ 0x14034F00C (PpmPerfApplyProcessorState.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14034F15C (PpmContinueActiveTimeAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x140256390 (PpmSnapPerformanceAccumulation.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
+ *     PpmPerfApplyProcessorState @ 0x14034F1AC (PpmPerfApplyProcessorState.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14034F2FC (PpmContinueActiveTimeAccumulation.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     PpmPerfFeedbackCounterRead @ 0x14033CA40 (PpmPerfFeedbackCounterRead.c)
- *     HvlGetPpmStatsForProcessor @ 0x1403C854C (HvlGetPpmStatsForProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140571848 (KiReleaseSpinLockInstrumented.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     PpmPerfFeedbackCounterRead @ 0x14033CCD0 (PpmPerfFeedbackCounterRead.c)
+ *     HvlGetPpmStatsForProcessor @ 0x1403C872C (HvlGetPpmStatsForProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140571D88 (KiReleaseSpinLockInstrumented.c)
  */
 
 char __fastcall PpmUpdatePerformanceFeedback(__int64 a1, unsigned __int8 a2, char a3, char a4, __int64 *a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreatePageFileSpaceBitmaps @ 0x1407EDF2C
+ * XREFs of MiCreatePageFileSpaceBitmaps @ 0x1407EE4FC
  * Callers:
- *     MiAttemptChangePagingFileMaximum @ 0x140679D30 (MiAttemptChangePagingFileMaximum.c)
- *     MiCreatePagefile @ 0x1407EDFA0 (MiCreatePagefile.c)
+ *     MiAttemptChangePagingFileMaximum @ 0x14067AF10 (MiAttemptChangePagingFileMaximum.c)
+ *     MiCreatePagefile @ 0x1407EE570 (MiCreatePagefile.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
  */
 
 __int64 __fastcall MiCreatePageFileSpaceBitmaps(unsigned int a1)

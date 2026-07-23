@@ -1,22 +1,22 @@
 /*
- * XREFs of SmKmStoreFileCreate @ 0x1409D96C4
+ * XREFs of SmKmStoreFileCreate @ 0x1409D98C4
  * Callers:
- *     SmcCacheStart @ 0x1409DAF1C (SmcCacheStart.c)
+ *     SmcCacheStart @ 0x1409DB11C (SmcCacheStart.c)
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x14041AF80 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14041B240 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041B680 (ZwQueryVolumeInformationFile.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x14041B310 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x14041B5D0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x14041BA10 (ZwQueryVolumeInformationFile.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     SmKmFileInfoCleanup @ 0x1409D8980 (SmKmFileInfoCleanup.c)
- *     SmKmStoreFileCreateForIoType @ 0x1409D9B78 (SmKmStoreFileCreateForIoType.c)
- *     SmKmStoreFileDelete @ 0x1409D9E28 (SmKmStoreFileDelete.c)
- *     SmKmStoreFileGetExtents @ 0x1409D9EC4 (SmKmStoreFileGetExtents.c)
- *     SmKmStoreFileOpenVolume @ 0x1409DA3C8 (SmKmStoreFileOpenVolume.c)
- *     SmKmStoreFileWriteHeader @ 0x1409DA568 (SmKmStoreFileWriteHeader.c)
+ *     SmKmFileInfoCleanup @ 0x1409D8B80 (SmKmFileInfoCleanup.c)
+ *     SmKmStoreFileCreateForIoType @ 0x1409D9D78 (SmKmStoreFileCreateForIoType.c)
+ *     SmKmStoreFileDelete @ 0x1409DA028 (SmKmStoreFileDelete.c)
+ *     SmKmStoreFileGetExtents @ 0x1409DA0C4 (SmKmStoreFileGetExtents.c)
+ *     SmKmStoreFileOpenVolume @ 0x1409DA5C8 (SmKmStoreFileOpenVolume.c)
+ *     SmKmStoreFileWriteHeader @ 0x1409DA768 (SmKmStoreFileWriteHeader.c)
  */
 
 __int64 __fastcall SmKmStoreFileCreate(

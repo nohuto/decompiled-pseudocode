@@ -5,7 +5,7 @@
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  *     LdrResGetRCConfig @ 0x1800580E0 (LdrResGetRCConfig.c)
- *     LdrpTraceLoadMUIDll @ 0x1800E1794 (LdrpTraceLoadMUIDll.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800E1754 (LdrpTraceLoadMUIDll.c)
  */
 
 __int64 __fastcall RtlpResUltimateFallbackInfo(__int64 a1, int a2, _QWORD *a3, _DWORD *a4, int a5)
@@ -31,14 +31,14 @@ __int64 __fastcall RtlpResUltimateFallbackInfo(__int64 a1, int a2, _QWORD *a3, _
   v20 = 4325440;
   v21 = L"RtlpResUltimateFallbackInfo Exit";
   v9 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v10 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v10 = 2147353477LL;
   v11 = 2147353476LL;
   if ( (*(_BYTE *)v10 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v17 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v17 = 2147353476LL;
@@ -63,11 +63,11 @@ __int64 __fastcall RtlpResUltimateFallbackInfo(__int64 a1, int a2, _QWORD *a3, _
     {
       v16 = -1073741823;
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v9 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v9 & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v11 = (__int64)NtCurrentPeb()->SharedData + 554;
       LdrpTraceLoadMUIDll(&v20, *(unsigned __int8 *)v11);
     }

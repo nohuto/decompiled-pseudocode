@@ -1,11 +1,11 @@
 /*
- * XREFs of VhdiQueryVolumeVhdFilePath @ 0x140D031F8
+ * XREFs of VhdiQueryVolumeVhdFilePath @ 0x140D09598
  * Callers:
- *     VhdiInitializeBootDisk @ 0x140D02F00 (VhdiInitializeBootDisk.c)
+ *     VhdiInitializeBootDisk @ 0x140D092A0 (VhdiInitializeBootDisk.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)

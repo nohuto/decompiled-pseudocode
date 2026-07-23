@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetPriorityVaRanges @ 0x1404E75C0
+ * XREFs of MiSetPriorityVaRanges @ 0x1404C9B34
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1404F3D10 (NtSetInformationVirtualMemory.c)
- *     MmSetPriorityVaRanges @ 0x140659C28 (MmSetPriorityVaRanges.c)
+ *     NtSetInformationVirtualMemory @ 0x1404D6C9C (NtSetInformationVirtualMemory.c)
+ *     MmSetPriorityVaRanges @ 0x140659D0C (MmSetPriorityVaRanges.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     MiWalkVaRange @ 0x1400BB684 (MiWalkVaRange.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     MiWalkVaRange @ 0x1400B9514 (MiWalkVaRange.c)
  */
 
 void __fastcall MiSetPriorityVaRanges(unsigned __int64 a1, __int64 *a2, unsigned int a3)

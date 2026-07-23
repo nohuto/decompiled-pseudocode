@@ -1,8 +1,8 @@
 /*
- * XREFs of KeIsCoreIsolationMitigationPolicyEnforceable @ 0x14049C968
+ * XREFs of KeIsCoreIsolationMitigationPolicyEnforceable @ 0x140497598
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiProbeAndLockPacket @ 0x1402EE280
+ * XREFs of MiProbeAndLockPacket @ 0x1402D0300
  * Callers:
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     MmLockPhysicalPagesByVa @ 0x1406EA82C (MmLockPhysicalPagesByVa.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     MmLockPhysicalPagesByVa @ 0x1406EF4CC (MmLockPhysicalPagesByVa.c)
  * Callees:
- *     MiProbeLockFrame @ 0x1402EE600 (MiProbeLockFrame.c)
- *     MiLockPageLeafPageTable @ 0x1402EEB90 (MiLockPageLeafPageTable.c)
- *     MiProbeLeafPteAccess @ 0x1402EF490 (MiProbeLeafPteAccess.c)
- *     MiSetProbePagesAhead @ 0x1402EFB10 (MiSetProbePagesAhead.c)
- *     MiProbePacketContended @ 0x140306770 (MiProbePacketContended.c)
- *     MiUnlockProbePacketWorkingSet @ 0x1403A0340 (MiUnlockProbePacketWorkingSet.c)
- *     MiFaultInProbeAddress @ 0x1403A04D0 (MiFaultInProbeAddress.c)
- *     MiLockProbePacketWorkingSet @ 0x14048AFAC (MiLockProbePacketWorkingSet.c)
+ *     MiProbeLockFrame @ 0x1402D0680 (MiProbeLockFrame.c)
+ *     MiLockPageLeafPageTable @ 0x1402D0C10 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafPteAccess @ 0x1402D1510 (MiProbeLeafPteAccess.c)
+ *     MiSetProbePagesAhead @ 0x1402D1B90 (MiSetProbePagesAhead.c)
+ *     MiProbePacketContended @ 0x1402E87F0 (MiProbePacketContended.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1403A20A0 (MiUnlockProbePacketWorkingSet.c)
+ *     MiFaultInProbeAddress @ 0x1403A2230 (MiFaultInProbeAddress.c)
+ *     MiLockProbePacketWorkingSet @ 0x140484AEC (MiLockProbePacketWorkingSet.c)
  */
 
 __int64 __fastcall MiProbeAndLockPacket(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -82,7 +82,7 @@ __int64 __fastcall MiProbeAndLockPacket(__int64 a1, __int64 a2, unsigned __int64
         v10 = v8 + ((*(_QWORD *)(a1 + 8) - *(_QWORD *)(a1 + 160)) >> 12);
       }
       *(_QWORD *)(a1 + 144) = v10;
-      if ( v10 > qword_140E2D7A0 || (*(_QWORD *)(48 * v10 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0 )
+      if ( v10 > qword_140E2D920 || (*(_QWORD *)(48 * v10 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0 )
       {
         v11 = *(_QWORD *)(a1 + 168) + 1LL;
         if ( *(_QWORD *)(a1 + 16) <= v11 )
@@ -146,7 +146,7 @@ LABEL_57:
           result = MiFaultInProbeAddress(a1);
           if ( (int)result < 0 )
           {
-            ++HIDWORD(stru_140E2EB88.LastXStateSaveDebugInfo);
+            ++HIDWORD(stru_140E2ED08.LastXStateSaveDebugInfo);
             return result;
           }
         }

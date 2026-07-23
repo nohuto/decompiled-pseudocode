@@ -1,28 +1,28 @@
 /*
- * XREFs of KeTerminateThread @ 0x140089A20
+ * XREFs of KeTerminateThread @ 0x140089A10
  * Callers:
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
  * Callees:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiTryUnwaitThread @ 0x1400C4DD0 (KiTryUnwaitThread.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
- *     KiRemoveThreadFromSchedulingGroup @ 0x1400F46B8 (KiRemoveThreadFromSchedulingGroup.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KiProcessThreadWaitList @ 0x1400FBE60 (KiProcessThreadWaitList.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x140112488 (KiActivateWaiterQueueWithNoLocks.c)
- *     ExQueueWorkItemEx @ 0x1401296E4 (ExQueueWorkItemEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
- *     KeDisableProfiling @ 0x140295B8C (KeDisableProfiling.c)
- *     EtwTraceEnqueueWork @ 0x14030FD8C (EtwTraceEnqueueWork.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KiWakeQueueWaiter @ 0x1400AC950 (KiWakeQueueWaiter.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiTryUnwaitThread @ 0x1400C4D10 (KiTryUnwaitThread.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDCE0 (KiWakeOtherQueueWaiters.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1400F4738 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KiProcessThreadWaitList @ 0x1400FBEE0 (KiProcessThreadWaitList.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1401124F8 (KiActivateWaiterQueueWithNoLocks.c)
+ *     ExQueueWorkItemEx @ 0x1401297B4 (ExQueueWorkItemEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KeIsThreadRunning @ 0x14028DF98 (KeIsThreadRunning.c)
+ *     KeDisableProfiling @ 0x140295D7C (KeDisableProfiling.c)
+ *     EtwTraceEnqueueWork @ 0x14030FF7C (EtwTraceEnqueueWork.c)
  */
 
 __int64 __fastcall KeTerminateThread(ULONG_PTR BugCheckParameter1)
@@ -193,7 +193,7 @@ LABEL_43:
   while ( v26 != v27 );
   if ( v26 )
   {
-    if ( !qword_14040E4D8 || !_interlockedbittestandreset((volatile signed __int32 *)&qword_14040E4D8, 0) )
+    if ( !qword_14040F538 || !_interlockedbittestandreset((volatile signed __int32 *)&qword_14040F538, 0) )
       goto LABEL_56;
     v28 = 0xFFFFLL;
   }
@@ -202,7 +202,7 @@ LABEL_43:
     v28 = 0xFFFFFFFFLL;
   }
   if ( !(unsigned __int8)ExQueueWorkItemEx(&PsReaperWorkItem, 2LL, v28) )
-    _interlockedbittestandset((volatile signed __int32 *)&qword_14040E4D8, 0);
+    _interlockedbittestandset((volatile signed __int32 *)&qword_14040F538, 0);
 LABEL_56:
   _InterlockedOr(v35, 0);
   if ( *(_QWORD *)(v1 + 64) )

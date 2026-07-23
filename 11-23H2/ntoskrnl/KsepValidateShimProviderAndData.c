@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepValidateShimProviderAndData @ 0x140808A00
+ * XREFs of KsepValidateShimProviderAndData @ 0x140808CD0
  * Callers:
- *     KseRegisterShimEx @ 0x140808730 (KseRegisterShimEx.c)
+ *     KseRegisterShimEx @ 0x140808A00 (KseRegisterShimEx.c)
  * Callees:
- *     KsepGetModuleInfoByAddress @ 0x140808AB4 (KsepGetModuleInfoByAddress.c)
+ *     KsepGetModuleInfoByAddress @ 0x140808D84 (KsepGetModuleInfoByAddress.c)
  */
 
 __int64 __fastcall KsepValidateShimProviderAndData(__int64 a1, __int64 a2, __int64 a3)

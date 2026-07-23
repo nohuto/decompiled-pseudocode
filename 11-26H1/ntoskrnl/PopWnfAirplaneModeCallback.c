@@ -1,12 +1,12 @@
 /*
- * XREFs of PopWnfAirplaneModeCallback @ 0x140603D70
+ * XREFs of PopWnfAirplaneModeCallback @ 0x140606870
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfAirplaneModeCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -27,9 +27,9 @@ __int64 __fastcall PopWnfAirplaneModeCallback(__int64 a1, __int64 a2, __int64 a3
   {
     if ( v7 >= 0xC )
     {
-      v5 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.Spare35[1]);
-      LOBYTE(word_140F10724) = (_DWORD)v9 == 0;
-      KeReleaseSpinLock(&stru_140F10070.Spare35[1], v5);
+      v5 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
+      BYTE4(PpmIdlePolicyLock.ReadOperationCount) = (_DWORD)v9 == 0;
+      KeReleaseSpinLock(&PopCsResiliencyStatsLock, v5);
     }
     else
     {

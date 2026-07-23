@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetSessionCreateTime @ 0x1405B3894
+ * XREFs of MmGetSessionCreateTime @ 0x1405B4894
  * Callers:
- *     EtwpWriteProcessStarted @ 0x1405B2408 (EtwpWriteProcessStarted.c)
- *     EtwQueryProcessTelemetryInfo @ 0x1406A4C80 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpWriteProcessStarted @ 0x1405B3408 (EtwpWriteProcessStarted.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1406A5F20 (EtwQueryProcessTelemetryInfo.c)
  * Callees:
  *     <none>
  */

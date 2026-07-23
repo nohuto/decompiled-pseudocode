@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpAssignSecurityDescriptor @ 0x1408AB952
+ * XREFs of CmpAssignSecurityDescriptor @ 0x1408ABBA2
  * Callers:
- *     CmpCreateTombstone @ 0x140616E4C (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x14061739C (CmpCreateTombstone.c)
  * Callees:
  *     CmpGetSecurityDescriptorNodeEx @ 0x14067F1B8 (CmpGetSecurityDescriptorNodeEx.c)
  */

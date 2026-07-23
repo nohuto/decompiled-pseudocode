@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSetupArbiterAndTranslators @ 0x140817FDC
+ * XREFs of IopSetupArbiterAndTranslators @ 0x1408182AC
  * Callers:
- *     IopResourceRequirementsListToReqList @ 0x140817A68 (IopResourceRequirementsListToReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140817D38 (IopResourceRequirementsListToReqList.c)
  * Callees:
- *     IopFindResourceHandlerInfo @ 0x1408183C0 (IopFindResourceHandlerInfo.c)
- *     IopFindLegacyBusDeviceNode @ 0x140818450 (IopFindLegacyBusDeviceNode.c)
- *     IopCallArbiter @ 0x1408184A8 (IopCallArbiter.c)
- *     IopQueryResourceHandlerInterface @ 0x140818594 (IopQueryResourceHandlerInterface.c)
- *     IopTranslateAndAdjustReqDesc @ 0x14081A18C (IopTranslateAndAdjustReqDesc.c)
+ *     IopFindResourceHandlerInfo @ 0x140818690 (IopFindResourceHandlerInfo.c)
+ *     IopFindLegacyBusDeviceNode @ 0x140818720 (IopFindLegacyBusDeviceNode.c)
+ *     IopCallArbiter @ 0x140818778 (IopCallArbiter.c)
+ *     IopQueryResourceHandlerInterface @ 0x140818864 (IopQueryResourceHandlerInterface.c)
+ *     IopTranslateAndAdjustReqDesc @ 0x14081A45C (IopTranslateAndAdjustReqDesc.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

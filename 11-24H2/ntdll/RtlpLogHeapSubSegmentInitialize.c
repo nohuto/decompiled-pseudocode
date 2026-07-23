@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpLogHeapSubSegmentInitialize @ 0x1800D0C90
+ * XREFs of RtlpLogHeapSubSegmentInitialize @ 0x1800CE200
  * Callers:
- *     RtlpSubSegmentInitialize @ 0x1800D0810 (RtlpSubSegmentInitialize.c)
- *     RtlpSubSegmentDebugInitialize @ 0x1800D0D50 (RtlpSubSegmentDebugInitialize.c)
+ *     RtlpSubSegmentInitialize @ 0x1800CDD80 (RtlpSubSegmentInitialize.c)
+ *     RtlpSubSegmentDebugInitialize @ 0x1800CE2C0 (RtlpSubSegmentDebugInitialize.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     NtTraceEvent @ 0x180162840 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     NtTraceEvent @ 0x180160C00 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpLogHeapSubSegmentInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
+NTSTATUS __fastcall RtlpLogHeapSubSegmentInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 v9; // rcx
-  _BYTE v11[6]; // [rsp+20h] [rbp-88h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-88h] BYREF
   __int16 v12; // [rsp+26h] [rbp-82h]
   __int64 v13; // [rsp+40h] [rbp-68h]
   __int64 v14; // [rsp+48h] [rbp-60h]
@@ -21,16 +21,16 @@ __int64 __fastcall RtlpLogHeapSubSegmentInitialize(__int64 a1, __int64 a2, __int
   __int64 v16; // [rsp+58h] [rbp-50h]
   int v17; // [rsp+60h] [rbp-48h]
 
-  memset_thunk_772440563353939046(v11, 0, 0x44uLL);
+  memset_thunk_772440563353939046(Fields, 0, 0x44uLL);
   v13 = a1;
   v12 = 4149;
   v17 = a5;
   v14 = a2;
   v15 = a3;
   v16 = a4;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v9 = 2147353472LL;
-  return NtTraceEvent(*(unsigned __int8 *)v9, 132098LL, 36LL, v11);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v9, 0x20402u, 0x24u, Fields);
 }

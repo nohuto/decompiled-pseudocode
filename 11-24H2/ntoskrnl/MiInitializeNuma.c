@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeNuma @ 0x140668DC0
+ * XREFs of MiInitializeNuma @ 0x140669F98
  * Callers:
- *     MiInitializePartition @ 0x1407EC758 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x1407ECD28 (MiInitializePartition.c)
  * Callees:
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     MiInitializeSlabAllocator @ 0x140687F8C (MiInitializeSlabAllocator.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiInitializeHugeIoRanges @ 0x1407EB084 (MiInitializeHugeIoRanges.c)
- *     MiInitializeChannelOrdering @ 0x1407F6CB4 (MiInitializeChannelOrdering.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     MiInitializeSlabAllocator @ 0x1406890BC (MiInitializeSlabAllocator.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiInitializeHugeIoRanges @ 0x1407EB654 (MiInitializeHugeIoRanges.c)
+ *     MiInitializeChannelOrdering @ 0x1407F7428 (MiInitializeChannelOrdering.c)
  */
 
 void __fastcall MiInitializeNuma(__int64 a1)
@@ -37,7 +37,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
   __int64 v23; // r13
   int *v24; // r14
   unsigned int v25; // esi
-  union _SLIST_HEADER *v26; // rbp
+  _SLIST_HEADER *v26; // rbp
   int v27; // eax
   __int64 v28; // rbp
   unsigned int i; // esi
@@ -63,7 +63,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
       MiInitializeHugeIoRanges(v1);
       v5 = (_QWORD *)(v4 - 56908);
       v6 = 4LL;
-      v7 = dword_140E2DBC0;
+      v7 = dword_140E2DD00;
       do
       {
         v8 = (unsigned int)*v7;
@@ -96,7 +96,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
         --v6;
       }
       while ( v6 );
-      v14 = (unsigned int)dword_140E2DBCC;
+      v14 = (unsigned int)dword_140E2DD0C;
       v15 = v4 - 42156;
       v16 = (_QWORD *)(v4 - 42188);
       v17 = 2LL;
@@ -137,7 +137,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
       while ( v20 );
       v24 = (int *)(v4 - 41684);
       v25 = 0;
-      v26 = (union _SLIST_HEADER *)(v4 - 41724);
+      v26 = (_SLIST_HEADER *)(v4 - 41724);
       do
       {
         InitializeSListHead(v26);
@@ -162,7 +162,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
       *(_QWORD *)(v4 + 12) = 0x3FFFFFFFFFLL;
       *(_DWORD *)(v4 + 20) = 0;
       if ( (ULONG *)a1 != &MiSystemPartition )
-        *(_DWORD *)(v4 - 41852) ^= (*(_DWORD *)(57216LL * v31 + qword_140E38C10 + 15184) ^ *(_DWORD *)(v4 - 41852)) & 2;
+        *(_DWORD *)(v4 - 41852) ^= (*(_DWORD *)(57216LL * v31 + qword_140E38D50 + 15184) ^ *(_DWORD *)(v4 - 41852)) & 2;
       v1 = v32 + 57216;
       v2 = v31 + 1;
       v32 += 57216LL;

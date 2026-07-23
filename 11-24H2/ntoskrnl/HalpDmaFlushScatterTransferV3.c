@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaFlushScatterTransferV3 @ 0x14039249C
+ * XREFs of HalpDmaFlushScatterTransferV3 @ 0x14038BDCC
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x140392210 (HalFlushAdapterBuffersEx.c)
- *     IoFlushAdapterBuffersV3 @ 0x140551E80 (IoFlushAdapterBuffersV3.c)
+ *     HalFlushAdapterBuffersEx @ 0x14038BB40 (HalFlushAdapterBuffersEx.c)
+ *     IoFlushAdapterBuffersV3 @ 0x14054F7C0 (IoFlushAdapterBuffersV3.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x14038D160 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaFlushBuffer @ 0x14038D450 (HalpDmaFlushBuffer.c)
- *     HalpDmaNextContiguousPiece @ 0x14038FC00 (HalpDmaNextContiguousPiece.c)
- *     HalpDmaSyncMapBuffers @ 0x14038FF20 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140386AA0 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaFlushBuffer @ 0x140386D90 (HalpDmaFlushBuffer.c)
+ *     HalpDmaNextContiguousPiece @ 0x140389540 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaSyncMapBuffers @ 0x140389860 (HalpDmaSyncMapBuffers.c)
  */
 
 void __fastcall HalpDmaFlushScatterTransferV3(

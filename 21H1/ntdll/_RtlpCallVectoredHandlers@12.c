@@ -17,111 +17,112 @@
 
 char __fastcall RtlpCallVectoredHandlers(int a1, int a2, int a3)
 {
-  volatile signed __int32 **v3; // edi
-  volatile signed __int32 *v5; // esi
-  volatile signed __int32 **v6; // ebx
-  int v7; // edx
+  _RTL_SRWLOCK **v3; // edi
+  PVOID *v5; // esi
+  _RTL_SRWLOCK **v6; // ebx
+  PULONG v7; // edx
   int v8; // eax
   int v9; // eax
   int v10; // ecx
   int v11; // eax
-  volatile signed __int32 *v12; // edx
-  volatile signed __int32 ***v13; // eax
-  volatile signed __int32 **v14; // eax
-  int v15; // edi
-  volatile signed __int32 *v16; // [esp-4h] [ebp-48h]
-  unsigned int v17; // [esp-4h] [ebp-48h]
-  _DWORD v18[2]; // [esp+10h] [ebp-34h] BYREF
-  unsigned int v19; // [esp+18h] [ebp-2Ch]
-  volatile signed __int32 **v20; // [esp+1Ch] [ebp-28h]
-  int v21; // [esp+20h] [ebp-24h]
-  int v22; // [esp+24h] [ebp-20h]
-  int v23; // [esp+28h] [ebp-1Ch] BYREF
-  int v24; // [esp+2Ch] [ebp-18h]
-  volatile signed __int32 **v25; // [esp+30h] [ebp-14h]
-  struct _PEB *v26; // [esp+34h] [ebp-10h]
-  volatile signed __int32 *v27; // [esp+38h] [ebp-Ch]
-  char v28; // [esp+3Fh] [ebp-5h]
+  PVOID *v12; // edx
+  PVOID ***v13; // eax
+  PVOID *v14; // eax
+  PVOID *v15; // edi
+  int v16; // eax
+  _RTL_SRWLOCK *v17; // [esp-4h] [ebp-48h]
+  unsigned int v18; // [esp-4h] [ebp-48h]
+  _DWORD v19[2]; // [esp+10h] [ebp-34h] BYREF
+  unsigned int v20; // [esp+18h] [ebp-2Ch]
+  volatile signed __int32 **v21; // [esp+1Ch] [ebp-28h]
+  int v22; // [esp+20h] [ebp-24h]
+  int v23; // [esp+24h] [ebp-20h]
+  ULONG *ProcessInformation; // [esp+28h] [ebp-1Ch] BYREF
+  int v25; // [esp+2Ch] [ebp-18h]
+  PVOID **v26; // [esp+30h] [ebp-14h]
+  struct _PEB *v27; // [esp+34h] [ebp-10h]
+  _RTL_SRWLOCK *v28; // [esp+38h] [ebp-Ch]
+  char v29; // [esp+3Fh] [ebp-5h]
 
-  v22 = a2;
-  v26 = NtCurrentPeb();
-  v19 = a3 + 2;
-  v21 = a1;
-  v3 = (volatile signed __int32 **)(&LdrpVectorHandlerList + 3 * a3);
-  v28 = 0;
-  if ( ((1 << (a3 + 2)) & v26->CrossProcessFlags) != 0 )
+  v23 = a2;
+  v27 = NtCurrentPeb();
+  v20 = a3 + 2;
+  v22 = a1;
+  v3 = (_RTL_SRWLOCK **)(&LdrpVectorHandlerList + 3 * a3);
+  v29 = 0;
+  if ( ((1 << (a3 + 2)) & v27->CrossProcessFlags) != 0 )
   {
-    v16 = *v3;
-    v18[0] = a1;
+    v17 = *v3;
+    v19[0] = a1;
     v5 = 0;
-    v18[1] = a2;
-    RtlAcquireSRWLockExclusive(v16);
-    v6 = (volatile signed __int32 **)v3[1];
+    v19[1] = a2;
+    RtlAcquireSRWLockExclusive(v17);
+    v6 = (_RTL_SRWLOCK **)v3[1];
     do
     {
       if ( v6 == v3 + 1 )
         goto LABEL_14;
-      v25 = v6;
-      v20 = v6 + 2;
-      if ( _InterlockedIncrement(v6[2]) <= 1 )
+      v26 = (PVOID **)v6;
+      v21 = (volatile signed __int32 **)(v6 + 2);
+      if ( _InterlockedIncrement((volatile signed __int32 *)v6[2]) <= 1 )
         __fastfail(0xEu);
       RtlReleaseSRWLockExclusive(*v3);
       v7 = `RtlpGetCookieValue'::`2'::CookieValue;
-      v27 = v6[4];
+      v28 = v6[4];
       if ( !`RtlpGetCookieValue'::`2'::CookieValue )
       {
-        v11 = ZwQueryInformationProcess(-1, 36, &v23, 4, 0);
+        v11 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
         if ( v11 < 0 )
           RtlRaiseStatus(v11);
-        v7 = v23;
-        `RtlpGetCookieValue'::`2'::CookieValue = v23;
+        v7 = ProcessInformation;
+        `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
       }
-      v24 = 0;
-      v8 = v7 ^ __ROR4__(v27, 32 - (v7 & 0x1F));
-      v27 = (volatile signed __int32 *)v8;
-      if ( (v26->NtGlobalFlag & 0x800000) != 0 )
+      v25 = 0;
+      v8 = (unsigned int)v7 ^ __ROR4__(v28, 32 - ((unsigned __int8)v7 & 0x1F));
+      v28 = (_RTL_SRWLOCK *)v8;
+      if ( (v27->NtGlobalFlag & 0x800000) != 0 )
       {
-        v24 = RtlpLogExceptionHandler(v26, v8);
-        v8 = (int)v27;
+        v25 = RtlpLogExceptionHandler(v27, v8);
+        v8 = (int)v28;
       }
-      v9 = ((int (__thiscall *)(int, _DWORD *))v27)(v8, v18);
-      v27 = (volatile signed __int32 *)v9;
-      if ( v24 )
-        *(_DWORD *)(v24 + 800) = v9 != -1;
+      v9 = ((int (__thiscall *)(int, _DWORD *))v28)(v8, v19);
+      v28 = (_RTL_SRWLOCK *)v9;
+      if ( v25 )
+        *(_DWORD *)(v25 + 800) = v9 != -1;
       RtlAcquireSRWLockExclusive(*v3);
-      v6 = (volatile signed __int32 **)*v6;
-      v10 = _InterlockedDecrement(*v20);
+      v6 = (_RTL_SRWLOCK **)*v6;
+      v10 = _InterlockedDecrement(*v21);
       if ( v10 <= 0 )
       {
         if ( v10 )
           __fastfail(0xEu);
-        if ( !v25[3] )
+        if ( !v26[3] )
         {
-          v17 = 60;
+          v18 = 60;
 LABEL_30:
-          __fastfail(v17);
+          __fastfail(v18);
         }
         LdrProtectMrdataHeap(0);
         LdrProtectMrdata(0);
-        v12 = *v25;
-        if ( *((volatile signed __int32 ***)*v25 + 1) != v25 || (v13 = (volatile signed __int32 ***)v25[1], *v13 != v25) )
+        v12 = *v26;
+        if ( (*v26)[1] != v26 || (v13 = (PVOID ***)v26[1], *v13 != v26) )
         {
-          v17 = 3;
+          v18 = 3;
           goto LABEL_30;
         }
-        *v13 = (volatile signed __int32 **)v12;
-        *((_DWORD *)v12 + 1) = v13;
-        if ( v13 == (volatile signed __int32 ***)v12 )
-          _interlockedbittestandreset((volatile signed __int32 *)&v26->40, v19);
+        *v13 = (PVOID **)v12;
+        v12[1] = v13;
+        if ( v13 == (PVOID ***)v12 )
+          _interlockedbittestandreset((volatile signed __int32 *)&v27->40, v20);
         LdrProtectMrdata(1);
-        v14 = v25;
-        *v25 = v5;
-        v5 = (volatile signed __int32 *)v14;
+        v14 = (PVOID *)v26;
+        *v26 = v5;
+        v5 = v14;
         LdrProtectMrdataHeap((void *)1);
       }
     }
-    while ( v27 != (volatile signed __int32 *)-1 );
-    v28 = 1;
+    while ( v28 != (_RTL_SRWLOCK *)-1 );
+    v29 = 1;
 LABEL_14:
     RtlReleaseSRWLockExclusive(*v3);
     if ( v5 )
@@ -129,17 +130,18 @@ LABEL_14:
       LdrProtectMrdataHeap(0);
       do
       {
-        v15 = (int)v5;
-        v5 = (volatile signed __int32 *)*v5;
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v15 + 8));
-        if ( LdrControlFlowGuardEnforced() )
+        v15 = v5;
+        v5 = (PVOID *)*v5;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15[2]);
+        LOBYTE(v16) = LdrControlFlowGuardEnforced();
+        if ( v16 )
           RtlFreeHeap(LdrpMrdataHeap, 0, v15);
         else
-          RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v15);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
       }
       while ( v5 );
       LdrProtectMrdataHeap((void *)1);
     }
   }
-  return v28;
+  return v29;
 }

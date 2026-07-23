@@ -3,7 +3,7 @@
  * Callers:
  *     RtlxUnicodeStringToOemSize @ 0x18006A6C0 (RtlxUnicodeStringToOemSize.c)
  *     RtlUnicodeStringToAnsiString @ 0x18006A800 (RtlUnicodeStringToAnsiString.c)
- *     wcstombs @ 0x180096040 (wcstombs.c)
+ *     wcstombs @ 0x180096050 (wcstombs.c)
  * Callees:
  *     RtlUnicodeToUTF8N @ 0x180066C70 (RtlUnicodeToUTF8N.c)
  */
@@ -21,7 +21,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   if ( NlsActiveCodePageIsUTF8 )
   {
     if ( BytesInUnicodeString )
-      RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, (unsigned int *)UnicodeString, BytesInUnicodeString);
+      RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, UnicodeString, BytesInUnicodeString);
     else
       *BytesInMultiByteString = 0;
   }

@@ -1,30 +1,30 @@
 /*
- * XREFs of MiRemovePteTracker @ 0x1404CE770
+ * XREFs of MiRemovePteTracker @ 0x1404C793C
  * Callers:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmFreeMappingAddress @ 0x140A5DAA0 (MmFreeMappingAddress.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmFreeMappingAddress @ 0x140A55EC0 (MmFreeMappingAddress.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, ULONG_PTR a3)
 {
-  struct _SLIST_ENTRY *v3; // rbx
+  _SLIST_ENTRY *v3; // rbx
   unsigned __int64 v6; // rsi
   ULONG_PTR v7; // r14
   KIRQL v8; // r15
-  struct _SLIST_ENTRY *v9; // rdx
-  struct _SLIST_ENTRY *i; // r8
+  _SLIST_ENTRY *v9; // rdx
+  _SLIST_ENTRY *i; // r8
   _SLIST_ENTRY *Next; // rcx
   ULONG_PTR v12; // r9
   ULONG_PTR v13; // r9
   ULONG_PTR v14; // r9
-  struct _SLIST_ENTRY *v15; // rcx
-  struct _SLIST_ENTRY **v16; // rax
+  _SLIST_ENTRY *v15; // rcx
+  _SLIST_ENTRY **v16; // rax
   PSLIST_ENTRY result; // rax
 
   v3 = 0LL;
@@ -33,13 +33,13 @@ PSLIST_ENTRY __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter2, unsigne
   if ( KeGetCurrentIrql() == 2 )
   {
     v8 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35D10);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35E50);
   }
   else
   {
-    v8 = ExAcquireSpinLockExclusive(&dword_140E35D10);
+    v8 = ExAcquireSpinLockExclusive(&dword_140E35E50);
   }
-  v9 = (struct _SLIST_ENTRY *)((char *)&unk_140E387F0 + 16 * (v6 & 0xF));
+  v9 = (_SLIST_ENTRY *)((char *)&unk_140E38930 + 16 * (v6 & 0xF));
   for ( i = v9->Next; i != v9; i = i->Next )
   {
     Next = i[2].Next;
@@ -55,7 +55,7 @@ PSLIST_ENTRY __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter2, unsigne
         v13 = *((_QWORD *)&i[3].Next + 1);
         if ( v13 != *(_QWORD *)(BugCheckParameter2 + 48) )
           KeBugCheckEx(0xDAu, 4uLL, (ULONG_PTR)i, v13, *(_QWORD *)(BugCheckParameter2 + 48));
-        if ( !byte_140E3731C )
+        if ( !byte_140E3745C )
         {
           if ( Next != *(_SLIST_ENTRY **)(BugCheckParameter2 + 24) )
             KeBugCheckEx(0xDAu, 3uLL, (ULONG_PTR)i, (ULONG_PTR)i[2].Next, *(_QWORD *)(BugCheckParameter2 + 24));
@@ -65,19 +65,19 @@ PSLIST_ENTRY __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter2, unsigne
         }
       }
       v15 = i->Next;
-      if ( *(&i->Next->Next + 1) != i || (v16 = (struct _SLIST_ENTRY **)*((_QWORD *)&i->Next + 1), *v16 != i) )
+      if ( *(&i->Next->Next + 1) != i || (v16 = (_SLIST_ENTRY **)*((_QWORD *)&i->Next + 1), *v16 != i) )
         __fastfail(3u);
       *v16 = v15;
       v3 = i;
       *((_QWORD *)&v15->Next + 1) = v16;
     }
   }
-  if ( !v3 && !byte_140E35EA5 )
+  if ( !v3 && !byte_140E35FE5 )
     KeBugCheckEx(0xDAu, 6uLL, BugCheckParameter2, v7, a3);
-  qword_140E388F0 -= a3;
-  --qword_140E388F8;
-  result = (PSLIST_ENTRY)MiReleaseSpinLockExclusive(&dword_140E35D10, v8);
+  qword_140E38A30 -= a3;
+  --qword_140E38A38;
+  result = (PSLIST_ENTRY)MiReleaseSpinLockExclusive(&dword_140E35E50, v8);
   if ( v3 )
-    return RtlpInterlockedPushEntrySList(&stru_140E35D00, v3);
+    return RtlpInterlockedPushEntrySList(&ListHead, v3);
   return result;
 }

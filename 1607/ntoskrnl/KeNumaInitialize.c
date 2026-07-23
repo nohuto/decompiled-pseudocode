@@ -3,7 +3,7 @@
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  * Callees:
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
  */
 
 __int64 KeNumaInitialize()

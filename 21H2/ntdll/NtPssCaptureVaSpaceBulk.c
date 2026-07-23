@@ -1,16 +1,21 @@
 /*
- * XREFs of NtPssCaptureVaSpaceBulk @ 0x18009FDD0
+ * XREFs of NtPssCaptureVaSpaceBulk @ 0x18009FD90
  * Callers:
- *     PsspQueryVmBulkMode @ 0x180115A20 (PsspQueryVmBulkMode.c)
+ *     PsspQueryVmBulkMode @ 0x1801159E0 (PsspQueryVmBulkMode.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtPssCaptureVaSpaceBulk()
+NTSTATUS __cdecl NtPssCaptureVaSpaceBulk(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PNTPSS_MEMORY_BULK_INFORMATION BulkInformation,
+        SIZE_T BulkInformationLength,
+        PSIZE_T ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 317LL;
+  result = 317;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

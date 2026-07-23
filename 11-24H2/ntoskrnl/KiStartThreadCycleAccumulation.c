@@ -1,13 +1,13 @@
 /*
- * XREFs of KiStartThreadCycleAccumulation @ 0x14034ED50
+ * XREFs of KiStartThreadCycleAccumulation @ 0x14036D230
  * Callers:
- *     KiSwapThread @ 0x1402A6990 (KiSwapThread.c)
- *     KiResumeThreadCycleAccumulation @ 0x14030CC20 (KiResumeThreadCycleAccumulation.c)
- *     PpmCheckCustomRun @ 0x1403B45DC (PpmCheckCustomRun.c)
- *     KeUpdateThreadTag @ 0x140472120 (KeUpdateThreadTag.c)
+ *     KiSwapThread @ 0x1402D60C0 (KiSwapThread.c)
+ *     KiResumeThreadCycleAccumulation @ 0x1402DBC80 (KiResumeThreadCycleAccumulation.c)
+ *     PpmCheckCustomRun @ 0x14044C05C (PpmCheckCustomRun.c)
+ *     KeUpdateThreadTag @ 0x14046E3F0 (KeUpdateThreadTag.c)
  * Callees:
- *     HalRequestSoftwareInterrupt @ 0x14034AB60 (HalRequestSoftwareInterrupt.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     HalRequestSoftwareInterrupt @ 0x140369040 (HalRequestSoftwareInterrupt.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 void __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)

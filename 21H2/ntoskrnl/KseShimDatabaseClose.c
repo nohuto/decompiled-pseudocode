@@ -1,18 +1,18 @@
 /*
- * XREFs of KseShimDatabaseClose @ 0x140758D88
+ * XREFs of KseShimDatabaseClose @ 0x140758F48
  * Callers:
- *     KsepDbCacheReadDevice @ 0x140755E7C (KsepDbCacheReadDevice.c)
- *     KsepDbGetDriverShims @ 0x140758C60 (KsepDbGetDriverShims.c)
- *     KsepDbGetShimInfo @ 0x1408BF81C (KsepDbGetShimInfo.c)
- *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
+ *     KsepDbCacheReadDevice @ 0x14075603C (KsepDbCacheReadDevice.c)
+ *     KsepDbGetDriverShims @ 0x140758E20 (KsepDbGetDriverShims.c)
+ *     KsepDbGetShimInfo @ 0x1408BF97C (KsepDbGetShimInfo.c)
+ *     KseInitialize @ 0x140A3D89C (KseInitialize.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     RtlAssert @ 0x140588810 (RtlAssert.c)
- *     KsepSdbUnmapFromMemory @ 0x14075643C (KsepSdbUnmapFromMemory.c)
- *     KseShimDatabaseBootRelease @ 0x1407BCC60 (KseShimDatabaseBootRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     RtlAssert @ 0x140588A40 (RtlAssert.c)
+ *     KsepSdbUnmapFromMemory @ 0x1407565FC (KsepSdbUnmapFromMemory.c)
+ *     KseShimDatabaseBootRelease @ 0x1407BD3F0 (KseShimDatabaseBootRelease.c)
  */
 
 void __fastcall KseShimDatabaseClose(__int64 a1)
@@ -48,7 +48,7 @@ void __fastcall KseShimDatabaseClose(__int64 a1)
       if ( !KsepShimDbRefCount || (--KsepShimDbRefCount, v3 == 1) )
       {
         KsepSdbUnmapFromMemory(KsepShimDb);
-        KsepSdbUnmapFromMemory(qword_140C2AEF8);
+        KsepSdbUnmapFromMemory(qword_140C2AF38);
         KsepShimDbHandle = 0LL;
       }
     }

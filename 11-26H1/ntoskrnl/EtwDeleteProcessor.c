@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwDeleteProcessor @ 0x140824694
+ * XREFs of EtwDeleteProcessor @ 0x14082A8D4
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     EtwpCCSwapDeleteProcessor @ 0x1406C8DA4 (EtwpCCSwapDeleteProcessor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpCCSwapDeleteProcessor @ 0x1406CCD84 (EtwpCCSwapDeleteProcessor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwDeleteProcessor(__int64 a1)

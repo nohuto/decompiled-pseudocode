@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipProbeWmiOpenGuidBlock @ 0x140474D00
+ * XREFs of WmipProbeWmiOpenGuidBlock @ 0x140473BD0
  * Callers:
- *     WmipIoControl @ 0x1404749C4 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140473894 (WmipIoControl.c)
  * Callees:
- *     IoIs32bitProcess @ 0x1400C3800 (IoIs32bitProcess.c)
- *     WmipProbeAndCaptureGuidObjectAttributes @ 0x140474DB4 (WmipProbeAndCaptureGuidObjectAttributes.c)
+ *     IoIs32bitProcess @ 0x1400C1690 (IoIs32bitProcess.c)
+ *     WmipProbeAndCaptureGuidObjectAttributes @ 0x140473C84 (WmipProbeAndCaptureGuidObjectAttributes.c)
  */
 
 __int64 __fastcall WmipProbeWmiOpenGuidBlock(

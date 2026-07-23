@@ -1,10 +1,10 @@
 /*
- * XREFs of PspUnlockJobListShared @ 0x140680FA0
+ * XREFs of PspUnlockJobListShared @ 0x140681084
  * Callers:
- *     NtQueryInformationJobObject @ 0x140466FD0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140465EA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall PspUnlockJobListShared(__int64 a1)

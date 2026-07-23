@@ -3,22 +3,22 @@
  * Callers:
  *     PiAuCreateSecurityObjects @ 0x1407B3320 (PiAuCreateSecurityObjects.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x14041FFE0 (RtlLengthSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlValidSid @ 0x1404217D0 (RtlValidSid.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14048D16C (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14048D1C4 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x1404BCD44 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x1404D6AD4 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlAddAccessAllowedAceEx @ 0x14054CEA8 (RtlAddAccessAllowedAceEx.c)
- *     PiAuAllocateAndInitializeSid @ 0x14057187C (PiAuAllocateAndInitializeSid.c)
- *     RtlAddAccessDeniedAceEx @ 0x1405718E4 (RtlAddAccessDeniedAceEx.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x14041EEA0 (RtlLengthSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlValidSid @ 0x140420690 (RtlValidSid.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x14048DBFC (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14048DC54 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x1404A8A74 (RtlValidSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1404BA0D8 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlAddAccessAllowedAceEx @ 0x14054D3E8 (RtlAddAccessAllowedAceEx.c)
+ *     PiAuAllocateAndInitializeSid @ 0x140571DBC (PiAuAllocateAndInitializeSid.c)
+ *     RtlAddAccessDeniedAceEx @ 0x140571E24 (RtlAddAccessDeniedAceEx.c)
  */
 
 __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
@@ -60,7 +60,7 @@ __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
   v6 = PiAuSwDeviceCreateSidSubAuthorities;
   do
   {
-    Acl = PiAuAllocateAndInitializeSid(&v27[v4], (struct _SID_IDENTIFIER_AUTHORITY *)BufferLength, *v6);
+    Acl = PiAuAllocateAndInitializeSid(&v27[v4], (_SID_IDENTIFIER_AUTHORITY *)BufferLength, *v6);
     if ( Acl < 0 )
       goto LABEL_42;
     v8 = v25;

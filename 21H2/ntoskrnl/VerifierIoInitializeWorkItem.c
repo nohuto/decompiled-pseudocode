@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierIoInitializeWorkItem @ 0x1409C9680
+ * XREFs of VerifierIoInitializeWorkItem @ 0x1409CA680
  * Callers:
  *     <none>
  * Callees:
- *     IoSizeofWorkItem @ 0x1402C2660 (IoSizeofWorkItem.c)
- *     MmIsSessionAddress @ 0x140349110 (MmIsSessionAddress.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MmIsNonPagedSystemAddressValid @ 0x140536B90 (MmIsNonPagedSystemAddressValid.c)
- *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     IoSizeofWorkItem @ 0x140240B00 (IoSizeofWorkItem.c)
+ *     MmIsSessionAddress @ 0x140353E60 (MmIsSessionAddress.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x140536DD0 (MmIsNonPagedSystemAddressValid.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C758C (VfUtilCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierIoInitializeWorkItem(__int64 a1, void *a2)

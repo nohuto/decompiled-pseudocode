@@ -46,7 +46,7 @@ __int64 MiCheckSessionPoolAllocations()
   while ( v4 );
   if ( BugCheckParameter2 )
   {
-    MiFreePoolPages((struct _SLIST_ENTRY *)BugCheckParameter2, 40 * v13, 0);
+    MiFreePoolPages((_SLIST_ENTRY *)BugCheckParameter2, 40 * v13, 0);
     v5[990] = 0LL;
     v5[991] = 0LL;
   }

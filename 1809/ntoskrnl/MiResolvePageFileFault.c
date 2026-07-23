@@ -1,5 +1,5 @@
 /*
- * XREFs of MiResolvePageFileFault @ 0x140154B44
+ * XREFs of MiResolvePageFileFault @ 0x140154C44
  * Callers:
  *     MiIssueFlowThroughFault @ 0x140003D9C (MiIssueFlowThroughFault.c)
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
@@ -19,24 +19,24 @@
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
- *     MiInitializeReadInProgressPfn @ 0x1400656E0 (MiInitializeReadInProgressPfn.c)
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiSharedVaToPartition @ 0x1401097AC (MiSharedVaToPartition.c)
- *     MiFlowThroughInsertNode @ 0x14010F5E0 (MiFlowThroughInsertNode.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiSetInPagePrefetchPriority @ 0x140113BB4 (MiSetInPagePrefetchPriority.c)
- *     MiReduceMdl @ 0x14011A934 (MiReduceMdl.c)
- *     MiLockSetPfnPriority @ 0x140121F18 (MiLockSetPfnPriority.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
- *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
- *     MiFreePageChain @ 0x140155A98 (MiFreePageChain.c)
- *     MiKernelStackVaToStackNode @ 0x140155AC0 (MiKernelStackVaToStackNode.c)
+ *     MiObtainFaultCharges @ 0x140064D50 (MiObtainFaultCharges.c)
+ *     MiInitializeReadInProgressPfn @ 0x1400656D0 (MiInitializeReadInProgressPfn.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     MiIsStoreProcess @ 0x1400837DC (MiIsStoreProcess.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiSharedVaToPartition @ 0x14010982C (MiSharedVaToPartition.c)
+ *     MiFlowThroughInsertNode @ 0x14010F660 (MiFlowThroughInsertNode.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiSetInPagePrefetchPriority @ 0x140113C24 (MiSetInPagePrefetchPriority.c)
+ *     MiReduceMdl @ 0x14011A9A4 (MiReduceMdl.c)
+ *     MiLockSetPfnPriority @ 0x140121FE8 (MiLockSetPfnPriority.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128D60 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiReturnFaultCharges @ 0x140134924 (MiReturnFaultCharges.c)
+ *     MiIsPteInStore @ 0x140141908 (MiIsPteInStore.c)
+ *     MiFreePageChain @ 0x140155B98 (MiFreePageChain.c)
+ *     MiKernelStackVaToStackNode @ 0x140155BC0 (MiKernelStackVaToStackNode.c)
  */
 
 __int64 MiResolvePageFileFault(unsigned __int64 *a1, unsigned __int64 a2, ...)
@@ -228,12 +228,12 @@ __int64 MiResolvePageFileFault(unsigned __int64 *a1, unsigned __int64 a2, ...)
   v11 = v148;
   if ( (v6 & 0x800) != 0 )
   {
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v6 & 0x10) != 0 )
         v6 &= ~0x10uLL;
       else
-        v6 &= ~qword_14043A0C0;
+        v6 &= ~qword_14043B180;
     }
     v5 = 16;
     v160 = 48 * ((v6 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
@@ -253,7 +253,7 @@ __int64 MiResolvePageFileFault(unsigned __int64 *a1, unsigned __int64 a2, ...)
     }
     v13 = *(unsigned __int16 *)(v8 + 174);
   }
-  v14 = *(ULONG_PTR **)(qword_14043A748 + 8 * v13);
+  v14 = *(ULONG_PTR **)(qword_14043B808 + 8 * v13);
 LABEL_6:
   v15 = 0LL;
   v147 = v14;
@@ -298,7 +298,7 @@ LABEL_6:
     v15 = v17;
     v151 = v17;
     LODWORD(v146) = v20 | 8;
-    v23 = *(ULONG_PTR **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v112 + 544) + 1454LL));
+    v23 = *(ULONG_PTR **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v112 + 544) + 1454LL));
     v147 = v23;
   }
   else if ( ((v11 >> 5) & 0x1F) == 0x1F )
@@ -306,7 +306,7 @@ LABEL_6:
     v155 = 8;
     v119 = MiKernelStackVaToStackNode(v21);
     if ( v119 )
-      v23 = *(ULONG_PTR **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v119 + 40));
+      v23 = *(ULONG_PTR **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v119 + 40));
     else
       v23 = &MiSystemPartition;
     LODWORD(v146) = v146 | 8;
@@ -407,10 +407,10 @@ LABEL_21:
   v35 = v32 & IsPteInStore | v5;
   if ( v26 != v32 )
   {
-    if ( dword_14043ADA4 )
+    if ( dword_14043BE64 )
     {
       v144 = v32;
-      --dword_14043ADA4;
+      --dword_14043BE64;
       v26 = v32;
     }
     else if ( v151 )
@@ -580,8 +580,8 @@ LABEL_145:
     }
     v59 = v11;
     v60 = (__int64)(a2 - v53) >> 3;
-    if ( qword_14043A0C0 && (v11 & 0x10) == 0 )
-      v59 = v11 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v11 & 0x10) == 0 )
+      v59 = v11 & ~qword_14043B180;
     v61 = a2;
     updated = MiUpdatePageFileHighInPte(v11, HIDWORD(v59) - (unsigned int)v60);
     LODWORD(v149) = v62 + v145 + 1;
@@ -601,8 +601,8 @@ LABEL_165:
   if ( (unsigned int)v149 > (unsigned __int64)v64 )
   {
     v136 = updated;
-    if ( qword_14043A0C0 && (updated & 0x10) == 0 )
-      v136 = updated & ~qword_14043A0C0;
+    if ( qword_14043B180 && (updated & 0x10) == 0 )
+      v136 = updated & ~qword_14043B180;
     v137 = (unsigned int)v149 - v66;
     v138 = HIDWORD(v136);
     if ( v63 + 8 * v137 <= v61 )
@@ -664,8 +664,8 @@ LABEL_72:
     if ( v145 + 8 * v71 <= v61 )
     {
       v129 = updated;
-      if ( qword_14043A0C0 && (updated & 0x10) == 0 )
-        v129 = updated & ~qword_14043A0C0;
+      if ( qword_14043B180 && (updated & 0x10) == 0 )
+        v129 = updated & ~qword_14043B180;
       v130 = HIDWORD(v129);
       v131 = v70 - v71;
       if ( v145 + 8 * (v70 - v71) > v61 )
@@ -695,16 +695,16 @@ LABEL_72:
     if ( (v76 & 1) == 0 && (v76 & 0x400) == 0 && (v76 & 0x800) == 0 )
     {
       v80 = v76;
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
         if ( (v76 & 0x10) != 0 )
           v80 = v76 & 0xFFFFFFFFFFFFFFEFuLL;
         else
-          v80 = v76 & ~qword_14043A0C0;
+          v80 = v76 & ~qword_14043B180;
       }
       v81 = updated;
-      if ( qword_14043A0C0 && (updated & 0x10) == 0 )
-        v81 = updated & ~qword_14043A0C0;
+      if ( qword_14043B180 && (updated & 0x10) == 0 )
+        v81 = updated & ~qword_14043B180;
       if ( ((v80 ^ v81) & 0xFFFFFFFF00000000uLL) == 0 && (v76 & 4) != 0 && ((v76 ^ updated) & 0xF000) == 0 )
       {
         v82 = MiIsPteInStore((__int64)v147, v76);
@@ -732,8 +732,8 @@ LABEL_97:
             MiAdvanceFaultList((_QWORD *)v67);
           v86 = updated;
           v145 += 8LL;
-          if ( qword_14043A0C0 && (updated & 0x10) == 0 )
-            v86 = updated & ~qword_14043A0C0;
+          if ( qword_14043B180 && (updated & 0x10) == 0 )
+            v86 = updated & ~qword_14043B180;
           updated = MiUpdatePageFileHighInPte(updated, HIDWORD(v86) + 1);
           v75 += v89;
           goto LABEL_103;
@@ -743,7 +743,7 @@ LABEL_97:
     if ( (v35 & 8) == 0 )
     {
       v35 |= 2u;
-      *v79 = qword_14043ADD8;
+      *v79 = qword_14043BE98;
       goto LABEL_97;
     }
     v87 = v145;
@@ -756,7 +756,7 @@ LABEL_97:
       v141 = v146;
       do
       {
-        if ( *v140 != qword_14043ADD8 )
+        if ( *v140 != qword_14043BE98 )
         {
           MiReleaseFreshPage(48LL * *v140 - 0x58000000000LL);
           --v141;
@@ -822,8 +822,8 @@ LABEL_107:
   MiInitializeReadInProgressPfn(v154, v94, v95, v90, v36, v96);
   if ( (v35 & 0x10) != 0 )
   {
-    if ( qword_14043A0C0 && (v93 & 0x10) == 0 )
-      v93 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v93 & 0x10) == 0 )
+      v93 &= ~qword_14043B180;
     v132 = (_QWORD *)(48 * ((v93 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
     MiFlowThroughInsertNode(v36, v132);
     v93 = v132[2];
@@ -875,7 +875,7 @@ LABEL_107:
   *(_DWORD *)(v36 + 192) = v104;
   *(_QWORD *)(v36 + 200) = v103;
   if ( *(_QWORD *)(v102 + 216)
-    && (!v67 || *(_BYTE *)v67 != 1 || (*(_DWORD *)(v67 + 80) & 0x1000) == 0 || (dword_140540180 & 1) != 0) )
+    && (!v67 || *(_BYTE *)v67 != 1 || (*(_DWORD *)(v67 + 80) & 0x1000) == 0 || (dword_140541180 & 1) != 0) )
   {
     *(_DWORD *)(v36 + 192) = v104 | 0x400000;
   }

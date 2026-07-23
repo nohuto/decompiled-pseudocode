@@ -2,13 +2,13 @@
  * XREFs of RtlpHpAllocateHeap @ 0x1400098C4
  * Callers:
  *     RtlpHpMetadataAlloc @ 0x1400099CC (RtlpHpMetadataAlloc.c)
- *     ExAllocateHeapPages @ 0x14015C890 (ExAllocateHeapPages.c)
+ *     ExAllocateHeapPages @ 0x14015C990 (ExAllocateHeapPages.c)
  * Callees:
  *     RtlpHpCheckAllocationSizeLimit @ 0x1400097E0 (RtlpHpCheckAllocationSizeLimit.c)
  *     RtlpHpAllocateHeapInternal @ 0x14000981C (RtlpHpAllocateHeapInternal.c)
- *     RtlFreeHeap @ 0x14011EE90 (RtlFreeHeap.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlpHpExtrasAppend @ 0x1402FC96C (RtlpHpExtrasAppend.c)
+ *     RtlFreeHeap @ 0x14011EF00 (RtlFreeHeap.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlpHpExtrasAppend @ 0x1402FCB5C (RtlpHpExtrasAppend.c)
  */
 
 void *__fastcall RtlpHpAllocateHeap(_DWORD *HeapHandle, unsigned __int64 a2, int a3, __int16 a4)

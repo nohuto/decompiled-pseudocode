@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpApplyLevelKwFilter @ 0x14046AC12
+ * XREFs of EtwpApplyLevelKwFilter @ 0x14046B012
  * Callers:
- *     EtwpEventWriteFull @ 0x140258570 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406F4140 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140258630 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406F4170 (EtwpWriteUserEvent.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpApplyLevelKwFilterInner @ 0x140604250 (EtwpApplyLevelKwFilterInner.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpApplyLevelKwFilterInner @ 0x1406047A0 (EtwpApplyLevelKwFilterInner.c)
  */
 
 char __fastcall EtwpApplyLevelKwFilter(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, char a5)
@@ -27,7 +27,7 @@ char __fastcall EtwpApplyLevelKwFilter(__int64 a1, unsigned int a2, __int64 a3, 
     return ((__int64 (*)(void))EtwpApplyLevelKwFilterInner)();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v8) = 4;
@@ -38,10 +38,10 @@ char __fastcall EtwpApplyLevelKwFilter(__int64 a1, unsigned int a2, __int64 a3, 
   }
   LOBYTE(a3) = v5;
   v9 = EtwpApplyLevelKwFilterInner(a1, a2, a3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;
@@ -49,7 +49,7 @@ char __fastcall EtwpApplyLevelKwFilter(__int64 a1, unsigned int a2, __int64 a3, 
       v15 = (v14 & v13[5]) == 0;
       v13[5] &= v14;
       if ( v15 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

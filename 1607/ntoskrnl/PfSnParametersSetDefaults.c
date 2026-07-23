@@ -3,7 +3,7 @@
  * Callers:
  *     PfpParametersInitialize @ 0x1407B3C34 (PfpParametersInitialize.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
  */
 
 NTSTATUS __fastcall PfSnParametersSetDefaults(__int64 a1)

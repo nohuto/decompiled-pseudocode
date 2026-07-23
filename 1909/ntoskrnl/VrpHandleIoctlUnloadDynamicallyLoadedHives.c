@@ -32,19 +32,13 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   ULONGLONG *v9; // r14
   __int64 v10; // r13
   volatile signed __int64 *v11; // rsi
-  __int64 v12; // r8
-  ULONGLONG v13; // rax
+  ULONGLONG v12; // rax
   ULONGLONG i; // rdi
-  ULONGLONG v15; // rdx
-  ULONGLONG v16; // rcx
-  __int64 v17; // r15
+  ULONGLONG v14; // rdx
+  ULONGLONG v15; // rcx
+  __int64 v16; // r15
   ULONGLONG pullResult; // [rsp+40h] [rbp-40h] BYREF
-  _DWORD v20[2]; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-30h]
-  __int64 v22; // [rsp+58h] [rbp-28h]
-  int v23; // [rsp+60h] [rbp-20h]
-  int v24; // [rsp+64h] [rbp-1Ch]
-  __int128 v25; // [rsp+68h] [rbp-18h]
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+48h] [rbp-38h] BYREF
 
   Object = 0LL;
   a5 = 0LL;
@@ -80,33 +74,32 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
           KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           goto LABEL_27;
         }
-        v13 = v9[6];
-        for ( i = 0LL; i < v13; v13 = v9[6] )
+        v12 = v9[6];
+        for ( i = 0LL; i < v12; v12 = v9[6] )
         {
-          v15 = 0LL;
-          if ( i < v13 )
+          v14 = 0LL;
+          if ( i < v12 )
           {
             if ( ULongLongMult(v9[5], i, &pullResult) < 0
-              || (v16 = v9[9], v15 = v16 + pullResult, v16 + pullResult < v16) )
+              || (v15 = v9[9], v14 = v15 + pullResult, v15 + pullResult < v15) )
             {
-              v15 = 0LL;
+              v14 = 0LL;
             }
           }
-          v17 = *(_QWORD *)v15;
-          if ( *(int *)(*(_QWORD *)v15 + 56LL) >= 0 )
+          v16 = *(_QWORD *)v14;
+          if ( *(int *)(*(_QWORD *)v14 + 56LL) >= 0 )
           {
             ++i;
           }
           else
           {
-            v20[1] = 0;
-            v24 = 0;
-            v21 = 0LL;
-            v22 = v17 + 24;
-            v25 = 0LL;
-            v20[0] = 48;
-            v23 = 576;
-            ZwUnloadKey2((__int64)v20, 1LL, v12);
+            *(&TargetKey.Length + 1) = 0;
+            memset(&TargetKey.Attributes + 1, 0, 20);
+            TargetKey.RootDirectory = 0LL;
+            TargetKey.ObjectName = (PUNICODE_STRING)(v16 + 24);
+            TargetKey.Length = 48;
+            TargetKey.Attributes = 576;
+            ZwUnloadKey2(&TargetKey, 1u);
             VrpDestroyNamespaceNode(v10);
           }
         }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFilterDeviceUsageNotificationCompletion @ 0x140ADF410
+ * XREFs of ViFilterDeviceUsageNotificationCompletion @ 0x140ADF400
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     IoReleaseRemoveLockEx @ 0x140341430 (IoReleaseRemoveLockEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140571848 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IoReleaseRemoveLockEx @ 0x1403416C0 (IoReleaseRemoveLockEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140571D88 (KiReleaseSpinLockInstrumented.c)
  */
 
 __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64 a2)
@@ -48,10 +48,13 @@ __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64
       KiReleaseSpinLockInstrumented((volatile signed __int64 *)(v4 + 88), retaddr);
     else
       _InterlockedAnd64((volatile signed __int64 *)(v4 + 88), 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

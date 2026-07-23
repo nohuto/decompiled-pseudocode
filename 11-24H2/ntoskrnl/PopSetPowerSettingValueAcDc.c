@@ -1,24 +1,24 @@
 /*
- * XREFs of PopSetPowerSettingValueAcDc @ 0x1409BC77C
+ * XREFs of PopSetPowerSettingValueAcDc @ 0x1409A2DCC
  * Callers:
- *     PdcPoLowPower @ 0x1404C9E20 (PdcPoLowPower.c)
- *     PopScanIdleList @ 0x1404EAE90 (PopScanIdleList.c)
- *     PopErratumUpdateCallback @ 0x1405D30A0 (PopErratumUpdateCallback.c)
- *     PopWnfMixedRealityCallback @ 0x14074D380 (PopWnfMixedRealityCallback.c)
- *     PopSetAwayModeStatus @ 0x140753D44 (PopSetAwayModeStatus.c)
- *     PdcPoLidReliabilityUpdateCallback @ 0x140753FD0 (PdcPoLidReliabilityUpdateCallback.c)
- *     PopEsPublishStateV2 @ 0x14075D588 (PopEsPublishStateV2.c)
- *     PopWnfSprActiveSessionChangeCallback @ 0x1408AE6C0 (PopWnfSprActiveSessionChangeCallback.c)
- *     PopUpdateDiskIdleTimeoutSetting @ 0x1409BA840 (PopUpdateDiskIdleTimeoutSetting.c)
- *     PopEvaluateGlobalUserStatus @ 0x1409BCF98 (PopEvaluateGlobalUserStatus.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
- *     PopMonitorProcessBrightnessAction @ 0x140A7FF10 (PopMonitorProcessBrightnessAction.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
- *     PopBatteryWorker @ 0x140AC7D70 (PopBatteryWorker.c)
- *     PopSessionWinlogonNotification @ 0x140ACB1FC (PopSessionWinlogonNotification.c)
+ *     PdcPoLowPower @ 0x1404C3170 (PdcPoLowPower.c)
+ *     PopScanIdleList @ 0x1404E1E10 (PopScanIdleList.c)
+ *     PopErratumUpdateCallback @ 0x1405D07C0 (PopErratumUpdateCallback.c)
+ *     PopWnfMixedRealityCallback @ 0x14074B6B0 (PopWnfMixedRealityCallback.c)
+ *     PopSetAwayModeStatus @ 0x140752064 (PopSetAwayModeStatus.c)
+ *     PdcPoLidReliabilityUpdateCallback @ 0x1407522F0 (PdcPoLidReliabilityUpdateCallback.c)
+ *     PopEsPublishStateV2 @ 0x14075C528 (PopEsPublishStateV2.c)
+ *     PopWnfSprActiveSessionChangeCallback @ 0x140904920 (PopWnfSprActiveSessionChangeCallback.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x1409A0E90 (PopUpdateDiskIdleTimeoutSetting.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1409A35E8 (PopEvaluateGlobalUserStatus.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
+ *     PopMonitorProcessBrightnessAction @ 0x140A7A970 (PopMonitorProcessBrightnessAction.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
+ *     PopBatteryWorker @ 0x140AC5DB0 (PopBatteryWorker.c)
+ *     PopSessionWinlogonNotification @ 0x140AC8DB8 (PopSessionWinlogonNotification.c)
  * Callees:
- *     PopSetPowerSettingValue @ 0x1409BC864 (PopSetPowerSettingValue.c)
+ *     PopSetPowerSettingValue @ 0x1409A2EB4 (PopSetPowerSettingValue.c)
  */
 
 __int64 __fastcall PopSetPowerSettingValueAcDc(__int64 a1, unsigned int a2, __int64 a3)

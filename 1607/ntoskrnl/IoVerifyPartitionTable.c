@@ -1,5 +1,5 @@
 /*
- * XREFs of IoVerifyPartitionTable @ 0x1406200CC
+ * XREFs of IoVerifyPartitionTable @ 0x140620180
  * Callers:
  *     <none>
  * Callees:

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x140984264
+ * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x140946274
  * Callers:
- *     CmpCheckKcbStackAccess @ 0x140772FB8 (CmpCheckKcbStackAccess.c)
- *     CmpCheckKeyNodeStackAccess @ 0x140983680 (CmpCheckKeyNodeStackAccess.c)
- *     CmpCheckSecurityCellAccess @ 0x140983754 (CmpCheckSecurityCellAccess.c)
+ *     CmpCheckKcbStackAccess @ 0x140775FB8 (CmpCheckKcbStackAccess.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x140945690 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpCheckSecurityCellAccess @ 0x140945764 (CmpCheckSecurityCellAccess.c)
  * Callees:
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     SeCreateAccessStateEx @ 0x1409843E0 (SeCreateAccessStateEx.c)
- *     CmpSetAccessStateForBackupRestore @ 0x1409846E4 (CmpSetAccessStateForBackupRestore.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     SeCreateAccessStateEx @ 0x1409463F0 (SeCreateAccessStateEx.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x1409466F4 (CmpSetAccessStateForBackupRestore.c)
  */
 
 __int64 __fastcall CmpCheckKeySecurityDescriptorAccess(

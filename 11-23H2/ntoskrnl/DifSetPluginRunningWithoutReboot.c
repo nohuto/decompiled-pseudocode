@@ -1,8 +1,8 @@
 /*
- * XREFs of DifSetPluginRunningWithoutReboot @ 0x1405D5400
+ * XREFs of DifSetPluginRunningWithoutReboot @ 0x1405D5970
  * Callers:
- *     VfVolatileClearDifRuleClass @ 0x140ADDAAC (VfVolatileClearDifRuleClass.c)
- *     VfVolatileSetDifRuleClass @ 0x140ADDC1C (VfVolatileSetDifRuleClass.c)
+ *     VfVolatileClearDifRuleClass @ 0x140ADDA9C (VfVolatileClearDifRuleClass.c)
+ *     VfVolatileSetDifRuleClass @ 0x140ADDC0C (VfVolatileSetDifRuleClass.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTraceInterfaceEnd @ 0x1401CB1E0
+ * XREFs of IopLiveDumpTraceInterfaceEnd @ 0x1401CB0C4
  * Callers:
- *     DbgkpWerCleanupContext @ 0x14061C01C (DbgkpWerCleanupContext.c)
- *     IoCaptureLiveDump @ 0x140625F30 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14062651C (IoWriteDeferredLiveDumpData.c)
+ *     DbgkpWerCleanupContext @ 0x14061C0D0 (DbgkpWerCleanupContext.c)
+ *     IoCaptureLiveDump @ 0x140625FE4 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1406265D0 (IoWriteDeferredLiveDumpData.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1401CAEBC (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1401CADA0 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopLiveDumpTraceInterfaceEnd(__int64 a1, __int64 a2, int a3)

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiOpenHotPatchFile @ 0x1408568EC
+ * XREFs of MiOpenHotPatchFile @ 0x140857B4C
  * Callers:
- *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140855C38 (MiLoadHotPatchForUserSid.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiLoadHotPatch @ 0x140856C38 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140856E98 (MiLoadHotPatchForUserSid.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
- *     MiCreateSystemSection @ 0x1400F591C (MiCreateSystemSection.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
- *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
- *     RtlFindHotPatchBase @ 0x140899C90 (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140899CBC (RtlFindHotPatchInformation.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     RtlImageNtHeaderEx @ 0x14009D7A0 (RtlImageNtHeaderEx.c)
+ *     MiCreateSystemSection @ 0x1400F599C (MiCreateSystemSection.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     MiUnmapImageInSystemSpace @ 0x140651A4C (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140652000 (MiMapImageInSystemSpace.c)
+ *     RtlFindHotPatchBase @ 0x14089AEF0 (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x14089AF1C (RtlFindHotPatchInformation.c)
  */
 
 __int64 __fastcall MiOpenHotPatchFile(

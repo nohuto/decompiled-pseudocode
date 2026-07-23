@@ -1,9 +1,9 @@
 /*
- * XREFs of _strtoui64 @ 0x1403D91A0
+ * XREFs of _strtoui64 @ 0x1403D9380
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     strtoxq @ 0x1403D8F4C (strtoxq.c)
+ *     strtoxq @ 0x1403D912C (strtoxq.c)
  */
 
 unsigned __int64 __cdecl strtoui64(const char *String, char **EndPtr, int Radix)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockDynamicMemoryNestedExclusive @ 0x14061C010
+ * XREFs of MiUnlockDynamicMemoryNestedExclusive @ 0x14061C560
  * Callers:
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 signed __int32 MiUnlockDynamicMemoryNestedExclusive()

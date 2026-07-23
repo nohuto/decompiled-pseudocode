@@ -1,47 +1,47 @@
 /*
- * XREFs of PsInvokeWin32Callout @ 0x140429010
+ * XREFs of PsInvokeWin32Callout @ 0x140427EE0
  * Callers:
- *     PopGetConsoleDisplayRequestCount @ 0x140008CFC (PopGetConsoleDisplayRequestCount.c)
- *     SeCaptureAtomTableCallout @ 0x140074BF4 (SeCaptureAtomTableCallout.c)
- *     PspJobDelete @ 0x1400888BC (PspJobDelete.c)
- *     PopEventCalloutDispatch @ 0x140131C64 (PopEventCalloutDispatch.c)
- *     KiSystemCall64 @ 0x14016F000 (KiSystemCall64.c)
- *     PoSessionBuiltinPanelState @ 0x14020D400 (PoSessionBuiltinPanelState.c)
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
- *     ExpWin32OpenProcedure @ 0x14042B428 (ExpWin32OpenProcedure.c)
- *     ExpWin32OkayToCloseProcedure @ 0x14042B4F0 (ExpWin32OkayToCloseProcedure.c)
- *     ExpWin32CloseProcedure @ 0x14042B5B0 (ExpWin32CloseProcedure.c)
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PfpQueryGpuUtilization @ 0x1404D5DB0 (PfpQueryGpuUtilization.c)
- *     ExpWin32ParseProcedure @ 0x1404D90C4 (ExpWin32ParseProcedure.c)
- *     ExpWin32DeleteProcedure @ 0x1404DB4E4 (ExpWin32DeleteProcedure.c)
- *     PopDispatchStateCallout @ 0x1404EF278 (PopDispatchStateCallout.c)
- *     PopNotifyConsoleUserPresent @ 0x1404F04D8 (PopNotifyConsoleUserPresent.c)
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
- *     PsThawProcess @ 0x14051DFE8 (PsThawProcess.c)
- *     PsFreezeProcess @ 0x14051E428 (PsFreezeProcess.c)
- *     PopNotifySessionDisplayRequired @ 0x14052D7EC (PopNotifySessionDisplayRequired.c)
- *     PopBroadcastSessionInfo @ 0x14057BCC8 (PopBroadcastSessionInfo.c)
- *     PopControlMonitor @ 0x14066FE10 (PopControlMonitor.c)
- *     PopNotifyCsStateExited @ 0x14066FE88 (PopNotifyCsStateExited.c)
- *     PoSessionPowerControl @ 0x140674D68 (PoSessionPowerControl.c)
- *     PopNotifyConsoleDisplayBurst @ 0x140674DF0 (PopNotifyConsoleDisplayBurst.c)
- *     PopSendSessionInfo @ 0x140674E74 (PopSendSessionInfo.c)
- *     PspShutdownCsrProcess @ 0x14067EA7C (PspShutdownCsrProcess.c)
- *     PspQueryProcessInterferenceCountCallback @ 0x1406806F4 (PspQueryProcessInterferenceCountCallback.c)
+ *     PopGetConsoleDisplayRequestCount @ 0x140008870 (PopGetConsoleDisplayRequestCount.c)
+ *     SeCaptureAtomTableCallout @ 0x140074C74 (SeCaptureAtomTableCallout.c)
+ *     PspJobDelete @ 0x14010CAAC (PspJobDelete.c)
+ *     PopEventCalloutDispatch @ 0x1401321D4 (PopEventCalloutDispatch.c)
+ *     KiSystemCall64 @ 0x14016F500 (KiSystemCall64.c)
+ *     PoSessionBuiltinPanelState @ 0x14020D22C (PoSessionBuiltinPanelState.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
+ *     ExpWin32OpenProcedure @ 0x14042A2F8 (ExpWin32OpenProcedure.c)
+ *     ExpWin32OkayToCloseProcedure @ 0x14042A3C0 (ExpWin32OkayToCloseProcedure.c)
+ *     ExpWin32CloseProcedure @ 0x14042A480 (ExpWin32CloseProcedure.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PfpQueryGpuUtilization @ 0x1404B93B4 (PfpQueryGpuUtilization.c)
+ *     ExpWin32ParseProcedure @ 0x1404BC6C8 (ExpWin32ParseProcedure.c)
+ *     ExpWin32DeleteProcedure @ 0x1404BEAE8 (ExpWin32DeleteProcedure.c)
+ *     PopDispatchStateCallout @ 0x1404D136C (PopDispatchStateCallout.c)
+ *     PopNotifyConsoleUserPresent @ 0x1404D25CC (PopNotifyConsoleUserPresent.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
+ *     PsThawProcess @ 0x140501050 (PsThawProcess.c)
+ *     PsFreezeProcess @ 0x140501490 (PsFreezeProcess.c)
+ *     PopNotifySessionDisplayRequired @ 0x14052DD2C (PopNotifySessionDisplayRequired.c)
+ *     PopBroadcastSessionInfo @ 0x14057C174 (PopBroadcastSessionInfo.c)
+ *     PopControlMonitor @ 0x14066FEF4 (PopControlMonitor.c)
+ *     PopNotifyCsStateExited @ 0x14066FF6C (PopNotifyCsStateExited.c)
+ *     PoSessionPowerControl @ 0x140674E4C (PoSessionPowerControl.c)
+ *     PopNotifyConsoleDisplayBurst @ 0x140674ED4 (PopNotifyConsoleDisplayBurst.c)
+ *     PopSendSessionInfo @ 0x140674F58 (PopSendSessionInfo.c)
+ *     PspShutdownCsrProcess @ 0x14067EB60 (PspShutdownCsrProcess.c)
+ *     PspQueryProcessInterferenceCountCallback @ 0x1406807D8 (PspQueryProcessInterferenceCountCallback.c)
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140013F00 (MmSessionGetWin32Callouts.c)
- *     ExDereferenceCallBackBlock @ 0x140013F40 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140013F80 (ExReferenceCallBackBlock.c)
- *     MmGetSessionId @ 0x140014160 (MmGetSessionId.c)
- *     ExCallSessionCallBack @ 0x140463D04 (ExCallSessionCallBack.c)
+ *     MmSessionGetWin32Callouts @ 0x140013A80 (MmSessionGetWin32Callouts.c)
+ *     ExDereferenceCallBackBlock @ 0x140013AC0 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140013B00 (ExReferenceCallBackBlock.c)
+ *     MmGetSessionId @ 0x140013CE0 (MmGetSessionId.c)
+ *     ExCallSessionCallBack @ 0x140462BD4 (ExCallSessionCallBack.c)
  */
 
 __int64 __fastcall PsInvokeWin32Callout(int a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v4; // rbp
   __int64 v5; // r10
-  union _RTL_RUN_ONCE *v7; // rdi
+  _RTL_RUN_ONCE *v7; // rdi
   struct _EX_RUNDOWN_REF *v8; // rax
   struct _EX_RUNDOWN_REF *v9; // rbx
   unsigned int v10; // esi
@@ -50,7 +50,7 @@ __int64 __fastcall PsInvokeWin32Callout(int a1, __int64 a2, int a3, __int64 a4)
   _KPROCESS *Process; // rcx
   int SessionId; // eax
   _DWORD *v15; // r9
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v17; // rcx
   unsigned int v18; // [rsp+40h] [rbp+18h] BYREF
 

@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwPrepareEnlistment @ 0x18009FD10
+ * XREFs of ZwPrepareEnlistment @ 0x18009FCD0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwPrepareEnlistment()
+NTSTATUS __cdecl ZwPrepareEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 311LL;
+  result = 311;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

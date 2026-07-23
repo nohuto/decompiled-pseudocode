@@ -13,22 +13,22 @@ __int64 __fastcall HvlSetSystemMachineCheckProperty(_QWORD *a1)
 {
   char v2; // r15
   char v3; // r14
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _QWORD *p_Next; // rbx
   PHYSICAL_ADDRESS Next; // rsi
   PSLIST_ENTRY v7; // rax
-  struct _SLIST_ENTRY *v8; // rbp
+  _SLIST_ENTRY *v8; // rbp
   __int16 v9; // bx
   __int64 HypercallCachedPages; // rax
   struct _KPRCB *v11; // rcx
-  union _SLIST_HEADER *v13; // [rsp+28h] [rbp-A0h]
-  struct _SLIST_ENTRY *v14; // [rsp+30h] [rbp-98h]
+  _SLIST_HEADER *v13; // [rsp+28h] [rbp-A0h]
+  _SLIST_ENTRY *v14; // [rsp+30h] [rbp-98h]
   _BYTE v15[7]; // [rsp+40h] [rbp-88h] BYREF
   _BYTE v16[97]; // [rsp+67h] [rbp-61h] BYREF
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v7 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     p_Next = &v7->Next;
     if ( v7 )

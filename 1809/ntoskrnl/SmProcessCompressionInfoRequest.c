@@ -1,19 +1,19 @@
 /*
- * XREFs of SmProcessCompressionInfoRequest @ 0x1406632E8
+ * XREFs of SmProcessCompressionInfoRequest @ 0x1406644A8
  * Callers:
- *     SmQueryStoreInformation @ 0x1406CFD3C (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406D0FDC (SmQueryStoreInformation.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SmKmStoreReferenceEx @ 0x1400E11EC (SmKmStoreReferenceEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x140134DCC (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     SmKmStoreReferenceEx @ 0x1400E126C (SmKmStoreReferenceEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E12A8 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x140134E9C (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessCompressionInfoRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)
@@ -64,14 +64,14 @@ __int64 __fastcall SmProcessCompressionInfoRequest(unsigned __int64 a1, int a2, 
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14055B160, 0LL);
-      if ( qword_14055B158 )
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14055C160, 0LL);
+      if ( qword_14055C158 )
       {
-        *(_DWORD *)&v20[4] = *((_DWORD *)qword_14055B158 + 184);
-        *(_QWORD *)&v20[8] = *((_QWORD *)qword_14055B158 + 178) << 12;
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14055B160, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_14055B160);
-        KeAbPostRelease((ULONG_PTR)&qword_14055B160);
+        *(_DWORD *)&v20[4] = *((_DWORD *)qword_14055C158 + 184);
+        *(_QWORD *)&v20[8] = *((_QWORD *)qword_14055C158 + 178) << 12;
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14055C160, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_14055C160);
+        KeAbPostRelease((ULONG_PTR)&qword_14055C160);
         KeLeaveCriticalRegion();
         v10 = 0LL;
         v11 = 0LL;
@@ -117,9 +117,9 @@ __int64 __fastcall SmProcessCompressionInfoRequest(unsigned __int64 a1, int a2, 
       }
       else
       {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14055B160, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_14055B160);
-        KeAbPostRelease((ULONG_PTR)&qword_14055B160);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14055C160, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_14055C160);
+        KeAbPostRelease((ULONG_PTR)&qword_14055C160);
         KeLeaveCriticalRegion();
         return (unsigned int)-1073741399;
       }

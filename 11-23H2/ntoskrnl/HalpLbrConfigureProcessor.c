@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLbrConfigureProcessor @ 0x140528640
+ * XREFs of HalpLbrConfigureProcessor @ 0x140528B90
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)
@@ -28,7 +28,7 @@ ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)
   v1 = HalpLbrStackSize - 1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -82,10 +82,10 @@ ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)
 LABEL_20:
     __writemsr(v8, __PAIR64__(v9, v10));
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;
@@ -93,7 +93,7 @@ LABEL_20:
       v16 = (v15 & v14[5]) == 0;
       v14[5] &= v15;
       if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

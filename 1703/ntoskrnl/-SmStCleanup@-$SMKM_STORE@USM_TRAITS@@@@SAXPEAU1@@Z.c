@@ -36,9 +36,9 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
   ULONG_PTR v3; // rcx
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v5; // rdi
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v7; // r15
-  __int64 v8; // r8
+  unsigned int v8; // r8d
   bool v9; // zf
   __int64 v10; // rcx
   int v11; // eax
@@ -98,12 +98,12 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
     v21[0] = 0;
     v5 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(a1 + 5992) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx(v5->ApcState.Process);
+      SessionId = MmGetSessionIdEx(v5->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --v5->SpecialApcDisable;
     v7 = ++v5->AbAllocationRegionCount;
-    LODWORD(v8) = ((char)v5->AbEntrySummary | (char)v5->AbOrphanedEntrySummary) ^ 0x3F;
+    v8 = ((char)v5->AbEntrySummary | (char)v5->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v9 = !_BitScanReverse((unsigned int *)&v10, v8);
@@ -113,11 +113,11 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
       v11 = 1 << v10;
       v12 = v10;
       v13 = &v5->LockEntries[v12];
-      v8 = ~v11 & (unsigned int)v8;
+      v8 &= ~v11;
       if ( (v13->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v13->LockState.0 & 1) == 0
         && (*(_QWORD *)&v13->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 5992) & 0x7FFFFFFFFFFFFFFCLL)
-        && v13->LockState.SessionId == (_DWORD)SessionId )
+        && v13->LockState.SessionId == SessionId )
       {
         v13->AcquiredByte &= ~1u;
         if ( v13->LockState.0 )
@@ -126,7 +126,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
           {
             v13->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v13->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree(&v5->LockEntries[v12], SessionId, v8);
+              KiAbEntryRemoveFromTree(&v5->LockEntries[v12].TreeNode);
             v21[0] = 0;
             v21[0] = v13->BoostBitmap.AllFields & 0x1FFFF;
             v13->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -144,7 +144,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
       }
     }
     if ( (*((_DWORD *)&v5->0 + 1) & 0x8000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v5, a1 + 5992, (unsigned int)SessionId, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)v5, a1 + 5992, SessionId, 0LL);
 LABEL_32:
     --v5->AbAllocationRegionCount;
     KiAbThreadRemoveBoosts(v5, a1 + 5992, v21);

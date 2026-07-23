@@ -1,19 +1,19 @@
 /*
- * XREFs of PiLookupInDDBCache @ 0x14073DBC0
+ * XREFs of PiLookupInDDBCache @ 0x14073DD80
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14073DAC0 (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x14073DC80 (PpCheckInDriverDatabase.c)
  * Callees:
- *     RtlIsGenericTableEmptyAvl @ 0x1402643F0 (RtlIsGenericTableEmptyAvl.c)
- *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
+ *     RtlIsGenericTableEmptyAvl @ 0x1402524B0 (RtlIsGenericTableEmptyAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1402528A0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D4270 (wcsrchr.c)
  */
 
-__int64 __fastcall PiLookupInDDBCache(__int64 a1, __int64 a2, __int64 a3, _OWORD *a4)
+__int64 __fastcall PiLookupInDDBCache(__int64 a1, void *a2, __int64 a3, _OWORD *a4)
 {
   unsigned int v7; // ebx
-  __int64 v8; // rsi
+  PIMAGE_NT_HEADERS v8; // rsi
   wchar_t *v9; // rax
   __int64 v10; // rax
   __int64 v11; // rdx
@@ -46,7 +46,7 @@ __int64 __fastcall PiLookupInDDBCache(__int64 a1, __int64 a2, __int64 a3, _OWORD
       while ( *(_WORD *)(v10 + 2 * v11) );
       LOWORD(v18) = 2 * v11;
       WORD1(v18) = 2 * v11;
-      LODWORD(v19) = *(_DWORD *)(v8 + 8);
+      LODWORD(v19) = v8->FileHeader.TimeDateStamp;
       v12 = (PVOID **)RtlLookupElementGenericTableAvl(&PiDDBCacheTable, &Buffer);
       if ( v12 )
       {

@@ -1,5 +1,5 @@
 /*
- * XREFs of PopEtInternerEntryInitialize @ 0x1407E0940
+ * XREFs of PopEtInternerEntryInitialize @ 0x1407E0C10
  * Callers:
  *     <none>
  * Callees:

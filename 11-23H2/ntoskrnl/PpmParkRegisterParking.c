@@ -1,22 +1,22 @@
 /*
- * XREFs of PpmParkRegisterParking @ 0x1403918C0
+ * XREFs of PpmParkRegisterParking @ 0x140391AA0
  * Callers:
- *     PpmCheckInitProcessors @ 0x14082E2C4 (PpmCheckInitProcessors.c)
+ *     PpmCheckInitProcessors @ 0x14082E5C4 (PpmCheckInitProcessors.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14023E450 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFB1C (PopExecuteOnTargetProcessors.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14036BB80 (KeQueryNodeActiveAffinity2.c)
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x14039216C (PpmHeteroIsMultiClassParkingEnabled.c)
- *     PpmParkApplyPolicy @ 0x140392600 (PpmParkApplyPolicy.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeReleaseSpinLock @ 0x14023E520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PopExecuteOnTargetProcessors @ 0x1402BFDAC (PopExecuteOnTargetProcessors.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x14036BD20 (KeQueryNodeActiveAffinity2.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x14039234C (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     PpmParkApplyPolicy @ 0x1403927E0 (PpmParkApplyPolicy.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PpmParkFreeAllParkNodes @ 0x14067ECA8 (PpmParkFreeAllParkNodes.c)
- *     PpmIdleInitializeConcurrency @ 0x14082BE04 (PpmIdleInitializeConcurrency.c)
- *     PpmParkParkingAvailable @ 0x14082CC1C (PpmParkParkingAvailable.c)
+ *     PpmIdleInitializeConcurrency @ 0x14082C104 (PpmIdleInitializeConcurrency.c)
+ *     PpmParkParkingAvailable @ 0x14082CF1C (PpmParkParkingAvailable.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -220,7 +220,7 @@ LABEL_20:
         if ( epi16 >= (unsigned __int16)PpmCheckRegistered )
           v19 = 0LL;
         else
-          v19 = qword_140C0BE68[epi16];
+          v19 = qword_140C0BE78[epi16];
         v20 = v19 & v87.m128i_i64[0];
         if ( (v19 & v87.m128i_i64[0]) == 0 )
           goto LABEL_85;

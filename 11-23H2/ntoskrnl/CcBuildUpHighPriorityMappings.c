@@ -1,9 +1,9 @@
 /*
- * XREFs of CcBuildUpHighPriorityMappings @ 0x140537E10
+ * XREFs of CcBuildUpHighPriorityMappings @ 0x140538360
  * Callers:
- *     CcGetVirtualAddress @ 0x140264DF0 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x140265080 (CcGetVirtualAddress.c)
  * Callees:
- *     MmReserveViewInSystemCache @ 0x140843700 (MmReserveViewInSystemCache.c)
+ *     MmReserveViewInSystemCache @ 0x140843A00 (MmReserveViewInSystemCache.c)
  */
 
 __int64 __fastcall CcBuildUpHighPriorityMappings(__int64 a1, __int64 a2)

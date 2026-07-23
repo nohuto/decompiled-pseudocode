@@ -1,18 +1,18 @@
 /*
- * XREFs of IoMakeAssociatedIrpPriv @ 0x14045DD08
+ * XREFs of IoMakeAssociatedIrpPriv @ 0x1404578A8
  * Callers:
- *     IoMakeAssociatedIrp @ 0x14045DC70 (IoMakeAssociatedIrp.c)
- *     IoMakeAssociatedIrpEx @ 0x14045DCF0 (IoMakeAssociatedIrpEx.c)
+ *     IoMakeAssociatedIrp @ 0x140457810 (IoMakeAssociatedIrp.c)
+ *     IoMakeAssociatedIrpEx @ 0x140457890 (IoMakeAssociatedIrpEx.c)
  * Callees:
- *     IopSetDiskIoAttributionExtension @ 0x140269D74 (IopSetDiskIoAttributionExtension.c)
- *     IopIrpHasExtensionType @ 0x14042F9B0 (IopIrpHasExtensionType.c)
- *     IopIsActivityTracingEnabled @ 0x14045BD70 (IopIsActivityTracingEnabled.c)
- *     IopSetDriverFlagsExtension @ 0x14045E08C (IopSetDriverFlagsExtension.c)
- *     IoSetActivityIdIrp @ 0x140482190 (IoSetActivityIdIrp.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402692E4 (IopSetDiskIoAttributionExtension.c)
+ *     IopIrpHasExtensionType @ 0x14041C8C0 (IopIrpHasExtensionType.c)
+ *     IopIsActivityTracingEnabled @ 0x1404555A0 (IopIsActivityTracingEnabled.c)
+ *     IopSetDriverFlagsExtension @ 0x140457C2C (IopSetDriverFlagsExtension.c)
+ *     IoSetActivityIdIrp @ 0x14047BB00 (IoSetActivityIdIrp.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
@@ -53,7 +53,7 @@ __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
   CurrentPrcb = KeGetCurrentPrcb();
   v22 = 0;
   v12 = 72 * a3 + 208;
-  if ( a3 > SBYTE4(IopSessionNotificationLock.SchedulerSharedSwappablePage) )
+  if ( a3 > SLOBYTE(IopPerfIoTrackingLock.AffinityVersion) )
     goto LABEL_43;
   v22 = 4;
   if ( a3 == 1 )
@@ -62,17 +62,17 @@ __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
   }
   else
   {
-    if ( a3 <= SLOBYTE(IopSessionNotificationLock.SchedulerSharedSwappablePage) )
+    if ( a3 <= SBYTE4(IopPerfIoTrackingLock.AffinityVersion) )
     {
       v13 = 2128LL;
       v3 = 1LL;
-      v14 = 9 * SLOBYTE(IopSessionNotificationLock.SchedulerSharedSwappablePage);
+      v14 = 9 * SBYTE4(IopPerfIoTrackingLock.AffinityVersion);
     }
     else
     {
       v13 = 2144LL;
       v3 = 2LL;
-      v14 = 9 * SBYTE4(IopSessionNotificationLock.SchedulerSharedSwappablePage);
+      v14 = 9 * SLOBYTE(IopPerfIoTrackingLock.AffinityVersion);
     }
     v12 = 8 * v14 + 208;
   }
@@ -88,7 +88,7 @@ __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, char a3)
     if ( !v16 )
       ++L->AllocateMisses;
   }
-  if ( ((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 3) == 0 )
+  if ( (IopIrpStackProfilerFlags & 3) == 0 )
   {
     if ( v16 )
       goto LABEL_26;

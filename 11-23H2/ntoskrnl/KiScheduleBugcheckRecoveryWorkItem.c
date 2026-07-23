@@ -1,9 +1,9 @@
 /*
- * XREFs of KiScheduleBugcheckRecoveryWorkItem @ 0x14057B550
+ * XREFs of KiScheduleBugcheckRecoveryWorkItem @ 0x14057BA40
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void KiScheduleBugcheckRecoveryWorkItem()

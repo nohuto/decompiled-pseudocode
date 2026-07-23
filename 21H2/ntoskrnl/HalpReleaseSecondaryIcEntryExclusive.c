@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpReleaseSecondaryIcEntryExclusive @ 0x1404D1420
+ * XREFs of HalpReleaseSecondaryIcEntryExclusive @ 0x1404D1660
  * Callers:
- *     HalpDeleteSecondaryIcEntry @ 0x1404D0B20 (HalpDeleteSecondaryIcEntry.c)
+ *     HalpDeleteSecondaryIcEntry @ 0x1404D0D60 (HalpDeleteSecondaryIcEntry.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

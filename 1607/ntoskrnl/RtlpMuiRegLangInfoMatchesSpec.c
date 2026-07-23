@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x1406E70F8
+ * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x1406E7230
  * Callers:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1406E688C (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1406E69C4 (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x14013FF84 (_MuiRegAllocArray.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1401404F4 (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlCultureNameToLCID @ 0x1405617C8 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x140688F04 (RtlLCIDToCultureName.c)
+ *     RtlCultureNameToLCID @ 0x140561D08 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x140688FE8 (RtlLCIDToCultureName.c)
  */
 
 bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, __int16 a4)
@@ -23,12 +23,12 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
   __int64 v16; // r8
   const WCHAR *v17; // rdx
   wchar_t *v18; // rax
-  int v19; // ecx
+  LCID v19; // ecx
   __int64 v20; // r8
   const wchar_t *v21; // rdx
   __int64 v22; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  int v24; // [rsp+60h] [rbp+18h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = 1;
   v8 = 0LL;
@@ -48,8 +48,8 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
       if ( v14 )
       {
         RtlInitUnicodeString(&DestinationString, v14);
-        if ( RtlCultureNameToLCID(&DestinationString.Length, &v24) )
-          return (_WORD)v24 == (unsigned __int16)a4;
+        if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+          return (_WORD)Lcid == (unsigned __int16)a4;
       }
     }
     return 0;

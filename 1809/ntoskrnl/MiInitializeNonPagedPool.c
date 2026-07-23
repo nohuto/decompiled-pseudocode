@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeNonPagedPool @ 0x1409BD0D4
+ * XREFs of MiInitializeNonPagedPool @ 0x1409BE0D4
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MiBuildDynamicRegion @ 0x14017E8E0 (MiBuildDynamicRegion.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x14017F8B8 (MiInitializeNonPagedPoolThresholds.c)
- *     MiAddExpansionNonPagedPool @ 0x14017F9CC (MiAddExpansionNonPagedPool.c)
- *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
- *     MiInitializeSystemWorkingSetList @ 0x140715B48 (MiInitializeSystemWorkingSetList.c)
+ *     MiBuildDynamicRegion @ 0x14017EA20 (MiBuildDynamicRegion.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x14017F9F8 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiAddExpansionNonPagedPool @ 0x14017FB0C (MiAddExpansionNonPagedPool.c)
+ *     MiInitializeDynamicBitmap @ 0x1407169C0 (MiInitializeDynamicBitmap.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140716DE8 (MiInitializeSystemWorkingSetList.c)
  */
 
 __int64 MiInitializeNonPagedPool()
@@ -42,8 +42,8 @@ __int64 MiInitializeNonPagedPool()
   unsigned __int64 v23; // rdx
   unsigned __int64 v24; // r15
   ULONG_PTR v25; // rbp
-  union _SLIST_HEADER *v26; // r14
-  union _SLIST_HEADER *v27; // r12
+  _SLIST_HEADER *v26; // r14
+  _SLIST_HEADER *v27; // r12
   __int64 v28; // rbx
   __int64 v29; // r9
   unsigned __int64 v30; // rax
@@ -70,28 +70,28 @@ __int64 MiInitializeNonPagedPool()
   v4 = (v3 | (unsigned int)ExGenRandom(0)) ^ v2;
   if ( !v4 )
     v4 = 1LL;
-  qword_14043AEC0 = v4;
+  qword_14043BF80 = v4;
   if ( (MiFlags & 1) != 0 || MmSpecialPoolTag || MmProtectFreedNonPagedPool == 1 )
     goto LABEL_12;
-  dword_140438A48[0] = 4;
-  if ( qword_14043E510 >= 0x80000 )
+  dword_140439B08[0] = 4;
+  if ( qword_14043F5D0 >= 0x80000 )
   {
     v5 = 32;
 LABEL_9:
-    dword_140438A48[0] = v5;
+    dword_140439B08[0] = v5;
     goto LABEL_10;
   }
-  if ( qword_14043E510 >= 0x40000 )
+  if ( qword_14043F5D0 >= 0x40000 )
   {
     v5 = 8;
     goto LABEL_9;
   }
 LABEL_10:
-  v6 = (unsigned int *)&unk_140438A4C;
+  v6 = (unsigned int *)&unk_140439B0C;
   v7 = 2LL;
   do
   {
-    *v6++ = (unsigned int)dword_140438A48[0] >> 1;
+    *v6++ = (unsigned int)dword_140439B08[0] >> 1;
     --v7;
   }
   while ( v7 );
@@ -100,8 +100,8 @@ LABEL_12:
   v36 = v8;
   v9 = ((_DWORD)MmPfnDatabase + ((_DWORD)MxPfnAllocation << 12)) & 0x1FFFFF;
   v39 = v9;
-  qword_14043AF90 = 0x100000000LL;
-  v33 = qword_14043BA50[0];
+  qword_14043C050 = 0x100000000LL;
+  v33 = qword_14043CB10[0];
   v10 = (0x200000 - v9) & -(__int64)(v9 != 0);
   v37 = v10;
   v11 = 0x800000uLL / (unsigned __int16)KeNumberNodes;
@@ -110,7 +110,7 @@ LABEL_12:
   v34 = v11 << 9;
   v13 = (((v11 << 9) + 0x7FFF) >> 3) & 0x1FFFFFFFFFFFF000LL;
   v42 = MiReservePtes(
-          (__int64)&qword_14043AFA0,
+          (__int64)&qword_14043C060,
           (unsigned __int64 *)(((unsigned __int16)KeNumberNodes * (v13 + 2 * v12)) >> 12));
   if ( !v42 )
     return 0LL;
@@ -123,7 +123,7 @@ LABEL_12:
     v40 = v11 << 21;
     do
     {
-      v17 = qword_14043A058;
+      v17 = qword_14043B118;
       v18 = v42;
       v19 = v14;
       v20 = 25LL * v14;
@@ -132,8 +132,8 @@ LABEL_12:
       LODWORD(v41) = v22;
       v23 = (__int64)(v42 << 25) >> 16;
       v43 = v20 * 16;
-      v35 = qword_14043A058;
-      qword_14043A058[v20 + 20].Alignment = v21;
+      v35 = qword_14043B118;
+      qword_14043B118[v20 + 20].Alignment = v21;
       v17[v20 + 20].Region = v33 + ((v34 * v22) << 12);
       MiInitializeDynamicBitmap(&v17[v20 + 23].Alignment, v23, v34, 11);
       v24 = v43;
@@ -150,7 +150,7 @@ LABEL_12:
         v27->Alignment = 8LL;
         ++v27;
         v26->Alignment = 8LL;
-        v26 = (union _SLIST_HEADER *)((char *)v26 + 8);
+        v26 = (_SLIST_HEADER *)((char *)v26 + 8);
         --v42;
       }
       while ( v42 );
@@ -160,7 +160,7 @@ LABEL_12:
       v42 = v25;
       v10 = v37;
       if ( !(unsigned int)MiBuildDynamicRegion(
-                            (__int64 *)((char *)&qword_14043A058[11].Region + v43),
+                            (__int64 *)((char *)&qword_14043B118[11].Region + v43),
                             v33 + ((v44 * v19) << 21),
                             v40) )
         return 0LL;

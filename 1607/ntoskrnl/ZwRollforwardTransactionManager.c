@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRollforwardTransactionManager @ 0x14015CA40
+ * XREFs of ZwRollforwardTransactionManager @ 0x14015CFB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwRollforwardTransactionManager(HANDLE TransactionManagerHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionManagerHandle, TmVirtualClock, v2);
+  return KiServiceInternal(TransactionManagerHandle);
 }

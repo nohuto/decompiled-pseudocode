@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwTraceEvent @ 0x140216BB0
+ * XREFs of EtwTraceEvent @ 0x140216EE0
  * Callers:
- *     IoWMIWriteEvent @ 0x1403DDC20 (IoWMIWriteEvent.c)
- *     NtTraceEvent @ 0x140411E40 (NtTraceEvent.c)
+ *     IoWMIWriteEvent @ 0x1403E0E10 (IoWMIWriteEvent.c)
+ *     NtTraceEvent @ 0x1404067D0 (NtTraceEvent.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpCloseLogger @ 0x140218150 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x1402181E4 (EtwpOpenLogger.c)
- *     EtwpReserveTraceBuffer @ 0x140218410 (EtwpReserveTraceBuffer.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x1402189D0 (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpSendTraceEvent @ 0x1404A92C8 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1404A93C4 (EtwpInvokeEventCallback.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpCloseLogger @ 0x140218480 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x140218514 (EtwpOpenLogger.c)
+ *     EtwpReserveTraceBuffer @ 0x140218740 (EtwpReserveTraceBuffer.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x140218D00 (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpSendTraceEvent @ 0x1404A2958 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1404A2A54 (EtwpInvokeEventCallback.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, _WORD *a2, __int64 a3, int a4, char a5)

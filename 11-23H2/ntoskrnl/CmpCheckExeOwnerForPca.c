@@ -1,11 +1,11 @@
 /*
  * XREFs of CmpCheckExeOwnerForPca @ 0x14069A314
  * Callers:
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x14020BB00 (PsGetCurrentThreadProcess.c)
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
  *     PsReferenceProcessFilePointer @ 0x14069A0A0 (PsReferenceProcessFilePointer.c)
  *     ObQuerySecurityObject @ 0x14069C84C (ObQuerySecurityObject.c)
  *     RtlGetOwnerSecurityDescriptor @ 0x14069E340 (RtlGetOwnerSecurityDescriptor.c)

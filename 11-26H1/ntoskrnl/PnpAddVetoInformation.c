@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpAddVetoInformation @ 0x140B254FC
+ * XREFs of PnpAddVetoInformation @ 0x140B2768C
  * Callers:
- *     PnpCollectOpenHandlesCallBack @ 0x140B25490 (PnpCollectOpenHandlesCallBack.c)
+ *     PnpCollectOpenHandlesCallBack @ 0x140B27620 (PnpCollectOpenHandlesCallBack.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpAddVetoInformation(void *a1, char **a2, unsigned int a3)

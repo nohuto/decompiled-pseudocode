@@ -13,7 +13,7 @@
 __int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, __int64 a2, int a3)
 {
   unsigned int i; // ebx
-  union _RTL_RUN_ONCE *v8; // rdi
+  _RTL_RUN_ONCE *v8; // rdi
   struct _EX_RUNDOWN_REF *v9; // rax
   struct _EX_RUNDOWN_REF *v10; // rdi
   unsigned int j; // ebx
@@ -22,7 +22,7 @@ __int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, __int64 a2, int a3)
     return 3221225485LL;
   for ( i = 0; i < 8; ++i )
   {
-    v8 = &stru_140E3E9A0 + 2 * i;
+    v8 = &RunOnce + 2 * i;
     v9 = ExReferenceCallBackBlock((signed __int64 *)v8);
     if ( v9 )
     {
@@ -39,9 +39,9 @@ __int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, __int64 a2, int a3)
     return 3221225495LL;
   for ( j = 0; j < 8; ++j )
   {
-    if ( ExCompareExchangeCallBack((signed __int64 *)&stru_140E3E9A0 + 2 * j, v10, 0LL) )
+    if ( ExCompareExchangeCallBack((signed __int64 *)&RunOnce + 2 * j, v10, 0LL) )
     {
-      *((_DWORD *)&stru_140E3E9A0 + 4 * j + 2) = a3;
+      *((_DWORD *)&RunOnce + 4 * j + 2) = a3;
       return 0LL;
     }
   }

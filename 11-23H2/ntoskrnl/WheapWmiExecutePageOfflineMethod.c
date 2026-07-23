@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapWmiExecutePageOfflineMethod @ 0x140614104
+ * XREFs of WheapWmiExecutePageOfflineMethod @ 0x140614654
  * Callers:
- *     WheapWmiExecuteMethod @ 0x140613F60 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x1406144B0 (WheapWmiExecuteMethod.c)
  * Callees:
- *     WheaPageOfflineAndPersist @ 0x140A07E60 (WheaPageOfflineAndPersist.c)
+ *     WheaPageOfflineAndPersist @ 0x140A08110 (WheaPageOfflineAndPersist.c)
  */
 
 __int64 __fastcall WheapWmiExecutePageOfflineMethod(int a1, unsigned int a2, unsigned int *a3, __int64 a4, int *a5)

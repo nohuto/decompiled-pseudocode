@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlRemoveInvertedFunctionTable @ 0x14012E504
+ * XREFs of RtlRemoveInvertedFunctionTable @ 0x14012EA74
  * Callers:
- *     MiProcessLoaderEntry @ 0x140084B4C (MiProcessLoaderEntry.c)
+ *     MiProcessLoaderEntry @ 0x140082CAC (MiProcessLoaderEntry.c)
  *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1407B162C (RtlCreateInvertedFunctionTableCacheEntry.c)
  * Callees:
- *     MmLockLoadedModuleListExclusive @ 0x140084CB8 (MmLockLoadedModuleListExclusive.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140082E18 (MmLockLoadedModuleListExclusive.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 void __fastcall RtlRemoveInvertedFunctionTable(__int64 a1)

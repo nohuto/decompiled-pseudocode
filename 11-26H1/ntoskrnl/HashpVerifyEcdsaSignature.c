@@ -1,14 +1,14 @@
 /*
- * XREFs of HashpVerifyEcdsaSignature @ 0x1408ABC94
+ * XREFs of HashpVerifyEcdsaSignature @ 0x1408B20D8
  * Callers:
- *     MinCryptVerifySignedHash2 @ 0x1408A04B0 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifySignedHash2 @ 0x1408A68C0 (MinCryptVerifySignedHash2.c)
  * Callees:
- *     SymCryptEcurveAllocate @ 0x14055AC74 (SymCryptEcurveAllocate.c)
- *     SymCryptEcurveFree @ 0x14055AD7C (SymCryptEcurveFree.c)
- *     SymCryptEckeyAllocate @ 0x14055B6A4 (SymCryptEckeyAllocate.c)
- *     SymCryptEckeyFree @ 0x14055B790 (SymCryptEckeyFree.c)
- *     SymCryptEckeySetValue @ 0x14055B8D0 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcurveAllocate @ 0x14055D188 (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveFree @ 0x14055D290 (SymCryptEcurveFree.c)
+ *     SymCryptEckeyAllocate @ 0x14055DB88 (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeyFree @ 0x14055DC74 (SymCryptEckeyFree.c)
+ *     SymCryptEckeySetValue @ 0x14055DDB4 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
  */
 
 __int64 __fastcall HashpVerifyEcdsaSignature(
@@ -27,7 +27,7 @@ __int64 __fastcall HashpVerifyEcdsaSignature(
   unsigned int v13; // ebx
   __int64 *v14; // rcx
   volatile signed __int64 *v15; // rbx
-  unsigned __int64 v16; // rax
+  __int64 v16; // rax
   __int64 v17; // rax
   __int64 v18; // rax
   __int64 v19; // rsi
@@ -43,21 +43,21 @@ __int64 __fastcall HashpVerifyEcdsaSignature(
       if ( v12 != 1 )
         return (unsigned int)-1073740760;
       v14 = (__int64 *)SymCryptEcurveParamsNistP521;
-      v15 = (volatile signed __int64 *)&WheapPfaLock.Padding[4];
-      v16 = WheapPfaLock.Padding[4];
+      v15 = &qword_140EF00F8;
+      v16 = qword_140EF00F8;
     }
     else
     {
       v14 = (__int64 *)SymCryptEcurveParamsNistP384;
-      v15 = &qword_140EEFD70;
-      v16 = qword_140EEFD70;
+      v15 = &qword_140EF00F0;
+      v16 = qword_140EF00F0;
     }
   }
   else
   {
     v14 = (__int64 *)SymCryptEcurveParamsNistP256;
-    v15 = &qword_140EEFD80;
-    v16 = qword_140EEFD80;
+    v15 = &qword_140EF00E8;
+    v16 = qword_140EF00E8;
   }
   if ( !v16 )
   {

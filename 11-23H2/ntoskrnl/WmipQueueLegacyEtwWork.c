@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipQueueLegacyEtwWork @ 0x140852D10
+ * XREFs of WmipQueueLegacyEtwWork @ 0x140853010
  * Callers:
- *     WmipRegisterEtwProvider @ 0x140852C7C (WmipRegisterEtwProvider.c)
- *     WmipLegacyEtwCallback @ 0x1409E18C0 (WmipLegacyEtwCallback.c)
- *     WmipUnregisterEtwProvider @ 0x1409E1B10 (WmipUnregisterEtwProvider.c)
+ *     WmipRegisterEtwProvider @ 0x140852F7C (WmipRegisterEtwProvider.c)
+ *     WmipLegacyEtwCallback @ 0x1409E1B50 (WmipLegacyEtwCallback.c)
+ *     WmipUnregisterEtwProvider @ 0x1409E1DA0 (WmipUnregisterEtwProvider.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     WmipReferenceEntry @ 0x1406C688C (WmipReferenceEntry.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     WmipReferenceEntry @ 0x1406C68BC (WmipReferenceEntry.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

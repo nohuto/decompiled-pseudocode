@@ -1,59 +1,59 @@
 /*
  * XREFs of qsort @ 0x1403E1E70
  * Callers:
- *     RtlpDynamicLookasideRebalance @ 0x140222A20 (RtlpDynamicLookasideRebalance.c)
- *     EtwpAllocateTraceBuffer @ 0x140261A20 (EtwpAllocateTraceBuffer.c)
- *     MiWsleFlush @ 0x1402C1F50 (MiWsleFlush.c)
- *     MiZeroPage @ 0x1402C4E50 (MiZeroPage.c)
- *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
- *     MiTerminateWsleCluster @ 0x14032F750 (MiTerminateWsleCluster.c)
- *     MiDeleteVa @ 0x140330730 (MiDeleteVa.c)
- *     MiClearPteAccessed @ 0x140332A80 (MiClearPteAccessed.c)
- *     MmUnmapViewInSystemCache @ 0x140335870 (MmUnmapViewInSystemCache.c)
- *     MiFlushTbAsNeeded @ 0x140352EB0 (MiFlushTbAsNeeded.c)
- *     MiFillNoReservationCluster @ 0x14037E554 (MiFillNoReservationCluster.c)
- *     KiAddProcessorToCoreControlBlock @ 0x1403C1EDC (KiAddProcessorToCoreControlBlock.c)
- *     KiAdjustGroupConfiguration @ 0x1403C2F70 (KiAdjustGroupConfiguration.c)
- *     HvlStartBootLogicalProcessors @ 0x1403DEDD0 (HvlStartBootLogicalProcessors.c)
+ *     sub_140222A20 @ 0x140222A20 (sub_140222A20.c)
+ *     sub_140261A20 @ 0x140261A20 (sub_140261A20.c)
+ *     sub_1402C1F50 @ 0x1402C1F50 (sub_1402C1F50.c)
+ *     sub_1402C4E50 @ 0x1402C4E50 (sub_1402C4E50.c)
+ *     sub_1402CF280 @ 0x1402CF280 (sub_1402CF280.c)
+ *     sub_14032F750 @ 0x14032F750 (sub_14032F750.c)
+ *     sub_140330730 @ 0x140330730 (sub_140330730.c)
+ *     sub_140332A80 @ 0x140332A80 (sub_140332A80.c)
+ *     sub_140335870 @ 0x140335870 (sub_140335870.c)
+ *     sub_140352EB0 @ 0x140352EB0 (sub_140352EB0.c)
+ *     sub_14037E554 @ 0x14037E554 (sub_14037E554.c)
+ *     sub_1403C1EDC @ 0x1403C1EDC (sub_1403C1EDC.c)
+ *     sub_1403C2F70 @ 0x1403C2F70 (sub_1403C2F70.c)
+ *     sub_1403DEDD0 @ 0x1403DEDD0 (sub_1403DEDD0.c)
  *     sub_1403ECE00 @ 0x1403ECE00 (sub_1403ECE00.c)
- *     SymCryptParallelHashProcess @ 0x1403FDE00 (SymCryptParallelHashProcess.c)
- *     HalpNumaAddRangeProximity @ 0x14051E390 (HalpNumaAddRangeProximity.c)
- *     VslInitializeSecureKernelCfg @ 0x14054E548 (VslInitializeSecureKernelCfg.c)
- *     IopCompactRemovePagesArray @ 0x14055D5EC (IopCompactRemovePagesArray.c)
- *     MiSortMdlFrames @ 0x14058A0E0 (MiSortMdlFrames.c)
- *     PpmCheckComputeHeteroResponse @ 0x1405D7BF0 (PpmCheckComputeHeteroResponse.c)
+ *     sub_1403FDE00 @ 0x1403FDE00 (sub_1403FDE00.c)
+ *     sub_14051E390 @ 0x14051E390 (sub_14051E390.c)
+ *     sub_14054E548 @ 0x14054E548 (sub_14054E548.c)
+ *     sub_14055D5EC @ 0x14055D5EC (sub_14055D5EC.c)
+ *     sub_14058A0E0 @ 0x14058A0E0 (sub_14058A0E0.c)
+ *     sub_1405D7BF0 @ 0x1405D7BF0 (sub_1405D7BF0.c)
  *     RtlCompareExchangePropertyStore @ 0x1405E7300 (RtlCompareExchangePropertyStore.c)
- *     ?StDmRegionEvict@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_SEARCH_RESULTS@1@KKKK@Z @ 0x1405F9C9C (-StDmRegionEvict@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_SEARCH_RESULTS@1@KKKK@.c)
- *     AsiPopulateHashes @ 0x1406478F8 (AsiPopulateHashes.c)
- *     PspBuildCreateProcessContext @ 0x140670488 (PspBuildCreateProcessContext.c)
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
- *     PnpAllocateResources @ 0x140747FB4 (PnpAllocateResources.c)
- *     PipSortDeviceObjectList @ 0x140768200 (PipSortDeviceObjectList.c)
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14082DE40 (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     CmpLoadLayerVersions @ 0x140836CC8 (CmpLoadLayerVersions.c)
- *     MmFreeBootRegistry @ 0x14083D398 (MmFreeBootRegistry.c)
- *     IopRearrangeReqList @ 0x140858F98 (IopRearrangeReqList.c)
- *     EtwpGetTraceGroupInfo @ 0x140883164 (EtwpGetTraceGroupInfo.c)
- *     CmpSortedValueEnumStackEntryStart @ 0x140921BE8 (CmpSortedValueEnumStackEntryStart.c)
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409BF744 (RtlpFcUpdateFeatureConfiguration.c)
- *     RtlpFcUpdateUsageTriggers @ 0x1409BF948 (RtlpFcUpdateUsageTriggers.c)
- *     EtwpUpdateDisallowedGuids @ 0x1409EDE68 (EtwpUpdateDisallowedGuids.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA6E0 (SLUpdateLicenseDataInternal.c)
- *     AdtpBuildObjectTypeStrings @ 0x140A1C5E8 (AdtpBuildObjectTypeStrings.c)
- *     MiInitializeNumaGraph @ 0x140AF502C (MiInitializeNumaGraph.c)
- *     HalpNumaInitializeStaticConfiguration @ 0x140AFA274 (HalpNumaInitializeStaticConfiguration.c)
- *     HalpChannelInitializeStaticConfiguration @ 0x140AFA5EC (HalpChannelInitializeStaticConfiguration.c)
- *     IntpAllocateProcessorContext @ 0x140B01F80 (IntpAllocateProcessorContext.c)
- *     MiAssignTopLevelRanges @ 0x140B0728C (MiAssignTopLevelRanges.c)
- *     PpmInitPolicyConfiguration @ 0x140B151EC (PpmInitPolicyConfiguration.c)
- *     KiComputeNumaCosts @ 0x140B31500 (KiComputeNumaCosts.c)
- *     HalpNumaParseHmat @ 0x140B4C634 (HalpNumaParseHmat.c)
- *     KiPerformAutomaticGroupConfiguration @ 0x140B51320 (KiPerformAutomaticGroupConfiguration.c)
+ *     sub_1405F9C9C @ 0x1405F9C9C (sub_1405F9C9C.c)
+ *     sub_1406478F8 @ 0x1406478F8 (sub_1406478F8.c)
+ *     sub_140670488 @ 0x140670488 (sub_140670488.c)
+ *     sub_1406F2C30 @ 0x1406F2C30 (sub_1406F2C30.c)
+ *     sub_140747FB4 @ 0x140747FB4 (sub_140747FB4.c)
+ *     sub_140768200 @ 0x140768200 (sub_140768200.c)
+ *     sub_14082DE40 @ 0x14082DE40 (sub_14082DE40.c)
+ *     DxgkInitialize @ 0x140836CC8 (DxgkInitialize.c)
+ *     sub_14083D398 @ 0x14083D398 (sub_14083D398.c)
+ *     sub_140858F98 @ 0x140858F98 (sub_140858F98.c)
+ *     sub_140883164 @ 0x140883164 (sub_140883164.c)
+ *     sub_140921BE8 @ 0x140921BE8 (sub_140921BE8.c)
+ *     sub_1409BF744 @ 0x1409BF744 (sub_1409BF744.c)
+ *     sub_1409BF948 @ 0x1409BF948 (sub_1409BF948.c)
+ *     sub_1409EDE68 @ 0x1409EDE68 (sub_1409EDE68.c)
+ *     sub_1409FA6E0 @ 0x1409FA6E0 (sub_1409FA6E0.c)
+ *     sub_140A1C5E8 @ 0x140A1C5E8 (sub_140A1C5E8.c)
+ *     sub_140AF502C @ 0x140AF502C (sub_140AF502C.c)
+ *     sub_140AFA274 @ 0x140AFA274 (sub_140AFA274.c)
+ *     sub_140AFA5EC @ 0x140AFA5EC (sub_140AFA5EC.c)
+ *     sub_140B01F80 @ 0x140B01F80 (sub_140B01F80.c)
+ *     sub_140B0728C @ 0x140B0728C (sub_140B0728C.c)
+ *     sub_140B151EC @ 0x140B151EC (sub_140B151EC.c)
+ *     sub_140B31500 @ 0x140B31500 (sub_140B31500.c)
+ *     sub_140B4C634 @ 0x140B4C634 (sub_140B4C634.c)
+ *     sub_140B51320 @ 0x140B51320 (sub_140B51320.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_check_icall @ 0x14042A590 (_guard_check_icall.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A590 @ 0x14042A590 (sub_14042A590.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     memset @ 0x140435E00 (memset.c)
  */
 
@@ -102,6 +102,7 @@ void __cdecl qsort(
   {
     if ( NumOfElements >= 2 )
     {
+      sub_14042A590(PtFuncCompare);
       v8 = (char *)Base + SizeOfElements * (NumOfElements - 1);
       v9 = 0LL;
       v37 = 0LL;
@@ -119,7 +120,7 @@ void __cdecl qsort(
                 v11 = Base;
                 for ( i = (char *)Base + SizeOfElements; i <= v8; i += SizeOfElements )
                 {
-                  if ( ((int (__fastcall *)(char *, _BYTE *))PtFuncCompare)(i, v11) > 0 )
+                  if ( (int)sub_14042A5E0(i, v11) > 0 )
                     v11 = i;
                 }
                 v13 = SizeOfElements;
@@ -294,6 +295,6 @@ LABEL_18:
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
   }
 }

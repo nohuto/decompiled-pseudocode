@@ -1,18 +1,18 @@
 /*
- * XREFs of VfDriverEnableVerifier @ 0x140927E78
+ * XREFs of VfDriverEnableVerifier @ 0x140928E78
  * Callers:
- *     MmEnableVerifierForDriver @ 0x140924BB8 (MmEnableVerifierForDriver.c)
- *     VfDriverEnableVerifierForAll @ 0x140928018 (VfDriverEnableVerifierForAll.c)
+ *     MmEnableVerifierForDriver @ 0x140925BB8 (MmEnableVerifierForDriver.c)
+ *     VfDriverEnableVerifierForAll @ 0x140929018 (VfDriverEnableVerifierForAll.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     MmHasImageBeenImportOptimized @ 0x1405822B0 (MmHasImageBeenImportOptimized.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     VfDriverLoadImage @ 0x140921264 (VfDriverLoadImage.c)
- *     VfDriverLock @ 0x1409216E0 (VfDriverLock.c)
- *     VfUtilIsProtectedDriver @ 0x1409261C4 (VfUtilIsProtectedDriver.c)
- *     ViSuspectDriversLookupEntry @ 0x140937D80 (ViSuspectDriversLookupEntry.c)
+ *     MmHasImageBeenImportOptimized @ 0x1405832B0 (MmHasImageBeenImportOptimized.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     VfDriverLoadImage @ 0x140922264 (VfDriverLoadImage.c)
+ *     VfDriverLock @ 0x1409226E0 (VfDriverLock.c)
+ *     VfUtilIsProtectedDriver @ 0x1409271C4 (VfUtilIsProtectedDriver.c)
+ *     ViSuspectDriversLookupEntry @ 0x140938D80 (ViSuspectDriversLookupEntry.c)
  */
 
 __int64 __fastcall VfDriverEnableVerifier(__int64 a1, __int64 a2, _DWORD *a3)
@@ -67,17 +67,17 @@ LABEL_10:
       goto LABEL_10;
     v5 = 1;
 LABEL_17:
-    v10 = (__int64 *)qword_14040D778;
-    if ( *(__int64 **)qword_14040D778 != &VfSuspectDriversList )
+    v10 = (__int64 *)qword_14040E7E8;
+    if ( *(__int64 **)qword_14040E7E8 != &VfSuspectDriversList )
       __fastfail(3u);
-    *(_QWORD *)(a1 + 8) = qword_14040D778;
+    *(_QWORD *)(a1 + 8) = qword_14040E7E8;
     *(_QWORD *)a1 = &VfSuspectDriversList;
     *v10 = a1;
-    qword_14040D778 = a1;
+    qword_14040E7E8 = a1;
     *a3 = 1;
     if ( v5 )
       VfDriverLoadImage(a2, a1, 0, 1u);
-    ++dword_14041A9F8;
+    ++dword_14041BAD8;
     goto LABEL_22;
   }
   v8 = -1073741637;

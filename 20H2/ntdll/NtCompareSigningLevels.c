@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 NtCompareSigningLevels()
+NTSTATUS __cdecl NtCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 156LL;
+  result = 156;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

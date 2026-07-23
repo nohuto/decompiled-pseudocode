@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpInitLoggerContext @ 0x14065B12C
+ * XREFs of EtwpInitLoggerContext @ 0x14065C2EC
  * Callers:
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
  * Callees:
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KeInitializeMutex @ 0x1400DD340 (KeInitializeMutex.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwpInitializeCompression @ 0x1403155BC (EtwpInitializeCompression.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeQuerySystemTimePrecise @ 0x14008A4E0 (KeQuerySystemTimePrecise.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KeInitializeMutex @ 0x1400DD3C0 (KeInitializeMutex.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwpInitializeCompression @ 0x1403157AC (EtwpInitializeCompression.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2)
@@ -79,7 +79,7 @@ LABEL_21:
   }
 LABEL_10:
   *(_DWORD *)(v8 + 336) = 1;
-  v10 = *(_QWORD *)(*(_QWORD *)qword_14043A748 + 7120LL) << 12 >> 20;
+  v10 = *(_QWORD *)(*(_QWORD *)qword_14043B808 + 7120LL) << 12 >> 20;
   if ( (unsigned int)v10 <= 0x200 )
   {
     *(_DWORD *)(v8 + 4) = 0x2000;
@@ -101,7 +101,7 @@ LABEL_10:
     v12 = *(_DWORD *)(v8 + 240);
 LABEL_15:
     *(_DWORD *)(v8 + 252) = v12 + 22;
-    KeQuerySystemTimePrecise((__int64 *)(v8 + 808));
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)(v8 + 808));
     KeInitializeMutex((PRKMUTEX)(v8 + 648), 0);
     *(_QWORD *)(v8 + 704) = 0LL;
     *(_QWORD *)(v8 + 352) = v8 + 344;

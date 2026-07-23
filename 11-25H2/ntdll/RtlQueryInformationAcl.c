@@ -6,57 +6,61 @@
  *     <none>
  */
 
-__int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, unsigned int *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlQueryInformationAcl(
+        PACL Acl,
+        PVOID AclInformation,
+        ULONG AclInformationLength,
+        ACL_INFORMATION_CLASS AclInformationClass)
 {
-  unsigned int v6; // ecx
-  int v7; // r9d
-  unsigned int v8; // r8d
-  unsigned __int8 *v9; // rdx
+  int AclRevision; // ecx
+  __int32 v7; // r9d
+  unsigned int AceCount; // r8d
+  PACL v9; // rdx
   unsigned int i; // ecx
-  unsigned __int8 *v11; // rax
+  ACL *v11; // rax
   int v12; // edx
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  v6 = *a1;
-  if ( (unsigned __int8)(v6 - 2) > 2u )
-    return 3221225485LL;
-  v7 = a4 - 1;
+  AclRevision = Acl->AclRevision;
+  if ( (unsigned __int8)(AclRevision - 2) > 2u )
+    return -1073741811;
+  v7 = AclInformationClass - 1;
   if ( !v7 )
   {
-    if ( a3 >= 4 )
+    if ( AclInformationLength >= 4 )
     {
-      *a2 = v6;
-      return 0LL;
+      *(_DWORD *)AclInformation = AclRevision;
+      return 0;
     }
-    return 3221225507LL;
+    return -1073741789;
   }
   if ( v7 != 1 )
-    return 3221225475LL;
-  if ( a3 < 0xC )
-    return 3221225507LL;
-  v8 = *((unsigned __int16 *)a1 + 2);
-  v9 = a1 + 8;
+    return -1073741821;
+  if ( AclInformationLength < 0xC )
+    return -1073741789;
+  AceCount = Acl->AceCount;
+  v9 = Acl + 1;
   for ( i = 0; ; ++i )
   {
-    v11 = &a1[*((unsigned __int16 *)a1 + 1)];
-    if ( i >= v8 )
+    v11 = (PACL)((char *)Acl + Acl->AclSize);
+    if ( i >= AceCount )
       break;
     if ( v9 >= v11 )
-      return 3221225485LL;
-    v9 += *((unsigned __int16 *)v9 + 1);
+      return -1073741811;
+    v9 = (PACL)((char *)v9 + v9->AclSize);
   }
-  *a2 = v8;
+  *(_DWORD *)AclInformation = AceCount;
   if ( v9 > v11 )
     v9 = 0LL;
   if ( v9 )
   {
-    v12 = (_DWORD)v9 - (_DWORD)a1;
-    a2[1] = v12;
-    a2[2] = *((unsigned __int16 *)a1 + 1) - v12;
-    return 0LL;
+    v12 = (_DWORD)v9 - (_DWORD)Acl;
+    *((_DWORD *)AclInformation + 1) = v12;
+    *((_DWORD *)AclInformation + 2) = Acl->AclSize - v12;
+    return 0;
   }
-  a2[1] = *((unsigned __int16 *)a1 + 1);
-  result = 0LL;
-  a2[2] = 0;
+  *((_DWORD *)AclInformation + 1) = Acl->AclSize;
+  result = 0;
+  *((_DWORD *)AclInformation + 2) = 0;
   return result;
 }

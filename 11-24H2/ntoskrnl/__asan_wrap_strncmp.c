@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_wrap_strncmp @ 0x1405ADDD0
+ * XREFs of __asan_wrap_strncmp @ 0x1405AAD40
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
- *     strncmp @ 0x1406BFB20 (strncmp.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
  */
 
 int __fastcall _asan_wrap_strncmp(const char *BugCheckParameter1, const char *a2, size_t MaxCount)
@@ -23,7 +23,7 @@ int __fastcall _asan_wrap_strncmp(const char *BugCheckParameter1, const char *a2
   {
     if ( v4 + v7 + 0x800000000000LL >= MaxCount )
       break;
-    if ( byte_140FCDC2A && v7 >= 0xFFFF800000000000uLL )
+    if ( byte_140FCECAA && v7 >= 0xFFFF800000000000uLL )
     {
       v8 = *(_BYTE *)(((v7 + 0x800000000000LL) >> 3) + KasaniShadow);
       if ( v8 && v8 < 8 && (char)((v7 & 7) + 1) > v8 )
@@ -38,7 +38,7 @@ int __fastcall _asan_wrap_strncmp(const char *BugCheckParameter1, const char *a2
   {
     if ( v10 - (unsigned __int64)a2 >= MaxCount )
       break;
-    if ( byte_140FCDC2A && v10 >= 0xFFFF800000000000uLL )
+    if ( byte_140FCECAA && v10 >= 0xFFFF800000000000uLL )
     {
       v11 = *(_BYTE *)(((v10 + 0x800000000000LL) >> 3) + KasaniShadow);
       if ( v11 && v11 < 8 && (char)((v10 & 7) + 1) > v11 )

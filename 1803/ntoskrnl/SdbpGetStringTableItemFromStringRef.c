@@ -9,14 +9,14 @@
  */
 
 __int64 __fastcall SdbpGetStringTableItemFromStringRef(
-        union _RTL_RUN_ONCE *Parameter,
+        _RTL_RUN_ONCE *Parameter,
         int a2,
         _DWORD *a3,
-        union _RTL_RUN_ONCE **a4)
+        _RTL_RUN_ONCE **a4)
 {
-  union _RTL_RUN_ONCE *v4; // rbx
+  _RTL_RUN_ONCE *v4; // rbx
   int v9; // ebp
-  union _RTL_RUN_ONCE *Ptr; // r14
+  _RTL_RUN_ONCE *Ptr; // r14
   NTSTATUS v11; // eax
   int v12; // edi
   int v13; // eax
@@ -43,7 +43,7 @@ __int64 __fastcall SdbpGetStringTableItemFromStringRef(
       v12 = -1073741275;
       goto LABEL_8;
     }
-    Ptr = (union _RTL_RUN_ONCE *)Parameter[170].Ptr;
+    Ptr = (_RTL_RUN_ONCE *)Parameter[170].Ptr;
     v13 = 6;
   }
   else

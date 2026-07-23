@@ -12,12 +12,12 @@ void __fastcall RtlpFlsCloneComplete(int a1, int a2)
   unsigned int v4; // edi
   unsigned int v5; // eax
   int v6; // ecx
-  volatile signed __int32 *v7; // eax
+  PRTL_SRWLOCK v7; // eax
 
   v2 = dword_4B3A66FC;
   if ( a2 )
-    RtlpFlsContext = 1;
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+    RtlpFlsContext.0 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)1;
+  RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   if ( v2 )
   {
     v4 = v2 + 16;
@@ -25,11 +25,11 @@ void __fastcall RtlpFlsCloneComplete(int a1, int a2)
     {
       _BitScanReverse(&v5, v4);
       v6 = v4 ^ (1 << v5);
-      v7 = (volatile signed __int32 *)dword_4B3A66C4[v5];
+      v7 = (&dword_4B3A66C4)[v5];
       if ( v7 )
         v7 += 2 * v6 + 1;
       if ( a2 )
-        *v7 = 1;
+        v7->Value = 1;
       RtlReleaseSRWLockExclusive(v7);
       --v4;
       --v2;

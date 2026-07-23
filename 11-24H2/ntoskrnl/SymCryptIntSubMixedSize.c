@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptIntSubMixedSize @ 0x140523A68
+ * XREFs of SymCryptIntSubMixedSize @ 0x140521380
  * Callers:
- *     SymCryptIntExtendedGcd @ 0x140529024 (SymCryptIntExtendedGcd.c)
+ *     SymCryptIntExtendedGcd @ 0x140526944 (SymCryptIntExtendedGcd.c)
  * Callees:
- *     SymCryptFdefIntSubMixedSize @ 0x14052F118 (SymCryptFdefIntSubMixedSize.c)
+ *     SymCryptFdefIntSubMixedSize @ 0x1405295C0 (SymCryptFdefIntSubMixedSize.c)
  */
 
 __int64 SymCryptIntSubMixedSize()

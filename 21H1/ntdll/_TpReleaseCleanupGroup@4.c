@@ -7,21 +7,16 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-_PEB_LDR_DATA *__stdcall TpReleaseCleanupGroup(volatile signed __int32 *a1)
+void __cdecl TpReleaseCleanupGroup(PTP_CLEANUP_GROUP CleanupGroup)
 {
-  _PEB_LDR_DATA *result; // eax
-
-  if ( !a1 )
+  if ( !CleanupGroup )
 LABEL_4:
     TppRaiseInvalidParameter();
-  result = NtCurrentPeb()->Ldr;
-  if ( !result->ShutdownInProgress )
+  if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    if ( _InterlockedExchange(a1 + 1, 1) )
+    if ( _InterlockedExchange((volatile __int32 *)CleanupGroup + 1, 1) )
       goto LABEL_4;
-    result = (_PEB_LDR_DATA *)_InterlockedExchangeAdd(a1, 0xFFFFFFFF);
-    if ( !result )
-      return (_PEB_LDR_DATA *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, a1);
+    if ( !_InterlockedExchangeAdd((volatile signed __int32 *)CleanupGroup, 0xFFFFFFFF) )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, CleanupGroup);
   }
-  return result;
 }

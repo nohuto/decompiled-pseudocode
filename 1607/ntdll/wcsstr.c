@@ -1,5 +1,5 @@
 /*
- * XREFs of wcsstr @ 0x18009C860
+ * XREFs of wcsstr @ 0x18009C850
  * Callers:
  *     EtwpGenerateFileName @ 0x1800FDE14 (EtwpGenerateFileName.c)
  * Callees:

@@ -20,7 +20,7 @@ __int64 *__fastcall sub_18001EE04(unsigned __int64 a1, char a2)
 
   for ( i = 0LL; ; sub_1800C9DEC(i) )
   {
-    RtlEnterCriticalSection(&unk_18015CA80);
+    RtlEnterCriticalSection(&CriticalSection);
     v5 = (__int64 *)qword_18015CA70;
     while ( v5 != &qword_18015CA70 )
     {
@@ -39,13 +39,13 @@ __int64 *__fastcall sub_18001EE04(unsigned __int64 a1, char a2)
     }
     if ( i )
       _InterlockedIncrement((volatile signed __int32 *)i + 14);
-    RtlLeaveCriticalSection((__int64)&unk_18015CA80);
+    RtlLeaveCriticalSection(&CriticalSection);
     if ( !i )
       return 0LL;
-    RtlEnterCriticalSection(i + 2);
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
     if ( i[8] )
       break;
-    RtlLeaveCriticalSection((__int64)(i + 2));
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
   }
   return i;
 }

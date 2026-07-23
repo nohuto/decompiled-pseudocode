@@ -1,14 +1,14 @@
 /*
- * XREFs of SiGetDriveLayoutInformation @ 0x140894A64
+ * XREFs of SiGetDriveLayoutInformation @ 0x14089AE64
  * Callers:
- *     SyspartResolveEfiEspCallback @ 0x140895530 (SyspartResolveEfiEspCallback.c)
- *     SiGetBiosSystemPartition @ 0x14089586C (SiGetBiosSystemPartition.c)
+ *     SyspartResolveEfiEspCallback @ 0x14089B930 (SyspartResolveEfiEspCallback.c)
+ *     SiGetBiosSystemPartition @ 0x14089BC6C (SiGetBiosSystemPartition.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     SiOpenDevice @ 0x140AE154C (SiOpenDevice.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     SiOpenDevice @ 0x140ADEA3C (SiOpenDevice.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetDriveLayoutInformation(const WCHAR *a1, _QWORD *a2)

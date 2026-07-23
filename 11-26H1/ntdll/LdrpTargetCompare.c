@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpTargetCompare @ 0x180110630
+ * XREFs of LdrpTargetCompare @ 0x1801101C0
  * Callers:
  *     <none>
  * Callees:

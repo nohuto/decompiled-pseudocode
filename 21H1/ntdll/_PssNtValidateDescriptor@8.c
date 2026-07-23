@@ -15,6 +15,7 @@
 int __stdcall PssNtValidateDescriptor(unsigned int *a1, void *a2)
 {
   unsigned int v2; // esi
+  size_t v4; // [esp-4h] [ebp-94h]
   EXCEPTION_RECORD ExceptionRecord; // [esp+20h] [ebp-70h] BYREF
   CPPEH_RECORD ms_exc; // [esp+78h] [ebp-18h]
 
@@ -25,7 +26,8 @@ int __stdcall PssNtValidateDescriptor(unsigned int *a1, void *a2)
   ms_exc.registration.TryLevel = -2;
   if ( v2 != 1146311504 )
   {
-    memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+    LODWORD(v4) = 80;
+    memset(&ExceptionRecord, 0, v4);
     ExceptionRecord.ExceptionCode = -1073741816;
     ExceptionRecord.ExceptionFlags = 0;
     ExceptionRecord.ExceptionRecord = 0;

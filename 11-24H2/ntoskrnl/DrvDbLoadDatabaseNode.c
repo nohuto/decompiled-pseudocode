@@ -1,22 +1,22 @@
 /*
- * XREFs of DrvDbLoadDatabaseNode @ 0x140925AF8
+ * XREFs of DrvDbLoadDatabaseNode @ 0x140927C38
  * Callers:
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408226F4 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenContext @ 0x140823650 (DrvDbOpenContext.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140925270 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140A88D94 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140822E34 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenContext @ 0x140823D90 (DrvDbOpenContext.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1409273B0 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140A85194 (DrvDbOpenDriverDatabaseRegKey.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     DrvDbGetSecurityDescriptor @ 0x140823ED0 (DrvDbGetSecurityDescriptor.c)
- *     DrvDbInitializeDatabaseNodeVersion @ 0x140824258 (DrvDbInitializeDatabaseNodeVersion.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x140922D68 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbUnloadDatabaseNode @ 0x140925CCC (DrvDbUnloadDatabaseNode.c)
- *     PiDrvDbNodeActionCallback @ 0x140925E10 (PiDrvDbNodeActionCallback.c)
- *     _PnpCtxRegCreateTree @ 0x140926128 (_PnpCtxRegCreateTree.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     DrvDbGetSecurityDescriptor @ 0x140824610 (DrvDbGetSecurityDescriptor.c)
+ *     DrvDbInitializeDatabaseNodeVersion @ 0x140824998 (DrvDbInitializeDatabaseNodeVersion.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140924EA0 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbUnloadDatabaseNode @ 0x140927E0C (DrvDbUnloadDatabaseNode.c)
+ *     PiDrvDbNodeActionCallback @ 0x140927F50 (PiDrvDbNodeActionCallback.c)
+ *     _PnpCtxRegCreateTree @ 0x140928268 (_PnpCtxRegCreateTree.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbLoadDatabaseNode(__int64 *a1, __int64 a2)
@@ -72,7 +72,7 @@ __int64 __fastcall DrvDbLoadDatabaseNode(__int64 *a1, __int64 a2)
       if ( v6 == PiDrvDbNodeActionCallback )
         v11 = PiDrvDbNodeActionCallback((int)a1, v10, 1, 1, (__int64)&v34, v9);
       else
-        v11 = guard_dispatch_icall_no_overrides(a1, v10, 1LL, 1LL);
+        v11 = guard_dispatch_icall_no_overrides(a1, v10);
       if ( v11 == -1073741822 )
       {
         v6 = 0LL;
@@ -85,7 +85,7 @@ LABEL_10:
         if ( v6 == PiDrvDbNodeActionCallback )
           v14 = PiDrvDbNodeActionCallback((int)a1, v13, 1, 2, (__int64)&v34, *(_QWORD *)(a2 + 88));
         else
-          v14 = guard_dispatch_icall_no_overrides(a1, v13, 1LL, 2LL);
+          v14 = guard_dispatch_icall_no_overrides(a1, v13);
         if ( (int)(v14 + 0x80000000) >= 0 && v14 != -1073741822 && !CachedContextBaseKey )
           CachedContextBaseKey = v14;
         goto LABEL_13;

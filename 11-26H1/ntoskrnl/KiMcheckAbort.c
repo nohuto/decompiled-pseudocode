@@ -1,18 +1,18 @@
 /*
- * XREFs of KiMcheckAbort @ 0x140738080
+ * XREFs of KiMcheckAbort @ 0x14073CC80
  * Callers:
- *     KiMcheckAbortShadow @ 0x140C599C0 (KiMcheckAbortShadow.c)
+ *     KiMcheckAbortShadow @ 0x140C5F9C0 (KiMcheckAbortShadow.c)
  * Callees:
- *     KiCheckForSListAddress @ 0x140422100 (KiCheckForSListAddress.c)
- *     KiRestoreDebugRegisterState @ 0x140533C30 (KiRestoreDebugRegisterState.c)
- *     KiSaveDebugRegisterState @ 0x140533CB0 (KiSaveDebugRegisterState.c)
- *     KzSetIrqlUnsafe @ 0x1405EBBF0 (KzSetIrqlUnsafe.c)
- *     KeWakeProcessor @ 0x1405F0F90 (KeWakeProcessor.c)
- *     KiCopyCounters @ 0x1405F3410 (KiCopyCounters.c)
- *     KiKernelShadowStackAssistMceAlternateReturn @ 0x1405FAC70 (KiKernelShadowStackAssistMceAlternateReturn.c)
- *     KiMcheckFastForward @ 0x1405FD170 (KiMcheckFastForward.c)
- *     KiSetSpecCtrlNmi @ 0x1407297A0 (KiSetSpecCtrlNmi.c)
- *     KxMcheckAbort @ 0x140738700 (KxMcheckAbort.c)
+ *     KiCheckForSListAddress @ 0x140419940 (KiCheckForSListAddress.c)
+ *     KiRestoreDebugRegisterState @ 0x1405360B0 (KiRestoreDebugRegisterState.c)
+ *     KiSaveDebugRegisterState @ 0x140536130 (KiSaveDebugRegisterState.c)
+ *     KzSetIrqlUnsafe @ 0x1405EE560 (KzSetIrqlUnsafe.c)
+ *     KeWakeProcessor @ 0x1405F3900 (KeWakeProcessor.c)
+ *     KiCopyCounters @ 0x1405F5DD0 (KiCopyCounters.c)
+ *     KiKernelShadowStackAssistMceAlternateReturn @ 0x1405FD690 (KiKernelShadowStackAssistMceAlternateReturn.c)
+ *     KiMcheckFastForward @ 0x1405FFBC0 (KiMcheckFastForward.c)
+ *     KiSetSpecCtrlNmi @ 0x14072E370 (KiSetSpecCtrlNmi.c)
+ *     KxMcheckAbort @ 0x14073D300 (KxMcheckAbort.c)
  */
 
 void __fastcall KiMcheckAbort(
@@ -124,7 +124,7 @@ LABEL_8:
       v19 = 1;
       v20 = 805306432;
     }
-    v18 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+    v18 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                            + (v20 | (unsigned int)v19))]
         - 384;
     goto LABEL_8;
@@ -217,14 +217,14 @@ LABEL_20:
       {
 LABEL_40:
         v72 |= 4u;
-        _InterlockedIncrement64((volatile signed __int64 *)&KsepShimDbLock.WaitBlock[1].Thread);
+        _InterlockedIncrement64((volatile signed __int64 *)&KsepShimDbLock.WaitListEntry.Blink);
       }
     }
     if ( *(_BYTE *)retaddr == 0xF4 && *(_WORD *)((char *)retaddr - 1) == 0xF4FB )
     {
       v70 &= ~0x200u;
       retaddr = (__int64 (__fastcall *)(int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))((char *)retaddr - 1);
-      _InterlockedIncrement64((volatile signed __int64 *)&KsepShimDbLock.Timer.Processor);
+      _InterlockedIncrement64((volatile signed __int64 *)&KsepShimDbLock.WaitListEntry.Flink);
     }
   }
   KxMcheckAbort(BugCheckParameter4, v31, &v47);

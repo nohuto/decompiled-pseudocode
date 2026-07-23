@@ -1,17 +1,17 @@
 /*
- * XREFs of PspRevertContainerImpersonation @ 0x1400D3D20
+ * XREFs of PspRevertContainerImpersonation @ 0x1400D1BC0
  * Callers:
- *     IopProcessWorkItem @ 0x1400749F0 (IopProcessWorkItem.c)
- *     PsImpersonateContainerOfThread @ 0x1400D1630 (PsImpersonateContainerOfThread.c)
- *     NtRevertContainerImpersonation @ 0x14020F784 (NtRevertContainerImpersonation.c)
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     IopProcessWorkItem @ 0x140086970 (IopProcessWorkItem.c)
+ *     PsImpersonateContainerOfThread @ 0x1400CF4D0 (PsImpersonateContainerOfThread.c)
+ *     NtRevertContainerImpersonation @ 0x14020F5B0 (NtRevertContainerImpersonation.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1400D2A60 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D3F30 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1405108B0 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1400D0900 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D1DD0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1404F3840 (EtwTraceThreadWorkOnBehalfUpdate.c)
  */
 
 __int64 __fastcall PspRevertContainerImpersonation(__int64 a1)

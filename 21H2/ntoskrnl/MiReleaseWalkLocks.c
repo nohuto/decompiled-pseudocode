@@ -1,22 +1,23 @@
 /*
- * XREFs of MiReleaseWalkLocks @ 0x1402AA590
+ * XREFs of MiReleaseWalkLocks @ 0x1402286D0
  * Callers:
- *     MiGetNextPageTablePte @ 0x14020CDB0 (MiGetNextPageTablePte.c)
- *     MiYieldPageTableWalk @ 0x1402AA514 (MiYieldPageTableWalk.c)
+ *     MiYieldPageTableWalk @ 0x140228654 (MiYieldPageTableWalk.c)
+ *     MiGetNextPageTablePte @ 0x1402B16B0 (MiGetNextPageTablePte.c)
  *     MiDeleteEmptyPageTableTail @ 0x1403F4E40 (MiDeleteEmptyPageTableTail.c)
- *     MiQueryEPTAccessedState @ 0x14053BA00 (MiQueryEPTAccessedState.c)
- *     MiCombineWorkingSetTail @ 0x14055CE00 (MiCombineWorkingSetTail.c)
+ *     MiQueryEPTAccessedState @ 0x14053BC40 (MiQueryEPTAccessedState.c)
+ *     MiCombineWorkingSetTail @ 0x14055D040 (MiCombineWorkingSetTail.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
-void __fastcall MiReleaseWalkLocks(__int64 a1)
+__int64 __fastcall MiReleaseWalkLocks(__int64 a1)
 {
   unsigned __int64 v1; // rdx
   __int64 v3; // rdi
+  __int64 result; // rax
 
   v1 = *(_QWORD *)(a1 + 48);
   v3 = *(_QWORD *)(a1 + 24);
@@ -27,13 +28,16 @@ void __fastcall MiReleaseWalkLocks(__int64 a1)
   }
   if ( (*(_WORD *)a1 & 4) != 0 )
   {
-    MiUnlockWorkingSetShared(v3, *(_BYTE *)(a1 + 6));
+    LOBYTE(v1) = *(_BYTE *)(a1 + 6);
+    result = MiUnlockWorkingSetShared(v3, v1);
   }
   else
   {
     if ( (*(_WORD *)a1 & 0x400) != 0 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4E31C);
-    MiUnlockWorkingSetExclusive(v3, *(_BYTE *)(a1 + 6));
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4E35C);
+    LOBYTE(v1) = *(_BYTE *)(a1 + 6);
+    result = MiUnlockWorkingSetExclusive(v3, v1);
   }
   *(_BYTE *)(a1 + 2) |= 1u;
+  return result;
 }

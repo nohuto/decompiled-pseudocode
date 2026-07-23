@@ -1,7 +1,7 @@
 /*
- * XREFs of KiTryToEndDpcProcessing @ 0x14057CB74
+ * XREFs of KiTryToEndDpcProcessing @ 0x14057D064
  * Callers:
- *     KiExecuteDpc @ 0x14039AA10 (KiExecuteDpc.c)
+ *     KiExecuteDpc @ 0x14039ABF0 (KiExecuteDpc.c)
  * Callees:
  *     <none>
  */

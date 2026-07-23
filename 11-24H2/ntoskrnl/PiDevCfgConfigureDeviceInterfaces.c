@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x140A77CC0
+ * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x140A71FC0
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x140964604 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14094C3DC (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     PiDevCfgParseVariableName @ 0x1404240F0 (PiDevCfgParseVariableName.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     PiDevCfgParseInterfaceKeyName @ 0x1404B103C (PiDevCfgParseInterfaceKeyName.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14099A464 (PiDevCfgConfigureDeviceInterface.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B3380 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     PiDevCfgResolveVariable @ 0x140A6A668 (PiDevCfgResolveVariable.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PiDevCfgParseVariableName @ 0x140417FA0 (PiDevCfgParseVariableName.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     PiDevCfgParseInterfaceKeyName @ 0x1404AB8CC (PiDevCfgParseInterfaceKeyName.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409AA710 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x1409CCBD4 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgResolveVariable @ 0x140A63A18 (PiDevCfgResolveVariable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceInterfaces(__int64 a1, void *a2, __int64 a3)
@@ -118,7 +118,7 @@ __int64 __fastcall PiDevCfgConfigureDeviceInterfaces(__int64 a1, void *a2, __int
     if ( (int)v34 >= 0 )
     {
 LABEL_10:
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 0x26EuLL, 0x63647050u);
       if ( !Pool2 )
       {
         MatchingFilteredDeviceInterfaceList = -1073741670;

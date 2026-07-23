@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeAweView @ 0x1406F5720
+ * XREFs of MiFreeAweView @ 0x1406F3720
  * Callers:
- *     MiReleaseVadEventBlocks @ 0x1409B0550 (MiReleaseVadEventBlocks.c)
+ *     MiReleaseVadEventBlocks @ 0x14099A250 (MiReleaseVadEventBlocks.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     MiDereferenceControlArea @ 0x14036F494 (MiDereferenceControlArea.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     MiComputeAweCharges @ 0x1406F57C8 (MiComputeAweCharges.c)
- *     MiFreeVadEventBitmapCharges @ 0x1409B06EC (MiFreeVadEventBitmapCharges.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     MiDereferenceControlArea @ 0x14042777C (MiDereferenceControlArea.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     MiComputeAweCharges @ 0x1406F37C8 (MiComputeAweCharges.c)
+ *     MiFreeVadEventBitmapCharges @ 0x14099A3EC (MiFreeVadEventBitmapCharges.c)
  */
 
 __int64 __fastcall MiFreeAweView(_QWORD *a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of KeRemovePriorityBoost @ 0x1401D2D10
+ * XREFs of KeRemovePriorityBoost @ 0x1401D2B3C
  * Callers:
- *     CmpReleaseWriteQueue @ 0x1404E7034 (CmpReleaseWriteQueue.c)
+ *     CmpReleaseWriteQueue @ 0x1404C9704 (CmpReleaseWriteQueue.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiAbProcessContextSwitch @ 0x14005C490 (KiAbProcessContextSwitch.c)
- *     KiDeliverApc @ 0x14005DBD0 (KiDeliverApc.c)
- *     KiUpdateThreadState @ 0x140091CEC (KiUpdateThreadState.c)
- *     KiRemoveBoostThread @ 0x1400CF3B0 (KiRemoveBoostThread.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x1400D0C00 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiQueueReadyThread @ 0x1400D0C70 (KiQueueReadyThread.c)
- *     KiRequestSoftwareInterrupt @ 0x1400D8230 (KiRequestSoftwareInterrupt.c)
- *     KiSwapContext @ 0x140165CD0 (KiSwapContext.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiAbProcessContextSwitch @ 0x14005C010 (KiAbProcessContextSwitch.c)
+ *     KiDeliverApc @ 0x14005D750 (KiDeliverApc.c)
+ *     KiUpdateThreadState @ 0x14009144C (KiUpdateThreadState.c)
+ *     KiRemoveBoostThread @ 0x1400CD250 (KiRemoveBoostThread.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x1400CEAA0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiQueueReadyThread @ 0x1400CEB10 (KiQueueReadyThread.c)
+ *     KiRequestSoftwareInterrupt @ 0x1400D60D0 (KiRequestSoftwareInterrupt.c)
+ *     KiSwapContext @ 0x140166240 (KiSwapContext.c)
  */
 
 void __fastcall KeRemovePriorityBoost(__int64 a1)

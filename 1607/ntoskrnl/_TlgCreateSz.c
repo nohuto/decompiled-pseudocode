@@ -1,17 +1,17 @@
 /*
- * XREFs of _TlgCreateSz @ 0x1401CDF00
+ * XREFs of _TlgCreateSz @ 0x1401CDD4C
  * Callers:
- *     MiAgeWorkingSet @ 0x140047090 (MiAgeWorkingSet.c)
- *     MiLogTrimWs @ 0x140088154 (MiLogTrimWs.c)
- *     MmNotifyProcessInSwapTrigger @ 0x1400CEDA4 (MmNotifyProcessInSwapTrigger.c)
- *     MiLogWsEmptyControl @ 0x14013402C (MiLogWsEmptyControl.c)
- *     MiLogOutswappedProcessCommitReacquire @ 0x1401DFA8C (MiLogOutswappedProcessCommitReacquire.c)
- *     MiLogOutswappedProcessCommitRelease @ 0x1401DFC00 (MiLogOutswappedProcessCommitRelease.c)
- *     MiLogResetPagesCommitRelease @ 0x1401DFCF4 (MiLogResetPagesCommitRelease.c)
- *     PnpCompareInterruptInformation @ 0x1405462D0 (PnpCompareInterruptInformation.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     MiLogCreateImageFileMapFailure @ 0x140659144 (MiLogCreateImageFileMapFailure.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x1406595C0 (MiLogStrongCodeDriverLoadFailure.c)
+ *     MiAgeWorkingSet @ 0x140046C10 (MiAgeWorkingSet.c)
+ *     MmNotifyProcessInSwapTrigger @ 0x1400CCC44 (MmNotifyProcessInSwapTrigger.c)
+ *     MiLogTrimWs @ 0x14010C344 (MiLogTrimWs.c)
+ *     MiLogWsEmptyControl @ 0x14013459C (MiLogWsEmptyControl.c)
+ *     MiLogOutswappedProcessCommitReacquire @ 0x1401DF8B8 (MiLogOutswappedProcessCommitReacquire.c)
+ *     MiLogOutswappedProcessCommitRelease @ 0x1401DFA2C (MiLogOutswappedProcessCommitRelease.c)
+ *     MiLogResetPagesCommitRelease @ 0x1401DFB20 (MiLogResetPagesCommitRelease.c)
+ *     PnpCompareInterruptInformation @ 0x140546810 (PnpCompareInterruptInformation.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     MiLogCreateImageFileMapFailure @ 0x140659228 (MiLogCreateImageFileMapFailure.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x1406596A4 (MiLogStrongCodeDriverLoadFailure.c)
  *     MiFlushStrongCodeDriverLoadFailures @ 0x1407A40B4 (MiFlushStrongCodeDriverLoadFailures.c)
  * Callees:
  *     <none>

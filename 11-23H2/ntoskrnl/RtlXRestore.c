@@ -3,7 +3,7 @@
  * Callers:
  *     KeRestoreExtendedAndSupervisorState @ 0x14020E028 (KeRestoreExtendedAndSupervisorState.c)
  *     KiRestoreProcessorState @ 0x14020E950 (KiRestoreProcessorState.c)
- *     RtlXRestoreS @ 0x14033FCB8 (RtlXRestoreS.c)
+ *     RtlXRestoreS @ 0x14033FF48 (RtlXRestoreS.c)
  * Callees:
  *     <none>
  */

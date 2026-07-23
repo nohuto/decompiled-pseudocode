@@ -1,10 +1,10 @@
 /*
- * XREFs of MiResidentPagesForSpan @ 0x1404E730C
+ * XREFs of MiResidentPagesForSpan @ 0x1404C9880
  * Callers:
- *     MiRemoveVadCharges @ 0x14042FB20 (MiRemoveVadCharges.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
+ *     MiRemoveVadCharges @ 0x14042E9F0 (MiRemoveVadCharges.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
  */
 
 __int64 __fastcall MiResidentPagesForSpan(unsigned __int64 a1)

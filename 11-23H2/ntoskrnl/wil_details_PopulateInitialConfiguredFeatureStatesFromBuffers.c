@@ -3,10 +3,10 @@
  * Callers:
  *     wil_InitializeFeatureStagingFromBuffers @ 0x140B388EC (wil_InitializeFeatureStagingFromBuffers.c)
  * Callees:
- *     RtlQueryFeatureConfigurationFromBuffers @ 0x1403747A8 (RtlQueryFeatureConfigurationFromBuffers.c)
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x140374854 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x14080E94C (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ *     RtlQueryFeatureConfigurationFromBuffers @ 0x140374948 (RtlQueryFeatureConfigurationFromBuffers.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403749F4 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x14080EC1C (wil_details_BuildFeatureStateCacheFromQueryResults.c)
  */
 
 __int64 (__fastcall **__fastcall wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers(__int64 *a1))()

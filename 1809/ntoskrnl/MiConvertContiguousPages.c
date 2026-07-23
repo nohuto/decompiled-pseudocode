@@ -1,14 +1,14 @@
 /*
  * XREFs of MiConvertContiguousPages @ 0x1400117AC
  * Callers:
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
  * Callees:
  *     MiPageAttributeBatchChangeNeeded @ 0x1400118DC (MiPageAttributeBatchChangeNeeded.c)
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
- *     MiIsFreeZeroPfnCold @ 0x140082370 (MiIsFreeZeroPfnCold.c)
- *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiIsFreeZeroPfnCold @ 0x140082360 (MiIsFreeZeroPfnCold.c)
+ *     MiChangePageAttributeBatch @ 0x1400823E0 (MiChangePageAttributeBatch.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 char __fastcall MiConvertContiguousPages(unsigned __int64 *a1, __int64 a2, __int64 a3)

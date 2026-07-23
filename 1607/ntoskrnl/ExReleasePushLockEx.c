@@ -1,11 +1,11 @@
 /*
- * XREFs of ExReleasePushLockEx @ 0x14006AE00
+ * XREFs of ExReleasePushLockEx @ 0x14006A980
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleasePushLockEx(__int64 *BugCheckParameter2, ULONG_PTR BugCheckParameter1)

@@ -1,16 +1,24 @@
 /*
- * XREFs of ZwConnectPort @ 0x180163100
+ * XREFs of ZwConnectPort @ 0x1801614C0
  * Callers:
- *     CsrpConnectToServer @ 0x1800A7080 (CsrpConnectToServer.c)
+ *     CsrpConnectToServer @ 0x1800243D4 (CsrpConnectToServer.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwConnectPort()
+NTSTATUS __cdecl ZwConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 164LL;
+  result = 164;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

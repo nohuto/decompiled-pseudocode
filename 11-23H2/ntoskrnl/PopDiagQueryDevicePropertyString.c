@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagQueryDevicePropertyString @ 0x14098C088
+ * XREFs of PopDiagQueryDevicePropertyString @ 0x14098C288
  * Callers:
- *     PopDiagTraceFxDeviceAccounting @ 0x140593150 (PopDiagTraceFxDeviceAccounting.c)
- *     PopDiagTraceFxComponentAccounting @ 0x14098F04C (PopDiagTraceFxComponentAccounting.c)
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099DFA8 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopDiagTraceFxDeviceAccounting @ 0x140593640 (PopDiagTraceFxDeviceAccounting.c)
+ *     PopDiagTraceFxComponentAccounting @ 0x14098F24C (PopDiagTraceFxComponentAccounting.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099E1A8 (PopDirectedDripsDiagCreateDeviceDescription.c)
  * Callees:
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

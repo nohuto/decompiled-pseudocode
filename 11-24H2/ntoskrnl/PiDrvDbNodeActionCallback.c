@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDrvDbNodeActionCallback @ 0x140925E10
+ * XREFs of PiDrvDbNodeActionCallback @ 0x140927F50
  * Callers:
- *     DrvDbLoadDatabaseNode @ 0x140925AF8 (DrvDbLoadDatabaseNode.c)
- *     DrvDbUnloadDatabaseNode @ 0x140925CCC (DrvDbUnloadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x140927C38 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbUnloadDatabaseNode @ 0x140927E0C (DrvDbUnloadDatabaseNode.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     PiDrvDbLoadNode @ 0x140925F40 (PiDrvDbLoadNode.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     PiDrvDbLoadNode @ 0x140928080 (PiDrvDbLoadNode.c)
  */
 
 __int64 __fastcall PiDrvDbNodeActionCallback(__int64 a1, __int64 a2, int a3, int a4, _QWORD *a5, __int64 a6)

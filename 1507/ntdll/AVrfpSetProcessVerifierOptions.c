@@ -17,5 +17,5 @@ __int64 __fastcall AVrfpSetProcessVerifierOptions(__int64 a1)
   if ( !v2 )
     return 3221225495LL;
   v3 = *v2;
-  return qword_180143D40(0LL, &v3, v2);
+  return ((__int64 (__fastcall *)(_QWORD, int *, int *))qword_180143D40)(0LL, &v3, v2);
 }

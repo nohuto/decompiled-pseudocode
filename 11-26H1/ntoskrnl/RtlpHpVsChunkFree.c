@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpVsChunkFree @ 0x1403532B0
+ * XREFs of RtlpHpVsChunkFree @ 0x140355330
  * Callers:
- *     RtlpHpVsChunkSplit @ 0x14024B9E0 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsSlotFreeList @ 0x140352F9C (RtlpHpVsSlotFreeList.c)
- *     RtlpHpVsSlotCompactChunks @ 0x14041BD80 (RtlpHpVsSlotCompactChunks.c)
+ *     RtlpHpVsChunkSplit @ 0x14024D340 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsSlotFreeList @ 0x14035501C (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x1404135D0 (RtlpHpVsSlotCompactChunks.c)
  * Callees:
- *     RtlpHpVsFreeChunkInsert @ 0x14024AA50 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsChunkAlignSplit @ 0x14024AFA0 (RtlpHpVsChunkAlignSplit.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14027D330 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14027E960 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     RtlpHpVsSubsegmentCleanup @ 0x140352A74 (RtlpHpVsSubsegmentCleanup.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x140485F58 (RtlpHpVsSubsegmentCommitPages.c)
- *     KasanMarkAddressValidNoInline @ 0x140523160 (KasanMarkAddressValidNoInline.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14024C3B0 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x14024C900 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x14027C8A0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x14027DED0 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x140354AF4 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x14047F8C8 (RtlpHpVsSubsegmentCommitPages.c)
+ *     KasanMarkAddressValidNoInline @ 0x1405257D0 (KasanMarkAddressValidNoInline.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVsChunkFree(
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkFree(
   ULONG_PTR v6; // r12
   unsigned __int64 v7; // r14
   unsigned __int64 v8; // r8
-  __int64 v9; // r9
+  _RTL_RB_TREE *v9; // r9
   __int64 v10; // r15
   ULONG_PTR v11; // rdx
   int v12; // r13d
@@ -103,7 +103,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkFree(
   v7 = a3;
   v66 = 0;
   v8 = a3 + 48;
-  v9 = a2;
+  v9 = (_RTL_RB_TREE *)a2;
   v10 = a1;
   while ( 1 )
   {
@@ -120,8 +120,8 @@ unsigned __int64 __fastcall RtlpHpVsChunkFree(
       a1 = HIWORD(v68);
       if ( !BYTE6(v68) )
       {
-        RtlRbRemoveNode(v9 + 16, v15 + 8);
-        if ( (RtlpHpLfhPerfFlags & 0x20000) != 0 && byte_140FC7BE8 )
+        RtlRbRemoveNode(v9 + 1, (PRTL_BALANCED_NODE)(v15 + 8));
+        if ( (RtlpHpLfhPerfFlags & 0x20000) != 0 && byte_140FC8BD8 )
           KasanMarkAddressValidNoInline(
             v15,
             16LL * (*(_WORD *)&PspTlsContext.Timer.TimerType ^ WORD1(*(_QWORD *)v15) ^ WORD1(v15)));
@@ -148,7 +148,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkFree(
         else
           *(_QWORD *)(v10 + 96) += (int)a1;
         v8 = v7 + 48;
-        v9 = a2;
+        v9 = (_RTL_RB_TREE *)a2;
         v13 += WORD1(v68);
         v6 = v15;
         v79 = v15;
@@ -161,8 +161,8 @@ unsigned __int64 __fastcall RtlpHpVsChunkFree(
       a1 = HIWORD(v69);
       if ( !BYTE6(v69) )
       {
-        RtlRbRemoveNode(v9 + 16, v25 + 8);
-        if ( (RtlpHpLfhPerfFlags & 0x20000) != 0 && byte_140FC7BE8 )
+        RtlRbRemoveNode(v9 + 1, (PRTL_BALANCED_NODE)(v25 + 8));
+        if ( (RtlpHpLfhPerfFlags & 0x20000) != 0 && byte_140FC8BD8 )
           KasanMarkAddressValidNoInline(
             v6 + 16LL * v13,
             16LL * (*(_WORD *)&PspTlsContext.Timer.TimerType ^ WORD1(*(_QWORD *)v25) ^ WORD1(v25)));
@@ -200,8 +200,8 @@ unsigned __int64 __fastcall RtlpHpVsChunkFree(
         a1 = HIWORD(v70);
         if ( !BYTE6(v70) )
         {
-          RtlRbRemoveNode(a2 + 16, v33 + 8);
-          if ( (RtlpHpLfhPerfFlags & 0x20000) != 0 && byte_140FC7BE8 )
+          RtlRbRemoveNode((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)(v33 + 8));
+          if ( (RtlpHpLfhPerfFlags & 0x20000) != 0 && byte_140FC8BD8 )
             KasanMarkAddressValidNoInline(
               v6 + 16LL * v13,
               16LL * (*(_WORD *)&PspTlsContext.Timer.TimerType ^ WORD1(*(_QWORD *)v33) ^ WORD1(v33)));
@@ -338,7 +338,7 @@ LABEL_62:
                           v63 = _InterlockedCompareExchange64(v61, i & 0xFFFFFFFFFFFFFDDFuLL | 0x20, i);
                           if ( i == v63 )
                           {
-                            _InterlockedDecrement64(&qword_140E2C740);
+                            _InterlockedDecrement64(&qword_140E2C8C0);
                             break;
                           }
                         }
@@ -377,7 +377,7 @@ LABEL_62:
       RtlpHpAcquireQueuedLockExclusive((int *)(a2 + 8), *(unsigned __int8 *)(v10 + 3), a6, v60);
     *(_DWORD *)(v6 + 8) &= ~0x200u;
     v8 = a3 + 48;
-    v9 = a2;
+    v9 = (_RTL_RB_TREE *)a2;
     v79 = v6;
     v66 = v13;
   }
@@ -385,8 +385,8 @@ LABEL_62:
   {
     v64 = RtlpHpVsChunkAlignSplit(a1, v7, v6);
     if ( v64 )
-      RtlpHpVsFreeChunkInsert(v10, a2, v7, v64);
+      RtlpHpVsFreeChunkInsert(v10, (_RTL_RB_TREE *)a2, v7, v64);
   }
-  RtlpHpVsFreeChunkInsert(v10, a2, v7, v6);
+  RtlpHpVsFreeChunkInsert(v10, (_RTL_RB_TREE *)a2, v7, v6);
   return 0LL;
 }

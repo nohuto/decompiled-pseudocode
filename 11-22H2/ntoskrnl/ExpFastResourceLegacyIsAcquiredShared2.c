@@ -29,7 +29,7 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared2(__int64 a1, __int64 a2
     CurrentThread = KeGetCurrentThread();
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v7 = 4;
@@ -45,10 +45,10 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared2(__int64 a1, __int64 a2
       if ( (v9 & 2) == 0 && (unsigned __int64 *)i[3] == v3 || (v9 & 2) != 0 && v3 == i - 8 )
         v2 += *((_DWORD *)i + 8);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;

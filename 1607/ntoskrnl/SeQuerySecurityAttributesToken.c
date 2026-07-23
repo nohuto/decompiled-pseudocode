@@ -1,13 +1,13 @@
 /*
- * XREFs of SeQuerySecurityAttributesToken @ 0x14040EF20
+ * XREFs of SeQuerySecurityAttributesToken @ 0x14040DDE0
  * Callers:
- *     RtlpQueryPackageIdentityAttributes @ 0x14000DAB8 (RtlpQueryPackageIdentityAttributes.c)
- *     SepVerifyDesktopAppxPackageName @ 0x140219E60 (SepVerifyDesktopAppxPackageName.c)
+ *     RtlpQueryPackageIdentityAttributes @ 0x14000D638 (RtlpQueryPackageIdentityAttributes.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x140219C8C (SepVerifyDesktopAppxPackageName.c)
  * Callees:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000E3E0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14000DF60 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall SeQuerySecurityAttributesToken(

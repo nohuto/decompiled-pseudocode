@@ -2,19 +2,19 @@
  * XREFs of wcsncpy_s @ 0x1403E7870
  * Callers:
  *     _wsplitpath_s @ 0x1403E6C70 (_wsplitpath_s.c)
- *     EmonAddProfileSource @ 0x14051FB70 (EmonAddProfileSource.c)
- *     Amd64AddProfileSource @ 0x14052AF40 (Amd64AddProfileSource.c)
- *     CarInitializeTelemetryData @ 0x140603A00 (CarInitializeTelemetryData.c)
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
- *     LocalGetStringForControl @ 0x1406768BC (LocalGetStringForControl.c)
- *     GetOperatorIndexByName @ 0x1409D1048 (GetOperatorIndexByName.c)
- *     EtwSetPerformanceTraceInformation @ 0x1409DEFB8 (EtwSetPerformanceTraceInformation.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x1409E1514 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     ExpFindArcName @ 0x1409FC2D0 (ExpFindArcName.c)
- *     ExpParseSignatureName @ 0x1409FD160 (ExpParseSignatureName.c)
- *     HalpKdEnumerateDebuggingDevices @ 0x140A71180 (HalpKdEnumerateDebuggingDevices.c)
+ *     sub_14051FB70 @ 0x14051FB70 (sub_14051FB70.c)
+ *     sub_14052AF40 @ 0x14052AF40 (sub_14052AF40.c)
+ *     sub_140603A00 @ 0x140603A00 (sub_140603A00.c)
+ *     sub_140675DA8 @ 0x140675DA8 (sub_140675DA8.c)
+ *     sub_1406768BC @ 0x1406768BC (sub_1406768BC.c)
+ *     sub_1409D1048 @ 0x1409D1048 (sub_1409D1048.c)
+ *     sub_1409DEFB8 @ 0x1409DEFB8 (sub_1409DEFB8.c)
+ *     sub_1409E1514 @ 0x1409E1514 (sub_1409E1514.c)
+ *     sub_1409FC2D0 @ 0x1409FC2D0 (sub_1409FC2D0.c)
+ *     sub_1409FD160 @ 0x1409FD160 (sub_1409FD160.c)
+ *     sub_140A71180 @ 0x140A71180 (sub_140A71180.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 errno_t __cdecl wcsncpy_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)
@@ -38,7 +38,7 @@ errno_t __cdecl wcsncpy_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src,
     if ( SizeInWords )
     {
 LABEL_4:
-      xHalTimerWatchdogStop();
+      _misaligned_access();
       return 22;
     }
     return 0;
@@ -105,6 +105,6 @@ LABEL_25:
   v5 = 22;
 LABEL_29:
   *Dst = 0;
-  xHalTimerWatchdogStop();
+  _misaligned_access();
   return v5;
 }

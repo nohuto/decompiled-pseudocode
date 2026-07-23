@@ -1,19 +1,19 @@
 /*
- * XREFs of SmKmStoreAdd @ 0x1407B7A6C
+ * XREFs of SmKmStoreAdd @ 0x1407B7D4C
  * Callers:
- *     SmProcessCreateRequest @ 0x1407B767C (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x1407B795C (SmProcessCreateRequest.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     ExInitializePushLock @ 0x140223590 (ExInitializePushLock.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D354 (SSHSupportAllocateNonPaged.c)
- *     SmEtwEnabled @ 0x1403432E4 (SmEtwEnabled.c)
- *     SmKmEtwLogStoreChange @ 0x1409D8774 (SmKmEtwLogStoreChange.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     SSHSupportAllocateNonPaged @ 0x14032D5E4 (SSHSupportAllocateNonPaged.c)
+ *     SmEtwEnabled @ 0x140343574 (SmEtwEnabled.c)
+ *     SmKmEtwLogStoreChange @ 0x1409D8974 (SmKmEtwLogStoreChange.c)
  */
 
 __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)

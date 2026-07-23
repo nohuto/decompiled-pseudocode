@@ -1,16 +1,16 @@
 /*
- * XREFs of BcdSetSystemStore @ 0x140811E00
+ * XREFs of BcdSetSystemStore @ 0x140812540
  * Callers:
- *     BcdSetBootBcdAsSystemStore @ 0x140C5C8E8 (BcdSetBootBcdAsSystemStore.c)
+ *     BcdSetBootBcdAsSystemStore @ 0x140C5EA78 (BcdSetBootBcdAsSystemStore.c)
  * Callees:
- *     BcdMarkAsSystemStore @ 0x140811D3C (BcdMarkAsSystemStore.c)
- *     BiMarkTreatAsSystemStore @ 0x140811E50 (BiMarkTreatAsSystemStore.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
+ *     BcdMarkAsSystemStore @ 0x14081247C (BcdMarkAsSystemStore.c)
+ *     BiMarkTreatAsSystemStore @ 0x140812590 (BiMarkTreatAsSystemStore.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdSetSystemStore(__int64 a1)
+__int64 __fastcall BcdSetSystemStore(void *a1)
 {
-  int v2; // eax
+  NTSTATUS v2; // eax
   __int64 v3; // rdx
   unsigned int v4; // r8d
   __int64 result; // rax

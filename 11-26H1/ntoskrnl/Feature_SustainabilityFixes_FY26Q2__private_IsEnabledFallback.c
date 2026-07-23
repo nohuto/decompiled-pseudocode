@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_SustainabilityFixes_FY26Q2__private_IsEnabledFallback @ 0x14060D6BC
+ * XREFs of Feature_SustainabilityFixes_FY26Q2__private_IsEnabledFallback @ 0x1406107C4
  * Callers:
- *     Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline @ 0x14060D680 (Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline @ 0x140610788 (Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_SustainabilityFixes_FY26Q2__private_IsEnabledFallback(__int64 a1, unsigned int a2)

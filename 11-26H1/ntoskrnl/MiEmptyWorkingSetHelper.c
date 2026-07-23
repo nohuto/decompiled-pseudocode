@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEmptyWorkingSetHelper @ 0x14029C1E8
+ * XREFs of MiEmptyWorkingSetHelper @ 0x14029B748
  * Callers:
- *     MiUpdateOldPteWorker @ 0x14029C38C (MiUpdateOldPteWorker.c)
+ *     MiUpdateOldPteWorker @ 0x14029B8EC (MiUpdateOldPteWorker.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiWalkVaCheckCommon @ 0x14035D970 (MiWalkVaCheckCommon.c)
- *     MI_WSLE_LOG_ACCESS @ 0x14035DBA4 (MI_WSLE_LOG_ACCESS.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiWalkVaCheckCommon @ 0x14035F710 (MiWalkVaCheckCommon.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x14035F944 (MI_WSLE_LOG_ACCESS.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetHelper(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
@@ -39,7 +39,7 @@ __int64 __fastcall MiEmptyWorkingSetHelper(__int64 a1, unsigned __int64 a2, __in
   if ( (*(_DWORD *)(v4 + 184) & 0xF) == 1 )
     v13 = &MiSystemPartition;
   else
-    v13 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 174));
+    v13 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 174));
   if ( v13[4539] )
     MI_WSLE_LOG_ACCESS(v4, a2);
   MiInsertTbFlushEntry(a3, v10, 1LL);

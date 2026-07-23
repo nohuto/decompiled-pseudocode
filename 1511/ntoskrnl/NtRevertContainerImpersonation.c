@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 NtRevertContainerImpersonation()
+NTSTATUS NtRevertContainerImpersonation(void)
 {
   return PspRevertContainerImpersonation();
 }

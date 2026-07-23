@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteImageHotPatchState @ 0x1408C9B1C
+ * XREFs of MiDeleteImageHotPatchState @ 0x1408C9C7C
  * Callers:
- *     MiFinishVadDeletion @ 0x140316DC0 (MiFinishVadDeletion.c)
- *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
+ *     MiFinishVadDeletion @ 0x140321B10 (MiFinishVadDeletion.c)
+ *     MiHotPatchImage @ 0x1408CA494 (MiHotPatchImage.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiDeleteHotPatchEntry @ 0x1408C9968 (MiDeleteHotPatchEntry.c)
- *     MiGetProcessHotPatchContext @ 0x1408CA1F8 (MiGetProcessHotPatchContext.c)
- *     MiHotPatchImageTreeCompare @ 0x1408CA638 (MiHotPatchImageTreeCompare.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDeleteHotPatchEntry @ 0x1408C9AC8 (MiDeleteHotPatchEntry.c)
+ *     MiGetProcessHotPatchContext @ 0x1408CA358 (MiGetProcessHotPatchContext.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408CA798 (MiHotPatchImageTreeCompare.c)
  */
 
 void __fastcall MiDeleteImageHotPatchState(__int64 a1)
@@ -21,10 +21,10 @@ void __fastcall MiDeleteImageHotPatchState(__int64 a1)
   __int64 v4; // rsi
   UNICODE_STRING *v5; // r14
   volatile signed __int64 *v6; // rbp
-  unsigned __int64 v7; // rdi
+  __int64 v7; // rdi
   int v8; // r12d
   int v9; // eax
-  unsigned __int64 v10; // rax
+  __int64 v10; // rax
 
   CurrentThread = KeGetCurrentThread();
   ProcessHotPatchContext = MiGetProcessHotPatchContext(CurrentThread->ApcState.Process, 0LL);
@@ -68,7 +68,7 @@ void __fastcall MiDeleteImageHotPatchState(__int64 a1)
       v6 = (volatile signed __int64 *)(v4 + 16);
       if ( v7 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v4, v7);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7);
         *(_DWORD *)(v7 + 92) |= 2u;
         v5 = (UNICODE_STRING *)v7;
         if ( (*(_DWORD *)(v7 + 92) & 1) != 0 )

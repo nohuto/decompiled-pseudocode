@@ -1,21 +1,21 @@
 /*
- * XREFs of IoDisconnectInterrupt @ 0x140710350
+ * XREFs of IoDisconnectInterrupt @ 0x1407115F0
  * Callers:
- *     IoDisconnectInterruptEx @ 0x1407102D0 (IoDisconnectInterruptEx.c)
- *     IopConnectMessageBasedInterrupt @ 0x140753480 (IopConnectMessageBasedInterrupt.c)
- *     IopConnectLineBasedInterrupt @ 0x14075A5A0 (IopConnectLineBasedInterrupt.c)
+ *     IoDisconnectInterruptEx @ 0x140711570 (IoDisconnectInterruptEx.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140754670 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectLineBasedInterrupt @ 0x14075B790 (IopConnectLineBasedInterrupt.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeRemoveQueueDpc @ 0x1401329E0 (KeRemoveQueueDpc.c)
- *     KeFreeInterrupt @ 0x14016D298 (KeFreeInterrupt.c)
- *     KeDisconnectInterrupt @ 0x14016D2C0 (KeDisconnectInterrupt.c)
- *     PnpTraceInterruptUsage @ 0x14016DADC (PnpTraceInterruptUsage.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopDestroyActiveConnectBlock @ 0x140710B5C (IopDestroyActiveConnectBlock.c)
- *     IopInitializeActiveConnectBlock @ 0x140710C4C (IopInitializeActiveConnectBlock.c)
- *     IopAcquireReleaseConnectLockInternal @ 0x140755DF4 (IopAcquireReleaseConnectLockInternal.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1408275C8 (IopDestroyPassiveInterruptBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeRemoveQueueDpc @ 0x140132AB0 (KeRemoveQueueDpc.c)
+ *     KeFreeInterrupt @ 0x14016D398 (KeFreeInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14016D3C0 (KeDisconnectInterrupt.c)
+ *     PnpTraceInterruptUsage @ 0x14016DBDC (PnpTraceInterruptUsage.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopDestroyActiveConnectBlock @ 0x140711DFC (IopDestroyActiveConnectBlock.c)
+ *     IopInitializeActiveConnectBlock @ 0x140711EEC (IopInitializeActiveConnectBlock.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x140756FE4 (IopAcquireReleaseConnectLockInternal.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1408287C8 (IopDestroyPassiveInterruptBlock.c)
  */
 
 void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)

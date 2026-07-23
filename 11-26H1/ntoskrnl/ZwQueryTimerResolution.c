@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwQueryTimerResolution @ 0x1407261F0
+ * XREFs of ZwQueryTimerResolution @ 0x14072ADC0
  * Callers:
- *     DifZwQueryTimerResolutionWrapper @ 0x1406B4980 (DifZwQueryTimerResolutionWrapper.c)
+ *     DifZwQueryTimerResolutionWrapper @ 0x1406B8560 (DifZwQueryTimerResolutionWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryTimerResolution(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryTimerResolution(PULONG MaximumTime, PULONG MinimumTime, PULONG CurrentTime)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(MaximumTime);
 }

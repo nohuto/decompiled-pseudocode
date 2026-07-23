@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAreChargesNeededToLockPage @ 0x14023C190
+ * XREFs of MiAreChargesNeededToLockPage @ 0x140345EF0
  * Callers:
- *     MiObtainProtoReference @ 0x14023BBE8 (MiObtainProtoReference.c)
- *     MiRelockProtoPoolPage @ 0x14023BCDC (MiRelockProtoPoolPage.c)
- *     MiDoubleLockMdlPage @ 0x14023BD94 (MiDoubleLockMdlPage.c)
- *     MiCheckProtoPtePageState @ 0x14023BE50 (MiCheckProtoPtePageState.c)
- *     MiCanBatchHardFaultPages @ 0x1402F2630 (MiCanBatchHardFaultPages.c)
- *     MiStoreDiscardPoisonedPage @ 0x14068BF88 (MiStoreDiscardPoisonedPage.c)
+ *     MiCanBatchHardFaultPages @ 0x140258170 (MiCanBatchHardFaultPages.c)
+ *     MiObtainProtoReference @ 0x14034594C (MiObtainProtoReference.c)
+ *     MiRelockProtoPoolPage @ 0x140345A40 (MiRelockProtoPoolPage.c)
+ *     MiDoubleLockMdlPage @ 0x140345AF8 (MiDoubleLockMdlPage.c)
+ *     MiCheckProtoPtePageState @ 0x140345BB0 (MiCheckProtoPtePageState.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14068D0B8 (MiStoreDiscardPoisonedPage.c)
  * Callees:
  *     <none>
  */

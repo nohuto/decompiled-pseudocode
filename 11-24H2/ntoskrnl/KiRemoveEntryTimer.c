@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRemoveEntryTimer @ 0x140401A80
+ * XREFs of KiRemoveEntryTimer @ 0x1403FC130
  * Callers:
- *     KiInsertTimerTable @ 0x140334E60 (KiInsertTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x1404017B8 (KiAdjustTimerDueTimes.c)
+ *     KiInsertTimerTable @ 0x140316F50 (KiInsertTimerTable.c)
+ *     KiAdjustTimerDueTimes @ 0x1404E0430 (KiAdjustTimerDueTimes.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 signed __int64 __fastcall KiRemoveEntryTimer(__int64 a1, __int64 a2, unsigned int a3, volatile signed __int64 **a4)
@@ -54,7 +54,7 @@ signed __int64 __fastcall KiRemoveEntryTimer(__int64 a1, __int64 a2, unsigned in
 LABEL_14:
         if ( *(_DWORD *)(v10 + a1 + 28) == -1 && *(_DWORD *)(v12 + a1 + 28) == -1 )
         {
-          v15 = qword_140FC7508[2 * *(unsigned __int8 *)(a1 - 16432)];
+          v15 = qword_140FC8568[2 * *(unsigned __int8 *)(a1 - 16432)];
           if ( KiSerializeTimerExpiration )
           {
             v16 = a3 & 0x3F;

@@ -24,13 +24,13 @@ int __fastcall PnpLogVetoInformation(unsigned __int16 *a1, _QWORD *a2)
   int *p_LockNV; // rbp
   __int64 v9; // rcx
   UNICODE_STRING *v10; // rdi
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   __int64 j; // rax
   __int64 v13; // rax
   __int64 v14; // rdx
   __int64 *v15; // rax
   __int64 *v16; // r15
-  STRING DestinationString; // [rsp+20h] [rbp-58h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-58h] BYREF
   UNICODE_STRING v19; // [rsp+30h] [rbp-48h] BYREF
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h] BYREF
   PVOID P; // [rsp+88h] [rbp+10h] BYREF
@@ -55,7 +55,7 @@ int __fastcall PnpLogVetoInformation(unsigned __int16 *a1, _QWORD *a2)
           ExFreePoolWithTag(P, 0);
           v10 = &v19;
           P = &v19;
-          ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)p_LockNV);
+          ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)p_LockNV);
           RtlInitAnsiString(&DestinationString, ProcessImageFileName);
           RtlAnsiStringToUnicodeString(&v19, &DestinationString, 1u);
         }

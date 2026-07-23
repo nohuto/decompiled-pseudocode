@@ -1,11 +1,11 @@
 /*
- * XREFs of DifDeregisterPlugin @ 0x1405D4C60
+ * XREFs of DifDeregisterPlugin @ 0x1405D51D0
  * Callers:
- *     DifDeregisterAllPlugins @ 0x1405D4C08 (DifDeregisterAllPlugins.c)
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
+ *     DifDeregisterAllPlugins @ 0x1405D5178 (DifDeregisterAllPlugins.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViUnbindDifThunk @ 0x1405CF1A4 (ViUnbindDifThunk.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViUnbindDifThunk @ 0x1405CF714 (ViUnbindDifThunk.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

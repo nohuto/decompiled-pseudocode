@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWorkQueueInitialize @ 0x1407C016C
+ * XREFs of ExpWorkQueueInitialize @ 0x1407C05BC
  * Callers:
- *     ExpPartitionCreatePoolInternal @ 0x140A22748 (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1408F7C7C (ExpPartitionCreatePoolInternal.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1403A8640 (KeQueryNodeActiveAffinity.c)
- *     KeInitializePriQueue @ 0x1405C93B8 (KeInitializePriQueue.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeQueryNodeActiveAffinity @ 0x14026FD20 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializePriQueue @ 0x1405C6AE8 (KeInitializePriQueue.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4, USHORT *a5, unsigned int a6)
@@ -13,7 +13,7 @@ __int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4
   USHORT *v10; // rbx
   unsigned int v11; // eax
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
   USHORT Count; // [rsp+58h] [rbp+10h] BYREF
 
   Count = 0;

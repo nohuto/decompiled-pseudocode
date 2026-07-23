@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwFlushKey()
+NTSTATUS __cdecl ZwFlushKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 218LL;
+  result = 218;
   __asm { syscall; Low latency system call }
   return result;
 }

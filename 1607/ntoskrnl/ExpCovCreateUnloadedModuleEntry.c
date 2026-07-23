@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpCovCreateUnloadedModuleEntry @ 0x1406B6B08
+ * XREFs of ExpCovCreateUnloadedModuleEntry @ 0x1406B6C40
  * Callers:
- *     ExCovReadjustUnloadedModuleEntry @ 0x1405474F4 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x140547A34 (ExCovReadjustUnloadedModuleEntry.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     ExfAcquirePushLockExclusive @ 0x1400C8064 (ExfAcquirePushLockExclusive.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ExfAcquirePushLockExclusive @ 0x1400C5F04 (ExfAcquirePushLockExclusive.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlDuplicateUnicodeString @ 0x1403F7F80 (RtlDuplicateUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     ExpCovFreeUnloadedModuleEntry @ 0x1406B6DF8 (ExpCovFreeUnloadedModuleEntry.c)
- *     ExpCovReadFriendlyName @ 0x1406B7834 (ExpCovReadFriendlyName.c)
+ *     RtlDuplicateUnicodeString @ 0x1403F6E40 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     ExpCovFreeUnloadedModuleEntry @ 0x1406B6F30 (ExpCovFreeUnloadedModuleEntry.c)
+ *     ExpCovReadFriendlyName @ 0x1406B796C (ExpCovReadFriendlyName.c)
  */
 
 void __fastcall ExpCovCreateUnloadedModuleEntry(__int64 a1)

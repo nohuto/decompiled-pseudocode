@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSetProcessPriorityClass @ 0x140B10240
+ * XREFs of PspSetProcessPriorityClass @ 0x140B11C80
  * Callers:
- *     PspApplyIFEOPerfOptions @ 0x140778D9C (PspApplyIFEOPerfOptions.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspApplyIFEOPerfOptions @ 0x14077BC3C (PspApplyIFEOPerfOptions.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     ExReleaseFastResourceShared @ 0x140485E00 (ExReleaseFastResourceShared.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     SeCheckPrivilegedObject @ 0x140A7A93C (SeCheckPrivilegedObject.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     ExReleaseFastResourceShared @ 0x14047F770 (ExReleaseFastResourceShared.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     SeCheckPrivilegedObject @ 0x140A8287C (SeCheckPrivilegedObject.c)
  */
 
 __int64 __fastcall PspSetProcessPriorityClass(__int64 a1, unsigned __int8 a2, __int64 a3, char a4)

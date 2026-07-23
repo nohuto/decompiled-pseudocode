@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreSetEvictPageFile @ 0x1402C51BC
+ * XREFs of MiStoreSetEvictPageFile @ 0x14024373C
  * Callers:
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
  * Callees:
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 LONG __fastcall MiStoreSetEvictPageFile(__int64 a1, unsigned int a2)
@@ -16,7 +16,7 @@ LONG __fastcall MiStoreSetEvictPageFile(__int64 a1, unsigned int a2)
   _bittestandreset(*(signed __int32 **)(*(_QWORD *)(a1 + 112) + 32LL), a2);
   if ( ++*(_DWORD *)(a1 + 200) == 256 )
     return KeSetEvent(v2 + 50, 0, 0);
-  result = MiSufficientAvailablePages((__int64)v2, 0xA0uLL);
+  result = MiSufficientAvailablePages(v2, 160LL);
   if ( !result )
     return KeSetEvent(v2 + 50, 0, 0);
   return result;

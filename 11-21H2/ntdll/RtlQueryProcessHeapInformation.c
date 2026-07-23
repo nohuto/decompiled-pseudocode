@@ -43,26 +43,24 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   unsigned int v22; // ecx
   __int64 v23; // rdx
   int v24; // ecx
-  signed __int32 v25; // ebx
-  HANDLE DeferredCriticalSectionEvent; // r10
+  signed __int32 LockCount; // ebx
+  void *LockSemaphore; // r10
   int v27; // eax
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  signed __int32 v30[8]; // [rsp+48h] [rbp-118h] BYREF
-  int HeapInformation; // [rsp+78h] [rbp-E8h]
-  unsigned int v32; // [rsp+7Ch] [rbp-E4h]
+  signed __int32 v28[8]; // [rsp+48h] [rbp-118h] BYREF
+  int v29; // [rsp+78h] [rbp-E8h]
+  unsigned int v30; // [rsp+7Ch] [rbp-E4h]
   unsigned int i; // [rsp+80h] [rbp-E0h]
-  char *v34; // [rsp+88h] [rbp-D8h]
-  __int64 v35; // [rsp+90h] [rbp-D0h]
-  __int64 v36; // [rsp+98h] [rbp-C8h]
-  __int64 v37; // [rsp+A0h] [rbp-C0h]
-  _QWORD v38[4]; // [rsp+A8h] [rbp-B8h] BYREF
-  _QWORD v39[2]; // [rsp+C8h] [rbp-98h] BYREF
-  int v40; // [rsp+D8h] [rbp-88h]
-  __int64 (__fastcall *v41)(); // [rsp+E0h] [rbp-80h]
-  _QWORD *v42; // [rsp+E8h] [rbp-78h]
-  unsigned int v43; // [rsp+170h] [rbp+10h] BYREF
-  __int64 v44; // [rsp+180h] [rbp+20h]
+  char *v32; // [rsp+88h] [rbp-D8h]
+  __int64 v33; // [rsp+90h] [rbp-D0h]
+  __int64 v34; // [rsp+98h] [rbp-C8h]
+  __int64 v35; // [rsp+A0h] [rbp-C0h]
+  _QWORD v36[4]; // [rsp+A8h] [rbp-B8h] BYREF
+  _QWORD HeapInformation[2]; // [rsp+C8h] [rbp-98h] BYREF
+  int v38; // [rsp+D8h] [rbp-88h]
+  __int64 (__fastcall *v39)(); // [rsp+E0h] [rbp-80h]
+  _QWORD *v40; // [rsp+E8h] [rbp-78h]
+  unsigned int v41; // [rsp+170h] [rbp+10h] BYREF
+  __int64 v42; // [rsp+180h] [rbp+20h]
 
   *(_QWORD *)(a1 + 152) = NtCurrentPeb()->ProcessHeap;
   DebugInfo = RtlpCommitQueryDebugInfo((_QWORD *)a1, 8u);
@@ -71,12 +69,9 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
     return 3221225495LL;
   *(_DWORD *)DebugInfo = 0;
   *(_QWORD *)(a1 + 112) = DebugInfo;
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-  HeapInformation = RtlpEnumProcessHeaps(
-                      (__int64 (__fastcall *)(void *, __int64))RtlpQueryProcessEnumHeapsRoutine,
-                      a1,
-                      2);
-  if ( HeapInformation < 0 )
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+  v29 = RtlpEnumProcessHeaps((__int64 (__fastcall *)(void *, __int64))RtlpQueryProcessEnumHeapsRoutine, a1, 2);
+  if ( v29 < 0 )
   {
     *(_QWORD *)(a1 + 112) = 0LL;
     goto LABEL_34;
@@ -84,32 +79,32 @@ __int64 __fastcall RtlQueryProcessHeapInformation(__int64 a1)
   if ( (*(_BYTE *)(a1 + 64) & 8) == 0 )
   {
 LABEL_34:
-    if ( HeapInformation >= 0 )
+    if ( v29 >= 0 )
     {
       v24 = *(_DWORD *)(a1 + 64);
       if ( (v24 & 0x210) != 0 )
       {
-        v39[0] = -1LL;
-        v39[1] = *(_QWORD *)(a1 + 128);
-        v41 = RtlpWalkCallbackRoutine;
-        v42 = v38;
-        v40 = (v24 & 0x10) != 0 ? 5 : 3;
-        v38[0] = a1;
-        v38[1] = v3;
-        v38[2] = 0LL;
-        v38[3] = v3 + 8;
-        HeapInformation = RtlQueryHeapInformation(0LL, 2, v39, 0x58uLL, 0LL);
+        HeapInformation[0] = -1LL;
+        HeapInformation[1] = *(_QWORD *)(a1 + 128);
+        v39 = RtlpWalkCallbackRoutine;
+        v40 = v36;
+        v38 = (v24 & 0x10) != 0 ? 5 : 3;
+        v36[0] = a1;
+        v36[1] = v3;
+        v36[2] = 0LL;
+        v36[3] = v3 + 8;
+        v29 = RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)2, HeapInformation, 0x58uLL, 0LL);
       }
     }
     goto LABEL_37;
   }
   v5 = RtlpGlobalTagHeap;
-  v36 = RtlpGlobalTagHeap;
+  v34 = RtlpGlobalTagHeap;
   if ( !RtlpGlobalTagHeap || !*(_QWORD *)(RtlpGlobalTagHeap + 232) )
     goto LABEL_10;
   v6 = RtlpCommitQueryDebugInfo((_QWORD *)a1, 0x58u);
   v7 = v6;
-  v35 = (__int64)v6;
+  v33 = (__int64)v6;
   if ( v6 )
   {
     memset(v6, 0, 0x58uLL);
@@ -124,13 +119,13 @@ LABEL_10:
       if ( v8 >= *(_DWORD *)v3 )
         goto LABEL_34;
       v9 = (__int64)&v3[88 * v8 + 8];
-      v35 = v9;
+      v33 = v9;
       v10 = *(_QWORD *)(a1 + 128);
       if ( !v10 || v10 == *(_QWORD *)v9 )
       {
         v11 = *(_QWORD *)v9;
-        v44 = v11;
-        v36 = v11;
+        v42 = v11;
+        v34 = v11;
         v12 = *(unsigned __int16 *)(v11 + 224);
         *(_DWORD *)(v9 + 32) = v12;
         v13 = 72 * v12;
@@ -141,27 +136,27 @@ LABEL_10:
         }
         v14 = RtlpCommitQueryDebugInfo((_QWORD *)a1, v13);
         v15 = v14;
-        v34 = v14;
+        v32 = v14;
         if ( !v14 )
         {
-          HeapInformation = -1073741801;
+          v29 = -1073741801;
           goto LABEL_37;
         }
         memset(v14, 0, v13);
         *(_QWORD *)(v9 + 72) = v15;
-        v16 = v44;
-        v17 = *(_QWORD *)(v44 + 328);
-        v37 = v17;
+        v16 = v42;
+        v17 = *(_QWORD *)(v42 + 328);
+        v35 = v17;
         if ( v17 )
         {
           *(_DWORD *)(v9 + 40) = 129;
           *(_DWORD *)(v9 + 44) = 16;
           for ( j = 0; ; ++j )
           {
-            v32 = j;
+            v30 = j;
             if ( j > 0x80 )
             {
-              v16 = v44;
+              v16 = v42;
               goto LABEL_29;
             }
             *(_DWORD *)v15 = *(_DWORD *)v17;
@@ -180,9 +175,9 @@ LABEL_10:
             RtlStringCbCopyW(v19, 0x30uLL, (__int64)L"VirtualAlloc");
 LABEL_27:
             v15 += 72;
-            v34 = v15;
+            v32 = v15;
             v17 += 16LL;
-            v37 = v17;
+            v35 = v17;
           }
           v20 = 2048LL;
           v21 = L"Objects>%4u";
@@ -193,55 +188,58 @@ LABEL_25:
 LABEL_29:
         memmove(v15, *(const void **)(v16 + 232), 72LL * *(unsigned __int16 *)(v16 + 224));
         v22 = 0;
-        v32 = 0;
-        v23 = v44;
+        v30 = 0;
+        v23 = v42;
         while ( v22 < *(unsigned __int16 *)(v23 + 224) )
         {
           *((_QWORD *)v15 + 1) *= 16LL;
           v15 += 72;
-          v34 = v15;
-          v32 = ++v22;
+          v32 = v15;
+          v30 = ++v22;
         }
       }
       ++v8;
     }
   }
-  HeapInformation = -1073741801;
+  v29 = -1073741801;
 LABEL_37:
-  if ( !--dword_180178D4C )
+  if ( !--RtlpProcessHeapsListLock.RecursionCount )
   {
-    qword_180178D50 = 0LL;
-    v25 = _InterlockedCompareExchange(&dword_180178D48, -1, -2);
-    if ( v25 != -2 )
+    RtlpProcessHeapsListLock.OwningThread = 0LL;
+    LockCount = _InterlockedCompareExchange(&RtlpProcessHeapsListLock.LockCount, -1, -2);
+    if ( LockCount != -2 )
     {
-      if ( (dword_180178D48 & 1) != 0 )
+      if ( (RtlpProcessHeapsListLock.LockCount & 1) != 0 )
         RtlpNotOwnerCriticalSection(&RtlpProcessHeapsListLock);
-      DeferredCriticalSectionEvent = (HANDLE)qword_180178D58;
-      if ( !qword_180178D58 )
-        DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent((__int64)&RtlpProcessHeapsListLock);
-      v43 = 0;
-      while ( v25 != _InterlockedCompareExchange(&dword_180178D48, (v25 & 2 | 1) + v25, v25) )
+      LockSemaphore = RtlpProcessHeapsListLock.LockSemaphore;
+      if ( !RtlpProcessHeapsListLock.LockSemaphore )
+        LockSemaphore = RtlpCreateDeferredCriticalSectionEvent((__int64)&RtlpProcessHeapsListLock);
+      v41 = 0;
+      while ( LockCount != _InterlockedCompareExchange(
+                             &RtlpProcessHeapsListLock.LockCount,
+                             (LockCount & 2 | 1) + LockCount,
+                             LockCount) )
       {
-        RtlBackoff(&v43);
-        _m_prefetchw(&dword_180178D48);
-        v25 = dword_180178D48;
+        RtlBackoff(&v41);
+        _m_prefetchw(&RtlpProcessHeapsListLock.LockCount);
+        LockCount = RtlpProcessHeapsListLock.LockCount;
       }
-      if ( (v25 & 2) != 0 )
+      if ( (LockCount & 2) != 0 )
       {
-        if ( DeferredCriticalSectionEvent == (HANDLE)-1LL )
+        if ( LockSemaphore == (void *)-1LL )
         {
-          _InterlockedOr(v30, 0);
-          RtlpWakeByAddress((unsigned __int64)&dword_180178D48, 0);
+          _InterlockedOr(v28, 0);
+          RtlpWakeByAddress((unsigned __int64)&RtlpProcessHeapsListLock.LockCount, 0);
           v27 = 0;
         }
         else
         {
-          v27 = ZwSetEvent();
+          v27 = ZwSetEvent(LockSemaphore, 0LL);
         }
         if ( v27 < 0 )
-          RtlRaiseStatus(v27, v28, v29);
+          RtlRaiseStatus(v27);
       }
     }
   }
-  return (unsigned int)HeapInformation;
+  return (unsigned int)v29;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLockPageListAndFirstPage @ 0x140650BD4
+ * XREFs of MiLockPageListAndFirstPage @ 0x140651124
  * Callers:
- *     MiGetSlabStandbyPage @ 0x140656E5C (MiGetSlabStandbyPage.c)
+ *     MiGetSlabStandbyPage @ 0x1406573AC (MiGetSlabStandbyPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiReleasePageListLock @ 0x1402DDD60 (MiReleasePageListLock.c)
  */
 
 __int64 __fastcall MiLockPageListAndFirstPage(__int64 a1, __int64 a2)

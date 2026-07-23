@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlpNtMakeTemporaryKey(int a1)
+NTSTATUS __stdcall RtlpNtMakeTemporaryKey(HANDLE KeyHandle)
 {
-  return ZwDeleteKey(a1);
+  return ZwDeleteKey(KeyHandle);
 }

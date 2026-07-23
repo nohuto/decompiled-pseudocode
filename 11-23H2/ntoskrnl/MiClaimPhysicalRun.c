@@ -1,12 +1,12 @@
 /*
- * XREFs of MiClaimPhysicalRun @ 0x1403BA77C
+ * XREFs of MiClaimPhysicalRun @ 0x1403BA95C
  * Callers:
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MmRelocatePfnList @ 0x140A3C988 (MmRelocatePfnList.c)
- *     MiScrubNode @ 0x140A46670 (MiScrubNode.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MmRelocatePfnList @ 0x140A3CC38 (MmRelocatePfnList.c)
+ *     MiScrubNode @ 0x140A46920 (MiScrubNode.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
  */
 
 __int64 __fastcall MiClaimPhysicalRun(

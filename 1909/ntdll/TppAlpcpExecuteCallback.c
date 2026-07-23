@@ -12,7 +12,7 @@
  *     RtlpTpETWCallbackStop @ 0x18010F42C (RtlpTpETWCallbackStop.c)
  */
 
-struct _PEB *__fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
+int __fastcall TppAlpcpExecuteCallback(_DWORD *Instance, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
   __int64 v7; // rbx
@@ -26,22 +26,22 @@ struct _PEB *__fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 
   unsigned int v15; // eax
   __int64 v16; // r9
   _QWORD *v17; // r14
-  struct _PEB *result; // rax
+  struct _PEB *v18; // rax
   _DWORD *v19; // rcx
 
   v3 = *(_QWORD *)(a2 + 208);
   if ( v3 )
   {
-    result = (struct _PEB *)LdrAddRefDll(0, *(_QWORD *)(a2 + 208));
-    if ( (int)result < 0 )
-      return result;
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v3;
+    LODWORD(v18) = LdrAddRefDll(0, *(PVOID *)(a2 + 208));
+    if ( (int)v18 < 0 )
+      return (int)v18;
+    Instance[36] |= 0x100u;
+    *((_QWORD *)Instance + 21) = v3;
   }
   _InterlockedIncrement((volatile signed __int32 *)(a2 + 72));
   TppFastAlpcAdjustConcurrencyCount(a2);
   TppBarrierAdjust(a2 + 128, 1LL);
-  TppCleanupGroupMemberCallbackProlog(a1, a2 + 72);
+  TppCleanupGroupMemberCallbackProlog((PTP_CALLBACK_INSTANCE)Instance);
   v7 = 2147353478LL;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
@@ -77,39 +77,39 @@ struct _PEB *__fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 
   {
     v17 = 0LL;
   }
-  *(_QWORD *)(a1 + 88) = v12;
-  *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 160);
+  *((_QWORD *)Instance + 11) = v12;
+  *((_QWORD *)Instance + 12) = *(_QWORD *)(a2 + 160);
   if ( (*(_BYTE *)(a2 + 288) & 1) != 0 )
   {
-    *(_QWORD *)(a1 + 136) = a2;
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64))(a2 + 152))(a1, *(_QWORD *)(a2 + 160), a2, a3);
+    *((_QWORD *)Instance + 17) = a2;
+    (*(void (__fastcall **)(_DWORD *, _QWORD, __int64, __int64))(a2 + 152))(Instance, *(_QWORD *)(a2 + 160), a2, a3);
   }
   else
   {
-    (*(void (__fastcall **)(__int64, _QWORD, __int64))(a2 + 152))(a1, *(_QWORD *)(a2 + 160), a2);
+    (*(void (__fastcall **)(_DWORD *, _QWORD, __int64))(a2 + 152))(Instance, *(_QWORD *)(a2 + 160), a2);
   }
-  result = NtCurrentPeb();
-  v19 = result->SharedData;
+  v18 = NtCurrentPeb();
+  v19 = v18->SharedData;
   if ( v19 && *v19 )
   {
-    result = NtCurrentPeb();
-    v7 = (__int64)result->SharedData + 556;
+    v18 = NtCurrentPeb();
+    v7 = (__int64)v18->SharedData + 556;
   }
   if ( *(_BYTE *)v7 )
-    result = (struct _PEB *)RtlpTpETWCallbackStop(
-                              *(_QWORD *)(a2 + 216),
-                              a2,
-                              *(_QWORD *)(a2 + 152),
-                              *(_QWORD *)(a2 + 160),
-                              *(_QWORD *)(a2 + 176));
+    LODWORD(v18) = RtlpTpETWCallbackStop(
+                     *(_QWORD *)(a2 + 216),
+                     a2,
+                     *(_QWORD *)(a2 + 152),
+                     *(_QWORD *)(a2 + 160),
+                     *(_QWORD *)(a2 + 176));
   if ( v17 )
   {
-    result = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
+    v18 = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
     if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v17[3] )
     {
-      result = (struct _PEB *)((char *)result - v17[3]);
-      v17[3] = result;
+      v18 = (struct _PEB *)((char *)v18 - v17[3]);
+      v17[3] = v18;
     }
   }
-  return result;
+  return (int)v18;
 }

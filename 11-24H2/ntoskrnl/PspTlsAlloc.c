@@ -1,10 +1,10 @@
 /*
- * XREFs of PspTlsAlloc @ 0x14077A558
+ * XREFs of PspTlsAlloc @ 0x14077A658
  * Callers:
- *     PsTlsAlloc @ 0x14077A4C0 (PsTlsAlloc.c)
+ *     PsTlsAlloc @ 0x14077A5C0 (PsTlsAlloc.c)
  * Callees:
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     RtlpFlsAlloc @ 0x140787824 (RtlpFlsAlloc.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     RtlpFlsAlloc @ 0x140787754 (RtlpFlsAlloc.c)
  */
 
 __int64 __fastcall PspTlsAlloc(int a1, __int64 a2, __int64 a3, int a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVerifyImageHeader @ 0x1406D5E2C
+ * XREFs of MiVerifyImageHeader @ 0x1406AD10C
  * Callers:
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
  * Callees:
- *     MiLegacyImageArchitecture @ 0x1402E96DC (MiLegacyImageArchitecture.c)
- *     MiComputeBadImageHeaderType @ 0x1408C74B8 (MiComputeBadImageHeaderType.c)
+ *     MiLegacyImageArchitecture @ 0x14029AA2C (MiLegacyImageArchitecture.c)
+ *     MiComputeBadImageHeaderType @ 0x1408C7618 (MiComputeBadImageHeaderType.c)
  */
 
 __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -32,19 +32,19 @@ __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, __int
 
   if ( (a2 & 3) != 0 )
   {
-    dword_140C4CC18 = 59;
+    dword_140C4CC58 = 59;
     return 3221225776LL;
   }
   if ( *(_DWORD *)a2 == 17744 )
   {
     if ( !*(_WORD *)(a2 + 4) && !*(_WORD *)(a2 + 20) )
     {
-      dword_140C4CC18 = 70;
+      dword_140C4CC58 = 70;
       return 3221225776LL;
     }
     if ( (*(_BYTE *)(a2 + 22) & 2) == 0 )
     {
-      dword_140C4CC18 = 71;
+      dword_140C4CC58 = 71;
       return 3221225595LL;
     }
     v6 = *(_WORD *)(a2 + 24);
@@ -115,46 +115,46 @@ __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, __int
         v11 = *(_DWORD *)(a2 + 220);
 LABEL_17:
         *(_DWORD *)(a1 + 100) = v11;
-        if ( dword_140C4CC90 && dword_140C4CC94 == *(_DWORD *)(a1 + 64) && dword_140C4CC98 == *(_DWORD *)(a1 + 16) )
+        if ( dword_140C4CCD0 && dword_140C4CCD4 == *(_DWORD *)(a1 + 64) && dword_140C4CCD8 == *(_DWORD *)(a1 + 16) )
           __debugbreak();
         v12 = *(_WORD *)(a1 + 48);
         if ( ((v12 - 267) & 0xFEFF) != 0 )
         {
-          dword_140C4CC18 = 73;
+          dword_140C4CC58 = 73;
         }
         else
         {
           v13 = *(_DWORD *)(a1 + 8);
           if ( (v13 & 0x1FF) != 0 && v13 != *(_DWORD *)(a1 + 12) )
           {
-            dword_140C4CC18 = 76;
+            dword_140C4CC58 = 76;
             return 3221225595LL;
           }
           if ( !v13 )
           {
-            dword_140C4CC18 = 77;
+            dword_140C4CC58 = 77;
             return 3221225595LL;
           }
           v14 = *(_DWORD *)(a1 + 12);
           if ( ((v14 - 1) & v14) != 0 )
           {
-            dword_140C4CC18 = 78;
+            dword_140C4CC58 = 78;
             return 3221225595LL;
           }
           if ( ((v13 - 1) & v13) != 0 )
           {
-            dword_140C4CC18 = 79;
+            dword_140C4CC58 = 79;
             return 3221225595LL;
           }
           if ( v14 < v13 )
           {
-            dword_140C4CC18 = 80;
+            dword_140C4CC58 = 80;
             return 3221225595LL;
           }
           v15 = *(_DWORD *)(a1 + 16);
           if ( v15 > 0x77000000 )
           {
-            dword_140C4CC18 = 81;
+            dword_140C4CC58 = 81;
             return 3221225595LL;
           }
           if ( v12 == 267 )
@@ -162,7 +162,7 @@ LABEL_17:
             v26 = *(_WORD *)(a2 + 4);
             if ( v26 != 332 && v26 != 452 )
             {
-              dword_140C4CC18 = 82;
+              dword_140C4CC58 = 82;
               return 3221225595LL;
             }
           }
@@ -171,35 +171,35 @@ LABEL_17:
             v16 = *(_WORD *)(a2 + 4);
             if ( v16 != -31132 && v16 != -21916 )
             {
-              dword_140C4CC18 = 83;
+              dword_140C4CC58 = 83;
               return 3221225595LL;
             }
           }
           if ( *(_DWORD *)(a1 + 24) >= v15 )
           {
-            dword_140C4CC18 = 84;
+            dword_140C4CC58 = 84;
             return 3221225595LL;
           }
           if ( *(_WORD *)a1 )
           {
-            dword_140C4CC18 = 85;
+            dword_140C4CC58 = 85;
             return 3221225595LL;
           }
           if ( (*(_BYTE *)(a2 + 20) & 7) != 0 )
           {
-            dword_140C4CC18 = 86;
+            dword_140C4CC58 = 86;
             return 3221225595LL;
           }
           if ( !MiLegacyImageArchitecture(*(_WORD *)(a2 + 4)) )
           {
             if ( (v18 & 1) != 0 )
             {
-              dword_140C4CC18 = 88;
+              dword_140C4CC58 = 88;
               return 3221225595LL;
             }
             if ( (*(_WORD *)(v17 + 60) & 0x140) != 0x140 )
             {
-              dword_140C4CC18 = 89;
+              dword_140C4CC58 = 89;
               return 3221225595LL;
             }
             return 0LL;
@@ -207,7 +207,7 @@ LABEL_17:
           v20 = *(_WORD *)(v17 + 60);
           if ( (_bittest16(&v20, v19) & ((v18 & 1) != 0)) == 0 )
             return 0LL;
-          dword_140C4CC18 = 87;
+          dword_140C4CC58 = 87;
         }
         return 3221225595LL;
       }

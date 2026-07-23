@@ -1,10 +1,10 @@
 /*
- * XREFs of PiPnpRtlFreeDeviceDeleteInfo @ 0x140726678
+ * XREFs of PiPnpRtlFreeDeviceDeleteInfo @ 0x140724208
  * Callers:
- *     PiPnpRtlGatherDeviceDeleteInfo @ 0x1407267A4 (PiPnpRtlGatherDeviceDeleteInfo.c)
- *     PiPnpRtlCmActionCallback @ 0x1408C7450 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGatherDeviceDeleteInfo @ 0x140724334 (PiPnpRtlGatherDeviceDeleteInfo.c)
+ *     PiPnpRtlCmActionCallback @ 0x1408C4E80 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiPnpRtlFreeDeviceDeleteInfo(void *a1)

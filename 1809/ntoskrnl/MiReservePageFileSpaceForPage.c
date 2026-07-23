@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReservePageFileSpaceForPage @ 0x140081800
+ * XREFs of MiReservePageFileSpaceForPage @ 0x1400817F0
  * Callers:
  *     MiOutSwapWorkingSetPte @ 0x14003DD60 (MiOutSwapWorkingSetPte.c)
- *     MiReservePageFileSpace @ 0x140081320 (MiReservePageFileSpace.c)
+ *     MiReservePageFileSpace @ 0x140081310 (MiReservePageFileSpace.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiInvalidPteConforms @ 0x140039720 (MiInvalidPteConforms.c)
@@ -12,17 +12,17 @@
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MI_IS_RESET_PTE @ 0x140081D40 (MI_IS_RESET_PTE.c)
- *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MI_IS_RESET_PTE @ 0x140081D30 (MI_IS_RESET_PTE.c)
+ *     MiSetNonResidentPteHeat @ 0x140081E40 (MiSetNonResidentPteHeat.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiGetUsedPtesHandle @ 0x140098640 (MiGetUsedPtesHandle.c)
+ *     MiIncreaseUsedPtesCount @ 0x1401100E4 (MiIncreaseUsedPtesCount.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
  */
 
 __int64 __fastcall MiReservePageFileSpaceForPage(struct _KEVENT *a1, unsigned __int64 a2, char a3, _WORD *a4)
@@ -146,7 +146,7 @@ LABEL_30:
               {
                 if ( (unsigned int)MiPteHasShadow(v39, v38) )
                 {
-                  if ( !HIBYTE(word_14043A1AC) && (v28 & 1) != 0 )
+                  if ( !HIBYTE(word_14043B26C) && (v28 & 1) != 0 )
                     v28 |= 0x8000000000000000uLL;
                   *(_QWORD *)v34 = v28;
                   MiWritePteShadow(v34);
@@ -177,7 +177,7 @@ LABEL_30:
                 }
                 goto LABEL_40;
               }
-              if ( !HIBYTE(word_14043A1AC) && (v28 & 1) != 0 )
+              if ( !HIBYTE(word_14043B26C) && (v28 & 1) != 0 )
                 v28 |= 0x8000000000000000uLL;
               *(_QWORD *)(v11 + 16) = v28;
               MiWritePteShadow(v11 + 16);
@@ -243,7 +243,7 @@ LABEL_66:
       if ( (*(_QWORD *)(v35 + 40) & 0x200000000000000LL) != 0 )
         goto LABEL_22;
 LABEL_49:
-      if ( *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v11 + 40) >> 40) & 0x3FFLL)) == a1 )
+      if ( *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v11 + 40) >> 40) & 0x3FFLL)) == a1 )
       {
         v46 = MI_READ_PTE_LOCK_FREE(v11 + 16);
         v13 = v46;
@@ -282,7 +282,7 @@ LABEL_49:
       goto LABEL_18;
   }
   if ( (*(_BYTE *)v11 & 1) != 0
-    && *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v11 + 40) >> 40) & 0x3FFLL)) == a1
+    && *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v11 + 40) >> 40) & 0x3FFLL)) == a1
     && (*(_BYTE *)(v11 + 35) & 8) == 0 )
   {
     v13 = *(_QWORD *)(v11 + 16);

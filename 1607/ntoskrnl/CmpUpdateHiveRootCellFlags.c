@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpUpdateHiveRootCellFlags @ 0x1400B1FBC
+ * XREFs of CmpUpdateHiveRootCellFlags @ 0x1400AFEFC
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     HvMarkCellDirty @ 0x1403FD480 (HvMarkCellDirty.c)
- *     CmpLockHiveFlusherShared @ 0x1403FD564 (CmpLockHiveFlusherShared.c)
- *     CmpUnlockHiveFlusher @ 0x1403FD608 (CmpUnlockHiveFlusher.c)
+ *     HvMarkCellDirty @ 0x1403FC340 (HvMarkCellDirty.c)
+ *     CmpLockHiveFlusherShared @ 0x1403FC424 (CmpLockHiveFlusherShared.c)
+ *     CmpUnlockHiveFlusher @ 0x1403FC4C8 (CmpUnlockHiveFlusher.c)
  */
 
 __int64 __fastcall CmpUpdateHiveRootCellFlags(__int64 a1, unsigned int a2)

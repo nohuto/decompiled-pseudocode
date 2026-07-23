@@ -1,15 +1,15 @@
 /*
- * XREFs of NtAddBootEntry @ 0x1407BD850
+ * XREFs of NtAddBootEntry @ 0x1407BDCA0
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetBootEntry @ 0x1407BC32C (ExpSetBootEntry.c)
+ *     ExpSetBootEntry @ 0x1407BC77C (ExpSetBootEntry.c)
  */
 
-__int64 __fastcall NtAddBootEntry(const void *a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtAddBootEntry(PBOOT_ENTRY BootEntry, PULONG Id)
 {
-  if ( dword_140EFEAF0 == 2 )
-    return ExpSetBootEntry(1, a1, a2);
+  if ( dword_140EFEE10 == 2 )
+    return ExpSetBootEntry(1, BootEntry, (unsigned __int64)Id);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

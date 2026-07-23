@@ -1,18 +1,18 @@
 /*
- * XREFs of CcWriteBehindInternal @ 0x1402A81F0
+ * XREFs of CcWriteBehindInternal @ 0x140279FE0
  * Callers:
- *     CcWriteBehind @ 0x1402A7ADC (CcWriteBehind.c)
+ *     CcWriteBehind @ 0x1402798D4 (CcWriteBehind.c)
  * Callees:
- *     CcFlushCacheOneRange @ 0x140240110 (CcFlushCacheOneRange.c)
- *     CcWriteBehindPreProcess @ 0x1402A8434 (CcWriteBehindPreProcess.c)
- *     CcWriteBehindPostProcess @ 0x1402A883C (CcWriteBehindPostProcess.c)
- *     CcFlushCachePostProcessOneRange @ 0x1402AACA0 (CcFlushCachePostProcessOneRange.c)
- *     CcFlushCacheAcquireRange @ 0x1402ABBD0 (CcFlushCacheAcquireRange.c)
- *     CcFlushCachePostProcess @ 0x1402ABF10 (CcFlushCachePostProcess.c)
- *     CcFlushCachePreProcess @ 0x1402AC290 (CcFlushCachePreProcess.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     CcFlushCacheOneRange @ 0x140208260 (CcFlushCacheOneRange.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcFlushCachePostProcessOneRange @ 0x140275FC0 (CcFlushCachePostProcessOneRange.c)
+ *     CcFlushCacheAcquireRange @ 0x140276EF0 (CcFlushCacheAcquireRange.c)
+ *     CcFlushCachePreProcess @ 0x140278C74 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePostProcess @ 0x1402791F0 (CcFlushCachePostProcess.c)
+ *     CcWriteBehindPreProcess @ 0x14027A224 (CcWriteBehindPreProcess.c)
+ *     CcWriteBehindPostProcess @ 0x14027A62C (CcWriteBehindPostProcess.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 ULONG __fastcall CcWriteBehindInternal(__int64 a1)
@@ -72,7 +72,7 @@ ULONG __fastcall CcWriteBehindInternal(__int64 a1)
       v17 = *v18;
       v18 = &v17;
     }
-    if ( (unsigned __int8)CcFlushCachePreProcess(v13) )
+    if ( CcFlushCachePreProcess((__int64)v13) )
     {
       if ( v23 )
         v19 = 0LL;
@@ -80,11 +80,11 @@ ULONG __fastcall CcWriteBehindInternal(__int64 a1)
       {
         do
         {
-          if ( !(unsigned __int8)CcFlushCacheAcquireRange(v13) )
+          if ( !(unsigned __int8)CcFlushCacheAcquireRange((__int64)v13) )
             break;
           CcFlushCacheOneRange(v13);
         }
-        while ( (unsigned __int8)CcFlushCachePostProcessOneRange(v13) );
+        while ( CcFlushCachePostProcessOneRange(v13) );
         if ( v26 && v28 )
           PerformanceCounter = KeQueryPerformanceCounter(0LL);
       }

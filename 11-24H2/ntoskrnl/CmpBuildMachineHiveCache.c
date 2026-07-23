@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpBuildMachineHiveCache @ 0x1407D8C94
+ * XREFs of CmpBuildMachineHiveCache @ 0x1407D91E4
  * Callers:
- *     CmInitSystem2 @ 0x140C5F4F8 (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140C61648 (CmInitSystem2.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiEventTupleInitialize @ 0x14048A580 (CmSiEventTupleInitialize.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpMachineHiveCachePopulateEntry @ 0x1407D8FA8 (CmpMachineHiveCachePopulateEntry.c)
- *     CmpHiveCacheCreateHiveEntry @ 0x1407E5408 (CmpHiveCacheCreateHiveEntry.c)
- *     IoCreateDriver @ 0x140AB1C90 (IoCreateDriver.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiEventTupleInitialize @ 0x1404853A8 (CmSiEventTupleInitialize.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpMachineHiveCachePopulateEntry @ 0x1407D94F8 (CmpMachineHiveCachePopulateEntry.c)
+ *     CmpHiveCacheCreateHiveEntry @ 0x1407E59D8 (CmpHiveCacheCreateHiveEntry.c)
+ *     IoCreateDriver @ 0x140AACC00 (IoCreateDriver.c)
  */
 
 void CmpBuildMachineHiveCache()
@@ -69,7 +69,7 @@ void CmpBuildMachineHiveCache()
       KeBugCheckEx(0x51u, 0x29uLL, v1, 0LL, 0LL);
     ++v1;
   }
-  v11 = (char *)&unk_140EF5768;
+  v11 = (char *)&unk_140EF59A8;
   v12 = CmpMachineHiveList;
   do
   {

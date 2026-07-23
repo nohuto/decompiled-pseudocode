@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x1405842D0
+ * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x1405847C0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140584FDC (PpmIdleCsVetoAccountingUpdateBlock.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x140594B7C (PopDiagTraceSleepStudyBlocker.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x1405854CC (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x14059506C (PopDiagTraceSleepStudyBlocker.c)
  */
 
 __int64 __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
@@ -101,10 +101,10 @@ __int64 __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
       }
     }
     result = KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)i <= 0xFu
         && (unsigned __int8)result >= 2u )

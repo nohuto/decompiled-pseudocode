@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnBeginTrace @ 0x14071A8AC
+ * XREFs of PfSnBeginTrace @ 0x1406C859C
  * Callers:
- *     PfSnBeginScenario @ 0x1406CBBC4 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x14067A4B4 (PfSnBeginScenario.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     PsGetThreadId @ 0x1402B62E0 (PsGetThreadId.c)
- *     PfSnActivateTrace @ 0x1403607F0 (PfSnActivateTrace.c)
- *     PfSnTraceBufferAllocate @ 0x140360920 (PfSnTraceBufferAllocate.c)
- *     memset @ 0x140414200 (memset.c)
- *     PfSnCleanupTrace @ 0x1406CF9CC (PfSnCleanupTrace.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PsGetThreadId @ 0x1402344C0 (PsGetThreadId.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     PfSnActivateTrace @ 0x1402A56F0 (PfSnActivateTrace.c)
+ *     PfSnTraceBufferAllocate @ 0x1402A5820 (PfSnTraceBufferAllocate.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PfSnCleanupTrace @ 0x1406A6CAC (PfSnCleanupTrace.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD *a4, int a5, __int64 *a6)
@@ -32,7 +32,7 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
   int v19; // ebx
 
   v8 = a2;
-  if ( PfSnNumActiveTraces >= (unsigned int)dword_140C50148 )
+  if ( PfSnNumActiveTraces >= (unsigned int)dword_140C50188 )
   {
     return (unsigned int)-1073741618;
   }
@@ -56,7 +56,7 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
       *(_QWORD *)(v11 + 272) = 0LL;
       KeInitializeDpc((PRKDPC)(v11 + 208), (PKDEFERRED_ROUTINE)PfSnTraceTimerRoutine, (PVOID)v11);
       ExInitializePushLock((PKSPIN_LOCK)(v11 + 360));
-      ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v11 + 360));
+      ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v11 + 360));
       ObfReferenceObjectWithTag(a3, 0x73576650u);
       *(_QWORD *)(v11 + 352) = a3;
       *(_QWORD *)(v11 + 368) = 0LL;
@@ -69,7 +69,7 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
       *(_OWORD *)(v11 + 56) = a1[2];
       v14 = a1[3];
       *(_WORD *)(v11 + 486) = v13 & 0xFFFE | (a5 != 0);
-      v15 = (char *)&unk_140C50128 + 16 * v8;
+      v15 = (char *)&unk_140C50168 + 16 * v8;
       *(_DWORD *)(v11 + 88) = v8;
       *(_OWORD *)(v11 + 72) = v14;
       v16 = *(_DWORD *)v15;

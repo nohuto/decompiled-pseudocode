@@ -12,10 +12,9 @@ char HvlParkedVirtualProcessors()
 {
   char result; // al
   __int64 v1; // rbx
-  __int64 v2; // r9
-  unsigned __int64 v3; // rcx
+  unsigned __int64 v2; // rcx
   _BYTE *i; // rdx
-  unsigned __int64 v5; // rcx
+  unsigned __int64 v4; // rcx
 
   result = HvlpEnlightenments;
   if ( (HvlpEnlightenments & 8) != 0 )
@@ -26,29 +25,25 @@ char HvlParkedVirtualProcessors()
     {
       if ( !(unsigned int)KeIsEmptyAffinityEx(PpmPerfCoreParkingMask) )
       {
-        v3 = qword_140C11488;
-        if ( HvlpVirtualProcessorsIdentityMapped )
-        {
-          v1 = qword_140C11488;
-        }
-        else
+        v2 = qword_140C11488;
+        if ( !HvlpVirtualProcessorsIdentityMapped )
         {
           for ( i = &unk_140D006C3; ; i += 4 )
           {
-            if ( (v3 & 1) != 0 )
+            if ( (v2 & 1) != 0 )
               v1 |= 1LL << *(i - 2);
-            v5 = v3 >> 1;
-            if ( !v5 )
+            v4 = v2 >> 1;
+            if ( !v4 )
               break;
-            if ( (v5 & 1) != 0 )
+            if ( (v4 & 1) != 0 )
               v1 |= 1LL << *i;
-            v3 = v5 >> 1;
-            if ( !v3 )
+            v2 = v4 >> 1;
+            if ( !v2 )
               break;
           }
         }
       }
-      return HvcallInitiateHypercall(65545, v1, 0LL, v2);
+      return HvcallInitiateHypercall(65545);
     }
   }
   return result;

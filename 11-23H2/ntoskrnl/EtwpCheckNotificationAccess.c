@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCheckNotificationAccess @ 0x140781AF8
+ * XREFs of EtwpCheckNotificationAccess @ 0x140781CE8
  * Callers:
- *     EtwpValidateEnableNotification @ 0x140780628 (EtwpValidateEnableNotification.c)
- *     EtwpUpdatePeriodicCaptureState @ 0x1409ECB18 (EtwpUpdatePeriodicCaptureState.c)
+ *     EtwpValidateEnableNotification @ 0x140780818 (EtwpValidateEnableNotification.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x1409ECDA8 (EtwpUpdatePeriodicCaptureState.c)
  * Callees:
- *     EtwpCheckGuidAccess @ 0x140781B64 (EtwpCheckGuidAccess.c)
- *     EtwCheckSecurityLoggerAccess @ 0x1407FC17C (EtwCheckSecurityLoggerAccess.c)
+ *     EtwpCheckGuidAccess @ 0x140781D54 (EtwpCheckGuidAccess.c)
+ *     EtwCheckSecurityLoggerAccess @ 0x1407FC44C (EtwCheckSecurityLoggerAccess.c)
  */
 
 __int64 __fastcall EtwpCheckNotificationAccess(_QWORD *a1, __int64 a2)

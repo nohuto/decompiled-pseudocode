@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmiCreateTerminal @ 0x14076F4E8
+ * XREFs of TtmiCreateTerminal @ 0x14076F708
  * Callers:
- *     TtmpDispatchCreateTerminal @ 0x14076B5F8 (TtmpDispatchCreateTerminal.c)
- *     TtmInitCurrentSession @ 0x140903118 (TtmInitCurrentSession.c)
+ *     TtmpDispatchCreateTerminal @ 0x14076B818 (TtmpDispatchCreateTerminal.c)
+ *     TtmInitCurrentSession @ 0x14099D6C8 (TtmInitCurrentSession.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x14024B8D0 (RtlFindClearBitsAndSet.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     TtmiUpdateActiveTerminalCount @ 0x14076A264 (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogTerminalCreated @ 0x14076E86C (TtmiLogTerminalCreated.c)
- *     TtmpSetTerminalPendingCleanup @ 0x140770364 (TtmpSetTerminalPendingCleanup.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
+ *     RtlFindClearBitsAndSet @ 0x14027BEE0 (RtlFindClearBitsAndSet.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x14076A484 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogTerminalCreated @ 0x14076EA8C (TtmiLogTerminalCreated.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x140770584 (TtmpSetTerminalPendingCleanup.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiCreateTerminal(__int64 a1, __int64 a2, char a3, _QWORD *a4, _DWORD *DeferredContext, _QWORD *a6)

@@ -13,59 +13,61 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpGetAssemblyStorageMapRootLocation(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpGetAssemblyStorageMapRootLocation(void *a1, __int64 a2, __int64 a3)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   unsigned int v7; // ebx
-  const char *v8; // r8
+  const CHAR *v8; // r8
   unsigned int v9; // ecx
-  __int64 Atom; // rax
-  __int64 v12; // [rsp+20h] [rbp-E0h]
+  PVOID Atom; // rax
+  __int64 Length; // [rsp+20h] [rbp-E0h]
   __int64 v13; // [rsp+30h] [rbp-D0h] BYREF
-  int v14; // [rsp+38h] [rbp-C8h] BYREF
-  HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v16; // [rsp+48h] [rbp-B8h] BYREF
-  __int128 v17; // [rsp+58h] [rbp-A8h]
-  __int128 v18; // [rsp+68h] [rbp-98h]
-  _BYTE v19[4]; // [rsp+80h] [rbp-80h] BYREF
-  int v20; // [rsp+84h] [rbp-7Ch]
+  ULONG ResultLength; // [rsp+38h] [rbp-C8h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+80h] [rbp-80h] BYREF
+  int v18; // [rsp+84h] [rbp-7Ch]
   unsigned int Size; // [rsp+88h] [rbp-78h]
   size_t Size_4; // [rsp+8Ch] [rbp-74h] BYREF
 
-  Handle = 0LL;
-  v14 = 0;
+  KeyHandle = 0LL;
+  ResultLength = 0;
   v13 = a2;
-  v16 = 0LL;
-  v17 = 0LL;
-  v18 = 0LL;
-  memset_thunk_772440563353939046(v19, 0, 0x218uLL);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  memset_thunk_772440563353939046(KeyValueInformation, 0, 0x218uLL);
   if ( a1 && a2 && a3 )
   {
-    LODWORD(v16) = 48;
-    *(_QWORD *)&v17 = &v13;
-    *((_QWORD *)&v16 + 1) = a1;
-    DWORD2(v17) = 64;
-    v18 = 0LL;
-    v6 = NtOpenKey(&Handle, 1LL, &v16);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v13;
+    ObjectAttributes.RootDirectory = a1;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v6 = NtOpenKey(&KeyHandle, 1u, &ObjectAttributes);
     v7 = v6;
     if ( v6 < 0 )
     {
       v8 = "SXS: Unable to open storage root subkey %wZ; Status = 0x%08lx\n";
 LABEL_6:
-      LODWORD(v12) = v6;
-      DbgPrintEx(51, 0, v8, &v13, v12);
+      LODWORD(Length) = v6;
+      DbgPrintEx(0x33u, 0, v8, &v13, Length);
       goto LABEL_22;
     }
-    v6 = NtQueryValueKey(Handle, &unk_180176990, 2LL, v19, 536, &v14);
+    v6 = NtQueryValueKey(
+           KeyHandle,
+           (PUNICODE_STRING)&stru_180176990,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x218u,
+           &ResultLength);
     v7 = v6;
     if ( v6 < 0 )
     {
       v8 = "SXS: Unabel to query location from storage root subkey %wZ; Status = 0x%08lx\n";
       goto LABEL_6;
     }
-    if ( v20 != 1 )
+    if ( v18 != 1 )
     {
-      DbgPrintEx(51, 0, "SXS: Assembly storage root location value type is not REG_SZ\n");
+      DbgPrintEx(0x33u, 0, "SXS: Assembly storage root location value type is not REG_SZ\n");
 LABEL_11:
       v7 = -1073741766;
       goto LABEL_22;
@@ -73,19 +75,19 @@ LABEL_11:
     v9 = Size;
     if ( (Size & 1) != 0 )
     {
-      DbgPrintEx(51, 0, "SXS: Assembly storage root location value has non-even size\n");
+      DbgPrintEx(0x33u, 0, "SXS: Assembly storage root location value has non-even size\n");
       goto LABEL_11;
     }
     if ( Size > *(unsigned __int16 *)(a3 + 2) )
     {
       if ( Size > 0xFFFE )
       {
-        DbgPrintEx(51, 0, "SXS: Assembly storage root location for %wZ does not fit in a UNICODE STRING\n", &v13);
+        DbgPrintEx(0x33u, 0, "SXS: Assembly storage root location for %wZ does not fit in a UNICODE STRING\n", &v13);
         v7 = -1073741562;
         goto LABEL_22;
       }
       *(_WORD *)(a3 + 2) = Size;
-      Atom = RtlpAllocateAtom();
+      Atom = RtlpAllocateAtom((unsigned __int16)v9);
       *(_QWORD *)(a3 + 8) = Atom;
       if ( !Atom )
       {
@@ -103,7 +105,7 @@ LABEL_11:
     v7 = -1073741811;
   }
 LABEL_22:
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v7;
 }

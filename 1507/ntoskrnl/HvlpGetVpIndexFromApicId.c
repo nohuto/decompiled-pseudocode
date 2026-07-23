@@ -17,7 +17,7 @@ __int64 __fastcall HvlpGetVpIndexFromApicId(int a1, _DWORD *a2)
   PSLIST_ENTRY v6; // rax
   char v7; // bp
   bool v8; // di
-  struct _SLIST_ENTRY *v9; // r15
+  _SLIST_ENTRY *v9; // r15
   _SLIST_ENTRY *v10; // rax
   PSLIST_ENTRY v11; // rax
   unsigned int v12; // r14d
@@ -30,11 +30,11 @@ __int64 __fastcall HvlpGetVpIndexFromApicId(int a1, _DWORD *a2)
   struct _KPRCB *v20; // [rsp+30h] [rbp-98h]
   PSLIST_ENTRY v21; // [rsp+30h] [rbp-98h]
   __int64 v22; // [rsp+38h] [rbp-90h]
-  union _SLIST_HEADER *v23; // [rsp+48h] [rbp-80h]
-  struct _SLIST_ENTRY *v24; // [rsp+50h] [rbp-78h]
+  _SLIST_HEADER *v23; // [rsp+48h] [rbp-80h]
+  _SLIST_ENTRY *v24; // [rsp+50h] [rbp-78h]
   _SLIST_ENTRY *v25; // [rsp+58h] [rbp-70h]
-  struct _KPRCB *v26; // [rsp+68h] [rbp-60h]
-  struct _SLIST_ENTRY *v27; // [rsp+70h] [rbp-58h]
+  _SLIST_HEADER *v26; // [rsp+68h] [rbp-60h]
+  _SLIST_ENTRY *v27; // [rsp+70h] [rbp-58h]
   _SLIST_ENTRY *v28; // [rsp+78h] [rbp-50h]
   __int16 v29; // [rsp+C0h] [rbp-8h]
   char v32; // [rsp+E0h] [rbp+18h]
@@ -49,7 +49,7 @@ __int64 __fastcall HvlpGetVpIndexFromApicId(int a1, _DWORD *a2)
     if ( v6 )
     {
       Next = v6[1].Next;
-      v23 = (union _SLIST_HEADER *)CurrentPrcb;
+      v23 = (_SLIST_HEADER *)CurrentPrcb;
       v7 = BYTE4(CurrentPrcb);
       v32 = 1;
       ListEntry = v6;
@@ -84,7 +84,7 @@ LABEL_7:
     if ( v11 )
     {
       v2 = 1;
-      v26 = v20;
+      v26 = (_SLIST_HEADER *)v20;
       v10 = v11[1].Next;
       v8 = (char)v20;
       v21 = v9;
@@ -93,13 +93,13 @@ LABEL_7:
     _disable();
     v8 = (v29 & 0x200) != 0;
     v10 = v28;
-    v9 = (struct _SLIST_ENTRY *)((char *)KeGetCurrentPrcb()->HypercallCachedPages + 4096);
+    v9 = (_SLIST_ENTRY *)((char *)KeGetCurrentPrcb()->HypercallCachedPages + 4096);
   }
   else
   {
     _disable();
     v8 = (v29 & 0x200) != 0;
-    v9 = (struct _SLIST_ENTRY *)((char *)KeGetCurrentPrcb()->HypercallCachedPages + 4096);
+    v9 = (_SLIST_ENTRY *)((char *)KeGetCurrentPrcb()->HypercallCachedPages + 4096);
     v10 = v9[1].Next;
   }
   v21 = v27;
@@ -150,7 +150,7 @@ LABEL_13:
   if ( (v2 & 1) != 0 )
   {
     v21[1].Next = v18;
-    RtlpInterlockedPushEntrySList(&v26->HypercallPageList, v21);
+    RtlpInterlockedPushEntrySList(v26 + 1535, v21);
   }
   else
   {

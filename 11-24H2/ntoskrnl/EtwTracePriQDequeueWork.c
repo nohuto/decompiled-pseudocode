@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTracePriQDequeueWork @ 0x1404BD0D4
+ * XREFs of EtwTracePriQDequeueWork @ 0x1404B8244
  * Callers:
- *     KeRemovePriQueue @ 0x140208340 (KeRemovePriQueue.c)
+ *     KeRemovePriQueue @ 0x14032F920 (KeRemovePriQueue.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTracePriQDequeueWork(__int64 a1, __int64 a2)
@@ -19,8 +19,8 @@ __int64 __fastcall EtwTracePriQDequeueWork(__int64 a1, __int64 a2)
   int v9; // [rsp+4Ch] [rbp-1Ch]
 
   v6 = 0;
-  result = HIDWORD(xmmword_140FC5B10);
-  if ( (BYTE12(xmmword_140FC5B10) & 8) == 0 )
+  result = HIDWORD(xmmword_140FC6B50);
+  if ( (BYTE12(xmmword_140FC6B50) & 8) == 0 )
   {
     v3 = *(_DWORD *)(a1 + 1296);
     v9 = 0;

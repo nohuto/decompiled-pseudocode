@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpAppxEtwIntegrityFailure @ 0x180137B40
+ * XREFs of LdrpAppxEtwIntegrityFailure @ 0x1801378B0
  * Callers:
- *     LdrAppxHandleIntegrityFailure @ 0x1800C1AB0 (LdrAppxHandleIntegrityFailure.c)
+ *     LdrAppxHandleIntegrityFailure @ 0x1800BF760 (LdrAppxHandleIntegrityFailure.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x18000F380 (EtwpEventWriteFull.c)
- *     EtwEventRegister @ 0x180057A10 (EtwEventRegister.c)
- *     EtwEventUnregister @ 0x18006D820 (EtwEventUnregister.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     EtwEventRegister @ 0x180041F90 (EtwEventRegister.c)
+ *     EtwpEventWriteFull @ 0x18005AAB0 (EtwpEventWriteFull.c)
+ *     EtwEventUnregister @ 0x18008DC70 (EtwEventUnregister.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpAppxEtwIntegrityFailure(int a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall LdrpAppxEtwIntegrityFailure(int a1, __int64 a2, __int64 a3)
 {
   __int128 *v3; // rbx
   __int64 v4; // rcx
   __int64 v5; // rax
-  __int64 result; // rax
-  __int64 v7; // [rsp+58h] [rbp+17h] BYREF
+  NTSTATUS result; // eax
+  ULONGLONG RegHandle; // [rsp+58h] [rbp+17h] BYREF
   __int64 v8; // [rsp+60h] [rbp+1Fh] BYREF
   int v9; // [rsp+68h] [rbp+27h]
   int v10; // [rsp+6Ch] [rbp+2Bh]
@@ -27,7 +27,7 @@ __int64 __fastcall LdrpAppxEtwIntegrityFailure(int a1, __int64 a2, __int64 a3)
   int v16; // [rsp+A8h] [rbp+67h] BYREF
 
   v16 = a1;
-  v7 = 0LL;
+  RegHandle = 0LL;
   if ( a1 == -1073740673 )
   {
     v3 = (__int128 *)"\v";
@@ -54,11 +54,11 @@ __int64 __fastcall LdrpAppxEtwIntegrityFailure(int a1, __int64 a2, __int64 a3)
   while ( *(_WORD *)(a3 + 2 * v4) );
   v15 = 0;
   v14 = 2 * v4 + 2;
-  result = EtwEventRegister(&AppModelRuntimeProviderId, 0LL, 0LL, (unsigned __int64 *)&v7);
-  if ( !(_DWORD)result )
+  result = EtwEventRegister(&AppModelRuntimeProviderId, 0LL, 0LL, &RegHandle);
+  if ( !result )
   {
-    EtwpEventWriteFull(v7, v3, 0LL, 0, 0, 0LL, 0LL, 3, (__int64)&v8);
-    return EtwEventUnregister(v7);
+    EtwpEventWriteFull(RegHandle, v3, 0LL, 0, 0, 0LL, 0LL, 3, (__int64)&v8);
+    return EtwEventUnregister(RegHandle);
   }
   return result;
 }

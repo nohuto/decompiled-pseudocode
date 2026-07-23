@@ -8,39 +8,39 @@
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140067810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
-__int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned int a3)
+__int64 __fastcall VmpFaultEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2, unsigned int a3)
 {
-  unsigned __int64 v3; // rdi
+  _RTL_BALANCED_NODE *v3; // rdi
   unsigned __int64 v5; // rsi
   unsigned __int8 CurrentIrql; // r14
-  bool v7; // r8
-  unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // rax
+  BOOLEAN v7; // r8
+  _RTL_BALANCED_NODE *v8; // rdx
+  _RTL_BALANCED_NODE *v9; // rax
   __int64 result; // rax
 
   v3 = a2;
-  v5 = a2 + 32LL * a3;
+  v5 = (unsigned __int64)a2 + 32 * a3;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  if ( v3 >= v5 )
+  if ( (unsigned __int64)v3 >= v5 )
     goto LABEL_16;
   do
   {
     v7 = 0;
-    v8 = *(_QWORD *)(a1 + 48);
+    v8 = *(_RTL_BALANCED_NODE **)(a1 + 48);
     if ( !v8 )
       goto LABEL_15;
     while ( 1 )
     {
-      if ( (*(_QWORD *)(v3 + 24) & 0xFFFFFFFFFFFFFuLL) < (*(_QWORD *)(v8 + 24) & 0xFFFFFFFFFFFFFuLL) )
+      if ( ((unsigned __int64)v3[1].Children[0] & 0xFFFFFFFFFFFFFLL) < ((unsigned __int64)v8[1].Children[0] & 0xFFFFFFFFFFFFFLL) )
       {
-        v9 = *(_QWORD *)v8;
+        v9 = v8->Children[0];
         if ( (*(_BYTE *)(a1 + 56) & 1) != 0 )
         {
           if ( !v9 )
             goto LABEL_8;
-          v9 ^= v8;
+          v9 = (_RTL_BALANCED_NODE *)((unsigned __int64)v8 ^ (unsigned __int64)v9);
         }
         if ( !v9 )
         {
@@ -50,12 +50,12 @@ LABEL_8:
         }
         goto LABEL_13;
       }
-      v9 = *(_QWORD *)(v8 + 8);
+      v9 = v8->Children[1];
       if ( (*(_BYTE *)(a1 + 56) & 1) != 0 )
       {
         if ( !v9 )
           break;
-        v9 ^= v8;
+        v9 = (_RTL_BALANCED_NODE *)((unsigned __int64)v8 ^ (unsigned __int64)v9);
       }
       if ( !v9 )
         break;
@@ -64,10 +64,10 @@ LABEL_13:
     }
     v7 = 1;
 LABEL_15:
-    RtlRbInsertNodeEx(a1 + 48, v8, v7, v3);
-    v3 += 32LL;
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 48), v8, v7, v3);
+    v3 = (_RTL_BALANCED_NODE *)((char *)v3 + 32);
   }
-  while ( v3 < v5 );
+  while ( (unsigned __int64)v3 < v5 );
 LABEL_16:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   result = CurrentIrql;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeviceCompletionRequestDestroyWorkItem @ 0x1404A1EF0
+ * XREFs of PnpDeviceCompletionRequestDestroyWorkItem @ 0x14049BA20
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeWorkItem @ 0x1404A1F40 (IoFreeWorkItem.c)
- *     PnpDisableWatchdog @ 0x1409DDFA8 (PnpDisableWatchdog.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IoFreeWorkItem @ 0x14049BA70 (IoFreeWorkItem.c)
+ *     PnpDisableWatchdog @ 0x140A1B0D4 (PnpDisableWatchdog.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDeviceCompletionRequestDestroyWorkItem(PVOID IoObject, _QWORD *Context, PIO_WORKITEM IoWorkItem)

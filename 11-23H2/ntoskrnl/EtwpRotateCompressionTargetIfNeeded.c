@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpRotateCompressionTargetIfNeeded @ 0x140602B24
+ * XREFs of EtwpRotateCompressionTargetIfNeeded @ 0x140603074
  * Callers:
- *     EtwpCompressBuffer @ 0x140602160 (EtwpCompressBuffer.c)
- *     EtwpCompressPendingBuffers @ 0x1406024E4 (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressBuffer @ 0x1406026B0 (EtwpCompressBuffer.c)
+ *     EtwpCompressPendingBuffers @ 0x140602A34 (EtwpCompressPendingBuffers.c)
  * Callees:
- *     EtwpRotateCompressionTarget @ 0x140602AB8 (EtwpRotateCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x140603008 (EtwpRotateCompressionTarget.c)
  */
 
 unsigned int *__fastcall EtwpRotateCompressionTargetIfNeeded(__int64 a1)

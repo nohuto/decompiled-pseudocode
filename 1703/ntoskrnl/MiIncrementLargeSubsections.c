@@ -36,7 +36,7 @@ __int64 __fastcall MiIncrementLargeSubsections(volatile LONG **a1, unsigned __in
   struct _KTHREAD *v15; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v17; // r15
-  __int64 v18; // r8
+  unsigned int v18; // r8d
   int v19; // eax
   __int64 v20; // rcx
   _KLOCK_ENTRY *v21; // rdi
@@ -109,7 +109,7 @@ LABEL_13:
     SessionId = 0xFFFFFFFFLL;
   --v15->SpecialApcDisable;
   v17 = ++v15->AbAllocationRegionCount;
-  LODWORD(v18) = ((char)v15->AbEntrySummary | (char)v15->AbOrphanedEntrySummary) ^ 0x3F;
+  v18 = ((char)v15->AbEntrySummary | (char)v15->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v22 = !_BitScanReverse((unsigned int *)&v23, v18);
@@ -119,7 +119,7 @@ LABEL_13:
     v19 = 1 << v23;
     v20 = v23;
     v21 = &v15->LockEntries[v20];
-    v18 = ~v19 & (unsigned int)v18;
+    v18 &= ~v19;
     if ( (v21->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v21->LockState.0 & 1) == 0
       && (*(_QWORD *)&v21->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v6 & 0x7FFFFFFFFFFFFFFCLL)
@@ -139,7 +139,7 @@ LABEL_25:
   }
   v21->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v21->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v15->LockEntries[v20], SessionId, v18);
+    KiAbEntryRemoveFromTree(&v15->LockEntries[v20].TreeNode, SessionId);
   v31 = 0;
   v31 = v21->BoostBitmap.AllFields & 0x1FFFF;
   v21->BoostBitmap.AllFields &= 0xFFFE0000;

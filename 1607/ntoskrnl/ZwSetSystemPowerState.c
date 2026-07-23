@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwSetSystemPowerState @ 0x14015CF80
+ * XREFs of ZwSetSystemPowerState @ 0x14015D4F0
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
- *     PopIssueActionRequest @ 0x140530068 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1405305A8 (PopIssueActionRequest.c)
  * Callees:
  *     <none>
  */
@@ -12,5 +12,5 @@ NTSTATUS __stdcall ZwSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&SystemAction, *(_QWORD *)&MinSystemState, *(_QWORD *)&Flags);
+  return KiServiceInternal(*(_QWORD *)&SystemAction);
 }

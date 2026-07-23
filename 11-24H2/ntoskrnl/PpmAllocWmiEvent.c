@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmAllocWmiEvent @ 0x1405D7E5C
+ * XREFs of PpmAllocWmiEvent @ 0x1405D53DC
  * Callers:
- *     PpmFireWmiEvent @ 0x1405D7EF8 (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x1405D7F80 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x1405D5478 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x1405D5500 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     IoWMIDeviceObjectToProviderId @ 0x1404639F0 (IoWMIDeviceObjectToProviderId.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IoWMIDeviceObjectToProviderId @ 0x14045A130 (IoWMIDeviceObjectToProviderId.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PpmAllocWmiEvent(PDEVICE_OBJECT DeviceObject, __int128 *a2, int a3)
@@ -15,7 +15,7 @@ __int64 __fastcall PpmAllocWmiEvent(PDEVICE_OBJECT DeviceObject, __int128 *a2, i
   __int128 v8; // xmm0
 
   v3 = a3 + 64;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, (unsigned int)(a3 + 64), 0x774D5050u);
   if ( Pool2 )
   {
     *(_QWORD *)(Pool2 + 16) = MEMORY[0xFFFFF78000000014];

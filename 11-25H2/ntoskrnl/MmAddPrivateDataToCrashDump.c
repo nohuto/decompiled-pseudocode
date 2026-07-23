@@ -52,7 +52,7 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 a1, char a2)
   }
   if ( (a2 & 8) != 0 )
   {
-    v11 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - PsHalImageBase);
+    v11 = MmAddRangeToCrashDump(a1, PsHalImageBase, PsHalImageEnd - (_QWORD)PsHalImageBase);
     if ( v11 < 0 )
       v2 = v11;
   }

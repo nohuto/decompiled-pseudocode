@@ -142,7 +142,7 @@ LABEL_43:
       v27 = PoolBigPageTableSize;
       goto LABEL_43;
     }
-    MiFreePoolPages((struct _SLIST_ENTRY *)PoolPages, v6, 1819242320);
+    MiFreePoolPages((_SLIST_ENTRY *)PoolPages, v6, 1819242320);
     return 0LL;
   }
   v15 = PoolPages;

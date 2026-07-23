@@ -33,11 +33,11 @@ __int64 __fastcall sub_1401E7744(int a1, int a2, unsigned __int16 a3, _OWORD *a4
   _SLIST_ENTRY *v23; // [rsp+28h] [rbp-A0h]
   PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-98h]
   PSLIST_ENTRY v25; // [rsp+38h] [rbp-90h]
-  union _SLIST_HEADER *v26; // [rsp+48h] [rbp-80h]
-  struct _SLIST_ENTRY *v27; // [rsp+50h] [rbp-78h]
+  _SLIST_HEADER *v26; // [rsp+48h] [rbp-80h]
+  _SLIST_ENTRY *v27; // [rsp+50h] [rbp-78h]
   _SLIST_ENTRY *v28; // [rsp+58h] [rbp-70h]
-  union _SLIST_HEADER *v29; // [rsp+68h] [rbp-60h]
-  struct _SLIST_ENTRY *v30; // [rsp+70h] [rbp-58h]
+  _SLIST_HEADER *v29; // [rsp+68h] [rbp-60h]
+  _SLIST_ENTRY *v30; // [rsp+70h] [rbp-58h]
   _SLIST_ENTRY *v31; // [rsp+78h] [rbp-50h]
   __int16 v32; // [rsp+C0h] [rbp-8h]
 
@@ -63,7 +63,7 @@ __int64 __fastcall sub_1401E7744(int a1, int a2, unsigned __int16 a3, _OWORD *a4
         ListEntry = v11;
         v7 = 1;
         v8 = (char)CurrentPrcb;
-        v26 = (union _SLIST_HEADER *)CurrentPrcb;
+        v26 = (_SLIST_HEADER *)CurrentPrcb;
         v12 = BYTE4(CurrentPrcb);
         Next = v11[1].Next;
         goto LABEL_9;
@@ -111,7 +111,7 @@ LABEL_14:
     }
     v25 = v15;
     v5 = 1;
-    v29 = (union _SLIST_HEADER *)v13;
+    v29 = (_SLIST_HEADER *)v13;
     v16 = BYTE4(v13);
     v23 = v15[1].Next;
 LABEL_15:

@@ -6,11 +6,11 @@
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
  */
 
-__int64 RtlpPrintErrorInformation()
+ULONG RtlpPrintErrorInformation()
 {
   const char *v0; // rbx
 
-  v0 = byte_18011CBC2;
+  v0 = (const char *)&Flags;
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
   else

@@ -9,11 +9,11 @@
  *     VfUtilFreePoolDispatchLevel @ 0x140327610 (VfUtilFreePoolDispatchLevel.c)
  */
 
-void __fastcall IovpSessionDataDereference(struct _SLIST_ENTRY *Entry)
+void __fastcall IovpSessionDataDereference(_SLIST_ENTRY *Entry)
 {
   bool v1; // zf
   _SLIST_ENTRY *Next; // r9
-  struct _SLIST_ENTRY *v3; // rax
+  _SLIST_ENTRY *v3; // rax
   _SLIST_ENTRY *v4; // rdx
   _SLIST_ENTRY **v5; // r8
 

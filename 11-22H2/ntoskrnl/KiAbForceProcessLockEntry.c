@@ -14,11 +14,11 @@
  *     KiAbOwnerComputeCpuPriorityKey @ 0x1403190CC (KiAbOwnerComputeCpuPriorityKey.c)
  */
 
-char __fastcall KiAbForceProcessLockEntry(__int64 a1)
+char __fastcall KiAbForceProcessLockEntry(unsigned __int8 *a1)
 {
   unsigned __int8 CurrentIrql; // bp
   struct _KPRCB *CurrentPrcb; // r15
-  __int128 *LockedHeadEntry; // rax
+  _RTL_RB_TREE *LockedHeadEntry; // rax
   __int64 v5; // r8
   __int64 v6; // rbx
   _DWORD *SchedulerAssist; // r9
@@ -35,7 +35,7 @@ char __fastcall KiAbForceProcessLockEntry(__int64 a1)
   v17 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v9) = 4;
@@ -45,18 +45,18 @@ char __fastcall KiAbForceProcessLockEntry(__int64 a1)
   }
   CurrentPrcb = KeGetCurrentPrcb();
   memset(&v16, 0, sizeof(v16));
-  LockedHeadEntry = KiAbEntryGetLockedHeadEntry((__int128 *)a1, 1, &v16);
+  LockedHeadEntry = KiAbEntryGetLockedHeadEntry((__int64)a1, 1, &v16);
   v6 = (__int64)LockedHeadEntry;
   if ( LockedHeadEntry )
   {
-    if ( !*(_BYTE *)(a1 + 17) )
+    if ( !a1[17] )
     {
 LABEL_4:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v16);
       return KiProcessDeferredReadyList((__int64)CurrentPrcb, &v17, CurrentIrql);
     }
-    if ( (__int128 *)a1 != LockedHeadEntry )
-      KiAbEntryUpdateWaiterTreePosition(a1, (__int64)LockedHeadEntry);
+    if ( a1 != (unsigned __int8 *)LockedHeadEntry )
+      KiAbEntryUpdateWaiterTreePosition((__int64)a1, LockedHeadEntry);
     v10 = *(_QWORD *)(v6 + 56);
     if ( v10 )
       v11 = *(_BYTE *)(v10 + 24);
@@ -70,8 +70,8 @@ LABEL_4:
         v13 = v12;
       v11 = v13;
     }
-    KiAbTryIncrementIoWaiterCounts((unsigned __int8 *)a1, v6, v5);
-    CpuPriorityKey = KiAbEntryGetCpuPriorityKey((unsigned __int8 *)a1);
+    KiAbTryIncrementIoWaiterCounts(a1, v6, v5);
+    CpuPriorityKey = KiAbEntryGetCpuPriorityKey(a1);
     if ( v11 < CpuPriorityKey )
     {
       if ( !v15 )

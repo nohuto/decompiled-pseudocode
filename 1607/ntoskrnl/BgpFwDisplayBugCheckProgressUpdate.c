@@ -1,14 +1,14 @@
 /*
- * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x14023A634
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x14023A518
  * Callers:
- *     KiBugCheckProgress @ 0x1401D5050 (KiBugCheckProgress.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x14023A634 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KiBugCheckProgress @ 0x1401D4E7C (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14023A518 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
- *     BcpConvertProgressToString @ 0x140239954 (BcpConvertProgressToString.c)
- *     BcpDisplayProgress @ 0x14023A124 (BcpDisplayProgress.c)
- *     BcpGetDisplayType @ 0x14023A48C (BcpGetDisplayType.c)
- *     BcpSetCursorPosition @ 0x14023A618 (BcpSetCursorPosition.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x14023A634 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BcpConvertProgressToString @ 0x140239838 (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x14023A008 (BcpDisplayProgress.c)
+ *     BcpGetDisplayType @ 0x14023A370 (BcpGetDisplayType.c)
+ *     BcpSetCursorPosition @ 0x14023A4FC (BcpSetCursorPosition.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14023A518 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_STRING **a2, char a3)
@@ -61,20 +61,20 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
   }
   if ( a1 != 100 || v12 == 100 )
   {
-    v18 = &stru_140329300;
+    v18 = &stru_140329340;
     if ( !a3 )
-      v18 = &stru_140329310;
+      v18 = &stru_140329350;
     *a2 = v18;
     BcpConvertProgressToString(v11, (__int64)(a2 + 3));
     if ( a1 == 1 )
     {
-      a2[1] = &stru_140329340;
-      v19 = &stru_140329350;
+      a2[1] = &stru_140329380;
+      v19 = &stru_140329390;
     }
     else
     {
-      a2[1] = &stru_140329360;
-      v19 = &stru_140329370;
+      a2[1] = &stru_1403293A0;
+      v19 = &stru_1403293B0;
     }
     a2[2] = v19;
     return 0LL;

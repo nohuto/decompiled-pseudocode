@@ -1,11 +1,11 @@
 /*
- * XREFs of SepCaptureTokenSecurityOperations @ 0x1404D2FB4
+ * XREFs of SepCaptureTokenSecurityOperations @ 0x1404CC824
  * Callers:
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140AF00AC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140AF2C7C (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureTokenSecurityOperations(__int64 a1, unsigned int a2, char a3, __int64 *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of SmProcessCreateNotification @ 0x1406D967C
+ * XREFs of SmProcessCreateNotification @ 0x1406B095C
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     SmpKeyedStoreCreate @ 0x140710B44 (SmpKeyedStoreCreate.c)
+ *     SmpKeyedStoreCreate @ 0x1406BF194 (SmpKeyedStoreCreate.c)
  */
 
 __int64 __fastcall SmProcessCreateNotification(__int64 a1, char a2)

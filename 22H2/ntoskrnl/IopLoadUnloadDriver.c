@@ -16,11 +16,11 @@ LONG __fastcall IopLoadUnloadDriver(__int64 a1)
   __int64 v2; // rcx
   int v3; // ebx
   int v5; // [rsp+40h] [rbp+8h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp+10h] BYREF
+  HANDLE KeyHandle; // [rsp+48h] [rbp+10h] BYREF
 
   v5 = 0;
   v2 = *(_QWORD *)(a1 + 56);
-  Handle = 0LL;
+  KeyHandle = 0LL;
   if ( v2 )
   {
     (*(void (**)(void))(v2 + 104))();
@@ -28,10 +28,10 @@ LONG __fastcall IopLoadUnloadDriver(__int64 a1)
   }
   else
   {
-    v3 = IopOpenRegistryKey(&Handle, 0LL, *(UNICODE_STRING **)(a1 + 64), 0x20019u, 0);
+    v3 = IopOpenRegistryKey(&KeyHandle, 0LL, *(UNICODE_STRING **)(a1 + 64), 0x20019u, 0);
     if ( v3 >= 0 )
     {
-      v3 = IopLoadDriver(Handle, 1, 0, &v5);
+      v3 = IopLoadDriver(KeyHandle, 1, 0, &v5);
       if ( v3 == -1073740955 )
       {
         v3 = v5;

@@ -1,16 +1,15 @@
 /*
- * XREFs of PopPdcRegister @ 0x140ABEFF8
+ * XREFs of PopPdcRegister @ 0x140ABA068
  * Callers:
- *     PopPdcInvocation @ 0x140ABEFA8 (PopPdcInvocation.c)
+ *     PopPdcInvocation @ 0x140ABA018 (PopPdcInvocation.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PopIsPlatformAoAcCapableInitialized @ 0x14048B7C8 (PopIsPlatformAoAcCapableInitialized.c)
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140590ACC (Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline @ 0x1405CCC74 (Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PopIsPlatformAoAcCapableInitialized @ 0x14048659C (PopIsPlatformAoAcCapableInitialized.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x14058DAEC (Feature_14FBugcheckMinidumpDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopPdcRegister(__int64 a1, __int64 (__fastcall **a2)(int a1, __int64 a2, unsigned int a3))
@@ -27,9 +26,7 @@ __int64 __fastcall PopPdcRegister(__int64 a1, __int64 (__fastcall **a2)(int a1, 
   __int64 v13; // r9
   __int64 v14; // rcx
   __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v19; // [rsp+20h] [rbp-8h]
+  __int64 v17; // [rsp+20h] [rbp-8h]
 
   v2 = 0;
   if ( a2 )
@@ -77,16 +74,15 @@ __int64 __fastcall PopPdcRegister(__int64 a1, __int64 (__fastcall **a2)(int a1, 
     if ( PopIsPlatformAoAcCapableInitialized() )
     {
       IsPlatformAoAc = SSHSupportIsPlatformAoAc();
-      PopReleasePolicyLock(v11, v10, v12, v13, v19);
+      PopReleasePolicyLock(v11, v10, v12, v13, v17);
       LOBYTE(v14) = IsPlatformAoAc;
-      guard_dispatch_icall_no_overrides(v14, v15, v16, v17);
+      guard_dispatch_icall_no_overrides(v14, v15);
     }
     else
     {
-      PopReleasePolicyLock(v6, v5, v7, v8, v19);
+      PopReleasePolicyLock(v6, v5, v7, v8, v17);
     }
-    if ( (unsigned int)Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline() )
-      ExQueueWorkItem(&PopDelayedPdcRegistrationWorkItem, DelayedWorkQueue);
+    ExQueueWorkItem(&PopDelayedPdcRegistrationWorkItem, DelayedWorkQueue);
   }
   else
   {

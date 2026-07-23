@@ -7,7 +7,7 @@
  *     <none>
  */
 
-void __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, _WORD *a3)
+BOOLEAN __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // edx
   __int64 v6; // r10
@@ -16,16 +16,16 @@ void __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, _WORD *a3)
   unsigned int v9; // r10d
   unsigned __int64 v10; // r8
   unsigned __int64 v11; // rax
-  bool v12; // r8
+  BOOLEAN v12; // r8
   __int16 v13; // r10
   int v14; // r9d
-  _QWORD *v15; // rdx
-  _QWORD *v16; // rax
+  _RTL_BALANCED_NODE *v15; // rdx
+  _RTL_BALANCED_NODE *v16; // rax
 
-  v5 = ((_DWORD)a3 - a2 + 4127) & 0xFFFFF000;
-  v6 = 16 * (WORD1(RtlpLFHKey) ^ ((unsigned int)a3 >> 16) ^ (unsigned __int16)a3[1]);
-  v7 = ((v6 + (unsigned __int64)((unsigned __int16)a3 & 0xFFF) + 4095) >> 12) - ((unsigned __int64)(v6 + 4095) >> 12);
-  v8 = ((_DWORD)a3 + v6 - a2) & 0xFFFFF000;
+  v5 = (a3 - a2 + 4127) & 0xFFFFF000;
+  v6 = 16 * (WORD1(RtlpLFHKey) ^ WORD1(a3) ^ *(unsigned __int16 *)(a3 + 2));
+  v7 = ((v6 + (unsigned __int64)(a3 & 0xFFF) + 4095) >> 12) - ((unsigned __int64)(v6 + 4095) >> 12);
+  v8 = (a3 + v6 - a2) & 0xFFFFF000;
   if ( v5 < v8 )
   {
     v9 = v8 - v5;
@@ -50,32 +50,32 @@ void __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, _WORD *a3)
           + ((v11 >> 2) & 0x3333333333333333LL)
           + (((v11 & 0x3333333333333333LL) + ((v11 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56);
   v14 = RtlpLFHKey;
-  *a3 = RtlpLFHKey ^ (unsigned __int16)a3 ^ v13;
-  v15 = *(_QWORD **)(a1 + 8);
+  *(_WORD *)a3 = RtlpLFHKey ^ a3 ^ v13;
+  v15 = *(_RTL_BALANCED_NODE **)(a1 + 8);
   if ( v15 )
   {
     while ( 1 )
     {
-      if ( ((unsigned int)a3 ^ v14 ^ *(_DWORD *)a3) < (v14 ^ (unsigned int)((_DWORD)v15 - 8) ^ *((_DWORD *)v15 - 2)) )
+      if ( ((unsigned int)a3 ^ v14 ^ *(_DWORD *)a3) < (v14 ^ (unsigned int)((_DWORD)v15 - 8) ^ *(_DWORD *)&v15[-1].0) )
       {
-        v16 = (_QWORD *)*v15;
-        if ( !*v15 )
+        v16 = v15->Children[0];
+        if ( !v15->Children[0] )
         {
           v12 = 0;
-          break;
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 8), v15, v12, (PRTL_BALANCED_NODE)(a3 + 8));
         }
       }
       else
       {
-        v16 = (_QWORD *)v15[1];
+        v16 = v15->Children[1];
         if ( !v16 )
         {
           v12 = 1;
-          break;
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 8), v15, v12, (PRTL_BALANCED_NODE)(a3 + 8));
         }
       }
       v15 = v16;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 8), (unsigned __int64)v15, v12, (unsigned __int64)(a3 + 4));
+  return RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 8), v15, v12, (PRTL_BALANCED_NODE)(a3 + 8));
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDpReplaceControl @ 0x140A978A0
+ * XREFs of HalpDpReplaceControl @ 0x140A97710
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpDpPostReplace @ 0x140A97488 (HalpDpPostReplace.c)
- *     HalpDpPreReplace @ 0x140A97780 (HalpDpPreReplace.c)
- *     HalpDpStartProcessor @ 0x140A97B74 (HalpDpStartProcessor.c)
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140A97D60 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpDpPostReplace @ 0x140A972F8 (HalpDpPostReplace.c)
+ *     HalpDpPreReplace @ 0x140A975F0 (HalpDpPreReplace.c)
+ *     HalpDpStartProcessor @ 0x140A979E4 (HalpDpStartProcessor.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140A97BD0 (HalpInterruptSwapProcessorIdentifiers.c)
  */
 
 __int64 __fastcall HalpDpReplaceControl(int a1, __int64 a2, __int64 a3)

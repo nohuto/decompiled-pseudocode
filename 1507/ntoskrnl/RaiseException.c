@@ -8,21 +8,26 @@
  *     RtlRaiseException @ 0x140246A34 (RtlRaiseException.c)
  */
 
-void __fastcall RaiseException(int a1, char a2, __int64 a3, const void *a4)
+// local variable allocation has failed, the output may be wrong!
+void __cdecl RaiseException(
+        DWORD dwExceptionCode,
+        DWORD dwExceptionFlags,
+        DWORD nNumberOfArguments,
+        const ULONG_PTR *lpArguments)
 {
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   HIDWORD(ExceptionRecord.ExceptionRecord) = 0;
-  ExceptionRecord.ExceptionCode = a1;
-  *(_QWORD *)&ExceptionRecord.ExceptionFlags = a2 & 1;
-  ExceptionRecord.ExceptionAddress = &RaiseException;
-  if ( a4 )
+  ExceptionRecord.ExceptionCode = dwExceptionCode;
+  *(_QWORD *)&ExceptionRecord.ExceptionFlags = dwExceptionFlags & 1;
+  ExceptionRecord.ExceptionAddress = RaiseException;
+  if ( lpArguments )
   {
-    if ( (unsigned int)a3 > 0xF )
-      a3 = 15LL;
-    ExceptionRecord.NumberParameters = a3;
-    if ( (_DWORD)a3 )
-      memmove(ExceptionRecord.ExceptionInformation, a4, 8 * a3);
+    if ( nNumberOfArguments > 0xF )
+      *(_QWORD *)&nNumberOfArguments = 15LL;
+    ExceptionRecord.NumberParameters = nNumberOfArguments;
+    if ( nNumberOfArguments )
+      memmove(ExceptionRecord.ExceptionInformation, lpArguments, 8LL * *(_QWORD *)&nNumberOfArguments);
   }
   else
   {

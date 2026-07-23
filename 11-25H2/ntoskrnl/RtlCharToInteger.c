@@ -10,10 +10,10 @@
 NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
 {
   PCSZ v5; // r9
-  char v6; // al
-  const char *v7; // rdx
+  CHAR v6; // al
+  const CHAR *v7; // rdx
   char v8; // cl
-  char v9; // bl
+  CHAR v9; // bl
   PCSZ v10; // rax
   int v11; // edx
   int v12; // r8d

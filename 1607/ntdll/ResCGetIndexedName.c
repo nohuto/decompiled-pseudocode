@@ -1,14 +1,14 @@
 /*
- * XREFs of ResCGetIndexedName @ 0x1800957A0
+ * XREFs of ResCGetIndexedName @ 0x180095790
  * Callers:
- *     ResCGetHighestConsecutiveCacheIndex @ 0x180105034 (ResCGetHighestConsecutiveCacheIndex.c)
- *     ResCGetSubIndexedName @ 0x1801054FC (ResCGetSubIndexedName.c)
+ *     ResCGetHighestConsecutiveCacheIndex @ 0x180104F74 (ResCGetHighestConsecutiveCacheIndex.c)
+ *     ResCGetSubIndexedName @ 0x18010543C (ResCGetSubIndexedName.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102DF8 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ResCGetName @ 0x180105118 (ResCGetName.c)
- *     _CopyLowerCaseAndSubstitute @ 0x1801055B0 (_CopyLowerCaseAndSubstitute.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102D38 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ResCGetName @ 0x180105058 (ResCGetName.c)
+ *     _CopyLowerCaseAndSubstitute @ 0x1801054F0 (_CopyLowerCaseAndSubstitute.c)
  */
 
 __int64 __fastcall ResCGetIndexedName(__int64 a1, __int64 a2, int a3, wchar_t *a4)
@@ -25,12 +25,12 @@ __int64 __fastcall ResCGetIndexedName(__int64 a1, __int64 a2, int a3, wchar_t *a
   int v17; // eax
   const wchar_t *v18; // rax
   const wchar_t *v19; // rax
-  __int64 Heap; // rax
-  unsigned __int64 v21; // rdi
+  PVOID Heap; // rax
+  void *v21; // rdi
   const wchar_t *v22; // rax
-  __int64 v23; // rax
+  PVOID v23; // rax
   __int64 v24; // [rsp+28h] [rbp-40h]
-  unsigned __int64 v25; // [rsp+88h] [rbp+20h]
+  PVOID BaseAddress; // [rsp+88h] [rbp+20h]
 
   v4 = 0;
   v5 = a2 & 0xFF00;
@@ -158,21 +158,21 @@ LABEL_13:
   }
   if ( v5 == 768 )
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
-    v25 = Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
+    BaseAddress = Heap;
     v21 = Heap;
     if ( Heap )
     {
       if ( !(unsigned int)CopyLowerCaseAndSubstitute(a1, Heap) )
       {
 LABEL_23:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v21);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v21);
         return 0LL;
       }
       v22 = L".init";
 LABEL_26:
       v12 = StringCchPrintfW(a4, 0x103uLL, L"Global\\%s/%s%04d%s", v21, L"rc", a3, v22);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v25);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
       goto LABEL_8;
     }
   }
@@ -180,8 +180,8 @@ LABEL_26:
   {
     if ( v5 != 1024 )
       goto LABEL_59;
-    v23 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
-    v25 = v23;
+    v23 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
+    BaseAddress = v23;
     v21 = v23;
     if ( v23 )
     {

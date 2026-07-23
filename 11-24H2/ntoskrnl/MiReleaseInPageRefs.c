@@ -1,36 +1,40 @@
 /*
- * XREFs of MiReleaseInPageRefs @ 0x14036FDF4
+ * XREFs of MiReleaseInPageRefs @ 0x14021C2D8
  * Callers:
- *     MiInvalidateCollidedIos @ 0x14036FA08 (MiInvalidateCollidedIos.c)
+ *     MiInvalidateCollidedIos @ 0x14049B72C (MiInvalidateCollidedIos.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiDereferenceControlAreaPfnList @ 0x14036FF5C (MiDereferenceControlAreaPfnList.c)
- *     MiLockAndDecrementShareCount @ 0x14039EFA4 (MiLockAndDecrementShareCount.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiLockAndDecrementShareCount @ 0x14021D444 (MiLockAndDecrementShareCount.c)
+ *     MiDereferenceControlAreaPfnList @ 0x14021DC9C (MiDereferenceControlAreaPfnList.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)
 {
   ULONG_PTR v2; // r9
-  unsigned int v3; // edi
+  __int64 v3; // rdx
   __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  unsigned int v7; // edi
+  __int64 v8; // rcx
   __int64 result; // rax
 
   v2 = 48 * (*(_QWORD *)(BugCheckParameter2 + 40) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
   if ( (*(_QWORD *)(v2 + 24) & 0x4000000000000000LL) != 0 )
     KeBugCheckEx(0x1Au, 0x61950uLL, BugCheckParameter2, v2, *(_QWORD *)(v2 + 24) & 0x3FFFFFFFFFFFFFFFLL);
   MiLockAndDecrementShareCount(v2);
-  v3 = 0;
+  v7 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 + 24), 0x3FuLL) )
   {
     do
     {
-      if ( (++v3 & HvlLongSpinCountMask) == 0
+      if ( (++v7 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
-        && KiCheckVpBackingLongSpinWaitHypercall() )
+        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v4, v3, v5, v6) )
       {
-        HvlNotifyLongSpinWait(v3);
+        HvlNotifyLongSpinWait(v7);
       }
       else
       {
@@ -40,15 +44,15 @@ __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)
     while ( *(__int64 *)(BugCheckParameter2 + 24) < 0 );
   }
   *(_QWORD *)(BugCheckParameter2 + 24) |= 0x4000000000000000uLL;
-  if ( *(__int64 *)(BugCheckParameter2 + 40) < 0 && (v4 = *(_QWORD *)(BugCheckParameter2 + 16), (v4 & 0x400) != 0) )
+  if ( *(__int64 *)(BugCheckParameter2 + 40) < 0 && (v8 = *(_QWORD *)(BugCheckParameter2 + 16), (v8 & 0x400) != 0) )
   {
-    if ( qword_140E2DB80 )
+    if ( qword_140E2DCC0 )
     {
-      if ( (v4 & 0x10) == 0 )
-        v4 &= ~qword_140E2DB80;
+      if ( (v8 & 0x10) == 0 )
+        v8 &= ~qword_140E2DCC0;
     }
     _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    return MiDereferenceControlAreaPfnList(*(_QWORD *)(v4 >> 16), v4 >> 16, 1LL);
+    return MiDereferenceControlAreaPfnList(*(_QWORD *)(v8 >> 16), v8 >> 16, 1LL, 3LL);
   }
   else
   {

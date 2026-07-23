@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDrawText()
+NTSTATUS __cdecl NtDrawText(PUNICODE_STRING Text)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 205LL;
+  result = 205;
   __asm { syscall; Low latency system call }
   return result;
 }

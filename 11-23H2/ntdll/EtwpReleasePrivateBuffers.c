@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpEventWriteFull @ 0x180030178 (EtwpEventWriteFull.c)
  *     EtwEventWriteTransfer @ 0x180030320 (EtwEventWriteTransfer.c)
- *     EtwEventWriteString @ 0x180124E90 (EtwEventWriteString.c)
+ *     EtwEventWriteString @ 0x180124E60 (EtwEventWriteString.c)
  * Callees:
  *     <none>
  */

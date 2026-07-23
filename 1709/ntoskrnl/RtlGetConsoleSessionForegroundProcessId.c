@@ -7,7 +7,7 @@
  *     PsGetCurrentServerSiloGlobals @ 0x1400D2E30 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 RtlGetConsoleSessionForegroundProcessId()
+ULONGLONG RtlGetConsoleSessionForegroundProcessId(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 138) + 8LL);

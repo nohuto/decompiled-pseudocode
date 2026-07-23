@@ -24,7 +24,7 @@ __int64 __fastcall KiWaitForAllObjects(
         int a3,
         unsigned __int8 a4,
         unsigned __int8 a5,
-        volatile signed __int32 *a6,
+        __int64 a6,
         __int64 *a7)
 {
   unsigned __int8 v7; // r14
@@ -69,8 +69,8 @@ __int64 __fastcall KiWaitForAllObjects(
   unsigned int v47; // edi
   unsigned __int64 v48; // rax
   char v49; // si
-  __int64 v50; // rax
-  __int64 v51; // r15
+  PRTL_BALANCED_NODE v50; // rax
+  PRTL_BALANCED_NODE v51; // r15
   __int64 v52; // rax
   unsigned __int64 v53; // rax
   _KLOCK_ENTRY *v54; // r15
@@ -125,7 +125,7 @@ __int64 __fastcall KiWaitForAllObjects(
     while ( v9 < v12 );
   }
   CurrentThread = KeGetCurrentThread();
-  v18 = KiCheckWaitNext((__int64)CurrentThread, a6, 0LL, &v66, &v62);
+  v18 = KiCheckWaitNext((__int64)CurrentThread, a6, 0, &v66, &v62);
   v57 = v18;
 LABEL_6:
   LODWORD(WaitStatus) = KiBeginThreadWait((__int64)CurrentThread, v7, v10, a5);
@@ -260,9 +260,9 @@ LABEL_23:
                 if ( !v50 )
                   break;
                 v36 |= 1LL << v49;
-                KeAbPreWait(v50);
+                KeAbPreWait((__int64)v50);
                 v52 = v47++;
-                v70[v52 + 504] = (2 * (16 * (*(unsigned __int8 *)(v51 + 24) - 50LL) / 96)) | 1;
+                v70[v52 + 504] = (2 * (16 * (LOBYTE(v51[1].Children[0]) - 50LL) / 96)) | 1;
               }
               while ( v8 );
               v12 = v63;
@@ -284,12 +284,12 @@ LABEL_23:
                 v55 = v11[(unsigned int)v53];
                 if ( v58 )
                 {
-                  KeAbPreAcquire(v55, (__int64)v54, 1);
+                  KeAbPreAcquire(v55, &v54->TreeNode, 1);
                   v54->AcquiredByte |= 1u;
                 }
                 else
                 {
-                  KeAbPreAcquire(v55, (__int64)v54, 0);
+                  KeAbPreAcquire(v55, &v54->TreeNode, 0);
                   KeAbPostReleaseEx(v11[v61], v54);
                 }
                 ++v38;

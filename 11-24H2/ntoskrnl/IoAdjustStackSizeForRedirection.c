@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAdjustStackSizeForRedirection @ 0x1404B1160
+ * XREFs of IoAdjustStackSizeForRedirection @ 0x1404AB9F0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     IoGetAttachedDevice @ 0x1403C4FC0 (IoGetAttachedDevice.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     IoGetAttachedDevice @ 0x1403B3B80 (IoGetAttachedDevice.c)
  */
 
 __int64 __fastcall IoAdjustStackSizeForRedirection(PDEVICE_OBJECT DeviceObject, __int64 a2, _BYTE *a3)

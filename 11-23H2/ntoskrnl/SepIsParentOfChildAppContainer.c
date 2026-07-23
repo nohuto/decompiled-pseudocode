@@ -1,22 +1,22 @@
 /*
- * XREFs of SepIsParentOfChildAppContainer @ 0x1409D19E4
+ * XREFs of SepIsParentOfChildAppContainer @ 0x1409D1BE4
  * Callers:
- *     SeIsParentOfChildAppContainer @ 0x1409C9590 (SeIsParentOfChildAppContainer.c)
+ *     SeIsParentOfChildAppContainer @ 0x1409C9790 (SeIsParentOfChildAppContainer.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     SepGetTokenSessionMapEntry @ 0x140464AB0 (SepGetTokenSessionMapEntry.c)
- *     RtlIsParentOfChildAppContainer @ 0x1409BC298 (RtlIsParentOfChildAppContainer.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1409D165C (SepFindMatchingLowBoxNumberEntries.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     SepGetTokenSessionMapEntry @ 0x140464EB0 (SepGetTokenSessionMapEntry.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1409BC498 (RtlIsParentOfChildAppContainer.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x1409D185C (SepFindMatchingLowBoxNumberEntries.c)
  */
 
-char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
+BOOLEAN __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
 {
-  char IsParentOfChildAppContainer; // r15
+  BOOLEAN IsParentOfChildAppContainer; // r15
   char v7; // r12
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v9; // rax

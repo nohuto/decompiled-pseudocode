@@ -1,14 +1,14 @@
 /*
- * XREFs of PspNotifyThreadCreation @ 0x1409EAC38
+ * XREFs of PspNotifyThreadCreation @ 0x1409E7408
  * Callers:
- *     PspSecureThreadStartup @ 0x140955DE0 (PspSecureThreadStartup.c)
- *     PspUserThreadStartup @ 0x1409EB210 (PspUserThreadStartup.c)
+ *     PspSecureThreadStartup @ 0x140949BA0 (PspSecureThreadStartup.c)
+ *     PspUserThreadStartup @ 0x1409E79E0 (PspUserThreadStartup.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     KeQuerySystemTimePrecise @ 0x14021B070 (KeQuerySystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     PfProcessCreateNotification @ 0x1409E9D20 (PfProcessCreateNotification.c)
- *     DbgkCreateThread @ 0x1409EAD24 (DbgkCreateThread.c)
+ *     KeQuerySystemTimePrecise @ 0x14021CA00 (KeQuerySystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     PfProcessCreateNotification @ 0x1409D1270 (PfProcessCreateNotification.c)
+ *     DbgkCreateThread @ 0x1409E74F4 (DbgkCreateThread.c)
  */
 
 __int64 __fastcall PspNotifyThreadCreation(__int64 a1)

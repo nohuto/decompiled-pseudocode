@@ -1,29 +1,29 @@
 /*
- * XREFs of MiMakeZeroedPageTablesEx @ 0x1402A515C
+ * XREFs of MiMakeZeroedPageTablesEx @ 0x1402A46AC
  * Callers:
- *     MiGetPageTablesForLargeMap @ 0x1402A30D4 (MiGetPageTablesForLargeMap.c)
- *     MiExpandSystemCache @ 0x1402A36A0 (MiExpandSystemCache.c)
- *     MiSplitBitmapPages @ 0x1402A5028 (MiSplitBitmapPages.c)
- *     MiMakeZeroedPageTables @ 0x1402A50D4 (MiMakeZeroedPageTables.c)
- *     MiCreatePoolPageTables @ 0x1402A50F4 (MiCreatePoolPageTables.c)
- *     MmKasanCommitRegion @ 0x14052A8A4 (MmKasanCommitRegion.c)
- *     MiMapNewPfns @ 0x140866674 (MiMapNewPfns.c)
+ *     MiGetPageTablesForLargeMap @ 0x1402A2624 (MiGetPageTablesForLargeMap.c)
+ *     MiExpandSystemCache @ 0x1402A2BF0 (MiExpandSystemCache.c)
+ *     MiSplitBitmapPages @ 0x1402A4578 (MiSplitBitmapPages.c)
+ *     MiMakeZeroedPageTables @ 0x1402A4624 (MiMakeZeroedPageTables.c)
+ *     MiCreatePoolPageTables @ 0x1402A4644 (MiCreatePoolPageTables.c)
+ *     MmKasanCommitRegion @ 0x14052CDC4 (MmKasanCommitRegion.c)
+ *     MiMapNewPfns @ 0x14086CA54 (MiMapNewPfns.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiDeleteSystemPageTables @ 0x1402A477C (MiDeleteSystemPageTables.c)
- *     MiCleanupPageTablePages @ 0x1402A55AC (MiCleanupPageTablePages.c)
- *     MiInitializeColorBase @ 0x1402A5898 (MiInitializeColorBase.c)
- *     MiFastReplenishWithAsync @ 0x1402A5938 (MiFastReplenishWithAsync.c)
- *     MiAsyncSlabReplenish @ 0x1402A5984 (MiAsyncSlabReplenish.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiUpdateChargedWsles @ 0x1405240B4 (MiUpdateChargedWsles.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiGetLargePagesForSystemMapping @ 0x140B4CC00 (MiGetLargePagesForSystemMapping.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiDeleteSystemPageTables @ 0x1402A3CCC (MiDeleteSystemPageTables.c)
+ *     MiCleanupPageTablePages @ 0x1402A4AFC (MiCleanupPageTablePages.c)
+ *     MiInitializeColorBase @ 0x1402A4DE8 (MiInitializeColorBase.c)
+ *     MiFastReplenishWithAsync @ 0x1402A4E88 (MiFastReplenishWithAsync.c)
+ *     MiAsyncSlabReplenish @ 0x1402A4ED4 (MiAsyncSlabReplenish.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiUpdateChargedWsles @ 0x140526724 (MiUpdateChargedWsles.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140B4E990 (MiGetLargePagesForSystemMapping.c)
  */
 
 __int64 __fastcall MiMakeZeroedPageTablesEx(__int64 a1, __int64 a2, int a3, int a4, unsigned int a5)
@@ -108,7 +108,7 @@ LABEL_7:
   AnyMultiplexedVm = MiSystemVaTypeToVm(a4);
   if ( !AnyMultiplexedVm )
     AnyMultiplexedVm = (void *volatile *)MiGetAnyMultiplexedVm(6LL, v14);
-  v27 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)AnyMultiplexedVm + 87));
+  v27 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)AnyMultiplexedVm + 87));
   v41 = v27;
   v16 = -1LL;
   v45 = a3;
@@ -125,7 +125,7 @@ LABEL_7:
     while ( v17 );
     v50 = v16;
   }
-  else if ( v12 >= 0xFFFFDE0000000000uLL && v12 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL || a4 == 19 )
+  else if ( v12 >= 0xFFFFDE0000000000uLL && v12 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL || a4 == 19 )
   {
     v50 = 0LL;
   }

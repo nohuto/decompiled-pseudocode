@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlRealSuccessor @ 0x180063A80
+ * XREFs of RtlRealSuccessor @ 0x180063A70
  * Callers:
- *     RtlEnumerateGenericTable @ 0x180063200 (RtlEnumerateGenericTable.c)
+ *     RtlEnumerateGenericTable @ 0x1800631F0 (RtlEnumerateGenericTable.c)
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall RtlRealSuccessor(_QWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlRealSuccessor(PRTL_SPLAY_LINKS Links)
 {
-  _QWORD *v1; // rax
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 i; // rax
-  _QWORD *j; // rcx
+  PRTL_SPLAY_LINKS v1; // rax
+  _RTL_SPLAY_LINKS *v2; // rdx
+  _RTL_SPLAY_LINKS *RightChild; // rcx
+  _RTL_SPLAY_LINKS *i; // rax
+  PRTL_SPLAY_LINKS j; // rcx
 
-  v1 = a1;
+  v1 = Links;
   v2 = 0LL;
-  v3 = a1[2];
-  if ( v3 )
+  RightChild = Links->RightChild;
+  if ( RightChild )
   {
-    for ( i = *(_QWORD *)(v3 + 8); i; i = *(_QWORD *)(i + 8) )
-      v3 = i;
-    return (_QWORD *)v3;
+    for ( i = RightChild->LeftChild; i; i = i->LeftChild )
+      RightChild = i;
+    return RightChild;
   }
   else
   {
-    for ( j = (_QWORD *)*v1; (_QWORD *)j[2] == v1; j = (_QWORD *)*j )
+    for ( j = v1->Parent; j->RightChild == v1; j = j->Parent )
       v1 = j;
-    if ( *(_QWORD **)(*v1 + 8LL) == v1 )
-      return (_QWORD *)*v1;
-    return (_QWORD *)v2;
+    if ( v1->Parent->LeftChild == v1 )
+      return v1->Parent;
+    return v2;
   }
 }

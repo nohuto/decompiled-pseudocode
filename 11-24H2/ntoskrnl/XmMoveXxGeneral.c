@@ -1,10 +1,10 @@
 /*
- * XREFs of XmMoveXxGeneral @ 0x1405755B0
+ * XREFs of XmMoveXxGeneral @ 0x140572A40
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x140468DC4 (XmEvaluateAddressSpecifier.c)
- *     XmSetSourceValue @ 0x140469348 (XmSetSourceValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140461774 (XmEvaluateAddressSpecifier.c)
+ *     XmSetSourceValue @ 0x140461CF8 (XmSetSourceValue.c)
  */
 
 __int64 __fastcall XmMoveXxGeneral(__int64 a1)

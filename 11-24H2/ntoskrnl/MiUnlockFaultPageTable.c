@@ -1,22 +1,22 @@
 /*
- * XREFs of MiUnlockFaultPageTable @ 0x1402E05F0
+ * XREFs of MiUnlockFaultPageTable @ 0x140241ED0
  * Callers:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
- *     MiMakeSystemCacheRangeValid @ 0x140243570 (MiMakeSystemCacheRangeValid.c)
- *     MiResolvePageTablePage @ 0x1402D86D0 (MiResolvePageTablePage.c)
- *     MiUnlockSystemVa @ 0x1402E1BA0 (MiUnlockSystemVa.c)
- *     MiUnlockStealVm @ 0x1402E1FC0 (MiUnlockStealVm.c)
- *     MiUserFault @ 0x1402FD560 (MiUserFault.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14020BFD0 (MiMakeSystemCacheRangeValid.c)
+ *     MiResolvePageTablePage @ 0x140239FB0 (MiResolvePageTablePage.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
+ *     MiUnlockSystemVa @ 0x1402FC650 (MiUnlockSystemVa.c)
+ *     MiUnlockStealVm @ 0x1402FE250 (MiUnlockStealVm.c)
+ *     MiUserFault @ 0x140307CE0 (MiUserFault.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAddWorkingSetEntries @ 0x1402E0980 (MiAddWorkingSetEntries.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiHaltOnAddressWakeEntireList @ 0x140321D94 (KiHaltOnAddressWakeEntireList.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiAddWorkingSetEntries @ 0x140242260 (MiAddWorkingSetEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x1402CA924 (KiHaltOnAddressWakeEntireList.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUnlockFaultPageTable(__int64 *a1)
@@ -41,11 +41,13 @@ void __fastcall MiUnlockFaultPageTable(__int64 *a1)
   __int64 v19; // r8
   __int64 v20; // r9
   __int64 v21; // rcx
-  struct _KPRCB *v22; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v24; // eax
-  signed __int32 v25; // ett
-  signed __int32 v26[8]; // [rsp+0h] [rbp-38h] BYREF
+  __int64 v22; // r9
+  struct _KPRCB *v23; // rcx
+  unsigned __int32 *SchedulerAssist; // r8
+  unsigned __int32 v25; // eax
+  __int64 v26; // rdx
+  unsigned __int32 v27; // ett
+  signed __int32 v28[8]; // [rsp+0h] [rbp-38h] BYREF
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
   v1 = a1[2];
@@ -79,7 +81,7 @@ void __fastcall MiUnlockFaultPageTable(__int64 *a1)
         {
           v15 = (2 * ((__int64)(v6 + 0x90482413000LL) >> 3)) & 0x1F;
           _InterlockedAnd(
-            &dword_140E2F0AC[(unsigned __int64)(2 * (unsigned int)((__int64)(v6 + 0x90482413000LL) >> 3)) >> 5],
+            &dword_140E2F1EC[(unsigned __int64)(2 * (unsigned int)((__int64)(v6 + 0x90482413000LL) >> 3)) >> 5],
             ~(2 << v15) & ~(1 << v15));
         }
         else
@@ -156,25 +158,27 @@ LABEL_10:
     v17 = (__int64)v10[1];
     if ( (((unsigned __int8)v17 ^ (unsigned __int8)_InterlockedExchange64((volatile __int64 *)(v16 + 8), v17)) & 4) != 0 )
     {
-      _InterlockedOr(v26, 0);
-      v18 = KeDisableInterrupts(v17, v9 * 24, ((unsigned __int64)(v16 + 8) >> 5) & 0x7F);
-      KiHaltOnAddressWakeEntireList(v21, _InterlockedExchange64((volatile __int64 *)(v20 + 8 * v19 + 15863072), 0LL));
+      _InterlockedOr(v28, 0);
+      v18 = KeDisableInterrupts(v17, v9 * 24, ((unsigned __int64)(v16 + 8) >> 5) & 0x7F, 0x140000000uLL);
+      KiHaltOnAddressWakeEntireList(v21, _InterlockedExchange64((volatile __int64 *)(v20 + 8 * v19 + 15863808), 0LL));
       if ( v18 )
       {
-        v22 = KeGetCurrentPrcb();
-        SchedulerAssist = (signed __int32 *)v22->SchedulerAssist;
+        v23 = KeGetCurrentPrcb();
+        SchedulerAssist = (unsigned __int32 *)v23->SchedulerAssist;
         if ( SchedulerAssist )
         {
           _m_prefetchw(SchedulerAssist);
-          v24 = *SchedulerAssist;
+          v25 = *SchedulerAssist;
           do
           {
-            v25 = v24;
-            v24 = _InterlockedCompareExchange(SchedulerAssist, v24 & 0xFFDFFFFF, v24);
+            v26 = v25;
+            LODWORD(v26) = v25 & 0xFFDFFFFF;
+            v27 = v25;
+            v25 = _InterlockedCompareExchange((volatile signed __int32 *)SchedulerAssist, v25 & 0xFFDFFFFF, v25);
           }
-          while ( v25 != v24 );
-          if ( (v24 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick((__int64)v22);
+          while ( v27 != v25 );
+          if ( (v25 & 0x200000) != 0 )
+            KiRemoveSystemWorkPriorityKick(v23, v26, SchedulerAssist, v22);
         }
         _enable();
       }

@@ -1,14 +1,14 @@
 /*
- * XREFs of wcsnlen @ 0x140197890
+ * XREFs of wcsnlen @ 0x1401979D0
  * Callers:
- *     _wcslwr_s @ 0x1401959F0 (_wcslwr_s.c)
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     RtlpQueryTimeZoneKeyNameRoutine @ 0x140761350 (RtlpQueryTimeZoneKeyNameRoutine.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x14089590C (RtlpSetTimeZoneInformationWorker.c)
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x1408BB900 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3DE4 (BiGetObjectReferenceFromEfiEntry.c)
- *     SiIsValidWindowsBootEntry @ 0x1408F5A88 (SiIsValidWindowsBootEntry.c)
+ *     _wcslwr_s @ 0x140195B30 (_wcslwr_s.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
+ *     RtlpQueryTimeZoneKeyNameRoutine @ 0x140762540 (RtlpQueryTimeZoneKeyNameRoutine.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x140896B6C (RtlpSetTimeZoneInformationWorker.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x1408BCBC0 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1408F50A4 (BiGetObjectReferenceFromEfiEntry.c)
+ *     SiIsValidWindowsBootEntry @ 0x1408F6D48 (SiIsValidWindowsBootEntry.c)
  * Callees:
  *     <none>
  */

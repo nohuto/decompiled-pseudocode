@@ -1,18 +1,18 @@
 /*
- * XREFs of IopSendMessageToTrackService @ 0x140B4EAA4
+ * XREFs of IopSendMessageToTrackService @ 0x140B51334
  * Callers:
- *     IopTrackLink @ 0x140ACE24C (IopTrackLink.c)
+ *     IopTrackLink @ 0x140AD048C (IopTrackLink.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1407245B0 (ZwAlpcSendWaitReceivePort.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x140729180 (ZwAlpcSendWaitReceivePort.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64 a3)
@@ -21,15 +21,18 @@ NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64
   KPROCESSOR_MODE PreviousMode; // si
   NTSTATUS result; // eax
   NTSTATUS v9; // eax
-  NTSTATUS v10; // ebx
+  NTSTATUS ReadTransferCount; // ebx
   __int64 Pool2; // rax
-  _QWORD *v12; // rbx
+  _PORT_MESSAGE *v12; // rbx
   unsigned int v13; // eax
   unsigned int v14; // eax
   size_t v15; // r8
   NTSTATUS v16; // eax
-  int v17; // [rsp+78h] [rbp-110h]
+  ULONG_PTR BufferLength[2]; // [rsp+40h] [rbp-148h] BYREF
+  _PORT_MESSAGE ReceiveMessage; // [rsp+50h] [rbp-138h] BYREF
+  int v19; // [rsp+78h] [rbp-110h]
 
+  BufferLength[0] = 0LL;
   v6 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   while ( 1 )
@@ -38,31 +41,31 @@ NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64
     {
       if ( !*(_DWORD *)(PspSiloMonitorLock.ExtendedFeatureDisableMask + 4) )
         return -1073741153;
-      result = KeWaitForSingleObject(&IopLinkTrackingPortObject, Executive, PreviousMode, 0, 0LL);
+      result = KeWaitForSingleObject(&IopPerfIoTrackingLock.WriteTransferCount, Executive, PreviousMode, 0, 0LL);
       if ( result == 192 || result == 257 )
         return result;
       if ( PspSiloMonitorLock.Queue )
       {
-        KeSetEvent(&IopLinkTrackingPortObject, 0, 0);
+        KeSetEvent((PRKEVENT)&IopPerfIoTrackingLock.WriteTransferCount, 0, 0);
       }
       else
       {
-        IopLinkTrackingPacket.Parameter = &IopLinkTrackingPacket;
-        IopLinkTrackingPacket.WorkerRoutine = (void (__fastcall *)(void *))IopConnectLinkTrackingPort;
-        IopLinkTrackingPacket.List.Flink = 0LL;
-        KeResetEvent(&stru_140F85500);
-        ExQueueWorkItem(&IopLinkTrackingPacket, DelayedWorkQueue);
-        v9 = KeWaitForSingleObject(&stru_140F85500, Executive, PreviousMode, 0, 0LL);
-        v10 = v9;
-        if ( v9 != 192 && v9 != 257 && dword_140F85518 < 0 )
-          v10 = dword_140F85518;
-        KeSetEvent(&IopLinkTrackingPortObject, 0, 0);
-        if ( v10 )
-          return v10;
+        IopPerfIoTrackingLock.InGlobalForegroundList = (unsigned __int64)&IopPerfIoTrackingLock.AbCompletedIoQoSBoostCount;
+        IopPerfIoTrackingLock.GlobalForegroundListEntry.Flink = (struct _LIST_ENTRY *)IopConnectLinkTrackingPort;
+        *(_QWORD *)&IopPerfIoTrackingLock.AbCompletedIoQoSBoostCount = 0LL;
+        KeResetEvent((PRKEVENT)&IopPerfIoTrackingLock.ReadOperationCount);
+        ExQueueWorkItem((PWORK_QUEUE_ITEM)&IopPerfIoTrackingLock.AbCompletedIoQoSBoostCount, DelayedWorkQueue);
+        v9 = KeWaitForSingleObject(&IopPerfIoTrackingLock.ReadOperationCount, Executive, PreviousMode, 0, 0LL);
+        ReadTransferCount = v9;
+        if ( v9 != 192 && v9 != 257 && SLODWORD(IopPerfIoTrackingLock.ReadTransferCount) < 0 )
+          ReadTransferCount = IopPerfIoTrackingLock.ReadTransferCount;
+        KeSetEvent((PRKEVENT)&IopPerfIoTrackingLock.WriteTransferCount, 0, 0);
+        if ( ReadTransferCount )
+          return ReadTransferCount;
       }
     }
     Pool2 = ExAllocatePool2(0x100uLL);
-    v12 = (_QWORD *)Pool2;
+    v12 = (_PORT_MESSAGE *)Pool2;
     if ( !Pool2 )
       break;
     *(_QWORD *)(Pool2 + 40) = 0LL;
@@ -87,21 +90,35 @@ NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64
       v15 = 16LL;
       if ( v14 <= 0x10 )
         v15 = v14;
-      memmove(v12 + 21, (const void *)(a3 + 48), v15);
+      memmove(&v12[4].8, (const void *)(a3 + 48), v15);
     }
-    *v12 = 12058768LL;
-    v16 = ZwAlpcSendWaitReceivePort((__int64)PspSiloMonitorLock.Queue, 0x20000LL);
-    v10 = v16;
+    *(_QWORD *)&v12->u1.s1.DataLength = 12058768LL;
+    BufferLength[0] = 256LL;
+    v16 = ZwAlpcSendWaitReceivePort(
+            PspSiloMonitorLock.Queue,
+            0x20000u,
+            v12,
+            0LL,
+            &ReceiveMessage,
+            BufferLength,
+            0LL,
+            0LL);
+    ReadTransferCount = v16;
     if ( v16 != -1073741769 && v16 != -1073740029
-      || (v10 = KeWaitForSingleObject(&IopLinkTrackingPortObject, Executive, PreviousMode, 0, 0LL),
+      || (ReadTransferCount = KeWaitForSingleObject(
+                                &IopPerfIoTrackingLock.WriteTransferCount,
+                                Executive,
+                                PreviousMode,
+                                0,
+                                0LL),
           ZwClose(PspSiloMonitorLock.Queue),
           PspSiloMonitorLock.Queue = 0LL,
-          KeSetEvent(&IopLinkTrackingPortObject, 0, 0),
+          KeSetEvent((PRKEVENT)&IopPerfIoTrackingLock.WriteTransferCount, 0, 0),
           v6) )
     {
-      if ( v10 >= 0 )
-        return v17;
-      return v10;
+      if ( ReadTransferCount >= 0 )
+        return v19;
+      return ReadTransferCount;
     }
     v6 = 1;
   }

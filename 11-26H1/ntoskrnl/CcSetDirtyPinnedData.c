@@ -1,20 +1,20 @@
 /*
- * XREFs of CcSetDirtyPinnedData @ 0x14039D2A0
+ * XREFs of CcSetDirtyPinnedData @ 0x14039F000
  * Callers:
- *     CcZeroDataInCache @ 0x14039EF58 (CcZeroDataInCache.c)
- *     CcReleaseByteRangeFromWrite @ 0x14046D170 (CcReleaseByteRangeFromWrite.c)
- *     CcUnpinRepinnedBcb @ 0x1404AA000 (CcUnpinRepinnedBcb.c)
- *     CcPreparePinWrite @ 0x140AC3300 (CcPreparePinWrite.c)
+ *     CcZeroDataInCache @ 0x1403A0CB8 (CcZeroDataInCache.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1404668F0 (CcReleaseByteRangeFromWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x1404A3690 (CcUnpinRepinnedBcb.c)
+ *     CcPreparePinWrite @ 0x140AC4F70 (CcPreparePinWrite.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x14039D068 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcSetDirtyInMask @ 0x14039D5F0 (CcSetDirtyInMask.c)
- *     CcChargeDirtyPages @ 0x14039DE50 (CcChargeDirtyPages.c)
- *     CcScheduleLazyWriteScan @ 0x1403E0640 (CcScheduleLazyWriteScan.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x14039EDC8 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcSetDirtyInMask @ 0x14039F350 (CcSetDirtyInMask.c)
+ *     CcChargeDirtyPages @ 0x14039FBB0 (CcChargeDirtyPages.c)
+ *     CcScheduleLazyWriteScan @ 0x1403E3830 (CcScheduleLazyWriteScan.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)

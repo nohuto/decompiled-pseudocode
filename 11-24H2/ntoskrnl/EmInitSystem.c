@@ -1,30 +1,30 @@
 /*
- * XREFs of EmInitSystem @ 0x140C607D0
+ * XREFs of EmInitSystem @ 0x140C62920
  * Callers:
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140C5FB78 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140C61CC8 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1406A64D0 (ZwReadFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     RtlAppendStringToString @ 0x140A80710 (RtlAppendStringToString.c)
- *     EmpProviderRegister @ 0x140AB3EE0 (EmpProviderRegister.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     EmpParseInfDatabase @ 0x140C167C4 (EmpParseInfDatabase.c)
- *     EmpCacheBiosDate @ 0x140C6288C (EmpCacheBiosDate.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1406A7470 (ZwReadFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x140A7B170 (RtlAppendStringToString.c)
+ *     EmpProviderRegister @ 0x140AAEE50 (EmpProviderRegister.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     EmpParseInfDatabase @ 0x140C187C4 (EmpParseInfDatabase.c)
+ *     EmpCacheBiosDate @ 0x140C64A08 (EmpCacheBiosDate.c)
  */
 
 __int64 __fastcall EmInitSystem(int a1, __int64 a2)
 {
   _DWORD *Pool2; // rsi
-  ULONG_PTR v3; // r14
+  __int64 v3; // r14
   __int64 v4; // rax
   __int64 v5; // rcx
   unsigned int v6; // edx
@@ -175,7 +175,7 @@ LABEL_19:
   }
   else
   {
-    dword_140F8E458 |= 0x80000000;
+    dword_140F8E628 |= 0x80000000;
     EmpRuleUpdateWorker.WorkerRoutine = (void (__fastcall *)(void *))EmpRuleUpdateWorkerThread;
     EmpParseLock = 0LL;
     EmpDatabaseLock = 0LL;

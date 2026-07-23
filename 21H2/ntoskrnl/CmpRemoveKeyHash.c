@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpRemoveKeyHash @ 0x14066C8A0
+ * XREFs of CmpRemoveKeyHash @ 0x1406616C0
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpDiscardKcb @ 0x14066C928 (CmpDiscardKcb.c)
- *     CmpRehashKcbSubtree @ 0x14086F084 (CmpRehashKcbSubtree.c)
- *     CmpRemoveKeyControlBlock @ 0x14086F138 (CmpRemoveKeyControlBlock.c)
+ *     CmpDiscardKcb @ 0x140661748 (CmpDiscardKcb.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406DDFD4 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpRehashKcbSubtree @ 0x14086F1E4 (CmpRehashKcbSubtree.c)
+ *     CmpRemoveKeyControlBlock @ 0x14086F298 (CmpRemoveKeyControlBlock.c)
  * Callees:
- *     CmpRemoveKeyHashFromTableEntry @ 0x14066C8F8 (CmpRemoveKeyHashFromTableEntry.c)
+ *     CmpRemoveKeyHashFromTableEntry @ 0x140661718 (CmpRemoveKeyHashFromTableEntry.c)
  */
 
 __int64 __fastcall CmpRemoveKeyHash(__int64 a1, _DWORD *a2)

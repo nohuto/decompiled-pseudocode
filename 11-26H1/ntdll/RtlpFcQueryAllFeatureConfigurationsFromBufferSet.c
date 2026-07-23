@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFcQueryAllFeatureConfigurationsFromBufferSet @ 0x18016F810
+ * XREFs of RtlpFcQueryAllFeatureConfigurationsFromBufferSet @ 0x18016E810
  * Callers:
- *     RtlQueryAllFeatureConfigurations @ 0x1800143D0 (RtlQueryAllFeatureConfigurations.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x18005FB00 (RtlQueryAllFeatureConfigurations.c)
  * Callees:
- *     RtlpFcValidateFeatureConfigurationType @ 0x1800ED090 (RtlpFcValidateFeatureConfigurationType.c)
- *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x18010ABF0 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
+ *     RtlpFcValidateFeatureConfigurationType @ 0x1800EC530 (RtlpFcValidateFeatureConfigurationType.c)
+ *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x180109488 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
  */
 
 __int64 __fastcall RtlpFcQueryAllFeatureConfigurationsFromBufferSet(__int64 a1, unsigned int a2)

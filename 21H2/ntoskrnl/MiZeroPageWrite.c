@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroPageWrite @ 0x1402BFD18
+ * XREFs of MiZeroPageWrite @ 0x14023E168
  * Callers:
- *     MmZeroPageWrite @ 0x1402BFC98 (MmZeroPageWrite.c)
+ *     MmZeroPageWrite @ 0x14023E0E8 (MmZeroPageWrite.c)
  * Callees:
- *     MiIsRetryIoStatus @ 0x1402558E4 (MiIsRetryIoStatus.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     IoSynchronousPageWriteEx @ 0x14031BE0C (IoSynchronousPageWriteEx.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiRetardMdl @ 0x140530CF0 (MiRetardMdl.c)
+ *     MiIsRetryIoStatus @ 0x140276E54 (MiIsRetryIoStatus.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     IoSynchronousPageWriteEx @ 0x140326B5C (IoSynchronousPageWriteEx.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiRetardMdl @ 0x140530F30 (MiRetardMdl.c)
  */
 
 __int64 __fastcall MiZeroPageWrite(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -27,11 +27,11 @@ __int64 __fastcall MiZeroPageWrite(__int64 a1, _QWORD *a2, unsigned int a3, unsi
   __int64 v13; // rsi
   unsigned int v14; // eax
   __int64 v15; // rcx
-  unsigned __int64 v16; // r13
+  __int64 v16; // r13
   CSHORT v17; // ax
   _QWORD *p_Next; // rcx
   __int64 v19; // rdx
-  NTSTATUS v20; // r15d
+  int v20; // r15d
   CSHORT v21; // ax
   int v23; // [rsp+40h] [rbp-C0h]
   __int16 v24; // [rsp+48h] [rbp-B8h]
@@ -103,7 +103,7 @@ __int64 __fastcall MiZeroPageWrite(__int64 a1, _QWORD *a2, unsigned int a3, unsi
       v19 = v13;
       do
       {
-        *p_Next++ = qword_140C4ED80;
+        *p_Next++ = qword_140C4EDC0;
         --v19;
       }
       while ( v19 );
@@ -148,7 +148,7 @@ LABEL_25:
     LOWORD(v5) = v24;
   }
   v23 = 8;
-  if ( MiIsRetryIoStatus(v20, v16) && (_DWORD)v13 != 1 )
+  if ( (unsigned int)MiIsRetryIoStatus((unsigned int)v20, v16, 0LL) && (_DWORD)v13 != 1 )
   {
     LODWORD(v13) = (unsigned int)v13 >> 1;
     goto LABEL_25;

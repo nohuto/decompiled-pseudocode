@@ -24,30 +24,30 @@
  *     RtlRaiseStatus @ 0x18010F220 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall LdrpInitialize(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+NTSTATUS __fastcall LdrpInitialize(__int64 a1, __int64 a2, __int64 a3)
 {
-  struct _TEB *v4; // r13
-  __int64 result; // rax
-  $DF4FA9F692459BA109B62B4026D83C94 *v6; // r14
+  struct _TEB *v3; // r13
+  NTSTATUS result; // eax
+  $DF4FA9F692459BA109B62B4026D83C94 *v5; // r14
   _PEB *ProcessEnvironmentBlock; // r15
-  unsigned int v8; // edi
-  int v9; // eax
-  char v10; // al
-  int v11; // eax
-  struct _PEB *v12; // rax
-  int v13; // [rsp+30h] [rbp-48h]
+  NTSTATUS v7; // edi
+  int v8; // eax
+  char v9; // al
+  int v10; // eax
+  struct _PEB *v11; // rax
+  int v12; // [rsp+30h] [rbp-48h]
 
-  v4 = NtCurrentTeb();
+  v3 = NtCurrentTeb();
   while ( 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(&LdrpProcessInitialized, 1, 0);
-    v6 = &v4->6126;
-    if ( (_DWORD)result == 1 && (v6->SameTebFlags & 0x2000) == 0 )
+    result = _InterlockedCompareExchange(&LdrpProcessInitialized, 1, 0);
+    v5 = &v3->6126;
+    if ( result == 1 && (v5->SameTebFlags & 0x2000) == 0 )
       goto LABEL_15;
-    ProcessEnvironmentBlock = v4->ProcessEnvironmentBlock;
-    if ( !(_DWORD)result )
+    ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
+    if ( !result )
       break;
-    v8 = 0;
+    v7 = 0;
     if ( !ProcessEnvironmentBlock->InheritedAddressSpace )
       goto LABEL_5;
     LdrpInitCompleteEvent = 0LL;
@@ -55,23 +55,23 @@ __int64 __fastcall LdrpInitialize(__int64 a1, unsigned __int64 a2, unsigned __in
     {
       if ( ProcessEnvironmentBlock->InheritedAddressSpace )
       {
-        v12 = NtCurrentPeb();
-        LdrpForkActiveLock = 0LL;
-        LdrpForkConditionVariable = 0LL;
-        v12->InheritedAddressSpace = 0;
-        if ( v12->BeingDebugged )
+        v11 = NtCurrentPeb();
+        LdrpForkActiveLock.0 = 0LL;
+        LdrpForkConditionVariable.Ptr = 0LL;
+        v11->InheritedAddressSpace = 0;
+        if ( v11->BeingDebugged )
           LdrpDoDebuggerBreak();
       }
       result = LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 5252LL);
-      v8 = 0;
+      v7 = 0;
 LABEL_5:
-      if ( (v6->SameTebFlags & 0x40) == 0 )
+      if ( (v5->SameTebFlags & 0x40) == 0 )
       {
         if ( LdrpForkInProgress )
         {
-          RtlAcquireSRWLockShared(&LdrpForkActiveLock, a2, a3, a4);
+          RtlAcquireSRWLockShared(&LdrpForkActiveLock);
           while ( LdrpForkInProgress )
-            RtlSleepConditionVariableSRW(&LdrpForkConditionVariable, &LdrpForkActiveLock, 0LL, 1);
+            RtlSleepConditionVariableSRW(&LdrpForkConditionVariable, &LdrpForkActiveLock, 0LL, 1u);
           RtlReleaseSRWLockShared(&LdrpForkActiveLock);
         }
         if ( UseWOW64 )
@@ -81,72 +81,72 @@ LABEL_5:
       goto LABEL_10;
     }
 LABEL_15:
-    LdrpWaitForInitializationComplete(&LdrpProcessInitialized, (HANDLE *)&LdrpInitCompleteEvent);
+    LdrpWaitForInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent);
   }
-  ZwCreateEvent(&LdrpInitCompleteEvent, 2031619LL, 0LL, 0LL, 0);
-  v6->SameTebFlags |= 0x20u;
-  ProcessEnvironmentBlock->LoaderLock = (_RTL_CRITICAL_SECTION *)&LdrpLoaderLock;
+  ZwCreateEvent(&LdrpInitCompleteEvent, 0x1F0003u, 0LL, NotificationEvent, 0);
+  v5->SameTebFlags |= 0x20u;
+  ProcessEnvironmentBlock->LoaderLock = &LdrpLoaderLock;
   LdrInitState = 0;
   _interlockedbittestandset((volatile signed __int32 *)&ProcessEnvironmentBlock->80, 1u);
   qword_1801992D8 = (__int64)&RtlpDynamicFunctionTable;
   RtlpDynamicFunctionTable = (__int64)&RtlpDynamicFunctionTable;
-  RtlpDynamicFunctionTableLock = 0LL;
+  RtlpDynamicFunctionTableLock.0 = 0LL;
   RtlpDynamicFunctionTableTreeMin = 0LL;
   RtlpDynamicFunctionTableTreeMax = 0LL;
   RtlpDynamicCallbackTableTreeMin = 0LL;
   RtlpDynamicCallbackTableTreeMax = 0LL;
-  v9 = LdrInitializeMrdata();
-  v8 = v9;
-  if ( v9 >= 0 )
+  v8 = LdrInitializeMrdata();
+  v7 = v8;
+  if ( v8 >= 0 )
   {
-    v10 = LdrpDetourExist;
+    v9 = LdrpDetourExist;
     if ( LdrpIsSecureProcess )
-      v10 = 1;
-    LdrpDetourExist = v10;
-    v11 = LdrpInitializeProcess(a1, a2);
-    v8 = v11;
-    v13 = v11;
-    if ( v11 >= 0 )
+      v9 = 1;
+    LdrpDetourExist = v9;
+    v10 = LdrpInitializeProcess(a1, a2);
+    v7 = v10;
+    v12 = v10;
+    if ( v10 >= 0 )
     {
       LdrpLogDllState(*(_QWORD *)(LdrpImageEntry + 48), LdrpImageEntry + 72, 0x14AEu);
       if ( ProcessEnvironmentBlock->MinimumStackCommit )
-        v13 = LdrpTouchThreadStack();
+        v12 = LdrpTouchThreadStack();
       LdrInitState = 3;
       _interlockedbittestandreset((volatile signed __int32 *)&ProcessEnvironmentBlock->80, 1u);
       result = RtlInitializeHeapGC(LdrpThreadPool);
-      v8 = v13;
-      if ( v13 >= 0 && (!UseWOW64 || LdrpProcessInitialized == 1) )
+      v7 = v12;
+      if ( v12 >= 0 && (!UseWOW64 || LdrpProcessInitialized == 1) )
         result = LdrpInitializationComplete(&LdrpProcessInitialized, &LdrpInitCompleteEvent, 5252LL);
     }
     else
     {
       result = LdrpLogInternal(
                  (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-                 2295LL,
+                 2295,
                  (__int64)"_LdrpInitialize",
-                 0LL,
+                 0,
                  "Process initialization failed with status 0x%08lx\n",
-                 v11);
+                 v10);
     }
   }
   else
   {
     result = LdrpLogInternal(
                (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-               2271LL,
+               2271,
                (__int64)"_LdrpInitialize",
-               0LL,
+               0,
                "LDR:MRDATA: Process initialization failed with status 0x%08lx\n",
-               v9);
+               v8);
   }
 LABEL_10:
-  if ( (v8 & 0x80000000) != 0 )
+  if ( v7 < 0 )
   {
-    LdrpInitializationFailure(v8);
-    ZwTerminateProcess(-1LL, v8);
-    RtlRaiseStatus(v8);
+    LdrpInitializationFailure((unsigned int)v7);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v7);
+    RtlRaiseStatus(v7);
   }
-  if ( (v6->SameTebFlags & 0x2000) == 0 )
+  if ( (v5->SameTebFlags & 0x2000) == 0 )
     return ZwTestAlert();
   return result;
 }

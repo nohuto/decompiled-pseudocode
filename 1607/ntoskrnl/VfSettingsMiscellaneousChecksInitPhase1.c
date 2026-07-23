@@ -1,7 +1,7 @@
 /*
  * XREFs of VfSettingsMiscellaneousChecksInitPhase1 @ 0x140716810
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1407031D4 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140703204 (VfInitSystemNoRebootNeeded.c)
  *     VerifierInitSystem @ 0x1407B9E08 (VerifierInitSystem.c)
  * Callees:
  *     ViSettingsEnableKernelHandleChecking @ 0x140716830 (ViSettingsEnableKernelHandleChecking.c)

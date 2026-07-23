@@ -1,51 +1,50 @@
 /*
- * XREFs of ?GetStoragePropertyPost@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14069D7B0
+ * XREFs of ?GetStoragePropertyPost@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14069E840
  * Callers:
  *     <none>
  * Callees:
- *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x14069D260 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x14070DD00 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
- *     PspUserApcKernelRoutine @ 0x1408A8FB0 (PspUserApcKernelRoutine.c)
+ *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x14069E2F0 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x14070B8A0 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     PspUserApcKernelRoutine @ 0x1408FF210 (PspUserApcKernelRoutine.c)
  */
 
 __int64 __fastcall SC_DISK::GetStoragePropertyPost(
         struct _UNICODE_STRING *this,
         int a2,
-        struct _STORAGE_DESCRIPTOR_HEADER *a3,
-        unsigned int a4)
+        struct _STORAGE_DESCRIPTOR_HEADER *a3)
 {
-  unsigned int v4; // ebx
+  unsigned int v3; // ebx
   unsigned int Buffer_high; // ecx
   unsigned int Size; // eax
+  int v8; // edx
   int v9; // edx
   int v10; // edx
-  int v11; // edx
-  char *v12; // rax
-  char *v13; // rsi
+  char *v11; // rax
+  char *v12; // rsi
   unsigned int Version; // edx
 
-  v4 = 0;
+  v3 = 0;
   if ( a2 > 14 )
   {
-    v9 = a2 - 21;
-    if ( v9 )
+    v8 = a2 - 21;
+    if ( v8 )
     {
-      v10 = v9 - 36;
-      if ( v10 )
+      v9 = v8 - 36;
+      if ( v9 )
       {
-        v11 = v10 - 1;
-        if ( v11 )
+        v10 = v9 - 1;
+        if ( v10 )
         {
-          if ( v11 == 7 )
+          if ( v10 == 7 )
           {
-            v12 = (char *)SC_ENV::Allocate(a3[1].Version + 1, 5u, (unsigned __int8)a3, a4);
-            v13 = v12;
-            if ( v12 )
+            v11 = (char *)SC_ENV::Allocate(a3[1].Version + 1, 5u, (unsigned __int8)a3, 0);
+            v12 = v11;
+            if ( v11 )
             {
-              memmove(v12, &a3[1].Size, a3[1].Version);
-              v4 = ScAnsiToUnicodeString(v13, this + 18);
-              PspUserApcKernelRoutine(v13);
+              memmove(v11, &a3[1].Size, a3[1].Version);
+              v3 = ScAnsiToUnicodeString(v12, this + 18);
+              PspUserApcKernelRoutine(v12);
             }
             else
             {
@@ -71,5 +70,5 @@ __int64 __fastcall SC_DISK::GetStoragePropertyPost(
     if ( Size < Buffer_high || Size % Buffer_high )
       return (unsigned int)-1073739509;
   }
-  return v4;
+  return v3;
 }

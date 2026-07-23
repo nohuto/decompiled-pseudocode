@@ -1,47 +1,52 @@
 /*
- * XREFs of RtlGuardRestoreContext @ 0x180080B50
+ * XREFs of RtlGuardRestoreContext @ 0x180077EF0
  * Callers:
- *     KiUserExceptionDispatcher @ 0x180162FC0 (KiUserExceptionDispatcher.c)
+ *     KiUserExceptionDispatcher @ 0x180162EC0 (KiUserExceptionDispatcher.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlpxLookupFunctionTable @ 0x18004B2A0 (RtlpxLookupFunctionTable.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlGuardIsValidStackPointer @ 0x180080DF0 (RtlGuardIsValidStackPointer.c)
- *     RtlGuardCheckExceptionHandler @ 0x180081080 (RtlGuardCheckExceptionHandler.c)
- *     LdrImageDirectoryEntryToLoadConfigEx @ 0x180081428 (LdrImageDirectoryEntryToLoadConfigEx.c)
- *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180081510 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
- *     LdrControlFlowGuardEnforced @ 0x1800818D0 (LdrControlFlowGuardEnforced.c)
- *     LdrpValidateUserCallTarget @ 0x180127700 (LdrpValidateUserCallTarget.c)
- *     LdrpValidateUserCallTargetES @ 0x180127750 (LdrpValidateUserCallTargetES.c)
- *     RtlFailFast2 @ 0x180127850 (RtlFailFast2.c)
- *     bsearch @ 0x180129FE0 (bsearch.c)
- *     bsearch_s @ 0x18012A100 (bsearch_s.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlpxLookupFunctionTable @ 0x180035820 (RtlpxLookupFunctionTable.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlGuardIsValidStackPointer @ 0x180078190 (RtlGuardIsValidStackPointer.c)
+ *     RtlGuardCheckExceptionHandler @ 0x180078420 (RtlGuardCheckExceptionHandler.c)
+ *     LdrImageDirectoryEntryToLoadConfigEx @ 0x1800787C8 (LdrImageDirectoryEntryToLoadConfigEx.c)
+ *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x1800788B0 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
+ *     LdrControlFlowGuardEnforced @ 0x180078C70 (LdrControlFlowGuardEnforced.c)
+ *     LdrpValidateUserCallTarget @ 0x180127470 (LdrpValidateUserCallTarget.c)
+ *     LdrpValidateUserCallTargetES @ 0x1801274C0 (LdrpValidateUserCallTargetES.c)
+ *     RtlFailFast2 @ 0x1801275C0 (RtlFailFast2.c)
+ *     bsearch @ 0x180129D50 (bsearch.c)
+ *     bsearch_s @ 0x180129E70 (bsearch_s.c)
  */
 
 void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
 {
   int ExceptionCode; // eax
   unsigned __int64 v5; // rdi
-  __int64 v6; // rdx
-  unsigned __int64 v7; // rbp
+  ULONG_PTR CfgBitMap; // rdx
+  void *v7; // rbp
   int v8; // edi
   __int64 Config; // rax
   rsize_t v10; // r8
   unsigned __int64 v11; // rdi
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  _QWORD *v15; // rax
-  __int64 v16; // rdi
-  __int128 v17; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v18; // [rsp+40h] [rbp-28h]
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  _QWORD *v16; // rax
+  __int64 v17; // rdi
+  PVOID BaseOfImage[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+40h] [rbp-28h]
   int Key; // [rsp+78h] [rbp+10h] BYREF
 
   if ( !ExceptionRecord )
   {
 LABEL_23:
-    if ( !qword_1801E3518 || (dword_1801E34FC & 1) != 0 || (unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+    if ( !LdrSystemDllInitBlock.CfgBitMap
+      || (LdrSystemDllInitBlock.Flags & 1) != 0
+      || (unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+    {
       goto LABEL_26;
+    }
     goto LABEL_33;
   }
   ExceptionCode = ExceptionRecord->ExceptionCode;
@@ -52,9 +57,10 @@ LABEL_23:
       if ( ExceptionRecord->NumberParameters )
       {
         v11 = ExceptionRecord->ExceptionInformation[0];
-        if ( (unsigned int)LdrControlFlowGuardEnforced(ContextRecord) )
+        LOBYTE(v12) = LdrControlFlowGuardEnforced();
+        if ( v12 )
         {
-          if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression(v13, v12, v14) )
+          if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression(v14, v13, v15) )
             LdrpValidateUserCallTargetES(v11);
           else
             LdrpValidateUserCallTarget(v11);
@@ -63,53 +69,54 @@ LABEL_23:
     }
     else if ( ExceptionCode == -1073741785 )
     {
-      if ( (((unsigned __int64)qword_1801E3508 >> 60) & 3) != 1 )
-        RtlGuardCheckExceptionHandler(ContextRecord->Rip, 0LL, 0LL);
+      if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
+        RtlGuardCheckExceptionHandler((PVOID)ContextRecord->Rip);
       goto LABEL_26;
     }
     goto LABEL_23;
   }
   v5 = ExceptionRecord->ExceptionInformation[0];
-  v6 = qword_1801E3518;
-  if ( qword_1801E3518 && (dword_1801E34FC & 1) == 0 )
+  CfgBitMap = LdrSystemDllInitBlock.CfgBitMap;
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
     if ( (unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v5 + 16)) )
     {
-      v6 = qword_1801E3518;
+      CfgBitMap = LdrSystemDllInitBlock.CfgBitMap;
       goto LABEL_7;
     }
 LABEL_33:
     __fastfail(0xDu);
   }
 LABEL_7:
-  if ( (((unsigned __int64)qword_1801E3508 >> 60) & 3) != 1 )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
   {
-    v7 = *(_QWORD *)(v5 + 80);
+    v7 = *(void **)(v5 + 80);
     Key = 0;
-    if ( v6 )
+    if ( CfgBitMap )
     {
-      if ( (dword_1801E34FC & 1) == 0 )
+      if ( (LdrSystemDllInitBlock.Flags & 1) == 0 )
       {
-        v18 = 0LL;
-        v17 = 0LL;
-        if ( v7 < *((_QWORD *)&xmmword_1801E0450 + 1)
-          || v7 >= *((_QWORD *)&xmmword_1801E0450 + 1) + (unsigned __int64)(unsigned int)qword_1801E0460 )
+        v19 = 0LL;
+        *(_OWORD *)BaseOfImage = 0LL;
+        if ( (unsigned __int64)v7 < *((_QWORD *)&xmmword_1801DF450 + 1)
+          || (unsigned __int64)v7 >= *((_QWORD *)&xmmword_1801DF450 + 1)
+                                   + (unsigned __int64)(unsigned int)qword_1801DF460 )
         {
-          RtlpxLookupFunctionTable(v7, (__int64)&v17);
+          RtlpxLookupFunctionTable(v7, (char **)BaseOfImage);
         }
         else
         {
-          v17 = xmmword_1801E0450;
+          *(_OWORD *)BaseOfImage = xmmword_1801DF450;
         }
-        v8 = DWORD2(v17);
-        if ( *((_QWORD *)&v17 + 1) )
+        v8 = (int)BaseOfImage[1];
+        if ( BaseOfImage[1] )
         {
-          Config = LdrImageDirectoryEntryToLoadConfigEx(*((_QWORD *)&v17 + 1));
+          Config = LdrImageDirectoryEntryToLoadConfigEx(BaseOfImage[1]);
           if ( Config )
           {
             if ( *(_DWORD *)Config >= 0xC0u && (*(_DWORD *)(Config + 144) & 0x10000) != 0 )
             {
-              Key = v7 - v8;
+              Key = (_DWORD)v7 - v8;
               v10 = *(_QWORD *)(Config + 184);
               if ( !v10
                 || !bsearch_s(
@@ -130,20 +137,20 @@ LABEL_7:
           if ( !RtlpProtectedPolicies )
             goto LABEL_36;
           RtlAcquireSRWLockShared(&RtlpProtectedPoliciesSRWLock);
-          v15 = bsearch(
-                  &unk_180179A38,
+          v16 = bsearch(
+                  &unk_180178558,
                   RtlpProtectedPolicies,
                   (unsigned int)RtlpProtectedPoliciesActiveCount,
                   0x18uLL,
                   RtlpCompareProtectedPolicyEntry);
-          if ( !v15 )
+          if ( !v16 )
           {
             RtlReleaseSRWLockShared(&RtlpProtectedPoliciesSRWLock);
             goto LABEL_36;
           }
-          v16 = v15[2];
+          v17 = v16[2];
           RtlReleaseSRWLockShared(&RtlpProtectedPoliciesSRWLock);
-          if ( !v16 )
+          if ( !v17 )
 LABEL_36:
             RtlFailFast2(38LL, v7);
         }

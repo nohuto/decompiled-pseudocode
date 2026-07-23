@@ -3,10 +3,10 @@
  * Callers:
  *     HalpAcpiTableCacheInit @ 0x140B48D28 (HalpAcpiTableCacheInit.c)
  * Callees:
- *     DbgPrint @ 0x14032A6F0 (DbgPrint.c)
- *     HalpAcpiAllocateMemory @ 0x14037DED0 (HalpAcpiAllocateMemory.c)
- *     strcmp @ 0x1403DB0F0 (strcmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     DbgPrint @ 0x14032A980 (DbgPrint.c)
+ *     HalpAcpiAllocateMemory @ 0x14037E070 (HalpAcpiAllocateMemory.c)
+ *     strcmp @ 0x1403DB2D0 (strcmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     KeFindConfigurationNextEntry @ 0x140B6F8C0 (KeFindConfigurationNextEntry.c)
  */
 

@@ -15,7 +15,7 @@ __int64 PopNetRefreshWorkerCallback()
 {
   __int64 v0; // rcx
   bool v1; // bl
-  char v3; // [rsp+58h] [rbp+10h] BYREF
+  char Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   PopAcquirePolicyLock();
   v1 = (PopNetStandbyStateMask & 0x4E) == 0
@@ -25,8 +25,8 @@ __int64 PopNetRefreshWorkerCallback()
   {
     if ( !v1 )
     {
-      v3 = 0;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_OPPORTUNISTIC_CS, (__int64)&v3, 1LL);
+      Buffer = 0;
+      ZwUpdateWnfStateData(&WNF_PO_OPPORTUNISTIC_CS, &Buffer, 1u, 0LL, 0LL, 0, 0);
       PopNetSetResiliencyPhaseBias(0LL);
     }
   }
@@ -36,8 +36,8 @@ __int64 PopNetRefreshWorkerCallback()
     PopNetSetResiliencyPhaseBias(v0);
     _InterlockedExchange(&PopNetRefreshTimerState, 1);
     PopNetArmRefreshTimer(PopNetRefreshEndTime);
-    v3 = 1;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_OPPORTUNISTIC_CS, (__int64)&v3, 1LL);
+    Buffer = 1;
+    ZwUpdateWnfStateData(&WNF_PO_OPPORTUNISTIC_CS, &Buffer, 1u, 0LL, 0LL, 0, 0);
   }
   PopNetRefreshIntervalActive = v1;
   PopOkayToQueueNextWorkItem((__int64)&unk_1403A8108);

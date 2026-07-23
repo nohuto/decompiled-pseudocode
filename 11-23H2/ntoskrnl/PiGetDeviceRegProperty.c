@@ -1,22 +1,22 @@
 /*
- * XREFs of PiGetDeviceRegProperty @ 0x140792F08
+ * XREFs of PiGetDeviceRegProperty @ 0x1407930F8
  * Callers:
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
- *     IopPnPDispatch @ 0x1407EB020 (IopPnPDispatch.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
+ *     IopPnPDispatch @ 0x1407EB2F0 (IopPnPDispatch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     wcsstr @ 0x1403DBBA0 (wcsstr.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     PnpFindAlternateStringData @ 0x1407931C4 (PnpFindAlternateStringData.c)
- *     RtlFormatMessageEx @ 0x1409B9A98 (RtlFormatMessageEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     wcsstr @ 0x1403DBD80 (wcsstr.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     PnpFindAlternateStringData @ 0x1407933B4 (PnpFindAlternateStringData.c)
+ *     RtlFormatMessageEx @ 0x1409B9C98 (RtlFormatMessageEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PiGetDeviceRegProperty(__int64 a1, __int64 a2, int a3, int a4, wchar_t *Src, int *a6)
+__int64 __fastcall PiGetDeviceRegProperty(__int64 a1, __int64 a2, int a3, int a4, WCHAR *Src, PULONG ReturnLength)
 {
   size_t v8; // r13
   int DeviceRegProp; // eax
@@ -30,22 +30,22 @@ __int64 __fastcall PiGetDeviceRegProperty(__int64 a1, __int64 a2, int a3, int a4
   wchar_t *v18; // rax
   int v19; // eax
   __int64 v20; // rcx
-  __int64 v21; // r13
+  va_list v21; // r13
   const wchar_t *v22; // rcx
   unsigned int i; // r13d
-  __int64 v24; // rax
+  va_list v24; // rax
   __int64 v25; // rcx
   wchar_t *v26; // rax
   size_t Size; // [rsp+54h] [rbp-ACh] BYREF
   size_t v28; // [rsp+60h] [rbp-A0h] BYREF
   wchar_t *Str; // [rsp+68h] [rbp-98h] BYREF
-  NTSTRSAFE_PWSTR v30; // [rsp+70h] [rbp-90h]
-  __int64 v31[20]; // [rsp+80h] [rbp-80h] BYREF
+  PWSTR Buffer; // [rsp+70h] [rbp-90h]
+  va_list Arguments[20]; // [rsp+80h] [rbp-80h] BYREF
 
   LODWORD(v28) = a4;
   v8 = 0LL;
-  Size = (unsigned int)*a6;
-  v30 = Src;
+  Size = *ReturnLength;
+  Buffer = Src;
   DeviceRegProp = CmGetDeviceRegProp(
                     *(__int64 *)&PiPnpRtlCtx,
                     a1,
@@ -89,7 +89,7 @@ __int64 __fastcall PiGetDeviceRegProperty(__int64 a1, __int64 a2, int a3, int a4
     if ( v19 < 0 )
     {
       if ( v19 == -1073741789 )
-        *a6 = Size;
+        *ReturnLength = Size;
     }
     else
     {
@@ -98,7 +98,7 @@ __int64 __fastcall PiGetDeviceRegProperty(__int64 a1, __int64 a2, int a3, int a4
 LABEL_13:
         LODWORD(v28) = Size;
         Str = v13;
-        LODWORD(v14) = (_DWORD)v13;
+        v14 = v13;
         AlternateStringData = PnpFindAlternateStringData(v13, (unsigned int)Size, &Str, &v28);
         v16 = (unsigned int)v28;
         if ( AlternateStringData
@@ -106,12 +106,12 @@ LABEL_13:
           && (v20 = ((unsigned int)v16 >> 1) - 2, v14[v20] == 41) )
         {
           *v18 = 0;
-          v21 = (__int64)(v18 + 2);
+          v21 = (va_list)(v18 + 2);
           v14[v20] = 0;
           v28 = (size_t)(v18 + 2);
-          memset(&v31[1], 0, 0x98uLL);
+          memset(&Arguments[1], 0, 0x98uLL);
           v22 = (const wchar_t *)v28;
-          v31[0] = v21;
+          Arguments[0] = v21;
           for ( i = 1; ; ++i )
           {
             v26 = wcschr(v22, 0x2Cu);
@@ -121,11 +121,11 @@ LABEL_13:
               goto LABEL_14;
             }
             *v26 = 0;
-            v24 = (__int64)(v26 + 1);
+            v24 = (va_list)(v26 + 1);
             if ( i >= 0x13 )
               break;
             v25 = i;
-            v31[v25] = v24;
+            Arguments[v25] = v24;
             v22 = (const wchar_t *)v24;
           }
           v8 = v28;
@@ -136,7 +136,7 @@ LABEL_13:
 LABEL_14:
           v17 = 0;
         }
-        if ( *a6 < (unsigned int)v16 )
+        if ( *ReturnLength < (unsigned int)v16 )
         {
           v10 = -1073741789;
         }
@@ -145,13 +145,13 @@ LABEL_14:
           if ( v17 )
             v10 = -1073741619;
           else
-            v10 = RtlFormatMessageEx((int)v14, 0, 0, 0, 1, (__int64)v31, v30, *a6, (__int64)a6);
+            v10 = RtlFormatMessageEx(v14, 0, 0, 0, 1u, Arguments, Buffer, *ReturnLength, ReturnLength, 0LL);
         }
         else
         {
-          memmove(v30, Str, v16);
+          memmove(Buffer, Str, v16);
         }
-        *a6 = v16;
+        *ReturnLength = v16;
         goto LABEL_19;
       }
       v10 = -1073741584;
@@ -169,6 +169,6 @@ LABEL_19:
   if ( HIDWORD(Size) != a3 )
     return (unsigned int)-1073741584;
 LABEL_6:
-  *a6 = Size;
+  *ReturnLength = Size;
   return v10;
 }

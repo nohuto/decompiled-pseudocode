@@ -204,7 +204,7 @@ NTSTATUS __stdcall NtPowerInformation(
   char v88; // r13
   unsigned int v89; // eax
   bool v90; // bl
-  struct _PROCESSOR_NUMBER v91; // ebx
+  _PROCESSOR_NUMBER v91; // ebx
   char v93; // [rsp+40h] [rbp-6E8h]
   ULONG Length; // [rsp+44h] [rbp-6E4h]
   unsigned int Length_4; // [rsp+48h] [rbp-6E0h] BYREF
@@ -238,7 +238,7 @@ NTSTATUS __stdcall NtPowerInformation(
   v98 = 0;
   v96 = 0;
   v105 = 0;
-  if ( (unsigned int)v8 > (TraceApplicationPowerMessageEnd|0x40) )
+  if ( (unsigned int)v8 > SessionAllowExternalDmaDevices )
   {
     WakeSource = -1073741811;
     goto LABEL_499;
@@ -268,8 +268,8 @@ LABEL_59:
     }
     switch ( v8 )
     {
-      case 0:
-      case 1:
+      case SystemPowerPolicyAc:
+      case SystemPowerPolicyDc:
         if ( !v12 )
         {
           if ( !v17 )
@@ -285,8 +285,8 @@ LABEL_75:
         if ( WakeSource >= 0 )
           goto LABEL_75;
         goto LABEL_70;
-      case 2:
-      case 3:
+      case VerifySystemPolicyAc:
+      case VerifySystemPolicyDc:
         if ( !v12 || !v17 )
           goto LABEL_68;
         if ( v15 < 0xE8 )
@@ -300,7 +300,7 @@ LABEL_76:
         Src = v35;
         Length_4 = 232;
         goto LABEL_493;
-      case 4:
+      case SystemPowerCapabilities:
         if ( !v12 )
         {
           if ( !v17 )
@@ -334,11 +334,11 @@ LABEL_73:
 LABEL_69:
         InputBuffer = v16;
         goto LABEL_70;
-      case 5:
+      case SystemBatteryState:
         if ( !v12 && v17 )
           goto LABEL_112;
         goto LABEL_68;
-      case 6:
+      case SystemPowerStateHandler:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( v15 < 0x18 )
@@ -420,18 +420,18 @@ LABEL_142:
           PopResetCurrentPolicies(v42, v49);
         }
         goto LABEL_493;
-      case 7:
+      case ProcessorStateHandler:
         if ( v12 || !v17 )
           goto LABEL_68;
         Src = &PpmProcessorDriverDispatchTable;
         Length_4 = 248;
         goto LABEL_493;
-      case 8:
+      case SystemPowerPolicyCurrent:
         if ( v12 || !v17 )
           goto LABEL_68;
         v35 = PopPolicy;
         goto LABEL_76;
-      case 9:
+      case AdministratorPowerPolicy:
         if ( v12 )
         {
           if ( v15 < 0x18 )
@@ -451,7 +451,7 @@ LABEL_70:
         }
         v38 = &PopAdminPolicy;
         goto LABEL_85;
-      case 10:
+      case SystemReserveHiberFile:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( !v15 )
@@ -464,13 +464,13 @@ LABEL_70:
         PopReleasePolicyLock();
         KeSetEvent(&PopTransitionLock, 0, 0);
         goto LABEL_157;
-      case 11:
+      case ProcessorInformation:
         if ( v12 || !v17 )
           goto LABEL_68;
         v55 = PopProcessorInformation(v110, v13, KeGetCurrentPrcb()->Group, &Length_4);
         v12 = (__int128 *)v100;
         goto LABEL_177;
-      case 12:
+      case SystemPowerInformation:
         if ( v12 || !v17 )
           goto LABEL_68;
         LODWORD(v110[0]) = 0;
@@ -480,35 +480,35 @@ LABEL_70:
         Src = v110;
         Length_4 = 16;
         goto LABEL_493;
-      case 13:
-      case 18:
-      case 19:
-      case 20:
-      case 21:
-      case 22:
-      case 32:
-      case 33:
-      case 34:
-      case 49:
-      case 52:
-      case 53:
-      case 54:
-      case 79:
-      case 80:
-      case 81:
-      case 82:
+      case ProcessorStateHandler2:
+      case ProcessorPowerPolicyAc:
+      case ProcessorPowerPolicyDc:
+      case VerifyProcessorPowerPolicyAc:
+      case VerifyProcessorPowerPolicyDc:
+      case ProcessorPowerPolicyCurrent:
+      case ProcessorPerfStates:
+      case ProcessorIdleStates:
+      case ProcessorCap:
+      case ProcessorIdleDomains:
+      case ProcessorIdleStatesHv:
+      case ProcessorPerfStatesHv:
+      case ProcessorPerfCapHv:
+      case RegisterSpmPowerSettings:
+      case PlatformIdleStates:
+      case ProcessorIdleVeto:
+      case PlatformIdleVeto:
         goto LABEL_77;
-      case 14:
+      case LastWakeTime:
         if ( v12 || !v17 )
           goto LABEL_68;
         v54 = &qword_1403AA0A8;
         goto LABEL_166;
-      case 15:
+      case LastSleepTime:
         if ( v12 || !v17 )
           goto LABEL_68;
         v54 = &qword_1403AA0B0;
         goto LABEL_166;
-      case 16:
+      case SystemExecutionState:
         if ( v12 || !v17 )
           goto LABEL_68;
         if ( dword_1403962E0 )
@@ -516,7 +516,7 @@ LABEL_70:
         if ( PopPowerRequestAttributes[0] )
           LODWORD(v110[0]) |= 2u;
         goto LABEL_205;
-      case 17:
+      case SystemPowerStateNotifyHandler:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( v15 < 0x10 )
@@ -525,7 +525,7 @@ LABEL_70:
           goto LABEL_68;
         PopPowerStateNotifyHandler = *v12;
         goto LABEL_493;
-      case 23:
+      case SystemPowerStateLogging:
         if ( v12 || !v17 )
           goto LABEL_68;
         WakeSource = PopLoggingInformation(P, &v106);
@@ -535,14 +535,14 @@ LABEL_70:
         Src = P[0];
         Length_4 = v106;
         goto LABEL_493;
-      case 24:
+      case SystemPowerLoggingEntry:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( v15 < 8 )
           goto LABEL_73;
         v58 = PopLogSleepDisabled(*(unsigned int *)v12, *((unsigned int *)v12 + 1), 0LL, 0LL);
         goto LABEL_192;
-      case 25:
+      case SetPowerSettingValue:
         if ( !v12 )
           goto LABEL_68;
         if ( v17 )
@@ -581,12 +581,12 @@ LABEL_192:
         WakeSource = v58;
         v52 = v58 < 0;
         goto LABEL_158;
-      case 28:
+      case SystemMonitorHiberBootPowerOff:
         PopSuspendResumePdc(1LL, v13);
         PopHiberBootForceMonitorOff = 1;
         SettingNotificationName = PoPowerOffMonitor();
         goto LABEL_370;
-      case 29:
+      case SystemVideoState:
         if ( v12 || !v17 )
           goto LABEL_68;
         Length_4 = 4;
@@ -596,8 +596,8 @@ LABEL_192:
         v96 = 1;
         *(_DWORD *)Src = PopConsoleDisplayState;
         goto LABEL_493;
-      case 30:
-      case 31:
+      case TraceApplicationPowerMessage:
+      case TraceApplicationPowerMessageEnd:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( v15 < 8 )
@@ -607,7 +607,7 @@ LABEL_192:
         else
           PopDiagTraceAppPowerMessageEnd(v12, v13);
         goto LABEL_493;
-      case 35:
+      case SystemWakeSource:
         if ( v12 || !v17 )
           goto LABEL_68;
         if ( (_BYTE)v13 )
@@ -633,7 +633,7 @@ LABEL_248:
           goto LABEL_500;
         v98 = 0;
         goto LABEL_493;
-      case 36:
+      case SystemHiberFileInformation:
         if ( !v17 )
           goto LABEL_68;
         if ( !(_DWORD)dword_1403AA1A0 || !qword_1403AA198 )
@@ -655,7 +655,7 @@ LABEL_232:
         memmove(PoolWithTag + 2, qword_1403AA198, (unsigned int)dword_1403AA1A0);
         *v64 = (unsigned int)dword_1403AA1A0 >> 4;
         goto LABEL_493;
-      case 37:
+      case TraceServicePowerMessage:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( PreviousMode != 1 )
@@ -675,7 +675,7 @@ LABEL_232:
           goto LABEL_70;
         PopDiagTraceServiceNotification(v12, v13);
         goto LABEL_493;
-      case 38:
+      case ProcessorLoad:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( v15 == 6 )
@@ -685,9 +685,9 @@ LABEL_232:
         }
         if ( v15 != 4 )
           goto LABEL_263;
-        v65 = PpmClearSimulatedLoad((struct _PROCESSOR_NUMBER *)v12);
+        v65 = PpmClearSimulatedLoad((_PROCESSOR_NUMBER *)v12);
         goto LABEL_262;
-      case 39:
+      case PowerShutdownNotification:
         if ( !v12 || v17 || v15 != 24 )
           goto LABEL_68;
         v66 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x206D654Du);
@@ -704,13 +704,13 @@ LABEL_232:
         WakeSource = -1073741823;
         v12 = (__int128 *)v100;
         goto LABEL_69;
-      case 40:
+      case MonitorCapabilities:
         if ( !v12 || v15 != 4 || v17 )
           goto LABEL_68;
         v105 = *(_DWORD *)v12 != 0;
         PopSetPowerSettingValueAcDc(&GUID_VIDEO_BRIGHTNESS_CAPABLE, 4u, &v105);
         goto LABEL_493;
-      case 41:
+      case SessionPowerInit:
         if ( v12 )
           goto LABEL_68;
         if ( !v17 )
@@ -749,7 +749,7 @@ LABEL_232:
         PopReleasePolicyLock();
         v12 = (__int128 *)v100;
         goto LABEL_494;
-      case 42:
+      case SessionDisplayState:
         if ( !v12 || v15 != 16 || v17 )
           goto LABEL_68;
         if ( *((_BYTE *)v12 + 13) && *((_BYTE *)v12 + 12) )
@@ -767,7 +767,7 @@ LABEL_232:
         {
           if ( *((_BYTE *)v12 + 12) )
           {
-            ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)v12 + 4, 4LL);
+            ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (char *)v12 + 4, 4u, 0LL, 0LL, 0, 0);
             v78 = *((_BYTE *)v12 + 14);
           }
           if ( v78 )
@@ -778,8 +778,8 @@ LABEL_232:
               *((_DWORD *)v12 + 2));
         }
         goto LABEL_493;
-      case 43:
-      case 72:
+      case PowerRequestCreate:
+      case PlmPowerRequestCreate:
         if ( !v12 || !v17 )
           goto LABEL_68;
         if ( v15 != 40 )
@@ -787,22 +787,22 @@ LABEL_232:
         v68 = Length;
         if ( Length != 8 )
           goto LABEL_73;
-        LOBYTE(v13) = v8 == 72;
+        LOBYTE(v13) = v8 == PlmPowerRequestCreate;
         Info = PopPowerRequestCreateInfo(v12, v13, v110);
         goto LABEL_330;
-      case 44:
+      case PowerRequestAction:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( v15 != 24 )
           goto LABEL_73;
         v58 = PopPowerRequestActionInfo(v12, v13);
         goto LABEL_192;
-      case 45:
+      case GetPowerRequestList:
         if ( v12 || !v17 )
           goto LABEL_68;
         PowerRequestListInfo = PopGetPowerRequestListInfo(&Src, &Length_4);
         goto LABEL_342;
-      case 46:
+      case ProcessorInformationEx:
         if ( !v12 )
           goto LABEL_68;
         if ( v15 < 2 )
@@ -820,7 +820,7 @@ LABEL_177:
           goto LABEL_70;
         Src = v110;
         goto LABEL_493;
-      case 47:
+      case NotifyUserModeLegacyPowerEvent:
         if ( !v12 || v15 != 16 )
           goto LABEL_68;
         v83 = PopUmpoSendLegacyEvent(v12, v13);
@@ -831,7 +831,7 @@ LABEL_177:
         if ( v83 == -1073741536 )
           goto LABEL_493;
         goto LABEL_70;
-      case 48:
+      case GroupPark:
         if ( !(_BYTE)KdDebuggerEnabled )
           goto LABEL_222;
         if ( !v12 || v17 )
@@ -845,7 +845,7 @@ LABEL_177:
           goto LABEL_263;
         v65 = PpmParkClearForcedMask(v12, v13);
         goto LABEL_262;
-      case 50:
+      case WakeTimerList:
         if ( v12 || !v17 )
           goto LABEL_68;
         PowerRequestListInfo = ExGetWakeTimerList(&Src, &Length_4);
@@ -856,7 +856,7 @@ LABEL_342:
           goto LABEL_70;
         v96 = 1;
         goto LABEL_493;
-      case 51:
+      case SystemHiberFileSize:
         if ( !v12 || !v17 )
           goto LABEL_68;
         if ( v15 < 4 )
@@ -865,7 +865,7 @@ LABEL_342:
         PopAcquirePolicyLock();
         v53 = PopSetHiberFileSize(*(unsigned int *)v12, v108);
         goto LABEL_164;
-      case 55:
+      case ProcessorSetIdle:
         if ( !(_BYTE)KdDebuggerEnabled )
           goto LABEL_222;
         if ( !v12 || v17 )
@@ -882,10 +882,10 @@ LABEL_263:
             WakeSource = -1073741811;
             goto LABEL_157;
           }
-          v65 = PpmClearSimulatedIdle((struct _PROCESSOR_NUMBER *)v12);
+          v65 = PpmClearSimulatedIdle((_PROCESSOR_NUMBER *)v12);
         }
         goto LABEL_262;
-      case 56:
+      case LogicalProcessorIdling:
         if ( !v12 || !v17 )
           goto LABEL_68;
         if ( v15 != 8 )
@@ -899,7 +899,7 @@ LABEL_263:
         Src = v110;
         Length_4 = 4;
         goto LABEL_494;
-      case 57:
+      case UserPresence:
         if ( !ExVerifySuite(PhoneNT) )
         {
 LABEL_77:
@@ -913,28 +913,28 @@ LABEL_77:
         if ( WakeSource >= 0 )
           goto LABEL_493;
         goto LABEL_69;
-      case 58:
+      case PowerSettingNotificationName:
         if ( !v17 )
           goto LABEL_68;
         if ( v16 && v15 != 20 || Length != 8 )
           goto LABEL_73;
         SettingNotificationName = PopGetSettingNotificationName(v12, v17);
         goto LABEL_370;
-      case 59:
+      case GetPowerSettingValue:
         if ( !v12 || !v17 )
           goto LABEL_68;
         if ( v15 != 16 || Length < 4 )
           goto LABEL_73;
         SettingNotificationName = PopGetSettingValue(v12, v17, Length);
         goto LABEL_370;
-      case 60:
+      case IdleResiliency:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( v15 < 8 )
           goto LABEL_73;
         PopEnforceResiliencyScenarios(v12);
         goto LABEL_493;
-      case 61:
+      case SessionRITState:
         if ( !v12 )
           goto LABEL_68;
         if ( v15 != 8 )
@@ -948,7 +948,7 @@ LABEL_77:
         v12 = (__int128 *)v100;
         PopSessionInputChange(v69, v100, v17);
         goto LABEL_494;
-      case 62:
+      case SessionConnectNotification:
         if ( !v12 )
           goto LABEL_68;
         if ( v15 != 2 )
@@ -969,7 +969,7 @@ LABEL_77:
           qword_1403D1430(v72, v71, v73);
         }
         goto LABEL_494;
-      case 63:
+      case SessionPowerCleanup:
         if ( v12 || v17 )
           goto LABEL_68;
         v67 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -979,14 +979,14 @@ LABEL_77:
         if ( TtmpEnabled == 1 )
           TtmCleanupCurrentSession();
         goto LABEL_101;
-      case 64:
+      case SessionLockState:
         if ( !v12 || v15 != 8 || v17 )
           goto LABEL_68;
         v74 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
         v12 = (__int128 *)v100;
         PopSessionWinlogonNotification(v74, (__int64)v100);
         goto LABEL_493;
-      case 65:
+      case SystemHiberbootState:
         if ( PsIsCurrentThreadInServerSilo() )
           goto LABEL_103;
         if ( v12 || !v17 )
@@ -996,17 +996,17 @@ LABEL_77:
           PopReadHiberbootPolicy((char *)&v110[2] + 2);
         v39 = (char *)&v110[2] + 2;
         goto LABEL_109;
-      case 66:
+      case PlatformInformation:
         if ( v12 || !v17 )
           goto LABEL_68;
         IsDevicePotentialDripsConstraint = PopPlatformAoAc;
         goto LABEL_400;
-      case 67:
+      case PdcInvocation:
         if ( !v12 || v15 != 144 || v17 && Length != 192 )
           goto LABEL_68;
         SettingNotificationName = PopPdcInvocation(v12, v17);
         goto LABEL_370;
-      case 68:
+      case MonitorInvocation:
         if ( !v12 || v15 != 8 || v17 || Length )
           goto LABEL_68;
         WakeSource = 0;
@@ -1025,23 +1025,27 @@ LABEL_77:
               PopDiagTraceMonitorOnWithLidClosed(*((unsigned int *)v12 + 1));
               PopLastStandbyExitScenarioId = PopWdiCurrentScenarioInstanceId;
               ZwUpdateWnfStateData(
-                (__int64)&WNF_PO_MODERN_STANDBY_EXIT_INITIATED,
-                (__int64)&PopLastStandbyExitScenarioId,
-                1LL);
+                &WNF_PO_MODERN_STANDBY_EXIT_INITIATED,
+                &PopLastStandbyExitScenarioId,
+                1u,
+                0LL,
+                0LL,
+                0,
+                0);
             }
           }
         }
         goto LABEL_69;
-      case 69:
+      case FirmwareTableInformationRegistered:
         if ( v12 || v17 )
           goto LABEL_68;
         WakeSource = PopInitPlatformSettings(v9, v13);
         byte_1403AAB74 = PopPlatformAoAc;
         goto LABEL_69;
-      case 70:
+      case SetShutdownSelectedTime:
         PopShutdownButtonPressTime = KeQueryPerformanceCounter(0LL).QuadPart;
         goto LABEL_493;
-      case 71:
+      case SuspendResumeInvocation:
         if ( !v12 || v15 != 8 || v17 && Length )
           goto LABEL_68;
         WakeSource = 0;
@@ -1052,16 +1056,16 @@ LABEL_77:
         LOBYTE(v11) = *((_BYTE *)v12 + 6);
         SettingNotificationName = qword_1403D1440(*(unsigned int *)v12, v13, v10, v11);
         goto LABEL_370;
-      case 73:
-      case 88:
+      case ScreenOff:
+      case ThermalStandby:
         if ( v12 || v17 )
           goto LABEL_68;
         v87 = 23LL;
-        if ( v8 != (SystemPowerLoggingEntry|0x40) )
+        if ( v8 != ThermalStandby )
           v87 = 11LL;
         PopScreenOff(v87, v13);
         goto LABEL_415;
-      case 74:
+      case CsDeviceNotification:
         if ( PreviousMode )
           goto LABEL_222;
         if ( !v12 || v15 != 16 || v17 || Length )
@@ -1070,7 +1074,7 @@ LABEL_77:
 LABEL_370:
         WakeSource = SettingNotificationName;
         goto LABEL_69;
-      case 75:
+      case PlatformRole:
         if ( v12 || !v17 )
           goto LABEL_68;
         LODWORD(v110[0]) = PopCapturePlatformRole(v9, v13);
@@ -1078,7 +1082,7 @@ LABEL_205:
         Src = v110;
         Length_4 = 4;
         goto LABEL_493;
-      case 76:
+      case LastResumePerformance:
         if ( v12 || !v17 )
           goto LABEL_68;
         LODWORD(v110[0]) = qword_1403AA548;
@@ -1094,7 +1098,7 @@ LABEL_85:
         Src = v38;
         Length_4 = 24;
         goto LABEL_493;
-      case 77:
+      case DisplayBurst:
         if ( v12 || v17 )
           goto LABEL_68;
         v88 = PopErrataReportingIncorrectLidState;
@@ -1119,7 +1123,7 @@ LABEL_101:
           }
         }
         goto LABEL_493;
-      case 78:
+      case ExitLatencySamplingPercentage:
         if ( PreviousMode != 1 )
         {
 LABEL_222:
@@ -1139,7 +1143,7 @@ LABEL_222:
           PpmClearExitLatencySamplingPercentage();
         }
         goto LABEL_493;
-      case 83:
+      case SystemBatteryStatePrecise:
         if ( v12 || !v17 )
           goto LABEL_68;
         PopBatteryUpdateCurrentState(v9, v13);
@@ -1148,14 +1152,14 @@ LABEL_112:
         Src = v110;
         Length_4 = 32;
         goto LABEL_493;
-      case 84:
+      case ThermalEvent:
         if ( !v12 || v17 )
           goto LABEL_68;
         if ( v15 < 0x10 || v15 < 2 * (unsigned int)*((unsigned __int16 *)v12 + 6) + 14 )
           goto LABEL_73;
         v58 = PopThermalProcessUsermodeEvent(v12, v13);
         goto LABEL_192;
-      case 85:
+      case PowerRequestActionInternal:
         v80 = *((_DWORD *)v12 + 2);
         v81 = *(_QWORD *)v12;
         if ( *((_BYTE *)v12 + 12) )
@@ -1163,7 +1167,7 @@ LABEL_112:
         else
           PoClearPowerRequestInternal(v81, v80);
         goto LABEL_493;
-      case 86:
+      case BatteryDeviceState:
         if ( !v12 || !v17 )
           goto LABEL_68;
         WakeSource = RtlStringCbLengthW((STRSAFE_PCNZWCH)v12, v15, 0LL);
@@ -1176,12 +1180,12 @@ LABEL_112:
         Src = v110;
         Length_4 = 52;
         goto LABEL_493;
-      case 87:
+      case PowerInformationInternal:
         if ( !v12 )
           goto LABEL_68;
         if ( v15 < 8 )
           goto LABEL_68;
-        v91 = *(struct _PROCESSOR_NUMBER *)v12;
+        v91 = *(_PROCESSOR_NUMBER *)v12;
         if ( *(int *)v12 >= 43 )
           goto LABEL_68;
         if ( (unsigned int)(*(_DWORD *)&v91 - 9) > 8 )
@@ -1222,7 +1226,7 @@ LABEL_158:
         if ( !v52 )
           goto LABEL_493;
         goto LABEL_70;
-      case 89:
+      case SystemHiberFileType:
         if ( !v12 || !v17 )
           goto LABEL_68;
         if ( v15 < 4 )
@@ -1242,12 +1246,12 @@ LABEL_166:
         Src = v54;
         Length_4 = 8;
         goto LABEL_493;
-      case 90:
+      case PhysicalPowerButtonPress:
         if ( !v12 || v15 < 4 || v17 )
           goto LABEL_68;
         PopUpdatePowerButtonHoldState(*(_DWORD *)v12 != 0);
         goto LABEL_493;
-      case 91:
+      case QueryPotentialDripsConstraint:
         if ( !PopPlatformAoAc )
         {
 LABEL_103:
@@ -1278,7 +1282,7 @@ LABEL_494:
 LABEL_415:
         WakeSource = 0;
         goto LABEL_69;
-      case 92:
+      case EnergyTrackerCreate:
         if ( !v12 || !v17 )
           goto LABEL_68;
         if ( v15 != 12 )
@@ -1295,7 +1299,7 @@ LABEL_330:
         Src = v110;
         Length_4 = 8;
         goto LABEL_494;
-      case 93:
+      case EnergyTrackerQuery:
         if ( !v12 || !v17 )
           goto LABEL_68;
         if ( v15 != 8 )
@@ -1308,7 +1312,7 @@ LABEL_330:
         if ( WakeSource >= 0 )
           goto LABEL_494;
         goto LABEL_70;
-      case 94:
+      case UpdateBlackBoxRecorder:
         if ( !v12 || v17 || Length )
           goto LABEL_68;
         if ( v15 != 32 )
@@ -1316,7 +1320,7 @@ LABEL_330:
         LOBYTE(v13) = PreviousMode;
         v58 = PopBlackBoxUpdate(v12, v13);
         goto LABEL_192;
-      case 95:
+      case SessionAllowExternalDmaDevices:
         if ( !v12 || v15 != 1 || v17 )
           goto LABEL_68;
         PnpWinlogonExternalDmaNotification(v12);
@@ -1345,7 +1349,7 @@ LABEL_330:
         v8 = v103;
         if ( v101 )
         {
-          if ( v103 != (AdministratorPowerPolicy|0x40) && v103 != (SystemPowerLoggingEntry|0x40) )
+          if ( v103 != ScreenOff && v103 != ThermalStandby )
           {
             WakeSource = -1073741790;
             v102 = -1073741790;

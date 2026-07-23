@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpSetMappedPropertyDispatch @ 0x140487998
+ * XREFs of _PnpSetMappedPropertyDispatch @ 0x140512470
  * Callers:
- *     _PnpSetObjectPropertyWorker @ 0x1404890F0 (_PnpSetObjectPropertyWorker.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140511864 (_PnpSetObjectPropertyWorker.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x1404FF7F0 (_PnpCtxGetObjectDispatchCallback.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x1404E2780 (_PnpCtxGetObjectDispatchCallback.c)
  */
 
 __int64 __fastcall PnpSetMappedPropertyDispatch(
@@ -20,15 +20,15 @@ __int64 __fastcall PnpSetMappedPropertyDispatch(
         unsigned int a10)
 {
   __int64 result; // rax
-  __int64 (__fastcall *v15[2])(_QWORD, _QWORD, _QWORD, __int64, _QWORD *); // [rsp+30h] [rbp-50h] BYREF
+  __int64 (__fastcall *v15)(__int64, __int64, _QWORD, __int64, _QWORD *); // [rsp+30h] [rbp-50h] BYREF
   _QWORD v16[8]; // [rsp+40h] [rbp-40h] BYREF
 
-  v15[0] = 0LL;
+  v15 = 0LL;
   memset(v16, 0, sizeof(v16));
-  result = PnpCtxGetObjectDispatchCallback(a1, a3, v15);
+  result = PnpCtxGetObjectDispatchCallback(a1, a3, &v15);
   if ( (int)result >= 0 )
   {
-    if ( v15[0] )
+    if ( v15 )
     {
       v16[1] = a5;
       v16[2] = a6;
@@ -36,7 +36,7 @@ __int64 __fastcall PnpSetMappedPropertyDispatch(
       v16[4] = a8;
       v16[5] = __PAIR64__(a10, a9);
       v16[0] = a4;
-      return v15[0](a1, a2, a3, 9LL, v16);
+      return v15(a1, a2, a3, 9LL, v16);
     }
     else
     {

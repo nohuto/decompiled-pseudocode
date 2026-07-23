@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpCtContextInit @ 0x140899788
+ * XREFs of RtlpCtContextInit @ 0x14089A9E8
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1402F56A0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1402F5890 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
- *     RtlpCtContextFree @ 0x14089972C (RtlpCtContextFree.c)
- *     RtlpCtInitializeNotificationEvent @ 0x14089986C (RtlpCtInitializeNotificationEvent.c)
- *     RtlpCtInitializeWorkItem @ 0x1408998B4 (RtlpCtInitializeWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BD710 (ExSubscribeWnfStateChange.c)
+ *     RtlpCtContextFree @ 0x14089A98C (RtlpCtContextFree.c)
+ *     RtlpCtInitializeNotificationEvent @ 0x14089AACC (RtlpCtInitializeNotificationEvent.c)
+ *     RtlpCtInitializeWorkItem @ 0x14089AB14 (RtlpCtInitializeWorkItem.c)
  */
 
 __int64 __fastcall RtlpCtContextInit(PVOID **a1, int a2)

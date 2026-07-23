@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfReadFeedback @ 0x1402AF670
+ * XREFs of PpmPerfReadFeedback @ 0x14022D9D0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfControlExecuteAction @ 0x1402AF68C (PpmPerfControlExecuteAction.c)
+ *     PpmPerfControlExecuteAction @ 0x14022D9EC (PpmPerfControlExecuteAction.c)
  */
 
 __int64 PpmPerfReadFeedback()

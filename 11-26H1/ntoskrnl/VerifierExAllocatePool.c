@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierExAllocatePool @ 0x140C2F790
+ * XREFs of VerifierExAllocatePool @ 0x140C357A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     ExAllocatePool @ 0x140457440 (ExAllocatePool.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     VfFaultsInjectPoolAllocationFailure @ 0x140C346E4 (VfFaultsInjectPoolAllocationFailure.c)
- *     ViPtLogPoolTraceWrapper @ 0x140C4505C (ViPtLogPoolTraceWrapper.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ExAllocatePool @ 0x14044ECB0 (ExAllocatePool.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     VfFaultsInjectPoolAllocationFailure @ 0x140C3A6F4 (VfFaultsInjectPoolAllocationFailure.c)
+ *     ViPtLogPoolTraceWrapper @ 0x140C4B06C (ViPtLogPoolTraceWrapper.c)
  */
 
 __int64 __fastcall VerifierExAllocatePool(unsigned int PoolType, SIZE_T NumberOfBytes)

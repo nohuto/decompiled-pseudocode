@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteHotPatchEntry @ 0x140854B38
+ * XREFs of MiDeleteHotPatchEntry @ 0x140855D98
  * Callers:
- *     MiDeleteImageHotPatchState @ 0x140854CDC (MiDeleteImageHotPatchState.c)
- *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
+ *     MiDeleteImageHotPatchState @ 0x140855F3C (MiDeleteImageHotPatchState.c)
+ *     MiHotPatchImage @ 0x140856590 (MiHotPatchImage.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)
- *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmUnsecureVirtualMemory @ 0x1405F4430 (MmUnsecureVirtualMemory.c)
+ *     MiUnmapViewOfSection @ 0x1406181B0 (MiUnmapViewOfSection.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
  */
 
 void __fastcall MiDeleteHotPatchEntry(UNICODE_STRING *P)

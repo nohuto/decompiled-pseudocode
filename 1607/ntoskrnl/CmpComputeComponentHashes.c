@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpComputeComponentHashes @ 0x1404B10A0
+ * XREFs of CmpComputeComponentHashes @ 0x14049B480
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14000B4B0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14000B030 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     CmpHashUnicodeComponent @ 0x1404B1340 (CmpHashUnicodeComponent.c)
- *     CmpSetComponentNameAtIndex @ 0x1404B13B8 (CmpSetComponentNameAtIndex.c)
- *     CmpExpandPathInfo @ 0x1404B13EC (CmpExpandPathInfo.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     CmpHashUnicodeComponent @ 0x14049B720 (CmpHashUnicodeComponent.c)
+ *     CmpSetComponentNameAtIndex @ 0x14049B798 (CmpSetComponentNameAtIndex.c)
+ *     CmpExpandPathInfo @ 0x14049B7CC (CmpExpandPathInfo.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpComputeComponentHashes(__m128i *a1, unsigned __int64 a2, __int64 a3)

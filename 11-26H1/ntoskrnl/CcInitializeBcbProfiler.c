@@ -1,22 +1,22 @@
 /*
- * XREFs of CcInitializeBcbProfiler @ 0x140C80424
+ * XREFs of CcInitializeBcbProfiler @ 0x140C86424
  * Callers:
- *     CcInitializeCacheManager @ 0x140C7F4E8 (CcInitializeCacheManager.c)
+ *     CcInitializeCacheManager @ 0x140C854E8 (CcInitializeCacheManager.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     RtlSectionTableFromVirtualAddress @ 0x14040E4E0 (RtlSectionTableFromVirtualAddress.c)
- *     RtlLookupFunctionTable @ 0x140454D10 (RtlLookupFunctionTable.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     RtlpConvertFunctionEntry @ 0x1404BD800 (RtlpConvertFunctionEntry.c)
- *     RtlpLookupPrimaryFunctionEntry @ 0x140523030 (RtlpLookupPrimaryFunctionEntry.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     KiSwInterruptPresent @ 0x140C80394 (KiSwInterruptPresent.c)
- *     sub_140CA8AFC @ 0x140CA8AFC (sub_140CA8AFC.c)
- *     KiAreCodePatchesAllowed @ 0x140CC8120 (KiAreCodePatchesAllowed.c)
- *     KiGetLoadOptions @ 0x140CC816C (KiGetLoadOptions.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x14042B410 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlLookupFunctionTable @ 0x14044CE40 (RtlLookupFunctionTable.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     RtlpConvertFunctionEntry @ 0x1404B6FE0 (RtlpConvertFunctionEntry.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x1405256A0 (RtlpLookupPrimaryFunctionEntry.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     KiSwInterruptPresent @ 0x140C86394 (KiSwInterruptPresent.c)
+ *     sub_140CAEAFC @ 0x140CAEAFC (sub_140CAEAFC.c)
+ *     KiAreCodePatchesAllowed @ 0x140CCE210 (KiAreCodePatchesAllowed.c)
+ *     KiGetLoadOptions @ 0x140CCE25C (KiGetLoadOptions.c)
  */
 
 char CcInitializeBcbProfiler()
@@ -24,18 +24,18 @@ char CcInitializeBcbProfiler()
   unsigned __int64 Pool2; // rax
   const char *LoadOptions; // rax
   const char *v2; // rbx
-  _DWORD *v3; // r9
+  _IMAGE_NT_HEADERS64 *v3; // r9
   unsigned __int64 v4; // rax
   void (__fastcall *v5)(__int64, __int64); // r8
   unsigned __int64 v6; // rdx
   unsigned __int64 v7; // r14
-  _DWORD *v8; // rsi
+  PIMAGE_SECTION_HEADER v8; // rsi
   unsigned int *v9; // r8
   unsigned int *v10; // rbx
   int v11; // edi
-  unsigned int v12; // edx
+  unsigned int VirtualAddress; // edx
   unsigned int *v13; // r9
-  unsigned int v14; // ecx
+  unsigned int SizeOfRawData; // ecx
   unsigned int v15; // ecx
   unsigned int v16; // eax
   int v17; // eax
@@ -118,11 +118,11 @@ char CcInitializeBcbProfiler()
     {
       if ( !(unsigned int)((__int64 (*)(void))KiAreCodePatchesAllowed)()
         || (int)KiSwInterruptPresent() < 0
-        || !(unsigned int)sub_140CA8AFC()
+        || !(unsigned int)sub_140CAEAFC()
         || (v2 = (const char *)KiGetLoadOptions(), strstr(v2, "DISABLE_INTEGRITY_CHECKS"))
         || (Pool2 = (unsigned __int64)strstr(v2, "TESTSIGNING")) != 0 )
       {
-        v3 = RtlImageNtHeader(0x140000000uLL);
+        v3 = RtlImageNtHeader((PVOID)0x140000000LL);
         v4 = __rdtsc();
         v5 = CcBcbProfiler;
         v6 = __ROR8__(v4, 3) ^ v4;
@@ -130,11 +130,8 @@ char CcInitializeBcbProfiler()
         v76 = v7;
         v75 = v7 >= 0x32;
         if ( v7 >= 0x32 )
-          LODWORD(v5) = (unsigned int)sub_14077F830;
-        v8 = (_DWORD *)RtlSectionTableFromVirtualAddress(
-                         (unsigned __int64)v3,
-                         0x140000000LL,
-                         (unsigned int)v5 - 0x40000000);
+          LODWORD(v5) = (unsigned int)sub_140782330;
+        v8 = RtlSectionTableFromVirtualAddress(v3, (PVOID)0x140000000LL, (unsigned int)v5 - 0x40000000);
         v9 = (unsigned int *)RtlLookupFunctionTable((unsigned __int64)v8, &v71, &v73);
         if ( !v9 || v73 < 0xC )
         {
@@ -145,16 +142,16 @@ LABEL_74:
         }
         v10 = 0LL;
         v11 = 0;
-        v12 = v8[3];
+        VirtualAddress = v8->VirtualAddress;
         v13 = &v9[3 * (v73 / 0xC)];
-        v14 = v8[4];
-        if ( v14 <= v8[2] )
-          v14 = v8[2];
-        v15 = v12 + v14;
+        SizeOfRawData = v8->SizeOfRawData;
+        if ( SizeOfRawData <= v8->Misc.PhysicalAddress )
+          SizeOfRawData = v8->Misc.PhysicalAddress;
+        v15 = VirtualAddress + SizeOfRawData;
         do
         {
           v16 = *v9;
-          if ( *v9 < v12 )
+          if ( *v9 < VirtualAddress )
           {
             if ( v16 >= v15 )
               break;
@@ -382,7 +379,7 @@ LABEL_50:
                 if ( v7 >= 0x32 )
                 {
                   *(_QWORD *)(Dpc + 184) = 0LL;
-                  *(_QWORD *)(Dpc + 200) = sub_14077F830;
+                  *(_QWORD *)(Dpc + 200) = sub_140782330;
                   *(_QWORD *)(Dpc + 208) = Dpc;
                 }
                 v65 = __rdtsc();

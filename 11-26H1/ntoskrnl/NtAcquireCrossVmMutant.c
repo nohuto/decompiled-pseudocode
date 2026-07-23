@@ -1,14 +1,14 @@
 /*
- * XREFs of NtAcquireCrossVmMutant @ 0x140841E80
+ * XREFs of NtAcquireCrossVmMutant @ 0x140847EB0
  * Callers:
- *     DifNtAcquireCrossVmMutantWrapper @ 0x140669D90 (DifNtAcquireCrossVmMutantWrapper.c)
+ *     DifNtAcquireCrossVmMutantWrapper @ 0x14066D970 (DifNtAcquireCrossVmMutantWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ExpGetExtensionHostForCrossVmObject @ 0x140B6A608 (ExpGetExtensionHostForCrossVmObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x140B6D818 (ExpGetExtensionHostForCrossVmObject.c)
  */
 
 __int64 __fastcall NtAcquireCrossVmMutant(HANDLE Handle, __int64 *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall NtAcquireCrossVmMutant(HANDLE Handle, __int64 *a2)
 
   p_ULong64FromUser = a2;
   ULong64FromUser = 0LL;
-  if ( !WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink )
+  if ( !*(_QWORD *)&WheapConfigTableLock.WaitBlockFill11[64] )
     return 3221225508LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( a2 && PreviousMode )
@@ -38,7 +38,7 @@ __int64 __fastcall NtAcquireCrossVmMutant(HANDLE Handle, __int64 *a2)
   v7 = ObReferenceObjectByHandle(
          Handle,
          0x100000u,
-         (POBJECT_TYPE)WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink,
+         *(POBJECT_TYPE *)&WheapConfigTableLock.WaitBlockFill11[64],
          PreviousMode,
          &Object,
          0LL);

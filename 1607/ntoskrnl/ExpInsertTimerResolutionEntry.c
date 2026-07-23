@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpInsertTimerResolutionEntry @ 0x1400B521C
+ * XREFs of ExpInsertTimerResolutionEntry @ 0x1400B3054
  * Callers:
- *     NtSetTimerResolution @ 0x1403E9CD4 (NtSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x1403EB304 (NtSetTimerResolution.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall ExpInsertTimerResolutionEntry(__int64 a1)

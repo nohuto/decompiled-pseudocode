@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpAllocateFromBitmap @ 0x140A47910
+ * XREFs of AlpcpAllocateFromBitmap @ 0x140A50C00
  * Callers:
- *     AlpcpAllocateCompletionBuffer @ 0x140A476A0 (AlpcpAllocateCompletionBuffer.c)
+ *     AlpcpAllocateCompletionBuffer @ 0x140A50990 (AlpcpAllocateCompletionBuffer.c)
  * Callees:
- *     AlpcpFreeBitmap @ 0x140A47A9C (AlpcpFreeBitmap.c)
+ *     AlpcpFreeBitmap @ 0x140A50D8C (AlpcpFreeBitmap.c)
  */
 
 __int64 __fastcall AlpcpAllocateFromBitmap(unsigned int *a1, unsigned int *a2, int a3)

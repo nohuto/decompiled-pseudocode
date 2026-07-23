@@ -1,27 +1,27 @@
 /*
- * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x1401209F0
+ * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140120F60
  * Callers:
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiPurgePartitionStandby @ 0x14012093C (MiPurgePartitionStandby.c)
- *     MiPruneStandbyPages @ 0x1401F37A0 (MiPruneStandbyPages.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiPurgePartitionStandby @ 0x140120EAC (MiPurgePartitionStandby.c)
+ *     MiPruneStandbyPages @ 0x1401F35CC (MiPruneStandbyPages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiReleaseFreshPageLocked @ 0x1400221A4 (MiReleaseFreshPageLocked.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiDecreaseAvailablePages @ 0x14008AD20 (MiDecreaseAvailablePages.c)
- *     MiDeleteParentDecayNode @ 0x140096B30 (MiDeleteParentDecayNode.c)
- *     MiRemoveDecayClusterTimer @ 0x140096BB8 (MiRemoveDecayClusterTimer.c)
- *     MiIsDecayPfn @ 0x1400A3DF8 (MiIsDecayPfn.c)
- *     MiSetPfnBlink @ 0x140107ACC (MiSetPfnBlink.c)
- *     MiUnlinkNumaStandbyPage @ 0x140120E54 (MiUnlinkNumaStandbyPage.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MiUpdateTransitionPteFrame @ 0x1401F2A38 (MiUpdateTransitionPteFrame.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiReleaseFreshPageLocked @ 0x140021D24 (MiReleaseFreshPageLocked.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiDecreaseAvailablePages @ 0x14008A420 (MiDecreaseAvailablePages.c)
+ *     MiDeleteParentDecayNode @ 0x140096330 (MiDeleteParentDecayNode.c)
+ *     MiRemoveDecayClusterTimer @ 0x1400963B8 (MiRemoveDecayClusterTimer.c)
+ *     MiIsDecayPfn @ 0x1400A2720 (MiIsDecayPfn.c)
+ *     MiSetPfnBlink @ 0x14010584C (MiSetPfnBlink.c)
+ *     MiUnlinkNumaStandbyPage @ 0x1401213C4 (MiUnlinkNumaStandbyPage.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401F2864 (MiUpdateTransitionPteFrame.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
  */
 
 __int64 __fastcall MiRemoveLowestPriorityStandbyPage(__int64 a1, unsigned int a2, __int16 a3)
@@ -142,11 +142,11 @@ LABEL_25:
   if ( !*v3 )
     KeBugCheckEx(0x4Eu, 1uLL, (ULONG_PTR)v3, *(_QWORD *)(a1 + 6464), 0LL);
   --*v3;
-  if ( dword_140327060 == 1 )
+  if ( dword_1403270A0 == 1 )
   {
     v15 = v9 & 0x1F;
     LOBYTE(v16) = 1;
-    v17 = (volatile signed __int32 *)(qword_140327080 + 4 * (v9 >> 5));
+    v17 = (volatile signed __int32 *)stru_1403270B8.Buffer + (v9 >> 5);
     if ( v15 + 1 <= 0x20 )
     {
       v18 = 1 << v15;
@@ -208,7 +208,7 @@ LABEL_35:
   *(_QWORD *)(v10 + 24) &= 0xFFFFFFF000000000uLL;
   MiRestoreTransitionPte(v10, 1LL, v31, v32);
   if ( (*(_QWORD *)(v10 + 40) & 0x200000000000000LL) != 0 )
-    _InterlockedDecrement64(&qword_140327340);
+    _InterlockedDecrement64(&qword_140327380);
   else
     _InterlockedDecrement64((volatile signed __int64 *)(a1 + 4480));
   *(_QWORD *)(v10 + 40) &= ~0x200000000000000uLL;

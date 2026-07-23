@@ -11,43 +11,37 @@ __int64 __fastcall RtlpHpVaMgrCtxStart(__int64 a1, __int64 a2, __int64 a3, __int
 {
   unsigned int v5; // eax
   unsigned __int64 v7; // rdx
-  unsigned __int64 v8; // rcx
-  unsigned __int128 v9; // rax
   __int64 result; // rax
-  int v11; // ebx
-  unsigned int v12; // r8d
-  _DWORD v13[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v14; // [rsp+28h] [rbp-20h]
+  int v9; // ebx
+  unsigned int v10; // r8d
+  _DWORD v11[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v12; // [rsp+28h] [rbp-20h]
 
   _BitScanForward(&v5, 0x20u);
   *(_DWORD *)(a1 + 24) = v5;
   v7 = (a5 >> 20) + 1;
   if ( (a5 & 0xFFFFF) == 0 )
     v7 = a5 >> 20;
-  v8 = 8 * v7;
-  if ( !is_mul_ok(v7, 8uLL) )
+  if ( !is_mul_ok(v7, 8uLL) || !is_mul_ok(8 * v7, 0x20uLL) )
     return 3221225621LL;
-  v9 = 8 * v7 * (unsigned __int128)0x20u;
-  if ( !is_mul_ok(v8, 0x20uLL) )
-    return 3221225621LL;
-  result = RtlCSparseBitmapStart(a1 + 32, v9, a5 >> 20, (unsigned int)(DWORD2(v9) + 1));
+  result = RtlCSparseBitmapStart((PVOID *)(a1 + 32));
   if ( (int)result >= 0 )
   {
     *(_DWORD *)a1 = 0;
     *(_QWORD *)(a1 + 8) = 0LL;
-    v13[0] = -1;
-    v14 = 0LL;
-    v11 = 0;
+    v11[0] = -1;
+    v12 = 0LL;
+    v9 = 0;
     while ( 1 )
     {
-      v13[1] = v11;
-      v12 = 0x200000;
-      if ( (unsigned int)(v11 - 2) > 1 && v11 == 4 )
-        v12 = 0x40000000;
-      result = RtlpHpVaMgrCtxAllocatorReference(a1, (__int64)v13, v12);
+      v11[1] = v9;
+      v10 = 0x200000;
+      if ( (unsigned int)(v9 - 2) > 1 && v9 == 4 )
+        v10 = 0x40000000;
+      result = RtlpHpVaMgrCtxAllocatorReference(a1, (__int64)v11, v10);
       if ( (int)result < 0 )
         break;
-      if ( ++v11 >= 6 )
+      if ( ++v9 >= 6 )
         return 0LL;
     }
   }

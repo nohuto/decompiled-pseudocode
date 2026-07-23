@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeRelocations @ 0x14052CC54
+ * XREFs of MiFreeRelocations @ 0x14052D194
  * Callers:
- *     MiDeleteControlArea @ 0x1400A4F50 (MiDeleteControlArea.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
+ *     MiDeleteControlArea @ 0x1400A34C8 (MiDeleteControlArea.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
  * Callees:
- *     MiDeleteDirectMapFixupPfn @ 0x1401F48FC (MiDeleteDirectMapFixupPfn.c)
+ *     MiDeleteDirectMapFixupPfn @ 0x1401F4728 (MiDeleteDirectMapFixupPfn.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiReturnImageBase @ 0x14042EDB4 (MiReturnImageBase.c)
+ *     MiReturnImageBase @ 0x14042DC84 (MiReturnImageBase.c)
  */
 
 void __fastcall MiFreeRelocations(_DWORD *a1, _QWORD *a2)

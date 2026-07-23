@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmUpdateIdleDomains @ 0x140567EA0
+ * XREFs of PpmUpdateIdleDomains @ 0x1405680E0
  * Callers:
  *     <none>
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     KeIsSubsetAffinityEx @ 0x140513640 (KeIsSubsetAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     KeIsSubsetAffinityEx @ 0x140513880 (KeIsSubsetAffinityEx.c)
  */
 
 __int64 __fastcall PpmUpdateIdleDomains(__int64 a1)

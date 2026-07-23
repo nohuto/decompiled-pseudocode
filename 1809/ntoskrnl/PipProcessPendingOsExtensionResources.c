@@ -1,12 +1,12 @@
 /*
- * XREFs of PipProcessPendingOsExtensionResources @ 0x1409C8BCC
+ * XREFs of PipProcessPendingOsExtensionResources @ 0x1409C9BCC
  * Callers:
- *     PipProcessPendingOperations @ 0x1409C8B20 (PipProcessPendingOperations.c)
+ *     PipProcessPendingOperations @ 0x1409C9B20 (PipProcessPendingOperations.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegCloseKey @ 0x14073C33C (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14073C354 (_PnpCtxRegOpenKey.c)
- *     PipProcessPendingObjects @ 0x1409F6010 (PipProcessPendingObjects.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1405C8C40 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegCloseKey @ 0x14073D52C (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14073D544 (_PnpCtxRegOpenKey.c)
+ *     PipProcessPendingObjects @ 0x1409F7010 (PipProcessPendingObjects.c)
  */
 
 __int64 PipProcessPendingOsExtensionResources()

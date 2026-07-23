@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     PsIsSystemThread @ 0x1400A3DEC (PsIsSystemThread.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     PsIsSystemThread @ 0x1400A2714 (PsIsSystemThread.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierObReferenceObjectByHandle(ULONG_PTR a1, __int64 a2, ULONG_PTR a3, char a4)

@@ -1,8 +1,8 @@
 /*
  * XREFs of KeAddGroupAffinityEx @ 0x14035C3E0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
+ *     sub_1403405E0 @ 0x1403405E0 (sub_1403405E0.c)
+ *     sub_140685A20 @ 0x140685A20 (sub_140685A20.c)
  *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
  * Callees:
  *     <none>

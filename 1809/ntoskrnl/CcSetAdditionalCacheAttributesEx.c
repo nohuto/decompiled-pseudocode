@@ -1,14 +1,14 @@
 /*
- * XREFs of CcSetAdditionalCacheAttributesEx @ 0x14007CE00
+ * XREFs of CcSetAdditionalCacheAttributesEx @ 0x14007CDF0
  * Callers:
  *     <none>
  * Callees:
- *     CcSetAdditionalCacheAttributes @ 0x14007CF10 (CcSetAdditionalCacheAttributes.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CcSetAdditionalCacheAttributes @ 0x14007CF00 (CcSetAdditionalCacheAttributes.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcSetAdditionalCacheAttributesEx(struct _FILE_OBJECT *a1, int a2)

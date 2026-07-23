@@ -19,8 +19,8 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
 {
   __int64 v4; // r14
   unsigned __int64 v5; // rdi
-  signed __int64 v6; // r12
-  signed __int64 v7; // r13
+  __int64 v6; // r12
+  _RTL_BALANCED_NODE *v7; // r13
   bool v8; // zf
   __int64 v9; // rbx
   int v10; // ecx
@@ -29,37 +29,37 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
   __int64 MemoryAllocationGranularity; // rax
   int v15; // eax
   __int64 v16; // rcx
-  PPRIVILEGE_SET v17; // r15
+  PRTL_BALANCED_NODE v17; // r15
   __int64 v18; // rdx
   unsigned __int64 v19; // rbx
   unsigned __int64 v20; // rax
   unsigned __int64 v21; // rbx
   unsigned __int64 v22; // rax
-  __int64 i; // rcx
+  _RTL_BALANCED_NODE *i; // rcx
   unsigned __int64 v24; // rsi
   unsigned __int64 v25; // rax
-  _QWORD *v26; // rax
+  PPRIVILEGE_SET *v26; // rax
   unsigned __int64 v27; // rdx
-  _QWORD *v28; // rax
+  PPRIVILEGE_SET *v28; // rax
   __int64 v29; // rdi
-  __int64 v30; // r9
-  _QWORD *v31; // rax
+  _RTL_BALANCED_NODE *v30; // r9
+  PPRIVILEGE_SET *v31; // rax
   unsigned __int64 v32; // rdx
-  bool v33; // r8
+  BOOLEAN v33; // r8
   unsigned __int64 v34; // rax
   PPRIVILEGE_SET v35; // rbx
   __int64 v36; // rax
   void *v37; // r8
-  void *v38; // r8
-  PPRIVILEGE_SET v39; // [rsp+30h] [rbp-20h] BYREF
+  _RTL_BALANCED_NODE *v38; // r8
+  PRTL_BALANCED_NODE Node; // [rsp+30h] [rbp-20h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+38h] [rbp-18h] BYREF
   PPRIVILEGE_SET *p_Privileges; // [rsp+40h] [rbp-10h]
 
-  v39 = 0LL;
+  Node = 0LL;
   v4 = a1 + 40;
   v5 = *(_QWORD *)(a1 + 40);
   v6 = (unsigned int)(a2 + 4096);
-  v7 = v6 + a3;
+  v7 = (_RTL_BALANCED_NODE *)(v6 + a3);
   p_Privileges = &Privileges;
   v8 = (*(_BYTE *)(a1 + 48) & 1) == 0;
   Privileges = (PPRIVILEGE_SET)&Privileges;
@@ -84,18 +84,18 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
     else
       v5 = v11;
   }
-  if ( *(_QWORD *)(v5 + 48) >= v7 )
+  if ( *(_QWORD *)(v5 + 48) >= (__int64)v7 )
   {
     *a4 = v6 + *(_QWORD *)(v5 + 56) - *(_QWORD *)(v5 + 24);
     return 0;
   }
   MemoryAllocationGranularity = CmSiGetMemoryAllocationGranularity();
-  v15 = HvpViewMapCreateView(v9, v6 & -MemoryAllocationGranularity, v7, &v39);
-  v17 = v39;
+  v15 = HvpViewMapCreateView(v9, v6 & -MemoryAllocationGranularity, v7, &Node);
+  v17 = Node;
   ViewRangeValid = v15;
   if ( v15 >= 0 )
   {
-    ViewRangeValid = HvpViewMapMakeViewRangeValid(v9, (_DWORD)v39, v6, v7, 0);
+    ViewRangeValid = HvpViewMapMakeViewRangeValid(v9, (_DWORD)Node, v6, (_DWORD)v7, 0);
     if ( ViewRangeValid >= 0 )
     {
       v18 = v6;
@@ -128,20 +128,20 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
             goto LABEL_98;
           v18 = *(_QWORD *)(v19 + 48);
         }
-        while ( v18 < v7 );
+        while ( v18 < (__int64)v7 );
       }
       v21 = *(_QWORD *)v4;
       if ( (*(_BYTE *)(v4 + 8) & 1) != 0 && v21 )
         v21 ^= v4;
       while ( v21 )
       {
-        if ( v7 - 1 < *(_QWORD *)(v21 + 40) )
+        if ( (__int64)&v7[-1].ParentValue + 7 < *(_QWORD *)(v21 + 40) )
         {
           v22 = *(_QWORD *)v21;
         }
         else
         {
-          if ( v7 <= *(_QWORD *)(v21 + 48) )
+          if ( (__int64)v7 <= *(_QWORD *)(v21 + 48) )
             break;
           v22 = *(_QWORD *)(v21 + 8);
         }
@@ -150,20 +150,22 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
         else
           v21 = v22;
       }
-      for ( i = *(_QWORD *)(v5 + 48); i < *(_QWORD *)(v21 + 40); i = *(_QWORD *)(v24 + 48) )
+      for ( i = *(_RTL_BALANCED_NODE **)(v5 + 48);
+            (__int64)i < *(_QWORD *)(v21 + 40);
+            i = *(_RTL_BALANCED_NODE **)(v24 + 48) )
       {
         v24 = *(_QWORD *)v4;
         if ( (*(_BYTE *)(v4 + 8) & 1) != 0 && v24 )
           v24 ^= v4;
         while ( v24 )
         {
-          if ( i < *(_QWORD *)(v24 + 40) )
+          if ( (__int64)i < *(_QWORD *)(v24 + 40) )
           {
             v25 = *(_QWORD *)v24;
           }
           else
           {
-            if ( i < *(_QWORD *)(v24 + 48) )
+            if ( (__int64)i < *(_QWORD *)(v24 + 48) )
               break;
             v25 = *(_QWORD *)(v24 + 8);
           }
@@ -172,43 +174,43 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
           else
             v24 = v25;
         }
-        RtlRbRemoveNode((unsigned __int64 *)v4, v24);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v24);
         v26 = p_Privileges;
         if ( *p_Privileges != (PPRIVILEGE_SET)&Privileges )
           goto LABEL_90;
         *(_QWORD *)(v24 + 8) = p_Privileges;
         *(_QWORD *)v24 = &Privileges;
-        *v26 = v24;
+        *v26 = (PPRIVILEGE_SET)v24;
         p_Privileges = (PPRIVILEGE_SET *)v24;
       }
       v27 = v5;
       if ( *(_QWORD *)(v5 + 40) == v6 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v4, v5);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v5);
         v28 = p_Privileges;
         if ( *p_Privileges != (PPRIVILEGE_SET)&Privileges )
           goto LABEL_90;
         *(_QWORD *)(v5 + 8) = p_Privileges;
         *(_QWORD *)v5 = &Privileges;
-        *v28 = v5;
+        *v28 = (PPRIVILEGE_SET)v5;
         p_Privileges = (PPRIVILEGE_SET *)v5;
         v29 = a1;
       }
       else
       {
-        v30 = *(_QWORD *)(v5 + 48);
+        v30 = *(_RTL_BALANCED_NODE **)(v5 + 48);
         v29 = a1;
         HvpViewMapMakeViewRangeInvalid(a1, v27, v6, v30);
       }
-      if ( *(_QWORD *)(v21 + 48) == v7 )
+      if ( *(_RTL_BALANCED_NODE **)(v21 + 48) == v7 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v4, v21);
+        RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v21);
         v31 = p_Privileges;
         if ( *p_Privileges != (PPRIVILEGE_SET)&Privileges )
           goto LABEL_90;
         *(_QWORD *)(v21 + 8) = p_Privileges;
         *(_QWORD *)v21 = &Privileges;
-        *v31 = v21;
+        *v31 = (PPRIVILEGE_SET)v21;
         p_Privileges = (PPRIVILEGE_SET *)v21;
       }
       else
@@ -223,7 +225,7 @@ __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned 
       {
         while ( 1 )
         {
-          if ( *(_QWORD *)&v17[2].PrivilegeCount < *(_QWORD *)(v32 + 40) )
+          if ( (signed __int64)v17[1].ParentValue < *(_QWORD *)(v32 + 40) )
           {
             v34 = *(_QWORD *)v32;
             if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
@@ -258,7 +260,7 @@ LABEL_82:
           v32 = v34;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64 *)v4, v32, v33, (unsigned __int64)v17);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v32, v33, v17);
       v35 = Privileges;
       v36 = *(_QWORD *)&Privileges->PrivilegeCount;
       if ( (PPRIVILEGE_SET *)Privileges->Privilege[0].Luid == &Privileges )
@@ -281,7 +283,7 @@ LABEL_82:
           v36 = *(_QWORD *)&Privileges->PrivilegeCount;
         }
         ViewRangeValid = 0;
-        v16 = v6 + *(_QWORD *)&v17[2].Privilege[0].Attributes - *(_QWORD *)&v17[1].Control;
+        v16 = v6 + (char *)v17[2].Children[1] - (char *)v17[1].Children[0];
         v17 = 0LL;
         *a4 = v16;
 LABEL_98:
@@ -295,10 +297,10 @@ LABEL_90:
 LABEL_99:
   if ( v17 )
   {
-    v38 = *(void **)&v17[2].Privilege[0].Attributes;
+    v38 = v17[2].Children[1];
     if ( v38 )
       CmSiUnmapViewOfSection(v16, *(HANDLE **)(v9 + 24), v38);
-    CmSiFreeMemory(v17);
+    CmSiFreeMemory((PPRIVILEGE_SET)v17);
   }
   return (unsigned int)ViewRangeValid;
 }

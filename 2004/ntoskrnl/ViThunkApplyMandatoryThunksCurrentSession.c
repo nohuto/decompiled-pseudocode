@@ -9,29 +9,26 @@
 
 __int64 __fastcall ViThunkApplyMandatoryThunksCurrentSession(__int64 a1, int a2)
 {
-  __int64 v2; // rcx
-  int v3; // edi
-  ULONG_PTR v4; // rbx
-  unsigned int v5; // eax
-  unsigned int v6; // eax
+  void *v2; // rcx
+  char *v4; // rbx
+  ULONG v5; // eax
+  ULONG v6; // eax
   __int64 v7; // rdi
-  unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 48);
-  v9 = 0;
-  v3 = a2;
-  LOBYTE(a2) = 1;
-  v4 = RtlImageDirectoryEntryToData(v2, a2, 12, (int)&v9);
+  v2 = *(void **)(a1 + 48);
+  Size = 0;
+  v4 = (char *)RtlImageDirectoryEntryToData(v2, 1u, 0xCu, &Size);
   if ( v4 )
   {
-    v5 = v9;
-    if ( v9 )
+    v5 = Size;
+    if ( Size )
     {
-      if ( v3 )
+      if ( a2 )
       {
         _InterlockedExchange(&ViLookasideAlreadyLoadedDrivers, 1);
         _InterlockedExchange(&ViResourcesAlreadyLoadedDrivers, 1);
-        v5 = v9;
+        v5 = Size;
       }
       v6 = v5 >> 3;
       if ( v6 )
@@ -39,8 +36,8 @@ __int64 __fastcall ViThunkApplyMandatoryThunksCurrentSession(__int64 a1, int a2)
         v7 = v6;
         do
         {
-          ViThunkReplaceImportIfThunkedRegular(v4);
-          v4 += 8LL;
+          ViThunkReplaceImportIfThunkedRegular((ULONG_PTR)v4);
+          v4 += 8;
           --v7;
         }
         while ( v7 );

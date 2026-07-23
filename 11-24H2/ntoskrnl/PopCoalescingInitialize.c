@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCoalescingInitialize @ 0x140C2E994
+ * XREFs of PopCoalescingInitialize @ 0x140C30AB4
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PoRegisterCoalescingCallback @ 0x140750DC0 (PoRegisterCoalescingCallback.c)
- *     PopUpdateDiskIdleTimeoutSetting @ 0x1409BA840 (PopUpdateDiskIdleTimeoutSetting.c)
+ *     PoRegisterCoalescingCallback @ 0x14074F0E0 (PoRegisterCoalescingCallback.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x1409A0E90 (PopUpdateDiskIdleTimeoutSetting.c)
  */
 
 __int64 PopCoalescingInitialize()
@@ -21,14 +21,14 @@ __int64 PopCoalescingInitialize()
     *(_QWORD *)&PopCoalescingTimer.Header.Lock = 8LL;
     PopCoalescingTimer.Header.WaitListHead.Blink = &PopCoalescingTimer.Header.WaitListHead;
     PopCoalescingTimer.Header.WaitListHead.Flink = &PopCoalescingTimer.Header.WaitListHead;
-    qword_140F0D1D8 = (__int64)PopCoalesingTimerDpcCallback;
+    qword_140F0D518 = (__int64)PopCoalesingTimerDpcCallback;
     PopCoalescingTimer.DueTime.QuadPart = 0LL;
     PopCoalescingTimer.Period = 0;
     PopCoalescingTimer.Processor = 0;
     PopCoalescingTimerDpc = 275;
-    qword_140F0D1E0 = 0LL;
-    qword_140F0D1F8 = 0LL;
-    qword_140F0D1D0 = 0LL;
+    qword_140F0D520 = 0LL;
+    qword_140F0D538 = 0LL;
+    qword_140F0D510 = 0LL;
     return PopUpdateDiskIdleTimeoutSetting();
   }
   return result;

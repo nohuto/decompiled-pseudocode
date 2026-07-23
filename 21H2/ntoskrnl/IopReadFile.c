@@ -2,34 +2,34 @@
  * XREFs of IopReadFile @ 0x1405CE318
  * Callers:
  *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
- *     NtReadFile @ 0x140650E20 (NtReadFile.c)
+ *     NtReadFile @ 0x140645C40 (NtReadFile.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     IopVerifierExAllocatePoolWithQuota_0 @ 0x1402B7B3C (IopVerifierExAllocatePoolWithQuota_0.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     IopResetEvent @ 0x140351DE0 (IopResetEvent.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x140351EA0 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     IopSetCopyInformationExtension @ 0x1403F15CC (IopSetCopyInformationExtension.c)
- *     IopFreeCopyObjectsFromDataBuffer @ 0x1403F1B00 (IopFreeCopyObjectsFromDataBuffer.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IopExceptionFilter @ 0x140500A60 (IopExceptionFilter.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     IopVerifierExAllocatePoolWithQuota @ 0x140235D1C (IopVerifierExAllocatePoolWithQuota.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopReleaseFileObjectLock @ 0x1403584A0 (IopReleaseFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     IopResetEvent @ 0x14035CB30 (IopResetEvent.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14035CBF0 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     IopSetCopyInformationExtension @ 0x1403F149C (IopSetCopyInformationExtension.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x1403F19D0 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IopExceptionFilter @ 0x1405009E0 (IopExceptionFilter.c)
  *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     VfFastIoCheckState @ 0x1409C99B4 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x1409C9A8C (VfFastIoSnapState.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     IopSynchronousServiceTail @ 0x140716160 (IopSynchronousServiceTail.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     VfFastIoCheckState @ 0x1409CA9B4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409CAA8C (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopReadFile(
@@ -61,7 +61,7 @@ __int64 __fastcall IopReadFile(
   unsigned int v25; // ecx
   PFAST_IO_DISPATCH FastIoDispatch; // r13
   struct _KTHREAD *v27; // rax
-  __int64 v28; // rax
+  PRTL_BALANCED_NODE v28; // rax
   __int64 (__fastcall *FastIoRead)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD, _QWORD, _QWORD); // r15
   void *v30; // rdi
   char v31; // r13
@@ -217,7 +217,7 @@ LABEL_39:
     else
     {
       if ( v28 )
-        *(_BYTE *)(v28 + 26) |= 1u;
+        BYTE2(v28[1].Left) |= 1u;
       ObfReferenceObject(DmaAdapter);
       v22 = 0;
     }
@@ -331,7 +331,7 @@ LABEL_34:
       {
         Mdl = IoAllocateMdl(Address, Length, 0, 1u, v13);
         if ( !Mdl )
-          RtlRaiseStatus(0xC000009A);
+          RtlRaiseStatus(-1073741670);
         v43 = 0;
         if ( !a11 )
           v43 = AccessMode;
@@ -350,7 +350,7 @@ LABEL_34:
     }
     else
     {
-      v13->AssociatedIrp.MasterIrp = (struct _IRP *)IopVerifierExAllocatePoolWithQuota_0(
+      v13->AssociatedIrp.MasterIrp = (struct _IRP *)IopVerifierExAllocatePoolWithQuota(
                                                       NonPagedPoolNxCacheAligned,
                                                       (unsigned int)Length);
       v13->Flags |= 0x70u;

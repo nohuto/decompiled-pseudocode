@@ -1,14 +1,14 @@
 /*
- * XREFs of MxZeroBootMappings @ 0x140CF422C
+ * XREFs of MxZeroBootMappings @ 0x140CFA5AC
  * Callers:
- *     MiZeroBootMappings @ 0x140CF4038 (MiZeroBootMappings.c)
- *     MxZeroBootMappings @ 0x140CF422C (MxZeroBootMappings.c)
+ *     MiZeroBootMappings @ 0x140CFA3B8 (MiZeroBootMappings.c)
+ *     MxZeroBootMappings @ 0x140CFA5AC (MxZeroBootMappings.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiFreeBootPageTable @ 0x140CF2B30 (MiFreeBootPageTable.c)
- *     MxZeroBootMappings @ 0x140CF422C (MxZeroBootMappings.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiFreeBootPageTable @ 0x140CF8EB0 (MiFreeBootPageTable.c)
+ *     MxZeroBootMappings @ 0x140CFA5AC (MxZeroBootMappings.c)
  */
 
 void __fastcall MxZeroBootMappings(unsigned __int64 a1, unsigned __int64 a2, int a3)

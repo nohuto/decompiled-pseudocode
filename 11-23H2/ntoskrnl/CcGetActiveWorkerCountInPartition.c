@@ -1,10 +1,10 @@
 /*
- * XREFs of CcGetActiveWorkerCountInPartition @ 0x1403D3FC4
+ * XREFs of CcGetActiveWorkerCountInPartition @ 0x1403D41A4
  * Callers:
- *     CcPartitionTelemetryCallback @ 0x140880710 (CcPartitionTelemetryCallback.c)
- *     CcPrivateVolumeCacheMapTelemetryCallback @ 0x1408810E0 (CcPrivateVolumeCacheMapTelemetryCallback.c)
+ *     CcPartitionTelemetryCallback @ 0x140880950 (CcPartitionTelemetryCallback.c)
+ *     CcPrivateVolumeCacheMapTelemetryCallback @ 0x140881320 (CcPrivateVolumeCacheMapTelemetryCallback.c)
  * Callees:
- *     CcForEachNumaNode @ 0x1403C3BBC (CcForEachNumaNode.c)
+ *     CcForEachNumaNode @ 0x1403C3D9C (CcForEachNumaNode.c)
  */
 
 char __fastcall CcGetActiveWorkerCountInPartition(__int64 a1, __int64 a2, _QWORD *a3)

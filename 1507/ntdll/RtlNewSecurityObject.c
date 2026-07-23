@@ -7,7 +7,26 @@
  *     RtlpNewSecurityObject @ 0x18004B1E8 (RtlpNewSecurityObject.c)
  */
 
-__int64 __fastcall RtlNewSecurityObject(int a1, int a2, int a3, char a4, __int64 a5, __int64 a6)
+NTSTATUS __cdecl RtlNewSecurityObject(
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CreatorDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        BOOLEAN IsDirectoryObject,
+        HANDLE Token,
+        PGENERIC_MAPPING GenericMapping)
 {
-  return RtlpNewSecurityObject(a1, a2, a3, 0, 0, a4, 0, a5, a6, 0LL);
+  int v7; // [rsp+28h] [rbp-30h]
+
+  LOBYTE(v7) = IsDirectoryObject;
+  return RtlpNewSecurityObject(
+           (int)ParentDescriptor,
+           (int)CreatorDescriptor,
+           (int)NewDescriptor,
+           0,
+           0,
+           v7,
+           0,
+           Token,
+           (__int64)GenericMapping,
+           0LL);
 }

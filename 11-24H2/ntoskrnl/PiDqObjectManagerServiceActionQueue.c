@@ -1,27 +1,27 @@
 /*
- * XREFs of PiDqObjectManagerServiceActionQueue @ 0x1408D2DD0
+ * XREFs of PiDqObjectManagerServiceActionQueue @ 0x1408D07C0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     IoSetActivityIdThread @ 0x14045C3B0 (IoSetActivityIdThread.c)
- *     IoClearActivityIdThread @ 0x140463690 (IoClearActivityIdThread.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1404C9154 (McTemplateK0p_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PiPnpRtlObjectEventRelease @ 0x1408D2A3C (PiPnpRtlObjectEventRelease.c)
- *     PnpIsNullGuid @ 0x1408D3190 (PnpIsNullGuid.c)
- *     PiDqQueryLock @ 0x1408D31BC (PiDqQueryLock.c)
- *     PiDqQueryUnlock @ 0x1408D321C (PiDqQueryUnlock.c)
- *     PiDqQueryApplyObjectEvent @ 0x1408D327C (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryFreeActiveData @ 0x1408D3C80 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryCompletePendedIrp @ 0x1408D3D18 (PiDqQueryCompletePendedIrp.c)
- *     PiDqQueryRelease @ 0x1408D3FB0 (PiDqQueryRelease.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     IoSetActivityIdThread @ 0x140451750 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x140459F90 (IoClearActivityIdThread.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1404C2604 (McTemplateK0p_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1408D042C (PiPnpRtlObjectEventRelease.c)
+ *     PnpIsNullGuid @ 0x1408D0B80 (PnpIsNullGuid.c)
+ *     PiDqQueryLock @ 0x1408D0BAC (PiDqQueryLock.c)
+ *     PiDqQueryUnlock @ 0x1408D0C0C (PiDqQueryUnlock.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1408D0C6C (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryFreeActiveData @ 0x1408D1670 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1408D1708 (PiDqQueryCompletePendedIrp.c)
+ *     PiDqQueryRelease @ 0x1408D19A0 (PiDqQueryRelease.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDqObjectManagerServiceActionQueue(PERESOURCE Resource)
@@ -111,7 +111,7 @@ LABEL_6:
     v26 = OwnerTable_low;
     if ( (_DWORD)OwnerTable_low )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 8LL * (unsigned int)OwnerTable_low, 0x58706E50u);
       v27 = (PVOID *)Pool2;
       v6 = (PVOID *)Pool2;
       if ( !Pool2 )
@@ -161,7 +161,7 @@ LABEL_29:
               v10 = IoSetActivityIdThread(&v30);
               v23 = 1;
             }
-            if ( (byte_140EEFD23 & 1) != 0 )
+            if ( (byte_140EEFF63 & 1) != 0 )
               McTemplateK0p_EtwWriteTransfer(
                 v12,
                 (const EVENT_DESCRIPTOR *)KMPnPEvt_DevQuery_ProcessingStart,
@@ -178,7 +178,7 @@ LABEL_29:
                 PiDqQueryCompletePendedIrp(v11);
               PiDqQueryUnlock(v11);
             }
-            if ( (byte_140EEFD23 & 1) != 0 )
+            if ( (byte_140EEFF63 & 1) != 0 )
               McTemplateK0p_EtwWriteTransfer(
                 v14,
                 (const EVENT_DESCRIPTOR *)KMPnPEvt_DevQuery_ProcessingStop,

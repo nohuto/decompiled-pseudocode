@@ -1,9 +1,9 @@
 /*
- * XREFs of BvgaIndicateProgress @ 0x140A8F8D0
+ * XREFs of BvgaIndicateProgress @ 0x140A908D0
  * Callers:
  *     <none>
  * Callees:
- *     BvgaUpdateProgressBar @ 0x140500030 (BvgaUpdateProgressBar.c)
+ *     BvgaUpdateProgressBar @ 0x1404FFFB0 (BvgaUpdateProgressBar.c)
  */
 
 void BvgaIndicateProgress()

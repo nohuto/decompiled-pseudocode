@@ -1,31 +1,31 @@
 /*
- * XREFs of MiSystemFault @ 0x1403A4508
+ * XREFs of MiSystemFault @ 0x1403A6268
  * Callers:
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiResolveDemandZeroFault @ 0x1402D4B40 (MiResolveDemandZeroFault.c)
- *     MiSynchronizeSystemVa @ 0x1402E3870 (MiSynchronizeSystemVa.c)
- *     MiUnlockSystemVa @ 0x1402E5200 (MiUnlockSystemVa.c)
- *     MiUpdatePfnForPrefetchByPte @ 0x1402F2FD0 (MiUpdatePfnForPrefetchByPte.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     MiTransientCombineAddress @ 0x1403A6530 (MiTransientCombineAddress.c)
- *     MiSystemVaTypeHasWsles @ 0x1403A67E0 (MiSystemVaTypeHasWsles.c)
- *     MiCheckSystemPageTables @ 0x1403A6808 (MiCheckSystemPageTables.c)
- *     MiNoFaultFound @ 0x1403A6898 (MiNoFaultFound.c)
- *     KeInvalidAccessAllowed @ 0x1403A6D10 (KeInvalidAccessAllowed.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiHyperSpaceSize @ 0x14047F578 (MiHyperSpaceSize.c)
- *     MiCheckSystemNxFault @ 0x1404EB224 (MiCheckSystemNxFault.c)
- *     MiGenerateAccessViolation @ 0x1404ED878 (MiGenerateAccessViolation.c)
- *     MiTransientPageListWriter @ 0x14050BC30 (MiTransientPageListWriter.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiResolveDemandZeroFault @ 0x1402B6900 (MiResolveDemandZeroFault.c)
+ *     MiSynchronizeSystemVa @ 0x1402C58B0 (MiSynchronizeSystemVa.c)
+ *     MiUnlockSystemVa @ 0x1402C7240 (MiUnlockSystemVa.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x1402D5050 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     MiTransientCombineAddress @ 0x1403A8290 (MiTransientCombineAddress.c)
+ *     MiSystemVaTypeHasWsles @ 0x1403A8540 (MiSystemVaTypeHasWsles.c)
+ *     MiCheckSystemPageTables @ 0x1403A8568 (MiCheckSystemPageTables.c)
+ *     MiNoFaultFound @ 0x1403A85F8 (MiNoFaultFound.c)
+ *     KeInvalidAccessAllowed @ 0x1403A8A70 (KeInvalidAccessAllowed.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiHyperSpaceSize @ 0x140478EE8 (MiHyperSpaceSize.c)
+ *     MiCheckSystemNxFault @ 0x1404E4804 (MiCheckSystemNxFault.c)
+ *     MiGenerateAccessViolation @ 0x1404E6E58 (MiGenerateAccessViolation.c)
+ *     MiTransientPageListWriter @ 0x1405056A0 (MiTransientPageListWriter.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiSystemFault(__int64 a1)
@@ -86,8 +86,8 @@ __int64 __fastcall MiSystemFault(__int64 a1)
   v5 = LeafVa;
   if ( v3 >= 0xFFFFF68000000000uLL
     && v3 <= 0xFFFFF6FFFFFFFFFFuLL
-    && LeafVa >= qword_140E2DE40
-    && LeafVa <= qword_140E2DE50 )
+    && LeafVa >= qword_140E2DFC0
+    && LeafVa <= qword_140E2DFD0 )
   {
     *(_QWORD *)(a1 + 8) |= 2uLL;
   }
@@ -96,14 +96,14 @@ __int64 __fastcall MiSystemFault(__int64 a1)
   {
     if ( v3 < 0xFFFFF68000000000uLL
       || v3 > 0xFFFFF6FFFFFFFFFFuLL
-      || LeafVa >= 0x7FFFFFFF0000LL && (LeafVa < qword_140E2DE40 || LeafVa > qword_140E2DE50) )
+      || LeafVa >= 0x7FFFFFFF0000LL && (LeafVa < qword_140E2DFC0 || LeafVa > qword_140E2DFD0) )
     {
       return 3489660934LL;
     }
     return 192LL;
   }
   if ( LeafVa < 0xFFFF800000000000uLL
-    || LeafVa >= qword_140E2DE48 && LeafVa < qword_140E2DE48 + MiHyperSpaceSize(v6, 0xFFFFF6FFFFFFFFFFuLL) )
+    || LeafVa >= qword_140E2DFC8 && LeafVa < qword_140E2DFC8 + MiHyperSpaceSize(v6, 0xFFFFF6FFFFFFFFFFuLL) )
   {
     return 192LL;
   }

@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlpValidateHeapHeaders @ 0x1800FABF4
+ * XREFs of RtlpValidateHeapHeaders @ 0x1800FABB4
  * Callers:
- *     RtlDebugAllocateHeap @ 0x1800F89E0 (RtlDebugAllocateHeap.c)
- *     RtlDebugCompactHeap @ 0x1800F8D9C (RtlDebugCompactHeap.c)
- *     RtlDebugCreateHeap @ 0x1800F8EF0 (RtlDebugCreateHeap.c)
- *     RtlDebugCreateTagHeap @ 0x1800F91E4 (RtlDebugCreateTagHeap.c)
- *     RtlDebugFreeHeap @ 0x1800F93EC (RtlDebugFreeHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800F99D0 (RtlDebugReAllocateHeap.c)
- *     RtlpValidateHeap @ 0x1800FA614 (RtlpValidateHeap.c)
+ *     RtlDebugAllocateHeap @ 0x1800F89A0 (RtlDebugAllocateHeap.c)
+ *     RtlDebugCompactHeap @ 0x1800F8D5C (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateHeap @ 0x1800F8EB0 (RtlDebugCreateHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x1800F91A4 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800F93AC (RtlDebugFreeHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x1800F9990 (RtlDebugReAllocateHeap.c)
+ *     RtlpValidateHeap @ 0x1800FA5D4 (RtlpValidateHeap.c)
  * Callees:
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
- *     ZwAllocateVirtualMemory @ 0x18009D940 (ZwAllocateVirtualMemory.c)
- *     RtlCompareMemory @ 0x1800A1FF0 (RtlCompareMemory.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     ZwAllocateVirtualMemory @ 0x18009D900 (ZwAllocateVirtualMemory.c)
+ *     RtlCompareMemory @ 0x1800A1FB0 (RtlCompareMemory.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-char __fastcall RtlpValidateHeapHeaders(void **Src, char a2)
+char __fastcall RtlpValidateHeapHeaders(PVOID *Src, char a2)
 {
-  void **v3; // rsi
-  void *v4; // rcx
+  PVOID *v3; // rsi
+  PVOID v4; // rcx
   size_t v5; // r8
   SIZE_T v6; // rdi
-  size_t v7; // rax
+  ULONG_PTR v7; // rax
   unsigned int v8; // edx
   __int64 v9; // rbx
   __int64 v10; // rax
-  size_t v12; // [rsp+50h] [rbp+18h]
+  ULONG_PTR v12; // [rsp+50h] [rbp+18h] BYREF
 
   if ( !RtlpValidateHeapHdrsEnable )
     return 1;
@@ -33,7 +33,8 @@ char __fastcall RtlpValidateHeapHeaders(void **Src, char a2)
   v4 = Src[27];
   if ( v4 )
     goto LABEL_5;
-  if ( (int)ZwAllocateVirtualMemory() < 0 )
+  v12 = *((unsigned __int16 *)Src + 105);
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, 0LL, &v12, 0x1000u, 4u) < 0 )
     return 1;
   v4 = *v3;
   a2 = 1;

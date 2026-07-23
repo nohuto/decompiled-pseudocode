@@ -1,8 +1,8 @@
 /*
- * XREFs of MiNewPfnsSuitable @ 0x140A2CBE0
+ * XREFs of MiNewPfnsSuitable @ 0x140A2CE90
  * Callers:
- *     MiAllocateEntireImageFileExtents @ 0x140A32F24 (MiAllocateEntireImageFileExtents.c)
- *     MiAllocateFileExtents @ 0x140A33068 (MiAllocateFileExtents.c)
+ *     MiAllocateEntireImageFileExtents @ 0x140A331D4 (MiAllocateEntireImageFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140A33318 (MiAllocateFileExtents.c)
  * Callees:
  *     <none>
  */

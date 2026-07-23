@@ -1,5 +1,5 @@
 /*
- * XREFs of BgpFwQueryPerformanceCounter @ 0x1401271EC
+ * XREFs of BgpFwQueryPerformanceCounter @ 0x14012775C
  * Callers:
  *     AnFwpProgressAnimationManual @ 0x1407253F8 (AnFwpProgressAnimationManual.c)
  *     LogFwReport @ 0x1407259A0 (LogFwReport.c)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpInitObjectTypeSD @ 0x1407444C8
+ * XREFs of ObpInitObjectTypeSD @ 0x1407427B8
  * Callers:
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
  * Callees:
- *     ObpCreateDefaultObjectTypeSD @ 0x14074435C (ObpCreateDefaultObjectTypeSD.c)
- *     ObLogSecurityDescriptor @ 0x140838F50 (ObLogSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObpCreateDefaultObjectTypeSD @ 0x14074264C (ObpCreateDefaultObjectTypeSD.c)
+ *     ObLogSecurityDescriptor @ 0x140836B60 (ObLogSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpInitObjectTypeSD(__int64 a1, void *a2)

@@ -16,7 +16,7 @@ __int64 __fastcall ExpWin32OpenProcedure(int a1, __int64 a2, __int64 a3, _DWORD 
   POBJECT_TYPE *v8; // rdx
   int v9; // ecx
   int v10; // r11d
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v12; // r11
   _QWORD v15[2]; // [rsp+30h] [rbp-30h] BYREF
   int v16; // [rsp+40h] [rbp-20h]

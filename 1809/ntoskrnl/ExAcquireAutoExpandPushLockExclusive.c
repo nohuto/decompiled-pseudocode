@@ -1,22 +1,22 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x140118FE0
+ * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x140119050
  * Callers:
- *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
- *     MiLockLoaderEntry @ 0x1400DBD64 (MiLockLoaderEntry.c)
- *     MiFreePhysicalPageChain @ 0x1402B05BC (MiFreePhysicalPageChain.c)
- *     MiFreePhysicalPages @ 0x1402B08E0 (MiFreePhysicalPages.c)
- *     MiLockAwePagesExclusive @ 0x1402B1294 (MiLockAwePagesExclusive.c)
- *     MiLockAweVadsExclusive @ 0x1402B12DC (MiLockAweVadsExclusive.c)
+ *     MiDeletePagablePteRange @ 0x140067FD0 (MiDeletePagablePteRange.c)
+ *     MiLockLoaderEntry @ 0x1400DBDE4 (MiLockLoaderEntry.c)
+ *     MiFreePhysicalPageChain @ 0x1402B07AC (MiFreePhysicalPageChain.c)
+ *     MiFreePhysicalPages @ 0x1402B0AD0 (MiFreePhysicalPages.c)
+ *     MiLockAwePagesExclusive @ 0x1402B1484 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x1402B14CC (MiLockAweVadsExclusive.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     ExpAcquireFannedOutPushLockExclusive @ 0x14016755C (ExpAcquireFannedOutPushLockExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExpAcquireFannedOutPushLockExclusive @ 0x14016765C (ExpAcquireFannedOutPushLockExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  __int64 v2; // rdi
+  PRTL_BALANCED_NODE v2; // rdi
   __int64 result; // rax
 
   v2 = 0LL;
@@ -30,6 +30,6 @@ __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
   if ( (result & 1) != 0 )
     result = ExpAcquireFannedOutPushLockExclusive((unsigned int)result & 0xFFFFFFF8, v2, BugCheckParameter2);
   if ( v2 )
-    *(_BYTE *)(v2 + 26) |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   return result;
 }

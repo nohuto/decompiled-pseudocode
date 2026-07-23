@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkFindAllExportAddresses @ 0x140C3BB2C
+ * XREFs of ViThunkFindAllExportAddresses @ 0x140C3DC84
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140C3B240 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140C3D398 (VfInitBootDriversLoaded.c)
  * Callees:
- *     ViThunkFindExportAddress @ 0x140C3BBD4 (ViThunkFindExportAddress.c)
+ *     ViThunkFindExportAddress @ 0x140C3DD2C (ViThunkFindExportAddress.c)
  */
 
 __int64 *__fastcall ViThunkFindAllExportAddresses(__int64 **a1, __int64 a2, __int64 a3)

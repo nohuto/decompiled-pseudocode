@@ -1,19 +1,19 @@
 /*
- * XREFs of PsQueryStatisticsProcess @ 0x140742BB0
+ * XREFs of PsQueryStatisticsProcess @ 0x140742DA0
  * Callers:
  *     PspQueryProcessAccountingInformationCallback @ 0x1406A0FA0 (PspQueryProcessAccountingInformationCallback.c)
  *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
  *     PspEnforceLimitsProcessCallback @ 0x1406A3100 (PspEnforceLimitsProcessCallback.c)
- *     NtQueryInformationProcess @ 0x1406FCA90 (NtQueryInformationProcess.c)
- *     ExpCopyProcessInfo @ 0x1407423C0 (ExpCopyProcessInfo.c)
- *     EtwTraceAppStateChange @ 0x1407519F8 (EtwTraceAppStateChange.c)
- *     EtwpPsProvTraceProcess @ 0x1407523D0 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x1406FCCA0 (NtQueryInformationProcess.c)
+ *     ExpCopyProcessInfo @ 0x1407425B0 (ExpCopyProcessInfo.c)
+ *     EtwTraceAppStateChange @ 0x140751BE8 (EtwTraceAppStateChange.c)
+ *     EtwpPsProvTraceProcess @ 0x1407525C0 (EtwpPsProvTraceProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KeQueryValuesThread @ 0x1402C2C40 (KeQueryValuesThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KeQueryValuesThread @ 0x1402C2ED0 (KeQueryValuesThread.c)
  */
 
 __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)
@@ -71,8 +71,8 @@ __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)
     ExfReleasePushLockShared(BugCheckParameter2);
   KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  v10 = (unsigned int)KeMaximumIncrement;
-  *a2 = (unsigned int)KeMaximumIncrement * (unsigned __int64)v4;
+  v10 = KeMaximumIncrement;
+  *a2 = KeMaximumIncrement * (unsigned __int64)v4;
   a2[1] = v10 * v5;
   a2[2] = v10 * v6;
   result = v7 * (unsigned int)v10;

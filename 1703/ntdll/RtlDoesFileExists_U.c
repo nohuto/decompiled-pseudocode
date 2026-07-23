@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool __fastcall RtlDoesFileExists_U(__int64 a1)
+BOOLEAN __cdecl RtlDoesFileExists_U(PCWSTR FileName)
 {
-  return sub_180058280(a1, 1);
+  return sub_180058280(FileName, 1);
 }

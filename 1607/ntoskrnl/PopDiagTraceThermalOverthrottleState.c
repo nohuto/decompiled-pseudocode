@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDiagTraceThermalOverthrottleState @ 0x1402094B4
+ * XREFs of PopDiagTraceThermalOverthrottleState @ 0x1402092E0
  * Callers:
- *     PopUpdateOverThrottledCount @ 0x1406706C4 (PopUpdateOverThrottledCount.c)
+ *     PopUpdateOverThrottledCount @ 0x1406707A8 (PopUpdateOverThrottledCount.c)
  * Callees:
  *     <none>
  */

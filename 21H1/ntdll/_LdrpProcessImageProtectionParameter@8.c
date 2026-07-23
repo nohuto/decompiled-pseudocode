@@ -12,7 +12,7 @@
 char __fastcall LdrpProcessImageProtectionParameter(int a1, const wchar_t *a2)
 {
   wchar_t *v4; // eax
-  int v5; // edi
+  ULONG v5; // edi
   wchar_t *EndPtr; // [esp+Ch] [ebp-4h] BYREF
 
   v4 = wcschr(a2, 0x2Cu);
@@ -20,16 +20,14 @@ char __fastcall LdrpProcessImageProtectionParameter(int a1, const wchar_t *a2)
   {
     *v4 = 0;
     v4 = (wchar_t *)wcstoul(v4 + 1, &EndPtr, 16);
-    v5 = (int)v4;
+    v5 = (ULONG)v4;
     if ( v4 )
     {
       DbgPrintEx(
         85,
-        3,
-        "CLIENT(ntdll): Tyring to fix protection for %ws section in %wZ module to 0x%X\n",
-        a2,
-        a1 + 36,
-        v4);
+        3u,
+        (int)"CLIENT(ntdll): Tyring to fix protection for %ws section in %wZ module to 0x%X\n",
+        (int)a2);
       LOBYTE(v4) = LdrpFixSectionProtection(*(_DWORD *)(a1 + 24), a2, v5);
     }
   }

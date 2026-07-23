@@ -1,10 +1,10 @@
 /*
- * XREFs of KeInitAmd64SpecificState @ 0x140A5F0D4
+ * XREFs of KeInitAmd64SpecificState @ 0x140A600D4
  * Callers:
- *     PsNotifyCoreDriversInitialized @ 0x140A5EF60 (PsNotifyCoreDriversInitialized.c)
+ *     PsNotifyCoreDriversInitialized @ 0x140A5FF60 (PsNotifyCoreDriversInitialized.c)
  * Callees:
- *     KiFilterFiberContext @ 0x140A1BBA0 (KiFilterFiberContext.c)
- *     KiSwInterruptPresent @ 0x140A423F0 (KiSwInterruptPresent.c)
+ *     KiFilterFiberContext @ 0x140A1CBA0 (KiFilterFiberContext.c)
+ *     KiSwInterruptPresent @ 0x140A433F0 (KiSwInterruptPresent.c)
  */
 
 __int64 KeInitAmd64SpecificState()
@@ -12,7 +12,7 @@ __int64 KeInitAmd64SpecificState()
   __int64 result; // rax
 
   _mm_lfence();
-  if ( !(_DWORD)InitSafeBootMode )
+  if ( !InitSafeBootMode )
     return (unsigned int)(__ROR4__((unsigned __int8)KdPitchDebugger | (unsigned __int8)KdDebuggerNotPresent, 1)
                         / (((unsigned __int8)KdPitchDebugger | (unsigned __int8)KdDebuggerNotPresent) != 0 ? -1 : 17));
   result = KiSwInterruptPresent();

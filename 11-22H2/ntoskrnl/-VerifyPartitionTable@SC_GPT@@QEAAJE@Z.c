@@ -31,7 +31,7 @@ __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
   char *v17; // rsi
   unsigned int v18; // edi
   SC_DISK *v19; // r9
-  __int64 v20; // rbx
+  _DWORD *v20; // rbx
   __int64 v21; // r8
   void *v22; // r14
   int v23; // edx
@@ -47,7 +47,7 @@ __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
   unsigned __int64 v33; // r8
   void **v34; // rbx
   __int64 v35; // rsi
-  __int128 v37; // [rsp+20h] [rbp-30h]
+  PVOID Buffer[2]; // [rsp+20h] [rbp-30h]
   void *v38[2]; // [rsp+30h] [rbp-20h]
   __int128 v39; // [rsp+40h] [rbp-10h] BYREF
   __int16 v40; // [rsp+90h] [rbp+40h] BYREF
@@ -63,11 +63,11 @@ __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
   v39 = 0LL;
   v8 = 2 - v7;
   *(_OWORD *)v38 = 0LL;
-  v37 = 0LL;
+  *(_OWORD *)Buffer = 0LL;
   do
   {
     v9 = (_DWORD *)*((_QWORD *)*this + 33);
-    v38[v6 - 2] = v9;
+    Buffer[v6] = v9;
     if ( (int)SC_GPT::ReadHeader(this, v5, (struct GPT_HEADER *)v9) >= 0 )
     {
       v11 = *((_DWORD *)*this + 59);
@@ -80,7 +80,7 @@ __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
       if ( !v15 )
       {
         v18 = -1073741670;
-        goto LABEL_34;
+        goto LABEL_37;
       }
       if ( v5 )
       {
@@ -91,7 +91,7 @@ __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
       {
         v17 = &v15[v14];
       }
-      v38[v6 - 2] = v17;
+      Buffer[v6] = v17;
       v38[v6] = v16;
       memmove(v17, *((const void **)*this + 33), 1 << *((_DWORD *)*this + 60));
       if ( (int)SC_GPT::ReadEntries(this, (struct GPT_HEADER *)v17, (struct GPT_ENTRY *)v16) >= 0 )
@@ -107,27 +107,30 @@ __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
   {
 LABEL_11:
     v18 = -1073741774;
-    goto LABEL_34;
+    goto LABEL_37;
   }
   v19 = *this;
   if ( (*((_DWORD *)*this + 50) & 1) == 0 )
   {
-    v20 = v37;
+    v20 = Buffer[0];
     if ( !(_BYTE)v40
       || !HIBYTE(v40)
-      || __PAIR128__(*(_QWORD *)(*((_QWORD *)&v37 + 1) + 24LL), *(_QWORD *)(*((_QWORD *)&v37 + 1) + 32LL)) != *(_OWORD *)(v37 + 24)
-      || *(_OWORD *)(*((_QWORD *)&v37 + 1) + 40LL) != *(_OWORD *)(v37 + 40)
-      || *(_QWORD *)(*((_QWORD *)&v37 + 1) + 80LL) != *(_QWORD *)(v37 + 80)
-      || *(_DWORD *)(*((_QWORD *)&v37 + 1) + 88LL) != *(_DWORD *)(v37 + 88) )
+      || *((_QWORD *)Buffer[1] + 3) != *((_QWORD *)Buffer[0] + 4)
+      || *((_QWORD *)Buffer[1] + 4) != *((_QWORD *)Buffer[0] + 3)
+      || *((_QWORD *)Buffer[1] + 5) != *((_QWORD *)Buffer[0] + 5)
+      || *((_QWORD *)Buffer[1] + 6) != *((_QWORD *)Buffer[0] + 6)
+      || *((_DWORD *)Buffer[1] + 20) != *((_DWORD *)Buffer[0] + 20)
+      || *((_DWORD *)Buffer[1] + 21) != *((_DWORD *)Buffer[0] + 21)
+      || *((_DWORD *)Buffer[1] + 22) != *((_DWORD *)Buffer[0] + 22) )
     {
-      goto LABEL_23;
+      goto LABEL_26;
     }
-    v21 = *(_QWORD *)(*((_QWORD *)&v37 + 1) + 56LL) - *(_QWORD *)(v37 + 56);
+    v21 = *((_QWORD *)Buffer[1] + 7) - *((_QWORD *)Buffer[0] + 7);
     if ( !v21 )
-      v21 = *(_QWORD *)(*((_QWORD *)&v37 + 1) + 64LL) - *(_QWORD *)(v37 + 64);
+      v21 = *((_QWORD *)Buffer[1] + 8) - *((_QWORD *)Buffer[0] + 8);
     if ( v21 )
     {
-LABEL_23:
+LABEL_26:
       if ( !v41 )
         goto LABEL_11;
       if ( (_BYTE)v40 )
@@ -137,25 +140,25 @@ LABEL_23:
       else
       {
         v22 = v38[1];
-        v20 = *((_QWORD *)&v37 + 1);
+        v20 = Buffer[1];
       }
       v23 = *((_DWORD *)v19 + 59);
       v24 = *((_DWORD *)v19 + 60);
       v25 = (_BYTE)v40 != 0;
-      v26 = *(_DWORD *)(v20 + 80) * *(_DWORD *)(v20 + 84);
-      *(_DWORD *)(v20 + 16) = 0;
-      v27 = *(_QWORD *)(v20 + 32);
+      v26 = v20[20] * v20[21];
+      v20[4] = 0;
+      v27 = *((_QWORD *)v20 + 4);
       v28 = v26 + v23 - 1;
-      v29 = *(_QWORD *)(v20 + 24);
-      *(_QWORD *)(v20 + 24) = v27;
+      v29 = *((_QWORD *)v20 + 3);
+      *((_QWORD *)v20 + 3) = v27;
       v30 = (-v23 & (unsigned int)v28) >> v24;
-      *(_QWORD *)(v20 + 32) = v29;
+      *((_QWORD *)v20 + 4) = v29;
       if ( v25 )
         v31 = v27 - v30;
       else
         v31 = v27 + 1;
-      *(_QWORD *)(v20 + 72) = v31;
-      *(_DWORD *)(v20 + 16) = RtlComputeCrc32(0, (char *)v20, *(unsigned int *)(v20 + 12));
+      *((_QWORD *)v20 + 9) = v31;
+      v20[4] = RtlComputeCrc32(0, v20, v20[3]);
       if ( v25 )
       {
         v32 = v22;
@@ -163,13 +166,13 @@ LABEL_23:
       }
       else
       {
-        v32 = (void *)v20;
+        v32 = v20;
         v33 = v27;
       }
       v18 = SC_DISK::WriteSectors(*this, v30 + 1, v33, v32);
     }
   }
-LABEL_34:
+LABEL_37:
   v34 = (void **)&v39;
   v35 = 2LL;
   do

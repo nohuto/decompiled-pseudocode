@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbDestroyDatabaseNode @ 0x14097E86C
+ * XREFs of DrvDbDestroyDatabaseNode @ 0x14097EA4C
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x14063BE70 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140735A04 (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbOpenContext @ 0x1407A400C (DrvDbOpenContext.c)
- *     DrvDbUnregisterDatabase @ 0x14097E810 (DrvDbUnregisterDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x140630C80 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140735BC4 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbOpenContext @ 0x1407A420C (DrvDbOpenContext.c)
+ *     DrvDbUnregisterDatabase @ 0x14097E9F0 (DrvDbUnregisterDatabase.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     DrvDbUnloadDatabaseNode @ 0x14063E670 (DrvDbUnloadDatabaseNode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     DrvDbUnloadDatabaseNode @ 0x140633480 (DrvDbUnloadDatabaseNode.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbDestroyDatabaseNode(__int64 a1, void ***a2)

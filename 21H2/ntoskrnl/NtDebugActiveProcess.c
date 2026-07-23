@@ -1,21 +1,21 @@
 /*
- * XREFs of NtDebugActiveProcess @ 0x140885D80
+ * XREFs of NtDebugActiveProcess @ 0x140885EE0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PsTestProtectedProcessIncompatibility @ 0x140607578 (PsTestProtectedProcessIncompatibility.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     DbgkpPostFakeProcessCreateMessages @ 0x140884DCC (DbgkpPostFakeProcessCreateMessages.c)
- *     DbgkpSetProcessDebugObject @ 0x140885810 (DbgkpSetProcessDebugObject.c)
- *     PsRequestDebugSecureProcess @ 0x14090CAB8 (PsRequestDebugSecureProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x140697008 (PsTestProtectedProcessIncompatibility.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x140884F2C (DbgkpPostFakeProcessCreateMessages.c)
+ *     DbgkpSetProcessDebugObject @ 0x140885970 (DbgkpSetProcessDebugObject.c)
+ *     PsRequestDebugSecureProcess @ 0x14090CC18 (PsRequestDebugSecureProcess.c)
  */
 
-NTSTATUS __fastcall NtDebugActiveProcess(void *a1, void *a2)
+NTSTATUS __cdecl NtDebugActiveProcess(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   KPROCESSOR_MODE PreviousMode; // bp
   NTSTATUS result; // eax
@@ -23,7 +23,7 @@ NTSTATUS __fastcall NtDebugActiveProcess(void *a1, void *a2)
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v7; // rdi
   _KPROCESS *Process; // rsi
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   unsigned __int64 v10; // rax
   __int16 v11; // cx
   unsigned __int64 Count; // rax
@@ -39,7 +39,7 @@ NTSTATUS __fastcall NtDebugActiveProcess(void *a1, void *a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v17[0] = 0LL;
   result = ObReferenceObjectByHandleWithTag(
-             a1,
+             ProcessHandle,
              0x800u,
              (POBJECT_TYPE)PsProcessType,
              PreviousMode,
@@ -70,16 +70,16 @@ NTSTATUS __fastcall NtDebugActiveProcess(void *a1, void *a2)
           || (Count = v7[176].Count) != 0 && ((v13 = *(_WORD *)(Count + 8), v13 == 332) || v13 == 452) )
         {
           Object = 0LL;
-          v9 = ObReferenceObjectByHandle(a2, 2u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
+          v9 = ObReferenceObjectByHandle(DebugObjectHandle, 2u, DbgkDebugObjectType, PreviousMode, &Object, 0LL);
           if ( v9 >= 0 )
           {
-            v14 = ExAcquireRundownProtection_0(v7 + 139);
+            v14 = ExAcquireRundownProtection(v7 + 139);
             v15 = (struct _KEVENT *)Object;
             if ( v14 )
             {
               Messages = DbgkpPostFakeProcessCreateMessages((_KPROCESS *)v7, (struct _KEVENT *)Object, v17);
-              v9 = DbgkpSetProcessDebugObject((__int64)v7, v15, Messages, v17[0]);
-              ExReleaseRundownProtection_0(v7 + 139);
+              v9 = DbgkpSetProcessDebugObject((ULONG_PTR)v7, v15, Messages, v17[0]);
+              ExReleaseRundownProtection(v7 + 139);
             }
             else
             {

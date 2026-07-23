@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlFindRange @ 0x14083BD60
  * Callers:
- *     IopPortFindSuitableRange @ 0x14083B8B0 (IopPortFindSuitableRange.c)
- *     ArbFindSuitableRange @ 0x14083BC60 (ArbFindSuitableRange.c)
- *     KiTpIsExcludedKernelTracepointLocation @ 0x140962A18 (KiTpIsExcludedKernelTracepointLocation.c)
+ *     sub_14083B8B0 @ 0x14083B8B0 (sub_14083B8B0.c)
+ *     sub_14083BC60 @ 0x14083BC60 (sub_14083BC60.c)
+ *     sub_140962A18 @ 0x140962A18 (sub_140962A18.c)
  * Callees:
- *     RtlpIsRangeAvailable @ 0x14083BEC0 (RtlpIsRangeAvailable.c)
+ *     sub_14083BEC0 @ 0x14083BEC0 (sub_14083BEC0.c)
  *     RtlGetLastRange @ 0x14083C040 (RtlGetLastRange.c)
  */
 
@@ -46,7 +46,7 @@ __int64 __fastcall RtlFindRange(
   do
   {
     LOBYTE(v17) = a7;
-    if ( (unsigned __int8)RtlpIsRangeAvailable((unsigned int)&v21, v13, v16, v17, v14, v15, 0, a8, v18) )
+    if ( (unsigned __int8)sub_14083BEC0((unsigned int)&v21, v13, v16, v17, v14, v15, 0, a8, v18) )
     {
       *a10 = v13;
       return 0LL;

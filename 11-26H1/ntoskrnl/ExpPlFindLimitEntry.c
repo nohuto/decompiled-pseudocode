@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpPlFindLimitEntry @ 0x1404D6E00
+ * XREFs of ExpPlFindLimitEntry @ 0x1404D05D0
  * Callers:
- *     ExAllocateContiguousHeapPool @ 0x14034AA60 (ExAllocateContiguousHeapPool.c)
- *     ExpInsertPoolTracker @ 0x14034AEA4 (ExpInsertPoolTracker.c)
- *     ExAllocateHeapPool @ 0x1403987D0 (ExAllocateHeapPool.c)
- *     ExpInsertPoolTrackerExpansion @ 0x1403C08E4 (ExpInsertPoolTrackerExpansion.c)
- *     ExPoolQueryLimits @ 0x140518D40 (ExPoolQueryLimits.c)
- *     ExAllocateHeapSpecialPool @ 0x14051A678 (ExAllocateHeapSpecialPool.c)
- *     ExpTrackTableInsertLimit @ 0x1406CCD60 (ExpTrackTableInsertLimit.c)
+ *     ExAllocateContiguousHeapPool @ 0x14034CAE0 (ExAllocateContiguousHeapPool.c)
+ *     ExpInsertPoolTracker @ 0x14034CF24 (ExpInsertPoolTracker.c)
+ *     ExAllocateHeapPool @ 0x14039A530 (ExAllocateHeapPool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x1403CA7E4 (ExpInsertPoolTrackerExpansion.c)
+ *     ExPoolQueryLimits @ 0x1405127B0 (ExPoolQueryLimits.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405140E8 (ExAllocateHeapSpecialPool.c)
+ *     ExpTrackTableInsertLimit @ 0x1406D0D90 (ExpTrackTableInsertLimit.c)
  * Callees:
  *     <none>
  */
@@ -19,13 +19,13 @@ _QWORD *__fastcall ExpPlFindLimitEntry(int a1)
   _QWORD *v3; // rcx
   _QWORD *result; // rax
 
-  v1 = -1LL << (stru_140E28440.RealtimePriorityFloor & 0x1F);
+  v1 = -1LL << (stru_140E285C0.RealtimePriorityFloor & 0x1F);
   v2 = (unsigned int)v1 & a1;
-  if ( (unsigned int)stru_140E28440.RealtimePriorityFloor >> 5 )
+  if ( (unsigned int)stru_140E285C0.RealtimePriorityFloor >> 5 )
   {
-    v3 = (char *)stru_140E28440.KernelShadowStack
+    v3 = (char *)stru_140E285C0.KernelShadowStack
        + 8
-       * ((((unsigned int)stru_140E28440.RealtimePriorityFloor >> 5) - 1) & (HIBYTE(v2)
+       * ((((unsigned int)stru_140E285C0.RealtimePriorityFloor >> 5) - 1) & (HIBYTE(v2)
                                                                            - 877075889
                                                                            + 442596621 * (unsigned __int8)v2
                                                                            + 37

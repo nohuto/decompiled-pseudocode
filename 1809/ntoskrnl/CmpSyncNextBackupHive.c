@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpSyncNextBackupHive @ 0x1407F4538
+ * XREFs of CmpSyncNextBackupHive @ 0x1407F5738
  * Callers:
- *     NtInitializeRegistry @ 0x14071DCD0 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14071EF70 (NtInitializeRegistry.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
- *     TryLockShutdownShared @ 0x1407F95F0 (TryLockShutdownShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     CmpFlushBackupHive @ 0x1407F5250 (CmpFlushBackupHive.c)
+ *     TryLockShutdownShared @ 0x1407FA7F0 (TryLockShutdownShared.c)
  */
 
 __int64 CmpSyncNextBackupHive()

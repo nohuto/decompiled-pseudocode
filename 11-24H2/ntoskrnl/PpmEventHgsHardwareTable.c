@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmEventHgsHardwareTable @ 0x140203014
+ * XREFs of PpmEventHgsHardwareTable @ 0x1404A81D4
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140203248 (PpmHeteroUpdateHgsConfiguration.c)
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1404E2E24 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventHgsHardwareTable(char a1)
@@ -55,7 +55,7 @@ void __fastcall PpmEventHgsHardwareTable(char a1)
     if ( EtwEventEnabled(PpmEtwHandle, v2) )
     {
       v18 = MaximumProcessorCount * v16;
-      Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL, 10 * MaximumProcessorCount * v16, 0x654D5050u);
       if ( Pool2 )
       {
         v5 = PpmCheckRegistered.Bitmap[0];
@@ -75,7 +75,7 @@ void __fastcall PpmEventHgsHardwareTable(char a1)
           {
             _BitScanForward64(&v7, v5);
             v5 &= ~(1LL << v7);
-            v8 = *((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v6 + (unsigned __int8)v7);
+            v8 = *((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v6 + (unsigned __int8)v7);
             Prcb = KeGetPrcb(v8);
             v10 = 0;
             v11 = *(_QWORD *)(Prcb + 35408);

@@ -1,9 +1,9 @@
 /*
- * XREFs of MmIsVerifierEnabled @ 0x140921490
+ * XREFs of MmIsVerifierEnabled @ 0x140922490
  * Callers:
- *     PopVerifierFlushMemoryBeforeSleep @ 0x1405652FC (PopVerifierFlushMemoryBeforeSleep.c)
- *     InitializePagedPool @ 0x1409B7280 (InitializePagedPool.c)
- *     MiInitializeBootDefaults @ 0x1409DBEF0 (MiInitializeBootDefaults.c)
+ *     PopVerifierFlushMemoryBeforeSleep @ 0x1405662FC (PopVerifierFlushMemoryBeforeSleep.c)
+ *     InitializePagedPool @ 0x1409B8280 (InitializePagedPool.c)
+ *     MiInitializeBootDefaults @ 0x1409DCEF0 (MiInitializeBootDefaults.c)
  * Callees:
  *     <none>
  */

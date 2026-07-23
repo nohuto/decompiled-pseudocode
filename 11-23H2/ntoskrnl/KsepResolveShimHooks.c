@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepResolveShimHooks @ 0x14085B9D8
+ * XREFs of KsepResolveShimHooks @ 0x14085BC18
  * Callers:
- *     KsepResolveApplicableShimsForDriver @ 0x14085B7BC (KsepResolveApplicableShimsForDriver.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x14085B9FC (KsepResolveApplicableShimsForDriver.c)
  * Callees:
- *     RtlFindExportedRoutineByName @ 0x1406AD3F0 (RtlFindExportedRoutineByName.c)
- *     KsepGetModuleInfoByName @ 0x1409775A4 (KsepGetModuleInfoByName.c)
+ *     RtlFindExportedRoutineByName @ 0x1406AD420 (RtlFindExportedRoutineByName.c)
+ *     KsepGetModuleInfoByName @ 0x1409777A4 (KsepGetModuleInfoByName.c)
  */
 
 __int64 __fastcall KsepResolveShimHooks(__int64 a1, int *a2)
@@ -14,12 +14,12 @@ __int64 __fastcall KsepResolveShimHooks(__int64 a1, int *a2)
   int v6; // ecx
   int v7; // ecx
   int v8; // ecx
-  __int64 v9; // rbx
+  void *v9; // rbx
   __int64 v10; // rdi
   int v11; // r12d
   __int64 result; // rax
-  unsigned __int64 ExportedRoutineByName; // rax
-  __int64 v14; // [rsp+50h] [rbp+8h]
+  PVOID ExportedRoutineByName; // rax
+  void *v14; // [rsp+50h] [rbp+8h]
 
   v14 = 0LL;
   if ( !a1 || !a2 )
@@ -51,12 +51,12 @@ __int64 __fastcall KsepResolveShimHooks(__int64 a1, int *a2)
       }
       else
       {
-        v9 = *(_QWORD *)(a1 + 320);
+        v9 = *(void **)(a1 + 320);
       }
     }
     else
     {
-      v9 = *(_QWORD *)(a1 + 24);
+      v9 = *(void **)(a1 + 24);
     }
     v14 = v9;
 LABEL_11:
@@ -68,7 +68,7 @@ LABEL_11:
       {
         if ( !*(_DWORD *)v10 )
         {
-          ExportedRoutineByName = RtlFindExportedRoutineByName(v9, *(char **)(v10 + 8));
+          ExportedRoutineByName = RtlFindExportedRoutineByName(v9, *(PCSTR *)(v10 + 8));
           if ( !ExportedRoutineByName )
             return 3221225473LL;
           *(_QWORD *)(v10 + 24) = ExportedRoutineByName;

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlTimeFieldsToTime @ 0x1800A0DE0
+ * XREFs of RtlTimeFieldsToTime @ 0x18009FF10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlTimeFieldsToTime(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlTimeFieldsToTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time)
 {
-  return RtlpTimeFieldsToTime(a1, a2, 0LL);
+  return RtlpTimeFieldsToTime(TimeFields, Time, 0LL);
 }

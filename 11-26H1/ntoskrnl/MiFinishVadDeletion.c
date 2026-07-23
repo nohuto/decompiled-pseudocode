@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFinishVadDeletion @ 0x140442CA8
+ * XREFs of MiFinishVadDeletion @ 0x14043B7B8
  * Callers:
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     MiDecrementVadsBeingDeleted @ 0x140442E60 (MiDecrementVadsBeingDeleted.c)
- *     MiGetVadWakeList @ 0x140442EA0 (MiGetVadWakeList.c)
- *     MiRemoveVadCharges @ 0x14095C7D4 (MiRemoveVadCharges.c)
- *     MiReturnVadQuotaCharges @ 0x140A79C0C (MiReturnVadQuotaCharges.c)
- *     MiDeleteVadHotPatchState @ 0x140B55460 (MiDeleteVadHotPatchState.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     MiDecrementVadsBeingDeleted @ 0x14043B970 (MiDecrementVadsBeingDeleted.c)
+ *     MiGetVadWakeList @ 0x14043B9B0 (MiGetVadWakeList.c)
+ *     MiRemoveVadCharges @ 0x140A02094 (MiRemoveVadCharges.c)
+ *     MiReturnVadQuotaCharges @ 0x140A81B4C (MiReturnVadQuotaCharges.c)
+ *     MiDeleteVadHotPatchState @ 0x140B57CFC (MiDeleteVadHotPatchState.c)
  */
 
 __int64 __fastcall MiFinishVadDeletion(_DWORD *P, __int64 a2, unsigned __int64 a3, char a4)
@@ -26,7 +26,6 @@ __int64 __fastcall MiFinishVadDeletion(_DWORD *P, __int64 a2, unsigned __int64 a
   _QWORD *v12; // rsi
   __int64 v13; // r8
   _QWORD *v15; // rbx
-  __int64 v16; // rdx
 
   CurrentThread = KeGetCurrentThread();
   v5 = 0;
@@ -66,7 +65,7 @@ __int64 __fastcall MiFinishVadDeletion(_DWORD *P, __int64 a2, unsigned __int64 a
       v12 = v15;
     }
     while ( v15 );
-    KeLeaveCriticalRegionThread((__int64)CurrentThread, v16, v13);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   return MiDecrementVadsBeingDeleted(v10);
 }

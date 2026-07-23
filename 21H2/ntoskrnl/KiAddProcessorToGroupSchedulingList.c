@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAddProcessorToGroupSchedulingList @ 0x1405237CC
+ * XREFs of KiAddProcessorToGroupSchedulingList @ 0x140523A0C
  * Callers:
- *     KiAddProcessorToGroupSchedulingList @ 0x1405237CC (KiAddProcessorToGroupSchedulingList.c)
- *     KiAddProcessorToGroupSchedulingDatabase @ 0x1409AFC94 (KiAddProcessorToGroupSchedulingDatabase.c)
+ *     KiAddProcessorToGroupSchedulingList @ 0x140523A0C (KiAddProcessorToGroupSchedulingList.c)
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x1409B0BC4 (KiAddProcessorToGroupSchedulingDatabase.c)
  * Callees:
- *     KiAddProcessorToGroupSchedulingList @ 0x1405237CC (KiAddProcessorToGroupSchedulingList.c)
+ *     KiAddProcessorToGroupSchedulingList @ 0x140523A0C (KiAddProcessorToGroupSchedulingList.c)
  */
 
 void __fastcall KiAddProcessorToGroupSchedulingList(__int64 a1, _QWORD **a2, unsigned int a3)

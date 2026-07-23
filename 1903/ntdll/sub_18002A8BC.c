@@ -6,17 +6,16 @@
  *     RtlEqualUnicodeString @ 0x180022950 (RtlEqualUnicodeString.c)
  */
 
-char __fastcall sub_18002A8BC(unsigned __int16 *a1, __int64 a2)
+BOOLEAN __fastcall sub_18002A8BC(unsigned __int16 *a1, __int64 a2)
 {
-  char result; // al
+  BOOLEAN result; // al
   _WORD *i; // rax
   __int16 v5; // cx
   __int16 v6; // ax
-  unsigned __int16 v7[4]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-10h]
+  _UNICODE_STRING String1; // [rsp+20h] [rbp-18h] BYREF
 
   result = 0;
-  if ( word_180164F10 )
+  if ( LinkTarget.Length )
   {
     for ( i = (_WORD *)(*a1 + *((_QWORD *)a1 + 1) - 2LL); ; --i )
     {
@@ -31,12 +30,12 @@ char __fastcall sub_18002A8BC(unsigned __int16 *a1, __int64 a2)
     }
     v5 = *(_WORD *)(a2 + 8) - a1[4];
     v6 = *a1 - v5;
-    v7[1] = *(_WORD *)(a2 + 8) - a1[4];
+    String1.MaximumLength = *(_WORD *)(a2 + 8) - a1[4];
     *(_WORD *)a2 = v6;
     *(_WORD *)(a2 + 2) = a1[1] - v5;
-    v8 = *((_QWORD *)a1 + 1);
-    v7[0] = v5 - 2;
-    return RtlEqualUnicodeString(v7, (__int64)&word_180164F10, 1);
+    String1.Buffer = (PWCH)*((_QWORD *)a1 + 1);
+    String1.Length = v5 - 2;
+    return RtlEqualUnicodeString(&String1, &LinkTarget, 1u);
   }
   return result;
 }

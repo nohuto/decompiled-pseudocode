@@ -1,10 +1,10 @@
 /*
- * XREFs of SshSessionManagerTraceCsEnterReason @ 0x1408783D8
+ * XREFs of SshSessionManagerTraceCsEnterReason @ 0x140878618
  * Callers:
- *     PopSleepstudyCaptureSessionStatistics @ 0x140878564 (PopSleepstudyCaptureSessionStatistics.c)
+ *     PopSleepstudyCaptureSessionStatistics @ 0x1408787A4 (PopSleepstudyCaptureSessionStatistics.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SshpSessionManagerSendControlEvent @ 0x1408741A8 (SshpSessionManagerSendControlEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408743E8 (SshpSessionManagerSendControlEvent.c)
  */
 
 signed __int32 __fastcall SshSessionManagerTraceCsEnterReason(__int64 a1)

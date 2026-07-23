@@ -14,82 +14,75 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_18003076C(unsigned __int64 a1, __int64 a2, unsigned int a3, int a4, _QWORD *a5)
+__int64 __fastcall sub_18003076C(PVOID *a1, __int64 a2, int a3, int a4, _QWORD *a5)
 {
-  __int64 v5; // rbx
-  unsigned int v6; // r15d
-  __int64 v7; // r14
-  int v8; // r13d
-  unsigned __int64 v9; // rdi
-  unsigned int v10; // esi
-  int v11; // eax
-  int v12; // ebx
-  unsigned __int64 v13; // rdi
-  unsigned int v15; // eax
-  unsigned int v16; // [rsp+30h] [rbp-A1h] BYREF
-  int v17; // [rsp+34h] [rbp-9Dh]
-  unsigned __int64 v18; // [rsp+38h] [rbp-99h] BYREF
-  __int64 v19; // [rsp+40h] [rbp-91h] BYREF
-  __int128 v20; // [rsp+48h] [rbp-89h] BYREF
-  _QWORD v21[16]; // [rsp+60h] [rbp-71h] BYREF
+  WCHAR *v5; // rbx
+  PVOID *v7; // rdi
+  unsigned int v8; // esi
+  int v9; // eax
+  int v10; // ebx
+  PVOID v11; // rdi
+  unsigned int v13; // eax
+  int v14; // [rsp+30h] [rbp-A1h] BYREF
+  int v15; // [rsp+34h] [rbp-9Dh]
+  PVOID BaseAddress; // [rsp+38h] [rbp-99h] BYREF
+  __int64 v17; // [rsp+40h] [rbp-91h] BYREF
+  __int128 v18; // [rsp+48h] [rbp-89h] BYREF
+  PWSTR Path[16]; // [rsp+60h] [rbp-71h] BYREF
 
-  v5 = *(_QWORD *)(a1 + 80);
-  v6 = a3;
-  v7 = a2;
-  v8 = a1;
-  v19 = a2;
-  v16 = a3;
-  v9 = a1;
-  v18 = a1;
-  v17 = a4;
-  v10 = 0;
-  memset(v21, 0, sizeof(v21));
-  LODWORD(v21[3]) = 0;
-  v21[4] = v5;
+  v5 = (WCHAR *)a1[10];
+  v17 = a2;
+  v14 = a3;
+  v7 = a1;
+  BaseAddress = a1;
+  v15 = a4;
+  v8 = 0;
+  memset(Path, 0, sizeof(Path));
+  LODWORD(Path[3]) = 0;
+  Path[4] = v5;
   while ( 1 )
   {
-    v11 = sub_180030914(*(_QWORD *)(v9 + 48), v7, v6, a5);
-    v12 = v11;
-    if ( v11 != -1073741267 )
+    v9 = sub_180030914(v7[6]);
+    v10 = v9;
+    if ( v9 != -1073741267 )
       break;
-    v15 = v10++;
-    if ( v15 >= 0x20 )
+    v13 = v8++;
+    if ( v13 >= 0x20 )
     {
-      v12 = -1073741701;
+      v10 = -1073741701;
       goto LABEL_9;
     }
-    v12 = sub_180079A1C(*a5, &v20, &v19, &v16);
-    if ( v12 < 0 )
+    v10 = sub_180079A1C(*a5, &v18, &v17, &v14);
+    if ( v10 < 0 )
       goto LABEL_9;
-    LODWORD(v21[3]) = *(_DWORD *)(v9 + 272);
-    v12 = sub_18003BB58((unsigned int)&v20, (unsigned int)v21, v8, v9, 2, (__int64)&v18);
-    if ( v12 < 0 )
+    LODWORD(Path[3]) = *((_DWORD *)v7 + 68);
+    v10 = sub_18003BB58(&v18, Path, a1, v7, 2, &BaseAddress);
+    if ( v10 < 0 )
       goto LABEL_9;
-    v9 = v18;
-    sub_18003015C(v18);
-    v7 = v19;
-    v6 = v16;
+    v7 = (PVOID *)BaseAddress;
+    sub_18003015C((char *)BaseAddress);
   }
-  if ( (v17 & 1) != 0 && v11 >= 0 )
+  if ( (v15 & 1) != 0 && v9 >= 0 )
   {
-    v13 = *(_QWORD *)(v9 + 48);
-    if ( qword_18016B370 )
+    v11 = v7[6];
+    if ( LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] )
     {
-      if ( v13 < *((_QWORD *)&xmmword_18016B4C0 + 1)
-        || v13 >= *((_QWORD *)&xmmword_18016B4C0 + 1) + (unsigned __int64)(unsigned int)qword_18016B4D0 )
+      if ( (unsigned __int64)v11 < *((_QWORD *)&xmmword_18016B4C0 + 1)
+        || (unsigned __int64)v11 >= *((_QWORD *)&xmmword_18016B4C0 + 1)
+                                  + (unsigned __int64)(unsigned int)qword_18016B4D0 )
       {
-        sub_180034A40(v13, &v20);
+        sub_180034A40(v11);
       }
       else
       {
-        v20 = xmmword_18016B4C0;
+        v18 = xmmword_18016B4C0;
       }
-      if ( *((_QWORD *)&v20 + 1) != v13 )
+      if ( *((PVOID *)&v18 + 1) != v11 )
         __fastfail(0x18u);
     }
   }
 LABEL_9:
-  if ( BYTE4(v21[15]) )
-    RtlReleasePath(v21[0]);
-  return (unsigned int)v12;
+  if ( BYTE4(Path[15]) )
+    RtlReleasePath(Path[0]);
+  return (unsigned int)v10;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ViWdInsertSortIrp @ 0x1409E0E5C
+ * XREFs of ViWdInsertSortIrp @ 0x1409E1E5C
  * Callers:
- *     ViWdBeforeCancelIrp @ 0x1409E0DB0 (ViWdBeforeCancelIrp.c)
+ *     ViWdBeforeCancelIrp @ 0x1409E1DB0 (ViWdBeforeCancelIrp.c)
  * Callees:
  *     <none>
  */

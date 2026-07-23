@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptScsTableStoreC @ 0x1405397C8
+ * XREFs of SymCryptScsTableStoreC @ 0x140537008
  * Callers:
- *     SymCryptScsTableStore @ 0x140539748 (SymCryptScsTableStore.c)
+ *     SymCryptScsTableStore @ 0x140536F88 (SymCryptScsTableStore.c)
  * Callees:
  *     <none>
  */

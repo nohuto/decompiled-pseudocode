@@ -50,8 +50,8 @@
 void __fastcall MiProbeAndLockPages(_DWORD *a1, char a2, int a3)
 {
   char v6; // r14
-  int v7; // eax
-  int v8; // ebx
+  NTSTATUS v7; // eax
+  NTSTATUS v8; // ebx
   unsigned __int64 *v9; // rdi
   unsigned __int64 v10; // rsi
   unsigned __int64 DpcRequestSummary; // rdx
@@ -95,7 +95,7 @@ void __fastcall MiProbeAndLockPages(_DWORD *a1, char a2, int a3)
   v7 = MiProbeAndLockPrepare((unsigned int)v43, (_DWORD)a1, a1[8] + a1[11], a1[10], a2, a3, 1);
   v8 = v7;
   if ( v7 < 0 )
-    RtlRaiseStatus((unsigned int)v7);
+    RtlRaiseStatus(v7);
   v9 = (unsigned __int64 *)v43[2];
   v10 = v43[0];
   DpcRequestSummary = 0xFFFFF6FB7DBED7F8uLL;
@@ -332,5 +332,5 @@ LABEL_22:
     MiUnlockAndDereferenceVad(v26);
   }
   if ( v8 < 0 )
-    RtlRaiseStatus((unsigned int)v8);
+    RtlRaiseStatus(v8);
 }

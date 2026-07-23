@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPageFileNoFreeSpace @ 0x140512338
+ * XREFs of MiPageFileNoFreeSpace @ 0x14050BDA8
  * Callers:
- *     MiModwriterConfigureMode @ 0x140406DD0 (MiModwriterConfigureMode.c)
- *     MiModwriterFillMdl @ 0x140407040 (MiModwriterFillMdl.c)
+ *     MiModwriterConfigureMode @ 0x1403FFEC0 (MiModwriterConfigureMode.c)
+ *     MiModwriterFillMdl @ 0x140400130 (MiModwriterFillMdl.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x14040646C (MiMakePagefileWriterEntryAvailable.c)
- *     MiIssuePageExtendRequest @ 0x1404A4ED0 (MiIssuePageExtendRequest.c)
- *     MiCauseOverCommitPopup @ 0x1404BC9D4 (MiCauseOverCommitPopup.c)
- *     MiFreeModifiedReservations @ 0x1404DC3E4 (MiFreeModifiedReservations.c)
- *     MiStoreExtendVirtualPagefile @ 0x1405117D8 (MiStoreExtendVirtualPagefile.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x1403FF560 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiIssuePageExtendRequest @ 0x14049E560 (MiIssuePageExtendRequest.c)
+ *     MiCauseOverCommitPopup @ 0x1404B61B4 (MiCauseOverCommitPopup.c)
+ *     MiFreeModifiedReservations @ 0x1404D5AC4 (MiFreeModifiedReservations.c)
+ *     MiStoreExtendVirtualPagefile @ 0x14050B248 (MiStoreExtendVirtualPagefile.c)
  */
 
-void __fastcall MiPageFileNoFreeSpace(unsigned __int64 a1, _QWORD *a2)
+void __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx
   unsigned __int64 v4; // rdi
@@ -59,7 +59,7 @@ void __fastcall MiPageFileNoFreeSpace(unsigned __int64 a1, _QWORD *a2)
     {
       if ( (v11 & 0x40) != 0 )
       {
-        MiStoreExtendVirtualPagefile(v2, a1);
+        MiStoreExtendVirtualPagefile(v2, (int *)a1);
         return;
       }
       v12 = *(_QWORD *)(v2 + 23448);

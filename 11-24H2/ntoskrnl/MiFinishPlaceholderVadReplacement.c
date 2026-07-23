@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFinishPlaceholderVadReplacement @ 0x140A7084C
+ * XREFs of MiFinishPlaceholderVadReplacement @ 0x140A69CDC
  * Callers:
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiDecrementVadsBeingDeleted @ 0x140274480 (MiDecrementVadsBeingDeleted.c)
- *     MiSetVadDeleted @ 0x1402B94A0 (MiSetVadDeleted.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1402BB330 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockVadShared @ 0x1402FC580 (MiLockVadShared.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
- *     PerfInfoLogVirtualAlloc @ 0x140A37358 (PerfInfoLogVirtualAlloc.c)
+ *     MiDecrementVadsBeingDeleted @ 0x140229A10 (MiDecrementVadsBeingDeleted.c)
+ *     MiLockVadShared @ 0x140345480 (MiLockVadShared.c)
+ *     MiSetVadDeleted @ 0x140360BE0 (MiSetVadDeleted.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140362A70 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
+ *     PerfInfoLogVirtualAlloc @ 0x140A2C1A8 (PerfInfoLogVirtualAlloc.c)
  */
 
 LONG __fastcall MiFinishPlaceholderVadReplacement(unsigned __int8 *P, __int64 a2, int a3)

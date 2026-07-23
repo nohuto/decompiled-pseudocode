@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDeleteControlArea @ 0x14036F6E8
+ * XREFs of MiDeleteControlArea @ 0x14043F354
  * Callers:
- *     MiPrivateFixup @ 0x1402EE4F0 (MiPrivateFixup.c)
- *     MiDereferenceControlAreaProbe @ 0x14036F6B4 (MiDereferenceControlAreaProbe.c)
- *     MiPrepareToFlushSubsection @ 0x14036F8DC (MiPrepareToFlushSubsection.c)
- *     MiWaitForInPageComplete @ 0x140398598 (MiWaitForInPageComplete.c)
- *     MiDeleteControlAreaList @ 0x1403F7F80 (MiDeleteControlAreaList.c)
+ *     MiPrivateFixup @ 0x14034FB30 (MiPrivateFixup.c)
+ *     MiWaitForInPageComplete @ 0x140350CE8 (MiWaitForInPageComplete.c)
+ *     MiDeleteControlAreaList @ 0x1403EDEF0 (MiDeleteControlAreaList.c)
+ *     MiPrepareToFlushSubsection @ 0x14043F1F4 (MiPrepareToFlushSubsection.c)
+ *     MiDereferenceControlAreaProbe @ 0x14043F320 (MiDereferenceControlAreaProbe.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteSubsection @ 0x14036F8BC (MiDeleteSubsection.c)
- *     MiDecrementSubsectionViewCount @ 0x140371EA0 (MiDecrementSubsectionViewCount.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404B8B54 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F9F3C (MiUpdateSubsectionCrossPartitionRefs.c)
- *     MiFreeRelocations @ 0x1408F7358 (MiFreeRelocations.c)
- *     MiDeleteFileExtents @ 0x140A204B8 (MiDeleteFileExtents.c)
- *     SeReleaseImageValidationContext @ 0x140A982AC (SeReleaseImageValidationContext.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiDecrementSubsectionViewCount @ 0x14025A760 (MiDecrementSubsectionViewCount.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteSubsection @ 0x14043F528 (MiDeleteSubsection.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404B34A4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F781C (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiFreeRelocations @ 0x14093B4DC (MiFreeRelocations.c)
+ *     MiDeleteFileExtents @ 0x140A155B8 (MiDeleteFileExtents.c)
+ *     SeReleaseImageValidationContext @ 0x140A94A68 (SeReleaseImageValidationContext.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteControlArea(PVOID P)
@@ -27,15 +27,15 @@ void __fastcall MiDeleteControlArea(PVOID P)
   __int64 v4; // r15
   _QWORD *v5; // rdx
   volatile signed __int64 *v6; // rbx
-  ULONG_PTR v7; // rbp
+  __int64 v7; // rbp
   int v8; // ebx
-  ULONG_PTR v9; // r13
+  __int64 v9; // r13
   unsigned __int64 v10; // rdi
   KIRQL v11; // di
 
   v2 = *((_DWORD *)P + 14);
   v3 = 0LL;
-  v4 = *((_QWORD *)qword_140E2FF88 + (*((_WORD *)P + 30) & 0x3FF));
+  v4 = *((_QWORD *)qword_140E300C8 + (*((_WORD *)P + 30) & 0x3FF));
   v5 = (_QWORD *)(v4 + 1736);
   v6 = (volatile signed __int64 *)(v4 + 1736);
   if ( (v2 & 0x20) != 0 )
@@ -62,7 +62,7 @@ void __fastcall MiDeleteControlArea(PVOID P)
       {
         MiUpdateSubsectionCrossPartitionRefs(v7, 1LL);
         v11 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)P + 18);
-        v3 += MiDecrementSubsectionViewCount(v7);
+        v3 += MiDecrementSubsectionViewCount((__int64 *)v7, 24);
         MiReleaseSpinLockExclusive((_DWORD *)P + 18, v11);
         *(_DWORD *)(v7 + 32) = v8 & 0xFFFEFFFF;
       }

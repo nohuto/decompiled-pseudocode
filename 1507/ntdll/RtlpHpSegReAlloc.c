@@ -36,7 +36,7 @@ __int64 __fastcall RtlpHpSegReAlloc(__int64 a1, unsigned int a2, __int64 a3, __i
       if ( *(_DWORD *)(a4 + 16) )
         RtlpHpExtrasMove(a3, *(_QWORD *)a4, a3, *(_QWORD *)(a4 + 24), a2);
       if ( (unsigned int)v12 < *(unsigned __int8 *)(v10 + 27) )
-        RtlpHpSegPageRangeShrink(a1, v10, (unsigned int)v12, a2);
+        RtlpHpSegPageRangeShrink(a1, v10, v12, a2);
       v9 = a3;
       *(_WORD *)(v10 + 6) = ((_WORD)v12 << 12) - *(_WORD *)(a4 + 24);
     }

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHeapTrkSyncWithDiagnoser @ 0x18010CB64
+ * XREFs of RtlpHeapTrkSyncWithDiagnoser @ 0x18010CB34
  * Callers:
- *     RtlpHeapTrkLeakCallback @ 0x18010C870 (RtlpHeapTrkLeakCallback.c)
- *     RtlpHeapTrkReportResult @ 0x18010CA70 (RtlpHeapTrkReportResult.c)
+ *     RtlpHeapTrkLeakCallback @ 0x18010C840 (RtlpHeapTrkLeakCallback.c)
+ *     RtlpHeapTrkReportResult @ 0x18010CA40 (RtlpHeapTrkReportResult.c)
  * Callees:
  *     ZwSetEvent @ 0x1800A1070 (ZwSetEvent.c)
  *     NtWaitForMultipleObjects @ 0x1800A1A00 (NtWaitForMultipleObjects.c)
@@ -10,9 +10,17 @@
 
 char RtlpHeapTrkSyncWithDiagnoser()
 {
-  int v0; // eax
+  NTSTATUS v0; // eax
+  HANDLE Handles[3]; // [rsp+30h] [rbp-18h] BYREF
+  LARGE_INTEGER Timeout; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( !TrkContext || (ZwSetEvent(), v0 = NtWaitForMultipleObjects(), v0 != 1) )
+  if ( !TrkContext
+    || (Handles[0] = *((HANDLE *)TrkContext + 1),
+        Handles[1] = *((HANDLE *)TrkContext + 3),
+        Timeout.QuadPart = -100000000LL,
+        ZwSetEvent(*((HANDLE *)TrkContext + 2), 0LL),
+        v0 = NtWaitForMultipleObjects(2u, Handles, WaitAny, 0, &Timeout),
+        v0 != 1) )
   {
     byte_180188A68 = 1;
     LOBYTE(v0) = 0;

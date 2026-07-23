@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpMuiRegConfigListAddLanguage @ 0x1800F41BC
  * Callers:
- *     RtlpPopulateLanguageConfigList @ 0x180071B10 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180071B00 (RtlpPopulateLanguageConfigList.c)
  * Callees:
  *     RtlpMuiRegResizeLanguageConfigList @ 0x1800F5554 (RtlpMuiRegResizeLanguageConfigList.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfUpdateQosDisableReasons @ 0x14032B114
+ * XREFs of PpmPerfUpdateQosDisableReasons @ 0x14032B3A4
  * Callers:
- *     PpmCheckPausePpmEngineForSx @ 0x140596388 (PpmCheckPausePpmEngineForSx.c)
- *     PpmCheckResumePpmEngineFromSx @ 0x1405963CC (PpmCheckResumePpmEngineFromSx.c)
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6350 (PpmPerfUpdateDomainPolicy.c)
- *     PpmPerfTelemetryWorker @ 0x140884C60 (PpmPerfTelemetryWorker.c)
+ *     PpmCheckPausePpmEngineForSx @ 0x140596878 (PpmCheckPausePpmEngineForSx.c)
+ *     PpmCheckResumePpmEngineFromSx @ 0x1405968BC (PpmCheckResumePpmEngineFromSx.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x1407A6540 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfTelemetryWorker @ 0x140884EA0 (PpmPerfTelemetryWorker.c)
  * Callees:
  *     <none>
  */

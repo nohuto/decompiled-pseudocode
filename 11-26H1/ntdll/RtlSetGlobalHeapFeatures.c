@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlSetGlobalHeapFeatures @ 0x180144518
+ * XREFs of RtlSetGlobalHeapFeatures @ 0x180144408
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x180118558 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x180118308 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     RtlpHpFindImageNameInList @ 0x1800E7BD4 (RtlpHpFindImageNameInList.c)
- *     RtlpHpPgSamplingProcessInitialize @ 0x18011D254 (RtlpHpPgSamplingProcessInitialize.c)
- *     RtlpHpApplyGlobalSegmentHeapConfigurations @ 0x180144FA4 (RtlpHpApplyGlobalSegmentHeapConfigurations.c)
- *     RtlpHpSetHeapFeatures @ 0x180145214 (RtlpHpSetHeapFeatures.c)
- *     RtlpHpSetLowFragHeapGlobalFlags @ 0x180145334 (RtlpHpSetLowFragHeapGlobalFlags.c)
+ *     RtlpHpFindImageNameInList @ 0x1800E6634 (RtlpHpFindImageNameInList.c)
+ *     RtlpHpPgSamplingProcessInitialize @ 0x18011D004 (RtlpHpPgSamplingProcessInitialize.c)
+ *     RtlpHpApplyGlobalSegmentHeapConfigurations @ 0x180144E54 (RtlpHpApplyGlobalSegmentHeapConfigurations.c)
+ *     RtlpHpSetHeapFeatures @ 0x1801450C4 (RtlpHpSetHeapFeatures.c)
+ *     RtlpHpSetLowFragHeapGlobalFlags @ 0x1801451E4 (RtlpHpSetLowFragHeapGlobalFlags.c)
  */
 
 struct _TEB *__fastcall RtlSetGlobalHeapFeatures(

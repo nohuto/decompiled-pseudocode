@@ -1,9 +1,9 @@
 /*
- * XREFs of XmHltOp @ 0x1404E64F0
+ * XREFs of XmHltOp @ 0x1404E6730
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     longjmp @ 0x1403D0670 (longjmp.c)
+ *     longjmp @ 0x1403D07E0 (longjmp.c)
  */
 
 void __fastcall __noreturn XmHltOp(_JBTYPE *a1)

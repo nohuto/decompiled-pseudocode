@@ -1,13 +1,13 @@
 /*
- * XREFs of VrpDereferenceDiffHiveEntry @ 0x14080D3A4
+ * XREFs of VrpDereferenceDiffHiveEntry @ 0x14080E5A4
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14080D8F8 (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x14080DCBC (VrpUnloadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14080EAF8 (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14080EEBC (VrpUnloadDifferencingHive.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     VrpDereferenceDiffHiveEntryWithLock @ 0x14080D428 (VrpDereferenceDiffHiveEntryWithLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     VrpDereferenceDiffHiveEntryWithLock @ 0x14080E628 (VrpDereferenceDiffHiveEntryWithLock.c)
  */
 
 _QWORD *__fastcall VrpDereferenceDiffHiveEntry(_QWORD *P)

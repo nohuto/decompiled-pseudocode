@@ -35,7 +35,7 @@ __int64 __fastcall PsLoadVsmEnclaveData(__int64 a1, __int64 a2, int a3, int a4, 
   unsigned int SessionId; // edx
   unsigned __int8 v22; // bp
   unsigned int v23; // r8d
-  unsigned __int64 v24; // rdi
+  __int64 v24; // rdi
   bool v25; // zf
   __int64 v26; // rcx
   int v27; // eax
@@ -122,7 +122,7 @@ __int64 __fastcall PsLoadVsmEnclaveData(__int64 a1, __int64 a2, int a3, int a4, 
         v25 = !_BitScanReverse((unsigned int *)&v26, v23);
         if ( v25 )
           goto LABEL_26;
-        v24 = (unsigned __int64)&v20->LockEntries[v26];
+        v24 = (__int64)&v20->LockEntries[v26];
         v23 &= ~(1 << v26);
         if ( (*(_BYTE *)(v24 + 26) & 1) != 0
           && (*(_DWORD *)(v24 + 32) & 1) == 0
@@ -143,14 +143,14 @@ LABEL_26:
       }
       *(_BYTE *)(v24 + 32) |= 2u;
       if ( *(__int64 *)(v24 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v24);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
       v27 = *(_DWORD *)(v24 + 88) & 0x1FFFF;
       v28 = *(_DWORD *)(v24 + 88) & 0xFFFE0000;
       *(_BYTE *)(v24 + 25) &= ~1u;
       v34[0] = v27;
       *(_DWORD *)(v24 + 88) = v28;
       *(_QWORD *)(v24 + 32) = 0LL;
-      v29 = (__int64)(v24 - (unsigned __int64)v20->LockEntries) / 96;
+      v29 = (signed __int64)(v24 - (unsigned __int64)v20->LockEntries) / 96;
       if ( v22 == 1 )
         v20->AbEntrySummary |= 1 << v29;
       else

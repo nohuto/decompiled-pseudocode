@@ -1,14 +1,14 @@
 /*
- * XREFs of ExGetBigPoolInfo @ 0x140440530
+ * XREFs of ExGetBigPoolInfo @ 0x1403E9100
  * Callers:
- *     EtwpPoolRunDown @ 0x1407B1140 (EtwpPoolRunDown.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x1407B1590 (EtwpPoolRunDown.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     ExFreeHeapPages @ 0x14044074C (ExFreeHeapPages.c)
- *     ExAllocateHeapPages @ 0x140440774 (ExAllocateHeapPages.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     ExFreeHeapPages @ 0x1403E931C (ExFreeHeapPages.c)
+ *     ExAllocateHeapPages @ 0x1403E9344 (ExAllocateHeapPages.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall ExGetBigPoolInfo(int a1, _DWORD *a2, unsigned int a3, unsigned int *a4)

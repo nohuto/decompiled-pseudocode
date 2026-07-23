@@ -1,11 +1,11 @@
 /*
- * XREFs of KeCaptureWaitChainHeadEx @ 0x14038FE30
+ * XREFs of KeCaptureWaitChainHeadEx @ 0x14038FF80
  * Callers:
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     ExpPrepareToWakeResourceShared @ 0x14038EC38 (ExpPrepareToWakeResourceShared.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x14038FD98 (ExpPrepareToWakeResourceExclusive.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     ExpPrepareToWakeResourceShared @ 0x14038ED88 (ExpPrepareToWakeResourceShared.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x14038FEE8 (ExpPrepareToWakeResourceExclusive.c)
  * Callees:
- *     RtlInsertHeadCircularList @ 0x1402CC5A4 (RtlInsertHeadCircularList.c)
+ *     RtlInsertHeadCircularList @ 0x14024AC04 (RtlInsertHeadCircularList.c)
  */
 
 __int64 __fastcall KeCaptureWaitChainHeadEx(_QWORD **a1, __int64 *a2, _QWORD *a3)

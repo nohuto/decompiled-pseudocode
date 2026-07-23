@@ -17,7 +17,7 @@ NTSTATUS __stdcall RtlImageNtHeaderEx(ULONG Flags, PVOID BaseAddress, ULONGLONG 
   NTSTATUS v4; // r10d
   char v5; // al
   ULONGLONG v6; // rcx
-  struct _IMAGE_NT_HEADERS64 *v7; // rax
+  _IMAGE_NT_HEADERS64 *v7; // rax
 
   if ( !NtHeader )
     return -1073741811;
@@ -43,7 +43,7 @@ NTSTATUS __stdcall RtlImageNtHeaderEx(ULONG Flags, PVOID BaseAddress, ULONGLONG 
     if ( v6 >= Size || (unsigned int)v6 >= 0xFFFFFFE7 || v6 + 24 >= Size )
       return -1073741701;
   }
-  v7 = (struct _IMAGE_NT_HEADERS64 *)((char *)BaseAddress + v6);
+  v7 = (_IMAGE_NT_HEADERS64 *)((char *)BaseAddress + v6);
   if ( (char *)BaseAddress + v6 < BaseAddress
     || BaseAddress < MmHighestUserAddress && (v7 >= MmHighestUserAddress || &v7[1] >= MmHighestUserAddress) )
   {

@@ -1,7 +1,7 @@
 /*
- * XREFs of PsQueryJobMemoryUsageByProcess @ 0x1409B1CE0
+ * XREFs of PsQueryJobMemoryUsageByProcess @ 0x1409B1EE0
  * Callers:
- *     MiLogCommitRequestFailed @ 0x140A43954 (MiLogCommitRequestFailed.c)
+ *     MiLogCommitRequestFailed @ 0x140A43C04 (MiLogCommitRequestFailed.c)
  * Callees:
  *     <none>
  */

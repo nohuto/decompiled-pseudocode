@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpCleanupKcbStack @ 0x1409172A0
+ * XREFs of CmpCleanupKcbStack @ 0x14090AD10
  * Callers:
- *     CmDeleteLayeredKey @ 0x14041AAA8 (CmDeleteLayeredKey.c)
- *     CmQueryLayeredKey @ 0x140462148 (CmQueryLayeredKey.c)
- *     CmSaveKey @ 0x1407CDBFC (CmSaveKey.c)
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpDoBuildVirtualStack @ 0x1407DB5E4 (CmpDoBuildVirtualStack.c)
- *     CmpAssignKeySecurity @ 0x1407DC9C0 (CmpAssignKeySecurity.c)
- *     CmpPartialPromoteSubkeys @ 0x1407E3D00 (CmpPartialPromoteSubkeys.c)
- *     CmDeleteKey @ 0x140869BFC (CmDeleteKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpSubtreeEnumeratorCleanup @ 0x140915F94 (CmpSubtreeEnumeratorCleanup.c)
- *     CmSetLastWriteTimeKey @ 0x14097A430 (CmSetLastWriteTimeKey.c)
- *     CmSetKeyFlags @ 0x14097AE70 (CmSetKeyFlags.c)
- *     CmpPromoteKey @ 0x1409880D8 (CmpPromoteKey.c)
- *     CmpSetKeySecurity @ 0x14099FAEC (CmpSetKeySecurity.c)
+ *     CmDeleteLayeredKey @ 0x14040AAA8 (CmDeleteLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x140457758 (CmQueryLayeredKey.c)
+ *     CmSaveKey @ 0x1407CE0EC (CmSaveKey.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpDoBuildVirtualStack @ 0x1407DBB34 (CmpDoBuildVirtualStack.c)
+ *     CmpAssignKeySecurity @ 0x1407DCF10 (CmpAssignKeySecurity.c)
+ *     CmpPartialPromoteSubkeys @ 0x1407E4250 (CmpPartialPromoteSubkeys.c)
+ *     CmpSetKeySecurity @ 0x140830A20 (CmpSetKeySecurity.c)
+ *     CmDeleteKey @ 0x14086DF2C (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x140909A04 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmSetLastWriteTimeKey @ 0x140962C40 (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x140963680 (CmSetKeyFlags.c)
+ *     CmpPromoteKey @ 0x1409708BC (CmpPromoteKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
  */
 
 void __fastcall CmpCleanupKcbStack(__int64 a1)

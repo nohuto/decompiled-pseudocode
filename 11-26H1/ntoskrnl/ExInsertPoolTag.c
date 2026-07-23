@@ -1,16 +1,16 @@
 /*
- * XREFs of ExInsertPoolTag @ 0x14034AD9C
+ * XREFs of ExInsertPoolTag @ 0x14034CE1C
  * Callers:
- *     MiAllocateContiguousMemory @ 0x14034A28C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x14034C30C (MiAllocateContiguousMemory.c)
  * Callees:
- *     ExpAddTagForBigPages @ 0x14029B070 (ExpAddTagForBigPages.c)
- *     ExpPoolTrackerReturnLimit @ 0x140344FF0 (ExpPoolTrackerReturnLimit.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1403450B0 (ExpRemovePoolTrackerExpansion.c)
- *     ExpInsertPoolTracker @ 0x14034AEA4 (ExpInsertPoolTracker.c)
- *     EtwTracePool @ 0x1403C0B34 (EtwTracePool.c)
- *     ExpCleanupBigTag @ 0x1406CC080 (ExpCleanupBigTag.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpPoolFlagsToPoolType @ 0x140C10F50 (ExpPoolFlagsToPoolType.c)
+ *     ExpAddTagForBigPages @ 0x14029A5D0 (ExpAddTagForBigPages.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140347070 (ExpPoolTrackerReturnLimit.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140347130 (ExpRemovePoolTrackerExpansion.c)
+ *     ExpInsertPoolTracker @ 0x14034CF24 (ExpInsertPoolTracker.c)
+ *     EtwTracePool @ 0x1403CAA34 (EtwTracePool.c)
+ *     ExpCleanupBigTag @ 0x1406D00B0 (ExpCleanupBigTag.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpPoolFlagsToPoolType @ 0x140C16F50 (ExpPoolFlagsToPoolType.c)
  */
 
 __int64 __fastcall ExInsertPoolTag(unsigned int a1, ULONG_PTR a2, unsigned __int64 a3, __int64 a4, char a5)
@@ -75,16 +75,16 @@ __int64 __fastcall ExInsertPoolTag(unsigned int a1, ULONG_PTR a2, unsigned __int
           }
         }
         LODWORD(v14) = KeGetPcr()->Prcb.Number;
-        StackBase = (int)stru_140EFEF90.StackBase;
-        v17 = *((_QWORD *)&stru_140EFEF90.CurrentRunTime + v14);
-        v18 = LODWORD(stru_140EFEF90.StackBase) & ((40543 * v6) ^ ((unsigned __int64)(40543 * v6) >> 32));
+        StackBase = (int)stru_140EFF2C0.StackBase;
+        v17 = *(&stru_140EFF2C0.ThreadLock + v14);
+        v18 = LODWORD(stru_140EFF2C0.StackBase) & ((40543 * v6) ^ ((unsigned __int64)(40543 * v6) >> 32));
         v19 = v18;
         while ( 1 )
         {
           v20 = v17 + 80LL * v18;
           if ( *(_DWORD *)v20 == (_DWORD)v6 )
             break;
-          if ( *(_DWORD *)v20 || (v21 = *(_DWORD *)(PoolTrackTable + 80LL * v18)) == 0 )
+          if ( *(_DWORD *)v20 || (v21 = *(_DWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * v18)) == 0 )
           {
             v18 = StackBase & (v18 + 1);
             if ( v18 == v19 )
@@ -96,7 +96,7 @@ __int64 __fastcall ExInsertPoolTag(unsigned int a1, ULONG_PTR a2, unsigned __int
           else
           {
             *(_DWORD *)v20 = v21;
-            v22 = *(_QWORD *)(PoolTrackTable + 80LL * v18 + 72);
+            v22 = *(_QWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * v18 + 72);
             if ( v22 )
               *(_QWORD *)(v20 + 72) = v22;
           }

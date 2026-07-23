@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfFeedbackCounterUpdate @ 0x1406064D8
+ * XREFs of PpmPerfFeedbackCounterUpdate @ 0x140608FD8
  * Callers:
- *     PpmBeginActiveTimeAccumulation @ 0x1403ECAA4 (PpmBeginActiveTimeAccumulation.c)
+ *     PpmBeginActiveTimeAccumulation @ 0x1402F9AE4 (PpmBeginActiveTimeAccumulation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmPerfFeedbackCounterUpdate(__int64 a1, __int64 *a2, _QWORD *a3)

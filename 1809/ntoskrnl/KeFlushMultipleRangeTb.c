@@ -1,24 +1,24 @@
 /*
- * XREFs of KeFlushMultipleRangeTb @ 0x140075BB0
+ * XREFs of KeFlushMultipleRangeTb @ 0x140075BA0
  * Callers:
- *     MiMoveDirtyBitsToPfns @ 0x140074A40 (MiMoveDirtyBitsToPfns.c)
- *     MiDeleteVaTail @ 0x140075880 (MiDeleteVaTail.c)
- *     MiAgeWorkingSetTail @ 0x140075A50 (MiAgeWorkingSetTail.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140074A30 (MiMoveDirtyBitsToPfns.c)
+ *     MiDeleteVaTail @ 0x140075870 (MiDeleteVaTail.c)
+ *     MiAgeWorkingSetTail @ 0x140075A40 (MiAgeWorkingSetTail.c)
  * Callees:
- *     KiIpiSendRequest @ 0x1400ED370 (KiIpiSendRequest.c)
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x1400EDBC4 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     KiFlushRangeWorker @ 0x140109AC0 (KiFlushRangeWorker.c)
- *     KiFlushRangeTb @ 0x140173D64 (KiFlushRangeTb.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     HvlFlushRangeListTb @ 0x140279648 (HvlFlushRangeListTb.c)
- *     KiFlushAffinity @ 0x140293DD8 (KiFlushAffinity.c)
- *     KiPrepareFlushParameters @ 0x140293EA8 (KiPrepareFlushParameters.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     VmFlushTb @ 0x14030B6F0 (VmFlushTb.c)
- *     ExFlushTb @ 0x14031D2F8 (ExFlushTb.c)
+ *     KiIpiSendRequest @ 0x1400ED3F0 (KiIpiSendRequest.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x1400EDC44 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiFlushRangeWorker @ 0x140109B40 (KiFlushRangeWorker.c)
+ *     KiFlushRangeTb @ 0x140173E64 (KiFlushRangeTb.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     HvlFlushRangeListTb @ 0x140279838 (HvlFlushRangeListTb.c)
+ *     KiFlushAffinity @ 0x140293FC8 (KiFlushAffinity.c)
+ *     KiPrepareFlushParameters @ 0x140294098 (KiPrepareFlushParameters.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     VmFlushTb @ 0x14030B8E0 (VmFlushTb.c)
+ *     ExFlushTb @ 0x14031D4E8 (ExFlushTb.c)
  */
 
 unsigned __int64 __fastcall KeFlushMultipleRangeTb(unsigned int a1, _QWORD *a2, unsigned int a3, unsigned int a4)

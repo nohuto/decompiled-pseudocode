@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipSDRegistryQueryRoutine @ 0x14069D6D0
+ * XREFs of WmipSDRegistryQueryRoutine @ 0x14069E890
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     SeValidSecurityDescriptor @ 0x14069D750 (SeValidSecurityDescriptor.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     SeValidSecurityDescriptor @ 0x14069E910 (SeValidSecurityDescriptor.c)
  */
 
 __int64 __fastcall WmipSDRegistryQueryRoutine(__int64 a1, int a2, void *a3, ULONG a4, __int64 a5, _QWORD *a6)

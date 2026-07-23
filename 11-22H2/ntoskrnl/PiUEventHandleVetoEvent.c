@@ -35,7 +35,7 @@ __int64 __fastcall PiUEventHandleVetoEvent(__int64 a1, __int64 *a2, int a3, __in
   _DWORD *v15; // rdx
   __int64 v16; // rax
   NTSTATUS v17; // eax
-  const char *ProcessImageFileName; // rax
+  const CHAR *ProcessImageFileName; // rax
   __int16 v19; // r11
   PVOID P; // [rsp+20h] [rbp-30h] BYREF
   STRING DestinationString; // [rsp+28h] [rbp-28h] BYREF
@@ -103,7 +103,7 @@ LABEL_7:
                 DestinationString = 0LL;
                 ExFreePoolWithTag(P, 0);
                 v8 = &v22;
-                ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)v7);
+                ProcessImageFileName = (const CHAR *)PsGetProcessImageFileName((__int64)v7);
                 RtlInitAnsiString(&DestinationString, ProcessImageFileName);
                 RtlAnsiStringToUnicodeString(&v22, &DestinationString, 1u);
               }

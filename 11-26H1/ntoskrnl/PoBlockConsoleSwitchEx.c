@@ -1,24 +1,24 @@
 /*
- * XREFs of PoBlockConsoleSwitchEx @ 0x140450E68
+ * XREFs of PoBlockConsoleSwitchEx @ 0x140448F98
  * Callers:
- *     PdcPoBlockSessionSwitchEx @ 0x1407DB640 (PdcPoBlockSessionSwitchEx.c)
- *     PopScreenOff @ 0x140A387B4 (PopScreenOff.c)
- *     PopBlockSessionSwitch @ 0x140A38870 (PopBlockSessionSwitch.c)
- *     PopPowerAggregatorNotifyCsStateExited @ 0x140A38E44 (PopPowerAggregatorNotifyCsStateExited.c)
- *     PopAcquireAdaptiveLock @ 0x140A3AFDC (PopAcquireAdaptiveLock.c)
- *     PoBlockConsoleSwitch @ 0x140B54220 (PoBlockConsoleSwitch.c)
+ *     PdcPoBlockSessionSwitchEx @ 0x1407DF650 (PdcPoBlockSessionSwitchEx.c)
+ *     PopScreenOff @ 0x1409F4374 (PopScreenOff.c)
+ *     PopBlockSessionSwitch @ 0x1409F4430 (PopBlockSessionSwitch.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x1409F4A04 (PopPowerAggregatorNotifyCsStateExited.c)
+ *     PopAcquireAdaptiveLock @ 0x140ABAFAC (PopAcquireAdaptiveLock.c)
+ *     PoBlockConsoleSwitch @ 0x140B56AC0 (PoBlockConsoleSwitch.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     RtlGetActiveConsoleId @ 0x140450F30 (RtlGetActiveConsoleId.c)
- *     PopDispatchStateCallout @ 0x140A39B10 (PopDispatchStateCallout.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     RtlGetActiveConsoleId @ 0x140449060 (RtlGetActiveConsoleId.c)
+ *     PopDispatchStateCallout @ 0x1409F5718 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PoBlockConsoleSwitchEx(__int64 a1, _DWORD *a2, _QWORD *a3)
+__int64 __fastcall PoBlockConsoleSwitchEx(__int64 a1, ULONG *a2, _QWORD *a3)
 {
   unsigned __int64 v3; // rdi
   unsigned int i; // esi
   int v7; // ebx
-  int ActiveConsoleId; // [rsp+60h] [rbp+18h] BYREF
+  ULONG ActiveConsoleId; // [rsp+60h] [rbp+18h] BYREF
   LARGE_INTEGER Interval; // [rsp+68h] [rbp+20h] BYREF
 
   v3 = -1LL;

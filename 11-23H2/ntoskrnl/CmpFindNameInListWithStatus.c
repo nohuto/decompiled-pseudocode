@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpFindNameInListWithStatus @ 0x1406D2774
+ * XREFs of CmpFindNameInListWithStatus @ 0x1406D27A4
  * Callers:
  *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmpFindNameInList @ 0x1406D0EBC (CmpFindNameInList.c)
- *     CmpCompareNewValueDataAgainstKCBCache @ 0x1406D283C (CmpCompareNewValueDataAgainstKCBCache.c)
- *     CmSetValueKey @ 0x1406D3240 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14070EF24 (CmDeleteValueKey.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x140A13EA0 (CmQueryMultipleValueForLayeredKey.c)
- *     CmpMergeKeyValues @ 0x140A222D8 (CmpMergeKeyValues.c)
+ *     CmpFindNameInList @ 0x1406D0EEC (CmpFindNameInList.c)
+ *     CmpCompareNewValueDataAgainstKCBCache @ 0x1406D286C (CmpCompareNewValueDataAgainstKCBCache.c)
+ *     CmSetValueKey @ 0x1406D3270 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x14070F134 (CmDeleteValueKey.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x140A14150 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmpMergeKeyValues @ 0x140A22588 (CmpMergeKeyValues.c)
  * Callees:
- *     CmpFindNameInListCellWithStatus @ 0x1406DF830 (CmpFindNameInListCellWithStatus.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpFindNameInListCellWithStatus @ 0x1406DF860 (CmpFindNameInListCellWithStatus.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpFindNameInListWithStatus(

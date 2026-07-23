@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlControlStackTraceDataBase @ 0x1800E5934
+ * XREFs of RtlControlStackTraceDataBase @ 0x1800E0DE4
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     RtlSetProcessDebugInformation @ 0x180133BB0 (RtlSetProcessDebugInformation.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     RtlSetProcessDebugInformation @ 0x180131DE0 (RtlSetProcessDebugInformation.c)
  * Callees:
- *     RtlpInitializeStackTraceDatabase @ 0x1800E599C (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x1800E0E4C (RtlpInitializeStackTraceDatabase.c)
  */
 
 __int64 __fastcall RtlControlStackTraceDataBase(unsigned int a1, int a2, _QWORD *a3)

@@ -6,10 +6,10 @@
  *     <none>
  */
 
-__int64 RtlValidateHeap()
+BOOLEAN __cdecl RtlValidateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpVirtValidateHeap();
+    return RtlpHpVirtValidateHeap(HeapHandle, Flags, BaseAddress);
   else
-    return RtlpValidateHeapInternal();
+    return RtlpValidateHeapInternal(HeapHandle);
 }

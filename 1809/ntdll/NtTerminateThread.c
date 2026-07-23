@@ -1,10 +1,10 @@
 /*
- * XREFs of NtTerminateThread @ 0x1800A0D40
+ * XREFs of NtTerminateThread @ 0x1800A0D60
  * Callers:
  *     EtwpCreateEtwThread @ 0x180051000 (EtwpCreateEtwThread.c)
  *     RtlExitUserThread @ 0x18005A8F0 (RtlExitUserThread.c)
  *     RtlExitUserProcess @ 0x18006CF90 (RtlExitUserProcess.c)
- *     RtlQueryProcessDebugInformation @ 0x18007D750 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x18007D760 (RtlQueryProcessDebugInformation.c)
  *     LdrpGenericExceptionFilter @ 0x1800D7988 (LdrpGenericExceptionFilter.c)
  *     RtlSetProcessDebugInformation @ 0x1800D9C80 (RtlSetProcessDebugInformation.c)
  *     WerReportExceptionWorker @ 0x1800DEA90 (WerReportExceptionWorker.c)
@@ -14,11 +14,11 @@
  *     <none>
  */
 
-__int64 NtTerminateThread()
+NTSTATUS __cdecl NtTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 83LL;
+  result = 83;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

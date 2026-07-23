@@ -113,7 +113,7 @@ __int64 __fastcall MiDeleteVad(unsigned int *a1, __int64 a2, int a3)
   struct _KTHREAD *v44; // r14
   unsigned int SessionId; // r8d
   unsigned __int8 v46; // r15
-  __int64 v47; // rdx
+  unsigned int v47; // edx
   __int64 v48; // r9
   __int64 v49; // rcx
   int v50; // eax
@@ -132,7 +132,7 @@ __int64 __fastcall MiDeleteVad(unsigned int *a1, __int64 a2, int a3)
   __int64 v63; // r14
   char v64; // r15
   unsigned int v65; // ecx
-  struct _SLIST_ENTRY **v66; // rsi
+  _SLIST_ENTRY **v66; // rsi
   unsigned __int8 v67; // r14
   unsigned __int64 *v68; // rdx
   struct _KPRCB *v69; // rcx
@@ -227,7 +227,7 @@ __int64 __fastcall MiDeleteVad(unsigned int *a1, __int64 a2, int a3)
   struct _KTHREAD *v158; // r14
   ULONG_PTR v159; // r9
   unsigned __int8 v160; // r15
-  __int64 v161; // rdx
+  unsigned int v161; // edx
   __int64 v162; // rcx
   int v163; // eax
   __int64 v164; // rcx
@@ -549,7 +549,7 @@ __int64 __fastcall MiDeleteVad(unsigned int *a1, __int64 a2, int a3)
     SessionId = -1;
   --v44->SpecialApcDisable;
   v46 = ++v44->AbAllocationRegionCount;
-  LODWORD(v47) = ((char)v44->AbEntrySummary | (char)v44->AbOrphanedEntrySummary) ^ 0x3F;
+  v47 = ((char)v44->AbEntrySummary | (char)v44->AbOrphanedEntrySummary) ^ 0x3F;
   v48 = v43 & 0x7FFFFFFFFFFFFFFCLL;
   v27 = !_BitScanReverse((unsigned int *)&v49, v47);
   v212 = v49;
@@ -565,7 +565,7 @@ LABEL_123:
     {
       v50 = ~(1 << v49);
       v51 = v49;
-      v47 = v50 & (unsigned int)v47;
+      v47 &= v50;
       v52 = &v44->LockEntries[v51];
       if ( (v52->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v52->LockState.0 & 1) == 0
@@ -589,7 +589,7 @@ LABEL_122:
     }
     v52->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v52->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree(&v44->LockEntries[v51], v47);
+      KiAbEntryRemoveFromTree(&v44->LockEntries[v51].TreeNode);
     v205 = v52->BoostBitmap.AllFields & 0x1FFFF;
     v52->BoostBitmap.AllFields &= 0xFFFE0000;
     v52->ThreadLocalFlags &= ~1u;
@@ -691,10 +691,10 @@ LABEL_122:
       v65 = v3[12];
       if ( (v3[12] & 0x70) != 0x50 )
       {
-        v66 = (struct _SLIST_ENTRY **)&unk_140466F28;
+        v66 = (_SLIST_ENTRY **)&unk_140466F28;
         memset(&LockHandle, 0, sizeof(LockHandle));
         if ( (v192[92] & 7) != 2 )
-          v66 = (struct _SLIST_ENTRY **)(v192 + 116);
+          v66 = (_SLIST_ENTRY **)(v192 + 116);
         if ( *v66 )
         {
           v67 = KeGetCurrentIrql();
@@ -1300,7 +1300,7 @@ LABEL_386:
     v159 = 0xFFFFFFFFLL;
   --v158->SpecialApcDisable;
   v160 = ++v158->AbAllocationRegionCount;
-  LODWORD(v161) = ((char)v158->AbEntrySummary | (char)v158->AbOrphanedEntrySummary) ^ 0x3F;
+  v161 = ((char)v158->AbEntrySummary | (char)v158->AbOrphanedEntrySummary) ^ 0x3F;
   v27 = !_BitScanReverse((unsigned int *)&v162, v161);
   v214 = v162;
   if ( v27 )
@@ -1310,7 +1310,7 @@ LABEL_386:
     v163 = 1 << v162;
     v164 = v162;
     v165 = &v158->LockEntries[v164];
-    v161 = ~v163 & (unsigned int)v161;
+    v161 &= ~v163;
     if ( (v165->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v165->LockState.0 & 1) == 0
       && (*(_QWORD *)&v165->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v156 & 0x7FFFFFFFFFFFFFFCLL)
@@ -1335,7 +1335,7 @@ LABEL_398:
   {
     v165->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v165->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree(&v158->LockEntries[v164], v161);
+      KiAbEntryRemoveFromTree(&v158->LockEntries[v164].TreeNode);
     v206 = v165->BoostBitmap.AllFields & 0x1FFFF;
     v165->BoostBitmap.AllFields &= 0xFFFE0000;
     v165->ThreadLocalFlags &= ~1u;

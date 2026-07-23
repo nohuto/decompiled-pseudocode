@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogFlushPhaseEnd @ 0x1403F9A58
+ * XREFs of CmpLogFlushPhaseEnd @ 0x1403F8918
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 TLG_STATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
@@ -30,7 +30,7 @@ TLG_STATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
     v12 = 0;
     v11 = 4;
     v5 = a3;
-    return TlgWrite(&stru_1402F34E0, &unk_14027AD33, 0LL, 0LL, 4u, &v6);
+    return TlgWrite(&stru_1402F34E0, &unk_14027AE33, 0LL, 0LL, 4u, &v6);
   }
   return result;
 }

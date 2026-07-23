@@ -6,11 +6,25 @@
  *     <none>
  */
 
-__int64 ZwFilterTokenEx()
+NTSTATUS __cdecl ZwFilterTokenEx(
+        HANDLE ExistingTokenHandle,
+        ULONG Flags,
+        PTOKEN_GROUPS SidsToDisable,
+        PTOKEN_PRIVILEGES PrivilegesToDelete,
+        PTOKEN_GROUPS RestrictedSids,
+        ULONG DisableUserClaimsCount,
+        PUNICODE_STRING UserClaimsToDisable,
+        ULONG DisableDeviceClaimsCount,
+        PUNICODE_STRING DeviceClaimsToDisable,
+        PTOKEN_GROUPS DeviceGroupsToDisable,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION RestrictedUserAttributes,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION RestrictedDeviceAttributes,
+        PTOKEN_GROUPS RestrictedDeviceGroups,
+        PHANDLE NewTokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 214LL;
+  result = 214;
   __asm { syscall; Low latency system call }
   return result;
 }

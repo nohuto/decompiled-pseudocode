@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockQuotaListShared @ 0x1400AA60C
+ * XREFs of PspLockQuotaListShared @ 0x1400A8B8C
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x1404D7894 (PspAssignProcessQuotaBlock.c)
- *     PspLookupProcessQuotaBlock @ 0x1404D7A50 (PspLookupProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x1404BAE98 (PspAssignProcessQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x1404BB054 (PspLookupProcessQuotaBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspLockQuotaListShared(__int64 a1, volatile signed __int64 *a2)

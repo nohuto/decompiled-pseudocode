@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpSetValueKeyExisting @ 0x140666C88
+ * XREFs of CmpSetValueKeyExisting @ 0x14065BAA8
  * Callers:
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
- *     CmpPreserveSystemHiveData @ 0x14087966C (CmpPreserveSystemHiveData.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
+ *     CmpPreserveSystemHiveData @ 0x1408797CC (CmpPreserveSystemHiveData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HvReallocateCell @ 0x1406663B0 (HvReallocateCell.c)
- *     CmpMarkValueDataDirty @ 0x140666F88 (CmpMarkValueDataDirty.c)
- *     CmpSetValueDataNew @ 0x140668E74 (CmpSetValueDataNew.c)
- *     CmpFreeValueData @ 0x14066B4B4 (CmpFreeValueData.c)
- *     CmpSetValueDataExisting @ 0x1406C145C (CmpSetValueDataExisting.c)
- *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
- *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpSetValueDataExisting @ 0x1406200E0 (CmpSetValueDataExisting.c)
+ *     HvReallocateCell @ 0x14065B1D0 (HvReallocateCell.c)
+ *     CmpMarkValueDataDirty @ 0x14065BDA8 (CmpMarkValueDataDirty.c)
+ *     CmpSetValueDataNew @ 0x14065DC94 (CmpSetValueDataNew.c)
+ *     CmpFreeValueData @ 0x1406602D4 (CmpFreeValueData.c)
+ *     HvAllocateCell @ 0x1407207E4 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
+ *     HvMarkCellDirty @ 0x14087BE48 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpSetValueKeyExisting(ULONG_PTR a1, __int64 a2, __int64 a3, int a4, void *Src, size_t Size, int a7)
@@ -77,7 +77,7 @@ LABEL_11:
         return (unsigned int)v9;
       if ( v13 == 2 )
       {
-        v9 = CmpSetValueDataExisting(a1, *(_DWORD *)(a3 + 8));
+        v9 = CmpSetValueDataExisting(a1, Src, Size, a7, *(_DWORD *)(a3 + 8));
         if ( v9 < 0 )
           return (unsigned int)v9;
       }

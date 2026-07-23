@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuPopulateExceptionList @ 0x1403CF8B0
+ * XREFs of HalpIommuPopulateExceptionList @ 0x1403CFA20
  * Callers:
- *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x14099C3D4 (HalpIommuInitializeAll.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB428 (HalpMmAllocateMemoryInternal.c)
  */
 
 __int64 HalpIommuPopulateExceptionList()
@@ -32,13 +32,13 @@ __int64 HalpIommuPopulateExceptionList()
       v6 = v5 | (8LL * (v0[1] & 0x1F));
       v4[3] = v6;
       v4[3] = v6 | (v0[1] >> 5) & 7;
-      v7 = (_QWORD *)qword_140C49DA8;
-      if ( *(__int64 **)qword_140C49DA8 != &HalpIommuExceptionList )
+      v7 = (_QWORD *)qword_140C49DE8;
+      if ( *(__int64 **)qword_140C49DE8 != &HalpIommuExceptionList )
         __fastfail(3u);
       *v4 = &HalpIommuExceptionList;
       v4[1] = v7;
       *v7 = v4;
-      qword_140C49DA8 = (__int64)v4;
+      qword_140C49DE8 = (__int64)v4;
     }
     else
     {

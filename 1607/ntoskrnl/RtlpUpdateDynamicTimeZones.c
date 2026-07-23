@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpUpdateDynamicTimeZones @ 0x14055F130
+ * XREFs of RtlpUpdateDynamicTimeZones @ 0x14055F670
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x14055EB0C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14055F04C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlpFindRegTziForCurrentYear @ 0x14013DFFC (RtlpFindRegTziForCurrentYear.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlWriteRegistryValue @ 0x1404E08E4 (RtlWriteRegistryValue.c)
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
- *     RtlpGetRegistryHandle @ 0x1404FADEC (RtlpGetRegistryHandle.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x14013E56C (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlWriteRegistryValue @ 0x1404C3EE8 (RtlWriteRegistryValue.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
+ *     RtlpGetRegistryHandle @ 0x1404DDD78 (RtlpGetRegistryHandle.c)
  */
 
 char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
@@ -66,7 +66,7 @@ char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
         memset(Buf2, 0, 0x2CuLL);
         Buf2[0] = -44;
         if ( (int)RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)v6, (__int64)v12, 0LL) >= 0
-          && (int)RtlpFindRegTziForCurrentYear(Buf1, (__int64)Handle, a1) >= 0 )
+          && (int)RtlpFindRegTziForCurrentYear(Buf1, (const WCHAR *)Handle, a1) >= 0 )
         {
           if ( memcmp(Buf1, Buf2, 0x2CuLL) )
             RtlWriteRegistryValue(0x40000000u, (PCWSTR)v6, L"TZI", 3u, Buf1, 0x2Cu);

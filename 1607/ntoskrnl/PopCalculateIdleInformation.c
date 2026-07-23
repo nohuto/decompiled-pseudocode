@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCalculateIdleInformation @ 0x140207954
+ * XREFs of PopCalculateIdleInformation @ 0x140207780
  * Callers:
- *     PopCalculateCsSummary @ 0x1402075E0 (PopCalculateCsSummary.c)
- *     PopDripsWatchdogTimerCallbackRoutine @ 0x14020D6D4 (PopDripsWatchdogTimerCallbackRoutine.c)
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
- *     PopSetDripsWatchdog @ 0x1406756C4 (PopSetDripsWatchdog.c)
+ *     PopCalculateCsSummary @ 0x14020740C (PopCalculateCsSummary.c)
+ *     PopDripsWatchdogTimerCallbackRoutine @ 0x14020D500 (PopDripsWatchdogTimerCallbackRoutine.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
+ *     PopSetDripsWatchdog @ 0x1406757A8 (PopSetDripsWatchdog.c)
  * Callees:
- *     PpmConvertTime @ 0x14000E064 (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14000DBE4 (PpmConvertTime.c)
  */
 
 unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
   {
     v9 = PopQpcFrequency;
     v10 = (unsigned __int64 *)(result + 56);
-    v11 = dword_140328940;
+    v11 = dword_140328980;
     do
     {
       result = PpmConvertTime(*v10, v9, 0xF4240uLL);

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllHkINLPCWPRETSTRUCT_W @ 0x18015EDD0
+ * XREFs of NtdllHkINLPCWPRETSTRUCT_W @ 0x18015ECD0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllHkINLPCWPRETSTRUCT_W()
 {
-  off_1801E0290();
+  off_1801DF290();
 }

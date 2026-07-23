@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryDeviceState @ 0x1409950CC
+ * XREFs of PopBatteryDeviceState @ 0x1409952CC
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     RtlPrefixUnicodeString @ 0x1406D9E20 (RtlPrefixUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     RtlPrefixUnicodeString @ 0x1406D9E50 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall PopBatteryDeviceState(wchar_t *a1, __int64 a2)
@@ -66,8 +66,8 @@ LABEL_7:
       v8 = KeGetCurrentThread();
       --v8->KernelApcDisable;
       ExAcquirePushLockSharedEx((ULONG_PTR)&PopCB, 0LL);
-      v9 = qword_140C3CEC0;
-      if ( (__int64 *)qword_140C3CEC0 == &qword_140C3CEC0 )
+      v9 = qword_140C3D060;
+      if ( (__int64 *)qword_140C3D060 == &qword_140C3D060 )
         goto LABEL_20;
       do
       {
@@ -82,7 +82,7 @@ LABEL_7:
         v9 = *(_QWORD *)v9;
         v11 = 0LL;
       }
-      while ( (__int64 *)v9 != &qword_140C3CEC0 );
+      while ( (__int64 *)v9 != &qword_140C3D060 );
       if ( !v11 )
       {
 LABEL_20:

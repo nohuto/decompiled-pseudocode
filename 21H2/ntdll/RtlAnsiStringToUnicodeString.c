@@ -7,7 +7,7 @@
  *     LdrpSnapKernelBaseExtensions @ 0x180016EE4 (LdrpSnapKernelBaseExtensions.c)
  *     LdrpLoadDependentModule @ 0x180017BE0 (LdrpLoadDependentModule.c)
  *     LdrpReportError @ 0x18003F2B4 (LdrpReportError.c)
- *     RtlInt64ToUnicodeString @ 0x1800EDB20 (RtlInt64ToUnicodeString.c)
+ *     RtlInt64ToUnicodeString @ 0x1800EDAE0 (RtlInt64ToUnicodeString.c)
  * Callees:
  *     NtdllpFreeStringRoutine @ 0x180022E70 (NtdllpFreeStringRoutine.c)
  *     RtlUTF8ToUnicodeN @ 0x18005A9E0 (RtlUTF8ToUnicodeN.c)
@@ -19,28 +19,28 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
         PCANSI_STRING SourceString,
         BOOLEAN AllocateDestinationString)
 {
-  int Length; // edx
+  ULONG Length; // edx
   char *Buffer; // r8
-  int v8; // ecx
+  ULONG v8; // ecx
   char v9; // si
   __int64 v10; // rcx
   unsigned __int64 v11; // rcx
-  unsigned int v12; // edx
+  ULONG UTF8StringByteCount; // edx
   char *v13; // rbx
-  unsigned int v14; // r10d
-  wchar_t *v15; // r11
-  unsigned int v16; // r10d
+  ULONG v14; // r10d
+  WCHAR *v15; // r11
+  ULONG v16; // r10d
   __int64 v17; // r9
-  unsigned int i; // eax
+  ULONG i; // eax
   int v19; // r9d
   __int64 v20; // rsi
   __int64 v21; // rdi
   __int64 v22; // rax
   __int64 v23; // rcx
-  wchar_t v24; // ax
+  WCHAR v24; // ax
   wchar_t *StringRoutine; // rax
   __int64 v27; // rax
-  unsigned int v28; // [rsp+A8h] [rbp+10h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+A8h] [rbp+10h] BYREF
   BOOLEAN v29; // [rsp+B0h] [rbp+18h]
 
   v29 = AllocateDestinationString;
@@ -52,8 +52,8 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   {
     if ( Length )
     {
-      RtlUTF8ToUnicodeN(0, 0, (unsigned int)&v28, (_DWORD)Buffer, Length);
-      v8 = v28;
+      RtlUTF8ToUnicodeN(0LL, 0, &UnicodeStringActualByteCount, Buffer, Length);
+      v8 = UnicodeStringActualByteCount;
     }
   }
   else
@@ -80,7 +80,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
     }
   }
 LABEL_4:
-  v10 = (unsigned int)(v8 + 2);
+  v10 = v8 + 2;
   if ( (unsigned int)v10 > 0xFFFE )
     return -1073741584;
   DestinationString->Length = v10 - 2;
@@ -99,16 +99,16 @@ LABEL_4:
     if ( v11 > DestinationString->MaximumLength || v11 < 2 )
       return -2147483643;
   }
-  v12 = SourceString->Length;
+  UTF8StringByteCount = SourceString->Length;
   v13 = SourceString->Buffer;
   v14 = DestinationString->Length;
   v15 = DestinationString->Buffer;
   if ( v9 )
   {
-    if ( v12 )
-      RtlUTF8ToUnicodeN((_DWORD)v15, v14, (unsigned int)&v28, (_DWORD)v13, v12);
+    if ( UTF8StringByteCount )
+      RtlUTF8ToUnicodeN(v15, v14, &UnicodeStringActualByteCount, v13, UTF8StringByteCount);
     else
-      v28 = 0;
+      UnicodeStringActualByteCount = 0;
   }
   else
   {
@@ -118,15 +118,15 @@ LABEL_4:
       v19 = (int)DestinationString->Buffer;
       v20 = NlsMbAnsiCodePageTables;
       v21 = NlsAnsiToUnicodeData;
-      while ( v16 && v12 )
+      while ( v16 && UTF8StringByteCount )
       {
         --v16;
-        --v12;
+        --UTF8StringByteCount;
         v22 = (unsigned __int8)*v13;
         v23 = (unsigned __int16)NlsLeadByteInfoTable[v22];
         if ( (_WORD)v23 )
         {
-          if ( !v12 )
+          if ( !UTF8StringByteCount )
           {
             *v15 = 0;
             LODWORD(v15) = (_DWORD)v15 + 2;
@@ -134,7 +134,7 @@ LABEL_4:
           }
           v24 = *(_WORD *)(v20 + 2 * ((unsigned __int8)v13[1] + v23));
           v13 += 2;
-          --v12;
+          --UTF8StringByteCount;
         }
         else
         {
@@ -143,18 +143,18 @@ LABEL_4:
         }
         *v15++ = v24;
       }
-      v28 = (_DWORD)v15 - v19;
+      UnicodeStringActualByteCount = (_DWORD)v15 - v19;
     }
     else
     {
-      if ( v16 >= v12 )
-        v16 = v12;
-      v28 = 2 * v16;
+      if ( v16 >= UTF8StringByteCount )
+        v16 = UTF8StringByteCount;
+      UnicodeStringActualByteCount = 2 * v16;
       v17 = NlsAnsiToUnicodeData;
       for ( i = 0; i < v16; ++i )
         v15[i] = *(_WORD *)(v17 + 2LL * (unsigned __int8)v13[i]);
     }
   }
-  DestinationString->Buffer[(unsigned __int64)v28 >> 1] = 0;
+  DestinationString->Buffer[(unsigned __int64)UnicodeStringActualByteCount >> 1] = 0;
   return 0;
 }

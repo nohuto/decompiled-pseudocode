@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReduceMappedFileReadAhead @ 0x140294644
+ * XREFs of MiReduceMappedFileReadAhead @ 0x1402948D4
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x1402DFD70 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x1402E0000 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     RtlFindLastBackwardRunClear @ 0x140294EC0 (RtlFindLastBackwardRunClear.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     RtlFindLastBackwardRunClear @ 0x140295150 (RtlFindLastBackwardRunClear.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
  */
 
 void __fastcall MiReduceMappedFileReadAhead(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, unsigned int a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRegisterPriorityCallback @ 0x140596B00
+ * XREFs of IoRegisterPriorityCallback @ 0x140593AE0
  * Callers:
  *     <none>
  * Callees:
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     PspUserApcKernelRoutine @ 0x1408A8FB0 (PspUserApcKernelRoutine.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     PspUserApcKernelRoutine @ 0x1408FF210 (PspUserApcKernelRoutine.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IoRegisterPriorityCallback(unsigned __int64 a1, unsigned __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall IoRegisterPriorityCallback(unsigned __int64 a1, unsigned __in
 
   if ( (*(_DWORD *)(a1 + 16) & 0x200) != 0 )
     return 3221227288LL;
-  Pool2 = (struct _EX_RUNDOWN_REF *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _EX_RUNDOWN_REF *)ExAllocatePool2(0x40uLL, 0x28uLL, 0x62436F49u);
   v6 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

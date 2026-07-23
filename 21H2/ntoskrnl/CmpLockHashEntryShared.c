@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpLockHashEntryShared @ 0x1406BACFC
+ * XREFs of CmpLockHashEntryShared @ 0x140619FD0
  * Callers:
- *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x140766570 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpWalkOneLevel @ 0x1406E5B20 (CmpWalkOneLevel.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140766730 (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1406DBA08 (CmpReferenceHive.c)
  */
 
-char __fastcall CmpLockHashEntryShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
+__int64 __fastcall CmpLockHashEntryShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
 {
   ULONG_PTR v2; // rbx
-  char result; // al
+  __int64 result; // rax
 
   v2 = (unsigned int)BugCheckParameter4;
   ExAcquirePushLockSharedEx(
@@ -22,7 +22,7 @@ char __fastcall CmpLockHashEntryShared(ULONG_PTR BugCheckParameter2, ULONG_PTR B
                                                                   * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) ^ ((unsigned __int64)(101027 * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) >> 9))),
     0LL);
   result = CmpReferenceHive(BugCheckParameter2);
-  if ( !result )
+  if ( !(_BYTE)result )
     KeBugCheckEx(0x51u, 0x17uLL, BugCheckParameter2, 9uLL, v2);
   return result;
 }

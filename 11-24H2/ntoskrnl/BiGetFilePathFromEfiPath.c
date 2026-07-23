@@ -1,21 +1,21 @@
 /*
- * XREFs of BiGetFilePathFromEfiPath @ 0x140A787CC
+ * XREFs of BiGetFilePathFromEfiPath @ 0x140A72ACC
  * Callers:
- *     BiUpdateBcdObject @ 0x1408157BC (BiUpdateBcdObject.c)
- *     BiCreateMergedBootEntry @ 0x1409C168C (BiCreateMergedBootEntry.c)
+ *     BiUpdateBcdObject @ 0x140815EFC (BiUpdateBcdObject.c)
+ *     BiCreateMergedBootEntry @ 0x1409A7CDC (BiCreateMergedBootEntry.c)
  * Callees:
- *     RtlULongSub @ 0x140497418 (RtlULongSub.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlULongSub @ 0x140491DA8 (RtlULongSub.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-NTSTATUS __fastcall BiGetFilePathFromEfiPath(__int64 a1, __int64 *a2, _DWORD *a3)
+NTSTATUS __fastcall BiGetFilePathFromEfiPath(__int64 a1, __int64 *a2, unsigned int *a3)
 {
   char v3; // al
   NTSTATUS result; // eax
   int v8; // esi
   __int64 i; // r10
-  int v10; // esi
+  unsigned int v10; // esi
   __int64 Pool2; // rax
   __int64 v12; // rbp
   _WORD *v13; // r14
@@ -41,7 +41,7 @@ NTSTATUS __fastcall BiGetFilePathFromEfiPath(__int64 a1, __int64 *a2, _DWORD *a3
   if ( !v8 )
     return -1073741275;
   v10 = v8 + 2;
-  Pool2 = ExAllocatePool2(0x102uLL);
+  Pool2 = ExAllocatePool2(0x102uLL, v10, 0x4B444342u);
   v12 = Pool2;
   if ( !Pool2 )
     return -1073741670;

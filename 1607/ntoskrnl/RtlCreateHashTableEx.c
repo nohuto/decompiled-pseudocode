@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCreateHashTableEx @ 0x14014C8A4
+ * XREFs of RtlCreateHashTableEx @ 0x14014CE14
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-char __fastcall RtlCreateHashTableEx(struct _RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
+char __fastcall RtlCreateHashTableEx(_RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
 {
   return RtlpCreateHashTable(a1, a2, a3, a4);
 }

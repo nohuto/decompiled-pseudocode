@@ -1,17 +1,23 @@
 /*
- * XREFs of DifPoRequestPowerIrpWrapper @ 0x140694330
+ * XREFs of DifPoRequestPowerIrpWrapper @ 0x140697F10
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PopRequestPowerIrp @ 0x14026FDC4 (PopRequestPowerIrp.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PopRequestPowerIrp @ 0x14026F334 (PopRequestPowerIrp.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifPoRequestPowerIrpWrapper(void *a1, char a2, int a3, __int64 a4, __int64 a5, IRP *a6)
+__int64 __fastcall DifPoRequestPowerIrpWrapper(
+        struct _LIST_ENTRY *a1,
+        char a2,
+        int a3,
+        __int64 a4,
+        struct _LIST_ENTRY *a5,
+        IRP *a6)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx

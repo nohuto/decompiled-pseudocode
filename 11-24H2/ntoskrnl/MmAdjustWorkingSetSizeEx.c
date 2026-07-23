@@ -1,39 +1,39 @@
 /*
- * XREFs of MmAdjustWorkingSetSizeEx @ 0x1403CD164
+ * XREFs of MmAdjustWorkingSetSizeEx @ 0x14046C954
  * Callers:
- *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x140210350 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
- *     CmSiAcquireProcessLockedPagesCharge @ 0x1403CCFA8 (CmSiAcquireProcessLockedPagesCharge.c)
- *     MmAdjustWorkingSetSize @ 0x1403CD080 (MmAdjustWorkingSetSize.c)
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1403CD0AC (CmSiReleaseProcessLockedPagesCharge.c)
- *     KeSetExpectedConcurrencyCountProcess @ 0x1405C06B0 (KeSetExpectedConcurrencyCountProcess.c)
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x14060DE84 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14060E14C (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     CmSiSetProcessWorkingSetMaximum @ 0x140668AF4 (CmSiSetProcessWorkingSetMaximum.c)
- *     PspSetQuotaLimits @ 0x1409AFD58 (PspSetQuotaLimits.c)
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x1403396B0 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
+ *     CmSiAcquireProcessLockedPagesCharge @ 0x14046C798 (CmSiAcquireProcessLockedPagesCharge.c)
+ *     MmAdjustWorkingSetSize @ 0x14046C870 (MmAdjustWorkingSetSize.c)
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14046C89C (CmSiReleaseProcessLockedPagesCharge.c)
+ *     KeSetExpectedConcurrencyCountProcess @ 0x1405BDC84 (KeSetExpectedConcurrencyCountProcess.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x14060C444 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14060C70C (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     CmSiSetProcessWorkingSetMaximum @ 0x140669CCC (CmSiSetProcessWorkingSetMaximum.c)
+ *     PspSetQuotaLimits @ 0x140999A58 (PspSetQuotaLimits.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14020D480 (MiLockWorkingSetExclusive.c)
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiChargeResident @ 0x1402F5FA0 (MiChargeResident.c)
- *     MiLockWorkingSetCoreExclusive @ 0x140379CE4 (MiLockWorkingSetCoreExclusive.c)
- *     MiUnlockWorkingSetCoreExclusive @ 0x140379DAC (MiUnlockWorkingSetCoreExclusive.c)
- *     PsChargeProcessQuota @ 0x1403CCF70 (PsChargeProcessQuota.c)
- *     MiCheckWsLimits @ 0x1403CD5D8 (MiCheckWsLimits.c)
- *     PsReturnProcessQuota @ 0x1403CD728 (PsReturnProcessQuota.c)
- *     MiTrimWorkingSet @ 0x1403CF15C (MiTrimWorkingSet.c)
- *     MiMapWorkingSetTypeToVm @ 0x14047013C (MiMapWorkingSetTypeToVm.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetCoreExclusive @ 0x140296038 (MiLockWorkingSetCoreExclusive.c)
+ *     MiUnlockWorkingSetCoreExclusive @ 0x140296808 (MiUnlockWorkingSetCoreExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x1403367E0 (MiLockWorkingSetExclusive.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiChargeResident @ 0x14033DD30 (MiChargeResident.c)
+ *     MiTrimWorkingSet @ 0x140390208 (MiTrimWorkingSet.c)
+ *     MiMapWorkingSetTypeToVm @ 0x14046A564 (MiMapWorkingSetTypeToVm.c)
+ *     MiCheckWsLimits @ 0x14046CDC8 (MiCheckWsLimits.c)
+ *     PsReturnProcessQuota @ 0x14046CF18 (PsReturnProcessQuota.c)
+ *     PsChargeProcessQuota @ 0x14046CF4C (PsChargeProcessQuota.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MmAdjustWorkingSetSizeEx(
         unsigned __int64 a1,
         unsigned __int64 a2,
-        unsigned int a3,
+        int a3,
         char a4,
         int a5,
         _BYTE *a6)
@@ -43,49 +43,53 @@ __int64 __fastcall MmAdjustWorkingSetSizeEx(
   __int64 p_Blink; // rdi
   __int64 v12; // rdx
   __int64 v13; // r8
-  unsigned __int64 v14; // rsi
-  unsigned __int64 v15; // r14
-  __int64 v16; // rdx
-  int v17; // esi
-  unsigned __int64 v18; // rax
-  __int64 v19; // rcx
-  unsigned __int64 v20; // r14
-  int v22; // r8d
-  __int64 v23; // rcx
-  int v24; // r14d
-  int v25; // eax
-  char v26; // al
-  unsigned __int64 v27; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int64 v28; // [rsp+38h] [rbp-C8h] BYREF
-  ULONG *v29; // [rsp+40h] [rbp-C0h]
-  __int64 v30; // [rsp+48h] [rbp-B8h]
-  __int128 v31; // [rsp+50h] [rbp-B0h] BYREF
-  int v32; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int8 v33; // [rsp+69h] [rbp-97h]
-  __int64 v34; // [rsp+80h] [rbp-80h]
-  __int64 v35; // [rsp+88h] [rbp-78h]
-  __int64 v36; // [rsp+90h] [rbp-70h]
-  __int64 (__fastcall *v37)(__int64, unsigned __int64, int); // [rsp+108h] [rbp+8h]
-  __int64 (__fastcall *v38)(); // [rsp+110h] [rbp+10h]
-  __int128 *v39; // [rsp+118h] [rbp+18h]
-  unsigned __int8 v40; // [rsp+170h] [rbp+70h]
-  __int16 v42; // [rsp+188h] [rbp+88h]
+  __int64 v14; // r9
+  unsigned __int64 v15; // rsi
+  unsigned __int64 v16; // r14
+  __int64 v17; // rdx
+  int v18; // esi
+  struct _KPRCB *v19; // r9
+  unsigned __int64 v20; // rax
+  __int64 v21; // rcx
+  unsigned __int64 v22; // r14
+  __int64 v24; // rdx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  __int64 v27; // rcx
+  int v28; // r14d
+  int v29; // eax
+  char v30; // al
+  unsigned __int64 v31; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int64 v32; // [rsp+38h] [rbp-C8h] BYREF
+  ULONG *v33; // [rsp+40h] [rbp-C0h]
+  __int64 v34; // [rsp+48h] [rbp-B8h]
+  __int128 v35; // [rsp+50h] [rbp-B0h] BYREF
+  int v36; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned __int8 v37; // [rsp+69h] [rbp-97h]
+  __int64 v38; // [rsp+80h] [rbp-80h]
+  __int64 v39; // [rsp+88h] [rbp-78h]
+  __int64 v40; // [rsp+90h] [rbp-70h]
+  __int64 (__fastcall *v41)(__int64, ULONG_PTR, __int64); // [rsp+108h] [rbp+8h]
+  __int64 (__fastcall *v42)(__int64); // [rsp+110h] [rbp+10h]
+  __int128 *v43; // [rsp+118h] [rbp+18h]
+  unsigned __int8 v44; // [rsp+170h] [rbp+70h]
+  __int16 v46; // [rsp+188h] [rbp+88h]
 
   v6 = 0;
   Process = 0LL;
   *a6 = 0;
   if ( a3 )
   {
-    if ( a3 - 1 > 3 )
+    if ( (unsigned int)(a3 - 1) > 3 )
       return 3221225713LL;
     if ( a3 == 1 )
     {
-      v23 = *((_QWORD *)qword_140E2FF88 + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-      p_Blink = (v23 + 18816) & -(__int64)(*(_BYTE *)(v23 + 18524) != 0);
+      v27 = *((_QWORD *)qword_140E300C8 + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
+      p_Blink = (v27 + 18816) & -(__int64)(*(_BYTE *)(v27 + 18524) != 0);
     }
     else
     {
-      p_Blink = MiMapWorkingSetTypeToVm(a3);
+      p_Blink = (__int64)MiMapWorkingSetTypeToVm(a3);
     }
   }
   else
@@ -97,100 +101,100 @@ __int64 __fastcall MmAdjustWorkingSetSizeEx(
     return 3221225713LL;
   if ( a1 != -1LL || a2 != -1LL )
   {
-    v29 = (ULONG *)*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(p_Blink + 174));
-    v40 = MiLockWorkingSetExclusive(p_Blink);
-    MiLockWorkingSetCoreExclusive(p_Blink, v12, v13);
+    v33 = (ULONG *)*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(p_Blink + 174));
+    v44 = MiLockWorkingSetExclusive(p_Blink);
+    MiLockWorkingSetCoreExclusive(p_Blink, v12, v13, v14);
     if ( !a3 && (Process[1].DirectoryTableBase & 0x2000000000LL) != 0 )
     {
-      v17 = -1073741558;
+      v18 = -1073741558;
       goto LABEL_16;
     }
     if ( a1 )
-      v14 = a1 >> 12;
+      v15 = a1 >> 12;
     else
-      v14 = *(_QWORD *)(p_Blink + 112);
-    v28 = v14;
+      v15 = *(_QWORD *)(p_Blink + 112);
+    v32 = v15;
     if ( a2 )
-      v15 = a2 >> 12;
+      v16 = a2 >> 12;
     else
-      v15 = *(_QWORD *)(p_Blink + 120);
-    v27 = v15;
-    v17 = MiCheckWsLimits(p_Blink, (unsigned int)&v28, (unsigned int)&v27, a5, 0);
-    if ( (v17 & 0xC0000000) == 0xC0000000 )
+      v16 = *(_QWORD *)(p_Blink + 120);
+    v31 = v16;
+    v18 = MiCheckWsLimits(p_Blink, (unsigned int)&v32, (unsigned int)&v31, a5, 0);
+    if ( (v18 & 0xC0000000) == 0xC0000000 )
       goto LABEL_16;
-    v18 = *(_QWORD *)(p_Blink + 112);
-    v19 = *(_QWORD *)(p_Blink + 16);
-    v30 = v19;
-    if ( v28 > v18 )
+    v20 = *(_QWORD *)(p_Blink + 112);
+    v21 = *(_QWORD *)(p_Blink + 16);
+    v34 = v21;
+    if ( v32 > v20 )
     {
-      v20 = v28 - v18;
+      v22 = v32 - v20;
       *a6 = 1;
       if ( !a4 )
       {
-        v17 = -1073741727;
+        v18 = -1073741727;
         goto LABEL_16;
       }
       if ( !a3 )
       {
-        v17 = PsChargeProcessQuota((__int64)Process, v16, v20);
-        if ( v17 < 0 )
+        v18 = PsChargeProcessQuota(Process, v17, v22);
+        if ( v18 < 0 )
           goto LABEL_16;
       }
-      if ( !(unsigned int)MiChargeResident(v29, v20, 512LL) )
+      if ( !(unsigned int)MiChargeResident(v33, v22, 512LL, v19) )
       {
         if ( !a3 )
-          PsReturnProcessQuota(Process, v16, v20);
-        v17 = -1073741670;
+          PsReturnProcessQuota(Process, v17, v22);
+        v18 = -1073741670;
         goto LABEL_16;
       }
-      v19 = v30;
+      v21 = v34;
     }
     else
     {
-      v20 = v18 - v28;
-      if ( v28 < *(_QWORD *)(v19 + 32) )
+      v22 = v20 - v32;
+      if ( v32 < *(_QWORD *)(v21 + 32) )
       {
-        v17 = -1073741748;
+        v18 = -1073741748;
         goto LABEL_16;
       }
     }
-    if ( v27 < *(_QWORD *)(p_Blink + 128) )
+    if ( v31 < *(_QWORD *)(p_Blink + 128) )
     {
-      if ( *(_QWORD *)(v19 + 32) + 6LL >= v27 )
+      if ( *(_QWORD *)(v21 + 32) + 6LL >= v31 )
       {
-        v17 = -1073741748;
+        v18 = -1073741748;
         if ( *a6 )
         {
           if ( !a3 )
-            PsReturnProcessQuota(Process, v16, v20);
-          MiReturnResident((__int64)v29, v20);
+            PsReturnProcessQuota(Process, v17, v22);
+          MiReturnResident((__int64)v33, v22);
         }
         goto LABEL_16;
       }
       _InterlockedOr((volatile signed __int32 *)(p_Blink + 188), 2u);
     }
-    if ( !*a6 && v20 )
+    if ( !*a6 && v22 )
     {
       if ( !a3 )
-        PsReturnProcessQuota(Process, v16, v20);
-      MiReturnResident((__int64)v29, v20);
+        PsReturnProcessQuota(Process, v17, v22);
+      MiReturnResident((__int64)v33, v22);
     }
-    *(_QWORD *)(p_Blink + 120) = v27;
-    *(_QWORD *)(p_Blink + 112) = v28;
+    *(_QWORD *)(p_Blink + 120) = v31;
+    *(_QWORD *)(p_Blink + 112) = v32;
     if ( !a5 )
     {
 LABEL_16:
       MiUnlockWorkingSetCoreExclusive(p_Blink);
-      MiUnlockWorkingSetExclusive(p_Blink, v40);
-      return (unsigned int)v17;
+      MiUnlockWorkingSetExclusive(p_Blink, v44);
+      return (unsigned int)v18;
     }
-    v24 = 0;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E373C0);
-    v25 = *(_DWORD *)(p_Blink + 184);
-    v42 = v25;
+    v28 = 0;
+    ExAcquireSpinLockExclusiveAtDpcLevel(&SpinLock);
+    v29 = *(_DWORD *)(p_Blink + 184);
+    v46 = v29;
     if ( (a5 & 4) != 0 )
     {
-      LOBYTE(v25) = v25 | 0x80;
+      LOBYTE(v29) = v29 | 0x80;
     }
     else
     {
@@ -199,43 +203,43 @@ LABEL_16:
 LABEL_45:
         if ( (a5 & 1) != 0 )
         {
-          v26 = v25 | 0x40;
+          v30 = v29 | 0x40;
         }
         else
         {
           if ( (a5 & 2) == 0 )
           {
-            if ( !v24 )
+            if ( !v28 )
             {
 LABEL_48:
-              ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E373C0);
+              ExReleaseSpinLockExclusiveFromDpcLevel(&SpinLock);
               goto LABEL_16;
             }
 LABEL_61:
-            *(_WORD *)(p_Blink + 184) = v42;
+            *(_WORD *)(p_Blink + 184) = v46;
             goto LABEL_48;
           }
-          v26 = v25 & 0xBF;
+          v30 = v29 & 0xBF;
         }
-        LOBYTE(v42) = v26;
+        LOBYTE(v46) = v30;
         goto LABEL_61;
       }
-      LOBYTE(v25) = v25 & 0x7F;
+      LOBYTE(v29) = v29 & 0x7F;
     }
-    v24 = 1;
-    LOBYTE(v42) = v25;
+    v28 = 1;
+    LOBYTE(v46) = v29;
     goto LABEL_45;
   }
-  v31 = 0LL;
-  memset_0(&v32, 0, 0xC0uLL);
-  v32 = 6;
-  v39 = &v31;
-  v34 = p_Blink;
-  v37 = MiEmptyPte;
-  v38 = MiEmptyWorkingSetTail;
   v35 = 0LL;
-  v36 = -1LL;
-  v33 = MiLockWorkingSetShared(p_Blink);
+  memset_0(&v36, 0, 0xC0uLL);
+  v36 = 6;
+  v43 = &v35;
+  v38 = p_Blink;
+  v41 = MiEmptyPte;
+  v42 = MiEmptyWorkingSetTail;
+  v39 = 0LL;
+  v40 = -1LL;
+  v37 = MiLockWorkingSetShared(p_Blink, v24, v25, v26);
   if ( (*(_DWORD *)(p_Blink + 184) & 0xF) == 0
     && (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x2000000000LL) != 0 )
   {
@@ -243,9 +247,8 @@ LABEL_61:
   }
   else
   {
-    LOBYTE(v22) = v33;
-    MiTrimWorkingSet(p_Blink, -1, v22, 0, 64);
+    MiTrimWorkingSet(p_Blink, 0xFFFFFFFFFFFFFFFFuLL, v37, 0, 64);
   }
-  MiUnlockWorkingSetShared(p_Blink, v33);
+  MiUnlockWorkingSetShared(p_Blink, v37);
   return v6;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiWorkingSetManager @ 0x1404BE000
+ * XREFs of MiWorkingSetManager @ 0x1404B7850
  * Callers:
- *     MiTrimmingThread @ 0x1404BDEE0 (MiTrimmingThread.c)
+ *     MiTrimmingThread @ 0x1404B7730 (MiTrimmingThread.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     MiComputeSystemTrimCriteria @ 0x1402A65A8 (MiComputeSystemTrimCriteria.c)
- *     MiWakeMappedPageWriter @ 0x1402A7E8C (MiWakeMappedPageWriter.c)
- *     MiScanPagefiles @ 0x1402A7EDC (MiScanPagefiles.c)
- *     MiAdjustCachedStacks @ 0x1402A8504 (MiAdjustCachedStacks.c)
- *     MiPruneProcessLargePageCaches @ 0x1402A8FB4 (MiPruneProcessLargePageCaches.c)
- *     MiWalkAllHardLimitWorkingSets @ 0x1402A996C (MiWalkAllHardLimitWorkingSets.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
- *     MiAdjustModifiedPageLoad @ 0x1404BC438 (MiAdjustModifiedPageLoad.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     MiComputeSystemTrimCriteria @ 0x1402A59C4 (MiComputeSystemTrimCriteria.c)
+ *     MiWakeMappedPageWriter @ 0x1402A729C (MiWakeMappedPageWriter.c)
+ *     MiScanPagefiles @ 0x1402A72EC (MiScanPagefiles.c)
+ *     MiAdjustCachedStacks @ 0x1402A7914 (MiAdjustCachedStacks.c)
+ *     MiPruneProcessLargePageCaches @ 0x1402A83C4 (MiPruneProcessLargePageCaches.c)
+ *     MiWalkAllHardLimitWorkingSets @ 0x1402A8D7C (MiWalkAllHardLimitWorkingSets.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
+ *     MiAdjustModifiedPageLoad @ 0x1404B5B78 (MiAdjustModifiedPageLoad.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 int __fastcall MiWorkingSetManager(unsigned __int64 a1, int a2)

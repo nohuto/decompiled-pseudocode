@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSuspendThread @ 0x1400F2668
+ * XREFs of KeSuspendThread @ 0x1400F26E8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PsSuspendThread @ 0x1406C2180 (PsSuspendThread.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
+ *     PsSuspendThread @ 0x1406C3420 (PsSuspendThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiSuspendThread @ 0x1400F23A8 (KiSuspendThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiSuspendThread @ 0x1400F2428 (KiSuspendThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSuspendThread(__int64 a1)

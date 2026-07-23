@@ -1,26 +1,26 @@
 /*
- * XREFs of MiAllocateContiguousMemory @ 0x1403B9CD4
+ * XREFs of MiAllocateContiguousMemory @ 0x1403B9EB4
  * Callers:
- *     MmAllocateContiguousMemoryEx @ 0x140391220 (MmAllocateContiguousMemoryEx.c)
- *     MmAllocateContiguousNodeMemory @ 0x1403B9C20 (MmAllocateContiguousNodeMemory.c)
- *     MmAllocateContiguousMemory @ 0x14061E0F0 (MmAllocateContiguousMemory.c)
+ *     MmAllocateContiguousMemoryEx @ 0x140391400 (MmAllocateContiguousMemoryEx.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B9E00 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousMemory @ 0x14061E640 (MmAllocateContiguousMemory.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiMapContiguousMemory @ 0x1403359F8 (MiMapContiguousMemory.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     ExAllocateContiguousHeapPool @ 0x1403BA114 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x1403BA4FC (ExInsertPoolTag.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiFreeContiguousPages @ 0x1403C39DC (MiFreeContiguousPages.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpGetDurationSince @ 0x14046798E (EtwpGetDurationSince.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14061D878 (MiLogPerfMemoryRangeEvent.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E17F0 (MiProtectionToCacheAttribute.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiMapContiguousMemory @ 0x140335C88 (MiMapContiguousMemory.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403BA2F4 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x1403BA6DC (ExInsertPoolTag.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiFreeContiguousPages @ 0x1403C3BBC (MiFreeContiguousPages.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpGetDurationSince @ 0x140467D8E (EtwpGetDurationSince.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14061DDC8 (MiLogPerfMemoryRangeEvent.c)
  */
 
 unsigned __int64 __fastcall MiAllocateContiguousMemory(
@@ -226,10 +226,10 @@ LABEL_22:
     v51 = v38;
     *(_QWORD *)(v35 + 8) = v36;
     _InterlockedAnd64((volatile signed __int64 *)(v35 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v38 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v38 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

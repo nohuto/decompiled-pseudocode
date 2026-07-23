@@ -1,12 +1,12 @@
 /*
- * XREFs of MmCreateMdl @ 0x14045AB70
+ * XREFs of MmCreateMdl @ 0x14044FFA0
  * Callers:
- *     DifMmCreateMdlWrapper @ 0x140632D20 (DifMmCreateMdlWrapper.c)
- *     SmKmStoreFileWriteHeader @ 0x14079B5E8 (SmKmStoreFileWriteHeader.c)
- *     MiPfAllocateMdls @ 0x140956EEC (MiPfAllocateMdls.c)
- *     MiLockKernelScpSection @ 0x140C55A58 (MiLockKernelScpSection.c)
+ *     DifMmCreateMdlWrapper @ 0x1406312E0 (DifMmCreateMdlWrapper.c)
+ *     SmKmStoreFileWriteHeader @ 0x14079B6F8 (SmKmStoreFileWriteHeader.c)
+ *     MiPfAllocateMdls @ 0x14093A89C (MiPfAllocateMdls.c)
+ *     MiLockKernelScpSection @ 0x140C57BE8 (MiLockKernelScpSection.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
  */
 
 PMDL __stdcall MmCreateMdl(PMDL MemoryDescriptorList, PVOID Base, SIZE_T Length)

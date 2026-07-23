@@ -1,14 +1,14 @@
 /*
- * XREFs of KseSetDeviceFlags @ 0x14073E240
+ * XREFs of KseSetDeviceFlags @ 0x14073C170
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     KsepRegistryCreateKey @ 0x140740728 (KsepRegistryCreateKey.c)
- *     KsepRegistryCloseKey @ 0x14095AB50 (KsepRegistryCloseKey.c)
- *     KsepStringFree @ 0x14095B694 (KsepStringFree.c)
- *     KsepStringTransform @ 0x14095C9C8 (KsepStringTransform.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     KsepRegistryCreateKey @ 0x14073E658 (KsepRegistryCreateKey.c)
+ *     KsepRegistryCloseKey @ 0x140942610 (KsepRegistryCloseKey.c)
+ *     KsepStringFree @ 0x140943154 (KsepStringFree.c)
+ *     KsepStringTransform @ 0x140944488 (KsepStringTransform.c)
  */
 
 __int64 __fastcall KseSetDeviceFlags(__int64 a1, const WCHAR *a2, __int64 a3)
@@ -26,7 +26,7 @@ __int64 __fastcall KseSetDeviceFlags(__int64 a1, const WCHAR *a2, __int64 a3)
   KeyHandle = 0LL;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
-  if ( dword_140E66AE4 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_140E66C14 != 2 || (KseEngine & 2) != 0 )
   {
     v4 = -1073741823;
   }

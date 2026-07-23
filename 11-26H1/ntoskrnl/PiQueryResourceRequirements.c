@@ -1,20 +1,20 @@
 /*
- * XREFs of PiQueryResourceRequirements @ 0x140910EEC
+ * XREFs of PiQueryResourceRequirements @ 0x1409B2FCC
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     PipSetDevNodeFlags @ 0x14090DD60 (PipSetDevNodeFlags.c)
- *     PpIrpQueryResourceRequirements @ 0x1409104D8 (PpIrpQueryResourceRequirements.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x1409AFE90 (PipSetDevNodeFlags.c)
+ *     PpIrpQueryResourceRequirements @ 0x1409B25B8 (PpIrpQueryResourceRequirements.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
@@ -45,7 +45,15 @@ __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
   if ( (*(_DWORD *)(a1 + 396) & 0x2000) == 0
     || *(_DWORD *)(a1 + 404) != 9 && *(_DWORD *)(a1 + 404) != 3 && *(_DWORD *)(a1 + 404) != 19 )
   {
-    if ( (int)CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), 20, 0, 983103, Data != 0LL, (__int64)&Handle, 0LL) < 0 )
+    if ( (int)CmOpenDeviceRegKey(
+                *(__int64 *)&PiPnpRtlCtx,
+                *(_QWORD *)(a1 + 48),
+                20,
+                0,
+                983103,
+                Data != 0LL,
+                (__int64)&Handle,
+                0LL) < 0 )
       Handle = 0LL;
     if ( Handle )
     {

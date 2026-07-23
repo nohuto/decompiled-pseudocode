@@ -10,7 +10,7 @@
 
 __int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
 {
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 v5; // rbp
   __int64 v6; // rdi
   unsigned int v7; // ebx
@@ -18,7 +18,7 @@ __int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a
   unsigned int v10; // [rsp+80h] [rbp+18h] BYREF
   __int64 v11; // [rsp+88h] [rbp+20h] BYREF
 
-  v4 = RtlpImageDirectoryEntryToDataEx(a1, 1, 0xDu, &v10, (__int64)&v11);
+  v4 = RtlpImageDirectoryEntryToDataEx(a1, 1, 0xDu, &v10, (PIMAGE_NT_HEADERS)&v11);
   v5 = v11;
   v6 = 0LL;
   if ( v4 < 0 )

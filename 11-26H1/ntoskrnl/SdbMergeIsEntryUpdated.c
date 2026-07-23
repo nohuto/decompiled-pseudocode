@@ -1,24 +1,24 @@
 /*
- * XREFs of SdbMergeIsEntryUpdated @ 0x1408877E4
+ * XREFs of SdbMergeIsEntryUpdated @ 0x14088DBE0
  * Callers:
- *     SdbpIsEntryIdAvailableInOtherDb @ 0x140885EC8 (SdbpIsEntryIdAvailableInOtherDb.c)
+ *     SdbpIsEntryIdAvailableInOtherDb @ 0x14088C2C8 (SdbpIsEntryIdAvailableInOtherDb.c)
  * Callees:
- *     SdbFindParentTagFromAncestors @ 0x140885874 (SdbFindParentTagFromAncestors.c)
- *     __SdbpFindTagFromAncestors @ 0x1408859FC (__SdbpFindTagFromAncestors.c)
- *     SdbMakeIndexKeyFromGUID @ 0x140887798 (SdbMakeIndexKeyFromGUID.c)
- *     SdbpMergeAreTagValuesEqual @ 0x140887BB0 (SdbpMergeAreTagValuesEqual.c)
- *     SdbpGetFirstIndexedRecord @ 0x1409E5EDC (SdbpGetFirstIndexedRecord.c)
- *     SdbFindNextTag @ 0x1409E783C (SdbFindNextTag.c)
- *     SdbpGetMappedTagData @ 0x1409E7A4C (SdbpGetMappedTagData.c)
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
- *     SdbGetTagDataSize @ 0x1409E81F0 (SdbGetTagDataSize.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     SdbReadWORDTag @ 0x1409E89B0 (SdbReadWORDTag.c)
- *     SdbReadDWORDTag @ 0x1409E8A54 (SdbReadDWORDTag.c)
- *     SdbMakeIndexKeyFromStringEx @ 0x1409E8AF0 (SdbMakeIndexKeyFromStringEx.c)
- *     SdbpGetNextIndexedRecord @ 0x140B27DC8 (SdbpGetNextIndexedRecord.c)
+ *     SdbFindParentTagFromAncestors @ 0x14088BC74 (SdbFindParentTagFromAncestors.c)
+ *     __SdbpFindTagFromAncestors @ 0x14088BDFC (__SdbpFindTagFromAncestors.c)
+ *     SdbMakeIndexKeyFromGUID @ 0x14088DB94 (SdbMakeIndexKeyFromGUID.c)
+ *     SdbpMergeAreTagValuesEqual @ 0x14088DFAC (SdbpMergeAreTagValuesEqual.c)
+ *     SdbMakeIndexKeyFromStringEx @ 0x1409D40B8 (SdbMakeIndexKeyFromStringEx.c)
+ *     SdbFindNextTag @ 0x1409D4254 (SdbFindNextTag.c)
+ *     SdbpGetMappedTagData @ 0x1409D4464 (SdbpGetMappedTagData.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
+ *     SdbGetTagDataSize @ 0x1409D4C00 (SdbGetTagDataSize.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     SdbReadWORDTag @ 0x1409D53C0 (SdbReadWORDTag.c)
+ *     SdbReadDWORDTag @ 0x1409D5464 (SdbReadDWORDTag.c)
+ *     SdbpGetFirstIndexedRecord @ 0x1409D6DD4 (SdbpGetFirstIndexedRecord.c)
+ *     SdbpGetNextIndexedRecord @ 0x140B29A58 (SdbpGetNextIndexedRecord.c)
  */
 
 __int64 __fastcall SdbMergeIsEntryUpdated(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -72,9 +72,9 @@ __int64 __fastcall SdbMergeIsEntryUpdated(__int64 a1, __int64 a2, __int64 a3, un
   v9 = 0LL;
   for ( i = 0LL; i < 0x168; i += 10LL )
   {
-    if ( *(_WORD *)((char *)qword_14003E790 + i) == (_WORD)TagFromTagID )
+    if ( *(_WORD *)((char *)qword_14003ED90 + i) == (_WORD)TagFromTagID )
     {
-      v11 = (unsigned __int16 *)qword_14003E790 + 5 * v9;
+      v11 = (unsigned __int16 *)qword_14003ED90 + 5 * v9;
       if ( v11 )
       {
         v12 = v11[1];

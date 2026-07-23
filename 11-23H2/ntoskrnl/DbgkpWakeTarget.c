@@ -1,15 +1,15 @@
 /*
- * XREFs of DbgkpWakeTarget @ 0x140938438
+ * XREFs of DbgkpWakeTarget @ 0x140938638
  * Callers:
  *     DbgkClearProcessDebugObject @ 0x14068277C (DbgkClearProcessDebugObject.c)
- *     DbgkpCloseObject @ 0x140937110 (DbgkpCloseObject.c)
- *     DbgkpSetProcessDebugObject @ 0x140938148 (DbgkpSetProcessDebugObject.c)
- *     NtDebugContinue @ 0x1409388E0 (NtDebugContinue.c)
+ *     DbgkpCloseObject @ 0x140937310 (DbgkpCloseObject.c)
+ *     DbgkpSetProcessDebugObject @ 0x140938348 (DbgkpSetProcessDebugObject.c)
+ *     NtDebugContinue @ 0x140938AE0 (NtDebugContinue.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     PsMultiResumeThread @ 0x140309D88 (PsMultiResumeThread.c)
- *     DbgkpFreeDebugEvent @ 0x1409373A4 (DbgkpFreeDebugEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     PsMultiResumeThread @ 0x14030A018 (PsMultiResumeThread.c)
+ *     DbgkpFreeDebugEvent @ 0x1409375A4 (DbgkpFreeDebugEvent.c)
  */
 
 void __fastcall DbgkpWakeTarget(char *P)

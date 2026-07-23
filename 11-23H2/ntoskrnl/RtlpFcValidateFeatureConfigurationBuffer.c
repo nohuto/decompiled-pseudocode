@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFcValidateFeatureConfigurationBuffer @ 0x1409C8544
+ * XREFs of RtlpFcValidateFeatureConfigurationBuffer @ 0x1409C8744
  * Callers:
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26E1C (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A272F0 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A270CC (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x140A275A0 (CmFcManagerUpdateFeatureConfigurations.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     RtlFcpCompareFeatureToFeature @ 0x1405B4B20 (RtlFcpCompareFeatureToFeature.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     RtlFcpCompareFeatureToFeature @ 0x1405B5090 (RtlFcpCompareFeatureToFeature.c)
  */
 
 __int64 __fastcall RtlpFcValidateFeatureConfigurationBuffer(unsigned int *a1, ULONGLONG a2)

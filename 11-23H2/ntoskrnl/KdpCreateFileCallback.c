@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     ZwCreateFile @ 0x14041B800 (ZwCreateFile.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     ZwCreateFile @ 0x14041BB90 (ZwCreateFile.c)
  */
 
 __int64 __fastcall KdpCreateFileCallback(__int64 a1, UNICODE_STRING *a2, LARGE_INTEGER a3)

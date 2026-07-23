@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpFlushTb @ 0x1405A3614
+ * XREFs of VmpFlushTb @ 0x1405A3844
  * Callers:
- *     VmFlushTb @ 0x1405A274C (VmFlushTb.c)
+ *     VmFlushTb @ 0x1405A297C (VmFlushTb.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpFlushTbVaRange @ 0x1405A37B0 (VmpFlushTbVaRange.c)
- *     VmpProcessContextLockExclusive @ 0x1405A495C (VmpProcessContextLockExclusive.c)
+ *     VmpFlushTbVaRange @ 0x1405A39E0 (VmpFlushTbVaRange.c)
+ *     VmpProcessContextLockExclusive @ 0x1405A4B8C (VmpProcessContextLockExclusive.c)
  */
 
 __int64 __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, unsigned int a2, unsigned __int64 *a3)

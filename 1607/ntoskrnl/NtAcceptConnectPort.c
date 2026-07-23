@@ -1,10 +1,10 @@
 /*
- * XREFs of NtAcceptConnectPort @ 0x1404B3618
+ * XREFs of NtAcceptConnectPort @ 0x14049D9F8
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     AlpcpAcceptConnectPort @ 0x1404B4A28 (AlpcpAcceptConnectPort.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     AlpcpAcceptConnectPort @ 0x14049EE08 (AlpcpAcceptConnectPort.c)
  */
 
 NTSTATUS __stdcall NtAcceptConnectPort(

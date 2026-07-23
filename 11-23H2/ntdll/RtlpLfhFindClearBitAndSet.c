@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpLfhFindClearBitAndSet @ 0x1800A06EC
+ * XREFs of RtlpLfhFindClearBitAndSet @ 0x1800A06AC
  * Callers:
  *     RtlpLowFragHeapAllocFromContext @ 0x18003D560 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpLocalInfoAllocFromCache @ 0x180119F50 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180119F20 (RtlpLocalInfoAllocFromCache.c)
  * Callees:
  *     <none>
  */

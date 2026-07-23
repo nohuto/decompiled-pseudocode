@@ -15,7 +15,7 @@
  *     MiChangeSlabEntryIdentity @ 0x14067ACD0 (MiChangeSlabEntryIdentity.c)
  */
 
-__int64 __fastcall MiDeleteSlabEntriesForIdentity(__int64 a1, unsigned __int64 a2, char a3)
+__int64 __fastcall MiDeleteSlabEntriesForIdentity(__int64 a1, __int64 a2, char a3)
 {
   volatile LONG *v3; // r12
   int v5; // edi

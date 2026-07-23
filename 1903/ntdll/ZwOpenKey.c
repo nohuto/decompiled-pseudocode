@@ -25,7 +25,7 @@
  *     sub_180073374 @ 0x180073374 (sub_180073374.c)
  *     RtlpGetDeviceFamilyInfoEnum @ 0x180074D60 (RtlpGetDeviceFamilyInfoEnum.c)
  *     sub_18007A3BC @ 0x18007A3BC (sub_18007A3BC.c)
- *     sub_18007C370 @ 0x18007C370 (sub_18007C370.c)
+ *     InitFn @ 0x18007C370 (InitFn.c)
  *     RtlpNtOpenKey @ 0x18007D070 (RtlpNtOpenKey.c)
  *     sub_180087EB8 @ 0x180087EB8 (sub_180087EB8.c)
  *     sub_1800883AC @ 0x1800883AC (sub_1800883AC.c)
@@ -59,11 +59,11 @@
  *     <none>
  */
 
-__int64 ZwOpenKey()
+NTSTATUS __cdecl ZwOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 18LL;
+  result = 18;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

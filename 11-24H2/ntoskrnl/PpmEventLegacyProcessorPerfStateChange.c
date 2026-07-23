@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventLegacyProcessorPerfStateChange @ 0x14047481C
+ * XREFs of PpmEventLegacyProcessorPerfStateChange @ 0x14047062C
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x14029F124 (PpmPerfApplyProcessorState.c)
+ *     PpmPerfApplyProcessorState @ 0x1402ADC20 (PpmPerfApplyProcessorState.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     PpmFireWmiEvent @ 0x1405D7EF8 (PpmFireWmiEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     PpmFireWmiEvent @ 0x1405D5478 (PpmFireWmiEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmEventLegacyProcessorPerfStateChange(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall PpmEventLegacyProcessorPerfStateChange(__int64 a1)
   v16 = 0LL;
   v4 = v1[16];
   v5 = v1[21];
-  if ( (xmmword_140FC5B10 & 0x8000) != 0 )
+  if ( (xmmword_140FC6B50 & 0x8000) != 0 )
   {
     HIDWORD(v15) = 0;
     v7 = *(_DWORD *)(v2 + 528);

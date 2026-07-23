@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpDiscoverTopologyComplete @ 0x140CB94E0
+ * XREFs of HvlpDiscoverTopologyComplete @ 0x140CBF520
  * Callers:
- *     HvlPhase2Initialize @ 0x1405B8B08 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1405BB378 (HvlPhase2Initialize.c)
  * Callees:
- *     HvlpDiscoverTopologyWorker @ 0x140791BE8 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x140794718 (HvlpDiscoverTopologyWorker.c)
  */
 
 void HvlpDiscoverTopologyComplete()
@@ -23,11 +23,11 @@ void HvlpDiscoverTopologyComplete()
     if ( v0[5] == -1 )
       HvlpDiscoverTopologyWorker();
     v2 = v0[3];
-    if ( v2 > *(_DWORD *)&stru_140E3E928.SavedApcStateFill[20] )
-      *(_DWORD *)&stru_140E3E928.SavedApcStateFill[20] = v0[3];
+    if ( v2 > *(_DWORD *)&stru_140E3EAA8.SavedApcStateFill[20] )
+      *(_DWORD *)&stru_140E3EAA8.SavedApcStateFill[20] = v0[3];
     v3 = v0[4];
-    if ( v3 > *(_DWORD *)&stru_140E3E928.SavedApcStateFill[24] )
-      *(_DWORD *)&stru_140E3E928.SavedApcStateFill[24] = v0[4];
+    if ( v3 > *(_DWORD *)&stru_140E3EAA8.SavedApcStateFill[24] )
+      *(_DWORD *)&stru_140E3EAA8.SavedApcStateFill[24] = v0[4];
     if ( *((_BYTE *)v0 + 98) )
     {
       v4 = HvlpLogicalProcessorRegions;

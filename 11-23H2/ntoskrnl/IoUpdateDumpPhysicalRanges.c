@@ -1,18 +1,18 @@
 /*
- * XREFs of IoUpdateDumpPhysicalRanges @ 0x140551060
+ * XREFs of IoUpdateDumpPhysicalRanges @ 0x140551720
  * Callers:
- *     MiRemovePhysicalMemoryBatchComplete @ 0x14061BF84 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiAddPhysicalMemoryChunks @ 0x140A2BE8C (MiAddPhysicalMemoryChunks.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
- *     MiHotAddPartitionMemory @ 0x140A44CA0 (MiHotAddPartitionMemory.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x14061C4D4 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2C13C (MiAddPhysicalMemoryChunks.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
+ *     MiHotAddPartitionMemory @ 0x140A44F50 (MiHotAddPartitionMemory.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IopGetPhysicalMemoryBlock @ 0x1403963D0 (IopGetPhysicalMemoryBlock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IopConstructInMemoryDumpHeader @ 0x14055243C (IopConstructInMemoryDumpHeader.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IopGetPhysicalMemoryBlock @ 0x1403965B0 (IopGetPhysicalMemoryBlock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopConstructInMemoryDumpHeader @ 0x140552AFC (IopConstructInMemoryDumpHeader.c)
  */
 
 _QWORD *IoUpdateDumpPhysicalRanges()

@@ -54,7 +54,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
   ULONG_PTR BugCheckParameter4; // r11
   int v33; // r10d
   __int64 SessionId; // rdx
-  __int64 v35; // r8
+  unsigned int v35; // r8d
   __int64 v37; // rcx
   __int64 v38; // rdi
   __int64 v39; // rdx
@@ -170,11 +170,11 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
       --v30->SpecialApcDisable;
       v30->AbAllocationRegionCount += v33;
       AbAllocationRegionCount = v30->AbAllocationRegionCount;
-      LODWORD(v35) = ((char)v30->AbEntrySummary | (char)v30->AbOrphanedEntrySummary) ^ 0x3F;
+      v35 = ((char)v30->AbEntrySummary | (char)v30->AbOrphanedEntrySummary) ^ 0x3F;
       while ( _BitScanReverse((unsigned int *)&v37, v35) )
       {
         v38 = (__int64)&v30->LockEntries[v37];
-        v35 = ~(v33 << v37) & (unsigned int)v35;
+        v35 &= ~(v33 << v37);
         if ( ((unsigned __int8)v33 & *(_BYTE *)(v38 + 26)) != 0
           && ((unsigned __int8)*(_DWORD *)(v38 + 32) & (unsigned __int8)v33) == 0
           && (*(_QWORD *)(v38 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v29 & 0x7FFFFFFFFFFFFFFCLL)
@@ -188,7 +188,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
               *(_BYTE *)(v38 + 32) |= 2u;
               if ( ((*(__int64 *)(v38 + 32) < 0) & (unsigned __int8)v33) != 0 )
               {
-                KiAbEntryRemoveFromTree(v38, SessionId, v35);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v38, SessionId);
                 LOBYTE(v33) = 1;
                 BugCheckParameter4 = 0LL;
               }

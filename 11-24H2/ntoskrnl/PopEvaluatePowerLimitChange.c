@@ -1,19 +1,19 @@
 /*
- * XREFs of PopEvaluatePowerLimitChange @ 0x14074B3D4
+ * XREFs of PopEvaluatePowerLimitChange @ 0x140749704
  * Callers:
- *     PoSetPowerLimitValue @ 0x14074ADE0 (PoSetPowerLimitValue.c)
- *     PopDisablePowerLimitExtension @ 0x14074B2F8 (PopDisablePowerLimitExtension.c)
- *     PopFreePowerLimitRequest @ 0x14074B644 (PopFreePowerLimitRequest.c)
- *     PopPowerLimitPnpNotification @ 0x14074B970 (PopPowerLimitPnpNotification.c)
+ *     PoSetPowerLimitValue @ 0x140749110 (PoSetPowerLimitValue.c)
+ *     PopDisablePowerLimitExtension @ 0x140749628 (PopDisablePowerLimitExtension.c)
+ *     PopFreePowerLimitRequest @ 0x140749974 (PopFreePowerLimitRequest.c)
+ *     PopPowerLimitPnpNotification @ 0x140749CA0 (PopPowerLimitPnpNotification.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopPowerLimitUpdatePendingEvents @ 0x14074BA84 (PopPowerLimitUpdatePendingEvents.c)
- *     PopDiagTracePowerLimitExtensionValueUpdate @ 0x1407572B0 (PopDiagTracePowerLimitExtensionValueUpdate.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopPowerLimitUpdatePendingEvents @ 0x140749DB4 (PopPowerLimitUpdatePendingEvents.c)
+ *     PopDiagTracePowerLimitExtensionValueUpdate @ 0x140755730 (PopDiagTracePowerLimitExtensionValueUpdate.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopEvaluatePowerLimitChange(__int64 a1)
@@ -37,7 +37,6 @@ void __fastcall PopEvaluatePowerLimitChange(__int64 a1)
   unsigned __int64 k; // r8
   __int64 v19; // rcx
   int v20; // edi
-  __int64 v21; // r9
 
   v1 = *(_DWORD *)(a1 + 176);
   Pool2 = 0LL;
@@ -101,7 +100,7 @@ void __fastcall PopEvaluatePowerLimitChange(__int64 a1)
       while ( (unsigned int)v5 < *(_DWORD *)(a1 + 72) );
       if ( !v4 )
         break;
-      Pool2 = (char *)ExAllocatePool2(0x100uLL);
+      Pool2 = (char *)ExAllocatePool2(0x100uLL, 16LL * v4, 0x6D6C5050u);
       if ( !Pool2 )
         return;
       v15 = 0;
@@ -122,7 +121,7 @@ void __fastcall PopEvaluatePowerLimitChange(__int64 a1)
       v20 = *(_DWORD *)(a1 + 176);
       *(_DWORD *)(a1 + 176) = v20 + 1;
       PopReleaseRwLock((signed __int64 *)(a1 + 32));
-      guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 120), v4, Pool2, v21);
+      guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 120), v4);
       PopAcquireRwLockExclusive((unsigned __int64 *)(a1 + 32));
       if ( --*(_DWORD *)(a1 + 176) == v20 )
       {

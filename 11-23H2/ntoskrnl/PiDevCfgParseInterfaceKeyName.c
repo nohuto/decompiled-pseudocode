@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgParseInterfaceKeyName @ 0x140562084
+ * XREFs of PiDevCfgParseInterfaceKeyName @ 0x140562744
  * Callers:
- *     PiDevCfgConfigureDeviceInterfaces @ 0x14087CDA0 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x14087CFE0 (PiDevCfgConfigureDeviceInterfaces.c)
  * Callees:
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
  */
 
 bool __fastcall PiDevCfgParseInterfaceKeyName(__int64 a1, GUID *a2, __int64 *a3)

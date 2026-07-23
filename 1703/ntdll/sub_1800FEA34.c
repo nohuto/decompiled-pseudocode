@@ -13,7 +13,7 @@ __int64 sub_1800FEA34()
 {
   unsigned int v0; // ebx
 
-  RtlAcquireSRWLockExclusive(&qword_18015C2A0);
+  RtlAcquireSRWLockExclusive(&stru_18015C2A0);
   if ( (dword_18015C2A8 & 1) != 0 )
   {
     v0 = 1;
@@ -24,6 +24,6 @@ __int64 sub_1800FEA34()
     if ( v0 )
       dword_18015C2A8 |= 1u;
   }
-  RtlReleaseSRWLockExclusive(&qword_18015C2A0);
+  RtlReleaseSRWLockExclusive(&stru_18015C2A0);
   return v0;
 }

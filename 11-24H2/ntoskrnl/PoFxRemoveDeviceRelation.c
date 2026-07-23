@@ -1,20 +1,20 @@
 /*
- * XREFs of PoFxRemoveDeviceRelation @ 0x1405D06F0
+ * XREFs of PoFxRemoveDeviceRelation @ 0x1405CDE10
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PopFxReferenceDevice @ 0x14029F788 (PopFxReferenceDevice.c)
- *     PopFxNextParentRelationSafe @ 0x140375C20 (PopFxNextParentRelationSafe.c)
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     PopFxIdleComponent @ 0x1403B4888 (PopFxIdleComponent.c)
- *     PoFxIdleDevice @ 0x1403D76E4 (PoFxIdleDevice.c)
- *     PopFxNextComponentChildRelationSafe @ 0x140445C38 (PopFxNextComponentChildRelationSafe.c)
- *     PopFxActivateDevice @ 0x140496080 (PopFxActivateDevice.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     PoFxIdleDevice @ 0x1402F11C4 (PoFxIdleDevice.c)
+ *     PopFxNextParentRelationSafe @ 0x1403A6340 (PopFxNextParentRelationSafe.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     PopFxIdleComponent @ 0x1403A8D58 (PopFxIdleComponent.c)
+ *     PopFxReferenceDevice @ 0x1403AA248 (PopFxReferenceDevice.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x14043DFE8 (PopFxNextComponentChildRelationSafe.c)
+ *     PopFxActivateDevice @ 0x140490A10 (PopFxActivateDevice.c)
  */
 
 __int64 __fastcall PoFxRemoveDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3)

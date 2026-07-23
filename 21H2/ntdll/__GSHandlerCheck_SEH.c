@@ -1,5 +1,5 @@
 /*
- * XREFs of __GSHandlerCheck_SEH @ 0x18009D1CC
+ * XREFs of __GSHandlerCheck_SEH @ 0x18009D190
  * Callers:
  *     <none>
  * Callees:

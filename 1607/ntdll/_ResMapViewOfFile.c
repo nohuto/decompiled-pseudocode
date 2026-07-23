@@ -1,24 +1,54 @@
 /*
- * XREFs of _ResMapViewOfFile @ 0x180104BB4
+ * XREFs of _ResMapViewOfFile @ 0x180104AF4
  * Callers:
- *     _ResCCreateMappingExclusive @ 0x180103578 (_ResCCreateMappingExclusive.c)
- *     _ResCOpenMapping @ 0x180103A38 (_ResCOpenMapping.c)
+ *     _ResCCreateMappingExclusive @ 0x1801034B8 (_ResCCreateMappingExclusive.c)
+ *     _ResCOpenMapping @ 0x180103978 (_ResCOpenMapping.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
  *     ZwMapViewOfSection @ 0x1800A6920 (ZwMapViewOfSection.c)
  */
 
-__int64 ResMapViewOfFile()
+PVOID __fastcall ResMapViewOfFile(void *a1, int a2, __int64 a3, __int64 a4, ULONG_PTR ViewSize)
 {
-  NTSTATUS v0; // eax
-  ULONG v1; // eax
+  ULONG Win32Protect; // eax
+  int v6; // eax
+  LONG v7; // eax
+  LARGE_INTEGER SectionOffset; // [rsp+50h] [rbp-18h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-10h] BYREF
 
-  v0 = ZwMapViewOfSection();
-  if ( v0 < 0 )
+  BaseAddress = 0LL;
+  SectionOffset.QuadPart = 0LL;
+  if ( a2 == 1 )
   {
-    v1 = RtlNtStatusToDosError(v0);
-    RtlSetLastWin32Error(v1);
+    Win32Protect = 8;
   }
+  else if ( (a2 & 2) != 0 )
+  {
+    Win32Protect = (a2 & 0x20) != 0 ? 64 : 4;
+  }
+  else if ( (a2 & 4) != 0 )
+  {
+    Win32Protect = (a2 & 0x20) != 0 ? 32 : 2;
+  }
+  else
+  {
+    Win32Protect = 1;
+  }
+  v6 = ZwMapViewOfSection(
+         a1,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         &BaseAddress,
+         0LL,
+         0LL,
+         &SectionOffset,
+         &ViewSize,
+         ViewShare,
+         0,
+         Win32Protect);
+  if ( v6 >= 0 )
+    return BaseAddress;
+  v7 = RtlNtStatusToDosError(v6);
+  RtlSetLastWin32Error(v7);
   return 0LL;
 }

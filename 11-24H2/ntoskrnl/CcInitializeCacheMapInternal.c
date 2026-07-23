@@ -1,41 +1,41 @@
 /*
- * XREFs of CcInitializeCacheMapInternal @ 0x14045D6F0
+ * XREFs of CcInitializeCacheMapInternal @ 0x1404527B0
  * Callers:
- *     CcInitializeCacheMap @ 0x14045D690 (CcInitializeCacheMap.c)
- *     CcInitializeCacheMapEx2 @ 0x14045D6C0 (CcInitializeCacheMapEx2.c)
- *     CcInitializeCacheMapEx @ 0x140579F00 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMap @ 0x140452750 (CcInitializeCacheMap.c)
+ *     CcInitializeCacheMapEx2 @ 0x140452780 (CcInitializeCacheMapEx2.c)
+ *     CcInitializeCacheMapEx @ 0x140577390 (CcInitializeCacheMapEx.c)
  * Callees:
- *     PsGetPagePriorityThread @ 0x140208FD0 (PsGetPagePriorityThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     CcIncrementOpenCount @ 0x1402AAADC (CcIncrementOpenCount.c)
- *     CcCreatePrivateVolumeCacheMap @ 0x1402CA5A8 (CcCreatePrivateVolumeCacheMap.c)
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     CcDeleteSharedCacheMap @ 0x1402CCE98 (CcDeleteSharedCacheMap.c)
- *     CcFreePrivateCacheMapIgnoreNull @ 0x1402CD2F8 (CcFreePrivateCacheMapIgnoreNull.c)
- *     CcFreeSharedCacheMapIgnoreNull @ 0x1402CD320 (CcFreeSharedCacheMapIgnoreNull.c)
- *     CcGetPrivateVolumeCacheMap @ 0x1402CD530 (CcGetPrivateVolumeCacheMap.c)
- *     CcInitializeVolumeCacheMap @ 0x1402CDF18 (CcInitializeVolumeCacheMap.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     MmDisableModifiedWriteOfSection @ 0x140315B50 (MmDisableModifiedWriteOfSection.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExAllocateFromLookasideListEx @ 0x1403E16C0 (ExAllocateFromLookasideListEx.c)
- *     CcScheduleLazyWriteScan @ 0x14043C9B0 (CcScheduleLazyWriteScan.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x14044ADDC (CcInsertIntoCleanSharedCacheMapList.c)
- *     FsRtlIsNtstatusExpected @ 0x140456400 (FsRtlIsNtstatusExpected.c)
- *     CcGetPartitionWithCreate @ 0x1404DEB40 (CcGetPartitionWithCreate.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObDeleteCapturedInsertInfo @ 0x14092DA30 (ObDeleteCapturedInsertInfo.c)
- *     MmCreateCacheManagerSection @ 0x140940F58 (MmCreateCacheManagerSection.c)
- *     CcCreateVacbArray @ 0x1409F5A98 (CcCreateVacbArray.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     CcScheduleLazyWriteScan @ 0x140264F40 (CcScheduleLazyWriteScan.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     CcIncrementOpenCount @ 0x14027516C (CcIncrementOpenCount.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     CcDeleteSharedCacheMap @ 0x1402E5B98 (CcDeleteSharedCacheMap.c)
+ *     CcFreePrivateCacheMapIgnoreNull @ 0x1402E5FF8 (CcFreePrivateCacheMapIgnoreNull.c)
+ *     CcFreeSharedCacheMapIgnoreNull @ 0x1402E6020 (CcFreeSharedCacheMapIgnoreNull.c)
+ *     CcGetPrivateVolumeCacheMap @ 0x1402E6230 (CcGetPrivateVolumeCacheMap.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PsGetPagePriorityThread @ 0x1403305B0 (PsGetPagePriorityThread.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAllocateFromLookasideListEx @ 0x1403C9D30 (ExAllocateFromLookasideListEx.c)
+ *     CcInitializeVolumeCacheMap @ 0x14040BF18 (CcInitializeVolumeCacheMap.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x14042FE00 (CcCreatePrivateVolumeCacheMap.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x140441F1C (CcInsertIntoCleanSharedCacheMapList.c)
+ *     FsRtlIsNtstatusExpected @ 0x14044B3D0 (FsRtlIsNtstatusExpected.c)
+ *     MmDisableModifiedWriteOfSection @ 0x14044E780 (MmDisableModifiedWriteOfSection.c)
+ *     CcGetPartitionWithCreate @ 0x1404D8560 (CcGetPartitionWithCreate.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObDeleteCapturedInsertInfo @ 0x14092FB70 (ObDeleteCapturedInsertInfo.c)
+ *     MmCreateCacheManagerSection @ 0x14098B1B8 (MmCreateCacheManagerSection.c)
+ *     CcCreateVacbArray @ 0x1409E914C (CcCreateVacbArray.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall CcInitializeCacheMapInternal(
@@ -52,7 +52,7 @@ void __fastcall CcInitializeCacheMapInternal(
   unsigned int v10; // ebx
   _DWORD *v11; // r14
   void *v12; // r12
-  int PrivateVolumeCacheMap; // esi
+  NTSTATUS PrivateVolumeCacheMap; // esi
   __int64 v14; // r15
   __m128i v15; // xmm1
   int v16; // ecx
@@ -164,7 +164,7 @@ void __fastcall CcInitializeCacheMapInternal(
     goto LABEL_30;
   while ( 1 )
   {
-    v11 = ExAllocateFromLookasideListEx(&CcSharedCacheMapLookasideList);
+    v11 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CcSharedCacheMapLookasideList);
     memset_0(v11, 0, 0x268uLL);
     v19 = v10 | 1;
     v20 = (__int64)v11;
@@ -193,7 +193,7 @@ void __fastcall CcInitializeCacheMapInternal(
       goto LABEL_119;
     }
     ObDeleteCapturedInsertInfo(Objecta);
-    v14 = CcGetPartitionWithCreate(*(_QWORD *)(*((_QWORD *)qword_140E2FF88
+    v14 = CcGetPartitionWithCreate(*(_QWORD *)(*((_QWORD *)qword_140E300C8
                                                + (*(_WORD *)(**(_QWORD **)(Object + 40) + 60LL) & 0x3FF))
                                              + 184LL));
     if ( !v14 )
@@ -326,7 +326,7 @@ LABEL_87:
             goto LABEL_89;
           while ( 1 )
           {
-            v75 = ExAllocateFromLookasideListEx(&CcPrivateCacheMapLookasideList);
+            v75 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CcPrivateCacheMapLookasideList);
             v12 = v75;
             if ( !v75 )
               break;
@@ -411,7 +411,7 @@ LABEL_95:
           Objecta = 0LL;
           if ( (*(_BYTE *)(v52 + 6) & 1) == 0 && !*(_QWORD *)(Object + 32) )
           {
-            MmDisableModifiedWriteOfSection(*(_QWORD *)(Object + 40));
+            MmDisableModifiedWriteOfSection(*(_QWORD **)(Object + 40));
             KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
             KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v14 + 768), &v72);
             *(_DWORD *)(v20 + 152) |= 0x200u;

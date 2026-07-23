@@ -1,16 +1,16 @@
 /*
- * XREFs of PoStoreRequester @ 0x140282E3C
+ * XREFs of PoStoreRequester @ 0x1402710E8
  * Callers:
- *     PopUmpoSendPowerRequestOverrideQuery @ 0x140282D74 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     PoStoreDiagnosticContext @ 0x14038AC9C (PoStoreDiagnosticContext.c)
- *     PopDiagTracePowerRequestCreate @ 0x14067C538 (PopDiagTracePowerRequestCreate.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x140271020 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     PoStoreDiagnosticContext @ 0x14038ADEC (PoStoreDiagnosticContext.c)
+ *     PopDiagTracePowerRequestCreate @ 0x140670078 (PopDiagTracePowerRequestCreate.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     RtlStringCbCopyUnicodeString @ 0x140283C7C (RtlStringCbCopyUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     RtlStringCbCopyUnicodeString @ 0x140271E8C (RtlStringCbCopyUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7E54 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     IoGetDeviceProperty @ 0x140634AA0 (IoGetDeviceProperty.c)
  */
 
 __int64 __fastcall PoStoreRequester(__int64 a1, __int64 a2, unsigned __int64 *a3, char a4)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpCancelRemoveOnHungDevices @ 0x1408A2280
+ * XREFs of PnpCancelRemoveOnHungDevices @ 0x1408A23E0
  * Callers:
- *     PiProcessQueryAndCancelRemoval @ 0x1407324EC (PiProcessQueryAndCancelRemoval.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x1407326AC (PiProcessQueryAndCancelRemoval.c)
  * Callees:
- *     PnpNotifyTargetDeviceChange @ 0x1406E6FA0 (PnpNotifyTargetDeviceChange.c)
- *     PnpNotifyUserModeDeviceRemoval @ 0x140736F70 (PnpNotifyUserModeDeviceRemoval.c)
- *     IopAddRelationToList @ 0x140737868 (IopAddRelationToList.c)
- *     PnpCompileDeviceInstancePaths @ 0x140738360 (PnpCompileDeviceInstancePaths.c)
- *     IopEnumerateRelations @ 0x1407384F0 (IopEnumerateRelations.c)
- *     PnpDeleteLockedDeviceNode @ 0x140738574 (PnpDeleteLockedDeviceNode.c)
- *     IopAllocateRelationList @ 0x14073928C (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x140739350 (IopFreeRelationList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PnpNotifyTargetDeviceChange @ 0x1406FE380 (PnpNotifyTargetDeviceChange.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x140737130 (PnpNotifyUserModeDeviceRemoval.c)
+ *     IopAddRelationToList @ 0x140737A28 (IopAddRelationToList.c)
+ *     PnpCompileDeviceInstancePaths @ 0x140738520 (PnpCompileDeviceInstancePaths.c)
+ *     IopEnumerateRelations @ 0x1407386B0 (IopEnumerateRelations.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140738734 (PnpDeleteLockedDeviceNode.c)
+ *     IopAllocateRelationList @ 0x14073944C (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x140739510 (IopFreeRelationList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCancelRemoveOnHungDevices(__int64 a1, unsigned int a2, char a3, unsigned int **a4, __int64 *a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_UnattendedRebootIdleFix__private_IsEnabledDeviceUsageNoInline @ 0x140610A0C
+ * XREFs of Feature_UnattendedRebootIdleFix__private_IsEnabledDeviceUsageNoInline @ 0x140613CC8
  * Callers:
- *     PopAdaptiveConsoleSessionOverrideClear @ 0x1407DDAD4 (PopAdaptiveConsoleSessionOverrideClear.c)
- *     PopInitializeAdpm @ 0x140CD671C (PopInitializeAdpm.c)
+ *     PopAdaptiveConsoleSessionOverrideClear @ 0x1407E2104 (PopAdaptiveConsoleSessionOverrideClear.c)
+ *     PopInitializeAdpm @ 0x140CDCA70 (PopInitializeAdpm.c)
  * Callees:
- *     Feature_UnattendedRebootIdleFix__private_IsEnabledFallback @ 0x140610A48 (Feature_UnattendedRebootIdleFix__private_IsEnabledFallback.c)
+ *     Feature_UnattendedRebootIdleFix__private_IsEnabledFallback @ 0x140613D04 (Feature_UnattendedRebootIdleFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_UnattendedRebootIdleFix__private_IsEnabledDeviceUsageNoInline()

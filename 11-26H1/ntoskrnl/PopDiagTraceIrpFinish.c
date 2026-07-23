@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceIrpFinish @ 0x14021A300
+ * XREFs of PopDiagTraceIrpFinish @ 0x14021BC90
  * Callers:
- *     PopDequeueQuerySetIrp @ 0x1403B3D2C (PopDequeueQuerySetIrp.c)
- *     PopRequestCompletion @ 0x1403B45B0 (PopRequestCompletion.c)
+ *     PopDequeueQuerySetIrp @ 0x1403BDC38 (PopDequeueQuerySetIrp.c)
+ *     PopRequestCompletion @ 0x1403BE4B0 (PopRequestCompletion.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PopDiagTraceIrpFinishTelemetry @ 0x14021A4A4 (PopDiagTraceIrpFinishTelemetry.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     PopDiagGetDriverName @ 0x140486FD8 (PopDiagGetDriverName.c)
- *     IoFindDeviceThatFailedIrp @ 0x1404D3D90 (IoFindDeviceThatFailedIrp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PopDiagTraceIrpFinishTelemetry @ 0x14021BE34 (PopDiagTraceIrpFinishTelemetry.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     PopDiagGetDriverName @ 0x1404809A8 (PopDiagGetDriverName.c)
+ *     IoFindDeviceThatFailedIrp @ 0x1404CD600 (IoFindDeviceThatFailedIrp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceIrpFinish(__int64 a1)
@@ -37,9 +37,9 @@ BOOLEAN __fastcall PopDiagTraceIrpFinish(__int64 a1)
 
   v12 = a1;
   result = PopDiagTraceIrpFinishTelemetry();
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_IRPFINISH);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_IRPFINISH);
     if ( result )
     {
       v3 = &SourceString;
@@ -78,15 +78,7 @@ BOOLEAN __fastcall PopDiagTraceIrpFinish(__int64 a1)
       while ( v3[v9] );
       v17 = 2 * v9 + 2;
       v18 = 0;
-      return EtwWriteEx(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_IRPFINISH,
-               0LL,
-               0,
-               0LL,
-               0LL,
-               3u,
-               &UserData);
+      return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRPFINISH, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
   return result;

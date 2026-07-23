@@ -9,12 +9,16 @@
  *     AlpcpCreateReserve @ 0x140522DD0 (AlpcpCreateReserve.c)
  */
 
-__int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3, unsigned int *a4)
+NTSTATUS __cdecl NtAlpcCreateResourceReserve(
+        HANDLE PortHandle,
+        ULONG Flags,
+        SIZE_T MessageSize,
+        PALPC_HANDLE ResourceId)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r9
   _DWORD *v8; // rcx
-  NTSTATUS Reserve; // edi
+  int Reserve; // edi
   PVOID v10; // rsi
   struct _KTHREAD *v11; // rcx
   __int16 v12; // ax
@@ -23,7 +27,7 @@ __int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     Reserve = -1073741811;
   }
@@ -32,18 +36,18 @@ __int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode )
     {
-      v8 = a4;
-      if ( (unsigned __int64)a4 >= MmUserProbeAddress )
+      v8 = ResourceId;
+      if ( (unsigned __int64)ResourceId >= MmUserProbeAddress )
         v8 = (_DWORD *)MmUserProbeAddress;
       *v8 = *v8;
     }
-    Reserve = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    Reserve = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( Reserve >= 0 )
     {
       v10 = Object;
       Reserve = AlpcpCreateReserve(Object);
       if ( Reserve >= 0 )
-        *a4 = v15 | 0x80000000;
+        *(_DWORD *)ResourceId = v15 | 0x80000000;
       ObfDereferenceObject(v10);
     }
   }
@@ -56,5 +60,5 @@ __int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)Reserve;
+  return Reserve;
 }

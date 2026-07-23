@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwDeleteAtom @ 0x140724EF0
+ * XREFs of ZwDeleteAtom @ 0x140729AC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDeleteAtom(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwDeleteAtom(RTL_ATOM Atom)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Atom);
 }

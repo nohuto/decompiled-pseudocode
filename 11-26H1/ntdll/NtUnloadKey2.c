@@ -1,16 +1,16 @@
 /*
- * XREFs of NtUnloadKey2 @ 0x180162AB0
+ * XREFs of NtUnloadKey2 @ 0x1801629B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtUnloadKey2()
+NTSTATUS __cdecl NtUnloadKey2(POBJECT_ATTRIBUTES TargetKey, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 476LL;
+  result = 476;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

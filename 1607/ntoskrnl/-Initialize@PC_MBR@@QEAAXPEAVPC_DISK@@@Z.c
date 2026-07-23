@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z @ 0x1401479A4
+ * XREFs of ?Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z @ 0x140147F14
  * Callers:
- *     PcReadPartitionTable @ 0x1401474EC (PcReadPartitionTable.c)
- *     ?PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z @ 0x14023B5F0 (-PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z.c)
- *     PcSetPartition @ 0x14023B6CC (PcSetPartition.c)
- *     PcWritePartitionTable @ 0x14023B81C (PcWritePartitionTable.c)
+ *     PcReadPartitionTable @ 0x140147A5C (PcReadPartitionTable.c)
+ *     ?PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z @ 0x14023B4D4 (-PcCreatePartitionTable@@YAJPEAVPC_DISK@@PEAU_CREATE_DISK@@@Z.c)
+ *     PcSetPartition @ 0x14023B5B0 (PcSetPartition.c)
+ *     PcWritePartitionTable @ 0x14023B700 (PcWritePartitionTable.c)
  * Callees:
  *     <none>
  */

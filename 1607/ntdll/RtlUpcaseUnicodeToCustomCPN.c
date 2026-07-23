@@ -1,77 +1,77 @@
 /*
- * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x1800DE750
+ * XREFs of RtlUpcaseUnicodeToCustomCPN @ 0x1800DE810
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToCustomCPN(
-        __int64 a1,
-        _BYTE *a2,
-        unsigned int a3,
-        unsigned int *a4,
-        unsigned __int16 *a5,
-        unsigned int a6)
+NTSTATUS __cdecl RtlUpcaseUnicodeToCustomCPN(
+        PCPTABLEINFO CustomCP,
+        PCH CustomCPString,
+        ULONG MaxBytesInCustomCPString,
+        PULONG BytesInCustomCPString,
+        PWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  _BYTE *v6; // r10
-  unsigned int v7; // eax
-  unsigned int v8; // r12d
-  __int64 v9; // r8
+  PCH v6; // r10
+  ULONG v7; // eax
+  ULONG v8; // r12d
+  _BYTE *WideCharTable; // r8
   __int64 v10; // r9
   __int64 v11; // r15
-  _BYTE *v12; // r10
-  unsigned __int16 *v13; // rsi
+  CHAR *v12; // r10
+  WCHAR *v13; // rsi
   __int64 v14; // rax
-  unsigned __int16 v15; // r11
-  unsigned __int16 v16; // r11
-  unsigned __int16 v17; // r11
-  unsigned __int16 v18; // r11
-  unsigned __int16 v19; // r11
-  unsigned __int16 v20; // r11
-  unsigned __int16 v21; // r11
-  unsigned __int16 v22; // r11
-  unsigned __int16 v23; // r11
-  unsigned __int16 v24; // r11
-  unsigned __int16 v25; // r11
-  unsigned __int16 v26; // r11
-  unsigned __int16 v27; // r11
-  unsigned __int16 v28; // r11
-  unsigned __int16 v29; // r11
-  unsigned __int16 v30; // r11
-  __int64 v31; // r12
+  USHORT v15; // r11
+  USHORT v16; // r11
+  USHORT v17; // r11
+  USHORT v18; // r11
+  USHORT v19; // r11
+  USHORT v20; // r11
+  USHORT v21; // r11
+  USHORT v22; // r11
+  USHORT v23; // r11
+  USHORT v24; // r11
+  USHORT v25; // r11
+  USHORT v26; // r11
+  USHORT v27; // r11
+  USHORT v28; // r11
+  USHORT v29; // r11
+  USHORT v30; // r11
+  PUSHORT DBCSOffsets; // r12
   int v32; // r11d
-  __int64 v33; // rsi
-  unsigned __int16 *v34; // r15
+  _WORD *v33; // rsi
+  PWCH v34; // r15
   __int64 v35; // r11
   __int64 v36; // rax
   __int16 v37; // dx
-  unsigned __int16 v38; // r8
+  USHORT v38; // r8
   __int64 v39; // rax
-  unsigned int v40; // r8d
+  ULONG v40; // r8d
   __int16 v41; // dx
   unsigned int v42; // eax
   bool v43; // zf
   int v45; // [rsp+40h] [rbp+8h]
-  unsigned int v46; // [rsp+50h] [rbp+18h]
-  unsigned int v47; // [rsp+68h] [rbp+30h]
+  ULONG v46; // [rsp+50h] [rbp+18h]
+  ULONG BytesInUnicodeStringa; // [rsp+68h] [rbp+30h]
 
-  v46 = a3;
-  v6 = a2;
-  v7 = a6 >> 1;
-  v47 = a6 >> 1;
-  if ( !*(_WORD *)(a1 + 12) )
+  v46 = MaxBytesInCustomCPString;
+  v6 = CustomCPString;
+  v7 = BytesInUnicodeString >> 1;
+  BytesInUnicodeStringa = BytesInUnicodeString >> 1;
+  if ( !CustomCP->DBCSCodePage )
   {
-    v8 = a3;
-    if ( v7 < a3 )
+    v8 = MaxBytesInCustomCPString;
+    if ( v7 < MaxBytesInCustomCPString )
       v8 = v7;
-    if ( a4 )
-      *a4 = v8;
-    v9 = *(_QWORD *)(a1 + 40);
+    if ( BytesInCustomCPString )
+      *BytesInCustomCPString = v8;
+    WideCharTable = CustomCP->WideCharTable;
     v10 = Nls844UnicodeUpcaseTable;
     v11 = v8 & 0xF;
-    v12 = &a2[v11];
-    v13 = &a5[v11];
+    v12 = &CustomCPString[v11];
+    v13 = &UnicodeString[v11];
     while ( (unsigned int)v11 <= 8 )
     {
       if ( (_DWORD)v11 == 8 )
@@ -106,7 +106,7 @@ LABEL_104:
       v8 -= v11;
       LODWORD(v11) = 16;
       if ( !v8 )
-        return v46 < v47 ? 0x80000005 : 0;
+        return v46 < BytesInUnicodeStringa ? 0x80000005 : 0;
     }
     if ( (_DWORD)v11 != 9 )
     {
@@ -125,7 +125,7 @@ LABEL_104:
                   v14 = *v13;
                   v13 += 16;
                   v12 += 16;
-                  v15 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(v14 + v9));
+                  v15 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[v14]];
                   if ( v15 >= 0x61u )
                   {
                     if ( v15 > 0x7Au )
@@ -139,9 +139,9 @@ LABEL_104:
                     else
                       v15 -= 32;
                   }
-                  *(v12 - 16) = *(_BYTE *)(v15 + v9);
+                  *(v12 - 16) = WideCharTable[v15];
                 }
-                v16 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 15) + v9));
+                v16 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 15)]];
                 if ( v16 >= 0x61u )
                 {
                   if ( v16 > 0x7Au )
@@ -155,9 +155,9 @@ LABEL_104:
                   else
                     v16 -= 32;
                 }
-                *(v12 - 15) = *(_BYTE *)(v16 + v9);
+                *(v12 - 15) = WideCharTable[v16];
               }
-              v17 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 14) + v9));
+              v17 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 14)]];
               if ( v17 >= 0x61u )
               {
                 if ( v17 > 0x7Au )
@@ -171,9 +171,9 @@ LABEL_104:
                 else
                   v17 -= 32;
               }
-              *(v12 - 14) = *(_BYTE *)(v17 + v9);
+              *(v12 - 14) = WideCharTable[v17];
             }
-            v18 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 13) + v9));
+            v18 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 13)]];
             if ( v18 >= 0x61u )
             {
               if ( v18 > 0x7Au )
@@ -187,9 +187,9 @@ LABEL_104:
               else
                 v18 -= 32;
             }
-            *(v12 - 13) = *(_BYTE *)(v18 + v9);
+            *(v12 - 13) = WideCharTable[v18];
           }
-          v19 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 12) + v9));
+          v19 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 12)]];
           if ( v19 >= 0x61u )
           {
             if ( v19 > 0x7Au )
@@ -203,9 +203,9 @@ LABEL_104:
             else
               v19 -= 32;
           }
-          *(v12 - 12) = *(_BYTE *)(v19 + v9);
+          *(v12 - 12) = WideCharTable[v19];
         }
-        v20 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 11) + v9));
+        v20 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 11)]];
         if ( v20 >= 0x61u )
         {
           if ( v20 > 0x7Au )
@@ -219,9 +219,9 @@ LABEL_104:
           else
             v20 -= 32;
         }
-        *(v12 - 11) = *(_BYTE *)(v20 + v9);
+        *(v12 - 11) = WideCharTable[v20];
       }
-      v21 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 10) + v9));
+      v21 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 10)]];
       if ( v21 >= 0x61u )
       {
         if ( v21 > 0x7Au )
@@ -235,9 +235,9 @@ LABEL_104:
         else
           v21 -= 32;
       }
-      *(v12 - 10) = *(_BYTE *)(v21 + v9);
+      *(v12 - 10) = WideCharTable[v21];
     }
-    v22 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 9) + v9));
+    v22 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 9)]];
     if ( v22 >= 0x61u )
     {
       if ( v22 > 0x7Au )
@@ -252,9 +252,9 @@ LABEL_104:
       else
         v22 -= 32;
     }
-    *(v12 - 9) = *(_BYTE *)(v22 + v9);
+    *(v12 - 9) = WideCharTable[v22];
 LABEL_64:
-    v23 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 8) + v9));
+    v23 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 8)]];
     if ( v23 >= 0x61u )
     {
       if ( v23 > 0x7Au )
@@ -269,9 +269,9 @@ LABEL_64:
       else
         v23 -= 32;
     }
-    *(v12 - 8) = *(_BYTE *)(v23 + v9);
+    *(v12 - 8) = WideCharTable[v23];
 LABEL_69:
-    v24 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 7) + v9));
+    v24 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 7)]];
     if ( v24 >= 0x61u )
     {
       if ( v24 > 0x7Au )
@@ -286,9 +286,9 @@ LABEL_69:
       else
         v24 -= 32;
     }
-    *(v12 - 7) = *(_BYTE *)(v24 + v9);
+    *(v12 - 7) = WideCharTable[v24];
 LABEL_74:
-    v25 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 6) + v9));
+    v25 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 6)]];
     if ( v25 >= 0x61u )
     {
       if ( v25 > 0x7Au )
@@ -303,9 +303,9 @@ LABEL_74:
       else
         v25 -= 32;
     }
-    *(v12 - 6) = *(_BYTE *)(v25 + v9);
+    *(v12 - 6) = WideCharTable[v25];
 LABEL_79:
-    v26 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 5) + v9));
+    v26 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 5)]];
     if ( v26 >= 0x61u )
     {
       if ( v26 > 0x7Au )
@@ -320,9 +320,9 @@ LABEL_79:
       else
         v26 -= 32;
     }
-    *(v12 - 5) = *(_BYTE *)(v26 + v9);
+    *(v12 - 5) = WideCharTable[v26];
 LABEL_84:
-    v27 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 4) + v9));
+    v27 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 4)]];
     if ( v27 >= 0x61u )
     {
       if ( v27 > 0x7Au )
@@ -337,9 +337,9 @@ LABEL_84:
       else
         v27 -= 32;
     }
-    *(v12 - 4) = *(_BYTE *)(v27 + v9);
+    *(v12 - 4) = WideCharTable[v27];
 LABEL_89:
-    v28 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 3) + v9));
+    v28 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 3)]];
     if ( v28 >= 0x61u )
     {
       if ( v28 > 0x7Au )
@@ -354,9 +354,9 @@ LABEL_89:
       else
         v28 -= 32;
     }
-    *(v12 - 3) = *(_BYTE *)(v28 + v9);
+    *(v12 - 3) = WideCharTable[v28];
 LABEL_94:
-    v29 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 2) + v9));
+    v29 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 2)]];
     if ( v29 >= 0x61u )
     {
       if ( v29 > 0x7Au )
@@ -371,9 +371,9 @@ LABEL_94:
       else
         v29 -= 32;
     }
-    *(v12 - 2) = *(_BYTE *)(v29 + v9);
+    *(v12 - 2) = WideCharTable[v29];
 LABEL_99:
-    v30 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * *(unsigned __int8 *)(*(v13 - 1) + v9));
+    v30 = CustomCP->MultiByteTable[(unsigned __int8)WideCharTable[*(v13 - 1)]];
     if ( v30 >= 0x61u )
     {
       if ( v30 > 0x7Au )
@@ -388,27 +388,27 @@ LABEL_99:
       else
         v30 -= 32;
     }
-    *(v12 - 1) = *(_BYTE *)(v30 + v9);
+    *(v12 - 1) = WideCharTable[v30];
     goto LABEL_104;
   }
-  v31 = *(_QWORD *)(a1 + 56);
-  v32 = (int)a2;
-  v33 = *(_QWORD *)(a1 + 40);
-  v45 = (int)a2;
+  DBCSOffsets = CustomCP->DBCSOffsets;
+  v32 = (int)CustomCPString;
+  v33 = CustomCP->WideCharTable;
+  v45 = (int)CustomCPString;
   if ( v7 )
   {
-    v34 = a5;
+    v34 = UnicodeString;
     v35 = Nls844UnicodeUpcaseTable;
     do
     {
-      if ( !a3 )
+      if ( !MaxBytesInCustomCPString )
         break;
       v36 = *v34++;
-      v37 = *(_WORD *)(v33 + 2 * v36);
-      if ( *(_WORD *)(v31 + 2LL * HIBYTE(v37)) )
-        v38 = *(_WORD *)(v31 + 2LL * ((unsigned __int8)v37 + *(unsigned __int16 *)(v31 + 2LL * HIBYTE(v37))));
+      v37 = v33[v36];
+      if ( DBCSOffsets[HIBYTE(v37)] )
+        v38 = DBCSOffsets[(unsigned __int8)v37 + DBCSOffsets[HIBYTE(v37)]];
       else
-        v38 = *(_WORD *)(*(_QWORD *)(a1 + 32) + 2LL * (unsigned __int8)v37);
+        v38 = CustomCP->MultiByteTable[(unsigned __int8)v37];
       if ( v38 >= 0x61u )
       {
         if ( v38 > 0x7Au )
@@ -424,7 +424,7 @@ LABEL_99:
       }
       v39 = v38;
       v40 = v46;
-      v41 = *(_WORD *)(v33 + 2 * v39);
+      v41 = v33[v39];
       if ( HIBYTE(v41) )
       {
         v42 = v46;
@@ -434,15 +434,15 @@ LABEL_99:
         *v6++ = HIBYTE(v41);
       }
       *v6 = v41;
-      a3 = v40 - 1;
+      MaxBytesInCustomCPString = v40 - 1;
       ++v6;
-      v43 = v47-- == 1;
-      v46 = a3;
+      v43 = BytesInUnicodeStringa-- == 1;
+      v46 = MaxBytesInCustomCPString;
     }
     while ( !v43 );
     v32 = v45;
   }
-  if ( a4 )
-    *a4 = (_DWORD)v6 - v32;
-  return v46 < v47 ? 0x80000005 : 0;
+  if ( BytesInCustomCPString )
+    *BytesInCustomCPString = (_DWORD)v6 - v32;
+  return v46 < BytesInUnicodeStringa ? 0x80000005 : 0;
 }

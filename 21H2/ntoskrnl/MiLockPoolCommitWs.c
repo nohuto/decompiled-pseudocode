@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockPoolCommitWs @ 0x14030B858
+ * XREFs of MiLockPoolCommitWs @ 0x1403165A8
  * Callers:
- *     MiCommitPoolMemory @ 0x14030B22C (MiCommitPoolMemory.c)
- *     MiFillPoolCommitPageTable @ 0x14030B9E0 (MiFillPoolCommitPageTable.c)
+ *     MiCommitPoolMemory @ 0x140315F7C (MiCommitPoolMemory.c)
+ *     MiFillPoolCommitPageTable @ 0x140316730 (MiFillPoolCommitPageTable.c)
  * Callees:
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
  */
 
 __int64 __fastcall MiLockPoolCommitWs(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x140A9EA5C
+ * XREFs of PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x140A99FCC
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline @ 0x1405CCDE8 (Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline.c)
- *     PopGetCurrentPdcPhase @ 0x1405D88FC (PopGetCurrentPdcPhase.c)
- *     PopPowerAggregatorGetCurrentTargetState @ 0x140759660 (PopPowerAggregatorGetCurrentTargetState.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x140A30168 (PopAcquireAdaptiveLock.c)
+ *     Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline @ 0x1405CA558 (Feature_ExpandSTEIgnoreReasons__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopGetCurrentPdcPhase @ 0x1405D5E10 (PopGetCurrentPdcPhase.c)
+ *     PopPowerAggregatorGetCurrentTargetState @ 0x140757AC0 (PopPowerAggregatorGetCurrentTargetState.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x140A24C58 (PopAcquireAdaptiveLock.c)
  */
 
 unsigned __int64 PopAdaptiveGetSystemInitiatedRebootTargetState()
@@ -24,12 +24,12 @@ unsigned __int64 PopAdaptiveGetSystemInitiatedRebootTargetState()
   memset(v6, 0, sizeof(v6));
   v0 = 0LL;
   PopAcquireAdaptiveLock(1);
-  v1 = qword_140FD71F8;
-  if ( (qword_140FD71F8 & 7) == 0 )
+  v1 = qword_140FD81F8;
+  if ( (qword_140FD81F8 & 7) == 0 )
   {
     v1 = 0LL;
     if ( PopAdaptiveBootContext )
-      v1 = qword_140FD71F0;
+      v1 = qword_140FD81F0;
   }
   PopReleaseAdaptiveLock();
   if ( (v1 & 7) == 0 )

@@ -1,23 +1,23 @@
 /*
- * XREFs of CcAsyncLazywriteWorkerMulti @ 0x1404BB630
+ * XREFs of CcAsyncLazywriteWorkerMulti @ 0x1404B4E10
  * Callers:
- *     CcAsyncLazywriteWorkerThread @ 0x1404BB4C0 (CcAsyncLazywriteWorkerThread.c)
+ *     CcAsyncLazywriteWorkerThread @ 0x1404B4CA0 (CcAsyncLazywriteWorkerThread.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     CcFreeWorkQueueEntry @ 0x14038364C (CcFreeWorkQueueEntry.c)
- *     CcRepostToSynchronousLazywriter @ 0x140385EEC (CcRepostToSynchronousLazywriter.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcFlushCachePreProcess @ 0x1403991C8 (CcFlushCachePreProcess.c)
- *     CcFlushCachePostProcessOneRange @ 0x140399E5C (CcFlushCachePostProcessOneRange.c)
- *     CcFindNextWBWorkQueueEntry @ 0x1405B39B0 (CcFindNextWBWorkQueueEntry.c)
- *     CcQueueAsyncLazywriteCompletion @ 0x1405B3A28 (CcQueueAsyncLazywriteCompletion.c)
- *     CcWriteBehindAsyncFlushOneRange @ 0x1405B3AB4 (CcWriteBehindAsyncFlushOneRange.c)
- *     CcWriteBehindAsyncPreProcess @ 0x1405B3B34 (CcWriteBehindAsyncPreProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcFreeWorkQueueEntry @ 0x1403853FC (CcFreeWorkQueueEntry.c)
+ *     CcRepostToSynchronousLazywriter @ 0x140387C9C (CcRepostToSynchronousLazywriter.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcFlushCachePreProcess @ 0x14039AF28 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14039BBBC (CcFlushCachePostProcessOneRange.c)
+ *     CcFindNextWBWorkQueueEntry @ 0x1405B61C0 (CcFindNextWBWorkQueueEntry.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x1405B6238 (CcQueueAsyncLazywriteCompletion.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x1405B62C4 (CcWriteBehindAsyncFlushOneRange.c)
+ *     CcWriteBehindAsyncPreProcess @ 0x1405B6344 (CcWriteBehindAsyncPreProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall CcAsyncLazywriteWorkerMulti(__int64 a1)
@@ -115,7 +115,7 @@ void __fastcall CcAsyncLazywriteWorkerMulti(__int64 a1)
               WrFreePage,
               0,
               0,
-              (PLARGE_INTEGER)&EmpParseLock.PriorityFloorSummary,
+              (PLARGE_INTEGER)&EmpParseLock.AbCompletedIoQoSBoostCount,
               &WaitBlockArray);
       v12 = v11;
       if ( v11 == 258 )

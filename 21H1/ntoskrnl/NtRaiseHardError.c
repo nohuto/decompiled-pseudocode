@@ -10,13 +10,13 @@
  *     ExpRaiseHardError @ 0x140951A4C (ExpRaiseHardError.c)
  */
 
-__int64 __fastcall NtRaiseHardError(
-        unsigned int a1,
-        unsigned int a2,
-        unsigned int a3,
-        char *a4,
-        unsigned int a5,
-        _DWORD *a6)
+NTSTATUS __cdecl NtRaiseHardError(
+        NTSTATUS ErrorStatus,
+        ULONG NumberOfParameters,
+        ULONG UnicodeStringParameterMask,
+        PULONG_PTR Parameters,
+        ULONG ValidResponseOptions,
+        PULONG Response)
 {
   __int64 v7; // rbx
   __int64 v9; // rcx
@@ -27,54 +27,54 @@ __int64 __fastcall NtRaiseHardError(
   __int64 v14; // rcx
   __int64 v15; // rax
   unsigned __int64 v16; // rdx
-  unsigned int v17; // edx
-  unsigned int v19; // [rsp+40h] [rbp-F8h] BYREF
+  NTSTATUS v17; // edx
+  ULONG v19; // [rsp+40h] [rbp-F8h] BYREF
   unsigned int v20; // [rsp+44h] [rbp-F4h]
-  unsigned int v21; // [rsp+48h] [rbp-F0h]
+  NTSTATUS v21; // [rsp+48h] [rbp-F0h]
   _QWORD Src[5]; // [rsp+50h] [rbp-E8h] BYREF
   _QWORD v23[15]; // [rsp+78h] [rbp-C0h] BYREF
 
-  v7 = a2;
+  v7 = NumberOfParameters;
   v19 = 0;
-  if ( a2 > 5 )
-    return 3221225712LL;
-  if ( a4 )
+  if ( NumberOfParameters > 5 )
+    return -1073741584;
+  if ( Parameters )
   {
-    if ( a2 )
+    if ( NumberOfParameters )
       goto LABEL_6;
-    return 3221225712LL;
+    return -1073741584;
   }
-  if ( a2 )
-    return 3221225712LL;
+  if ( NumberOfParameters )
+    return -1073741584;
 LABEL_6:
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( a5 > 8 )
-      return 3221225714LL;
-    v9 = (__int64)a6;
-    if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+    if ( ValidResponseOptions > 8 )
+      return -1073741582;
+    v9 = (__int64)Response;
+    if ( (unsigned __int64)Response >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v9 = *(_DWORD *)v9;
-    if ( a4 )
+    if ( Parameters )
     {
-      v10 = 8LL * a2;
-      if ( v10 )
+      v10 = NumberOfParameters;
+      if ( v10 * 8 )
       {
-        if ( ((unsigned __int8)a4 & 7) != 0 )
+        if ( ((unsigned __int8)Parameters & 7) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)&a4[v10] > 0x7FFFFFFF0000LL || &a4[v10] < a4 )
+        if ( (unsigned __int64)&Parameters[v10] > 0x7FFFFFFF0000LL || &Parameters[v10] < Parameters )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      memmove(Src, a4, 8LL * a2);
+      memmove(Src, Parameters, 8LL * NumberOfParameters);
       memmove(v23, Src, 8 * v7);
-      if ( a3 )
+      if ( UnicodeStringParameterMask )
       {
         for ( i = 0; ; ++i )
         {
           v20 = i;
           if ( i >= (unsigned int)v7 )
             break;
-          if ( _bittest((const int *)&a3, i) )
+          if ( _bittest((const int *)&UnicodeStringParameterMask, i) )
           {
             v12 = i;
             v13 = (_OWORD *)Src[i];
@@ -95,14 +95,20 @@ LABEL_6:
         }
       }
     }
-    v17 = ExpRaiseHardError(a1, v7, a3, Src, (__int64)v23, a5, &v19);
+    v17 = ExpRaiseHardError(ErrorStatus, v7, UnicodeStringParameterMask, Src, (__int64)v23, ValidResponseOptions, &v19);
     v21 = v17;
-    *a6 = v19;
+    *Response = v19;
   }
   else
   {
-    v17 = ExRaiseHardError(a1, a2, a3, a4, a5, &v19);
-    *a6 = v19;
+    v17 = ExRaiseHardError(
+            ErrorStatus,
+            NumberOfParameters,
+            UnicodeStringParameterMask,
+            Parameters,
+            ValidResponseOptions,
+            &v19);
+    *Response = v19;
   }
   return v17;
 }

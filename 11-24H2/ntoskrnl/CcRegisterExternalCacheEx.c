@@ -1,15 +1,15 @@
 /*
- * XREFs of CcRegisterExternalCacheEx @ 0x14057A990
+ * XREFs of CcRegisterExternalCacheEx @ 0x140577E20
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x14043C9B0 (CcScheduleLazyWriteScan.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CcAddExternalCacheToVolumeEx @ 0x14057A13C (CcAddExternalCacheToVolumeEx.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x140264F40 (CcScheduleLazyWriteScan.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CcAddExternalCacheToVolumeEx @ 0x1405775CC (CcAddExternalCacheToVolumeEx.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcRegisterExternalCacheEx(__int64 a1, __int64 a2, _QWORD *a3)
@@ -42,7 +42,7 @@ __int64 __fastcall CcRegisterExternalCacheEx(__int64 a1, __int64 a2, _QWORD *a3)
       else
       {
         v9 = v8[9] + 1016LL;
-        v10 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + ***(unsigned __int16 ***)(v8[8] + 8LL)) + 18512LL);
+        v10 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + ***(unsigned __int16 ***)(v8[8] + 8LL)) + 18512LL);
         *(_QWORD *)(v9 + 40) = 0LL;
         *(_QWORD *)(v9 + 16) = v10 >> 2;
         *(_QWORD *)(v9 + 8) = v10 >> 2;

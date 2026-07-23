@@ -1,14 +1,14 @@
 /*
- * XREFs of MiShadowTopLevelPxes @ 0x14013CE0C
+ * XREFs of MiShadowTopLevelPxes @ 0x14013CF0C
  * Callers:
- *     MiCopyTopLevelMappings @ 0x14013CD34 (MiCopyTopLevelMappings.c)
- *     MiReplicatePteChangeToProcess @ 0x140175078 (MiReplicatePteChangeToProcess.c)
+ *     MiCopyTopLevelMappings @ 0x14013CE34 (MiCopyTopLevelMappings.c)
+ *     MiReplicatePteChangeToProcess @ 0x140175178 (MiReplicatePteChangeToProcess.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiTransformValidPteInPlace @ 0x14016A80C (MiTransformValidPteInPlace.c)
  */
 
 void __fastcall MiShadowTopLevelPxes(__int64 a1, __int64 a2, int a3)
@@ -41,7 +41,7 @@ void __fastcall MiShadowTopLevelPxes(__int64 a1, __int64 a2, int a3)
         {
           while ( 1 )
           {
-            if ( !_bittest64(qword_14043A444, (unsigned int)(v7 - 256)) )
+            if ( !_bittest64(qword_14043B504, (unsigned int)(v7 - 256)) )
               goto LABEL_6;
             MI_READ_PTE_LOCK_FREE(v6 + 8 * v7);
             v8 = MI_READ_PTE_LOCK_FREE(v5 + 8 * v7);
@@ -67,7 +67,7 @@ LABEL_11:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v11 = 1;
-            if ( HIBYTE(word_14043A1AC) )
+            if ( HIBYTE(word_14043B26C) )
               goto LABEL_11;
             v14 = (v12 & 1) == 0;
           }

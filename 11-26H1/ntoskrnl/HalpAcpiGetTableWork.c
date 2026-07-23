@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpAcpiGetTableWork @ 0x140342B6C
+ * XREFs of HalpAcpiGetTableWork @ 0x140344BEC
  * Callers:
- *     HalMatchAcpiOemTableId @ 0x140342810 (HalMatchAcpiOemTableId.c)
- *     HalMatchAcpiOemId @ 0x140342910 (HalMatchAcpiOemId.c)
- *     HalAcpiGetTableDispatch @ 0x140342A90 (HalAcpiGetTableDispatch.c)
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     HalpAcpiGetTableFromBios @ 0x1403431A4 (HalpAcpiGetTableFromBios.c)
- *     HalpAcpiGetAllTablesWork @ 0x14057957C (HalpAcpiGetAllTablesWork.c)
- *     HalpAcpiGetFacsMapping @ 0x14057978C (HalpAcpiGetFacsMapping.c)
+ *     HalMatchAcpiOemTableId @ 0x140344890 (HalMatchAcpiOemTableId.c)
+ *     HalMatchAcpiOemId @ 0x140344990 (HalMatchAcpiOemId.c)
+ *     HalAcpiGetTableDispatch @ 0x140344B10 (HalAcpiGetTableDispatch.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTableFromBios @ 0x140345224 (HalpAcpiGetTableFromBios.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14057BAAC (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiGetFacsMapping @ 0x14057BCBC (HalpAcpiGetFacsMapping.c)
  * Callees:
- *     HalpAcpiGetCachedTable @ 0x140342C6C (HalpAcpiGetCachedTable.c)
- *     HalpAcpiIsCachedTableCompromised @ 0x140342D10 (HalpAcpiIsCachedTableCompromised.c)
- *     HalpAcpiGetTableFromBios @ 0x1403431A4 (HalpAcpiGetTableFromBios.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     HalpUnmapVirtualAddress @ 0x140509DE0 (HalpUnmapVirtualAddress.c)
- *     HalpAcpiCopyBiosTable @ 0x1405254AC (HalpAcpiCopyBiosTable.c)
- *     HalpAcpiCacheTable @ 0x140579510 (HalpAcpiCacheTable.c)
+ *     HalpAcpiGetCachedTable @ 0x140344CEC (HalpAcpiGetCachedTable.c)
+ *     HalpAcpiIsCachedTableCompromised @ 0x140344D90 (HalpAcpiIsCachedTableCompromised.c)
+ *     HalpAcpiGetTableFromBios @ 0x140345224 (HalpAcpiGetTableFromBios.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     HalpUnmapVirtualAddress @ 0x140503890 (HalpUnmapVirtualAddress.c)
+ *     HalpAcpiCopyBiosTable @ 0x140527B1C (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiCacheTable @ 0x14057BA40 (HalpAcpiCacheTable.c)
  */
 
 __int64 __fastcall HalpAcpiGetTableWork(__int64 a1, unsigned int a2, char *a3, char *a4)

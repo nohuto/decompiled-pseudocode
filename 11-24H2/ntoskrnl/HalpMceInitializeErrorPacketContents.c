@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMceInitializeErrorPacketContents @ 0x140B6D988
+ * XREFs of HalpMceInitializeErrorPacketContents @ 0x140B6F228
  * Callers:
- *     HalpHandlePreviousMcaErrors @ 0x140B4B8C4 (HalpHandlePreviousMcaErrors.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140B4BA0C (HalpHandlePreviousMcaErrorsOnProcessor.c)
- *     HalpMceInitializeErrorPacket @ 0x140B6D8FC (HalpMceInitializeErrorPacket.c)
+ *     HalpHandlePreviousMcaErrors @ 0x140B4D904 (HalpHandlePreviousMcaErrors.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140B4DA4C (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpMceInitializeErrorPacket @ 0x140B6F19C (HalpMceInitializeErrorPacket.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 GUID *__fastcall HalpMceInitializeErrorPacketContents(GUID *a1)

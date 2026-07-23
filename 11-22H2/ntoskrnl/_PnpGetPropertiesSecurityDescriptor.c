@@ -30,7 +30,7 @@ void *PnpGetPropertiesSecurityDescriptor()
   ULONG v4; // eax
   void *v5; // rax
   void *v6; // rdi
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-50h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+38h] [rbp-48h] BYREF
   __int64 v10; // [rsp+58h] [rbp-28h]
   unsigned __int8 Sid[16]; // [rsp+60h] [rbp-20h] BYREF
@@ -51,7 +51,7 @@ void *PnpGetPropertiesSecurityDescriptor()
       if ( Pool2 )
       {
         if ( RtlCreateAcl(Pool2, v1, 2u) >= 0
-          && (int)RtlpAddKnownAce((__int64)v3, 2u, 2, 983103, Sid, 0) >= 0
+          && (int)RtlpAddKnownAce(v3, 2u, 2, 983103, Sid, 0) >= 0
           && RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
           && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v3, 0) >= 0
           && RtlSetOwnerSecurityDescriptor(SecurityDescriptor, Sid, 1u) >= 0

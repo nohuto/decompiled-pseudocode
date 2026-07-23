@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUmsRestoreUch @ 0x140170880
+ * XREFs of KiUmsRestoreUch @ 0x140170D80
  * Callers:
- *     KiParkUmsThread @ 0x1401DC264 (KiParkUmsThread.c)
+ *     KiParkUmsThread @ 0x1401DC090 (KiParkUmsThread.c)
  * Callees:
  *     <none>
  */

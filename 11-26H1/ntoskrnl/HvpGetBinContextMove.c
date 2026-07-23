@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpGetBinContextMove @ 0x1408DBB10
+ * XREFs of HvpGetBinContextMove @ 0x1408E20D0
  * Callers:
- *     HvpGetCellContextMove @ 0x1408DBAE4 (HvpGetCellContextMove.c)
+ *     HvpGetCellContextMove @ 0x1408E20A4 (HvpGetCellContextMove.c)
  * Callees:
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 __int64 __fastcall HvpGetBinContextMove(_WORD *a1, _WORD *a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of IopSendMessageToTrackService @ 0x1406224EC
+ * XREFs of IopSendMessageToTrackService @ 0x1406225A0
  * Callers:
- *     IopTrackLink @ 0x1404CB08C (IopTrackLink.c)
+ *     IopTrackLink @ 0x1404B0AB8 (IopTrackLink.c)
  * Callees:
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     LpcRequestWaitReplyPort @ 0x1405487A0 (LpcRequestWaitReplyPort.c)
+ *     LpcRequestWaitReplyPort @ 0x140548CE0 (LpcRequestWaitReplyPort.c)
  */
 
 NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64 a3)
@@ -53,12 +53,12 @@ NTSTATUS __fastcall IopSendMessageToTrackService(__int64 a1, _OWORD *a2, __int64
         IopLinkTrackingPacket.Parameter = &IopLinkTrackingPacket;
         IopLinkTrackingPacket.WorkerRoutine = (void (__fastcall *)(void *))IopConnectLinkTrackingPort;
         IopLinkTrackingPacket.List.Flink = 0LL;
-        KeResetEvent(&stru_140320CC0);
+        KeResetEvent(&stru_140320CE0);
         ExQueueWorkItem(&IopLinkTrackingPacket, DelayedWorkQueue);
-        v9 = KeWaitForSingleObject(&stru_140320CC0, Executive, PreviousMode, 0, 0LL);
+        v9 = KeWaitForSingleObject(&stru_140320CE0, Executive, PreviousMode, 0, 0LL);
         v10 = v9;
-        if ( v9 != 192 && v9 != 257 && dword_140320CD8 < 0 )
-          v10 = dword_140320CD8;
+        if ( v9 != 192 && v9 != 257 && dword_140320CF8 < 0 )
+          v10 = dword_140320CF8;
         KeSetEvent(&IopLinkTrackingPortObject, 0, 0);
         if ( v10 )
           return v10;

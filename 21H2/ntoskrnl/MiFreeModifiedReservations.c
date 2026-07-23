@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeModifiedReservations @ 0x140543724
+ * XREFs of MiFreeModifiedReservations @ 0x140543964
  * Callers:
- *     MiModifiedPageWriter @ 0x1403BDB20 (MiModifiedPageWriter.c)
- *     MiPageFileNoFreeSpace @ 0x140543C34 (MiPageFileNoFreeSpace.c)
+ *     MiModifiedPageWriter @ 0x1403BF240 (MiModifiedPageWriter.c)
+ *     MiPageFileNoFreeSpace @ 0x140543E74 (MiPageFileNoFreeSpace.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoReportDetectedDevice @ 0x14070C894
+ * XREFs of VerifierIoReportDetectedDevice @ 0x14070C8C4
  * Callers:
  *     <none>
  * Callees:

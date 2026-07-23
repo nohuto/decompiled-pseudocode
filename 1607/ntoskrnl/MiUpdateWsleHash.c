@@ -1,24 +1,24 @@
 /*
- * XREFs of MiUpdateWsleHash @ 0x140048D80
+ * XREFs of MiUpdateWsleHash @ 0x140048900
  * Callers:
- *     MiUpdateWsle @ 0x14003C790 (MiUpdateWsle.c)
- *     MiRemoveWsle @ 0x140046F10 (MiRemoveWsle.c)
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiMoveValidWsle @ 0x1400FEECC (MiMoveValidWsle.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MiUpdateWsle @ 0x14003C310 (MiUpdateWsle.c)
+ *     MiRemoveWsle @ 0x140046A90 (MiRemoveWsle.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiMoveValidWsle @ 0x1400FCC4C (MiMoveValidWsle.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  * Callees:
- *     MiDeletePteRange @ 0x1401007D0 (MiDeletePteRange.c)
- *     MiConvertWsleHash @ 0x140102AC0 (MiConvertWsleHash.c)
- *     MiMapWsleHash @ 0x140102D80 (MiMapWsleHash.c)
- *     MiMapNewWorkingSetPage @ 0x140102E50 (MiMapNewWorkingSetPage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiDeletePteRange @ 0x1400FE550 (MiDeletePteRange.c)
+ *     MiConvertWsleHash @ 0x140100840 (MiConvertWsleHash.c)
+ *     MiMapWsleHash @ 0x140100B00 (MiMapWsleHash.c)
+ *     MiMapNewWorkingSetPage @ 0x140100BD0 (MiMapNewWorkingSetPage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 __int64 __fastcall MiUpdateWsleHash(ULONG_PTR a1, unsigned __int64 a2, ULONG_PTR a3, unsigned int a4)
@@ -69,7 +69,7 @@ __int64 __fastcall MiUpdateWsleHash(ULONG_PTR a1, unsigned __int64 a2, ULONG_PTR
   unsigned __int64 v51; // [rsp+50h] [rbp-68h]
   __int64 v52; // [rsp+58h] [rbp-60h]
 
-  v4 = &dword_140327C80;
+  v4 = &dword_140327CC0;
   v5 = a4;
   v7 = a2;
   if ( (*(_BYTE *)(a3 + 184) & 7) == 2 )
@@ -265,7 +265,7 @@ LABEL_67:
     result = MiDeletePteRange(a3, v25, v26, 0LL);
     *((_QWORD *)v4 + 9) -= result;
     if ( (*(_BYTE *)(a3 + 184) & 7) != 1 )
-      return _InterlockedExchangeAdd64(&qword_140327900, -result);
+      return _InterlockedExchangeAdd64(&qword_140327940, -result);
     return result;
   }
   if ( (*(_BYTE *)(a3 + 187) & 2) == 0 )

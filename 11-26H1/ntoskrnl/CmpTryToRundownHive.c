@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpTryToRundownHive @ 0x140463B48
+ * XREFs of CmpTryToRundownHive @ 0x14045CB08
  * Callers:
- *     CmpLateUnloadHiveWorker @ 0x140AD4630 (CmpLateUnloadHiveWorker.c)
+ *     CmpLateUnloadHiveWorker @ 0x140AD1A90 (CmpLateUnloadHiveWorker.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x1403682A0 (ExpUnblockPushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     CmpLogTransactionAbortedForRollbackPacket @ 0x1407714F8 (CmpLogTransactionAbortedForRollbackPacket.c)
- *     CmCloseRmHandle @ 0x140776A94 (CmCloseRmHandle.c)
- *     CmCloseTmHandle @ 0x140776ABC (CmCloseTmHandle.c)
- *     CmObliterateRMTxArray @ 0x14085BBD0 (CmObliterateRMTxArray.c)
- *     CmSnapshotRMTxArray @ 0x1408ACD84 (CmSnapshotRMTxArray.c)
- *     CmShutdownCmRM @ 0x1408AF354 (CmShutdownCmRM.c)
- *     CmpDoesKeyHaveOpenSubkeys @ 0x1408AF8E8 (CmpDoesKeyHaveOpenSubkeys.c)
- *     CmpCleanupRollbackPacket @ 0x1408B1080 (CmpCleanupRollbackPacket.c)
- *     UNLOCK_HIVE_LOAD @ 0x1408B11FC (UNLOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x1408B3FA0 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x1408B45EC (LOCK_HIVE_LOAD.c)
- *     CmpInitializeRollbackPacket @ 0x140B1B8E0 (CmpInitializeRollbackPacket.c)
- *     CmpAbortRollbackPacket @ 0x140B4CB14 (CmpAbortRollbackPacket.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpIsHiveLoadUnloadRundownActive @ 0x140C58FB8 (CmpIsHiveLoadUnloadRundownActive.c)
+ *     ExpUnblockPushLock @ 0x14036A040 (ExpUnblockPushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     CmpLogTransactionAbortedForRollbackPacket @ 0x1407744F8 (CmpLogTransactionAbortedForRollbackPacket.c)
+ *     CmCloseRmHandle @ 0x14077993C (CmCloseRmHandle.c)
+ *     CmCloseTmHandle @ 0x140779964 (CmCloseTmHandle.c)
+ *     CmObliterateRMTxArray @ 0x140861EC4 (CmObliterateRMTxArray.c)
+ *     CmSnapshotRMTxArray @ 0x1408B31C4 (CmSnapshotRMTxArray.c)
+ *     CmShutdownCmRM @ 0x1408B5760 (CmShutdownCmRM.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x1408B5DE8 (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmpCleanupRollbackPacket @ 0x1408B7570 (CmpCleanupRollbackPacket.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408B7808 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x1408BA574 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1408BABC0 (LOCK_HIVE_LOAD.c)
+ *     CmpInitializeRollbackPacket @ 0x140B1DAE4 (CmpInitializeRollbackPacket.c)
+ *     CmpAbortRollbackPacket @ 0x140B4E8A4 (CmpAbortRollbackPacket.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpIsHiveLoadUnloadRundownActive @ 0x140C5EFB8 (CmpIsHiveLoadUnloadRundownActive.c)
  */
 
 char __fastcall CmpTryToRundownHive(struct _EX_RUNDOWN_REF *a1, __int64 a2)
@@ -56,7 +56,7 @@ LABEL_22:
 LABEL_28:
       *(_DWORD *)(a2 + 8) &= ~0x40000u;
       _InterlockedExchange64((volatile __int64 *)&a1[205], 0LL);
-      if ( _InterlockedExchangeAdd((_DWORD *)&WheapPfaLock.FirstArgument + 1, 0xFFFFFFFF) == 1 )
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)&WheapPfaLock.ApcStateFill[12], 0xFFFFFFFF) == 1 )
       {
         _InterlockedOr(v14, 0);
         if ( CmpActiveHiveRundownEvent )
@@ -69,7 +69,7 @@ LABEL_28:
       *(_DWORD *)(a2 + 8) |= 0x40000u;
       CmpUnlockRegistry();
       UNLOCK_HIVE_LOAD();
-      _InterlockedIncrement((_DWORD *)&WheapPfaLock.FirstArgument + 1);
+      _InterlockedIncrement((volatile signed __int32 *)&WheapPfaLock.ApcStateFill[12]);
       ExWaitForRundownProtectionRelease(a1 + 205);
       v3 = 1;
       _InterlockedExchange64((volatile __int64 *)&a1[205], 1LL);
@@ -119,7 +119,7 @@ LABEL_6:
       v4 = 1;
     }
   }
-  if ( _InterlockedExchangeAdd((_DWORD *)&WheapPfaLock.FirstArgument + 1, 0xFFFFFFFF) == 1 )
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)&WheapPfaLock.ApcStateFill[12], 0xFFFFFFFF) == 1 )
   {
     _InterlockedOr(v14, 0);
     if ( CmpActiveHiveRundownEvent )

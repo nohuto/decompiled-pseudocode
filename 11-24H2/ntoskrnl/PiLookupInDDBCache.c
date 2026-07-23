@@ -1,19 +1,19 @@
 /*
- * XREFs of PiLookupInDDBCache @ 0x1409C7CE8
+ * XREFs of PiLookupInDDBCache @ 0x1409B8B68
  * Callers:
- *     PpCheckInDriverDatabase @ 0x1409C7E2C (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x1409B89D4 (PpCheckInDriverDatabase.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     RtlIsGenericTableEmptyAvl @ 0x140450F90 (RtlIsGenericTableEmptyAvl.c)
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     RtlIsGenericTableEmptyAvl @ 0x140446200 (RtlIsGenericTableEmptyAvl.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PiLookupInDDBCache(__int64 a1, unsigned __int64 a2, __int64 a3, _OWORD *a4)
+__int64 __fastcall PiLookupInDDBCache(__int64 a1, void *a2, __int64 a3, _OWORD *a4)
 {
   unsigned int v7; // ebx
-  unsigned __int64 v8; // rsi
+  PIMAGE_NT_HEADERS v8; // rsi
   wchar_t *v9; // rax
   __int64 v10; // rcx
   __int64 v11; // rax
@@ -46,7 +46,7 @@ __int64 __fastcall PiLookupInDDBCache(__int64 a1, unsigned __int64 a2, __int64 a
       while ( *(_WORD *)(v10 + 2 * v11) );
       LOWORD(v18) = 2 * v11;
       WORD1(v18) = 2 * v11;
-      LODWORD(v19) = *(_DWORD *)(v8 + 8);
+      LODWORD(v19) = v8->FileHeader.TimeDateStamp;
       v12 = (PVOID **)RtlLookupElementGenericTableAvl(&PiDDBCacheTable, &Buffer);
       if ( v12 )
       {
@@ -54,15 +54,15 @@ __int64 __fastcall PiLookupInDDBCache(__int64 a1, unsigned __int64 a2, __int64 a
         if ( (*v12)[1] != v12
           || (v15 = v12[1], *v15 != v12)
           || (*v15 = v14, v14[1] = v15,
-                          v16 = (PVOID ***)qword_140FD9070,
-                          *(__int64 **)qword_140FD9070 != &PiDDBCacheList) )
+                          v16 = (PVOID ***)qword_140FDA080,
+                          *(__int64 **)qword_140FDA080 != &PiDDBCacheList) )
         {
           __fastfail(3u);
         }
         *v12 = (PVOID *)&PiDDBCacheList;
         v12[1] = (PVOID *)v16;
         *v16 = v12;
-        qword_140FD9070 = (__int64)v12;
+        qword_140FDA080 = (__int64)v12;
         v7 = *((_DWORD *)v12 + 9);
         if ( a4 )
           *a4 = *(_OWORD *)(v12 + 5);

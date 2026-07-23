@@ -1,10 +1,10 @@
 /*
- * XREFs of MmEnablePeriodicAccessClearing @ 0x1409904F8
+ * XREFs of MmEnablePeriodicAccessClearing @ 0x1409914F8
  * Callers:
- *     PfTAccessTracingStart @ 0x140990448 (PfTAccessTracingStart.c)
- *     PfTAccessTracingCleanup @ 0x14099A9FC (PfTAccessTracingCleanup.c)
+ *     PfTAccessTracingStart @ 0x140991448 (PfTAccessTracingStart.c)
+ *     PfTAccessTracingCleanup @ 0x14099B9FC (PfTAccessTracingCleanup.c)
  * Callees:
- *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
+ *     PsGetNextPartition @ 0x140250E68 (PsGetNextPartition.c)
  */
 
 void *__fastcall MmEnablePeriodicAccessClearing(char a1)

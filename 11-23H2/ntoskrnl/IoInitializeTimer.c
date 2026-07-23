@@ -1,9 +1,9 @@
 /*
- * XREFs of IoInitializeTimer @ 0x140862820
+ * XREFs of IoInitializeTimer @ 0x140862A60
  * Callers:
- *     DifIoInitializeTimerWrapper @ 0x1405DFF40 (DifIoInitializeTimerWrapper.c)
+ *     DifIoInitializeTimerWrapper @ 0x1405E04B0 (DifIoInitializeTimerWrapper.c)
  * Callees:
- *     ExInterlockedInsertTailList @ 0x14028C2A0 (ExInterlockedInsertTailList.c)
+ *     ExInterlockedInsertTailList @ 0x14028C530 (ExInterlockedInsertTailList.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

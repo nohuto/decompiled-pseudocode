@@ -15,7 +15,7 @@ char __fastcall LdrpUnmapCMFSegmentIfUnreferenced(__int64 a1)
 
   if ( AlternateResourceModules && (v1 = 0, AlternateResourceModuleCount) )
   {
-    v2 = (_DWORD *)(AlternateResourceModules + 60);
+    v2 = (char *)AlternateResourceModules + 60;
     while ( *(v2 - 1) != (_DWORD)a1 && *v2 != (_DWORD)a1 )
     {
       ++v1;
@@ -28,10 +28,10 @@ char __fastcall LdrpUnmapCMFSegmentIfUnreferenced(__int64 a1)
   else
   {
 LABEL_7:
-    if ( ResRuntimeView == -1 )
+    if ( ResRuntimeView == (PVOID)-1LL )
       return LdrpUnmapCMFSegment(a1);
     if ( ResRuntimeView
-      && ((v3 = *(_QWORD *)(ResRuntimeView + 16)) == 0
+      && ((v3 = *((_QWORD *)ResRuntimeView + 2)) == 0
        || (v4 = *(_QWORD *)(v3 + 24)) == 0
        || (*(_DWORD *)(v4 + 48) & 0x100000) != 0) )
     {

@@ -130,29 +130,27 @@ __int64 __fastcall sub_1406F2550(__int64 a1, WCHAR *a2, unsigned int a3, __int64
   unsigned int v111; // ecx
   _DWORD *v112; // rdx
   unsigned int v113; // eax
-  int v115; // [rsp+28h] [rbp-61h]
-  int v116; // [rsp+30h] [rbp-59h]
-  int v117; // [rsp+40h] [rbp-49h] BYREF
-  unsigned int v118; // [rsp+44h] [rbp-45h]
-  unsigned int v119; // [rsp+48h] [rbp-41h] BYREF
+  int v115; // [rsp+40h] [rbp-49h] BYREF
+  unsigned int v116; // [rsp+44h] [rbp-45h]
+  unsigned int v117; // [rsp+48h] [rbp-41h] BYREF
   size_t Size; // [rsp+4Ch] [rbp-3Dh] BYREF
-  unsigned int v121; // [rsp+54h] [rbp-35h] BYREF
-  int v122; // [rsp+58h] [rbp-31h] BYREF
-  int v123; // [rsp+5Ch] [rbp-2Dh]
+  unsigned int v119; // [rsp+54h] [rbp-35h] BYREF
+  int v120; // [rsp+58h] [rbp-31h] BYREF
+  int v121; // [rsp+5Ch] [rbp-2Dh]
   size_t pcbLength; // [rsp+60h] [rbp-29h] BYREF
-  int v125; // [rsp+68h] [rbp-21h] BYREF
-  WCHAR *v126; // [rsp+70h] [rbp-19h]
+  int v123; // [rsp+68h] [rbp-21h] BYREF
+  WCHAR *v124; // [rsp+70h] [rbp-19h]
   PVOID P; // [rsp+78h] [rbp-11h]
   LARGE_INTEGER Timeout; // [rsp+80h] [rbp-9h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-1h] BYREF
-  UNICODE_STRING v130; // [rsp+98h] [rbp+Fh] BYREF
-  __int64 v131; // [rsp+A8h] [rbp+1Fh] BYREF
-  int v132; // [rsp+B0h] [rbp+27h]
+  UNICODE_STRING v128; // [rsp+98h] [rbp+Fh] BYREF
+  __int64 v129; // [rsp+A8h] [rbp+1Fh] BYREF
+  int v130; // [rsp+B0h] [rbp+27h]
 
-  v119 = a3;
-  v126 = a2;
-  v125 = 0;
-  v121 = 0;
+  v117 = a3;
+  v124 = a2;
+  v123 = 0;
+  v119 = 0;
   P = 0LL;
   v6 = 0;
   Timeout.QuadPart = 0LL;
@@ -304,21 +302,21 @@ __int64 __fastcall sub_1406F2550(__int64 a1, WCHAR *a2, unsigned int a3, __int64
     LODWORD(Size) = v43;
     v44 = ((__int64 (__fastcall *)(UNICODE_STRING *, int *, _QWORD, _QWORD, unsigned int *))qword_140D534A8)(
             &DestinationString,
-            &v125,
+            &v123,
             0LL,
             0LL,
-            &v121);
-    v123 = v44;
+            &v119);
+    v121 = v44;
     v45 = v44;
     if ( v44 == -1073741789 )
     {
-      if ( v43 < v121 )
+      if ( v43 < v119 )
       {
         if ( !v43 )
         {
           v45 = 0;
           LODWORD(Size) = 0;
-          v123 = 0;
+          v121 = 0;
         }
         goto LABEL_77;
       }
@@ -331,17 +329,17 @@ __int64 __fastcall sub_1406F2550(__int64 a1, WCHAR *a2, unsigned int a3, __int64
         v7 = v44;
         goto LABEL_146;
       }
-      if ( v121 )
+      if ( v119 )
       {
         v7 = -2147418113;
         goto LABEL_146;
       }
       v46 = 0;
     }
-    v43 = v121;
+    v43 = v119;
     v45 = 0;
-    LODWORD(Size) = v121;
-    v123 = 0;
+    LODWORD(Size) = v119;
+    v121 = 0;
     if ( !v46 )
       goto LABEL_77;
 LABEL_68:
@@ -353,11 +351,11 @@ LABEL_68:
     }
     v47 = ((__int64 (__fastcall *)(UNICODE_STRING *, int *, PVOID, _QWORD, unsigned int *))qword_140D534A8)(
             &DestinationString,
-            &v125,
+            &v123,
             P,
             v43,
-            &v121);
-    v123 = v47;
+            &v119);
+    v121 = v47;
     v45 = v47;
     if ( v47 != -1073741789 )
     {
@@ -366,13 +364,13 @@ LABEL_68:
         goto LABEL_146;
       v43 = Size;
     }
-    if ( v43 >= v121 )
+    if ( v43 >= v119 )
     {
-      v43 = v121;
-      LODWORD(Size) = v121;
+      v43 = v119;
+      LODWORD(Size) = v119;
     }
 LABEL_77:
-    v118 = v43 + 4;
+    v116 = v43 + 4;
     if ( v43 >= 0xFFFFFFFC )
       goto LABEL_145;
     if ( v43 + 4 >= 0xFFFFFFE4 )
@@ -389,8 +387,8 @@ LABEL_77:
     v49 = v48 + 8;
     if ( v48 + 8 < v48 )
       goto LABEL_145;
-    v50 = *((_DWORD *)v126 + 8);
-    v51 = *((_DWORD *)v126 + 4);
+    v50 = *((_DWORD *)v124 + 8);
+    v51 = *((_DWORD *)v124 + 4);
     v52 = v48 + 12;
     if ( v49 >= 0xFFFFFFFC )
       goto LABEL_145;
@@ -404,32 +402,32 @@ LABEL_77:
     if ( v54 + 4 < v54 || v50 + v55 < v55 )
       goto LABEL_145;
     v56 = v43 + 48;
-    v126 = v26;
+    v124 = v26;
     v57 = v15;
-    if ( v119 < v50 + v55 || v45 < 0 )
+    if ( v117 < v50 + v55 || v45 < 0 )
       goto LABEL_135;
     v58 = MEMORY[0xFFFFF78000000320];
     TimeIncrement = KeQueryTimeIncrement();
-    v130 = 0LL;
+    v128 = 0LL;
     HIDWORD(Size) = 0;
     v60 = (unsigned __int128)(v58 * TimeIncrement * (__int128)0x346DC5D63886594BLL) >> 64;
     v61 = 1;
-    v119 = 0;
-    v122 = 0;
-    v117 = 1;
+    v117 = 0;
+    v120 = 0;
+    v115 = 1;
     v62 = ((unsigned __int64)v60 >> 63) + (v60 >> 11);
     pcbLength = v62;
-    RtlInitUnicodeString(&v130, L"Security-SPP-GenuineLocalStatus");
+    RtlInitUnicodeString(&v128, L"Security-SPP-GenuineLocalStatus");
     v63 = ((__int64 (__fastcall *)(UNICODE_STRING *, char *, unsigned int *, __int64, int *))qword_140D534A8)(
-            &v130,
+            &v128,
             (char *)&Size + 4,
-            &v119,
+            &v117,
             4LL,
-            &v122);
-    if ( v63 == -1073741772 || v63 >= 0 && (HIDWORD(Size) != 4 || !v119) )
+            &v120);
+    if ( v63 == -1073741772 || v63 >= 0 && (HIDWORD(Size) != 4 || !v117) )
     {
       v61 = 0;
-      v117 = 0;
+      v115 = 0;
     }
     if ( g_ulOldGenuineStateForWnf != v61 )
     {
@@ -452,45 +450,43 @@ LABEL_77:
       LOBYTE(v67) = v65 >= 9000000.0;
       if ( v67 )
       {
-        v116 = 0;
-        v115 = 0;
         g_bWNFEventFired = 1;
-        ZwUpdateWnfStateData((__int64)&WNF_OLIC_OS_LICENSE_NON_GENUINE, 0LL);
+        ZwUpdateWnfStateData(&WNF_OLIC_OS_LICENSE_NON_GENUINE, 0LL, 0, 0LL, 0LL, 0, 0);
       }
     }
     v57 = v15;
-    v56 = v118 + 44;
-    v26 = v126;
+    v56 = v116 + 44;
+    v26 = v124;
     if ( pcbLength - g_qwSystemInitTime < 0xA4CBFB )
       goto LABEL_135;
     v68 = KeWaitForSingleObject(&Mutex, UserRequest, 1, 0, &Timeout);
-    v56 = v118 + 44;
+    v56 = v116 + 44;
     if ( v68 < 0 )
       goto LABEL_135;
-    v56 = v118 + 44;
+    v56 = v116 + 44;
     if ( v68 == 192 )
       goto LABEL_135;
-    v56 = v118 + 44;
+    v56 = v116 + 44;
     if ( v68 == 258 )
       goto LABEL_135;
-    if ( g_ulOldGenuineState == v117 )
+    if ( g_ulOldGenuineState == v115 )
     {
       v73 = pcbLength - qword_140D53130;
-      g_ulOldGenuineState = v117;
-      if ( v117 )
+      g_ulOldGenuineState = v115;
+      if ( v115 )
         goto LABEL_112;
     }
     else
     {
-      if ( v117 )
+      if ( v115 )
       {
         KeResetEvent(&stru_140C0EE40);
-        g_ulOldGenuineState = v117;
+        g_ulOldGenuineState = v115;
 LABEL_112:
         KeReleaseMutex(&Mutex, 0);
-        v69 = v118;
-        v26 = v126;
-        v56 = v118 + 44;
+        v69 = v116;
+        v26 = v124;
+        v56 = v116 + 44;
         goto LABEL_136;
       }
       v70 = MEMORY[0xFFFFF78000000320];
@@ -503,43 +499,41 @@ LABEL_112:
     if ( v73 < 0xADF4FC || !dword_140D53188 )
       goto LABEL_112;
     KeSetEvent(&stru_140C0EE40, 1, 0);
-    v119 = 4;
-    v117 = 0;
-    v122 = 0;
+    v117 = 4;
+    v115 = 0;
+    v120 = 0;
     pcbLength = 0LL;
     if ( ZwOpenKey((PHANDLE)&pcbLength, 1u, &stru_140D538E0) < 0 )
     {
-      if ( (int)((__int64 (__fastcall *)(wchar_t *, unsigned int *, int *, __int64, int *, int, int))qword_140D534A8)(
+      if ( (int)((__int64 (__fastcall *)(wchar_t *, unsigned int *, int *, __int64, int *))qword_140D534A8)(
                   aBd,
-                  &v119,
                   &v117,
+                  &v115,
                   4LL,
-                  &v122,
-                  v115,
-                  v116) < 0 )
+                  &v120) < 0 )
       {
 LABEL_123:
         HIDWORD(Size) = 1;
-        v117 = 1;
+        v115 = 1;
 LABEL_124:
         if ( pcbLength )
           ZwClose((HANDLE)pcbLength);
-        v26 = v126;
-        v119 = 0;
+        v26 = v124;
         v117 = 0;
-        v131 = 0LL;
-        v132 = 0;
-        v56 = v118 + 44;
+        v115 = 0;
+        v129 = 0LL;
+        v130 = 0;
+        v56 = v116 + 44;
         if ( (int)((__int64 (__fastcall *)(wchar_t *, unsigned int *, __int64 *, __int64, int *))qword_140D534A8)(
                     aLn,
-                    &v119,
-                    &v131,
+                    &v117,
+                    &v129,
                     12LL,
-                    &v117) >= 0
-          && (v56 = v118 + 44, v119 == 3)
-          && v117 == 12 )
+                    &v115) >= 0
+          && (v56 = v116 + 44, v117 == 3)
+          && v115 == 12 )
         {
-          v75 = (unsigned int *)&v131;
+          v75 = (unsigned int *)&v129;
           v76 = 0;
           while ( 1 )
           {
@@ -563,7 +557,7 @@ LABEL_132:
         else
           KeReleaseMutex(&Mutex, 0);
 LABEL_135:
-        v69 = v118;
+        v69 = v116;
 LABEL_136:
         *(_DWORD *)(a4 + 4) = v56;
         if ( !v56 )
@@ -581,7 +575,7 @@ LABEL_136:
         v79 = v57;
         *(_DWORD *)a4 = 0;
         v80 = *(_QWORD *)(a4 + 8);
-        v81 = v123 | 0x10000000;
+        v81 = v121 | 0x10000000;
         if ( v80 )
         {
           v83 = 0;
@@ -641,7 +635,7 @@ LABEL_136:
         }
         ++*(_DWORD *)a4;
         v91 = *(_QWORD *)(a4 + 8);
-        v92 = v125;
+        v92 = v123;
         if ( v91 )
         {
           v94 = 0;
@@ -716,7 +710,7 @@ LABEL_45:
         }
         ++*(_DWORD *)a4;
         v103 = *(_QWORD *)(a4 + 8);
-        v104 = v121;
+        v104 = v119;
         if ( !v103 )
         {
           v105 = *(_DWORD *)(a4 + 4);
@@ -801,15 +795,15 @@ LABEL_145:
         v7 = -1073741675;
         goto LABEL_146;
       }
-      v74 = v117;
+      v74 = v115;
     }
     else
     {
       v74 = 3;
-      v117 = 3;
+      v115 = 3;
     }
     HIDWORD(Size) = v74;
-    if ( v119 == 4 && (unsigned int)(v74 - 1) <= 2 )
+    if ( v117 == 4 && (unsigned int)(v74 - 1) <= 2 )
       goto LABEL_124;
     goto LABEL_123;
   }

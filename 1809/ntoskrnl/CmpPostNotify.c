@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpPostNotify @ 0x1405DC29C
+ * XREFs of CmpPostNotify @ 0x1405DD29C
  * Callers:
- *     CmpNotifyChangeKey @ 0x1405CF040 (CmpNotifyChangeKey.c)
- *     CmpReportNotifyHelper @ 0x1405DBEE0 (CmpReportNotifyHelper.c)
- *     CmpFlushNotify @ 0x1406927A8 (CmpFlushNotify.c)
- *     CmpCloseKeyObject @ 0x140694D80 (CmpCloseKeyObject.c)
+ *     CmpNotifyChangeKey @ 0x1405D0040 (CmpNotifyChangeKey.c)
+ *     CmpReportNotifyHelper @ 0x1405DCEE0 (CmpReportNotifyHelper.c)
+ *     CmpFlushNotify @ 0x140693968 (CmpFlushNotify.c)
+ *     CmpCloseKeyObject @ 0x140695F40 (CmpCloseKeyObject.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpDelayedDerefKeys @ 0x1405DC0C4 (CmpDelayedDerefKeys.c)
- *     CmpSignalDeferredPosts @ 0x140694F94 (CmpSignalDeferredPosts.c)
- *     CmpFreePostBlock @ 0x14069502C (CmpFreePostBlock.c)
- *     CmpFreeSubordinatePost @ 0x140695080 (CmpFreeSubordinatePost.c)
- *     CmpCancelSubordinatePost @ 0x1406B2EDC (CmpCancelSubordinatePost.c)
- *     CmpAddToDelayedDeref @ 0x1406B2F28 (CmpAddToDelayedDeref.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpDelayedDerefKeys @ 0x1405DD0C4 (CmpDelayedDerefKeys.c)
+ *     CmpSignalDeferredPosts @ 0x140696154 (CmpSignalDeferredPosts.c)
+ *     CmpFreePostBlock @ 0x1406961EC (CmpFreePostBlock.c)
+ *     CmpFreeSubordinatePost @ 0x140696240 (CmpFreeSubordinatePost.c)
+ *     CmpCancelSubordinatePost @ 0x1406B417C (CmpCancelSubordinatePost.c)
+ *     CmpAddToDelayedDeref @ 0x1406B41C8 (CmpAddToDelayedDeref.c)
  */
 
 void __fastcall CmpPostNotify(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, void **a6, __int64 *a7)

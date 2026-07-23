@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSetPageTablePfnBuddy @ 0x1402A4AE0
+ * XREFs of MiSetPageTablePfnBuddy @ 0x1402A4030
  * Callers:
- *     MiSetSystemCacheReverseMap @ 0x1402A39F0 (MiSetSystemCacheReverseMap.c)
- *     MmInSwapProcess @ 0x14048C3C4 (MmInSwapProcess.c)
- *     MiReadPagefilePage @ 0x1406E4AA0 (MiReadPagefilePage.c)
- *     MiCreatePfnTemplate @ 0x1406E70E8 (MiCreatePfnTemplate.c)
- *     MiAllocateTopLevelPage @ 0x140ABD7B0 (MiAllocateTopLevelPage.c)
- *     MiInitializeBootProcess @ 0x140CF1DA4 (MiInitializeBootProcess.c)
- *     MxInsertEnclaveBootPages @ 0x140CFD18C (MxInsertEnclaveBootPages.c)
+ *     MiSetSystemCacheReverseMap @ 0x1402A2F40 (MiSetSystemCacheReverseMap.c)
+ *     MmInSwapProcess @ 0x140485F04 (MmInSwapProcess.c)
+ *     MiReadPagefilePage @ 0x1406E9750 (MiReadPagefilePage.c)
+ *     MiCreatePfnTemplate @ 0x1406EBD98 (MiCreatePfnTemplate.c)
+ *     MiAllocateTopLevelPage @ 0x140ABFDA0 (MiAllocateTopLevelPage.c)
+ *     MiInitializeBootProcess @ 0x140CF8124 (MiInitializeBootProcess.c)
+ *     MxInsertEnclaveBootPages @ 0x140D0350C (MxInsertEnclaveBootPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, unsigned __int64 a2, char a3)
@@ -57,7 +57,7 @@ __int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, unsigned __int64 a2, char 
     }
   }
   if ( (a2 & 0xFFFFFEFFFFFFFFFEuLL) != 0 || a2 == 1 )
-    a2 = ((a2 - qword_140E37B90) >> 4) + 1;
+    a2 = ((a2 - qword_140E37D10) >> 4) + 1;
   *(_QWORD *)v4 = (2 * a2) ^ (*(_QWORD *)v4 ^ (2 * a2)) & 0xFFFFFFFF00000001uLL;
   result = *(unsigned int *)(v4 + 36);
   *(_DWORD *)(v4 + 36) = ((unsigned int)(a2 >> 31) << 16) ^ (result ^ ((unsigned int)(a2 >> 31) << 16)) & 0xFC00FFFF;

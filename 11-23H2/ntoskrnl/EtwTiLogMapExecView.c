@@ -1,15 +1,15 @@
 /*
  * XREFs of EtwTiLogMapExecView @ 0x140682E58
  * Callers:
- *     NtMapViewOfSection @ 0x140720E50 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x1407A34F0 (MiMapViewOfSectionExCommon.c)
+ *     NtMapViewOfSection @ 0x140721050 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407A36E0 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     EtwpTiFillThreadIdentity @ 0x1403041F8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x1403041E4 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x140304420 (EtwProviderEnabled.c)
+ *     EtwpTiFillThreadIdentity @ 0x140304488 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 BOOLEAN EtwTiLogMapExecView(__int64 a1, char a2, ...)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViKeLogCriticalRegionStackTrace @ 0x14022392C
+ * XREFs of ViKeLogCriticalRegionStackTrace @ 0x140223758
  * Callers:
  *     VerifierKeEnterCriticalRegion @ 0x140711F48 (VerifierKeEnterCriticalRegion.c)
  *     VerifierKeLeaveCriticalRegion @ 0x1407120E0 (VerifierKeLeaveCriticalRegion.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140084730 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140082890 (RtlCaptureStackBackTrace.c)
  */
 
 void ViKeLogCriticalRegionStackTrace()

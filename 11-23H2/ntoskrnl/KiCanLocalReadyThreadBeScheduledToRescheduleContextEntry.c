@@ -1,14 +1,14 @@
 /*
- * XREFs of KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry @ 0x1402438B0
+ * XREFs of KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry @ 0x140243980
  * Callers:
- *     KiCanLocalReadyThreadBeScheduledToRescheduleContext @ 0x140243740 (KiCanLocalReadyThreadBeScheduledToRescheduleContext.c)
+ *     KiCanLocalReadyThreadBeScheduledToRescheduleContext @ 0x140243810 (KiCanLocalReadyThreadBeScheduledToRescheduleContext.c)
  * Callees:
- *     KeIsMultiCoreClassesEnabled @ 0x140255F40 (KeIsMultiCoreClassesEnabled.c)
- *     KiComputeHeteroThreadQos @ 0x1402B0DF0 (KiComputeHeteroThreadQos.c)
- *     KiShouldPreemptionBeDeferred @ 0x140307870 (KiShouldPreemptionBeDeferred.c)
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14030909C (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiCheckForMaxOverQuotaScb @ 0x1403090BC (KiCheckForMaxOverQuotaScb.c)
- *     KiConvertDynamicHeteroPolicy @ 0x140461648 (KiConvertDynamicHeteroPolicy.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x140256000 (KeIsMultiCoreClassesEnabled.c)
+ *     KiComputeHeteroThreadQos @ 0x1402B1080 (KiComputeHeteroThreadQos.c)
+ *     KiShouldPreemptionBeDeferred @ 0x140307B00 (KiShouldPreemptionBeDeferred.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x14030932C (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x14030934C (KiCheckForMaxOverQuotaScb.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x140461A48 (KiConvertDynamicHeteroPolicy.c)
  */
 
 char __fastcall KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry(

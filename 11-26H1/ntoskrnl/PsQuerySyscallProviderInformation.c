@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQuerySyscallProviderInformation @ 0x1407ED3C0
+ * XREFs of PsQuerySyscallProviderInformation @ 0x1407F2F20
  * Callers:
  *     <none>
  * Callees:
- *     PspQuerySyscallProviderProcessList @ 0x1407ED9C4 (PspQuerySyscallProviderProcessList.c)
+ *     PspQuerySyscallProviderProcessList @ 0x1407F3524 (PspQuerySyscallProviderProcessList.c)
  */
 
 __int64 __fastcall PsQuerySyscallProviderInformation(__int64 a1, int a2, __int64 a3, unsigned __int64 a4, _QWORD *a5)

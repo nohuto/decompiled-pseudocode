@@ -1,20 +1,20 @@
 /*
- * XREFs of MiStoreDeletePartition @ 0x14070A2E4
+ * XREFs of MiStoreDeletePartition @ 0x14070EF98
  * Callers:
- *     MiDrainCrossPartitionUsage @ 0x1406F0580 (MiDrainCrossPartitionUsage.c)
+ *     MiDrainCrossPartitionUsage @ 0x1406F51F0 (MiDrainCrossPartitionUsage.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiStoreDrainWriteSupports @ 0x1404ADFE4 (MiStoreDrainWriteSupports.c)
- *     MmStoreFlushOutstandingEvictions @ 0x1404E538C (MmStoreFlushOutstandingEvictions.c)
- *     MiQueueSyncModifiedWriterApc @ 0x1404E84E4 (MiQueueSyncModifiedWriterApc.c)
- *     MiStoreReleaseReservedPageCharges @ 0x14070ADDC (MiStoreReleaseReservedPageCharges.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiStoreDrainWriteSupports @ 0x1404A7674 (MiStoreDrainWriteSupports.c)
+ *     MmStoreFlushOutstandingEvictions @ 0x1404DE92C (MmStoreFlushOutstandingEvictions.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x1404E18A4 (MiQueueSyncModifiedWriterApc.c)
+ *     MiStoreReleaseReservedPageCharges @ 0x14070FA90 (MiStoreReleaseReservedPageCharges.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiStoreDeletePartition(__int64 a1)
@@ -59,7 +59,7 @@ __int64 __fastcall MiStoreDeletePartition(__int64 a1)
     v6 = *(void **)(a1 + 1520);
     *(_QWORD *)(a1 + 1512) = 0LL;
     ExFreePoolWithTag(v6, 0);
-    MiStoreDrainWriteSupports((union _SLIST_HEADER *)a1);
+    MiStoreDrainWriteSupports((_SLIST_HEADER *)a1);
     return MiStoreReleaseReservedPageCharges(a1);
   }
   return result;

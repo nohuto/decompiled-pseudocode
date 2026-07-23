@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpEventAddUnicodeString @ 0x1800CEECC
+ * XREFs of LdrpEventAddUnicodeString @ 0x1800CEE8C
  * Callers:
  *     LdrpLogDelayLoadTrigger @ 0x1800165B0 (LdrpLogDelayLoadTrigger.c)
- *     LdrpLogEtwDllSearchResults @ 0x1800CEFD4 (LdrpLogEtwDllSearchResults.c)
- *     LdrpLogEtwEvent @ 0x1800CF280 (LdrpLogEtwEvent.c)
+ *     LdrpLogEtwDllSearchResults @ 0x1800CEF94 (LdrpLogEtwDllSearchResults.c)
+ *     LdrpLogEtwEvent @ 0x1800CF240 (LdrpLogEtwEvent.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1800D0368 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyExW @ 0x1800D0328 (RtlStringCchCopyExW.c)
  */
 
 unsigned __int64 __fastcall LdrpEventAddUnicodeString(__int64 a1, _WORD *a2, unsigned int a3, int *a4)

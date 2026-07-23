@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpCtxRegDeleteValue @ 0x1408F5EB4
+ * XREFs of _PnpCtxRegDeleteValue @ 0x1408F7174
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140181DA0 (PipUpdateDeviceProducts.c)
- *     PiCMCreateDevice @ 0x1408367B4 (PiCMCreateDevice.c)
+ *     PipUpdateDeviceProducts @ 0x140181EE0 (PipUpdateDeviceProducts.c)
+ *     PiCMCreateDevice @ 0x140837A14 (PiCMCreateDevice.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9D10 (ZwDeleteValueKey.c)
  */
 
 int __fastcall PnpCtxRegDeleteValue(__int64 a1, void *a2, const WCHAR *a3)

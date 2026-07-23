@@ -9,7 +9,11 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwQuerySystemInformationWrapper(unsigned int a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __fastcall DifZwQuerySystemInformationWrapper(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -20,7 +24,7 @@ __int64 __fastcall DifZwQuerySystemInformationWrapper(unsigned int a1, __int64 a
   int v14; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v18; // rdi
   _QWORD *v19; // rbx
   __int128 v20; // [rsp+20h] [rbp-30h] BYREF
@@ -60,17 +64,17 @@ LABEL_8:
   }
   *(_QWORD *)&v20 = 0LL;
 LABEL_10:
-  LODWORD(v22) = a1;
-  *((_QWORD *)&v21 + 1) = a2;
-  LODWORD(v21) = a3;
-  *((_QWORD *)&v20 + 1) = a4;
+  LODWORD(v22) = SystemInformationClass;
+  *((_QWORD *)&v21 + 1) = SystemInformation;
+  LODWORD(v21) = SystemInformationLength;
+  *((_QWORD *)&v20 + 1) = ReturnLength;
   for ( i = (__int64 *)v13[4]; i != v13 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v20);
   }
 LABEL_17:
-  result = ZwQuerySystemInformation(a1, a2);
+  result = ZwQuerySystemInformation(SystemInformationClass, SystemInformation, SystemInformationLength, ReturnLength);
   HIDWORD(v22) = result;
   if ( v13 )
   {

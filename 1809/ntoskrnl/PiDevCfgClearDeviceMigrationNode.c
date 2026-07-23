@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgClearDeviceMigrationNode @ 0x14082BBF0
+ * XREFs of PiDevCfgClearDeviceMigrationNode @ 0x14082CDF0
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x140700D10 (PiDevCfgMigrateDevice.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14082C66C (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x140701FB0 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x14082D898 (PiDevCfgFindDeviceMigrationNode.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     PnpValidateMultiSzData @ 0x14015D984 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     _RegRtlDeletePathInternal @ 0x140900A28 (_RegRtlDeletePathInternal.c)
+ *     PnpValidateMultiSzData @ 0x14015DA84 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1401B9D10 (ZwDeleteValueKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1405C68AC (RtlpQueryRegistryValues.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     _RegRtlDeletePathInternal @ 0x140901CE8 (_RegRtlDeletePathInternal.c)
  */
 
 __int64 __fastcall PiDevCfgClearDeviceMigrationNode(__int64 *a1, const WCHAR *a2)

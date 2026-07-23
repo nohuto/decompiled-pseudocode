@@ -1,7 +1,7 @@
 /*
- * XREFs of PopQueryInputSuppressionCount @ 0x14086DEE0
+ * XREFs of PopQueryInputSuppressionCount @ 0x14086F140
  * Callers:
- *     PopCalculateCsSummary @ 0x1402DEB58 (PopCalculateCsSummary.c)
+ *     PopCalculateCsSummary @ 0x1402DED48 (PopCalculateCsSummary.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)

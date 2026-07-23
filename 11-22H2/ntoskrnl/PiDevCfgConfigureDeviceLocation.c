@@ -33,11 +33,11 @@ __int64 __fastcall PiDevCfgConfigureDeviceLocation(__int64 a1, __int64 a2, _DWOR
   HANDLE KeyHandle; // [rsp+50h] [rbp-89h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-81h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-51h] BYREF
-  __int64 v23; // [rsp+98h] [rbp-41h] BYREF
+  ULONG ResultLength; // [rsp+98h] [rbp-41h] BYREF
   HANDLE Handle; // [rsp+A0h] [rbp-39h] BYREF
   void *v25; // [rsp+A8h] [rbp-31h] BYREF
   __int64 v26; // [rsp+B0h] [rbp-29h]
-  _OWORD v27[2]; // [rsp+B8h] [rbp-21h] BYREF
+  _OWORD KeyInformation[2]; // [rsp+B8h] [rbp-21h] BYREF
   __int64 v28; // [rsp+D8h] [rbp-1h]
 
   v4 = 0;
@@ -51,9 +51,9 @@ __int64 __fastcall PiDevCfgConfigureDeviceLocation(__int64 a1, __int64 a2, _DWOR
   *(_QWORD *)&UnicodeString.Length = 0LL;
   Buffer = 0LL;
   UnicodeString.Buffer = 0LL;
-  LODWORD(v23) = 0;
+  ResultLength = 0;
   v17 = 0LL;
-  memset(v27, 0, sizeof(v27));
+  memset(KeyInformation, 0, sizeof(KeyInformation));
   if ( a3 )
     *a3 = 0;
   if ( a4 )
@@ -76,10 +76,10 @@ __int64 __fastcall PiDevCfgConfigureDeviceLocation(__int64 a1, __int64 a2, _DWOR
       goto LABEL_6;
     if ( v11 < 0 )
       goto LABEL_7;
-    CachedContextBaseKey = NtQueryKey(KeyHandle, 4u, (unsigned __int64)v27, 0x28u, (unsigned int *)&v23);
+    CachedContextBaseKey = NtQueryKey(KeyHandle, KeyCachedInformation, KeyInformation, 0x28u, &ResultLength);
     if ( CachedContextBaseKey < 0 )
       goto LABEL_7;
-    if ( !HIDWORD(v27[0]) )
+    if ( !HIDWORD(KeyInformation[0]) )
       goto LABEL_6;
     CachedContextBaseKey = PnpOpenFirstMatchingSubKey(*(PCWSTR *)(a2 + 64), &v19);
     if ( CachedContextBaseKey == -1073741772 )

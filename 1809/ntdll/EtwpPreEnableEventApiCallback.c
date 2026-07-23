@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPreEnableEventApiCallback @ 0x1800881A4
+ * XREFs of EtwpPreEnableEventApiCallback @ 0x1800881B4
  * Callers:
  *     EtwpCheckForPrivatePreEnable @ 0x180020EE0 (EtwpCheckForPrivatePreEnable.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall EtwpPreEnableEventApiCallback(_BYTE *a1))(_QWORD *, __int64, _BYTE *)

@@ -2,8 +2,8 @@
  * XREFs of MiProcessWsInSwapSupport @ 0x140200298
  * Callers:
  *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x140A431D0 (MiInSwapSharedWorkingSetWorker.c)
- *     MmInSwapVirtualAddresses @ 0x140A43460 (MmInSwapVirtualAddresses.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x140A43480 (MiInSwapSharedWorkingSetWorker.c)
+ *     MmInSwapVirtualAddresses @ 0x140A43710 (MmInSwapVirtualAddresses.c)
  * Callees:
  *     MiProcessWsInSwapRanges @ 0x140200438 (MiProcessWsInSwapRanges.c)
  */

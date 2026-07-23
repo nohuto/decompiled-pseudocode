@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildUlongString @ 0x140A5B5EC
+ * XREFs of AdtpBuildUlongString @ 0x140A5B89C
  * Callers:
- *     AdtpPackageParameters @ 0x140399604 (AdtpPackageParameters.c)
- *     AdtpBuildRegistryValueString @ 0x140A5ABE8 (AdtpBuildRegistryValueString.c)
+ *     AdtpPackageParameters @ 0x1403997E4 (AdtpPackageParameters.c)
+ *     AdtpBuildRegistryValueString @ 0x140A5AE98 (AdtpBuildRegistryValueString.c)
  * Callees:
- *     _ultow @ 0x1403D9440 (_ultow.c)
+ *     _ultow @ 0x1403D9620 (_ultow.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

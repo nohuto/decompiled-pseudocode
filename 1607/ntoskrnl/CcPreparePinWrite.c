@@ -1,14 +1,14 @@
 /*
- * XREFs of CcPreparePinWrite @ 0x140458274
+ * XREFs of CcPreparePinWrite @ 0x140457144
  * Callers:
  *     <none>
  * Callees:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
- *     CcMapDataForOverwrite @ 0x14006D414 (CcMapDataForOverwrite.c)
- *     CcSetDirtyPinnedData @ 0x14006F270 (CcSetDirtyPinnedData.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CcUnpinData @ 0x14050C700 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x1405F8F04 (CcAllocateObcb.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
+ *     CcMapDataForOverwrite @ 0x14006CF94 (CcMapDataForOverwrite.c)
+ *     CcSetDirtyPinnedData @ 0x14006EDF0 (CcSetDirtyPinnedData.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CcUnpinData @ 0x1404EF690 (CcUnpinData.c)
+ *     CcAllocateObcb @ 0x1405F8FB8 (CcAllocateObcb.c)
  */
 
 BOOLEAN __stdcall CcPreparePinWrite(

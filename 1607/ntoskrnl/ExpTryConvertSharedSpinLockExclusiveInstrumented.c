@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14022DFFC
+ * XREFs of ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14022DE28
  * Callers:
- *     ExTryConvertSharedSpinLockExclusive @ 0x14009A560 (ExTryConvertSharedSpinLockExclusive.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x140099D60 (ExTryConvertSharedSpinLockExclusive.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     PerfLogSpinLockAcquire @ 0x140228678 (PerfLogSpinLockAcquire.c)
- *     PerfLogSpinLockRelease @ 0x1402286EC (PerfLogSpinLockRelease.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     PerfLogSpinLockAcquire @ 0x1402284A4 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockRelease @ 0x140228518 (PerfLogSpinLockRelease.c)
  */
 
 __int64 __fastcall ExpTryConvertSharedSpinLockExclusiveInstrumented(volatile signed __int32 *a1, __int64 a2)

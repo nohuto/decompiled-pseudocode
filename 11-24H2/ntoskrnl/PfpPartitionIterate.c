@@ -1,27 +1,27 @@
 /*
- * XREFs of PfpPartitionIterate @ 0x140274CF0
+ * XREFs of PfpPartitionIterate @ 0x14022A280
  * Callers:
- *     PfFileInfoNotify @ 0x140275220 (PfFileInfoNotify.c)
- *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x1405CCA6C (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
- *     PfpProcessScenarioPhase @ 0x14093289C (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x140B6B9F8 (PfPowerActionNotify.c)
+ *     PfFileInfoNotify @ 0x14022A7B0 (PfFileInfoNotify.c)
+ *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x1405CA1DC (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
+ *     PfpProcessScenarioPhase @ 0x1408F77E8 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140B6CE28 (PfPowerActionNotify.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExReleaseRundownProtectionCacheAware @ 0x140275DE0 (ExReleaseRundownProtectionCacheAware.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     PfpPartitionGetFirst @ 0x140275EC0 (PfpPartitionGetFirst.c)
- *     PfpPartitionReferenceParentSafe @ 0x14027674C (PfpPartitionReferenceParentSafe.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x140283A10 (ExAcquireRundownProtectionCacheAware.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     PfTFiNotifyFileStreamCreateCallback @ 0x140456870 (PfTFiNotifyFileStreamCreateCallback.c)
- *     PfTFiNotifyFileInfoDeleteCallback @ 0x140456A00 (PfTFiNotifyFileInfoDeleteCallback.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExReleaseRundownProtectionCacheAware @ 0x14022B370 (ExReleaseRundownProtectionCacheAware.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     PfpPartitionGetFirst @ 0x14022B450 (PfpPartitionGetFirst.c)
+ *     PfpPartitionReferenceParentSafe @ 0x14022BCDC (PfpPartitionReferenceParentSafe.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x140238FA0 (ExAcquireRundownProtectionCacheAware.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     PfTFiNotifyFileStreamCreateCallback @ 0x14044B840 (PfTFiNotifyFileStreamCreateCallback.c)
+ *     PfTFiNotifyFileInfoDeleteCallback @ 0x14044B9D0 (PfTFiNotifyFileInfoDeleteCallback.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PfpPartitionIterate(__int64 (__fastcall *a1)(_QWORD, _QWORD), char a2, __int64 a3)
@@ -57,7 +57,7 @@ __int64 __fastcall PfpPartitionIterate(__int64 (__fastcall *a1)(_QWORD, _QWORD),
 
   v4 = 0;
   v5 = a3;
-  First = PfpPartitionGetFirst(&unk_140E66FD8);
+  First = PfpPartitionGetFirst(&unk_140E67128);
   if ( !First )
     return 0LL;
   while ( 1 )
@@ -83,7 +83,7 @@ __int64 __fastcall PfpPartitionIterate(__int64 (__fastcall *a1)(_QWORD, _QWORD),
           Callback = guard_dispatch_icall_no_overrides(First, v5, v9, v12);
         }
         v26 = Callback;
-        PsDereferencePartition(v23);
+        PsDereferencePartition(v23, 1951426128LL);
         if ( v26 < 0 && (v4 & 0x80000000) == 0 )
           v4 = v26;
         if ( (a2 & 8) != 0 && v26 >= 0 )
@@ -104,7 +104,7 @@ __int64 __fastcall PfpPartitionIterate(__int64 (__fastcall *a1)(_QWORD, _QWORD),
     {
       v15 = _InterlockedExchange64(v13, (__int64)&v31);
       if ( v15 )
-        KxWaitForLockOwnerShip(&v31);
+        KxWaitForLockOwnerShip(&v31, v15);
     }
     else
     {

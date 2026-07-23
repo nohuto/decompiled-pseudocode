@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpBuildCmResourceList @ 0x1408173BC
+ * XREFs of PnpBuildCmResourceList @ 0x14081768C
  * Callers:
- *     PnpBuildCmResourceLists @ 0x140816054 (PnpBuildCmResourceLists.c)
- *     IopAllocateBootResourcesInternal @ 0x140816D18 (IopAllocateBootResourcesInternal.c)
+ *     PnpBuildCmResourceLists @ 0x140816324 (PnpBuildCmResourceLists.c)
+ *     IopAllocateBootResourcesInternal @ 0x140816FE8 (IopAllocateBootResourcesInternal.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
- *     IopCreateRegistryKeyEx @ 0x1407DA498 (IopCreateRegistryKeyEx.c)
- *     IopParentToRawTranslation @ 0x140817818 (IopParentToRawTranslation.c)
- *     IopChildToRootTranslation @ 0x1408178A4 (IopChildToRootTranslation.c)
- *     IopWriteResourceList @ 0x140818978 (IopWriteResourceList.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
+ *     IopCreateRegistryKeyEx @ 0x1407DA768 (IopCreateRegistryKeyEx.c)
+ *     IopParentToRawTranslation @ 0x140817AE8 (IopParentToRawTranslation.c)
+ *     IopChildToRootTranslation @ 0x140817B74 (IopChildToRootTranslation.c)
+ *     IopWriteResourceList @ 0x140818C48 (IopWriteResourceList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

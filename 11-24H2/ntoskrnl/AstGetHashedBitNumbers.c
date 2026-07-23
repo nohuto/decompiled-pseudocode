@@ -1,7 +1,7 @@
 /*
- * XREFs of AstGetHashedBitNumbers @ 0x1409891D0
+ * XREFs of AstGetHashedBitNumbers @ 0x140972C80
  * Callers:
- *     AstAddBloomFilter @ 0x14098914C (AstAddBloomFilter.c)
+ *     AstAddBloomFilter @ 0x140972BF8 (AstAddBloomFilter.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall AstGetHashedBitNumbers(unsigned int *a1, __int64 a2,
       * (BYTE5(v4)
        + 37
        * (BYTE4(v4)
-        + 37 * (BYTE3(v4) + 37 * (BYTE2(v4) + 37 * (BYTE1(v4) + 37 * ((unsigned __int8)v4 + 37 * dword_140F8C290)))))));
+        + 37 * (BYTE3(v4) + 37 * (BYTE2(v4) + 37 * (BYTE1(v4) + 37 * ((unsigned __int8)v4 + 37 * dword_140F8C510)))))));
   *a1 = v6 % AstIoctlBloomFilter;
   a1[1] = HIWORD(v6) % (unsigned int)v5;
   result = v4 / v5;

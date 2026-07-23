@@ -4,14 +4,14 @@
  *     MiCleanWorkingSet @ 0x14000FEA4 (MiCleanWorkingSet.c)
  *     MiEmptyAccessLogs @ 0x140010D20 (MiEmptyAccessLogs.c)
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiDeleteSessionAddressSpace @ 0x1401542C0 (MiDeleteSessionAddressSpace.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140173B88 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiDeleteSessionAddressSpace @ 0x1401543C0 (MiDeleteSessionAddressSpace.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x140173C88 (MiCaptureAndResetWorkingSetAccessBits.c)
  * Callees:
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiEmptyPageAccessLog @ 0x140088580 (MiEmptyPageAccessLog.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiEmptyPageAccessLog @ 0x140088570 (MiEmptyPageAccessLog.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDrainSystemAccessLog(__int64 a1, __int64 a2)

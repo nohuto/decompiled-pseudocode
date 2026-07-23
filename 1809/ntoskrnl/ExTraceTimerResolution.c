@@ -1,13 +1,13 @@
 /*
- * XREFs of ExTraceTimerResolution @ 0x1406DBC5C
+ * XREFs of ExTraceTimerResolution @ 0x1406DCEFC
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140587FE0 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140588FE0 (PopDiagTraceControlCallback.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     PoTraceSystemTimerResolution @ 0x140663D34 (PoTraceSystemTimerResolution.c)
- *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
- *     PoRundownSystemTimer @ 0x1406DBCBC (PoRundownSystemTimer.c)
+ *     PoTraceSystemTimerResolution @ 0x140664EF4 (PoTraceSystemTimerResolution.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406669FC (ExAcquireTimeRefreshLock.c)
+ *     PoRundownSystemTimer @ 0x1406DCF5C (PoRundownSystemTimer.c)
  */
 
 void ExTraceTimerResolution()

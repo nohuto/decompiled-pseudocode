@@ -13,49 +13,49 @@
  *     PopBcdRegenerateResumeObject @ 0x1408B681C (PopBcdRegenerateResumeObject.c)
  */
 
-__int64 __fastcall PopBcdEstablishResumeObject(__int64 a1, _QWORD *a2)
+__int64 __fastcall PopBcdEstablishResumeObject(HANDLE BcdStoreHandle, _QWORD *a2)
 {
-  __int64 v3; // rbx
-  int ElementData; // edi
-  int v6; // eax
-  int v8; // eax
+  HANDLE v3; // rbx
+  NTSTATUS ElementData; // edi
+  NTSTATUS v6; // eax
+  NTSTATUS v8; // eax
   _WORD v9[2]; // [rsp+20h] [rbp-40h] BYREF
-  int v10; // [rsp+24h] [rbp-3Ch] BYREF
-  __int64 v11; // [rsp+28h] [rbp-38h] BYREF
-  __int64 v12; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-28h] BYREF
-  _QWORD v14[2]; // [rsp+40h] [rbp-20h] BYREF
+  ULONG BufferSize; // [rsp+24h] [rbp-3Ch] BYREF
+  HANDLE BcdObjectHandle; // [rsp+28h] [rbp-38h] BYREF
+  HANDLE v12; // [rsp+30h] [rbp-30h] BYREF
+  BCD_OBJECT_DESCRIPTION Description; // [rsp+38h] [rbp-28h] BYREF
+  GUID Buffer; // [rsp+40h] [rbp-20h] BYREF
 
   v9[0] = 0;
-  v13 = 0LL;
+  Description = 0LL;
   v3 = 0LL;
-  v14[0] = 0LL;
+  *(_QWORD *)&Buffer.Data1 = 0LL;
   v12 = 0LL;
-  v14[1] = 0LL;
-  v11 = 0LL;
-  ElementData = BcdOpenObject(a1, &GUID_CURRENT_BOOT_ENTRY, &v11);
+  *(_QWORD *)Buffer.Data4 = 0LL;
+  BcdObjectHandle = 0LL;
+  ElementData = BcdOpenObject(BcdStoreHandle, &GUID_CURRENT_BOOT_ENTRY, &BcdObjectHandle);
   if ( ElementData < 0 )
     goto LABEL_10;
-  v10 = 16;
-  ElementData = BcdGetElementData(v11, 587202563LL, v14, &v10);
+  BufferSize = 16;
+  ElementData = BcdGetElementData(BcdObjectHandle, 0x23000003u, &Buffer, &BufferSize);
   if ( ElementData >= 0 )
   {
-    v6 = BcdOpenObject(a1, v14, &v12);
+    v6 = BcdOpenObject(BcdStoreHandle, &Buffer, &v12);
     v3 = v12;
     ElementData = v6;
     if ( v6 >= 0 )
     {
-      ElementData = BcdQueryObject(v12, 1LL, &v13, 0LL);
+      ElementData = BcdQueryObject(v12, 1u, (BCD_OBJECT_DESCRIPTION)&Description, 0LL);
       if ( ElementData >= 0 )
       {
-        if ( (HIDWORD(v13) & 0xF0000000) == 0x10000000
-          && (HIDWORD(v13) & 0xF00000) == 0x200000
-          && (HIDWORD(v13) & 0xFFFFF) == 4 )
+        if ( (Description.Type & 0xF0000000) == 0x10000000
+          && (Description.Type & 0xF00000) == 0x200000
+          && (Description.Type & 0xFFFFF) == 4 )
         {
-          v10 = 2;
-          ElementData = BcdGetElementData(v3, 637534211LL, v9, &v10);
+          BufferSize = 2;
+          ElementData = BcdGetElementData(v3, 0x26000003u, v9, &BufferSize);
           if ( ElementData < 0 || !LOBYTE(v9[0]) )
-            ElementData = PopBcdSetDefaultResumeObjectElements(v3, v11);
+            ElementData = PopBcdSetDefaultResumeObjectElements(v3, BcdObjectHandle);
           goto LABEL_10;
         }
         ElementData = -1073741275;
@@ -70,7 +70,7 @@ __int64 __fastcall PopBcdEstablishResumeObject(__int64 a1, _QWORD *a2)
   }
   if ( !InitIsWinPEMode )
   {
-    v8 = PopBcdRegenerateResumeObject(a1, v11, &v12);
+    v8 = PopBcdRegenerateResumeObject(BcdStoreHandle, BcdObjectHandle, &v12);
     v3 = v12;
     ElementData = v8;
   }
@@ -79,8 +79,8 @@ __int64 __fastcall PopBcdEstablishResumeObject(__int64 a1, _QWORD *a2)
   else
     v3 = 0LL;
 LABEL_10:
-  if ( v11 )
-    BcdCloseObject(v11);
+  if ( BcdObjectHandle )
+    BcdCloseObject(BcdObjectHandle);
   if ( ElementData < 0 )
   {
     if ( !v3 )

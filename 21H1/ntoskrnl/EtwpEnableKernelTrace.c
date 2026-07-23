@@ -75,7 +75,7 @@ __int64 __fastcall EtwpEnableKernelTrace(__m128i *a1, char *a2, _QWORD *a3, unsi
       (__int64)&EtwpMemInfoTimer,
       -10000LL * (unsigned int)EtwpMemInfoInterval,
       10000LL * (unsigned int)EtwpMemInfoInterval,
-      v24);
+      (__int64)v24);
     a4 = v22;
     a3 = v23;
   }

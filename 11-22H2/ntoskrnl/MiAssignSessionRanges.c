@@ -21,7 +21,7 @@ __int64 MiAssignSessionRanges()
   ULONG ClearBitsAndSet; // eax
   __int64 result; // rax
   __int16 v8; // ax
-  RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-59h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-59h] BYREF
   int v10; // [rsp+38h] [rbp-49h]
   _DWORD v11[9]; // [rsp+3Ch] [rbp-45h] BYREF
   __int64 v12; // [rsp+60h] [rbp-21h]

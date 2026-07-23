@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeProcessUserVa @ 0x140711CC0
+ * XREFs of MiComputeProcessUserVa @ 0x1406C0310
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406BFB24 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiCreateSystemWsles @ 0x1402C0BD0 (MiCreateSystemWsles.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiUpdateChargedWsles @ 0x14055C45C (MiUpdateChargedWsles.c)
- *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
+ *     MiCreateSystemWsles @ 0x14023F040 (MiCreateSystemWsles.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiUpdateChargedWsles @ 0x14055C69C (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x1406E8830 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -34,7 +34,7 @@ __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _Q
   while ( v11 );
   if ( !(unsigned int)MiCreateSystemWsles() && (*(_DWORD *)(a1 + 2172) & 1) == 0 )
   {
-    result = MiChargeFullProcessCommitment(a1, 4uLL);
+    result = MiChargeFullProcessCommitment(a1, 4LL);
     if ( (int)result < 0 )
       return result;
     MiUpdateChargedWsles(a1 + 1664);

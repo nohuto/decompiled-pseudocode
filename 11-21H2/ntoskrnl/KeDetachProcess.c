@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiDetachProcess @ 0x1403470F0 (KiDetachProcess.c)
+ *     sub_1403470F0 @ 0x1403470F0 (sub_1403470F0.c)
  */
 
 void KeDetachProcess(void)
@@ -11,6 +11,6 @@ void KeDetachProcess(void)
   struct _KTHREAD *CurrentThread; // rcx
 
   CurrentThread = KeGetCurrentThread();
-  if ( CurrentThread->ApcStateIndex )
-    KiDetachProcess(&CurrentThread->600, 0LL);
+  if ( *((_BYTE *)CurrentThread + 586) )
+    sub_1403470F0((char *)CurrentThread + 600, 0LL);
 }

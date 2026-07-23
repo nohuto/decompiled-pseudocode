@@ -4,13 +4,13 @@
  *     RtlpDiskSpeedInitialize @ 0x18008B940 (RtlpDiskSpeedInitialize.c)
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtDeviceIoControlFile @ 0x18009D720 (NtDeviceIoControlFile.c)
+ *     NtDeviceIoControlFile @ 0x18009D6E0 (NtDeviceIoControlFile.c)
  */
 
 NTSTATUS __fastcall RtlQueryVolumeDiskSpeedPolicy(void *a1, _DWORD *a2)
 {
   NTSTATUS result; // eax
-  struct _IO_STATUS_BLOCK v4; // [rsp+50h] [rbp-48h] BYREF
+  _IO_STATUS_BLOCK v4; // [rsp+50h] [rbp-48h] BYREF
   _DWORD v5[4]; // [rsp+60h] [rbp-38h] BYREF
   __int64 v6; // [rsp+70h] [rbp-28h] BYREF
   int v7; // [rsp+78h] [rbp-20h]

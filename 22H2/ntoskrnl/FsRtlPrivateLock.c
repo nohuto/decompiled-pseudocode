@@ -116,7 +116,7 @@ LABEL_10:
     if ( Irp )
     {
       KeReleaseSpinLock(LockInformation + 3, NewIrql);
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     }
   }
   else
@@ -133,7 +133,7 @@ LABEL_10:
       if ( !v22 )
       {
         KeReleaseSpinLock(LockInformation + 3, NewIrql);
-        RtlRaiseStatus(3221225626LL);
+        RtlRaiseStatus(-1073741670);
       }
       v22[3] = Irp;
       v22[2] = Context;

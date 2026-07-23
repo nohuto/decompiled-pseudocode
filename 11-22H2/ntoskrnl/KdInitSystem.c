@@ -51,15 +51,15 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
   unsigned int v24; // ebp
   __int64 *k; // rdi
   __int64 v26; // rdx
-  char *v27; // r9
+  CHAR *v27; // r9
   unsigned int v28; // r8d
-  char v29; // al
+  CHAR v29; // al
   __int64 v30; // rcx
   __int64 v31; // rdi
   unsigned int v32; // eax
   signed __int32 v33[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v5 = 0;
   v6 = 0;
@@ -305,7 +305,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
       {
         if ( !a2 )
         {
-          DbgLoadImageSymbols(0LL, qword_140C021B8, 0xFFFFFFFFLL);
+          DbgLoadImageSymbols(0LL, (void *)qword_140C021B8, 0xFFFFFFFFLL);
           return 1;
         }
         if ( KeIsKernelCetEnabled() && (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
@@ -320,7 +320,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
             break;
           DestinationString = 0LL;
           LODWORD(v26) = 0;
-          v27 = (char *)k[10];
+          v27 = (CHAR *)k[10];
           v28 = *((unsigned __int16 *)k + 36) >> 1;
           if ( v28 >= 0x100 )
             v28 = 255;
@@ -337,7 +337,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
             _report_rangecheckfailure();
           SourceString[v26] = 0;
           RtlInitAnsiString(&DestinationString, SourceString);
-          DbgLoadImageSymbols((__int64)&DestinationString, k[6], 0xFFFFFFFFLL);
+          DbgLoadImageSymbols((__int64)&DestinationString, (void *)k[6], 0xFFFFFFFFLL);
           k = (__int64 *)*k;
         }
         KdBreakAfterSymbolLoad = KdPollBreakIn();

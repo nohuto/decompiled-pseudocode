@@ -1,11 +1,11 @@
 /*
- * XREFs of AslpFileGetImageNtHeader @ 0x140A58A90
+ * XREFs of AslpFileGetImageNtHeader @ 0x140A58D40
  * Callers:
- *     AslFileMappingGetImageTypeEx @ 0x140A54940 (AslFileMappingGetImageTypeEx.c)
- *     AslpFileGetClrVersion @ 0x140A57F80 (AslpFileGetClrVersion.c)
- *     AslpFileGetExeWrapper @ 0x140A58384 (AslpFileGetExeWrapper.c)
- *     AslpFileGetNtHeaderAttributes @ 0x140A58B6C (AslpFileGetNtHeaderAttributes.c)
- *     AslpFileQueryExportName @ 0x140A59200 (AslpFileQueryExportName.c)
+ *     AslFileMappingGetImageTypeEx @ 0x140A54BF0 (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersion @ 0x140A58230 (AslpFileGetClrVersion.c)
+ *     AslpFileGetExeWrapper @ 0x140A58634 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetNtHeaderAttributes @ 0x140A58E1C (AslpFileGetNtHeaderAttributes.c)
+ *     AslpFileQueryExportName @ 0x140A594B0 (AslpFileQueryExportName.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */

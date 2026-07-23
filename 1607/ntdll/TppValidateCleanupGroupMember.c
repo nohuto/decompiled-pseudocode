@@ -1,12 +1,12 @@
 /*
- * XREFs of TppValidateCleanupGroupMember @ 0x18003C240
+ * XREFs of TppValidateCleanupGroupMember @ 0x18003C230
  * Callers:
- *     TppWorkpValidateWork @ 0x18003BCF0 (TppWorkpValidateWork.c)
- *     TppWaitpValidateWait @ 0x18003BF98 (TppWaitpValidateWait.c)
- *     TppIopValidateIo @ 0x18003C170 (TppIopValidateIo.c)
- *     TppTimerpValidateTimer @ 0x18003C1C8 (TppTimerpValidateTimer.c)
- *     TppAlpcpValidateAlpc @ 0x18006558C (TppAlpcpValidateAlpc.c)
- *     TppJobpValidateJob @ 0x180084708 (TppJobpValidateJob.c)
+ *     TppWorkpValidateWork @ 0x18003BCE0 (TppWorkpValidateWork.c)
+ *     TppWaitpValidateWait @ 0x18003BF88 (TppWaitpValidateWait.c)
+ *     TppIopValidateIo @ 0x18003C160 (TppIopValidateIo.c)
+ *     TppTimerpValidateTimer @ 0x18003C1B8 (TppTimerpValidateTimer.c)
+ *     TppAlpcpValidateAlpc @ 0x18006557C (TppAlpcpValidateAlpc.c)
+ *     TppJobpValidateJob @ 0x1800846F8 (TppJobpValidateJob.c)
  * Callees:
  *     <none>
  */

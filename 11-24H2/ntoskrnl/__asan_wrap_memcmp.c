@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_wrap_memcmp @ 0x1405AD570
+ * XREFs of __asan_wrap_memcmp @ 0x1405AA4E0
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 int __fastcall _asan_wrap_memcmp(ULONG_PTR BugCheckParameter1, const void *a2, ULONG_PTR BugCheckParameter2)
@@ -17,7 +17,7 @@ int __fastcall _asan_wrap_memcmp(ULONG_PTR BugCheckParameter1, const void *a2, U
   signed __int8 v10; // cl
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  if ( byte_140FCDC2A && BugCheckParameter1 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && BugCheckParameter1 >= 0xFFFF800000000000uLL )
   {
     if ( BugCheckParameter2 )
     {
@@ -39,7 +39,7 @@ LABEL_12:
     if ( KcsaniValidationEnabled )
       KcsanValidateAddress(BugCheckParameter1, BugCheckParameter2, 0, 0, retaddr);
   }
-  if ( byte_140FCDC2A && (unsigned __int64)a2 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && (unsigned __int64)a2 >= 0xFFFF800000000000uLL )
   {
     if ( BugCheckParameter2 )
     {

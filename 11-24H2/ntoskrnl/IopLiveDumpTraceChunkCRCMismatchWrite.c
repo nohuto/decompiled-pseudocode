@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpTraceChunkCRCMismatchWrite @ 0x1405A30B4
+ * XREFs of IopLiveDumpTraceChunkCRCMismatchWrite @ 0x14059FFF4
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x14049ADE4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1404957D4 (IopLiveDumpWriteDumpFile.c)
  * Callees:
- *     IopLiveDumpTraceEventGeneric @ 0x1405A31E4 (IopLiveDumpTraceEventGeneric.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405A0124 (IopLiveDumpTraceEventGeneric.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopLiveDumpTraceChunkCRCMismatchWrite(

@@ -6,7 +6,7 @@
  *     ExAllocatePoolWithTag @ 0x1409B7010 (ExAllocatePoolWithTag.c)
  */
 
-PVOID __fastcall PopDirectedDripsUmTestDeviceAllocate(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall PopDirectedDripsUmTestDeviceAllocate(_RTL_AVL_TABLE *a1, unsigned int a2)
 {
-  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x4D554444u);
+  return ExAllocatePoolWithTag(PagedPool, a2, 0x4D554444u);
 }

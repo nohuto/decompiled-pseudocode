@@ -1,69 +1,66 @@
 /*
- * XREFs of TpCancelAsyncIoOperation @ 0x18006A1B0
+ * XREFs of TpCancelAsyncIoOperation @ 0x1800868A0
  * Callers:
  *     <none>
  * Callees:
- *     TppBarrierAdjust @ 0x180011D50 (TppBarrierAdjust.c)
- *     TppSimplepFree @ 0x18006A2D0 (TppSimplepFree.c)
+ *     TppBarrierAdjust @ 0x18003E750 (TppBarrierAdjust.c)
+ *     TppSimplepFree @ 0x1800869C0 (TppSimplepFree.c)
  */
 
-__int64 __fastcall TpCancelAsyncIoOperation(__int64 a1, __int64 a2)
+void __cdecl TpCancelAsyncIoOperation(PTP_IO Io)
 {
-  int v3; // eax
-  signed __int32 v4; // ecx
+  __int64 v1; // rdx
+  volatile int Flags; // eax
+  volatile int PendingIrpCount; // ecx
   bool v5; // zf
   signed __int32 v6; // eax
-  __int64 result; // rax
-  __int64 (__fastcall *v8)(__int64); // rax
-  __int64 v9; // rcx
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  _PEB_LDR_DATA *Ldr; // rcx
 
-  if ( !a1
-    || (v3 = *(_DWORD *)(a1 + 168), (v3 & 0x10000) != 0)
-    || (v3 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppIopCleanupGroupMemberVFuncs
+  if ( !Io
+    || (Flags = Io->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)(PVOID))Io->CleanupGroupMember.VFuncs != &TppIopCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = (__int64)NtCurrentPeb();
-    v9 = *(_QWORD *)(result + 24);
-    if ( !*(_BYTE *)(v9 + 72) )
-      return TppRaiseInvalidParameter(v9);
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      TppRaiseInvalidParameter(Ldr);
   }
   else
   {
-    _m_prefetchw((const void *)(a1 + 280));
-    v4 = *(_DWORD *)(a1 + 280);
-    while ( v4 > 0 )
+    _m_prefetchw((const void *)&Io->PendingIrpCount);
+    PendingIrpCount = Io->PendingIrpCount;
+    while ( PendingIrpCount > 0 )
     {
-      v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 280), v4 - 1, v4);
-      v5 = v4 == v6;
-      v4 = v6;
+      v6 = _InterlockedCompareExchange(&Io->PendingIrpCount, PendingIrpCount - 1, PendingIrpCount);
+      v5 = PendingIrpCount == v6;
+      PendingIrpCount = v6;
       if ( v5 )
       {
-        TppBarrierAdjust((volatile signed __int64 *)(a1 + 56), -1, 0);
+        TppBarrierAdjust((_RTL_SRWLOCK *)&Io->CleanupGroupMember.CallbackBarrier, -1, 0);
         break;
       }
     }
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
+    if ( _InterlockedExchangeAdd(&Io->CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
     {
-      v8 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-      if ( (char *)v8 == (char *)TppSimplepFree )
+      Free = Io->CleanupGroupMember.VFuncs->Free;
+      if ( (char *)Free == (char *)TppSimplepFree )
       {
-        return TppSimplepFree(a1, a2);
+        TppSimplepFree(Io, v1);
       }
-      else if ( v8 == TppAlpcpFree )
+      else if ( (char *)Free == (char *)TppAlpcpFree )
       {
-        return TppAlpcpFree(a1);
+        TppAlpcpFree(Io);
       }
-      else if ( v8 == TppWorkpFree )
+      else if ( (char *)Free == (char *)TppWorkpFree )
       {
-        return TppWorkpFree(a1);
+        TppWorkpFree(Io);
       }
       else
       {
-        return v8(a1);
+        Free(&Io->CleanupGroupMember);
       }
     }
   }
-  return result;
 }

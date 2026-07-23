@@ -25,17 +25,17 @@ __int64 (__fastcall *(__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1))()
   int v7; // eax
   char v8; // r12
   char v9; // r15
-  union _SLIST_HEADER *CurrentPrcb; // rsi
+  _SLIST_HEADER *CurrentPrcb; // rsi
   __int64 *v11; // rbx
   PHYSICAL_ADDRESS Next; // rbp
   PSLIST_ENTRY v13; // rax
-  struct _SLIST_ENTRY *v14; // r14
+  _SLIST_ENTRY *v14; // r14
   __int64 HypercallCachedPages; // rcx
   struct _KPRCB *v16; // rax
   __int64 v17; // rax
   __int64 (__fastcall *(__fastcall *result)(_DWORD *))(); // rax
-  union _SLIST_HEADER *v19; // [rsp+28h] [rbp-A0h]
-  struct _SLIST_ENTRY *v20; // [rsp+30h] [rbp-98h]
+  _SLIST_HEADER *v19; // [rsp+28h] [rbp-A0h]
+  _SLIST_ENTRY *v20; // [rsp+30h] [rbp-98h]
   int v21; // [rsp+40h] [rbp-88h] BYREF
   int v22; // [rsp+44h] [rbp-84h]
   _DWORD v23[3]; // [rsp+50h] [rbp-78h] BYREF
@@ -146,7 +146,7 @@ __int64 (__fastcall *(__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1))()
   {
     if ( (v1 & 0x10) != 0 )
     {
-      CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+      CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
       v13 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
       v11 = (__int64 *)v13;
       if ( v13 )

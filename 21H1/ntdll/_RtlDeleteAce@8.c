@@ -8,28 +8,28 @@
  *     _RtlFirstFreeAce@8 @ 0x4B2D7F40 (_RtlFirstFreeAce@8.c)
  */
 
-int __stdcall RtlDeleteAce(int a1, unsigned int a2)
+NTSTATUS __cdecl RtlDeleteAce(PACL Acl, ULONG AceIndex)
 {
-  unsigned int v2; // edi
-  int v3; // ecx
-  int v5; // [esp+8h] [ebp-4h] BYREF
+  ULONG v2; // edi
+  PACL v3; // ecx
+  PVOID FirstFree; // [esp+8h] [ebp-4h] BYREF
 
-  if ( !(unsigned __int8)RtlValidAcl(a1) )
+  if ( !RtlValidAcl(Acl) )
     return -1073741811;
-  v2 = a2;
-  if ( a2 >= *(unsigned __int16 *)(a1 + 4) || !(unsigned __int8)RtlFirstFreeAce(a1, &v5) )
+  v2 = AceIndex;
+  if ( AceIndex >= Acl->AceCount || !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741811;
-  v3 = a1 + 8;
-  if ( a2 )
+  v3 = Acl + 1;
+  if ( AceIndex )
   {
     do
     {
-      v3 += *(unsigned __int16 *)(v3 + 2);
+      v3 = (PACL)((char *)v3 + v3->AclSize);
       --v2;
     }
     while ( v2 );
   }
-  RtlpDeleteData(v5 - v3);
-  --*(_WORD *)(a1 + 4);
+  RtlpDeleteData((_BYTE *)FirstFree - (_BYTE *)v3);
+  --Acl->AceCount;
   return 0;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCanDeleteEnclave @ 0x140549668
+ * XREFs of MiCanDeleteEnclave @ 0x1405498A8
  * Callers:
- *     MiFreeVadRange @ 0x1403185C4 (MiFreeVadRange.c)
+ *     MiFreeVadRange @ 0x140323314 (MiFreeVadRange.c)
  * Callees:
- *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiFreeEnclaveModules @ 0x1408D2F20 (MiFreeEnclaveModules.c)
- *     PsDereferenceVsmEnclave @ 0x14090DEA0 (PsDereferenceVsmEnclave.c)
- *     PsIsVsmEnclaveTerminated @ 0x14090E0FC (PsIsVsmEnclaveTerminated.c)
- *     PsReferenceVsmEnclave @ 0x14090E194 (PsReferenceVsmEnclave.c)
- *     PsRundownVsmEnclave @ 0x14090E1B8 (PsRundownVsmEnclave.c)
+ *     MiUnlockVad @ 0x14031F3A8 (MiUnlockVad.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiFreeEnclaveModules @ 0x1408D3080 (MiFreeEnclaveModules.c)
+ *     PsDereferenceVsmEnclave @ 0x14090E000 (PsDereferenceVsmEnclave.c)
+ *     PsIsVsmEnclaveTerminated @ 0x14090E25C (PsIsVsmEnclaveTerminated.c)
+ *     PsReferenceVsmEnclave @ 0x14090E2F4 (PsReferenceVsmEnclave.c)
+ *     PsRundownVsmEnclave @ 0x14090E318 (PsRundownVsmEnclave.c)
  */
 
 __int64 __fastcall MiCanDeleteEnclave(ULONG_PTR BugCheckParameter3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SepCaptureAuditPolicy @ 0x140690B80
+ * XREFs of SepCaptureAuditPolicy @ 0x140690C64
  * Callers:
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SepCaptureAuditPolicy(

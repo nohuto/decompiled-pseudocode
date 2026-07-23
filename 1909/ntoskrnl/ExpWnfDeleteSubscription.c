@@ -20,19 +20,19 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
 {
   __int64 v2; // r15
   int v4; // ebp
-  __int64 v5; // rax
-  __int64 v6; // rsi
+  _RTL_BALANCED_NODE *v5; // rax
+  _RTL_BALANCED_NODE *v6; // rsi
   unsigned __int64 Count; // rsi
   int v8; // r13d
-  __int64 v9; // rax
-  __int64 v10; // r14
+  _RTL_BALANCED_NODE *v9; // rax
+  _RTL_BALANCED_NODE *v10; // r14
   struct _EX_RUNDOWN_REF **v11; // rdx
   PVOID *v12; // rcx
   int Ptr_high; // eax
   struct _EX_RUNDOWN_REF **v14; // rdx
   PVOID *v15; // rcx
-  __int64 v16; // rax
-  __int64 v17; // r12
+  _RTL_BALANCED_NODE *v16; // rax
+  _RTL_BALANCED_NODE *v17; // r12
   int v18; // ecx
   int v19; // r12d
   struct _EX_RUNDOWN_REF **v20; // rdx
@@ -48,7 +48,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 80), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 80), v5, v2 + 80);
     if ( v6 )
-      *(_BYTE *)(v6 + 26) |= 1u;
+      BYTE2(v6[1].Left) |= 1u;
   }
   if ( !P[5].Count )
   {
@@ -65,7 +65,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
     if ( _interlockedbittestandset64((volatile signed __int32 *)(Count + 112), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(Count + 112), v9, Count + 112);
     if ( v10 )
-      *(_BYTE *)(v10 + 26) |= 1u;
+      BYTE2(v10[1].Left) |= 1u;
     v11 = (struct _EX_RUNDOWN_REF **)P[8].Count;
     if ( v11[1] != &P[8] )
       goto LABEL_57;
@@ -92,7 +92,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 104), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 104), v16, v2 + 104);
   if ( v17 )
-    *(_BYTE *)(v17 + 26) |= 1u;
+    BYTE2(v17[1].Left) |= 1u;
   v18 = P[15].Count;
   if ( v18 != 1 && ((PEPROCESS)P[5].Count == PsInitialSystemProcess || !v18) )
     goto LABEL_25;

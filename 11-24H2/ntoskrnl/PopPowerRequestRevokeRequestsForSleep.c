@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPowerRequestRevokeRequestsForSleep @ 0x140AAEAF0
+ * XREFs of PopPowerRequestRevokeRequestsForSleep @ 0x140AA99CC
  * Callers:
- *     PopPowerAggregatorEngageModernStandby @ 0x140759514 (PopPowerAggregatorEngageModernStandby.c)
- *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140759DE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140757974 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140758230 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestRevokeRequests @ 0x1404B659C (PopPowerRequestRevokeRequests.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestRevokeRequests @ 0x1404B0D7C (PopPowerRequestRevokeRequests.c)
  */
 
 __int64 PopPowerRequestRevokeRequestsForSleep()
 {
-  PopAcquireRwLockExclusive(&PopPowerRequestLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
   PopPowerRequestRevokeRequests(10, 1);
-  return PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  return PopReleaseRwLock(&PopPowerRequestLock);
 }

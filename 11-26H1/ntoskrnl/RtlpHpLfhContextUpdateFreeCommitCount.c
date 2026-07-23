@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhContextUpdateFreeCommitCount @ 0x140349D0C
+ * XREFs of RtlpHpLfhContextUpdateFreeCommitCount @ 0x14034BD8C
  * Callers:
- *     RtlpHpLfhSubsegmentFree @ 0x140349360 (RtlpHpLfhSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1403499A0 (RtlpHpLfhSubsegmentReformatAsMulti.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x14034B3E0 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x14034BA20 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
  */
 
 char __fastcall RtlpHpLfhContextUpdateFreeCommitCount(__int64 *a1, __int64 a2, signed __int64 a3, __int64 a4)
@@ -25,9 +25,9 @@ char __fastcall RtlpHpLfhContextUpdateFreeCommitCount(__int64 *a1, __int64 a2, s
       *((_BYTE *)a1 + v5 + 92) = 1;
       v6 = *a1;
       if ( BYTE1(**(_QWORD **)(v6 + 56)) == 1 )
-        LODWORD(v4) = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag;
+        LODWORD(v4) = HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase);
       else
-        LODWORD(v4) = ExSaPageGroupDescriptorArrayLock.SystemCallNumber;
+        LODWORD(v4) = ExSaPageGroupDescriptorArrayLock.ThreadLock;
       if ( !(_DWORD)v4 )
         LOBYTE(v4) = RtlpHpEnvCompactionSchedule(*(_QWORD *)(v6 + 56), v5, a3, a4);
     }

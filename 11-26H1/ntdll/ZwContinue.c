@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwContinue @ 0x18015F7A0
+ * XREFs of ZwContinue @ 0x18015F6A0
  * Callers:
- *     LdrInitializeThunk @ 0x1800CE970 (LdrInitializeThunk.c)
- *     RtlRestoreContext @ 0x180126F90 (RtlRestoreContext.c)
+ *     LdrInitializeThunk @ 0x1800CC0E0 (LdrInitializeThunk.c)
+ *     RtlRestoreContext @ 0x180126D00 (RtlRestoreContext.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwContinue()
+NTSTATUS __cdecl ZwContinue(PCONTEXT ContextRecord, BOOLEAN TestAlert)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 67LL;
+  result = 67;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

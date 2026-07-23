@@ -18,7 +18,7 @@ void MiEmptyKernelStackCache()
   unsigned int j; // ebx
   __int64 v4; // rsi
   __int64 v5; // rdi
-  union _SLIST_HEADER *v6; // rbp
+  _SLIST_HEADER *v6; // rbp
   PSLIST_ENTRY v7; // rax
 
   if ( (MiFlags & 0x800) != 0 )

@@ -1,8 +1,8 @@
 /*
- * XREFs of deflateStateCheck @ 0x140627D14
+ * XREFs of deflateStateCheck @ 0x14062AD64
  * Callers:
- *     deflate @ 0x14062789C (deflate.c)
- *     deflateResetKeep @ 0x140627C24 (deflateResetKeep.c)
+ *     deflate @ 0x14062A8EC (deflate.c)
+ *     deflateResetKeep @ 0x14062AC74 (deflateResetKeep.c)
  * Callees:
  *     <none>
  */

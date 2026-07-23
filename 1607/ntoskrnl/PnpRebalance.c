@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpRebalance @ 0x1406303D0
+ * XREFs of PnpRebalance @ 0x140630484
  * Callers:
- *     PnpProcessRebalance @ 0x1401CE5E0 (PnpProcessRebalance.c)
- *     PnpAllocateResources @ 0x1404C82A4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x14064BC7C (PnpReallocateResources.c)
+ *     PnpProcessRebalance @ 0x1401CE42C (PnpProcessRebalance.c)
+ *     PnpAllocateResources @ 0x14050B1A0 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x14064BD60 (PnpReallocateResources.c)
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x1400084E8 (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1400B1388 (PnpDiagnosticTraceObjectWithStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PnpDiagnosticTraceObject @ 0x14000805C (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1400AF2C8 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopCommitConfiguration @ 0x14055593C (IopCommitConfiguration.c)
- *     PnpBuildCmResourceLists @ 0x140555BD8 (PnpBuildCmResourceLists.c)
- *     PnpFindBestConfiguration @ 0x140555DBC (PnpFindBestConfiguration.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x1405560E4 (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpCancelStopDeviceSubtree @ 0x14062FFAC (PnpCancelStopDeviceSubtree.c)
- *     PnpFindRebalanceCandidates @ 0x14062FFD8 (PnpFindRebalanceCandidates.c)
- *     PnpStopDeviceSubtree @ 0x140630728 (PnpStopDeviceSubtree.c)
- *     PnpTraceRebalanceResult @ 0x140649328 (PnpTraceRebalanceResult.c)
+ *     IopCommitConfiguration @ 0x140555E7C (IopCommitConfiguration.c)
+ *     PnpBuildCmResourceLists @ 0x140556118 (PnpBuildCmResourceLists.c)
+ *     PnpFindBestConfiguration @ 0x1405562FC (PnpFindBestConfiguration.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140556624 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpCancelStopDeviceSubtree @ 0x140630060 (PnpCancelStopDeviceSubtree.c)
+ *     PnpFindRebalanceCandidates @ 0x14063008C (PnpFindRebalanceCandidates.c)
+ *     PnpStopDeviceSubtree @ 0x1406307DC (PnpStopDeviceSubtree.c)
+ *     PnpTraceRebalanceResult @ 0x14064940C (PnpTraceRebalanceResult.c)
  */
 
 __int64 __fastcall PnpRebalance(__int64 a1, void *a2, unsigned int a3, char a4)

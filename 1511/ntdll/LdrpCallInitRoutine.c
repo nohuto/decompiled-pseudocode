@@ -16,8 +16,8 @@
  */
 
 char __fastcall LdrpCallInitRoutine(
-        __int64 (__fastcall *a1)(__int64, _QWORD, __int64),
-        __int64 a2,
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *a2,
         unsigned int a3,
         __int64 a4)
 {
@@ -30,15 +30,17 @@ char __fastcall LdrpCallInitRoutine(
   if ( MEMORY[0x7FFE0384] && (NtCurrentPeb()->TracingFlags & 4) != 0 && (MEMORY[0x7FFE0385] & 0x20) != 0 )
   {
     LOBYTE(a4) = a3;
-    LdrpLogEtwEvent(5283, a2, 0, a4, 0LL);
+    LdrpLogEtwEvent(5283, (_DWORD)a2, 0, a4, 0LL);
   }
-  _guard_check_icall_fptr();
-  v11 = a1(a2, a3, v4);
+  ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR))_guard_check_icall_fptr)(
+    HashTable,
+    a2);
+  v11 = ((__int64 (__fastcall *)(_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR *, _QWORD, __int64))HashTable)(a2, a3, v4);
   if ( MEMORY[0x7FFE0384] && (NtCurrentPeb()->TracingFlags & 4) != 0 && (MEMORY[0x7FFE0385] & 0x20) != 0 )
   {
     LOBYTE(v9) = -1;
     LOBYTE(v8) = -1;
-    LdrpLogEtwEvent(5270, a2, v8, v9, 0LL);
+    LdrpLogEtwEvent(5270, (_DWORD)a2, v8, v9, 0LL);
   }
   if ( !v11 && a3 == 1 )
   {

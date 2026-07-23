@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpDereferenceNotify @ 0x1409EED14
+ * XREFs of PnpDereferenceNotify @ 0x1409EC754
  * Callers:
- *     PnpUnregisterPlugPlayNotification @ 0x14046F240 (PnpUnregisterPlugPlayNotification.c)
- *     PnpNotifyHwProfileChange @ 0x140720684 (PnpNotifyHwProfileChange.c)
- *     PipKsrNotifyDrivers @ 0x14073423C (PipKsrNotifyDrivers.c)
- *     PnpNotifyDeviceClassChange @ 0x1409EE72C (PnpNotifyDeviceClassChange.c)
- *     PnpProcessDeferredRegistrations @ 0x1409EE8CC (PnpProcessDeferredRegistrations.c)
- *     PnpNotifyTargetDeviceChange @ 0x1409EEAA0 (PnpNotifyTargetDeviceChange.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x140469950 (PnpUnregisterPlugPlayNotification.c)
+ *     PnpNotifyHwProfileChange @ 0x14071E214 (PnpNotifyHwProfileChange.c)
+ *     PipKsrNotifyDrivers @ 0x14073216C (PipKsrNotifyDrivers.c)
+ *     PnpNotifyDeviceClassChange @ 0x1409EC16C (PnpNotifyDeviceClassChange.c)
+ *     PnpProcessDeferredRegistrations @ 0x1409EC30C (PnpProcessDeferredRegistrations.c)
+ *     PnpNotifyTargetDeviceChange @ 0x1409EC4E0 (PnpNotifyTargetDeviceChange.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1402CD920 (ExDeleteResourceLite.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExDeleteResourceLite @ 0x1402E55A0 (ExDeleteResourceLite.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDereferenceNotify(PVOID P)

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpMetadataHeapCreate @ 0x1406053B0
+ * XREFs of RtlpHpMetadataHeapCreate @ 0x1406029F0
  * Callers:
- *     RtlHpKInitializeHeapManager @ 0x14065A518 (RtlHpKInitializeHeapManager.c)
+ *     RtlHpKInitializeHeapManager @ 0x140658BE8 (RtlHpKInitializeHeapManager.c)
  * Callees:
- *     RtlpHpHeapCreate @ 0x140604D0C (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14060234C (RtlpHpHeapCreate.c)
  */
 
-bool __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE RunOnce, __int128 *Parameter, PVOID *Context)
+bool __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE a1, __int128 *a2, PVOID *a3)
 {
   __int64 v4; // rdx
   __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 
-  v6 = *Parameter;
-  v4 = RtlpHpHeapCreate(37748736, (__int64)Parameter, (__int64)Context, &v6);
+  v6 = *a2;
+  v4 = RtlpHpHeapCreate(37748736, (__int64)a2, (__int64)a3, &v6);
   if ( v4 )
-    RunOnce[-1].Value = v4;
+    a1[-1].Value = v4;
   return v4 != 0;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpUtcTimeToAcpiRealTime @ 0x140B268C4
+ * XREFs of HalpUtcTimeToAcpiRealTime @ 0x140B28B24
  * Callers:
- *     HalSetRealTimeClock @ 0x140578300 (HalSetRealTimeClock.c)
+ *     HalSetRealTimeClock @ 0x14057A830 (HalSetRealTimeClock.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x140215090 (ExSystemTimeToLocalTime.c)
- *     RtlTimeToTimeFields @ 0x140451D20 (RtlTimeToTimeFields.c)
- *     ExRealTimeIsUniversal @ 0x1404F9010 (ExRealTimeIsUniversal.c)
- *     HalpQueryAcpiRealTimeClock @ 0x140B26A10 (HalpQueryAcpiRealTimeClock.c)
+ *     ExSystemTimeToLocalTime @ 0x1402153C0 (ExSystemTimeToLocalTime.c)
+ *     RtlTimeToTimeFields @ 0x140449E50 (RtlTimeToTimeFields.c)
+ *     ExRealTimeIsUniversal @ 0x1404F2620 (ExRealTimeIsUniversal.c)
+ *     HalpQueryAcpiRealTimeClock @ 0x140B28C70 (HalpQueryAcpiRealTimeClock.c)
  */
 
 __int64 __fastcall HalpUtcTimeToAcpiRealTime(PLARGE_INTEGER SystemTime, __int16 *OutputBuffer)
 {
   __int64 v4; // rax
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+48h] [rbp+18h] BYREF
 
   OutputBuffer[5] = 2047;

@@ -1,18 +1,18 @@
 /*
- * XREFs of PspQueryWorkingSetWatch @ 0x140A8C1D4
+ * XREFs of PspQueryWorkingSetWatch @ 0x1409DDA3C
  * Callers:
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ExIsRestrictedCaller @ 0x140A8C678 (ExIsRestrictedCaller.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExIsRestrictedCaller @ 0x1409DDEE0 (ExIsRestrictedCaller.c)
  */
 
 __int64 __fastcall PspQueryWorkingSetWatch(
@@ -73,7 +73,7 @@ __int64 __fastcall PspQueryWorkingSetWatch(
   LOBYTE(BugCheckParameter1) = a6;
   if ( (unsigned int)ExIsRestrictedCaller(BugCheckParameter1, &v27) )
     return 3221225506LL;
-  result = ObpReferenceObjectByHandleWithTag(v7, 1024LL, PsProcessType, a6, 0x79517350u, &Object, 0LL, 0LL);
+  result = ObpReferenceObjectByHandleWithTag(v7, 1024, (__int64)PsProcessType, a6, 0x79517350u, &Object, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
     v10 = (_DWORD *)*((_QWORD *)Object + 88);

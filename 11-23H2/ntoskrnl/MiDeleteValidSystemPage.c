@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDeleteValidSystemPage @ 0x140280810
+ * XREFs of MiDeleteValidSystemPage @ 0x140280AA0
  * Callers:
- *     MiTerminateWsleCluster @ 0x1402791A0 (MiTerminateWsleCluster.c)
- *     MiDeleteKernelStack @ 0x140283990 (MiDeleteKernelStack.c)
- *     MiDeleteSystemPagableVm @ 0x1402E9440 (MiDeleteSystemPagableVm.c)
+ *     MiTerminateWsleCluster @ 0x140279430 (MiTerminateWsleCluster.c)
+ *     MiDeleteKernelStack @ 0x140283C20 (MiDeleteKernelStack.c)
+ *     MiDeleteSystemPagableVm @ 0x1402E96D0 (MiDeleteSystemPagableVm.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiPfnShareCountIsZero @ 0x1402818C0 (MiPfnShareCountIsZero.c)
- *     MiCaptureDirtyBitToPfn @ 0x140283100 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiDecrementCombinedPteEx @ 0x1402F3B18 (MiDecrementCombinedPteEx.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiIsPfnSystemCharged @ 0x1403A636C (MiIsPfnSystemCharged.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiDriverPageIsDangling @ 0x14062C5A8 (MiDriverPageIsDangling.c)
- *     MiBadShareCount @ 0x14064D68C (MiBadShareCount.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiPfnShareCountIsZero @ 0x140281B50 (MiPfnShareCountIsZero.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140283390 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiDecrementCombinedPteEx @ 0x1402F3DA8 (MiDecrementCombinedPteEx.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiIsPfnSystemCharged @ 0x1403A654C (MiIsPfnSystemCharged.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiDriverPageIsDangling @ 0x14062CAF8 (MiDriverPageIsDangling.c)
+ *     MiBadShareCount @ 0x14064DBDC (MiBadShareCount.c)
  */
 
 struct _KTHREAD *__fastcall MiDeleteValidSystemPage(__int64 a1, unsigned __int64 a2, char a3, struct _KTHREAD *a4)

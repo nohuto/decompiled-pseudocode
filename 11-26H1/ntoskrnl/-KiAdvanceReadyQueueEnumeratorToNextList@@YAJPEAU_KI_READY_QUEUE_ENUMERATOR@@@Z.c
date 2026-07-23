@@ -1,12 +1,12 @@
 /*
- * XREFs of ?KiAdvanceReadyQueueEnumeratorToNextList@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1402BC7D0
+ * XREFs of ?KiAdvanceReadyQueueEnumeratorToNextList@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x140307490
  * Callers:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x1403362D0 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x140338300 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
  * Callees:
- *     ?KiAdvanceReadyQueueEnumeratorToNextPhase@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1403A90E0 (-KiAdvanceReadyQueueEnumeratorToNextPhase@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
- *     ?KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1403A9550 (-KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
- *     ?KiAdvanceReadyQueueEnumeratorToNextProcessor@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x14047ABE4 (-KiAdvanceReadyQueueEnumeratorToNextProcessor@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
+ *     ?KiAdvanceReadyQueueEnumeratorToNextPhase@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1403AAE40 (-KiAdvanceReadyQueueEnumeratorToNextPhase@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
+ *     ?KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1403AB2B0 (-KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
+ *     ?KiAdvanceReadyQueueEnumeratorToNextProcessor@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x140474554 (-KiAdvanceReadyQueueEnumeratorToNextProcessor@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
  */
 
 __int64 __fastcall KiAdvanceReadyQueueEnumeratorToNextList(struct _KI_READY_QUEUE_ENUMERATOR *a1)

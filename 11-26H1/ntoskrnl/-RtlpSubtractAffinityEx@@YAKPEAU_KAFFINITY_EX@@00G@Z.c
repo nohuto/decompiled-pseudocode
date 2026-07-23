@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RtlpSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14045EC10
+ * XREFs of ?RtlpSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025F780
  * Callers:
- *     PpmParkSteerInterrupts @ 0x1402541D0 (PpmParkSteerInterrupts.c)
- *     PpmParkFindSpecificTopologyMask @ 0x14045E650 (PpmParkFindSpecificTopologyMask.c)
- *     KeSubtractAffinityEx @ 0x1405EC970 (KeSubtractAffinityEx.c)
+ *     PpmParkSteerInterrupts @ 0x140255B30 (PpmParkSteerInterrupts.c)
+ *     PpmParkFindSpecificTopologyMask @ 0x14025DB70 (PpmParkFindSpecificTopologyMask.c)
+ *     KeSubtractAffinityEx @ 0x1405EF2E0 (KeSubtractAffinityEx.c)
  * Callees:
  *     <none>
  */

@@ -110,7 +110,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1, _KPROCESS *a2)
       a2 = (_KPROCESS *)PsNtosImageBase;
       v7 = v4;
       v44 = v4;
-      if ( PsNtosImageBase != *(_QWORD *)(v2 + 48) )
+      if ( PsNtosImageBase != *(PVOID *)(v2 + 48) )
       {
         MiProcessLoadConfigForDriver(v2);
         a2 = (_KPROCESS *)PsNtosImageBase;
@@ -136,7 +136,7 @@ void __fastcall MiReloadBootLoadedDrivers(__int64 a1, _KPROCESS *a2)
       v51 = v10;
       v49 = v11;
       v52 = v10 + 8LL * (unsigned int)v11;
-      if ( (_KPROCESS *)v39 == a2 || v39 == PsHalImageBase )
+      if ( (_KPROCESS *)v39 == a2 || (PVOID)v39 == PsHalImageBase )
         goto LABEL_55;
       v7->OptionalHeader.ImageBase = v39;
       v12 = ((v39 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

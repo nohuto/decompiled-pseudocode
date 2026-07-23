@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwInitializeSiloState @ 0x1405631E8
+ * XREFs of EtwInitializeSiloState @ 0x140563728
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x14067E960 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x14067EA44 (PspInitializeServerSiloDeferred.c)
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  * Callees:
- *     ExFreeCacheAwareRundownProtection @ 0x140007928 (ExFreeCacheAwareRundownProtection.c)
- *     PsDetachSiloFromCurrentThread @ 0x140009D20 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140009D40 (PsAttachSiloToCurrentThread.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x140007A98 (ExFreeCacheAwareRundownProtection.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1400098A0 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x1400098C0 (PsAttachSiloToCurrentThread.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x1404C17A0 (ExAllocateCacheAwareRundownProtection.c)
- *     EtwpInitializeAutoLoggers @ 0x140563428 (EtwpInitializeAutoLoggers.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1404AD4D0 (ExAllocateCacheAwareRundownProtection.c)
+ *     EtwpInitializeAutoLoggers @ 0x140563968 (EtwpInitializeAutoLoggers.c)
  */
 
 __int64 __fastcall EtwInitializeSiloState(__int64 a1)
@@ -88,7 +88,7 @@ __int64 __fastcall EtwInitializeSiloState(__int64 a1)
         v12 = (volatile signed __int32 *)(v4 + 384);
         *(_QWORD *)(v4 + 376) = v4;
         *(_QWORD *)(v4 + 384) = 0LL;
-        *(_OWORD *)(v4 + 24) = SecurityProviderGuid;
+        *(GUID *)(v4 + 24) = SecurityProviderGuid;
         *((_QWORD *)PsGetServerSiloGlobals(a1) + 106) = v4;
         if ( PsIsHostSilo(a1) )
         {

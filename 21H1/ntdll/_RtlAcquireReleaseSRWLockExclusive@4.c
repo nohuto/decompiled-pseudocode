@@ -8,17 +8,14 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-signed __int32 __stdcall RtlAcquireReleaseSRWLockExclusive(volatile signed __int32 *a1)
+void __cdecl RtlAcquireReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int32 result; // eax
-  signed __int32 v2; // [esp+8h] [ebp-4h] BYREF
+  signed __int32 v1; // [esp+8h] [ebp-4h] BYREF
 
-  _InterlockedOr(&v2, 0);
-  result = *a1;
-  if ( (*a1 & 1) != 0 )
+  _InterlockedOr(&v1, 0);
+  if ( (SRWLock->Value & 1) != 0 )
   {
-    RtlAcquireSRWLockExclusive(a1);
-    return RtlReleaseSRWLockExclusive(a1);
+    RtlAcquireSRWLockExclusive(SRWLock);
+    RtlReleaseSRWLockExclusive(SRWLock);
   }
-  return result;
 }

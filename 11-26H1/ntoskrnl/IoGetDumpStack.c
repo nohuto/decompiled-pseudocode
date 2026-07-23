@@ -1,12 +1,12 @@
 /*
- * XREFs of IoGetDumpStack @ 0x140B5FFE0
+ * XREFs of IoGetDumpStack @ 0x140B6307C
  * Callers:
- *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140B75B48 (PopAllocateHiberContext.c)
  * Callees:
- *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x14050DC74 (IopDumpTraceLoadCrashDumpDriverFailure.c)
- *     IopLoadCrashdumpDriver @ 0x14050F1D4 (IopLoadCrashdumpDriver.c)
- *     IopDumpTraceLoadDumpStackFailure @ 0x1405C94E8 (IopDumpTraceLoadDumpStackFailure.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x1405076E4 (IopDumpTraceLoadCrashDumpDriverFailure.c)
+ *     IopLoadCrashdumpDriver @ 0x140508C44 (IopLoadCrashdumpDriver.c)
+ *     IopDumpTraceLoadDumpStackFailure @ 0x1405CBDB8 (IopDumpTraceLoadDumpStackFailure.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IoGetDumpStack(__int64 a1, __int64 a2)

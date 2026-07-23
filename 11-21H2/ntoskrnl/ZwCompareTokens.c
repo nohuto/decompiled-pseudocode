@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCompareTokens(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(FirstTokenHandle, SecondTokenHandle);
 }

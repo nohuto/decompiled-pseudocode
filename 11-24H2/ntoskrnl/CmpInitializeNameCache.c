@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeNameCache @ 0x1407DAF2C
+ * XREFs of CmpInitializeNameCache @ 0x1407DB47C
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 _QWORD *CmpInitializeNameCache()
@@ -12,7 +12,7 @@ _QWORD *CmpInitializeNameCache()
   _QWORD *result; // rax
   __int64 v1; // rcx
 
-  result = (_QWORD *)ExAllocatePool2(0x100uLL);
+  result = (_QWORD *)ExAllocatePool2(0x100uLL, 0x8000uLL, 0x61434D43u);
   CmpNameCacheTable = result;
   if ( !result )
     KeBugCheckEx(0x67u, 3uLL, 2uLL, 0LL, 0LL);

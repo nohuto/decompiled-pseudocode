@@ -1,24 +1,28 @@
 /*
- * XREFs of NtGetContextThread @ 0x1406BDEC0
+ * XREFs of NtGetContextThread @ 0x14061D120
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PspGetContextThreadInternal @ 0x140647E54 (PspGetContextThreadInternal.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PspGetContextThreadInternal @ 0x14063CC44 (PspGetContextThreadInternal.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtGetContextThread(void *a1, __int64 a2)
+NTSTATUS __cdecl NtGetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
+  int v2; // ebp
   KPROCESSOR_MODE PreviousMode; // si
   int ContextThreadInternal; // edi
-  struct _DMA_ADAPTER *v5; // rbx
+  int v5; // r8d
+  int v6; // r9d
+  struct _DMA_ADAPTER *v7; // rbx
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
 
+  v2 = (int)ThreadContext;
   DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   ContextThreadInternal = ObReferenceObjectByHandle(
-                            a1,
+                            ThreadHandle,
                             8u,
                             (POBJECT_TYPE)PsThreadType,
                             PreviousMode,
@@ -26,12 +30,18 @@ __int64 __fastcall NtGetContextThread(void *a1, __int64 a2)
                             0LL);
   if ( ContextThreadInternal >= 0 )
   {
-    v5 = DmaAdapter;
+    v7 = DmaAdapter;
     if ( (*(_DWORD *)(&DmaAdapter[7].Size + 1) & 0x400) != 0 )
+    {
       ContextThreadInternal = -1073741816;
+    }
     else
-      ContextThreadInternal = PspGetContextThreadInternal((__int64)DmaAdapter, a2, PreviousMode, PreviousMode, 1);
-    HalPutDmaAdapter(v5);
+    {
+      LOBYTE(v6) = PreviousMode;
+      LOBYTE(v5) = PreviousMode;
+      ContextThreadInternal = PspGetContextThreadInternal((_DWORD)DmaAdapter, v2, v5, v6, 1);
+    }
+    HalPutDmaAdapter(v7);
   }
-  return (unsigned int)ContextThreadInternal;
+  return ContextThreadInternal;
 }

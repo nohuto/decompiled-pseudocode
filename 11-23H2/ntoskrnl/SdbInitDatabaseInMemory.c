@@ -3,14 +3,14 @@
  * Callers:
  *     PiInitializeDDB @ 0x14069378C (PiInitializeDDB.c)
  *     KsepSdbMapToMemory @ 0x140694E7C (KsepSdbMapToMemory.c)
- *     PpBootDDBHelper @ 0x1408128B4 (PpBootDDBHelper.c)
- *     KsepSdbBootInitialize @ 0x140861E48 (KsepSdbBootInitialize.c)
+ *     PpBootDDBHelper @ 0x140812B84 (PpBootDDBHelper.c)
+ *     KsepSdbBootInitialize @ 0x140862088 (KsepSdbBootInitialize.c)
  * Callees:
  *     SdbpOpenDatabaseInMemory @ 0x140695260 (SdbpOpenDatabaseInMemory.c)
  *     SdbpInitializeMatchers @ 0x1406954A4 (SdbpInitializeMatchers.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  *     SdbCloseDatabaseRead @ 0x140695724 (SdbCloseDatabaseRead.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

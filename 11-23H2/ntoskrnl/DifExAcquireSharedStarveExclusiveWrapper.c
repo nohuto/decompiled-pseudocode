@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExAcquireSharedStarveExclusiveWrapper @ 0x1405D72F0
+ * XREFs of DifExAcquireSharedStarveExclusiveWrapper @ 0x1405D7860
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSharedStarveExclusive @ 0x140348D20 (ExAcquireSharedStarveExclusive.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ExAcquireSharedStarveExclusive @ 0x140348FB0 (ExAcquireSharedStarveExclusive.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 BOOLEAN __fastcall DifExAcquireSharedStarveExclusiveWrapper(PERESOURCE Resource, BOOLEAN a2)

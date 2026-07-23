@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpComputeKcbConvKey @ 0x1405FF558
+ * XREFs of CmpComputeKcbConvKey @ 0x1405FF60C
  * Callers:
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpRehashKcbSubtree @ 0x1405FF874 (CmpRehashKcbSubtree.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpRehashKcbSubtree @ 0x1405FF928 (CmpRehashKcbSubtree.c)
  * Callees:
  *     <none>
  */

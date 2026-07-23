@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceBroadcastVisit @ 0x1408F80C0
+ * XREFs of PopDirectedDripsDiagTraceBroadcastVisit @ 0x1408F8220
  * Callers:
- *     PopDirectedDripsVisitDevice @ 0x1408F9170 (PopDirectedDripsVisitDevice.c)
+ *     PopDirectedDripsVisitDevice @ 0x1408F92D0 (PopDirectedDripsVisitDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x1408F6F50 (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x1408F70B0 (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
  */
 
 char __fastcall PopDirectedDripsDiagTraceBroadcastVisit(__int64 a1, __int64 a2, int a3)

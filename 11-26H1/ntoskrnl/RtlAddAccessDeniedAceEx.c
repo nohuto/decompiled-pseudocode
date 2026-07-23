@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAddAccessDeniedAceEx @ 0x1408030A0
+ * XREFs of RtlAddAccessDeniedAceEx @ 0x140808B40
  * Callers:
- *     PiAuCreateStandardSecurityObject @ 0x140CC5994 (PiAuCreateStandardSecurityObject.c)
+ *     PiAuCreateStandardSecurityObject @ 0x140CCBA74 (PiAuCreateStandardSecurityObject.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
  */
 
-__int64 __fastcall RtlAddAccessDeniedAceEx(int a1, int a2, int a3, int a4, void *Src)
+NTSTATUS __cdecl RtlAddAccessDeniedAceEx(PACL Acl, ULONG AceRevision, ULONG AceFlags, ACCESS_MASK AccessMask, PSID Sid)
 {
-  return RtlpAddKnownAce(a1, a2, a3, a4, Src, 1);
+  return RtlpAddKnownAce((int)Acl, AceRevision, AceFlags, AccessMask, Sid, 1);
 }

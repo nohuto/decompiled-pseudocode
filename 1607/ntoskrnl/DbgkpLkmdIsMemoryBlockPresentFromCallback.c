@@ -1,5 +1,5 @@
 /*
- * XREFs of DbgkpLkmdIsMemoryBlockPresentFromCallback @ 0x14061B3BC
+ * XREFs of DbgkpLkmdIsMemoryBlockPresentFromCallback @ 0x14061B470
  * Callers:
  *     <none>
  * Callees:

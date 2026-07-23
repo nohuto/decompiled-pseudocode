@@ -26,7 +26,7 @@ __int64 KeResumeClockTimerSafe()
     return KiResumeClockTimer();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xDuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 13 )
@@ -36,10 +36,10 @@ __int64 KeResumeClockTimerSafe()
     SchedulerAssist[5] |= v2;
   }
   KiResumeClockTimer();
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v3 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v3 <= 0xFu && CurrentIrql <= 0xFu && v3 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v3 <= 0xFu && CurrentIrql <= 0xFu && v3 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v5 = CurrentPrcb->SchedulerAssist;

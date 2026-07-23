@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpConstructNameFromKcbNameBlocks @ 0x140778C38
+ * XREFs of CmpConstructNameFromKcbNameBlocks @ 0x140778DF8
  * Callers:
- *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406C25F4 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406212B4 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpConstructNameWithStatus @ 0x1406E2750 (CmpConstructNameWithStatus.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpKeyFullNameLength @ 0x1405F3480 (CmpKeyFullNameLength.c)
- *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpCopyCompressedName @ 0x14065ED94 (CmpCopyCompressedName.c)
+ *     CmpKeyFullNameLength @ 0x1406E2BE0 (CmpKeyFullNameLength.c)
  */
 
 __int64 __fastcall CmpConstructNameFromKcbNameBlocks(__int64 a1, _QWORD *a2)

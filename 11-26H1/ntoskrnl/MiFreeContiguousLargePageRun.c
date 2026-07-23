@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFreeContiguousLargePageRun @ 0x140701770
+ * XREFs of MiFreeContiguousLargePageRun @ 0x140706440
  * Callers:
- *     MiFreePhysicalPageChain @ 0x1403C73D4 (MiFreePhysicalPageChain.c)
- *     MiDeleteAweInfoPageRuns @ 0x140701000 (MiDeleteAweInfoPageRuns.c)
- *     MiFreeAwePagesFromMdl @ 0x1407016C0 (MiFreeAwePagesFromMdl.c)
+ *     MiFreePhysicalPageChain @ 0x1403D12C8 (MiFreePhysicalPageChain.c)
+ *     MiDeleteAweInfoPageRuns @ 0x140705CD0 (MiDeleteAweInfoPageRuns.c)
+ *     MiFreeAwePagesFromMdl @ 0x140706390 (MiFreeAwePagesFromMdl.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiReturnCrossPartitionCharges @ 0x14036E1E8 (MiReturnCrossPartitionCharges.c)
- *     MiFreeLargePageCharges @ 0x1403C4704 (MiFreeLargePageCharges.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiFreeLargePages @ 0x1403C700C (MiFreeLargePages.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiClearAweLargePageMetadata @ 0x140700F94 (MiClearAweLargePageMetadata.c)
- *     MiFreePhysicalRange @ 0x140701AA0 (MiFreePhysicalRange.c)
- *     MiCoalesceActivePagesIntoFree @ 0x14070B328 (MiCoalesceActivePagesIntoFree.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiReturnCrossPartitionCharges @ 0x14036FF88 (MiReturnCrossPartitionCharges.c)
+ *     MiFreeLargePageCharges @ 0x1403CE610 (MiFreeLargePageCharges.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiFreeLargePages @ 0x1403D0F00 (MiFreeLargePages.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiClearAweLargePageMetadata @ 0x140705C64 (MiClearAweLargePageMetadata.c)
+ *     MiFreePhysicalRange @ 0x140706770 (MiFreePhysicalRange.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14070FFD8 (MiCoalesceActivePagesIntoFree.c)
  */
 
 unsigned __int64 __fastcall MiFreeContiguousLargePageRun(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -74,7 +74,7 @@ unsigned __int64 __fastcall MiFreeContiguousLargePageRun(__int64 a1, unsigned __
   }
   else
   {
-    v7 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
+    v7 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
     v25 = v7;
     if ( a3 )
     {
@@ -152,7 +152,7 @@ unsigned __int64 __fastcall MiFreeContiguousLargePageRun(__int64 a1, unsigned __
         if ( (_DWORD)v18 )
         {
           MiFreeLargePageCharges(v7, v20, 0);
-          if ( v7 != *(_QWORD *)(stru_140E2EB88.ThreadLock
+          if ( v7 != *(_QWORD *)(stru_140E2ED08.ThreadLock
                                + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink)) )
             MiReturnCrossPartitionCharges(v7, 2u, 1, v20);
         }

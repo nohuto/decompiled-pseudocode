@@ -1,23 +1,23 @@
 /*
- * XREFs of CcPrepareMdlWrite @ 0x140369190
+ * XREFs of CcPrepareMdlWrite @ 0x140369330
  * Callers:
- *     FsRtlPrepareMdlWriteDev @ 0x14093D5B0 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14093D7B0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcGetVirtualAddress @ 0x140264DF0 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x140265190 (CcMapAndRead.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     CcSetDirtyInMask @ 0x1402C8FF0 (CcSetDirtyInMask.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     CcForceWriteThrough @ 0x140369520 (CcForceWriteThrough.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcGetVirtualAddress @ 0x140265080 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x140265420 (CcMapAndRead.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     CcSetDirtyInMask @ 0x1402C9280 (CcSetDirtyInMask.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     IopAllocateMdl @ 0x1402FC37C (IopAllocateMdl.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     CcForceWriteThrough @ 0x1403696C0 (CcForceWriteThrough.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall CcPrepareMdlWrite(
@@ -186,10 +186,13 @@ LABEL_17:
   ++*((_DWORD *)SharedCacheMap + 136);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

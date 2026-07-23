@@ -1,8 +1,8 @@
 /*
- * XREFs of PopGetLegacyPowerRequestFlags @ 0x140434DB8
+ * XREFs of PopGetLegacyPowerRequestFlags @ 0x1404B2E80
  * Callers:
- *     PoRegisterSystemState @ 0x140436880 (PoRegisterSystemState.c)
- *     NtSetThreadExecutionState @ 0x1407D2150 (NtSetThreadExecutionState.c)
+ *     PoRegisterSystemState @ 0x140425810 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x1407D51F0 (NtSetThreadExecutionState.c)
  * Callees:
  *     <none>
  */

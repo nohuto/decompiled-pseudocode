@@ -1,14 +1,14 @@
 /*
- * XREFs of IopMcWaitAndCleanupBufferEntry @ 0x1405A2F44
+ * XREFs of IopMcWaitAndCleanupBufferEntry @ 0x14059FE84
  * Callers:
- *     IopIoRingCleanupRegBufferArray @ 0x140716544 (IopIoRingCleanupRegBufferArray.c)
- *     IopIoRingDispatchRegisterBuffers @ 0x140716848 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingCleanupRegBufferArray @ 0x1407140D4 (IopIoRingCleanupRegBufferArray.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x1407143D8 (IopIoRingDispatchRegisterBuffers.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IopMcDereferenceBufferEntry @ 0x14043D2F0 (IopMcDereferenceBufferEntry.c)
- *     IopMcTryUnlockMdl @ 0x1405A2EE8 (IopMcTryUnlockMdl.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IopMcDereferenceBufferEntry @ 0x140431590 (IopMcDereferenceBufferEntry.c)
+ *     IopMcTryUnlockMdl @ 0x14059FE28 (IopMcTryUnlockMdl.c)
  */
 
 __int64 __fastcall IopMcWaitAndCleanupBufferEntry(ULONG_PTR BugCheckParameter2)
@@ -29,7 +29,7 @@ __int64 __fastcall IopMcWaitAndCleanupBufferEntry(ULONG_PTR BugCheckParameter2)
   if ( *(int *)(BugCheckParameter2 + 48) > 0 )
     KeWaitForSingleObject((PVOID)(BugCheckParameter2 + 64), WrMdlCache, 0, 0, 0LL);
   IopMcTryUnlockMdl(BugCheckParameter2, *(_QWORD *)(BugCheckParameter2 + 56));
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F8C248);
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F8C4C8);
   v5 = *(_QWORD *)(BugCheckParameter2 + 16);
   if ( *(_QWORD *)(v5 + 8) != BugCheckParameter2 + 16
     || (v6 = *(_QWORD **)(BugCheckParameter2 + 24), *v6 != BugCheckParameter2 + 16) )
@@ -38,7 +38,7 @@ __int64 __fastcall IopMcWaitAndCleanupBufferEntry(ULONG_PTR BugCheckParameter2)
   }
   *v6 = v5;
   *(_QWORD *)(v5 + 8) = v6;
-  KeReleaseSpinLock(&qword_140F8C248, v4);
+  KeReleaseSpinLock(&qword_140F8C4C8, v4);
   IopMcDereferenceBufferEntry(BugCheckParameter2);
   return 0LL;
 }

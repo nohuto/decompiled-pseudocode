@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemUpdateInflightScenarioTable @ 0x1409DDF08
+ * XREFs of WdipSemUpdateInflightScenarioTable @ 0x1409DE108
  * Callers:
- *     WdipSemLogInflightLimitExceededInformation @ 0x1409DDC94 (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x1409DDE94 (WdipSemLogInflightLimitExceededInformation.c)
  * Callees:
- *     WdipSemFastAllocate @ 0x14083178C (WdipSemFastAllocate.c)
- *     WdipSemQueryInflightScenarioTable @ 0x1409DDDE4 (WdipSemQueryInflightScenarioTable.c)
+ *     WdipSemFastAllocate @ 0x140831A8C (WdipSemFastAllocate.c)
+ *     WdipSemQueryInflightScenarioTable @ 0x1409DDFE4 (WdipSemQueryInflightScenarioTable.c)
  */
 
 __int64 __fastcall WdipSemUpdateInflightScenarioTable(_QWORD *a1, __int16 a2, _DWORD *a3, __int64 a4)
@@ -13,7 +13,7 @@ __int64 __fastcall WdipSemUpdateInflightScenarioTable(_QWORD *a1, __int16 a2, _D
   __int64 InflightScenarioTable; // rax
   __int64 v10; // rdx
   PSLIST_ENTRY v11; // rax
-  struct _SLIST_ENTRY v12; // xmm0
+  _SLIST_ENTRY v12; // xmm0
 
   v4 = 0;
   if ( a1 && a3 && a4 )
@@ -34,7 +34,7 @@ __int64 __fastcall WdipSemUpdateInflightScenarioTable(_QWORD *a1, __int16 a2, _D
         return (unsigned int)-1073741670;
       *v11 = 0LL;
       v11[1].Next = 0LL;
-      v12 = *(struct _SLIST_ENTRY *)a1;
+      v12 = *(_SLIST_ENTRY *)a1;
       LOWORD(v11[1].Next) = a2;
       HIDWORD(v11[1].Next) = 1;
       *v11 = v12;

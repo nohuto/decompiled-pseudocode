@@ -1,20 +1,20 @@
 /*
- * XREFs of MiActOnPatchInAllSessions @ 0x140A34610
+ * XREFs of MiActOnPatchInAllSessions @ 0x140A348C0
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140A34878 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140A34B28 (MiApplyDriverHotPatch.c)
  * Callees:
  *     MiSessionLookupImage @ 0x14020AB68 (MiSessionLookupImage.c)
- *     MiAttachSessionGlobal @ 0x14033DA9C (MiAttachSessionGlobal.c)
- *     MiDetachSessionGlobal @ 0x14033EFBC (MiDetachSessionGlobal.c)
- *     MiDereferenceSessionGlobal @ 0x14063750C (MiDereferenceSessionGlobal.c)
- *     MiGetNextSessionGlobal @ 0x140637524 (MiGetNextSessionGlobal.c)
+ *     MiAttachSessionGlobal @ 0x14033DD2C (MiAttachSessionGlobal.c)
+ *     MiDetachSessionGlobal @ 0x14033F24C (MiDetachSessionGlobal.c)
+ *     MiDereferenceSessionGlobal @ 0x140637A5C (MiDereferenceSessionGlobal.c)
+ *     MiGetNextSessionGlobal @ 0x140637A74 (MiGetNextSessionGlobal.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  *     MiFreeLoadedImportList @ 0x140696D20 (MiFreeLoadedImportList.c)
- *     MiFindEntryInImportList @ 0x140A2B030 (MiFindEntryInImportList.c)
- *     MiRemoveEntryFromImportList @ 0x140A2B078 (MiRemoveEntryFromImportList.c)
- *     MiInvokePatchCallback @ 0x140A37E90 (MiInvokePatchCallback.c)
- *     MiLogHotPatchOperationStatus @ 0x140A38F58 (MiLogHotPatchOperationStatus.c)
- *     MiMapAndApplyPatchInSession @ 0x140A39FB4 (MiMapAndApplyPatchInSession.c)
+ *     MiFindEntryInImportList @ 0x140A2B2E0 (MiFindEntryInImportList.c)
+ *     MiRemoveEntryFromImportList @ 0x140A2B328 (MiRemoveEntryFromImportList.c)
+ *     MiInvokePatchCallback @ 0x140A38140 (MiInvokePatchCallback.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A39208 (MiLogHotPatchOperationStatus.c)
+ *     MiMapAndApplyPatchInSession @ 0x140A3A264 (MiMapAndApplyPatchInSession.c)
  */
 
 __int64 __fastcall MiActOnPatchInAllSessions(__int64 a1, __int64 a2, int a3, __int64 a4)

@@ -8,7 +8,7 @@
  *     RtlpHeapExceptionFilter @ 0x1800F2DA8 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlpHpReAllocWithExceptionProtection(
+unsigned __int64 __fastcall RtlpHpReAllocWithExceptionProtection(
         __int64 a1,
         unsigned int a2,
         unsigned __int64 a3,

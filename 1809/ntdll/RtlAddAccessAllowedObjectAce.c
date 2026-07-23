@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlAddAccessAllowedObjectAce @ 0x18008B190
+ * XREFs of RtlAddAccessAllowedObjectAce @ 0x18008B1A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAddKnownObjectAce @ 0x18008B1DC (RtlpAddKnownObjectAce.c)
+ *     RtlpAddKnownObjectAce @ 0x18008B1EC (RtlpAddKnownObjectAce.c)
  */
 
-__int64 __fastcall RtlAddAccessAllowedObjectAce(
-        char *a1,
-        unsigned int a2,
-        int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7)
+NTSTATUS __cdecl RtlAddAccessAllowedObjectAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PGUID ObjectTypeGuid,
+        PGUID InheritedObjectTypeGuid,
+        PSID Sid)
 {
-  if ( a5 || a6 )
-    return RtlpAddKnownObjectAce((_DWORD)a1, a2, a3, a4, a5, a6, a7, 5);
+  if ( ObjectTypeGuid || InheritedObjectTypeGuid )
+    return RtlpAddKnownObjectAce(Acl, (__int64)ObjectTypeGuid, (__int64)InheritedObjectTypeGuid, Sid, 5);
   else
-    return RtlpAddKnownAce(a1, a2, a3, a4, a7, 0);
+    return RtlpAddKnownAce(Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 0);
 }

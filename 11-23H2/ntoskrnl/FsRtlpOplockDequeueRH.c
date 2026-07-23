@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlpOplockDequeueRH @ 0x140301520
+ * XREFs of FsRtlpOplockDequeueRH @ 0x1403017B0
  * Callers:
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1402FD670 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpOplockEnqueueRH @ 0x140302464 (FsRtlpOplockEnqueueRH.c)
- *     FsRtlUninitializeOplock @ 0x14034C630 (FsRtlUninitializeOplock.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403BFC24 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D3330 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140766310 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1402FD900 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402FDBE0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockCleanup @ 0x1403011A4 (FsRtlpOplockCleanup.c)
+ *     FsRtlpRequestShareableOplock @ 0x140301BB0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockEnqueueRH @ 0x1403026F4 (FsRtlpOplockEnqueueRH.c)
+ *     FsRtlUninitializeOplock @ 0x14034C7D0 (FsRtlUninitializeOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403BFE04 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D3510 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x140766500 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     IoGetOplockFullFoExt @ 0x140301674 (IoGetOplockFullFoExt.c)
+ *     IoGetOplockFullFoExt @ 0x140301904 (IoGetOplockFullFoExt.c)
  */
 
 _QWORD *__fastcall FsRtlpOplockDequeueRH(__int64 a1)

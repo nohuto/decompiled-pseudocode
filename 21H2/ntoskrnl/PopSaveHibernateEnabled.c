@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSaveHibernateEnabled @ 0x1408E1624
+ * XREFs of PopSaveHibernateEnabled @ 0x1408E1784
  * Callers:
- *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x1407926A0 (PopEnableHiberFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PopOpenKey @ 0x1403A7CB0 (PopOpenKey.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x1403A7E00 (PopOpenKey.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
  */
 
 NTSTATUS PopSaveHibernateEnabled()

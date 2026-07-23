@@ -11,7 +11,7 @@
 size_t __cdecl wcstombs(char *Dest, const wchar_t *Source, size_t MaxCount)
 {
   __int64 v3; // rax
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 BytesInMultiByteString; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = -1LL;
@@ -21,12 +21,7 @@ size_t __cdecl wcstombs(char *Dest, const wchar_t *Source, size_t MaxCount)
     do
       ++v3;
     while ( Source[v3] );
-    v4 = RtlUnicodeToMultiByteN(
-           Dest,
-           MaxCount,
-           (unsigned int *)&BytesInMultiByteString,
-           (unsigned __int16 *)Source,
-           2 * (int)v3 + 2);
+    v4 = RtlUnicodeToMultiByteN(Dest, MaxCount, (PULONG)&BytesInMultiByteString, Source, 2 * v3 + 2);
   }
   else
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopEliminateBogusConflict @ 0x1401D119C
+ * XREFs of IopEliminateBogusConflict @ 0x1401D0FC8
  * Callers:
- *     IopQueryConflictFillConflicts @ 0x14064E070 (IopQueryConflictFillConflicts.c)
+ *     IopQueryConflictFillConflicts @ 0x14064E154 (IopQueryConflictFillConflicts.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
  */
 
 char __fastcall IopEliminateBogusConflict(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetSystemPriorityThread @ 0x140576CB0
+ * XREFs of KeSetSystemPriorityThread @ 0x1405771A0
  * Callers:
- *     MiZeroHugeRangeCore @ 0x140A2DEFC (MiZeroHugeRangeCore.c)
+ *     MiZeroHugeRangeCore @ 0x140A2E1AC (MiZeroHugeRangeCore.c)
  * Callees:
- *     KiSetSystemPriorityThread @ 0x140355ED0 (KiSetSystemPriorityThread.c)
+ *     KiSetSystemPriorityThread @ 0x140356070 (KiSetSystemPriorityThread.c)
  */
 
 char __fastcall KeSetSystemPriorityThread(ULONG_PTR a1, int a2)

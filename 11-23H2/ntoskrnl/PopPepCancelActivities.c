@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepCancelActivities @ 0x1403141D8
+ * XREFs of PopPepCancelActivities @ 0x140314468
  * Callers:
- *     PopPepTriggerActivity @ 0x1403140FC (PopPepTriggerActivity.c)
+ *     PopPepTriggerActivity @ 0x14031438C (PopPepTriggerActivity.c)
  * Callees:
- *     PopPepCancelActivityRange @ 0x140313898 (PopPepCancelActivityRange.c)
+ *     PopPepCancelActivityRange @ 0x140313B28 (PopPepCancelActivityRange.c)
  */
 
 __int64 *__fastcall PopPepCancelActivities(__int64 a1, __int64 a2, int a3)

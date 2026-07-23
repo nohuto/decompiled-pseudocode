@@ -1,11 +1,11 @@
 /*
- * XREFs of HvcallInitiateHypercall @ 0x140232068
+ * XREFs of HvcallInitiateHypercall @ 0x140231E94
  * Callers:
- *     HvlpCommitLpIndices @ 0x1401BB410 (HvlpCommitLpIndices.c)
- *     HvlHvDebuggerPowerHandler @ 0x1401BCE14 (HvlHvDebuggerPowerHandler.c)
- *     HvlpLogGuestStateScrubbingStatus @ 0x1401C0C30 (HvlpLogGuestStateScrubbingStatus.c)
- *     HvlpDetectHypervisorSchedulerType @ 0x1401C128C (HvlpDetectHypervisorSchedulerType.c)
- *     HvlpCreateRootVirtualProcessor @ 0x140620478 (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpCommitLpIndices @ 0x1401BB2F4 (HvlpCommitLpIndices.c)
+ *     HvlHvDebuggerPowerHandler @ 0x1401BCCF8 (HvlHvDebuggerPowerHandler.c)
+ *     HvlpLogGuestStateScrubbingStatus @ 0x1401C0B14 (HvlpLogGuestStateScrubbingStatus.c)
+ *     HvlpDetectHypervisorSchedulerType @ 0x1401C1170 (HvlpDetectHypervisorSchedulerType.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14062052C (HvlpCreateRootVirtualProcessor.c)
  * Callees:
  *     <none>
  */

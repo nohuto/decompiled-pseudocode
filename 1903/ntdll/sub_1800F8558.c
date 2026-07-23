@@ -10,9 +10,20 @@
 
 char sub_1800F8558()
 {
-  int v0; // eax
+  NTSTATUS v0; // eax
+  HANDLE Handles; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v3; // [rsp+38h] [rbp-10h]
+  LARGE_INTEGER Timeout; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( !qword_180166A10 || (ZwSetEvent(), v0 = ZwWaitForMultipleObjects(), v0 != 1) )
+  Handles = 0LL;
+  v3 = 0LL;
+  if ( !qword_180166A10
+    || (Handles = (HANDLE)*((_QWORD *)qword_180166A10 + 1),
+        v3 = *((_QWORD *)qword_180166A10 + 3),
+        Timeout.QuadPart = -100000000LL,
+        ZwSetEvent(*((HANDLE *)qword_180166A10 + 2), 0LL),
+        v0 = ZwWaitForMultipleObjects(2u, &Handles, WaitAny, 0, &Timeout),
+        v0 != 1) )
   {
     byte_180166A30 = 1;
     LOBYTE(v0) = 0;

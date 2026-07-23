@@ -3,40 +3,40 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     HeadlessKernelAddLogEntry @ 0x140087534 (HeadlessKernelAddLogEntry.c)
- *     PnpDiagnosticTrace @ 0x1400B0D90 (PnpDiagnosticTrace.c)
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     PnpUnlockDeviceActionQueue @ 0x1401106F8 (PnpUnlockDeviceActionQueue.c)
- *     PnpLockDeviceActionQueue @ 0x140110784 (PnpLockDeviceActionQueue.c)
- *     PnpBootDeviceWait @ 0x14013BE80 (PnpBootDeviceWait.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     strstr @ 0x14014CF38 (strstr.c)
- *     _memicmp @ 0x1401592E8 (_memicmp.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     Template_qzq @ 0x1401CCD38 (Template_qzq.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     PnpDiagnosticTrace @ 0x1400AEE00 (PnpDiagnosticTrace.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     HeadlessKernelAddLogEntry @ 0x14010B72C (HeadlessKernelAddLogEntry.c)
+ *     PnpUnlockDeviceActionQueue @ 0x140110C5C (PnpUnlockDeviceActionQueue.c)
+ *     PnpLockDeviceActionQueue @ 0x140110CE8 (PnpLockDeviceActionQueue.c)
+ *     PnpBootDeviceWait @ 0x14013C3F0 (PnpBootDeviceWait.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     _memicmp @ 0x140159858 (_memicmp.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     Template_qzq @ 0x1401CCB84 (Template_qzq.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpCtxRegCreateKey @ 0x14048706C (_PnpCtxRegCreateKey.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     IopGetDriverNameFromKeyNode @ 0x14049F27C (IopGetDriverNameFromKeyNode.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
- *     PnpUnicodeStringToWstrFree @ 0x140500F80 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x140500FB4 (PnpUnicodeStringToWstr.c)
- *     PipHardwareConfigGetIndex @ 0x14054FB00 (PipHardwareConfigGetIndex.c)
- *     IopOpenRegistryKeyEx @ 0x14055064C (IopOpenRegistryKeyEx.c)
- *     PnpWaitForEmptyDeviceEventQueue @ 0x140550688 (PnpWaitForEmptyDeviceEventQueue.c)
- *     PnpWaitForEmptyDeviceActionQueue @ 0x1405506AC (PnpWaitForEmptyDeviceActionQueue.c)
- *     PipApplyFunctionToServiceInstances @ 0x14057471C (PipApplyFunctionToServiceInstances.c)
- *     _PnpCtxRegCloseKey @ 0x1406D7018 (_PnpCtxRegCloseKey.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1404E3F10 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1404E3F44 (PnpUnicodeStringToWstr.c)
+ *     _PnpCtxRegCreateKey @ 0x140512D88 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140517688 (IopGetDriverNameFromKeyNode.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     PipHardwareConfigGetIndex @ 0x140550040 (PipHardwareConfigGetIndex.c)
+ *     IopOpenRegistryKeyEx @ 0x140550B8C (IopOpenRegistryKeyEx.c)
+ *     PnpWaitForEmptyDeviceEventQueue @ 0x140550BC8 (PnpWaitForEmptyDeviceEventQueue.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x140550BEC (PnpWaitForEmptyDeviceActionQueue.c)
+ *     PipApplyFunctionToServiceInstances @ 0x140574C5C (PipApplyFunctionToServiceInstances.c)
+ *     _PnpCtxRegCloseKey @ 0x1406D7150 (_PnpCtxRegCloseKey.c)
  *     IopCreateArcNames @ 0x140798AF8 (IopCreateArcNames.c)
  *     PipInitComputerIds @ 0x140799740 (PipInitComputerIds.c)
  *     PipInitializeCoreDriversAndElam @ 0x14079A9D8 (PipInitializeCoreDriversAndElam.c)
@@ -137,7 +137,7 @@ __int64 __fastcall IopInitializeBootDrivers(UNICODE_STRING *a1)
   __int64 v75; // [rsp+70h] [rbp-98h] BYREF
   PVOID P; // [rsp+78h] [rbp-90h] BYREF
   void *Src; // [rsp+80h] [rbp-88h] BYREF
-  void *v78; // [rsp+88h] [rbp-80h] BYREF
+  HANDLE v78; // [rsp+88h] [rbp-80h] BYREF
   UNICODE_STRING v79; // [rsp+90h] [rbp-78h] BYREF
   UNICODE_STRING Destination; // [rsp+A0h] [rbp-68h] BYREF
   UNICODE_STRING String2; // [rsp+B0h] [rbp-58h] BYREF
@@ -544,15 +544,15 @@ LABEL_94:
                     LODWORD(v75) = 3;
                     if ( (int)PnpCtxRegCreateKey(
                                 *(__int64 *)&PiPnpRtlCtx,
-                                v46[4],
-                                (__int64)L"StartOverride",
+                                (char *)v46[4],
+                                L"StartOverride",
                                 v61,
                                 2u,
                                 0LL,
-                                (__int64)&v78,
+                                &v78,
                                 0LL) >= 0 )
                     {
-                      PnpCtxRegSetValue(v63, v78, (__int64)pszDest, 4LL, (__int64)&v75, 4u);
+                      PnpCtxRegSetValue(v63, v78, pszDest, 4u, &v75, 4u);
                       PnpCtxRegCloseKey(v64, v78);
                       v78 = 0LL;
                       if ( (Microsoft_Windows_Kernel_PnPEnableBits & 0x800000) != 0 )

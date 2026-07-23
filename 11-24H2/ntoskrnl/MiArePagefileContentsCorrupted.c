@@ -1,14 +1,14 @@
 /*
- * XREFs of MiArePagefileContentsCorrupted @ 0x1402E5A94
+ * XREFs of MiArePagefileContentsCorrupted @ 0x140341C34
  * Callers:
- *     MiValidatePagefilePageHash @ 0x1402E57B0 (MiValidatePagefilePageHash.c)
- *     MiIsStandbyPageCorrupted @ 0x1404D4DBC (MiIsStandbyPageCorrupted.c)
+ *     MiValidatePagefilePageHash @ 0x140341950 (MiValidatePagefilePageHash.c)
+ *     MiIsStandbyPageCorrupted @ 0x140423260 (MiIsStandbyPageCorrupted.c)
  * Callees:
- *     MiGetPagingFileOffset @ 0x1402E5A60 (MiGetPagingFileOffset.c)
- *     MiObtainPagefileHashes @ 0x1402E5C9C (MiObtainPagefileHashes.c)
- *     MiComputePageHash @ 0x140434B10 (MiComputePageHash.c)
- *     MiLateWritePageHash @ 0x1404C9F30 (MiLateWritePageHash.c)
- *     MiPageHashBugCheck @ 0x1406912B8 (MiPageHashBugCheck.c)
+ *     MiGetPagingFileOffset @ 0x140341C00 (MiGetPagingFileOffset.c)
+ *     MiObtainPagefileHashes @ 0x140341E3C (MiObtainPagefileHashes.c)
+ *     MiComputePageHash @ 0x140426970 (MiComputePageHash.c)
+ *     MiLateWritePageHash @ 0x1404C3280 (MiLateWritePageHash.c)
+ *     MiPageHashBugCheck @ 0x140692388 (MiPageHashBugCheck.c)
  */
 
 __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2)
   v17 = 0LL;
   v4 = 48 * a1 - 0x220000000000LL;
   v5 = *(_QWORD *)(v4 + 16);
-  v6 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL))
+  v6 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL))
                  + 8LL * ((unsigned __int8)HIBYTE(*(_WORD *)(v4 + 16)) >> 4)
                  + 18528);
   PagingFileOffset = MiGetPagingFileOffset(v5);
@@ -45,7 +45,7 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2)
   }
   if ( (unsigned int)(*(_DWORD *)a2 - 2) <= 1 )
     return 0LL;
-  if ( !*(_DWORD *)a2 && (dword_140FC4200 & 1) == 0 && (_DWORD)v9 != 31 )
+  if ( !*(_DWORD *)a2 && (dword_140FC5200 & 1) == 0 && (_DWORD)v9 != 31 )
   {
     if ( (unsigned int)v9 >> 3 == 3 )
     {
@@ -64,7 +64,7 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2)
   {
     if ( *(_DWORD *)a2 )
     {
-      if ( dword_140E37290 )
+      if ( dword_140E373D0 )
       {
         if ( *((_QWORD *)a2 + 1) == *((_QWORD *)&v16 + 1) )
         {
@@ -98,11 +98,11 @@ __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2)
   if ( !v11 )
     return 0LL;
 LABEL_29:
-  ++dword_140E30158;
-  qword_140E30168 = a1;
-  if ( !dword_140E30154 )
+  ++dword_140E30298;
+  qword_140E302A8 = a1;
+  if ( !dword_140E30294 )
     MiPageHashBugCheck(v11, v10, (int)&v16);
-  if ( dword_140E30154 == 1 )
+  if ( dword_140E30294 == 1 )
     return 1;
   return v8;
 }

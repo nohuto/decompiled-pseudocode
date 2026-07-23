@@ -20,8 +20,8 @@ __int64 *CmFcManagerInitialize()
   __int64 *result; // rax
 
   memset(CmFcSystemManager, 0, 0x368uLL);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&RunOnce);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C480D0);
+  CmSiRWLockInitialize(&RunOnce);
+  CmSiRWLockInitialize(&stru_140C480D0);
   v0 = qword_140C480E8;
   do
   {
@@ -33,7 +33,7 @@ __int64 *CmFcManagerInitialize()
   RtlInitializeSwapReference(qword_140C48130);
   memset(&unk_140C48148, 0, 0x90uLL);
   RtlInitializeSwapReference(qword_140C481F0);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C48208);
+  CmSiRWLockInitialize(&stru_140C48208);
   stru_140C48228.TargetInfoAsUlong = 275;
   stru_140C48228.DpcData = 0LL;
   stru_140C48228.ProcessorHistory = 0LL;
@@ -49,7 +49,7 @@ __int64 *CmFcManagerInitialize()
     v4,
     (KSPIN_LOCK)CmFcpManagerRetryUsageNotificationsWorker,
     (KSPIN_LOCK)CmFcSystemManager);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C482F0);
+  CmSiRWLockInitialize(&stru_140C482F0);
   result = &qword_140C482F8;
   qword_140C48300 = (__int64)&qword_140C482F8;
   qword_140C482F8 = (__int64)&qword_140C482F8;

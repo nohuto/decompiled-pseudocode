@@ -1,33 +1,33 @@
 /*
- * XREFs of MiRemovePhysicalMemory @ 0x1407E9DAC
+ * XREFs of MiRemovePhysicalMemory @ 0x1407EA37C
  * Callers:
- *     MiDeleteExtentPfns @ 0x14067A760 (MiDeleteExtentPfns.c)
- *     MmRemovePhysicalMemory @ 0x1407EA5D0 (MmRemovePhysicalMemory.c)
- *     MiRemoveMdlPages @ 0x1407EB5D8 (MiRemoveMdlPages.c)
- *     MiRemoveFileOnlyPages @ 0x1407F066C (MiRemoveFileOnlyPages.c)
- *     MiHotRemovePartitionPageRun @ 0x1407FC588 (MiHotRemovePartitionPageRun.c)
+ *     MiDeleteExtentPfns @ 0x14067B940 (MiDeleteExtentPfns.c)
+ *     MmRemovePhysicalMemory @ 0x1407EABA0 (MmRemovePhysicalMemory.c)
+ *     MiRemoveMdlPages @ 0x1407EBBA8 (MiRemoveMdlPages.c)
+ *     MiRemoveFileOnlyPages @ 0x1407F0C3C (MiRemoveFileOnlyPages.c)
+ *     MiHotRemovePartitionPageRun @ 0x1407FCCF8 (MiHotRemovePartitionPageRun.c)
  * Callees:
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1403AE894 (MiFlushEntireTbDueToAttributeChange.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140592538 (IoUpdateDumpPhysicalRanges.c)
- *     KeConfigureDynamicMemory @ 0x1405B79E4 (KeConfigureDynamicMemory.c)
- *     MiAcquireRemoveMemoryResources @ 0x14066C724 (MiAcquireRemoveMemoryResources.c)
- *     MiEntireRangeAlreadyExists @ 0x14066CD4C (MiEntireRangeAlreadyExists.c)
- *     MiPerformMemoryChange @ 0x14066E094 (MiPerformMemoryChange.c)
- *     MiReturnAddMemoryResources @ 0x14066E8AC (MiReturnAddMemoryResources.c)
- *     MiClearMirrorBitmaps @ 0x1406729C0 (MiClearMirrorBitmaps.c)
- *     MiGetDanglingExtent @ 0x14067B174 (MiGetDanglingExtent.c)
- *     MiReduceCommitLimits @ 0x1406864D0 (MiReduceCommitLimits.c)
- *     MiPartitionDeleteMemoryNode @ 0x14068B150 (MiPartitionDeleteMemoryNode.c)
- *     MiFlushCacheRange @ 0x14068ECB4 (MiFlushCacheRange.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiAcquireAddMemoryLocks @ 0x1407E8568 (MiAcquireAddMemoryLocks.c)
- *     MiNotifyMemoryChange @ 0x1407E9CFC (MiNotifyMemoryChange.c)
- *     MiReleaseAddMemoryLocks @ 0x1407E9D5C (MiReleaseAddMemoryLocks.c)
- *     MiUnmapPfns @ 0x1407EA110 (MiUnmapPfns.c)
- *     MiHotAddHugeRange @ 0x1407EAFDC (MiHotAddHugeRange.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14039D0A4 (MiFlushEntireTbDueToAttributeChange.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14058F55C (IoUpdateDumpPhysicalRanges.c)
+ *     KeConfigureDynamicMemory @ 0x1405B4FBC (KeConfigureDynamicMemory.c)
+ *     MiAcquireRemoveMemoryResources @ 0x14066D8F4 (MiAcquireRemoveMemoryResources.c)
+ *     MiEntireRangeAlreadyExists @ 0x14066DF1C (MiEntireRangeAlreadyExists.c)
+ *     MiPerformMemoryChange @ 0x14066F268 (MiPerformMemoryChange.c)
+ *     MiReturnAddMemoryResources @ 0x14066FA80 (MiReturnAddMemoryResources.c)
+ *     MiClearMirrorBitmaps @ 0x140673B90 (MiClearMirrorBitmaps.c)
+ *     MiGetDanglingExtent @ 0x14067C354 (MiGetDanglingExtent.c)
+ *     MiReduceCommitLimits @ 0x140687600 (MiReduceCommitLimits.c)
+ *     MiPartitionDeleteMemoryNode @ 0x14068C280 (MiPartitionDeleteMemoryNode.c)
+ *     MiFlushCacheRange @ 0x14068FD90 (MiFlushCacheRange.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiAcquireAddMemoryLocks @ 0x1407E8B38 (MiAcquireAddMemoryLocks.c)
+ *     MiNotifyMemoryChange @ 0x1407EA2CC (MiNotifyMemoryChange.c)
+ *     MiReleaseAddMemoryLocks @ 0x1407EA32C (MiReleaseAddMemoryLocks.c)
+ *     MiUnmapPfns @ 0x1407EA6E0 (MiUnmapPfns.c)
+ *     MiHotAddHugeRange @ 0x1407EB5AC (MiHotAddHugeRange.c)
  */
 
 __int64 __fastcall MiRemovePhysicalMemory(__int64 a1, __int64 a2, int a3)
@@ -61,7 +61,7 @@ __int64 __fastcall MiRemovePhysicalMemory(__int64 a1, __int64 a2, int a3)
   else
   {
     v4 = v15;
-    v6 = (ULONG *)*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(48 * a1 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
+    v6 = (ULONG *)*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(48 * a1 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
   }
   v22 = 0LL;
   v18 = v4 + a1;
@@ -80,7 +80,7 @@ __int64 __fastcall MiRemovePhysicalMemory(__int64 a1, __int64 a2, int a3)
   }
   while ( v7 );
   MiAcquireAddMemoryLocks((__int64)v16);
-  ++qword_140E2EBF8;
+  ++qword_140E2ED38;
   if ( (a3 & 2) != 0 )
   {
     v9 = 0;
@@ -93,7 +93,7 @@ __int64 __fastcall MiRemovePhysicalMemory(__int64 a1, __int64 a2, int a3)
       v19 = v15;
       v17 = DanglingExtent;
       v18 = DanglingExtent + v15;
-      v6 = (ULONG *)*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(48 * DanglingExtent - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
+      v6 = (ULONG *)*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(48 * DanglingExtent - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL));
       if ( v6 != &MiSystemPartition )
       {
         CurrentThread = KeGetCurrentThread();

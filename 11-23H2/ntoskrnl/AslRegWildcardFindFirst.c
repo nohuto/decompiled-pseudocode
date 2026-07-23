@@ -1,13 +1,13 @@
 /*
- * XREFs of AslRegWildcardFindFirst @ 0x140A562B8
+ * XREFs of AslRegWildcardFindFirst @ 0x140A56568
  * Callers:
- *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A5075C (SdbpCheckMatchingWildcardRegistryEntry.c)
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A50A0C (SdbpCheckMatchingWildcardRegistryEntry.c)
  * Callees:
- *     AslStringDuplicate @ 0x1406D49F8 (AslStringDuplicate.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     AslRegWildcardFindClose @ 0x140A56234 (AslRegWildcardFindClose.c)
- *     AslRegWildcardFindNext @ 0x140A56378 (AslRegWildcardFindNext.c)
- *     AslpParsePattern @ 0x140A56538 (AslpParsePattern.c)
+ *     AslStringDuplicate @ 0x1406D4A28 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     AslRegWildcardFindClose @ 0x140A564E4 (AslRegWildcardFindClose.c)
+ *     AslRegWildcardFindNext @ 0x140A56628 (AslRegWildcardFindNext.c)
+ *     AslpParsePattern @ 0x140A567E8 (AslpParsePattern.c)
  */
 
 __int64 __fastcall AslRegWildcardFindFirst(__int64 a1, PVOID **a2, const wchar_t *a3)

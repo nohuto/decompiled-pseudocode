@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400E43DC
+ * XREFs of ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400E445C
  * Callers:
- *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x14066BFB4 (SmProcessCreateRequest.c)
  * Callees:
- *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400E44E8 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400E4568 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStInitialize(__int64 a1)

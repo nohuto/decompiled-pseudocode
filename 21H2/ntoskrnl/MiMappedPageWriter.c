@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMappedPageWriter @ 0x1403B7730
+ * XREFs of MiMappedPageWriter @ 0x1403B78A0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     MiFreeModWriterEntry @ 0x1402557E8 (MiFreeModWriterEntry.c)
- *     MiGatherMappedPages @ 0x140255BC8 (MiGatherMappedPages.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
- *     MiAllocateModWriterEntry @ 0x14025A558 (MiAllocateModWriterEntry.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiDeleteMappedMdls @ 0x14053557C (MiDeleteMappedMdls.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     MiFreeModWriterEntry @ 0x140276D58 (MiFreeModWriterEntry.c)
+ *     MiGatherMappedPages @ 0x140277138 (MiGatherMappedPages.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     KeSetPriorityThread @ 0x140279050 (KeSetPriorityThread.c)
+ *     MiAllocateModWriterEntry @ 0x14027BAC8 (MiAllocateModWriterEntry.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiDeleteMappedMdls @ 0x1405357BC (MiDeleteMappedMdls.c)
  */
 
 __int64 __fastcall MiMappedPageWriter(__int64 a1)
@@ -141,7 +141,7 @@ LABEL_41:
         }
         goto LABEL_5;
       }
-      KeWaitForGate(a1 + 648, 19);
+      KeWaitForGate(a1 + 648, 0x13u);
     }
     if ( !v12 )
       goto LABEL_4;

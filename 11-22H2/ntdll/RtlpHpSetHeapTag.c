@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpSetHeapTag(__int64 a1, __int64 *a2, __int64 a3)
   {
     v5 = *a2;
     *(_QWORD *)(a1 + 104) = *a2;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v6 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
       v6 = 2147353472LL;

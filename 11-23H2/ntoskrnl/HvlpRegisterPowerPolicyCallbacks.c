@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpRegisterPowerPolicyCallbacks @ 0x1405471F4
+ * XREFs of HvlpRegisterPowerPolicyCallbacks @ 0x1405478B4
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4CA0 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403B4E80 (HvlPhase2Initialize.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x1407A7060 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x1407A7250 (PoRegisterPowerSettingCallback.c)
  */
 
 NTSTATUS HvlpRegisterPowerPolicyCallbacks()

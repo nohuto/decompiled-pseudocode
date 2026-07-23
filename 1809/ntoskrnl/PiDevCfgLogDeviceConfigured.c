@@ -1,26 +1,26 @@
 /*
- * XREFs of PiDevCfgLogDeviceConfigured @ 0x1406F3960
+ * XREFs of PiDevCfgLogDeviceConfigured @ 0x1406F4C00
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1406F3960 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E40D4 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406F4C00 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PnpGetLogString @ 0x14015D234 (PnpGetLogString.c)
- *     McTemplateK0zzjzzztzdzztdz @ 0x14015D3FC (McTemplateK0zzjzzztzdzztdz.c)
- *     RtlUnicodeStringPrintfEx @ 0x14015D7CC (RtlUnicodeStringPrintfEx.c)
- *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlUnicodeStringExHandleOtherFlags @ 0x140287814 (RtlUnicodeStringExHandleOtherFlags.c)
- *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
- *     PiDevCfgLogDeviceConfigured @ 0x1406F3960 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgQueryObjectProperties @ 0x1406F6240 (PiDevCfgQueryObjectProperties.c)
- *     PnpTraceDeviceConfig @ 0x1406F6A48 (PnpTraceDeviceConfig.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PnpGetLogString @ 0x14015D334 (PnpGetLogString.c)
+ *     McTemplateK0zzjzzztzdzztdz @ 0x14015D4FC (McTemplateK0zzjzzztzdzztdz.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14015D8CC (RtlUnicodeStringPrintfEx.c)
+ *     RtlTimeToTimeFields @ 0x14015DB20 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x140287A04 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     RtlStringFromGUIDEx @ 0x14058C238 (RtlStringFromGUIDEx.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x14065BBD0 (RtlCreateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406B33A0 (ExpAllocateStringRoutine.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x1406F4C00 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1406F74E0 (PiDevCfgQueryObjectProperties.c)
+ *     PnpTraceDeviceConfig @ 0x1406F7CE8 (PnpTraceDeviceConfig.c)
  */
 
 void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
@@ -142,7 +142,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   __int64 v120; // [rsp+A0h] [rbp-78h]
   __int64 v121; // [rsp+A0h] [rbp-78h]
   __int64 v122; // [rsp+A0h] [rbp-78h]
-  struct _TIME_FIELDS TimeFields; // [rsp+A8h] [rbp-70h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+A8h] [rbp-70h] BYREF
   int v124; // [rsp+B8h] [rbp-60h]
   int v125; // [rsp+BCh] [rbp-5Ch]
   __int64 v126; // [rsp+C0h] [rbp-58h]
@@ -153,13 +153,13 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   size_t pcchNewDestLength; // [rsp+108h] [rbp-10h] BYREF
   UNICODE_STRING DestinationString; // [rsp+110h] [rbp-8h] BYREF
   UNICODE_STRING v133; // [rsp+128h] [rbp+10h] BYREF
-  UNICODE_STRING v134; // [rsp+138h] [rbp+20h] BYREF
+  UNICODE_STRING GuidString; // [rsp+138h] [rbp+20h] BYREF
   wchar_t *v135; // [rsp+148h] [rbp+30h] BYREF
   size_t v136; // [rsp+150h] [rbp+38h] BYREF
   __int64 *v137; // [rsp+158h] [rbp+40h]
   __int64 v138; // [rsp+160h] [rbp+48h]
   UNICODE_STRING v139; // [rsp+170h] [rbp+58h] BYREF
-  unsigned int v140[6]; // [rsp+180h] [rbp+68h] BYREF
+  GUID Guid; // [rsp+180h] [rbp+68h] BYREF
   _QWORD v141[16]; // [rsp+198h] [rbp+80h] BYREF
   wchar_t pszDest[12]; // [rsp+218h] [rbp+100h] BYREF
   wchar_t v143[24]; // [rsp+230h] [rbp+118h] BYREF
@@ -181,12 +181,12 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   v114 = 1;
   *(_DWORD *)&v133.Length = 0;
   v133.Buffer = 0LL;
-  *(_DWORD *)&v134.Length = 0;
-  v134.Buffer = 0LL;
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
   v125 = 0;
   *(_DWORD *)&v130.Length = 0;
   v130.Buffer = 0LL;
-  if ( (byte_140405846 & 0x18) != 0x18 )
+  if ( (byte_140406846 & 0x18) != 0x18 )
     goto LABEL_39;
   if ( !a3 )
   {
@@ -311,7 +311,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   v46 = v133;
   *StringRoutine = 0;
   v47 = *v15;
-  TimeFields = (struct _TIME_FIELDS)v46;
+  TimeFields = (_TIME_FIELDS)v46;
   v137 = v47;
   if ( v47 == (__int64 *)v15 )
     goto LABEL_19;
@@ -417,14 +417,14 @@ LABEL_20:
   {
     if ( a5 == -1073740959 )
     {
-      if ( (byte_140405846 & 0x20) != 0 )
+      if ( (byte_140406846 & 0x20) != 0 )
       {
         v116 = a4 & 1;
         v67 = v7 + 272;
         if ( !v7 )
           v67 = 0LL;
         v121 = v67;
-        v68 = (const wchar_t *)&dword_140911184;
+        v68 = (const wchar_t *)&dword_140912444;
         if ( v8 )
           v68 = v8;
         PnpGetLogString(*(_QWORD *)(v126 + 16) + 40LL);
@@ -451,14 +451,14 @@ LABEL_20:
           v72);
       }
     }
-    else if ( (byte_140405846 & 0x10) != 0 )
+    else if ( (byte_140406846 & 0x10) != 0 )
     {
       v117 = a4 & 1;
       v77 = v7 + 272;
       if ( !v7 )
         v77 = 0LL;
       v122 = v77;
-      v78 = (const wchar_t *)&dword_140911184;
+      v78 = (const wchar_t *)&dword_140912444;
       if ( v8 )
         v78 = v8;
       PnpGetLogString(*(_QWORD *)(v126 + 16) + 40LL);
@@ -487,14 +487,14 @@ LABEL_20:
   }
   else if ( (a4 & 2) != 0 )
   {
-    if ( (byte_140405846 & 0x20) != 0 )
+    if ( (byte_140406846 & 0x20) != 0 )
     {
       v115 = a4 & 1;
       v57 = v7 + 272;
       if ( !v7 )
         v57 = 0LL;
       v120 = v57;
-      v58 = (const wchar_t *)&dword_140911184;
+      v58 = (const wchar_t *)&dword_140912444;
       if ( v8 )
         v58 = v8;
       PnpGetLogString(*(_QWORD *)(v126 + 16) + 40LL);
@@ -521,7 +521,7 @@ LABEL_20:
         v62);
     }
   }
-  else if ( (byte_140405846 & 8) != 0 )
+  else if ( (byte_140406846 & 8) != 0 )
   {
     if ( (a4 & 1) == 0 )
       v128 = 0;
@@ -529,7 +529,7 @@ LABEL_20:
       v19 = v7 + 272;
     else
       v19 = 0LL;
-    v20 = &dword_140911184;
+    v20 = &dword_140912444;
     if ( v8 )
       v20 = (int *)v8;
     v119 = (const wchar_t *)v20;
@@ -582,7 +582,7 @@ LABEL_20:
       v31 = v89;
       memset(v89, 0, v90);
       v91 = (_QWORD *)*v29;
-      TimeFields = (struct _TIME_FIELDS)v130;
+      TimeFields = (_TIME_FIELDS)v130;
       if ( v91 != v29 )
       {
         v92 = v124 & 1;
@@ -600,7 +600,7 @@ LABEL_20:
           v97 = v93[8];
           v141[0] = &DEVPKEY_DriverPackage_OriginalInfName;
           v141[2] = &v139;
-          v141[7] = v140;
+          v141[7] = &Guid;
           v141[10] = &DEVPKEY_DriverPackage_DriverFlightIds;
           v141[12] = &v129;
           LODWORD(v141[1]) = 18;
@@ -614,8 +614,8 @@ LABEL_20:
           {
             if ( SLODWORD(v141[4]) < 0 && !RtlCreateUnicodeString(&v139, (PCWSTR)v93[6]) )
               RtlInitUnicodeString(&v139, 0LL);
-            if ( SLODWORD(v141[9]) < 0 || (int)RtlStringFromGUIDEx(v140, (__int64)&v134, 1) < 0 )
-              RtlInitUnicodeString(&v134, 0LL);
+            if ( SLODWORD(v141[9]) < 0 || RtlStringFromGUIDEx(&Guid, &GuidString, 1u) < 0 )
+              RtlInitUnicodeString(&GuidString, 0LL);
             if ( SLODWORD(v141[14]) < 0 )
               RtlInitUnicodeString(&v129, 0LL);
             v99 = v129.Buffer;
@@ -651,7 +651,7 @@ LABEL_20:
               v103 = (UNICODE_STRING *)PiDevCfgEmptyString;
             v104 = L",";
             if ( v93 == (_QWORD *)*v29 )
-              v104 = &word_140766550;
+              v104 = &word_140767740;
             v105 = RtlUnicodeStringPrintfEx(
                      (PUNICODE_STRING)&TimeFields,
                      (PUNICODE_STRING)&TimeFields,
@@ -659,9 +659,9 @@ LABEL_20:
                      L"%ws%wZ:%wZ:%wZ",
                      v104,
                      &v139,
-                     &v134,
+                     &GuidString,
                      v103);
-            RtlFreeAnsiString(&v134);
+            RtlFreeAnsiString(&GuidString);
             RtlFreeAnsiString(&v129);
             RtlFreeAnsiString(&v139);
             if ( v105 < 0 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmParkMaximumCoresParked @ 0x1404A6D68
+ * XREFs of PpmParkMaximumCoresParked @ 0x1404A03F8
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x1404A6C10 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x1404A02A0 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
  *     <none>
  */
@@ -14,17 +14,15 @@ char PpmParkMaximumCoresParked()
   __int64 v4; // r11
 
   v0 = 1;
-  for ( i = 0; i < PopModernStandbyStateNotify.SystemCallNumber; ++i )
+  for ( i = 0; i < (unsigned int)PpmParkNumNodes; ++i )
   {
     v3 = 0;
     v4 = 1264LL * i;
-    while ( v3 < *(unsigned __int8 *)(v4 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 10) )
+    while ( v3 < *(unsigned __int8 *)(v4 + PpmParkNodes + 10) )
     {
-      if ( *(_WORD *)(624LL * v3
-                    + *(_QWORD *)(v4 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1256)
-                    + 10) > *(_WORD *)(624LL * v3
-                                     + *(_QWORD *)(v4 + *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1256)
-                                     + 2) )
+      if ( *(_WORD *)(624LL * v3 + *(_QWORD *)(v4 + PpmParkNodes + 1256) + 10) > *(_WORD *)(624LL * v3
+                                                                                          + *(_QWORD *)(v4 + PpmParkNodes + 1256)
+                                                                                          + 2) )
       {
         v0 = 0;
         break;

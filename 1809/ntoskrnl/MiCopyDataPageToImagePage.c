@@ -24,24 +24,24 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiTryLockLeafPage @ 0x140082A0C (MiTryLockLeafPage.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B824 (MiTryLockLeafAndContainingPagesAtDpc.c)
- *     MiDecayPfnFullyInitialized @ 0x14011BD70 (MiDecayPfnFullyInitialized.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiUnlockNestedProtoPoolPage @ 0x1401348BC (MiUnlockNestedProtoPoolPage.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiTryLockLeafPage @ 0x1400829FC (MiTryLockLeafPage.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B894 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     MiDecayPfnFullyInitialized @ 0x14011BDE0 (MiDecayPfnFullyInitialized.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiUnlockNestedProtoPoolPage @ 0x14013498C (MiUnlockNestedProtoPoolPage.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiCopyDataPageToImagePage(__int64 a1, __int64 *a2, _QWORD *a3, __int64 a4, __int64 a5, __int64 a6)
@@ -133,15 +133,15 @@ __int64 __fastcall MiCopyDataPageToImagePage(__int64 a1, __int64 *a2, _QWORD *a3
   Src = (volatile LONG *)(v9 + 72);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
   v13 = *(_QWORD *)(v9 + 64) & 0xFFFFFFFFFFFFFFF0uLL;
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140438BC0);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140439C80);
   v14 = **(_QWORD **)(v13 + 40);
   v74 = v14;
   if ( !v14 || (SpinLock = (PEX_SPIN_LOCK)(v14 + 72), !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v14 + 72)) )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
     goto LABEL_77;
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
   v16 = 1LL;
   LOBYTE(v10) = 1;
   if ( !*(_QWORD *)(v14 + 32) || (*(_DWORD *)(v14 + 56) & 3) != 0 )
@@ -345,7 +345,7 @@ LABEL_41:
   *(_QWORD *)(a1 + 248) = v35;
   *(_QWORD *)(a1 + 200) = 0LL;
   *(_QWORD *)(a1 + 160) = v38;
-  v41 = MiReservePtes(&qword_14043AFA0, v75);
+  v41 = MiReservePtes(&qword_14043C060, v75);
   v42 = (_QWORD *)v41;
   if ( v41 )
   {
@@ -356,7 +356,7 @@ LABEL_41:
       goto LABEL_49;
     if ( (unsigned int)MiPteHasShadow(v47, v46) )
     {
-      if ( !HIBYTE(word_14043A1AC) && (v46 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v46 & 1) != 0 )
         v46 |= v69;
       *v42 = v46;
       MiWritePteShadow(v42);
@@ -383,7 +383,7 @@ LABEL_49:
         }
         goto LABEL_51;
       }
-      if ( !HIBYTE(word_14043A1AC) && (v50 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v50 & 1) != 0 )
         v50 |= 0x8000000000000000uLL;
       v42[1] = v50;
       MiWritePteShadow(v42 + 1);
@@ -400,7 +400,7 @@ LABEL_51:
         goto LABEL_54;
       if ( (unsigned int)MiPteHasShadow(v55, v54) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v54 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v54 & 1) != 0 )
           v54 |= 0x8000000000000000uLL;
         v42[2] = v54;
         MiWritePteShadow(v42 + 2);
@@ -427,7 +427,7 @@ LABEL_54:
     {
       KeCopyPage(v43, Srca);
     }
-    MiReleasePtes(&qword_14043AFA0, v42, v75);
+    MiReleasePtes(&qword_14043C060, v42, v75);
     __incgsdword(0x2E98u);
     v56 = 0;
   }

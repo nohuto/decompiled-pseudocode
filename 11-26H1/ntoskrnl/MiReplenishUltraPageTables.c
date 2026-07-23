@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReplenishUltraPageTables @ 0x1402F445C
+ * XREFs of MiReplenishUltraPageTables @ 0x1402D64DC
  * Callers:
- *     MiCreateUltraThreadContextHelper @ 0x1402F2710 (MiCreateUltraThreadContextHelper.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiBackgroundZeroComplete @ 0x1404A543C (MiBackgroundZeroComplete.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402D4790 (MiCreateUltraThreadContextHelper.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiBackgroundZeroComplete @ 0x14049EACC (MiBackgroundZeroComplete.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiGetUltraPage @ 0x14033A1B0 (MiGetUltraPage.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiGetUltraPage @ 0x14033C230 (MiGetUltraPage.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
  */
 
 void __fastcall MiReplenishUltraPageTables(unsigned int a1, unsigned int a2)
@@ -34,7 +34,7 @@ void __fastcall MiReplenishUltraPageTables(unsigned int a1, unsigned int a2)
   v2 = a1;
   v12[0] = 0LL;
   MiInitializePageColorBase(0LL, 3LL, a1 + 1, v12);
-  v4 = *(_QWORD *)(384 * v2 + qword_140E2D6B8 + 376);
+  v4 = *(_QWORD *)(384 * v2 + qword_140E2D838 + 376);
   v5 = v4 + 840;
   if ( *(_QWORD *)(v4 + 856) < 0x100uLL )
   {

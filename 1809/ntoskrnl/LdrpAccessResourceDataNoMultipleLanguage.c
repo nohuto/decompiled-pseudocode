@@ -1,47 +1,47 @@
 /*
- * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x14067AC98
+ * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x14067BE58
  * Callers:
- *     LdrpGetRcConfig @ 0x1400F3F30 (LdrpGetRcConfig.c)
- *     LdrpFindMessageInAlternateModule @ 0x1400F4634 (LdrpFindMessageInAlternateModule.c)
- *     LdrpAccessResourceData @ 0x14067BCE8 (LdrpAccessResourceData.c)
+ *     LdrpGetRcConfig @ 0x1400F3FB0 (LdrpGetRcConfig.c)
+ *     LdrpFindMessageInAlternateModule @ 0x1400F46B4 (LdrpFindMessageInAlternateModule.c)
+ *     LdrpAccessResourceData @ 0x14067CEA8 (LdrpAccessResourceData.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     RtlAddressInSectionTable @ 0x1400F33FC (RtlAddressInSectionTable.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400F3450 (RtlSectionTableFromVirtualAddress.c)
- *     LdrpGetImageSize @ 0x1400F37C4 (LdrpGetImageSize.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     RtlAddressInSectionTable @ 0x1400F347C (RtlAddressInSectionTable.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F34D0 (RtlSectionTableFromVirtualAddress.c)
+ *     LdrpGetImageSize @ 0x1400F3844 (LdrpGetImageSize.c)
  */
 
 __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
-        PVOID BaseAddress,
-        unsigned int *a2,
+        PVOID BaseOfImage,
+        ULONG *a2,
         unsigned __int64 *a3,
         _DWORD *a4)
 {
   _DWORD *v4; // rsi
-  unsigned __int64 v6; // rbx
+  __int64 v6; // rbx
   unsigned int ImageSize; // r14d
   unsigned __int64 v8; // rdi
   __int64 v9; // r13
   BOOL v10; // eax
   PIMAGE_NT_HEADERS v11; // rax
-  unsigned __int64 v12; // rsi
+  _IMAGE_NT_HEADERS64 *v12; // rsi
   unsigned __int16 Magic; // ax
-  unsigned int v14; // r8d
-  unsigned __int64 v15; // r15
-  unsigned __int64 v16; // rax
-  unsigned int v17; // r8d
+  ULONG VirtualAddress; // r8d
+  __int64 v15; // r15
+  PIMAGE_SECTION_HEADER v16; // rax
+  ULONG v17; // r8d
   unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rax
+  PIMAGE_SECTION_HEADER v19; // rax
+  _BYTE *v20; // rax
   __int64 v22; // [rsp+28h] [rbp-50h] BYREF
   unsigned int v23; // [rsp+30h] [rbp-48h]
-  char *v24; // [rsp+38h] [rbp-40h]
-  unsigned __int64 v25; // [rsp+40h] [rbp-38h]
+  _BYTE *v24; // [rsp+38h] [rbp-40h]
+  PIMAGE_SECTION_HEADER v25; // [rsp+40h] [rbp-38h]
 
   v4 = a4;
-  v6 = (unsigned __int64)BaseAddress;
-  v24 = (char *)RtlImageDirectoryEntryToData(BaseAddress, 1u, 2u, (PULONG)&v22);
+  v6 = (__int64)BaseOfImage;
+  v24 = RtlImageDirectoryEntryToData(BaseOfImage, 1u, 2u, (PULONG)&v22);
   if ( !v24 )
     return 3221225609LL;
   v22 = 0LL;
@@ -67,38 +67,38 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
   if ( v10 )
   {
     v11 = RtlImageNtHeader((PVOID)v6);
-    v12 = (unsigned __int64)v11;
+    v12 = v11;
     if ( !v11 )
       return 3221225609LL;
     Magic = v11->OptionalHeader.Magic;
     if ( Magic == 267 )
     {
-      v14 = *(_DWORD *)(v12 + 136);
+      VirtualAddress = v12->OptionalHeader.DataDirectory[0].VirtualAddress;
     }
     else if ( Magic == 523 )
     {
-      v14 = *(_DWORD *)(v12 + 152);
+      VirtualAddress = v12->OptionalHeader.DataDirectory[2].VirtualAddress;
     }
     else
     {
-      v14 = 0;
+      VirtualAddress = 0;
     }
-    if ( !v14 )
+    if ( !VirtualAddress )
       return 3221225609LL;
-    v15 = v6 + v14 - (_QWORD)v24;
-    v16 = RtlSectionTableFromVirtualAddress(v12, v6, v14);
+    v15 = v6 + VirtualAddress - (_QWORD)v24;
+    v16 = RtlSectionTableFromVirtualAddress(v12, (PVOID)v6, VirtualAddress);
     if ( !v16 )
       return 3221225609LL;
     v17 = *a2;
-    if ( *a2 > *(_DWORD *)(v16 + 8) )
+    if ( *a2 > v16->Misc.PhysicalAddress )
     {
-      LODWORD(v22) = *(_DWORD *)(v16 + 12);
-      v19 = RtlSectionTableFromVirtualAddress(v12, v6, v17);
+      LODWORD(v22) = v16->VirtualAddress;
+      v19 = RtlSectionTableFromVirtualAddress(v12, (PVOID)v6, v17);
       v25 = v19;
       if ( !v19 )
         return 3221225609LL;
-      v20 = RtlAddressInSectionTable(v12, v6, *(_DWORD *)(v19 + 12));
-      v15 += (unsigned __int64)&v24[*(unsigned int *)(v25 + 12) - (unsigned __int64)(unsigned int)v22 - v20];
+      v20 = RtlAddressInSectionTable(v12, (PVOID)v6, v19->VirtualAddress);
+      v15 += &v24[v25->VirtualAddress - (unsigned __int64)(unsigned int)v22] - v20;
     }
     v4 = a4;
   }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAddMiniDumpPagesToPartialKernelDump @ 0x14055CB68
+ * XREFs of IopAddMiniDumpPagesToPartialKernelDump @ 0x14055D228
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x14055C394 (IoAddPagesForPartialKernelDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x14055CA54 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     IopUpdateMinidumpContext @ 0x140553AE4 (IopUpdateMinidumpContext.c)
- *     IopAddTriageDumpDataToPartialKernelDump @ 0x14055CCF4 (IopAddTriageDumpDataToPartialKernelDump.c)
- *     IopCalculateStackInformation @ 0x14055CD90 (IopCalculateStackInformation.c)
- *     IopMarkPagesForDpcData @ 0x14055D0EC (IopMarkPagesForDpcData.c)
- *     IopMarkPagesForLoadedDriverInformation @ 0x14055D52C (IopMarkPagesForLoadedDriverInformation.c)
- *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14055D79C (IopMarkPagesForRunTimeTriageDataBlocks.c)
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
- *     MmAddUnloadedDriverInformationToCrashDump @ 0x1406302F0 (MmAddUnloadedDriverInformationToCrashDump.c)
+ *     IopUpdateMinidumpContext @ 0x1405541A4 (IopUpdateMinidumpContext.c)
+ *     IopAddTriageDumpDataToPartialKernelDump @ 0x14055D3B4 (IopAddTriageDumpDataToPartialKernelDump.c)
+ *     IopCalculateStackInformation @ 0x14055D450 (IopCalculateStackInformation.c)
+ *     IopMarkPagesForDpcData @ 0x14055D7AC (IopMarkPagesForDpcData.c)
+ *     IopMarkPagesForLoadedDriverInformation @ 0x14055DBEC (IopMarkPagesForLoadedDriverInformation.c)
+ *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14055DE5C (IopMarkPagesForRunTimeTriageDataBlocks.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
+ *     MmAddUnloadedDriverInformationToCrashDump @ 0x140630840 (MmAddUnloadedDriverInformationToCrashDump.c)
  */
 
 __int64 __fastcall IopAddMiniDumpPagesToPartialKernelDump(

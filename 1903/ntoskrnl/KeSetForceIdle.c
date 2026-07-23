@@ -17,15 +17,15 @@ void KeSetForceIdle()
   _DWORD *v3; // rcx
   int v4; // eax
   int v5; // edi
-  __int64 v6; // rdx
-  __int64 v7; // rbx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  LARGE_INTEGER v6; // rdx
+  LARGE_INTEGER v7; // rbx
+  LARGE_INTEGER v8; // r8
+  LARGE_INTEGER v9; // r9
   struct _KPRCB *v10; // rcx
   _DWORD *v11; // rdx
   int v12; // eax
   int v13; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v14; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
   _disable();
   CurrentPrcb = KeGetCurrentPrcb();
@@ -63,12 +63,17 @@ void KeSetForceIdle()
   if ( !KiForceIdleDisabled )
   {
     v5 = KiForceIdleState;
-    v7 = RtlGetInterruptTimePrecise(&v14) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    v7.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+                + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
     if ( !v5 )
     {
-      KiSetForceIdleState(2LL, v6, v8, v9);
+      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))KiSetForceIdleState)(
+        2LL,
+        (LARGE_INTEGER)v6.QuadPart,
+        (LARGE_INTEGER)v8.QuadPart,
+        (LARGE_INTEGER)v9.QuadPart);
 LABEL_18:
-      KiForceIdleStartTime = v7;
+      KiForceIdleStartTime = v7.QuadPart;
       goto LABEL_19;
     }
     if ( v5 == 3 )

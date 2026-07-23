@@ -1,18 +1,18 @@
 /*
- * XREFs of PspOneDirectionSecurityDomainCombine @ 0x140607210
+ * XREFs of PspOneDirectionSecurityDomainCombine @ 0x140696CA0
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x1406478CC (PspDisablePrimaryTokenExchange.c)
+ *     PspDisablePrimaryTokenExchange @ 0x14063C6BC (PspDisablePrimaryTokenExchange.c)
  * Callees:
- *     PspIsParentProcess @ 0x140252390 (PspIsParentProcess.c)
- *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeCreateAccessStateEx @ 0x1406618D0 (SeCreateAccessStateEx.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepDeleteAccessState @ 0x14026A600 (SepDeleteAccessState.c)
+ *     PspIsParentProcess @ 0x140285248 (PspIsParentProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x1406566F0 (SeCreateAccessStateEx.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     PsLookupProcessByProcessId @ 0x14068F4F0 (PsLookupProcessByProcessId.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
  */
 
 void __fastcall PspOneDirectionSecurityDomainCombine(__int64 Object)
@@ -24,7 +24,7 @@ void __fastcall PspOneDirectionSecurityDomainCombine(__int64 Object)
   PEPROCESS Process; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
   struct _ACCESS_STATE PassedAccessState; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v9[224]; // [rsp+F0h] [rbp-10h] BYREF
+  _QWORD v9[28]; // [rsp+F0h] [rbp-10h] BYREF
 
   memset(&PassedAccessState, 0, sizeof(PassedAccessState));
   memset(v9, 0, sizeof(v9));
@@ -46,12 +46,12 @@ LABEL_17:
   v3 = Process;
   if ( SLODWORD(Process[2].ReadyListHead.Blink) >= 0
     && (int)SeCreateAccessStateEx(
-              0,
-              (_DWORD)Process,
-              (unsigned int)&PassedAccessState,
-              (unsigned int)v9,
-              40,
-              (__int64)PsProcessType + 76) >= 0 )
+              0LL,
+              Process,
+              &PassedAccessState,
+              v9,
+              0x28u,
+              (GENERIC_MAPPING *)((char *)PsProcessType + 76)) >= 0 )
   {
     if ( ObOpenObjectByPointer((PVOID)Object, 0x600u, &PassedAccessState, 0, (POBJECT_TYPE)PsProcessType, 0, &Handle) >= 0 )
     {

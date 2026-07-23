@@ -1,11 +1,11 @@
 /*
- * XREFs of MiNotifyMemoryChange @ 0x1407E9CFC
+ * XREFs of MiNotifyMemoryChange @ 0x1407EA2CC
  * Callers:
- *     MiCompleteMemoryAddition @ 0x1407E901C (MiCompleteMemoryAddition.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiCompleteMemoryAddition @ 0x1407E95EC (MiCompleteMemoryAddition.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     KePulseEvent @ 0x1404674D0 (KePulseEvent.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     KePulseEvent @ 0x14045EF70 (KePulseEvent.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
 LONG __fastcall MiNotifyMemoryChange(__int64 a1)
@@ -15,12 +15,12 @@ LONG __fastcall MiNotifyMemoryChange(__int64 a1)
   result = *(_DWORD *)(a1 + 40);
   if ( (result & 2) == 0 )
   {
-    if ( stru_140E2FEA8.Header.SignalState )
+    if ( stru_140E2FFE8.Header.SignalState )
     {
       if ( ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
-        ZwUpdateWnfStateData((__int64)&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL);
+        ZwUpdateWnfStateData(&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0, 0LL, 0LL, 0, 0);
     }
-    return KePulseEvent(qword_140E38D48, 0, 0);
+    return KePulseEvent(qword_140E38E88, 0, 0);
   }
   return result;
 }

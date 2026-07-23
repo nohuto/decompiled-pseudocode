@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTpReadImageData @ 0x1407BC570
+ * XREFs of KiTpReadImageData @ 0x1407BF5D0
  * Callers:
- *     RtlIcParseInstruction @ 0x140C560E8 (RtlIcParseInstruction.c)
+ *     RtlIcParseInstruction @ 0x140C5C0E8 (RtlIcParseInstruction.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall KiTpReadImageData(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)

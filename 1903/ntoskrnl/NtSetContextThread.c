@@ -15,10 +15,10 @@ NTSTATUS __stdcall NtSetContextThread(HANDLE ThreadHandle, PCONTEXT Context)
 {
   struct _KTHREAD *CurrentThread; // rbx
   KPROCESSOR_MODE PreviousMode; // si
-  NTSTATUS v5; // edi
+  int v5; // edi
   PEPROCESS v6; // rax
   PETHREAD v7; // rbx
-  NTSTATUS v9; // [rsp+30h] [rbp-48h] BYREF
+  int v9; // [rsp+30h] [rbp-48h] BYREF
   PETHREAD Thread; // [rsp+38h] [rbp-40h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-38h] BYREF
 

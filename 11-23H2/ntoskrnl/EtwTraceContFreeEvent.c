@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceContFreeEvent @ 0x1403C37A0
+ * XREFs of EtwTraceContFreeEvent @ 0x1403C3980
  * Callers:
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceContFreeEvent(__int64 a1, __int64 a2)

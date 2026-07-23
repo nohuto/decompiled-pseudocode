@@ -4,7 +4,7 @@
  *     PipChangeDeviceObjectFromRegistryProperties @ 0x14069AA88 (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
  *     _CmGetInstallerClassRegProp @ 0x14069B694 (_CmGetInstallerClassRegProp.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
  */
 
 char __fastcall PipGetRegistryDwordWithFallback(int a1, int a2, int a3, int a4, __int64 a5, _DWORD *a6)

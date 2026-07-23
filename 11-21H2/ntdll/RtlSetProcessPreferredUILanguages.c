@@ -18,23 +18,19 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, __int64 a2, _DWORD 
 {
   int v5; // edi
   __int64 result; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // ebx
+  int v7; // ebx
+  __int64 v8; // rdx
+  PVOID v9; // rdi
+  __int64 v10; // rax
+  void *v11; // rsi
   __int64 v12; // rdx
-  __int64 v13; // rdi
-  __int64 v14; // rax
-  __int64 v15; // rsi
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v19[4]; // [rsp+48h] [rbp-20h] BYREF
-  unsigned int v20; // [rsp+88h] [rbp+20h] BYREF
+  PVOID v13; // rcx
+  PVOID BaseAddress; // [rsp+40h] [rbp-28h] BYREF
+  _QWORD v15[4]; // [rsp+48h] [rbp-20h] BYREF
+  unsigned int v16; // [rsp+88h] [rbp+20h] BYREF
 
-  v19[0] = 0LL;
-  v18 = 0LL;
+  v15[0] = 0LL;
+  BaseAddress = 0LL;
   v5 = a1;
   if ( NtCurrentTeb()->IsImpersonating )
     return 3221225741LL;
@@ -47,8 +43,8 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, __int64 a2, _DWORD 
   {
     v5 = 8;
   }
-  result = RtlpCreateProcessRegistryInfo(v19);
-  v11 = result;
+  result = RtlpCreateProcessRegistryInfo(v15);
+  v7 = result;
   if ( (int)result >= 0 )
   {
     if ( !a2 )
@@ -57,46 +53,52 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, __int64 a2, _DWORD 
       DbgPrint(
         "*** ASSERT FAILED: Input parameter LanguagesBuffer for function RtlSetProcessPreferredUILanguages is not a valid"
         " multi-string!\n");
-    if ( (int)LdrpMultiSZCchLength(a2, v12, &v20) < 0 )
+    if ( (int)LdrpMultiSZCchLength(a2, v8, &v16) < 0 )
       return (unsigned int)-1073741811;
-    v9 = v20;
-    if ( v20 < 2 || *(_WORD *)a2 || *(_WORD *)(a2 + 2) )
+    if ( v16 < 2 || *(_WORD *)a2 || *(_WORD *)(a2 + 2) )
     {
-      v11 = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, (const WCHAR *)a2, v20, v5 | 2u, 26, 5u, &v18);
-      if ( v11 < 0 )
+      v7 = RtlpMuiRegAddMultiSzToLangFallbackList(
+             (__int64)g_RegInfo,
+             (const WCHAR *)a2,
+             v16,
+             v5 | 2u,
+             26,
+             5u,
+             (__int64 *)&BaseAddress);
+      if ( v7 < 0 )
       {
-        v17 = v18;
+        v13 = BaseAddress;
 LABEL_29:
-        RtlpMuiRegFreeLanguageList(v17);
-        return (unsigned int)v11;
+        RtlpMuiRegFreeLanguageList(v13);
+        return (unsigned int)v7;
       }
-      v13 = v18;
-      if ( !v18 || !*(_WORD *)(v18 + 4) )
+      v9 = BaseAddress;
+      if ( !BaseAddress || !*((_WORD *)BaseAddress + 2) )
       {
-        RtlpMuiRegFreeLanguageList(v18);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         return (unsigned int)-1073741823;
       }
       if ( a3 )
-        *a3 = *(unsigned __int16 *)(v18 + 4);
+        *a3 = *((unsigned __int16 *)BaseAddress + 2);
     }
     else
     {
 LABEL_27:
-      v13 = v18;
+      v9 = BaseAddress;
     }
-    RtlpInitMuiCriticalSection(v8, v7, v9, v10);
-    RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
-    v14 = v19[0];
-    v15 = *(_QWORD *)(v19[0] + 72);
-    *(_QWORD *)(v19[0] + 72) = v13;
-    ++*(_DWORD *)(v14 + 16);
-    v16 = *(_QWORD *)(v14 + 96);
-    if ( v16 )
-      *(_DWORD *)(v16 + 40) |= 0x80u;
-    RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
-    if ( !v15 )
-      return (unsigned int)v11;
-    v17 = v15;
+    RtlpInitMuiCriticalSection();
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
+    v10 = v15[0];
+    v11 = *(void **)(v15[0] + 72LL);
+    *(_QWORD *)(v15[0] + 72LL) = v9;
+    ++*(_DWORD *)(v10 + 16);
+    v12 = *(_QWORD *)(v10 + 96);
+    if ( v12 )
+      *(_DWORD *)(v12 + 40) |= 0x80u;
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
+    if ( !v11 )
+      return (unsigned int)v7;
+    v13 = v11;
     goto LABEL_29;
   }
   return result;

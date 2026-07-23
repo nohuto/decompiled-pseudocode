@@ -1,13 +1,13 @@
 /*
- * XREFs of PopVerifySystemPowerPolicy @ 0x1409B88AC
+ * XREFs of PopVerifySystemPowerPolicy @ 0x14099EEFC
  * Callers:
- *     PopApplyPolicy @ 0x1409B85D0 (PopApplyPolicy.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     PopApplyPolicy @ 0x14099EC20 (PopApplyPolicy.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PopIsHiberbootSupported @ 0x1406F98F0 (PopIsHiberbootSupported.c)
- *     PopVerifyPowerActionPolicy @ 0x1409B8F6C (PopVerifyPowerActionPolicy.c)
- *     PopVerifySystemPowerState @ 0x140A7DC9C (PopVerifySystemPowerState.c)
- *     PopIsHibernateSupported @ 0x140A8BE18 (PopIsHibernateSupported.c)
+ *     PopIsHiberbootSupported @ 0x1406F7530 (PopIsHiberbootSupported.c)
+ *     PopVerifyPowerActionPolicy @ 0x14099F5BC (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x140A77F9C (PopVerifySystemPowerState.c)
+ *     PopIsHibernateSupported @ 0x140A88308 (PopIsHibernateSupported.c)
  */
 
 __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
@@ -69,15 +69,15 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   *(_QWORD *)(a2 + 224) = *((_QWORD *)v4 + 12);
   if ( *(_DWORD *)a2 != 1 )
     return 3221225485LL;
-  if ( HIBYTE(word_140F0BB44) )
+  if ( HIBYTE(word_140F0B664) )
   {
     *(_DWORD *)(a2 + 72) = 4;
   }
-  else if ( (_BYTE)word_140F0BB44 )
+  else if ( (_BYTE)word_140F0B664 )
   {
     *(_DWORD *)(a2 + 72) = 3;
   }
-  else if ( byte_140F0BB43 )
+  else if ( byte_140F0B663 )
   {
     *(_DWORD *)(a2 + 72) = 2;
   }
@@ -122,13 +122,13 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   if ( v8 > HIDWORD(PopAdminPolicy) )
     *(_DWORD *)(a2 + 192) = HIDWORD(PopAdminPolicy);
   v9 = *(_DWORD *)(a2 + 212);
-  if ( v9 < (unsigned int)qword_140F0BAD0 )
+  if ( v9 < (unsigned int)qword_140F0B650 )
   {
-    *(_DWORD *)(a2 + 212) = qword_140F0BAD0;
-    v9 = qword_140F0BAD0;
+    *(_DWORD *)(a2 + 212) = qword_140F0B650;
+    v9 = qword_140F0B650;
   }
-  if ( v9 > HIDWORD(qword_140F0BAD0) )
-    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140F0BAD0);
+  if ( v9 > HIDWORD(qword_140F0B650) )
+    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140F0B650);
   PopVerifyPowerActionPolicy(a2 + 4);
   PopVerifyPowerActionPolicy(a2 + 16);
   PopVerifyPowerActionPolicy(a2 + 28);
@@ -154,25 +154,25 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
           if ( v13 != 2 )
             goto LABEL_29;
 LABEL_143:
-          if ( !byte_140F0BB43 )
+          if ( !byte_140F0B663 )
           {
             v12 = 3;
-            if ( !(_BYTE)word_140F0BB44 )
+            if ( !(_BYTE)word_140F0B664 )
             {
               v12 = 4;
-              if ( !HIBYTE(word_140F0BB44) )
+              if ( !HIBYTE(word_140F0B664) )
                 v12 = 1;
             }
           }
           goto LABEL_29;
         }
 LABEL_141:
-        if ( (_BYTE)word_140F0BB44 )
+        if ( (_BYTE)word_140F0B664 )
           goto LABEL_29;
         v12 = 2;
         goto LABEL_143;
       }
-      if ( HIBYTE(word_140F0BB44) )
+      if ( HIBYTE(word_140F0B664) )
       {
 LABEL_29:
         *v10 = v12;
@@ -202,25 +202,25 @@ LABEL_30:
           if ( v15 != 2 )
             goto LABEL_35;
 LABEL_150:
-          if ( !byte_140F0BB43 )
+          if ( !byte_140F0B663 )
           {
             v14 = 3;
-            if ( !(_BYTE)word_140F0BB44 )
+            if ( !(_BYTE)word_140F0B664 )
             {
               v14 = 4;
-              if ( !HIBYTE(word_140F0BB44) )
+              if ( !HIBYTE(word_140F0B664) )
                 v14 = 1;
             }
           }
           goto LABEL_35;
         }
 LABEL_148:
-        if ( (_BYTE)word_140F0BB44 )
+        if ( (_BYTE)word_140F0B664 )
           goto LABEL_35;
         v14 = 2;
         goto LABEL_150;
       }
-      if ( HIBYTE(word_140F0BB44) )
+      if ( HIBYTE(word_140F0B664) )
       {
 LABEL_35:
         *v5 = v14;
@@ -251,25 +251,25 @@ LABEL_36:
           if ( v18 != 2 )
             goto LABEL_41;
 LABEL_157:
-          if ( !byte_140F0BB43 )
+          if ( !byte_140F0B663 )
           {
             v17 = 3;
-            if ( !(_BYTE)word_140F0BB44 )
+            if ( !(_BYTE)word_140F0B664 )
             {
               v17 = 4;
-              if ( !HIBYTE(word_140F0BB44) )
+              if ( !HIBYTE(word_140F0B664) )
                 v17 = 1;
             }
           }
           goto LABEL_41;
         }
 LABEL_155:
-        if ( (_BYTE)word_140F0BB44 )
+        if ( (_BYTE)word_140F0B664 )
           goto LABEL_41;
         v17 = 2;
         goto LABEL_157;
       }
-      if ( HIBYTE(word_140F0BB44) )
+      if ( HIBYTE(word_140F0B664) )
       {
 LABEL_41:
         *v16 = v17;
@@ -300,25 +300,25 @@ LABEL_42:
       if ( v21 != 2 )
         goto LABEL_47;
 LABEL_164:
-      if ( !byte_140F0BB43 )
+      if ( !byte_140F0B663 )
       {
         v20 = 3;
-        if ( !(_BYTE)word_140F0BB44 )
+        if ( !(_BYTE)word_140F0B664 )
         {
           v20 = 4;
-          if ( !HIBYTE(word_140F0BB44) )
+          if ( !HIBYTE(word_140F0B664) )
             v20 = 1;
         }
       }
       goto LABEL_47;
     }
 LABEL_162:
-    if ( (_BYTE)word_140F0BB44 )
+    if ( (_BYTE)word_140F0B664 )
       goto LABEL_47;
     v20 = 2;
     goto LABEL_164;
   }
-  if ( !HIBYTE(word_140F0BB44) )
+  if ( !HIBYTE(word_140F0B664) )
   {
     v20 = 3;
     goto LABEL_162;
@@ -357,19 +357,19 @@ LABEL_48:
             break;
           case 3:
 LABEL_169:
-            if ( (_BYTE)word_140F0BB44 )
+            if ( (_BYTE)word_140F0B664 )
               goto LABEL_55;
             v26 = 2;
             goto LABEL_171;
           case 2:
 LABEL_171:
-            if ( !byte_140F0BB43 )
+            if ( !byte_140F0B663 )
             {
               v26 = 3;
-              if ( !(_BYTE)word_140F0BB44 )
+              if ( !(_BYTE)word_140F0B664 )
               {
                 v26 = 4;
-                if ( !HIBYTE(word_140F0BB44) )
+                if ( !HIBYTE(word_140F0B664) )
                   v26 = 1;
               }
             }
@@ -377,7 +377,7 @@ LABEL_171:
           default:
             goto LABEL_55;
         }
-        if ( HIBYTE(word_140F0BB44) )
+        if ( HIBYTE(word_140F0B664) )
         {
 LABEL_55:
           v24[3] = v26;
@@ -415,7 +415,7 @@ LABEL_56:
   v29 = (_DWORD *)(a2 + 88);
   v30 = *(_DWORD *)(a2 + 88);
   v31 = (_DWORD *)(a2 + 88);
-  if ( v30 && !byte_140F0BB47 )
+  if ( v30 && !byte_140F0B667 )
   {
     *v29 = 0;
     v31 = (_DWORD *)(a2 + 88);

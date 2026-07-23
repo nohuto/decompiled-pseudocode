@@ -1,9 +1,9 @@
 /*
- * XREFs of MincryptFree @ 0x1408A4DBC
+ * XREFs of MincryptFree @ 0x1408AB1CC
  * Callers:
- *     SymCryptCallbackFree @ 0x1407228C8 (SymCryptCallbackFree.c)
+ *     SymCryptCallbackFree @ 0x140727498 (SymCryptCallbackFree.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MincryptFree(void *a1)

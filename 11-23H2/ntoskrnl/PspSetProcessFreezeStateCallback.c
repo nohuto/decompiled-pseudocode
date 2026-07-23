@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSetProcessFreezeStateCallback @ 0x14036A6B0
+ * XREFs of PspSetProcessFreezeStateCallback @ 0x14036A850
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     ExpTimerPause @ 0x140369808 (ExpTimerPause.c)
- *     ExpTimerResume @ 0x14036B0A0 (ExpTimerResume.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     ExpTimerPause @ 0x1403699A8 (ExpTimerPause.c)
+ *     ExpTimerResume @ 0x14036B240 (ExpTimerResume.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     PspRequestProcessExecutionState @ 0x1406A70B8 (PspRequestProcessExecutionState.c)
  */
 
@@ -65,10 +65,10 @@ __int64 __fastcall PspSetProcessFreezeStateCallback(__int64 a1, _DWORD **a2)
       v5 = (volatile signed __int64 *)(a1 + 2440);
     }
     KxReleaseSpinLock(v5);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v6 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         a2 = (_DWORD **)(-1LL << (v6 + 1));

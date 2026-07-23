@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlDeleteTunnelCache @ 0x14052A1FC
+ * XREFs of FsRtlDeleteTunnelCache @ 0x14052A73C
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

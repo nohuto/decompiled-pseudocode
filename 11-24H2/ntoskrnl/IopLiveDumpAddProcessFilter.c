@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpAddProcessFilter @ 0x140597F48
+ * XREFs of IopLiveDumpAddProcessFilter @ 0x140594EC8
  * Callers:
- *     IopLiveDumpAllocAndInitProcessFilters @ 0x140598250 (IopLiveDumpAllocAndInitProcessFilters.c)
+ *     IopLiveDumpAllocAndInitProcessFilters @ 0x1405951D0 (IopLiveDumpAllocAndInitProcessFilters.c)
  * Callees:
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140262A88 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     IopLiveDumpLookupProcessFilter @ 0x14059BB4C (IopLiveDumpLookupProcessFilter.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14029293C (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IopLiveDumpLookupProcessFilter @ 0x140598ACC (IopLiveDumpLookupProcessFilter.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopLiveDumpAddProcessFilter(__int64 a1, void *a2, int a3)
@@ -50,7 +50,7 @@ __int64 __fastcall IopLiveDumpAddProcessFilter(__int64 a1, void *a2, int a3)
       return (unsigned int)-1073741811;
     v7 = 0;
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x28uLL, 0x706D644Cu);
   if ( Pool2 )
   {
     *(_QWORD *)(Pool2 + 16) = a2;

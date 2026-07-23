@@ -1,13 +1,13 @@
 /*
- * XREFs of ViSpRtlReplaceStringBuffer @ 0x140AE87A4
+ * XREFs of ViSpRtlReplaceStringBuffer @ 0x140AE8794
  * Callers:
- *     VfSpRtlUnicodeStringToAnsiString_Exit @ 0x140AE8720 (VfSpRtlUnicodeStringToAnsiString_Exit.c)
- *     VfSpRtlCreateUnicodeString_Exit @ 0x140AE8750 (VfSpRtlCreateUnicodeString_Exit.c)
- *     VfSpRtlDuplicateUnicodeString_Exit @ 0x140AE8780 (VfSpRtlDuplicateUnicodeString_Exit.c)
+ *     VfSpRtlUnicodeStringToAnsiString_Exit @ 0x140AE8710 (VfSpRtlUnicodeStringToAnsiString_Exit.c)
+ *     VfSpRtlCreateUnicodeString_Exit @ 0x140AE8740 (VfSpRtlCreateUnicodeString_Exit.c)
+ *     VfSpRtlDuplicateUnicodeString_Exit @ 0x140AE8770 (VfSpRtlDuplicateUnicodeString_Exit.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
  */
 
 void __fastcall ViSpRtlReplaceStringBuffer(__int64 a1, __int64 a2)

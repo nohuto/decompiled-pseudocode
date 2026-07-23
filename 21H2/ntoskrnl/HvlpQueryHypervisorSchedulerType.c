@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpQueryHypervisorSchedulerType @ 0x1403F0DF0
+ * XREFs of HvlpQueryHypervisorSchedulerType @ 0x1403F0D20
  * Callers:
- *     HvlPhase2Initialize @ 0x1403CF0B8 (HvlPhase2Initialize.c)
- *     HvlpDetermineEnlightenments @ 0x1404FA3C4 (HvlpDetermineEnlightenments.c)
+ *     HvlPhase2Initialize @ 0x1403CF228 (HvlPhase2Initialize.c)
+ *     HvlpDetermineEnlightenments @ 0x1404FA344 (HvlpDetermineEnlightenments.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 HvlpQueryHypervisorSchedulerType()

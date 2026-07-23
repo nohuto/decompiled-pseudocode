@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpProcInitDiscard @ 0x140A394E4
+ * XREFs of HalpProcInitDiscard @ 0x140A3A4E4
  * Callers:
- *     HalpProcInitSystem @ 0x14099B4C0 (HalpProcInitSystem.c)
+ *     HalpProcInitSystem @ 0x14099C4C0 (HalpProcInitSystem.c)
  * Callees:
- *     HalpProcGetFeatureBits @ 0x1403A803C (HalpProcGetFeatureBits.c)
- *     HalpMcUpdateInitialize @ 0x140790E20 (HalpMcUpdateInitialize.c)
+ *     HalpProcGetFeatureBits @ 0x1403A8DCC (HalpProcGetFeatureBits.c)
+ *     HalpMcUpdateInitialize @ 0x1407923D0 (HalpMcUpdateInitialize.c)
  */
 
 __int64 __fastcall HalpProcInitDiscard(__int64 a1)

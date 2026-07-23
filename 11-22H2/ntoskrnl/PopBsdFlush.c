@@ -25,10 +25,10 @@ LONG __fastcall PopBsdFlush(char a1)
     PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
   }
   if ( (a1 & 1) != 0 )
-    PopWriteBsdPoInfo(7u);
+    PopWriteBsdPoInfo(RtlBsdPowerTransition);
   if ( (a1 & 2) != 0 )
-    PopWriteBsdPoInfo(0x10u);
+    PopWriteBsdPoInfo(RtlBsdPowerTransitionExtension);
   if ( (a1 & 4) != 0 )
-    PopWriteBsdPoInfo(0xEu);
+    PopWriteBsdPoInfo(RtlBsdItemPowerButtonPressInfo);
   return KeSetEvent(&PopBsdFlushInactiveEvent, 0, 0);
 }

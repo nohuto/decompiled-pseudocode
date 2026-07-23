@@ -7,17 +7,26 @@
  *     AlpcpCreateConnectionPort @ 0x14054355C (AlpcpCreateConnectionPort.c)
  */
 
-__int64 __fastcall NtAlpcCreatePort(int a1, int a2, int a3)
+NTSTATUS __cdecl NtAlpcCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int ConnectionPort; // eax
+  NTSTATUS ConnectionPort; // eax
   struct _KTHREAD *v5; // rdx
-  unsigned int v6; // ebx
+  NTSTATUS v6; // ebx
   __int16 v7; // cx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ConnectionPort = AlpcpCreateConnectionPort(a1, a2, a3, 0, 0, 0);
+  ConnectionPort = AlpcpCreateConnectionPort(
+                     (_DWORD)PortHandle,
+                     (_DWORD)ObjectAttributes,
+                     (_DWORD)PortAttributes,
+                     0,
+                     0,
+                     0);
   v5 = KeGetCurrentThread();
   v6 = ConnectionPort;
   v7 = v5->KernelApcDisable + 1;

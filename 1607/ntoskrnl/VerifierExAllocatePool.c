@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierExAllocatePool @ 0x1407020A4
+ * XREFs of VerifierExAllocatePool @ 0x1407020D4
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPoolType @ 0x1407042B0 (VfCheckPoolType.c)
- *     XdvExAllocatePoolInternal @ 0x14070CE7C (XdvExAllocatePoolInternal.c)
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     VfCheckPoolType @ 0x1407042E0 (VfCheckPoolType.c)
+ *     XdvExAllocatePoolInternal @ 0x14070CEAC (XdvExAllocatePoolInternal.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  */
 
 __int64 __fastcall VerifierExAllocatePool(__int64 a1, int a2)
@@ -15,7 +15,7 @@ __int64 __fastcall VerifierExAllocatePool(__int64 a1, int a2)
 
   v3 = a1;
   VfCheckPoolType(a1, retaddr, 0LL);
-  ++dword_14030721C;
+  ++dword_14030725C;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(retaddr, 140LL);
   return pXdvExAllocatePoolWithTagPriority(

@@ -14,14 +14,14 @@ NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAM
 {
   SIZE_T v2; // rdi
   __int64 v5; // rdx
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rbx
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rbx
   NTSTATUS v7; // edi
   ULONG i; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = 208LL;
   for ( i = 208; ; v2 = i )
   {
-    PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, v2, 0x6E446F49u);
+    PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, v2, 0x6E446F49u);
     if ( !PoolWithTag )
       break;
     v7 = IopQueryNameInternal(FileObject, v5, 1, &PoolWithTag->Name, v2, &i, 0);

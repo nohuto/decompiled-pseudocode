@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipGetSMBiosTableData @ 0x1406A7DBC
+ * XREFs of WmipGetSMBiosTableData @ 0x1406A905C
  * Callers:
- *     WmipRawSMBiosTableHandler @ 0x140122F10 (WmipRawSMBiosTableHandler.c)
- *     WmipQueryWmiDataBlock @ 0x1406A7BD0 (WmipQueryWmiDataBlock.c)
+ *     WmipRawSMBiosTableHandler @ 0x140122FE0 (WmipRawSMBiosTableHandler.c)
+ *     WmipQueryWmiDataBlock @ 0x1406A8E70 (WmipQueryWmiDataBlock.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     WmipGetRegistryHideMachine @ 0x1406A7EBC (WmipGetRegistryHideMachine.c)
- *     WmipSMBiosHideMachine @ 0x1408B31B0 (WmipSMBiosHideMachine.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MmMapIoSpaceEx @ 0x1400E5DE0 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x1401232F0 (MmUnmapIoSpace.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     WmipGetRegistryHideMachine @ 0x1406A915C (WmipGetRegistryHideMachine.c)
+ *     WmipSMBiosHideMachine @ 0x1408B4410 (WmipSMBiosHideMachine.c)
  */
 
 __int64 __fastcall WmipGetSMBiosTableData(void *a1, _DWORD *a2, _DWORD *a3)

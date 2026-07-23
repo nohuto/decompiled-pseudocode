@@ -1,69 +1,69 @@
 /*
- * XREFs of NtGetNextProcess @ 0x1408EFDC0
+ * XREFs of NtGetNextProcess @ 0x1408615C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     PsIsProcessInSilo @ 0x14040EF20 (PsIsProcessInSilo.c)
- *     PspLockUnlockProcessExclusive @ 0x140418978 (PspLockUnlockProcessExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeCreateAccessState @ 0x14083F490 (SeCreateAccessState.c)
- *     SeDeleteAccessState @ 0x140840F80 (SeDeleteAccessState.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
- *     PsGetPreviousProcess @ 0x1408F00BC (PsGetPreviousProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x140407120 (PsIsProcessInSilo.c)
+ *     PspLockUnlockProcessExclusive @ 0x140408728 (PspLockUnlockProcessExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeCreateAccessState @ 0x14083B750 (SeCreateAccessState.c)
+ *     SeDeleteAccessState @ 0x14083D240 (SeDeleteAccessState.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
+ *     PsGetPreviousProcess @ 0x1408618BC (PsGetPreviousProcess.c)
  */
 
-__int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3, int a4, HANDLE *a5)
+NTSTATUS __cdecl NtGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
   KPROCESSOR_MODE AccessMode; // r12
   ULONG v9; // r14d
   __int64 v10; // rcx
-  __int64 result; // rax
-  int v12; // r15d
+  NTSTATUS result; // eax
+  ULONG v12; // r15d
   __int64 *PreviousProcess; // rax
   __int64 v14; // rbx
   struct _KTHREAD *CurrentThread; // rsi
   unsigned __int64 CurrentServerSilo; // rax
-  __int64 v17; // r8
-  __int64 v18; // r9
-  int v19; // esi
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // r9
+  NTSTATUS v17; // esi
   __int64 *NextProcess; // rax
-  bool v24; // zf
-  BOOLEAN v25; // [rsp+40h] [rbp-208h]
+  bool v19; // zf
+  BOOLEAN v20; // [rsp+40h] [rbp-208h]
   PVOID Object; // [rsp+58h] [rbp-1F0h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-1E8h] BYREF
-  unsigned __int64 v29; // [rsp+68h] [rbp-1E0h]
-  struct _KTHREAD *v30; // [rsp+78h] [rbp-1D0h]
+  unsigned __int64 v24; // [rsp+68h] [rbp-1E0h]
+  struct _KTHREAD *v25; // [rsp+78h] [rbp-1D0h]
   struct _ACCESS_STATE PassedAccessState; // [rsp+90h] [rbp-1B8h] BYREF
-  _QWORD v32[28]; // [rsp+130h] [rbp-118h] BYREF
+  _QWORD v27[28]; // [rsp+130h] [rbp-118h] BYREF
 
   Object = 0LL;
   memset_0(&PassedAccessState, 0, sizeof(PassedAccessState));
-  memset_0(v32, 0, sizeof(v32));
+  memset_0(v27, 0, sizeof(v27));
   Handle = 0LL;
   AccessMode = KeGetCurrentThread()->PreviousMode;
-  v9 = a3 & (AccessMode != 0 ? 7666 : 73714);
+  v9 = HandleAttributes & (AccessMode != 0 ? 7666 : 73714);
   if ( AccessMode )
   {
     v10 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-      v10 = (__int64)a5;
+    if ( (unsigned __int64)NewProcessHandle < 0x7FFFFFFF0000LL )
+      v10 = (__int64)NewProcessHandle;
     *(_QWORD *)v10 = *(_QWORD *)v10;
   }
-  *a5 = 0LL;
-  if ( (a4 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  if ( !BugCheckParameter1
+  *NewProcessHandle = 0LL;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  if ( !ProcessHandle
     || (result = ObpReferenceObjectByHandleWithTag(
-                   BugCheckParameter1,
+                   (ULONG_PTR)ProcessHandle,
                    0,
                    (__int64)PsProcessType,
                    AccessMode,
@@ -71,26 +71,26 @@ __int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3
                    &Object,
                    0LL,
                    0LL),
-        (int)result >= 0) )
+        result >= 0) )
   {
-    v12 = a4 & 1;
+    v12 = Flags & 1;
     if ( v12 )
       PreviousProcess = (__int64 *)PsGetPreviousProcess(Object);
     else
       PreviousProcess = PsGetNextProcess(Object);
     v14 = (__int64)PreviousProcess;
     if ( !PreviousProcess )
-      return 2147483674LL;
-    v25 = SeSinglePrivilegeCheck(SeDebugPrivilege, AccessMode);
+      return -2147483622;
+    v20 = SeSinglePrivilegeCheck(SeDebugPrivilege, AccessMode);
     CurrentThread = KeGetCurrentThread();
-    v30 = CurrentThread;
+    v25 = CurrentThread;
     CurrentServerSilo = PsGetCurrentServerSilo();
-    v29 = CurrentServerSilo;
+    v24 = CurrentServerSilo;
     while ( 1 )
     {
       if ( (*(_DWORD *)(v14 + 500) & 0x4000000) != 0 )
         goto LABEL_13;
-      PspLockUnlockProcessExclusive(v14, (__int64)CurrentThread, v17, v18);
+      PspLockUnlockProcessExclusive(v14, (__int64)CurrentThread);
       if ( (*(_DWORD *)(v14 + 500) & 0x4000000) != 0 )
         break;
 LABEL_27:
@@ -99,25 +99,25 @@ LABEL_27:
       else
         NextProcess = PsGetNextProcess((_QWORD *)v14);
       v14 = (__int64)NextProcess;
-      v24 = NextProcess == 0LL;
-      CurrentServerSilo = v29;
-      if ( v24 )
+      v19 = NextProcess == 0LL;
+      CurrentServerSilo = v24;
+      if ( v19 )
       {
-        v19 = -2147483622;
+        v17 = -2147483622;
 LABEL_21:
         if ( v14 )
           ObfDereferenceObjectWithTag((PVOID)v14, 0x6E457350u);
-        return (unsigned int)v19;
+        return v17;
       }
     }
-    CurrentServerSilo = v29;
+    CurrentServerSilo = v24;
 LABEL_13:
     if ( PsIsProcessInSilo((struct _KPROCESS *)v14, CurrentServerSilo) )
     {
-      v19 = SeCreateAccessState(&PassedAccessState, v32, a2, (_DWORD *)PsProcessType + 19);
-      if ( v19 < 0 )
+      v17 = SeCreateAccessState(&PassedAccessState, v27, DesiredAccess, (_DWORD *)PsProcessType + 19);
+      if ( v17 < 0 )
         goto LABEL_21;
-      if ( v25 )
+      if ( v20 )
       {
         if ( (PassedAccessState.RemainingDesiredAccess & 0x2000000) != 0 )
           PassedAccessState.PreviouslyGrantedAccess |= 0x1FFFFFu;
@@ -125,7 +125,7 @@ LABEL_13:
           PassedAccessState.PreviouslyGrantedAccess |= PassedAccessState.RemainingDesiredAccess;
         PassedAccessState.RemainingDesiredAccess = 0;
       }
-      v19 = ObOpenObjectByPointer(
+      v17 = ObOpenObjectByPointer(
               (PVOID)v14,
               v9,
               &PassedAccessState,
@@ -133,15 +133,15 @@ LABEL_13:
               (POBJECT_TYPE)PsProcessType,
               AccessMode,
               &Handle);
-      SeDeleteAccessState((__int64)&PassedAccessState, v20, v21, v22);
-      if ( v19 >= 0 )
+      SeDeleteAccessState((__int64)&PassedAccessState);
+      if ( v17 >= 0 )
       {
-        *a5 = Handle;
+        *NewProcessHandle = Handle;
         goto LABEL_21;
       }
-      if ( v19 != -1073741790 )
+      if ( v17 != -1073741790 )
         goto LABEL_21;
-      CurrentThread = v30;
+      CurrentThread = v25;
     }
     goto LABEL_27;
   }

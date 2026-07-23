@@ -3,15 +3,15 @@
  * Callers:
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlQueryRegistryValuesEx @ 0x1404F6E7C (RtlQueryRegistryValuesEx.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlQueryRegistryValuesEx @ 0x1404D9E08 (RtlQueryRegistryValuesEx.c)
  */
 
 void EtwpReadConfigParameters()
@@ -28,7 +28,7 @@ void EtwpReadConfigParameters()
   HANDLE KeyHandle; // [rsp+58h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-98h] BYREF
-  _QWORD v12[28]; // [rsp+A8h] [rbp-60h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[4]; // [rsp+A8h] [rbp-60h] BYREF
 
   LOWORD(v7) = 0;
   *(_QWORD *)&UnicodeString.Length = 0LL;
@@ -44,21 +44,21 @@ void EtwpReadConfigParameters()
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
     goto LABEL_21;
-  memset(v12, 0, sizeof(v12));
-  v12[0] = EtwpQueryRegistryCallback;
-  v12[3] = &UnicodeString;
-  v12[7] = EtwpQueryRegistryCallback;
-  v12[2] = L"RTBacklogRoot";
-  v12[14] = EtwpQueryRegistryCallback;
-  v12[5] = &v7;
-  LODWORD(v12[4]) = 1;
-  v12[10] = &v5;
-  LODWORD(v12[11]) = 4;
-  v12[9] = L"MaxNonPagedPoolUsage";
-  v12[17] = &v6;
-  v12[16] = L"StackCaptureTimeout";
-  LODWORD(v12[18]) = 4;
-  if ( (int)RtlQueryRegistryValuesEx(0x40000000LL, (__int64)KeyHandle, (__int64)v12) < 0 )
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)EtwpQueryRegistryCallback;
+  QueryTable[0].EntryContext = &UnicodeString;
+  QueryTable[1].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)EtwpQueryRegistryCallback;
+  QueryTable[0].Name = L"RTBacklogRoot";
+  QueryTable[2].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)EtwpQueryRegistryCallback;
+  QueryTable[0].DefaultData = &v7;
+  QueryTable[0].DefaultType = 1;
+  QueryTable[1].EntryContext = &v5;
+  QueryTable[1].DefaultType = 4;
+  QueryTable[1].Name = L"MaxNonPagedPoolUsage";
+  QueryTable[2].EntryContext = &v6;
+  QueryTable[2].Name = L"StackCaptureTimeout";
+  QueryTable[2].DefaultType = 4;
+  if ( RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL) < 0 )
   {
 LABEL_21:
     v1 = v5;

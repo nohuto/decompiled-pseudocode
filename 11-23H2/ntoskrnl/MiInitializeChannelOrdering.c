@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeChannelOrdering @ 0x140837C84
+ * XREFs of MiInitializeChannelOrdering @ 0x140837F84
  * Callers:
- *     MiInitializeNuma @ 0x140397D58 (MiInitializeNuma.c)
+ *     MiInitializeNuma @ 0x140397F38 (MiInitializeNuma.c)
  * Callees:
  *     MiInitializeSystemChannelOrdering @ 0x140B99B14 (MiInitializeSystemChannelOrdering.c)
  */

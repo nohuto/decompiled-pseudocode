@@ -8,29 +8,31 @@
 
 size_t __cdecl strcspn(const char *Str, const char *Control)
 {
-  unsigned int v2; // eax
-  size_t v5; // ecx
-  signed __int32 v7[9]; // [esp+0h] [ebp-24h] BYREF
+  size_t result; // rax
+  int v4; // ecx
+  signed __int32 v5[9]; // [esp+0h] [ebp-24h] BYREF
 
-  v2 = 0;
-  memset(v7, 0, 32);
+  LODWORD(result) = 0;
+  memset(v5, 0, 32);
+  HIDWORD(result) = Control;
   while ( 1 )
   {
-    LOBYTE(v2) = *Control;
-    if ( !*Control )
+    LOBYTE(result) = *(_BYTE *)HIDWORD(result);
+    if ( !*(_BYTE *)HIDWORD(result) )
       break;
-    ++Control;
-    _bittestandset(v7, v2);
+    ++HIDWORD(result);
+    _bittestandset(v5, result);
   }
-  v5 = -1;
+  v4 = -1;
   do
   {
-    ++v5;
-    LOBYTE(v2) = *Str;
+    ++v4;
+    LOBYTE(result) = *Str;
     if ( !*Str )
       break;
     ++Str;
   }
-  while ( !_bittest(v7, v2) );
-  return v5;
+  while ( !_bittest(v5, result) );
+  LODWORD(result) = v4;
+  return result;
 }

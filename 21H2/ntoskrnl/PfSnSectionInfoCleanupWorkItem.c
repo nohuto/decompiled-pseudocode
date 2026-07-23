@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnSectionInfoCleanupWorkItem @ 0x1406C88B0
+ * XREFs of PfSnSectionInfoCleanupWorkItem @ 0x1406771A0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     PsSetCurrentThreadPrefetching @ 0x1406C8E60 (PsSetCurrentThreadPrefetching.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x1406C9424 (PfSnCleanupPrefetchSectionInfo.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     PsSetCurrentThreadPrefetching @ 0x140677750 (PsSetCurrentThreadPrefetching.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x140677D14 (PfSnCleanupPrefetchSectionInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfSnSectionInfoCleanupWorkItem(__int64 a1)
@@ -16,12 +16,14 @@ void __fastcall PfSnSectionInfoCleanupWorkItem(__int64 a1)
   _QWORD *v2; // rsi
   __int64 v3; // r15
   __int64 v4; // r14
-  __int64 v5; // r8
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int32 v7; // eax
-  __int64 v8; // rdi
-  void *v9; // rcx
-  __int64 v10; // rax
+  unsigned __int32 v9; // eax
+  __int64 v10; // rdi
+  void *v11; // rcx
+  __int64 v12; // rax
 
   v1 = *(_QWORD *)(a1 + 32);
   v2 = *(_QWORD **)(v1 + 8);
@@ -32,21 +34,21 @@ void __fastcall PfSnSectionInfoCleanupWorkItem(__int64 a1)
   --CurrentThread->KernelApcDisable;
   while ( 1 )
   {
-    v7 = _InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 28), 1u);
-    if ( v7 >= *(_DWORD *)(v1 + 32) )
+    v9 = _InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 28), 1u);
+    if ( v9 >= *(_DWORD *)(v1 + 32) )
       break;
-    v8 = v7;
-    v9 = *(void **)(v3 + 8LL * v7);
-    if ( v9 )
-      ExFreePoolWithTag(v9, 0);
-    v10 = *(unsigned int *)(v4 + 4 * v8);
-    if ( (int)v10 >= 0 )
+    v10 = v9;
+    v11 = *(void **)(v3 + 8LL * v9);
+    if ( v11 )
+      ExFreePoolWithTag(v11, 0);
+    v12 = *(unsigned int *)(v4 + 4 * v10);
+    if ( (int)v12 >= 0 )
     {
-      LOBYTE(v5) = 1;
-      PfSnCleanupPrefetchSectionInfo(v2[7] + 56 * v10, v2, v5);
+      LOBYTE(v6) = 1;
+      PfSnCleanupPrefetchSectionInfo(v2[7] + 56 * v12, v2, v6);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v6, v7);
   PsSetCurrentThreadPrefetching(0);
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)v1);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)v1);
 }

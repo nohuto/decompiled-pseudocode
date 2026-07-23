@@ -1,13 +1,13 @@
 /*
- * XREFs of VfIrpDatabaseCheckExFreePool @ 0x140AC0876
+ * XREFs of VfIrpDatabaseCheckExFreePool @ 0x140AC0866
  * Callers:
- *     VfPoolCheckIncorrectFreeApi @ 0x140ADA130 (VfPoolCheckIncorrectFreeApi.c)
+ *     VfPoolCheckIncorrectFreeApi @ 0x140ADA120 (VfPoolCheckIncorrectFreeApi.c)
  * Callees:
- *     ViIrpDatabaseAcquireLockShared @ 0x1405D2578 (ViIrpDatabaseAcquireLockShared.c)
- *     ViIrpDatabaseReleaseLockShared @ 0x1405D2618 (ViIrpDatabaseReleaseLockShared.c)
- *     VfUtilAddressRangeFitNoLock @ 0x140AC2434 (VfUtilAddressRangeFitNoLock.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     ViIrpDatabaseFindPointer @ 0x140AE1AF4 (ViIrpDatabaseFindPointer.c)
+ *     ViIrpDatabaseAcquireLockShared @ 0x1405D2AE8 (ViIrpDatabaseAcquireLockShared.c)
+ *     ViIrpDatabaseReleaseLockShared @ 0x1405D2B88 (ViIrpDatabaseReleaseLockShared.c)
+ *     VfUtilAddressRangeFitNoLock @ 0x140AC2424 (VfUtilAddressRangeFitNoLock.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     ViIrpDatabaseFindPointer @ 0x140AE1AE4 (ViIrpDatabaseFindPointer.c)
  */
 
 void __fastcall VfIrpDatabaseCheckExFreePool(ULONG_PTR BugCheckParameter2)

@@ -126,7 +126,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
             {
               v21->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v21->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v20]);
+                KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v20].TreeNode);
               v43 = v21->BoostBitmap.AllFields & 0x1FFFF;
               v21->BoostBitmap.AllFields &= 0xFFFE0000;
               v21->ThreadLocalFlags &= ~1u;

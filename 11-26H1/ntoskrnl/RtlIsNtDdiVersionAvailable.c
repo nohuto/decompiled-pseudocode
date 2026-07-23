@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsNtDdiVersionAvailable @ 0x1404A45A0
+ * XREFs of RtlIsNtDdiVersionAvailable @ 0x14049DC30
  * Callers:
  *     <none>
  * Callees:

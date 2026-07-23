@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlFormatCurrentUserKeyPath @ 0x14065A5A0
+ * XREFs of RtlFormatCurrentUserKeyPath @ 0x14065B760
  * Callers:
- *     RtlpGetRegistryHandle @ 0x1405C7774 (RtlpGetRegistryHandle.c)
- *     RtlOpenCurrentUser @ 0x14071B0B0 (RtlOpenCurrentUser.c)
- *     AslRegistryBuildUserPath @ 0x1407235B0 (AslRegistryBuildUserPath.c)
- *     _RegRtlOpenPredefinedKey @ 0x14075D1FC (_RegRtlOpenPredefinedKey.c)
+ *     RtlpGetRegistryHandle @ 0x1405C8774 (RtlpGetRegistryHandle.c)
+ *     RtlOpenCurrentUser @ 0x14071C350 (RtlOpenCurrentUser.c)
+ *     AslRegistryBuildUserPath @ 0x140724850 (AslRegistryBuildUserPath.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14075E3EC (_RegRtlOpenPredefinedKey.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQueryInformationToken @ 0x1401B85B0 (ZwQueryInformationToken.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
- *     RtlLengthSidAsUnicodeString @ 0x14065A9B4 (RtlLengthSidAsUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQueryInformationToken @ 0x1401B8710 (ZwQueryInformationToken.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065B870 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x14065BB74 (RtlLengthSidAsUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406B33A0 (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __stdcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING KeyPath)
@@ -24,7 +24,7 @@ NTSTATUS __stdcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING KeyPath)
   wchar_t *Buffer; // rax
   unsigned __int64 v7; // rdx
   int v8; // edi
-  int v9; // [rsp+30h] [rbp-98h] BYREF
+  ULONG StringLength; // [rsp+30h] [rbp-98h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-90h] BYREF
   ULONG ReturnLength; // [rsp+48h] [rbp-80h] BYREF
   PSID Sid[12]; // [rsp+50h] [rbp-78h] BYREF
@@ -32,10 +32,10 @@ NTSTATUS __stdcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING KeyPath)
   result = ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, TokenUser, Sid, 0x58u, &ReturnLength);
   if ( result >= 0 )
   {
-    result = RtlLengthSidAsUnicodeString(Sid[0], &v9);
+    result = RtlLengthSidAsUnicodeString(Sid[0], &StringLength);
     if ( result >= 0 )
     {
-      v3 = v9;
+      v3 = StringLength;
       KeyPath->Length = 0;
       v4 = (unsigned __int16)(v3 + 34);
       KeyPath->MaximumLength = v4;

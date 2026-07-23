@@ -143,47 +143,20 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
   unsigned __int8 v17; // zf
   int v18; // edx
   __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // rdx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // r8
-  __int64 v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // r8
-  __int64 v38; // rdx
-  __int64 v39; // rcx
-  __int64 v40; // r8
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // rdx
-  __int64 v45; // rcx
-  __int64 v46; // r8
-  __int128 v48; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v49; // [rsp+50h] [rbp-38h]
-  int v50; // [rsp+90h] [rbp+8h] BYREF
-  LARGE_INTEGER v51; // [rsp+A0h] [rbp+18h] BYREF
+  __int128 v21; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v22; // [rsp+50h] [rbp-38h]
+  int Buffer; // [rsp+90h] [rbp+8h] BYREF
+  LARGE_INTEGER v24; // [rsp+A0h] [rbp+18h] BYREF
 
   PopOsInitPhase = a1;
-  v51.QuadPart = 0LL;
-  v48 = 0LL;
-  v49 = 0LL;
+  v24.QuadPart = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
   if ( !a1 )
   {
-    KeQueryPerformanceCounter(&v51);
-    PopQpcFrequency = v51.QuadPart;
-    PopComputeCounterShifts(v51.QuadPart, &PpmPerformanceDistributionShift, &PpmPerformanceCounterShift);
+    KeQueryPerformanceCounter(&v24);
+    PopQpcFrequency = v24.QuadPart;
+    PopComputeCounterShifts(v24.QuadPart, &PpmPerformanceDistributionShift, &PpmPerformanceCounterShift);
     PopComputeCounterShifts(0x989680uLL, &PpmHvPerformanceDistributionShift, &PpmHvPerformanceCounterShift);
     PopCsResiliencyStatsLock = 0LL;
     PopPowerAggregatorInitialize(0LL);
@@ -411,9 +384,9 @@ LABEL_57:
               if ( PopSkipTickPolicy == 1 )
               {
                 v16 = 0;
-                if ( (int)HalGetInterruptTargetInformation(2, 0, (__int64)&v48) >= 0 )
+                if ( (int)HalGetInterruptTargetInformation(2, 0, (__int64)&v21) >= 0 )
                 {
-                  PopApicMode = HIDWORD(v49);
+                  PopApicMode = HIDWORD(v22);
                   if ( PopCheckSkipTick() )
                   {
                     PoSkipTickMode = 0;
@@ -481,25 +454,25 @@ LABEL_38:
             PopInitializeAdpm();
             PopEsInit(3LL);
             PopInitilizeAcDcSettings();
-            v50 = 1;
+            Buffer = 1;
             PopUpdateConsoleDisplayState(1u);
-            ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v50);
+            ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &Buffer, 4u, 0LL, 0LL, 0, 0);
             PopNetInitialize(3);
             PopReleasePolicyLock();
             PopIdleInitAoAcDozeS4Timer();
-            PopCreateIdlePhaseWatchdog(v20, v19, v21);
-            PopInitializeSystemIdleDetection(v23, v22, v24);
+            PopCreateIdlePhaseWatchdog();
+            PopInitializeSystemIdleDetection();
             PopInitializePreSleepNotifications();
-            v25 = *(_QWORD *)(a2 + 240);
-            PopHiberLoaderScratchPages = *(_DWORD *)(v25 + 272);
-            PopHiberResumeXhciHandoffSkip = (*(_DWORD *)(v25 + 132) & 0x10000000) != 0;
+            v19 = *(_QWORD *)(a2 + 240);
+            PopHiberLoaderScratchPages = *(_DWORD *)(v19 + 272);
+            PopHiberResumeXhciHandoffSkip = (*(_DWORD *)(v19 + 132) & 0x10000000) != 0;
             PopSetupHighPerfPowerRequest();
             PpmEnableWmiInterface();
             PopAcquirePolicyLock();
-            PopCoalescingInitialize(v27, v26, v28);
+            PopCoalescingInitialize();
             PopReleasePolicyLock();
             PopInitializeDirectedDrips(3LL);
-            PopDripsWatchdogInitialize(v30, v29, v31);
+            PopDripsWatchdogInitialize();
             PopSetupAudioEventNotification();
             PopSetupMixedRealitytNotification();
             PopSetupFullScrenVideoNotification();
@@ -511,12 +484,12 @@ LABEL_38:
             PopThermalHandlePreviousShutdown();
             PopCheckpointDetermineEfiRuntimeRedirection(a2);
             TtmInit();
-            PopReadErrataForIncorrectLidNotification(v33, v32, v34);
-            PopEvaluateInputSuppressionRequired(v36, v35, v37);
+            PopReadErrataForIncorrectLidNotification();
+            PopEvaluateInputSuppressionRequired();
             PopBatteryRefreshStatus();
-            PopSetupKsrCallbacks(v39, v38, v40);
-            PopHiberEvaluateSkippingMemoryMapValidation(v42, v41, v43);
-            PopReadErrataSkipMemoryOverwriteRequestControlLockAction(v45, v44, v46);
+            PopSetupKsrCallbacks();
+            PopHiberEvaluateSkippingMemoryMapValidation();
+            PopReadErrataSkipMemoryOverwriteRequestControlLockAction();
             goto LABEL_57;
           }
         }

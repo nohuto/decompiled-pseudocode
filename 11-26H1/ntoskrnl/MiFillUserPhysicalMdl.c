@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFillUserPhysicalMdl @ 0x1407014E4
+ * XREFs of MiFillUserPhysicalMdl @ 0x1407061B4
  * Callers:
- *     MiAllocateFastAwePages @ 0x1408776E8 (MiAllocateFastAwePages.c)
+ *     MiAllocateFastAwePages @ 0x14087DAC8 (MiAllocateFastAwePages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiInitializeAwePfn @ 0x1405105D4 (MiInitializeAwePfn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiDemotePfnListChain @ 0x1407117C4 (MiDemotePfnListChain.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiInitializeAwePfn @ 0x14050A044 (MiInitializeAwePfn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiDemotePfnListChain @ 0x1407164C4 (MiDemotePfnListChain.c)
  */
 
 __int64 __fastcall MiFillUserPhysicalMdl(__int64 a1, _QWORD *a2, unsigned __int64 a3, unsigned __int64 a4)

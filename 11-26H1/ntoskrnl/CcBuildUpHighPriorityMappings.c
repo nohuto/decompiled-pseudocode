@@ -1,9 +1,9 @@
 /*
- * XREFs of CcBuildUpHighPriorityMappings @ 0x140515228
+ * XREFs of CcBuildUpHighPriorityMappings @ 0x14050EC98
  * Callers:
- *     CcGetVirtualAddress @ 0x1402E0F50 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x1402C2D60 (CcGetVirtualAddress.c)
  * Callees:
- *     MmReserveViewInSystemCache @ 0x14086AB08 (MmReserveViewInSystemCache.c)
+ *     MmReserveViewInSystemCache @ 0x140870EE8 (MmReserveViewInSystemCache.c)
  */
 
 __int64 __fastcall CcBuildUpHighPriorityMappings(__int64 a1, __int64 a2)
@@ -14,13 +14,13 @@ __int64 __fastcall CcBuildUpHighPriorityMappings(__int64 a1, __int64 a2)
   unsigned int v7; // ebx
   unsigned int i; // edi
 
-  result = *(unsigned int *)EmpParseLock.PriorityFloorCounts;
+  result = LODWORD(EmpParseLock.PropagateBoostsEntry.Next);
   v4 = *(_DWORD *)(a1 + 1248);
-  if ( v4 < *(_DWORD *)EmpParseLock.PriorityFloorCounts )
+  if ( v4 < LODWORD(EmpParseLock.PropagateBoostsEntry.Next) )
   {
     v6 = (__int64 *)(a2 + 16);
-    v7 = *(_DWORD *)EmpParseLock.PriorityFloorCounts - v4;
-    if ( *(_DWORD *)EmpParseLock.PriorityFloorCounts - v4 <= *(_DWORD *)EmpParseLock.PriorityFloorCounts )
+    v7 = LODWORD(EmpParseLock.PropagateBoostsEntry.Next) - v4;
+    if ( LODWORD(EmpParseLock.PropagateBoostsEntry.Next) - v4 <= LODWORD(EmpParseLock.PropagateBoostsEntry.Next) )
     {
       for ( i = 0; i < v7; v6 += 5 )
       {

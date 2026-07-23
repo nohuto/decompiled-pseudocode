@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUmpoSendPowerRequestCreate @ 0x140A66258
+ * XREFs of PopUmpoSendPowerRequestCreate @ 0x140A5E938
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestNotificationsBegin @ 0x140749CD4 (PopPowerRequestNotificationsBegin.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestNotificationsBegin @ 0x140748004 (PopPowerRequestNotificationsBegin.c)
  * Callees:
- *     PoStoreDiagnosticContext @ 0x1403312F4 (PoStoreDiagnosticContext.c)
- *     PopUmpoSendPowerMessage @ 0x140331990 (PopUmpoSendPowerMessage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PoStoreDiagnosticContext @ 0x1402BA9FC (PoStoreDiagnosticContext.c)
+ *     PopUmpoSendPowerMessage @ 0x1402BB090 (PopUmpoSendPowerMessage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopUmpoSendPowerRequestCreate(int a1)
@@ -27,7 +27,7 @@ void __fastcall PopUmpoSendPowerRequestCreate(int a1)
       if ( (unsigned int)PoStoreDiagnosticContext((__int64)i[12], 0LL, &v7) == -1073741789 )
       {
         v3 = v7;
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, v7 + 16, 0x6F706D55u);
         v5 = (_DWORD *)Pool2;
         if ( Pool2 )
         {
@@ -38,7 +38,7 @@ void __fastcall PopUmpoSendPowerRequestCreate(int a1)
             if ( *((_DWORD *)j + 9) == a1 )
             {
               if ( (int)PoStoreDiagnosticContext((__int64)j[12], (unsigned __int64 *)(Pool2 + 16), &v7) >= 0 )
-                PopUmpoSendPowerMessage(v5, v3 + 16, 0, 0LL);
+                PopUmpoSendPowerMessage(v5, v3 + 16, 0);
               break;
             }
           }

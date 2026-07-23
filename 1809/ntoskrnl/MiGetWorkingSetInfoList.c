@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetWorkingSetInfoList @ 0x1400965F0
+ * XREFs of MiGetWorkingSetInfoList @ 0x140096530
  * Callers:
- *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1405EF910 (MmQueryVirtualMemory.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -13,28 +13,28 @@
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1400754A0 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiRotatedToFrameBuffer @ 0x1400947E4 (MiRotatedToFrameBuffer.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiLockProtoPage @ 0x1400962A4 (MiLockProtoPage.c)
- *     MiQueryPfn @ 0x1400973F0 (MiQueryPfn.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiGetValidAweProtection @ 0x1402B0D90 (MiGetValidAweProtection.c)
- *     MiWorkingSetInfoCheckPageTable @ 0x1402BF2E4 (MiWorkingSetInfoCheckPageTable.c)
- *     EtwTraceShouldYieldProcessor @ 0x14031050C (EtwTraceShouldYieldProcessor.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140075490 (MiUnlockAndDereferenceVadShared.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiRotatedToFrameBuffer @ 0x140094724 (MiRotatedToFrameBuffer.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiLockProtoPage @ 0x1400961E4 (MiLockProtoPage.c)
+ *     MiQueryPfn @ 0x140097330 (MiQueryPfn.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiGetValidAweProtection @ 0x1402B0F80 (MiGetValidAweProtection.c)
+ *     MiWorkingSetInfoCheckPageTable @ 0x1402BF4D4 (MiWorkingSetInfoCheckPageTable.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1403106FC (EtwTraceShouldYieldProcessor.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiGetWorkingSetInfoList(unsigned __int64 Src, unsigned __int64 a2, _KPROCESS *a3, int a4)
@@ -295,7 +295,7 @@ LABEL_11:
     v19 = 0xFFFFF68000000000uLL;
 LABEL_19:
     if ( ((v20 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000
-       || (v20 & 0xFFFFFFFFFFFFF000uLL) == qword_14043A008 && qword_14043A008)
+       || (v20 & 0xFFFFFFFFFFFFF000uLL) == qword_14043B0C8 && qword_14043B0C8)
       && (v131[2].ActiveProcessors.Bitmap[0] & 0x100000000LL) == 0 )
     {
       v7 |= 4u;
@@ -757,8 +757,8 @@ LABEL_85:
         }
         if ( !v60 )
         {
-          v101 = (_QWORD *)qword_14043A188;
-          if ( !qword_14043A188 )
+          v101 = (_QWORD *)qword_14043B248;
+          if ( !qword_14043B248 )
             goto LABEL_292;
           v102 = v57 / 48;
           v138 = v57 / 48;
@@ -829,20 +829,20 @@ LABEL_44:
     ProtoPteAddress = v37;
     if ( (v7 & 4) != 0 )
     {
-      ProtoPteAddress = qword_14043A000;
+      ProtoPteAddress = qword_14043B0C0;
       if ( (v20 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
-        ProtoPteAddress = qword_140439FF8;
+        ProtoPteAddress = qword_14043B0B8;
       v39 = ProtoPteAddress;
     }
     else if ( (*(_DWORD *)(v36 + 48) & 0x4000) != 0 )
     {
       v88 = v35;
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
         if ( (v35 & 0x10) != 0 )
           v88 = v35 & 0xFFFFFFFFFFFFFFEFuLL;
         else
-          v88 = ~qword_14043A0C0 & v35;
+          v88 = ~qword_14043B180 & v35;
       }
       v39 = v88 >> 16;
     }
@@ -856,12 +856,12 @@ LABEL_44:
       }
       else
       {
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
           if ( (v34 & 0x10) != 0 )
             v34 &= ~0x10uLL;
           else
-            v34 &= ~qword_14043A0C0;
+            v34 &= ~qword_14043B180;
         }
         v39 = v34 >> 16;
         v37 = 0LL;
@@ -917,14 +917,14 @@ LABEL_60:
       }
       if ( (v42 & 0xC00) != 0x800 )
         break;
-      if ( !v42 || !qword_14043A0C0 || (v42 & qword_14043A0C0) != 0 )
+      if ( !v42 || !qword_14043B180 || (v42 & qword_14043B180) != 0 )
       {
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
           if ( (v42 & 0x10) != 0 )
             v42 &= ~0x10uLL;
           else
-            v42 &= ~qword_14043A0C0;
+            v42 &= ~qword_14043B180;
         }
         goto LABEL_60;
       }

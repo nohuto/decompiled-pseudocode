@@ -1,25 +1,25 @@
 /*
- * XREFs of MiRotateToFrameBuffer @ 0x140A316A0
+ * XREFs of MiRotateToFrameBuffer @ 0x140A31950
  * Callers:
- *     MmRotatePhysicalView @ 0x140A31BD0 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x140A31E80 (MmRotatePhysicalView.c)
  * Callees:
  *     MmSizeOfMdl @ 0x140206EA0 (MmSizeOfMdl.c)
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     MiIsPfn @ 0x14023F0C0 (MiIsPfn.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F14DC (MiLegitimatePageForDriversToMap.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F155C (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiSanitizePage @ 0x140335C10 (MiSanitizePage.c)
- *     MiDereferenceIoPages @ 0x1403360F4 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MiDeleteRotateAndStopFaults @ 0x1406325B8 (MiDeleteRotateAndStopFaults.c)
- *     MiRotateComplete @ 0x140632DCC (MiRotateComplete.c)
- *     MiSlowRotateCopy @ 0x140632F64 (MiSlowRotateCopy.c)
- *     MiGetVadCacheAttribute @ 0x140660BA4 (MiGetVadCacheAttribute.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     MiIsPfn @ 0x14023F190 (MiIsPfn.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402F176C (MiLegitimatePageForDriversToMap.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F17EC (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiSanitizePage @ 0x140335EA0 (MiSanitizePage.c)
+ *     MiDereferenceIoPages @ 0x140336384 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MiDeleteRotateAndStopFaults @ 0x140632B08 (MiDeleteRotateAndStopFaults.c)
+ *     MiRotateComplete @ 0x14063331C (MiRotateComplete.c)
+ *     MiSlowRotateCopy @ 0x1406334B4 (MiSlowRotateCopy.c)
+ *     MiGetVadCacheAttribute @ 0x1406610F4 (MiGetVadCacheAttribute.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

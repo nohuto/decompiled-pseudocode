@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCoalesceFreeLargePages @ 0x1403031A0
+ * XREFs of MiCoalesceFreeLargePages @ 0x14030DEF0
  * Callers:
- *     MiRebuildLargeZeroPage @ 0x1402A1FB0 (MiRebuildLargeZeroPage.c)
+ *     MiRebuildLargeZeroPage @ 0x14021F3F0 (MiRebuildLargeZeroPage.c)
  * Callees:
- *     MiUnlockDynamicMemoryShared @ 0x14029BEF0 (MiUnlockDynamicMemoryShared.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402138C0 (MiUnlockDynamicMemoryShared.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403F5A4C (MiChangePageAttributeLargeFreeZeroPage.c)
  *     MiLargePagePromote @ 0x1403F6D98 (MiLargePagePromote.c)
@@ -15,7 +15,7 @@
  *     MiChangePageHeatImmediate @ 0x1403F7CB0 (MiChangePageHeatImmediate.c)
  */
 
-char __fastcall MiCoalesceFreeLargePages(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall MiCoalesceFreeLargePages(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v3; // rdi
   unsigned __int64 v4; // rbx

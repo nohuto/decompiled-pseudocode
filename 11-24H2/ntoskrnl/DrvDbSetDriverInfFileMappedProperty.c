@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbSetDriverInfFileMappedProperty @ 0x140822DF8
+ * XREFs of DrvDbSetDriverInfFileMappedProperty @ 0x140823538
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x140923D00 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x140925E40 (DrvDbDispatchDriverInfFile.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     DrvDbSetRegValueMappedProperty @ 0x14082348C (DrvDbSetRegValueMappedProperty.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x1409240A4 (DrvDbOpenDriverInfFileRegKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x140823BCC (DrvDbSetRegValueMappedProperty.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x1409261E4 (DrvDbOpenDriverInfFileRegKey.c)
  */
 
 __int64 __fastcall DrvDbSetDriverInfFileMappedProperty(
@@ -41,7 +41,7 @@ __int64 __fastcall DrvDbSetDriverInfFileMappedProperty(
   {
     if ( (unsigned int)i >= 4 )
       return (unsigned int)-1073741802;
-    v14 = &off_1400020A0 + 5 * i;
+    v14 = &off_1400021A0 + 5 * i;
     v15 = (__int64 *)*v14;
     if ( LODWORD((**v14)[2]) == v8 )
     {

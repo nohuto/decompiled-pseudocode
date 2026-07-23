@@ -1,12 +1,12 @@
 /*
- * XREFs of KiHandleBound @ 0x1405E5140
+ * XREFs of KiHandleBound @ 0x1405E7AB0
  * Callers:
- *     KiBoundFault @ 0x1407347C0 (KiBoundFault.c)
+ *     KiBoundFault @ 0x1407393C0 (KiBoundFault.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiHandleBound(__int64 a1, signed __int64 a2)

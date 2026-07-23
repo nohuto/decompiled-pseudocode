@@ -1,11 +1,11 @@
 /*
- * XREFs of ViMakeVerifierSettings @ 0x140A93B90
+ * XREFs of ViMakeVerifierSettings @ 0x140A94B90
  * Callers:
- *     VfTriageSystem @ 0x140A6FCE4 (VfTriageSystem.c)
+ *     VfTriageSystem @ 0x140A70CE4 (VfTriageSystem.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     VfInitSetVerifyDriverTargets @ 0x140A938A0 (VfInitSetVerifyDriverTargets.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     VfInitSetVerifyDriverTargets @ 0x140A948A0 (VfInitSetVerifyDriverTargets.c)
  */
 
 NTSTATUS __fastcall ViMakeVerifierSettings(_DWORD *a1, _DWORD *a2)

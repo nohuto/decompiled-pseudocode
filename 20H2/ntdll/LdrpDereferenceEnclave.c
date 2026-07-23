@@ -13,15 +13,15 @@
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrpDereferenceEnclave(__int64 a1)
+LOGICAL __fastcall LdrpDereferenceEnclave(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 60), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 15, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    RtlFreeHeap(LdrpHeap, 0, *(_QWORD *)(a1 + 112));
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    RtlFreeHeap(LdrpHeap, 0, *((PVOID *)BaseAddress + 14));
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

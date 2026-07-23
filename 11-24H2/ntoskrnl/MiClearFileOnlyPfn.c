@@ -1,10 +1,10 @@
 /*
- * XREFs of MiClearFileOnlyPfn @ 0x1402246D8
+ * XREFs of MiClearFileOnlyPfn @ 0x140251428
  * Callers:
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     MiQueueExtentPfnDeletion @ 0x1404CF468 (MiQueueExtentPfnDeletion.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiQueueExtentPfnDeletion @ 0x1404C8730 (MiQueueExtentPfnDeletion.c)
  */
 
 __int64 __fastcall MiClearFileOnlyPfn(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall MiClearFileOnlyPfn(__int64 a1)
   v7 = 0x8000000000000000uLL;
   LODWORD(v8) = 4521984;
   if ( ((*(_QWORD *)(a1 + 40) >> 60) & 7) == 3 )
-    MiSetPfnIdentity(&v5, 3LL);
+    MiSetPfnIdentity((__int64)&v5, 3u);
   *((_QWORD *)&v8 + 1) |= 0x40000000000000uLL;
   v9 = v8;
   HIBYTE(v9) = BYTE3(v8) | 0x10;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetThreadPpmPolicy @ 0x140AB6E40
+ * XREFs of PspSetThreadPpmPolicy @ 0x140AB8480
  * Callers:
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
  * Callees:
- *     KeSetThreadPpmPolicy @ 0x1402C4470 (KeSetThreadPpmPolicy.c)
+ *     KeSetThreadPpmPolicy @ 0x14030F130 (KeSetThreadPpmPolicy.c)
  */
 
 __int64 __fastcall PspSetThreadPpmPolicy(__int64 a1, int a2)

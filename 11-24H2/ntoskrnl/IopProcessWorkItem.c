@@ -1,72 +1,72 @@
 /*
- * XREFs of IopProcessWorkItem @ 0x1402A2410
+ * XREFs of IopProcessWorkItem @ 0x1402D1B40
  * Callers:
- *     ExpWorkerThread @ 0x140207CC0 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x14032F2A0 (ExpWorkerThread.c)
  * Callees:
- *     EtwTraceThreadWorkItem @ 0x140207BD0 (EtwTraceThreadWorkItem.c)
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1402A0C10 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1402A1AC0 (EtwTraceThreadWorkOnBehalfUpdate.c)
- *     KeAdjustWobPriority @ 0x1402A2074 (KeAdjustWobPriority.c)
- *     KeApplyWobBamQos @ 0x1402A2218 (KeApplyWobBamQos.c)
- *     PspRevertContainerImpersonation @ 0x1402A2A90 (PspRevertContainerImpersonation.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x140467C90 (PnpDeviceCompletionRequestDestroyWorkItem.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1409D2920 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpDeregisterObject @ 0x1409D2A68 (ObpDeregisterObject.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1402D11F0 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     KeAdjustWobPriority @ 0x1402D17A4 (KeAdjustWobPriority.c)
+ *     KeApplyWobBamQos @ 0x1402D1948 (KeApplyWobBamQos.c)
+ *     PspRevertContainerImpersonation @ 0x1402D21C0 (PspRevertContainerImpersonation.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     EtwTraceThreadWorkItem @ 0x14032F1B0 (EtwTraceThreadWorkItem.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1403B4ED0 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x140460640 (PnpDeviceCompletionRequestDestroyWorkItem.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1409C2750 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObpDeregisterObject @ 0x1409C2898 (ObpDeregisterObject.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-struct _KTHREAD *__fastcall IopProcessWorkItem(PIO_WORKITEM IoWorkItem, __int64 a2, __int64 a3, __int64 a4)
+struct _KTHREAD *__fastcall IopProcessWorkItem(PIO_WORKITEM IoWorkItem)
 {
-  __int64 (__fastcall *Routine)(PIO_WORKITEM); // r12
+  void (__stdcall *Routine)(PVOID, ULONG); // r12
   _WORD *IoObject; // r15
-  int v7; // ebp
-  __int64 v8; // rcx
+  int v4; // ebp
+  __int64 v5; // rcx
   _ETHREAD *WorkOnBehalfThread; // rsi
   struct _KTHREAD *CurrentThread; // r13
   ULONG_PTR Object; // rbp
-  KIRQL v12; // r12
-  unsigned __int64 v13; // rcx
-  __int64 v14; // rdx
-  signed __int64 v15; // rax
-  bool v16; // cc
-  signed __int64 v17; // rax
+  KIRQL v9; // r12
+  unsigned __int64 v10; // rcx
+  __int64 v11; // rdx
+  signed __int64 v12; // rax
+  bool v13; // cc
+  signed __int64 v14; // rax
   void *Context; // rdx
-  signed __int64 v19; // rax
+  signed __int64 v16; // rax
   signed __int64 BugCheckParameter4; // rax
-  signed __int64 v21; // rdi
-  signed __int64 v22; // rdi
+  signed __int64 v18; // rdi
+  signed __int64 v19; // rdi
   struct _KTHREAD *result; // rax
-  signed __int32 v24; // eax
-  signed __int32 v25; // ett
-  int v26; // [rsp+30h] [rbp-58h]
+  signed __int32 v21; // eax
+  signed __int32 v22; // ett
+  int v23; // [rsp+30h] [rbp-58h]
   ULONG_PTR BugCheckParameter1; // [rsp+38h] [rbp-50h]
   _GUID ActivityId; // [rsp+40h] [rbp-48h] BYREF
   void *retaddr; // [rsp+88h] [rbp+0h]
 
-  Routine = (__int64 (__fastcall *)(PIO_WORKITEM))IoWorkItem->Routine;
+  Routine = (void (__stdcall *)(PVOID, ULONG))IoWorkItem->Routine;
   IoObject = IoWorkItem->IoObject;
-  v7 = 0;
-  v26 = 0;
+  v4 = 0;
+  v23 = 0;
   ActivityId = 0LL;
   BugCheckParameter1 = (ULONG_PTR)Routine;
-  v8 = *(_QWORD *)&CPER_EMPTY_GUID.Data1 - *(_QWORD *)&IoWorkItem->ActivityId.Data1;
-  if ( !v8 )
-    v8 = *(_QWORD *)CPER_EMPTY_GUID.Data4 - *(_QWORD *)IoWorkItem->ActivityId.Data4;
-  if ( v8 )
+  v5 = *(_QWORD *)&CPER_EMPTY_GUID.Data1 - *(_QWORD *)&IoWorkItem->ActivityId.Data1;
+  if ( !v5 )
+    v5 = *(_QWORD *)CPER_EMPTY_GUID.Data4 - *(_QWORD *)IoWorkItem->ActivityId.Data4;
+  if ( v5 )
   {
-    v7 = 1;
-    v26 = 1;
+    v4 = 1;
+    v23 = 1;
     ActivityId = IoWorkItem->ActivityId;
     KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)&ActivityId;
   }
@@ -79,20 +79,20 @@ struct _KTHREAD *__fastcall IopProcessWorkItem(PIO_WORKITEM IoWorkItem, __int64 
     if ( Object )
     {
       _m_prefetchw(&CurrentThread[1].SwapListEntry + 1);
-      v24 = *((_DWORD *)&CurrentThread[1].SwapListEntry + 2);
+      v21 = *((_DWORD *)&CurrentThread[1].SwapListEntry + 2);
       do
       {
-        v25 = v24;
-        v24 = _InterlockedCompareExchange(
+        v22 = v21;
+        v21 = _InterlockedCompareExchange(
                 (volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2,
-                v24 & 0xFEFFFFFF,
-                v24);
+                v21 & 0xFEFFFFFF,
+                v21);
       }
-      while ( v25 != v24 );
-      if ( (v24 & 0x1000000) != 0 )
-        KeSetThreadChargeOnlySchedulingGroup((__int64)CurrentThread, 0LL);
+      while ( v22 != v21 );
+      if ( (v21 & 0x1000000) != 0 )
+        KeSetThreadChargeOnlySchedulingGroup(CurrentThread, 0LL);
     }
-    v12 = ExAcquireSpinLockExclusive(&PspThreadWorkOnBehalfLock);
+    v9 = ExAcquireSpinLockExclusive(&PspThreadWorkOnBehalfLock);
     CurrentThread[1].WaitBlock[1].Object = WorkOnBehalfThread;
     KeAdjustWobPriority((ULONG_PTR)CurrentThread, (unsigned int)WorkOnBehalfThread->Tcb.Priority);
     KeApplyWobBamQos((__int64)KeGetCurrentPrcb(), (__int64)CurrentThread, (__int64)WorkOnBehalfThread);
@@ -101,15 +101,15 @@ struct _KTHREAD *__fastcall IopProcessWorkItem(PIO_WORKITEM IoWorkItem, __int64 
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&PspThreadWorkOnBehalfLock, retaddr);
     if ( KiIrqlFlags )
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v12);
-    __writecr8(v12);
-    v13 = WorkOnBehalfThread->Tcb.Process[1].Padding[3];
-    if ( v13 )
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v9);
+    __writecr8(v9);
+    v10 = WorkOnBehalfThread->Tcb.Process[1].Padding[3];
+    if ( v10 )
     {
-      v14 = *(_QWORD *)(v13 + 1248);
-      if ( v14 )
+      v11 = *(_QWORD *)(v10 + 1248);
+      if ( v11 )
       {
-        if ( KeSetThreadChargeOnlySchedulingGroup((__int64)CurrentThread, v14) )
+        if ( (unsigned __int8)KeSetThreadChargeOnlySchedulingGroup(CurrentThread, v11) )
           _InterlockedOr((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0x1000000u);
       }
     }
@@ -118,10 +118,10 @@ struct _KTHREAD *__fastcall IopProcessWorkItem(PIO_WORKITEM IoWorkItem, __int64 
     {
       if ( ObpTraceFlags )
         ObpPushStackInfo(Object - 48);
-      v15 = _InterlockedExchangeAdd64((volatile signed __int64 *)(Object - 48), 0xFFFFFFFFFFFFFFFFuLL);
-      v16 = v15 <= 1;
-      v17 = v15 - 1;
-      if ( v16 )
+      v12 = _InterlockedExchangeAdd64((volatile signed __int64 *)(Object - 48), 0xFFFFFFFFFFFFFFFFuLL);
+      v13 = v12 <= 1;
+      v14 = v12 - 1;
+      if ( v13 )
       {
         if ( *(_QWORD *)(Object - 40) )
           KeBugCheckEx(
@@ -130,50 +130,47 @@ struct _KTHREAD *__fastcall IopProcessWorkItem(PIO_WORKITEM IoWorkItem, __int64 
             Object,
             3uLL,
             *(_QWORD *)(Object - 40));
-        if ( v17 < 0 )
-          KeBugCheckEx(0x18u, 0LL, Object, 4uLL, v17);
+        if ( v14 < 0 )
+          KeBugCheckEx(0x18u, 0LL, Object, 4uLL, v14);
         ObpDeferObjectDeletion(Object - 48);
       }
     }
     WorkOnBehalfThread = IoWorkItem->WorkOnBehalfThread;
-    v7 = v26;
-    Routine = (__int64 (__fastcall *)(PIO_WORKITEM))BugCheckParameter1;
+    v4 = v23;
+    Routine = (void (__stdcall *)(PVOID, ULONG))BugCheckParameter1;
     IoWorkItem->WorkOnBehalfThread = 0LL;
   }
   if ( (DWORD2(PerfGlobalGroupMask) & 0x8000000) != 0 )
-    EtwTraceThreadWorkItem(Routine, 0x540u);
+    EtwTraceThreadWorkItem(Routine, 1344LL);
   Context = IoWorkItem->Context;
-  if ( IoWorkItem->Type )
+  if ( !IoWorkItem->Type )
   {
-    if ( (char *)Routine == (char *)ExFreePoolWithTag )
+    if ( *IoObject != 3 )
     {
-      ExFreePoolWithTag(IoObject, (ULONG)Context);
+      guard_dispatch_icall_no_overrides(0LL, Context);
+      goto LABEL_23;
     }
-    else if ( (char *)Routine == (char *)PnpDeviceCompletionRequestDestroyWorkItem )
-    {
-      PnpDeviceCompletionRequestDestroyWorkItem(IoObject, Context, IoWorkItem);
-    }
-    else
-    {
-      guard_dispatch_icall_no_overrides(IoObject, Context, IoWorkItem, a4);
-    }
+LABEL_44:
+    guard_dispatch_icall_no_overrides(IoObject, Context);
+    goto LABEL_23;
   }
-  else if ( *IoObject == 3 )
+  if ( Routine == ExFreePoolWithTag )
   {
-    guard_dispatch_icall_no_overrides(IoObject, Context, a3, a4);
+    ExFreePoolWithTag(IoObject, (ULONG)Context);
+    goto LABEL_23;
   }
-  else
-  {
-    guard_dispatch_icall_no_overrides(0LL, Context, a3, a4);
-  }
+  if ( (char *)Routine != (char *)PnpDeviceCompletionRequestDestroyWorkItem )
+    goto LABEL_44;
+  PnpDeviceCompletionRequestDestroyWorkItem(IoObject, Context, IoWorkItem);
+LABEL_23:
   if ( (DWORD2(PerfGlobalGroupMask) & 0x8000000) != 0 )
-    EtwTraceThreadWorkItem(Routine, 0x541u);
+    EtwTraceThreadWorkItem(Routine, 1345LL);
   if ( ObpTraceFlags )
     ObpPushStackInfo((_DWORD)IoObject - 48);
-  v19 = _InterlockedExchangeAdd64((volatile signed __int64 *)IoObject - 6, 0xFFFFFFFFFFFFFFFFuLL);
-  v16 = v19 <= 1;
-  BugCheckParameter4 = v19 - 1;
-  if ( v16 )
+  v16 = _InterlockedExchangeAdd64((volatile signed __int64 *)IoObject - 6, 0xFFFFFFFFFFFFFFFFuLL);
+  v13 = v16 <= 1;
+  BugCheckParameter4 = v16 - 1;
+  if ( v13 )
   {
     if ( *((_QWORD *)IoObject - 5) )
       KeBugCheckEx(
@@ -200,19 +197,19 @@ struct _KTHREAD *__fastcall IopProcessWorkItem(PIO_WORKITEM IoWorkItem, __int64 
       ObpRemoveObjectRoutine(IoObject - 24, 0LL);
     }
   }
-  if ( v7 )
+  if ( v4 )
     KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink = 0LL;
   if ( WorkOnBehalfThread )
   {
     PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread());
     if ( ObpTraceFlags )
       ObpPushStackInfo((_DWORD)WorkOnBehalfThread - 48);
-    v21 = _InterlockedExchangeAdd64(
+    v18 = _InterlockedExchangeAdd64(
             (volatile signed __int64 *)&WorkOnBehalfThread[-1].UpdateTebApc.SystemArgument2,
             0xFFFFFFFFFFFFFFFFuLL);
-    v16 = v21 <= 1;
-    v22 = v21 - 1;
-    if ( v16 )
+    v13 = v18 <= 1;
+    v19 = v18 - 1;
+    if ( v13 )
     {
       if ( *(_QWORD *)&WorkOnBehalfThread[-1].UpdateTebApcFill5[80] )
         KeBugCheckEx(
@@ -221,8 +218,8 @@ struct _KTHREAD *__fastcall IopProcessWorkItem(PIO_WORKITEM IoWorkItem, __int64 
           (ULONG_PTR)WorkOnBehalfThread,
           1uLL,
           *(_QWORD *)&WorkOnBehalfThread[-1].UpdateTebApcFill5[80]);
-      if ( v22 < 0 )
-        KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)WorkOnBehalfThread, 2uLL, v22);
+      if ( v19 < 0 )
+        KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)WorkOnBehalfThread, 2uLL, v19);
       if ( KeGetCurrentThread()->SpecialApcDisable || !KeAreInterruptsEnabled() || KeGetCurrentIrql() )
       {
         ObpDeferObjectDeletion(&WorkOnBehalfThread[-1].UpdateTebApcFill5[72]);

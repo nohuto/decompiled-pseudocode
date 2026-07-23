@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateSlabTypeAvailablePages @ 0x14036A0D8
+ * XREFs of MiUpdateSlabTypeAvailablePages @ 0x14036BE78
  * Callers:
- *     MiRemoveSlabEntry @ 0x1402A9800 (MiRemoveSlabEntry.c)
- *     MiGetSlabRepurposedStandbyListWorker @ 0x1402C9C98 (MiGetSlabRepurposedStandbyListWorker.c)
- *     MiFreePageToSlabEntry @ 0x140369DBC (MiFreePageToSlabEntry.c)
- *     MiInsertSlabEntry @ 0x1404C33F4 (MiInsertSlabEntry.c)
+ *     MiRemoveSlabEntry @ 0x1402A8C10 (MiRemoveSlabEntry.c)
+ *     MiGetSlabRepurposedStandbyListWorker @ 0x1402ABA58 (MiGetSlabRepurposedStandbyListWorker.c)
+ *     MiFreePageToSlabEntry @ 0x14036BB5C (MiFreePageToSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x1404BCC44 (MiInsertSlabEntry.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiUpdateSlabTypeAvailablePages(__int64 a1, int a2, signed __int64 a3)

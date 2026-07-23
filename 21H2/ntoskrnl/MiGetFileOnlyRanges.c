@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetFileOnlyRanges @ 0x14052E314
+ * XREFs of MiGetFileOnlyRanges @ 0x14052E554
  * Callers:
- *     MiGetPhysicalMemoryRanges @ 0x14076F768 (MiGetPhysicalMemoryRanges.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14076F928 (MiGetPhysicalMemoryRanges.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiGetNextNonGapPfnPage @ 0x1403B9A00 (MiGetNextNonGapPfnPage.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiGetNextNonGapPfnPage @ 0x1403B9B70 (MiGetNextNonGapPfnPage.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall MiGetFileOnlyRanges(__int16 *a1, char a2, _QWORD *a3)

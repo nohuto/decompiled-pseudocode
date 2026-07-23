@@ -2,12 +2,12 @@
  * XREFs of MiCreateCombineAnchor @ 0x14021503C
  * Callers:
  *     MiConvertPrivateToProto @ 0x1402175A8 (MiConvertPrivateToProto.c)
- *     MiConvertStandbyToProto @ 0x140359E80 (MiConvertStandbyToProto.c)
+ *     MiConvertStandbyToProto @ 0x14035A020 (MiConvertStandbyToProto.c)
  * Callees:
  *     MiLocateCombineBlock @ 0x140215B20 (MiLocateCombineBlock.c)
  *     MiIncrementCombinedPte @ 0x140217740 (MiIncrementCombinedPte.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 __int64 __fastcall MiCreateCombineAnchor(__int64 *a1, __int64 a2, __int64 *a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of _wmakepath_s @ 0x180133710
+ * XREFs of _wmakepath_s @ 0x180133480
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wmakepath_s(

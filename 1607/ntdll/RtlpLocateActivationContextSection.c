@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpLocateActivationContextSection @ 0x18001B170
+ * XREFs of RtlpLocateActivationContextSection @ 0x18001B160
  * Callers:
- *     RtlpFindNextActivationContextSection @ 0x18001AFDC (RtlpFindNextActivationContextSection.c)
- *     RtlpLocateActivationContextSectionForQuery @ 0x18007BEB0 (RtlpLocateActivationContextSectionForQuery.c)
- *     RtlQueryActivationContextApplicationSettings @ 0x180080A50 (RtlQueryActivationContextApplicationSettings.c)
- *     RtlpFindActivationContextSection_FillOutReturnedData @ 0x180082B28 (RtlpFindActivationContextSection_FillOutReturnedData.c)
+ *     RtlpFindNextActivationContextSection @ 0x18001AFCC (RtlpFindNextActivationContextSection.c)
+ *     RtlpLocateActivationContextSectionForQuery @ 0x18007BEA0 (RtlpLocateActivationContextSectionForQuery.c)
+ *     RtlQueryActivationContextApplicationSettings @ 0x180080A40 (RtlQueryActivationContextApplicationSettings.c)
+ *     RtlpFindActivationContextSection_FillOutReturnedData @ 0x180082B18 (RtlpFindActivationContextSection_FillOutReturnedData.c)
  * Callees:
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     bsearch @ 0x180099410 (bsearch.c)
- *     ARRAY_FITS @ 0x1800DAB90 (ARRAY_FITS.c)
+ *     ARRAY_FITS @ 0x1800DAC50 (ARRAY_FITS.c)
  */
 
 __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, unsigned int a3, _QWORD *a4, _DWORD *a5)
@@ -51,8 +51,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
   if ( v5 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
       v5,
@@ -93,8 +93,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
           goto LABEL_6;
         }
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
           v33,
           v35,
@@ -104,8 +104,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
       else
       {
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of "
           "activation context data (%lu bytes)\n",
           v28,
@@ -117,8 +117,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     else
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
         v24,
         v26);
@@ -143,8 +143,8 @@ LABEL_6:
     || (int)v15 + (int)v14 > v5 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
       v14,
       v13,
@@ -192,8 +192,8 @@ LABEL_16:
   if ( v20 + (unsigned int)v19 < v20 || (unsigned int)v19 >= v21 || v20 + (unsigned int)v19 > v21 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
       v19,
       v20,

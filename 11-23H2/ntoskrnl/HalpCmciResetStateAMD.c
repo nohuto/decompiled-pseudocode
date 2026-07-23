@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCmciResetStateAMD @ 0x1405059AC
+ * XREFs of HalpCmciResetStateAMD @ 0x140505EFC
  * Callers:
- *     HalpCmciHandler @ 0x14050573C (HalpCmciHandler.c)
+ *     HalpCmciHandler @ 0x140505C8C (HalpCmciHandler.c)
  * Callees:
- *     HalpCmciSetProcessorConfigAMD @ 0x140505A98 (HalpCmciSetProcessorConfigAMD.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x140505FE8 (HalpCmciSetProcessorConfigAMD.c)
  */
 
 __int64 __fastcall HalpCmciResetStateAMD(__int64 a1, __int64 a2)
@@ -22,7 +22,7 @@ __int64 __fastcall HalpCmciResetStateAMD(__int64 a1, __int64 a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -34,10 +34,10 @@ __int64 __fastcall HalpCmciResetStateAMD(__int64 a1, __int64 a2)
   v5 = a2;
   LOBYTE(a2) = 1;
   HalpCmciSetProcessorConfigAMD(a1, a2, v5);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = CurrentPrcb->SchedulerAssist;
@@ -45,7 +45,7 @@ __int64 __fastcall HalpCmciResetStateAMD(__int64 a1, __int64 a2)
       v10 = (v9 & v8[5]) == 0;
       v8[5] &= v9;
       if ( v10 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

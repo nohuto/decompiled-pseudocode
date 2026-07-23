@@ -1,12 +1,12 @@
 /*
- * XREFs of VslpRegisterKsrCallback @ 0x140CBA020
+ * XREFs of VslpRegisterKsrCallback @ 0x140CC0060
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall VslpRegisterKsrCallback(struct _KTHREAD *a1)
+void __fastcall VslpRegisterKsrCallback(__int64 a1)
 {
-  stru_140FC01F0.SchedulerApc.Thread = a1;
+  *(_QWORD *)&stru_140FC11F0.SchedulerApc.Type = a1;
 }

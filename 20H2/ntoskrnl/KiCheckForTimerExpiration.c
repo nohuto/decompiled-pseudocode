@@ -168,7 +168,7 @@ LABEL_4:
   if ( !v5[33] )
     goto LABEL_5;
   v17 = qword_140C31B68;
-  v18 = v4 + (unsigned int)KeMaximumIncrement;
+  v18 = v4 + KeMaximumIncrement;
   if ( qword_140C31B68 > v4 )
   {
     v19 = KiClockOwnerOneShotRequest;

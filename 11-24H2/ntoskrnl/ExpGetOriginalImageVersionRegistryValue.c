@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpGetOriginalImageVersionRegistryValue @ 0x1407C5908
+ * XREFs of ExpGetOriginalImageVersionRegistryValue @ 0x1407C5D68
  * Callers:
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
  */
 
 __int64 __fastcall ExpGetOriginalImageVersionRegistryValue(_DWORD *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPageMightBeZero @ 0x1400E4BD0
+ * XREFs of MiPageMightBeZero @ 0x1400E2A70
  * Callers:
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
  * Callees:
  *     <none>
  */

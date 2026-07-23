@@ -1,21 +1,21 @@
 /*
- * XREFs of WbSetWowTrapFrame @ 0x140963BDC
+ * XREFs of WbSetWowTrapFrame @ 0x140963DBC
  * Callers:
- *     WbSetTrapFrame @ 0x14064D80C (WbSetTrapFrame.c)
+ *     WbSetTrapFrame @ 0x14064262C (WbSetTrapFrame.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     PspWow64SetContextThread @ 0x140695D20 (PspWow64SetContextThread.c)
- *     PspWow64GetContextThread @ 0x1406960CC (PspWow64GetContextThread.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     PspWow64SetContextThread @ 0x1405F5270 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1405F561C (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbSetWowTrapFrame(int *a1, int *a2)
+__int64 __fastcall WbSetWowTrapFrame(ULONG *a1, ULONG *a2)
 {
   unsigned __int64 v4; // rax
   __int16 v5; // di
   int v6; // ebp
   struct _KTHREAD *CurrentThread; // rax
   int v8; // eax
-  int ContextThread; // ebx
+  NTSTATUS ContextThread; // ebx
 
   v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
   if ( !v4 )
@@ -56,7 +56,7 @@ LABEL_7:
       a1[26] = *a2;
       a1[29] = a2[4];
     }
-    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), (unsigned int *)a1 + 12, v6, 0);
+    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), a1 + 12, v6, 0);
   }
   KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   return (unsigned int)ContextThread;

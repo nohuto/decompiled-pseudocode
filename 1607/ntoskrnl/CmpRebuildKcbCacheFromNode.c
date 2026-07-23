@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpRebuildKcbCacheFromNode @ 0x14000AEEC
+ * XREFs of CmpRebuildKcbCacheFromNode @ 0x14000AA6C
  * Callers:
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x1401B366C (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1401B3C44 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
- *     CmDeleteLayeredKey @ 0x1401B5DB0 (CmDeleteLayeredKey.c)
- *     CmpCreateTombstone @ 0x1401B6260 (CmpCreateTombstone.c)
- *     CmpRebuildKcbCache @ 0x1403FDA60 (CmpRebuildKcbCache.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1401B3550 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1401B3B28 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmDeleteLayeredKey @ 0x1401B5C94 (CmDeleteLayeredKey.c)
+ *     CmpCreateTombstone @ 0x1401B6144 (CmpCreateTombstone.c)
+ *     CmpRebuildKcbCache @ 0x1403FC920 (CmpRebuildKcbCache.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     CmpCleanUpSubKeyInfo @ 0x1403FDC28 (CmpCleanUpSubKeyInfo.c)
- *     CmpAssignSecurityToKcb @ 0x1403FDE38 (CmpAssignSecurityToKcb.c)
- *     CmpCleanUpKcbValueCache @ 0x1404372D8 (CmpCleanUpKcbValueCache.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1403FCAE8 (CmpCleanUpSubKeyInfo.c)
+ *     CmpAssignSecurityToKcb @ 0x1403FCCF8 (CmpAssignSecurityToKcb.c)
+ *     CmpCleanUpKcbValueCache @ 0x1404361A8 (CmpCleanUpKcbValueCache.c)
  */
 
 __int64 __fastcall CmpRebuildKcbCacheFromNode(ULONG_PTR BugCheckParameter3, __int64 a2)

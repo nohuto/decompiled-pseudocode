@@ -1,32 +1,32 @@
 /*
- * XREFs of KiDeliverApc @ 0x1402439F0
+ * XREFs of KiDeliverApc @ 0x140245350
  * Callers:
- *     KeRemoveQueueEx @ 0x140220B60 (KeRemoveQueueEx.c)
- *     KeWaitForAlertByThreadId @ 0x140222460 (KeWaitForAlertByThreadId.c)
- *     KiHandleDeferredPreemption @ 0x14022E730 (KiHandleDeferredPreemption.c)
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiExitThreadWait @ 0x140245780 (KiExitThreadWait.c)
- *     KiSatisfyThreadWait @ 0x140245F80 (KiSatisfyThreadWait.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
- *     KiBeginThreadWait @ 0x1403C2810 (KiBeginThreadWait.c)
- *     KiContinueEx @ 0x1403D58B0 (KiContinueEx.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
- *     KiApcInterrupt @ 0x14072C480 (KiApcInterrupt.c)
- *     KiInitiateUserApc @ 0x14072CBF0 (KiInitiateUserApc.c)
+ *     KeRemoveQueueEx @ 0x1402224F0 (KeRemoveQueueEx.c)
+ *     KeWaitForAlertByThreadId @ 0x140223DF0 (KeWaitForAlertByThreadId.c)
+ *     KiHandleDeferredPreemption @ 0x1402300C0 (KiHandleDeferredPreemption.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiExitThreadWait @ 0x1402470E0 (KiExitThreadWait.c)
+ *     KiSatisfyThreadWait @ 0x1402478E0 (KiSatisfyThreadWait.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
+ *     KiBeginThreadWait @ 0x1403CC710 (KiBeginThreadWait.c)
+ *     KiContinueEx @ 0x1403D8880 (KiContinueEx.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
+ *     KiApcInterrupt @ 0x140731050 (KiApcInterrupt.c)
+ *     KiInitiateUserApc @ 0x1407317C0 (KiInitiateUserApc.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeTestAlertThread @ 0x1403D7210 (KeTestAlertThread.c)
- *     KiInitializeUserApc @ 0x140446248 (KiInitializeUserApc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeTestAlertThread @ 0x1403DA1E0 (KeTestAlertThread.c)
+ *     KiInitializeUserApc @ 0x14043ED48 (KiInitializeUserApc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _KTRAP_FRAME *__fastcall KiDeliverApc(char a1, struct _LIST_ENTRY *SegCs, _KTRAP_FRAME *a3)
@@ -36,7 +36,7 @@ _KTRAP_FRAME *__fastcall KiDeliverApc(char a1, struct _LIST_ENTRY *SegCs, _KTRAP
   struct _KTHREAD *CurrentThread; // rbx
   _KTRAP_FRAME *result; // rax
   ULONG_PTR Process; // r12
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v9; // r14
+  $241382875694CED3D471BC5892DE3337 *v9; // r14
   __int64 CurrentIrql; // rcx
   unsigned int v11; // edi
   struct _LIST_ENTRY *v12; // rdi
@@ -86,10 +86,10 @@ _KTRAP_FRAME *__fastcall KiDeliverApc(char a1, struct _LIST_ENTRY *SegCs, _KTRAP
     Rip = (void *)a3->Rip;
     if ( (_WORD)SegCs == 51 )
     {
-      if ( Rip > stru_140FC01F0.KernelShadowStack
-        && (unsigned __int64)Rip <= stru_140FC01F0.InGlobalUpdateVpThreadPriorityList )
+      if ( Rip > stru_140FC11F0.KernelShadowStack
+        && (unsigned __int64)Rip <= stru_140FC11F0.InGlobalUpdateVpThreadPriorityList )
       {
-        a3->Rip = (unsigned __int64)stru_140FC01F0.KernelShadowStack;
+        a3->Rip = (unsigned __int64)stru_140FC11F0.KernelShadowStack;
       }
     }
     else if ( (_WORD)SegCs == 16 && Rip > &ExpInterlockedPopEntrySListResume && Rip <= &ExpInterlockedPopEntrySListEnd )
@@ -109,7 +109,7 @@ _KTRAP_FRAME *__fastcall KiDeliverApc(char a1, struct _LIST_ENTRY *SegCs, _KTRAP
     v9 = &CurrentThread->152;
     while ( 1 )
     {
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v9->ApcState.ApcListHead[0].Flink == v9 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v9->ApcState.ApcListHead[0].Flink == v9 )
         goto LABEL_36;
       CurrentIrql = KeGetCurrentIrql();
       if ( (_BYTE)CurrentIrql != 2 )
@@ -138,7 +138,7 @@ _KTRAP_FRAME *__fastcall KiDeliverApc(char a1, struct _LIST_ENTRY *SegCs, _KTRAP
         while ( CurrentThread->ThreadLock );
       }
       SegCs = v9->ApcState.ApcListHead[0].Flink;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v9->ApcState.ApcListHead[0].Flink == v9 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v9->ApcState.ApcListHead[0].Flink == v9 )
         break;
       CurrentThread->ApcState.KernelApcPending = 0;
       v12 = SegCs - 1;

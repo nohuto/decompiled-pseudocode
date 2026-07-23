@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmHeteroComputeCoreParkingUtilities @ 0x14042303C
+ * XREFs of PpmHeteroComputeCoreParkingUtilities @ 0x140416EEC
  * Callers:
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x140422584 (PpmHeteroComputeMultiClassUnparkCount.c)
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x140422A90 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140416434 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140416940 (PpmCheckComputeMultiClassHeteroResponse.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PpmHeteroUtilityToNormalizedUtility @ 0x140423814 (PpmHeteroUtilityToNormalizedUtility.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x1404176C4 (PpmHeteroUtilityToNormalizedUtility.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall PpmHeteroComputeCoreParkingUtilities(
@@ -59,7 +59,7 @@ void __fastcall PpmHeteroComputeCoreParkingUtilities(
     }
     _BitScanForward64(&v14, v11);
     v11 &= ~(1LL << v14);
-    v15 = *((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v10 + (unsigned __int8)v14);
+    v15 = *((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v10 + (unsigned __int8)v14);
     if ( v12 >= *(_BYTE *)(KeGetPrcb(v15) + 35336) )
       v12 = *(_BYTE *)(KeGetPrcb(v15) + 35336);
   }
@@ -75,7 +75,7 @@ LABEL_8:
     {
       _BitScanForward64(&v19, v17);
       v17 &= ~(1LL << v19);
-      Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v16 + (unsigned __int8)v19));
+      Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v16 + (unsigned __int8)v19));
       v21 = *(unsigned int *)(Prcb + 35288);
       if ( PpmCheckCurrentPipelineId != 5 )
         v21 = (unsigned int)(v21 - *(_DWORD *)(Prcb + 35296));

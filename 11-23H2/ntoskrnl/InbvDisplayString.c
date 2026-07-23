@@ -1,9 +1,9 @@
 /*
- * XREFs of InbvDisplayString @ 0x140384630
+ * XREFs of InbvDisplayString @ 0x140384810
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall InbvDisplayString(__int64 a1)

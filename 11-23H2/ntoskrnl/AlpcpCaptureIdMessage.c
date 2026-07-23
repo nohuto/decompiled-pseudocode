@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpCaptureIdMessage @ 0x14071D040
+ * XREFs of AlpcpCaptureIdMessage @ 0x14071D240
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x14071AA10 (NtAlpcQueryInformationMessage.c)
- *     NtAlpcImpersonateClientOfPort @ 0x14071CBA0 (NtAlpcImpersonateClientOfPort.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x140978AA0 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     NtAlpcQueryInformationMessage @ 0x14071AC10 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x14071CDA0 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x140978CA0 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpCaptureIdMessage(__int64 a1, _DWORD *a2, _DWORD *a3)

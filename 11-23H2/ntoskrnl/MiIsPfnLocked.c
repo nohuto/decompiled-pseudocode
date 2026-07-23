@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsPfnLocked @ 0x14036B9EC
+ * XREFs of MiIsPfnLocked @ 0x14036BB8C
  * Callers:
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MmAreMdlPagesLocked @ 0x140AE81C8 (MmAreMdlPagesLocked.c)
+ *     MiDeletePteRun @ 0x1402D5380 (MiDeletePteRun.c)
+ *     MmAreMdlPagesLocked @ 0x140AE81B8 (MmAreMdlPagesLocked.c)
  * Callees:
- *     MiPfnIsNonPagedPool @ 0x140641848 (MiPfnIsNonPagedPool.c)
+ *     MiPfnIsNonPagedPool @ 0x140641D98 (MiPfnIsNonPagedPool.c)
  */
 
 _BOOL8 __fastcall MiIsPfnLocked(__int64 a1)

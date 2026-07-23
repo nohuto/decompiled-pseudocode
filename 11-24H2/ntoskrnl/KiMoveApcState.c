@@ -1,8 +1,8 @@
 /*
- * XREFs of KiMoveApcState @ 0x140379BF0
+ * XREFs of KiMoveApcState @ 0x1403E2070
  * Callers:
- *     MiUnlockStealVm @ 0x1402E1FC0 (MiUnlockStealVm.c)
- *     MiDetachFromWorkingSet @ 0x140379390 (MiDetachFromWorkingSet.c)
+ *     MiUnlockStealVm @ 0x1402FE250 (MiUnlockStealVm.c)
+ *     MiDetachFromWorkingSet @ 0x1403E1C30 (MiDetachFromWorkingSet.c)
  * Callees:
  *     <none>
  */

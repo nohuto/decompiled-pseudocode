@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcReferenceBlobByHandle @ 0x14040BC58
+ * XREFs of AlpcReferenceBlobByHandle @ 0x14040AB18
  * Callers:
- *     NtAlpcCreateSectionView @ 0x140409A7C (NtAlpcCreateSectionView.c)
- *     AlpcpCaptureViewAttributeInternal @ 0x14040B860 (AlpcpCaptureViewAttributeInternal.c)
- *     NtAlpcDeleteSecurityContext @ 0x14040C190 (NtAlpcDeleteSecurityContext.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     NtAlpcDeletePortSection @ 0x1404D22F4 (NtAlpcDeletePortSection.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1404D6340 (AlpcpCaptureSecurityAttributeInternal.c)
- *     AlpcpLookupMessage @ 0x14050E300 (AlpcpLookupMessage.c)
- *     NtAlpcDeleteResourceReserve @ 0x140655584 (NtAlpcDeleteResourceReserve.c)
- *     NtAlpcRevokeSecurityContext @ 0x140655930 (NtAlpcRevokeSecurityContext.c)
+ *     NtAlpcCreateSectionView @ 0x14040893C (NtAlpcCreateSectionView.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x14040A720 (AlpcpCaptureViewAttributeInternal.c)
+ *     NtAlpcDeleteSecurityContext @ 0x14040B050 (NtAlpcDeleteSecurityContext.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     NtAlpcDeletePortSection @ 0x1404B5D94 (NtAlpcDeletePortSection.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x1404B9944 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     AlpcpLookupMessage @ 0x1404F1290 (AlpcpLookupMessage.c)
+ *     NtAlpcDeleteResourceReserve @ 0x140655668 (NtAlpcDeleteResourceReserve.c)
+ *     NtAlpcRevokeSecurityContext @ 0x140655A14 (NtAlpcRevokeSecurityContext.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x1400AA9EC (ExfAcquireReleasePushLockExclusive.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     AlpcpReferenceBlob @ 0x14040BD4C (AlpcpReferenceBlob.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x1400A8F6C (ExfAcquireReleasePushLockExclusive.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     AlpcpReferenceBlob @ 0x14040AC0C (AlpcpReferenceBlob.c)
  */
 
 ULONG_PTR __fastcall AlpcReferenceBlobByHandle(_QWORD *a1, int a2, _DWORD *a3)

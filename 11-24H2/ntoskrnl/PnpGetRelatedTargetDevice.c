@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpGetRelatedTargetDevice @ 0x1403750B4
+ * XREFs of PnpGetRelatedTargetDevice @ 0x14025D974
  * Callers:
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14085CBD4 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
- *     RawMountVolume @ 0x1409A3134 (RawMountVolume.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
- *     FsRtlNotifyVolumeEventEx @ 0x140A50700 (FsRtlNotifyVolumeEventEx.c)
- *     IoGetRelatedTargetDevice @ 0x140A561A8 (IoGetRelatedTargetDevice.c)
- *     NtGetDevicePowerState @ 0x140A83450 (NtGetDevicePowerState.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x140858944 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     RawMountVolume @ 0x1408ACB4C (RawMountVolume.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x140A474B0 (FsRtlNotifyVolumeEventEx.c)
+ *     IoGetRelatedTargetDevice @ 0x140A4E0F8 (IoGetRelatedTargetDevice.c)
+ *     NtGetDevicePowerState @ 0x140A7DF70 (NtGetDevicePowerState.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     PnpSetDeviceAffinityThread @ 0x1403751EC (PnpSetDeviceAffinityThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopSynchronousCall @ 0x1408BBC08 (IopSynchronousCall.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     PnpSetDeviceAffinityThread @ 0x14025DAAC (PnpSetDeviceAffinityThread.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopSynchronousCall @ 0x1408B9564 (IopSynchronousCall.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetRelatedTargetDevice(PFILE_OBJECT FileObject, _QWORD *a2)
@@ -32,7 +32,7 @@ __int64 __fastcall PnpGetRelatedTargetDevice(PFILE_OBJECT FileObject, _QWORD *a2
   int v13; // [rsp+40h] [rbp-19h]
   PDEVICE_OBJECT v14; // [rsp+60h] [rbp+7h]
   PFILE_OBJECT v15; // [rsp+68h] [rbp+Fh]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp+27h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+80h] [rbp+27h] BYREF
 
   P = 0LL;
   *a2 = 0LL;

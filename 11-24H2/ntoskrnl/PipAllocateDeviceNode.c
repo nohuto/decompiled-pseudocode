@@ -1,14 +1,14 @@
 /*
- * XREFs of PipAllocateDeviceNode @ 0x14098EACC
+ * XREFs of PipAllocateDeviceNode @ 0x140979B04
  * Callers:
- *     IoReportDetectedDevice @ 0x14071C850 (IoReportDetectedDevice.c)
- *     PiInitializeDevice @ 0x140734A0C (PiInitializeDevice.c)
- *     PipProcessEnumeratedChildDevice @ 0x1409904C0 (PipProcessEnumeratedChildDevice.c)
- *     IopInitializeDeviceInstanceKey @ 0x140A626D8 (IopInitializeDeviceInstanceKey.c)
- *     IopFindLegacyDeviceNode @ 0x140AAF2E8 (IopFindLegacyDeviceNode.c)
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IoReportDetectedDevice @ 0x14071A3E0 (IoReportDetectedDevice.c)
+ *     PiInitializeDevice @ 0x14073293C (PiInitializeDevice.c)
+ *     PipProcessEnumeratedChildDevice @ 0x14097B4F8 (PipProcessEnumeratedChildDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140A5AFD8 (IopInitializeDeviceInstanceKey.c)
+ *     IopFindLegacyDeviceNode @ 0x140AAA1C8 (IopFindLegacyDeviceNode.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PipAllocateDeviceNode(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall PipAllocateDeviceNode(__int64 a1, __int64 a2)
   _QWORD *v12; // rax
   _QWORD *v13; // rax
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x388uLL, 0x646F6E44u);
   *(_QWORD *)a2 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

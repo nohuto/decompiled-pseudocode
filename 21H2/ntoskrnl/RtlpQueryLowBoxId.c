@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpQueryLowBoxId @ 0x14025ABE8
+ * XREFs of RtlpQueryLowBoxId @ 0x14027C158
  * Callers:
- *     RtlpLookupLowBox @ 0x14025AA58 (RtlpLookupLowBox.c)
- *     RtlpLookupOrCreateLowBox @ 0x14025AACC (RtlpLookupOrCreateLowBox.c)
- *     RtlpAllocateAtomTableEntry @ 0x140264168 (RtlpAllocateAtomTableEntry.c)
+ *     RtlpAllocateAtomTableEntry @ 0x1402523A8 (RtlpAllocateAtomTableEntry.c)
+ *     RtlpLookupLowBox @ 0x14027BFC8 (RtlpLookupLowBox.c)
+ *     RtlpLookupOrCreateLowBox @ 0x14027C03C (RtlpLookupOrCreateLowBox.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  */
 
 __int64 RtlpQueryLowBoxId()

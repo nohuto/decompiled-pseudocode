@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlLengthSid(int a1)
+ULONG __cdecl RtlLengthSid(PSID Sid)
 {
-  return 4 * *(unsigned __int8 *)(a1 + 1) + 8;
+  return 4 * *((unsigned __int8 *)Sid + 1) + 8;
 }

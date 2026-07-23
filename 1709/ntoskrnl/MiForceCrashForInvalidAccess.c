@@ -24,13 +24,9 @@ _QWORD *__fastcall MiForceCrashForInvalidAccess(PEPROCESS Process)
   signed __int32 DirectoryTableBase; // eax
   signed __int32 v4; // ett
   HANDLE ProcessId; // rax
-  int v7; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v8; // [rsp+68h] [rbp-98h]
-  __int64 v9; // [rsp+70h] [rbp-90h]
-  int v10; // [rsp+78h] [rbp-88h]
-  __int128 v11; // [rsp+80h] [rbp-80h]
-  _QWORD v12[22]; // [rsp+90h] [rbp-70h] BYREF
-  HANDLE Handle; // [rsp+160h] [rbp+60h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v8[22]; // [rsp+90h] [rbp-70h] BYREF
+  HANDLE ThreadHandle; // [rsp+160h] [rbp+60h] BYREF
   PVOID Object; // [rsp+168h] [rbp+68h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -57,27 +53,38 @@ _QWORD *__fastcall MiForceCrashForInvalidAccess(PEPROCESS Process)
       }
       else
       {
-        memset(v12, 0, 0x98uLL);
-        LODWORD(v12[0]) = -1073739994;
-        LODWORD(v12[3]) = 1;
-        v12[4] = PsGetProcessId(Process);
-        DbgkQueueUserExceptionReport((__int64)CurrentThread, 0xEu, (__int64)v12);
+        memset(v8, 0, 0x98uLL);
+        LODWORD(v8[0]) = -1073739994;
+        LODWORD(v8[3]) = 1;
+        v8[4] = PsGetProcessId(Process);
+        DbgkQueueUserExceptionReport((__int64)CurrentThread, 0xEu, (__int64)v8);
       }
       PsFreezeProcess((ULONG_PTR)Process, 0);
-      v8 = 0LL;
-      v9 = 0LL;
-      v7 = 48;
-      v10 = 512;
-      v11 = 0LL;
-      if ( (int)ZwCreateThreadEx((__int64)&Handle, 0x1FFFFFLL, (__int64)&v7) < 0 )
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.ObjectName = 0LL;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 512;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      if ( ZwCreateThreadEx(
+             &ThreadHandle,
+             0x1FFFFFu,
+             &ObjectAttributes,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             0LL,
+             0LL,
+             1u,
+             0LL,
+             0x1000uLL,
+             0x1000uLL,
+             0LL) < 0 )
       {
         PsTerminateProcess((ULONG_PTR)Process, 0xC0000725);
       }
       else
       {
-        ObReferenceObjectByHandle(Handle, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
+        ObReferenceObjectByHandle(ThreadHandle, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, 0, &Object, 0LL);
         KeRequestTerminationProcess((__int64)Object, 3);
-        ObCloseHandle(Handle, 0);
+        ObCloseHandle(ThreadHandle, 0);
         ObfDereferenceObject(Object);
       }
     }

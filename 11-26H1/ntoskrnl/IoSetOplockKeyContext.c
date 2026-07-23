@@ -1,12 +1,12 @@
 /*
- * XREFs of IoSetOplockKeyContext @ 0x1402C2134
+ * XREFs of IoSetOplockKeyContext @ 0x14030CDF4
  * Callers:
- *     FsRtlpAttachOplockKey @ 0x1402C2000 (FsRtlpAttachOplockKey.c)
+ *     FsRtlpAttachOplockKey @ 0x14030CCC0 (FsRtlpAttachOplockKey.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoSetOplockKeyContext(__int64 a1, __int128 *a2, unsigned __int16 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall IoSetOplockKeyContext(__int64 a1, __int128 *a2, unsigned __in
   v7 = 0;
   if ( v6 )
   {
-    if ( v6 != qword_140019060 )
+    if ( v6 != qword_1400137E0 )
       goto LABEL_4;
     return (unsigned int)-1073741670;
   }
@@ -36,14 +36,14 @@ __int64 __fastcall IoSetOplockKeyContext(__int64 a1, __int128 *a2, unsigned __in
   v13 = Pool2 == 0LL ? 0xC000009A : 0;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 208), (signed __int64)Pool2, 0LL) )
   {
-    if ( Pool2 && Pool2 != qword_140019060 )
+    if ( Pool2 && Pool2 != qword_1400137E0 )
       ExFreePoolWithTag(Pool2, 0);
     v6 = *(__int64 **)(a1 + 208);
   }
   if ( !Pool2 )
     return v13;
 LABEL_4:
-  v8 = ExAllocateFromNPagedLookasideList(&IopOplockFoExtLookasideList);
+  v8 = ExAllocateFromNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&IopOplockFoExtLookasideList);
   if ( !v8 )
     return 3221225626LL;
   *v8 = 0LL;
@@ -74,7 +74,7 @@ LABEL_12:
   if ( _InterlockedCompareExchange64(v6 + 7, (signed __int64)v8, 0LL) )
   {
     v7 = -1073741823;
-    ExFreeToNPagedLookasideList(&IopOplockFoExtLookasideList, v8);
+    ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&IopOplockFoExtLookasideList, v8);
   }
   return v7;
 }

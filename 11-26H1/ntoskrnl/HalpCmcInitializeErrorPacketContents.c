@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCmcInitializeErrorPacketContents @ 0x140454C00
+ * XREFs of HalpCmcInitializeErrorPacketContents @ 0x14044CD30
  * Callers:
- *     HalpCmciInitializeErrorPacket @ 0x140454B28 (HalpCmciInitializeErrorPacket.c)
- *     HalpCmcInitializePolling @ 0x14057A9A4 (HalpCmcInitializePolling.c)
+ *     HalpCmciInitializeErrorPacket @ 0x14044CC58 (HalpCmciInitializeErrorPacket.c)
+ *     HalpCmcInitializePolling @ 0x14057CED4 (HalpCmcInitializePolling.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 GUID *__fastcall HalpCmcInitializeErrorPacketContents(GUID *a1)

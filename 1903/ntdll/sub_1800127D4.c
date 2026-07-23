@@ -34,7 +34,7 @@ __int64 __fastcall sub_1800127D4(__int64 a1)
   *(_QWORD *)(a1 + 32) = 0LL;
   if ( !v2 )
     return 3221225473LL;
-  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 170LL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( !Heap )
     return 3221225495LL;
   v4 = *(unsigned __int16 *)(a1 + 4);
@@ -53,7 +53,7 @@ __int64 __fastcall sub_1800127D4(__int64 a1)
       v13 = 11141120;
       if ( (int)sub_180015F28(qword_180166098, v8 + v9, &v13) < 0 )
         goto LABEL_13;
-      if ( *(_DWORD *)(qword_180166098 + 120) < 0x3E8u )
+      if ( *((_DWORD *)qword_180166098 + 30) < 0x3E8u )
       {
         LOBYTE(v10) = 1;
         v11 = sub_18001583C(qword_180166098, v14, v10, &v15);
@@ -62,7 +62,7 @@ __int64 __fastcall sub_1800127D4(__int64 a1)
       {
         if ( (int)sub_18001292C(qword_180166098, v14) >= 0 )
           goto LABEL_12;
-        v11 = sub_18000EF6C(qword_180166098, v14);
+        v11 = sub_18000EF6C((__int64)qword_180166098, v14);
       }
       if ( v11 >= 0 )
 LABEL_12:
@@ -75,6 +75,6 @@ LABEL_13:
     }
     while ( v5 >= 0 );
   }
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return 0LL;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of DrvDbCreateDatabaseNode @ 0x140578BB0
+ * XREFs of DrvDbCreateDatabaseNode @ 0x1405790F0
  * Callers:
- *     DrvDbOpenContext @ 0x140578960 (DrvDbOpenContext.c)
- *     DrvDbRegisterDatabase @ 0x140578B14 (DrvDbRegisterDatabase.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x14057EB50 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbOpenContext @ 0x140578EA0 (DrvDbOpenContext.c)
+ *     DrvDbRegisterDatabase @ 0x140579054 (DrvDbRegisterDatabase.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x14057EFFC (DrvDbOpenDriverDatabaseRegKey.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     ExDeleteResourceLite @ 0x1400885B0 (ExDeleteResourceLite.c)
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     ExDeleteResourceLite @ 0x14010C7A0 (ExDeleteResourceLite.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateUnicodeString @ 0x1403F75E4 (RtlCreateUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     DrvDbOpenObjectRegKey @ 0x1404FBF14 (DrvDbOpenObjectRegKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1406E24D4 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     RtlCreateUnicodeString @ 0x1403F64A4 (RtlCreateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     DrvDbOpenObjectRegKey @ 0x1404DEEA4 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1406E260C (DrvDbSetDriverDatabaseMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbCreateDatabaseNode(

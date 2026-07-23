@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpHpGCTimerCallback @ 0x1403BF6C0
+ * XREFs of ExpHpGCTimerCallback @ 0x1403AE280
  * Callers:
- *     KiExpireTimer2 @ 0x1403C0A90 (KiExpireTimer2.c)
+ *     KiExpireTimer2 @ 0x1403AF650 (KiExpireTimer2.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ExpSelectGCWorkQueue @ 0x14065A3A4 (ExpSelectGCWorkQueue.c)
- *     Feature_Servicing_LowPriPoolGC__private_IsEnabledNoReportingNoInline @ 0x14065A4E0 (Feature_Servicing_LowPriPoolGC__private_IsEnabledNoReportingNoInline.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ExpSelectGCWorkQueue @ 0x140658A74 (ExpSelectGCWorkQueue.c)
+ *     Feature_Servicing_LowPriPoolGC__private_IsEnabledNoReportingNoInline @ 0x140658BB0 (Feature_Servicing_LowPriPoolGC__private_IsEnabledNoReportingNoInline.c)
  */
 
 void __fastcall ExpHpGCTimerCallback(__int64 a1, void *a2)

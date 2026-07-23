@@ -29,7 +29,7 @@ __int64 __fastcall RtlRemoveDynamicFunctionTable(__int64 a1)
   unsigned __int64 *v9; // rax
   unsigned int v10; // esi
   struct _KTHREAD *v11; // rbx
-  unsigned __int64 v12; // rsi
+  __int64 v12; // rsi
   unsigned int v13; // edx
   bool v14; // zf
   __int64 v15; // rcx
@@ -115,13 +115,13 @@ LABEL_15:
   {
     *(_BYTE *)(v12 + 32) |= 2u;
     if ( *(__int64 *)(v12 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v12);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v12);
     v17 = *(_DWORD *)(v12 + 88);
     v24 = v17 & 0x1FFFF;
     *(_DWORD *)(v12 + 88) = v17 & 0xFFFE0000;
     *(_BYTE *)(v12 + 25) &= ~1u;
     *(_QWORD *)(v12 + 32) = 0LL;
-    v18 = (__int64)(v12 - (unsigned __int64)v11->LockEntries) / 96;
+    v18 = (signed __int64)(v12 - (unsigned __int64)v11->LockEntries) / 96;
     if ( v23 == 1 )
       v11->AbEntrySummary |= 1 << v18;
     else

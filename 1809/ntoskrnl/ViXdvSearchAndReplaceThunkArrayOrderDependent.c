@@ -1,7 +1,7 @@
 /*
- * XREFs of ViXdvSearchAndReplaceThunkArrayOrderDependent @ 0x14092881C
+ * XREFs of ViXdvSearchAndReplaceThunkArrayOrderDependent @ 0x14092981C
  * Callers:
- *     ViXdvSearchAllThunkArrays @ 0x140928764 (ViXdvSearchAllThunkArrays.c)
+ *     ViXdvSearchAllThunkArrays @ 0x140929764 (ViXdvSearchAllThunkArrays.c)
  * Callees:
  *     <none>
  */

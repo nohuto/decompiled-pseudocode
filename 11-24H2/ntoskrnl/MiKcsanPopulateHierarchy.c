@@ -1,9 +1,9 @@
 /*
- * XREFs of MiKcsanPopulateHierarchy @ 0x1406799C0
+ * XREFs of MiKcsanPopulateHierarchy @ 0x14067ABA0
  * Callers:
- *     MmKcsanGetIgnoredRangeList @ 0x140679C1C (MmKcsanGetIgnoredRangeList.c)
+ *     MmKcsanGetIgnoredRangeList @ 0x14067ADFC (MmKcsanGetIgnoredRangeList.c)
  * Callees:
- *     MiFillPteHierarchy @ 0x1403A9BF0 (MiFillPteHierarchy.c)
+ *     MiFillPteHierarchy @ 0x140398880 (MiFillPteHierarchy.c)
  */
 
 __int64 __fastcall MiKcsanPopulateHierarchy(__int64 a1, unsigned __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmDeleteDeviceContainerWorker @ 0x1408F8CB8
+ * XREFs of _CmDeleteDeviceContainerWorker @ 0x1408F9F78
  * Callers:
- *     _CmDeleteDeviceContainer @ 0x1408F87E4 (_CmDeleteDeviceContainer.c)
+ *     _CmDeleteDeviceContainer @ 0x1408F9AA4 (_CmDeleteDeviceContainer.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _CmSetDeviceContainerMappedProperty @ 0x1406D5FE4 (_CmSetDeviceContainerMappedProperty.c)
- *     _CmDeleteDeviceContainerRegKey @ 0x1408F8910 (_CmDeleteDeviceContainerRegKey.c)
- *     _CmGetDeviceContainerMappedPropertyKeys @ 0x1408F932C (_CmGetDeviceContainerMappedPropertyKeys.c)
- *     _CmRaiseDeleteEvent @ 0x1408FAE94 (_CmRaiseDeleteEvent.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _CmSetDeviceContainerMappedProperty @ 0x1406D7284 (_CmSetDeviceContainerMappedProperty.c)
+ *     _CmDeleteDeviceContainerRegKey @ 0x1408F9BD0 (_CmDeleteDeviceContainerRegKey.c)
+ *     _CmGetDeviceContainerMappedPropertyKeys @ 0x1408FA5EC (_CmGetDeviceContainerMappedPropertyKeys.c)
+ *     _CmRaiseDeleteEvent @ 0x1408FC154 (_CmRaiseDeleteEvent.c)
  */
 
 __int64 __fastcall CmDeleteDeviceContainerWorker(__int64 a1, __int64 a2, __int16 a3)

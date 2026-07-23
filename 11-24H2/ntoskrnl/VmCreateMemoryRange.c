@@ -1,18 +1,18 @@
 /*
- * XREFs of VmCreateMemoryRange @ 0x14079EA00
+ * XREFs of VmCreateMemoryRange @ 0x14079EB10
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     VmpInsertMemoryRange @ 0x14064A9E0 (VmpInsertMemoryRange.c)
- *     VmpDecodePreallocationRangeHandle @ 0x14079F1DC (VmpDecodePreallocationRangeHandle.c)
- *     VmpProcessContextSetup @ 0x14079F5F0 (VmpProcessContextSetup.c)
- *     VmpLogCreateDeleteMemoryRange @ 0x14079FC58 (VmpLogCreateDeleteMemoryRange.c)
- *     VmpAllocateMemoryRanges @ 0x140A5D6C0 (VmpAllocateMemoryRanges.c)
- *     VmpFreeMemoryRanges @ 0x140A5D7A4 (VmpFreeMemoryRanges.c)
- *     VmpValidateMemoryRangeParameters @ 0x140A6337C (VmpValidateMemoryRangeParameters.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     VmpInsertMemoryRange @ 0x140648FA0 (VmpInsertMemoryRange.c)
+ *     VmpDecodePreallocationRangeHandle @ 0x14079F2EC (VmpDecodePreallocationRangeHandle.c)
+ *     VmpProcessContextSetup @ 0x14079F700 (VmpProcessContextSetup.c)
+ *     VmpLogCreateDeleteMemoryRange @ 0x14079FD68 (VmpLogCreateDeleteMemoryRange.c)
+ *     VmpAllocateMemoryRanges @ 0x140A55AE0 (VmpAllocateMemoryRanges.c)
+ *     VmpFreeMemoryRanges @ 0x140A55BC4 (VmpFreeMemoryRanges.c)
+ *     VmpValidateMemoryRangeParameters @ 0x140A5BC7C (VmpValidateMemoryRangeParameters.c)
  */
 
 __int64 __fastcall VmCreateMemoryRange(
@@ -23,7 +23,7 @@ __int64 __fastcall VmCreateMemoryRange(
         __int64 a5,
         int a6)
 {
-  unsigned __int64 MemoryRanges; // rdi
+  __int64 MemoryRanges; // rdi
   unsigned __int64 v10; // r11
   _KPROCESS *Process; // rbp
   __int64 Blink; // rsi

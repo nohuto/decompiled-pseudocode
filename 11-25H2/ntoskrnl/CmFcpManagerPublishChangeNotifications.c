@@ -14,18 +14,27 @@
  *     ZwUpdateWnfStateData @ 0x14069ED60 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, __int64 a2)
+int __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, unsigned __int64 a2)
 {
   __int64 *v2; // rbx
   __int64 i; // rbx
   char v4; // bl
-  __int64 result; // rax
-  __int64 v6; // [rsp+A8h] [rbp+40h] BYREF
-  int v7; // [rsp+B0h] [rbp+48h]
-  int v8; // [rsp+B8h] [rbp+50h]
+  int result; // eax
+  ULONG v6; // [rsp+40h] [rbp-28h] BYREF
+  unsigned __int64 Buffer; // [rsp+48h] [rbp-20h] BYREF
+  _QWORD v8[3]; // [rsp+50h] [rbp-18h] BYREF
+  ULONG ChangeStamp; // [rsp+A0h] [rbp+38h] BYREF
+  int v10; // [rsp+A4h] [rbp+3Ch]
+  unsigned __int64 v11; // [rsp+A8h] [rbp+40h] BYREF
+  ULONG v12; // [rsp+B0h] [rbp+48h] BYREF
+  ULONG BufferSize; // [rsp+B8h] [rbp+50h] BYREF
 
-  v6 = a2;
-  v7 = 0;
+  v11 = a2;
+  v10 = HIDWORD(a1);
+  ChangeStamp = 0;
+  v6 = 0;
+  v8[0] = 0LL;
+  v12 = 0;
   v2 = KeAbPreAcquire((__int64)&stru_140EF6DD8, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140EF6DD8, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140EF6DD8, 0, v2, (unsigned __int64)&stru_140EF6DD8);
@@ -39,25 +48,39 @@ __int64 __fastcall CmFcpManagerPublishChangeNotifications(__int64 a1, __int64 a2
   v4 = byte_140EF6CFB;
   while ( 1 )
   {
-    v8 = 8;
-    result = ZwQueryWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)CmFcpWnfTypeId);
-    if ( (int)result < 0 )
+    Buffer = 0LL;
+    BufferSize = 8;
+    result = ZwQueryWnfStateData(
+               &WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
+               &CmFcpWnfTypeId,
+               0LL,
+               &ChangeStamp,
+               &Buffer,
+               &BufferSize);
+    if ( result < 0 )
       break;
-    result = v6;
-    if ( !v6 )
+    result = v11;
+    if ( Buffer >= v11 )
       break;
-    result = ZwUpdateWnfStateData((__int64)&WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, (__int64)&v6);
-    if ( (((_DWORD)result + 0x80000000) & 0x80000000) == 0 && (_DWORD)result != -1073741823 )
+    result = ZwUpdateWnfStateData(
+               &WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
+               &v11,
+               8u,
+               &CmFcpWnfTypeId,
+               0LL,
+               ChangeStamp,
+               1u);
+    if ( ((result + 0x80000000) & 0x80000000) == 0 && result != -1073741823 )
       break;
-    if ( v4 && (int)result >= 0 )
+    if ( v4 && result >= 0 )
     {
-      v7 = 8;
-      result = ZwQueryWnfStateData((__int64)&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, 0LL);
-      if ( (int)result >= 0 )
+      v12 = 8;
+      result = ZwQueryWnfStateData(&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, 0LL, 0LL, &v6, v8, &v12);
+      if ( result >= 0 )
       {
-        result = v6;
-        if ( v6 )
-          return ZwUpdateWnfStateData((__int64)&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, (__int64)&v6);
+        result = v11;
+        if ( v8[0] < v11 )
+          return ZwUpdateWnfStateData(&WNF_CMFC_HOST_OS_FEATURE_CONFIGURATION_CHANGED, &v11, 8u, 0LL, 0LL, 0, 0);
       }
       return result;
     }

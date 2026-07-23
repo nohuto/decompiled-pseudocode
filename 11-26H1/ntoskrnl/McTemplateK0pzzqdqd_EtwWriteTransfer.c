@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pzzqdqd_EtwWriteTransfer @ 0x1405DA5D8
+ * XREFs of McTemplateK0pzzqdqd_EtwWriteTransfer @ 0x1405DCDD8
  * Callers:
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14049F320 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x140498E70 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pzzqdqd_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

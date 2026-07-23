@@ -1,26 +1,26 @@
 /*
- * XREFs of MiMakeDriverPagesPrivate @ 0x14038A9E0
+ * XREFs of MiMakeDriverPagesPrivate @ 0x14038C790
  * Callers:
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
- *     MiSetSystemCodeProtection @ 0x14038B984 (MiSetSystemCodeProtection.c)
- *     MiLockDriverPageRange @ 0x1406E57E8 (MiLockDriverPageRange.c)
- *     MmProtectDriverSection @ 0x1406E6130 (MmProtectDriverSection.c)
- *     MiBackSingleImageWithPagefile @ 0x1408640D0 (MiBackSingleImageWithPagefile.c)
- *     MiSplitDriverPage @ 0x140B47A14 (MiSplitDriverPage.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
+ *     MiSetSystemCodeProtection @ 0x14038D734 (MiSetSystemCodeProtection.c)
+ *     MiLockDriverPageRange @ 0x1406EA498 (MiLockDriverPageRange.c)
+ *     MmProtectDriverSection @ 0x1406EADE0 (MmProtectDriverSection.c)
+ *     MiBackSingleImageWithPagefile @ 0x14086A4B0 (MiBackSingleImageWithPagefile.c)
+ *     MiSplitDriverPage @ 0x140B497A8 (MiSplitDriverPage.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MiMakeDriverPageStayResident @ 0x14038A698 (MiMakeDriverPageStayResident.c)
- *     MiCheckSlabPage @ 0x14038A86C (MiCheckSlabPage.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiAllocateDriverPage @ 0x140AEAC6C (MiAllocateDriverPage.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MiMakeDriverPageStayResident @ 0x14038C448 (MiMakeDriverPageStayResident.c)
+ *     MiCheckSlabPage @ 0x14038C61C (MiCheckSlabPage.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiAllocateDriverPage @ 0x140AEDA3C (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
@@ -60,7 +60,7 @@ __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, __int64 a2, __int64 a3, 
   v4 = 0;
   v6 = a3;
   v7 = 0;
-  v35 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (unsigned __int16)word_140E36EAE);
+  v35 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (unsigned __int16)word_140E3702E);
   if ( (a4 & 3) == 0 && (MiFlags & 0x20000) != 0 && (MiFlags & 0x10000) != 0 )
     v7 = 2;
   v8 = v7 | 1;
@@ -73,7 +73,7 @@ __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, __int64 a2, __int64 a3, 
   DriverPage = -1LL;
   v34 = 0LL;
   v33 = v8;
-  v14 = MiLockWorkingSetShared((__int64)&unk_140E36E00, a2, a3);
+  v14 = MiLockWorkingSetShared((__int64)&unk_140E36F80, a2, a3);
   v39 = v14;
   while ( v10 <= v6 )
   {
@@ -81,10 +81,10 @@ __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, __int64 a2, __int64 a3, 
       goto LABEL_22;
     if ( (v10 & 0xFFF) == 0 )
     {
-      MiUnlockPageTableInternal((__int64)&unk_140E36E00, v11);
+      MiUnlockPageTableInternal((__int64)&unk_140E36F80, v11);
 LABEL_22:
       v11 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      MiLockPageTableInternal((signed __int64)&unk_140E36E00, v11, 0);
+      MiLockPageTableInternal((signed __int64)&unk_140E36F80, v11, 0);
     }
     v15 = *(_QWORD *)v10;
     if ( !*(_QWORD *)v10 )
@@ -114,12 +114,12 @@ LABEL_28:
         if ( DriverPage == -1 )
         {
 LABEL_37:
-          MiUnlockPageTableInternal((__int64)&unk_140E36E00, v11);
+          MiUnlockPageTableInternal((__int64)&unk_140E36F80, v11);
           LOBYTE(v24) = v39;
-          MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v24);
+          MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v24);
           DriverPage = MiAllocateDriverPage(v35, v21, 0LL);
-          MiLockWorkingSetShared((__int64)&unk_140E36E00, v25, v26);
-          MiLockPageTableInternal((signed __int64)&unk_140E36E00, v11, 0);
+          MiLockWorkingSetShared((__int64)&unk_140E36F80, v25, v26);
+          MiLockPageTableInternal((signed __int64)&unk_140E36F80, v11, 0);
           if ( DriverPage == -1 )
           {
             v4 = -1073741801;
@@ -144,7 +144,7 @@ LABEL_41:
             v28 = 6 * DriverPage;
             DriverPage = -1LL;
             if ( (MiFlags & 0x20000) != 0 && ((*(_QWORD *)(8 * v28 - 0x220000000000LL + 40) >> 60) & 7) == 3 )
-              MiMakeDriverPageStayResident(a1, (__int64)&unk_140E36E00, (__int64)(v10 << 25) >> 16);
+              MiMakeDriverPageStayResident(a1, (__int64)&unk_140E36F80, (__int64)(v10 << 25) >> 16);
 LABEL_42:
             v14 = v39;
             goto LABEL_14;
@@ -166,14 +166,14 @@ LABEL_14:
     {
       if ( (v15 & 0x400) == 0 )
         goto LABEL_14;
-      MiUnlockPageTableInternal((__int64)&unk_140E36E00, v11);
+      MiUnlockPageTableInternal((__int64)&unk_140E36F80, v11);
       LOBYTE(v16) = v14;
-      MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v16);
+      MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v16);
       v17 = MmAccessFault(0LL, (__int64)(v10 << 25) >> 16);
       v20 = v17;
       if ( v17 < 0 && (v10 == a2 || (a4 & 8) == 0) )
         KeBugCheckEx(0x1Au, 0x101BuLL, (__int64)(v10 << 25) >> 16, v15, v17);
-      MiLockWorkingSetShared((__int64)&unk_140E36E00, v18, v19);
+      MiLockWorkingSetShared((__int64)&unk_140E36F80, v18, v19);
       if ( v20 < 0 )
       {
         v11 = 0LL;
@@ -181,7 +181,7 @@ LABEL_14:
       }
       else
       {
-        MiLockPageTableInternal((signed __int64)&unk_140E36E00, v11, 0);
+        MiLockPageTableInternal((signed __int64)&unk_140E36F80, v11, 0);
       }
       v9 = v32;
 LABEL_20:
@@ -190,9 +190,9 @@ LABEL_20:
     }
   }
   if ( v11 )
-    MiUnlockPageTableInternal((__int64)&unk_140E36E00, v11);
+    MiUnlockPageTableInternal((__int64)&unk_140E36F80, v11);
   LOBYTE(v13) = v14;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v13);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v13);
   if ( DriverPage != -1 )
     MiReleaseFreshPage(48 * DriverPage - 0x220000000000LL, 0xFFFFDE0000000000uLL, v22);
   return v4;

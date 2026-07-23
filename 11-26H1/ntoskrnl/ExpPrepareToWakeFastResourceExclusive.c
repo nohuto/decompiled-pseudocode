@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpPrepareToWakeFastResourceExclusive @ 0x1404478D0
+ * XREFs of ExpPrepareToWakeFastResourceExclusive @ 0x1404403C0
  * Callers:
- *     ExpReleaseDisownedFastResourceExclusive @ 0x14043120C (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x14041E23C (ExpReleaseDisownedFastResourceExclusive.c)
  * Callees:
  *     <none>
  */

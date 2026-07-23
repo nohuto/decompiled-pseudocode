@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlInitializeWorkerThread @ 0x1409D797C
+ * XREFs of FsRtlInitializeWorkerThread @ 0x1409D897C
  * Callers:
- *     FsRtlInitSystem @ 0x1409D7714 (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x1409D8714 (FsRtlInitSystem.c)
  * Callees:
- *     KeInitializeQueue @ 0x1401219D0 (KeInitializeQueue.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
+ *     KeInitializeQueue @ 0x140121AA0 (KeInitializeQueue.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x14066BC30 (PsCreateSystemThread.c)
  */
 
 NTSTATUS FsRtlInitializeWorkerThread()

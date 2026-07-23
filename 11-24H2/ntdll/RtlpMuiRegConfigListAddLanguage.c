@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegConfigListAddLanguage @ 0x1800F6F18
+ * XREFs of RtlpMuiRegConfigListAddLanguage @ 0x1800F1478
  * Callers:
- *     RtlpPopulateLanguageConfigList @ 0x180034DF0 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180015070 (RtlpPopulateLanguageConfigList.c)
  * Callees:
- *     _SafeReallocBlob @ 0x180113D64 (_SafeReallocBlob.c)
+ *     _SafeReallocBlob @ 0x18010F064 (_SafeReallocBlob.c)
  */
 
 __int64 __fastcall RtlpMuiRegConfigListAddLanguage(__int64 *a1, __int16 *a2)

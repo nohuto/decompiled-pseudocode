@@ -1,11 +1,11 @@
 /*
- * XREFs of Amd64InitializeCacheStatus @ 0x1405A3F44
+ * XREFs of Amd64InitializeCacheStatus @ 0x1405A6754
  * Callers:
- *     Amd64InitializeUncoreProfiling @ 0x1405A4210 (Amd64InitializeUncoreProfiling.c)
+ *     Amd64InitializeUncoreProfiling @ 0x1405A6A20 (Amd64InitializeUncoreProfiling.c)
  * Callees:
- *     HalpInterruptGetIdentifiers @ 0x1404FD2E0 (HalpInterruptGetIdentifiers.c)
- *     Amd64FreeCounter @ 0x1405A3CF4 (Amd64FreeCounter.c)
- *     Amd64InitializeUncoreStatus @ 0x1405A4318 (Amd64InitializeUncoreStatus.c)
+ *     HalpInterruptGetIdentifiers @ 0x1404F6820 (HalpInterruptGetIdentifiers.c)
+ *     Amd64FreeCounter @ 0x1405A6504 (Amd64FreeCounter.c)
+ *     Amd64InitializeUncoreStatus @ 0x1405A6B28 (Amd64InitializeUncoreStatus.c)
  */
 
 __int64 __fastcall Amd64InitializeCacheStatus(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -66,7 +66,7 @@ __int64 __fastcall Amd64InitializeCacheStatus(__int64 a1, __int64 a2, __int64 a3
       v12 = v30 >> v24;
     }
     v26 = 0LL;
-    result = *(_QWORD *)(Amd64InitializeUncoreStatus(2LL, &qword_140F875E0, v12, *(unsigned int *)(v6 + 76)) + 24);
+    result = *(_QWORD *)(Amd64InitializeUncoreStatus(2LL, &qword_140F879C0, v12, *(unsigned int *)(v6 + 76)) + 24);
     *(_QWORD *)(v6 + 88) = result;
     if ( *(_DWORD *)(v6 + 76) )
     {
@@ -81,7 +81,7 @@ __int64 __fastcall Amd64InitializeCacheStatus(__int64 a1, __int64 a2, __int64 a3
         if ( *(_DWORD *)(v6 + 72) == 101 )
           break;
 LABEL_23:
-        __writemsr(*((_DWORD *)&xmmword_140F87600 + (unsigned int)(v27 + v26)), 0LL);
+        __writemsr(*((_DWORD *)&xmmword_140F879E0 + (unsigned int)(v27 + v26)), 0LL);
         result = Amd64FreeCounter(v26, *(_DWORD *)(v6 + 72));
         v26 = (unsigned int)(v26 + 1);
         if ( (unsigned int)v26 >= *(_DWORD *)(v6 + 76) )

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlStackOverflowRead @ 0x1401BA738
+ * XREFs of FsRtlStackOverflowRead @ 0x1401BA61C
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

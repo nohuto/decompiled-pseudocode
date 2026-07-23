@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDeletePagablePteRange @ 0x1400751A0
+ * XREFs of MiDeletePagablePteRange @ 0x140075220
  * Callers:
- *     MiDeleteVadBitmap @ 0x1400750D0 (MiDeleteVadBitmap.c)
+ *     MiDeleteVadBitmap @ 0x140075150 (MiDeleteVadBitmap.c)
  * Callees:
- *     MiReleasePageFileSpace @ 0x140022238 (MiReleasePageFileSpace.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     MiDeletePteRun @ 0x140065140 (MiDeletePteRun.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BDED4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiTerminateWsle @ 0x1400E22C0 (MiTerminateWsle.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReleasePageFileSpace @ 0x140021DB8 (MiReleasePageFileSpace.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     MiDeletePteRun @ 0x140064CC0 (MiDeletePteRun.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BBD64 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiTerminateWsle @ 0x1400E0160 (MiTerminateWsle.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiDeletePagablePteRange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

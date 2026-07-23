@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpReleaseFastResourceExclusive2 @ 0x140416368
+ * XREFs of ExpReleaseFastResourceExclusive2 @ 0x1404166FC
  * Callers:
- *     ExReleaseFastResource2 @ 0x1404140CC (ExReleaseFastResource2.c)
- *     ExReleaseFastResourceExclusive2 @ 0x1404142DC (ExReleaseFastResourceExclusive2.c)
- *     ExReleaseFastResourceShared2 @ 0x140414434 (ExReleaseFastResourceShared2.c)
+ *     ExReleaseFastResource2 @ 0x140414460 (ExReleaseFastResource2.c)
+ *     ExReleaseFastResourceExclusive2 @ 0x140414670 (ExReleaseFastResourceExclusive2.c)
+ *     ExReleaseFastResourceShared2 @ 0x1404147C8 (ExReleaseFastResourceShared2.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     ExpReleaseFastResourceExclusiveSlow @ 0x140416414 (ExpReleaseFastResourceExclusiveSlow.c)
- *     ExpRemoveEntryListAndClear2 @ 0x14041676C (ExpRemoveEntryListAndClear2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseFastResourceExclusiveSlow @ 0x1404167A8 (ExpReleaseFastResourceExclusiveSlow.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x140416B00 (ExpRemoveEntryListAndClear2.c)
  */
 
 void __fastcall ExpReleaseFastResourceExclusive2(signed __int64 *BugCheckParameter2)
@@ -41,7 +41,7 @@ void __fastcall ExpReleaseFastResourceExclusive2(signed __int64 *BugCheckParamet
       }
       while ( v8 != v7 );
       if ( (v7 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
     _enable();
     BugCheckParameter2[10] = 0LL;

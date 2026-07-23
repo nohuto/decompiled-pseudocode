@@ -1,56 +1,56 @@
 /*
- * XREFs of IopInitializeBootDrivers @ 0x140CBF2A4
+ * XREFs of IopInitializeBootDrivers @ 0x140CC5374
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
- *     PnpDiagnosticTrace @ 0x140493DF8 (PnpDiagnosticTrace.c)
- *     PnpUnlockDeviceActionQueue @ 0x1404D77A4 (PnpUnlockDeviceActionQueue.c)
- *     PnpLockDeviceActionQueue @ 0x1404D783C (PnpLockDeviceActionQueue.c)
- *     HeadlessKernelAddLogEntry @ 0x1404EDA18 (HeadlessKernelAddLogEntry.c)
- *     McTemplateK0dzd_EtwWriteTransfer @ 0x1405D7D58 (McTemplateK0dzd_EtwWriteTransfer.c)
- *     PnpBootDeviceWait @ 0x1405D85A4 (PnpBootDeviceWait.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PnpWaitForEmptyDeviceEventQueue @ 0x140779AF0 (PnpWaitForEmptyDeviceEventQueue.c)
- *     IoMountBootLayer @ 0x140793F80 (IoMountBootLayer.c)
- *     PipHardwareConfigGetIndex @ 0x14079BA1C (PipHardwareConfigGetIndex.c)
- *     PipApplyFunctionToServiceInstances @ 0x1407A3F78 (PipApplyFunctionToServiceInstances.c)
- *     PnpWaitForEmptyDeviceActionQueue @ 0x1407ACE4C (PnpWaitForEmptyDeviceActionQueue.c)
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     PnpUnicodeStringToWstrFree @ 0x1409DB5D0 (PnpUnicodeStringToWstrFree.c)
- *     RtlCompareUnicodeString @ 0x1409E1590 (RtlCompareUnicodeString.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     PiCreateDriverRedirectedStateKey @ 0x140A12888 (PiCreateDriverRedirectedStateKey.c)
- *     IopGetDriverNameFromKeyNode @ 0x140A129AC (IopGetDriverNameFromKeyNode.c)
- *     PnpUnicodeStringToWstr @ 0x140A5CBF0 (PnpUnicodeStringToWstr.c)
- *     _PnpCtxRegCloseKey @ 0x140A9BD98 (_PnpCtxRegCloseKey.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
- *     _PnpCtxRegCreateKey @ 0x140AEABA0 (_PnpCtxRegCreateKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140C8017C (PnpNotifyEarlyLaunchStatusUpdate.c)
- *     IopCreateArcNames @ 0x140CBC528 (IopCreateArcNames.c)
- *     IopCallBootDriverReinitializationRoutines @ 0x140CBE5BC (IopCallBootDriverReinitializationRoutines.c)
- *     PipGetDriverTagPriority @ 0x140CC18C4 (PipGetDriverTagPriority.c)
- *     PipLookupGroupName @ 0x140CC2440 (PipLookupGroupName.c)
- *     PipUnloadEarlyLaunchDrivers @ 0x140CC35DC (PipUnloadEarlyLaunchDrivers.c)
- *     PipWaitCriticalDevices @ 0x140CC3680 (PipWaitCriticalDevices.c)
- *     PnpWaitForDevicesToStart @ 0x140CC39C8 (PnpWaitForDevicesToStart.c)
- *     PiCreateDriverDataDirectoryRoot @ 0x140CC3BBC (PiCreateDriverDataDirectoryRoot.c)
- *     IopAllocateLegacyBootResources @ 0x140CC53B8 (IopAllocateLegacyBootResources.c)
- *     VhdAutoAttachVirtualDisks @ 0x140D02604 (VhdAutoAttachVirtualDisks.c)
- *     VhdInitialize @ 0x140D02894 (VhdInitialize.c)
- *     RamdiskInitialize @ 0x140D03DE4 (RamdiskInitialize.c)
- *     PipInitializeCoreDriversAndElam @ 0x140D04EDC (PipInitializeCoreDriversAndElam.c)
- *     PipInitializeDriverDependentDLLs @ 0x140D05314 (PipInitializeDriverDependentDLLs.c)
- *     PnpInitializeBootStartDriver @ 0x140D08CFC (PnpInitializeBootStartDriver.c)
- *     PpInitGetGroupOrderIndex @ 0x140D0AB0C (PpInitGetGroupOrderIndex.c)
- *     PipCheckDependencies @ 0x140D0B424 (PipCheckDependencies.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
+ *     PnpDiagnosticTrace @ 0x14048D948 (PnpDiagnosticTrace.c)
+ *     PnpUnlockDeviceActionQueue @ 0x1404D0F6C (PnpUnlockDeviceActionQueue.c)
+ *     PnpLockDeviceActionQueue @ 0x1404D1004 (PnpLockDeviceActionQueue.c)
+ *     HeadlessKernelAddLogEntry @ 0x1404E6FF8 (HeadlessKernelAddLogEntry.c)
+ *     McTemplateK0dzd_EtwWriteTransfer @ 0x1405DA558 (McTemplateK0dzd_EtwWriteTransfer.c)
+ *     PnpBootDeviceWait @ 0x1405DADA4 (PnpBootDeviceWait.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PnpWaitForEmptyDeviceEventQueue @ 0x14077CA20 (PnpWaitForEmptyDeviceEventQueue.c)
+ *     IoMountBootLayer @ 0x140796AB0 (IoMountBootLayer.c)
+ *     PipHardwareConfigGetIndex @ 0x14079E55C (PipHardwareConfigGetIndex.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407A6AB8 (PipApplyFunctionToServiceInstances.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x1407AFEB0 (PnpWaitForEmptyDeviceActionQueue.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     RtlCompareUnicodeString @ 0x1409DE5A0 (RtlCompareUnicodeString.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x140A11A78 (PiCreateDriverRedirectedStateKey.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140A11B9C (IopGetDriverNameFromKeyNode.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140A18820 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x140A69BB0 (PnpUnicodeStringToWstr.c)
+ *     _PnpCtxRegCloseKey @ 0x140A9E908 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegCreateKey @ 0x140AED690 (_PnpCtxRegCreateKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140C8617C (PnpNotifyEarlyLaunchStatusUpdate.c)
+ *     IopCreateArcNames @ 0x140CC25A0 (IopCreateArcNames.c)
+ *     IopCallBootDriverReinitializationRoutines @ 0x140CC468C (IopCallBootDriverReinitializationRoutines.c)
+ *     PipGetDriverTagPriority @ 0x140CC7994 (PipGetDriverTagPriority.c)
+ *     PipLookupGroupName @ 0x140CC8510 (PipLookupGroupName.c)
+ *     PipUnloadEarlyLaunchDrivers @ 0x140CC96B0 (PipUnloadEarlyLaunchDrivers.c)
+ *     PipWaitCriticalDevices @ 0x140CC9754 (PipWaitCriticalDevices.c)
+ *     PnpWaitForDevicesToStart @ 0x140CC9A9C (PnpWaitForDevicesToStart.c)
+ *     PiCreateDriverDataDirectoryRoot @ 0x140CC9C90 (PiCreateDriverDataDirectoryRoot.c)
+ *     IopAllocateLegacyBootResources @ 0x140CCB498 (IopAllocateLegacyBootResources.c)
+ *     VhdAutoAttachVirtualDisks @ 0x140D089A4 (VhdAutoAttachVirtualDisks.c)
+ *     VhdInitialize @ 0x140D08C34 (VhdInitialize.c)
+ *     RamdiskInitialize @ 0x140D0A0B4 (RamdiskInitialize.c)
+ *     PipInitializeCoreDriversAndElam @ 0x140D0B1AC (PipInitializeCoreDriversAndElam.c)
+ *     PipInitializeDriverDependentDLLs @ 0x140D0B5E4 (PipInitializeDriverDependentDLLs.c)
+ *     PnpInitializeBootStartDriver @ 0x140D0EFCC (PnpInitializeBootStartDriver.c)
+ *     PpInitGetGroupOrderIndex @ 0x140D10DDC (PpInitGetGroupOrderIndex.c)
+ *     PipCheckDependencies @ 0x140D116F4 (PipCheckDependencies.c)
  */
 
 __int64 __fastcall IopInitializeBootDrivers(__int64 a1)
@@ -96,7 +96,7 @@ __int64 __fastcall IopInitializeBootDrivers(__int64 a1)
   __int64 *v40; // rbx
   __int64 v41; // rax
   __int64 v42; // rdi
-  int v43; // edx
+  ULONG v43; // edx
   PVOID v44; // r14
   void *v45; // rsi
   __int64 v46; // rcx
@@ -173,7 +173,7 @@ __int64 __fastcall IopInitializeBootDrivers(__int64 a1)
   v67[0] = 2097182;
   v68 = L"\\FileSystem\\RAW";
   *(_DWORD *)&Destination.Length = 0x20000;
-  Destination.Buffer = (wchar_t *)&word_140D0D650;
+  Destination.Buffer = (wchar_t *)&word_140D138C0;
   result = PnpInitializeBootStartDriver(
              (unsigned int)v67,
              (unsigned int)&Destination,
@@ -414,7 +414,7 @@ LABEL_130:
       result = PipWaitCriticalDevices(a1);
       if ( (int)result >= 0 )
       {
-        LOBYTE(v34) = HIDWORD(WheapPfaLock.CycleTime) != 0;
+        LOBYTE(v34) = HIDWORD(WheapPfaLock.KernelStack) != 0;
         result = ExpInitializeStateSeparationCreateOsRoots(v34);
         if ( (int)(result + 0x80000000) < 0 || (_DWORD)result == -1073741637 )
         {
@@ -478,14 +478,14 @@ LABEL_130:
                         PnpCtxRegSetValue(v46, v62, (__int64)pszDest, 4LL, (__int64)&v59, 4u);
                         PnpCtxRegCloseKey(v47, v62);
                         v62 = 0LL;
-                        if ( (byte_140EF3DCB & 2) != 0 )
+                        if ( (byte_140EF412B & 2) != 0 )
                         {
                           v48 = (unsigned __int16 *)(*(_QWORD *)(v42 + 48) + 24LL);
                           Object = 0LL;
                           if ( (int)PnpUnicodeStringToWstr(&Object, 0LL, v48) >= 0 )
                           {
                             v52 = Object;
-                            if ( (byte_140EF3DCB & 2) != 0 )
+                            if ( (byte_140EF412B & 2) != 0 )
                               McTemplateK0dzd_EtwWriteTransfer(v50, v49, v51, v60, (const wchar_t *)Object, v59);
                             PnpUnicodeStringToWstrFree(v52, *(_QWORD *)(v42 + 48) + 24LL);
                           }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRewriteTrimPteAsDemandZero @ 0x14031B000
+ * XREFs of MiRewriteTrimPteAsDemandZero @ 0x14031D030
  * Callers:
- *     MiWsleFree @ 0x140319990 (MiWsleFree.c)
+ *     MiWsleFree @ 0x14031B9C0 (MiWsleFree.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiTransferSoftwarePte @ 0x140297830 (MiTransferSoftwarePte.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiTransferSoftwarePte @ 0x140296D90 (MiTransferSoftwarePte.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
  */
 
 __int64 __fastcall MiRewriteTrimPteAsDemandZero(__int64 a1, _QWORD *a2)
@@ -43,11 +43,11 @@ __int64 __fastcall MiRewriteTrimPteAsDemandZero(__int64 a1, _QWORD *a2)
   if ( (v2 & 4) != 0 )
   {
     v23 = a2[2];
-    v24 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((a2[5] >> 43) & 0x3FFLL))
+    v24 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((a2[5] >> 43) & 0x3FFLL))
                     + 8LL * ((unsigned __int8)HIBYTE(*((_WORD *)a2 + 8)) >> 4)
                     + 22304);
-    if ( qword_140E2D740 && (v23 & 0x10) == 0 )
-      HIDWORD(v23) &= HIDWORD(qword_140E2D748);
+    if ( qword_140E2D8C0 && (v23 & 0x10) == 0 )
+      HIDWORD(v23) &= HIDWORD(qword_140E2D8C8);
     v7 = MiTransferSoftwarePte(a2[2], v24, HIDWORD(v23), 2);
   }
   else

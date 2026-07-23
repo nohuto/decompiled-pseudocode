@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerReadTimerPairWithLatencyLimit @ 0x1405487F8
+ * XREFs of HalpTimerReadTimerPairWithLatencyLimit @ 0x1405460B8
  * Callers:
- *     HalpTimerMeasureFrequencies @ 0x140547C90 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x14054C1E0 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpTimerMeasureFrequencies @ 0x140545550 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x140549AA0 (HalpTimerMeasureProcessorsWorker.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 unsigned __int64 __fastcall HalpTimerReadTimerPairWithLatencyLimit(
@@ -23,17 +23,13 @@ unsigned __int64 __fastcall HalpTimerReadTimerPairWithLatencyLimit(
   LARGE_INTEGER PerformanceCounter; // rax
   __int64 InternalData; // rax
   __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned __int64 v17; // rax
-  LARGE_INTEGER v18; // rax
-  __int64 v19; // rax
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  unsigned __int64 v23; // rax
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // rcx
+  unsigned __int64 v15; // rax
+  LARGE_INTEGER v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  unsigned __int64 v19; // rax
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // rcx
   unsigned __int64 result; // rax
 
   v7 = a1;
@@ -51,27 +47,27 @@ unsigned __int64 __fastcall HalpTimerReadTimerPairWithLatencyLimit(
     else
     {
       InternalData = HalpTimerGetInternalData(a2);
-      PerformanceCounter.QuadPart = guard_dispatch_icall_no_overrides(InternalData, v14, v15, v16);
+      PerformanceCounter.QuadPart = guard_dispatch_icall_no_overrides(InternalData, v14);
     }
     *a4 = PerformanceCounter;
-    v17 = __readcr2();
-    __writecr2(v17);
+    v15 = __readcr2();
+    __writecr2(v15);
     if ( a3 == HalpPerformanceCounter && HalpTimerFrequenciesMeasured )
     {
-      v18 = KeQueryPerformanceCounter(0LL);
+      v16 = KeQueryPerformanceCounter(0LL);
     }
     else
     {
-      v19 = HalpTimerGetInternalData(a3);
-      v18.QuadPart = guard_dispatch_icall_no_overrides(v19, v20, v21, v22);
+      v17 = HalpTimerGetInternalData(a3);
+      v16.QuadPart = guard_dispatch_icall_no_overrides(v17, v18);
     }
-    *a5 = v18;
-    v23 = __readcr2();
-    __writecr2(v23);
-    v24 = __rdtsc();
-    v25 = __readcr2();
-    __writecr2(v25);
-    result = (((unsigned __int64)HIDWORD(v24) << 32) | (unsigned int)v24) - v10;
+    *a5 = v16;
+    v19 = __readcr2();
+    __writecr2(v19);
+    v20 = __rdtsc();
+    v21 = __readcr2();
+    __writecr2(v21);
+    result = (((unsigned __int64)HIDWORD(v20) << 32) | (unsigned int)v20) - v10;
   }
   while ( result > v7 );
   return result;

@@ -1,9 +1,9 @@
 /*
  * XREFs of MiWriteComplete @ 0x140021DE0
  * Callers:
- *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
- *     MiStoreWriteModifiedCompleteApc @ 0x1401580E0 (MiStoreWriteModifiedCompleteApc.c)
+ *     MiGatherMappedPages @ 0x14007E6A0 (MiGatherMappedPages.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
+ *     MiStoreWriteModifiedCompleteApc @ 0x1401581E0 (MiStoreWriteModifiedCompleteApc.c)
  * Callees:
  *     FsRtlReleaseFileForModWrite @ 0x14001AF98 (FsRtlReleaseFileForModWrite.c)
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
@@ -20,21 +20,21 @@
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     CcNotifyOfMappedWriteComplete @ 0x140138CF8 (CcNotifyOfMappedWriteComplete.c)
- *     MI_PAGEFILE_WRITE @ 0x14014F990 (MI_PAGEFILE_WRITE.c)
- *     MiStoreCheckCompleteWriteBatch @ 0x140175FF8 (MiStoreCheckCompleteWriteBatch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiSetDeleteOnClose @ 0x1402A330C (MiSetDeleteOnClose.c)
- *     MiRetardMdl @ 0x1402A83EC (MiRetardMdl.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x140138DF8 (CcNotifyOfMappedWriteComplete.c)
+ *     MI_PAGEFILE_WRITE @ 0x14014FA90 (MI_PAGEFILE_WRITE.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x1401760F8 (MiStoreCheckCompleteWriteBatch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiSetDeleteOnClose @ 0x1402A34FC (MiSetDeleteOnClose.c)
+ *     MiRetardMdl @ 0x1402A85DC (MiRetardMdl.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 int __fastcall MiWriteComplete(__int64 a1, int *a2, int a3)
@@ -202,13 +202,13 @@ LABEL_15:
     v20 = (unsigned __int64)v56;
     do
     {
-      if ( v12->Next == (struct _MDL *)qword_14043ADC8 )
+      if ( v12->Next == (struct _MDL *)qword_14043BE88 )
       {
         if ( (*(_DWORD *)(a1 + 40) & 0x20) == 0 )
           MiReleasePageFileInfo(v51, v19, 0LL);
         v32 = v19;
-        if ( qword_14043A0C0 && (v19 & 0x10) == 0 )
-          v32 = v19 & ~qword_14043A0C0;
+        if ( qword_14043B180 && (v19 & 0x10) == 0 )
+          v32 = v19 & ~qword_14043B180;
         updated = MiUpdatePageFileHighInPte(v19, HIDWORD(v32) + 1);
       }
       else
@@ -225,7 +225,7 @@ LABEL_15:
         v9 &= 0xFFFFFFF3;
         if ( (*(_DWORD *)(a1 + 40) & 0x20) != 0 )
         {
-          v30 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v21 + 40) >> 40) & 0x3FFLL));
+          v30 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v21 + 40) >> 40) & 0x3FFLL));
           if ( (v9 & 2) == 0 && (*(_QWORD *)(v21 + 24) & 0x4000000000000000LL) == 0 )
           {
             v31 = *(_BYTE *)(v21 + 34);
@@ -256,8 +256,8 @@ LABEL_15:
         if ( v22 )
           MiReleasePageFileInfo(v51, v22, 0LL);
         v23 = v19;
-        if ( qword_14043A0C0 && (v19 & 0x10) == 0 )
-          v23 = v19 & ~qword_14043A0C0;
+        if ( qword_14043B180 && (v19 & 0x10) == 0 )
+          v23 = v19 & ~qword_14043B180;
         updated = MiUpdatePageFileHighInPte(v19, HIDWORD(v23) + 1);
         v12 = v54;
       }

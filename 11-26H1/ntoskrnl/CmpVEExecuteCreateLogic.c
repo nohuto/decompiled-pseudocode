@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpVEExecuteCreateLogic @ 0x140A9F648
+ * XREFs of CmpVEExecuteCreateLogic @ 0x140A9F978
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KCBNeedsVirtualImage @ 0x14044F7D8 (KCBNeedsVirtualImage.c)
- *     CmpDoAccessCheckOnKCB @ 0x1408597A8 (CmpDoAccessCheckOnKCB.c)
- *     CmpReplicateKeyToVirtual @ 0x140859F40 (CmpReplicateKeyToVirtual.c)
- *     CmpExamineSaclForAuditEvent @ 0x14085B068 (CmpExamineSaclForAuditEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x14085B480 (CmpReportAuditVirtualizationEvent.c)
- *     CmpReparseToVirtualPath @ 0x1408AF5E0 (CmpReparseToVirtualPath.c)
- *     CmRealKCBToVirtualPath @ 0x1408B1418 (CmRealKCBToVirtualPath.c)
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
- *     CmpCheckAdminAccess @ 0x140A33904 (CmpCheckAdminAccess.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KCBNeedsVirtualImage @ 0x140447908 (KCBNeedsVirtualImage.c)
+ *     CmpDoAccessCheckOnKCB @ 0x14085FB38 (CmpDoAccessCheckOnKCB.c)
+ *     CmpReplicateKeyToVirtual @ 0x140860234 (CmpReplicateKeyToVirtual.c)
+ *     CmpExamineSaclForAuditEvent @ 0x14086135C (CmpExamineSaclForAuditEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140861774 (CmpReportAuditVirtualizationEvent.c)
+ *     CmRealKCBToVirtualPath @ 0x1408B7A24 (CmRealKCBToVirtualPath.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
+ *     CmpCheckAdminAccess @ 0x140A4E864 (CmpCheckAdminAccess.c)
+ *     CmpReparseToVirtualPath @ 0x140B07FA4 (CmpReparseToVirtualPath.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
  */
 
 __int64 __fastcall CmpVEExecuteCreateLogic(
@@ -64,7 +64,7 @@ __int64 __fastcall CmpVEExecuteCreateLogic(
     CmpAttachToRegistryProcess((PRKAPC_STATE)(v13 + 168));
     *(_DWORD *)(v13 + 160) |= 1u;
   }
-  if ( CmpReparseToVirtualPath(a1, v15, (__int64)v14, &DestinationString) )
+  if ( (unsigned __int8)CmpReparseToVirtualPath(a1, v15, v14, &DestinationString) )
   {
     ExFreePoolWithTag(DestinationString.Buffer, 0);
     RtlInitUnicodeString(&DestinationString, 0LL);

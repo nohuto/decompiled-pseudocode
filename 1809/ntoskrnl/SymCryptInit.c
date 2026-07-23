@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptInit @ 0x140180D94
+ * XREFs of SymCryptInit @ 0x140180ED4
  * Callers:
- *     HvInitializeHashLibrary @ 0x14073054C (HvInitializeHashLibrary.c)
+ *     HvInitializeHashLibrary @ 0x14073173C (HvInitializeHashLibrary.c)
  * Callees:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF208 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF348 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  */
 
 __int64 SymCryptInit()

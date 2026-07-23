@@ -1,12 +1,12 @@
 /*
- * XREFs of SiValidateSystemPartition @ 0x14034F678
+ * XREFs of SiValidateSystemPartition @ 0x14034F818
  * Callers:
- *     SiGetBootDeviceName @ 0x1407BFB04 (SiGetBootDeviceName.c)
+ *     SiGetBootDeviceName @ 0x1407BFDD4 (SiGetBootDeviceName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SiGetDiskPartitionInformation @ 0x1407C0140 (SiGetDiskPartitionInformation.c)
- *     SiIssueSynchronousIoctl @ 0x140A5F6B8 (SiIssueSynchronousIoctl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SiGetDiskPartitionInformation @ 0x1407C0410 (SiGetDiskPartitionInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x140A5F968 (SiIssueSynchronousIoctl.c)
  */
 
 __int64 __fastcall SiValidateSystemPartition(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4, char a5)

@@ -1,28 +1,28 @@
 /*
- * XREFs of MmMapViewInSystemCache @ 0x140018A20
+ * XREFs of MmMapViewInSystemCache @ 0x1400185A0
  * Callers:
- *     CcGetVacbMiss @ 0x14001872C (CcGetVacbMiss.c)
+ *     CcGetVacbMiss @ 0x1400182AC (CcGetVacbMiss.c)
  * Callees:
- *     MiManageSubsectionView @ 0x140013D20 (MiManageSubsectionView.c)
- *     MiGetSystemCacheReverseMap @ 0x140019B10 (MiGetSystemCacheReverseMap.c)
- *     MiObtainSystemCacheView @ 0x140019B70 (MiObtainSystemCacheView.c)
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiAddViewsForSection @ 0x14002C690 (MiAddViewsForSection.c)
- *     MiOffsetToProtos @ 0x140033070 (MiOffsetToProtos.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiCompareTbFlushTimeStamp @ 0x1400A52AC (MiCompareTbFlushTimeStamp.c)
- *     KeFlushMultipleRangeTb @ 0x1400B5D3C (KeFlushMultipleRangeTb.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x14012F798 (KeFlushMultipleRangeCurrentTb.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeFlushCurrentTbOnly @ 0x1401D60C4 (KeFlushCurrentTbOnly.c)
- *     MiRemoveSystemCacheReferences @ 0x1401E6DF4 (MiRemoveSystemCacheReferences.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetPteLink @ 0x1401F2680 (MiGetPteLink.c)
- *     MiMakePrototypePteDirect @ 0x1401F2758 (MiMakePrototypePteDirect.c)
+ *     MiManageSubsectionView @ 0x1400138A0 (MiManageSubsectionView.c)
+ *     MiGetSystemCacheReverseMap @ 0x140019690 (MiGetSystemCacheReverseMap.c)
+ *     MiObtainSystemCacheView @ 0x1400196F0 (MiObtainSystemCacheView.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiAddViewsForSection @ 0x14002C210 (MiAddViewsForSection.c)
+ *     MiOffsetToProtos @ 0x140032BF0 (MiOffsetToProtos.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiCompareTbFlushTimeStamp @ 0x1400A3824 (MiCompareTbFlushTimeStamp.c)
+ *     KeFlushMultipleRangeTb @ 0x1400B3B64 (KeFlushMultipleRangeTb.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x14012FD08 (KeFlushMultipleRangeCurrentTb.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeFlushCurrentTbOnly @ 0x1401D5EF0 (KeFlushCurrentTbOnly.c)
+ *     MiRemoveSystemCacheReferences @ 0x1401E6C20 (MiRemoveSystemCacheReferences.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetPteLink @ 0x1401F24AC (MiGetPteLink.c)
+ *     MiMakePrototypePteDirect @ 0x1401F2584 (MiMakePrototypePteDirect.c)
  */
 
 __int64 __fastcall MmMapViewInSystemCache(__int64 a1, __int64 *a2, _QWORD *a3)
@@ -99,7 +99,7 @@ __int64 __fastcall MmMapViewInSystemCache(__int64 a1, __int64 *a2, _QWORD *a3)
   result = MiAddViewsForSection(v13, v12 + v53, 1LL);
   if ( (int)result < 0 )
   {
-    ++dword_140327D80;
+    ++dword_140327DC0;
     return result;
   }
   v19 = *a2;
@@ -120,7 +120,7 @@ __int64 __fastcall MmMapViewInSystemCache(__int64 a1, __int64 *a2, _QWORD *a3)
     if ( !HIDWORD(v56) )
       goto LABEL_34;
     v26 = v55;
-    v27 = qword_140326A18;
+    v27 = qword_140326A58;
     if ( (v55 & 2) != 0 )
     {
       v28 = v54;
@@ -178,7 +178,7 @@ LABEL_24:
   v23 = v21;
   if ( !v21 )
   {
-    ++dword_140327D80;
+    ++dword_140327DC0;
     MiRemoveSystemCacheReferences(v15, v14);
     return 3221225495LL;
   }

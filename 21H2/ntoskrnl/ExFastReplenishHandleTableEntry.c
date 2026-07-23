@@ -1,9 +1,9 @@
 /*
- * XREFs of ExFastReplenishHandleTableEntry @ 0x1402C9410
+ * XREFs of ExFastReplenishHandleTableEntry @ 0x140247CF0
  * Callers:
- *     ObWaitForMultipleObjects @ 0x1405FCDC0 (ObWaitForMultipleObjects.c)
- *     ObReferenceFileObjectForWrite @ 0x140650510 (ObReferenceFileObjectForWrite.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObReferenceFileObjectForWrite @ 0x140645330 (ObReferenceFileObjectForWrite.c)
+ *     ObWaitForMultipleObjects @ 0x1406EC520 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
  * Callees:
  *     <none>
  */

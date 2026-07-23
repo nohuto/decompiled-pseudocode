@@ -1,19 +1,19 @@
 /*
- * XREFs of PopCurrentSystemPowerSourceState @ 0x1407D91A8
+ * XREFs of PopCurrentSystemPowerSourceState @ 0x1407DCBC8
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
  */
 
 __int64 __fastcall PopCurrentSystemPowerSourceState(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
-  PopAcquireRwLockShared((volatile signed __int64 *)&stru_140F10070.Header.Lock, a2, a3, a4);
-  *(_OWORD *)a1 = *(_OWORD *)&stru_140F10070.Header.WaitListHead.Blink;
-  *(_OWORD *)(a1 + 16) = *(_OWORD *)&stru_140F10070.QuantumTarget;
-  *(_OWORD *)(a1 + 32) = *(_OWORD *)&stru_140F10070.StackLimit;
-  *(_OWORD *)(a1 + 48) = *(_OWORD *)&stru_140F10070.ThreadLock;
-  *(_DWORD *)(a1 + 64) = stru_140F10070.CurrentRunTime;
-  return PopReleaseRwLock(&stru_140F10070);
+  PopAcquireRwLockShared((volatile signed __int64 *)&xmmword_140F10830, a2, a3, a4);
+  *(_OWORD *)a1 = xmmword_140F10840;
+  *(_OWORD *)(a1 + 16) = xmmword_140F10850;
+  *(_OWORD *)(a1 + 32) = xmmword_140F10860;
+  *(_OWORD *)(a1 + 48) = xmmword_140F10870;
+  *(_DWORD *)(a1 + 64) = dword_140F10880;
+  return PopReleaseRwLock((struct _KTHREAD *)&xmmword_140F10830);
 }

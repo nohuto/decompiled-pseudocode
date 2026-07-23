@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteExtentPfns @ 0x1402B5AC0
+ * XREFs of MiDeleteExtentPfns @ 0x1402B5CB0
  * Callers:
- *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x14084DAF4 (MiAddPhysicalMemory.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
- *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6810 (MiPurgeBadFileOnlyPages.c)
+ *     MiRemovePhysicalMemory @ 0x14084E7AC (MiRemovePhysicalMemory.c)
  */
 
 NTSTATUS __fastcall MiDeleteExtentPfns(__int64 a1)
@@ -27,22 +27,22 @@ NTSTATUS __fastcall MiDeleteExtentPfns(__int64 a1)
   do
   {
     MiPurgeBadFileOnlyPages();
-    while ( qword_140438D28 )
+    while ( qword_140439DE8 )
       MiRemovePhysicalMemory(0LL, 0LL, 50LL);
-    KeAcquireInStackQueuedSpinLock(&qword_14043D920, &LockHandle);
-    v3 = qword_140438D28;
-    if ( !qword_140438D28 )
+    KeAcquireInStackQueuedSpinLock(&qword_14043E9E0, &LockHandle);
+    v3 = qword_140439DE8;
+    if ( !qword_140439DE8 )
     {
       if ( a1 )
       {
-        byte_140438D68 = qword_140438D28;
-        v2 = &stru_140438D50;
-        KeSetEvent(&stru_140438D50, 0, 0);
+        byte_140439E28 = qword_140439DE8;
+        v2 = &stru_140439E10;
+        KeSetEvent(&stru_140439E10, 0, 0);
       }
       else
       {
-        v4 = &stru_140438D50;
-        if ( byte_140438D68 != 1 )
+        v4 = &stru_140439E10;
+        if ( byte_140439E28 != 1 )
           v4 = v2;
         v2 = v4;
       }

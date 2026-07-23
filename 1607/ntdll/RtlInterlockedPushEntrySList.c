@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInterlockedPushEntrySList @ 0x180051CD0
+ * XREFs of RtlInterlockedPushEntrySList @ 0x180051CC0
  * Callers:
  *     <none>
  * Callees:

@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpReceiveLegacyMessage @ 0x1405EA7A0
+ * XREFs of AlpcpReceiveLegacyMessage @ 0x1406D9F00
  * Callers:
- *     NtReplyWaitReceivePortEx @ 0x1405EAA60 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x1406DA1C0 (NtReplyWaitReceivePortEx.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1405E3A5C (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpReadMessageData @ 0x1405E7800 (AlpcpReadMessageData.c)
- *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1406D31BC (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpReadMessageData @ 0x1406D6F60 (AlpcpReadMessageData.c)
+ *     AlpcpReceiveMessagePort @ 0x1406D8320 (AlpcpReceiveMessagePort.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall AlpcpReceiveLegacyMessage(__int64 *a1, unsigned __int64 a2, __int64 *a3, _QWORD *a4)
+__int64 __fastcall AlpcpReceiveLegacyMessage(__int64 *a1, unsigned __int64 a2, LARGE_INTEGER *a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rdx
   unsigned __int8 v7; // r13
@@ -54,7 +54,7 @@ __int64 __fastcall AlpcpReceiveLegacyMessage(__int64 *a1, unsigned __int64 a2, _
       if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
         v11 = (__int64)a3;
       v20 = *(_QWORD *)v11;
-      a3 = &v20;
+      a3 = (LARGE_INTEGER *)&v20;
     }
     if ( a2 )
     {
@@ -108,7 +108,7 @@ __int64 __fastcall AlpcpReceiveLegacyMessage(__int64 *a1, unsigned __int64 a2, _
 LABEL_18:
     while ( 1 )
     {
-      v13 = AlpcpReceiveMessagePort(a1, v7, (__int64)a3, &BugCheckParameter2, 0);
+      v13 = AlpcpReceiveMessagePort(a1, v7, a3, &BugCheckParameter2, 0);
       if ( v13 )
         break;
       v14 = BugCheckParameter2;

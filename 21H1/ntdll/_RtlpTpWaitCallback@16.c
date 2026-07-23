@@ -16,21 +16,21 @@
  *     _RtlpTpETWCallbackStop@20 @ 0x4B385D1F (_RtlpTpETWCallbackStop@20.c)
  */
 
-int __stdcall RtlpTpWaitCallback(int a1, int a2, int a3, int a4)
+void __stdcall RtlpTpWaitCallback(PTP_CALLBACK_INSTANCE a1, _BYTE *a2, PTP_WAIT a3, TP_WAIT_RESULT a4)
 {
   struct _TEB *v4; // esi
   int v5; // ebx
   int v6; // eax
-  _DWORD v8[2]; // [esp+18h] [ebp-20h] BYREF
+  _DWORD ThreadInformation[2]; // [esp+18h] [ebp-20h] BYREF
   CPPEH_RECORD ms_exc; // [esp+20h] [ebp-18h]
 
-  v8[1] = a2;
-  if ( (*(_BYTE *)(a2 + 4) & 4) == 0 )
+  ThreadInformation[1] = a2;
+  if ( (a2[4] & 4) == 0 )
     RtlpTpWaitCheckReset(a2, a4);
   if ( *(_DWORD *)a2 )
     RtlpTpImpersonate();
-  if ( (*(_BYTE *)(a2 + 4) & 4) != 0 )
-    *(_DWORD *)(a2 + 48) = NtCurrentTeb()->ClientId.UniqueThread;
+  if ( (a2[4] & 4) != 0 )
+    *((_DWORD *)a2 + 12) = NtCurrentTeb()->ClientId.UniqueThread;
   v4 = NtCurrentTeb();
   v5 = 2147353478;
   if ( RtlGetCurrentServiceSessionId() )
@@ -38,23 +38,23 @@ int __stdcall RtlpTpWaitCallback(int a1, int a2, int a3, int a4)
   else
     v6 = 2147353478;
   if ( *(_BYTE *)v6 )
-    RtlpTpETWCallbackStart(*(_DWORD *)(a2 + 16), *(_DWORD *)(a2 + 20), v4->SubProcessTag);
-  TppStartThreadData(*(_DWORD *)(a2 + 20), v4->SubProcessTag);
+    RtlpTpETWCallbackStart(*((_DWORD *)a2 + 4), *((_DWORD *)a2 + 5), v4->SubProcessTag);
+  TppStartThreadData(*((_DWORD *)a2 + 5), v4->SubProcessTag);
   ms_exc.registration.TryLevel = 0;
-  (*(void (__thiscall **)(_DWORD, _DWORD, bool))(a2 + 16))(*(_DWORD *)(a2 + 16), *(_DWORD *)(a2 + 20), a4 == 258);
+  (*((void (__thiscall **)(_DWORD, _DWORD, bool))a2 + 4))(*((_DWORD *)a2 + 4), *((_DWORD *)a2 + 5), a4 == 258);
   ms_exc.registration.TryLevel = -2;
-  if ( (*(_BYTE *)(a2 + 4) & 4) != 0 )
-    *(_DWORD *)(a2 + 48) = 0;
+  if ( (a2[4] & 4) != 0 )
+    *((_DWORD *)a2 + 12) = 0;
   if ( NtCurrentTeb()->IsImpersonating )
   {
-    v8[0] = 0;
-    ZwSetInformationThread(-2, 5, v8, 4);
+    ThreadInformation[0] = 0;
+    ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, ThreadInformation, 4u);
   }
-  if ( (*(_BYTE *)(a2 + 4) & 4) != 0 )
+  if ( (a2[4] & 4) != 0 )
     RtlpTpWaitCheckReset(a2, a4);
   if ( RtlGetCurrentServiceSessionId() )
     v5 = (int)NtCurrentPeb()->SharedData + 556;
   if ( *(_BYTE *)v5 )
-    RtlpTpETWCallbackStop(*(_DWORD *)(a2 + 16), *(_DWORD *)(a2 + 20), v4->SubProcessTag);
-  return TppCompleteThreadData(1261079055);
+    RtlpTpETWCallbackStop(*((_DWORD *)a2 + 4), *((_DWORD *)a2 + 5), v4->SubProcessTag);
+  TppCompleteThreadData(1261079055);
 }

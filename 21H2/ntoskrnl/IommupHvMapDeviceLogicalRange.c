@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvMapDeviceLogicalRange @ 0x1404DA284
+ * XREFs of IommupHvMapDeviceLogicalRange @ 0x1404DA4C4
  * Callers:
- *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C9514 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvMapDeviceLogicalRange(int a1, __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5)
@@ -20,7 +20,7 @@ __int64 __fastcall IommupHvMapDeviceLogicalRange(int a1, __int64 a2, unsigned __
   v10 = (unsigned __int64)(a4 + 4095) >> 12;
   v7[0] = a3 >> 12;
   v6 = 1;
-  return ((__int64 (__fastcall *)(int *, __int64, __int64, _QWORD *, unsigned __int64 *, char))qword_140C4A310)(
+  return ((__int64 (__fastcall *)(int *, __int64, __int64, _QWORD *, unsigned __int64 *, char))qword_140C4A350)(
            &v8,
            a2,
            a5,

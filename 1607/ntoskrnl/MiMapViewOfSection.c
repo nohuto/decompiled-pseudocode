@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMapViewOfSection @ 0x140433010
+ * XREFs of MiMapViewOfSection @ 0x140431EE0
  * Callers:
- *     MmMapSecureViewOfSection @ 0x14040D1A8 (MmMapSecureViewOfSection.c)
- *     NtMapViewOfSection @ 0x140436740 (NtMapViewOfSection.c)
- *     MmMapViewOfSection @ 0x14046BFE8 (MmMapViewOfSection.c)
+ *     MmMapSecureViewOfSection @ 0x14040C068 (MmMapSecureViewOfSection.c)
+ *     NtMapViewOfSection @ 0x140435610 (NtMapViewOfSection.c)
+ *     MmMapViewOfSection @ 0x14046AEB8 (MmMapViewOfSection.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x14002BD00 (MiMakeProtectionMask.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiArbitraryCodeBlocked @ 0x1400B75F4 (MiArbitraryCodeBlocked.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiUnmapViewOfSection @ 0x14042E400 (MiUnmapViewOfSection.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
+ *     MiMakeProtectionMask @ 0x14002B880 (MiMakeProtectionMask.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiArbitraryCodeBlocked @ 0x1400B548C (MiArbitraryCodeBlocked.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiUnmapViewOfSection @ 0x14042D2D0 (MiUnmapViewOfSection.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
  */
 
 __int64 __fastcall MiMapViewOfSection(

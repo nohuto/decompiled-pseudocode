@@ -1,11 +1,11 @@
 /*
- * XREFs of I_MincryptAddChainInfo @ 0x1408A39A0
+ * XREFs of I_MincryptAddChainInfo @ 0x1408A9DB0
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     I_MincryptFreeChainInfo @ 0x1408A3C58 (I_MincryptFreeChainInfo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     I_MincryptFreeChainInfo @ 0x1408AA068 (I_MincryptFreeChainInfo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall I_MincryptAddChainInfo(

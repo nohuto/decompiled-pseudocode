@@ -6,7 +6,7 @@
  *     sub_180014974 @ 0x180014974 (sub_180014974.c)
  */
 
-__int64 __fastcall RtlAddAccessAllowedAce(int a1, int a2, int a3, __int64 a4)
+NTSTATUS __cdecl RtlAddAccessAllowedAce(PACL Acl, ULONG AceRevision, ACCESS_MASK AccessMask, PSID Sid)
 {
-  return sub_180014974(a1, a2, 0, a3, a4, 0);
+  return sub_180014974(Acl, Sid, 0);
 }

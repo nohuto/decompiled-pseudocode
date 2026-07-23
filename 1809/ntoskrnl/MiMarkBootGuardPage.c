@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMarkBootGuardPage @ 0x140729A6C
+ * XREFs of MiMarkBootGuardPage @ 0x14072AC5C
  * Callers:
- *     MmAllocateIsrStack @ 0x1407299EC (MmAllocateIsrStack.c)
- *     MiInitializeKernelStacks @ 0x1409B5C54 (MiInitializeKernelStacks.c)
+ *     MmAllocateIsrStack @ 0x14072ABDC (MmAllocateIsrStack.c)
+ *     MiInitializeKernelStacks @ 0x1409B6C54 (MiInitializeKernelStacks.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiPartitionIdToPointer @ 0x140134DB8 (MiPartitionIdToPointer.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0230 (MiReturnPartitionResidentAvailable.c)
  */
 
 void __fastcall MiMarkBootGuardPage(unsigned __int64 a1)
@@ -42,7 +42,7 @@ void __fastcall MiMarkBootGuardPage(unsigned __int64 a1)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v7 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_3;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -68,8 +68,8 @@ LABEL_3:
   if ( v4 == &MiSystemPartition )
   {
     if ( (unsigned int)MiGetSystemRegionType(v1) == 15 )
-      _InterlockedExchangeAdd64(&qword_14043B030, 0xFFFFFFFFFFFFFFFFuLL);
+      _InterlockedExchangeAdd64(&qword_14043C0F0, 0xFFFFFFFFFFFFFFFFuLL);
     else
-      --qword_14043B010;
+      --qword_14043C0D0;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTryLocalThreadSchedule @ 0x1402373D0
+ * XREFs of KiTryLocalThreadSchedule @ 0x140238D30
  * Callers:
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
  * Callees:
- *     KiReduceByEffectiveIdleSmtSet @ 0x1402287D0 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiFindRankBiasedIdleSmtSet @ 0x140228C34 (KiFindRankBiasedIdleSmtSet.c)
- *     KiQueryDpcRuntimeHistory @ 0x14041A6D0 (KiQueryDpcRuntimeHistory.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x14022A160 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x14022A5C4 (KiFindRankBiasedIdleSmtSet.c)
+ *     KiQueryDpcRuntimeHistory @ 0x140411F20 (KiQueryDpcRuntimeHistory.c)
  */
 
 __int64 __fastcall KiTryLocalThreadSchedule(__int64 a1, __int64 a2, __int64 a3, _WORD *a4, __int64 a5)
@@ -114,7 +114,7 @@ LABEL_16:
     LOBYTE(v18) = *(_BYTE *)(a2 + 209);
   v19 = v17 << 6;
   _BitScanForward64(&v20, __ROR8__(v14, v18));
-  return KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+  return KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                           + v19
                           + (((_BYTE)v18 + (_BYTE)v20) & 0x3Fu))];
 }

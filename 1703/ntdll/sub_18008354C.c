@@ -15,9 +15,9 @@ __int64 __fastcall sub_18008354C(__int64 a1)
 {
   __int64 v1; // rdi
   NTSTATUS v2; // eax
-  ULONG v3; // esi
+  unsigned __int32 v3; // esi
   int UniqueThread; // r8d
-  __int64 v6; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v6; // [rsp+50h] [rbp+8h] BYREF
   __int64 v7; // [rsp+58h] [rbp+10h] BYREF
 
   if ( !HIWORD(a1)
@@ -28,7 +28,7 @@ __int64 __fastcall sub_18008354C(__int64 a1)
     goto LABEL_11;
   }
   v7 = *(_QWORD *)((a1 & 0xFFFFFFFFFFFFLL) + 0x58);
-  v2 = ZwTraceControl(26LL, &v7, 8LL, 0LL, 0, &v6);
+  v2 = ZwTraceControl(EtwTrackBinaryCode, &v7, 8u, 0LL, 0, &v6);
   if ( v2 )
   {
     v3 = RtlNtStatusToDosError(v2);
@@ -40,12 +40,12 @@ LABEL_11:
   }
   v3 = 0;
 LABEL_6:
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(v1 + 64));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v1 + 64));
   UniqueThread = (int)NtCurrentTeb()->ClientId.UniqueThread;
   *(_WORD *)(v1 + 98) |= 0x8000u;
   *(_DWORD *)(v1 + 80) = UniqueThread;
   sub_180083608(v1);
   *(_DWORD *)(v1 + 80) = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v1 + 64));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v1 + 64));
   return v3;
 }

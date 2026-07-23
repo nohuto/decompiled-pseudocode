@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEtEnergyContextSetState @ 0x1406057C8
+ * XREFs of PopEtEnergyContextSetState @ 0x1406F4EF8
  * Callers:
- *     PoEnergyContextUpdateComponentPower @ 0x14060526C (PoEnergyContextUpdateComponentPower.c)
- *     PoSetProcessEnergyTrackingState @ 0x1406B7FB0 (PoSetProcessEnergyTrackingState.c)
+ *     PoSetProcessEnergyTrackingState @ 0x1406174C0 (PoSetProcessEnergyTrackingState.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1406F499C (PoEnergyContextUpdateComponentPower.c)
  * Callees:
- *     RtlStateDurationUpdate @ 0x1402C6E8C (RtlStateDurationUpdate.c)
- *     PopEtStringSet @ 0x1406198B0 (PopEtStringSet.c)
- *     PopEtStringIntern @ 0x140697EB8 (PopEtStringIntern.c)
- *     RtlInternEntryDereference @ 0x140699474 (RtlInternEntryDereference.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1406A742C (PopEtEnergyContextProcessStateUpdate.c)
+ *     RtlStateDurationUpdate @ 0x1402F6F04 (RtlStateDurationUpdate.c)
+ *     PopEtStringIntern @ 0x1405F6BB0 (PopEtStringIntern.c)
+ *     RtlInternEntryDereference @ 0x1405F8164 (RtlInternEntryDereference.c)
+ *     PopEtStringSet @ 0x140683510 (PopEtStringSet.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1406F6E88 (PopEtEnergyContextProcessStateUpdate.c)
  */
 
 __int64 __fastcall PopEtEnergyContextSetState(__int64 a1, _DWORD *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PopEtEnergyContextSetState(__int64 a1, _DWORD *a2)
   int v9; // edi
   unsigned int v10; // edi
   unsigned __int64 v12; // rbx
-  _DWORD *v13; // rcx
+  __int64 v13; // rcx
   __int64 v14; // rdx
   int v15; // eax
   __int64 v16; // [rsp+50h] [rbp+8h] BYREF
@@ -33,11 +33,11 @@ __int64 __fastcall PopEtEnergyContextSetState(__int64 a1, _DWORD *a2)
   v7 = 0;
   if ( (v2 & 1) != 0 )
   {
-    v13 = a2 + 4;
+    v13 = (__int64)(a2 + 4);
     v14 = -1LL;
     do
       ++v14;
-    while ( *((_WORD *)v13 + v14) );
+    while ( *(_WORD *)(v13 + 2 * v14) );
     if ( v14 )
     {
       v15 = PopEtStringIntern(v13, v14, &v16);
@@ -48,7 +48,7 @@ __int64 __fastcall PopEtEnergyContextSetState(__int64 a1, _DWORD *a2)
     }
     if ( *(_QWORD *)(v3 + 456) != v4 )
     {
-      PopEtStringSet(v3 + 456, v4);
+      PopEtStringSet((__int64 *)(v3 + 456), v4);
       v7 = 1;
     }
   }

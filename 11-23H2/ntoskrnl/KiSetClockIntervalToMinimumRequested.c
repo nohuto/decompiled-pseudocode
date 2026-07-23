@@ -1,27 +1,27 @@
 /*
- * XREFs of KiSetClockIntervalToMinimumRequested @ 0x14057004C
+ * XREFs of KiSetClockIntervalToMinimumRequested @ 0x14057058C
  * Callers:
- *     KeClockInterruptNotify @ 0x1402C46A0 (KeClockInterruptNotify.c)
- *     KiResetClockIntervalOneShot @ 0x140340AE8 (KiResetClockIntervalOneShot.c)
- *     KiSetClockIntervalOneShot @ 0x140340B48 (KiSetClockIntervalOneShot.c)
- *     KiSetClockInterval @ 0x1403B1FA4 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x14056FDE4 (KiResetClockInterval.c)
+ *     KeClockInterruptNotify @ 0x1402C4930 (KeClockInterruptNotify.c)
+ *     KiResetClockIntervalOneShot @ 0x140340D78 (KiResetClockIntervalOneShot.c)
+ *     KiSetClockIntervalOneShot @ 0x140340DD8 (KiSetClockIntervalOneShot.c)
+ *     KiSetClockInterval @ 0x1403B2184 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140570324 (KiResetClockInterval.c)
  * Callees:
- *     KiSetClockTickRate @ 0x1402C2890 (KiSetClockTickRate.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     KiGetClockIntervalOneShot @ 0x140340BC0 (KiGetClockIntervalOneShot.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x140340BF4 (PoTraceSystemTimerResolutionKernel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetClockTickRate @ 0x1402C2B20 (KiSetClockTickRate.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     KiGetClockIntervalOneShot @ 0x140340E50 (KiGetClockIntervalOneShot.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x140340E84 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiSetClockIntervalToMinimumRequested()
 {
-  unsigned __int64 v0; // rax
+  unsigned __int64 Min; // rax
   unsigned int v1; // esi
   volatile signed __int32 *SchedulerAssist; // rcx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned int v4; // r11d
-  unsigned __int64 v5; // rbx
+  unsigned __int64 QuadPart; // rbx
   unsigned int ClockIntervalOneShot; // r10d
   unsigned __int64 v7; // r14
   unsigned int v8; // r8d
@@ -34,33 +34,33 @@ __int64 KiSetClockIntervalToMinimumRequested()
   signed __int32 v15; // eax
   signed __int32 v16; // ett
   __int16 v18; // [rsp+30h] [rbp-8h]
-  LARGE_INTEGER v19; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
-  v19.QuadPart = 0LL;
-  if ( (qword_140D0C478 & 1) != 0 )
+  PerformanceCounter.QuadPart = 0LL;
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( qword_140D0C478 == 1 )
-      v0 = 0LL;
+    if ( KiClockIntervalRequests.Min == (_RTL_BALANCED_NODE *)1 )
+      Min = 0LL;
     else
-      v0 = qword_140D0C478 ^ ((unsigned __int64)&KiClockIntervalRequests + 1);
+      Min = (unsigned __int64)KiClockIntervalRequests.Min ^ ((unsigned __int64)&KiClockIntervalRequests.Root + 1);
   }
   else
   {
-    v0 = qword_140D0C478;
+    Min = (unsigned __int64)KiClockIntervalRequests.Min;
   }
-  v1 = *(_DWORD *)(v0 + 28);
+  v1 = *(_DWORD *)(Min + 28);
   _disable();
   SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
   if ( SchedulerAssist )
     _InterlockedOr(SchedulerAssist, 0x200000u);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v4 = -1;
-  v5 = InterruptTimePrecise;
+  QuadPart = InterruptTimePrecise.QuadPart;
   ClockIntervalOneShot = -1;
   if ( KiClockOwnerOneShotRequest )
-    ClockIntervalOneShot = KiGetClockIntervalOneShot(KiClockOwnerOneShotRequest, InterruptTimePrecise);
+    ClockIntervalOneShot = KiGetClockIntervalOneShot(KiClockOwnerOneShotRequest, InterruptTimePrecise.QuadPart);
   v7 = KiClockOwnerOneShotCorrectiveRequest;
-  if ( KiClockOwnerOneShotCorrectiveRequest > v5
+  if ( KiClockOwnerOneShotCorrectiveRequest > QuadPart
     || KiClockOwnerOneShotRequestState == 2 && !KiClockOwnerOneShotCorrectiveRequest )
   {
     v8 = KePseudoHrTimeIncrement;
@@ -71,8 +71,8 @@ __int64 KiSetClockIntervalToMinimumRequested()
       v9 = KiLastNonHrTimerExpiration;
       v8 = KeNonHrTimeIncrement;
     }
-    v7 = v5 + v8 - (v5 - v9) % v8;
-    v4 = KiGetClockIntervalOneShot(v7, v5);
+    v7 = QuadPart + v8 - (QuadPart - v9) % v8;
+    v4 = KiGetClockIntervalOneShot(v7, QuadPart);
   }
   v10 = 0;
   v11 = 0;
@@ -81,7 +81,7 @@ __int64 KiSetClockIntervalToMinimumRequested()
     if ( v4 >= v1 )
     {
       ClockIntervalOneShot = v1;
-      KiClockOwnerOneShotCorrectiveRequest = v5;
+      KiClockOwnerOneShotCorrectiveRequest = QuadPart;
     }
     else
     {

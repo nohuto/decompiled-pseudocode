@@ -1,63 +1,61 @@
 /*
- * XREFs of IoCreateStreamFileObjectEx2 @ 0x14071BF10
+ * XREFs of IoCreateStreamFileObjectEx2 @ 0x1406C9360
  * Callers:
- *     IoCreateStreamFileObjectLite @ 0x14071BEC0 (IoCreateStreamFileObjectLite.c)
- *     IoCreateStreamFileObjectEx @ 0x1407732A0 (IoCreateStreamFileObjectEx.c)
- *     IoCreateStreamFileObject @ 0x14077BE40 (IoCreateStreamFileObject.c)
+ *     IoCreateStreamFileObjectLite @ 0x1406C9310 (IoCreateStreamFileObjectLite.c)
+ *     IoCreateStreamFileObjectEx @ 0x140773460 (IoCreateStreamFileObjectEx.c)
+ *     IoCreateStreamFileObject @ 0x14077C000 (IoCreateStreamFileObject.c)
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopIncrementVpbRefCount @ 0x14030F0A8 (IopIncrementVpbRefCount.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopDecrementDeviceObjectRef @ 0x140353B90 (IopDecrementDeviceObjectRef.c)
- *     IopIncrementDeviceObjectRefCount @ 0x140354BA0 (IopIncrementDeviceObjectRefCount.c)
- *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopIncrementVpbRefCount @ 0x140319DF8 (IopIncrementVpbRefCount.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopDecrementDeviceObjectRef @ 0x14035E8E0 (IopDecrementDeviceObjectRef.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14035F8F0 (IopIncrementDeviceObjectRefCount.c)
+ *     IopGetSetSpecificExtension @ 0x140361838 (IopGetSetSpecificExtension.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
 __int64 __fastcall IoCreateStreamFileObjectEx2(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
+        ULONG_PTR a3,
         struct _DMA_ADAPTER **a4,
         HANDLE *a5)
 {
   HANDLE *v5; // r14
   __int16 v6; // r12
   ULONG_PTR v7; // r13
-  signed int SetSpecificExtension; // edi
-  _DWORD *v10; // r9
-  PADAPTER_OBJECT v11; // r15
+  NTSTATUS Object; // edi
+  PADAPTER_OBJECT v10; // r15
   struct _KPRCB *CurrentPrcb; // rdx
-  struct _SLIST_ENTRY *v13; // r8
+  _SLIST_ENTRY *v12; // r8
   _GENERAL_LOOKASIDE *P; // rcx
-  struct _DMA_ADAPTER *v15; // r15
-  ULONG_PTR v16; // rcx
+  struct _DMA_ADAPTER *v14; // r15
+  ULONG_PTR v15; // rcx
   __int64 result; // rax
-  char *v18; // [rsp+28h] [rbp-41h]
   HANDLE Handle; // [rsp+58h] [rbp-11h] BYREF
-  _QWORD *v20; // [rsp+60h] [rbp-9h] BYREF
-  _DWORD v21[2]; // [rsp+68h] [rbp-1h] BYREF
-  __int64 v22; // [rsp+70h] [rbp+7h]
-  __int64 v23; // [rsp+78h] [rbp+Fh]
-  int v24; // [rsp+80h] [rbp+17h]
-  int v25; // [rsp+84h] [rbp+1Bh]
-  __int128 v26; // [rsp+88h] [rbp+1Fh]
+  _QWORD *v18; // [rsp+60h] [rbp-9h] BYREF
+  _DWORD v19[2]; // [rsp+68h] [rbp-1h] BYREF
+  __int64 v20; // [rsp+70h] [rbp+7h]
+  __int64 v21; // [rsp+78h] [rbp+Fh]
+  int v22; // [rsp+80h] [rbp+17h]
+  int v23; // [rsp+84h] [rbp+1Bh]
+  __int128 v24; // [rsp+88h] [rbp+1Fh]
   PADAPTER_OBJECT DmaAdapter; // [rsp+C8h] [rbp+5Fh] BYREF
-  struct _DMA_ADAPTER **v28; // [rsp+E0h] [rbp+77h]
+  struct _DMA_ADAPTER **v26; // [rsp+E0h] [rbp+77h]
 
-  v28 = a4;
+  v26 = a4;
   v5 = a5;
   v6 = *(_WORD *)(a1 + 2) & 2;
   DmaAdapter = 0LL;
   v7 = a3;
-  v21[1] = 0;
-  v25 = 0;
+  v19[1] = 0;
+  v23 = 0;
   Handle = 0LL;
   *a4 = 0LL;
   if ( v5 )
@@ -65,7 +63,7 @@ __int64 __fastcall IoCreateStreamFileObjectEx2(
   if ( *(_WORD *)a1 != 16 )
   {
     if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )
-      RtlRaiseStatus(0xC00000BB);
+      RtlRaiseStatus(-1073741637);
     return 3221225659LL;
   }
   if ( v6 && v5 )
@@ -79,38 +77,38 @@ __int64 __fastcall IoCreateStreamFileObjectEx2(
   {
 LABEL_33:
     if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )
-      RtlRaiseStatus(0xC000000D);
+      RtlRaiseStatus(-1073741811);
     return 3221225485LL;
   }
 LABEL_8:
-  IopIncrementDeviceObjectRefCount(v7, 1, a3, a4);
-  v21[0] = 48;
-  v22 = 0LL;
-  v24 = 512;
-  v23 = 0LL;
-  v26 = 0LL;
+  IopIncrementDeviceObjectRefCount(v7, 1);
+  v19[0] = 48;
+  v20 = 0LL;
+  v22 = 512;
+  v21 = 0LL;
+  v24 = 0LL;
   LOWORD(a5) = 1;
-  SetSpecificExtension = ObCreateObjectEx(0, IoFileObjectType, (__int64)v21, 0, v18, 216, 216, 0, &DmaAdapter, &a5);
-  if ( SetSpecificExtension < 0 )
+  Object = ObCreateObjectEx(0, (_DWORD)IoFileObjectType, (unsigned int)v19, 0);
+  if ( Object < 0 )
   {
-    IopDecrementDeviceObjectRef(v7, 0, 0LL, v10);
+    IopDecrementDeviceObjectRef(v7, 0, 0);
     if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )
-      RtlRaiseStatus(SetSpecificExtension);
-    return (unsigned int)SetSpecificExtension;
+      RtlRaiseStatus(Object);
+    return (unsigned int)Object;
   }
-  v11 = DmaAdapter;
+  v10 = DmaAdapter;
   memset(DmaAdapter, 0, 0xD8uLL);
-  *(_DWORD *)&v11->Version = 14155781;
-  v11->DmaOperations = (_DMA_OPERATIONS *)v7;
-  *(_DWORD *)&v11[5].Version = 256;
-  KeInitializeEvent((PRKEVENT)&v11[9].DmaOperations, SynchronizationEvent, 0);
-  v11[11].DmaOperations = 0LL;
-  v11[12].DmaOperations = (_DMA_OPERATIONS *)&v11[12];
-  *(_QWORD *)&v11[12].Version = v11 + 12;
+  *(_DWORD *)&v10->Version = 14155781;
+  v10->DmaOperations = (_DMA_OPERATIONS *)v7;
+  *(_DWORD *)&v10[5].Version = 256;
+  KeInitializeEvent((PRKEVENT)&v10[9].DmaOperations, SynchronizationEvent, 0);
+  v10[11].DmaOperations = 0LL;
+  v10[12].DmaOperations = (_DMA_OPERATIONS *)&v10[12];
+  *(_QWORD *)&v10[12].Version = v10 + 12;
   if ( v6 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v13 = *(struct _SLIST_ENTRY **)&v11[-1].Version;
+    v12 = *(_SLIST_ENTRY **)&v10[-1].Version;
     P = CurrentPrcb->PPLookasideList[4].P;
     ++P->TotalFrees;
     if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -119,26 +117,26 @@ LABEL_8:
           ++P->TotalFrees,
           LOWORD(P->ListHead.Alignment) < P->Depth) )
     {
-      RtlpInterlockedPushEntrySList(&P->ListHead, v13);
+      RtlpInterlockedPushEntrySList(&P->ListHead, v12);
     }
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v13);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v12);
     }
-    *(_QWORD *)&v11[-1].Version = 0LL;
+    *(_QWORD *)&v10[-1].Version = 0LL;
 LABEL_13:
-    v15 = DmaAdapter;
+    v14 = DmaAdapter;
     *(_DWORD *)&DmaAdapter[5].Version |= 0x40000u;
-    v16 = *(_QWORD *)(v7 + 56);
-    if ( v16 )
-      IopIncrementVpbRefCount(v16, 1);
+    v15 = *(_QWORD *)(v7 + 56);
+    if ( v15 )
+      IopIncrementVpbRefCount(v15, 1);
     if ( !v6 )
     {
       if ( v5 )
       {
         *v5 = Handle;
-        HalPutDmaAdapter(v15);
+        HalPutDmaAdapter(v14);
       }
       else
       {
@@ -147,9 +145,9 @@ LABEL_13:
     }
     if ( *(_QWORD *)(a1 + 8) )
     {
-      v20 = 0LL;
-      SetSpecificExtension = IopGetSetSpecificExtension((__int64)v15, 1u, 0x20u, 1, &v20, 0LL);
-      if ( SetSpecificExtension < 0 )
+      v18 = 0LL;
+      Object = IopGetSetSpecificExtension((__int64)v14, 1u, 0x20u, 1, &v18, 0LL);
+      if ( Object < 0 )
       {
         if ( v5 )
         {
@@ -158,19 +156,19 @@ LABEL_13:
         }
         else
         {
-          HalPutDmaAdapter(v15);
+          HalPutDmaAdapter(v14);
         }
         if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )
-          RtlRaiseStatus(SetSpecificExtension);
-        return (unsigned int)SetSpecificExtension;
+          RtlRaiseStatus(Object);
+        return (unsigned int)Object;
       }
-      *v20 = *(_QWORD *)(a1 + 8);
+      *v18 = *(_QWORD *)(a1 + 8);
     }
-    *v28 = v15;
-    return (unsigned int)SetSpecificExtension;
+    *v26 = v14;
+    return (unsigned int)Object;
   }
-  result = ObInsertObjectEx((char *)v11, 0LL, 1u, 1, 0, (__int64)&DmaAdapter, (unsigned __int64 *)&Handle);
-  SetSpecificExtension = result;
+  result = ObInsertObjectEx(v10, 0LL, 0, (__int64)&DmaAdapter, (__int64)&Handle);
+  Object = result;
   if ( (int)result >= 0 )
     goto LABEL_13;
   if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of VhdDeferredAutoAttachVirtualDisks @ 0x1406A1730
+ * XREFs of VhdDeferredAutoAttachVirtualDisks @ 0x1406A2788
  * Callers:
- *     PipOobeCompleteAsyncCallback @ 0x14071A290 (PipOobeCompleteAsyncCallback.c)
+ *     PipOobeCompleteAsyncCallback @ 0x140717E20 (PipOobeCompleteAsyncCallback.c)
  * Callees:
- *     VhdiAutoAttachOneVhd @ 0x140829E6C (VhdiAutoAttachOneVhd.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VhdiAutoAttachOneVhd @ 0x14082A69C (VhdiAutoAttachOneVhd.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void VhdDeferredAutoAttachVirtualDisks()
@@ -16,17 +16,17 @@ void VhdDeferredAutoAttachVirtualDisks()
 
   while ( 1 )
   {
-    v0 = (char *)qword_140E65048;
-    if ( qword_140E65048 == &qword_140E65048 )
+    v0 = (char *)qword_140E651C8;
+    if ( qword_140E651C8 == &qword_140E651C8 )
       break;
-    if ( *((PVOID **)qword_140E65048 + 1) != &qword_140E65048
-      || (v1 = *(_QWORD *)qword_140E65048, *(PVOID *)(*(_QWORD *)qword_140E65048 + 8LL) != qword_140E65048) )
+    if ( *((PVOID **)qword_140E651C8 + 1) != &qword_140E651C8
+      || (v1 = *(_QWORD *)qword_140E651C8, *(PVOID *)(*(_QWORD *)qword_140E651C8 + 8LL) != qword_140E651C8) )
     {
       __fastfail(3u);
     }
-    qword_140E65048 = *(PVOID *)qword_140E65048;
+    qword_140E651C8 = *(PVOID *)qword_140E651C8;
     v2 = v0 + 36;
-    *(_QWORD *)(v1 + 8) = &qword_140E65048;
+    *(_QWORD *)(v1 + 8) = &qword_140E651C8;
     v3 = -1LL;
     do
       ++v3;

@@ -2,7 +2,7 @@
  * XREFs of RtlpSanitizeContextFlags @ 0x180052E10
  * Callers:
  *     RtlpSanitizeContext @ 0x180052D58 (RtlpSanitizeContext.c)
- *     RtlCaptureContext2 @ 0x1800A18E0 (RtlCaptureContext2.c)
+ *     RtlCaptureContext2 @ 0x1800A18A0 (RtlCaptureContext2.c)
  * Callees:
  *     RtlpValidateContextFlags @ 0x1800531DC (RtlpValidateContextFlags.c)
  */

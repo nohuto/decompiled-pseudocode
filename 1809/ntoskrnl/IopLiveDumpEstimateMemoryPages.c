@@ -1,23 +1,23 @@
 /*
- * XREFs of IopLiveDumpEstimateMemoryPages @ 0x140578B0C
+ * XREFs of IopLiveDumpEstimateMemoryPages @ 0x140579B0C
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14081F700 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140820900 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     RtlClearAllBitsEx @ 0x140110310 (RtlClearAllBitsEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlCalculateLivedumpSize @ 0x1402777D0 (HvlCalculateLivedumpSize.c)
- *     IopLiveDumpTraceBufferEstimation @ 0x140285CE8 (IopLiveDumpTraceBufferEstimation.c)
- *     RtlNumberOfSetBitsEx @ 0x1402EF170 (RtlNumberOfSetBitsEx.c)
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x140578168 (IopLiveDumpCallRemovePagesCallbacks.c)
- *     IopLiveDumpUncorralProcessors @ 0x140579628 (IopLiveDumpUncorralProcessors.c)
+ *     RtlClearAllBitsEx @ 0x140110390 (RtlClearAllBitsEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlCalculateLivedumpSize @ 0x1402779C0 (HvlCalculateLivedumpSize.c)
+ *     IopLiveDumpTraceBufferEstimation @ 0x140285ED8 (IopLiveDumpTraceBufferEstimation.c)
+ *     RtlNumberOfSetBitsEx @ 0x1402EF360 (RtlNumberOfSetBitsEx.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x140579168 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     IopLiveDumpUncorralProcessors @ 0x14057A628 (IopLiveDumpUncorralProcessors.c)
  */
 
 __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
 {
   __int64 v2; // rdi
   int v3; // ebp
-  __int64 v4; // rsi
+  _RTL_BITMAP_EX *v4; // rsi
   unsigned __int64 v5; // rax
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rcx
@@ -39,13 +39,13 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     if ( (*(_DWORD *)(a1 + 248) & 1) != 0 )
       IopLiveDumpUncorralProcessors(a1 + 240);
     *(_QWORD *)(a1 + 96) = 0LL;
-    v4 = a1 + 368;
+    v4 = (_RTL_BITMAP_EX *)(a1 + 368);
     *(_QWORD *)(a1 + 112) = 0LL;
     *(_QWORD *)(a1 + 120) = 0LL;
   }
   else
   {
-    v4 = a1 + 368;
+    v4 = (_RTL_BITMAP_EX *)(a1 + 368);
     v5 = RtlNumberOfSetBitsEx((_QWORD *)(a1 + 368));
     v6 = v5 + (v5 >> 4);
     LODWORD(v5) = *(_DWORD *)(a1 + 44);
@@ -65,8 +65,8 @@ __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
     IopLiveDumpTraceBufferEstimation();
   }
   RtlClearAllBitsEx(v4);
-  RtlClearAllBitsEx(a1 + 424);
-  RtlClearAllBitsEx(a1 + 464);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 424));
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 464));
   *(_DWORD *)(a1 + 80) &= ~1u;
   return (unsigned int)v3;
 }

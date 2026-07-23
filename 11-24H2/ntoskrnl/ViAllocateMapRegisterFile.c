@@ -1,35 +1,35 @@
 /*
- * XREFs of ViAllocateMapRegisterFile @ 0x140B87EAC
+ * XREFs of ViAllocateMapRegisterFile @ 0x140B89EAC
  * Callers:
- *     VfAllocateAdapterChannel @ 0x140B85190 (VfAllocateAdapterChannel.c)
- *     VfBuildScatterGatherList @ 0x140B85AB0 (VfBuildScatterGatherList.c)
- *     VfGetScatterGatherList @ 0x140B86BE0 (VfGetScatterGatherList.c)
- *     VfHalAllocateMapRegisters @ 0x140B870C0 (VfHalAllocateMapRegisters.c)
+ *     VfAllocateAdapterChannel @ 0x140B87190 (VfAllocateAdapterChannel.c)
+ *     VfBuildScatterGatherList @ 0x140B87AB0 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x140B88BE0 (VfGetScatterGatherList.c)
+ *     VfHalAllocateMapRegisters @ 0x140B890C0 (VfHalAllocateMapRegisters.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     ExInterlockedInsertHeadList @ 0x14042EB80 (ExInterlockedInsertHeadList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViAllocateFromContiguousMemory @ 0x140B87E10 (ViAllocateFromContiguousMemory.c)
- *     ViFreeToContiguousMemory @ 0x140B88DE8 (ViFreeToContiguousMemory.c)
- *     ViInitializePadding @ 0x140B895A8 (ViInitializePadding.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExInterlockedInsertHeadList @ 0x1404208B0 (ExInterlockedInsertHeadList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViAllocateFromContiguousMemory @ 0x140B89E10 (ViAllocateFromContiguousMemory.c)
+ *     ViFreeToContiguousMemory @ 0x140B8ADE8 (ViFreeToContiguousMemory.c)
+ *     ViInitializePadding @ 0x140B8B5A8 (ViInitializePadding.c)
  */
 
 char *__fastcall ViAllocateMapRegisterFile(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // edi
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   char *v5; // rbx
   PMDL Mdl; // rsi
-  ULONG_PTR v7; // rax
+  __int64 v7; // rax
   struct _MDL *v8; // r15
-  _QWORD *v9; // r14
+  __int64 *v9; // r14
   __int64 v10; // rax
   __int64 v11; // rax
-  ULONG_PTR v12; // rax
+  __int64 v12; // rax
   PHYSICAL_ADDRESS PhysicalAddress; // rax
   PVOID v14; // rax
   int v16; // edi
@@ -54,7 +54,7 @@ char *__fastcall ViAllocateMapRegisterFile(__int64 a1, unsigned int a2)
           if ( v7 )
           {
             v8 = Mdl + 1;
-            v9 = v5 + 104;
+            v9 = (__int64 *)(v5 + 104);
             while ( v3 )
             {
               v10 = ViAllocateFromContiguousMemory(a1, *((_DWORD *)v5 + 7) - v3);
@@ -73,7 +73,7 @@ char *__fastcall ViAllocateMapRegisterFile(__int64 a1, unsigned int a2)
               }
               _InterlockedIncrement((volatile signed __int32 *)(v11 + a1));
               ViInitializePadding(*v9, 12288LL, 0LL, 0LL);
-              PhysicalAddress = MmGetPhysicalAddress((PVOID)(*v9 + 4096LL));
+              PhysicalAddress = MmGetPhysicalAddress((PVOID)(*v9 + 4096));
               --v3;
               v9 += 4;
               v8->Next = (struct _MDL *)((unsigned __int64)PhysicalAddress.QuadPart >> 12);

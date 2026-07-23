@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockPage @ 0x14041BB70
+ * XREFs of MiUnlockPage @ 0x1404133C0
  * Callers:
- *     MiScanPagefileSpace @ 0x14086C170 (MiScanPagefileSpace.c)
- *     MmIsMdlPageLocked @ 0x140C436B4 (MmIsMdlPageLocked.c)
+ *     MiScanPagefileSpace @ 0x140872550 (MiScanPagefileSpace.c)
+ *     MmIsMdlPageLocked @ 0x140C496C4 (MmIsMdlPageLocked.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiUnlockPage(__int64 a1, unsigned __int8 a2)

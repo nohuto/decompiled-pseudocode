@@ -1,12 +1,12 @@
 /*
- * XREFs of ViKeWaitForMultipleObjectsCommon @ 0x14093B230
+ * XREFs of ViKeWaitForMultipleObjectsCommon @ 0x14093C230
  * Callers:
- *     VerifierKeWaitForMultipleObjects @ 0x14093A6F0 (VerifierKeWaitForMultipleObjects.c)
- *     VerifierKeWaitForMultipleObjectsNoReboot @ 0x14093A7D0 (VerifierKeWaitForMultipleObjectsNoReboot.c)
+ *     VerifierKeWaitForMultipleObjects @ 0x14093B6F0 (VerifierKeWaitForMultipleObjects.c)
+ *     VerifierKeWaitForMultipleObjectsNoReboot @ 0x14093B7D0 (VerifierKeWaitForMultipleObjectsNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViKeInjectStatusAlerted @ 0x14093AE4C (ViKeInjectStatusAlerted.c)
- *     ViKeWaitSanityChecks @ 0x14093B3CC (ViKeWaitSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViKeInjectStatusAlerted @ 0x14093BE4C (ViKeInjectStatusAlerted.c)
+ *     ViKeWaitSanityChecks @ 0x14093C3CC (ViKeWaitSanityChecks.c)
  */
 
 __int64 __fastcall ViKeWaitForMultipleObjectsCommon(

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUpdateStandbyStealSummaryForStandbyChange @ 0x14037ED90
+ * XREFs of KiUpdateStandbyStealSummaryForStandbyChange @ 0x140380B40
  * Callers:
- *     KiUpdateThreadSchedulingProperties @ 0x14020425C (KiUpdateThreadSchedulingProperties.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x14020433C (KiUpdateThreadSchedulingProperties.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
  * Callees:
  *     <none>
  */

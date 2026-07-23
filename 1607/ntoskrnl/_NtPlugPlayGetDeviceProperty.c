@@ -1,10 +1,10 @@
 /*
- * XREFs of _NtPlugPlayGetDeviceProperty @ 0x1404CF700
+ * XREFs of _NtPlugPlayGetDeviceProperty @ 0x14050C7CC
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1404CE780 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceRegPropWorker @ 0x1404FE360 (_CmGetDeviceRegPropWorker.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1404E12F0 (_CmGetDeviceRegPropWorker.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14050B84C (_CmGetDeviceMappedPropertyFromComposite.c)
  * Callees:
- *     _PnpCtxGetNtPlugPlayRoutine @ 0x1404FB0E4 (_PnpCtxGetNtPlugPlayRoutine.c)
+ *     _PnpCtxGetNtPlugPlayRoutine @ 0x1404DE070 (_PnpCtxGetNtPlugPlayRoutine.c)
  */
 
 __int64 __fastcall NtPlugPlayGetDeviceProperty(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, __int64 a6)
@@ -14,7 +14,7 @@ __int64 __fastcall NtPlugPlayGetDeviceProperty(__int64 a1, __int64 a2, unsigned 
   _QWORD v11[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v11[0] = 0LL;
-  result = PnpCtxGetNtPlugPlayRoutine(a1, 1LL, v11);
+  result = PnpCtxGetNtPlugPlayRoutine(a1, 1, v11);
   if ( (int)result >= 0 )
   {
     if ( v11[0] )

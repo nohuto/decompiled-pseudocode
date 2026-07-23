@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpCallSetDisplayState @ 0x140677314
+ * XREFs of TtmpCallSetDisplayState @ 0x1406773F8
  * Callers:
- *     TtmpPushTerminalState @ 0x140677528 (TtmpPushTerminalState.c)
+ *     TtmpPushTerminalState @ 0x14067760C (TtmpPushTerminalState.c)
  * Callees:
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmpStartCallout @ 0x14067764C (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1406776BC (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmpStartCallout @ 0x140677730 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1406777A0 (TtmpStopCallout.c)
  */
 
 void __fastcall TtmpCallSetDisplayState(int a1, __int64 a2, unsigned int a3)

@@ -1,15 +1,21 @@
 /*
- * XREFs of HalAllocateCommonBufferDmaThinEx @ 0x140410D80
+ * XREFs of HalAllocateCommonBufferDmaThinEx @ 0x140396820
  * Callers:
- *     HalAllocateCommonBufferDmaThin @ 0x140410D50 (HalAllocateCommonBufferDmaThin.c)
+ *     HalAllocateCommonBufferDmaThin @ 0x140396AD0 (HalAllocateCommonBufferDmaThin.c)
  * Callees:
- *     HalpAllocateCommonBufferDmaThin @ 0x140410E18 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x1403962A4 (HalpAllocateCommonBufferDmaThin.c)
  */
 
-__int64 __fastcall HalAllocateCommonBufferDmaThinEx(__int64 a1, int a2, int a3, _QWORD *a4, char a5, int a6)
+__int64 __fastcall HalAllocateCommonBufferDmaThinEx(
+        __int64 a1,
+        PHYSICAL_ADDRESS *a2,
+        int a3,
+        PHYSICAL_ADDRESS *a4,
+        char a5,
+        int a6)
 {
   __int64 v6; // rbx
-  int *v8; // r9
+  MEMORY_CACHING_TYPE *v8; // r9
   _QWORD v10[3]; // [rsp+50h] [rbp-18h] BYREF
   int v11; // [rsp+70h] [rbp+8h] BYREF
 
@@ -19,14 +25,14 @@ __int64 __fastcall HalAllocateCommonBufferDmaThinEx(__int64 a1, int a2, int a3, 
   if ( a5 && *(_BYTE *)(a1 + 445) )
   {
     v11 = 1;
-    v8 = &v11;
+    v8 = (MEMORY_CACHING_TYPE *)&v11;
   }
   else
   {
     v8 = 0LL;
   }
-  if ( (int)HalpAllocateCommonBufferDmaThin(*(_QWORD *)(a1 + 512), 0, a2, a3, 0, (__int64)v8, a6, (__int64)a4, v10) >= 0 )
+  if ( (int)HalpAllocateCommonBufferDmaThin(*(_QWORD *)(a1 + 512), 0LL, a2, a3, 0, v8, a6, a4, v10) >= 0 )
     return v10[0];
-  *a4 = 0LL;
+  a4->QuadPart = 0LL;
   return v6;
 }

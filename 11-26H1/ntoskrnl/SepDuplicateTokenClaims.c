@@ -1,10 +1,10 @@
 /*
- * XREFs of SepDuplicateTokenClaims @ 0x140AFBEB8
+ * XREFs of SepDuplicateTokenClaims @ 0x140AFDAB8
  * Callers:
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
  * Callees:
- *     SepDuplicateClaimAttributes @ 0x140AFBF28 (SepDuplicateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x140AFDB28 (SepDuplicateClaimAttributes.c)
  */
 
 __int64 __fastcall SepDuplicateTokenClaims(__int64 a1, __int64 a2)

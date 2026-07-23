@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroPageFile @ 0x1401E1904
+ * XREFs of MiZeroPageFile @ 0x1401E1730
  * Callers:
  *     MiZeroAllPageFiles @ 0x1403DEA58 (MiZeroAllPageFiles.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     MmZeroPageWrite @ 0x14006B26C (MmZeroPageWrite.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     MmZeroPageWrite @ 0x14006ADEC (MmZeroPageWrite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

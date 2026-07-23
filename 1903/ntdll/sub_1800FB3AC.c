@@ -14,7 +14,7 @@ __int64 __fastcall sub_1800FB3AC(__int64 a1, __int64 a2, unsigned int a3)
 {
   SIZE_T v4; // rbp
   __int64 v7; // rbx
-  __int64 v8; // r14
+  _RTL_SRWLOCK *v8; // r14
   __int64 i; // rbx
   __int64 v10; // rax
   __int16 v11; // cx
@@ -24,8 +24,8 @@ __int64 __fastcall sub_1800FB3AC(__int64 a1, __int64 a2, unsigned int a3)
   v4 = 8LL * *(unsigned __int16 *)(a2 + 14);
   v7 = 2LL * (a3 % *(_DWORD *)(a1 + 720));
   _InterlockedAdd((volatile signed __int32 *)(a1 + 176), 1u);
-  v8 = a1 + 8 * v7;
-  sub_1800FB36C((volatile signed __int64 *)(v8 + 736));
+  v8 = (_RTL_SRWLOCK *)(a1 + 8 * v7);
+  sub_1800FB36C(v8 + 92);
   for ( i = *(_QWORD *)(a1 + 8 * v7 + 728); i; i = *(_QWORD *)i )
   {
     if ( *(_WORD *)(i + 14) == *(_WORD *)(a2 + 14)
@@ -53,6 +53,6 @@ LABEL_8:
   if ( (v13 & 0x7FF) != 0x7FF )
     *(_WORD *)(i + 8) = v13 ^ (v13 ^ (v13 + 1)) & 0x7FF;
 LABEL_11:
-  sub_1800FB38C((volatile signed __int64 *)(v8 + 736));
+  sub_1800FB38C(v8 + 92);
   return i;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VhdiGetDiskParameters @ 0x1409F9138
+ * XREFs of VhdiGetDiskParameters @ 0x1409FA138
  * Callers:
- *     IopGetBootDiskInformationLite @ 0x1409BDED8 (IopGetBootDiskInformationLite.c)
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
+ *     IopGetBootDiskInformationLite @ 0x1409BEED8 (IopGetBootDiskInformationLite.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall VhdiGetDiskParameters(__int64 a1, _DWORD *a2, _QWORD *a3, char *a4, __int64 *a5)

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpAffinityToHvProcessorSet @ 0x1401BFDE4
+ * XREFs of HvlpAffinityToHvProcessorSet @ 0x1401BFCC8
  * Callers:
- *     HvlMapDeviceInterrupt @ 0x1401BD2A4 (HvlMapDeviceInterrupt.c)
- *     HvlRetargetDeviceInterrupt @ 0x1401BD8AC (HvlRetargetDeviceInterrupt.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x1401BE998 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1401BEBC4 (HvlpSlowSendSyntheticClusterIpiEx.c)
- *     HvlpFastFlushListTbEx @ 0x1401C17FC (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x1401C1C78 (HvlpSlowFlushListTbEx.c)
+ *     HvlMapDeviceInterrupt @ 0x1401BD188 (HvlMapDeviceInterrupt.c)
+ *     HvlRetargetDeviceInterrupt @ 0x1401BD790 (HvlRetargetDeviceInterrupt.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1401BE87C (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1401BEAA8 (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlpFastFlushListTbEx @ 0x1401C16E0 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x1401C1B5C (HvlpSlowFlushListTbEx.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall HvlpAffinityToHvProcessorSet(__int64 a1, _QWORD *a2, unsigned int a3)

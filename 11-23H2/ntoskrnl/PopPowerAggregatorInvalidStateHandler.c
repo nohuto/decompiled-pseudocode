@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorInvalidStateHandler @ 0x1407FD890
+ * XREFs of PopPowerAggregatorInvalidStateHandler @ 0x1407FDB60
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
  *     <none>
  */

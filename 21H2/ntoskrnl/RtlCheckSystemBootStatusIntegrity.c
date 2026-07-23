@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCheckSystemBootStatusIntegrity @ 0x140915540
+ * XREFs of RtlCheckSystemBootStatusIntegrity @ 0x1409156A0
  * Callers:
  *     <none>
  * Callees:
- *     ZwPowerInformation @ 0x1403FAF80 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x1403FB160 (ZwPowerInformation.c)
  */
 
 NTSTATUS __fastcall RtlCheckSystemBootStatusIntegrity(__int64 a1)

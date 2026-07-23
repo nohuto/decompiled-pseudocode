@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpThreadInfoLogStack @ 0x14061600C
+ * XREFs of CmpThreadInfoLogStack @ 0x14061655C
  * Callers:
- *     CmpRecordRegistryLockRelease @ 0x14022FAF0 (CmpRecordRegistryLockRelease.c)
- *     CmpRecordRegistryLockAcquire @ 0x14022FB30 (CmpRecordRegistryLockAcquire.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
+ *     CmpRecordRegistryLockRelease @ 0x14022FBE0 (CmpRecordRegistryLockRelease.c)
+ *     CmpRecordRegistryLockAcquire @ 0x14022FC20 (CmpRecordRegistryLockAcquire.c)
+ *     CmpIsRegistryLockAcquired @ 0x14022FC60 (CmpIsRegistryLockAcquired.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     InsertEventEntryInLookUpTable @ 0x140212F60 (InsertEventEntryInLookUpTable.c)
- *     RtlWalkFrameChain @ 0x140227760 (RtlWalkFrameChain.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlWalkFrameChain @ 0x140227870 (RtlWalkFrameChain.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char CmpThreadInfoLogStack()
@@ -53,18 +53,18 @@ char CmpThreadInfoLogStack()
   do
   {
     v2 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))Callers[v1];
-    if ( (unsigned __int64)v2 >= PsNtosImageBase && (unsigned __int64)v2 <= PsNtosImageEnd )
+    if ( (char *)v2 >= PsNtosImageBase && (unsigned __int64)v2 <= PsNtosImageEnd )
     {
-      v2 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))((char *)v2 - PsNtosImageBase);
+      v2 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))((char *)v2 - (unsigned __int64)PsNtosImageBase);
       v29[v1] = v2;
     }
     ++v1;
     --v0;
   }
   while ( v0 );
-  if ( (unsigned int)dword_140C043C8 > 5 )
+  if ( (unsigned int)dword_140C04390 > 5 )
   {
-    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140C043C8, 0x400000000000LL);
+    LOBYTE(v2) = tlgKeywordOn((__int64)&dword_140C04390, 0x400000000000LL);
     if ( (_BYTE)v2 )
     {
       v20 = v5;
@@ -73,23 +73,23 @@ char CmpThreadInfoLogStack()
       v27[1] = v29;
       v27[3] = &v21;
       *(_DWORD *)&EventDescriptor.Level = 5;
-      UserData.Ptr = (ULONGLONG)off_140C043D0;
+      UserData.Ptr = (ULONGLONG)off_140C04398;
       v27[2] = 80LL;
       v21 = 0x1000000LL;
       v27[4] = 8LL;
       *(_DWORD *)&EventDescriptor.Id = 184549376;
       EventDescriptor.Keyword = v3;
-      UserData.Size = *(unsigned __int16 *)off_140C043D0;
-      v23 = &byte_140036BCF;
+      UserData.Size = *(unsigned __int16 *)off_140C04398;
+      v23 = &byte_140036CB7;
       UserData.Reserved = 2;
       v24 = 93;
       v25 = v5;
       v19 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
       v2 = TlgAggregateInternalRegisteredProviderEtwCallback;
-      if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_140C043F0 == TlgAggregateInternalRegisteredProviderEtwCallback )
+      if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_140C043B8 == TlgAggregateInternalRegisteredProviderEtwCallback )
       {
         v6 = (unsigned __int8)ActivityId;
-        v7 = byte_140036BD1;
+        v7 = byte_140036CB9;
         do
         {
           v8 = *v7;
@@ -102,7 +102,7 @@ char CmpThreadInfoLogStack()
           v7 += v5;
         }
         while ( v9 );
-        while ( v7 < &byte_140036C2C )
+        while ( v7 < &byte_140036D14 )
         {
           do
           {
@@ -137,13 +137,13 @@ char CmpThreadInfoLogStack()
 LABEL_24:
         if ( v6 )
           LOBYTE(v2) = InsertEventEntryInLookUpTable(
-                         (__int64)&dword_140C043C8,
+                         (__int64)&dword_140C04390,
                          (__int64)&EventDescriptor,
                          5,
                          (__int64)&UserData,
                          v6);
         else
-          LOBYTE(v2) = EtwWriteEx(qword_140C043E8, &EventDescriptor, 0LL, 0, ActivityId, ActivityId, 5u, &UserData);
+          LOBYTE(v2) = EtwWriteEx(qword_140C043B0, &EventDescriptor, 0LL, 0, ActivityId, ActivityId, 5u, &UserData);
       }
     }
   }

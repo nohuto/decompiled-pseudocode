@@ -1,11 +1,11 @@
 /*
- * XREFs of ViWdIrpTimedOut @ 0x140ADE41C
+ * XREFs of ViWdIrpTimedOut @ 0x140ADE40C
  * Callers:
- *     ViWdIrpTimerDpcRoutine @ 0x140ADE4C0 (ViWdIrpTimerDpcRoutine.c)
+ *     ViWdIrpTimerDpcRoutine @ 0x140ADE4B0 (ViWdIrpTimerDpcRoutine.c)
  * Callees:
- *     VfUtilDbgPrint @ 0x1405CE2D4 (VfUtilDbgPrint.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     VfErrorStoreTriageInformation @ 0x140AD36B4 (VfErrorStoreTriageInformation.c)
+ *     VfUtilDbgPrint @ 0x1405CE844 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x140AD36A4 (VfErrorStoreTriageInformation.c)
  */
 
 __int64 __fastcall ViWdIrpTimedOut(__int64 a1)

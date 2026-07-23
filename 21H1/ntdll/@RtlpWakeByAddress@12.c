@@ -143,7 +143,7 @@ LABEL_5:
             do
             {
               v16 = *(_DWORD *)(v4 + 8);
-              ZwAlertThreadByThreadId(*(_DWORD *)(v4 + 4));
+              ZwAlertThreadByThreadId(*(HANDLE *)(v4 + 4));
               v4 = v16;
             }
             while ( v16 );

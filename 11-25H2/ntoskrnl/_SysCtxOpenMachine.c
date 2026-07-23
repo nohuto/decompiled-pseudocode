@@ -35,7 +35,7 @@ __int64 __fastcall SysCtxOpenMachine(
   HANDLE v19; // [rsp+48h] [rbp-B8h] BYREF
   HANDLE v20; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE v21; // [rsp+58h] [rbp-A8h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+60h] [rbp-A0h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+60h] [rbp-A0h] BYREF
   unsigned __int8 v23; // [rsp+174h] [rbp+74h]
   unsigned __int8 v24; // [rsp+176h] [rbp+76h]
 

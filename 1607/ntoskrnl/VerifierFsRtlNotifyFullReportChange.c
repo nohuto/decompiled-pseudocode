@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlNotifyFullReportChange @ 0x14070C674
+ * XREFs of VerifierFsRtlNotifyFullReportChange @ 0x14070C6A4
  * Callers:
  *     <none>
  * Callees:

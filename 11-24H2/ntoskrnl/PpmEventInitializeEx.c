@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventInitializeEx @ 0x140C3411C
+ * XREFs of PpmEventInitializeEx @ 0x140C3625C
  * Callers:
- *     PpmEventInitialize @ 0x140C332E8 (PpmEventInitialize.c)
+ *     PpmEventInitialize @ 0x140C35428 (PpmEventInitialize.c)
  * Callees:
- *     EtwRegister @ 0x140A574E0 (EtwRegister.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwRegister @ 0x1409EA180 (EtwRegister.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PpmEventInitializeEx()

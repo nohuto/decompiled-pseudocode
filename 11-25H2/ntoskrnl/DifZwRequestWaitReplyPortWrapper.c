@@ -11,7 +11,10 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwRequestWaitReplyPortWrapper(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall DifZwRequestWaitReplyPortWrapper(
+        HANDLE PortHandle,
+        PPORT_MESSAGE RequestMessage,
+        PPORT_MESSAGE ReplyMessage)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v7; // rsi
@@ -43,9 +46,9 @@ __int64 __fastcall DifZwRequestWaitReplyPortWrapper(__int64 a1, __int64 a2, __in
       *(_QWORD *)&v15 = DifGetReturnAddressForWrappers();
     }
     v9 = 0;
-    *((_QWORD *)&v16 + 1) = a1;
-    *(_QWORD *)&v16 = a2;
-    *((_QWORD *)&v15 + 1) = a3;
+    *((_QWORD *)&v16 + 1) = PortHandle;
+    *(_QWORD *)&v16 = RequestMessage;
+    *((_QWORD *)&v15 + 1) = ReplyMessage;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v9 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -58,7 +61,7 @@ __int64 __fastcall DifZwRequestWaitReplyPortWrapper(__int64 a1, __int64 a2, __in
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v17) = ZwRequestWaitReplyPort(a1, a2, a3);
+  LODWORD(v17) = ZwRequestWaitReplyPort(PortHandle, RequestMessage, ReplyMessage);
   if ( v7 )
   {
     if ( (v11 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

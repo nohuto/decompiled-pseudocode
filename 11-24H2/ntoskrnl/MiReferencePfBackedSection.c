@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReferencePfBackedSection @ 0x14022EFF8
+ * XREFs of MiReferencePfBackedSection @ 0x140302908
  * Callers:
- *     MiBuildReservationCluster @ 0x140368F90 (MiBuildReservationCluster.c)
- *     MiTrimSharedPage @ 0x140370B4C (MiTrimSharedPage.c)
- *     MiGetPageFileSectionForReservation @ 0x14049161C (MiGetPageFileSectionForReservation.c)
- *     MiLocateSharedPageViews @ 0x1406790E0 (MiLocateSharedPageViews.c)
+ *     MiTrimSharedPage @ 0x14025A33C (MiTrimSharedPage.c)
+ *     MiBuildReservationCluster @ 0x1402EAD30 (MiBuildReservationCluster.c)
+ *     MiGetPageFileSectionForReservation @ 0x14048C2E0 (MiGetPageFileSectionForReservation.c)
+ *     MiLocateSharedPageViews @ 0x14067A2C0 (MiLocateSharedPageViews.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiRemoveUnusedSegment @ 0x14022F72C (MiRemoveUnusedSegment.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x14030303C (MiRemoveUnusedSegment.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiReferencePfBackedSection(unsigned __int64 a1)
@@ -34,8 +34,8 @@ __int64 __fastcall MiReferencePfBackedSection(unsigned __int64 a1)
   v2 = 0LL;
   while ( 2 )
   {
-    v3 = ExAcquireSpinLockShared(&dword_140E2D610);
-    v4 = qword_140E2D608;
+    v3 = ExAcquireSpinLockShared(&dword_140E2D750);
+    v4 = qword_140E2D748;
     v5 = v3;
     while ( v4 )
     {
@@ -88,9 +88,9 @@ LABEL_4:
     {
       v7 = v4 - 56;
       v6 = *(_QWORD *)(v4 - 56);
-      if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+      if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v6 + 72)) )
       {
-        ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D610);
+        ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D750);
         if ( (_BYTE)v5 != 17 )
         {
           if ( KiIrqlFlags )
@@ -123,11 +123,10 @@ LABEL_4:
     }
     break;
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D610);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2D750);
   if ( v6 )
   {
-    LOBYTE(v14) = v5;
-    MiReleaseSpinLockExclusive(v6 + 72, v14);
+    MiReleaseSpinLockExclusive((_DWORD *)(v6 + 72), v5);
   }
   else
   {

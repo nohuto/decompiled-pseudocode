@@ -1,12 +1,27 @@
 /*
- * XREFs of EtwEventWriteTransfer @ 0x18005AF60
+ * XREFs of EtwEventWriteTransfer @ 0x18005AF50
  * Callers:
- *     _TlgWrite @ 0x1800D1CD0 (_TlgWrite.c)
+ *     _TlgWrite @ 0x1800D1D90 (_TlgWrite.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x18005AFA4 (EtwpEventWriteFull.c)
+ *     EtwpEventWriteFull @ 0x18005AF94 (EtwpEventWriteFull.c)
  */
 
-__int64 __fastcall EtwEventWriteTransfer(int a1, int a2, __int64 a3, __int64 a4, int a5, __int64 a6)
+ULONG __cdecl EtwEventWriteTransfer(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        LPCGUID ActivityId,
+        LPCGUID RelatedActivityId,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  return EtwpEventWriteFull(a1, a2, 0, 0, 0, a3, a4, a5, a6);
+  return EtwpEventWriteFull(
+           RegHandle,
+           (_DWORD)EventDescriptor,
+           0,
+           0,
+           0,
+           (__int64)ActivityId,
+           (__int64)RelatedActivityId,
+           UserDataCount,
+           (__int64)UserData);
 }

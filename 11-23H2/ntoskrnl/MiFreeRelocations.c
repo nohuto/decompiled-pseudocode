@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeRelocations @ 0x140A480B8
+ * XREFs of MiFreeRelocations @ 0x140A48368
  * Callers:
  *     MiDeleteControlArea @ 0x1402199D0 (MiDeleteControlArea.c)
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  * Callees:
- *     MiReturnImageBase @ 0x140721CA0 (MiReturnImageBase.c)
- *     MiFreeImageLoadConfig @ 0x140A4A2E4 (MiFreeImageLoadConfig.c)
+ *     MiReturnImageBase @ 0x140721EA0 (MiReturnImageBase.c)
+ *     MiFreeImageLoadConfig @ 0x140A4A594 (MiFreeImageLoadConfig.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

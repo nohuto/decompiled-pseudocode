@@ -3,11 +3,11 @@
  * Callers:
  *     MiInsertInSystemSpace @ 0x140213D10 (MiInsertInSystemSpace.c)
  * Callees:
- *     MiOffsetToProtos @ 0x140288540 (MiOffsetToProtos.c)
- *     MiAddViewsForSection @ 0x140288770 (MiAddViewsForSection.c)
- *     MiLocateSubsectionNode @ 0x1402892C0 (MiLocateSubsectionNode.c)
- *     MiDecrementLargeSubsections @ 0x14063C6F4 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x14063D958 (MiIncrementLargeSubsections.c)
+ *     MiOffsetToProtos @ 0x1402887D0 (MiOffsetToProtos.c)
+ *     MiAddViewsForSection @ 0x140288A00 (MiAddViewsForSection.c)
+ *     MiLocateSubsectionNode @ 0x140289550 (MiLocateSubsectionNode.c)
+ *     MiDecrementLargeSubsections @ 0x14063CC44 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x14063DEA8 (MiIncrementLargeSubsections.c)
  */
 
 __int64 __fastcall MiReferenceDataSubsections(__int64 a1, __int64 *a2, unsigned __int64 a3, unsigned int *a4)

@@ -1,16 +1,21 @@
 /*
- * XREFs of NtAllocateUserPhysicalPagesEx @ 0x180162B40
+ * XREFs of NtAllocateUserPhysicalPagesEx @ 0x180160F00
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtAllocateUserPhysicalPagesEx()
+NTSTATUS __cdecl NtAllocateUserPhysicalPagesEx(
+        HANDLE ProcessHandle,
+        PULONG_PTR NumberOfPages,
+        PULONG_PTR UserPfnArray,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 118LL;
+  result = 118;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

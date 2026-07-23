@@ -12,14 +12,10 @@
 
 char __thiscall RtlDebugWalkHeap(_DWORD *this)
 {
-  int v2; // edx
-  char v4; // [esp+17h] [ebp-19h]
+  char v3; // [esp+17h] [ebp-19h]
 
-  v4 = 0;
+  v3 = 0;
   if ( RtlpCheckHeapSignature(this, "RtlWalkHeap") )
-  {
-    LOBYTE(v2) = 0;
-    return RtlpValidateHeap(this, v2);
-  }
-  return v4;
+    return RtlpValidateHeap(this);
+  return v3;
 }

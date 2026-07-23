@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1800A0670
+ * XREFs of RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1800A0630
  * Callers:
  *     RtlQueryFeatureConfiguration @ 0x1800710F0 (RtlQueryFeatureConfiguration.c)
  *     RtlpFcQueryAllFeatureConfigurationsFromBufferSet @ 0x180130058 (RtlpFcQueryAllFeatureConfigurationsFromBufferSet.c)

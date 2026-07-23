@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetSystemTimeDpc @ 0x14039DFB0
+ * XREFs of KiSetSystemTimeDpc @ 0x14039E100
  * Callers:
  *     <none>
  * Callees:
- *     KiSelectActiveTimerTable @ 0x140247A60 (KiSelectActiveTimerTable.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
- *     KeAdjustInterruptTime @ 0x14038D81C (KeAdjustInterruptTime.c)
- *     KiUpdateSystemTime @ 0x140397EA8 (KiUpdateSystemTime.c)
- *     KiAdjustTimerDueTimes @ 0x14039E16C (KiAdjustTimerDueTimes.c)
+ *     KiSelectActiveTimerTable @ 0x1402EC2B0 (KiSelectActiveTimerTable.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
+ *     KeAdjustInterruptTime @ 0x14038D96C (KeAdjustInterruptTime.c)
+ *     KiUpdateSystemTime @ 0x140397FF8 (KiUpdateSystemTime.c)
+ *     KiAdjustTimerDueTimes @ 0x14039E2BC (KiAdjustTimerDueTimes.c)
  */
 
 char __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)

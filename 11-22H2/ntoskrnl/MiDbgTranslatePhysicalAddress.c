@@ -63,7 +63,7 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, u
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v9) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v9) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )

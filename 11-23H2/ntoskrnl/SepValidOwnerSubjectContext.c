@@ -1,15 +1,15 @@
 /*
- * XREFs of SepValidOwnerSubjectContext @ 0x1406C7934
+ * XREFs of SepValidOwnerSubjectContext @ 0x1406C7964
  * Callers:
- *     RtlpNewSecurityObject @ 0x14072A400 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x14072BD70 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14072A600 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x14072BF70 (RtlpSetSecurityObject.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     SepIdAssignableAsOwner @ 0x1406C7A38 (SepIdAssignableAsOwner.c)
- *     SeSinglePrivilegeCheckEx @ 0x14070FC2C (SeSinglePrivilegeCheckEx.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     SepIdAssignableAsOwner @ 0x1406C7A68 (SepIdAssignableAsOwner.c)
+ *     SeSinglePrivilegeCheckEx @ 0x14070FE3C (SeSinglePrivilegeCheckEx.c)
  */
 
 char __fastcall SepValidOwnerSubjectContext(__int64 *a1, void *a2, char a3)

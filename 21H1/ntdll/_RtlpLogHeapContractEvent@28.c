@@ -11,12 +11,12 @@
  *     _GetUCBytes@12 @ 0x4B36D406 (_GetUCBytes@12.c)
  */
 
-int __fastcall RtlpLogHeapContractEvent(int a1, int a2, int a3, int a4, char a5, int a6, int a7)
+NTSTATUS __fastcall RtlpLogHeapContractEvent(int a1, int a2, int a3, int a4, char a5, int a6, HANDLE TraceHandle)
 {
   int v8; // eax
   int UCBytes; // eax
   int v10; // ecx
-  char v12[6]; // [esp+8h] [ebp-4Ch] BYREF
+  char Fields[6]; // [esp+8h] [ebp-4Ch] BYREF
   __int16 v13; // [esp+Eh] [ebp-46h]
   int v14; // [esp+28h] [ebp-2Ch]
   int v15; // [esp+2Ch] [ebp-28h]
@@ -41,5 +41,5 @@ int __fastcall RtlpLogHeapContractEvent(int a1, int a2, int a3, int a4, char a5,
   v10 = v19 - *(_DWORD *)(a1 + 580) - UCBytes;
   v13 = 4138;
   v18 = v10;
-  return NtTraceEvent(a7, 1027, 32, (int)v12);
+  return NtTraceEvent(TraceHandle, 0x403u, 0x20u, Fields);
 }

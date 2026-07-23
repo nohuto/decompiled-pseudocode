@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDecrementModifiedWriteCount @ 0x1402F4824
+ * XREFs of MiDecrementModifiedWriteCount @ 0x1402F4AB4
  * Callers:
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MiTrimSharedPage @ 0x1403A63BC (MiTrimSharedPage.c)
- *     MiDeleteCachedSubsection @ 0x140623B48 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x140624534 (MiFlushControlArea.c)
- *     MiFlushComplete @ 0x140635E60 (MiFlushComplete.c)
- *     MiLocateSharedPageViews @ 0x1406364E0 (MiLocateSharedPageViews.c)
- *     MiReleasePageFileSectionInfo @ 0x14063B578 (MiReleasePageFileSectionInfo.c)
- *     MiPurgeBadFileOnlyPages @ 0x14063EA70 (MiPurgeBadFileOnlyPages.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MiTrimSharedPage @ 0x1403A659C (MiTrimSharedPage.c)
+ *     MiDeleteCachedSubsection @ 0x140624098 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x140624A84 (MiFlushControlArea.c)
+ *     MiFlushComplete @ 0x1406363B0 (MiFlushComplete.c)
+ *     MiLocateSharedPageViews @ 0x140636A30 (MiLocateSharedPageViews.c)
+ *     MiReleasePageFileSectionInfo @ 0x14063BAC8 (MiReleasePageFileSectionInfo.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063EFC0 (MiPurgeBadFileOnlyPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiBuildWakeList @ 0x1402894E4 (MiBuildWakeList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140289774 (MiBuildWakeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall MiDecrementModifiedWriteCount(__int64 a1, int a2)
@@ -37,10 +37,10 @@ __int64 *__fastcall MiDecrementModifiedWriteCount(__int64 a1, int a2)
   if ( v4 != 17 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

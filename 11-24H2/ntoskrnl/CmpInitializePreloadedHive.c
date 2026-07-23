@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpInitializePreloadedHive @ 0x140C47560
+ * XREFs of CmpInitializePreloadedHive @ 0x140C496B0
  * Callers:
- *     CmpInitializePreloadedHives @ 0x140C479C4 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x140C49B14 (CmpInitializePreloadedHives.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpSetupLoggingState @ 0x1407CCCC8 (CmpSetupLoggingState.c)
- *     CmpLinkHiveToMaster @ 0x14092C240 (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140C47160 (CmpGetSystemRelativeRegistryHiveFilePath.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpSetupLoggingState @ 0x1407CD1B8 (CmpSetupLoggingState.c)
+ *     CmpLinkHiveToMaster @ 0x14092E380 (CmpLinkHiveToMaster.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140C492B0 (CmpGetSystemRelativeRegistryHiveFilePath.c)
  */
 
 __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
@@ -164,13 +164,13 @@ LABEL_33:
   v20 = CmpLinkHiveToMaster(&v27.Length, 0LL, v25, 0, 0x200u, 0, 0LL, a2, 0LL, 0LL, 1, BugCheckParameter3);
   if ( v20 < 0 )
     KeBugCheckEx(0x74u, 3uLL, 7uLL, v25, v20);
-  v21 = (_QWORD *)qword_140EF77B8;
+  v21 = (_QWORD *)qword_140EF7A38;
   v22 = (_QWORD *)(v25 + 1624);
-  if ( *(__int64 **)qword_140EF77B8 != &CmpPreloadedHivesList )
+  if ( *(__int64 **)qword_140EF7A38 != &CmpPreloadedHivesList )
     __fastfail(3u);
   *v22 = &CmpPreloadedHivesList;
   v22[1] = v21;
   *v21 = v22;
-  qword_140EF77B8 = (__int64)v22;
+  qword_140EF7A38 = (__int64)v22;
   return 0LL;
 }

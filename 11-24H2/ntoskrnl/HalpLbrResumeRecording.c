@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpLbrResumeRecording @ 0x140452F20
+ * XREFs of HalpLbrResumeRecording @ 0x140447FD0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall HalpLbrResumeRecording(__int64 a1)

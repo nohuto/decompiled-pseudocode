@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCSparseBitmapBitmaskWrite @ 0x14034F848
+ * XREFs of RtlCSparseBitmapBitmaskWrite @ 0x1403518C8
  * Callers:
- *     RtlpHpSegSegmentAllocate @ 0x14034FDFC (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentAllocate @ 0x140351E7C (RtlpHpSegSegmentAllocate.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     RtlCSparseBitmapBitsClear @ 0x14034E15C (RtlCSparseBitmapBitsClear.c)
- *     RtlpCSparseBitmapPageCommit @ 0x1403513A4 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpCSparseBitmapUnlock @ 0x140351A4C (RtlpCSparseBitmapUnlock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     RtlCSparseBitmapBitsClear @ 0x1403501DC (RtlCSparseBitmapBitsClear.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140353424 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapUnlock @ 0x140353ACC (RtlpCSparseBitmapUnlock.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

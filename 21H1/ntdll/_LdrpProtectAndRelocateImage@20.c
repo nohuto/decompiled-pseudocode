@@ -15,104 +15,111 @@
  *     _LdrRelocateImageWithBias@28 @ 0x4B342836 (_LdrRelocateImageWithBias@28.c)
  */
 
-int __thiscall LdrpProtectAndRelocateImage(_DWORD *this, int a2, int a3, int a4)
+NTSTATUS __thiscall LdrpProtectAndRelocateImage(_IMAGE_NT_HEADERS64 *this, int a2, int a3, int a4)
 {
-  int v5; // edx
-  int VirtualMemory; // ecx
-  char v7; // al
-  int v8; // eax
-  int v9; // esi
-  char v10; // cl
-  int v11; // edx
-  int v12; // eax
-  int v14; // [esp-14h] [ebp-58h]
-  int v15; // [esp-10h] [ebp-54h]
-  int v16; // [esp-Ch] [ebp-50h]
-  int v17; // [esp-8h] [ebp-4Ch]
-  int v18; // [esp-4h] [ebp-48h]
-  void *v19; // [esp+14h] [ebp-30h] BYREF
-  int v20; // [esp+18h] [ebp-2Ch]
-  int v21; // [esp+1Ch] [ebp-28h]
-  _DWORD *v22; // [esp+20h] [ebp-24h] BYREF
-  char v23; // [esp+2Bh] [ebp-19h]
+  NTSTATUS v5; // ecx
+  char v6; // al
+  int v7; // eax
+  NTSTATUS v8; // esi
+  char v9; // cl
+  int v10; // eax
+  void *v12; // [esp-14h] [ebp-58h]
+  LONGLONG v13; // [esp-10h] [ebp-54h]
+  CHAR *v14; // [esp-8h] [ebp-4Ch]
+  NTSTATUS v15; // [esp-4h] [ebp-48h]
+  SIZE_T v16; // [esp-4h] [ebp-48h]
+  ULONG_PTR *v17; // [esp+0h] [ebp-44h]
+  NTSTATUS v18; // [esp+0h] [ebp-44h]
+  NTSTATUS v19; // [esp+4h] [ebp-40h]
+  _IMAGE_NT_HEADERS64 *MemoryInformation; // [esp+14h] [ebp-30h] BYREF
+  int v21; // [esp+18h] [ebp-2Ch]
+  NTSTATUS v22; // [esp+1Ch] [ebp-28h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+20h] [ebp-24h] BYREF
+  char v24; // [esp+2Bh] [ebp-19h]
   CPPEH_RECORD ms_exc; // [esp+2Ch] [ebp-18h]
 
-  v22 = this;
-  v23 = 0;
-  v19 = this;
-  VirtualMemory = NtQueryVirtualMemory(-1, 0, 4, (int)&v19, 8, 0);
-  if ( VirtualMemory < 0 )
+  OutHeaders = this;
+  v24 = 0;
+  MemoryInformation = this;
+  v5 = NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, 0, MemoryWorkingSetExInformation, &MemoryInformation, 8uLL, v17);
+  if ( v5 < 0 )
   {
-    v7 = ShowSnaps;
+    v6 = ShowSnaps;
     if ( (ShowSnaps & 3) != 0 )
     {
       LdrpLogDbgPrint(
         (int)"minkernel\\ntdll\\ldrfind.c",
         1971,
-        "LdrpProtectAndRelocateImage",
+        (int)"LdrpProtectAndRelocateImage",
         0,
         "Querying large page info failed with status 0x%08lx\n",
-        VirtualMemory);
-      v7 = ShowSnaps;
+        v5);
+      v6 = ShowSnaps;
     }
-    if ( (v7 & 0x10) != 0 )
+    if ( (v6 & 0x10) != 0 )
       __debugbreak();
   }
-  else if ( (v20 & 1) != 0 && (v20 & 0x800000) != 0 )
+  else if ( (v21 & 1) != 0 && (v21 & 0x800000) != 0 )
   {
-    v23 = 1;
+    v24 = 1;
   }
-  if ( !v23 )
+  if ( !v24 )
   {
-    LOBYTE(v5) = 0;
-    v8 = LdrpSetProtection(this, v5);
-    v9 = v8;
-    if ( v8 < 0 )
+    v7 = LdrpSetProtection(this);
+    v8 = v7;
+    if ( v7 < 0 )
     {
-      v10 = ShowSnaps;
+      v9 = ShowSnaps;
       if ( (ShowSnaps & 3) == 0 )
         goto LABEL_14;
       LdrpLogDbgPrint(
         (int)"minkernel\\ntdll\\ldrfind.c",
         1981,
-        "LdrpProtectAndRelocateImage",
+        (int)"LdrpProtectAndRelocateImage",
         0,
         "Changing the protection of the executable at %p failed with status 0x%08lx\n",
         this,
-        v8);
+        v7);
       goto LABEL_13;
     }
   }
   ms_exc.registration.TryLevel = 0;
-  v9 = LdrRelocateImageWithBias(v14, v15, v16, v17, v18);
-  v21 = v9;
+  v8 = LdrRelocateImageWithBias(v12, v13, v14, v15, v18, v19);
+  v22 = v8;
   ms_exc.registration.TryLevel = -2;
-  if ( v9 < 0 || v23 || (LOBYTE(v11) = 1, v12 = LdrpSetProtection(this, v11), v9 = v12, v12 >= 0) )
+  if ( v8 < 0 || v24 || (v10 = LdrpSetProtection(this), v8 = v10, v10 >= 0) )
   {
-    RtlImageNtHeaderEx(3, (unsigned int)this, 0, 0, &v22);
-    ZwFlushInstructionCache(-1, (int)this, v22[20]);
-    v10 = ShowSnaps;
+    RtlImageNtHeaderEx(3u, this, 0LL, &OutHeaders);
+    LODWORD(v16) = OutHeaders->OptionalHeader.SizeOfImage;
+    ZwFlushInstructionCache((HANDLE)0xFFFFFFFF, this, v16);
+    v9 = ShowSnaps;
     goto LABEL_22;
   }
-  v10 = ShowSnaps;
+  v9 = ShowSnaps;
   if ( (ShowSnaps & 3) != 0 )
   {
     LdrpLogDbgPrint(
       (int)"minkernel\\ntdll\\ldrfind.c",
       2005,
-      "LdrpProtectAndRelocateImage",
+      (int)"LdrpProtectAndRelocateImage",
       0,
       "Changing the protection of the executable at %p failed with status 0x%08lx\n",
       this,
-      v12);
+      v10);
 LABEL_13:
-    v10 = ShowSnaps;
+    v9 = ShowSnaps;
   }
 LABEL_14:
-  if ( (v10 & 0x10) != 0 )
+  if ( (v9 & 0x10) != 0 )
     __debugbreak();
 LABEL_22:
-  if ( (v10 & 9) != 0 )
-    LdrpLogDbgPrint((int)"minkernel\\ntdll\\ldrfind.c", 2045, "LdrpProtectAndRelocateImage", 4, "Status: 0x%08lx\n", v9);
-  return v9;
+  if ( (v9 & 9) != 0 )
+    LdrpLogDbgPrint(
+      (int)"minkernel\\ntdll\\ldrfind.c",
+      2045,
+      (int)"LdrpProtectAndRelocateImage",
+      4,
+      "Status: 0x%08lx\n",
+      v8);
+  return v8;
 }

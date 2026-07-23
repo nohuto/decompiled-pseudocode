@@ -1,16 +1,16 @@
 /*
- * XREFs of IoWMISystemControl @ 0x140AC4764
+ * XREFs of IoWMISystemControl @ 0x140AC63D4
  * Callers:
- *     WmipSystemControl @ 0x140AC4740 (WmipSystemControl.c)
+ *     WmipSystemControl @ 0x140AC63B0 (WmipSystemControl.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x1403B7080 (WmipUnreferenceRegEntry.c)
- *     WmipFindRegEntryByProviderId @ 0x1403DD004 (WmipFindRegEntryByProviderId.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     WmipQueryWmiRegInfo @ 0x140824510 (WmipQueryWmiRegInfo.c)
- *     WmipQueryWmiDataBlock @ 0x140AC49C0 (WmipQueryWmiDataBlock.c)
- *     IoWMICompleteRequest @ 0x140AC4B48 (IoWMICompleteRequest.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WmipUnreferenceRegEntry @ 0x1403C0F80 (WmipUnreferenceRegEntry.c)
+ *     WmipFindRegEntryByProviderId @ 0x1403E01F4 (WmipFindRegEntryByProviderId.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     WmipQueryWmiRegInfo @ 0x14082A750 (WmipQueryWmiRegInfo.c)
+ *     WmipQueryWmiDataBlock @ 0x140AC6630 (WmipQueryWmiDataBlock.c)
+ *     IoWMICompleteRequest @ 0x140AC67B8 (IoWMICompleteRequest.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoWMISystemControl(__int64 a1, __int64 a2, IRP *a3)
@@ -47,7 +47,7 @@ __int64 __fastcall IoWMISystemControl(__int64 a1, __int64 a2, IRP *a3)
   __int16 v35; // r10
   __int64 v36; // r11
   unsigned int v37; // r15d
-  void **v38; // r8
+  __int128 *v38; // r8
   unsigned int v39; // r13d
   __int64 v40; // r12
   struct _NAMED_PIPE_CREATE_PARAMETERS *v41; // rcx
@@ -57,7 +57,7 @@ __int64 __fastcall IoWMISystemControl(__int64 a1, __int64 a2, IRP *a3)
   __int128 v45; // [rsp+50h] [rbp-10h] BYREF
   int MaximumInstances; // [rsp+A0h] [rbp+40h]
   int v47; // [rsp+B0h] [rbp+50h] BYREF
-  void **v48; // [rsp+B8h] [rbp+58h] BYREF
+  unsigned __int16 *v48; // [rsp+B8h] [rbp+58h] BYREF
 
   p_OutboundQuota = 0LL;
   CurrentStackLocation = a3->Tail.Overlay.CurrentStackLocation;
@@ -243,11 +243,11 @@ LABEL_83:
         v47 |= 4u;
         v36 = 248LL;
       }
-      v38 = v48;
+      v38 = (__int128 *)v48;
       if ( !v48 )
       {
-        v38 = (void **)&v45;
-        v48 = (void **)&v45;
+        v38 = &v45;
+        v48 = (unsigned __int16 *)&v45;
       }
       if ( v37 < 0xF8 || (v39 = v37 + *(unsigned __int16 *)v38 + 2, v39 < v37) )
       {
@@ -283,10 +283,10 @@ LABEL_83:
           {
             LOWORD(Parameters[6].CompletionMode) = v35;
             memmove((char *)&Parameters[6].CompletionMode + 2, Src[1], LOWORD(Src[0]));
-            v38 = v48;
+            v38 = (__int128 *)v48;
           }
           *(_WORD *)((char *)&Parameters->NamedPipeType + v37) = *(_WORD *)v38;
-          memmove((char *)&Parameters->NamedPipeType + v37 + 2, v48[1], *(unsigned __int16 *)v48);
+          memmove((char *)&Parameters->NamedPipeType + v37 + 2, *((const void **)v48 + 1), *v48);
           v33 = Src[1];
           v31 = v39;
         }

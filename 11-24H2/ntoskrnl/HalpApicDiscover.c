@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpApicDiscover @ 0x140568634
+ * XREFs of HalpApicDiscover @ 0x140566124
  * Callers:
- *     HalpInitializeInterrupts @ 0x140C0DE18 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140C0FE18 (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpApicSetupRegisterAccess @ 0x1405575B8 (HalpApicSetupRegisterAccess.c)
- *     HalRegisterPermanentAddressUsage @ 0x14055FED0 (HalRegisterPermanentAddressUsage.c)
- *     HalSocGetAcpiTable @ 0x14055FF50 (HalSocGetAcpiTable.c)
- *     HalpApicRegisterIoUnit @ 0x140568EA8 (HalpApicRegisterIoUnit.c)
+ *     HalpApicSetupRegisterAccess @ 0x140554EF8 (HalpApicSetupRegisterAccess.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14055DB00 (HalRegisterPermanentAddressUsage.c)
+ *     HalSocGetAcpiTable @ 0x14055DB80 (HalSocGetAcpiTable.c)
+ *     HalpApicRegisterIoUnit @ 0x140566998 (HalpApicRegisterIoUnit.c)
  */
 
 int HalpApicDiscover()

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLockDynamicMemoryExclusive @ 0x140132E08
+ * XREFs of MiLockDynamicMemoryExclusive @ 0x140133378
  * Callers:
- *     MiFreeUnusedPfnPages @ 0x14013E234 (MiFreeUnusedPfnPages.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x14014AC3C (MiInitializeWorkingSetManagerParameters.c)
- *     MiClearPartitionPageBitMap @ 0x1401F1248 (MiClearPartitionPageBitMap.c)
- *     MiDeletePartitionResources @ 0x1401F13D0 (MiDeletePartitionResources.c)
- *     MiInsertPartitionPages @ 0x1401F1B74 (MiInsertPartitionPages.c)
+ *     MiFreeUnusedPfnPages @ 0x14013E7A4 (MiFreeUnusedPfnPages.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x14014B1AC (MiInitializeWorkingSetManagerParameters.c)
+ *     MiClearPartitionPageBitMap @ 0x1401F1074 (MiClearPartitionPageBitMap.c)
+ *     MiDeletePartitionResources @ 0x1401F11FC (MiDeletePartitionResources.c)
+ *     MiInsertPartitionPages @ 0x1401F19A0 (MiInsertPartitionPages.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
- *     MmGetChannelInformation @ 0x14054C23C (MmGetChannelInformation.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140661134 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MmGetChannelInformation @ 0x14054C77C (MmGetChannelInformation.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140661218 (MiUpdatePartitionLargePfnBitMap.c)
  *     MiInitializeMirroring @ 0x1407A4334 (MiInitializeMirroring.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall MiLockDynamicMemoryExclusive(__int64 a1, __int64 a2)

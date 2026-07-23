@@ -1,9 +1,9 @@
 /*
- * XREFs of KiWobQosResponseRequired @ 0x14042D970
+ * XREFs of KiWobQosResponseRequired @ 0x14041F6A0
  * Callers:
- *     KeApplyWobBamQos @ 0x1402A2218 (KeApplyWobBamQos.c)
+ *     KeApplyWobBamQos @ 0x1402D1948 (KeApplyWobBamQos.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 bool __fastcall KiWobQosResponseRequired(int a1, int a2)

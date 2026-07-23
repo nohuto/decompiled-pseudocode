@@ -106,7 +106,7 @@ struct _PEB *__fastcall RtlpSubSegmentInitialize(
   *(_WORD *)(a2 + 38) = 0;
   *(_QWORD *)(a2 + 8) = a3;
   if ( (((_BYTE)a2 + 16) & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   *(_QWORD *)(a2 + 16) = 0LL;
   *(_QWORD *)(a2 + 24) = 0LL;
   LOWORD(v50) = v48;

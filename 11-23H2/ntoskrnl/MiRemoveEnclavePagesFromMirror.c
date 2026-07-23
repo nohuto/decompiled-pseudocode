@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveEnclavePagesFromMirror @ 0x140AAD628
+ * XREFs of MiRemoveEnclavePagesFromMirror @ 0x140AAD498
  * Callers:
- *     MiMirrorBlackPhase @ 0x140626BE4 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x140627134 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiMirrorOmitPagesFromCopy @ 0x140627288 (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x1406277D8 (MiMirrorOmitPagesFromCopy.c)
  */
 
 _QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)

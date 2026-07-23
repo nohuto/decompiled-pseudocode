@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPageProtection @ 0x140704210 (VfCheckPageProtection.c)
+ *     VfCheckPageProtection @ 0x140704240 (VfCheckPageProtection.c)
  *     ViZwCheckVirtualAddress @ 0x140720DF8 (ViZwCheckVirtualAddress.c)
  *     ViZwShouldCheck @ 0x140720E38 (ViZwShouldCheck.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_report_load16 @ 0x1405663D0
+ * XREFs of __asan_report_load16 @ 0x140566A90
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn _asan_report_load16(ULONG_PTR BugCheckParameter1)

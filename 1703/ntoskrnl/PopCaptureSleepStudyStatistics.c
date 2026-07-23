@@ -48,38 +48,35 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
   __int64 v13; // rdx
   __int64 v14; // rdx
   __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
+  __int64 v16; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
   __int64 v19; // rcx
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // rcx
+  __int64 v21; // [rsp+20h] [rbp-50h]
+  __int64 v22; // [rsp+20h] [rbp-50h]
+  __int64 v23; // [rsp+20h] [rbp-50h]
   __int64 v24; // [rsp+20h] [rbp-50h]
-  __int64 v25; // [rsp+20h] [rbp-50h]
-  __int64 v26; // [rsp+20h] [rbp-50h]
-  __int64 v27; // [rsp+20h] [rbp-50h]
-  int v28; // [rsp+30h] [rbp-40h] BYREF
-  int v29; // [rsp+34h] [rbp-3Ch] BYREF
-  unsigned int v30; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v31; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v32; // [rsp+48h] [rbp-28h] BYREF
-  _QWORD v33[2]; // [rsp+50h] [rbp-20h] BYREF
-  int v34; // [rsp+60h] [rbp-10h]
-  int v35; // [rsp+B0h] [rbp+40h] BYREF
-  int v36; // [rsp+B4h] [rbp+44h]
-  unsigned int v37; // [rsp+B8h] [rbp+48h] BYREF
-  int v38; // [rsp+C8h] [rbp+58h] BYREF
+  int v25; // [rsp+30h] [rbp-40h] BYREF
+  int v26; // [rsp+34h] [rbp-3Ch] BYREF
+  unsigned int v27; // [rsp+38h] [rbp-38h] BYREF
+  __int64 v28; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v29; // [rsp+48h] [rbp-28h] BYREF
+  _QWORD v30[2]; // [rsp+50h] [rbp-20h] BYREF
+  int v31; // [rsp+60h] [rbp-10h]
+  int v32; // [rsp+B0h] [rbp+40h] BYREF
+  int v33; // [rsp+B4h] [rbp+44h]
+  unsigned int v34; // [rsp+B8h] [rbp+48h] BYREF
+  int v35; // [rsp+C8h] [rbp+58h] BYREF
 
-  LOBYTE(v37) = a2;
-  v36 = HIDWORD(a1);
+  LOBYTE(v34) = a2;
+  v33 = HIDWORD(a1);
   v3 = PopWdiCurrentScenarioInstanceId;
   v4 = (_QWORD *)PopWdiCurrentScenario;
   v5 = 0;
+  v32 = 0;
+  v25 = 0;
+  v26 = 0;
   v35 = 0;
-  v28 = 0;
-  v29 = 0;
-  v38 = 0;
   PopBatteryUpdateCurrentState();
   PopAcquirePolicyLock(v7);
   v8 = DWORD1(xmmword_14034B3C0);
@@ -91,17 +88,17 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
   if ( v11 )
   {
     PopCalculateCsSummary(a3, PopSleepstudyStopReason);
-    PpmIdleCaptureCsVetoAccounting(v19, dword_14036E240);
+    PpmIdleCaptureCsVetoAccounting(v16, dword_14036E240);
     ExStopRecordingIRTimerExpiries();
     PopFxStopDeviceAccounting();
     PpmSnapDripsAccountingSnapshot(10LL * *(_QWORD *)(a3 + 16), 10LL * *(_QWORD *)(a3 + 24));
     PopDiagTraceCsConsumption(a3);
-    LOBYTE(v20) = v3;
-    PopDiagTraceCsExitReason(a3, v20);
+    LOBYTE(v17) = v3;
+    PopDiagTraceCsExitReason(a3, v17);
     if ( PopFxLookupSocSubsystemsByPlatformIdleState((unsigned int)dword_14036E240) )
     {
-      PopFxLogSocSubsystemBlockingTimes(v21, (unsigned int)dword_14036E240);
-      v5 = PopFxLogSocSubsystemMetadata(v22, (unsigned int)dword_14036E240);
+      PopFxLogSocSubsystemBlockingTimes(v18, (unsigned int)dword_14036E240);
+      v5 = PopFxLogSocSubsystemMetadata(v19, (unsigned int)dword_14036E240);
     }
     PopClearConnectedStandbyMarker();
     qword_14036E148 = 0LL;
@@ -109,13 +106,13 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
   else
   {
     PopWnfCsEnterScenarioId = v3;
-    PopCalculateIdleInformation((__int64)v33);
-    PpmGetPlatformSelectionVetoCounts(dword_14036E240, &v31, &v32);
-    qword_14036E150 = v33[1];
-    dword_14036E160 = v34;
-    qword_14036E158 = v33[0];
-    qword_14036E1D0 = v31;
-    qword_14036E1D8 = v32;
+    PopCalculateIdleInformation((__int64)v30);
+    PpmGetPlatformSelectionVetoCounts(dword_14036E240, &v28, &v29);
+    qword_14036E150 = v30[1];
+    dword_14036E160 = v31;
+    qword_14036E158 = v30[0];
+    qword_14036E1D0 = v28;
+    qword_14036E1D8 = v29;
     qword_14036E148 = v9;
     PopCsConsumption = v8;
     qword_14036E180 = 0LL;
@@ -127,11 +124,11 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
     qword_14036E1C0 = 0LL;
     qword_14036E1C8 = PlatformStateResidency;
     byte_14036E1F8 = 0;
-    PopNetIsDisconnectStandbyActive(&v30);
+    PopNetIsDisconnectStandbyActive(&v27);
     byte_14036E1EC ^= (byte_14036E1EC ^ (dword_14034BB2C == 0)) & 1;
     LOBYTE(v12) = (byte_14036E1ED ^ PopNetIsCompliantNicPresent()) & 1 ^ byte_14036E1ED;
-    if ( (((v30 - 1) & 0xFFFFFFFC) != 0 || v30 == 2)
-      && (unsigned __int8)PopNetCheckUserConnectivityPolicy(v30, v12)
+    if ( (((v27 - 1) & 0xFFFFFFFC) != 0 || v27 == 2)
+      && (unsigned __int8)PopNetCheckUserConnectivityPolicy(v27, v12)
       && !(unsigned __int8)PopNetCheckOpportunisticDs() )
     {
       LOBYTE(v12) = v12 & 0xFD;
@@ -141,14 +138,14 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
       LOBYTE(v12) = v12 | 2;
     }
     byte_14036E1ED = v12;
-    PopGetPowerSettingValue((__int64)&GUID_ENERGY_SAVER_POLICY, v12, 3u, &v35, v24, &v37);
-    byte_14036E1ED ^= (byte_14036E1ED ^ (4 * v35)) & 4;
-    PopGetPowerSettingValue((__int64)&GUID_VIDEO_POWERDOWN_TIMEOUT, v13, 3u, &v38, v25, &v37);
-    dword_14036E1E0 = v38;
-    PopGetPowerSettingValue((__int64)&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT, v14, 3u, &v28, v26, &v37);
-    dword_14036E1E4 = v28;
-    PopGetPowerSettingValue((__int64)&GUID_STANDBY_TIMEOUT, v15, 3u, &v29, v27, &v37);
-    dword_14036E1E8 = v29;
+    PopGetPowerSettingValue((__int64)&GUID_ENERGY_SAVER_POLICY, v12, 3u, &v32, v21, &v34);
+    byte_14036E1ED ^= (byte_14036E1ED ^ (4 * v32)) & 4;
+    PopGetPowerSettingValue((__int64)&GUID_VIDEO_POWERDOWN_TIMEOUT, v13, 3u, &v35, v22, &v34);
+    dword_14036E1E0 = v35;
+    PopGetPowerSettingValue((__int64)&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT, v14, 3u, &v25, v23, &v34);
+    dword_14036E1E4 = v25;
+    PopGetPowerSettingValue((__int64)&GUID_STANDBY_TIMEOUT, v15, 3u, &v26, v24, &v34);
+    dword_14036E1E8 = v26;
     _InterlockedExchange64(&qword_14036E200, 0LL);
     if ( PopFxLookupSocSubsystemsByPlatformIdleState((unsigned int)dword_14036E240) )
       v5 = PopFxResetSocSubsystemAccounting((unsigned int)dword_14036E240);
@@ -161,6 +158,6 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(__int64 a1, char a2, __int64 a
     PopDiagTraceCsEnterReason();
     PopSetConnectedStandbyMarker();
   }
-  PopReleasePolicyLock(v17, v16, v18);
+  PopReleasePolicyLock();
   return v5;
 }

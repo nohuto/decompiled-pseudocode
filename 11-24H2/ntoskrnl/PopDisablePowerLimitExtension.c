@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDisablePowerLimitExtension @ 0x14074B2F8
+ * XREFs of PopDisablePowerLimitExtension @ 0x140749628
  * Callers:
- *     PopPowerLimitPnpNotification @ 0x14074B970 (PopPowerLimitPnpNotification.c)
+ *     PopPowerLimitPnpNotification @ 0x140749CA0 (PopPowerLimitPnpNotification.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopEvaluatePowerLimitChange @ 0x14074B3D4 (PopEvaluatePowerLimitChange.c)
- *     PopDiagTracePowerLimitExtension @ 0x14075706C (PopDiagTracePowerLimitExtension.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopEvaluatePowerLimitChange @ 0x140749704 (PopEvaluatePowerLimitChange.c)
+ *     PopDiagTracePowerLimitExtension @ 0x1407554EC (PopDiagTracePowerLimitExtension.c)
  */
 
 __int64 __fastcall PopDisablePowerLimitExtension(__int64 a1)
@@ -17,8 +17,6 @@ __int64 __fastcall PopDisablePowerLimitExtension(__int64 a1)
   signed __int64 *v1; // rsi
   __int64 v4; // rbx
   __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
   struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF
 
   v1 = (signed __int64 *)(a1 + 32);
@@ -37,5 +35,5 @@ __int64 __fastcall PopDisablePowerLimitExtension(__int64 a1)
   *(_QWORD *)(a1 + 192) = 0LL;
   v4 = *(_QWORD *)(a1 + 120);
   PopReleaseRwLock(v1);
-  return guard_dispatch_icall_no_overrides(v4, v5, v6, v7);
+  return guard_dispatch_icall_no_overrides(v4, v5);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDetermineBucketFrequencies @ 0x140600DEC
+ * XREFs of PopDetermineBucketFrequencies @ 0x14060389C
  * Callers:
- *     PopRegisterEnergyEstimation @ 0x1406011A0 (PopRegisterEnergyEstimation.c)
+ *     PopRegisterEnergyEstimation @ 0x140603C50 (PopRegisterEnergyEstimation.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
  */
 
 __int64 PopDetermineBucketFrequencies()
@@ -54,7 +54,7 @@ __int64 PopDetermineBucketFrequencies()
   v36 = 0LL;
   v35 = 0LL;
   v39 = 0;
-  v0 = *(unsigned int *)stru_140F12D20.SchedulerApc.SystemArgument1;
+  v0 = *(unsigned int *)stru_140F12EA0.IptSaveArea;
   for ( i = 0; i < (unsigned int)v0; ++i )
   {
     *(&v40 + i) = 10000;
@@ -66,15 +66,15 @@ LABEL_18:
       _report_rangecheckfailure();
     v38[i + 6] = 0;
   }
-  *((_QWORD *)&v35 + 1) = qword_140E0B4C8;
+  *((_QWORD *)&v35 + 1) = qword_140E0B498;
   *(_QWORD *)&v35 = &PpmPerfStatesRegistered;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v39, (unsigned __int16 **)&v35) )
   {
     Prcb = KeGetPrcb(v39);
     v3 = *(_QWORD *)(Prcb + 35264);
-    v4 = (unsigned int)(*(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 - 1);
+    v4 = (unsigned int)(*(_DWORD *)stru_140F12EA0.IptSaveArea - 1);
     v5 = *(_DWORD *)(v3 + 456);
-    if ( (unsigned int)*(unsigned __int8 *)(Prcb + 35352) < *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 )
+    if ( (unsigned int)*(unsigned __int8 *)(Prcb + 35352) < *(_DWORD *)stru_140F12EA0.IptSaveArea )
       v4 = *(unsigned __int8 *)(Prcb + 35352);
     v38[v4 + 6] = 1;
     v6 = *(_DWORD *)(v3 + 468) * v5 / 0x64;
@@ -95,7 +95,7 @@ LABEL_18:
   if ( (_DWORD)v0 )
   {
     v8 = 0LL;
-    v9 = (char *)stru_140F12D20.SchedulerApc.SystemArgument1 + 60;
+    v9 = (char *)stru_140F12EA0.IptSaveArea + 60;
     v34 = v0;
     v10 = v0;
     do
@@ -172,7 +172,7 @@ LABEL_18:
     }
     while ( v10 );
   }
-  *((_QWORD *)&v35 + 1) = qword_140E0B4C8;
+  *((_QWORD *)&v35 + 1) = qword_140E0B498;
   *(_QWORD *)&v35 = &PpmPerfStatesRegistered;
   LOWORD(v36) = 0;
   while ( 1 )
@@ -183,11 +183,11 @@ LABEL_18:
     v25 = KeGetPrcb(v39);
     v26 = v25;
     v27 = 4LL;
-    v28 = (unsigned int)(*(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 - 1);
-    if ( (unsigned int)*(unsigned __int8 *)(v25 + 35352) < *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 )
+    v28 = (unsigned int)(*(_DWORD *)stru_140F12EA0.IptSaveArea - 1);
+    if ( (unsigned int)*(unsigned __int8 *)(v25 + 35352) < *(_DWORD *)stru_140F12EA0.IptSaveArea )
       v28 = *(unsigned __int8 *)(v25 + 35352);
-    v29 = (_WORD *)(v25 + 35464);
-    v30 = (char *)stru_140F12D20.SchedulerApc.SystemArgument1 + 56 * v28 + 32;
+    v29 = (_WORD *)(v25 + 35468);
+    v30 = (char *)stru_140F12EA0.IptSaveArea + 56 * v28 + 32;
     do
     {
       v31 = 100 * *v30++;

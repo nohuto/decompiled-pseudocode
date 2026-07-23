@@ -1,9 +1,9 @@
 /*
- * XREFs of KiReadyQueueEnumeratorStartNormalQueuesPhase @ 0x140242BA0
+ * XREFs of KiReadyQueueEnumeratorStartNormalQueuesPhase @ 0x140242C70
  * Callers:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402425A0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x140242B30 (KiAdvanceReadyQueueEnumeratorToNextPhase.c)
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140242670 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x140242C00 (KiAdvanceReadyQueueEnumeratorToNextPhase.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
  * Callees:
  *     <none>
  */

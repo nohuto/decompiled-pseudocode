@@ -1,27 +1,27 @@
 /*
- * XREFs of KeSetSelectedCpuSetsThread @ 0x140296A80
+ * XREFs of KeSetSelectedCpuSetsThread @ 0x140296C70
  * Callers:
- *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1405EAEA0 (NtSetInformationThread.c)
  * Callees:
  *     KiSendSoftwareInterrupt @ 0x140003AE4 (KiSendSoftwareInterrupt.c)
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiGetThreadCpuSetMaskPointer @ 0x14008A73C (KiGetThreadCpuSetMaskPointer.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiValidateCpuSetMasks @ 0x140117A94 (KiValidateCpuSetMasks.c)
- *     KiUpdateThreadCpuSets @ 0x14018CAD4 (KiUpdateThreadCpuSets.c)
- *     KiWriteCpuSetMasks @ 0x14018CB68 (KiWriteCpuSetMasks.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
- *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiGetThreadCpuSetMaskPointer @ 0x14008A72C (KiGetThreadCpuSetMaskPointer.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D090 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDCA4 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiValidateCpuSetMasks @ 0x140117B04 (KiValidateCpuSetMasks.c)
+ *     KiUpdateThreadCpuSets @ 0x14018CC14 (KiUpdateThreadCpuSets.c)
+ *     KiWriteCpuSetMasks @ 0x14018CCA8 (KiWriteCpuSetMasks.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C40D0 (KiSwapContext.c)
+ *     EtwTraceIdealProcessor @ 0x14030FFFC (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char *a3)
@@ -113,7 +113,7 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
     v20 = *(_DWORD *)(a1 + 588);
     v21 = updated;
     KiReleaseThreadLockSafe(a1);
-    if ( (xmmword_140541350 & 0x8000000) != 0 )
+    if ( (xmmword_140542350 & 0x8000000) != 0 )
       EtwTraceIdealProcessor(a1, 1350LL, v18, v20);
     ExReleaseSpinLockSharedFromDpcLevel(v10);
     if ( v21 && KeGetPcr()->Prcb.Number != *(_DWORD *)(v21 + 36) )

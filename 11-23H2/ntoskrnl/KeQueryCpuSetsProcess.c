@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryCpuSetsProcess @ 0x140574FC4
+ * XREFs of KeQueryCpuSetsProcess @ 0x140575504
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCA90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406FCCA0 (NtQueryInformationProcess.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiGetProcessCpuSetMaskPointer @ 0x14039D434 (KiGetProcessCpuSetMaskPointer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiGetProcessCpuSetMaskPointer @ 0x14039D614 (KiGetProcessCpuSetMaskPointer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryCpuSetsProcess(__int64 a1, _QWORD *a2, __int64 a3, int a4)
@@ -31,7 +31,7 @@ __int64 __fastcall KeQueryCpuSetsProcess(__int64 a1, _QWORD *a2, __int64 a3, int
   ProcessCpuSetMaskPointer = KiGetProcessCpuSetMaskPointer(a1, a4, &v20);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v10 = 4;
@@ -54,10 +54,10 @@ __int64 __fastcall KeQueryCpuSetsProcess(__int64 a1, _QWORD *a2, __int64 a3, int
     while ( v13 );
   }
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v16 = CurrentPrcb->SchedulerAssist;

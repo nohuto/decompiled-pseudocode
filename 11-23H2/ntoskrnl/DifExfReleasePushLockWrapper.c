@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExfReleasePushLockWrapper @ 0x1405DA550
+ * XREFs of DifExfReleasePushLockWrapper @ 0x1405DAAC0
  * Callers:
  *     <none>
  * Callees:
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 __int64 __fastcall DifExfReleasePushLockWrapper(_QWORD *a1)

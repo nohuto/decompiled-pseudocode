@@ -1,18 +1,18 @@
 /*
- * XREFs of HdlspProcessDumpCommand @ 0x14094CB74
+ * XREFs of HdlspProcessDumpCommand @ 0x14094DB74
  * Callers:
- *     HdlspBugCheckProcessing @ 0x14094BD1C (HdlspBugCheckProcessing.c)
- *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
+ *     HdlspBugCheckProcessing @ 0x14094CD1C (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x14094CE50 (HdlspDispatch.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
- *     sprintf_s @ 0x14019B640 (sprintf_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
- *     HdlspPutMore @ 0x14094CEF8 (HdlspPutMore.c)
- *     HdlspPutString @ 0x14094CF98 (HdlspPutString.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlTimeToTimeFields @ 0x14015DB20 (RtlTimeToTimeFields.c)
+ *     sprintf_s @ 0x14019B780 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067CC90 (RtlUnicodeStringToAnsiString.c)
+ *     HdlspPutMore @ 0x14094DEF8 (HdlspPutMore.c)
+ *     HdlspPutString @ 0x14094DF98 (HdlspPutString.c)
  */
 
 __int64 __fastcall HdlspProcessDumpCommand(char a1)
@@ -32,8 +32,8 @@ __int64 __fastcall HdlspProcessDumpCommand(char a1)
   const char *v14; // rcx
   bool v15; // zf
   struct _KPRCB *v16; // rcx
-  struct _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
-  STRING v18; // [rsp+50h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
+  _STRING v18; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   char v20; // [rsp+A8h] [rbp+38h] BYREF
 

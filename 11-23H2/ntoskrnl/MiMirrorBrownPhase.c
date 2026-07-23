@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMirrorBrownPhase @ 0x140AAC62C
+ * XREFs of MiMirrorBrownPhase @ 0x140AAC49C
  * Callers:
- *     MmDuplicateMemory @ 0x140AAC84C (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140AAC6BC (MmDuplicateMemory.c)
  * Callees:
- *     PsGetNextPartition @ 0x14036AD70 (PsGetNextPartition.c)
- *     PsQuitNextPartition @ 0x1405A65A0 (PsQuitNextPartition.c)
- *     MiMirrorGatherBrownPages @ 0x140626C78 (MiMirrorGatherBrownPages.c)
- *     MiMirrorPerformBrownWrites @ 0x140627628 (MiMirrorPerformBrownWrites.c)
- *     MiEmptyAllWorkingSets @ 0x1406346D8 (MiEmptyAllWorkingSets.c)
- *     MiActOnMirrorBitmap @ 0x140A2EFF8 (MiActOnMirrorBitmap.c)
+ *     PsGetNextPartition @ 0x14036AF10 (PsGetNextPartition.c)
+ *     PsQuitNextPartition @ 0x1405A6B10 (PsQuitNextPartition.c)
+ *     MiMirrorGatherBrownPages @ 0x1406271C8 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorPerformBrownWrites @ 0x140627B78 (MiMirrorPerformBrownWrites.c)
+ *     MiEmptyAllWorkingSets @ 0x140634C28 (MiEmptyAllWorkingSets.c)
+ *     MiActOnMirrorBitmap @ 0x140A2F2A8 (MiActOnMirrorBitmap.c)
  */
 
 __int64 __fastcall MiMirrorBrownPhase(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAlertThreadByThreadId @ 0x1404B8BB0
+ * XREFs of KeAlertThreadByThreadId @ 0x1404B3500
  * Callers:
- *     VslCallEnclave @ 0x140A07B64 (VslCallEnclave.c)
- *     RtlRunOnceComplete @ 0x140A561F0 (RtlRunOnceComplete.c)
+ *     VslCallEnclave @ 0x140A04094 (VslCallEnclave.c)
+ *     RtlRunOnceComplete @ 0x140A4E140 (RtlRunOnceComplete.c)
  * Callees:
- *     KeAlertThreadByThreadIdEx @ 0x140338518 (KeAlertThreadByThreadIdEx.c)
+ *     KeAlertThreadByThreadIdEx @ 0x1402DE598 (KeAlertThreadByThreadIdEx.c)
  */
 
 char __fastcall KeAlertThreadByThreadId(__int64 a1)

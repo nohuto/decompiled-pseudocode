@@ -1,12 +1,12 @@
 /*
- * XREFs of VfUtilPrintCheckinString @ 0x140926214
+ * XREFs of VfUtilPrintCheckinString @ 0x140927214
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x1409377A4 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409387A4 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
- *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x140268FBC (__report_rangecheckfailure.c)
+ *     VfUtilDbgPrint @ 0x140309C3C (VfUtilDbgPrint.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall VfUtilPrintCheckinString(unsigned __int16 *a1)

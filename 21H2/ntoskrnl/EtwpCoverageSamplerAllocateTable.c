@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCoverageSamplerAllocateTable @ 0x140946100
+ * XREFs of EtwpCoverageSamplerAllocateTable @ 0x1409462D0
  * Callers:
- *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140944D40 (EtwpCovSampHashMakeRoomAndAcquireLock.c)
- *     EtwpCoverageSamplerStart @ 0x14094718C (EtwpCoverageSamplerStart.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140944F10 (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCoverageSamplerStart @ 0x14094735C (EtwpCoverageSamplerStart.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _OWORD *__fastcall EtwpCoverageSamplerAllocateTable(int a1)

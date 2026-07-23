@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkReplaceIatEntryForWdmThunk @ 0x140C35F54
+ * XREFs of ViThunkReplaceIatEntryForWdmThunk @ 0x140C3BF64
  * Callers:
- *     ViThunkReplaceAllThunkedImports @ 0x140C35DB4 (ViThunkReplaceAllThunkedImports.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x140C3BDC4 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x1406E7088 (MmReplaceImportEntry.c)
+ *     MmReplaceImportEntry @ 0x1406EBD38 (MmReplaceImportEntry.c)
  */
 
 __int64 __fastcall ViThunkReplaceIatEntryForWdmThunk(ULONG_PTR a1, _QWORD *a2, __int64 a3)

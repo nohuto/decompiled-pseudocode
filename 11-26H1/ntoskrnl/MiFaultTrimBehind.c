@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFaultTrimBehind @ 0x140441F5C
+ * XREFs of MiFaultTrimBehind @ 0x14043AA6C
  * Callers:
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
- *     MiClearVadTrimBehind @ 0x140442090 (MiClearVadTrimBehind.c)
- *     MiDeprioritizeVirtualAddresses @ 0x140442198 (MiDeprioritizeVirtualAddresses.c)
- *     PfCheckDeprioritizeFile @ 0x1409C4504 (PfCheckDeprioritizeFile.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
+ *     MiClearVadTrimBehind @ 0x14043ABA0 (MiClearVadTrimBehind.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14043ACA8 (MiDeprioritizeVirtualAddresses.c)
+ *     PfCheckDeprioritizeFile @ 0x1409954E4 (PfCheckDeprioritizeFile.c)
  */
 
 void __fastcall MiFaultTrimBehind(unsigned __int64 a1)

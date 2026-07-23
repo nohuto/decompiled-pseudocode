@@ -1,30 +1,30 @@
 /*
- * XREFs of PopFilterCapabilities @ 0x1409B923C
+ * XREFs of PopFilterCapabilities @ 0x14099F88C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x1404D63C4 (PopIdleArmAoAcDozeS4Timer.c)
- *     PoTtmInitiatePowerStateTransition @ 0x14075D348 (PoTtmInitiatePowerStateTransition.c)
- *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x1409B84C8 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
- *     PopVerifyPowerActionPolicy @ 0x1409B8F6C (PopVerifyPowerActionPolicy.c)
- *     PopUpdateSystemIdleContext @ 0x1409B99D4 (PopUpdateSystemIdleContext.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopSmartSuspendMakePredictions @ 0x140ABFAB8 (PopSmartSuspendMakePredictions.c)
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x1404CF814 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PoTtmInitiatePowerStateTransition @ 0x14075C2E8 (PoTtmInitiatePowerStateTransition.c)
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x14099EB18 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ *     PopVerifyPowerActionPolicy @ 0x14099F5BC (PopVerifyPowerActionPolicy.c)
+ *     PopUpdateSystemIdleContext @ 0x1409A0024 (PopUpdateSystemIdleContext.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopSmartSuspendMakePredictions @ 0x140ABAB98 (PopSmartSuspendMakePredictions.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     IopAppendLegacyVeto @ 0x1407330BC (IopAppendLegacyVeto.c)
- *     PopLogSleepDisabled @ 0x1409B80F8 (PopLogSleepDisabled.c)
- *     PopLogDisabledSleepReason @ 0x1409B9550 (PopLogDisabledSleepReason.c)
- *     PopCheckDisabledState @ 0x1409B9604 (PopCheckDisabledState.c)
- *     IopGetLegacyVetoListDrivers @ 0x1409B9634 (IopGetLegacyVetoListDrivers.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1409B98DC (IopGetLegacyVetoListDeviceNode.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1409B9950 (PopRemoveReasonRecordByReasonCode.c)
- *     PopGetReasonListByReasonCode @ 0x1409B999C (PopGetReasonListByReasonCode.c)
- *     EmClientQueryRuleState @ 0x140B682E0 (EmClientQueryRuleState.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     IopAppendLegacyVeto @ 0x140730FF0 (IopAppendLegacyVeto.c)
+ *     PopLogSleepDisabled @ 0x14099E748 (PopLogSleepDisabled.c)
+ *     PopLogDisabledSleepReason @ 0x14099FBA0 (PopLogDisabledSleepReason.c)
+ *     PopCheckDisabledState @ 0x14099FC54 (PopCheckDisabledState.c)
+ *     IopGetLegacyVetoListDrivers @ 0x14099FC84 (IopGetLegacyVetoListDrivers.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x14099FF2C (IopGetLegacyVetoListDeviceNode.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14099FFA0 (PopRemoveReasonRecordByReasonCode.c)
+ *     PopGetReasonListByReasonCode @ 0x14099FFEC (PopGetReasonListByReasonCode.c)
+ *     EmClientQueryRuleState @ 0x140B6A420 (EmClientQueryRuleState.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFilterCapabilities(__int64 a1, __int64 a2)
@@ -96,7 +96,7 @@ __int64 __fastcall PopFilterCapabilities(__int64 a1, __int64 a2)
   if ( v28 )
   {
     LODWORD(v21[0]) = 0x20000;
-    v21[1] = &word_140AEA890;
+    v21[1] = &word_140AEDAC0;
     IopAppendLegacyVeto((const void ***)&p_P, v21);
     v7 = v27;
   }
@@ -150,18 +150,18 @@ LABEL_11:
   {
     if ( !PopGetReasonListByReasonCode(7LL) )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x66756263u);
       if ( Pool2 )
       {
         *(_DWORD *)(Pool2 + 24) = 7;
         *(_BYTE *)(Pool2 + 22) = 1;
-        v15 = (__int64 *)qword_140F0B828;
-        if ( *(__int64 **)qword_140F0B828 != &PowerStateDisableReasonListHead )
+        v15 = (__int64 *)qword_140F0B578;
+        if ( *(__int64 **)qword_140F0B578 != &PowerStateDisableReasonListHead )
           goto LABEL_52;
         *(_QWORD *)Pool2 = &PowerStateDisableReasonListHead;
         *(_QWORD *)(Pool2 + 8) = v15;
         *v15 = Pool2;
-        qword_140F0B828 = Pool2;
+        qword_140F0B578 = Pool2;
       }
     }
   }
@@ -169,26 +169,26 @@ LABEL_11:
   {
     PopRemoveReasonRecordByReasonCode(7LL);
   }
-  if ( !byte_140F0BA5D )
+  if ( !byte_140F0B39D )
   {
     PopRemoveReasonRecordByReasonCode(14LL);
     goto LABEL_16;
   }
   if ( !PopGetReasonListByReasonCode(14LL) )
   {
-    v19 = ExAllocatePool2(0x100uLL);
+    v19 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x66756263u);
     if ( v19 )
     {
       *(_DWORD *)(v19 + 24) = 14;
       *(_WORD *)(v19 + 16) = 257;
       *(_BYTE *)(v19 + 18) = 1;
-      v20 = (__int64 *)qword_140F0B828;
-      if ( *(__int64 **)qword_140F0B828 == &PowerStateDisableReasonListHead )
+      v20 = (__int64 *)qword_140F0B578;
+      if ( *(__int64 **)qword_140F0B578 == &PowerStateDisableReasonListHead )
       {
         *(_QWORD *)v19 = &PowerStateDisableReasonListHead;
         *(_QWORD *)(v19 + 8) = v20;
         *v20 = v19;
-        qword_140F0B828 = v19;
+        qword_140F0B578 = v19;
         goto LABEL_16;
       }
 LABEL_52:

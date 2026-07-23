@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoMakeAssociatedIrpPriv @ 0x14020BA48 (IoMakeAssociatedIrpPriv.c)
+ *     sub_14020BA48 @ 0x14020BA48 (sub_14020BA48.c)
  */
 
 __int64 IoMakeAssociatedIrpEx()
 {
-  return IoMakeAssociatedIrpPriv();
+  return sub_14020BA48();
 }

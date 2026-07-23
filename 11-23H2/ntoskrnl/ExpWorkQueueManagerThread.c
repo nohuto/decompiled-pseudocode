@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpWorkQueueManagerThread @ 0x140838DC0
+ * XREFs of ExpWorkQueueManagerThread @ 0x1408390C0
  * Callers:
  *     <none>
  * Callees:
  *     KeSetUserAffinityThread @ 0x1402028C4 (KeSetUserAffinityThread.c)
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     ExpNewThreadNecessary @ 0x1402B7ED0 (ExpNewThreadNecessary.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9660 (KeSetActualBasePriorityThread.c)
- *     KeIsEqualAffinityEx @ 0x1402BFED0 (KeIsEqualAffinityEx.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140306B58 (KeQueryNodeActiveAffinityEx.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     KeTimeOutQueueWaiters @ 0x14034EB4C (KeTimeOutQueueWaiters.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeSetMaximumCountPriQueue @ 0x14057EB14 (KeSetMaximumCountPriQueue.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     ExpNewThreadNecessary @ 0x1402B8160 (ExpNewThreadNecessary.c)
+ *     KeSetActualBasePriorityThread @ 0x1402B98F0 (KeSetActualBasePriorityThread.c)
+ *     KeIsEqualAffinityEx @ 0x1402C0160 (KeIsEqualAffinityEx.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140306DE8 (KeQueryNodeActiveAffinityEx.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     KeTimeOutQueueWaiters @ 0x14034ECEC (KeTimeOutQueueWaiters.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeSetMaximumCountPriQueue @ 0x14057F004 (KeSetMaximumCountPriQueue.c)
  *     ExpCreateWorkerThread @ 0x140683520 (ExpCreateWorkerThread.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140A00854 (ExpPartitionCreatePoolDelayed.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x140A00AE4 (ExpPartitionCreatePoolDelayed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -6,82 +6,72 @@
  *     memmove @ 0x1800A7A40 (memmove.c)
  */
 
-char __fastcall RtlExtractBitMap(__int64 a1, unsigned int *a2, unsigned int a3, unsigned int a4)
+void __cdecl RtlExtractBitMap(PRTL_BITMAP Source, PRTL_BITMAP Destination, ULONG TargetBit, ULONG NumberOfBits)
 {
-  unsigned __int64 v5; // rbx
+  unsigned __int64 SizeOfBitMap; // rbx
   unsigned __int64 v6; // r10
-  int v7; // eax
-  unsigned __int64 v9; // rsi
-  unsigned __int64 v10; // rdi
-  unsigned __int64 v11; // rbx
-  size_t v12; // rdi
-  __int64 v13; // r9
-  int *v14; // r9
-  __int64 v15; // r11
-  unsigned __int64 v16; // r10
-  _DWORD *v17; // rdi
-  int v18; // r8d
-  unsigned __int64 v19; // rsi
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v9; // rdi
+  unsigned __int64 v10; // rbx
+  size_t v11; // rdi
+  unsigned int *Buffer; // r9
+  __int64 v13; // r11
+  unsigned __int64 v14; // r10
+  unsigned int *v15; // rdi
+  int v16; // r8d
+  unsigned __int64 v17; // rsi
+  unsigned int v18; // edx
+  unsigned int v19; // edx
   unsigned int v20; // edx
-  unsigned int v21; // edx
-  unsigned int v22; // edx
 
-  v5 = *a2;
-  v6 = *(_DWORD *)a1 - a3;
-  LOBYTE(v7) = a4;
-  if ( a4 <= (unsigned int)v6 )
-    v6 = a4;
-  if ( v6 <= v5 )
-    v5 = (unsigned int)v6;
-  if ( v5 )
+  SizeOfBitMap = Destination->SizeOfBitMap;
+  v6 = Source->SizeOfBitMap - TargetBit;
+  if ( NumberOfBits <= (unsigned int)v6 )
+    v6 = NumberOfBits;
+  if ( v6 <= SizeOfBitMap )
+    SizeOfBitMap = (unsigned int)v6;
+  if ( SizeOfBitMap )
   {
-    v9 = (unsigned __int64)a3 >> 3;
-    if ( (a3 & 7) != 0 )
+    v8 = (unsigned __int64)TargetBit >> 3;
+    if ( (TargetBit & 7) != 0 )
     {
-      v14 = (int *)*((_QWORD *)a2 + 1);
-      v15 = a3 & 0x1F;
-      v16 = 32 - v15;
-      v17 = (_DWORD *)(*(_QWORD *)(a1 + 8) + 4 * ((unsigned __int64)a3 >> 5));
-      v18 = 1 << (a3 & 0x1F);
-      if ( v5 < 0x20 )
+      Buffer = Destination->Buffer;
+      v13 = TargetBit & 0x1F;
+      v14 = 32 - v13;
+      v15 = &Source->Buffer[(unsigned __int64)TargetBit >> 5];
+      v16 = 1 << (TargetBit & 0x1F);
+      if ( SizeOfBitMap < 0x20 )
         goto LABEL_15;
-      v19 = v5 >> 5;
-      v5 += -32LL * (v5 >> 5);
+      v17 = SizeOfBitMap >> 5;
+      SizeOfBitMap += -32LL * (SizeOfBitMap >> 5);
       do
       {
-        v20 = *v17++ & ~(v18 - 1);
-        v21 = v20 >> v15;
-        *v14 = v21;
-        v7 = v21 | (((v18 - 1) & *v17) << v16);
-        *v14++ = v7;
-        --v19;
+        v18 = *v15++ & ~(v16 - 1);
+        v19 = v18 >> v13;
+        *Buffer = v19;
+        *Buffer++ = v19 | (((v16 - 1) & *v15) << v14);
+        --v17;
       }
-      while ( v19 );
-      if ( v5 )
+      while ( v17 );
+      if ( SizeOfBitMap )
       {
 LABEL_15:
-        if ( v5 > v16 )
-          v22 = ((*v17 & (unsigned int)-v18) >> v15) | ((v17[1] & ((1 << (v5 + v15 - 32)) - 1)) << v16);
+        if ( SizeOfBitMap > v14 )
+          v20 = ((*v15 & -v16) >> v13) | ((v15[1] & ((1 << (SizeOfBitMap + v13 - 32)) - 1)) << v14);
         else
-          v22 = (*v17 & (unsigned int)(((1 << v5) - 1) << v15)) >> v15;
-        v7 = v22 | ~((1 << v5) - 1) & *v14;
-        *v14 = v7;
+          v20 = (*v15 & (((1 << SizeOfBitMap) - 1) << v13)) >> v13;
+        *Buffer = v20 | ~((1 << SizeOfBitMap) - 1) & *Buffer;
       }
     }
     else
     {
-      v10 = (unsigned int)v5;
-      v11 = v5 & 7;
-      v12 = v10 >> 3;
-      if ( v12 )
-        LOBYTE(v7) = (unsigned __int8)memmove(*((void **)a2 + 1), (const void *)(v9 + *(_QWORD *)(a1 + 8)), v12);
+      v9 = (unsigned int)SizeOfBitMap;
+      v10 = SizeOfBitMap & 7;
+      v11 = v9 >> 3;
       if ( v11 )
-      {
-        v13 = *((_QWORD *)a2 + 1);
-        LOBYTE(v7) = *(_BYTE *)(v12 + *(_QWORD *)(a1 + 8) + v9) & ((1 << v11) - 1) | *(_BYTE *)(v12 + v13) & ~((1 << v11) - 1);
-        *(_BYTE *)(v12 + v13) = v7;
-      }
+        memmove(Destination->Buffer, (char *)Source->Buffer + v8, v11);
+      if ( v10 )
+        *((_BYTE *)Destination->Buffer + v11) = *((_BYTE *)Source->Buffer + v11 + v8) & ((1 << v10) - 1) | *((_BYTE *)Destination->Buffer + v11) & ~((1 << v10) - 1);
     }
   }
-  return v7;
 }

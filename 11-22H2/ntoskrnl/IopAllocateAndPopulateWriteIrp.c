@@ -63,7 +63,7 @@ __int64 __fastcall IopAllocateAndPopulateWriteIrp(__int64 a1, IRP **a2, _DWORD *
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -81,10 +81,10 @@ __int64 __fastcall IopAllocateAndPopulateWriteIrp(__int64 a1, IRP **a2, _DWORD *
       }
       *(_DWORD *)(v5 + 156) = 0;
       _InterlockedAnd((volatile signed __int32 *)(v5 + 152), 0xFFFFFF7F);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -175,7 +175,7 @@ __int64 __fastcall IopAllocateAndPopulateWriteIrp(__int64 a1, IRP **a2, _DWORD *
       v15 = (const void **)(a1 + 64);
       Mdl = IopAllocateMdl(*(_QWORD *)(a1 + 64), v21, 0, v8, (__int64)v9, 0);
       if ( !Mdl )
-        RtlRaiseStatus(3221225626LL);
+        RtlRaiseStatus(-1073741670);
       if ( *(_QWORD *)(a1 + 128) )
         v24 = 0;
       else

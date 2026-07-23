@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCchCatNW @ 0x140144E10
+ * XREFs of RtlStringCchCatNW @ 0x140145380
  * Callers:
- *     SepRmFetchGlobalSacl @ 0x14056B6F0 (SepRmFetchGlobalSacl.c)
+ *     SepRmFetchGlobalSacl @ 0x14056BC30 (SepRmFetchGlobalSacl.c)
  * Callees:
  *     <none>
  */

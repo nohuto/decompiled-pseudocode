@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpFcMapSingleBuffer @ 0x1800D67B0
+ * XREFs of RtlpFcMapSingleBuffer @ 0x1800D1B20
  * Callers:
- *     RtlpFcUpdateLocalConfiguration @ 0x1800D6550 (RtlpFcUpdateLocalConfiguration.c)
+ *     RtlpFcUpdateLocalConfiguration @ 0x1800D18C0 (RtlpFcUpdateLocalConfiguration.c)
  * Callees:
- *     ZwMapViewOfSection @ 0x180162190 (ZwMapViewOfSection.c)
+ *     ZwMapViewOfSection @ 0x180160550 (ZwMapViewOfSection.c)
  */
 
-__int64 __fastcall RtlpFcMapSingleBuffer(_QWORD *a1, _QWORD *a2)
+NTSTATUS __fastcall RtlpFcMapSingleBuffer(_QWORD *a1, _QWORD *a2)
 {
-  __int64 v4; // rcx
-  __int64 result; // rax
-  __int64 v6; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+70h] [rbp+18h] BYREF
+  void *v4; // rcx
+  NTSTATUS result; // eax
+  PVOID v6; // [rsp+60h] [rbp+8h] BYREF
+  ULONG_PTR v7; // [rsp+70h] [rbp+18h] BYREF
 
-  v4 = a1[1];
+  v4 = (void *)a1[1];
   if ( v4 )
   {
     v6 = 0LL;
     v7 = 0LL;
-    result = ZwMapViewOfSection(v4, -1LL, &v6, 0LL, 0LL, 0LL, &v7, 1, 0, 2);
-    if ( (int)result < 0 )
+    result = ZwMapViewOfSection(v4, (HANDLE)0xFFFFFFFFFFFFFFFFLL, &v6, 0LL, 0LL, 0LL, &v7, ViewShare, 0, 2u);
+    if ( result < 0 )
       return result;
     *a2 = 0LL;
     a2[2] = 0LL;
@@ -34,5 +34,5 @@ __int64 __fastcall RtlpFcMapSingleBuffer(_QWORD *a1, _QWORD *a2)
     a2[2] = 0LL;
     *a2 = *a1;
   }
-  return 0LL;
+  return 0;
 }

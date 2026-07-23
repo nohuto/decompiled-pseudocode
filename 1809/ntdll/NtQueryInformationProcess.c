@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationProcess @ 0x1800A0600
+ * XREFs of NtQueryInformationProcess @ 0x1800A0620
  * Callers:
  *     RtlpHeapGenerateRandomValue32 @ 0x18000E9A4 (RtlpHeapGenerateRandomValue32.c)
  *     RtlpSubSegmentInitialize @ 0x18000ED20 (RtlpSubSegmentInitialize.c)
@@ -9,11 +9,11 @@
  *     WerpProcessId @ 0x18006DAAC (WerpProcessId.c)
  *     LdrpLogLoadFailureEtwEvent @ 0x180071558 (LdrpLogLoadFailureEtwEvent.c)
  *     RtlDecodePointer @ 0x180072AF0 (RtlDecodePointer.c)
- *     RtlEncodePointer @ 0x1800758F0 (RtlEncodePointer.c)
- *     RtlSetUnhandledExceptionFilter @ 0x1800833C0 (RtlSetUnhandledExceptionFilter.c)
- *     RtlpAddVectoredHandler @ 0x180084200 (RtlpAddVectoredHandler.c)
- *     LdrpQueryInformationCurrentProcess @ 0x18008C430 (LdrpQueryInformationCurrentProcess.c)
- *     RtlSetProcessIsCritical @ 0x18008EF60 (RtlSetProcessIsCritical.c)
+ *     RtlEncodePointer @ 0x180075900 (RtlEncodePointer.c)
+ *     RtlSetUnhandledExceptionFilter @ 0x1800833D0 (RtlSetUnhandledExceptionFilter.c)
+ *     RtlpAddVectoredHandler @ 0x180084210 (RtlpAddVectoredHandler.c)
+ *     LdrpQueryInformationCurrentProcess @ 0x18008C440 (LdrpQueryInformationCurrentProcess.c)
+ *     RtlSetProcessIsCritical @ 0x18008EF70 (RtlSetProcessIsCritical.c)
  *     LdrpLogFatalUserCallbackException @ 0x1800D14D0 (LdrpLogFatalUserCallbackException.c)
  *     LdrpMapCleanModuleView @ 0x1800D76D4 (LdrpMapCleanModuleView.c)
  *     LdrpFatalExceptionFilter @ 0x1800D78AC (LdrpFatalExceptionFilter.c)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUpdateAcDcState @ 0x1403C4348
+ * XREFs of PopUpdateAcDcState @ 0x1403C4528
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870480 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1408706C0 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCurrentPowerState @ 0x1407A6D48 (PopCurrentPowerState.c)
- *     PopDiagTraceAcDcStateChange @ 0x14098C160 (PopDiagTraceAcDcStateChange.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCurrentPowerState @ 0x1407A6F38 (PopCurrentPowerState.c)
+ *     PopDiagTraceAcDcStateChange @ 0x14098C360 (PopDiagTraceAcDcStateChange.c)
  */
 
 char __fastcall PopUpdateAcDcState(unsigned int a1)
@@ -22,15 +22,18 @@ char __fastcall PopUpdateAcDcState(unsigned int a1)
   _DWORD v10[10]; // [rsp+20h] [rbp-28h] BYREF
 
   memset(v10, 0, 32);
-  if ( dword_140C3D86C == a1 )
+  if ( dword_140C3D96C == a1 )
     return 0;
   v4 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  dword_140C3D86C = a1;
+  dword_140C3D96C = a1;
   KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

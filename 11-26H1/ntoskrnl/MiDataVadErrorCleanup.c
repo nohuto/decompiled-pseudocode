@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDataVadErrorCleanup @ 0x1409C670C
+ * XREFs of MiDataVadErrorCleanup @ 0x1409976EC
  * Callers:
- *     MiMapViewOfDataSection @ 0x1409C47B0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfDataSection @ 0x140995790 (MiMapViewOfDataSection.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     MiLocateSubsectionNode @ 0x1402E48B0 (MiLocateSubsectionNode.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x14045ED08 (MiRemoveViewsFromSectionWithPfn.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
- *     MiDecrementLargeSubsections @ 0x140505D08 (MiDecrementLargeSubsections.c)
- *     MiReleaseVadEventBlocks @ 0x14095C4CC (MiReleaseVadEventBlocks.c)
- *     MiRemoveSharedCommitNode @ 0x1409C7C70 (MiRemoveSharedCommitNode.c)
- *     MiDereferenceExtendInfo @ 0x140B18EB8 (MiDereferenceExtendInfo.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     MiLocateSubsectionNode @ 0x1402C68F0 (MiLocateSubsectionNode.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x140458404 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
+ *     MiDecrementLargeSubsections @ 0x1404FF5B8 (MiDecrementLargeSubsections.c)
+ *     MiRemoveSharedCommitNode @ 0x140998C50 (MiRemoveSharedCommitNode.c)
+ *     MiReleaseVadEventBlocks @ 0x140A01D8C (MiReleaseVadEventBlocks.c)
+ *     MiDereferenceExtendInfo @ 0x140B1B300 (MiDereferenceExtendInfo.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDataVadErrorCleanup(__int64 *a1)
@@ -56,7 +56,7 @@ void __fastcall MiDataVadErrorCleanup(__int64 *a1)
     v9 = (void *)v8[17];
     if ( v9 )
       ObfDereferenceObjectWithTag(v9, 0x63536D4Du);
-    MiReleaseVadEventBlocks((__int64)v8);
+    MiReleaseVadEventBlocks(v8);
     ExFreePoolWithTag(v8, 0);
   }
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiRemoveSpecialPoolRange @ 0x1401EB91C
+ * XREFs of MiRemoveSpecialPoolRange @ 0x1401EB748
  * Callers:
- *     MmFreeSpecialPool @ 0x1401EC0A4 (MmFreeSpecialPool.c)
+ *     MmFreeSpecialPool @ 0x1401EBED0 (MmFreeSpecialPool.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     InsertTailListPte @ 0x140017ED0 (InsertTailListPte.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RemoveListEntryPte @ 0x1400AC07C (RemoveListEntryPte.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiVaRegionSessionSpecialPool @ 0x1401EC9AC (MiVaRegionSessionSpecialPool.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     InsertTailListPte @ 0x140017A50 (InsertTailListPte.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RemoveListEntryPte @ 0x1400AA5E4 (RemoveListEntryPte.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiVaRegionSessionSpecialPool @ 0x1401EC7D8 (MiVaRegionSessionSpecialPool.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 void __fastcall MiRemoveSpecialPoolRange(PKSPIN_LOCK SpinLock, char a2, unsigned __int64 a3)
@@ -73,17 +73,17 @@ void __fastcall MiRemoveSpecialPoolRange(PKSPIN_LOCK SpinLock, char a2, unsigned
       }
       while ( v15 < v16 );
     }
-    if ( SpinLock != &qword_1403277C0 )
+    if ( SpinLock != &qword_140327800 )
       MiVaRegionSessionSpecialPool(v14, 0LL);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    if ( SpinLock == &qword_1403277C0 )
-      _InterlockedDecrement(&dword_140326520);
+    if ( SpinLock == &qword_140327800 )
+      _InterlockedDecrement(&dword_140326560);
     v21 = 20LL;
-    v19 = &qword_1403277C0 != SpinLock ? 2 : 0;
+    v19 = &qword_140327800 != SpinLock ? 2 : 0;
     v20 = 0;
     v22 = 0LL;
     v23 = 0LL;
-    if ( SpinLock != &qword_1403277C0 )
+    if ( SpinLock != &qword_140327800 )
       v6 = 1;
     MiReturnSystemVa(
       (__int64)((a3 & 0xFFFFFFFFFFFFF000uLL) << 25) >> 16,

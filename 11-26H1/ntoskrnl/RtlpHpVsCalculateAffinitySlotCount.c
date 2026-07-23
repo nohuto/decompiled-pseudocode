@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVsCalculateAffinitySlotCount @ 0x140531170
+ * XREFs of RtlpHpVsCalculateAffinitySlotCount @ 0x140533670
  * Callers:
- *     RtlpHpVsContextInitialize @ 0x140501838 (RtlpHpVsContextInitialize.c)
- *     RtlpHpHeapAllocate @ 0x140638054 (RtlpHpHeapAllocate.c)
+ *     RtlpHpVsContextInitialize @ 0x1404FB028 (RtlpHpVsContextInitialize.c)
+ *     RtlpHpHeapAllocate @ 0x14063B058 (RtlpHpHeapAllocate.c)
  * Callees:
  *     <none>
  */

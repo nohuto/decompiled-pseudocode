@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierExAllocatePool2 @ 0x140AD0A10
+ * XREFs of VerifierExAllocatePool2 @ 0x140AD0A00
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     ExpPoolFlagsToPoolType @ 0x140AAEB60 (ExpPoolFlagsToPoolType.c)
- *     VfCheckPoolType @ 0x140AC3920 (VfCheckPoolType.c)
+ *     VfCheckPoolType @ 0x140AC3910 (VfCheckPoolType.c)
  */
 
 __int64 __fastcall VerifierExAllocatePool2(__int64 a1, ULONG_PTR a2, ULONG a3)

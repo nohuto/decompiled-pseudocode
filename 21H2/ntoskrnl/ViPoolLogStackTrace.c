@@ -1,12 +1,12 @@
 /*
- * XREFs of ViPoolLogStackTrace @ 0x1409E0398
+ * XREFs of ViPoolLogStackTrace @ 0x1409E1398
  * Callers:
- *     VfAllocPoolNotification @ 0x1409DFFB4 (VfAllocPoolNotification.c)
- *     VfFreePoolNotification @ 0x1409E0074 (VfFreePoolNotification.c)
+ *     VfAllocPoolNotification @ 0x1409E0FB4 (VfAllocPoolNotification.c)
+ *     VfFreePoolNotification @ 0x1409E1074 (VfFreePoolNotification.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutEx @ 0x140329FC0 (KeExpandKernelStackAndCalloutEx.c)
- *     RtlEnoughStackSpaceForStackCapture @ 0x140585CC4 (RtlEnoughStackSpaceForStackCapture.c)
- *     ViPoolLogStackCallout @ 0x1409C5940 (ViPoolLogStackCallout.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140334D10 (KeExpandKernelStackAndCalloutEx.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x140585EF4 (RtlEnoughStackSpaceForStackCapture.c)
+ *     ViPoolLogStackCallout @ 0x1409C6940 (ViPoolLogStackCallout.c)
  */
 
 void __fastcall ViPoolLogStackTrace(__int64 a1, __int64 a2)

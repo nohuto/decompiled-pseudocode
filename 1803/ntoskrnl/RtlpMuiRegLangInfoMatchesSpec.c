@@ -25,12 +25,12 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
   bool v18; // zf
   char v19; // al
   wchar_t *v20; // rax
-  int v21; // ecx
+  LCID v21; // ecx
   __int64 v22; // r8
   const wchar_t *v23; // rdx
   __int64 v24; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  int v26; // [rsp+60h] [rbp+18h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = 1;
   v8 = 0LL;
@@ -50,8 +50,8 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
       if ( v14 )
       {
         RtlInitUnicodeString(&DestinationString, v14);
-        if ( RtlCultureNameToLCID(&DestinationString.Length, &v26) )
-          return (_WORD)v26 == (unsigned __int16)a4;
+        if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+          return (_WORD)Lcid == (unsigned __int16)a4;
       }
     }
     return 0;

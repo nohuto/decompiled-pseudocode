@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitAnsiStringEx @ 0x140374680
+ * XREFs of RtlInitAnsiStringEx @ 0x140374820
  * Callers:
- *     RtlInitUTF8StringEx @ 0x1405A7640 (RtlInitUTF8StringEx.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14080DB70 (RtlCreateUnicodeStringFromAsciiz.c)
- *     ExpCovReadFriendlyName @ 0x140A06E4C (ExpCovReadFriendlyName.c)
+ *     RtlInitUTF8StringEx @ 0x1405A7BB0 (RtlInitUTF8StringEx.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14080DE40 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     ExpCovReadFriendlyName @ 0x140A070DC (ExpCovReadFriendlyName.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlockImageSection @ 0x14025A460
+ * XREFs of MiUnlockImageSection @ 0x14025A6F0
  * Callers:
- *     MiLockPagableImageSection @ 0x14025A7E0 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x14025AA70 (MiLockPagableImageSection.c)
  * Callees:
  *     ExpUnblockPushLock @ 0x140209468 (ExpUnblockPushLock.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiIsPfnCommitNotCharged @ 0x1402DC180 (MiIsPfnCommitNotCharged.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiBadRefCount @ 0x14064D640 (MiBadRefCount.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiIsPfnCommitNotCharged @ 0x1402DC410 (MiIsPfnCommitNotCharged.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiBadRefCount @ 0x14064DB90 (MiBadRefCount.c)
  */
 
 void __fastcall MiUnlockImageSection(
@@ -100,7 +100,7 @@ void __fastcall MiUnlockImageSection(
         v14 = v13 - 0x220000000000LL;
         v15 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v15 == 2 )
@@ -129,10 +129,10 @@ LABEL_56:
         MiPfnReferenceCountIsZero(v14, 0xAAAAAAAAAAAAAAABuLL * (v13 >> 4));
 LABEL_24:
         _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v34 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v15 <= 0xFu && v34 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v15 <= 0xFu && v34 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v36 = CurrentPrcb->SchedulerAssist;

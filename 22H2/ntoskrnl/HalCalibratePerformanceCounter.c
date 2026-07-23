@@ -20,37 +20,36 @@ __int64 __fastcall HalCalibratePerformanceCounter(volatile signed __int32 *a1, _
   char v7; // r14
   __int64 v8; // rdx
   __int64 v9; // r8
-  __int64 v10; // r9
-  ULONG_PTR v11; // rbp
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  __int64 v14; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR v10; // rbp
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  LARGE_INTEGER v13; // [rsp+40h] [rbp+8h] BYREF
 
   Number = KeGetPcr()->Prcb.Number;
   v3 = a2;
   v4 = HalpPerformanceCounter;
-  v14 = 0LL;
+  v13.QuadPart = 0LL;
   if ( *(_DWORD *)(HalpPerformanceCounter + 228) == 5 )
     v3 = HalpTimerScaleCounter(a2, 10000000LL, *(_QWORD *)(HalpPerformanceCounter + 192));
   if ( v4 != HalpOriginalPerformanceCounter )
   {
-    v12 = *(_QWORD *)(HalpOriginalPerformanceCounter + 192);
+    v11 = *(_QWORD *)(HalpOriginalPerformanceCounter + 192);
     if ( *(_DWORD *)(HalpOriginalPerformanceCounter + 228) == 5 )
-      v12 = 10000000LL;
-    v3 = HalpTimerScaleCounter(v3, v12, *(_QWORD *)(v4 + 192));
+      v11 = 10000000LL;
+    v3 = HalpTimerScaleCounter(v3, v11, *(_QWORD *)(v4 + 192));
   }
   if ( !Number )
   {
-    v7 = HalpQueryVirtualRtc(&v14, 0LL);
+    v7 = HalpQueryVirtualRtc(&v13, 0LL);
     HalpTimerCalibratePerformanceCounter(v4, v3);
-    v11 = HalpAlwaysOnCounter;
+    v10 = HalpAlwaysOnCounter;
     if ( HalpAlwaysOnCounter )
     {
-      v13 = HalpTimerScaleCounter(v3, *(_QWORD *)(v4 + 192), *(_QWORD *)(HalpAlwaysOnCounter + 192));
-      HalpTimerCalibratePerformanceCounter(v11, v13);
+      v12 = HalpTimerScaleCounter(v3, *(_QWORD *)(v4 + 192), *(_QWORD *)(HalpAlwaysOnCounter + 192));
+      HalpTimerCalibratePerformanceCounter(v10, v12);
     }
     if ( v7 )
-      HalpSetVirtualRtc(&v14, v8, v9, v10);
+      HalpSetVirtualRtc(&v13, v8, v9);
   }
   HalpTimerResetProfileAdjustment();
   _InterlockedDecrement(a1);

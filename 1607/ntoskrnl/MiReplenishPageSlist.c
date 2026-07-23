@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReplenishPageSlist @ 0x140064330
+ * XREFs of MiReplenishPageSlist @ 0x140063EB0
  * Callers:
- *     MiRemoveAnyPage @ 0x140064740 (MiRemoveAnyPage.c)
+ *     MiRemoveAnyPage @ 0x1400642C0 (MiRemoveAnyPage.c)
  * Callees:
- *     MiIncreaseAvailablePages @ 0x14001BB80 (MiIncreaseAvailablePages.c)
- *     MiNodeFreeZeroPages @ 0x1400665F0 (MiNodeFreeZeroPages.c)
- *     MiDecreaseAvailablePages @ 0x14008AD20 (MiDecreaseAvailablePages.c)
- *     MiPageListCollision @ 0x14008B178 (MiPageListCollision.c)
- *     MiSetPfnBlink @ 0x140107ACC (MiSetPfnBlink.c)
- *     InterlockedPushListSList @ 0x140166EB0 (InterlockedPushListSList.c)
- *     MiSetPfnSlist @ 0x1401F2FF8 (MiSetPfnSlist.c)
+ *     MiIncreaseAvailablePages @ 0x14001B700 (MiIncreaseAvailablePages.c)
+ *     MiNodeFreeZeroPages @ 0x140066170 (MiNodeFreeZeroPages.c)
+ *     MiDecreaseAvailablePages @ 0x14008A420 (MiDecreaseAvailablePages.c)
+ *     MiPageListCollision @ 0x14008A878 (MiPageListCollision.c)
+ *     MiSetPfnBlink @ 0x14010584C (MiSetPfnBlink.c)
+ *     InterlockedPushListSList @ 0x140167420 (InterlockedPushListSList.c)
+ *     MiSetPfnSlist @ 0x1401F2E24 (MiSetPfnSlist.c)
  */
 
 __int64 __fastcall MiReplenishPageSlist(__int64 a1, unsigned int a2, unsigned int a3, unsigned __int64 a4)
@@ -36,7 +36,7 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, unsigned int a2, unsigned in
   unsigned __int64 v24; // r9
   __int64 v25; // rcx
   __int64 v26; // rsi
-  struct _SLIST_ENTRY *v27; // rbp
+  _SLIST_ENTRY *v27; // rbp
   __int64 v28; // rdx
   __int64 v29; // r9
   unsigned __int64 v30; // r11
@@ -50,14 +50,14 @@ __int64 __fastcall MiReplenishPageSlist(__int64 a1, unsigned int a2, unsigned in
   __int64 v38; // [rsp+28h] [rbp-80h]
   volatile signed __int64 *v39; // [rsp+30h] [rbp-78h]
   unsigned __int64 v40; // [rsp+38h] [rbp-70h]
-  struct _SLIST_ENTRY *List; // [rsp+50h] [rbp-58h]
+  _SLIST_ENTRY *List; // [rsp+50h] [rbp-58h]
   unsigned int v44; // [rsp+C0h] [rbp+18h]
 
   v4 = a1;
   v5 = a4;
-  v6 = *(_QWORD *)(a1 + 48) + 2184 * ((unsigned __int64)a3 >> byte_1403269C9);
+  v6 = *(_QWORD *)(a1 + 48) + 2184 * ((unsigned __int64)a3 >> byte_140326A09);
   v7 = a3;
-  v8 = a3 >> byte_1403269D8;
+  v8 = a3 >> byte_140326A18;
   v9 = (unsigned __int8)(MiChannelMaximumPowerOf2Mask & v8);
   v38 = v7;
   v44 = (unsigned __int8)(MiChannelMaximumPowerOf2Mask & v8);
@@ -129,18 +129,18 @@ LABEL_49:
   v25 = 0LL;
   v26 = 48 * v24 - 0x58000000000LL;
   v27 = 0LL;
-  List = (struct _SLIST_ENTRY *)v26;
+  List = (_SLIST_ENTRY *)v26;
   v28 = 0x2AAAAAAAAAAAAAABLL;
   while ( !_interlockedbittestandset64((volatile signed __int32 *)(v26 + 24), 0x3FuLL) )
   {
-    v27 = (struct _SLIST_ENTRY *)v26;
-    if ( dword_140327060 == 1 )
+    v27 = (_SLIST_ENTRY *)v26;
+    if ( dword_1403270A0 == 1 )
     {
       LOBYTE(v30) = 1;
       v28 = (unsigned __int128)((v26 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
       v31 = (v26 + 0x58000000000LL) / 48;
       v32 = ((v28 < 0) + (unsigned __int8)(v28 >> 3)) & 0x1F;
-      v33 = (volatile signed __int32 *)(qword_140327080 + 4 * (v31 >> 5));
+      v33 = (volatile signed __int32 *)stru_1403270B8.Buffer + (v31 >> 5);
       if ( (unsigned __int64)(v32 + 1) > 0x20 )
       {
         if ( (((v28 < 0) + (unsigned __int8)(v28 >> 3)) & 0x1F) != 0 )

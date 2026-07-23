@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlBeginReadTickLock @ 0x14029D200
+ * XREFs of RtlBeginReadTickLock @ 0x1402ABCF0
  * Callers:
- *     KiUpdateTime @ 0x14029B7C0 (KiUpdateTime.c)
- *     KiUpdateTimeAssist @ 0x14029EBAC (KiUpdateTimeAssist.c)
- *     RtlGetMultiTimePrecise @ 0x1404970A0 (RtlGetMultiTimePrecise.c)
- *     PpmParkCalculateCoreParkingMask @ 0x1404EDA40 (PpmParkCalculateCoreParkingMask.c)
- *     KeQueryProcessAvailableCpus @ 0x1405B82AC (KeQueryProcessAvailableCpus.c)
- *     KeQuerySystemAvailableCpus @ 0x1405B836C (KeQuerySystemAvailableCpus.c)
- *     KeCpuSetQueryUnparkRecommendationEx @ 0x1405BF94C (KeCpuSetQueryUnparkRecommendationEx.c)
- *     KeQueryCpuSetInformation @ 0x140A76E8C (KeQueryCpuSetInformation.c)
+ *     KiUpdateTime @ 0x1402AA2B0 (KiUpdateTime.c)
+ *     KiUpdateTimeAssist @ 0x1402AD69C (KiUpdateTimeAssist.c)
+ *     RtlGetMultiTimePrecise @ 0x140491A30 (RtlGetMultiTimePrecise.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1404E5250 (PpmParkCalculateCoreParkingMask.c)
+ *     KeQueryProcessAvailableCpus @ 0x1405B588C (KeQueryProcessAvailableCpus.c)
+ *     KeQuerySystemAvailableCpus @ 0x1405B594C (KeQuerySystemAvailableCpus.c)
+ *     KeCpuSetQueryUnparkRecommendationEx @ 0x1405BCF7C (KeCpuSetQueryUnparkRecommendationEx.c)
+ *     KeQueryCpuSetInformation @ 0x140A70FAC (KeQueryCpuSetInformation.c)
  * Callees:
  *     <none>
  */

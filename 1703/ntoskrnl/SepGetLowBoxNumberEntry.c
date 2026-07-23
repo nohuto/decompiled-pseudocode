@@ -19,25 +19,25 @@
 
 __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a3)
 {
-  struct _RTL_BITMAP *v3; // r14
-  struct _RTL_DYNAMIC_HASH_TABLE *v4; // r13
+  _RTL_BITMAP *v3; // r14
+  _RTL_DYNAMIC_HASH_TABLE *v4; // r13
   unsigned int v6; // ebx
   __int64 v8; // rcx
   ULONG_PTR v9; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v11; // rdi
   unsigned int v13; // esi
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v15; // rdi
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v15; // rdi
   ULONG ClearBitsAndSet; // esi
   ULONG_PTR v17; // r8
   __int64 v18; // rax
   ULONG v19; // esi
   unsigned int *v20; // r12
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-48h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-48h] BYREF
 
-  v3 = (struct _RTL_BITMAP *)(a1 + 8);
-  v4 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
+  v3 = (_RTL_BITMAP *)(a1 + 8);
+  v4 = *(_RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
   v6 = 0;
   v8 = *(unsigned int *)&a2[4 * a2[1] + 4];
   v9 = 1LL;
@@ -56,7 +56,7 @@ LABEL_6:
   if ( !v11 )
   {
     v13 = (4 * a2[1] + 67) & 0xFFFFFFFC;
-    PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v13, 0x734C6553u);
+    PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v13, 0x734C6553u);
     v15 = PoolWithTag;
     if ( !PoolWithTag )
       return 3221225626LL;

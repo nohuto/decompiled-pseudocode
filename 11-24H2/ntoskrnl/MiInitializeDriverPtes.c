@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeDriverPtes @ 0x140C50A98
+ * XREFs of MiInitializeDriverPtes @ 0x140C52C28
  * Callers:
- *     MiInitializeSystemImageRegion @ 0x140C5B698 (MiInitializeSystemImageRegion.c)
+ *     MiInitializeSystemImageRegion @ 0x140C5D828 (MiInitializeSystemImageRegion.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     MiCheckForBootMappingsBetweenDrivers @ 0x140C506C0 (MiCheckForBootMappingsBetweenDrivers.c)
- *     MiReserveBootDriverPtes @ 0x140C50D50 (MiReserveBootDriverPtes.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     MiCheckForBootMappingsBetweenDrivers @ 0x140C52850 (MiCheckForBootMappingsBetweenDrivers.c)
+ *     MiReserveBootDriverPtes @ 0x140C52EE0 (MiReserveBootDriverPtes.c)
  */
 
 __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
   _QWORD *v1; // rdi
   __int64 *v2; // rsi
   __int64 *v3; // rbx
-  __int64 v4; // rdx
+  PVOID v4; // rdx
   volatile signed __int32 *v5; // rax
   __int64 Pool; // rax
   _QWORD *v7; // r9
@@ -49,9 +49,9 @@ __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
   v28 = 0LL;
   while ( v3 != v2 )
   {
-    v4 = v3[6];
-    if ( v4 == PsNtosImageBase || (v5 = (volatile signed __int32 *)&xmmword_140E2D868 + 1, v4 == PsHalImageBase) )
-      v5 = (volatile signed __int32 *)&xmmword_140E2D868;
+    v4 = (PVOID)v3[6];
+    if ( v4 == PsNtosImageBase || (v5 = (volatile signed __int32 *)&xmmword_140E2D9A8 + 1, v4 == PsHalImageBase) )
+      v5 = (volatile signed __int32 *)&xmmword_140E2D9A8;
     _InterlockedAdd(v5, ((v3[8] & 0xFFF) != 0) + (*((_DWORD *)v3 + 16) >> 12));
     if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v3[6]) )
       goto LABEL_17;
@@ -127,14 +127,14 @@ LABEL_17:
       }
     }
   }
-  for ( k = qword_140E2D860; k; k = (_QWORD *)*k )
+  for ( k = qword_140E2D9A0; k; k = (_QWORD *)*k )
     MiCheckForBootMappingsBetweenDrivers((__int64)k);
   if ( (KiFeatureSettings & 0x20000) == 0 )
-    qword_140E2EF08 = (unsigned __int64)(((__int64)((*(_QWORD *)(*(_QWORD *)qword_140E2D860 + 8LL) << 25)
+    qword_140E2F048 = (unsigned __int64)(((__int64)((*(_QWORD *)(*(_QWORD *)qword_140E2D9A0 + 8LL) << 25)
                                                   + ((unsigned __int64)(unsigned int)(16
-                                                                                    * *(_DWORD *)(*(_QWORD *)qword_140E2D860
+                                                                                    * *(_DWORD *)(*(_QWORD *)qword_140E2D9A0
                                                                                                 + 16LL)) << 28)) >> 16)
-                                       - qword_140E2EF10) >> 21;
+                                       - qword_140E2F050) >> 21;
   m = 0LL;
   while ( v1 )
   {

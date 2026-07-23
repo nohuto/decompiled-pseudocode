@@ -1,14 +1,14 @@
 /*
- * XREFs of PsQueryTotalCycleTimeProcess @ 0x1409078C0
+ * XREFs of PsQueryTotalCycleTimeProcess @ 0x140907A20
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeFlushProcessWriteBuffers @ 0x14027AD04 (KeFlushProcessWriteBuffers.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x1405134C8 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KeFlushProcessWriteBuffers @ 0x140268CA4 (KeFlushProcessWriteBuffers.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x140513708 (KeUpdateTotalCyclesCurrentThread.c)
  */
 
 __int64 __fastcall PsQueryTotalCycleTimeProcess(__int64 a1, unsigned __int64 *a2)
@@ -19,6 +19,9 @@ __int64 __fastcall PsQueryTotalCycleTimeProcess(__int64 a1, unsigned __int64 *a2
   _QWORD **v7; // rdi
   _QWORD *v8; // rcx
   __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
 
   CurrentThread = KeGetCurrentThread();
   KeFlushProcessWriteBuffers(1);
@@ -38,6 +41,6 @@ __int64 __fastcall PsQueryTotalCycleTimeProcess(__int64 a1, unsigned __int64 *a2
   if ( _InterlockedCompareExchange64(v5, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v5);
   KeAbPostRelease((ULONG_PTR)v5);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v10, v11, v12);
   return v6;
 }

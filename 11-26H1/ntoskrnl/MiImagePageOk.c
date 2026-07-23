@@ -1,14 +1,14 @@
 /*
- * XREFs of MiImagePageOk @ 0x1402F7140
+ * XREFs of MiImagePageOk @ 0x1402D91C0
  * Callers:
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x14038B588 (MiWaitForCollidedFaultComplete.c)
- *     MiResolveProtoPteFault @ 0x1403A5DAC (MiResolveProtoPteFault.c)
- *     MiSoftFaultMappedView @ 0x1403BB610 (MiSoftFaultMappedView.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14038D338 (MiWaitForCollidedFaultComplete.c)
+ *     MiResolveProtoPteFault @ 0x1403A7B0C (MiResolveProtoPteFault.c)
+ *     MiSoftFaultMappedView @ 0x1403C5480 (MiSoftFaultMappedView.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
  */
 
 _BOOL8 __fastcall MiImagePageOk(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,10 +26,10 @@ _BOOL8 __fastcall MiImagePageOk(unsigned __int64 a1, __int64 a2, __int64 a3, __i
   if ( *(__int64 *)(a2 + 40) >= 0 || (*(_QWORD *)(a2 + 16) & 0x400LL) == 0 || ((*(_QWORD *)(a2 + 40) >> 60) & 7) == 3 )
     return 1LL;
   v6 = *(_QWORD *)(a2 + 16);
-  if ( qword_140E2D740 && (v6 & 0x10) == 0 )
-    v6 &= qword_140E2D748;
+  if ( qword_140E2D8C0 && (v6 & 0x10) == 0 )
+    v6 &= qword_140E2D8C8;
   v7 = (v6 >> 12) & 0x3FFFFFFFFFFLL;
-  v8 = v7 ? (_DWORD *)(qword_140E37B90 - 8 + 8 * v7) : 0LL;
+  v8 = v7 ? (_DWORD *)(qword_140E37D10 - 8 + 8 * v7) : 0LL;
   if ( (*(_DWORD *)(*(_QWORD *)v8 + 56LL) & 0x20) == 0 )
     return 1LL;
   v9 = *(_QWORD *)((*(_QWORD *)(*(_QWORD *)v8 + 96LL) & 0xFFFFFFFFFFFFFFF8uLL) + 40);

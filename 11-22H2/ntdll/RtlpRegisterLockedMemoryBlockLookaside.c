@@ -11,11 +11,11 @@
 
 __int64 RtlpRegisterLockedMemoryBlockLookaside()
 {
-  int v0; // esi
+  NTSTATUS v0; // esi
   int v1; // eax
   __int64 v3; // rbx
-  __int64 *v4; // rdi
-  __int64 *v5; // rdi
+  PVOID *v4; // rdi
+  PVOID *v5; // rdi
 
   v0 = 0;
   RtlAcquireSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
@@ -28,7 +28,7 @@ LABEL_2:
   else
   {
     v3 = 0LL;
-    v4 = (__int64 *)RtlpMemoryBlockLookasideCriticalRoutines;
+    v4 = (PVOID *)RtlpMemoryBlockLookasideCriticalRoutines;
     while ( 1 )
     {
       v0 = RtlLockModuleSection(*v4);
@@ -44,7 +44,7 @@ LABEL_2:
     }
     if ( (_DWORD)v3 )
     {
-      v5 = (__int64 *)&RtlpMemoryBlockLookasideCriticalRoutines[v3];
+      v5 = (PVOID *)&RtlpMemoryBlockLookasideCriticalRoutines[v3];
       do
       {
         RtlUnlockModuleSection(*--v5);

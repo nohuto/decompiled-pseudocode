@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCancelSubordinatePost @ 0x140767890
+ * XREFs of CmpCancelSubordinatePost @ 0x140767A80
  * Callers:
- *     CmpPostNotify @ 0x140766860 (CmpPostNotify.c)
- *     CmNotifyRunDown @ 0x14076E5E4 (CmNotifyRunDown.c)
+ *     CmpPostNotify @ 0x140766A50 (CmpPostNotify.c)
+ *     CmNotifyRunDown @ 0x14076E7D4 (CmNotifyRunDown.c)
  * Callees:
- *     CmpAddToDelayedDeref @ 0x14076785C (CmpAddToDelayedDeref.c)
+ *     CmpAddToDelayedDeref @ 0x140767A4C (CmpAddToDelayedDeref.c)
  */
 
 _QWORD *__fastcall CmpCancelSubordinatePost(__int64 a1, __int64 a2)

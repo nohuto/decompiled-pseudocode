@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetHardFaultPages @ 0x1402DF274
+ * XREFs of MiGetHardFaultPages @ 0x1402DF504
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x1402DFD70 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x1402E0000 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiUseSlabAllocator @ 0x1402DEAC0 (MiUseSlabAllocator.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     MiRetainSubsection @ 0x140364968 (MiRetainSubsection.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiUseSlabAllocator @ 0x1402DED50 (MiUseSlabAllocator.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E17F0 (MiProtectionToCacheAttribute.c)
+ *     MiRetainSubsection @ 0x140364B08 (MiRetainSubsection.c)
  */
 
 unsigned __int64 __fastcall MiGetHardFaultPages(

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetSlabCurrentTime @ 0x140656D2C
+ * XREFs of MiGetSlabCurrentTime @ 0x14065727C
  * Callers:
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
  */
 
 __int64 MiGetSlabCurrentTime()

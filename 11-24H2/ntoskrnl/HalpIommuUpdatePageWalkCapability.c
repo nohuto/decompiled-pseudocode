@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuUpdatePageWalkCapability @ 0x14054D3A0
+ * XREFs of HalpIommuUpdatePageWalkCapability @ 0x14054AC60
  * Callers:
- *     HalpIommuInitializeAll @ 0x140B6B2A0 (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x140B70010 (HalpIommuInitializeAll.c)
  * Callees:
- *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x14053C180 (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x140539A0C (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 void HalpIommuUpdatePageWalkCapability()

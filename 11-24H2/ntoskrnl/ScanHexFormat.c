@@ -1,11 +1,11 @@
 /*
- * XREFs of ScanHexFormat @ 0x1408CAD10
+ * XREFs of ScanHexFormat @ 0x1408C8740
  * Callers:
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1408C9360 (_CmGetDeviceInterfaceSubkeyPath.c)
- *     PiDmCacheDataDecode @ 0x1408C9AF0 (PiDmCacheDataDecode.c)
- *     _CmValidateDeviceInterfaceName @ 0x1408C9D90 (_CmValidateDeviceInterfaceName.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1408CA360 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1408C6D90 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     PiDmCacheDataDecode @ 0x1408C7520 (PiDmCacheDataDecode.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1408C77C0 (_CmValidateDeviceInterfaceName.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1408C7D90 (_CmGetDeviceInterfaceRegKeyPath.c)
  * Callees:
  *     <none>
  */

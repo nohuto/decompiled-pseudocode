@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     PopFxAddRefDevice @ 0x140355350 (PopFxAddRefDevice.c)
- *     PopFxReleaseDevice @ 0x1405CD96C (PopFxReleaseDevice.c)
- *     PopPepGetMinimumDevicePowerState @ 0x1405D5234 (PopPepGetMinimumDevicePowerState.c)
+ *     sub_140355350 @ 0x140355350 (sub_140355350.c)
+ *     sub_1405CD96C @ 0x1405CD96C (sub_1405CD96C.c)
+ *     sub_1405D5234 @ 0x1405D5234 (sub_1405D5234.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
@@ -22,7 +22,7 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(ULONG_PTR a1, int a2)
   v2 = 0;
   v9 = 0;
   v10 = 0;
-  if ( PopFxDeviceAccountingLevel < 0 )
+  if ( dword_140C23CB0 < 0 )
   {
     if ( a2 == 1 || a2 > 4 )
       return (unsigned int)-1073741811;
@@ -31,13 +31,13 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(ULONG_PTR a1, int a2)
       return (unsigned int)-1073741823;
     if ( !a1 )
       return (unsigned int)-1073741811;
-    PopFxAddRefDevice(a1);
+    sub_140355350(a1);
     if ( (_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 824), 0, 0) & 0x10) != 0 )
     {
       v6 = *(_QWORD *)(a1 + 56);
       if ( v6 )
       {
-        if ( PopPepGetMinimumDevicePowerState(v6, v5, 1, &v9, &v10) )
+        if ( sub_1405D5234(v6, v5, 1, &v9, &v10) )
         {
           if ( !a2 && v9 == v10 || a2 == v9 )
             goto LABEL_20;
@@ -50,7 +50,7 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(ULONG_PTR a1, int a2)
               *(_QWORD *)Pool2 = Pool2;
               *(_QWORD *)(Pool2 + 16) = a1;
               *(_DWORD *)(Pool2 + 24) = a2;
-              *(_QWORD *)(Pool2 + 48) = PopFxUpdateVetoMaskWork;
+              *(_QWORD *)(Pool2 + 48) = sub_14098E120;
               *(_QWORD *)(Pool2 + 56) = Pool2;
               *(_QWORD *)(Pool2 + 32) = 0LL;
               ExQueueWorkItem((PWORK_QUEUE_ITEM)(Pool2 + 32), DelayedWorkQueue);
@@ -64,7 +64,7 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(ULONG_PTR a1, int a2)
     }
     v2 = -1073741823;
 LABEL_20:
-    PopFxReleaseDevice(a1);
+    sub_1405CD96C(a1);
     return v2;
   }
   return (unsigned int)-1073741637;

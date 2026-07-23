@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierExAllocatePoolEx @ 0x140925320
+ * XREFs of VerifierExAllocatePoolEx @ 0x140926320
  * Callers:
  *     <none>
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x1409275EC (VfCheckPoolType.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x1409285EC (VfCheckPoolType.c)
  */
 
 PVOID __fastcall VerifierExAllocatePoolEx(__int64 a1, SIZE_T a2, __int64 a3)

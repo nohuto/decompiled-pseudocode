@@ -15,7 +15,7 @@
 unsigned int __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
         __int64 a1,
         _DWORD *a2,
-        void **a3,
+        PVOID *a3,
         unsigned int a4,
         int a5,
         _QWORD *a6)
@@ -28,32 +28,32 @@ unsigned int __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
   PVOID *Pool2; // rax
   PVOID *v15; // rsi
   unsigned int v16; // r11d
-  void **v17; // r10
-  void *v18; // rcx
+  PVOID *v17; // r10
+  char *v18; // rcx
   PVOID *v19; // rdx
   __int64 v20; // r8
   unsigned int v21; // ebx
   unsigned int v22; // ebp
   int v23; // eax
   unsigned int v24; // edi
-  void *v25; // rcx
+  PVOID v25; // rcx
   unsigned int result; // eax
   int v27; // r8d
   int v28; // r9d
   __int64 v29; // rbx
   bool v30; // zf
   __int64 v31; // rbx
-  char *v32; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v33; // [rsp+38h] [rbp-30h] BYREF
+  PVOID BaseAddress; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp-30h] BYREF
   int v35; // [rsp+98h] [rbp+30h]
 
   v6 = a1;
   v7 = a4;
   v8 = 0;
-  v32 = 0LL;
+  BaseAddress = 0LL;
   StLockReleaseShared((struct VLOCK *)(a1 + 6840));
   v12 = *(_DWORD *)(v6 + 7016);
-  v33 = v12;
+  RegionSize = v12;
   if ( a6 )
   {
     v13 = v12 >> 12;
@@ -68,9 +68,9 @@ unsigned int __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
         v17 = a3;
         do
         {
-          v18 = *v17;
+          v18 = (char *)*v17;
           ++v16;
-          v32 = (char *)*v17;
+          BaseAddress = *v17;
           if ( v8 < v13 * v16 )
           {
             v19 = &Pool2[2 * v8];
@@ -80,8 +80,8 @@ unsigned int __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
             {
               *v19 = v18;
               v19 += 2;
-              v18 = v32 + 4096;
-              v32 += 4096;
+              v18 = (char *)BaseAddress + 4096;
+              BaseAddress = (char *)BaseAddress + 4096;
               --v20;
             }
             while ( v20 );
@@ -93,7 +93,7 @@ unsigned int __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
       if ( ZwQueryVirtualMemory(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
              *Pool2,
-             (MEMORY_INFORMATION_CLASS)4,
+             MemoryWorkingSetExInformation,
              Pool2,
              16 * v7 * v13,
              0LL) < 0 )
@@ -111,7 +111,7 @@ unsigned int __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
           do
           {
             v25 = 0LL;
-            v32 = 0LL;
+            BaseAddress = 0LL;
             if ( v21 < v24 )
             {
               do
@@ -120,7 +120,7 @@ unsigned int __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
                 {
                   v30 = (*a6)-- == 1LL;
                   v25 = *a3;
-                  v32 = (char *)*a3;
+                  BaseAddress = *a3;
                   if ( v30 )
                     break;
                 }
@@ -128,7 +128,7 @@ unsigned int __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
               }
               while ( v21 < v24 );
               if ( v25 )
-                ZwUnlockVirtualMemory(-1LL, &v32, &v33, 1LL);
+                ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
               v23 = v35;
             }
             if ( !*a6 )
@@ -158,8 +158,8 @@ LABEL_22:
   v31 = v7;
   do
   {
-    v32 = (char *)*a3;
-    ZwUnlockVirtualMemory(-1LL, &v32, &v33, 1LL);
+    BaseAddress = *a3;
+    ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
     ++a3;
     --v31;
   }

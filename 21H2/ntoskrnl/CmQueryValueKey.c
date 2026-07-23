@@ -1,35 +1,35 @@
 /*
- * XREFs of CmQueryValueKey @ 0x1405F7700
+ * XREFs of CmQueryValueKey @ 0x1406E6E60
  * Callers:
- *     NtQueryValueKey @ 0x1406F7AE0 (NtQueryValueKey.c)
+ *     NtQueryValueKey @ 0x14070EEC0 (NtQueryValueKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     PsBoostThreadIo @ 0x14034D7E0 (PsBoostThreadIo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     PsBoostThreadIo @ 0x140358530 (PsBoostThreadIo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  *     CmpSetKcbAtLayerHeight @ 0x1405D6C8C (CmpSetKcbAtLayerHeight.c)
- *     CmpQueryKeyValueData @ 0x1405F7EB0 (CmpQueryKeyValueData.c)
- *     RtlCompareUnicodeStrings @ 0x140681C90 (RtlCompareUnicodeStrings.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1406A3094 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
- *     CmpLockKcbStackShared @ 0x1406FB3E0 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x1406FC600 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
+ *     RtlCompareUnicodeStrings @ 0x1405DCCD0 (RtlCompareUnicodeStrings.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1405DED94 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpFreeKeyControlBlock @ 0x1405E0C60 (CmpFreeKeyControlBlock.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
+ *     CmpQueryKeyValueData @ 0x1406E7610 (CmpQueryKeyValueData.c)
+ *     CmpLockKcbStackShared @ 0x1407127C0 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x140712820 (CmpUnlockKcbStack.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1407139E0 (CmpIsKeyDeletedForKeyBody.c)
  */
 
-__int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, _DWORD *a4, int a5, __int64 a6)
+__int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, size_t a4, int a5, __int64 a6)
 {
   __int64 v6; // r13
   _KPROCESS *Process; // rcx
@@ -54,7 +54,7 @@ __int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, _DW
   int v26; // eax
   __int64 v27; // r9
   __int64 v28; // r10
-  __int64 NextElement; // rax
+  char *NextElement; // rax
   int v30; // ecx
   __int16 v31; // cx
   __int64 v32; // r12
@@ -103,7 +103,7 @@ __int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, _DW
   __int64 v76; // [rsp+A0h] [rbp-68h] BYREF
   int v77; // [rsp+A8h] [rbp-60h]
   unsigned int *v78; // [rsp+B0h] [rbp-58h]
-  __int64 v79; // [rsp+B8h] [rbp-50h] BYREF
+  _QWORD *v79; // [rsp+B8h] [rbp-50h] BYREF
   unsigned __int16 *v80; // [rsp+C0h] [rbp-48h]
   __int64 v81; // [rsp+C8h] [rbp-40h]
   __int64 v82; // [rsp+D0h] [rbp-38h]
@@ -120,7 +120,7 @@ __int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, _DW
   Process = (_KPROCESS *)*((_QWORD *)&CmpRegistryProcess + 1);
   v8 = -1;
   v77 = a3;
-  Size = (size_t)a4;
+  Size = a4;
   v74 = 0LL;
   v75 = 0LL;
   v76 = 0xFFFFFFFFLL;
@@ -128,8 +128,8 @@ __int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, _DW
   v70 = 0LL;
   if ( !*((_QWORD *)&CmpRegistryProcess + 1) )
     Process = KeGetCurrentThread()->ApcState.Process;
-  KiStackAttachProcess(Process, 0LL, (__int64)v85, a4);
-  if ( !BYTE6(NlsMbCodePageTag) )
+  KiStackAttachProcess(Process, 0, (__int64)v85);
+  if ( !CmpPuntBoot )
   {
     PsBoostThreadIo((__int64)KeGetCurrentThread(), 0LL);
     CurrentThread = KeGetCurrentThread();
@@ -191,7 +191,7 @@ __int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, _DW
       goto LABEL_18;
     }
     CmpUnlockKcbStack(&v69);
-    KeyValueData = CmpTransSearchAddTransFromKeyBody(v6, &v74);
+    KeyValueData = CmpTransSearchAddTransFromKeyBody((_QWORD *)v6, &v74);
     if ( KeyValueData < 0 )
       goto LABEL_117;
   }
@@ -233,19 +233,19 @@ LABEL_18:
   v28 = v74;
   if ( v74 )
   {
-    NextElement = CmListGetNextElement(v27 + 208, &v79, 32LL);
+    NextElement = CmListGetNextElement((_QWORD **)(v27 + 208), &v79, 32);
     if ( NextElement )
     {
       while ( 1 )
       {
-        v30 = *(_DWORD *)(NextElement + 68);
+        v30 = *((_DWORD *)NextElement + 17);
         if ( v30 == 2 || v30 == 11 )
           break;
-        NextElement = CmListGetNextElement(v27 + 208, &v79, 32LL);
+        NextElement = CmListGetNextElement((_QWORD **)(v27 + 208), &v79, 32);
         if ( !NextElement )
           goto LABEL_40;
       }
-      if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), v28) )
+      if ( CmEqualTrans(*((_QWORD *)NextElement + 7), v28) )
       {
         v26 = *(_DWORD *)(v6 + 48);
         goto LABEL_38;
@@ -462,7 +462,7 @@ LABEL_103:
     KeyValueData = v65;
   }
 LABEL_117:
-  if ( !BYTE6(NlsMbCodePageTag) )
+  if ( !CmpPuntBoot )
   {
     ExReleaseResourceLite((PERESOURCE)&CmpRegistryLock);
     KeLeaveCriticalRegion();
@@ -470,7 +470,7 @@ LABEL_117:
     PsBoostThreadIo((__int64)KeGetCurrentThread(), v62);
     v17 = (struct _PRIVILEGE_SET *)*((_QWORD *)&v70 + 1);
   }
-  KiUnstackDetachProcess((__int64)v85, 0);
+  KiUnstackDetachProcess((__int64)v85, 0LL);
   if ( v17 )
     CmSiFreeMemory(v17);
   return (unsigned int)KeyValueData;

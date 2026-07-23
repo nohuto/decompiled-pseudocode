@@ -3,13 +3,13 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     RtlIsImageFullyRetpolined @ 0x14035FF78 (RtlIsImageFullyRetpolined.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlCreateRetpolineStubsFunctionTable @ 0x1405B2148 (RtlCreateRetpolineStubsFunctionTable.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
- *     MiMarkRetpolineBits @ 0x140A34480 (MiMarkRetpolineBits.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     RtlIsImageFullyRetpolined @ 0x140360118 (RtlIsImageFullyRetpolined.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x1405B26B8 (RtlCreateRetpolineStubsFunctionTable.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
+ *     MiMarkRetpolineBits @ 0x140A34730 (MiMarkRetpolineBits.c)
  *     MiCreateRetpolineBitmap @ 0x140B99900 (MiCreateRetpolineBitmap.c)
  *     MiLockRetpolineStubs @ 0x140B999F0 (MiLockRetpolineStubs.c)
  */
@@ -43,11 +43,12 @@ __int64 MiInitializeRetpoline()
         if ( RetpolineStubsFunctionTable >= 0 )
         {
           MmAcquireLoadLock();
-          RetpolineStubsFunctionTable = MiMarkRetpolineBits(PsNtosImageBase);
+          RetpolineStubsFunctionTable = MiMarkRetpolineBits((__int64)PsNtosImageBase);
           if ( RetpolineStubsFunctionTable >= 0 )
           {
             if ( (unsigned int)RtlIsImageFullyRetpolined(PsHalImageBase)
-              && (RetpolineStubsFunctionTable = MiMarkRetpolineBits(PsHalImageBase), RetpolineStubsFunctionTable < 0) )
+              && (RetpolineStubsFunctionTable = MiMarkRetpolineBits((__int64)PsHalImageBase),
+                  RetpolineStubsFunctionTable < 0) )
             {
               BugCheckParameter4 = 166LL;
             }

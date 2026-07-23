@@ -1,5 +1,5 @@
 /*
- * XREFs of PspEnumerateCallback @ 0x140B00BA0
+ * XREFs of PspEnumerateCallback @ 0x140B028D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 __int64 __fastcall PspEnumerateCallback(int a1, _DWORD *a2, _QWORD *a3)
 {
-  union _RTL_RUN_ONCE *p_PropagateBoostsEntry; // rcx
+  _RTL_RUN_ONCE *p_PropagateBoostsEntry; // rcx
   __int64 v5; // rdx
   int v7; // ecx
 
@@ -19,7 +19,7 @@ __int64 __fastcall PspEnumerateCallback(int a1, _DWORD *a2, _QWORD *a3)
     {
       if ( v7 != 1 )
         return 0LL;
-      p_PropagateBoostsEntry = &PspLoadImageNotifyRoutine;
+      p_PropagateBoostsEntry = (_RTL_RUN_ONCE *)&NormalizationListLock.PropagateBoostsEntry;
     }
     else
     {
@@ -28,7 +28,7 @@ __int64 __fastcall PspEnumerateCallback(int a1, _DWORD *a2, _QWORD *a3)
   }
   else
   {
-    p_PropagateBoostsEntry = (union _RTL_RUN_ONCE *)&NormalizationListLock.PropagateBoostsEntry;
+    p_PropagateBoostsEntry = &PspCreateThreadNotifyRoutine;
   }
   v5 = (unsigned int)*a2;
   if ( (unsigned int)v5 < 0x40 )

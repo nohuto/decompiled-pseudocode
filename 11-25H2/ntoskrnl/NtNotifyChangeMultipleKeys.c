@@ -50,21 +50,21 @@
  *     CmObReferenceObjectByName @ 0x140BA9D80 (CmObReferenceObjectByName.c)
  */
 
-__int64 NtNotifyChangeMultipleKeys(
-        int a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        void (__stdcall *a5)(POPLOCK Oplock),
-        __int64 a6,
-        unsigned __int64 a7,
-        unsigned int a8,
-        unsigned __int8 a9,
-        unsigned __int64 a10,
-        unsigned int a11,
-        char a12,
-        ...)
+NTSTATUS __cdecl NtNotifyChangeMultipleKeys(
+        HANDLE MasterKeyHandle,
+        ULONG Count,
+        OBJECT_ATTRIBUTES SubordinateObjects[],
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        PVOID Buffer,
+        ULONG BufferSize,
+        BOOLEAN Asynchronous)
 {
+  int v14; // edi
   ULONG_PTR *v15; // r13
   int v16; // r15d
   __int64 v17; // rdx
@@ -76,7 +76,7 @@ __int64 NtNotifyChangeMultipleKeys(
   unsigned __int8 PreviousMode; // si
   _KPROCESS *Process; // rcx
   bool v25; // si
-  unsigned __int64 v26; // rcx
+  PIO_STATUS_BLOCK v26; // rcx
   unsigned __int64 v27; // rdx
   unsigned __int64 v28; // rdx
   unsigned __int64 v29; // rax
@@ -84,7 +84,7 @@ __int64 NtNotifyChangeMultipleKeys(
   unsigned __int64 v31; // rdx
   int v32; // r12d
   __int64 v33; // rcx
-  int v34; // ebx
+  NTSTATUS v34; // ebx
   _QWORD *v35; // rsi
   unsigned int v36; // edi
   __int64 v37; // r15
@@ -93,12 +93,12 @@ __int64 NtNotifyChangeMultipleKeys(
   __int64 v40; // rbx
   ULONG_PTR v41; // rcx
   unsigned int v42; // r15d
-  NTSTATUS v43; // edi
+  int v43; // edi
   PVOID v44; // rdi
   _QWORD *v45; // rax
   unsigned __int8 v46; // r9
   struct _KTHREAD *CurrentThread; // rdx
-  void (__stdcall *v48)(POPLOCK); // r8
+  void *v48; // r8
   __int64 v49; // rcx
   ULONG_PTR v50; // rcx
   __int64 v51; // rcx
@@ -157,12 +157,13 @@ __int64 NtNotifyChangeMultipleKeys(
   PVOID v105; // [rsp+60h] [rbp-268h]
   __int64 v106; // [rsp+68h] [rbp-260h]
   PVOID v107; // [rsp+70h] [rbp-258h] BYREF
-  __int64 v108; // [rsp+78h] [rbp-250h]
+  OBJECT_ATTRIBUTES *__attribute__((__org_arrdim(0,0))) v108; // [rsp+78h] [rbp-250h]
   _KAFFINITY_EX v109; // [rsp+80h] [rbp-248h] BYREF
 
-  v109.StaticBitmap[3] = a4;
-  v108 = a3;
-  v109.StaticBitmap[2] = a7;
+  v109.StaticBitmap[3] = (unsigned __int64)Event;
+  v108 = SubordinateObjects;
+  v14 = (int)MasterKeyHandle;
+  v109.StaticBitmap[2] = (unsigned __int64)IoStatusBlock;
   *(_OWORD *)&v109.Count = 0LL;
   v15 = 0LL;
   v107 = 0LL;
@@ -179,20 +180,20 @@ __int64 NtNotifyChangeMultipleKeys(
   if ( !v99 )
   {
     CmCleanupThreadInfo((_KAFFINITY_EX **)&v109);
-    return 3221225865LL;
+    return -1073741431;
   }
-  if ( a2 > 1 )
+  if ( Count > 1 )
   {
 LABEL_146:
     CmpReleaseShutdownRundown(v21);
     CmCleanupThreadInfo((_KAFFINITY_EX **)&v109);
-    return 3221225485LL;
+    return -1073741811;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v100 = PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a8 & 0x10000000) == 0 )
+    if ( (CompletionFilter & 0x10000000) == 0 )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
       v25 = 0;
@@ -203,11 +204,11 @@ LABEL_146:
           v25 = 1;
       }
       v101 = v25;
-      v26 = a7;
-      if ( (a7 & 3) == 0 )
+      v26 = IoStatusBlock;
+      if ( ((unsigned __int8)IoStatusBlock & 3) == 0 )
       {
-        v27 = a7 + 7 + 8 * !v25;
-        if ( a7 > v27 )
+        v27 = (unsigned __int64)&IoStatusBlock->Pointer + 8 * !v25 + 7;
+        if ( (unsigned __int64)IoStatusBlock > v27 )
           goto LABEL_22;
         v22 = -65536;
         if ( v27 >= 0x7FFFFFFF0000LL )
@@ -215,18 +216,18 @@ LABEL_146:
         v28 = (v27 & 0xFFFFFFFFFFFFF000uLL) + 4096;
         do
         {
-          *(_BYTE *)v26 = *(_BYTE *)v26;
-          v26 = (v26 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+          LOBYTE(v26->Status) = v26->Status;
+          v26 = (PIO_STATUS_BLOCK)(((unsigned __int64)v26 & 0xFFFFFFFFFFFFF000uLL) + 4096);
         }
-        while ( v26 != v28 );
-        v21 = a11;
-        if ( !a11 )
+        while ( v26 != (PIO_STATUS_BLOCK)v28 );
+        v21 = BufferSize;
+        if ( !BufferSize )
           goto LABEL_18;
-        v29 = a10;
-        if ( (a10 & 3) == 0 )
+        v29 = (unsigned __int64)Buffer;
+        if ( ((unsigned __int8)Buffer & 3) == 0 )
         {
-          v30 = a11 + a10 - 1;
-          if ( v30 < 0x7FFFFFFF0000LL && a10 <= v30 )
+          v30 = (unsigned __int64)Buffer + BufferSize - 1;
+          if ( v30 < 0x7FFFFFFF0000LL && (unsigned __int64)Buffer <= v30 )
           {
             v31 = (v30 & 0xFFFFFFFFFFFFF000uLL) + 4096;
             do
@@ -239,16 +240,16 @@ LABEL_146:
 LABEL_18:
             if ( v25 )
             {
-              *(_QWORD *)a7 = 259LL;
+              IoStatusBlock->Pointer = (PVOID)259;
             }
             else
             {
-              *(_DWORD *)a7 = 259;
-              *(_QWORD *)(a7 + 8) = 0LL;
+              IoStatusBlock->Status = 259;
+              IoStatusBlock->Information = 0LL;
             }
             v32 = 2;
             PreviousMode = v100;
-            if ( a12 )
+            if ( Asynchronous )
             {
               v16 = 2;
               v102 = 2;
@@ -261,7 +262,7 @@ LABEL_22:
       }
       ExRaiseDatatypeMisalignment();
     }
-    if ( !a12 || a5 || !a4 )
+    if ( !Asynchronous || ApcRoutine || !Event )
       goto LABEL_146;
     v16 = 4;
     v102 = 4;
@@ -269,32 +270,32 @@ LABEL_22:
   }
   else
   {
-    if ( a12 )
+    if ( Asynchronous )
     {
       v16 = 3;
       v102 = 3;
-      if ( a2 )
+      if ( Count )
         goto LABEL_146;
     }
     v32 = 2;
   }
 LABEL_26:
-  if ( a8 != (a8 & 0x1000000F) )
+  if ( CompletionFilter != (CompletionFilter & 0x1000000F) )
     goto LABEL_146;
-  v34 = CmObReferenceObjectByHandle(a1, 16, v22, PreviousMode, (__int64)&v107, 0LL);
+  v34 = CmObReferenceObjectByHandle(v14, 16, v22, PreviousMode, (__int64)&v107, 0LL);
   if ( v34 < 0 )
   {
     CmpReleaseShutdownRundown(v33);
     CmCleanupThreadInfo((_KAFFINITY_EX **)&v109);
-    return (unsigned int)v34;
+    return v34;
   }
   v105 = 0LL;
   v109.StaticBitmap[1] = 0LL;
-  if ( a2 == 1 )
+  if ( Count == 1 )
   {
     CmpInitializeParseContext((__int64)&v109.StaticBitmap[5]);
     v43 = CmObReferenceObjectByName(
-            v108,
+            (_DWORD)v108,
             0,
             16,
             v71,
@@ -362,15 +363,15 @@ LABEL_26:
     v40 = 0LL;
     v42 = v102;
   }
-  v108 = v40;
+  v108 = (OBJECT_ATTRIBUTES *)v40;
   if ( !v40 )
   {
-    if ( a2 == 1 )
+    if ( Count == 1 )
       ObfDereferenceObject(v15);
     v43 = -1073741670;
     goto LABEL_67;
   }
-  if ( a2 == 1 )
+  if ( Count == 1 )
   {
     P = (__int64 *)CmpAllocatePostBlock(v42, 0LL, v15, v40);
     if ( !P )
@@ -400,7 +401,7 @@ LABEL_26:
               0LL);
       if ( v43 < 0 )
       {
-        if ( a2 == 1 )
+        if ( Count == 1 )
           CmpFreePostBlock(P);
         v56 = *(_QWORD *)(v40 + 48);
         if ( v56 )
@@ -426,12 +427,12 @@ LABEL_26:
       v45[13] = v109.StaticBitmap[2];
       *(_QWORD *)(*(_QWORD *)(v40 + 64) + 8LL) = v44;
       v46 = v100;
-      if ( !a5 )
+      if ( !ApcRoutine )
         v46 = 0;
       CurrentThread = KeGetCurrentThread();
       v48 = AlpcMessageDeleteProcedure;
-      if ( a5 )
-        v48 = a5;
+      if ( ApcRoutine )
+        v48 = ApcRoutine;
       KeInitializeApc(
         *(_QWORD *)(v40 + 64) + 16LL,
         (__int64)CurrentThread,
@@ -440,7 +441,7 @@ LABEL_26:
         (__int64)CmpPostApcRunDown,
         (__int64)v48,
         v46,
-        a6);
+        (__int64)ApcContext);
       v35 = v107;
       v15 = (ULONG_PTR *)v109.StaticBitmap[1];
       v105 = (PVOID)v109.StaticBitmap[1];
@@ -450,15 +451,15 @@ LABEL_26:
       *v45 = v44;
       if ( v42 != 4 )
       {
-        *(_QWORD *)(*(_QWORD *)(v40 + 64) + 8LL) = a5;
+        *(_QWORD *)(*(_QWORD *)(v40 + 64) + 8LL) = ApcRoutine;
         v39 = *(struct _KEVENT **)(v40 + 64);
-        LODWORD(v39->Header.WaitListHead.Blink) = a6;
+        LODWORD(v39->Header.WaitListHead.Blink) = (_DWORD)ApcContext;
       }
     }
   }
   CmpLockRegistry(v39);
   v49 = v35[1];
-  if ( a2 == 1 )
+  if ( Count == 1 )
     CmpLockTwoKcbsShared(v49, v15[1]);
   else
     CmpLockKcbShared(v49);
@@ -466,14 +467,14 @@ LABEL_26:
   {
 LABEL_56:
     v50 = v35[1];
-    if ( a2 == 1 )
+    if ( Count == 1 )
       CmpUnlockTwoKcbs(v50, v15[1]);
     else
       CmpUnlockKcb(v50);
     CmpUnlockRegistry(v51);
     if ( v44 )
       ObfDereferenceObject(v44);
-    if ( a2 == 1 )
+    if ( Count == 1 )
       CmpFreePostBlock(P);
     v52 = *(_QWORD *)(v40 + 48);
     if ( v52 )
@@ -487,7 +488,7 @@ LABEL_56:
     v43 = -1073741444;
     goto LABEL_67;
   }
-  if ( a2 != 1 )
+  if ( Count != 1 )
     goto LABEL_90;
   if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(v15, 0LL) )
     goto LABEL_56;
@@ -516,7 +517,7 @@ LABEL_90:
     v106 = *(_QWORD *)(v15[1] + 32);
   }
   ExAcquireFastMutexUnsafe(&CmpPostLock);
-  v43 = CmpNotifyChangeKey(v35, v40, a8, a9);
+  v43 = CmpNotifyChangeKey(v35, v40, CompletionFilter, WatchTree);
   if ( v43 < 0 )
   {
     ExReleaseFastMutexUnsafe(&CmpPostLock);
@@ -536,19 +537,19 @@ LABEL_90:
     }
     CmUnlockHive(v85);
     v91 = v35[1];
-    if ( a2 == 1 )
+    if ( Count == 1 )
       CmpUnlockTwoKcbs(v91, v15[1]);
     else
       CmpUnlockKcb(v91);
     CmpUnlockRegistry(v92);
     if ( Object )
       ObfDereferenceObject(Object);
-    if ( a2 == 1 )
+    if ( Count == 1 )
       CmpFreePostBlock(P);
     goto LABEL_67;
   }
-  v58 = a2 == 1;
-  if ( a2 != 1 )
+  v58 = Count == 1;
+  if ( Count != 1 )
     goto LABEL_93;
   PsReferenceSiloContext(v105);
   if ( !v43 )
@@ -560,7 +561,7 @@ LABEL_93:
     goto LABEL_94;
   }
   v59 = (ULONG_PTR *)v105;
-  v43 = CmpNotifyChangeKey(v105, P, a8, a9);
+  v43 = CmpNotifyChangeKey(v105, P, CompletionFilter, WatchTree);
   if ( v43 < 0 )
   {
     v75 = *(_QWORD *)v40;
@@ -602,7 +603,7 @@ LABEL_94:
   }
   CmUnlockHive(v60);
   v61 = v35[1];
-  if ( a2 == 1 )
+  if ( Count == 1 )
     CmpUnlockTwoKcbs(v61, v59[1]);
   else
     CmpUnlockKcb(v61);
@@ -743,5 +744,5 @@ LABEL_68:
   if ( v53 )
     CmpReleaseShutdownRundown(v54);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v109);
-  return (unsigned int)v43;
+  return v43;
 }

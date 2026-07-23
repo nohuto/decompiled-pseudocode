@@ -1,9 +1,9 @@
 /*
- * XREFs of MmSetMinimumAgeRate @ 0x140A9B73C
+ * XREFs of MmSetMinimumAgeRate @ 0x140A96CAC
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
  * Callees:
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
  */
 
 _QWORD *__fastcall MmSetMinimumAgeRate(unsigned int a1)

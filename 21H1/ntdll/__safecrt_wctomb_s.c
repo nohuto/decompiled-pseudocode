@@ -8,14 +8,13 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int _safecrt_wctomb_s(int *a1, _BYTE *a2, size_t Size, ...)
+int __cdecl _safecrt_wctomb_s(ULONG *a1, PCHAR MultiByteString, ULONG MaxBytesInMultiByteString, WCHAR UnicodeString)
 {
-  int v4; // eax
-  int v6; // [esp+Ch] [ebp-4h] BYREF
-  va_list va; // [esp+24h] [ebp+14h] BYREF
+  ULONG v5; // eax
+  size_t v6; // [esp-4h] [ebp-14h]
+  ULONG BytesInMultiByteString; // [esp+Ch] [ebp-4h] BYREF
 
-  va_start(va, Size);
-  if ( !a2 && Size )
+  if ( !MultiByteString && MaxBytesInMultiByteString )
   {
     if ( a1 )
       *a1 = 0;
@@ -23,31 +22,34 @@ int _safecrt_wctomb_s(int *a1, _BYTE *a2, size_t Size, ...)
   }
   if ( a1 )
     *a1 = -1;
-  if ( Size > 0x7FFFFFFF )
+  if ( MaxBytesInMultiByteString > 0x7FFFFFFF )
   {
     _invalid_parameter();
     return 22;
   }
-  if ( a2 )
+  if ( MultiByteString )
   {
-    v6 = 0;
-    if ( RtlUnicodeToMultiByteN(a2, Size, (unsigned int *)&v6, (unsigned __int16 *)va, 2u) < 0 )
+    BytesInMultiByteString = 0;
+    if ( RtlUnicodeToMultiByteN(MultiByteString, MaxBytesInMultiByteString, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
     {
-      if ( Size )
-        memset(a2, 0, Size);
+      if ( MaxBytesInMultiByteString )
+      {
+        LODWORD(v6) = MaxBytesInMultiByteString;
+        memset(MultiByteString, 0, v6);
+      }
       return 42;
     }
     if ( a1 )
     {
-      v4 = v6;
+      v5 = BytesInMultiByteString;
       goto LABEL_19;
     }
   }
   else if ( a1 )
   {
-    v4 = __mb_cur_max;
+    v5 = __mb_cur_max;
 LABEL_19:
-    *a1 = v4;
+    *a1 = v5;
   }
   return 0;
 }

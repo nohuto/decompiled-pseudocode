@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaGetDefaultRemappingDomainPolicy @ 0x140578DC0
+ * XREFs of HalpDmaGetDefaultRemappingDomainPolicy @ 0x14057B2F0
  * Callers:
- *     HalpDmaAllocateChildAdapterV3 @ 0x14078041C (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140782F1C (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x1404C55D0 (HalpGetCpuInfo.c)
- *     IommupHvIsStage1DmarCompatible @ 0x14059E728 (IommupHvIsStage1DmarCompatible.c)
+ *     HalpGetCpuInfo @ 0x1404BEF80 (HalpGetCpuInfo.c)
+ *     IommupHvIsStage1DmarCompatible @ 0x1405A0F08 (IommupHvIsStage1DmarCompatible.c)
  */
 
 __int64 __fastcall HalpDmaGetDefaultRemappingDomainPolicy(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlRemoveInvertedFunctionTable @ 0x180006734
+ * XREFs of RtlRemoveInvertedFunctionTable @ 0x180033134
  * Callers:
- *     LdrpUnmapModule @ 0x1800067C8 (LdrpUnmapModule.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpUnmapModule @ 0x1800331C8 (LdrpUnmapModule.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlxRemoveInvertedFunctionTable @ 0x180006770 (RtlxRemoveInvertedFunctionTable.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlxRemoveInvertedFunctionTable @ 0x180033170 (RtlxRemoveInvertedFunctionTable.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlRemoveInvertedFunctionTable(__int64 a1)
+void __fastcall RtlRemoveInvertedFunctionTable(__int64 a1)
 {
   __int64 v2; // rcx
 
   RtlAcquireSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
   RtlxRemoveInvertedFunctionTable(v2, a1);
-  return RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
+  RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateSkipPagesForMdl @ 0x140533F00
+ * XREFs of MiAllocateSkipPagesForMdl @ 0x140534140
  * Callers:
- *     MiFindPagesForMdl @ 0x1402E40DC (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x14029542C (MiFindPagesForMdl.c)
  * Callees:
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
  */
 
 __int64 __fastcall MiAllocateSkipPagesForMdl(__int64 a1, unsigned int a2, int a3)

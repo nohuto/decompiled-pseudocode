@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcDisconnectPort @ 0x14015AC80
+ * XREFs of ZwAlpcDisconnectPort @ 0x14015B1F0
  * Callers:
- *     DbgkRegisterErrorPort @ 0x14057B984 (DbgkRegisterErrorPort.c)
+ *     DbgkRegisterErrorPort @ 0x14057BE30 (DbgkRegisterErrorPort.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDisconnectPort(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcDisconnectPort(HANDLE PortHandle, ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

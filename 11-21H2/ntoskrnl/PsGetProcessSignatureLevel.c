@@ -1,7 +1,7 @@
 /*
  * XREFs of PsGetProcessSignatureLevel @ 0x1403A1460
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
+ *     sub_14066D650 @ 0x14066D650 (sub_14066D650.c)
  * Callees:
  *     <none>
  */

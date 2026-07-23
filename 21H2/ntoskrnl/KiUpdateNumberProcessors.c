@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUpdateNumberProcessors @ 0x1409AF5B4
+ * XREFs of KiUpdateNumberProcessors @ 0x1409B04E4
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x1409AF390 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x1409B02C0 (KiInitializeDynamicProcessorDpc.c)
  * Callees:
- *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeIpiGenericCall @ 0x1403A4C70 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 ULONG_PTR __fastcall KiUpdateNumberProcessors(int a1)

@@ -9,7 +9,7 @@
  *     KiTpEmulateRegisterPushPop @ 0x140AF426C (KiTpEmulateRegisterPushPop.c)
  *     KiTpReadOperandValue @ 0x140AF4594 (KiTpReadOperandValue.c)
  * Callees:
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
 __int64 __fastcall KiTpAccessMemory(

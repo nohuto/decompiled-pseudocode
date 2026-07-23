@@ -7,13 +7,13 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall sub_18005A9FC(__int64 a1)
+__int64 __fastcall sub_18005A9FC(PVOID BaseAddress)
 {
   unsigned int v1; // ebx
 
   v1 = 0;
-  if ( a1 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  if ( BaseAddress )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   else
     return (unsigned int)-1073741811;
   return v1;

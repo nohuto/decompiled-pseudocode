@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 NtAllocateReserveObject()
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 114LL;
+  result = 114;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,13 +1,13 @@
 /*
- * XREFs of BiMapEfiDeviceForSpaces @ 0x140373F70
+ * XREFs of BiMapEfiDeviceForSpaces @ 0x140374110
  * Callers:
- *     BiUpdateBcdObject @ 0x140804304 (BiUpdateBcdObject.c)
+ *     BiUpdateBcdObject @ 0x1408045D4 (BiUpdateBcdObject.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
- *     SyspartGetSystemPartition @ 0x140A5F30C (SyspartGetSystemPartition.c)
- *     SyspartIsSpace @ 0x140A5F378 (SyspartIsSpace.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
+ *     SyspartGetSystemPartition @ 0x140A5F5BC (SyspartGetSystemPartition.c)
+ *     SyspartIsSpace @ 0x140A5F628 (SyspartIsSpace.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -16,7 +16,7 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
 {
   int v3; // eax
   int SystemPartition; // edi
-  __int64 Pool2; // rax
+  void *Pool2; // rax
   void *v9; // rsi
   size_t v10; // r15
   unsigned int v11; // r14d
@@ -26,7 +26,7 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
   size_t v15; // r8
   void *v16; // rbx
   char v17; // [rsp+60h] [rbp+8h] BYREF
-  size_t Size; // [rsp+78h] [rbp+20h] BYREF
+  size_t Size; // [rsp+78h] [rbp+20h]
 
   v3 = *(_DWORD *)(a1 + 48);
   v17 = 0;
@@ -34,14 +34,14 @@ __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned
   SystemPartition = 0;
   if ( (v3 & 8) == 0 )
   {
-    SystemPartition = SyspartGetSystemPartition(0LL, 0LL, &Size);
+    SystemPartition = SyspartGetSystemPartition(0LL);
     if ( (int)(SystemPartition + 0x80000000) < 0 || SystemPartition == -1073741789 )
     {
-      Pool2 = ExAllocatePool2(258LL, (unsigned int)Size, 1262764866LL);
-      v9 = (void *)Pool2;
+      Pool2 = (void *)ExAllocatePool2(258LL, (unsigned int)Size, 1262764866LL);
+      v9 = Pool2;
       if ( Pool2 )
       {
-        SystemPartition = SyspartGetSystemPartition(Pool2, (unsigned int)Size, &Size);
+        SystemPartition = SyspartGetSystemPartition(Pool2);
         if ( SystemPartition >= 0 )
         {
           SystemPartition = SyspartIsSpace(v9, &v17);

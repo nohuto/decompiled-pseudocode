@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMapPhysicalPages @ 0x140579BCC
+ * XREFs of PnprMapPhysicalPages @ 0x14057ABCC
  * Callers:
- *     PnprMapTargetSparePhysicalPages @ 0x140579D90 (PnprMapTargetSparePhysicalPages.c)
+ *     PnprMapTargetSparePhysicalPages @ 0x14057AD90 (PnprMapTargetSparePhysicalPages.c)
  * Callees:
- *     MmMapLockedPagesWithReservedMapping @ 0x14018E920 (MmMapLockedPagesWithReservedMapping.c)
- *     MmUnmapReservedMapping @ 0x1402A9820 (MmUnmapReservedMapping.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14018EA60 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmUnmapReservedMapping @ 0x1402A9A10 (MmUnmapReservedMapping.c)
  */
 
 __int64 __fastcall PnprMapPhysicalPages(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, _QWORD *a4)

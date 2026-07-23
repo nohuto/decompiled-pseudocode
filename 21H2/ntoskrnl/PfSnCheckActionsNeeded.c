@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnCheckActionsNeeded @ 0x1406CB1FC
+ * XREFs of PfSnCheckActionsNeeded @ 0x140679AEC
  * Callers:
- *     PfSnBeginScenario @ 0x1406CBBC4 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x14067A4B4 (PfSnBeginScenario.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetPagePriorityThread @ 0x1402427D0 (PsGetPagePriorityThread.c)
- *     MmQueryMemoryListInformation @ 0x1402D4240 (MmQueryMemoryListInformation.c)
- *     MmGetDefaultPagePriority @ 0x1402D47AC (MmGetDefaultPagePriority.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PfpGetPageListCount @ 0x1406C9D98 (PfpGetPageListCount.c)
- *     PfSnPrefetchCacheEntryGet @ 0x1406C9FB4 (PfSnPrefetchCacheEntryGet.c)
+ *     MmQueryMemoryListInformation @ 0x140272F20 (MmQueryMemoryListInformation.c)
+ *     MmGetDefaultPagePriority @ 0x14027348C (MmGetDefaultPagePriority.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     PsGetPagePriorityThread @ 0x1402E7020 (PsGetPagePriorityThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PfpGetPageListCount @ 0x140678688 (PfpGetPageListCount.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1406788A4 (PfSnPrefetchCacheEntryGet.c)
  */
 
 __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a3, int *a4, int *a5)
@@ -42,22 +42,25 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
   unsigned int v30; // eax
   unsigned int v31; // edx
   int v32; // eax
-  int v34; // [rsp+30h] [rbp-118h] BYREF
-  _DWORD v35[3]; // [rsp+34h] [rbp-114h] BYREF
-  int *v36; // [rsp+40h] [rbp-108h]
-  int *v37; // [rsp+48h] [rbp-100h]
-  _OWORD v38[11]; // [rsp+50h] [rbp-F8h] BYREF
+  __int64 v33; // rdx
+  __int64 v34; // r8
+  __int64 v35; // r9
+  int v37; // [rsp+30h] [rbp-118h] BYREF
+  _DWORD v38[3]; // [rsp+34h] [rbp-114h] BYREF
+  int *v39; // [rsp+40h] [rbp-108h]
+  int *v40; // [rsp+48h] [rbp-100h]
+  _OWORD v41[11]; // [rsp+50h] [rbp-F8h] BYREF
 
-  *(_QWORD *)&v35[1] = a1;
-  v37 = a5;
-  v36 = a4;
-  memset(v38, 0, sizeof(v38));
-  v35[0] = 0;
+  *(_QWORD *)&v38[1] = a1;
+  v40 = a5;
+  v39 = a4;
+  memset(v41, 0, sizeof(v41));
+  v38[0] = 0;
   v8 = 3;
-  v34 = 0;
+  v37 = 0;
   v9 = 3;
   v10 = 23;
-  if ( (dword_140C502B0 & 8) != 0 )
+  if ( (dword_140C502F0 & 8) != 0 )
   {
     v10 = 22;
     v8 = 22;
@@ -77,7 +80,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
     }
     else
     {
-      if ( (dword_140C50550 & 0x10) != 0 && !a2 )
+      if ( (dword_140C50590 & 0x10) != 0 && !a2 )
       {
         v9 = 1;
         v10 = 14;
@@ -99,19 +102,19 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
       }
       while ( v17 );
       v19 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-      MmQueryMemoryListInformation((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, v38, 0xB0u, (__int64)v15, v35);
-      v20 = (unsigned __int64)(PfpGetPageListCount((__int64)&v38[6] + 8, 0, 7u) << 12) >> 18;
-      v22 = (unsigned __int64)(PfpGetPageListCount((__int64)&v38[6] + 8, v13, v21) << 12) >> 18;
-      PageListCount = PfpGetPageListCount((__int64)&v38[6] + 8, v14, v23);
+      MmQueryMemoryListInformation((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, v41, 0xB0u, (__int64)v15, v38);
+      v20 = (unsigned __int64)(PfpGetPageListCount((__int64)&v41[6] + 8, 0, 7u) << 12) >> 18;
+      v22 = (unsigned __int64)(PfpGetPageListCount((__int64)&v41[6] + 8, v13, v21) << 12) >> 18;
+      PageListCount = PfpGetPageListCount((__int64)&v41[6] + 8, v14, v23);
       CurrentThread = KeGetCurrentThread();
       v26 = (unsigned __int64)(PageListCount << 12) >> 18;
       --CurrentThread->KernelApcDisable;
-      ExAcquireResourceExclusiveLite(&stru_140C504E0, 1u);
-      v27 = PfSnPrefetchCacheEntryGet((__int64)&unk_140C504B8, *(_OWORD **)&v35[1], v16, &v34);
+      ExAcquireResourceExclusiveLite(&stru_140C50520, 1u);
+      v27 = PfSnPrefetchCacheEntryGet((__int64)&unk_140C504F8, *(_OWORD **)&v38[1], v16, &v37);
       v28 = (_DWORD *)v27;
       if ( v27 )
       {
-        if ( v34 )
+        if ( v37 )
         {
           v8 = 13;
           if ( v9 >= 2 )
@@ -129,7 +132,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
           if ( v31 >= 2 )
           {
             v10 = 4;
-            if ( (dword_140C502B0 & 2) == 0 )
+            if ( (dword_140C502F0 & 2) == 0 )
             {
               if ( v29 >= 0x1B7740 )
               {
@@ -159,11 +162,11 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a
       {
         v10 = 3;
       }
-      ExReleaseResourceLite(&stru_140C504E0);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      ExReleaseResourceLite(&stru_140C50520);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v33, v34, v35);
     }
   }
-  *v36 = v8;
-  *v37 = v10;
+  *v39 = v8;
+  *v40 = v10;
   return v9;
 }

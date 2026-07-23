@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTraceStandbyConnectivityUpdate @ 0x14085ADC8
+ * XREFs of PopTraceStandbyConnectivityUpdate @ 0x14085B008
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x1403AD840 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetEvaluationWorkerCallback @ 0x1403ADA20 (PopNetEvaluationWorkerCallback.c)
  *     PopNetInitialize @ 0x140B51D9C (PopNetInitialize.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
@@ -60,7 +60,7 @@ char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
       v22 = 8;
       LOBYTE(v2) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C03950,
-                     (unsigned __int8 *)byte_14002E9F3,
+                     (unsigned __int8 *)&word_14002EC6E,
                      0LL,
                      0LL,
                      5u,

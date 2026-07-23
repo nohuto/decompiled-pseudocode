@@ -1,8 +1,8 @@
 /*
- * XREFs of MmLocateUnloadedDriver @ 0x14066C3F8
+ * XREFs of MmLocateUnloadedDriver @ 0x14066D5C8
  * Callers:
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
- *     KiDumpParameterImages @ 0x1405B3C54 (KiDumpParameterImages.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
+ *     KiDumpParameterImages @ 0x1405B0BC8 (KiDumpParameterImages.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiIssueSynchronousFlush @ 0x1403731E8
+ * XREFs of MiIssueSynchronousFlush @ 0x14025BAA8
  * Callers:
- *     MiFlushSection @ 0x14023A550 (MiFlushSection.c)
+ *     MiFlushSection @ 0x140272630 (MiFlushSection.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x140253C60 (IopQueueThreadIrp.c)
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     MmIsFileObjectAPagingFile @ 0x140373D0C (MmIsFileObjectAPagingFile.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     IoSetDiskIoAttributionFromThread @ 0x140374220 (IoSetDiskIoAttributionFromThread.c)
- *     IopSetDiskIoAttributionExtension @ 0x1403743E4 (IopSetDiskIoAttributionExtension.c)
- *     IopAllocateReserveIrp @ 0x140374518 (IopAllocateReserveIrp.c)
- *     IopAllocateBackpocketIrp @ 0x140595CD8 (IopAllocateBackpocketIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     MmIsFileObjectAPagingFile @ 0x14025C5CC (MmIsFileObjectAPagingFile.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14025CAE0 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14025CCA4 (IopSetDiskIoAttributionExtension.c)
+ *     IopAllocateReserveIrp @ 0x14025CDD8 (IopAllocateReserveIrp.c)
+ *     IopQueueThreadIrp @ 0x140284270 (IopQueueThreadIrp.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IopAllocateBackpocketIrp @ 0x140592D08 (IopAllocateBackpocketIrp.c)
  */
 
 int __fastcall MiIssueSynchronousFlush(
@@ -34,20 +34,18 @@ int __fastcall MiIssueSynchronousFlush(
   int v18; // eax
   ULONG Flags; // eax
   ULONG ByteCount; // eax
-  __int64 v21; // rdx
-  __int64 v22; // r8
   int result; // eax
-  __int64 v24; // rdx
-  __int64 v25; // rcx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
   __int64 BackpocketIrp; // rax
-  struct _KTHREAD *v27; // rcx
+  struct _KTHREAD *v25; // rcx
   _DWORD Object[2]; // [rsp+30h] [rbp-38h] BYREF
-  _QWORD v29[3]; // [rsp+38h] [rbp-30h] BYREF
+  _QWORD v27[3]; // [rsp+38h] [rbp-30h] BYREF
 
   Object[1] = 0;
   Object[0] = 393216;
-  v29[1] = v29;
-  v29[0] = v29;
+  v27[1] = v27;
+  v27[0] = v27;
   SectionObjectPointer = a1->SectionObjectPointer;
   if ( SectionObjectPointer && SectionObjectPointer->SharedCacheMap )
   {
@@ -56,15 +54,15 @@ int __fastcall MiIssueSynchronousFlush(
   }
   RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
   LOBYTE(v12) = RelatedDeviceObject->StackSize;
-  Irp = (IRP *)IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v12, 0LL);
+  Irp = (IRP *)IopAllocateIrpExReturn(RelatedDeviceObject, v12, 0LL);
   if ( Irp
     || (!(unsigned int)MmIsFileObjectAPagingFile(a1)
       ? (_InterlockedIncrement(&IoSynchronousPageWriteNonPagefileIrpAllocationFailure),
-         LOBYTE(v24) = RelatedDeviceObject->StackSize,
-         BackpocketIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v24, 0LL))
+         LOBYTE(v22) = RelatedDeviceObject->StackSize,
+         BackpocketIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v22, 0LL))
       : (_InterlockedIncrement(&IoSynchronousPageWriteIrpAllocationFailure),
-         LOBYTE(v24) = RelatedDeviceObject->StackSize,
-         BackpocketIrp = IopAllocateReserveIrp(v25, v24, 1LL)),
+         LOBYTE(v22) = RelatedDeviceObject->StackSize,
+         BackpocketIrp = IopAllocateReserveIrp(v23, v22, 1LL)),
         (Irp = (IRP *)BackpocketIrp) != 0LL) )
   {
     Irp->AllocationFlags |= 0x20u;
@@ -88,9 +86,9 @@ int __fastcall MiIssueSynchronousFlush(
       }
       else
       {
-        v27 = KeGetCurrentThread();
-        if ( (v27->MiscFlags & 0x400) != 0
-          || v27->PreviousMode == 1
+        v25 = KeGetCurrentThread();
+        if ( (v25->MiscFlags & 0x400) != 0
+          || v25->PreviousMode == 1
           || ((__int64)KeGetCurrentThread()[1].Queue & 0x40) != 0
           || KeGetCurrentThread()[1].TrapFrame == (_KTRAP_FRAME *)2 )
         {
@@ -121,7 +119,7 @@ int __fastcall MiIssueSynchronousFlush(
       IopSetDiskIoAttributionExtension(Irp, *(_QWORD *)(a5 + 24), Irp->Tail.Overlay.Thread, 0LL);
     else
       IoSetDiskIoAttributionFromThread(Irp, Irp->Tail.Overlay.Thread);
-    IopQueueThreadIrp((__int64)Irp, v21, v22);
+    IopQueueThreadIrp(Irp);
     result = IofCallDriver(RelatedDeviceObject, Irp);
     if ( result >= 0 )
       return KeWaitForSingleObject(Object, WrPageOut, 0, 0, 0LL);

@@ -13,7 +13,7 @@
 __int64 PopPolicyTimeChange()
 {
   ExAcquireTimeRefreshLock(1u);
-  ZwUpdateWnfStateData((__int64)&WNF_PO_SYSTEM_TIME_CHANGED, (__int64)&PopTimeChangeInfo);
+  ZwUpdateWnfStateData(&WNF_PO_SYSTEM_TIME_CHANGED, &PopTimeChangeInfo, 0x10u, 0LL, 0LL, 0, 0);
   ExReleaseResourceLite(&ExpTimeRefreshLock);
   KeLeaveCriticalRegion();
   PopEventCalloutDispatch(3, 0LL);

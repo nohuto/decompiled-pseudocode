@@ -1,9 +1,9 @@
 /*
- * XREFs of WmiAcquireSmbiosLockExclusive @ 0x140822644
+ * XREFs of WmiAcquireSmbiosLockExclusive @ 0x140828854
  * Callers:
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN WmiAcquireSmbiosLockExclusive()
@@ -12,5 +12,5 @@ BOOLEAN WmiAcquireSmbiosLockExclusive()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  return ExAcquireResourceExclusiveLite((PERESOURCE)&EtwpSecurityLock.WpsFeedback, 1u);
+  return ExAcquireResourceExclusiveLite(&WmipSMBiosLock, 1u);
 }

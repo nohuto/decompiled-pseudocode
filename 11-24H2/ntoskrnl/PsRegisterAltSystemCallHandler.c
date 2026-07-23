@@ -1,23 +1,23 @@
 /*
- * XREFs of PsRegisterAltSystemCallHandler @ 0x140779BC0
+ * XREFs of PsRegisterAltSystemCallHandler @ 0x140779CC0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v5; // rax
+  char *v5; // rax
   signed __int8 v6; // cf
-  _QWORD *v7; // rdi
+  char *v7; // rdi
   signed __int64 v8; // rax
   signed __int64 v9; // rdx
   ULONG_PTR v10; // rtt
@@ -30,16 +30,13 @@ __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2)
     KeBugCheckEx(0x1E0u, 3uLL, 0LL, 0LL, 0LL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock, 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock, 0LL);
   v6 = _interlockedbittestandset64((volatile signed __int32 *)&PsAltSystemCallRegistrationLock, 0LL);
   v7 = v5;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(
-      &PsAltSystemCallRegistrationLock,
-      (__int64)v5,
-      (__int64)&PsAltSystemCallRegistrationLock);
+    ExfAcquirePushLockExclusiveEx(&PsAltSystemCallRegistrationLock, v5, (__int64)&PsAltSystemCallRegistrationLock);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   _m_prefetchw(&PsAltSystemCallRegistrationLock);
   v8 = PsAltSystemCallRegistrationLock;
   v9 = PsAltSystemCallRegistrationLock - 16;

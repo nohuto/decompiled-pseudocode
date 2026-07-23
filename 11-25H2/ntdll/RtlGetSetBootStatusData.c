@@ -8,71 +8,62 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlGetSetBootStatusData(int a1, char a2, int a3, _BYTE *a4, int a5, _DWORD *a6)
+NTSTATUS __cdecl RtlGetSetBootStatusData(
+        HANDLE FileHandle,
+        BOOLEAN Read,
+        RTL_BSD_ITEM_TYPE DataClass,
+        PVOID Buffer,
+        ULONG BufferSize,
+        PULONG ReturnLength)
 {
-  int v10; // edx
-  __int64 result; // rax
-  int v12; // edx
-  __int64 v13; // rcx
-  char v14; // al
-  _BYTE *v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // rdx
-  _BYTE v18[4]; // [rsp+30h] [rbp-D0h] BYREF
-  _DWORD v19[3]; // [rsp+34h] [rbp-CCh] BYREF
-  _BYTE v20[208]; // [rsp+40h] [rbp-C0h] BYREF
+  NTSTATUS result; // eax
+  __int64 v11; // rcx
+  char v12; // al
+  _BYTE *v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // rdx
+  __int64 v16; // [rsp+34h] [rbp-CCh] BYREF
+  _BYTE v17[208]; // [rsp+40h] [rbp-C0h] BYREF
 
-  v19[0] = 0;
-  v18[0] = 0;
-  memset_thunk_772440563353939046(v20, 0, 0xC8uLL);
-  if ( a2 )
+  LODWORD(v16) = 0;
+  memset_thunk_772440563353939046(v17, 0, 0xC8uLL);
+  if ( Read )
+    return RtlpGetSetBootStatusData(FileHandle, BufferSize, (__int64)ReturnLength);
+  if ( DataClass == RtlBsdItemChecksum )
+    return -1073741811;
+  result = RtlpGetSetBootStatusData(FileHandle, 1, 0LL);
+  if ( result >= 0 )
   {
-    LOBYTE(v10) = 1;
-    return RtlpGetSetBootStatusData(a1, v10, a3, (_DWORD)a4, a5, (__int64)a6);
-  }
-  else if ( a3 == 15 )
-  {
-    return 3221225485LL;
-  }
-  else
-  {
-    LOBYTE(v10) = 1;
-    result = RtlpGetSetBootStatusData(a1, v10, 15, (unsigned int)v18, 1, 0LL);
-    if ( (int)result >= 0 )
+    result = RtlpGetSetBootStatusData(FileHandle, 200, 0LL);
+    if ( result >= 0 )
     {
-      LOBYTE(v12) = 1;
-      result = RtlpGetSetBootStatusData(a1, v12, a3, (unsigned int)v20, 200, 0LL);
-      if ( (int)result >= 0 )
+      result = RtlpGetSetBootStatusData(FileHandle, BufferSize, (__int64)&v16);
+      if ( result >= 0 )
       {
-        result = RtlpGetSetBootStatusData(a1, 0, a3, (_DWORD)a4, a5, (__int64)v19);
-        if ( (int)result >= 0 )
+        v11 = (unsigned int)v16;
+        if ( ReturnLength )
+          *ReturnLength = v16;
+        v12 = 0;
+        if ( (_DWORD)v11 )
         {
-          v13 = v19[0];
-          if ( a6 )
-            *a6 = v19[0];
-          v14 = v18[0];
-          if ( (_DWORD)v13 )
+          v13 = v17;
+          v14 = v11;
+          do
           {
-            v15 = v20;
-            v16 = v13;
-            do
-            {
-              v14 += *v15++;
-              --v16;
-            }
-            while ( v16 );
-            v18[0] = v14;
-            v17 = v13;
-            do
-            {
-              v14 -= *a4++;
-              --v17;
-            }
-            while ( v17 );
-            v18[0] = v14;
+            v12 += *v13++;
+            --v14;
           }
-          return RtlpGetSetBootStatusData(a1, 0, 15, (unsigned int)v18, 1, 0LL);
+          while ( v14 );
+          v15 = v11;
+          do
+          {
+            v12 -= *(_BYTE *)Buffer;
+            Buffer = (char *)Buffer + 1;
+            --v15;
+          }
+          while ( v15 );
         }
+        return RtlpGetSetBootStatusData(FileHandle, 1, 0LL);
       }
     }
   }

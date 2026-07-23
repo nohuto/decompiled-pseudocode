@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpBlockTwoHiveWrites @ 0x140672454
+ * XREFs of CmpBlockTwoHiveWrites @ 0x140667684
  * Callers:
- *     CmpVirtualBranchIsReplicated @ 0x1406720EC (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x140870E50 (CmpVirtualPathPresent.c)
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1406647D4 (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x140870FB0 (CmpVirtualPathPresent.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
- *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
+ *     CmpGetNextActiveHive @ 0x140667750 (CmpGetNextActiveHive.c)
+ *     CmpReferenceHive @ 0x1406DBA08 (CmpReferenceHive.c)
  */
 
 __int64 __fastcall CmpBlockTwoHiveWrites(__int64 a1, __int64 a2, char a3)
@@ -21,7 +21,7 @@ __int64 __fastcall CmpBlockTwoHiveWrites(__int64 a1, __int64 a2, char a3)
   struct _EX_RUNDOWN_REF *i; // rcx
   __int64 NextActiveHive; // rax
   struct _EX_RUNDOWN_REF *v10; // rbx
-  void *v12; // rcx
+  _QWORD *v12; // rcx
 
   v3 = 0;
   v4 = 0;
@@ -42,7 +42,7 @@ __int64 __fastcall CmpBlockTwoHiveWrites(__int64 a1, __int64 a2, char a3)
         v4 = 1;
       if ( (!a1 || v3 == 1) && (!a2 || v4 == 1) )
       {
-        ExReleaseRundownProtection_0(v10 + 204);
+        ExReleaseRundownProtection(v10 + 204);
         break;
       }
     }
@@ -56,7 +56,7 @@ __int64 __fastcall CmpBlockTwoHiveWrites(__int64 a1, __int64 a2, char a3)
     KeAbPostRelease(a1 + 72);
     if ( !a3 || _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4272), 0xFFFFFFFF) != 1 )
       return 3221225524LL;
-    v12 = (void *)a1;
+    v12 = (_QWORD *)a1;
   }
   else
   {
@@ -67,7 +67,7 @@ __int64 __fastcall CmpBlockTwoHiveWrites(__int64 a1, __int64 a2, char a3)
     KeAbPostRelease(a2 + 72);
     if ( !a3 || _InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 4272), 0xFFFFFFFF) != 1 )
       return 3221225524LL;
-    v12 = (void *)a2;
+    v12 = (_QWORD *)a2;
   }
   CmpDeleteHive(v12);
   return 3221225524LL;

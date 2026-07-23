@@ -1,17 +1,17 @@
 /*
- * XREFs of SeExamineGlobalSacl @ 0x140889DD8
+ * XREFs of SeExamineGlobalSacl @ 0x14088DC88
  * Callers:
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140790124 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     CmpExamineSaclForAuditEvent @ 0x1407DCEC0 (CmpExamineSaclForAuditEvent.c)
- *     ObpCheckObjectReference @ 0x14086802C (ObpCheckObjectReference.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14088A000 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140A75700 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x1407900F4 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     CmpExamineSaclForAuditEvent @ 0x1407DD410 (CmpExamineSaclForAuditEvent.c)
+ *     ObpCheckObjectReference @ 0x14086C31C (ObpCheckObjectReference.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x14088DEB0 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140A6FBA0 (SeOpenObjectAuditAlarmForNonObObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     SepRmAcquireGlobalSaclReadLock @ 0x140462E24 (SepRmAcquireGlobalSaclReadLock.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     SeExamineSacl @ 0x140889B70 (SeExamineSacl.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     SepRmAcquireGlobalSaclReadLock @ 0x140458434 (SepRmAcquireGlobalSaclReadLock.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     SeExamineSacl @ 0x14088DA20 (SeExamineSacl.c)
  */
 
 void __stdcall SeExamineGlobalSacl(

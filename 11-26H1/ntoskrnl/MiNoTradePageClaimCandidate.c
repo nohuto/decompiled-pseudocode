@@ -1,13 +1,13 @@
 /*
- * XREFs of MiNoTradePageClaimCandidate @ 0x140292AE0
+ * XREFs of MiNoTradePageClaimCandidate @ 0x140292040
  * Callers:
- *     MiActivePageClaimCandidate @ 0x1402923F0 (MiActivePageClaimCandidate.c)
+ *     MiActivePageClaimCandidate @ 0x140291950 (MiActivePageClaimCandidate.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiHyperPage @ 0x140293000 (MiHyperPage.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiHyperPage @ 0x140292560 (MiHyperPage.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiNoTradePageClaimCandidate(__int64 a1, const __m128i *a2, char a3, int a4, __m128i *a5)
@@ -39,9 +39,9 @@ __int64 __fastcall MiNoTradePageClaimCandidate(__int64 a1, const __m128i *a2, ch
     if ( (unsigned __int16)v9 <= 1u && (unsigned __int16)v9 <= (v10 & 0x3FFFFFFFFFFFFFFFuLL) )
       return 0LL;
     if ( a4 )
-      ++dword_140EF8E58;
+      ++dword_140EF91B8;
     else
-      ++dword_140EF8F64;
+      ++dword_140EF92C4;
     return 3221225473LL;
   }
   v12 = (__int64)(v11 << 25) >> 16;
@@ -52,7 +52,7 @@ __int64 __fastcall MiNoTradePageClaimCandidate(__int64 a1, const __m128i *a2, ch
     v16 = *(_QWORD *)(v15 + 184);
     if ( v16
       && v12 >= v16
-      && v12 < *(_QWORD *)(v15 + 184) + (unsigned int)dword_140E35F4C * (unsigned __int64)*(unsigned int *)(v15 + 4) )
+      && v12 < *(_QWORD *)(v15 + 184) + (unsigned int)dword_140E360CC * (unsigned __int64)*(unsigned int *)(v15 + 4) )
     {
       return 0LL;
     }
@@ -62,72 +62,72 @@ __int64 __fastcall MiNoTradePageClaimCandidate(__int64 a1, const __m128i *a2, ch
     v17 = 0;
     goto LABEL_31;
   }
-  v17 = (unsigned __int8)byte_140E37A70[((v12 >> 39) & 0x1FF) - 256];
+  v17 = (unsigned __int8)byte_140E37BF0[((v12 >> 39) & 0x1FF) - 256];
   if ( v17 != 4 )
   {
 LABEL_31:
-    if ( v12 < MmPfnDatabase || v12 >= qword_140E2D710 )
+    if ( v12 < MmPfnDatabase || v12 >= qword_140E2D890 )
     {
       if ( v17 == 11 )
       {
         if ( !a4 )
         {
-          ++dword_140EF8F24;
+          ++dword_140EF9284;
           return 3221225473LL;
         }
-        ++dword_140EF8E2C;
+        ++dword_140EF918C;
       }
       else
       {
         if ( v17 == 8 )
         {
           if ( a4 )
-            ++dword_140EF8E30;
+            ++dword_140EF9190;
           else
-            ++dword_140EF8F28;
+            ++dword_140EF9288;
           return 3221225473LL;
         }
         if ( v12 >= 0xFFFFF68000000000uLL && v12 <= 0xFFFFF6FFFFFFFFFFuLL )
         {
           if ( a4 )
-            ++dword_140EF8E34;
+            ++dword_140EF9194;
           else
-            ++dword_140EF8F2C;
+            ++dword_140EF928C;
           return 3221225473LL;
         }
         if ( !a4 )
         {
-          ++dword_140EF8F20;
+          ++dword_140EF9280;
           return 3221225473LL;
         }
-        ++dword_140EF8E38;
+        ++dword_140EF9198;
       }
     }
     else
     {
       if ( a4 )
       {
-        ++dword_140EF8E28;
+        ++dword_140EF9188;
         return 3221225473LL;
       }
-      ++dword_140EF8F54;
+      ++dword_140EF92B4;
     }
     return 3221225473LL;
   }
   if ( (v9 & 0x10000000) != 0 || (unsigned __int16)v9 > 1u )
   {
     if ( a4 )
-      ++dword_140EF8E08;
+      ++dword_140EF9168;
     else
-      ++dword_140EF8F78;
+      ++dword_140EF92D8;
     return 3221225473LL;
   }
-  if ( (byte_140E2D689 & 1) == 0 )
+  if ( (byte_140E2D809 & 1) == 0 )
   {
     if ( a4 )
-      ++dword_140EF8E0C;
+      ++dword_140EF916C;
     else
-      ++dword_140EF8F7C;
+      ++dword_140EF92DC;
     return 3221225473LL;
   }
   v18 = a2 + 0x22000000000LL;
@@ -136,12 +136,12 @@ LABEL_31:
     LOBYTE(v20) = 17;
     goto LABEL_20;
   }
-  _InterlockedIncrement(&dword_140EF8FA8);
+  _InterlockedIncrement(&dword_140EF9308);
   v19 = MiSafeLockPage((__int64)a2[0x22000000000LL].m128i_i64 / 48);
   v20 = v19;
   if ( v19 == 17 )
   {
-    _InterlockedIncrement(&dword_140EF8F8C);
+    _InterlockedIncrement(&dword_140EF92EC);
     return 3221225473LL;
   }
   *a5 = _mm_loadu_si128(a2);
@@ -183,18 +183,18 @@ LABEL_20:
       if ( (v22 & 0x200) != 0 )
       {
         if ( a4 )
-          ++dword_140EF8E18;
+          ++dword_140EF9178;
         else
-          ++dword_140EF8F88;
+          ++dword_140EF92E8;
         v13 = -1073741823;
       }
       goto LABEL_24;
     }
 LABEL_60:
     if ( a4 )
-      ++dword_140EF8E14;
+      ++dword_140EF9174;
     else
-      ++dword_140EF8F84;
+      ++dword_140EF92E4;
     v13 = -1073741823;
 LABEL_24:
     if ( (_BYTE)v20 != 17 )
@@ -209,7 +209,7 @@ LABEL_24:
     }
     return v13;
   }
-  _InterlockedIncrement(&dword_140EF8F8C);
+  _InterlockedIncrement(&dword_140EF92EC);
   _InterlockedAnd64(&a2[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
   if ( (unsigned __int8)v20 >= 2u )
     return 3221225473LL;

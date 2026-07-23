@@ -1,16 +1,16 @@
 /*
- * XREFs of PspStorageGetObject @ 0x1409F318C
+ * XREFs of PspStorageGetObject @ 0x1409E74EC
  * Callers:
- *     PsGetSiloContext @ 0x140465740 (PsGetSiloContext.c)
- *     PsFreeSiloContextSlot @ 0x140772100 (PsFreeSiloContextSlot.c)
+ *     PsGetSiloContext @ 0x14045D6C0 (PsGetSiloContext.c)
+ *     PsFreeSiloContextSlot @ 0x140772320 (PsFreeSiloContextSlot.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PspGetStorageArrayIfPossible @ 0x14041F930 (PspGetStorageArrayIfPossible.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PspGetStorageArrayIfPossible @ 0x1404150B0 (PspGetStorageArrayIfPossible.c)
  */
 
 __int64 __fastcall PspStorageGetObject(__int64 a1, unsigned int a2, unsigned __int64 *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall PspStorageGetObject(__int64 a1, unsigned int a2, unsigned __i
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v6; // rbx
-  _QWORD *v7; // rdi
+  char *v7; // rdi
   unsigned __int64 v8; // rdi
   _QWORD v9[5]; // [rsp+20h] [rbp-28h] BYREF
   unsigned int v10; // [rsp+68h] [rbp+20h] BYREF
@@ -31,11 +31,11 @@ __int64 __fastcall PspStorageGetObject(__int64 a1, unsigned int a2, unsigned __i
     CurrentThread = KeGetCurrentThread();
     v6 = (signed __int64 *)(v9[0] + 16LL * v10);
     --CurrentThread->KernelApcDisable;
-    v7 = KeAbPreAcquire((__int64)v6, 0LL);
+    v7 = (char *)KeAbPreAcquire((__int64)v6, 0LL);
     if ( _InterlockedCompareExchange64(v6, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v6, 0, v7, (__int64)v6);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     v8 = v6[1] & 0xFFFFFFFFFFFFFFFEuLL;
     if ( v8 )
       PsReferenceSiloContext((void *)(v6[1] & 0xFFFFFFFFFFFFFFFEuLL));

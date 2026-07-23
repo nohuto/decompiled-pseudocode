@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpConstructNameWithStatus @ 0x140437710
+ * XREFs of CmpConstructNameWithStatus @ 0x1404365E0
  * Callers:
- *     CmQueryLayeredKey @ 0x1401B3DE4 (CmQueryLayeredKey.c)
- *     CmCallbackGetKeyObjectIDEx @ 0x140403F54 (CmCallbackGetKeyObjectIDEx.c)
- *     CmpQueryKeyName @ 0x1404044D0 (CmpQueryKeyName.c)
- *     CmQueryKey @ 0x14043A810 (CmQueryKey.c)
- *     CmpConstructName @ 0x1404A1DCC (CmpConstructName.c)
- *     CmpConstructAndCacheName @ 0x1404E2780 (CmpConstructAndCacheName.c)
+ *     CmQueryLayeredKey @ 0x1401B3CC8 (CmQueryLayeredKey.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x140402E14 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmpQueryKeyName @ 0x140403390 (CmpQueryKeyName.c)
+ *     CmQueryKey @ 0x1404396E0 (CmQueryKey.c)
+ *     CmpConstructAndCacheName @ 0x1404C56E4 (CmpConstructAndCacheName.c)
+ *     CmpConstructName @ 0x14051A1D8 (CmpConstructName.c)
  * Callees:
- *     CmpConstructNameFromKeyNodes @ 0x14002D790 (CmpConstructNameFromKeyNodes.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140087418 (CmpAllocateTransientPoolWithTag.c)
- *     ExfAcquireRundownProtection @ 0x14008C5E0 (ExfAcquireRundownProtection.c)
- *     ExfReleaseRundownProtection @ 0x140090D30 (ExfReleaseRundownProtection.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1401B49BC (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpSetKcbAtLayerHeight @ 0x1404CB070 (CmpSetKcbAtLayerHeight.c)
+ *     CmpConstructNameFromKeyNodes @ 0x14002D310 (CmpConstructNameFromKeyNodes.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfAcquireRundownProtection @ 0x14008BD40 (ExfAcquireRundownProtection.c)
+ *     ExfReleaseRundownProtection @ 0x140090490 (ExfReleaseRundownProtection.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x1400B0B88 (CmpAllocateTransientPoolWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x1401B48A0 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1404B0A9C (CmpSetKcbAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpConstructNameWithStatus(__int64 a1, _QWORD *a2)

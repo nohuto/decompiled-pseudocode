@@ -1,9 +1,9 @@
 /*
- * XREFs of PspCheckConditionalWakeCharge @ 0x140A9C4AC
+ * XREFs of PspCheckConditionalWakeCharge @ 0x140A9F2AC
  * Callers:
- *     PspChargeProcessWakeCounter @ 0x1409BE2C0 (PspChargeProcessWakeCounter.c)
+ *     PspChargeProcessWakeCounter @ 0x14098F2A0 (PspChargeProcessWakeCounter.c)
  * Callees:
- *     PspIsProcessInJob @ 0x140A9C650 (PspIsProcessInJob.c)
+ *     PspIsProcessInJob @ 0x140A9F450 (PspIsProcessInJob.c)
  */
 
 char __fastcall PspCheckConditionalWakeCharge(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetOptimalEngineMix @ 0x140510C58
+ * XREFs of MiGetOptimalEngineMix @ 0x14050A6C8
  * Callers:
- *     MiCreatePageChainsForNode @ 0x14071166C (MiCreatePageChainsForNode.c)
+ *     MiCreatePageChainsForNode @ 0x14071636C (MiCreatePageChainsForNode.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 __int64 __fastcall MiGetOptimalEngineMix(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
@@ -47,7 +47,7 @@ __int64 __fastcall MiGetOptimalEngineMix(__int64 a1, unsigned int a2, unsigned i
   v6 = 0;
   v7 = 0;
   v8 = 384LL * a2;
-  v9 = *(_QWORD *)(qword_140E2D6B8 + v8 + 376);
+  v9 = *(_QWORD *)(qword_140E2D838 + v8 + 376);
   v10 = (volatile LONG *)(v9 + 64);
   if ( KeGetCurrentIrql() == 2 )
   {
@@ -70,7 +70,7 @@ __int64 __fastcall MiGetOptimalEngineMix(__int64 a1, unsigned int a2, unsigned i
     v15 += 168;
   }
   while ( v14 < 3 );
-  v16 = (unsigned int *)(v13 + *(_QWORD *)(qword_140E2D6B8 + v8 + 376) + 172LL);
+  v16 = (unsigned int *)(v13 + *(_QWORD *)(qword_140E2D838 + v8 + 376) + 172LL);
   while ( 1 )
   {
     v17 = *v16;
@@ -102,7 +102,7 @@ LABEL_26:
         v26 = *(_QWORD *)(v24 + v9 + 152);
         if ( v7 || v19 >= v26 )
         {
-          v27 = *(_DWORD *)(*(_QWORD *)(qword_140E2D6B8 + v8 + 376) + v24 + 172);
+          v27 = *(_DWORD *)(*(_QWORD *)(qword_140E2D838 + v8 + 376) + v24 + 172);
           if ( v27 )
           {
             if ( v7 )

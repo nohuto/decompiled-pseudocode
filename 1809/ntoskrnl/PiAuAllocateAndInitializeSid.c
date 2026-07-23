@@ -1,15 +1,15 @@
 /*
- * XREFs of PiAuAllocateAndInitializeSid @ 0x140739C88
+ * XREFs of PiAuAllocateAndInitializeSid @ 0x14073AE78
  * Callers:
- *     PiAuCreateUserSids @ 0x1409C6A68 (PiAuCreateUserSids.c)
- *     PiAuCreateStandardSecurityObject @ 0x1409C6C8C (PiAuCreateStandardSecurityObject.c)
+ *     PiAuCreateUserSids @ 0x1409C7A68 (PiAuCreateUserSids.c)
+ *     PiAuCreateStandardSecurityObject @ 0x1409C7C8C (PiAuCreateStandardSecurityObject.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlInitializeSid @ 0x140656830 (RtlInitializeSid.c)
  */
 
-__int64 __fastcall PiAuAllocateAndInitializeSid(PVOID *a1, struct _SID_IDENTIFIER_AUTHORITY *a2, unsigned int a3)
+__int64 __fastcall PiAuAllocateAndInitializeSid(PVOID *a1, _SID_IDENTIFIER_AUTHORITY *a2, unsigned int a3)
 {
   UCHAR v3; // di
   unsigned int v6; // eax

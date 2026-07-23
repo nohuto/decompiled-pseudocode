@@ -1,14 +1,14 @@
 /*
- * XREFs of IvtLegacyProcessDeviceExceptions @ 0x140B5250C
+ * XREFs of IvtLegacyProcessDeviceExceptions @ 0x140B5455C
  * Callers:
- *     IvtInitializeIommu @ 0x140B51B90 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x140B53BE0 (IvtInitializeIommu.c)
  * Callees:
- *     HalpIommuGetExceptionList @ 0x140552438 (HalpIommuGetExceptionList.c)
- *     IvtLegacyAllocateTranslationStructures @ 0x14056FAA8 (IvtLegacyAllocateTranslationStructures.c)
- *     IvtLegacyUpdateTranslationStructures @ 0x1405710FC (IvtLegacyUpdateTranslationStructures.c)
- *     IvtAllocateDevice @ 0x140578A38 (IvtAllocateDevice.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IvtInitializeReservedDomains @ 0x140B535C8 (IvtInitializeReservedDomains.c)
+ *     HalpIommuGetExceptionList @ 0x14054FD78 (HalpIommuGetExceptionList.c)
+ *     IvtLegacyAllocateTranslationStructures @ 0x14056CF38 (IvtLegacyAllocateTranslationStructures.c)
+ *     IvtLegacyUpdateTranslationStructures @ 0x14056E58C (IvtLegacyUpdateTranslationStructures.c)
+ *     IvtAllocateDevice @ 0x140575EC8 (IvtAllocateDevice.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IvtInitializeReservedDomains @ 0x140B55618 (IvtInitializeReservedDomains.c)
  */
 
 __int64 __fastcall IvtLegacyProcessDeviceExceptions(__int64 a1)

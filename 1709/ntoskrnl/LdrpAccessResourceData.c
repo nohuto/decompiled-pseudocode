@@ -11,15 +11,11 @@
  *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1404DA728 (LdrpAccessResourceDataNoMultipleLanguage.c)
  */
 
-__int64 __fastcall LdrpAccessResourceData(
-        unsigned __int64 BaseAddress,
-        unsigned int *a2,
-        unsigned __int64 *a3,
-        _DWORD *a4)
+__int64 __fastcall LdrpAccessResourceData(unsigned __int64 BaseOfImage, ULONG *a2, unsigned __int64 *a3, _DWORD *a4)
 {
   PVOID v7; // rdi
   unsigned __int64 v8; // rsi
-  unsigned int *v9; // rax
+  ULONG *v9; // rax
   __int64 v10; // rdx
   __int64 result; // rax
   __int64 AlternateResourceModuleHandle; // rax
@@ -29,13 +25,13 @@ __int64 __fastcall LdrpAccessResourceData(
 
   v14[0] = 0LL;
   v13 = 0LL;
-  v7 = (PVOID)BaseAddress;
-  if ( !BaseAddress || !a2 )
+  v7 = (PVOID)BaseOfImage;
+  if ( !BaseOfImage || !a2 )
     return 3221225485LL;
   if ( PnPBootDriversInitialized == 1 )
   {
-    v8 = BaseAddress & 0xFFFFFFFFFFFFFFFCuLL;
-    v9 = (unsigned int *)RtlImageDirectoryEntryToData((PVOID)BaseAddress, 1u, 2u, &v15);
+    v8 = BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL;
+    v9 = (ULONG *)RtlImageDirectoryEntryToData((PVOID)BaseOfImage, 1u, 2u, &v15);
     if ( !v9 )
       return 3221225609LL;
     if ( a2 < v9 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaUpdateRemappingDestination @ 0x1405AADD0
+ * XREFs of HsaUpdateRemappingDestination @ 0x1405AD5E0
  * Callers:
  *     <none>
  * Callees:
- *     HsaInvalidateRemappingTableEntries @ 0x14047E348 (HsaInvalidateRemappingTableEntries.c)
- *     HsaGetDeviceAperture @ 0x14052DBAC (HsaGetDeviceAperture.c)
- *     IvtUpdateExtendedDestination @ 0x1405A7C5C (IvtUpdateExtendedDestination.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x140477CB8 (HsaInvalidateRemappingTableEntries.c)
+ *     HsaGetDeviceAperture @ 0x1405300CC (HsaGetDeviceAperture.c)
+ *     IvtUpdateExtendedDestination @ 0x1405AA46C (IvtUpdateExtendedDestination.c)
  */
 
 __int64 __fastcall HsaUpdateRemappingDestination(__int64 a1, __int64 a2, int a3, int a4, int a5)
@@ -30,7 +30,7 @@ __int64 __fastcall HsaUpdateRemappingDestination(__int64 a1, __int64 a2, int a3,
   v21 = BYTE8(v5);
   v6 = 0;
   v7 = BYTE8(v5);
-  for ( i = 0; v6 < dword_140F87388; i = v6 )
+  for ( i = 0; v6 < dword_140F8774C; i = v6 )
   {
     *(_QWORD *)&v5 = HsaGetDeviceAperture(v6 << 9);
     v9 = v5;

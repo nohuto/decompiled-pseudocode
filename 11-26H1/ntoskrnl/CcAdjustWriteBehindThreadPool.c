@@ -1,11 +1,11 @@
 /*
- * XREFs of CcAdjustWriteBehindThreadPool @ 0x1405B0C94
+ * XREFs of CcAdjustWriteBehindThreadPool @ 0x1405B34A4
  * Callers:
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1403856E4 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140387494 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
  * Callees:
- *     CcGetCurrentNumaNode @ 0x1404CD6C0 (CcGetCurrentNumaNode.c)
- *     CcReEngageWorkerThreads @ 0x14052B834 (CcReEngageWorkerThreads.c)
- *     CcSetMaxNumberOfWriteBehindThreads @ 0x1405B1444 (CcSetMaxNumberOfWriteBehindThreads.c)
+ *     CcGetCurrentNumaNode @ 0x1404C70F0 (CcGetCurrentNumaNode.c)
+ *     CcReEngageWorkerThreads @ 0x14052DD54 (CcReEngageWorkerThreads.c)
+ *     CcSetMaxNumberOfWriteBehindThreads @ 0x1405B3C54 (CcSetMaxNumberOfWriteBehindThreads.c)
  */
 
 void __fastcall CcAdjustWriteBehindThreadPool(__int64 a1)

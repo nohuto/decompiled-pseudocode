@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAgeWorkingSet @ 0x140235110
+ * XREFs of MiAgeWorkingSet @ 0x14020F2A0
  * Callers:
- *     MiForcedTrim @ 0x1402D0EB8 (MiForcedTrim.c)
- *     MiTrimOrAgeWorkingSet @ 0x140378F30 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402F35B0 (MiTrimOrAgeWorkingSet.c)
+ *     MiForcedTrim @ 0x1402F4A18 (MiForcedTrim.c)
  * Callees:
- *     MiLogWsAging @ 0x14023537C (MiLogWsAging.c)
- *     MiComputeAgingAmount @ 0x140235450 (MiComputeAgingAmount.c)
- *     MiWalkPageTables @ 0x140235640 (MiWalkPageTables.c)
- *     MiIsStoreProcess @ 0x1402FB9C0 (MiIsStoreProcess.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiLogWsAging @ 0x14020F50C (MiLogWsAging.c)
+ *     MiComputeAgingAmount @ 0x14020F5E0 (MiComputeAgingAmount.c)
+ *     MiWalkPageTables @ 0x14020F7D0 (MiWalkPageTables.c)
+ *     MiIsStoreProcess @ 0x140343630 (MiIsStoreProcess.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiAgeWorkingSet(__int64 a1, char a2, unsigned int a3, unsigned int a4)
@@ -39,7 +39,7 @@ __int64 __fastcall MiAgeWorkingSet(__int64 a1, char a2, unsigned int a3, unsigne
   char v31; // [rsp+81h] [rbp-87h]
   __int64 v32; // [rsp+98h] [rbp-70h]
   __int64 v33; // [rsp+A8h] [rbp-60h]
-  __int64 (__fastcall *v35)(__int64, __int64, int); // [rsp+120h] [rbp+18h]
+  __int64 (__fastcall *v35)(); // [rsp+120h] [rbp+18h]
   __int64 (__fastcall *v36)(); // [rsp+128h] [rbp+20h]
   int *v37; // [rsp+130h] [rbp+28h]
 
@@ -60,7 +60,7 @@ __int64 __fastcall MiAgeWorkingSet(__int64 a1, char a2, unsigned int a3, unsigne
     {
       v14 = *(unsigned __int16 *)(a1 + 174);
       v27 = v13;
-      v15 = (_QWORD *)*((_QWORD *)qword_140E2FF88 + v14);
+      v15 = (_QWORD *)*((_QWORD *)qword_140E300C8 + v14);
       v16 = v15[2200];
       if ( (a3 & 3) != 0 )
       {
@@ -76,7 +76,7 @@ __int64 __fastcall MiAgeWorkingSet(__int64 a1, char a2, unsigned int a3, unsigne
         {
           if ( (unsigned __int8)BYTE2(*(_DWORD *)(a1 + 184)) != 2 )
             v26 = v17 < *(_QWORD *)(v16 + 64) ? 3 : 5;
-          if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 || !(unsigned int)MiIsStoreProcess(a1 - 1024) )
+          if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 || !(unsigned int)MiIsStoreProcess(a1 - 1024, v19, v17, v7) )
             LOWORD(v25) = *(_WORD *)(v16 + 278);
         }
         if ( (*(_DWORD *)(a1 + 184) & 0xF) == 0 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of CcPostWorkQueueAsyncLazywrite @ 0x1404DF0A0
+ * XREFs of CcPostWorkQueueAsyncLazywrite @ 0x1404D8AC0
  * Callers:
- *     CcLazyWriteScanVolume @ 0x1404B5560 (CcLazyWriteScanVolume.c)
- *     CcQueueAsyncLazywriteCompletion @ 0x14057E2B0 (CcQueueAsyncLazywriteCompletion.c)
+ *     CcLazyWriteScanVolume @ 0x1404AFE00 (CcLazyWriteScanVolume.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x14057B740 (CcQueueAsyncLazywriteCompletion.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     CcPerfLogWorkItemEnqueue @ 0x1402A7FF0 (CcPerfLogWorkItemEnqueue.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD5E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140279DE0 (CcPerfLogWorkItemEnqueue.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402E62E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall CcPostWorkQueueAsyncLazywrite(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ void __fastcall CcPostWorkQueueAsyncLazywrite(__int64 a1, __int64 a2)
   v4 = 0LL;
   v5 = *(_QWORD *)(a1 + 144);
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+  if ( (xmmword_140FC6B50 & 0x20000) != 0 )
     CcPerfLogWorkItemEnqueue(a2, a1, 0, 1);
   v8 = *(_DWORD *)(a1 + 128);
   if ( v8 != 7 && v8 != 4 )

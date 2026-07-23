@@ -1,11 +1,11 @@
 /*
- * XREFs of AslpFileVerBlockGetValueOffset @ 0x14022BE6C
+ * XREFs of AslpFileVerBlockGetValueOffset @ 0x14022BF7C
  * Callers:
- *     AslpFileVerQueryBlock @ 0x1406D4840 (AslpFileVerQueryBlock.c)
- *     AslpFileMakeStringVersionAttributes @ 0x14075927C (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileVerStringBlockGetValue @ 0x1407BE434 (AslpFileVerStringBlockGetValue.c)
+ *     AslpFileVerQueryBlock @ 0x1406D4870 (AslpFileVerQueryBlock.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x14075946C (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileVerStringBlockGetValue @ 0x1407BE704 (AslpFileVerStringBlockGetValue.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14022BEE0 (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x14022BFF0 (RtlStringCbLengthW.c)
  */
 
 NTSTATUS __fastcall AslpFileVerBlockGetValueOffset(_QWORD *a1, __int64 a2, __int64 a3)

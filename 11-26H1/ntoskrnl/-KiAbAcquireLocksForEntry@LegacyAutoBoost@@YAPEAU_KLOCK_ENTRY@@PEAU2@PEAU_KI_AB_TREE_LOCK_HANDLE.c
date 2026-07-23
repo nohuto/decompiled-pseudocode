@@ -1,15 +1,15 @@
 /*
- * XREFs of ?KiAbAcquireLocksForEntry@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAU2@PEAU_KI_AB_TREE_LOCK_HANDLE@1@KK@Z @ 0x1404856CC
+ * XREFs of ?KiAbAcquireLocksForEntry@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAU2@PEAU_KI_AB_TREE_LOCK_HANDLE@1@KK@Z @ 0x14047F03C
  * Callers:
- *     ?KiAbpProcessPostContextSwitch@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x14023BC20 (-KiAbpProcessPostContextSwitch@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
+ *     ?KiAbpProcessPostContextSwitch@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x14023D580 (-KiAbpProcessPostContextSwitch@LegacyAutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
  * Callees:
- *     ExTryConvertSharedSpinLockExclusive @ 0x14029B680 (ExTryConvertSharedSpinLockExclusive.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x14029ABE0 (ExTryConvertSharedSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 _RTL_BALANCED_NODE *__fastcall LegacyAutoBoost::KiAbAcquireLocksForEntry(
@@ -48,7 +48,7 @@ _RTL_BALANCED_NODE *__fastcall LegacyAutoBoost::KiAbAcquireLocksForEntry(
   v6 = v3 >> 4;
   if ( Right >= 0 )
   {
-    v10 = (char *)&unk_140E162C0 + 64 * ((v3 >> 4) & 0x3FF);
+    v10 = (char *)&unk_140E16400 + 64 * ((v3 >> 4) & 0x3FF);
     a2->LockState.0 = ($A1A49EE4C6E599293708B9EDC35F5B5E)v10;
   }
   else
@@ -152,7 +152,7 @@ LABEL_47:
   a2->TreeNode.Children[0] = 0LL;
   v21 = (volatile __int64 *)&v19[3];
   a2->TreeNode.Children[1] = v19 + 3;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v22 = _InterlockedExchange64(v21, (__int64)p_TreeNode);
     if ( v22 )

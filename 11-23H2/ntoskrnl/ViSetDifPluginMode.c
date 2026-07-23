@@ -1,9 +1,9 @@
 /*
- * XREFs of ViSetDifPluginMode @ 0x140ABD5A8
+ * XREFs of ViSetDifPluginMode @ 0x140ABD598
  * Callers:
  *     ViInitSystemPhase0 @ 0x140B69A68 (ViInitSystemPhase0.c)
  * Callees:
- *     VfUtilSetRuleClass @ 0x1405CE35C (VfUtilSetRuleClass.c)
+ *     VfUtilSetRuleClass @ 0x1405CE8CC (VfUtilSetRuleClass.c)
  */
 
 void ViSetDifPluginMode()

@@ -4,13 +4,13 @@
  *     MiRebaseDynamicRelocationRegions @ 0x140B43F64 (MiRebaseDynamicRelocationRegions.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     RtlLookupImageSectionByName @ 0x140360144 (RtlLookupImageSectionByName.c)
- *     RtlUpdateImportRelocationsInImage @ 0x140375C24 (RtlUpdateImportRelocationsInImage.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405B2060 (RtlCopyRetpolineStubsUnwindInfo.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067A62C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     RtlLookupImageSectionByName @ 0x1403602E4 (RtlLookupImageSectionByName.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x140375DC4 (RtlUpdateImportRelocationsInImage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405B25D0 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067AB7C (RtlPerformRetpolineRelocationsOnImageEx.c)
  */
 
 __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
@@ -21,17 +21,17 @@ __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
   unsigned int (*v5)(void); // r14
   unsigned int v6; // esi
   int updated; // ecx
-  __int64 v9; // rbx
-  __int64 v10; // rax
+  char *v9; // rbx
+  PIMAGE_NT_HEADERS v10; // rax
   const char *v11; // rax
   unsigned int v12; // edx
   unsigned __int64 v13; // rbx
   __int64 v14; // r12
-  __int64 v15; // rbx
+  PIMAGE_NT_HEADERS v15; // rbx
   const char *v16; // rax
   int v17; // esi
   __int64 *v18; // r14
-  int v19; // r13d
+  unsigned int v19; // r13d
   __int64 v20; // rcx
   __int64 v21; // rbx
   const char *v22; // rax
@@ -39,9 +39,9 @@ __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
   unsigned int v24; // r8d
   int v25; // ecx
   __int64 v26; // [rsp+50h] [rbp-B8h] BYREF
-  _DWORD v27[2]; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD v28[2]; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v29; // [rsp+68h] [rbp-A0h]
+  __int64 v27; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v28; // [rsp+60h] [rbp-A8h] BYREF
+  _IMAGE_NT_HEADERS64 *v29; // [rsp+68h] [rbp-A0h]
   _QWORD v30[14]; // [rsp+70h] [rbp-98h] BYREF
 
   v1 = *(_QWORD *)(a1 + 240);
@@ -50,11 +50,11 @@ __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
   dword_140C65844 = *(_DWORD *)(v1 + 3500) >> 12;
   if ( (KiSpeculationFeatures & 0x20000000000LL) != 0
     && (v26 = v3,
-        v9 = *(_QWORD *)(v3 + 48),
+        v9 = *(char **)(v3 + 48),
         v10 = RtlImageNtHeader(v9),
-        v11 = RtlLookupImageSectionByName(v10, "RETPOL"),
+        v11 = RtlLookupImageSectionByName((__int64)v10, "RETPOL"),
         v12 = *((_DWORD *)v11 + 2),
-        Base = (PVOID)(v9 + *((unsigned int *)v11 + 3)),
+        Base = &v9[*((unsigned int *)v11 + 3)],
         dword_140C65880 = (v12 >> 12) + ((v12 & 0xFFF) != 0),
         dword_140C65880 > (unsigned int)dword_140C65844) )
   {
@@ -73,33 +73,33 @@ __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
   else if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
   {
     v14 = v26;
-    v15 = RtlImageNtHeader(*(_QWORD *)(v26 + 48));
-    v16 = RtlLookupImageSectionByName(v15, "INITKDBG");
+    v15 = RtlImageNtHeader(*(PVOID *)(v26 + 48));
+    v16 = RtlLookupImageSectionByName((__int64)v15, "INITKDBG");
     v17 = 0;
     v18 = &v26;
-    v28[0] = *((_DWORD *)v16 + 3);
+    LODWORD(v28) = *((_DWORD *)v16 + 3);
     v19 = 1;
-    v27[0] = *((_DWORD *)v16 + 2);
+    LODWORD(v27) = *((_DWORD *)v16 + 2);
     while ( 1 )
     {
       v29 = v15;
-      v20 = v15;
+      v20 = (__int64)v15;
       v21 = *v18;
       v22 = RtlLookupImageSectionByName(v20, "MINIEX");
       v23 = Base;
       v24 = *(_DWORD *)(v21 + 64);
       v25 = *((_DWORD *)v22 + 3);
-      v27[v19] = *((_DWORD *)v22 + 2);
-      v28[v19] = v25;
+      *((_DWORD *)&v27 + v19) = *((_DWORD *)v22 + 2);
+      *((_DWORD *)&v28 + v19) = v25;
       updated = RtlPerformRetpolineRelocationsOnImageEx(
-                  *(_QWORD *)(v21 + 48),
+                  *(char **)(v21 + 48),
                   *(_QWORD *)(v21 + 48),
                   v24,
                   (__int64)v23,
                   (__int64)v23,
                   1,
-                  (__int64)v28,
-                  (__int64)v27,
+                  (__int64)&v28,
+                  (__int64)&v27,
                   v19 + 1);
       if ( updated < 0 )
         break;
@@ -131,7 +131,7 @@ LABEL_4:
       while ( 1 )
       {
         updated = RtlUpdateImportRelocationsInImage(
-                    v4[6],
+                    (char *)v4[6],
                     v4[6],
                     *((_DWORD *)v4 + 16),
                     v5,

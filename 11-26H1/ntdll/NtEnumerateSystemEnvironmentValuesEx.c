@@ -1,16 +1,16 @@
 /*
- * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x180160C50
+ * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x180160B50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtEnumerateSystemEnvironmentValuesEx()
+NTSTATUS __cdecl NtEnumerateSystemEnvironmentValuesEx(ULONG InformationClass, PVOID Buffer, PULONG BufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 233LL;
+  result = 233;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

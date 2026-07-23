@@ -58,7 +58,7 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
       return Values;
     }
     --CurrentThread->KernelApcDisable;
-    v9 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0LL);
+    v9 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0);
     v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL);
     v11 = v9;
     if ( v10 )

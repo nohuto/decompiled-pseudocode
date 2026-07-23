@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipFindSysIdTable @ 0x1408228C0
+ * XREFs of WmipFindSysIdTable @ 0x140828AD0
  * Callers:
- *     WmipGetSysIds @ 0x140822C0C (WmipGetSysIds.c)
+ *     WmipGetSysIds @ 0x140828E1C (WmipGetSysIds.c)
  * Callees:
- *     MmUnmapIoSpace @ 0x140343610 (MmUnmapIoSpace.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140345690 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
  */
 
 __int64 __fastcall WmipFindSysIdTable(_DWORD *a1, _BYTE *a2, _DWORD *a3)

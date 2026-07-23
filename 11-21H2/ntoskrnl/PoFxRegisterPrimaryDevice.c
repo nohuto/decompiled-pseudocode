@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     PopFxRegisterDevice @ 0x1408236BC (PopFxRegisterDevice.c)
- *     PopFxConvertV1Components @ 0x1408245C4 (PopFxConvertV1Components.c)
+ *     sub_1408236BC @ 0x1408236BC (sub_1408236BC.c)
+ *     sub_1408245C4 @ 0x1408245C4 (sub_1408245C4.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -20,7 +20,7 @@ __int64 __fastcall PoFxRegisterPrimaryDevice(PDEVICE_OBJECT DeviceObject, __int6
 
   if ( DeviceObject && a2 && *(_DWORD *)a2 == 1 )
   {
-    v6 = PopFxConvertV1Components(a2 + 80, *(_DWORD *)(a2 + 4));
+    v6 = sub_1408245C4(a2 + 80, *(_DWORD *)(a2 + 4));
     if ( v6 )
     {
       v8 = *(_QWORD *)(a2 + 16);
@@ -35,8 +35,8 @@ __int64 __fastcall PoFxRegisterPrimaryDevice(PDEVICE_OBJECT DeviceObject, __int6
       v12[6] = *(_QWORD *)(a2 + 64);
       v11 = *(_QWORD *)(a2 + 72);
       v13 = 0LL;
-      v7 = PopFxRegisterDevice(DeviceObject, (int)v12, (int)v6, v9, v11, 0LL, a3);
-      if ( v7 >= 0 && PopErrataDisablePrimaryDeviceFastResume && (*(_DWORD *)(a2 + 8) & 1) != 0 )
+      v7 = sub_1408236BC(DeviceObject, (int)v12, (int)v6, v9, v11, 0LL, a3);
+      if ( v7 >= 0 && byte_140C1F588 && (*(_DWORD *)(a2 + 8) & 1) != 0 )
         _InterlockedOr((volatile signed __int32 *)(*a3 + 824LL), 0x80u);
       ExFreePoolWithTag(v6, 0x4D584650u);
     }

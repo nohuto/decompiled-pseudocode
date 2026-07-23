@@ -1,14 +1,14 @@
 /*
- * XREFs of IoIncrementKeepAliveCount @ 0x1401C9930
+ * XREFs of IoIncrementKeepAliveCount @ 0x1401C97D0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x1401C9C40 (IopAdjustFileObjectKeepAliveCount.c)
- *     PspAdjustKeepAliveCountProcess @ 0x14067D6BC (PspAdjustKeepAliveCountProcess.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x1401C9AE0 (IopAdjustFileObjectKeepAliveCount.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x14067D7A0 (PspAdjustKeepAliveCountProcess.c)
  */
 
 __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
@@ -27,27 +27,27 @@ __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
   {
     if ( KeGetCurrentIrql() == 2 )
     {
-      v6 = KeAcquireSpinLockRaiseToDpc(&qword_140320C30);
+      v6 = KeAcquireSpinLockRaiseToDpc(&qword_140320C50);
       v7 = (_BYTE *)v12;
       v8 = v6;
       ++*(_DWORD *)(v12 + 32);
       if ( !v7[16] )
       {
-        v9 = qword_140320C20;
-        if ( *((PVOID **)qword_140320C20 + 1) != &qword_140320C20 )
+        v9 = qword_140320C40;
+        if ( *((PVOID **)qword_140320C40 + 1) != &qword_140320C40 )
           __fastfail(3u);
-        *(_QWORD *)v7 = qword_140320C20;
-        *((_QWORD *)v7 + 1) = &qword_140320C20;
+        *(_QWORD *)v7 = qword_140320C40;
+        *((_QWORD *)v7 + 1) = &qword_140320C40;
         v9[1] = v7;
-        qword_140320C20 = v7;
+        qword_140320C40 = v7;
         v7[16] = 1;
-        if ( !byte_140320C58 )
+        if ( !byte_140320C78 )
         {
-          byte_140320C58 = 1;
+          byte_140320C78 = 1;
           ExQueueWorkItem(&IopKeepAliveTracker, DelayedWorkQueue);
         }
       }
-      KeReleaseSpinLock(&qword_140320C30, v8);
+      KeReleaseSpinLock(&qword_140320C50, v8);
     }
     else
     {

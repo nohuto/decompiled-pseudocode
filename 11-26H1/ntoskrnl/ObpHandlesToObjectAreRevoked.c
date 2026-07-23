@@ -1,7 +1,7 @@
 /*
- * XREFs of ObpHandlesToObjectAreRevoked @ 0x140A23560
+ * XREFs of ObpHandlesToObjectAreRevoked @ 0x140A2CB80
  * Callers:
- *     ObWaitForMultipleObjects @ 0x140A230B0 (ObWaitForMultipleObjects.c)
+ *     ObWaitForMultipleObjects @ 0x140A2C6D0 (ObWaitForMultipleObjects.c)
  * Callees:
  *     <none>
  */

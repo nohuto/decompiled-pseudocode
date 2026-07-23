@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpKdSetupDebuggingDevice @ 0x1409B6480
+ * XREFs of HalpKdSetupDebuggingDevice @ 0x1409B7480
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateScratchMemory @ 0x1409B5E90 (HalpAllocateScratchMemory.c)
- *     HalpFindDevice @ 0x1409B6158 (HalpFindDevice.c)
- *     HalpKdEnumerateDebuggingDevices @ 0x1409B6230 (HalpKdEnumerateDebuggingDevices.c)
- *     HalpRegisterDeviceInUse @ 0x1409B656C (HalpRegisterDeviceInUse.c)
+ *     HalpAllocateScratchMemory @ 0x1409B6E90 (HalpAllocateScratchMemory.c)
+ *     HalpFindDevice @ 0x1409B7158 (HalpFindDevice.c)
+ *     HalpKdEnumerateDebuggingDevices @ 0x1409B7230 (HalpKdEnumerateDebuggingDevices.c)
+ *     HalpRegisterDeviceInUse @ 0x1409B756C (HalpRegisterDeviceInUse.c)
  */
 
 __int64 __fastcall HalpKdSetupDebuggingDevice(__int64 a1, __int64 a2)

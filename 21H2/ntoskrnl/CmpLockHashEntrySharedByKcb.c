@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockHashEntrySharedByKcb @ 0x1405EC238
+ * XREFs of CmpLockHashEntrySharedByKcb @ 0x1406DB998
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406FC410 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1407137F0 (CmpPerformCompleteKcbCacheLookup.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1406DBA08 (CmpReferenceHive.c)
  */
 
 __int64 __fastcall CmpLockHashEntrySharedByKcb(ULONG_PTR BugCheckParameter4)

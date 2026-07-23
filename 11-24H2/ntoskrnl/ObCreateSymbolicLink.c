@@ -1,19 +1,19 @@
 /*
- * XREFs of ObCreateSymbolicLink @ 0x140A29CE8
+ * XREFs of ObCreateSymbolicLink @ 0x140A1E6A8
  * Callers:
- *     MiCreateMemoryEvent @ 0x1407FFA98 (MiCreateMemoryEvent.c)
- *     IoCreateSymbolicLink2 @ 0x140A298F0 (IoCreateSymbolicLink2.c)
- *     NtCreateSymbolicLinkObject @ 0x140A299C0 (NtCreateSymbolicLinkObject.c)
+ *     MiCreateMemoryEvent @ 0x1408001D8 (MiCreateMemoryEvent.c)
+ *     IoCreateSymbolicLink2 @ 0x140A1E2B0 (IoCreateSymbolicLink2.c)
+ *     NtCreateSymbolicLinkObject @ 0x140A1E380 (NtCreateSymbolicLinkObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     RtlIsSandboxedToken @ 0x14090C230 (RtlIsSandboxedToken.c)
- *     ObpGetIntegrityLevel @ 0x140A2A0A0 (ObpGetIntegrityLevel.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     RtlIsSandboxedToken @ 0x1408E3950 (RtlIsSandboxedToken.c)
+ *     ObpGetIntegrityLevel @ 0x140A1EA60 (ObpGetIntegrityLevel.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ObCreateSymbolicLink(_QWORD *a1, int a2, __int64 a3, __int64 a4, char a5)
@@ -83,7 +83,7 @@ __int64 __fastcall ObCreateSymbolicLink(_QWORD *a1, int a2, __int64 a3, __int64 
       *((_DWORD *)v8 + 7) |= 0x20u;
     if ( *((_WORD *)v8 + 5) )
     {
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, *((unsigned __int16 *)v8 + 5), 0x746D7953u);
       v8[2] = Pool2;
       if ( !Pool2 )
       {

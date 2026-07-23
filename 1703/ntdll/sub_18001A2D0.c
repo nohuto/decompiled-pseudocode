@@ -48,10 +48,10 @@ __int64 __fastcall sub_18001A2D0(_QWORD *a1)
       }
       v9 = MEMORY[0x7FFE0330];
       v10 = __ROR8__(qword_18016B250, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-      RtlEnterCriticalSection(&off_180155580);
+      RtlEnterCriticalSection(&CriticalSection);
       if ( dword_18015C018 < 3 && (*(_DWORD *)(*a1 - 56LL) & 0x800) == 0 )
         sub_18006F2AC(a1, v10 ^ v9);
-      RtlLeaveCriticalSection(&off_180155580);
+      RtlLeaveCriticalSection(&CriticalSection);
     }
     else
     {
@@ -75,7 +75,7 @@ __int64 __fastcall sub_18001A2D0(_QWORD *a1)
 LABEL_3:
   if ( qword_18015C3C0 && v1 == 1 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, qword_18015C3C0);
     qword_18015C3C0 = 0LL;
     qword_18015B2E0 = 0LL;
   }

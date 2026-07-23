@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeActivityIdSeed @ 0x1407A80C4
+ * XREFs of EtwpInitializeActivityIdSeed @ 0x1407A8204
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     EtwInitializeProcessorActivityId @ 0x1407A67AC (EtwInitializeProcessorActivityId.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     EtwInitializeProcessorActivityId @ 0x1407A68EC (EtwInitializeProcessorActivityId.c)
  * Callees:
- *     HeadlessDispatch @ 0x140653C90 (HeadlessDispatch.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HeadlessDispatch @ 0x1406523F0 (HeadlessDispatch.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpInitializeActivityIdSeed(__int64 a1, __int16 a2)

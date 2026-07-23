@@ -3,11 +3,11 @@
  * Callers:
  *     SepInitializationPhase0 @ 0x140B53588 (SepInitializationPhase0.c)
  * Callees:
- *     RtlDeriveCapabilitySidsFromName @ 0x14031D070 (RtlDeriveCapabilitySidsFromName.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
- *     RtlLengthRequiredSid @ 0x1407D1670 (RtlLengthRequiredSid.c)
- *     SepInitializeSharedSidMap @ 0x1408486C4 (SepInitializeSharedSidMap.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x14031D300 (RtlDeriveCapabilitySidsFromName.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x1407D1940 (RtlLengthRequiredSid.c)
+ *     SepInitializeSharedSidMap @ 0x1408489C4 (SepInitializeSharedSidMap.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     SepInitSystemDacls @ 0x140B64194 (SepInitSystemDacls.c)
  */
@@ -43,7 +43,7 @@ bool SepVariableInitialization()
   __int64 v26; // rax
   _DWORD *v27; // rax
   _DWORD *v28; // rbx
-  __int64 v29; // rax
+  _DWORD *v29; // rax
   __int64 v30; // rax
   __int64 v31; // rax
   __int64 v32; // rax
@@ -51,8 +51,8 @@ bool SepVariableInitialization()
   __int64 v34; // rax
   __int64 v35; // rax
   _DWORD *v36; // rax
-  _OWORD *v37; // r8
-  _OWORD *v38; // rdx
+  PSID v37; // r8
+  PSID v38; // rdx
   __int64 v39; // rdx
   char *v40; // rcx
   _DWORD *v42; // [rsp+20h] [rbp-E0h]
@@ -87,7 +87,7 @@ bool SepVariableInitialization()
   UNICODE_STRING v71; // [rsp+118h] [rbp+18h] BYREF
   UNICODE_STRING v72; // [rsp+128h] [rbp+28h] BYREF
   UNICODE_STRING v73; // [rsp+138h] [rbp+38h] BYREF
-  UNICODE_STRING String2; // [rsp+148h] [rbp+48h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+148h] [rbp+48h] BYREF
   UNICODE_STRING v75; // [rsp+158h] [rbp+58h] BYREF
   UNICODE_STRING v76; // [rsp+168h] [rbp+68h] BYREF
   UNICODE_STRING v77; // [rsp+178h] [rbp+78h] BYREF
@@ -115,14 +115,14 @@ bool SepVariableInitialization()
   PSID v99; // [rsp+2A0h] [rbp+1A0h]
   PSID v100; // [rsp+2A8h] [rbp+1A8h]
   PSID v101; // [rsp+2B0h] [rbp+1B0h]
-  PSID v102; // [rsp+2B8h] [rbp+1B8h]
+  PSID CapabilityGroupSid; // [rsp+2B8h] [rbp+1B8h]
   __int64 v103; // [rsp+310h] [rbp+210h] BYREF
   __int64 v104; // [rsp+318h] [rbp+218h] BYREF
   __int64 v105; // [rsp+320h] [rbp+220h] BYREF
   __int64 v106; // [rsp+328h] [rbp+228h] BYREF
 
-  *(_QWORD *)&String2.Length = 2359330LL;
-  String2.Buffer = L"lpacAppExperience";
+  *(_QWORD *)&UnicodeString.Length = 2359330LL;
+  UnicodeString.Buffer = L"lpacAppExperience";
   *(_QWORD *)&v73.Length = 1048590LL;
   v73.Buffer = L"lpacCom";
   v75.Buffer = L"lpacCryptoServices";
@@ -265,8 +265,8 @@ bool SepVariableInitialization()
   SeAliasBackupOpsSid = (PSID)ExAllocatePool2(288LL, v10, 0x69536553u);
   SeUntrustedMandatorySid = (PSID)ExAllocatePool2(96LL, v2, 0x69536553u);
   SeLowMandatorySid = (PSID)ExAllocatePool2(96LL, v2, 0x69536553u);
-  SeMediumMandatorySid = (void *)ExAllocatePool2(96LL, v2, 0x69536553u);
-  SeHighMandatorySid = (void *)ExAllocatePool2(96LL, v2, 0x69536553u);
+  SeMediumMandatorySid = (PSID)ExAllocatePool2(96LL, v2, 0x69536553u);
+  SeHighMandatorySid = (PSID)ExAllocatePool2(96LL, v2, 0x69536553u);
   SeSystemMandatorySid = ExAllocatePool2(96LL, v2, 0x69536553u);
   SePackagePrefixSid = ExAllocatePool2(96LL, v2, 0x69536553u);
   SeCapabilityPrefixSid = ExAllocatePool2(96LL, v2, 0x69536553u);
@@ -295,7 +295,7 @@ bool SepVariableInitialization()
   Size = v12;
   SeUserModeDriversSid = (PSID)ExAllocatePool2(96LL, v12, 0x69536553u);
   SeTrustedInstallerSid = ExAllocatePool2(96LL, v12, 0x69536553u);
-  SeProcTrustWinTcbSid = ExAllocatePool2(96LL, v10, 0x69536553u);
+  SeProcTrustWinTcbSid = (PSID)ExAllocatePool2(96LL, v10, 0x69536553u);
   SeProcTrustWinSid = ExAllocatePool2(96LL, v10, 0x69536553u);
   SeProcTrustAuthenticodeSid = ExAllocatePool2(96LL, v10, 0x69536553u);
   SeProcTrustLiteAntimalwareSid = ExAllocatePool2(96LL, v10, 0x69536553u);
@@ -446,7 +446,7 @@ bool SepVariableInitialization()
   v20 = SeUserModeDriversSid;
   if ( !SeUserModeDriversSid )
     return 0;
-  v95 = (PSID)SeProcTrustWinTcbSid;
+  v95 = SeProcTrustWinTcbSid;
   if ( !SeProcTrustWinTcbSid )
     return 0;
   v96 = (PSID)SeProcTrustWinSid;
@@ -481,7 +481,7 @@ bool SepVariableInitialization()
     return 0;
   if ( !SeConstrainedImpersonationCapabilitySid )
     return 0;
-  v102 = SeConstrainedImpersonationCapabilityGroupSid;
+  CapabilityGroupSid = SeConstrainedImpersonationCapabilityGroupSid;
   if ( !SeConstrainedImpersonationCapabilityGroupSid )
     return 0;
   if ( !SeSessionImpersonationCapabilitySid )
@@ -586,7 +586,7 @@ bool SepVariableInitialization()
   v19[3] = 2;
   v21[2] = 3;
   v21[3] = 0x10000;
-  if ( RtlDeriveCapabilitySidsFromName(&String2, v102, SeLpacAppExperienceCapabilitySid) < 0 )
+  if ( RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, SeLpacAppExperienceCapabilitySid) < 0 )
     return 0;
   if ( RtlDeriveCapabilitySidsFromName(&v73, SeConstrainedImpersonationCapabilityGroupSid, SeLpacComCapabilitySid) < 0 )
     return 0;
@@ -666,8 +666,8 @@ bool SepVariableInitialization()
   *((_DWORD *)SeUserModeDriversSid + 2) = 84;
   *(_QWORD *)(SeProcTrustNoneSid + 8) = 0LL;
   v29 = SeProcTrustWinTcbSid;
-  *(_DWORD *)(SeProcTrustWinTcbSid + 8) = 1024;
-  *(_DWORD *)(v29 + 12) = 0x2000;
+  *((_DWORD *)SeProcTrustWinTcbSid + 2) = 1024;
+  v29[3] = 0x2000;
   v30 = SeProcTrustWinSid;
   *(_DWORD *)(SeProcTrustWinSid + 8) = 1024;
   *(_DWORD *)(v30 + 12) = 4096;
@@ -806,7 +806,7 @@ bool SepVariableInitialization()
   qword_140D55188 = SeSystemMandatorySid;
   qword_140D55198 = (__int64)SeAllAppPackagesSid;
   qword_140D551A0 = (__int64)SeUserModeDriversSid;
-  qword_140D551A8 = SeProcTrustWinTcbSid;
+  qword_140D551A8 = (__int64)SeProcTrustWinTcbSid;
   qword_140D551B0 = SeTrustedInstallerSid;
   qword_140D551C0 = (__int64)SeAppSiloSid;
   SepExports = 2LL;
@@ -836,7 +836,7 @@ bool SepVariableInitialization()
   qword_140D55150 = 34LL;
   v39 = 5LL;
   qword_140D55158 = 35LL;
-  v40 = (char *)&unk_140C40438;
+  v40 = (char *)&unk_140C40418;
   qword_140D55038 = 23LL;
   qword_140D55040 = 24LL;
   qword_140D550F8 = 25LL;

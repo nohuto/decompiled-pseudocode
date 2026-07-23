@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbBacktrackAllocation @ 0x140936100
+ * XREFs of ArbBacktrackAllocation @ 0x140936300
  * Callers:
  *     <none>
  * Callees:
- *     RtlDeleteRange @ 0x140815450 (RtlDeleteRange.c)
+ *     RtlDeleteRange @ 0x140815720 (RtlDeleteRange.c)
  */
 
 __int64 __fastcall ArbBacktrackAllocation(__int64 a1, unsigned __int64 *a2)

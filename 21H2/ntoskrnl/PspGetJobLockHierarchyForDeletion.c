@@ -1,13 +1,13 @@
 /*
- * XREFs of PspGetJobLockHierarchyForDeletion @ 0x14067F388
+ * XREFs of PspGetJobLockHierarchyForDeletion @ 0x1405D9E28
  * Callers:
- *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
+ *     PspJobDelete @ 0x1402046D0 (PspJobDelete.c)
  * Callees:
- *     PspLockJobAssignment @ 0x140616024 (PspLockJobAssignment.c)
- *     PspUnlockJobAssignment @ 0x140616050 (PspUnlockJobAssignment.c)
+ *     PspLockJobAssignment @ 0x14067FC84 (PspLockJobAssignment.c)
+ *     PspUnlockJobAssignment @ 0x14067FCB0 (PspUnlockJobAssignment.c)
  */
 
-char __fastcall PspGetJobLockHierarchyForDeletion(__int64 a1, __int64 a2)
+__int64 __fastcall PspGetJobLockHierarchyForDeletion(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
   __int64 v5; // rax
@@ -15,7 +15,7 @@ char __fastcall PspGetJobLockHierarchyForDeletion(__int64 a1, __int64 a2)
   __int64 v7; // rax
 
   CurrentThread = KeGetCurrentThread();
-  PspLockJobAssignment((__int64)CurrentThread);
+  PspLockJobAssignment(CurrentThread);
   v5 = *(_QWORD *)(a1 + 1072);
   v6 = 0;
   if ( v5 )
@@ -28,5 +28,5 @@ char __fastcall PspGetJobLockHierarchyForDeletion(__int64 a1, __int64 a2)
   *(_QWORD *)(a2 + 8 * v7 + 8) = a1;
   *(_BYTE *)(a2 + 8 * v7 + 16) = 0;
   *(_DWORD *)a2 = v6 + 1;
-  return PspUnlockJobAssignment((__int64)CurrentThread);
+  return PspUnlockJobAssignment(CurrentThread);
 }

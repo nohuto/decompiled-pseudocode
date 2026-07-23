@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmStoreHelperCommandCleanup @ 0x1404C6288
+ * XREFs of SmKmStoreHelperCommandCleanup @ 0x1404BF6E4
  * Callers:
- *     SmKmStoreHelperWorker @ 0x14045D450 (SmKmStoreHelperWorker.c)
+ *     SmKmStoreHelperWorker @ 0x140452510 (SmKmStoreHelperWorker.c)
  * Callees:
- *     SmKmStoreHelperCommandProcess @ 0x14037AA90 (SmKmStoreHelperCommandProcess.c)
- *     MmStoreDecommitVirtualMemory @ 0x140397A6C (MmStoreDecommitVirtualMemory.c)
- *     SmKmUnlockMdl @ 0x14039C804 (SmKmUnlockMdl.c)
- *     SmFpFree @ 0x14042F2B0 (SmFpFree.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     SmKmStoreHelperCommandProcess @ 0x1402E7B10 (SmKmStoreHelperCommandProcess.c)
+ *     MmStoreDecommitVirtualMemory @ 0x1402F62C8 (MmStoreDecommitVirtualMemory.c)
+ *     SmKmUnlockMdl @ 0x1402F9B04 (SmKmUnlockMdl.c)
+ *     SmFpFree @ 0x140421480 (SmFpFree.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall SmKmStoreHelperCommandCleanup(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -35,7 +35,7 @@ void __fastcall SmKmStoreHelperCommandCleanup(__int64 a1, int a2, __int64 a3, __
       if ( v8 )
       {
         if ( v8 == 1 )
-          guard_dispatch_icall_no_overrides(a1, *(_QWORD *)(a3 + 8), 1LL, a4);
+          guard_dispatch_icall_no_overrides(a1, *(_QWORD *)(a3 + 8));
       }
       else if ( *(int *)(a3 + 48) >= 0 )
       {
@@ -47,11 +47,11 @@ void __fastcall SmKmStoreHelperCommandCleanup(__int64 a1, int a2, __int64 a3, __
   else if ( *(int *)(a3 + 48) >= 0 )
   {
     if ( (*(_DWORD *)(a3 + 40) & 1) == 0 )
-      MmStoreDecommitVirtualMemory(*(_QWORD *)(a3 + 32), *(_QWORD *)(a3 + 8), a3);
+      MmStoreDecommitVirtualMemory(*(_QWORD *)(a3 + 32), *(_QWORD *)(a3 + 8), a3, a4);
     v9 = *(_DWORD *)(a3 + 40);
     *(_QWORD *)&v10 = *(_QWORD *)(a3 + 32);
     *((_QWORD *)&v10 + 1) = *(_QWORD *)(a3 + 8);
     LODWORD(v11) = v11 & 0xFFFFFFFE | v9 & 1;
-    SmKmStoreHelperCommandProcess(a1, 3, (__int64)&v10, a4);
+    SmKmStoreHelperCommandProcess(a1, 3, (__int64)&v10);
   }
 }

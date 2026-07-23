@@ -1,13 +1,13 @@
 /*
- * XREFs of MmVirtualAccessFault @ 0x140AD6824
+ * XREFs of MmVirtualAccessFault @ 0x140AD3530
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x14081C788 (VmpAccessFaultBatchResolve.c)
- *     PspIumResolveVirtualFault @ 0x140AD66A8 (PspIumResolveVirtualFault.c)
+ *     VmpAccessFaultBatchResolve @ 0x140822998 (VmpAccessFaultBatchResolve.c)
+ *     PspIumResolveVirtualFault @ 0x140AD33B4 (PspIumResolveVirtualFault.c)
  * Callees:
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiInitializeFaultVaListCore @ 0x140467FA0 (MiInitializeFaultVaListCore.c)
- *     MiDelayFaultingThread @ 0x1405053C4 (MiDelayFaultingThread.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiInitializeFaultVaListCore @ 0x1404616F0 (MiInitializeFaultVaListCore.c)
+ *     MiDelayFaultingThread @ 0x1404FED04 (MiDelayFaultingThread.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MmVirtualAccessFault(signed __int64 *a1, _BYTE *a2, __int16 a3)

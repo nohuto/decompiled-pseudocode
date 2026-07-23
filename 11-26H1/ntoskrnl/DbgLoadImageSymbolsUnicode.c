@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgLoadImageSymbolsUnicode @ 0x1404DF564
+ * XREFs of DbgLoadImageSymbolsUnicode @ 0x1404D8C44
  * Callers:
- *     MiCacheImageSymbols @ 0x140A78F14 (MiCacheImageSymbols.c)
+ *     MiCacheImageSymbols @ 0x1409E4F28 (MiCacheImageSymbols.c)
  * Callees:
- *     DbgUnicodeStringToAnsiString @ 0x1404DF634 (DbgUnicodeStringToAnsiString.c)
- *     DbgLoadImageSymbols @ 0x1404DF6D0 (DbgLoadImageSymbols.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     DbgUnicodeStringToAnsiString @ 0x1404D8D14 (DbgUnicodeStringToAnsiString.c)
+ *     DbgLoadImageSymbols @ 0x1404D8DB0 (DbgLoadImageSymbols.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgLoadImageSymbolsUnicode(PCUNICODE_STRING SourceString, __int64 a2)
 {
-  STRING P; // [rsp+20h] [rbp-18h] BYREF
+  _STRING P; // [rsp+20h] [rbp-18h] BYREF
 
   P = 0LL;
   if ( !(unsigned int)DbgUnicodeStringToAnsiString(&P, SourceString) )

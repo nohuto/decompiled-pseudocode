@@ -1,14 +1,14 @@
 /*
- * XREFs of PfCalculateProcessHash @ 0x140760C10
+ * XREFs of PfCalculateProcessHash @ 0x140760E00
  * Callers:
- *     PfProcessCreateNotification @ 0x140760464 (PfProcessCreateNotification.c)
- *     PfSnBeginAppLaunch @ 0x1407604F8 (PfSnBeginAppLaunch.c)
- *     PfSnOperationProcess @ 0x14097F840 (PfSnOperationProcess.c)
- *     PfSnSetAltPrefetchParam @ 0x14097F9F8 (PfSnSetAltPrefetchParam.c)
+ *     PfProcessCreateNotification @ 0x140760654 (PfProcessCreateNotification.c)
+ *     PfSnBeginAppLaunch @ 0x1407606E8 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x14097FA40 (PfSnOperationProcess.c)
+ *     PfSnSetAltPrefetchParam @ 0x14097FBF8 (PfSnSetAltPrefetchParam.c)
  * Callees:
- *     PfpLogApplicationEvent @ 0x1402FA074 (PfpLogApplicationEvent.c)
- *     PsGetAllocatedFullProcessImageName @ 0x1407427A8 (PsGetAllocatedFullProcessImageName.c)
- *     RtlUpcaseUnicodeString @ 0x140773AF0 (RtlUpcaseUnicodeString.c)
+ *     PfpLogApplicationEvent @ 0x1402FA304 (PfpLogApplicationEvent.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x140742998 (PsGetAllocatedFullProcessImageName.c)
+ *     RtlUpcaseUnicodeString @ 0x140773CE0 (RtlUpcaseUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

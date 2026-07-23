@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSetDeleteOnClose @ 0x1401DF37C
+ * XREFs of MiSetDeleteOnClose @ 0x1401DF1A8
  * Callers:
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
  * Callees:
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiInsertUnusedSegment @ 0x140026FEC (MiInsertUnusedSegment.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x140026B6C (MiInsertUnusedSegment.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 void __fastcall MiSetDeleteOnClose(__int64 a1, int a2)

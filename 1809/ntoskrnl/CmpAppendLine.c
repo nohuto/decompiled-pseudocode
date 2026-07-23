@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAppendLine @ 0x1409CF15C
+ * XREFs of CmpAppendLine @ 0x1409D015C
  * Callers:
- *     CmpParseInfBuffer @ 0x1409CEB20 (CmpParseInfBuffer.c)
+ *     CmpParseInfBuffer @ 0x1409CFB20 (CmpParseInfBuffer.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpAppendLine(_QWORD *a1, __int64 a2, char a3)

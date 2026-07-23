@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilGetDifPluginDriverData @ 0x1405A0760
+ * XREFs of VfUtilGetDifPluginDriverData @ 0x1405A0990
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x1409D6E40 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x1409D7E40 (VfTargetDriversGetVerifierData.c)
  */
 
 __int64 VfUtilGetDifPluginDriverData()

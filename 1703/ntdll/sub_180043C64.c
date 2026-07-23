@@ -18,21 +18,21 @@
 
 char __fastcall sub_180043C64(__int64 a1, int a2, int a3)
 {
-  _DWORD *HotpatchInformation; // r10
+  PSILO_USER_SHARED_DATA SharedData; // r10
   __int64 v6; // rdi
   __int64 v7; // rdx
   __int64 v8; // rbx
   __int64 v9; // r8
-  _DWORD *v10; // rcx
+  PSILO_USER_SHARED_DATA v10; // rcx
   int v12; // r9d
   __int64 v13; // rcx
   int v14; // r9d
   char v15; // [rsp+48h] [rbp-38h]
 
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
   {
-    v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     v6 = 2147353476LL;
   }
   else
@@ -43,8 +43,8 @@ char __fastcall sub_180043C64(__int64 a1, int a2, int a3)
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
     v8 = 2147353477LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v13 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
     else
       v13 = 2147353477LL;
     if ( (*(_BYTE *)v13 & 0x20) != 0 )
@@ -58,13 +58,13 @@ char __fastcall sub_180043C64(__int64 a1, int a2, int a3)
     v8 = 2147353477LL;
   }
   v15 = _guard_dispatch_icall_fptr();
-  v10 = NtCurrentPeb()->HotpatchInformation;
-  if ( v10 && *v10 )
-    v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  v10 = NtCurrentPeb()->SharedData;
+  if ( v10 && v10->ServiceSessionId )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   if ( *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
     if ( (*(_BYTE *)v8 & 0x20) != 0 )
     {
       LOBYTE(v14) = -1;

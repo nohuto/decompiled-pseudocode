@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAcquireFastLock_1 @ 0x1401CAD9C
+ * XREFs of IopAcquireFastLock_1 @ 0x1401CAD48
  * Callers:
- *     NtWriteFileGather @ 0x1404BD44C (NtWriteFileGather.c)
- *     NtReadFileScatter @ 0x1404BDB18 (NtReadFileScatter.c)
- *     NtNotifyChangeDirectoryFile @ 0x1404D51E4 (NtNotifyChangeDirectoryFile.c)
+ *     NtWriteFileGather @ 0x1404A917C (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1404A9848 (NtReadFileScatter.c)
+ *     NtNotifyChangeDirectoryFile @ 0x1404B87E8 (NtNotifyChangeDirectoryFile.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 char __fastcall IopAcquireFastLock_1(volatile __int32 *a1, __int64 a2, __int64 a3, __int64 a4)

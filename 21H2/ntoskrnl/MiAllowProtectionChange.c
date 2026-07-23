@@ -1,88 +1,82 @@
 /*
- * XREFs of MiAllowProtectionChange @ 0x14025F698
+ * XREFs of MiAllowProtectionChange @ 0x14027E54C
  * Callers:
- *     MiResetVirtualMemory @ 0x1402C538C (MiResetVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
+ *     MiResetVirtualMemory @ 0x140243BEC (MiResetVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1406E97C0 (MmProtectVirtualMemory.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
- *     MiArbitraryCodeBlocked @ 0x140629364 (MiArbitraryCodeBlocked.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
+ *     MiArbitraryCodeBlocked @ 0x1406907CC (MiArbitraryCodeBlocked.c)
  */
 
 __int64 __fastcall MiAllowProtectionChange(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        _DWORD *a4,
+        char a4,
         unsigned __int64 a5,
         unsigned __int64 a6)
 {
   unsigned int v6; // ebx
-  char v7; // si
   int v8; // r13d
   int v10; // edi
-  int v11; // r8d
-  unsigned __int8 v12; // r12
-  int v13; // eax
-  int v14; // ecx
-  _WORD v16[2]; // [rsp+50h] [rbp-20h] BYREF
-  int v17; // [rsp+54h] [rbp-1Ch] BYREF
-  int v18; // [rsp+58h] [rbp-18h] BYREF
-  int v19; // [rsp+5Ch] [rbp-14h] BYREF
-  unsigned __int64 v20; // [rsp+60h] [rbp-10h] BYREF
-  __int64 v21; // [rsp+A8h] [rbp+38h]
+  __int64 v11; // rdx
+  int v12; // r8d
+  char v13; // r12
+  int v14; // eax
+  int v15; // ecx
+  _WORD v17[2]; // [rsp+50h] [rbp-20h] BYREF
+  int v18; // [rsp+54h] [rbp-1Ch] BYREF
+  int v19; // [rsp+58h] [rbp-18h] BYREF
+  int v20; // [rsp+5Ch] [rbp-14h] BYREF
+  unsigned __int64 v21; // [rsp+60h] [rbp-10h] BYREF
 
-  v21 = a2;
   v6 = 0;
-  v7 = (char)a4;
-  v20 = 0LL;
+  v21 = 0LL;
   v8 = a3;
-  v19 = 0;
-  v17 = 0;
+  v20 = 0;
   v18 = 0;
-  v16[0] = 0;
-  if ( ((unsigned __int8)a4 & 2) != 0 )
-  {
-    a2 = *(unsigned int *)(a3 + 48);
-    if ( (*(_DWORD *)(a3 + 48) & 0xC00) == 3072 && (*(_DWORD *)(a3 + 48) & 0x380) != 0 )
-      return 3221225541LL;
-  }
+  v19 = 0;
+  v17[0] = 0;
+  if ( (a4 & 2) != 0 && (*(_DWORD *)(a3 + 48) & 0xC00) == 3072 && (*(_DWORD *)(a3 + 48) & 0x380) != 0 )
+    return 3221225541LL;
   v10 = 0;
-  v12 = MiLockWorkingSetShared(a1 + 1664, a2, a3, a4);
-  v13 = a5;
+  v13 = MiLockWorkingSetShared(a1 + 1664);
+  v14 = a5;
   if ( a5 <= a6 )
   {
     while ( 1 )
     {
-      LOBYTE(v11) = v12;
+      LOBYTE(v12) = v13;
       MiQueryAddressState(
-        v13,
+        v14,
         a6,
-        v11,
+        v12,
         v8,
         0LL,
-        (__int64)&v17,
-        (__int64)&v19,
-        (__int64)v16,
+        (__int64)&v18,
         (__int64)&v20,
-        (__int64)&v18);
-      v14 = v17;
-      if ( v17 == -1 )
-        v14 = 0;
-      v17 = v14;
-      if ( (v14 & 2) == 0 && (v7 & 2) != 0 || (v14 & 2) != 0 && (v7 & 4) != 0 )
+        (__int64)v17,
+        (__int64)&v21,
+        (__int64)&v19);
+      v15 = v18;
+      if ( v18 == -1 )
+        v15 = 0;
+      v18 = v15;
+      if ( (v15 & 2) == 0 && (a4 & 2) != 0 || (v15 & 2) != 0 && (a4 & 4) != 0 )
         break;
-      v13 = v20;
-      if ( v20 > a6 )
+      v14 = v21;
+      if ( v21 > a6 )
         goto LABEL_11;
     }
     v10 = 1;
   }
 LABEL_11:
-  MiUnlockWorkingSetShared(a1 + 1664, v12);
+  LOBYTE(v11) = v13;
+  MiUnlockWorkingSetShared(a1 + 1664, v11);
   if ( v10 )
-    return (unsigned int)MiArbitraryCodeBlocked(v21);
+    return (unsigned int)MiArbitraryCodeBlocked(a2);
   return v6;
 }

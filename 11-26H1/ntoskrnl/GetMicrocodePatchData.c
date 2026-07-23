@@ -1,15 +1,15 @@
 /*
- * XREFs of GetMicrocodePatchData @ 0x1406DD430
+ * XREFs of GetMicrocodePatchData @ 0x1406E16D0
  * Callers:
- *     PrExtExportRecordData @ 0x1406DCB78 (PrExtExportRecordData.c)
+ *     PrExtExportRecordData @ 0x1406E0E18 (PrExtExportRecordData.c)
  * Callees:
- *     MicrocodeInitLogging @ 0x1406DD898 (MicrocodeInitLogging.c)
- *     MicrocodePrePatchCheckAndLogging @ 0x1406DD8D0 (MicrocodePrePatchCheckAndLogging.c)
- *     IntelMicrocodeChecksumValidate @ 0x1406DE35C (IntelMicrocodeChecksumValidate.c)
- *     IntelMicrocodeGetRecordData @ 0x1406DE3A0 (IntelMicrocodeGetRecordData.c)
- *     GetCpuManufacturer @ 0x1406DE598 (GetCpuManufacturer.c)
- *     AMDMicrocodeGetRecordData @ 0x1406DE5FC (AMDMicrocodeGetRecordData.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     MicrocodeInitLogging @ 0x1406E1B38 (MicrocodeInitLogging.c)
+ *     MicrocodePrePatchCheckAndLogging @ 0x1406E1B70 (MicrocodePrePatchCheckAndLogging.c)
+ *     IntelMicrocodeChecksumValidate @ 0x1406E25FC (IntelMicrocodeChecksumValidate.c)
+ *     IntelMicrocodeGetRecordData @ 0x1406E2640 (IntelMicrocodeGetRecordData.c)
+ *     GetCpuManufacturer @ 0x1406E2838 (GetCpuManufacturer.c)
+ *     AMDMicrocodeGetRecordData @ 0x1406E289C (AMDMicrocodeGetRecordData.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall GetMicrocodePatchData(__int64 a1, unsigned __int64 a2, __int64 a3, void **a4)
@@ -65,7 +65,7 @@ __int64 __fastcall GetMicrocodePatchData(__int64 a1, unsigned __int64 a2, __int6
     if ( v18 != 11 )
     {
 LABEL_17:
-      HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 8;
+      CmpContextListLock.Timer.Header.SignalState = 8;
       return 3221225659LL;
     }
 LABEL_16:
@@ -94,14 +94,14 @@ LABEL_28:
   if ( (int)IntelMicrocodeGetRecordData(a1, a2, v24, &v25) < 0 )
   {
 LABEL_26:
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 9;
+    CmpContextListLock.Timer.Header.SignalState = 9;
     return 3221225659LL;
   }
   v20 = *(_DWORD *)(v25 + 4);
   result = IntelMicrocodeChecksumValidate(v25, v24[0]);
   if ( (int)result < 0 )
   {
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 8;
+    CmpContextListLock.Timer.Header.SignalState = 8;
     return result;
   }
 LABEL_29:

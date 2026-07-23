@@ -7,14 +7,14 @@
  *     RtlRbRemoveNode @ 0x18001A490 (RtlRbRemoveNode.c)
  */
 
-__int64 __fastcall EtwpRemoveRegistrationFromTable(__m128i *a1)
+void __fastcall EtwpRemoveRegistrationFromTable(PRTL_BALANCED_NODE Node)
 {
   __m128i si128; // xmm0
 
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  RtlRbRemoveNode(&EtwpRegistrationTable, a1);
+  RtlRbRemoveNode(&EtwpRegistrationTable, Node);
   si128 = _mm_load_si128((const __m128i *)&_xmm_abababababababababababababababab);
-  *a1 = si128;
-  a1[1].m128i_i64[0] = si128.m128i_i64[0];
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  Node->0 = ($7A974D354045D066D5E12A438A7E0E45)si128;
+  Node->ParentValue = si128.m128i_i64[0];
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

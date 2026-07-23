@@ -15,6 +15,6 @@ __int64 __fastcall HvlpDetachRootSvmDevice(unsigned int a1)
 
   v3[0] = -1LL;
   v3[1] = a1 | 0x4000000000000000LL;
-  v1 = HvcallFastExtended(65667LL, (__int64)v3, 16LL, 0LL, 0);
+  v1 = HvcallFastExtended(65667LL, (__int64)v3, 0x10u, 0, 0);
   return HvlpHvToNtStatus(v1);
 }

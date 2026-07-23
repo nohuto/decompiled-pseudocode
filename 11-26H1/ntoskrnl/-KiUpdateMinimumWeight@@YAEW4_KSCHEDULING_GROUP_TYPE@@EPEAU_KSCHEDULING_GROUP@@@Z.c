@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiUpdateMinimumWeight@@YAEW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x1404C641C
+ * XREFs of ?KiUpdateMinimumWeight@@YAEW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x1404BFDCC
  * Callers:
- *     KeRemoveSchedulingGroup @ 0x1404C61B4 (KeRemoveSchedulingGroup.c)
+ *     KeRemoveSchedulingGroup @ 0x1404BFB64 (KeRemoveSchedulingGroup.c)
  * Callees:
  *     <none>
  */

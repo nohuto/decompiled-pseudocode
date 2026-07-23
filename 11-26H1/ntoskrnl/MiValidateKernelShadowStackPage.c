@@ -1,10 +1,10 @@
 /*
- * XREFs of MiValidateKernelShadowStackPage @ 0x140340C18
+ * XREFs of MiValidateKernelShadowStackPage @ 0x140342C98
  * Callers:
- *     MiDeleteShadowStackPtes @ 0x1403407F4 (MiDeleteShadowStackPtes.c)
- *     MiUpdateKernelShadowStackOwnerData @ 0x140340B48 (MiUpdateKernelShadowStackOwnerData.c)
+ *     MiDeleteShadowStackPtes @ 0x140342874 (MiDeleteShadowStackPtes.c)
+ *     MiUpdateKernelShadowStackOwnerData @ 0x140342BC8 (MiUpdateKernelShadowStackOwnerData.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiValidateKernelShadowStackPage(ULONG_PTR BugCheckParameter2, __int64 a2)

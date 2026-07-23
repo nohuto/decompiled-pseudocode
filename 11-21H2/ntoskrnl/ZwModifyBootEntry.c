@@ -1,15 +1,17 @@
 /*
  * XREFs of ZwModifyBootEntry @ 0x14041DAE0
  * Callers:
- *     DifZwModifyBootEntryWrapper @ 0x1406212A0 (DifZwModifyBootEntryWrapper.c)
- *     BiModifyBootEntry @ 0x140A20758 (BiModifyBootEntry.c)
+ *     sub_1406212A0 @ 0x1406212A0 (sub_1406212A0.c)
+ *     sub_140A20758 @ 0x140A20758 (sub_140A20758.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwModifyBootEntry(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
+  __int64 v1; // rdx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(BootEntry, v1);
 }

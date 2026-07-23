@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpInitializePort @ 0x140716728
+ * XREFs of AlpcpInitializePort @ 0x140716928
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x14071697C (AlpcpAcceptConnectPort.c)
- *     AlpcpCreateClientPort @ 0x140717744 (AlpcpCreateClientPort.c)
- *     AlpcpCreateConnectionPort @ 0x1407CC318 (AlpcpCreateConnectionPort.c)
+ *     AlpcpAcceptConnectPort @ 0x140716B7C (AlpcpAcceptConnectPort.c)
+ *     AlpcpCreateClientPort @ 0x140717944 (AlpcpCreateClientPort.c)
+ *     AlpcpCreateConnectionPort @ 0x1407CC5E8 (AlpcpCreateConnectionPort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeInitializeSemaphore @ 0x1402B32F0 (KeInitializeSemaphore.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeInitializeSemaphore @ 0x1402B3580 (KeInitializeSemaphore.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall AlpcpInitializePort(__int64 a1, char a2, char a3)
@@ -54,13 +54,13 @@ __int64 __fastcall AlpcpInitializePort(__int64 a1, char a2, char a3)
   }
   *(_DWORD *)(a1 + 416) |= 1u;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&AlpcpPortListLock, 0LL);
-  v4 = (__int64 *)qword_140C406A8;
-  if ( *(__int64 **)qword_140C406A8 != &AlpcpPortList )
+  v4 = (__int64 *)qword_140C40658;
+  if ( *(__int64 **)qword_140C40658 != &AlpcpPortList )
     __fastfail(3u);
-  *(_QWORD *)(a1 + 8) = qword_140C406A8;
+  *(_QWORD *)(a1 + 8) = qword_140C40658;
   *(_QWORD *)a1 = &AlpcpPortList;
   *v4 = a1;
-  qword_140C406A8 = a1;
+  qword_140C40658 = a1;
   v5 = _InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpPortListLock, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v5 & 2) != 0 && (v5 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpPortListLock);

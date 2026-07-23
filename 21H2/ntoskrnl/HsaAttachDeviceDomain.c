@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaAttachDeviceDomain @ 0x1404E24E0
+ * XREFs of HsaAttachDeviceDomain @ 0x1404E2720
  * Callers:
  *     <none>
  * Callees:
- *     HsaAttachDeviceDomainInternal @ 0x1404E24F8 (HsaAttachDeviceDomainInternal.c)
+ *     HsaAttachDeviceDomainInternal @ 0x1404E2738 (HsaAttachDeviceDomainInternal.c)
  */
 
 __int64 HsaAttachDeviceDomain()

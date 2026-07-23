@@ -25,14 +25,14 @@ NTSTATUS __stdcall NtQueryDirectoryFile(
   if ( !RestartScan )
     v11 = ReturnSingleEntry != 0 ? 2 : 0;
   return NtQueryDirectoryFileEx(
-           (_DWORD)FileHandle,
-           (_DWORD)Event,
-           (_DWORD)ApcRoutine,
-           (_DWORD)ApcContext,
-           (__int64)IoStatusBlock,
-           (__int64)FileInformation,
+           FileHandle,
+           Event,
+           ApcRoutine,
+           ApcContext,
+           IoStatusBlock,
+           FileInformation,
            Length,
            FileInformationClass,
            v11,
-           (__int64)FileName);
+           FileName);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiControlQueryAndRemoveDevice @ 0x14083BC00
+ * XREFs of PiControlQueryAndRemoveDevice @ 0x14083CE60
  * Callers:
  *     <none>
  * Callees:
  *     PiControlAllocateBufferForUserModeCaller @ 0x140001D7C (PiControlAllocateBufferForUserModeCaller.c)
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x140597F3C (PiControlMakeUserModeCallersCopy.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14083C944 (PnpQueueQueryAndRemoveEvent.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x140598F3C (PiControlMakeUserModeCallersCopy.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14083DBA4 (PnpQueueQueryAndRemoveEvent.c)
  */
 
 __int64 __fastcall PiControlQueryAndRemoveDevice(__int64 a1, __int16 *a2, __int64 a3, char a4)

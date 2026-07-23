@@ -1,16 +1,16 @@
 /*
- * XREFs of MiWaitForVadDeletion @ 0x1401F7718
+ * XREFs of MiWaitForVadDeletion @ 0x1401F7544
  * Callers:
- *     MiObtainReferencedSecureVad @ 0x14002C4F0 (MiObtainReferencedSecureVad.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     MmQueryVirtualMemory @ 0x140432230 (MmQueryVirtualMemory.c)
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
- *     MiLockVadRange @ 0x1404F38DC (MiLockVadRange.c)
+ *     MiObtainReferencedSecureVad @ 0x14002C070 (MiObtainReferencedSecureVad.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     MmQueryVirtualMemory @ 0x140431100 (MmQueryVirtualMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
+ *     MiLockVadRange @ 0x1404D6868 (MiLockVadRange.c)
  * Callees:
- *     MiUnlockVad @ 0x1400144A0 (MiUnlockVad.c)
- *     MiInsertVadEvent @ 0x140014510 (MiInsertVadEvent.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
+ *     MiUnlockVad @ 0x140014020 (MiUnlockVad.c)
+ *     MiInsertVadEvent @ 0x140014090 (MiInsertVadEvent.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
  */
 
 __int64 __fastcall MiWaitForVadDeletion(__int64 a1)

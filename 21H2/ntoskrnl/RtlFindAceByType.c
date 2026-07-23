@@ -1,47 +1,47 @@
 /*
- * XREFs of RtlFindAceByType @ 0x140352210
+ * XREFs of RtlFindAceByType @ 0x14035CF60
  * Callers:
  *     SepVerifyDesktopAppxPackageName @ 0x140201574 (SepVerifyDesktopAppxPackageName.c)
- *     SepMandatorySubProcessToken @ 0x1402517DC (SepMandatorySubProcessToken.c)
- *     SeComputeAutoInheritByObjectTypeEx @ 0x140355F20 (SeComputeAutoInheritByObjectTypeEx.c)
- *     RtlIsUntrustedObject @ 0x14035F3B0 (RtlIsUntrustedObject.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C44 (SepSetProcessTrustLabelAceForToken.c)
- *     SepGetScopedPolicySid @ 0x1405960C8 (SepGetScopedPolicySid.c)
- *     AdtpBuildContextFromSecurityDescriptor @ 0x1405C32C0 (AdtpBuildContextFromSecurityDescriptor.c)
- *     RtlpGenerateInheritAcl @ 0x14065C860 (RtlpGenerateInheritAcl.c)
- *     RtlpCopyAces @ 0x14065D3D0 (RtlpCopyAces.c)
- *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
- *     SeQueryMandatoryLabel @ 0x140674294 (SeQueryMandatoryLabel.c)
- *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
- *     RtlpValidFilterAclSubjectContext @ 0x140914D94 (RtlpValidFilterAclSubjectContext.c)
- *     SepSDContainsAttributeACE @ 0x140924D84 (SepSDContainsAttributeACE.c)
+ *     RtlIsUntrustedObject @ 0x1402A42E0 (RtlIsUntrustedObject.c)
+ *     SepMandatorySubProcessToken @ 0x1402F5FEC (SepMandatorySubProcessToken.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x140360C70 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C74 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepGetScopedPolicySid @ 0x1405962F8 (SepGetScopedPolicySid.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x1405C34F0 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     RtlpGenerateInheritAcl @ 0x140651680 (RtlpGenerateInheritAcl.c)
+ *     RtlpCopyAces @ 0x1406521F0 (RtlpCopyAces.c)
+ *     RtlpSetSecurityObject @ 0x1406531E0 (RtlpSetSecurityObject.c)
+ *     SeQueryMandatoryLabel @ 0x1406694C4 (SeQueryMandatoryLabel.c)
+ *     RtlpNewSecurityObject @ 0x1407169D0 (RtlpNewSecurityObject.c)
+ *     RtlpValidFilterAclSubjectContext @ 0x140914EF4 (RtlpValidFilterAclSubjectContext.c)
+ *     SepSDContainsAttributeACE @ 0x140924EE4 (SepSDContainsAttributeACE.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 *__fastcall RtlFindAceByType(__int64 a1, int a2, unsigned int *a3)
+PVOID __cdecl RtlFindAceByType(PACL Acl, UCHAR AceType, PULONG Index)
 {
-  unsigned __int8 *v4; // r10
+  PACL v4; // r10
   unsigned int v5; // r11d
 
-  if ( !a1 )
+  if ( !Acl )
     return 0LL;
-  v4 = (unsigned __int8 *)(a1 + 8);
+  v4 = Acl + 1;
   v5 = 0;
-  if ( !*(_WORD *)(a1 + 4) )
+  if ( !Acl->AceCount )
     return 0LL;
-  while ( !a3 )
+  while ( !Index )
   {
-    if ( *v4 == a2 )
+    if ( v4->AclRevision == AceType )
       return v4;
 LABEL_9:
     ++v5;
-    v4 += *((unsigned __int16 *)v4 + 1);
-    if ( v5 >= *(unsigned __int16 *)(a1 + 4) )
+    v4 = (PACL)((char *)v4 + v4->AclSize);
+    if ( v5 >= Acl->AceCount )
       return 0LL;
   }
-  if ( v5 < *a3 || *v4 != a2 )
+  if ( v5 < *Index || v4->AclRevision != AceType )
     goto LABEL_9;
-  *a3 = v5;
+  *Index = v5;
   return v4;
 }

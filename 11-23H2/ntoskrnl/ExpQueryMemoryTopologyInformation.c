@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpQueryMemoryTopologyInformation @ 0x140852048
+ * XREFs of ExpQueryMemoryTopologyInformation @ 0x140852348
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     MmGetNodeChannelRanges @ 0x1408520E8 (MmGetNodeChannelRanges.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MmGetNodeChannelRanges @ 0x1408523E8 (MmGetNodeChannelRanges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -15,32 +15,31 @@
  *     LdrpLogDbgPrint @ 0x1800CE3D8 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpLoadWow64(__int16 *a1)
+__int64 __fastcall LdrpLoadWow64(PCUNICODE_STRING Source)
 {
   int Dll; // ebx
   unsigned int v2; // ebx
-  const void ***v3; // rdi
-  int ProcedureAddressForCaller; // esi
+  PANSI_STRING *v3; // rdi
+  NTSTATUS ProcedureAddressForCaller; // esi
   char v6; // cl
   char v7; // al
   int v8; // [rsp+38h] [rbp-D0h]
-  int v9; // [rsp+40h] [rbp-C8h]
-  __int64 v10; // [rsp+48h] [rbp-C0h] BYREF
-  char *v11; // [rsp+50h] [rbp-B8h]
-  __int64 v12; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v13[15]; // [rsp+68h] [rbp-A0h] BYREF
-  char v14; // [rsp+E4h] [rbp-24h]
-  char v15; // [rsp+E8h] [rbp-20h] BYREF
-  __int64 retaddr; // [rsp+320h] [rbp+218h]
+  NTSTATUS v9; // [rsp+40h] [rbp-C8h]
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-C0h] BYREF
+  PVOID BaseAddress[2]; // [rsp+58h] [rbp-B0h] BYREF
+  PWSTR Path[15]; // [rsp+68h] [rbp-A0h] BYREF
+  char v13; // [rsp+E4h] [rbp-24h]
+  char v14; // [rsp+E8h] [rbp-20h] BYREF
+  PVOID *Callback; // [rsp+320h] [rbp+218h]
 
-  LODWORD(v10) = 34078720;
-  v11 = &v15;
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v10, a1);
-  RtlAppendUnicodeToString((unsigned __int16 *)&v10, L"wow64.dll");
-  LdrpInitializeDllPath((__int64)v11, 16385LL, v13);
-  Dll = LdrpLoadDll((__int64)&v10, (int)v13, 2048, (__int64)&v12);
-  if ( v14 )
-    RtlReleasePath(v13[0]);
+  *(_DWORD *)&Destination.Length = 34078720;
+  Destination.Buffer = (wchar_t *)&v14;
+  RtlAppendUnicodeStringToString(&Destination, Source);
+  RtlAppendUnicodeToString(&Destination, L"wow64.dll");
+  LdrpInitializeDllPath((__int64)Destination.Buffer, 16385LL, (__int64 *)Path);
+  Dll = LdrpLoadDll((__int64)&Destination, (__int64)Path, 2048, (__int64)BaseAddress);
+  if ( v13 )
+    RtlReleasePath(Path[0]);
   if ( Dll < 0 )
   {
     v6 = LdrpDebugFlags;
@@ -53,7 +52,7 @@ __int64 __fastcall LdrpLoadWow64(__int16 *a1)
         (unsigned int)"LdrpLoadWow64",
         0,
         (__int64)"Loading WOW64 image management DLL \"%wZ\" failed with status 0x%08lx\n",
-        &v10,
+        &Destination,
         v8);
       v6 = LdrpDebugFlags;
     }
@@ -65,10 +64,16 @@ __int64 __fastcall LdrpLoadWow64(__int16 *a1)
   {
     LdrProtectMrdata(0);
     v2 = 0;
-    v3 = (const void ***)&off_180118DC0;
+    v3 = (PANSI_STRING *)&off_180118DC0;
     while ( 1 )
     {
-      ProcedureAddressForCaller = LdrGetProcedureAddressForCaller(*(_QWORD *)(v12 + 48), *v3, 0, v3[1], 0, retaddr);
+      ProcedureAddressForCaller = LdrGetProcedureAddressForCaller(
+                                    *((PVOID *)BaseAddress[0] + 6),
+                                    *v3,
+                                    0,
+                                    (PVOID *)v3[1],
+                                    0,
+                                    Callback);
       if ( ProcedureAddressForCaller < 0 )
         break;
       ++v2;
@@ -87,7 +92,7 @@ __int64 __fastcall LdrpLoadWow64(__int16 *a1)
         0,
         (__int64)"Locating procedure \"%Z\" in WOW64 image management DLL \"%wZ\" failed with status 0x%08lx\n",
         *(&off_180118DC0 + 2 * v2),
-        &v10,
+        &Destination,
         v9);
       v7 = LdrpDebugFlags;
     }
@@ -95,7 +100,7 @@ __int64 __fastcall LdrpLoadWow64(__int16 *a1)
       __debugbreak();
 LABEL_7:
     LdrProtectMrdata(1);
-    LdrpDereferenceModule(v12);
+    LdrpDereferenceModule((char *)BaseAddress[0]);
     return (unsigned int)ProcedureAddressForCaller;
   }
 }

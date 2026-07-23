@@ -16,9 +16,9 @@ void __fastcall sub_180105230(__int64 a1)
   v2 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
   if ( v2 )
   {
-    sub_18007358C((volatile signed __int64 *)(a1 + 56), -v2, 0);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v3 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    sub_18007358C((_RTL_SRWLOCK *)(a1 + 56), -v2, 0);
+    if ( RtlGetCurrentServiceSessionId() )
+      v3 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v3 = 2147353478LL;
     if ( *(_BYTE *)v3 )

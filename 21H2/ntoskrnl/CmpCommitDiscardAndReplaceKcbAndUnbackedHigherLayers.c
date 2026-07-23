@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140875FB4
+ * XREFs of CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140876114
  * Callers:
- *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
- *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ECD4 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmDeleteLayeredKey @ 0x1404ED2B8 (CmDeleteLayeredKey.c)
+ *     CmDeleteKey @ 0x140660814 (CmDeleteKey.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087EE34 (CmpLightWeightCommitDeleteKeyUoW.c)
  * Callees:
- *     CmpEnumerateAllHigherLayerKcbs @ 0x140734AA4 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpCommitDiscardReplacePost @ 0x140876020 (CmpCommitDiscardReplacePost.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140734C64 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpCommitDiscardReplacePost @ 0x140876180 (CmpCommitDiscardReplacePost.c)
  */
 
 __int64 __fastcall CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers(

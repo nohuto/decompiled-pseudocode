@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlDeleteAce @ 0x18007B360
+ * XREFs of RtlDeleteAce @ 0x18007B350
  * Callers:
  *     <none>
  * Callees:
- *     RtlFirstFreeAce @ 0x180014E20 (RtlFirstFreeAce.c)
- *     RtlValidAcl @ 0x180014FC0 (RtlValidAcl.c)
- *     RtlpDeleteData @ 0x18007B3E0 (RtlpDeleteData.c)
+ *     RtlFirstFreeAce @ 0x180014E10 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x180014FB0 (RtlValidAcl.c)
+ *     RtlpDeleteData @ 0x18007B3D0 (RtlpDeleteData.c)
  */
 
-__int64 __fastcall RtlDeleteAce(__int64 a1, unsigned int a2)
+NTSTATUS __cdecl RtlDeleteAce(PACL Acl, ULONG AceIndex)
 {
   __int64 v2; // rdi
-  __int64 v4; // rcx
+  PACL v4; // rcx
   __int64 v6; // rdx
-  __int64 v7; // [rsp+40h] [rbp+18h] BYREF
+  PVOID FirstFree; // [rsp+40h] [rbp+18h] BYREF
 
-  v2 = a2;
-  if ( !RtlValidAcl(a1) || (unsigned int)v2 >= *(unsigned __int16 *)(a1 + 4) || !RtlFirstFreeAce(a1, &v7) )
-    return 3221225485LL;
-  v4 = a1 + 8;
+  v2 = AceIndex;
+  if ( !RtlValidAcl(Acl) || (unsigned int)v2 >= Acl->AceCount || !RtlFirstFreeAce(Acl, &FirstFree) )
+    return -1073741811;
+  v4 = Acl + 1;
   if ( (_DWORD)v2 )
   {
     v6 = v2;
     do
     {
-      v4 += *(unsigned __int16 *)(v4 + 2);
+      v4 = (PACL)((char *)v4 + v4->AclSize);
       --v6;
     }
     while ( v6 );
   }
-  RtlpDeleteData(v4, *(unsigned __int16 *)(v4 + 2), (unsigned int)(v7 - v4));
-  --*(_WORD *)(a1 + 4);
-  return 0LL;
+  RtlpDeleteData(v4, v4->AclSize, (unsigned int)((_DWORD)FirstFree - (_DWORD)v4));
+  --Acl->AceCount;
+  return 0;
 }

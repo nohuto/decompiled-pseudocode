@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceWatchdogViolation @ 0x1405A9180
+ * XREFs of PnpTraceWatchdogViolation @ 0x1405A626C
  * Callers:
- *     PnpWatchdogEtwWrite @ 0x1404C9280 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogEtwWrite @ 0x1404C2730 (PnpWatchdogEtwWrite.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceWatchdogViolation(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int16 *a5)
@@ -74,7 +74,7 @@ void __fastcall PnpTraceWatchdogViolation(__int64 a1, __int64 a2, __int64 a3, __
     v34 = 1;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E06FA8,
-      (unsigned __int8 *)&dword_14004693C,
+      (unsigned __int8 *)byte_140046DA3,
       0LL,
       0LL,
       0xAu,

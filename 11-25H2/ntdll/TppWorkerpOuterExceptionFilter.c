@@ -8,9 +8,9 @@
  *     TppTerminateProcess @ 0x18015DD40 (TppTerminateProcess.c)
  */
 
-__int64 __fastcall TppWorkerpOuterExceptionFilter(const void **a1, _DWORD *a2)
+__int64 __fastcall TppWorkerpOuterExceptionFilter(_EXCEPTION_POINTERS *a1, _DWORD *a2)
 {
-  unsigned int v2; // ebx
+  unsigned __int32 v2; // ebx
 
   v2 = 0;
   if ( *a2 )
@@ -22,12 +22,12 @@ __int64 __fastcall TppWorkerpOuterExceptionFilter(const void **a1, _DWORD *a2)
     v2 = TppExceptionFilter(a1);
     if ( v2 == 1 )
     {
-      if ( *(_DWORD *)*a1 != -1073741571 )
+      if ( a1->ExceptionRecord->ExceptionCode != -1073741571 )
       {
-        TppTerminateProcess((unsigned int **)a1);
+        TppTerminateProcess((NTSTATUS **)a1);
         __debugbreak();
       }
-      RtlReportException(*a1, a1[1], 3LL);
+      RtlReportException(a1->ExceptionRecord, a1->ContextRecord, 3u);
     }
   }
   return v2;

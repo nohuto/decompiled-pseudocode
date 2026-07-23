@@ -1,10 +1,10 @@
 /*
- * XREFs of sscanf_s @ 0x1403D7C70
+ * XREFs of sscanf_s @ 0x1403D7DE0
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x140916100 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x140916260 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
- *     _sinput_s @ 0x1403DA8C0 (_sinput_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039AB40 (xHalTimerWatchdogStop.c)
+ *     _sinput_s @ 0x1403DAA30 (_sinput_s.c)
  */
 
 int sscanf_s(const char *Src, const char *Format, ...)

@@ -1,10 +1,10 @@
 /*
  * XREFs of ObpUseSystemDeviceMap @ 0x14067EA7C
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
  * Callees:
  *     RtlGetNtSystemRoot @ 0x140695E40 (RtlGetNtSystemRoot.c)
- *     RtlUpcaseUnicodeChar @ 0x1406DA280 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1406DA2B0 (RtlUpcaseUnicodeChar.c)
  */
 
 bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
@@ -18,7 +18,7 @@ bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
   result = 0;
   if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 8) != 0 && *(_WORD *)a1 >= 0xEu )
   {
-    NtSystemRoot = (WCHAR *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v3 = RtlUpcaseUnicodeChar(*NtSystemRoot);
     v4 = RtlUpcaseUnicodeChar(*(_WORD *)(*(_QWORD *)(a1 + 8) + 8LL));
     v5 = *(_QWORD *)(a1 + 8);

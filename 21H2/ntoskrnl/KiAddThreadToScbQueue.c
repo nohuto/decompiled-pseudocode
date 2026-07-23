@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAddThreadToScbQueue @ 0x1402EBCF4
+ * XREFs of KiAddThreadToScbQueue @ 0x14029D044
  * Callers:
- *     KiGroupSchedulingQuantumEnd @ 0x1402587E0 (KiGroupSchedulingQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14025A110 (KiDeferGroupSchedulingPreemption.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
- *     KiSelectReadyThread @ 0x140347900 (KiSelectReadyThread.c)
- *     KiAddThreadToReadyQueue @ 0x14051EEF4 (KiAddThreadToReadyQueue.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140279D50 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x14027A920 (KiQueueReadyThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x14027B680 (KiDeferGroupSchedulingPreemption.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
+ *     KiSelectReadyThread @ 0x140352650 (KiSelectReadyThread.c)
+ *     KiAddThreadToReadyQueue @ 0x14051F134 (KiAddThreadToReadyQueue.c)
  * Callees:
- *     KiInsertNonMaxOverQuotaScb @ 0x1402EBD9C (KiInsertNonMaxOverQuotaScb.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x14029D0EC (KiInsertNonMaxOverQuotaScb.c)
  */
 
 __int64 __fastcall KiAddThreadToScbQueue(__int64 a1, __int64 a2, __int64 a3, int a4)

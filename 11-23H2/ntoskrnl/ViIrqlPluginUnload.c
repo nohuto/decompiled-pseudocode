@@ -1,5 +1,5 @@
 /*
- * XREFs of ViIrqlPluginUnload @ 0x140AE8640
+ * XREFs of ViIrqlPluginUnload @ 0x140AE8630
  * Callers:
  *     <none>
  * Callees:

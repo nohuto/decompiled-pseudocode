@@ -1,11 +1,11 @@
 /*
- * XREFs of MiProcessWsInSwapSupport @ 0x14035CFC8
+ * XREFs of MiProcessWsInSwapSupport @ 0x1402A1EF8
  * Callers:
- *     MmInSwapWorkingSet @ 0x14035C504 (MmInSwapWorkingSet.c)
- *     MmInSwapVirtualAddresses @ 0x140734690 (MmInSwapVirtualAddresses.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x1408D9B00 (MiInSwapSharedWorkingSetWorker.c)
+ *     MmInSwapWorkingSet @ 0x1402A1434 (MmInSwapWorkingSet.c)
+ *     MmInSwapVirtualAddresses @ 0x140734850 (MmInSwapVirtualAddresses.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x1408D9C60 (MiInSwapSharedWorkingSetWorker.c)
  * Callees:
- *     MiProcessWsInSwapRanges @ 0x14035D09C (MiProcessWsInSwapRanges.c)
+ *     MiProcessWsInSwapRanges @ 0x1402A1FCC (MiProcessWsInSwapRanges.c)
  */
 
 __int64 __fastcall MiProcessWsInSwapSupport(__int64 a1, unsigned int a2)

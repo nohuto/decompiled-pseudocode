@@ -1,22 +1,22 @@
 /*
- * XREFs of KiInitializeDynamicProcessorDpc @ 0x1409AF390
+ * XREFs of KiInitializeDynamicProcessorDpc @ 0x1409B02C0
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KiIpiSendPacket @ 0x14027AE48 (KiIpiSendPacket.c)
- *     KeSetAffinityProcess @ 0x1403CB2CC (KeSetAffinityProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiIpiSendPacket @ 0x140268DE8 (KiIpiSendPacket.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeSetAffinityProcess @ 0x1403CB43C (KeSetAffinityProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiReconfigureNodeSchedulingInformation @ 0x1405125A8 (KiReconfigureNodeSchedulingInformation.c)
- *     KeSignalCallDpcSynchronize @ 0x140519DE0 (KeSignalCallDpcSynchronize.c)
- *     KiInitializeProcessor @ 0x14099F1D4 (KiInitializeProcessor.c)
- *     KeRestoreMtrrBroadcast @ 0x14099F414 (KeRestoreMtrrBroadcast.c)
- *     KiConfigureProcessorBlock @ 0x14099F624 (KiConfigureProcessorBlock.c)
- *     KiConfigureSchedulingInformation @ 0x14099FD80 (KiConfigureSchedulingInformation.c)
- *     KiUpdateNumberProcessors @ 0x1409AF5B4 (KiUpdateNumberProcessors.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiReconfigureNodeSchedulingInformation @ 0x1405127E8 (KiReconfigureNodeSchedulingInformation.c)
+ *     KeSignalCallDpcSynchronize @ 0x14051A020 (KeSignalCallDpcSynchronize.c)
+ *     KiInitializeProcessor @ 0x1409A0104 (KiInitializeProcessor.c)
+ *     KeRestoreMtrrBroadcast @ 0x1409A0344 (KeRestoreMtrrBroadcast.c)
+ *     KiConfigureProcessorBlock @ 0x1409A0554 (KiConfigureProcessorBlock.c)
+ *     KiConfigureSchedulingInformation @ 0x1409A0CB0 (KiConfigureSchedulingInformation.c)
+ *     KiUpdateNumberProcessors @ 0x1409B04E4 (KiUpdateNumberProcessors.c)
  */
 
 __int64 __fastcall KiInitializeDynamicProcessorDpc(__int64 a1, _QWORD **a2, volatile signed __int32 *a3, __int64 a4)

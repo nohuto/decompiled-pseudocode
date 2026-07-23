@@ -11,7 +11,7 @@
  *     PsIsCurrentThreadInServerSilo @ 0x140311890 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   if ( (unsigned __int8)PsIsCurrentThreadInServerSilo() )
     return HIDWORD(PsGetCurrentServerSiloGlobals()[80].Blink->Flink);

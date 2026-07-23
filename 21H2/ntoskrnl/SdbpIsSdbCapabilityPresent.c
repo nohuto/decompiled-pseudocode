@@ -2,7 +2,7 @@
  * XREFs of SdbpIsSdbCapabilityPresent @ 0x1405D1F50
  * Callers:
  *     SdbpCheckSdbCapability @ 0x1405D1DB0 (SdbpCheckSdbCapability.c)
- *     SdbpMatchList @ 0x1407548A8 (SdbpMatchList.c)
+ *     SdbpMatchList @ 0x140754A68 (SdbpMatchList.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ wchar_t *__fastcall SdbpIsSdbCapabilityPresent(_DWORD *a1, __int64 a2, __int64 a
   *a1 = 0;
   for ( i = 0LL; i < 4; ++i )
   {
-    result = off_140007458[i];
+    result = off_140007468[i];
     v8 = a3 - (_QWORD)result;
     do
     {

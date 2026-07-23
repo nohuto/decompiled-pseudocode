@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwResumeProcess()
+NTSTATUS __cdecl ZwResumeProcess(HANDLE ProcessHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 353LL;
+  result = 353;
   __asm { syscall; Low latency system call }
   return result;
 }

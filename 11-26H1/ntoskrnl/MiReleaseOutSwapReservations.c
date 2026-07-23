@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReleaseOutSwapReservations @ 0x1403A062C
+ * XREFs of MiReleaseOutSwapReservations @ 0x1403A238C
  * Callers:
- *     MiProcessWsInSwapRanges @ 0x1404ACA44 (MiProcessWsInSwapRanges.c)
+ *     MiProcessWsInSwapRanges @ 0x1404A60D4 (MiProcessWsInSwapRanges.c)
  * Callees:
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _QWORD *__fastcall MiReleaseOutSwapReservations(ULONG_PTR *a1, unsigned __int64 a2)

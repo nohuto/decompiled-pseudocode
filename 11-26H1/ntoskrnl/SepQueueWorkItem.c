@@ -1,17 +1,17 @@
 /*
- * XREFs of SepQueueWorkItem @ 0x140216854
+ * XREFs of SepQueueWorkItem @ 0x140216B84
  * Callers:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     SepInformLsaOfDeletedLogon @ 0x140B3E8E4 (SepInformLsaOfDeletedLogon.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     SepInformLsaOfDeletedLogon @ 0x140B40914 (SepInformLsaOfDeletedLogon.c)
  * Callees:
- *     PsGetServerSiloState @ 0x140216B90 (PsGetServerSiloState.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsGetServerSiloState @ 0x140216EC0 (PsGetServerSiloState.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall SepQueueWorkItem(__int64 a1, __int64 a2, _BYTE *a3)

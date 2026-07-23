@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpInsertLowLevelTableIntoFreeList @ 0x1407B086C
+ * XREFs of ExpInsertLowLevelTableIntoFreeList @ 0x1407B0A5C
  * Callers:
- *     ExpAllocateHandleTable @ 0x1407B069C (ExpAllocateHandleTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x1407B07A0 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateHandleTable @ 0x1407B088C (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x1407B0990 (ExpAllocateHandleTableEntrySlow.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 signed __int32 __fastcall ExpInsertLowLevelTableIntoFreeList(

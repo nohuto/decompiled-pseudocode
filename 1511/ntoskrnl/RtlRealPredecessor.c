@@ -9,7 +9,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlRealPredecessor(PRTL_SPLAY_LINKS Links)
 {
   PRTL_SPLAY_LINKS v1; // rax
-  struct _RTL_SPLAY_LINKS *v2; // rdx
+  _RTL_SPLAY_LINKS *v2; // rdx
   _RTL_SPLAY_LINKS *LeftChild; // rcx
   _RTL_SPLAY_LINKS *i; // rax
   PRTL_SPLAY_LINKS j; // rcx

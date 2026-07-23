@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputeNumaCosts @ 0x140CF10D4
+ * XREFs of MiComputeNumaCosts @ 0x140CF744C
  * Callers:
- *     MmInitSystem @ 0x140C7FD84 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140C85D84 (MmInitSystem.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void MiComputeNumaCosts()
@@ -33,7 +33,7 @@ void MiComputeNumaCosts()
         do
         {
           v6 = i * v3 + v5++;
-          *(_DWORD *)(qword_140E2D690 + 4LL * (unsigned int)v6) = v2[v6];
+          *(_DWORD *)(qword_140E2D810 + 4LL * (unsigned int)v6) = v2[v6];
         }
         while ( v5 < v3 );
       }

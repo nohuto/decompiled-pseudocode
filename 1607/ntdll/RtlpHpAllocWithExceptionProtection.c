@@ -1,56 +1,54 @@
 /*
- * XREFs of RtlpHpAllocWithExceptionProtection @ 0x1800227C0
+ * XREFs of RtlpHpAllocWithExceptionProtection @ 0x1800227B0
  * Callers:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
  * Callees:
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlpHpTagContextAllocateTag @ 0x180050C04 (RtlpHpTagContextAllocateTag.c)
- *     RtlpHpTagMappingComparison @ 0x180076F98 (RtlpHpTagMappingComparison.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     RtlpHeapFatalExceptionFilter @ 0x1800E2FB0 (RtlpHeapFatalExceptionFilter.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpTagContextAllocateTag @ 0x180050BF4 (RtlpHpTagContextAllocateTag.c)
+ *     RtlpHpTagMappingComparison @ 0x180076F88 (RtlpHpTagMappingComparison.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x1800E3070 (RtlpHeapFatalExceptionFilter.c)
  */
 
-__int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall RtlpHpAllocWithExceptionProtection(PVOID BaseAddress, signed __int64 Size)
 {
-  unsigned int v3; // esi
   __int64 HeapInternal; // r8
   void *SubProcessTag; // rax
+  __int64 v6; // rcx
+  __int64 v7; // r8
   __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // rcx
   unsigned __int16 Tag; // r14
-  unsigned __int8 *v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // r12
-  __int64 v15; // r15
-  __int64 v16; // r13
-  __int64 v17; // rcx
-  __int64 v18; // r11
-  __int64 v19; // r10
-  unsigned __int8 *v20; // r15
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v24; // [rsp+20h] [rbp-98h]
-  __int64 v25; // [rsp+28h] [rbp-90h]
-  unsigned __int8 *v26; // [rsp+30h] [rbp-88h]
-  __int64 *v27; // [rsp+38h] [rbp-80h]
-  __int64 v28; // [rsp+50h] [rbp-68h] BYREF
-  __int64 v29; // [rsp+58h] [rbp-60h]
-  _QWORD v30[2]; // [rsp+60h] [rbp-58h] BYREF
+  unsigned __int8 *v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // r12
+  __int64 v13; // r15
+  __int64 v14; // r13
+  __int64 v15; // rcx
+  __int64 v16; // r11
+  __int64 v17; // r10
+  unsigned __int8 *v18; // r15
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  __int64 v22; // [rsp+20h] [rbp-98h]
+  __int64 v23; // [rsp+28h] [rbp-90h]
+  unsigned __int8 *v24; // [rsp+30h] [rbp-88h]
+  __int64 *v25; // [rsp+38h] [rbp-80h]
+  __int64 v26; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v27; // [rsp+58h] [rbp-60h]
+  _QWORD v28[2]; // [rsp+60h] [rbp-58h] BYREF
 
-  v3 = a3;
   if ( (RtlpHpHeapFeatures & 2) == 0 )
-    return RtlpAllocateHeapInternal(a1, a2, a3, 0LL);
-  if ( *(_DWORD *)(a1 + 16) != -571548178 || a1 == RtlpHpMetadataHeap )
+    return RtlpAllocateHeapInternal(BaseAddress, Size);
+  if ( *((_DWORD *)BaseAddress + 4) != -571548178 || BaseAddress == RtlpHpMetadataHeap )
     goto LABEL_35;
-  v30[0] = 0LL;
-  v30[1] = 0LL;
+  v28[0] = 0LL;
+  v28[1] = 0LL;
   SubProcessTag = NtCurrentTeb()->SubProcessTag;
-  v30[0] = SubProcessTag;
-  v8 = (__int64)SubProcessTag - RtlpHpNullGUID;
+  v28[0] = SubProcessTag;
+  v6 = (__int64)SubProcessTag - RtlpHpNullGUID;
   if ( SubProcessTag == (void *)RtlpHpNullGUID )
-    v8 = -qword_1801533B8;
-  if ( !v8 )
+    v6 = -qword_1801533B8;
+  if ( !v6 )
   {
 LABEL_35:
     Tag = 0;
@@ -58,32 +56,32 @@ LABEL_35:
   }
   if ( !word_180150944 )
     goto LABEL_17;
-  v9 = *(_QWORD *)(qword_180150938 + 8LL * ((unsigned __int16)word_180150944 - 1));
-  v10 = *(_QWORD *)(v9 + 16) - (_QWORD)SubProcessTag;
-  if ( !v10 )
-    v10 = *(_QWORD *)(v9 + 24);
-  if ( v10 )
+  v7 = *(_QWORD *)(qword_180150938 + 8LL * ((unsigned __int16)word_180150944 - 1));
+  v8 = *(_QWORD *)(v7 + 16) - (_QWORD)SubProcessTag;
+  if ( !v8 )
+    v8 = *(_QWORD *)(v7 + 24);
+  if ( v8 )
   {
 LABEL_17:
-    v12 = (unsigned __int8 *)v30;
-    v26 = (unsigned __int8 *)v30;
-    v13 = 16LL;
-    v14 = 314159LL;
-    v24 = 314159LL;
-    while ( v13 >= 8 )
+    v10 = (unsigned __int8 *)v28;
+    v24 = (unsigned __int8 *)v28;
+    v11 = 16LL;
+    v12 = 314159LL;
+    v22 = 314159LL;
+    while ( v11 >= 8 )
     {
-      v14 = 37
-          * (37 * (37 * (37 * (37 * (37 * (37 * (*v12 + 37 * v14) + v12[1]) + v12[2]) + v12[3]) + v12[4]) + v12[5])
-           + v12[6])
-          + v12[7];
-      v24 = v14;
-      v12 += 8;
-      v26 = v12;
-      v13 -= 8LL;
+      v12 = 37
+          * (37 * (37 * (37 * (37 * (37 * (37 * (*v10 + 37 * v12) + v10[1]) + v10[2]) + v10[3]) + v10[4]) + v10[5])
+           + v10[6])
+          + v10[7];
+      v22 = v12;
+      v10 += 8;
+      v24 = v10;
+      v11 -= 8LL;
     }
-    if ( v13 >= 1 )
+    if ( v11 >= 1 )
     {
-      switch ( (int)v13 )
+      switch ( (int)v11 )
       {
         case 1:
           goto LABEL_47;
@@ -98,57 +96,57 @@ LABEL_17:
         case 6:
           goto LABEL_42;
         case 7:
-          v14 = *v12++ + 37 * v14;
+          v12 = *v10++ + 37 * v12;
 LABEL_42:
-          v14 = *v12++ + 37 * v14;
+          v12 = *v10++ + 37 * v12;
 LABEL_43:
-          v14 = *v12++ + 37 * v14;
+          v12 = *v10++ + 37 * v12;
 LABEL_44:
-          v14 = *v12++ + 37 * v14;
+          v12 = *v10++ + 37 * v12;
 LABEL_45:
-          v14 = *v12++ + 37 * v14;
+          v12 = *v10++ + 37 * v12;
 LABEL_46:
-          v14 = *v12++ + 37 * v14;
+          v12 = *v10++ + 37 * v12;
 LABEL_47:
-          v14 = *v12 + 37 * v14;
-          v24 = v14;
-          v26 = v12 + 1;
+          v12 = *v10 + 37 * v12;
+          v22 = v12;
+          v24 = v10 + 1;
           break;
       }
     }
-    v15 = 0LL;
-    v16 = qword_180150930;
+    v13 = 0LL;
+    v14 = qword_180150930;
     while ( 2 )
     {
-      v17 = dword_18015092C & 0x1F;
-      v18 = -1LL << v17;
-      v19 = v14 & (-1LL << v17);
-      if ( v15 )
+      v15 = dword_18015092C & 0x1F;
+      v16 = -1LL << v15;
+      v17 = v12 & (-1LL << v15);
+      if ( v13 )
         goto LABEL_28;
       if ( (dword_18015092C & 0xFFFFFFE0) != 0 )
       {
-        v28 = v14 & (-1LL << v17);
-        v20 = (unsigned __int8 *)&v28;
-        v27 = &v28;
-        v21 = 8LL;
-        v29 = 8LL;
-        v22 = 314159LL;
-        v25 = 314159LL;
-        while ( v21 >= 8 )
+        v26 = v12 & (-1LL << v15);
+        v18 = (unsigned __int8 *)&v26;
+        v25 = &v26;
+        v19 = 8LL;
+        v27 = 8LL;
+        v20 = 314159LL;
+        v23 = 314159LL;
+        while ( v19 >= 8 )
         {
-          v22 = 37
-              * (37 * (37 * (37 * (37 * (37 * (37 * (*v20 + 37 * v22) + v20[1]) + v20[2]) + v20[3]) + v20[4]) + v20[5])
-               + v20[6])
-              + v20[7];
-          v25 = v22;
-          v20 += 8;
-          v27 = (__int64 *)v20;
-          v21 -= 8LL;
-          v29 = v21;
+          v20 = 37
+              * (37 * (37 * (37 * (37 * (37 * (37 * (*v18 + 37 * v20) + v18[1]) + v18[2]) + v18[3]) + v18[4]) + v18[5])
+               + v18[6])
+              + v18[7];
+          v23 = v20;
+          v18 += 8;
+          v25 = (__int64 *)v18;
+          v19 -= 8LL;
+          v27 = v19;
         }
-        if ( v21 >= 1 )
+        if ( v19 >= 1 )
         {
-          switch ( (int)v21 )
+          switch ( (int)v19 )
           {
             case 1:
               goto LABEL_39;
@@ -163,65 +161,63 @@ LABEL_47:
             case 6:
               goto LABEL_50;
             case 7:
-              v22 = *v20++ + 37 * v22;
+              v20 = *v18++ + 37 * v20;
 LABEL_50:
-              v22 = *v20++ + 37 * v22;
+              v20 = *v18++ + 37 * v20;
 LABEL_51:
-              v22 = *v20++ + 37 * v22;
+              v20 = *v18++ + 37 * v20;
 LABEL_52:
-              v22 = *v20++ + 37 * v22;
+              v20 = *v18++ + 37 * v20;
 LABEL_53:
-              v22 = *v20++ + 37 * v22;
+              v20 = *v18++ + 37 * v20;
 LABEL_54:
-              v22 = *v20++ + 37 * v22;
+              v20 = *v18++ + 37 * v20;
 LABEL_39:
-              v22 = *v20 + 37 * v22;
-              v25 = v22;
-              v27 = (__int64 *)(v20 + 1);
+              v20 = *v18 + 37 * v20;
+              v23 = v20;
+              v25 = (__int64 *)(v18 + 1);
               break;
           }
         }
-        v17 = (unsigned int)v22 & (((unsigned int)dword_18015092C >> 5) - 1);
-        v15 = v16 + 8 * v17;
+        v15 = (unsigned int)v20 & (((unsigned int)dword_18015092C >> 5) - 1);
+        v13 = v14 + 8 * v15;
         do
         {
 LABEL_28:
-          v15 = *(_QWORD *)v15;
-          if ( (v15 & 1) != 0 )
+          v13 = *(_QWORD *)v13;
+          if ( (v13 & 1) != 0 )
           {
-            v15 = 0LL;
+            v13 = 0LL;
             goto LABEL_31;
           }
         }
-        while ( v19 != (v18 & *(_QWORD *)(v15 + 8)) );
-        if ( !(unsigned int)RtlpHpTagMappingComparison(v15, v30) )
+        while ( v17 != (v16 & *(_QWORD *)(v13 + 8)) );
+        if ( !(unsigned int)RtlpHpTagMappingComparison(v13, v28) )
           continue;
 LABEL_31:
-        if ( v15 )
+        if ( v13 )
         {
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(v15 + 32), a2);
-          Tag = *(_WORD *)(v15 + 40);
+          _InterlockedExchangeAdd64((volatile signed __int64 *)(v13 + 32), Size);
+          Tag = *(_WORD *)(v13 + 40);
           if ( Tag )
             goto LABEL_14;
         }
       }
       break;
     }
-    Tag = RtlpHpTagContextAllocateTag(v17, v30, v14, a2, v24, v25, v26, v27);
+    Tag = RtlpHpTagContextAllocateTag(v15, v28, v12, Size, v22, v23, v24, v25);
   }
   else
   {
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v9 + 32), a2);
-    Tag = *(_WORD *)(v9 + 40);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v7 + 32), Size);
+    Tag = *(_WORD *)(v7 + 40);
   }
   if ( Tag )
 LABEL_14:
     word_180150944 = Tag;
 LABEL_15:
-  HeapInternal = RtlpAllocateHeapInternal(a1, a2, v3, Tag);
+  HeapInternal = RtlpAllocateHeapInternal(BaseAddress, Size);
   if ( !HeapInternal && Tag )
-    _InterlockedExchangeAdd64(
-      (volatile signed __int64 *)(*(_QWORD *)(qword_180150938 + 8LL * (Tag - 1)) + 32LL),
-      -(__int64)a2);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(qword_180150938 + 8LL * (Tag - 1)) + 32LL), -Size);
   return HeapInternal;
 }

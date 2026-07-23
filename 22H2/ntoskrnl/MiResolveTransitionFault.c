@@ -104,7 +104,7 @@ __int64 __fastcall MiResolveTransitionFault(
   struct _KPRCB *CurrentPrcb; // r9
   __int64 CachedResidentAvailable; // rdx
   signed __int32 v69; // eax
-  struct _SLIST_ENTRY *v70; // rdi
+  _SLIST_ENTRY *v70; // rdi
   __int64 v71; // rdx
   _BYTE *v72; // rcx
   __int64 v73; // rdx

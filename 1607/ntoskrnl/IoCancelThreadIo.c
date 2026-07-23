@@ -1,11 +1,11 @@
 /*
- * XREFs of IoCancelThreadIo @ 0x1404CC524
+ * XREFs of IoCancelThreadIo @ 0x1404B1F50
  * Callers:
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     IoCancelIrp @ 0x1400A2054 (IoCancelIrp.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     IopDisassociateThreadIrp @ 0x1401C4AD8 (IopDisassociateThreadIrp.c)
+ *     IoCancelIrp @ 0x1400A097C (IoCancelIrp.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     IopDisassociateThreadIrp @ 0x1401C49BC (IopDisassociateThreadIrp.c)
  */
 
 __int64 __fastcall IoCancelThreadIo(LARGE_INTEGER a1)

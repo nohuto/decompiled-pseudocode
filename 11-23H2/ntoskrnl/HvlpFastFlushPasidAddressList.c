@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpFastFlushPasidAddressList @ 0x140546118
+ * XREFs of HvlpFastFlushPasidAddressList @ 0x1405467D8
  * Callers:
- *     HvlFlushPasid @ 0x140543E50 (HvlFlushPasid.c)
+ *     HvlFlushPasid @ 0x140544510 (HvlFlushPasid.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall HvlpFastFlushPasidAddressList(int a1, int a2, __int64 a3, const void *a4, char a5)

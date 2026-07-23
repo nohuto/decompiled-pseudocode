@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
  */
 
 bool __fastcall RtlTryConvertSRWLockSharedToExclusiveOrRelease(volatile signed __int64 *a1)

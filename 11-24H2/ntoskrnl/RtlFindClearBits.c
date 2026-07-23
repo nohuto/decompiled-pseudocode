@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindClearBits @ 0x14040A120
+ * XREFs of RtlFindClearBits @ 0x140402600
  * Callers:
- *     MiReserveExistingDriverPtes @ 0x140A71AD8 (MiReserveExistingDriverPtes.c)
+ *     MiReserveExistingDriverPtes @ 0x140A6AEB8 (MiReserveExistingDriverPtes.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlMupGetProviderInfoFromFileObject @ 0x140B4F2A0
+ * XREFs of FsRtlMupGetProviderInfoFromFileObject @ 0x140B51B30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpAllocateNonPagedBin @ 0x140A8808C
+ * XREFs of HvpAllocateNonPagedBin @ 0x140A8F1BC
  * Callers:
- *     HvpRemapAndEnlistHiveBins @ 0x1408DBDF0 (HvpRemapAndEnlistHiveBins.c)
- *     HvpDropPagedBins @ 0x140A87E90 (HvpDropPagedBins.c)
- *     HvpAllocateBin @ 0x140A8802C (HvpAllocateBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1408E23B0 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpDropPagedBins @ 0x140A8EFC0 (HvpDropPagedBins.c)
+ *     HvpAllocateBin @ 0x140A8F15C (HvpAllocateBin.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     CmpClaimGlobalQuota @ 0x140A8820C (CmpClaimGlobalQuota.c)
- *     MmAllocateIndependentPagesEx @ 0x140B3D7BC (MmAllocateIndependentPagesEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     CmpClaimGlobalQuota @ 0x140A8F33C (CmpClaimGlobalQuota.c)
+ *     MmAllocateIndependentPagesEx @ 0x140B3F88C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 __fastcall HvpAllocateNonPagedBin(__int64 a1, unsigned int a2, _QWORD *a3)

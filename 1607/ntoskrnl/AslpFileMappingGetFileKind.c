@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileMappingGetFileKind @ 0x140571414
+ * XREFs of AslpFileMappingGetFileKind @ 0x140571954
  * Callers:
- *     AslFileMappingCreate @ 0x14049D54C (AslFileMappingCreate.c)
- *     AslFileMappingCreateFromImageView @ 0x1405712F8 (AslFileMappingCreateFromImageView.c)
- *     AslFileMappingEnsure @ 0x1406C582C (AslFileMappingEnsure.c)
- *     AslFileMappingEnsureMappedAs @ 0x1406C5910 (AslFileMappingEnsureMappedAs.c)
- *     AslpFileLargeAssignViewAndDelete @ 0x1406C9444 (AslpFileLargeAssignViewAndDelete.c)
+ *     AslFileMappingCreate @ 0x1405153C4 (AslFileMappingCreate.c)
+ *     AslFileMappingCreateFromImageView @ 0x140571838 (AslFileMappingCreateFromImageView.c)
+ *     AslFileMappingEnsure @ 0x1406C5964 (AslFileMappingEnsure.c)
+ *     AslFileMappingEnsureMappedAs @ 0x1406C5A48 (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileLargeAssignViewAndDelete @ 0x1406C957C (AslpFileLargeAssignViewAndDelete.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileMappingGetFileKind(_QWORD *a1, int *a2)
@@ -35,12 +35,7 @@ __int64 __fastcall AslpFileMappingGetFileKind(_QWORD *a1, int *a2)
   if ( (unsigned __int64)(v6 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
   {
     v4 = -1073741811;
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"AslpFileMappingGetFileKind",
-      1249,
-      (unsigned int)"File mapping invalid [%x]",
-      -1073741811);
+    AslLogCallPrintf(1, (unsigned int)"AslpFileMappingGetFileKind", 1249, (unsigned int)"File mapping invalid [%x]");
   }
   else if ( *(_WORD *)v6 == 23117 )
   {

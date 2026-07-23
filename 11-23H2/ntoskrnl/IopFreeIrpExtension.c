@@ -1,18 +1,18 @@
 /*
- * XREFs of IopFreeIrpExtension @ 0x14028FE18
+ * XREFs of IopFreeIrpExtension @ 0x1402900A8
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x14028C3D0 (IopCopyCompleteReadIrp.c)
- *     IopFreeCopyObjectsFromDataBuffer @ 0x14028F164 (IopFreeCopyObjectsFromDataBuffer.c)
- *     IoSetActivityIdIrp @ 0x1402905A0 (IoSetActivityIdIrp.c)
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopFreeIrp @ 0x1402AF240 (IopFreeIrp.c)
- *     IoCleanupIrp @ 0x1403D1000 (IoCleanupIrp.c)
- *     IopPerfCompleteRequest @ 0x14045F95E (IopPerfCompleteRequest.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140558C80 (IoClearAdapterCryptoEngineExtension.c)
- *     IoClearFsTrackOffsetState @ 0x140558CD0 (IoClearFsTrackOffsetState.c)
+ *     IopCopyCompleteReadIrp @ 0x14028C660 (IopCopyCompleteReadIrp.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x14028F3F4 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     IoSetActivityIdIrp @ 0x140290830 (IoSetActivityIdIrp.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x1402AF4D0 (IopFreeIrp.c)
+ *     IoCleanupIrp @ 0x1403D11E0 (IoCleanupIrp.c)
+ *     IopPerfCompleteRequest @ 0x14045FD5E (IopPerfCompleteRequest.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140559340 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x140559390 (IoClearFsTrackOffsetState.c)
  * Callees:
- *     IopFreeCopyObjectsFromIrp @ 0x14028F1B0 (IopFreeCopyObjectsFromIrp.c)
- *     IopIrpHasExtensionType @ 0x140290278 (IopIrpHasExtensionType.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x14028F440 (IopFreeCopyObjectsFromIrp.c)
+ *     IopIrpHasExtensionType @ 0x140290508 (IopIrpHasExtensionType.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

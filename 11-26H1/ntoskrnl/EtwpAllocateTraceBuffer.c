@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpAllocateTraceBuffer @ 0x1404BCFC4
+ * XREFs of EtwpAllocateTraceBuffer @ 0x1404B67A4
  * Callers:
- *     EtwpAllocateFreeBuffers @ 0x1402199DC (EtwpAllocateFreeBuffers.c)
- *     EtwpPreserveLogger @ 0x14082E4AC (EtwpPreserveLogger.c)
+ *     EtwpAllocateFreeBuffers @ 0x140219B3C (EtwpAllocateFreeBuffers.c)
+ *     EtwpPreserveLogger @ 0x1408346EC (EtwpPreserveLogger.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     EtwpAllocatePartitionMemory @ 0x1404BD074 (EtwpAllocatePartitionMemory.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     EtwpAllocatePhysicalPages @ 0x140825018 (EtwpAllocatePhysicalPages.c)
- *     EtwpMdlInit @ 0x140826DC4 (EtwpMdlInit.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     EtwpAllocatePartitionMemory @ 0x1404B6854 (EtwpAllocatePartitionMemory.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     EtwpAllocatePhysicalPages @ 0x14082B258 (EtwpAllocatePhysicalPages.c)
+ *     EtwpMdlInit @ 0x14082D004 (EtwpMdlInit.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 PVOID __fastcall EtwpAllocateTraceBuffer(ULONG_PTR BugCheckParameter2, unsigned int a2)

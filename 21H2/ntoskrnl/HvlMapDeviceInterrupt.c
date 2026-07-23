@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlMapDeviceInterrupt @ 0x1404F59F0
+ * XREFs of HvlMapDeviceInterrupt @ 0x1404F5970
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvlpHandleInsufficientMemory @ 0x1404F2068 (HvlpHandleInsufficientMemory.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
- *     HvlpLogIommuEvent @ 0x1404F9DB0 (HvlpLogIommuEvent.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1404FAB30 (HvlpAffinityToHvProcessorSet.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x1404FACD8 (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvlpHandleInsufficientMemory @ 0x1404F1FE8 (HvlpHandleInsufficientMemory.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpLogIommuEvent @ 0x1404F9D30 (HvlpLogIommuEvent.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1404FAAB0 (HvlpAffinityToHvProcessorSet.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1404FAC58 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x1404FAC74 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlMapDeviceInterrupt(__int64 a1, _OWORD *a2, __int64 *a3, _OWORD *a4)

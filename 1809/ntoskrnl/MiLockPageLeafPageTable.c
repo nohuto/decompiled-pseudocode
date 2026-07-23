@@ -2,13 +2,13 @@
  * XREFs of MiLockPageLeafPageTable @ 0x140041DD0
  * Callers:
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
- *     MiProbeLeafFrame @ 0x140094C6C (MiProbeLeafFrame.c)
+ *     MiProbeLeafFrame @ 0x140094BAC (MiProbeLeafFrame.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiFaultInProbeAddress @ 0x1400936FC (MiFaultInProbeAddress.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiFaultInProbeAddress @ 0x14009363C (MiFaultInProbeAddress.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
  */
 
 __int64 __fastcall MiLockPageLeafPageTable(unsigned __int64 *a1)
@@ -118,7 +118,7 @@ LABEL_5:
     if ( (int)result < 0 )
     {
 LABEL_30:
-      ++dword_14043A81C;
+      ++dword_14043B8DC;
       return result;
     }
     a1[4] = 0xFFFFF6FB7DBEDF68uLL;
@@ -139,7 +139,7 @@ LABEL_13:
           {
             if ( *((_DWORD *)a1 + 22) == 1 && (v13 & 0x800) == 0 )
             {
-              ++dword_14043A824;
+              ++dword_14043B8E4;
               return 3221225477LL;
             }
             v16 = 1;

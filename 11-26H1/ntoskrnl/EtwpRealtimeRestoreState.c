@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRealtimeRestoreState @ 0x140B5391C
+ * XREFs of EtwpRealtimeRestoreState @ 0x140B561BC
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140A146BC (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140A138AC (EtwpRealtimeCreateLogfile.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1407234B0 (ZwReadFile.c)
- *     ZwWriteFile @ 0x1407234F0 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpEventWriteTemplateBackingFile @ 0x140825688 (EtwpEventWriteTemplateBackingFile.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x140728080 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1407280C0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x14082B8C8 (EtwpEventWriteTemplateBackingFile.c)
  */
 
 NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
@@ -104,7 +104,7 @@ NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
       if ( v10 <= v8 && *(int *)(a1 + 16) >= 0 )
       {
         _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
-        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
+        if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_BACKING_FILE_FULL) )
           EtwpEventWriteTemplateBackingFile(
             v12,
             v11,

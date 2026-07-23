@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefRawAddAsm @ 0x140537C60
+ * XREFs of SymCryptFdefRawAddAsm @ 0x140532100
  * Callers:
- *     SymCryptFdefIntAddMixedSize @ 0x14052EB64 (SymCryptFdefIntAddMixedSize.c)
- *     SymCryptFdefRawAdd @ 0x14052F32C (SymCryptFdefRawAdd.c)
+ *     SymCryptFdefIntAddMixedSize @ 0x14052900C (SymCryptFdefIntAddMixedSize.c)
+ *     SymCryptFdefRawAdd @ 0x1405297D4 (SymCryptFdefRawAdd.c)
  * Callees:
  *     <none>
  */

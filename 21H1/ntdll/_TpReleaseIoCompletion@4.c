@@ -8,22 +8,14 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpReleaseIoCompletion(int a1)
+void __cdecl TpReleaseIoCompletion(PTP_IO Io)
 {
-  int result; // eax
   _UNKNOWN *retaddr; // [esp+8h] [ebp+4h]
 
-  result = TppIopValidateIo(0);
-  if ( result )
+  if ( TppIopValidateIo(0) && TppCleanupGroupMemberRelease((int)Io, 1) )
   {
-    result = TppCleanupGroupMemberRelease(a1, 1);
-    if ( result )
-    {
-      *(_DWORD *)(a1 + 112) = retaddr;
-      result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( !result )
-        return (**(int (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
-    }
+    *((_DWORD *)Io + 28) = retaddr;
+    if ( !_InterlockedExchangeAdd((volatile signed __int32 *)Io, 0xFFFFFFFF) )
+      (**((void (__thiscall ***)(_DWORD, PTP_IO))Io + 1))(**((_DWORD **)Io + 1), Io);
   }
-  return result;
 }

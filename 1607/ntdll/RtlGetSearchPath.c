@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlGetSearchPath @ 0x1800093B0
+ * XREFs of RtlGetSearchPath @ 0x1800093A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetCachedPath @ 0x18000CAF0 (RtlpGetCachedPath.c)
+ *     RtlpGetCachedPath @ 0x18000CAE0 (RtlpGetCachedPath.c)
  */
 
-__int64 __fastcall RtlGetSearchPath(_QWORD *a1)
+NTSTATUS __cdecl RtlGetSearchPath(PWSTR *SearchPathA)
 {
   __int64 CachedPath; // rax
 
   CachedPath = RtlpGetCachedPath(&RtlpSearchPath, RtlpComputeSearchPath, 0LL, 0LL);
   if ( CachedPath )
   {
-    *a1 = CachedPath + 112;
-    return 0LL;
+    *SearchPathA = (PWSTR)(CachedPath + 112);
+    return 0;
   }
   else
   {
-    *a1 = 0LL;
-    return 3221225495LL;
+    *SearchPathA = 0LL;
+    return -1073741801;
   }
 }

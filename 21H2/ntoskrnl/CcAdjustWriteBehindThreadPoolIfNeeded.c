@@ -1,21 +1,21 @@
 /*
- * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140336330
+ * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140341080
  * Callers:
- *     CcUninitializeCacheMap @ 0x1402F68B0 (CcUninitializeCacheMap.c)
- *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
- *     CcChargeDirtyPages @ 0x140336210 (CcChargeDirtyPages.c)
- *     CcQueueLazyWriteScanThread @ 0x1403B93A0 (CcQueueLazyWriteScanThread.c)
+ *     CcUninitializeCacheMap @ 0x140301600 (CcUninitializeCacheMap.c)
+ *     CcCanIWrite @ 0x14031DF20 (CcCanIWrite.c)
+ *     CcChargeDirtyPages @ 0x140340F60 (CcChargeDirtyPages.c)
+ *     CcQueueLazyWriteScanThread @ 0x1403B9510 (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1402D083C (CcBoostLowPriorityWorkerThread.c)
- *     CcAdjustWriteBehindThreadPool @ 0x140381928 (CcAdjustWriteBehindThreadPool.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x14024ECCC (CcBoostLowPriorityWorkerThread.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcAdjustWriteBehindThreadPool @ 0x140381478 (CcAdjustWriteBehindThreadPool.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
+unsigned __int64 __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
 {
-  int v2; // eax
+  unsigned __int64 result; // rax
   char v3; // si
   unsigned __int64 OldIrql; // rdi
   struct _KPRCB *CurrentPrcb; // r10
@@ -23,7 +23,7 @@ char __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
   bool v9; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  LOBYTE(v2) = 0;
+  result = 0LL;
   v3 = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !(_BYTE)dword_140CFB19C )
@@ -55,32 +55,32 @@ char __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
         *(_BYTE *)(a1 + 776) = 0;
     }
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    LOBYTE(v2) = KiIrqlFlags;
+    result = (unsigned int)KiIrqlFlags;
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        LOBYTE(v2) = KeGetCurrentIrql();
-        if ( (unsigned __int8)v2 <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)v2 >= 2u )
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v2 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v9 = (v2 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v2;
+          result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= result;
           if ( v9 )
-            LOBYTE(v2) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
     __writecr8(OldIrql);
     if ( v3 )
     {
-      LOBYTE(v2) = KeGetCurrentIrql();
-      if ( (unsigned __int8)v2 < 2u )
-        LOBYTE(v2) = CcBoostLowPriorityWorkerThread(a1, 0LL);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result < 2u )
+        return (unsigned __int64)CcBoostLowPriorityWorkerThread(a1, 0LL);
     }
   }
-  return v2;
+  return result;
 }

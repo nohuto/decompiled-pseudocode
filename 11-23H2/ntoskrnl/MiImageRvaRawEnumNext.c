@@ -1,9 +1,9 @@
 /*
- * XREFs of MiImageRvaRawEnumNext @ 0x14079D4B0
+ * XREFs of MiImageRvaRawEnumNext @ 0x14079D6A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiImageRvaRawEnumNext(_DWORD *a1, _DWORD *a2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of PspPostFreezeOperationWorker @ 0x140A7EC10
+ * XREFs of PspPostFreezeOperationWorker @ 0x140A783C0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwTraceWin32kFreezeChangeNotifyStart @ 0x1407A9B30 (EtwTraceWin32kFreezeChangeNotifyStart.c)
- *     EtwTraceWin32kFreezeChangeNotifyStop @ 0x1407A9BEC (EtwTraceWin32kFreezeChangeNotifyStop.c)
- *     PspWin32kProcessFreezeNotify @ 0x140A8E398 (PspWin32kProcessFreezeNotify.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwTraceWin32kFreezeChangeNotifyStart @ 0x1407A9C70 (EtwTraceWin32kFreezeChangeNotifyStart.c)
+ *     EtwTraceWin32kFreezeChangeNotifyStop @ 0x1407A9D2C (EtwTraceWin32kFreezeChangeNotifyStop.c)
+ *     PspWin32kProcessFreezeNotify @ 0x140A8A968 (PspWin32kProcessFreezeNotify.c)
  */
 
 void __fastcall PspPostFreezeOperationWorker(__int64 a1)
@@ -24,8 +24,8 @@ void __fastcall PspPostFreezeOperationWorker(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   volatile signed __int64 *v3; // rsi
   unsigned int v4; // r12d
-  _QWORD *v5; // rax
-  _QWORD *v6; // rdi
+  char *v5; // rax
+  char *v6; // rdi
   _QWORD **v7; // rdx
   _QWORD *v8; // rax
   __int64 v9; // rdx
@@ -36,8 +36,8 @@ void __fastcall PspPostFreezeOperationWorker(__int64 a1)
   _DWORD *v14; // r15
   PVOID *v15; // r14
   struct _KTHREAD *v16; // rax
-  _QWORD *v17; // rax
-  _QWORD *v18; // rdi
+  char *v17; // rax
+  char *v18; // rdi
   unsigned int SessionId; // eax
   int v20; // r14d
   unsigned int v21; // edi
@@ -55,12 +55,12 @@ void __fastcall PspPostFreezeOperationWorker(__int64 a1)
   LODWORD(v22) = 0;
   v4 = -1;
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire(a1 + 8, 0LL);
+  v5 = (char *)KeAbPreAcquire(a1 + 8, 0LL);
   v6 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 8), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 8), (__int64)v5, a1 + 8);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 8), v5, a1 + 8);
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   v7 = (_QWORD **)(a1 + 16);
   v23 = (_QWORD **)(a1 + 16);
   while ( 1 )
@@ -110,7 +110,7 @@ LABEL_35:
     KeAbPostRelease((ULONG_PTR)v3);
     KeLeaveCriticalRegion();
     v12 = (unsigned int)v22;
-    if ( (unsigned int)dword_140E090F0 > 5 && (qword_140E09100 & 4) != 0 && (qword_140E09108 & 4) == qword_140E09108 )
+    if ( (unsigned int)dword_140E09160 > 5 && (qword_140E09170 & 4) != 0 && (qword_140E09178 & 4) == qword_140E09178 )
     {
       v13 = 1;
       EtwTraceWin32kFreezeChangeNotifyStart();
@@ -139,13 +139,13 @@ LABEL_35:
 LABEL_25:
     v16 = KeGetCurrentThread();
     --v16->KernelApcDisable;
-    v17 = KeAbPreAcquire((__int64)v3, 0LL);
+    v17 = (char *)KeAbPreAcquire((__int64)v3, 0LL);
     v18 = v17;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v3, (__int64)v17, (__int64)v3);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v3, v17, (__int64)v3);
     v7 = v23;
     if ( v18 )
-      *((_BYTE *)v18 + 10) = 1;
+      v18[10] = 1;
   }
   *v24 &= ~1uLL;
   if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

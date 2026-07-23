@@ -82,7 +82,7 @@ __int64 __fastcall ExpReleaseFastResourceShared2(KSPIN_LOCK *BugCheckParameter2,
     }
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       v13 = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v14) = 4;
@@ -96,10 +96,10 @@ __int64 __fastcall ExpReleaseFastResourceShared2(KSPIN_LOCK *BugCheckParameter2,
     ExpCommitWakeFastResource(&v26, v15, v16, v24);
     ExpRemoveEntryListAndClear2(a2);
     *(_QWORD *)(a2 + 24) = 0LL;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
       {
         v18 = KeGetCurrentPrcb();
         v19 = v18->SchedulerAssist;

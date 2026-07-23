@@ -1,7 +1,7 @@
 /*
  * XREFs of SdbpCheckDll @ 0x1402534D0
  * Callers:
- *     KiSwInterruptDispatch @ 0x14015734C (KiSwInterruptDispatch.c)
+ *     KiSwInterruptDispatch @ 0x1401578BC (KiSwInterruptDispatch.c)
  *     FsRtlMdlReadCompleteDevEx @ 0x140242000 (FsRtlMdlReadCompleteDevEx.c)
  *     sub_14025299C @ 0x14025299C (sub_14025299C.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)

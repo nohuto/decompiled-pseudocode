@@ -1,31 +1,31 @@
 /*
- * XREFs of SeQueryInformationToken @ 0x14063C350
+ * XREFs of SeQueryInformationToken @ 0x14063D370
  * Callers:
- *     RtlpQueryLowBoxId @ 0x1400CCD30 (RtlpQueryLowBoxId.c)
- *     RtlCheckTokenCapability @ 0x1402EDAB0 (RtlCheckTokenCapability.c)
- *     NtCompareTokens @ 0x1405B9A30 (NtCompareTokens.c)
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     SeQuerySigningPolicyWorker @ 0x14060A60C (SeQuerySigningPolicyWorker.c)
- *     AlpcpCheckConnectionSecurity @ 0x140613280 (AlpcpCheckConnectionSecurity.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpVEExecuteParseLogic @ 0x140640F60 (CmpVEExecuteParseLogic.c)
- *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140654704 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCaptureBoundaryDescriptor @ 0x140654898 (ObpCaptureBoundaryDescriptor.c)
- *     EtwpPsProvTraceProcess @ 0x14066C050 (EtwpPsProvTraceProcess.c)
- *     EtwpBuildProcessEvent @ 0x14066CA2C (EtwpBuildProcessEvent.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
- *     SeTokenIsElevated @ 0x1406B08FC (SeTokenIsElevated.c)
- *     CmpIsVirtEnabledForSubject @ 0x1406B208C (CmpIsVirtEnabledForSubject.c)
- *     SepCheckCapabilities @ 0x1406B3248 (SepCheckCapabilities.c)
- *     PsIsProcessAppContainer @ 0x1406B81E8 (PsIsProcessAppContainer.c)
- *     PiDqOpenUserObjectRegKey @ 0x1406D9C80 (PiDqOpenUserObjectRegKey.c)
- *     CmpCreateRegistryProcessToken @ 0x140757914 (CmpCreateRegistryProcessToken.c)
- *     CmpBuildAdminInformation @ 0x1407F22F0 (CmpBuildAdminInformation.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407F5218 (CmpGenerateAppHiveSecurityDescriptor.c)
- *     RtlpIsAppContainer @ 0x140895464 (RtlpIsAppContainer.c)
- *     EtwpAcquireTokenAccessInformation @ 0x1408B4FFC (EtwpAcquireTokenAccessInformation.c)
+ *     RtlpQueryLowBoxId @ 0x1400CCDB0 (RtlpQueryLowBoxId.c)
+ *     RtlCheckTokenCapability @ 0x1402EDCA0 (RtlCheckTokenCapability.c)
+ *     NtCompareTokens @ 0x1405BAA30 (NtCompareTokens.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
+ *     SeQuerySigningPolicyWorker @ 0x14060B60C (SeQuerySigningPolicyWorker.c)
+ *     AlpcpCheckConnectionSecurity @ 0x140614280 (AlpcpCheckConnectionSecurity.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063FDD0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpVEExecuteParseLogic @ 0x140641F80 (CmpVEExecuteParseLogic.c)
+ *     RtlIsSandboxedToken @ 0x14064B4F0 (RtlIsSandboxedToken.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x1406558C4 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140655A58 (ObpCaptureBoundaryDescriptor.c)
+ *     EtwpPsProvTraceProcess @ 0x14066D210 (EtwpPsProvTraceProcess.c)
+ *     EtwpBuildProcessEvent @ 0x14066DBEC (EtwpBuildProcessEvent.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ADDA4 (PspAllocateAndQueryNotificationChannel.c)
+ *     SeTokenIsElevated @ 0x1406B1B9C (SeTokenIsElevated.c)
+ *     CmpIsVirtEnabledForSubject @ 0x1406B332C (CmpIsVirtEnabledForSubject.c)
+ *     SepCheckCapabilities @ 0x1406B44E8 (SepCheckCapabilities.c)
+ *     PsIsProcessAppContainer @ 0x1406B9488 (PsIsProcessAppContainer.c)
+ *     PiDqOpenUserObjectRegKey @ 0x1406DAF20 (PiDqOpenUserObjectRegKey.c)
+ *     CmpCreateRegistryProcessToken @ 0x140758B04 (CmpCreateRegistryProcessToken.c)
+ *     CmpBuildAdminInformation @ 0x1407F34F0 (CmpBuildAdminInformation.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1407F6418 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     RtlpIsAppContainer @ 0x1408966C4 (RtlpIsAppContainer.c)
+ *     EtwpAcquireTokenAccessInformation @ 0x1408B62BC (EtwpAcquireTokenAccessInformation.c)
  * Callees:
  *     SepConvertTokenPrivileges @ 0x1400142A0 (SepConvertTokenPrivileges.c)
  *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1400142C0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
@@ -33,20 +33,20 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     SepCopyTokenIntegrity @ 0x140091E20 (SepCopyTokenIntegrity.c)
- *     SepCanTokenMatchAllPackageSid @ 0x1400A6E20 (SepCanTokenMatchAllPackageSid.c)
- *     RtlSubAuthorityCountSid @ 0x1400DCAE0 (RtlSubAuthorityCountSid.c)
- *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepCopyTokenAccessInformation @ 0x1405BF0C8 (SepCopyTokenAccessInformation.c)
- *     SepGetTokenAccessInformationBufferSize @ 0x1405BF4A0 (SepGetTokenAccessInformationBufferSize.c)
- *     RtlCopySidAndAttributesArray @ 0x14062CDA0 (RtlCopySidAndAttributesArray.c)
- *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
- *     RtlIsElevatedRid @ 0x140654ED0 (RtlIsElevatedRid.c)
- *     SeQuerySessionIdToken @ 0x14069E460 (SeQuerySessionIdToken.c)
- *     AuthzBasepQueryClaimAttributesToken @ 0x1406B3408 (AuthzBasepQueryClaimAttributesToken.c)
+ *     SepCopyTokenIntegrity @ 0x140091D60 (SepCopyTokenIntegrity.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x1400A6D60 (SepCanTokenMatchAllPackageSid.c)
+ *     RtlSubAuthorityCountSid @ 0x1400DCB60 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1400DCB70 (RtlSubAuthoritySid.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepCopyTokenAccessInformation @ 0x1405C00C8 (SepCopyTokenAccessInformation.c)
+ *     SepGetTokenAccessInformationBufferSize @ 0x1405C04A0 (SepGetTokenAccessInformationBufferSize.c)
+ *     RtlCopySidAndAttributesArray @ 0x14062DDC0 (RtlCopySidAndAttributesArray.c)
+ *     RtlCopySid @ 0x14064A350 (RtlCopySid.c)
+ *     RtlIsElevatedRid @ 0x140656090 (RtlIsElevatedRid.c)
+ *     SeQuerySessionIdToken @ 0x14069F720 (SeQuerySessionIdToken.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x1406B46A8 (AuthzBasepQueryClaimAttributesToken.c)
  */
 
 NTSTATUS __stdcall SeQueryInformationToken(
@@ -65,7 +65,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
   unsigned int v14; // r15d
   bool v15; // bl
   unsigned int i; // edi
-  char IsElevatedRid; // al
+  BOOLEAN IsElevatedRid; // al
   unsigned int v18; // eax
   struct _KTHREAD *v19; // rax
   UCHAR v20; // cl
@@ -74,8 +74,8 @@ NTSTATUS __stdcall SeQueryInformationToken(
   int v23; // edx
   struct _KTHREAD *CurrentThread; // rax
   ULONG v25; // r15d
-  struct _SID_AND_ATTRIBUTES *PoolWithTag; // rax
-  struct _SID_AND_ATTRIBUTES *v27; // rdi
+  _SID_AND_ATTRIBUTES *PoolWithTag; // rax
+  _SID_AND_ATTRIBUTES *v27; // rdi
   char *v28; // rax
   char *v29; // rbx
   struct _KTHREAD *v30; // rax
@@ -94,7 +94,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
   __int64 v43; // rax
   char *v44; // rax
   ULONG v45; // ecx
-  struct _SID_AND_ATTRIBUTES *v46; // rdx
+  _SID_AND_ATTRIBUTES *v46; // rdx
   BOOL v47; // ebx
   struct _KTHREAD *v48; // rax
   unsigned int v49; // edi
@@ -252,7 +252,7 @@ LABEL_6:
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Token + 6), 1u);
         v25 = 4 * *(unsigned __int8 *)(**((_QWORD **)Token + 19) + 1LL) + 24;
-        PoolWithTag = (struct _SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v25, 0x20206553u);
+        PoolWithTag = (_SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v25, 0x20206553u);
         v27 = PoolWithTag;
         if ( !PoolWithTag )
           goto LABEL_68;
@@ -295,7 +295,7 @@ LABEL_6:
         if ( !v58 )
           goto LABEL_68;
         *(_DWORD *)v58 = *((_DWORD *)Token + 31) - 1;
-        v46 = (struct _SID_AND_ATTRIBUTES *)(*((_QWORD *)Token + 19) + 16LL);
+        v46 = (_SID_AND_ATTRIBUTES *)(*((_QWORD *)Token + 19) + 16LL);
         v45 = *((_DWORD *)Token + 31) - 1;
         SidArea = &v58[16 * *((_DWORD *)Token + 31) - 32 + 24];
         goto LABEL_51;
@@ -524,7 +524,7 @@ LABEL_6:
         {
           if ( v15 )
             break;
-          IsElevatedRid = RtlIsElevatedRid(*((_QWORD *)Token + 19) + 16LL * i++);
+          IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(*((_QWORD *)Token + 19) + 16LL * i++));
         }
         ExReleaseResourceLite(*((PERESOURCE *)Token + 6));
         KeLeaveCriticalRegion();
@@ -535,7 +535,7 @@ LABEL_6:
       case TokenVirtualizationAllowed:
       case TokenUIAccess:
       case TokenIsAppContainer:
-      case TokenIsRestricted|TokenGroups:
+      case TokenPrivateNameSpace:
         goto LABEL_2;
       case TokenAccessInformation:
         v84 = KeGetCurrentThread();
@@ -618,7 +618,7 @@ LABEL_6:
         *(_DWORD *)v44 = *((_DWORD *)Token + 200);
         v45 = *((_DWORD *)Token + 200);
         SidArea = &v44[16 * v45 + 24];
-        v46 = (struct _SID_AND_ATTRIBUTES *)*((_QWORD *)Token + 99);
+        v46 = (_SID_AND_ATTRIBUTES *)*((_QWORD *)Token + 99);
 LABEL_51:
         RtlCopySidAndAttributesArray(
           v45,
@@ -745,7 +745,7 @@ LABEL_51:
             &RemainingSidArea,
             (PULONG)&RemainingSidArea);
         goto LABEL_35;
-      case MaxTokenInfoClass:
+      case TokenProcessTrustLevel:
         v113 = KeGetCurrentThread();
         --v113->KernelApcDisable;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Token + 6), 1u);
@@ -770,7 +770,7 @@ LABEL_41:
           *(_QWORD *)v29 = v34;
         }
         goto LABEL_35;
-      case TokenIsRestricted|TokenOwner:
+      case TokenBnoIsolation:
         v117 = KeGetCurrentThread();
         --v117->KernelApcDisable;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Token + 6), 1u);
@@ -807,7 +807,7 @@ LABEL_35:
         KeLeaveCriticalRegion();
         *TokenInformation = v29;
         break;
-      case TokenIsRestricted|TokenDefaultDacl:
+      case TokenIsLessPrivilegedAppContainer:
         v47 = (*((_DWORD *)Token + 50) & 0x4000) != 0 && !SepCanTokenMatchAllPackageSid((__int64)Token);
         *(_DWORD *)TokenInformation = v47;
         return 0;

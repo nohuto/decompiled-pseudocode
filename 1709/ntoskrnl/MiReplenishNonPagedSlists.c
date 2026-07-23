@@ -22,8 +22,8 @@ __int64 __fastcall MiReplenishNonPagedSlists(
   __int16 v11; // r9
   __int64 v12; // rbp
   __int64 v13; // r14
-  struct _SLIST_ENTRY *v14; // rsi
-  struct _SLIST_ENTRY *v15; // rax
+  _SLIST_ENTRY *v14; // rsi
+  _SLIST_ENTRY *v15; // rax
   unsigned int v16; // r10d
   unsigned __int64 v17; // r15
   unsigned __int64 v18; // rdx
@@ -58,13 +58,13 @@ __int64 __fastcall MiReplenishNonPagedSlists(
   __int64 v47; // r8
   __int64 v48; // r8
   unsigned __int64 v49; // rbx
-  struct _SLIST_ENTRY *v50; // [rsp+20h] [rbp-88h]
-  struct _SLIST_ENTRY *v51; // [rsp+28h] [rbp-80h]
+  _SLIST_ENTRY *v50; // [rsp+20h] [rbp-88h]
+  _SLIST_ENTRY *v51; // [rsp+28h] [rbp-80h]
   unsigned __int64 v52; // [rsp+30h] [rbp-78h]
-  union _SLIST_HEADER *v53; // [rsp+38h] [rbp-70h]
-  struct _SLIST_ENTRY *v54; // [rsp+40h] [rbp-68h]
-  struct _SLIST_ENTRY *v55; // [rsp+48h] [rbp-60h]
-  union _SLIST_HEADER *ListHead; // [rsp+50h] [rbp-58h]
+  _SLIST_HEADER *v53; // [rsp+38h] [rbp-70h]
+  _SLIST_ENTRY *v54; // [rsp+40h] [rbp-68h]
+  _SLIST_ENTRY *v55; // [rsp+48h] [rbp-60h]
+  _SLIST_HEADER *ListHead; // [rsp+50h] [rbp-58h]
   __int128 v57; // [rsp+58h] [rbp-50h] BYREF
   __int16 v58; // [rsp+B8h] [rbp+10h]
   __int64 v60; // [rsp+D0h] [rbp+28h]
@@ -337,7 +337,7 @@ LABEL_85:
       v6 = v19 + a5;
       v13 = v60 + 1;
       *(_QWORD *)v49 = v49 ^ qword_140389280;
-      v15 = (struct _SLIST_ENTRY *)(v49 + 16);
+      v15 = (_SLIST_ENTRY *)(v49 + 16);
       v9 = v52;
       v15->Next = v14;
       v11 = v58 - 1;

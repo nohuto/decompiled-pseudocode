@@ -12,98 +12,102 @@
  *     _LdrpMakeUnicodeStringFromPathElement@12 @ 0x4B330CBB (_LdrpMakeUnicodeStringFromPathElement@12.c)
  */
 
-void __fastcall LdrpLogEtwDllSearchResults(int a1, _DWORD *a2)
+void __fastcall LdrpLogEtwDllSearchResults(void *a1, _DWORD *a2)
 {
-  int Heap; // eax
-  int v5; // esi
+  PVOID Heap; // eax
+  void *v5; // esi
   int v6; // ebx
   char *v7; // eax
-  int v8; // esi
+  PVOID v8; // esi
   int v9; // edi
-  int v10; // eax
-  int v11; // esi
+  char *v10; // eax
+  char *v11; // esi
   unsigned int v12; // edi
-  _WORD *v13; // esi
+  char *v13; // esi
   unsigned int v14; // edi
-  _WORD *v15; // esi
-  int v16; // edi
-  int v17; // esi
-  UNICODE_STRING v18; // [esp+10h] [ebp-38h] BYREF
-  UNICODE_STRING v19; // [esp+18h] [ebp-30h] BYREF
-  UNICODE_STRING v20; // [esp+20h] [ebp-28h] BYREF
-  UNICODE_STRING UnicodeString; // [esp+28h] [ebp-20h] BYREF
-  int v22; // [esp+30h] [ebp-18h]
+  char *v15; // esi
+  ULONG v16; // edi
+  PVOID v17; // esi
+  SIZE_T v18; // [esp-4h] [ebp-4Ch]
+  SIZE_T v19; // [esp-4h] [ebp-4Ch]
+  _UNICODE_STRING v20; // [esp+10h] [ebp-38h] BYREF
+  _UNICODE_STRING v21; // [esp+18h] [ebp-30h] BYREF
+  _UNICODE_STRING v22; // [esp+20h] [ebp-28h] BYREF
+  _UNICODE_STRING UnicodeString; // [esp+28h] [ebp-20h] BYREF
+  int v24; // [esp+30h] [ebp-18h]
   int UnicodeStringFromPathElement; // [esp+34h] [ebp-14h]
-  int v24; // [esp+38h] [ebp-10h]
-  int v25; // [esp+3Ch] [ebp-Ch]
-  int v26; // [esp+40h] [ebp-8h]
-  unsigned int v27; // [esp+44h] [ebp-4h] BYREF
+  int v26; // [esp+38h] [ebp-10h]
+  PVOID Fields; // [esp+3Ch] [ebp-Ch]
+  ULONG FieldSize; // [esp+40h] [ebp-8h]
+  unsigned int v29; // [esp+44h] [ebp-4h] BYREF
 
-  *(_DWORD *)&v20.Length = 0;
-  v20.Buffer = 0;
+  LODWORD(v18) = 584;
+  *(_DWORD *)&v22.Length = 0;
+  v22.Buffer = 0;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0;
-  *(_DWORD *)&v18.Length = 0;
-  v18.Buffer = 0;
-  *(_DWORD *)&v19.Length = 0;
-  v19.Buffer = 0;
-  v25 = a1;
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 584);
+  *(_DWORD *)&v20.Length = 0;
+  v20.Buffer = 0;
+  *(_DWORD *)&v21.Length = 0;
+  v21.Buffer = 0;
+  Fields = a1;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
   v5 = Heap;
   if ( Heap )
   {
-    *(_WORD *)(Heap + 6) = 5332;
-    *(_DWORD *)(Heap + 32) = a2[4];
-    *(_DWORD *)(Heap + 36) = *(_DWORD *)(a2[2] + 12);
-    *(_DWORD *)(Heap + 40) = a1;
-    *(_DWORD *)(Heap + 44) = a2[5];
-    LdrpEventAddUnicodeString((int)a2, (_WORD *)(Heap + 48), 0x214u, (int *)&v27);
-    v26 = v27 + 16;
+    *((_WORD *)Heap + 3) = 5332;
+    *((_DWORD *)Heap + 8) = a2[4];
+    *((_DWORD *)Heap + 9) = *(_DWORD *)(a2[2] + 12);
+    *((_DWORD *)Heap + 10) = a1;
+    *((_DWORD *)Heap + 11) = a2[5];
+    LdrpEventAddUnicodeString((int)a2, (_WORD *)Heap + 24, 0x214u, (int *)&v29);
+    FieldSize = v29 + 16;
     v6 = 2147353476;
     v7 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 554 : (char *)2147353476;
-    NtTraceEvent((unsigned __int8)*v7, 1026, v26, v5);
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v5);
-    v8 = v25;
-    if ( (v25 & 0x100) != 0 && (int)LdrpMakeUnicodeStringFromPathElement(&UnicodeString) >= 0 )
+    NtTraceEvent((HANDLE)(unsigned __int8)*v7, 0x402u, FieldSize, v5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+    v8 = Fields;
+    if ( ((unsigned __int16)Fields & 0x100) != 0 && (int)LdrpMakeUnicodeStringFromPathElement(&UnicodeString) >= 0 )
     {
-      UnicodeStringFromPathElement = LdrpMakeUnicodeStringFromPathElement(&v20);
-      v22 = LdrpMakeUnicodeStringFromPathElement(&v18);
-      v9 = LdrpMakeUnicodeStringFromPathElement(&v19);
-      v24 = v9;
-      v10 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 3232);
-      v25 = v10;
+      UnicodeStringFromPathElement = LdrpMakeUnicodeStringFromPathElement(&v22);
+      v24 = LdrpMakeUnicodeStringFromPathElement(&v20);
+      v9 = LdrpMakeUnicodeStringFromPathElement(&v21);
+      LODWORD(v19) = 3232;
+      v26 = v9;
+      v10 = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
+      Fields = v10;
       if ( v10 )
       {
-        v27 = 0;
-        *(_DWORD *)(v10 + 32) = v8;
-        *(_WORD *)(v10 + 6) = 5333;
+        v29 = 0;
+        *((_DWORD *)v10 + 8) = v8;
+        *((_WORD *)v10 + 3) = 5333;
         v11 = v10 + 36;
-        LdrpEventAddUnicodeString((int)&UnicodeString, (_WORD *)(v10 + 36), 0xC78u, (int *)&v27);
-        v12 = 3192 - v27;
-        v13 = (_WORD *)(v11 + 2 * (v27 >> 1));
-        v26 = v27 + 4;
-        LdrpEventAddUnicodeString((int)&v20, v13, 3192 - v27, (int *)&v27);
-        v14 = v12 - v27;
-        v26 += v27;
-        v15 = &v13[v27 >> 1];
-        LdrpEventAddUnicodeString((int)&v18, v15, v14, (int *)&v27);
-        v26 += v27;
-        LdrpEventAddUnicodeString((int)&v19, &v15[v27 >> 1], v14 - v27, (int *)&v27);
-        v16 = v27 + v26;
+        LdrpEventAddUnicodeString((int)&UnicodeString, (_WORD *)v10 + 18, 0xC78u, (int *)&v29);
+        v12 = 3192 - v29;
+        v13 = &v11[2 * (v29 >> 1)];
+        FieldSize = v29 + 4;
+        LdrpEventAddUnicodeString((int)&v22, v13, 3192 - v29, (int *)&v29);
+        v14 = v12 - v29;
+        FieldSize += v29;
+        v15 = &v13[2 * (v29 >> 1)];
+        LdrpEventAddUnicodeString((int)&v20, v15, v14, (int *)&v29);
+        FieldSize += v29;
+        LdrpEventAddUnicodeString((int)&v21, &v15[2 * (v29 >> 1)], v14 - v29, (int *)&v29);
+        v16 = v29 + FieldSize;
         if ( RtlGetCurrentServiceSessionId() )
           v6 = (int)NtCurrentPeb()->SharedData + 554;
-        v17 = v25;
-        NtTraceEvent(*(unsigned __int8 *)v6, 1026, v16, v25);
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v17);
-        v9 = v24;
+        v17 = Fields;
+        NtTraceEvent((HANDLE)*(unsigned __int8 *)v6, 0x402u, v16, Fields);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
+        v9 = v26;
       }
       RtlFreeAnsiString(&UnicodeString);
       if ( UnicodeStringFromPathElement >= 0 )
-        RtlFreeAnsiString(&v20);
+        RtlFreeAnsiString(&v22);
       if ( v9 >= 0 )
-        RtlFreeAnsiString(&v19);
-      if ( v22 >= 0 )
-        RtlFreeAnsiString(&v18);
+        RtlFreeAnsiString(&v21);
+      if ( v24 >= 0 )
+        RtlFreeAnsiString(&v20);
     }
   }
 }

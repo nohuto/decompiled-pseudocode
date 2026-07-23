@@ -1,13 +1,13 @@
 /*
- * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x140329E48
+ * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x14032A0D8
  * Callers:
- *     KeQueryTotalCycleTimeThread @ 0x140329DB0 (KeQueryTotalCycleTimeThread.c)
- *     PsQueryTotalCycleTimeProcess @ 0x14079F610 (PsQueryTotalCycleTimeProcess.c)
- *     KeEnableProfiling @ 0x140974DD8 (KeEnableProfiling.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14032A040 (KeQueryTotalCycleTimeThread.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x14079F800 (PsQueryTotalCycleTimeProcess.c)
+ *     KeEnableProfiling @ 0x140974FD8 (KeEnableProfiling.c)
  * Callees:
- *     KiEndThreadCycleAccumulation @ 0x1402B2C90 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x1402B2D40 (KiStartThreadCycleAccumulation.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiEndThreadCycleAccumulation @ 0x1402B2F20 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x1402B2FD0 (KiStartThreadCycleAccumulation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall KeUpdateTotalCyclesCurrentThread(__int64 a1, unsigned __int64 *a2)

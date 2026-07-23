@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAllocateErrorLogEntry @ 0x1404DC04C
+ * XREFs of IopAllocateErrorLogEntry @ 0x1404D572C
  * Callers:
- *     IoAllocateErrorLogEntry @ 0x1404DC010 (IoAllocateErrorLogEntry.c)
- *     IoAllocateGenericErrorLogEntry @ 0x1405CAD68 (IoAllocateGenericErrorLogEntry.c)
+ *     IoAllocateErrorLogEntry @ 0x1404D56F0 (IoAllocateErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x1405CD638 (IoAllocateGenericErrorLogEntry.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopAllocateErrorLogEntry(PVOID Object, PVOID a2, char a3)
@@ -17,10 +17,10 @@ __int64 __fastcall IopAllocateErrorLogEntry(PVOID Object, PVOID a2, char a3)
   if ( (unsigned __int8)(a3 - 48) > 0xC0u )
     return 0LL;
   v5 = ((a3 + 7) & 0xF8) + 48;
-  if ( (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)&IopSessionNotificationLock.QuantumTarget, v5) > 0x64000
+  if ( (unsigned int)_InterlockedExchangeAdd(&IopErrorLogAllocation, v5) > 0x64000
     || (Pool2 = ExAllocatePool2(0x40uLL)) == 0 )
   {
-    _InterlockedAdd((volatile signed __int32 *)&IopSessionNotificationLock.QuantumTarget, -v5);
+    _InterlockedAdd(&IopErrorLogAllocation, -v5);
     return 0LL;
   }
   if ( Object )

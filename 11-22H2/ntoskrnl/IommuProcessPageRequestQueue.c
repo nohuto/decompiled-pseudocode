@@ -125,10 +125,13 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
     {
       ++*(_DWORD *)(v5 + 16);
       KxReleaseSpinLock((volatile signed __int64 *)v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -148,7 +151,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
       v13 = *(_QWORD *)((*(__int64 (**)(void))(HalIommuDispatch + 104))() + 8);
       v14 = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
       {
         v15 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v14 == 15 )
@@ -180,10 +183,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
       if ( j == v18 )
         KeBugCheckEx(0x159u, 4uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, (ULONG_PTR)BugCheckParameter4);
       KxReleaseSpinLock((volatile signed __int64 *)(v13 + 24));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v20 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v14 <= 0xFu && v20 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && v14 <= 0xFu && v20 >= 2u )
         {
           v21 = KeGetCurrentPrcb();
           v22 = v21->SchedulerAssist;
@@ -204,10 +207,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
         v6 = (KSPIN_LOCK *)(v5 + 8);
         KxReleaseSpinLock((volatile signed __int64 *)(v5 + 8));
         v1 = 0LL;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v24 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v24 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v24 >= 2u )
           {
             v25 = KeGetCurrentPrcb();
             v26 = v25->SchedulerAssist;
@@ -256,10 +259,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
         if ( (v54 & 0x10) != 0 )
           *(_DWORD *)(v31 + 8 * v30 + 116) = v32 | 0x200000;
         KxReleaseSpinLock((volatile signed __int64 *)(v5 + 8));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v35 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v35 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v35 >= 2u )
           {
             v36 = KeGetCurrentPrcb();
             v37 = v36->SchedulerAssist;
@@ -311,10 +314,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
         }
         v6 = (KSPIN_LOCK *)(v5 + 8);
         KxReleaseSpinLock((volatile signed __int64 *)(v5 + 8));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v44 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v44 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v44 >= 2u )
           {
             v45 = KeGetCurrentPrcb();
             v46 = v45->SchedulerAssist;
@@ -332,10 +335,10 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v48 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v48 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v48 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v48 >= 2u )
     {
       v49 = KeGetCurrentPrcb();
       v50 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

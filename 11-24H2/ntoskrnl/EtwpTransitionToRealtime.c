@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTransitionToRealtime @ 0x14064F408
+ * XREFs of EtwpTransitionToRealtime @ 0x14064DB08
  * Callers:
- *     NtTraceControl @ 0x140834A80 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140A82250 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwpEventWriteTemplateSession @ 0x140833614 (EtwpEventWriteTemplateSession.c)
- *     EtwpSynchronizeWithLogger @ 0x14083381C (EtwpSynchronizeWithLogger.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1408343FC (EtwpGetLoggerInfoFromContext.c)
- *     EtwpValidateLoggerInfo @ 0x140836450 (EtwpValidateLoggerInfo.c)
- *     EtwpCheckLoggerControlAccess @ 0x140836724 (EtwpCheckLoggerControlAccess.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     EtwpAcquireLoggerContext @ 0x140926CDC (EtwpAcquireLoggerContext.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x140835798 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpValidateLoggerInfo @ 0x1408361C0 (EtwpValidateLoggerInfo.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1408375F4 (EtwpCheckLoggerControlAccess.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     EtwpAcquireLoggerContext @ 0x140928E1C (EtwpAcquireLoggerContext.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
+ *     EtwpSynchronizeWithLogger @ 0x1409D2650 (EtwpSynchronizeWithLogger.c)
+ *     EtwpEventWriteTemplateSession @ 0x1409D26F0 (EtwpEventWriteTemplateSession.c)
  */
 
 __int64 __fastcall EtwpTransitionToRealtime(__int64 a1, __int64 a2, __int64 a3)

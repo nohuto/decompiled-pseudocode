@@ -1,33 +1,33 @@
 /*
- * XREFs of PfSnSetAltPrefetchParam @ 0x140B6B900
+ * XREFs of PfSnSetAltPrefetchParam @ 0x140B6E9FC
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PfSnAltProfileCleanup @ 0x14077CA90 (PfSnAltProfileCleanup.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PfSnCalculateScenarioNameAndHash @ 0x1409E8E38 (PfSnCalculateScenarioNameAndHash.c)
- *     PfCalculateProcessHash @ 0x1409E9560 (PfCalculateProcessHash.c)
- *     PfSnCheckScenario @ 0x1409EA0EC (PfSnCheckScenario.c)
- *     PfSnAltProfileFindByScenarioId @ 0x1409EA150 (PfSnAltProfileFindByScenarioId.c)
- *     PfSnAltProfileTreeCompareByScenarioId @ 0x1409EA1EC (PfSnAltProfileTreeCompareByScenarioId.c)
- *     PfSnAltProfileFindByProcess @ 0x140A43BF8 (PfSnAltProfileFindByProcess.c)
- *     PfSnAltProfileTreeCompareByProcess @ 0x140A43C88 (PfSnAltProfileTreeCompareByProcess.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PfSnAltProfileCleanup @ 0x14077F584 (PfSnAltProfileCleanup.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PfSnCheckScenario @ 0x1409D163C (PfSnCheckScenario.c)
+ *     PfSnAltProfileFindByScenarioId @ 0x1409D2894 (PfSnAltProfileFindByScenarioId.c)
+ *     PfSnAltProfileTreeCompareByScenarioId @ 0x1409D2930 (PfSnAltProfileTreeCompareByScenarioId.c)
+ *     PfCalculateProcessHash @ 0x1409D2980 (PfCalculateProcessHash.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1409D30B0 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnAltProfileFindByProcess @ 0x140ACAD6C (PfSnAltProfileFindByProcess.c)
+ *     PfSnAltProfileTreeCompareByProcess @ 0x140ACADFC (PfSnAltProfileTreeCompareByProcess.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnSetAltPrefetchParam(ULONG_PTR BugCheckParameter1, void *Src, size_t Size, char a4)
 {
   size_t v5; // r12
-  unsigned __int64 v8; // rsi
+  __int64 v8; // rsi
   int v9; // r14d
   int v10; // ebx
   PVOID v11; // r15
@@ -37,14 +37,14 @@ __int64 __fastcall PfSnSetAltPrefetchParam(ULONG_PTR BugCheckParameter1, void *S
   __int64 v15; // r8
   struct _KLOCK_ENTRIES *v16; // r9
   unsigned __int64 v17; // rax
-  unsigned __int64 SparePtr; // rbx
+  __int64 SparePtr; // rbx
   int v19; // r12d
-  bool v20; // r8
-  unsigned __int64 v21; // rax
-  unsigned __int64 Blink; // rbx
+  BOOLEAN v20; // r8
+  __int64 v21; // rax
+  __int64 Blink; // rbx
   int v23; // r12d
-  bool v24; // r8
-  unsigned __int64 v25; // rax
+  BOOLEAN v24; // r8
+  __int64 v25; // rax
   unsigned int v28; // [rsp+64h] [rbp-1D4h] BYREF
   PVOID Object; // [rsp+68h] [rbp-1D0h] BYREF
   int v30; // [rsp+70h] [rbp-1C8h] BYREF
@@ -75,7 +75,15 @@ __int64 __fastcall PfSnSetAltPrefetchParam(ULONG_PTR BugCheckParameter1, void *S
   v8 = 0LL;
   v37 = 0LL;
   v9 = 0;
-  v10 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 512LL, PsProcessType, a4, 0x73576650u, &Object, 0LL, 0LL);
+  v10 = ObpReferenceObjectByHandleWithTag(
+          BugCheckParameter1,
+          512,
+          (__int64)PsProcessType,
+          a4,
+          0x73576650u,
+          &Object,
+          0LL,
+          0LL);
   v11 = Object;
   if ( v10 >= 0 )
   {
@@ -121,7 +129,7 @@ LABEL_3:
           v42 = v30;
           HIDWORD(v41) = v33 + v32 + v31;
           Pool2 = (void *)ExAllocatePool2(0x100uLL);
-          v8 = (unsigned __int64)Pool2;
+          v8 = (__int64)Pool2;
           if ( !Pool2 )
           {
             v10 = -1073741670;
@@ -137,7 +145,7 @@ LABEL_3:
           *(_DWORD *)(v8 + 120) = v42;
           v11 = 0LL;
           v9 = 1;
-          PfLockExclusiveAcquire((unsigned __int64 *)&stru_140E66FF0.WaitBlock[1].Thread, v14, v15, v16);
+          PfLockExclusiveAcquire((unsigned __int64 *)&stru_140E67200.WaitBlock[1].Thread, v14, v15, v16);
           v17 = PfSnAltProfileFindByScenarioId(Str2);
           if ( v17 )
           {
@@ -153,10 +161,10 @@ LABEL_3:
             Object = *(PVOID *)(v8 + 48);
             if ( PfSnAltProfileFindByProcess((__int64)Object) )
               goto LABEL_3;
-            SparePtr = (unsigned __int64)stru_140E66FF0.WaitBlock[0].SparePtr;
-            if ( (stru_140E66FF0.WaitBlockFill5[48] & 1) != 0 && stru_140E66FF0.WaitBlock[0].SparePtr )
-              SparePtr = (unsigned __int64)&stru_140E66FF0.WaitBlock[0].SparePtr ^ (unsigned __int64)stru_140E66FF0.WaitBlock[0].SparePtr;
-            v19 = stru_140E66FF0.WaitBlockFill5[48] & 1;
+            SparePtr = (__int64)stru_140E67200.WaitBlock[0].SparePtr;
+            if ( (stru_140E67200.WaitBlockFill5[48] & 1) != 0 && stru_140E67200.WaitBlock[0].SparePtr )
+              SparePtr = (unsigned __int64)&stru_140E67200.WaitBlock[0].SparePtr ^ (unsigned __int64)stru_140E67200.WaitBlock[0].SparePtr;
+            v19 = stru_140E67200.WaitBlockFill5[48] & 1;
             v20 = 0;
             if ( SparePtr )
             {
@@ -197,11 +205,15 @@ LABEL_30:
                 SparePtr = v21;
               }
             }
-            RtlRbInsertNodeEx((unsigned __int64)&stru_140E66FF0.WaitBlock[0].SparePtr, SparePtr, v20, v8);
-            Blink = (unsigned __int64)stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink;
-            if ( (stru_140E66FF0.WaitBlock[1].WaitType & 1) != 0 && stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink )
-              Blink = (unsigned __int64)&stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink ^ (unsigned __int64)stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink;
-            v23 = stru_140E66FF0.WaitBlock[1].WaitType & 1;
+            RtlRbInsertNodeEx(
+              (PRTL_RB_TREE)&stru_140E67200.WaitBlockFill11[40],
+              (PRTL_BALANCED_NODE)SparePtr,
+              v20,
+              (PRTL_BALANCED_NODE)v8);
+            Blink = (__int64)stru_140E67200.WaitBlock[1].WaitListEntry.Blink;
+            if ( (stru_140E67200.WaitBlock[1].WaitType & 1) != 0 && stru_140E67200.WaitBlock[1].WaitListEntry.Blink )
+              Blink = (unsigned __int64)&stru_140E67200.WaitBlock[1].WaitListEntry.Blink ^ (unsigned __int64)stru_140E67200.WaitBlock[1].WaitListEntry.Blink;
+            v23 = stru_140E67200.WaitBlock[1].WaitType & 1;
             v24 = 0;
             if ( Blink )
             {
@@ -242,8 +254,12 @@ LABEL_46:
                 Blink = v25;
               }
             }
-            RtlRbInsertNodeEx((unsigned __int64)&stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink, Blink, v24, v8 + 24);
-            PfLockExclusiveRelease((struct _KTHREAD *)&stru_140E66FF0.WaitBlockFill11[72]);
+            RtlRbInsertNodeEx(
+              (PRTL_RB_TREE)&stru_140E67200.WaitBlockFill11[56],
+              (PRTL_BALANCED_NODE)Blink,
+              v24,
+              (PRTL_BALANCED_NODE)(v8 + 24));
+            PfLockExclusiveRelease((struct _KTHREAD *)&stru_140E67200.WaitBlockFill11[72]);
             v9 = 0;
             v8 = 0LL;
           }
@@ -254,7 +270,7 @@ LABEL_46:
   }
 LABEL_54:
   if ( v9 )
-    PfLockExclusiveRelease((struct _KTHREAD *)&stru_140E66FF0.WaitBlockFill11[72]);
+    PfLockExclusiveRelease((struct _KTHREAD *)&stru_140E67200.WaitBlockFill11[72]);
   if ( P[0] )
     ExFreePoolWithTag(P[0], 0);
   if ( v8 )

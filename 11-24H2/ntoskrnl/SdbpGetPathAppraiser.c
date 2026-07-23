@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpGetPathAppraiser @ 0x140806AA0
+ * XREFs of SdbpGetPathAppraiser @ 0x1408071E0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140806EC0 (SdbpGetProcessHostGuestArchitectures.c)
- *     AslPathCombine @ 0x140809C70 (AslPathCombine.c)
- *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x14080BCF4 (AslEnvGetSysNativeDirPathForGuestBuf.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140807600 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslPathCombine @ 0x14080A3B0 (AslPathCombine.c)
+ *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x14080C434 (AslEnvGetSysNativeDirPathForGuestBuf.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetPathAppraiser(NTSTRSAFE_PWSTR pszDest, size_t cchDest, __int64 a3, __int64 a4)

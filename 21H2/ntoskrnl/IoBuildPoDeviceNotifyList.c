@@ -1,19 +1,19 @@
 /*
- * XREFs of IoBuildPoDeviceNotifyList @ 0x1409972B0
+ * XREFs of IoBuildPoDeviceNotifyList @ 0x1409982B0
  * Callers:
- *     PopBuildDeviceNotifyList @ 0x1409971B8 (PopBuildDeviceNotifyList.c)
+ *     PopBuildDeviceNotifyList @ 0x1409981B8 (PopBuildDeviceNotifyList.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     IoGetAttachedDeviceReference @ 0x14022CA10 (IoGetAttachedDeviceReference.c)
- *     PnpLockDeviceActionQueue @ 0x1402C6FF0 (PnpLockDeviceActionQueue.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x1402CCF4C (IoGetLowerDeviceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopIsNotifyInBroadcast @ 0x1409978AC (IopIsNotifyInBroadcast.c)
- *     IopCheckDeviceFlags @ 0x1409978C4 (IopCheckDeviceFlags.c)
- *     IopCaptureObjectName @ 0x140997948 (IopCaptureObjectName.c)
- *     IopFreePoDeviceNotifyListHead @ 0x140997A68 (IopFreePoDeviceNotifyListHead.c)
+ *     PnpLockDeviceActionQueue @ 0x140245730 (PnpLockDeviceActionQueue.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x14024B44C (IoGetLowerDeviceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     IoGetAttachedDeviceReference @ 0x1402D1260 (IoGetAttachedDeviceReference.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopIsNotifyInBroadcast @ 0x1409988AC (IopIsNotifyInBroadcast.c)
+ *     IopCheckDeviceFlags @ 0x1409988C4 (IopCheckDeviceFlags.c)
+ *     IopCaptureObjectName @ 0x140998948 (IopCaptureObjectName.c)
+ *     IopFreePoDeviceNotifyListHead @ 0x140998A68 (IopFreePoDeviceNotifyListHead.c)
  */
 
 __int64 *__fastcall IoBuildPoDeviceNotifyList(char *a1, int a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpProcessAssignResources @ 0x14098E760
+ * XREFs of PnpProcessAssignResources @ 0x140979798
  * Callers:
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PnpAssignResourcesToDevices @ 0x14098DA30 (PnpAssignResourcesToDevices.c)
- *     PnpProcessAssignResourcesWorker @ 0x14098E91C (PnpProcessAssignResourcesWorker.c)
- *     PipClearDevNodeUserFlags @ 0x14098E9D4 (PipClearDevNodeUserFlags.c)
- *     PipSetDevNodeProblem @ 0x14098FC24 (PipSetDevNodeProblem.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PnpAssignResourcesToDevices @ 0x140978A68 (PnpAssignResourcesToDevices.c)
+ *     PnpProcessAssignResourcesWorker @ 0x140979954 (PnpProcessAssignResourcesWorker.c)
+ *     PipClearDevNodeUserFlags @ 0x140979A0C (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeProblem @ 0x14097AC5C (PipSetDevNodeProblem.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int64 a3)
@@ -38,7 +38,7 @@ char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int6
 
   v4 = a2;
   v6 = 0;
-  Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+  Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, (unsigned int)(8 * IopNumberDeviceNodes + 8), 0x35706E50u);
   v8 = Pool2;
   if ( Pool2 )
   {
@@ -47,7 +47,7 @@ char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int6
     v9 = v8[1];
     if ( (_DWORD)v9 )
     {
-      v11 = ExAllocatePool2(0x100uLL);
+      v11 = ExAllocatePool2(0x100uLL, (unsigned int)((_DWORD)v9 << 6), 0x36706E50u);
       v12 = (_DWORD *)v11;
       if ( v11 )
       {

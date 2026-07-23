@@ -128,7 +128,7 @@ LABEL_30:
       if ( RtlWriteTryAcquireTickLock((signed __int64 *)(MmWriteableSharedUserData + 832)) )
       {
         v10 = KeQueryPerformanceCounter(&PerformanceFrequency);
-        v11 = (unsigned int)KeMaximumIncrement;
+        v11 = KeMaximumIncrement;
         v12 = MEMORY[0xFFFFF78000000008]
             + 10000000 * (v10.QuadPart - MEMORY[0xFFFFF78000000350]) / (unsigned __int64)PerformanceFrequency.LowPart;
         *(_DWORD *)(MmWriteableSharedUserData + 16) = HIDWORD(v12);

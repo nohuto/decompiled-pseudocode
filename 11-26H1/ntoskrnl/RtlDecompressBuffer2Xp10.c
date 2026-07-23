@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlDecompressBuffer2Xp10 @ 0x14080A530
+ * XREFs of RtlDecompressBuffer2Xp10 @ 0x14080FFC0
  * Callers:
- *     RtlDecompressBufferXp10 @ 0x14080A750 (RtlDecompressBufferXp10.c)
+ *     RtlDecompressBufferXp10 @ 0x1408101E0 (RtlDecompressBufferXp10.c)
  * Callees:
- *     Xp10ExecuteHuffmanDecode @ 0x14080C570 (Xp10ExecuteHuffmanDecode.c)
- *     Xp10ReadAndValidateCrc @ 0x14080E79C (Xp10ReadAndValidateCrc.c)
- *     Xp10ReadMtfHeader @ 0x14080E87C (Xp10ReadMtfHeader.c)
- *     Xp10ScatteredCopyBits @ 0x14080EBA8 (Xp10ScatteredCopyBits.c)
- *     Xp10ScatteredReadBytes @ 0x14080EE58 (Xp10ScatteredReadBytes.c)
- *     Xp10ValidateFrameHeaderAndFillParameters @ 0x14080EF5C (Xp10ValidateFrameHeaderAndFillParameters.c)
+ *     Xp10ExecuteHuffmanDecode @ 0x140812000 (Xp10ExecuteHuffmanDecode.c)
+ *     Xp10ReadAndValidateCrc @ 0x14081422C (Xp10ReadAndValidateCrc.c)
+ *     Xp10ReadMtfHeader @ 0x14081430C (Xp10ReadMtfHeader.c)
+ *     Xp10ScatteredCopyBits @ 0x140814638 (Xp10ScatteredCopyBits.c)
+ *     Xp10ScatteredReadBytes @ 0x1408148E8 (Xp10ScatteredReadBytes.c)
+ *     Xp10ValidateFrameHeaderAndFillParameters @ 0x1408149EC (Xp10ValidateFrameHeaderAndFillParameters.c)
  */
 
 __int64 __fastcall RtlDecompressBuffer2Xp10(

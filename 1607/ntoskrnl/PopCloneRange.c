@@ -1,10 +1,10 @@
 /*
  * XREFs of PopCloneRange @ 0x1403CB7FC
  * Callers:
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
- *     PopSetRange @ 0x140113088 (PopSetRange.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
+ *     PopSetRange @ 0x1401135F8 (PopSetRange.c)
  * Callees:
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of ApiSetpSearchForApiSetA @ 0x1406D93FC
+ * XREFs of ApiSetpSearchForApiSetA @ 0x1406DD58C
  * Callers:
- *     ApiSetQuerySchemaInfo2 @ 0x1406D8F04 (ApiSetQuerySchemaInfo2.c)
- *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x1406DAAC4 (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetQuerySchemaInfo2 @ 0x1406DD094 (ApiSetQuerySchemaInfo2.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x1406DEC64 (ApiSetCompose_ProcessV7Extension_Phase1.c)
  * Callees:
  *     <none>
  */

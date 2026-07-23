@@ -1,42 +1,48 @@
 /*
- * XREFs of RtlWriteRegistryValue @ 0x1801069C0
+ * XREFs of RtlWriteRegistryValue @ 0x1801063C0
  * Callers:
- *     RtlpSetTimeZoneInformationWorker @ 0x180123C1C (RtlpSetTimeZoneInformationWorker.c)
- *     RtlSetPortableOperatingSystem @ 0x180141C70 (RtlSetPortableOperatingSystem.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x18012398C (RtlpSetTimeZoneInformationWorker.c)
+ *     RtlSetPortableOperatingSystem @ 0x180141B70 (RtlSetPortableOperatingSystem.c)
  * Callees:
- *     RtlpGetRegistryHandle @ 0x18005A6B8 (RtlpGetRegistryHandle.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     ZwSetValueKey @ 0x18015FB30 (ZwSetValueKey.c)
+ *     RtlpGetRegistryHandle @ 0x180044C38 (RtlpGetRegistryHandle.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     ZwSetValueKey @ 0x18015FA30 (ZwSetValueKey.c)
  */
 
-__int64 __fastcall RtlWriteRegistryValue(int a1, const wchar_t *a2, const wchar_t *a3, int a4, __int64 a5, int a6)
+NTSTATUS __cdecl RtlWriteRegistryValue(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PCWSTR ValueName,
+        ULONG ValueType,
+        PVOID ValueData,
+        ULONG ValueLength)
 {
-  __int64 result; // rax
-  unsigned int v10; // ebx
+  NTSTATUS result; // eax
+  ULONG v10; // ebx
   size_t v11; // rax
-  unsigned int v12; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp-28h] BYREF
-  _QWORD v14[4]; // [rsp+38h] [rbp-20h] BYREF
+  NTSTATUS v12; // ebx
+  HANDLE KeyHandle; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING ValueNamea; // [rsp+38h] [rbp-20h] BYREF
 
-  Handle = 0LL;
-  result = RtlpGetRegistryHandle(a1, a2, 1, (const wchar_t **)&Handle);
-  if ( (int)result >= 0 )
+  KeyHandle = 0LL;
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 1, &KeyHandle);
+  if ( result >= 0 )
   {
-    v10 = a4 & 0xFFFFFF;
-    v14[0] = 0LL;
-    v14[1] = a3;
-    if ( a3 )
+    v10 = ValueType & 0xFFFFFF;
+    *(_QWORD *)&ValueNamea.Length = 0LL;
+    ValueNamea.Buffer = (wchar_t *)ValueName;
+    if ( ValueName )
     {
-      v11 = 2 * wcslen(a3);
+      v11 = 2 * wcslen(ValueName);
       if ( v11 >= 0xFFFE )
         LOWORD(v11) = -4;
-      LOWORD(v14[0]) = v11;
-      WORD1(v14[0]) = v11 + 2;
+      ValueNamea.Length = v11;
+      ValueNamea.MaximumLength = v11 + 2;
     }
-    v12 = ZwSetValueKey(Handle, v14, 0LL, v10, a5, a6);
-    if ( (a1 & 0x40000000) == 0 )
-      NtClose(Handle);
+    v12 = ZwSetValueKey(KeyHandle, &ValueNamea, 0, v10, ValueData, ValueLength);
+    if ( (RelativeTo & 0x40000000) == 0 )
+      NtClose(KeyHandle);
     return v12;
   }
   return result;

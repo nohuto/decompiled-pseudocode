@@ -27,7 +27,7 @@ NTSTATUS __fastcall BiCreateObject(void *a1, UUID *a2, __int64 a3, unsigned int 
   HANDLE v13; // [rsp+38h] [rbp-48h] BYREF
   HANDLE v14; // [rsp+40h] [rbp-40h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-38h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-30h] BYREF
+  UNICODE_STRING GuidString; // [rsp+50h] [rbp-30h] BYREF
   int v17; // [rsp+60h] [rbp-20h] BYREF
   UUID Uuid; // [rsp+68h] [rbp-18h] BYREF
 
@@ -36,7 +36,7 @@ NTSTATUS __fastcall BiCreateObject(void *a1, UUID *a2, __int64 a3, unsigned int 
   Handle = 0LL;
   *a5 = 0LL;
   p_Uuid = a2;
-  UnicodeString.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   if ( !(unsigned __int8)BiIsValidObject(a3, a2, a4) )
     return -1073741637;
   if ( v8 )
@@ -54,11 +54,11 @@ NTSTATUS __fastcall BiCreateObject(void *a1, UUID *a2, __int64 a3, unsigned int 
   v9 = BiOpenKey(a1, L"Objects", 4u, &v13);
   if ( v9 >= 0 )
   {
-    v9 = RtlStringFromGUIDEx(&p_Uuid->Data1, (__int64)&UnicodeString, 1);
+    v9 = RtlStringFromGUIDEx(p_Uuid, &GuidString, 1u);
     if ( v9 >= 0 )
     {
-      v9 = BiCreateKey(v13, UnicodeString.Buffer, 0xF003Fu, 0, &v14, &v12);
-      RtlFreeAnsiString(&UnicodeString);
+      v9 = BiCreateKey(v13, GuidString.Buffer, 0xF003Fu, 0, &v14, &v12);
+      RtlFreeAnsiString(&GuidString);
       v11 = v14;
       if ( v9 < 0 )
         goto LABEL_17;

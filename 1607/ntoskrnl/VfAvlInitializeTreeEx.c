@@ -1,10 +1,10 @@
 /*
  * XREFs of VfAvlInitializeTreeEx @ 0x1406FE23C
  * Callers:
- *     VfAvlInitializeTree @ 0x140223C68 (VfAvlInitializeTree.c)
+ *     VfAvlInitializeTree @ 0x140223A94 (VfAvlInitializeTree.c)
  *     VfInitBootDriversLoaded @ 0x1407A52D8 (VfInitBootDriversLoaded.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x1400C3F7C (RtlInitializeGenericTableAvl.c)
+ *     RtlInitializeGenericTableAvl @ 0x1400C1E1C (RtlInitializeGenericTableAvl.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -19,7 +19,7 @@ __int64 __fastcall VfAvlInitializeTreeEx(
   PVOID PoolWithTag; // rax
   unsigned __int64 v9; // rbp
   __int64 v10; // rdi
-  RTL_AVL_COMPARE_ROUTINE *v11; // rdx
+  RTL_GENERIC_COMPARE_RESULTS (__cdecl *v11)(_RTL_AVL_TABLE *, PVOID, PVOID); // rdx
   unsigned int MaximumProcessorCount; // eax
 
   TableContext[1] = 0LL;
@@ -70,12 +70,12 @@ LABEL_3:
     v10 = 0LL;
     do
     {
-      v11 = (RTL_AVL_COMPARE_ROUTINE *)ViAvlCompareNode;
+      v11 = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))ViAvlCompareNode;
       *(_QWORD *)(TableContext[2] + v10 + 104) = 0LL;
       *(_DWORD *)(TableContext[2] + v10 + 128) = 0;
       *(_QWORD *)(TableContext[2] + v10 + 112) = 0LL;
       if ( a4 )
-        v11 = (RTL_AVL_COMPARE_ROUTINE *)ViAvlCompareNodeUseSessionId;
+        v11 = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))ViAvlCompareNodeUseSessionId;
       RtlInitializeGenericTableAvl(
         (PRTL_AVL_TABLE)(v10 + TableContext[2]),
         v11,

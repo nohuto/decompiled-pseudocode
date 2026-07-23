@@ -55,7 +55,7 @@ LABEL_2:
       {
         v14 = *(void **)(a1 + 16);
         if ( *(_WORD *)(a1 + 8) == 1 )
-          ExFreeToPagedLookasideList(&FsRtlFirstPagedMappingLookasideList, v14);
+          ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList, v14);
         else
           ExFreeToNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, v14);
         *(_QWORD *)(a1 + 16) = v13;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRestoreLegacyDmaControllerState @ 0x140BECA00
+ * XREFs of HalpRestoreLegacyDmaControllerState @ 0x140BF2A00
  * Callers:
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpIoDelay @ 0x140722AB0 (HalpIoDelay.c)
+ *     HalpIoDelay @ 0x140727680 (HalpIoDelay.c)
  */
 
 void HalpRestoreLegacyDmaControllerState()

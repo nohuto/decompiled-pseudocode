@@ -1,16 +1,16 @@
 /*
- * XREFs of HeadlessKernelAddLogEntry @ 0x1404EDA18
+ * XREFs of HeadlessKernelAddLogEntry @ 0x1404E6FF8
  * Callers:
- *     PnpBootDeviceWait @ 0x1405D85A4 (PnpBootDeviceWait.c)
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     IoInitSystem @ 0x140CBAC00 (IoInitSystem.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
- *     IopMountBootLayerCallout @ 0x140CBDC50 (IopMountBootLayerCallout.c)
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     PipInitializeCoreDriversByGroup @ 0x140D05030 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeBuiltinDriver @ 0x140D08E68 (IopInitializeBuiltinDriver.c)
+ *     PnpBootDeviceWait @ 0x1405DADA4 (PnpBootDeviceWait.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     IoInitSystem @ 0x140CC0C78 (IoInitSystem.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
+ *     IopMountBootLayerCallout @ 0x140CC3D20 (IopMountBootLayerCallout.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140D0B300 (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBuiltinDriver @ 0x140D0F138 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     HdlspKernelAddLogEntry @ 0x140C4CD84 (HdlspKernelAddLogEntry.c)
+ *     HdlspKernelAddLogEntry @ 0x140C52D84 (HdlspKernelAddLogEntry.c)
  */
 
 PKSPIN_LOCK HeadlessKernelAddLogEntry()

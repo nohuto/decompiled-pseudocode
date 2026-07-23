@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpStartKeyNodeStackFromKcbStack @ 0x140983258
+ * XREFs of CmpStartKeyNodeStackFromKcbStack @ 0x140945268
  * Callers:
- *     CmQueryLayeredKey @ 0x1404922D0 (CmQueryLayeredKey.c)
- *     CmpFullPromoteHiveRootFromKcbStack @ 0x14086071C (CmpFullPromoteHiveRootFromKcbStack.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1408609F8 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x1409859F4 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmQueryLayeredKey @ 0x14048BE20 (CmQueryLayeredKey.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x140866A0C (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140866CE8 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1409479F4 (CmpPromoteSingleKeyFromKcbStacks.c)
  * Callees:
- *     CmpStartKeyNodeStack @ 0x140981CC8 (CmpStartKeyNodeStack.c)
- *     CmpPopulateKeyNodeStackFromKcbStack @ 0x1409832A4 (CmpPopulateKeyNodeStackFromKcbStack.c)
+ *     CmpStartKeyNodeStack @ 0x140943CD8 (CmpStartKeyNodeStack.c)
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x1409452B4 (CmpPopulateKeyNodeStackFromKcbStack.c)
  */
 
 __int64 __fastcall CmpStartKeyNodeStackFromKcbStack(__int64 a1, __int64 a2, __int64 a3)

@@ -39,7 +39,7 @@
  *     EtwpGetHostPerfCounter @ 0x1403F6D7C (EtwpGetHostPerfCounter.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
+LARGE_INTEGER __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
 {
   unsigned __int64 v2; // r11
   LARGE_INTEGER *v3; // rdi
@@ -49,7 +49,7 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2
   __int64 v7; // r10
   __int64 v8; // rdx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
 
   v2 = a2;
   v3 = a1;
@@ -83,12 +83,12 @@ LABEL_9:
   if ( (v4 & 4) != 0 )
     result = RtlGetSystemTimePrecise();
   else
-    result = 0LL;
-  v3[1].QuadPart = result;
+    result.QuadPart = 0LL;
+  v3[1] = result;
   if ( (v4 & 8) != 0 )
   {
-    result = __rdtsc();
-    v3[2].QuadPart = result;
+    result.QuadPart = __rdtsc();
+    v3[2] = result;
   }
   else
   {
@@ -96,8 +96,8 @@ LABEL_9:
   }
   if ( (v4 & 0x10) != 0 )
   {
-    result = EtwpGetHostPerfCounter(a1);
-    v3[3].QuadPart = result;
+    result.QuadPart = EtwpGetHostPerfCounter(a1);
+    v3[3] = result;
   }
   else
   {

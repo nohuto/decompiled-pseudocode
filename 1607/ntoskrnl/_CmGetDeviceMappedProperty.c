@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmGetDeviceMappedProperty @ 0x140500790
+ * XREFs of _CmGetDeviceMappedProperty @ 0x1404E3720
  * Callers:
- *     _PnpDispatchDevice @ 0x140500604 (_PnpDispatchDevice.c)
+ *     _PnpDispatchDevice @ 0x1404E3594 (_PnpDispatchDevice.c)
  * Callees:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1404CE780 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1404FB708 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14054CF80 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1404DE698 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14050B84C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14054F090 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedProperty(
         __int64 a1,
-        const wchar_t *a2,
-        size_t a3,
+        __int64 a2,
+        __int64 a3,
         __int64 a4,
         __int64 a5,
         _DWORD *a6,
@@ -33,7 +33,7 @@ __int64 __fastcall CmGetDeviceMappedProperty(
   DEVPROPKEY **i; // rdx
   DEVPROPKEY *v22; // rcx
 
-  v11 = (__int64)a2;
+  v11 = a2;
   v12 = -1073741802;
   if ( (_WORD)a10 )
     return 3221225485LL;
@@ -61,9 +61,9 @@ __int64 __fastcall CmGetDeviceMappedProperty(
   v12 = result;
   if ( (_DWORD)result != -1073741802 )
     return result;
-  LODWORD(v11) = (_DWORD)a2;
+  LODWORD(v11) = a2;
 LABEL_12:
-  v18 = &off_1406E9DA0;
+  v18 = &off_1406E9ED0;
   v19 = 0;
   while ( 1 )
   {
@@ -84,7 +84,7 @@ LABEL_12:
   if ( (_DWORD)result != -1073741802 )
     return result;
 LABEL_19:
-  for ( i = &off_1406EB800; ; i += 2 )
+  for ( i = &off_1406EB930; ; i += 2 )
   {
     v22 = *i;
     if ( *(_DWORD *)(a5 + 16) == (*i)->pid

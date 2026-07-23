@@ -1,17 +1,17 @@
 /*
- * XREFs of ExLockHandleTableEntry @ 0x1400D1730
+ * XREFs of ExLockHandleTableEntry @ 0x1400CF5D0
  * Callers:
- *     PspReferenceCidTableEntry @ 0x1404208A0 (PspReferenceCidTableEntry.c)
- *     ObpReferenceObjectByHandle @ 0x140447040 (ObpReferenceObjectByHandle.c)
- *     ObWaitForMultipleObjects @ 0x14044EDD0 (ObWaitForMultipleObjects.c)
- *     ExDupHandleTable @ 0x14045E7E0 (ExDupHandleTable.c)
- *     ObpReferenceProcessObjectByHandle @ 0x14050D1B0 (ObpReferenceProcessObjectByHandle.c)
- *     ExMapHandleToPointer @ 0x14050DF14 (ExMapHandleToPointer.c)
- *     ExQueryProcessHandleInformation @ 0x14054B948 (ExQueryProcessHandleInformation.c)
- *     ObpAuditObjectAccess @ 0x140665D20 (ObpAuditObjectAccess.c)
- *     ExpSnapShotHandleTables @ 0x1406AD648 (ExpSnapShotHandleTables.c)
+ *     PspReferenceCidTableEntry @ 0x14041F760 (PspReferenceCidTableEntry.c)
+ *     ObpReferenceObjectByHandle @ 0x140445F10 (ObpReferenceObjectByHandle.c)
+ *     ObWaitForMultipleObjects @ 0x14044DCA0 (ObWaitForMultipleObjects.c)
+ *     ExDupHandleTable @ 0x14045D6B0 (ExDupHandleTable.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x1404F0140 (ObpReferenceProcessObjectByHandle.c)
+ *     ExMapHandleToPointer @ 0x1404F0EA4 (ExMapHandleToPointer.c)
+ *     ExQueryProcessHandleInformation @ 0x14054BE88 (ExQueryProcessHandleInformation.c)
+ *     ObpAuditObjectAccess @ 0x140665E04 (ObpAuditObjectAccess.c)
+ *     ExpSnapShotHandleTables @ 0x1406AD780 (ExpSnapShotHandleTables.c)
  * Callees:
- *     ExpBlockOnLockedHandleEntry @ 0x14049B4BC (ExpBlockOnLockedHandleEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1404AF024 (ExpBlockOnLockedHandleEntry.c)
  */
 
 char __fastcall ExLockHandleTableEntry(__int64 a1, _QWORD *a2)

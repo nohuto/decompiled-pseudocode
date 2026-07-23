@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNodes @ 0x140A89F58
+ * XREFs of PnpDeleteLockedDeviceNodes @ 0x1409B6D78
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407B8904 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
- *     PipRemoveDevicesInRelationList @ 0x140913948 (PipRemoveDevicesInRelationList.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407BB964 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
+ *     PipRemoveDevicesInRelationList @ 0x1409B5A28 (PipRemoveDevicesInRelationList.c)
  * Callees:
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404A0040 (McTemplateK0z_EtwWriteTransfer.c)
- *     PoFxIdleDevice @ 0x1404B2604 (PoFxIdleDevice.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PipSendGuestAssignedNotification @ 0x1407B4B18 (PipSendGuestAssignedNotification.c)
- *     PnpRequestDeviceRemoval @ 0x14091493C (PnpRequestDeviceRemoval.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
- *     PnpDeleteLockedDeviceNode @ 0x140A8A1F0 (PnpDeleteLockedDeviceNode.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x140499B90 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PoFxIdleDevice @ 0x1404ABB10 (PoFxIdleDevice.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PipSendGuestAssignedNotification @ 0x1407B7B78 (PipSendGuestAssignedNotification.c)
+ *     PnpRequestDeviceRemoval @ 0x14096F3A8 (PnpRequestDeviceRemoval.c)
+ *     PnpDeleteLockedDeviceNode @ 0x1409B7010 (PnpDeleteLockedDeviceNode.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNodes(
@@ -84,17 +84,16 @@ __int64 __fastcall PnpDeleteLockedDeviceNodes(
           *(_DWORD *)(v19 + 704) &= ~0x2000u;
           if ( (v20 & 0x2000) != 0 )
           {
-            if ( (byte_140EF3DCC & 8) != 0 )
+            if ( (byte_140EF412C & 8) != 0 )
               McTemplateK0z_EtwWriteTransfer(
                 v20,
                 (const EVENT_DESCRIPTOR *)KMPnPEvt_Guest_Unassigned,
                 v17,
                 *(const wchar_t **)(v19 + 48));
             PnpSetObjectProperty(
-              *(__int64 *)&PiPnpRtlCtx,
+              PiPnpRtlCtx,
               *(_QWORD *)(v19 + 48),
               1,
-              0LL,
               0LL,
               (__int64)DEVPKEY_Device_AssignedToGuest,
               0,

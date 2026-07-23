@@ -1,20 +1,20 @@
 /*
- * XREFs of KiPopulateSubNodes @ 0x140C291C0
+ * XREFs of KiPopulateSubNodes @ 0x140C2B260
  * Callers:
- *     KiPerformGroupConfiguration @ 0x140C28DE0 (KiPerformGroupConfiguration.c)
+ *     KiPerformGroupConfiguration @ 0x140C2AE80 (KiPerformGroupConfiguration.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR KiPopulateSubNodes()
+__int64 KiPopulateSubNodes()
 {
   unsigned __int16 v0; // bx
   __int64 *v1; // r8
   __int64 v2; // r10
   __int64 v3; // rax
-  ULONG_PTR Pool2; // rsi
-  ULONG_PTR result; // rax
+  __int64 Pool2; // rsi
+  __int64 result; // rax
   bool v6; // cf
   unsigned __int16 v7; // r11
   _QWORD *v8; // rcx

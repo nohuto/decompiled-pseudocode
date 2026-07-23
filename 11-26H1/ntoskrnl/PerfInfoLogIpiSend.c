@@ -1,10 +1,10 @@
 /*
- * XREFs of PerfInfoLogIpiSend @ 0x1404F0820
+ * XREFs of PerfInfoLogIpiSend @ 0x1404E9E00
  * Callers:
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfInfoLogIpiSend(__int64 a1, int a2, __int64 a3, int a4, unsigned __int16 *a5)

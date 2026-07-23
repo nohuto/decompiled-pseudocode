@@ -6,7 +6,12 @@
  *     _RtlpQueryRegistryValues@24 @ 0x4B2EAEA8 (_RtlpQueryRegistryValues@24.c)
  */
 
-int __stdcall RtlQueryRegistryValues(int a1, const WCHAR *a2, int a3, int a4, int a5)
+NTSTATUS __cdecl RtlQueryRegistryValues(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PRTL_QUERY_REGISTRY_TABLE QueryTable,
+        PVOID Context,
+        PVOID Environment)
 {
-  return RtlpQueryRegistryValues(a1, a2, a3, a4, a5, 0);
+  return RtlpQueryRegistryValues(RelativeTo, Path, (int)QueryTable, (int)Context, Environment, 0);
 }

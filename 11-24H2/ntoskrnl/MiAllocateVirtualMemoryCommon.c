@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateVirtualMemoryCommon @ 0x1408DE9F0
+ * XREFs of MiAllocateVirtualMemoryCommon @ 0x1409155A0
  * Callers:
- *     MmAllocateVirtualMemory @ 0x1409E14D0 (MmAllocateVirtualMemory.c)
+ *     MmAllocateVirtualMemory @ 0x1409DB280 (MmAllocateVirtualMemory.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1408DEC10 (MiAllocateVirtualMemoryPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1409157C0 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall MiAllocateVirtualMemoryCommon(
@@ -18,7 +18,7 @@ __int64 __fastcall MiAllocateVirtualMemoryCommon(
         int a5,
         int a6,
         __int64 a7,
-        unsigned __int8 a8,
+        char a8,
         int a9,
         int a10,
         __int64 a11)
@@ -27,7 +27,7 @@ __int64 __fastcall MiAllocateVirtualMemoryCommon(
   __int64 v13; // r9
   __int64 v15; // rdx
   int VirtualMemoryPrepare; // ebx
-  __int64 v17; // rcx
+  ULONG_PTR v17; // rcx
   int VirtualMemory; // eax
   int v20; // eax
   unsigned __int64 v21; // [rsp+70h] [rbp-90h] BYREF
@@ -75,13 +75,13 @@ __int64 __fastcall MiAllocateVirtualMemoryCommon(
   v17 = *(_QWORD *)(a7 + 24);
   if ( v17 )
   {
-    if ( v17 == -3 )
+    if ( v17 == -3LL )
     {
       v11 = 1LL;
     }
     else
     {
-      v20 = PsReferencePartitionByHandle(v17, 2LL, a8, 1633054029LL, &v21);
+      v20 = PsReferencePartitionByHandle(v17, 2, a8, 0x61566D4Du, &v21);
       v11 = v21;
       VirtualMemoryPrepare = v20;
       if ( v20 < 0 )
@@ -122,9 +122,9 @@ __int64 __fastcall MiAllocateVirtualMemoryCommon(
   }
 LABEL_7:
   if ( (_QWORD)v24 )
-    ++dword_140E301B4;
+    ++dword_140E302F4;
   else
-    ++dword_140E301B0;
+    ++dword_140E302F0;
 LABEL_10:
   if ( v11 >= 2 )
     PsDereferencePartition(v11);

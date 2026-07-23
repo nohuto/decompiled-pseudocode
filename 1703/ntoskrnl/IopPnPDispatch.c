@@ -239,13 +239,13 @@ LABEL_62:
     else
       v38 = 0LL;
     LODWORD(NumberOfBytes) = 0;
-    PiGetDeviceRegProperty(v38[6], (int)a2, 1, 14, 0LL, (__int64)&NumberOfBytes);
+    PiGetDeviceRegProperty(v38[6], (int)a2, 1, 14, 0LL, (PULONG)&NumberOfBytes);
     if ( (_DWORD)NumberOfBytes )
     {
       Information = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
       if ( Information )
       {
-        RootDevices = PiGetDeviceRegProperty(v38[6], v39, 1, 14, Information, (__int64)&NumberOfBytes);
+        RootDevices = PiGetDeviceRegProperty(v38[6], v39, 1, 14, Information, (PULONG)&NumberOfBytes);
         if ( RootDevices < 0 )
         {
           if ( RootDevices == -1073741275 )
@@ -300,7 +300,7 @@ LABEL_8:
                         7,
                         (unsigned int)(CurrentStackLocation->Parameters.Read.Length != 1) + 2,
                         0LL,
-                        (__int64)&NumberOfBytes);
+                        (PULONG)&NumberOfBytes);
         if ( RootDevices == -1073741789 )
         {
           Src = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
@@ -312,7 +312,7 @@ LABEL_8:
                             7,
                             (unsigned int)(CurrentStackLocation->Parameters.Read.Length != 1) + 2,
                             Src,
-                            (__int64)&NumberOfBytes);
+                            (PULONG)&NumberOfBytes);
             v26 = Src;
             if ( RootDevices < 0 )
             {

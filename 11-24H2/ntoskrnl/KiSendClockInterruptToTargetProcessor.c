@@ -1,19 +1,19 @@
 /*
- * XREFs of KiSendClockInterruptToTargetProcessor @ 0x1402A0034
+ * XREFs of KiSendClockInterruptToTargetProcessor @ 0x1403179A4
  * Callers:
- *     KeSetClockInterval @ 0x14029F4B4 (KeSetClockInterval.c)
- *     ExpUpdateTimerConfigurationWorker @ 0x14029FDD0 (ExpUpdateTimerConfigurationWorker.c)
- *     KiInsertTimerTable @ 0x140334E60 (KiInsertTimerTable.c)
- *     KiTimer2Expiration @ 0x1403C1420 (KiTimer2Expiration.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KiAdjustTimer2DueTimes @ 0x1404551A0 (KiAdjustTimer2DueTimes.c)
- *     KeResumeClockTimerFromIdle @ 0x1405B9944 (KeResumeClockTimerFromIdle.c)
+ *     KiInsertTimerTable @ 0x140316F50 (KiInsertTimerTable.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x140317740 (ExpUpdateTimerConfigurationWorker.c)
+ *     KiTimer2Expiration @ 0x1403AFFE0 (KiTimer2Expiration.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x140449E60 (KiAdjustTimer2DueTimes.c)
+ *     KeSetClockInterval @ 0x140463D8C (KeSetClockInterval.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405B6F84 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiSendClockInterruptToTargetProcessor(unsigned int a1)
@@ -24,7 +24,7 @@ __int64 __fastcall KiSendClockInterruptToTargetProcessor(unsigned int a1)
   __int64 v4; // rdx
   __int64 v5; // rcx
   __int64 result; // rax
-  _DWORD v7[2]; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned int v7[2]; // [rsp+30h] [rbp-D0h] BYREF
   _DWORD *v8; // [rsp+38h] [rbp-C8h]
   int v9; // [rsp+40h] [rbp-C0h]
   _DWORD v10[2]; // [rsp+50h] [rbp-B0h] BYREF
@@ -58,7 +58,7 @@ LABEL_9:
   }
   v7[0] = 2;
   v8 = v10;
-  result = HalpInterruptSendIpi(v7, 210LL);
+  result = HalpInterruptSendIpi(v7, 0xD2u);
   if ( (int)result < 0 )
     goto LABEL_9;
   return result;

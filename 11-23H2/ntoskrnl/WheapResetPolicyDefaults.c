@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapResetPolicyDefaults @ 0x140A099B0
+ * XREFs of WheapResetPolicyDefaults @ 0x140A09C60
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x14061429C (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1406147EC (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
- *     WheapCommitPolicy @ 0x140A09648 (WheapCommitPolicy.c)
- *     WheapSetPolicyValue @ 0x140A099F8 (WheapSetPolicyValue.c)
+ *     WheapCommitPolicy @ 0x140A098F8 (WheapCommitPolicy.c)
+ *     WheapSetPolicyValue @ 0x140A09CA8 (WheapSetPolicyValue.c)
  */
 
 __int64 WheapResetPolicyDefaults()
@@ -14,7 +14,7 @@ __int64 WheapResetPolicyDefaults()
   int v3; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = 0;
-  v1 = &qword_140A7A0F8;
+  v1 = &qword_140A7A3A8;
   do
   {
     v3 = *(_DWORD *)v1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfInitializeDmaTransferContext @ 0x140707C10
+ * XREFs of VfInitializeDmaTransferContext @ 0x140707C40
  * Callers:
  *     <none>
  * Callees:
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfInitializeDmaTransferContext(__int64 a1, __int64 a2)

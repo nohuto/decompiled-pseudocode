@@ -29,7 +29,7 @@ void __fastcall SmKmVirtualLockCtxMemoryUnlocked(ULONG_PTR BugCheckParameter2, _
   struct _KTHREAD *v10; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v12; // r15
-  __int64 v13; // r8
+  unsigned int v13; // r8d
   int v14; // eax
   __int64 v15; // rcx
   _KLOCK_ENTRY *v16; // rsi
@@ -80,7 +80,7 @@ void __fastcall SmKmVirtualLockCtxMemoryUnlocked(ULONG_PTR BugCheckParameter2, _
       SessionId = 0xFFFFFFFFLL;
     --v10->SpecialApcDisable;
     v12 = ++v10->AbAllocationRegionCount;
-    LODWORD(v13) = ((char)v10->AbEntrySummary | (char)v10->AbOrphanedEntrySummary) ^ 0x3F;
+    v13 = ((char)v10->AbEntrySummary | (char)v10->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v17 = !_BitScanReverse((unsigned int *)&v18, v13);
@@ -90,7 +90,7 @@ void __fastcall SmKmVirtualLockCtxMemoryUnlocked(ULONG_PTR BugCheckParameter2, _
       v14 = 1 << v18;
       v15 = v18;
       v16 = &v10->LockEntries[v15];
-      v13 = ~v14 & (unsigned int)v13;
+      v13 &= ~v14;
       if ( (v16->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v16->LockState.0 & 1) == 0
         && (*(_QWORD *)&v16->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
@@ -110,7 +110,7 @@ LABEL_22:
     }
     v16->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v16->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v10->LockEntries[v15], SessionId, v13);
+      KiAbEntryRemoveFromTree(&v10->LockEntries[v15].TreeNode, SessionId);
     v28 = 0;
     v28 = v16->BoostBitmap.AllFields & 0x1FFFF;
     v16->BoostBitmap.AllFields &= 0xFFFE0000;

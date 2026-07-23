@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxCloseMachine @ 0x1408F5AF8
+ * XREFs of _PnpCtxCloseMachine @ 0x1408F6DB8
  * Callers:
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14082D2F4 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PipMigratePnpState @ 0x1409C8678 (PipMigratePnpState.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x14082E524 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PipMigratePnpState @ 0x1409C9678 (PipMigratePnpState.c)
  * Callees:
  *     ExDeleteResourceLite @ 0x140020F50 (ExDeleteResourceLite.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _PnpCtxDestroyNode @ 0x1408F5BBC (_PnpCtxDestroyNode.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _PnpCtxDestroyNode @ 0x1408F6E7C (_PnpCtxDestroyNode.c)
  */
 
 __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)

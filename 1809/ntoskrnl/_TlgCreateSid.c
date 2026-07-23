@@ -1,8 +1,8 @@
 /*
  * XREFs of _TlgCreateSid @ 0x140012F98
  * Callers:
- *     EtwpWriteProcessStarted @ 0x1405B2408 (EtwpWriteProcessStarted.c)
- *     MiLogHotPatchManagement @ 0x140855FA4 (MiLogHotPatchManagement.c)
+ *     EtwpWriteProcessStarted @ 0x1405B3408 (EtwpWriteProcessStarted.c)
+ *     MiLogHotPatchManagement @ 0x140857204 (MiLogHotPatchManagement.c)
  * Callees:
  *     <none>
  */

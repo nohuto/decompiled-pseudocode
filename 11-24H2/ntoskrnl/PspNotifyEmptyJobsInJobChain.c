@@ -1,18 +1,23 @@
 /*
- * XREFs of PspNotifyEmptyJobsInJobChain @ 0x1408A8AEC
+ * XREFs of PspNotifyEmptyJobsInJobChain @ 0x1408FED4C
  * Callers:
- *     PspRundownSingleProcess @ 0x1408A8B38 (PspRundownSingleProcess.c)
+ *     PspRundownSingleProcess @ 0x1408FED98 (PspRundownSingleProcess.c)
  * Callees:
- *     PspEvaluateAndNotifyEmptyJob @ 0x1408EF378 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140860B78 (PspEvaluateAndNotifyEmptyJob.c)
  */
 
-__int64 __fastcall PspNotifyEmptyJobsInJobChain(__int64 a1)
+void __fastcall PspNotifyEmptyJobsInJobChain(__int64 a1)
 {
-  struct _KEVENT *i; // rbx
-  __int64 result; // rax
+  signed __int8 v1; // cf
+  struct _KEVENT *Flink; // rbx
+  char v3; // di
 
-  _interlockedbittestandset((volatile signed __int32 *)(a1 + 496), 0xBu);
-  for ( i = *(struct _KEVENT **)(a1 + 672); i; i = (struct _KEVENT *)i[54].Header.WaitListHead.Flink )
-    result = PspEvaluateAndNotifyEmptyJob(i);
-  return result;
+  v1 = _interlockedbittestandset((volatile signed __int32 *)(a1 + 496), 0xBu);
+  Flink = *(struct _KEVENT **)(a1 + 672);
+  v3 = !v1;
+  while ( Flink )
+  {
+    PspEvaluateAndNotifyEmptyJob(Flink, v3, 1);
+    Flink = (struct _KEVENT *)Flink[54].Header.WaitListHead.Flink;
+  }
 }

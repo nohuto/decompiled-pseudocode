@@ -1,10 +1,10 @@
 /*
- * XREFs of _atoi64 @ 0x1403D9230
+ * XREFs of _atoi64 @ 0x1403D9410
  * Callers:
- *     KiMatchLoadOption @ 0x140A902C0 (KiMatchLoadOption.c)
+ *     KiMatchLoadOption @ 0x140A90140 (KiMatchLoadOption.c)
  *     RamdiskStart @ 0x140B9B590 (RamdiskStart.c)
  * Callees:
- *     _strtoi64 @ 0x1403D916C (_strtoi64.c)
+ *     _strtoi64 @ 0x1403D934C (_strtoi64.c)
  */
 
 __int64 __cdecl atoi64(const char *String)

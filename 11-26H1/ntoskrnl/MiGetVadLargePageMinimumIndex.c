@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetVadLargePageMinimumIndex @ 0x14070D0C0
+ * XREFs of MiGetVadLargePageMinimumIndex @ 0x140711D70
  * Callers:
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
  * Callees:
  *     <none>
  */

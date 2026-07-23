@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseArbitraryPage @ 0x1401FA428
+ * XREFs of MiReleaseArbitraryPage @ 0x1401FA254
  * Callers:
- *     MiCombineWorkingSet @ 0x1401F80D0 (MiCombineWorkingSet.c)
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
- *     MiCombineAllPhysicalMemory @ 0x140663718 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineWorkingSet @ 0x1401F7EFC (MiCombineWorkingSet.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406637FC (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiReleaseArbitraryPage(__int64 a1)

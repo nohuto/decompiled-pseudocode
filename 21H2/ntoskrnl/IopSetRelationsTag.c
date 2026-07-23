@@ -1,10 +1,10 @@
 /*
- * XREFs of IopSetRelationsTag @ 0x140737810
+ * XREFs of IopSetRelationsTag @ 0x1407379D0
  * Callers:
- *     PnpChainDereferenceComplete @ 0x140736488 (PnpChainDereferenceComplete.c)
- *     PnpInvalidateRelationsInList @ 0x14073808C (PnpInvalidateRelationsInList.c)
+ *     PnpChainDereferenceComplete @ 0x140736648 (PnpChainDereferenceComplete.c)
+ *     PnpInvalidateRelationsInList @ 0x14073824C (PnpInvalidateRelationsInList.c)
  * Callees:
- *     PipIsDeviceInDeviceObjectList @ 0x1407378FC (PipIsDeviceInDeviceObjectList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x140737ABC (PipIsDeviceInDeviceObjectList.c)
  */
 
 __int64 __fastcall IopSetRelationsTag(__int64 *a1, __int64 a2)

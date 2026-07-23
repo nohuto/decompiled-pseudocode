@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapContiguousMemoryLarge @ 0x1403B8854
+ * XREFs of MiMapContiguousMemoryLarge @ 0x1403B89C4
  * Callers:
- *     MiMapContiguousMemory @ 0x140295824 (MiMapContiguousMemory.c)
+ *     MiMapContiguousMemory @ 0x1402174E4 (MiMapContiguousMemory.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
- *     MiIoSpaceIsConstant @ 0x140295E20 (MiIoSpaceIsConstant.c)
- *     MiDereferenceIoPages @ 0x140297968 (MiDereferenceIoPages.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MiMapWithLargePages @ 0x1403B8AEC (MiMapWithLargePages.c)
- *     MiGetPageTablesForLargeMap @ 0x1403B8DC4 (MiGetPageTablesForLargeMap.c)
- *     MiAssignInitialPageAttribute @ 0x1403C6BC0 (MiAssignInitialPageAttribute.c)
+ *     MiReferenceIoPages @ 0x1402176E4 (MiReferenceIoPages.c)
+ *     MiIoSpaceIsConstant @ 0x140217AE0 (MiIoSpaceIsConstant.c)
+ *     MiDereferenceIoPages @ 0x1402183E8 (MiDereferenceIoPages.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MiMapWithLargePages @ 0x1403B8C5C (MiMapWithLargePages.c)
+ *     MiGetPageTablesForLargeMap @ 0x1403B8F34 (MiGetPageTablesForLargeMap.c)
+ *     MiAssignInitialPageAttribute @ 0x1403C6D60 (MiAssignInitialPageAttribute.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiMapContiguousMemoryLarge(

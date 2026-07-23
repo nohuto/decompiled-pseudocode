@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRestartZeroingPass @ 0x1403C7BD0
+ * XREFs of MiRestartZeroingPass @ 0x140413810
  * Callers:
- *     MiReassessZeroThreads @ 0x1403C698C (MiReassessZeroThreads.c)
- *     MiAddZeroingThreads @ 0x1403C73C8 (MiAddZeroingThreads.c)
+ *     MiReassessZeroThreads @ 0x1404125C0 (MiReassessZeroThreads.c)
+ *     MiAddZeroingThreads @ 0x140413008 (MiAddZeroingThreads.c)
  * Callees:
  *     <none>
  */

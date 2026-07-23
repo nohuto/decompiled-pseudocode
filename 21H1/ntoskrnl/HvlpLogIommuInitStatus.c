@@ -13,78 +13,67 @@
 __int64 HvlpLogIommuInitStatus()
 {
   _QWORD *v0; // rbx
-  __int128 *v1; // rax
-  __int64 v2; // r8
-  __int64 v3; // rdx
-  __int128 *v4; // rdi
-  __int64 v5; // r9
+  __int128 *v1; // rdi
   __int64 result; // rax
-  int v7; // [rsp+28h] [rbp-E0h] BYREF
-  int v8; // [rsp+2Ch] [rbp-DCh] BYREF
-  __int128 v9; // [rsp+30h] [rbp-D8h] BYREF
-  __int128 v10; // [rsp+40h] [rbp-C8h]
-  __int128 v11; // [rsp+50h] [rbp-B8h] BYREF
-  __int128 v12; // [rsp+60h] [rbp-A8h]
-  __int128 v13; // [rsp+70h] [rbp-98h] BYREF
-  __int128 v14; // [rsp+80h] [rbp-88h] BYREF
-  __int128 v15; // [rsp+90h] [rbp-78h] BYREF
+  int v3; // [rsp+28h] [rbp-E0h] BYREF
+  int v4; // [rsp+2Ch] [rbp-DCh] BYREF
+  PHYSICAL_ADDRESS v5[4]; // [rsp+30h] [rbp-D8h] BYREF
+  PHYSICAL_ADDRESS v6[4]; // [rsp+50h] [rbp-B8h] BYREF
+  __int128 v7; // [rsp+70h] [rbp-98h] BYREF
+  __int128 v8; // [rsp+80h] [rbp-88h] BYREF
+  __int128 v9; // [rsp+90h] [rbp-78h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+A8h] [rbp-60h] BYREF
-  int *v17; // [rsp+B8h] [rbp-50h]
-  __int64 v18; // [rsp+C0h] [rbp-48h]
-  char *v19; // [rsp+C8h] [rbp-40h]
-  __int64 v20; // [rsp+D0h] [rbp-38h]
-  __int128 *v21; // [rsp+D8h] [rbp-30h]
-  __int64 v22; // [rsp+E0h] [rbp-28h]
-  char *v23; // [rsp+E8h] [rbp-20h]
-  __int64 v24; // [rsp+F0h] [rbp-18h]
-  __int128 *v25; // [rsp+F8h] [rbp-10h]
-  __int64 v26; // [rsp+100h] [rbp-8h]
-  char *v27; // [rsp+108h] [rbp+0h]
-  __int64 v28; // [rsp+110h] [rbp+8h]
-  _BYTE v29[16]; // [rsp+118h] [rbp+10h] BYREF
-  _BYTE v30[2064]; // [rsp+128h] [rbp+20h] BYREF
+  int *v11; // [rsp+B8h] [rbp-50h]
+  __int64 v12; // [rsp+C0h] [rbp-48h]
+  char *v13; // [rsp+C8h] [rbp-40h]
+  __int64 v14; // [rsp+D0h] [rbp-38h]
+  __int128 *v15; // [rsp+D8h] [rbp-30h]
+  __int64 v16; // [rsp+E0h] [rbp-28h]
+  char *v17; // [rsp+E8h] [rbp-20h]
+  __int64 v18; // [rsp+F0h] [rbp-18h]
+  __int128 *v19; // [rsp+F8h] [rbp-10h]
+  __int64 v20; // [rsp+100h] [rbp-8h]
+  char *v21; // [rsp+108h] [rbp+0h]
+  __int64 v22; // [rsp+110h] [rbp+8h]
+  _BYTE v23[16]; // [rsp+118h] [rbp+10h] BYREF
+  _BYTE v24[2064]; // [rsp+128h] [rbp+20h] BYREF
 
-  v11 = 0LL;
-  v12 = 0LL;
+  memset(v6, 0, sizeof(v6));
+  memset(v5, 0, sizeof(v5));
+  v7 = 0LL;
+  v8 = 0LL;
   v9 = 0LL;
-  v10 = 0LL;
-  v13 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v0 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v11, 1, (__int64)v29, 8LL);
-  v1 = (__int128 *)HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v9, 2, (__int64)v30, 1032LL);
-  v2 = *((_QWORD *)&v10 + 1);
-  v3 = *((_QWORD *)&v12 + 1);
-  v4 = v1;
+  v0 = HvlpAcquireHypercallPage(v6, 1, (__int64)v23, 8LL);
+  v1 = (__int128 *)HvlpAcquireHypercallPage(v5, 2, (__int64)v24, 1032LL);
   *(_DWORD *)v0 = 5;
-  if ( !(unsigned __int16)HvcallInitiateHypercall(123, v3, v2, v5) )
+  if ( !(unsigned __int16)HvcallInitiateHypercall(123) )
   {
-    v13 = *v4;
-    v14 = v4[1];
-    v15 = v4[2];
+    v7 = *v1;
+    v8 = v1[1];
+    v9 = v1[2];
   }
-  HvlpReleaseHypercallPage((__int64)&v9);
-  HvlpReleaseHypercallPage((__int64)&v11);
-  v7 = (unsigned __int8)v13;
+  HvlpReleaseHypercallPage((__int64)v5);
+  HvlpReleaseHypercallPage((__int64)v6);
+  v3 = (unsigned __int8)v7;
   *(_QWORD *)&UserData.Size = 4LL;
-  UserData.Ptr = (ULONGLONG)&v7;
-  v8 = BYTE1(v13);
-  v17 = &v8;
-  v19 = (char *)&v13 + 8;
-  v21 = &v14;
-  v23 = (char *)&v14 + 8;
-  v25 = &v15;
-  v27 = (char *)&v15 + 8;
-  v18 = 4LL;
+  UserData.Ptr = (ULONGLONG)&v3;
+  v4 = BYTE1(v7);
+  v11 = &v4;
+  v13 = (char *)&v7 + 8;
+  v15 = &v8;
+  v17 = (char *)&v8 + 8;
+  v19 = &v9;
+  v21 = (char *)&v9 + 8;
+  v12 = 4LL;
+  v14 = 8LL;
+  v16 = 8LL;
+  v18 = 8LL;
   v20 = 8LL;
   v22 = 8LL;
-  v24 = 8LL;
-  v26 = 8LL;
-  v28 = 8LL;
   result = HvlpWriteEventLog(&HV_EVENTLOG_IOMMU_INIT, 7u, &UserData);
-  if ( BYTE1(v13) && *((_QWORD *)&v13 + 1) == 1LL )
+  if ( BYTE1(v7) && *((_QWORD *)&v7 + 1) == 1LL )
   {
-    if ( (_QWORD)v15 )
+    if ( (_QWORD)v9 )
       return HvlpWriteEventLog(&HV_EVENTLOG_IOMMU_INIT_POLICY_ENABLE, 0, 0LL);
   }
   return result;

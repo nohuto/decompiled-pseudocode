@@ -1,11 +1,11 @@
 /*
- * XREFs of PiPnpFreePdoDeviceList @ 0x140AC6DA8
+ * XREFs of PiPnpFreePdoDeviceList @ 0x140AC8998
  * Callers:
- *     PnpGetSystemPdoList @ 0x140AC6960 (PnpGetSystemPdoList.c)
- *     PnpFreeSystemPdoList @ 0x140AC6D90 (PnpFreeSystemPdoList.c)
+ *     PnpGetSystemPdoList @ 0x140AC8550 (PnpGetSystemPdoList.c)
+ *     PnpFreeSystemPdoList @ 0x140AC8980 (PnpFreeSystemPdoList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiPnpFreePdoDeviceList(PVOID *P)

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfCheckNxPoolType @ 0x1402226B4
+ * XREFs of VfCheckNxPoolType @ 0x1402224E0
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPoolType @ 0x1407042B0 (VfCheckPoolType.c)
+ *     VfCheckPoolType @ 0x1407042E0 (VfCheckPoolType.c)
  */
 
 __int64 VfCheckNxPoolType()

@@ -9,7 +9,13 @@
  *     SmEtwLogStoreCorruption @ 0x1405CB018 (SmEtwLogStoreCorruption.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageError(__int64 a1, char *a2, void *a3, ULONG_PTR a4, __int64 a5, int a6)
+__int64 __fastcall ST_STORE<SM_TRAITS>::StDmPageError(
+        __int64 a1,
+        char *a2,
+        UCHAR *a3,
+        ULONG_PTR a4,
+        __int64 a5,
+        int a6)
 {
   __int64 v10; // rdx
   unsigned __int64 v11; // rcx

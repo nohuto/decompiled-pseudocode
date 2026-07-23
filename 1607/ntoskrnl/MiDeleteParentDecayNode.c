@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteParentDecayNode @ 0x140096B30
+ * XREFs of MiDeleteParentDecayNode @ 0x140096330
  * Callers:
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1401209F0 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140120F60 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiRemoveDecayClusterTimer @ 0x140096BB8 (MiRemoveDecayClusterTimer.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiRemoveDecayClusterTimer @ 0x1400963B8 (MiRemoveDecayClusterTimer.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 unsigned __int8 __fastcall MiDeleteParentDecayNode(__int64 a1)
@@ -26,7 +26,7 @@ unsigned __int8 __fastcall MiDeleteParentDecayNode(__int64 a1)
   MiRemoveDecayClusterTimer(v2);
   v5 = *(_BYTE *)(v2 + 35);
   if ( (v5 & 8) == 0 )
-    return (unsigned __int8)RtlpInterlockedPushEntrySList(&stru_140327370, (PSLIST_ENTRY)v2);
+    return (unsigned __int8)RtlpInterlockedPushEntrySList(&stru_1403273B0, (PSLIST_ENTRY)v2);
   result = v5 & 0xF7;
   *(_BYTE *)(v2 + 35) = result;
   return result;

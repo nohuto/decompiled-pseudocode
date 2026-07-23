@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetTopPteAddress @ 0x14012A3F0
+ * XREFs of MiGetTopPteAddress @ 0x14012A960
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140075A98 (MiDeleteFinalPageTables.c)
- *     MiCopyTopLevelMappings @ 0x140101694 (MiCopyTopLevelMappings.c)
- *     MiUpdateSystemPdes @ 0x1401E0EC4 (MiUpdateSystemPdes.c)
- *     MiSessionCreateInternal @ 0x140536508 (MiSessionCreateInternal.c)
+ *     MiDeleteFinalPageTables @ 0x140075B18 (MiDeleteFinalPageTables.c)
+ *     MiCopyTopLevelMappings @ 0x1400FF414 (MiCopyTopLevelMappings.c)
+ *     MiUpdateSystemPdes @ 0x1401E0CF0 (MiUpdateSystemPdes.c)
+ *     MiSessionCreateInternal @ 0x140536A48 (MiSessionCreateInternal.c)
  * Callees:
  *     <none>
  */

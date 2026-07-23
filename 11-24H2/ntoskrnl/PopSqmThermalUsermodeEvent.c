@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSqmThermalUsermodeEvent @ 0x140AA0FEC
+ * XREFs of PopSqmThermalUsermodeEvent @ 0x140A9C37C
  * Callers:
- *     PopThermalProcessUsermodeEvent @ 0x140AA0D74 (PopThermalProcessUsermodeEvent.c)
+ *     PopThermalProcessUsermodeEvent @ 0x140A9C104 (PopThermalProcessUsermodeEvent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopSqmThermalUsermodeEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
@@ -29,7 +29,7 @@ void __fastcall PopSqmThermalUsermodeEvent(__int64 a1, __int64 a2, __int64 a3, _
   __int64 v21; // [rsp+A0h] [rbp+2Fh]
   _DWORD v22[2]; // [rsp+A8h] [rbp+37h] BYREF
 
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x800000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x800000000000LL) )
   {
     v13 = &v9;
     v9 = v5;
@@ -45,6 +45,6 @@ void __fastcall PopSqmThermalUsermodeEvent(__int64 a1, __int64 a2, __int64 a3, _
     v22[0] = 2 * v8;
     v20 = 2LL;
     v21 = v7;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&byte_14004F687, 0LL, 0LL, 7u, &v12);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_14004FFB5, 0LL, 0LL, 7u, &v12);
   }
 }

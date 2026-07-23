@@ -1,16 +1,16 @@
 /*
- * XREFs of PsUpdateActiveProcessAffinity @ 0x1407F0DD8
+ * XREFs of PsUpdateActiveProcessAffinity @ 0x1407F6938
  * Callers:
- *     KeStartDynamicProcessor @ 0x1407BA4E0 (KeStartDynamicProcessor.c)
+ *     KeStartDynamicProcessor @ 0x1407BD540 (KeStartDynamicProcessor.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PspUpdateSingleProcessAffinity @ 0x1407F1588 (PspUpdateSingleProcessAffinity.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1407F70E8 (PspUpdateSingleProcessAffinity.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 _QWORD *__fastcall PsUpdateActiveProcessAffinity(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -57,24 +57,24 @@ _QWORD *__fastcall PsUpdateActiveProcessAffinity(__int64 a1, __int64 a2, __int64
       *((_BYTE *)v8 + 10) = 1;
   }
   v9 = PspLastUpdateAffinityMask;
-  v10 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+  v10 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
   v11 = PspLastUpdateAffinityMask[0];
   p_WaitRegister = PspLastUpdateAffinityMask;
   v13 = 0;
-  if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags >= PspLastUpdateAffinityMask[0] )
+  if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags >= PspLastUpdateAffinityMask[0] )
   {
-    v11 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
-    p_WaitRegister = (__int16 *)&stru_140FC01F0.WaitRegister;
+    v11 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
+    p_WaitRegister = (__int16 *)&stru_140FC11F0.WaitRegister;
     v10 = PspLastUpdateAffinityMask[0];
   }
   while ( v13 < v10 )
   {
-    v14 = *(__int64 *)((char *)&stru_140FC01F0.116 + 8 * v13 + 4);
+    v14 = *(__int64 *)((char *)&stru_140FC11F0.116 + 8 * v13 + 4);
     if ( (v14 & *(_QWORD *)&PspLastUpdateAffinityMask[4 * v13 + 4]) != v14 )
     {
 LABEL_16:
       v15 = 2LL;
-      v16 = &stru_140FC01F0.WaitRegister;
+      v16 = &stru_140FC11F0.WaitRegister;
       do
       {
         v17 = *(_OWORD *)&v16[16].Flags;
@@ -104,7 +104,7 @@ LABEL_16:
         v25 = NextProcess;
         if ( !NextProcess )
           break;
-        PspUpdateSingleProcessAffinity(CurrentThread, NextProcess, &stru_140FC01F0.WaitRegister);
+        PspUpdateSingleProcessAffinity(CurrentThread, NextProcess, &stru_140FC11F0.WaitRegister);
         v15 = v25;
       }
       goto LABEL_21;
@@ -115,7 +115,7 @@ LABEL_16:
   {
     while ( v13 < v11 )
     {
-      if ( *($353D57E818BB6F967B4B818D974CF463 *)((char *)&stru_140FC01F0.116 + 8 * v13 + 4) )
+      if ( *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&stru_140FC11F0.116 + 8 * v13 + 4) )
         goto LABEL_16;
       ++v13;
     }

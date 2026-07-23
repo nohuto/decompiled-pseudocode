@@ -75,7 +75,7 @@ void __fastcall PsDispatchIumService(__int64 a1, __int64 a2, __int64 a3)
   const GUID *v40; // r8
   const GUID *v41; // rcx
   __int64 v42; // rcx
-  struct _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+48h] [rbp-C0h] BYREF
+  _PROCESSOR_NUMBER ProcNumber[2]; // [rsp+48h] [rbp-C0h] BYREF
   ULONGLONG RegHandle; // [rsp+50h] [rbp-B8h] BYREF
   _BYTE v45[48]; // [rsp+58h] [rbp-B0h] BYREF
   _WORD v46[136]; // [rsp+88h] [rbp-80h] BYREF

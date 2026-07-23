@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpQueryChannelTopologyInformation @ 0x140C15018
+ * XREFs of HalpQueryChannelTopologyInformation @ 0x140C17018
  * Callers:
- *     HaliQuerySystemInformation @ 0x140B6B760 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140B6CB90 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

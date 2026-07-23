@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyCommitDelay @ 0x1404F60B4
+ * XREFs of MiApplyCommitDelay @ 0x1404EF674
  * Callers:
- *     MiChargeCommitSlow @ 0x1402F4DE8 (MiChargeCommitSlow.c)
+ *     MiChargeCommitSlow @ 0x1402D6E68 (MiChargeCommitSlow.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)

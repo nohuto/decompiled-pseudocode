@@ -1,20 +1,20 @@
 /*
- * XREFs of WbGetWarbirdThread @ 0x14064EAD0
+ * XREFs of WbGetWarbirdThread @ 0x1406438F0
  * Callers:
- *     WbHeapExecuteCall @ 0x14064D638 (WbHeapExecuteCall.c)
- *     sub_14064DB58 @ 0x14064DB58 (sub_14064DB58.c)
+ *     WbHeapExecuteCall @ 0x140642458 (WbHeapExecuteCall.c)
+ *     sub_140642978 @ 0x140642978 (sub_140642978.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     sub_14064ECC0 @ 0x14064ECC0 (sub_14064ECC0.c)
- *     sub_14064ED58 @ 0x14064ED58 (sub_14064ED58.c)
- *     sub_140688214 @ 0x140688214 (sub_140688214.c)
- *     sub_1406C36CC @ 0x1406C36CC (sub_1406C36CC.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     sub_1405E7374 @ 0x1405E7374 (sub_1405E7374.c)
+ *     sub_1406222AC @ 0x1406222AC (sub_1406222AC.c)
+ *     sub_140643AE0 @ 0x140643AE0 (sub_140643AE0.c)
+ *     sub_140643B78 @ 0x140643B78 (sub_140643B78.c)
  */
 
 __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
@@ -22,13 +22,13 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   struct _KTHREAD *CurrentThread; // r14
   _QWORD *v4; // rbx
   unsigned __int64 *v7; // rdi
-  __int64 v8; // rsi
+  PRTL_BALANCED_NODE v8; // rsi
   int v9; // esi
   _QWORD *v10; // rcx
   struct _KTHREAD *v12; // rax
-  __int64 v13; // rax
-  int v14; // r8d
-  __int64 v15; // rsi
+  _RTL_BALANCED_NODE *v13; // rax
+  __int64 v14; // r8
+  _RTL_BALANCED_NODE *v15; // rsi
   _QWORD *v16; // r14
   char v17; // bp
   __int64 v18; // [rsp+70h] [rbp+8h] BYREF
@@ -43,9 +43,9 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v7, v8, (ULONG_PTR)v7);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v18 = 0LL;
-  v9 = sub_14064ED58((int)a1 + 88, (_DWORD)CurrentThread, 8, (unsigned int)&v18, 0LL);
+  v9 = sub_140643B78((int)a1 + 88, (_DWORD)CurrentThread, 8, (unsigned int)&v18, 0LL);
   if ( v9 >= 0 )
   {
     v10 = (_QWORD *)v18;
@@ -62,7 +62,7 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   if ( v9 == -1073741198 )
   {
-    v9 = sub_1406C36CC(a1, CurrentThread, &v19);
+    v9 = sub_1406222AC(a1, (__int64)CurrentThread, &v19);
     if ( v9 < 0 )
     {
 LABEL_25:
@@ -76,9 +76,9 @@ LABEL_25:
     if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
       ExfAcquirePushLockExclusiveEx(v7, v13, (ULONG_PTR)v7);
     if ( v15 )
-      *(_BYTE *)(v15 + 26) |= 1u;
+      BYTE2(v15[1].Left) |= 1u;
     v16 = v19;
-    v9 = sub_140688214((int)a1 + 88, (_DWORD)v19, v14, *v19, 8, -1);
+    v9 = sub_1405E7374(a1 + 88, (__int64)v19, v14, *v19, 8, -1);
     if ( v9 >= 0 )
       _InterlockedIncrement64(v16 + 1);
     v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL);
@@ -91,6 +91,6 @@ LABEL_25:
     goto LABEL_25;
   *a3 = v19;
 LABEL_15:
-  sub_14064ECC0(a1, v4);
+  sub_140643AE0(a1, v4);
   return (unsigned int)v9;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of NtDeleteWnfStateData @ 0x14075E520
+ * XREFs of NtDeleteWnfStateData @ 0x14075F710
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpWnfLookupPermanentName @ 0x1405AA92C (ExpWnfLookupPermanentName.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14060F814 (ExpWnfReleaseCapturedScopeInstanceId.c)
- *     ExpCaptureWnfStateName @ 0x14060F868 (ExpCaptureWnfStateName.c)
- *     ExpWnfLookupNameInstance @ 0x14060F8E0 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x14060F9EC (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14060FE20 (ExpWnfCaptureScopeInstanceId.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     ExpWnfDeleteStateData @ 0x1406ABA08 (ExpWnfDeleteStateData.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1406C7090 (ExpWnfCheckCrossScopeAccess.c)
- *     ExpWnfDeletePermanentStateData @ 0x1408DB520 (ExpWnfDeletePermanentStateData.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpWnfLookupPermanentName @ 0x1405AB92C (ExpWnfLookupPermanentName.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x140610814 (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpCaptureWnfStateName @ 0x140610868 (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x1406108E0 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x1406109EC (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x140610E20 (ExpWnfCaptureScopeInstanceId.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     ExpWnfDeleteStateData @ 0x1406ACCA8 (ExpWnfDeleteStateData.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1406C8330 (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpWnfDeletePermanentStateData @ 0x1408DC7E0 (ExpWnfDeletePermanentStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)
+NTSTATUS __cdecl NtDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
@@ -33,8 +33,8 @@ __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)
   int v11; // eax
   void *Ptr; // rdi
   void *v14; // rdi
-  int v15; // eax
-  int v16; // [rsp+50h] [rbp-C8h]
+  NTSTATUS v15; // eax
+  NTSTATUS v16; // [rsp+50h] [rbp-C8h]
   int v17; // [rsp+58h] [rbp-C0h]
   struct _EX_RUNDOWN_REF *v18; // [rsp+60h] [rbp-B8h] BYREF
   int v19[2]; // [rsp+68h] [rbp-B0h] BYREF
@@ -59,7 +59,7 @@ __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)
   LODWORD(v5) = 0;
   v27[0] = 0LL;
   v27[1] = 0LL;
-  v16 = ExpCaptureWnfStateName(a1, &v23, PreviousMode);
+  v16 = ExpCaptureWnfStateName((__int64 *)StateName, &v23, PreviousMode);
   if ( v16 >= 0 )
   {
     v7 = v23;
@@ -67,12 +67,12 @@ __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)
     v20 = (v23 >> 4) & 3;
     v5 = (v23 >> 6) & 0xF;
     v17 = (v23 >> 6) & 0xF;
-    v16 = ExpWnfCaptureScopeInstanceId(v17, a2, v6, (__int64 *)v26, (__int64)v27);
+    v16 = ExpWnfCaptureScopeInstanceId(v17, ExplicitScope, v6, (__int64 *)v26, (__int64)v27);
     if ( v16 >= 0 )
     {
       if ( PreviousMode )
       {
-        if ( a2 )
+        if ( ExplicitScope )
         {
           v16 = ExpWnfCheckCrossScopeAccess(v7);
           if ( v16 < 0 )
@@ -176,5 +176,5 @@ LABEL_18:
     ExFreePoolWithTag(P, 0x20666E57u);
   ExpWnfReleaseCapturedScopeInstanceId(v5, v27, PreviousMode);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v16;
+  return v16;
 }

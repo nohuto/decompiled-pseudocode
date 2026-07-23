@@ -1,71 +1,79 @@
 /*
- * XREFs of RtlUTF8StringToUnicodeString @ 0x1800D5050
+ * XREFs of RtlUTF8StringToUnicodeString @ 0x1800D03C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlUTF8ToUnicodeN @ 0x18000C3F0 (RtlUTF8ToUnicodeN.c)
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
- *     CountUTF8ToUnicode @ 0x1800D5160 (CountUTF8ToUnicode.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlUTF8ToUnicodeN @ 0x180038DF0 (RtlUTF8ToUnicodeN.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
+ *     CountUTF8ToUnicode @ 0x1800D04D0 (CountUTF8ToUnicode.c)
  */
 
-__int64 __fastcall RtlUTF8StringToUnicodeString(__int64 a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlUTF8StringToUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUTF8_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  __int64 v5; // rdx
-  __int64 result; // rax
-  unsigned int v8; // edi
-  __int64 Atom; // rax
-  unsigned int v10; // ecx
+  ULONG Length; // edx
+  NTSTATUS result; // eax
+  ULONG v8; // edi
+  wchar_t *Atom; // rax
+  ULONG MaximumLength; // ecx
   int v11; // edi
   unsigned __int64 v12; // rcx
   unsigned int v13; // eax
-  unsigned int v14; // [rsp+58h] [rbp+10h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+58h] [rbp+10h] BYREF
 
-  v5 = *a2;
-  v14 = 0;
-  result = CountUTF8ToUnicode(*((_QWORD *)a2 + 1), v5, &v14);
-  if ( (int)result >= 0 )
+  Length = SourceString->Length;
+  UnicodeStringActualByteCount = 0;
+  result = CountUTF8ToUnicode((PWSTR)SourceString->Buffer, Length, &UnicodeStringActualByteCount);
+  if ( result >= 0 )
   {
-    v8 = v14 + 2;
-    v14 = v8;
+    v8 = UnicodeStringActualByteCount + 2;
+    UnicodeStringActualByteCount = v8;
     if ( v8 > 0xFFFE )
-      return 3221225712LL;
-    if ( a3 )
+      return -1073741584;
+    if ( AllocateDestinationString )
     {
-      Atom = RtlpAllocateAtom(v8);
-      *(_QWORD *)(a1 + 8) = Atom;
+      Atom = (wchar_t *)RtlpAllocateAtom(v8);
+      DestinationString->Buffer = Atom;
       if ( !Atom )
-        return 3221225495LL;
-      *(_WORD *)(a1 + 2) = v8;
-      LOWORD(v10) = v8;
+        return -1073741801;
+      DestinationString->MaximumLength = v8;
+      LOWORD(MaximumLength) = v8;
     }
     else
     {
-      v10 = *(unsigned __int16 *)(a1 + 2);
-      if ( v8 > v10 )
-        return 2147483653LL;
+      MaximumLength = DestinationString->MaximumLength;
+      if ( v8 > MaximumLength )
+        return -2147483643;
     }
-    v11 = RtlUTF8ToUnicodeN(*(_WORD **)(a1 + 8), (unsigned __int16)v10, &v14, *((char **)a2 + 1), *a2);
+    v11 = RtlUTF8ToUnicodeN(
+            DestinationString->Buffer,
+            (unsigned __int16)MaximumLength,
+            &UnicodeStringActualByteCount,
+            SourceString->Buffer,
+            SourceString->Length);
     if ( v11 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        RtlpSysVolFree(*(_QWORD *)(a1 + 8));
-        *(_QWORD *)(a1 + 8) = 0LL;
-        *(_WORD *)(a1 + 2) = 0;
+        RtlpSysVolFree(DestinationString->Buffer);
+        DestinationString->Buffer = 0LL;
+        DestinationString->MaximumLength = 0;
       }
-      return (unsigned int)v11;
+      return v11;
     }
-    v12 = v14;
-    v13 = *(unsigned __int16 *)(a1 + 2);
-    *(_WORD *)a1 = v14;
+    v12 = UnicodeStringActualByteCount;
+    v13 = DestinationString->MaximumLength;
+    DestinationString->Length = UnicodeStringActualByteCount;
     if ( (unsigned int)v12 < v13 )
     {
       v11 = 0;
-      *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * (v12 >> 1)) = 0;
-      return (unsigned int)v11;
+      DestinationString->Buffer[v12 >> 1] = 0;
+      return v11;
     }
-    return 2147483653LL;
+    return -2147483643;
   }
   return result;
 }

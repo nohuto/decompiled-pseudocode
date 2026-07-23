@@ -1,18 +1,18 @@
 /*
- * XREFs of ObGetSiloRootDirectoryPath @ 0x14082AF14
+ * XREFs of ObGetSiloRootDirectoryPath @ 0x14082B744
  * Callers:
- *     PspConvertSiloToServerSilo @ 0x140772754 (PspConvertSiloToServerSilo.c)
- *     NtQueryInformationJobObject @ 0x140ACCBF0 (NtQueryInformationJobObject.c)
+ *     PspConvertSiloToServerSilo @ 0x140772974 (PspConvertSiloToServerSilo.c)
+ *     NtQueryInformationJobObject @ 0x140ACACA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     PsGetPermanentSiloContext @ 0x1403F0070 (PsGetPermanentSiloContext.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlIntegerToUnicodeString @ 0x1408EF170 (RtlIntegerToUnicodeString.c)
- *     PsGetParentSilo @ 0x140A59700 (PsGetParentSilo.c)
- *     PsGetSiloIdentifier @ 0x140A68090 (PsGetSiloIdentifier.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PsGetPermanentSiloContext @ 0x1403E3CE0 (PsGetPermanentSiloContext.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlIntegerToUnicodeString @ 0x140860970 (RtlIntegerToUnicodeString.c)
+ *     PsGetParentSilo @ 0x140A50EA0 (PsGetParentSilo.c)
+ *     PsGetSiloIdentifier @ 0x140A61590 (PsGetSiloIdentifier.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 int __fastcall ObGetSiloRootDirectoryPath(__int64 a1, UNICODE_STRING *a2)
@@ -48,7 +48,7 @@ int __fastcall ObGetSiloRootDirectoryPath(__int64 a1, UNICODE_STRING *a2)
       }
       else
       {
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, v7, 0x6D4E624Fu);
         a2->Buffer = (wchar_t *)Pool2;
         if ( !Pool2 )
           return -1073741670;

@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpHpVsChunkSplit @ 0x18001E480
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x18009F7FC (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x18009F81C (RtlpHpVsContextAllocateInternal.c)
  * Callees:
  *     RtlpHpVsFreeChunkInsert @ 0x18001E2D8 (RtlpHpVsFreeChunkInsert.c)
  *     RtlRbRemoveNode @ 0x18001ECC0 (RtlRbRemoveNode.c)
@@ -9,8 +9,8 @@
  *     RtlRbInsertNodeEx @ 0x18001F940 (RtlRbInsertNodeEx.c)
  *     RtlpHpVsSubsegmentCommitPages @ 0x180021964 (RtlpHpVsSubsegmentCommitPages.c)
  *     RtlpHpVsSubsegmentCleanup @ 0x180065688 (RtlpHpVsSubsegmentCleanup.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x18009F724 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x18009F788 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x18009F744 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x18009F7A8 (RtlpHpReleaseQueuedLockExclusive.c)
  *     RtlpHpVsChunkAlignSplit @ 0x18010E170 (RtlpHpVsChunkAlignSplit.c)
  */
 
@@ -64,11 +64,11 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
   unsigned __int64 v56; // rdx
   unsigned __int64 v57; // rax
   unsigned __int64 v58; // rcx
-  __int64 v59; // r8
-  __int64 v60; // rcx
-  __int64 v61; // rax
+  __int64 v59; // rcx
+  __int64 v60; // rax
+  BOOLEAN v61; // r8
   int v62; // ecx
-  __int64 v63; // rax
+  unsigned __int64 v63; // rax
   unsigned __int64 v64; // [rsp+30h] [rbp-58h]
   __int64 v65; // [rsp+90h] [rbp+8h] BYREF
   __int64 v66; // [rsp+98h] [rbp+10h]
@@ -77,7 +77,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
   unsigned int v69; // [rsp+A8h] [rbp+20h]
 
   v9 = WORD1(RtlpHpHeapGlobals) ^ WORD1(a3) ^ *(unsigned __int16 *)(a3 + 2);
-  RtlRbRemoveNode(a1 + 16, a3 + 8);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(a3 + 8));
   v11 = 0LL;
   v12 = RtlpHpHeapGlobals ^ a3 ^ *(_DWORD *)a3;
   v13 = a3 - a2;
@@ -266,26 +266,24 @@ LABEL_45:
       v56 = *(_QWORD *)(a2 + 16) & (-1LL << (v52 >> 12)) & (0xFFFFFFFFFFFFFFFFuLL >> (63
                                                                                     - (unsigned __int8)((unsigned __int64)(v54 - 1) >> 12)));
     }
-    v59 = v55 >> 12;
     v57 = ((v56 - ((v56 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
         + (((v56 - ((v56 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL);
     v58 = (0x101010101010101LL * ((v57 + (v57 >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
     *(_QWORD *)(a1 + 56) += v58;
-    LOWORD(v59) = RtlpHpHeapGlobals ^ v36 ^ (v53 + v59 - v58);
-    *(_WORD *)v36 = v59;
-    v60 = *(_QWORD *)(a1 + 24);
-    if ( (v60 & 1) != 0 )
+    *(_WORD *)v36 = RtlpHpHeapGlobals ^ v36 ^ (v53 + (v55 >> 12) - v58);
+    v59 = *(_QWORD *)(a1 + 24);
+    if ( (v59 & 1) != 0 )
     {
-      v61 = *(_QWORD *)(a1 + 16);
-      if ( v61 )
-        v11 = v61 ^ (a1 + 16);
+      v60 = *(_QWORD *)(a1 + 16);
+      if ( v60 )
+        v11 = v60 ^ (a1 + 16);
     }
     else
     {
       v11 = *(_QWORD *)(a1 + 16);
     }
-    LOBYTE(v59) = 0;
-    v62 = v60 & 1;
+    v61 = 0;
+    v62 = v59 & 1;
     if ( v11 )
     {
       while ( 1 )
@@ -302,7 +300,7 @@ LABEL_45:
           if ( !v63 )
           {
 LABEL_69:
-            LOBYTE(v59) = 0;
+            v61 = 0;
             break;
           }
         }
@@ -318,14 +316,14 @@ LABEL_69:
           if ( !v63 )
           {
 LABEL_63:
-            LOBYTE(v59) = 1;
+            v61 = 1;
             break;
           }
         }
         v11 = v63;
       }
     }
-    RtlRbInsertNodeEx(a1 + 16, v11, v59, v36 + 8);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)v11, v61, (PRTL_BALANCED_NODE)(v36 + 8));
     return v69;
   }
 }

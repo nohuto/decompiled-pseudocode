@@ -1,23 +1,23 @@
 /*
- * XREFs of VrpPreOpenOrCreate @ 0x14080C2E0
+ * XREFs of VrpPreOpenOrCreate @ 0x14080D4E0
  * Callers:
- *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1408091F0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     CmAllocateExtraParameter @ 0x1407EC508 (CmAllocateExtraParameter.c)
- *     CmpFindExtraParameterInBlock @ 0x1407EC5A4 (CmpFindExtraParameterInBlock.c)
- *     CmpFreeExtraParameter @ 0x1407EC5DC (CmpFreeExtraParameter.c)
- *     VrpTranslatePath @ 0x14080CB70 (VrpTranslatePath.c)
- *     VrpBuildKeyPath @ 0x14080DFDC (VrpBuildKeyPath.c)
- *     VrpGetNextToken @ 0x14080E21C (VrpGetNextToken.c)
+ *     EtwActivityIdControl @ 0x1400A3A90 (EtwActivityIdControl.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     CmAllocateExtraParameter @ 0x1407ED708 (CmAllocateExtraParameter.c)
+ *     CmpFindExtraParameterInBlock @ 0x1407ED7A4 (CmpFindExtraParameterInBlock.c)
+ *     CmpFreeExtraParameter @ 0x1407ED7DC (CmpFreeExtraParameter.c)
+ *     VrpTranslatePath @ 0x14080DD70 (VrpTranslatePath.c)
+ *     VrpBuildKeyPath @ 0x14080F1DC (VrpBuildKeyPath.c)
+ *     VrpGetNextToken @ 0x14080F41C (VrpGetNextToken.c)
  */
 
 __int64 __fastcall VrpPreOpenOrCreate(PCUNICODE_STRING **a1, void *a2)
@@ -207,7 +207,7 @@ LABEL_45:
   if ( v9 != -1073740541 )
   {
 LABEL_11:
-    if ( stru_1403FFAD8.LevelPlus1 > 2 )
+    if ( stru_140400AD8.LevelPlus1 > 2 )
     {
       v10 = *v3;
       p_Length = (unsigned __int16 *)&EmptyUnicodeString;
@@ -223,12 +223,12 @@ LABEL_11:
       v46 = v13;
       v47 = 0;
       v49 = 4LL;
-      TlgWrite(&stru_1403FFAD8, &unk_14036CC38, &ActivityId, 0LL, 5u, &pData);
+      TlgWrite(&stru_140400AD8, &unk_14036DBC8, &ActivityId, 0LL, 5u, &pData);
     }
     goto LABEL_15;
   }
 LABEL_46:
-  if ( stru_1403FFAD8.LevelPlus1 > 5 )
+  if ( stru_140400AD8.LevelPlus1 > 5 )
   {
     v30 = *v3;
     v31 = (unsigned __int16 *)&EmptyUnicodeString;
@@ -244,7 +244,7 @@ LABEL_46:
     v46 = v32;
     v47 = 0;
     v49 = 4LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CD94, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_140400AD8, &unk_14036DD24, &ActivityId, 0LL, 5u, &pData);
   }
 LABEL_15:
   if ( v4 )

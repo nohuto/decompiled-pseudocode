@@ -1,39 +1,39 @@
 /*
- * XREFs of ExpWnfDeleteSubscription @ 0x140607CA4
+ * XREFs of ExpWnfDeleteSubscription @ 0x140608CA4
  * Callers:
- *     ExUnsubscribeWnfStateChange @ 0x140606B80 (ExUnsubscribeWnfStateChange.c)
- *     NtUnsubscribeWnfStateChange @ 0x140606BC0 (NtUnsubscribeWnfStateChange.c)
- *     ExpWnfDeleteProcessContext @ 0x140607AA4 (ExpWnfDeleteProcessContext.c)
+ *     ExUnsubscribeWnfStateChange @ 0x140607B80 (ExUnsubscribeWnfStateChange.c)
+ *     NtUnsubscribeWnfStateChange @ 0x140607BC0 (NtUnsubscribeWnfStateChange.c)
+ *     ExpWnfDeleteProcessContext @ 0x140608AA4 (ExpWnfDeleteProcessContext.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406119F8 (ExpWnfNotifyNameSubscribers.c)
  */
 
 void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
 {
   __int64 v2; // r14
-  __int64 v4; // rax
-  __int64 v5; // rsi
+  _RTL_BALANCED_NODE *v4; // rax
+  _RTL_BALANCED_NODE *v5; // rsi
   unsigned __int64 Count; // rbp
   unsigned __int64 v7; // rsi
   int v8; // r12d
   int v9; // r13d
-  __int64 v10; // rax
-  __int64 v11; // rbp
+  _RTL_BALANCED_NODE *v10; // rax
+  _RTL_BALANCED_NODE *v11; // rbp
   struct _EX_RUNDOWN_REF **v12; // rdx
   PVOID *v13; // rcx
   int Ptr_high; // eax
   unsigned __int64 v15; // rdx
   struct _EX_RUNDOWN_REF **v16; // rcx
-  __int64 v17; // rax
-  __int64 v18; // r15
+  _RTL_BALANCED_NODE *v17; // rax
+  _RTL_BALANCED_NODE *v18; // r15
   int v19; // ecx
   int v20; // r15d
   unsigned __int64 v21; // rdx
@@ -48,7 +48,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 80), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 80), v4, v2 + 80);
     if ( v5 )
-      *(_BYTE *)(v5 + 26) |= 1u;
+      BYTE2(v5[1].Left) |= 1u;
   }
   Count = P[5].Count;
   v23 = Count;
@@ -64,7 +64,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 112), 0LL) )
         ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v7 + 112), v10, v7 + 112);
       if ( v11 )
-        *(_BYTE *)(v11 + 26) |= 1u;
+        BYTE2(v11[1].Left) |= 1u;
       v12 = (struct _EX_RUNDOWN_REF **)P[8].Count;
       if ( v12[1] != &P[8] )
         goto LABEL_58;
@@ -91,7 +91,7 @@ void __fastcall ExpWnfDeleteSubscription(struct _EX_RUNDOWN_REF *P, __int64 a2)
         if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 104), 0LL) )
           ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 104), v17, v2 + 104);
         if ( v18 )
-          *(_BYTE *)(v18 + 26) |= 1u;
+          BYTE2(v18[1].Left) |= 1u;
         v19 = P[15].Count;
         if ( v19 != 1 && ((PEPROCESS)P[5].Count == PsInitialSystemProcess || !v19) )
           goto LABEL_25;

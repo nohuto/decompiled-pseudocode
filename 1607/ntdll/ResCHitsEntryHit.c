@@ -1,9 +1,9 @@
 /*
- * XREFs of ResCHitsEntryHit @ 0x180100054
+ * XREFs of ResCHitsEntryHit @ 0x1800FFF8C
  * Callers:
- *     ResCRuntimeGetResourceDataEx @ 0x180095F1C (ResCRuntimeGetResourceDataEx.c)
+ *     ResCRuntimeGetResourceDataEx @ 0x180095F0C (ResCRuntimeGetResourceDataEx.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  */
 
 __int64 __fastcall ResCHitsEntryHit(__int64 a1, unsigned int a2)
@@ -17,7 +17,7 @@ __int64 __fastcall ResCHitsEntryHit(__int64 a1, unsigned int a2)
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
 }

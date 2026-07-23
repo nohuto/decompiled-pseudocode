@@ -1,27 +1,27 @@
 /*
- * XREFs of MiRemoveSharedCommitNode @ 0x1408E5960
+ * XREFs of MiRemoveSharedCommitNode @ 0x140895560
  * Callers:
- *     MiDeleteNewlyCreatedPartialVads @ 0x1407FF044 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiDeletePartialCloneVads @ 0x1408003E4 (MiDeletePartialCloneVads.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiInsertSharedCommitNode @ 0x1408E2BF0 (MiInsertSharedCommitNode.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MmLinkJobProcess @ 0x1408E4628 (MmLinkJobProcess.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
- *     MiSectionClose @ 0x1408E5930 (MiSectionClose.c)
- *     MiRemoveSharedCommitNode @ 0x1408E5960 (MiRemoveSharedCommitNode.c)
- *     MiAllocateChildVads @ 0x1409C2580 (MiAllocateChildVads.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1407FF7B4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiDeletePartialCloneVads @ 0x140800B24 (MiDeletePartialCloneVads.c)
+ *     MiSectionClose @ 0x140895530 (MiSectionClose.c)
+ *     MiRemoveSharedCommitNode @ 0x140895560 (MiRemoveSharedCommitNode.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiInsertSharedCommitNode @ 0x1409197A0 (MiInsertSharedCommitNode.c)
+ *     MmLinkJobProcess @ 0x14091A3E0 (MmLinkJobProcess.c)
+ *     MiAllocateChildVads @ 0x140A47718 (MiAllocateChildVads.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiGetCommittedPages @ 0x140370A88 (MiGetCommittedPages.c)
- *     MiIncludeSharedCommit @ 0x14041FB70 (MiIncludeSharedCommit.c)
- *     MiRemoveSharedCommitNode @ 0x1408E5960 (MiRemoveSharedCommitNode.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiGetCommittedPages @ 0x140204018 (MiGetCommittedPages.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiIncludeSharedCommit @ 0x1404152F0 (MiIncludeSharedCommit.c)
+ *     MiRemoveSharedCommitNode @ 0x140895560 (MiRemoveSharedCommitNode.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a3)
@@ -31,8 +31,8 @@ void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a
   struct _KTHREAD *CurrentThread; // rax
   __int64 v9; // rcx
   int v10; // r15d
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
+  char *v11; // rax
+  char *v12; // rdi
   int v13; // ebp
   _QWORD *v14; // rdi
   bool v15; // zf
@@ -41,14 +41,10 @@ void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a
   __int64 v18; // rdx
   _QWORD *v19; // rcx
   unsigned __int64 *v20; // rsi
-  _QWORD *v21; // rax
-  _QWORD *v22; // rdi
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  struct _KTHREAD *v27; // [rsp+68h] [rbp+10h]
-  __int64 v29; // [rsp+78h] [rbp+20h]
+  char *v21; // rax
+  char *v22; // rdi
+  struct _KTHREAD *v23; // [rsp+68h] [rbp+10h]
+  __int64 v25; // [rsp+78h] [rbp+20h]
 
   if ( (a2 & 1) != 0 )
   {
@@ -68,34 +64,34 @@ void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a
   }
   CurrentThread = KeGetCurrentThread();
   v9 = *(_QWORD *)a1;
-  v27 = CurrentThread;
-  v29 = *(_QWORD *)a1;
+  v23 = CurrentThread;
+  v25 = *(_QWORD *)a1;
   v10 = a3 & 1;
   if ( (a3 & 1) == 0 )
   {
     --CurrentThread->SpecialApcDisable;
-    v11 = KeAbPreAcquire(v6 + 1712, 0LL);
+    v11 = (char *)KeAbPreAcquire(v6 + 1712, 0LL);
     v12 = v11;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 1712), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 1712), (__int64)v11, v6 + 1712);
-    CurrentThread = v27;
-    v9 = v29;
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 1712), v11, v6 + 1712);
+    CurrentThread = v23;
+    v9 = v25;
     if ( v12 )
-      *((_BYTE *)v12 + 10) = 1;
+      v12[10] = 1;
   }
   v13 = a3 & 2;
   if ( !v13 )
   {
     --CurrentThread->SpecialApcDisable;
     v20 = (unsigned __int64 *)(v9 + 40);
-    v21 = KeAbPreAcquire(v9 + 40, 0LL);
+    v21 = (char *)KeAbPreAcquire(v9 + 40, 0LL);
     v22 = v21;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v20, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v20, (__int64)v21, (__int64)v20);
+      ExfAcquirePushLockExclusiveEx(v20, v21, (__int64)v20);
     if ( v22 )
-      *((_BYTE *)v22 + 10) = 1;
+      v22[10] = 1;
   }
-  v14 = *(_QWORD **)(v29 + 72);
+  v14 = *(_QWORD **)(v25 + 72);
   while ( v14 )
   {
     if ( a2 > v14[3] )
@@ -112,7 +108,7 @@ void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a
   v15 = v14[4]-- == 1LL;
   if ( v15 )
   {
-    RtlAvlRemoveNode((unsigned __int64 *)(v29 + 72), (__int64)v14);
+    RtlAvlRemoveNode((unsigned __int64 *)(v25 + 72), (__int64)v14);
     v17 = -MiGetCommittedPages((_QWORD *)a1);
     if ( v6 )
     {
@@ -136,17 +132,17 @@ void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a
   }
   if ( v13 )
   {
-    v16 = v27;
+    v16 = v23;
   }
   else
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v29 + 40), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(v29 + 40));
-    KeAbPostRelease(v29 + 40);
-    v16 = v27;
-    v15 = v27->SpecialApcDisable++ == -1;
-    if ( v15 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)v27->ApcState.ApcListHead[0].Flink != &v27->152 )
-      KiCheckForKernelApcDelivery(v26, v25);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v25 + 40), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(v25 + 40));
+    KeAbPostRelease(v25 + 40);
+    v16 = v23;
+    v15 = v23->SpecialApcDisable++ == -1;
+    if ( v15 && ($727077A9B6E167EAE1398C74674DC5A5 *)v23->ApcState.ApcListHead[0].Flink != &v23->152 )
+      KiCheckForKernelApcDelivery();
   }
   if ( !v10 )
   {
@@ -154,8 +150,8 @@ void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a
       ExfTryToWakePushLock((volatile signed __int64 *)(v6 + 1712));
     KeAbPostRelease(v6 + 1712);
     v15 = v16->SpecialApcDisable++ == -1;
-    if ( v15 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
-      KiCheckForKernelApcDelivery(v24, v23);
+    if ( v15 && ($727077A9B6E167EAE1398C74674DC5A5 *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
+      KiCheckForKernelApcDelivery();
   }
   if ( v14 )
     ExFreePoolWithTag(v14, 0);

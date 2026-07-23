@@ -1,26 +1,26 @@
 /*
- * XREFs of PoInitHiberServices @ 0x140790C78
+ * XREFs of PoInitHiberServices @ 0x140792228
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14079167C (CmCompleteRegistryInitialization.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExIsSoftBoot @ 0x14039B470 (ExIsSoftBoot.c)
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopBcdClearPendingResume @ 0x140781D60 (PopBcdClearPendingResume.c)
- *     PopBcdEstablishResumeObject @ 0x140782280 (PopBcdEstablishResumeObject.c)
- *     PopAcquireTransitionLock @ 0x14078DA78 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x14078DAD4 (PopReleaseTransitionLock.c)
- *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
- *     PoDisableSleepStates @ 0x1408E3C20 (PoDisableSleepStates.c)
- *     PoShutdownBugCheck @ 0x1408E75C0 (PoShutdownBugCheck.c)
- *     PopBcdClose @ 0x1408F584C (PopBcdClose.c)
- *     PopBcdOpen @ 0x1408F5864 (PopBcdOpen.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
- *     EmClientQueryRuleState @ 0x14098F620 (EmClientQueryRuleState.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ExIsSoftBoot @ 0x14039B5C0 (ExIsSoftBoot.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopBcdClearPendingResume @ 0x140781F20 (PopBcdClearPendingResume.c)
+ *     PopBcdEstablishResumeObject @ 0x140782440 (PopBcdEstablishResumeObject.c)
+ *     PopAcquireTransitionLock @ 0x14078DC38 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14078DC94 (PopReleaseTransitionLock.c)
+ *     PopEnableHiberFile @ 0x1407926A0 (PopEnableHiberFile.c)
+ *     PoDisableSleepStates @ 0x1408E3D80 (PoDisableSleepStates.c)
+ *     PoShutdownBugCheck @ 0x1408E7720 (PoShutdownBugCheck.c)
+ *     PopBcdClose @ 0x1408F59AC (PopBcdClose.c)
+ *     PopBcdOpen @ 0x1408F59C4 (PopBcdOpen.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
+ *     EmClientQueryRuleState @ 0x1409910E0 (EmClientQueryRuleState.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void PoInitHiberServices()
@@ -28,7 +28,7 @@ void PoInitHiberServices()
   _DWORD *v0; // rsi
   bool v1; // di
   int v2; // eax
-  __int64 v3; // rbx
+  HANDLE v3; // rbx
   _DWORD *PoolWithTag; // rax
   unsigned int v5; // r14d
   __int64 v6; // rbx
@@ -37,10 +37,12 @@ void PoInitHiberServices()
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // rcx
-  char v12; // [rsp+78h] [rbp+48h] BYREF
-  __int64 v13; // [rsp+80h] [rbp+50h] BYREF
+  ULONG ReturnLength; // [rsp+70h] [rbp+40h] BYREF
+  char v13; // [rsp+78h] [rbp+48h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+80h] [rbp+50h] BYREF
 
-  v13 = 0LL;
+  BcdStoreHandle = 0LL;
+  ReturnLength = 0;
   RtlInitUnicodeString(&PoHiberFileRoot, L"\\OSDataRoot");
   v0 = 0LL;
   if ( PopHiberEnabledReg == -1 )
@@ -50,24 +52,31 @@ void PoInitHiberServices()
   v2 = PopHiberFileTypeReg;
   if ( PopHiberFileTypeReg != -1 || (v2 = PopHiberFileTypeDefaultReg, PopHiberFileTypeDefaultReg != -1) )
     PopHiberFileType = v2;
-  EmClientQueryRuleState(&GUID_EM_REMOVE_BAD_S3_PAGE_RULE, &v12);
-  if ( !ExIsSoftBoot() && (int)PopBcdOpen(&v13) >= 0 )
+  EmClientQueryRuleState(&GUID_EM_REMOVE_BAD_S3_PAGE_RULE, &v13);
+  if ( !ExIsSoftBoot() && (int)PopBcdOpen(&BcdStoreHandle) >= 0 )
   {
-    v3 = v13;
-    PopBcdEstablishResumeObject(v13, 0LL);
+    v3 = BcdStoreHandle;
+    PopBcdEstablishResumeObject(BcdStoreHandle, 0LL);
     PopBcdClearPendingResume(v3);
     PopBcdClose(v3);
   }
-  if ( (unsigned int)ZwQuerySystemInformation(112LL, 0LL) == -1073741789 )
+  if ( ZwQuerySystemInformation(SystemVhdBootInformation, 0LL, 0, &ReturnLength) == -1073741789 )
   {
-    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0LL, 0x72626968u);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, ReturnLength, 0x72626968u);
     v0 = PoolWithTag;
     if ( PoolWithTag )
     {
-      if ( (int)ZwQuerySystemInformation(112LL, (__int64)PoolWithTag) >= 0 && *(_BYTE *)v0 && v0[1] != -1 )
+      if ( ZwQuerySystemInformation(SystemVhdBootInformation, PoolWithTag, ReturnLength, &ReturnLength) >= 0 )
       {
-        v1 = 1;
-        PoDisableSleepStates(2LL, 8LL, &v12);
+        ReturnLength -= 2;
+        if ( *(_BYTE *)v0 )
+        {
+          if ( v0[1] <= ReturnLength )
+          {
+            v1 = 1;
+            PoDisableSleepStates(2LL, 8LL, &v13);
+          }
+        }
       }
     }
   }
@@ -78,7 +87,7 @@ void PoInitHiberServices()
     if ( *(_DWORD *)((char *)&PopHiberForceDisabledReg + v6) )
     {
       v1 = 1;
-      if ( (int)PoDisableSleepStates(*(unsigned int *)((char *)PopHiberForceDisabledReasonMap + v6), 8LL, &v12) < 0 )
+      if ( (int)PoDisableSleepStates(*(unsigned int *)((char *)PopHiberForceDisabledReasonMap + v6), 8LL, &v13) < 0 )
       {
         LOBYTE(v11) = 1;
         PoShutdownBugCheck(v11, 160LL, 272LL, 0LL, 0LL, 0LL);
@@ -94,8 +103,8 @@ void PoInitHiberServices()
   PopEnableHiberFile(v8, 0LL);
   PopReleasePolicyLock(v10, v9);
   PopReleaseTransitionLock(2);
-  if ( qword_140C543C8 )
-    qword_140C543C8();
+  if ( qword_140C54408 )
+    qword_140C54408();
   if ( v0 )
     ExFreePoolWithTag(v0, 0x72626968u);
 }

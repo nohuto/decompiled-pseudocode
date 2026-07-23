@@ -7,45 +7,45 @@
  *     RtlpHpSegMgrLock @ 0x180115830 (RtlpHpSegMgrLock.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegMgrVaCtxAlloc(__int64 a1, int a2, char a3)
+unsigned __int64 __fastcall RtlpHpSegMgrVaCtxAlloc(_RTL_SRWLOCK *a1, int a2, char a3)
 {
-  _QWORD **v3; // r14
+  _RTL_SRWLOCK *v3; // r14
   __int64 v4; // rbx
-  _QWORD **v5; // rdi
-  _QWORD *v10; // rsi
+  _RTL_SRWLOCK *v5; // rdi
+  _QWORD *Value; // rsi
   unsigned int v11; // eax
   int v12; // r14d
   int v13; // eax
   __int64 v14; // rdx
 
-  v3 = (_QWORD **)(a1 + 120);
+  v3 = a1 + 15;
   v4 = 0LL;
-  v5 = (_QWORD **)(a1 + 128);
-  if ( *(_QWORD *)(a1 + 120) || *v5 )
+  v5 = a1 + 16;
+  if ( a1[15].Value || v5->Value )
   {
     RtlpHpSegMgrLock();
-    v10 = *v5;
-    if ( *v5 || (a3 & 2) == 0 && (v10 = *v3, v5 = v3, *v3) )
+    Value = (_QWORD *)v5->Value;
+    if ( v5->Value || (a3 & 2) == 0 && (Value = (_QWORD *)v3->Value, v5 = v3, v3->Value) )
     {
-      v11 = *((unsigned __int16 *)v10 - 3);
+      v11 = *((unsigned __int16 *)Value - 3);
       _BitScanForward((unsigned int *)&v12, v11);
       v13 = v11 ^ (1 << v12);
-      *((_WORD *)v10 - 3) = v13;
+      *((_WORD *)Value - 3) = v13;
       if ( !(_WORD)v13 )
       {
-        if ( *v5 )
-          *v5 = (_QWORD *)**v5;
-        *v10 = 0LL;
+        if ( v5->Value )
+          v5->0 = *($2F38BEDF952D5DA5F266621B11247D04 *)v5->Value;
+        *Value = 0LL;
       }
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 112));
-      v14 = qword_1801D1250[6 * *((unsigned __int8 *)v10 - 15)];
+      RtlReleaseSRWLockExclusive(a1 + 14);
+      v14 = qword_1801D1250[6 * *((unsigned __int8 *)Value - 15)];
       return *(_QWORD *)(v14 + 8)
            + (unsigned int)(a2 * v12)
-           + (((unsigned __int64)v10 - *(_QWORD *)(v14 + 40) - 16) >> *(_DWORD *)(v14 + 24) << 20);
+           + (((unsigned __int64)Value - *(_QWORD *)(v14 + 40) - 16) >> *(_DWORD *)(v14 + 24) << 20);
     }
     else
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 112));
+      RtlReleaseSRWLockExclusive(a1 + 14);
     }
   }
   return v4;

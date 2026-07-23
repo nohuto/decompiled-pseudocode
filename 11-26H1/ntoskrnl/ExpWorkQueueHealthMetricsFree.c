@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWorkQueueHealthMetricsFree @ 0x140840068
+ * XREFs of ExpWorkQueueHealthMetricsFree @ 0x1408462A8
  * Callers:
- *     ExpPartitionDestroy @ 0x14083FAC8 (ExpPartitionDestroy.c)
- *     ExpWorkQueueHealthMetricsAllocate @ 0x14083FF78 (ExpWorkQueueHealthMetricsAllocate.c)
- *     ExpPartitionCreatePoolInternal @ 0x140B6C40C (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionDestroy @ 0x140845D08 (ExpPartitionDestroy.c)
+ *     ExpWorkQueueHealthMetricsAllocate @ 0x1408461B8 (ExpWorkQueueHealthMetricsAllocate.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140B6F508 (ExpPartitionCreatePoolInternal.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpWorkQueueHealthMetricsFree(void **P)

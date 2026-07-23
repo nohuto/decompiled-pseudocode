@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetSubsectionFromPte @ 0x14064E228
+ * XREFs of MiGetSubsectionFromPte @ 0x14064E778
  * Callers:
- *     MiCreateFileOnlyImageFixupList @ 0x140A339DC (MiCreateFileOnlyImageFixupList.c)
+ *     MiCreateFileOnlyImageFixupList @ 0x140A33C8C (MiCreateFileOnlyImageFixupList.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
  * XREFs of _iswctype_l @ 0x1403E3CB0
  * Callers:
- *     wcstoxlX @ 0x1403E3610 (wcstoxlX.c)
- *     wcstoxq @ 0x1403E3A4C (wcstoxq.c)
+ *     sub_1403E3610 @ 0x1403E3610 (sub_1403E3610.c)
+ *     sub_1403E3A4C @ 0x1403E3A4C (sub_1403E3A4C.c)
  * Callees:
  *     <none>
  */
 
-int __cdecl iswctype_l(wint_t C, wctype_t Type, _locale_t Locale)
+int __cdecl iswctype_l(wint_t _C, wctype_t _Type, _locale_t _Locale)
 {
-  if ( C >= 0x100u )
+  if ( _C >= 0x100u )
     return 0;
   else
-    return Type & (*pwctype)[C];
+    return _Type & (*off_140C00008)[_C];
 }

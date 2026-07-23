@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreatePfnTemplate @ 0x140375554
+ * XREFs of MiCreatePfnTemplate @ 0x1403756F4
  * Callers:
- *     MiDoGangAssignment @ 0x14038BE64 (MiDoGangAssignment.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
+ *     MiDoGangAssignment @ 0x14038C044 (MiDoGangAssignment.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
  *     MiSwitchToPfns @ 0x140B42278 (MiSwitchToPfns.c)
  *     MxCreateFreePfns @ 0x140B426A0 (MxCreateFreePfns.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiSetPageTablePfnBuddy @ 0x14029251C (MiSetPageTablePfnBuddy.c)
- *     MiSetPfnTbFlushStamp @ 0x1402E1630 (MiSetPfnTbFlushStamp.c)
- *     MiDetermineNewPfnHeatState @ 0x1403478E8 (MiDetermineNewPfnHeatState.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402927AC (MiSetPageTablePfnBuddy.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E18C0 (MiSetPfnTbFlushStamp.c)
+ *     MiDetermineNewPfnHeatState @ 0x140347B78 (MiDetermineNewPfnHeatState.c)
  */
 
 __int64 __fastcall MiCreatePfnTemplate(__int64 a1, __int16 a2, unsigned __int16 a3)

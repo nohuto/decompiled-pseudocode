@@ -1,14 +1,25 @@
 /*
- * XREFs of ZwCreateUserProcess @ 0x1406A7E30
+ * XREFs of ZwCreateUserProcess @ 0x1406A8DD0
  * Callers:
- *     RtlpCreateUserProcess @ 0x140C36AD8 (RtlpCreateUserProcess.c)
+ *     RtlpCreateUserProcess @ 0x140C38C18 (RtlpCreateUserProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateUserProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateUserProcess(
+        PHANDLE ProcessHandle,
+        PHANDLE ThreadHandle,
+        ACCESS_MASK ProcessDesiredAccess,
+        ACCESS_MASK ThreadDesiredAccess,
+        POBJECT_ATTRIBUTES ProcessObjectAttributes,
+        POBJECT_ATTRIBUTES ThreadObjectAttributes,
+        ULONG ProcessFlags,
+        ULONG ThreadFlags,
+        PVOID ProcessParameters,
+        PPS_CREATE_INFO CreateInfo,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

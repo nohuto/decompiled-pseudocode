@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlQueryInternalFeatureConfiguration @ 0x1406179A0
+ * XREFs of RtlQueryInternalFeatureConfiguration @ 0x14061A9F0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404CC294 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D88A8 (RtlpFcBufferManagerReferenceBuffers.c)
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140A48F68 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
- *     RtlpFcGetBufferManager @ 0x140B2D098 (RtlpFcGetBufferManager.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404C5CC4 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D2078 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140A52258 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlpFcGetBufferManager @ 0x140B2F118 (RtlpFcGetBufferManager.c)
  */
 
 __int64 __fastcall RtlQueryInternalFeatureConfiguration(unsigned int a1, unsigned int a2, _QWORD *a3, __int64 a4)
@@ -22,7 +22,7 @@ __int64 __fastcall RtlQueryInternalFeatureConfiguration(unsigned int a1, unsigne
   v13 = 0LL;
   v14 = 0LL;
   if ( KeGetEffectiveIrql() > 1u
-    && (((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) != 0 || BYTE1(stru_140F10828.WriteOperationCount)) )
+    && (((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) != 0 || PoPowerDownActionInProgress) )
   {
     return 2147483682LL;
   }

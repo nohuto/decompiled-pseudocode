@@ -1,12 +1,12 @@
 /*
- * XREFs of PoVolumeDevice @ 0x14078028C
+ * XREFs of PoVolumeDevice @ 0x14078044C
  * Callers:
- *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
- *     IoVerifyVolume @ 0x140893EE0 (IoVerifyVolume.c)
+ *     IoCreateDevice @ 0x1406C9950 (IoCreateDevice.c)
+ *     IoVerifyVolume @ 0x140894040 (IoVerifyVolume.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     PopGetDope @ 0x140399D04 (PopGetDope.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     PopGetDope @ 0x140399E54 (PopGetDope.c)
  */
 
 void __fastcall PoVolumeDevice(__int64 a1)
@@ -22,13 +22,13 @@ void __fastcall PoVolumeDevice(__int64 a1)
     v2 = (_QWORD *)(Dope + 72);
     if ( !*(_QWORD *)(Dope + 72) )
     {
-      v3 = (_QWORD *)qword_140C23F08;
-      if ( *(__int64 **)qword_140C23F08 != &PopVolumeDevices )
+      v3 = (_QWORD *)qword_140C23408;
+      if ( *(__int64 **)qword_140C23408 != &PopVolumeDevices )
         __fastfail(3u);
       *v2 = &PopVolumeDevices;
       *(_QWORD *)(Dope + 80) = v3;
       *v3 = v2;
-      qword_140C23F08 = Dope + 72;
+      qword_140C23408 = Dope + 72;
     }
     KeReleaseGuardedMutex(&PopVolumeLock);
   }

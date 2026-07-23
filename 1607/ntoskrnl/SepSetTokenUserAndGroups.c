@@ -1,18 +1,18 @@
 /*
- * XREFs of SepSetTokenUserAndGroups @ 0x14069311C
+ * XREFs of SepSetTokenUserAndGroups @ 0x140693200
  * Callers:
- *     SepCreateTokenEx @ 0x14007FBC8 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x14007FC48 (SepCreateTokenEx.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     SepDuplicateSid @ 0x1404D0994 (SepDuplicateSid.c)
- *     SepCompareSidValuesBlocks @ 0x140692CA8 (SepCompareSidValuesBlocks.c)
- *     SepCreateSidValuesBlock @ 0x140692D48 (SepCreateSidValuesBlock.c)
- *     SepDereferenceSidValuesBlock @ 0x140692F60 (SepDereferenceSidValuesBlock.c)
- *     SepLogTokenSidManagement @ 0x140694F2C (SepLogTokenSidManagement.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     SepDuplicateSid @ 0x1404B4434 (SepDuplicateSid.c)
+ *     SepCompareSidValuesBlocks @ 0x140692D8C (SepCompareSidValuesBlocks.c)
+ *     SepCreateSidValuesBlock @ 0x140692E2C (SepCreateSidValuesBlock.c)
+ *     SepDereferenceSidValuesBlock @ 0x140693044 (SepDereferenceSidValuesBlock.c)
+ *     SepLogTokenSidManagement @ 0x140695010 (SepLogTokenSidManagement.c)
  */
 
 __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, unsigned int a3, __int64 a4, int a5)

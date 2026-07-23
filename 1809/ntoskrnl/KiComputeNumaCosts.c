@@ -1,20 +1,20 @@
 /*
- * XREFs of KiComputeNumaCosts @ 0x1409C5C3C
+ * XREFs of KiComputeNumaCosts @ 0x1409C6C3C
  * Callers:
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
  * Callees:
  *     MmAllocatePartitionNodePagesForMdlEx @ 0x140010F40 (MmAllocatePartitionNodePagesForMdlEx.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlQueryNumaDistance @ 0x140271510 (HvlQueryNumaDistance.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KiGetHalNumaConversionFactor @ 0x1409F6554 (KiGetHalNumaConversionFactor.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlQueryNumaDistance @ 0x140271700 (HvlQueryNumaDistance.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     KiGetHalNumaConversionFactor @ 0x1409F7554 (KiGetHalNumaConversionFactor.c)
  */
 
 void KiComputeNumaCosts()

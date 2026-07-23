@@ -1,18 +1,18 @@
 /*
- * XREFs of PoGetPerfStateAndParkingInfo @ 0x140131CA4
+ * XREFs of PoGetPerfStateAndParkingInfo @ 0x140131D74
  * Callers:
- *     ExpQueryProcessorInformationCounters @ 0x1405CDF74 (ExpQueryProcessorInformationCounters.c)
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQueryProcessorInformationCounters @ 0x1405CEF74 (ExpQueryProcessorInformationCounters.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     PpmSnapPerformanceAccumulation @ 0x14005BDC0 (PpmSnapPerformanceAccumulation.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x1400A5EC8 (PopExecuteOnTargetProcessors.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     KeGetProcessorIndexFromNumber @ 0x1400A7470 (KeGetProcessorIndexFromNumber.c)
- *     PpmPerfGetCurrentState @ 0x140131DC4 (PpmPerfGetCurrentState.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x1400A5E08 (PopExecuteOnTargetProcessors.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     KeGetProcessorIndexFromNumber @ 0x1400A73B0 (KeGetProcessorIndexFromNumber.c)
+ *     PpmPerfGetCurrentState @ 0x140131E94 (PpmPerfGetCurrentState.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 char __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, void *a2, __int64 a3, unsigned __int64 *a4)

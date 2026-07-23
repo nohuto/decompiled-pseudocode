@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCaptureImageExceptionValues @ 0x14048218C
+ * XREFs of MiCaptureImageExceptionValues @ 0x140480EE0
  * Callers:
- *     MiConstructLoaderEntry @ 0x140482408 (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x14048115C (MiConstructLoaderEntry.c)
  * Callees:
- *     RtlSetAllBits @ 0x1400055D0 (RtlSetAllBits.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     RtlMarkExceptionHandlingPages @ 0x140482230 (RtlMarkExceptionHandlingPages.c)
+ *     RtlSetAllBits @ 0x140005744 (RtlSetAllBits.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     RtlMarkExceptionHandlingPages @ 0x140480F84 (RtlMarkExceptionHandlingPages.c)
  */
 
 void __fastcall MiCaptureImageExceptionValues(__int64 a1)
 {
   char *v1; // rbp
   PIMAGE_NT_HEADERS v3; // rax
-  struct _RTL_BITMAP *v4; // rdi
+  _RTL_BITMAP *v4; // rdi
   _DWORD *p_Signature; // r14
   unsigned int v6; // esi
   int v7; // edx
@@ -24,7 +24,7 @@ void __fastcall MiCaptureImageExceptionValues(__int64 a1)
 
   v1 = *(char **)(a1 + 48);
   v3 = RtlImageNtHeader(v1);
-  v4 = *(struct _RTL_BITMAP **)(a1 + 240);
+  v4 = *(_RTL_BITMAP **)(a1 + 240);
   p_Signature = &v3->Signature;
   v6 = *(_DWORD *)(a1 + 64) >> 12;
   v4->SizeOfBitMap = v6;

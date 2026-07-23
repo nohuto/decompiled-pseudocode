@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetPageTablePages @ 0x1402E59A0
+ * XREFs of MiGetPageTablePages @ 0x140296CF0
  * Callers:
- *     MiCreateSystemPageTable @ 0x1402E5210 (MiCreateSystemPageTable.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1403BA228 (MiDemoteValidLargePageOneLevel.c)
- *     MmCreateShadowMapping @ 0x1407A00AC (MmCreateShadowMapping.c)
+ *     MiCreateSystemPageTable @ 0x140296560 (MiCreateSystemPageTable.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403BA398 (MiDemoteValidLargePageOneLevel.c)
+ *     MmCreateShadowMapping @ 0x1407A02AC (MmCreateShadowMapping.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiSetPfnTbFlushStamp @ 0x140240160 (MiSetPfnTbFlushStamp.c)
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
- *     MiReturnSystemCharges @ 0x1402B9B18 (MiReturnSystemCharges.c)
- *     MiObtainSystemCharges @ 0x1402E5ABC (MiObtainSystemCharges.c)
- *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiReturnSystemCharges @ 0x140237D28 (MiReturnSystemCharges.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
+ *     MiObtainSystemCharges @ 0x140296E0C (MiObtainSystemCharges.c)
+ *     MiReleaseFreshPage @ 0x140297AC4 (MiReleaseFreshPage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E49B0 (MiSetPfnTbFlushStamp.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiGetPageTablePages(__int64 a1, unsigned __int64 a2, _QWORD *a3)
@@ -21,11 +21,13 @@ __int64 __fastcall MiGetPageTablePages(__int64 a1, unsigned __int64 a2, _QWORD *
   _QWORD *v8; // r14
   int v9; // r12d
   unsigned int v10; // esi
-  unsigned int v11; // ebx
+  unsigned __int32 v11; // ebx
   __int64 Page; // rax
-  _QWORD *v13; // rbx
+  __int64 v13; // r8
+  __int64 v14; // r9
   _QWORD *v15; // rbx
-  unsigned __int64 v16; // [rsp+50h] [rbp+8h]
+  _QWORD *v17; // rbx
+  unsigned __int64 v18; // [rsp+50h] [rbp+8h]
 
   v3 = *(_DWORD *)(a1 + 64);
   v4 = *(_QWORD *)(a1 + 32);
@@ -43,7 +45,7 @@ __int64 __fastcall MiGetPageTablePages(__int64 a1, unsigned __int64 a2, _QWORD *
     v9 = 1;
     v3 = *(_DWORD *)(a1 + 64);
   }
-  v16 = 0LL;
+  v18 = 0LL;
   v10 = (v3 & 0x400 | 0x20C280u) >> 6;
   if ( a2 )
   {
@@ -61,17 +63,17 @@ __int64 __fastcall MiGetPageTablePages(__int64 a1, unsigned __int64 a2, _QWORD *
         if ( Page == -1 )
           break;
       }
-      v13 = (_QWORD *)(48 * Page - 0x58000000000LL);
-      MiSetPfnTbFlushStamp((__int64)v13, 0, 0);
-      *v13 = v8;
-      ++v16;
-      v8 = v13;
-      if ( v16 >= a2 )
+      v15 = (_QWORD *)(48 * Page - 0x58000000000LL);
+      MiSetPfnTbFlushStamp(v15, 0LL, 0LL);
+      *v15 = v8;
+      ++v18;
+      v8 = v15;
+      if ( v18 >= a2 )
         goto LABEL_8;
     }
     if ( v9 )
     {
-      MiReturnCommit(v4, a2);
+      MiReturnCommit(v4, a2, v13, v14);
       MiReturnSystemCharges(v4, a2, *(_DWORD *)(a1 + 56));
       *(_QWORD *)(a1 + 40) -= a2;
     }
@@ -79,11 +81,11 @@ __int64 __fastcall MiGetPageTablePages(__int64 a1, unsigned __int64 a2, _QWORD *
     {
       do
       {
-        v15 = (_QWORD *)*v8;
+        v17 = (_QWORD *)*v8;
         MiReleaseFreshPage(v8);
-        v8 = v15;
+        v8 = v17;
       }
-      while ( v15 );
+      while ( v17 );
     }
     return 3221225495LL;
   }

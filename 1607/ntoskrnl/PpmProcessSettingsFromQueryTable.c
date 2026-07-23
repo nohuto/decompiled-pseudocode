@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmProcessSettingsFromQueryTable @ 0x140675C9C
+ * XREFs of PpmProcessSettingsFromQueryTable @ 0x140675D80
  * Callers:
- *     PpmRegisterSpmSettings @ 0x140675EB0 (PpmRegisterSpmSettings.c)
+ *     PpmRegisterSpmSettings @ 0x140675F94 (PpmRegisterSpmSettings.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     PpmSetProfilePolicySetting @ 0x1403F766C (PpmSetProfilePolicySetting.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     PpmSetProfilePolicySetting @ 0x1403F652C (PpmSetProfilePolicySetting.c)
  */
 
 char __fastcall PpmProcessSettingsFromQueryTable(_QWORD *a1, int a2, __int64 a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopCalculateTotalHwDripsResidency @ 0x140591890
+ * XREFs of PopCalculateTotalHwDripsResidency @ 0x140591D80
  * Callers:
- *     PopCalculateCsSummary @ 0x140591334 (PopCalculateCsSummary.c)
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x140993254 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopCalculateCsSummary @ 0x140591824 (PopCalculateCsSummary.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x140993454 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
  *     <none>
  */

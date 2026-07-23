@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpLogTypeToLogArrayIndex @ 0x140981264
+ * XREFs of HvpLogTypeToLogArrayIndex @ 0x140969A74
  * Callers:
- *     HvRecoverFlushProtocolStateFromFiles @ 0x1407DF454 (HvRecoverFlushProtocolStateFromFiles.c)
- *     HvTruncateCurrentLogFileIfRequired @ 0x14097C720 (HvTruncateCurrentLogFileIfRequired.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     HvWriteLogFile @ 0x14098041C (HvWriteLogFile.c)
- *     CmpDoFileSetSizeEx @ 0x140980EB4 (CmpDoFileSetSizeEx.c)
- *     HvSwapLogFiles @ 0x140982F38 (HvSwapLogFiles.c)
- *     HvpPerformLogFileRecovery @ 0x140AB060C (HvpPerformLogFileRecovery.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x1407DF9A4 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x140964F30 (HvTruncateCurrentLogFileIfRequired.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     HvWriteLogFile @ 0x140968C2C (HvWriteLogFile.c)
+ *     CmpDoFileSetSizeEx @ 0x1409696C4 (CmpDoFileSetSizeEx.c)
+ *     HvSwapLogFiles @ 0x14096B748 (HvSwapLogFiles.c)
+ *     HvpPerformLogFileRecovery @ 0x140AAB57C (HvpPerformLogFileRecovery.c)
  * Callees:
  *     <none>
  */

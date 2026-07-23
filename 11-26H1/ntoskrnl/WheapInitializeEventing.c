@@ -1,43 +1,43 @@
 /*
- * XREFs of WheapInitializeEventing @ 0x140CE84C0
+ * XREFs of WheapInitializeEventing @ 0x140CEE860
  * Callers:
- *     WheaInitialize @ 0x140CE7AB8 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140CEDE58 (WheaInitialize.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwRegister @ 0x14093BDE0 (EtwRegister.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwRegister @ 0x140917980 (EtwRegister.c)
  */
 
 PSLIST_ENTRY WheapInitializeEventing()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   __int64 v1; // rdi
   PSLIST_ENTRY result; // rax
 
-  LOWORD(WheapWaitingETWEventLock.Header.Lock) = 1;
-  qword_140EFE1C8 = (__int64)&WheapWaitingETWEvents;
-  WheapWaitingETWEvents = (__int64)&WheapWaitingETWEvents;
-  WheapWaitingETWEventLock.Header.Size = 6;
-  qword_140EFD188 = (__int64)&WheapDeferredInternalLogs;
-  WheapDeferredInternalLogs = (__int64)&WheapDeferredInternalLogs;
-  WheapWaitingETWEventLock.Header.SignalState = 1;
-  WheapWaitingETWEventLock.Header.WaitListHead.Blink = &WheapWaitingETWEventLock.Header.WaitListHead;
-  WheapWaitingETWEventLock.Header.WaitListHead.Flink = &WheapWaitingETWEventLock.Header.WaitListHead;
+  *(_WORD *)&CmpContextListLock.SchedulerApcFill5[24] = 1;
+  CmpContextListLock.SchedulerApc.ApcListEntry.Flink = (struct _LIST_ENTRY *)&CmpContextListLock.SchedulerApcFill5[8];
+  CmpContextListLock.SchedulerApc.Thread = (struct _KTHREAD *)&CmpContextListLock.SchedulerApcFill5[8];
+  CmpContextListLock.SchedulerApcFill3[26] = 6;
+  CmpContextListLock.SuspendEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&CmpContextListLock.SuspendEvent;
+  *(_QWORD *)&CmpContextListLock.SuspendEvent.Header.Lock = &CmpContextListLock.SuspendEvent;
+  *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[28] = 1;
+  CmpContextListLock.SchedulerApc.Reserved[1] = &CmpContextListLock.SchedulerApcFill5[32];
+  CmpContextListLock.SchedulerApc.Reserved[0] = &CmpContextListLock.SchedulerApcFill5[32];
   LOWORD(WheapDeferredInternalLogsEventLock.Header.Lock) = 1;
   WheapDeferredInternalLogsEventLock.Header.WaitListHead.Blink = &WheapDeferredInternalLogsEventLock.Header.WaitListHead;
   WheapDeferredInternalLogsEventLock.Header.WaitListHead.Flink = &WheapDeferredInternalLogsEventLock.Header.WaitListHead;
-  *(_QWORD *)CmpCallbackListLock.PriorityFloorCounts = 0LL;
+  CmpContextListLock.SchedulerApc.SystemArgument2 = 0LL;
   WheapDeferredInternalLogsEventLock.Header.Size = 6;
   WheapDeferredInternalLogsEventLock.Header.SignalState = 1;
-  *(_OWORD *)&CmpCallbackListLock.PropagateBoostsEntry.Next = 0LL;
+  *(_OWORD *)&CmpContextListLock.SchedulerApcFill5[56] = 0LL;
   if ( EtwRegister(
          &WHEA_ETW_PROVIDER,
          (PETWENABLECALLBACK)WheapEtwEnableCallback,
          0LL,
-         (PREGHANDLE)&CmpCallbackListLock.PriorityFloorCounts[8]) )
+         (PREGHANDLE)&CmpContextListLock.SchedulerApcFill5[80]) )
   {
-    *(_QWORD *)&CmpCallbackListLock.PriorityFloorCounts[8] = 0LL;
+    *(_QWORD *)&CmpContextListLock.SchedulerApcFill5[80] = 0LL;
   }
   if ( ((unsigned __int8)&WheapIpmiLogEntryList & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);

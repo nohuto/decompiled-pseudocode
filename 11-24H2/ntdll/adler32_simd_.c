@@ -1,7 +1,7 @@
 /*
- * XREFs of adler32_simd_ @ 0x180157280
+ * XREFs of adler32_simd_ @ 0x180155640
  * Callers:
- *     adler32_z @ 0x180155314 (adler32_z.c)
+ *     adler32_z @ 0x1801536D4 (adler32_z.c)
  * Callees:
  *     <none>
  */

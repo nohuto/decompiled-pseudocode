@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlCompareUnicodeString @ 0x1409E1590
+ * XREFs of RtlCompareUnicodeString @ 0x1409DE5A0
  * Callers:
- *     AuthzBasepCompareUnicodeStringOperands @ 0x1403CF40C (AuthzBasepCompareUnicodeStringOperands.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x14045FC94 (SepVerifyDesktopAppPolicyOverrideCaller.c)
- *     KsepCacheHwIdEqual @ 0x1404F8890 (KsepCacheHwIdEqual.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1404FA998 (PopFxFindAcpiDeviceByUniqueId.c)
- *     ApiSetpGetExtensionNameKeyInfo @ 0x1406DB138 (ApiSetpGetExtensionNameKeyInfo.c)
- *     FsRtlFindInTunnelCacheEx @ 0x1409E1060 (FsRtlFindInTunnelCacheEx.c)
- *     FsRtlAddToTunnelCacheEx @ 0x1409E1210 (FsRtlAddToTunnelCacheEx.c)
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     KeHwPolicyLocateResource @ 0x140CCA440 (KeHwPolicyLocateResource.c)
- *     PsInitializeWin32kServiceTable @ 0x140CD79A8 (PsInitializeWin32kServiceTable.c)
- *     CmpSetSystemBiosInformation @ 0x140CED418 (CmpSetSystemBiosInformation.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x1402FA444 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x140459608 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ *     KsepCacheHwIdEqual @ 0x1404F1EA0 (KsepCacheHwIdEqual.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x1404F3FA8 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     ApiSetpGetExtensionNameKeyInfo @ 0x1406DF3D0 (ApiSetpGetExtensionNameKeyInfo.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x1409DE060 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x1409DE220 (FsRtlAddToTunnelCacheEx.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     KeHwPolicyLocateResource @ 0x140CD0520 (KeHwPolicyLocateResource.c)
+ *     PsInitializeWin32kServiceTable @ 0x140CDDD28 (PsInitializeWin32kServiceTable.c)
+ *     CmpSetSystemBiosInformation @ 0x140CF371C (CmpSetSystemBiosInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
  */
 
 LONG __stdcall RtlCompareUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive)

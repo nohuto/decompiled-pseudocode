@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E5C8C
+ * XREFs of MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E8E7C
  * Callers:
- *     MiFreeUnusedSlabPages @ 0x1402A7510 (MiFreeUnusedSlabPages.c)
- *     MiInsertPagesInList @ 0x1402CD600 (MiInsertPagesInList.c)
- *     MiInsertPageLockStandbyList @ 0x1402DEE20 (MiInsertPageLockStandbyList.c)
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
- *     MiIncreaseAvailablePages @ 0x1403E59D0 (MiIncreaseAvailablePages.c)
+ *     MiFreeUnusedSlabPages @ 0x1402A6920 (MiFreeUnusedSlabPages.c)
+ *     MiInsertPagesInList @ 0x1402AF3C0 (MiInsertPagesInList.c)
+ *     MiInsertPageLockStandbyList @ 0x1402C0C30 (MiInsertPageLockStandbyList.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
+ *     MiIncreaseAvailablePages @ 0x1403E8BC0 (MiIncreaseAvailablePages.c)
  * Callees:
- *     MiGetSlabCurrentTime @ 0x1402073A0 (MiGetSlabCurrentTime.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiGetSlabCurrentTime @ 0x140207480 (MiGetSlabCurrentTime.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiSlabDemotionLowMemoryConditionUpdate(__int64 a1, int a2)

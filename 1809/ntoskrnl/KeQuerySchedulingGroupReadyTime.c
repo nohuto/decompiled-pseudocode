@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQuerySchedulingGroupReadyTime @ 0x1401264F4
+ * XREFs of KeQuerySchedulingGroupReadyTime @ 0x1401265C4
  * Callers:
- *     PspQueryJobHierarchyAccountingInformation @ 0x1405FD228 (PspQueryJobHierarchyAccountingInformation.c)
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x1405FE228 (PspQueryJobHierarchyAccountingInformation.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQuerySchedulingGroupReadyTime(__int64 a1, __int64 a2, __int64 a3)

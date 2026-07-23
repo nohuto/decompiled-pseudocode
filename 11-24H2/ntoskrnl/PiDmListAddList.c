@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmListAddList @ 0x140A86260
+ * XREFs of PiDmListAddList @ 0x140A80DA0
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1408C7450 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1408C4E80 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     PiDmListAddObjectWorker @ 0x1408B4124 (PiDmListAddObjectWorker.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1408B5260 (PiDmGetObjectManagerForObjectType.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     PiDmObjectAcquireSharedLock @ 0x1408D0A7C (PiDmObjectAcquireSharedLock.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
+ *     PiDmListAddObjectWorker @ 0x1408B1A14 (PiDmListAddObjectWorker.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1408B2B50 (PiDmGetObjectManagerForObjectType.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     PiDmObjectAcquireSharedLock @ 0x1408CE46C (PiDmObjectAcquireSharedLock.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
  */
 
 __int64 __fastcall PiDmListAddList(__int64 a1, __int64 a2, __int64 a3, volatile signed __int64 *a4)

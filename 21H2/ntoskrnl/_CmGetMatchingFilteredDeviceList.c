@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceList @ 0x1406A70E8
+ * XREFs of _CmGetMatchingFilteredDeviceList @ 0x140604D18
  * Callers:
- *     PiCMGetDeviceIdList @ 0x1406A6D64 (PiCMGetDeviceIdList.c)
- *     IopGetRootDevices @ 0x14074EAE8 (IopGetRootDevices.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6A98 (PiDevCfgInitDriverDatabaseCallback.c)
- *     _CmDeleteInstallerClassWorker @ 0x1409752C4 (_CmDeleteInstallerClassWorker.c)
- *     PipResetDevices @ 0x140A53B50 (PipResetDevices.c)
+ *     PiCMGetDeviceIdList @ 0x140604994 (PiCMGetDeviceIdList.c)
+ *     IopGetRootDevices @ 0x14074ECA8 (IopGetRootDevices.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6BF8 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1409754A4 (_CmDeleteInstallerClassWorker.c)
+ *     PipResetDevices @ 0x140A54B50 (PipResetDevices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     _CmGetMatchingFilteredDeviceListWorker @ 0x140977098 (_CmGetMatchingFilteredDeviceListWorker.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _CmGetMatchingFilteredDeviceListWorker @ 0x140977278 (_CmGetMatchingFilteredDeviceListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceList(

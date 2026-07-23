@@ -85,10 +85,13 @@ __int64 __fastcall MiAsyncSlabReplenish(__int64 a1, LARGE_INTEGER *a2, char a3)
     }
 LABEL_6:
     ExReleaseSpinLockExclusiveFromDpcLevel(v5);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -113,10 +116,10 @@ LABEL_6:
       *v28 = v27;
       *(_QWORD *)(v20 + 8) = v22;
       ExReleaseSpinLockExclusiveFromDpcLevel(v5);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v23 >= 2u )
         {
           v24 = KeGetCurrentPrcb();
           v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));

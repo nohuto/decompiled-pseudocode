@@ -1,16 +1,16 @@
 /*
- * XREFs of CcAllocateInitializeBcb @ 0x1403651D8
+ * XREFs of CcAllocateInitializeBcb @ 0x1403EA890
  * Callers:
- *     CcPinFileData @ 0x140272D30 (CcPinFileData.c)
+ *     CcPinFileData @ 0x1402282C0 (CcPinFileData.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExInitializeResourceLite2 @ 0x140365350 (ExInitializeResourceLite2.c)
- *     ExDisableResourceBoostLite @ 0x140365480 (ExDisableResourceBoostLite.c)
- *     CcAdjustVacbLevelLockCount @ 0x1403654E4 (CcAdjustVacbLevelLockCount.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExInitializeResourceLite2 @ 0x1403EAA00 (ExInitializeResourceLite2.c)
+ *     ExDisableResourceBoostLite @ 0x1403EAB30 (ExDisableResourceBoostLite.c)
+ *     CcAdjustVacbLevelLockCount @ 0x1403EAB94 (CcAdjustVacbLevelLockCount.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -20,8 +20,8 @@ _QWORD *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, _QWORD *a3, _
   char *v10; // rcx
   __int64 v11; // rax
   signed __int64 *v12; // rbx
-  _QWORD *v13; // rax
-  _QWORD *v14; // rbp
+  char *v13; // rax
+  char *v14; // rbp
   _QWORD *v15; // rdx
   _QWORD *v16; // rax
   signed __int64 v17; // rax
@@ -42,12 +42,12 @@ _QWORD *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, _QWORD *a3, _
     v9[22] = a1;
     ExInitializeResourceLite2(v10, 0xFFFFFFFFLL);
     v12 = (signed __int64 *)(a1 + 104);
-    v13 = KeAbPreAcquire(a1 + 104, 0LL);
+    v13 = (char *)KeAbPreAcquire(a1 + 104, 0LL);
     v14 = v13;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 104), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 104), (__int64)v13, a1 + 104);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 104), v13, a1 + 104);
     if ( v14 )
-      *((_BYTE *)v14 + 10) = 1;
+      v14[10] = 1;
     v15 = *(_QWORD **)(a2 + 24);
     v16 = v9 + 2;
     if ( *v15 != a2 + 16 )

@@ -1,40 +1,40 @@
 /*
- * XREFs of PspWriteTebIdealProcessor @ 0x1405F72AC
+ * XREFs of PspWriteTebIdealProcessor @ 0x1405F82AC
  * Callers:
- *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
- *     PspUserThreadStartup @ 0x1405F6E40 (PspUserThreadStartup.c)
+ *     NtSetInformationThread @ 0x1405EAEA0 (NtSetInformationThread.c)
+ *     PspUserThreadStartup @ 0x1405F7E40 (PspUserThreadStartup.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KeGetProcessorNumberFromIndex @ 0x1400897F0 (KeGetProcessorNumberFromIndex.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1400897E0 (KeGetProcessorNumberFromIndex.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
 {
-  struct _PROCESSOR_NUMBER *v4; // r15
-  struct _PROCESSOR_NUMBER *v5; // r14
-  struct _PROCESSOR_NUMBER *v6; // rax
+  _PROCESSOR_NUMBER *v4; // r15
+  _PROCESSOR_NUMBER *v5; // r14
+  _PROCESSOR_NUMBER *v6; // rax
   _KPROCESS *v7; // r12
   unsigned __int64 v8; // rcx
   char v9; // di
   char v10; // si
-  struct _PROCESSOR_NUMBER *v11; // r13
-  struct _PROCESSOR_NUMBER *i; // r12
-  struct _PROCESSOR_NUMBER v13; // eax
-  struct _PROCESSOR_NUMBER *v14; // rax
+  _PROCESSOR_NUMBER *v11; // r13
+  _PROCESSOR_NUMBER *i; // r12
+  _PROCESSOR_NUMBER v13; // eax
+  _PROCESSOR_NUMBER *v14; // rax
   signed __int32 v15[8]; // [rsp+0h] [rbp-C8h] BYREF
   char v16; // [rsp+20h] [rbp-A8h]
   char v17; // [rsp+21h] [rbp-A7h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
-  struct _PROCESSOR_NUMBER v19; // [rsp+28h] [rbp-A0h] BYREF
-  struct _PROCESSOR_NUMBER *v20; // [rsp+30h] [rbp-98h]
-  struct _PROCESSOR_NUMBER *v21; // [rsp+38h] [rbp-90h]
-  struct _PROCESSOR_NUMBER *v22; // [rsp+40h] [rbp-88h]
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
-  struct _PROCESSOR_NUMBER *v24; // [rsp+50h] [rbp-78h]
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
+  _PROCESSOR_NUMBER v19; // [rsp+28h] [rbp-A0h] BYREF
+  _PROCESSOR_NUMBER *v20; // [rsp+30h] [rbp-98h]
+  _PROCESSOR_NUMBER *v21; // [rsp+38h] [rbp-90h]
+  _PROCESSOR_NUMBER *v22; // [rsp+40h] [rbp-88h]
+  _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
+  _PROCESSOR_NUMBER *v24; // [rsp+50h] [rbp-78h]
   __int64 v25; // [rsp+58h] [rbp-70h]
   _BYTE v26[48]; // [rsp+60h] [rbp-68h] BYREF
 
@@ -44,7 +44,7 @@ void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
   v21 = 0LL;
   v5 = 0LL;
   v22 = 0LL;
-  v6 = *(struct _PROCESSOR_NUMBER **)(a2 + 240);
+  v6 = *(_PROCESSOR_NUMBER **)(a2 + 240);
   v20 = v6;
   v24 = v6;
   v7 = *(_KPROCESS **)(a2 + 544);
@@ -95,7 +95,7 @@ void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
       LOWORD(v20) = v13.Group;
       BYTE2(v20) = v13.Number & 0x1F;
       BYTE3(v20) = v13.Reserved & 0x1F;
-      v4[989] = (struct _PROCESSOR_NUMBER)v20;
+      v4[989] = (_PROCESSOR_NUMBER)v20;
     }
     _InterlockedOr(v15, 0);
     KeGetProcessorNumberFromIndex(*(_DWORD *)(a2 + 196), &v19);

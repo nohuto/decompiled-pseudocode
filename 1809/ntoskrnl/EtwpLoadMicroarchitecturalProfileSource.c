@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpLoadMicroarchitecturalProfileSource @ 0x1408BB900
+ * XREFs of EtwpLoadMicroarchitecturalProfileSource @ 0x1408BCBC0
  * Callers:
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BB660 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BC920 (EtwpLoadMicroarchitecturalProfileGroup.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcsnlen @ 0x140197890 (wcsnlen.c)
- *     wcsncpy_s @ 0x14019BE70 (wcsncpy_s.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcsnlen @ 0x1401979D0 (wcsnlen.c)
+ *     wcsncpy_s @ 0x14019BFB0 (wcsncpy_s.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlpQueryRegistryValues @ 0x1405C68AC (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall EtwpLoadMicroarchitecturalProfileSource(const WCHAR *a1, unsigned __int16 *a2, const wchar_t *a3)
@@ -81,7 +81,7 @@ __int64 __fastcall EtwpLoadMicroarchitecturalProfileSource(const WCHAR *a1, unsi
   *((_BYTE *)v9 + 1) = v11;
   *((_BYTE *)v9 + 176) = 1;
   *((_DWORD *)v9 + 1) = v12;
-  ((void (__fastcall *)(__int64, _QWORD, wchar_t *))off_140400460[0])(20LL, 2 * v6 + 178, v9);
+  ((void (__fastcall *)(__int64, _QWORD, wchar_t *))off_140401460[0])(20LL, 2 * v6 + 178, v9);
   ExFreePoolWithTag(v9, 0x50777445u);
   return 0LL;
 }

@@ -5,8 +5,8 @@
  *     sub_140B0D7A8 @ 0x140B0D7A8 (sub_140B0D7A8.c)
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  * Callees:
- *     sub_1403F1B8C @ 0x1403F1B8C (sub_1403F1B8C.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     sub_1403F1D6C @ 0x1403F1D6C (sub_1403F1D6C.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     sub_140B0D7A8 @ 0x140B0D7A8 (sub_140B0D7A8.c)
  *     sub_140B0F838 @ 0x140B0F838 (sub_140B0F838.c)
  *     sub_140B11020 @ 0x140B11020 (sub_140B11020.c)
@@ -1236,7 +1236,7 @@ LABEL_209:
   *((_DWORD *)v68 + 522) += v160;
 LABEL_233:
   if ( (*((_DWORD *)v68 + 612) & 0x40000000) != 0 && (_DWORD)v160 )
-    sub_1403F1B8C((__int64)v68, v159, v160, (__int64)(v146 + 28));
+    sub_1403F1D6C((__int64)v68, v159, v160, (__int64)(v146 + 28));
   v26 = (_DWORD)v337 == 0;
   *((_DWORD *)v146 + 6) = v336 != 0;
   v330 = v68;

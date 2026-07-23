@@ -1,26 +1,26 @@
 /*
- * XREFs of MiGetPageProtection @ 0x1403061E4
+ * XREFs of MiGetPageProtection @ 0x1402E8264
  * Callers:
- *     MiQueryAddressState @ 0x140305180 (MiQueryAddressState.c)
- *     MiCommitVadFillPageTables @ 0x140310ED0 (MiCommitVadFillPageTables.c)
- *     MiProtectInitialVaAttributes @ 0x14031162C (MiProtectInitialVaAttributes.c)
+ *     MiQueryAddressState @ 0x1402E7200 (MiQueryAddressState.c)
+ *     MiCommitVadFillPageTables @ 0x140312F04 (MiCommitVadFillPageTables.c)
+ *     MiProtectInitialVaAttributes @ 0x140313660 (MiProtectInitialVaAttributes.c)
  * Callees:
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     MiRotatedToFrameBuffer @ 0x1403125B4 (MiRotatedToFrameBuffer.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     MiGetPfnProtection @ 0x140433FF0 (MiGetPfnProtection.c)
- *     MiGetImageProtoProtection @ 0x14043C1D0 (MiGetImageProtoProtection.c)
- *     MiVadExtentCommitted @ 0x14044E770 (MiVadExtentCommitted.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14047F0C4 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiCaptureProtectionFromLockedProto @ 0x1404B3FC4 (MiCaptureProtectionFromLockedProto.c)
- *     MiGetValidAweProtection @ 0x1404E374C (MiGetValidAweProtection.c)
- *     MiGetValidAwePartitionId @ 0x1404F6AF4 (MiGetValidAwePartitionId.c)
- *     MiGetProtectionFromPte @ 0x1405307CC (MiGetProtectionFromPte.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     MiRotatedToFrameBuffer @ 0x1403145E4 (MiRotatedToFrameBuffer.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     MiGetPfnProtection @ 0x1404290C0 (MiGetPfnProtection.c)
+ *     MiGetImageProtoProtection @ 0x14042EA80 (MiGetImageProtoProtection.c)
+ *     MiVadExtentCommitted @ 0x1404468A0 (MiVadExtentCommitted.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140478A34 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiCaptureProtectionFromLockedProto @ 0x1404AD594 (MiCaptureProtectionFromLockedProto.c)
+ *     MiGetValidAweProtection @ 0x1404DCCEC (MiGetValidAweProtection.c)
+ *     MiGetValidAwePartitionId @ 0x1404F0104 (MiGetValidAwePartitionId.c)
+ *     MiGetProtectionFromPte @ 0x140532CCC (MiGetProtectionFromPte.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 **a3, _WORD *a4)
@@ -43,18 +43,20 @@ __int64 __fastcall MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a
   _KPROCESS *Process; // rcx
   __int64 CloneAddress; // rax
   _WORD *v26; // rax
-  __int64 v27; // rbx
-  unsigned int v28; // edx
-  unsigned int v29; // ebx
-  unsigned int *v30; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v31; // [rsp+78h] [rbp+10h]
+  __int64 v27; // rdx
+  __int64 v28; // r8
+  __int64 v29; // rbx
+  unsigned int v30; // edx
+  unsigned int v31; // ebx
+  unsigned int *v32; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v33; // [rsp+78h] [rbp+10h]
 
   v4 = *(_DWORD *)(BugCheckParameter2 + 48);
   *a4 = 0;
   v5 = *(_QWORD *)a2;
   v6 = v4 & 0x1C;
-  v31 = 0LL;
-  v30 = 0LL;
+  v33 = 0LL;
+  v32 = 0LL;
   *a3 = 0LL;
   if ( v6 == 12 && (v4 & 0x880000) != 0x880000 )
   {
@@ -69,31 +71,31 @@ __int64 __fastcall MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a
     v13 = 48 * v11 - 0x220000000000LL;
     if ( v6 == 4 )
     {
-      if ( v11 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+      if ( v11 <= qword_140E2D920 && ((*(_QWORD *)(48 * v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
         *a4 = (*(_QWORD *)(v13 + 40) >> 43) & 0x3FF;
-      v29 = (v4 >> 5) & 0x1F;
+      v31 = (v4 >> 5) & 0x1F;
       if ( (v5 & 0x18) == 8 )
       {
-        v29 |= 0x18u;
+        v31 |= 0x18u;
       }
       else if ( (v5 & 0x10) != 0 )
       {
-        v29 |= 8u;
+        v31 |= 8u;
       }
-      return v29;
+      return v31;
     }
     else if ( v6 == 16 && (unsigned int)MiRotatedToFrameBuffer(a2, 0xFFFFDE0000000000uLL, a3, a4) )
     {
-      v28 = (v5 & 0x800) != 0 ? 4 : 1;
+      v30 = (v5 & 0x800) != 0 ? 4 : 1;
       if ( (v4 & 0xE0) != 0 && (v4 & 0x300) == 768 )
       {
-        v28 |= 0x18u;
+        v30 |= 0x18u;
       }
       else if ( (v4 & 0x300) == 0x100 )
       {
-        v28 |= 8u;
+        v30 |= 8u;
       }
-      return v28;
+      return v30;
     }
     else
     {
@@ -116,7 +118,7 @@ __int64 __fastcall MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a
   {
     if ( (v5 & 0x800) != 0 && (v15 = MiLockTransitionLeafPageEx(a2)) != 0 )
     {
-      v21 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL));
+      v21 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL));
       if ( (*(_DWORD *)(v21 + 4) & 0x20) != 0 )
         v21 = **(_QWORD **)(v21 + 21400);
       *a4 = *(_WORD *)v21;
@@ -124,7 +126,7 @@ __int64 __fastcall MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a
     }
     else
     {
-      *a4 = **(_WORD **)(stru_140E2EB88.ThreadLock
+      *a4 = **(_WORD **)(stru_140E2ED08.ThreadLock
                        + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
     }
     LODWORD(v5) = (v5 >> 5) & 0x1F;
@@ -136,12 +138,12 @@ __int64 __fastcall MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a
     v19 = (__int64)(a2 << 25) >> 16;
     if ( (v4 & 0x80000) == 0 )
     {
-      *v18 = **(_WORD **)(stru_140E2EB88.ThreadLock
+      *v18 = **(_WORD **)(stru_140E2ED08.ThreadLock
                         + 8LL * (*(_DWORD *)(**(_QWORD **)(BugCheckParameter2 + 80) + 60LL) & 0x3FF));
-      ProtoPteAddress = (__int64 *)MiGetProtoPteAddress(BugCheckParameter2, v19 >> 12, 0xCu, &v30);
+      ProtoPteAddress = (__int64 *)MiGetProtoPteAddress(BugCheckParameter2, v19 >> 12, 0xCu, &v32);
       if ( ProtoPteAddress && (unsigned int)MiVadExtentCommitted(BugCheckParameter2, v19) )
       {
-        if ( *(_QWORD *)(*(_QWORD *)v30 + 64LL) || (*(_DWORD *)(*(_QWORD *)v30 + 56LL) & 0x2000) != 0 )
+        if ( *(_QWORD *)(*(_QWORD *)v32 + 64LL) || (*(_DWORD *)(*(_QWORD *)v32 + 56LL) & 0x2000) != 0 )
           return (unsigned int)v5;
         if ( (int)MiTryLockProtoPoolPageAtDpc((ULONG_PTR)ProtoPteAddress) < 0 )
         {
@@ -149,9 +151,10 @@ __int64 __fastcall MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a
           LODWORD(v5) = 256;
           return (unsigned int)v5;
         }
-        v27 = *ProtoPteAddress;
-        MiUnlockProtoPoolPage(v31, 0x11u);
-        if ( v27 )
+        LOBYTE(v27) = 17;
+        v29 = *ProtoPteAddress;
+        MiUnlockProtoPoolPage(v33, v27, v28);
+        if ( v29 )
           return (unsigned int)v5;
       }
       LODWORD(v5) = 0;
@@ -178,7 +181,7 @@ LABEL_37:
   }
   if ( v6 != 8 || (v4 & 0x3E0) != 0xE0 )
     KeBugCheckEx(0x1Au, 0x41202uLL, a2, v5, BugCheckParameter2);
-  *a4 = **(_WORD **)(stru_140E2EB88.ThreadLock
+  *a4 = **(_WORD **)(stru_140E2ED08.ThreadLock
                    + 8LL * (*(_DWORD *)(**(_QWORD **)(BugCheckParameter2 + 80) + 60LL) & 0x3FF));
   return MiGetImageProtoProtection(BugCheckParameter2, PrototypePteDirect, 1023LL, v23);
 }

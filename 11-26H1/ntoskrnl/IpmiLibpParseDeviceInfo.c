@@ -1,7 +1,7 @@
 /*
- * XREFs of IpmiLibpParseDeviceInfo @ 0x14071D318
+ * XREFs of IpmiLibpParseDeviceInfo @ 0x140721FA8
  * Callers:
- *     IpmiHwInitializeContext @ 0x14071CEF4 (IpmiHwInitializeContext.c)
+ *     IpmiHwInitializeContext @ 0x140721B84 (IpmiHwInitializeContext.c)
  * Callees:
  *     <none>
  */

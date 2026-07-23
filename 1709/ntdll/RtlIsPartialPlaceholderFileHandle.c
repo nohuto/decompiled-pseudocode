@@ -6,16 +6,17 @@
  *     NtQueryInformationFile @ 0x1800A02E0 (NtQueryInformationFile.c)
  */
 
-__int64 __fastcall RtlIsPartialPlaceholderFileHandle(__int64 a1, bool *a2)
+NTSTATUS __cdecl RtlIsPartialPlaceholderFileHandle(HANDLE FileHandle, PBOOLEAN IsPartialPlaceholder)
 {
-  __int64 result; // rax
-  _BYTE v4[3]; // [rsp+60h] [rbp+18h]
+  NTSTATUS result; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-18h] BYREF
+  int FileInformation; // [rsp+60h] [rbp+18h] BYREF
 
-  result = NtQueryInformationFile();
-  if ( (int)result >= 0 )
+  result = NtQueryInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 8u, FileAttributeTagInformation);
+  if ( result >= 0 )
   {
-    *a2 = (*(_DWORD *)v4 & 0x440000) != 0;
-    return 0LL;
+    *IsPartialPlaceholder = (FileInformation & 0x440000) != 0;
+    return 0;
   }
   return result;
 }

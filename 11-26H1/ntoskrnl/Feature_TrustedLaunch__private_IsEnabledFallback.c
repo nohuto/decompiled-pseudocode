@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_TrustedLaunch__private_IsEnabledFallback @ 0x14063AD04
+ * XREFs of Feature_TrustedLaunch__private_IsEnabledFallback @ 0x14063DDCC
  * Callers:
- *     Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline @ 0x14063ACC8 (Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline @ 0x14063DD90 (Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_TrustedLaunch__private_IsEnabledFallback(__int64 a1, unsigned int a2)

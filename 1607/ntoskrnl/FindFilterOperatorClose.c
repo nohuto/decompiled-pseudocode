@@ -1,7 +1,7 @@
 /*
- * XREFs of FindFilterOperatorClose @ 0x14050256C
+ * XREFs of FindFilterOperatorClose @ 0x1404E54FC
  * Callers:
- *     FilterEvalStrict @ 0x140501F94 (FilterEvalStrict.c)
+ *     FilterEvalStrict @ 0x1404E4F24 (FilterEvalStrict.c)
  * Callees:
  *     <none>
  */

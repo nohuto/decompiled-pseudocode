@@ -25,7 +25,7 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
   __int64 v14; // rcx
   __int64 v15; // rcx
   __int64 v16; // r8
-  unsigned int v17; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v17; // [rsp+68h] [rbp+20h] BYREF
 
   v6 = RtlpHpSegDescriptorValidate(a1, a2);
   v7 = 0;
@@ -41,15 +41,15 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
       }
       else
       {
-        v10 = RtlpHpVsContextFree(*(_QWORD *)(a1 + 32), v9, a2, a3, &v17);
+        v10 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(a1 + 32), v9, a2, a3, (unsigned int *)&v17);
         if ( v10 )
         {
           v14 = *(_QWORD *)(a1 + 24);
-          if ( v17 <= (unsigned int)*(unsigned __int16 *)(v14 + 60) - 16 )
-            RtlpHpLfhBucketUpdateStats(v14, v17, 0LL);
+          if ( (unsigned int)v17 <= (unsigned int)*(unsigned __int16 *)(v14 + 60) - 16 )
+            RtlpHpLfhBucketUpdateStats(v14, (unsigned int)v17, 0LL);
         }
       }
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v15 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v15 = 2147353472LL;

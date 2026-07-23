@@ -104,11 +104,9 @@ char __thiscall RtlDeactivateActivationContextUnsafeFast(int *this)
       v12 = (_RTL_ACTIVATION_CONTEXT_STACK_FRAME *)*v7;
       DbgPrintEx(
         51,
-        2,
-        "SXS: %s() Active frame is not the frame being deactivated %p != %p\n",
-        "RtlDeactivateActivationContextUnsafeFast",
-        ActivationContextStackPointer->ActiveFrame,
-        this + 2);
+        2u,
+        (int)"SXS: %s() Active frame is not the frame being deactivated %p != %p\n",
+        (int)"RtlDeactivateActivationContextUnsafeFast");
       v8 = v11;
       v9 = 0;
       if ( !v11 )

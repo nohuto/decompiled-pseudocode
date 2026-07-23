@@ -10,11 +10,11 @@
 
 __int64 PopEsPublishState()
 {
-  int v1; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
   int v2; // [rsp+54h] [rbp+Ch]
 
   v2 = -1;
-  v1 = v1 & 0x800000 | 1 | (2 * (PopEsState == 1));
-  ZwUpdateWnfStateData((__int64)&WNF_PO_ENERGY_SAVER_STATE, (__int64)&v1, 8LL);
+  Buffer = Buffer & 0x800000 | 1 | (2 * (PopEsState == 1));
+  ZwUpdateWnfStateData(&WNF_PO_ENERGY_SAVER_STATE, &Buffer, 8u, 0LL, 0LL, 0, 0);
   return PopSetPowerSettingValueAcDc(&GUID_POWER_SAVING_STATUS, 4u, &PopEsState);
 }

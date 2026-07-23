@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpNtDeleteWnfStateData @ 0x14085BE6C
+ * XREFs of ExpNtDeleteWnfStateData @ 0x14085C0AC
  * Callers:
- *     NtDeleteWnfStateData @ 0x14085BE50 (NtDeleteWnfStateData.c)
- *     ExWnfCrossVmCallback @ 0x140A00570 (ExWnfCrossVmCallback.c)
+ *     NtDeleteWnfStateData @ 0x14085C090 (NtDeleteWnfStateData.c)
+ *     ExWnfCrossVmCallback @ 0x140A00800 (ExWnfCrossVmCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExpWnfLookupPermanentName @ 0x14071096C (ExpWnfLookupPermanentName.c)
- *     ExpCaptureWnfStateName @ 0x14071308C (ExpCaptureWnfStateName.c)
- *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14071313C (ExpWnfReleaseCapturedScopeInstanceId.c)
- *     ExpWnfLookupNameInstance @ 0x140713190 (ExpWnfLookupNameInstance.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14071328C (ExpWnfCaptureScopeInstanceId.c)
- *     ExpWnfResolveScopeInstance @ 0x140713368 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCheckCallerAccess @ 0x140713834 (ExpWnfCheckCallerAccess.c)
- *     ExpWnfDeleteStateData @ 0x1407C99DC (ExpWnfDeleteStateData.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1407E37B4 (ExpWnfCheckCrossScopeAccess.c)
- *     ExpCrossVmWnfPush @ 0x1407E9000 (ExpCrossVmWnfPush.c)
- *     ExpWnfDeletePermanentStateData @ 0x140A072EC (ExpWnfDeletePermanentStateData.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExpWnfLookupPermanentName @ 0x140710B7C (ExpWnfLookupPermanentName.c)
+ *     ExpCaptureWnfStateName @ 0x14071329C (ExpCaptureWnfStateName.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14071334C (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpWnfLookupNameInstance @ 0x1407133A0 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14071349C (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfResolveScopeInstance @ 0x140713578 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCheckCallerAccess @ 0x140713A44 (ExpWnfCheckCallerAccess.c)
+ *     ExpWnfDeleteStateData @ 0x1407C9CAC (ExpWnfDeleteStateData.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1407E3A84 (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpCrossVmWnfPush @ 0x1407E92D0 (ExpCrossVmWnfPush.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A0757C (ExpWnfDeletePermanentStateData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

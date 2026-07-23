@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlNotifyReportChange @ 0x14061FE50
+ * XREFs of FsRtlNotifyReportChange @ 0x14061FF04
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlNotifyFilterReportChange @ 0x1404BF290 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1404AAFC0 (FsRtlNotifyFilterReportChange.c)
  */
 
 void __fastcall FsRtlNotifyReportChange(
         struct _REAL_NOTIFY_SYNC *a1,
-        struct _LIST_ENTRY *a2,
+        _LIST_ENTRY *a2,
         STRING *a3,
         _WORD *a4,
         ULONG FilterMatch)

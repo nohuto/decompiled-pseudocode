@@ -1,13 +1,13 @@
 /*
- * XREFs of MmInitializeMemoryLimits @ 0x140A3A6AC
+ * XREFs of MmInitializeMemoryLimits @ 0x140A3B6AC
  * Callers:
- *     IopInitializeResourceMap @ 0x140A3A34C (IopInitializeResourceMap.c)
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
- *     IopInitCrashDumpDuringSysInit @ 0x140A6CE38 (IopInitCrashDumpDuringSysInit.c)
+ *     IopInitializeResourceMap @ 0x140A3B34C (IopInitializeResourceMap.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140A6DE38 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MmInitializeMemoryLimits(__int64 a1, __int64 a2)

@@ -7,18 +7,18 @@
  *     _ZwAlertThreadByThreadId@4 @ 0x4B2F3080 (_ZwAlertThreadByThreadId@4.c)
  */
 
-int __fastcall TppIteWakeWaiters(_DWORD *a1)
+NTSTATUS __fastcall TppIteWakeWaiters(int **a1)
 {
-  _DWORD *v1; // esi
-  int result; // eax
+  int *v1; // esi
+  NTSTATUS result; // eax
 
   if ( a1 )
   {
     do
     {
-      v1 = (_DWORD *)*a1;
+      v1 = *a1;
       result = ZwAlertThreadByThreadId(a1[1]);
-      a1 = v1;
+      a1 = (int **)v1;
     }
     while ( v1 );
   }

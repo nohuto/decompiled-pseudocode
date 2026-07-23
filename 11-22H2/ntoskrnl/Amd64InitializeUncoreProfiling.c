@@ -18,8 +18,8 @@ void Amd64InitializeUncoreProfiling()
   int *v7; // rdi
   __int64 v8; // rsi
   unsigned int v9; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-40h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-20h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-40h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-20h] BYREF
 
   _RAX = 0x80000000LL;
   __asm { cpuid }

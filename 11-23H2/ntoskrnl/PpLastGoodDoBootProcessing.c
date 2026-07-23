@@ -3,7 +3,7 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
  *     IopFileUtilRename @ 0x140B6E048 (IopFileUtilRename.c)
  *     PiLastGoodCopyKeyContents @ 0x140B6E120 (PiLastGoodCopyKeyContents.c)
  *     CmIsLastKnownGoodBoot @ 0x140B6E1FC (CmIsLastKnownGoodBoot.c)
@@ -34,7 +34,7 @@ __int64 PpLastGoodDoBootProcessing()
     PiLastGoodRevertLastKnownDirectory(&DestinationString, &v3);
     return PiLastGoodRevertLastKnownDirectory(&v6, &v5);
   }
-  else if ( !(_DWORD)InitSafeBootMode )
+  else if ( !InitSafeBootMode )
   {
     result = IopFileUtilRename(&DestinationString, &v6, 0LL);
     if ( (int)(result + 0x80000000) < 0 || (_DWORD)result == -1073741772 )

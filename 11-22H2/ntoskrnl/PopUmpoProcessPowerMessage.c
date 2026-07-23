@@ -22,9 +22,6 @@ __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1)
 {
   __int64 result; // rax
   int v2; // ebx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
 
   switch ( *(_DWORD *)a1 )
   {
@@ -60,7 +57,7 @@ __int64 __fastcall PopUmpoProcessPowerMessage(__int64 a1)
         PopIdleCancelAoAcDozeS4Timer(4u);
         PopIdleArmAoAcDozeS4Timer();
       }
-      PopReleasePolicyLock(v4, v3, v5);
+      PopReleasePolicyLock();
       break;
   }
   return 0LL;

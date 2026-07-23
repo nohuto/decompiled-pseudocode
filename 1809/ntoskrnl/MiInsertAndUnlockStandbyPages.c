@@ -8,10 +8,10 @@
  * Callees:
  *     MiInsertProtectedStandbyPage @ 0x140028F30 (MiInsertProtectedStandbyPage.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiInsertAndUnlockStandbyPages(__int64 a1, __int64 *a2, __int64 a3, unsigned __int8 a4)
@@ -83,8 +83,8 @@ __int64 __fastcall MiInsertAndUnlockStandbyPages(__int64 a1, __int64 *a2, __int6
         else
           v17 = v16 & 7;
         if ( !v10 )
-          v10 = *(_QWORD *)(qword_14043A748 + 8LL * ((HIDWORD(v15) >> 8) & 0x3FF));
-        if ( v17 != v11 || v10 != *(_QWORD *)(qword_14043A748 + 8 * ((v15 >> 40) & 0x3FF)) )
+          v10 = *(_QWORD *)(qword_14043B808 + 8LL * ((HIDWORD(v15) >> 8) & 0x3FF));
+        if ( v17 != v11 || v10 != *(_QWORD *)(qword_14043B808 + 8 * ((v15 >> 40) & 0x3FF)) )
         {
           if ( v11 != 0xFFFFFF )
           {
@@ -92,7 +92,7 @@ __int64 __fastcall MiInsertAndUnlockStandbyPages(__int64 a1, __int64 *a2, __int6
             v15 = *(_QWORD *)(v13 + 40);
           }
           v11 = v17;
-          v10 = *(_QWORD *)(qword_14043A748 + 8 * ((v15 >> 40) & 0x3FF));
+          v10 = *(_QWORD *)(qword_14043B808 + 8 * ((v15 >> 40) & 0x3FF));
           v23 = 0LL;
           v24 = v10 + 40 * (v17 + 60LL);
           KxAcquireQueuedSpinLock(&v23);

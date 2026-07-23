@@ -1,22 +1,22 @@
 /*
- * XREFs of PopPepProcessEvent @ 0x140313900
+ * XREFs of PopPepProcessEvent @ 0x140313B90
  * Callers:
- *     PopFxProcessWork @ 0x140312634 (PopFxProcessWork.c)
- *     PopPluginDevicePower @ 0x140313270 (PopPluginDevicePower.c)
- *     PopPluginComponentActive @ 0x14031378C (PopPluginComponentActive.c)
- *     PopPepNotifyIdleState @ 0x14035C4C0 (PopPepNotifyIdleState.c)
- *     PopPepCompleteComponentIdleState @ 0x14059EBA4 (PopPepCompleteComponentIdleState.c)
- *     PopPepUnregisterDevice @ 0x14099D928 (PopPepUnregisterDevice.c)
+ *     PopFxProcessWork @ 0x1403128C4 (PopFxProcessWork.c)
+ *     PopPluginDevicePower @ 0x140313500 (PopPluginDevicePower.c)
+ *     PopPluginComponentActive @ 0x140313A1C (PopPluginComponentActive.c)
+ *     PopPepNotifyIdleState @ 0x14035C660 (PopPepNotifyIdleState.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059F094 (PopPepCompleteComponentIdleState.c)
+ *     PopPepUnregisterDevice @ 0x14099DB28 (PopPepUnregisterDevice.c)
  * Callees:
- *     PopPepTryPowerDownDevice @ 0x140310CD0 (PopPepTryPowerDownDevice.c)
- *     PopPepCountReadyActivities @ 0x140313A54 (PopPepCountReadyActivities.c)
- *     PopPepRequestWork @ 0x140313AA0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140313AE4 (PopPepReleaseActivityLink.c)
- *     PopPepLockActivityLink @ 0x140313B68 (PopPepLockActivityLink.c)
- *     PopPepPromoteActivities @ 0x140313C60 (PopPepPromoteActivities.c)
- *     PopPepComponentGetWork @ 0x140313D9C (PopPepComponentGetWork.c)
- *     PopPepCompleteActivity @ 0x140314020 (PopPepCompleteActivity.c)
- *     PopPepTriggerActivity @ 0x1403140FC (PopPepTriggerActivity.c)
+ *     PopPepTryPowerDownDevice @ 0x140310F60 (PopPepTryPowerDownDevice.c)
+ *     PopPepCountReadyActivities @ 0x140313CE4 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x140313D30 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x140313D74 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x140313DF8 (PopPepLockActivityLink.c)
+ *     PopPepPromoteActivities @ 0x140313EF0 (PopPepPromoteActivities.c)
+ *     PopPepComponentGetWork @ 0x14031402C (PopPepComponentGetWork.c)
+ *     PopPepCompleteActivity @ 0x1403142B0 (PopPepCompleteActivity.c)
+ *     PopPepTriggerActivity @ 0x14031438C (PopPepTriggerActivity.c)
  */
 
 char __fastcall PopPepProcessEvent(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5, __int64 a6)

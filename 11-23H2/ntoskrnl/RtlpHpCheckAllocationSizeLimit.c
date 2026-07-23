@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpCheckAllocationSizeLimit @ 0x1405B5E44
+ * XREFs of RtlpHpCheckAllocationSizeLimit @ 0x1405B63B4
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x14034CB38 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x14034CCD8 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpCheckAllocationSizeLimit(unsigned __int64 a1, ULONG_PTR a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiMcheckFastForward @ 0x1405CA050
+ * XREFs of KiMcheckFastForward @ 0x1405C7780
  * Callers:
- *     KiNmiInterruptStart @ 0x1406B67C0 (KiNmiInterruptStart.c)
- *     KiMcheckAbort @ 0x1406BAAC0 (KiMcheckAbort.c)
+ *     KiNmiInterruptStart @ 0x1406B76C0 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x1406BB9C0 (KiMcheckAbort.c)
  * Callees:
- *     KiRspInIstStack @ 0x14040EE44 (KiRspInIstStack.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiRspInIstStack @ 0x140407044 (KiRspInIstStack.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
@@ -35,18 +35,18 @@ char __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
     if ( (unsigned int)KiRspInIstStack(2u, v5) )
     {
       v4 |= 2u;
-      _InterlockedAdd(&dword_140F0F8A4, 1u);
+      _InterlockedAdd(&dword_140F0FB64, 1u);
     }
     v6 = *(_QWORD *)(BugCheckParameter4 + 360);
     if ( v6 >= (unsigned __int64)&KiMcheckExitMceTailMceBegin && v6 < (unsigned __int64)&KiMcheckExitMceTailMceEnd )
     {
       v4 |= 4u;
-      _InterlockedAdd(&dword_140F0F8A8, 1u);
+      _InterlockedAdd(&dword_140F0FB68, 1u);
     }
     if ( v6 >= (unsigned __int64)&KiMcheckExitMceTailNmiBegin && v6 < (unsigned __int64)KiMcheckExitMceTailNmiEnd )
     {
       v4 |= 4u;
-      _InterlockedAdd(&dword_140F0F8A8, 1u);
+      _InterlockedAdd(&dword_140F0FB68, 1u);
     }
     if ( KiKvaShadow )
     {
@@ -54,14 +54,14 @@ char __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
         && v6 < (unsigned __int64)&KiKernelIstMceExitMceTailMceEnd )
       {
         v4 |= 4u;
-        _InterlockedAdd(&dword_140F0F8AC, 1u);
+        _InterlockedAdd(&dword_140F0FB6C, 1u);
       }
       if ( KiKvaShadow
         && v6 >= (unsigned __int64)&KiKernelIstMceExitMceTailNmiBegin
         && v6 < (unsigned __int64)&KiKernelIstMceExitMceTailNmiEnd )
       {
         v4 |= 4u;
-        _InterlockedAdd(&dword_140F0F8AC, 1u);
+        _InterlockedAdd(&dword_140F0FB6C, 1u);
       }
     }
   }
@@ -69,14 +69,14 @@ char __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
   LOBYTE(Rdx) = v4 & 1;
   if ( a2 || (v4 & 1) != 0 )
   {
-    _InterlockedAdd(&dword_140F0F8B8, 1u);
+    _InterlockedAdd(&dword_140F0FB78, 1u);
     if ( (v4 & 1) != 0 )
-      _InterlockedAdd(&dword_140F0F8C0, 1u);
+      _InterlockedAdd(&dword_140F0FB80, 1u);
     v9 = 1;
   }
   else
   {
-    _InterlockedAdd(&dword_140F0F8BC, 1u);
+    _InterlockedAdd(&dword_140F0FB7C, 1u);
     v9 = 0;
   }
   if ( KiKvaShadow )
@@ -116,7 +116,7 @@ LABEL_36:
     McheckContext = CurrentPrcb->McheckContext;
   if ( (v4 & 4) != 0 )
   {
-    _InterlockedAdd(&dword_140F0F8C4, 1u);
+    _InterlockedAdd(&dword_140F0FB84, 1u);
     GsBase = McheckContext->GsBase;
     if ( KiKvaShadow )
     {
@@ -124,7 +124,7 @@ LABEL_36:
       *(_QWORD *)(v11 + 24) = McheckContext->Cr3;
       if ( (McheckContext->Cr3 & 3) != 0 && CurrentPrcb->CurrentThread->Process->AddressPolicy != 1 )
       {
-        _InterlockedAdd(&dword_140F0F8C8, 1u);
+        _InterlockedAdd(&dword_140F0FB88, 1u);
         _interlockedbittestandreset((volatile signed __int32 *)&CurrentPrcb->ShadowFlags, 0);
         v14 = __readcr4();
         if ( (v14 & 0x20080) != 0 )
@@ -150,12 +150,12 @@ LABEL_36:
     *(_QWORD *)(BugCheckParameter4 + 56) = McheckContext->Rcx;
     Rdx = McheckContext->Rdx;
     *(_QWORD *)(BugCheckParameter4 + 64) = Rdx;
-    _InterlockedAdd(&dword_140F0F8B4, 1u);
+    _InterlockedAdd(&dword_140F0FB74, 1u);
     McheckContext->MachineFrame.SegCs = 0;
   }
   if ( !a2 )
   {
-    _InterlockedAdd(&dword_140F0F8B0, 1u);
+    _InterlockedAdd(&dword_140F0FB70, 1u);
     *(_OWORD *)&McheckContext->MachineFrame.Rip = *(_OWORD *)(BugCheckParameter4 + 360);
     *(_OWORD *)&McheckContext->MachineFrame.EFlags = *(_OWORD *)(BugCheckParameter4 + 376);
     *(_QWORD *)&McheckContext->MachineFrame.SegSs = *(_QWORD *)(BugCheckParameter4 + 392);

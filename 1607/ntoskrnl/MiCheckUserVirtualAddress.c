@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckUserVirtualAddress @ 0x14001EED0
+ * XREFs of MiCheckUserVirtualAddress @ 0x14001EA50
  * Callers:
- *     MiCheckVirtualAddress @ 0x14001EDF8 (MiCheckVirtualAddress.c)
- *     MiResolveDemandZeroFault @ 0x14003AA90 (MiResolveDemandZeroFault.c)
- *     MiResolvePageTablePage @ 0x14003FD10 (MiResolvePageTablePage.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
+ *     MiCheckVirtualAddress @ 0x14001E978 (MiCheckVirtualAddress.c)
+ *     MiResolveDemandZeroFault @ 0x14003A610 (MiResolveDemandZeroFault.c)
+ *     MiResolvePageTablePage @ 0x14003F890 (MiResolvePageTablePage.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
  * Callees:
- *     MiLocateVadEvent @ 0x140015564 (MiLocateVadEvent.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
+ *     MiLocateVadEvent @ 0x1400150E4 (MiLocateVadEvent.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
  */
 
 __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, int *a2, __int64 a3, unsigned int a4)
@@ -30,12 +30,12 @@ __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, int *a2, __int
     if ( (a1 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
     {
       *a2 = 1;
-      return qword_140326988;
+      return qword_1403269C8;
     }
-    if ( v8 == qword_140326998 && v8 )
+    if ( v8 == qword_1403269D8 && v8 )
     {
       *a2 = 1;
-      return qword_140326990;
+      return qword_1403269D0;
     }
   }
   v10 = *(_DWORD *)(a3 + 48);

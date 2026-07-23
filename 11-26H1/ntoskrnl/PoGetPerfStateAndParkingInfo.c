@@ -1,19 +1,19 @@
 /*
- * XREFs of PoGetPerfStateAndParkingInfo @ 0x14047C978
+ * XREFs of PoGetPerfStateAndParkingInfo @ 0x1404762E8
  * Callers:
- *     ExpQueryProcessorInformationCounters @ 0x140A68F60 (ExpQueryProcessorInformationCounters.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQueryProcessorInformationCounters @ 0x140A75F30 (ExpQueryProcessorInformationCounters.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     PpmGetThroughputInfoCallback @ 0x140253110 (PpmGetThroughputInfoCallback.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     PpmPerfGetCurrentState @ 0x14047CB64 (PpmPerfGetCurrentState.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     PpmGetThroughputInfoCallback @ 0x140254A70 (PpmGetThroughputInfoCallback.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmPerfGetCurrentState @ 0x1404764D4 (PpmPerfGetCurrentState.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall PoGetPerfStateAndParkingInfo(

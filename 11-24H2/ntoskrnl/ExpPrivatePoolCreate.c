@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpPrivatePoolCreate @ 0x1407C5F40
+ * XREFs of ExpPrivatePoolCreate @ 0x1407C63A0
  * Callers:
- *     ExCreatePool @ 0x140653E80 (ExCreatePool.c)
+ *     ExCreatePool @ 0x1406525E0 (ExCreatePool.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
- *     RtlHpEnvContextCreate @ 0x1404031A0 (RtlHpEnvContextCreate.c)
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
- *     RtlpHpHeapCreate @ 0x140604D0C (RtlpHpHeapCreate.c)
- *     RtlpHpLfhContextUpdateConfig @ 0x14060696C (RtlpHpLfhContextUpdateConfig.c)
- *     ExpAcquirePoolListLockExclusive @ 0x14065B334 (ExpAcquirePoolListLockExclusive.c)
- *     ExpReleasePoolListLockExclusive @ 0x14065B398 (ExpReleasePoolListLockExclusive.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpPrivatePoolDestroy @ 0x1407C616C (ExpPrivatePoolDestroy.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
+ *     RtlHpEnvContextCreate @ 0x1403FD7A0 (RtlHpEnvContextCreate.c)
+ *     RtlpHpMetadataAlloc @ 0x140458A08 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpHeapCreate @ 0x14060234C (RtlpHpHeapCreate.c)
+ *     RtlpHpLfhContextUpdateConfig @ 0x140603FAC (RtlpHpLfhContextUpdateConfig.c)
+ *     ExpAcquirePoolListLockExclusive @ 0x140659A54 (ExpAcquirePoolListLockExclusive.c)
+ *     ExpReleasePoolListLockExclusive @ 0x140659AB8 (ExpReleasePoolListLockExclusive.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpPrivatePoolDestroy @ 0x1407C65CC (ExpPrivatePoolDestroy.c)
  */
 
 __int64 __fastcall ExpPrivatePoolCreate(unsigned int a1, __int64 a2, __int64 a3, const UNICODE_STRING *a4, _QWORD *a5)
@@ -102,7 +102,7 @@ LABEL_15:
         }
         ExpAcquirePoolListLockExclusive();
         v23 = (__int64 **)(v14 + 32);
-        v24 = &qword_140E6BBE8[2 * v6];
+        v24 = &qword_140E6BDE8[2 * v6];
         v25 = (__int64 **)v24[1];
         if ( *v25 != v24 )
           __fastfail(3u);

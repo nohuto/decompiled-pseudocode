@@ -1,12 +1,12 @@
 /*
- * XREFs of HalGetEnvironmentVariable @ 0x14057C330
+ * XREFs of HalGetEnvironmentVariable @ 0x14057E860
  * Callers:
- *     NtQuerySystemEnvironmentValue @ 0x14083DE30 (NtQuerySystemEnvironmentValue.c)
+ *     NtQuerySystemEnvironmentValue @ 0x140844070 (NtQuerySystemEnvironmentValue.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140451A74 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140530540 (HalpAcquireCmosSpinLock.c)
- *     _stricmp @ 0x140536260 (_stricmp.c)
- *     strncpy_s @ 0x14053C7D0 (strncpy_s.c)
+ *     HalpReleaseCmosSpinLock @ 0x140449BA4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140532A40 (HalpAcquireCmosSpinLock.c)
+ *     _stricmp @ 0x1405386E0 (_stricmp.c)
+ *     strncpy_s @ 0x14053EC50 (strncpy_s.c)
  */
 
 __int64 __fastcall HalGetEnvironmentVariable(const char *a1, unsigned __int16 a2, char *a3)
@@ -17,7 +17,7 @@ __int64 __fastcall HalGetEnvironmentVariable(const char *a1, unsigned __int16 a2
   const char *v8; // r8
 
   v4 = a2;
-  if ( HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104] )
+  if ( HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72] )
     return 7LL;
   if ( stricmp(a1, "LastKnownGood") )
     return 14LL;

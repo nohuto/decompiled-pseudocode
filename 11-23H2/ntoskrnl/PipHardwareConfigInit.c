@@ -3,18 +3,18 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     KeQueryBootTimeValues @ 0x140350FEC (KeQueryBootTimeValues.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C900 (ZwDeleteValueKey.c)
+ *     KeQueryBootTimeValues @ 0x14035118C (KeQueryBootTimeValues.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14041CC90 (ZwDeleteValueKey.c)
  *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEB0 (_PnpCtxGetCachedContextBaseKey.c)
- *     IopCreateRegistryKeyEx @ 0x1407DA498 (IopCreateRegistryKeyEx.c)
- *     _PnpCtxRegQueryKeyPathName @ 0x1408598E8 (_PnpCtxRegQueryKeyPathName.c)
- *     PipHardwareConfigClearStartOverrides @ 0x140951E3C (PipHardwareConfigClearStartOverrides.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x140951FE0 (PipHardwareConfigTriggerRespecialize.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEE0 (_PnpCtxGetCachedContextBaseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x1407DA768 (IopCreateRegistryKeyEx.c)
+ *     _PnpCtxRegQueryKeyPathName @ 0x140859B28 (_PnpCtxRegQueryKeyPathName.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x14095203C (PipHardwareConfigClearStartOverrides.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x1409521E0 (PipHardwareConfigTriggerRespecialize.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     PipHardwareConfigExists @ 0x140B94274 (PipHardwareConfigExists.c)
  */
@@ -160,7 +160,7 @@ LABEL_14:
                   CachedContextBaseKey = ZwSetValueKey(v24, &CmSymbolicLinkValueName, 0, 6u, v28, 2 * (_DWORD)v21 - 2);
                   if ( CachedContextBaseKey >= 0 )
                   {
-                    if ( (_DWORD)InitSafeBootMode
+                    if ( InitSafeBootMode
                       || IopGetRegistryValue(v8, L"Reset", 0, &v18) >= 0
                       && (v18[1] != 4 || v18[3] != 4
                         ? (v16 = 0)

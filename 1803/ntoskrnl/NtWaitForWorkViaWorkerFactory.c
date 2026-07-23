@@ -59,18 +59,18 @@
  *     ExRaiseDatatypeMisalignment @ 0x1407C5940 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtWaitForWorkViaWorkerFactory(
-        HANDLE Handle,
-        volatile void *Address,
-        unsigned int a3,
-        unsigned __int64 a4,
-        unsigned __int64 a5)
+NTSTATUS __cdecl NtWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
-  unsigned int v6; // r12d
+  ULONG v6; // r12d
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v9; // rcx
   __int64 v10; // r9
-  NTSTATUS v11; // r14d
+  int v11; // r14d
   PVOID v12; // r13
   unsigned __int64 *v13; // r10
   unsigned __int8 CurrentIrql; // al
@@ -106,7 +106,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   signed __int64 v44; // rsi
   bool v45; // cc
   signed __int64 v46; // rsi
-  int v48; // r15d
+  ULONG v48; // r15d
   HANDLE v49; // rdi
   struct _KTHREAD *v50; // rax
   unsigned int v51; // r15d
@@ -184,7 +184,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   __int64 v123; // r9
   __int64 v124; // rax
   int HandleInformation; // [rsp+28h] [rbp-220h]
-  int v126; // [rsp+38h] [rbp-210h]
+  int Timeout; // [rsp+38h] [rbp-210h]
   unsigned __int8 v127; // [rsp+40h] [rbp-208h]
   unsigned __int8 v128; // [rsp+41h] [rbp-207h]
   ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp-200h]
@@ -194,7 +194,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   __int64 v133; // [rsp+70h] [rbp-1D8h]
   struct _KPRCB *v134; // [rsp+78h] [rbp-1D0h]
   int v135; // [rsp+80h] [rbp-1C8h] BYREF
-  int v136; // [rsp+84h] [rbp-1C4h] BYREF
+  ULONG v136; // [rsp+84h] [rbp-1C4h] BYREF
   __int64 v137; // [rsp+88h] [rbp-1C0h]
   PVOID v138; // [rsp+90h] [rbp-1B8h] BYREF
   PVOID Object; // [rsp+98h] [rbp-1B0h] BYREF
@@ -205,15 +205,15 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   ULONG_PTR v144; // [rsp+C0h] [rbp-188h]
   PVOID v145; // [rsp+C8h] [rbp-180h] BYREF
   PVOID v146; // [rsp+D0h] [rbp-178h]
-  HANDLE Handlea[2]; // [rsp+D8h] [rbp-170h]
-  __int64 v148; // [rsp+E8h] [rbp-160h]
+  HANDLE Handle[2]; // [rsp+D8h] [rbp-170h]
+  ULONG Flags[2]; // [rsp+E8h] [rbp-160h]
   int v149; // [rsp+F0h] [rbp-158h]
   int v150; // [rsp+F4h] [rbp-154h] BYREF
   int v151; // [rsp+F8h] [rbp-150h] BYREF
   int v152; // [rsp+FCh] [rbp-14Ch] BYREF
-  _DWORD *v153; // [rsp+100h] [rbp-148h]
+  PULONG v153; // [rsp+100h] [rbp-148h]
   struct _KPRCB *v154; // [rsp+108h] [rbp-140h]
-  volatile void *v155; // [rsp+110h] [rbp-138h]
+  PFILE_IO_COMPLETION_INFORMATION v155; // [rsp+110h] [rbp-138h]
   char *v156; // [rsp+118h] [rbp-130h]
   _QWORD *v157; // [rsp+120h] [rbp-128h]
   char *v158; // [rsp+128h] [rbp-120h]
@@ -222,44 +222,44 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   _BYTE v161[128]; // [rsp+180h] [rbp-C8h] BYREF
   _UNKNOWN *retaddr; // [rsp+248h] [rbp+0h]
 
-  v153 = (_DWORD *)a4;
-  v6 = a3;
-  v155 = Address;
-  v137 = (__int64)Handle;
-  v133 = (__int64)Address;
-  v134 = (struct _KPRCB *)a4;
+  v153 = PacketsReturned;
+  v6 = Count;
+  v155 = MiniPackets;
+  v137 = (__int64)WorkerFactoryHandle;
+  v133 = (__int64)MiniPackets;
+  v134 = (struct _KPRCB *)PacketsReturned;
   v136 = 0;
   v144 = 0LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   v128 = PreviousMode;
   P = v161;
-  HIDWORD(v148) = 0;
-  if ( a3 - 1 > 0x7FFFFFE )
+  Flags[1] = 0;
+  if ( Count - 1 > 0x7FFFFFE )
   {
     v11 = -1073741811;
     goto LABEL_54;
   }
   if ( PreviousMode )
   {
-    ProbeForWrite(Address, 32LL * a3, 8u);
-    v9 = a4;
-    if ( a4 >= 0x7FFFFFFF0000LL )
+    ProbeForWrite(MiniPackets, 32LL * Count, 8u);
+    v9 = (__int64)PacketsReturned;
+    if ( (unsigned __int64)PacketsReturned >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v9 = *(_DWORD *)v9;
-    if ( (a5 & 7) != 0 )
+    if ( ((unsigned __int8)DeferredWork & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a5 + 24 > 0x7FFFFFFF0000LL || a5 + 24 < a5 )
+    if ( (unsigned __int64)&DeferredWork[1] > 0x7FFFFFFF0000LL || &DeferredWork[1] < DeferredWork )
       MEMORY[0x7FFFFFFF0000] = 0;
-    *(_OWORD *)Handlea = *(_OWORD *)a5;
-    v148 = *(_QWORD *)(a5 + 16);
+    *(_OWORD *)Handle = *(_OWORD *)&DeferredWork->AlpcSendMessage;
+    *(_QWORD *)Flags = *(_QWORD *)&DeferredWork->AlpcSendMessageFlags;
   }
   else
   {
-    *(_OWORD *)Handlea = *(_OWORD *)a5;
-    v148 = *(_QWORD *)(a5 + 16);
+    *(_OWORD *)Handle = *(_OWORD *)&DeferredWork->AlpcSendMessage;
+    *(_QWORD *)Flags = *(_QWORD *)&DeferredWork->AlpcSendMessageFlags;
   }
-  v11 = ObReferenceObjectByHandle(Handle, 2u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(WorkerFactoryHandle, 2u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   v12 = Object;
   v144 = (ULONG_PTR)Object;
   if ( v11 >= 0 )
@@ -468,11 +468,11 @@ LABEL_26:
         }
       }
       __writecr8(LockHandle.OldIrql);
-      if ( (v148 & 0x100000000LL) != 0 )
+      if ( (Flags[1] & 1) != 0 )
       {
-        v133 = (__int64)Handlea[0];
-        v48 = v148;
-        v49 = Handlea[1];
+        v133 = (__int64)Handle[0];
+        v48 = Flags[0];
+        v49 = Handle[1];
         memset(v160, 0, sizeof(v160));
         v50 = KeGetCurrentThread();
         --v50->KernelApcDisable;
@@ -543,7 +543,7 @@ LABEL_172:
               *(_BYTE *)(v99 + 32) |= 2u;
               if ( *(__int64 *)(v99 + 32) < 0 )
               {
-                KiAbEntryRemoveFromTree(v99, v97);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v99, v97);
                 v99 = (__int64)v134;
                 v100 = BugCheckParameter2a;
               }
@@ -893,7 +893,7 @@ LABEL_232:
       }
       v25 = v128;
 LABEL_29:
-      LOBYTE(v126) = 1;
+      LOBYTE(Timeout) = 1;
       LOBYTE(HandleInformation) = v25;
       v11 = IoRemoveIoCompletion(
               *(_QWORD *)(*((_QWORD *)v12 + 2) + 8LL),
@@ -903,11 +903,11 @@ LABEL_29:
               &v136,
               HandleInformation,
               0LL,
-              v126);
-      if ( (v148 & 0x100000000LL) != 0 )
+              Timeout);
+      if ( (Flags[1] & 1) != 0 )
       {
         AlpciDestroyDeferredMessageContext(&v145);
-        HIDWORD(v148) &= ~1u;
+        Flags[1] &= ~1u;
       }
       v26 = (unsigned __int64 *)*((_QWORD *)v12 + 2);
       LockHandle.LockQueue.Lock = v26;
@@ -994,7 +994,7 @@ LABEL_54:
       }
     }
   }
-  if ( (v148 & 0x100000000LL) != 0 )
-    NtAlpcSendWaitReceivePort(Handlea[1], 0LL, 0LL, 0LL, 0LL);
-  return (unsigned int)v11;
+  if ( (Flags[1] & 1) != 0 )
+    NtAlpcSendWaitReceivePort(Handle[1], Flags[0], (PPORT_MESSAGE)Handle[0], 0LL, 0LL, 0LL, 0LL, 0LL);
+  return v11;
 }

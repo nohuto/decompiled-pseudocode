@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSplitReducedCommitClonePage @ 0x14052CA98
+ * XREFs of MiSplitReducedCommitClonePage @ 0x14052EFB8
  * Callers:
- *     MiProbeLeafPteAccess @ 0x1402EF490 (MiProbeLeafPteAccess.c)
+ *     MiProbeLeafPteAccess @ 0x1402D1510 (MiProbeLeafPteAccess.c)
  * Callees:
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027F6FC (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     MiUnlockProbePacketWorkingSet @ 0x1403A0340 (MiUnlockProbePacketWorkingSet.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     MiProcessCommitIntact @ 0x14044D910 (MiProcessCommitIntact.c)
- *     MiLockProbePacketWorkingSet @ 0x14048AFAC (MiLockProbePacketWorkingSet.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027EC6C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1403A20A0 (MiUnlockProbePacketWorkingSet.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     MiProcessCommitIntact @ 0x140445A40 (MiProcessCommitIntact.c)
+ *     MiLockProbePacketWorkingSet @ 0x140484AEC (MiLockProbePacketWorkingSet.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiSplitReducedCommitClonePage(__int64 *a1)

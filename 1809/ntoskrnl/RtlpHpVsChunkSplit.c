@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpVsChunkSplit @ 0x1400BC850
+ * XREFs of RtlpHpVsChunkSplit @ 0x1400BC790
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x1401B66BC (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x1401B6824 (RtlpHpVsContextAllocateInternal.c)
  * Callees:
- *     RtlpHpVsFreeChunkRemove @ 0x1400BD320 (RtlpHpVsFreeChunkRemove.c)
- *     RtlpHpVsFreeChunkInsert @ 0x1400BD480 (RtlpHpVsFreeChunkInsert.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x14010EBB0 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpVsSubsegmentCleanup @ 0x140154948 (RtlpHpVsSubsegmentCleanup.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B6304 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B636C (RtlpHpReleaseQueuedLockExclusive.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x1400BD260 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x1400BD3C0 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x14010EC30 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x140154A48 (RtlpHpVsSubsegmentCleanup.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B646C (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B64D4 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5, __int64 a6)
@@ -68,7 +68,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
   unsigned __int64 v58; // rdx
   unsigned __int64 v59; // rcx
   unsigned __int64 v60; // rdx
-  unsigned __int8 v61; // al
+  BOOLEAN v61; // al
   unsigned __int64 v62; // rax
   unsigned __int64 v64; // [rsp+30h] [rbp-59h]
   int v65; // [rsp+34h] [rbp-55h]
@@ -80,7 +80,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsign
   _QWORD v71[3]; // [rsp+68h] [rbp-21h] BYREF
 
   v10 = WORD1(RtlpHpHeapGlobals) ^ WORD1(a3) ^ *(unsigned __int16 *)(a3 + 2);
-  RtlRbRemoveNode(a1 + 16, a3 + 8);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(a3 + 8));
   v11 = 0;
   v12 = RtlpHpHeapGlobals ^ *(_DWORD *)a3 ^ a3;
   v13 = a3 - a2;
@@ -382,6 +382,6 @@ LABEL_79:
       v60 = v62;
     }
   }
-  RtlRbInsertNodeEx(a1 + 16, v60, v61, v30 + 8);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)v60, v61, (PRTL_BALANCED_NODE)(v30 + 8));
   return v68;
 }

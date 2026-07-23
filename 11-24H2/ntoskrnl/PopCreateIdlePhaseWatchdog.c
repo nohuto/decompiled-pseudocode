@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCreateIdlePhaseWatchdog @ 0x140C32868
+ * XREFs of PopCreateIdlePhaseWatchdog @ 0x140C349A8
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     ZwPowerInformation @ 0x1406A6FF0 (ZwPowerInformation.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ZwPowerInformation @ 0x1406A7F90 (ZwPowerInformation.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 PopCreateIdlePhaseWatchdog()
@@ -19,8 +19,8 @@ __int64 PopCreateIdlePhaseWatchdog()
   InputBuffer = 21;
   ZwPowerInformation(PowerInformationInternal, &InputBuffer, 0x60u, &OutputBuffer, 8u);
   result = OutputBuffer;
-  *(_OWORD *)&xmmword_140F07648 = 0LL;
-  xmmword_140F07648 = 0LL;
+  xmmword_140F07948 = 0LL;
+  *(_QWORD *)&xmmword_140F07948 = 0LL;
   PopPdcIdlePhaseWatchdogContext = OutputBuffer;
   return result;
 }

@@ -15,101 +15,95 @@
  *     ZwFsControlFile @ 0x18009DC00 (ZwFsControlFile.c)
  */
 
-__int64 __fastcall RtlpReferenceCurrentDirectory(char a1)
+unsigned __int16 *__fastcall RtlpReferenceCurrentDirectory(char a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // rbx
-  int v5; // esi
-  int v7; // edi
-  int v8; // eax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  char v11; // bp
-  __int64 v12; // rdx
-  __int64 v13; // rdi
+  unsigned __int16 *v2; // rbx
+  int v3; // esi
+  int v5; // edi
+  NTSTATUS v6; // eax
+  char v7; // bp
+  __int64 v8; // rdx
+  PVOID v9; // rdi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rsi
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  volatile signed __int32 *v17; // rcx
-  __int16 v18; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v19; // [rsp+58h] [rbp-40h]
-  _BYTE v20[16]; // [rsp+60h] [rbp-38h] BYREF
-  __int64 v21; // [rsp+A8h] [rbp+10h] BYREF
+  volatile signed __int32 *v11; // rcx
+  __int16 v12; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v13; // [rsp+58h] [rbp-40h]
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-38h] BYREF
+  PVOID BaseAddress; // [rsp+A8h] [rbp+10h] BYREF
 
   while ( 1 )
   {
-    RtlEnterCriticalSection((__int64)&FastPebLock);
-    v4 = RtlpCurDirRef;
+    RtlEnterCriticalSection(&FastPebLock);
+    v2 = (unsigned __int16 *)RtlpCurDirRef;
     if ( !RtlpCurDirRef )
       return 0LL;
     _InterlockedIncrement((volatile signed __int32 *)RtlpCurDirRef);
-    v5 = *(_DWORD *)(v4 + 16);
-    RtlLeaveCriticalSection((__int64)&FastPebLock, v2, v3);
+    v3 = *((_DWORD *)v2 + 4);
+    RtlLeaveCriticalSection(&FastPebLock);
     if ( !a1 )
-      return v4;
-    v7 = MEMORY[0x7FFE02DC];
-    if ( (*(_BYTE *)(v4 + 40) & 1) == 0 && MEMORY[0x7FFE02DC] == v5 )
-      return v4;
-    v8 = ZwFsControlFile(*(_QWORD *)(v4 + 8), 0LL, 0LL, 0LL, v20, 589864, 0LL, 0, 0LL, 0);
-    if ( v8 >= 0 )
+      return v2;
+    v5 = MEMORY[0x7FFE02DC];
+    if ( (v2[20] & 1) == 0 && MEMORY[0x7FFE02DC] == v3 )
+      return v2;
+    v6 = ZwFsControlFile(*((HANDLE *)v2 + 1), 0LL, 0LL, 0LL, &IoStatusBlock, 0x90028u, 0LL, 0, 0LL, 0);
+    if ( v6 >= 0 )
     {
-      if ( (*(_BYTE *)(v4 + 40) & 1) == 0 )
+      if ( (v2[20] & 1) == 0 )
       {
-        RtlEnterCriticalSection((__int64)&FastPebLock);
-        *(_DWORD *)(v4 + 16) = v7;
-        RtlLeaveCriticalSection((__int64)&FastPebLock, v9, v10);
+        RtlEnterCriticalSection(&FastPebLock);
+        *((_DWORD *)v2 + 4) = v5;
+        RtlLeaveCriticalSection(&FastPebLock);
       }
-      return v4;
+      return v2;
     }
-    if ( v8 != -1073741806 && v8 != -1073741202 )
-      return v4;
-    v11 = 0;
-    if ( (int)RtlpCreateNewDirectoryReference(v4 + 24, *(unsigned __int16 *)(v4 + 26), &v21) < 0 )
+    if ( v6 != -1073741806 && v6 != -1073741202 )
+      return v2;
+    v7 = 0;
+    if ( (int)RtlpCreateNewDirectoryReference(v2 + 12, v2[13], &BaseAddress) < 0 )
     {
-      v12 = *(unsigned __int16 *)(v4 + 26);
-      v19 = *(_QWORD *)(v4 + 32);
-      v18 = 6;
-      if ( (int)RtlpCreateNewDirectoryReference(&v18, v12, &v21) < 0 )
-        return v4;
-      v11 = 1;
+      v8 = v2[13];
+      v13 = *((_QWORD *)v2 + 4);
+      v12 = 6;
+      if ( (int)RtlpCreateNewDirectoryReference(&v12, v8, &BaseAddress) < 0 )
+        return v2;
+      v7 = 1;
     }
-    v13 = v21;
+    v9 = BaseAddress;
     ProcessParameters = NtCurrentPeb()->ProcessParameters;
-    *(_DWORD *)v21 = 2;
-    RtlEnterCriticalSection((__int64)&FastPebLock);
-    if ( RtlpCurDirRef == v4 )
+    *(_DWORD *)BaseAddress = 2;
+    RtlEnterCriticalSection(&FastPebLock);
+    if ( RtlpCurDirRef == v2 )
       break;
-    RtlLeaveCriticalSection((__int64)&FastPebLock, v15, v16);
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)v4, 0xFFFFFFFF) == 1 )
+    RtlLeaveCriticalSection(&FastPebLock);
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)v2, 0xFFFFFFFF) == 1 )
     {
-      NtClose(*(HANDLE *)(v4 + 8));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+      NtClose(*((HANDLE *)v2 + 1));
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
     }
-    v17 = (volatile signed __int32 *)v21;
-    *(_DWORD *)v21 = 1;
-    if ( _InterlockedExchangeAdd(v17, 0xFFFFFFFF) == 1 )
+    v11 = (volatile signed __int32 *)BaseAddress;
+    *(_DWORD *)BaseAddress = 1;
+    if ( _InterlockedExchangeAdd(v11, 0xFFFFFFFF) == 1 )
     {
-      NtClose(*(HANDLE *)(v21 + 8));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v21);
+      NtClose(*((HANDLE *)BaseAddress + 1));
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     }
   }
-  RtlpCurDirRef = v13;
-  ProcessParameters->CurrentDirectory.DosPath.Length = *(_WORD *)(v13 + 24);
-  ProcessParameters->CurrentDirectory.DosPath.Buffer = *(wchar_t **)(v13 + 32);
-  ProcessParameters->CurrentDirectory.Handle = *(void **)(v13 + 8);
-  if ( v11 )
-    RtlpResetDriveEnvironment(**(_WORD **)(v4 + 32));
-  RtlLeaveCriticalSection((__int64)&FastPebLock, v15, v16);
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)v4, 0xFFFFFFFF) == 1 )
+  RtlpCurDirRef = v9;
+  ProcessParameters->CurrentDirectory.DosPath.Length = *((_WORD *)v9 + 12);
+  ProcessParameters->CurrentDirectory.DosPath.Buffer = (wchar_t *)*((_QWORD *)v9 + 4);
+  ProcessParameters->CurrentDirectory.Handle = (void *)*((_QWORD *)v9 + 1);
+  if ( v7 )
+    RtlpResetDriveEnvironment(**((_WORD **)v2 + 4));
+  RtlLeaveCriticalSection(&FastPebLock);
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)v2, 0xFFFFFFFF) == 1 )
   {
-    NtClose(*(HANDLE *)(v4 + 8));
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+    NtClose(*((HANDLE *)v2 + 1));
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
   }
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)v4, 0xFFFFFFFF) == 1 )
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)v2, 0xFFFFFFFF) == 1 )
   {
-    NtClose(*(HANDLE *)(v4 + 8));
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+    NtClose(*((HANDLE *)v2 + 1));
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
   }
-  return v21;
+  return (unsigned __int16 *)BaseAddress;
 }

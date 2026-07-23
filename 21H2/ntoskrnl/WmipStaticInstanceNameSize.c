@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipStaticInstanceNameSize @ 0x14063904C
+ * XREFs of WmipStaticInstanceNameSize @ 0x14062DE5C
  * Callers:
- *     WmipInsertStaticNames @ 0x140638E70 (WmipInsertStaticNames.c)
- *     WmipQueryAllData @ 0x1406390D4 (WmipQueryAllData.c)
- *     WmipIncludeStaticNames @ 0x1409327DC (WmipIncludeStaticNames.c)
+ *     WmipInsertStaticNames @ 0x14062DC80 (WmipInsertStaticNames.c)
+ *     WmipQueryAllData @ 0x14062DEE4 (WmipQueryAllData.c)
+ *     WmipIncludeStaticNames @ 0x14093293C (WmipIncludeStaticNames.c)
  * Callees:
  *     <none>
  */

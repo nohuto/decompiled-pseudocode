@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipProcessSynchronousEtw @ 0x14086B158
+ * XREFs of WmipProcessSynchronousEtw @ 0x14086B398
  * Callers:
- *     WmipAddDataSource @ 0x14086A0E0 (WmipAddDataSource.c)
+ *     WmipAddDataSource @ 0x14086A320 (WmipAddDataSource.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     WmipLegacyEtwWorker @ 0x14084FE80 (WmipLegacyEtwWorker.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     WmipLegacyEtwWorker @ 0x140850180 (WmipLegacyEtwWorker.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

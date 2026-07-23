@@ -17,16 +17,16 @@ LONG __fastcall FsRtlpPostStackOverflow(
         unsigned __int8 a4)
 {
   __int64 v5; // rbx
-  struct _LIST_ENTRY *PoolWithTag; // rax
+  _LIST_ENTRY *PoolWithTag; // rax
 
   v5 = a4;
-  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x73725346u);
+  PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x73725346u);
   if ( !PoolWithTag )
   {
     if ( !(_BYTE)v5 )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     KeWaitForSingleObject(&StackOverflowFallbackSerialEvent, Executive, 0, 0, 0LL);
-    PoolWithTag = (struct _LIST_ENTRY *)&StackOverflowFallback;
+    PoolWithTag = (_LIST_ENTRY *)&StackOverflowFallback;
   }
   PoolWithTag[2].Blink = a1;
   PoolWithTag[3].Flink = a2;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnUpdatePrefetcherFlags @ 0x14031EFA0
+ * XREFs of PfSnUpdatePrefetcherFlags @ 0x14031F230
  * Callers:
- *     PfSnEnablePrefetcherTimerRoutine @ 0x14031EF70 (PfSnEnablePrefetcherTimerRoutine.c)
+ *     PfSnEnablePrefetcherTimerRoutine @ 0x14031F200 (PfSnEnablePrefetcherTimerRoutine.c)
  *     PfSnBeginBootPhase @ 0x140A87910 (PfSnBeginBootPhase.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnUpdatePrefetcherFlags(int a1, int a2)
@@ -28,10 +28,13 @@ __int64 __fastcall PfSnUpdatePrefetcherFlags(int a1, int a2)
   else
     dword_140C6A710 &= ~a1;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A610);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

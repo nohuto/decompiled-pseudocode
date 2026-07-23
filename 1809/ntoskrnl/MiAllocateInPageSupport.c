@@ -2,7 +2,7 @@
  * XREFs of MiAllocateInPageSupport @ 0x14002C548
  * Callers:
  *     MiResolveMappedFileFault @ 0x14002BE50 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
  * Callees:
  *     MiGetInPageSupportBlock @ 0x14002C610 (MiGetInPageSupportBlock.c)
  *     MiFreeInPageSupportBlock @ 0x14002DC80 (MiFreeInPageSupportBlock.c)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHeapLogRangeDestroy @ 0x1402189AC
+ * XREFs of RtlpHeapLogRangeDestroy @ 0x1402187D8
  * Callers:
- *     RtlDestroyHeap @ 0x140533900 (RtlDestroyHeap.c)
+ *     RtlDestroyHeap @ 0x140533E40 (RtlDestroyHeap.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall RtlpHeapLogRangeDestroy(__int64 a1)

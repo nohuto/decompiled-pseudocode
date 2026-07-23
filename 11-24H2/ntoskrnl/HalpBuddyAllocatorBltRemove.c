@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBuddyAllocatorBltRemove @ 0x1405747D0
+ * XREFs of HalpBuddyAllocatorBltRemove @ 0x140571C60
  * Callers:
- *     HalpBuddyAllocatorDeleteSubtree @ 0x1403AC040 (HalpBuddyAllocatorDeleteSubtree.c)
- *     HalpBuddyAllocatorReserveLogicalAddress @ 0x140574A10 (HalpBuddyAllocatorReserveLogicalAddress.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x14039A750 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorReserveLogicalAddress @ 0x140571EA0 (HalpBuddyAllocatorReserveLogicalAddress.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpBuddyAllocatorBltRemoveInternal @ 0x1403AC580 (HalpBuddyAllocatorBltRemoveInternal.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpBuddyAllocatorBltRemoveInternal @ 0x14039AD8C (HalpBuddyAllocatorBltRemoveInternal.c)
  */
 
 void __fastcall HalpBuddyAllocatorBltRemove(_QWORD *a1, __int64 a2)

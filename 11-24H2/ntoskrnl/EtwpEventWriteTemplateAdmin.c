@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpEventWriteTemplateAdmin @ 0x140A8E2D8
+ * XREFs of EtwpEventWriteTemplateAdmin @ 0x140A8A8A8
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x14048FBCC (EtwpUpdateSelectedGroupMasks.c)
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpLogger @ 0x1409D88E0 (EtwpLogger.c)
- *     EtwpFlushBufferToLogfile @ 0x1409DA118 (EtwpFlushBufferToLogfile.c)
- *     EtwpRealtimeSaveBuffer @ 0x1409DA458 (EtwpRealtimeSaveBuffer.c)
- *     EtwpCreateLogFile @ 0x1409DA6AC (EtwpCreateLogFile.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x14048A210 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1409D33F0 (EtwpLogger.c)
+ *     EtwpFlushBufferToLogfile @ 0x1409D4C28 (EtwpFlushBufferToLogfile.c)
+ *     EtwpRealtimeSaveBuffer @ 0x1409D4F68 (EtwpRealtimeSaveBuffer.c)
+ *     EtwpCreateLogFile @ 0x1409D51BC (EtwpCreateLogFile.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateAdmin(
@@ -22,12 +22,12 @@ NTSTATUS __fastcall EtwpEventWriteTemplateAdmin(
         char a7)
 {
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-31h] BYREF
-  __int64 *v9; // [rsp+40h] [rbp-21h]
+  int *v9; // [rsp+40h] [rbp-21h]
   __int64 v10; // [rsp+48h] [rbp-19h]
   __int64 v11; // [rsp+50h] [rbp-11h]
   int v12; // [rsp+58h] [rbp-9h]
   int v13; // [rsp+5Ch] [rbp-5h]
-  __int64 *v14; // [rsp+60h] [rbp-1h]
+  int *v14; // [rsp+60h] [rbp-1h]
   __int64 v15; // [rsp+68h] [rbp+7h]
   char *v16; // [rsp+70h] [rbp+Fh]
   __int64 v17; // [rsp+78h] [rbp+17h]

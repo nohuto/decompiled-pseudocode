@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlpProtectInvertedFunctionTable(int a1)
+void __fastcall RtlpProtectInvertedFunctionTable(int a1)
 {
-  return LdrProtectMrdata(a1);
+  LdrProtectMrdata(a1);
 }

@@ -50,7 +50,7 @@ __int64 RtlStringCchPrintfExW(
     v18 = Buffer;
     v19 = a2;
     if ( (a5 & 0x100) != 0 && !Format )
-      v11 = (const wchar_t *)&unk_18017D3FC;
+      v11 = &word_18017D3FC;
     v14 = 0;
     if ( (a5 & 0xFFFFE000) != 0 )
     {

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPageTablesNeeded @ 0x140102518
+ * XREFs of MiPageTablesNeeded @ 0x140100298
  * Callers:
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
- *     MmCreateShadowMapping @ 0x14065BC98 (MmCreateShadowMapping.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
+ *     MmCreateShadowMapping @ 0x14065BD7C (MmCreateShadowMapping.c)
  * Callees:
- *     MiCountExistingPageTables @ 0x1401025EC (MiCountExistingPageTables.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiCountExistingPageTables @ 0x14010036C (MiCountExistingPageTables.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiPageTablesNeeded(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3, int a4)

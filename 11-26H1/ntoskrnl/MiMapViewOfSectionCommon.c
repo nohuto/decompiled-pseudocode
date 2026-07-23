@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapViewOfSectionCommon @ 0x1409C2EC0
+ * XREFs of MiMapViewOfSectionCommon @ 0x140993EA0
  * Callers:
- *     NtMapViewOfSection @ 0x1409C28A0 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x1409F1570 (MiMapViewOfSectionExCommon.c)
+ *     NtMapViewOfSection @ 0x140993880 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1409EDD40 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408F5DA0 (ExRaiseAccessViolation.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x140925D30 (ExRaiseAccessViolation.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall MiMapViewOfSectionCommon(
@@ -117,8 +117,8 @@ __int64 __fastcall MiMapViewOfSectionCommon(
   {
     result = ObpReferenceObjectByHandleWithTag(
                BugCheckParameter1,
-               8LL,
-               PsProcessType,
+               8,
+               (__int64)PsProcessType,
                a9,
                0x77566D4Du,
                a10 + 5,
@@ -135,8 +135,8 @@ __int64 __fastcall MiMapViewOfSectionCommon(
     v27 = (PVOID *)(a10 + 4);
     v28 = ObpReferenceObjectByHandleWithTag(
             v12,
-            *((unsigned int *)MmMakeSectionAccess + *((unsigned int *)a10 + 6)),
-            (POBJECT_TYPE *)MmSectionObjectType,
+            *((_DWORD *)MmMakeSectionAccess + *((unsigned int *)a10 + 6)),
+            (__int64)MmSectionObjectType,
             a9,
             0x77566D4Du,
             a10 + 4,

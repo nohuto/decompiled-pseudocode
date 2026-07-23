@@ -1,23 +1,23 @@
 /*
- * XREFs of MiEmptyPageAccessLog @ 0x1402E1F40
+ * XREFs of MiEmptyPageAccessLog @ 0x1402E21D0
  * Callers:
- *     MiDrainSystemAccessLog @ 0x140286CD4 (MiDrainSystemAccessLog.c)
- *     MiDrainOldAccessBuffers @ 0x140286DCC (MiDrainOldAccessBuffers.c)
- *     MiAllocateAccessLog @ 0x1402E6400 (MiAllocateAccessLog.c)
- *     MmOutSwapProcess @ 0x14034CFF8 (MmOutSwapProcess.c)
- *     MmDeleteProcessAddressSpace @ 0x1407059E8 (MmDeleteProcessAddressSpace.c)
+ *     MiDrainSystemAccessLog @ 0x140286F64 (MiDrainSystemAccessLog.c)
+ *     MiDrainOldAccessBuffers @ 0x14028705C (MiDrainOldAccessBuffers.c)
+ *     MiAllocateAccessLog @ 0x1402E6690 (MiAllocateAccessLog.c)
+ *     MmOutSwapProcess @ 0x14034D198 (MmOutSwapProcess.c)
+ *     MmDeleteProcessAddressSpace @ 0x140705BF8 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ObpIncrPointerCountEx @ 0x140224660 (ObpIncrPointerCountEx.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiQueuePageAccessLog @ 0x1402F54F0 (MiQueuePageAccessLog.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ObpIncrPointerCountEx @ 0x140224768 (ObpIncrPointerCountEx.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     MiQueuePageAccessLog @ 0x1402F5780 (MiQueuePageAccessLog.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -202,10 +202,13 @@ LABEL_47:
         if ( v25 )
           ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(v20 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
         ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v20 + 72));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v34 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v34 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

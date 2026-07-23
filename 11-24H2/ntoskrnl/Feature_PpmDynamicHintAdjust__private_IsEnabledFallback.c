@@ -1,20 +1,15 @@
 /*
- * XREFs of Feature_PpmDynamicHintAdjust__private_IsEnabledFallback @ 0x1405CDA34
+ * XREFs of Feature_PpmDynamicHintAdjust__private_IsEnabledFallback @ 0x1405CB1A4
  * Callers:
- *     Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline @ 0x1405CDA50 (Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline @ 0x1405CB1C0 (Feature_PpmDynamicHintAdjust__private_IsEnabledNoReportingNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1404D17E0 (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404CA820 (wil_details_IsEnabledFallback.c)
  */
 
-__int64 __fastcall Feature_PpmDynamicHintAdjust__private_IsEnabledFallback(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall Feature_PpmDynamicHintAdjust__private_IsEnabledFallback(__int64 a1, unsigned int a2)
 {
   return wil_details_IsEnabledFallback(
            a1,
            a2,
-           (volatile signed __int32 **)&Feature_PpmDynamicHintAdjust__private_descriptor,
-           a4);
+           (volatile signed __int32 **)&Feature_PpmDynamicHintAdjust__private_descriptor);
 }

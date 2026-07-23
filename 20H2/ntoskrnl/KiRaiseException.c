@@ -19,19 +19,19 @@
  *     RtlpReadExtendedContext @ 0x140693CD0 (RtlpReadExtendedContext.c)
  */
 
-__int64 __fastcall KiRaiseException(void *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+int __fastcall KiRaiseException(void *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   char PreviousMode; // r12
   __int64 v8; // rax
-  __int64 result; // rax
-  unsigned int v10; // ebx
+  int result; // eax
+  ULONG v10; // ebx
   unsigned __int64 v11; // rcx
   unsigned __int64 v12; // rcx
   void *v13; // rsp
   void *v14; // rsp
   int v15; // edx
   int v16; // ecx
-  __int64 v17; // rsi
+  CONTEXT_CHUNK *p_XState; // rsi
   __int64 v18; // rax
   unsigned int v19; // esi
   char *v20; // rax
@@ -43,17 +43,17 @@ __int64 __fastcall KiRaiseException(void *a1, __int64 a2, __int64 a3, __int64 a4
   unsigned __int64 v26; // r15
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  NTSTATUS *v29; // rcx
+  EXCEPTION_RECORD *v29; // rcx
   unsigned __int8 v30; // si
   unsigned __int8 v31; // al
   struct _KPRCB *v32; // r9
   _DWORD *v33; // r8
   int v34; // eax
   __int64 v35; // [rsp+20h] [rbp-10h]
-  unsigned int v36; // [rsp+30h] [rbp+0h] BYREF
-  unsigned int v37; // [rsp+34h] [rbp+4h] BYREF
+  ULONG ContextFlags; // [rsp+30h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+34h] [rbp+4h] BYREF
   void *Src; // [rsp+38h] [rbp+8h]
-  __int64 v39; // [rsp+40h] [rbp+10h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+40h] [rbp+10h] BYREF
   unsigned __int64 v40; // [rsp+48h] [rbp+18h] BYREF
   __int64 v41; // [rsp+50h] [rbp+20h]
   unsigned int v42; // [rsp+58h] [rbp+28h]
@@ -63,11 +63,11 @@ __int64 __fastcall KiRaiseException(void *a1, __int64 a2, __int64 a3, __int64 a4
 
   v41 = a3;
   Src = a1;
-  v39 = 0LL;
+  ContextEx = 0LL;
   v40 = 0LL;
-  v36 = 0;
+  ContextFlags = 0;
   memset(v45, 0, 0x98uLL);
-  v37 = 0;
+  ContextLength = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode )
   {
@@ -117,7 +117,7 @@ LABEL_18:
       }
       __writecr8(0LL);
     }
-    v29 = (NTSTATUS *)Src;
+    v29 = (EXCEPTION_RECORD *)Src;
     *(_DWORD *)Src &= ~0x10000000u;
     KiDispatchException(v29, v26, a4, PreviousMode, a5);
     if ( PreviousMode
@@ -146,43 +146,43 @@ LABEL_18:
       }
       __writecr8(v30);
     }
-    return 0LL;
+    return 0;
   }
   v8 = a2 + 48;
   if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
     v8 = 0x7FFFFFFF0000LL;
-  v36 = *(_DWORD *)v8;
-  result = RtlpSanitizeContextFlags(&v36, PreviousMode);
-  if ( (int)result >= 0 )
+  ContextFlags = *(_DWORD *)v8;
+  result = RtlpSanitizeContextFlags(&ContextFlags, PreviousMode);
+  if ( result >= 0 )
   {
-    v10 = v36;
-    result = RtlGetExtendedContextLength(v36, (__int64)&v37);
-    if ( (int)result >= 0 )
+    v10 = ContextFlags;
+    result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+    if ( result >= 0 )
     {
-      v11 = v37 + 15LL;
-      if ( v11 <= v37 )
+      v11 = ContextLength + 15LL;
+      if ( v11 <= ContextLength )
         v11 = 0xFFFFFFFFFFFFFF0LL;
       v12 = v11 & 0xFFFFFFFFFFFFFFF0uLL;
       v13 = alloca(v12);
       v14 = alloca(v12);
-      result = RtlInitializeExtendedContext((__int64)&v36, v10, (__int64)&v39);
-      if ( (int)result >= 0 )
+      result = RtlInitializeExtendedContext((PCONTEXT)&ContextFlags, v10, &ContextEx);
+      if ( result >= 0 )
       {
-        v17 = v39 - 1232;
+        p_XState = &ContextEx[-39].XState;
         LOBYTE(v15) = 1;
-        result = RtlpReadExtendedContext(v16, v15, v39, v10, a2, 0LL);
-        if ( (int)result >= 0 )
+        result = RtlpReadExtendedContext(v16, v15, (_DWORD)ContextEx, v10, a2, 0LL);
+        if ( result >= 0 )
         {
-          a2 = v17;
+          a2 = (__int64)p_XState;
           v18 = (__int64)Src + 24;
           if ( (unsigned __int64)Src + 24 >= 0x7FFFFFFF0000LL )
             v18 = 0x7FFFFFFF0000LL;
           v19 = *(_DWORD *)v18;
           v42 = v19;
           if ( v19 > 0xF )
-            return 3221225485LL;
-          v37 = 8 * v19 + 32;
-          v20 = (char *)Src + v37;
+            return -1073741811;
+          ContextLength = 8 * v19 + 32;
+          v20 = (char *)Src + ContextLength;
           if ( (unsigned __int64)v20 > 0x7FFFFFFF0000LL || v20 < Src )
             MEMORY[0x7FFFFFFF0000] = 0;
           memmove(v45, Src, 8 * v19 + 32);

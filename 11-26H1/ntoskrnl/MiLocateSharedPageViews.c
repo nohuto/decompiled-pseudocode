@@ -1,22 +1,22 @@
 /*
- * XREFs of MiLocateSharedPageViews @ 0x1406F8320
+ * XREFs of MiLocateSharedPageViews @ 0x1406FCFF0
  * Callers:
- *     MiQueryBadAddresses @ 0x140869F40 (MiQueryBadAddresses.c)
+ *     MiQueryBadAddresses @ 0x140870320 (MiQueryBadAddresses.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     MiReleaseControlAreaWaiters @ 0x1402733E0 (MiReleaseControlAreaWaiters.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiTrimSection @ 0x1404651E0 (MiTrimSection.c)
- *     MiDecrementModifiedWriteCount @ 0x140469350 (MiDecrementModifiedWriteCount.c)
- *     MiDecrementSubsection @ 0x140473D20 (MiDecrementSubsection.c)
- *     MiReferencePfBackedSection @ 0x1404D1764 (MiReferencePfBackedSection.c)
- *     MiPreventControlAreaDeletion @ 0x1404F62AC (MiPreventControlAreaDeletion.c)
- *     MiDeleteTrimViewInfoList @ 0x140A841F8 (MiDeleteTrimViewInfoList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     MiReleaseControlAreaWaiters @ 0x140272950 (MiReleaseControlAreaWaiters.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiTrimSection @ 0x14045E1A0 (MiTrimSection.c)
+ *     MiDecrementModifiedWriteCount @ 0x140462920 (MiDecrementModifiedWriteCount.c)
+ *     MiDecrementSubsection @ 0x14046D4A0 (MiDecrementSubsection.c)
+ *     MiReferencePfBackedSection @ 0x1404CB310 (MiReferencePfBackedSection.c)
+ *     MiPreventControlAreaDeletion @ 0x1404EF8B8 (MiPreventControlAreaDeletion.c)
+ *     MiDeleteTrimViewInfoList @ 0x140A8954C (MiDeleteTrimViewInfoList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiLocateSharedPageViews(ULONG_PTR a1, __int64 a2, __int64 a3)
@@ -47,7 +47,7 @@ __int64 __fastcall MiLocateSharedPageViews(ULONG_PTR a1, __int64 a2, __int64 a3)
   v24 = 0;
   *(_QWORD *)(a2 + 16) = 0LL;
   v5 = 48 * a1 - 0x220000000000LL;
-  v6 = MiSafeLockPage(a1, a2);
+  v6 = MiSafeLockPage(a1, a2, a3);
   v7 = v6;
   if ( v6 == 17 )
     return 3221226548LL;
@@ -67,7 +67,7 @@ __int64 __fastcall MiLocateSharedPageViews(ULONG_PTR a1, __int64 a2, __int64 a3)
     return 3221226548LL;
   }
   v8 = *(_QWORD *)(v5 + 8) | 0x8000000000000000uLL;
-  if ( v8 == qword_140E2D628 )
+  if ( v8 == qword_140E2D7A8 )
   {
     v9 = 2147352576LL;
 LABEL_12:
@@ -104,10 +104,10 @@ LABEL_12:
     }
     return result;
   }
-  if ( v8 == qword_140E2D630 )
+  if ( v8 == qword_140E2D7B0 )
   {
-    v9 = qword_140E2D638;
-    if ( qword_140E2D638 )
+    v9 = qword_140E2D7B8;
+    if ( qword_140E2D7B8 )
       goto LABEL_12;
   }
   v13 = *(_DWORD *)(v5 + 16);

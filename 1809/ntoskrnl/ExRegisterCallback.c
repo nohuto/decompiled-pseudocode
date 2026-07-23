@@ -1,24 +1,24 @@
 /*
- * XREFs of ExRegisterCallback @ 0x14016C680
+ * XREFs of ExRegisterCallback @ 0x14016C780
  * Callers:
- *     HvlPhase2Initialize @ 0x140193304 (HvlPhase2Initialize.c)
- *     KeRegisterProcessorChangeCallback @ 0x140759CB0 (KeRegisterProcessorChangeCallback.c)
- *     IoRegisterContainerNotification @ 0x14075FFE0 (IoRegisterContainerNotification.c)
- *     IoRegisterBootDriverCallback @ 0x140763290 (IoRegisterBootDriverCallback.c)
- *     SeRegisterImageVerificationCallback @ 0x140763790 (SeRegisterImageVerificationCallback.c)
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
- *     PopUmpoInitializeChannel @ 0x1409DBCC0 (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x1409DC8CC (PopUmpoInitializeMonitorChannel.c)
- *     PiCslInitialize @ 0x1409F627C (PiCslInitialize.c)
+ *     HvlPhase2Initialize @ 0x140193444 (HvlPhase2Initialize.c)
+ *     KeRegisterProcessorChangeCallback @ 0x14075AEA0 (KeRegisterProcessorChangeCallback.c)
+ *     IoRegisterContainerNotification @ 0x1407611D0 (IoRegisterContainerNotification.c)
+ *     IoRegisterBootDriverCallback @ 0x140764480 (IoRegisterBootDriverCallback.c)
+ *     SeRegisterImageVerificationCallback @ 0x140764980 (SeRegisterImageVerificationCallback.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
+ *     PopUmpoInitializeChannel @ 0x1409DCCC0 (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x1409DD8CC (PopUmpoInitializeMonitorChannel.c)
+ *     PiCslInitialize @ 0x1409F727C (PiCslInitialize.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 PVOID __stdcall ExRegisterCallback(

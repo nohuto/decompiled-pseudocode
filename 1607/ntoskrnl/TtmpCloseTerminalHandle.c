@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpCloseTerminalHandle @ 0x140677F30
+ * XREFs of TtmpCloseTerminalHandle @ 0x140678014
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     PsGetProcessId @ 0x140085488 (PsGetProcessId.c)
- *     TtmpSetTerminalPendingCleanup @ 0x140678184 (TtmpSetTerminalPendingCleanup.c)
- *     TtmpAcquireSessionLock @ 0x140678E60 (TtmpAcquireSessionLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PsGetProcessId @ 0x140086D74 (PsGetProcessId.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x140678268 (TtmpSetTerminalPendingCleanup.c)
+ *     TtmpAcquireSessionLock @ 0x140678F44 (TtmpAcquireSessionLock.c)
  */
 
 __int64 __fastcall TtmpCloseTerminalHandle(PEPROCESS Process, __int64 a2, __int64 a3, __int64 a4)

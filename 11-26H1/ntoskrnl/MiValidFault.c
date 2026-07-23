@@ -1,28 +1,28 @@
 /*
- * XREFs of MiValidFault @ 0x1403A7338
+ * XREFs of MiValidFault @ 0x1403A9098
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiProcessWsInSwapFault @ 0x14029EFBC (MiProcessWsInSwapFault.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiRotatedToFrameBuffer @ 0x1403125B4 (MiRotatedToFrameBuffer.c)
- *     MiUpdatePrefetchPriority @ 0x1403149AC (MiUpdatePrefetchPriority.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MiNoFaultFound @ 0x1403A6898 (MiNoFaultFound.c)
- *     KeInvalidAccessAllowed @ 0x1403A6D10 (KeInvalidAccessAllowed.c)
- *     MiValidWriteFaultProcess @ 0x1403A76E0 (MiValidWriteFaultProcess.c)
- *     MiSetFaultPacketDirectives @ 0x1403A7ABC (MiSetFaultPacketDirectives.c)
- *     KeIsUserVaAccessAllowed @ 0x1403A7B70 (KeIsUserVaAccessAllowed.c)
- *     MiCanGrantExecute @ 0x1404D3200 (MiCanGrantExecute.c)
- *     MiCheckSystemNxFault @ 0x1404EB224 (MiCheckSystemNxFault.c)
- *     MiValidVirtualizationFault @ 0x140525860 (MiValidVirtualizationFault.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiKernelWriteToExecutableMemory @ 0x1406FF57C (MiKernelWriteToExecutableMemory.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiProcessWsInSwapFault @ 0x14029E50C (MiProcessWsInSwapFault.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiRotatedToFrameBuffer @ 0x1403145E4 (MiRotatedToFrameBuffer.c)
+ *     MiUpdatePrefetchPriority @ 0x1403169DC (MiUpdatePrefetchPriority.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MiNoFaultFound @ 0x1403A85F8 (MiNoFaultFound.c)
+ *     KeInvalidAccessAllowed @ 0x1403A8A70 (KeInvalidAccessAllowed.c)
+ *     MiValidWriteFaultProcess @ 0x1403A9440 (MiValidWriteFaultProcess.c)
+ *     MiSetFaultPacketDirectives @ 0x1403A981C (MiSetFaultPacketDirectives.c)
+ *     KeIsUserVaAccessAllowed @ 0x1403A98D0 (KeIsUserVaAccessAllowed.c)
+ *     MiCanGrantExecute @ 0x1404CCA70 (MiCanGrantExecute.c)
+ *     MiCheckSystemNxFault @ 0x1404E4804 (MiCheckSystemNxFault.c)
+ *     MiValidVirtualizationFault @ 0x140527ED0 (MiValidVirtualizationFault.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiKernelWriteToExecutableMemory @ 0x14070424C (MiKernelWriteToExecutableMemory.c)
  */
 
 __int64 __fastcall MiValidFault(__int64 a1, signed __int64 a2)
@@ -132,7 +132,7 @@ LABEL_66:
           if ( !(unsigned int)MiCanGrantExecute(Process, v2) )
             return (unsigned int)-1073741819;
           v22 = ((unsigned __int64)a2 >> 12) & 0xFFFFFFFFFFLL;
-          if ( v22 > qword_140E2D7A0 || ((*(_QWORD *)(48 * v22 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+          if ( v22 > qword_140E2D920 || ((*(_QWORD *)(48 * v22 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
             return (unsigned int)-1073741819;
           v23 = a2 & 0x7FFFFFFFFFFFFFFFLL;
           if ( (MiFlags & 0x400) != 0 || (MiFlags & 0x800) != 0 )
@@ -171,7 +171,7 @@ LABEL_9:
     if ( *v8 != 3 )
       goto LABEL_2;
     v15 = ((unsigned __int64)a2 >> 12) & 0xFFFFFFFFFFLL;
-    if ( v15 <= qword_140E2D7A0 )
+    if ( v15 <= qword_140E2D920 )
     {
       v16 = 6 * v15;
       if ( ((*(_QWORD *)(48 * v15 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )

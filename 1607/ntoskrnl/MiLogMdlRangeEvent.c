@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogMdlRangeEvent @ 0x1401E4868
+ * XREFs of MiLogMdlRangeEvent @ 0x1401E4694
  * Callers:
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     MiInitializeMdlPages @ 0x140106A8C (MiInitializeMdlPages.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     MiInitializeMdlPages @ 0x14010480C (MiInitializeMdlPages.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogMdlRangeEvent(_QWORD *a1, __int16 a2, __int64 a3)

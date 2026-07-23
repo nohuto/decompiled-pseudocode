@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmHeteroComputeCoreParkingUtilities @ 0x14041E368
+ * XREFs of PpmHeteroComputeCoreParkingUtilities @ 0x140415BAC
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041DF08 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x14060C314 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041574C (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x14060F474 (PpmHeteroComputeMultiClassUnparkCount.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmHeteroUtilityToNormalizedUtility @ 0x14041EBA0 (PpmHeteroUtilityToNormalizedUtility.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x1404163E0 (PpmHeteroUtilityToNormalizedUtility.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall PpmHeteroComputeCoreParkingUtilities(
@@ -60,7 +60,8 @@ void __fastcall PpmHeteroComputeCoreParkingUtilities(
     }
     _BitScanForward64(&v14, v11);
     v11 &= ~(1LL << v14);
-    v15 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock + 64 * v13 + (unsigned __int8)v14);
+    v15 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v13].Flink
+          + (unsigned __int8)v14);
     if ( v12 >= *(_BYTE *)(KeGetPrcb(v15) + 35352) )
       v12 = *(_BYTE *)(KeGetPrcb(v15) + 35352);
   }
@@ -73,11 +74,10 @@ LABEL_6:
     {
       _BitScanForward64(&v18, v16);
       v16 &= ~(1LL << v18);
-      Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                       + 64 * i
+      Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * i].Flink
                        + (unsigned int)(unsigned __int8)v18));
       v20 = *(unsigned int *)(Prcb + 35304);
-      if ( LODWORD(PopSleepstudySessionLock.SchedulingGroup) != 5 )
+      if ( PpmCheckCurrentPipelineId != 5 )
         v20 = (unsigned int)(v20 - *(_DWORD *)(Prcb + 35312));
       v21 = PpmHeteroUtilityToNormalizedUtility(Prcb + 35264, v20);
       a3[v22] = v21;

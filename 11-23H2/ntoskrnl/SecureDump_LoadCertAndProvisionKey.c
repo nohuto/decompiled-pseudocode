@@ -1,16 +1,16 @@
 /*
- * XREFs of SecureDump_LoadCertAndProvisionKey @ 0x14055E140
+ * XREFs of SecureDump_LoadCertAndProvisionKey @ 0x14055E800
  * Callers:
- *     SecureDump_ProvisionCrashDumpKey @ 0x1403B6424 (SecureDump_ProvisionCrashDumpKey.c)
+ *     SecureDump_ProvisionCrashDumpKey @ 0x1403B6604 (SecureDump_ProvisionCrashDumpKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwReadFile @ 0x14041AE20 (ZwReadFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041AF80 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     SecureDump_ConvertBinaryToHexString @ 0x14055D910 (SecureDump_ConvertBinaryToHexString.c)
- *     SecureDump_LogErrorEvent @ 0x14055E488 (SecureDump_LogErrorEvent.c)
- *     SecureDump_ValidateAmeCertChain @ 0x14055E7D0 (SecureDump_ValidateAmeCertChain.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x14041B1B0 (ZwReadFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14041B310 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     SecureDump_ConvertBinaryToHexString @ 0x14055DFD0 (SecureDump_ConvertBinaryToHexString.c)
+ *     SecureDump_LogErrorEvent @ 0x14055EB48 (SecureDump_LogErrorEvent.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x14055EE90 (SecureDump_ValidateAmeCertChain.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

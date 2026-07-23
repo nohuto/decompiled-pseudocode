@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLoadUserSymbols @ 0x140B5385C
+ * XREFs of MiLoadUserSymbols @ 0x140B560FC
  * Callers:
- *     MiHandleInsertedImageVad @ 0x1409CDFA4 (MiHandleInsertedImageVad.c)
+ *     MiHandleInsertedImageVad @ 0x14099EF84 (MiHandleInsertedImageVad.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     DbgUnicodeStringToAnsiString @ 0x1404DF634 (DbgUnicodeStringToAnsiString.c)
- *     DbgLoadUserImageSymbols @ 0x140617FA0 (DbgLoadUserImageSymbols.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     DbgUnicodeStringToAnsiString @ 0x1404D8D14 (DbgUnicodeStringToAnsiString.c)
+ *     DbgLoadUserImageSymbols @ 0x14061AFF0 (DbgLoadUserImageSymbols.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall MiLoadUserSymbols(__int64 a1)

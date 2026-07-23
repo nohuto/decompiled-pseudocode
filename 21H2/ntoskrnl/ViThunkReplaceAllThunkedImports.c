@@ -1,13 +1,13 @@
 /*
- * XREFs of ViThunkReplaceAllThunkedImports @ 0x1409D9354
+ * XREFs of ViThunkReplaceAllThunkedImports @ 0x1409DA354
  * Callers:
- *     ViThunkApplyThunksCurrentSession @ 0x1409D8EBC (ViThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyThunksCurrentSession @ 0x1409D9EBC (ViThunkApplyThunksCurrentSession.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ViThunkFindAllSpecialTables @ 0x1409D908C (ViThunkFindAllSpecialTables.c)
- *     ViThunkReplaceImportEntry @ 0x1409D9470 (ViThunkReplaceImportEntry.c)
- *     ViThunkReplaceImportIfThunkedOrderDependent @ 0x1409D94E8 (ViThunkReplaceImportIfThunkedOrderDependent.c)
- *     ViThunkReplaceImportIfThunkedRegular @ 0x1409D95C4 (ViThunkReplaceImportIfThunkedRegular.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ViThunkFindAllSpecialTables @ 0x1409DA08C (ViThunkFindAllSpecialTables.c)
+ *     ViThunkReplaceImportEntry @ 0x1409DA470 (ViThunkReplaceImportEntry.c)
+ *     ViThunkReplaceImportIfThunkedOrderDependent @ 0x1409DA4E8 (ViThunkReplaceImportIfThunkedOrderDependent.c)
+ *     ViThunkReplaceImportIfThunkedRegular @ 0x1409DA5C4 (ViThunkReplaceImportIfThunkedRegular.c)
  */
 
 __int64 __fastcall ViThunkReplaceAllThunkedImports(__int64 BugCheckParameter3, unsigned int a2, int a3, int a4)

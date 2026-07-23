@@ -12,7 +12,7 @@ TLG_STATUS __fastcall RtlpHpTlLogGCTimerFinished(__int64 a1, __int64 a2, const G
   TLG_STATUS result; // eax
   EVENT_DATA_DESCRIPTOR pData; // [rsp+30h] [rbp-38h] BYREF
 
-  if ( dword_18015F5C8 > 5u )
+  if ( (unsigned int)dword_18015F5C8 > 5 )
     return TlgWrite((TraceLoggingHProvider)&dword_18015F5C8, &unk_18012BFAE, a3, a4, 2u, &pData);
   return result;
 }

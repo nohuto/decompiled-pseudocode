@@ -6,7 +6,10 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-void *__stdcall RtlClearAllBits(int a1)
+void __cdecl RtlClearAllBits(PRTL_BITMAP BitMapHeader)
 {
-  return memset(*(void **)(a1 + 4), 0, 4 * ((*(_DWORD *)a1 >> 5) + ((*(_DWORD *)a1 & 0x1F) != 0)));
+  size_t _FFFFFFFC; // [esp-4h] [ebp-4h]
+
+  LODWORD(_FFFFFFFC) = 4 * ((BitMapHeader->SizeOfBitMap >> 5) + ((BitMapHeader->SizeOfBitMap & 0x1F) != 0));
+  memset(BitMapHeader->Buffer, 0, _FFFFFFFC);
 }

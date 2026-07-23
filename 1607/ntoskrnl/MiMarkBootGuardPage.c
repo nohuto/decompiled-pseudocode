@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMarkBootGuardPage @ 0x14054E27C
+ * XREFs of MiMarkBootGuardPage @ 0x14054E61C
  * Callers:
- *     MmAllocateIsrStack @ 0x14054E204 (MmAllocateIsrStack.c)
+ *     MmAllocateIsrStack @ 0x14054E5A4 (MmAllocateIsrStack.c)
  *     MiInitializeKernelStacks @ 0x14078E3DC (MiInitializeKernelStacks.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiMarkBootGuardPage(_BYTE *a1)
@@ -42,7 +42,7 @@ void __fastcall MiMarkBootGuardPage(_BYTE *a1)
     if ( v8 != 3 )
     {
       MiReturnCommit((__int64)MiSystemPartition, 1uLL);
-      --qword_1403278E0;
+      --qword_140327920;
     }
   }
 }

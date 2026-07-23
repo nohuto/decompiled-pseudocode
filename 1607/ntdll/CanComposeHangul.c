@@ -3,7 +3,7 @@
  * Callers:
  *     Normalization__IsNormalized @ 0x180002D18 (Normalization__IsNormalized.c)
  * Callees:
- *     IsHangulLV @ 0x1800901C4 (IsHangulLV.c)
+ *     IsHangulLV @ 0x1800901B4 (IsHangulLV.c)
  */
 
 char __fastcall CanComposeHangul(int a1, int a2)

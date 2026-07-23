@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgUiRemoteBreakin @ 0x1800CCBA0
+ * XREFs of DbgUiRemoteBreakin @ 0x1800CCB60
  * Callers:
  *     <none>
  * Callees:
  *     RtlExitUserThread @ 0x18004EC30 (RtlExitUserThread.c)
- *     DbgBreakPoint @ 0x1800A1180 (DbgBreakPoint.c)
+ *     DbgBreakPoint @ 0x1800A1140 (DbgBreakPoint.c)
  */
 
-void __noreturn DbgUiRemoteBreakin()
+void __cdecl __noreturn DbgUiRemoteBreakin(PVOID Context)
 {
   if ( (NtCurrentPeb()->BeingDebugged || (MEMORY[0x7FFE02D4] & 2) != 0) && (NtCurrentTeb()->SameTebFlags & 0x20) == 0 )
   {
     if ( UseWOW64 )
     {
       if ( g_LdrpWow64PrepareForDebuggerAttach )
-        g_LdrpWow64PrepareForDebuggerAttach();
+        g_LdrpWow64PrepareForDebuggerAttach(Context);
     }
     DbgBreakPoint();
   }

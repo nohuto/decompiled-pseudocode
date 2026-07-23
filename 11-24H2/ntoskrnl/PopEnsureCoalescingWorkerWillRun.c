@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEnsureCoalescingWorkerWillRun @ 0x1404B7970
+ * XREFs of PopEnsureCoalescingWorkerWillRun @ 0x1404B2150
  * Callers:
- *     PopCoalescingNotify @ 0x140750FA0 (PopCoalescingNotify.c)
- *     PopCheckResiliencyScenarios @ 0x140A27318 (PopCheckResiliencyScenarios.c)
- *     PopEnforceResiliencyScenarios @ 0x140AAC0B0 (PopEnforceResiliencyScenarios.c)
+ *     PopCoalescingNotify @ 0x14074F2C0 (PopCoalescingNotify.c)
+ *     PopCheckResiliencyScenarios @ 0x140A1BD98 (PopCheckResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x140AA7080 (PopEnforceResiliencyScenarios.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void PopEnsureCoalescingWorkerWillRun()

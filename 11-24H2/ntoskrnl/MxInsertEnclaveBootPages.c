@@ -1,17 +1,17 @@
 /*
- * XREFs of MxInsertEnclaveBootPages @ 0x140C581C4
+ * XREFs of MxInsertEnclaveBootPages @ 0x140C5A354
  * Callers:
- *     MiCreateDescriptorPfns @ 0x140C50FF4 (MiCreateDescriptorPfns.c)
+ *     MiCreateDescriptorPfns @ 0x140C53184 (MiCreateDescriptorPfns.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     MiSetFreeZeroPfnCold @ 0x1404319A0 (MiSetFreeZeroPfnCold.c)
- *     MiDetermineNewPfnHeatState @ 0x140451C6C (MiDetermineNewPfnHeatState.c)
- *     MiSetPageTablePfnBuddy @ 0x140498190 (MiSetPageTablePfnBuddy.c)
- *     MiGetEnclavePageList @ 0x1404A4EC8 (MiGetEnclavePageList.c)
- *     MiCreateInitialPfns @ 0x14066C460 (MiCreateInitialPfns.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiSetFreeZeroPfnCold @ 0x140423EE0 (MiSetFreeZeroPfnCold.c)
+ *     MiDetermineNewPfnHeatState @ 0x140446D1C (MiDetermineNewPfnHeatState.c)
+ *     MiSetPageTablePfnBuddy @ 0x140492B70 (MiSetPageTablePfnBuddy.c)
+ *     MiGetEnclavePageList @ 0x14049FC58 (MiGetEnclavePageList.c)
+ *     MiCreateInitialPfns @ 0x14066D630 (MiCreateInitialPfns.c)
  */
 
 __int64 __fastcall MxInsertEnclaveBootPages(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3)
@@ -19,95 +19,96 @@ __int64 __fastcall MxInsertEnclaveBootPages(ULONG_PTR BugCheckParameter2, unsign
   ULONG_PTR v3; // rdi
   unsigned int v6; // eax
   int v7; // eax
-  unsigned __int64 *v8; // rbx
+  __int64 v8; // r9
+  unsigned __int64 *v9; // rbx
   __int64 result; // rax
-  unsigned __int64 v10; // r14
-  ULONG_PTR v11; // r8
-  unsigned __int64 v12; // rdx
-  ULONG_PTR v13; // rax
-  unsigned __int64 v14; // rax
-  ULONG_PTR v15; // rdi
-  unsigned __int64 *v16; // r15
-  unsigned __int64 *v17; // rbx
+  unsigned __int64 v11; // r14
+  ULONG_PTR v12; // r8
+  unsigned __int64 v13; // rdx
+  ULONG_PTR v14; // rax
+  unsigned __int64 v15; // rax
+  ULONG_PTR v16; // rdi
+  unsigned __int64 *v17; // r15
+  unsigned __int64 *v18; // rbx
   __int64 EnclavePageList; // rax
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  __int128 v21; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v22; // [rsp+30h] [rbp-20h]
-  __int64 v23; // [rsp+40h] [rbp-10h]
-  __int64 v24; // [rsp+48h] [rbp-8h]
-  int v25; // [rsp+90h] [rbp+40h]
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int128 v22; // [rsp+20h] [rbp-30h] BYREF
+  __int128 v23; // [rsp+30h] [rbp-20h]
+  __int64 v24; // [rsp+40h] [rbp-10h]
+  __int64 v25; // [rsp+48h] [rbp-8h]
   int v26; // [rsp+90h] [rbp+40h]
+  int v27; // [rsp+90h] [rbp+40h]
 
   v3 = BugCheckParameter2;
-  v21 = 0LL;
   v22 = 0LL;
-  v23 = 0x400000LL;
-  v24 = 0x40000000000000LL;
+  v23 = 0LL;
+  v24 = 0x400000LL;
+  v25 = 0x40000000000000LL;
   v6 = MiPageToNode(BugCheckParameter2);
-  v7 = MiDetermineNewPfnHeatState(0, 3u, qword_140E38C10 + 57216LL * v6);
-  MiSetFreeZeroPfnCold((__int64)&v21, v7);
-  *(_QWORD *)&v22 = MiMakeDemandZeroPte(4);
-  MiSetPfnContainingFrame((__int64)&v21, 0x3FFFFFFFFELL);
-  MiSetPageTablePfnBuddy((__int64)&v21, 0x10000000001uLL, 1);
-  MiSetPfnIdentity((__int64)&v21, 1u);
+  v7 = MiDetermineNewPfnHeatState(0, 3u, qword_140E38D50 + 57216LL * v6);
+  MiSetFreeZeroPfnCold((__int64)&v22, v7);
+  *(_QWORD *)&v23 = MiMakeDemandZeroPte(4);
+  MiSetPfnContainingFrame((__int64)&v22, 0x3FFFFFFFFELL);
+  MiSetPageTablePfnBuddy((__int64)&v22, 0x10000000001LL, 1LL, v8);
+  MiSetPfnIdentity((__int64)&v22, 1u);
   if ( a3 == 33 )
   {
-    *((_QWORD *)&v22 + 1) &= 0xC000000000000000uLL;
-    HIBYTE(v25) = BYTE3(v23);
-    LOWORD(v25) = 0;
-    BYTE2(v25) = BYTE2(v23) & 0xF8 | 5;
-    LODWORD(v23) = v25;
-    BYTE3(v23) = HIBYTE(v25) | 0x10;
-    *((_QWORD *)&v21 + 1) = -8LL;
+    *((_QWORD *)&v23 + 1) &= 0xC000000000000000uLL;
+    HIBYTE(v26) = BYTE3(v24);
+    LOWORD(v26) = 0;
+    BYTE2(v26) = BYTE2(v24) & 0xF8 | 5;
+    LODWORD(v24) = v26;
+    BYTE3(v24) = HIBYTE(v26) | 0x10;
+    *((_QWORD *)&v22 + 1) = -8LL;
   }
   else
   {
-    MiSetPfnContainingFrame((__int64)&v21, 0x3FFFFFFFFELL);
-    *((_QWORD *)&v22 + 1) = *((_QWORD *)&v22 + 1) & 0xC000000000000000uLL | 1;
-    HIBYTE(v26) = BYTE3(v23);
-    LOWORD(v26) = 2;
-    BYTE2(v26) = BYTE2(v23) & 0xF8 | 6;
-    LODWORD(v23) = v26;
-    *((_QWORD *)&v21 + 1) = 0xFFFFF68000000000uLL;
-    _InterlockedAdd64(&qword_140E3D8C0, a2);
+    MiSetPfnContainingFrame((__int64)&v22, 0x3FFFFFFFFELL);
+    *((_QWORD *)&v23 + 1) = *((_QWORD *)&v23 + 1) & 0xC000000000000000uLL | 1;
+    HIBYTE(v27) = BYTE3(v24);
+    LOWORD(v27) = 2;
+    BYTE2(v27) = BYTE2(v24) & 0xF8 | 6;
+    LODWORD(v24) = v27;
+    *((_QWORD *)&v22 + 1) = 0xFFFFF68000000000uLL;
+    _InterlockedAdd64(&qword_140E3DA00, a2);
   }
-  v8 = (unsigned __int64 *)(48 * v3 - 0x220000000000LL);
-  result = MiCreateInitialPfns((__int64)v8, a2, (__int64 *)&v21);
+  v9 = (unsigned __int64 *)(48 * v3 - 0x220000000000LL);
+  result = MiCreateInitialPfns((__int64)v9, a2, (__int64 *)&v22);
   if ( a3 == 33 )
   {
-    v10 = v3 + a2 - 1;
-    if ( v3 <= v10 )
+    v11 = v3 + a2 - 1;
+    if ( v3 <= v11 )
     {
-      v11 = v3 - 1;
+      v12 = v3 - 1;
       v3 += a2;
-      v12 = a2;
+      v13 = a2;
       do
       {
-        v13 = v11 ^ v8[3];
-        *v8 = (v11 + 2) ^ (*v8 ^ (v11 + 2)) & 0xFFFFFF0000000000uLL;
-        v14 = v11++ ^ v13 & 0xFFFFFF0000000000uLL;
-        v8[3] = v14;
-        v8 += 6;
-        --v12;
+        v14 = v12 ^ v9[3];
+        *v9 = (v12 + 2) ^ (*v9 ^ (v12 + 2)) & 0xFFFFFF0000000000uLL;
+        v15 = v12++ ^ v14 & 0xFFFFFF0000000000uLL;
+        v9[3] = v15;
+        v9 += 6;
+        --v13;
       }
-      while ( v12 );
+      while ( v13 );
     }
-    v15 = v3 - a2;
-    v16 = v8 - 6;
-    v17 = &v8[-6 * a2];
-    EnclavePageList = MiGetEnclavePageList((__int64)&MiSystemPartition, v15);
-    v19 = EnclavePageList;
+    v16 = v3 - a2;
+    v17 = v9 - 6;
+    v18 = &v9[-6 * a2];
+    EnclavePageList = MiGetEnclavePageList((__int64)&MiSystemPartition, v16);
+    v20 = EnclavePageList;
     _InterlockedAdd64((volatile signed __int64 *)EnclavePageList, a2);
-    v20 = *(_QWORD *)(EnclavePageList + 24);
-    if ( v20 == 0x3FFFFFFFFFLL )
-      *(_QWORD *)(EnclavePageList + 16) = v15;
+    v21 = *(_QWORD *)(EnclavePageList + 24);
+    if ( v21 == 0x3FFFFFFFFFLL )
+      *(_QWORD *)(EnclavePageList + 16) = v16;
     else
-      *(_QWORD *)(48 * v20 - 0x220000000000LL) = v15 ^ (*(_QWORD *)(48 * v20 - 0x220000000000LL) ^ v15) & 0xFFFFFF0000000000uLL;
-    v17[3] = v20 ^ (v20 ^ v17[3]) & 0xFFFFFF0000000000uLL;
-    result = *v16 & 0xFFFFFF0000000000uLL | 0x3FFFFFFFFFLL;
-    *v16 = result;
-    *(_QWORD *)(v19 + 24) = v10;
+      *(_QWORD *)(48 * v21 - 0x220000000000LL) = v16 ^ (*(_QWORD *)(48 * v21 - 0x220000000000LL) ^ v16) & 0xFFFFFF0000000000uLL;
+    v18[3] = v21 ^ (v21 ^ v18[3]) & 0xFFFFFF0000000000uLL;
+    result = *v17 & 0xFFFFFF0000000000uLL | 0x3FFFFFFFFFLL;
+    *v17 = result;
+    *(_QWORD *)(v20 + 24) = v11;
   }
   return result;
 }

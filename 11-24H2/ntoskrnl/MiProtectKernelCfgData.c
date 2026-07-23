@@ -1,33 +1,33 @@
 /*
- * XREFs of MiProtectKernelCfgData @ 0x140C4EAD0
+ * XREFs of MiProtectKernelCfgData @ 0x140C50C60
  * Callers:
  *     <none>
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
- *     MiSetSystemCodeProtection @ 0x140435F3C (MiSetSystemCodeProtection.c)
- *     MiProtectLargeKernelHalRange @ 0x1407E7EC0 (MiProtectLargeKernelHalRange.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeaderEx @ 0x140414520 (RtlImageNtHeaderEx.c)
+ *     MiSetSystemCodeProtection @ 0x1404289BC (MiSetSystemCodeProtection.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407E8490 (MiProtectLargeKernelHalRange.c)
  */
 
 __int64 __fastcall MiProtectKernelCfgData(__int64 a1)
 {
-  unsigned __int64 v1; // rdx
-  __int64 v3; // r8
+  void *v1; // rdx
+  char *v3; // r8
   unsigned int i; // eax
   unsigned __int64 v5; // rbx
   unsigned __int64 v6; // rdi
-  __int64 v8; // [rsp+40h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS v8; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(void **)(a1 + 48);
   v8 = 0LL;
-  RtlImageNtHeaderEx(1, v1, 0LL, &v8);
-  v3 = *(unsigned __int16 *)(v8 + 20) + v8 + 24;
-  for ( i = 0; i < *(unsigned __int16 *)(v8 + 6); ++i )
+  RtlImageNtHeaderEx(1u, v1, 0LL, &v8);
+  v3 = (char *)&v8->OptionalHeader + v8->FileHeader.SizeOfOptionalHeader;
+  for ( i = 0; i < v8->FileHeader.NumberOfSections; ++i )
   {
-    if ( *(_DWORD *)v3 == 1380402755 && *(_WORD *)(v3 + 4) == 79 )
+    if ( *(_DWORD *)v3 == 1380402755 && *((_WORD *)v3 + 2) == 79 )
     {
-      v5 = *(_QWORD *)(a1 + 48) + *(unsigned int *)(v3 + 12);
-      v6 = v5 + *(unsigned int *)(v3 + 8) - 1LL;
+      v5 = *(_QWORD *)(a1 + 48) + *((unsigned int *)v3 + 3);
+      v6 = v5 + *((unsigned int *)v3 + 2) - 1LL;
       if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v5) )
         MiProtectLargeKernelHalRange(
           v5 & 0xFFFFFFFFFFE00000uLL,
@@ -43,7 +43,7 @@ __int64 __fastcall MiProtectKernelCfgData(__int64 a1)
           0);
       return 0LL;
     }
-    v3 += 40LL;
+    v3 += 40;
   }
   return 0LL;
 }

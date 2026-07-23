@@ -8,15 +8,15 @@
  *     LdrpCallInitRoutine @ 0x180025CC8 (LdrpCallInitRoutine.c)
  *     LdrpCallTlsInitializers @ 0x180025DE4 (LdrpCallTlsInitializers.c)
  *     EtwEventUnregister @ 0x18004E970 (EtwEventUnregister.c)
- *     RtlProcessFlsData @ 0x180076270 (RtlProcessFlsData.c)
- *     SbCleanupTrace @ 0x180084CCC (SbCleanupTrace.c)
- *     RtlDetectHeapLeaks @ 0x180084DE0 (RtlDetectHeapLeaks.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     RtlProcessFlsData @ 0x180076280 (RtlProcessFlsData.c)
+ *     SbCleanupTrace @ 0x180084CDC (SbCleanupTrace.c)
+ *     RtlDetectHeapLeaks @ 0x180084DF0 (RtlDetectHeapLeaks.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  */
 
-void LdrShutdownProcess()
+void __noreturn LdrShutdownProcess(void)
 {
   struct _TEB *v0; // rbx
   _PEB *ProcessEnvironmentBlock; // rdi
@@ -26,17 +26,13 @@ void LdrShutdownProcess()
   __int64 *v5; // rsi
   __int64 v6; // rdi
   __int64 v7; // r15
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // r8
-  __int64 v11; // r9
   _UNICODE_STRING CommandLine; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v13; // [rsp+50h] [rbp-B8h] BYREF
-  int v14; // [rsp+58h] [rbp-B0h]
-  _BYTE v15[56]; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v16; // [rsp+A0h] [rbp-68h] BYREF
-  int v17; // [rsp+A8h] [rbp-60h]
-  _BYTE v18[56]; // [rsp+B0h] [rbp-58h] BYREF
+  __int64 v9; // [rsp+50h] [rbp-B8h] BYREF
+  int v10; // [rsp+58h] [rbp-B0h]
+  _BYTE v11[56]; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v12; // [rsp+A0h] [rbp-68h] BYREF
+  int v13; // [rsp+A8h] [rbp-60h]
+  _BYTE v14[56]; // [rsp+B0h] [rbp-58h] BYREF
 
   v0 = NtCurrentTeb();
   ProcessEnvironmentBlock = v0->ProcessEnvironmentBlock;
@@ -75,24 +71,24 @@ void LdrShutdownProcess()
         v7 = *(_QWORD *)(v6 + 56);
         if ( v7 && (*(_DWORD *)(v6 + 104) & 0x80000) != 0 )
         {
-          v13 = 72LL;
-          v14 = 1;
-          memset(v15, 0, sizeof(v15));
-          RtlActivateActivationContextUnsafeFast((__int64)&v13, *(_QWORD *)(v6 + 136));
+          v9 = 72LL;
+          v10 = 1;
+          memset(v11, 0, sizeof(v11));
+          RtlActivateActivationContextUnsafeFast((__int64)&v9, *(_QWORD *)(v6 + 136));
           if ( *(_WORD *)(v6 + 110) && v0->ThreadLocalStoragePointer )
-            LdrpCallTlsInitializers(0, v6, v8, v9);
+            LdrpCallTlsInitializers(0, v6);
           LdrpCallInitRoutine(v7, *(_QWORD *)(v6 + 48), 0);
-          RtlDeactivateActivationContextUnsafeFast((__int64)&v13);
+          RtlDeactivateActivationContextUnsafeFast((__int64)&v9);
         }
       }
       if ( *(_WORD *)(LdrpImageEntry + 110) && v0->ThreadLocalStoragePointer )
       {
-        v16 = 72LL;
-        v17 = 1;
-        memset(v18, 0, sizeof(v18));
-        RtlActivateActivationContextUnsafeFast((__int64)&v16, *(_QWORD *)(LdrpImageEntry + 136));
-        LdrpCallTlsInitializers(0, LdrpImageEntry, v10, v11);
-        RtlDeactivateActivationContextUnsafeFast((__int64)&v16);
+        v12 = 72LL;
+        v13 = 1;
+        memset(v14, 0, sizeof(v14));
+        RtlActivateActivationContextUnsafeFast((__int64)&v12, *(_QWORD *)(LdrpImageEntry + 136));
+        LdrpCallTlsInitializers(0, LdrpImageEntry);
+        RtlDeactivateActivationContextUnsafeFast((__int64)&v12);
       }
     }
     else
@@ -101,8 +97,8 @@ void LdrShutdownProcess()
     }
     if ( NtCurrentPeb()->ProcessHeap && VSMEnclaveProvidersRegistered )
     {
-      EtwEventUnregister(qword_18015F5B0);
-      qword_18015F5B0 = 0LL;
+      EtwEventUnregister(RegHandle);
+      RegHandle = 0LL;
       dword_18015F590 = 0;
       VSMEnclaveProvidersRegistered = 0;
     }

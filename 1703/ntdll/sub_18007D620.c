@@ -7,20 +7,20 @@
  *     ZwQueryVolumeInformationFile @ 0x1800A5C20 (ZwQueryVolumeInformationFile.c)
  */
 
-__int64 __fastcall sub_18007D620(__int64 a1, int *a2)
+NTSTATUS __fastcall sub_18007D620(void *a1, int *a2)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int64 v4; // rcx
   int v5; // eax
-  _BYTE v6[16]; // [rsp+30h] [rbp-48h] BYREF
-  _QWORD v7[3]; // [rsp+40h] [rbp-38h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-48h] BYREF
+  _QWORD FsInformation[3]; // [rsp+40h] [rbp-38h] BYREF
   unsigned int v8; // [rsp+58h] [rbp-20h]
   unsigned int v9; // [rsp+5Ch] [rbp-1Ch]
 
-  result = ZwQueryVolumeInformationFile(a1, v6, v7, 32LL, 7);
-  if ( (int)result >= 0 )
+  result = ZwQueryVolumeInformationFile(a1, &IoStatusBlock, FsInformation, 0x20u, FileFsFullSizeInformation);
+  if ( result >= 0 )
   {
-    v4 = v7[0] * v8 * (unsigned __int64)v9;
+    v4 = FsInformation[0] * v8 * (unsigned __int64)v9;
     if ( v4 <= 0x200000000LL )
     {
       *a2 = 5;
@@ -36,7 +36,7 @@ __int64 __fastcall sub_18007D620(__int64 a1, int *a2)
         v5 = 15;
       *a2 = v5;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

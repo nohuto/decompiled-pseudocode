@@ -1,17 +1,20 @@
 /*
- * XREFs of NtOpenPartition @ 0x1407D19C0
+ * XREFs of NtOpenPartition @ 0x1407D1B30
  * Callers:
  *     <none>
  * Callees:
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x14064AA70 (ObOpenObjectByName.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
  */
 
-__int64 __fastcall NtOpenPartition(HANDLE *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // di
   __int64 v5; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   HANDLE Handle[4]; // [rsp+48h] [rbp-20h] BYREF
 
   Handle[0] = 0LL;
@@ -19,15 +22,19 @@ __int64 __fastcall NtOpenPartition(HANDLE *a1, int a2, __int64 a3)
   if ( PreviousMode )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a1;
+    if ( (unsigned __int64)PartitionHandle < 0x7FFFFFFF0000LL )
+      v5 = (__int64)PartitionHandle;
     *(_QWORD *)v5 = *(_QWORD *)v5;
   }
-  result = ObOpenObjectByName(a3, (__int64)PsPartitionType, PreviousMode, 0LL, a2, 0LL, (__int64)Handle);
-  if ( (int)result >= 0 )
-  {
-    *a1 = Handle[0];
-    return (unsigned int)result;
-  }
+  result = ObOpenObjectByName(
+             (__int64)ObjectAttributes,
+             (__int64)PsPartitionType,
+             PreviousMode,
+             0LL,
+             DesiredAccess,
+             0LL,
+             (__int64)Handle);
+  if ( result >= 0 )
+    *PartitionHandle = Handle[0];
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTimeProfileReset @ 0x1408277CC
+ * XREFs of EtwTimeProfileReset @ 0x14082DA0C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeStopProfile @ 0x1404AAC88 (KeStopProfile.c)
- *     EtwpTimeProfileStart @ 0x1408280C8 (EtwpTimeProfileStart.c)
+ *     KeStopProfile @ 0x1404A4318 (KeStopProfile.c)
+ *     EtwpTimeProfileStart @ 0x14082E308 (EtwpTimeProfileStart.c)
  */
 
 __int64 EtwTimeProfileReset()
@@ -14,7 +14,7 @@ __int64 EtwTimeProfileReset()
   result = DWORD1(PerfGlobalGroupMask);
   if ( (BYTE4(PerfGlobalGroupMask) & 2) != 0 )
   {
-    KeStopProfile((ULONG_PTR)&EtwpSecurityLock.CurrentRunTime);
+    KeStopProfile((ULONG_PTR)&stru_140F03830.1008);
     return EtwpTimeProfileStart();
   }
   return result;

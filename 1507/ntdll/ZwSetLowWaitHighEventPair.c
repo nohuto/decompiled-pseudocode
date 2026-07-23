@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSetLowWaitHighEventPair()
+NTSTATUS __cdecl ZwSetLowWaitHighEventPair(HANDLE EventPairHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 393LL;
+  result = 393;
   __asm { syscall; Low latency system call }
   return result;
 }

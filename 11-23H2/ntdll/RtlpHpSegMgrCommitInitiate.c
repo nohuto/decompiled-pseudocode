@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegMgrCommitInitiate @ 0x1801239DC
+ * XREFs of RtlpHpSegMgrCommitInitiate @ 0x1801239AC
  * Callers:
  *     RtlpHpSegMgrCommit @ 0x180047080 (RtlpHpSegMgrCommit.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180033C40 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)
- *     RtlpHpSegMgrApplyLargePagePolicy @ 0x1801238A4 (RtlpHpSegMgrApplyLargePagePolicy.c)
+ *     RtlpHpSegMgrApplyLargePagePolicy @ 0x180123874 (RtlpHpSegMgrApplyLargePagePolicy.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrCommitInitiate(
@@ -13,7 +13,7 @@ __int64 __fastcall RtlpHpSegMgrCommitInitiate(
         volatile signed __int16 *a2,
         int a3,
         char a4,
-        volatile signed __int64 *a5,
+        PRTL_SRWLOCK SRWLock,
         char *a6)
 {
   unsigned __int16 v6; // di
@@ -80,7 +80,7 @@ LABEL_18:
     if ( (v13 & 0x4000) != 0 )
     {
       v7 = 1;
-      RtlAcquireSRWLockExclusive(a5);
+      RtlAcquireSRWLockExclusive(SRWLock);
       v8 = -1;
     }
     v17 = _InterlockedCompareExchange16(a2, v13, v6);
@@ -90,7 +90,7 @@ LABEL_18:
       break;
     if ( v7 )
     {
-      RtlReleaseSRWLockExclusive(a5);
+      RtlReleaseSRWLockExclusive(SRWLock);
       v7 = 0;
     }
     a4 = v21;

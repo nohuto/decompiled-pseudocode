@@ -94,7 +94,7 @@ LABEL_15:
   if ( v13 && ($6EAC78A6FCFADE0A5FA44F358736B38F *)v5->ApcState.ApcListHead[0].Flink != &v5->152 )
     KiCheckForKernelApcDelivery(v12);
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpSvmDeviceListLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, v10, (ULONG_PTR)&ExpSvmDeviceListLock);
+    ExfAcquirePushLockExclusiveEx(&ExpSvmDeviceListLock, (_RTL_BALANCED_NODE *)v10, (ULONG_PTR)&ExpSvmDeviceListLock);
   if ( v10 )
     *(_BYTE *)(v10 + 26) |= 1u;
   v15 = (__int64 *)ExpSvmDevices;
@@ -151,7 +151,7 @@ LABEL_38:
   }
   v23->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v23->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v18->LockEntries[v22]);
+    KiAbEntryRemoveFromTree(&v18->LockEntries[v22].TreeNode);
   v25 = v23->BoostBitmap.AllFields & 0x1FFFF;
   v26 = v23->BoostBitmap.AllFields & 0xFFFE0000;
   v23->ThreadLocalFlags &= ~1u;

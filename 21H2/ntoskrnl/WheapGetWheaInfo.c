@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapGetWheaInfo @ 0x1405BAE20
+ * XREFs of WheapGetWheaInfo @ 0x1405BB050
  * Callers:
- *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x1405BB360 (WheaReportHwError.c)
  * Callees:
  *     <none>
  */

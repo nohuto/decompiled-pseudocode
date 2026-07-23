@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepCacheDeviceHash @ 0x140985E30
+ * XREFs of KsepCacheDeviceHash @ 0x14096E640
  * Callers:
  *     <none>
  * Callees:
- *     RtlHashUnicodeString @ 0x1409862A0 (RtlHashUnicodeString.c)
+ *     RtlHashUnicodeString @ 0x14096EAB0 (RtlHashUnicodeString.c)
  */
 
 __int64 __fastcall KsepCacheDeviceHash(__int64 a1)

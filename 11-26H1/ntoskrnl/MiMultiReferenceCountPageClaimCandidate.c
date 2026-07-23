@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMultiReferenceCountPageClaimCandidate @ 0x1404116D8
+ * XREFs of MiMultiReferenceCountPageClaimCandidate @ 0x140410DF8
  * Callers:
- *     MiActivePageClaimCandidate @ 0x1402923F0 (MiActivePageClaimCandidate.c)
+ *     MiActivePageClaimCandidate @ 0x140291950 (MiActivePageClaimCandidate.c)
  * Callees:
- *     MiRequestIoPageMdlCacheRelease @ 0x140411798 (MiRequestIoPageMdlCacheRelease.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x140410EB8 (MiRequestIoPageMdlCacheRelease.c)
  */
 
 __int64 __fastcall MiMultiReferenceCountPageClaimCandidate(const __m128i *a1, int a2, __m128i *a3)
@@ -18,8 +18,8 @@ __int64 __fastcall MiMultiReferenceCountPageClaimCandidate(const __m128i *a1, in
   if ( (unsigned __int16)v6 <= 1u && (unsigned __int16)v6 <= (a3[1].m128i_i64[1] & 0x3FFFFFFFFFFFFFFFuLL) )
     return 0LL;
   if ( a2 )
-    ++dword_140EF8E64;
+    ++dword_140EF91C4;
   else
-    ++dword_140EF8F1C;
+    ++dword_140EF927C;
   return 3221225473LL;
 }

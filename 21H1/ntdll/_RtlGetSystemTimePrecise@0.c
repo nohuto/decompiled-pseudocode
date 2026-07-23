@@ -9,63 +9,72 @@
  *     __allshl @ 0x4B2F65F0 (__allshl.c)
  */
 
-int __stdcall RtlGetSystemTimePrecise()
+LARGE_INTEGER RtlGetSystemTimePrecise(void)
 {
   __int64 TickLock; // rdi
   __int64 v1; // rdi
-  unsigned __int64 v2; // rdi
-  unsigned int v3; // ecx
-  int v4; // eax
-  unsigned __int64 v6; // kr08_8
-  unsigned int v7; // [esp+Ch] [ebp-28h] BYREF
-  unsigned int v8; // [esp+10h] [ebp-24h]
-  int v9; // [esp+14h] [ebp-20h]
-  int v10; // [esp+18h] [ebp-1Ch]
-  unsigned int v11; // [esp+1Ch] [ebp-18h]
-  int v12; // [esp+20h] [ebp-14h]
-  unsigned int v13; // [esp+24h] [ebp-10h]
-  unsigned int v14; // [esp+28h] [ebp-Ch]
-  unsigned int v15; // [esp+2Ch] [ebp-8h]
-  char v16; // [esp+33h] [ebp-1h]
+  int v2; // ebx
+  unsigned __int64 v3; // rdi
+  unsigned int v4; // ecx
+  int v5; // eax
+  bool v6; // cf
+  LARGE_INTEGER result; // rax
+  unsigned __int64 v8; // kr08_8
+  LARGE_INTEGER PerformanceCounter; // [esp+Ch] [ebp-28h] BYREF
+  int v10; // [esp+14h] [ebp-20h]
+  int v11; // [esp+18h] [ebp-1Ch]
+  unsigned int v12; // [esp+1Ch] [ebp-18h]
+  int v13; // [esp+20h] [ebp-14h]
+  unsigned int v14; // [esp+24h] [ebp-10h]
+  unsigned int v15; // [esp+28h] [ebp-Ch]
+  unsigned int v16; // [esp+2Ch] [ebp-8h]
+  char v17; // [esp+33h] [ebp-1h]
 
-  v12 = 0;
+  v13 = 0;
   while ( 1 )
   {
     TickLock = RtlBeginReadTickLock(2147353408);
-    v15 = MEMORY[0x7FFE0348];
-    v11 = MEMORY[0x7FFE034C];
-    v14 = MEMORY[0x7FFE0358];
-    v13 = MEMORY[0x7FFE035C];
-    v16 = MEMORY[0x7FFE0368];
-    v10 = MEMORY[0x7FFE0014];
-    v9 = MEMORY[0x7FFE0018];
-    RtlQueryPerformanceCounter(&v7);
+    v16 = MEMORY[0x7FFE0348];
+    v12 = MEMORY[0x7FFE034C];
+    v15 = MEMORY[0x7FFE0358];
+    v14 = MEMORY[0x7FFE035C];
+    v17 = MEMORY[0x7FFE0368];
+    v11 = MEMORY[0x7FFE0014];
+    v10 = MEMORY[0x7FFE0018];
+    RtlQueryPerformanceCounter(&PerformanceCounter);
     if ( RtlTryEndReadTickLock(TickLock, HIDWORD(TickLock)) )
       break;
     _mm_pause();
   }
-  HIDWORD(v1) = v8;
-  if ( v8 < v11 || (LODWORD(v1) = v7, v8 <= v11) && v7 <= v15 )
+  HIDWORD(v1) = PerformanceCounter.HighPart;
+  v2 = 0;
+  if ( PerformanceCounter.HighPart < v12
+    || (LODWORD(v1) = PerformanceCounter.LowPart, PerformanceCounter.HighPart <= v12)
+    && PerformanceCounter.LowPart <= v16 )
   {
-    v4 = v12;
+    v5 = v13;
   }
   else
   {
-    v2 = v1 - __PAIR64__(v11, v15) - 1;
-    if ( v16 )
-      v2 <<= v16;
-    v15 = ((unsigned int)v2 * (unsigned __int64)v13) >> 32;
-    v3 = v2 * v13;
-    if ( HIDWORD(v2) )
+    v3 = v1 - __PAIR64__(v12, v16) - 1;
+    if ( v17 )
+      v3 <<= v17;
+    v16 = ((unsigned int)v3 * (unsigned __int64)v14) >> 32;
+    v4 = v3 * v14;
+    if ( HIDWORD(v3) )
     {
-      v6 = __PAIR64__(v15, v3) + HIDWORD(v2) * (unsigned __int64)v14;
-      v14 = v6 < __PAIR64__(v15, v3);
-      v4 = HIDWORD(v6) + v13 * HIDWORD(v2);
+      v8 = __PAIR64__(v16, v4) + HIDWORD(v3) * (unsigned __int64)v15;
+      v15 = v8 < __PAIR64__(v16, v4);
+      v2 = (__PAIR64__(v15, HIDWORD(v8)) + v14 * (unsigned __int64)HIDWORD(v3)) >> 32;
+      v5 = HIDWORD(v8) + v14 * HIDWORD(v3);
     }
     else
     {
-      v4 = (__PAIR64__(v15, v3) + (((unsigned int)v2 * (unsigned __int64)v14) >> 32)) >> 32;
+      v5 = (__PAIR64__(v16, v4) + (((unsigned int)v3 * (unsigned __int64)v15) >> 32)) >> 32;
     }
   }
-  return v10 + v4;
+  v6 = __CFADD__(v11, v5);
+  result.LowPart = v11 + v5;
+  result.HighPart = v2 + v6 + v10;
+  return result;
 }

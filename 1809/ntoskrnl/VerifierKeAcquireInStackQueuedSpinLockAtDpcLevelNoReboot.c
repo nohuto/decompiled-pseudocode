@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelNoReboot @ 0x1409394E0
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelNoReboot @ 0x14093A4E0
  * Callers:
  *     <none>
  * Callees:
- *     VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelCommon @ 0x140939424 (VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelCommon.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelCommon @ 0x14093A424 (VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelCommon.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockAtDpcLevelNoReboot(ULONG_PTR a1, ULONG_PTR a2)

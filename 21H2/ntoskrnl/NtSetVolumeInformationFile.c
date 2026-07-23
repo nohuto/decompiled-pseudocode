@@ -1,29 +1,29 @@
 /*
- * XREFs of NtSetVolumeInformationFile @ 0x14076D170
+ * XREFs of NtSetVolumeInformationFile @ 0x14076D330
  * Callers:
  *     <none>
  * Callees:
- *     IopVerifierExAllocatePoolWithQuota @ 0x14022BCD0 (IopVerifierExAllocatePoolWithQuota.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopVerifierExAllocatePool_1 @ 0x1402C5D6C (IopVerifierExAllocatePool_1.c)
- *     IopReferenceFileObject @ 0x140348A20 (IopReferenceFileObject.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x140236060 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopVerifierExAllocatePool_1 @ 0x14024454C (IopVerifierExAllocatePool_1.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     IopReferenceFileObject @ 0x140353770 (IopReferenceFileObject.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
  *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
- *     IopSynchronousApiServiceTail @ 0x140698FCC (IopSynchronousApiServiceTail.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
- *     IoGetRelatedTargetDevice @ 0x14071C4DC (IoGetRelatedTargetDevice.c)
- *     IoReportTargetDeviceChange @ 0x14076D6F0 (IoReportTargetDeviceChange.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     IopAllocateIrpCleanup @ 0x140890E54 (IopAllocateIrpCleanup.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopSynchronousApiServiceTail @ 0x1405F7CBC (IopSynchronousApiServiceTail.c)
+ *     IoGetRelatedTargetDevice @ 0x1406FCB4C (IoGetRelatedTargetDevice.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x140716160 (IopSynchronousServiceTail.c)
+ *     IoReportTargetDeviceChange @ 0x14076D8B0 (IoReportTargetDeviceChange.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     IopAllocateIrpCleanup @ 0x140890FB4 (IopAllocateIrpCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtSetVolumeInformationFile(
@@ -48,7 +48,7 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
   char v19; // r14
   struct _KTHREAD *v20; // rax
   volatile __int32 *v21; // rbx
-  __int64 v22; // rax
+  PRTL_BALANCED_NODE v22; // rax
   int v23; // ebx
   struct _DMA_ADAPTER *v24; // rcx
   struct _KEVENT *Pool_1; // rax
@@ -58,7 +58,7 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
   struct _IO_STATUS_BLOCK *v29; // rax
   __int64 v30; // rcx
   __int64 v31; // rax
-  struct _IRP *PoolWithQuota; // rax
+  struct _IRP *PoolWithQuota_0; // rax
   char v33; // r8
   int v34; // eax
   int v35; // edx
@@ -151,7 +151,7 @@ NTSTATUS __stdcall NtSetVolumeInformationFile(
       else
       {
         if ( v22 )
-          *(_BYTE *)(v22 + 26) |= 1u;
+          BYTE2(v22[1].Left) |= 1u;
         v16 = (struct _FILE_OBJECT *)Object;
         ObfReferenceObject(Object);
         v23 = 0;
@@ -224,9 +224,9 @@ LABEL_46:
     *(_QWORD *)(v31 + 48) = v16;
     v28->AssociatedIrp.MasterIrp = 0LL;
     v28->MdlAddress = 0LL;
-    PoolWithQuota = (struct _IRP *)IopVerifierExAllocatePoolWithQuota(v30, v5);
-    v28->AssociatedIrp.MasterIrp = PoolWithQuota;
-    memmove(PoolWithQuota, FsInformation, v5);
+    PoolWithQuota_0 = (struct _IRP *)IopVerifierExAllocatePoolWithQuota_0(v30, v5);
+    v28->AssociatedIrp.MasterIrp = PoolWithQuota_0;
+    memmove(PoolWithQuota_0, FsInformation, v5);
     v33 = v38[1];
     if ( v38[1] && FsInformationClass == FileFsLabelInformation )
     {

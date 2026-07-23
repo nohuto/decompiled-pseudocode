@@ -1,34 +1,35 @@
 /*
- * XREFs of ObpRegisterObject @ 0x140AB735C
+ * XREFs of ObpRegisterObject @ 0x140AB162C
  * Callers:
- *     EtwpRegisterUMProvider @ 0x14083C6F0 (EtwpRegisterUMProvider.c)
- *     NtCreateSemaphore @ 0x14083DDC0 (NtCreateSemaphore.c)
- *     CmpCreateKeyBody @ 0x14083E100 (CmpCreateKeyBody.c)
- *     NtCreateMutant @ 0x14083E8C0 (NtCreateMutant.c)
- *     NtCreateEvent @ 0x140856FC0 (NtCreateEvent.c)
- *     IopAllocRealFileObject @ 0x14089A9B0 (IopAllocRealFileObject.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObCreateObject @ 0x14098A240 (ObCreateObject.c)
+ *     EtwpRegisterUMProvider @ 0x140838D50 (EtwpRegisterUMProvider.c)
+ *     NtCreateSemaphore @ 0x14083A3C0 (NtCreateSemaphore.c)
+ *     CmpCreateKeyBody @ 0x14083A700 (CmpCreateKeyBody.c)
+ *     NtCreateMutant @ 0x14083AEC0 (NtCreateMutant.c)
+ *     NtCreateWaitCompletionPacket @ 0x14083B1F0 (NtCreateWaitCompletionPacket.c)
+ *     NtCreateEvent @ 0x1408532A0 (NtCreateEvent.c)
+ *     IopAllocRealFileObject @ 0x1408A3050 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObCreateObject @ 0x140973930 (ObCreateObject.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlStringCbCopyA @ 0x140459248 (RtlStringCbCopyA.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObpGetObjectRefInfo @ 0x140744D80 (ObpGetObjectRefInfo.c)
- *     ObpIsObjectPoolTagTraced @ 0x1407451C0 (ObpIsObjectPoolTagTraced.c)
- *     EtwTraceObject @ 0x1407A98C4 (EtwTraceObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     RtlStringCbCopyA @ 0x14044E2F8 (RtlStringCbCopyA.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObpGetObjectRefInfo @ 0x140743070 (ObpGetObjectRefInfo.c)
+ *     ObpIsObjectPoolTagTraced @ 0x1407434B0 (ObpIsObjectPoolTagTraced.c)
+ *     EtwTraceObject @ 0x1407A9A04 (EtwTraceObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall ObpRegisterObject(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rsi
+  char *v5; // rsi
   unsigned __int16 *v6; // r8
   __int64 v7; // rdx
   _QWORD *v8; // rcx
@@ -37,20 +38,20 @@ void __fastcall ObpRegisterObject(__int64 a1)
   char v11; // cl
   unsigned __int16 *Pool2; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( (xmmword_140FC5B10 & 0x80u) != 0LL )
+  if ( (xmmword_140FC6B50 & 0x80u) != 0LL )
     EtwTraceObject(4400, a1);
   if ( (ObpTraceFlags & 0x73) != 0 )
   {
     CurrentThread = KeGetCurrentThread();
     Pool2 = 0LL;
     --CurrentThread->SpecialApcDisable;
-    v3 = KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
+    v3 = (char *)KeAbPreAcquire((__int64)&ObpStackTraceLock, 0LL);
     v4 = _interlockedbittestandset64((volatile signed __int32 *)&ObpStackTraceLock, 0LL);
     v5 = v3;
     if ( v4 )
-      ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, (__int64)v3, (__int64)&ObpStackTraceLock);
+      ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, v3, (__int64)&ObpStackTraceLock);
     if ( v5 )
-      *((_BYTE *)v5 + 10) = 1;
+      v5[10] = 1;
     if ( (ObpTraceFlags & 0x73) == 0
       || (ObpTraceFlags & 0x20) != 0 && (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x200) == 0
       || !ObpIsObjectPoolTagTraced(a1)
@@ -61,7 +62,7 @@ void __fastcall ObpRegisterObject(__int64 a1)
     v6 = Pool2;
     if ( !Pool2 )
     {
-      Pool2 = (unsigned __int16 *)ExAllocatePool2(0x40uLL);
+      Pool2 = (unsigned __int16 *)ExAllocatePool2(0x40uLL, 0x17F8uLL, 0x7452624Fu);
       v6 = Pool2;
       if ( !Pool2 )
       {

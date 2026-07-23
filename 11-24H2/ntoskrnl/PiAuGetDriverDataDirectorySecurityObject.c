@@ -1,19 +1,19 @@
 /*
- * XREFs of PiAuGetDriverDataDirectorySecurityObject @ 0x140C24CDC
+ * XREFs of PiAuGetDriverDataDirectorySecurityObject @ 0x140C26D0C
  * Callers:
- *     PiCreateDriverDataDirectoryRoot @ 0x140C22798 (PiCreateDriverDataDirectoryRoot.c)
+ *     PiCreateDriverDataDirectoryRoot @ 0x140C247C8 (PiCreateDriverDataDirectoryRoot.c)
  * Callees:
- *     RtlLengthSecurityDescriptor @ 0x14085A2E0 (RtlLengthSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14085CB30 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140862B50 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlAddAccessAllowedAceEx @ 0x1408651F0 (RtlAddAccessAllowedAceEx.c)
- *     RtlValidSecurityDescriptor @ 0x140867870 (RtlValidSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140A23FB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408565C0 (RtlLengthSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1408588A0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140867160 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlAddAccessAllowedAceEx @ 0x140869800 (RtlAddAccessAllowedAceEx.c)
+ *     RtlValidSecurityDescriptor @ 0x14086BB60 (RtlValidSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140A18380 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of Mi4KStartForSubsection @ 0x140463BDC
+ * XREFs of Mi4KStartForSubsection @ 0x14045A31C
  * Callers:
- *     MiCreatePagingFileMap @ 0x140942908 (MiCreatePagingFileMap.c)
- *     MiCreateDataFileMap @ 0x140943D3C (MiCreateDataFileMap.c)
- *     MiExtendSection @ 0x1409463BC (MiExtendSection.c)
+ *     MiExtendSection @ 0x14098A4D8 (MiExtendSection.c)
+ *     MiCreateDataFileMap @ 0x14098A990 (MiCreateDataFileMap.c)
+ *     MiCreatePagingFileMap @ 0x14098CB78 (MiCreatePagingFileMap.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmSetSimulatedIdle @ 0x1405677A4
+ * XREFs of PpmSetSimulatedIdle @ 0x1405679E4
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -25,8 +25,8 @@ __int64 __fastcall PpmSetSimulatedIdle(__int64 a1)
   _DWORD *v13; // r9
   int v14; // edx
   bool v15; // zf
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

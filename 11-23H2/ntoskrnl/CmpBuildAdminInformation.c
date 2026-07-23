@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpBuildAdminInformation @ 0x140A1895C
+ * XREFs of CmpBuildAdminInformation @ 0x140A18C0C
  * Callers:
- *     CmpCheckAdminAccess @ 0x140A18DF0 (CmpCheckAdminAccess.c)
+ *     CmpCheckAdminAccess @ 0x140A190A0 (CmpCheckAdminAccess.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     RtlSidHashInitialize @ 0x140228410 (RtlSidHashInitialize.c)
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     RtlCopySidAndAttributesArray @ 0x140714EB0 (RtlCopySidAndAttributesArray.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
- *     CmpEffectiveTokenForSubject @ 0x1407BA5DC (CmpEffectiveTokenForSubject.c)
- *     RtlCopyLuidAndAttributesArray @ 0x1409BC020 (RtlCopyLuidAndAttributesArray.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     RtlSidHashInitialize @ 0x140228520 (RtlSidHashInitialize.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     RtlCopySidAndAttributesArray @ 0x1407150C0 (RtlCopySidAndAttributesArray.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
+ *     CmpEffectiveTokenForSubject @ 0x1407BA8BC (CmpEffectiveTokenForSubject.c)
+ *     RtlCopyLuidAndAttributesArray @ 0x1409BC220 (RtlCopyLuidAndAttributesArray.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -26,35 +26,34 @@ __int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 *a2)
   int v9; // edi
   __int64 v10; // r14
   PSID v11; // r13
-  unsigned int v12; // ebx
+  ULONG v12; // ebx
   __int64 v13; // rdx
   __int64 v14; // r12
-  int *v15; // r14
+  _SID_AND_ATTRIBUTES *v15; // r14
   unsigned int v16; // r12d
   int v17; // edx
   unsigned int v18; // eax
   __int64 Pool; // rax
   __int64 v20; // r14
-  unsigned int *v21; // rdi
-  unsigned int v22; // edx
+  ULONG *v21; // rdi
+  ULONG v22; // edx
   __int64 v23; // rax
   __int64 v24; // rbx
-  unsigned int v25; // ecx
+  ULONG v25; // ecx
   PVOID TokenInformation; // [rsp+40h] [rbp-40h] BYREF
-  PSID DestinationSid; // [rsp+48h] [rbp-38h] BYREF
+  PSID RemainingSidArea; // [rsp+48h] [rbp-38h] BYREF
   PSE_EXPORTS v29; // [rsp+50h] [rbp-30h]
-  int v30[2]; // [rsp+58h] [rbp-28h] BYREF
-  _DWORD v31[8]; // [rsp+60h] [rbp-20h]
-  __int64 v33; // [rsp+D0h] [rbp+50h] BYREF
-  NTSTATUS v34; // [rsp+D8h] [rbp+58h]
+  _SID_AND_ATTRIBUTES Src[2]; // [rsp+58h] [rbp-28h] BYREF
+  ULONG SidAreaSize; // [rsp+D0h] [rbp+50h] BYREF
+  NTSTATUS v33; // [rsp+D8h] [rbp+58h]
 
-  DestinationSid = 0LL;
-  LODWORD(v33) = 0;
+  RemainingSidArea = 0LL;
+  SidAreaSize = 0;
   TokenInformation = 0LL;
   v2 = (void *)CmpEffectiveTokenForSubject(a2, 0LL);
-  v34 = SeQueryInformationToken(v2, TokenAccessInformation, &TokenInformation);
-  v3 = v34;
-  if ( v34 >= 0 )
+  v33 = SeQueryInformationToken(v2, TokenAccessInformation, &TokenInformation);
+  v3 = v33;
+  if ( v33 >= 0 )
   {
     v4 = (_DWORD **)TokenInformation;
     v5 = 0;
@@ -69,8 +68,8 @@ __int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 *a2)
       do
       {
         v11 = *(PSID *)v10;
-        DestinationSid = *(PSID *)v10;
-        v9 += RtlLengthSid(DestinationSid);
+        RemainingSidArea = *(PSID *)v10;
+        v9 += RtlLengthSid(RemainingSidArea);
         if ( v6 == -1 && RtlEqualSid(v29->SeAliasAdminsSid, v11) )
         {
           v6 = v5;
@@ -89,24 +88,24 @@ __int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 *a2)
     if ( v6 == -1 )
     {
       v12 = 1;
-      v31[0] = 7;
-      *(_QWORD *)v30 = SeExports->SeAliasAdminsSid;
+      Src[0].Attributes = 7;
+      Src[0].Sid = SeExports->SeAliasAdminsSid;
     }
     if ( v7 == -1 )
     {
-      v13 = 2LL * v12++;
-      *(_QWORD *)&v30[2 * v13] = SeExports->SeHighMandatorySid;
-      v31[2 * v13] = 96;
+      v13 = v12++;
+      Src[v13].Sid = SeExports->SeHighMandatorySid;
+      Src[v13].Attributes = 96;
     }
     if ( v12 )
     {
       v14 = v12;
-      v15 = v30;
+      v15 = Src;
       v9 += 16 * v12;
       do
       {
-        v9 += RtlLengthSid(*(PSID *)v15);
-        v15 += 4;
+        v9 += RtlLengthSid(v15->Sid);
+        ++v15;
         --v14;
       }
       while ( v14 );
@@ -120,7 +119,7 @@ __int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 *a2)
     v20 = Pool;
     if ( Pool )
     {
-      v21 = (unsigned int *)(Pool + 88);
+      v21 = (ULONG *)(Pool + 88);
       *(_QWORD *)(Pool + 24) = *((_QWORD *)TokenInformation + 3);
       *(_DWORD *)(Pool + 32) = *((_DWORD *)TokenInformation + 8);
       *(_DWORD *)(Pool + 36) = *((_DWORD *)TokenInformation + 9);
@@ -131,12 +130,12 @@ __int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 *a2)
       *(_DWORD *)(Pool + 88) = v22;
       RtlCopySidAndAttributesArray(
         **(_DWORD **)TokenInformation,
-        *(_QWORD *)(*(_QWORD *)TokenInformation + 8LL),
+        *(PSID_AND_ATTRIBUTES *)(*(_QWORD *)TokenInformation + 8LL),
         v16 - 16 * v22,
-        Pool + 360,
-        (char *)(Pool + 360 + 16 * v22),
-        &DestinationSid,
-        (ULONG *)&v33);
+        (PSID_AND_ATTRIBUTES)(Pool + 360),
+        (PSID)(Pool + 360 + 16 * v22),
+        &RemainingSidArea,
+        &SidAreaSize);
       if ( v6 != -1 )
         *(_DWORD *)(*(_QWORD *)(v20 + 96) + 16LL * v6 + 8) = 7;
       if ( v7 != -1 )
@@ -144,13 +143,13 @@ __int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 *a2)
       if ( v12 )
         RtlCopySidAndAttributesArray(
           v12,
-          (__int64)v30,
-          v33,
-          *(_QWORD *)(v20 + 96) + 16LL * **(unsigned int **)TokenInformation,
-          (char *)DestinationSid,
-          &DestinationSid,
-          (ULONG *)&v33);
-      RtlSidHashInitialize(*(__int64 **)(v20 + 96), *v21, (_QWORD *)(v20 + 88));
+          Src,
+          SidAreaSize,
+          (PSID_AND_ATTRIBUTES)(*(_QWORD *)(v20 + 96) + 16LL * **(unsigned int **)TokenInformation),
+          RemainingSidArea,
+          &RemainingSidArea,
+          &SidAreaSize);
+      RtlSidHashInitialize(*(PSID_AND_ATTRIBUTES *)(v20 + 96), *v21, (PSID_AND_ATTRIBUTES_HASH)(v20 + 88));
       *(_QWORD *)v20 = v21;
       v23 = *(_QWORD *)(v20 + 96) + v16;
       *(_DWORD *)v23 = 0;
@@ -164,9 +163,12 @@ __int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 *a2)
       *(_QWORD *)(v20 + 56) = 0LL;
       v25 = **((_DWORD **)TokenInformation + 2);
       *(_DWORD *)(v23 + 272) = v25;
-      RtlCopyLuidAndAttributesArray(v25, *((_QWORD *)TokenInformation + 2) + 4LL, v23 + 276);
+      RtlCopyLuidAndAttributesArray(
+        v25,
+        (PLUID_AND_ATTRIBUTES)(*((_QWORD *)TokenInformation + 2) + 4LL),
+        (PLUID_AND_ATTRIBUTES)(v23 + 276));
       *(_QWORD *)(v20 + 16) = v24;
-      v3 = v34;
+      v3 = v33;
       *a1 = v20;
     }
     else

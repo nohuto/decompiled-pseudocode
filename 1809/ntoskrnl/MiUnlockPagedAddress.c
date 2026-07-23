@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockPagedAddress @ 0x14013A2C8
+ * XREFs of MiUnlockPagedAddress @ 0x14013A3C8
  * Callers:
- *     MiFreeCombinePool @ 0x14013A250 (MiFreeCombinePool.c)
- *     MiInsertNewCombineBlocks @ 0x140140844 (MiInsertNewCombineBlocks.c)
- *     MiFreeClonePool @ 0x1402C9FE8 (MiFreeClonePool.c)
- *     MiBuildNewCloneDescriptor @ 0x14085DE80 (MiBuildNewCloneDescriptor.c)
- *     MiFreeCloneDescriptor @ 0x14085E658 (MiFreeCloneDescriptor.c)
+ *     MiFreeCombinePool @ 0x14013A350 (MiFreeCombinePool.c)
+ *     MiInsertNewCombineBlocks @ 0x140140944 (MiInsertNewCombineBlocks.c)
+ *     MiFreeClonePool @ 0x1402CA1D8 (MiFreeClonePool.c)
+ *     MiBuildNewCloneDescriptor @ 0x14085F0E0 (MiBuildNewCloneDescriptor.c)
+ *     MiFreeCloneDescriptor @ 0x14085F8B8 (MiFreeCloneDescriptor.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockPagedAddress(unsigned __int64 a1)

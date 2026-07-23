@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlInitializeBaseMcbEx @ 0x1403FA060
+ * XREFs of FsRtlInitializeBaseMcbEx @ 0x1403EFF70
  * Callers:
- *     FsRtlInitializeLargeMcb @ 0x1403F9FF0 (FsRtlInitializeLargeMcb.c)
- *     FsRtlInitializeBaseMcb @ 0x14057FAD0 (FsRtlInitializeBaseMcb.c)
+ *     FsRtlInitializeLargeMcb @ 0x1403EFF00 (FsRtlInitializeLargeMcb.c)
+ *     FsRtlInitializeBaseMcb @ 0x14057CF10 (FsRtlInitializeBaseMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
  */
 
 BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, USHORT Flags)
@@ -19,7 +19,7 @@ BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, US
   Mcb->PoolType = PoolType;
   Mcb->Flags = Flags;
   if ( PoolType == PagedPool )
-    v5 = ExAllocateFromPagedLookasideList(&FsRtlFirstPagedMappingLookasideList);
+    v5 = ExAllocateFromPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList);
   else
     v5 = ExAllocateFromNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList);
   Mcb->Mapping = v5;

@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpGetMaxVirtualDiskNestingLevel @ 0x1403CD4AC
+ * XREFs of FsRtlpGetMaxVirtualDiskNestingLevel @ 0x1403CD61C
  * Callers:
- *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x14039ABF0 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
+ *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x14039AD40 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
  */
 
 __int64 FsRtlpGetMaxVirtualDiskNestingLevel()

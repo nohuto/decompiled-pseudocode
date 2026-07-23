@@ -1,9 +1,9 @@
 /*
- * XREFs of MiControlAreaExemptFromCrossPartitionCharges @ 0x140077CF0
+ * XREFs of MiControlAreaExemptFromCrossPartitionCharges @ 0x140077CE0
  * Callers:
- *     MiIncrementSubsectionViewCount @ 0x140077A50 (MiIncrementSubsectionViewCount.c)
- *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     MiControlAreaRequiresCharge @ 0x140079E68 (MiControlAreaRequiresCharge.c)
+ *     MiIncrementSubsectionViewCount @ 0x140077A40 (MiIncrementSubsectionViewCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400794B0 (MiDecrementSubsectionViewCount.c)
+ *     MiControlAreaRequiresCharge @ 0x140079E58 (MiControlAreaRequiresCharge.c)
  * Callees:
  *     <none>
  */

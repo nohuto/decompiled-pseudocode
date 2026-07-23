@@ -1,10 +1,10 @@
 /*
- * XREFs of HvUnCOWReconciledPages @ 0x1402F6034
+ * XREFs of HvUnCOWReconciledPages @ 0x1402F62C4
  * Callers:
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
  * Callees:
- *     RtlMergeBitMaps @ 0x1402F62E0 (RtlMergeBitMaps.c)
- *     HvpViewMapUnCOWAndSealRange @ 0x140750654 (HvpViewMapUnCOWAndSealRange.c)
+ *     RtlMergeBitMaps @ 0x1402F6570 (RtlMergeBitMaps.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x140750844 (HvpViewMapUnCOWAndSealRange.c)
  */
 
 void __fastcall HvUnCOWReconciledPages(__int64 a1)

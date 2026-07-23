@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnPrefetchCacheEntryGet @ 0x1406C9FB4
+ * XREFs of PfSnPrefetchCacheEntryGet @ 0x1406788A4
  * Callers:
- *     PfSnCheckActionsNeeded @ 0x1406CB1FC (PfSnCheckActionsNeeded.c)
- *     PfSnPrefetchCacheEntryUpdate @ 0x1406DC5EC (PfSnPrefetchCacheEntryUpdate.c)
+ *     PfSnCheckActionsNeeded @ 0x140679AEC (PfSnCheckActionsNeeded.c)
+ *     PfSnPrefetchCacheEntryUpdate @ 0x1406B38CC (PfSnPrefetchCacheEntryUpdate.c)
  * Callees:
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     memset @ 0x140414200 (memset.c)
- *     PfSnPrefetchCacheCtxStart @ 0x1407C8620 (PfSnPrefetchCacheCtxStart.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PfSnPrefetchCacheCtxStart @ 0x1407C8940 (PfSnPrefetchCacheCtxStart.c)
  */
 
 __int64 __fastcall PfSnPrefetchCacheEntryGet(__int64 a1, _OWORD *a2, __int64 a3, int *a4)
@@ -94,7 +94,7 @@ LABEL_7:
           }
         }
       }
-FatalListEntryError_90:
+FatalListEntryError_84:
       __fastfail(3u);
     }
   }
@@ -112,10 +112,10 @@ FatalListEntryError_90:
       v18 = (_QWORD *)(a1 + 16);
       v19 = *(_QWORD **)(a1 + 16);
       if ( v19[1] != a1 + 16 )
-        goto FatalListEntryError_90;
+        goto FatalListEntryError_84;
       v20 = *v19;
       if ( *(_QWORD **)(*v19 + 8LL) != v19 )
-        goto FatalListEntryError_90;
+        goto FatalListEntryError_84;
       *v18 = v20;
       v9 = (__int64)(v19 - 2);
       *(_QWORD *)(v20 + 8) = v18;
@@ -169,7 +169,7 @@ FatalListEntryError_90:
     v15 = a1 + 16;
     v16 = *(_QWORD **)(v15 + 8);
     if ( *v16 != v15 )
-      goto FatalListEntryError_90;
+      goto FatalListEntryError_84;
 LABEL_13:
     *v12 = v15;
     v12[1] = v16;

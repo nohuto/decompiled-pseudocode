@@ -1,22 +1,22 @@
 /*
- * XREFs of CsrpClientConnectToServer @ 0x18007572C
+ * XREFs of CsrpClientConnectToServer @ 0x18007571C
  * Callers:
- *     CsrClientConnectToServer @ 0x1800751B0 (CsrClientConnectToServer.c)
+ *     CsrClientConnectToServer @ 0x1800751A0 (CsrClientConnectToServer.c)
  * Callees:
- *     CsrFreeCaptureBuffer @ 0x1800757F0 (CsrFreeCaptureBuffer.c)
- *     CsrClientCallServer @ 0x180075820 (CsrClientCallServer.c)
- *     CsrAllocateMessagePointer @ 0x180075BE0 (CsrAllocateMessagePointer.c)
- *     CsrAllocateCaptureBuffer @ 0x180075C20 (CsrAllocateCaptureBuffer.c)
+ *     CsrFreeCaptureBuffer @ 0x1800757E0 (CsrFreeCaptureBuffer.c)
+ *     CsrClientCallServer @ 0x180075810 (CsrClientCallServer.c)
+ *     CsrAllocateMessagePointer @ 0x180075BD0 (CsrAllocateMessagePointer.c)
+ *     CsrAllocateCaptureBuffer @ 0x180075C10 (CsrAllocateCaptureBuffer.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
 __int64 __fastcall CsrpClientConnectToServer(int a1, void *a2, unsigned int a3)
 {
   __int64 CaptureBuffer; // rax
-  __int64 v6; // rbx
+  void *v6; // rbx
   unsigned int v7; // ebp
   int v8; // edi
-  _BYTE v10[64]; // [rsp+20h] [rbp-1B8h] BYREF
+  _PORT_MESSAGE ReplyMessage; // [rsp+20h] [rbp-1B8h] BYREF
   int v11; // [rsp+60h] [rbp-178h]
   void *Src; // [rsp+68h] [rbp-170h] BYREF
   unsigned int v13; // [rsp+70h] [rbp-168h]
@@ -24,13 +24,13 @@ __int64 __fastcall CsrpClientConnectToServer(int a1, void *a2, unsigned int a3)
   v11 = a1;
   v13 = a3;
   CaptureBuffer = CsrAllocateCaptureBuffer(1LL, a3);
-  v6 = CaptureBuffer;
+  v6 = (void *)CaptureBuffer;
   if ( !CaptureBuffer )
     return 3221225495LL;
   CsrAllocateMessagePointer(CaptureBuffer, a3, &Src);
   v7 = a3;
   memmove(Src, a2, a3);
-  v8 = CsrClientCallServer(v10, v6, 0LL, 24LL);
+  v8 = CsrClientCallServer(&ReplyMessage);
   if ( v8 >= 0 )
     memmove(a2, Src, v7);
   CsrFreeCaptureBuffer(v6);

@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierExFreePool @ 0x140AC0100
+ * XREFs of VerifierExFreePool @ 0x140AC00F0
  * Callers:
- *     VerifierExFreePoolEx @ 0x140AC0150 (VerifierExFreePoolEx.c)
+ *     VerifierExFreePoolEx @ 0x140AC0140 (VerifierExFreePoolEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MmKernelVerifierEnabled @ 0x14046B952 (MmKernelVerifierEnabled.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MmKernelVerifierEnabled @ 0x14046BD52 (MmKernelVerifierEnabled.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     ExFreePoolSanityChecks @ 0x140AE7E2C (ExFreePoolSanityChecks.c)
+ *     ExFreePoolSanityChecks @ 0x140AE7E1C (ExFreePoolSanityChecks.c)
  */
 
 void __fastcall VerifierExFreePool(__int64 a1)

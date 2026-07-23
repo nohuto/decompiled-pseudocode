@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteZeroThreadContext @ 0x140530728
+ * XREFs of MiDeleteZeroThreadContext @ 0x140532C28
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1404976C0 (MiBackgroundZeroNodePages.c)
- *     MiInsertNewZeroThread @ 0x1405161C8 (MiInsertNewZeroThread.c)
+ *     MiBackgroundZeroNodePages @ 0x140491210 (MiBackgroundZeroNodePages.c)
+ *     MiInsertNewZeroThread @ 0x14050FC38 (MiInsertNewZeroThread.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiDereferenceAnyActiveHugeContext @ 0x1404A1094 (MiDereferenceAnyActiveHugeContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x14049ABC4 (MiDereferenceAnyActiveHugeContext.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteZeroThreadContext(_QWORD *P, int a2)

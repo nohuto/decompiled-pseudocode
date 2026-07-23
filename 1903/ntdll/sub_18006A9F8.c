@@ -16,46 +16,52 @@ __int64 __fastcall sub_18006A9F8(__int64 a1, __int64 a2, __int64 a3, __int16 a4,
 {
   int v8; // ebx
   unsigned int v9; // edi
-  wchar_t *Buffer; // rbx
-  __int64 v11; // rdi
-  unsigned int i; // r15d
+  const WCHAR *Buffer; // rbx
+  _QWORD *v11; // rdi
+  unsigned int v12; // r15d
   __int16 v14[2]; // [rsp+34h] [rbp-CCh] BYREF
-  UNICODE_STRING v15; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v16; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING v15; // [rsp+38h] [rbp-C8h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-B8h] BYREF
   __int64 v17; // [rsp+50h] [rbp-B0h]
   __int64 v18; // [rsp+58h] [rbp-A8h]
   _BYTE v19[176]; // [rsp+60h] [rbp-A0h] BYREF
 
-  v16 = 0LL;
+  BaseAddress = 0LL;
   memset(v19, 0, 0xAAuLL);
   *(_DWORD *)(&v15.MaximumLength + 1) = 0;
   v17 = 0LL;
   v18 = 0LL;
   if ( !a1 || !a2 || !a5 || !*a5 )
     return 3221225485LL;
-  v8 = sub_180015604(&v16, a2, 0x19u, 0);
+  v8 = sub_180015604((__int64 *)&BaseAddress, a2, 0x19u, 0);
   if ( v8 >= 0 )
   {
     v9 = 0;
     if ( !*(_WORD *)(a1 + 4) )
     {
 LABEL_10:
-      v11 = v16;
-      for ( i = 0; i < *(unsigned __int16 *)(v11 + 4); ++i )
+      v11 = BaseAddress;
+      v12 = 0;
+      if ( *((_WORD *)BaseAddress + 2) )
       {
-        *(_DWORD *)&v15.Length = 11141120;
-        v15.Buffer = (wchar_t *)v19;
-        v8 = sub_180015F28(a2, (_WORD *)(*(_QWORD *)(v11 + 24) + 6LL * i), &v15);
-        if ( v8 < 0 )
-          break;
-        v8 = sub_180016590(a5, a2, 0, v14, v15.Buffer);
+        do
+        {
+          *(_DWORD *)&v15.Length = 11141120;
+          v15.Buffer = (PWCH)v19;
+          v8 = sub_180015F28(a2, (_WORD *)(v11[3] + 6LL * v12), &v15);
+          if ( v8 < 0 )
+            break;
+          v8 = sub_180016590(a5, a2, 0, v14, v15.Buffer);
+          ++v12;
+        }
+        while ( v12 < *((unsigned __int16 *)v11 + 2) );
       }
       goto LABEL_11;
     }
     while ( 1 )
     {
       *(_DWORD *)&v15.Length = 11141120;
-      v15.Buffer = (wchar_t *)v19;
+      v15.Buffer = (PWCH)v19;
       v8 = sub_180015F28(a2, (_WORD *)(*(_QWORD *)(a1 + 24) + 6LL * v9), &v15);
       if ( v8 < 0 )
         break;
@@ -70,7 +76,7 @@ LABEL_10:
         goto LABEL_10;
     }
   }
-  v11 = v16;
+  v11 = BaseAddress;
 LABEL_11:
   if ( v11 )
     sub_180015770(v11);

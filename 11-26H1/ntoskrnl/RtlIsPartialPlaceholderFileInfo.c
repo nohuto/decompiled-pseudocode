@@ -1,53 +1,62 @@
 /*
- * XREFs of RtlIsPartialPlaceholderFileInfo @ 0x1408074A0
+ * XREFs of RtlIsPartialPlaceholderFileInfo @ 0x14080CF40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlIsPartialPlaceholderFileInfo(int *a1, int a2, bool *a3)
+NTSTATUS __cdecl RtlIsPartialPlaceholderFileInfo(
+        PVOID InfoBuffer,
+        FILE_INFORMATION_CLASS InfoClass,
+        PBOOLEAN IsPartialPlaceholder)
 {
   bool v3; // zf
   int v4; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( a2 <= 68 )
+  if ( InfoClass <= FileStatInformation )
   {
-    if ( a2 == 68 )
+    if ( InfoClass == FileStatInformation )
       goto LABEL_22;
-    if ( a2 != 2 && a2 != 3 )
+    if ( InfoClass != FileFullDirectoryInformation && InfoClass != FileBothDirectoryInformation )
     {
-      if ( a2 == 35 )
+      if ( InfoClass == FileAttributeTagInformation )
       {
-        v4 = *a1;
+        v4 = *(_DWORD *)InfoBuffer;
 LABEL_23:
-        *a3 = (v4 & 0x440000) != 0;
-        return 0LL;
+        *IsPartialPlaceholder = (v4 & 0x440000) != 0;
+        return 0;
       }
-      if ( a2 != 37 && a2 != 38 )
+      if ( InfoClass != FileIdBothDirectoryInformation && InfoClass != FileIdFullDirectoryInformation )
       {
-        if ( a2 != 60 )
+        if ( InfoClass != FileIdExtdDirectoryInformation )
         {
-          v3 = a2 == 63;
+          v3 = InfoClass == FileIdExtdBothDirectoryInformation;
           goto LABEL_18;
         }
 LABEL_22:
-        v4 = a1[14];
+        v4 = *((_DWORD *)InfoBuffer + 14);
         goto LABEL_23;
       }
     }
-    v4 = a1[14];
+    v4 = *((_DWORD *)InfoBuffer + 14);
     goto LABEL_23;
   }
-  if ( a2 == 70 || a2 == 77 || a2 == 78 || a2 == 79 || a2 == 80 )
+  if ( InfoClass == FileStatLxInformation
+    || InfoClass == (FileMaximumInformation|FileDirectoryInformation)
+    || InfoClass == (FileMaximumInformation|FileFullDirectoryInformation)
+    || InfoClass == (FileMaximumInformation|FileBothDirectoryInformation)
+    || InfoClass == (FileDispositionInformationEx|FileModeInformation) )
+  {
     goto LABEL_22;
-  v3 = a2 == 81;
+  }
+  v3 = InfoClass == (FileRenameInformationEx|FileModeInformation);
 LABEL_18:
   if ( v3 )
     goto LABEL_22;
-  result = 3221225659LL;
-  if ( a2 >= 84 )
-    return 3221225475LL;
+  result = -1073741637;
+  if ( InfoClass >= (FileStatInformation|FileModeInformation) )
+    return -1073741821;
   return result;
 }

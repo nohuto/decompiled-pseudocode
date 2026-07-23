@@ -1,18 +1,18 @@
 /*
- * XREFs of SshpGenerateDeviceFriendlyName @ 0x1408FB120
+ * XREFs of SshpGenerateDeviceFriendlyName @ 0x1408FB280
  * Callers:
- *     SleepstudyHelperCreateBlockerFromComponent @ 0x1408FAF60 (SleepstudyHelperCreateBlockerFromComponent.c)
- *     SleepstudyHelperCreateBlockerFromDevice @ 0x1408FB050 (SleepstudyHelperCreateBlockerFromDevice.c)
- *     SleepstudyHelper_GetPdoFriendlyName @ 0x1408FB3F0 (SleepstudyHelper_GetPdoFriendlyName.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x1408FB0C0 (SleepstudyHelperCreateBlockerFromComponent.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x1408FB1B0 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelper_GetPdoFriendlyName @ 0x1408FB550 (SleepstudyHelper_GetPdoFriendlyName.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x140206B60 (RtlUnicodeStringCat.c)
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringCatString @ 0x1403C410C (RtlUnicodeStringCatString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     RtlUnicodeStringCat @ 0x1402AB490 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringPrintf @ 0x14036F14C (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringCatString @ 0x1403C453C (RtlUnicodeStringCatString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoGetDeviceProperty @ 0x140634AA0 (IoGetDeviceProperty.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SshpGenerateDeviceFriendlyName(

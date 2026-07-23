@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkKernelPageTablePte @ 0x1402AA790
+ * XREFs of MiMarkKernelPageTablePte @ 0x1402AA980
  * Callers:
  *     <none>
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401448D0 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiMarkKernelPageTablePte(__int64 a1, unsigned __int64 a2)

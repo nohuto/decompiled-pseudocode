@@ -1,12 +1,12 @@
 /*
- * XREFs of PipSetDevNodeStateFlags @ 0x140828598
+ * XREFs of PipSetDevNodeStateFlags @ 0x140829798
  * Callers:
- *     PopReportDirectedDripsCandidateDevice @ 0x140868930 (PopReportDirectedDripsCandidateDevice.c)
+ *     PopReportDirectedDripsCandidateDevice @ 0x140869B90 (PopReportDirectedDripsCandidateDevice.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRef @ 0x140002E10 (IoGetDeviceAttachmentBaseRef.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14059CF10 (PpDevNodeLockTree.c)
  */
 
 __int64 __fastcall PipSetDevNodeStateFlags(PDEVICE_OBJECT DeviceObject)

@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRemoveQueueApc @ 0x140467790
+ * XREFs of KeRemoveQueueApc @ 0x140460EE0
  * Callers:
- *     EtwpQueueApc @ 0x14020AA10 (EtwpQueueApc.c)
- *     EtwpCancelPendingApcs @ 0x1404676B0 (EtwpCancelPendingApcs.c)
- *     EtwpTraceThreadRundownWithStack @ 0x1405291D8 (EtwpTraceThreadRundownWithStack.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x1406C8598 (EtwpCovSampCaptureCancelApcs.c)
- *     ExpCancelTimer @ 0x1406CECB0 (ExpCancelTimer.c)
- *     PspCriticalProcessDeathInfoCollectScheduleApc @ 0x1407FAD64 (PspCriticalProcessDeathInfoCollectScheduleApc.c)
- *     ExSwapinWorkerThreads @ 0x140956958 (ExSwapinWorkerThreads.c)
- *     CmNotifyRunDown @ 0x140ABE29C (CmNotifyRunDown.c)
+ *     EtwpQueueApc @ 0x14020AAF0 (EtwpQueueApc.c)
+ *     EtwpCancelPendingApcs @ 0x140460E00 (EtwpCancelPendingApcs.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x1406CB674 (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x1406CC578 (EtwpCovSampCaptureCancelApcs.c)
+ *     ExpCancelTimer @ 0x1406D2CE0 (ExpCancelTimer.c)
+ *     PspCriticalProcessDeathInfoCollectScheduleApc @ 0x140800794 (PspCriticalProcessDeathInfoCollectScheduleApc.c)
+ *     ExSwapinWorkerThreads @ 0x14094A380 (ExSwapinWorkerThreads.c)
+ *     CmNotifyRunDown @ 0x14094BC20 (CmNotifyRunDown.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiRemoveQueueApc @ 0x1404677E0 (KiRemoveQueueApc.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiRemoveQueueApc @ 0x140460F30 (KiRemoveQueueApc.c)
  */
 
 char __fastcall KeRemoveQueueApc(__int64 a1)

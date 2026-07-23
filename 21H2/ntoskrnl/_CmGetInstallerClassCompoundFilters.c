@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetInstallerClassCompoundFilters @ 0x14073F41C
+ * XREFs of _CmGetInstallerClassCompoundFilters @ 0x14073F5DC
  * Callers:
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073F1A0 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073F360 (_CmGetInstallerClassMappedPropertyFromComposite.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14097A8F0 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406374BC (_SysCtxRegOpenKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F76C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14097AAD0 (_CmGetInstallerClassCompoundFiltersWorker.c)
  */
 
 __int64 __fastcall CmGetInstallerClassCompoundFilters(
         __int64 a1,
-        __int64 a2,
+        const WCHAR *a2,
         void *a3,
         __int64 a4,
         __int64 a5,
@@ -35,7 +35,7 @@ __int64 __fastcall CmGetInstallerClassCompoundFilters(
 
   Handle = 0LL;
   v23 = 0LL;
-  v10 = a2;
+  v10 = (int)a2;
   if ( *(_DWORD *)(a4 + 16) != 20 )
     goto LABEL_2;
   v21 = *(_QWORD *)a4 - DEVPKEY_DeviceClass_CompoundUpperFilters;

@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpMceInitProcessor @ 0x140C0A268
+ * XREFs of HalpMceInitProcessor @ 0x140C10478
  * Callers:
- *     HalpInitializeMce @ 0x140BE9EA4 (HalpInitializeMce.c)
- *     HalpMceInit @ 0x140C0A118 (HalpMceInit.c)
+ *     HalpInitializeMce @ 0x140BEFEA4 (HalpInitializeMce.c)
+ *     HalpMceInit @ 0x140C10328 (HalpMceInit.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpMcaSetProcessorConfig @ 0x140BE91B8 (HalpMcaSetProcessorConfig.c)
- *     HalpMceInitializeErrorPacket @ 0x140C0AF38 (HalpMceInitializeErrorPacket.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpMcaSetProcessorConfig @ 0x140BEF1B8 (HalpMcaSetProcessorConfig.c)
+ *     HalpMceInitializeErrorPacket @ 0x140C11148 (HalpMceInitializeErrorPacket.c)
  */
 
 __int64 __fastcall HalpMceInitProcessor(unsigned int *Src, __int64 a2)

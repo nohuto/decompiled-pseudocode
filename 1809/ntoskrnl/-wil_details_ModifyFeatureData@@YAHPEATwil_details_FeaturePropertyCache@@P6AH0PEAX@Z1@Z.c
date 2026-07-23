@@ -1,9 +1,9 @@
 /*
- * XREFs of ?wil_details_ModifyFeatureData@@YAHPEATwil_details_FeaturePropertyCache@@P6AH0PEAX@Z1@Z @ 0x1400A4FB8
+ * XREFs of ?wil_details_ModifyFeatureData@@YAHPEATwil_details_FeaturePropertyCache@@P6AH0PEAX@Z1@Z @ 0x1400A4EF8
  * Callers:
- *     ?wil_details_RecordUsageInPropertyCache@@YA?AUwil_details_RecordUsageResult@@PEATwil_details_FeaturePropertyCache@@W4wil_details_ServiceReportingKind@@II@Z @ 0x1400A4EE8 (-wil_details_RecordUsageInPropertyCache@@YA-AUwil_details_RecordUsageResult@@PEATwil_details_Fea.c)
+ *     ?wil_details_RecordUsageInPropertyCache@@YA?AUwil_details_RecordUsageResult@@PEATwil_details_FeaturePropertyCache@@W4wil_details_ServiceReportingKind@@II@Z @ 0x1400A4E28 (-wil_details_RecordUsageInPropertyCache@@YA-AUwil_details_RecordUsageResult@@PEATwil_details_Fea.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall wil_details_ModifyFeatureData(
@@ -18,12 +18,12 @@ __int64 __fastcall wil_details_ModifyFeatureData(
   v7 = a1;
   while ( 1 )
   {
-    LODWORD(v7) = dword_1404C6920;
-    v5 = dword_1404C6920;
+    LODWORD(v7) = dword_1404C79E0;
+    v5 = dword_1404C79E0;
     result = a2(&v7, a3);
     if ( !(_DWORD)result )
       break;
-    if ( v5 == _InterlockedCompareExchange(&dword_1404C6920, (signed __int32)v7, v5) )
+    if ( v5 == _InterlockedCompareExchange(&dword_1404C79E0, (signed __int32)v7, v5) )
       return 1LL;
   }
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmUpdateIdleDomains @ 0x140603710
+ * XREFs of PpmUpdateIdleDomains @ 0x1406061C0
  * Callers:
  *     <none>
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PpmUpdateIdleDomains(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -18,28 +18,28 @@ __int64 __fastcall PpmUpdateIdleDomains(__int64 a1, __int64 a2, __int64 a3, stru
   unsigned __int16 v10; // dx
   __int64 v11; // rcx
 
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, a2, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, a2, a3, a4);
   if ( a1 )
   {
     v6 = a1 + 8;
     v7 = *(_WORD *)(a1 + 8);
-    v8 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
-    p_WaitRegister = &stru_140FC01F0.WaitRegister;
+    v8 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
+    p_WaitRegister = &stru_140FC11F0.WaitRegister;
     v10 = 0;
-    if ( v7 >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+    if ( v7 >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
     {
       v8 = *(_WORD *)(a1 + 8);
       p_WaitRegister = (_KWAIT_STATUS_REGISTER *)(a1 + 8);
-      v7 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+      v7 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
     }
     while ( v10 < v7 )
     {
       v11 = *(_QWORD *)(v6 + 8LL * v10 + 8);
-      if ( (v11 & *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * v10 + 4)) != v11 )
+      if ( (v11 & *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * v10 + 4)) != v11 )
         goto LABEL_2;
       ++v10;
     }
-    if ( p_WaitRegister != &stru_140FC01F0.WaitRegister )
+    if ( p_WaitRegister != &stru_140FC11F0.WaitRegister )
     {
       while ( v10 < v8 )
       {
@@ -57,6 +57,6 @@ __int64 __fastcall PpmUpdateIdleDomains(__int64 a1, __int64 a2, __int64 a3, stru
 LABEL_2:
     v5 = -1073741811;
   }
-  PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+  PopReleaseRwLock(&PpmIdlePolicyLock);
   return (unsigned int)v5;
 }

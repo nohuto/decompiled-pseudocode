@@ -15,38 +15,39 @@
  *     LdrpLogEtwEvent @ 0x1800CF0E0 (LdrpLogEtwEvent.c)
  */
 
-__int64 __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int16 *a2, int a3, __int64 a4, _DWORD *a5)
+__int64 __fastcall LdrpFindLoadedDllByName(
+        PUNICODE_STRING String1,
+        PUNICODE_STRING a2,
+        __int64 a3,
+        __int64 a4,
+        _DWORD *a5)
 {
-  unsigned __int16 *v8; // rdi
-  int v9; // ebx
-  int v10; // r9d
-  unsigned __int16 *j; // r10
-  unsigned __int64 v12; // r8
+  PUNICODE_STRING v7; // rdi
+  int v8; // ebx
+  int v9; // r9d
+  wchar_t *j; // r10
+  unsigned __int64 v11; // r8
   int LoadedDllByNameLockHeld; // ebx
-  __int64 v14; // rdx
+  __int64 v13; // rcx
   __int64 v15; // rcx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // rdx
-  unsigned __int64 v22; // rcx
-  _WORD *i; // rax
-  __int16 v24; // cx
-  __int16 v25; // ax
-  int v26; // r9d
-  char *v27; // rcx
-  char *v28; // rcx
-  __int64 v29; // [rsp+20h] [rbp-28h]
-  _WORD v30[4]; // [rsp+30h] [rbp-18h] BYREF
-  _WORD *v31; // [rsp+38h] [rbp-10h]
+  __int64 Length; // rdx
+  wchar_t *Buffer; // rcx
+  wchar_t *i; // rax
+  __int16 v19; // cx
+  __int16 v20; // ax
+  int v21; // r9d
+  char *v22; // rcx
+  char *v23; // rcx
+  PUNICODE_STRING v24; // [rsp+20h] [rbp-28h]
+  _WORD v25[4]; // [rsp+30h] [rbp-18h] BYREF
+  wchar_t *v26; // [rsp+38h] [rbp-10h]
 
-  v8 = a1;
-  if ( !a1 )
+  v7 = String1;
+  if ( !String1 )
   {
-    v21 = *a2;
-    v22 = *((_QWORD *)a2 + 1);
-    for ( i = (_WORD *)(v22 + v21 - 2); (unsigned __int64)i > v22; --i )
+    Length = a2->Length;
+    Buffer = a2->Buffer;
+    for ( i = (wchar_t *)((char *)Buffer + Length - 2); i > Buffer; --i )
     {
       if ( *i == 92 || *i == 47 )
       {
@@ -54,87 +55,83 @@ __int64 __fastcall LdrpFindLoadedDllByName(unsigned __int16 *a1, unsigned __int1
         break;
       }
     }
-    v31 = i;
-    v24 = (_WORD)i - a2[4];
-    v8 = v30;
-    v25 = a2[1] - v24;
-    v30[0] = v21 - v24;
-    v30[1] = v25;
+    v26 = i;
+    v19 = (_WORD)i - LOWORD(a2->Buffer);
+    v7 = (PUNICODE_STRING)v25;
+    v20 = a2->MaximumLength - v19;
+    v25[0] = Length - v19;
+    v25[1] = v20;
   }
-  v9 = 0;
-  if ( !v8 )
+  v8 = 0;
+  if ( !v7 )
     goto LABEL_32;
-  v10 = *v8 >> 1;
-  for ( j = (unsigned __int16 *)*((_QWORD *)v8 + 1); v10; v9 = (unsigned __int16)v12 + 65599 * v9 )
+  v9 = v7->Length >> 1;
+  for ( j = v7->Buffer; v9; v8 = (unsigned __int16)v11 + 65599 * v8 )
   {
-    v12 = *j;
-    --v10;
+    v11 = *j;
+    --v9;
     ++j;
-    if ( (unsigned int)v12 >= 0x61 )
+    if ( (unsigned int)v11 >= 0x61 )
     {
-      if ( (unsigned int)v12 > 0x7A )
+      if ( (unsigned int)v11 > 0x7A )
       {
-        if ( Nls844UnicodeUpcaseTable && (unsigned __int16)v12 >= 0xC0u )
-          LOWORD(v12) = *(_WORD *)(Nls844UnicodeUpcaseTable
+        if ( Nls844UnicodeUpcaseTable && (unsigned __int16)v11 >= 0xC0u )
+          LOWORD(v11) = *(_WORD *)(Nls844UnicodeUpcaseTable
                                  + 2
-                                 * ((v12 & 0xF)
+                                 * ((v11 & 0xF)
                                   + *(unsigned __int16 *)(Nls844UnicodeUpcaseTable
                                                         + 2LL
-                                                        * (((unsigned __int8)v12 >> 4)
+                                                        * (((unsigned __int8)v11 >> 4)
                                                          + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
-                                                                                             + 2 * (v12 >> 8))))))
-                      + v12;
+                                                                                             + 2 * (v11 >> 8))))))
+                      + v11;
       }
       else
       {
-        LOWORD(v12) = v12 - 32;
+        LOWORD(v11) = v11 - 32;
       }
     }
   }
-  if ( !v9 )
+  if ( !v8 )
 LABEL_32:
-    v9 = 0x80000000;
+    v8 = 0x80000000;
   RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-  LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld((_DWORD)v8, (_DWORD)a2, a3, a4, v9);
+  LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(v7, a2, v8);
   if ( LoadedDllByNameLockHeld >= 0 && a5 )
     *a5 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a4 + 152LL) + 56LL);
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
   if ( a2 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v15, v14) )
-      v20 = (__int64)NtCurrentPeb()->SharedData + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v15 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v20 = 2147353476LL;
-    if ( *(_BYTE *)v20 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+      v15 = 2147353476LL;
+    if ( *(_BYTE *)v15 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v27 = (unsigned int)RtlGetCurrentServiceSessionId(v20, v19)
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
-      if ( (*v27 & 0x20) != 0 )
+      v22 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+      if ( (*v22 & 0x20) != 0 )
       {
-        LOBYTE(v26) = -(LoadedDllByNameLockHeld >= 0);
-        v29 = (__int64)a2;
+        LOBYTE(v21) = -(LoadedDllByNameLockHeld >= 0);
+        v24 = a2;
 LABEL_47:
-        LOBYTE(v26) = ~(_BYTE)v26 & 3;
-        LdrpLogEtwEvent(5280, 0, 0, v26, v29, 0LL);
+        LOBYTE(v21) = ~(_BYTE)v21 & 3;
+        LdrpLogEtwEvent(5280, 0, 0, v21, (__int64)v24, 0LL);
       }
     }
   }
   else
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v15, v14) )
-      v17 = (__int64)NtCurrentPeb()->SharedData + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v17 = 2147353476LL;
-    if ( *(_BYTE *)v17 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+      v13 = 2147353476LL;
+    if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v28 = (unsigned int)RtlGetCurrentServiceSessionId(v17, v16)
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
-      if ( (*v28 & 0x20) != 0 )
+      v23 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+      if ( (*v23 & 0x20) != 0 )
       {
-        LOBYTE(v26) = -(LoadedDllByNameLockHeld >= 0);
-        v29 = (__int64)v8;
+        LOBYTE(v21) = -(LoadedDllByNameLockHeld >= 0);
+        v24 = v7;
         goto LABEL_47;
       }
     }

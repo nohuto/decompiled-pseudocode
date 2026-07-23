@@ -1,35 +1,37 @@
 /*
- * XREFs of MiMoveZeroedPages @ 0x14020B140
+ * XREFs of MiMoveZeroedPages @ 0x140332F20
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
  * Callees:
- *     MiPageFreeToZero @ 0x14026ABD0 (MiPageFreeToZero.c)
- *     MiHugeRangeFreeToZero @ 0x1404F0BF0 (MiHugeRangeFreeToZero.c)
+ *     MiPageFreeToZero @ 0x140220160 (MiPageFreeToZero.c)
+ *     MiHugeRangeFreeToZero @ 0x1404EE690 (MiHugeRangeFreeToZero.c)
  */
 
 void __fastcall MiMoveZeroedPages(__int64 a1)
 {
-  __int64 v2; // rsi
+  int v2; // ebp
+  __int64 v3; // rsi
   __int64 i; // rdi
-  unsigned __int64 v4; // rdx
-  __int64 v5; // rax
+  unsigned __int64 v5; // rdx
+  __int64 v6; // rax
 
   if ( *(_DWORD *)(a1 + 8) )
   {
-    v2 = *(_QWORD *)(a1 + 64);
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v2 + 280); i = (unsigned int)(i + 1) )
+    v2 = *(unsigned __int8 *)(a1 + 4);
+    v3 = *(_QWORD *)(a1 + 64);
+    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v3 + 280); i = (unsigned int)(i + 1) )
     {
-      v4 = *(_QWORD *)(v2 + 8 * i + 24);
-      if ( (v4 & 0x40) != 0 )
+      v5 = *(_QWORD *)(v3 + 8 * i + 24);
+      if ( (v5 & 0x40) != 0 )
       {
-        v5 = *(_QWORD *)(a1 + 56);
-        if ( v5 && *(_BYTE *)(v5 + 324) )
+        v6 = *(_QWORD *)(a1 + 56);
+        if ( v6 && *(_BYTE *)(v6 + 324) )
         {
-          MiHugeRangeFreeToZero((v4 >> 12) & 0x3FFFFF);
+          MiHugeRangeFreeToZero((v5 >> 12) & 0x3FFFFF);
         }
-        else if ( (MiPageFreeToZero((v4 >> 12) & 0x3FFFFFFFFFLL) & 0x400) != 0 )
+        else if ( (MiPageFreeToZero((v5 >> 12) & 0x3FFFFFFFFFLL, v5, v2) & 0x400) != 0 )
         {
-          *(_QWORD *)(v2 + 8 * i + 24) |= 0x80uLL;
+          *(_QWORD *)(v3 + 8 * i + 24) |= 0x80uLL;
         }
       }
     }

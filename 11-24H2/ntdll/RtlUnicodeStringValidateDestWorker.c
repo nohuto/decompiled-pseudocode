@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1800DC300
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1800D74C0
  * Callers:
- *     RtlUnicodeStringCatString @ 0x18015E418 (RtlUnicodeStringCatString.c)
+ *     RtlUnicodeStringCatString @ 0x18015C7D8 (RtlUnicodeStringCatString.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_0 @ 0x1800DC430 (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1800D75F0 (RtlUnicodeStringValidateWorker_0.c)
  */
 
 __int64 __fastcall RtlUnicodeStringValidateDestWorker(__int64 a1, _QWORD *a2, unsigned __int64 *a3, _QWORD *a4)

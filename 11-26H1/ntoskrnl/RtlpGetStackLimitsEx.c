@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGetStackLimitsEx @ 0x1403D6560
+ * XREFs of RtlpGetStackLimitsEx @ 0x1403D9530
  * Callers:
- *     RtlUnwindEx @ 0x1402E8510 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x1403D5F30 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1402CA550 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x1403D8F00 (RtlDispatchException.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x140263F70 (KeQueryCurrentStackInformationEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402634E0 (KeQueryCurrentStackInformationEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall RtlpGetStackLimitsEx(

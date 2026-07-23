@@ -1,18 +1,18 @@
 /*
- * XREFs of IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D5088
+ * XREFs of IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D7878
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x1405D4728 (IoAddPagesForPartialKernelDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x1405D6F18 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     IopUpdateMinidumpContext @ 0x140449FD8 (IopUpdateMinidumpContext.c)
- *     DumpCtlCheckErrorLocation @ 0x1405C610C (DumpCtlCheckErrorLocation.c)
- *     DumpCtlCheckExitStatus @ 0x1405C6130 (DumpCtlCheckExitStatus.c)
- *     IopAddTriageDumpDataToPartialKernelDump @ 0x1405D5358 (IopAddTriageDumpDataToPartialKernelDump.c)
- *     IopCalculateStackInformation @ 0x1405D53FC (IopCalculateStackInformation.c)
- *     IopMarkPagesForDpcData @ 0x1405D5734 (IopMarkPagesForDpcData.c)
- *     IopMarkPagesForLoadedDriverInformation @ 0x1405D5BB0 (IopMarkPagesForLoadedDriverInformation.c)
- *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x1405D5EA0 (IopMarkPagesForRunTimeTriageDataBlocks.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
- *     MmAddUnloadedDriverInformationToCrashDump @ 0x1406F68A0 (MmAddUnloadedDriverInformationToCrashDump.c)
+ *     IopUpdateMinidumpContext @ 0x140442108 (IopUpdateMinidumpContext.c)
+ *     DumpCtlCheckErrorLocation @ 0x1405C897C (DumpCtlCheckErrorLocation.c)
+ *     DumpCtlCheckExitStatus @ 0x1405C89A0 (DumpCtlCheckExitStatus.c)
+ *     IopAddTriageDumpDataToPartialKernelDump @ 0x1405D7B48 (IopAddTriageDumpDataToPartialKernelDump.c)
+ *     IopCalculateStackInformation @ 0x1405D7BEC (IopCalculateStackInformation.c)
+ *     IopMarkPagesForDpcData @ 0x1405D7F24 (IopMarkPagesForDpcData.c)
+ *     IopMarkPagesForLoadedDriverInformation @ 0x1405D83A0 (IopMarkPagesForLoadedDriverInformation.c)
+ *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x1405D8690 (IopMarkPagesForRunTimeTriageDataBlocks.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
+ *     MmAddUnloadedDriverInformationToCrashDump @ 0x1406FB510 (MmAddUnloadedDriverInformationToCrashDump.c)
  */
 
 __int64 __fastcall IopAddMiniDumpPagesToPartialKernelDump(

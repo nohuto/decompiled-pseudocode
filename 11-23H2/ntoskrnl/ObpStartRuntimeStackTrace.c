@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpStartRuntimeStackTrace @ 0x14097D5B4
+ * XREFs of ObpStartRuntimeStackTrace @ 0x14097D7B4
  * Callers:
- *     ObSetRefTraceInformation @ 0x14097C8A0 (ObSetRefTraceInformation.c)
+ *     ObSetRefTraceInformation @ 0x14097CAA0 (ObSetRefTraceInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObpInitStackAndObjectTables @ 0x14097CF68 (ObpInitStackAndObjectTables.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpInitStackAndObjectTables @ 0x14097D168 (ObpInitStackAndObjectTables.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -134,9 +134,9 @@ __int64 __fastcall ObpStartRuntimeStackTrace(__int64 a1)
     Buffer = ObpRuntimeTraceProcessName.Buffer;
     ObpRuntimeTraceProcessName = *(UNICODE_STRING *)P;
     ObpRuntimeTracePoolTags = v24[0];
-    xmmword_140C3FA70 = v24[1];
-    xmmword_140C3FA80 = v24[2];
-    xmmword_140C3FA90 = v24[3];
+    xmmword_140C3F850 = v24[1];
+    xmmword_140C3F860 = v24[2];
+    xmmword_140C3F870 = v24[3];
     v14 = v3 | ObpTraceFlags & 0x8E;
     ObpRuntimeTraceFlags = v3 | ObpTraceFlags & 0xFFFFFF8E | 2;
     ObpTraceFlags = v3 | ObpTraceFlags & 0xFFFFFF8E | 2;

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiBuildImageControlArea @ 0x14061DA70
+ * XREFs of MiBuildImageControlArea @ 0x14061EA70
  * Callers:
- *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14061DEB8 (MiCreateImageFileMap.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiMakeSubsectionPte @ 0x140095B00 (MiMakeSubsectionPte.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiParseImageSectionHeaders @ 0x14061E300 (MiParseImageSectionHeaders.c)
+ *     MiMakeSubsectionPte @ 0x140095A40 (MiMakeSubsectionPte.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiMakeDemandZeroPte @ 0x140097E20 (MiMakeDemandZeroPte.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiParseImageSectionHeaders @ 0x14061F300 (MiParseImageSectionHeaders.c)
  */
 
 __int64 __fastcall MiBuildImageControlArea(
@@ -94,7 +94,7 @@ __int64 __fastcall MiBuildImageControlArea(
   v17 = PoolWithTag;
   if ( !PoolWithTag )
   {
-    dword_140438DF0 = 12;
+    dword_140439EB0 = 12;
     return 3221225626LL;
   }
   memset(PoolWithTag, 0, v15);
@@ -107,7 +107,7 @@ __int64 __fastcall MiBuildImageControlArea(
   v21 = v20;
   if ( !v20 )
   {
-    dword_140438DF0 = 13;
+    dword_140439EB0 = 13;
     v38 = -1073741670;
     goto LABEL_40;
   }
@@ -116,7 +116,7 @@ __int64 __fastcall MiBuildImageControlArea(
   v23 = v22;
   if ( !v22 )
   {
-    dword_140438DF0 = 13;
+    dword_140439EB0 = 13;
     v38 = -1073741670;
     goto LABEL_36;
   }
@@ -193,7 +193,7 @@ LABEL_62:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v45 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
               v49 = (DemandZeroPte & 1) == 0;
               goto LABEL_56;
@@ -216,7 +216,7 @@ LABEL_56:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v45 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
               v49 = (v48 & 1) == 0;
               goto LABEL_56;
@@ -247,7 +247,7 @@ LABEL_56:
   v25 = *(unsigned int *)(a3 + 24);
   if ( !(_DWORD)v25 )
   {
-    dword_140438DF0 = 49;
+    dword_140439EB0 = 49;
 LABEL_65:
     v38 = -1073741701;
     goto LABEL_36;
@@ -256,7 +256,7 @@ LABEL_65:
   v27 = v25 + v26 - 1;
   if ( v27 <= (unsigned int)v25 )
   {
-    dword_140438DF0 = 50;
+    dword_140439EB0 = 50;
     goto LABEL_65;
   }
   v28 = (((v27 & -(int)v26 & 0xFFF) + 4095) >> 12)
@@ -264,7 +264,7 @@ LABEL_65:
   *((_DWORD *)v17 + 43) = v28;
   if ( v28 > v58 )
   {
-    dword_140438DF0 = 17;
+    dword_140439EB0 = 17;
     goto LABEL_65;
   }
   *((_DWORD *)v17 + 42) = *(_DWORD *)(a3 + 24) >> 9;
@@ -291,7 +291,7 @@ LABEL_65:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v36 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v51 = (v50 & 1) == 0;
           goto LABEL_72;
@@ -316,7 +316,7 @@ LABEL_19:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v36 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_29;
         v52 = (v40 & 1) == 0;
       }

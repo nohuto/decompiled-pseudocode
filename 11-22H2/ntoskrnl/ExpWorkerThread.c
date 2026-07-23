@@ -68,7 +68,7 @@ BOOLEAN __fastcall ExpWorkerThread(__int64 a1)
   struct _KTHREAD *v45; // [rsp+68h] [rbp-98h]
   __int64 v46; // [rsp+70h] [rbp-90h]
   __int128 v47; // [rsp+78h] [rbp-88h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-78h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-78h] BYREF
   _QWORD v49[34]; // [rsp+A0h] [rbp-60h] BYREF
 
   v1 = a1;

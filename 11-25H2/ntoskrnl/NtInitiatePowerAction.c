@@ -22,15 +22,17 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtInitiatePowerAction(int a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtInitiatePowerAction(
+        POWER_ACTION SystemAction,
+        SYSTEM_POWER_STATE LightestSystemState,
+        ULONG Flags,
+        BOOLEAN Asynchronous)
 {
   struct _KTHREAD *CurrentThread; // rax
-  char v5; // r13
-  unsigned int v6; // r14d
-  int v7; // r15d
   __int64 v9; // rdi
   char PreviousMode; // r12
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   __int64 v12; // rdx
   __int64 v13; // rcx
   PVOID v14; // rax
@@ -61,14 +63,11 @@ __int64 __fastcall NtInitiatePowerAction(int a1, __int64 a2, __int64 a3, __int64
   v33.QuadPart = -1500000000LL;
   *(_OWORD *)P = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v5 = a4;
-  v6 = a3;
-  v7 = a2;
   v9 = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a1 == 7 )
+    if ( SystemAction == PowerActionWarmEject )
     {
 LABEL_41:
       v11 = -1073741811;
@@ -80,15 +79,21 @@ LABEL_41:
       goto LABEL_42;
     }
   }
-  if ( v7 > 7 || a1 > 7 || (v6 & 0x10000000) != 0 || a1 == 2 && v7 >= 5 || (v6 & 0xCFFFFC0) != 0 )
+  if ( LightestSystemState > PowerSystemMaximum
+    || SystemAction > PowerActionWarmEject
+    || (Flags & 0x10000000) != 0
+    || SystemAction == PowerActionSleep && LightestSystemState >= PowerSystemHibernate
+    || (Flags & 0xCFFFFC0) != 0 )
+  {
     goto LABEL_41;
-  if ( (unsigned int)(a1 - 4) > 2 && PsIsCurrentThreadInServerSilo() )
+  }
+  if ( (unsigned int)(SystemAction - 4) > 2 && PsIsCurrentThreadInServerSilo() )
   {
     v11 = -1073741637;
     goto LABEL_42;
   }
   LODWORD(v35) = 0;
-  v34 = __PAIR64__(v6, a1);
+  v34 = __PAIR64__(Flags, SystemAction);
   DWORD1(v36) = 128;
   v11 = PoCaptureReasonContext(0LL, PreviousMode, 0LL, 0, 0LL, (__int64 *)P);
   v13 = 0LL;
@@ -96,16 +101,16 @@ LABEL_41:
   if ( v11 < 0 )
     v14 = 0LL;
   P[0] = v14;
-  if ( !PreviousMode && a1 == 6 && (v6 & 0x3000000) != 0 )
+  if ( !PreviousMode && SystemAction == PowerActionShutdownOff && (Flags & 0x3000000) != 0 )
   {
     LODWORD(v36) = 15;
   }
   else
   {
     LODWORD(v36) = 4;
-    PopDiagTracePolicyInitiatePowerActionApiCall((unsigned int)a1, (unsigned int)v7);
+    PopDiagTracePolicyInitiatePowerActionApiCall((unsigned int)SystemAction, (unsigned int)LightestSystemState);
   }
-  if ( !v5 )
+  if ( !Asynchronous )
   {
     Pool2 = ExAllocatePool2(0x40uLL);
     v9 = Pool2;
@@ -120,7 +125,7 @@ LABEL_41:
     DWORD1(v36) |= 0x20u;
     *((_QWORD *)&v36 + 1) = v9;
   }
-  if ( (unsigned int)(a1 - 4) <= 2 && (BYTE8(PopBsdPowerTransition) & 8) == 0 )
+  if ( (unsigned int)(SystemAction - 4) <= 2 && (BYTE8(PopBsdPowerTransition) & 8) == 0 )
   {
     PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock);
     BYTE8(PopBsdPowerTransition) |= 8u;
@@ -129,7 +134,7 @@ LABEL_41:
     PopReleaseRwLock(&PopBsdUpdateLock);
   }
   PopAcquirePolicyLock(v13, v12);
-  PopExecutePowerAction(&v36, 0, &v34, v7, 1u);
+  PopExecutePowerAction(&v36, 0, &v34, LightestSystemState, 1u);
   ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))PopReleasePolicyLock)(
     v17,
     v16,
@@ -141,7 +146,7 @@ LABEL_41:
     v34,
     v35,
     v36);
-  PopThermalEventTransitionEnableDeepSleep(a1);
+  PopThermalEventTransitionEnableDeepSleep(SystemAction);
   if ( v9 )
   {
     v20 = v9 + 32;
@@ -178,6 +183,6 @@ LABEL_41:
   }
 LABEL_42:
   if ( P[0] )
-    PoDestroyReasonContext((_QWORD *)P[0], a2, a3, a4);
-  return (unsigned int)v11;
+    PoDestroyReasonContext((_QWORD *)P[0], *(__int64 *)&LightestSystemState, *(__int64 *)&Flags, Asynchronous);
+  return v11;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of XmGetStringAddressRange @ 0x1403C0E70
+ * XREFs of XmGetStringAddressRange @ 0x1403C12A0
  * Callers:
- *     XmStosOp @ 0x1403C0D10 (XmStosOp.c)
+ *     XmStosOp @ 0x1403C1140 (XmStosOp.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x140397B50 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x1403D0670 (longjmp.c)
+ *     x86BiosTranslateAddress @ 0x140397CA0 (x86BiosTranslateAddress.c)
+ *     longjmp @ 0x1403D07E0 (longjmp.c)
  */
 
 int *__fastcall XmGetStringAddressRange(__int64 a1, __int64 a2, __int64 a3, int *a4)

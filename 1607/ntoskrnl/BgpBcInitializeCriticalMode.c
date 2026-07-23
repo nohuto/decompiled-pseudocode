@@ -3,11 +3,11 @@
  * Callers:
  *     BgpFwLibraryInitialize @ 0x140725E8C (BgpFwLibraryInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
- *     BcpGetProgressMessages @ 0x140141250 (BcpGetProgressMessages.c)
- *     BcpGetMaxResourceProfile @ 0x1401413BC (BcpGetMaxResourceProfile.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
+ *     BcpGetProgressMessages @ 0x1401417C0 (BcpGetProgressMessages.c)
+ *     BcpGetMaxResourceProfile @ 0x14014192C (BcpGetMaxResourceProfile.c)
  *     BgpDisplayCharacterGetContext @ 0x140728670 (BgpDisplayCharacterGetContext.c)
  *     BgpDisplayCharacterDestroyContext @ 0x140728810 (BgpDisplayCharacterDestroyContext.c)
  *     BgpFoDetermineFontInformation @ 0x1407D4168 (BgpFoDetermineFontInformation.c)
@@ -59,33 +59,33 @@ __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
     if ( a2 != -1 )
     {
       Message = (const WCHAR *)BcpFindMessage(3238035457LL);
-      RtlInitUnicodeString(&stru_1403292E0, Message);
+      RtlInitUnicodeString(&stru_140329320, Message);
       v5 = (const WCHAR *)BcpFindMessage(3238035464LL);
-      RtlInitUnicodeString(&stru_140329300, v5);
+      RtlInitUnicodeString(&stru_140329340, v5);
       v6 = (const WCHAR *)BcpFindMessage(1090551817LL);
-      RtlInitUnicodeString(&stru_140329310, v6);
+      RtlInitUnicodeString(&stru_140329350, v6);
       v7 = (const WCHAR *)BcpFindMessage(1090551824LL);
-      RtlInitUnicodeString(&stru_140329320, v7);
+      RtlInitUnicodeString(&stru_140329360, v7);
       v8 = (const WCHAR *)BcpFindMessage(1090551825LL);
-      RtlInitUnicodeString(&stru_140329330, v8);
+      RtlInitUnicodeString(&stru_140329370, v8);
       v9 = (const WCHAR *)BcpFindMessage(3238035459LL);
-      RtlInitUnicodeString(&stru_1403292F0, v9);
+      RtlInitUnicodeString(&stru_140329330, v9);
       v10 = (const WCHAR *)BcpFindMessage(1090551828LL);
-      RtlInitUnicodeString(&stru_140329380, v10);
+      RtlInitUnicodeString(&stru_1403293C0, v10);
       v11 = (const WCHAR *)BcpFindMessage(1090551829LL);
-      RtlInitUnicodeString(&stru_140329390, v11);
+      RtlInitUnicodeString(&stru_1403293D0, v11);
       v12 = (const WCHAR *)BcpFindMessage(1090551830LL);
-      RtlInitUnicodeString(&stru_1403293A0, v12);
+      RtlInitUnicodeString(&stru_1403293E0, v12);
       if ( (int)BcpGetProgressMessages(3238035474LL, &SourceString, &v28) >= 0 )
       {
-        RtlInitUnicodeString(&stru_140329340, SourceString);
-        RtlInitUnicodeString(&stru_140329350, v28);
+        RtlInitUnicodeString(&stru_140329380, SourceString);
+        RtlInitUnicodeString(&stru_140329390, v28);
         ProgressMessages = BcpGetProgressMessages(3238035475LL, &v29, &v28);
         v3 = v29;
         if ( ProgressMessages >= 0 )
         {
-          RtlInitUnicodeString(&stru_140329360, v29);
-          RtlInitUnicodeString(&stru_140329370, v28);
+          RtlInitUnicodeString(&stru_1403293A0, v29);
+          RtlInitUnicodeString(&stru_1403293B0, v28);
           if ( *(_WORD *)BcpFindMessage(1090551814LL) == 48 )
             dword_1402F9F90 |= 0x20000u;
           v24[1] = -1;
@@ -114,8 +114,8 @@ LABEL_10:
                   BcpWorkspace = Memory;
                   v22 = __PAIR64__(HIDWORD(v28), v23);
                   qword_1402F9EA8 = v19;
-                  qword_1403293B0 = BgpDisplayCharacterGetContext((__int64)v24, &v22, 3);
-                  if ( qword_1403293B0 )
+                  qword_1403293F0 = BgpDisplayCharacterGetContext((__int64)v24, &v22, 3);
+                  if ( qword_1403293F0 )
                   {
                     dword_1402F9F90 |= 0x10u;
                     return 0LL;
@@ -131,8 +131,8 @@ LABEL_10:
         BgpFwFreeMemory((__int64)SourceString);
       if ( v3 )
         BgpFwFreeMemory((__int64)v3);
-      if ( qword_1403293B0 )
-        BgpDisplayCharacterDestroyContext(qword_1403293B0);
+      if ( qword_1403293F0 )
+        BgpDisplayCharacterDestroyContext(qword_1403293F0);
     }
   }
   return 0LL;

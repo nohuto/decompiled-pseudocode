@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoAllocateIrp @ 0x140705488
+ * XREFs of VerifierIoAllocateIrp @ 0x1407054B8
  * Callers:
  *     <none>
  * Callees:
- *     XdvIoAllocateIrp @ 0x140223410 (XdvIoAllocateIrp.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     XdvIoAllocateIrp @ 0x14022323C (XdvIoAllocateIrp.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  *     VfFaultsInjectResourceFailure @ 0x140710DF0 (VfFaultsInjectResourceFailure.c)
  */
 

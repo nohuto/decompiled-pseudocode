@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCoalesceHeap @ 0x1800F369C
+ * XREFs of RtlpCoalesceHeap @ 0x1800F365C
  * Callers:
  *     RtlpExtendHeap @ 0x18000E348 (RtlpExtendHeap.c)
- *     RtlCompactHeap @ 0x1800F23F0 (RtlCompactHeap.c)
+ *     RtlCompactHeap @ 0x1800F23B0 (RtlCompactHeap.c)
  * Callees:
  *     RtlpHeapRemoveListEntry @ 0x18000A774 (RtlpHeapRemoveListEntry.c)
  *     RtlpCommitBlock @ 0x18000ED0C (RtlpCommitBlock.c)
  *     RtlpDeCommitFreeBlock @ 0x18001E2D8 (RtlpDeCommitFreeBlock.c)
  *     RtlpInsertFreeBlock @ 0x18001E940 (RtlpInsertFreeBlock.c)
  *     RtlpCoalesceFreeBlocks @ 0x18001EEB4 (RtlpCoalesceFreeBlocks.c)
- *     RtlpAnalyzeHeapFailure @ 0x180107EA4 (RtlpAnalyzeHeapFailure.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180107E64 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  */
 
 unsigned __int64 __fastcall RtlpCoalesceHeap(unsigned __int64 a1)

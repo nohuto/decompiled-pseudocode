@@ -1,15 +1,15 @@
 /*
- * XREFs of DifObjTrkLookupItem @ 0x14064B060
+ * XREFs of DifObjTrkLookupItem @ 0x14064EC40
  * Callers:
  *     <none>
  * Callees:
- *     RtlLookupElementGenericTableFullAvl @ 0x14041CC60 (RtlLookupElementGenericTableFullAvl.c)
- *     DifIsValidTrackingObject @ 0x14064ADB4 (DifIsValidTrackingObject.c)
- *     DifObjTrkGetPluginContext @ 0x14064AEAC (DifObjTrkGetPluginContext.c)
- *     DifAcquireSpinLockAtDpcLevelSafe @ 0x14064D16C (DifAcquireSpinLockAtDpcLevelSafe.c)
- *     DifReleaseSpinLockFromDpcLevelSafe @ 0x14064D224 (DifReleaseSpinLockFromDpcLevelSafe.c)
- *     MmGetVaTypeForVerifier @ 0x1406F38B0 (MmGetVaTypeForVerifier.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x1404144B0 (RtlLookupElementGenericTableFullAvl.c)
+ *     DifIsValidTrackingObject @ 0x14064E994 (DifIsValidTrackingObject.c)
+ *     DifObjTrkGetPluginContext @ 0x14064EA8C (DifObjTrkGetPluginContext.c)
+ *     DifAcquireSpinLockAtDpcLevelSafe @ 0x140650D4C (DifAcquireSpinLockAtDpcLevelSafe.c)
+ *     DifReleaseSpinLockFromDpcLevelSafe @ 0x140650E04 (DifReleaseSpinLockFromDpcLevelSafe.c)
+ *     MmGetVaTypeForVerifier @ 0x1406F8520 (MmGetVaTypeForVerifier.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 bool __fastcall DifObjTrkLookupItem(unsigned int a1, unsigned __int64 a2, unsigned int a3)
@@ -19,7 +19,7 @@ bool __fastcall DifObjTrkLookupItem(unsigned int a1, unsigned __int64 a2, unsign
   unsigned int *PluginContext; // r12
   int VaTypeForVerifier; // eax
   __int64 v9; // rdx
-  unsigned __int64 *v10; // rsi
+  struct _LIST_ENTRY **v10; // rsi
   __int64 v11; // rax
   __int64 v12; // rax
   _WORD v14[2]; // [rsp+20h] [rbp-30h] BYREF
@@ -41,8 +41,8 @@ bool __fastcall DifObjTrkLookupItem(unsigned int a1, unsigned __int64 a2, unsign
   VaTypeForVerifier = MmGetVaTypeForVerifier(a2);
   if ( VaTypeForVerifier == 5 )
     return 0;
-  v10 = &stru_140E27B08.Spare35[15 * VaTypeForVerifier];
-  if ( !*((_DWORD *)v10 + 27) || a2 < v10[21] || a2 > v10[22] )
+  v10 = &stru_140E27C48.GlobalUpdateVpThreadPriorityListEntry.Blink + 15 * VaTypeForVerifier;
+  if ( !*((_DWORD *)v10 + 27) || a2 < (unsigned __int64)v10[21] || a2 > (unsigned __int64)v10[22] )
     return 0;
   Buffer[0] = a1;
   v18 = a2;
@@ -52,13 +52,13 @@ bool __fastcall DifObjTrkLookupItem(unsigned int a1, unsigned __int64 a2, unsign
   else
     v12 = a2 + v4;
   v19 = v12;
-  DifAcquireSpinLockAtDpcLevelSafe(v14, v9, stru_140E27B08.Spare35);
+  DifAcquireSpinLockAtDpcLevelSafe(v14, v9, &stru_140E27C48.InGlobalUpdateVpThreadPriorityList);
   if ( DifObjTrkInitialized )
   {
     NodeOrParent = 0LL;
     SearchResult = TableEmptyTree;
     v3 = RtlLookupElementGenericTableFullAvl((PRTL_AVL_TABLE)(v10 + 8), Buffer, &NodeOrParent, &SearchResult) != 0LL;
   }
-  DifReleaseSpinLockFromDpcLevelSafe(v14, stru_140E27B08.Spare35);
+  DifReleaseSpinLockFromDpcLevelSafe(v14, &stru_140E27C48.InGlobalUpdateVpThreadPriorityList);
   return v3;
 }

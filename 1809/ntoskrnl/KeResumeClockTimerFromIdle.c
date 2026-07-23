@@ -3,21 +3,21 @@
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     KiEventClockStateChange @ 0x1400FCF34 (KiEventClockStateChange.c)
- *     KiSetPendingTick @ 0x1400FCF74 (KiSetPendingTick.c)
- *     KiRestoreClockTickRate @ 0x1400FCFD8 (KiRestoreClockTickRate.c)
- *     KiSendClockInterruptToClockOwner @ 0x1400FD168 (KiSendClockInterruptToClockOwner.c)
- *     KiUpdateTimeAssist @ 0x140117838 (KiUpdateTimeAssist.c)
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x140119988 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     KiGetPendingTick @ 0x1401303FC (KiGetPendingTick.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KeFindFirstSetRightAffinityEx @ 0x14028E380 (KeFindFirstSetRightAffinityEx.c)
- *     KiAdjustTimersAfterDripsExit @ 0x14028EACC (KiAdjustTimersAfterDripsExit.c)
- *     KiResetForceIdle @ 0x14029B43C (KiResetForceIdle.c)
- *     KiGetPastDueIRTimerInfo @ 0x14029B884 (KiGetPastDueIRTimerInfo.c)
- *     ExRecordOneTimerExpiry @ 0x14031C92C (ExRecordOneTimerExpiry.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     KiEventClockStateChange @ 0x1400FCFB4 (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x1400FCFF4 (KiSetPendingTick.c)
+ *     KiRestoreClockTickRate @ 0x1400FD058 (KiRestoreClockTickRate.c)
+ *     KiSendClockInterruptToClockOwner @ 0x1400FD1E8 (KiSendClockInterruptToClockOwner.c)
+ *     KiUpdateTimeAssist @ 0x1401178A8 (KiUpdateTimeAssist.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x1401199F8 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     KiGetPendingTick @ 0x1401304CC (KiGetPendingTick.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x14028E570 (KeFindFirstSetRightAffinityEx.c)
+ *     KiAdjustTimersAfterDripsExit @ 0x14028ECBC (KiAdjustTimersAfterDripsExit.c)
+ *     KiResetForceIdle @ 0x14029B62C (KiResetForceIdle.c)
+ *     KiGetPastDueIRTimerInfo @ 0x14029BA74 (KiGetPastDueIRTimerInfo.c)
+ *     ExRecordOneTimerExpiry @ 0x14031CB1C (ExRecordOneTimerExpiry.c)
  */
 
 void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
@@ -67,7 +67,7 @@ void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
   KiUpdateTimeAssist(0LL, &v17, v20);
   v9 = v17;
   KiClockTimerOneShotEndTime = v17;
-  v10 = off_1403FE5D8[0]();
+  v10 = off_1403FF5D8[0]();
   if ( KiClockLatencyMeasurementEnabled )
   {
     if ( a1 && KiClockTimerOwner == CurrentPrcb->Number && v9 >= KiClockTimerNextTickTime && v10 )
@@ -77,15 +77,15 @@ void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
   if ( a1
     && KiClockTimerOwner == CurrentPrcb->Number
     && v9 >= KiClockTimerNextTickTime
-    && (unsigned __int8)off_1403FE5D8[0]() )
+    && (unsigned __int8)off_1403FF5D8[0]() )
   {
     *a1 = v9 - KiClockTimerNextTickTime;
   }
   KiClockLatencyMeasurementEnabled = 0;
-  if ( v9 - KiClockTimerOneShotStartTime < qword_140421688 )
-    qword_140421688 = v9 - KiClockTimerOneShotStartTime;
-  if ( v9 - KiClockTimerOneShotStartTime > qword_140421680 )
-    qword_140421680 = v9 - KiClockTimerOneShotStartTime;
+  if ( v9 - KiClockTimerOneShotStartTime < qword_140422728 )
+    qword_140422728 = v9 - KiClockTimerOneShotStartTime;
+  if ( v9 - KiClockTimerOneShotStartTime > qword_140422720 )
+    qword_140422720 = v9 - KiClockTimerOneShotStartTime;
   if ( KiConsiderTimerRebasing )
   {
     if ( v10 && (unsigned int)KiGetPastDueIRTimerInfo(v9, v16, &v15) )
@@ -119,7 +119,7 @@ void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
         CurrentPrcb->ClockOwner = 1;
         KiClockTimerOwner = v12;
         if ( !(unsigned __int8)KiGetPendingTick() )
-          off_1403FE5C0[0]();
+          off_1403FF5C0[0]();
       }
       v13 = 0;
       KiRestoreClockTickRate(v9, v18, v19);
@@ -132,7 +132,7 @@ void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
   {
     v3 = 1;
   }
-  ++qword_140421678;
+  ++qword_140422718;
   v13 = 2;
   KiEventClockStateChange(2LL, 1LL, 0LL, 0LL);
   if ( v3 )
@@ -144,7 +144,7 @@ LABEL_38:
   if ( KiForceIdleReset )
   {
     KiForceIdleReset = 0;
-    v14 = (unsigned __int8)off_1403FE5D8[0]() == 0;
+    v14 = (unsigned __int8)off_1403FF5D8[0]() == 0;
     KiResetForceIdle(v14, 0LL);
   }
   if ( (DWORD2(PerfGlobalGroupMask) & 0x100000) != 0 )
@@ -179,13 +179,13 @@ LABEL_6:
     v8 = KiClockTimerPerCpu ? KeGetCurrentPrcb() : (struct _KPRCB *)KiProcessorBlock[KiClockTimerOwner];
     if ( (v8->PendingTickFlags & 1) == 0 )
     {
-      off_1403FE5C0[0]();
+      off_1403FF5C0[0]();
       ClockOwner = CurrentPrcb->ClockOwner;
     }
   }
   if ( !ClockOwner && (CurrentPrcb->PendingTickFlags & 1) != 0 )
   {
-    off_1403FE5C8[0]();
+    off_1403FF5C8[0]();
     KiSetPendingTick(0LL);
   }
 }

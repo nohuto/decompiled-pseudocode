@@ -1,11 +1,11 @@
 /*
- * XREFs of KeRemoveDeviceQueue @ 0x1400AE6E8
+ * XREFs of KeRemoveDeviceQueue @ 0x1400ACC50
  * Callers:
- *     IoFreeController @ 0x1400AE518 (IoFreeController.c)
- *     IopStartNextPacket @ 0x1400AE550 (IopStartNextPacket.c)
+ *     IoFreeController @ 0x1400ACA80 (IoFreeController.c)
+ *     IopStartNextPacket @ 0x1400ACAB8 (IopStartNextPacket.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockForDpc @ 0x1400AE764 (KeReleaseInStackQueuedSpinLockForDpc.c)
- *     KeAcquireInStackQueuedSpinLockForDpc @ 0x1400AE784 (KeAcquireInStackQueuedSpinLockForDpc.c)
+ *     KeReleaseInStackQueuedSpinLockForDpc @ 0x1400ACCCC (KeReleaseInStackQueuedSpinLockForDpc.c)
+ *     KeAcquireInStackQueuedSpinLockForDpc @ 0x1400ACCEC (KeAcquireInStackQueuedSpinLockForDpc.c)
  */
 
 PKDEVICE_QUEUE_ENTRY __stdcall KeRemoveDeviceQueue(PKDEVICE_QUEUE DeviceQueue)

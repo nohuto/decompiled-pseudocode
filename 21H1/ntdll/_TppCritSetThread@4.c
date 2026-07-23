@@ -13,86 +13,84 @@
  *     __SEH_prolog4_GS @ 0x4B307B20 (__SEH_prolog4_GS.c)
  */
 
-_PEB *__thiscall TppCritSetThread(HANDLE *this)
+int __thiscall TppCritSetThread(HANDLE *this)
 {
-  _PEB *result; // eax
-  _DWORD v2[5]; // [esp+10h] [ebp-74h] BYREF
-  _DWORD *v3; // [esp+24h] [ebp-60h]
-  int v4; // [esp+28h] [ebp-5Ch]
-  int v5; // [esp+2Ch] [ebp-58h]
-  _DWORD v6[2]; // [esp+30h] [ebp-54h] BYREF
-  HANDLE *v7; // [esp+38h] [ebp-4Ch]
-  HANDLE v8; // [esp+3Ch] [ebp-48h] BYREF
-  int v9; // [esp+40h] [ebp-44h] BYREF
-  HANDLE Handle; // [esp+44h] [ebp-40h] BYREF
-  __int16 v11; // [esp+48h] [ebp-3Ch] BYREF
-  _DWORD v12[4]; // [esp+4Ch] [ebp-38h] BYREF
-  _DWORD v13[4]; // [esp+5Ch] [ebp-28h] BYREF
+  int result; // eax
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-74h] BYREF
+  int v3; // [esp+28h] [ebp-5Ch]
+  NTSTATUS v4; // [esp+2Ch] [ebp-58h]
+  _DWORD v5[2]; // [esp+30h] [ebp-54h] BYREF
+  HANDLE *v6; // [esp+38h] [ebp-4Ch]
+  HANDLE TokenHandle; // [esp+3Ch] [ebp-48h] BYREF
+  int ThreadInformation; // [esp+40h] [ebp-44h] BYREF
+  HANDLE NewTokenHandle; // [esp+44h] [ebp-40h] BYREF
+  __int16 ObjectInformation; // [esp+48h] [ebp-3Ch] BYREF
+  _TOKEN_PRIVILEGES NewState; // [esp+4Ch] [ebp-38h] BYREF
+  _DWORD v12[4]; // [esp+5Ch] [ebp-28h] BYREF
   CPPEH_RECORD ms_exc; // [esp+6Ch] [ebp-18h]
 
-  v7 = this;
-  v2[0] = 24;
-  memset(&v2[1], 0, 16);
-  v3 = 0;
+  v6 = this;
+  ObjectAttributes.Length = 24;
+  memset(&ObjectAttributes.RootDirectory, 0, 20);
   *this = 0;
-  result = NtCurrentTeb()->ProcessEnvironmentBlock;
-  if ( (result->NtGlobalFlag & 0x100000) != 0 )
+  result = (int)NtCurrentTeb()->ProcessEnvironmentBlock;
+  if ( (*(_DWORD *)(result + 104) & 0x100000) != 0 )
   {
-    result = (_PEB *)ZwOpenProcessTokenEx(-1, 2, 0, &v8);
-    if ( (int)result >= 0 )
+    result = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFF, 2u, 0, &TokenHandle);
+    if ( result >= 0 )
     {
       ms_exc.registration.TryLevel = 0;
-      v13[0] = 12;
-      v13[1] = 2;
-      v13[2] = 0;
-      v3 = v13;
-      if ( (int)NtDuplicateToken(v8, 36, v2, 0, 2, &Handle) < 0 )
+      v12[0] = 12;
+      v12[1] = 2;
+      v12[2] = 0;
+      ObjectAttributes.SecurityQualityOfService = v12;
+      if ( NtDuplicateToken(TokenHandle, 0x24u, &ObjectAttributes, 0, TokenImpersonation, &NewTokenHandle) < 0 )
         goto LABEL_15;
       ms_exc.registration.TryLevel = 1;
-      v11 = 256;
-      if ( (int)ZwSetInformationObject(Handle, 4, &v11, 2) >= 0 )
+      ObjectInformation = 256;
+      if ( ZwSetInformationObject(NewTokenHandle, ObjectHandleFlagInformation, &ObjectInformation, 2u) >= 0 )
       {
         ms_exc.registration.TryLevel = 2;
-        if ( (int)ZwSetInformationThread(-2, 5, &Handle, 4) >= 0 )
+        if ( ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, &NewTokenHandle, 4u) >= 0 )
         {
           ms_exc.registration.TryLevel = 3;
-          v12[0] = 1;
-          v4 = 20;
-          v5 = 0;
-          v12[1] = 20;
-          v12[2] = 0;
-          v12[3] = 2;
-          if ( (int)ZwAdjustPrivilegesToken(Handle, 0, v12, 16, 0, 0) >= 0 )
+          NewState.PrivilegeCount = 1;
+          v3 = 20;
+          v4 = 0;
+          NewState.Privileges[0].Luid.LowPart = 20;
+          NewState.Privileges[0].Luid.HighPart = 0;
+          NewState.Privileges[0].Attributes = 2;
+          if ( ZwAdjustPrivilegesToken(NewTokenHandle, 0, &NewState, 0x10u, 0, 0) >= 0 )
           {
-            v9 = 1;
-            v5 = ZwSetInformationThread(-2, 18, &v9, 4);
-            if ( v5 >= 0 )
+            ThreadInformation = 1;
+            v4 = ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadBreakOnTermination, &ThreadInformation, 4u);
+            if ( v4 >= 0 )
             {
-              *v7 = Handle;
-              Handle = 0;
+              *v6 = NewTokenHandle;
+              NewTokenHandle = 0;
               ms_exc.registration.TryLevel = 3;
-              v6[1] = 0;
+              v5[1] = 0;
             }
           }
           ms_exc.registration.TryLevel = 2;
-          v6[0] = 0;
-          ZwSetInformationThread(-2, 5, v6, 4);
+          v5[0] = 0;
+          ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadImpersonationToken, v5, 4u);
         }
         ms_exc.registration.TryLevel = 1;
-        if ( Handle )
+        if ( NewTokenHandle )
         {
-          v11 = 0;
-          return (_PEB *)ZwSetInformationObject(Handle, 4, &v11, 2);
+          ObjectInformation = 0;
+          return ZwSetInformationObject(NewTokenHandle, ObjectHandleFlagInformation, &ObjectInformation, 2u);
         }
       }
       ms_exc.registration.TryLevel = 0;
-      if ( !Handle )
+      if ( !NewTokenHandle )
       {
 LABEL_15:
         ms_exc.registration.TryLevel = -2;
-        return (_PEB *)NtClose(v8);
+        return NtClose(TokenHandle);
       }
-      return (_PEB *)NtClose(Handle);
+      return NtClose(NewTokenHandle);
     }
   }
   return result;

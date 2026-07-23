@@ -1,22 +1,22 @@
 /*
- * XREFs of SeAppendPrivileges @ 0x1405D9A40
+ * XREFs of SeAppendPrivileges @ 0x1405EA7C0
  * Callers:
- *     IopCreateSecurityCheck @ 0x140201880 (IopCreateSecurityCheck.c)
- *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
- *     ObCheckObjectAccess @ 0x1405D9860 (ObCheckObjectAccess.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
- *     ObpAdjustCreatorAccessState @ 0x140662D98 (ObpAdjustCreatorAccessState.c)
- *     ObCheckCreateObjectAccess @ 0x140662E90 (ObCheckCreateObjectAccess.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     IopCheckBackupRestorePrivilege @ 0x140702EF0 (IopCheckBackupRestorePrivilege.c)
- *     ObpCheckTraverseAccess @ 0x1408DD130 (ObpCheckTraverseAccess.c)
- *     CMFCheckAccess @ 0x140958274 (CMFCheckAccess.c)
+ *     IopCreateSecurityCheck @ 0x140225208 (IopCreateSecurityCheck.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405EA3A4 (CmpCheckKeyBodyAccess.c)
+ *     ObCheckObjectAccess @ 0x1405EA5E0 (ObCheckObjectAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x140657BB8 (ObpAdjustCreatorAccessState.c)
+ *     ObCheckCreateObjectAccess @ 0x140657CB0 (ObCheckCreateObjectAccess.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1406DBF40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     IopCheckBackupRestorePrivilege @ 0x14071A2D0 (IopCheckBackupRestorePrivilege.c)
+ *     ObpCheckTraverseAccess @ 0x1408DD290 (ObpCheckTraverseAccess.c)
+ *     CMFCheckAccess @ 0x140958444 (CMFCheckAccess.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     SepConcatenatePrivileges @ 0x1405D9AA8 (SepConcatenatePrivileges.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SepConcatenatePrivileges @ 0x1405EA828 (SepConcatenatePrivileges.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall SeAppendPrivileges(PACCESS_STATE AccessState, PPRIVILEGE_SET Privileges)

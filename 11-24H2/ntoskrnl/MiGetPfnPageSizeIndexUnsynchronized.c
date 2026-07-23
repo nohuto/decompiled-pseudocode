@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetPfnPageSizeIndexUnsynchronized @ 0x140463848
+ * XREFs of MiGetPfnPageSizeIndexUnsynchronized @ 0x14041DC14
  * Callers:
- *     MiSetProbePagesAhead @ 0x140284570 (MiSetProbePagesAhead.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402855E0 (MiLegitimatePageForDriversToMap.c)
- *     MiFillSystemPtes @ 0x140290A30 (MiFillSystemPtes.c)
- *     MiActivePageClaimCandidate @ 0x140306540 (MiActivePageClaimCandidate.c)
- *     MiGetPagesRemainingInResidentPage @ 0x140684318 (MiGetPagesRemainingInResidentPage.c)
- *     MiZeroPageMakeHot @ 0x1406903F8 (MiZeroPageMakeHot.c)
- *     MiCombineAllPhysicalMemory @ 0x1409F24E8 (MiCombineAllPhysicalMemory.c)
+ *     MiSetProbePagesAhead @ 0x140239B00 (MiSetProbePagesAhead.c)
+ *     MiFillSystemPtes @ 0x1402A0630 (MiFillSystemPtes.c)
+ *     MiActivePageClaimCandidate @ 0x140310420 (MiActivePageClaimCandidate.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14041DB10 (MiLegitimatePageForDriversToMap.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x140685444 (MiGetPagesRemainingInResidentPage.c)
+ *     MiZeroPageMakeHot @ 0x1406914C8 (MiZeroPageMakeHot.c)
+ *     MiCombineAllPhysicalMemory @ 0x1409E6848 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiGetBaseResidentPage @ 0x140307100 (MiGetBaseResidentPage.c)
- *     MiSafeLockPageAtDpc @ 0x1403072A0 (MiSafeLockPageAtDpc.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiGetBaseResidentPage @ 0x140310FE0 (MiGetBaseResidentPage.c)
+ *     MiSafeLockPageAtDpc @ 0x140311180 (MiSafeLockPageAtDpc.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
  */
 
 __int64 __fastcall MiGetPfnPageSizeIndexUnsynchronized(__int64 a1, int *a2, int *a3)
@@ -33,7 +33,7 @@ __int64 __fastcall MiGetPfnPageSizeIndexUnsynchronized(__int64 a1, int *a2, int 
   {
     v9 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
     if ( KeGetCurrentIrql() < 2u )
-      v10 = MiSafeLockPage(v9, 0xAAAAAAAAAAAAAAABuLL, (__int64)a3);
+      v10 = MiSafeLockPage(v9);
     else
       v10 = MiSafeLockPageAtDpc(v9);
     v11 = v10;

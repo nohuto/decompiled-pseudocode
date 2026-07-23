@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCoverageSamplerContextSwap @ 0x140652108
+ * XREFs of EtwpCoverageSamplerContextSwap @ 0x140650808
  * Callers:
- *     KiSwapThread @ 0x1402A6990 (KiSwapThread.c)
- *     EtwTraceContextSwap @ 0x140421D90 (EtwTraceContextSwap.c)
+ *     KiSwapThread @ 0x1402D60C0 (KiSwapThread.c)
+ *     EtwTraceContextSwap @ 0x140415C40 (EtwTraceContextSwap.c)
  * Callees:
- *     EtwpCovSampCaptureSample @ 0x140651D44 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x140650444 (EtwpCovSampCaptureSample.c)
  */
 
 void __fastcall EtwpCoverageSamplerContextSwap(_KTHREAD *a1)
@@ -27,9 +27,9 @@ void __fastcall EtwpCoverageSamplerContextSwap(_KTHREAD *a1)
   int v16; // edx
   volatile signed __int32 *v17; // rcx
 
-  if ( a1 && a1 != *(_KTHREAD **)qword_140EFEC88 && a1 != KeGetCurrentPrcb()->IdleThread )
+  if ( a1 && a1 != *(_KTHREAD **)qword_140EFEFA8 && a1 != KeGetCurrentPrcb()->IdleThread )
   {
-    v1 = *(_QWORD *)(qword_140EFEC88 + 8);
+    v1 = *(_QWORD *)(qword_140EFEFA8 + 8);
     v2 = (unsigned int)v1;
     LODWORD(v1) = ((unsigned int)v1 >> 13) & 0x3FFFF;
     _BitScanReverse(&v3, v1);

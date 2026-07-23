@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmgRequestRestartOnBlockedDevice @ 0x140731EB0
+ * XREFs of PipDmgRequestRestartOnBlockedDevice @ 0x14072FEC0
  * Callers:
- *     PipDmgFlushQueueAndRestartDevices @ 0x140731C6C (PipDmgFlushQueueAndRestartDevices.c)
+ *     PipDmgFlushQueueAndRestartDevices @ 0x14072FC7C (PipDmgFlushQueueAndRestartDevices.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PipDmgRequestRestartOnBlockedDevice(_QWORD *Object)

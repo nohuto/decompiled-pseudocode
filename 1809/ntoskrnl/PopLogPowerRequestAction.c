@@ -1,18 +1,18 @@
 /*
- * XREFs of PopLogPowerRequestAction @ 0x140589C44
+ * XREFs of PopLogPowerRequestAction @ 0x14058AC44
  * Callers:
- *     PopStatsMarkPowerRequestInactive @ 0x14058866C (PopStatsMarkPowerRequestInactive.c)
- *     PopStatsMarkPowerRequestActive @ 0x140588904 (PopStatsMarkPowerRequestActive.c)
- *     PopStatsCreatePowerRequest @ 0x140589234 (PopStatsCreatePowerRequest.c)
- *     PopStatsDeletePowerRequest @ 0x140589BBC (PopStatsDeletePowerRequest.c)
- *     PopStatsNotifyPowerRequestCsState @ 0x14087B170 (PopStatsNotifyPowerRequestCsState.c)
- *     PopStatsNotifyPowerRequestDamPhase @ 0x14087B1F0 (PopStatsNotifyPowerRequestDamPhase.c)
- *     PopStatsNotifyPowerRequestLpePhase @ 0x14087B26C (PopStatsNotifyPowerRequestLpePhase.c)
+ *     PopStatsMarkPowerRequestInactive @ 0x14058966C (PopStatsMarkPowerRequestInactive.c)
+ *     PopStatsMarkPowerRequestActive @ 0x140589904 (PopStatsMarkPowerRequestActive.c)
+ *     PopStatsCreatePowerRequest @ 0x14058A234 (PopStatsCreatePowerRequest.c)
+ *     PopStatsDeletePowerRequest @ 0x14058ABBC (PopStatsDeletePowerRequest.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x14087C3D0 (PopStatsNotifyPowerRequestCsState.c)
+ *     PopStatsNotifyPowerRequestDamPhase @ 0x14087C450 (PopStatsNotifyPowerRequestDamPhase.c)
+ *     PopStatsNotifyPowerRequestLpePhase @ 0x14087C4CC (PopStatsNotifyPowerRequestLpePhase.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 int __fastcall PopLogPowerRequestAction(LPCSTR psz, __int64 a2, int *a3)
@@ -55,7 +55,7 @@ int __fastcall PopLogPowerRequestAction(LPCSTR psz, __int64 a2, int *a3)
     v15 = 4;
     v18 = 4;
     v17 = &v10;
-    LODWORD(v6) = TlgWrite(&pCallbackContext, &unk_14037125C, 0LL, 0LL, 6u, &pData);
+    LODWORD(v6) = TlgWrite(&pCallbackContext, &unk_140372181, 0LL, 0LL, 6u, &pData);
   }
   return v6;
 }

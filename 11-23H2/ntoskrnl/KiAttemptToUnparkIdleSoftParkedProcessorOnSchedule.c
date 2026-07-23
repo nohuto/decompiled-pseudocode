@@ -1,18 +1,18 @@
 /*
- * XREFs of KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057DB2C
+ * XREFs of KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057E01C
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392E0 (KiChooseTargetProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x140461916 (KiHeteroChooseTargetProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402393B0 (KiChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x140461D16 (KiHeteroChooseTargetProcessor.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiUpdateThreadPriority @ 0x140307B90 (KiUpdateThreadPriority.c)
- *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057D9BC (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
- *     KiIsIsolationUnitIdleByHandle @ 0x14057E738 (KiIsIsolationUnitIdleByHandle.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiUpdateThreadPriority @ 0x140307E20 (KiUpdateThreadPriority.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057DEAC (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x14057EC28 (KiIsIsolationUnitIdleByHandle.c)
  */
 
 char __fastcall KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule(__int64 a1, __int64 a2, int a3, __int64 *a4)
